@@ -97,6 +97,9 @@
   - type: StaticPrice
     price: 100
   - type: BlockWeather
+  - type: InteractionVerbs # EE
+    allowedVerbs:
+    - KnockOn
 
 - type: entity
   parent: Window
@@ -219,6 +222,9 @@
       sprite: Structures/Windows/cracks_directional.rsi
   - type: StaticPrice
     price: 15
+  - type: InteractionVerbs # EE
+    allowedVerbs:
+    - KnockOn
 
 - type: entity
   id: WindowDirectionalRCDResistant

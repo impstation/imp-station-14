@@ -38,6 +38,8 @@
   - type: MindContainer
   - type: RequireProjectileTarget
     active: False
+  - type: OwnInteractionVerbs # EE
+    allowedVerbs: [] # TODO: define something here, or don't.
   - type: CollectiveMind # Startlight - Collective Minds - Give everyone general access to collective mind channels for Dragons/Carp/Critters/Zombies
   - type: AnimatedEmotes # imp
 
