@@ -177,7 +177,7 @@
     sound:
       collection: BikeHorn
       params:
-        variation: 0.125
+        variation: 0.06125 #making a note so this is in the commit if we want to change this later - ruddygreat
   - type: Sprite
     sprite: Mobs/Silicon/Bots/honkbot.rsi
     state: honkbot
@@ -223,7 +223,7 @@
     interactSuccessSound:
       path: /Audio/Items/bikehorn.ogg
       params:
-        variation: 0.125
+        variation: 0.0625 #making a note so this is in the commit if we want to change this later - ruddygreat
 
 - type: entity
   parent: MobHonkBot
@@ -252,7 +252,7 @@
     interactSuccessSound:
       path: /Audio/Items/brokenbikehorn.ogg
       params:
-        variation: 0.125
+        variation: 0.0625 #making a note so this is in the commit if we want to change this later - ruddygreat
   - type: Vocal
     sounds:
       Unsexed: Cluwne
