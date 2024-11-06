@@ -317,3 +317,24 @@
         Bloodloss: -0.3
         Poison: -0.3
         Radiation: -0.2
+
+- type: artifactEffect
+  id: EffectHat
+  targetDepth: 4
+  effectProb: 1000
+  effectHint: artifact-effect-hint-hat
+  whitelist:
+    components:
+    - Item
+  permanentComponents:
+  - type: Clothing
+    slots:
+    - HEAD
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.5
+    coolingCoefficient: 0.5
+  - type: BreathMask
+    # TODO: Put the sprite of the artifact ON YOUR HEAD
