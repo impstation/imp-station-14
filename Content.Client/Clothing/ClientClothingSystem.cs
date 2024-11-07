@@ -6,6 +6,8 @@ using Content.Client.Inventory;
 using Content.Shared.Clothing;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
+using Content.Client.Xenoarchaeology.XenoArtifacts;
+using Content.Shared.Xenoarchaeology.XenoArtifacts;
 using Content.Shared.DisplacementMap;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
@@ -17,6 +19,7 @@ using Robust.Client.ResourceManagement;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Serialization.TypeSerializers.Implementations;
 using Robust.Shared.Utility;
+
 using static Robust.Client.GameObjects.SpriteComponent;
 
 namespace Content.Client.Clothing;
@@ -153,6 +156,10 @@ public sealed class ClientClothingSystem : ClothingSystem
 
         if (clothing.EquippedState != null)
             state = $"{clothing.EquippedState}";
+
+        if (TryComp(uid, out RandomArtifactSpriteComponent? randomArtifactSpriteComponent)){
+            state = $"ano{randomArtifactSpriteComponent.SelectedState}-equipped-{correctedSlot}";
+        }
 
         // species specific
         if (speciesId != null && rsi.TryGetState($"{state}-{speciesId}", out _))
