@@ -28,6 +28,7 @@ using Content.Shared.NPC.Systems;
 using Content.Shared._Impstation.Cosmiccult.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Zombies;
+using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Audio;
@@ -42,13 +43,14 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 {
     [Dependency] private readonly IAdminLogManager _adminLogManager = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
+    [Dependency] private readonly SharedRoleSystem _role = default!;
+    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
+    [Dependency] private readonly ObjectivesSystem _objective = default!;
     [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
     [Dependency] private readonly EuiManager _euiMan = default!;
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly RoleSystem _role = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly RoundEndSystem _roundEnd = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
@@ -63,7 +65,6 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         base.Initialize();
 
         SubscribeLocalEvent<CosmicCultRuleComponent, AfterAntagEntitySelectedEvent>(OnAntagSelect);
-
         SubscribeLocalEvent<CosmicCultLeadComponent, AfterFlashedEvent>(OnPostFlash);
 
     }
@@ -80,16 +81,16 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             return false;
 
         // briefing
-        if (HasComp<MetaDataComponent>(target))
+        if (TryComp<MetaDataComponent>(target, out var metaData))
         {
-            var briefingShort = Loc.GetString("objective-cosmiccult-description");
+            var briefingShort = Loc.GetString("objective-cosmiccult-description", ("name", metaData?.EntityName ?? "Unknown"));
 
             _antag.SendBriefing(target, Loc.GetString("cosmiccult-role-roundstart-fluff"), Color.MediumTurquoise, BriefingSound);
             _antag.SendBriefing(target, Loc.GetString("cosmiccult-role-short-briefing"), Color.DarkOrchid, null);
 
             if (_role.MindHasRole<CosmicCultRoleComponent>(mindId, out var rbc))
             {
-                AddComp<RoleBriefingComponent>(rbc.Value.Owner);
+                EnsureComp<RoleBriefingComponent>(rbc.Value.Owner);
                 Comp<RoleBriefingComponent>(rbc.Value.Owner).Briefing += $"\n{briefingShort}";
             }
             else
