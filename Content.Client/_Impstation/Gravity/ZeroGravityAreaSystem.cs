@@ -21,6 +21,7 @@ public sealed partial class ZeroGravityAreaSystem : EntitySystem
         SubscribeLocalEvent<IsInZeroGravityAreaComponent, ComponentHandleState>(OnHandleEntityState);
         SubscribeLocalEvent<ZeroGravityAreaComponent, ComponentHandleState>(OnHandleAreaState);
         SubscribeLocalEvent<ZeroGravityAreaComponent, StartCollideEvent>(OnStartCollide);
+        SubscribeLocalEvent<ZeroGravityAreaComponent, EndCollideEvent>(OnEndCollide);
     }
 
     public bool IsEnabled(EntityUid uid, ZeroGravityAreaComponent? comp = null)
@@ -36,7 +37,7 @@ public sealed partial class ZeroGravityAreaSystem : EntitySystem
         if (args.Current is not IsInZeroGravityAreaState state)
             return;
 
-        comp.IsWeightless = state.IsWeightless;
+        comp.AreaFingerprint = state.AreaFingerprint;
     }
 
     private void OnHandleAreaState(EntityUid uid, ZeroGravityAreaComponent comp, ComponentHandleState args)
@@ -63,7 +64,21 @@ public sealed partial class ZeroGravityAreaSystem : EntitySystem
         Log.Debug($"Predicting that {args.OtherEntity} enters anti-grav area {uid}");
 
         var antiGrav = EnsureComp<IsInZeroGravityAreaComponent>(other);
-        antiGrav.IsWeightless = true;
+        antiGrav.AreaFingerprint |= other.Id;
+        Dirty(other, antiGrav);
+    }
+
+    private void OnEndCollide(EntityUid uid, ZeroGravityAreaComponent comp, EndCollideEvent args)
+    {
+        var other = args.OtherEntity;
+
+        if (args.OurFixtureId != comp.Fixture)
+            return;
+
+        if (!TryComp<IsInZeroGravityAreaComponent>(other, out var antiGrav))
+            return;
+
+        antiGrav.AreaFingerprint &= ~GetNetEntity(uid).Id;
         Dirty(other, antiGrav);
     }
 
@@ -72,7 +87,7 @@ public sealed partial class ZeroGravityAreaSystem : EntitySystem
         if (args.Handled)
             return;
 
-        args.IsWeightless = comp.IsWeightless;
-        args.Handled = comp.IsWeightless;
+        args.IsWeightless = comp.AreaFingerprint != 0;
+        args.Handled = args.IsWeightless;
     }
 }
