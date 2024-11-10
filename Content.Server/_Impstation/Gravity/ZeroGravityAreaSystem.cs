@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared.Clothing;
 using Content.Shared.Gravity;
 using Robust.Shared.GameStates;
 using Robust.Shared.Physics;
@@ -17,8 +18,8 @@ public sealed partial class ZeroGravityAreaSystem : EntitySystem
         SubscribeLocalEvent<ZeroGravityAreaComponent, EndCollideEvent>(OnEndCollision);
         SubscribeLocalEvent<ZeroGravityAreaComponent, ComponentShutdown>(OnShutdown);
 
-        SubscribeLocalEvent<IsInZeroGravityAreaComponent, IsWeightlessEvent>(OnCheckWeightless);
-        SubscribeLocalEvent<IsInZeroGravityAreaComponent, ComponentGetState>(OnGetState);
+        SubscribeLocalEvent<IsInZeroGravityAreaComponent, IsWeightlessEvent>(OnCheckWeightless, after: [typeof(SharedMagbootsSystem)]);
+        SubscribeLocalEvent<IsInZeroGravityAreaComponent, ComponentGetState>(OnGetEntityState);
     }
 
     public bool IsEnabled(EntityUid uid, ZeroGravityAreaComponent? comp = null)
@@ -35,6 +36,11 @@ public sealed partial class ZeroGravityAreaSystem : EntitySystem
             return;
 
         comp.Enabled = enabled;
+        foreach (var ent in comp.AffectedEntities)
+        {
+            // Update entity states to see if they're no longer weightless
+            Dirty(ent);
+        }
     }
 
     private void StartAffecting(Entity<ZeroGravityAreaComponent> area, Entity<IsInZeroGravityAreaComponent> entity)
@@ -53,26 +59,28 @@ public sealed partial class ZeroGravityAreaSystem : EntitySystem
 
     private void OnStartCollision(EntityUid uid, ZeroGravityAreaComponent comp, StartCollideEvent args)
     {
-        if (
-            args.OurFixtureId == comp.Fixture &&
-            TryComp<PhysicsComponent>(args.OtherEntity, out var physics) &&
-            (physics.BodyType & (BodyType.Kinematic | BodyType.Static)) == 0
-        )
-        {
-            var antiGrav = EnsureComp<IsInZeroGravityAreaComponent>(args.OtherEntity);
-            StartAffecting((uid, comp), (args.OtherEntity, antiGrav));
-        }
+        if (args.OurFixtureId != comp.Fixture)
+            return;
+
+        if (!TryComp<PhysicsComponent>(args.OtherEntity, out var physics))
+            return;
+
+        if ((physics.BodyType & (BodyType.Kinematic | BodyType.Static)) != 0)
+            return;
+
+        var antiGrav = EnsureComp<IsInZeroGravityAreaComponent>(args.OtherEntity);
+        StartAffecting((uid, comp), (args.OtherEntity, antiGrav));
     }
 
     private void OnEndCollision(EntityUid uid, ZeroGravityAreaComponent comp, EndCollideEvent args)
     {
-        if (args.OurFixtureId == comp.Fixture)
-        {
-            if (!TryComp<IsInZeroGravityAreaComponent>(args.OtherEntity, out var antiGrav))
-                return;
+        if (args.OurFixtureId != comp.Fixture)
+            return;
 
-            StopAffecting((uid, comp), (args.OtherEntity, antiGrav));
-        }
+        if (!TryComp<IsInZeroGravityAreaComponent>(args.OtherEntity, out var antiGrav))
+            return;
+
+        StopAffecting((uid, comp), (args.OtherEntity, antiGrav));
     }
 
     private void OnShutdown(EntityUid uid, ZeroGravityAreaComponent comp, ComponentShutdown args)
@@ -84,9 +92,9 @@ public sealed partial class ZeroGravityAreaSystem : EntitySystem
         }
     }
 
-    private bool EntityIsWeightless(Entity<IsInZeroGravityAreaComponent> ent)
+    private bool EntityIsWeightless(IsInZeroGravityAreaComponent ent)
     {
-        return ent.Comp.AffectingAreas.Any(area => area.Comp.Enabled);
+        return ent.AffectingAreas.Any(area => area.Comp.Enabled);
     }
 
     private void OnCheckWeightless(EntityUid uid, IsInZeroGravityAreaComponent comp, ref IsWeightlessEvent args)
@@ -94,15 +102,15 @@ public sealed partial class ZeroGravityAreaSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (EntityIsWeightless((uid, comp)))
+        if (EntityIsWeightless(comp))
         {
             args.IsWeightless = true;
             args.Handled = true;
         }
     }
 
-    private void OnGetState(EntityUid uid, IsInZeroGravityAreaComponent comp, ref ComponentGetState args)
+    private void OnGetEntityState(EntityUid uid, IsInZeroGravityAreaComponent comp, ref ComponentGetState args)
     {
-        args.State = new IsInZeroGravityAreaState(EntityIsWeightless((uid, comp)));
+        args.State = new IsInZeroGravityAreaState(EntityIsWeightless(comp));
     }
 }
