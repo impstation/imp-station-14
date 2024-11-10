@@ -1,0 +1,27 @@
+- type: entity
+  name: placeholder astrolabe name
+  parent: [ BaseItem, BaseCosmicCultContraband ]
+  id: AbilityCosmicCultAstrolabe
+  description: An unnerving weapon, wrought with a strange glow. Touching it feels like a prickle of static against your nerves.
+  components:
+  - type: Unremoveable
+  - type: Item
+  - type: Sprite
+    sprite: _Impstation/CosmicCult/Objects/cosmiclance.rsi
+    state: icon
+  - type: Appearance
+  - type: UseDelay
+  - type: PointLight
+    enabled: true
+    radius: 1
+    energy: 1
+    color: "#42a4ae"
+  - type: Prying
+    speedModifier: 0.9
+    pryPowered: true
+    useSound: /Audio/_Impstation/CosmicCult/astrolabe_dooropen.ogg
+  - type: Tool
+    qualities:
+    - Prying
+  - type: DisarmMalus
+    malus: 0

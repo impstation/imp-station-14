@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "wip",
+  "size": {
+    "x": 96,
+    "y": 96
+  },
+  "states": [
+    {
+      "name": "stage1"
+    },
+    {
+      "name": "stage2"
+    },
+    {
+      "name": "stage3"
+    },
+    {
+      "name": "stage4"
+    },
+    {
+      "name": "stage4-overlay",
+      "delays": [
+        [
+          0.11, 0.11, 0.11, 0.11, 0.11
+        ]
+      ]
+    }
+  ]
+}

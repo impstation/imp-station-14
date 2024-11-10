@@ -1,0 +1,25 @@
+- type: entity
+  id: CosmicCultist
+  parent: BaseGameRule
+  components:
+  - type: GameRule
+    minPlayers: 25
+  - type: AntagObjectives
+    objectives:
+    - CosmicEntropyObjective
+    - CosmicShuttleObjective
+  - type: CosmicCultRule
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ CosmicCultAntag ]
+      max: 4
+      playerRatio: 10
+      lateJoinAdditional: true
+      blacklist:
+        components:
+        - AntagImmune
+      startingGear: CosmicCultGear
+      components:
+      - type: CosmicCult
+      mindRoles:
+      - MindRoleCosmicCult
