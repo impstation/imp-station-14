@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._Impstation.Gravity;
 using Content.Shared.Clothing;
 using Content.Shared.Gravity;
 using Robust.Shared.GameStates;
@@ -17,6 +18,7 @@ public sealed partial class ZeroGravityAreaSystem : EntitySystem
         SubscribeLocalEvent<ZeroGravityAreaComponent, StartCollideEvent>(OnStartCollision);
         SubscribeLocalEvent<ZeroGravityAreaComponent, EndCollideEvent>(OnEndCollision);
         SubscribeLocalEvent<ZeroGravityAreaComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<ZeroGravityAreaComponent, ComponentGetState>(OnGetAreaState);
 
         SubscribeLocalEvent<IsInZeroGravityAreaComponent, IsWeightlessEvent>(OnCheckWeightless, after: [typeof(SharedMagbootsSystem)]);
         SubscribeLocalEvent<IsInZeroGravityAreaComponent, ComponentGetState>(OnGetEntityState);
@@ -36,6 +38,7 @@ public sealed partial class ZeroGravityAreaSystem : EntitySystem
             return;
 
         comp.Enabled = enabled;
+        Dirty(uid, comp);
         foreach (var ent in comp.AffectedEntities)
         {
             // Update entity states to see if they're no longer weightless
@@ -90,6 +93,11 @@ public sealed partial class ZeroGravityAreaSystem : EntitySystem
             ent.Comp.AffectingAreas.Remove((uid, comp));
             Dirty(ent);
         }
+    }
+
+    private void OnGetAreaState(Entity<ZeroGravityAreaComponent> ent, ref ComponentGetState args)
+    {
+        args.State = new ZeroGravityAreaState(ent.Comp);
     }
 
     private bool EntityIsWeightless(IsInZeroGravityAreaComponent ent)
