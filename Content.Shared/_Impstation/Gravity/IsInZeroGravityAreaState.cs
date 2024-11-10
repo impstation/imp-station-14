@@ -5,9 +5,9 @@ namespace Content.Shared.Gravity;
 [Serializable, NetSerializable]
 public sealed partial class IsInZeroGravityAreaState : ComponentState
 {
-    public IsInZeroGravityAreaState(bool isWeightless)
+    public IsInZeroGravityAreaState(int areaFingerprint)
     {
-        IsWeightless = isWeightless;
+        AreaFingerprint = areaFingerprint;
     }
-    public bool IsWeightless;
+    public int AreaFingerprint;
 }

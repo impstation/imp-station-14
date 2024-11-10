@@ -119,6 +119,11 @@ public sealed partial class ZeroGravityAreaSystem : EntitySystem
 
     private void OnGetEntityState(EntityUid uid, IsInZeroGravityAreaComponent comp, ref ComponentGetState args)
     {
-        args.State = new IsInZeroGravityAreaState(EntityIsWeightless(comp));
+        args.State = new IsInZeroGravityAreaState(comp.AffectingAreas.Aggregate(0, (fingerprint, area) =>
+        {
+            if (area.Comp.Enabled)
+                fingerprint |= GetNetEntity(area.Owner).Id;
+            return fingerprint;
+        }));
     }
 }
