@@ -5,7 +5,7 @@
   abstract: true
   parent: BaseStructure
   id: MonumentCosmicCultBase
-  name: horrific monument
+  name: the nameless monument
   description: I place my holder till it [EXTREMELY LOUD INCORRECT BUZZER]
   suffix: Base
   components:
@@ -32,20 +32,6 @@
         - LargeMobMask
         layer:
         - WallLayer
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-        - !type:EmptyAllContainersBehaviour
-        - !type:PlaySoundBehavior
-          sound:
-            collection: WindowShatter
-        - !type:ChangeConstructionNodeBehavior
-          node: machineFrame
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
   - type: PointLight
     enabled: true
     radius: 4.5

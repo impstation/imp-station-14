@@ -1,8 +1,8 @@
 - type: entity
-  name: anti-gravity pylon
-  id: AntiGravityPylon
+  name: apocryphal obelisk
+  id: CosmicAntiGravPylon
   parent: BaseMachine
-  description: "A mysterious construct that makes the area around it weightless..."
+  description: "A mysterious structure that renders its surroundings weightless.."
   components:
   - type: ZeroGravityArea
     fixture: antiGravity
@@ -28,7 +28,7 @@
       antiGravity:
         shape:
           !type:PhysShapeCircle
-          radius: 3
+          radius: 9
         hard: false
         layer:
           - Impassable
