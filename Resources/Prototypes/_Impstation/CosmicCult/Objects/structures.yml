@@ -33,8 +33,8 @@
         layer:
           - Impassable
   - type: PointLight
-    radius: 3
-    energy: 2
+    radius: 4
+    energy: 5
     color: "#7700FFFF"
     mask: /Textures/Effects/LightMasks/double_cone.png
   - type: RotatingLight

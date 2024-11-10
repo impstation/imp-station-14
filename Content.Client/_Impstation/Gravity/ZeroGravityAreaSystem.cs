@@ -1,3 +1,4 @@
+using Content.Shared.Clothing;
 using Content.Shared.Gravity;
 using Robust.Shared.GameStates;
 
@@ -9,11 +10,11 @@ public sealed partial class ZeroGravityAreaSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<IsInZeroGravityAreaComponent, IsWeightlessEvent>(OnCheckWeightless);
-        SubscribeLocalEvent<IsInZeroGravityAreaComponent, ComponentHandleState>(OnHandleState);
+        SubscribeLocalEvent<IsInZeroGravityAreaComponent, IsWeightlessEvent>(OnCheckWeightless, after: [typeof(SharedMagbootsSystem)]);
+        SubscribeLocalEvent<IsInZeroGravityAreaComponent, ComponentHandleState>(OnHandleEntityState);
     }
 
-    private void OnHandleState(EntityUid uid, IsInZeroGravityAreaComponent comp, ComponentHandleState args)
+    private void OnHandleEntityState(EntityUid uid, IsInZeroGravityAreaComponent comp, ComponentHandleState args)
     {
         if (args.Current is not IsInZeroGravityAreaState state)
             return;

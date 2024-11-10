@@ -5,9 +5,9 @@ namespace Content.Shared.Gravity;
 [Serializable, NetSerializable]
 public sealed partial class IsInZeroGravityAreaState : ComponentState
 {
-    public IsInZeroGravityAreaState(bool weightless)
+    public IsInZeroGravityAreaState(bool isWeightless)
     {
-        IsWeightless = weightless;
+        IsWeightless = isWeightless;
     }
     public bool IsWeightless;
 }
