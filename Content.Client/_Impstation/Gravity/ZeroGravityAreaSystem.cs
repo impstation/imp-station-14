@@ -61,8 +61,6 @@ public sealed partial class ZeroGravityAreaSystem : EntitySystem
         if (!physics.Predict || (physics.BodyType & (BodyType.Static | BodyType.Kinematic)) != 0)
             return;
 
-        Log.Debug($"Predicting that {args.OtherEntity} enters anti-grav area {uid}");
-
         var antiGrav = EnsureComp<IsInZeroGravityAreaComponent>(other);
         antiGrav.AreaFingerprint |= other.Id;
         Dirty(other, antiGrav);
