@@ -26,6 +26,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
 using Content.Shared._Impstation.Cosmiccult.Components;
+using Content.Shared._Impstation.Cosmiccult;
 using Content.Shared.Stunnable;
 using Content.Shared.Zombies;
 using Content.Shared.Roles;
@@ -57,7 +58,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     [Dependency] private readonly IGameTiming _timing = default!;
 
     public readonly ProtoId<NpcFactionPrototype> CosmicCultFactionId = "CosmicCultFaction";
-    public readonly ProtoId<NpcFactionPrototype> CosmicCultPrototypeId = "CosmicCultist";
+    public readonly ProtoId<NpcFactionPrototype> CosmicCultPrototypeId = "CosmicCult";
     public readonly ProtoId<NpcFactionPrototype> NanotrasenFactionId = "NanoTrasen";
     public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/cosmiccult_start.ogg");
     public override void Initialize()
@@ -91,10 +92,10 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             if (_role.MindHasRole<CosmicCultRoleComponent>(mindId, out var rbc))
             {
                 EnsureComp<RoleBriefingComponent>(rbc.Value.Owner);
-                Comp<RoleBriefingComponent>(rbc.Value.Owner).Briefing += $"\n{briefingShort}";
+                Comp<RoleBriefingComponent>(rbc.Value.Owner).Briefing = briefingShort;
             }
             else
-                _role.MindAddRole(mindId, "MindRoleCosmicCult", mind, true);
+                _role.MindAddRole(mindId, "CosmicCultRole", mind, true);
         }
 
         _npcFaction.RemoveFaction(target, NanotrasenFactionId, false);
@@ -149,7 +150,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         if (mindId == default || !_role.MindHasRole<CosmicCultRoleComponent>(mindId))
         {
-            _role.MindAddRole(mindId, "MindRoleCosmicCult");
+            _role.MindAddRole(mindId, "CosmicCultRole");
         }
 
         if (mind?.Session != null)

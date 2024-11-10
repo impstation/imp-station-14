@@ -1,17 +1,20 @@
 - type: entity
-  id: CosmicCultist
+  id: CosmicCult
   parent: BaseGameRule
   components:
+  - type: CosmicCultRule
   - type: GameRule
     minPlayers: 25
+    delay:
+      min: 40
+      max: 60
   - type: AntagObjectives
     objectives:
     - CosmicEntropyObjective
-    - CosmicShuttleObjective
-  - type: CosmicCultRule
   - type: AntagSelection
+    agentName: cosmiccult-roundend-name
     definitions:
-    - prefRoles: [ CosmicCultAntag ]
+    - prefRoles: [ CosmicCult ]
       max: 4
       playerRatio: 10
       lateJoinAdditional: true

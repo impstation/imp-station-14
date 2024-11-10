@@ -1,4 +1,8 @@
-## COSMIC CULT ROUND TEXT
+## COSMIC CULT ROUND & GAMEMODE TEXT
+
+cosmiccult-title = Cosmic Cult
+cosmiccult-description = Cultists lurk amongst the crew.
+
 
 cosmiccult-roundend-name = cosmic cult
 

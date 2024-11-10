@@ -38,8 +38,7 @@ public sealed partial class CosmicCultRuleComponent : Component
     /// </summary>
     public readonly List<ProtoId<EntityPrototype>> Objectives = new()
     {
-        "CosmicEntropyObjective",
-        "CosmicShuttleObjective"
+        "CosmicEntropyObjective"
     };
 }
 

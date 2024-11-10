@@ -1,20 +1,9 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleCosmicCult
-  name: Cosmic Cultist Role
-#  description: mind-role-revolutionary-description
+  name: Cosmic Cult Role
+#  description: mind-role-cosmiccult-description
   components:
   - type: MindRole
-    antagPrototype: CosmicCultAntag
+    antagPrototype: CosmicCult
   - type: CosmicCultRole
-
-# Revolutionaries
-- type: entity
-  parent: MindRoleCosmicCult
-  id: MindRoleCosmicCultLead
-  name: Cosmic Cult Leader Role
-#  description: mind-role-head-revolutionary-description
-  components:
-  - type: MindRole
-    antagPrototype: CosmicLeaderAntag
-    exclusiveAntag: true
