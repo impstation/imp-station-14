@@ -1,0 +1,53 @@
+- type: entity
+  name: anti-gravity pylon
+  id: AntiGravityPylon
+  parent: BaseMachine
+  description: "A mysterious construct that makes the area around it weightless..."
+  components:
+  - type: ZeroGravityArea
+    fixture: antiGravity
+  - type: Sprite
+    sprite: Objects/Misc/Lights/lights.rsi
+    layers:
+      - state: floodlight
+      - state: floodlight_on
+        shader: unshaded
+        visible: false
+        map: [ "light" ]
+  - type: Physics
+    canCollide: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2, -0.5, 0.2, 0.5"
+        density: 50
+        mask:
+        - HighImpassable
+      antiGravity:
+        shape:
+          !type:PhysShapeCircle
+          radius: 3
+        hard: false
+        layer:
+          - Impassable
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: "#7700FFFF"
+    mask: /Textures/Effects/LightMasks/double_cone.png
+  - type: RotatingLight
+    speed: 100
+  - type: Anchorable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
