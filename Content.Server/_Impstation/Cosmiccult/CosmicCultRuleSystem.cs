@@ -60,7 +60,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     public readonly ProtoId<NpcFactionPrototype> CosmicCultFactionId = "CosmicCultFaction";
     public readonly ProtoId<NpcFactionPrototype> CosmicCultPrototypeId = "CosmicCult";
     public readonly ProtoId<NpcFactionPrototype> NanotrasenFactionId = "NanoTrasen";
-    public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/cosmiccult_start.ogg");
+    public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/antag_cosmic_briefing.ogg");
     public override void Initialize()
     {
         base.Initialize();
