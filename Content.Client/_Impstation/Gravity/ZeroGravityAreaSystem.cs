@@ -46,6 +46,7 @@ public sealed partial class ZeroGravityAreaSystem : EntitySystem
             return;
 
         comp.Enabled = state.Enabled;
+        comp.PredictIndex = state.PredictIndex;
     }
 
     private void OnStartCollide(EntityUid uid, ZeroGravityAreaComponent comp, StartCollideEvent args)
@@ -62,7 +63,7 @@ public sealed partial class ZeroGravityAreaSystem : EntitySystem
             return;
 
         var antiGrav = EnsureComp<IsInZeroGravityAreaComponent>(other);
-        antiGrav.AreaFingerprint |= other.Id;
+        antiGrav.AreaFingerprint |= 1ul << comp.PredictIndex;
         Dirty(other, antiGrav);
     }
 
@@ -76,7 +77,7 @@ public sealed partial class ZeroGravityAreaSystem : EntitySystem
         if (!TryComp<IsInZeroGravityAreaComponent>(other, out var antiGrav))
             return;
 
-        antiGrav.AreaFingerprint &= ~GetNetEntity(uid).Id;
+        antiGrav.AreaFingerprint &= ~(1ul << comp.PredictIndex);
         Dirty(other, antiGrav);
     }
 

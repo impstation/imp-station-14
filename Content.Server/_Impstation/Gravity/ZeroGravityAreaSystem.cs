@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Shared._Impstation.Gravity;
 using Content.Shared.Clothing;
+using Content.Shared.GameTicking;
 using Content.Shared.Gravity;
 using Robust.Shared.GameStates;
 using Robust.Shared.Physics;
@@ -11,17 +12,27 @@ namespace Content.Server._Impstation.Gravity;
 
 public sealed partial class ZeroGravityAreaSystem : EntitySystem
 {
+    private ulong _nextPredictIndex = 0;
+
     public override void Initialize()
     {
         base.Initialize();
 
+        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnReset);
+
         SubscribeLocalEvent<ZeroGravityAreaComponent, StartCollideEvent>(OnStartCollision);
         SubscribeLocalEvent<ZeroGravityAreaComponent, EndCollideEvent>(OnEndCollision);
+        SubscribeLocalEvent<ZeroGravityAreaComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<ZeroGravityAreaComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<ZeroGravityAreaComponent, ComponentGetState>(OnGetAreaState);
 
         SubscribeLocalEvent<IsInZeroGravityAreaComponent, IsWeightlessEvent>(OnCheckWeightless, after: [typeof(SharedMagbootsSystem)]);
         SubscribeLocalEvent<IsInZeroGravityAreaComponent, ComponentGetState>(OnGetEntityState);
+    }
+
+    private void OnReset(RoundRestartCleanupEvent args)
+    {
+        _nextPredictIndex = 0;
     }
 
     public bool IsEnabled(EntityUid uid, ZeroGravityAreaComponent? comp = null)
@@ -60,10 +71,30 @@ public sealed partial class ZeroGravityAreaSystem : EntitySystem
         Dirty(entity);
     }
 
+    /// <summary>
+    /// Check if two colliding ZeroGravityAreaComponents have the same PredictIndex. If so,
+    /// set the smaller one to one above the largest one.
+    /// </summary>
+    private void CheckPredictIndices(Entity<ZeroGravityAreaComponent> self, Entity<ZeroGravityAreaComponent> other)
+    {
+        Log.Debug($"Checking predict ({self.Comp.PredictIndex}, {other.Comp.PredictIndex})");
+        if (self.Comp.PredictIndex != other.Comp.PredictIndex)
+            return;
+
+        var smaller = (self.Comp.PredictIndex > other.Comp.PredictIndex) ? other : self;
+        smaller.Comp.PredictIndex = (byte)((Math.Max(self.Comp.PredictIndex, other.Comp.PredictIndex) + 1) % (sizeof(ulong) * 8));
+        Dirty(smaller);
+        foreach (var ent in smaller.Comp.AffectedEntities)
+            Dirty(ent);
+    }
+
     private void OnStartCollision(EntityUid uid, ZeroGravityAreaComponent comp, StartCollideEvent args)
     {
         if (args.OurFixtureId != comp.Fixture)
             return;
+
+        if (TryComp<ZeroGravityAreaComponent>(args.OtherEntity, out var area))
+            CheckPredictIndices((uid, comp), (args.OtherEntity, area));
 
         if (!TryComp<PhysicsComponent>(args.OtherEntity, out var physics))
             return;
@@ -84,6 +115,19 @@ public sealed partial class ZeroGravityAreaSystem : EntitySystem
             return;
 
         StopAffecting((uid, comp), (args.OtherEntity, antiGrav));
+    }
+
+    private void OnStartup(EntityUid uid, ZeroGravityAreaComponent comp, ComponentStartup args)
+    {
+        const byte maxIndex = sizeof(ulong) * 8;
+
+        if (_nextPredictIndex == maxIndex)
+            Log.Warning($"There are more than {maxIndex} ZeroGravityArea components. Prediction errors may start occurring in overlapping ZeroGravityAreas.");
+
+        comp.PredictIndex = (byte)(_nextPredictIndex % maxIndex);
+        _nextPredictIndex += 1;
+
+        Dirty(uid, comp);
     }
 
     private void OnShutdown(EntityUid uid, ZeroGravityAreaComponent comp, ComponentShutdown args)
@@ -119,10 +163,11 @@ public sealed partial class ZeroGravityAreaSystem : EntitySystem
 
     private void OnGetEntityState(EntityUid uid, IsInZeroGravityAreaComponent comp, ref ComponentGetState args)
     {
-        args.State = new IsInZeroGravityAreaState(comp.AffectingAreas.Aggregate(0, (fingerprint, area) =>
+        // Update the fingerprint of the affecting areas
+        args.State = new IsInZeroGravityAreaState(comp.AffectingAreas.Aggregate(0ul, (fingerprint, area) =>
         {
             if (area.Comp.Enabled)
-                fingerprint |= GetNetEntity(area.Owner).Id;
+                fingerprint |= 1ul << area.Comp.PredictIndex;
             return fingerprint;
         }));
     }

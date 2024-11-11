@@ -35,6 +35,8 @@
         hard: false
         layer:
           - Impassable
+        mask:
+          - Impassable
   - type: PointLight
     radius: 4
     energy: 5
