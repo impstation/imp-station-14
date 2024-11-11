@@ -16,7 +16,9 @@
     sprite: _Impstation/CosmicCult/Tileset/pylon.rsi
     drawdepth: Mobs
     layers:
-      - state: enabled
+      - state: base
+      - state: overlay-enabled
+        shader: unshaded
       - state: overlay-orb
         shader: unshaded
   - type: Physics
