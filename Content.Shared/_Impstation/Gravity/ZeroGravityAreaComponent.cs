@@ -1,19 +1,28 @@
-using Robust.Shared.Serialization;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared._Impstation.Gravity;
-public abstract partial class SharedZeroGravityAreaComponent : Component
+
+[RegisterComponent, NetworkedComponent]
+[AutoGenerateComponentState]
+public sealed partial class ZeroGravityAreaComponent : Component
 {
     /// <summary>
     /// Which physics fixture to use to detect entities.
     /// </summary>
     [DataField(readOnly: true), ViewVariables(VVAccess.ReadWrite)]
+    [AutoNetworkedField]
     public string Fixture = "antiGravity";
 
     /// <summary>
     /// Whether or not to put entities in the area into weightlessness.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [AutoNetworkedField]
     public bool Enabled = true;
+
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    [AutoNetworkedField]
+    public HashSet<NetEntity> AffectedEntities = new();
 
     /// <summary>
     /// <para>
@@ -34,18 +43,6 @@ public abstract partial class SharedZeroGravityAreaComponent : Component
     /// </para>
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadOnly)]
+    [AutoNetworkedField]
     public byte PredictIndex = 0;
-}
-
-[Serializable, NetSerializable]
-public sealed partial class ZeroGravityAreaState : ComponentState
-{
-    public ZeroGravityAreaState(SharedZeroGravityAreaComponent comp)
-    {
-        Enabled = comp.Enabled;
-        PredictIndex = comp.PredictIndex;
-    }
-
-    public bool Enabled;
-    public byte PredictIndex;
 }

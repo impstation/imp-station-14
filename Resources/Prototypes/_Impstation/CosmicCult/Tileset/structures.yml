@@ -8,6 +8,10 @@
   - type: ZeroGravityArea
     fixture: antiGravity
   - type: SpriteFade
+  - type: ItemToggle
+    activated: true
+  - type: ItemTogglePointLight
+  - type: ItemToggleZeroGravityArea
   - type: Sprite
     sprite: _Impstation/CosmicCult/Tileset/pylon.rsi
     drawdepth: Mobs

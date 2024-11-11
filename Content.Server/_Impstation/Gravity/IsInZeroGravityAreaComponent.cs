@@ -4,7 +4,7 @@ using Robust.Shared.GameStates;
 namespace Content.Server._Impstation.Gravity;
 
 [RegisterComponent, NetworkedComponent]
-[Access(typeof(ZeroGravityAreaSystem))]
+[Access(typeof(SharedZeroGravityAreaSystem))]
 public sealed partial class IsInZeroGravityAreaComponent : Component
 {
     [DataField, ViewVariables(VVAccess.ReadOnly)]

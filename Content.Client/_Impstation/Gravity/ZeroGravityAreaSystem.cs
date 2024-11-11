@@ -1,9 +1,7 @@
-using System.Linq;
 using Content.Client._Impstation.Gravity;
 using Content.Shared._Impstation.Gravity;
 using Content.Shared.Clothing;
 using Content.Shared.Gravity;
-using Robust.Client.Physics;
 using Robust.Shared.GameStates;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
@@ -11,7 +9,7 @@ using Robust.Shared.Physics.Events;
 
 namespace Content.Client.Gravity;
 
-public sealed partial class ZeroGravityAreaSystem : EntitySystem
+public sealed partial class ZeroGravityAreaSystem : SharedZeroGravityAreaSystem
 {
     public override void Initialize()
     {
@@ -19,17 +17,63 @@ public sealed partial class ZeroGravityAreaSystem : EntitySystem
 
         SubscribeLocalEvent<IsInZeroGravityAreaComponent, IsWeightlessEvent>(OnCheckWeightless, after: [typeof(SharedMagbootsSystem)]);
         SubscribeLocalEvent<IsInZeroGravityAreaComponent, ComponentHandleState>(OnHandleEntityState);
-        SubscribeLocalEvent<ZeroGravityAreaComponent, ComponentHandleState>(OnHandleAreaState);
         SubscribeLocalEvent<ZeroGravityAreaComponent, StartCollideEvent>(OnStartCollide);
         SubscribeLocalEvent<ZeroGravityAreaComponent, EndCollideEvent>(OnEndCollide);
     }
 
-    public bool IsEnabled(EntityUid uid, ZeroGravityAreaComponent? comp = null)
+    private void StartAffecting(Entity<ZeroGravityAreaComponent> area, Entity<IsInZeroGravityAreaComponent> entity)
+    {
+        UpdateFingerprint(area.Comp, entity.Comp);
+        area.Comp.AffectedEntities.Add(GetNetEntity(entity));
+        Dirty(area);
+        Dirty(entity);
+    }
+
+    private void StopAffecting(Entity<ZeroGravityAreaComponent> area, Entity<IsInZeroGravityAreaComponent> entity)
+    {
+        entity.Comp.AreaFingerprint &= ~(1ul << area.Comp.PredictIndex);
+        area.Comp.AffectedEntities.Add(GetNetEntity(entity));
+        Dirty(area);
+        Dirty(entity);
+    }
+
+    private void UpdateFingerprint(ZeroGravityAreaComponent area, IsInZeroGravityAreaComponent entity)
+    {
+        if (area.Enabled)
+            entity.AreaFingerprint |= 1ul << area.PredictIndex;
+        else
+            entity.AreaFingerprint &= ~(1ul << area.PredictIndex);
+    }
+
+    public void DirtyAffected(EntityUid uid, ZeroGravityAreaComponent? comp = null)
     {
         if (!Resolve(uid, ref comp))
-            return false;
+            return;
 
-        return comp.Enabled;
+        foreach (var netEnt in comp.AffectedEntities)
+        {
+            if (!TryGetEntity(netEnt, out var ent))
+                continue;
+
+            if (!TryComp<IsInZeroGravityAreaComponent>(ent, out var antiGrav))
+                continue;
+
+            UpdateFingerprint(comp, antiGrav);
+            Dirty(ent.Value, antiGrav);
+        }
+    }
+
+    public override void SetEnabled(EntityUid uid, bool enabled, ZeroGravityAreaComponent? comp = null)
+    {
+        if (!Resolve(uid, ref comp))
+            return;
+
+        if (enabled == comp.Enabled)
+            return;
+
+        comp.Enabled = enabled;
+        Dirty(uid, comp);
+        DirtyAffected(uid, comp);
     }
 
     private void OnHandleEntityState(EntityUid uid, IsInZeroGravityAreaComponent comp, ComponentHandleState args)
@@ -38,15 +82,6 @@ public sealed partial class ZeroGravityAreaSystem : EntitySystem
             return;
 
         comp.AreaFingerprint = state.AreaFingerprint;
-    }
-
-    private void OnHandleAreaState(EntityUid uid, ZeroGravityAreaComponent comp, ComponentHandleState args)
-    {
-        if (args.Current is not ZeroGravityAreaState state)
-            return;
-
-        comp.Enabled = state.Enabled;
-        comp.PredictIndex = state.PredictIndex;
     }
 
     private void OnStartCollide(EntityUid uid, ZeroGravityAreaComponent comp, StartCollideEvent args)
@@ -63,8 +98,7 @@ public sealed partial class ZeroGravityAreaSystem : EntitySystem
             return;
 
         var antiGrav = EnsureComp<IsInZeroGravityAreaComponent>(other);
-        antiGrav.AreaFingerprint |= 1ul << comp.PredictIndex;
-        Dirty(other, antiGrav);
+        StartAffecting((uid, comp), (other, antiGrav));
     }
 
     private void OnEndCollide(EntityUid uid, ZeroGravityAreaComponent comp, EndCollideEvent args)
@@ -77,8 +111,7 @@ public sealed partial class ZeroGravityAreaSystem : EntitySystem
         if (!TryComp<IsInZeroGravityAreaComponent>(other, out var antiGrav))
             return;
 
-        antiGrav.AreaFingerprint &= ~(1ul << comp.PredictIndex);
-        Dirty(other, antiGrav);
+        StopAffecting((uid, comp), (other, antiGrav));
     }
 
     private void OnCheckWeightless(EntityUid uid, IsInZeroGravityAreaComponent comp, ref IsWeightlessEvent args)

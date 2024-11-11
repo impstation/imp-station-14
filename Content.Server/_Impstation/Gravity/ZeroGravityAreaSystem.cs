@@ -10,7 +10,7 @@ using Robust.Shared.Physics.Events;
 
 namespace Content.Server._Impstation.Gravity;
 
-public sealed partial class ZeroGravityAreaSystem : EntitySystem
+public sealed partial class ZeroGravityAreaSystem : SharedZeroGravityAreaSystem
 {
     private ulong _nextPredictIndex = 0;
 
@@ -24,10 +24,22 @@ public sealed partial class ZeroGravityAreaSystem : EntitySystem
         SubscribeLocalEvent<ZeroGravityAreaComponent, EndCollideEvent>(OnEndCollision);
         SubscribeLocalEvent<ZeroGravityAreaComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<ZeroGravityAreaComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<ZeroGravityAreaComponent, ComponentGetState>(OnGetAreaState);
 
         SubscribeLocalEvent<IsInZeroGravityAreaComponent, IsWeightlessEvent>(OnCheckWeightless, after: [typeof(SharedMagbootsSystem)]);
         SubscribeLocalEvent<IsInZeroGravityAreaComponent, ComponentGetState>(OnGetEntityState);
+    }
+
+    public override void SetEnabled(EntityUid uid, bool enabled, ZeroGravityAreaComponent? comp = null)
+    {
+        if (!Resolve(uid, ref comp))
+            return;
+
+        if (comp.Enabled == enabled)
+            return;
+
+        comp.Enabled = enabled;
+        Dirty(uid, comp);
+        DirtyAffected(uid, comp);
     }
 
     private void OnReset(RoundRestartCleanupEvent args)
@@ -35,40 +47,39 @@ public sealed partial class ZeroGravityAreaSystem : EntitySystem
         _nextPredictIndex = 0;
     }
 
-    public bool IsEnabled(EntityUid uid, ZeroGravityAreaComponent? comp = null)
-    {
-        if (!Resolve(uid, ref comp))
-            return false;
-
-        return comp.Enabled;
-    }
-
-    public void SetEnabled(EntityUid uid, bool enabled, ZeroGravityAreaComponent? comp = null)
+    private void DirtyAffected(EntityUid uid, ZeroGravityAreaComponent? comp = null)
     {
         if (!Resolve(uid, ref comp))
             return;
 
-        comp.Enabled = enabled;
-        Dirty(uid, comp);
-        foreach (var ent in comp.AffectedEntities)
+        foreach (var netEnt in comp.AffectedEntities)
         {
-            // Update entity states to see if they're no longer weightless
-            Dirty(ent);
+            if (!TryGetEntity(netEnt, out var ent))
+                continue;
+
+            if (!TryComp<IsInZeroGravityAreaComponent>(ent, out var antiGrav))
+                continue;
+
+            Dirty(ent.Value, antiGrav);
         }
     }
 
     private void StartAffecting(Entity<ZeroGravityAreaComponent> area, Entity<IsInZeroGravityAreaComponent> entity)
     {
-        area.Comp.AffectedEntities.Add(entity);
-        entity.Comp.AffectingAreas.Add(area);
-        Dirty(entity);
+        if (area.Comp.AffectedEntities.Add(GetNetEntity(entity)))
+            Dirty(area);
+
+        if (entity.Comp.AffectingAreas.Add(area))
+            Dirty(entity);
     }
 
     private void StopAffecting(Entity<ZeroGravityAreaComponent> area, Entity<IsInZeroGravityAreaComponent> entity)
     {
-        area.Comp.AffectedEntities.Remove(entity);
-        entity.Comp.AffectingAreas.Remove(area);
-        Dirty(entity);
+        if (area.Comp.AffectedEntities.Remove(GetNetEntity(entity)))
+            Dirty(area);
+
+        if (entity.Comp.AffectingAreas.Remove(area))
+            Dirty(entity);
     }
 
     /// <summary>
@@ -84,8 +95,7 @@ public sealed partial class ZeroGravityAreaSystem : EntitySystem
         var smaller = (self.Comp.PredictIndex > other.Comp.PredictIndex) ? other : self;
         smaller.Comp.PredictIndex = (byte)((Math.Max(self.Comp.PredictIndex, other.Comp.PredictIndex) + 1) % (sizeof(ulong) * 8));
         Dirty(smaller);
-        foreach (var ent in smaller.Comp.AffectedEntities)
-            Dirty(ent);
+        DirtyAffected(smaller);
     }
 
     private void OnStartCollision(EntityUid uid, ZeroGravityAreaComponent comp, StartCollideEvent args)
@@ -132,16 +142,14 @@ public sealed partial class ZeroGravityAreaSystem : EntitySystem
 
     private void OnShutdown(EntityUid uid, ZeroGravityAreaComponent comp, ComponentShutdown args)
     {
-        foreach (var ent in comp.AffectedEntities)
+        foreach (var ent in GetEntitySet(comp.AffectedEntities))
         {
-            ent.Comp.AffectingAreas.Remove((uid, comp));
-            Dirty(ent);
-        }
-    }
+            if (!TryComp<IsInZeroGravityAreaComponent>(ent, out var antiGrav))
+                continue;
 
-    private void OnGetAreaState(Entity<ZeroGravityAreaComponent> ent, ref ComponentGetState args)
-    {
-        args.State = new ZeroGravityAreaState(ent.Comp);
+            antiGrav.AffectingAreas.Remove((uid, comp));
+            Dirty(ent, antiGrav);
+        }
     }
 
     private bool EntityIsWeightless(IsInZeroGravityAreaComponent ent)
