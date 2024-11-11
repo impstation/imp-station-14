@@ -4,15 +4,16 @@
   parent: BaseMachine
   description: "A mysterious structure that renders its surroundings weightless.."
   components:
-  - type: SpriteFade
   - type: CosmicItem
   - type: ZeroGravityArea
     fixture: antiGravity
+  - type: SpriteFade
   - type: Sprite
     sprite: _Impstation/CosmicCult/Tileset/pylon.rsi
+    drawdepth: Mobs
     layers:
-      - state: icon
-      - state: overlay-2
+      - state: enabled
+      - state: overlay-orb
         shader: unshaded
   - type: Physics
     canCollide: true
@@ -21,7 +22,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.7,-0.2,0.7,0.7"
+          bounds: "-0.22,-0.5,0.22,-0.5"
         density: 50
         mask:
         - LargeMobMask
