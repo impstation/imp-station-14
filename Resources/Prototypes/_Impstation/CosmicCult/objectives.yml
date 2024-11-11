@@ -9,7 +9,7 @@
   - type: RoleRequirement
     roles:
       mindRoles:
-      - MindRoleCosmicCult
+      - CosmicCultRole
 
 - type: entity
   parent: BaseCosmicCultObjective
@@ -25,3 +25,17 @@
     max: 18
     title: objective-condition-entropy-title
   - type: CosmicEntropyCondition
+
+
+- type: entity
+  parent: [BaseCosmicCultObjective, BaseLivingObjective]
+  id: EscapeCosmicCultShuttleObjective
+  name: Escape to centcomm alive and unrestrained.
+  description: Wow you killed god or something! Live.
+  components:
+  - type: Objective
+    difficulty: 1.3
+    icon:
+      sprite: Structures/Furniture/chairs.rsi
+      state: shuttle
+  - type: EscapeShuttleCondition

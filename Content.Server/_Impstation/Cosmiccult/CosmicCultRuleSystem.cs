@@ -103,11 +103,6 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         EnsureComp<CosmicCultComponent>(target);
 
-        rule.Minds.Add(mindId);
-
-        foreach (var objective in rule.Objectives)
-            _mind.TryAddObjective(mindId, mind, objective);
-
         return true;
     }
     /// FRANKENSTEINED HERETIC CODE FOR BRIEFING FRANKENSTEINED HERETIC CODE FOR BRIEFING FRANKENSTEINED HERETIC CODE FOR BRIEFING

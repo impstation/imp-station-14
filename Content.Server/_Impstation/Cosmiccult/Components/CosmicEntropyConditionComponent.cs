@@ -6,5 +6,5 @@ namespace Content.Server.Objectives.Components;
 [RegisterComponent]
 public sealed partial class CosmicEntropyConditionComponent : Component
 {
-    [DataField] public float Siphoned = 0f;
+    [DataField] public int Siphoned = 0;
 }
