@@ -27,19 +27,6 @@ public sealed partial class CosmicCultRuleComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan ShuttleCallTime = TimeSpan.FromMinutes(5);
-
-    /// <summary>
-    /// HELP.
-    /// </summary>
-    public readonly List<EntityUid> Minds = new();
-
-    /// <summary>
-    /// Stores the Cosmic Cult's objectives.
-    /// </summary>
-    public readonly List<ProtoId<EntityPrototype>> Objectives = new()
-    {
-        "CosmicEntropyObjective"
-    };
 }
 
 // CosmicCultRuleComponent
