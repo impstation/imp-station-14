@@ -494,6 +494,19 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<bool> GameHostnameInTitlebar =
             CVarDef.Create("game.hostname_in_titlebar", true, CVar.SERVER | CVar.REPLICATED);
 
+        /// <summary>
+        /// The number of hours a player must reach to no longer be considered a "new player" for gameplay purposes.
+        /// Used in context with GameNewPlayerAntagPriority and GameNewPlayerAntagPercentage.
+        /// </summary>
+        public static readonly CVarDef<int> GameNewPlayerHoursThreshold =
+            CVarDef.Create("game.new_player_hours_threshold", 50, CVar.SERVER | CVar.REPLICATED);
+
+        /// <summary>
+        /// Should antag gamerules try to prioritize new players first?
+        /// </summary>
+        public static readonly CVarDef<bool> GameNewPlayerAntagPriority =
+            CVarDef.Create("game.new_player_antag_priority", false, CVar.SERVER | CVar.REPLICATED);
+
         /*
          * Discord
          */
@@ -1976,7 +1989,7 @@ namespace Content.Shared.CCVar
         /// The color in which the highlights will be displayed.
         /// </summary>
         public static readonly CVarDef<string> ChatHighlightsColor =
-            CVarDef.Create("chat.highlights_color", "#17FFC1FF", CVar.CLIENTONLY | CVar.ARCHIVE, "The color in which the highlights will be displayed."); 
+            CVarDef.Create("chat.highlights_color", "#17FFC1FF", CVar.CLIENTONLY | CVar.ARCHIVE, "The color in which the highlights will be displayed.");
 
         /*
          * AFK
@@ -2382,7 +2395,7 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<bool> AutoGetUp =
             CVarDef.Create("white.auto_get_up", true, CVar.CLIENT | CVar.ARCHIVE | CVar.REPLICATED); // WD EDIT
-		
+
 		/// <summary>
         /// Path that, if provided, automatic replays are initially recorded in.
         /// When the recording is done, the file is moved into its final destination.

@@ -23,6 +23,14 @@ public sealed class AntagSelectionPlayerPool (List<List<ICommonSession>> ordered
     }
 
 
+    public void RemoveSessionFromLists(ICommonSession session)
+    {
+        foreach (var pool in orderedPools)
+        {
+            pool.Remove(session);
+        }
+    }
+
     public bool TryPickAndTake(IRobustRandom random, [NotNullWhen(true)] out ICommonSession? session)
     {
         session = null;
