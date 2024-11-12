@@ -9,9 +9,11 @@ namespace Content.Shared._Impstation.Cosmiccult.Components;
 /// <summary>
 /// Added to mind role entities to tag that they are a cosmic cultist.
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedCosmicCultSystem))]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class CosmicCultComponent : Component
 {
+    #region Stuff
+
     /// <summary>
     /// The status icon prototype displayed for cosmic cultists.
     /// </summary>
@@ -19,6 +21,20 @@ public sealed partial class CosmicCultComponent : Component
     public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "CosmicCultIcon";
 
     public override bool SessionSpecific => true;
+    public readonly List<ProtoId<EntityPrototype>> BaseCosmicCultActions = new()
+    {
+        // "ActionSiphonEntropy",
+        "ActionToggleCosmicTool"
+    };
+
+    #endregion
+    public Dictionary<string, EntityUid?> Equipment = new();
+
+    /// <summary>
+    ///     Amount of entropy the cultist currently has.
+    /// </summary>
+    public float Entropy = 60f;
 }
+
 
 // CosmicCultComponent

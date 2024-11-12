@@ -1,6 +1,6 @@
 - type: entity
-  id: CosmicCult
   parent: BaseGameRule
+  id: CosmicCult
   components:
   - type: CosmicCultRule
   - type: GameRule
