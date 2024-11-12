@@ -1,10 +1,10 @@
 - type: entity
   name: placeholder astrolabe name
-  parent: [ BaseItem, BaseCosmicCultContraband ]
-  id: AbilityCosmicCultAstrolabe
+  parent: [ BaseCosmicCultContraband ]
+  id: AbilityCosmicCultTool
   description: Placeholder lorem ipsum dolor ect.
   components:
-##  - type: Unremoveable
+  - type: Unremoveable
   - type: Item
   - type: Sprite
     sprite: _Impstation/CosmicCult/Objects/astrolabe.rsi

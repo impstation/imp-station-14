@@ -10,6 +10,7 @@ namespace Content.Shared._Impstation.Cosmiccult.Components;
 /// Added to mind role entities to tag that they are a cosmic cultist.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
+[AutoGenerateComponentState]
 public sealed partial class CosmicCultComponent : Component
 {
     #region Stuff
@@ -31,9 +32,17 @@ public sealed partial class CosmicCultComponent : Component
     public Dictionary<string, EntityUid?> Equipment = new();
 
     /// <summary>
-    ///     Amount of entropy the cultist currently has.
+    ///     Amount of Entropy the cultist currently has.
     /// </summary>
-    public float Entropy = 60f;
+    [DataField, AutoNetworkedField]
+    public float CurrentEntropy = 60f;
+
+    /// <summary>
+    ///     Maximum amount of Entropy a cultist can have.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float MaxEntropy = 100f;
+
 }
 
 

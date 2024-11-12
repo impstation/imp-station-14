@@ -27,7 +27,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
 {
     public void SubscribeAbilities()
     {
-        SubscribeLocalEvent<CosmicCultComponent, CosmicToolEvent>(OnCosmicToggleTool);
+        SubscribeLocalEvent<CosmicCultComponent, EventCosmicToolToggle>(OnCosmicToolToggle);
     }
 
     // private void OnCosmicSiphon(EntityUid uid, CosmicCultComponent comp, ref CosmicSiphonEvent args)
@@ -43,7 +43,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
     //     }
     //     else _popup.PopupEntity(Loc.GetString("changeling-sting", ("target", Identity.Entity(target, EntityManager))), uid, uid);
     // }
-    private void OnCosmicToggleTool(EntityUid uid, CosmicCultComponent comp, ref CosmicToolEvent args)
+    private void OnCosmicToolToggle(EntityUid uid, CosmicCultComponent comp, ref EventCosmicToolToggle args)
     {
 
         if (!TryUseAbility(uid, comp, args))

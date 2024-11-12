@@ -31,5 +31,6 @@
     icon:
       sprite: _Impstation/CosmicCult/Objects/astrolabe.rsi
       state: icon
-    event: !type:CosmicToolEvent {}
+    event: !type:EventCosmicToolToggle {}
   - type: CosmicCultAction
+    requireEntropy: false
