@@ -23,12 +23,6 @@
       <Private>false</Private>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="_DeltaV\Mail\MailVisuals.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="_DeltaV\Mail\" />
-  </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
   <Import Project="..\RobustToolbox\MSBuild\Robust.CompNetworkGenerator.targets" />
 </Project>
