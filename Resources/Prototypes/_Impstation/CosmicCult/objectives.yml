@@ -11,20 +11,20 @@
       mindRoles:
       - CosmicCultRole
 
-- type: entity
-  parent: BaseCosmicCultObjective
-  id: CosmicEntropyObjective
-  name: Entropy siphoned.
-  components:
-  - type: Objective
-    icon:
-      sprite: _Goobstation/Heretic/reality_fracture.rsi
-      state: icon_harvested
-  - type: NumberObjective
-    min: 12
-    max: 18
-    title: objective-condition-entropy-title
-  - type: CosmicEntropyCondition
+# - type: entity
+#   parent: BaseCosmicCultObjective
+#   id: CosmicEntropyObjective
+#   name: Entropy siphoned.
+#   components:
+#   - type: Objective
+#     icon:
+#       sprite: _Goobstation/Heretic/reality_fracture.rsi
+#       state: icon_harvested
+#   - type: NumberObjective
+#     min: 12
+#     max: 18
+#     title: objective-condition-entropy-title
+#   - type: CosmicEntropyCondition
 
 
 - type: entity

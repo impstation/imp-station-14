@@ -54,21 +54,20 @@ public sealed partial class CosmicCultSystem : EntitySystem
             _eye.SetVisibilityMask(ent, eye.VisibilityMask | CosmicMonumentComponent.LayerMask);
     }
 
-    // When the entity with CosmicItemComponent is examined by an item with the CosmicCultComponent, append the contraband text.
+    // When the Component starts up, add the cosmic cult's abilities to the entity.
+    private void OnStartup(EntityUid uid, CosmicCultComponent comp, ref ComponentStartup args)
+    {
+        foreach (var actionId in comp.BaseCosmicCultActions)
+            _actions.AddAction(uid, actionId);
+    }
+
+    // When the entity with CosmicItemComponent is examined by an item with the CosmicCultComponent, we don't append the contraband text.
     private void OnCosmicItemExamine(Entity<CosmicItemComponent> ent, ref ExaminedEvent args)
     {
         if (HasComp<CosmicCultComponent>(args.Examiner))
             return;
 
         args.PushMarkup(Loc.GetString("contraband-object-text-cosmiccult"));
-    }
-
-    // When the Component starts up, add the cosmic cult's abilities to the entity.
-    private void OnStartup(EntityUid uid, CosmicCultComponent comp, ref ComponentStartup args)
-    {
-        // add actions
-        foreach (var actionId in comp.BaseCosmicCultActions)
-            _actions.AddAction(uid, actionId);
     }
 
     // Update the entropy values in the Alert UI.
@@ -84,46 +83,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
     // }
 
     // Double check if the abillity's permissible before letting it go through.
-    public bool TryUseAbility(EntityUid uid, CosmicCultComponent comp, BaseActionEvent action)
-    {
-        if (action.Handled)
-            return false;
 
-        if (!TryComp<CosmicCultActionComponent>(action.Action, out var cultAction))
-            return false;
-
-        // if (comp.Entropy < 1 && cultAction.RequireEntropy)
-        // {
-        //     _popup.PopupEntity(Loc.GetString("changeling-biomass-deficit"), uid, uid);
-        //     return false;
-        // }
-
-        // UpdateEntropy(uid, comp, -cultAction.EntropyCost);
-
-        action.Handled = true;
-        return true;
-    }
-    public bool TryToggleItem(EntityUid uid, EntProtoId proto, CosmicCultComponent comp)
-    {
-        if (!comp.Equipment.TryGetValue(proto.Id, out var item))
-        {
-            item = Spawn(proto, Transform(uid).Coordinates);
-            if (!_hands.TryForcePickupAnyHand(uid, (EntityUid) item))
-            {
-                _popup.PopupEntity(Loc.GetString("changeling-fail-hands"), uid, uid);
-                QueueDel(item);
-                return false;
-            }
-            comp.Equipment.Add(proto.Id, item);
-            return true;
-        }
-
-        QueueDel(item);
-        // assuming that it exists
-        comp.Equipment.Remove(proto.Id);
-
-        return true;
-    }
 
     // Try to siphon entropy from the target.
     // public bool TrySiphon(EntityUid uid, CosmicCultComponent comp, EntityTargetActionEvent action, bool overrideMessage = false)

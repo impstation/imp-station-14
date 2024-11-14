@@ -20,6 +20,7 @@ using Content.Shared.Damage.Components;
 using Content.Server.Radio.Components;
 using Content.Shared._Impstation.Cosmiccult.Components;
 using Content.Shared._Impstation.Cosmiccult;
+using Content.Shared.Actions;
 
 namespace Content.Server._Impstation.Cosmiccult;
 
@@ -43,13 +44,46 @@ public sealed partial class CosmicCultSystem : EntitySystem
     //     }
     //     else _popup.PopupEntity(Loc.GetString("changeling-sting", ("target", Identity.Entity(target, EntityManager))), uid, uid);
     // }
+    public bool TryUseAbility(EntityUid uid, CosmicCultComponent comp, BaseActionEvent action)
+    {
+        if (action.Handled)
+            return false;
+
+        if (!TryComp<CosmicCultActionComponent>(action.Action, out var cultAction))
+            return false;
+
+        action.Handled = true;
+        return true;
+    }
+
     private void OnCosmicToolToggle(EntityUid uid, CosmicCultComponent comp, ref EventCosmicToolToggle args)
     {
 
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        if (!TryToggleItem(uid, CultToolPrototype, comp))
+        if (!TryToggleCosmicTool(uid, CultToolPrototype, comp))
             return;
+    }
+    public bool TryToggleCosmicTool(EntityUid uid, EntProtoId proto, CosmicCultComponent comp)
+    {
+        if (!comp.Equipment.TryGetValue(proto.Id, out var item))
+        {
+            item = Spawn(proto, Transform(uid).Coordinates);
+            if (!_hands.TryForcePickupAnyHand(uid, (EntityUid) item))
+            {
+                _popup.PopupEntity(Loc.GetString("changeling-fail-hands"), uid, uid);
+                QueueDel(item);
+                return false;
+            }
+            comp.Equipment.Add(proto.Id, item);
+            return true;
+        }
+
+        QueueDel(item);
+        // assuming that it exists
+        comp.Equipment.Remove(proto.Id);
+
+        return true;
     }
 }
