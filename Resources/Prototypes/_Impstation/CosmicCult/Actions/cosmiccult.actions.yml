@@ -1,8 +1,8 @@
 
 - type: entity
-  id: ActionToggleCosmicTool
-  name: Cosmic Astrolabe
-  description: ABILITY DESCRIPTION GOES HERE
+  id: ActionCosmicToolToggle
+  name: Beckon Compass
+  description: Summon or Unsummon your compass of stars.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -10,7 +10,39 @@
     itemIconStyle: NoItem
     icon:
       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
-      state: tooltoggle
+      state: compass
     event: !type:EventCosmicToolToggle {}
   - type: CosmicCultAction
     requireEntropy: false
+
+# - type: entity
+#   id: ActionCosmicNAMEHERE[PH]
+#   name: Lapse
+#   description: Inflict a
+#   categories: [ HideSpawnMenu ]
+#   components:
+#   - type: InstantAction
+#     useDelay: 2
+#     itemIconStyle: NoItem
+#     icon:
+#       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
+#       state: lapse
+#     event: !type:EventCosmicToolToggle {}
+#   - type: CosmicCultAction
+#     requireEntropy: false
+
+# - type: entity
+#   id: ActionCosmicNAMEHERE[PH]
+#   name: Lapse
+#   description: Inflict a
+#   categories: [ HideSpawnMenu ]
+#   components:
+#   - type: InstantAction
+#     useDelay: 2
+#     itemIconStyle: NoItem
+#     icon:
+#       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
+#       state: lapse
+#     event: !type:EventCosmicToolToggle {}
+#   - type: CosmicCultAction
+#     requireEntropy: false

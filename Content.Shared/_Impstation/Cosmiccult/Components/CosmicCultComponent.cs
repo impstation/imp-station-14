@@ -25,7 +25,7 @@ public sealed partial class CosmicCultComponent : Component
     public readonly List<ProtoId<EntityPrototype>> BaseCosmicCultActions = new()
     {
         // "ActionSiphonEntropy",
-        "ActionToggleCosmicTool"
+        "ActionCosmicToolToggle"
     };
 
     #endregion
