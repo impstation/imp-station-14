@@ -16,29 +16,29 @@
     requireEntropy: false
 
 - type: entity
-  id: ActionSiphonEntropy
+  id: ActionCosmicSiphon
   name: Siphon Entropy
   description: "Silently siphon entropy from your target, dealing some damage in the process." # TODO: REPLACE
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
-    useDelay: 30
+    useDelay: 10
     whitelist:
       components:
         - HumanoidAppearance
     canTargetSelf: false
     interactOnMiss: false
     itemIconStyle: NoItem
-    icon: # TODO: Replace icon
+    icon:
       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: siphon
     event: !type:CosmicSiphonEvent {}
   - type: CosmicCultAction
 
 # - type: entity
-#   id: ActionCosmicNAMEHERE[PH]
+#   id: ActionCosmicLapse
 #   name: Lapse
-#   description: Inflict a
+#   description: TODO
 #   categories: [ HideSpawnMenu ]
 #   components:
 #   - type: InstantAction
@@ -52,9 +52,9 @@
 #     requireEntropy: false
 
 # - type: entity
-#   id: ActionCosmicNAMEHERE[PH]
-#   name: Lapse
-#   description: Inflict a
+#   id: ActionCosmicGlare
+#   name: Glare
+#   description: TODO
 #   categories: [ HideSpawnMenu ]
 #   components:
 #   - type: InstantAction
@@ -62,7 +62,7 @@
 #     itemIconStyle: NoItem
 #     icon:
 #       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
-#       state: lapse
+#       state: glare
 #     event: !type:EventCosmicToolToggle {}
 #   - type: CosmicCultAction
 #     requireEntropy: false

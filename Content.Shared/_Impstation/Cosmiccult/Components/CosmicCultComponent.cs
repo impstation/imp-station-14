@@ -26,7 +26,7 @@ public sealed partial class CosmicCultComponent : Component
     public override bool SessionSpecific => true;
     public readonly List<ProtoId<EntityPrototype>> BaseCosmicCultActions = new()
     {
-        "ActionSiphonEntropy",
+        "ActionCosmicSiphon",
         "ActionCosmicToolToggle"
     };
 
