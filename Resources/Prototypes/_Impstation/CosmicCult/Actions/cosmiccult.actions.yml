@@ -18,11 +18,11 @@
 - type: entity
   id: ActionSiphonEntropy
   name: Siphon Entropy
-  description: "Suck the money straight out of their wallets arg arg arg" # TODO: REPLACE
+  description: "Silently siphon entropy from your target, dealing some damage in the process." # TODO: REPLACE
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
-    useDelay: 10
+    useDelay: 30
     whitelist:
       components:
         - HumanoidAppearance
@@ -31,7 +31,7 @@
     itemIconStyle: NoItem
     icon: # TODO: Replace icon
       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
-      state: glare
+      state: siphon
     event: !type:CosmicSiphonEvent {}
   - type: CosmicCultAction
 
