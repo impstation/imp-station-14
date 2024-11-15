@@ -119,6 +119,9 @@
   - type: HeldSpeedModifier
     walkModifier: 1.2
     sprintModifier: 1.3
+  - type: ClothingSpeedModifier
+    walkModifier: 1.2
+    sprintModifier: 1.3
 
 - type: artifactEffect
   id: EffectDrill
@@ -210,6 +213,7 @@
 - type: artifactEffect
   id: EffectMultitool
   targetDepth: 3
+  effectProb: 1
   effectHint: artifact-effect-hint-multitool
   whitelist:
     components:
@@ -337,4 +341,3 @@
     heatingCoefficient: 0.5
     coolingCoefficient: 0.5
   - type: BreathMask
-    # TODO: Put the sprite of the artifact ON YOUR HEAD
