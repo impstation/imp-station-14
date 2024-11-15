@@ -15,6 +15,26 @@
   - type: CosmicCultAction
     requireEntropy: false
 
+- type: entity
+  id: ActionSiphonEntropy
+  name: Siphon Entropy
+  description: "Suck the money straight out of their wallets arg arg arg" # TODO: REPLACE
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    useDelay: 10
+    whitelist:
+      components:
+        - HumanoidAppearance
+    canTargetSelf: false
+    interactOnMiss: false
+    itemIconStyle: NoItem
+    icon: # TODO: Replace icon
+      sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: glare
+    event: !type:CosmicSiphonEvent {}
+  - type: CosmicCultAction
+
 # - type: entity
 #   id: ActionCosmicNAMEHERE[PH]
 #   name: Lapse

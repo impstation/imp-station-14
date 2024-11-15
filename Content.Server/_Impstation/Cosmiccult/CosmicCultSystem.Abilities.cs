@@ -1,23 +1,6 @@
-using Content.Shared.Chemistry.Components;
-using Content.Shared.Cuffs.Components;
 using Content.Shared.DoAfter;
-using Content.Shared.FixedPoint;
-using Content.Shared.IdentityManagement;
-using Content.Shared.Mobs;
-using Content.Shared.Store.Components;
-using Content.Shared.Popups;
 using Content.Shared.Damage;
 using Robust.Shared.Prototypes;
-using Content.Shared.Damage.Prototypes;
-using Content.Server.Objectives.Components;
-using Content.Server.Light.Components;
-using Content.Shared.Eye.Blinding.Systems;
-using Content.Shared.Eye.Blinding.Components;
-using Content.Server.Flash.Components;
-using Content.Shared.Movement.Pulling.Components;
-using Content.Shared.Stealth.Components;
-using Content.Shared.Damage.Components;
-using Content.Server.Radio.Components;
 using Content.Shared._Impstation.Cosmiccult.Components;
 using Content.Shared._Impstation.Cosmiccult;
 using Content.Shared.Actions;
@@ -26,24 +9,46 @@ namespace Content.Server._Impstation.Cosmiccult;
 
 public sealed partial class CosmicCultSystem : EntitySystem
 {
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+
     public void SubscribeAbilities()
     {
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicToolToggle>(OnCosmicToolToggle);
+        SubscribeLocalEvent<CosmicCultComponent, CosmicSiphonEvent>(OnCosmicSiphon);
+        SubscribeLocalEvent<CosmicCultComponent, CosmicSiphonDoAfterEvent>(OnCosmicSiphonDoAfter);
     }
 
-    // private void OnCosmicSiphon(EntityUid uid, CosmicCultComponent comp, ref CosmicSiphonEvent args)
-    // {
-    //     if (!TrySting(uid, comp, args, true))
-    //         return;
+    private void OnCosmicSiphon(EntityUid uid, CosmicCultComponent comp, ref CosmicSiphonEvent args)
+    {
+        if (args.Handled)
+            return;
+        args.Handled = true;
 
-    //     var target = args.Target;
-    //     if (!TryStealDNA(uid, target, comp, true))
-    //     {
-    //         _popup.PopupEntity(Loc.GetString("changeling-sting-extract-fail"), uid, uid);
-    //         // royal cashback
-    //     }
-    //     else _popup.PopupEntity(Loc.GetString("changeling-sting", ("target", Identity.Entity(target, EntityManager))), uid, uid);
-    // }
+        var doargs = new DoAfterArgs(EntityManager, uid, comp.CosmicSiphonDuration, new CosmicSiphonDoAfterEvent(), uid, args.Target)
+        {
+            Hidden = true,
+            BreakOnDamage = true,
+            BreakOnMove = true,
+            BreakOnDropItem = true,
+        };
+
+        _doAfter.TryStartDoAfter(doargs);
+    }
+
+    private void OnCosmicSiphonDoAfter(EntityUid uid, CosmicCultComponent comp, CosmicSiphonDoAfterEvent args)
+    {
+        if (args.Cancelled || args.Handled)
+            return;
+
+        args.Handled = true;
+
+        _damageable.TryChangeDamage(args.Target, comp.CosmicSiphonDamage, origin: uid);
+
+        var money = SpawnAtPosition(comp.CosmicSiphonResult, Transform(uid).Coordinates);
+        _hands.TryForcePickupAnyHand(uid, money);
+    }
+
     public bool TryUseAbility(EntityUid uid, CosmicCultComponent comp, BaseActionEvent action)
     {
         if (action.Handled)
