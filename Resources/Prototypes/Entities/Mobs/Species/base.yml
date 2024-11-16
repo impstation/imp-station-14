@@ -196,6 +196,9 @@
       enum.SpelfMoodsUiKey.Key: # impstation edit
         type: SpelfMoodsBoundUserInterface
         requireInputValidation: false
+      # Shitmed
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: Puller
   - type: Speech
     speechSounds: Alto
@@ -221,6 +224,8 @@
     - DoorBumpOpener
     - AnomalyHost
   - type: LayingDown # WD EDIT
+  - type: Targeting # Shitmed Change
+  - type: SurgeryTarget # Shitmed Change
 
 - type: entity
   save: false

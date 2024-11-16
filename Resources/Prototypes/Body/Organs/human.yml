@@ -23,10 +23,9 @@
   - type: FlavorProfile
     flavors:
       - people
-  - type: Tag # goob edit
+  - type: Tag
     tags:
-    - Meat
-    - Organ
+      - Meat
 
 - type: entity
   id: BaseHumanOrgan
@@ -44,6 +43,7 @@
   - type: Sprite
     state: brain
   - type: Organ
+    slotId: brain # Shitmed Change
   - type: Input
     context: "ghost"
   - type: Brain
@@ -51,11 +51,11 @@
   - type: Examiner
   - type: BlockMovement
   - type: BadFood
-  - type: Tag # goob edit
+  - type: Food # DeltaV: Prevent eating brains as borgs don't remember what happened to them
+    requiredStomachs: 20
+  - type: Tag
     tags:
-    - Meat
-    - Organ
-    - Brain
+      - Meat
   - type: SolutionContainerManager
     solutions:
       organ:
@@ -84,15 +84,13 @@
   name: eyes
   description: "I see you!"
   components:
+  - type: Organ # Shitmed Change
+    slotId: eyes # Shitmed Change
+  - type: Eyes # Shitmed Change
   - type: Sprite
     layers:
       - state: eyeball-l
       - state: eyeball-r
-  - type: Tag # goob edit
-    tags:
-    - Meat
-    - Organ
-    - Eyes
   - type: Item
     size: Small
     heldPrefix: eyeballs
@@ -125,6 +123,7 @@
   components:
   - type: Sprite
     state: ears
+  - type: Ears # Shitmed Change
 
 - type: entity
   id: OrganHumanLungs
@@ -132,6 +131,8 @@
   name: lungs
   description: "Filters oxygen from an atmosphere, which is then sent into the bloodstream to be used as an electron carrier."
   components:
+  - type: Organ # Shitmed Change
+    slotId: lungs # Shitmed Change
   - type: Sprite
     layers:
       - state: lung-l
@@ -162,11 +163,6 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
-  - type: Tag # goob edit
-    tags:
-    - Meat
-    - Organ
-    - Lungs
 
 - type: entity
   id: OrganHumanHeart
@@ -174,6 +170,9 @@
   name: heart
   description: "I feel bad for the heartless bastard who lost this."
   components:
+  - type: Heart # Shitmed Change
+  - type: Organ # Shitmed Change
+    slotId: heart # Shitmed Change
   - type: Sprite
     state: heart-on
   # The heart 'metabolizes' medicines and poisons that aren't filtered out by other organs.
@@ -186,11 +185,6 @@
     - id: Medicine
     - id: Poison
     - id: Narcotic
-  - type: Tag # goob edit
-    tags:
-    - Meat
-    - Organ
-    - Heart
   - type: Item
     size: Small
     heldPrefix: heart
@@ -201,6 +195,8 @@
   name: stomach
   description: "Gross. This is hard to stomach."
   components:
+  - type: Organ # Shitmed Change
+    slotId: stomach # Shitmed Change
   - type: Sprite
     state: stomach
   - type: Item
@@ -226,11 +222,6 @@
     groups:
     - id: Food
     - id: Drink
-  - type: Tag # goob edit
-    tags:
-      - Meat
-      - Organ
-      - Stomach
 
 - type: entity
   id: OrganHumanLiver
@@ -238,6 +229,9 @@
   name: liver
   description: "Pairing suggestion: chianti and fava beans."
   components:
+  - type: Liver # Shitmed Change
+  - type: Organ # Shitmed Change
+    slotId: liver # Shitmed Change
   - type: Sprite
     state: liver
   - type: Item
@@ -249,11 +243,6 @@
     groups:
     - id: Alcohol
       rateModifier: 0.1 # removes alcohol very slowly along with the stomach removing it as a drink
-  - type: Tag # goob edit
-    tags:
-      - Meat
-      - Organ
-      - Liver
 
 - type: entity
   id: OrganHumanKidneys
@@ -273,8 +262,3 @@
     maxReagents: 5
     metabolizerTypes: [Human]
     removeEmpty: true
-  - type: Tag # goob edit
-    tags:
-    - Meat
-    - Organ
-    - Kidneys
