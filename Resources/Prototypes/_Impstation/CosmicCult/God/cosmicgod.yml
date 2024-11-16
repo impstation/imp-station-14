@@ -44,7 +44,7 @@
   - type: AnnounceOnSpawn
     message: cosmicgod-has-risen
     sender: cosmicgod-has-risen-sender
-    color: "#663e9f"
+    color: "#cae8e8"
   - type: CargoSellBlacklist
   # big mob needs to see everything
   - type: ContentEye
@@ -91,7 +91,6 @@
     variation: 0.1
     sound:
       path: /Audio/_Impstation/CosmicCult/god_ambient.ogg
-
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/_Impstation/CosmicCult/god_spawn.ogg

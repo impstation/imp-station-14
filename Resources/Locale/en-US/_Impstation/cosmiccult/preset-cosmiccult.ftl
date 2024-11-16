@@ -8,7 +8,7 @@ cosmiccult-roundend-name = cosmic cult
 
 roundend-prepend-cosmiccult-summoning-success = [color=green]debuf notifier! Woop![/color]
 roundend-prepend-cosmiccult-summoning-fail = [color=red]The summoning has failed![/color]
-roundend-prepend-cosmiccult-entropy-gathered = [/color] The cosmic cult has accumulated a total of [color=purple]{$number}[/color] entropy.
+roundend-prepend-cosmiccult-entropy-gathered = The cosmic cult has accumulated a total of {$number} entropy.
 
 cosmiccult-gamemode-title = The Cosmic Cult
 cosmiccult-gamemode-description =
@@ -33,7 +33,8 @@ cosmiccult-role-conversion-fluff =
     All you need do is usher it in.
 
 cosmiccult-role-deconverted-fluff =
-    A great emptiness washes across your mind — thoughts and memories of your time in the cult — all begins to fade and blur.
+    A great emptiness washes across your mind. A comforting, yet unfamiliar emptiness...
+    All the thoughts and memories of your time in the cult begin to fade and blur.
 
 cosmiccult-role-short-briefing =
     You are a Cosmic Cultist!
@@ -42,7 +43,7 @@ cosmiccult-role-short-briefing =
 
 cosmiccult-role-deconverted-briefing =
     Deconverted!
-    You are no longer a Cosmic Cult Antagonist.
+    You are no longer a Cosmic Cultist.
 
 
 
