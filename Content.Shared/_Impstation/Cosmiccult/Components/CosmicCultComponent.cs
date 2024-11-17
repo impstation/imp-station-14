@@ -31,9 +31,10 @@ public sealed partial class CosmicCultComponent : Component
     };
 
     #endregion
-    public Dictionary<string, EntityUid?> Equipment = new();
 
     #region Abilities
+
+    public Dictionary<string, EntityUid?> Equipment = new();
 
     /// <summary>
     ///     Amount of Entropy the cultist currently has.
@@ -53,14 +54,14 @@ public sealed partial class CosmicCultComponent : Component
     /// The duration of the doAfter for performing a cosmic siphon
     /// </summary>
     [DataField, AutoNetworkedField]
-    public TimeSpan CosmicSiphonDuration = TimeSpan.FromSeconds(3);
+    public TimeSpan CosmicSiphonDuration = TimeSpan.FromSeconds(4);
 
     /// <summary>
     ///     The entity prototype to spawn in the cultist's hand after
     ///     completing a cosmic siphon
     /// </summary>
     [DataField, AutoNetworkedField]
-    public EntProtoId<ItemComponent> CosmicSiphonResult = "SpaceCash100"; // TODO: REPLACE
+    public EntProtoId<ItemComponent> CosmicSiphonResult = "EntropyMoteCosmicCult"; // TODO: REPLACE
 
     /// <summary>
     /// The damage to apply upon a successful cosmic siphon

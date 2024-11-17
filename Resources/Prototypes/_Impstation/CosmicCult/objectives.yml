@@ -11,31 +11,31 @@
       mindRoles:
       - CosmicCultRole
 
-# - type: entity
-#   parent: BaseCosmicCultObjective
-#   id: CosmicEntropyObjective
-#   name: Entropy siphoned.
-#   components:
-#   - type: Objective
-#     icon:
-#       sprite: _Goobstation/Heretic/reality_fracture.rsi
-#       state: icon_harvested
-#   - type: NumberObjective
-#     min: 12
-#     max: 18
-#     title: objective-condition-entropy-title
-#   - type: CosmicEntropyCondition
-
-
 - type: entity
   parent: [BaseCosmicCultObjective, BaseLivingObjective]
   id: EscapeCosmicCultShuttleObjective
-  name: (PH) - Name - Escape to centcomm alive and unrestrained.
-  description: (PH) - Description - this objective is placeholder.
+  name: Elect a Leader
+  description: For our plans to succeed, we'll need some form of leadership.
   components:
   - type: Objective
     difficulty: 1.3
     icon:
-      sprite: Structures/Furniture/chairs.rsi
-      state: shuttle
+      sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: monument
   - type: EscapeShuttleCondition
+
+- type: entity
+  parent: BaseCosmicCultObjective
+  id: CosmicEntropyObjective
+  name: Entropy siphoned
+  components:
+  - type: Objective
+    icon:
+      sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: siphon
+  - type: NumberObjective
+    min: 10
+    max: 10
+    title: Siphon Entropy
+    description: objective-condition-entropy-desc
+  - type: CosmicEntropyCondition

@@ -32,7 +32,7 @@
     icon:
       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: siphon
-    event: !type:CosmicSiphonEvent {}
+    event: !type:EventCosmicSiphon {}
   - type: CosmicCultAction
 
 # - type: entity

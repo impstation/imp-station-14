@@ -1,0 +1,15 @@
+## Cosmic Cult Entropy Mote
+
+- type: entity
+  parent: [ BaseItem, BaseCosmicCultContraband ]
+  id: EntropyMoteCosmicCult
+  name: mote of entropy
+  description: It hurts to look at.
+  components:
+  - type: Sprite
+    sprite: _Impstation/CosmicCult/Objects/entropymote.rsi
+    layers:
+    - state: icon
+  - type: Item
+    size: Small
+  - type: PhysicalComposition
