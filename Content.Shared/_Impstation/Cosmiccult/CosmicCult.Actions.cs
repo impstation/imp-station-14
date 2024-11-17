@@ -11,5 +11,5 @@ public sealed partial class CosmicCultActionComponent : Component
 
 }
 
-public sealed partial class CosmicSiphonEvent : EntityTargetActionEvent { }
+public sealed partial class EventCosmicSiphon : EntityTargetActionEvent { }
 public sealed partial class EventCosmicToolToggle : InstantActionEvent { }

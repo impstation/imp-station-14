@@ -4,4 +4,4 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._Impstation.Cosmiccult;
 
 [Serializable, NetSerializable]
-public sealed partial class CosmicSiphonDoAfterEvent : SimpleDoAfterEvent { }
+public sealed partial class EventCosmicSiphonDoAfter : SimpleDoAfterEvent { }

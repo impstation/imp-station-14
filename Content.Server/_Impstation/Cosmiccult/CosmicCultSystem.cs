@@ -1,21 +1,15 @@
 using Content.Server.Popups;
 using Content.Server._Impstation.Cosmiccult.Components;
-using Content.Shared._Impstation.Cosmiccult;
 using Content.Shared._Impstation.Cosmiccult.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Mind;
 using Content.Shared.Examine;
-using Content.Shared.Silicons.Borgs.Components;
 using Content.Server.Actions;
 using Robust.Shared.Prototypes;
-using Content.Shared.Actions;
 using Content.Shared.Alert;
 using Robust.Shared.Random;
 using Robust.Shared.Audio.Systems;
-using Content.Server.DoAfter;
-using Content.Server.Chat.Systems;
-using Content.Shared.Actions;
 using Content.Server.Chat.Systems;
 
 namespace Content.Server._Impstation.Cosmiccult;
@@ -29,10 +23,10 @@ public sealed partial class CosmicCultSystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _aud = default!;
-    [Dependency] private readonly DoAfterSystem _doafter = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
 
     public EntProtoId CultToolPrototype = "AbilityCosmicCultTool";
+    public int ObjectiveEntropyTracker = 0;
 
     public override void Initialize()
     {
@@ -40,13 +34,15 @@ public sealed partial class CosmicCultSystem : EntitySystem
 
         SubscribeLocalEvent<CosmicCultComponent, ComponentInit>(OnCompInit);
         SubscribeLocalEvent<CosmicCultComponent, ComponentStartup>(OnStartup);
-        // SubscribeLocalEvent<CosmicCultComponent, ComponentRemove>(OnComponentRemove);
         SubscribeLocalEvent<CosmicItemComponent, ExaminedEvent>(OnCosmicItemExamine);
+        // SubscribeLocalEvent<CosmicCultComponent, ComponentRemove>(OnComponentRemove); || We'll probably need this later.
 
         SubscribeAbilities();
     }
 
-    // When the component initializes, we add the visibility mask for The Cult's Monument.
+    /// <summary>
+    /// Called when the component initializes. We add the Visibility Mask here.
+    /// </summary>
     private void OnCompInit(Entity<CosmicCultComponent> ent, ref ComponentInit args)
     {
 
@@ -54,14 +50,26 @@ public sealed partial class CosmicCultSystem : EntitySystem
             _eye.SetVisibilityMask(ent, eye.VisibilityMask | CosmicMonumentComponent.LayerMask);
     }
 
-    // When the Component starts up, add the cosmic cult's abilities to the entity.
+    /// <summary>
+    /// Called when the component starts up, add the Cosmic Cult abilities to the user.
+    /// </summary>
     private void OnStartup(EntityUid uid, CosmicCultComponent comp, ref ComponentStartup args)
     {
         foreach (var actionId in comp.BaseCosmicCultActions)
             _actions.AddAction(uid, actionId);
     }
 
-    // When the entity with CosmicItemComponent is examined by an item with the CosmicCultComponent, we don't append the contraband text.
+    /// <summary>
+    /// Called by Cosmic Siphon. Increments the Cult's global objective tracker.
+    /// </summary>
+    private void IncrementCultObjectiveEntropy()
+    {
+        ObjectiveEntropyTracker++;
+    }
+
+    /// <summary>
+    /// A blacklist called when someone examines an object with the CosmicItem Component.
+    /// </summary>
     private void OnCosmicItemExamine(Entity<CosmicItemComponent> ent, ref ExaminedEvent args)
     {
         if (HasComp<CosmicCultComponent>(args.Examiner))
@@ -69,48 +77,5 @@ public sealed partial class CosmicCultSystem : EntitySystem
 
         args.PushMarkup(Loc.GetString("contraband-object-text-cosmiccult"));
     }
-
-    // Update the entropy values in the Alert UI.
-    // private void UpdateEntropy(EntityUid uid, CosmicCultComponent comp, float? amount = null)
-    // {
-    //     comp.CurrentEntropy += amount ?? -1;
-    //     comp.CurrentEntropy = Math.Clamp(comp.CurrentEntropy, 0, comp.MaxEntropy);
-    //     Dirty(uid, comp);
-    //     _alerts.ShowAlert(uid, "ChangelingBiomass");
-
-    //     var random = (int) _rand.Next(1, 3);
-
-    // }
-
-    // Double check if the abillity's permissible before letting it go through.
-
-
-    // Try to siphon entropy from the target.
-    // public bool TrySiphon(EntityUid uid, CosmicCultComponent comp, EntityTargetActionEvent action, bool overrideMessage = false)
-    // {
-    //     if (!TryUseAbility(uid, comp, action))
-    //         return false;
-
-    //     var target = action.Target;
-
-    //     // can't get his dna if he doesn't have it!
-    //     if (!HasComp<AbsorbableComponent>(target) || HasComp<BorgBrainComponent>(target))
-    //     {
-    //         _popup.PopupEntity(Loc.GetString("changeling-sting-extract-fail"), uid, uid);
-    //         return false;
-    //     }
-
-    //     if (HasComp<CosmicCultComponent>(target))
-    //     {
-    //         _popup.PopupEntity(Loc.GetString("changeling-sting-fail-self", ("target", Identity.Entity(target, EntityManager))), uid, uid);
-    //         _popup.PopupEntity(Loc.GetString("changeling-sting-fail-ling"), target, target);
-    //         return false;
-    //     }
-    //     if (!overrideMessage)
-    //         _popup.PopupEntity(Loc.GetString("changeling-sting", ("target", Identity.Entity(target, EntityManager))), uid, uid);
-    //     return true;
-    // }
-
-    // Try to toggle the item into the player's hands.
 
 }
