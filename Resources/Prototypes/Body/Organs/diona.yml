@@ -24,14 +24,10 @@
   - type: FlavorProfile
     flavors:
       - people
-  - type: Tag # goob edit
-    tags:
-    - Meat
-    - Organ
 
 - type: entity
   id: OrganDionaBrain
-  parent: BaseDionaOrgan
+  parent: [BaseDionaOrgan, OrganHumanBrain]
   name: brain
   description: "The central hub of a diona's pseudo-neurological activity, its root-like tendrils search for its former body."
   components:
@@ -40,6 +36,9 @@
     heldPrefix: brain
   - type: Sprite
     state: brain
+  - type: Organ # GoobStation
+    slotId: Brain
+  - type: Brain # GoobStation
   - type: SolutionContainerManager
     solutions:
       organ:
@@ -55,11 +54,6 @@
         reagents:
         - ReagentId: GreyMatter
           Quantity: 5
-  - type: Tag # goob edit
-    tags:
-    - Meat
-    - Organ
-    - Brain
 
 - type: entity
   id: OrganDionaEyes
@@ -71,6 +65,8 @@
     layers:
       - state: eyeball-l
       - state: eyeball-r
+  - type: Organ # GoobStation
+    slotId: eyes
   - type: Tag # goob edit
     tags:
     - Meat
@@ -94,6 +90,8 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
+  - type: Organ # GoobStation
+    slotId: stomach
   - type: Stomach
   - type: Metabolizer
     maxReagents: 6
@@ -107,11 +105,6 @@
       - id: Narcotic
       - id: Alcohol
         rateModifier: 0.1
-  - type: Tag # goob edit
-    tags:
-    - Meat
-    - Organ
-    - Stomach
   - type: Item
     size: Small
     heldPrefix: stomach
@@ -124,9 +117,8 @@
   components:
   - type: Sprite
     state: lungs
-  - type: Item
-    size: Small
-    heldPrefix: lungs
+  - type: Organ # GoobStation
+    slotId: lungs
   - type: Lung
   - type: Metabolizer
     removeEmpty: true
@@ -146,11 +138,9 @@
       Lung:
         maxVol: 100
         canReact: False
-  - type: Tag # goob edit
-    tags:
-    - Meat
-    - Organ
-    - Lungs
+  - type: Item
+    size: Small
+    heldPrefix: lungs
 
 # Organs that turn into nymphs on removal
 - type: entity
@@ -164,11 +154,6 @@
   - type: Nymph # This will make the organs turn into a nymph when they're removed.
     entityPrototype: OrganDionaNymphBrain
     transferMind: true
-  - type: Tag # goob edit
-    tags:
-    - Meat
-    - Organ
-    - Brain
 
 - type: entity
   id: OrganDionaStomachNymph
@@ -179,11 +164,6 @@
   components:
   - type: Nymph
     entityPrototype: OrganDionaNymphStomach
-  - type: Tag # goob edit
-    tags:
-    - Meat
-    - Organ
-    - Stomach
 
 - type: entity
   id: OrganDionaLungsNymph
@@ -194,11 +174,6 @@
   components:
   - type: Nymph
     entityPrototype: OrganDionaNymphLungs
-  - type: Tag # goob edit
-    tags:
-    - Meat
-    - Organ
-    - Lungs
 
 # Nymphs that the organs will turn into
 - type: entity

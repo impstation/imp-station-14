@@ -19,10 +19,9 @@
   - type: FlavorProfile
     flavors:
       - chicken # everything kinda tastes like chicken
-  - type: Tag # goob edit
+  - type: Tag
     tags:
-    - Meat
-    - Organ
+      - Meat
 
 - type: entity
   id: BaseAnimalOrgan
@@ -42,6 +41,7 @@
     - state: lung-l
     - state: lung-r
   - type: Organ
+    slotId: lungs # GoobStation
   - type: Lung
   - type: Metabolizer
     removeEmpty: true
@@ -61,15 +61,9 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
-  - type: Tag # goob edit
-    tags:
-    - Meat
-    - Organ
-    - Lungs
   - type: Item
     size: Small
     heldPrefix: lungs
-
 
 - type: entity
   id: OrganAnimalStomach
@@ -80,6 +74,7 @@
   - type: Sprite
     state: stomach
   - type: Organ
+    slotId: stomach # GoobStation
   - type: SolutionContainerManager
     solutions:
       stomach:
@@ -96,15 +91,9 @@
     groups:
     - id: Food
     - id: Drink
-  - type: Tag # goob edit
-    tags:
-    - Meat
-    - Organ
-    - Stomach
   - type: Item
     size: Small
     heldPrefix: stomach
-
 
 - type: entity
   id: OrganMouseStomach
@@ -129,12 +118,14 @@
   - type: Sprite
     state: liver
   - type: Organ
+    slotId: liver # GoobStation
   - type: Metabolizer
     maxReagents: 1
     metabolizerTypes: [ Animal ]
     groups:
     - id: Alcohol
       rateModifier: 0.1
+  - type: Liver # GoobStation
   - type: Tag # goob edit
     tags:
     - Meat
@@ -153,6 +144,7 @@
   - type: Sprite
     state: heart-on
   - type: Organ
+    slotId: heart # GoobStation
   - type: Metabolizer
     maxReagents: 2
     metabolizerTypes: [ Animal ]
@@ -160,14 +152,15 @@
     - id: Medicine
     - id: Poison
     - id: Narcotic
+  - type: Item
+    size: Small
+    heldPrefix: heart
+  - type: Heart # GoobStation
   - type: Tag # goob edit
     tags:
     - Meat
     - Organ
     - Heart
-  - type: Item
-    size: Small
-    heldPrefix: heart
 
 - type: entity
   id: OrganAnimalKidneys
@@ -180,15 +173,11 @@
     - state: kidney-l
     - state: kidney-r
   - type: Organ
+    slotId: kidneys # GoobStation
   - type: Metabolizer
     maxReagents: 5
     metabolizerTypes: [ Animal ]
     removeEmpty: true
-  - type: Tag # goob edit
-    tags:
-    - Meat
-    - Organ
-    - Kidneys
   - type: Item
     size: Small
     heldPrefix: kidneys
