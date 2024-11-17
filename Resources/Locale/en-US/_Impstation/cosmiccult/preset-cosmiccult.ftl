@@ -33,7 +33,7 @@ cosmiccult-role-conversion-fluff =
     All you need do is usher it in.
 
 cosmiccult-role-deconverted-fluff =
-    A great emptiness washes across your mind. A comforting yet unfamiliar emptiness.
+    A great emptiness washes across your mind. A comforting, yet unfamiliar emptiness...
     All the thoughts and memories of your time in the cult begin to fade and blur.
 
 cosmiccult-role-short-briefing =
