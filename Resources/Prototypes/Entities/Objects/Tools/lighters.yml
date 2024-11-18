@@ -100,6 +100,13 @@
   - type: ItemTogglePointLight
   - type: ItemToggleDamageOtherOnHit # imp
   - type: DamageOtherOnHit
+  - type: Cautery # GoobStation
+    speed: 0.45
+  - type: SurgeryTool # GoobStation
+    startSound:
+      collection: lighterOnSounds
+    endSound:
+      collection: lighterOffSounds
 
 - type: entity
   name: cheap lighter

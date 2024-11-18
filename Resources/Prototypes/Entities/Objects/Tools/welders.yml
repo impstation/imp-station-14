@@ -120,6 +120,13 @@
         Blunt: 8
     staminaCost: 7.5
   # end imp edits #
+  - type: Cautery # GoobStation
+    speed: 0.7
+  - type: SurgeryTool # GoobStation
+    startSound:
+      collection: Welder
+    endSound:
+      collection: WelderOff
 
 - type: entity
   name: industrial welding tool

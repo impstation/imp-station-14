@@ -58,6 +58,13 @@
   - type: ThrowingAngle
     angle: 45
   # end imp edits #
+  - type: Scalpel # GoobStation
+    speed: 0.3
+  - type: BoneSaw # GoobStation
+    speed: 0.5
+  - type: SurgeryTool # GoobStation
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
 
 - type: entity
   id: FireAxeFlaming

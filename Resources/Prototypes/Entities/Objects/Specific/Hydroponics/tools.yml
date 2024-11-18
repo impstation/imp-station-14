@@ -48,6 +48,15 @@
     storedRotation: -90
   - type: DamageOtherOnHit # imp
     staminaCost: 5
+  - type: Retractor # GoobStation: Same as wirecutters
+    speed: 0.35
+  - type: Hemostat
+    speed: 0.6
+  - type: SurgeryTool # GoobStation
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/retractor2.ogg
 
 - type: entity
   name: scythe
@@ -112,6 +121,11 @@
     sound: /Audio/Weapons/star_hit.ogg
   - type: EmbedPassiveDamage
   # end imp edits #
+  - type: BoneSaw # GoobStation
+    speed: 0.35
+  - type: SurgeryTool # GoobStation
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
 
 - type: entity
   name: spade

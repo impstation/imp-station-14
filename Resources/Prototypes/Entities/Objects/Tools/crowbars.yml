@@ -44,6 +44,10 @@
     - 0,0,0,1
   - type: DamageOtherOnHit # imp
     staminaCost: 6
+  - type: Tweezers # GoobStation
+    speed: 0.55
+  - type: SurgeryTool # GoobStation
+    startSound: /Audio/Items/crowbar.ogg
 
 # Standard (grey) Crowbar
 - type: entity
