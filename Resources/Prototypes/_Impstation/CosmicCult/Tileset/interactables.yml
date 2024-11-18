@@ -18,6 +18,8 @@
     noRot: true
     layers:
       - state: stage1
+      # - state: inserting1
+      #   shader: unshaded
   - type: InteractionOutline
   - type: Transform
     noRot: true
@@ -64,6 +66,8 @@
     sprite: _Impstation/CosmicCult/Tileset/monument.rsi
     layers:
       - state: stage1
+      # - state: inserting1
+      #   shader: unshaded
 
 - type: entity
   parent: MonumentCosmicCultBase
@@ -77,6 +81,8 @@
     sprite: _Impstation/CosmicCult/Tileset/monument.rsi
     layers:
       - state: stage2
+      # - state: inserting2
+      #   shader: unshaded
 
  ########### STAGE 3 #############
 
@@ -90,6 +96,8 @@
     sprite: _Impstation/CosmicCult/Tileset/monument.rsi
     layers:
       - state: stage3
+      # - state: inserting3
+      #   shader: unshaded
 
  ########### STAGE 4 #############
 
@@ -102,7 +110,9 @@
   - type: Sprite
     sprite: _Impstation/CosmicCult/Tileset/monument.rsi
     layers:
-      - state: stage4
+      - state: stage3
+      # - state: inserting3
+      #   shader: unshaded
       - state: stage4-overlay
         shader: unshaded
 

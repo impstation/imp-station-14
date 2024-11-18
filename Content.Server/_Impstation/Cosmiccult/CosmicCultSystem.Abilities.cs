@@ -81,10 +81,10 @@ public sealed partial class CosmicCultSystem : EntitySystem
         _damageable.TryChangeDamage(args.Target, comp.CosmicSiphonDamage, origin: uid);
         _popup.PopupEntity(Loc.GetString("cosmicability-siphon-success", ("target", Identity.Entity(target, EntityManager))), uid, uid);
 
-        var entropymote = SpawnAtPosition(comp.CosmicSiphonResult, Transform(uid).Coordinates);
-        _hands.TryForcePickupAnyHand(uid, entropymote);
+        var entropymote1 = SpawnAtPosition(comp.CosmicSiphonResult, Transform(uid).Coordinates);
+        _hands.TryForcePickupAnyHand(uid, entropymote1);
 
-        // increment the tracker greentext
+        // increment the greentext tracker and then set our tracker to what the greentext's tracker currently is
         IncrementCultObjectiveEntropy();
         if (_mind.TryGetObjectiveComp<CosmicEntropyConditionComponent>(uid, out var obj))
             obj.Siphoned = ObjectiveEntropyTracker;
@@ -131,4 +131,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
 
         return true;
     }
+
+
+
 }

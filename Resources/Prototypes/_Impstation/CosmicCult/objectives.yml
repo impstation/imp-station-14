@@ -14,7 +14,7 @@
 - type: entity
   parent: [BaseCosmicCultObjective, BaseLivingObjective]
   id: EscapeCosmicCultShuttleObjective
-  name: Elect a Leader
+  name: ELECT A LEADER
   description: For our plans to succeed, we'll need some form of leadership.
   components:
   - type: Objective
@@ -36,6 +36,6 @@
   - type: NumberObjective
     min: 10
     max: 10
-    title: Siphon Entropy
+    title: SIPHON ENTROPY
     description: objective-condition-entropy-desc
   - type: CosmicEntropyCondition

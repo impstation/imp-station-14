@@ -36,18 +36,6 @@ public sealed partial class CosmicCultComponent : Component
 
     public Dictionary<string, EntityUid?> Equipment = new();
 
-    /// <summary>
-    ///     Amount of Entropy the cultist currently has.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public float CurrentEntropy = 60f;
-
-    /// <summary>
-    ///     Maximum amount of Entropy a cultist can have.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public float MaxEntropy = 100f;
-
     #region Cosmic Siphon
 
     /// <summary>
@@ -57,11 +45,16 @@ public sealed partial class CosmicCultComponent : Component
     public TimeSpan CosmicSiphonDuration = TimeSpan.FromSeconds(4);
 
     /// <summary>
-    ///     The entity prototype to spawn in the cultist's hand after
-    ///     completing a cosmic siphon
+    /// The entity prototype to spawn in the cultist's hand after completing a cosmic siphon.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public EntProtoId<ItemComponent> CosmicSiphonResult = "EntropyMoteCosmicCult"; // TODO: REPLACE
+    public EntProtoId<ItemComponent> CosmicSiphonResult = "MaterialCosmicCultEntropy1";
+
+    /// <summary>
+    /// The entity prototype to spawn in the cultist's hand after completing a cosmic siphon, but you want to give 'em more.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public EntProtoId<ItemComponent> CosmicSiphonResult3 = "MaterialCosmicCultEntropy3";
 
     /// <summary>
     /// The damage to apply upon a successful cosmic siphon
