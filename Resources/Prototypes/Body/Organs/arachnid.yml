@@ -34,7 +34,7 @@
   - type: Sprite
     sprite: Mobs/Species/Arachnid/organs.rsi
     state: stomach
-  - type: Organ # GoobStation
+  - type: Organ # Shitmed
     slotId: stomach
   - type: Stomach
     updateInterval: 1.5
@@ -63,7 +63,7 @@
     layers:
       - state: lung-l
       - state: lung-r
-  - type: Organ # GoobStation
+  - type: Organ # Shitmed
     slotId: lungs
   - type: Lung
   - type: Metabolizer
@@ -109,9 +109,9 @@
     - id: Medicine
     - id: Poison
     - id: Narcotic
-  - type: Organ # GoobStation
+  - type: Organ # Shitmed
     slotId: heart
-  - type: Heart # GoobStation: Lets you transplant spider hearts into other species
+  - type: Heart # Shitmed: Lets you transplant spider hearts into other species
   - type: Tag # goob edit
     tags:
     - Meat
@@ -137,9 +137,9 @@
     groups:
     - id: Alcohol
       rateModifier: 0.1 # removes alcohol very slowly along with the stomach removing it as a drink
-  - type: Organ # GoobStation
+  - type: Organ # Shitmed
     slotId: liver
-  - type: Liver # GoobStation
+  - type: Liver # Shitmed
   - type: Tag # goob edit
     tags:
     - Meat
@@ -177,17 +177,17 @@
     layers:
       - state: eyeball-l
       - state: eyeball-r
-  - type: Item
-    size: Small
-    heldPrefix: eyeballs
-  - type: Organ # GoobStation
+  - type: Organ # Shitmed
     slotId: eyes
-  - type: Eyes # GoobStation
+  - type: Eyes # Shitmed
   - type: Tag # goob edit
     tags:
     - Meat
     - Organ
     - Eyes
+  - type: Item
+    size: Small
+    heldPrefix: eyeballs
 
 - type: entity
   id: OrganArachnidTongue

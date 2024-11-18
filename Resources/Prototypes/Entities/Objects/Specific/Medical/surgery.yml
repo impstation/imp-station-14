@@ -160,7 +160,7 @@
     damage:
       types:
         Slash: 12
-  - type: Scalpel # GoobStation
+  - type: Scalpel # Shitmed
     speed: 1.25
 
 - type: entity
@@ -173,7 +173,7 @@
     state: laser
   - type: Item
     heldPrefix: laser
-  - type: Scalpel # GoobStation
+  - type: Scalpel # Shitmed
     speed: 1.5
   # TODO: prevent bleeding from incisions
 
@@ -245,15 +245,15 @@
   - type: ThrowingAngle
     angle: 90
   # end imp edits #
-  # Shitmed CHange
+  # Shitmed Change
   - type: SurgeryTool
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
     endSound:
       path: /Audio/_Shitmed/Medical/Surgery/hemostat1.ogg
   - type: Hemostat
-  - type: Tweezers # GoobStation
-  - type: Tending # GoobStation
+  - type: Tweezers # Shitmed
+  - type: Tending # Shitmed
 
 # Bone setter - Shitmed Change
 - type: entity
@@ -350,7 +350,7 @@
     speedModifier: 0.5
   - type: ThrowingAngle # imp
     angle: 90
-  - type: BoneSaw # GoobStation
+  - type: BoneSaw # Shitmed
     speed: 0.5
 
 - type: entity
@@ -380,7 +380,7 @@
   - type: ThrowingAngle
     angle: 90
   # end imp edits #
-  - type: BoneSaw # GoobStation
+  - type: BoneSaw # Shitmed
     speed: 1.5
 
 - type: entity
@@ -397,7 +397,7 @@
     attackRate: 1.5
   - type: Tool
     speedModifier: 2.0
-  - type: BoneSaw # GoobStation
+  - type: BoneSaw # Shitmed
     speed: 2
 
 # ORGANS - SHITMED
