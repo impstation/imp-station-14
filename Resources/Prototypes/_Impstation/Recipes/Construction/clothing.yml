@@ -1,0 +1,10 @@
+- type: construction
+  name: jackskates
+  id: ClothingShoesJackSkates
+  graph: JackSkates
+  startNode: start
+  targetNode: shoes
+  category: construction-category-clothing
+  description: A pair of jackboots "upgraded" with skates.
+  icon: { sprite: _Impstation/Clothing/Shoes/Specific/jackskates.rsi, state: icon }
+  objectType: Item

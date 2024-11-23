@@ -265,6 +265,9 @@
   name: roller skates
   description: "Get your skates on!"
   components:
+  - type: Tag #impstation: for jackskates recipe
+    tags:
+    - RollerSkates
   - type: Sprite
     sprite: Clothing/Shoes/Specific/skates.rsi
   - type: Clothing

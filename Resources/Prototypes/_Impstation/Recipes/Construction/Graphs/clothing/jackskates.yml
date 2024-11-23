@@ -1,0 +1,22 @@
+- type: constructionGraph
+  id: JackSkates
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: shoes
+      steps:
+      - tag: JackBoots
+        name: jackboots
+        icon:
+         sprite: Clothing/Shoes/Boots/jackboots.rsi
+         state: icon
+        doafter: 5
+      - tag: RollerSkates
+        name: roller skates
+        icon:
+         sprite: Clothing/Shoes/Specific/skates.rsi
+         state: icon
+        doAfter: 5
+  - node: shoes
+    entity: ClothingShoesJackSkates

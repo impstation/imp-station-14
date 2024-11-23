@@ -16,6 +16,9 @@
   name: jackboots
   description: Nanotrasen-issue Security combat boots for combat scenarios or combat situations. All combat, all the time.
   components:
+  - type: Tag #impstation: for jackskates recipe
+    tags:
+    - JackBoots
   - type: Sprite
     sprite: Clothing/Shoes/Boots/jackboots.rsi
   - type: Clothing
@@ -224,10 +227,6 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 10
-  - type: Butcherable
-    spawned:
-    - id: MaterialWebSilk1
-      amount: 2
   - type: Construction
     graph: WebObjects
     node: boots
