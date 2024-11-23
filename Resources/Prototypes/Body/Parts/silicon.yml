@@ -44,6 +44,11 @@
   - type: BodyPart
     partType: Arm # Shitmed Change
     symmetry: Left
+    toolName: "a left arm" # Shitmed Change
+    children: # Shitmed Change
+      left hand:
+        id: "left hand"
+        type: Hand
   - type: Sprite
     state: borg_l_arm
   - type: Icon
@@ -62,6 +67,11 @@
   - type: BodyPart
     partType: Arm # Shitmed Change
     symmetry: Right
+    toolName: "a right arm" # Shitmed Change
+    children: # Shitmed Change
+      right hand:
+        id: "right hand"
+        type: Hand
   - type: Sprite
     state: borg_r_arm
   - type: Icon
@@ -80,6 +90,11 @@
   - type: BodyPart
     partType: Leg
     symmetry: Left
+    toolName: "a left leg" # Shitmed Change
+    children: # Shitmed Change
+      left foot:
+        id: "left foot"
+        type: Foot
   - type: Sprite
     state: borg_l_leg
   - type: Icon
@@ -89,7 +104,9 @@
     - Trash
     - BorgLeg
     - BorgLLeg
-  - type: MovementBodyPart # Shitmed Change
+  - type: MovementBodyPart # Shitmed Change: 25% speed boost
+    walkSpeed: 3.125
+    sprintSpeed: 5.625
 
 - type: entity
   id: RightLegBorg
@@ -99,6 +116,11 @@
   - type: BodyPart
     partType: Leg
     symmetry: Right
+    toolName: "a right leg" # Shitmed Change
+    children: # Shitmed Change
+      right foot:
+        id: "right foot"
+        type: Foot
   - type: Sprite
     state: borg_r_leg
   - type: Icon
@@ -108,7 +130,9 @@
     - Trash
     - BorgLeg
     - BorgRLeg
-  - type: MovementBodyPart # Shitmed Change
+  - type: MovementBodyPart # Shitmed Change: 25% speed boost
+    walkSpeed: 3.125
+    sprintSpeed: 5.625
 
 - type: entity
   id: LightHeadBorg
@@ -117,6 +141,7 @@
   components:
   - type: BodyPart
     partType: Head
+    toolName: "a head" # Shitmed Change
   - type: Sprite
     state: borg_head
   - type: Icon
@@ -133,6 +158,7 @@
   components:
   - type: BodyPart
     partType: Torso
+    toolName: "a torso" # Shitmed Change
   - type: Sprite
     state: borg_chest
   - type: Icon
