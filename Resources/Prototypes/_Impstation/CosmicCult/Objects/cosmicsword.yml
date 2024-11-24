@@ -11,6 +11,7 @@
       - state: icon-overlay
         shader: unshaded
   - type: MeleeWeapon
+    resistanceBypass: true
     angle: 90
     animation: WeaponArcCosmic
     attackRate: 0.62

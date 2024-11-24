@@ -6,6 +6,8 @@ using Content.Shared.Stunnable;
 using Robust.Shared.GameStates;
 using Robust.Shared.Player;
 using Content.Shared.Antag;
+using Robust.Shared.Serialization;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._Impstation.Cosmiccult;
 
@@ -78,4 +80,38 @@ public abstract class SharedCosmicCultSystem : EntitySystem
             Dirty(uid, comp);
         }
     }
+}
+
+
+
+///  USER INTERFACE HANDLING GOES HEEEEEEEEEEEERE
+
+
+[Serializable, NetSerializable]
+public enum CosmicMonumentUiKey : byte
+{
+    Key
+}
+
+[Serializable, NetSerializable]
+public sealed class CosmicMonumentUserInterfaceState : BoundUserInterfaceState
+{
+    public TimeSpan CooldownEndTime;
+
+    public int FuelAmount;
+
+    public int FuelCost;
+
+    public CosmicMonumentUserInterfaceState(TimeSpan cooldownEndTime, int fuelAmount, int fuelCost)
+    {
+        CooldownEndTime = cooldownEndTime;
+        FuelAmount = fuelAmount;
+        FuelCost = fuelCost;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class CosmicMonumentGenerateButtonPressedEvent : BoundUserInterfaceMessage
+{
+
 }

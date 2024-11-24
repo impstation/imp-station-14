@@ -6,23 +6,25 @@
   - type: GameRule
     minPlayers: 25
     delay:
-      min: 40
-      max: 60
+      min: 240
+      max: 420
   - type: AntagObjectives
     objectives:
+    - CosmicFinalityObjective
+    - CosmicMonumentObjective
+    - CosmicLeadershipObjective
     - CosmicEntropyObjective
-    - EscapeCosmicCultShuttleObjective
   - type: AntagSelection
     agentName: cosmiccult-roundend-name
     definitions:
     - prefRoles: [ CosmicCult ]
-      max: 4
-      playerRatio: 10
+      min: 3
+      max: 5
+      playerRatio: 15
       lateJoinAdditional: true
       blacklist:
         components:
         - AntagImmune
-##      startingGear: CosmicCultGear
       components:
       - type: CosmicCult
       mindRoles:

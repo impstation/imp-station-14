@@ -24,7 +24,13 @@
   - type: Item
     sprite: _Impstation/CosmicCult/Objects/entropymote.rsi
     size: Small
-
+  - type: Tag
+    tags:
+      - EntropyMote
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      EntropyMoteMaterial: 1
 
 - type: entity
   parent: MaterialCosmicCultEntropy

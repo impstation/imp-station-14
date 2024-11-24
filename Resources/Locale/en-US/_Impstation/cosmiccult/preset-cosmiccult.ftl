@@ -4,7 +4,7 @@ cosmiccult-title = Cosmic Cult
 cosmiccult-description = Cultists lurk amongst the crew.
 
 
-cosmiccult-roundend-name = cosmic cult
+cosmiccult-roundend-name = cosmic cultist
 
 roundend-prepend-cosmiccult-summoning-success = [color=green]debuf notifier! Woop![/color]
 roundend-prepend-cosmiccult-summoning-fail = [color=red]The summoning has failed![/color]

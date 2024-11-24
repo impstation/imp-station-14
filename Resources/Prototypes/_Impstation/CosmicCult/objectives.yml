@@ -11,23 +11,24 @@
       mindRoles:
       - CosmicCultRole
 
+############################### COSMIC CULT'S OBJECTIVES
+
 - type: entity
   parent: [BaseCosmicCultObjective, BaseLivingObjective]
-  id: EscapeCosmicCultShuttleObjective
+  id: CosmicLeadershipObjective
   name: ELECT A LEADER
   description: For our plans to succeed, we'll need some form of leadership.
   components:
   - type: Objective
-    difficulty: 1.3
     icon:
       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
-      state: monument
+      state: blank
   - type: EscapeShuttleCondition
 
 - type: entity
   parent: BaseCosmicCultObjective
   id: CosmicEntropyObjective
-  name: Entropy siphoned
+  name: nameunused
   components:
   - type: Objective
     icon:
@@ -39,3 +40,27 @@
     title: SIPHON ENTROPY
     description: objective-condition-entropy-desc
   - type: CosmicEntropyCondition
+
+- type: entity
+  parent: [BaseCosmicCultObjective, BaseLivingObjective]
+  id: CosmicMonumentObjective
+  name: EMPOWER THE MONUMENT
+  description: As a cult, collectively ensure that The Monument is brought to its full power.
+  components:
+  - type: Objective
+    icon:
+      sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: monument
+  - type: EscapeShuttleCondition
+
+- type: entity
+  parent: [BaseCosmicCultObjective, BaseLivingObjective]
+  id: CosmicFinalityObjective
+  name: USHER IN THE END
+  description: Invoke the influence The Unknown, heralding the final curtain call.
+  components:
+  - type: Objective
+    icon:
+      sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: monument
+  - type: EscapeShuttleCondition

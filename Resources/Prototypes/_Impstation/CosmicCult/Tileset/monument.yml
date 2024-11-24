@@ -1,5 +1,5 @@
 
- ########### STAGE 1 #############
+ ########### COSMIC MONUMENT, BASE ABSTRACT #############
 
 - type: entity
   abstract: true
@@ -10,16 +10,19 @@
   suffix: Base
   components:
   - type: CosmicItem
+  - type: CosmicMonument
   - type: SpriteFade
   - type: Sprite
     sprite: _Impstation/CosmicCult/Tileset/monument.rsi
+    layers:
+      - state: stage1
+      - state: inserting1
+        visible: false
+        shader: unshaded
+        map: ["enum.MaterialStorageVisualLayers.Inserting"]
     offset: 0,1
     drawdepth: Mobs
     noRot: true
-    layers:
-      - state: stage1
-      # - state: inserting1
-      #   shader: unshaded
   - type: InteractionOutline
   - type: Transform
     noRot: true
@@ -51,13 +54,39 @@
        enabled: true
        isLooped: true
        reverseWhenFinished: true
+  - type: AmbientSound
+    range: 3.5
+    volume: -9
+    sound:
+      path: /Audio/_Impstation/CosmicCult/god_ambient.ogg
+  - type: MaterialStorage
+    insertingSound: /Audio/_Impstation/CosmicCult/cosmiclance_impact.ogg
+    ignoreColor: true
+    whitelist:
+      tags:
+        - EntropyMote
+    materialWhiteList:
+    - EntropyMoteMaterial
+  - type: ActivatableUI
+    key: enum.CosmicMonumentUiKey.Key
+  - type: UserInterface
+    interfaces:
+        enum.CosmicMonumentUiKey.Key:
+          type: CosmicMonumentBoundUserInterface
+  - type: GuideHelp
+    guides:
+    - AnomalousResearch
+  - type: Appearance
+  - type: ActiveRadio
+    channels:
+    - CosmicRadio
 
- ########### STAGE 2 #############
+ ########### STAGE 1 #############
 
 - type: entity
   parent: MonumentCosmicCultBase
   id: MonumentCosmicCult1
-  suffix: Stage 1, Debug
+  suffix: Base
   components:
   - type: CosmicMonument
   - type: Visibility
@@ -66,8 +95,12 @@
     sprite: _Impstation/CosmicCult/Tileset/monument.rsi
     layers:
       - state: stage1
-      # - state: inserting1
-      #   shader: unshaded
+      - state: inserting1
+        visible: false
+        shader: unshaded
+        map: ["enum.MaterialStorageVisualLayers.Inserting"]
+
+ ########### STAGE 2 #############
 
 - type: entity
   parent: MonumentCosmicCultBase
@@ -81,8 +114,10 @@
     sprite: _Impstation/CosmicCult/Tileset/monument.rsi
     layers:
       - state: stage2
-      # - state: inserting2
-      #   shader: unshaded
+      - state: inserting2
+        visible: false
+        shader: unshaded
+        map: ["enum.MaterialStorageVisualLayers.Inserting"]
 
  ########### STAGE 3 #############
 
@@ -96,14 +131,16 @@
     sprite: _Impstation/CosmicCult/Tileset/monument.rsi
     layers:
       - state: stage3
-      # - state: inserting3
-      #   shader: unshaded
+      - state: inserting3
+        visible: false
+        shader: unshaded
+        map: ["enum.MaterialStorageVisualLayers.Inserting"]
 
  ########### STAGE 4 #############
 
 - type: entity
   parent: MonumentCosmicCultBase
-  id: MonumentCosmicCult4
+  id: MonumentCosmicCult3+
   suffix: Stage 4, Debug
   components:
   - type: CosmicMonument
@@ -111,8 +148,10 @@
     sprite: _Impstation/CosmicCult/Tileset/monument.rsi
     layers:
       - state: stage3
-      # - state: inserting3
-      #   shader: unshaded
+      - state: inserting3
+        visible: false
+        shader: unshaded
+        map: ["enum.MaterialStorageVisualLayers.Inserting"]
       - state: stage4-overlay
         shader: unshaded
 
