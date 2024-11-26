@@ -118,6 +118,7 @@
         - Syndicate
       mindRoles:
       - MindRoleNukeopsCommander
+      playerPrioritySelection: PrioritizeExperiencedPlayer
     - prefRoles: [ NukeopsMedic ]
       fallbackRoles: [ Nukeops, NukeopsCommander ]
       spawnerPrototype: SpawnPointNukeopsMedic
@@ -135,6 +136,7 @@
         - Syndicate
       mindRoles:
       - MindRoleNukeopsMedic
+      playerPrioritySelection: DoNotPrioritize
     - prefRoles: [ Nukeops ]
       fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsOperative
@@ -154,6 +156,8 @@
         - Syndicate
       mindRoles:
       - MindRoleNukeops
+      playerPrioritySelection: PrioritizeNewPlayer
+      playerPriorityPercentage: 0.7
 
 - type: entity
   abstract: true
