@@ -1,0 +1,7 @@
+- type: entity
+  id: BorgChassisCargo
+  parent: BorgChassisSelectable
+  name: cargo cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: cargo
