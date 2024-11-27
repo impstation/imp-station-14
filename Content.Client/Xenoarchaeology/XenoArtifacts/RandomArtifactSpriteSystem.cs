@@ -18,6 +18,7 @@ public sealed class RandomArtifactSpriteSystem : VisualizerSystem<RandomArtifact
 
         var spriteIndexStr = spriteIndex.ToString("D2");
         var spritePrefix = isActivated ? "_on" : "";
+        component.SelectedState = spriteIndexStr;
 
         // layered artifact sprite
         if (args.Sprite.LayerMapTryGet(ArtifactsVisualLayers.Effect, out var layer))

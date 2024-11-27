@@ -12,5 +12,9 @@ public sealed partial class RandomArtifactSpriteComponent : Component
     [DataField("activationTime")]
     public double ActivationTime = 2.0;
 
+    [DataField("selectedState")]
+
+    public string SelectedState = "";
+
     public TimeSpan? ActivationStart;
 }
