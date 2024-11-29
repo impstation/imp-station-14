@@ -1,0 +1,82 @@
+- type: entity
+  parent: SimpleMobBase
+  id: BaseMobPikmin
+  abstract: true
+  components:
+  - type: GhostRole
+    name: ghost-role-information-monkey-name
+    description: ghost-role-information-monkey-description
+    rules: ghost-role-information-nonantagonist-rules
+  - type: GhostTakeoverAvailable
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.15
+        density: 10
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: Item
+    size: Tiny
+  - type: InputMover
+  - type: MobMover
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      20: Dead
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Blunt: 1
+  - type: NoSlip
+  - type: ZombieImmune
+  - type: Food
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 1
+  - type: CanEscapeInventory
+    baseResistTime: 2
+  - type: NpcFactionMember
+    factions:
+    - PetsNT
+  - type: Bloodstream
+    bloodMaxVolume: 15
+    bloodReagent: Nutriment
+  - type: Puller
+    needsHands: false
+
+- type: htnCompound
+  id: PikminCompound
+  branches:
+  - tasks:
+    - !type:HTNCompoundTask
+      task: IdleCompound
+
+- type: entity
+  name: Red Pikmin
+  parent: BaseMobPikmin
+  id: RedPikmin
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: red
+      sprite: _Impstation/Mobs/NPCs/pikmin.rsi
+  - type: Flammable
+    damage:
+      types: {}
+  - type: HTN
+    rootTask:
+      task: PikminCompound
