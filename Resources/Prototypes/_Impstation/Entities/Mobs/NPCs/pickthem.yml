@@ -1,6 +1,6 @@
 - type: entity
   parent: SimpleMobBase
-  id: BaseMobPikmin
+  id: BaseMobPickthem
   abstract: true
   components:
   - type: GhostRole
@@ -57,7 +57,7 @@
     needsHands: false
 
 - type: htnCompound
-  id: PikminCompound
+  id: PickthemCompound
   branches:
   - tasks:
     - !type:HTNCompoundTask
@@ -65,18 +65,18 @@
 
 - type: entity
   name: Red Pikmin
-  parent: BaseMobPikmin
-  id: RedPikmin
+  parent: BaseMobPickthem
+  id: RedPickthem
   components:
   - type: Sprite
     drawdepth: Mobs
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: red
-      sprite: _Impstation/Mobs/NPCs/pikmin.rsi
+      sprite: _Impstation/Mobs/NPCs/pickthem.rsi
   - type: Flammable
     damage:
       types: {}
   - type: HTN
     rootTask:
-      task: PikminCompound
+      task: PickthemCompound
