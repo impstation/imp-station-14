@@ -1,0 +1,68 @@
+
+- type: entity
+  id: ActionCosmicToolToggle
+  name: Beckon Compass
+  description: Summon or Unsummon your compass of stars.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 2
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: compass
+    event: !type:EventCosmicToolToggle {}
+  - type: CosmicCultAction
+    requireEntropy: false
+
+- type: entity
+  id: ActionCosmicSiphon
+  name: Siphon Entropy
+  description: "Silently siphon entropy from your target, dealing some damage in the process." # TODO: REPLACE
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    useDelay: 10
+    whitelist:
+      components:
+        - HumanoidAppearance
+    canTargetSelf: false
+    interactOnMiss: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: siphon
+    event: !type:EventCosmicSiphon {}
+  - type: CosmicCultAction
+
+# - type: entity
+#   id: ActionCosmicLapse
+#   name: Abberant Lapse
+#   description: TODO
+#   categories: [ HideSpawnMenu ]
+#   components:
+#   - type: InstantAction
+#     useDelay: 2
+#     itemIconStyle: NoItem
+#     icon:
+#       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
+#       state: lapse
+#     event: !type:EventCosmicToolToggle {}
+#   - type: CosmicCultAction
+#     requireEntropy: false
+
+# - type: entity
+#   id: ActionCosmicGlare
+#   name: Null Glare
+#   description: TODO
+#   categories: [ HideSpawnMenu ]
+#   components:
+#   - type: InstantAction
+#     useDelay: 2
+#     itemIconStyle: NoItem
+#     icon:
+#       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
+#       state: glare
+#     event: !type:EventCosmicToolToggle {}
+#   - type: CosmicCultAction
+#     requireEntropy: false

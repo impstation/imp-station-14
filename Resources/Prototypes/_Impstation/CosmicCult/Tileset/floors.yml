@@ -1,0 +1,28 @@
+- type: tile
+  id: FloorCosmicGlyph
+  name: tiles-cosmiccult-floor-glyph
+  sprite: /Textures/_Impstation/CosmicCult/Tileset/cosmicfloor/tile_glyph.png
+  baseTurf: FloorGlass
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepCosmic
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorCosmicSmooth
+  name: tiles-cosmiccult-floor-smooth
+  sprite: /Textures/_Impstation/CosmicCult/Tileset/cosmicfloor/tile_smooth.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: FloorGlass
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepCosmic
+  heatCapacity: 10000
+

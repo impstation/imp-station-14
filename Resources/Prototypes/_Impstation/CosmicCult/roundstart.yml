@@ -1,0 +1,31 @@
+- type: entity
+  parent: BaseGameRule
+  id: CosmicCult
+  components:
+  - type: CosmicCultRule
+  - type: GameRule
+    minPlayers: 25
+    delay:
+      min: 240
+      max: 420
+  - type: AntagObjectives
+    objectives:
+    - CosmicFinalityObjective
+    - CosmicMonumentObjective
+    - CosmicLeadershipObjective
+    - CosmicEntropyObjective
+  - type: AntagSelection
+    agentName: cosmiccult-roundend-name
+    definitions:
+    - prefRoles: [ CosmicCult ]
+      min: 3
+      max: 5
+      playerRatio: 15
+      lateJoinAdditional: true
+      blacklist:
+        components:
+        - AntagImmune
+      components:
+      - type: CosmicCult
+      mindRoles:
+      - MindRoleCosmicCult

@@ -1,0 +1,51 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                Resizable="False"
+                SetSize="750 1120"
+                MinSize="750 1120">
+                    <TextureRect Stretch="KeepAspectCentered"
+                                TexturePath="/Textures/_Impstation/CosmicCult/Interface/glare.png"
+                                SetSize="1124 1124"
+                                Margin="0 0 0 0"/>
+    <BoxContainer Margin="0 0"
+                  Orientation="Vertical"
+                  HorizontalExpand="True"
+                  VerticalExpand="True">
+        <BoxContainer Margin="15 15 7 0" Orientation="Horizontal">
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                <BoxContainer Orientation="Horizontal"
+                              HorizontalExpand="True"
+                              VerticalExpand="True"
+                              Margin="0 0 0 0"
+                              VerticalAlignment="Center">
+                    <ProgressBar Name="FuelBar"
+                                 HorizontalExpand="True"
+                                 MaxValue="1"
+                                 MinValue="0"
+                                 SetHeight="25"
+                                 Margin="10 0 10 0"
+                                 VerticalAlignment="Center">
+                        <Label Name="FuelText"
+                               Margin="5 0"
+                               HorizontalAlignment="Center"
+                               Text="0 %" />
+                    </ProgressBar>
+                </BoxContainer>
+                <RichTextLabel Name="CooldownLabel" StyleClasses="StatusFieldTitle" />
+                <RichTextLabel Name="ReadyLabel" StyleClasses="StatusFieldTitle" />
+            </BoxContainer>
+            <!--Sprite View-->
+            <PanelContainer Margin="12 0 0 0"
+                            StyleClasses="Inset"
+                            VerticalAlignment="Center">
+            </PanelContainer>
+        </BoxContainer>
+        <BoxContainer VerticalExpand="True"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center"
+                      Margin="0 10">
+            <Button Name="GenerateButton"
+                    Text="{Loc 'cosmic-monument-generate'}"></Button>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

@@ -1,0 +1,13 @@
+- type: antag
+  id: CosmicCultAntag
+  name: roles-antag-heretic-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-rev-objective
+
+- type: antag
+  id: CosmicLeaderAntag
+  name: roles-antag-heretic-name
+  antagonist: true
+  setPreference: false
+  objective: roles-antag-rev-head-objective

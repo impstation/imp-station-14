@@ -6,10 +6,6 @@ namespace Content.Server.Roles;
 
 public sealed class RoleSystem : SharedRoleSystem
 {
-        // Gotta fix these three by figuring out how the role system works and adding them...
-        // SubscribeAntagEvents<ChangelingRoleComponent>(); // goobstation - changelings
-        // SubscribeAntagEvents<HereticRoleComponent>(); // goobstation - heretics
-        // SubscribeAntagEvents<GhoulRoleComponent>(); // heretics
     public string? MindGetBriefing(EntityUid? mindId)
     {
         if (mindId == null)

@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "A custom item by AftrLite (Github).",
+  "size": {
+    "x": 96,
+    "y": 96
+  },
+  "states": [
+    {
+      "name": "stage1"
+    },
+    {
+      "name": "stage2"
+    },
+    {
+      "name": "stage3"
+    },
+
+    {
+      "name": "inserting1",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "inserting2",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "inserting3",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+
+    {
+      "name": "stage4-overlay",
+      "delays": [
+        [
+          0.11, 0.11, 0.11, 0.11, 0.11
+        ]
+      ]
+    }
+  ]
+}
