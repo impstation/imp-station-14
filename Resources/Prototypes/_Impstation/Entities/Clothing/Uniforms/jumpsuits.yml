@@ -22,6 +22,7 @@
 
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+<<<<<<< HEAD
   id: ClothingUniformSpaceJumpsuitScientist
   name: space scientist jumpsuit
   description: A high quality scientist jumpsuit made from the highest quality fibers.. It almost feels like it's from another universe.
@@ -30,3 +31,13 @@
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/spacescientist.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/spacescientist.rsi
+=======
+  id: ClothingUniformSpaceJumpsuitGrayTider
+  name: gilded grey space jumpsuit
+  description: A high quality gray jumpsuit made from the highest quality fiber, with gold accents.. It almost feels like it's from another universe.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/spacegreytider.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/spacegreytider.rsi
+>>>>>>> 97e61c441e (Added Gilded Gray Space Jumpsuit for graytider and added the regular gray one to the clothesmate)
