@@ -1,13 +1,28 @@
 - type: antag
-  id: CosmicCultAntag
-  name: roles-antag-heretic-name
+  id: CosmicAntagCultist
+  name: roles-antag-cosmiccult-name
   antagonist: true
   setPreference: true
-  objective: roles-antag-rev-objective
+  objective: roles-antag-cosmiccult-description
+  guides: [ NuclearOperatives ]
 
 - type: antag
-  id: CosmicLeaderAntag
-  name: roles-antag-heretic-name
+  id: CosmicAntagLeader
+  name: roles-antag-cosmiccultlead-name
   antagonist: true
-  setPreference: false
-  objective: roles-antag-rev-head-objective
+  setPreference: true
+  objective: roles-antag-cosmiccultlead-description
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 36000 # 10h
+  - !type:DepartmentTimeRequirement
+    department: Command
+    time: 36000 # 10h
+  - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 27000 # 7.5 hours
+  - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 27000 # 7.5 hours
+  guides: [ NuclearOperatives ]

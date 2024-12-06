@@ -24,7 +24,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _aud = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
-
     public EntProtoId CultToolPrototype = "AbilityCosmicCultTool";
     public int ObjectiveEntropyTracker = 0;
 
@@ -33,7 +32,8 @@ public sealed partial class CosmicCultSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<CosmicCultComponent, ComponentInit>(OnCompInit);
-        SubscribeLocalEvent<CosmicCultComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<CosmicCultComponent, ComponentStartup>(OnStartCultist);
+        SubscribeLocalEvent<CosmicCultLeadComponent, ComponentStartup>(OnStartCultLead);
         SubscribeLocalEvent<CosmicItemComponent, ExaminedEvent>(OnCosmicItemExamine);
         // SubscribeLocalEvent<CosmicCultComponent, ComponentRemove>(OnComponentRemove); || We'll probably need this later.
 
@@ -53,10 +53,17 @@ public sealed partial class CosmicCultSystem : EntitySystem
     /// <summary>
     /// Called when the component starts up, add the Cosmic Cult abilities to the user.
     /// </summary>
-    private void OnStartup(EntityUid uid, CosmicCultComponent comp, ref ComponentStartup args)
+    private void OnStartCultist(EntityUid uid, CosmicCultComponent comp, ref ComponentStartup args)
     {
         foreach (var actionId in comp.BaseCosmicCultActions)
             _actions.AddAction(uid, actionId);
+    }
+    /// <summary>
+    /// Called when the component starts up, add the Cosmic Cult monument ability to the user.
+    /// </summary>
+    private void OnStartCultLead(EntityUid uid, CosmicCultLeadComponent comp, ref ComponentStartup args)
+    {
+        _actions.AddAction(uid, ref comp.MonumentActionEntity, comp.MonumentAction, uid);
     }
 
     /// <summary>

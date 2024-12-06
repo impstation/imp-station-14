@@ -13,12 +13,11 @@
       state: compass
     event: !type:EventCosmicToolToggle {}
   - type: CosmicCultAction
-    requireEntropy: false
 
 - type: entity
   id: ActionCosmicSiphon
   name: Siphon Entropy
-  description: "Silently siphon entropy from your target, dealing some damage in the process." # TODO: REPLACE
+  description: Silently siphon entropy from your target, dealing some damage in the process.
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
@@ -26,7 +25,7 @@
     whitelist:
       components:
         - HumanoidAppearance
-    canTargetSelf: false
+    canTargetSelf: true
     interactOnMiss: false
     itemIconStyle: NoItem
     icon:
@@ -36,20 +35,55 @@
   - type: CosmicCultAction
 
 # - type: entity
-#   id: ActionCosmicLapse
-#   name: Abberant Lapse
-#   description: TODO
+#   id: ActionCosmicBlank
+#   name: Blank Mentality
+#   description: Silently siphon entropy from your target, dealing some damage in the process.
 #   categories: [ HideSpawnMenu ]
 #   components:
-#   - type: InstantAction
-#     useDelay: 2
+#   - type: EntityTargetAction
+#     useDelay: 10
+#     whitelist:
+#       components:
+#         - HumanoidAppearance
+#     canTargetSelf: true
+#     interactOnMiss: false
 #     itemIconStyle: NoItem
 #     icon:
 #       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
-#       state: lapse
-#     event: !type:EventCosmicToolToggle {}
+#       state: siphon
+#     event: !type:EventCosmicSiphon {}
 #   - type: CosmicCultAction
-#     requireEntropy: false
+
+- type: entity
+  id: ActionCosmicPlaceMonument
+  name: Beckon The Monument
+  description: TODO
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ConfirmableAction
+    popup: cosmic-monument-spawn-confirm
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: monument
+    event: !type:EventCosmicPlaceMonument {}
+  - type: CosmicCultAction
+
+- type: entity
+  id: ActionCosmicLapse
+  name: Abberant Lapse
+  description: TODO
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    useDelay: 2
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: lapse
+    event: !type:EventCosmicLapse {}
+  - type: CosmicCultAction
 
 # - type: entity
 #   id: ActionCosmicGlare
@@ -63,6 +97,5 @@
 #     icon:
 #       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
 #       state: glare
-#     event: !type:EventCosmicToolToggle {}
+#     event: !type:EventCosmicGlare {}
 #   - type: CosmicCultAction
-#     requireEntropy: false

@@ -80,6 +80,31 @@
   - type: ActiveRadio
     channels:
     - CosmicRadio
+  - type: WarpPoint
+    location: cosmic cult monument
+
+ ########### FLATPACK #############
+
+- type: entity
+  parent: BaseFlatpack
+  id: CosmicMonumentFlatpack
+  name: Cosmic Test flatpack
+  description: A flatpack used for testing.
+  components:
+  - type: Sprite
+    sprite: _Impstation/CosmicCult/Objects/monumentflatpack.rsi
+    layers:
+    - state: icon
+    noRot: true
+  - type: Flatpack
+    entity: MonumentCosmicCult3
+  - type: GuideHelp
+    guides:
+    - AnomalousResearch
+
+
+
+
 
  ########### STAGE 1 #############
 

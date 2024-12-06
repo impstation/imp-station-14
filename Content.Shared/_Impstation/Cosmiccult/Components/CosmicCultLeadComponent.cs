@@ -2,6 +2,7 @@ using Content.Shared.Antag;
 using Robust.Shared.GameStates;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared._Impstation.Cosmiccult.Components;
 
@@ -24,6 +25,16 @@ public sealed partial class CosmicCultLeadComponent : Component
     public TimeSpan StunTime = TimeSpan.FromSeconds(3);
 
     public override bool SessionSpecific => true;
+
+    [DataField]
+    public EntProtoId MonumentAction = "ActionCosmicPlaceMonument";
+
+    [DataField]
+    public EntityUid? MonumentActionEntity;
+
+    [ViewVariables(VVAccess.ReadWrite), DataField("monumentPrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    public string MonumentPrototype = "MonumentCosmicCult1";
+
 }
 
 // CosmicCultLeadComponent

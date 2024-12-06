@@ -13,4 +13,8 @@ cosmic-monument-charges = {$charges ->
 
 cosmic-monument-announcement = DEV SHOUTOUT TESTMSG
 
-cosmic-monument-flavor-footer = HEY FORE. YOU SHOULD WRITE SOMETHING FOR THIS. YOUR WRITING'S GOOD.
+cosmic-monument-spawn-confirm = THIS ACTION CAN ONLY BE USED ONCE! Use it again to confirm.
+cosmic-monument-spawn-error-grid = Invalid space! The Monument must be beckoned upon a stable surface.
+cosmic-monument-spawn-error-station = Invalid grid! The Monument must be beckoned upon the station.
+cosmic-monument-spawn-error-intersection = Objects in the way! The Monument requires an empty 3x1 area to be beckoned.
+cosmic-monument-spawn-error-space = Too close to space! The Monument must be be at least {$DISTANCE}m away.

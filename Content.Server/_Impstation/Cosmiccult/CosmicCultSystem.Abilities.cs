@@ -6,9 +6,20 @@ using Content.Shared._Impstation.Cosmiccult;
 using Content.Shared.Actions;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mind;
+using Content.Shared.Maps;
+using Content.Shared.Physics;
+using Content.Shared.Spawning;
 using Content.Server.Objectives.Components;
 using Content.Server.Destructible.Thresholds.Triggers;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Content.Server.Polymorph.Systems;
+using Robust.Shared.Map.Components;
+using Robust.Shared.Map;
+using System.Numerics;
+using Robust.Shared.Network;
+using Content.Shared.Coordinates;
+using Content.Server.Station.Systems;
+using Content.Server.Station.Components;
 
 namespace Content.Server._Impstation.Cosmiccult;
 
@@ -17,12 +28,27 @@ public sealed partial class CosmicCultSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly PolymorphSystem _polymorphSystem = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly EntityLookupSystem _entLookup = default!;
+    [Dependency] private readonly IEntityManager _entMan = default!;
+    [Dependency] private readonly ITileDefinitionManager _tileDef = default!;
+    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly StationSystem _station = default!;
 
+    private const int SpaceDistance = 3;
     public void SubscribeAbilities()
     {
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicToolToggle>(OnCosmicToolToggle);
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicSiphon>(OnCosmicSiphon);
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicSiphonDoAfter>(OnCosmicSiphonDoAfter);
+        SubscribeLocalEvent<CosmicCultComponent, EventCosmicBlank>(OnCosmicBlank);
+        SubscribeLocalEvent<CosmicCultLeadComponent, EventCosmicPlaceMonument>(OnCosmicPlaceMonument);
+        SubscribeLocalEvent<CosmicCultComponent, EventCosmicLapse>(OnCosmicLapse);
+        ///SubscribeLocalEvent<CosmicCultComponent, EventCosmicGlare>(OnCosmicGlare);
+        ///SubscribeLocalEvent<CosmicCultComponent, EventCosmicGearDash>(OnCosmicGearDash);
+        ///SubscribeLocalEvent<CosmicCultComponent, EventCosmicGearRecall>(OnCosmicGearRecall);
     }
 
     /// <summary>
@@ -40,8 +66,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
         return true;
     }
 
-
-
     /// <summary>
     /// Called when someone clicks on a target using the cosmic siphon ability.
     /// </summary>
@@ -52,7 +76,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        var doargs = new DoAfterArgs(EntityManager, uid, comp.CosmicSiphonDuration, new EventCosmicSiphonDoAfter(), uid, args.Target)
+        var doargs = new DoAfterArgs(EntityManager, uid, comp.CosmicSiphonDuration, new EventCosmicSiphonDoAfter(), uid, target)
         {
             DistanceThreshold = 1.5f,
             Hidden = true,
@@ -105,8 +129,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
             return;
     }
 
-
-
     /// <summary>
     /// Called by the Beckon Compass ability's OnCosmicToolToggle. Why are we nesting it like this? Fucked if i know.
     /// </summary>
@@ -115,7 +137,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
         if (!comp.Equipment.TryGetValue(proto.Id, out var item))
         {
             item = Spawn(proto, Transform(uid).Coordinates);
-            if (!_hands.TryForcePickupAnyHand(uid, (EntityUid) item))
+            if (!_hands.TryForcePickupAnyHand(uid, (EntityUid)item))
             {
                 _popup.PopupEntity(Loc.GetString("cosmicability-toggle-error"), uid, uid);
                 QueueDel(item);
@@ -134,4 +156,83 @@ public sealed partial class CosmicCultSystem : EntitySystem
 
 
 
+    /// <summary>
+    /// Called when someone clicks on a target using the cosmic blank ability.
+    /// </summary>
+    private void OnCosmicBlank(EntityUid uid, CosmicCultComponent comp, ref EventCosmicBlank args)
+    {
+        var target = args.Target;
+
+        if (!TryUseAbility(uid, comp, args))
+            return;
+    }
+
+
+
+    /// <summary>
+    /// Called when the cult lead attemps to place The Monument. This code is awful, but at least it's straightforward.
+    /// </summary>
+    private void OnCosmicPlaceMonument(EntityUid uid, CosmicCultLeadComponent comp, ref EventCosmicPlaceMonument args)
+    {
+        var xform = Transform(uid);
+        var user = Transform(args.Performer);
+        var pos = xform.LocalPosition;
+        var spawnplace = _transform.GetMapCoordinates(uid, xform: xform);
+        var box = new Box2(pos + new Vector2(-1.4f, -0.4f), pos + new Vector2(1.4f, 0.4f));
+
+        ///CHECK IF WE'RE STANDING SOMEWHERE SOLID
+        if (xform.GridUid is not { } grid || !TryComp<MapGridComponent>(grid, out var gridComp))
+        {
+            _popup.PopupEntity(Loc.GetString("cosmic-monument-spawn-error-grid"), uid, uid);
+            return;
+        }
+
+        /// CHECK IF IT'S BEING PLACED CHEESILY CLOSE TO SPACE
+        foreach (var tile in gridComp.GetTilesIntersecting(new Circle(_transform.GetWorldPosition(xform), SpaceDistance), false))
+        {
+            if (!tile.IsSpace(_tileDef))
+                continue;
+
+            _popup.PopupEntity(Loc.GetString("cosmic-monument-spawn-error-space", ("DISTANCE", SpaceDistance)), uid, uid);
+            return;
+        }
+
+        /// CHECK IF WE'RE ON THE STATION OR IF SOMEONE'S TRYING TO SNEAK THIS ONTO SOMETHING SMOL
+        var station = _station.GetStationInMap(xform.MapID);
+        EntityUid? stationGrid = null;
+        if (TryComp<StationDataComponent>(station, out var stationData))
+            stationGrid = _station.GetLargestGrid(stationData);
+
+        if (stationGrid is not null && stationGrid != xform.GridUid)
+        {
+            _popup.PopupEntity(Loc.GetString("cosmic-monument-spawn-error-station"), uid, uid);
+            return;
+        }
+
+        ///CHECK FOR ENTITY AND ENVIRONMENTAL INTERSECTIONS || I HATED THIS SO FREAKING MUCH.
+        if (_entLookup.AnyLocalEntitiesIntersecting(xform.GridUid.Value, box, LookupFlags.Dynamic | LookupFlags.Static, uid))
+        {
+            _popup.PopupEntity(Loc.GetString("cosmic-monument-spawn-error-intersection"), uid, uid);
+            return;
+        }
+
+        _actions.RemoveAction(uid, comp.MonumentActionEntity);
+        Spawn(comp.MonumentPrototype, _transform.GetMapCoordinates(uid, xform: xform));
+    }
+
+
+
+
+    /// <summary>
+    /// Called when someone clicks on a target using the cosmic lapse ability.
+    /// </summary>
+    private void OnCosmicLapse(EntityUid uid, CosmicCultComponent comp, ref EventCosmicLapse args)
+    {
+        var target = args.Target;
+
+        if (!TryUseAbility(uid, comp, args))
+            return;
+
+        _polymorphSystem.PolymorphEntity(target, "CosmicPolymorphLapse");
+    }
 }

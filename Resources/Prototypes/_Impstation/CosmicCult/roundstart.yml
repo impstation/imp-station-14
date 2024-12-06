@@ -17,7 +17,20 @@
   - type: AntagSelection
     agentName: cosmiccult-roundend-name
     definitions:
-    - prefRoles: [ CosmicCult ]
+    - prefRoles: [ CosmicAntagLeader ]
+      fallbackRoles: [ CosmicAntagCultist ]
+      min: 1
+      max: 1
+      playerRatio: 15
+      blacklist:
+        components:
+        - AntagImmune
+      components:
+      - type: CosmicCult
+      - type: CosmicCultLead
+      mindRoles:
+      - MindRoleCosmicCult
+    - prefRoles: [ CosmicAntagCultist ]
       min: 3
       max: 5
       playerRatio: 15

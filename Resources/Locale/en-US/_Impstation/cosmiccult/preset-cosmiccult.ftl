@@ -1,8 +1,13 @@
-## COSMIC CULT ROUND & GAMEMODE TEXT
+## COSMIC CULT ROUND, ANTAG & GAMEMODE TEXT
 
 cosmiccult-title = Cosmic Cult
 cosmiccult-description = Cultists lurk amongst the crew.
 
+roles-antag-cosmiccult-name = Cosmic Cultist
+roles-antag-cosmiccult-description = Usher in the end of all things through subterfuge and sabotage, brainwashing those that would oppose you.
+
+roles-antag-cosmiccultlead-name = Cosmic Cult Leader
+roles-antag-cosmiccultlead-description = Organize the cult into a force to be reckoned, so that you may usher in the end of all things.
 
 cosmiccult-roundend-name = cosmic cultist
 
