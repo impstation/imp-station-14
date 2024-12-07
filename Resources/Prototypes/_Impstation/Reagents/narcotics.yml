@@ -38,3 +38,19 @@
           - "foreverweed-effect-centcomm"
           - "foreverweed-effect-centcomm-paranoia"
         probability: 0.01
+
+- type: reagent
+  id: MegaNocturine
+  name: reagent-name-mega-nocturine
+  group: Narcotics
+  desc: reagent-desc-mega-nocturine
+  physicalDesc: reagent-physical-desc-powdery
+  color: "#094C44"
+  boilingPoint: 444.0
+  meltingPoint: 128.0
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:AdjustReagent
+        reagent: Nocturine
+        amount: 5
