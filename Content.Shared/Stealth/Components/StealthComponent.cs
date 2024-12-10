@@ -72,6 +72,12 @@ public sealed partial class StealthComponent : Component
     /// </summary>
     [DataField("examinedDesc")]
     public string ExaminedDesc = "stealth-visual-effect";
+
+    /// <summary>
+    /// The entity will be fully invisible and show no shimmer at minimum visibility.
+    /// </summary>
+    [DataField("fullyInvisible")]
+    public bool FullyInvisible = false;
 }
 
 [Serializable, NetSerializable]

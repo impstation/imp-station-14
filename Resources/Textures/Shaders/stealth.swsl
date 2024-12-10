@@ -3,6 +3,7 @@ light_mode unshaded;
 uniform sampler2D SCREEN_TEXTURE;
 uniform highp float visibility; // number between -1 and 1
 uniform mediump vec2 reference;
+uniform bool fully_invisible;
 
 const mediump float time_scale = 0.25;
 const mediump float distance_scale = 0.125;
@@ -33,5 +34,10 @@ void fragment() {
       alpha = 0.0;
 
     COLOR.xyz = mix(background.xyz, sprite.xyz, alpha);
-    COLOR.a = 1.0;
+    
+    if (fully_invisible) {
+        COLOR.a = min(1.0, alpha * 2.0);
+    } else {
+        COLOR.a = 1.0;
+    }
 }

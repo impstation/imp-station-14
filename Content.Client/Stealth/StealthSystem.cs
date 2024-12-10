@@ -85,12 +85,14 @@ public sealed class StealthSystem : SharedStealthSystem
         var reference = args.Viewport.WorldToLocal(_transformSystem.GetWorldPosition(parentXform));
         reference.X = -reference.X;
         var visibility = GetVisibility(uid, component);
+        var fullyInvisible = component.FullyInvisible;
 
         // actual visual visibility effect is limited to +/- 1.
         visibility = Math.Clamp(visibility, -1f, 1f);
 
         _shader.SetParameter("reference", reference);
         _shader.SetParameter("visibility", visibility);
+        _shader.SetParameter("fully_invisible", fullyInvisible);
 
         visibility = MathF.Max(0, visibility);
         args.Sprite.Color = new Color(visibility, visibility, 1, 1);

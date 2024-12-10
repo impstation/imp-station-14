@@ -222,4 +222,17 @@ public abstract class SharedStealthSystem : EntitySystem
 
         Dirty(uid, component);
     }
+
+    /// <summary>
+    /// Sets whether an entity should be fully invisible.
+    /// </summary>
+    public void SetFullyInvisible(EntityUid uid, bool value, StealthComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        component.FullyInvisible = value;
+
+        Dirty(uid, component);
+    }
 }
