@@ -92,7 +92,7 @@ public sealed class StealthSystem : SharedStealthSystem
 
         _shader.SetParameter("reference", reference);
         _shader.SetParameter("visibility", visibility);
-        _shader.SetParameter("fully_invisible", fullyInvisible);
+        _shader.SetParameter("fully_invisible", fullyInvisible ? 0 : 1);
 
         visibility = MathF.Max(0, visibility);
         args.Sprite.Color = new Color(visibility, visibility, 1, 1);
