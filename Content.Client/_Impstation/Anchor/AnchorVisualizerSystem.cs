@@ -27,18 +27,15 @@ public sealed partial class AnchorVisualizerSystem : VisualizerSystem<AnchorVisu
         base.OnAppearanceChange(uid, comp, ref args);
 
         if (args.Sprite == null
-            || !AppearanceSystem.TryGetData<bool>(uid, AnchorVisuals.Anchored, out var anchored, args.Component))
+            || !AppearanceSystem.TryGetData<bool>(uid, AnchorVisuals.Anchored, out var anchored, args.Component) ||
+            !args.Sprite.LayerMapTryGet(AnchorVisualLayers.Base, out var layer, true))
             return;
 
-        if (!args.Sprite.LayerMapTryGet(AnchorVisualLayers.Base, out var layer, true))
-            return;
+        var state = anchored ? comp.StateAnchored : comp.StateUnanchored;
 
-        if (anchored)
-            args.Sprite.LayerSetVisible(layer, comp.StateAnchored != null);
-        else
-            args.Sprite.LayerSetVisible(layer, comp.StateUnanchored != null);
-
-        args.Sprite.LayerSetState(layer, anchored ? comp.StateAnchored : comp.StateUnanchored);
+        args.Sprite.LayerSetVisible(layer, state != null);
+        if (state != null)
+            args.Sprite.LayerSetState(layer, state);
     }
 }
 
