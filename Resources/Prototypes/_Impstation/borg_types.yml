@@ -1,0 +1,33 @@
+﻿# Cargo borg
+- type: borgType
+  id: cargo
+
+  # Description
+  dummyPrototype: BorgChassisCargo
+
+  # Functional
+  extraModuleCount: 4
+  moduleWhitelist:
+    tags:
+    - BorgModuleGeneric
+    - BorgModuleAppraisal
+
+  defaultModules:
+  - BorgModuleAppraisal
+
+  radioChannels:
+  - Supply
+  - Binary
+  - Common
+  - Science
+
+  # Visual
+  inventoryTemplateId: borgTall
+  spriteBodyState: cargo
+  spriteBodyMovementState: cargo_moving
+  spriteHasMindState: cargo_e
+  spriteNoMindState: cargo_e_r
+  spriteToggleLightState: cargo_l
+
+  petSuccessString: petting-success-cargo-cyborg
+  petFailureString: petting-failure-cargo-cyborg
