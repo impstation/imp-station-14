@@ -9,6 +9,17 @@ public sealed partial class AnchorVisualizerSystem : VisualizerSystem<AnchorVisu
         base.Initialize();
 
         SubscribeLocalEvent<AnchorVisualsComponent, AnchorStateChangedEvent>(OnAnchorStateChanged);
+        SubscribeLocalEvent<AnchorVisualsComponent, ComponentStartup>(OnStartup);
+    }
+
+    private void OnAnchorStateChanged(EntityUid uid, AnchorVisualsComponent comp, AnchorStateChangedEvent args)
+    {
+        AppearanceSystem.SetData(uid, AnchorVisuals.Anchored, args.Anchored);
+    }
+
+    private void OnStartup(EntityUid uid, AnchorVisualsComponent comp, ComponentStartup args)
+    {
+        AppearanceSystem.SetData(uid, AnchorVisuals.Anchored, Transform(uid).Anchored);
     }
 
     protected override void OnAppearanceChange(EntityUid uid, AnchorVisualsComponent comp, ref AppearanceChangeEvent args)
@@ -28,11 +39,6 @@ public sealed partial class AnchorVisualizerSystem : VisualizerSystem<AnchorVisu
             args.Sprite.LayerSetVisible(layer, comp.StateUnanchored != null);
 
         args.Sprite.LayerSetState(layer, anchored ? comp.StateAnchored : comp.StateUnanchored);
-    }
-
-    private void OnAnchorStateChanged(EntityUid uid, AnchorVisualsComponent comp, AnchorStateChangedEvent args)
-    {
-        AppearanceSystem.SetData(uid, AnchorVisuals.Anchored, args.Anchored);
     }
 }
 
