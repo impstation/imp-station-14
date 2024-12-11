@@ -46,6 +46,7 @@ namespace Content.Server.Pointing.EntitySystems
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly ExamineSystemShared _examine = default!;
         [Dependency] private readonly SharedStealthSystem _stealth = default!;
+        [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
         private TimeSpan _pointDelay = TimeSpan.FromSeconds(0.5f);
 
@@ -147,9 +148,6 @@ namespace Content.Server.Pointing.EntitySystems
                 return false;
             }
 
-            if (TryComp<StealthComponent>(pointed, out var stealthComp) && _stealth.GetVisibility(pointed, stealthComp) < stealthComp.ExamineThreshold)
-                return false;
-
             if (!CanPoint(player))
             {
                 return false;
@@ -209,8 +207,10 @@ namespace Content.Server.Pointing.EntitySystems
             string viewerMessage;
             string? viewerPointedAtMessage = null;
             var playerName = Identity.Entity(player, EntityManager);
+            var isInvisible = TryComp<StealthComponent>(pointed, out var stealthComp) && _stealth.GetVisibility(pointed, stealthComp) < stealthComp.ExamineThreshold;
+            var entIntersect = _lookup.GetEntitiesIntersecting(mapCoordsPointed, LookupFlags.StaticSundries);
 
-            if (Exists(pointed))
+            if (Exists(pointed) && !isInvisible)
             {
                 var pointedName = Identity.Entity(pointed, EntityManager);
 
@@ -230,6 +230,23 @@ namespace Content.Server.Pointing.EntitySystems
                 RaiseLocalEvent(pointed, ref gotev);
 
                 _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(player):user} pointed at {ToPrettyString(pointed):target} {Transform(pointed).Coordinates}");
+            }
+            else if (isInvisible && entIntersect.Count > 1)
+            {
+                var entFirst = player == entIntersect.FirstOrDefault()
+                    ? entIntersect.ElementAtOrDefault(1)
+                    : entIntersect.FirstOrDefault();
+                var pointedName = Identity.Entity(entFirst, EntityManager);
+
+                selfMessage = Loc.GetString("pointing-system-point-at-other", ("other", pointedName));
+                viewerMessage = Loc.GetString("pointing-system-point-at-other-others", ("otherName", playerName), ("other", pointedName));
+
+                var ev = new AfterPointedAtEvent(entFirst);
+                RaiseLocalEvent(player, ref ev);
+                var gotev = new AfterGotPointedAtEvent(player);
+                RaiseLocalEvent(entFirst, ref gotev);
+
+                _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(player):user} tried to point at invisible entity {ToPrettyString(pointed):target}, instead pointed at {ToPrettyString(entFirst):target} {Transform(entFirst).Coordinates}");
             }
             else
             {
