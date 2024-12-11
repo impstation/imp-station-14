@@ -578,12 +578,12 @@ public sealed partial class ChangelingSystem : EntitySystem
             return;
         }
 
-        EnsureComp<StealthComponent>(uid);
-        _stealth.SetMinVisibility(uid, 0);
+        var stealth = EnsureComp<StealthComponent>(uid);
         _stealth.SetFullyInvisible(uid, true);
 
         var stealthOnMove = EnsureComp<StealthOnMoveComponent>(uid);
-        stealthOnMove.MovementVisibilityRate = 1;
+        stealthOnMove.MovementVisibilityRate = 2;
+        stealthOnMove.PassiveVisibilityRate = -0.37f;
 
         _popup.PopupEntity(Loc.GetString("changeling-chameleon-start"), uid, uid);
     }

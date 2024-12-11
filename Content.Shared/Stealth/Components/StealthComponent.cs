@@ -74,7 +74,7 @@ public sealed partial class StealthComponent : Component
     public string ExaminedDesc = "stealth-visual-effect";
 
     /// <summary>
-    /// The entity will be fully invisible and show no shimmer at minimum visibility.
+    /// The entity will be fully invisible without any shimmer shader at minimum visibility.
     /// </summary>
     [DataField("fullyInvisible")]
     public bool FullyInvisible = false;
@@ -84,13 +84,17 @@ public sealed partial class StealthComponent : Component
 public sealed class StealthComponentState : ComponentState
 {
     public readonly float Visibility;
+    public readonly float MinVisibility;
     public readonly TimeSpan? LastUpdated;
+    public readonly bool FullyInvisible;
     public readonly bool Enabled;
 
-    public StealthComponentState(float stealthLevel, TimeSpan? lastUpdated, bool enabled)
+    public StealthComponentState(float stealthLevel, float minVisibility, TimeSpan? lastUpdated, bool fullyInvisible, bool enabled)
     {
         Visibility = stealthLevel;
+        MinVisibility = minVisibility;
         LastUpdated = lastUpdated;
+        FullyInvisible = fullyInvisible;
         Enabled = enabled;
     }
 }

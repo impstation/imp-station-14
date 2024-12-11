@@ -12,6 +12,8 @@ using Content.Shared.Interaction;
 using Content.Shared.Mind;
 using Content.Shared.Pointing;
 using Content.Shared.Popups;
+using Content.Shared.Stealth;
+using Content.Shared.Stealth.Components;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
@@ -43,6 +45,7 @@ namespace Content.Server.Pointing.EntitySystems
         [Dependency] private readonly SharedMapSystem _map = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly ExamineSystemShared _examine = default!;
+        [Dependency] private readonly SharedStealthSystem _stealth = default!;
 
         private TimeSpan _pointDelay = TimeSpan.FromSeconds(0.5f);
 
@@ -143,6 +146,9 @@ namespace Content.Server.Pointing.EntitySystems
                 // this is a pointing arrow. no pointing here...
                 return false;
             }
+
+            if (TryComp<StealthComponent>(pointed, out var stealthComp) && _stealth.GetVisibility(pointed, stealthComp) < stealthComp.ExamineThreshold)
+                return false;
 
             if (!CanPoint(player))
             {
