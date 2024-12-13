@@ -32,7 +32,6 @@
         shape:
           !type:PhysShapeAabb
           bounds: "-1.1,-0.2,1.1,0.7"
-        density: 50
         mask:
         - LargeMobMask
         layer:
@@ -60,6 +59,7 @@
     sound:
       path: /Audio/_Impstation/CosmicCult/god_ambient.ogg
   - type: MaterialStorage
+    insertionTime: 2.44
     insertingSound: /Audio/_Impstation/CosmicCult/cosmiclance_impact.ogg
     ignoreColor: true
     whitelist:
@@ -83,28 +83,46 @@
   - type: WarpPoint
     location: cosmic cult monument
 
- ########### FLATPACK #############
+ ########### SPAWN-IN ANIMATION #############
 
 - type: entity
-  parent: BaseFlatpack
-  id: CosmicMonumentFlatpack
-  name: Cosmic Test flatpack
-  description: A flatpack used for testing.
+  id: MonumentCosmicCultSpawnIn
+  parent: BaseStructure
+  suffix: Spawn
   components:
+  - type: CosmicMonument
+  - type: Visibility
+    layer: 777
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Objects/monumentflatpack.rsi
+    sprite: _Impstation/CosmicCult/Tileset/monument.rsi
     layers:
-    - state: icon
+      - state: stage1-spawnin
+      - state: stage1-spawnin-overlay
+        shader: unshaded
+    offset: 0,1
+    drawdepth: Mobs
     noRot: true
-  - type: Flatpack
-    entity: MonumentCosmicCult3
-  - type: GuideHelp
-    guides:
-    - AnomalousResearch
-
-
-
-
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.1,-0.2,1.1,0.7"
+        hard: false
+        mask:
+        - LargeMobMask
+        layer:
+        - WallLayer
+  - type: InteractionOutline
+  - type: Transform
+    noRot: true
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_Impstation/CosmicCult/god_summon.ogg
+  - type: TimedDespawn
+    lifetime: 3.1
+  - type: SpawnOnDespawn
+    prototype: MonumentCosmicCult1
 
  ########### STAGE 1 #############
 
@@ -124,6 +142,8 @@
         visible: false
         shader: unshaded
         map: ["enum.MaterialStorageVisualLayers.Inserting"]
+  - type: MaterialStorage
+    insertionTime: 1.44
 
  ########### STAGE 2 #############
 
@@ -179,4 +199,3 @@
         map: ["enum.MaterialStorageVisualLayers.Inserting"]
       - state: stage4-overlay
         shader: unshaded
-

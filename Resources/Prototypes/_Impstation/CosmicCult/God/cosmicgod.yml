@@ -31,7 +31,7 @@
     layers:
     - state: spawn
       shader: unshaded
-  # the spawn animation is exactly 3.96 seconds long, so we time our entity spawn-in to be the same.
+  # the spawn animation is exactly 4.62 seconds long, so we time our entity spawn-in to be the same.
   - type: TimedDespawn
     lifetime: 4.62
   - type: SpawnOnDespawn
