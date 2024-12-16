@@ -57,7 +57,7 @@
           hide: true
           nameGrid: true
           minCount: 2
-          maxCount: 2
+          maxCount: 3 #changed on imp
           stationGrid: false
           paths:
           - /Maps/Ruins/abandoned_outpost.yml
@@ -65,7 +65,7 @@
           - /Maps/Ruins/biodome_satellite.yml
           - /Maps/Ruins/derelict.yml
           - /Maps/Ruins/djstation.yml
-          - /Maps/Ruins/empty_flagship.yml
+          #- /Maps/Ruins/empty_flagship.yml #imp. fuck this one
           - /Maps/Ruins/old_ai_sat.yml
           - /Maps/Ruins/syndicate_dropship.yml
           - /Maps/Ruins/whiteship_ancient.yml
