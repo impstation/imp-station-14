@@ -1,8 +1,9 @@
+##################### ANTI-GRAV OBELISK
 - type: entity
-  name: apocryphal obelisk
+  name: entropic device
   id: CosmicAntiGravPylon
   parent: BaseMachine
-  description: "A mysterious structure that renders its surroundings weightless. In other words, the inscrutable runes upon it tell artificial gravity to take a hike."
+  description: A mysterious structure that renders its surroundings weightless. In other words, the inscrutable glyphs upon it tell artificial gravity to take a hike.
   components:
   - type: CosmicItem
   - type: ZeroGravityArea
@@ -14,6 +15,7 @@
   - type: ItemToggleZeroGravityArea
   - type: Sprite
     sprite: _Impstation/CosmicCult/Tileset/pylon.rsi
+    offset: 0, 0.5
     drawdepth: Mobs
     layers:
       - state: base
@@ -28,7 +30,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.22,-0.7,0.22,0.1"
+          bounds: "-0.2,-0.2,0.2,0.375"
         density: 50
         mask:
         - LargeMobMask
@@ -67,7 +69,182 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+##################### SHUTTLE CORE CONTROL
+- type: entity
+  parent: BaseStructure
+  id: CosmicShuttleCore
+  name: malign instrument
+  description: Its surface glows with a myriad of inscrutable glyphs that commmunicate a single word into your mind; "Flight".
+  components:
+  - type: Sprite
+    sprite: _Impstation/CosmicCult/Tileset/cosmiccomputer.rsi
+    layers:
+      - state: computer
+      - state: computer-unshaded
+        shader: unshaded
+  - type: CosmicItem
+  - type: Thruster
+    thrusterType: Angular # These are overpowered thruster-shuttle-console-hybrids that require no power grid. As such, they cannot be anchored or meaningfully taken outside of their intended use.
+    requireSpace: false
+    thrust: 4000
+    machinePartThrust: Manipulator
+  - type: ShuttleConsole
+  - type: ActivatableUI
+    key: enum.ShuttleConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+        enum.ShuttleConsoleUiKey.Key:
+          type: ShuttleConsoleBoundUserInterface
+  - type: EmitSoundOnUIOpen
+    sound:
+      collection: Keyboard
+      params:
+        volume: -1
+        variation: 0.05
+        pitch: 1.05
+  - type: RadarConsole
+  - type: WorldLoader
+    radius: 256
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    enabled: false
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    offset: "0, 0.4"
+    castShadows: false
+    color: "#42a4ae"
+  - type: Rotatable
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+
+##################### CHAIR
+- type: entity
+  name: malign settee
+  id: CosmicChair
+  parent: SeatBase
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: CosmicItem
+  - type: Sprite
+    sprite: _Impstation/CosmicCult/Tileset/cosmicchair.rsi
+    state: chair
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+##################### PILLAR
+- type: entity
+  parent: BaseStructure
+  id: CosmicObelisk
+  name: malign obelisk
+  description: A mysterious-yet-inert sturcture. Unsettling.
+  components:
+  - type: Sprite
+    sprite: _Impstation/CosmicCult/Tileset/cosmicpillar.rsi
+    offset: 0, 0.5
+    layers:
+      - state: icon
+    drawdepth: Mobs
+    noRot: true
+  - type: CosmicItem
+  - type: SpriteFade
+  - type: InteractionOutline
+  - type: Transform
+  - type: Rotatable
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.1,0.2,0.375"
+        mask:
+        - LargeMobMask
+        layer:
+        - WallLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+##################### THRUSTER
+- type: entity
+  parent: BaseStructure
+  id: CosmicThruster
+  name: malign engine
+  components:
+  - type: CosmicItem
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: AmbientSound
+    enabled: false
+    range: 4
+    volume: -4
+    sound:
+      path: /Audio/Effects/shuttle_thruster.ogg
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Rotatable
+    rotateWhileAnchored: true
+  - type: Thruster
+    damage:
+      types:
+        Cold: 40
+  - type: InteractionOutline
+  - type: Appearance
+  - type: ThrusterVisuals
+  - type: Sprite
+    sprite: _Impstation/CosmicCult/Tileset/cosmicthruster.rsi
+    layers:
+    - state: base
+      map: ["enum.ThrusterVisualLayers.Base"]
+    - state: thrust
+      map: ["enum.ThrusterVisualLayers.ThrustOn"]
+      shader: unshaded
+      visible: false
+    - state: thrust_burn_unshaded
+      map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
+      shader: unshaded
+      visible: false
+      offset: 0, 1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]

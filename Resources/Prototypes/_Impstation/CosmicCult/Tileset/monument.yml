@@ -73,6 +73,13 @@
     interfaces:
         enum.CosmicMonumentUiKey.Key:
           type: CosmicMonumentBoundUserInterface
+  - type: EmitSoundOnUIOpen
+    sound:
+      collection: Keyboard
+      params:
+        volume: -1
+        variation: 0.05
+        pitch: 1.05
   - type: GuideHelp
     guides:
     - AnomalousResearch
@@ -87,6 +94,7 @@
 
 - type: entity
   id: MonumentCosmicCultSpawnIn
+  name: The Monument
   parent: BaseStructure
   suffix: Spawn
   components:
@@ -118,7 +126,7 @@
     noRot: true
   - type: EmitSoundOnSpawn
     sound:
-      path: /Audio/_Impstation/CosmicCult/god_summon.ogg
+      path: /Audio/_Impstation/CosmicCult/monument_spawn.ogg
   - type: TimedDespawn
     lifetime: 3.1
   - type: SpawnOnDespawn

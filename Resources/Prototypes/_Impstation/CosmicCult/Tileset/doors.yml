@@ -1,112 +1,33 @@
 - type: entity
   id: DoorCosmicCult
-  parent: BaseStructure
-  name: malign doorway
-  description: What is this..?
+  parent: BaseMaterialDoorNavMap
+  name: malign passageway
+  description: A strange, disquieting structure.
   components:
-  - type: CosmicItem
-  - type: MeleeSound
-    soundGroups:
-      Brute:
-        path:
-          "/Audio/Weapons/smash.ogg"
-  - type: InteractionOutline
   - type: Sprite
     sprite: _Impstation/CosmicCult/Tileset/cosmicdoor.rsi
-    snapCardinals: true
     layers:
     - state: closed
       map: ["enum.DoorVisualLayers.Base"]
-    - state: closed_unlit
-      shader: unshaded
-      map: ["enum.DoorVisualLayers.BaseUnlit"]
-    - state: welded
-      map: ["enum.WeldableLayers.BaseWelded"]
-    - state: bolted_unlit
-      shader: unshaded
-      map: ["enum.DoorVisualLayers.BaseBolted"]
-    - state: emergency_unlit
-      map: ["enum.DoorVisualLayers.BaseEmergencyAccess"]
-      shader: unshaded
-    - state: panel_open
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: AnimationPlayer
-  - type: Physics
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.49,-0.49,0.49,0.49" # don't want this colliding with walls or they won't close
-        density: 100
-        mask:
-        - FullTileMask
-        layer:
-        - AirlockLayer
-  - type: LayerChangeOnWeld
-    unWeldedLayer: AirlockLayer
-    weldedLayer: WallLayer
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronics ]
-  - type: AccessReader
-    containerAccessProvider: board
   - type: Door
-    crushDamage:
-      types:
-        Blunt: 15
-    openSound:
-      path: /Audio/Machines/airlock_open.ogg
-    closeSound:
-      path: /Audio/Machines/airlock_close.ogg
-    denySound:
-      path: /Audio/Machines/airlock_deny.ogg
-  - type: ContainerContainer
-    containers:
-      board: !type:Container
-  - type: Weldable
-    fuel: 5
-    time: 3
-  - type: Airlock
-  - type: NavMapDoor
-  - type: DoorBolt
-  - type: Appearance
-  - type: Airtight
-    noAirWhenFullyAirBlocked: false
-  - type: RadiationBlocker
-    resistance: 5
-  - type: Occluder
+    bumpOpen: true
+    clickOpen: true
+    canCrush: true
+    closeTimeOne: 0.8
+    closeTimeTwo: 1.2
+    openTimeOne: 0.8
+    openTimeTwo: 1.2
+    openingAnimationTime: 1.2
+    closingAnimationTime: 1.2
   - type: Damageable
     damageContainer: StructuralInorganic
-    damageModifierSet: StrongMetallic
-  - type: RCDDeconstructable
-    deconstructable: false
+    damageModifierSet: StructuralMetallicStrong
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 500
+        damage: 600
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
-      # TODO this should go to the broken node first
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalSlam
-  - type: Construction
-    graph: Airlock
-    node: airlock
-    containers:
-    - board
-  - type: PlacementReplacement
-    key: walls
-  - type: IconSmooth
-    key: walls
-    mode: NoSprite
-  - type: Tag
-    tags:
-      - Airlock
-      # This tag is used to nagivate the Airlock construction graph. It's needed because the construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
-  - type: BlockWeather
-  placement:
-    mode: SnapgridCenter
+
