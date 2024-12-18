@@ -31,7 +31,8 @@
 - type: entity
   parent: WallCosmicCult
   id: WallCosmicCultTrimmed
-  name: malign trimmed wall
+  name: malign wall
+  suffix: Trimmed
   components:
   - type: Icon
     sprite: _Impstation/CosmicCult/Tileset/cosmicwall.rsi
@@ -100,7 +101,7 @@
 - type: entity
   id: WindowCosmicCultDark
   name: malign pane
-  suffix: tinted
+  suffix: Tinted
   parent: WindowCosmicCult
   components:
   - type: Sprite
@@ -117,7 +118,7 @@
   description: An odd-looking window. Something about it unnerves you.
   id: WindowCosmicCultDiagonal
   name: malign pane
-  suffix: diagonal
+  suffix: Diagonal
   placement:
     mode: SnapgridCenter
     snap:
@@ -150,7 +151,7 @@
   parent: WindowCosmicCultDiagonal
   id: WindowCosmicCultDiagonalDark
   name: malign pane
-  suffix: diagonal, tinted
+  suffix: Diagonal, Tinted
   placement:
     mode: SnapgridCenter
     snap:

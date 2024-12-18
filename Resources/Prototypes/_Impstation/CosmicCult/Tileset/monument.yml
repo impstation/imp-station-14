@@ -127,10 +127,28 @@
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/_Impstation/CosmicCult/monument_spawn.ogg
+      params:
+        volume: +8
+        pitch: 0.8
   - type: TimedDespawn
-    lifetime: 3.1
+    lifetime: 3.8
   - type: SpawnOnDespawn
     prototype: MonumentCosmicCult1
+  - type: PointLight
+    enabled: true
+    radius: 4.5
+    energy: 4
+    color: "#43286a"
+  - type: LightBehaviour
+    behaviours:
+     - !type:FadeBehaviour
+       interpolate: Linear
+       minDuration: 3.8
+       maxDuration: 3.8
+       startValue: 0.5
+       endValue: 4.5
+       property: Energy
+       enabled: true
 
  ########### STAGE 1 #############
 

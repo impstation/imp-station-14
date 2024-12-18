@@ -14,7 +14,7 @@
   - type: ItemTogglePointLight
   - type: ItemToggleZeroGravityArea
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/pylon.rsi
+    sprite: _Impstation/CosmicCult/Tileset/cosmicpylon.rsi
     offset: 0, 0.5
     drawdepth: Mobs
     layers:
@@ -248,3 +248,49 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+
+##################### LAMP
+- type: entity
+  id: CosmicLamp
+  suffix: Always Powered
+  name: malign light
+  components:
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        collection: GlassSmash
+  - type: Transform
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Impstation/CosmicCult/Tileset/cosmiclight.rsi
+    drawdepth: Mobs
+    layers:
+      - state: base
+      - state: glow
+        shader: unshaded
+  - type: PointLight
+    color: "#42a4ae" # 5000K color temp
+    energy: 2
+    radius: 8
+    softness: 1
+    castShadows: false
+    offset: "0, -0.5"
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: RCDDeconstructable
+    deconstructable: false
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors: #excess damage, don't spawn entities.
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+  placement:
+    mode: SnapgridCenter

@@ -19,6 +19,12 @@
     openTimeTwo: 1.2
     openingAnimationTime: 1.2
     closingAnimationTime: 1.2
+    openSound:
+      path: /Audio/_Impstation/CosmicCult/door_open.ogg
+    closeSound:
+      path: /Audio/_Impstation/CosmicCult/door_close.ogg
+  - type: RCDDeconstructable
+    deconstructable: false
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
