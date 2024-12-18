@@ -2,6 +2,7 @@
 - type: entity
   name: entropic device
   id: CosmicAntiGravPylon
+  suffix: DO NOT MAP
   parent: BaseMachine
   description: A mysterious structure that renders its surroundings weightless. In other words, the inscrutable glyphs upon it tell artificial gravity to take a hike.
   components:
@@ -239,7 +240,7 @@
       map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
       shader: unshaded
       visible: false
-      offset: 0, 1
+      offset: 0, 0.564
   - type: Destructible
     thresholds:
     - trigger:
@@ -260,6 +261,7 @@
       Brute:
         collection: GlassSmash
   - type: Transform
+  - type: CosmicItem
   - type: Clickable
   - type: InteractionOutline
   - type: Sprite

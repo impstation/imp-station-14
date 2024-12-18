@@ -7,7 +7,6 @@
   id: MonumentCosmicCultBase
   name: The Monument
   description: A great slab of unknowledge, only visible to those aware of it. Built of a thousand little nothings, its surface reflects a starless emptiness...
-  suffix: Base
   components:
   - type: CosmicItem
   - type: CosmicMonument
@@ -96,7 +95,7 @@
   id: MonumentCosmicCultSpawnIn
   name: The Monument
   parent: BaseStructure
-  suffix: Spawn
+  suffix: Spawn, DO NOT MAP
   components:
   - type: CosmicMonument
   - type: Visibility
@@ -155,7 +154,7 @@
 - type: entity
   parent: MonumentCosmicCultBase
   id: MonumentCosmicCult1
-  suffix: Base
+  suffix: Base, DO NOT MAP
   components:
   - type: CosmicMonument
   - type: Visibility
@@ -176,7 +175,7 @@
 - type: entity
   parent: MonumentCosmicCultBase
   id: MonumentCosmicCult2
-  suffix: Stage 2, Debug
+  suffix: Stage 2, DO NOT MAP
   components:
   - type: CosmicMonument
   - type: Visibility
@@ -195,7 +194,7 @@
 - type: entity
   parent: MonumentCosmicCultBase
   id: MonumentCosmicCult3
-  suffix: Stage 3, Debug
+  suffix: Stage 3, DO NOT MAP
   components:
   - type: CosmicMonument
   - type: Sprite
@@ -212,7 +211,7 @@
 - type: entity
   parent: MonumentCosmicCultBase
   id: MonumentCosmicCult3+
-  suffix: Stage 4, Debug
+  suffix: Stage 4, DO NOT MAP
   components:
   - type: CosmicMonument
   - type: Sprite
