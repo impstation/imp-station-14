@@ -1,6 +1,7 @@
 using Content.Shared.Examine;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Pointing;
 using Content.Shared.Stealth.Components;
 using Robust.Shared.GameStates;
 using Robust.Shared.Timing;
@@ -98,7 +99,7 @@ public abstract class SharedStealthSystem : EntitySystem
 
     private void OnStealthGetState(EntityUid uid, StealthComponent component, ref ComponentGetState args)
     {
-        args.State = new StealthComponentState(component.LastVisibility, component.LastUpdated, component.Enabled);
+        args.State = new StealthComponentState(component.LastVisibility, component.MinVisibility, component.LastUpdated, component.FullyInvisible, component.Enabled);
     }
 
     private void OnStealthHandleState(EntityUid uid, StealthComponent component, ref ComponentHandleState args)
@@ -108,7 +109,9 @@ public abstract class SharedStealthSystem : EntitySystem
 
         SetEnabled(uid, cast.Enabled, component);
         component.LastVisibility = cast.Visibility;
+        component.MinVisibility = cast.MinVisibility;
         component.LastUpdated = cast.LastUpdated;
+        component.FullyInvisible = cast.FullyInvisible;
     }
 
     private void OnMove(EntityUid uid, StealthOnMoveComponent component, ref MoveEvent args)
@@ -221,5 +224,28 @@ public abstract class SharedStealthSystem : EntitySystem
         component.MinVisibility = value;
 
         Dirty(uid, component);
+    }
+
+    /// <summary>
+    /// Sets whether an entity should be fully invisible.
+    /// </summary>
+    public void SetFullyInvisible(EntityUid uid, bool value, StealthComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        component.FullyInvisible = value;
+
+        Dirty(uid, component);
+    }
+
+    /// <summary>
+    /// Gets whether an entity is fully invisible from the <see cref="StealthComponent"/>
+    public bool GetFullyInvisible(EntityUid uid, StealthComponent? component = null)
+    {
+        if (!Resolve(uid, ref component) || !component.Enabled)
+            return false;
+
+        return component.FullyInvisible;
     }
 }
