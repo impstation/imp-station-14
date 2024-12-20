@@ -103,3 +103,70 @@
           Quantity: 5
         - ReagentId: JuiceWatermelon
           Quantity: 5
+
+- type: entity
+  name: meat lollipop
+  parent: FoodMealBigLollipop
+  id: FoodMealMeatLollipop
+  description: It's still dripping...
+  components:
+  - type: Tag
+    tags:
+    - Meat
+    - FoodSnack
+  - type: Food
+    trash:
+    - FoodKebabSkewer
+  - type: FlavorProfile
+    flavors:
+      - whimsy
+      - meaty
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/meals.rsi
+    state: meat-lollipop
+  - type: Item
+    heldPrefix: meat-lollipop
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Sugar
+          Quantity: 10
+        - ReagentId: Blood
+          Quantity: 5
+
+- type: entity
+  name: entro-pop
+  parent: FoodMealBigLollipop
+  id: FoodMealCultLollipop
+  description: It seems to flicker in and out of view, your eyes never truly focusing on it. It's cosmically delicious!
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Food
+    trash:
+    - FoodKebabSkewer
+  - type: FlavorProfile
+    flavors:
+      - whimsy
+      - strange
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/meals.rsi
+    state: entro-lollipop
+  - type: Item
+    heldPrefix: entro-lollipop
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Sugar
+          Quantity: 10
+        - ReagentId: MindbreakerToxin
+          Quantity: 10
