@@ -1,0 +1,31 @@
+- type: marking
+  id: HumanBodyhair
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Dwarf, Human]
+  sexRestriction: [ Male ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/bodyhair.rsi
+    state: human_bodyhair
+  shader: blend_overlay
+
+- type: marking
+  id: HumanBodyhairFemale
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Dwarf, Human]
+  sexRestriction: [ Female ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/bodyhair.rsi
+    state: human_bodyhair_female
+  shader: blend_overlay
+
+- type: marking
+  id: SpelfBodyhair
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [SpElf]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/bodyhair.rsi
+    state: spelf_bodyhair
+  shader: blend_overlay
