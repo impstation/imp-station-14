@@ -78,3 +78,37 @@
       catalyst: true
   products:
     Medium: 1
+    
+- type: reaction
+  id: Medium
+  impact: Medium #lol
+  reactants:
+    AquamDivinos:
+      amount: 1
+    Oculine:
+      amount: 1
+    THC:
+      amount: 1
+    PhilosophersJuice:
+      amount: 1
+      catalyst: true
+  products:
+    Medium: 1
+
+- type: reaction
+  id: CreateOmegaSoap
+  impact: Medium
+  quantized: true
+  reactants:
+    Fat:
+      amount: 60 #4 times more fat than the usual soap recipe.
+    TableSalt:
+      amount: 10
+    SpaceLube: #Using lube instead of water or blood as binding agent. Lube is mostly water anyway so it makes sense.
+      amount: 10 
+    PhilosophersJuice:
+      amount: 1
+      catalyst: true
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: SoapOmega
