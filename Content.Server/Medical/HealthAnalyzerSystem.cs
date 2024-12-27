@@ -267,18 +267,16 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             body = _bodySystem.GetBodyPartStatus(target);
         // Shitmed Change End
 
-        _uiSystem.ServerSendUiMessage(healthAnalyzer,
-            HealthAnalyzerUiKey.Key,
-            new HealthAnalyzerScannedUserMessage(
-                GetNetEntity(target),
-                bodyTemperature,
-                bloodAmount,
-                scanMode,
-                bleeding,
-                unrevivable,
-                // Shitmed Change
-                body,
-                part != null ? GetNetEntity(part) : null
-            ));
+        _uiSystem.ServerSendUiMessage(healthAnalyzer, HealthAnalyzerUiKey.Key, new HealthAnalyzerScannedUserMessage(
+            GetNetEntity(target),
+            bodyTemperature,
+            bloodAmount,
+            scanMode,
+            bleeding,
+            unrevivable,
+            // Shitmed Change
+            body,
+            part != null ? GetNetEntity(part) : null
+        ));
     }
 }
