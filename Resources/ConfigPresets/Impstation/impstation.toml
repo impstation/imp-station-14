@@ -42,6 +42,8 @@ bug_report = "https://github.com/impstation/imp-station-14/issues"
 [shuttle]
 # allows for early shuttle launch with approval of 3 heads
 emergency_early_launch_allowed = true
+# Time in minutes to auto-call evac shuttle. Currently 2 hours 30 minutes
+auto_call_time = 150
 
 [ghost]
 # sets time before ghost role buttons enable, so people hopefully Actually Read
