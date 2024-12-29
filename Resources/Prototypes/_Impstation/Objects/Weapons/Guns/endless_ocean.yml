@@ -1,0 +1,44 @@
+- type: entity
+  name: endless ocean
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseGrandTheftContraband]
+  id: WeaponEndlessOcean
+  description: A one-of-a-kind prototype energy weapon that can produce various types of hardlight grenades from an internal energy resevoir.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Launchers/endless_ocean.rsi
+    layers:
+      - state: icon
+        map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Launchers/endless_ocean.rsi
+  - type: Gun
+    fireRate: 1
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: GrenadeBaton
+    fireCost: 150 #imp revert
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: GrenadeBaton
+      fireCost: 150 #imp revert
+    - proto: GrenadeFlash #imp revert
+      fireCost: 150 #imp revert
+    - proto: GrenadeEMP
+      fireCost: 150 #imp revert
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,3,1
+    sprite: _Impstation/Objects/Weapons/Guns/Launchers/endless_ocean.rsi
+    heldPrefix: inhand
+  - type: Tag
+    tags:
+    - HighRiskItem
+  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+  - type: Battery # THE WORLD RESET
+    maxCharge: 750
+    startingCharge: 750
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 25 #takes 42 seconds to fully recharge, the answer to life, the universe and everything

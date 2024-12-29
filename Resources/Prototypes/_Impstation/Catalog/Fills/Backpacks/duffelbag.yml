@@ -1,0 +1,14 @@
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateSecBundle
+  name: syndicate peacekeeper hardsuit bundle
+  description: "Contains everything a Syndicate security officer needs to keep the peace."
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterHardsuitSyndieSec
+      - id: ClothingHandsGlovesCombat
+      - id: ClothingMaskGasSecurity
+      - id: ClothingEyesHudSyndicateSec
+      - id: DoubleEmergencyOxygenTankFilled
+      - id: DoubleEmergencyNitrogenTankFilled
