@@ -44,3 +44,42 @@
     node: blackmimeHardsuit
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitMimeBlack
+
+# Syndicate security hardsuit
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
+  id: ClothingOuterHardsuitSyndieSec
+  name: blood-red peacekeeper hardsuit
+  description: A heavily armored hardsuit designed for work in special operations. Property of Gorlex Marauders.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Hardsuits/syndiesec.rsi
+  - type: Item
+    size: Huge
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Hardsuits/syndiesec.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
+        Radiation: 0.5
+        Caustic: 0.5
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSyndieSec
+  - type: Tag
+    tags:
+    - MonkeyWearable
+    - Hardsuit
+    - WhitelistChameleon

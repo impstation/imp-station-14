@@ -24,3 +24,27 @@
     sprite: _Impstation/Clothing/Head/Hardsuits/mimeblack.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Head/Hardsuits/mimeblack.rsi
+
+#Syndicate security hardsuit helmet
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitSyndieSec
+  name: blood-red peacekeeper hardsuit helmet
+  description: A heavily armored helmet designed for work in special operations. Property of Gorlex Marauders.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hardsuits/syndiesec.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hardsuits/syndiesec.rsi
+  - type: PointLight
+    color: green
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
