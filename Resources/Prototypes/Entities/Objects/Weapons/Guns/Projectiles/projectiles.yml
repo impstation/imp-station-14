@@ -690,15 +690,19 @@
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
       - state: grenade
-  - type: Projectile
-    deleteOnCollide: false
-    damage:
-      types:
-        Blunt: 1
-    soundHit:
-      path: /Audio/Effects/gen_hit.ogg
   - type: StaminaDamageOnCollide
     damage: 80
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler #stolen from the disabler bullet. God it was hard to make it make the stun baton sound 
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/Weapons/egloves.ogg
+    forceSound: true  
+        
+ 
+    
 
 - type: entity
   id: BulletGrenadeBlast

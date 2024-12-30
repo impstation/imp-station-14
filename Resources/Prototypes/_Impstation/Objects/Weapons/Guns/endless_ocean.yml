@@ -21,21 +21,20 @@
   - type: BatteryWeaponFireModes
     fireModes:
     - proto: GrenadeBaton
-      fireCost: 150 #imp revert
-    - proto: GrenadeFlash #imp revert
-      fireCost: 150 #imp revert
+      fireCost: 150 
+    - proto: GrenadeFlash 
+      fireCost: 150 
     - proto: GrenadeEMP
-      fireCost: 150 #imp revert
+      fireCost: 150 
   - type: Item
     size: Large
     shape:
     - 0,0,3,1
-    sprite: _Impstation/Objects/Weapons/Guns/Launchers/endless_ocean.rsi
-    heldPrefix: inhand
   - type: Tag
     tags:
     - HighRiskItem
-  - type: Battery # THE WORLD RESET
+  - type: GunRequiresWield 
+  - type: Battery 
     maxCharge: 750
     startingCharge: 750
   - type: BatterySelfRecharger
