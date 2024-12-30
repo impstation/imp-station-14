@@ -2,10 +2,11 @@
   parent: [ClothingEyesBase, ShowSecurityIcons, BaseSyndicateContraband]
   id: ClothingEyesHudSyndicateSec
   name: syndicate peacekeeper visor
-  description: The syndicate's professional head-up display, designed for better detection of humanoids and their subsequent elimination.
+  description: The syndicate's OTHER professional heads-up display, designed for better detection of humanoids and their subsequent elimination. This one's flashproof!
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Eyes/Hud/syndisec.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Eyes/Hud/syndisec.rsi
   - type: ShowSyndicateIcons
+  - type: FlashImmunity
