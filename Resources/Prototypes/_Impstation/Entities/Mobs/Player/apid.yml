@@ -309,3 +309,24 @@
     rules: ghost-role-information-crewmember-rules
     raffle:
       settings: default
+
+- type: entity
+  name: apid security officer #admeme only
+  id: MobApidSecOff
+  parent: MobApid
+  suffix: Ghost role, Admeme
+  description: Enthusiastic workers, these cute little balls of fuzz are distant relatives to moth people.
+  components:
+  - type: Loadout
+    prototypes:
+      - StartingGearApidSecOff
+  - type: RandomMetadata
+    nameSegments:
+    - apid_secoff
+    - names_apid
+  - type: GhostRole
+    name: ghost-role-information-apid-secoff-name
+    description: ghost-role-information-apid-secoff-description
+    rules: ghost-role-information-crewmember-rules
+    raffle:
+      settings: default

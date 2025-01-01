@@ -153,3 +153,23 @@
   - type: ConditionalSpawner
     prototypes:
       - MobPipi
+
+- type: entity
+  name: Apid BRT spawner
+  id: ApidBRTSpawner
+  suffix: Admeme
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: green
+    - type: GroupSpawner
+      spawns:
+      - id: ApidCryopodDoctor
+        amount: 2
+        maxAmount: 2
+      - id: ApidCryopodEngineer
+        amount: 2
+        maxAmount: 2
+      - id: ApidCryopodSecOff
+      - id: ApidBRTCrate

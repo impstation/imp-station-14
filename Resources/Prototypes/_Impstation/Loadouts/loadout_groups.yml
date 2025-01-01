@@ -289,3 +289,17 @@
     pocket2: ClothingMaskBreath
     ears: ClothingHeadsetEngineering
     eyes: ClothingEyesGlassesMeson
+
+- type: startingGear #admin securibee
+  id: StartingGearApidSecOff
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSec
+    id: SecurityPDA
+    belt: ClothingBeltSecurityFilled
+    outerClothing: ClothingOuterHardsuitSecurity
+    #head:
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: WeaponPistolMk93
+    ears: ClothingHeadsetSecurity
+    eyes: ClothingEyesGlassesSecurity
+    mask: ClothingMaskGasMerc

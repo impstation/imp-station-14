@@ -60,3 +60,19 @@
       settings: default
   - type: GhostRoleMobSpawner
     prototype: MobApidEngineer
+
+- type: entity
+  id: ApidCryopodSecOff #admeme
+  parent: ApidCryopodBotanist
+  name: apid security officer cryopod
+  suffix: Ghost role, Security, Admeme
+  description: A small, hexagonal cryopod containing a Beefolk security officer. They might take a little bit to wake up.
+  components:
+  - type: GhostRole
+    name: ghost-role-information-apid-secoff-name
+    description: ghost-role-information-apid-secoff-description
+    rules: ghost-role-information-crewmember-rules
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: MobApidSecOff

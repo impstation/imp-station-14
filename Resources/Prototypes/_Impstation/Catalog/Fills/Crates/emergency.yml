@@ -10,3 +10,23 @@
       - id: EmergencyWeaponLaserCarbine
       - id: EmergencyWeaponLaserCarbine
       - id: EmergencyWeaponLaserCarbine
+
+- type: entity
+  id: ApidBRTCrate
+  parent: CrateMedical
+  name: apid BRT supplies crate
+  suffix: Admeme
+  description: Emergency supplies for Bee Rescue Teams. Good luck.
+  components:
+  - type: StorageFill
+    contents:
+      - id: RCD
+      - id: RCD
+      - id: RCDAmmo
+      - id: RCDAmmo
+      - id: JawsOfLife
+      - id: DefibrillatorCompact
+      - id: MedkitCombatFilled
+      - id: MedkitAdvancedFilled
+      - id: MagazineBoxLPistol
+      - id: MagazineLPistol
