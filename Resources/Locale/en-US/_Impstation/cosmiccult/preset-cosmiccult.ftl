@@ -69,5 +69,5 @@ cosmiccult-ghostrole-greeting =
     Obey the orders of your masters no matter what.
 
 ghostrole-cosmiccult-name = Placeholder
-ghostrole-cosmiccult-desc = Aid your summoner in achieving ascension.
+ghostrole-cosmiccult-desc = Placeholder
 ghostrole-cosmiccult-rules = You are a [color=red][bold]Team Antagonist[/bold][/color], bound to the cult that brought you forth.

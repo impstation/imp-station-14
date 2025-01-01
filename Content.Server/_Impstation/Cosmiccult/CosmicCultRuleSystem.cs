@@ -36,6 +36,9 @@ using Robust.Shared.Audio;
 using Content.Shared.Cuffs.Components;
 using Content.Server.Radio.Components;
 using Content.Shared.Heretic;
+using Robust.Shared.Player;
+using Content.Server.Antag.Components;
+using System.Linq;
 
 namespace Content.Server._Impstation.Cosmiccult;
 
@@ -68,7 +71,10 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         base.Initialize();
 
         SubscribeLocalEvent<CosmicCultRuleComponent, AfterAntagEntitySelectedEvent>(OnAntagSelect);
-        SubscribeLocalEvent<CosmicCultLeadComponent, AfterFlashedEvent>(OnPostFlash);
+        // SubscribeLocalEvent<CosmicCultComponent, ComponentInit>(OnCosmicCultComponentInit);
+        // SubscribeLocalEvent<CosmicCultComponent, ComponentRemove>(OnCosmicCultComponentRemoved);
+        // SubscribeLocalEvent<CosmicCultComponent, MobStateChangedEvent>(OnCosmicCultistStateChanged);
+        // SubscribeLocalEvent<CosmicCultRoleComponent, GetBriefingEvent>(OnGetBriefing);
 
     }
 
@@ -114,116 +120,78 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     }
     /// FRANKENSTEINED HERETIC CODE FOR BRIEFING FRANKENSTEINED HERETIC CODE FOR BRIEFING FRANKENSTEINED HERETIC CODE FOR BRIEFING
 
+
     /// <summary>
-    /// Called when a Cosmic Cult Lead uses a flash in melee to convert somebody else.
+    /// Called when we want to convert into the cult post-roundstart.
     /// </summary>
-    private void OnPostFlash(EntityUid uid, CosmicCultLeadComponent comp, ref AfterFlashedEvent ev)
+    public void Convert(EntityUid target)
     {
-        var alwaysConvertible = HasComp<AlwaysCosmicCultConvertibleComponent>(ev.Target);
-
-        if (!_mind.TryGetMind(ev.Target, out var mindId, out var mind) && !alwaysConvertible)
+        if (!TryComp(target, out ActorComponent? actor))
             return;
 
-        if (HasComp<CosmicCultComponent>(ev.Target) ||
-            HasComp<MindShieldComponent>(ev.Target) ||
-            HasComp<HereticComponent>(ev.Target) || ///LET'S MAKE SURE TO CATCH HERETICS SO WE CAN'T CONVERT THESE
-            !HasComp<HumanoidAppearanceComponent>(ev.Target) &&
-            !alwaysConvertible ||
-            !_mobState.IsAlive(ev.Target) ||
-            HasComp<ZombieComponent>(ev.Target))
+        var query = QueryActiveRules();
+        while (query.MoveNext(out var ruleUid, out _, out _, out _))
         {
-            return;
+            if (!TryComp(ruleUid, out AntagSelectionComponent? antagSelection))
+                continue;
+
+            var antagSelectionEnt = (ruleUid, antagSelection);
+            if (!_antag.TryGetNextAvailableDefinition(antagSelectionEnt, out var def))
+                def = antagSelection.Definitions.Last();
+
+            _antag.MakeAntag(antagSelectionEnt, actor.PlayerSession, def.Value, null);
         }
-
-        _npcFaction.AddFaction(ev.Target, CosmicCultFactionId);
-        var cosmiccultComp = EnsureComp<CosmicCultComponent>(ev.Target);
-
-        if (ev.User != null)
-        {
-            _adminLogManager.Add(LogType.Mind,
-                LogImpact.Medium,
-                $"{ToPrettyString(ev.User.Value)} converted {ToPrettyString(ev.Target)} into a Cosmic Cultist!");
-
-            if (_mind.TryGetMind(ev.User.Value, out var cosmiccultMindId, out _))
-            {
-                if (_role.MindHasRole<CosmicCultRoleComponent>(cosmiccultMindId, out var role))
-                    role.Value.Comp2.ConvertedCount++;
-            }
-        }
-
-        if (mindId == default || !_role.MindHasRole<CosmicCultRoleComponent>(mindId))
-        {
-            _role.MindAddRole(mindId, "MindRoleCosmicCult", mind, true);
-        }
-
-        if (mind?.Session != null)
-        {
-            _antag.SendBriefing(mind.Session, Loc.GetString("cosmiccult-role-conversion-fluff"), Color.FromHex("#4cabb3"), BriefingSound);
-            _antag.SendBriefing(mind.Session, Loc.GetString("cosmiccult-role-short-briefing"), Color.FromHex("#cae8e8"), null);
-            // EnsureComp<RoleBriefingComponent>(ev.Target);
-            // Comp<RoleBriefingComponent>(ev.Target).Briefing = Loc.GetString("objective-cosmiccult-description", ("name", mind.CharacterName ?? "Unknown"));
-        }
-
     }
 
-
-
-    /// <summary>
-    /// Checks if all the Head Revs are dead and if so will deconvert all regular revs.
-    /// </summary>
-    // private bool CheckRevsLose()
+    // private void OnPostFlash(EntityUid uid, CosmicCultLeadComponent comp, ref AfterFlashedEvent ev)
     // {
-    //     var stunTime = TimeSpan.FromSeconds(4);
-    //     var headRevList = new List<EntityUid>();
+    //     var alwaysConvertible = HasComp<AlwaysCosmicCultConvertibleComponent>(ev.Target);
 
-    //     var headRevs = AllEntityQuery<HeadRevolutionaryComponent, MobStateComponent>();
-    //     while (headRevs.MoveNext(out var uid, out _, out _))
+    //     if (!_mind.TryGetMind(ev.Target, out var mindId, out var mind) && !alwaysConvertible)
+    //         return;
+
+    //     if (HasComp<CosmicCultComponent>(ev.Target) ||
+    //         HasComp<MindShieldComponent>(ev.Target) ||
+    //         HasComp<HereticComponent>(ev.Target) || ///LET'S MAKE SURE TO CATCH HERETICS SO WE CAN'T CONVERT THESE
+    //         !HasComp<HumanoidAppearanceComponent>(ev.Target) &&
+    //         !alwaysConvertible ||
+    //         !_mobState.IsAlive(ev.Target) ||
+    //         HasComp<ZombieComponent>(ev.Target))
     //     {
-    //         headRevList.Add(uid);
+    //         return;
     //     }
 
-    //     // If no Head Revs are alive all normal Revs will lose their Rev status and rejoin Nanotrasen
-    //     // Cuffing Head Revs is not enough - they must be killed.
-    //     if (IsGroupDetainedOrDead(headRevList, false, false))
+    //     _npcFaction.AddFaction(ev.Target, CosmicCultFactionId);
+    //     var cosmiccultComp = EnsureComp<CosmicCultComponent>(ev.Target);
+
+    //     if (ev.User != null)
     //     {
-    //         var rev = AllEntityQuery<RevolutionaryComponent, MindContainerComponent>();
-    //         while (rev.MoveNext(out var uid, out _, out var mc))
+    //         _adminLogManager.Add(LogType.Mind,
+    //             LogImpact.Medium,
+    //             $"{ToPrettyString(ev.User.Value)} converted {ToPrettyString(ev.Target)} into a Cosmic Cultist!");
+
+    //         if (_mind.TryGetMind(ev.User.Value, out var cosmiccultMindId, out _))
     //         {
-    //             if (HasComp<HeadRevolutionaryComponent>(uid))
-    //                 continue;
-
-    //             _npcFaction.RemoveFaction(uid, CosmicCultFactionId);
-    //             _stun.TryParalyze(uid, stunTime, true);
-    //             RemCompDeferred<CosmicCultComponent>(uid);
-    //             _popup.PopupEntity(Loc.GetString("rev-break-control", ("name", Identity.Entity(uid, EntityManager))), uid);
-    //             _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(uid)} was deconverted due to all Head Revolutionaries dying.");
-
-    //             if (!_mind.TryGetMind(uid, out var mindId, out _, mc))
-    //                 continue;
-
-    //             // remove their antag role
-    //             _role.MindTryRemoveRole<RevolutionaryRoleComponent>(mindId);
-
-    //             // make it very obvious to the rev they've been deconverted since
-    //             // they may not see the popup due to antag and/or new player tunnel vision
-    //             if (_mind.TryGetSession(mindId, out var session))
-    //                 _euiMan.OpenEui(new DeconvertedEui(), session);
+    //             if (_role.MindHasRole<CosmicCultRoleComponent>(cosmiccultMindId, out var role))
+    //                 role.Value.Comp2.ConvertedCount++;
     //         }
-    //         return true;
     //     }
 
-    //     return false;
+    //     if (mindId == default || !_role.MindHasRole<CosmicCultRoleComponent>(mindId))
+    //     {
+    //         _role.MindAddRole(mindId, "MindRoleCosmicCult", mind, true);
+    //     }
+
+    //     if (mind?.Session != null)
+    //     {
+    //         _antag.SendBriefing(mind.Session, Loc.GetString("cosmiccult-role-conversion-fluff"), Color.FromHex("#4cabb3"), BriefingSound);
+    //         _antag.SendBriefing(mind.Session, Loc.GetString("cosmiccult-role-short-briefing"), Color.FromHex("#cae8e8"), null);
+    //         // EnsureComp<RoleBriefingComponent>(ev.Target);
+    //         // Comp<RoleBriefingComponent>(ev.Target).Briefing = Loc.GetString("objective-cosmiccult-description", ("name", mind.CharacterName ?? "Unknown"));
+    //     }
+
     // }
 
-    private static readonly string[] Outcomes =
-    {
-        // revs survived and heads survived... how
-        "rev-reverse-stalemate",
-        // revs won and heads died
-        "rev-won",
-        // revs lost and heads survived
-        "rev-lost",
-        // revs lost and heads died
-        "rev-stalemate"
-    };
+
+
 }

@@ -20,11 +20,13 @@ using Robust.Shared.Network;
 using Content.Shared.Coordinates;
 using Content.Server.Station.Systems;
 using Content.Server.Station.Components;
+using Content.Server.Bible.Components;
 
 namespace Content.Server._Impstation.Cosmiccult;
 
 public sealed partial class CosmicCultSystem : EntitySystem
 {
+    [Dependency] private readonly CosmicCultRuleSystem _cosmicCultRule = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
@@ -36,8 +38,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly StationSystem _station = default!;
-
-    private const int SpaceDistance = 3;
     public void SubscribeAbilities()
     {
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicToolToggle>(OnCosmicToolToggle);
@@ -58,10 +58,8 @@ public sealed partial class CosmicCultSystem : EntitySystem
     {
         if (action.Handled)
             return false;
-
         if (!TryComp<CosmicCultActionComponent>(action.Action, out var cultAction))
             return false;
-
         action.Handled = true;
         return true;
     }
@@ -71,12 +69,10 @@ public sealed partial class CosmicCultSystem : EntitySystem
     /// </summary>
     private void OnCosmicSiphon(EntityUid uid, CosmicCultComponent comp, ref EventCosmicSiphon args)
     {
-        var target = args.Target;
-
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        var doargs = new DoAfterArgs(EntityManager, uid, comp.CosmicSiphonDuration, new EventCosmicSiphonDoAfter(), uid, target)
+        var doargs = new DoAfterArgs(EntityManager, uid, comp.CosmicSiphonDuration, new EventCosmicSiphonDoAfter(), uid, args.Target)
         {
             DistanceThreshold = 1.5f,
             Hidden = true,
@@ -161,8 +157,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
     /// </summary>
     private void OnCosmicBlank(EntityUid uid, CosmicCultComponent comp, ref EventCosmicBlank args)
     {
-        var target = args.Target;
-
         if (!TryUseAbility(uid, comp, args))
             return;
     }
@@ -173,27 +167,29 @@ public sealed partial class CosmicCultSystem : EntitySystem
     /// Called when the cult lead attemps to place The Monument. This code is awful, but at least it's straightforward.
     /// </summary>
     private void OnCosmicPlaceMonument(EntityUid uid, CosmicCultLeadComponent comp, ref EventCosmicPlaceMonument args)
+
     {
+        var spaceDistance = 3;
         var xform = Transform(uid);
         var user = Transform(args.Performer);
+        var worldPos = _transform.GetWorldPosition(xform);
         var pos = xform.LocalPosition;
-        var spawnplace = _transform.GetMapCoordinates(uid, xform: xform);
         var box = new Box2(pos + new Vector2(-1.4f, -0.4f), pos + new Vector2(1.4f, 0.4f));
 
-        ///CHECK IF WE'RE STANDING SOMEWHERE SOLID
-        if (xform.GridUid is not { } grid || !TryComp<MapGridComponent>(grid, out var gridComp))
+        /// MAKE SURE WE'RE STANDING ON A GRID, BRUH.
+        if (!TryComp(xform.GridUid, out MapGridComponent? grid))
         {
             _popup.PopupEntity(Loc.GetString("cosmic-monument-spawn-error-grid"), uid, uid);
             return;
         }
 
         /// CHECK IF IT'S BEING PLACED CHEESILY CLOSE TO SPACE
-        foreach (var tile in gridComp.GetTilesIntersecting(new Circle(_transform.GetWorldPosition(xform), SpaceDistance), false))
+        foreach (var tile in _map.GetTilesIntersecting(xform.GridUid.Value, grid, new Circle(worldPos, spaceDistance)))
         {
             if (!tile.IsSpace(_tileDef))
                 continue;
 
-            _popup.PopupEntity(Loc.GetString("cosmic-monument-spawn-error-space", ("DISTANCE", SpaceDistance)), uid, uid);
+            _popup.PopupEntity(Loc.GetString("cosmic-monument-spawn-error-space", ("DISTANCE", spaceDistance)), uid, uid);
             return;
         }
 
@@ -202,7 +198,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
         EntityUid? stationGrid = null;
         if (TryComp<StationDataComponent>(station, out var stationData))
             stationGrid = _station.GetLargestGrid(stationData);
-
         if (stationGrid is not null && stationGrid != xform.GridUid)
         {
             _popup.PopupEntity(Loc.GetString("cosmic-monument-spawn-error-station"), uid, uid);
@@ -228,11 +223,10 @@ public sealed partial class CosmicCultSystem : EntitySystem
     /// </summary>
     private void OnCosmicLapse(EntityUid uid, CosmicCultComponent comp, ref EventCosmicLapse args)
     {
-        var target = args.Target;
-
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        _polymorphSystem.PolymorphEntity(target, "CosmicPolymorphLapse");
+        if (!_mind.TryGetMind(args.Target, out _, out _) || HasComp<BibleUserComponent>(args.Target))
+            _polymorphSystem.PolymorphEntity(args.Target, "CosmicPolymorphLapse");
     }
 }

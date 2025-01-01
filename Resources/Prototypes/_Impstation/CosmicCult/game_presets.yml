@@ -1,14 +1,11 @@
 - type: gamePreset
   id: TheCosmicCult
   alias:
-    - cult
     - cosmic
-    - cosmics
-    - cultists
-    - cosmic cult
   name: cosmiccult-title
   description: cosmiccult-description
   showInVote: false
+  cooldown: 1
   rules:
     - CosmicCult
     - SubGamemodesRule

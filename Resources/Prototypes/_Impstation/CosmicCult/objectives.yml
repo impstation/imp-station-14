@@ -13,17 +13,17 @@
 
 ############################### COSMIC CULT'S OBJECTIVES
 
-- type: entity
-  parent: [BaseCosmicCultObjective, BaseLivingObjective]
-  id: CosmicLeadershipObjective
-  name: ELECT A LEADER
-  description: For our plans to succeed, we'll need some form of leadership.
-  components:
-  - type: Objective
-    icon:
-      sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
-      state: blank
-  - type: EscapeShuttleCondition
+# - type: entity
+#   parent: [BaseCosmicCultObjective, BaseLivingObjective]
+#   id: CosmicLeadershipObjective
+#   name: ELECT A LEADER
+#   description: For our plans to succeed, we'll need some form of leadership.
+#   components:
+#   - type: Objective
+#     icon:
+#       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
+#       state: blank
+#   - type: EscapeShuttleCondition
 
 - type: entity
   parent: BaseCosmicCultObjective
@@ -45,7 +45,7 @@
   parent: [BaseCosmicCultObjective, BaseLivingObjective]
   id: CosmicMonumentObjective
   name: EMPOWER THE MONUMENT
-  description: As a cult, collectively ensure that The Monument is brought to its full power.
+  description: As a cult, ensure that The Monument is brought to full power.
   components:
   - type: Objective
     icon:

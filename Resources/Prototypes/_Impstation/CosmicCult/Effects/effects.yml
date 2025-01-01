@@ -1,0 +1,59 @@
+- type: entity
+  id: WeaponArcCosmic
+  parent: WeaponArcStatic
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: WeaponArcVisuals
+      fadeOut: false
+    - type: Sprite
+      sprite: _Impstation/CosmicCult/Effects/weaponarcs.rsi
+      state: arc_cosmic
+    - type: TimedDespawn
+      lifetime: 0.66
+    - type: PointLight
+      color: "#43286a"
+      radius: 2.15
+      energy: 12
+    - type: LightBehaviour
+      behaviours:
+        - !type:FadeBehaviour
+          interpolate: Linear
+          minDuration: 0.64
+          maxDuration: 0.65
+          startValue: 12.0
+          endValue: 0.0
+          property: Energy
+          enabled: true
+
+- type: entity
+  id: CosmicFloorSpawnEffect
+  name: cosmic cult floor effect
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: Transform
+    noRot: true
+    anchored: true
+  - type: Sprite
+    layers:
+    - sprite: _Impstation/CosmicCult/Effects/tiles_spawn.rsi
+      state: floorglow
+      shader: unshaded
+    netsync: false
+    drawdepth: Mobs
+  - type: PointLight
+    color: "#42a4ae"
+  - type: LightBehaviour
+    behaviours:
+     - !type:FadeBehaviour
+       interpolate: Linear
+       minDuration: 0.5
+       maxDuration: 0.5
+       startValue: 0.1
+       endValue: 1
+       property: Energy
+       enabled: true
+       isLooped: true
+       reverseWhenFinished: true

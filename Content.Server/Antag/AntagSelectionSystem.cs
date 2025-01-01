@@ -296,20 +296,23 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             isSpawner = true;
         }
 
+        // THIS CODE HAS BEEN ALTERED BASED ON EE/BLOOD CULT CODE AS A DEPENDANCY FOR COSMIC CULT MIDROUND CONVERSION.
+        // The tweak is relatively minor. I do not understand the extent of this change, but everything seems to be perfectly fine.
         if (!antagEnt.HasValue)
         {
             var getEntEv = new AntagSelectEntityEvent(session, ent);
             RaiseLocalEvent(ent, ref getEntEv, true);
+
+            if (!getEntEv.Handled)
+            {
+                Log.Error($"Attempted to make {session} antagonist in gamerule {ToPrettyString(ent)} but there was no valid entity for player.");
+            }
+
             antagEnt = getEntEv.Entity;
         }
 
         if (antagEnt is not { } player)
-        {
-            Log.Error($"Attempted to make {session} antagonist in gamerule {ToPrettyString(ent)} but there was no valid entity for player.");
-            if (session != null)
-                ent.Comp.SelectedSessions.Remove(session);
             return;
-        }
 
         var getPosEv = new AntagSelectLocationEvent(session, ent);
         RaiseLocalEvent(ent, ref getPosEv, true);
