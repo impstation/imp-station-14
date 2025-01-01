@@ -160,9 +160,9 @@
   suffix: Admeme
   parent: MarkerBase
   components:
-    - type: Sprite
-      layers:
-        - state: green
+    #- type: Sprite
+    #  layers:
+    #    - state: green
     - type: GroupSpawner
       spawns:
       - id: ApidCryopodDoctor
