@@ -44,12 +44,12 @@
     stopSearchVerbPopup: pai-system-stopped-searching
   - type: Examiner
   - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Common
-  - type: ActiveRadio
-    channels:
-    - Common
+  #- type: IntrinsicRadioTransmitter
+  #  channels:
+  #  - Common
+  #- type: ActiveRadio
+  #  channels:
+  #  - Common
   - type: DoAfter
   - type: Actions
   - type: TypingIndicator
@@ -134,12 +134,12 @@
     roleName: pai-system-role-name-gilded
     roleDescription: pai-system-role-description-gilded
     roleRules: ghost-role-information-familiar-rules
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Common
-  - type: ActiveRadio
-    channels:
-    - Common
+  #- type: IntrinsicRadioTransmitter
+  #  channels:
+  #  - Common
+  #- type: ActiveRadio
+  #  channels:
+  #  - Common
   - type: Appearance
   - type: GenericVisualizer
     visuals:

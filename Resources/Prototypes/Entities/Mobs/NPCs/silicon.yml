@@ -32,12 +32,12 @@
     factions:
     - SimpleNeutral
   - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Common
-  - type: ActiveRadio
-    channels:
-    - Common
+  #- type: IntrinsicRadioTransmitter
+  #  channels:
+  #   - Common
+  #- type: ActiveRadio
+  #  channels:
+  #   - Common
   - type: HealthExaminable
     examinableTypes:
     - Blunt
@@ -467,11 +467,11 @@
     - FootstepSound
     - Bot
   - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
+  #- type: IntrinsicRadioTransmitter
     channels:
-    - Common
+    # - Common
     - Supply
   - type: ActiveRadio
     channels:
-    - Common
+    # - Common
     - Supply

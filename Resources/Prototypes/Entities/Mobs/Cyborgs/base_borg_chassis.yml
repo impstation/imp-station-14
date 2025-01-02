@@ -94,12 +94,12 @@
   - type: IntrinsicRadioTransmitter
     channels:
     - Binary
-    - Common
+    # - Common
     - Science
   - type: ActiveRadio
     channels:
     - Binary
-    - Common
+    # - Common
     - Science
   - type: ZombieImmune
   - type: Repairable

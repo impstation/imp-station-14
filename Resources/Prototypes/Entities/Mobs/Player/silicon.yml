@@ -723,7 +723,7 @@
   - type: ActiveRadio
     channels:
     - Binary
-    - Common
+    # - Common
   - type: DoAfter
   - type: Pullable
   - type: Examiner
