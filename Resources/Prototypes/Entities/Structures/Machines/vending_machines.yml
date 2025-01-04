@@ -79,12 +79,12 @@
     speechVerb: Robotic
     speechSounds: Vending
   - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Common
-  - type: ActiveRadio
-    channels:
-    - Common
+  #- type: IntrinsicRadioTransmitter
+  #  channels:
+  #  - Common
+  #- type: ActiveRadio
+  #  channels:
+  #  - Common
   - type: DoAfter
   - type: Electrified
     enabled: false

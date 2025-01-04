@@ -29,7 +29,7 @@
     interactFailureString: petting-failure-generic-cyborg
   - type: BorgSwitchableType
     inherentRadioChannels:
-    - Common
+    # - Common
     - Binary
 
 - type: entity
@@ -124,13 +124,13 @@
     channels:
     - Supply
     - Binary
-    - Common
+    # - Common
     - Science
   - type: ActiveRadio
     channels:
     - Supply
     - Binary
-    - Common
+    # - Common
     - Science
   - type: AccessReader
     access: [["Cargo"], ["Salvage"], ["Command"], ["Research"]]

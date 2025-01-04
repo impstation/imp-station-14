@@ -95,11 +95,11 @@
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
-    - Common
+    # - Common
     - Binary
   - type: ActiveRadio
     channels:
-    - Common
+    # - Common
     - Binary
   - type: ZombieImmune
   - type: Repairable
