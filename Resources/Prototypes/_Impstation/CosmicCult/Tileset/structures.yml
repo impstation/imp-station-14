@@ -6,7 +6,7 @@
   parent: BaseMachine
   description: A mysterious structure that renders its surroundings weightless. In other words, the inscrutable glyphs upon it tell artificial gravity to take a hike.
   components:
-  - type: CosmicItem
+  - type: CosmicMarkStructure
   - type: ZeroGravityArea
     fixture: antiGravity
   - type: SpriteFade
@@ -88,7 +88,7 @@
       - state: computer
       - state: computer-unshaded
         shader: unshaded
-  - type: CosmicItem
+  - type: CosmicMarkStructure
   - type: Thruster
     thrusterType: Angular # These are overpowered thruster-shuttle-console-hybrids that require no power grid. As such, they cannot be anchored or meaningfully taken outside of their intended use.
     requireSpace: false
@@ -139,7 +139,7 @@
   placement:
     mode: SnapgridCenter
   components:
-  - type: CosmicItem
+  - type: CosmicMarkStructure
   - type: Sprite
     sprite: _Impstation/CosmicCult/Tileset/cosmicchair.rsi
     state: chair
@@ -166,7 +166,7 @@
       - state: icon
     drawdepth: Mobs
     noRot: true
-  - type: CosmicItem
+  - type: CosmicMarkStructure
   - type: SpriteFade
   - type: InteractionOutline
   - type: Transform
@@ -196,7 +196,7 @@
   id: CosmicThruster
   name: malign engine
   components:
-  - type: CosmicItem
+  - type: CosmicMarkStructure
   - type: Fixtures
     fixtures:
       fix1:
@@ -261,7 +261,7 @@
       Brute:
         collection: GlassSmash
   - type: Transform
-  - type: CosmicItem
+  - type: CosmicMarkStructure
   - type: Clickable
   - type: InteractionOutline
   - type: Sprite

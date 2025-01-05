@@ -28,7 +28,7 @@ public sealed partial class CosmicCultComponent : Component
     {
         "ActionCosmicToolToggle",
         "ActionCosmicSiphon",
-        ///"ActionCosmicBlank",
+        "ActionCosmicBlank",
         "ActionCosmicLapse",
         ///"ActionCosmicGlare",
         ///"ActionCosmicGearDash",
@@ -45,22 +45,22 @@ public sealed partial class CosmicCultComponent : Component
     #region Cosmic Siphon
 
     /// <summary>
-    /// The duration of the doAfter for performing a cosmic siphon
+    /// The duration of the doAfter for cosmic siphon
     /// </summary>
     [DataField, AutoNetworkedField]
-    public TimeSpan CosmicSiphonDuration = TimeSpan.FromSeconds(4);
+    public TimeSpan CosmicSiphonSpeed = TimeSpan.FromSeconds(4);
+
+    /// <summary>
+    /// The duration of the doAfter for cosmic blank
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public TimeSpan CosmicBlankSpeed = TimeSpan.FromSeconds(0.8f);
 
     /// <summary>
     /// The entity prototype to spawn in the cultist's hand after completing a cosmic siphon.
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntProtoId<ItemComponent> CosmicSiphonResult = "MaterialCosmicCultEntropy1";
-
-    /// <summary>
-    /// The entity prototype to spawn in the cultist's hand after completing a cosmic siphon, but you want to give 'em more.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public EntProtoId<ItemComponent> CosmicSiphonResult3 = "MaterialCosmicCultEntropy3";
 
     /// <summary>
     /// The damage to apply upon a successful cosmic siphon
@@ -74,6 +74,12 @@ public sealed partial class CosmicCultComponent : Component
     };
 
     #endregion // Cosmic Siphon
+
+    [DataField]
+    public EntProtoId LapseVFX = "CosmicLapseAbilityVFX";
+
+    [DataField]
+    public SoundSpecifier LapseSFX = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/ability_lapse.ogg");
 
     #endregion // Abilities
 

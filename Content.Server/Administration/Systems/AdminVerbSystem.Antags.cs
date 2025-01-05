@@ -190,7 +190,7 @@ public sealed partial class AdminVerbSystem
             Icon = new SpriteSpecifier.Rsi(new("/Textures/_Impstation/CosmicCult/Icons/antag_icons.rsi"), "CosmicCult"),
             Act = () =>
             {
-                _antag.ForceMakeAntag<CosmicCultRuleComponent>(targetPlayer, "CosmicCult");
+                _antag.ForceMakeAntag<CosmicCultRuleComponent>(targetPlayer, "GameRuleCosmicCult");
             },
             Impact = LogImpact.High,
             Message = Loc.GetString("admin-verb-make-cosmiccultist"),

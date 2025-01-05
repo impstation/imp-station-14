@@ -30,5 +30,5 @@ public sealed partial class CosmicTestComponent : Component
     };
 
     [DataField]
-    public EntProtoId TileConvertVFX = "CosmicFloorSpawnEffect";
+    public EntProtoId TileConvertVFX = "CosmicFloorSpawnVFX";
 }

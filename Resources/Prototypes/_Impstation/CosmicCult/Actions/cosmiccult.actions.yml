@@ -6,7 +6,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    useDelay: 2
+    useDelay: 3
     itemIconStyle: NoItem
     icon:
       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
@@ -21,12 +21,10 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
-    useDelay: 10
+    useDelay: 3
     whitelist:
       components:
         - HumanoidAppearance
-    canTargetSelf: true
-    interactOnMiss: false
     itemIconStyle: NoItem
     icon:
       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
@@ -34,30 +32,29 @@
     event: !type:EventCosmicSiphon {}
   - type: CosmicCultAction
 
-# - type: entity
-#   id: ActionCosmicBlank
-#   name: Blank Mentality
-#   description: Silently siphon entropy from your target, dealing some damage in the process.
-#   categories: [ HideSpawnMenu ]
-#   components:
-#   - type: EntityTargetAction
-#     useDelay: 10
-#     whitelist:
-#       components:
-#         - HumanoidAppearance
-#     canTargetSelf: true
-#     interactOnMiss: false
-#     itemIconStyle: NoItem
-#     icon:
-#       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
-#       state: siphon
-#     event: !type:EventCosmicSiphon {}
-#   - type: CosmicCultAction
+- type: entity
+  id: ActionCosmicBlank
+  name: Blank Mentality
+  description: Shunt your target's mind out of their body and unto the darkness, rendering them temporarily mindless.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    canTargetSelf: true
+    useDelay: 3
+    whitelist:
+      components:
+        - HumanoidAppearance
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: blank
+    event: !type:EventCosmicBlank {}
+  - type: CosmicCultAction
 
 - type: entity
   id: ActionCosmicPlaceMonument
   name: Beckon The Monument
-  description: TODO
+  description: Call forth The Monument into realspace. Keep it hidden and safe from non-cultists - make sure to place it wisely!
   categories: [ HideSpawnMenu ]
   components:
   - type: ConfirmableAction
@@ -73,11 +70,15 @@
 - type: entity
   id: ActionCosmicLapse
   name: Abberant Lapse
-  description: TODO
+  description: Lapse your target's corporeal form, temporarily rendering it immutable, impassible, and frozen in place.
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
-    useDelay: 2
+    canTargetSelf: true
+    useDelay: 3
+    whitelist:
+      components:
+        - HumanoidAppearance
     itemIconStyle: NoItem
     icon:
       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi

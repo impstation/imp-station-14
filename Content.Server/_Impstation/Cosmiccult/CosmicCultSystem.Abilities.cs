@@ -7,20 +7,24 @@ using Content.Shared.Actions;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mind;
 using Content.Shared.Maps;
-using Content.Shared.Physics;
-using Content.Shared.Spawning;
 using Content.Server.Objectives.Components;
-using Content.Server.Destructible.Thresholds.Triggers;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Content.Server.Polymorph.Systems;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Map;
 using System.Numerics;
 using Robust.Shared.Network;
-using Content.Shared.Coordinates;
 using Content.Server.Station.Systems;
 using Content.Server.Station.Components;
 using Content.Server.Bible.Components;
+using Content.Shared.Humanoid;
+using Robust.Server.Audio;
+using Robust.Shared.Audio;
+using Robust.Shared.Random;
+using Content.Shared.Mind.Components;
+using Content.Server.Antag.Components;
+using System.Collections.Immutable;
+using Content.Server._Impstation.Cosmiccult.Components;
+using Content.Shared._Impstation.Cosmiccult.Components.Examine;
 
 namespace Content.Server._Impstation.Cosmiccult;
 
@@ -34,15 +38,20 @@ public sealed partial class CosmicCultSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly EntityLookupSystem _entLookup = default!;
     [Dependency] private readonly IEntityManager _entMan = default!;
+    [Dependency] private readonly IPrototypeManager _protMan = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDef = default!;
     [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+    [Dependency] private readonly StationSpawningSystem _spawningSystem = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
     public void SubscribeAbilities()
     {
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicToolToggle>(OnCosmicToolToggle);
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicSiphon>(OnCosmicSiphon);
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicSiphonDoAfter>(OnCosmicSiphonDoAfter);
+        SubscribeLocalEvent<CosmicCultComponent, EventCosmicBlankDoAfter>(OnCosmicBlankDoAfter);
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicBlank>(OnCosmicBlank);
         SubscribeLocalEvent<CosmicCultLeadComponent, EventCosmicPlaceMonument>(OnCosmicPlaceMonument);
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicLapse>(OnCosmicLapse);
@@ -50,6 +59,36 @@ public sealed partial class CosmicCultSystem : EntitySystem
         ///SubscribeLocalEvent<CosmicCultComponent, EventCosmicGearDash>(OnCosmicGearDash);
         ///SubscribeLocalEvent<CosmicCultComponent, EventCosmicGearRecall>(OnCosmicGearRecall);
     }
+
+    #region Housekeeping
+    /// <summary>
+    /// Creates the Cosmic Void pocket dimension map.
+    /// </summary>
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var enumerator = EntityQueryEnumerator<InVoidComponent>();
+        while (enumerator.MoveNext(out var uid, out var comp))
+        {
+            comp.VoidTimeTicker += frameTime;
+
+            if (comp.VoidTimeTicker >= comp.VoidTimeoutDuration)
+            {
+                comp.VoidTimeTicker = 0;
+                if (!TryComp<MindContainerComponent>(uid, out var mindContainer))
+                    continue;
+                Log.Debug($"Sending {mindContainer.Mind} back to their body!");
+                var mindEnt = mindContainer.Mind!.Value;
+                var mind = Comp<MindComponent>(mindEnt);
+                _mind.TransferTo(mindEnt, comp.OriginalBody);
+                RemComp<CosmicMarkBlankComponent>(comp.OriginalBody);
+                mind.PreventGhosting = false;
+                QueueDel(uid);
+            }
+        }
+    }
+    #endregion
 
     /// <summary>
     /// A 'lil catch-all thing to double check.. stuff. Called by multiple abilities.
@@ -64,15 +103,18 @@ public sealed partial class CosmicCultSystem : EntitySystem
         return true;
     }
 
+    #region Siphon Entropy
     /// <summary>
     /// Called when someone clicks on a target using the cosmic siphon ability.
     /// </summary>
-    private void OnCosmicSiphon(EntityUid uid, CosmicCultComponent comp, ref EventCosmicSiphon args)
+    private void OnCosmicSiphon(EntityUid uid, CosmicCultComponent comp, ref EventCosmicSiphon action)
     {
-        if (!TryUseAbility(uid, comp, args))
+        if (HasComp<CosmicCultComponent>(action.Target) || HasComp<BibleUserComponent>(action.Target)) // the BaseAction system doesn't have a blacklist. This acts as one. Blacklist cultists and the chaplain.
+            return;
+        if (!TryUseAbility(uid, comp, action))
             return;
 
-        var doargs = new DoAfterArgs(EntityManager, uid, comp.CosmicSiphonDuration, new EventCosmicSiphonDoAfter(), uid, args.Target)
+        var doargs = new DoAfterArgs(EntityManager, uid, comp.CosmicSiphonSpeed, new EventCosmicSiphonDoAfter(), uid, action.Target)
         {
             DistanceThreshold = 1.5f,
             Hidden = true,
@@ -83,22 +125,20 @@ public sealed partial class CosmicCultSystem : EntitySystem
         _doAfter.TryStartDoAfter(doargs);
     }
 
-
-
     /// <summary>
     /// Called when CosmicSiphon's DoAfter completes.
     /// </summary>
-    private void OnCosmicSiphonDoAfter(EntityUid uid, CosmicCultComponent comp, EventCosmicSiphonDoAfter args)
+    private void OnCosmicSiphonDoAfter(EntityUid uid, CosmicCultComponent comp, EventCosmicSiphonDoAfter action)
     {
-        if (args.Args.Target == null)
+        if (action.Args.Target == null)
             return;
 
-        var target = args.Args.Target.Value;
-        if (args.Cancelled || args.Handled)
+        var target = action.Args.Target.Value;
+        if (action.Cancelled || action.Handled)
             return;
 
-        args.Handled = true;
-        _damageable.TryChangeDamage(args.Target, comp.CosmicSiphonDamage, origin: uid);
+        action.Handled = true;
+        _damageable.TryChangeDamage(action.Target, comp.CosmicSiphonDamage, origin: uid);
         _popup.PopupEntity(Loc.GetString("cosmicability-siphon-success", ("target", Identity.Entity(target, EntityManager))), uid, uid);
 
         var entropymote1 = SpawnAtPosition(comp.CosmicSiphonResult, Transform(uid).Coordinates);
@@ -109,16 +149,17 @@ public sealed partial class CosmicCultSystem : EntitySystem
         if (_mind.TryGetObjectiveComp<CosmicEntropyConditionComponent>(uid, out var obj))
             obj.Siphoned = ObjectiveEntropyTracker;
     }
+    #endregion
 
 
-
+    #region Compass Toggle
     /// <summary>
     /// Called when someone uses the Beckon Compass ability.
     /// </summary>
-    private void OnCosmicToolToggle(EntityUid uid, CosmicCultComponent comp, ref EventCosmicToolToggle args)
+    private void OnCosmicToolToggle(EntityUid uid, CosmicCultComponent comp, ref EventCosmicToolToggle action)
     {
 
-        if (!TryUseAbility(uid, comp, args))
+        if (!TryUseAbility(uid, comp, action))
             return;
 
         if (!TryToggleCosmicTool(uid, CultToolPrototype, comp))
@@ -149,20 +190,118 @@ public sealed partial class CosmicCultSystem : EntitySystem
 
         return true;
     }
+    #endregion
 
 
-
+    #region "Blank" Stun
     /// <summary>
     /// Called when someone clicks on a target using the cosmic blank ability.
     /// </summary>
-    private void OnCosmicBlank(EntityUid uid, CosmicCultComponent comp, ref EventCosmicBlank args)
+    private void OnCosmicBlank(EntityUid uid, CosmicCultComponent comp, ref EventCosmicBlank action)
     {
-        if (!TryUseAbility(uid, comp, args))
+        // if (HasComp<CosmicCultComponent>(action.Target) || HasComp<BibleUserComponent>(action.Target)) // the BaseAction system doesn't have a blacklist. This acts as one. Blacklist cultists and the chaplain.
+        //     return;
+        if (!TryUseAbility(uid, comp, action))
             return;
+
+        var doargs = new DoAfterArgs(EntityManager, uid, comp.CosmicBlankSpeed, new EventCosmicBlankDoAfter(), uid, action.Target)
+        {
+            DistanceThreshold = 1.5f,
+            Hidden = false,
+            BreakOnDamage = true,
+            BreakOnMove = true,
+            BreakOnDropItem = true,
+        };
+        _doAfter.TryStartDoAfter(doargs);
     }
 
+    /// <summary>
+    /// Called when CosmicBlank's DoAfter completes.
+    /// </summary>
+    private void OnCosmicBlankDoAfter(EntityUid uid, CosmicCultComponent comp, EventCosmicBlankDoAfter action)
+    {
+        if (action.Args.Target == null)
+            return;
+        var target = action.Args.Target.Value;
+        if (action.Cancelled || action.Handled)
+            return;
+        action.Handled = true;
+        if (!TryComp<MindContainerComponent>(action.Args.Target, out var mindContainer) || !mindContainer.HasMind)
+        {
+            Log.Debug($"Couldn't find a mindcontainer for {action.Args.Target}.");
+            return;
+        }
 
+        Log.Debug($"Sending {mindContainer.Mind} to the cosmic void!");
 
+        var mindEnt = mindContainer.Mind.Value;
+        var mind = Comp<MindComponent>(mindEnt);
+        mind.PreventGhosting = true;
+
+        var spawnPoints = EntityManager.GetAllComponents(typeof(CosmicVoidSpawnComponent)).ToImmutableList();
+        if (spawnPoints.IsEmpty)
+        {
+            Log.Warning("Couldn't find any cosmic void spawners! Failed to send.");
+            return;
+        }
+        var newSpawn = _random.Pick(spawnPoints);
+
+        var mobUid = _spawningSystem.SpawnPlayerMob(Transform(newSpawn.Uid).Coordinates, null, null, null);
+        EnsureComp<AntagImmuneComponent>(mobUid);
+        EnsureComp<InVoidComponent>(mobUid, out var inVoid);
+        inVoid.OriginalBody = target;
+
+        EnsureComp<CosmicMarkBlankComponent>(target);
+        _mind.TransferTo(mindEnt, mobUid);
+        Log.Debug($"Created wisp entity {mobUid}");
+    }
+    #endregion
+
+    #region "Lapse" Polymorph
+    /// <summary>
+    /// Called when someone clicks on a target using the cosmic lapse ability.
+    /// </summary>
+    private void OnCosmicLapse(EntityUid uid, CosmicCultComponent comp, ref EventCosmicLapse action)
+    {
+        if (action.Handled || HasComp<BibleUserComponent>(action.Target)) // Blacklist the chaplain, obviously.
+            return;
+        action.Handled = true;
+        var xform = Transform(action.Target);
+        var tgtpos = _transform.GetMapCoordinates(action.Target, xform: xform);
+        _audio.PlayPvs(comp.LapseSFX, uid, AudioParams.Default.WithVolume(+6f));
+        Spawn(comp.LapseVFX, tgtpos);
+        TryComp<HumanoidAppearanceComponent>(action.Target, out HumanoidAppearanceComponent? species);
+        switch (species!.Species) // We use a switch case for all the species variants. Why? It uses tidy wizden code, leans on YML, and it's pretty efficient.
+        {
+            case "Human":
+                _polymorphSystem.PolymorphEntity(action.Target, "CosmicLapseMobHuman");
+                break;
+            case "Arachnid":
+                _polymorphSystem.PolymorphEntity(action.Target, "CosmicLapseMobArachnid");
+                break;
+            case "Diona":
+                _polymorphSystem.PolymorphEntity(action.Target, "CosmicLapseMobDiona");
+                break;
+            case "Moth":
+                _polymorphSystem.PolymorphEntity(action.Target, "CosmicLapseMobMoth");
+                break;
+            case "Vox":
+                _polymorphSystem.PolymorphEntity(action.Target, "CosmicLapseMobVox");
+                break;
+            case "Snail":
+                _polymorphSystem.PolymorphEntity(action.Target, "CosmicLapseMobSnail");
+                break;
+            case "Decapoid":
+                _polymorphSystem.PolymorphEntity(action.Target, "CosmicLapseMobDecapoid");
+                break;
+            default:
+                _polymorphSystem.PolymorphEntity(action.Target, "CosmicLapseMobHuman");
+                break;
+        }
+    }
+    #endregion
+
+    #region MonumentSpawn
     /// <summary>
     /// Called when the cult lead attemps to place The Monument. This code is awful, but at least it's straightforward.
     /// </summary>
@@ -214,19 +353,5 @@ public sealed partial class CosmicCultSystem : EntitySystem
         _actions.RemoveAction(uid, comp.MonumentActionEntity);
         Spawn(comp.MonumentPrototype, _transform.GetMapCoordinates(uid, xform: xform));
     }
-
-
-
-
-    /// <summary>
-    /// Called when someone clicks on a target using the cosmic lapse ability.
-    /// </summary>
-    private void OnCosmicLapse(EntityUid uid, CosmicCultComponent comp, ref EventCosmicLapse args)
-    {
-        if (!TryUseAbility(uid, comp, args))
-            return;
-
-        if (!_mind.TryGetMind(args.Target, out _, out _) || HasComp<BibleUserComponent>(args.Target))
-            _polymorphSystem.PolymorphEntity(args.Target, "CosmicPolymorphLapse");
-    }
+    #endregion
 }

@@ -1,5 +1,5 @@
 - type: gamePreset
-  id: TheCosmicCult
+  id: CosmicCult
   alias:
     - cosmic
   name: cosmiccult-title
@@ -7,7 +7,7 @@
   showInVote: false
   cooldown: 1
   rules:
-    - CosmicCult
+    - GameRuleCosmicCult
     - SubGamemodesRule
     - BasicStationEventScheduler
     - MeteorSwarmScheduler

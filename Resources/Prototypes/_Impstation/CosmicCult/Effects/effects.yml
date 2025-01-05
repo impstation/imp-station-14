@@ -1,7 +1,7 @@
 - type: entity
+  categories: [ HideSpawnMenu ]
   id: WeaponArcCosmic
   parent: WeaponArcStatic
-  categories: [ HideSpawnMenu ]
   components:
     - type: WeaponArcVisuals
       fadeOut: false
@@ -14,6 +14,7 @@
       color: "#43286a"
       radius: 2.15
       energy: 12
+      castShadows: false
     - type: LightBehaviour
       behaviours:
         - !type:FadeBehaviour
@@ -26,8 +27,8 @@
           enabled: true
 
 - type: entity
-  id: CosmicFloorSpawnEffect
-  name: cosmic cult floor effect
+  categories: [ HideSpawnMenu ]
+  id: CosmicFloorSpawnVFX
   placement:
     mode: SnapgridCenter
   components:
@@ -45,6 +46,7 @@
     drawdepth: Mobs
   - type: PointLight
     color: "#42a4ae"
+    castShadows: false
   - type: LightBehaviour
     behaviours:
      - !type:FadeBehaviour
@@ -57,3 +59,22 @@
        enabled: true
        isLooped: true
        reverseWhenFinished: true
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: CosmicLapseAbilityVFX
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: Transform
+    noRot: true
+    anchored: true
+  - type: Sprite
+    layers:
+    - sprite: _Impstation/CosmicCult/Effects/ability_lapsevfx.rsi
+      state: vfx
+      shader: unshaded
+    netsync: false
+    drawdepth: Mobs
