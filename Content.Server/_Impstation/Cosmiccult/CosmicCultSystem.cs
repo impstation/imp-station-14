@@ -44,6 +44,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
 
         MakeSimpleExamineHandler<CosmicMarkStructureComponent>("cosmic-examine-text-structures");
         MakeSimpleExamineHandler<CosmicMarkBlankComponent>("cosmic-examine-text-abilityblank");
+        MakeSimpleExamineHandler<CosmicMarkLapseComponent>("cosmic-examine-text-abilitylapse");
 
         SubscribeAbilities();
     }

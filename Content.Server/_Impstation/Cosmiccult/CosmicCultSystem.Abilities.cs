@@ -25,6 +25,7 @@ using Content.Server.Antag.Components;
 using System.Collections.Immutable;
 using Content.Server._Impstation.Cosmiccult.Components;
 using Content.Shared._Impstation.Cosmiccult.Components.Examine;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Impstation.Cosmiccult;
 
@@ -46,6 +47,8 @@ public sealed partial class CosmicCultSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly StationSpawningSystem _spawningSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+
     public void SubscribeAbilities()
     {
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicToolToggle>(OnCosmicToolToggle);
@@ -53,11 +56,8 @@ public sealed partial class CosmicCultSystem : EntitySystem
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicSiphonDoAfter>(OnCosmicSiphonDoAfter);
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicBlankDoAfter>(OnCosmicBlankDoAfter);
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicBlank>(OnCosmicBlank);
-        SubscribeLocalEvent<CosmicCultLeadComponent, EventCosmicPlaceMonument>(OnCosmicPlaceMonument);
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicLapse>(OnCosmicLapse);
-        ///SubscribeLocalEvent<CosmicCultComponent, EventCosmicGlare>(OnCosmicGlare);
-        ///SubscribeLocalEvent<CosmicCultComponent, EventCosmicGearDash>(OnCosmicGearDash);
-        ///SubscribeLocalEvent<CosmicCultComponent, EventCosmicGearRecall>(OnCosmicGearRecall);
+        SubscribeLocalEvent<CosmicCultLeadComponent, EventCosmicPlaceMonument>(OnCosmicPlaceMonument);
     }
 
     #region Housekeeping
@@ -71,11 +71,8 @@ public sealed partial class CosmicCultSystem : EntitySystem
         var enumerator = EntityQueryEnumerator<InVoidComponent>();
         while (enumerator.MoveNext(out var uid, out var comp))
         {
-            comp.VoidTimeTicker += frameTime;
-
-            if (comp.VoidTimeTicker >= comp.VoidTimeoutDuration)
+            if (_timing.CurTime >= comp.ExitVoidTime)
             {
-                comp.VoidTimeTicker = 0;
                 if (!TryComp<MindContainerComponent>(uid, out var mindContainer))
                     continue;
                 Log.Debug($"Sending {mindContainer.Mind} back to their body!");
@@ -199,8 +196,8 @@ public sealed partial class CosmicCultSystem : EntitySystem
     /// </summary>
     private void OnCosmicBlank(EntityUid uid, CosmicCultComponent comp, ref EventCosmicBlank action)
     {
-        // if (HasComp<CosmicCultComponent>(action.Target) || HasComp<BibleUserComponent>(action.Target)) // the BaseAction system doesn't have a blacklist. This acts as one. Blacklist cultists and the chaplain.
-        //     return;
+        if (HasComp<CosmicCultComponent>(action.Target) || HasComp<BibleUserComponent>(action.Target)) // the BaseAction system doesn't have a blacklist. This acts as one. Blacklist cultists and the chaplain.
+            return;
         if (!TryUseAbility(uid, comp, action))
             return;
 
@@ -233,6 +230,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
         }
 
         Log.Debug($"Sending {mindContainer.Mind} to the cosmic void!");
+        EnsureComp<CosmicMarkBlankComponent>(target);
 
         var mindEnt = mindContainer.Mind.Value;
         var mind = Comp<MindComponent>(mindEnt);
@@ -250,8 +248,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
         EnsureComp<AntagImmuneComponent>(mobUid);
         EnsureComp<InVoidComponent>(mobUid, out var inVoid);
         inVoid.OriginalBody = target;
-
-        EnsureComp<CosmicMarkBlankComponent>(target);
+        inVoid.ExitVoidTime = _timing.CurTime + comp.CosmicBlankDuration;
         _mind.TransferTo(mindEnt, mobUid);
         Log.Debug($"Created wisp entity {mobUid}");
     }
@@ -263,7 +260,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
     /// </summary>
     private void OnCosmicLapse(EntityUid uid, CosmicCultComponent comp, ref EventCosmicLapse action)
     {
-        if (action.Handled || HasComp<BibleUserComponent>(action.Target)) // Blacklist the chaplain, obviously.
+        if (action.Handled || HasComp<CosmicMarkBlankComponent>(action.Target) || HasComp<BibleUserComponent>(action.Target)) // Blacklist the chaplain, obviously.
             return;
         action.Handled = true;
         var xform = Transform(action.Target);

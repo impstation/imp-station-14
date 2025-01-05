@@ -57,6 +57,12 @@ public sealed partial class CosmicCultComponent : Component
     public TimeSpan CosmicBlankSpeed = TimeSpan.FromSeconds(0.8f);
 
     /// <summary>
+    /// The duration of cosmic blank's trip to the void
+    /// </summary>
+    [DataField, ViewVariables]
+    public TimeSpan CosmicBlankDuration = TimeSpan.FromSeconds(22);
+
+    /// <summary>
     /// The entity prototype to spawn in the cultist's hand after completing a cosmic siphon.
     /// </summary>
     [DataField, AutoNetworkedField]
