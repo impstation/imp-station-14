@@ -1,0 +1,47 @@
+- type: entity
+  name: Wisp
+  parent: [ BaseSimpleMob, FlyingMobBase, MobCombat ]
+  id: MobCosmicWisp
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Pets/finfin.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: finfin
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+        density: 10
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: Body
+    prototype: Animal
+  - type: Speech
+    speechSounds: Alto
+    speechVerb: Ghost
+    allowedEmotes: []
+  - type: TypingIndicator
+    proto: guardian
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: finfin
+      Critical:
+        Base: finfin
+      Dead:
+        Base: finfin
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: epicene
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - HideContextMenu

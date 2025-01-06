@@ -26,6 +26,7 @@ using System.Collections.Immutable;
 using Content.Server._Impstation.Cosmiccult.Components;
 using Content.Shared._Impstation.Cosmiccult.Components.Examine;
 using Robust.Shared.Timing;
+using Content.Shared.Stunnable;
 
 namespace Content.Server._Impstation.Cosmiccult;
 
@@ -48,7 +49,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
     [Dependency] private readonly StationSpawningSystem _spawningSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-
+    [Dependency] private readonly SharedStunSystem _stun = default!;
     public void SubscribeAbilities()
     {
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicToolToggle>(OnCosmicToolToggle);
@@ -78,9 +79,10 @@ public sealed partial class CosmicCultSystem : EntitySystem
                 Log.Debug($"Sending {mindContainer.Mind} back to their body!");
                 var mindEnt = mindContainer.Mind!.Value;
                 var mind = Comp<MindComponent>(mindEnt);
+                mind.PreventGhosting = false;
                 _mind.TransferTo(mindEnt, comp.OriginalBody);
                 RemComp<CosmicMarkBlankComponent>(comp.OriginalBody);
-                mind.PreventGhosting = false;
+                _popup.PopupEntity(Loc.GetString("cosmicability-blank-return"), comp.OriginalBody, comp.OriginalBody);
                 QueueDel(uid);
             }
         }
@@ -196,10 +198,12 @@ public sealed partial class CosmicCultSystem : EntitySystem
     /// </summary>
     private void OnCosmicBlank(EntityUid uid, CosmicCultComponent comp, ref EventCosmicBlank action)
     {
-        if (HasComp<CosmicCultComponent>(action.Target) || HasComp<BibleUserComponent>(action.Target)) // the BaseAction system doesn't have a blacklist. This acts as one. Blacklist cultists and the chaplain.
+        if (HasComp<CosmicCultComponent>(action.Target) || HasComp<CosmicMarkBlankComponent>(action.Target) || HasComp<BibleUserComponent>(action.Target)) // Blacklist the chaplain, obviously.
             return;
         if (!TryUseAbility(uid, comp, action))
             return;
+
+        var tgtpos = Transform(action.Target).Coordinates;
 
         var doargs = new DoAfterArgs(EntityManager, uid, comp.CosmicBlankSpeed, new EventCosmicBlankDoAfter(), uid, action.Target)
         {
@@ -210,6 +214,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
             BreakOnDropItem = true,
         };
         _doAfter.TryStartDoAfter(doargs);
+        _popup.PopupEntity(Loc.GetString("cosmicability-blank-begin", ("target", Identity.Entity(uid, EntityManager))), uid, action.Target);
     }
 
     /// <summary>
@@ -223,15 +228,17 @@ public sealed partial class CosmicCultSystem : EntitySystem
         if (action.Cancelled || action.Handled)
             return;
         action.Handled = true;
-        if (!TryComp<MindContainerComponent>(action.Args.Target, out var mindContainer) || !mindContainer.HasMind)
+        if (!TryComp<MindContainerComponent>(target, out var mindContainer) || !mindContainer.HasMind)
         {
-            Log.Debug($"Couldn't find a mindcontainer for {action.Args.Target}.");
+            Log.Debug($"Couldn't find a mindcontainer for {target}.");
             return;
         }
 
         Log.Debug($"Sending {mindContainer.Mind} to the cosmic void!");
         EnsureComp<CosmicMarkBlankComponent>(target);
 
+        _popup.PopupEntity(Loc.GetString("cosmicability-blank-success", ("target", Identity.Entity(target, EntityManager))), uid, uid);
+        var tgtpos = Transform(target).Coordinates;
         var mindEnt = mindContainer.Mind.Value;
         var mind = Comp<MindComponent>(mindEnt);
         mind.PreventGhosting = true;
@@ -242,14 +249,20 @@ public sealed partial class CosmicCultSystem : EntitySystem
             Log.Warning("Couldn't find any cosmic void spawners! Failed to send.");
             return;
         }
+        _audio.PlayPvs(comp.BlankSFX, uid, AudioParams.Default.WithVolume(+6f));
+        Spawn(comp.BlankVFX, tgtpos);
         var newSpawn = _random.Pick(spawnPoints);
-
-        var mobUid = _spawningSystem.SpawnPlayerMob(Transform(newSpawn.Uid).Coordinates, null, null, null);
+        var spawnTgt = Transform(newSpawn.Uid).Coordinates;
+        var mobUid = Spawn(comp.SpawnWisp, spawnTgt);
         EnsureComp<AntagImmuneComponent>(mobUid);
         EnsureComp<InVoidComponent>(mobUid, out var inVoid);
         inVoid.OriginalBody = target;
         inVoid.ExitVoidTime = _timing.CurTime + comp.CosmicBlankDuration;
         _mind.TransferTo(mindEnt, mobUid);
+        _stun.TryKnockdown(target, comp.CosmicBlankDuration, true);
+        _popup.PopupEntity(Loc.GetString("cosmicability-blank-transfer"), mobUid, mobUid);
+        Spawn(comp.BlankVFX, spawnTgt);
+
         Log.Debug($"Created wisp entity {mobUid}");
     }
     #endregion
@@ -263,10 +276,10 @@ public sealed partial class CosmicCultSystem : EntitySystem
         if (action.Handled || HasComp<CosmicMarkBlankComponent>(action.Target) || HasComp<BibleUserComponent>(action.Target)) // Blacklist the chaplain, obviously.
             return;
         action.Handled = true;
-        var xform = Transform(action.Target);
-        var tgtpos = _transform.GetMapCoordinates(action.Target, xform: xform);
+        var tgtpos = Transform(action.Target).Coordinates;
         _audio.PlayPvs(comp.LapseSFX, uid, AudioParams.Default.WithVolume(+6f));
         Spawn(comp.LapseVFX, tgtpos);
+        _popup.PopupEntity(Loc.GetString("cosmicability-lapse-success", ("target", Identity.Entity(action.Target, EntityManager))), uid, uid);
         TryComp<HumanoidAppearanceComponent>(action.Target, out HumanoidAppearanceComponent? species);
         switch (species!.Species) // We use a switch case for all the species variants. Why? It uses tidy wizden code, leans on YML, and it's pretty efficient.
         {

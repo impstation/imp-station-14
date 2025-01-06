@@ -42,8 +42,6 @@ public sealed partial class CosmicCultComponent : Component
 
     public Dictionary<string, EntityUid?> Equipment = new();
 
-    #region Cosmic Siphon
-
     /// <summary>
     /// The duration of the doAfter for cosmic siphon
     /// </summary>
@@ -54,12 +52,12 @@ public sealed partial class CosmicCultComponent : Component
     /// The duration of the doAfter for cosmic blank
     /// </summary>
     [DataField, AutoNetworkedField]
-    public TimeSpan CosmicBlankSpeed = TimeSpan.FromSeconds(0.8f);
+    public TimeSpan CosmicBlankSpeed = TimeSpan.FromSeconds(0.6f);
 
     /// <summary>
     /// The duration of cosmic blank's trip to the void
     /// </summary>
-    [DataField, ViewVariables]
+    [DataField, AutoNetworkedField]
     public TimeSpan CosmicBlankDuration = TimeSpan.FromSeconds(22);
 
     /// <summary>
@@ -79,13 +77,24 @@ public sealed partial class CosmicCultComponent : Component
         }
     };
 
-    #endregion // Cosmic Siphon
+    #region VFX & SFX
+
+    [DataField]
+    public EntProtoId SpawnWisp = "MobCosmicWisp";
 
     [DataField]
     public EntProtoId LapseVFX = "CosmicLapseAbilityVFX";
 
     [DataField]
+    public EntProtoId BlankVFX = "CosmicBlankAbilityVFX";
+
+    [DataField]
     public SoundSpecifier LapseSFX = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/ability_lapse.ogg");
+
+    [DataField]
+    public SoundSpecifier BlankSFX = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/ability_lapse.ogg");
+
+    #endregion
 
     #endregion // Abilities
 
