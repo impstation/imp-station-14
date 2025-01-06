@@ -14,6 +14,7 @@ lathe-category-materials = Materials
 
 lathe-category-carpet = Carpet
 lathe-category-coat = Coat
+lathe-category-command = Command
 lathe-category-hat = Hat
 lathe-category-jumpsuit = Jumpsuit
 lathe-category-neck = Neck

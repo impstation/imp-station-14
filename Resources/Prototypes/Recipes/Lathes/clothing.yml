@@ -12,6 +12,9 @@
   abstract: true
   parent: BaseJumpsuitRecipe
   id: BaseCommandJumpsuitRecipe
+  category:
+    - Command
+    - Jumpsuit
   materials:
     Cloth: 300
     Durathread: 100
@@ -29,6 +32,9 @@
   abstract: true
   parent: BaseCoatRecipe
   id: BaseCommandCoatRecipe
+  category:
+    - Command
+    - Coat
   materials:
     Cloth: 500
     Durathread: 300
@@ -53,6 +59,9 @@
   abstract: true
   parent: BaseHatRecipe
   id: BaseCommandHatRecipe
+  category:
+    - Command
+    - Hat
   materials:
     Cloth: 100
     Durathread: 50
