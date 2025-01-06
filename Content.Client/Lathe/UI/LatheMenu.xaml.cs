@@ -88,31 +88,31 @@ public sealed partial class LatheMenu : DefaultWindow
     /// </summary>
     public void PopulateRecipes()
     {
-        // lathe recipe, with materials and category
         var recipesToShow = new List<LatheRecipePrototype>();
         foreach (var recipe in Recipes)
         {
             if (!_prototypeManager.TryIndex(recipe, out var proto)) // net hook
                 continue;
 
+            // Category filtering
             if (CurrentCategory != null)
             {
                 if (proto.Categories == null)
                     continue;
 
-                bool invalidRecipe = true;
+                bool validRecipe = false;
                 foreach (var category in proto.Categories)
                     if (category == CurrentCategory)
                     {
-                        invalidRecipe = false;
+                        validRecipe = true;
                         continue;
                     }
 
-                if (invalidRecipe)
+                if (!validRecipe)
                     continue;
             }
 
-            // if (CurrentCategory != null && proto.Category != CurrentCategory) // Need list of categories from proto. `proto.has(CurrentCategory)`
+            // if (CurrentCategory != null && proto.Category != CurrentCategory) // Need list of categories from proto.
             //     continue;
 
             if (SearchBar.Text.Trim().Length != 0)
@@ -202,20 +202,16 @@ public sealed partial class LatheMenu : DefaultWindow
         {
             var recipe = _prototypeManager.Index(recipeId); // net hook
 
-            if (recipe.Categories == null) // Categories
+            if (recipe.Categories == null)
                 continue;
 
             foreach (var category in recipe.Categories)
             {
                 if (currentCategories.Contains(category))
                     continue;
+
                 currentCategories.Add(category);
             }
-
-            // if (currentCategories.Contains(recipe.Category.Value)) // needs to get a list of categories from recipe.
-            //     continue;
-
-            // currentCategories.Add(recipe.Category.Value);
         }
 
         if (Categories != null && (Categories.Count == currentCategories.Count || !Categories.All(currentCategories.Contains)))
