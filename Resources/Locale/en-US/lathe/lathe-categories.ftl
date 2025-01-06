@@ -11,3 +11,9 @@ lathe-category-weapons = Weapons
 lathe-category-food = Food
 lathe-category-chemicals = Chemicals
 lathe-category-materials = Materials
+
+lathe-category-carpet = Carpet
+lathe-category-coat = Coat
+lathe-category-hat = Hat
+lathe-category-jumpsuit = Jumpsuit
+lathe-category-neck = Neck
