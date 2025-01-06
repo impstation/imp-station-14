@@ -91,7 +91,7 @@ public sealed partial class LatheMenu : DefaultWindow
         var recipesToShow = new List<LatheRecipePrototype>();
         foreach (var recipe in Recipes)
         {
-            if (!_prototypeManager.TryIndex(recipe, out var proto)) // net hook
+            if (!_prototypeManager.TryIndex(recipe, out var proto))
                 continue;
 
             // Category filtering
@@ -111,9 +111,6 @@ public sealed partial class LatheMenu : DefaultWindow
                 if (!validRecipe)
                     continue;
             }
-
-            // if (CurrentCategory != null && proto.Category != CurrentCategory) // Need list of categories from proto.
-            //     continue;
 
             if (SearchBar.Text.Trim().Length != 0)
             {
@@ -200,7 +197,7 @@ public sealed partial class LatheMenu : DefaultWindow
         var currentCategories = new List<ProtoId<LatheCategoryPrototype>>();
         foreach (var recipeId in Recipes)
         {
-            var recipe = _prototypeManager.Index(recipeId); // net hook
+            var recipe = _prototypeManager.Index(recipeId);
 
             if (recipe.Categories == null)
                 continue;
