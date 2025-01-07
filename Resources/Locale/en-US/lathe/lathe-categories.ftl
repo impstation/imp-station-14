@@ -33,3 +33,6 @@ lathe-category-concrete = Concrete
 lathe-category-dark = Dark
 lathe-category-steel = Steel
 lathe-category-white = White
+
+lathe-category-magazines = Magazines
+lathe-category-boxes = Boxes
