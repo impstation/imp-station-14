@@ -35,7 +35,7 @@
     Plastic: 250
     Gold: 50
 
-# Recipes
+## Recipes
 
 - type: latheRecipe
   parent: BaseRoboticsRecipe
@@ -54,6 +54,7 @@
     Plastic: 200
     Steel: 100
 
+# Cyborg
 - type: latheRecipe
   parent: BaseRoboticsRecipe
   id: CyborgEndoskeleton
@@ -92,8 +93,7 @@
   id: TorsoBorg
   result: TorsoBorg
 
-# Parts
-
+# Brains
 - type: latheRecipe
   parent: BaseRoboticsRecipe
   id: MMI
@@ -120,7 +120,7 @@
     Silver: 100
     Plasma: 1000
 
-# Modules
+## Modules
 
 - type: latheRecipe
   parent: BaseBorgModuleRecipe

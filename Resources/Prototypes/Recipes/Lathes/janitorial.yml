@@ -26,6 +26,7 @@
 - type: latheRecipe
   id: WetFloorSign
   result: WetFloorSign
+  category: Clothing
   completetime: 2
   materials:
     Plastic: 100
@@ -36,6 +37,7 @@
   category:
     - Tools
     - Containers
+    - Experimental
   completetime: 3
   materials:
     Plastic: 250
@@ -92,7 +94,9 @@
 - type: latheRecipe
   id: AdvMopItem
   result: AdvMopItem
-  category: Tools
+  category:
+    - Tools
+    - Experimental
   completetime: 2
   materials:
     Plastic: 400

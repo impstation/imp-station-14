@@ -2,8 +2,10 @@
 
 - type: latheRecipe
   abstract: true
-  id: BaseGlasswareRecipe
-  category: Containers
+  id: BaseDrinkwareRecipe
+  category:
+    - Containers
+    - Kitchenware
   completetime: 0.8
   materials:
     Glass: 100
@@ -11,20 +13,27 @@
 - type: latheRecipe
   abstract: true
   id: BaseTablewareRecipe
-  category: Tableware
+  category: Kitchenware
   completetime: 0.8
   materials:
     Glass: 100
 
 - type: latheRecipe
+  parent: BaseTablewareRecipe
+  id: BaseSmallTablewareRecipe
+  completetime: 0.4
+  materials:
+    Glass: 50
+
+- type: latheRecipe
   abstract: true
   id: BaseCookwareRecipe
-  category: Cookware
+  category: Kitchenware
   completetime: 0.4
   materials:
     Steel: 100
 
-# Knives
+## Recipies
 
 - type: latheRecipe
   parent: BaseToolRecipe
@@ -48,46 +57,44 @@
     Steel: 200
     Plastic: 50
 
-# Glassware
-
+# Drinkware
 - type: latheRecipe
-  parent: BaseGlasswareRecipe
+  parent: BaseDrinkwareRecipe
   id: DrinkMug
   result: DrinkMug
 
 - type: latheRecipe
-  parent: DrinkMug
+  parent: BaseDrinkwareRecipe
   id: DrinkMugMetal
   result: DrinkMugMetal
   materials:
     Steel: 100
 
 - type: latheRecipe
-  parent: BaseGlasswareRecipe
+  parent: BaseDrinkwareRecipe
   id: DrinkGlass
   result: DrinkGlass
 
 - type: latheRecipe
-  parent: BaseGlasswareRecipe
+  parent: BaseDrinkwareRecipe
   id: DrinkShotGlass
   result: DrinkShotGlass
   completetime: 0.4
 
 - type: latheRecipe
-  parent: BaseGlasswareRecipe
+  parent: BaseDrinkwareRecipe
   id: DrinkGlassCoupeShaped
   result: DrinkGlassCoupeShaped
 
 - type: latheRecipe
+  parent: BaseDrinkwareRecipe
   id: CustomDrinkJug
   result: CustomDrinkJug
-  category: Containers
   completetime: 2
   materials:
     Plastic: 200
 
 # Tableware
-
 - type: latheRecipe
   parent: BaseTablewareRecipe
   id: FoodPlate
@@ -95,33 +102,30 @@
 
 - type: latheRecipe
   parent: BaseTablewareRecipe
-  id: FoodPlateSmall
-  result: FoodPlateSmall
-  completetime: 0.4
-  materials:
-    Glass: 50
-
-- type: latheRecipe
-  parent: FoodPlate
   id: FoodPlatePlastic
   result: FoodPlatePlastic
   materials:
     Plastic: 100
 
 - type: latheRecipe
-  parent: FoodPlateSmall
+  parent: BaseTablewareRecipe
+  id: FoodBowlBig
+  result: FoodBowlBig
+
+# Small Tableware
+- type: latheRecipe
+  parent: BaseSmallTablewareRecipe
+  id: FoodPlateSmall
+  result: FoodPlateSmall
+
+- type: latheRecipe
+  parent: BaseSmallTablewareRecipe
   id: FoodPlateSmallPlastic
   result: FoodPlateSmallPlastic
   materials:
     Plastic: 50
 
-- type: latheRecipe
-  parent: FoodPlate
-  id: FoodBowlBig
-  result: FoodBowlBig
-
 # Cookware
-
 - type: latheRecipe
   parent: BaseCookwareRecipe
   id: FoodPlateTin

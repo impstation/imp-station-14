@@ -2,86 +2,19 @@
 
 - type: latheRecipe
   abstract: true
+  id: BaseBeakerRecipe
+  category: Containers
+  completetime: 2
+
+- type: latheRecipe
+  abstract: true
   id: BaseSyringeRecipe
   category:
     - Tools
     - Containers
   completetime: 2
 
-# Recipes
-
-- type: latheRecipe
-  id: Beaker
-  result: Beaker
-  category:
-    - Parts
-    - Containers
-  completetime: 2
-  materials:
-    Glass: 100
-
-- type: latheRecipe
-  id: LargeBeaker
-  result: LargeBeaker
-  category: Containers
-  completetime: 2
-  materials:
-    Glass: 200
-
-- type: latheRecipe
-  id: CryostasisBeaker
-  result: CryostasisBeaker
-  category: Containers
-  completetime: 2
-  materials:
-    Steel: 250
-    Plastic: 50
-
-- type: latheRecipe
-  parent: BaseSyringeRecipe
-  id: SyringeCryostasis
-  result: SyringeCryostasis
-  materials:
-    Steel: 200
-    Plastic: 50
-
-- type: latheRecipe
-  parent: BaseSyringeRecipe
-  id: Dropper
-  result: Dropper
-  materials:
-    Glass: 200
-    Plastic: 100
-
-- type: latheRecipe
-  parent: BaseSyringeRecipe
-  id: Syringe
-  result: Syringe
-  materials:
-    Plastic: 100
-    Steel: 25
-
-- type: latheRecipe
-  id: BluespaceBeaker
-  result: BluespaceBeaker
-  category: Containers
-  completetime: 2
-  materials:
-    Steel: 500
-    Plastic: 500
-    Plasma: 150
-    Silver: 50
-
-- type: latheRecipe
-  parent: BaseSyringeRecipe
-  id: SyringeBluespace
-  result: SyringeBluespace
-  materials:
-    Steel: 100
-    Plastic: 150
-    Glass: 250
-    Plasma: 100
-    Silver: 50
+## Recipies
 
 - type: latheRecipe
   id: PillCanister
@@ -126,3 +59,88 @@
     Steel: 200
     Plastic: 300
     Glass: 500
+
+
+# Beakers
+- type: latheRecipe
+  parent: BaseBeakerRecipe
+  id: Beaker
+  result: Beaker
+  category:
+    - Parts
+    - Containers
+  materials:
+    Glass: 100
+
+- type: latheRecipe
+  parent: BaseBeakerRecipe
+  id: LargeBeaker
+  result: LargeBeaker
+  materials:
+    Glass: 200
+
+- type: latheRecipe
+  parent: BaseBeakerRecipe
+  id: CryostasisBeaker
+  result: CryostasisBeaker
+  category:
+    - Containers
+    - Experimental
+  materials:
+    Steel: 250
+    Plastic: 50
+
+- type: latheRecipe
+  parent: BaseBeakerRecipe
+  id: BluespaceBeaker
+  result: BluespaceBeaker
+  category:
+    - Containers
+    - Experimental
+  materials:
+    Steel: 500
+    Plastic: 500
+    Plasma: 150
+    Silver: 50
+
+# Syringes
+- type: latheRecipe
+  parent: BaseSyringeRecipe
+  id: Syringe
+  result: Syringe
+  materials:
+    Plastic: 100
+    Steel: 25
+
+- type: latheRecipe
+  parent: BaseSyringeRecipe
+  id: Dropper
+  result: Dropper
+  materials:
+    Glass: 200
+    Plastic: 100
+
+- type: latheRecipe
+  parent: BaseSyringeRecipe
+  id: SyringeCryostasis
+  result: SyringeCryostasis
+  category:
+    - Containers
+    - Experimental
+  materials:
+    Steel: 200
+    Plastic: 50
+
+- type: latheRecipe
+  parent: BaseSyringeRecipe
+  id: SyringeBluespace
+  result: SyringeBluespace
+  category:
+    - Containers
+    - Experimental
+  materials:
+    Steel: 100
+    Plastic: 150
+    Glass: 250
+    Plasma: 100
+    Silver: 50

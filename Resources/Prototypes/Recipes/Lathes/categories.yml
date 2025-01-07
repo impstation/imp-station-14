@@ -1,30 +1,28 @@
+# Generic
+
 - type: latheCategory
-  id: Ammo
-  name: lathe-category-ammo
+  id: Clothing
+  name: lathe-category-clothing
 
 - type: latheCategory
   id: Circuitry
   name: lathe-category-circuitry
 
 - type: latheCategory
-  id: Lights
-  name: lathe-category-lights
+  id: Containers
+  name: lathe-category-containers
 
 - type: latheCategory
-  id: Mech
-  name: lathe-category-mechs
-
-- type: latheCategory
-  id: Modules
-  name: lathe-category-modules
+  id: Machines
+  name: lathe-category-machines
 
 - type: latheCategory
   id: Parts
   name: lathe-category-parts
 
 - type: latheCategory
-  id: Robotics
-  name: lathe-category-robotics
+  id: Tiles
+  name: lathe-category-tiles
 
 - type: latheCategory
   id: Tools
@@ -34,8 +32,38 @@
   id: Weapons
   name: lathe-category-weapons
 
-# Biogen
+# Research
+- type: latheCategory
+  id: Experimental
+  name: lathe-category-experimental
 
+# Science
+- type: latheCategory
+  id: Computers
+  name: lathe-category-computers
+
+- type: latheCategory
+  id: Mechs
+  name: lathe-category-mechs
+
+- type: latheCategory
+  id: Modules
+  name: lathe-category-modules
+
+- type: latheCategory
+  id: Robotics
+  name: lathe-category-robotics
+
+# Autolathe
+- type: latheCategory
+  id: Kitchenware
+  name: lathe-category-kitchenware
+
+- type: latheCategory
+  id: Lights
+  name: lathe-category-lights
+
+# Biogen
 - type: latheCategory
   id: Food
   name: lathe-category-food
@@ -48,12 +76,46 @@
   id: Materials
   name: lathe-category-materials
 
-# Uniform
+# Cutter machine
+- type: latheCategory
+  id: Concrete
+  name: lathe-category-concrete
 
 - type: latheCategory
-  id: Carpet
-  name: lathe-category-carpet
+  id: Dark
+  name: lathe-category-dark
 
+- type: latheCategory
+  id: Steel
+  name: lathe-category-steel
+
+- type: latheCategory
+  id: White
+  name: lathe-category-white
+
+- type: latheCategory
+  id: Wood
+  name: lathe-category-wood
+
+# Medical TechFab
+- type: latheCategory
+  id: Medicinal
+  name: lathe-category-medicinal
+
+# Security TechFab
+- type: latheCategory
+  id: Ammo
+  name: lathe-category-ammo
+
+- type: latheCategory
+  id: Boxes
+  name: lathe-category-boxes
+
+- type: latheCategory
+  id: Magazines
+  name: lathe-category-magazines
+
+# Uniform printer
 - type: latheCategory
   id: Coat
   name: lathe-category-coat
@@ -73,73 +135,3 @@
 - type: latheCategory
   id: Neck
   name: lathe-category-neck
-
-# new
-
-- type: latheCategory
-  id: Containers
-  name: lathe-category-containers
-
-- type: latheCategory
-  id: Clothing
-  name: lathe-category-clothing
-
-- type: latheCategory
-  id: Experimental
-  name: lathe-category-experimental
-
-- type: latheCategory
-  id: Tableware
-  name: lathe-category-tableware
-
-- type: latheCategory
-  id: Cookware
-  name: lathe-category-cookware
-
-- type: latheCategory
-  id: Medicinal
-  name: lathe-category-medicinal
-
-- type: latheCategory
-  id: Tiles
-  name: lathe-category-tiles
-
-- type: latheCategory
-  id: Computers
-  name: lathe-category-computers
-
-- type: latheCategory
-  id: Machines
-  name: lathe-category-machines
-
-# Cutter machine
-
-- type: latheCategory
-  id: Wood
-  name: lathe-category-wood
-
-- type: latheCategory
-  id: Concrete
-  name: lathe-category-concrete
-
-- type: latheCategory
-  id: Dark
-  name: lathe-category-dark
-
-- type: latheCategory
-  id: Steel
-  name: lathe-category-steel
-
-- type: latheCategory
-  id: White
-  name: lathe-category-white
-
-# SecTech
-
-- type: latheCategory
-  id: Magazines
-  name: lathe-category-magazines
-
-- type: latheCategory
-  id: Boxes
-  name: lathe-category-boxes

@@ -1,4 +1,4 @@
-# Base Prototypes
+# Base prototypes
 
 - type: latheRecipe
   abstract: true
@@ -17,10 +17,119 @@
   materials:
     Plastic: 100
 
-# Recipes
+## Recipes
 
-## Lights
+- type: latheRecipe
+  id: Matchbox
+  result: Matchbox
+  completetime: 1
+  materials:
+    Wood: 100
 
+- type: latheRecipe
+  id: AirTank
+  result: AirTank
+  category: Containers
+  completetime: 4
+  materials:
+    Steel: 300
+
+- type: latheRecipe
+  id: ModularReceiver
+  result: ModularReceiver
+  category: Parts
+  completetime: 12
+  materials:
+    Steel: 750
+    Plastic: 100
+
+# Tools
+- type: latheRecipe
+  id: HandheldStationMap
+  result: HandheldStationMapEmpty
+  category: Tools
+  completetime: 2
+  materials:
+    Steel: 300
+    Plastic: 100
+
+- type: latheRecipe
+  id: SynthesizerInstrument
+  result: SynthesizerInstrument
+  category: Tools
+  completetime: 4
+  materials:
+    Steel: 300
+    Plastic: 300
+    Glass: 100
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: NodeScanner
+  result: NodeScanner
+  category:
+    - Tools
+    - Experimental
+  materials:
+    Steel: 100
+    Plastic: 50
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: FireExtinguisher
+  result: FireExtinguisher
+  category:
+    - Tools
+    - Containers
+  materials:
+    Steel: 200
+
+# Clothing
+- type: latheRecipe
+  id: ClothingHeadHatWelding
+  result: ClothingHeadHatWelding
+  category: Clothing
+  completetime: 2
+  materials:
+    Steel: 400
+    Glass: 200
+
+- type: latheRecipe
+  id: ClothingHeadHatCone
+  result: ClothingHeadHatCone
+  category: Clothing
+  completetime: 3
+  materials:
+    Plastic: 200
+
+- type: latheRecipe
+  id: ClothingShoesBootsMagSci
+  result: ClothingShoesBootsMagSci
+  category: Clothing
+  completetime: 10
+  materials:
+    Steel: 1000
+    Plastic: 500
+
+- type: latheRecipe
+  id: ClothingShoesBootsMoon
+  result: ClothingShoesBootsMoon
+  category: Clothing
+  completetime: 2
+  materials:
+    Steel: 600
+
+- type: latheRecipe
+  id: ClothingShoesBootsSpeed
+  result: ClothingShoesBootsSpeed
+  category: Clothing
+  completetime: 2
+  materials:
+    Steel: 1500
+    Plastic: 1000
+    Silver: 500
+
+# Lights
 - type: latheRecipe
   parent: BaseLightRecipe
   id: LightTube
@@ -78,23 +187,6 @@
     Plastic: 100
 
 - type: latheRecipe
-  parent: BaseToolRecipe
-  id: FireExtinguisher
-  result: FireExtinguisher
-  category:
-    - Tools
-    - Containers
-  materials:
-    Steel: 200
-
-- type: latheRecipe
-  id: Matchbox
-  result: Matchbox
-  completetime: 1
-  materials:
-    Wood: 100
-
-- type: latheRecipe
   id: DeskBell
   result: DeskBell
   completetime: 1
@@ -110,69 +202,7 @@
     Glass: 500
     Plastic: 500
 
-- type: latheRecipe
-  id: SynthesizerInstrument
-  result: SynthesizerInstrument
-  completetime: 4
-  materials:
-    Steel: 300
-    Plastic: 300
-    Glass: 100
-
-- type: latheRecipe
-  parent: BaseToolRecipe
-  id: NodeScanner
-  result: NodeScanner
-  category:
-    - Tools
-    - Experimental
-  materials:
-    Steel: 100
-    Plastic: 50
-
-- type: latheRecipe
-  id: AirTank
-  result: AirTank
-  completetime: 4
-  materials:
-    Steel: 300
-
-- type: latheRecipe
-  id: ClothingShoesBootsMagSci
-  result: ClothingShoesBootsMagSci
-  category: Clothing
-  completetime: 10
-  materials:
-    Steel: 1000
-    Plastic: 500
-
-- type: latheRecipe
-  id: ClothingShoesBootsMoon
-  result: ClothingShoesBootsMoon
-  category: Clothing
-  completetime: 2
-  materials:
-    Steel: 600
-
-- type: latheRecipe
-  id: ClothingShoesBootsSpeed
-  result: ClothingShoesBootsSpeed
-  category: Clothing
-  completetime: 2
-  materials:
-    Steel: 1500
-    Plastic: 1000
-    Silver: 500
-
-- type: latheRecipe
-  id: ModularReceiver
-  result: ModularReceiver
-  category: Parts
-  completetime: 12
-  materials:
-    Steel: 750
-    Plastic: 100
-
+# Tiles
 - type: latheRecipe
   parent: BaseFauxTileRecipe
   id: FauxTileAstroGrass
@@ -215,27 +245,3 @@
   parent: FloorGreenCircuit
   id: FloorRedCircuit
   result: FloorTileItemRCircuit4
-
-- type: latheRecipe
-  id: HandheldStationMap
-  result: HandheldStationMapEmpty
-  completetime: 2
-  materials:
-    Steel: 300
-    Plastic: 100
-
-- type: latheRecipe
-  id: ClothingHeadHatWelding
-  result: ClothingHeadHatWelding
-  category: Clothing
-  completetime: 2
-  materials:
-    Steel: 400
-    Glass: 200
-
-- type: latheRecipe
-  id: ClothingHeadHatCone
-  result: ClothingHeadHatCone
-  completetime: 3
-  materials:
-    Plastic: 200

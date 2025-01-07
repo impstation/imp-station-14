@@ -13,8 +13,87 @@
   category: Medicinal
   completetime: 1
 
-# Recipes
+## Recipes
 
+- type: latheRecipe
+  id: Jug
+  result: Jug
+  category: Containers
+  completetime: 4
+  materials:
+    Plastic: 400
+
+- type: latheRecipe
+  id: BodyBag
+  result: BodyBagFolded
+  category: Containers
+  completetime: 2
+  materials:
+    Plastic: 300
+
+# Tools
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: HandLabeler
+  result: HandLabeler
+  materials:
+    Plastic: 100
+
+- type: latheRecipe
+  id: HandheldHealthAnalyzer
+  result: HandheldHealthAnalyzerEmpty
+  category: Tools
+  completetime: 4
+  materials:
+    Glass: 500
+    Steel: 500
+
+- type: latheRecipe
+  id: DiseaseSwab
+  result: DiseaseSwab
+  category: Tools
+  completetime: 1
+  materials:
+    Cloth: 20
+    Plastic: 20
+
+- type: latheRecipe
+  id: Implanter
+  result: Implanter
+  category: Tools
+  completetime: 1
+  materials:
+    Glass: 500
+    Steel: 500
+
+- type: latheRecipe
+  id: Defibrillator
+  result: DefibrillatorEmpty
+  category: Tools
+  completetime: 2
+  materials:
+    Steel: 300
+
+- type: latheRecipe
+  id: RollerBedSpawnFolded
+  result: RollerBedSpawnFolded
+  category: Tools
+  completetime: 1
+  materials:
+    Steel: 600
+    Plastic: 300
+
+- type: latheRecipe
+  parent: RollerBedSpawnFolded
+  id: CheapRollerBedSpawnFolded
+  result: CheapRollerBedSpawnFolded
+
+- type: latheRecipe
+  parent: RollerBedSpawnFolded
+  id: EmergencyRollerBedSpawnFolded
+  result: EmergencyRollerBedSpawnFolded
+
+# Surgical tools
 - type: latheRecipe
   parent: BaseSurgicalRecipe
   id: Scalpel
@@ -48,13 +127,15 @@
   id: Hemostat
   result: Hemostat
 
+# Medicinal
 - type: latheRecipe
-  id: BodyBag
-  result: BodyBagFolded
-  category: Containers
+  id: WhiteCane
+  result: WhiteCane
+  category: Medicinal
   completetime: 2
   materials:
-    Plastic: 300
+    Steel: 100
+    Plastic: 100
 
 - type: latheRecipe
   parent: BaseMedicinalRecipe
@@ -79,15 +160,7 @@
   materials:
     Cloth: 100 # lathe more efficient than handcrafting
 
-- type: latheRecipe
-  id: HandheldHealthAnalyzer
-  result: HandheldHealthAnalyzerEmpty
-  category: Tools
-  completetime: 4
-  materials:
-    Glass: 500
-    Steel: 500
-
+# Clothing
 - type: latheRecipe
   id: ClothingHandsGlovesLatex
   result: ClothingHandsGlovesLatex
@@ -113,29 +186,7 @@
   materials:
     Plastic: 50
 
-- type: latheRecipe
-  id: DiseaseSwab
-  result: DiseaseSwab
-  completetime: 1
-  materials:
-    Cloth: 20
-    Plastic: 20
-
-- type: latheRecipe
-  id: Implanter
-  result: Implanter
-  completetime: 1
-  materials:
-    Glass: 500
-    Steel: 500
-
-- type: latheRecipe
-  id: Defibrillator
-  result: DefibrillatorEmpty
-  completetime: 2
-  materials:
-    Steel: 300
-
+# Medkit
 - type: latheRecipe
   id: Medkit
   result: Medkit
@@ -186,47 +237,6 @@
   id: MedkitCombat
   result: MedkitCombat
   name: lathe-recipe-MedkitCombat-name
-
-- type: latheRecipe
-  parent: BaseToolRecipe
-  id: HandLabeler
-  result: HandLabeler
-  materials:
-    Plastic: 100
-
-- type: latheRecipe
-  id: Jug
-  result: Jug
-  category: Containers
-  completetime: 4
-  materials:
-    Plastic: 400
-
-- type: latheRecipe
-  id: RollerBedSpawnFolded
-  result: RollerBedSpawnFolded
-  completetime: 1
-  materials:
-    Steel: 600
-    Plastic: 300
-
-- type: latheRecipe
-  parent: RollerBedSpawnFolded
-  id: CheapRollerBedSpawnFolded
-  result: CheapRollerBedSpawnFolded
-
-- type: latheRecipe
-  parent: RollerBedSpawnFolded
-  id: EmergencyRollerBedSpawnFolded
-  result: EmergencyRollerBedSpawnFolded
-
-- type: latheRecipe
-  id: WhiteCane
-  result: WhiteCane
-  completetime: 2
-  materials:
-    Steel: 100
-    Plastic: 100
 
 - type: latheRecipe
   id: PrescriptionLens

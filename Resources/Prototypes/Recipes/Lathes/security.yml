@@ -34,8 +34,36 @@
   category: Magazines
   completetime: 1
 
-# Recipes
+## Recipes
 
+- type: latheRecipe
+  id: TargetHuman
+  result: TargetHuman
+  completetime: 5
+  applyMaterialDiscount: false # ingredients dropped when destroyed
+  materials:
+    Steel: 500
+
+- type: latheRecipe
+  parent: TargetHuman
+  id: TargetClown
+  result: TargetClown
+
+- type: latheRecipe
+  parent: TargetHuman
+  id: TargetSyndicate
+  result: TargetSyndicate
+
+- type: latheRecipe
+  parent: BaseWeaponRecipe
+  id: WeaponFlareGunSecurity
+  result: WeaponFlareGunSecurity
+  completetime: 6
+  materials:
+    Plastic: 100
+    Steel: 400
+
+# Tools
 - type: latheRecipe
   id: Handcuffs
   result: Handcuffs
@@ -52,6 +80,35 @@
   materials:
     Plastic: 200
 
+- type: latheRecipe
+  id: ForensicPad
+  result: ForensicPad
+  category: Tools
+  completetime: 4
+  materials:
+    Plastic: 100
+
+- type: latheRecipe
+  id: HoloprojectorSecurity
+  result: HoloprojectorSecurityEmpty
+  category: Tools
+  completetime: 2
+  materials:
+    Steel: 300
+    Glass: 50
+    Plastic: 50
+
+- type: latheRecipe
+  id: Flash
+  result: Flash
+  category: Tools
+  completetime: 2
+  materials:
+    Glass: 100
+    Plastic: 200
+    Steel: 100
+
+# Melee
 - type: latheRecipe
   parent: BaseWeaponRecipe
   id: Stunbaton
@@ -70,6 +127,23 @@
     Steel: 250
     Plastic: 100
 
+- type: latheRecipe
+  id: RiotShield
+  result: RiotShield
+  completetime: 4
+  materials:
+    Steel: 400
+    Glass: 400
+
+- type: latheRecipe
+  id: TelescopicShield
+  result: TelescopicShield
+  completetime: 4
+  materials:
+    Steel: 300
+    Glass: 800
+
+# Lasers
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
   id: WeaponLaserCarbine
@@ -116,87 +190,6 @@
     Gold: 100
 
 - type: latheRecipe
-  id: ClothingBackpackElectropack
-  result: ClothingBackpackElectropack
-  category: Clothing
-  completetime: 4
-  materials:
-    Steel: 500
-    Plastic: 250
-    Cloth: 500
-
-- type: latheRecipe
-  id: ForensicPad
-  result: ForensicPad
-  category: Tools
-  completetime: 4
-  materials:
-    Plastic: 100
-
-- type: latheRecipe
-  id: ClothingEyesHudSecurity
-  result: ClothingEyesHudSecurity
-  category: Clothing
-  completetime: 2
-  materials:
-    Steel: 300
-    Glass: 200
-
-- type: latheRecipe
-  id: HoloprojectorSecurity
-  result: HoloprojectorSecurityEmpty
-  category: Tools
-  completetime: 2
-  materials:
-    Steel: 300
-    Glass: 50
-    Plastic: 50
-
-- type: latheRecipe
-  id: RiotShield
-  result: RiotShield
-  completetime: 4
-  materials:
-    Steel: 400
-    Glass: 400
-
-- type: latheRecipe
-  id: TelescopicShield
-  result: TelescopicShield
-  completetime: 4
-  materials:
-    Steel: 300
-    Glass: 800
-
-- type: latheRecipe
-  id: Flash
-  result: Flash
-  category: Tools
-  completetime: 2
-  materials:
-    Glass: 100
-    Plastic: 200
-    Steel: 100
-
-- type: latheRecipe
-  id: TargetHuman
-  result: TargetHuman
-  completetime: 5
-  applyMaterialDiscount: false # ingredients dropped when destroyed
-  materials:
-    Steel: 500
-
-- type: latheRecipe
-  parent: TargetHuman
-  id: TargetClown
-  result: TargetClown
-
-- type: latheRecipe
-  parent: TargetHuman
-  id: TargetSyndicate
-  result: TargetSyndicate
-
-- type: latheRecipe
   parent: BaseWeaponRecipe
   id: WeaponLaserCarbinePractice
   result: WeaponLaserCarbinePractice
@@ -206,37 +199,7 @@
     Glass: 400
     Plastic: 250
 
-- type: latheRecipe
-  parent: BaseWeaponRecipe
-  id: WeaponDisablerPractice
-  result: WeaponDisablerPractice
-  completetime: 4
-  materials:
-    Steel: 500
-    Glass: 100
-    Plastic: 200
-
-- type: latheRecipe
-  id: PortableRecharger
-  result: PortableRecharger
-  category: Clothing
-  completetime: 15
-  materials:
-    Steel: 2000
-    Uranium: 2000
-    Plastic: 1000
-    Plasma: 500
-    Glass: 500
-
-- type: latheRecipe
-  parent: BaseWeaponRecipe
-  id: WeaponFlareGunSecurity
-  result: WeaponFlareGunSecurity
-  completetime: 6
-  materials:
-    Plastic: 100
-    Steel: 400
-
+# Disablers
 - type: latheRecipe
   parent: BaseWeaponRecipe
   id: WeaponDisabler
@@ -255,6 +218,48 @@
     Steel: 1000
     Glass: 500
     Plastic: 500
+
+- type: latheRecipe
+  parent: BaseWeaponRecipe
+  id: WeaponDisablerPractice
+  result: WeaponDisablerPractice
+  completetime: 4
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 200
+
+# Clothing
+- type: latheRecipe
+  id: ClothingBackpackElectropack
+  result: ClothingBackpackElectropack
+  category: Clothing
+  completetime: 4
+  materials:
+    Steel: 500
+    Plastic: 250
+    Cloth: 500
+
+- type: latheRecipe
+  id: ClothingEyesHudSecurity
+  result: ClothingEyesHudSecurity
+  category: Clothing
+  completetime: 2
+  materials:
+    Steel: 300
+    Glass: 200
+
+- type: latheRecipe
+  id: PortableRecharger
+  result: PortableRecharger
+  category: Clothing
+  completetime: 15
+  materials:
+    Steel: 2000
+    Uranium: 2000
+    Plastic: 1000
+    Plasma: 500
+    Glass: 500
 
 ## Ammo
 
@@ -675,6 +680,7 @@
 - type: latheRecipe
   id: GrenadeEMP
   result: GrenadeEMP
+  category: Ammo
   completetime: 3
   materials:
     Steel: 150
@@ -684,6 +690,7 @@
 - type: latheRecipe
   id: GrenadeBlast
   result: GrenadeBlast
+  category: Ammo
   completetime: 3
   materials:
     Steel: 450
@@ -693,6 +700,7 @@
 - type: latheRecipe
   id: GrenadeFlash
   result: GrenadeFlash
+  category: Ammo
   completetime: 3
   materials:
     Steel: 150

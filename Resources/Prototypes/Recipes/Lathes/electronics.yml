@@ -84,12 +84,6 @@
 
 - type: latheRecipe
   abstract: true
-  parent: BaseSilverCircuitboardRecipe
-  id: BaseSilverComputerboardRecipe
-  category: Computers
-
-- type: latheRecipe
-  abstract: true
   parent: BaseCircuitboardRecipe
   id: BaseBananiumCircuitboardRecipe
   materials:
@@ -97,7 +91,7 @@
     Glass: 500
     Bananium: 100
 
-# Recipes
+## Recipes
 
 - type: latheRecipe
   parent: BaseCheapElectronicsRecipe
@@ -388,7 +382,7 @@
   result: RipleyCentralElectronics
   category:
     - Circuitry
-    - Mech
+    - Mechs
 
 - type: latheRecipe
   parent: RipleyCentralElectronics
@@ -401,7 +395,7 @@
   result: HonkerCentralElectronics
   category:
     - Circuitry
-    - Mech
+    - Mechs
 
 - type: latheRecipe
   parent: HonkerCentralElectronics
@@ -419,7 +413,7 @@
   result: HamtrCentralElectronics
   category:
     - Circuitry
-    - Mech
+    - Mechs
 
 - type: latheRecipe
   parent: HamtrCentralElectronics

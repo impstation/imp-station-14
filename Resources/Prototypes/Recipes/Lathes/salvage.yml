@@ -12,7 +12,9 @@
 - type: latheRecipe
   id: AdvancedMineralScannerEmpty
   result: AdvancedMineralScannerEmpty
-  category: Tools
+  category:
+    - Tools
+    - Experimental
   completetime: 1
   materials:
     Steel: 1000
@@ -64,6 +66,9 @@
   parent: MiningDrill
   id: MiningDrillDiamond
   result: MiningDrillDiamond
+  category:
+    - Tools
+    - Experimental
   materials:
     Steel: 600
     Plastic: 200

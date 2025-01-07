@@ -1,56 +1,11 @@
 - type: latheRecipe
   parent: BasePartRecipe
-  id: TimerTrigger
-  result: TimerTrigger
-
-- type: latheRecipe
-  parent: BasePartRecipe
-  id: SignalTrigger
-  result: SignalTrigger
-
-- type: latheRecipe
-  parent: BasePartRecipe
-  id: VoiceTrigger
-  result: VoiceTrigger
-
-- type: latheRecipe
-  parent: BasePartRecipe
   id: Igniter
   result: Igniter
   materials:
     Steel: 300
     Plastic: 100
     Glass: 100
-
-- type: latheRecipe
-  parent: BasePartRecipe
-  id: ChemicalPayload
-  result: ChemicalPayload
-  materials:
-    Steel: 200
-    Plastic: 300
-
-- type: latheRecipe
-  parent: BasePartRecipe
-  id: FlashPayload
-  result: FlashPayload
-  materials:
-    Steel: 50
-    Plastic: 100
-    Glass: 50
-    #one fourth of what making a flash would cost
-
-- type: latheRecipe
-  parent: BasePartRecipe
-  id: ExplosivePayload
-  result: ExplosivePayload
-  completetime: 4
-  materials:
-    Steel: 100
-    Plastic: 100
-    Glass: 50
-    Plasma: 50
-    Silver: 50
 
 - type: latheRecipe
   parent: BaseToolRecipe
@@ -70,6 +25,17 @@
     Plastic: 200
     Plasma: 100
 
+- type: latheRecipe
+  id: DeviceQuantumSpinInverter
+  result: DeviceQuantumSpinInverter
+  category: Experimental
+  completetime: 5
+  materials:
+    Steel: 700
+    Glass: 100
+    Uranium: 100
+
+# Anomaly
 - type: latheRecipe
   id: AnomalyLocator
   result: AnomalyLocatorEmpty
@@ -118,6 +84,7 @@
     Plasma: 500
     Silver: 250
 
+# Clothing
 - type: latheRecipe
   id: ClothingBackpackHolding
   result: ClothingBackpackHolding
@@ -153,6 +120,7 @@
     Steel: 600
     Glass: 200
 
+# "Guns"
 - type: latheRecipe
   id: WeaponForceGun
   result: WeaponForceGun
@@ -164,14 +132,14 @@
     Silver: 200
 
 - type: latheRecipe
-  id: DeviceQuantumSpinInverter
-  result: DeviceQuantumSpinInverter
-  category: Experimental
+  id: WeaponGrapplingGun
+  result: WeaponGrapplingGun
+  category: Tools
   completetime: 5
   materials:
-    Steel: 700
-    Glass: 100
-    Uranium: 100
+    Steel: 500
+    Glass: 400
+    Gold: 100
 
 - type: latheRecipe
   id: WeaponProtoKineticAccelerator
@@ -193,12 +161,48 @@
     Glass: 400
     Silver: 100
 
+# Modular grenades
 - type: latheRecipe
-  id: WeaponGrapplingGun
-  result: WeaponGrapplingGun
-  category: Tools
-  completetime: 5
+  parent: BasePartRecipe
+  id: TimerTrigger
+  result: TimerTrigger
+
+- type: latheRecipe
+  parent: BasePartRecipe
+  id: SignalTrigger
+  result: SignalTrigger
+
+- type: latheRecipe
+  parent: BasePartRecipe
+  id: VoiceTrigger
+  result: VoiceTrigger
+
+- type: latheRecipe
+  parent: BasePartRecipe
+  id: ChemicalPayload
+  result: ChemicalPayload
   materials:
-    Steel: 500
-    Glass: 400
-    Gold: 100
+    Steel: 200
+    Plastic: 300
+
+- type: latheRecipe
+  parent: BasePartRecipe
+  id: FlashPayload
+  result: FlashPayload
+  materials:
+    Steel: 50
+    Plastic: 100
+    Glass: 50
+    #one fourth of what making a flash would cost
+
+- type: latheRecipe
+  parent: BasePartRecipe
+  id: ExplosivePayload
+  result: ExplosivePayload
+  completetime: 4
+  materials:
+    Steel: 100
+    Plastic: 100
+    Glass: 50
+    Plasma: 50
+    Silver: 50

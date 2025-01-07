@@ -50,7 +50,7 @@
 - type: latheRecipe
   abstract: true
   id: BaseCarpetRecipe
-  category: Carpet
+  category: Tiles
   completetime: 1
   materials:
     Cloth: 100
@@ -74,7 +74,7 @@
   materials:
     Cloth: 200
 
-# Recipes
+## Recipes
 
 # Jumpsuits/skirts
 - type: latheRecipe
