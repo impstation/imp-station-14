@@ -5,10 +5,11 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    sprite: Mobs/Pets/finfin.rsi
+    sprite: _Impstation/CosmicCult/Effects/wisp.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: finfin
+      state: wisp
+      shader: unshaded
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -28,15 +29,15 @@
     speechVerb: Ghost
     allowedEmotes: []
   - type: TypingIndicator
-    proto: guardian
+    proto: alien
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: finfin
+        Base: wisp
       Critical:
-        Base: finfin
+        Base: wisp
       Dead:
-        Base: finfin
+        Base: wisp
   - type: Grammar
     attributes:
       proper: true
@@ -44,4 +45,20 @@
   - type: Tag
     tags:
     - CannotSuicide
-    - HideContextMenu
+  - type: PointLight
+    color: "#43286a"
+    radius: 2.25
+    energy: 12
+    castShadows: false
+  - type: LightBehaviour
+    behaviours:
+     - !type:FadeBehaviour
+       interpolate: Linear
+       minDuration: 5.5
+       maxDuration: 5.5
+       startValue: 4
+       endValue: 12
+       property: Energy
+       enabled: true
+       isLooped: true
+       reverseWhenFinished: true

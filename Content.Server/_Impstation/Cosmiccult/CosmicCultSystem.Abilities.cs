@@ -261,6 +261,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
         _mind.TransferTo(mindEnt, mobUid);
         _stun.TryKnockdown(target, comp.CosmicBlankDuration, true);
         _popup.PopupEntity(Loc.GetString("cosmicability-blank-transfer"), mobUid, mobUid);
+        _audio.PlayPvs(comp.BlankSFX, spawnTgt, AudioParams.Default.WithVolume(+6f));
         Spawn(comp.BlankVFX, spawnTgt);
 
         Log.Debug($"Created wisp entity {mobUid}");

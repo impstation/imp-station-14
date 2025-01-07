@@ -92,7 +92,7 @@ public sealed partial class CosmicCultComponent : Component
     public SoundSpecifier LapseSFX = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/ability_lapse.ogg");
 
     [DataField]
-    public SoundSpecifier BlankSFX = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/ability_lapse.ogg");
+    public SoundSpecifier BlankSFX = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/ability_blank.ogg");
 
     #endregion
 
