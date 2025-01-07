@@ -18,3 +18,18 @@ lathe-category-command = Command
 lathe-category-hat = Hat
 lathe-category-jumpsuit = Jumpsuit
 lathe-category-neck = Neck
+
+lathe-category-containers = Containers
+lathe-category-clothing = Clothing
+lathe-category-experimental = Experimental
+lathe-category-tableware = Tableware
+lathe-category-cookware = Cookware
+lathe-category-medicinal = Medicinal
+lathe-category-tiles = Tiles
+
+lathe-category-wood = Wood
+lathe-category-concrete = Concrete
+
+lathe-category-dark = Dark
+lathe-category-steel = Steel
+lathe-category-white = White

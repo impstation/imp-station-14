@@ -7,6 +7,12 @@
   materials:
     Steel: 200
 
+- type: latheRecipe
+  abstract: true
+  id: BaseMedicinalRecipe
+  category: Medicinal
+  completetime: 1
+
 # Recipes
 
 - type: latheRecipe
@@ -25,7 +31,7 @@
   result: Cautery
 
 - type: latheRecipe
-  parent: BaseToolRecipe
+  parent: BaseSurgicalRecipe
   id: Drill
   result: Drill
   materials:
@@ -45,30 +51,31 @@
 - type: latheRecipe
   id: BodyBag
   result: BodyBagFolded
+  category: Containers
   completetime: 2
   materials:
     Plastic: 300
 
 - type: latheRecipe
+  parent: BaseMedicinalRecipe
   id: Brutepack
   result: Brutepack1
-  completetime: 1
   materials:
     Steel: 25
     Plastic: 25
 
 - type: latheRecipe
+  parent: BaseMedicinalRecipe
   id: Ointment
   result: Ointment1
-  completetime: 1
   materials:
     Glass: 25
     Plastic: 25
 
 - type: latheRecipe
+  parent: BaseMedicinalRecipe
   id: Gauze
   result: Gauze1
-  completetime: 1
   materials:
     Cloth: 100 # lathe more efficient than handcrafting
 
@@ -84,6 +91,7 @@
 - type: latheRecipe
   id: ClothingHandsGlovesLatex
   result: ClothingHandsGlovesLatex
+  category: Clothing
   completetime: 2
   materials:
     Plastic: 300
@@ -91,6 +99,7 @@
 - type: latheRecipe
   id: ClothingHandsGlovesNitrile
   result: ClothingHandsGlovesNitrile
+  category: Clothing
   completetime: 2
   materials:
     Plastic: 100
@@ -99,6 +108,7 @@
 - type: latheRecipe
   id: ClothingMaskSterile
   result: ClothingMaskSterile
+  category: Clothing
   completetime: 2
   materials:
     Plastic: 50
@@ -130,6 +140,7 @@
   id: Medkit
   result: Medkit
   name: lathe-recipe-Medkit-name
+  category: Containers
   completetime: 2
   materials:
     Plastic: 300
@@ -186,6 +197,7 @@
 - type: latheRecipe
   id: Jug
   result: Jug
+  category: Containers
   completetime: 4
   materials:
     Plastic: 400

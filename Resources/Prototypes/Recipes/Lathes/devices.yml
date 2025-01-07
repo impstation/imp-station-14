@@ -23,7 +23,7 @@
     Glass: 100
 
 - type: latheRecipe
-  parent: BaseWeaponRecipe
+  parent: BasePartRecipe
   id: ChemicalPayload
   result: ChemicalPayload
   materials:
@@ -31,7 +31,7 @@
     Plastic: 300
 
 - type: latheRecipe
-  parent: BaseWeaponRecipe
+  parent: BasePartRecipe
   id: FlashPayload
   result: FlashPayload
   materials:
@@ -41,9 +41,9 @@
     #one fourth of what making a flash would cost
 
 - type: latheRecipe
+  parent: BasePartRecipe
   id: ExplosivePayload
   result: ExplosivePayload
-  category: Weapons
   completetime: 4
   materials:
     Steel: 100
@@ -53,7 +53,7 @@
     Silver: 50
 
 - type: latheRecipe
-  parent: BasePartRecipe
+  parent: BaseToolRecipe
   id: Signaller
   result: RemoteSignaller
   materials:
@@ -62,7 +62,7 @@
     Glass: 100
 
 - type: latheRecipe
-  parent: BasePartRecipe
+  parent: Signaller
   id: SignallerAdvanced
   result: RemoteSignallerAdvanced
   materials:
@@ -73,25 +73,26 @@
 - type: latheRecipe
   id: AnomalyLocator
   result: AnomalyLocatorEmpty
-  category: Tools
+  category:
+    - Tools
+    - Experimental
   completetime: 3
   materials:
     Steel: 400
     Glass: 100
 
 - type: latheRecipe
+  parent: AnomalyLocator
   id: AnomalyLocatorWide
   result: AnomalyLocatorWideEmpty
-  category: Tools
-  completetime: 3
-  materials:
-    Steel: 400
-    Glass: 100
 
 - type: latheRecipe
   parent: BaseToolRecipe
   id: AnomalyScanner
   result: AnomalyScanner
+  category:
+    - Tools
+    - Experimental
   materials:
     Plastic: 200
     Glass: 150
@@ -99,7 +100,7 @@
 - type: latheRecipe
   id: WeaponPistolCHIMP
   result: WeaponPistolCHIMP
-  category: Tools
+  category: Experimental
   completetime: 5
   materials:
     Steel: 500
@@ -108,7 +109,7 @@
 - type: latheRecipe
   id: WeaponGauntletGorilla
   result: WeaponGauntletGorilla
-  category: Tools
+  category: Experimental
   completetime: 5
   materials:
     Steel: 1500
@@ -120,6 +121,7 @@
 - type: latheRecipe
   id: ClothingBackpackHolding
   result: ClothingBackpackHolding
+  category: Clothing
   completetime: 5
   materials:
     Steel: 2000
@@ -145,6 +147,7 @@
 - type: latheRecipe
   id: ClothingMaskWeldingGas
   result: ClothingMaskWeldingGas
+  category: Clothing
   completetime: 3
   materials:
     Steel: 600
@@ -153,7 +156,7 @@
 - type: latheRecipe
   id: WeaponForceGun
   result: WeaponForceGun
-  category: Tools
+  category: Experimental
   completetime: 5
   materials:
     Steel: 500
@@ -163,6 +166,7 @@
 - type: latheRecipe
   id: DeviceQuantumSpinInverter
   result: DeviceQuantumSpinInverter
+  category: Experimental
   completetime: 5
   materials:
     Steel: 700
@@ -182,7 +186,7 @@
 - type: latheRecipe
   id: WeaponTetherGun
   result: WeaponTetherGun
-  category: Tools
+  category: Experimental
   completetime: 5
   materials:
     Steel: 500

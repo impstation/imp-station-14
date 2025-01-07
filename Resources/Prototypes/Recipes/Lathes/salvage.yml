@@ -1,6 +1,7 @@
 - type: latheRecipe
   id: MineralScannerEmpty
   result: MineralScannerEmpty
+  category: Tools
   completetime: 3
   materials:
     Steel: 1000
@@ -11,6 +12,7 @@
 - type: latheRecipe
   id: AdvancedMineralScannerEmpty
   result: AdvancedMineralScannerEmpty
+  category: Tools
   completetime: 1
   materials:
     Steel: 1000
@@ -40,7 +42,9 @@
 - type: latheRecipe
   id: SeismicCharge
   result: SeismicCharge
-  category: Tools
+  category:
+    - Tools
+    - Weapons
   completetime: 1
   materials:
     Plastic: 1500

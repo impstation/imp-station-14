@@ -1,7 +1,38 @@
+# Base prototypes
+
+- type: latheRecipe
+  abstract: true
+  id: BaseGlasswareRecipe
+  category: Containers
+  completetime: 0.8
+  materials:
+    Glass: 100
+
+- type: latheRecipe
+  abstract: true
+  id: BaseTablewareRecipe
+  category: Tableware
+  completetime: 0.8
+  materials:
+    Glass: 100
+
+- type: latheRecipe
+  abstract: true
+  id: BaseCookwareRecipe
+  category: Cookware
+  completetime: 0.4
+  materials:
+    Steel: 100
+
+# Knives
+
 - type: latheRecipe
   parent: BaseToolRecipe
   id: ButchCleaver
   result: ButchCleaver
+  category:
+    - Tools
+    - Weapons
   materials:
     Steel: 300
     Plastic: 50
@@ -10,16 +41,14 @@
   parent: BaseToolRecipe
   id: KitchenKnife
   result: KitchenKnife
+  category:
+    - Tools
+    - Weapons
   materials:
     Steel: 200
     Plastic: 50
 
-- type: latheRecipe
-  abstract: true
-  id: BaseGlasswareRecipe
-  completetime: 0.8
-  materials:
-    Glass: 100
+# Glassware
 
 - type: latheRecipe
   parent: BaseGlasswareRecipe
@@ -34,34 +63,38 @@
     Steel: 100
 
 - type: latheRecipe
-  parent: DrinkMug
+  parent: BaseGlasswareRecipe
   id: DrinkGlass
   result: DrinkGlass
 
 - type: latheRecipe
-  parent: DrinkMug
+  parent: BaseGlasswareRecipe
   id: DrinkShotGlass
   result: DrinkShotGlass
   completetime: 0.4
 
 - type: latheRecipe
-  parent: DrinkMug
+  parent: BaseGlasswareRecipe
   id: DrinkGlassCoupeShaped
   result: DrinkGlassCoupeShaped
 
 - type: latheRecipe
   id: CustomDrinkJug
   result: CustomDrinkJug
+  category: Containers
   completetime: 2
   materials:
     Plastic: 200
 
+# Tableware
+
 - type: latheRecipe
-  parent: BaseGlasswareRecipe
+  parent: BaseTablewareRecipe
   id: FoodPlate
   result: FoodPlate
 
 - type: latheRecipe
+  parent: BaseTablewareRecipe
   id: FoodPlateSmall
   result: FoodPlateSmall
   completetime: 0.4
@@ -87,23 +120,21 @@
   id: FoodBowlBig
   result: FoodBowlBig
 
-- type: latheRecipe
-  id: FoodPlateTin
-  result: FoodPlateTin
-  completetime: 0.4
-  materials:
-    Steel: 100
+# Cookware
 
 - type: latheRecipe
-  parent: FoodPlateTin
+  parent: BaseCookwareRecipe
+  id: FoodPlateTin
+  result: FoodPlateTin
+
+- type: latheRecipe
+  parent: BaseCookwareRecipe
   id: FoodPlateMuffinTin
   result: FoodPlateMuffinTin
   materials:
     Steel: 50
 
 - type: latheRecipe
+  parent: BaseCookwareRecipe
   id: FoodKebabSkewer
   result: FoodKebabSkewer
-  completetime: 0.4
-  materials:
-    Steel: 100

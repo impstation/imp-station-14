@@ -12,6 +12,7 @@
 - type: latheRecipe
   abstract: true
   id: BaseFauxTileRecipe
+  category: Tiles
   completetime: 1
   materials:
     Plastic: 100
@@ -80,6 +81,9 @@
   parent: BaseToolRecipe
   id: FireExtinguisher
   result: FireExtinguisher
+  category:
+    - Tools
+    - Containers
   materials:
     Steel: 200
 
@@ -119,6 +123,9 @@
   parent: BaseToolRecipe
   id: NodeScanner
   result: NodeScanner
+  category:
+    - Tools
+    - Experimental
   materials:
     Steel: 100
     Plastic: 50
@@ -133,6 +140,7 @@
 - type: latheRecipe
   id: ClothingShoesBootsMagSci
   result: ClothingShoesBootsMagSci
+  category: Clothing
   completetime: 10
   materials:
     Steel: 1000
@@ -141,6 +149,7 @@
 - type: latheRecipe
   id: ClothingShoesBootsMoon
   result: ClothingShoesBootsMoon
+  category: Clothing
   completetime: 2
   materials:
     Steel: 600
@@ -148,6 +157,7 @@
 - type: latheRecipe
   id: ClothingShoesBootsSpeed
   result: ClothingShoesBootsSpeed
+  category: Clothing
   completetime: 2
   materials:
     Steel: 1500
@@ -157,6 +167,7 @@
 - type: latheRecipe
   id: ModularReceiver
   result: ModularReceiver
+  category: Parts
   completetime: 12
   materials:
     Steel: 750
@@ -190,6 +201,7 @@
 - type: latheRecipe
   id: FloorGreenCircuit
   result: FloorTileItemGCircuit4
+  category: Tiles
   completetime: 2
   materials:
     Steel: 100
@@ -200,11 +212,9 @@
   result: FloorTileItemBCircuit4
 
 - type: latheRecipe
+  parent: FloorGreenCircuit
   id: FloorRedCircuit
   result: FloorTileItemRCircuit4
-  completetime: 2
-  materials:
-    Steel: 100
 
 - type: latheRecipe
   id: HandheldStationMap
@@ -217,6 +227,7 @@
 - type: latheRecipe
   id: ClothingHeadHatWelding
   result: ClothingHeadHatWelding
+  category: Clothing
   completetime: 2
   materials:
     Steel: 400
