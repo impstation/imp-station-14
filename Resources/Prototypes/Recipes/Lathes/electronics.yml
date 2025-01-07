@@ -93,47 +93,149 @@
 
 ## Recipes
 
+# Mechs
 - type: latheRecipe
-  parent: BaseCheapElectronicsRecipe
-  id: FirelockElectronics
-  result: FirelockElectronics
+  parent: BaseGoldCircuitboardRecipe
+  id: RipleyCentralElectronics
+  result: RipleyCentralElectronics
+  category:
+    - Circuitry
+    - Mechs
 
 - type: latheRecipe
-  parent: BaseElectronicsRecipe
-  id: MailingUnitElectronics
-  result: MailingUnitElectronics
+  parent: RipleyCentralElectronics
+  id: RipleyPeripheralsElectronics
+  result: RipleyPeripheralsElectronics
 
 - type: latheRecipe
-  parent: BaseCheapElectronicsRecipe
-  id: CellRechargerCircuitboard
-  result: CellRechargerCircuitboard
-  category: Machines
+  parent: BaseBananiumCircuitboardRecipe
+  id: HonkerCentralElectronics
+  result: HonkerCentralElectronics
+  category:
+    - Circuitry
+    - Mechs
 
 - type: latheRecipe
-  parent: CellRechargerCircuitboard
-  id: BorgChargerCircuitboard
-  result: BorgChargerCircuitboard
+  parent: HonkerCentralElectronics
+  id: HonkerPeripheralsElectronics
+  result: HonkerPeripheralsElectronics
 
 - type: latheRecipe
-  parent: CellRechargerCircuitboard
-  id: WeaponCapacitorRechargerCircuitboard
-  result: WeaponCapacitorRechargerCircuitboard
+  parent: HonkerCentralElectronics
+  id: HonkerTargetingElectronics
+  result: HonkerTargetingElectronics
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: HamtrCentralElectronics
+  result: HamtrCentralElectronics
+  category:
+    - Circuitry
+    - Mechs
+
+- type: latheRecipe
+  parent: HamtrCentralElectronics
+  id: HamtrPeripheralsElectronics
+  result: HamtrPeripheralsElectronics
+
+# Computers
+- type: latheRecipe
+  parent: BaseGoldComputerboardRecipe
+  id: AnalysisComputerCircuitboard
+  result: AnalysisComputerCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldComputerboardRecipe
+  id: TechDiskComputerCircuitboard
+  result: TechDiskComputerCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldComputerboardRecipe
+  id: ShuttleConsoleCircuitboard
+  result: ShuttleConsoleCircuitboard
+
+- type: latheRecipe
+  parent: BaseComputerboardRecipe
+  id: RadarConsoleCircuitboard
+  result: RadarConsoleCircuitboard
+
+- type: latheRecipe
+  parent: BaseComputerboardRecipe
+  id: SolarControlComputerCircuitboard
+  result: SolarControlComputerCircuitboard
+
+- type: latheRecipe
+  parent: BaseComputerboardRecipe
+  id: CloningConsoleComputerCircuitboard
+  result: CloningConsoleComputerCircuitboard
+
+- type: latheRecipe
+  parent: BaseComputerboardRecipe
+  id: SurveillanceCameraMonitorCircuitboard
+  result: SurveillanceCameraMonitorCircuitboard
+
+- type: latheRecipe
+  parent: BaseComputerboardRecipe
+  id: SurveillanceWirelessCameraMonitorCircuitboard
+  result: SurveillanceWirelessCameraMonitorCircuitboard
+
+- type: latheRecipe
+  parent: BaseComputerboardRecipe
+  id: ComputerTelevisionCircuitboard
+  result: ComputerTelevisionCircuitboard
+
+- type: latheRecipe
+  parent: BaseComputerboardRecipe
+  id: MassMediaCircuitboard
+  result: ComputerMassMediaCircuitboard
+
+# Power
+- type: latheRecipe
+  parent: BaseCheapCircuitboardRecipe
+  id: APCElectronics
+  result: APCElectronics
+
+- type: latheRecipe
+  parent: BaseMachineboardRecipe
+  id: SubstationMachineCircuitboard
+  result: SubstationMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: WallmountSubstationElectronics
+  result: WallmountSubstationElectronics
+
+- type: latheRecipe
+  parent: BaseMachineboardRecipe
+  id: SMESMachineCircuitboard
+  result: SMESMachineCircuitboard
 
 - type: latheRecipe
   parent: BaseGoldMachineboardRecipe
-  id: TurboItemRechargerCircuitboard
-  result: TurboItemRechargerCircuitboard
+  id: SMESAdvancedMachineCircuitboard
+  result: SMESAdvancedMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseCheapElectronicsRecipe
-  id: DoorElectronics
-  result: DoorElectronics
+  parent: BaseMachineboardRecipe
+  id: PortableGeneratorPacmanMachineCircuitboard
+  result: PortableGeneratorPacmanMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseCheapElectronicsRecipe
-  id: FreezerElectronics
-  result: FreezerElectronics
+  parent: PortableGeneratorPacmanMachineCircuitboard
+  id: PortableGeneratorSuperPacmanMachineCircuitboard
+  result: PortableGeneratorSuperPacmanMachineCircuitboard
 
+- type: latheRecipe
+  parent: PortableGeneratorPacmanMachineCircuitboard
+  id: PortableGeneratorJrPacmanMachineCircuitboard
+  result: PortableGeneratorJrPacmanMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: SolarTrackerElectronics
+  result: SolarTrackerElectronics
+
+# Wallmount
 - type: latheRecipe
   parent: BaseElectronicsRecipe
   id: AirAlarmElectronics
@@ -159,71 +261,7 @@
   id: SignalTimerElectronics
   result: SignalTimerElectronics
 
-- type: latheRecipe
-  parent: BaseGoldMachineboardRecipe
-  id: CloningPodMachineCircuitboard
-  result: CloningPodMachineCircuitboard
-
-- type: latheRecipe
-  parent: BaseGoldMachineboardRecipe
-  id: ThermomachineFreezerMachineCircuitBoard
-  result: ThermomachineFreezerMachineCircuitBoard
-
-- type: latheRecipe
-  parent: BaseSilverMachineboardRecipe
-  id: HellfireFreezerMachineCircuitBoard
-  result: HellfireFreezerMachineCircuitBoard
-
-- type: latheRecipe
-  parent: BaseMachineboardRecipe
-  id: CondenserMachineCircuitBoard
-  result: CondenserMachineCircuitBoard
-
-- type: latheRecipe
-  parent: BaseMachineboardRecipe
-  id: PortableScrubberMachineCircuitBoard
-  result: PortableScrubberMachineCircuitBoard
-
-- type: latheRecipe
-  parent: BaseGoldMachineboardRecipe
-  id: SpaceHeaterMachineCircuitBoard
-  result: SpaceHeaterMachineCircuitBoard
-
-- type: latheRecipe
-  parent: BaseMachineboardRecipe
-  id: MedicalScannerMachineCircuitboard
-  result: MedicalScannerMachineCircuitboard
-
-- type: latheRecipe
-  parent: BaseGoldMachineboardRecipe
-  id: CryoPodMachineCircuitboard
-  result: CryoPodMachineCircuitboard
-
-- type: latheRecipe
-  parent: BaseGoldMachineboardRecipe
-  id: ChemMasterMachineCircuitboard
-  result: ChemMasterMachineCircuitboard
-
-- type: latheRecipe
-  parent: BaseGoldMachineboardRecipe
-  id: ChemDispenserMachineCircuitboard
-  result: ChemDispenserMachineCircuitboard
-
-- type: latheRecipe
-  parent: BaseGoldMachineboardRecipe
-  id: BiomassReclaimerMachineCircuitboard
-  result: BiomassReclaimerMachineCircuitboard
-
-- type: latheRecipe
-  parent: BaseGoldMachineboardRecipe
-  id: BiofabricatorMachineCircuitboard
-  result: BiofabricatorMachineCircuitboard
-
-- type: latheRecipe
-  parent: BaseMachineboardRecipe
-  id: HydroponicsTrayMachineCircuitboard
-  result: HydroponicsTrayMachineCircuitboard
-
+# Lathes
 - type: latheRecipe
   parent: BaseMachineboardRecipe
   id: AutolatheMachineCircuitboard
@@ -271,6 +309,110 @@
 
 - type: latheRecipe
   parent: BaseGoldMachineboardRecipe
+  id: BiofabricatorMachineCircuitboard
+  result: BiofabricatorMachineCircuitboard
+
+#
+
+- type: latheRecipe
+  parent: BaseCheapElectronicsRecipe
+  id: FirelockElectronics
+  result: FirelockElectronics
+
+- type: latheRecipe
+  parent: BaseElectronicsRecipe
+  id: MailingUnitElectronics
+  result: MailingUnitElectronics
+
+- type: latheRecipe
+  parent: BaseCheapElectronicsRecipe
+  id: CellRechargerCircuitboard
+  result: CellRechargerCircuitboard
+  category: Machines
+
+- type: latheRecipe
+  parent: CellRechargerCircuitboard
+  id: BorgChargerCircuitboard
+  result: BorgChargerCircuitboard
+
+- type: latheRecipe
+  parent: CellRechargerCircuitboard
+  id: WeaponCapacitorRechargerCircuitboard
+  result: WeaponCapacitorRechargerCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldMachineboardRecipe
+  id: TurboItemRechargerCircuitboard
+  result: TurboItemRechargerCircuitboard
+
+- type: latheRecipe
+  parent: BaseCheapElectronicsRecipe
+  id: DoorElectronics
+  result: DoorElectronics
+
+- type: latheRecipe
+  parent: BaseCheapElectronicsRecipe
+  id: FreezerElectronics
+  result: FreezerElectronics
+
+- type: latheRecipe
+  parent: BaseGoldMachineboardRecipe
+  id: CloningPodMachineCircuitboard
+  result: CloningPodMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldMachineboardRecipe
+  id: ThermomachineFreezerMachineCircuitBoard
+  result: ThermomachineFreezerMachineCircuitBoard
+
+- type: latheRecipe
+  parent: BaseSilverMachineboardRecipe
+  id: HellfireFreezerMachineCircuitBoard
+  result: HellfireFreezerMachineCircuitBoard
+
+- type: latheRecipe
+  parent: BaseMachineboardRecipe
+  id: CondenserMachineCircuitBoard
+  result: CondenserMachineCircuitBoard
+
+- type: latheRecipe
+  parent: BaseMachineboardRecipe
+  id: PortableScrubberMachineCircuitBoard
+  result: PortableScrubberMachineCircuitBoard
+
+- type: latheRecipe
+  parent: BaseGoldMachineboardRecipe
+  id: SpaceHeaterMachineCircuitBoard
+  result: SpaceHeaterMachineCircuitBoard
+
+# Medical
+- type: latheRecipe
+  parent: BaseMachineboardRecipe
+  id: MedicalScannerMachineCircuitboard
+  result: MedicalScannerMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldMachineboardRecipe
+  id: CryoPodMachineCircuitboard
+  result: CryoPodMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldMachineboardRecipe
+  id: ChemMasterMachineCircuitboard
+  result: ChemMasterMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldMachineboardRecipe
+  id: ChemDispenserMachineCircuitboard
+  result: ChemDispenserMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldMachineboardRecipe
+  id: BiomassReclaimerMachineCircuitboard
+  result: BiomassReclaimerMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldMachineboardRecipe
   id: VaccinatorMachineCircuitboard
   result: VaccinatorMachineCircuitboard
 
@@ -279,6 +421,7 @@
   id: DiagnoserMachineCircuitboard
   result: DiagnoserMachineCircuitboard
 
+# Science
 - type: latheRecipe
   parent: BaseGoldMachineboardRecipe
   id: ArtifactAnalyzerMachineCircuitboard
@@ -309,6 +452,13 @@
   id: APECircuitboard
   result: APECircuitboard
 
+#
+
+- type: latheRecipe
+  parent: BaseMachineboardRecipe
+  id: HydroponicsTrayMachineCircuitboard
+  result: HydroponicsTrayMachineCircuitboard
+
 - type: latheRecipe
   parent: BaseMachineboardRecipe
   id: ReagentGrinderMachineCircuitboard
@@ -318,26 +468,6 @@
   parent: BaseMachineboardRecipe
   id: HotplateMachineCircuitboard
   result: HotplateMachineCircuitboard
-
-- type: latheRecipe
-  parent: BaseGoldComputerboardRecipe
-  id: AnalysisComputerCircuitboard
-  result: AnalysisComputerCircuitboard
-
-- type: latheRecipe
-  parent: BaseGoldComputerboardRecipe
-  id: TechDiskComputerCircuitboard
-  result: TechDiskComputerCircuitboard
-
-- type: latheRecipe
-  parent: BaseGoldComputerboardRecipe
-  id: ShuttleConsoleCircuitboard
-  result: ShuttleConsoleCircuitboard
-
-- type: latheRecipe
-  parent: BaseComputerboardRecipe
-  id: RadarConsoleCircuitboard
-  result: RadarConsoleCircuitboard
 
 - type: latheRecipe
   parent: BaseMachineboardRecipe
@@ -373,108 +503,6 @@
   parent: BaseGoldMachineboardRecipe
   id: SalvageMagnetMachineCircuitboard
   result: SalvageMagnetMachineCircuitboard
-
-# Mechs
-
-- type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
-  id: RipleyCentralElectronics
-  result: RipleyCentralElectronics
-  category:
-    - Circuitry
-    - Mechs
-
-- type: latheRecipe
-  parent: RipleyCentralElectronics
-  id: RipleyPeripheralsElectronics
-  result: RipleyPeripheralsElectronics
-
-- type: latheRecipe
-  parent: BaseBananiumCircuitboardRecipe
-  id: HonkerCentralElectronics
-  result: HonkerCentralElectronics
-  category:
-    - Circuitry
-    - Mechs
-
-- type: latheRecipe
-  parent: HonkerCentralElectronics
-  id: HonkerPeripheralsElectronics
-  result: HonkerPeripheralsElectronics
-
-- type: latheRecipe
-  parent: HonkerCentralElectronics
-  id: HonkerTargetingElectronics
-  result: HonkerTargetingElectronics
-
-- type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
-  id: HamtrCentralElectronics
-  result: HamtrCentralElectronics
-  category:
-    - Circuitry
-    - Mechs
-
-- type: latheRecipe
-  parent: HamtrCentralElectronics
-  id: HamtrPeripheralsElectronics
-  result: HamtrPeripheralsElectronics
-
-# Power
-- type: latheRecipe
-  parent: BaseCheapCircuitboardRecipe
-  id: APCElectronics
-  result: APCElectronics
-
-- type: latheRecipe
-  parent: BaseMachineboardRecipe
-  id: SubstationMachineCircuitboard
-  result: SubstationMachineCircuitboard
-
-- type: latheRecipe
-  parent: BaseCircuitboardRecipe
-  id: WallmountSubstationElectronics
-  result: WallmountSubstationElectronics
-
-- type: latheRecipe
-  parent: BaseMachineboardRecipe
-  id: SMESMachineCircuitboard
-  result: SMESMachineCircuitboard
-
-- type: latheRecipe
-  parent: BaseGoldMachineboardRecipe
-  id: SMESAdvancedMachineCircuitboard
-  result: SMESAdvancedMachineCircuitboard
-
-- type: latheRecipe
-  parent: BaseMachineboardRecipe
-  id: PortableGeneratorPacmanMachineCircuitboard
-  result: PortableGeneratorPacmanMachineCircuitboard
-
-- type: latheRecipe
-  parent: PortableGeneratorPacmanMachineCircuitboard
-  id: PortableGeneratorSuperPacmanMachineCircuitboard
-  result: PortableGeneratorSuperPacmanMachineCircuitboard
-
-- type: latheRecipe
-  parent: PortableGeneratorPacmanMachineCircuitboard
-  id: PortableGeneratorJrPacmanMachineCircuitboard
-  result: PortableGeneratorJrPacmanMachineCircuitboard
-
-- type: latheRecipe
-  parent: BaseComputerboardRecipe
-  id: SolarControlComputerCircuitboard
-  result: SolarControlComputerCircuitboard
-
-- type: latheRecipe
-  parent: BaseCircuitboardRecipe
-  id: SolarTrackerElectronics
-  result: SolarTrackerElectronics
-
-- type: latheRecipe
-  parent: BaseComputerboardRecipe
-  id: CloningConsoleComputerCircuitboard
-  result: CloningConsoleComputerCircuitboard
 
 - type: latheRecipe
   parent: BaseMachineboardRecipe
@@ -522,21 +550,6 @@
   result: SurveillanceWirelessCameraMovableCircuitboard
 
 - type: latheRecipe
-  parent: BaseComputerboardRecipe
-  id: SurveillanceCameraMonitorCircuitboard
-  result: SurveillanceCameraMonitorCircuitboard
-
-- type: latheRecipe
-  parent: BaseComputerboardRecipe
-  id: SurveillanceWirelessCameraMonitorCircuitboard
-  result: SurveillanceWirelessCameraMonitorCircuitboard
-
-- type: latheRecipe
-  parent: BaseComputerboardRecipe
-  id: ComputerTelevisionCircuitboard
-  result: ComputerTelevisionCircuitboard
-
-- type: latheRecipe
   parent: BaseMachineboardRecipe
   id: EmitterCircuitboard
   result: EmitterCircuitboard
@@ -580,11 +593,6 @@
   parent: BaseMachineboardRecipe
   id: TelecomServerCircuitboard
   result: TelecomServerCircuitboard
-
-- type: latheRecipe
-  parent: BaseComputerboardRecipe
-  id: MassMediaCircuitboard
-  result: ComputerMassMediaCircuitboard
 
 - type: latheRecipe
   parent: BaseGoldMachineboardRecipe
