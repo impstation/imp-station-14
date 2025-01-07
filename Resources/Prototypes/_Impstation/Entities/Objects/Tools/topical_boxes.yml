@@ -1,0 +1,115 @@
+- type: entity
+  id: TopicalBoxBase
+  parent: BaseStorageItem
+  abstract: true
+  components:
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,10,1
+    - 0,3,10,4
+    storageOpenSound: /Audio/_Impstation/Effects/open_plastic_box.ogg
+    storageCloseSound: /Audio/_Impstation/Effects/close_plastic_box.ogg
+  - type: Item
+    size: Ginormous
+  - type: Tag
+    tags:
+    - TopicalBox
+  - type: Appearance
+
+- type: entity
+  name: bloodloss topical box
+  parent: TopicalBoxBase
+  id: TopicalBoxBlood
+  description: A bright red topical Box, built for storing blood packs.
+  components:
+  - type: Storage
+    maxItemSize: Normal
+    whitelist:
+      tags:
+      - Bloodpack
+  - type: Sprite
+    sprite: _Impstation\Objects\Storage\topical-boxes.rsi
+    state: topicalbox-1
+  - type: Item
+    sprite: _Impstation\Objects\Storage\topical-boxes.rsi
+    heldPrefix: topicalbox-1
+
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        base:
+          True: { state: topicalbox-1-open }
+          False: { state: topicalbox-1 }
+
+- type: entity
+  name: gauze topical box
+  parent: TopicalBoxBase
+  id: TopicalBoxGauze
+  description: A bright red topical Box, built for storing gauze.
+  components:
+  - type: Storage
+    maxItemSize: Normal
+    whitelist:
+      tags:
+      - Gauze
+  - type: Sprite
+    sprite: _Impstation\Objects\Storage\topical-boxes.rsi
+    state: topicalbox-2
+  - type: Item
+    sprite: _Impstation\Objects\Storage\topical-boxes.rsi
+    heldPrefix: topicalbox-2
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        base:
+          True: { state: topicalbox-2-open }
+          False: { state: topicalbox-2 }
+
+- type: entity
+  name: burns topical box
+  parent: TopicalBoxBase
+  id: TopicalBoxBurns
+  description: A bright green topical Box, built for storing burn topicals such as ointment and regenerative mesh.
+  components:
+  - type: Storage
+    maxItemSize: Normal
+    whitelist:
+      tags:
+      - Ointment
+  - type: Sprite
+    sprite: _Impstation\Objects\Storage\topical-boxes.rsi
+    state: topicalbox-3
+  - type: Item
+    sprite: _Impstation\Objects\Storage\topical-boxes.rsi
+    heldPrefix: topicalbox-3
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        base:
+          True: { state: topicalbox-3-open }
+          False: { state: topicalbox-3 }
+
+- type: entity
+  name: brute topical box
+  parent: TopicalBoxBase
+  id: TopicalBoxBrute
+  description: A bright pink Topical Box, built for storing brute topicals such as bruise packs and sutures.
+  components:
+  - type: Storage
+    maxItemSize: Normal
+    whitelist:
+      tags:
+      - Brutepack
+  - type: Sprite
+    sprite: _Impstation\Objects\Storage\topical-boxes.rsi
+    state: topicalbox-4
+  - type: Item
+    sprite: _Impstation\Objects\Storage\topical-boxes.rsi
+    heldPrefix: topicalbox-4
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        base:
+          True: { state: topicalbox-4-open }
+          False: { state: topicalbox-4 }

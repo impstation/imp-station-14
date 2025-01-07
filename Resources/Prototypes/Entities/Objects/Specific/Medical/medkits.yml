@@ -11,6 +11,8 @@
     maxItemSize: Small
     grid:
     - 0,0,3,1
+    storageOpenSound: /Audio/_Impstation/Effects/open_plastic_box.ogg #imp special
+    storageCloseSound: /Audio/_Impstation/Effects/close_plastic_box.ogg #imp special
   - type: Item
     size: Large
     sprite: Objects/Specific/Medical/firstaidkits.rsi
