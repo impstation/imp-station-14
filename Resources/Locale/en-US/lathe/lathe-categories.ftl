@@ -26,10 +26,11 @@ lathe-category-tableware = Tableware
 lathe-category-cookware = Cookware
 lathe-category-medicinal = Medicinal
 lathe-category-tiles = Tiles
+lathe-category-computers = Computers
+lathe-category-machines = Machines
 
 lathe-category-wood = Wood
 lathe-category-concrete = Concrete
-
 lathe-category-dark = Dark
 lathe-category-steel = Steel
 lathe-category-white = White

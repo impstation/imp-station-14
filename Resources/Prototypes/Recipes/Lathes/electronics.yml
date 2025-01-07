@@ -37,11 +37,35 @@
 - type: latheRecipe
   abstract: true
   parent: BaseCircuitboardRecipe
+  id: BaseMachineboardRecipe
+  category: Machines
+
+- type: latheRecipe
+  abstract: true
+  parent: BaseCircuitboardRecipe
+  id: BaseComputerboardRecipe
+  category: Computers
+
+- type: latheRecipe
+  abstract: true
+  parent: BaseCircuitboardRecipe
   id: BaseGoldCircuitboardRecipe
   materials:
     Steel: 100
     Glass: 500
     Gold: 100
+
+- type: latheRecipe
+  abstract: true
+  parent: BaseGoldCircuitboardRecipe
+  id: BaseGoldMachineboardRecipe
+  category: Machines
+
+- type: latheRecipe
+  abstract: true
+  parent: BaseGoldCircuitboardRecipe
+  id: BaseGoldComputerboardRecipe
+  category: Computers
 
 - type: latheRecipe
   abstract: true
@@ -51,6 +75,18 @@
     Steel: 100
     Glass: 500
     Silver: 100
+
+- type: latheRecipe
+  abstract: true
+  parent: BaseSilverCircuitboardRecipe
+  id: BaseSilverMachineboardRecipe
+  category: Machines
+
+- type: latheRecipe
+  abstract: true
+  parent: BaseSilverCircuitboardRecipe
+  id: BaseSilverComputerboardRecipe
+  category: Computers
 
 - type: latheRecipe
   abstract: true
@@ -77,6 +113,7 @@
   parent: BaseCheapElectronicsRecipe
   id: CellRechargerCircuitboard
   result: CellRechargerCircuitboard
+  category: Machines
 
 - type: latheRecipe
   parent: CellRechargerCircuitboard
@@ -89,7 +126,7 @@
   result: WeaponCapacitorRechargerCircuitboard
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: BaseGoldMachineboardRecipe
   id: TurboItemRechargerCircuitboard
   result: TurboItemRechargerCircuitboard
 
@@ -129,227 +166,232 @@
   result: SignalTimerElectronics
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: BaseGoldMachineboardRecipe
   id: CloningPodMachineCircuitboard
   result: CloningPodMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: BaseGoldMachineboardRecipe
   id: ThermomachineFreezerMachineCircuitBoard
   result: ThermomachineFreezerMachineCircuitBoard
 
 - type: latheRecipe
-  parent: BaseSilverCircuitboardRecipe
+  parent: BaseSilverMachineboardRecipe
   id: HellfireFreezerMachineCircuitBoard
   result: HellfireFreezerMachineCircuitBoard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: CondenserMachineCircuitBoard
   result: CondenserMachineCircuitBoard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: PortableScrubberMachineCircuitBoard
   result: PortableScrubberMachineCircuitBoard
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: BaseGoldMachineboardRecipe
   id: SpaceHeaterMachineCircuitBoard
   result: SpaceHeaterMachineCircuitBoard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: MedicalScannerMachineCircuitboard
   result: MedicalScannerMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: BaseGoldMachineboardRecipe
   id: CryoPodMachineCircuitboard
   result: CryoPodMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: BaseGoldMachineboardRecipe
   id: ChemMasterMachineCircuitboard
   result: ChemMasterMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: BaseGoldMachineboardRecipe
   id: ChemDispenserMachineCircuitboard
   result: ChemDispenserMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: BaseGoldMachineboardRecipe
   id: BiomassReclaimerMachineCircuitboard
   result: BiomassReclaimerMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: BaseGoldMachineboardRecipe
   id: BiofabricatorMachineCircuitboard
   result: BiofabricatorMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: HydroponicsTrayMachineCircuitboard
   result: HydroponicsTrayMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: AutolatheMachineCircuitboard
   result: AutolatheMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: ProtolatheMachineCircuitboard
   result: ProtolatheMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: BaseGoldMachineboardRecipe
   id: AutolatheHyperConvectionMachineCircuitboard
   result: AutolatheHyperConvectionMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: BaseGoldMachineboardRecipe
   id: ProtolatheHyperConvectionMachineCircuitboard
   result: ProtolatheHyperConvectionMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: CircuitImprinterMachineCircuitboard
   result: CircuitImprinterMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: BaseGoldMachineboardRecipe
   id: CircuitImprinterHyperConvectionMachineCircuitboard
   result: CircuitImprinterHyperConvectionMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: ExosuitFabricatorMachineCircuitboard
   result: ExosuitFabricatorMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: UniformPrinterMachineCircuitboard
   result: UniformPrinterMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: BiogeneratorMachineCircuitboard
   result: BiogeneratorMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: BaseGoldMachineboardRecipe
   id: VaccinatorMachineCircuitboard
   result: VaccinatorMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: BaseGoldMachineboardRecipe
   id: DiagnoserMachineCircuitboard
   result: DiagnoserMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: BaseGoldMachineboardRecipe
   id: ArtifactAnalyzerMachineCircuitboard
   result: ArtifactAnalyzerMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: BaseGoldMachineboardRecipe
   id: ArtifactCrusherMachineCircuitboard
   result: ArtifactCrusherMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: AnomalyVesselCircuitboard
   result: AnomalyVesselCircuitboard
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: BaseGoldMachineboardRecipe
   id: AnomalyVesselExperimentalCircuitboard
   result: AnomalyVesselExperimentalCircuitboard
 
 - type: latheRecipe
-  parent: BaseSilverCircuitboardRecipe
+  parent: BaseSilverMachineboardRecipe
   id: AnomalySynchronizerCircuitboard
   result: AnomalySynchronizerCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: APECircuitboard
   result: APECircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: ReagentGrinderMachineCircuitboard
   result: ReagentGrinderMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: HotplateMachineCircuitboard
   result: HotplateMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: BaseGoldComputerboardRecipe
   id: AnalysisComputerCircuitboard
   result: AnalysisComputerCircuitboard
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: BaseGoldComputerboardRecipe
   id: TechDiskComputerCircuitboard
   result: TechDiskComputerCircuitboard
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: BaseGoldComputerboardRecipe
   id: ShuttleConsoleCircuitboard
   result: ShuttleConsoleCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseComputerboardRecipe
   id: RadarConsoleCircuitboard
   result: RadarConsoleCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: DawInstrumentMachineCircuitboard
   result: DawInstrumentMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: BaseGoldMachineboardRecipe
   id: StasisBedMachineCircuitboard
   result: StasisBedMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: ElectrolysisUnitMachineCircuitboard
   result: ElectrolysisUnitMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: CentrifugeMachineCircuitboard
   result: CentrifugeMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: OreProcessorMachineCircuitboard
   result: OreProcessorMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: BaseGoldMachineboardRecipe
   id: OreProcessorIndustrialMachineCircuitboard
   result: OreProcessorIndustrialMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: BaseGoldMachineboardRecipe
   id: SalvageMagnetMachineCircuitboard
   result: SalvageMagnetMachineCircuitboard
+
+# Mechs
 
 - type: latheRecipe
   parent: BaseGoldCircuitboardRecipe
   id: RipleyCentralElectronics
   result: RipleyCentralElectronics
+  category:
+    - Circuitry
+    - Mech
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: RipleyCentralElectronics
   id: RipleyPeripheralsElectronics
   result: RipleyPeripheralsElectronics
 
@@ -357,14 +399,17 @@
   parent: BaseBananiumCircuitboardRecipe
   id: HonkerCentralElectronics
   result: HonkerCentralElectronics
+  category:
+    - Circuitry
+    - Mech
 
 - type: latheRecipe
-  parent: BaseBananiumCircuitboardRecipe
+  parent: HonkerCentralElectronics
   id: HonkerPeripheralsElectronics
   result: HonkerPeripheralsElectronics
 
 - type: latheRecipe
-  parent: BaseBananiumCircuitboardRecipe
+  parent: HonkerCentralElectronics
   id: HonkerTargetingElectronics
   result: HonkerTargetingElectronics
 
@@ -372,9 +417,12 @@
   parent: BaseGoldCircuitboardRecipe
   id: HamtrCentralElectronics
   result: HamtrCentralElectronics
+  category:
+    - Circuitry
+    - Mech
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: HamtrCentralElectronics
   id: HamtrPeripheralsElectronics
   result: HamtrPeripheralsElectronics
 
@@ -385,7 +433,7 @@
   result: APCElectronics
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: SubstationMachineCircuitboard
   result: SubstationMachineCircuitboard
 
@@ -395,17 +443,17 @@
   result: WallmountSubstationElectronics
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: SMESMachineCircuitboard
   result: SMESMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: BaseGoldMachineboardRecipe
   id: SMESAdvancedMachineCircuitboard
   result: SMESAdvancedMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: PortableGeneratorPacmanMachineCircuitboard
   result: PortableGeneratorPacmanMachineCircuitboard
 
@@ -420,7 +468,7 @@
   result: PortableGeneratorJrPacmanMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseComputerboardRecipe
   id: SolarControlComputerCircuitboard
   result: SolarControlComputerCircuitboard
 
@@ -430,182 +478,182 @@
   result: SolarTrackerElectronics
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
-  id: PowerComputerCircuitboard
-  result: PowerComputerCircuitboard
-
-- type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseComputerboardRecipe
   id: CloningConsoleComputerCircuitboard
   result: CloningConsoleComputerCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: MicrowaveMachineCircuitboard
   result: MicrowaveMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: ElectricGrillMachineCircuitboard
   result: ElectricGrillMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: FatExtractorMachineCircuitboard
   result: FatExtractorMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: BaseGoldMachineboardRecipe
   id: FlatpackerMachineCircuitboard
   result: FlatpackerMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: SheetifierMachineCircuitboard
   result: SheetifierMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: SurveillanceCameraRouterCircuitboard
   result: SurveillanceCameraRouterCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: SurveillanceCameraWirelessRouterCircuitboard
   result: SurveillanceCameraWirelessRouterCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: SurveillanceWirelessCameraAnchoredCircuitboard
   result: SurveillanceWirelessCameraAnchoredCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: SurveillanceWirelessCameraMovableCircuitboard
   result: SurveillanceWirelessCameraMovableCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseComputerboardRecipe
   id: SurveillanceCameraMonitorCircuitboard
   result: SurveillanceCameraMonitorCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseComputerboardRecipe
   id: SurveillanceWirelessCameraMonitorCircuitboard
   result: SurveillanceWirelessCameraMonitorCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseComputerboardRecipe
   id: ComputerTelevisionCircuitboard
   result: ComputerTelevisionCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: EmitterCircuitboard
   result: EmitterCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: ThrusterMachineCircuitboard
   result: ThrusterMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: GyroscopeMachineCircuitboard
   result: GyroscopeMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: GasRecyclerMachineCircuitboard
   result: GasRecyclerMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: SeedExtractorMachineCircuitboard
   result: SeedExtractorMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: BoozeDispenserMachineCircuitboard
   result: BoozeDispenserMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: BaseGoldMachineboardRecipe
   id: CargoTelepadMachineCircuitboard
   result: CargoTelepadMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: SodaDispenserMachineCircuitboard
   result: SodaDispenserMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: TelecomServerCircuitboard
   result: TelecomServerCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseComputerboardRecipe
   id: MassMediaCircuitboard
   result: ComputerMassMediaCircuitboard
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: BaseGoldMachineboardRecipe
   id: MiniGravityGeneratorCircuitboard
   result: MiniGravityGeneratorCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: PowerCageRechargerCircuitboard
   result: PowerCageRechargerCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: ShuttleGunSvalinnMachineGunCircuitboard
   result: ShuttleGunSvalinnMachineGunCircuitboard
   completetime: 6
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: BaseGoldMachineboardRecipe
   id: ShuttleGunPerforatorCircuitboard
   result: ShuttleGunPerforatorCircuitboard
   completetime: 10
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: ShuttleGunKineticCircuitboard
   result: ShuttleGunKineticCircuitboard
   completetime: 6
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: BaseGoldMachineboardRecipe
   id: ShuttleGunFriendshipCircuitboard
   result: ShuttleGunFriendshipCircuitboard
   completetime: 8
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: BaseGoldMachineboardRecipe
   id: ShuttleGunDusterCircuitboard
   result: ShuttleGunDusterCircuitboard
   completetime: 12
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: BaseGoldMachineboardRecipe
   id: StationAnchorCircuitboard
   result: StationAnchorCircuitboard
   completetime: 8
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: BaseGoldMachineboardRecipe
   id: ReagentGrinderIndustrialMachineCircuitboard
   result: ReagentGrinderIndustrialMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: JukeboxCircuitBoard
   result: JukeboxCircuitBoard
 
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: BaseMachineboardRecipe
   id: CutterMachineCircuitboard
   result: CutterMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseMachineboardRecipe
+  id: HolopadMachineCircuitboard
+  result: HolopadMachineCircuitboard
