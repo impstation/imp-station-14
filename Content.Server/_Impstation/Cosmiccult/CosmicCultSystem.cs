@@ -189,13 +189,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
     {
         Log.Debug($"Attempting to strip {uid} of their cult status!");
 
-        // if (comp.Equipment.Values.Count == 0
-        // || comp.Equipment.Values.All(ent => ent == null ? true : false))
-        //     return;
-        // // remove equipped gear
-        // foreach (var equip in comp.Equipment.Values)
-        //     QueueDel(equip);
-
         if (!TryComp<CosmicSpellSlotComponent>(uid, out var spell))
             return;
         Log.Debug($"Passed spell slot check!");
@@ -218,9 +211,10 @@ public sealed partial class CosmicCultSystem : EntitySystem
 
         _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-deconverted-briefing"), Color.FromHex("#cae8e8"), DeconvertSound);
 
-        if (!TryComp<MindComponent>(uid, out var mindComp))
+        if (!TryComp<MindComponent>(mindId, out var mindComp))
             return;
-        _mind.TryRemoveObjective(uid, mindComp, 1);
+        foreach (var objective in mindComp.Objectives)
+            _mind.RemoveObjective(mindId, objective);
     }
 
     private void DebugFunction(EntityUid uid, CosmicCultComponent comp, ref DamageChangedEvent args) // TODO: Placeholder function to call other functions for testing & debugging.

@@ -24,7 +24,6 @@ public sealed partial class CosmicCultComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "CosmicCultIcon";
     public CancellationTokenSource? DeconvertToken { get; set; }
-
     #endregion
 
     #region Ability Data

@@ -39,7 +39,7 @@ namespace Content.Server.Objectives.Commands
             if (int.TryParse(args[1], out var i))
             {
                 var mindSystem = _entityManager.System<SharedMindSystem>();
-                shell.WriteLine(mindSystem.TryRemoveObjective(mindId, mind, i)
+                shell.WriteLine(mindSystem.TryRemoveObjectiveByIndex(mindId, mind, i)
                     ? "Objective successfully removed!"
                     : "Objective removing failed. Maybe the index is out of bounds? Check lsobjectives!");
             }

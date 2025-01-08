@@ -350,11 +350,12 @@ public abstract class SharedMindSystem : EntitySystem
         mind.Objectives.Add(objective);
     }
 
+    // imp edit: renamed
     /// <summary>
     /// Removes an objective from this mind.
     /// </summary>
     /// <returns>Returns true if the removal succeeded.</returns>
-    public bool TryRemoveObjective(EntityUid mindId, MindComponent mind, int index)
+    public bool TryRemoveObjectiveByIndex(EntityUid mindId, MindComponent mind, int index)
     {
         if (index < 0 || index >= mind.Objectives.Count)
             return false;
@@ -365,6 +366,20 @@ public abstract class SharedMindSystem : EntitySystem
         _adminLogger.Add(LogType.Mind, LogImpact.Low, $"Objective {objective} ({title}) removed from the mind of {MindOwnerLoggingString(mind)}");
         mind.Objectives.Remove(objective);
         Del(objective);
+        return true;
+    }
+
+    // imp edit
+    public bool RemoveObjective(EntityUid mind, EntityUid objective, MindComponent? comp = null)
+    {
+        if (!Resolve(mind, ref comp))
+            return false;
+
+        if (!comp.Objectives.Remove(objective))
+            return false;
+
+        QueueDel(objective);
+        Dirty(mind, comp);
         return true;
     }
 
