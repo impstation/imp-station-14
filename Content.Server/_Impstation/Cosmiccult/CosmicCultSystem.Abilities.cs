@@ -61,34 +61,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
         SubscribeLocalEvent<CosmicCultLeadComponent, EventCosmicPlaceMonument>(OnCosmicPlaceMonument);
     }
 
-    #region Housekeeping
-    /// <summary>
-    /// Creates the Cosmic Void pocket dimension map.
-    /// </summary>
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        var enumerator = EntityQueryEnumerator<InVoidComponent>();
-        while (enumerator.MoveNext(out var uid, out var comp))
-        {
-            if (_timing.CurTime >= comp.ExitVoidTime)
-            {
-                if (!TryComp<MindContainerComponent>(uid, out var mindContainer))
-                    continue;
-                Log.Debug($"Sending {mindContainer.Mind} back to their body!");
-                var mindEnt = mindContainer.Mind!.Value;
-                var mind = Comp<MindComponent>(mindEnt);
-                mind.PreventGhosting = false;
-                _mind.TransferTo(mindEnt, comp.OriginalBody);
-                RemComp<CosmicMarkBlankComponent>(comp.OriginalBody);
-                _popup.PopupEntity(Loc.GetString("cosmicability-blank-return"), comp.OriginalBody, comp.OriginalBody);
-                QueueDel(uid);
-            }
-        }
-    }
-    #endregion
-
     /// <summary>
     /// A 'lil catch-all thing to double check.. stuff. Called by multiple abilities.
     /// </summary>
@@ -317,8 +289,10 @@ public sealed partial class CosmicCultSystem : EntitySystem
     /// Called when the cult lead attemps to place The Monument. This code is awful, but at least it's straightforward.
     /// </summary>
     private void OnCosmicPlaceMonument(EntityUid uid, CosmicCultLeadComponent comp, ref EventCosmicPlaceMonument args)
-
     {
+        if (!TryComp<CosmicSpellSlotComponent>(uid, out var spell))
+            return;
+
         var spaceDistance = 3;
         var xform = Transform(uid);
         var user = Transform(args.Performer);
@@ -361,7 +335,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
             return;
         }
 
-        _actions.RemoveAction(uid, comp.MonumentActionEntity);
+        _actions.RemoveAction(uid, spell.CosmicMonumentActionEntity);
         Spawn(comp.MonumentPrototype, _transform.GetMapCoordinates(uid, xform: xform));
     }
     #endregion

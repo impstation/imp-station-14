@@ -26,12 +26,6 @@ public sealed partial class CosmicCultLeadComponent : Component
 
     public override bool SessionSpecific => true;
 
-    [DataField]
-    public EntProtoId MonumentAction = "ActionCosmicPlaceMonument";
-
-    [DataField]
-    public EntityUid? MonumentActionEntity;
-
     [ViewVariables(VVAccess.ReadWrite), DataField("monumentPrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string MonumentPrototype = "MonumentCosmicCultSpawnIn";
 

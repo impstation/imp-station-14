@@ -13,11 +13,28 @@ using Content.Server.GameTicking.Events;
 using Robust.Server.GameObjects;
 using Robust.Server.Maps;
 using Content.Shared._Impstation.Cosmiccult.Components.Examine;
+using Content.Shared.Humanoid;
+using Content.Shared.Mobs;
+using Content.Shared.Heretic;
+using Content.Shared.Zombies;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Mind.Components;
+using Content.Shared.Mind;
+using Content.Shared.Roles;
+using Content.Server.Roles;
+using Content.Server.EUI;
+using Content.Server.Revolutionary;
+using System.Linq;
+using Content.Shared.Damage;
+using Content.Server.Antag;
+using Robust.Shared.Audio;
+using Content.Server.Radio.Components;
 
 namespace Content.Server._Impstation.Cosmiccult;
 
 public sealed partial class CosmicCultSystem : EntitySystem
 {
+    [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
@@ -28,19 +45,28 @@ public sealed partial class CosmicCultSystem : EntitySystem
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
-
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly SharedRoleSystem _role = default!;
+    [Dependency] private readonly EuiManager _euiMan = default!;
     public EntProtoId CultToolPrototype = "AbilityCosmicCultTool";
     private const string MapPath = "Prototypes/_Impstation/CosmicCult/voidmap.yml";
+    public readonly SoundSpecifier DeconvertSound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/antag_cosmic_deconvert.ogg");
     public int ObjectiveEntropyTracker = 0;
+    public int MonumentTier = 1;
 
     public override void Initialize()
     {
         base.Initialize();
 
+        SubscribeLocalEvent<CosmicCultComponent, DamageChangedEvent>(DebugFunction); // DEBUG EVENT FOR TESTING
+
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
         SubscribeLocalEvent<CosmicCultComponent, ComponentInit>(OnCompInit);
         SubscribeLocalEvent<CosmicCultComponent, ComponentStartup>(OnStartCultist);
         SubscribeLocalEvent<CosmicCultLeadComponent, ComponentStartup>(OnStartCultLead);
+
+        SubscribeLocalEvent<CleanseCorruptionComponent, ComponentStartup>(OnStartCleanse);
+        SubscribeLocalEvent<CosmicCultComponent, ComponentShutdown>(OnShutdown);
 
         MakeSimpleExamineHandler<CosmicMarkStructureComponent>("cosmic-examine-text-structures");
         MakeSimpleExamineHandler<CosmicMarkBlankComponent>("cosmic-examine-text-abilityblank");
@@ -48,6 +74,9 @@ public sealed partial class CosmicCultSystem : EntitySystem
 
         SubscribeAbilities();
     }
+
+    #region Housekeeping
+
     private void OnRoundStart(RoundStartingEvent ev)
     {
         _map.CreateMap(out var mapId);
@@ -58,38 +87,42 @@ public sealed partial class CosmicCultSystem : EntitySystem
     }
 
     /// <summary>
-    /// Called when the component initializes. We add the Visibility Mask here.
+    /// Creates the Cosmic Void pocket dimension map.
     /// </summary>
-    private void OnCompInit(Entity<CosmicCultComponent> ent, ref ComponentInit args)
+    public override void Update(float frameTime)
     {
+        base.Update(frameTime);
 
-        if (TryComp<EyeComponent>(ent, out var eye))
-            _eye.SetVisibilityMask(ent, eye.VisibilityMask | CosmicMonumentComponent.LayerMask);
-    }
+        var blanktimer = EntityQueryEnumerator<InVoidComponent>();
+        while (blanktimer.MoveNext(out var uid, out var comp))
+        {
+            if (_timing.CurTime >= comp.ExitVoidTime)
+            {
+                if (!TryComp<MindContainerComponent>(uid, out var mindContainer))
+                    continue;
+                Log.Debug($"Sending {mindContainer.Mind} back to their body!");
+                var mindEnt = mindContainer.Mind!.Value;
+                var mind = Comp<MindComponent>(mindEnt);
+                mind.PreventGhosting = false;
+                _mind.TransferTo(mindEnt, comp.OriginalBody);
+                RemComp<CosmicMarkBlankComponent>(comp.OriginalBody);
+                _popup.PopupEntity(Loc.GetString("cosmicability-blank-return"), comp.OriginalBody, comp.OriginalBody);
+                QueueDel(uid);
+            }
+        }
 
-    /// <summary>
-    /// Called when the component starts up, add the Cosmic Cult abilities to the user.
-    /// </summary>
-    private void OnStartCultist(EntityUid uid, CosmicCultComponent comp, ref ComponentStartup args)
-    {
-        foreach (var actionId in comp.BaseCosmicCultActions)
-            _actions.AddAction(uid, actionId);
+        var cleansetimer = EntityQueryEnumerator<CleanseCorruptionComponent>(); // TODO: WOW! WE PROBABLY SHOULDN'T HAVE THE CORRUPTION CLEANSE TIMER STORED INSIDE THE COSMIC CULT MAIN FILE! PUT THIS SOMEWHERE ELSE!
+        while (cleansetimer.MoveNext(out var uid, out var comp))
+        {
+            if (_timing.CurTime >= comp.CleanseTime)
+            {
+                Log.Debug($"CleanseCorruption on {uid} wears off!");
+                RemComp<CleanseCorruptionComponent>(uid);
+            }
+        }
     }
-    /// <summary>
-    /// Called when the component starts up, add the Cosmic Cult monument ability to the user.
-    /// </summary>
-    private void OnStartCultLead(EntityUid uid, CosmicCultLeadComponent comp, ref ComponentStartup args)
-    {
-        _actions.AddAction(uid, ref comp.MonumentActionEntity, comp.MonumentAction, uid);
-    }
+    #endregion
 
-    /// <summary>
-    /// Called by Cosmic Siphon. Increments the Cult's global objective tracker.
-    /// </summary>
-    private void IncrementCultObjectiveEntropy()
-    {
-        ObjectiveEntropyTracker++;
-    }
 
     /// <summary>
     /// Parses marker components to output their respective loc strings directly into your examine box, courtesy of TGRCdev(Github).
@@ -104,4 +137,104 @@ public sealed partial class CosmicCultSystem : EntitySystem
                 args.PushMarkup(Loc.GetString(message, ("entity", ent.Owner)));
         });
     }
+
+    /// <summary>
+    /// add the Visibility Mask.
+    /// </summary>
+    private void OnCompInit(Entity<CosmicCultComponent> ent, ref ComponentInit args)
+    {
+        if (TryComp<EyeComponent>(ent, out var eye))
+            _eye.SetVisibilityMask(ent, eye.VisibilityMask | CosmicMonumentComponent.LayerMask);
+    }
+
+    private void OnStartCleanse(Entity<CleanseCorruptionComponent> ent, ref ComponentStartup args) // TODO: THIS IS A SHITTY FIX. DO THIS BETTER.
+    {
+        if (TryComp<CleanseCorruptionComponent>(ent, out var comp))
+        comp.CleanseTime = _timing.CurTime + comp.CleansingExpirDuration;
+    }
+
+    /// <summary>
+    /// add the Cosmic Cult abilities to the cultist.
+    /// </summary>
+    private void OnStartCultist(EntityUid uid, CosmicCultComponent comp, ref ComponentStartup args)
+    {
+        EnsureComp<CosmicSpellSlotComponent>(uid, out var spell);
+        _actions.AddAction(uid, ref spell.CosmicToolActionEntity, spell.CosmicToolAction, uid);
+        _actions.AddAction(uid, ref spell.CosmicSiphonActionEntity, spell.CosmicSiphonAction, uid);
+        _actions.AddAction(uid, ref spell.CosmicBlankActionEntity, spell.CosmicBlankAction, uid);
+        _actions.AddAction(uid, ref spell.CosmicLapseActionEntity, spell.CosmicLapseAction, uid);
+    }
+    /// <summary>
+    /// add the Cosmic Cult monument ability to the cult leader.
+    /// </summary>
+    private void OnStartCultLead(EntityUid uid, CosmicCultLeadComponent comp, ref ComponentStartup args)
+    {
+        EnsureComp<CosmicSpellSlotComponent>(uid, out var spell);
+        _actions.AddAction(uid, ref spell.CosmicMonumentActionEntity, spell.CosmicMonumentAction, uid);
+    }
+
+    /// <summary>
+    /// Called by Cosmic Siphon. Increments the Cult's global objective tracker.
+    /// </summary>
+    private void IncrementCultObjectiveEntropy()
+    {
+        ObjectiveEntropyTracker++;
+    }
+
+
+    /// <summary>
+    /// Our horrible little function for
+    /// </summary>
+    private void OnShutdown(EntityUid uid, CosmicCultComponent comp, ref ComponentShutdown args)
+    {
+        Log.Debug($"Attempting to strip {uid} of their cult status!");
+
+        // if (comp.Equipment.Values.Count == 0
+        // || comp.Equipment.Values.All(ent => ent == null ? true : false))
+        //     return;
+        // // remove equipped gear
+        // foreach (var equip in comp.Equipment.Values)
+        //     QueueDel(equip);
+
+        if (!TryComp<CosmicSpellSlotComponent>(uid, out var spell))
+            return;
+        Log.Debug($"Passed spell slot check!");
+
+        _actions.RemoveAction(uid, spell.CosmicToolActionEntity);
+        _actions.RemoveAction(uid, spell.CosmicSiphonActionEntity);
+        _actions.RemoveAction(uid, spell.CosmicBlankActionEntity);
+        _actions.RemoveAction(uid, spell.CosmicLapseActionEntity);
+        _actions.RemoveAction(uid, spell.CosmicMonumentActionEntity);
+
+        if (!TryComp<MindContainerComponent>(uid, out var mc))
+            return;
+        if (!_mind.TryGetMind(uid, out var mindId, out _, mc))
+            return;
+        if (_mind.TryGetSession(mindId, out var session))
+        {
+            _euiMan.OpenEui(new CosmicDeconvertedEui(), session);
+            Log.Debug($"UI opened!");
+        }
+
+        _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-deconverted-briefing"), Color.FromHex("#cae8e8"), DeconvertSound);
+
+        if (!TryComp<MindComponent>(uid, out var mindComp))
+            return;
+        _mind.TryRemoveObjective(uid, mindComp, 1);
+    }
+
+    private void DebugFunction(EntityUid uid, CosmicCultComponent comp, ref DamageChangedEvent args) // TODO: Placeholder function to call other functions for testing & debugging.
+    {
+        if (_entMan.HasComponent<CosmicCultComponent>(uid))
+        {
+            _entMan.RemoveComponent<CosmicCultComponent>(uid);
+            _entMan.RemoveComponent<ActiveRadioComponent>(uid);
+            _entMan.RemoveComponent<IntrinsicRadioReceiverComponent>(uid);
+            _entMan.RemoveComponent<IntrinsicRadioTransmitterComponent>(uid);
+
+            if (_entMan.HasComponent<CosmicCultLeadComponent>(uid))
+                _entMan.RemoveComponent<CosmicCultLeadComponent>(uid);
+        }
+    }
+
 }

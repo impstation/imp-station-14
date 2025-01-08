@@ -5,6 +5,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Audio;
 using Content.Shared.Item;
 using Content.Shared.Damage;
+using System.Threading;
 
 namespace Content.Shared._Impstation.Cosmiccult.Components;
 
@@ -15,31 +16,18 @@ namespace Content.Shared._Impstation.Cosmiccult.Components;
 [AutoGenerateComponentState]
 public sealed partial class CosmicCultComponent : Component
 {
-    #region Stuff
+    #region Housekeeping
 
     /// <summary>
     /// The status icon prototype displayed for cosmic cultists.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "CosmicCultIcon";
-
-    public override bool SessionSpecific => true;
-    public readonly List<ProtoId<EntityPrototype>> BaseCosmicCultActions = new()
-    {
-        "ActionCosmicToolToggle",
-        "ActionCosmicSiphon",
-        "ActionCosmicBlank",
-        "ActionCosmicLapse",
-        ///"ActionCosmicGlare",
-        ///"ActionCosmicGearDash",
-        ///"ActionCosmicGearDashRecall"
-
-    };
+    public CancellationTokenSource? DeconvertToken { get; set; }
 
     #endregion
 
-    #region Abilities
-
+    #region Ability Data
     public Dictionary<string, EntityUid?> Equipment = new();
 
     /// <summary>
@@ -63,7 +51,7 @@ public sealed partial class CosmicCultComponent : Component
     /// <summary>
     /// The entity prototype to spawn in the cultist's hand after completing a cosmic siphon.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public EntProtoId<ItemComponent> CosmicSiphonResult = "MaterialCosmicCultEntropy1";
 
     /// <summary>
@@ -76,6 +64,7 @@ public sealed partial class CosmicCultComponent : Component
             { "Asphyxiation", 25 }
         }
     };
+    #endregion
 
     #region VFX & SFX
 
@@ -95,10 +84,4 @@ public sealed partial class CosmicCultComponent : Component
     public SoundSpecifier BlankSFX = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/ability_blank.ogg");
 
     #endregion
-
-    #endregion // Abilities
-
 }
-
-
-// CosmicCultComponent

@@ -105,12 +105,11 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             else
                 _role.MindAddRole(mindId, "MindRoleCosmicCult", mind, true);
         }
-
         _npcFaction.RemoveFaction(target, NanotrasenFactionId, false);
         _npcFaction.AddFaction(target, CosmicCultFactionId);
 
         EnsureComp<CosmicCultComponent>(target);
-        var reciever = EnsureComp<IntrinsicRadioReceiverComponent>(target);
+        EnsureComp<IntrinsicRadioReceiverComponent>(target);
         var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(target);
         var radio = EnsureComp<ActiveRadioComponent>(target);
         radio.Channels = new() { "CosmicRadio" };
@@ -120,43 +119,18 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     }
     /// FRANKENSTEINED HERETIC CODE FOR BRIEFING FRANKENSTEINED HERETIC CODE FOR BRIEFING FRANKENSTEINED HERETIC CODE FOR BRIEFING
 
-
-    /// <summary>
-    /// Called when we want to convert into the cult post-roundstart.
-    /// </summary>
-    public void Convert(EntityUid target)
-    {
-        if (!TryComp(target, out ActorComponent? actor))
-            return;
-
-        var query = QueryActiveRules();
-        while (query.MoveNext(out var ruleUid, out _, out _, out _))
-        {
-            if (!TryComp(ruleUid, out AntagSelectionComponent? antagSelection))
-                continue;
-
-            var antagSelectionEnt = (ruleUid, antagSelection);
-            if (!_antag.TryGetNextAvailableDefinition(antagSelectionEnt, out var def))
-                def = antagSelection.Definitions.Last();
-
-            _antag.MakeAntag(antagSelectionEnt, actor.PlayerSession, def.Value, null);
-        }
-    }
-
-    // private void OnPostFlash(EntityUid uid, CosmicCultLeadComponent comp, ref AfterFlashedEvent ev)
+    // private void ConvertCultist(EntityUid uid, HumanoidAppearanceComponent comp, MobStateChangedEvent args)
     // {
-    //     var alwaysConvertible = HasComp<AlwaysCosmicCultConvertibleComponent>(ev.Target);
-
+    //     var tgt = args.Target;
     //     if (!_mind.TryGetMind(ev.Target, out var mindId, out var mind) && !alwaysConvertible)
     //         return;
 
-    //     if (HasComp<CosmicCultComponent>(ev.Target) ||
-    //         HasComp<MindShieldComponent>(ev.Target) ||
-    //         HasComp<HereticComponent>(ev.Target) || ///LET'S MAKE SURE TO CATCH HERETICS SO WE CAN'T CONVERT THESE
-    //         !HasComp<HumanoidAppearanceComponent>(ev.Target) &&
+    //     if (HasComp<CosmicCultComponent>(tgt) ||
+    //         HasComp<HereticComponent>(tgt) || ///LET'S MAKE SURE TO CATCH HERETICS SO WE CAN'T CONVERT THESE
+    //         !HasComp<HumanoidAppearanceComponent>(tgt) &&
     //         !alwaysConvertible ||
-    //         !_mobState.IsAlive(ev.Target) ||
-    //         HasComp<ZombieComponent>(ev.Target))
+    //         !_mobState.IsAlive(tgt) ||
+    //         HasComp<ZombieComponent>(tgt))
     //     {
     //         return;
     //     }
@@ -186,8 +160,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     //     {
     //         _antag.SendBriefing(mind.Session, Loc.GetString("cosmiccult-role-conversion-fluff"), Color.FromHex("#4cabb3"), BriefingSound);
     //         _antag.SendBriefing(mind.Session, Loc.GetString("cosmiccult-role-short-briefing"), Color.FromHex("#cae8e8"), null);
-    //         // EnsureComp<RoleBriefingComponent>(ev.Target);
-    //         // Comp<RoleBriefingComponent>(ev.Target).Briefing = Loc.GetString("objective-cosmiccult-description", ("name", mind.CharacterName ?? "Unknown"));
+    //            EnsureComp<RoleBriefingComponent>(ev.Target);
+    //            Comp<RoleBriefingComponent>(ev.Target).Briefing = Loc.GetString("objective-cosmiccult-description", ("name", mind.CharacterName ?? "Unknown"));
     //     }
 
     // }
