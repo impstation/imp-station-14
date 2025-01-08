@@ -139,7 +139,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
     }
 
     /// <summary>
-    /// add the Visibility Mask.
+    /// add cultist Visibility Mask.
     /// </summary>
     private void OnCompInit(Entity<CosmicCultComponent> ent, ref ComponentInit args)
     {
@@ -187,17 +187,15 @@ public sealed partial class CosmicCultSystem : EntitySystem
     /// </summary>
     private void OnShutdown(EntityUid uid, CosmicCultComponent comp, ref ComponentShutdown args)
     {
-        Log.Debug($"Attempting to strip {uid} of their cult status!");
-
         if (!TryComp<CosmicSpellSlotComponent>(uid, out var spell))
             return;
-        Log.Debug($"Passed spell slot check!");
 
-        _actions.RemoveAction(uid, spell.CosmicToolActionEntity);
-        _actions.RemoveAction(uid, spell.CosmicSiphonActionEntity);
-        _actions.RemoveAction(uid, spell.CosmicBlankActionEntity);
-        _actions.RemoveAction(uid, spell.CosmicLapseActionEntity);
-        _actions.RemoveAction(uid, spell.CosmicMonumentActionEntity);
+        _stun.TryKnockdown(uid, TimeSpan.FromSeconds(2), true);
+        _actions.RemoveAction(uid, spell.CosmicToolActionEntity); // todo: clean cult powers better
+        _actions.RemoveAction(uid, spell.CosmicSiphonActionEntity); // todo: clean cult powers better
+        _actions.RemoveAction(uid, spell.CosmicBlankActionEntity); // todo: clean cult powers better
+        _actions.RemoveAction(uid, spell.CosmicLapseActionEntity); // todo: clean cult powers better
+        _actions.RemoveAction(uid, spell.CosmicMonumentActionEntity); // todo: clean cult powers better
 
         if (!TryComp<MindContainerComponent>(uid, out var mc))
             return;
@@ -206,15 +204,16 @@ public sealed partial class CosmicCultSystem : EntitySystem
         if (_mind.TryGetSession(mindId, out var session))
         {
             _euiMan.OpenEui(new CosmicDeconvertedEui(), session);
-            Log.Debug($"UI opened!");
         }
 
-        _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-deconverted-briefing"), Color.FromHex("#cae8e8"), DeconvertSound);
+        _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-deconverted-fluff"), Color.FromHex("#4cabb3"), DeconvertSound);
+        _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-deconverted-briefing"), Color.FromHex("#cae8e8"), null);
 
         if (!TryComp<MindComponent>(mindId, out var mindComp))
             return;
-        foreach (var objective in mindComp.Objectives)
-            _mind.RemoveObjective(mindId, objective);
+        _mind.ClearObjectives(mindId, mindComp); // LOAD-BEARING #imp function to remove all of someone's objectives, courtesy of TCRGDev(Github)
+        _role.MindTryRemoveRole<CosmicCultRoleComponent>(mindId);
+        _role.MindTryRemoveRole<RoleBriefingComponent>(mindId);
     }
 
     private void DebugFunction(EntityUid uid, CosmicCultComponent comp, ref DamageChangedEvent args) // TODO: Placeholder function to call other functions for testing & debugging.

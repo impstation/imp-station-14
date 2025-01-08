@@ -383,6 +383,20 @@ public abstract class SharedMindSystem : EntitySystem
         return true;
     }
 
+    public void ClearObjectives(EntityUid mind, MindComponent? comp = null)
+    {
+        if (!Resolve(mind, ref comp))
+            return;
+
+        foreach (var obj in comp.Objectives)
+        {
+            QueueDel(obj);
+        }
+        comp.Objectives.Clear();
+        comp.ObjectiveTargets.Clear();
+        Dirty(mind, comp);
+    }
+
     public bool TryGetObjectiveComp<T>(EntityUid uid, [NotNullWhen(true)] out T? objective) where T : IComponent
     {
         if (TryGetMind(uid, out var mindId, out var mind) && TryGetObjectiveComp(mindId, out objective, mind))

@@ -30,6 +30,11 @@ cosmiccult-role-roundstart-fluff =
 
     All you need do is usher it in.
 
+cosmiccult-role-short-briefing =
+    You are a Cosmic Cultist!
+    Your objectives are listed in the character menu.
+    Read more about your role in the guidebook entry.
+
 cosmiccult-role-conversion-fluff =
     As the invocation completes, untold knowledge suddenly floods your mind!
     A revelation beyond compare. An end to cyclic, sisyphean suffering.
@@ -41,19 +46,26 @@ cosmiccult-role-deconverted-fluff =
     A great emptiness washes across your mind. A comforting, yet unfamiliar emptiness...
     All the thoughts and memories of your time in the cult begin to fade and blur.
 
-cosmiccult-role-short-briefing =
-    You are a Cosmic Cultist!
-    Your objectives are listed in the character menu.
-    Read more about your role in the guidebook entry.
-
 cosmiccult-role-deconverted-briefing =
     Deconverted!
     You are no longer a Cosmic Cultist.
 
 
+## UI / DECONVERSION POPUP
+
+cosmiccult-ui-deconverted-title = Deconverted
+cosmiccult-ui-deconverted-text =
+    You are no longer a Cosmic Cultist.
+    You have lost all memories pertaining to the Cosmic Cult.
+    If you are converted back, these memories will return.
+
+cosmiccult-ui-deconverted-confirm = Confirm
+
+
+
+
 
 ## OBJECTIVES / CHARACTERMENU
-
 
 objective-issuer-cosmiccult = [bold][color=#cae8e8]The Unknown[/color][/bold]
 

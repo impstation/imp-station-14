@@ -1,4 +1,5 @@
 using System.Threading;
+using Content.Server.Radio.Components;
 using Content.Shared._Impstation.Cosmiccult.Components;
 using Content.Shared.EntityEffects;
 using Content.Shared.Jittering;
@@ -46,6 +47,10 @@ public sealed partial class CleanseCorruption : EntityEffect
         if (entityManager.HasComponent<CosmicCultComponent>(uid))
         {
             entityManager.RemoveComponent<CosmicCultComponent>(uid);
+            entityManager.RemoveComponent<ActiveRadioComponent>(uid);
+            entityManager.RemoveComponent<IntrinsicRadioReceiverComponent>(uid);
+            entityManager.RemoveComponent<IntrinsicRadioTransmitterComponent>(uid);
+
             if (entityManager.HasComponent<CosmicCultLeadComponent>(uid))
                 entityManager.RemoveComponent<CosmicCultLeadComponent>(uid);
         }
