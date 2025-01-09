@@ -13,37 +13,38 @@
     torso:
       part: TorsoDecapoid
       connections:
-      - right_arm
-      - left_arm
-      - right_leg
-      - left_leg
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      - head
       organs:
         heart: OrganHumanHeart
         gills: OrganDecapoidLungs
         liver: OrganHumanLiver
         kidneys: OrganHumanKidneys
         stomach: OrganHumanStomach
-    right_arm:
+    right arm:
       part: RightArmDecapoid
       connections:
-      - right_hand
-    left_arm:
+      - right hand
+    left arm:
       part: LeftArmDecapoid
       connections:
-      - left_hand
-    right_hand:
+      - left hand
+    right hand:
       part: RightHandDecapoid
-    left_hand:
+    left hand:
       part: LeftHandDecapoid
-    right_leg:
+    right leg:
       part: RightLegDecapoid # back legs
       connections:
-      - right_foot
-    left_leg:
+      - right foot
+    left leg:
       part: LeftLegDecapoid # front legs
       connections:
-      - left_foot
-    right_foot:
+      - left foot
+    right foot:
       part: RightFootDecapoid # back foot TODO: custom back foot
-    left_foot:
+    left foot:
       part: LeftFootDecapoid # front foot TODO: custom front foot

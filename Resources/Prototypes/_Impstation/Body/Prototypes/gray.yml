@@ -13,37 +13,38 @@
     torso:
       part: TorsoGray
       connections:
-      - right_arm
-      - left_arm
-      - right_leg
-      - left_leg
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      - head
       organs:
         lungs: OrganGrayLungs
         heart: OrganGrayHeart
         stomach: OrganGrayStomach
         liver: OrganGrayLiver
         kidneys: OrganGrayKidneys
-    right_arm:
+    right arm:
       part: RightArmGray
       connections:
-      - right_hand
-    left_arm:
+      - right hand
+    left arm:
       part: LeftArmGray
       connections:
-      - left_hand
-    right_hand:
+      - left hand
+    right hand:
       part: RightHandGray
-    left_hand:
+    left hand:
       part: LeftHandGray
-    right_leg:
+    right leg:
       part: RightLegGray
       connections:
-      - right_foot
-    left_leg:
+      - right foot
+    left leg:
       part: LeftLegGray
       connections:
-      - left_foot
-    right_foot:
+      - left foot
+    right foot:
       part: RightFootGray
-    left_foot:
+    left foot:
       part: LeftFootGray

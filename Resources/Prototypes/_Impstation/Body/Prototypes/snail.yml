@@ -13,37 +13,38 @@
     torso:
       part: TorsoSnail
       connections:
-      - right_arm
-      - left_arm
-      - right_leg
-      - left_leg
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      - head
       organs:
         heart: OrganHumanHeart
         lungs: OrganHumanLungs
         stomach: OrganSnailStomach
         liver: OrganHumanLiver
         kidneys: OrganHumanKidneys
-    right_arm:
+    right arm:
       part: RightArmSnail
       connections:
-      - right_hand
-    left_arm:
+      - right hand
+    left arm:
       part: LeftArmSnail
       connections:
-      - left_hand
-    right_hand:
+      - left hand
+    right hand:
       part: RightHandSnail
-    left_hand:
+    left hand:
       part: LeftHandSnail
-    right_leg:
+    right leg:
       part: RightLegSnail
       connections:
-      - right_foot
-    left_leg:
+      - right foot
+    left leg:
       part: LeftLegSnail
       connections:
-      - left_foot
-    right_foot:
+      - left foot
+    right foot:
       part: RightFootSnail
-    left_foot:
+    left foot:
       part: LeftFootSnail
