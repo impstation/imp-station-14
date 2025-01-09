@@ -45,7 +45,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly StationSpawningSystem _spawningSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -246,7 +245,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
     /// </summary>
     private void OnCosmicLapse(EntityUid uid, CosmicCultComponent comp, ref EventCosmicLapse action)
     {
-        if (action.Handled || HasComp<CosmicMarkBlankComponent>(action.Target) || HasComp<BibleUserComponent>(action.Target)) // Blacklist the chaplain, obviously.
+        if (action.Handled || HasComp<CosmicMarkBlankComponent>(action.Target) || HasComp<CleanseCorruptionComponent>(action.Target) || HasComp<BibleUserComponent>(action.Target)) // Blacklist the chaplain, obviously.
             return;
         action.Handled = true;
         var tgtpos = Transform(action.Target).Coordinates;

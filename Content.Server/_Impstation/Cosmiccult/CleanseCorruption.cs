@@ -48,6 +48,7 @@ public sealed partial class CleanseCorruption : EntityEffect
         {
             entityManager.RemoveComponent<CosmicCultComponent>(uid);
             entityManager.RemoveComponent<ActiveRadioComponent>(uid);
+            entityManager.RemoveComponent<CleanseCorruptionComponent>(uid);
             entityManager.RemoveComponent<IntrinsicRadioReceiverComponent>(uid);
             entityManager.RemoveComponent<IntrinsicRadioTransmitterComponent>(uid);
 

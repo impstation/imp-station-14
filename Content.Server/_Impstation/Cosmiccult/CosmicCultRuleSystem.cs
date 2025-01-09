@@ -39,6 +39,7 @@ using Content.Shared.Heretic;
 using Robust.Shared.Player;
 using Content.Server.Antag.Components;
 using System.Linq;
+using Content.Shared.Damage;
 
 namespace Content.Server._Impstation.Cosmiccult;
 
@@ -71,11 +72,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         base.Initialize();
 
         SubscribeLocalEvent<CosmicCultRuleComponent, AfterAntagEntitySelectedEvent>(OnAntagSelect);
-        // SubscribeLocalEvent<CosmicCultComponent, ComponentInit>(OnCosmicCultComponentInit);
-        // SubscribeLocalEvent<CosmicCultComponent, ComponentRemove>(OnCosmicCultComponentRemoved);
-        // SubscribeLocalEvent<CosmicCultComponent, MobStateChangedEvent>(OnCosmicCultistStateChanged);
-        // SubscribeLocalEvent<CosmicCultRoleComponent, GetBriefingEvent>(OnGetBriefing);
 
+        SubscribeLocalEvent<CosmicCultLeadComponent, DamageChangedEvent>(DebugFunction); // TODO: This is a placeholder function to call other functions for testing & debugging.
     }
 
     /// FRANKENSTEINED HERETIC CODE FOR BRIEFING FRANKENSTEINED HERETIC CODE FOR BRIEFING FRANKENSTEINED HERETIC CODE FOR BRIEFING
@@ -166,6 +164,9 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
     // }
 
+    private void DebugFunction(EntityUid uid, CosmicCultLeadComponent comp, ref DamageChangedEvent args) // TODO: This is a placeholder function to call other functions for testing & debugging.
+    {
 
+    }
 
 }

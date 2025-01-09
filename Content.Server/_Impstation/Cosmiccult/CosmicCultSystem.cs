@@ -13,18 +13,12 @@ using Content.Server.GameTicking.Events;
 using Robust.Server.GameObjects;
 using Robust.Server.Maps;
 using Content.Shared._Impstation.Cosmiccult.Components.Examine;
-using Content.Shared.Humanoid;
-using Content.Shared.Mobs;
-using Content.Shared.Heretic;
-using Content.Shared.Zombies;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mind;
 using Content.Shared.Roles;
 using Content.Server.Roles;
 using Content.Server.EUI;
-using Content.Server.Revolutionary;
-using System.Linq;
 using Content.Shared.Damage;
 using Content.Server.Antag;
 using Robust.Shared.Audio;
@@ -37,15 +31,10 @@ public sealed partial class CosmicCultSystem : EntitySystem
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly IRobustRandom _rand = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly SharedAudioSystem _aud = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
     [Dependency] private readonly EuiManager _euiMan = default!;
     public EntProtoId CultToolPrototype = "AbilityCosmicCultTool";
@@ -58,14 +47,13 @@ public sealed partial class CosmicCultSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<CosmicCultComponent, DamageChangedEvent>(DebugFunction); // DEBUG EVENT FOR TESTING
+        SubscribeLocalEvent<CosmicCultComponent, DamageChangedEvent>(DebugFunction); // TODO: This is a placeholder function to call other functions for testing & debugging.
 
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
         SubscribeLocalEvent<CosmicCultComponent, ComponentInit>(OnCompInit);
         SubscribeLocalEvent<CosmicCultComponent, ComponentStartup>(OnStartCultist);
         SubscribeLocalEvent<CosmicCultLeadComponent, ComponentStartup>(OnStartCultLead);
 
-        SubscribeLocalEvent<CleanseCorruptionComponent, ComponentStartup>(OnStartCleanse);
         SubscribeLocalEvent<CosmicCultComponent, ComponentShutdown>(OnShutdown);
 
         MakeSimpleExamineHandler<CosmicMarkStructureComponent>("cosmic-examine-text-structures");
@@ -110,16 +98,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
                 QueueDel(uid);
             }
         }
-
-        var cleansetimer = EntityQueryEnumerator<CleanseCorruptionComponent>(); // TODO: WOW! WE PROBABLY SHOULDN'T HAVE THE CORRUPTION CLEANSE TIMER STORED INSIDE THE COSMIC CULT MAIN FILE! PUT THIS SOMEWHERE ELSE!
-        while (cleansetimer.MoveNext(out var uid, out var comp))
-        {
-            if (_timing.CurTime >= comp.CleanseTime)
-            {
-                Log.Debug($"CleanseCorruption on {uid} wears off!");
-                RemComp<CleanseCorruptionComponent>(uid);
-            }
-        }
     }
     #endregion
 
@@ -147,19 +125,13 @@ public sealed partial class CosmicCultSystem : EntitySystem
             _eye.SetVisibilityMask(ent, eye.VisibilityMask | CosmicMonumentComponent.LayerMask);
     }
 
-    private void OnStartCleanse(Entity<CleanseCorruptionComponent> ent, ref ComponentStartup args) // TODO: THIS IS A SHITTY FIX. DO THIS BETTER.
-    {
-        if (TryComp<CleanseCorruptionComponent>(ent, out var comp))
-        comp.CleanseTime = _timing.CurTime + comp.CleansingExpirDuration;
-    }
-
     /// <summary>
     /// add the Cosmic Cult abilities to the cultist.
     /// </summary>
     private void OnStartCultist(EntityUid uid, CosmicCultComponent comp, ref ComponentStartup args)
     {
         EnsureComp<CosmicSpellSlotComponent>(uid, out var spell);
-        _actions.AddAction(uid, ref spell.CosmicToolActionEntity, spell.CosmicToolAction, uid);
+        _actions.AddAction(uid, ref spell.CosmicToolActionEntity, spell.CosmicToolAction, uid); // todo: award cult powers at The Monument
         _actions.AddAction(uid, ref spell.CosmicSiphonActionEntity, spell.CosmicSiphonAction, uid);
         _actions.AddAction(uid, ref spell.CosmicBlankActionEntity, spell.CosmicBlankAction, uid);
         _actions.AddAction(uid, ref spell.CosmicLapseActionEntity, spell.CosmicLapseAction, uid);
@@ -191,11 +163,11 @@ public sealed partial class CosmicCultSystem : EntitySystem
             return;
 
         _stun.TryKnockdown(uid, TimeSpan.FromSeconds(2), true);
-        _actions.RemoveAction(uid, spell.CosmicToolActionEntity); // todo: clean cult powers better
-        _actions.RemoveAction(uid, spell.CosmicSiphonActionEntity); // todo: clean cult powers better
-        _actions.RemoveAction(uid, spell.CosmicBlankActionEntity); // todo: clean cult powers better
-        _actions.RemoveAction(uid, spell.CosmicLapseActionEntity); // todo: clean cult powers better
-        _actions.RemoveAction(uid, spell.CosmicMonumentActionEntity); // todo: clean cult powers better
+        _actions.RemoveAction(uid, spell.CosmicToolActionEntity); // todo: clean up cult powers better
+        _actions.RemoveAction(uid, spell.CosmicSiphonActionEntity);
+        _actions.RemoveAction(uid, spell.CosmicBlankActionEntity);
+        _actions.RemoveAction(uid, spell.CosmicLapseActionEntity);
+        _actions.RemoveAction(uid, spell.CosmicMonumentActionEntity);
 
         if (!TryComp<MindContainerComponent>(uid, out var mc))
             return;
@@ -216,12 +188,13 @@ public sealed partial class CosmicCultSystem : EntitySystem
         _role.MindTryRemoveRole<RoleBriefingComponent>(mindId);
     }
 
-    private void DebugFunction(EntityUid uid, CosmicCultComponent comp, ref DamageChangedEvent args) // TODO: Placeholder function to call other functions for testing & debugging.
+    private void DebugFunction(EntityUid uid, CosmicCultComponent comp, ref DamageChangedEvent args) // TODO: This is a placeholder function to call other functions for testing & debugging.
     {
         if (_entMan.HasComponent<CosmicCultComponent>(uid))
         {
             _entMan.RemoveComponent<CosmicCultComponent>(uid);
             _entMan.RemoveComponent<ActiveRadioComponent>(uid);
+            _entMan.RemoveComponent<CleanseCorruptionComponent>(uid);
             _entMan.RemoveComponent<IntrinsicRadioReceiverComponent>(uid);
             _entMan.RemoveComponent<IntrinsicRadioTransmitterComponent>(uid);
 
