@@ -54,8 +54,9 @@ cosmiccult-role-deconverted-briefing =
 ## UI / DECONVERSION POPUP
 
 cosmiccult-ui-deconverted-title = Deconverted
-cosmiccult-ui-deconverted-text =
+cosmiccult-ui-deconverted-text-1 =
     You are no longer a Cosmic Cultist.
+cosmiccult-ui-deconverted-text-2 =
     You have lost all memories pertaining to the Cosmic Cult.
     If you are converted back, these memories will return.
 
