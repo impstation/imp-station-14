@@ -92,6 +92,10 @@
     sprite: Clothing/OuterClothing/Vests/tankharness.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Vests/tankharness.rsi
+  - type: Tag # DeltaV: tank harnesses can be used for surgery
+    tags:
+    - PermissibleForSurgery
+    - WhitelistChameleon
 
 #Command Tank Harness
 - type: entity
@@ -107,3 +111,7 @@
     sprite: Clothing/OuterClothing/Vests/tankharnesscommand.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Vests/tankharnesscommand.rsi
+  - type: Tag # DeltaV: tank harnesses can be used for surgery
+    tags:
+    - PermissibleForSurgery
+    - WhitelistChameleon
