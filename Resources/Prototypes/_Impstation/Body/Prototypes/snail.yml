@@ -15,8 +15,6 @@
       connections:
       - right arm
       - left arm
-      - right leg
-      - left leg
       - head
       organs:
         heart: OrganHumanHeart
@@ -36,15 +34,3 @@
       part: RightHandSnail
     left hand:
       part: LeftHandSnail
-    right leg:
-      part: RightLegSnail
-      connections:
-      - right foot
-    left leg:
-      part: LeftLegSnail
-      connections:
-      - left foot
-    right foot:
-      part: RightFootSnail
-    left foot:
-      part: LeftFootSnail
