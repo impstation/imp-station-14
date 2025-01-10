@@ -13,30 +13,31 @@
     torso:
       part: TorsoApid
       connections:
-      - right_arm
-      - right_leg
-      - left_leg
+      - right arm
+      - right leg
+      - left leg
+      - head
       organs:
         heart: OrganHumanHeart
         lungs: OrganApidLungs
         stomach: OrganHumanStomach
         liver: OrganHumanLiver
         kidneys: OrganHumanKidneys
-    right_arm:
+    right arm:
       part: RightArmApid
       connections:
-      - right_hand
-    right_hand:
+      - right hand
+    right hand:
       part: RightHandApid
-    right_leg:
+    right leg:
       part: RightLegApid
       connections:
-      - right_foot
-    left_leg:
+      - right foot
+    left leg:
       part: LeftLegApid
       connections:
-      - left_foot
-    right_foot:
+      - left foot
+    right foot:
       part: RightFootApid
-    left_foot:
+    left foot:
       part: LeftFootApid

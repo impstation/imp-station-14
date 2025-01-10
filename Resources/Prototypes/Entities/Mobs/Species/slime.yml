@@ -41,6 +41,9 @@
       enum.SpelfMoodsUiKey.Key: # impstation edit
         type: SpelfMoodsBoundUserInterface
         requireInputValidation: false
+      # Shitmed
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   # to prevent bag open/honk spam
   - type: UseDelay
     delay: 0.5

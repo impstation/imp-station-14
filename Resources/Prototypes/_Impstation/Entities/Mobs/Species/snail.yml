@@ -33,7 +33,7 @@
     scale: 1, 1
   - type: Body
     prototype: Snail
-    requiredLegs: 2
+    requiredLegs: 0
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/_Impstation/Effects/Footsteps/snailstep.ogg

@@ -58,6 +58,13 @@
   - type: ThrowingAngle
     angle: 45
   # end imp edits #
+  - type: Scalpel # Shitmed
+    speed: 0.3
+  - type: BoneSaw # Shitmed
+    speed: 0.5
+  - type: SurgeryTool # Shitmed
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
 
 - type: entity
   id: FireAxeFlaming

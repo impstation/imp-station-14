@@ -13,37 +13,38 @@
     torso:
       part: TorsoSpElf
       connections:
-      - right_arm
-      - left_arm
-      - right_leg
-      - left_leg
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      - head
       organs:
         heart: OrganHumanHeart
         lungs: OrganHumanLungs
         stomach: OrganHumanStomach
         liver: OrganHumanLiver
         kidneys: OrganHumanKidneys
-    right_arm:
+    right arm:
       part: RightArmSpElf
       connections:
-      - right_hand
-    left_arm:
+      - right hand
+    left arm:
       part: LeftArmSpElf
       connections:
-      - left_hand
-    right_hand:
+      - left hand
+    right hand:
       part: RightHandSpElf
-    left_hand:
+    left hand:
       part: LeftHandSpElf
-    right_leg:
+    right leg:
       part: RightLegSpElf
       connections:
-      - right_foot
-    left_leg:
+      - right foot
+    left leg:
       part: LeftLegSpElf
       connections:
-      - left_foot
-    right_foot:
+      - left foot
+    right foot:
       part: RightFootSpElf
-    left_foot:
+    left foot:
       part: LeftFootSpElf

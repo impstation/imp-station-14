@@ -362,6 +362,10 @@
       - OreBagOfHolding
       - DeviceQuantumSpinInverter
       - CleanerGrenade #imp addition
+      # End DeltaV additions
+      - EnergyScalpel # Shitmed Change
+      - EnergyCautery # Shitmed Change
+      - AdvancedRetractor # Shitmed Change
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - BoxBeanbag
@@ -469,9 +473,10 @@
     - CutterMachineCircuitboard
     - StationAnchorCircuitboard
     - SalvageMagnetMachineCircuitboard
-    - ShipyardComputerCircuitboard
+    - ShipyardComputerCircuitboard #DV
     - ServiceTechFabCircuitboard #imp addition
     - SupermatterComputerCircuitboard # imp
+    - OperatingTableCircuitboard # Shitmed Change
     dynamicRecipes:
       - ThermomachineFreezerMachineCircuitBoard
       - HellfireFreezerMachineCircuitBoard
@@ -507,6 +512,7 @@
       - DawInstrumentMachineCircuitboard
       - CloningConsoleComputerCircuitboard
       - StasisBedMachineCircuitboard
+      - AutodocCircuitboard # Shitmed
       - OreProcessorIndustrialMachineCircuitboard
       - CargoTelepadMachineCircuitboard
       - RipleyCentralElectronics
@@ -603,6 +609,7 @@
     - RightLegBorg
     - LightHeadBorg
     - TorsoBorg
+    - BorgModuleSurgery # Shitmed Change
     dynamicRecipes:
     - ProximitySensor
     - BorgModuleAdvancedCleaning
@@ -633,6 +640,14 @@
     - HamtrLLeg
     - HamtrRLeg
     - VimHarness
+    # Shitmed Change
+    - BorgModuleAdvancedSurgery
+    - JawsOfLifeLeftArm
+    - JawsOfLifeRightArm
+    - SpeedLeftLeg
+    - SpeedRightLeg
+    - BasicCyberneticEyes
+    # Shitmed End
   - type: MaterialStorage
     whitelist:
       tags:
@@ -954,12 +969,19 @@
       - WhiteCane
       - PrescriptionLens # imp
       - PrescriptionLensStrong # imp
+      - BoneGel # Shitmed Change
     dynamicRecipes:
       - ChemicalPayload
       - CryostasisBeaker
       - BluespaceBeaker
       - SyringeBluespace
       - SyringeCryostasis
+      # Shitmed Change
+      - EnergyScalpel
+      - EnergyCautery
+      - AdvancedRetractor
+      - OmnimedTool
+      - MedicalCyberneticEyes
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget
@@ -1423,3 +1445,52 @@
         - Wooden
         - RawMaterial
         - Plastic
+
+# Shitmed Change Start
+- type: entity
+  id: MedicalBiofabricator
+  parent: BaseLathe
+  name: medical biofabricator
+  description: Produces organs and other organic matter that can be surgically grafted onto patients with biomass.
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Structures/Machines/limbgrower.rsi
+    snapCardinals: true
+    layers:
+    - state: limbgrower_idleoff
+      map: ["enum.LatheVisualLayers.IsRunning"]
+#    - state: limbgrower_idleoff
+#      shader: unshaded
+#      map: ["enum.PowerDeviceVisualLayers.Powered"]
+#    - state: inserting
+#      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+#    - state: panel
+#      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: MedicalBiofabMachineBoard
+  - type: MaterialStorage
+    whitelist:
+      tags:
+        - Sheet
+        - RawMaterial
+  - type: Lathe
+    idleState: limbgrower_idleoff
+    runningState: limbgrower_idleon
+    staticRecipes:
+    - SynthLiver
+    - SynthHeart
+    - SynthLungs
+    - SynthEyes
+    - SynthLeftLeg
+    - SynthRightLeg
+    - SynthLeftFoot
+    - SynthRightFoot
+    - SynthLeftArm
+    - SynthRightArm
+    - SynthLeftHand
+    - SynthRightHand
+  - type: EmagLatheRecipes
+    emagStaticRecipes:
+      - PizzaLeftArm
+      - PizzaRightArm
+# Shitmed Change End

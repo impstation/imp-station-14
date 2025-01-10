@@ -1,3 +1,5 @@
+using Content.Shared._Shitmed.Body.Organ; // Shitmed Change
+using Content.Shared.Body.Components; // Shitmed Change
 using Content.Shared.DoAfter;
 using Content.Shared.Gravity;
 using Content.Shared.Input;
@@ -88,6 +90,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
         }
 
         component.CurrentState = StandingState.Standing;
+        Dirty(uid, component);
     }
 
     private void OnRefreshMovementSpeed(EntityUid uid, LayingDownComponent component, RefreshMovementSpeedModifiersEvent args)
@@ -117,10 +120,12 @@ public abstract class SharedLayingDownSystem : EntitySystem
             !Resolve(uid, ref layingDown, false) ||
             standingState.CurrentState is not StandingState.Lying ||
             !_mobState.IsAlive(uid) ||
-            TerminatingOrDeleted(uid))
-        {
+            TerminatingOrDeleted(uid) ||
+            // Shitmed Change
+            !TryComp<BodyComponent>(uid, out var body) ||
+            body.LegEntities.Count == 0 && body.RequiredLegs > 0||
+            HasComp<DebrainedComponent>(uid))
             return false;
-        }
 
         var args = new DoAfterArgs(EntityManager, uid, layingDown.StandingUpTime, new StandingUpDoAfterEvent(), uid)
         {
@@ -133,6 +138,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
             return false;
 
         standingState.CurrentState = StandingState.GettingUp;
+        Dirty(uid, standingState);
         return true;
     }
 
