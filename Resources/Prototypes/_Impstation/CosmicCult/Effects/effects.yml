@@ -1,0 +1,114 @@
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: WeaponArcCosmic
+  parent: WeaponArcStatic
+  components:
+    - type: WeaponArcVisuals
+      fadeOut: false
+    - type: Sprite
+      layers:
+      - sprite: _Impstation/CosmicCult/Effects/weaponarcs.rsi
+        state: arc_cosmic
+        shader: unshaded
+    - type: TimedDespawn
+      lifetime: 0.66
+    - type: PointLight
+      color: "#42a4ae"
+      radius: 1.5
+      energy: 6
+      castShadows: false
+    - type: LightBehaviour
+      behaviours:
+        - !type:FadeBehaviour
+          interpolate: Linear
+          minDuration: 0.64
+          maxDuration: 0.65
+          startValue: 0.1
+          endValue: 6
+          property: Energy
+          enabled: true
+          reverseWhenFinished: true
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: CosmicFloorSpawnVFX
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: Transform
+    noRot: true
+    anchored: true
+  - type: Sprite
+    layers:
+    - sprite: _Impstation/CosmicCult/Effects/tiles_spawn.rsi
+      state: floorglow
+      shader: unshaded
+    netsync: false
+    drawdepth: Mobs
+  - type: PointLight
+    color: "#42a4ae"
+    castShadows: false
+  - type: LightBehaviour
+    behaviours:
+     - !type:FadeBehaviour
+       interpolate: Linear
+       minDuration: 0.5
+       maxDuration: 0.5
+       startValue: 0.1
+       endValue: 1
+       property: Energy
+       enabled: true
+       isLooped: true
+       reverseWhenFinished: true
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: CosmicLapseAbilityVFX
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: TimedDespawn
+    lifetime: 1.75
+  - type: Transform
+    noRot: true
+    anchored: true
+  - type: Sprite
+    layers:
+    - sprite: _Impstation/CosmicCult/Effects/ability_lapsevfx.rsi
+      state: vfx
+      shader: unshaded
+    netsync: false
+    drawdepth: Mobs
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: CosmicBlankAbilityVFX
+  components:
+  - type: TimedDespawn
+    lifetime: 1.75
+  - type: Sprite
+    layers:
+    - sprite: _Impstation/CosmicCult/Effects/ability_blankvfx.rsi
+      state: vfx
+      shader: unshaded
+    netsync: false
+    drawdepth: Mobs
+  - type: PointLight
+    color: "#42a4ae"
+    radius: 1.5
+    energy: 4
+    castShadows: false
+  - type: LightBehaviour
+    behaviours:
+     - !type:FadeBehaviour
+       interpolate: Linear
+       minDuration: 1.75
+       maxDuration: 1.75
+       startValue: 0.1
+       endValue: 4
+       property: Energy
+       enabled: true
+       isLooped: true
+       reverseWhenFinished: true

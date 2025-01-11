@@ -1099,6 +1099,10 @@
         factor: 3
     Medicine:
       effects:
+      - !type:CleanseCorruption
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
       - !type:HealthChange
         conditions:
         - !type:TotalDamage

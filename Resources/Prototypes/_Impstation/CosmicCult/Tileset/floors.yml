@@ -53,6 +53,17 @@
     collection: FootstepCosmic
   heatCapacity: 10000
 
+- type: tile
+  id: FloorCosmicVoid
+  name: tiles-cosmiccult-floor-void
+  sprite: /Textures/_Impstation/CosmicCult/Tileset/cosmicfloor/floor_void.png
+  baseTurf: FloorGlass
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepCosmic
+  heatCapacity: 10000
+
 - type: entity
   id: FloorCosmicDecay
   name: entropic decay
@@ -66,6 +77,8 @@
   - type: SpeedModifierContacts
     walkSpeedModifier: 0.5
     sprintSpeedModifier: 0.5
+  - type: Physics
+    bodyType: Static
   - type: Fixtures
     fixtures:
       fix1:
@@ -114,6 +127,18 @@
     base: decay
   - type: Physics
     bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+          - SlipLayer
+        mask:
+          - ItemMask
+        density: 1000
+        hard: false
   - type: Tag
     tags:
       - HideContextMenu
@@ -122,3 +147,33 @@
     energy: 1.75
     castShadows: false
     color: "#42a4ae"
+
+- type: entity
+  id: FloorCosmicDecayAlt
+  suffix: DO NOT MAP
+  name: "???"
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: FloorOccluder
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.5
+    sprintSpeedModifier: 0.5
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    anchored: true
+  - type: SyncSprite
+  - type: Sprite
+    sprite: /Textures/_Impstation/CosmicCult/Tileset/cosmicdecayalt.rsi
+  - type: Icon
+    sprite: /Textures/_Impstation/CosmicCult/Tileset/cosmicdecayalt.rsi
+    state: full
+  - type: IconSmooth
+    key: floor
+    base: void
+  - type: Tag
+    tags:
+      - HideContextMenu
