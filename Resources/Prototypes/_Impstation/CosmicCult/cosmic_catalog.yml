@@ -1,0 +1,38 @@
+# combat
+
+- type: listing
+  id: MonumentMenuActionBlank
+  name: evolutionmenu-combat-armblade-name
+  description: evolutionmenu-combat-armblade-desc
+  icon: { sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi, state: blank }
+  productAction: ActionCosmicBlank
+  cost:
+    EvolutionPoint: 6
+  categories:
+  - CosmicInfluences
+
+- type: listing
+  id: MonumentMenuActionLapse
+  name: evolutionmenu-combat-boneshard-name
+  description: evolutionmenu-combat-boneshard-desc
+  icon: { sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi, state: lapse }
+  productAction: ActionCosmicLapse
+  cost:
+    EvolutionPoint: 3
+  categories:
+  - CosmicInfluences
+
+- type: storeCategory
+  id: CosmicInfluences
+  name: store-ling-category-combat
+  priority: 0
+
+- type: storeCategory
+  id: CosmicRituals
+  name: store-ling-category-sting
+  priority: 1
+
+- type: currency
+  id: EntropyCurrency
+  displayName: store-currency-display-stolen-essence
+  canWithdraw: false

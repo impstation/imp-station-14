@@ -23,57 +23,57 @@ public sealed partial class CosmicMonumentWindow : FancyWindow
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
-        GenerateButton.OnPressed += _ => OnGenerateButtonPressed?.Invoke();
+        // GenerateButton.OnPressed += _ => OnGenerateButtonPressed?.Invoke();
     }
 
     public void UpdateState(CosmicMonumentUserInterfaceState state)
     {
-        _cooldownEnd = state.CooldownEndTime;
-        _hasEnoughFuel = state.FuelCost <= state.FuelAmount;
+        // _cooldownEnd = state.CooldownEndTime;
+        // _hasEnoughFuel = state.FuelCost <= state.FuelAmount;
 
-        var fuelCompletion = Math.Clamp((float) state.FuelAmount / state.FuelCost, 0f, 1f);
+        // var fuelCompletion = Math.Clamp((float) state.FuelAmount / state.FuelCost, 0f, 1f);
 
-        FuelBar.Value = fuelCompletion;
+        // FuelBar.Value = fuelCompletion;
 
-        var charges = state.FuelAmount / state.FuelCost;
-        FuelText.Text = Loc.GetString("cosmic-monument-charges", ("charges", charges));
+        // var charges = state.FuelAmount / state.FuelCost;
+        // FuelText.Text = Loc.GetString("cosmic-monument-charges", ("charges", charges));
 
-        UpdateTimer();
-        UpdateReady(); // yes this can trigger twice. no i don't care
+        // UpdateTimer();
+        // UpdateReady(); // yes this can trigger twice. no i don't care
     }
 
-    public void UpdateTimer()
-    {
-        if (_timing.CurTime > _cooldownEnd)
-        {
-            CooldownLabel.SetMarkup(Loc.GetString("cosmic-monument-no-cooldown"));
-        }
-        else
-        {
-            var timeLeft = _cooldownEnd - _timing.CurTime;
-            var timeString = $"{timeLeft.Minutes:0}:{timeLeft.Seconds:00}";
-            CooldownLabel.SetMarkup(Loc.GetString("cosmic-monument-cooldown", ("time", timeString)));
-            UpdateReady();
-        }
-    }
+    // public void UpdateTimer()
+    // {
+    //     if (_timing.CurTime > _cooldownEnd)
+    //     {
+    //         CooldownLabel.SetMarkup(Loc.GetString("cosmic-monument-no-cooldown"));
+    //     }
+    //     else
+    //     {
+    //         var timeLeft = _cooldownEnd - _timing.CurTime;
+    //         var timeString = $"{timeLeft.Minutes:0}:{timeLeft.Seconds:00}";
+    //         CooldownLabel.SetMarkup(Loc.GetString("cosmic-monument-cooldown", ("time", timeString)));
+    //         UpdateReady();
+    //     }
+    // }
 
-    public void UpdateReady()
-    {
-        var ready = _hasEnoughFuel && _timing.CurTime > _cooldownEnd;
+    // public void UpdateReady()
+    // {
+    //     var ready = _hasEnoughFuel && _timing.CurTime > _cooldownEnd;
 
-        var msg = ready
-            ? Loc.GetString("cosmic-monument-yes-fire")
-            : Loc.GetString("cosmic-monument-no-fire");
-        ReadyLabel.SetMarkup(msg);
+    //     var msg = ready
+    //         ? Loc.GetString("cosmic-monument-yes-fire")
+    //         : Loc.GetString("cosmic-monument-no-fire");
+    //     ReadyLabel.SetMarkup(msg);
 
-        GenerateButton.Disabled = !ready;
-    }
+    //     GenerateButton.Disabled = !ready;
+    // }
 
-    protected override void FrameUpdate(FrameEventArgs args)
-    {
-        base.FrameUpdate(args);
+    // protected override void FrameUpdate(FrameEventArgs args)
+    // {
+    //     base.FrameUpdate(args);
 
-        UpdateTimer();
-    }
+    //     UpdateTimer();
+    // }
 }
 

@@ -1,11 +1,11 @@
 - type: entity
   name: Wisp
-  parent: [ BaseSimpleMob, FlyingMobBase, MobCombat ]
+  parent: [ BaseSimpleMob, FlyingMobBase ]
   id: MobCosmicWisp
   components:
   - type: Sprite
     drawdepth: Mobs
-    sprite: _Impstation/CosmicCult/Effects/wisp.rsi
+    sprite: _Impstation/CosmicCult/Mobs/wisp.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: wisp

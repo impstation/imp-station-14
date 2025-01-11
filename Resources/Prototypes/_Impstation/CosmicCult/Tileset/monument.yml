@@ -8,8 +8,6 @@
   name: The Monument
   description: A great slab of unknowledge, only visible to those aware of it. Built of a thousand little nothings, its surface reflects a starless emptiness...
   components:
-  - type: CosmicMarkStructure
-  - type: CosmicMonument
   - type: SpriteFade
   - type: Sprite
     sprite: _Impstation/CosmicCult/Tileset/monument.rsi
@@ -87,7 +85,9 @@
     channels:
     - CosmicRadio
   - type: WarpPoint
-    location: cosmic cult monument
+    location: the monument
+  - type: CosmicMarkStructure
+  - type: CosmicMonument
 
  ########### SPAWN-IN ANIMATION #############
 

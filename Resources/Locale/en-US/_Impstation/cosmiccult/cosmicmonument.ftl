@@ -1,5 +1,5 @@
 
-cosmic-monument-ui-title = THE MONUMENT
+cosmic-monument-ui-title = The Monument
 cosmic-monument-progress-display = Progress:
 cosmic-monument-cooldown = Cooldown: [color=gray]{$time}[/color]
 cosmic-monument-no-cooldown = Cooldown: [color=gray]Complete[/color]

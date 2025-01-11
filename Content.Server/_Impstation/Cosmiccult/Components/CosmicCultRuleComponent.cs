@@ -1,4 +1,5 @@
 using Content.Shared.Roles;
+using Content.Shared.Store;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
@@ -10,23 +11,13 @@ namespace Content.Server._Impstation.Cosmiccult.Components;
 [RegisterComponent, Access(typeof(CosmicCultRuleSystem))]
 public sealed partial class CosmicCultRuleComponent : Component
 {
-    /// <summary>
-    /// When the round will if all the command are dead (Incase they are in space)
-    /// </summary>
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
-    public TimeSpan CommandCheck;
+    public readonly List<EntityUid> CosmicCultMinds = new();
 
-    /// <summary>
-    /// The amount of time between each check for command check.
-    /// </summary>
-    [DataField]
-    public TimeSpan TimerWait = TimeSpan.FromSeconds(20);
-
-    /// <summary>
-    /// The time it takes after the last head is killed for the shuttle to arrive.
-    /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public TimeSpan ShuttleCallTime = TimeSpan.FromMinutes(5);
+    public readonly List<ProtoId<StoreCategoryPrototype>> StoreCategories = new()
+    {
+        "CosmicInfluences",
+        "CosmicRituals"
+    };
 }
 
 // CosmicCultRuleComponent
