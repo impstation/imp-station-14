@@ -3,7 +3,7 @@ using Content.Shared._Impstation.Cosmiccult;
 using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client._Impstation.Cosmiccult;
+namespace Content.Client._Impstation.CosmicCult;
 
 /// <summary>
 /// Used for the client to get status icons from other revs.
