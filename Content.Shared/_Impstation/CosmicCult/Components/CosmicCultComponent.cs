@@ -77,9 +77,6 @@ public sealed partial class CosmicCultComponent : Component
     public EntProtoId BlankVFX = "CosmicBlankAbilityVFX";
 
     [DataField]
-    public SoundSpecifier LapseSFX = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/ability_lapse.ogg");
-
-    [DataField]
     public SoundSpecifier BlankSFX = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/ability_blank.ogg");
 
     #endregion

@@ -66,7 +66,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
     {
         if (action.Handled)
             return false;
-        if (!TryComp<CosmicCultActionComponent>(action.Action, out var cultAction))
+        if (!TryComp<CosmicCultActionComponent>(action.Action, out var _))
             return false;
         action.Handled = true;
         return true;
@@ -210,7 +210,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
             return;
         action.Handled = true;
         var tgtpos = Transform(action.Target).Coordinates;
-        _audio.PlayPvs(comp.LapseSFX, uid, AudioParams.Default.WithVolume(+6f));
         Spawn(comp.LapseVFX, tgtpos);
         _popup.PopupEntity(Loc.GetString("cosmicability-lapse-success", ("target", Identity.Entity(action.Target, EntityManager))), uid, uid);
         TryComp<HumanoidAppearanceComponent>(action.Target, out HumanoidAppearanceComponent? species);
