@@ -54,6 +54,14 @@
   components:
   - type: Sprite
     state: "r_hand"
+  - type: BodyPart
+    partType: Hand
+    symmetry: Right
+    toolName: "a right hand" # Shitmed Change
+    onAdd:
+    - type: AttachItemToHand
+      item: DecapoidClawItem
+      slotId: "body_part_slot_left hand"
 
 - type: entity
   id: LeftLegDecapoid # these are the front legs

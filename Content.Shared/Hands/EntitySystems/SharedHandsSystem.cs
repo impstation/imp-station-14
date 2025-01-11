@@ -59,7 +59,7 @@ public abstract partial class SharedHandsSystem
         if (handsComp.ActiveHand == null)
             SetActiveHand(uid, newHand, handsComp);
 
-        RaiseLocalEvent(uid, new HandCountChangedEvent(uid));
+        RaiseLocalEvent(uid, new HandCountChangedEvent(uid,handName));
         Dirty(uid, handsComp);
     }
 
@@ -79,7 +79,7 @@ public abstract partial class SharedHandsSystem
         if (handsComp.ActiveHand == hand)
             TrySetActiveHand(uid, handsComp.SortedHands.FirstOrDefault(), handsComp);
 
-        RaiseLocalEvent(uid, new HandCountChangedEvent(uid));
+        RaiseLocalEvent(uid, new HandCountChangedEvent(uid, handName));
         Dirty(uid, handsComp);
     }
 
