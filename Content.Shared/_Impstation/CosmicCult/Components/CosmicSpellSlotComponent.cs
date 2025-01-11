@@ -10,12 +10,6 @@ public sealed partial class CosmicSpellSlotComponent : Component
     #region Actions
 
     [DataField]
-    public EntProtoId CosmicToolAction = "ActionCosmicToolToggle";
-
-    [DataField]
-    public EntityUid? CosmicToolActionEntity;
-
-    [DataField]
     public EntProtoId CosmicSiphonAction = "ActionCosmicSiphon";
 
     [DataField]

@@ -8,7 +8,6 @@ public sealed partial class CosmicCultActionComponent : Component
 {
 
 }
-public sealed partial class EventCosmicToolToggle : InstantActionEvent { }
 public sealed partial class EventCosmicSiphon : EntityTargetActionEvent { }
 public sealed partial class EventCosmicBlank : EntityTargetActionEvent { }
 public sealed partial class EventCosmicLapse : EntityTargetActionEvent { }

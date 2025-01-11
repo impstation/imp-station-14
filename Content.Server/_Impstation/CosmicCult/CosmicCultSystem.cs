@@ -129,8 +129,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
     private void OnStartCultist(EntityUid uid, CosmicCultComponent comp, ref ComponentStartup args)
     {
         EnsureComp<CosmicSpellSlotComponent>(uid, out var spell);
-        _actions.AddAction(uid, ref spell.CosmicToolActionEntity, spell.CosmicToolAction, uid); // todo: award cult powers at The Monument
-        _actions.AddAction(uid, ref spell.CosmicSiphonActionEntity, spell.CosmicSiphonAction, uid);
+        _actions.AddAction(uid, ref spell.CosmicSiphonActionEntity, spell.CosmicSiphonAction, uid); // todo: award cult powers at The Monument
         _actions.AddAction(uid, ref spell.CosmicBlankActionEntity, spell.CosmicBlankAction, uid);
         _actions.AddAction(uid, ref spell.CosmicLapseActionEntity, spell.CosmicLapseAction, uid);
     }
@@ -161,8 +160,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
             return;
 
         _stun.TryKnockdown(uid, TimeSpan.FromSeconds(2), true);
-        _actions.RemoveAction(uid, spell.CosmicToolActionEntity); // todo: clean up cult powers better
-        _actions.RemoveAction(uid, spell.CosmicSiphonActionEntity);
+        _actions.RemoveAction(uid, spell.CosmicSiphonActionEntity); // todo: clean up cult powers better
         _actions.RemoveAction(uid, spell.CosmicBlankActionEntity);
         _actions.RemoveAction(uid, spell.CosmicLapseActionEntity);
         _actions.RemoveAction(uid, spell.CosmicMonumentActionEntity);

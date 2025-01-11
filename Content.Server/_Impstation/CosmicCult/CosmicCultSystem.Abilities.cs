@@ -51,7 +51,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     public void SubscribeAbilities()
     {
-        SubscribeLocalEvent<CosmicCultComponent, EventCosmicToolToggle>(OnCosmicToolToggle);
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicSiphon>(OnCosmicSiphon);
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicSiphonDoAfter>(OnCosmicSiphonDoAfter);
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicBlankDoAfter>(OnCosmicBlankDoAfter);
@@ -121,46 +120,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
     }
     #endregion
 
-
-    #region Compass Toggle
-    /// <summary>
-    /// Called when someone uses the Beckon Compass ability.
-    /// </summary>
-    private void OnCosmicToolToggle(EntityUid uid, CosmicCultComponent comp, ref EventCosmicToolToggle action)
-    {
-
-        if (!TryUseAbility(uid, comp, action))
-            return;
-
-        if (!TryToggleCosmicTool(uid, CultToolPrototype, comp))
-            return;
-    }
-
-    /// <summary>
-    /// Called by the Beckon Compass ability's OnCosmicToolToggle. Why are we nesting it like this? Fucked if i know.
-    /// </summary>
-    public bool TryToggleCosmicTool(EntityUid uid, EntProtoId proto, CosmicCultComponent comp)
-    {
-        if (!comp.Equipment.TryGetValue(proto.Id, out var item))
-        {
-            item = Spawn(proto, Transform(uid).Coordinates);
-            if (!_hands.TryForcePickupAnyHand(uid, (EntityUid)item))
-            {
-                _popup.PopupEntity(Loc.GetString("cosmicability-toggle-error"), uid, uid);
-                QueueDel(item);
-                return false;
-            }
-            comp.Equipment.Add(proto.Id, item);
-            return true;
-        }
-
-        QueueDel(item);
-        // assuming that it exists
-        comp.Equipment.Remove(proto.Id);
-
-        return true;
-    }
-    #endregion
 
 
     #region "Blank" Stun
@@ -239,6 +198,8 @@ public sealed partial class CosmicCultSystem : EntitySystem
     }
     #endregion
 
+
+
     #region "Lapse" Polymorph
     /// <summary>
     /// Called when someone clicks on a target using the cosmic lapse ability.
@@ -282,6 +243,8 @@ public sealed partial class CosmicCultSystem : EntitySystem
         }
     }
     #endregion
+
+
 
     #region MonumentSpawn
     /// <summary>
@@ -327,7 +290,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
             return;
         }
 
-        ///CHECK FOR ENTITY AND ENVIRONMENTAL INTERSECTIONS || I HATED THIS SO FREAKING MUCH.
+        ///CHECK FOR ENTITY AND ENVIRONMENTAL INTERSECTIONS
         if (_entLookup.AnyLocalEntitiesIntersecting(xform.GridUid.Value, box, LookupFlags.Dynamic | LookupFlags.Static, uid))
         {
             _popup.PopupEntity(Loc.GetString("cosmic-monument-spawn-error-intersection"), uid, uid);

@@ -1,18 +1,18 @@
 
-- type: entity
-  id: ActionCosmicToolToggle
-  name: Beckon Compass
-  description: Summon or Unsummon your compass of stars.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    useDelay: 3
-    itemIconStyle: NoItem
-    icon:
-      sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
-      state: compass
-    event: !type:EventCosmicToolToggle {}
-  - type: CosmicCultAction
+# - type: entity
+#   id: ActionCosmicToolToggle
+#   name: Beckon Compass
+#   description: Summon or Unsummon your compass of stars.
+#   categories: [ HideSpawnMenu ]
+#   components:
+#   - type: InstantAction
+#     useDelay: 3
+#     itemIconStyle: NoItem
+#     icon:
+#       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
+#       state: compass
+#     event: !type:EventCosmicToolToggle {}
+#   - type: CosmicCultAction
 
 - type: entity
   id: ActionCosmicSiphon
