@@ -23,6 +23,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.Mindshield.Components;
 using Content.Shared._Goobstation.FakeMindshield.Components;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Organ;
 
 namespace Content.Server.Changeling;
 
@@ -152,12 +154,23 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         UpdateBiomass(uid, comp, (comp.MaxBiomass * biomassModifier) - comp.TotalAbsorbedEntities);
 
-        var dmg = new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 200);
+        // Deal damage to the target, change their blood to Ferrochromic Acid, and spill it on the ground
+        var dmg = new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 100);
         _damage.TryChangeDamage(target, dmg, true, false);
         _blood.ChangeBloodReagent(target, "FerrochromicAcid");
         _blood.SpillAllSolutions(target);
 
+        // Add the absorbed component to the target
         EnsureComp<AbsorbedComponent>(target);
+
+        // remove all organs from the body
+        if (EntityManager.TryGetComponent(target, out BodyComponent? _))
+        {
+            foreach (var organ in _bodySystem.GetBodyOrganEntityComps<OrganComponent>(target))
+            {
+                Del(organ);
+            }
+        }
 
         var popupSelf = Loc.GetString("changeling-absorb-end-self", ("target", Identity.Entity(target, EntityManager)));
         var popupTarget = Loc.GetString("changeling-absorb-end-target");
