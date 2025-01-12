@@ -1,8 +1,8 @@
 using Content.Shared.DoAfter;
 using Content.Shared.Damage;
 using Robust.Shared.Prototypes;
-using Content.Shared._Impstation.Cosmiccult.Components;
-using Content.Shared._Impstation.Cosmiccult;
+using Content.Shared._Impstation.CosmicCult.Components;
+using Content.Shared._Impstation.CosmicCult;
 using Content.Shared.Actions;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mind;
@@ -23,12 +23,12 @@ using Robust.Shared.Random;
 using Content.Shared.Mind.Components;
 using Content.Server.Antag.Components;
 using System.Collections.Immutable;
-using Content.Server._Impstation.Cosmiccult.Components;
-using Content.Shared._Impstation.Cosmiccult.Components.Examine;
+using Content.Server._Impstation.CosmicCult.Components;
+using Content.Shared._Impstation.CosmicCult.Components.Examine;
 using Robust.Shared.Timing;
 using Content.Shared.Stunnable;
 
-namespace Content.Server._Impstation.Cosmiccult;
+namespace Content.Server._Impstation.CosmicCult;
 
 public sealed partial class CosmicCultSystem : EntitySystem
 {

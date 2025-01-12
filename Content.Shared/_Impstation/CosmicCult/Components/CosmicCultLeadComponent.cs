@@ -4,7 +4,7 @@ using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
-namespace Content.Shared._Impstation.Cosmiccult.Components;
+namespace Content.Shared._Impstation.CosmicCult.Components;
 
 /// <summary>
 /// Added to mind role entities to tag that they are the cosmic cult leader.

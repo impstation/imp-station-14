@@ -6,8 +6,8 @@ using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking;
-using Content.Server._Impstation.Cosmiccult;
-using Content.Server._Impstation.Cosmiccult.Components;
+using Content.Server._Impstation.CosmicCult;
+using Content.Server._Impstation.CosmicCult.Components;
 using Content.Server.Roles;
 using Content.Server.Objectives;
 using Content.Server.Objectives.Components;
@@ -25,8 +25,8 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
-using Content.Shared._Impstation.Cosmiccult.Components;
-using Content.Shared._Impstation.Cosmiccult;
+using Content.Shared._Impstation.CosmicCult.Components;
+using Content.Shared._Impstation.CosmicCult;
 using Content.Shared.Stunnable;
 using Content.Shared.Zombies;
 using Content.Shared.Roles;
@@ -41,7 +41,7 @@ using Content.Server.Antag.Components;
 using System.Linq;
 using Content.Shared.Damage;
 
-namespace Content.Server._Impstation.Cosmiccult;
+namespace Content.Server._Impstation.CosmicCult;
 
 /// <summary>
 /// Where all the main stuff for Cosmic Cultists happens.

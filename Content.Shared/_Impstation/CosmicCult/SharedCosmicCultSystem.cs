@@ -1,7 +1,7 @@
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Popups;
-using Content.Shared._Impstation.Cosmiccult.Components;
+using Content.Shared._Impstation.CosmicCult.Components;
 using Content.Shared.Stunnable;
 using Robust.Shared.GameStates;
 using Robust.Shared.Player;
@@ -9,7 +9,7 @@ using Content.Shared.Antag;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
-namespace Content.Shared._Impstation.Cosmiccult;
+namespace Content.Shared._Impstation.CosmicCult;
 
 public abstract class SharedCosmicCultSystem : EntitySystem
 {

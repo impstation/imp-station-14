@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Impstation.Cosmiccult.Components.Examine;
+namespace Content.Shared._Impstation.CosmicCult.Components.Examine;
 
 /// <summary>
 /// Marker component for targets under the effect of Blank Mentality.

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Numerics;
 using Robust.Server.GameObjects;
 
-namespace Content.Server._Impstation.Cosmiccult.EntitySystems;
+namespace Content.Server._Impstation.CosmicCult.EntitySystems;
 public sealed partial class CosmicTestSystem : EntitySystem
 {
     [Dependency] private readonly ITileDefinitionManager _tileDefinition = default!;

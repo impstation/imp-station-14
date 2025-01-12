@@ -1,4 +1,4 @@
-using Content.Server._Impstation.Cosmiccult;
+using Content.Server._Impstation.CosmicCult;
 using Content.Server.Objectives.Systems;
 
 namespace Content.Server.Objectives.Components;

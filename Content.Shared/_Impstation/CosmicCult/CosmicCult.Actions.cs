@@ -1,7 +1,7 @@
 using Content.Shared.Actions;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Impstation.Cosmiccult;
+namespace Content.Shared._Impstation.CosmicCult;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class CosmicCultActionComponent : Component

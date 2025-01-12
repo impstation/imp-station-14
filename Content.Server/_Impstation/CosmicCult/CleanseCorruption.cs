@@ -1,12 +1,12 @@
 using System.Threading;
 using Content.Server.Radio.Components;
-using Content.Shared._Impstation.Cosmiccult.Components;
+using Content.Shared._Impstation.CosmicCult.Components;
 using Content.Shared.EntityEffects;
 using Content.Shared.Jittering;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
-namespace Content.Server._Impstation.Cosmiccult;
+namespace Content.Server._Impstation.CosmicCult;
 
 public sealed partial class CleanseCorruption : EntityEffect
 {
@@ -36,7 +36,7 @@ public sealed partial class CleanseCorruption : EntityEffect
         }
 
         entityManager.System<SharedJitteringSystem>().DoJitter(uid, Time, true, Amplitude, Frequency);
-        entityManager.EnsureComponent<CleanseCorruptionComponent>(uid, out var cleanse);
+        entityManager.EnsureComponent<CleanseCorruptionComponent>(uid);
 
         cultEnt.DeconvertToken = new CancellationTokenSource();
         Robust.Shared.Timing.Timer.Spawn(Time, () => DeconvertCultist(uid, entityManager),

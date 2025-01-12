@@ -1,5 +1,5 @@
-using Content.Shared._Impstation.Cosmiccult.Components;
-using Content.Shared._Impstation.Cosmiccult;
+using Content.Shared._Impstation.CosmicCult.Components;
+using Content.Shared._Impstation.CosmicCult;
 using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Prototypes;
 

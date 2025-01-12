@@ -1,6 +1,6 @@
 using Content.Server.Popups;
-using Content.Server._Impstation.Cosmiccult.Components;
-using Content.Shared._Impstation.Cosmiccult.Components;
+using Content.Server._Impstation.CosmicCult.Components;
+using Content.Shared._Impstation.CosmicCult.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Examine;
 using Content.Server.Actions;
@@ -8,7 +8,7 @@ using Robust.Shared.Prototypes;
 using Content.Server.GameTicking.Events;
 using Robust.Server.GameObjects;
 using Robust.Server.Maps;
-using Content.Shared._Impstation.Cosmiccult.Components.Examine;
+using Content.Shared._Impstation.CosmicCult.Components.Examine;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mind;
 using Content.Shared.Roles;
@@ -21,7 +21,7 @@ using Content.Server.Radio.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 
-namespace Content.Server._Impstation.Cosmiccult;
+namespace Content.Server._Impstation.CosmicCult;
 
 public sealed partial class CosmicCultSystem : EntitySystem
 {

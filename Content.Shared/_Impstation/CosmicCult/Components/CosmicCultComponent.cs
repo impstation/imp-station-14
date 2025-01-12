@@ -7,7 +7,7 @@ using Content.Shared.Item;
 using Content.Shared.Damage;
 using System.Threading;
 
-namespace Content.Shared._Impstation.Cosmiccult.Components;
+namespace Content.Shared._Impstation.CosmicCult.Components;
 
 /// <summary>
 /// Added to mind role entities to tag that they are a cosmic cultist.

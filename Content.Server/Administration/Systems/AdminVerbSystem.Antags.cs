@@ -1,4 +1,4 @@
-using Content.Server._Impstation.Cosmiccult.Components;
+using Content.Server._Impstation.CosmicCult.Components;
 using Content.Server.Administration.Commands;
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;
