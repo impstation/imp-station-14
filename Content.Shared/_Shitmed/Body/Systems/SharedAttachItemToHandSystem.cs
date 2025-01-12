@@ -1,12 +1,8 @@
-using System.Linq;
-using Content.Shared.Body.Part;
-using Content.Shared.Body.Systems;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
-using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Impstation.Body.Components;
+namespace Content.Shared._Shitmed.Body.Systems;
 
 public sealed class SharedAttachItemToSlotSystem : EntitySystem
 {
@@ -16,10 +12,10 @@ public sealed class SharedAttachItemToSlotSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<AttachItemToHandComponent, HandCountChangedEvent>(HandCountChanged);
+        SubscribeLocalEvent<_Shitmed.Body.Components.AttachItemToHandComponent, HandCountChangedEvent>(HandCountChanged);
     }
 
-    private void HandCountChanged(EntityUid uid, AttachItemToHandComponent component, HandCountChangedEvent args)
+    private void HandCountChanged(EntityUid uid, _Shitmed.Body.Components.AttachItemToHandComponent component, HandCountChangedEvent args)
     {
         // Check if the hand slot matches and the entity has a HandsComponent
         if (args.Hand != component.SlotId || !TryComp<HandsComponent>(uid, out var hands))
