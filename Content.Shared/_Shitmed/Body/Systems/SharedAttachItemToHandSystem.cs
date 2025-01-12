@@ -35,7 +35,7 @@ public sealed class SharedAttachItemToSlotSystem : EntitySystem
 
         if (!_handsSystem.TryGetHand(uid, component.SlotId, out _, hands))
         {
-            //if the hand this item should be in no longer exists
+            //if the hand is removed, this item should no longer exist
             Del(component.ItemEntity);
         }
     }
