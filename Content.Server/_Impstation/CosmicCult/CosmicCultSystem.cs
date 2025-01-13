@@ -25,6 +25,7 @@ namespace Content.Server._Impstation.CosmicCult;
 
 public sealed partial class CosmicCultSystem : EntitySystem
 {
+    [Dependency] private readonly CleanseDeconversionSystem _cleanse = default!;
     [Dependency] private readonly ISharedAdminLogManager _log = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
@@ -114,6 +115,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
         });
     }
 
+
     /// <summary>
     /// add cultist Visibility Mask.
     /// </summary>
@@ -129,7 +131,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
     private void OnStartCultist(EntityUid uid, CosmicCultComponent comp, ref ComponentStartup args)
     {
         EnsureComp<CosmicSpellSlotComponent>(uid, out var spell);
-        _actions.AddAction(uid, ref spell.CosmicSiphonActionEntity, spell.CosmicSiphonAction, uid); // todo: award cult powers at The Monument
+        _actions.AddAction(uid, ref spell.CosmicSiphonActionEntity, spell.CosmicSiphonAction, uid); // TODO: award cult powers at The Monument
         _actions.AddAction(uid, ref spell.CosmicBlankActionEntity, spell.CosmicBlankAction, uid);
         _actions.AddAction(uid, ref spell.CosmicLapseActionEntity, spell.CosmicLapseAction, uid);
     }
@@ -152,7 +154,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
 
 
     /// <summary>
-    /// Our horrible little function for
+    /// Our horrible little function for when a cultist gets deconverted. This is surely awful, but very straightforward.
     /// </summary>
     private void OnShutdown(EntityUid uid, CosmicCultComponent comp, ref ComponentShutdown args)
     {
@@ -160,7 +162,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
             return;
 
         _stun.TryKnockdown(uid, TimeSpan.FromSeconds(2), true);
-        _actions.RemoveAction(uid, spell.CosmicSiphonActionEntity); // todo: clean up cult powers better
+        _actions.RemoveAction(uid, spell.CosmicSiphonActionEntity); // TODO: clean up cult powers better
         _actions.RemoveAction(uid, spell.CosmicBlankActionEntity);
         _actions.RemoveAction(uid, spell.CosmicLapseActionEntity);
         _actions.RemoveAction(uid, spell.CosmicMonumentActionEntity);
@@ -187,17 +189,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
 
     private void DebugFunction(EntityUid uid, CosmicCultComponent comp, ref DamageChangedEvent args) // TODO: This is a placeholder function to call other functions for testing & debugging.
     {
-        if (_entMan.HasComponent<CosmicCultComponent>(uid))
-        {
-            _entMan.RemoveComponent<CosmicCultComponent>(uid);
-            _entMan.RemoveComponent<ActiveRadioComponent>(uid);
-            _entMan.RemoveComponent<CleanseCorruptionComponent>(uid);
-            _entMan.RemoveComponent<IntrinsicRadioReceiverComponent>(uid);
-            _entMan.RemoveComponent<IntrinsicRadioTransmitterComponent>(uid);
-
-            if (_entMan.HasComponent<CosmicCultLeadComponent>(uid))
-                _entMan.RemoveComponent<CosmicCultLeadComponent>(uid);
-        }
+        _cleanse.DeconvertCultist(uid);
     }
 
 }

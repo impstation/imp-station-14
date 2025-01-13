@@ -12,12 +12,6 @@ namespace Content.Server._Impstation.CosmicCult.Components;
 public sealed partial class CosmicCultRuleComponent : Component
 {
     public readonly List<EntityUid> CosmicCultMinds = new();
-
-    public readonly List<ProtoId<StoreCategoryPrototype>> StoreCategories = new()
-    {
-        "CosmicInfluences",
-        "CosmicRituals"
-    };
 }
 
 // CosmicCultRuleComponent

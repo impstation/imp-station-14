@@ -5,9 +5,6 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._Impstation.CosmicCult;
 
-/// <summary>
-/// Used for the client to get status icons from other revs.
-/// </summary>
 public sealed class CosmicCultSystem : SharedCosmicCultSystem
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;

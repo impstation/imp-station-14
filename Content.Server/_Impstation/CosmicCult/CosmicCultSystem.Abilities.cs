@@ -206,7 +206,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
     /// </summary>
     private void OnCosmicLapse(EntityUid uid, CosmicCultComponent comp, ref EventCosmicLapse action)
     {
-        if (action.Handled || HasComp<CosmicMarkBlankComponent>(action.Target) || HasComp<CleanseCorruptionComponent>(action.Target) || HasComp<BibleUserComponent>(action.Target)) // Blacklist the chaplain, obviously.
+        if (action.Handled || HasComp<CosmicMarkBlankComponent>(action.Target) || HasComp<CleanseCultComponent>(action.Target) || HasComp<BibleUserComponent>(action.Target)) // Blacklist the chaplain, obviously.
             return;
         action.Handled = true;
         var tgtpos = Transform(action.Target).Coordinates;

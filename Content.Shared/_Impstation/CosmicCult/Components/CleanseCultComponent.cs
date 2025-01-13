@@ -6,5 +6,10 @@ namespace Content.Shared._Impstation.CosmicCult.Components;
 /// Component for targets being cleansed of corruption.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class CleanseCorruptionComponent : Component
-{ }
+[AutoGenerateComponentPause]
+public sealed partial class CleanseCultComponent : Component
+{
+    [ViewVariables]
+    [AutoPausedField]
+    public TimeSpan CleanseTime = default!;
+}

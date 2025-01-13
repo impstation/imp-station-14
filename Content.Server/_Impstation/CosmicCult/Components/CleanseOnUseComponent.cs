@@ -1,4 +1,5 @@
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server._Impstation.CosmicCult.Components;
@@ -14,7 +15,7 @@ namespace Content.Server._Impstation.CosmicCult.Components;
 public sealed partial class CleanseOnUseComponent : Component
 {
     [DataField]
-    public TimeSpan ScanDelay = TimeSpan.FromSeconds(2);
+    public TimeSpan UseTime = TimeSpan.FromSeconds(25);
 
     [DataField]
     public EntityUid? ScannedEntity;
@@ -26,6 +27,8 @@ public sealed partial class CleanseOnUseComponent : Component
     public SoundSpecifier? ScanningBeginSound;
 
     [DataField]
-    public SoundSpecifier ScanningEndSound = new SoundPathSpecifier("/Audio/Items/Medical/healthscanner.ogg");
+    public SoundSpecifier CleanseSound = new SoundPathSpecifier("/Audio/Items/Medical/healthscanner.ogg");
 
+    [DataField]
+    public EntProtoId CleanseVFX = "CleanseEffectVFX";
 }
