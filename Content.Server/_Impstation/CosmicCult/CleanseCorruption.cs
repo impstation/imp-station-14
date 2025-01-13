@@ -11,6 +11,7 @@ namespace Content.Server._Impstation.CosmicCult;
 public sealed partial class CleanseCorruption : EntityEffect
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly CleanseDeconversionSystem _cleanse = default!;
 
     [DataField]
     public float Amplitude = 5.0f;
@@ -29,31 +30,28 @@ public sealed partial class CleanseCorruption : EntityEffect
     {
         var entityManager = args.EntityManager;
         var uid = args.TargetEntity;
-        if (!entityManager.TryGetComponent(uid, out CosmicCultComponent? cultEnt) ||
-            cultEnt.DeconvertToken is not null)
+        if (!entityManager.TryGetComponent(uid, out CosmicCultComponent? cultEnt))
         {
             return;
         }
 
         entityManager.System<SharedJitteringSystem>().DoJitter(uid, Time, true, Amplitude, Frequency);
-        entityManager.EnsureComponent<CleanseCorruptionComponent>(uid);
 
-        cultEnt.DeconvertToken = new CancellationTokenSource();
-        Robust.Shared.Timing.Timer.Spawn(Time, () => DeconvertCultist(uid, entityManager),
-            cultEnt.DeconvertToken.Token);
+        _cleanse.DeconvertCultist(uid);
     }
-    private void DeconvertCultist(EntityUid uid, IEntityManager entityManager)
-    {
-        if (entityManager.HasComponent<CosmicCultComponent>(uid))
-        {
-            entityManager.RemoveComponent<CosmicCultComponent>(uid);
-            entityManager.RemoveComponent<ActiveRadioComponent>(uid);
-            entityManager.RemoveComponent<CleanseCorruptionComponent>(uid);
-            entityManager.RemoveComponent<IntrinsicRadioReceiverComponent>(uid);
-            entityManager.RemoveComponent<IntrinsicRadioTransmitterComponent>(uid);
 
-            if (entityManager.HasComponent<CosmicCultLeadComponent>(uid))
-                entityManager.RemoveComponent<CosmicCultLeadComponent>(uid);
-        }
-    }
+    // private void DeconvertCultist(EntityUid uid, IEntityManager entityManager)
+    // {
+    //     if (entityManager.HasComponent<CosmicCultComponent>(uid))
+    //     {
+    //         entityManager.RemoveComponent<CosmicCultComponent>(uid);
+    //         entityManager.RemoveComponent<ActiveRadioComponent>(uid);
+    //         entityManager.RemoveComponent<CleanseCorruptionComponent>(uid);
+    //         entityManager.RemoveComponent<IntrinsicRadioReceiverComponent>(uid);
+    //         entityManager.RemoveComponent<IntrinsicRadioTransmitterComponent>(uid);
+
+    //         if (entityManager.HasComponent<CosmicCultLeadComponent>(uid))
+    //             entityManager.RemoveComponent<CosmicCultLeadComponent>(uid);
+    //     }
+    // }
 }

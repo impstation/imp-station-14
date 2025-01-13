@@ -67,18 +67,19 @@ public sealed class CleanseDeconversionSystem : EntitySystem
 
         args.Handled = true;
     }
+
     public void DeconvertCultist(EntityUid uid)
     {
-        if (_entMan.HasComponent<CosmicCultComponent>(uid))
+        if (HasComp<CosmicCultComponent>(uid))
         {
-            _entMan.RemoveComponent<CosmicCultComponent>(uid);
-            _entMan.RemoveComponent<ActiveRadioComponent>(uid);
-            _entMan.RemoveComponent<CleanseCorruptionComponent>(uid);
-            _entMan.RemoveComponent<IntrinsicRadioReceiverComponent>(uid);
-            _entMan.RemoveComponent<IntrinsicRadioTransmitterComponent>(uid);
+            RemComp<CosmicCultComponent>(uid);
+            RemComp<ActiveRadioComponent>(uid);
+            RemComp<CleanseCorruptionComponent>(uid);
+            RemComp<IntrinsicRadioReceiverComponent>(uid);
+            RemComp<IntrinsicRadioTransmitterComponent>(uid);
 
-            if (_entMan.HasComponent<CosmicCultLeadComponent>(uid))
-                _entMan.RemoveComponent<CosmicCultLeadComponent>(uid);
+            if (HasComp<CosmicCultLeadComponent>(uid))
+                RemComp<CosmicCultLeadComponent>(uid);
         }
     }
 
