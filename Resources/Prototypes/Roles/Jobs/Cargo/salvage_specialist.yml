@@ -12,6 +12,7 @@
   icon: "JobIconShaftMiner"
   startingGear: SalvageSpecialistGear
   supervisors: job-supervisors-qm
+  canBeAntag: false #imp edit
   access:
   - Cargo
   - Salvage
