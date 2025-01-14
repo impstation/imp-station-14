@@ -61,6 +61,8 @@
   parent: NullRodBase
   description: An expensive-looking rosary, made from silver. Exudes somewhat soothing vibes. Nice!
   components:
+  - type: UseDelay
+    delay: 5.0
   - type: CleanseOnUse
   - type: Prayable
     bibleUserOnly: true

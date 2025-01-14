@@ -1,3 +1,4 @@
+using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -18,17 +19,20 @@ public sealed partial class CleanseOnUseComponent : Component
     public TimeSpan UseTime = TimeSpan.FromSeconds(25);
 
     [DataField]
-    public EntityUid? ScannedEntity;
+    public SoundSpecifier SizzleSound = new SoundPathSpecifier("/Audio/Effects/lightburn.ogg");
 
     [DataField]
-    public float MaxScanRange = 1.5f;
-
-    [DataField]
-    public SoundSpecifier? ScanningBeginSound;
-
-    [DataField]
-    public SoundSpecifier CleanseSound = new SoundPathSpecifier("/Audio/Items/Medical/healthscanner.ogg");
+    public SoundSpecifier CleanseSound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/cleanse_deconversion.ogg");
 
     [DataField]
     public EntProtoId CleanseVFX = "CleanseEffectVFX";
+
+    [DataField, AutoNetworkedField]
+    public DamageSpecifier SelfDamage = new()
+    {
+        DamageDict = new() {
+            { "Caustic", 15 }
+        }
+    };
+
 }
