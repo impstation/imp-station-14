@@ -29,6 +29,42 @@
   - type: Tag
     tags:
       - Trash
+  # Shitmed Change Start
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/organ1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/organ2.ogg
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 110
+      behaviors:
+      - !type:GibPartBehavior { }
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Slash
+        damage: 100 # DeltaV
+      behaviors:
+      - !type:GibPartBehavior { }
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 2000 # DeltaV
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawnInContainer: true
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:BurnBodyBehavior { }
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MeatLaserImpact
+  # Shitmed Change End
 
 - type: entity
   abstract: true
@@ -81,6 +117,35 @@
   - type: ContainerContainer
     containers:
       torso_slot: !type:ContainerSlot {}
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 400
+      behaviors:
+      - !type:GibPartBehavior { }
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Slash
+        damage: 400
+      behaviors:
+      - !type:GibPartBehavior { }
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 4000 # DeltaV
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawnInContainer: true
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:BurnBodyBehavior { }
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MeatLaserImpact
     # Shitmed Change End
 
 - type: entity
