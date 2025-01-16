@@ -130,7 +130,7 @@ public sealed class CleanseDeconversionSystem : EntitySystem
 
     public void DeconvertCultist(EntityUid uid)
     {
-        if (HasComp<CosmicCultComponent>(uid))
+        if (HasComp<CosmicCultComponent>(uid)) //TODO: Surely there's a better way of doing this than going through and deleting all the components individually.
         {
             RemComp<CosmicCultComponent>(uid);
             RemComp<ActiveRadioComponent>(uid);

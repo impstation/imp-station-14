@@ -17,7 +17,6 @@ using Content.Server.EUI;
 using Content.Shared.Damage;
 using Content.Server.Antag;
 using Robust.Shared.Audio;
-using Content.Server.Radio.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 
@@ -128,7 +127,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
     /// <summary>
     /// add the Cosmic Cult abilities to the cultist.
     /// </summary>
-    private void OnStartCultist(EntityUid uid, CosmicCultComponent comp, ref ComponentStartup args)
+    private void OnStartCultist(Entity<CosmicCultComponent> uid, ref ComponentStartup args)
     {
         EnsureComp<CosmicSpellSlotComponent>(uid, out var spell);
         _actions.AddAction(uid, ref spell.CosmicSiphonActionEntity, spell.CosmicSiphonAction, uid); // TODO: award cult powers at The Monument
@@ -138,7 +137,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
     /// <summary>
     /// add the Cosmic Cult monument ability to the cult leader.
     /// </summary>
-    private void OnStartCultLead(EntityUid uid, CosmicCultLeadComponent comp, ref ComponentStartup args)
+    private void OnStartCultLead(Entity<CosmicCultLeadComponent> uid, ref ComponentStartup args)
     {
         EnsureComp<CosmicSpellSlotComponent>(uid, out var spell);
         _actions.AddAction(uid, ref spell.CosmicMonumentActionEntity, spell.CosmicMonumentAction, uid);
@@ -156,7 +155,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
     /// <summary>
     /// Our horrible little function for when a cultist gets deconverted. This is surely awful, but very straightforward.
     /// </summary>
-    private void OnShutdown(EntityUid uid, CosmicCultComponent comp, ref ComponentShutdown args)
+    private void OnShutdown(Entity<CosmicCultComponent> uid, ref ComponentShutdown args)
     {
         if (!TryComp<CosmicSpellSlotComponent>(uid, out var spell))
             return;
@@ -184,10 +183,10 @@ public sealed partial class CosmicCultSystem : EntitySystem
         _mind.ClearObjectives(mindId, mindComp); // LOAD-BEARING #imp function to remove all of someone's objectives, courtesy of TCRGDev(Github)
         _role.MindTryRemoveRole<CosmicCultRoleComponent>(mindId);
         _role.MindTryRemoveRole<RoleBriefingComponent>(mindId);
-        _log.Add(LogType.Mind, LogImpact.Low, $"{uid} was Deconverted from the Cosmic Cult. Objectives removed from mind.");
+        _log.Add(LogType.Mind, LogImpact.Low, $"{uid.Owner} was Deconverted from the Cosmic Cult. All objectives removed from mind.");
     }
 
-    private void DebugFunction(EntityUid uid, CosmicCultComponent comp, ref DamageChangedEvent args) // TODO: This is a placeholder function to call other functions for testing & debugging.
+    private void DebugFunction(Entity<CosmicCultComponent> uid, ref DamageChangedEvent args) // TODO: This is a placeholder function to call other functions for testing & debugging.
     {
         _cleanse.DeconvertCultist(uid);
     }
