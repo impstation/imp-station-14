@@ -437,8 +437,11 @@
     Drink:
       effects:
         - !type:GenericStatusEffect
-          key: GrayAccent
+          key: UAP
           component: GrayAccent
+          type: Add
+          time: 2
+          refresh: false
         - !type:SatiateThirst
           factor: 2
         - !type:AdjustReagent

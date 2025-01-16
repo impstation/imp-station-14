@@ -5,3 +5,11 @@
     state: icon
   name: alerts-waddling-name
   description: alerts-waddling-desc
+  
+- type: alert
+  id: UAP
+  icons:
+  - sprite: _Impstation/Mobs/Species/Gray/parts.rsi
+    state: head_f
+  name: alerts-UAP-name
+  description: alerts-UAP-desc
