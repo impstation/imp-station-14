@@ -1,0 +1,25 @@
+- type: entity
+  id: CultGlyphBase
+  name: base glyph
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Fixtures
+    fixtures:
+      rune:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        hard: false
+        mask:
+        - ItemMask
+        layer:
+        - SlipLayer
+  - type: Physics
+  - type: Clickable
+  - type: Sprite
+    sprite: .rsi goes here
+    state: "offering"
+  - type: CultGlyphBase
+  - type: Appearance
