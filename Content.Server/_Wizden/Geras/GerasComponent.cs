@@ -15,4 +15,6 @@ public sealed partial class GerasComponent : Component
     [DataField] public EntProtoId GerasAction = "ActionMorphGeras";
 
     [DataField] public EntityUid? GerasActionEntity;
+
+    [DataField] public bool NoAction = false;
 }
