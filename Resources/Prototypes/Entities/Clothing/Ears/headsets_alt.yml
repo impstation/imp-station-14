@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   abstract: true
   parent: ClothingHeadset
   id: ClothingHeadsetAlt
@@ -22,7 +22,6 @@
       key_slots:
       - EncryptionKeyCargo
       - EncryptionKeyCommand
-      - EncryptionKeyCommon
   - type: Sprite
     sprite: Clothing/Ears/Headsets/cargo.rsi
   - type: Clothing
@@ -67,7 +66,6 @@
       key_slots:
       - EncryptionKeyEngineering
       - EncryptionKeyCommand
-      - EncryptionKeyCommon
   - type: Sprite
     sprite: Clothing/Ears/Headsets/engineering.rsi
   - type: Clothing
@@ -83,7 +81,6 @@
       key_slots:
       - EncryptionKeyMedical
       - EncryptionKeyCommand
-      - EncryptionKeyCommon
   - type: Sprite
     sprite: Clothing/Ears/Headsets/medical.rsi
   - type: Clothing
@@ -99,7 +96,6 @@
       key_slots:
       - EncryptionKeySecurity
       - EncryptionKeyCommand
-      - EncryptionKeyCommon
   - type: Sprite
     sprite: Clothing/Ears/Headsets/security.rsi
   - type: Clothing
@@ -115,7 +111,6 @@
       key_slots:
       - EncryptionKeyScience
       - EncryptionKeyCommand
-      - EncryptionKeyCommon
   - type: Sprite
     sprite: Clothing/Ears/Headsets/science.rsi
   - type: Clothing
