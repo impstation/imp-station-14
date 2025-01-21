@@ -86,7 +86,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
             {
                 if (!TryComp<MindContainerComponent>(uid, out var mindContainer))
                     continue;
-                Log.Debug($"Sending {mindContainer.Mind} back to their body!");
                 var mindEnt = mindContainer.Mind!.Value;
                 var mind = Comp<MindComponent>(mindEnt);
                 mind.PreventGhosting = false;
@@ -188,7 +187,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
 
     private void DebugFunction(Entity<CosmicCultComponent> uid, ref DamageChangedEvent args) // TODO: This is a placeholder function to call other functions for testing & debugging.
     {
-        _cleanse.DeconvertCultist(uid);
+        // _cleanse.DeconvertCultist(uid);
     }
 
 }

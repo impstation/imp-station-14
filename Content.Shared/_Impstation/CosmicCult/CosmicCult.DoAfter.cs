@@ -8,3 +8,6 @@ public sealed partial class EventCosmicSiphonDoAfter : SimpleDoAfterEvent { }
 
 [Serializable, NetSerializable]
 public sealed partial class EventCosmicBlankDoAfter : SimpleDoAfterEvent { }
+
+[Serializable, NetSerializable]
+public sealed partial class EventEraseGlyphDoAfter : SimpleDoAfterEvent { }

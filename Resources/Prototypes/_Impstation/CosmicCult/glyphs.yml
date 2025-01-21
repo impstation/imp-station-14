@@ -1,5 +1,5 @@
 - type: entity
-  id: CultGlyphBase
+  id: CosmicGlyphBase
   name: base glyph
   abstract: true
   placement:
@@ -18,8 +18,107 @@
         - SlipLayer
   - type: Physics
   - type: Clickable
+  - type: CosmicGlyph
   - type: Sprite
-    sprite: .rsi goes here
-    state: "offering"
-  - type: CultGlyphBase
+    layers:
+    - sprite: _Impstation/CosmicCult/Objects/glyphs.rsi
+      state: aid
   - type: Appearance
+
+- type: entity
+  parent: CosmicGlyphBase
+  id: CosmicGlyphTruth
+  name: Glyph of Truth
+  description: Lorem Ipsum
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Impstation/CosmicCult/Objects/glyphs.rsi
+      state: truth
+  - type: CosmicGlyphConversion
+  - type: CosmicGlyph
+    requiredCultists: 3
+    # activationDamage:
+    #   types:
+    #     Asphyxiation: 25
+
+- type: entity
+  parent: CosmicGlyphBase
+  id: CosmicGlyphKnowledge
+  name: Glyph of Knowledge
+  description: Lorem Ipsum
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Impstation/CosmicCult/Objects/glyphs.rsi
+      state: knowledge
+  - type: CosmicGlyphConversion
+  - type: CosmicGlyph
+    requiredCultists: 1 #TODO: this value should be 2. It is altered for testing.
+    # activationDamage:
+    #   types:
+    #     Asphyxiation: 25
+
+- type: entity
+  parent: CosmicGlyphBase
+  id: CosmicGlyphAid
+  name: Glyph of Aid
+  description: Lorem Ipsum
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Impstation/CosmicCult/Objects/glyphs.rsi
+      state: aid
+  - type: CosmicGlyph
+    requiredCultists: 3
+    # activationDamage:
+    #   types:
+    #     Asphyxiation: 25
+
+- type: entity
+  parent: CosmicGlyphBase
+  id: CosmicGlyphBlades
+  name: Glyph of Blades
+  description: Lorem Ipsum
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Impstation/CosmicCult/Objects/glyphs.rsi
+      state: blades
+  - type: CosmicGlyph
+    requiredCultists: 1
+    # activationDamage:
+    #   types:
+    #     Asphyxiation: 25
+
+- type: entity
+  parent: CosmicGlyphBase
+  id: CosmicGlyphWarding
+  name: Glyph of Warding
+  description: Lorem Ipsum
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Impstation/CosmicCult/Objects/glyphs.rsi
+      state: warding
+  - type: CosmicGlyph
+    requiredCultists: 1
+    # activationDamage:
+    #   types:
+    #     Asphyxiation: 25
+
+- type: entity
+  parent: CosmicGlyphBase
+  id: CosmicGlyphProjection
+  name: Glyph of Projection
+  description: Lorem Ipsum
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Impstation/CosmicCult/Objects/glyphs.rsi
+      state: projection
+  - type: CosmicGlyph
+    requiredCultists: 1
+    # activationDamage:
+    #   types:
+    #     Asphyxiation: 25

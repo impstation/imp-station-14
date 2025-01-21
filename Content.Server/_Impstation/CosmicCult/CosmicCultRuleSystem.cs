@@ -79,10 +79,10 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     /// FRANKENSTEINED HERETIC CODE FOR BRIEFING FRANKENSTEINED HERETIC CODE FOR BRIEFING FRANKENSTEINED HERETIC CODE FOR BRIEFING
     private void OnAntagSelect(Entity<CosmicCultRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
     {
-        TryStartCult(args.EntityUid, ent.Comp);
+        TryStartCult(args.EntityUid);
     }
 
-    public bool TryStartCult(EntityUid target, CosmicCultRuleComponent rule)
+    public bool TryStartCult(EntityUid target)
     {
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
             return false;
