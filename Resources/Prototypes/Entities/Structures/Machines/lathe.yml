@@ -204,6 +204,9 @@
       - ClothingHeadHatCone
       - FreezerElectronics
       - Flare
+      # Delta-V ports
+      - TapeRecorder
+      - CassetteTape
     dynamicRecipes:
       - Fulton
 
@@ -362,10 +365,10 @@
       - OreBagOfHolding
       - DeviceQuantumSpinInverter
       - CleanerGrenade #imp addition
-      # End DeltaV additions
       - EnergyScalpel # Shitmed Change
       - EnergyCautery # Shitmed Change
       - AdvancedRetractor # Shitmed Change
+      - PlantAnalyzer #NF addition
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - BoxBeanbag
@@ -499,7 +502,6 @@
       - SolarControlComputerCircuitboard
       - SolarTrackerElectronics
       - TurboItemRechargerCircuitboard
-      - PowerComputerCircuitboard
       - AutolatheHyperConvectionMachineCircuitboard
       - ProtolatheHyperConvectionMachineCircuitboard
       - CircuitImprinterHyperConvectionMachineCircuitboard
@@ -548,6 +550,7 @@
       - ReagentGrinderIndustrialMachineCircuitboard
       - JukeboxCircuitBoard
       - SMESAdvancedMachineCircuitboard
+      - HolopadMachineCircuitboard
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - ShuttleGunDusterCircuitboard
@@ -1108,6 +1111,9 @@
       - ClothingUniformJumpsuitWarden
       - ClothingUniformJumpskirtWarden
       - ClothingHeadHatParamedicsoft
+      - ClothingUniformJumpsuitCourier #Imp
+      - ClothingUniformJumpskirtCourier #Imp
+      - ClothingHeadHatCouriersoft #Imp
       # Winter outfits
       - ClothingOuterWinterCap
       - ClothingOuterWinterCE
@@ -1138,6 +1144,7 @@
       - ClothingOuterWinterRobo
       - ClothingOuterWinterSec
       - ClothingOuterWinterBrigmedic
+      - ClothingOuterWinterCourier #Imp
       # Ties
       - ClothingNeckTieRed
       - ClothingNeckTieDet

@@ -1024,9 +1024,6 @@
   id: Pizza
 
 - type: Tag
-  id: PlantAnalyzer
-
-- type: Tag
   id: PlantBGone
 
 - type: Tag
@@ -1398,6 +1395,9 @@
 
 - type: Tag
   id: WeldingMask
+
+- type: Tag #imp addon (why the fuck doesn't this exist upstream)
+  id: WeldingTool
 
 - type: Tag
   id: WetFloorSign

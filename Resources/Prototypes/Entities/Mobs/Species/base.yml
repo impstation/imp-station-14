@@ -139,6 +139,8 @@
     - Drowsiness
     - Adrenaline
     - Anesthesia # DeltaV - Anesthesia
+    - Feminized # DeltaV - Hormone system
+    - Masculinized # DeltaV - Hormone system
   - type: Body
     prototype: Human
     requiredLegs: 2
@@ -194,8 +196,8 @@
         type: StoreBoundUserInterface
       enum.HereticLivingHeartKey.Key: # goob edit - heretics
         type: LivingHeartMenuBoundUserInterface
-      enum.SpelfMoodsUiKey.Key: # impstation edit
-        type: SpelfMoodsBoundUserInterface
+      enum.ThavenMoodsUiKey.Key: # impstation edit
+        type: ThavenMoodsBoundUserInterface
         requireInputValidation: false
       # Shitmed
       enum.SurgeryUIKey.Key:
