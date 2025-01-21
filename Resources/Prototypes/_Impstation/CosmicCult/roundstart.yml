@@ -1,0 +1,46 @@
+- type: entity
+  parent: BaseGameRule
+  id: GameRuleCosmicCult
+  components:
+  - type: CosmicCultRule
+  - type: GameRule
+    minPlayers: 25
+    delay:
+      min: 240
+      max: 420
+  - type: AntagObjectives
+    objectives:
+    - CosmicFinalityObjective
+    - CosmicMonumentObjective
+    # - CosmicLeadershipObjective
+    - CosmicEntropyObjective
+  - type: AntagSelection
+    agentName: cosmiccult-roundend-name
+    definitions:
+    - prefRoles: [ CosmicAntagLeader ]
+      fallbackRoles: [ CosmicAntagCultist ]
+      min: 1
+      max: 1
+      blacklist:
+        components:
+        - AntagImmune
+        - BibleUser
+      components:
+      - type: CosmicCult
+      - type: CosmicCultLead
+      mindRoles:
+      - MindRoleCosmicCult
+    - prefRoles: [ CosmicAntagCultist ]
+      fallbackRoles: [ CosmicAntagLeader ]
+      min: 2
+      max: 4
+      playerRatio: 10
+      lateJoinAdditional: true
+      blacklist:
+        components:
+        - AntagImmune
+        - BibleUser
+      components:
+      - type: CosmicCult
+      mindRoles:
+      - MindRoleCosmicCult
