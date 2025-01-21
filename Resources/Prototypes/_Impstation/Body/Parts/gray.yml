@@ -6,6 +6,10 @@
   name: "gray body part"
   abstract: true
   components:
+  - type: Icon # Shitmed Change
+    sprite: _Impstation/Mobs/Species/Gray/parts.rsi
+  - type: BodyPart # Shitmed Change
+    species: Gray
   - type: Extractable
     juiceSolution:
       reagents:

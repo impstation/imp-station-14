@@ -4,6 +4,10 @@
   name: "thaven body part"
   abstract: true
   components:
+  - type: Icon # Shitmed Change
+    sprite: _Impstation/Mobs/Species/Thaven/parts.rsi
+  - type: BodyPart # Shitmed Change
+    species: Thaven
   - type: Extractable
     juiceSolution:
       reagents:

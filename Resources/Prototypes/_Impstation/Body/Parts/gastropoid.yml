@@ -1,21 +1,13 @@
 - type: entity
   id: PartGastropoid
-  parent: BaseItem
+  parent: [BaseItem, BasePart]
   name: "gastropoid body part"
   abstract: true
   components:
-  - type: Damageable
-    damageContainer: Biological
-  - type: BodyPart
-  - type: ContainerContainer
-    containers:
-      bodypart: !type:Container
-        ents: []
-  - type: StaticPrice
-    price: 100
-  - type: Tag
-    tags:
-      - Trash
+  - type: Icon # Shitmed Change
+    sprite: _Impstation/Mobs/Species/Snail/parts.rsi
+  - type: BodyPart # Shitmed Change
+    species: Gastropoid
   - type: Extractable
     juiceSolution:
       reagents:

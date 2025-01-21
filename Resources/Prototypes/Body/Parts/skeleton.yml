@@ -64,38 +64,6 @@
     tags:
     - MindTransferTarget
     - Head
-    - type: Sprite
-      sprite: Mobs/Species/Skeleton/parts.rsi
-      state: "skull_icon"
-    - type: Icon
-      sprite: Mobs/Species/Skeleton/parts.rsi
-      state: "skull_icon"
-    - type: BodyPart
-      partType: Head
-    - type: Input
-      context: "human"
-    - type: Speech
-      speechVerb: Skeleton
-    - type: SkeletonAccent
-    - type: Actions
-    - type: Vocal
-      sounds:
-        Male: Skeleton
-        Female: Skeleton
-        Unsexed: Skeleton
-    - type: Emoting
-    - type: Grammar
-      attributes:
-        proper: true
-    - type: Examiner
-    - type: DoAfter
-    - type: MobState
-      allowedStates:
-        - Alive
-    - type: Tag
-      tags:
-        - MindTransferTarget
-        - Head
 
 - type: entity
   parent: [ PartSkeletonBase, BaseLeftArm ]

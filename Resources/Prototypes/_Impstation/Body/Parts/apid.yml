@@ -1,9 +1,15 @@
+# TODO: Add descriptions (many)
+# TODO BODY: Part damage
 - type: entity
   id: PartApid
   parent: [BaseItem, BasePart]
   name: "apid body part"
   abstract: true
   components:
+  - type: Icon # Shitmed Change
+    sprite: _Impstation/Mobs/Species/Apid/parts.rsi
+  - type: BodyPart # Shitmed Change
+    species: Apid
   - type: Extractable
     juiceSolution:
       reagents:
