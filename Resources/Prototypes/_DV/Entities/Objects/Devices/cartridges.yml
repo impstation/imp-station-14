@@ -41,7 +41,7 @@
     access: [["Cargo"]]
   - type: StealTarget
     stealGroup: StockTradingCartridge
-    
+
 - type: entity
   parent: BaseItem
   id: MailMetricsCartridge
@@ -60,5 +60,5 @@
   - type: Cartridge
     programName: mail-metrics-program-name
     icon:
-      sprite: _Nyanotrasen/Objects/Specific/Mail/mail.rsi
+      sprite: _Impstation/Objects/Specific/Mail/mail.rsi # Imp
       state: icon

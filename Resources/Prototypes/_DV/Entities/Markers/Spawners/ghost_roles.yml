@@ -86,3 +86,16 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 3600 # 1 hour
+
+- type: entity
+  id: SpawnPointLocationMidRoundAntag # Nyano
+  name: mid-round antag spawn location
+  suffix: Fugitive, Paradox Anomaly
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - state: prisoner
+  - type: MidRoundAntagSpawnLocation
