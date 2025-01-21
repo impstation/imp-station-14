@@ -1,38 +1,41 @@
+using Content.Shared._Shitmed.Body.Components;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Interaction.Components;
 
 namespace Content.Shared._Shitmed.Body.Systems;
 
 public sealed class SharedAttachItemToSlotSystem : EntitySystem
 {
-    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<_Shitmed.Body.Components.AttachItemToHandComponent, HandCountChangedEvent>(HandCountChanged);
+        SubscribeLocalEvent<AttachItemToHandComponent, HandCountChangedEvent>(HandCountChanged);
     }
 
-    private void HandCountChanged(EntityUid uid, _Shitmed.Body.Components.AttachItemToHandComponent component, HandCountChangedEvent args)
+    private void HandCountChanged(Entity<AttachItemToHandComponent> ent, ref HandCountChangedEvent args)
     {
-        // Check if the hand slot matches and the entity has a HandsComponent
-        if (args.Hand != component.SlotId || !TryComp<HandsComponent>(uid, out var hands))
+        // Return if the hand slot doesn't match or the entity lacks hands
+        if (args.Hand != ent.Comp.SlotId || !TryComp<HandsComponent>(ent, out var hands))
             return;
 
-        // Attempt to get the TransformComponent
-        if (!EntityManager.TryGetComponent(uid, out TransformComponent? transformComponent))
-            return;
+        // Spawn Item
+        var itemEntity = Spawn(ent.Comp.Item, Transform(ent).Coordinates);
+        ent.Comp.ItemEntity = itemEntity;
 
-        // Spawn the attachment entity and attempt to pick it up
-        component.ItemEntity = EntityManager.SpawnEntity(component.Item, transformComponent.Coordinates);
-        _handsSystem.TryPickup(uid, component.ItemEntity, component.SlotId);
+        // Ensure attachment has the UnremovableComponent
+        EntityManager.EnsureComponent<UnremoveableComponent>(itemEntity);
 
-        if (!_handsSystem.TryGetHand(uid, component.SlotId, out _, hands))
+        // Attempt to pick up the item
+        if (!_hands.TryPickup(ent, itemEntity, ent.Comp.SlotId) ||
+            !_hands.TryGetHand(ent, ent.Comp.SlotId, out _, hands))
         {
-            //if the hand is removed, this item should no longer exist
-            Del(component.ItemEntity);
+            // If the hand is removed, delete the item
+            Del(itemEntity);
         }
     }
 }

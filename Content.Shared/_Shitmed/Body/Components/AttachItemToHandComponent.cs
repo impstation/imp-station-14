@@ -1,9 +1,8 @@
-using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Shitmed.Body.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, AutoGenerateComponentState]
 public sealed partial class AttachItemToHandComponent : Component
 {
     [DataField, AutoNetworkedField]
