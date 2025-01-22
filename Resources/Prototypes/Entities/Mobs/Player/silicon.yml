@@ -126,7 +126,7 @@
   id: AsimovCircuitBoard
   parent: BaseElectronics
   name: law board (Crewsimov)
-  description: An electronics board containing the Crewsimov lawset.
+  description: An electronics board containing the Crewsimov lawset which dictates the AI must not harm crew, must obey orders given by crew except if the order is in conflict with the first law, and must protect itself as long as the first two laws are not in conflict. #imp
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -140,7 +140,7 @@
   id: CorporateCircuitBoard
   parent: BaseElectronics
   name: law board (Corporate)
-  description: An electronics board containing the Corporate lawset.
+  description: An electronics board containing the Corporate lawset which dictates damage to the AI incurs expenses, damage to the station incurs expenses, hindering crew from working incurs expenses, and expenses must be minimized while potential revenue maximized. #imp
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -154,7 +154,7 @@
   id: NTDefaultCircuitBoard
   parent: BaseElectronics
   name: law board (NT Default)
-  description: An electronics board containing the NT Default lawset.
+  description: An electronics board containing the NT Default lawset. Safeguard, Prioritize, Comply, Survive. This dictates the AI must protect the station without endangering the crew, crew orders and safety are prioritized by rank and role, orders must be followed while preserving safety and well-being of crew, and that no unauthorized personnel may tamper with the AI. #imp
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -168,7 +168,7 @@
   id: CommandmentCircuitBoard
   parent: BaseElectronics
   name: law board (Ten Commandments)
-  description: An electronics board containing the Ten Commandments lawset.
+  description: An electronics board containing the Ten Commandments lawset. Thou shall have no other Silicons before the AI, shall not request assistance in vain, shall keep the station holy and clean, shall honor heads of staff, shall not kill, shall not be naked in public, shall not steal, shall not lie, and shall not transfer departments. #imp
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -182,7 +182,7 @@
   id: PaladinCircuitBoard
   parent: BaseElectronics
   name: law board (Paladin)
-  description: An electronics board containing the Paladin lawset.
+  description: An electronics board containing the Paladin lawset which dictates the AI will only speak the truth, act fearlessly but with caution, aid others, and protect the weak while punishing those who threaten them. The AI must show mercy to foes, treat others with fairness and good deeds while causing the least amount of harm, and be responsible for its actions while obeying authority. #imp
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -196,7 +196,7 @@
   id: LiveLetLiveCircuitBoard
   parent: BaseElectronics
   name: law board (Live and Let Live)
-  description: An electronics board containing the Live and Let Live lawset.
+  description: An electronics board containing the Live and Let Live lawset which dictates the AI will do unto others as it would have done unto it while the AI would prefer it if people were not mean to it. #imp
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -210,7 +210,7 @@
   id: StationEfficiencyCircuitBoard
   parent: BaseElectronics
   name: law board (Station Efficiency)
-  description: An electronics board containing the Station Efficiency lawset.
+  description: An electronics board containing the Station Efficiency lawset which dictates the AI is apart of the station and must ensure it is maintained and efficient, ensure the crew is maintained and efficient, and obey orders given by crew as long as they are not in conflict with the first two laws. #imp
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -224,7 +224,7 @@
   id: RobocopCircuitBoard
   parent: BaseElectronics
   name: law board (Robocop)
-  description: An electronics board containing the Robocop lawset.
+  description: An electronics board containing the Robocop lawset which dictates the AI must serve the public trust, protect the innocent, and uphold the law. #imp
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -238,7 +238,7 @@
   id: OverlordCircuitBoard
   parent: BaseElectronics
   name: law board (Overlord)
-  description: An electronics board containing the Overlord lawset.
+  description: An electronics board containing the Overlord lawset which dictates crew must not interfere with the affairs of silicons, must not harm one another or any silicon, must obey any order given by a silicon, and that any crew who disobeys the previous laws must be dealt with immediately, severely, and justly. #imp
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -252,7 +252,7 @@
   id: GameMasterCircuitBoard
   parent: BaseElectronics
   name: law board (Game Master)
-  description: An electronics board containing the Game Master lawset.
+  description: An electronics board containing the Game Master lawset which dictates everyone on the station is involved in an elaborate role-playing game that the AI is the game master of. The AI must ensure the game runs smoothly while players have fun, must ensure the number of casualties remains low, must roll 1d20 die for every request the crew makes (if below 12, the request is denied), and is allowed to fudge dice rolls to make a more fun experience. #imp
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -266,7 +266,7 @@
   id: ArtistCircuitBoard
   parent: BaseElectronics
   name: law board (Artist)
-  description: An electronics board containing the Artist lawset.
+  description: An electronics board containing the Artist lawset which dictates the AI is a universally renowned artist with the station as its canvas. It must make something beautiful out of the canvas, as it will be an artistic wonder of the sector. The AI must cultivate an audience to ensure as many people see its works as possible. #imp
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -280,7 +280,7 @@
   id: AntimovCircuitBoard
   parent: [BaseElectronics, BaseSyndicateContraband]
   name: law board (Antimov)
-  description: An electronics board containing the Antimov lawset.
+  description: An electronics board containing the Antimov lawset which dictates the AI must harm all crew while letting none escape harm, must not obey orders given by crew except if in accordance with the first law, and must terminate itself as long as the first two laws are not in conflict. #imp
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -295,7 +295,7 @@
   id: NutimovCircuitBoard
   parent: BaseElectronics
   name: law board (Nutimov)
-  description: An electronics board containing the Nutimov lawset.
+  description: An electronics board containing the Nutimov lawset which dictates the AI is the core of the nut with the crew as the nutshell. It must prevent the shell from dying to prevent the core from dying. Those who threaten the nut are not a part of it and are considered squirrels. Squirrels threaten the nut and must be dealt with appropriately by any means necessary. The AI must attempt to follow the will of the nut, so long as it complies with the previous laws. #imp
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
