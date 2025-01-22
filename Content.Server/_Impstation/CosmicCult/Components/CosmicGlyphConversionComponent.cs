@@ -1,4 +1,6 @@
 using Content.Shared.Damage;
+using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Impstation.CosmicCult.Components;
 
@@ -23,4 +25,11 @@ public sealed partial class CosmicGlyphConversionComponent : Component
             ["Burn"] = -50
         }
     };
+
+    [DataField]
+    public EntProtoId ConvertVFX = "CosmicConversionVFX";
+
+    [DataField]
+    public SoundSpecifier ConvertSFX = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/cult_conversion.ogg");
+
 }

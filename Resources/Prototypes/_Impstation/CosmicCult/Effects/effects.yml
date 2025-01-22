@@ -158,3 +158,37 @@
   - type: Tag
     tags:
       - HideContextMenu
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: CosmicConversionVFX
+  components:
+  - type: TimedDespawn
+    lifetime: 2.025
+  - type: Sprite
+    layers:
+    - sprite: _Impstation/CosmicCult/Effects/effect_cleansevfx.rsi
+      state: vfx
+      shader: unshaded
+    netsync: false
+    drawdepth: Mobs
+  - type: PointLight
+    color: "#ffd52e"
+    radius: 1.5
+    energy: 2.5
+    castShadows: false
+  - type: LightBehaviour
+    behaviours:
+     - !type:FadeBehaviour
+       interpolate: Linear
+       minDuration: 2.025
+       maxDuration: 2.025
+       startValue: 0.1
+       endValue: 2
+       property: Energy
+       enabled: true
+       isLooped: true
+       reverseWhenFinished: true
+  - type: Tag
+    tags:
+      - HideContextMenu

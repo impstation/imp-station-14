@@ -1,45 +1,27 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Antag;
-using Content.Server.EUI;
-using Content.Server.Flash;
 using Content.Server.Mind;
-using Content.Server.Popups;
 using Content.Server.GameTicking.Rules;
-using Content.Server.GameTicking;
-using Content.Server._Impstation.CosmicCult;
 using Content.Server._Impstation.CosmicCult.Components;
 using Content.Server.Roles;
-using Content.Server.Objectives;
-using Content.Server.Objectives.Components;
-using Content.Server.RoundEnd;
-using Content.Server.Shuttles.Systems;
-using Content.Server.Station.Systems;
-using Content.Shared.Database;
-using Content.Shared.GameTicking.Components;
 using Content.Shared.Humanoid;
-using Content.Shared.IdentityManagement;
-using Content.Shared.Mind.Components;
-using Content.Shared.Mindshield.Components;
-using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
 using Content.Shared._Impstation.CosmicCult.Components;
-using Content.Shared._Impstation.CosmicCult;
-using Content.Shared.Stunnable;
 using Content.Shared.Zombies;
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 using Robust.Shared.Audio;
-using Content.Shared.Cuffs.Components;
 using Content.Server.Radio.Components;
 using Content.Shared.Heretic;
+using Content.Shared.Damage;
+using Content.Shared.Objectives.Systems;
+using SixLabors.ImageSharp.Formats.Tga;
 using Robust.Shared.Player;
 using Content.Server.Antag.Components;
 using System.Linq;
-using Content.Shared.Damage;
+using Content.Shared.NPC.Components;
 
 namespace Content.Server._Impstation.CosmicCult;
 
@@ -48,25 +30,18 @@ namespace Content.Server._Impstation.CosmicCult;
 /// </summary>
 public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponent>
 {
-    [Dependency] private readonly IAdminLogManager _adminLogManager = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogManager = default!; // TODO: add logs for Cosmic Cult
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-    [Dependency] private readonly ObjectivesSystem _objective = default!;
-    [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
-    [Dependency] private readonly EuiManager _euiMan = default!;
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
-    [Dependency] private readonly StationSystem _stationSystem = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedObjectivesSystem _objectives = default!;
 
-    public readonly ProtoId<NpcFactionPrototype> CosmicCultFactionId = "CosmicCultFaction";
-    public readonly ProtoId<NpcFactionPrototype> CosmicCultPrototypeId = "CosmicCult";
-    public readonly ProtoId<NpcFactionPrototype> NanotrasenFactionId = "NanoTrasen";
+    [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> NanoTrasenFactionId = "NanoTrasen";
+    [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> CosmicFactionId = "CosmicCultFaction";
     public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/antag_cosmic_briefing.ogg");
+
     public override void Initialize()
     {
         base.Initialize();
@@ -75,94 +50,95 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         SubscribeLocalEvent<CosmicCultLeadComponent, DamageChangedEvent>(DebugFunction); // TODO: This is a placeholder function to call other functions for testing & debugging.
     }
+    private void OnAntagSelect(Entity<CosmicCultRuleComponent> ent, ref AfterAntagEntitySelectedEvent args) =>
+        TryStartCult(args.EntityUid, ent);
 
-    /// FRANKENSTEINED HERETIC CODE FOR BRIEFING FRANKENSTEINED HERETIC CODE FOR BRIEFING FRANKENSTEINED HERETIC CODE FOR BRIEFING
-    private void OnAntagSelect(Entity<CosmicCultRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
+    public void TryStartCult(EntityUid uid, Entity<CosmicCultRuleComponent> rule)
     {
-        TryStartCult(args.EntityUid);
-    }
-
-    public bool TryStartCult(EntityUid target)
-    {
-        if (!_mind.TryGetMind(target, out var mindId, out var mind))
-            return false;
-
-        // briefing
-        if (TryComp<MetaDataComponent>(target, out var metaData))
+        if (!_mind.TryGetMind(uid, out var mindId, out var mind))
+            return;
+        _role.MindAddRole(mindId, "MindRoleCosmicCult", mind, true);
+        _role.MindHasRole<CosmicCultRoleComponent>(mindId, out var cosmicRole);
+        if (cosmicRole is not null)
         {
-            var briefingShort = Loc.GetString("objective-cosmiccult-charactermenu", ("name", metaData?.EntityName ?? "Unknown"));
-
-            _antag.SendBriefing(target, Loc.GetString("cosmiccult-role-roundstart-fluff"), Color.FromHex("#4cabb3"), BriefingSound);
-            _antag.SendBriefing(target, Loc.GetString("cosmiccult-role-short-briefing"), Color.FromHex("#cae8e8"), null);
-
-            if (_role.MindHasRole<CosmicCultRoleComponent>(mindId, out var rbc))
-            {
-                EnsureComp<RoleBriefingComponent>(rbc.Value.Owner);
-                Comp<RoleBriefingComponent>(rbc.Value.Owner).Briefing = briefingShort;
-            }
-            else
-                _role.MindAddRole(mindId, "MindRoleCosmicCult", mind, true);
+            EnsureComp<RoleBriefingComponent>(cosmicRole.Value.Owner);
+            Comp<RoleBriefingComponent>(cosmicRole.Value.Owner).Briefing = Loc.GetString("objective-cosmiccult-charactermenu");
         }
-        _npcFaction.RemoveFaction(target, NanotrasenFactionId, false);
-        _npcFaction.AddFaction(target, CosmicCultFactionId);
 
-        EnsureComp<CosmicCultComponent>(target);
-        EnsureComp<IntrinsicRadioReceiverComponent>(target);
-        var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(target);
-        var radio = EnsureComp<ActiveRadioComponent>(target);
+        _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-roundstart-fluff"), Color.FromHex("#4cabb3"), BriefingSound);
+        _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-short-briefing"), Color.FromHex("#cae8e8"), null);
+
+        EnsureComp<CosmicCultComponent>(uid);
+        EnsureComp<IntrinsicRadioReceiverComponent>(uid);
+        var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(uid);
+        var radio = EnsureComp<ActiveRadioComponent>(uid);
         radio.Channels = new() { "CosmicRadio" };
         transmitter.Channels = new() { "CosmicRadio" };
 
-        return true;
+        _npcFaction.RemoveFaction(uid, NanoTrasenFactionId);
+        _npcFaction.AddFaction(uid, CosmicFactionId);
+
+        _mind.TryAddObjective(mindId, mind, "CosmicEntropyObjective");
     }
-    /// FRANKENSTEINED HERETIC CODE FOR BRIEFING FRANKENSTEINED HERETIC CODE FOR BRIEFING FRANKENSTEINED HERETIC CODE FOR BRIEFING
 
-    // private void ConvertCultist(EntityUid uid, HumanoidAppearanceComponent comp, MobStateChangedEvent args)
-    // {
-    //     var tgt = args.Target;
-    //     if (!_mind.TryGetMind(ev.Target, out var mindId, out var mind) && !alwaysConvertible)
-    //         return;
+    public void CosmicConversion(EntityUid uid)
+    {
+        if (!_mind.TryGetMind(uid, out var mindId, out var mind))
+            return;
+        _role.MindAddRole(mindId, "MindRoleCosmicCult", mind, true);
+        _role.MindHasRole<CosmicCultRoleComponent>(mindId, out var cosmicRole);
+        if (cosmicRole is not null)
+        {
+            EnsureComp<RoleBriefingComponent>(cosmicRole.Value.Owner);
+            Comp<RoleBriefingComponent>(cosmicRole.Value.Owner).Briefing = Loc.GetString("objective-cosmiccult-charactermenu");
+        }
+        _antag.SendBriefing(mind.Session, Loc.GetString("cosmiccult-role-conversion-fluff"), Color.FromHex("#4cabb3"), BriefingSound);
+        _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-short-briefing"), Color.FromHex("#cae8e8"), null);
 
-    //     if (HasComp<CosmicCultComponent>(tgt) ||
-    //         HasComp<HereticComponent>(tgt) || ///LET'S MAKE SURE TO CATCH HERETICS SO WE CAN'T CONVERT THESE
-    //         !HasComp<HumanoidAppearanceComponent>(tgt) &&
-    //         !alwaysConvertible ||
-    //         !_mobState.IsAlive(tgt) ||
-    //         HasComp<ZombieComponent>(tgt))
-    //     {
-    //         return;
-    //     }
+        EnsureComp<CosmicCultComponent>(uid);
+        EnsureComp<IntrinsicRadioReceiverComponent>(uid);
+        var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(uid);
+        var radio = EnsureComp<ActiveRadioComponent>(uid);
+        radio.Channels = new() { "CosmicRadio" };
+        transmitter.Channels = new() { "CosmicRadio" };
 
-    //     _npcFaction.AddFaction(ev.Target, CosmicCultFactionId);
-    //     var cosmiccultComp = EnsureComp<CosmicCultComponent>(ev.Target);
+        _npcFaction.RemoveFaction((uid, null), NanoTrasenFactionId);
+        _npcFaction.AddFaction((uid, null), CosmicFactionId);
 
-    //     if (ev.User != null)
-    //     {
-    //         _adminLogManager.Add(LogType.Mind,
-    //             LogImpact.Medium,
-    //             $"{ToPrettyString(ev.User.Value)} converted {ToPrettyString(ev.Target)} into a Cosmic Cultist!");
+        _mind.TryAddObjective(mindId, mind, "CosmicFinalityObjective");
+        _mind.TryAddObjective(mindId, mind, "CosmicMonumentObjective");
+        _mind.TryAddObjective(mindId, mind, "CosmicEntropyObjective");
+    }
 
-    //         if (_mind.TryGetMind(ev.User.Value, out var cosmiccultMindId, out _))
-    //         {
-    //             if (_role.MindHasRole<CosmicCultRoleComponent>(cosmiccultMindId, out var role))
-    //                 role.Value.Comp2.ConvertedCount++;
-    //         }
-    //     }
+        // var tgt = ent.Owner;
+        // if (!_mind.TryGetMind(tgt, out var mindId, out var mind))
+        //     return;
 
-    //     if (mindId == default || !_role.MindHasRole<CosmicCultRoleComponent>(mindId))
-    //     {
-    //         _role.MindAddRole(mindId, "MindRoleCosmicCult", mind, true);
-    //     }
+        // if (HasComp<CosmicCultComponent>(tgt) || HasComp<HereticComponent>(tgt) || !HasComp<HumanoidAppearanceComponent>(tgt) || !_mobState.IsAlive(tgt) || HasComp<ZombieComponent>(tgt))
+        //     return;
 
-    //     if (mind?.Session != null)
-    //     {
-    //         _antag.SendBriefing(mind.Session, Loc.GetString("cosmiccult-role-conversion-fluff"), Color.FromHex("#4cabb3"), BriefingSound);
-    //         _antag.SendBriefing(mind.Session, Loc.GetString("cosmiccult-role-short-briefing"), Color.FromHex("#cae8e8"), null);
-    //            EnsureComp<RoleBriefingComponent>(ev.Target);
-    //            Comp<RoleBriefingComponent>(ev.Target).Briefing = Loc.GetString("objective-cosmiccult-description", ("name", mind.CharacterName ?? "Unknown"));
-    //     }
+        // EnsureComp<RoleBriefingComponent>(tgt);
+        // EnsureComp<CosmicCultComponent>(tgt);
+        // EnsureComp<IntrinsicRadioReceiverComponent>(tgt);
+        // var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(tgt);
+        // var radio = EnsureComp<ActiveRadioComponent>(tgt);
+        // radio.Channels = new() { "CosmicRadio" };
+        // transmitter.Channels = new() { "CosmicRadio" };
 
-    // }
+        // if (mindId == default || !_role.MindHasRole<CosmicCultRoleComponent>(mindId))
+        // {
+        //     _role.MindAddRole(mindId, "MindRoleCosmicCult", mind, true);
+        // }
+
+        // if (mind?.Session != null)
+        // {
+        //     _antag.SendBriefing(mind.Session, Loc.GetString("cosmiccult-role-conversion-fluff"), Color.FromHex("#4cabb3"), BriefingSound);
+        //     _antag.SendBriefing(mind.Session, Loc.GetString("cosmiccult-role-short-briefing"), Color.FromHex("#cae8e8"), null);
+        //     Comp<RoleBriefingComponent>(tgt).Briefing = Loc.GetString("objective-cosmiccult-description", ("name", mind.CharacterName ?? "Unknown"));
+        //     _objectives.TryCreateObjective(mindId, mind, "CosmicFinalityObjective");
+        //     _objectives.TryCreateObjective(mindId, mind, "CosmicMonumentObjective");
+        //     _objectives.TryCreateObjective(mindId, mind, "CosmicEntropyObjective");
+        // }
 
     private void DebugFunction(EntityUid uid, CosmicCultLeadComponent comp, ref DamageChangedEvent args) // TODO: This is a placeholder function to call other functions for testing & debugging.
     {

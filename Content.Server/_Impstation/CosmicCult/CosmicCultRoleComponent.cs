@@ -8,9 +8,5 @@ namespace Content.Server.Roles;
 [RegisterComponent]
 public sealed partial class CosmicCultRoleComponent : BaseMindRoleComponent
 {
-    /// <summary>
-    /// For cult leads, how many people you have converted.
-    /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public uint ConvertedCount = 0;
+
 }

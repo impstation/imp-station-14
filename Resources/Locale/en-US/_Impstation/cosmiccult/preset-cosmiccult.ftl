@@ -70,7 +70,7 @@ cosmiccult-ui-deconverted-confirm = Confirm
 
 objective-issuer-cosmiccult = [bold][color=#cae8e8]The Unknown[/color][/bold]
 
-objective-cosmiccult-charactermenu = You must usher in the end of all things, {$name}. Complete your tasks to advance the cult's progress.
+objective-cosmiccult-charactermenu = You must usher in the end of all things. Complete your tasks to advance the cult's progress.
 
 objective-condition-entropy-desc = As a cult, collectively siphon at least {$count} entropy.
 
