@@ -161,19 +161,19 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  id: CosmicConversionVFX
+  id: CosmicGlyphVFX
   components:
   - type: TimedDespawn
     lifetime: 2.025
   - type: Sprite
     layers:
-    - sprite: _Impstation/CosmicCult/Effects/effect_cleansevfx.rsi
+    - sprite: _Impstation/CosmicCult/Effects/effect_glyphvfx.rsi
       state: vfx
       shader: unshaded
     netsync: false
     drawdepth: Mobs
   - type: PointLight
-    color: "#ffd52e"
+    color: "#42a4ae"
     radius: 1.5
     energy: 2.5
     castShadows: false

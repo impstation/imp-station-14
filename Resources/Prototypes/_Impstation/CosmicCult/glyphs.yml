@@ -20,9 +20,9 @@
   - type: Clickable
   - type: CosmicGlyph
   - type: Sprite
+    sprite: _Impstation/CosmicCult/Objects/glyphs.rsi
     layers:
-    - sprite: _Impstation/CosmicCult/Objects/glyphs.rsi
-      state: aid
+      - state: aid
   - type: Appearance
 
 - type: entity
@@ -32,9 +32,9 @@
   description: Lorem Ipsum
   components:
   - type: Sprite
+    sprite: _Impstation/CosmicCult/Objects/glyphs.rsi
     layers:
-    - sprite: _Impstation/CosmicCult/Objects/glyphs.rsi
-      state: truth
+      - state: truth
   - type: CosmicGlyphConversion
   - type: CosmicGlyph
     requiredCultists: 3
@@ -49,9 +49,9 @@
   description: Lorem Ipsum
   components:
   - type: Sprite
+    sprite: _Impstation/CosmicCult/Objects/glyphs.rsi
     layers:
-    - sprite: _Impstation/CosmicCult/Objects/glyphs.rsi
-      state: knowledge
+      - state: knowledge
   - type: CosmicGlyphConversion
   - type: CosmicGlyph
     requiredCultists: 0 #TODO: this value should be 2. It is altered for testing.
@@ -82,9 +82,9 @@
   description: Lorem Ipsum
   components:
   - type: Sprite
+    sprite: _Impstation/CosmicCult/Objects/glyphs.rsi
     layers:
-    - sprite: _Impstation/CosmicCult/Objects/glyphs.rsi
-      state: blades
+      - state: blades
   - type: CosmicGlyph
     requiredCultists: 1
     # activationDamage:
@@ -98,9 +98,9 @@
   description: Lorem Ipsum
   components:
   - type: Sprite
+    sprite: _Impstation/CosmicCult/Objects/glyphs.rsi
     layers:
-    - sprite: _Impstation/CosmicCult/Objects/glyphs.rsi
-      state: warding
+      - state: warding
   - type: CosmicGlyph
     requiredCultists: 1
     # activationDamage:
@@ -114,9 +114,9 @@
   description: Lorem Ipsum
   components:
   - type: Sprite
+    sprite: _Impstation/CosmicCult/Objects/glyphs.rsi
     layers:
-    - sprite: _Impstation/CosmicCult/Objects/glyphs.rsi
-      state: projection
+      - state: projection
   - type: CosmicGlyph
     requiredCultists: 1
     # activationDamage:

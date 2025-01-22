@@ -25,11 +25,4 @@ public sealed partial class CosmicGlyphConversionComponent : Component
             ["Burn"] = -50
         }
     };
-
-    [DataField]
-    public EntProtoId ConvertVFX = "CosmicConversionVFX";
-
-    [DataField]
-    public SoundSpecifier ConvertSFX = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/cult_conversion.ogg");
-
 }

@@ -21,6 +21,7 @@ cosmiccult-gamemode-description =
 
 
 
+
 ## BRIEFINGS
 
 cosmiccult-role-roundstart-fluff =
@@ -51,17 +52,33 @@ cosmiccult-role-deconverted-briefing =
     You are no longer a Cosmic Cultist.
 
 
-## UI / DECONVERSION POPUP
+
+
+## UI / BASE POPUP
 
 cosmiccult-ui-deconverted-title = Deconverted
+cosmiccult-ui-converted-title = Converted
+cosmiccult-ui-roundstart-title = The Unknown
+
+cosmiccult-ui-converted-text-1 =
+    You have been converted into a Cosmic Cultist.
+cosmiccult-ui-converted-text-2 =
+    Aid the cult in its goals whilst ensuring its secrecy.
+    Cooperate with your fellow cultists' plans.
+
+cosmiccult-ui-roundstart-text-1 =
+    You are a Cosmic Cultist.
+cosmiccult-ui-roundstart-text-2 =
+    Aid the cult in its goals whilst ensuring its secrecy.
+    Listen to your cult leader's directions.
+
 cosmiccult-ui-deconverted-text-1 =
     You are no longer a Cosmic Cultist.
 cosmiccult-ui-deconverted-text-2 =
     You have lost all memories pertaining to the Cosmic Cult.
     If you are converted back, these memories will return.
 
-cosmiccult-ui-deconverted-confirm = Confirm
-
+cosmiccult-ui-popup-confirm = Confirm
 
 
 

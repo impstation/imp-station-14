@@ -37,9 +37,9 @@ public sealed class CosmicGlyphSystem : EntitySystem
     private void OnUseGlyph(Entity<CosmicGlyphComponent> uid, ref ActivateInWorldEvent args)
     {
         Log.Debug($"Glyph event triggered!");
-        var glyphCoords = Transform(uid).Coordinates;
+        var tgtpos = Transform(uid).Coordinates;
         var userCoords = Transform(args.User).Coordinates;
-        if (args.Handled || !userCoords.TryDistance(EntityManager, glyphCoords, out var distance) || distance > uid.Comp.ActivationRange) // || !HasComp<CosmicCultComponent>(args.User)
+        if (args.Handled || !userCoords.TryDistance(EntityManager, tgtpos, out var distance) || distance > uid.Comp.ActivationRange) // || !HasComp<CosmicCultComponent>(args.User)
             return;
 
         args.Handled = true;
@@ -47,7 +47,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
         var cultists = GatherCultists(uid, uid.Comp.ActivationRange);
         if (cultists.Count < uid.Comp.RequiredCultists)
         {
-            _popup.PopupEntity(Loc.GetString("cult-rune-not-enough-cultists"), uid, args.User);
+            _popup.PopupEntity(Loc.GetString("cult-glyph-not-enough-cultists"), uid, args.User);
             return;
         }
 
@@ -60,20 +60,23 @@ public sealed class CosmicGlyphSystem : EntitySystem
         {
             DealDamage(cultist, uid.Comp.ActivationDamage);
         }
+        _audio.PlayPvs(uid.Comp.GylphSFX, tgtpos, AudioParams.Default.WithVolume(+1f));
+        Spawn(uid.Comp.GylphVFX, tgtpos);
         QueueDel(uid);
     }
 
     private void OnConversionGlyph(Entity<CosmicGlyphConversionComponent> uid, ref TryActivateGlyphEvent args)
     {
-        var tgtpos = Transform(uid).Coordinates;
         var possibleTargets = GetTargetsNearRune(uid, uid.Comp.ConversionRange, entity => HasComp<CosmicCultComponent>(entity));
         if (possibleTargets.Count == 0)
         {
+            _popup.PopupEntity(Loc.GetString("cult-glyph-nohing-to-convert"), uid, args.User);
             args.Cancel();
             return;
         }
         if (possibleTargets.Count > 1)
         {
+            _popup.PopupEntity(Loc.GetString("cult-glyph-too-many-targets"), uid, args.User);
             args.Cancel();
             return;
         }
@@ -84,9 +87,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
                 return;
             else
             {
-                _audio.PlayPvs(uid.Comp.ConvertSFX, tgtpos, AudioParams.Default.WithVolume(+1f));
-                Spawn(uid.Comp.ConvertVFX, tgtpos);
-                _stun.TryKnockdown(target, TimeSpan.FromSeconds(4f), false);
+                _stun.TryStun(target, TimeSpan.FromSeconds(4f), false);
                 _cultRule.CosmicConversion(target);
             }
         }

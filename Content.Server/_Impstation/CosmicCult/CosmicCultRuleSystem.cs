@@ -22,6 +22,7 @@ using Robust.Shared.Player;
 using Content.Server.Antag.Components;
 using System.Linq;
 using Content.Shared.NPC.Components;
+using Content.Server.EUI;
 
 namespace Content.Server._Impstation.CosmicCult;
 
@@ -37,6 +38,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedObjectivesSystem _objectives = default!;
+    [Dependency] private readonly EuiManager _euiMan = default!;
 
     [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> NanoTrasenFactionId = "NanoTrasen";
     [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> CosmicFactionId = "CosmicCultFaction";
@@ -47,7 +49,6 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         base.Initialize();
 
         SubscribeLocalEvent<CosmicCultRuleComponent, AfterAntagEntitySelectedEvent>(OnAntagSelect);
-
         SubscribeLocalEvent<CosmicCultLeadComponent, DamageChangedEvent>(DebugFunction); // TODO: This is a placeholder function to call other functions for testing & debugging.
     }
     private void OnAntagSelect(Entity<CosmicCultRuleComponent> ent, ref AfterAntagEntitySelectedEvent args) =>
@@ -77,8 +78,10 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         _npcFaction.RemoveFaction(uid, NanoTrasenFactionId);
         _npcFaction.AddFaction(uid, CosmicFactionId);
-
-        _mind.TryAddObjective(mindId, mind, "CosmicEntropyObjective");
+        if (_mind.TryGetSession(mindId, out var session))
+        {
+            _euiMan.OpenEui(new CosmicRoundStartEui(), session);
+        }
     }
 
     public void CosmicConversion(EntityUid uid)
@@ -108,38 +111,11 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         _mind.TryAddObjective(mindId, mind, "CosmicFinalityObjective");
         _mind.TryAddObjective(mindId, mind, "CosmicMonumentObjective");
         _mind.TryAddObjective(mindId, mind, "CosmicEntropyObjective");
+        if (_mind.TryGetSession(mindId, out var session))
+        {
+            _euiMan.OpenEui(new CosmicConvertedEui(), session);
+        }
     }
-
-        // var tgt = ent.Owner;
-        // if (!_mind.TryGetMind(tgt, out var mindId, out var mind))
-        //     return;
-
-        // if (HasComp<CosmicCultComponent>(tgt) || HasComp<HereticComponent>(tgt) || !HasComp<HumanoidAppearanceComponent>(tgt) || !_mobState.IsAlive(tgt) || HasComp<ZombieComponent>(tgt))
-        //     return;
-
-        // EnsureComp<RoleBriefingComponent>(tgt);
-        // EnsureComp<CosmicCultComponent>(tgt);
-        // EnsureComp<IntrinsicRadioReceiverComponent>(tgt);
-        // var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(tgt);
-        // var radio = EnsureComp<ActiveRadioComponent>(tgt);
-        // radio.Channels = new() { "CosmicRadio" };
-        // transmitter.Channels = new() { "CosmicRadio" };
-
-        // if (mindId == default || !_role.MindHasRole<CosmicCultRoleComponent>(mindId))
-        // {
-        //     _role.MindAddRole(mindId, "MindRoleCosmicCult", mind, true);
-        // }
-
-        // if (mind?.Session != null)
-        // {
-        //     _antag.SendBriefing(mind.Session, Loc.GetString("cosmiccult-role-conversion-fluff"), Color.FromHex("#4cabb3"), BriefingSound);
-        //     _antag.SendBriefing(mind.Session, Loc.GetString("cosmiccult-role-short-briefing"), Color.FromHex("#cae8e8"), null);
-        //     Comp<RoleBriefingComponent>(tgt).Briefing = Loc.GetString("objective-cosmiccult-description", ("name", mind.CharacterName ?? "Unknown"));
-        //     _objectives.TryCreateObjective(mindId, mind, "CosmicFinalityObjective");
-        //     _objectives.TryCreateObjective(mindId, mind, "CosmicMonumentObjective");
-        //     _objectives.TryCreateObjective(mindId, mind, "CosmicEntropyObjective");
-        // }
-
     private void DebugFunction(EntityUid uid, CosmicCultLeadComponent comp, ref DamageChangedEvent args) // TODO: This is a placeholder function to call other functions for testing & debugging.
     {
 
