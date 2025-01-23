@@ -10,6 +10,13 @@
     sprite: _Impstation/Mobs/Species/Apid/parts.rsi
   - type: BodyPart # Shitmed Change
     species: Apid
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 1
+      - ReagentId: InsectBlood
+        Quantity: 5
 
 - type: entity
   id: TorsoApid
