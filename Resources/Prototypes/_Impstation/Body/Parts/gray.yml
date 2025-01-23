@@ -6,6 +6,8 @@
   name: "gray body part"
   abstract: true
   components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Gray/parts.rsi
   - type: Icon # Shitmed Change
     sprite: _Impstation/Mobs/Species/Gray/parts.rsi
   - type: BodyPart # Shitmed Change
@@ -24,15 +26,7 @@
   parent: [PartGray, BaseTorso]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Gray/parts.rsi
     state: "torso_m"
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: Fat
-        Quantity: 10
-      - ReagentId: Radium
-        Quantity: 20
 
 - type: entity
   id: HeadGray
@@ -40,15 +34,7 @@
   parent: [PartGray, BaseHead]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Gray/parts.rsi
     state: "head_m"
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: Fat
-        Quantity: 5
-      - ReagentId: Radium
-        Quantity: 10
 
 - type: entity
   id: LeftArmGray
@@ -56,7 +42,6 @@
   parent: [PartGray, BaseLeftArm]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Gray/parts.rsi
     state: "l_arm"
 
 - type: entity
@@ -65,7 +50,6 @@
   parent: [PartGray, BaseRightArm]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Gray/parts.rsi
     state: "r_arm"
 
 - type: entity
@@ -74,7 +58,6 @@
   parent: [PartGray, BaseLeftHand]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Gray/parts.rsi
     state: "l_hand"
 
 - type: entity
@@ -83,7 +66,6 @@
   parent: [PartGray, BaseRightHand]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Gray/parts.rsi
     state: "r_hand"
 
 - type: entity
@@ -92,7 +74,6 @@
   parent: [PartGray, BaseLeftLeg]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Gray/parts.rsi
     state: "l_leg"
 
 - type: entity
@@ -101,7 +82,6 @@
   parent: [PartGray, BaseRightLeg]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Gray/parts.rsi
     state: "r_leg"
 
 - type: entity
@@ -110,7 +90,6 @@
   parent: [PartGray, BaseLeftFoot]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Gray/parts.rsi
     state: "l_foot"
 
 - type: entity
@@ -119,5 +98,4 @@
   parent: [PartGray, BaseRightFoot]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Gray/parts.rsi
     state: "r_foot"

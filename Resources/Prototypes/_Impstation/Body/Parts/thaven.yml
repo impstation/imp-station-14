@@ -4,17 +4,10 @@
   name: "thaven body part"
   abstract: true
   components:
-  - type: Icon # Shitmed Change
+  - type: Sprite # Shitmed Change
     sprite: _Impstation/Mobs/Species/Thaven/parts.rsi
   - type: BodyPart # Shitmed Change
     species: Thaven
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: Fat
-        Quantity: 3
-      - ReagentId: Blood
-        Quantity: 10
 
 - type: entity
   id: TorsoThaven
@@ -22,15 +15,7 @@
   parent: [PartThaven, BaseTorso]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Thaven/parts.rsi
     state: "torso"
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: Fat
-        Quantity: 10
-      - ReagentId: Blood
-        Quantity: 20
 
 - type: entity
   id: HeadThaven
@@ -38,15 +23,7 @@
   parent: [PartThaven, BaseHead]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Thaven/parts.rsi
     state: "head"
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: Fat
-        Quantity: 5
-      - ReagentId: Blood
-        Quantity: 10
 
 - type: entity
   id: LeftArmThaven
@@ -54,7 +31,6 @@
   parent: [PartThaven, BaseLeftArm]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Thaven/parts.rsi
     state: "l_arm"
 
 - type: entity
@@ -63,7 +39,6 @@
   parent: [PartThaven, BaseRightArm]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Thaven/parts.rsi
     state: "r_arm"
 
 - type: entity
@@ -72,7 +47,6 @@
   parent: [PartThaven, BaseLeftHand]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Thaven/parts.rsi
     state: "l_hand"
 
 - type: entity
@@ -81,7 +55,6 @@
   parent: [PartThaven, BaseRightHand]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Thaven/parts.rsi
     state: "r_hand"
 
 - type: entity
@@ -90,7 +63,6 @@
   parent: [PartThaven, BaseLeftLeg]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Thaven/parts.rsi
     state: "l_leg"
 
 - type: entity
@@ -99,7 +71,6 @@
   parent: [PartThaven, BaseRightLeg]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Thaven/parts.rsi
     state: "r_leg"
 
 - type: entity
@@ -108,7 +79,6 @@
   parent: [PartThaven, BaseLeftFoot]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Thaven/parts.rsi
     state: "l_foot"
 
 - type: entity
@@ -117,5 +87,4 @@
   parent: [PartThaven, BaseRightFoot]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Thaven/parts.rsi
     state: "r_foot"

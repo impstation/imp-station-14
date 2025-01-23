@@ -1,125 +1,60 @@
+# TODO: Add descriptions (many)
+# TODO BODY: Part damage
 - type: entity
   id: PartGastropoid
   parent: [BaseItem, BasePart]
   name: "gastropoid body part"
   abstract: true
   components:
-  - type: Icon # Shitmed Change
+  - type: Sprite
     sprite: _Impstation/Mobs/Species/Snail/parts.rsi
   - type: BodyPart # Shitmed Change
     species: Gastropoid
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: Fat
-        Quantity: 3
-      - ReagentId: Blood
-        Quantity: 10
 
 - type: entity
   id: TorsoGastropoid
   name: "gastropoid torso"
-  parent: PartGastropoid
+  parent: [PartGastropoid, BaseTorso]
   components:
-    - type: Sprite
-      sprite: _Impstation/Mobs/Species/Snail/parts.rsi
-      state: "torso"
-    - type: Icon
-      sprite: _Impstation/Mobs/Species/Snail/parts.rsi
-      state: "torso"
-    - type: BodyPart
-      partType: Torso
-    - type: Extractable
-      juiceSolution:
-        reagents:
-        - ReagentId: Fat
-          Quantity: 3
-        - ReagentId: Blood
-          Quantity: 10
+  - type: Sprite
+    state: "torso"
 
 - type: entity
   id: HeadGastropoid
   name: "gastropoid head"
-  parent: PartGastropoid
+  parent: [PartGastropoid, BaseHead]
   components:
-    - type: Sprite
-      sprite: _Impstation/Mobs/Species/Snail/parts.rsi
-      state: "head"
-    - type: Icon
-      sprite: _Impstation/Mobs/Species/Snail/parts.rsi
-      state: "head"
-    - type: BodyPart
-      partType: Head
-      vital: true
-    - type: Input
-      context: "ghost"
-    - type: Tag
-      tags:
-        - Head
-    - type: Extractable
-      juiceSolution:
-        reagents:
-        - ReagentId: Fat
-          Quantity: 5
-        - ReagentId: Blood
-          Quantity: 10
+  - type: Sprite
+    state: "head"
 
 - type: entity
   id: LeftArmGastropoid
   name: "left gastropoid arm"
-  parent: PartGastropoid
+  parent: [PartGastropoid, BaseLeftArm]
   components:
-    - type: Sprite
-      sprite: _Impstation/Mobs/Species/Snail/parts.rsi
-      state: "l_arm"
-    - type: Icon
-      sprite: _Impstation/Mobs/Species/Snail/parts.rsi
-      state: "l_arm"
-    - type: BodyPart
-      partType: Arm
-      symmetry: Left
+  - type: Sprite
+    state: "l_arm"
 
 - type: entity
   id: RightArmGastropoid
   name: "right gastropoid arm"
-  parent: PartGastropoid
+  parent: [PartGastropoid, BaseRightArm]
   components:
-    - type: Sprite
-      sprite: _Impstation/Mobs/Species/Snail/parts.rsi
-      state: "r_arm"
-    - type: Icon
-      sprite: _Impstation/Mobs/Species/Snail/parts.rsi
-      state: "r_arm"
-    - type: BodyPart
-      partType: Arm
-      symmetry: Right
+  - type: Sprite
+    state: "r_arm"
 
 - type: entity
   id: LeftHandGastropoid
   name: "left gastropoid hand"
-  parent: PartGastropoid
+  parent: [PartGastropoid, BaseLeftHand]
   components:
-    - type: Sprite
-      sprite: _Impstation/Mobs/Species/Snail/parts.rsi
-      state: "l_hand"
-    - type: Icon
-      sprite: _Impstation/Mobs/Species/Snail/parts.rsi
-      state: "l_hand"
-    - type: BodyPart
-      partType: Hand
-      symmetry: Left
+  - type: Sprite
+    state: "l_hand"
 
 - type: entity
   id: RightHandGastropoid
   name: "right gastropoid hand"
-  parent: PartGastropoid
+  parent: [PartGastropoid, BaseRightHand]
   components:
-    - type: Sprite
-      sprite: _Impstation/Mobs/Species/Snail/parts.rsi
-      state: "r_hand"
-    - type: Icon
-      sprite: _Impstation/Mobs/Species/Snail/parts.rsi
-      state: "r_hand"
-    - type: BodyPart
-      partType: Hand
-      symmetry: Right
+  - type: Sprite
+    state: "r_hand"

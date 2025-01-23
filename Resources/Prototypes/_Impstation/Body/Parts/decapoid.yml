@@ -4,9 +4,7 @@
   name: "decapoid body part"
   abstract: true
   components:
-  - type: Sprite
-    sprite: _Impstation/Mobs/Species/Decapoid/parts.rsi
-  - type: Icon # Shitmed Change
+  - type: Sprite # Shitmed Change
     sprite: _Impstation/Mobs/Species/Decapoid/parts.rsi
   - type: BodyPart # Shitmed Change
     species: Decapoid
