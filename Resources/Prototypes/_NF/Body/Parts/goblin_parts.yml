@@ -1,16 +1,23 @@
+# TODO: Add descriptions (many)
+# TODO BODY: Part damage
+# Entire file changed by Imp for shitmed
 - type: entity
   id: PartGoblin
   parent: [BaseItem, BasePart]
   name: "goblin body part"
   abstract: true
   components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Goblin/parts.rsi
+  - type: BodyPart
+    species: Goblin
   - type: Extractable
     juiceSolution:
       reagents:
       - ReagentId: Fat
-        Quantity: 3
+        Quantity: 1
       - ReagentId: GoblinBlood
-        Quantity: 10
+        Quantity: 5
 
 - type: entity
   id: TorsoGoblin
@@ -18,15 +25,7 @@
   parent: [PartGoblin, BaseTorso]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Goblin/parts.rsi
     state: "torso"
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: Fat
-        Quantity: 10
-      - ReagentId: GoblinBlood
-        Quantity: 20
 
 - type: entity
   id: HeadGoblin
@@ -34,15 +33,7 @@
   parent: [PartGoblin, BaseHead]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Goblin/parts.rsi
     state: "head"
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: Fat
-        Quantity: 5
-      - ReagentId: GoblinBlood
-        Quantity: 10
 
 - type: entity
   id: LeftArmGoblin
@@ -50,7 +41,6 @@
   parent: [PartGoblin, BaseLeftArm]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Goblin/parts.rsi
     state: "l_arm"
 
 - type: entity
@@ -59,7 +49,6 @@
   parent: [PartGoblin, BaseRightArm]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Goblin/parts.rsi
     state: "r_arm"
 
 - type: entity
@@ -68,7 +57,6 @@
   parent: [PartGoblin, BaseLeftHand]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Goblin/parts.rsi
     state: "l_hand"
 
 - type: entity
@@ -77,7 +65,6 @@
   parent: [PartGoblin, BaseRightHand]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Goblin/parts.rsi
     state: "r_hand"
 
 - type: entity
@@ -86,7 +73,6 @@
   parent: [PartGoblin, BaseLeftLeg]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Goblin/parts.rsi
     state: "l_leg"
 
 - type: entity
@@ -95,7 +81,6 @@
   parent: [PartGoblin, BaseRightLeg]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Goblin/parts.rsi
     state: "r_leg"
 
 - type: entity
@@ -104,7 +89,6 @@
   parent: [PartGoblin, BaseLeftFoot]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Goblin/parts.rsi
     state: "l_foot"
 
 - type: entity
@@ -113,5 +97,4 @@
   parent: [PartGoblin, BaseRightFoot]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Goblin/parts.rsi
     state: "r_foot"

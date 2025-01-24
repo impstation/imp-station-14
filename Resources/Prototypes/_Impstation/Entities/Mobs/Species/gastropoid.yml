@@ -33,7 +33,7 @@
     scale: 1, 1
   - type: Body
     prototype: Gastropoid
-    requiredLegs: 2
+    requiredLegs: 0
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/_Impstation/Effects/Footsteps/snailstep.ogg
@@ -69,7 +69,7 @@
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:
-        sprite: Mobs/Effects/snail_brute_damage.rsi
+        sprite: _Impstation/Mobs/Effects/snail_brute_damage.rsi
         color: "#162581"
   - type: Reactive
     groups:
@@ -105,7 +105,7 @@
       types:
         Heat : 1
   - type: TemperatureSpeed
-    thresholds: # copied over from Decapoids to remove temp speed restrictions. this is hacky and sucks. 
+    thresholds: # copied over from Decapoids to remove temp speed restrictions. this is hacky and sucks.
       293: 1.0
       280: 1.0
       260: 1.0
@@ -114,9 +114,9 @@
   - type: Tag
     tags:
       - Gastropod
-      - DoorBumpOpener
       - CanPilot
       - FootstepSound
+      - DoorBumpOpener
       - AnomalyHost
   - type: Inventory
     templateId: gastropoid
