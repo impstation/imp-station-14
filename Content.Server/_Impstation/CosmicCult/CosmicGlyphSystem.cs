@@ -32,6 +32,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
     {
         SubscribeLocalEvent<CosmicGlyphComponent, ActivateInWorldEvent>(OnUseGlyph);
         SubscribeLocalEvent<CosmicGlyphConversionComponent, TryActivateGlyphEvent>(OnConversionGlyph);
+        SubscribeLocalEvent<CosmicGlyphAstralProjectionComponent, TryActivateGlyphEvent>(OnAstralProjGlyph);
     }
 
     private void OnUseGlyph(Entity<CosmicGlyphComponent> uid, ref ActivateInWorldEvent args)
@@ -92,6 +93,16 @@ public sealed class CosmicGlyphSystem : EntitySystem
             }
         }
     }
+
+    private void OnAstralProjGlyph(Entity<CosmicGlyphAstralProjectionComponent> uid, ref TryActivateGlyphEvent args)
+    {
+
+
+
+    }
+
+
+
 
     private void DealDamage(EntityUid user, DamageSpecifier? damage = null)
     {

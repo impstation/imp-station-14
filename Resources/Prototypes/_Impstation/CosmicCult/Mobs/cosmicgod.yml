@@ -49,6 +49,8 @@
   # big mob needs to see everything
   - type: ContentEye
     maxZoom: 2.2,2.2
+  - type: Eye
+    drawFov: false
   - type: Fixtures
     fixtures:
       EventHorizonCollider:
