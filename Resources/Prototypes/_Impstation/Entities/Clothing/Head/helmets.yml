@@ -512,3 +512,16 @@
     useDelay: 1
     itemIconStyle: BigItem
     event: !type:ToggleActionEvent
+
+#Zeon Helmet
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadZeonHelm
+  name: Zeon Helmet
+  description: Blame this on the misfortune of your birth!
+  components:
+  - type: Sprite
+    sprite: Textures/_Impstation/Clothing/Head/Helmets/char_helmet.rsi
+  - type: Clothing
+    sprite: Textures/_Impstation/Clothing/Head/Helmets/char_helmet.rsi
+  - type: IdentityBlocker
