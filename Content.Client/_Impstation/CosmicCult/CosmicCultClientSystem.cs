@@ -2,6 +2,8 @@ using Content.Shared._Impstation.CosmicCult.Components;
 using Content.Shared._Impstation.CosmicCult;
 using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Prototypes;
+using Robust.Client.GameObjects;
+using Robust.Shared.Utility;
 
 namespace Content.Client._Impstation.CosmicCult;
 
@@ -13,8 +15,30 @@ public sealed class CosmicCultSystem : SharedCosmicCultSystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<CosmicStarMarkComponent, ComponentStartup>(OnCosmicStarMarkAdded);
+        SubscribeLocalEvent<CosmicStarMarkComponent, ComponentShutdown>(OnCosmicStarMarkRemoved);
+
         SubscribeLocalEvent<CosmicCultComponent, GetStatusIconsEvent>(GetCosmicCultIcon);
         SubscribeLocalEvent<CosmicCultLeadComponent, GetStatusIconsEvent>(GetCosmicCultLeadIcon);
+    }
+
+    private void OnCosmicStarMarkAdded(Entity<CosmicStarMarkComponent> uid, ref ComponentStartup args)
+    {
+        if (!TryComp<SpriteComponent>(uid, out var sprite) || sprite.LayerMapTryGet(CosmicRevealedKey.Key, out _))
+            return;
+
+        var layer = sprite.AddLayer(new SpriteSpecifier.Rsi(uid.Comp.RsiPath, uid.Comp.States));
+
+        sprite.LayerMapSet(CosmicRevealedKey.Key, layer);
+        sprite.LayerSetShader(layer, "unshaded");
+    }
+
+    private void OnCosmicStarMarkRemoved(Entity<CosmicStarMarkComponent> uid, ref ComponentShutdown args)
+    {
+        if (!TryComp<SpriteComponent>(uid, out var sprite) || !sprite.LayerMapTryGet(CosmicRevealedKey.Key, out var layer))
+            return;
+
+        sprite.RemoveLayer(layer);
     }
 
     private void GetCosmicCultIcon(Entity<CosmicCultComponent> ent, ref GetStatusIconsEvent args)

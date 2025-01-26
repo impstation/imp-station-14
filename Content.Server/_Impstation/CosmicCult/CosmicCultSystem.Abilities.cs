@@ -50,6 +50,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicBlank>(OnCosmicBlank);
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicLapse>(OnCosmicLapse);
         SubscribeLocalEvent<CosmicCultLeadComponent, EventCosmicPlaceMonument>(OnCosmicPlaceMonument);
+        SubscribeLocalEvent<CosmicAstralBodyComponent, EventCosmicReturn>(OnCosmicReturn);
     }
 
 
@@ -214,8 +215,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
     }
     #endregion
 
-
-
     #region MonumentSpawn
     private void OnCosmicPlaceMonument(Entity<CosmicCultLeadComponent> uid, ref EventCosmicPlaceMonument args)
     {
@@ -265,4 +264,17 @@ public sealed partial class CosmicCultSystem : EntitySystem
         Spawn(uid.Comp.MonumentPrototype, _transform.GetMapCoordinates(uid, xform: xform));
     }
     #endregion
+
+    #region Return (Element)
+    private void OnCosmicReturn(Entity<CosmicAstralBodyComponent> uid, ref EventCosmicReturn args) //This action exclusive to the Glyph-created Astral Projection, and allows the user to return to their original body.
+    {
+        if (_mind.TryGetMind(args.Performer, out var mindId, out var _))
+            _mind.TransferTo(mindId, uid.Comp.OriginalBody);
+        var mind = Comp<MindComponent>(mindId);
+        mind.PreventGhosting = true;
+        QueueDel(uid);
+        RemComp<CosmicMarkBlankComponent>(args.Performer);
+    }
+    #endregion
+
 }

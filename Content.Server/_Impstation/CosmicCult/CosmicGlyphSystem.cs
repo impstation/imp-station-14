@@ -1,18 +1,22 @@
 
 using Content.Server._Impstation.CosmicCult.Components;
+using Content.Server.Actions;
 using Content.Server.Bible.Components;
 using Content.Server.GameTicking;
 using Content.Server.Popups;
 using Content.Shared._Impstation.CosmicCult.Components;
+using Content.Shared._Impstation.CosmicCult.Components.Examine;
 using Content.Shared.Damage;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Mind;
+using Content.Shared.Mind.Components;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Stunnable;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Impstation.CosmicCult;
 
@@ -27,6 +31,9 @@ public sealed class CosmicGlyphSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly MetaDataSystem _meta = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly ActionsSystem _actions = default!;
 
     public override void Initialize()
     {
@@ -35,12 +42,13 @@ public sealed class CosmicGlyphSystem : EntitySystem
         SubscribeLocalEvent<CosmicGlyphAstralProjectionComponent, TryActivateGlyphEvent>(OnAstralProjGlyph);
     }
 
+    #region Base trigger
     private void OnUseGlyph(Entity<CosmicGlyphComponent> uid, ref ActivateInWorldEvent args)
     {
         Log.Debug($"Glyph event triggered!");
         var tgtpos = Transform(uid).Coordinates;
         var userCoords = Transform(args.User).Coordinates;
-        if (args.Handled || !userCoords.TryDistance(EntityManager, tgtpos, out var distance) || distance > uid.Comp.ActivationRange) // || !HasComp<CosmicCultComponent>(args.User)
+        if (args.Handled || !userCoords.TryDistance(EntityManager, tgtpos, out var distance) || distance > uid.Comp.ActivationRange || !HasComp<CosmicCultComponent>(args.User))
             return;
 
         args.Handled = true;
@@ -65,27 +73,46 @@ public sealed class CosmicGlyphSystem : EntitySystem
         Spawn(uid.Comp.GylphVFX, tgtpos);
         QueueDel(uid);
     }
+    #endregion
 
+    #region Conversion
     private void OnConversionGlyph(Entity<CosmicGlyphConversionComponent> uid, ref TryActivateGlyphEvent args)
     {
         var possibleTargets = GetTargetsNearRune(uid, uid.Comp.ConversionRange, entity => HasComp<CosmicCultComponent>(entity));
         if (possibleTargets.Count == 0)
         {
-            _popup.PopupEntity(Loc.GetString("cult-glyph-nohing-to-convert"), uid, args.User);
+            _popup.PopupEntity(Loc.GetString("cult-glyph-conditions-not-met"), uid, args.User);
             args.Cancel();
             return;
         }
-        if (possibleTargets.Count > 1)
+        if (possibleTargets.Count >= 2)
         {
             _popup.PopupEntity(Loc.GetString("cult-glyph-too-many-targets"), uid, args.User);
             args.Cancel();
             return;
         }
 
-        foreach (var target in possibleTargets)
+        foreach (var target in possibleTargets) // FIVE GODDAMN if-statements? Yep. I know. Why? My brain doesn't have enough juice to write something more succinct.
         {
             if (_mobState.IsDead(target))
+            {
+                _popup.PopupEntity(Loc.GetString("cult-glyph-target-dead"), uid, args.User);
+                args.Cancel();
                 return;
+            }
+            if (uid.Comp.NegateProtection == false && HasComp<BibleUserComponent>(target))
+            {
+                _popup.PopupEntity(Loc.GetString("cult-glyph-target-chaplain"), uid, args.User);
+                args.Cancel();
+                return;
+            }
+
+            if (uid.Comp.NegateProtection == false && HasComp<MindShieldComponent>(target))
+            {
+                _popup.PopupEntity(Loc.GetString("cult-glyph-target-mindshield"), uid, args.User);
+                args.Cancel();
+                return;
+            }
             else
             {
                 _stun.TryStun(target, TimeSpan.FromSeconds(4f), false);
@@ -93,17 +120,24 @@ public sealed class CosmicGlyphSystem : EntitySystem
             }
         }
     }
+    #endregion
 
+    #region Astral Projection
     private void OnAstralProjGlyph(Entity<CosmicGlyphAstralProjectionComponent> uid, ref TryActivateGlyphEvent args)
     {
-
-
-
+        var projectionEnt = Spawn(uid.Comp.SpawnProjection, Transform(uid).Coordinates);
+        if (_mind.TryGetMind(args.User, out var mindId, out var _))
+            _mind.TransferTo(mindId, projectionEnt);
+        EnsureComp<CosmicMarkBlankComponent>(args.User);
+        EnsureComp<CosmicAstralBodyComponent>(projectionEnt, out var astralComp);
+        var mind = Comp<MindComponent>(mindId);
+        mind.PreventGhosting = true;
+        astralComp.OriginalBody = args.User;
+        _stun.TryKnockdown(args.User, TimeSpan.FromSeconds(2), true);
     }
+    #endregion
 
-
-
-
+    #region Housekeeping
     private void DealDamage(EntityUid user, DamageSpecifier? damage = null)
     {
         if (damage is null)
@@ -140,5 +174,5 @@ public sealed class CosmicGlyphSystem : EntitySystem
 
         return possibleTargets;
     }
-
+    #endregion
 }

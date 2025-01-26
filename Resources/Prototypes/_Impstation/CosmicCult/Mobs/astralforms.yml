@@ -9,6 +9,7 @@
   - type: Input
     context: "ghost"
   - type: Spectral
+  - type: CosmicAstralBody
   - type: MovementSpeedModifier
     baseWalkSpeed: 6
     baseSprintSpeed: 6
@@ -27,8 +28,6 @@
       - Ghost
   - type: ContentEye
     maxZoom: 1.2, 1.2
-  # - type: Visibility
-  #   layer: 2 #ghost vis layer
   - type: Speech
     speechVerb: Ghost
   - type: PointLight
@@ -49,6 +48,10 @@
        enabled: true
        isLooped: true
        reverseWhenFinished: true
+  - type: IntrinsicRadioReceiver
+  - type: ActiveRadio
+    channels:
+    - CosmicRadio
 
 - type: entity
   parent:
@@ -77,10 +80,10 @@
       - Ghost
   - type: ContentEye
     maxZoom: 1.2, 1.2
-  # - type: Visibility
-  #   layer: 2 #ghost vis layer || TODO: UNCOMMENT THIS
+  - type: Visibility
+    layer: 2 #ghost vis layer
   - type: Speech
-    speechVerb: Ghost
+    enabled: false
   - type: PointLight
     color: "#42a4ae"
     radius: 2
@@ -99,3 +102,10 @@
        enabled: true
        isLooped: true
        reverseWhenFinished: true
+  - type: IntrinsicRadioReceiver
+  - type: ActiveRadio
+    channels:
+    - CosmicRadio
+  - type: ActionGrant
+    actions:
+    - ActionCosmicReturn

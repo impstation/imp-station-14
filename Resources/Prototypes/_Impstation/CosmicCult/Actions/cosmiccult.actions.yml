@@ -86,17 +86,16 @@
     event: !type:EventCosmicLapse {}
   - type: CosmicCultAction
 
-# - type: entity
-#   id: ActionCosmicGlare
-#   name: Null Glare
-#   description: TODO
-#   categories: [ HideSpawnMenu ]
-#   components:
-#   - type: InstantAction
-#     useDelay: 2
-#     itemIconStyle: NoItem
-#     icon:
-#       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
-#       state: glare
-#     event: !type:EventCosmicGlare {}
-#   - type: CosmicCultAction
+- type: entity
+  id: ActionCosmicReturn
+  name: Return
+  description: Dissipate your astral projection and return to your body.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: return
+    event: !type:EventCosmicReturn {}
+  - type: CosmicCultAction

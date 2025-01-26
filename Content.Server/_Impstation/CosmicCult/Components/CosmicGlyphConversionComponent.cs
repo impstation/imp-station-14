@@ -14,6 +14,12 @@ public sealed partial class CosmicGlyphConversionComponent : Component
     public float ConversionRange = 0.5f;
 
     /// <summary>
+    ///     Wether or not we ignore mindshields.
+    /// </summary>
+    [DataField]
+    public bool NegateProtection = false;
+
+    /// <summary>
     ///     Healing applied on conversion.
     /// </summary>
     [DataField]

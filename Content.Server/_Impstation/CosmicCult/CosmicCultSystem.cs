@@ -24,7 +24,6 @@ namespace Content.Server._Impstation.CosmicCult;
 
 public sealed partial class CosmicCultSystem : EntitySystem
 {
-    [Dependency] private readonly CleanseDeconversionSystem _cleanse = default!;
     [Dependency] private readonly ISharedAdminLogManager _log = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
@@ -96,8 +95,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
             }
         }
     }
-    #endregion
-
 
     /// <summary>
     /// Parses marker components to output their respective loc strings directly into your examine box, courtesy of TGRCdev(Github).
@@ -112,7 +109,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
                 args.PushMarkup(Loc.GetString(message, ("entity", ent.Owner)));
         });
     }
-
+    #endregion
 
     /// <summary>
     /// add cultist Visibility Mask.

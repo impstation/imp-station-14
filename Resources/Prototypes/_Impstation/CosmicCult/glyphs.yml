@@ -36,11 +36,12 @@
     layers:
       - state: truth
   - type: CosmicGlyphConversion
+    negateProtection: true
   - type: CosmicGlyph
     requiredCultists: 3
-    # activationDamage:
-    #   types:
-    #     Asphyxiation: 25
+    activationDamage:
+      types:
+        Asphyxiation: 30
 
 - type: entity
   parent: CosmicGlyphBase
@@ -54,10 +55,10 @@
       - state: knowledge
   - type: CosmicGlyphConversion
   - type: CosmicGlyph
-    requiredCultists: 0 #TODO: this value should be 2. It is altered for testing.
-    # activationDamage:
-    #   types:
-    #     Asphyxiation: 25
+    requiredCultists: 2 #TODO: this value should be 2. It is altered for testing.
+    activationDamage:
+      types:
+        Asphyxiation: 25
 
 - type: entity
   parent: CosmicGlyphBase
@@ -71,9 +72,9 @@
       state: aid
   - type: CosmicGlyph
     requiredCultists: 3
-    # activationDamage:
-    #   types:
-    #     Asphyxiation: 25
+    activationDamage:
+      types:
+        Asphyxiation: 50
 
 - type: entity
   parent: CosmicGlyphBase
@@ -86,10 +87,10 @@
     layers:
       - state: blades
   - type: CosmicGlyph
-    requiredCultists: 1
-    # activationDamage:
-    #   types:
-    #     Asphyxiation: 25
+    requiredCultists: 2
+    activationDamage:
+      types:
+        Asphyxiation: 25
 
 - type: entity
   parent: CosmicGlyphBase
@@ -102,10 +103,10 @@
     layers:
       - state: warding
   - type: CosmicGlyph
-    requiredCultists: 1
-    # activationDamage:
-    #   types:
-    #     Asphyxiation: 25
+    requiredCultists: 2
+    activationDamage:
+      types:
+        Asphyxiation: 25
 
 - type: entity
   parent: CosmicGlyphBase
@@ -118,7 +119,9 @@
     layers:
       - state: projection
   - type: CosmicGlyph
+  - type: CosmicGlyphAstralProjection
     requiredCultists: 1
-    # activationDamage:
-    #   types:
-    #     Asphyxiation: 25
+    activationRange: 0.5
+    activationDamage:
+      types:
+        Asphyxiation: 30
