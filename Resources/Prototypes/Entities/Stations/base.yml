@@ -52,6 +52,9 @@
             - type: TradeStation
           paths:
             - /Maps/Shuttles/trading_outpost.yml
+        mining: !type:GridSpawnGroup #IMP SPECIAL
+          paths:
+          - /Maps/_Impstation/Shuttles/NT-Strugglebug.yml
         # Spawn last
         ruins: !type:GridSpawnGroup
           hide: true

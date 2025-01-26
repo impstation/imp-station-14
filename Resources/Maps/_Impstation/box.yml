@@ -11903,7 +11903,7 @@ entities:
       pos: 24.5,16.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -62006.457
+      secondsUntilStateChange: -62165.766
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -69769,6 +69769,13 @@ entities:
     - type: Transform
       pos: -17.569038,51.765076
       parent: 8364
+- proto: ClothingHeadHatPartyRed
+  entities:
+  - uid: 28518
+    components:
+    - type: Transform
+      pos: -29.68008,-36.054474
+      parent: 8364
 - proto: ClothingHeadHatPirate
   entities:
   - uid: 5004
@@ -71566,6 +71573,14 @@ entities:
     components:
     - type: Transform
       pos: -41.5,-29.5
+      parent: 8364
+- proto: ComputerShuttleSalvage
+  entities:
+  - uid: 25875
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -29.5,-36.5
       parent: 8364
 - proto: ComputerSolarControl
   entities:
@@ -85385,7 +85400,7 @@ entities:
       pos: -8.5,-70.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -13731.499
+      secondsUntilStateChange: -13890.807
       state: Closing
   - uid: 5277
     components:
@@ -86131,7 +86146,7 @@ entities:
       pos: -34.5,-14.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -56194.992
+      secondsUntilStateChange: -56354.3
       state: Closing
   - uid: 15010
     components:
@@ -125494,7 +125509,7 @@ entities:
       pos: 28.5,-34.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -35965.363
+      secondsUntilStateChange: -36124.67
       state: Closing
 - proto: hydroponicsSoil
   entities:

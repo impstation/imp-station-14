@@ -284,3 +284,10 @@
   sprite:
     sprite: _DV/Objects/Devices/cartridge.rsi
     state: cart-stonk
+
+- type: stealTargetGroup
+  id: SalvageShuttleConsoleCircuitboard
+  name: salvage shuttle console board
+  sprite:
+    sprite: Objects/Misc/module.rsi
+    state: cpuboard
