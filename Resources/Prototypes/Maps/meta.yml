@@ -3,7 +3,7 @@
   mapName: 'Meta Station'
   mapPath: /Maps/_Impstation/meta.yml
   minPlayers: 35
-  maxPlayers: 70
+  maxPlayers: 80
   stations:
     Meta:
       stationProto: StandardNanotrasenStation
@@ -55,6 +55,7 @@
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]
             CargoTechnician: [ 3, 5 ]
+            Courier: [ 2, 2 ]
             #civilian
             Passenger: [ -1, -1 ]
             Clown: [ 1, 1 ]
