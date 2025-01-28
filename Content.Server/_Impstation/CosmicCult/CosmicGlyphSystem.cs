@@ -78,7 +78,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
     #region Conversion
     private void OnConversionGlyph(Entity<CosmicGlyphConversionComponent> uid, ref TryActivateGlyphEvent args)
     {
-        var possibleTargets = GetTargetsNearRune(uid, uid.Comp.ConversionRange, entity => HasComp<CosmicCultComponent>(entity));
+        var possibleTargets = GetTargetsNearGlyph(uid, uid.Comp.ConversionRange, entity => HasComp<CosmicCultComponent>(entity));
         if (possibleTargets.Count == 0)
         {
             _popup.PopupEntity(Loc.GetString("cult-glyph-conditions-not-met"), uid, args.User);
@@ -154,8 +154,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
     {
         var glyphTransform = Transform(uid);
         var entities = _lookup.GetEntitiesInRange(glyphTransform.Coordinates, range);
-        entities.RemoveWhere(entity => !HasComp<CosmicCultComponent>(entity)); // TODO: Add in Construct flagging here.
-        // entities.RemoveWhere(entity => !HasComp<CosmicCultComponent>(entity) && !HasComp<CosmicConstructComponent>(entity));
+        entities.RemoveWhere(entity => !HasComp<CosmicCultComponent>(entity));
         return entities;
     }
 
@@ -165,7 +164,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
     /// <param name="uid">The glyph.</param>
     /// <param name="range">Radius for a lookup.</param>
     /// <param name="exclude">Filter to exclude from return.</param>
-    public HashSet<Entity<HumanoidAppearanceComponent>> GetTargetsNearRune(EntityUid uid, float range, Predicate<Entity<HumanoidAppearanceComponent>>? exclude = null)
+    public HashSet<Entity<HumanoidAppearanceComponent>> GetTargetsNearGlyph(EntityUid uid, float range, Predicate<Entity<HumanoidAppearanceComponent>>? exclude = null)
     {
         var glyphTransform = Transform(uid);
         var possibleTargets = _lookup.GetEntitiesInRange<HumanoidAppearanceComponent>(glyphTransform.Coordinates, range);

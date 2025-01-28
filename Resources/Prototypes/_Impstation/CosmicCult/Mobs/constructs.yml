@@ -46,11 +46,11 @@
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: wisp
+        Base: custodian
       Critical:
-        Base: wisp
+        Base: custodian
       Dead:
-        Base: wisp
+        Base: custodian
   - type: Grammar
     attributes:
       proper: true
@@ -60,6 +60,14 @@
     - CannotSuicide
     - DoorBumpOpener
   - type: CosmicCult
+    isConstruct: true
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - CosmicRadio
+  - type: ActiveRadio
+    channels:
+    - CosmicRadio
   - type: ZombieImmune
   - type: PointLight
     enabled: true
@@ -117,7 +125,7 @@
         layer:
         - FlyingMobLayer
   - type: Body
-  - type: CombatMode
+  # - type: CombatMode
   - type: NoSlip
   - type: TypingIndicator
     proto: robot
@@ -139,11 +147,11 @@
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: wisp
+        Base: oracle
       Critical:
-        Base: wisp
+        Base: oracle
       Dead:
-        Base: wisp
+        Base: oracle
   - type: Grammar
     attributes:
       proper: true
@@ -153,6 +161,14 @@
     - CannotSuicide
     - DoorBumpOpener
   - type: CosmicCult
+    isConstruct: true
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - CosmicRadio
+  - type: ActiveRadio
+    channels:
+    - CosmicRadio
   - type: ZombieImmune
   - type: PointLight
     enabled: true

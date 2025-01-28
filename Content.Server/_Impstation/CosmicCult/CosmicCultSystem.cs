@@ -19,6 +19,7 @@ using Content.Server.Antag;
 using Robust.Shared.Audio;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Impstation.CosmicCult;
 
@@ -34,6 +35,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
     [Dependency] private readonly EuiManager _euiMan = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public EntProtoId CultToolPrototype = "AbilityCosmicCultTool";
     private const string MapPath = "Prototypes/_Impstation/CosmicCult/Maps/voidmap.yml";

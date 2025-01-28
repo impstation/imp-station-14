@@ -3,22 +3,21 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 [RegisterComponent]
-public sealed partial class CosmicTestComponent : Component
+[AutoGenerateComponentPause]
+public sealed partial class CosmicCorruptingComponent : Component
 {
     [DataField]
     public float CorruptionRadius = 10;
 
-    /// <summary>
-    ///     Length of the cooldown in between tile corruptions.
-    /// </summary>
-    [DataField]
-    public float CorruptionCooldown = 0.75f;
+    [ViewVariables]
+    [AutoPausedField]
+    public TimeSpan CorruptionValue = default!;
 
     /// <summary>
-    ///     Counter for tile corruption.
+    /// How much time between tile corruptions.
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
-    public float CorruptionAccumulator = 0;
+    [DataField, AutoNetworkedField]
+    public TimeSpan CorruptionSpeed = TimeSpan.FromSeconds(5);
 
     [DataField]
     public List<ProtoId<EntityPrototype>> CultTile = new()

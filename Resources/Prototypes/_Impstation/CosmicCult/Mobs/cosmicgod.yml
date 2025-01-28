@@ -85,8 +85,8 @@
   - type: WarpPoint
     follow: true
     location: The Unknown
-  - type: CosmicTest
-    corruptionCooldown: 0.1
+  - type: CosmicCorrupting
+    corruptionSpeed: 2
   - type: AmbientSound
     enabled: true
     volume: 0

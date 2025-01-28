@@ -23,7 +23,10 @@ public sealed partial class CosmicCultComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "CosmicCultIcon";
-    public CancellationTokenSource? DeconvertToken { get; set; }
+
+    [DataField]
+    public bool IsConstruct = false;
+
     #endregion
 
     #region Ability Data
