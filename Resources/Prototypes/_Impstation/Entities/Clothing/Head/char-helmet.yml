@@ -1,0 +1,13 @@
+
+#Zeon Helmet
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadZeonHelm
+  name: Zeon Helmet
+  description: Blame this on the misfortune of your birth!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Helmets/char_helmet.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Helmets/char_helmet.rsi
+  - type: IdentityBlocker
