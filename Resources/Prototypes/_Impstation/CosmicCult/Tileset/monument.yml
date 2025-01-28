@@ -210,6 +210,7 @@
   suffix: Stage 4, DO NOT MAP
   components:
   - type: CosmicCorrupting
+    corruptionGrowth: true
   - type: Sprite
     sprite: _Impstation/CosmicCult/Tileset/monument.rsi
     layers:

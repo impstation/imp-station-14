@@ -86,7 +86,10 @@
     follow: true
     location: The Unknown
   - type: CosmicCorrupting
-    corruptionSpeed: 2
+    corruptionSpeed: 1
+    corruptionGrowth: true
+    corruptionMaxRadius: 25
+    autoDisable: false
   - type: AmbientSound
     enabled: true
     volume: 0

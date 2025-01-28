@@ -50,21 +50,6 @@
       shader: unshaded
     netsync: false
     drawdepth: Mobs
-  - type: PointLight
-    color: "#42a4ae"
-    castShadows: false
-  - type: LightBehaviour
-    behaviours:
-     - !type:FadeBehaviour
-       interpolate: Linear
-       minDuration: 0.5
-       maxDuration: 0.5
-       startValue: 0.1
-       endValue: 1
-       property: Energy
-       enabled: true
-       isLooped: true
-       reverseWhenFinished: true
   - type: Tag
     tags:
       - HideContextMenu
