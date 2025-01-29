@@ -17,8 +17,6 @@ public sealed partial class CosmicCorruptingSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
-    private string _cosmicWallProto = "WallCosmicCult";
-
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -26,15 +24,18 @@ public sealed partial class CosmicCorruptingSystem : EntitySystem
         var blanktimer = EntityQueryEnumerator<CosmicCorruptingComponent>();
         while (blanktimer.MoveNext(out var uid, out var comp))
         {
-            if (_timing.CurTime >= comp.CorruptionValue && comp.Enabled)
+            if (comp.Enabled && _timing.CurTime >= comp.CorruptionValue)
             {
                 comp.CorruptionValue = _timing.CurTime + comp.CorruptionSpeed;
                 ConvertTilesInRange((uid, comp));
                 if (comp.CorruptionGrowth && comp.CorruptionRadius <= comp.CorruptionMaxRadius)
+                {
                     comp.CorruptionRadius++;
-                if (comp.CorruptionRadius == comp.CorruptionMaxRadius)
+                    comp.CorruptionChance -= comp.CorruptionReduction;
+                }
+                if (comp.CorruptionRadius >= comp.CorruptionMaxRadius)
                     comp.CorruptionGrowth = false;
-                if (comp.CorruptionRadius == comp.CorruptionMaxRadius && comp.AutoDisable)
+                if (comp.CorruptionRadius >= comp.CorruptionMaxRadius && comp.AutoDisable)
                     comp.Enabled = false;
             }
         }
@@ -55,9 +56,9 @@ public sealed partial class CosmicCorruptingSystem : EntitySystem
             if (TryComp<TagComponent>(entity, out var tag))
             {
                 var tags = tag.Tags;
-                if (tags.Contains("Wall") && Prototype(entity) != null && Prototype(entity)!.ID != _cosmicWallProto && _rand.Prob(uid.Comp.CorruptionChance))
+                if (tags.Contains("Wall") && Prototype(entity) != null && Prototype(entity)!.ID != uid.Comp.ConversionWall && _rand.Prob(uid.Comp.CorruptionChance))
                 {
-                    Spawn(_cosmicWallProto, Transform(entity).Coordinates);
+                    Spawn(uid.Comp.ConversionWall, Transform(entity).Coordinates);
                     Spawn(uid.Comp.TileConvertVFX, Transform(entity).Coordinates);
                     QueueDel(entity);
                 }

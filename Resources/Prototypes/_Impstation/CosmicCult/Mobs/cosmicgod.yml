@@ -42,8 +42,8 @@
   id: MobCosmicGod
   components:
   - type: AnnounceOnSpawn
-    message: cosmicgod-has-risen
-    sender: cosmicgod-has-risen-sender
+    message: cosmiccult-announce-victory-summon
+    sender: cosmiccult-announcement-sender
     color: "#cae8e8"
   - type: CargoSellBlacklist
   # big mob needs to see everything
