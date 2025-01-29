@@ -209,7 +209,7 @@
   - type: Metabolizer
     # mm yummy
     maxReagents: 3
-    metabolizerTypes: [Human]
+    metabolizerTypes: [Human, Gray]
     groups:
     - id: Food
     - id: Drink

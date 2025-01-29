@@ -466,6 +466,10 @@
           type: Add
           time: 2
           refresh: false
+          conditions:
+          - !type:OrganType
+            type: Gray
+            shouldHave: false
         - !type:SatiateThirst
           factor: 2
         - !type:AdjustReagent
