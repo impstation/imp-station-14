@@ -29,7 +29,13 @@ public sealed partial class CosmicCorruptingComponent : Component
     /// The chance that a tile and/or wall is replaced.
     /// </summary>
     [DataField]
-    public float CorruptionChance = 0.25f;
+    public float CorruptionChance = 0.51f;
+
+    /// <summary>
+    /// The reduction applied to corruption chance every tick.
+    /// </summary>
+    [DataField]
+    public float CorruptionReduction = 0f;
 
     /// <summary>
     /// Enables or disables the growth of the corruption radius.
@@ -61,6 +67,11 @@ public sealed partial class CosmicCorruptingComponent : Component
     [DataField]
     public EntProtoId ConversionTile = "FloorCosmicCorruption";
 
+    /// <summary>
+    /// The wall we spawn when replacing a normal wall.
+    /// </summary>
+    [DataField]
+    public EntProtoId ConversionWall = "WallCosmicCult";
     /// <summary>
     /// The VFX entity we spawn when corruption occurs.
     /// </summary>

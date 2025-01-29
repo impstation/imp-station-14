@@ -2,7 +2,7 @@
   id: FloorCosmicGlyph
   name: tiles-cosmiccult-floor-glyph
   sprite: /Textures/_Impstation/CosmicCult/Tileset/cosmicfloor/tile_glyph.png
-  baseTurf: FloorGlass
+  baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
@@ -13,7 +13,7 @@
   id: FloorCosmicSmooth
   name: tiles-cosmiccult-floor-smooth
   sprite: /Textures/_Impstation/CosmicCult/Tileset/cosmicfloor/tile_smooth.png
-  baseTurf: FloorGlass
+  baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
@@ -24,7 +24,7 @@
   id: FloorCosmicHalf
   name: tiles-cosmiccult-floor-half
   sprite: /Textures/_Impstation/CosmicCult/Tileset/cosmicfloor/tile_half.png
-  baseTurf: FloorGlass
+  baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
@@ -35,7 +35,7 @@
   id: FloorCosmicSplit
   name: tiles-cosmiccult-floor-split
   sprite: /Textures/_Impstation/CosmicCult/Tileset/cosmicfloor/tile_split.png
-  baseTurf: FloorGlass
+  baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
@@ -46,7 +46,7 @@
   id: FloorCosmicNotched
   name: tiles-cosmiccult-floor-notched
   sprite: /Textures/_Impstation/CosmicCult/Tileset/cosmicfloor/tile_notched.png
-  baseTurf: FloorGlass
+  baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
@@ -63,7 +63,7 @@
   - 1.0
   - 1.0
   - 1.0
-  baseTurf: FloorGlass
+  baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
@@ -74,7 +74,7 @@
   id: FloorCosmicVoid
   name: tiles-cosmiccult-floor-void
   sprite: /Textures/_Impstation/CosmicCult/Tileset/cosmicfloor/floor_void.png
-  baseTurf: FloorGlass
+  baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:

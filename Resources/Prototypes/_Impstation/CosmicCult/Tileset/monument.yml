@@ -211,6 +211,7 @@
   components:
   - type: CosmicCorrupting
     corruptionGrowth: true
+    corruptionReduction: 0.01
   - type: Sprite
     sprite: _Impstation/CosmicCult/Tileset/monument.rsi
     layers:

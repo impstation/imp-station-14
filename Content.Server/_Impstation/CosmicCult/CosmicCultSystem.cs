@@ -36,8 +36,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
     [Dependency] private readonly SharedRoleSystem _role = default!;
     [Dependency] private readonly EuiManager _euiMan = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-
-    public EntProtoId CultToolPrototype = "AbilityCosmicCultTool";
     private const string MapPath = "Prototypes/_Impstation/CosmicCult/Maps/voidmap.yml";
     public readonly SoundSpecifier DeconvertSound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/antag_cosmic_deconvert.ogg");
     public int ObjectiveEntropyTracker = 0;
@@ -72,6 +70,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
         if (_mapLoader.TryLoad(mapId, MapPath, out _, options))
             _map.SetPaused(mapId, false);
     }
+
 
     /// <summary>
     /// Creates the Cosmic Void pocket dimension map.

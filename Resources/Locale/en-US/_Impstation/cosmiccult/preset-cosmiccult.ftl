@@ -1,5 +1,7 @@
 ## COSMIC CULT ROUND, ANTAG & GAMEMODE TEXT
 
+cosmiccult-announcement-sender = ???
+
 cosmiccult-title = Cosmic Cult
 cosmiccult-description = Cultists lurk amongst the crew.
 
@@ -101,3 +103,10 @@ cosmiccult-ghostrole-greeting =
 ghostrole-cosmiccult-name = Placeholder
 ghostrole-cosmiccult-desc = Placeholder
 ghostrole-cosmiccult-rules = You are a [color=red][bold]Team Antagonist[/bold][/color], bound to the cult that brought you forth.
+
+
+## CHAT ANNOUNCEMENTS
+
+cosmiccult-announce-tier2-progress = An unnerving numbness prickles your senses. Something is steadily is growing in power.
+cosmiccult-announce-tier3-progress = Arcs of bluespace energy crackle across the station's groaning structure. The end draws near.
+cosmiccult-announce-victory-summon = A FRACTION OF COSMIC POWER IS CALLED FORTH.

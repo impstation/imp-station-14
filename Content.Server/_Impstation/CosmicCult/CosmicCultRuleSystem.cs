@@ -23,6 +23,12 @@ using Content.Server.Antag.Components;
 using System.Linq;
 using Content.Shared.NPC.Components;
 using Content.Server.EUI;
+using Robust.Shared.Random;
+using Content.Server.Announcements.Systems;
+using Robust.Server.Audio;
+using Content.Shared.Coordinates;
+using Content.Shared.Parallax;
+using Robust.Shared.Map.Components;
 
 namespace Content.Server._Impstation.CosmicCult;
 
@@ -39,6 +45,11 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedObjectivesSystem _objectives = default!;
     [Dependency] private readonly EuiManager _euiMan = default!;
+    [Dependency] private readonly IRobustRandom _rand = default!;
+    [Dependency] private readonly AnnouncerSystem _announce = default!;
+    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> NanoTrasenFactionId = "NanoTrasen";
     [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> CosmicFactionId = "CosmicCultFaction";
@@ -50,9 +61,35 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         SubscribeLocalEvent<CosmicCultRuleComponent, AfterAntagEntitySelectedEvent>(OnAntagSelect);
         SubscribeLocalEvent<CosmicCultLeadComponent, DamageChangedEvent>(DebugFunction); // TODO: This is a placeholder function to call other functions for testing & debugging.
+        SubscribeLocalEvent<CosmicMonumentComponent, ComponentInit>(CultTier3); // TODO: This is a placeholder event for testing & debugging.
     }
     private void OnAntagSelect(Entity<CosmicCultRuleComponent> ent, ref AfterAntagEntitySelectedEvent args) =>
         TryStartCult(args.EntityUid, ent);
+
+    private void CultTier2(Entity<CosmicCultRuleComponent> uid)
+    {
+        var sender = Loc.GetString("cosmiccult-announcement-sender");
+        _announce.SendAnnouncementMessage(_announce.GetAnnouncementId("SpawnAnnounceCaptain"), Loc.GetString("cosmiccult-announce-tier2-progress"), sender, Color.FromHex("#cae8e8"));
+        _audio.PlayGlobal("/Audio/_Impstation/CosmicCult/ability_blank.ogg", Filter.Broadcast(), false, AudioParams.Default); //TODO: Replace audio.
+        for (int i = 0; i < _rand.Next(8, 16); i++)
+            if (TryFindRandomTile(out var _, out var _, out var _, out var coords))
+                Spawn("CosmicMalignRift", coords);
+    }
+
+    private void CultTier3(Entity<CosmicMonumentComponent> uid, ref ComponentInit args)
+    {
+        var sender = Loc.GetString("cosmiccult-announcement-sender");
+        var map = _transform.GetMapId(uid.Owner.ToCoordinates());
+        var mapData = _map.GetMap(map);
+        _announce.SendAnnouncementMessage(_announce.GetAnnouncementId("SpawnAnnounceCaptain"), Loc.GetString("cosmiccult-announce-tier3-progress"), sender, Color.FromHex("#cae8e8"));
+        _audio.PlayGlobal("/Audio/_Impstation/CosmicCult/ability_blank.ogg", Filter.Broadcast(), false, AudioParams.Default); //TODO: Replace audio.
+        EnsureComp<ParallaxComponent>(mapData, out var parallax);
+        parallax.Parallax = "CosmicFinaleParallax";
+        Dirty(mapData, parallax);
+        EnsureComp<MapLightComponent>(mapData, out var mapLight);
+        mapLight.AmbientLightColor = Color.FromHex("#210746");
+        Dirty(mapData, mapLight);
+    }
 
     public void TryStartCult(EntityUid uid, Entity<CosmicCultRuleComponent> rule)
     {
@@ -82,6 +119,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         {
             _euiMan.OpenEui(new CosmicRoundStartEui(), session);
         }
+        CultTier2(rule);
     }
 
     public void CosmicConversion(EntityUid uid)
@@ -116,9 +154,9 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             _euiMan.OpenEui(new CosmicConvertedEui(), session);
         }
     }
+
     private void DebugFunction(EntityUid uid, CosmicCultLeadComponent comp, ref DamageChangedEvent args) // TODO: This is a placeholder function to call other functions for testing & debugging.
     {
-
     }
 
 }
