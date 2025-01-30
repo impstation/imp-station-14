@@ -1,0 +1,64 @@
+- type: entity
+  parent: BaseWall
+  id: BaseWallTall
+  suffix: tall
+  abstract: true
+  components:
+  # - type: Sprite
+  #   drawdepth: Mobs
+  # - type: SpriteFade
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Rock
+
+- type: entity
+  parent: BaseWallTall
+  id: BaseWallTallMetalWeak
+  abstract: true
+  components:
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: PerforatedMetallic
+
+- type: entity
+  parent: BaseWallTall
+  id: BaseWallTallMetal
+  abstract: true
+  components:
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: StructuralMetallic
+
+- type: entity
+  parent: BaseWallTall
+  id: BaseWallTallMetalStrong
+  abstract: true
+  components:
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: RadiationBlocker
+    resistance: 10
+
+- type: entity
+  parent: BaseWallTall
+  id: BaseWallTallWood
+  abstract: true
+  components:
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Wood
+
+- type: entity
+  parent: BaseWallTallMetal
+  id: WallMetalTall
+  name: metal wall
+  suffix: tall
+  components:
+  - type: Sprite
+    sprite: _Impstation/_Placeholder/wall3.rsi
+  - type: Icon
+    sprite: _Impstation/_Placeholder/wall3.rsi
+  - type: IconSmooth
+    key: walls
+    base: tallmetal
