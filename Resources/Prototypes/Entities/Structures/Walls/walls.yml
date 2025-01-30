@@ -1010,13 +1010,13 @@
     tags:
       - Wall
   - type: Sprite
-    sprite: Structures/Walls/solid.rsi
+    sprite: _Impstation/_Placeholder/wall3.rsi #TODO: placheolder
   - type: WallReplacementMarker
   - type: Construction
     graph: Girder
     node: wall
   - type: Icon
-    sprite: Structures/Walls/solid.rsi
+    sprite: _Impstation/_Placeholder/wall3.rsi #TODO: placheolder
   - type: RCDDeconstructable
     cost: 6
     delay: 8
@@ -1045,7 +1045,7 @@
         acts: ["Destruction"]
   - type: IconSmooth
     key: walls
-    base: solid
+    base: tallmetal #todo: placeholder
 
 - type: entity
   parent: WallShuttleDiagonal
