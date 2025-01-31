@@ -7,6 +7,8 @@
   - type: MindRole
     antagPrototype: Recruiter
     exclusiveAntag: true
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
   - type: RecruiterRole
   - type: RoleBriefing
     briefing: recruiter-role-briefing
@@ -19,6 +21,8 @@
   - type: MindRole
     antagPrototype: ListeningPost
     exclusiveAntag: true
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
   - type: ListeningPostRole
   - type: RoleBriefing
     briefing: listening-post-role-briefing
@@ -31,6 +35,8 @@
   - type: MindRole
     antagPrototype: SynthesisSpecialist
     exclusiveAntag: true
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
   - type: SynthesisRole
   - type: RoleBriefing
     briefing: synthesis-role-briefing
@@ -43,4 +49,6 @@
   - type: MindRole
     antagPrototype: Fugitive
     exclusiveAntag: true
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
   - type: FugitiveRole

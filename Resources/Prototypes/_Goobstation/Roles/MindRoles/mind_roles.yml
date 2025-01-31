@@ -9,6 +9,8 @@
     antagPrototype: Changeling
     exclusiveAntag: true
     primaryCurrency: EvolutionPoint #imp edit
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
   - type: ChangelingRole
 
 - type: entity
@@ -21,4 +23,6 @@
     antagPrototype: Heretic
     exclusiveAntag: true
     primaryCurrency: KnowledgePoint #imp edit
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
   - type: HereticRole
