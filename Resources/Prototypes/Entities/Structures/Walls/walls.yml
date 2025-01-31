@@ -1010,13 +1010,13 @@
     tags:
       - Wall
   - type: Sprite
-    sprite: Structures/Walls/solid.rsi
+    sprite: _Impstation/_Placeholder/wall_solid.rsi #TODO overhaulening placeholder
   - type: WallReplacementMarker
   - type: Construction
     graph: Girder
     node: wall
   - type: Icon
-    sprite: Structures/Walls/solid.rsi
+    sprite: _Impstation/_Placeholder/wall_solid.rsi #TODO overhaulening placeholder
   - type: RCDDeconstructable
     cost: 6
     delay: 8
