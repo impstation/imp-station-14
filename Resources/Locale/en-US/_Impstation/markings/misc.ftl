@@ -197,25 +197,25 @@ marking-FadingStars-fadingstars1 = Brightest
 marking-FadingStars-fadingstars2 = Middling
 marking-FadingStars-fadingstars3 = Darkest
 
-# snails
-marking-SnailCheeks = Cheeks
-marking-SnailCheeks-snailcheeks = Cheeks
-marking-SnailShellProstheticSimple = Simple Prosthetic Shell
-marking-SnailShellProstheticSimple-snailshellprostheticsimple = Simple Prosthetic Shell
-marking-SnailShellProsthetic = Prosthetic Shell
-marking-SnailShellProsthetic-snailshellprosthetic = Prosthetic Shell
+# Gastropoids
+marking-GastropoidCheeks = Cheeks
+marking-GastropoidCheeks-snailcheeks = Cheeks
+marking-GastropoidShellProstheticSimple = Simple Prosthetic Shell
+marking-GastropoidShellProstheticSimple-snailshellprostheticsimple = Simple Prosthetic Shell
+marking-GastropoidShellProsthetic = Prosthetic Shell
+marking-GastropoidShellProsthetic-snailshellprosthetic = Prosthetic Shell
 marking-SimpleBow = Cute Bow
 marking-SimpleBow-snailshellprostheticsimplebow = Cute Bow
 marking-SimpleCracks = Small Cracks
 marking-SimpleCracks-snailshellprostheticsimplecracks = Small Cracks
 marking-GlowInTheDarkStars = Glow in the Dark Stars
 marking-GlowInTheDarkStars-snailshellprostheticsimpleglowinthedarkstars = Glow in the Dark Stars
-marking-SnailCheekGlow = Glowing Cheeks
-marking-SnailCheekGlow-snailcheekglow = Glowing Cheeks
+marking-GastropoidCheekGlow = Glowing Cheeks
+marking-GastropoidCheekGlow-Gastropoidcheekglow = Glowing Cheeks
 marking-ProstheticInnerLight = Prosthetic Inner Light
-marking-ProstheticInnerLight-snailshellprostheticinnerlight = Prosthetic Inner Light
+marking-ProstheticInnerLight-Gastropoidshellprostheticinnerlight = Prosthetic Inner Light
 marking-ProstheticPulse = Prosthetic Pulse
-marking-ProstheticPulse-snailshellprostheticpulse = Prosthetic Pulse
+marking-ProstheticPulse-Gastropoidshellprostheticpulse = Prosthetic Pulse
 
 # thaven
 marking-Gills = Gills
@@ -349,13 +349,14 @@ marking-VoxTailSplit-voxtailsplit = Twinned
 
 # upstream vox markings dont have localized names. lmfao
 # these are just straight up broken and shouldnt be visible from the markings menu period but ALAS im not skilled enough to remove them so you get this stupid botch job instead
+# moving this furniture a few inches to the left -cc
 marking-VoxBeak = Default Beak [DO NOT USE]
-marking-VoxLArmScales = Default Arm [DO NOT USE]
-marking-VoxLHandScales = Default Left Hand [DO NOT USE]
-marking-VoxRArmScales = Default Right Arm [DO NOT USE]
-marking-VoxRHandScales = Default Right Hand [DO NOT USE]
+marking-VoxLArmScales = Arm Scales L
+marking-VoxLHandScales = Hand Scales L
+marking-VoxRArmScales = Arm Scales R
+marking-VoxRHandScales = Hand Scales R
 marking-VoxTail = Default Tail [DO NOT USE]
-marking-VoxLFootScales = Default Left Foot [DO NOT USE]
-marking-VoxLLegScales = Default Left Leg [DO NOT USE]
-marking-VoxRFootScales = Default Right Foot [DO NOT USE]
-marking-VoxRLegScales = Default Right Leg [DO NOT USE]
+marking-VoxLFootScales = Foot Scales L
+marking-VoxLLegScales = Leg Scales L
+marking-VoxRFootScales = Foot Scales R
+marking-VoxRLegScales = Leg Scales R
