@@ -26,7 +26,7 @@
   parent: [PartGray, BaseTorso]
   components:
   - type: Sprite
-    state: "torso_m"
+    state: "torso"
 
 - type: entity
   id: HeadGray
@@ -34,7 +34,7 @@
   parent: [PartGray, BaseHead]
   components:
   - type: Sprite
-    state: "head_m"
+    state: "head"
 
 - type: entity
   id: LeftArmGray
