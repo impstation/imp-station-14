@@ -6,7 +6,7 @@
   placement:
     mode: SnapgridCenter
     snap:
-    - Window
+    - Windows
   components:
   - type: MeleeSound
     soundGroups:
@@ -20,9 +20,9 @@
       - Window
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/window.rsi
+    sprite: _Impstation/_Placeholder/OLDWIZ/window.rsi #TODO overhaulening placeholder
   - type: Icon
-    sprite: Structures/Windows/window.rsi
+    sprite: _Impstation/_Placeholder/OLDWIZ/window.rsi #TODO overhaulening placeholder
     state: full
   - type: Physics
     bodyType: Static
@@ -72,7 +72,7 @@
         acts: [ "Destruction" ]
   - type: Airtight
   - type: IconSmooth
-    key: windows
+    key: walls #imp edit, overhaulening #TODO overhaulening placeholder
     base: window
   - type: InteractionPopup
     interactSuccessString: comp-window-knock
