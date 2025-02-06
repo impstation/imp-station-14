@@ -1,39 +1,21 @@
 #abductor
 - type: entity
   parent: BaseComputer
-  id: AbductorConsole
-  name: abductor console
+  id: SyndicateObservationConsole
+  name: syndicate observation console
   description: A computer that is used for spying on the station.
-  components:
-  - type: AbductorConsole
-  - type: Sprite
-    sprite: _Starlight/Structures/Machines/abductor_console.rsi
-    layers:
-    - map: ["console"]
-      state: console
-  - type: ActivatableUI
-    key: enum.AbductorConsoleUIKey.Key
-  - type: UserInterface
-    interfaces:
-     enum.AbductorConsoleUIKey.Key:
-        type: AbductorConsoleBui
-  - type: PointLight
-    enabled: true
-    radius: 1.5
-    energy: 1.6
-    color: "#FC0097"
-
-- type: entity
-  parent: BaseComputer
-  id: AbductorHumanObservationConsole
-  name: human observation console
-  description: Use this to set teleporter destination or retrieve people marked by scientist tools. Also used for buying replacement gear and linking the agent's vest.
   components:
   - type: Sprite
     sprite: _Starlight/Structures/Machines/abductor_camera_console.rsi
     layers:
     - map: ["console"]
       state: console
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: comm_syndie
+    - map: ["computerLayerKeys"]
+      state: syndie_key
   - type: AbductorHumanObservationConsole
   - type: ActivatableUI
     key: enum.AbductorCameraConsoleUIKey.Key
@@ -67,7 +49,7 @@
   - type: Sprite
     sprite: _Starlight/Structures/Machines/abductor_camera_console.rsi
     layers:
-    - state: nt_eye
+    - state: syndicate_eye
       shader: unshaded
   - type: Tag
     tags:
