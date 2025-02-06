@@ -138,6 +138,7 @@
     - RadiationProtection
     - Drowsiness
     - Adrenaline
+    - Anesthesia # DeltaV - Anesthesia
     - Feminized # DeltaV - Hormone system
     - Masculinized # DeltaV - Hormone system
     - GrayLanguage # imp
@@ -199,6 +200,9 @@
       enum.ThavenMoodsUiKey.Key: # impstation edit
         type: ThavenMoodsBoundUserInterface
         requireInputValidation: false
+      # Shitmed
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: Puller
   - type: Speech
     speechSounds: Alto
@@ -224,6 +228,8 @@
     - DoorBumpOpener
     - AnomalyHost
   - type: LayingDown # WD EDIT
+  - type: Targeting # Shitmed Change
+  - type: SurgeryTarget # Shitmed Change
 
 - type: entity
   save: false

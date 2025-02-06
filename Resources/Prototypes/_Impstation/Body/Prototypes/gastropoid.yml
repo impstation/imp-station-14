@@ -13,37 +13,24 @@
     torso:
       part: TorsoGastropoid
       connections:
-      - right_arm
-      - left_arm
-      - right_leg
-      - left_leg
+      - right arm
+      - left arm
+      - head
       organs:
         heart: OrganHumanHeart
         lungs: OrganHumanLungs
         stomach: OrganGastropoidStomach
         liver: OrganHumanLiver
         kidneys: OrganHumanKidneys
-    right_arm:
+    right arm:
       part: RightArmGastropoid
       connections:
-      - right_hand
-    left_arm:
+      - right hand
+    left arm:
       part: LeftArmGastropoid
       connections:
-      - left_hand
-    right_hand:
+      - left hand
+    right hand:
       part: RightHandGastropoid
-    left_hand:
+    left hand:
       part: LeftHandGastropoid
-    right_leg:
-      part: RightLegGastropoid
-      connections:
-      - right_foot
-    left_leg:
-      part: LeftLegGastropoid
-      connections:
-      - left_foot
-    right_foot:
-      part: RightFootGastropoid
-    left_foot:
-      part: LeftFootGastropoid
