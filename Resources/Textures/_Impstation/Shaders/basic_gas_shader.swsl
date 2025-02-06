@@ -1,0 +1,45 @@
+uniform highp vec4 colour;
+
+uniform sampler2D noise_0;
+uniform sampler2D noise_1;
+uniform sampler2D noise_2;
+
+const highp float tileSize = 32.0;
+
+void fragment() {
+
+	highp float multiple = (1.0 / tileSize);
+	highp vec2 rem = vec2(mod(UV.x, multiple), mod(UV.y, multiple));
+	highp vec2 rounded = UV - rem; //downsample to a 32 * 32 grid for stylistic consistency
+
+	COLOR = 0.4 * texture(noise_0, loopVec(rounded + TIME * 0.1));
+	COLOR += 0.3 * texture(noise_1, loopVec(rounded - TIME * 0.1));
+	COLOR += 0.3 * texture(noise_2, loopVec(rounded));
+}
+
+//hate that I have to do this because we can't just 
+highp vec2 loopVec(highp vec2 toLoop) { 
+    return vec2(mod(toLoop.x, 1), mod(toLoop.y, 1));
+}
+
+//copied out from an error.glsl file so that I can actually edit these
+//g because gas :)
+highp vec2 gRandom(highp vec2 uv){
+    uv = vec2( dot(uv, vec2(127.1,311.7) ),
+               dot(uv, vec2(269.5,183.3) ) );
+    return -1.0 + 2.0 * fract(sin(uv) * 43758.5453123);
+}
+
+highp float gNoise(highp vec2 uv) {
+
+    highp vec2 uv_index = floor(uv);
+    highp vec2 uv_fract = fract(uv);
+
+    highp vec2 blur = uv_fract * uv_fract * (3.0 - 2.0 * uv_fract);
+
+    return mix( mix( dot( gRandom(uv_index + vec2(0.0,0.0) ), uv_fract - vec2(0.0,0.0) ),
+                     dot( gRandom(uv_index + vec2(1.0,0.0) ), uv_fract - vec2(1.0,0.0) ), blur.x),
+                mix( dot( gRandom(uv_index + vec2(0.0,1.0) ), uv_fract - vec2(0.0,1.0) ),
+                     dot( gRandom(uv_index + vec2(1.0,1.0) ), uv_fract - vec2(1.0,1.0) ), blur.x), blur.y) * 0.5 + 0.5;
+}
+

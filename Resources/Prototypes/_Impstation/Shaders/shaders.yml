@@ -2,3 +2,24 @@
   id: AccessibleFullStealth
   kind: source
   path: "/Textures/_Impstation/Shaders/accessible_full_stealth.swsl"
+
+- type: shader
+  id: BasicGasShader
+  kind: source
+  path: "/Textures/_Impstation/Shaders/basic_gas_shader.swsl"
+
+- type: shader
+  id: PlasmaGasShader
+  kind: source
+  path: "/Textures/_Impstation/Shaders/plasma_gas_shader.swsl"
+
+- type: shader
+  id: TritiumGasShader
+  kind: source
+  path: "/Textures/_Impstation/Shaders/basic_gas_shader.swsl"
+  #todo give this two colours to fade between
+
+- type: shader
+  id: FrezonGasShader
+  kind: source
+  path: "/Textures/_Impstation/Shaders/basic_gas_shader.swsl"

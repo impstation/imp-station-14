@@ -1,0 +1,122 @@
+uniform highp vec4 colour;
+
+uniform sampler2D noise_0;
+uniform sampler2D noise_1;
+uniform sampler2D noise_2;
+
+const highp float tileSize = 32.0;
+
+void fragment() {
+
+	highp float multiple = (1.0 / tileSize);
+	highp vec2 rem = vec2(mod(UV.x, multiple), mod(UV.y, multiple));
+	highp vec2 rounded = UV - rem; //downsample to a 32 * 32 grid for stylistic consistency
+
+    //highp vec2 noise0SamplePos = rounded + TIME * 0.1;
+
+	COLOR = 0.4 * texture(noise_0, loopVec(vec2(rounded.x + sin(rounded.y * 4.0 + TIME * 0.1), rounded.y)));
+	COLOR += 0.3 * texture(noise_1, loopVec(rounded - TIME * 0.1));
+	COLOR += 0.3 * texture(noise_2, loopVec(rounded + 0.3)); //tiny offset so it's not identical to other gases
+}
+
+//this doesn't work for some reason. fuck.
+/*
+highp vec4 rgb2hsv(highp vec4 rgb) {
+
+    highp float maxVal = max(rgb.r, max(rgb.g, rgb.b));
+    highp float minVal = min(rgb.r, min(rgb.g, rgb.b));
+    highp float c = maxVal - minVal;
+
+    highp float f = 0.0;
+    if (c != 0) {
+        if (max == rgb.r) {
+            h = (rgb.g - rgb.b) / c % 0.6;
+            if (h > 0.0) {
+                h += 6.0;
+            }
+        } else if (max == rgb.g) {
+            h = (rgb.b - rgb.r) / c + 2.0f;
+        } else if (max == rgb.b) {
+            h = (rgb.R - rgb.G) / c + 4.0f;
+        }
+    }
+
+    highp float hue = h * 60.0 / 360.0;
+
+    highp float saturation = 0.0;
+    if (max != 0.0) {
+        saturation = c / max;
+    }
+
+    return vec4(hue, saturation, max, rgb.a);
+}
+*/
+
+/*
+highp vec4 hsv2rgb(highp vec4 hsv) {
+
+    highp float c = hsv.z * hsv.y;
+
+    highp float h = hsv.x / 60.0;
+    highp float x = c * (1.0 - abs(mod(2.0, h) - 1));
+
+    highp vec3 rgb = 0.0;
+    if (0.0 <= h && h < 1.0) {
+        rgb.r = c;
+        rgb.b = x;
+    } else if (1.0 <= h && h < 2.0) {
+        rgb.r = x;
+        rgb.b = c;
+    } else if (2.0 <=h && h < 3.0) {
+        rgb.g = c;
+        rgb.b = x;
+    } else if (3.0 <= h && h < 4.0) {
+        rgb.g = x;
+        rgb.b = c;
+    } else if (4.0 <= h && h < 5.0) {
+        rgb.r = x;
+        rgb.b = c;
+    }  else if (5.0 <= h && h < 6.0) {
+        rgb.r = c;
+        rgb.b = x;
+    }
+
+    highp float m = hsv.z - c;
+    return vec4(rgb, hsv.a);
+}
+*/
+
+//hate that I have to do this because we can't just set the loop behaviour on the texture
+highp vec2 loopVec(highp vec2 toLoop) {
+    return vec2(abs(mod(toLoop.x, 1)), abs(mod(toLoop.y, 1)));
+}
+
+highp float abs(highp float val) {
+    if (val > 0) {
+        return val;
+    } else {
+        return val * -1;
+    }
+}
+
+//copied out from an error.glsl file so that I can actually edit these
+//g because gas :)
+highp vec2 gRandom(highp vec2 uv){
+    uv = vec2( dot(uv, vec2(127.1,311.7) ),
+               dot(uv, vec2(269.5,183.3) ) );
+    return -1.0 + 2.0 * fract(sin(uv) * 43758.5453123);
+}
+
+highp float gNoise(highp vec2 uv) {
+
+    highp vec2 uv_index = floor(uv);
+    highp vec2 uv_fract = fract(uv);
+
+    highp vec2 blur = uv_fract * uv_fract * (3.0 - 2.0 * uv_fract);
+
+    return mix( mix( dot( gRandom(uv_index + vec2(0.0,0.0) ), uv_fract - vec2(0.0,0.0) ),
+                     dot( gRandom(uv_index + vec2(1.0,0.0) ), uv_fract - vec2(1.0,0.0) ), blur.x),
+                mix( dot( gRandom(uv_index + vec2(0.0,1.0) ), uv_fract - vec2(0.0,1.0) ),
+                     dot( gRandom(uv_index + vec2(1.0,1.0) ), uv_fract - vec2(1.0,1.0) ), blur.x), blur.y) * 0.5 + 0.5;
+}
+
