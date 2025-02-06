@@ -11,3 +11,9 @@ public sealed partial class EventCosmicBlankDoAfter : SimpleDoAfterEvent { }
 
 [Serializable, NetSerializable]
 public sealed partial class EventEraseGlyphDoAfter : SimpleDoAfterEvent { }
+
+[Serializable, NetSerializable]
+public sealed partial class EventAbsorbRiftDoAfter : SimpleDoAfterEvent { }
+
+[Serializable, NetSerializable]
+public sealed partial class EventPurgeRiftDoAfter : SimpleDoAfterEvent { }

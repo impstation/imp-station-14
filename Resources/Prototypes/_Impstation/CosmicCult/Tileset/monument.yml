@@ -64,12 +64,23 @@
         - EntropyMote
     materialWhiteList:
     - EntropyMoteMaterial
-  # - type: ActivatableUI  # TODO: HEY! THIS THING NEEDS A UI! LIKE. REALLY. HELP.
-  #   key: enum.CosmicMonumentUiKey.Key
-  # - type: UserInterface
-  #   interfaces:
-  #       enum.CosmicMonumentUiKey.Key:
-  #         type: CosmicMonumentBoundUserInterface
+  - type: ActivatableUI
+    key: enum.MonumentKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MonumentKey.Key:
+        type: MonumentBoundUserInterface
+  - type: Monument
+    unlockedInfluences:
+    - influenceAberrantLapse0
+    - influenceAberrantLapse1
+    - influenceAberrantLapse2
+    selectedGlyph: ccglyph1
+    availableEntropy: 70
+    infusedEntropy: 20
+    entropyUntilNextStage: 27
+    crewToConvertNextStage:  4
+    percentageComplete: 0.67
   - type: EmitSoundOnUIOpen
     sound:
       collection: Keyboard

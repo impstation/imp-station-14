@@ -53,8 +53,17 @@ cosmiccult-role-deconverted-briefing =
     Deconverted!
     You are no longer a Cosmic Cultist.
 
+## MALIGN RIFTS
 
+cosmiccult-rift-inuse = I can't do this right now.
+cosmiccult-rift-invaliduser = I lack the tools to deal with this.
+cosmiccult-rift-chaplainoops = I should probably use a bible or gildgrail.
+cosmiccult-rift-alreadyempowered = I don't need to absorb another one.
+cosmiccult-rift-beginabsorb = You begin absorbing the malign rift..
+cosmiccult-rift-beginpurge = You begin purging the malign rift..
 
+cosmiccult-rift-absorb = You absorb the malign rift, empowering yourself.
+cosmiccult-rift-purge = You purge the malign rift.
 
 ## UI / BASE POPUP
 

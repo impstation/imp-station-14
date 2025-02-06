@@ -1,0 +1,30 @@
+# Resources/Prototypes/_Impstation/CosmicCult/MonumentPowers/influences.yml
+- type: influence
+  id: influenceAberrantLapse0
+  name: influence-name-aberrant-lapse
+  influenceType: influence-type-active
+  cost: 4
+  description: influence-description-aberrant-lapse
+  icon:
+    sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
+    state: siphon
+
+- type: influence
+  id: influenceAberrantLapse1
+  name: influence-name-aberrant-lapse
+  influenceType: influence-type-active
+  cost: 5
+  description: influence-description-aberrant-lapse
+  icon:
+    sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
+    state: blank
+
+- type: influence
+  id: influenceAberrantLapse2
+  name: influence-name-aberrant-lapse
+  influenceType: influence-type-active
+  cost: 6
+  description: influence-description-aberrant-lapse
+  icon:
+    sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
+    state: lapse

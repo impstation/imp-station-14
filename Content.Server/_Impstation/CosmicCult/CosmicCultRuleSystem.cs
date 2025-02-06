@@ -4,24 +4,17 @@ using Content.Server.Mind;
 using Content.Server.GameTicking.Rules;
 using Content.Server._Impstation.CosmicCult.Components;
 using Content.Server.Roles;
-using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
 using Content.Shared._Impstation.CosmicCult.Components;
-using Content.Shared.Zombies;
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Audio;
 using Content.Server.Radio.Components;
-using Content.Shared.Heretic;
 using Content.Shared.Damage;
 using Content.Shared.Objectives.Systems;
-using SixLabors.ImageSharp.Formats.Tga;
 using Robust.Shared.Player;
-using Content.Server.Antag.Components;
-using System.Linq;
-using Content.Shared.NPC.Components;
 using Content.Server.EUI;
 using Robust.Shared.Random;
 using Content.Server.Announcements.Systems;
@@ -29,6 +22,9 @@ using Robust.Server.Audio;
 using Content.Shared.Coordinates;
 using Content.Shared.Parallax;
 using Robust.Shared.Map.Components;
+using Content.Shared.Temperature.Components;
+using Content.Server.Body.Components;
+using Content.Server.Atmos.Components;
 
 namespace Content.Server._Impstation.CosmicCult;
 
@@ -70,7 +66,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     {
         var sender = Loc.GetString("cosmiccult-announcement-sender");
         _announce.SendAnnouncementMessage(_announce.GetAnnouncementId("SpawnAnnounceCaptain"), Loc.GetString("cosmiccult-announce-tier2-progress"), sender, Color.FromHex("#cae8e8"));
-        _audio.PlayGlobal("/Audio/_Impstation/CosmicCult/ability_blank.ogg", Filter.Broadcast(), false, AudioParams.Default); //TODO: Replace audio.
+        _audio.PlayGlobal("/Audio/_Impstation/CosmicCult/tier2.ogg", Filter.Broadcast(), false, AudioParams.Default); //TODO: Replace audio.
         for (int i = 0; i < _rand.Next(8, 16); i++)
             if (TryFindRandomTile(out var _, out var _, out var _, out var coords))
                 Spawn("CosmicMalignRift", coords);
@@ -78,11 +74,19 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
     private void CultTier3(Entity<CosmicMonumentComponent> uid, ref ComponentInit args)
     {
+        var query = EntityQueryEnumerator<CosmicCultComponent>();
+        while (query.MoveNext(out var cultist, out var _))
+        {
+            EnsureComp<CosmicStarMarkComponent>(cultist);
+            RemComp<BarotraumaComponent>(cultist);
+            RemComp<TemperatureSpeedComponent>(cultist);
+            RemComp<RespiratorComponent>(cultist);
+        }
         var sender = Loc.GetString("cosmiccult-announcement-sender");
         var map = _transform.GetMapId(uid.Owner.ToCoordinates());
         var mapData = _map.GetMap(map);
         _announce.SendAnnouncementMessage(_announce.GetAnnouncementId("SpawnAnnounceCaptain"), Loc.GetString("cosmiccult-announce-tier3-progress"), sender, Color.FromHex("#cae8e8"));
-        _audio.PlayGlobal("/Audio/_Impstation/CosmicCult/ability_blank.ogg", Filter.Broadcast(), false, AudioParams.Default); //TODO: Replace audio.
+        _audio.PlayGlobal("/Audio/_Impstation/CosmicCult/tier3.ogg", Filter.Broadcast(), false, AudioParams.Default); //TODO: Replace audio.
         EnsureComp<ParallaxComponent>(mapData, out var parallax);
         parallax.Parallax = "CosmicFinaleParallax";
         Dirty(mapData, parallax);

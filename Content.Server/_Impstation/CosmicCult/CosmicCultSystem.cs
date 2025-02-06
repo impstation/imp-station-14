@@ -4,7 +4,6 @@ using Content.Shared._Impstation.CosmicCult.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Examine;
 using Content.Server.Actions;
-using Robust.Shared.Prototypes;
 using Content.Server.GameTicking.Events;
 using Robust.Server.GameObjects;
 using Robust.Server.Maps;
@@ -20,11 +19,14 @@ using Robust.Shared.Audio;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Robust.Shared.Timing;
+using Content.Server.Stack;
+using Content.Server.Objectives.Components;
 
 namespace Content.Server._Impstation.CosmicCult;
 
 public sealed partial class CosmicCultSystem : EntitySystem
 {
+    [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly ISharedAdminLogManager _log = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
@@ -127,7 +129,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
     private void OnStartCultist(Entity<CosmicCultComponent> uid, ref ComponentStartup args)
     {
         EnsureComp<CosmicSpellSlotComponent>(uid, out var spell);
-        _actions.AddAction(uid, ref spell.CosmicSiphonActionEntity, spell.CosmicSiphonAction, uid); // TODO: award cult powers at The Monument
+        _actions.AddAction(uid, ref spell.CosmicSiphonActionEntity, spell.CosmicSiphonAction, uid); // TODO: award cult powers differently
         _actions.AddAction(uid, ref spell.CosmicBlankActionEntity, spell.CosmicBlankAction, uid);
         _actions.AddAction(uid, ref spell.CosmicLapseActionEntity, spell.CosmicLapseAction, uid);
     }
@@ -143,9 +145,14 @@ public sealed partial class CosmicCultSystem : EntitySystem
     /// <summary>
     /// Called by Cosmic Siphon. Increments the Cult's global objective tracker.
     /// </summary>
-    private void IncrementCultObjectiveEntropy()
+    private void IncrementCultObjectiveEntropy(Entity<CosmicCultComponent> uid)
     {
-        ObjectiveEntropyTracker++;
+        ObjectiveEntropyTracker += uid.Comp.CosmicSiphonQuantity;
+        var query = EntityQueryEnumerator<CosmicEntropyConditionComponent>();
+        while (query.MoveNext(out var _, out var entropyComp))
+        {
+            entropyComp.Siphoned = ObjectiveEntropyTracker;
+        }
     }
 
 

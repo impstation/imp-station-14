@@ -74,7 +74,7 @@ public sealed class CleanseDeconversionSystem : EntitySystem
     {
         if (!TryComp(uid, out UseDelayComponent? useDelay) || _delay.IsDelayed((uid, useDelay)))
             return;
-        if (!args.CanReach || args.Target == null || !_mobState.IsAlive(args.Target.Value))
+        if (!args.CanReach || !uid.Comp.Enabled || args.Target == null || !_mobState.IsAlive(args.Target.Value))
             return;
 
         if (!HasComp<BibleUserComponent>(args.User))
