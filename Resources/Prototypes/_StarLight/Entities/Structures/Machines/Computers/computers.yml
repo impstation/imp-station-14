@@ -10,12 +10,8 @@
     layers:
     - map: ["console"]
       state: console
-    - map: ["computerLayerKeyboard"]
-      state: generic_keyboard
     - map: ["computerLayerScreen"]
       state: comm_syndie
-    - map: ["computerLayerKeys"]
-      state: syndie_key
   - type: AbductorHumanObservationConsole
   - type: ActivatableUI
     key: enum.AbductorCameraConsoleUIKey.Key
