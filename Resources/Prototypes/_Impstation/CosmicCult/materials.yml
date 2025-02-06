@@ -1,0 +1,7 @@
+- type: material
+  id: EntropyMoteMaterial
+  name: materials-entropy
+  unit: materials-unit-mote
+  icon: { sprite: Objects/Materials/_Impstation/CosmicCult/Objects/entropymote.rsi, state: mote }
+  color: "#5f4e8f"
+  price: 50 # I don't know why i set this to 50. The heart of the YAML told me so.
