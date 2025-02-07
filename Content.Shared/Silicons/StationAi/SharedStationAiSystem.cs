@@ -132,6 +132,10 @@ public abstract partial class SharedStationAiSystem : EntitySystem
 
     private void OnAiAccessible(Entity<StationAiOverlayComponent> ent, ref AccessibleOverrideEvent args)
     {
+        // Begin DeltaV Additions
+        if (ent.Comp.Cosmetic)
+            return;
+        // End DeltaV Additions
         args.Handled = true;
 
         // Hopefully AI never needs storage
@@ -150,6 +154,10 @@ public abstract partial class SharedStationAiSystem : EntitySystem
 
     private void OnAiMenu(Entity<StationAiOverlayComponent> ent, ref MenuVisibilityEvent args)
     {
+        // Begin DeltaV Additions
+        if (ent.Comp.Cosmetic)
+            return;
+        // End DeltaV Additions
         args.Visibility &= ~MenuVisibility.NoFov;
     }
 
@@ -187,6 +195,10 @@ public abstract partial class SharedStationAiSystem : EntitySystem
 
     private void OnAiInRange(Entity<StationAiOverlayComponent> ent, ref InRangeOverrideEvent args)
     {
+        // Begin DeltaV Additions
+        if (ent.Comp.Cosmetic)
+            return;
+        // End DeltaV Additions
         args.Handled = true;
         var target = args.Target;
         if (ent.Comp.AllowCrossGrid && TryComp(ent, out RelayInputMoverComponent? relay))

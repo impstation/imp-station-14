@@ -12,4 +12,11 @@ public sealed partial class StationAiOverlayComponent : Component
 {
     [DataField, AutoNetworkedField]
     public bool AllowCrossGrid;
+
+    /// <summary>
+    /// DeltaV: Makes this purely an overlay and not functional.
+    /// Exists because this component also controls interaction ranges for some reason.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool Cosmetic;
 }
