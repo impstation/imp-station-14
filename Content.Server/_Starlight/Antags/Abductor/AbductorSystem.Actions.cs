@@ -22,12 +22,12 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
     [Dependency] private readonly PullingSystem _pullingSystem = default!;
     [Dependency] private readonly InventorySystem _inv = default!;
 
-    private static readonly EntProtoId<InstantActionComponent> _gizmoMark = "ActionGizmoMark";
+    //private static readonly EntProtoId<InstantActionComponent> _gizmoMark = "ActionGizmoMark";
     private static readonly EntProtoId<InstantActionComponent> _sendYourself = "ActionSendYourself";
     private static readonly EntProtoId<InstantActionComponent> _exitAction = "ActionExitConsole";
 
-    private static readonly EntProtoId _teleportationEffect = "EffectTeleportation";
-    private static readonly EntProtoId _teleportationEffectEntity = "EffectTeleportationEntity";
+    //private static readonly EntProtoId _teleportationEffect = "EffectTeleportation";
+    //private static readonly EntProtoId _teleportationEffectEntity = "EffectTeleportationEntity";
     public void InitializeActions()
     {
         //SubscribeLocalEvent<AbductorScientistComponent, ComponentStartup>(AbductorScientistComponentStartup);

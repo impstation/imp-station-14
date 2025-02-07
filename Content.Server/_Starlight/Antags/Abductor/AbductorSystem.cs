@@ -44,7 +44,7 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
         Subs.BuiEvents<AbductorHumanObservationConsoleComponent>(AbductorCameraConsoleUIKey.Key, subs => subs.Event<AbductorBeaconChosenBuiMsg>(OnAbductorBeaconChosenBuiMsg));
         InitializeActions();
         //InitializeGizmo();
-        InitializeConsole();
+        //InitializeConsole();
         //InitializeOrgans();
         base.Initialize();
     }
@@ -95,7 +95,7 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
                 _eye.SetDrawFov(args.Actor, false);
 
                 if (!HasComp<StationAiOverlayComponent>(args.Actor))
-                    AddComp(args.Actor, new StationAiOverlayComponent { AllowCrossGrid = true , Cosmetic = true });
+                    AddComp(args.Actor, new StationAiOverlayComponent { AllowCrossGrid = true , Cosmetic = true});
                 if (!TryComp(eye, out RemoteEyeSourceContainerComponent? remoteEyeSourceContainerComponent))
                 {
                     remoteEyeSourceContainerComponent = new RemoteEyeSourceContainerComponent { Actor = args.Actor };
