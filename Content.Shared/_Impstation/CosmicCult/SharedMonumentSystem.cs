@@ -37,8 +37,8 @@ public sealed class SharedMonumentSystem : EntitySystem
         // TODO: Add what you want to do here!
 
         // TODO: REMOVE ME! THIS IS FOR DEMO PURPOSES ONLY!! (Although you probably want to do something similar or exactly this)
-            ent.Comp.SelectedGlyph = args.GlyphProtoId;
-        // ---
+        ent.Comp.SelectedGlyph = args.GlyphProtoId;
+
 
         _uiSystem.SetUiState(ent.Owner, MonumentKey.Key, GenerateBuiState(ent.Comp));
     }
@@ -48,8 +48,8 @@ public sealed class SharedMonumentSystem : EntitySystem
         // TODO: Add what you want to do here!
 
         // TODO: REMOVE ME! THIS IS FOR DEMO PURPOSES ONLY!!
-            ent.Comp.UnlockedInfluences.Remove(args.InfluenceProtoId);
-        // ---
+        ent.Comp.UnlockedInfluences.Remove(args.InfluenceProtoId);
+
 
         _uiSystem.SetUiState(ent.Owner, MonumentKey.Key, GenerateBuiState(ent.Comp));
     }

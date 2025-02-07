@@ -41,7 +41,7 @@
     requiredCultists: 3
     activationDamage:
       types:
-        Asphyxiation: 30
+        Asphyxiation: 50
 
 - type: entity
   parent: CosmicGlyphBase
@@ -55,26 +55,27 @@
       - state: knowledge
   - type: CosmicGlyphConversion
   - type: CosmicGlyph
-    requiredCultists: 2 #TODO: this value should be 2. It is altered for testing.
+    requiredCultists: 2
     activationDamage:
       types:
-        Asphyxiation: 25
+        Asphyxiation: 40
 
 - type: entity
   parent: CosmicGlyphBase
-  id: CosmicGlyphAid
-  name: Glyph of Aid
+  id: CosmicGlyphCessation
+  name: Glyph of Cessation
   description: Lorem Ipsum
   components:
   - type: Sprite
     layers:
     - sprite: _Impstation/CosmicCult/Objects/glyphs.rsi
-      state: aid
+      state: cessation
+  - type: CosmicGlyphTransmuteSpire
   - type: CosmicGlyph
-    requiredCultists: 3
+    requiredCultists: 2
     activationDamage:
       types:
-        Asphyxiation: 50
+        Asphyxiation: 25
 
 - type: entity
   parent: CosmicGlyphBase
@@ -86,6 +87,7 @@
     sprite: _Impstation/CosmicCult/Objects/glyphs.rsi
     layers:
       - state: blades
+  - type: CosmicGlyphTransmuteWeapon
   - type: CosmicGlyph
     requiredCultists: 2
     activationDamage:
@@ -102,6 +104,7 @@
     sprite: _Impstation/CosmicCult/Objects/glyphs.rsi
     layers:
       - state: warding
+  - type: CosmicGlyphTransmuteArmor
   - type: CosmicGlyph
     requiredCultists: 2
     activationDamage:
@@ -124,4 +127,4 @@
     activationRange: 0.5
     activationDamage:
       types:
-        Asphyxiation: 30
+        Asphyxiation: 40

@@ -9,29 +9,21 @@ public sealed partial class CosmicSpellSlotComponent : Component
 
     #region Actions
 
-    [DataField]
-    public EntProtoId CosmicSiphonAction = "ActionCosmicSiphon";
+    [DataField] public EntProtoId CosmicSiphonAction = "ActionCosmicSiphon";
 
-    [DataField]
-    public EntityUid? CosmicSiphonActionEntity;
+    [DataField] public EntityUid? CosmicSiphonActionEntity;
 
-    [DataField]
-    public EntProtoId CosmicBlankAction = "ActionCosmicBlank";
+    [DataField] public EntProtoId CosmicBlankAction = "ActionCosmicBlank";
 
-    [DataField]
-    public EntityUid? CosmicBlankActionEntity;
+    [DataField] public EntityUid? CosmicBlankActionEntity;
 
-    [DataField]
-    public EntProtoId CosmicLapseAction = "ActionCosmicLapse";
+    [DataField] public EntProtoId CosmicLapseAction = "ActionCosmicLapse";
 
-    [DataField]
-    public EntityUid? CosmicLapseActionEntity;
+    [DataField] public EntityUid? CosmicLapseActionEntity;
 
-    [DataField]
-    public EntProtoId CosmicMonumentAction = "ActionCosmicPlaceMonument";
+    [DataField] public EntProtoId CosmicMonumentAction = "ActionCosmicPlaceMonument";
 
-    [DataField]
-    public EntityUid? CosmicMonumentActionEntity;
+    [DataField] public EntityUid? CosmicMonumentActionEntity;
 
     #endregion
 

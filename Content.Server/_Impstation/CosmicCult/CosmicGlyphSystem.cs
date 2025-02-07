@@ -1,11 +1,16 @@
 
 using Content.Server._Impstation.CosmicCult.Components;
 using Content.Server.Actions;
+using Content.Server.Atmos.Components;
+using Content.Server.Atmos.Portable;
 using Content.Server.Bible.Components;
 using Content.Server.GameTicking;
+using Content.Server.Kitchen.Components;
 using Content.Server.Popups;
 using Content.Shared._Impstation.CosmicCult.Components;
 using Content.Shared._Impstation.CosmicCult.Components.Examine;
+using Content.Shared.Clothing;
+using Content.Shared.Clothing.Components;
 using Content.Shared.Damage;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
@@ -14,14 +19,18 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Stunnable;
+using Content.Shared.Tag;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
+using Robust.Shared.Containers;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Impstation.CosmicCult;
 
 public sealed class CosmicGlyphSystem : EntitySystem
 {
+    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly CosmicCultRuleSystem _cultRule = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
@@ -29,17 +38,17 @@ public sealed class CosmicGlyphSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly MetaDataSystem _meta = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
 
     public override void Initialize()
     {
         SubscribeLocalEvent<CosmicGlyphComponent, ActivateInWorldEvent>(OnUseGlyph);
         SubscribeLocalEvent<CosmicGlyphConversionComponent, TryActivateGlyphEvent>(OnConversionGlyph);
         SubscribeLocalEvent<CosmicGlyphAstralProjectionComponent, TryActivateGlyphEvent>(OnAstralProjGlyph);
+        SubscribeLocalEvent<CosmicGlyphTransmuteWeaponComponent, TryActivateGlyphEvent>(OnTransmuteWeaponGlyph);
+        SubscribeLocalEvent<CosmicGlyphTransmuteArmorComponent, TryActivateGlyphEvent>(OnTransmuteArmorGlyph);
+        SubscribeLocalEvent<CosmicGlyphTransmuteSpireComponent, TryActivateGlyphEvent>(OnTransmuteSpireGlyph);
     }
 
     #region Base trigger
@@ -106,7 +115,6 @@ public sealed class CosmicGlyphSystem : EntitySystem
                 args.Cancel();
                 return;
             }
-
             if (uid.Comp.NegateProtection == false && HasComp<MindShieldComponent>(target))
             {
                 _popup.PopupEntity(Loc.GetString("cult-glyph-target-mindshield"), uid, args.User);
@@ -137,6 +145,82 @@ public sealed class CosmicGlyphSystem : EntitySystem
     }
     #endregion
 
+    #region Transmute Weapon
+    private void OnTransmuteWeaponGlyph(Entity<CosmicGlyphTransmuteWeaponComponent> uid, ref TryActivateGlyphEvent args)
+    {
+        var tgtpos = Transform(uid).Coordinates;
+        var possibleTargets = GatherSharpItems(uid, uid.Comp.TransmuteRange);
+        if (possibleTargets.Count == 0)
+        {
+            _popup.PopupEntity(Loc.GetString("cult-glyph-conditions-not-met"), uid, args.User);
+            args.Cancel();
+            return;
+        }
+        if (possibleTargets.Count >= 2)
+        {
+            _popup.PopupEntity(Loc.GetString("cult-glyph-too-many-targets"), uid, args.User);
+            args.Cancel();
+            return;
+        }
+        foreach (var target in possibleTargets) // FIVE GODDAMN if-statements? Yep. I know. Why? My brain doesn't have enough juice to write something more succinct.
+        {
+            Spawn(_random.Pick(uid.Comp.TransmuteWeapon), tgtpos);
+            QueueDel(target);
+        }
+    }
+    #endregion
+
+    #region Transmute Armor
+    private void OnTransmuteArmorGlyph(Entity<CosmicGlyphTransmuteArmorComponent> uid, ref TryActivateGlyphEvent args)
+    {
+        var tgtpos = Transform(uid).Coordinates;
+        var possibleTargets = GatherPressureSuitItems(uid, uid.Comp.TransmuteRange);
+        if (possibleTargets.Count == 0)
+        {
+            _popup.PopupEntity(Loc.GetString("cult-glyph-conditions-not-met"), uid, args.User);
+            args.Cancel();
+            return;
+        }
+        if (possibleTargets.Count >= 2)
+        {
+            _popup.PopupEntity(Loc.GetString("cult-glyph-too-many-targets"), uid, args.User);
+            args.Cancel();
+            return;
+        }
+        foreach (var target in possibleTargets)
+        {
+            Spawn(uid.Comp.TransmuteArmor, tgtpos);
+            QueueDel(target);
+        }
+    }
+    #endregion
+
+    #region Transmute Spire
+    private void OnTransmuteSpireGlyph(Entity<CosmicGlyphTransmuteSpireComponent> uid, ref TryActivateGlyphEvent args)
+    {
+        var tgtpos = Transform(uid).Coordinates;
+        var possibleTargets = GatherPortaScrubbers(uid, uid.Comp.TransmuteRange);
+        if (possibleTargets.Count == 0)
+        {
+            _popup.PopupEntity(Loc.GetString("cult-glyph-conditions-not-met"), uid, args.User);
+            args.Cancel();
+            return;
+        }
+        if (possibleTargets.Count >= 2)
+        {
+            _popup.PopupEntity(Loc.GetString("cult-glyph-too-many-targets"), uid, args.User);
+            args.Cancel();
+            return;
+        }
+        foreach (var target in possibleTargets)
+        {
+            Spawn(uid.Comp.TransmuteSpire, tgtpos);
+            QueueDel(target);
+        }
+    }
+    #endregion
+
+
     #region Housekeeping
     private void DealDamage(EntityUid user, DamageSpecifier? damage = null)
     {
@@ -155,7 +239,44 @@ public sealed class CosmicGlyphSystem : EntitySystem
         var glyphTransform = Transform(uid);
         var entities = _lookup.GetEntitiesInRange(glyphTransform.Coordinates, range);
         entities.RemoveWhere(entity => !HasComp<CosmicCultComponent>(entity));
+        entities.RemoveWhere(entity => _container.IsEntityInContainer(entity));
         return entities;
+    }
+
+    /// <summary>
+    ///     Gets all sharp items near a glyph.
+    /// </summary>
+    public HashSet<EntityUid> GatherSharpItems(EntityUid uid, float range)
+    {
+        var glyphTransform = Transform(uid);
+        var items = _lookup.GetEntitiesInRange(glyphTransform.Coordinates, range);
+        items.RemoveWhere(item => !HasComp<SharpComponent>(item));
+        items.RemoveWhere(item => _container.IsEntityInContainer(item));
+        return items;
+    }
+
+    /// <summary>
+    ///     Gets all portascrubbers near a glyph.
+    /// </summary>
+    public HashSet<EntityUid> GatherPortaScrubbers(EntityUid uid, float range)
+    {
+        var glyphTransform = Transform(uid);
+        var items = _lookup.GetEntitiesInRange(glyphTransform.Coordinates, range);
+        items.RemoveWhere(item => !HasComp<PortableScrubberComponent>(item));
+        items.RemoveWhere(item => _container.IsEntityInContainer(item));
+        return items;
+    }
+
+    /// <summary>
+    ///     Gets all items with clothing movespeed modifier and pressure protection near a glyph.
+    /// </summary>
+    public HashSet<EntityUid> GatherPressureSuitItems(EntityUid uid, float range)
+    {
+        var glyphTransform = Transform(uid);
+        var items = _lookup.GetEntitiesInRange(glyphTransform.Coordinates, range);
+        items.RemoveWhere(item => !HasComp<ClothingSpeedModifierComponent>(item) || !HasComp<PressureProtectionComponent>(item));
+        items.RemoveWhere(item => _container.IsEntityInContainer(item));
+        return items;
     }
 
     /// <summary>
