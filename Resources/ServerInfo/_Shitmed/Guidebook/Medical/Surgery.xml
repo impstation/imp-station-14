@@ -12,11 +12,12 @@ If they are not sedated, they will be in a lot of pain, which decreases their mo
 <GuideEntityEmbed Entity="ClothingMaskBreathMedical" Caption="any breathing tool"/>
 </Box>
 
-You also need to wear protective gear such as a mask and gloves to prevent harming the patient due to contamination.
+You also need to wear protective gear such as a mask and gloves to prevent harming the patient due to contamination, and clean tools with soap between patients.
 
 <Box>
 <GuideEntityEmbed Entity="ClothingMaskSterile" Caption="any mask"/>
 <GuideEntityEmbed Entity="ClothingHandsGlovesNitrile" Caption="any gloves"/>
+<GuideEntityEmbed Entity="SoapNT" Caption="any soap"/>
 </Box>
 
 ## Getting Started
