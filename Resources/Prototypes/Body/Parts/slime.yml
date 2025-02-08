@@ -11,6 +11,7 @@
     sprite: Mobs/Species/Slime/parts.rsi
   - type: BodyPart
     species: SlimePerson
+    speciesWhitelist: [ "Human", "Slime", "Arachnid", "Skeleton", "Reptilian", "Dwarf", "Moth" ] # Imp Change
 
 - type: entity
   id: TorsoSlime

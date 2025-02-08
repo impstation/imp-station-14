@@ -10,6 +10,7 @@
     sprite: _Impstation/Mobs/Species/Gray/parts.rsi
   - type: BodyPart # Shitmed Change
     species: Gray
+    speciesWhitelist: [ "Gray" ] # Imp Change
   - type: Extractable
     juiceSolution:
       reagents:

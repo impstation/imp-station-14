@@ -8,6 +8,8 @@
     sprite: _Impstation/Mobs/Species/Decapoid/parts.rsi
   - type: BodyPart # Shitmed Change
     species: Decapoid
+    speciesWhitelist: [ "Decapoid" ] # Imp Change
+
 
 - type: entity
   id: TorsoDecapoid

@@ -10,6 +10,7 @@
     sprite: Mobs/Species/Reptilian/parts.rsi
   - type: BodyPart # Shitmed Change
     species: Reptilian
+    speciesWhitelist: [ "Human", "Slime", "Arachnid", "Skeleton", "Reptilian", "Dwarf", "Moth" ] # Imp Change
   - type: Extractable
     juiceSolution:
       reagents:

@@ -9,6 +9,8 @@
   - type: Damageable
     damageContainer: OrganicPart # Shitmed Change
   - type: BodyPart
+    species: Vox
+    speciesWhitelist: [ "Vox" ] # Imp Change
   - type: ContainerContainer
     containers:
       bodypart: !type:Container

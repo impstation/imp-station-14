@@ -11,6 +11,7 @@ using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared._Shitmed.Medical.Surgery.Tools;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Humanoid.Prototypes;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Body.Part;
@@ -122,6 +123,12 @@ public sealed partial class BodyPartComponent : Component, ISurgeryToolComponent
     /// </summary>
     [DataField, AutoNetworkedField]
     public float SeverIntegrity = 90;
+
+    /// <summary>
+    ///     Imp Change: A species whitelist used to check if a part can be applied to a certain species
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public List<string> SpeciesWhitelist = [];
 
     /// <summary>
     ///     Shitmed Change: The ID of the base layer for this body part.

@@ -10,6 +10,7 @@
     sprite: _Impstation/Mobs/Species/Apid/parts.rsi
   - type: BodyPart # Shitmed Change
     species: Apid
+    speciesWhitelist: [ "Apid" ] # Imp Change
   - type: Extractable
     juiceSolution:
       reagents:
@@ -25,6 +26,7 @@
   components:
   - type: Sprite
     state: "torso"
+
 
 - type: entity
   id: HeadApid

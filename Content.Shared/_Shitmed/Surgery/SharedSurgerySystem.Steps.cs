@@ -26,6 +26,7 @@ using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Toolshed.TypeParsers;
 using System.Linq;
+using Content.Shared.Body.Components;
 
 namespace Content.Shared._Shitmed.Medical.Surgery;
 
@@ -437,6 +438,12 @@ public abstract partial class SharedSurgerySystem
                 && partComp.PartType == removedComp.Part
                 && (removedComp.Symmetry == null || partComp.Symmetry == removedComp.Symmetry))
             {
+                TryComp(args.Body, out BodyComponent? bodyComponent);
+                if (partComp.SpeciesWhitelist.Any() && bodyComponent?.Prototype != null && !partComp.SpeciesWhitelist.Contains(bodyComponent.Prototype))
+                {
+                    _popup.PopupEntity(Loc.GetString("surgery-popup-rejection", ("part", partComp.PartType)), args.User);
+                    return;
+                }
                 var slotName = removedComp.Symmetry != null
                     ? $"{removedComp.Symmetry?.ToString().ToLower()} {removedComp.Part.ToString().ToLower()}"
                     : removedComp.Part.ToString().ToLower();

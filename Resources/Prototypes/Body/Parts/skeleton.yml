@@ -18,6 +18,7 @@
       - !type:GibPartBehavior
   - type: BodyPart
     species: Skeleton # Shitmed Change
+    speciesWhitelist: [ "Human", "Slime", "Arachnid", "Skeleton", "Reptilian", "Dwarf", "Moth" ] # Imp Change
   - type: StaticPrice
     price: 20
   - type: Tag

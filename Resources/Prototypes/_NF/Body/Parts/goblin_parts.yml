@@ -11,6 +11,7 @@
     sprite: _Impstation/Mobs/Species/Goblin/parts.rsi
   - type: BodyPart
     species: Goblin
+    speciesWhitelist: [ "Goblin" ] # Imp Change
   - type: Extractable
     juiceSolution:
       reagents:

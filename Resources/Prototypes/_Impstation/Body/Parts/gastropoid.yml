@@ -10,6 +10,7 @@
     sprite: _Impstation/Mobs/Species/Snail/parts.rsi
   - type: BodyPart # Shitmed Change
     species: Gastropoid
+    speciesWhitelist: [ "Gastropoid" ] # Imp Change
 
 - type: entity
   id: TorsoGastropoid

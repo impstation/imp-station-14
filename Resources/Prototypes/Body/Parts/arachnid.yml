@@ -8,6 +8,7 @@
   components:
   - type: BodyPart # Shitmed Change
     species: Arachnid
+    speciesWhitelist: [ "Human", "Slime", "Arachnid", "Skeleton", "Reptilian", "Dwarf", "Moth" ] # Imp Change
   - type: Extractable
     juiceSolution:
       reagents:
