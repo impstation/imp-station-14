@@ -8,7 +8,7 @@ using Robust.Shared.Timing;
 using Content.Shared.Tag;
 
 namespace Content.Server._Impstation.CosmicCult.EntitySystems;
-public sealed partial class CosmicCorruptingSystem : EntitySystem
+public sealed class CosmicCorruptingSystem : EntitySystem
 {
     [Dependency] private readonly ITileDefinitionManager _tileDefinition = default!;
     [Dependency] private readonly MapSystem _map = default!;

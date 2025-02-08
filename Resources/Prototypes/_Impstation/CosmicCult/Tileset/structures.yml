@@ -340,6 +340,9 @@
     bodyType: Dynamic
   - type: Transform
     anchored: false
+  - type: AtmosDevice
+    joinSystem: true
+  - type: CosmicSpire
   - type: CosmicMarkStructure
   - type: SpriteFade
   - type: InteractionOutline
@@ -358,11 +361,28 @@
     sprite: _Impstation/CosmicCult/Tileset/cosmicspire.rsi
     offset: 0, 0.5
     layers:
-      - state: icon
+      - state: base-disabled
+        map: ["base"]
+      - state: overlay
+        map: ["vfx"]
+        shader: unshaded
+        visible: false
     drawdepth: Mobs
     noRot: true
+  - type: GenericVisualizer
+    visuals:
+      enum.SpireVisuals.Status:
+        base:
+          On: {state: base-enabled}
+          Off: {state: base-disabled}
+        vfx:
+          On: {visible: True}
+          Off: {visible: False}
+  - type: Appearance
+  - type: AmbientSound
+    enabled: false
     volume: -5
-    range: 5
+    range: 15
     sound:
       path: /Audio/Ambience/Objects/portable_scrubber.ogg
   - type: Damageable
@@ -381,3 +401,9 @@
       - !type:PlaySoundBehavior
         sound:
           collection: GlassBreak
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    enabled: false
+    castShadows: false
+    color: "#42a4ae"

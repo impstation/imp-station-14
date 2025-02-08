@@ -10,7 +10,7 @@ using Content.Server.Bible.Components;
 using Robust.Shared.Audio.Systems;
 
 namespace Content.Server._Impstation.CosmicCult.EntitySystems;
-public sealed partial class CosmicRiftSystem : EntitySystem
+public sealed class CosmicRiftSystem : EntitySystem
 {
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly PopupSystem _popup = default!;

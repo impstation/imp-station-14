@@ -10,62 +10,52 @@ public sealed partial class CosmicCorruptingComponent : Component
     /// Value the system uses to increment the corruption tick.
     /// </summary>
     [ViewVariables]
-    [AutoPausedField]
-    public TimeSpan CorruptionValue = default!;
+    [AutoPausedField] public TimeSpan CorruptionValue = default!;
 
     /// <summary>
     /// The starting radius of the effect.
     /// </summary>
-    [DataField]
-    public float CorruptionRadius = 2;
+    [DataField] public float CorruptionRadius = 2;
 
     /// <summary>
     /// The maximum radius the corruption effect can grow to.
     /// </summary>
-    [DataField]
-    public float CorruptionMaxRadius = 50;
+    [DataField] public float CorruptionMaxRadius = 50;
 
     /// <summary>
     /// The chance that a tile and/or wall is replaced.
     /// </summary>
-    [DataField]
-    public float CorruptionChance = 0.51f;
+    [DataField] public float CorruptionChance = 0.51f;
 
     /// <summary>
     /// The reduction applied to corruption chance every tick.
     /// </summary>
-    [DataField]
-    public float CorruptionReduction = 0f;
+    [DataField] public float CorruptionReduction = 0f;
 
     /// <summary>
     /// Enables or disables the growth of the corruption radius.
     /// </summary>
-    [DataField]
-    public bool CorruptionGrowth = false;
+    [DataField] public bool CorruptionGrowth = false;
 
     /// <summary>
     /// Wether or not the CosmicCorruptingSystem should be running on this entity.
     /// </summary>
-    [DataField]
-    public bool Enabled = true;
+    [DataField] public bool Enabled = true;
 
     /// <summary>
     /// Wether or not the CosmicCorruptingSystem should ignore this component when it reaches max growth. Saves performance.
     /// </summary>
-    [DataField]
-    public bool AutoDisable = true;
+    [DataField] public bool AutoDisable = true;
 
     /// <summary>
     /// How much time between tile corruptions.
     /// </summary>
-    [DataField, AutoNetworkedField]
-    public TimeSpan CorruptionSpeed = TimeSpan.FromSeconds(6);
+    [DataField, AutoNetworkedField] public TimeSpan CorruptionSpeed = TimeSpan.FromSeconds(6);
 
     /// <summary>
     /// The tile we spawn when replacing a normal tile.
     /// </summary>
-    [DataField]
-    public EntProtoId ConversionTile = "FloorCosmicCorruption";
+    [DataField] public EntProtoId ConversionTile = "FloorCosmicCorruption";
 
     /// <summary>
     /// The wall we spawn when replacing a normal wall.
@@ -75,6 +65,5 @@ public sealed partial class CosmicCorruptingComponent : Component
     /// <summary>
     /// The VFX entity we spawn when corruption occurs.
     /// </summary>
-    [DataField]
-    public EntProtoId TileConvertVFX = "CosmicFloorSpawnVFX";
+    [DataField] public EntProtoId TileConvertVFX = "CosmicFloorSpawnVFX";
 }
