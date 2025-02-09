@@ -12,7 +12,8 @@ public sealed partial class CosmicSpireComponent : Component
 {
 
     [ViewVariables(VVAccess.ReadWrite)] public bool Enabled = false;
-    [DataField, ViewVariables(VVAccess.ReadWrite)] public float DrainRate = 400;
+    [DataField, ViewVariables(VVAccess.ReadWrite)] public float DrainRate = 500;
+    [DataField, ViewVariables(VVAccess.ReadWrite)] public float DrainThreshHold = 2000;
 
     [DataField("drainGases")]
     public HashSet<Gas> DrainGases = new()
@@ -26,6 +27,8 @@ public sealed partial class CosmicSpireComponent : Component
     };
 
     [DataField("gasMixture"), ViewVariables(VVAccess.ReadWrite)] public GasMixture Storage { get; private set; } = new();
+    [DataField] public EntProtoId EntropyMote = "MaterialCosmicCultEntropy1";
+    [DataField] public EntProtoId SpawnVFX = "CosmicGlyphVFX";
 }
 
 [Serializable, NetSerializable]

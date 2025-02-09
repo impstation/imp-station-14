@@ -384,7 +384,7 @@
     volume: -5
     range: 15
     sound:
-      path: /Audio/Ambience/Objects/portable_scrubber.ogg
+      path: /Audio/_Impstation/CosmicCult/spire_draining.ogg
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
@@ -402,7 +402,7 @@
         sound:
           collection: GlassBreak
   - type: PointLight
-    radius: 1.5
+    radius: 2
     energy: 1.6
     enabled: false
     castShadows: false

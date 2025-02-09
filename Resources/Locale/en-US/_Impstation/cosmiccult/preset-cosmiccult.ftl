@@ -93,7 +93,6 @@ cosmiccult-ui-popup-confirm = Confirm
 
 
 
-
 ## OBJECTIVES / CHARACTERMENU
 
 objective-issuer-cosmiccult = [bold][color=#cae8e8]The Unknown[/color][/bold]
@@ -103,19 +102,14 @@ objective-cosmiccult-charactermenu = You must usher in the end of all things. Co
 objective-condition-entropy-desc = As a cult, collectively siphon at least {$count} entropy.
 
 
-## GHOSTROLES
-
-cosmiccult-ghostrole-greeting =
-    You have been summoned into this world by eldritch forces.
-    Obey the orders of your masters no matter what.
-
-ghostrole-cosmiccult-name = Placeholder
-ghostrole-cosmiccult-desc = Placeholder
-ghostrole-cosmiccult-rules = You are a [color=red][bold]Team Antagonist[/bold][/color], bound to the cult that brought you forth.
-
 
 ## CHAT ANNOUNCEMENTS
 
 cosmiccult-announce-tier2-progress = An unnerving numbness prickles your senses. Something is steadily is growing in power.
 cosmiccult-announce-tier3-progress = Arcs of bluespace energy crackle across the station's groaning structure. The end draws near.
 cosmiccult-announce-victory-summon = A FRACTION OF COSMIC POWER IS CALLED FORTH.
+
+
+## MISC
+
+cosmiccult-spire-entropy = A mote of entropy condenses from the surface of the spire.

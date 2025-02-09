@@ -11,28 +11,22 @@ namespace Content.Server._Impstation.CosmicCult.Components;
 public sealed partial class CosmicGlyphComponent : Component
 {
 
-    [DataField]
-    public int RequiredCultists = 1;
+    [DataField] public int RequiredCultists = 1;
 
-    [DataField]
-    public float ActivationRange = 1f;
+    [DataField] public float ActivationRange = 1f;
 
     /// <summary>
     ///     Damage dealt on glyph activation.
     /// </summary>
-    [DataField]
-    public DamageSpecifier? ActivationDamage;
+    [DataField] public DamageSpecifier? ActivationDamage;
 
-    [DataField]
-    public bool CanBeErased = true;
+    [DataField] public bool CanBeErased = true;
 
     public ProtoId<ReagentPrototype> HolyWater = "Holywater";
 
-    [DataField]
-    public EntProtoId GylphVFX = "CosmicGlyphVFX";
+    [DataField] public EntProtoId GylphVFX = "CosmicGlyphVFX";
 
-    [DataField]
-    public SoundSpecifier GylphSFX = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/glyph_trigger.ogg");
+    [DataField] public SoundSpecifier GylphSFX = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/glyph_trigger.ogg");
 }
 
 public sealed class TryActivateGlyphEvent(EntityUid user, HashSet<EntityUid> cultists) : CancellableEntityEventArgs

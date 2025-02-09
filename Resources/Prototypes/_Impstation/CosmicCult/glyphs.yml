@@ -72,10 +72,10 @@
       state: cessation
   - type: CosmicGlyphTransmuteSpire
   - type: CosmicGlyph
-    requiredCultists: 2
+    requiredCultists: 1
     activationDamage:
       types:
-        Asphyxiation: 25
+        Asphyxiation: 15
 
 - type: entity
   parent: CosmicGlyphBase

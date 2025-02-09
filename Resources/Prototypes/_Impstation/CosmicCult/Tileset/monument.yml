@@ -65,12 +65,12 @@
     materialWhiteList:
     - EntropyMoteMaterial
   - type: ActivatableUI
-    key: enum.MonumentKey.Key
+    key: enum.CosmicMonumentKey.Key
   - type: UserInterface
     interfaces:
-      enum.MonumentKey.Key:
-        type: MonumentBoundUserInterface
-  - type: Monument
+      enum.CosmicMonumentKey.Key:
+        type: CosmicMonumentBoundUserInterface
+  - type: CosmicMonument
     unlockedInfluences:
     - influenceAberrantLapse0
     - influenceAberrantLapse1
@@ -98,7 +98,6 @@
   - type: WarpPoint
     location: the monument
   - type: CosmicMarkStructure
-  - type: CosmicMonument
 
  ########### SPAWN-IN ANIMATION #############
 

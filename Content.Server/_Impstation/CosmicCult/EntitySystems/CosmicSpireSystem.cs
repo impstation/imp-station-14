@@ -6,6 +6,7 @@ using Content.Shared.Atmos;
 using Content.Shared.Atmos.Piping.Unary.Components;
 using Content.Shared._Impstation.CosmicCult.Components;
 using Content.Server.Audio;
+using Content.Server.Popups;
 
 namespace Content.Server._Impstation.CosmicCult.EntitySystems;
 public sealed class CosmiSpireSystem : EntitySystem
@@ -16,6 +17,7 @@ public sealed class CosmiSpireSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly AmbientSoundSystem _ambient = default!;
     [Dependency] private readonly SharedPointLightSystem _lights = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -55,6 +57,13 @@ public sealed class CosmiSpireSystem : EntitySystem
         while (enumerator.MoveNext(out var adjacent))
         {
             Drain(timeDelta, comp, adjacent);
+        }
+        if (comp.Storage.TotalMoles >= comp.DrainThreshHold)
+        {
+            _popup.PopupCoordinates(Loc.GetString("cosmiccult-spire-entropy"), Transform(uid).Coordinates);
+            comp.Storage.Clear();
+            Spawn(comp.SpawnVFX, Transform(uid).Coordinates);
+            Spawn(comp.EntropyMote, Transform(uid).Coordinates);
         }
     }
     private bool Drain(float timeDelta, CosmicSpireComponent comp, GasMixture? tile)
