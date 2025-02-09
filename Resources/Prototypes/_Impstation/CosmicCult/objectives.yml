@@ -13,18 +13,6 @@
 
 ############################### COSMIC CULT'S OBJECTIVES
 
-# - type: entity
-#   parent: [BaseCosmicCultObjective, BaseLivingObjective]
-#   id: CosmicLeadershipObjective
-#   name: ELECT A LEADER
-#   description: For our plans to succeed, we'll need some form of leadership.
-#   components:
-#   - type: Objective
-#     icon:
-#       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
-#       state: blank
-#   - type: EscapeShuttleCondition
-
 - type: entity
   parent: BaseCosmicCultObjective
   id: CosmicEntropyObjective
@@ -42,7 +30,7 @@
   - type: CosmicEntropyCondition
 
 - type: entity
-  parent: [BaseCosmicCultObjective, BaseLivingObjective]
+  parent: BaseCosmicCultObjective
   id: CosmicMonumentObjective
   name: EMPOWER THE MONUMENT
   description: As a cult, ensure that The Monument is brought to full power.
@@ -51,10 +39,13 @@
     icon:
       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: monument
-  - type: EscapeShuttleCondition
+  - type: NumberObjective
+    min: 3
+    max: 3
+  - type: CosmicTierCondition
 
 - type: entity
-  parent: [BaseCosmicCultObjective, BaseLivingObjective]
+  parent: BaseCosmicCultObjective
   id: CosmicFinalityObjective
   name: USHER IN THE END
   description: Invoke the influence The Unknown, heralding the final curtain call.

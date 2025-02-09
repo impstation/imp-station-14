@@ -8,26 +8,20 @@ namespace Content.Shared._Impstation.CosmicCult.Components;
 [NetworkedComponent, RegisterComponent]
 public sealed partial class MonumentComponent : Component
 {
-    [DataField]
-    public List<ProtoId<InfluencePrototype>> UnlockedInfluences = [];
+    [NonSerialized] public static int LayerMask = 777;
+    [DataField] public List<ProtoId<InfluencePrototype>> UnlockedInfluences = [];
 
-    [DataField]
-    public ProtoId<GlyphPrototype> SelectedGlyph;
+    [DataField] public ProtoId<GlyphPrototype> SelectedGlyph;
 
-    [DataField]
-    public int AvailableEntropy;
+    [DataField] public int AvailableEntropy;
 
-    [DataField]
-    public int InfusedEntropy;
+    [DataField] public int InfusedEntropy;
 
-    [DataField]
-    public int EntropyUntilNextStage;
+    [DataField] public int EntropyUntilNextStage;
 
-    [DataField]
-    public int CrewToConvertNextStage;
+    [DataField] public int CrewToConvertNextStage;
 
-    [DataField]
-    public float PercentageComplete;
+    [DataField] public float PercentageComplete;
 }
 
 [Serializable, NetSerializable]

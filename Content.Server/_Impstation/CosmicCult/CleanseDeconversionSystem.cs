@@ -110,9 +110,17 @@ public sealed class CleanseDeconversionSystem : EntitySystem
         var target = args.Args.Target;
         if (!TryComp(uid, out UseDelayComponent? useDelay) || args.Cancelled || args.Handled || target == null || !_mobState.IsAlive(target.Value))
             return;
-        //TODO: This could be made more agnostic, but there's only one cult for now, and frankly, i'm fucking tired. This is easy to read and easy to modify code. Expand it at thine leisure.
-
-        if (_entMan.HasComponent<CosmicCultComponent>(args.Target))
+        //TODO: This could be made more agnostic, but there's only one cult for now, and frankly, i'm so tired. This is easy to read and easy to modify code. Expand it at thine leisure.
+        if (_entMan.TryGetComponent<CosmicCultComponent>(args.Target, out var comp) && comp.CosmicEmpowered)
+        {
+            var tgtpos = Transform(target.Value).Coordinates;
+            Spawn(uid.Comp.MalignVFX, tgtpos);
+            Spawn(uid.Comp.MalignVFX, Transform(args.User).Coordinates);
+            DeconvertCultist(target.Value);
+            _audio.PlayPvs(uid.Comp.MalignSound, tgtpos, AudioParams.Default.WithVolume(+6f));
+            _popup.PopupEntity(Loc.GetString("cleanse-deconvert-attempt-success-empowered", ("target", Identity.Entity(target.Value, EntityManager))), args.User, args.User);
+        }
+        else if (_entMan.TryGetComponent<CosmicCultComponent>(args.Target, out var coscomp) && !coscomp.CosmicEmpowered)
         {
             var tgtpos = Transform(target.Value).Coordinates;
             Spawn(uid.Comp.CleanseVFX, tgtpos);
@@ -120,6 +128,7 @@ public sealed class CleanseDeconversionSystem : EntitySystem
             _audio.PlayPvs(uid.Comp.CleanseSound, tgtpos, AudioParams.Default.WithVolume(+6f));
             _popup.PopupEntity(Loc.GetString("cleanse-deconvert-attempt-success", ("target", Identity.Entity(target.Value, EntityManager))), args.User, args.User);
         }
+
         else
         {
             _popup.PopupEntity(Loc.GetString("cleanse-deconvert-attempt-notcult", ("target", Identity.Entity(target.Value, EntityManager))), args.User, args.User);
@@ -130,15 +139,7 @@ public sealed class CleanseDeconversionSystem : EntitySystem
 
     public void DeconvertCultist(EntityUid uid)
     {
-        if (HasComp<CosmicCultComponent>(uid)) //TODO: Surely there's a better way of doing this than going through and deleting all the components individually.
-        {
+        if (HasComp<CosmicCultComponent>(uid))
             RemComp<CosmicCultComponent>(uid);
-            RemComp<ActiveRadioComponent>(uid);
-            RemComp<IntrinsicRadioReceiverComponent>(uid);
-            RemComp<IntrinsicRadioTransmitterComponent>(uid);
-
-            if (HasComp<CosmicCultLeadComponent>(uid))
-                RemComp<CosmicCultLeadComponent>(uid);
-        }
     }
 }

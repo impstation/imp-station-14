@@ -113,7 +113,7 @@ public sealed partial class MonumentMenu : FancyWindow
             var glyphIcon = new TextureRect
             {
                 Texture = _sprite.Frame0(glyph.Icon),
-                TextureScale = new Vector2(1.5f, 1.5f),
+                TextureScale = new Vector2(2f, 2f),
                 Stretch = TextureRect.StretchMode.KeepCentered,
             };
             boxContainer.AddChild(button);

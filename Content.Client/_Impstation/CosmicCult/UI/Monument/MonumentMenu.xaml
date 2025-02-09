@@ -4,7 +4,7 @@
                       xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
                       Title="{Loc 'monument-interface-title'}"
                       MinSize="650 600"
-                      SetSize="750 700">
+                      SetSize="750 620">
     <BoxContainer Orientation="Vertical" Margin="5 5 5 0">
         <!-- Header -->
         <BoxContainer Margin="7 10 7 0">
@@ -26,7 +26,7 @@
                                  Stretch="KeepAspectCentered"
                                  VerticalAlignment="Center"
                                  MinSize="32 32"
-                                 TextureScale="2.5 2.5"
+                                 TextureScale="2 2"
                                  Margin="0 0 0 10" />
                     <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center">
                         <Label HorizontalAlignment="Center" Text="{Loc 'monument-interface-entropy-infused-label'}" Margin="0 0 5 0" StyleClasses="LabelSmall" />
@@ -56,12 +56,12 @@
                 </BoxContainer>
             </BoxContainer>
             <!-- Right section -->
-            <BoxContainer HorizontalExpand="True" Orientation="Vertical">
-                <BoxContainer HorizontalExpand="True" MinHeight="450" Orientation="Vertical" Margin="0 0 0 0">
+            <BoxContainer VerticalExpand="True" HorizontalExpand="True" Orientation="Vertical">
+                <BoxContainer VerticalExpand="True" HorizontalExpand="True" MinHeight="450" Orientation="Vertical" Margin="0 0 0 0">
                     <Label HorizontalAlignment="Center" Text="{Loc 'monument-interface-influences-title'}" />
-                    <PanelContainer StyleClasses="LowDivider" Margin="0 0 0 10" />
+                    <PanelContainer StyleClasses="LowDivider" Margin="0 0 0 0" />
                     <!-- Influences -->
-                    <PanelContainer VerticalExpand="True" HorizontalExpand="True" Margin="10">
+                    <PanelContainer VerticalExpand="True" HorizontalExpand="True" Margin="0">
                         <PanelContainer.PanelOverride>
                             <graphics:StyleBoxFlat BackgroundColor="#1B1B1E" />
                         </PanelContainer.PanelOverride>

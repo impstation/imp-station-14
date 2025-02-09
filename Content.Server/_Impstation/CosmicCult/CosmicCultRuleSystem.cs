@@ -57,22 +57,21 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         SubscribeLocalEvent<CosmicCultRuleComponent, AfterAntagEntitySelectedEvent>(OnAntagSelect);
         SubscribeLocalEvent<CosmicCultLeadComponent, DamageChangedEvent>(DebugFunction); // TODO: This is a placeholder function to call other functions for testing & debugging.
-        SubscribeLocalEvent<CosmicMonumentComponent, ComponentInit>(CultTier3); // TODO: This is a placeholder event for testing & debugging.
     }
-    private void OnAntagSelect(Entity<CosmicCultRuleComponent> ent, ref AfterAntagEntitySelectedEvent args) =>
+    private void OnAntagSelect(Entity<CosmicCultRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
+    {
         TryStartCult(args.EntityUid, ent);
-
-    private void CultTier2(Entity<CosmicCultRuleComponent> uid)
+    }
+    private void CultTier2(Entity<MonumentComponent> uid)
     {
         var sender = Loc.GetString("cosmiccult-announcement-sender");
         _announce.SendAnnouncementMessage(_announce.GetAnnouncementId("SpawnAnnounceCaptain"), Loc.GetString("cosmiccult-announce-tier2-progress"), sender, Color.FromHex("#cae8e8"));
-        _audio.PlayGlobal("/Audio/_Impstation/CosmicCult/tier2.ogg", Filter.Broadcast(), false, AudioParams.Default); //TODO: Replace audio.
+        _audio.PlayGlobal("/Audio/_Impstation/CosmicCult/tier2.ogg", Filter.Broadcast(), false, AudioParams.Default);
         for (int i = 0; i < _rand.Next(8, 16); i++)
             if (TryFindRandomTile(out var _, out var _, out var _, out var coords))
                 Spawn("CosmicMalignRift", coords);
     }
-
-    private void CultTier3(Entity<CosmicMonumentComponent> uid, ref ComponentInit args)
+    private void CultTier3(Entity<MonumentComponent> uid)
     {
         var query = EntityQueryEnumerator<CosmicCultComponent>();
         while (query.MoveNext(out var cultist, out var _))
@@ -86,7 +85,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         var map = _transform.GetMapId(uid.Owner.ToCoordinates());
         var mapData = _map.GetMap(map);
         _announce.SendAnnouncementMessage(_announce.GetAnnouncementId("SpawnAnnounceCaptain"), Loc.GetString("cosmiccult-announce-tier3-progress"), sender, Color.FromHex("#cae8e8"));
-        _audio.PlayGlobal("/Audio/_Impstation/CosmicCult/tier3.ogg", Filter.Broadcast(), false, AudioParams.Default); //TODO: Replace audio.
+        _audio.PlayGlobal("/Audio/_Impstation/CosmicCult/tier3.ogg", Filter.Broadcast(), false, AudioParams.Default);
         EnsureComp<ParallaxComponent>(mapData, out var parallax);
         parallax.Parallax = "CosmicFinaleParallax";
         Dirty(mapData, parallax);
@@ -94,7 +93,6 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         mapLight.AmbientLightColor = Color.FromHex("#210746");
         Dirty(mapData, mapLight);
     }
-
     public void TryStartCult(EntityUid uid, Entity<CosmicCultRuleComponent> rule)
     {
         if (!_mind.TryGetMind(uid, out var mindId, out var mind))
@@ -123,7 +121,6 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         {
             _euiMan.OpenEui(new CosmicRoundStartEui(), session);
         }
-        CultTier2(rule);
     }
 
     public void CosmicConversion(EntityUid uid)

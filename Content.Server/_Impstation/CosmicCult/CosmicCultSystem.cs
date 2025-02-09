@@ -21,12 +21,14 @@ using Content.Shared.Database;
 using Robust.Shared.Timing;
 using Content.Server.Stack;
 using Content.Server.Objectives.Components;
+using Content.Server.Radio.Components;
 
 namespace Content.Server._Impstation.CosmicCult;
 
 public sealed partial class CosmicCultSystem : EntitySystem
 {
     [Dependency] private readonly StackSystem _stack = default!;
+    [Dependency] private readonly CosmicCultRuleSystem _cultRule = default!;
     [Dependency] private readonly ISharedAdminLogManager _log = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
@@ -120,7 +122,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
     private void OnCompInit(Entity<CosmicCultComponent> ent, ref ComponentInit args)
     {
         if (TryComp<EyeComponent>(ent, out var eye))
-            _eye.SetVisibilityMask(ent, eye.VisibilityMask | CosmicMonumentComponent.LayerMask);
+            _eye.SetVisibilityMask(ent, eye.VisibilityMask | MonumentComponent.LayerMask);
     }
 
     /// <summary>
@@ -178,6 +180,12 @@ public sealed partial class CosmicCultSystem : EntitySystem
         {
             _euiMan.OpenEui(new CosmicDeconvertedEui(), session);
         }
+
+        RemComp<ActiveRadioComponent>(uid); // TODO: clean up components better. Wow this is easy to read but surely this can be done tidier.
+        RemComp<IntrinsicRadioReceiverComponent>(uid);
+        RemComp<IntrinsicRadioTransmitterComponent>(uid);
+        if (HasComp<CosmicCultLeadComponent>(uid))
+            RemComp<CosmicCultLeadComponent>(uid);
 
         _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-deconverted-fluff"), Color.FromHex("#4cabb3"), DeconvertSound);
         _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-deconverted-briefing"), Color.FromHex("#cae8e8"), null);

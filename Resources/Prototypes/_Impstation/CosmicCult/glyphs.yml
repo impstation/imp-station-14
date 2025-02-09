@@ -58,7 +58,7 @@
     requiredCultists: 2
     activationDamage:
       types:
-        Asphyxiation: 40
+        Asphyxiation: 25
 
 - type: entity
   parent: CosmicGlyphBase
@@ -92,7 +92,7 @@
     requiredCultists: 2
     activationDamage:
       types:
-        Asphyxiation: 25
+        Asphyxiation: 50
 
 - type: entity
   parent: CosmicGlyphBase
@@ -109,7 +109,7 @@
     requiredCultists: 2
     activationDamage:
       types:
-        Asphyxiation: 25
+        Asphyxiation: 50
 
 - type: entity
   parent: CosmicGlyphBase

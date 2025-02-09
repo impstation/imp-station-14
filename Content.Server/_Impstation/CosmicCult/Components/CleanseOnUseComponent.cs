@@ -14,8 +14,11 @@ public sealed partial class CleanseOnUseComponent : Component
     [DataField] public SoundSpecifier SizzleSound = new SoundPathSpecifier("/Audio/Effects/lightburn.ogg");
 
     [DataField] public SoundSpecifier CleanseSound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/cleanse_deconversion.ogg");
+    [DataField] public SoundSpecifier MalignSound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/glyph_trigger.ogg");
 
     [DataField] public EntProtoId CleanseVFX = "CleanseEffectVFX";
+
+    [DataField] public EntProtoId MalignVFX = "CosmicGlyphVFX";
 
     [DataField] public bool Enabled = true;
 
