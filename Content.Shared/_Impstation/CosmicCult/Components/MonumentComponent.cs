@@ -1,4 +1,5 @@
 using Content.Shared._Impstation.CosmicCult.Prototypes;
+using Content.Shared.Radio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -10,18 +11,13 @@ public sealed partial class MonumentComponent : Component
 {
     [NonSerialized] public static int LayerMask = 777;
     [DataField] public List<ProtoId<InfluencePrototype>> UnlockedInfluences = [];
-
     [DataField] public ProtoId<GlyphPrototype> SelectedGlyph;
-
     [DataField] public int AvailableEntropy;
-
     [DataField] public int InfusedEntropy;
-
     [DataField] public int EntropyUntilNextStage;
-
     [DataField] public int CrewToConvertNextStage;
-
     [DataField] public float PercentageComplete;
+    [DataField] public ProtoId<RadioChannelPrototype> CosmicChannel = "CosmicRadio";
 }
 
 [Serializable, NetSerializable]

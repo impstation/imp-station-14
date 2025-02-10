@@ -83,6 +83,18 @@
             "preLaunchTask": "build"
         },
         {
+            "name": "Server/5xClient",
+            "configurations": [
+                "Server",
+                "Client",
+                "Client",
+                "Client",
+                "Client",
+                "Client"
+            ],
+            "preLaunchTask": "build"
+        },
+        {
             "name": "Server/Client (Tools Config)",
             "configurations": [
                 "Server (Tools Config)",
@@ -101,6 +113,17 @@
             "name": "Server/2xClient (No Build)",
             "configurations": [
                 "Server",
+                "Client",
+                "Client"
+            ],
+        },
+        {
+            "name": "Server/5xClient (No Build)",
+            "configurations": [
+                "Server",
+                "Client",
+                "Client",
+                "Client",
                 "Client",
                 "Client"
             ],

@@ -7,9 +7,9 @@
   showInVote: false
   cooldown: 1
   rules:
-    - GameRuleCosmicCult
+    - CosmicCult
     - SubGamemodesRule
-    - BasicStationEventScheduler
     - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
+    - MidPluspopLimiter

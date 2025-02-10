@@ -52,7 +52,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
         SubscribeLocalEvent<CosmicAstralBodyComponent, EventCosmicReturn>(OnCosmicReturn);
     }
 
-
     #region Siphon Entropy
     private void OnCosmicSiphon(Entity<CosmicCultComponent> uid, ref EventCosmicSiphon args)
     {
@@ -72,9 +71,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
         };
         _doAfter.TryStartDoAfter(doargs);
     }
-
-
-
     private void OnCosmicSiphonDoAfter(Entity<CosmicCultComponent> uid, ref EventCosmicSiphonDoAfter args)
     {
         if (args.Args.Target == null)
@@ -90,8 +86,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
 
         var entropymote1 = _stack.Spawn(uid.Comp.CosmicSiphonQuantity, "Entropy", Transform(uid).Coordinates);
         _hands.TryForcePickupAnyHand(uid, entropymote1);
-
-        IncrementCultObjectiveEntropy(uid); // increment the greentext tracker!
+        IncrementCultObjectiveEntropy(uid); //update everyone's greentext!
     }
     #endregion
 

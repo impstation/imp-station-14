@@ -99,12 +99,16 @@ objective-issuer-cosmiccult = [bold][color=#cae8e8]The Unknown[/color][/bold]
 
 objective-cosmiccult-charactermenu = You must usher in the end of all things. Complete your tasks to advance the cult's progress.
 
-objective-condition-entropy-desc = As a cult, collectively siphon at least {$count} entropy.
-
-
+objective-condition-entropy-title = SIPHON ENTROPY
+objective-condition-entropy-desc = Collectively siphon at least {$count} entropy from the crew.
+objective-condition-culttier-title = EMPOWER THE MONUMENT
+objective-condition-culttier-desc = Ensure that The Monument is brought to full power.
+objective-condition-victory-title = USHER IN THE END
+objective-condition-victory-desc = Beckon The Unknown, and herald the final curtain call.
 
 ## CHAT ANNOUNCEMENTS
 
+cosmiccult-radio-tier1-progress = The monument is beckoned unto realspace..
 cosmiccult-announce-tier2-progress = An unnerving numbness prickles your senses. Something is steadily is growing in power.
 cosmiccult-announce-tier3-progress = Arcs of bluespace energy crackle across the station's groaning structure. The end draws near.
 cosmiccult-announce-victory-summon = A FRACTION OF COSMIC POWER IS CALLED FORTH.

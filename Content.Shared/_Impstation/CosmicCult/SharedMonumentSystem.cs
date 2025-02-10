@@ -1,5 +1,7 @@
 using Content.Shared._Impstation.Cosmiccult;
 using Content.Shared._Impstation.CosmicCult.Components;
+using Content.Shared.Interaction;
+using Content.Shared.Stacks;
 
 namespace Content.Shared._Impstation.CosmicCult;
 public sealed class SharedMonumentSystem : EntitySystem

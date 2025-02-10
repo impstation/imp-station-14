@@ -3,7 +3,7 @@ using Content.Shared.Objectives.Components;
 
 namespace Content.Server.Objectives.Systems;
 
-public sealed class CosmicCultRecruitingConditionSystem : EntitySystem
+public sealed class CosmicCultObjectiveSystem : EntitySystem
 {
     [Dependency] private readonly NumberObjectiveSystem _number = default!;
 
@@ -13,19 +13,29 @@ public sealed class CosmicCultRecruitingConditionSystem : EntitySystem
 
         SubscribeLocalEvent<CosmicEntropyConditionComponent, ObjectiveGetProgressEvent>(OnGetEntropyProgress);
         SubscribeLocalEvent<CosmicTierConditionComponent, ObjectiveGetProgressEvent>(OnGetTierProgress);
+        SubscribeLocalEvent<CosmicVictoryConditionComponent, ObjectiveGetProgressEvent>(OnGetVictoryProgress);
     }
+
     private void OnGetEntropyProgress(Entity<CosmicEntropyConditionComponent> ent, ref ObjectiveGetProgressEvent args)
     {
-        var target = _number.GetTarget(ent);
-        if (target != 0)
-            args.Progress = MathF.Min(ent.Comp.Siphoned / target, 1f);
-        else args.Progress = 1f;
+        args.Progress = Progress(ent.Comp.Siphoned, _number.GetTarget(ent.Owner));
     }
     private void OnGetTierProgress(Entity<CosmicTierConditionComponent> ent, ref ObjectiveGetProgressEvent args)
     {
-        var target = _number.GetTarget(ent);
-        if (target != 0)
-            args.Progress = MathF.Min(ent.Comp.Tier / target, 1f);
-        else args.Progress = 1f;
+        args.Progress = Progress(ent.Comp.Tier, _number.GetTarget(ent.Owner));
     }
+    private void OnGetVictoryProgress(Entity<CosmicVictoryConditionComponent> ent, ref ObjectiveGetProgressEvent args)
+    {
+        args.Progress = Progress(ent.Comp.Victory, _number.GetTarget(ent.Owner));
+    }
+
+    private float Progress(int recruited, int target)
+    {
+        // prevent divide-by-zero
+        if (target == 0)
+            return 1f;
+
+        return MathF.Min(recruited / (float)target, 1f);
+    }
+
 }

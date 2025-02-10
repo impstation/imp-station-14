@@ -1,4 +1,4 @@
-namespace Content.Server._Impstation.CosmicCult.Components;
+namespace Content.Shared._Impstation.CosmicCult.Components;
 [RegisterComponent]
 
 public sealed partial class CosmicEntropyMoteComponent : Component

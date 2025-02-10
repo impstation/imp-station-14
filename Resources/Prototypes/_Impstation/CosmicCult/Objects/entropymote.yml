@@ -28,9 +28,7 @@
     tags:
       - EntropyMote
   - type: Material
-  - type: PhysicalComposition
-    materialComposition:
-      EntropyMoteMaterial: 1
+  - type: CosmicEntropyMote
 
 - type: entity
   parent: MaterialCosmicCultEntropy

@@ -55,15 +55,6 @@
     volume: -9
     sound:
       path: /Audio/_Impstation/CosmicCult/god_ambient.ogg
-  - type: MaterialStorage
-    insertionTime: 2.44
-    insertingSound: /Audio/_Impstation/CosmicCult/cosmiclance_impact.ogg
-    ignoreColor: true
-    whitelist:
-      tags:
-        - EntropyMote
-    materialWhiteList:
-    - EntropyMoteMaterial
   - type: ActivatableUI
     key: enum.MonumentKey.Key
   - type: UserInterface
