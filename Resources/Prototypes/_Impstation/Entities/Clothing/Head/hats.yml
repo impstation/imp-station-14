@@ -171,3 +171,20 @@
       - state: equipped-HELMET
         offset: "0, 0.15" #this shit is so fiddly and i don't understand it at all
     sprite: _Impstation/Clothing/Head/Hats/circusclownhat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatMorshu
+  name: Koridai salesman hat
+  description: This hat makes you feel like you can sell anything, so long as they have enough rubies.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hats/morshuhat.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hats/morshuhat.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.03" # why ask for carousel to move the sprite up 1 pixel when i can just figure out offsets instead!!!!
