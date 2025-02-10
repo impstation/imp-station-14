@@ -1,0 +1,29 @@
+uniform highp vec4 colour;
+
+uniform sampler2D noise_0;
+uniform sampler2D noise_1;
+uniform sampler2D noise_2;
+
+const highp float tileSize = 32.0;
+
+void fragment() {
+
+	highp vec2 rounded = quantiseVecDown(UV, tileSize); //downsample to a 32 * 32 grid for stylistic consistency
+
+	COLOR = 0.3 * texture(noise_0, loopVec(rounded + TIME * 0.1));
+	COLOR += 0.3 * texture(noise_0, loopVec(vec2(rounded.x - TIME * 0.1, rounded.y + 0.2 + TIME * 0.1)));
+	COLOR += 0.3 * texture(noise_2, loopVec(rounded + vec2(0.2, 0.7)));
+	COLOR += 0.1 * texture(noise_1, loopVec(vec2(rounded.x + sin(rounded.y + TIME * 0.1), rounded.y + cos(rounded.x + TIME * 0.1))));
+	COLOR *= colour;
+}
+
+highp vec2 quantiseVecDown(highp vec2 v, highp float divisions) {
+    highp float multiple = 1.0 / divisions;
+    highp vec2 rem = mod(v, multiple);
+    return v - rem;
+}
+
+//hate that I have to do this because we can't just
+highp vec2 loopVec(highp vec2 toLoop) {
+    return abs(mod(toLoop, 1));;
+}

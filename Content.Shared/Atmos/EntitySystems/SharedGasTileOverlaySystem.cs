@@ -29,7 +29,7 @@ namespace Content.Shared.Atmos.EntitySystems
             for (var i = 0; i < Atmospherics.TotalNumberOfGases; i++)
             {
                 var gasPrototype = ProtoMan.Index<GasPrototype>(i.ToString());
-                if (!string.IsNullOrEmpty(gasPrototype.GasOverlayTexture) || !string.IsNullOrEmpty(gasPrototype.GasOverlaySprite) && !string.IsNullOrEmpty(gasPrototype.GasOverlayState))
+                if (!string.IsNullOrEmpty(gasPrototype.GasOverlayTexture) || !string.IsNullOrEmpty(gasPrototype.GasOverlaySprite) && !string.IsNullOrEmpty(gasPrototype.GasOverlayState) || !string.IsNullOrEmpty(gasPrototype.Shader)) //imp edit - added shader check
                     visibleGases.Add(i);
             }
 
