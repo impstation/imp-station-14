@@ -23,3 +23,11 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: VeteranQM
+
+- type: loadout
+  id: QuartermasterVeteranMorshuHat
+  equipment:
+    head: ClothingHeadHatMorshu
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: VeteranQM
