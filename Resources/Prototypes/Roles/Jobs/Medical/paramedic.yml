@@ -18,6 +18,11 @@
   - External
   extendedAccess:
   - Chemistry
+  # special: # DeltaV - role modifiers bad
+  # - !type:AddComponentSpecial
+  #  components:
+  #  - type: SurgerySpeedModifier
+  #    speedModifier: 1.75
 
 - type: startingGear
   id: ParamedicGear
