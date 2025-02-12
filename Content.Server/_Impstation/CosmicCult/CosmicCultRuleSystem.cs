@@ -31,6 +31,12 @@ using Robust.Server.Player;
 using Content.Shared.GameTicking;
 using Content.Shared.GameTicking.Components;
 using Content.Server.GameTicking.Events;
+using Content.Shared.Stunnable;
+using Content.Shared.Mind;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
+using Content.Shared.Mind.Components;
+using Content.Server.Actions;
 
 namespace Content.Server._Impstation.CosmicCult;
 
@@ -39,7 +45,7 @@ namespace Content.Server._Impstation.CosmicCult;
 /// </summary>
 public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponent>
 {
-    [Dependency] private readonly IAdminLogManager _adminLogManager = default!; // TODO: add logs for Cosmic Cult
+    [Dependency] private readonly ISharedAdminLogManager _log = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
@@ -53,16 +59,22 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly IPlayerManager _playerMan = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly ActionsSystem _actions = default!;
 
     [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> NanoTrasenFactionId = "NanoTrasen";
     [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> CosmicFactionId = "CosmicCultFaction";
     public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/antag_cosmic_briefing.ogg");
+    public readonly SoundSpecifier DeconvertSound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/antag_cosmic_deconvert.ogg");
     public Entity<MonumentComponent> MonumentInGame; // the monument in the current round.
     public int CurrentTier; // current cult tier
     public int TotalCrew; // total connected players
     public int TotalCult; // total cultists
     public int TotalNotCult; // total players that -aren't- cultists
+    public int TotalEntropy; // total entropy in the monument
     public int CrewTillNextTier; // players needed to be converted till next monument tier
+    public float CurrentProgress; // percent of progress towards the next tier
+    public float TargetProgress; // current tier's progress target
     public double PercentConverted; // percentage of connected players that are cultists
     public double Tier3Percent; // 40 percent of connected players
 
@@ -72,18 +84,22 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         SubscribeLocalEvent<CosmicCultRuleComponent, AfterAntagEntitySelectedEvent>(OnAntagSelect);
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
+        SubscribeLocalEvent<CosmicCultComponent, ComponentShutdown>(OnShutdownCultist);
         SubscribeLocalEvent<CosmicCultLeadComponent, DamageChangedEvent>(DebugFunction); // TODO: This is a placeholder function to call other functions for testing & debugging.
     }
 
-    private void OnRoundStart(RoundStartingEvent ev)
+    private void OnRoundStart(RoundStartingEvent ev) // Reset the cult data to defaults.
     {
         CurrentTier = 0;
         TotalCrew = 0;
         TotalCult = 0;
         TotalNotCult = 0;
-        CrewTillNextTier = 777;
+        TotalEntropy = 0;
+        CrewTillNextTier = 40;
         PercentConverted = 0;
-        Tier3Percent = 50;
+        CurrentProgress = 0.001f;
+        TargetProgress = 80;
+        Tier3Percent = 40;
         Log.Debug($"Cosmic cult data reset.");
     }
 
@@ -96,20 +112,33 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     {
         TotalCrew = _antag.GetTotalPlayerCount(_playerMan.Sessions);
         TotalNotCult = TotalCrew - TotalCult;
+        TotalEntropy = uid.Comp.TotalEntropy;
         PercentConverted = Math.Round((double)(100 * TotalCult) / TotalCrew);
         Tier3Percent = Math.Round((double)25 / 100 * 40); // total players divided by 100 multiplied by 40 to get 40% of current pop. //TODO: VALUE 25 must be replaced with TOTALCREW.
-        switch (CurrentTier)
+        if (CurrentTier == 1)
         {
-            case 1:
-                CrewTillNextTier = Convert.ToInt16(Tier3Percent / 2) - TotalCult;
-                break;
-            case 2:
-                CrewTillNextTier = Convert.ToInt16(Tier3Percent) - TotalCult;
-                break;
-            default:
-                break;
+            CrewTillNextTier = Convert.ToInt16(Tier3Percent / 2) - TotalCult;
+            TargetProgress = Convert.ToInt16(Tier3Percent / 2 * 3);
         }
-        Log.Debug($"DEBUG: {Tier3Percent} crew for Tier 3. {Tier3Percent /2} crew for Tier 2. {CrewTillNextTier} crew to convert till the next tier"); //todo remove
+        else if (CurrentTier == 2)
+        {
+            CrewTillNextTier = Convert.ToInt16(Tier3Percent) - TotalCult;
+            TargetProgress = Convert.ToInt16(Tier3Percent * 3);
+        }
+        if (CurrentTier == 3) TargetProgress = Convert.ToInt16(Tier3Percent) * 3 + 20;
+
+        CurrentProgress = TotalEntropy + TotalCult * 3;
+
+        if (CurrentTier < 3) uid.Comp.CrewToConvertNextStage = Convert.ToInt16(Math.Ceiling(Convert.ToDouble((TargetProgress - CurrentProgress) / 3)));
+        else uid.Comp.CrewToConvertNextStage = 0;
+        uid.Comp.EntropyUntilNextStage = Convert.ToInt16(TargetProgress) - Convert.ToInt16(CurrentProgress);
+
+        uid.Comp.PercentageComplete = CurrentProgress / TargetProgress * 100;
+        Math.Round(uid.Comp.PercentageComplete);
+        if (CurrentProgress >= TargetProgress && CurrentTier == 3) Finale(uid);
+        else if (CurrentProgress >= TargetProgress && CurrentTier == 2) CultTier3(uid);
+        else if (CurrentProgress >= TargetProgress && CurrentTier == 1) CultTier2(uid);
+        Log.Debug($"DEBUG: {Tier3Percent} crew for Tier 3. {Tier3Percent / 2} crew for Tier 2. {CrewTillNextTier} crew to convert till the next tier"); //todo remove
         Log.Debug($"DEBUG: {TotalCrew} session(s), {TotalCult} cultist(s), {TotalNotCult} non-cult, {PercentConverted}% of the crew has been converted"); //todo remove
     }
 
@@ -124,8 +153,9 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             objectiveComp.Tier = 1;
         }
     }
-    public void CultTier2()
+    public void CultTier2(Entity<MonumentComponent> uid)
     {
+        uid.Comp.PercentageComplete = 50;
         CurrentTier = 2;
         var sender = Loc.GetString("cosmiccult-announcement-sender");
         _announce.SendAnnouncementMessage(_announce.GetAnnouncementId("SpawnAnnounceCaptain"), Loc.GetString("cosmiccult-announce-tier2-progress"), sender, Color.FromHex("#cae8e8"));
@@ -139,8 +169,9 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             objectiveComp.Tier = 2;
         }
     }
-    public void CultTier3()
+    public void CultTier3(Entity<MonumentComponent> uid)
     {
+        uid.Comp.PercentageComplete = 0;
         CurrentTier = 3;
         var query = EntityQueryEnumerator<CosmicCultComponent>();
         while (query.MoveNext(out var cultist, out var _))
@@ -151,8 +182,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             RemComp<RespiratorComponent>(cultist);
         }
         var sender = Loc.GetString("cosmiccult-announcement-sender");
-        var map = _transform.GetMapId(MonumentInGame.Owner.ToCoordinates());
-        var mapData = _map.GetMap(map);
+        var mapData = _map.GetMap(_transform.GetMapId(uid.Owner.ToCoordinates()));
         _announce.SendAnnouncementMessage(_announce.GetAnnouncementId("SpawnAnnounceCaptain"), Loc.GetString("cosmiccult-announce-tier3-progress"), sender, Color.FromHex("#cae8e8"));
         _audio.PlayGlobal("/Audio/_Impstation/CosmicCult/tier3.ogg", Filter.Broadcast(), false, AudioParams.Default);
         EnsureComp<ParallaxComponent>(mapData, out var parallax);
@@ -167,14 +197,17 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             objectiveComp.Tier = 3;
         }
     }
+    public void Finale(Entity<MonumentComponent> uid)
+    {
+        if (TryComp<CosmicCorruptingComponent>(uid, out var comp)) comp.Enabled = true;
+        uid.Comp.FinaleReady = true;
+        uid.Comp.EntropyUntilNextStage = 0;
+        uid.Comp.CrewToConvertNextStage = 0;
+        uid.Comp.PercentageComplete = 100;
+        Log.Debug($"The monument is unleashed!"); //todo remove
+    }
     #endregion
 
-    #region The Monument
-
-
-
-
-    #endregion
 
     #region Con & Deconversion
     public void TryStartCult(EntityUid uid, Entity<CosmicCultRuleComponent> rule)
@@ -240,9 +273,46 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             _euiMan.OpenEui(new CosmicConvertedEui(), session);
         }
         TotalCult++;
+        UpdateCultData(MonumentInGame);
+    }
+    private void OnShutdownCultist(Entity<CosmicCultComponent> uid, ref ComponentShutdown args)
+    {
+        if (!TryComp<CosmicSpellSlotComponent>(uid, out var spell))
+            return;
+
+        _stun.TryKnockdown(uid, TimeSpan.FromSeconds(2), true);
+        _actions.RemoveAction(uid, spell.CosmicSiphonActionEntity); // TODO: clean up cult powers better
+        _actions.RemoveAction(uid, spell.CosmicBlankActionEntity);
+        _actions.RemoveAction(uid, spell.CosmicLapseActionEntity);
+        _actions.RemoveAction(uid, spell.CosmicMonumentActionEntity);
+
+        if (!TryComp<MindContainerComponent>(uid, out var mc))
+            return;
+        if (!_mind.TryGetMind(uid, out var mindId, out _, mc))
+            return;
+        if (_mind.TryGetSession(mindId, out var session))
+        {
+            _euiMan.OpenEui(new CosmicDeconvertedEui(), session);
+        }
+
+        RemComp<ActiveRadioComponent>(uid); // TODO: clean up components better. Wow this is easy to read but surely this can be done tidier.
+        RemComp<IntrinsicRadioReceiverComponent>(uid);
+        RemComp<IntrinsicRadioTransmitterComponent>(uid);
+        if (HasComp<CosmicCultLeadComponent>(uid))
+            RemComp<CosmicCultLeadComponent>(uid);
+
+        _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-deconverted-fluff"), Color.FromHex("#4cabb3"), DeconvertSound);
+        _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-deconverted-briefing"), Color.FromHex("#cae8e8"), null);
+
+        if (!TryComp<MindComponent>(mindId, out var mindComp))
+            return;
+        _mind.ClearObjectives(mindId, mindComp); // LOAD-BEARING #imp function to remove all of someone's objectives, courtesy of TCRGDev(Github)
+        _role.MindTryRemoveRole<CosmicCultRoleComponent>(mindId);
+        _role.MindTryRemoveRole<RoleBriefingComponent>(mindId);
+        TotalCult--;
+        UpdateCultData(MonumentInGame);
     }
     #endregion
-
     private void DebugFunction(EntityUid uid, CosmicCultLeadComponent comp, ref DamageChangedEvent args) // TODO: This is a placeholder function to call other functions for testing & debugging.
     {
     }

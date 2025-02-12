@@ -13,9 +13,6 @@ namespace Content.Shared._Impstation.CosmicCult;
 
 public abstract class SharedCosmicCultSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedStunSystem _sharedStun = default!;
-
     public override void Initialize()
     {
         base.Initialize();

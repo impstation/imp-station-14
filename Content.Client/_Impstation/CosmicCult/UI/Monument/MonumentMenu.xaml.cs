@@ -29,8 +29,6 @@ public sealed partial class MonumentMenu : FancyWindow
 
     private ProtoId<GlyphPrototype> _selectedGlyphProtoId = string.Empty;
     private List<ProtoId<InfluencePrototype>> _unlockedInfluenceProtoIds = [];
-
-    public Action? OnUpgradeButtonPressed;
     public Action<ProtoId<GlyphPrototype>>? OnSelectGlyphButtonPressed;
     public Action<ProtoId<InfluencePrototype>>? OnGainButtonPressed;
 
@@ -48,7 +46,6 @@ public sealed partial class MonumentMenu : FancyWindow
 
         _glyphButtonGroup = new ButtonGroup();
 
-        UpgradeButton.OnPressed += _ => OnUpgradeButtonPressed?.Invoke();
         SelectGlyphButton.OnPressed += _ => OnSelectGlyphButtonPressed?.Invoke(_selectedGlyphProtoId);
     }
 
@@ -61,11 +58,8 @@ public sealed partial class MonumentMenu : FancyWindow
         CultProgressBar.BackgroundStyleBoxOverride = new StyleBoxFlat { BackgroundColor = new Color(15, 17, 30) };
         CultProgressBar.ForegroundStyleBoxOverride = new StyleBoxFlat { BackgroundColor = new Color(91, 62, 124) };
 
-        UpgradeButton.StyleClasses.Add("ButtonColorPurpleAndCool");
-        UpgradeButton.StyleClasses.Add("ButtonSquare");
-
         SelectGlyphButton.StyleClasses.Add("ButtonColorPurpleAndCool");
-        SelectGlyphButton.StyleClasses.Add("ButtonSquare");
+        // SelectGlyphButton.StyleClasses.Add("ButtonSquare");
         // End
 
         UpdateBar(state);
@@ -78,13 +72,12 @@ public sealed partial class MonumentMenu : FancyWindow
     private void UpdateBar(MonumentBuiState state)
     {
         CultProgressBar.Value = state.PercentageComplete;
-        ProgressBarPercentage.Text = Loc.GetString("monument-interface-progress-bar", ("percentage", (100*state.PercentageComplete).ToString("0.00")));
+        ProgressBarPercentage.Text = Loc.GetString("monument-interface-progress-bar", ("percentage", state.PercentageComplete.ToString("0")));
     }
 
     // Update all the entropy fields
     private void UpdateEntropy(MonumentBuiState state)
     {
-        InfusedEntropy.Text = Loc.GetString("monument-interface-entropy-value", ("infused", state.InfusedEntropy.ToString()));
         AvailableEntropy.Text = Loc.GetString("monument-interface-entropy-value", ("infused", state.AvailableEntropy.ToString()));
         EntropyUntilNextStage.Text = Loc.GetString("monument-interface-entropy-value", ("infused", state.EntropyUntilNextStage.ToString()));
         CrewToConvertUntilNextStage.Text = state.CrewToConvertUntilNextStage.ToString();

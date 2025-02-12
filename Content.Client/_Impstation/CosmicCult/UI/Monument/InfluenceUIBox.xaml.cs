@@ -21,6 +21,7 @@ public sealed partial class InfluenceUIBox : BoxContainer
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
         _sprite = _entityManager.System<SpriteSystem>();
+        GainButton.StyleClasses.Add("ButtonColorPurpleAndCool");
 
         InfluenceIcon.Texture = _sprite.Frame0(influenceProto.Icon);
         Name.Text = Loc.GetString(influenceProto.Name);

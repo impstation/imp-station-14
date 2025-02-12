@@ -13,15 +13,13 @@ public sealed partial class MonumentComponent : Component
     [DataField] public List<ProtoId<InfluencePrototype>> UnlockedInfluences = [];
     [DataField] public ProtoId<GlyphPrototype> SelectedGlyph;
     [DataField] public int AvailableEntropy;
-    [DataField] public int InfusedEntropy;
+    [DataField] public int TotalEntropy;
     [DataField] public int EntropyUntilNextStage;
     [DataField] public int CrewToConvertNextStage;
     [DataField] public float PercentageComplete;
+    [DataField] public bool FinaleReady = false;
     [DataField] public ProtoId<RadioChannelPrototype> CosmicChannel = "CosmicRadio";
 }
-
-[Serializable, NetSerializable]
-public sealed class UpgradeButtonPressedMessage : BoundUserInterfaceMessage;
 
 [Serializable, NetSerializable]
 public sealed class GlyphSelectedMessage(ProtoId<GlyphPrototype> glyphProtoId) : BoundUserInterfaceMessage
@@ -33,4 +31,17 @@ public sealed class GlyphSelectedMessage(ProtoId<GlyphPrototype> glyphProtoId) :
 public sealed class InfluenceSelectedMessage(ProtoId<InfluencePrototype> influenceProtoId) : BoundUserInterfaceMessage
 {
     public ProtoId<InfluencePrototype> InfluenceProtoId = influenceProtoId;
+}
+
+[Serializable, NetSerializable]
+public enum MonumentVisuals : byte
+{
+    CurrentMonument,
+    FinaleProgress
+}
+[Serializable, NetSerializable]
+public enum FinaleStatus : byte
+{
+    Off,
+    On
 }

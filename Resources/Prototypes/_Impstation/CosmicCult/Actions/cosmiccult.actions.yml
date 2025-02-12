@@ -18,7 +18,7 @@
 
 - type: entity
   id: ActionCosmicBlank
-  name: Blank Mentality
+  name: Shunt Subjectivity
   description: Shunt your target's mind out of their body and unto the cosmic dark, temporarily rendering their body mindless.
   categories: [ HideSpawnMenu ]
   components:
@@ -44,11 +44,26 @@
   - type: ConfirmableAction
     popup: cosmic-monument-spawn-confirm
   - type: InstantAction
+    usedelay: 999
     itemIconStyle: NoItem
     icon:
       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: monument
     event: !type:EventCosmicPlaceMonument {}
+  - type: CosmicCultAction
+
+- type: entity
+  id: ActionCosmicReturn
+  name: Return
+  description: Dissipate your astral projection and return to your body.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: return
+    event: !type:EventCosmicReturn {}
   - type: CosmicCultAction
 
 - type: entity
@@ -71,15 +86,49 @@
   - type: CosmicCultAction
 
 - type: entity
-  id: ActionCosmicReturn
-  name: Return
-  description: Dissipate your astral projection and return to your body.
+  id: ActionCosmicGlare
+  name: Null Glare
+  description: LOREM IPSUM ##todo: description
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     itemIconStyle: NoItem
     icon:
       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
-      state: return
-    event: !type:EventCosmicReturn {}
+      state: glare
+    event: !type:EventCosmicGlare {}
+  - type: CosmicCultAction
+
+- type: entity
+  id: ActionCosmicLash
+  name: Astral Lash
+  description: LOREM IPSUM ##todo: description
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityWorldTargetAction
+    canTargetSelf: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: astral
+    event: !type:EventCosmicLash {}
+  - type: CosmicCultAction
+
+- type: entity
+  id: ActionCosmicIngress
+  name: Force Ingress
+  description: LOREM IPSUM ##todo: description
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    canTargetSelf: true
+    useDelay: 80
+    whitelist:
+      components:
+        - HumanoidAppearance
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: lapse
+    event: !type:EventCosmicIngress {}
   - type: CosmicCultAction

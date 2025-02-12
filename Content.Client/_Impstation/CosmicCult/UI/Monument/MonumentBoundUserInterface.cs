@@ -21,7 +21,6 @@ public sealed class MonumentBoundUserInterface(EntityUid owner, Enum uiKey) : Bo
 
         _menu = this.CreateWindow<MonumentMenu>();
 
-        _menu.OnUpgradeButtonPressed += OnUpgradeButtonPressed;
         _menu.OnSelectGlyphButtonPressed += OnGlyphButtonPressed;
         _menu.OnGainButtonPressed += OnIdSelected;
     }
@@ -33,11 +32,6 @@ public sealed class MonumentBoundUserInterface(EntityUid owner, Enum uiKey) : Bo
             return;
 
         _menu?.UpdateState(buiState);
-    }
-
-    private void OnUpgradeButtonPressed()
-    {
-        SendMessage(new UpgradeButtonPressedMessage());
     }
 
     private void OnGlyphButtonPressed(ProtoId<GlyphPrototype> protoId)

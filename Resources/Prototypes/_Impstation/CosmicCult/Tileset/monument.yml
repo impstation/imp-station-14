@@ -63,10 +63,11 @@
         type: MonumentBoundUserInterface
   - type: Monument
     unlockedInfluences:
-    - influenceAberrantLapse0
-    - influenceAberrantLapse1
-    - influenceAberrantLapse2
-    selectedGlyph: ccglyph1
+    - influenceNullGlare
+    - influenceAstralLash
+    - influenceAberrantLapse
+    - influenceForceIngress
+    selectedGlyph: CosmicGlyphKnowledge
     availableEntropy: 0
     infusedEntropy: 0
     entropyUntilNextStage: 777
@@ -89,6 +90,10 @@
   - type: WarpPoint
     location: the monument
   - type: CosmicMarkStructure
+  - type: CosmicCorrupting
+    corruptionGrowth: true
+    corruptionReduction: 0.01
+    enabled: false
 
  ########### SPAWN-IN ANIMATION #############
 
@@ -210,9 +215,6 @@
   id: MonumentCosmicCult3+
   suffix: Stage 4, DO NOT MAP
   components:
-  - type: CosmicCorrupting
-    corruptionGrowth: true
-    corruptionReduction: 0.01
   - type: Sprite
     sprite: _Impstation/CosmicCult/Tileset/monument.rsi
     layers:

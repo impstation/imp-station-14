@@ -11,6 +11,9 @@ public sealed partial class CosmicCultActionComponent : Component
 }
 public sealed partial class EventCosmicSiphon : EntityTargetActionEvent { }
 public sealed partial class EventCosmicBlank : EntityTargetActionEvent { }
-public sealed partial class EventCosmicLapse : EntityTargetActionEvent { }
 public sealed partial class EventCosmicPlaceMonument : InstantActionEvent { }
 public sealed partial class EventCosmicReturn : InstantActionEvent { }
+public sealed partial class EventCosmicLapse : EntityTargetActionEvent { }
+public sealed partial class EventCosmicGlare : InstantActionEvent { }
+public sealed partial class EventCosmicLash : EntityWorldTargetActionEvent { }
+public sealed partial class EventCosmicIngress : EntityTargetActionEvent { }

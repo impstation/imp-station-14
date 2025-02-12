@@ -32,20 +32,14 @@ public sealed partial class CosmicCultSystem : EntitySystem
 {
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly CosmicCultRuleSystem _cultRule = default!;
-    [Dependency] private readonly ISharedAdminLogManager _log = default!;
-    [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
-    [Dependency] private readonly SharedRoleSystem _role = default!;
-    [Dependency] private readonly EuiManager _euiMan = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly MapLoaderSystem _mapLoader = default!;    [Dependency] private readonly IGameTiming _timing = default!;
 
-    private const string MapPath = "Prototypes/_Impstation/CosmicCult/Maps/voidmap.yml";
-    public readonly SoundSpecifier DeconvertSound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/antag_cosmic_deconvert.ogg");
+    private const string MapPath = "Prototypes/_Impstation/CosmicCult/Maps/cosmicvoid.yml";
     public int ObjectiveEntropyTracker = 0;
 
     public override void Initialize()
@@ -57,7 +51,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
 
         SubscribeLocalEvent<CosmicCultComponent, ComponentInit>(OnStartCultist);
-        SubscribeLocalEvent<CosmicCultComponent, ComponentShutdown>(OnShutdownCultist);
         SubscribeLocalEvent<MonumentComponent, ComponentInit>(OnStartMonument);
         SubscribeLocalEvent<MonumentComponent, InteractUsingEvent>(OnInteractUsing);
 
@@ -68,6 +61,10 @@ public sealed partial class CosmicCultSystem : EntitySystem
         SubscribeAbilities();
     }
     #region Housekeeping
+
+    /// <summary>
+    /// Creates the Cosmic Void pocket dimension map.
+    /// </summary>
     private void OnRoundStart(RoundStartingEvent ev)
     {
         _map.CreateMap(out var mapId);
@@ -76,9 +73,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
         if (_mapLoader.TryLoad(mapId, MapPath, out _, options))
             _map.SetPaused(mapId, false);
     }
-    /// <summary>
-    /// Creates the Cosmic Void pocket dimension map.
-    /// </summary>
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -143,19 +137,13 @@ public sealed partial class CosmicCultSystem : EntitySystem
 
     private void OnStartMonument(Entity<MonumentComponent> uid, ref ComponentInit args)
     {
-        var monument = uid.Comp;
         _cultRule.CultTier1(uid);
         _cultRule.UpdateCultData(uid);
-        monument.CrewToConvertNextStage = _cultRule.CrewTillNextTier;
-    }
-
-    private void UpdateEntropyMetrics(Entity<MonumentComponent> uid)
-    {
     }
 
     private void OnInteractUsing(Entity<MonumentComponent> uid, ref InteractUsingEvent args)
     {
-        if (!HasComp<CosmicEntropyMoteComponent>(args.Used) || args.Handled)
+        if (!HasComp<CosmicEntropyMoteComponent>(args.Used) || uid.Comp.FinaleReady || args.Handled)
             return;
         args.Handled = AddEntropy(uid, args.Used, args.User);
     }
@@ -164,54 +152,13 @@ public sealed partial class CosmicCultSystem : EntitySystem
     {
         var quant = TryComp<StackComponent>(entropy, out var stackComp) ? stackComp.Count : 1;
         Log.Debug($"Adding {quant} entropy!");
-        monument.Comp.InfusedEntropy += quant;
+        monument.Comp.TotalEntropy += quant;
         monument.Comp.AvailableEntropy += quant;
         QueueDel(entropy);
-        UpdateEntropyMetrics(monument);
+        _cultRule.UpdateCultData(monument);
         return true;
     }
 
-
-    /// <summary>
-    /// Our horrible little function for when a cultist gets deconverted. This is surely awful, but very straightforward.
-    /// </summary>
-    private void OnShutdownCultist(Entity<CosmicCultComponent> uid, ref ComponentShutdown args)
-    {
-        if (!TryComp<CosmicSpellSlotComponent>(uid, out var spell))
-            return;
-
-        _stun.TryKnockdown(uid, TimeSpan.FromSeconds(2), true);
-        _actions.RemoveAction(uid, spell.CosmicSiphonActionEntity); // TODO: clean up cult powers better
-        _actions.RemoveAction(uid, spell.CosmicBlankActionEntity);
-        _actions.RemoveAction(uid, spell.CosmicLapseActionEntity);
-        _actions.RemoveAction(uid, spell.CosmicMonumentActionEntity);
-
-        if (!TryComp<MindContainerComponent>(uid, out var mc))
-            return;
-        if (!_mind.TryGetMind(uid, out var mindId, out _, mc))
-            return;
-        if (_mind.TryGetSession(mindId, out var session))
-        {
-            _euiMan.OpenEui(new CosmicDeconvertedEui(), session);
-        }
-
-        RemComp<ActiveRadioComponent>(uid); // TODO: clean up components better. Wow this is easy to read but surely this can be done tidier.
-        RemComp<IntrinsicRadioReceiverComponent>(uid);
-        RemComp<IntrinsicRadioTransmitterComponent>(uid);
-        if (HasComp<CosmicCultLeadComponent>(uid))
-            RemComp<CosmicCultLeadComponent>(uid);
-
-        _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-deconverted-fluff"), Color.FromHex("#4cabb3"), DeconvertSound);
-        _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-deconverted-briefing"), Color.FromHex("#cae8e8"), null);
-
-        if (!TryComp<MindComponent>(mindId, out var mindComp))
-            return;
-        _mind.ClearObjectives(mindId, mindComp); // LOAD-BEARING #imp function to remove all of someone's objectives, courtesy of TCRGDev(Github)
-        _role.MindTryRemoveRole<CosmicCultRoleComponent>(mindId);
-        _role.MindTryRemoveRole<RoleBriefingComponent>(mindId);
-        _cultRule.TotalCult--;
-        _log.Add(LogType.Mind, LogImpact.Low, $"{uid.Owner} was Deconverted from the Cosmic Cult. All objectives removed from mind.");
-    }
 
     private void DebugFunction(Entity<CosmicCultComponent> uid, ref DamageChangedEvent args) // TODO: This is a placeholder function to call other functions for testing & debugging.
     {

@@ -8,11 +8,10 @@ monument-interface-progress-bar = {$percentage}%
 # Entropy
 monument-interface-entropy-title = Entropy
 monument-interface-entropy-infused-label = Infused:
-monument-interface-entropy-available-label = Available for use:
-monument-interface-entropy-next-stage-title = Est. till next Stage:
 monument-interface-entropy-value = {$infused} Entropy
-monument-interface-entropy-crew-convert-title = Crew to Convert till next Stage:
-monument-interface-entropy-button-upgrade = Upgrade The Monument
+monument-interface-entropy-available-label = Available for use:
+monument-interface-entropy-next-stage-title = Entropy till next Stage:
+monument-interface-entropy-crew-convert-title = Converts till next Stage:
 
 # Glyphs
 monument-interface-glyphs-title = Glyphs

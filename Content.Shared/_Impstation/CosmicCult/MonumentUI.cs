@@ -13,7 +13,6 @@ public enum MonumentKey : byte
 [Serializable, NetSerializable]
 public sealed class MonumentBuiState : BoundUserInterfaceState
 {
-    public int InfusedEntropy;
     public int AvailableEntropy;
     public int EntropyUntilNextStage;
     public int CrewToConvertUntilNextStage;
@@ -23,9 +22,8 @@ public sealed class MonumentBuiState : BoundUserInterfaceState
     public ProtoId<GlyphPrototype> SelectedGlyph;
     public List<ProtoId<InfluencePrototype>> UnlockedInfluences;
 
-    public MonumentBuiState(int infusedEntropy, int availableEntropy, int entropyUntilNextStage, int crewToConvertUntilNextStage, float percentageComplete, ProtoId<GlyphPrototype> selectedGlyph, List<ProtoId<InfluencePrototype>> unlockedInfluences)
+    public MonumentBuiState(int availableEntropy, int entropyUntilNextStage, int crewToConvertUntilNextStage, float percentageComplete, ProtoId<GlyphPrototype> selectedGlyph, List<ProtoId<InfluencePrototype>> unlockedInfluences)
     {
-        InfusedEntropy = infusedEntropy;
         AvailableEntropy = availableEntropy;
         EntropyUntilNextStage = entropyUntilNextStage;
         CrewToConvertUntilNextStage = crewToConvertUntilNextStage;

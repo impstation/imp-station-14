@@ -7,13 +7,11 @@ namespace Content.Shared._Impstation.CosmicCult;
 public sealed class SharedMonumentSystem : EntitySystem
 {
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
-
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<MonumentComponent, BoundUIOpenedEvent>(OnUIOpened);
 
-        SubscribeLocalEvent<MonumentComponent, UpgradeButtonPressedMessage>(OnUpgradeButton);
         SubscribeLocalEvent<MonumentComponent, GlyphSelectedMessage>(OnGlyphSelected);
         SubscribeLocalEvent<MonumentComponent, InfluenceSelectedMessage>(OnInfluenceSelected);
     }
@@ -27,12 +25,6 @@ public sealed class SharedMonumentSystem : EntitySystem
     }
 
     #region UI listeners
-    private void OnUpgradeButton(Entity<MonumentComponent> ent, ref UpgradeButtonPressedMessage args)
-    {
-        // TODO: Add what you want to do here!
-
-        _uiSystem.SetUiState(ent.Owner, MonumentKey.Key, GenerateBuiState(ent.Comp));
-    }
 
     private void OnGlyphSelected(Entity<MonumentComponent> ent, ref GlyphSelectedMessage args)
     {
@@ -61,7 +53,6 @@ public sealed class SharedMonumentSystem : EntitySystem
     private MonumentBuiState GenerateBuiState(MonumentComponent comp)
     {
         return new MonumentBuiState(
-            comp.InfusedEntropy,
             comp.AvailableEntropy,
             comp.EntropyUntilNextStage,
             comp.CrewToConvertNextStage,
