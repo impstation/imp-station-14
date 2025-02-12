@@ -32,16 +32,16 @@ public sealed class InfluenceSelectedMessage(ProtoId<InfluencePrototype> influen
 {
     public ProtoId<InfluencePrototype> InfluenceProtoId = influenceProtoId;
 }
-
 [Serializable, NetSerializable]
 public enum MonumentVisuals : byte
 {
     CurrentMonument,
-    FinaleProgress
+    FinaleReached
 }
+
 [Serializable, NetSerializable]
-public enum FinaleStatus : byte
+public enum MonumentVisualLayers : byte
 {
-    Off,
-    On
+    CurrentMonument,
+    FinaleProgress
 }

@@ -13,13 +13,27 @@
     sprite: _Impstation/CosmicCult/Tileset/monument.rsi
     layers:
       - state: stage1
-      - state: inserting1
-        visible: false
+        map: ["enum.MonumentVisualLayers.CurrentMonument"]
+      - state: stage4-overlay
         shader: unshaded
-        map: ["enum.MaterialStorageVisualLayers.Inserting"]
+        visible: false
+        map: ["enum.MonumentVisualLayers.FinaleProgress"]
     offset: 0,1
     drawdepth: Mobs
     noRot: true
+  - type: GenericVisualizer
+    visuals:
+      enum.MonumentVisuals.FinaleReached:
+        enum.MonumentVisualLayers.FinaleProgress:
+          True: { visible: true }
+          False: { visible: false }
+      enum.MonumentVisuals.CurrentMonument:
+        enum.MonumentVisualLayers.CurrentMonument:
+          1: {state: stage1}
+          2: {state: stage2}
+          3: {state: stage3}
+        enum.MonumentVisualLayers.FinaleProgress:
+          1: {state: finale-overlay1}
   - type: InteractionOutline
   - type: Transform
     noRot: true
@@ -163,65 +177,55 @@
   components:
   - type: Visibility
     layer: 777
-  - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/monument.rsi
-    layers:
-      - state: stage1
-      - state: inserting1
-        visible: false
-        shader: unshaded
-        map: ["enum.MaterialStorageVisualLayers.Inserting"]
-  - type: MaterialStorage
-    insertionTime: 1.44
 
  ########### STAGE 2 #############
 
-- type: entity
-  parent: MonumentCosmicCultBase
-  id: MonumentCosmicCult2
-  suffix: Stage 2, DO NOT MAP
-  components:
-  - type: Visibility
-    layer: 777
-  - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/monument.rsi
-    layers:
-      - state: stage2
-      - state: inserting2
-        visible: false
-        shader: unshaded
-        map: ["enum.MaterialStorageVisualLayers.Inserting"]
+# - type: entity
+#   parent: MonumentCosmicCultBase
+#   id: MonumentCosmicCult2
+#   suffix: Stage 2, DO NOT MAP
+#   components:
+#   - type: Visibility
+#     layer: 777
+#   - type: Sprite
+#     sprite: _Impstation/CosmicCult/Tileset/monument.rsi
+#     layers:
+#       - state: stage2
+#       - state: inserting2
+#         visible: false
+#         shader: unshaded
+#         map: ["enum.MaterialStorageVisualLayers.Inserting"]
 
- ########### STAGE 3 #############
+#  ########### STAGE 3 #############
 
-- type: entity
-  parent: MonumentCosmicCultBase
-  id: MonumentCosmicCult3
-  suffix: Stage 3, DO NOT MAP
-  components:
-  - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/monument.rsi
-    layers:
-      - state: stage3
-      - state: inserting3
-        visible: false
-        shader: unshaded
-        map: ["enum.MaterialStorageVisualLayers.Inserting"]
+# - type: entity
+#   parent: MonumentCosmicCultBase
+#   id: MonumentCosmicCult3
+#   suffix: Stage 3, DO NOT MAP
+#   components:
+#   - type: Sprite
+#     sprite: _Impstation/CosmicCult/Tileset/monument.rsi
+#     layers:
+#       - state: stage3
+#       - state: inserting3
+#         visible: false
+#         shader: unshaded
+#         map: ["enum.MaterialStorageVisualLayers.Inserting"]
 
- ########### STAGE 4 #############
+#  ########### STAGE 4 #############
 
-- type: entity
-  parent: MonumentCosmicCultBase
-  id: MonumentCosmicCult3+
-  suffix: Stage 4, DO NOT MAP
-  components:
-  - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/monument.rsi
-    layers:
-      - state: stage3
-      - state: inserting3
-        visible: false
-        shader: unshaded
-        map: ["enum.MaterialStorageVisualLayers.Inserting"]
-      - state: stage4-overlay
-        shader: unshaded
+# - type: entity
+#   parent: MonumentCosmicCultBase
+#   id: MonumentCosmicCult3+
+#   suffix: Stage 4, DO NOT MAP
+#   components:
+#   - type: Sprite
+#     sprite: _Impstation/CosmicCult/Tileset/monument.rsi
+#     layers:
+#       - state: stage3
+#       - state: inserting3
+#         visible: false
+#         shader: unshaded
+#         map: ["enum.MaterialStorageVisualLayers.Inserting"]
+#       - state: stage4-overlay
+#         shader: unshaded

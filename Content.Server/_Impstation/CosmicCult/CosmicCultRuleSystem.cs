@@ -37,6 +37,7 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Mind.Components;
 using Content.Server.Actions;
+using Robust.Server.GameObjects;
 
 namespace Content.Server._Impstation.CosmicCult;
 
@@ -61,6 +62,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     [Dependency] private readonly IPlayerManager _playerMan = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly AppearanceSystem _appearance = default!;
 
     [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> NanoTrasenFactionId = "NanoTrasen";
     [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> CosmicFactionId = "CosmicCultFaction";
@@ -107,7 +109,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     {
         TryStartCult(args.EntityUid, uid);
     }
-
+    #region Monument
     public void UpdateCultData(Entity<MonumentComponent> uid)
     {
         TotalCrew = _antag.GetTotalPlayerCount(_playerMan.Sessions);
@@ -140,9 +142,13 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         else if (CurrentProgress >= TargetProgress && CurrentTier == 1) CultTier2(uid);
         Log.Debug($"DEBUG: {Tier3Percent} crew for Tier 3. {Tier3Percent / 2} crew for Tier 2. {CrewTillNextTier} crew to convert till the next tier"); //todo remove
         Log.Debug($"DEBUG: {TotalCrew} session(s), {TotalCult} cultist(s), {TotalNotCult} non-cult, {PercentConverted}% of the crew has been converted"); //todo remove
+        UpdateMonumentAppearance(uid);
     }
-
-    #region Cult Tiers
+    public void UpdateMonumentAppearance(Entity<MonumentComponent> uid)
+    {
+        _appearance.SetData(uid, MonumentVisuals.CurrentMonument, CurrentTier);
+        if (uid.Comp.FinaleReady) _appearance.SetData(uid, MonumentVisuals.FinaleReached, true);
+    }
     public void CultTier1(Entity<MonumentComponent> uid)
     {
         CurrentTier = 1;
@@ -173,6 +179,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     {
         uid.Comp.PercentageComplete = 0;
         CurrentTier = 3;
+        RemComp<VisibilityComponent>(uid);
+        Dirty(uid);
         var query = EntityQueryEnumerator<CosmicCultComponent>();
         while (query.MoveNext(out var cultist, out var _))
         {
