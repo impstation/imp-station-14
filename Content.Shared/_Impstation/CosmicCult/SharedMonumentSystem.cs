@@ -2,11 +2,14 @@ using Content.Shared._Impstation.Cosmiccult;
 using Content.Shared._Impstation.CosmicCult.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Stacks;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._Impstation.CosmicCult;
 public sealed class SharedMonumentSystem : EntitySystem
 {
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -15,12 +18,23 @@ public sealed class SharedMonumentSystem : EntitySystem
         SubscribeLocalEvent<MonumentComponent, GlyphSelectedMessage>(OnGlyphSelected);
         SubscribeLocalEvent<MonumentComponent, InfluenceSelectedMessage>(OnInfluenceSelected);
     }
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+        var query = EntityQueryEnumerator<MonumentTransformingComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (_timing.CurTime < comp.EndTime)
+                continue;
+            _appearance.SetData(uid, MonumentVisuals.Transforming, false);
+            RemComp<MonumentTransformingComponent>(uid);
+        }
+    }
 
     private void OnUIOpened(Entity<MonumentComponent> ent, ref BoundUIOpenedEvent args)
     {
         if (!_uiSystem.IsUiOpen(ent.Owner, MonumentKey.Key))
             return;
-
         _uiSystem.SetUiState(ent.Owner, MonumentKey.Key, GenerateBuiState(ent.Comp));
     }
 

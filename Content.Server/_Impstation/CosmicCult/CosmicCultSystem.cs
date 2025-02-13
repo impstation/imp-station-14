@@ -137,7 +137,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
 
     private void OnStartMonument(Entity<MonumentComponent> uid, ref ComponentInit args)
     {
-        _cultRule.CultTier1(uid);
+        _cultRule.MonumentTier1(uid);
         _cultRule.UpdateCultData(uid);
     }
 

@@ -5,8 +5,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._Impstation.CosmicCult.Components;
-// Content.Shared/_Impstation/CosmicCult/Components/MonumentComponent.cs
-[NetworkedComponent, RegisterComponent]
+[NetworkedComponent, RegisterComponent, AutoGenerateComponentState]
 public sealed partial class MonumentComponent : Component
 {
     [NonSerialized] public static int LayerMask = 777;
@@ -18,7 +17,7 @@ public sealed partial class MonumentComponent : Component
     [DataField] public int CrewToConvertNextStage;
     [DataField] public float PercentageComplete;
     [DataField] public bool FinaleReady = false;
-    [DataField] public ProtoId<RadioChannelPrototype> CosmicChannel = "CosmicRadio";
+    [DataField, AutoNetworkedField] public TimeSpan TransformTime = TimeSpan.FromSeconds(2.8);
 }
 
 [Serializable, NetSerializable]
@@ -35,13 +34,16 @@ public sealed class InfluenceSelectedMessage(ProtoId<InfluencePrototype> influen
 [Serializable, NetSerializable]
 public enum MonumentVisuals : byte
 {
-    CurrentMonument,
-    FinaleReached
+    Monument,
+    Transforming,
+    FinaleReached,
+    Tier3
 }
 
 [Serializable, NetSerializable]
 public enum MonumentVisualLayers : byte
 {
-    CurrentMonument,
-    FinaleProgress
+    MonumentLayer,
+    TransformLayer,
+    FinaleLayer
 }

@@ -8,31 +8,36 @@
   name: The Monument
   description: A great slab of unknowledge, only visible to those aware of it. Built of a thousand little nothings, its surface reflects a starless emptiness...
   components:
+  - type: Visibility
+    layer: 777
   - type: SpriteFade
   - type: Sprite
     sprite: _Impstation/CosmicCult/Tileset/monument.rsi
     layers:
       - state: stage1
-        map: ["enum.MonumentVisualLayers.CurrentMonument"]
-      - state: stage4-overlay
+        visible: true
+        map: ["enum.MonumentVisualLayers.MonumentLayer"]
+      - state: transform-stage2
+        visible: false
+        map: ["enum.MonumentVisualLayers.TransformLayer"]
+      - state: finale-overlay1
         shader: unshaded
         visible: false
-        map: ["enum.MonumentVisualLayers.FinaleProgress"]
+        map: ["enum.MonumentVisualLayers.FinaleLayer"]
     offset: 0,1
     drawdepth: Mobs
     noRot: true
   - type: GenericVisualizer
     visuals:
-      enum.MonumentVisuals.FinaleReached:
-        enum.MonumentVisualLayers.FinaleProgress:
-          True: { visible: true }
-          False: { visible: false }
-      enum.MonumentVisuals.CurrentMonument:
-        enum.MonumentVisualLayers.CurrentMonument:
+      enum.MonumentVisuals.Monument:
+        enum.MonumentVisualLayers.MonumentLayer:
           1: {state: stage1}
           2: {state: stage2}
           3: {state: stage3}
-        enum.MonumentVisualLayers.FinaleProgress:
+      enum.MonumentVisuals.FinaleReached:
+        enum.MonumentVisualLayers.FinaleLayer:
+          True: { visible: true }
+          False: { visible: false }
           1: {state: finale-overlay1}
   - type: InteractionOutline
   - type: Transform
@@ -174,9 +179,6 @@
   parent: MonumentCosmicCultBase
   id: MonumentCosmicCult1
   suffix: Base, DO NOT MAP
-  components:
-  - type: Visibility
-    layer: 777
 
  ########### STAGE 2 #############
 

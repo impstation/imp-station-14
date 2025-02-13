@@ -38,6 +38,7 @@ using Content.Shared.Database;
 using Content.Shared.Mind.Components;
 using Content.Server.Actions;
 using Robust.Server.GameObjects;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Impstation.CosmicCult;
 
@@ -63,7 +64,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
-
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly VisibilitySystem _visibility = default!;
     [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> NanoTrasenFactionId = "NanoTrasen";
     [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> CosmicFactionId = "CosmicCultFaction";
     public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/antag_cosmic_briefing.ogg");
@@ -102,7 +104,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         CurrentProgress = 0.001f;
         TargetProgress = 80;
         Tier3Percent = 40;
-        Log.Debug($"Cosmic cult data reset.");
+        Log.Debug($"Cleaned up Cosmic Cult data.");
     }
 
     private void OnAntagSelect(Entity<CosmicCultRuleComponent> uid, ref AfterAntagEntitySelectedEvent args)
@@ -110,6 +112,29 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         TryStartCult(args.EntityUid, uid);
     }
     #region Monument
+    public void UpdateMonumentAppearance(Entity<MonumentComponent> uid, bool tierUp) // this is fucking awful in its current setup, but nothing else seems to work. Fuck
+    {
+        _appearance.SetData(uid, MonumentVisuals.Monument, CurrentTier);
+        if (CurrentTier == 3)
+        {
+            _appearance.SetData(uid, MonumentVisuals.Tier3, true);
+            Dirty(uid);
+        }
+        else if (CurrentTier == 2)
+        {
+            _appearance.SetData(uid, MonumentVisuals.Tier3, false);
+            Dirty(uid);
+        }
+        if (tierUp)
+        {
+            var transformComp = EnsureComp<MonumentTransformingComponent>(uid);
+            transformComp.EndTime = _timing.CurTime + uid.Comp.TransformTime;
+            _appearance.SetData(uid, MonumentVisuals.Transforming, true);
+            Dirty(uid);
+        }
+        if (uid.Comp.FinaleReady) _appearance.SetData(uid, MonumentVisuals.FinaleReached, true);
+        Dirty(uid);
+    }
     public void UpdateCultData(Entity<MonumentComponent> uid)
     {
         TotalCrew = _antag.GetTotalPlayerCount(_playerMan.Sessions);
@@ -138,20 +163,16 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         uid.Comp.PercentageComplete = CurrentProgress / TargetProgress * 100;
         Math.Round(uid.Comp.PercentageComplete);
         if (CurrentProgress >= TargetProgress && CurrentTier == 3) Finale(uid);
-        else if (CurrentProgress >= TargetProgress && CurrentTier == 2) CultTier3(uid);
-        else if (CurrentProgress >= TargetProgress && CurrentTier == 1) CultTier2(uid);
+        else if (CurrentProgress >= TargetProgress && CurrentTier == 2) MonumentTier3(uid);
+        else if (CurrentProgress >= TargetProgress && CurrentTier == 1) MonumentTier2(uid);
         Log.Debug($"DEBUG: {Tier3Percent} crew for Tier 3. {Tier3Percent / 2} crew for Tier 2. {CrewTillNextTier} crew to convert till the next tier"); //todo remove
         Log.Debug($"DEBUG: {TotalCrew} session(s), {TotalCult} cultist(s), {TotalNotCult} non-cult, {PercentConverted}% of the crew has been converted"); //todo remove
-        UpdateMonumentAppearance(uid);
+        UpdateMonumentAppearance(uid, false);
     }
-    public void UpdateMonumentAppearance(Entity<MonumentComponent> uid)
-    {
-        _appearance.SetData(uid, MonumentVisuals.CurrentMonument, CurrentTier);
-        if (uid.Comp.FinaleReady) _appearance.SetData(uid, MonumentVisuals.FinaleReached, true);
-    }
-    public void CultTier1(Entity<MonumentComponent> uid)
+    public void MonumentTier1(Entity<MonumentComponent> uid)
     {
         CurrentTier = 1;
+        UpdateMonumentAppearance(uid, false);
         MonumentInGame = uid; //Since there's only one Monument per round, let's store its UID for the rest of the round.
         var objectiveQuery = EntityQueryEnumerator<CosmicTierConditionComponent>();
         while (objectiveQuery.MoveNext(out var _, out var objectiveComp))
@@ -159,10 +180,11 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             objectiveComp.Tier = 1;
         }
     }
-    public void CultTier2(Entity<MonumentComponent> uid)
+    public void MonumentTier2(Entity<MonumentComponent> uid)
     {
         uid.Comp.PercentageComplete = 50;
         CurrentTier = 2;
+        UpdateMonumentAppearance(uid, true);
         var sender = Loc.GetString("cosmiccult-announcement-sender");
         _announce.SendAnnouncementMessage(_announce.GetAnnouncementId("SpawnAnnounceCaptain"), Loc.GetString("cosmiccult-announce-tier2-progress"), sender, Color.FromHex("#cae8e8"));
         _audio.PlayGlobal("/Audio/_Impstation/CosmicCult/tier2.ogg", Filter.Broadcast(), false, AudioParams.Default);
@@ -175,12 +197,13 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             objectiveComp.Tier = 2;
         }
     }
-    public void CultTier3(Entity<MonumentComponent> uid)
+    public void MonumentTier3(Entity<MonumentComponent> uid)
     {
         uid.Comp.PercentageComplete = 0;
         CurrentTier = 3;
-        RemComp<VisibilityComponent>(uid);
+        _visibility.SetLayer(uid.Owner, 1, true);
         Dirty(uid);
+        UpdateMonumentAppearance(uid, true);
         var query = EntityQueryEnumerator<CosmicCultComponent>();
         while (query.MoveNext(out var cultist, out var _))
         {
