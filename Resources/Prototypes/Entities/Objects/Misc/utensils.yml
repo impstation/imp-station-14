@@ -8,6 +8,9 @@
   - type: Item # TODO add inhand sprites for all utensils
     sprite: Objects/Misc/utensils.rsi
   - type: SpaceGarbage
+  - type: InteractionVerbs # The Den
+    allowedVerbs:
+    - LickObject
 
 - type: entity
   parent: UtensilBase

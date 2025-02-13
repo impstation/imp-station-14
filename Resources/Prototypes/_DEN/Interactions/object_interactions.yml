@@ -1,0 +1,65 @@
+#add compenents to the items or their bases like this
+#- type: InteractionVerbs
+#    allowedVerbs:
+#    - WaveAtObject
+#    - HugObject
+#    - PetObject
+#    - KissObject
+#    - LickObject
+
+
+- type: Interaction
+  id: WaveAtObject #beware, you can wave (object A) at (object A) which sounds a bit awkward
+  parent: BaseHands
+  priority: -10
+  requiresCanInteract: false
+  contactInteraction: false
+  range: {max: 20}
+  effectSuccess:
+    popup: Obvious
+    sound: {path: /Audio/Effects/ominous.ogg}
+    soundPerceivedByOthers: false
+  action:
+    !type:NoOpAction
+
+- type: Interaction
+  id: HugObject
+  parent: BaseHands
+  priority: -11
+  delay: 0.7
+  action:
+    !type:MoodAction
+    effect: BeingHugged
+
+- type: Interaction
+  id: PetObject
+  parent: BaseHands
+  priority: -12
+  delay: 0.4
+  action:
+    !type:MoodAction
+    effect: BeingPet
+
+- type: Interaction
+  id: KissObject
+  parent: BaseHands
+  priority: -13
+  delay: 0.4
+  action:
+    !type:MoodAction
+    effect: BeingKissed
+  effectSuccess:
+    popup: Obvious
+    sound: {path: /Audio/Floof/Lewd/kiss.ogg}
+
+- type: Interaction
+  id: LickObject
+  parent: BaseHands
+  priority: -14
+  delay: 0.7
+  action:
+    !type:MoodAction
+    effect: BeingLicked
+  effectSuccess:
+    popup: Obvious
+    sound: {path: /Audio/Floof/Lewd/lick.ogg}

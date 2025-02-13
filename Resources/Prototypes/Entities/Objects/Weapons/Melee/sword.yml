@@ -21,6 +21,11 @@
   - type: Tool
     qualities:
     - Slicing
+  - type: InteractionVerbs # The Den
+    allowedVerbs:
+    - HugObject
+    - KissObject
+    - LickObject
 
 #Shortswords
 - type: entity

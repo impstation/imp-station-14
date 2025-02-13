@@ -67,6 +67,9 @@
     tags:
     - Bowl
     - Trash
+  - type: InteractionVerbs
+    allowedVerbs:
+    - LickObject
 
 - type: entity
   parent: BaseItem

@@ -24,3 +24,8 @@
   - type: LandAtCursor
   - type: EmbeddableProjectile # imp
     removalTime: 0
+  - type: InteractionVerbs # The Den
+    allowedVerbs:
+    - HugObject
+    - KissObject
+    - LickObject

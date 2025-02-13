@@ -13,6 +13,10 @@
   - type: Sprite
   - type: StaticPrice
     price: 0
+  - type: InteractionVerbs
+    allowedVerbs:
+    - KissObject
+    - LickObject
 
 #
 # Base component for consumable food
@@ -57,3 +61,7 @@
           True: {state: "icon-open"}
           False: {state: "icon"}
   - type: Openable
+  - type: InteractionVerbs
+    allowedVerbs:
+    - KissObject
+    - LickObject

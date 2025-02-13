@@ -50,6 +50,11 @@
   - type: DeflectThrownObjects
   - type: DamageOtherOnHit # imp
     staminaCost: 10
+  - type: InteractionVerbs # The Den
+    allowedVerbs:
+    - HugObject
+    - KissObject
+    - LickObject
 
 - type: entity
   name: incomplete baseball bat

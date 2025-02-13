@@ -41,6 +41,11 @@
       Wood: 100
   - type: DamageOtherOnHit # Imp
     staminaCost: 5
+  - type: InteractionVerbs # The Den
+    allowedVerbs:
+    - HugObject
+    - KissObject
+    - LickObject
 
 - type: entity
   name: mining drill
@@ -74,6 +79,11 @@
   - type: ThrowingAngle
     angle: 270
   # end imp edits #
+  - type: InteractionVerbs # The Den
+    allowedVerbs:
+    - HugObject
+    - KissObject
+    - LickObject
 
 - type: entity
   name: diamond tipped mining drill
@@ -120,6 +130,11 @@
       shader: unshaded
       visible: false
       map: [ "light" ]
+  - type: InteractionVerbs # The Den
+    allowedVerbs:
+    - HugObject
+    - KissObject
+    - LickObject
 
 # Very high burst damage if you land a mark, while also providing a small amount of healing.
 - type: entity

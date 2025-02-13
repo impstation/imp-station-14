@@ -175,6 +175,11 @@
     netsync: false
   - type: ItemToggleThrowingAngle # imp
     activatedAngle: 135
+  - type: InteractionVerbs # The Den
+    allowedVerbs:
+    - HugObject
+    - KissObject
+    - LickObject
 
 - type: entity
   name: pen

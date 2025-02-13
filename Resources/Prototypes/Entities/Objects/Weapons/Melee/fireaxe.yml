@@ -58,6 +58,11 @@
   - type: ThrowingAngle
     angle: 45
   # end imp edits #
+  - type: InteractionVerbs # The Den
+    allowedVerbs:
+    - HugObject
+    - KissObject
+    - LickObject
 
 - type: entity
   id: FireAxeFlaming

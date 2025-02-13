@@ -119,7 +119,11 @@
     equippedFillBaseName: -fill-
     equippedMaxFillLevels: 1
   - type: EmbedPassiveDamage # imp
-
+  - type: InteractionVerbs # The Den
+    allowedVerbs:
+    - HugObject
+    - KissObject
+    - LickObject
 
 - type: entity
   name: reinforced spear
@@ -237,3 +241,8 @@
         Piercing: 25 #throw dmg enough to two-shot carp
   - type: Construction
     graph: SpearSharkMinnow
+  - type: InteractionVerbs # The Den
+    allowedVerbs:
+    - HugObject
+    - KissObject
+    - LickObject

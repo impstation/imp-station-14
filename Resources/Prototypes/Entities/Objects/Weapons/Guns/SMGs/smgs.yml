@@ -79,6 +79,11 @@
       types:
         Blunt: 5
 #imp edit end
+  - type: InteractionVerbs # The Den
+    allowedVerbs:
+    - HugObject
+    - KissObject
+    - LickObject
 
 - type: entity
   name: Atreides

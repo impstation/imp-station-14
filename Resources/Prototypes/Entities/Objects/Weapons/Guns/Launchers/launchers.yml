@@ -87,6 +87,11 @@
   - type: GunRequiresWield
   - type: StaticPrice
     price: 10000
+  - type: InteractionVerbs # The Den
+    allowedVerbs:
+    - HugObject
+    - KissObject
+    - LickObject
 
 - type: entity
   parent: [ BaseWeaponLauncher, BaseGunWieldable, BaseMajorContraband ]

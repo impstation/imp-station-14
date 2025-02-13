@@ -51,6 +51,11 @@
     distance: 0.8
     speed: 5
 #imp edit end
+  - type: InteractionVerbs # The Den
+    allowedVerbs:
+    - HugObject
+    - KissObject
+    - LickObject
 
 - type: entity
   name: minigun

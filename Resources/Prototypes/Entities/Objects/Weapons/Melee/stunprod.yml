@@ -73,3 +73,8 @@
   - type: ItemToggleDamageOtherOnHit
   - type: DamageOtherOnHit
   # end imp edits #
+  - type: InteractionVerbs # The Den
+    allowedVerbs:
+    - HugObject
+    - KissObject
+    - LickObject

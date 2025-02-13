@@ -39,6 +39,11 @@
         ents: []
   - type: StaticPrice
     price: 500
+  - type: InteractionVerbs # The Den
+    allowedVerbs:
+    - HugObject
+    - KissObject
+    - LickObject
 
 - type: entity
   name: Kardashev-Mosin

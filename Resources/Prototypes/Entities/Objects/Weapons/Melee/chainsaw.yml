@@ -47,3 +47,8 @@
         maxVol: 300
   - type: UseDelay
     delay: 1
+  - type: InteractionVerbs # The Den
+    allowedVerbs:
+    - HugObject
+    - KissObject
+    - LickObject

@@ -15,3 +15,8 @@
   - type: Item
     size: Small
     sprite: Objects/Weapons/Melee/gohei.rsi
+  - type: InteractionVerbs
+    allowedVerbs:
+    - HugObject
+    - KissObject
+    - LickObject

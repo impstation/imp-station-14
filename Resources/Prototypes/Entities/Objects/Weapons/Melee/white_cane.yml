@@ -25,3 +25,8 @@
   - type: UseDelay
     delay: 1
   - type: DamageOtherOnHit # imp
+  - type: InteractionVerbs # The Den
+    allowedVerbs:
+    - HugObject
+    - KissObject
+    - LickObject

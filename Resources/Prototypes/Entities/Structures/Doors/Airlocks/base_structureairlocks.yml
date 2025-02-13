@@ -230,6 +230,10 @@
     group: AirlockGlass
   - type: RadiationBlocker
     resistance: 2
+  - type: InteractionVerbs # The Den
+    allowedVerbs:
+    - KnockOn
+    - LickObject
   - type: Tag
     tags:
       - GlassAirlock

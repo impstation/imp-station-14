@@ -100,6 +100,7 @@
   - type: InteractionVerbs # EE
     allowedVerbs:
     - KnockOn
+    - LickObject
 
 - type: entity
   parent: Window
@@ -225,6 +226,7 @@
   - type: InteractionVerbs # EE
     allowedVerbs:
     - KnockOn
+    - LickObject
 
 - type: entity
   id: WindowDirectionalRCDResistant

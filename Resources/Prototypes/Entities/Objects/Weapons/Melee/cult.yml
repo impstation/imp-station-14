@@ -111,3 +111,8 @@
   - type: ThrowingAngle
     angle: 225
   # end imp edits #
+  - type: InteractionVerbs # The Den
+    allowedVerbs:
+    - HugObject
+    - KissObject
+    - LickObject
