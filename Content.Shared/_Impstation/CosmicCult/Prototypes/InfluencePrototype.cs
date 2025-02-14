@@ -24,4 +24,10 @@ public sealed partial class InfluencePrototype: IPrototype
 
     [DataField(required: true)]
     public SpriteSpecifier Icon = SpriteSpecifier.Invalid;
+
+    [DataField(required: true)]
+    public EntProtoId Action;
+
+    [DataField(required: false)]
+    public EntityUid? ActionEntity;
 }

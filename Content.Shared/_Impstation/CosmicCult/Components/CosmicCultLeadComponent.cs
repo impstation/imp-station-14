@@ -28,6 +28,8 @@ public sealed partial class CosmicCultLeadComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite), DataField("monumentPrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string MonumentPrototype = "MonumentCosmicCultSpawnIn";
+    [DataField] public EntProtoId CosmicMonumentAction = "ActionCosmicPlaceMonument";
+    [DataField] public EntityUid? CosmicMonumentActionEntity;
 
 }
 

@@ -30,7 +30,13 @@ public sealed partial class CosmicCultComponent : Component
     #endregion
 
     #region Ability Data
-    public Dictionary<string, EntityUid?> Equipment = new();
+    public List<ProtoId<EntityPrototype>> CosmicCultActions = new()
+    {
+        "ActionCosmicSiphon",
+        "ActionCosmicBlank",
+        "ActionCosmicLapse" // TODO: remove non-roundstart actions
+    };
+    public List<EntityUid?> ActionEntities = new();
 
     /// <summary>
     /// The duration of the doAfter for cosmic siphon

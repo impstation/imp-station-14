@@ -30,7 +30,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._Impstation.CosmicCult;
 
-public sealed class CleanseDeconversionSystem : EntitySystem
+public sealed class DeconversionSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IEntityManager _entMan = default!;

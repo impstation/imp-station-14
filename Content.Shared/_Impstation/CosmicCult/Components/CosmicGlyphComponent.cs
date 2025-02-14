@@ -5,7 +5,7 @@ using Content.Shared.Humanoid;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Impstation.CosmicCult.Components;
+namespace Content.Shared._Impstation.CosmicCult.Components;
 
 [RegisterComponent]
 public sealed partial class CosmicGlyphComponent : Component
@@ -21,8 +21,6 @@ public sealed partial class CosmicGlyphComponent : Component
     [DataField] public DamageSpecifier? ActivationDamage;
 
     [DataField] public bool CanBeErased = true;
-
-    public ProtoId<ReagentPrototype> HolyWater = "Holywater";
 
     [DataField] public EntProtoId GylphVFX = "CosmicGlyphVFX";
 

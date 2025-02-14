@@ -23,7 +23,6 @@ cosmiccult-gamemode-description =
 
 
 
-
 ## BRIEFINGS
 
 cosmiccult-role-roundstart-fluff =
@@ -53,6 +52,8 @@ cosmiccult-role-deconverted-briefing =
     Deconverted!
     You are no longer a Cosmic Cultist.
 
+
+
 ## MALIGN RIFTS
 
 cosmiccult-rift-inuse = I can't do this right now.
@@ -64,6 +65,8 @@ cosmiccult-rift-beginpurge = You begin purging the malign rift..
 
 cosmiccult-rift-absorb = You absorb the malign rift, empowering yourself.
 cosmiccult-rift-purge = You purge the malign rift.
+
+
 
 ## UI / BASE POPUP
 
@@ -117,3 +120,4 @@ cosmiccult-announce-victory-summon = A FRACTION OF COSMIC POWER IS CALLED FORTH.
 ## MISC
 
 cosmiccult-spire-entropy = A mote of entropy condenses from the surface of the spire.
+cosmiccult-entropy-inserted = You infuse {$count} entropy into The Monument.

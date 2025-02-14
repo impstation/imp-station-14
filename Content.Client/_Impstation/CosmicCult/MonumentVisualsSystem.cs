@@ -23,14 +23,10 @@ public sealed class MonumentVisualizerSystem : EntitySystem
     {
         if (args.Sprite == null)
             return;
-        if (!args.Sprite.LayerMapTryGet(MonumentVisualLayers.TransformLayer, out var transformLayer))
-            return;
-        if (!args.Sprite.LayerMapTryGet(MonumentVisualLayers.MonumentLayer, out var baseLayer))
-            return;
-        if (!_appearance.TryGetData<bool>(uid, MonumentVisuals.Transforming, out var transforming, args.Component))
-            return;
-        if (!_appearance.TryGetData<bool>(uid, MonumentVisuals.Tier3, out var tier3, args.Component))
-            return;
+        args.Sprite.LayerMapTryGet(MonumentVisualLayers.TransformLayer, out var transformLayer);
+        args.Sprite.LayerMapTryGet(MonumentVisualLayers.MonumentLayer, out var baseLayer);
+        _appearance.TryGetData<bool>(uid, MonumentVisuals.Transforming, out var transforming, args.Component);
+        _appearance.TryGetData<bool>(uid, MonumentVisuals.Tier3, out var tier3, args.Component);
         if (!tier3)
             args.Sprite.LayerSetState(transformLayer, "transform-stage2");
         if (tier3)

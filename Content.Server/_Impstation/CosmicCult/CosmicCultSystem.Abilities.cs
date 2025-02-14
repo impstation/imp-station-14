@@ -2,11 +2,9 @@ using Content.Shared.DoAfter;
 using Content.Shared.Damage;
 using Content.Shared._Impstation.CosmicCult.Components;
 using Content.Shared._Impstation.CosmicCult;
-using Content.Shared.Actions;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mind;
 using Content.Shared.Maps;
-using Content.Server.Objectives.Components;
 using Content.Server.Polymorph.Systems;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Map;
@@ -15,7 +13,6 @@ using Content.Server.Station.Systems;
 using Content.Server.Station.Components;
 using Content.Server.Bible.Components;
 using Content.Shared.Humanoid;
-using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Random;
 using Content.Shared.Mind.Components;
@@ -23,8 +20,8 @@ using Content.Server.Antag.Components;
 using System.Collections.Immutable;
 using Content.Server._Impstation.CosmicCult.Components;
 using Content.Shared._Impstation.CosmicCult.Components.Examine;
-using Robust.Shared.Timing;
 using Content.Shared.Stunnable;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Server._Impstation.CosmicCult;
 
@@ -38,7 +35,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _entLookup = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDef = default!;
     [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     public void SubscribeAbilities()
@@ -209,14 +206,11 @@ public sealed partial class CosmicCultSystem : EntitySystem
     #region MonumentSpawn
     private void OnCosmicPlaceMonument(Entity<CosmicCultLeadComponent> uid, ref EventCosmicPlaceMonument args)
     {
-        if (!TryComp<CosmicSpellSlotComponent>(uid, out var spell))
-            return;
-
         var spaceDistance = 3;
         var xform = Transform(uid);
         var user = Transform(args.Performer);
         var worldPos = _transform.GetWorldPosition(xform);
-        var pos = xform.LocalPosition;
+        var pos = xform.LocalPosition + new Vector2(0, 1f);
         var box = new Box2(pos + new Vector2(-1.4f, -0.4f), pos + new Vector2(1.4f, 0.4f));
 
         /// MAKE SURE WE'RE STANDING ON A GRID
@@ -250,9 +244,10 @@ public sealed partial class CosmicCultSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("cosmic-monument-spawn-error-intersection"), uid, uid);
             return;
         }
-
-        _actions.RemoveAction(uid, spell.CosmicMonumentActionEntity);
-        Spawn(uid.Comp.MonumentPrototype, _transform.GetMapCoordinates(uid, xform: xform));
+        _actions.RemoveAction(uid, uid.Comp.CosmicMonumentActionEntity);
+        var localTile = _map.GetTileRef(xform.GridUid.Value, grid, xform.Coordinates);
+        var targetIndices = localTile.GridIndices + new Vector2i(0, 1);
+        Spawn(uid.Comp.MonumentPrototype, _map.ToCenterCoordinates(xform.GridUid.Value, targetIndices, grid));
     }
     #endregion
 

@@ -2,9 +2,9 @@ using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Impstation.CosmicCult.Components;
+namespace Content.Shared._Impstation.CosmicCult.Components;
 
-[RegisterComponent]
+[RegisterComponent, AutoGenerateComponentState]
 public sealed partial class CosmicGlyphAstralProjectionComponent : Component
 {
     [DataField]
@@ -15,4 +15,11 @@ public sealed partial class CosmicGlyphAstralProjectionComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public TimeSpan AstralDuration = TimeSpan.FromSeconds(12);
+
+    public DamageSpecifier ProjectionDamage = new()
+    {
+        DamageDict = new() {
+            { "Asphyxiation", 40 }
+        }
+    };
 }

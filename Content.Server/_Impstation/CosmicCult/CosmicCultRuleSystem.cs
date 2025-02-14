@@ -115,28 +115,20 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     public void UpdateMonumentAppearance(Entity<MonumentComponent> uid, bool tierUp) // this is fucking awful in its current setup, but nothing else seems to work. Fuck
     {
         _appearance.SetData(uid, MonumentVisuals.Monument, CurrentTier);
-        if (CurrentTier == 3)
-        {
-            _appearance.SetData(uid, MonumentVisuals.Tier3, true);
-            Dirty(uid);
-        }
-        else if (CurrentTier == 2)
-        {
-            _appearance.SetData(uid, MonumentVisuals.Tier3, false);
-            Dirty(uid);
-        }
+        if (CurrentTier == 3) _appearance.SetData(uid, MonumentVisuals.Tier3, true);
+        else if (CurrentTier == 2) _appearance.SetData(uid, MonumentVisuals.Tier3, false);
         if (tierUp)
         {
             var transformComp = EnsureComp<MonumentTransformingComponent>(uid);
             transformComp.EndTime = _timing.CurTime + uid.Comp.TransformTime;
             _appearance.SetData(uid, MonumentVisuals.Transforming, true);
-            Dirty(uid);
         }
         if (uid.Comp.FinaleReady) _appearance.SetData(uid, MonumentVisuals.FinaleReached, true);
-        Dirty(uid);
     }
     public void UpdateCultData(Entity<MonumentComponent> uid)
     {
+        if (uid.Comp == null)
+            return;
         TotalCrew = _antag.GetTotalPlayerCount(_playerMan.Sessions);
         TotalNotCult = TotalCrew - TotalCult;
         TotalEntropy = uid.Comp.TotalEntropy;
@@ -168,6 +160,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         Log.Debug($"DEBUG: {Tier3Percent} crew for Tier 3. {Tier3Percent / 2} crew for Tier 2. {CrewTillNextTier} crew to convert till the next tier"); //todo remove
         Log.Debug($"DEBUG: {TotalCrew} session(s), {TotalCult} cultist(s), {TotalNotCult} non-cult, {PercentConverted}% of the crew has been converted"); //todo remove
         UpdateMonumentAppearance(uid, false);
+        Dirty(uid);
     }
     public void MonumentTier1(Entity<MonumentComponent> uid)
     {
@@ -184,6 +177,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     {
         uid.Comp.PercentageComplete = 50;
         CurrentTier = 2;
+        uid.Comp.UnlockedInfluences.Add("InfluenceForceIngress");
         UpdateMonumentAppearance(uid, true);
         var sender = Loc.GetString("cosmiccult-announcement-sender");
         _announce.SendAnnouncementMessage(_announce.GetAnnouncementId("SpawnAnnounceCaptain"), Loc.GetString("cosmiccult-announce-tier2-progress"), sender, Color.FromHex("#cae8e8"));
@@ -201,14 +195,15 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     {
         uid.Comp.PercentageComplete = 0;
         CurrentTier = 3;
+        uid.Comp.UnlockedInfluences.Add("InfluenceAstralLash");
+        uid.Comp.UnlockedInfluences.Add("InfluenceNullGlare");
         _visibility.SetLayer(uid.Owner, 1, true);
-        Dirty(uid);
         UpdateMonumentAppearance(uid, true);
         var query = EntityQueryEnumerator<CosmicCultComponent>();
         while (query.MoveNext(out var cultist, out var _))
         {
             EnsureComp<CosmicStarMarkComponent>(cultist);
-            RemComp<BarotraumaComponent>(cultist);
+            EnsureComp<PressureImmunityComponent>(cultist);
             RemComp<TemperatureSpeedComponent>(cultist);
             RemComp<RespiratorComponent>(cultist);
         }
@@ -286,6 +281,13 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         _antag.SendBriefing(mind.Session, Loc.GetString("cosmiccult-role-conversion-fluff"), Color.FromHex("#4cabb3"), BriefingSound);
         _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-short-briefing"), Color.FromHex("#cae8e8"), null);
 
+        if (CurrentTier == 3)
+        {
+            EnsureComp<CosmicStarMarkComponent>(uid);
+            EnsureComp<PressureImmunityComponent>(uid);
+            EnsureComp<TemperatureImmunityComponent>(uid);
+            RemComp<RespiratorComponent>(uid);
+        }
         EnsureComp<CosmicCultComponent>(uid);
         EnsureComp<IntrinsicRadioReceiverComponent>(uid);
         var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(uid);
@@ -308,14 +310,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     }
     private void OnShutdownCultist(Entity<CosmicCultComponent> uid, ref ComponentShutdown args)
     {
-        if (!TryComp<CosmicSpellSlotComponent>(uid, out var spell))
-            return;
-
         _stun.TryKnockdown(uid, TimeSpan.FromSeconds(2), true);
-        _actions.RemoveAction(uid, spell.CosmicSiphonActionEntity); // TODO: clean up cult powers better
-        _actions.RemoveAction(uid, spell.CosmicBlankActionEntity);
-        _actions.RemoveAction(uid, spell.CosmicLapseActionEntity);
-        _actions.RemoveAction(uid, spell.CosmicMonumentActionEntity);
+        foreach (var actionEnt in uid.Comp.ActionEntities) _actions.RemoveAction(actionEnt);
 
         if (!TryComp<MindContainerComponent>(uid, out var mc))
             return;
@@ -331,6 +327,12 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         RemComp<IntrinsicRadioTransmitterComponent>(uid);
         if (HasComp<CosmicCultLeadComponent>(uid))
             RemComp<CosmicCultLeadComponent>(uid);
+        if (CurrentTier == 3 || uid.Comp.CosmicEmpowered)
+        {
+            RemComp<PressureImmunityComponent>(uid);
+            RemComp<TemperatureImmunityComponent>(uid);
+        }
+        if (CurrentTier == 3) RemComp<CosmicStarMarkComponent>(uid);
 
         _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-deconverted-fluff"), Color.FromHex("#4cabb3"), DeconvertSound);
         _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-deconverted-briefing"), Color.FromHex("#cae8e8"), null);

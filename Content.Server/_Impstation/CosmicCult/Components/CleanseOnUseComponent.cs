@@ -6,7 +6,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 namespace Content.Server._Impstation.CosmicCult.Components;
 
 [RegisterComponent, AutoGenerateComponentState]
-[Access(typeof(CleanseDeconversionSystem))]
+[Access(typeof(DeconversionSystem))]
 public sealed partial class CleanseOnUseComponent : Component
 {
     [DataField] public TimeSpan UseTime = TimeSpan.FromSeconds(25);

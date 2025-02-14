@@ -37,11 +37,11 @@ public sealed partial class CosmicCultSystem : EntitySystem
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly MapLoaderSystem _mapLoader = default!;    [Dependency] private readonly IGameTiming _timing = default!;
-
+    [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly DeconversionSystem _deconvert = default!;
     private const string MapPath = "Prototypes/_Impstation/CosmicCult/Maps/cosmicvoid.yml";
     public int ObjectiveEntropyTracker = 0;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -51,6 +51,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
 
         SubscribeLocalEvent<CosmicCultComponent, ComponentInit>(OnStartCultist);
+        SubscribeLocalEvent<CosmicCultLeadComponent, ComponentInit>(OnStartCultLead);
         SubscribeLocalEvent<MonumentComponent, ComponentInit>(OnStartMonument);
         SubscribeLocalEvent<MonumentComponent, InteractUsingEvent>(OnInteractUsing);
 
@@ -58,7 +59,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
         MakeSimpleExamineHandler<CosmicMarkBlankComponent>("cosmic-examine-text-abilityblank");
         MakeSimpleExamineHandler<CosmicMarkLapseComponent>("cosmic-examine-text-abilitylapse");
 
-        SubscribeAbilities();
+        SubscribeAbilities(); //Hook up the cosmic cult abilities
     }
     #region Housekeeping
 
@@ -68,7 +69,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
     private void OnRoundStart(RoundStartingEvent ev)
     {
         _map.CreateMap(out var mapId);
-
+        ObjectiveEntropyTracker = 0;
         var options = new MapLoadOptions { LoadMap = true };
         if (_mapLoader.TryLoad(mapId, MapPath, out _, options))
             _map.SetPaused(mapId, false);
@@ -109,17 +110,25 @@ public sealed partial class CosmicCultSystem : EntitySystem
     }
     #endregion
     /// <summary>
-    /// add the Cosmic Cult abilities to the cultist.
+    /// Add the starting powers to the cultist.
     /// </summary>
     private void OnStartCultist(Entity<CosmicCultComponent> uid, ref ComponentInit args)
     {
-        EnsureComp<CosmicSpellSlotComponent>(uid, out var spell);
-        _actions.AddAction(uid, ref spell.CosmicSiphonActionEntity, spell.CosmicSiphonAction, uid); // TODO: award cult powers differently
-        _actions.AddAction(uid, ref spell.CosmicBlankActionEntity, spell.CosmicBlankAction, uid);
-        if (HasComp<CosmicCultLeadComponent>(uid))
-            _actions.AddAction(uid, ref spell.CosmicMonumentActionEntity, spell.CosmicMonumentAction, uid);
+        foreach (var actionId in uid.Comp.CosmicCultActions)
+        {
+            var actionEnt = _actions.AddAction(uid, actionId);
+            uid.Comp.ActionEntities.Add(actionEnt);
+        }
+        if (TryComp<CosmicCultLeadComponent>(uid, out var leadComp)) _actions.AddAction(uid, leadComp.CosmicMonumentAction);
         if (TryComp<EyeComponent>(uid, out var eye))
             _eye.SetVisibilityMask(uid, eye.VisibilityMask | MonumentComponent.LayerMask);
+    }
+    /// <summary>
+    /// Add the Monument summon action to the cult lead.
+    /// </summary>
+    private void OnStartCultLead(Entity<CosmicCultLeadComponent> uid, ref ComponentInit args)
+    {
+        _actions.AddAction(uid, ref uid.Comp.CosmicMonumentActionEntity, uid.Comp.CosmicMonumentAction, uid);
     }
 
     /// <summary>
@@ -156,13 +165,14 @@ public sealed partial class CosmicCultSystem : EntitySystem
         monument.Comp.AvailableEntropy += quant;
         QueueDel(entropy);
         _cultRule.UpdateCultData(monument);
+        _popup.PopupEntity(Loc.GetString("cosmiccult-entropy-inserted", ("count", quant)), cultist, cultist);
         return true;
     }
 
 
     private void DebugFunction(Entity<CosmicCultComponent> uid, ref DamageChangedEvent args) // TODO: This is a placeholder function to call other functions for testing & debugging.
     {
-        // _cleanse.DeconvertCultist(uid);
+        // _deconvert.DeconvertCultist(uid);
     }
 
 }

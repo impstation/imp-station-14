@@ -17,4 +17,7 @@ public sealed partial class GlyphPrototype: IPrototype
 
     [DataField(required: true)]
     public SpriteSpecifier Icon = SpriteSpecifier.Invalid;
+
+    [DataField(required: true)]
+    public EntProtoId Entity;
 }

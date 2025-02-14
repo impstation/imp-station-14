@@ -20,6 +20,6 @@ public sealed partial class CleanseCult : EntityEffect
         {
             return;
         }
-        entityManager.EnsureComponent<CleanseCultComponent>(uid); // We just slap them with the component and lat the Deconversion system handle the rest.
+        entityManager.EnsureComponent<CleanseCultComponent>(uid); // We just slap them with the component and let the Deconversion system handle the rest.
     }
 }

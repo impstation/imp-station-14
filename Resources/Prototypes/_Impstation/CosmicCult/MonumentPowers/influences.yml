@@ -1,6 +1,6 @@
 # Resources/Prototypes/_Impstation/CosmicCult/MonumentPowers/influences.yml
 - type: influence
-  id: influenceAberrantLapse
+  id: InfluenceAberrantLapse
   name: influence-name-lapse
   influenceType: influence-type-active
   cost: 4
@@ -8,9 +8,10 @@
   icon:
     sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
     state: lapse
+  action: ActionCosmicLapse
 
 - type: influence
-  id: influenceNullGlare
+  id: InfluenceNullGlare
   name: influence-name-glare
   influenceType: influence-type-active
   cost: 5
@@ -18,9 +19,10 @@
   icon:
     sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
     state: glare
+  action: ActionCosmicLapse
 
 - type: influence
-  id: influenceAstralLash
+  id: InfluenceAstralLash
   name: influence-name-lash
   influenceType: influence-type-active
   cost: 6
@@ -28,9 +30,10 @@
   icon:
     sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
     state: astral
+  action: ActionCosmicLapse
 
 - type: influence
-  id: influenceForceIngress
+  id: InfluenceForceIngress
   name: influence-name-ingress
   influenceType: influence-type-active
   cost: 5
@@ -38,3 +41,4 @@
   icon:
     sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
     state: return
+  action: ActionCosmicLapse
