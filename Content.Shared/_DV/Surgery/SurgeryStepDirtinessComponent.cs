@@ -13,11 +13,11 @@ public sealed partial class SurgeryStepDirtinessComponent : Component
     ///     The amount of dirtiness this step should add to tools on completion
     /// </summary>
     [DataField]
-    public FixedPoint2 ToolDirtiness = 0.5;
+    public FixedPoint2 ToolDirtiness = 0.1; // Imp change
 
     /// <summary>
     ///     The amount of dirtiness this step should add to gloves on completion
     /// </summary>
     [DataField]
-    public FixedPoint2 GloveDirtiness = 0.5;
+    public FixedPoint2 GloveDirtiness = 0.05; // Imp change
 }
