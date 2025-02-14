@@ -127,6 +127,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
     #region Astral Projection
     private void OnAstralProjGlyph(Entity<CosmicGlyphAstralProjectionComponent> uid, ref TryActivateGlyphEvent args)
     {
+        _damageable.TryChangeDamage(args.User, uid.Comp.ProjectionDamage, true);
         var projectionEnt = Spawn(uid.Comp.SpawnProjection, Transform(uid).Coordinates);
         if (_mind.TryGetMind(args.User, out var mindId, out var _))
             _mind.TransferTo(mindId, projectionEnt);

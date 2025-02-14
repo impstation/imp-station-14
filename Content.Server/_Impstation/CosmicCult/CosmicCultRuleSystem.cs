@@ -112,7 +112,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         TryStartCult(args.EntityUid, uid);
     }
     #region Monument
-    public void UpdateMonumentAppearance(Entity<MonumentComponent> uid, bool tierUp) // this is fucking awful in its current setup, but nothing else seems to work. Fuck
+    public void UpdateMonumentAppearance(Entity<MonumentComponent> uid, bool tierUp) // this is kinda awful, but it works, and i've seen worse. improve it at thine leisure
     {
         _appearance.SetData(uid, MonumentVisuals.Monument, CurrentTier);
         if (CurrentTier == 3) _appearance.SetData(uid, MonumentVisuals.Tier3, true);
@@ -131,9 +131,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             return;
         TotalCrew = _antag.GetTotalPlayerCount(_playerMan.Sessions);
         TotalNotCult = TotalCrew - TotalCult;
-        TotalEntropy = uid.Comp.TotalEntropy;
         PercentConverted = Math.Round((double)(100 * TotalCult) / TotalCrew);
-        Tier3Percent = Math.Round((double)25 / 100 * 40); // total players divided by 100 multiplied by 40 to get 40% of current pop. //TODO: VALUE 25 must be replaced with TOTALCREW.
+        Tier3Percent = Math.Round((double)TotalCrew / 100 * 40); // 40% of current pop //TODO: VALUE 25 must be replaced with TOTALCREW.
         if (CurrentTier == 1)
         {
             CrewTillNextTier = Convert.ToInt16(Tier3Percent / 2) - TotalCult;
@@ -166,7 +165,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     {
         CurrentTier = 1;
         UpdateMonumentAppearance(uid, false);
-        MonumentInGame = uid; //Since there's only one Monument per round, let's store its UID for the rest of the round.
+        MonumentInGame = uid; //Since there's only one Monument per round, let's store its UID for the rest of the round
         var objectiveQuery = EntityQueryEnumerator<CosmicTierConditionComponent>();
         while (objectiveQuery.MoveNext(out var _, out var objectiveComp))
         {
@@ -177,35 +176,42 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     {
         uid.Comp.PercentageComplete = 50;
         CurrentTier = 2;
-        uid.Comp.UnlockedInfluences.Add("InfluenceForceIngress");
         UpdateMonumentAppearance(uid, true);
         var sender = Loc.GetString("cosmiccult-announcement-sender");
+        var query = EntityQueryEnumerator<CosmicCultComponent>();
+        while (query.MoveNext(out var _, out var cultComp))
+        {
+            cultComp.UnlockedInfluences.Add("InfluenceForceIngress");
+            cultComp.EntropyBudget += Convert.ToInt16(Math.Floor(Math.Round((double)TotalCrew / 100 * 4))); // pity system. 4% of the playercount worth of entropy on tier up
+        }
         _announce.SendAnnouncementMessage(_announce.GetAnnouncementId("SpawnAnnounceCaptain"), Loc.GetString("cosmiccult-announce-tier2-progress"), sender, Color.FromHex("#cae8e8"));
         _audio.PlayGlobal("/Audio/_Impstation/CosmicCult/tier2.ogg", Filter.Broadcast(), false, AudioParams.Default);
-        for (int i = 0; i < _rand.Next(8, 16); i++)
-            if (TryFindRandomTile(out var _, out var _, out var _, out var coords))
-                Spawn("CosmicMalignRift", coords);
         var objectiveQuery = EntityQueryEnumerator<CosmicTierConditionComponent>();
         while (objectiveQuery.MoveNext(out var _, out var objectiveComp))
         {
             objectiveComp.Tier = 2;
         }
+        for (int i = 0; i < _rand.Next(Convert.ToInt16(Math.Floor(Math.Round((double)TotalCrew / 100 * 25)))); i++) // spawn # malign rifts equal to 25% of the playercount //TODO: VALUE 25 must be replaced with TOTALCREW.
+            if (TryFindRandomTile(out var _, out var _, out var _, out var coords))
+                Spawn("CosmicMalignRift", coords);
     }
     public void MonumentTier3(Entity<MonumentComponent> uid)
     {
         uid.Comp.PercentageComplete = 0;
         CurrentTier = 3;
-        uid.Comp.UnlockedInfluences.Add("InfluenceAstralLash");
-        uid.Comp.UnlockedInfluences.Add("InfluenceNullGlare");
+
         _visibility.SetLayer(uid.Owner, 1, true);
         UpdateMonumentAppearance(uid, true);
         var query = EntityQueryEnumerator<CosmicCultComponent>();
-        while (query.MoveNext(out var cultist, out var _))
+        while (query.MoveNext(out var cultist, out var cultComp))
         {
             EnsureComp<CosmicStarMarkComponent>(cultist);
             EnsureComp<PressureImmunityComponent>(cultist);
             RemComp<TemperatureSpeedComponent>(cultist);
             RemComp<RespiratorComponent>(cultist);
+            cultComp.UnlockedInfluences.Add("InfluenceAstralLash");
+            cultComp.UnlockedInfluences.Add("InfluenceNullGlare");
+            cultComp.EntropyBudget += Convert.ToInt16(Math.Floor(Math.Round((double)TotalCrew / 100 * 4))); //pity system. 4% of the playercount worth of entropy on tier up
         }
         var sender = Loc.GetString("cosmiccult-announcement-sender");
         var mapData = _map.GetMap(_transform.GetMapId(uid.Owner.ToCoordinates()));
@@ -232,6 +238,10 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         uid.Comp.PercentageComplete = 100;
         Log.Debug($"The monument is unleashed!"); //todo remove
     }
+    #endregion
+
+
+    #region Objectives
     #endregion
 
 

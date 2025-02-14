@@ -3,6 +3,8 @@ using System.Numerics;
 using Content.Shared._Impstation.Cosmiccult;
 using Content.Shared._Impstation.CosmicCult.Components;
 using Content.Shared.Actions;
+using Content.Shared.Interaction;
+using Content.Shared.UserInterface;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
@@ -16,9 +18,8 @@ public sealed class SharedMonumentSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly SharedActionsSystem  _actions = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -42,8 +43,13 @@ public sealed class SharedMonumentSystem : EntitySystem
 
     private void OnUIOpened(Entity<MonumentComponent> ent, ref BoundUIOpenedEvent args)
     {
-        if (!_uiSystem.IsUiOpen(ent.Owner, MonumentKey.Key))
+        if (!_uiSystem.IsUiOpen(ent.Owner, MonumentKey.Key) || !TryComp<ActivatableUIComponent>(ent, out var uiComp))
             return;
+        if (TryComp<CosmicCultComponent>(uiComp.CurrentSingleUser, out var cultComp))
+        {
+            ent.Comp.UnlockedInfluences = cultComp.UnlockedInfluences;
+            ent.Comp.AvailableEntropy = cultComp.EntropyBudget;
+        }
         _uiSystem.SetUiState(ent.Owner, MonumentKey.Key, GenerateBuiState(ent.Comp));
     }
 
@@ -72,12 +78,23 @@ public sealed class SharedMonumentSystem : EntitySystem
 
         _uiSystem.SetUiState(ent.Owner, MonumentKey.Key, GenerateBuiState(ent.Comp));
     }
+
     private void OnInfluenceSelected(Entity<MonumentComponent> ent, ref InfluenceSelectedMessage args)
     {
-        if (!_prototype.TryIndex(args.InfluenceProtoId, out var proto))
+        if (!_prototype.TryIndex(args.InfluenceProtoId, out var proto) || !TryComp<ActivatableUIComponent>(ent, out var uiComp) || !TryComp<CosmicCultComponent>(uiComp.CurrentSingleUser, out var cultComp))
             return;
+        if (ent.Comp.AvailableEntropy < proto.Cost || uiComp.CurrentSingleUser == null)
+            return;
+        if (proto.InfluenceType == "influence-type-active")
+        {
+            var actionEnt = _actions.AddAction(uiComp.CurrentSingleUser.Value, proto.Action);
+            cultComp.ActionEntities.Add(actionEnt);
+        }
 
+        ent.Comp.AvailableEntropy -= proto.Cost;
+        cultComp.EntropyBudget -= proto.Cost;
         ent.Comp.UnlockedInfluences.Remove(args.InfluenceProtoId);
+        cultComp.UnlockedInfluences.Remove(args.InfluenceProtoId);
 
         _uiSystem.SetUiState(ent.Owner, MonumentKey.Key, GenerateBuiState(ent.Comp));
     }
@@ -95,41 +112,6 @@ public sealed class SharedMonumentSystem : EntitySystem
             comp.UnlockedInfluences
         );
     }
-    private TileRef? GetGlyphSpawningPoint(Entity<MonumentComponent> ent, MapGridComponent grid)
-    {
-        var xform = Transform(ent);
-        if (xform.GridUid == null)
-            return null;
-        var localPosition = xform.LocalPosition;
-        var tileRefs = _map.GetLocalTilesIntersecting(
-                xform.GridUid.Value,
-                grid,
-                new Box2(localPosition + new Vector2(-1, -1), localPosition + new Vector2(1, -1)))
-            .ToList();
-        if (tileRefs.Count == 0)
-            return null;
-        TileRef? result = null;
-        while (result == null)
-        {
-            if (tileRefs.Count == 0)
-                break;
-            var tileRef = _random.Pick(tileRefs);
-            var valid = true;
-            foreach (var tileEnt in _map.GetAnchoredEntities(xform.GridUid.Value, grid, tileRef.GridIndices))
-            {
-                if (!HasComp<CosmicGlyphComponent>(tileEnt))
-                    continue;
-                valid = false;
-                break;
-            }
-            if (!valid)
-            {
-                tileRefs.Remove(tileRef);
-                continue;
-            }
-            result = tileRef;
-        }
-        return result;
-    }
+
     #endregion
 }

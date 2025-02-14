@@ -42,7 +42,7 @@ public sealed class SharedTemperatureSystem : EntitySystem
 
     private void OnTemperatureChanged(Entity<TemperatureSpeedComponent> ent, ref OnTemperatureChangeEvent args)
     {
-        if (HasComp<TemperatureImmunityComponent>(ent)) // IMP EDIT BEGIN | This allows us to easily make things immune. Temperature changes? What are those?
+        if (ent.Comp.HasImmunity) // IMP EDIT BEGIN | This allows us to easily make things immune. Temperature changes? What are those?
         {
             ent.Comp.CurrentSpeedModifier = null;
             Dirty(ent);

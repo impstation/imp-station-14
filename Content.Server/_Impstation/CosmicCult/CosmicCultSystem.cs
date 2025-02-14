@@ -109,6 +109,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
         });
     }
     #endregion
+    #region Init Cult
     /// <summary>
     /// Add the starting powers to the cultist.
     /// </summary>
@@ -130,10 +131,11 @@ public sealed partial class CosmicCultSystem : EntitySystem
     {
         _actions.AddAction(uid, ref uid.Comp.CosmicMonumentActionEntity, uid.Comp.CosmicMonumentAction, uid);
     }
-
     /// <summary>
     /// Called by Cosmic Siphon. Increments the Cult's global objective tracker.
     /// </summary>
+    #endregion
+    #region Entropy
     private void IncrementCultObjectiveEntropy(Entity<CosmicCultComponent> uid)
     {
         ObjectiveEntropyTracker += uid.Comp.CosmicSiphonQuantity;
@@ -143,7 +145,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
             entropyComp.Siphoned = ObjectiveEntropyTracker;
         }
     }
-
     private void OnStartMonument(Entity<MonumentComponent> uid, ref ComponentInit args)
     {
         _cultRule.MonumentTier1(uid);
@@ -152,27 +153,27 @@ public sealed partial class CosmicCultSystem : EntitySystem
 
     private void OnInteractUsing(Entity<MonumentComponent> uid, ref InteractUsingEvent args)
     {
-        if (!HasComp<CosmicEntropyMoteComponent>(args.Used) || uid.Comp.FinaleReady || args.Handled)
+        if (!HasComp<CosmicEntropyMoteComponent>(args.Used) || !HasComp<CosmicCultComponent>(args.User) || uid.Comp.FinaleReady || args.Handled)
             return;
         args.Handled = AddEntropy(uid, args.Used, args.User);
     }
-
     private bool AddEntropy(Entity<MonumentComponent> monument, EntityUid entropy, EntityUid cultist)
     {
         var quant = TryComp<StackComponent>(entropy, out var stackComp) ? stackComp.Count : 1;
-        Log.Debug($"Adding {quant} entropy!");
+        if (TryComp<CosmicCultComponent>(cultist, out var cultComp))
+            cultComp.EntropyBudget += quant;
         monument.Comp.TotalEntropy += quant;
-        monument.Comp.AvailableEntropy += quant;
-        QueueDel(entropy);
+        _cultRule.TotalEntropy += quant;
         _cultRule.UpdateCultData(monument);
         _popup.PopupEntity(Loc.GetString("cosmiccult-entropy-inserted", ("count", quant)), cultist, cultist);
+        _audio.PlayEntity("/Audio/_Impstation/CosmicCult/tier2.ogg", cultist, monument);
+        Log.Debug($"Adding {quant} entropy!");
+        QueueDel(entropy);
         return true;
     }
-
-
+    #endregion
     private void DebugFunction(Entity<CosmicCultComponent> uid, ref DamageChangedEvent args) // TODO: This is a placeholder function to call other functions for testing & debugging.
     {
         // _deconvert.DeconvertCultist(uid);
     }
-
 }

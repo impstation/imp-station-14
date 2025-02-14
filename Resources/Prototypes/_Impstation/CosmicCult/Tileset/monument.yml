@@ -5,7 +5,7 @@
   abstract: true
   parent: BaseStructure
   id: MonumentCosmicCultBase
-  name: The Monument
+  name: Cosmic Monument
   description: A great slab of unknowledge, only visible to those aware of it. Built of a thousand little nothings, its surface reflects a starless emptiness...
   components:
   - type: Visibility
@@ -75,14 +75,14 @@
     sound:
       path: /Audio/_Impstation/CosmicCult/god_ambient.ogg
   - type: ActivatableUI
+    singleUser: true
+    requiresComplex: true
     key: enum.MonumentKey.Key
   - type: UserInterface
     interfaces:
       enum.MonumentKey.Key:
         type: MonumentBoundUserInterface
   - type: Monument
-    unlockedInfluences:
-    - InfluenceAberrantLapse
     selectedGlyph: CosmicGlyphKnowledge
     availableEntropy: 0
     infusedEntropy: 0

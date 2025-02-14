@@ -2,9 +2,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Shared._Impstation.CosmicCult.Prototypes;
-// Content.Shared/_Impstation/CosmicCult/Prototypes/InfluencePrototype.cs
 [Prototype]
-public sealed partial class InfluencePrototype: IPrototype
+public sealed partial class InfluencePrototype : IPrototype
 {
     [IdDataField]
     public string ID { get; private set; } = default!;
@@ -12,7 +11,6 @@ public sealed partial class InfluencePrototype: IPrototype
     [DataField(required: true)]
     public LocId Name;
 
-    // I don't know what type means! This should maybe be like a prototype?
     [DataField(required: true)]
     public LocId InfluenceType;
 
@@ -27,7 +25,4 @@ public sealed partial class InfluencePrototype: IPrototype
 
     [DataField(required: true)]
     public EntProtoId Action;
-
-    [DataField(required: false)]
-    public EntityUid? ActionEntity;
 }

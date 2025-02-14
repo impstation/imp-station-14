@@ -1,6 +1,7 @@
 # Resources/Locale/en-US/_Impstation/cosmiccult/monumentInterface.ftl
 # General
 monument-interface-title = The Monument
+monument-interface-occupied = Someone else is using that right now.
 
 # Progress bar
 monument-interface-progress-bar = {$percentage}%
