@@ -176,14 +176,14 @@
   - type: ClothingSpeedModifier
     walkModifier: 1
     sprintModifier: 1
-     - type: ContainerContainer 
+  - type: ContainerContainer 
     containers:
       cell_slot: !type:ContainerSlot
   - type: ItemSlots
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellAntique # thought it would be cool to use this one instead of the normal microreactor
+        startingItem: PowerCellAntiqueProto # thought it would be cool to use this one instead of the normal microreactor
         disableEject: true
         whitelist:
           tags:

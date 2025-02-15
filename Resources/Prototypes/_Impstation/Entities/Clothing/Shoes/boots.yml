@@ -22,7 +22,6 @@
   - type: Clothing
     sprite: _Impstation/Clothing/Shoes/Boots/winterbootscourier.rsi
 
-<<<<<<< HEAD
 - type: entity
   parent: [ClothingShoesBootsJack, BaseCentcommContraband, ClothingShoesBootsMagAdv]
   id: ClothingShoesBootsCombatMag
@@ -33,7 +32,6 @@
     sprite: _Impstation/Clothing/Shoes/Boots/combatmagboots.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Shoes/Boots/combatmagboots.rsi
-=======
 # Colorable winter boots
 
 - type: entity
@@ -365,4 +363,3 @@
       - state: bootbits-equipped-FEET
         color: "#EBE216"
       - state: winterbits-equipped-FEET
->>>>>>> cff1dff7ce0032658a54bf34e810dd5bec17a324
