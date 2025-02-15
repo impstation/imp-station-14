@@ -17,3 +17,17 @@
   - type: IdentityBlocker
     coverage: EYES
   - type: ShowJobIcons
+
+- type: entity
+  parent: [ClothingEyesHudMedSec, BaseCentcommContraband] # BaseLensSlot from imp
+  id: ClothingEyesGlassesCentcomm
+  name: centcomm glasses
+  description: An elite pair of glasses that displays both medical and security information, worn by Central Command's highest personnel.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Eyes/Hud/centcomm.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Eyes/Hud/centcomm.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5

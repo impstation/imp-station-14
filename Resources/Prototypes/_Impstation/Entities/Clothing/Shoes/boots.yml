@@ -21,3 +21,14 @@
     sprite: _Impstation/Clothing/Shoes/Boots/winterbootscourier.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Shoes/Boots/winterbootscourier.rsi
+
+- type: entity
+  parent: [ClothingShoesBootsJack, BaseCentcommContraband, ClothingShoesBootsMagAdv]
+  id: ClothingShoesBootsCombatMag
+  name: combat magboots
+  description: Elite combat boots with a built-in magnet, allowing for much better mobility.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Shoes/Boots/combatmagboots.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Shoes/Boots/combatmagboots.rsi

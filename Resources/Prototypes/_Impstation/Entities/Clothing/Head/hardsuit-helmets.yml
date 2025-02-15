@@ -68,3 +68,25 @@
     sprite: _Impstation/Clothing/Head/Hardsuits/dinosuit.rsi
   - type: FactionClothing
     faction: Dino
+
+
+#centcomm
+- type: entity
+  parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndieCommander ]
+  id: ClothingHeadHelmetHardsuitChronoAgent
+  name: tachyon-proof hardsuit helmet
+  description: A special hardsuit helmet worn by an enforcer of chronology.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hardsuits/chronoagent.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hardsuits/chronoagent.rsi
+  - type: PointLight
+    color: "#47bfff"
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9

@@ -45,3 +45,17 @@
     - objective: MassArrestObjective
       components:
       - type: CriminalRecordsHacker
+
+- type: entity
+  parent: [ ClothingHandsGlovesCombat, BaseCentcommContraband ]
+  id: ClothingHandsGlovesChronoAgent
+  name: chronology agent's gloves
+  description: These tactical gloves are fireproof, shock resistant, and come packaged with a portable flasher!  # flash to come later
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Hands/Gloves/chronoagent.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Hands/Gloves/chronoagent.rsi
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-insulative

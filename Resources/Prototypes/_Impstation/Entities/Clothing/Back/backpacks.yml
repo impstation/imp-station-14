@@ -6,3 +6,15 @@
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Back/Backpacks/commandveteran.rsi
+
+- type: entity
+  parent: [ ClothingBackpack, BaseCentcommContraband ]
+  id: ClothingBackpackChronoAgent
+  name: chronology agent backpack
+  description: A spacious backpack with lots of pockets, worn by an enforcer of chronology.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Back/Backpacks/chronoagent.rsi
+  - type: Storage
+    grid:
+    - 0,0,10,3
