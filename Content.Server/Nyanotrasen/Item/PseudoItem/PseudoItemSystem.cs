@@ -7,7 +7,6 @@ using Content.Shared.Bed.Sleep;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Item;
-using Content.Shared.Item.PseudoItem;
 using Content.Shared.Nyanotrasen.Item.PseudoItem;
 using Content.Shared.Storage;
 using Content.Shared.Tag;
