@@ -79,9 +79,6 @@
   storage:
     back:
     - HarmonicaInstrument
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: MusicallyTalented
 
 - type: loadout
   id: FlippoLighter
