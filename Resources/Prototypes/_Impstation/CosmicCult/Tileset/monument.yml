@@ -27,6 +27,7 @@
     offset: 0,1
     drawdepth: Mobs
     noRot: true
+  - type: Appearance
   - type: GenericVisualizer
     visuals:
       enum.MonumentVisuals.Monument:
@@ -77,32 +78,25 @@
   - type: ActivatableUI
     singleUser: true
     requiresComplex: true
+    blockSpectators: true
     key: enum.MonumentKey.Key
   - type: UserInterface
     interfaces:
       enum.MonumentKey.Key:
         type: MonumentBoundUserInterface
   - type: Monument
+    unlockedGlyphs:
+    - CosmicGlyphKnowledge
+    - CosmicGlyphProjection
     selectedGlyph: CosmicGlyphKnowledge
     availableEntropy: 0
     infusedEntropy: 0
     entropyUntilNextStage: 777
     crewToConvertNextStage:  777
     percentageComplete: 0
-  - type: EmitSoundOnUIOpen
-    sound:
-      collection: Keyboard
-      params:
-        volume: -1
-        variation: 0.05
-        pitch: 1.05
   - type: GuideHelp
     guides:
     - AnomalousResearch
-  - type: Appearance
-  - type: ActiveRadio
-    channels:
-    - CosmicRadio
   - type: WarpPoint
     location: the monument
   - type: CosmicMarkStructure

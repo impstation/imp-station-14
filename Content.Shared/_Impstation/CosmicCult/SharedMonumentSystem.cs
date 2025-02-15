@@ -24,8 +24,8 @@ public sealed class SharedMonumentSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<MonumentComponent, BoundUIOpenedEvent>(OnUIOpened);
-
         SubscribeLocalEvent<MonumentComponent, GlyphSelectedMessage>(OnGlyphSelected);
+        SubscribeLocalEvent<MonumentComponent, GlyphRemovedMessage>(OnGlyphRemove);
         SubscribeLocalEvent<MonumentComponent, InfluenceSelectedMessage>(OnInfluenceSelected);
     }
     public override void Update(float frameTime)
@@ -50,6 +50,7 @@ public sealed class SharedMonumentSystem : EntitySystem
             ent.Comp.UnlockedInfluences = cultComp.UnlockedInfluences;
             ent.Comp.AvailableEntropy = cultComp.EntropyBudget;
         }
+        else _uiSystem.CloseUi(ent.Owner, MonumentKey.Key, uiComp.CurrentSingleUser);
         _uiSystem.SetUiState(ent.Owner, MonumentKey.Key, GenerateBuiState(ent.Comp));
     }
 
@@ -71,11 +72,15 @@ public sealed class SharedMonumentSystem : EntitySystem
         var localTile = _map.GetTileRef(xform.GridUid.Value, grid, xform.Coordinates);
         var targetIndices = localTile.GridIndices + new Vector2i(0, -1);
 
-        if (_map.GetAnchoredEntities(xform.GridUid.Value, grid, targetIndices).Any(tileEnt => HasComp<CosmicGlyphComponent>(tileEnt)))
-            return;
+        if (ent.Comp.CurrentGlyph is not null) QueueDel(ent.Comp.CurrentGlyph);
+        var glyphEnt = Spawn(proto.Entity, _map.ToCenterCoordinates(xform.GridUid.Value, targetIndices, grid));
+        ent.Comp.CurrentGlyph = glyphEnt;
 
-        Spawn(proto.Entity, _map.ToCenterCoordinates(xform.GridUid.Value, targetIndices, grid));
-
+        _uiSystem.SetUiState(ent.Owner, MonumentKey.Key, GenerateBuiState(ent.Comp));
+    }
+    private void OnGlyphRemove(Entity<MonumentComponent> ent, ref GlyphRemovedMessage args)
+    {
+        if (ent.Comp.CurrentGlyph is not null) QueueDel(ent.Comp.CurrentGlyph);
         _uiSystem.SetUiState(ent.Owner, MonumentKey.Key, GenerateBuiState(ent.Comp));
     }
 
@@ -109,9 +114,9 @@ public sealed class SharedMonumentSystem : EntitySystem
             comp.CrewToConvertNextStage,
             comp.PercentageComplete,
             comp.SelectedGlyph,
-            comp.UnlockedInfluences
+            comp.UnlockedInfluences,
+            comp.UnlockedGlyphs
         );
     }
-
     #endregion
 }

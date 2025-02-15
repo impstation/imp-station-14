@@ -24,12 +24,13 @@ public sealed partial class MonumentMenu : FancyWindow
     private readonly IEnumerable<GlyphPrototype> _glyphPrototypes;
     // All influence prototypes
     private readonly IEnumerable<InfluencePrototype> _influencePrototypes;
-
     private readonly ButtonGroup _glyphButtonGroup;
-
     private ProtoId<GlyphPrototype> _selectedGlyphProtoId = string.Empty;
     private List<ProtoId<InfluencePrototype>> _unlockedInfluenceProtoIds = [];
+    private List<ProtoId<GlyphPrototype>> _unlockedGlyphProtoIds = [];
     public Action<ProtoId<GlyphPrototype>>? OnSelectGlyphButtonPressed;
+    public Action? OnRemoveGlyphButtonPressed;
+
     public Action<ProtoId<InfluencePrototype>>? OnGainButtonPressed;
 
     public MonumentMenu()
@@ -46,6 +47,7 @@ public sealed partial class MonumentMenu : FancyWindow
 
         _glyphButtonGroup = new ButtonGroup();
 
+        RemoveGlyphButton.OnPressed += _ => OnRemoveGlyphButtonPressed?.Invoke();
         SelectGlyphButton.OnPressed += _ => OnSelectGlyphButtonPressed?.Invoke(_selectedGlyphProtoId);
     }
 
@@ -53,13 +55,14 @@ public sealed partial class MonumentMenu : FancyWindow
     {
         _selectedGlyphProtoId = state.SelectedGlyph;
         _unlockedInfluenceProtoIds = state.UnlockedInfluences;
+        _unlockedGlyphProtoIds = state.UnlockedGlyphs;
 
         // TODO: Fix this nonsense!!
         CultProgressBar.BackgroundStyleBoxOverride = new StyleBoxFlat { BackgroundColor = new Color(15, 17, 30) };
         CultProgressBar.ForegroundStyleBoxOverride = new StyleBoxFlat { BackgroundColor = new Color(91, 62, 124) };
 
         SelectGlyphButton.StyleClasses.Add("ButtonColorPurpleAndCool");
-        // SelectGlyphButton.StyleClasses.Add("ButtonSquare");
+        RemoveGlyphButton.StyleClasses.Add("ButtonColorPurpleAndCool");
         // End
 
         UpdateBar(state);
@@ -91,12 +94,12 @@ public sealed partial class MonumentMenu : FancyWindow
         foreach (var glyph in _glyphPrototypes)
         {
             var boxContainer = new BoxContainer();
-
+            var unlocked = _unlockedGlyphProtoIds.Contains(glyph.ID);
             var button = new Button
             {
                 HorizontalExpand = true,
-                StyleClasses = {StyleBase.ButtonSquare},
-                ToolTip = Loc.GetString(glyph.Tooltip),
+                StyleClasses = { StyleBase.ButtonSquare },
+                ToolTip = Loc.GetString(glyph.Name),
                 Group = _glyphButtonGroup,
                 Pressed = glyph.ID == _selectedGlyphProtoId,
             };
@@ -111,8 +114,9 @@ public sealed partial class MonumentMenu : FancyWindow
             };
             boxContainer.AddChild(button);
             button.AddChild(glyphIcon);
-
             GlyphContainer.AddChild(boxContainer);
+            if (unlocked == true) button.Disabled = true;
+            else button.Disabled = false;
         }
     }
 

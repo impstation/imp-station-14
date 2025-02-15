@@ -16,13 +16,11 @@ public sealed class MonumentBuiState : BoundUserInterfaceState
     public int AvailableEntropy;
     public int EntropyUntilNextStage;
     public int CrewToConvertUntilNextStage;
-
     public float PercentageComplete;
-
     public ProtoId<GlyphPrototype> SelectedGlyph;
     public List<ProtoId<InfluencePrototype>> UnlockedInfluences;
-
-    public MonumentBuiState(int availableEntropy, int entropyUntilNextStage, int crewToConvertUntilNextStage, float percentageComplete, ProtoId<GlyphPrototype> selectedGlyph, List<ProtoId<InfluencePrototype>> unlockedInfluences)
+    public List<ProtoId<GlyphPrototype>> UnlockedGlyphs;
+    public MonumentBuiState(int availableEntropy, int entropyUntilNextStage, int crewToConvertUntilNextStage, float percentageComplete, ProtoId<GlyphPrototype> selectedGlyph, List<ProtoId<InfluencePrototype>> unlockedInfluences, List<ProtoId<GlyphPrototype>> unlockedGlyphs)
     {
         AvailableEntropy = availableEntropy;
         EntropyUntilNextStage = entropyUntilNextStage;
@@ -30,5 +28,6 @@ public sealed class MonumentBuiState : BoundUserInterfaceState
         PercentageComplete = percentageComplete;
         SelectedGlyph = selectedGlyph;
         UnlockedInfluences = unlockedInfluences;
+        UnlockedGlyphs = unlockedGlyphs;
     }
 }

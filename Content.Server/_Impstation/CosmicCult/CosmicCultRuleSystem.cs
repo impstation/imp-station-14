@@ -39,6 +39,7 @@ using Content.Shared.Mind.Components;
 using Content.Server.Actions;
 using Robust.Server.GameObjects;
 using Robust.Shared.Timing;
+using Content.Shared._Impstation.CosmicCult;
 
 namespace Content.Server._Impstation.CosmicCult;
 
@@ -66,6 +67,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly VisibilitySystem _visibility = default!;
+    [Dependency] private readonly SharedMonumentSystem _monument = default!;
     [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> NanoTrasenFactionId = "NanoTrasen";
     [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> CosmicFactionId = "CosmicCultFaction";
     public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/antag_cosmic_briefing.ogg");
@@ -132,7 +134,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         TotalCrew = _antag.GetTotalPlayerCount(_playerMan.Sessions);
         TotalNotCult = TotalCrew - TotalCult;
         PercentConverted = Math.Round((double)(100 * TotalCult) / TotalCrew);
-        Tier3Percent = Math.Round((double)TotalCrew / 100 * 40); // 40% of current pop //TODO: VALUE 25 must be replaced with TOTALCREW.
+        Tier3Percent = Math.Round((double)25 / 100 * 40); // 40% of current pop //TODO: VALUE 25 must be replaced with TOTALCREW.
         if (CurrentTier == 1)
         {
             CrewTillNextTier = Convert.ToInt16(Tier3Percent / 2) - TotalCult;
@@ -182,7 +184,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         while (query.MoveNext(out var _, out var cultComp))
         {
             cultComp.UnlockedInfluences.Add("InfluenceForceIngress");
-            cultComp.EntropyBudget += Convert.ToInt16(Math.Floor(Math.Round((double)TotalCrew / 100 * 4))); // pity system. 4% of the playercount worth of entropy on tier up
+            cultComp.EntropyBudget += Convert.ToInt16(Math.Floor(Math.Round((double)25 / 100 * 4))); // pity system. 4% of the playercount worth of entropy on tier up //TODO: VALUE 25 must be replaced with TOTALCREW.
         }
         _announce.SendAnnouncementMessage(_announce.GetAnnouncementId("SpawnAnnounceCaptain"), Loc.GetString("cosmiccult-announce-tier2-progress"), sender, Color.FromHex("#cae8e8"));
         _audio.PlayGlobal("/Audio/_Impstation/CosmicCult/tier2.ogg", Filter.Broadcast(), false, AudioParams.Default);
@@ -191,7 +193,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         {
             objectiveComp.Tier = 2;
         }
-        for (int i = 0; i < _rand.Next(Convert.ToInt16(Math.Floor(Math.Round((double)TotalCrew / 100 * 25)))); i++) // spawn # malign rifts equal to 25% of the playercount //TODO: VALUE 25 must be replaced with TOTALCREW.
+        for (int i = 0; i < _rand.Next(Convert.ToInt16(Math.Floor(Math.Round((double)25 / 100 * 25)))); i++) // spawn # malign rifts equal to 25% of the playercount //TODO: VALUE 25 must be replaced with TOTALCREW.
             if (TryFindRandomTile(out var _, out var _, out var _, out var coords))
                 Spawn("CosmicMalignRift", coords);
     }
@@ -211,7 +213,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             RemComp<RespiratorComponent>(cultist);
             cultComp.UnlockedInfluences.Add("InfluenceAstralLash");
             cultComp.UnlockedInfluences.Add("InfluenceNullGlare");
-            cultComp.EntropyBudget += Convert.ToInt16(Math.Floor(Math.Round((double)TotalCrew / 100 * 4))); //pity system. 4% of the playercount worth of entropy on tier up
+            cultComp.EntropyBudget += Convert.ToInt16(Math.Floor(Math.Round((double)TotalCrew / 100 * 4))); //pity system. 4% of the playercount worth of entropy on tier up //TODO: VALUE 25 must be replaced with TOTALCREW.
         }
         var sender = Loc.GetString("cosmiccult-announcement-sender");
         var mapData = _map.GetMap(_transform.GetMapId(uid.Owner.ToCoordinates()));

@@ -33,14 +33,13 @@ public sealed partial class CosmicCultComponent : Component
     #region Ability Data
     [DataField] public List<ProtoId<InfluencePrototype>> UnlockedInfluences = new()
     {
-        "InfluenceNullGlare"
+        "InfluenceAberrantLapse"
     };
 
     public List<ProtoId<EntityPrototype>> CosmicCultActions = new()
     {
         "ActionCosmicSiphon",
         "ActionCosmicBlank",
-        // "ActionCosmicLapse" // TODO: remove non-roundstart actions
     };
     public List<EntityUid?> ActionEntities = new();
 
@@ -66,7 +65,7 @@ public sealed partial class CosmicCultComponent : Component
     /// <summary>
     /// The amount of Entropy the user is allowed to spend at The Monument.
     /// </summary>
-    [DataField] public int EntropyBudget = 1;
+    [DataField] public int EntropyBudget = 0;
 
     /// <summary>
     /// Wether or not this cultist has been empowered by a Malign Rift.

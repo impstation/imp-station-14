@@ -22,6 +22,8 @@ public sealed class MonumentBoundUserInterface(EntityUid owner, Enum uiKey) : Bo
         _menu = this.CreateWindow<MonumentMenu>();
 
         _menu.OnSelectGlyphButtonPressed += OnGlyphButtonPressed;
+        _menu.OnRemoveGlyphButtonPressed += () => { SendMessage(new GlyphRemovedMessage());};
+
         _menu.OnGainButtonPressed += OnIdSelected;
     }
 
@@ -33,7 +35,6 @@ public sealed class MonumentBoundUserInterface(EntityUid owner, Enum uiKey) : Bo
 
         _menu?.UpdateState(buiState);
     }
-
     private void OnGlyphButtonPressed(ProtoId<GlyphPrototype> protoId)
     {
         SendMessage(new GlyphSelectedMessage(protoId));

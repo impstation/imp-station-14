@@ -10,6 +10,7 @@ public sealed partial class MonumentComponent : Component
 {
     [NonSerialized] public static int LayerMask = 777;
     [DataField] public List<ProtoId<InfluencePrototype>> UnlockedInfluences = [];
+    [DataField] public List<ProtoId<GlyphPrototype>> UnlockedGlyphs = [];
     [DataField] public ProtoId<GlyphPrototype> SelectedGlyph;
     [DataField] public int AvailableEntropy;
     [DataField] public int TotalEntropy;
@@ -19,8 +20,13 @@ public sealed partial class MonumentComponent : Component
     [DataField] public bool FinaleReady = false;
     [DataField] public bool Occupied = false;
     [DataField, AutoNetworkedField] public TimeSpan TransformTime = TimeSpan.FromSeconds(2.8);
+    [DataField, AutoNetworkedField] public EntityUid? CurrentGlyph;
 }
-
+[Serializable, NetSerializable]
+public sealed class InfluenceSelectedMessage(ProtoId<InfluencePrototype> influenceProtoId) : BoundUserInterfaceMessage
+{
+    public ProtoId<InfluencePrototype> InfluenceProtoId = influenceProtoId;
+}
 [Serializable, NetSerializable]
 public sealed class GlyphSelectedMessage(ProtoId<GlyphPrototype> glyphProtoId) : BoundUserInterfaceMessage
 {
@@ -28,10 +34,10 @@ public sealed class GlyphSelectedMessage(ProtoId<GlyphPrototype> glyphProtoId) :
 }
 
 [Serializable, NetSerializable]
-public sealed class InfluenceSelectedMessage(ProtoId<InfluencePrototype> influenceProtoId) : BoundUserInterfaceMessage
+public sealed class GlyphRemovedMessage : BoundUserInterfaceMessage
 {
-    public ProtoId<InfluencePrototype> InfluenceProtoId = influenceProtoId;
 }
+
 [Serializable, NetSerializable]
 public enum MonumentVisuals : byte
 {

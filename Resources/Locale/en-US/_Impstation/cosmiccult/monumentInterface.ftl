@@ -17,6 +17,7 @@ monument-interface-entropy-crew-convert-title = Converts till next Stage:
 # Glyphs
 monument-interface-glyphs-title = Glyphs
 monument-interface-glyphs-button-scribe = Scribe glyph
+monument-interface-glyphs-button-unscribe = Unscribe glyph
 
 # Influences
 monument-interface-influences-title = Influences
