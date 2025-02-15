@@ -4,7 +4,6 @@ using Content.Server.DoAfter;
 using Content.Server.Resist;
 using Content.Server.Popups;
 using Content.Server.Inventory;
-using Content.Server.Nyanotrasen.Item.PseudoItem;
 using Content.Shared.Mobs;
 using Content.Shared.DoAfter;
 using Content.Shared.Buckle.Components;
@@ -27,7 +26,6 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Nyanotrasen.Item.PseudoItem;
 using Content.Shared.Storage;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
@@ -47,7 +45,6 @@ namespace Content.Server.Carrying
         [Dependency] private readonly EscapeInventorySystem _escapeInventorySystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
-        [Dependency] private readonly PseudoItemSystem _pseudoItem = default!;
         [Dependency] private readonly ContestsSystem _contests = default!;
         [Dependency] private readonly TransformSystem _transform = default!;
 
@@ -59,7 +56,6 @@ namespace Content.Server.Carrying
         {
             base.Initialize();
             SubscribeLocalEvent<CarriableComponent, GetVerbsEvent<AlternativeVerb>>(AddCarryVerb);
-            SubscribeLocalEvent<CarryingComponent, GetVerbsEvent<InnateVerb>>(AddInsertCarriedVerb);
             SubscribeLocalEvent<CarryingComponent, VirtualItemDeletedEvent>(OnVirtualItemDeleted);
             SubscribeLocalEvent<CarryingComponent, BeforeThrowEvent>(OnThrow);
             SubscribeLocalEvent<CarryingComponent, EntParentChangedMessage>(OnParentChanged);
@@ -94,30 +90,6 @@ namespace Content.Server.Carrying
                     StartCarryDoAfter(args.User, uid, component);
                 },
                 Text = Loc.GetString("carry-verb"),
-                Priority = 2
-            };
-            args.Verbs.Add(verb);
-        }
-
-        private void AddInsertCarriedVerb(EntityUid uid, CarryingComponent component, GetVerbsEvent<InnateVerb> args)
-        {
-            // If the person is carrying someone, and the carried person is a pseudo-item, and the target entity is a storage,
-            // then add an action to insert the carried entity into the target
-            var toInsert = args.Using;
-            if (toInsert is not { Valid: true } || !args.CanAccess
-                || !TryComp<PseudoItemComponent>(toInsert, out var pseudoItem)
-                || !TryComp<StorageComponent>(args.Target, out var storageComp)
-                || !_pseudoItem.CheckItemFits((toInsert.Value, pseudoItem), (args.Target, storageComp)))
-                return;
-
-            InnateVerb verb = new()
-            {
-                Act = () =>
-                {
-                    DropCarried(uid, toInsert.Value);
-                    _pseudoItem.TryInsert(args.Target, toInsert.Value, pseudoItem, storageComp);
-                },
-                Text = Loc.GetString("action-name-insert-other", ("target", toInsert)),
                 Priority = 2
             };
             args.Verbs.Add(verb);
