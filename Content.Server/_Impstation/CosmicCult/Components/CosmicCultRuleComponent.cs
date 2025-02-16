@@ -11,33 +11,49 @@ namespace Content.Server._Impstation.CosmicCult.Components;
 /// <summary>
 /// Component for the CosmicCultRuleSystem that should store gameplay info.
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, Access(typeof(CosmicCultRuleSystem))]
 public sealed partial class CosmicCultRuleComponent : Component
 {
     [ViewVariables(VVAccess.ReadOnly)]
-    [DataField] public List<Entity<CosmicCultComponent>> Cultists = new();
-    [DataField] public int CurrentTier = 0; // current cult tier
-    [DataField] public int TotalCrew = 0; // total connected players
-    [DataField] public int TotalCult = 0; // total cultists
-    [DataField] public int TotalNotCult = 0; // total players that -aren't- cultists
-    [DataField] public int CrewTillNextTier = 777; // players needed to be converted till next monument tier
-    [DataField] public double PercentConverted = 0; // percentage of connected players that are cultists
-    [DataField] public double Tier3Percent = 777; // 40 percent of connected players
-
+    [DataField] public List<EntityUid> Cultists = new();
+    [DataField] public bool WinLocked = false;
+    [DataField] public WinType WinType = WinType.Error;
 }
 
 // CosmicCultRuleComponent
 
-public enum CosmicWinCondition : byte
+public enum WinType : byte
 {
-    Win,
-    MinorWin,
-    Failure
-}
-
-public enum CosmicCultTier : byte
-{
-    Tier1,
-    Tier2,
-    Tier3
+    /// <summary>
+    ///     Cult complete win. The Cosmic Cult beckoned the final curtain call.
+    /// </summary>
+    CultComplete,
+    /// <summary>
+    ///    Cult major win. The Monument reached Stage 3 and was fully empowered.
+    /// </summary>
+    CultMajor,
+    /// <summary>
+    ///    Cult minor win. Even if the crew escaped, The Monument reached Stage 3.
+    /// </summary>
+    CultMinor,
+    /// <summary>
+    ///     Neutral. The Monument didn't reach Stage 3, The crew escaped, and the Cult Leader was alive.
+    /// </summary>
+    Neutral,
+    /// <summary>
+    ///     Crew minor win. The monument didn't reach Stage 3, The crew escaped, and Cult leader was killed or deconverted.
+    /// </summary>
+    CrewMinor,
+    /// <summary>
+    ///     Crew major win. The monument didn't reach Stage 3, The crew escaped, and the cult was killed.
+    /// </summary>
+    CrewMajor,
+    /// <summary>
+    ///     Crew complete win. The cult was completely deconverted.
+    /// </summary>
+    CrewComplete,
+    /// <summary>
+    ///     You shouldn't get this.
+    /// </summary>
+    Error
 }

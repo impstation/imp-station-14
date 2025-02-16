@@ -102,6 +102,8 @@ public sealed partial class MonumentMenu : FancyWindow
                 ToolTip = Loc.GetString(glyph.Name),
                 Group = _glyphButtonGroup,
                 Pressed = glyph.ID == _selectedGlyphProtoId,
+                Disabled = !unlocked,
+                Modulate = !unlocked ? Color.Gray : Color.White,
             };
 
             button.OnPressed +=  _ => UpdateSelectedGlyph(glyph.ID);
@@ -115,8 +117,6 @@ public sealed partial class MonumentMenu : FancyWindow
             boxContainer.AddChild(button);
             button.AddChild(glyphIcon);
             GlyphContainer.AddChild(boxContainer);
-            if (unlocked == true) button.Disabled = true;
-            else button.Disabled = false;
         }
     }
 

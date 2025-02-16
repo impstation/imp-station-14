@@ -63,7 +63,6 @@ public sealed class DeconversionSystem : EntitySystem
         {
             if (_timing.CurTime >= comp.CleanseTime)
             {
-                _popup.PopupEntity(Loc.GetString("cosmicability-blank-return"), uid, uid);
                 RemComp<CleanseCultComponent>(uid);
                 DeconvertCultist(uid);
             }
@@ -117,7 +116,8 @@ public sealed class DeconversionSystem : EntitySystem
             Spawn(uid.Comp.MalignVFX, tgtpos);
             Spawn(uid.Comp.MalignVFX, Transform(args.User).Coordinates);
             DeconvertCultist(target.Value);
-            _audio.PlayPvs(uid.Comp.MalignSound, tgtpos, AudioParams.Default.WithVolume(+6f));
+            _audio.PlayPvs(uid.Comp.MalignSound, tgtpos, AudioParams.Default.WithVolume(+2f));
+            _damageable.TryChangeDamage(args.User, uid.Comp.SelfDamage, true);
             _popup.PopupEntity(Loc.GetString("cleanse-deconvert-attempt-success-empowered", ("target", Identity.Entity(target.Value, EntityManager))), args.User, args.User);
         }
         else if (_entMan.TryGetComponent<CosmicCultComponent>(args.Target, out var coscomp) && !coscomp.CosmicEmpowered)
@@ -125,7 +125,7 @@ public sealed class DeconversionSystem : EntitySystem
             var tgtpos = Transform(target.Value).Coordinates;
             Spawn(uid.Comp.CleanseVFX, tgtpos);
             DeconvertCultist(target.Value);
-            _audio.PlayPvs(uid.Comp.CleanseSound, tgtpos, AudioParams.Default.WithVolume(+6f));
+            _audio.PlayPvs(uid.Comp.CleanseSound, tgtpos, AudioParams.Default.WithVolume(+4f));
             _popup.PopupEntity(Loc.GetString("cleanse-deconvert-attempt-success", ("target", Identity.Entity(target.Value, EntityManager))), args.User, args.User);
         }
 
@@ -140,6 +140,6 @@ public sealed class DeconversionSystem : EntitySystem
     public void DeconvertCultist(EntityUid uid)
     {
         if (HasComp<CosmicCultComponent>(uid))
-            RemComp<CosmicCultComponent>(uid);
+            RemCompDeferred<CosmicCultComponent>(uid);
     }
 }

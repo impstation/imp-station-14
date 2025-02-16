@@ -84,10 +84,11 @@
     interfaces:
       enum.MonumentKey.Key:
         type: MonumentBoundUserInterface
+  - type: CosmicFinale
   - type: Monument
     unlockedGlyphs:
-    - CosmicGlyphKnowledge
-    - CosmicGlyphProjection
+    - ccGlyphKnowledge
+    - ccGlyphProjection
     selectedGlyph: CosmicGlyphKnowledge
     availableEntropy: 0
     infusedEntropy: 0

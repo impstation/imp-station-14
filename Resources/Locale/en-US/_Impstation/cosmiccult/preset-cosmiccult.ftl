@@ -11,16 +11,25 @@ roles-antag-cosmiccult-description = Usher in the end of all things through subt
 roles-antag-cosmiccultlead-name = Cosmic Cult Leader
 roles-antag-cosmiccultlead-description = Organize the cult into a force to be reckoned, so that you may usher in the end of all things.
 
-cosmiccult-roundend-name = cosmic cultist
-
-roundend-prepend-cosmiccult-summoning-success = [color=green]debuf notifier! Woop![/color]
-roundend-prepend-cosmiccult-summoning-fail = [color=red]The summoning has failed![/color]
-roundend-prepend-cosmiccult-entropy-gathered = The cosmic cult has accumulated a total of {$number} entropy.
-
 cosmiccult-gamemode-title = The Cosmic Cult
 cosmiccult-gamemode-description =
     Scanners detect an anmalous increase in Λ-CDM. There is no additional data.
 
+cosmiccult-roundend-cultist-count = {$initialCount ->
+    [one] There was {$initialCount} [color=#4cabb3]Cosmic Cultist[/color].
+    *[other] There were {$initialCount} [color=#4cabb3]Cosmic Cultists[/color].
+}
+cosmiccult-roundend-entropy-count = The cult siphoned {$count} Entropy.
+cosmiccult-roundend-cultpop-count = Cultists made up {$count}% of the crew.
+
+cosmiccult-roundend-cultcomplete = [color=#4cabb3]Cosmic Cult complete victory![/color]
+cosmiccult-roundend-cultmajor = [color=#4cabb3]Cosmic Cult major victory![/color]
+cosmiccult-roundend-cultminor = [color=#4cabb3]Cosmic Cult minor victory![/color]
+cosmiccult-roundend-neutral = [color=yellow]Neutral ending![/color]
+cosmiccult-roundend-crewminor = [color=green]Crew minor victory![/color]
+cosmiccult-roundend-crewmajor = [color=green]Crew major victory![/color]
+cosmiccult-roundend-crewcomplete = [color=green]Crew complete victory![/color]
+cosmiccult-roundend-error = [color=red]ERROR.[/color]
 
 
 ## BRIEFINGS
@@ -121,3 +130,7 @@ cosmiccult-announce-victory-summon = A FRACTION OF COSMIC POWER IS CALLED FORTH.
 
 cosmiccult-spire-entropy = A mote of entropy condenses from the surface of the spire.
 cosmiccult-entropy-inserted = You infuse {$count} entropy into The Monument.
+cosmiccult-finale-ready = A terrifying light surges forth from The Monument!
+cosmiccult-finale-cancel-begin = You begin to disrupt The Monument's energies..
+cosmiccult-finale-beckon-begin = You begin to Beckon The Unknown..
+cosmiccult-finale-beckon-success = You beckon for the final curtain call.

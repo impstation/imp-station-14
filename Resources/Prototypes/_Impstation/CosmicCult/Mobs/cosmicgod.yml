@@ -7,8 +7,9 @@
   - type: Sprite
     noRot: true
     sprite: _Impstation/CosmicCult/Mobs/cosmicgod.rsi
+    offset: 0, 2
     drawdepth: Ghosts
-    scale: 2.1,2.1
+    scale: 2,2
     layers:
     - state: god
       shader: unshaded

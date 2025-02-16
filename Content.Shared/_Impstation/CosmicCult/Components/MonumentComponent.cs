@@ -1,11 +1,13 @@
 using Content.Shared._Impstation.CosmicCult.Prototypes;
 using Content.Shared.Radio;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._Impstation.CosmicCult.Components;
 [NetworkedComponent, RegisterComponent, AutoGenerateComponentState]
+[AutoGenerateComponentPause]
 public sealed partial class MonumentComponent : Component
 {
     [NonSerialized] public static int LayerMask = 777;
@@ -17,8 +19,7 @@ public sealed partial class MonumentComponent : Component
     [DataField] public int EntropyUntilNextStage;
     [DataField] public int CrewToConvertNextStage;
     [DataField] public float PercentageComplete;
-    [DataField] public bool FinaleReady = false;
-    [DataField] public bool Occupied = false;
+    [DataField] public bool Enabled = true;
     [DataField, AutoNetworkedField] public TimeSpan TransformTime = TimeSpan.FromSeconds(2.8);
     [DataField, AutoNetworkedField] public EntityUid? CurrentGlyph;
 }

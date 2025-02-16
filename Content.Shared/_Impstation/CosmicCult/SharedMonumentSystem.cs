@@ -45,12 +45,12 @@ public sealed class SharedMonumentSystem : EntitySystem
     {
         if (!_uiSystem.IsUiOpen(ent.Owner, MonumentKey.Key) || !TryComp<ActivatableUIComponent>(ent, out var uiComp))
             return;
-        if (TryComp<CosmicCultComponent>(uiComp.CurrentSingleUser, out var cultComp))
+        if (ent.Comp.Enabled && TryComp<CosmicCultComponent>(uiComp.CurrentSingleUser, out var cultComp))
         {
             ent.Comp.UnlockedInfluences = cultComp.UnlockedInfluences;
             ent.Comp.AvailableEntropy = cultComp.EntropyBudget;
         }
-        else _uiSystem.CloseUi(ent.Owner, MonumentKey.Key, uiComp.CurrentSingleUser);
+        else _uiSystem.CloseUi(ent.Owner, MonumentKey.Key, uiComp.CurrentSingleUser); // based on the prior IF, this effectively cancels the UI if the user is either not a cultist, or the Finale is ready to trigger.
         _uiSystem.SetUiState(ent.Owner, MonumentKey.Key, GenerateBuiState(ent.Comp));
     }
 

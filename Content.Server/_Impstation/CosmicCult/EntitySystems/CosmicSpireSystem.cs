@@ -18,6 +18,7 @@ public sealed class CosmiSpireSystem : EntitySystem
     [Dependency] private readonly AmbientSoundSystem _ambient = default!;
     [Dependency] private readonly SharedPointLightSystem _lights = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly CosmicCultRuleSystem _cosmicRule = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -64,6 +65,7 @@ public sealed class CosmiSpireSystem : EntitySystem
             comp.Storage.Clear();
             Spawn(comp.SpawnVFX, Transform(uid).Coordinates);
             Spawn(comp.EntropyMote, Transform(uid).Coordinates);
+            _cosmicRule.EntropySiphoned++;
         }
     }
     private bool Drain(float timeDelta, CosmicSpireComponent comp, GasMixture? tile)

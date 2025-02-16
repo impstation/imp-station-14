@@ -25,6 +25,9 @@ using Content.Server.Radio.Components;
 using Content.Shared.Stacks;
 using Content.Shared.Interaction;
 using Robust.Server.Player;
+using Content.Server.Announcements.Systems;
+using Content.Server.Audio;
+using Content.Shared.Audio;
 
 namespace Content.Server._Impstation.CosmicCult;
 
@@ -39,14 +42,14 @@ public sealed partial class CosmicCultSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly DeconversionSystem _deconvert = default!;
+    [Dependency] private readonly AnnouncerSystem _announcer = default!;
+    [Dependency] private readonly ServerGlobalSoundSystem _sound = default!;
+    [Dependency] private readonly CosmicGlyphSystem _cosmicGlyphs = default!;
     private const string MapPath = "Prototypes/_Impstation/CosmicCult/Maps/cosmicvoid.yml";
-    public int ObjectiveEntropyTracker = 0;
+    public int _cultistCount;
     public override void Initialize()
     {
         base.Initialize();
-
-        SubscribeLocalEvent<CosmicCultComponent, DamageChangedEvent>(DebugFunction); // TODO: This is a placeholder function to call other functions for testing & debugging.
 
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
 
@@ -59,7 +62,8 @@ public sealed partial class CosmicCultSystem : EntitySystem
         MakeSimpleExamineHandler<CosmicMarkBlankComponent>("cosmic-examine-text-abilityblank");
         MakeSimpleExamineHandler<CosmicMarkLapseComponent>("cosmic-examine-text-abilitylapse");
 
-        SubscribeAbilities(); //Hook up the cosmic cult abilities
+        SubscribeAbilities(); //Hook up the cosmic cult ability system
+        SubscribeFinale(); //Hook up the cosmic cult finale system
     }
     #region Housekeeping
 
@@ -69,7 +73,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
     private void OnRoundStart(RoundStartingEvent ev)
     {
         _map.CreateMap(out var mapId);
-        ObjectiveEntropyTracker = 0;
         var options = new MapLoadOptions { LoadMap = true };
         if (_mapLoader.TryLoad(mapId, MapPath, out _, options))
             _map.SetPaused(mapId, false);
@@ -94,7 +97,55 @@ public sealed partial class CosmicCultSystem : EntitySystem
                 QueueDel(uid);
             }
         }
+        var finaleQuery = EntityQueryEnumerator<CosmicFinaleComponent>();
+        while (finaleQuery.MoveNext(out var uid, out var comp))
+        {
+            if (comp.FinaleActive && !comp.BufferComplete && !comp.PlayedBufferSong && !string.IsNullOrEmpty(_selectedBufferSong))
+            {
+                _sound.DispatchStationEventMusic(uid, _selectedBufferSong, StationEventMusicType.Nuke);
+                comp.PlayedBufferSong = true;
+                Log.Debug($"Buffer now running.");
+            }
+            else if (comp.FinaleActive && comp.FinaleTimer <= _finaleSongLength + comp.SummoningTime && !comp.PlayedFinaleSong && !string.IsNullOrEmpty(_selectedFinaleSong) && comp.BufferComplete && !comp.PlayedFinaleSong)
+            {
+                _sound.DispatchStationEventMusic(uid, _selectedFinaleSong, StationEventMusicType.Nuke);
+                comp.PlayedFinaleSong = true;
+                Log.Debug($"Finale now running.");
+            }
+            if (comp.FinaleActive && _timing.CurTime >= comp.BufferTimer && comp.FinaleActive && !comp.BufferComplete && !comp.Victory)
+            {
+                _sound.StopStationEventMusic(uid, StationEventMusicType.Nuke);
+                Log.Debug($"Buffer complete.");
+                comp.FinaleTimer = _timing.CurTime + comp.FinaleRemainingTime;
+                _selectedFinaleSong = _audio.GetSound(_finaleMusic);
+                _finaleSongLength = TimeSpan.FromSeconds(_audio.GetAudioLength(_selectedFinaleSong).TotalSeconds);
+                _sound.DispatchStationEventMusic(uid, _selectedFinaleSong, StationEventMusicType.Nuke);
+                comp.BufferComplete = true;
+                comp.PlayedFinaleSong = true;
+                Log.Debug($"Finale now running.");
+            }
+            else if (comp.FinaleActive && _timing.CurTime >= comp.FinaleTimer && comp.FinaleActive && comp.BufferComplete && !comp.Victory)
+            {
+                Log.Debug($"Finale complete.");
+                _sound.StopStationEventMusic(uid, StationEventMusicType.Nuke);
+                Spawn("MobCosmicGodSpawn", Transform(uid).Coordinates);
+                comp.Victory = true;
+            }
+            if (_timing.CurTime >= comp.CultistsCheckTimer && comp.FinaleActive && !comp.BufferComplete)
+            {
+                comp.CultistsCheckTimer = _timing.CurTime + comp.CheckWait;
+                var cultistsPresent = _cultistCount = _cosmicGlyphs.GatherCultists(uid, 5).Count; //Let's use the cultist collecting hashset from Cosmic Glyphs to see how many folks are around!
+                if (cultistsPresent <= 10) _cultistCount = cultistsPresent;
+                Log.Debug($"{_cultistCount} cultists near The Monument.");
+                Log.Debug($"reducing buffertimer by {_timing.TickPeriod * (4 * _cultistCount * 0.1)} per tick.");
+            }
+            if (comp.FinaleActive && !comp.BufferComplete)
+            {
+                comp.BufferTimer -= _timing.TickPeriod * (4 * _cultistCount * 0.1); //This dynamically reduces the duration of the buffer by # cultists present at The Monument.
+            }
+        }
     }
+
     /// <summary>
     /// Parses marker components to output their respective loc strings directly into your examine box, courtesy of TGRCdev(Github).
     /// </summary>
@@ -136,15 +187,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
     /// </summary>
     #endregion
     #region Entropy
-    private void IncrementCultObjectiveEntropy(Entity<CosmicCultComponent> uid)
-    {
-        ObjectiveEntropyTracker += uid.Comp.CosmicSiphonQuantity;
-        var query = EntityQueryEnumerator<CosmicEntropyConditionComponent>();
-        while (query.MoveNext(out var _, out var entropyComp))
-        {
-            entropyComp.Siphoned = ObjectiveEntropyTracker;
-        }
-    }
     private void OnStartMonument(Entity<MonumentComponent> uid, ref ComponentInit args)
     {
         _cultRule.MonumentTier1(uid);
@@ -153,7 +195,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
 
     private void OnInteractUsing(Entity<MonumentComponent> uid, ref InteractUsingEvent args)
     {
-        if (!HasComp<CosmicEntropyMoteComponent>(args.Used) || !HasComp<CosmicCultComponent>(args.User) || uid.Comp.FinaleReady || args.Handled)
+        if (!HasComp<CosmicEntropyMoteComponent>(args.Used) || !HasComp<CosmicCultComponent>(args.User) || !uid.Comp.Enabled || args.Handled)
             return;
         args.Handled = AddEntropy(uid, args.Used, args.User);
     }
@@ -166,14 +208,9 @@ public sealed partial class CosmicCultSystem : EntitySystem
         _cultRule.TotalEntropy += quant;
         _cultRule.UpdateCultData(monument);
         _popup.PopupEntity(Loc.GetString("cosmiccult-entropy-inserted", ("count", quant)), cultist, cultist);
-        _audio.PlayEntity("/Audio/_Impstation/CosmicCult/tier2.ogg", cultist, monument);
-        Log.Debug($"Adding {quant} entropy!");
+        _audio.PlayEntity("/Audio/_Impstation/CosmicCult/cosmiclance_hit.ogg", cultist, monument); //TODO: INSERTION SOUND EFFECT
         QueueDel(entropy);
         return true;
     }
     #endregion
-    private void DebugFunction(Entity<CosmicCultComponent> uid, ref DamageChangedEvent args) // TODO: This is a placeholder function to call other functions for testing & debugging.
-    {
-        // _deconvert.DeconvertCultist(uid);
-    }
 }

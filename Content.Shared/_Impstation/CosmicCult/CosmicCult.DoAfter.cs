@@ -10,10 +10,13 @@ public sealed partial class EventCosmicSiphonDoAfter : SimpleDoAfterEvent { }
 public sealed partial class EventCosmicBlankDoAfter : SimpleDoAfterEvent { }
 
 [Serializable, NetSerializable]
-public sealed partial class EventEraseGlyphDoAfter : SimpleDoAfterEvent { }
-
-[Serializable, NetSerializable]
 public sealed partial class EventAbsorbRiftDoAfter : SimpleDoAfterEvent { }
 
 [Serializable, NetSerializable]
 public sealed partial class EventPurgeRiftDoAfter : SimpleDoAfterEvent { }
+
+[Serializable, NetSerializable]
+public sealed partial class StartFinaleDoAfterEvent : SimpleDoAfterEvent { }
+
+[Serializable, NetSerializable]
+public sealed partial class CancelFinaleDoAfterEvent : SimpleDoAfterEvent { }

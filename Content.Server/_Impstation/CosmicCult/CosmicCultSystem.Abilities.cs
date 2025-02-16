@@ -62,6 +62,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
         {
             DistanceThreshold = 1.5f,
             Hidden = true,
+            BreakOnHandChange = true,
             BreakOnDamage = true,
             BreakOnMove = true,
             BreakOnDropItem = true,
@@ -83,7 +84,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
 
         var entropymote1 = _stack.Spawn(uid.Comp.CosmicSiphonQuantity, "Entropy", Transform(uid).Coordinates);
         _hands.TryForcePickupAnyHand(uid, entropymote1);
-        IncrementCultObjectiveEntropy(uid); //update everyone's greentext!
+        _cultRule.IncrementCultObjectiveEntropy(uid);
     }
     #endregion
 
@@ -173,7 +174,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
         Spawn(uid.Comp.LapseVFX, tgtpos);
         _popup.PopupEntity(Loc.GetString("cosmicability-lapse-success", ("target", Identity.Entity(action.Target, EntityManager))), uid, uid);
         TryComp<HumanoidAppearanceComponent>(action.Target, out HumanoidAppearanceComponent? species);
-        switch (species!.Species) // We use a switch case for all the species variants. Why? It uses tidy wizden code, leans on YML, and it's pretty efficient.
+        switch (species!.Species) // We use a switch case for all the species polymorphs. Why? It uses wizden code, leans on YML, and it could be worse.
         {
             case "Human":
                 _polymorphSystem.PolymorphEntity(action.Target, "CosmicLapseMobHuman");
@@ -252,12 +253,12 @@ public sealed partial class CosmicCultSystem : EntitySystem
     #endregion
 
     #region Return (Element)
-    private void OnCosmicReturn(Entity<CosmicAstralBodyComponent> uid, ref EventCosmicReturn args) //This action exclusive to the Glyph-created Astral Projection, and allows the user to return to their original body.
+    private void OnCosmicReturn(Entity<CosmicAstralBodyComponent> uid, ref EventCosmicReturn args) //This action is exclusive to the Glyph-created Astral Projection, and allows the user to return to their original body.
     {
         if (_mind.TryGetMind(args.Performer, out var mindId, out var _))
             _mind.TransferTo(mindId, uid.Comp.OriginalBody);
         var mind = Comp<MindComponent>(mindId);
-        mind.PreventGhosting = true;
+        mind.PreventGhosting = false;
         QueueDel(uid);
         RemComp<CosmicMarkBlankComponent>(args.Performer);
     }
