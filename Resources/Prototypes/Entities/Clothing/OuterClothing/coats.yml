@@ -490,3 +490,47 @@
     sprite: _NF/Clothing/OuterClothing/Coats/field_jacket.rsi
   - type: Clothing
     sprite: _NF/Clothing/OuterClothing/Coats/field_jacket.rsi #imp
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatCargoBomber
+  name: cargo bomber
+  description: A brown bomber jacket, worn with the sleeves pushed up. Embroidered on the back is a long-forgotten symbol of Cargonia.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Coats/cargo_bomber.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Coats/cargo_bomber.rsi #imp
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatEngineerBomber
+  name: engineering bomber
+  description: An orange bomber jacket, worn with the sleeves pushed up. Features high-vis yellow thread, because safety is your number one concern.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Coats/engineer_bomber.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Coats/engineer_bomber.rsi #imp
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatMedicalBomber
+  name: medical bomber
+  description: A light-blue bomber jacket, worn with the sleeves pushed up. Embroidered on the back is a caduceus, to remind you to do no harm.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Coats/med_bomber.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Coats/med_bomber.rsi #imp
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatScienceBomber
+  name: science bomber
+  description: A purple bomber jacket, worn with the sleeves pushed up. Embroidered on the back is a microscope, because it's important to fuss over the little things.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Coats/sci_bomber.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Coats/sci_bomber.rsi #imp

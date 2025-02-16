@@ -15,3 +15,10 @@
     proto: Medical10hr
   equipment:
     jumpsuit: ClothingUniformSpaceJumpsuitMedical
+
+# outerClothing
+
+- type: loadout
+  id: ClothingOuterCoatMedicalBomber
+  equipment:
+    outerClothing: ClothingOuterCoatMedicalBomber #imp
