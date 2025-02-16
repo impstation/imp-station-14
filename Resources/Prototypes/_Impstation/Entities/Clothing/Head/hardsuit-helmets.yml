@@ -79,6 +79,11 @@
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Head/Hardsuits/chronoagent.rsi
+    layers:
+    - state: off-icon 
+    - state: on-icon 
+      map: [ "light" ]
+      visible: false
   - type: Clothing
     sprite: _Impstation/Clothing/Head/Hardsuits/chronoagent.rsi
   - type: PointLight
