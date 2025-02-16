@@ -1,7 +1,7 @@
 - type: entity
   id: BaseItemMiner
   categories: [ HideSpawnMenu ]
-  parent: [BaseMachine]
+  parent: [BaseMachine, ConstructibleMachine]
   name: base item miner
   description: Converts immense amounts of electricity into heat and something.
   components:

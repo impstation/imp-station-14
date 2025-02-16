@@ -29,3 +29,18 @@
           defaultPrototype: Beaker
     - type: StealTarget
       stealGroup: ServiceTechFab
+
+- type: entity
+  id: SpesosPrinterMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: spesos printer machine circuit board
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: SpesosMiner
+    stackRequirements:
+      MetalRod: 4
+      CableHV: 4
+      Capacitor: 10
+      Manipulator: 1
