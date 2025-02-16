@@ -18,6 +18,7 @@
     coverage: EYES
   - type: ShowJobIcons
 
+- type: entity
   parent: [ ClothingEyesBase, BaseLensSlot ]
   id: ClothingEyesGlassesColorfulBase
   name: colorful glasses
