@@ -25,18 +25,3 @@
         Piercing: 8
     soundHit:
       path: "/Audio/Weapons/bladeslice.ogg"
-  - type: MultipleTool
-    statusShowBehavior: true
-    entries:
-    - behavior: Prying
-      sprite:
-        sprite: _Impstation/Objects/Tools/pribar.rsi
-        state: icon
-      useSound: /Audio/Items/crowbar.ogg
-      changeSound: /Audio/_Impstation/Items/toolslap.ogg
-    - behavior: Anchoring
-      sprite:
-        sprite: _Impstation/Objects/Tools/pribar.rsi
-        state: wrench
-      useSound: /Audio/Items/ratchet.ogg
-      changeSound: /Audio/_Impstation/Items/toolslap.ogg
