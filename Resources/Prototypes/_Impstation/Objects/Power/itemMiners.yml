@@ -1,0 +1,58 @@
+- type: entity
+  id: BaseItemMiner
+  categories: [ HideSpawnMenu ]
+  parent: [BaseMachine]
+  name: base item miner
+  description: Converts immense amounts of electricity into heat and something.
+  components:
+    - type: Item
+      size: Huge
+    - type: NodeContainer
+      examinable: true
+      nodes:
+        input:
+          !type:CableDeviceNode
+          nodeGroupID: HVPower
+    - type: Transform
+      anchored: true
+    - type: Physics
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.40,-0.40,0.40,0.40"
+          density: 90
+          mask:
+          - MachineMask
+          layer:
+          - MachineLayer
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 25
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - type: ExaminableBattery
+
+- type: entity
+  id: SpesosMiner
+  parent: [BaseItemMiner]
+  name: spesos miner
+  description: Converts immense amounts of electricity into heat and hard cash.
+  components:
+    - type: Sprite
+      sprite: Structures/Machines/circuit_imprinter.rsi
+      state: icon
+    - type: Battery
+      maxCharge: 10000000000000 #Enough battery to allow for 10 convertions at once
+    - type: PowerConsumer
+      voltage: High
+      drawRate: 1000000000000 #Stupidly Big Power input. Youre gonna want this on its own grid
+    - type: ItemMiner
+      chargeThreashold: 1000000000 #Every time the internal battery hits 1GW
+      itemConvertion: SpaceCash1000 #Turn the charge into 1000 spesos
+      energyPerSecond: 10000 #All while producing this much heat each second the miner is running
+      
