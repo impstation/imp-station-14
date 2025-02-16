@@ -46,13 +46,14 @@
     - type: Sprite
       sprite: Structures/Machines/circuit_imprinter.rsi
       state: icon
+    - type: ItemMiner
+      energyPerSecond: 10000 #Produces this much heat each second while the miner is running
+      chargeThreashold: 1000000000 #Every time the internal battery hits 1GW trigger a convertion
+      itemConvertion: SpaceCash1000 #When a conversion happens, print this
+      emagConvertion: Telecrystal1 #When emagged, convert into this instead
     - type: Battery
-      maxCharge: 10000000000000 #Enough battery to allow for 10 convertions at once
+      maxCharge: 1000000000 #Battery = threashold so that examining the miner shows the % of completion toward the next print
     - type: PowerConsumer
       voltage: High
-      drawRate: 1000000000000 #Stupidly Big Power input. Youre gonna want this on its own grid
-    - type: ItemMiner
-      chargeThreashold: 1000000000 #Every time the internal battery hits 1GW
-      itemConvertion: SpaceCash1000 #Turn the charge into 1000 spesos
-      energyPerSecond: 10000 #All while producing this much heat each second the miner is running
+      drawRate: 1000000000 #Draw = Battery. This will basically drain all available power.
       
