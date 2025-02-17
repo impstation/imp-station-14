@@ -12,6 +12,7 @@ public sealed partial class CosmicFinaleComponent : Component
     [DataField] public bool PlayedFinaleSong = false;
     [DataField] public bool PlayedBufferSong = false;
     [DataField] public bool BufferComplete = false;
+    [DataField] public bool OnCooldown = false;
     [AutoPausedField] public TimeSpan FinaleTimer = default!;
     [AutoPausedField] public TimeSpan BufferTimer = default!;
     [AutoPausedField] public TimeSpan CultistsCheckTimer = default!;

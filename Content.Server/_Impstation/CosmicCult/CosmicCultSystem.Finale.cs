@@ -91,8 +91,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
             uid.Comp.Occupied = false;
             return;
         }
-        var ev = new FinaleCancelledEvent();
-        RaiseLocalEvent(ev);
         _sound.PlayGlobalOnStation(uid, _audio.GetSound(comp.CancelEventSound));
         _sound.StopStationEventMusic(uid, StationEventMusicType.Nuke);
         if (!comp.BufferComplete) comp.BufferRemainingTime = comp.BufferTimer - _timing.CurTime + TimeSpan.FromSeconds(15);
@@ -105,7 +103,4 @@ public sealed partial class CosmicCultSystem : EntitySystem
         Log.Debug($"{comp.BufferRemainingTime} time remaining in Buffer.");
     }
 }
-public sealed class FinaleCancelledEvent : EntityEventArgs
-{
 
-}
