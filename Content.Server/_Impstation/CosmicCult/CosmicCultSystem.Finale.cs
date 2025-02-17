@@ -68,12 +68,14 @@ public sealed partial class CosmicCultSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("cosmiccult-finale-beckon-success"), args.Args.User, args.Args.User);
         if (!comp.BufferComplete)
         {
+            _appearance.SetData(uid, MonumentVisuals.FinaleReached, 2);
             comp.BufferTimer = _timing.CurTime + comp.BufferRemainingTime;
             _selectedBufferSong = _audio.GetSound(_bufferMusic);
             _sound.DispatchStationEventMusic(uid, _selectedBufferSong, StationEventMusicType.Nuke);
         }
         else
         {
+            _appearance.SetData(uid, MonumentVisuals.FinaleReached, 3);
             comp.FinaleTimer = _timing.CurTime + comp.FinaleRemainingTime;
             _selectedFinaleSong = _audio.GetSound(_finaleMusic);
             _finaleSongLength = TimeSpan.FromSeconds(_audio.GetAudioLength(_selectedFinaleSong).TotalSeconds);
@@ -101,6 +103,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
         comp.FinaleReady = true;
         Log.Debug($"{comp.FinaleRemainingTime} time remaining in Finale.");
         Log.Debug($"{comp.BufferRemainingTime} time remaining in Buffer.");
+        _appearance.SetData(uid, MonumentVisuals.FinaleReached, 1);
     }
 }
 

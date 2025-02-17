@@ -31,11 +31,11 @@ public sealed partial class CosmicCultSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly AnnouncerSystem _announcer = default!;
     [Dependency] private readonly ServerGlobalSoundSystem _sound = default!;
     [Dependency] private readonly CosmicGlyphSystem _cosmicGlyphs = default!;
+    [Dependency] private readonly AppearanceSystem _appearance = default!;
     private const string MapPath = "Prototypes/_Impstation/CosmicCult/Maps/cosmicvoid.yml";
-    public int _cultistCount;
+    public int CultistCount;
     public override void Initialize()
     {
         base.Initialize();
@@ -112,6 +112,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
                 comp.BufferComplete = true;
                 comp.PlayedFinaleSong = true;
                 Log.Debug($"Finale now running.");
+                _appearance.SetData(uid, MonumentVisuals.FinaleReached, 3);
             }
             else if (comp.FinaleActive && _timing.CurTime >= comp.FinaleTimer && comp.FinaleActive && comp.BufferComplete && !comp.Victory)
             {
@@ -123,14 +124,15 @@ public sealed partial class CosmicCultSystem : EntitySystem
             if (_timing.CurTime >= comp.CultistsCheckTimer && comp.FinaleActive && !comp.BufferComplete)
             {
                 comp.CultistsCheckTimer = _timing.CurTime + comp.CheckWait;
-                var cultistsPresent = _cultistCount = _cosmicGlyphs.GatherCultists(uid, 5).Count; //Let's use the cultist collecting hashset from Cosmic Glyphs to see how many folks are around!
-                if (cultistsPresent <= 10) _cultistCount = cultistsPresent;
-                Log.Debug($"{_cultistCount} cultists near The Monument.");
-                Log.Debug($"reducing buffertimer by {_timing.TickPeriod * (4 * _cultistCount * 0.1)} per tick.");
+                var cultistsPresent = CultistCount = _cosmicGlyphs.GatherCultists(uid, 5).Count; //Let's use the cultist collecting hashset from Cosmic Glyphs to see how many folks are around!
+                if (cultistsPresent <= 10) CultistCount = cultistsPresent;
+                if (cultistsPresent > 10) CultistCount = 10;
+                Log.Debug($"{CultistCount} cultists near The Monument.");
+                Log.Debug($"reducing buffertimer by {_timing.TickPeriod * (4 * CultistCount * 0.1)} per tick.");
             }
             if (comp.FinaleActive && !comp.BufferComplete)
             {
-                comp.BufferTimer -= _timing.TickPeriod * (4 * _cultistCount * 0.1); //This dynamically reduces the duration of the buffer by # cultists present at The Monument.
+                comp.BufferTimer -= _timing.TickPeriod * (4 * CultistCount * 0.1); //This dynamically reduces the duration of the buffer by # cultists present at The Monument.
             }
         }
     }

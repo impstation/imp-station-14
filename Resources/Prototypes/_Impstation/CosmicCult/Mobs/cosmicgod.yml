@@ -13,11 +13,6 @@
     layers:
     - state: god
       shader: unshaded
-  - type: PointLight
-    radius: 25
-    energy: 35
-    castShadows: false
-    color: "#43286a"
 
 # spawn animation, spawns actual god when it ends
 - type: entity
@@ -37,6 +32,21 @@
     lifetime: 4.62
   - type: SpawnOnDespawn
     prototype: MobCosmicGod
+  - type: PointLight
+    enabled: true
+    radius: 25
+    energy: 25
+    color: "#43286a"
+  - type: LightBehaviour
+    behaviours:
+     - !type:FadeBehaviour
+       interpolate: Linear
+       minDuration: 4.62
+       maxDuration: 4.62
+       startValue: 0.5
+       endValue: 25
+       property: Energy
+       enabled: true
 
 - type: entity
   parent: [MobCosmicGodBase, BaseMob]
@@ -86,6 +96,7 @@
   - type: WarpPoint
     follow: true
     location: The Unknown
+  - type: CosmicMarkGod
   - type: CosmicCorrupting
     corruptionSpeed: 1
     corruptionGrowth: true
@@ -98,7 +109,11 @@
     variation: 0.1
     sound:
       path: /Audio/_Impstation/CosmicCult/god_ambient.ogg
-  - type: EmitSoundOnSpawn
-    sound:
-      path: /Audio/_Impstation/CosmicCult/god_spawn.ogg
-
+  # - type: EmitSoundOnSpawn
+  #   sound:
+  #     path: /Audio/_Impstation/CosmicCult/god_spawn.ogg
+  - type: PointLight
+    enabled: true
+    radius: 25
+    energy: 25
+    color: "#43286a"

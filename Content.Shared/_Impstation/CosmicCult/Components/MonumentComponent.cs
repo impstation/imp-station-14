@@ -19,6 +19,9 @@ public sealed partial class MonumentComponent : Component
     [DataField] public int EntropyUntilNextStage;
     [DataField] public int CrewToConvertNextStage;
     [DataField] public float PercentageComplete;
+    /// <summary>
+    /// A bool we use to set wether or not The Monument's UI is available or not.
+    /// </summary>
     [DataField] public bool Enabled = true;
     [DataField, AutoNetworkedField] public TimeSpan TransformTime = TimeSpan.FromSeconds(2.8);
     [DataField, AutoNetworkedField] public EntityUid? CurrentGlyph;
@@ -45,6 +48,7 @@ public enum MonumentVisuals : byte
     Monument,
     Transforming,
     FinaleReached,
+    FinaleActive,
     Tier3
 }
 

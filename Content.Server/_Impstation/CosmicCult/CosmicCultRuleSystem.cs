@@ -39,6 +39,9 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using System.Linq;
 using Content.Server.Shuttles.Systems;
+using Content.Shared._Impstation.CosmicCult.Components.Examine;
+using Content.Shared.Mind.Components;
+using Content.Shared.Body.Systems;
 
 namespace Content.Server._Impstation.CosmicCult;
 
@@ -66,6 +69,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly VisibilitySystem _visibility = default!;
     [Dependency] private readonly EmergencyShuttleSystem _emergency = default!;
+    [Dependency] private readonly SharedBodySystem _body = default!;
     [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> NanoTrasenFactionId = "NanoTrasen";
     [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> CosmicFactionId = "CosmicCultFaction";
     public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/antag_cosmic_briefing.ogg");
@@ -90,6 +94,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         SubscribeLocalEvent<CosmicCultRuleComponent, AfterAntagEntitySelectedEvent>(OnAntagSelect);
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
         SubscribeLocalEvent<CosmicCultComponent, ComponentRemove>(OnComponentRemove);
+        SubscribeLocalEvent<CosmicMarkGodComponent, ComponentInit>(OnGodSpawn);
     }
 
     private void OnRoundStart(RoundStartingEvent ev) // Reset the cult data to defaults.
@@ -114,6 +119,26 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
     #region Round & Objectives
 
+    private void OnGodSpawn(Entity<CosmicMarkGodComponent> uid, ref ComponentInit args) //This works, seemingly.
+    {
+        var query = QueryActiveRules();
+        while (query.MoveNext(out var ruleUid, out _, out var cultRule, out _))
+        {
+            SetWinType((ruleUid, cultRule), WinType.CultComplete);
+            foreach (var cultist in cultRule.Cultists)
+            {
+                if (TryComp<MobStateComponent>(cultist, out var state) && state.CurrentState == MobState.Alive)
+                {
+                    if (!TryComp<MindContainerComponent>(cultist, out var mindContainer) || !mindContainer.HasMind)
+                        return;
+                    var ascendant = Spawn("MobCosmicAstralAscended", Transform(cultist).Coordinates);
+                    _mind.TransferTo(mindContainer.Mind.Value, ascendant);
+                    _body.GibBody(cultist);
+                }
+            }
+        }
+    }
+
     private void SetWinType(Entity<CosmicCultRuleComponent> uid, WinType type)
     {
         if (uid.Comp.WinLocked == true)
@@ -128,8 +153,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         if (ev.New is not GameRunLevel.PostRound)
             return;
 
-        var ruleQuery = QueryActiveRules();
-        while (ruleQuery.MoveNext(out var uid, out _, out var cultRule, out _))
+        var query = QueryActiveRules();
+        while (query.MoveNext(out var uid, out _, out var cultRule, out _))
         {
             OnRoundEnd((uid, cultRule));
         }
@@ -162,7 +187,6 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
                 SetWinType(uid, WinType.CultMinor);
             }
         }
-
         var cultists = EntityQuery<CosmicCultComponent, MobStateComponent>(true);
         var cultistsAlive = cultists
             .Any(op => op.Item2.CurrentState == MobState.Alive && op.Item1.Running);
@@ -350,12 +374,13 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             _euiMan.OpenEui(new CosmicRoundStartEui(), session);
         }
         TotalCult++;
+        rule.Comp.Cultists.Add(uid);
     }
 
     public void CosmicConversion(EntityUid uid)
     {
         var query = QueryActiveRules();
-        while (query.MoveNext(out var ruleUid, out _, out var cosmicGamerule, out _))
+        while (query.MoveNext(out var _, out _, out var cosmicGamerule, out _))
         {
             if (!_mind.TryGetMind(uid, out var mindId, out var mind))
                 return;
@@ -404,7 +429,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     private void OnComponentRemove(Entity<CosmicCultComponent> uid, ref ComponentRemove args)
     {
         var query = QueryActiveRules();
-        while (query.MoveNext(out var ruleUid, out _, out var cosmicGamerule, out _))
+        while (query.MoveNext(out var _, out _, out var cosmicGamerule, out _))
         {
             _stun.TryKnockdown(uid, TimeSpan.FromSeconds(2), true);
             foreach (var actionEnt in uid.Comp.ActionEntities) _actions.RemoveAction(actionEnt);

@@ -40,6 +40,8 @@
           True: { visible: true }
           False: { visible: false }
           1: {state: finale-overlay1}
+          2: {state: finale-overlay2}
+          3: {state: finale-overlay3}
   - type: InteractionOutline
   - type: Transform
     noRot: true
@@ -55,6 +57,7 @@
         - WallLayer
   - type: PointLight
     enabled: true
+    castShadows: false
     radius: 4.5
     energy: 4
     color: "#43286a"
