@@ -165,14 +165,6 @@
     minPressureThreshold: 50
 
 - type: artifactTrigger
-  id: TriggerHighDamage
-  targetDepth: 3
-  triggerHint: artifact-trigger-hint-physical
-  components:
-  - type: ArtifactDamageTrigger
-    damageThreshold: 500 #make it go boom or w/e
-
-- type: artifactTrigger
   id: TriggerRadiation
   targetDepth: 3
   triggerHint: artifact-trigger-hint-radiation
@@ -183,6 +175,14 @@
     - Radiation
     damageThreshold: 50
   - type: RadiationReceiver
+  - type: Reactive # IMP: Allow radioactive chems to trigger this
+    groups:
+      Acidic: [ Touch ]
+    reactions:
+    - reagents: [ Uranium, Tritium, Radium, UnstableMutagen, Phalanximine ]
+      methods: [ Touch ]
+      effects:
+      - !type:ActivateArtifact
 
 - type: artifactTrigger
   id: TriggerHighPressure
@@ -202,70 +202,12 @@
     - Plasma
 
 - type: artifactTrigger
-  id: TriggerResurrection
-  targetDepth: 4
-  triggerHint: artifact-trigger-hint-resurrection
+  id: TriggerDamageDeep
+  targetDepth: 4 #IMP: Moved to depth 4
+  triggerHint: artifact-trigger-hint-physical
   components:
-  - type: ArtifactResurrectionTrigger
-
-- type: artifactTrigger
-  id: TriggerVape
-  targetDepth: 4
-  triggerHint: artifact-trigger-hint-vape
-  components:
-  - type: ArtifactGasTrigger
-    possibleGas:
-    - WaterVapor
-
-# Below exist to pad out the depth 4 triggers. Can remove some of those when we get more triggers implemented
-- type: artifactTrigger
-  id: TriggerMusicDeep
-  targetDepth: 4
-  triggerHint: artifact-trigger-hint-music
-  components:
-  - type: ArtifactMusicTrigger
-
-- type: artifactTrigger
-  id: TriggerExamineDeep
-  targetDepth: 4
-  triggerHint: artifact-trigger-hint-examine
-  components:
-  - type: ArtifactExamineTrigger
-
-- type: artifactTrigger
-  id: TriggerMagnetDeep
-  targetDepth: 4
-  triggerHint: artifact-trigger-hint-magnet
-  components:
-  - type: ArtifactMagnetTrigger
-
-- type: artifactTrigger
-  id: TriggerMedicalDeep
-  targetDepth: 4
-  triggerHint: artifact-trigger-hint-medical
-  components:
-  - type: Reactive
-    groups:
-      Acidic: [ Touch ]
-    reactions:
-    - reagents: [ Dylovene, Diphenhydramine, Arithrazine, Bicaridine, Dermaline, Dexalin, DexalinPlus, Tricordrazine, Leporazine, Bruizine, Lacerinol, Puncturase, Pyrazine, Insuzine, Kelotane, Hyronalin, Inaprovaline, Epinephrine ]
-      methods: [ Touch ]
-      effects:
-      - !type:ActivateArtifact
-
-- type: artifactTrigger
-  id: TriggerBloodDeep
-  targetDepth: 4
-  triggerHint: artifact-trigger-hint-blood
-  components:
-  - type: Reactive
-    groups:
-      Acidic: [ Touch ]
-    reactions:
-    - reagents: [ Blood, CopperBlood, InsectBlood, Slime, AmmoniaBlood, ZombieBlood ]
-      methods: [ Touch ]
-      effects:
-      - !type:ActivateArtifact
+  - type: ArtifactDamageTrigger
+    damageThreshold: 300
 
 #don't add in new targetdepth values until you have a few
 #or else it will skew heavily towards a few options.

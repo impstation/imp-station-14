@@ -6,17 +6,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobHeadOfSecurity
-      time: 72000 #20 hrs
-
-# For the veteran head of security cosmetics
-- type: loadoutEffectGroup
-  id: VeteranHOS
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobHeadOfSecurity
-      time: 180000 #50 hrs
+      time: 36000 # Imp, 10 hrs
 
 # Jumpsuit
 - type: loadout
@@ -40,6 +30,16 @@
     jumpsuit: ClothingUniformJumpskirtHoSAlt
 
 - type: loadout
+  id: HeadofSecurityProfessionalJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHoSPro
+
+- type: loadout
+  id: HeadofSecurityProfessionalJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtHoSPro
+
+- type: loadout
   id: HeadofSecurityFormalSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitHosFormal
@@ -60,6 +60,11 @@
   equipment:
     head: ClothingHeadHatBeretHoS
 
+- type: loadout
+  id: HeadofSecurityPatrolCap
+  equipment:
+    head: ClothingHeadHatHOSsoft
+
 # Neck
 - type: loadout
   id: HeadofSecurityCloak
@@ -79,14 +84,6 @@
   equipment:
     neck: ClothingNeckMantleHOS
 
-- type: loadout
-  id: HeadofSecurityGreatcoat
-  equipment:
-    neck: ClothingNeckCloakHosgreatcoat
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: VeteranHOS
-
 # OuterClothing
 - type: loadout
   id: HeadofSecurityCoat
@@ -103,14 +100,6 @@
   equipment:
     outerClothing: ClothingOuterWinterHoSUnarmored
 
-- type: loadout
-  id: HeadofSecurityEliteArmor
-  equipment:
-    outerClothing: ClothingOuterArmorHoSEliteArmor
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: VeteranHOS
-
 # Headset
 - type: loadout
   id: HeadofSecurityHeadsetBasic
@@ -122,16 +111,8 @@
   equipment:
     ears: ClothingHeadsetAltSecurity
 
+# Belt
 - type: loadout
-  id: HeadofSecurityVeteranHeadset
+  id: HeadofSecurityShoulderHolster
   equipment:
-    ears: ClothingHeadsetHOSveteran
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: VeteranHOS
-
-# A mask so the HoS can choose to spawn with the standard security gas mask that their new survival box removes
-- type: loadout
-  id: HeadofSecurityMask
-  equipment:
-    mask: ClothingMaskGasSecurity
+    belt: ClothingBeltHolsterHOSFilled

@@ -138,6 +138,9 @@
     - RadiationProtection
     - Drowsiness
     - Adrenaline
+    - Feminized # DeltaV - Hormone system
+    - Masculinized # DeltaV - Hormone system
+    - GrayLanguage # imp
   - type: Body
     prototype: Human
     requiredLegs: 2
@@ -193,6 +196,9 @@
         type: StoreBoundUserInterface
       enum.HereticLivingHeartKey.Key: # goob edit - heretics
         type: LivingHeartMenuBoundUserInterface
+      enum.ThavenMoodsUiKey.Key: # impstation edit
+        type: ThavenMoodsBoundUserInterface
+        requireInputValidation: false
   - type: Puller
   - type: Speech
     speechSounds: Alto
@@ -201,7 +207,7 @@
     sounds:
       Male: MaleHuman
       Female: FemaleHuman
-      Unsexed: MaleHuman
+      Unsexed: UnisexHuman
   - type: Emoting
   - type: BodyEmotes
     soundsId: GeneralBodyEmotes
@@ -217,6 +223,7 @@
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
+  - type: LayingDown # WD EDIT
 
 - type: entity
   save: false

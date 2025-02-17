@@ -9,10 +9,12 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
+using Content.Shared.Explosion.Components;
 using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Hands;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Speech.Muting;
@@ -97,11 +99,12 @@ public sealed partial class MansusGraspSystem : EntitySystem
 
         SubscribeLocalEvent<TagComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<HereticComponent, DrawRitualRuneDoAfterEvent>(OnRitualRuneDoAfter);
+        SubscribeLocalEvent<MansusGraspComponent, UseInHandEvent>(OnUseInHand);
     }
 
     private void OnAfterInteract(Entity<MansusGraspComponent> ent, ref AfterInteractEvent args)
     {
-        if (!args.CanReach)
+        if (args.Handled || !args.CanReach)
             return;
 
         if (args.Target == null || args.Target == args.User)
@@ -118,12 +121,14 @@ public sealed partial class MansusGraspSystem : EntitySystem
         if ((TryComp<HereticComponent>(args.Target, out var th) && th.CurrentPath == ent.Comp.Path))
             return;
 
+        args.Handled = true;
+
         if (HasComp<StatusEffectsComponent>(target))
         {
             _chat.TrySendInGameICMessage(args.User, Loc.GetString("heretic-speech-mansusgrasp"), InGameICChatType.Speak, false);
             _audio.PlayPvs(new SoundPathSpecifier("/Audio/Items/welder.ogg"), target);
             _stun.TryKnockdown(target, TimeSpan.FromSeconds(3f), true);
-            _stamina.TakeStaminaDamage(target, 65f);
+            _stamina.TakeStaminaDamage(target, 80f);
             _language.DoRatvarian(target, TimeSpan.FromSeconds(10f), true);
         }
 
@@ -144,6 +149,22 @@ public sealed partial class MansusGraspSystem : EntitySystem
         QueueDel(ent);
     }
 
+    private void OnUseInHand(EntityUid uid, MansusGraspComponent component, UseInHandEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (!TryComp<HereticComponent>(args.User, out var hereticComp))
+        {
+            QueueDel(uid);
+            return;
+        }
+
+        args.Handled = true;
+        hereticComp.MansusGraspActive = false;
+        QueueDel(uid);
+    }
+
     private void OnAfterInteract(Entity<TagComponent> ent, ref AfterInteractEvent args)
     {
         var tags = ent.Comp.Tags;
@@ -153,7 +174,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
         || !TryComp<HereticComponent>(args.User, out var heretic) // not a heretic - how???
         || !heretic.MansusGraspActive // no grasp - not special
         || HasComp<ActiveDoAfterComponent>(args.User) // prevent rune shittery
-        || !tags.Contains("Write") || !tags.Contains("Pen")) // not a pen
+        || (!tags.Contains("Write") && !tags.Contains("DecapoidClaw"))) // not a writing implement or decapoid claw
             return;
 
         // remove our rune if clicked

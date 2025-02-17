@@ -51,15 +51,14 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
         {
             // Reset on disconnect, just in case.
             _roles.Clear();
+            _jobWhitelists.Clear();
+            _roleBans.Clear();
         }
     }
 
     private void RxRoleBans(MsgRoleBans message)
     {
         _sawmill.Debug($"Received roleban info containing {message.Bans.Count} entries.");
-
-        if (_roleBans.Equals(message.Bans))
-            return;
 
         _roleBans.Clear();
         _roleBans.AddRange(message.Bans);
@@ -160,6 +159,7 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
     public IEnumerable<KeyValuePair<string, TimeSpan>> FetchPlaytimeByRoles()
     {
         var jobsToMap = _prototypes.EnumeratePrototypes<JobPrototype>();
+        var antagsToMap = _prototypes.EnumeratePrototypes<AntagPrototype>(); // imp
 
         foreach (var job in jobsToMap)
         {
@@ -168,6 +168,14 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
                 yield return new KeyValuePair<string, TimeSpan>(job.Name, locJobName);
             }
         }
+        // imp
+        foreach (var antag in antagsToMap)
+        {
+            if (_roles.TryGetValue(antag.PlayTimeTracker, out var locAntagName))
+            {
+                yield return new KeyValuePair<string, TimeSpan>(antag.Name, locAntagName);
+            }
+        } // end imp
     }
 
     public IReadOnlyDictionary<string, TimeSpan> GetPlayTimes(ICommonSession session)

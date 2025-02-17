@@ -14,7 +14,7 @@
   id: PoorVision
   name: trait-poor-vision-name
   description: trait-poor-vision-desc
-  traitGear: ClothingEyesGlassesStrong
+  traitGear: PrescriptionLensStrong # imp
   category: Disabilities
   whitelist:
     components:
@@ -42,23 +42,6 @@
     - type: Unrevivable
 
 - type: trait
-  id: RandomUnrevivable
-  name: trait-random-unrevivable-name
-  description: trait-random-unrevivable-desc
-  category: Disabilities
-  components:
-    - type: RandomUnrevivable
-
-- type: trait
-  id: Unborgable
-  name: trait-unborgable-name
-  description: trait-unborgable-desc
-  category: Disabilities
-  components:
-    - type: Unborgable
-  organ: Brain
-
-- type: trait
   id: Muted
   name: trait-muted-name
   description: trait-muted-desc
@@ -81,3 +64,11 @@
       maxSoundDistance: 7
       sounds:
         collection: Paracusia
+
+- type: trait
+  id: PainNumbness
+  name: trait-painnumbness-name
+  description: trait-painnumbness-desc
+  category: Disabilities
+  components:
+  - type: PainNumbness

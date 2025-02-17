@@ -43,6 +43,8 @@
       - id: SprayBottleWater
       - id: ReagentContainerFlour
         amount: 2
+      - id: FoodBoxCloth
+        amount: 1
       - id: ReagentContainerSugar
       - id: FoodCondimentPacketSalt
         amount: 3
@@ -54,6 +56,10 @@
       - id: DrinkMilkCarton
         amount: 2
       - id: DrinkSoyMilkCarton
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: RandomIngredientBox
 
 - type: entity
   id: ClosetJanitorFilled

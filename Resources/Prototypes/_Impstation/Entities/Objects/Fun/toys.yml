@@ -1,0 +1,356 @@
+- type: entity
+  parent: BasePlushie
+  id: PlushieFinfin
+  name: Fin Fin plushie
+  description: A highly marketable plushie of the adorable dolphin-bird recently discovered on the distant planet Teo. Made artificially rare on purpose.
+  components:
+  - type: Sprite
+    state: plushie_finfin
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Impstation/Items/Toys/finfin1.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Impstation/Items/Toys/finfin1.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Impstation/Items/Toys/finfin2.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Impstation/Items/Toys/finfin2.ogg
+  - type: Item
+    inhandVisuals:
+      left:
+        - state: plushie_finfin-inhand-left
+      right:
+        - state: plushie_finfin-inhand-right
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: FlavorProfile
+    flavors:
+      - finfin
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/_Impstation/Items/Toys/finfinhit.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: FabricScrapSalad
+  name: fabric scrap salad
+  description: Whose clothes are these?
+  components:
+  - type: Sprite
+    state: fabric-scrap-salad
+  - type: Construction
+    graph: FabricScrapSalad
+    node: salad
+
+- type: entity
+  parent: BasePlushie
+  id: YarnNoodles
+  name: yarn noodles
+  description: Looks like someone's failed knitting project.
+  components:
+  - type: Sprite
+    state: yarn-noodles
+  - type: Construction
+    graph: YarnNoodles
+    node: noodles
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieGray
+  name: gray plushie
+  description: Manufactured recently to commemorate the gray exchange program becoming a booming success. It feels plasticky and seems easy to chew on. Thui love keb piskun plushie!!
+  components:
+  - type: Sprite
+    state: plushie_gray
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Impstation/Voice/Gray/gray_scream.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Impstation/Voice/Gray/gray_cry.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Impstation/Voice/Gray/gray_scream.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Impstation/Voice/Gray/gray_scream.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/_Impstation/Voice/Gray/gray_scream.ogg
+  - type: Food
+    requiresSpecialDigestion: false
+    useSound:
+      path: /Audio/_Impstation/Voice/Gray/gray_scream.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieUrsaMinor
+  name: ursa minor plushie
+  description: You get the feeling that this plushie is higher ranked than you.
+  components:
+  - type: Sprite
+    state: minor
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: FlavorProfile
+    flavors:
+      - stardust
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieBug
+  name: bug plushie
+  description: What the hell is this ugly thing? Better throw it away.
+  components:
+  - type: Sprite
+    state: plushie_bug
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Arachnid/arachnid_scream.ogg #YAY!!!
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Arachnid/arachnid_scream.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Arachnid/arachnid_scream.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Arachnid/arachnid_scream.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Voice/Arachnid/arachnid_scream.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Arachnid/arachnid_scream.ogg
+  - type: Item
+    inhandVisuals:
+      left:
+        - state: plushie_bug-inhand-left
+      right:
+        - state: plushie_bug-inhand-right
+  - type: Food
+    requiresSpecialDigestion: false
+    useSound:
+      path: /Audio/Voice/Arachnid/arachnid_scream.ogg #OW!!! OWIE!!
+  - type: FlavorProfile
+    flavors:
+      - whimsy
+  - type: Extractable
+    grindableSolutionName: bugblood #AUUUUH!!!!!!
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: HeartbreakerToxin #anti-mice countermeasures
+          Quantity: 10
+      bugblood:
+        maxVol: 10
+        reagents:
+        - ReagentId: CopperBlood
+          Quantity: 10
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieDecapoid
+  name: decapoid plushie
+  description: The claw on this thing looks ominously sharp. Didn't you hear something about these getting recalled?
+  components:
+  - type: Sprite
+    state: plushie_decapoid
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Impstation/Voice/Decapoid/decapoid_laugh.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: -90
+    damage:
+      types:
+        Piercing: 1
+    attackRate: 1
+    soundHit:
+      path: "/Audio/Items/wirecutter.ogg"
+  - type: Tool
+    qualities:
+      - Cutting
+    useSound:
+      path: /Audio/Items/wirecutter.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: FlavorProfile
+    flavors:
+    - crabby
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieSnail
+  name: gastropoid plushie
+  description: It's a little slimy...
+  components:
+  - type: Sprite
+    state: plushie_snail
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Impstation/Voice/Snail/snail_scream.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: Extractable
+    grindableSolutionName: mucin
+  - type: SolutionContainerManager
+    solutions:
+      mucin:
+        maxVol: 10
+        reagents:
+        - ReagentId: Mucin
+          Quantity: 10
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieImp
+  name: imp plushie
+  description: Huh? Who's this stoner?
+  components:
+  - type: Sprite
+    state: plushie_imp
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Impstation/Voice/Misc/wuhey.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Impstation/Voice/Misc/wuhey.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Impstation/Voice/Misc/wuhey.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Impstation/Voice/Misc/wuhey.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/_Impstation/Voice/Misc/wuhey.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+
+- type: entity
+  id: HomeDepotCockHero
+  categories: [HideSpawnMenu]
+  name: Homer
+  description: SEE YOU NEXT WEEK
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/homer.rsi
+    state: icon
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepExplosion
+
+- type: entity
+  id: ItemBouquet
+  parent: BaseItem
+  name: bouquet
+  description: That's flowers alright.
+  components:
+    - type: Sprite
+      sprite: _Impstation/Objects/Fun/bouquet.rsi
+      state: bouquet
+    - type: Item
+      size: Normal
+      sprite: _Impstation/Objects/Fun/bouquet.rsi
+      inhandVisuals:
+        left:
+        - state: bouquet-inhand-left
+        right:
+        - state: bouquet-inhand-right
+    - type: Construction
+      graph: Bouquet
+      node: bouquet
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieGiantBear
+  name: ursa massive plushie
+  description: If I have to carry this for one second longer I might die.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    state: giantbearplush
+  - type: Item
+    size: Large
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    inhandVisuals:
+      left:
+      - state: giantbearplush-inhand
+      right:
+      - state: giantbearplush-inhand
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Animals/bear.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Animals/bear.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+  - type: HeldSpeedModifier
+    walkModifier: 0.5
+    sprintModifier: 0.5
+  - type: DamageOtherOnHit # if you get hit by this you deserve it
+    damage:
+      types:
+        Blunt: 15
+    soundHit: /Audio/Animals/bear.ogg
+    staminaCost: 50
+  - type: MultiHandedItem
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieCaptain
+  name: model captain plushie
+  description: "A soft toy representative of Nanotrasen's workplace relationship initiative. Remember: the only 'union' you should join is the 'union' of holy matrimony."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    state: plushie1
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Human/manlaugh1.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Human/femalescream_1.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Human/male_cough_1.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Human/femalescream_2.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Human/femalescream_3.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieHeadofPersonnel
+  name: model head of personnel plushie
+  description: "A soft toy representative of Nanotrasen's workplace relationship initiative. Remember: the only Code Pink you should see is the Hex Code in your NanoChat!"
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    state: plushie2
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/toy_rustle.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/Toys/toy_rustle.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/toy_rustle.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Items/Toys/toy_rustle.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Items/Toys/toy_rustle.ogg

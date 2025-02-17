@@ -17,35 +17,26 @@
   - /Audio/Effects/Gasp/female_deathgasp_5.ogg
 
 - type: soundCollection
-  id: DeathGasp
+  id: UnisexDeathGasp #female deathgasps and male deathgasps are virtually the same sounds just with pitch shifts this was made so stupid
   files:
-  - /Audio/Effects/Gasp/deathgasp_1.ogg
-  - /Audio/Effects/Gasp/deathgasp_2.ogg
-
-- type: soundCollection
-  id: MaleSlimeDeathGasp
-  files:
-  - /Audio/Effects/Gasp/s_male_deathgasp_1.ogg
-  - /Audio/Effects/Gasp/s_male_deathgasp_2.ogg
-  - /Audio/Effects/Gasp/s_male_deathgasp_3.ogg
-  - /Audio/Effects/Gasp/s_male_deathgasp_4.ogg
-  - /Audio/Effects/Gasp/s_male_deathgasp_5.ogg
-
-- type: soundCollection
-  id: FemaleSlimeDeathGasp
-  files:
+  - /Audio/Effects/Gasp/male_deathgasp_1.ogg
+  - /Audio/Effects/Gasp/male_deathgasp_2.ogg
+  - /Audio/Effects/Gasp/male_deathgasp_3.ogg
+  - /Audio/Effects/Gasp/male_deathgasp_4.ogg
+  - /Audio/Effects/Gasp/male_deathgasp_5.ogg
   - /Audio/Effects/Gasp/female_deathgasp_1.ogg
   - /Audio/Effects/Gasp/female_deathgasp_2.ogg
   - /Audio/Effects/Gasp/female_deathgasp_3.ogg
   - /Audio/Effects/Gasp/female_deathgasp_4.ogg
   - /Audio/Effects/Gasp/female_deathgasp_5.ogg
-
+  - /Audio/Effects/Gasp/deathgasp_1.ogg
+  - /Audio/Effects/Gasp/deathgasp_2.ogg
+ 
 - type: soundCollection
-  id: SlimeDeathGasp
+  id: DeathGasp
   files:
-  - /Audio/Effects/Gasp/s_deathgasp_1.ogg
-  - /Audio/Effects/Gasp/s_deathgasp_2.ogg
-
+  - /Audio/Effects/Gasp/deathgasp_1.ogg
+  - /Audio/Effects/Gasp/deathgasp_2.ogg
 
 - type: soundCollection
   id: MothDeathGasp

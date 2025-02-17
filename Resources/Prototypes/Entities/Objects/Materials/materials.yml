@@ -11,6 +11,7 @@
     size: Normal
   - type: Tag
     tags:
+      - DroneUsable
       - RawMaterial
   - type: Damageable
     damageContainer: Inorganic
@@ -54,6 +55,8 @@
         reagents:
         - ReagentId: Cellulose
           Quantity: 6
+  - type: Item
+    heldPrefix: cardboard
 
 - type: entity
   parent: MaterialCardboard
@@ -130,11 +133,14 @@
   - type: Tag
     tags:
       - ClothMade
+      - DroneUsable
       - Gauze
       - RawMaterial
   - type: Construction
     graph: WebObjects # not sure if I should either keep this here or just make another prototype. Will keep it here just in case.
     node: cloth
+  - type: Item
+    heldPrefix: cloth
 
 - type: entity
   parent: MaterialCloth
@@ -275,7 +281,10 @@
   - type: Tag
     tags:
       - ClothMade
+      - DroneUsable
       - RawMaterial
+  - type: Item
+    heldPrefix: durathread
 
 - type: entity
   parent: MaterialDurathread
@@ -322,6 +331,7 @@
   - type: Tag
     tags:
     - Wooden
+    - DroneUsable
     - RawMaterial
   - type: Extractable
     grindableSolutionName: wood
@@ -331,6 +341,16 @@
         reagents:
         - ReagentId: Cellulose
           Quantity: 10
+  - type: UserInterface
+    interfaces:
+      enum.ShortConstructionUiKey.Key:
+        type: ShortConstructionMenuBUI
+  - type: ActivatableUI
+    key: enum.ShortConstructionUiKey.Key
+  - type: ShortConstruction
+    prototypes:
+    - TileWood
+    - TileWoodLarge
 
 - type: entity
   parent: MaterialWoodPlank
@@ -377,7 +397,6 @@
   - type: Stack
     count: 1
 
-# Following not used currently
 - type: entity
   parent: MaterialBase
   id: MaterialHideBear
@@ -404,6 +423,9 @@
     energy: 1.5
     color: "#4faffb"
     slots:
+  - type: Tag
+    tags:
+      - BearHide
 
 - type: entity
   parent: MaterialBase
@@ -415,8 +437,7 @@
     sprite: Objects/Materials/materials.rsi
     state: corgihide
   - type: Item
-    sprite: Clothing/Head/Misc/hides.rsi
-    heldPrefix: corgi
+    heldPrefix: corgihide
   - type: Clothing
     sprite: Clothing/Head/Misc/hides.rsi
     equippedPrefix: corgi2
@@ -507,7 +528,10 @@
   - type: Tag
     tags:
       - ClothMade
+      - DroneUsable
       - RawMaterial
+  - type: Item
+    heldPrefix: cotton
 
 - type: entity
   parent: MaterialCotton
@@ -559,6 +583,7 @@
   - type: Tag
     tags:
       - ClothMade
+      - DroneUsable
       - RawMaterial
 
 - type: entity
@@ -612,6 +637,8 @@
     tags:
       - ClothMade
       - RawMaterial
+  - type: Item
+    heldPrefix: pyrotton
 
 - type: entity
   parent: MaterialPyrotton
@@ -671,6 +698,8 @@
       - ReagentId: Honk
         Quantity: 5
   - type: Appearance
+  - type: Item
+    heldPrefix: bananium
 
 - type: entity
   parent: MaterialBananium
@@ -721,6 +750,9 @@
     tags:
       - ClothMade
       - RawMaterial
+  - type: Item
+    sprite: Objects/Materials/silk.rsi
+    heldPrefix: silk
 
 - type: entity
   parent: MaterialWebSilk
@@ -843,6 +875,8 @@
         reagents:
         - ReagentId: Vitamin
           Quantity: 3
+  - type: Item
+    heldPrefix: bones
 
 - type: entity
   parent: MaterialBones
@@ -897,6 +931,8 @@
     - goliath_hide_3
   - type: Item
     size: Large
+    heldPrefix: goliathhide
+    sprite: Objects/Materials/hide.rsi
     shape:
     - 0,0,2,2
 

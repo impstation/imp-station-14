@@ -40,7 +40,6 @@ steal-target-groups-clothing-eyes-hud-beer = beer goggles
 steal-target-groups-bible = bible
 steal-target-groups-clothing-neck-goldmedal = gold medal of crewmanship
 steal-target-groups-clothing-neck-clownmedal = clown medal
-steal-target-groups-recruiter-pen = recruiter pen
 steal-target-groups-wanted-list-cartridge = wanted list cartridge
 
 # Thief structures
@@ -57,13 +56,12 @@ steal-target-groups-plant-rd = "RD's potted plant"
 steal-target-groups-toilet-golden-dirty-water = golden toilet
 
 # Thief Animal
-steal-target-groups-animal-named-cat = CMO's Cat
+steal-target-groups-animal-named-cat = CMO's pet
 
 steal-target-groups-animal-ian = Ian
 steal-target-groups-animal-mc-griff = McGriff
-steal-target-groups-animal-walter = Walter
+steal-target-groups-animal-walter = Chemist's dog
 steal-target-groups-animal-morty = Morty
 steal-target-groups-animal-renault = Renault
 steal-target-groups-animal-shiva = Shiva
 steal-target-groups-animal-tropico = Tropico
-steal-target-groups-animal-pipi = Pipi

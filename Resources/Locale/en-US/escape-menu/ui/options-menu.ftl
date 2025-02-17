@@ -40,6 +40,7 @@ ui-options-event-music = Event Music
 ui-options-announcer-disable-multiple-sounds = Disable Overlapping Announcer Sounds
 ui-options-announcer-disable-multiple-sounds-tooltip = Some announcements will not sound right, this setting isn't recommended
 ui-options-admin-sounds = Play Admin Sounds
+ui-options-bwoink-sound = Play AHelp Notification Sound
 ui-options-volume-label = Volume
 
 ## Graphics menu
@@ -51,8 +52,8 @@ ui-options-interface-label = Interface
 
 
 ui-options-auto-fill-highlights = Auto-fill the highlights with the character's information
-ui-options-highlights-color = Highlighs color:
-ui-options-highlights-color-example = This is an highlighted text.
+ui-options-highlights-color = Highlights color:
+ui-options-highlights-color-example = This is some highlighted text.
 ui-options-show-held-item = Show held item next to cursor
 ui-options-show-combat-mode-indicators = Show combat mode indicators with cursor
 ui-options-opaque-storage-window = Opaque storage window

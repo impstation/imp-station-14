@@ -194,9 +194,6 @@ namespace Content.Server.GameTicking
                 if (!_playerManager.TryGetSessionById(userId, out _))
                     continue;
 
-                if (_banManager.GetRoleBans(userId) == null)
-                    continue;
-
                 total++;
             }
 
@@ -240,11 +237,7 @@ namespace Content.Server.GameTicking
 #if DEBUG
                 DebugTools.Assert(_userDb.IsLoadComplete(session), $"Player was readied up but didn't have user DB data loaded yet??");
 #endif
-                if (_banManager.GetRoleBans(userId) == null)
-                {
-                    Logger.ErrorS("RoleBans", $"Role bans for player {session} {userId} have not been loaded yet.");
-                    continue;
-                }
+
                 readyPlayers.Add(session);
                 HumanoidCharacterProfile profile;
                 if (_prefsManager.TryGetCachedPreferences(userId, out var preferences))
@@ -487,6 +480,15 @@ namespace Content.Server.GameTicking
                 payload.AllowedMentions.AllowRoleMentions();
 
                 await _discord.CreateMessage(_webhookIdentifier.Value, payload);
+
+                if (_webhookIdentifierPostround == null)
+                    return;
+
+                content = Loc.GetString("discord-round-postround-end",
+                    ("id", RoundId));
+                payload = new WebhookPayload { Content = content };
+
+                await _discord.CreateMessage(_webhookIdentifierPostround.Value, payload);
             }
             catch (Exception e)
             {

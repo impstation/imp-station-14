@@ -25,6 +25,8 @@
       collection: MetalThud
   - type: Spillable
     solution: absorbed
+    allowMeleeDamage: true #imp edit
+    spillWhenThrown: false #imp edit
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
@@ -45,12 +47,20 @@
       Plastic: 50
   - type: Tag
     tags:
+      - DroneUsable #No bucket because it holds chems, they can drag the cart or use a drain
       - Mop
       - MopBasic
   - type: GuideHelp
     guides:
     - Janitorial
   - type: DnaSubstanceTrace
+  - type: DamageOtherOnHit # imp
+    damage:
+      types:
+        Blunt: 6
+    staminaCost: 8
+  - type: DrainableSolution #imp edit, lets mop splash contents on melee attack
+    solution: absorbed
 
 - type: entity
   parent: BaseItem
@@ -79,6 +89,8 @@
          collection: MetalThud
     - type: Spillable
       solution: absorbed
+      allowMeleeDamage: true #imp edit
+      spillWhenThrown: false #imp edit
     - type: Wieldable
     - type: IncreaseDamageOnWield
       damage:
@@ -108,9 +120,17 @@
           maxVol: 100
     - type: Tag
       tags:
+        - DroneUsable #No bucket because it holds chems, they can drag the cart or use a drain
         - Mop
         - MopAdv
     - type: DnaSubstanceTrace
+    - type: DamageOtherOnHit # imp
+      damage:
+        types:
+          Blunt: 6
+      staminaCost: 8
+    - type: DrainableSolution #imp edit, lets mop splash contents on melee attack
+      solution: absorbed
 
 - type: entity
   name: wet floor sign
@@ -330,6 +350,7 @@
       delay: 1.5
     - type: Tag
       tags:
+        - DroneUsable
         - Mop
     - type: CleansForensics
     - type: Fiber

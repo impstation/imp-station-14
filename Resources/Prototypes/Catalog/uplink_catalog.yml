@@ -67,6 +67,20 @@
   - UplinkWeaponry
 
 - type: listing
+  id: UplinkHyperEutacticBlade
+  name: uplink-hypereutactic-blade-name
+  description: uplink-hypereutactic-blade-desc
+  icon: { sprite: /Textures/Objects/Weapons/Melee/hypereutactic_blade.rsi, state: icon }
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 10
+  productEntity: HyperEutacticBlade
+  cost:
+    Telecrystal: 16 # Original DSword Cost
+  categories:
+  - UplinkWeaponry
+
+- type: listing
   id: UplinkEnergyDagger
   name: uplink-edagger-name
   description: uplink-edagger-desc
@@ -539,7 +553,7 @@
   id: UplinkMosinAmmo
   name: uplink-mosin-ammo-name
   description: uplink-mosin-ammo-desc
-  productEntity: MagazineBoxLightRifle
+  productEntity: MagazineBoxRifle
   cost:
     Telecrystal: 1
   categories:
@@ -724,9 +738,9 @@
   productEntity: ClothingBackpackDuffelSyndicateMedicalBundleFilled
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 12
+    Telecrystal: 16
   cost:
-    Telecrystal: 20
+    Telecrystal: 24
   categories:
   - UplinkChemicals
   conditions:
@@ -891,15 +905,28 @@
 # Disruption
 
 - type: listing
+  id: UplinkAccessBreaker
+  name: uplink-access-breaker-name
+  description: uplink-access-breaker-desc
+  productEntity: AccessBreaker
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 3
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkDisruption
+
+- type: listing
   id: UplinkEmag
   name: uplink-emag-name
   description: uplink-emag-desc
   productEntity: Emag
-  discountCategory: veryRareDiscounts
+  discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 2
   cost:
-    Telecrystal: 8
+    Telecrystal: 4
   categories:
   - UplinkDisruption
 
@@ -1040,6 +1067,10 @@
      blacklist:
        tags:
        - NukeOpsUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+        - SurplusBundle #imp special (dud roll as a traitor unless you have dagd)
 
 - type: listing
   id: UplinkNukieAntimovCircuitBoard
@@ -1058,6 +1089,10 @@
     whitelist:
       tags:
       - NukeOpsUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+        - SurplusBundle #imp special
 
 - type: listing
   id: UplinkSurplusBundle
@@ -1109,6 +1144,11 @@
     Telecrystal: 12
   categories:
     - UplinkDisruption
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+        - SurplusBundle # imp special. could maybe make a flatpack that only shows up in surplus bundles at some point, but rn its worse than useless and has a good chance of getting people stuck in wallsa nd shit
 
 - type: listing
   id: UplinkCameraBug
@@ -1151,7 +1191,7 @@
     Telecrystal: 6
   categories:
   - UplinkAllies
-  
+
 - type: listing
   id: UplinkReinforcementRadioSyndicate
   name: uplink-reinforcement-radio-name
@@ -1365,6 +1405,20 @@
     - UplinkImplants
 
 - type: listing
+  id: UplinkRadioImplanter
+  name: uplink-radio-implanter-name
+  description: uplink-radio-implanter-desc
+  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
+  productEntity: RadioImplanter
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkImplants
+
+- type: listing
   id: UplinkMicroBombImplanter
   name: uplink-micro-bomb-implanter-name
   description: uplink-micro-bomb-implanter-desc
@@ -1457,6 +1511,20 @@
       blacklist:
         components:
           - SurplusBundle
+
+- type: listing
+  id: UplinkFakeMindshield
+  name: uplink-fake-mindshield-name
+  description: uplink-fake-mindshield-desc
+  icon: { sprite: Interface/Actions/actions_fakemindshield.rsi, state: icon-on }
+  productEntity: FakeMindShieldImplanter
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkImplants
+
 
 # Wearables
 
@@ -1852,6 +1920,26 @@
     - UplinkPointless
 
 - type: listing
+  id: UplinkPinStraight
+  name: uplink-pin-straight-name
+  description: uplink-pin-straight-desc
+  productEntity: ClothingNeckStraightPin
+  cost:
+    Telecrystal: 1
+  categories:
+    - UplinkPointless
+
+- type: listing
+  id: UplinkCloakStraight
+  name: uplink-cloak-straight-name
+  description: uplink-cloak-straight-desc
+  productEntity: ClothingNeckCloakStraight
+  cost:
+    Telecrystal: 1
+  categories:
+    - UplinkPointless
+
+- type: listing
   id: UplinkSyndicateBusinessCard
   name: uplink-business-card-name
   description: uplink-business-card-desc
@@ -2071,27 +2159,6 @@
     Telecrystal: 2
   cost:
     Telecrystal: 5 # was 4, with my buff made it 5 to be closer to minibomb -panzer
-  categories:
-  - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Janitor
-  - !type:BuyerWhitelistCondition
-    blacklist:
-      components:
-      - SurplusBundle
-
-- type: listing
-  id: uplinkCleanerLakeUpgrade
-  name: uplink-cleaner-lake-upgrade-name
-  description: uplink-cleaner-lake-upgrade-desc
-  productEntity: WeaponCleanerLakeUpgradeKit
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 12
-  cost:
-    Telecrystal: 14 # was 4, with my buff made it 5 to be closer to minibomb -panzer
   categories:
   - UplinkJob
   conditions:

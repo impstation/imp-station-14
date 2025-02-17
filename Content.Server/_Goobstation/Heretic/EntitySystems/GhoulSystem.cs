@@ -27,7 +27,7 @@ using Robust.Shared.Audio;
 
 namespace Content.Server.Heretic.EntitySystems;
 
-public sealed partial class GhoulSystem : EntitySystem
+public sealed partial class GhoulSystem : Shared.Heretic.EntitySystems.SharedGhoulSystem
 {
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
@@ -96,14 +96,12 @@ public sealed partial class GhoulSystem : EntitySystem
         var sound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg");
         _antag.SendBriefing(ent, brief, Color.MediumPurple, sound);
 
-        if (!_role.MindHasRole<GhoulRoleComponent>(ent, out _))
-            _role.MindAddRole(mindId, "MindRoleGhoul");
+        if (!TryComp<GhoulRoleComponent>(ent, out _))
+            AddComp<GhoulRoleComponent>(mindId, new(), overwrite: true);
 
-        if (_role.MindHasRole<GhoulRoleComponent>(mindId, out var rbc))
-        {
-            AddComp<RoleBriefingComponent>(rbc.Value.Owner);
-            Comp<RoleBriefingComponent>(rbc.Value.Owner).Briefing = brief;
-        }
+        if (!TryComp<RoleBriefingComponent>(ent, out var rolebrief))
+            AddComp(mindId, new RoleBriefingComponent() { Briefing = brief }, overwrite: true);
+        else rolebrief.Briefing += $"\n{brief}";
     }
 
     public override void Initialize()
@@ -145,7 +143,7 @@ public sealed partial class GhoulSystem : EntitySystem
 
     private void OnExamine(Entity<GhoulComponent> ent, ref ExaminedEvent args)
     {
-        args.PushMarkup(Loc.GetString("examine-system-cant-see-entity"));
+        args.PushMarkup($"[color=red]{Loc.GetString("heretic-ghoul-examine", ("ent", args.Examined))}[/color]");
     }
 
     private void OnMobStateChange(Entity<GhoulComponent> ent, ref MobStateChangedEvent args)

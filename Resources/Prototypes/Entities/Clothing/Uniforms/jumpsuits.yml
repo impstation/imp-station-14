@@ -67,17 +67,6 @@
     sprite: Clothing/Uniforms/Jumpsuit/captain.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, BaseCommandContraband, ClothingUniformFoldableBase]
-  id: ClothingUniformJumpsuitCaptaineveningattire
-  name: captain's evening attire
-  description: "A comfortable captain's uniform with a low-cut collar and three-quarter sleeves, complete with a sword belt. Held fastened in part by a medal-like brooch."
-  components:
-  - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/captaineveningattire.rsi
-  - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/captaineveningattire.rsi
-
-- type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ClothingUniformJumpsuitCargo
   name: cargo tech jumpsuit
@@ -260,7 +249,7 @@
   description: It's a jumpsuit worn by those with the experience to be Chief Medical Officer. It provides minor biological protection.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/cmo.rsi
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/cmo.rsi
 
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
@@ -368,10 +357,10 @@
     sprite: Clothing/Uniforms/Jumpsuit/hos_blue.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, BaseCommandContraband]
+  parent: [ClothingUniformBase, BaseCommandContraband, ClothingUniformFoldableBase]
   id: ClothingUniformJumpsuitHoSGrey
   name: head of security's grey jumpsuit
-  description: A grey jumpsuit of Head of Security, which make him look somewhat like a passenger.
+  description: A grey jumpsuit for the Head of Security, unfortunately resembling a passenger's uniform.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/hos_grey.rsi
@@ -738,7 +727,7 @@
       sprite: Clothing/Uniforms/Jumpsuit/lawyergood.rsi
 
 - type: entity
-  parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
+  parent: [UnsensoredClothingUniformBase, Tier1Contraband]
   id: ClothingUniformJumpsuitPyjamaSyndicateBlack
   name: black syndicate pyjamas
   description: For those long nights in perma.
@@ -749,7 +738,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/pyjamasyndicateblack.rsi
 
 - type: entity
-  parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
+  parent: [UnsensoredClothingUniformBase, Tier1Contraband]
   id: ClothingUniformJumpsuitPyjamaSyndicatePink
   name: pink syndicate pyjamas
   description: For those long nights in perma.
@@ -760,7 +749,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/pyjamasyndicatepink.rsi
 
 - type: entity
-  parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
+  parent: [UnsensoredClothingUniformBase, Tier1Contraband]
   id: ClothingUniformJumpsuitPyjamaSyndicateRed
   name: red syndicate pyjamas
   description: For those long nights in perma.
@@ -815,7 +804,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/hosformal.rsi
 
 - type: entity
-  parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
+  parent: [UnsensoredClothingUniformBase, ClothingUniformFoldableBase, Tier1Contraband]
   id: ClothingUniformJumpsuitOperative
   name: operative jumpsuit
   description: Uniform for elite syndicate operatives performing tactical operations in deep space.
@@ -826,7 +815,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/operative.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent:  [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ClothingUniformJumpsuitTacticool
   name: tacticool jumpsuit
   description: Uniform for subpar operative LARPers performing tactical insulated glove theft in deep space.
@@ -841,7 +830,7 @@
       mode: SensorOff
 
 - type: entity
-  parent: [ ClothingUniformBase, BaseRestrictedContraband ]
+  parent: [ ClothingUniformBase ]
   id: ClothingUniformJumpsuitMercenary
   name: mercenary jumpsuit
   description: Clothing for real mercenaries who have gone through fire, water and the jungle of planets flooded with dangerous monsters or targets for which a reward has been assigned.
@@ -1116,7 +1105,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/hawaiyellow.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, BaseSyndicateContraband]
+  parent: [ClothingUniformBase, Tier1Contraband]
   id: ClothingUniformJumpsuitSyndieFormal
   name: syndicate formal suit
   description: "The syndicate's uniform is made in an elegant style, it's even a pity to do dirty tricks in this."
@@ -1326,6 +1315,36 @@
 
 - type: entity
   parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCasualGreen
+  name: casual green jumpsuit
+  description: A loose worn green shirt with a grey pants, perfect for someone looking to relax.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/casual.rsi
+    layers:
+    - state: icon-jumpsuit
+    - state: icon-shirt
+      color: "#00661D"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-jumpsuit
+      - state: inhand-left-shirt
+        color: "#00661D"
+      right:
+      - state: inhand-right-jumpsuit
+      - state: inhand-right-shirt
+        color: "#00661D"
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/casual.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING-jumpsuit
+      - state: equipped-INNERCLOTHING-shirt
+        color: "#00661D"
+
+- type: entity
+  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitFamilyGuy
   name: familiar garbs
   description: Makes you remember the time you did something funny.
@@ -1334,7 +1353,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/familiar_garbs.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/familiar_garbs.rsi
-    
+
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitLoungewearWeb

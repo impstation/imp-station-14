@@ -1,6 +1,9 @@
 # PUT YOUR TAGS IN ALPHABETICAL ORDER
 
 - type: Tag
+  id: AccessBreakerImmune
+
+- type: Tag
   id: AirAlarm
 
 - type: Tag
@@ -11,6 +14,9 @@
 
 - type: Tag
   id: AirSensor
+
+- type: Tag
+  id: Aloe
 
 - type: Tag
   id: Ambrosia
@@ -31,6 +37,9 @@
   id: ATVKeys
 
 - type: Tag
+  id: Bagel
+
+- type: Tag
   id: Balloon
 
 - type: Tag
@@ -47,6 +56,9 @@
 
 - type: Tag
   id: BBQsauce
+
+- type: Tag
+  id: BearHide
 
 - type: Tag
   id: Bedsheet
@@ -76,112 +88,25 @@
   id: BorgArm
 
 - type: Tag
-  id: BorgCargoHead
-
-- type: Tag
-  id: BorgCargoLArm
-
-- type: Tag
-  id: BorgCargoLLeg
-
-- type: Tag
-  id: BorgCargoRArm
-
-- type: Tag
-  id: BorgCargoRLeg
-
-- type: Tag
-  id: BorgCargoTorso
-
-- type: Tag
-  id: BorgEngineerHead
-
-- type: Tag
-  id: BorgEngineerLArm
-
-- type: Tag
-  id: BorgEngineerLLeg
-
-- type: Tag
-  id: BorgEngineerRArm
-
-- type: Tag
-  id: BorgEngineerRLeg
-
-- type: Tag
-  id: BorgEngineerTorso
-
-- type: Tag
-  id: BorgGenericHead
-
-- type: Tag
-  id: BorgGenericLArm
-
-- type: Tag
-  id: BorgGenericLLeg
-
-- type: Tag
-  id: BorgGenericRArm
-
-- type: Tag
-  id: BorgGenericRLeg
-
-- type: Tag
-  id: BorgGenericTorso
-
-- type: Tag
   id: BorgHead
 
 - type: Tag
-  id: BorgJanitorHead
+  id: BorgLArm
 
 - type: Tag
-  id: BorgJanitorLLeg
+  id: BorgLLeg
 
 - type: Tag
-  id: BorgJanitorRLeg
+  id: BorgRArm
 
 - type: Tag
-  id: BorgJanitorTorso
+  id: BorgRLeg
+
+- type: Tag
+  id: BorgTorso
 
 - type: Tag
   id: BorgLeg
-
-- type: Tag
-  id: BorgMedicalHead
-
-- type: Tag
-  id: BorgMedicalLArm
-
-- type: Tag
-  id: BorgMedicalLLeg
-
-- type: Tag
-  id: BorgMedicalRArm
-
-- type: Tag
-  id: BorgMedicalRLeg
-
-- type: Tag
-  id: BorgMedicalTorso
-
-- type: Tag
-  id: BorgMiningHead
-
-- type: Tag
-  id: BorgMiningLArm
-
-- type: Tag
-  id: BorgMiningLLeg
-
-- type: Tag
-  id: BorgMiningRArm
-
-- type: Tag
-  id: BorgMiningRLeg
-
-- type: Tag
-  id: BorgMiningTorso
 
 - type: Tag
   id: BorgModuleCargo
@@ -206,24 +131,6 @@
 
 - type: Tag
   id: BorgModuleSyndicateAssault
-
-- type: Tag
-  id: BorgServiceHead
-
-- type: Tag
-  id: BorgServiceLArm
-
-- type: Tag
-  id: BorgServiceLLeg
-
-- type: Tag
-  id: BorgServiceRArm
-
-- type: Tag
-  id: BorgServiceRLeg
-
-- type: Tag
-  id: BorgServiceTorso
 
 - type: Tag
   id: Bot
@@ -525,6 +432,9 @@
   id: CrowbarRed
 
 - type: Tag
+  id: Crusher
+
+- type: Tag
   id: Cryobeaker
 
 - type: Tag
@@ -553,6 +463,9 @@
 
 - type: Tag
   id: Debug
+
+- type: Tag
+  id: Diagonal
 
 - type: Tag
   id: Dice
@@ -592,6 +505,9 @@
 
 - type: Tag
   id: DrinkBottle
+
+- type: Tag
+  id: DroneUsable
 
 - type: Tag
   id: DrinkCan
@@ -735,16 +651,16 @@
   id: Grenade
 
 - type: Tag
-  id: CleanerGrenade
-
-- type: Tag
-  id: WeaponCleanerLakeUpgradeKit
+  id: GrenadeFlashBang
 
 - type: Tag
   id: HudMedical
 
 - type: Tag
   id: HudSecurity
+
+- type: Tag
+  id: GlassesSecurity
 
 - type: Tag
   id: GuideEmbeded
@@ -781,6 +697,9 @@
 
 - type: Tag
   id: Hardsuit # Prevent melee injectors that can't penetrate hardsuits from injecting the wearer (nettles)
+
+- type: Tag
+  id: HardsuitSpatio
 
 - type: Tag
   id: Haunted
@@ -877,6 +796,9 @@
 
 - type: Tag
   id: JawsOfLife
+
+- type: Tag
+  id: Jug
 
 - type: Tag
   id: Kangaroo
@@ -1021,6 +943,9 @@
   id: MimeHappyHonk
 
 - type: Tag
+  id: MimeHardsuit
+
+- type: Tag
   id: MindShield
 
 - type: Tag
@@ -1051,10 +976,16 @@
   id: Mouse
 
 - type: Tag
+  id: Muffin
+
+- type: Tag
   id: Multitool
 
 - type: Tag
   id: NoBlockAnchoring
+
+- type: Tag
+  id: NoConsoleSound
 
 - type: Tag
   id: NozzleBackTank
@@ -1123,9 +1054,6 @@
   id: Pizza
 
 - type: Tag
-  id: PlantAnalyzer
-
-- type: Tag
   id: PlantBGone
 
 - type: Tag
@@ -1139,6 +1067,9 @@
 
 - type: Tag
   id: Plunger
+
+- type: Tag
+  id: PlushieCarp
 
 - type: Tag
   id: PlushieGhost
@@ -1194,6 +1125,9 @@
 
 - type: Tag
   id: ReinforcedGlassShard
+
+- type: Tag
+  id: RegenerativeMesh
 
 - type: Tag
   id: ReptilianFood
@@ -1271,6 +1205,9 @@
   id: ShellShotgun
 
 - type: Tag
+  id: ShellShotgunLight # shotgun shells that are compatible with the flare gun.
+
+- type: Tag
   id: Shiv
 
 - type: Tag
@@ -1331,6 +1268,9 @@
   id: SpiderCraft
 
 - type: Tag
+  id: SpiderMeat
+
+- type: Tag
   id: SpookyFog
 
 - type: Tag
@@ -1367,6 +1307,9 @@
   id: Sunglasses
 
 - type: Tag
+  id: Suppermatter
+
+- type: Tag
   id: SurgeryTool
 
 - type: Tag
@@ -1380,6 +1323,9 @@
 
 - type: Tag
   id: Syringe
+
+- type: Tag
+  id: SyringeGunAmmo
 
 - type: Tag
   id: Spellbook
@@ -1483,6 +1429,9 @@
 - type: Tag
   id: WeldingMask
 
+- type: Tag #imp addon (why the fuck doesn't this exist upstream)
+  id: WeldingTool
+
 - type: Tag
   id: WetFloorSign
 
@@ -1491,6 +1440,12 @@
 
 - type: Tag
   id: WhitelistChameleon
+
+- type: Tag
+  id: WhitelistChameleonIdCard
+
+- type: Tag
+  id: WhitelistChameleonPDA
 
 - type: Tag
   id: Window

@@ -8,6 +8,8 @@
   - type: MindRole
     antagPrototype: Changeling
     exclusiveAntag: true
+    roleType: SoloAntagonist # imp edit
+    primaryCurrency: EvolutionPoint #imp edit
   - type: ChangelingRole
 
 - type: entity
@@ -19,15 +21,6 @@
   - type: MindRole
     antagPrototype: Heretic
     exclusiveAntag: true
+    roleType: SoloAntagonist # imp edit
+    primaryCurrency: KnowledgePoint #imp edit
   - type: HereticRole
-
-- type: entity
-  parent: BaseMindRoleAntag
-  id: MindRoleGhoul
-  name: Ghoul Role
-#  description: mind-role-changeling-description
-  components:
-  - type: MindRole
-    antagPrototype: Ghoul
-    exclusiveAntag: true
-  - type: GhoulRole

@@ -7,7 +7,7 @@ using Content.Server.Atmos.Components;
 using Content.Server.Cargo.Components;
 using Content.Server.Doors.Systems;
 using Content.Server.Hands.Systems;
-using Content.Server._Impstation.Spelfs;
+using Content.Server._Impstation.Thaven;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Revenant.Components;
@@ -27,7 +27,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Database;
 using Content.Shared.Doors.Components;
 using Content.Shared.Hands.Components;
-using Content.Shared._Impstation.Spelfs.Components;
+using Content.Shared._Impstation.Thaven.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
 using Content.Shared.PDA;
@@ -210,6 +210,7 @@ public sealed partial class AdminVerbSystem
                         var recharger = EnsureComp<BatterySelfRechargerComponent>(args.Target);
                         recharger.AutoRecharge = true;
                         recharger.AutoRechargeRate = battery.MaxCharge; // Instant refill.
+                        recharger.AutoRechargePause = false; // No delay.
                     },
                     Impact = LogImpact.Medium,
                     Message = Loc.GetString("admin-trick-infinite-battery-object-description"),
@@ -609,6 +610,7 @@ public sealed partial class AdminVerbSystem
 
                         recharger.AutoRecharge = true;
                         recharger.AutoRechargeRate = battery.MaxCharge; // Instant refill.
+                        recharger.AutoRechargePause = false; // No delay.
                     }
                 },
                 Impact = LogImpact.Extreme,
@@ -776,13 +778,13 @@ public sealed partial class AdminVerbSystem
             args.Verbs.Add(makeInanimate);
         }
 
-        if (TryComp<SpelfMoodsComponent>(args.Target, out var moods))
+        if (TryComp<ThavenMoodsComponent>(args.Target, out var moods))
         {
             Verb addRandomMood = new()
             {
                 Text = "Add Random Mood",
                 Category = VerbCategory.Tricks,
-                // TODO: Icon
+                Icon = new SpriteSpecifier.Rsi(new ResPath("Interface/Actions/actions_borg.rsi"), "state-laws"),
                 Act = () =>
                 {
                     _moods.TryAddRandomMood(args.Target);
@@ -792,6 +794,24 @@ public sealed partial class AdminVerbSystem
                 Priority = (int) TricksVerbPriorities.AddRandomMood,
             };
             args.Verbs.Add(addRandomMood);
+        }
+        else
+        {
+            Verb giveMoods = new()
+            {
+                Text = "Give Moods",
+                Category = VerbCategory.Tricks,
+                Icon = new SpriteSpecifier.Rsi(new ResPath("Interface/Actions/actions_borg.rsi"), "state-laws"),
+                Act = () =>
+                {
+                    if (!EntityManager.EnsureComponent<ThavenMoodsComponent>(args.Target, out moods))
+                        _moods.NotifyMoodChange((args.Target, moods));
+                },
+                Impact = LogImpact.High,
+                Message = Loc.GetString("admin-trick-give-moods-description"),
+                Priority = (int) TricksVerbPriorities.AddRandomMood,
+            };
+            args.Verbs.Add(giveMoods);
         }
     }
 

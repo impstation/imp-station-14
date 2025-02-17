@@ -3,6 +3,7 @@ using Content.Shared.Dataset;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Tag;
+using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Text;
@@ -19,6 +20,11 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
     private IRobustRandom _rand = default!;
     private EntityLookupSystem _lookup = default!;
     private HereticSystem _heretic = default!;
+    private SharedContainerSystem _container = default!;
+
+
+    [ValidatePrototypeId<DatasetPrototype>]
+    public const string EligibleTagsDataset = "EligibleTags";
 
     // this is basically a ripoff from hereticritualsystem
     public override bool Execute(RitualData args, out string? outstr)
@@ -28,12 +34,13 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
         _lookup = args.EntityManager.System<EntityLookupSystem>();
         _heretic = args.EntityManager.System<HereticSystem>();
 
+
         outstr = null;
 
         // generate new set of tags
         if (requiredTags.Count == 0)
             for (int i = 0; i < 4; i++)
-                requiredTags.Add(_rand.Pick(_prot.Index<DatasetPrototype>("EligibleTags").Values), 1);
+                requiredTags.Add(_rand.Pick(_prot.Index<DatasetPrototype>(EligibleTagsDataset).Values), 1);
 
         var lookup = _lookup.GetEntitiesInRange(args.Platform, .75f);
         var missingList = new List<string>();
@@ -42,7 +49,9 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
         {
             foreach (var tag in requiredTags)
             {
-                if (!args.EntityManager.TryGetComponent<TagComponent>(look, out var tags))
+                //WHY DID THEY JUST COPY-PASTE THE NORMAL RITUAL CODE. JUST USE THE NORMAL RITUAL CODE I AM BEGGING
+                if (!args.EntityManager.TryGetComponent<TagComponent>(look, out var tags)
+                    || _container.IsEntityInContainer(look))
                     continue;
                 var ltags = tags.Tags;
 

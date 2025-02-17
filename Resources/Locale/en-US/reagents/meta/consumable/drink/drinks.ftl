@@ -34,7 +34,7 @@ reagent-desc-iced-tea = No relation to a certain rap artist/actor.
 reagent-name-lemonade = lemonade
 reagent-desc-lemonade = Drink using lemon juice, water, and a sweetener such as cane sugar or honey.
 
-reagent-name-arnold-palmer = arnold palmer
+reagent-name-arnold-palmer = Arnold Palmer
 reagent-desc-arnold-palmer = Now watch this drive.
 
 reagent-name-milk = milk
@@ -91,20 +91,5 @@ reagent-desc-pilk = A sickening mixture of milk and cola.
 reagent-name-posca = posca
 reagent-desc-posca = Poor warriors' drink from a forgotten era.
 
-reagent-name-the-martinez = The Martinez
-reagent-desc-the-martinez = The edgerunner legend. Remembered by a drink, forgotten by a drunk.
-
-reagent-name-white-gilgamesh = white gilgamesh
-reagent-desc-white-gilgamesh = A sickening mixture of milk and beer. Makes you feel like you're made of wood.
-
 reagent-name-mopwata = mopwata
 reagent-desc-mopwata = Dirty, stagnant mop water.
-
-reagent-name-apple-martini-crystal-lite = apple martini Crystal Lite™
-reagent-desc-apple-martini-crystal-lite = Crystal Lite™'s mocktail line was discontinued in 2015. This one tastes like an appletini.
-
-reagent-name-horsepussy = the horsepussy
-reagent-desc-horsepussy = Two-thirds apple martini Crystal Lite™, one-third methadone. They are going to drink this after me when I die.
-
-reagent-name-raktaccino = raktaccino
-reagent-desc-raktaccino = Piping hot, achingly bitter, and absolutely delicious.

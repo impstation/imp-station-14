@@ -57,6 +57,58 @@
           Quantity: 5
 
 - type: entity
+  id: PuddleBloodSmall
+  parent: PuddleTemporary
+  suffix: Blood (5u)
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 1000
+        reagents:
+        - ReagentId: Blood
+          Quantity: 5
+
+- type: entity
+  id: PuddleBlood
+  parent: PuddleTemporary
+  suffix: Blood (30u)
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 1000
+        reagents:
+        - ReagentId: Blood
+          Quantity: 30
+
+- type: entity
+  id: PuddleFluorosulfuricAcidSmall
+  parent: PuddleTemporary
+  suffix: FluorosulfuricAcid (5u)
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 1000
+        reagents:
+        - ReagentId: FluorosulfuricAcid
+          Quantity: 5
+
+- type: entity
+  id: PuddleFluorosulfuricAcid
+  parent: PuddleTemporary
+  suffix: FluorosulfuricAcid (15u)
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 1000
+        reagents:
+        - ReagentId: FluorosulfuricAcid
+          Quantity: 15
+
+- type: entity
   id: PuddleWatermelon
   parent: PuddleTemporary
   suffix: Watermelon
@@ -120,7 +172,7 @@
       layers:
         - sprite: Fluids/wet_floor_sparkles.rsi
           state: sparkles
-      drawdepth: FloorObjects
+      drawdepth: Puddles
       color: "#FFFFFF80"
 
 - type: entity
@@ -139,7 +191,7 @@
     layers:
     - sprite: Fluids/puddle.rsi
       state: splat0
-    drawdepth: FloorObjects
+    drawdepth: Puddles
     color: "#FFFFFF80"
   - type: Physics
     bodyType: Static

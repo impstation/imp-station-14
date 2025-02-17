@@ -2,13 +2,14 @@
   id: Heretic
   name: roles-antag-heretic-name
   antagonist: true
+  playTimeTracker: AntagHeretic
   setPreference: true
   objective: roles-antag-heretic-description
   guides: [ Heretics ]
 
-- type: antag
-  id: Ghoul
-  name: roles-antag-ghoul-name
-  antagonist: true
-  setPreference: false
-  objective: roles-antag-ghoul-description
+- type: startingGear
+  id: HereticGear
+  storage:
+    back:
+    - CodexCicatrix
+    - OrganHumanHeart

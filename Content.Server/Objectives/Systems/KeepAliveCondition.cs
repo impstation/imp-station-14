@@ -45,8 +45,19 @@ public sealed class KeepAliveConditionSystem : EntitySystem
             return;
         }
 
-        var traitors = Enumerable.ToList<(EntityUid Id, MindComponent Mind)>(_traitorRule.GetOtherTraitorMindsAliveAndConnected(args.Mind)).Select(t => t.Id).ToList();
-        args.Mind.ObjectiveTargets.ForEach(p => traitors.Remove(p));
+        var traitors = _traitorRule.GetOtherTraitorMindsAliveAndConnected(args.Mind).Select(t => t.Id).ToHashSet();
+
+        // Can't have multiple objectives to help/save/kill the same person
+        foreach (var objective in args.Mind.Objectives)
+        {
+            if (HasComp<RandomTraitorAliveComponent>(objective) || HasComp<RandomTraitorProgressComponent>(objective) || HasComp<KillPersonConditionComponent>(objective)) // imp edit
+            {
+                if (TryComp<TargetObjectiveComponent>(objective, out var help))
+                {
+                    traitors.RemoveWhere(x => x == help.Target);
+                }
+            }
+        }
 
         // You are the first/only traitor.
         if (traitors.Count == 0)
@@ -59,8 +70,8 @@ public sealed class KeepAliveConditionSystem : EntitySystem
             }
 
             //Fallback to assign people who COULD be assigned as traitor - might need to just do this from the start on ForceAll rounds, limiting it to existing traitors could be skewing the numbers towards just a few people.
-            var allHumans = _mind.GetAliveHumansExcept(args.MindId);
-            var allValidTraitorCandidates = new List<EntityUid>();
+            var allHumans = _mind.GetAliveHumans(args.MindId).Select(p => p.Owner).ToHashSet();
+            var allValidTraitorCandidates = new HashSet<EntityUid>();
             if (_traitorRule.CurrentAntagPool != null)
             {
                 var poolSessions = _traitorRule.CurrentAntagPool.GetPoolSessions();

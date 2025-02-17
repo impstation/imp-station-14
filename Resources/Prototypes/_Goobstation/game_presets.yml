@@ -1,4 +1,36 @@
 - type: gamePreset
+  id: Heretics
+  alias:
+    - Heretic
+  name: heretic-gamemode-title
+  description: heretic-gamemode-description
+  cooldown: 1
+  showInVote: false
+  rules:
+    - Heretic
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
+    - MidpopLimiter
+
+- type: gamePreset
+  id: SecretHeretics
+  alias:
+    - SecretHeretic
+  name: secret-title
+  description: secret-description
+  showInVote: false
+  rules:
+    - Heretic
+    - SubGamemodesRule
+    - MeteorSwarmScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
+    - MidpopLimiter
+
+- type: gamePreset
   id: Changeling
   alias:
     - ling
@@ -6,6 +38,7 @@
     - changeling
   name: changeling-gamemode-title
   description: changeling-gamemode-description
+  cooldown: 1
   showInVote: false
   rules:
     - Changeling
@@ -14,6 +47,7 @@
     - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
+    - MidpopLimiter
 
 - type: gamePreset
   id: Secretling
@@ -30,20 +64,4 @@
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
-
-- type: gamePreset
-  id: Traitorling
-  alias:
-    - lingtraitor
-    - traitorling
-  name: traitorling-title
-  description: traitorling-description
-  showInVote: false
-  rules:
-    - CalmLing
-    - CalmTraitor
-    - SubGamemodesRule
-    - BasicStationEventScheduler
-    - MeteorSwarmScheduler
     - BasicRoundstartVariation

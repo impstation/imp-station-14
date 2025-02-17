@@ -179,19 +179,10 @@
     path: /Audio/Animals/chicken_cluck_happy.ogg
 
 - type: speechSounds
-  id: Finfin
+  id: Goat
   saySound:
-    path: /Audio/Animals/finfin1.ogg
+    path: /Audio/Animals/goat_bah.ogg
   askSound:
-    path: /Audio/Animals/finfin2.ogg
+    path: /Audio/Animals/goat_bah.ogg
   exclaimSound:
-    path: /Audio/Animals/finfin3.ogg
-
-- type: speechSounds
-  id: Bros
-  saySound:
-    path: /Audio/Animals/bros_hit.ogg
-  askSound:
-    path: /Audio/Animals/bros_hit.ogg
-  exclaimSound:
-    path: /Audio/Animals/bros_hit.ogg
+    path: /Audio/Animals/goat_bah.ogg

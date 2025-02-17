@@ -33,6 +33,8 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
 
     public readonly ProtoId<CurrencyPrototype> Currency = "EvolutionPoint";
 
+    [ValidatePrototypeId<EntityPrototype>] EntProtoId mindRole = "MindRoleChangeling";
+
     public override void Initialize()
     {
         base.Initialize();
@@ -50,6 +52,8 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
             return false;
 
+        _role.MindAddRole(mindId, mindRole.Id, mind, true);
+
         // briefing
         if (TryComp<MetaDataComponent>(target, out var metaData))
         {
@@ -57,30 +61,25 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
             var briefingShort = Loc.GetString("changeling-role-greeting-short", ("name", metaData?.EntityName ?? "Unknown"));
 
             _antag.SendBriefing(target, briefing, Color.Yellow, BriefingSound);
-            if (_role.MindHasRole<ChangelingRoleComponent>(mindId, out var rbc))
-            {
-                AddComp<RoleBriefingComponent>(rbc.Value.Owner);
-                Comp<RoleBriefingComponent>(rbc.Value.Owner).Briefing = briefingShort;
-            }
+
+            if (_role.MindHasRole<ChangelingRoleComponent>(mindId, out var mr))
+                AddComp(mr.Value, new RoleBriefingComponent { Briefing = briefingShort }, overwrite: true);
         }
         // hivemind stuff
         _npcFaction.RemoveFaction(target, NanotrasenFactionId, false);
         _npcFaction.AddFaction(target, ChangelingFactionId);
 
         // make sure it's initial chems are set to max
-        EnsureComp<ChangelingComponent>(target);
+        var changelingComp = EnsureComp<ChangelingComponent>(target);
 
         // add store
         var store = EnsureComp<StoreComponent>(target);
         foreach (var category in rule.StoreCategories)
             store.Categories.Add(category);
         store.CurrencyWhitelist.Add(Currency);
-        store.Balance.Add(Currency, 16);
+        store.Balance.Add(Currency, changelingComp.MaxEvolutionPoints);
 
         rule.ChangelingMinds.Add(mindId);
-
-        foreach (var objective in rule.Objectives)
-            _mind.TryAddObjective(mindId, mind, objective);
 
         return true;
     }

@@ -113,6 +113,7 @@
     tags:
     - Bee
     - Trash
+    - MultitoolDefibrillatorTarget
   - type: Bloodstream
     bloodMaxVolume: 0.1
   - type: MobPrice
@@ -378,6 +379,7 @@
     tags:
     - Trash
     - VimPilot
+    - MultitoolDefibrillatorTarget
   - type: Destructible
     thresholds:
     - trigger:
@@ -443,6 +445,8 @@
     name: ghost-role-information-mothroach-name
     description: ghost-role-information-mothroach-description
     rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
   - type: Fixtures
     fixtures:
       fix1:
@@ -538,6 +542,7 @@
     - Trash
     - CannotSuicide
     - VimPilot
+    - MultitoolDefibrillatorTarget
   - type: CanEscapeInventory
   - type: NpcFactionMember
     factions:
@@ -771,6 +776,9 @@
     bloodMaxVolume: 0.1
   - type: MobPrice
     price: 50
+  - type: Tag
+    tags:
+    - MultitoolDefibrillatorTarget
 
 - type: entity
   name: cow
@@ -862,6 +870,8 @@
   id: MobCrab
   description: A folk legend goes around that his claw snaps spacemen out of existence over distasteful remarks. Be polite and tolerant for your own safety.
   components:
+  - type: VentCrawler
+    enterDelay: 3
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -998,6 +1008,15 @@
   - type: Grammar
     attributes:
       gender: female # Here because of UdderComponent
+  - type: Speech
+    speechSounds: Goat
+    speechVerb: Goat
+  - type: Vocal
+    sounds:
+      Female: Goat
+      Male: Goat
+      Unsexed: Goat
+  - type: BleatingAccent
   - type: InteractionPopup
     successChance: 0.2
     interactSuccessString: petting-success-goat
@@ -1226,6 +1245,8 @@
   description: The genetic bipedal ancestor of... Uh... Something. Yeah, there's definitely something on the station that descended from whatever this is.
   abstract: true
   components:
+  - type: VentCrawler
+    enterDelay: 3
   - type: CombatMode
   - type: Inventory
     templateId: monkey
@@ -1286,7 +1307,7 @@
     sprite: Mobs/Effects/onfire.rsi
     normalState: Monkey_burning
   - type: InteractionPopup
-    successChance: 0.9
+    successChance: 0.7
     interactSuccessString: petting-success-monkey
     interactFailureString: petting-failure-monkey
     interactSuccessSpawn: EffectHearts
@@ -1326,6 +1347,7 @@
     - VimPilot
     - DoorBumpOpener
     - AnomalyHost
+    - CanPilot #imp edit
   - type: Reactive
     groups:
       Flammable: [ Touch ]
@@ -1335,6 +1357,7 @@
       methods: [ Touch ]
       effects:
       - !type:WashCreamPieReaction
+  - type: LayingDown # imp
 
 
 
@@ -1346,10 +1369,19 @@
   components:
   - type: NameIdentifier
     group: Monkey
+  - type: Vocal
+    sounds:
+      Male: Monkey
+      Female: Monkey
+      Unsexed: Monkey
   - type: Speech
     speechSounds: Monkey
     speechVerb: Monkey
+    allowedEmotes: ['Scream', 'Laugh']
   - type: MonkeyAccent
+  - type: Emoting
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-primate
   - type: AlwaysRevolutionaryConvertible
@@ -1361,7 +1393,7 @@
     rules: ghost-role-information-nonantagonist-rules
   - type: GhostTakeoverAvailable
   - type: Clumsy
-    clumsyDamage:
+    gunShootFailDamage:
       types:
         Blunt: 5
         Piercing: 4
@@ -1382,10 +1414,19 @@
     group: Monkey
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-primate
+  - type: Vocal
+    sounds:
+      Male: Monkey
+      Female: Monkey
+      Unsexed: Monkey
   - type: Speech
     speechSounds: Monkey
     speechVerb: Monkey
+    allowedEmotes: ['Scream', 'Laugh']
   - type: MonkeyAccent
+  - type: Emoting
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
   - type: NpcFactionMember
     factions:
     - Syndicate
@@ -1394,7 +1435,10 @@
     makeSentient: true
     name: ghost-role-information-monkey-name
     description: ghost-role-information-monkey-description
-    rules: ghost-role-information-syndicate-monkey-reinforcement-rules
+    rules: ghost-role-information-syndicate-reinforcement-rules
+    mindRoles:
+    # This is for syndicate monkeys that randomly gain sentience, thus have no summoner to team with
+    - MindRoleGhostRoleSoloAntagonist
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
@@ -1406,10 +1450,10 @@
   parent: MobBaseSyndicateMonkey
   suffix: syndicate agent
   components:
-    # make the player a traitor once its taken
+  - type: VentCrawler
+  # make the player a traitor once its taken
   - type: AutoTraitor
-    giveUplink: false
-    giveObjectives: false
+    profile: TraitorReinforcement
 
 - type: entity
   id: MobMonkeySyndicateAgentNukeops # Reinforcement exclusive to nukeops uplink
@@ -1433,11 +1477,14 @@
   - type: Speech
     speechSounds: Lizard
     speechVerb: Reptilian
+    allowedEmotes: ['Thump', 'Hiss']
   - type: Vocal
     sounds:
       Male: MaleReptilian
       Female: FemaleReptilian
       Unsexed: MaleReptilian
+  - type: BodyEmotes
+    soundsId: ReptilianBodyEmotes
   - type: TypingIndicator
     proto: lizard
   - type: InteractionPopup
@@ -1535,7 +1582,7 @@
   description: Cousins to the sentient race of lizard people, kobolds blend in with their natural habitat and are as nasty as monkeys; ready to pull out your hair and stab you to death.
   components:
   - type: Clumsy
-    clumsyDamage:
+    gunShootFailDamage:
       types:
         Blunt: 2
         Piercing: 7
@@ -1552,7 +1599,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      75: Critical
+      100: Critical
       200: Dead
   - type: NpcFactionMember
     factions:
@@ -1567,8 +1614,7 @@
   components:
     # make the player a traitor once its taken
   - type: AutoTraitor
-    giveUplink: false
-    giveObjectives: false
+    profile: TraitorReinforcement
 
 - type: entity
   id: MobKoboldSyndicateAgentNukeops # Reinforcement exclusive to nukeops uplink
@@ -1592,6 +1638,8 @@
   id: MobMouse
   description: Squeak!
   components:
+  - type: VentCrawler
+    enterDelay: 1
   - type: Body
     prototype: Mouse
   - type: GhostRole
@@ -1601,6 +1649,8 @@
     name: ghost-role-information-mouse-name
     description: ghost-role-information-mouse-description
     rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
   - type: GhostTakeoverAvailable
   - type: Speech
     speechSounds: Squeak
@@ -1686,7 +1736,6 @@
       Dead: 0
     baseDecayRate: 0.04
   - type: Hunger
-    currentHunger: 25   # spawn with Okay hunger state
     thresholds:
       Overfed: 35
       Okay: 25
@@ -1702,6 +1751,12 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 3
+        - ReagentId: MouseBites #imp
+          Quantity: 2
+      mousebites: #imp. dont look at this.
+        reagents:
+        - ReagentId: MouseBites
+          Quantity: 500 # DONT LOOK AT THIS
   - type: Butcherable
     spawned:
     - id: FoodMeatRat
@@ -1715,6 +1770,7 @@
     - ChefPilot
     - Mouse
     - Meat
+    - MultitoolDefibrillatorTarget
   - type: Respirator
     damage:
       types:
@@ -1757,6 +1813,12 @@
       Taco: RatTaco
       Burger: RatBurger
       Skewer: RatSkewer
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Mouse
+  - type: MeleeChemicalInjector #imp
+    solution: mousebites
+    transferAmount: 1
 
 - type: entity
   parent: MobMouse
@@ -1784,6 +1846,11 @@
   # intended for swarms that eat pills so only temporary
   - type: TimedDespawn
     lifetime: 60
+  - type: Hunger
+    baseDecayRate: 10 # always hungry
+    starvingSlowdownModifier: 1
+  - type: Thirst
+    baseDecayRate: 10 # always thirsty
 
 - type: entity
   parent: MobMouse
@@ -1884,6 +1951,17 @@
   id: MobLizard
   description: A harmless dragon.
   components:
+  - type: ReplacementAccent
+    accent: kobold
+  - type: Speech # Imp edit
+    speechSounds: Lizard
+    speechVerb: Reptilian
+    allowedEmotes: ['Hiss'] # Can't thump tail because no body component
+  - type: Vocal # Imp edit
+    sounds:
+      Male: MaleReptilian
+      Female: FemaleReptilian
+      Unsexed: MaleReptilian
   - type: MovementSpeedModifier
     baseWalkSpeed: 2
     baseSprintSpeed: 3
@@ -1932,6 +2010,7 @@
   - type: Tag
     tags:
     - VimPilot
+    - MultitoolDefibrillatorTarget
 
 
 - type: entity
@@ -1940,6 +2019,8 @@
   id: MobSlug
   description: And they called this a lizard?
   components:
+  - type: VentCrawler
+    enterDelay: 1
   - type: MovementSpeedModifier
     baseWalkSpeed : 2
     baseSprintSpeed : 3
@@ -1980,6 +2061,9 @@
     interactSuccessSpawn: EffectHearts
   - type: Bloodstream
     bloodMaxVolume: 50
+  - type: Tag
+    tags:
+    - MultitoolDefibrillatorTarget
 
 - type: entity
   name: frog
@@ -1987,6 +2071,8 @@
   id: MobFrog
   description: Hop hop hop. Lookin' moist.
   components:
+  - type: VentCrawler
+    enterDelay: 1
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 6
@@ -2039,6 +2125,7 @@
   - type: Tag
     tags:
     - VimPilot
+    - MultitoolDefibrillatorTarget
 
 # Would be cool to have some functionality for the parrot to be able to sit on stuff
 - type: entity
@@ -2159,7 +2246,7 @@
 
 - type: entity
   name: grenade penguin
-  parent: [ MobPenguin, MobCombat, BaseSyndicateContraband ]
+  parent: [ MobPenguin, MobCombat, Tier3Contraband ]
   id: MobGrenadePenguin
   description: A small penguin with a grenade strapped around its neck. Harvested by the Syndicate from icy shit-hole planets.
   components:
@@ -2170,7 +2257,7 @@
   - type: MobMover
   - type: HTN
     rootTask:
-      task: SimpleHostileCompound
+      task: GrenadePenguinCompound # imp
   - type: NpcFactionMember
     factions:
     - Syndicate
@@ -2208,7 +2295,7 @@
   - type: Item
     size: Normal
   - type: OnUseTimerTrigger
-    delay: 10
+    delay: 15 # imp
     beepSound:
       path: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg #funny sfx use
       params:
@@ -2216,7 +2303,7 @@
     beepInterval: 1
   - type: Explosive
     explosionType: Default
-    maxIntensity: 20
+    maxIntensity: 10 # imp
     intensitySlope: 20
     totalIntensity: 225
   - type: ExplodeOnTrigger
@@ -2235,6 +2322,8 @@
   id: MobSnake
   description: Hissss! Bites aren't poisonous.
   components:
+  - type: VentCrawler
+    enterDelay: 2
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -2279,11 +2368,12 @@
 # Code unique spider prototypes or combine them all into one spider and get a
 # random sprite state when you spawn it.
 - type: entity
-  name: tarantula
   parent: [ SimpleMobBase, MobCombat ]
-  id: MobGiantSpider
-  description: Widely recognized to be the literal worst thing in existence.
+  id: MobSpiderBase
+  abstract: true
   components:
+  - type: VentCrawler
+    enterDelay: 3
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -2309,14 +2399,6 @@
         - MobMask
         layer:
         - MobLayer
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: tarantula
-      Critical:
-        Base: tarantula_dead
-      Dead:
-        Base: tarantula_dead
   - type: Butcherable
     spawned:
     - id: FoodMeatSpider
@@ -2328,15 +2410,6 @@
     thresholds:
       0: Alive
       90: Dead
-  - type: MeleeWeapon
-    altDisarm: false
-    angle: 0
-    animation: WeaponArcBite
-    soundHit:
-      path: /Audio/Effects/bite.ogg
-    damage:
-      types:
-        Piercing: 6
   - type: SolutionContainerManager
     solutions:
       melee:
@@ -2398,40 +2471,91 @@
         Burn: -0.07
 
 - type: entity
-  name: tarantula
-  parent: MobGiantSpider
-  id: MobGiantSpiderAngry
-  suffix: Angry
+  parent: MobSpiderBase
+  id: MobSpiderAngryBase
+  abstract: true
   components:
-    - type: NpcFactionMember
-      factions:
-        - Xeno
-    - type: InputMover
-    - type: MobMover
-    - type: HTN
-      rootTask:
-        task: SimpleHostileCompound
-    - type: GhostRole
-      makeSentient: true
-      name: ghost-role-information-giant-spider-name
-      description: ghost-role-information-giant-spider-description
-      rules: ghost-role-information-giant-spider-rules
-      raffle:
-        settings: short
-    - type: GhostTakeoverAvailable
+  - type: NpcFactionMember
+    factions:
+      - Xeno
+  - type: InputMover
+  - type: MobMover
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: GhostRole
+    makeSentient: true
+    name: ghost-role-information-giant-spider-name
+    description: ghost-role-information-giant-spider-description
+    rules: ghost-role-information-giant-spider-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  name: tarantula
+  parent: MobSpiderBase
+  id: MobGiantSpider
+  description: Widely recognized to be the literal worst thing in existence.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: tarantula
+      sprite: Mobs/Animals/spider.rsi
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: tarantula-moving
+    noMovementLayers:
+      movement:
+        state: tarantula
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: tarantula
+      Critical:
+        Base: tarantula_dead
+      Dead:
+        Base: tarantula_dead
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Piercing: 6
+
+- type: entity
+  parent:
+  - MobSpiderAngryBase
+  - MobGiantSpider
+  id: MobGiantSpiderAngry
 
 - type: entity
   name: clown spider
-  parent: MobGiantSpiderAngry
+  parent: MobSpiderAngryBase
   id: MobClownSpider
   description: Combines the two most terrifying things in existence, spiders and clowns.
   components:
     - type: Sprite
       drawdepth: Mobs
       layers:
-      - map: ["enum.DamageStateVisualLayers.Base"]
+      - map: ["enum.DamageStateVisualLayers.Base", "movement"]
         state: clown
         sprite: Mobs/Animals/clownspider.rsi
+    - type: SpriteMovement
+      movementLayers:
+        movement:
+          state: clown
+      noMovementLayers:
+        movement:
+          state: clown
     - type: Butcherable
       spawned:
         - id: MaterialBananium1
@@ -2467,126 +2591,6 @@
     - type: Bloodstream
       bloodMaxVolume: 150
       bloodReagent: Laughter
-
-- type: entity
-  name: BROS
-  parent: [ SimpleMobBase, MobCombat ]
-  id: MobBros
-  description: OH FUCK IT'S BROS
-  components:
-    - type: Item
-      size: Tiny
-    - type: Sprite
-      drawdepth: Mobs
-      layers:
-      - map: ["enum.DamageStateVisualLayers.Base"]
-        state: bros
-        sprite: Mobs/Animals/bros.rsi
-    - type: Butcherable
-      spawned:
-        - id: FoodLingzhi
-          amount: 1
-    - type: NpcFactionMember
-      factions:
-        - Xeno
-    - type: InputMover
-    - type: MobMover
-    - type: HTN
-      rootTask:
-        task: SimpleHostileCompound
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape:
-            !type:PhysShapeCircle
-            radius: 0.35
-          density: 130
-          mask:
-          - MobMask
-          layer:
-          - MobLayer
-    - type: DamageStateVisuals
-      states:
-        Alive:
-          Base: bros
-        Dead:
-          Base: bros-dead
-    - type: MobThresholds
-      thresholds:
-        0: Alive
-        15: Dead
-    - type: MeleeWeapon
-      altDisarm: false
-      angle: 0
-      animation: WeaponArcPunch
-      soundHit:
-        path: /Audio/Animals/bros_hit.ogg
-      damage:
-        types:
-          Blunt: 1
-    - type: ReplacementAccent
-      accent: bros
-    - type: Speech
-      speechSounds: Bros
-      speechVerb: Bros
-    - type: Bloodstream
-      bloodMaxVolume: 15
-      bloodReagent: VentCrud
-    - type: NoSlip
-    - type: ZombieImmune
-    - type: Food
-    - type: Extractable
-      grindableSolutionName: food
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          reagents:
-          - ReagentId: VentCrud
-            Quantity: 2
-          - ReagentId: GroundBros
-            Quantity: 3
-    - type: NPCRetaliation
-    - type: Tag
-      tags:
-      - BROS
-      - Trash
-    - type: FoodSequenceElement
-      entries:
-        Burger: BrosBurger
-    - type: CanEscapeInventory
-      baseResistTime: 2
-
-- type: entity
-  name: SORB
-  parent: MobBros
-  id: MobSorb
-  description: SORB S'TI KCUF HO
-  components:
-    - type: Sprite
-      drawdepth: Mobs
-      layers:
-      - map: ["enum.DamageStateVisualLayers.Base"]
-        state: sorb
-        sprite: Mobs/Animals/bros.rsi
-    - type: DamageStateVisuals
-      states:
-        Alive:
-          Base: sorb
-        Dead:
-          Base: sorb-dead
-
-# used for BROS polymorph from juice that makes you UNGH so players don't get one-shot and die for real          
-- type: entity
-  name: BROS
-  parent: MobBros
-  id: MobBrosPoly
-  description: OH FUCK IT'S BROS
-  components:
-    - type: MobThresholds
-      thresholds:
-        0: Alive
-        100: Critical
-        200: Dead
 
 - type: entity
   name: wizard spider
@@ -2725,56 +2729,6 @@
   - type: Tag
     tags:
     - VimPilot
-
-- type: entity
-  parent: MobRaccoon
-  id: MobRaccoonGhost
-  components:
-  - type: GhostRole
-    makeSentient: true
-    allowSpeech: true
-    allowMovement: true
-    name: ghost-role-information-raccoon-name
-    description: ghost-role-information-raccoon-description
-    rules: ghost-role-information-freeagent-rules
-  - type: GhostTakeoverAvailable
-  - type: Vocal
-    sounds:
-      Male: Raccoon
-      Female: Raccoon
-      Unsexed: Raccoon
-    wilhelmProbability: 0.001
-  - type: Speech
-    speechSounds: Raccoon
-    speechVerb: Raccoon
-    allowedEmotes: ['Squeak']
-  - type: ReplacementAccent
-    accent: raccoon
-
-- type: entity
-  parent: MobPossum
-  id: MobPossumGhost
-  components:
-  - type: GhostRole
-    makeSentient: true
-    allowSpeech: true
-    allowMovement: true
-    name: ghost-role-information-possum-name
-    description: ghost-role-information-possum-description
-    rules: ghost-role-information-freeagent-rules
-  - type: GhostTakeoverAvailable
-  - type: Vocal
-    sounds:
-      Male: Possum
-      Female: Possum
-      Unsexed: Possum
-    wilhelmProbability: 0.001
-  - type: Speech
-    speechSounds: Possum
-    speechVerb: Possum
-    allowedEmotes: ['Squeak']
-  - type: ReplacementAccent
-    accent: possum
 
 - type: entity
   name: fox
@@ -2961,7 +2915,7 @@
   - type: Bloodstream
     bloodReagent: DemonsBlood
   - type: Damageable
-    damageContainer: Biological
+    damageContainer: BiologicalMetaphysical
     damageModifierSet: Infernal
   - type: Temperature
     heatDamageThreshold: 4000 #They come from hell, so..
@@ -2981,6 +2935,8 @@
   id: MobCorgiPuppy
   description: A little corgi! Aww...
   components:
+  - type: VentCrawler
+    enterDelay: 3
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Pets/corgi.rsi
@@ -3001,6 +2957,10 @@
   - type: Grammar
     attributes:
       gender: epicene
+  - type: Tag
+    tags:
+    - VimPilot
+    - MultitoolDefibrillatorTarget
 
 - type: entity
   name: cat
@@ -3114,6 +3074,9 @@
     allowMovement: true
     description: ghost-role-information-SyndiCat-description
     rules: ghost-role-information-SyndiCat-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    - MindRoleGhostRoleFamiliar #imp
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
@@ -3136,6 +3099,13 @@
         Slash: 6
         Piercing: 6
         Structural: 15
+  - type: IntrinsicRadioReceiver #imp
+  - type: IntrinsicRadioTransmitter #imp
+    channels:
+    - Syndicate
+  - type: ActiveRadio
+    channels:
+    - Syndicate
 
 - type: entity
   name: space cat
@@ -3227,6 +3197,10 @@
     thresholds:
       0: Alive
       25: Dead
+  - type: Tag
+    tags:
+    - VimPilot
+    - MultitoolDefibrillatorTarget
 
 - type: entity
   name: sloth
@@ -3290,6 +3264,8 @@
   id: MobFerret
   description: Just a silly little guy!
   components:
+  - type: VentCrawler
+    enterDelay: 3
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Pets/ferret.rsi
@@ -3344,6 +3320,8 @@
   id: MobHamster
   description: A cute, fluffy, robust hamster.
   components:
+  - type: VentCrawler
+    enterDelay: 1
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
@@ -3443,6 +3421,7 @@
     - Trash
     - Hamster
     - Meat
+    - MultitoolDefibrillatorTarget
   - type: Respirator
     damage:
       types:
@@ -3624,6 +3603,7 @@
     tags:
     - DoorBumpOpener
     - VimPilot
+    - DionaMinded
   - type: Emoting
   - type: BodyEmotes
     soundsId: Nymph
@@ -3632,6 +3612,16 @@
     reformTime: 10
     popupText: diona-reform-attempt
     reformPrototype: MobDionaReformed
+  - type: Item
+    size: Small
+    heldPrefix: 0
+  - type: Clothing
+    quickEquip: false
+    sprite: Mobs/Animals/nymph.rsi
+    equippedPrefix: 0
+    slots:
+      - HEAD
+  - type: CanEscapeInventory
 
 - type: entity
   parent: MobDionaNymph
@@ -3640,3 +3630,97 @@
   components:
   - type: ReplacementAccent
     accent: nymph
+
+- type: entity
+  name: reindeer buck
+  parent: [ SimpleMobBase, MobCombat ]
+  id: MobReindeerBuck
+  description: You think it can pull a sleigh?
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: reindeer_buck
+      sprite: Mobs/Animals/reindeer_buck.rsi
+#  - type: SpriteMovement  # One day when this shit isnt broken as hell. For now they hoppity hop.
+#    movementLayers:
+#      movement:
+#        state: reindeer_buck
+#    noMovementLayers:
+#      movement:
+#        state: reindeer_buck_still
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.48
+        density: 200
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: reindeer_buck
+      Critical:
+        Base: reindeer_buck_dead
+      Dead:
+        Base: reindeer_buck_dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 4
+  - type: Bloodstream
+    bloodMaxVolume: 300
+    # Horns though
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 22
+    animation: WeaponArcFist
+  - type: NPCRetaliation
+  - type: FactionException
+  - type: NpcFactionMember
+    factions:
+    - Passive
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: Puller
+    needsHands: false
+
+- type: entity
+  name: reindeer doe
+  parent: MobReindeerBuck
+  id: MobReindeerDoe
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 15
+    animation: WeaponArcFist
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: reindeer_doe
+      sprite: Mobs/Animals/reindeer_doe.rsi
+#  - type: SpriteMovement  # One day when this shit isnt broken as hell. For now they hoppity hop.
+#    movementLayers:
+#      movement:
+#        state: reindeer_doe
+#    noMovementLayers:
+#      movement:
+#        state: reindeer_doe_still
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: reindeer_doe
+      Critical:
+        Base: reindeer_doe_dead
+      Dead:
+        Base: reindeer_doe_dead

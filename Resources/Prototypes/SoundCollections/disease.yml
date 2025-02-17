@@ -9,27 +9,10 @@
     - /Audio/Voice/Human/female_sneeze_1.ogg
 
 - type: soundCollection
-  id: MaleSlimeSneezes
+  id: UnisexSneezes
   files:
-    - /Audio/Voice/Slime/s_male_sneeze_1.ogg
-
-- type: soundCollection
-  id: FemaleSlimeSneezes
-  files:
-    - /Audio/Voice/Slime/s_female_sneeze_1.ogg
-
-
-- type: soundCollection
-  id: MaleSlimeCoughs
-  files:
-  - /Audio/Voice/Slime/s_male_cough_1.ogg
-  - /Audio/Voice/Slime/s_male_cough_2.ogg
-
-- type: soundCollection
-  id: FemaleSlimeCoughs
-  files:
-  - /Audio/Voice/Slime/s_female_cough_1.ogg
-  - /Audio/Voice/Slime/s_female_cough_2.ogg
+    - /Audio/Voice/Human/male_sneeze_1.ogg
+    - /Audio/Voice/Human/female_sneeze_1.ogg
 
 - type: soundCollection
   id: MaleCoughs
@@ -40,6 +23,14 @@
 - type: soundCollection
   id: FemaleCoughs
   files:
+  - /Audio/Voice/Human/female_cough_1.ogg
+  - /Audio/Voice/Human/female_cough_2.ogg
+
+- type: soundCollection
+  id: UnisexCoughs
+  files:
+  - /Audio/Voice/Human/male_cough_1.ogg
+  - /Audio/Voice/Human/male_cough_2.ogg
   - /Audio/Voice/Human/female_cough_1.ogg
   - /Audio/Voice/Human/female_cough_2.ogg
 
@@ -75,14 +66,10 @@
   - /Audio/Voice/Human/female_yawn_1.ogg
 
 - type: soundCollection
-  id: MaleSlimeYawn
+  id: UnisexYawn
   files:
-  - /Audio/Voice/Slime/s_male_yawn_1.ogg
-
-- type: soundCollection
-  id: FemaleSlimeYawn
-  files:
-  - /Audio/Voice/Slime/s_female_yawn_1.ogg
+  - /Audio/Voice/Human/male_yawn_1.ogg
+  - /Audio/Voice/Human/female_yawn_1.ogg
 
 - type: soundCollection
   id: Snores
@@ -90,13 +77,6 @@
   - /Audio/Voice/Human/snore1.ogg
   - /Audio/Voice/Human/snore2.ogg
   - /Audio/Voice/Human/snore3.ogg
-
-- type: soundCollection
-  id: SlimeSnores
-  files:
-  - /Audio/Voice/Slime/s_snore1.ogg
-  - /Audio/Voice/Slime/s_snore2.ogg
-  - /Audio/Voice/Slime/s_snore3.ogg
 
 - type: soundCollection
   id: Honks

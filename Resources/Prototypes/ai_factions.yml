@@ -7,8 +7,10 @@
     - PetsNT
     - Zombie
     - Revolutionary
+    - AllHostile
     - Changeling
     - Heretic
+    - Dino
 
 - type: npcFaction
   id: NanoTrasen
@@ -18,11 +20,15 @@
   - Xeno
   - Zombie
   - Revolutionary
+  - Dragon
+  - AllHostile
+  - Dino
 
 - type: npcFaction
   id: Mouse
   hostile:
     - PetsNT
+    - AllHostile
 
 - type: npcFaction
   id: Passive
@@ -34,6 +40,8 @@
   - SimpleHostile
   - Zombie
   - Xeno
+  - AllHostile
+  - Dino
 
 - type: npcFaction
   id: SimpleHostile
@@ -44,8 +52,10 @@
   - PetsNT
   - Zombie
   - Revolutionary
+  - AllHostile
   - Changeling
   - Heretic
+  - Dino
 
 - type: npcFaction
   id: SimpleNeutral
@@ -58,8 +68,11 @@
   - Xeno
   - PetsNT
   - Zombie
+  - Dragon
+  - AllHostile
   - Changeling
   - Heretic
+  - Dino
 
 - type: npcFaction
   id: Xeno
@@ -70,8 +83,10 @@
   - PetsNT
   - Zombie
   - Revolutionary
+  - AllHostile
   - Changeling
   - Heretic
+  - Dino
 
 - type: npcFaction
   id: Zombie
@@ -83,8 +98,10 @@
   - Passive
   - PetsNT
   - Revolutionary
+  - AllHostile
   - Changeling
   - Heretic
+  - Dino
 
 - type: npcFaction
   id: Revolutionary
@@ -93,3 +110,23 @@
   - Zombie
   - SimpleHostile
   - Dragon
+  - AllHostile
+  - Dino
+
+- type: npcFaction
+  id: AllHostile
+  hostile:
+  - NanoTrasen
+  - Dragon
+  - Mouse
+  - Passive
+  - PetsNT
+  - SimpleHostile
+  - SimpleNeutral
+  - Syndicate
+  - Xeno
+  - Zombie
+  - Revolutionary
+  - Changeling
+  - Heretic
+  - Dino

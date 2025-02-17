@@ -181,6 +181,7 @@
   parent: MobSpaceBasic
   description: It's so glowing, it looks dangerous.
   components:
+  - type: VentCrawler
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Animals/spacespider.rsi
@@ -436,6 +437,8 @@
     name: ghost-role-information-snail-name
     description: ghost-role-information-snail-description
     rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
   - type: GhostTakeoverAvailable
   - type: Emoting
   - type: Sprite
@@ -499,7 +502,6 @@
       Dead: 0
     baseDecayRate: 0.04
   - type: Hunger
-    currentHunger: 25   # spawn with Okay hunger state
     thresholds:
       Overfed: 35
       Okay: 25
@@ -525,6 +527,7 @@
     - VimPilot
     - ChefPilot
     - Meat
+    - MultitoolDefibrillatorTarget
   - type: CombatMode
     combatToggleAction: ActionCombatModeToggleOff
   - type: Bloodstream
@@ -582,6 +585,8 @@
     name: ghost-role-information-snailspeed-name
     description: ghost-role-information-snailspeed-description
     rules: ghost-role-information-freeagent-rules
+    mindRoles: # imp
+    - MindRoleGhostRoleFreeAgent
   - type: Sprite
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -611,6 +616,8 @@
     name: ghost-role-information-snoth-name
     description: ghost-role-information-snoth-description
     rules: ghost-role-information-freeagent-rules
+    mindRoles: # imp
+    - MindRoleGhostRoleFreeAgent
   - type: Sprite
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]

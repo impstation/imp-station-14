@@ -5,7 +5,7 @@
   - type: TimedDespawn
     lifetime: 0.4
   - type: Sprite
-    drawdepth: Effects
+    drawdepth: BelowMobs
     layers:
     - shader: unshaded
       map: ["enum.EffectLayers.Unshaded"]
@@ -65,6 +65,7 @@
       path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
   - type: TimedDespawn
     lifetime: 10
+  - type: Engraveable # imp
 
 - type: entity
   id: BaseBulletTrigger # Trigger-on-collide bullets
@@ -775,33 +776,6 @@
     energy: 0.5
 
 - type: entity
-  id: BulletGrenadeCleaner
-  name: cleaner grenade
-  parent: BaseBulletTrigger
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    layers:
-      - state: frag
-  - type: SoundOnTrigger
-    sound: /Audio/Items/smoke_grenade_smoke.ogg
-  - type: SmokeOnTrigger
-    duration: 15
-    spreadAmount: 25
-    smokePrototype: Foam
-    solution:
-      reagents:
-      - ReagentId: SpaceCleaner
-        Quantity: 30
-  - type: Ammo
-    muzzleFlash: null
-  - type: PointLight
-    radius: 3.5
-    color: blue
-    energy: 0.5
-
-- type: entity
   id: BulletCap
   name: cap bullet
   parent: BaseBullet
@@ -905,6 +879,8 @@
   components:
     - type: EmbeddableProjectile
       deleteOnRemove: true
+      sound:
+        path: /Audio/_Impstation/Effects/grapple_impact.ogg
     - type: Clickable
     - type: InteractionOutline
     - type: Sprite
@@ -1065,7 +1041,7 @@
   parent: BulletLaser
   components:
   - type: ProjectileSpread
-    proto: BulletLaser
+    proto: BulletLaserHeavy
     count: 4 #52 heat damage if you hit all your shots, but narrower spread
     spread: 10
 
@@ -1079,3 +1055,4 @@
     proto: BulletDisablerSmg
     count: 3 #bit stronger than a disabler if you hit your shots you goober, still not a 2 hit stun though
     spread: 9
+

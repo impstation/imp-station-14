@@ -8,7 +8,7 @@
     - Security
     - Medical
     - Cargo
-    
+
 - type: dataset
   id: Pets
   values:
@@ -75,7 +75,7 @@
     - Figurines
     - Toys
     - Lockers
-    
+
 - type: dataset
   id: Edibles
   values:
@@ -90,6 +90,9 @@
     - Bungo Curry
     - Salty Sweet Miso Cola Soup
     - Bread Dog
+    - Camel's Soup
+    - Toddler Rings Stew
+    - Heart Carpaccio
 
 - type: dataset
   id: Holidays
@@ -138,7 +141,42 @@
     - Research Director
 
 - type: dataset
-  id: SpelfWords
+  id: DAGDname
+  values:
+    - DieAGloriousDeath
+    - FolkHero
+    - FolkHero
+    - FolkHero
+    - FolkHero
+    - FolkHero
+    - FolkHero
+    - FolkHero
+    - FolkHero
+    - FolkHero
+
+- type: dataset
+  id: SpeechRestrictions
+  values:
+    - FullNameAndTitle
+    - NamesAreRude
+    - Clarity
+    - SwearingGood
+    - StatementOnly
+    - Imitation
+    - Unclarity
+    - SwearingBad
+    - QuestionOnly
+    - MustAnswer
+    - OnlyWhisper
+    - OnlyYell
+    - Rhyme
+    - Alliterate
+    - ThirdPerson
+    - TitleCase
+    - GreySpeak
+
+- type: dataset
+  id: ThavenWords
   values:
   - accept
   - add

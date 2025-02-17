@@ -4,7 +4,6 @@ using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.Heretic;
 using Content.Shared.Mind;
-using Content.Shared.Roles;
 using Content.Shared.Store.Components;
 using Content.Shared.Heretic.Prototypes;
 using Content.Server.Chat.Systems;
@@ -23,13 +22,14 @@ using Content.Server.Revolutionary.Components;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Roles.Jobs;
 using Robust.Shared.Prototypes;
+using Content.Shared.Roles;
+using Content.Shared.Changeling;
 
 namespace Content.Server.Heretic.EntitySystems;
 
 public sealed partial class HereticSystem : EntitySystem
 {
     [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedRoleSystem _roleSystem = default!;
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly HereticKnowledgeSystem _knowledge = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
@@ -55,7 +55,7 @@ public sealed partial class HereticSystem : EntitySystem
         SubscribeLocalEvent<HereticComponent, BeforeDamageChangedEvent>(OnBeforeDamage);
         SubscribeLocalEvent<HereticComponent, DamageModifyEvent>(OnDamage);
 
-        SubscribeLocalEvent<HereticMagicItemComponent, ExaminedEvent>(OnMagicItemExamine);
+
     }
 
     public override void Update(float frameTime)
@@ -124,7 +124,7 @@ public sealed partial class HereticSystem : EntitySystem
             eligibleTargets.Add(target.AttachedEntity!.Value); // it can't be null because see .Where(HasValue)
 
         // no heretics or other baboons
-        eligibleTargets = eligibleTargets.Where(t => !HasComp<GhoulComponent>(t) && !HasComp<HereticComponent>(t)).ToList();
+        eligibleTargets = eligibleTargets.Where(t => !HasComp<GhoulComponent>(t) && !HasComp<HereticComponent>(t) && !HasComp<ChangelingComponent>(t)).ToList();
 
         var pickedTargets = new List<EntityUid?>();
 
@@ -133,23 +133,7 @@ public sealed partial class HereticSystem : EntitySystem
         // pick one command staff
         predicates.Add(t => HasComp<CommandStaffComponent>(t));
 
-        // pick one secoff
-        predicates.Add(t =>
-            _prot.TryIndex<DepartmentPrototype>("Security", out var dept) // can we get sec jobs?
-            && _mind.TryGetMind(t, out var mindid, out _) // does it have a mind?
-            && _roleSystem.MindHasRole<JobRoleComponent>(mindid, out var jobc) && jobc.Value.Comp.JobPrototype.HasValue // does it have a job?
-            && dept.Roles.Contains(jobc.Value.Comp.JobPrototype!.Value)); // is that job being shitsec?
-
-        // pick one person from the same department
-        predicates.Add(t =>
-            _mind.TryGetMind(t, out var tmind, out _) && _mind.TryGetMind(ent, out var ownmind, out _) // get minds
-            && _roleSystem.MindHasRole<JobRoleComponent>(tmind, out var tjob) && tjob.Value.Comp.JobPrototype.HasValue // get jobs
-            && _roleSystem.MindHasRole<JobRoleComponent>(ownmind, out var ownjob) && ownjob.Value.Comp.JobPrototype.HasValue
-            && _prot.EnumeratePrototypes<DepartmentPrototype>() // compare jobs for all
-                .Where(d =>
-                    d.Roles.Contains(tjob.Value.Comp.JobPrototype.Value)
-                    && d.Roles.Contains(ownjob.Value.Comp.JobPrototype.Value)) // true = same department
-                .ToList().Count != 0);
+        // add more predicates here
 
         foreach (var predicate in predicates)
         {
@@ -164,9 +148,12 @@ public sealed partial class HereticSystem : EntitySystem
         }
 
         // add whatever more until satisfied
-        for (int i = 0; i <= ent.Comp.MaxTargets - pickedTargets.Count; i++)
-            if (eligibleTargets.Count > 0)
-                pickedTargets.Add(_rand.PickAndTake<EntityUid>(eligibleTargets));
+        while (ent.Comp.MaxTargets > pickedTargets.Count)
+        {
+            if (eligibleTargets.Count <= 0)
+                break;
+            pickedTargets.Add(_rand.PickAndTake<EntityUid>(eligibleTargets));
+        }
 
         // leave only unique entityuids
         pickedTargets = pickedTargets.Distinct().ToList();
@@ -224,20 +211,6 @@ public sealed partial class HereticSystem : EntitySystem
                 args.Damage.DamageDict["Heat"] = 0;
                 break;
         }
-    }
-
-    #endregion
-
-
-
-    #region Miscellaneous
-
-    private void OnMagicItemExamine(Entity<HereticMagicItemComponent> ent, ref ExaminedEvent args)
-    {
-        if (!HasComp<HereticComponent>(args.Examiner))
-            return;
-
-        args.PushMarkup(Loc.GetString("heretic-magicitem-examine"));
     }
 
     #endregion
