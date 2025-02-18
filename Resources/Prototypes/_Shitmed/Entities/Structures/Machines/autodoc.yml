@@ -3,6 +3,7 @@
 - type: entity
   parent: [ConstructibleMachine, BaseMachinePowered]
   id: Autodoc
+  categories: [ HideSpawnMenu ] #Imp, it's broken and not needed currently probably!
   name: Autodoc Mk.XIV
   description: A programmable robotic surgeon capable of automatically operating on patients.
   components:
@@ -88,6 +89,7 @@
   id: AutodocSyndie
   # TODO: make it valid
   suffix: Syndie
+  categories: [ HideSpawnMenu ] #Imp, it's broken and not needed currently probably!
   components:
   - type: Machine
     board: AutodocSyndieCircuitboard
