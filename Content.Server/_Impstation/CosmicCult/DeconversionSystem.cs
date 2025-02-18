@@ -47,11 +47,10 @@ public sealed class DeconversionSystem : EntitySystem
         SubscribeLocalEvent<CleanseOnUseComponent, CleanseOnDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<CleanseCultComponent, ComponentInit>(OnCompInit);
     }
-    private void OnCompInit(Entity<CleanseCultComponent> ent, ref ComponentInit args)
+    private void OnCompInit(Entity<CleanseCultComponent> uid, ref ComponentInit args)
     {
-        var duration = TimeSpan.FromSeconds(60.0f);
-        _entMan.System<SharedJitteringSystem>().DoJitter(ent.Owner, duration, true, 5, 20);
-        ent.Comp.CleanseTime = _timing.CurTime + duration;
+        _entMan.System<SharedJitteringSystem>().DoJitter(uid.Owner, uid.Comp.CleanseDuration, true, 5, 20);
+        uid.Comp.CleanseTime = _timing.CurTime + uid.Comp.CleanseDuration;
     }
 
     public override void Update(float frameTime)
@@ -110,7 +109,7 @@ public sealed class DeconversionSystem : EntitySystem
         if (!TryComp(uid, out UseDelayComponent? useDelay) || args.Cancelled || args.Handled || target == null || !_mobState.IsAlive(target.Value))
             return;
         //TODO: This could be made more agnostic, but there's only one cult for now, and frankly, i'm so tired. This is easy to read and easy to modify code. Expand it at thine leisure.
-        if (_entMan.TryGetComponent<CosmicCultComponent>(args.Target, out var comp) && comp.CosmicEmpowered)
+        if (TryComp<CosmicCultComponent>(args.Target, out var comp) && comp.CosmicEmpowered)
         {
             var tgtpos = Transform(target.Value).Coordinates;
             Spawn(uid.Comp.MalignVFX, tgtpos);
@@ -120,7 +119,7 @@ public sealed class DeconversionSystem : EntitySystem
             _damageable.TryChangeDamage(args.User, uid.Comp.SelfDamage, true);
             _popup.PopupEntity(Loc.GetString("cleanse-deconvert-attempt-success-empowered", ("target", Identity.Entity(target.Value, EntityManager))), args.User, args.User);
         }
-        else if (_entMan.TryGetComponent<CosmicCultComponent>(args.Target, out var coscomp) && !coscomp.CosmicEmpowered)
+        else if (TryComp<CosmicCultComponent>(args.Target, out var coscomp) && !coscomp.CosmicEmpowered)
         {
             var tgtpos = Transform(target.Value).Coordinates;
             Spawn(uid.Comp.CleanseVFX, tgtpos);

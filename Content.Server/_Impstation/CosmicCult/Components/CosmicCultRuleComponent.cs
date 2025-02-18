@@ -17,7 +17,7 @@ public sealed partial class CosmicCultRuleComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     [DataField] public List<EntityUid> Cultists = new();
     [DataField] public bool WinLocked = false;
-    [DataField] public WinType WinType = WinType.Error;
+    [DataField] public WinType WinType = WinType.CrewMinor;
 }
 
 // CosmicCultRuleComponent
@@ -37,11 +37,11 @@ public enum WinType : byte
     /// </summary>
     CultMinor,
     /// <summary>
-    ///     Neutral. The Monument didn't reach Stage 3, The crew escaped, and the Cult Leader was alive.
+    ///     Neutral. The Monument didn't reach Stage 3, The crew escaped, but the Cult Leader also escaped.
     /// </summary>
     Neutral,
     /// <summary>
-    ///     Crew minor win. The monument didn't reach Stage 3, The crew escaped, and Cult leader was killed or deconverted.
+    ///     Crew minor win. The monument didn't reach Stage 3, The crew escaped, and Cult leader was killed, deconverted, or left on the station.
     /// </summary>
     CrewMinor,
     /// <summary>
@@ -52,8 +52,4 @@ public enum WinType : byte
     ///     Crew complete win. The cult was completely deconverted.
     /// </summary>
     CrewComplete,
-    /// <summary>
-    ///     You shouldn't get this.
-    /// </summary>
-    Error
 }

@@ -42,7 +42,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: ConfirmableAction
-    popup: cosmic-monument-spawn-confirm
+    popup: cosmicability-monument-spawn-confirm
   - type: InstantAction
     usedelay: 999
     itemIconStyle: NoItem
@@ -100,27 +100,27 @@
   - type: CosmicCultAction
 
 - type: entity
-  id: ActionCosmicLash
-  name: Astral Lash
-  description: LOREM IPSUM ##todo: description
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: EntityWorldTargetAction
-    canTargetSelf: false
-    itemIconStyle: NoItem
-    icon:
-      sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
-      state: astral
-    event: !type:EventCosmicLash {}
-  - type: CosmicCultAction
-
-- type: entity
   id: ActionCosmicIngress
   name: Force Ingress
   description: LOREM IPSUM ##todo: description
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
+    canTargetSelf: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: ingress
+    event: !type:EventCosmicIngress {}
+  - type: CosmicCultAction
+
+- type: entity
+  id: ActionCosmicImposition
+  name: Vacuous Imposition
+  description: LOREM IPSUM ##todo: description
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityWorldTargetAction
     canTargetSelf: true
     useDelay: 80
     whitelist:
@@ -129,6 +129,25 @@
     itemIconStyle: NoItem
     icon:
       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
-      state: lapse
-    event: !type:EventCosmicIngress {}
+      state: entropic
+    event: !type:EventCosmicImposition {}
+  - type: CosmicCultAction
+
+- type: entity
+  id: ActionCosmicNova
+  name: Astral Nova
+  description: LOREM IPSUM ##todo: description
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityWorldTargetAction
+    canTargetSelf: true
+    useDelay: 80
+    whitelist:
+      components:
+        - HumanoidAppearance
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: nova
+    event: !type:EventCosmicNova {}
   - type: CosmicCultAction

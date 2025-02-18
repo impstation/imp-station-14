@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Numerics;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
@@ -89,9 +90,12 @@ public sealed partial class MonumentMenu : FancyWindow
     // Update all the glyph buttons
     private void UpdateGlyphs()
     {
-        GlyphContainer.RemoveAllChildren();
+        var glyphs = _glyphPrototypes.ToList();
+        glyphs.Sort((x, y) =>
+            string.Compare(x.Name, y.Name, StringComparison.CurrentCultureIgnoreCase));
 
-        foreach (var glyph in _glyphPrototypes)
+        GlyphContainer.RemoveAllChildren();
+        foreach (var glyph in glyphs)
         {
             var boxContainer = new BoxContainer();
             var unlocked = _unlockedGlyphProtoIds.Contains(glyph.ID);
@@ -123,9 +127,12 @@ public sealed partial class MonumentMenu : FancyWindow
     // Update all the influence thingies
     private void UpdateInfluences()
     {
-        InfluencesContainer.RemoveAllChildren();
+        var influences = _influencePrototypes.ToList();
+        influences.Sort((x, y) =>
+            string.Compare(x.Name, y.Name, StringComparison.CurrentCultureIgnoreCase));
 
-        foreach (var influence in _influencePrototypes)
+        InfluencesContainer.RemoveAllChildren();
+        foreach (var influence in influences)
         {
             var unlocked = _unlockedInfluenceProtoIds.Contains(influence.ID);
             var influenceBox = new InfluenceUIBox(influence, unlocked);
@@ -134,7 +141,6 @@ public sealed partial class MonumentMenu : FancyWindow
             InfluencesContainer.AddChild(influenceBox);
         }
     }
-
     // This might not be the best way of doing it, but It makes sense...
     private void UpdateSelectedGlyph(ProtoId<GlyphPrototype> glyph)
     {

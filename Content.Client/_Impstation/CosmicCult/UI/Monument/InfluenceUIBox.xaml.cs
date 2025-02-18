@@ -6,7 +6,6 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 
 namespace Content.Client._Impstation.CosmicCult.UI.Monument;
-// Content.Client/_Impstation/CosmicCult/UI/Monument/InfluenceUIBox.xaml.cs
 [GenerateTypedNameReferences]
 public sealed partial class InfluenceUIBox : BoxContainer
 {

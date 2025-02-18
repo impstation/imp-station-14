@@ -1,9 +1,10 @@
-# Resources/Prototypes/_Impstation/CosmicCult/MonumentPowers/influences.yml
+
+### ACTIVE INFLUENCES
 - type: influence
   id: InfluenceAberrantLapse
   name: influence-name-lapse
   influenceType: influence-type-active
-  cost: 4
+  cost: 1
   description: influence-description-lapse
   icon:
     sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
@@ -14,7 +15,7 @@
   id: InfluenceNullGlare
   name: influence-name-glare
   influenceType: influence-type-active
-  cost: 5
+  cost: 1
   description: influence-description-glare
   icon:
     sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
@@ -22,23 +23,80 @@
   action: ActionCosmicLapse
 
 - type: influence
-  id: InfluenceAstralLash
-  name: influence-name-lash
-  influenceType: influence-type-active
-  cost: 6
-  description: influence-description-lash
-  icon:
-    sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
-    state: astral
-  action: ActionCosmicLapse
-
-- type: influence
   id: InfluenceForceIngress
   name: influence-name-ingress
   influenceType: influence-type-active
-  cost: 5
+  cost: 1
   description: influence-description-ingress
   icon:
     sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
-    state: return
+    state: ingress
+  action: ActionCosmicLapse
+
+- type: influence
+  id: InfluenceVacuousImposition
+  name: influence-name-imposition
+  influenceType: influence-type-active
+  cost: 1
+  description: influence-description-imposition
+  icon:
+    sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
+    state: entropic
+  action: ActionCosmicLapse
+
+- type: influence
+  id: InfluenceAstralNova
+  name: influence-name-nova
+  influenceType: influence-type-active
+  cost: 1
+  description: influence-description-nova
+  icon:
+    sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
+    state: nova
+  action: ActionCosmicLapse
+
+### PASSIVE INFLUENCES
+
+- type: influence
+  id: InfluenceEschewMetabolism
+  name: influence-name-eschew
+  influenceType: influence-type-passive
+  cost: 1
+  description: influence-description-eschew
+  icon:
+    sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
+    state: metabolism
+  action: ActionCosmicLapse
+
+- type: influence
+  id: InfluenceUnboundStep
+  name: influence-name-step
+  influenceType: influence-type-passive
+  cost: 1
+  description: influence-description-step
+  icon:
+    sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
+    state: step
+  action: ActionCosmicLapse
+
+- type: influence
+  id: InfluenceAstralStride
+  name: influence-name-stride
+  influenceType: influence-type-passive
+  cost: 1
+  description: influence-description-stride
+  icon:
+    sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
+    state: stride
+  action: ActionCosmicLapse
+
+- type: influence
+  id: InfluenceVacuousVitality
+  name: influence-name-vitality
+  influenceType: influence-type-passive
+  cost: 1
+  description: influence-description-vitality
+  icon:
+    sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
+    state: astral
   action: ActionCosmicLapse

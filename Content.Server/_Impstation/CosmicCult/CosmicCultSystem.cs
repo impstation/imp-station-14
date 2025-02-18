@@ -17,6 +17,7 @@ using Content.Shared.Interaction;
 using Content.Server.Announcements.Systems;
 using Content.Server.Audio;
 using Content.Shared.Audio;
+using Content.Shared.DoAfter;
 
 namespace Content.Server._Impstation.CosmicCult;
 
@@ -34,6 +35,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
     [Dependency] private readonly ServerGlobalSoundSystem _sound = default!;
     [Dependency] private readonly CosmicGlyphSystem _cosmicGlyphs = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     private const string MapPath = "Prototypes/_Impstation/CosmicCult/Maps/cosmicvoid.yml";
     public int CultistCount;
     public override void Initialize()
@@ -89,35 +91,30 @@ public sealed partial class CosmicCultSystem : EntitySystem
         var finaleQuery = EntityQueryEnumerator<CosmicFinaleComponent>();
         while (finaleQuery.MoveNext(out var uid, out var comp))
         {
-            if (comp.FinaleActive && !comp.BufferComplete && !comp.PlayedBufferSong && !string.IsNullOrEmpty(_selectedBufferSong))
+            if (comp.FinaleActive && !comp.BufferComplete && !comp.PlayedBufferSong && !string.IsNullOrEmpty(comp.SelectedBufferSong))
             {
-                _sound.DispatchStationEventMusic(uid, _selectedBufferSong, StationEventMusicType.Nuke);
+                _sound.DispatchStationEventMusic(uid, comp.SelectedBufferSong, StationEventMusicType.CosmicCult);
                 comp.PlayedBufferSong = true;
-                Log.Debug($"Buffer now running.");
             }
-            else if (comp.FinaleActive && comp.FinaleTimer <= _finaleSongLength + comp.SummoningTime && !comp.PlayedFinaleSong && !string.IsNullOrEmpty(_selectedFinaleSong) && comp.BufferComplete && !comp.PlayedFinaleSong)
+            else if (comp.FinaleActive && comp.FinaleTimer <= comp.FinaleSongLength + comp.SummoningTime && !comp.PlayedFinaleSong && !string.IsNullOrEmpty(comp.SelectedFinaleSong) && comp.BufferComplete && !comp.PlayedFinaleSong)
             {
-                _sound.DispatchStationEventMusic(uid, _selectedFinaleSong, StationEventMusicType.Nuke);
+                _sound.DispatchStationEventMusic(uid, comp.SelectedFinaleSong, StationEventMusicType.CosmicCult);
                 comp.PlayedFinaleSong = true;
-                Log.Debug($"Finale now running.");
             }
             if (comp.FinaleActive && _timing.CurTime >= comp.BufferTimer && comp.FinaleActive && !comp.BufferComplete && !comp.Victory)
             {
-                _sound.StopStationEventMusic(uid, StationEventMusicType.Nuke);
-                Log.Debug($"Buffer complete.");
+                _sound.StopStationEventMusic(uid, StationEventMusicType.CosmicCult);
                 comp.FinaleTimer = _timing.CurTime + comp.FinaleRemainingTime;
-                _selectedFinaleSong = _audio.GetSound(_finaleMusic);
-                _finaleSongLength = TimeSpan.FromSeconds(_audio.GetAudioLength(_selectedFinaleSong).TotalSeconds);
-                _sound.DispatchStationEventMusic(uid, _selectedFinaleSong, StationEventMusicType.Nuke);
+                comp.SelectedFinaleSong = _audio.GetSound(comp.FinaleMusic);
+                comp.FinaleSongLength = TimeSpan.FromSeconds(_audio.GetAudioLength(comp.SelectedFinaleSong).TotalSeconds);
+                _sound.DispatchStationEventMusic(uid, comp.SelectedFinaleSong, StationEventMusicType.CosmicCult);
                 comp.BufferComplete = true;
                 comp.PlayedFinaleSong = true;
-                Log.Debug($"Finale now running.");
                 _appearance.SetData(uid, MonumentVisuals.FinaleReached, 3);
             }
             else if (comp.FinaleActive && _timing.CurTime >= comp.FinaleTimer && comp.FinaleActive && comp.BufferComplete && !comp.Victory)
             {
-                Log.Debug($"Finale complete.");
-                _sound.StopStationEventMusic(uid, StationEventMusicType.Nuke);
+                _sound.StopStationEventMusic(uid, StationEventMusicType.CosmicCult);
                 Spawn("MobCosmicGodSpawn", Transform(uid).Coordinates);
                 comp.Victory = true;
             }
@@ -128,11 +125,10 @@ public sealed partial class CosmicCultSystem : EntitySystem
                 if (cultistsPresent <= 10) CultistCount = cultistsPresent;
                 if (cultistsPresent > 10) CultistCount = 10;
                 Log.Debug($"{CultistCount} cultists near The Monument.");
-                Log.Debug($"reducing buffertimer by {_timing.TickPeriod * (4 * CultistCount * 0.1)} per tick.");
-            }
-            if (comp.FinaleActive && !comp.BufferComplete)
-            {
-                comp.BufferTimer -= _timing.TickPeriod * (4 * CultistCount * 0.1); //This dynamically reduces the duration of the buffer by # cultists present at The Monument.
+                _popup.PopupCoordinates(Loc.GetString("cosmiccult-finale-cultist-count", ("COUNT", CultistCount)), Transform(uid).Coordinates);
+                var modifyTime = TimeSpan.FromSeconds(420 * 5 / (420 - 36 * CultistCount) - 5);
+                comp.BufferTimer -= modifyTime;
+                Log.Debug($"Timer decreased by {modifyTime}.");
             }
         }
     }

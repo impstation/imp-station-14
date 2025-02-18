@@ -4,9 +4,11 @@ using Content.Shared._Impstation.Cosmiccult;
 using Content.Shared._Impstation.CosmicCult.Components;
 using Content.Shared.Actions;
 using Content.Shared.Interaction;
+using Content.Shared.Popups;
 using Content.Shared.UserInterface;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -20,6 +22,7 @@ public sealed class SharedMonumentSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -27,6 +30,7 @@ public sealed class SharedMonumentSystem : EntitySystem
         SubscribeLocalEvent<MonumentComponent, GlyphSelectedMessage>(OnGlyphSelected);
         SubscribeLocalEvent<MonumentComponent, GlyphRemovedMessage>(OnGlyphRemove);
         SubscribeLocalEvent<MonumentComponent, InfluenceSelectedMessage>(OnInfluenceSelected);
+        SubscribeLocalEvent<MonumentComponent, PreventCollideEvent>(OnPreventCollide);
     }
     public override void Update(float frameTime)
     {
@@ -40,7 +44,11 @@ public sealed class SharedMonumentSystem : EntitySystem
             RemComp<MonumentTransformingComponent>(uid);
         }
     }
-
+    private void OnPreventCollide(EntityUid uid, MonumentComponent comp, ref PreventCollideEvent args) // Ensures that Cultists can't walk through The Monument and allows non-cultists to walk through the space.
+    {
+        if (!HasComp<CosmicCultComponent>(args.OtherEntity) && !comp.HasCollision)
+            args.Cancelled = true;
+    }
     private void OnUIOpened(Entity<MonumentComponent> ent, ref BoundUIOpenedEvent args)
     {
         if (!_uiSystem.IsUiOpen(ent.Owner, MonumentKey.Key) || !TryComp<ActivatableUIComponent>(ent, out var uiComp))
@@ -50,7 +58,7 @@ public sealed class SharedMonumentSystem : EntitySystem
             ent.Comp.UnlockedInfluences = cultComp.UnlockedInfluences;
             ent.Comp.AvailableEntropy = cultComp.EntropyBudget;
         }
-        else _uiSystem.CloseUi(ent.Owner, MonumentKey.Key, uiComp.CurrentSingleUser); // based on the prior IF, this effectively cancels the UI if the user is either not a cultist, or the Finale is ready to trigger.
+        else _uiSystem.CloseUi(ent.Owner, MonumentKey.Key); // based on the prior IF, this effectively cancels the UI if the user is either not a cultist, or the Finale is ready to trigger.
         _uiSystem.SetUiState(ent.Owner, MonumentKey.Key, GenerateBuiState(ent.Comp));
     }
 
@@ -77,12 +85,17 @@ public sealed class SharedMonumentSystem : EntitySystem
         ent.Comp.CurrentGlyph = glyphEnt;
 
         _uiSystem.SetUiState(ent.Owner, MonumentKey.Key, GenerateBuiState(ent.Comp));
+        _uiSystem.CloseUi(ent.Owner, MonumentKey.Key);
     }
     private void OnGlyphRemove(Entity<MonumentComponent> ent, ref GlyphRemovedMessage args)
     {
         if (ent.Comp.CurrentGlyph is not null) QueueDel(ent.Comp.CurrentGlyph);
         _uiSystem.SetUiState(ent.Owner, MonumentKey.Key, GenerateBuiState(ent.Comp));
+        _uiSystem.CloseUi(ent.Owner, MonumentKey.Key);
     }
+
+
+
 
     private void OnInfluenceSelected(Entity<MonumentComponent> ent, ref InfluenceSelectedMessage args)
     {

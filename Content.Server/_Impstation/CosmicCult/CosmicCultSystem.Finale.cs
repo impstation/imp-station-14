@@ -16,13 +16,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
     /// <summary>
     ///     Used to calculate when the finale song should start playing
     /// </summary>
-    private TimeSpan _finaleSongLength;
-    private string _selectedFinaleSong = String.Empty;
-    private string _selectedBufferSong = String.Empty;
-    private TimeSpan _interactionTime = TimeSpan.FromSeconds(2);
-    private TimeSpan _restartCoolDown = TimeSpan.FromSeconds(60);
-    private SoundSpecifier _bufferMusic = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/finale_buffertimer_placeholder.ogg");
-    private SoundSpecifier _finaleMusic = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/finale_finaletimer_placeholder.ogg");
+
     public void SubscribeFinale()
     {
 
@@ -36,7 +30,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
         if (!HasComp<CosmicCultComponent>(args.User) && uid.Comp.FinaleActive && !args.Handled)
         {
             uid.Comp.Occupied = true;
-            var doargs = new DoAfterArgs(EntityManager, args.User, _interactionTime, new CancelFinaleDoAfterEvent(), uid, uid)
+            var doargs = new DoAfterArgs(EntityManager, args.User, uid.Comp.InteractionTime, new CancelFinaleDoAfterEvent(), uid, uid)
             {
                 DistanceThreshold = 1f, Hidden = false, BreakOnHandChange = true, BreakOnDamage = true, BreakOnMove = true
             };
@@ -46,7 +40,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
         else if (HasComp<CosmicCultComponent>(args.User) && uid.Comp.FinaleReady && !args.Handled)
         {
             uid.Comp.Occupied = true;
-            var doargs = new DoAfterArgs(EntityManager, args.User, _interactionTime, new StartFinaleDoAfterEvent(), uid, uid)
+            var doargs = new DoAfterArgs(EntityManager, args.User, uid.Comp.InteractionTime, new StartFinaleDoAfterEvent(), uid, uid)
             {
                 DistanceThreshold = 1f, Hidden = false, BreakOnHandChange = true, BreakOnDamage = true, BreakOnMove = true
             };
@@ -70,16 +64,16 @@ public sealed partial class CosmicCultSystem : EntitySystem
         {
             _appearance.SetData(uid, MonumentVisuals.FinaleReached, 2);
             comp.BufferTimer = _timing.CurTime + comp.BufferRemainingTime;
-            _selectedBufferSong = _audio.GetSound(_bufferMusic);
-            _sound.DispatchStationEventMusic(uid, _selectedBufferSong, StationEventMusicType.Nuke);
+            comp.SelectedBufferSong = _audio.GetSound(comp.BufferMusic);
+            _sound.DispatchStationEventMusic(uid, comp.SelectedBufferSong, StationEventMusicType.CosmicCult);
         }
         else
         {
             _appearance.SetData(uid, MonumentVisuals.FinaleReached, 3);
             comp.FinaleTimer = _timing.CurTime + comp.FinaleRemainingTime;
-            _selectedFinaleSong = _audio.GetSound(_finaleMusic);
-            _finaleSongLength = TimeSpan.FromSeconds(_audio.GetAudioLength(_selectedFinaleSong).TotalSeconds);
-            _sound.DispatchStationEventMusic(uid, _selectedFinaleSong, StationEventMusicType.Nuke);
+            comp.SelectedFinaleSong = _audio.GetSound(comp.FinaleMusic);
+            comp.FinaleSongLength = TimeSpan.FromSeconds(_audio.GetAudioLength(comp.SelectedFinaleSong).TotalSeconds);
+            _sound.DispatchStationEventMusic(uid, comp.SelectedFinaleSong, StationEventMusicType.CosmicCult);
         }
         comp.FinaleReady = false;
         comp.FinaleActive = true;
@@ -94,7 +88,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
             return;
         }
         _sound.PlayGlobalOnStation(uid, _audio.GetSound(comp.CancelEventSound));
-        _sound.StopStationEventMusic(uid, StationEventMusicType.Nuke);
+        _sound.StopStationEventMusic(uid, StationEventMusicType.CosmicCult);
         if (!comp.BufferComplete) comp.BufferRemainingTime = comp.BufferTimer - _timing.CurTime + TimeSpan.FromSeconds(15);
         else comp.FinaleRemainingTime = comp.FinaleTimer - _timing.CurTime;
         comp.PlayedFinaleSong = false;

@@ -33,7 +33,9 @@ public sealed partial class CosmicCultComponent : Component
     #region Ability Data
     [DataField] public List<ProtoId<InfluencePrototype>> UnlockedInfluences = new()
     {
-        "InfluenceAberrantLapse"
+        "InfluenceAberrantLapse",
+        "InfluenceNullGlare",
+        "InfluenceEschewMetabolism",
     };
 
     public List<ProtoId<EntityPrototype>> CosmicCultActions = new()

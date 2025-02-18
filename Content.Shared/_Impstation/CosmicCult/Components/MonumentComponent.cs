@@ -23,8 +23,13 @@ public sealed partial class MonumentComponent : Component
     /// A bool we use to set wether or not The Monument's UI is available or not.
     /// </summary>
     [DataField] public bool Enabled = true;
+    /// <summary>
+    /// A bool that determines wether or not the monument is tangible to non-cultists.
+    /// </summary>
+    [DataField] public bool HasCollision = false;
     [DataField, AutoNetworkedField] public TimeSpan TransformTime = TimeSpan.FromSeconds(2.8);
     [DataField, AutoNetworkedField] public EntityUid? CurrentGlyph;
+    [DataField] public TimeSpan ScribeTime = TimeSpan.FromSeconds(5);
 }
 [Serializable, NetSerializable]
 public sealed class InfluenceSelectedMessage(ProtoId<InfluencePrototype> influenceProtoId) : BoundUserInterfaceMessage

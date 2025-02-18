@@ -52,10 +52,6 @@
   parent: [MobCosmicGodBase, BaseMob]
   id: MobCosmicGod
   components:
-  - type: AnnounceOnSpawn
-    message: cosmiccult-announce-victory-summon
-    sender: cosmiccult-announcement-sender
-    color: "#cae8e8"
   - type: CargoSellBlacklist
   # big mob needs to see everything
   - type: ContentEye
@@ -109,9 +105,9 @@
     variation: 0.1
     sound:
       path: /Audio/_Impstation/CosmicCult/god_ambient.ogg
-  # - type: EmitSoundOnSpawn
-  #   sound:
-  #     path: /Audio/_Impstation/CosmicCult/god_spawn.ogg
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_Impstation/CosmicCult/god_spawn.ogg
   - type: PointLight
     enabled: true
     radius: 25

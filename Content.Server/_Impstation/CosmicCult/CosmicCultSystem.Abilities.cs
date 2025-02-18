@@ -27,7 +27,6 @@ namespace Content.Server._Impstation.CosmicCult;
 
 public sealed partial class CosmicCultSystem : EntitySystem
 {
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly PolymorphSystem _polymorphSystem = default!;
@@ -217,7 +216,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
         /// MAKE SURE WE'RE STANDING ON A GRID
         if (!TryComp(xform.GridUid, out MapGridComponent? grid))
         {
-            _popup.PopupEntity(Loc.GetString("cosmic-monument-spawn-error-grid"), uid, uid);
+            _popup.PopupEntity(Loc.GetString("cosmicability-monument-spawn-error-grid"), uid, uid);
             return;
         }
         /// CHECK IF IT'S BEING PLACED CHEESILY CLOSE TO SPACE
@@ -226,7 +225,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
             if (!tile.IsSpace(_tileDef))
                 continue;
 
-            _popup.PopupEntity(Loc.GetString("cosmic-monument-spawn-error-space", ("DISTANCE", spaceDistance)), uid, uid);
+            _popup.PopupEntity(Loc.GetString("cosmicability-monument-spawn-error-space", ("DISTANCE", spaceDistance)), uid, uid);
             return;
         }
         /// CHECK IF WE'RE ON THE STATION OR IF SOMEONE'S TRYING TO SNEAK THIS ONTO SOMETHING SMOL
@@ -236,13 +235,13 @@ public sealed partial class CosmicCultSystem : EntitySystem
             stationGrid = _station.GetLargestGrid(stationData);
         if (stationGrid is not null && stationGrid != xform.GridUid)
         {
-            _popup.PopupEntity(Loc.GetString("cosmic-monument-spawn-error-station"), uid, uid);
+            _popup.PopupEntity(Loc.GetString("cosmicability-monument-spawn-error-station"), uid, uid);
             return;
         }
         ///CHECK FOR ENTITY AND ENVIRONMENTAL INTERSECTIONS
         if (_entLookup.AnyLocalEntitiesIntersecting(xform.GridUid.Value, box, LookupFlags.Dynamic | LookupFlags.Static, uid))
         {
-            _popup.PopupEntity(Loc.GetString("cosmic-monument-spawn-error-intersection"), uid, uid);
+            _popup.PopupEntity(Loc.GetString("cosmicability-monument-spawn-error-intersection"), uid, uid);
             return;
         }
         _actions.RemoveAction(uid, uid.Comp.CosmicMonumentActionEntity);
