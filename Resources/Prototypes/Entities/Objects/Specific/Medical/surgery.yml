@@ -373,11 +373,16 @@
   description: For heavy duty cutting.
   components:
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/circular-saw.rsi
-    state: circular-saw
+    sprite: Objects/Specific/Medical/Surgery/saw.rsi
+    state: electric
   - type: Item
     size: Normal
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/circular-saw.rsi
+    sprite: Objects/Specific/Medical/Surgery/saw.rsi
+    inhandVisuals:
+      left:
+      - state: electric-inhand-left
+      right:
+      - state: electric-inhand-right
   - type: MeleeWeapon
     damage:
       groups:

@@ -41,7 +41,7 @@
     - type: BleedersClamped
     duration: 2
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
+    sprite: _Impstation/Objects/Specific/Medical/Surgery/scissors.rsi
     state: hemostat
   - type: SurgeryDamageChangeEffect
     damage:
@@ -62,7 +62,7 @@
     - type: SkinRetracted
     duration: 2
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/retractor.rsi
+    sprite: _Impstation/Objects/Specific/Medical/Surgery/scissors.rsi
     state: retractor
   - type: SurgeryDamageChangeEffect # DeltaV
     damage:
@@ -82,8 +82,8 @@
     - type: RibcageSawed
     duration: 4
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/circular-saw.rsi
-    state: circular-saw
+    sprite: Objects/Specific/Medical/Surgery/saw.rsi
+    state: saw
   - type: SurgeryStepEmoteEffect
   - type: SurgeryDamageChangeEffect # DeltaV
     sleepModifier: 0.25 # Highly invasive, large damage if the patient is wriggling around
@@ -104,7 +104,7 @@
     - type: RibcageOpen
     duration: 4 # DeltaV: was 2
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/retractor.rsi
+    sprite: _Impstation/Objects/Specific/Medical/Surgery/scissors.rsi
     state: retractor
   - type: SurgeryDamageChangeEffect # DeltaV
     sleepModifier: 0.25 # Highly invasive, large damage if the patient is wriggling around
@@ -160,7 +160,7 @@
     - type: RibcageOpen
     duration: 4 # DeltaV: was 2
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/retractor.rsi
+    sprite: _Impstation/Objects/Specific/Medical/Surgery/scissors.rsi
     state: retractor
   - type: SurgeryDamageChangeEffect # DeltaV: Reverse damage from SurgeryStepOpenBones
     damage:
@@ -208,7 +208,7 @@
     - type: InternalBleedersClamped
     duration: 2
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/cautery.rsi
+    sprite: Objects/Specific/Medical/Surgery/cautery.rsi
     state: cautery
   - type: SurgeryDamageChangeEffect
     damage:
@@ -254,7 +254,7 @@
     duration: 2
   - type: SurgeryAffixPartStep
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/cautery.rsi
+    sprite: Objects/Specific/Medical/Surgery/cautery.rsi
     state: cautery
   - type: SurgeryStepEmoteEffect
   - type: SurgeryDamageChangeEffect
@@ -278,8 +278,8 @@
     - type: BodyPartSawed
     duration: 4
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/circular-saw.rsi
-    state: circular-saw
+    sprite: Objects/Specific/Medical/Surgery/saw.rsi
+    state: saw
   - type: SurgeryStepEmoteEffect
   - type: SurgeryDamageChangeEffect # DeltaV
     damage:
@@ -299,7 +299,7 @@
     - type: InternalBleedersClamped
     duration: 2
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
+    sprite: _Impstation/Objects/Specific/Medical/Surgery/scissors.rsi
     state: hemostat
   - type: SurgeryDamageChangeEffect
     damage:
@@ -324,8 +324,8 @@
     - type: IncisionOpen
     duration: 8
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/circular-saw.rsi
-    state: circular-saw
+    sprite: Objects/Specific/Medical/Surgery/saw.rsi
+    state: saw
   - type: SurgeryRemovePartStep
   - type: SurgeryStepEmoteEffect
   - type: SurgeryDamageChangeEffect # DeltaV: Traumatic amputation is traumatic
@@ -371,7 +371,7 @@
     - type: Tending
     duration: 2 # DeltaV: was 1
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
+    sprite: _Impstation/Objects/Specific/Medical/Surgery/scissors.rsi
     state: hemostat
   - type: SurgeryTendWoundsEffect
     damage:
@@ -637,7 +637,7 @@
           #   types:
           #     Blunt: 0
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
+    sprite: _Impstation/Objects/Specific/Medical/Surgery/scissors.rsi
     state: hemostat
   - type: SurgeryStepEmoteEffect
 
