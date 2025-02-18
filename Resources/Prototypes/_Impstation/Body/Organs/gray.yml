@@ -222,6 +222,11 @@
     groups:
     - id: Food
     - id: Drink
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Stomach
 
 - type: entity
   id: OrganGrayLiver

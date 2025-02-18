@@ -2,14 +2,13 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using Content.Server.Chat.Systems;
-using Content.Server.Explosion.EntitySystems;
 using Content.Server.Singularity.Components;
-using Content.Server.Sound.Components;
 using Content.Shared._EinsteinEngines.CCVar;
 using Content.Shared._EinsteinEngines.Supermatter.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Audio;
 using Content.Shared.Chat;
+using Content.Shared.DeviceLinking;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -17,6 +16,7 @@ using Content.Shared.Physics;
 using Content.Shared.Radiation.Components;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Speech;
+using Content.Shared.Storage.Components;
 using Content.Shared.Traits.Assorted;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -36,7 +36,7 @@ public sealed partial class SupermatterSystem
     /// <summary>
     /// Handle power and radiation output depending on atmospheric things.
     /// </summary>
-    private void ProcessAtmos(EntityUid uid, SupermatterComponent sm)
+    private void ProcessAtmos(EntityUid uid, SupermatterComponent sm, float frameTime)
     {
         var mix = _atmosphere.GetContainingMixture(uid, true, true);
 
@@ -147,7 +147,9 @@ public sealed partial class SupermatterSystem
         }
 
         // Power * 0.55 * a value between 1 and 0.8
-        var energy = sm.Power * _config.GetCVar(EinsteinCCVars.SupermatterReactionPowerModifier) * (1f - sm.PsyCoefficient * 0.2f);
+        // This has to be differentiated with respect to time, since its going to be interacting with systems
+        // that also differentiate. Basically, if we don't multiply by 2 * frameTime, the supermatter will explode faster if your server's tickrate is higher.
+        var energy = sm.Power * _config.GetCVar(EinsteinCCVars.SupermatterReactionPowerModifier) * (1f - sm.PsyCoefficient * 0.2f) * 2 * frameTime;
 
         // Keep in mind we are only adding this temperature to (efficiency)% of the one tile the rock is on.
         // An increase of 4°C at 25% efficiency here results in an increase of 1°C / (#tilesincore) overall.
@@ -572,6 +574,9 @@ public sealed partial class SupermatterSystem
     /// <param name="global">If true, sends the message to the common radio</param>
     public void SendSupermatterAnnouncement(EntityUid uid, SupermatterComponent sm, string message, bool global = false)
     {
+        if (sm.SuppressAnnouncements)
+            return;
+
         if (message == String.Empty)
             return;
 
@@ -671,10 +676,11 @@ public sealed partial class SupermatterSystem
         // Play the reality distortion sound for every player on the map
         _audio.PlayGlobal(sm.DistortSound, mapFilter, true);
 
-        // Add hallucinations to every player on the map
+        // Add hallucinations to every mob on the map, except those in EntityStorage (lockers, etc)
         // TODO: change this from paracusia to actual hallucinations whenever those are real
         var mobLookup = new HashSet<Entity<MobStateComponent>>();
         _entityLookup.GetEntitiesOnMap<MobStateComponent>(mapId, mobLookup);
+        mobLookup.RemoveWhere(x => HasComp<InsideEntityStorageComponent>(x));
 
         // These values match the paracusia disability, since we can't double up on paracusia
         var paracusiaSounds = new SoundCollectionSpecifier("Paracusia");
@@ -741,7 +747,7 @@ public sealed partial class SupermatterSystem
     }
 
     /// <summary>
-    /// Checks for 
+    /// Checks whether a mob can see the supermatter, then applies hallucinations and psychologist coefficient
     /// </summary>
     private void HandleVision(EntityUid uid, SupermatterComponent sm)
     {
@@ -794,6 +800,23 @@ public sealed partial class SupermatterSystem
     private void HandleStatus(EntityUid uid, SupermatterComponent sm)
     {
         var currentStatus = GetStatus(uid, sm);
+
+        // Send port updates out for any linked devices
+        if (sm.Status != currentStatus && HasComp<DeviceLinkSourceComponent>(uid))
+        {
+            var port = currentStatus switch
+            {
+                SupermatterStatusType.Normal => sm.PortNormal,
+                SupermatterStatusType.Caution => sm.PortCaution,
+                SupermatterStatusType.Warning => sm.PortWarning,
+                SupermatterStatusType.Danger => sm.PortDanger,
+                SupermatterStatusType.Emergency => sm.PortEmergency,
+                SupermatterStatusType.Delaminating => sm.PortDelaminating,
+                _ => sm.PortInactive
+            };
+
+            _link.InvokePort(uid, port);
+        }
 
         sm.Status = currentStatus;
 

@@ -28,6 +28,7 @@
 - type: startingGear
   id: SecurityCadetGear
   equipment:
+    eyes: ClothingEyesGlassesSunglasses # imp
     shoes: ClothingShoesBootsJackFilled
     outerClothing: ClothingOuterArmorBasic
     id: SecurityCadetPDA
@@ -39,7 +40,4 @@
     back:
     - Flash
     - MagazinePistol
-    - BatonToken1  #imp
-    - DisablerToken1  #imp
-    - UtilityToken1  #imp
     - WeaponPistolMk58

@@ -197,7 +197,6 @@
       - SubstationMachineCircuitboard
       - WallmountSubstationElectronics
       - CellRechargerCircuitboard
-      - BorgChargerCircuitboard
       - WeaponCapacitorRechargerCircuitboard
       - HandheldStationMap
       - ClothingHeadHatWelding
@@ -362,6 +361,7 @@
       - FauxTileJungleAstroGrass
       - FauxTileAstroIce
       - FauxTileAstroSnow
+      - FauxTileAstroAsteroidSand
       - OreBagOfHolding
       - DeviceQuantumSpinInverter
       - CleanerGrenade #imp addition
@@ -369,6 +369,7 @@
       - EnergyCautery # Shitmed Change
       - AdvancedRetractor # Shitmed Change
       - PlantAnalyzer #NF addition
+      - FishingRod #imp addition
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - BoxBeanbag
@@ -475,10 +476,12 @@
     - SpaceHeaterMachineCircuitBoard
     - CutterMachineCircuitboard
     - SalvageMagnetMachineCircuitboard
+    - BorgChargerCircuitboard
     - ShipyardComputerCircuitboard #DV
     - ServiceTechFabCircuitboard #imp addition
     - SupermatterComputerCircuitboard # imp
     - OperatingTableCircuitboard # Shitmed Change
+    - ImpCoffeeMachineCircuitboard #imp
     dynamicRecipes:
       - ThermomachineFreezerMachineCircuitBoard
       - HellfireFreezerMachineCircuitBoard

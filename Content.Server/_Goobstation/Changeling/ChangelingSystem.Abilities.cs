@@ -22,7 +22,6 @@ using Content.Shared.Damage.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.Mindshield.Components;
-using Content.Shared._Goobstation.FakeMindshield.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Organ;
 
@@ -432,8 +431,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (!TryComp<BlindableComponent>(target, out var blindable) || blindable.IsBlind)
             return;
 
-        _blindable.AdjustEyeDamage((target, blindable), 2);
-        var timeSpan = TimeSpan.FromSeconds(5f);
+        var timeSpan = TimeSpan.FromSeconds(18f);
         _statusEffect.TryAddStatusEffect(target, TemporaryBlindnessSystem.BlindingStatusEffect, timeSpan, false, TemporaryBlindnessSystem.BlindingStatusEffect);
     }
     private void OnStingCryo(EntityUid uid, ChangelingComponent comp, ref StingCryoEvent args)
@@ -731,7 +729,9 @@ public sealed partial class ChangelingSystem : EntitySystem
             return;
         }
 
-        EnsureComp<FakeMindShieldComponent>(ent);
+        EnsureComp<FakeMindShieldComponent>(ent, out var comp);
+        comp.IsEnabled = true;
+
         _popup.PopupEntity(Loc.GetString("changeling-mindshield-start"), ent, ent);
     }
 

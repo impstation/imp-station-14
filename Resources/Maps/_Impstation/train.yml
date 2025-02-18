@@ -6322,6 +6322,7 @@ entities:
       - 7542
       - 9971
       - 7496
+      - 387
   - uid: 31
     components:
     - type: Transform
@@ -6338,6 +6339,9 @@ entities:
       - 7489
       - 7543
       - 7542
+      - 388
+      - 9780
+      - 9980
   - uid: 32
     components:
     - type: Transform
@@ -9602,12 +9606,18 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 0.5,-141.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 30
   - uid: 388
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 1.5,-149.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 31
   - uid: 389
     components:
     - type: Transform
@@ -38308,13 +38318,16 @@ entities:
     - type: ContainerContainer
       containers:
         lens_slot: !type:ContainerSlot {}
-- proto: ClothingEyesHudOnionBeer
+- proto: ClothingEyesGlassesOutlawGlasses
   entities:
   - uid: 5525
     components:
     - type: Transform
-      pos: 17.613636,-73.25992
+      pos: 17.5,-73.5
       parent: 2
+    - type: ContainerContainer
+      containers:
+        lens_slot: !type:ContainerSlot {}
 - proto: ClothingEyesHudSecurity
   entities:
   - uid: 5526
@@ -38429,6 +38442,13 @@ entities:
     - type: Transform
       pos: -7.7489276,-255.68477
       parent: 2
+- proto: ClothingHeadHatBunny
+  entities:
+  - uid: 18992
+    components:
+    - type: Transform
+      pos: 17.5,-69.5
+      parent: 2
 - proto: ClothingHeadHatCowboyBountyHunter
   entities:
   - uid: 5543
@@ -38511,6 +38531,24 @@ entities:
     - type: Transform
       pos: 12.225706,-136.18898
       parent: 2
+- proto: ClothingMaskBlushingClown
+  entities:
+  - uid: 5557
+    components:
+    - type: Transform
+      parent: 5555
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+- proto: ClothingMaskBlushingMime
+  entities:
+  - uid: 5570
+    components:
+    - type: Transform
+      parent: 5567
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: ClothingMaskBreath
   entities:
   - uid: 5554
@@ -38553,24 +38591,6 @@ entities:
 - proto: ClothingMaskScaredMime
   entities:
   - uid: 5569
-    components:
-    - type: Transform
-      parent: 5567
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: ClothingMaskSexyClown
-  entities:
-  - uid: 5557
-    components:
-    - type: Transform
-      parent: 5555
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: ClothingMaskSexyMime
-  entities:
-  - uid: 5570
     components:
     - type: Transform
       parent: 5567
@@ -71499,6 +71519,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 4.5,-149.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 31
     - type: AtmosPipeColor
       color: '#0055CCFF'
   - uid: 9781
@@ -73570,6 +73593,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 4.5,-148.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 31
     - type: AtmosPipeColor
       color: '#990000FF'
   - uid: 9982
@@ -83646,6 +83672,13 @@ entities:
         - Pressed: Toggle
         840:
         - Pressed: Toggle
+- proto: LockerAdministrativeAssistantFilled
+  entities:
+  - uid: 18997
+    components:
+    - type: Transform
+      pos: 4.5,-11.5
+      parent: 2
 - proto: LockerAtmosphericsFilled
   entities:
   - uid: 10828
@@ -94874,6 +94907,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -1.5,-150.5
       parent: 2
+- proto: SignDrones
+  entities:
+  - uid: 18998
+    components:
+    - type: Transform
+      pos: 0.5,-7.5
+      parent: 2
 - proto: SignElectricalMed
   entities:
   - uid: 13478
@@ -96593,6 +96633,23 @@ entities:
     - type: Transform
       pos: -12.5,-253.5
       parent: 2
+- proto: SpawnMobDrone
+  entities:
+  - uid: 18999
+    components:
+    - type: Transform
+      pos: -0.5,-6.5
+      parent: 2
+  - uid: 19000
+    components:
+    - type: Transform
+      pos: -1.5,-6.5
+      parent: 2
+  - uid: 19001
+    components:
+    - type: Transform
+      pos: -2.5,-6.5
+      parent: 2
 - proto: SpawnMobFoxRenault
   entities:
   - uid: 13737
@@ -96687,12 +96744,19 @@ entities:
     - type: Transform
       pos: 5.5,-304.5
       parent: 2
-- proto: SpawnMobWalter
+- proto: SpawnMobChemDog
   entities:
   - uid: 13752
     components:
     - type: Transform
       pos: 6.5,-166.5
+      parent: 2
+- proto: SpawnPointAdminAssistant
+  entities:
+  - uid: 18996
+    components:
+    - type: Transform
+      pos: 6.5,-5.5
       parent: 2
 - proto: SpawnPointAtmos
   entities:
@@ -96982,6 +97046,23 @@ entities:
     components:
     - type: Transform
       pos: 6.5,-28.5
+      parent: 2
+- proto: SpawnPointLogisticsAssistant
+  entities:
+  - uid: 18993
+    components:
+    - type: Transform
+      pos: 4.5,-280.5
+      parent: 2
+  - uid: 18994
+    components:
+    - type: Transform
+      pos: 5.5,-272.5
+      parent: 2
+  - uid: 18995
+    components:
+    - type: Transform
+      pos: 0.5,-277.5
       parent: 2
 - proto: SpawnPointMedicalDoctor
   entities:

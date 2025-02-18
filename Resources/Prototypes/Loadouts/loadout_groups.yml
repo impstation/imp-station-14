@@ -78,6 +78,14 @@
   loadouts:
   - Glasses
   - GlassesCheapSunglasses
+  # imp edit start - its in the middle for alphabetizing reasons sorry
+  - GlassesColorfulPink
+  - GlassesColorfulRed
+  - GlassesColorfulBlue
+  - GlassesColorfulGreen
+  - GlassesColorfulPurple
+  - GlassesColorfulYellow
+  # imp edit end
   - GlassesJamjar
   - GlassesJensen
 
@@ -281,6 +289,7 @@
   minLimit: 0
   loadouts:
   - PassengerWintercoat
+  - BomberLightweight #imp
 
 - type: loadoutGroup
   id: PassengerShoes
@@ -334,14 +343,6 @@
   - BartenderWintercoat
   - ServiceClownApron
   - BartenderCuteApron
-
-- type: loadoutGroup
-  id: BartenderShoes
-  name: loadout-group-bartender-shoes
-  loadouts:
-  - BlackShoes
-  - LacedShoes
-  - ClownShoesExpert
 
 - type: loadoutGroup
   id: BartenderPDA
@@ -427,9 +428,10 @@
   id: LibrarianShoes
   name: loadout-group-librarian-shoes
   loadouts:
-  - LeatherShoes
-  - LacedShoes
   - BlackShoes
+  - LacedShoes
+  - LeatherShoes
+  - BlackHeels #imp
 
 - type: loadoutGroup
   id: LawyerJumpsuit
@@ -461,6 +463,7 @@
   loadouts:
   - LacedShoes
   - LeatherShoes
+  - BlackHeels #imp
 
 - type: loadoutGroup
   id: ChaplainHead
@@ -517,7 +520,9 @@
   loadouts:
   - BlackShoes
   - LacedShoes
-  - ClownShoesExpert
+  - LeatherShoes #imp
+  - BlackHeels #imp
+  - ClownShoesExpert #imp
 
 - type: loadoutGroup
   id: JanitorHead
@@ -808,8 +813,9 @@
   id: MusicianShoes
   name: loadout-group-musician-shoes
   loadouts:
-  - LacedShoes
   - BlackShoes
+  - LacedShoes
+  - BlackHeels #imp
 
 - type: loadoutGroup
   id: Instruments
@@ -882,6 +888,7 @@
   minLimit: 0
   loadouts:
   - QuartermasterWintercoat
+  - QuartermasterWintercoatXXXL #imp
 
 - type: loadoutGroup
   id: QuartermasterShoes
@@ -933,6 +940,7 @@
   minLimit: 0
   loadouts:
   - CargoTechnicianWintercoat
+  - BomberCargo #imp
 
 - type: loadoutGroup
   id: CargoTechnicianShoes
@@ -955,7 +963,7 @@
   minLimit: 0
   loadouts:
   - MinerCloak
-  - DrillerCape
+  - DrillerCape # imp
   - SaMantle
   - ScarfBrown
 
@@ -974,12 +982,20 @@
   loadouts:
   - Glasses
   - GlassesCheapSunglasses
-  - GlassesJamjar
-  - GlassesJensen
+  # imp edit start - in the middle for alphabetizing purposes
+  - GlassesColorfulBlue
+  - GlassesColorfulGreen
+  - GlassesColorfulPink
+  - GlassesColorfulPurple
+  - GlassesColorfulRed
+  - GlassesColorfulYellow
+  - GlassesGarBlack
   - GlassesGarGreen
   - GlassesGarOrange
   - GlassesGarRed
-  - GlassesGarBlack
+  # imp edit end
+  - GlassesJamjar
+  - GlassesJensen
 
 - type: loadoutGroup
   id: SalvageSpecialistOuterClothing
@@ -987,6 +1003,7 @@
   minLimit: 0
   loadouts:
   - SalvageSpecialistWintercoat
+  - BomberCargo #imp
 
 - type: loadoutGroup
   id: SalvageSpecialistShoes
@@ -1101,6 +1118,7 @@
   loadouts:
   - StationEngineerOuterVest
   - StationEngineerWintercoat
+  - BomberEngineering #imp
 
 - type: loadoutGroup
   id: StationEngineerShoes
@@ -1138,6 +1156,7 @@
   minLimit: 0
   loadouts:
   - AtmosphericTechnicianWintercoat
+  - BomberEngineering #imp
 
 - type: loadoutGroup
   id: AtmosphericTechnicianBackpack
@@ -1216,8 +1235,10 @@
   name: loadout-group-research-director-shoes
   loadouts:
   - BrownShoes
-  - LeatherShoes
   - WhiteShoes
+  - LacedShoes #imp
+  - LeatherShoes
+  - WhiteDressShoes #imp
   - ScienceWinterBoots
   - RoboticistWinterBoots
 
@@ -1279,6 +1300,7 @@
   - RoboticistLabCoat
   - RoboticistWintercoat
   - SeniorResearcherLabCoat
+  - BomberScience #imp
 
 - type: loadoutGroup
   id: ScientistShoes
@@ -1405,6 +1427,7 @@
   - ArmorVestSlim #imp
   - ArmorVestCompact #imp
   - WardenWinterCoatUnarmored
+  - BomberSecurity #imp
 
 - type: loadoutGroup
   id: WardenPDA
@@ -1473,6 +1496,7 @@
   - ArmorVestSlim
   - ArmorVestCompact #imp
   - SecurityOfficerWintercoat
+  - BomberSecurity #imp
 
 - type: loadoutGroup
   id: SecurityShoes
@@ -1532,6 +1556,11 @@
   - DetectiveArmorVest
   - DetectiveCoatGrey
   - DetectiveCoat
+  - ArmorVest #imp
+  - ArmorVestSlim #imp
+  - ArmorVestCompact #imp
+  - BomberSecurity #imp
+  - ClothingOuterCoatFieldJacket #imp
 
 - type: loadoutGroup
   id: DetectiveShoes
@@ -1579,6 +1608,10 @@
   loadouts:
   - BrigmedicArmoredWinterCoat
   - BrigmedicWinterCoat
+  - ArmorVest #imp
+  - ArmorVestSlim #imp
+  - ArmorVestCompact #imp
+  - BomberSecurity #imp
 
 - type: loadoutGroup
   id: BrigmedicShoes
@@ -1716,6 +1749,7 @@
   - RegularLabCoat
   - MedicalDoctorWintercoat
   - SeniorPhysicianLabCoat
+  - BomberMedical #imp
 
 - type: loadoutGroup
   id: MedicalBackpack
@@ -1790,6 +1824,7 @@
   - SeniorPhysicianLabCoat # imp
   - ChemistWintercoat
   - ChemistryApron # imp
+  - BomberMedical #imp
 
 - type: loadoutGroup
   id: ChemistBackpack
@@ -1842,6 +1877,7 @@
   loadouts:
   - ParamedicWindbreaker
   - ParamedicWintercoat
+  - BomberMedical #imp
 
 - type: loadoutGroup
   id: ParamedicShoes
@@ -1897,8 +1933,10 @@
   name: loadout-group-reporter-shoes
   loadouts:
   - WhiteShoes
+  - LacedShoes #imp
   - LeatherShoes
-  - ClownShoesExpert
+  - BlackHeels #imp
+  - ClownShoesExpert #imp
 
 - type: loadoutGroup
   id: PsychologistJumpsuit
@@ -1918,10 +1956,12 @@
   id: PsychologistShoes
   name: loadout-group-psychologist-shoes
   loadouts:
-  - LeatherShoes
   - BlackShoes
   - WhiteShoes
-  - ClownShoesExpert # imp
+  - LacedShoes #imp
+  - LeatherShoes
+  - BlackHeels #imp
+  - ClownShoesExpert #imp
 
 - type: loadoutGroup
   id: BoxerJumpsuit
