@@ -236,11 +236,11 @@
   description: A surgical tool used to compress blood vessels to prevent bleeding.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Specific/Medical/Surgery/hemostat.rsi
+    sprite: _Impstation/Objects/Specific/Medical/Surgery/scissors.rsi
     state: hemostat
   - type: Item
     heldPrefix: hemostat
-    sprite:  _Impstation/Objects/Specific/Medical/Surgery/hemostat.rsi
+    sprite:  _Impstation/Objects/Specific/Medical/Surgery/scissors.rsi
     storedRotation: 90
   # imp edits #
   - type: MeleeWeapon
