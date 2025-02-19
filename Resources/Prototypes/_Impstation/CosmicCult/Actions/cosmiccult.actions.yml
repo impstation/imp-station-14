@@ -70,7 +70,7 @@
   components:
   - type: EntityTargetAction
     canTargetSelf: true
-    useDelay: 80
+    useDelay: 90
     whitelist:
       components:
         - HumanoidAppearance
@@ -100,7 +100,10 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
-    canTargetSelf: false
+    useDelay: 60
+    whitelist:
+      components:
+        - Door
     itemIconStyle: NoItem
     icon:
       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
@@ -113,9 +116,8 @@
   description: LOREM IPSUM ##todo: description
   categories: [ HideSpawnMenu ]
   components:
-  - type: EntityWorldTargetAction
-    canTargetSelf: true
-    useDelay: 80
+  - type: InstantAction
+    useDelay: 200
     whitelist:
       components:
         - HumanoidAppearance
@@ -133,7 +135,7 @@
   components:
   - type: EntityWorldTargetAction
     canTargetSelf: true
-    useDelay: 80
+    useDelay: 160
     whitelist:
       components:
         - HumanoidAppearance

@@ -20,6 +20,7 @@ using Content.Shared.Audio;
 using Content.Shared.DoAfter;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Damage;
+using Content.Shared.Prying.Systems;
 
 namespace Content.Server._Impstation.CosmicCult;
 
@@ -41,6 +42,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly PryingSystem _pry = default!;
 
     private const string MapPath = "Prototypes/_Impstation/CosmicCult/Maps/cosmicvoid.yml";
     public int CultistCount;
@@ -104,7 +106,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
                 var entities = _lookup.GetEntitiesInRange(Transform(uid).Coordinates, 10);
                 entities.RemoveWhere(entity => !HasComp<InfluenceVitalityComponent>(entity));
                 comp.VitalityCheckTimer = _timing.CurTime + comp.CheckWait;
-                foreach (var entity in entities) _damageable.TryChangeDamage(entity, comp.MonumentHealing * 1);
+                foreach (var entity in entities) _damageable.TryChangeDamage(entity, comp.MonumentHealing * -1);
             }
         }
         var finaleQuery = EntityQueryEnumerator<CosmicFinaleComponent>(); // Enumerator for The Monument's Finale. All of it.

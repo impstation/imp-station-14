@@ -42,16 +42,22 @@ public sealed partial class CosmicCultComponent : Component
     {
         "ActionCosmicSiphon",
         "ActionCosmicBlank",
+        "ActionCosmicGlare"
     };
     public List<EntityUid?> ActionEntities = new();
 
     /// <summary>
-    /// The duration of the doAfter for cosmic siphon
+    /// The duration of the doAfter for Siphon Entropy
     /// </summary>
     [DataField, AutoNetworkedField] public TimeSpan CosmicSiphonSpeed = TimeSpan.FromSeconds(4);
 
     /// <summary>
-    /// The duration of the doAfter for cosmic blank
+    /// The duration of the doAfter for Force Ingress
+    /// </summary>
+    [DataField, AutoNetworkedField] public TimeSpan CosmicIngressSpeed = TimeSpan.FromSeconds(5);
+
+    /// <summary>
+    /// The duration of the doAfter for Shunt Subjectivity
     /// </summary>
     [DataField, AutoNetworkedField] public TimeSpan CosmicBlankSpeed = TimeSpan.FromSeconds(0.6f);
 
@@ -97,6 +103,7 @@ public sealed partial class CosmicCultComponent : Component
     [DataField] public EntProtoId AbsorbVFX = "CosmicGlyphVFX";
 
     [DataField] public SoundSpecifier BlankSFX = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/ability_blank.ogg");
+    [DataField] public SoundSpecifier IngressSFX = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/ability_ingress.ogg");
 
     #endregion
 }

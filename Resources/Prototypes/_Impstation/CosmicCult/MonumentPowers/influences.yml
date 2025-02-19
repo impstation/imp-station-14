@@ -20,7 +20,7 @@
   icon:
     sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
     state: glare
-  action: ActionCosmicLapse
+  action: ActionCosmicGlare
 
 - type: influence
   id: InfluenceForceIngress
@@ -31,7 +31,7 @@
   icon:
     sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
     state: ingress
-  action: ActionCosmicLapse
+  action: ActionCosmicIngress
 
 - type: influence
   id: InfluenceVacuousImposition
@@ -42,7 +42,7 @@
   icon:
     sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
     state: entropic
-  action: ActionCosmicLapse
+  action: ActionCosmicImposition
 
 - type: influence
   id: InfluenceAstralNova
@@ -53,7 +53,7 @@
   icon:
     sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
     state: nova
-  action: ActionCosmicLapse
+  action: ActionCosmicNova
 
 ### PASSIVE INFLUENCES
 

@@ -22,6 +22,10 @@ using Content.Server._Impstation.CosmicCult.Components;
 using Content.Shared._Impstation.CosmicCult.Components.Examine;
 using Content.Shared.Stunnable;
 using Robust.Shared.Audio.Systems;
+using Content.Shared.Prying.Systems;
+using Content.Shared.Doors.Components;
+using Content.Shared.Lock;
+using Content.Server.Doors.Systems;
 
 namespace Content.Server._Impstation.CosmicCult;
 
@@ -35,8 +39,12 @@ public sealed partial class CosmicCultSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly DoorSystem _door = default!;
+    [Dependency] private readonly LockSystem _lock = default!;
     public void SubscribeAbilities()
     {
+        SubscribeLocalEvent<CosmicCultComponent, EventCosmicIngress>(OnCosmicIngress);
+        SubscribeLocalEvent<CosmicCultComponent, EventForceIngressDoAfter>(OnCosmicIngressDoAfter);
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicSiphon>(OnCosmicSiphon);
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicSiphonDoAfter>(OnCosmicSiphonDoAfter);
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicBlankDoAfter>(OnCosmicBlankDoAfter);
@@ -45,6 +53,61 @@ public sealed partial class CosmicCultSystem : EntitySystem
         SubscribeLocalEvent<CosmicCultLeadComponent, EventCosmicPlaceMonument>(OnCosmicPlaceMonument);
         SubscribeLocalEvent<CosmicAstralBodyComponent, EventCosmicReturn>(OnCosmicReturn);
     }
+
+    #region Force Ingress
+    private void OnCosmicIngress(Entity<CosmicCultComponent> uid, ref EventCosmicIngress args)
+    {
+        if (args.Handled)
+            return;
+        args.Handled = true;
+        var doargs = new DoAfterArgs(EntityManager, uid, uid.Comp.CosmicIngressSpeed, new EventForceIngressDoAfter(), uid, args.Target)
+        {
+            DistanceThreshold = 1.5f,
+            Hidden = true,
+            BreakOnHandChange = true,
+            BreakOnDamage = true,
+            BreakOnMove = true,
+            BreakOnDropItem = true,
+        };
+        _doAfter.TryStartDoAfter(doargs);
+    }
+
+    private void OnCosmicIngressDoAfter(Entity<CosmicCultComponent> uid, ref EventForceIngressDoAfter args)
+    {
+        if (args.Args.Target == null)
+            return;
+
+        var target = args.Args.Target.Value;
+        if (args.Cancelled || args.Handled)
+            return;
+
+        args.Handled = true;
+        _door.StartOpening(target);
+        _audio.PlayPvs(uid.Comp.IngressSFX, uid);
+    }
+    #endregion
+
+
+
+    #region Null Glare
+
+
+    #endregion
+
+
+
+    #region Astral Nova
+
+
+    #endregion
+
+
+
+    #region Vacuous Imposition
+
+
+    #endregion
+
 
     #region Siphon Entropy
     private void OnCosmicSiphon(Entity<CosmicCultComponent> uid, ref EventCosmicSiphon args)
@@ -249,7 +312,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
     }
     #endregion
 
-    #region Return (Element)
+    #region Return (for Glyph)
     private void OnCosmicReturn(Entity<CosmicAstralBodyComponent> uid, ref EventCosmicReturn args) //This action is exclusive to the Glyph-created Astral Projection, and allows the user to return to their original body.
     {
         if (_mind.TryGetMind(args.Performer, out var mindId, out var _))
