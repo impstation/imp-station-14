@@ -138,7 +138,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
 
             if (TryComp<NameIdentifierComponent>(jobEntity, out var identcomp));
             {
-            _metaSystem.SetEntityName(jobEntity, profile!.Name + " " + identcomp!.FullIdentifier);
+            _metaSystem.SetEntityName(jobEntity, profile!.Name + " " + identcomp!.FullIdentifier); //imp change
             }
 
             DoJobSpecials(job, jobEntity);
