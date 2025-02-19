@@ -13,6 +13,7 @@ using Content.Shared.CCVar;
 using Content.Shared.Clothing;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.NameIdentifier;
 using Content.Shared.PDA;
 using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
@@ -135,7 +136,13 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
                 EquipRoleName(jobEntity, loadout, roleProto!);
             }
 
+            if (TryComp<NameIdentifierComponent>(jobEntity, out var identcomp));
+            {
+            _metaSystem.SetEntityName(jobEntity, profile!.Name + " " + identcomp!.FullIdentifier);
+            }
+
             DoJobSpecials(job, jobEntity);
+
             _identity.QueueIdentityUpdate(jobEntity);
             return jobEntity;
         }
