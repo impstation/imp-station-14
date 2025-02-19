@@ -18,7 +18,7 @@
     - type: IncisionOpen
     duration: 2
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/scalpel.rsi
+    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
     state: scalpel
   - type: SurgeryDamageChangeEffect
     damage:
@@ -352,7 +352,7 @@
     - type: IncisionOpen
     duration: 3
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/scalpel.rsi
+    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
     state: scalpel
   - type: SurgeryStepEmoteEffect
   - type: SurgeryDamageChangeEffect # DeltaV
@@ -422,7 +422,7 @@
     - type: IncisionOpen
     duration: 2
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/cautery.rsi
+    sprite: Objects/Specific/Medical/Surgery/cautery.rsi
     state: cautery
   - type: SurgeryDamageChangeEffect
     damage:
@@ -579,7 +579,7 @@
     duration: 2
   - type: SurgeryAffixOrganStep
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/cautery.rsi
+    sprite: Objects/Specific/Medical/Surgery/cautery.rsi
     state: cautery
   - type: SurgeryStepEmoteEffect
   - type: SurgeryDamageChangeEffect
@@ -610,7 +610,7 @@
           #     Burn: 3
     duration: 5
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/drill.rsi
+    sprite: Objects/Specific/Medical/Surgery/drill.rsi
     state: drill
   - type: SurgeryStepEmoteEffect
   - type: SurgeryDamageChangeEffect
