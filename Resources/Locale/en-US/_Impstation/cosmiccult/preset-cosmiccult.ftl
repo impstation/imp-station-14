@@ -38,13 +38,13 @@ cosmiccult-roundend-crewminor = [color=green]Crew minor victory![/color]
 cosmiccult-roundend-crewmajor = [color=green]Crew major victory![/color]
 cosmiccult-roundend-crewcomplete = [color=green]Crew complete victory![/color]
 
-cosmiccult-summary-cultcomplete = The cosmic cultists ushered in the end, as heralds of the final curtain call!
-cosmiccult-summary-cultmajor = The cosmic cultists' victory will be inevitable, even if the crew isn't there to see it.
-cosmiccult-summary-cultminor = The Monument was completed, but not fully empowered..
-cosmiccult-summary-neutral = The cult's leader escaped, despite everything. The cult will live to see another day.
-cosmiccult-summary-crewminor = The cult didn't accomplish their goals, and the cult has been left leaderless.
-cosmiccult-summary-crewmajor = All cosmic cultists were eliminated, and the crew escaped. Good work.
-cosmiccult-summary-crewcomplete = Every single cosmic cultist was deconverted. Amazing!
+cosmiccult-summary-cultcomplete = The cosmic cultists ushered in the end!
+cosmiccult-summary-cultmajor = The cosmic cultists' victory will be inevitable.
+cosmiccult-summary-cultminor = The Monument was completed, but not fully empowered.
+cosmiccult-summary-neutral = The cult will live to see another day.
+cosmiccult-summary-crewminor = The cult has been left leaderless.
+cosmiccult-summary-crewmajor = All cosmic cultists were eliminated.
+cosmiccult-summary-crewcomplete = Every single cosmic cultist was deconverted!
 
 ## BRIEFINGS
 
@@ -104,7 +104,7 @@ cosmiccult-ui-converted-text-2 =
     Cooperate with your fellow cultists' plans.
 
 cosmiccult-ui-roundstart-text-1 =
-    You are a Cosmic Cultist.
+    You are a Cosmic Cultist!
 cosmiccult-ui-roundstart-text-2 =
     Aid the cult in its goals whilst ensuring its secrecy.
     Listen to your cult leader's directions.

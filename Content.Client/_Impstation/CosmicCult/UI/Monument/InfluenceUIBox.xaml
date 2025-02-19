@@ -22,7 +22,7 @@
             <!-- Body -->
             <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="10 0 0 0">
                 <BoxContainer Orientation="Horizontal">
-                    <Label Text="{Loc 'monument-interface-influences-cost'}" Margin="0 0 10 0" />
+                    <Label Name="CostText" Text="{Loc 'monument-interface-influences-cost'}" Margin="0 0 10 0" />
                     <Label Name="Cost" HorizontalAlignment="Center" Text="73" FontColorOverride="#4CA7AD" />
                 </BoxContainer>
                 <RichTextLabel Name="Description" />

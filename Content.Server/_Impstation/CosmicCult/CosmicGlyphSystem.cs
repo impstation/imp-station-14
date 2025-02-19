@@ -231,8 +231,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
     /// </summary>
     public HashSet<EntityUid> GatherCultists(EntityUid uid, float range)
     {
-        var glyphTransform = Transform(uid);
-        var entities = _lookup.GetEntitiesInRange(glyphTransform.Coordinates, range);
+        var entities = _lookup.GetEntitiesInRange(Transform(uid).Coordinates, range);
         entities.RemoveWhere(entity => !HasComp<CosmicCultComponent>(entity));
         entities.RemoveWhere(entity => _container.IsEntityInContainer(entity));
         return entities;
@@ -243,8 +242,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
     /// </summary>
     public HashSet<EntityUid> GatherSharpItems(EntityUid uid, float range)
     {
-        var glyphTransform = Transform(uid);
-        var items = _lookup.GetEntitiesInRange(glyphTransform.Coordinates, range);
+        var items = _lookup.GetEntitiesInRange(Transform(uid).Coordinates, range);
         items.RemoveWhere(item => !HasComp<SharpComponent>(item));
         items.RemoveWhere(item => _container.IsEntityInContainer(item));
         return items;
@@ -255,8 +253,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
     /// </summary>
     public HashSet<EntityUid> GatherPortaScrubbers(EntityUid uid, float range)
     {
-        var glyphTransform = Transform(uid);
-        var items = _lookup.GetEntitiesInRange(glyphTransform.Coordinates, range);
+        var items = _lookup.GetEntitiesInRange(Transform(uid).Coordinates, range);
         items.RemoveWhere(item => !HasComp<PortableScrubberComponent>(item));
         items.RemoveWhere(item => _container.IsEntityInContainer(item));
         return items;
@@ -267,8 +264,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
     /// </summary>
     public HashSet<EntityUid> GatherPressureSuitItems(EntityUid uid, float range)
     {
-        var glyphTransform = Transform(uid);
-        var items = _lookup.GetEntitiesInRange(glyphTransform.Coordinates, range);
+        var items = _lookup.GetEntitiesInRange(Transform(uid).Coordinates, range);
         items.RemoveWhere(item => !HasComp<ClothingSpeedModifierComponent>(item) || !HasComp<PressureProtectionComponent>(item));
         items.RemoveWhere(item => _container.IsEntityInContainer(item));
         return items;
@@ -282,8 +278,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
     /// <param name="exclude">Filter to exclude from return.</param>
     public HashSet<Entity<HumanoidAppearanceComponent>> GetTargetsNearGlyph(EntityUid uid, float range, Predicate<Entity<HumanoidAppearanceComponent>>? exclude = null)
     {
-        var glyphTransform = Transform(uid);
-        var possibleTargets = _lookup.GetEntitiesInRange<HumanoidAppearanceComponent>(glyphTransform.Coordinates, range);
+        var possibleTargets = _lookup.GetEntitiesInRange<HumanoidAppearanceComponent>(Transform(uid).Coordinates, range);
         if (exclude != null)
             possibleTargets.RemoveWhere(exclude);
 

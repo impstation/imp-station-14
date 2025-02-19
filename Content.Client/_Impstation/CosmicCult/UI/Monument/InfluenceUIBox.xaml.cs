@@ -34,11 +34,16 @@ public sealed partial class InfluenceUIBox : BoxContainer
         else
         {
             Status.Text = Loc.GetString("monument-interface-influences-locked");
+            Status.FontColorOverride = Color.White;
             GainButton.Disabled = true;
+            GainButton.Modulate = Color.Gray;
+            Name.FontColorOverride = Color.White;
             InfluenceBox.Modulate = Color.Gray;
-            Cost.Modulate = Color.Gray;
             InfluenceIcon.Modulate = Color.Gray;
-            Name.FontColorOverride = Color.LightGray;
+            Description.Modulate = Color.Gray;
+            Type.Modulate = Color.Gray;
+            CostText.Modulate = Color.Gray;
+            Cost.FontColorOverride = Color.Gray;
         }
 
         Type.Text = Loc.GetString(influenceProto.InfluenceType);

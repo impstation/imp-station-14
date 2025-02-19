@@ -1,6 +1,5 @@
 using Content.Shared._Impstation.CosmicCult.Prototypes;
-using Content.Shared.Radio;
-using Robust.Shared.Audio;
+using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -29,7 +28,24 @@ public sealed partial class MonumentComponent : Component
     [DataField] public bool HasCollision = false;
     [DataField, AutoNetworkedField] public TimeSpan TransformTime = TimeSpan.FromSeconds(2.8);
     [DataField, AutoNetworkedField] public EntityUid? CurrentGlyph;
-    [DataField] public TimeSpan ScribeTime = TimeSpan.FromSeconds(5);
+    [AutoPausedField] public TimeSpan VitalityCheckTimer = default!;
+    [DataField] public TimeSpan CheckWait = TimeSpan.FromSeconds(5);
+    [DataField] public DamageSpecifier MonumentHealing = new()
+    {
+        DamageDict = new()
+        {
+            { "Blunt", 2},
+            { "Slash", 2 },
+            { "Piercing", 2 },
+            { "Heat", 2},
+            { "Shock", 2},
+            { "Cold", 2},
+            { "Poison", 2},
+            { "Radiation", 2},
+            { "Asphyxiation", 2 }
+        }
+    };
+
 }
 [Serializable, NetSerializable]
 public sealed class InfluenceSelectedMessage(ProtoId<InfluencePrototype> influenceProtoId) : BoundUserInterfaceMessage

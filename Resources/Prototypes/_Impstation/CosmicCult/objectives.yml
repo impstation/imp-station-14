@@ -19,7 +19,7 @@
   components:
   - type: Objective
     icon:
-      sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
+      sprite: _Impstation/CosmicCult/Icons/objectives.rsi
       state: siphon
   - type: NumberObjective
     min: 40
@@ -34,8 +34,8 @@
   components:
   - type: Objective
     icon:
-      sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
-      state: monument
+      sprite: _Impstation/CosmicCult/Icons/objectives.rsi
+      state: upgrade
   - type: NumberObjective
     min: 3
     max: 3
@@ -49,8 +49,8 @@
   components:
   - type: Objective
     icon:
-      sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
-      state: logo
+      sprite: _Impstation/CosmicCult/Icons/objectives.rsi
+      state: summon
   - type: NumberObjective
     min: 1
     max: 1

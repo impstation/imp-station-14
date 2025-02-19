@@ -18,6 +18,8 @@ using Content.Server.Announcements.Systems;
 using Content.Server.Audio;
 using Content.Shared.Audio;
 using Content.Shared.DoAfter;
+using Content.Shared.Movement.Systems;
+using Content.Shared.Damage;
 
 namespace Content.Server._Impstation.CosmicCult;
 
@@ -36,6 +38,10 @@ public sealed partial class CosmicCultSystem : EntitySystem
     [Dependency] private readonly CosmicGlyphSystem _cosmicGlyphs = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+
     private const string MapPath = "Prototypes/_Impstation/CosmicCult/Maps/cosmicvoid.yml";
     public int CultistCount;
     public override void Initialize()
@@ -47,7 +53,9 @@ public sealed partial class CosmicCultSystem : EntitySystem
         SubscribeLocalEvent<CosmicCultComponent, ComponentInit>(OnStartCultist);
         SubscribeLocalEvent<CosmicCultLeadComponent, ComponentInit>(OnStartCultLead);
         SubscribeLocalEvent<MonumentComponent, ComponentInit>(OnStartMonument);
-        SubscribeLocalEvent<MonumentComponent, InteractUsingEvent>(OnInteractUsing);
+        SubscribeLocalEvent<InfluenceStrideComponent, ComponentInit>(OnStartInfluenceStride);
+        SubscribeLocalEvent<InfluenceStrideComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMoveSpeed);
+        SubscribeLocalEvent<MonumentComponent, InteractUsingEvent>(OnInfuseEntropy);
 
         MakeSimpleExamineHandler<CosmicMarkStructureComponent>("cosmic-examine-text-structures");
         MakeSimpleExamineHandler<CosmicMarkBlankComponent>("cosmic-examine-text-abilityblank");
@@ -68,11 +76,11 @@ public sealed partial class CosmicCultSystem : EntitySystem
         if (_mapLoader.TryLoad(mapId, MapPath, out _, options))
             _map.SetPaused(mapId, false);
     }
-    public override void Update(float frameTime)
+    public override void Update(float frameTime) // This Update() can fit so much functionality in it
     {
         base.Update(frameTime);
 
-        var blanktimer = EntityQueryEnumerator<InVoidComponent>();
+        var blanktimer = EntityQueryEnumerator<InVoidComponent>(); // Enumerator for Shunt Subjectivity's cosmic void pocket dimension
         while (blanktimer.MoveNext(out var uid, out var comp))
         {
             if (_timing.CurTime >= comp.ExitVoidTime)
@@ -88,7 +96,18 @@ public sealed partial class CosmicCultSystem : EntitySystem
                 QueueDel(uid);
             }
         }
-        var finaleQuery = EntityQueryEnumerator<CosmicFinaleComponent>();
+        var vitQuery = EntityQueryEnumerator<MonumentComponent>(); // Enumerator for people who've unlocked Vacuous Vitality.
+        while (vitQuery.MoveNext(out var uid, out var comp))
+        {
+            if (_timing.CurTime >= comp.VitalityCheckTimer)
+            {
+                var entities = _lookup.GetEntitiesInRange(Transform(uid).Coordinates, 10);
+                entities.RemoveWhere(entity => !HasComp<InfluenceVitalityComponent>(entity));
+                comp.VitalityCheckTimer = _timing.CurTime + comp.CheckWait;
+                foreach (var entity in entities) _damageable.TryChangeDamage(entity, comp.MonumentHealing * 1);
+            }
+        }
+        var finaleQuery = EntityQueryEnumerator<CosmicFinaleComponent>(); // Enumerator for The Monument's Finale. All of it.
         while (finaleQuery.MoveNext(out var uid, out var comp))
         {
             if (comp.FinaleActive && !comp.BufferComplete && !comp.PlayedBufferSong && !string.IsNullOrEmpty(comp.SelectedBufferSong))
@@ -128,7 +147,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
                 _popup.PopupCoordinates(Loc.GetString("cosmiccult-finale-cultist-count", ("COUNT", CultistCount)), Transform(uid).Coordinates);
                 var modifyTime = TimeSpan.FromSeconds(420 * 5 / (420 - 36 * CultistCount) - 5);
                 comp.BufferTimer -= modifyTime;
-                Log.Debug($"Timer decreased by {modifyTime}.");
             }
         }
     }
@@ -158,7 +176,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
             var actionEnt = _actions.AddAction(uid, actionId);
             uid.Comp.ActionEntities.Add(actionEnt);
         }
-        if (TryComp<CosmicCultLeadComponent>(uid, out var leadComp)) _actions.AddAction(uid, leadComp.CosmicMonumentAction);
         if (TryComp<EyeComponent>(uid, out var eye))
             _eye.SetVisibilityMask(uid, eye.VisibilityMask | MonumentComponent.LayerMask);
     }
@@ -180,7 +197,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
         _cultRule.UpdateCultData(uid);
     }
 
-    private void OnInteractUsing(Entity<MonumentComponent> uid, ref InteractUsingEvent args)
+    private void OnInfuseEntropy(Entity<MonumentComponent> uid, ref InteractUsingEvent args)
     {
         if (!HasComp<CosmicEntropyMoteComponent>(args.Used) || !HasComp<CosmicCultComponent>(args.User) || !uid.Comp.Enabled || args.Handled)
             return;
@@ -200,4 +217,20 @@ public sealed partial class CosmicCultSystem : EntitySystem
         return true;
     }
     #endregion
+
+    #region influences
+
+    private void OnStartInfluenceStride(Entity<InfluenceStrideComponent> uid, ref ComponentInit args)
+    {
+        _movementSpeed.RefreshMovementSpeedModifiers(uid);
+    }
+    private void OnRefreshMoveSpeed(EntityUid uid, InfluenceStrideComponent comp, RefreshMovementSpeedModifiersEvent args)
+    {
+        if (HasComp<InfluenceStrideComponent>(uid))
+            args.ModifySpeed(1.05f, 1.05f);
+        else
+            args.ModifySpeed(1f, 1f);
+    }
+    #endregion
+
 }

@@ -45,6 +45,7 @@ using Content.Shared.Body.Systems;
 using Content.Server.RoundEnd;
 using Content.Server.Audio;
 using Content.Shared.Audio;
+using Content.Shared.Movement.Systems;
 
 namespace Content.Server._Impstation.CosmicCult;
 
@@ -75,6 +76,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly RoundEndSystem _roundEndSystem = default!;
     [Dependency] private readonly ServerGlobalSoundSystem _sound = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
     [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> NanoTrasenFactionId = "NanoTrasen";
     [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> CosmicFactionId = "CosmicCultFaction";
     public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/antag_cosmic_briefing.ogg");
@@ -475,6 +477,10 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             RemComp<IntrinsicRadioTransmitterComponent>(uid);
             if (HasComp<CosmicCultLeadComponent>(uid))
                 RemComp<CosmicCultLeadComponent>(uid);
+            if (HasComp<InfluenceVitalityComponent>(uid))
+                RemComp<InfluenceVitalityComponent>(uid);
+            if (HasComp<InfluenceStrideComponent>(uid))
+                RemComp<InfluenceStrideComponent>(uid);
             if (CurrentTier == 3 || uid.Comp.CosmicEmpowered)
             {
                 RemComp<PressureImmunityComponent>(uid);
@@ -498,6 +504,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             TotalCult--;
             cosmicGamerule.Cultists.Remove(uid);
             UpdateCultData(MonumentInGame);
+            _movementSpeed.RefreshMovementSpeedModifiers(uid);
         }
     }
     #endregion

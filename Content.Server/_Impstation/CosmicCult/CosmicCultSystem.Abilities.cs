@@ -27,11 +27,9 @@ namespace Content.Server._Impstation.CosmicCult;
 
 public sealed partial class CosmicCultSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly PolymorphSystem _polymorphSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly EntityLookupSystem _entLookup = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDef = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -239,7 +237,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
             return;
         }
         ///CHECK FOR ENTITY AND ENVIRONMENTAL INTERSECTIONS
-        if (_entLookup.AnyLocalEntitiesIntersecting(xform.GridUid.Value, box, LookupFlags.Dynamic | LookupFlags.Static, uid))
+        if (_lookup.AnyLocalEntitiesIntersecting(xform.GridUid.Value, box, LookupFlags.Dynamic | LookupFlags.Static, uid))
         {
             _popup.PopupEntity(Loc.GetString("cosmicability-monument-spawn-error-intersection"), uid, uid);
             return;

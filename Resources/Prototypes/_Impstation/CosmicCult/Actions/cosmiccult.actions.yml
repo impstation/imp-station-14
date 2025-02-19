@@ -14,7 +14,6 @@
       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: siphon
     event: !type:EventCosmicSiphon {}
-  - type: CosmicCultAction
 
 - type: entity
   id: ActionCosmicBlank
@@ -33,7 +32,6 @@
       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: blank
     event: !type:EventCosmicBlank {}
-  - type: CosmicCultAction
 
 - type: entity
   id: ActionCosmicPlaceMonument
@@ -50,7 +48,6 @@
       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: monument
     event: !type:EventCosmicPlaceMonument {}
-  - type: CosmicCultAction
 
 - type: entity
   id: ActionCosmicReturn
@@ -64,7 +61,6 @@
       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: return
     event: !type:EventCosmicReturn {}
-  - type: CosmicCultAction
 
 - type: entity
   id: ActionCosmicLapse
@@ -83,7 +79,6 @@
       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: lapse
     event: !type:EventCosmicLapse {}
-  - type: CosmicCultAction
 
 - type: entity
   id: ActionCosmicGlare
@@ -97,7 +92,6 @@
       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: glare
     event: !type:EventCosmicGlare {}
-  - type: CosmicCultAction
 
 - type: entity
   id: ActionCosmicIngress
@@ -112,7 +106,6 @@
       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: ingress
     event: !type:EventCosmicIngress {}
-  - type: CosmicCultAction
 
 - type: entity
   id: ActionCosmicImposition
@@ -131,7 +124,6 @@
       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: entropic
     event: !type:EventCosmicImposition {}
-  - type: CosmicCultAction
 
 - type: entity
   id: ActionCosmicNova
@@ -150,4 +142,3 @@
       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: nova
     event: !type:EventCosmicNova {}
-  - type: CosmicCultAction

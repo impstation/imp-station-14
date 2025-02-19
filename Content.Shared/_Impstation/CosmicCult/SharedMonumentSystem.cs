@@ -2,8 +2,12 @@ using System.Linq;
 using System.Numerics;
 using Content.Shared._Impstation.Cosmiccult;
 using Content.Shared._Impstation.CosmicCult.Components;
+using Content.Shared._Impstation.CosmicCult.Prototypes;
 using Content.Shared.Actions;
 using Content.Shared.Interaction;
+using Content.Shared.Movement.Components;
+using Content.Shared.Nutrition.Components;
+using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.UserInterface;
 using Robust.Shared.Map;
@@ -22,7 +26,6 @@ public sealed class SharedMonumentSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -108,6 +111,7 @@ public sealed class SharedMonumentSystem : EntitySystem
             var actionEnt = _actions.AddAction(uiComp.CurrentSingleUser.Value, proto.Action);
             cultComp.ActionEntities.Add(actionEnt);
         }
+        else if (proto.InfluenceType == "influence-type-passive") UnlockPassive(uiComp.CurrentSingleUser.Value, proto); //Not unlocking an action? call the helper function to add the influence's passive effects
 
         ent.Comp.AvailableEntropy -= proto.Cost;
         cultComp.EntropyBudget -= proto.Cost;
@@ -132,4 +136,26 @@ public sealed class SharedMonumentSystem : EntitySystem
         );
     }
     #endregion
+
+    private void UnlockPassive(EntityUid cultist, InfluencePrototype proto)
+    {
+        switch (proto.PassiveName) // Yay, switch statements.
+        {
+            case "eschew":
+                RemCompDeferred<HungerComponent>(cultist);
+                RemCompDeferred<ThirstComponent>(cultist);
+                break;
+            case "step":
+                EnsureComp<MovementIgnoreGravityComponent>(cultist);
+                break;
+            case "stride":
+                EnsureComp<InfluenceStrideComponent>(cultist);
+                break;
+            case "vitality":
+                EnsureComp<InfluenceVitalityComponent>(cultist);
+                break;
+            default:
+                break;
+        }
+    }
 }
