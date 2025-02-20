@@ -132,6 +132,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         while (query.MoveNext(out var ruleUid, out _, out var cultRule, out _))
         {
             SetWinType((ruleUid, cultRule), WinType.CultComplete); //Last i checked, there's no coming back from summoning a fragment of raw cosmic power. Cult wins this round.
+            _roundEndSystem.EndRound(); //Woo game over yeaaaah
             foreach (var cultist in cultRule.Cultists)
             {
                 if (TryComp<MobStateComponent>(cultist, out var state) && state.CurrentState == MobState.Alive)
@@ -142,8 +143,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
                     _mind.TransferTo(mindContainer.Mind.Value, ascendant);
                     _body.GibBody(cultist); //You won't be needing your old body anymore, so let's explode it to enhance the vibes.
                 }
+                else return;
             }
-            _roundEndSystem.EndRound(); //Woo game over yeaaaah
         }
     }
 

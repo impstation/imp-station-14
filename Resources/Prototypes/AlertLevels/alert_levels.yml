@@ -70,7 +70,8 @@
       emergencyLightColor: DarkViolet
       forceEnableEmergencyLights: true
       shuttleTime: 1200
-    pink: # imp
+    # imp edits below
+    pink:
       announcement: alert-level-pink-announcement
       sound: /Audio/_Impstation/Misc/pink.ogg
       color: Pink
@@ -140,3 +141,15 @@
       emergencyLightColor: PaleVioletRed
       forceEnableEmergencyLights: true
       shuttleTime: 600
+    octarine: # cosmic cult
+      announcement: alert-level-octarine-announcement
+      selectable: false
+      sound:
+        path: /Audio/Misc/epsilon.ogg # i think this is deprecated bc of random announcers
+        params:
+          volume: -3
+      disableSelection: true
+      color: CadetBlue
+      emergencyLightColor: CadetBlue
+      forceEnableEmergencyLights: true
+      shuttleTime: 1200

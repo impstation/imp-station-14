@@ -177,3 +177,37 @@
   - type: Tag
     tags:
       - HideContextMenu
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: CosmicGlareAbilityVFX
+  components:
+  - type: TimedDespawn
+    lifetime: 1.1
+  - type: Sprite
+    layers:
+    - sprite: _Impstation/CosmicCult/Effects/ability_glarevfx.rsi
+      state: vfx
+      shader: unshaded
+    netsync: false
+    drawdepth: Mobs
+  - type: PointLight
+    color: "#42a4ae"
+    radius: 10
+    energy: 10
+    castShadows: true
+  - type: LightBehaviour
+    behaviours:
+     - !type:FadeBehaviour
+       interpolate: Linear
+       minDuration: 1.1
+       maxDuration: 1.1
+       startValue: 0.1
+       endValue: 10
+       property: Energy
+       enabled: true
+       isLooped: true
+       reverseWhenFinished: true
+  - type: Tag
+    tags:
+      - HideContextMenu

@@ -21,6 +21,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Prying.Systems;
+using Content.Server.AlertLevel;
 
 namespace Content.Server._Impstation.CosmicCult;
 
@@ -43,6 +44,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly PryingSystem _pry = default!;
+    [Dependency] private readonly AlertLevelSystem _alert = default!;
 
     private const string MapPath = "Prototypes/_Impstation/CosmicCult/Maps/cosmicvoid.yml";
     public int CultistCount;

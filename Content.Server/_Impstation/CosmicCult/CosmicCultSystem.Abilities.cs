@@ -26,6 +26,14 @@ using Content.Shared.Prying.Systems;
 using Content.Shared.Doors.Components;
 using Content.Shared.Lock;
 using Content.Server.Doors.Systems;
+using Robust.Server.GameObjects;
+using Robust.Shared.Player;
+using Content.Server.Light.Components;
+using Content.Server.Light.EntitySystems;
+using Content.Shared.Flash;
+using Content.Shared.Camera;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Content.Server.Flash;
 
 namespace Content.Server._Impstation.CosmicCult;
 
@@ -40,11 +48,15 @@ public sealed partial class CosmicCultSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly DoorSystem _door = default!;
-    [Dependency] private readonly LockSystem _lock = default!;
+    [Dependency] private readonly PoweredLightSystem _poweredLight = default!;
+    [Dependency] private readonly FlashSystem _flash = default!;
+    [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
+    [Dependency] private readonly ISharedPlayerManager _playerMan = default!;
     public void SubscribeAbilities()
     {
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicIngress>(OnCosmicIngress);
         SubscribeLocalEvent<CosmicCultComponent, EventForceIngressDoAfter>(OnCosmicIngressDoAfter);
+        SubscribeLocalEvent<CosmicCultComponent, EventCosmicGlare>(OnCosmicGlare);
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicSiphon>(OnCosmicSiphon);
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicSiphonDoAfter>(OnCosmicSiphonDoAfter);
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicBlankDoAfter>(OnCosmicBlankDoAfter);
@@ -60,18 +72,34 @@ public sealed partial class CosmicCultSystem : EntitySystem
         if (args.Handled)
             return;
         args.Handled = true;
-        var doargs = new DoAfterArgs(EntityManager, uid, uid.Comp.CosmicIngressSpeed, new EventForceIngressDoAfter(), uid, args.Target)
+        if (!uid.Comp.CosmicEmpowered)
         {
-            DistanceThreshold = 1.5f,
-            Hidden = true,
-            BreakOnHandChange = true,
-            BreakOnDamage = true,
-            BreakOnMove = true,
-            BreakOnDropItem = true,
-        };
-        _doAfter.TryStartDoAfter(doargs);
-    }
+            var doargs = new DoAfterArgs(EntityManager, uid, 6, new EventForceIngressDoAfter(), uid, args.Target)
+            {
+                DistanceThreshold = 1.5f,
+                Hidden = true,
+                BreakOnHandChange = true,
+                BreakOnDamage = true,
+                BreakOnMove = true,
+                BreakOnDropItem = true,
+            };
+            _doAfter.TryStartDoAfter(doargs);
+        }
+        else
+        {
+            var doargs = new DoAfterArgs(EntityManager, uid, 4, new EventForceIngressDoAfter(), uid, args.Target)
+            {
+                DistanceThreshold = 1.5f,
+                Hidden = true,
+                BreakOnHandChange = true,
+                BreakOnDamage = true,
+                BreakOnMove = true,
+                BreakOnDropItem = true,
+            };
+            _doAfter.TryStartDoAfter(doargs);
+        }
 
+    }
     private void OnCosmicIngressDoAfter(Entity<CosmicCultComponent> uid, ref EventForceIngressDoAfter args)
     {
         if (args.Args.Target == null)
@@ -90,7 +118,39 @@ public sealed partial class CosmicCultSystem : EntitySystem
 
 
     #region Null Glare
+    private void OnCosmicGlare(Entity<CosmicCultComponent> uid, ref EventCosmicGlare args)
+    {
+        _audio.PlayPvs(uid.Comp.GlareSFX, uid);
+        var mapPos = _transform.GetMapCoordinates(args.Performer);
+        var targets = Filter.Empty();
+        targets.AddInRange(mapPos, 10, _playerMan, EntityManager);
 
+        foreach (var target in targets.Recipients)
+        {
+            if (target.AttachedEntity is { } entity)
+            {
+                var hitPos = _transform.GetMapCoordinates(entity).Position;
+                var angle = hitPos - mapPos.Position;
+                if (angle == Vector2.Zero)
+                    continue;
+                if (angle.EqualsApprox(Vector2.Zero))
+                    angle = new(.01f, 0);
+
+                _recoil.KickCamera(entity, -angle.Normalized());
+            }
+        }
+        if (!uid.Comp.CosmicEmpowered)
+            _flash.FlashArea(uid.Owner, uid, 10, 6 * 1000f);
+        else _flash.FlashArea(uid.Owner, uid, 10, 9 * 1000f);
+
+        Spawn(uid.Comp.GlareVFX, Transform(uid).Coordinates);
+
+        var entities = _lookup.GetEntitiesInRange(Transform(uid).Coordinates, 10);
+        entities.RemoveWhere(entity => !HasComp<PoweredLightComponent>(entity));
+
+        foreach (var entity in entities)
+            _poweredLight.TryDestroyBulb(entity);
+    }
 
     #endregion
 
@@ -107,6 +167,8 @@ public sealed partial class CosmicCultSystem : EntitySystem
 
 
     #endregion
+
+
 
 
     #region Siphon Entropy

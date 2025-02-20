@@ -75,6 +75,10 @@ public sealed partial class CosmicCultSystem : EntitySystem
             comp.FinaleSongLength = TimeSpan.FromSeconds(_audio.GetAudioLength(comp.SelectedFinaleSong).TotalSeconds);
             _sound.DispatchStationEventMusic(uid, comp.SelectedFinaleSong, StationEventMusicType.CosmicCult);
         }
+        var stationUid = _station.GetStationInMap(Transform(uid).MapID);
+        if (stationUid != null)
+            _alert.SetLevel(stationUid.Value, "octarine", true, true, true, true);
+
         comp.FinaleReady = false;
         comp.FinaleActive = true;
         monument.Enabled = true;
@@ -87,6 +91,11 @@ public sealed partial class CosmicCultSystem : EntitySystem
             uid.Comp.Occupied = false;
             return;
         }
+
+        var stationUid = _station.GetOwningStation(uid);
+        if (stationUid != null)
+            _alert.SetLevel(stationUid.Value, "green", true, true, true);
+
         _sound.PlayGlobalOnStation(uid, _audio.GetSound(comp.CancelEventSound));
         _sound.StopStationEventMusic(uid, StationEventMusicType.CosmicCult);
         if (!comp.BufferComplete) comp.BufferRemainingTime = comp.BufferTimer - _timing.CurTime + TimeSpan.FromSeconds(15);
