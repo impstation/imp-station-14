@@ -137,6 +137,14 @@ public abstract class SharedLayingDownSystem : EntitySystem
             return false;
         }
 
+        // Begin DeltaV Addition
+        // Don't allow users to start trying to stand if they couldn't stand anyway
+        var msg = new StandAttemptEvent();
+        RaiseLocalEvent(uid, msg, false);
+        if (msg.Cancelled)
+            return false;
+        // End DeltaV Addition
+
         _standing.Stand(uid, standingState);
         return true;
     }

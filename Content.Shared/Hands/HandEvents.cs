@@ -312,12 +312,14 @@ namespace Content.Shared.Hands
 
     public sealed class HandCountChangedEvent : EntityEventArgs
     {
-        public HandCountChangedEvent(EntityUid sender)
+        public HandCountChangedEvent(EntityUid sender, String hand)
         {
             Sender = sender;
+            Hand = hand;
         }
-
         public EntityUid Sender { get; }
+
+        public String Hand { get; }
     }
 
     [ByRefEvent]
