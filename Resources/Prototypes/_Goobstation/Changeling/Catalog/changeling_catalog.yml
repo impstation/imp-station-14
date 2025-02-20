@@ -342,6 +342,20 @@
     stock: 1
 
 - type: listing
+  id: EvolutionMenuCombatTentacle
+  name: evolutionmenu-combat-Tentacle-name
+  description: evolutionmenu-combat-tentacle-desc
+  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: tentacle }
+  productAction: ActionToggleTentacle
+  cost:
+    EvolutionPoint: 1
+  categories:
+  - ChangelingAbilityUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
   id: EvolutionMenuUtilitySpacesuit
   name: evolutionmenu-utility-spacesuit-name
   description: evolutionmenu-utility-spacesuit-desc
