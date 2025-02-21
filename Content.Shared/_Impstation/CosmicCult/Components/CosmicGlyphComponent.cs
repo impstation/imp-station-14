@@ -22,7 +22,7 @@ public sealed partial class CosmicGlyphComponent : Component
 
     [DataField] public bool CanBeErased = true;
 
-    [DataField] public EntProtoId GylphVFX = "CosmicGlyphVFX";
+    [DataField] public EntProtoId GylphVFX = "CosmicGenericVFX";
 
     [DataField] public SoundSpecifier GylphSFX = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/glyph_trigger.ogg");
 }

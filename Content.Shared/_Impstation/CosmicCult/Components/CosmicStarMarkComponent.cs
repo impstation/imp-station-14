@@ -5,7 +5,7 @@ using Robust.Shared.Utility;
 namespace Content.Shared._Impstation.CosmicCult.Components;
 
 /// <summary>
-/// Component for revealing cosmic cultists as BAD BITCHES
+/// Component for revealing cosmic cultists to the crew.
 /// </summary>
 [NetworkedComponent, RegisterComponent]
 public sealed partial class CosmicStarMarkComponent : Component

@@ -97,21 +97,23 @@ public sealed class SharedMonumentSystem : EntitySystem
         _uiSystem.CloseUi(ent.Owner, MonumentKey.Key);
     }
 
-
-
-
     private void OnInfluenceSelected(Entity<MonumentComponent> ent, ref InfluenceSelectedMessage args)
     {
         if (!_prototype.TryIndex(args.InfluenceProtoId, out var proto) || !TryComp<ActivatableUIComponent>(ent, out var uiComp) || !TryComp<CosmicCultComponent>(uiComp.CurrentSingleUser, out var cultComp))
             return;
-        if (ent.Comp.AvailableEntropy < proto.Cost || uiComp.CurrentSingleUser == null)
+        if (ent.Comp.AvailableEntropy < proto.Cost || cultComp.OwnedInfluences.Contains(proto) || uiComp.CurrentSingleUser == null)
             return;
+        else cultComp.OwnedInfluences.Add(proto);
+
         if (proto.InfluenceType == "influence-type-active")
         {
             var actionEnt = _actions.AddAction(uiComp.CurrentSingleUser.Value, proto.Action);
             cultComp.ActionEntities.Add(actionEnt);
         }
-        else if (proto.InfluenceType == "influence-type-passive") UnlockPassive(uiComp.CurrentSingleUser.Value, proto); //Not unlocking an action? call the helper function to add the influence's passive effects
+        else if (proto.InfluenceType == "influence-type-passive")
+        {
+            UnlockPassive(uiComp.CurrentSingleUser.Value, proto); //Not unlocking an action? call the helper function to add the influence's passive effects
+        }
 
         ent.Comp.AvailableEntropy -= proto.Cost;
         cultComp.EntropyBudget -= proto.Cost;

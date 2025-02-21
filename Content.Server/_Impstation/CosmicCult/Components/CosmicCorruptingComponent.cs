@@ -7,10 +7,10 @@ using Robust.Shared.Prototypes;
 public sealed partial class CosmicCorruptingComponent : Component
 {
     /// <summary>
-    /// Value the system uses to increment the corruption tick.
+    /// Our timer for corruption checks.
     /// </summary>
     [ViewVariables]
-    [AutoPausedField] public TimeSpan CorruptionValue = default!;
+    [AutoPausedField] public TimeSpan CorruptionTimer = default!;
 
     /// <summary>
     /// The starting radius of the effect.
@@ -41,6 +41,11 @@ public sealed partial class CosmicCorruptingComponent : Component
     /// Wether or not the CosmicCorruptingSystem should be running on this entity.
     /// </summary>
     [DataField] public bool Enabled = true;
+
+    /// <summary>
+    /// Wether or not the CosmicCorruptingSystem should spawn VFX when converting tiles and walls.
+    /// </summary>
+    [DataField] public bool UseVFX = true;
 
     /// <summary>
     /// Wether or not the CosmicCorruptingSystem should ignore this component when it reaches max growth. Saves performance.

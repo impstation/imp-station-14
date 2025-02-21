@@ -16,5 +16,5 @@ public sealed partial class EventCosmicReturn : InstantActionEvent { }
 public sealed partial class EventCosmicLapse : EntityTargetActionEvent { }
 public sealed partial class EventCosmicGlare : InstantActionEvent { }
 public sealed partial class EventCosmicIngress : EntityTargetActionEvent { }
-public sealed partial class EventCosmicImposition : EntityWorldTargetActionEvent { }
-public sealed partial class EventCosmicNova : EntityWorldTargetActionEvent { }
+public sealed partial class EventCosmicImposition : InstantActionEvent { }
+public sealed partial class EventCosmicNova : WorldTargetActionEvent { }

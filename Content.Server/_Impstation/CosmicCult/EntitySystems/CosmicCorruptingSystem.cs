@@ -24,9 +24,9 @@ public sealed class CosmicCorruptingSystem : EntitySystem
         var blanktimer = EntityQueryEnumerator<CosmicCorruptingComponent>();
         while (blanktimer.MoveNext(out var uid, out var comp))
         {
-            if (comp.Enabled && _timing.CurTime >= comp.CorruptionValue)
+            if (comp.Enabled && _timing.CurTime >= comp.CorruptionTimer)
             {
-                comp.CorruptionValue = _timing.CurTime + comp.CorruptionSpeed;
+                comp.CorruptionTimer = _timing.CurTime + comp.CorruptionSpeed;
                 ConvertTilesInRange((uid, comp));
                 if (comp.CorruptionGrowth && comp.CorruptionRadius <= comp.CorruptionMaxRadius)
                 {
@@ -59,7 +59,8 @@ public sealed class CosmicCorruptingSystem : EntitySystem
                 if (tags.Contains("Wall") && Prototype(entity) != null && Prototype(entity)!.ID != uid.Comp.ConversionWall && _rand.Prob(uid.Comp.CorruptionChance))
                 {
                     Spawn(uid.Comp.ConversionWall, Transform(entity).Coordinates);
-                    Spawn(uid.Comp.TileConvertVFX, Transform(entity).Coordinates);
+                    if (uid.Comp.UseVFX)
+                        Spawn(uid.Comp.TileConvertVFX, Transform(entity).Coordinates);
                     QueueDel(entity);
                 }
             }
@@ -74,7 +75,8 @@ public sealed class CosmicCorruptingSystem : EntitySystem
             {
                 _tile.ReplaceTile(tile, cultTileDefinition);
                 _tile.PickVariant(cultTileDefinition);
-                Spawn(uid.Comp.TileConvertVFX, tilePos);
+                if (uid.Comp.UseVFX)
+                    Spawn(uid.Comp.TileConvertVFX, tilePos);
             }
         }
     }

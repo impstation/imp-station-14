@@ -18,6 +18,9 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         SubscribeLocalEvent<CosmicStarMarkComponent, ComponentStartup>(OnCosmicStarMarkAdded);
         SubscribeLocalEvent<CosmicStarMarkComponent, ComponentShutdown>(OnCosmicStarMarkRemoved);
 
+        SubscribeLocalEvent<CosmicImposingComponent, ComponentStartup>(OnCosmicImpositionAdded);
+        SubscribeLocalEvent<CosmicImposingComponent, ComponentShutdown>(OnCosmicImpositionRemoved);
+
         SubscribeLocalEvent<CosmicCultComponent, GetStatusIconsEvent>(GetCosmicCultIcon);
         SubscribeLocalEvent<CosmicCultLeadComponent, GetStatusIconsEvent>(GetCosmicCultLeadIcon);
     }
@@ -33,9 +36,26 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         sprite.LayerSetShader(layer, "unshaded");
     }
 
+    private void OnCosmicImpositionAdded(Entity<CosmicImposingComponent> uid, ref ComponentStartup args)
+    {
+        if (!TryComp<SpriteComponent>(uid, out var sprite) || sprite.LayerMapTryGet(CosmicImposingKey.Key, out _))
+            return;
+
+        var layer = sprite.AddLayer(new SpriteSpecifier.Rsi(uid.Comp.RsiPath, uid.Comp.States));
+
+        sprite.LayerMapSet(CosmicImposingKey.Key, layer);
+        sprite.LayerSetShader(layer, "unshaded");
+    }
     private void OnCosmicStarMarkRemoved(Entity<CosmicStarMarkComponent> uid, ref ComponentShutdown args)
     {
         if (!TryComp<SpriteComponent>(uid, out var sprite) || !sprite.LayerMapTryGet(CosmicRevealedKey.Key, out var layer))
+            return;
+
+        sprite.RemoveLayer(layer);
+    }
+    private void OnCosmicImpositionRemoved(Entity<CosmicImposingComponent> uid, ref ComponentShutdown args)
+    {
+        if (!TryComp<SpriteComponent>(uid, out var sprite) || !sprite.LayerMapTryGet(CosmicImposingKey.Key, out var layer))
             return;
 
         sprite.RemoveLayer(layer);

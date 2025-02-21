@@ -7,16 +7,16 @@ influence-name-lapse = Aberrant Lapse
 influence-description-lapse = Lapse person's form, rendering them unable to move or act for 22 seconds. Lapsed units are invulnerable tile obstructions.
 
 influence-name-glare = Null Glare
-influence-description-glare = Emit a disorienting pulse of cosmic light, slowing and knocking back everyone around you.
+influence-description-glare = Emit a horrific pulse of cosmic light, slowing and disorienting everyone around you. Doesn't affect cosmic cultists.
 
 influence-name-ingress = Force ingress
 influence-description-ingress = Use a concentrated effort of power to wrench an airlock - or similarly secure door - open.
 
 influence-name-nova = Astral Nova
-influence-description-nova = Hurl a disruptive blast of astral energy that damages and repels everything in its path.
+influence-description-nova = Hurl a large and disruptive blast of astral energy that damages, paralyzes, and draws in everything in its path.
 
 influence-name-imposition = Vacuous Imposition
-influence-description-imposition = Temporarily act as a conduit for the darkness between stars, draining the surrounding atmosphere and drawing objects towards you.
+influence-description-imposition = For a short time, your corporeal form becomes a conduit of cosmic power - negating any incoming damage.
 
 
 ## PASSIVE INFLUENCES

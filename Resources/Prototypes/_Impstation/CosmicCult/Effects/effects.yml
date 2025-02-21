@@ -146,7 +146,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  id: CosmicGlyphVFX
+  id: CosmicGenericVFX
   components:
   - type: TimedDespawn
     lifetime: 2.025
@@ -204,6 +204,75 @@
        maxDuration: 1.1
        startValue: 0.1
        endValue: 10
+       property: Energy
+       enabled: true
+       isLooped: true
+       reverseWhenFinished: true
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: CosmicImpositionAbilityVFX
+  components:
+  - type: TimedDespawn
+    lifetime: 1.92
+  - type: Sprite
+    layers:
+    - sprite: _Impstation/CosmicCult/Effects/ability_impositionvfx.rsi
+      state: vfx
+      shader: unshaded
+    netsync: false
+    drawdepth: Mobs
+  - type: PointLight
+    color: "#42a4ae"
+    radius: 10
+    energy: 6
+    castShadows: true
+  - type: LightBehaviour
+    behaviours:
+     - !type:FadeBehaviour
+       interpolate: Linear
+       minDuration: 1.92
+       maxDuration: 1.92
+       startValue: 0.1
+       endValue: 6
+       property: Energy
+       enabled: true
+       isLooped: true
+       reverseWhenFinished: true
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: CosmicNovaImpactVfx
+  components:
+  - type: TimedDespawn
+    lifetime: 1.1
+  - type: Sprite
+    drawdepth: Effects
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: _Impstation/CosmicCult/Effects/ability_glarevfx.rsi
+      state: vfx
+  - type: PointLight
+    color: "#42a4ae"
+    radius: 10
+    energy: 6
+    castShadows: true
+  - type: LightBehaviour
+    behaviours:
+     - !type:FadeBehaviour
+       interpolate: Linear
+       minDuration: 1.1
+       maxDuration: 1.1
+       startValue: 0.1
+       endValue: 6
        property: Energy
        enabled: true
        isLooped: true

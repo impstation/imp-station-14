@@ -34,6 +34,13 @@ using Content.Shared.Flash;
 using Content.Shared.Camera;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Content.Server.Flash;
+using Content.Shared.Weapons.Ranged.Systems;
+using Robust.Shared.Physics.Systems;
+using Robust.Shared.Physics.Events;
+using Content.Shared.Tag;
+using Content.Server.Atmos.EntitySystems;
+using Content.Server.Atmos.Piping.Components;
+using Content.Shared.Atmos;
 
 namespace Content.Server._Impstation.CosmicCult;
 
@@ -52,11 +59,17 @@ public sealed partial class CosmicCultSystem : EntitySystem
     [Dependency] private readonly FlashSystem _flash = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
     [Dependency] private readonly ISharedPlayerManager _playerMan = default!;
+    [Dependency] private readonly SharedGunSystem _gunSystem = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     public void SubscribeAbilities()
     {
+        SubscribeLocalEvent<CosmicImposingComponent, BeforeDamageChangedEvent>(OnImpositionDamaged);
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicIngress>(OnCosmicIngress);
         SubscribeLocalEvent<CosmicCultComponent, EventForceIngressDoAfter>(OnCosmicIngressDoAfter);
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicGlare>(OnCosmicGlare);
+        SubscribeLocalEvent<CosmicCultComponent, EventCosmicNova>(OnCosmicNova);
+        SubscribeLocalEvent<CosmicAstralNovaComponent, StartCollideEvent>(OnNovaCollide);
+        SubscribeLocalEvent<CosmicCultComponent, EventCosmicImposition>(OnCosmicImposition);
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicSiphon>(OnCosmicSiphon);
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicSiphonDoAfter>(OnCosmicSiphonDoAfter);
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicBlankDoAfter>(OnCosmicBlankDoAfter);
@@ -112,6 +125,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
         args.Handled = true;
         _door.StartOpening(target);
         _audio.PlayPvs(uid.Comp.IngressSFX, uid);
+        Spawn(uid.Comp.AbsorbVFX, Transform(target).Coordinates);
     }
     #endregion
 
@@ -121,14 +135,17 @@ public sealed partial class CosmicCultSystem : EntitySystem
     private void OnCosmicGlare(Entity<CosmicCultComponent> uid, ref EventCosmicGlare args)
     {
         _audio.PlayPvs(uid.Comp.GlareSFX, uid);
+        Spawn(uid.Comp.GlareVFX, Transform(uid).Coordinates);
+        args.Handled = true;
         var mapPos = _transform.GetMapCoordinates(args.Performer);
         var targets = Filter.Empty();
         targets.AddInRange(mapPos, 10, _playerMan, EntityManager);
-
         foreach (var target in targets.Recipients)
         {
             if (target.AttachedEntity is { } entity)
             {
+                if (HasComp<CosmicCultComponent>(entity) || HasComp<BibleUserComponent>(entity))
+                    return;
                 var hitPos = _transform.GetMapCoordinates(entity).Position;
                 var angle = hitPos - mapPos.Position;
                 if (angle == Vector2.Zero)
@@ -137,38 +154,65 @@ public sealed partial class CosmicCultSystem : EntitySystem
                     angle = new(.01f, 0);
 
                 _recoil.KickCamera(entity, -angle.Normalized());
+                if (!uid.Comp.CosmicEmpowered)
+                    _flash.Flash(entity, uid, args.Action, 6 * 1000f, 0.5f);
+                else _flash.Flash(entity, uid, args.Action, 9 * 1000f, 0.5f);
             }
         }
-        if (!uid.Comp.CosmicEmpowered)
-            _flash.FlashArea(uid.Owner, uid, 10, 6 * 1000f);
-        else _flash.FlashArea(uid.Owner, uid, 10, 9 * 1000f);
-
-        Spawn(uid.Comp.GlareVFX, Transform(uid).Coordinates);
 
         var entities = _lookup.GetEntitiesInRange(Transform(uid).Coordinates, 10);
         entities.RemoveWhere(entity => !HasComp<PoweredLightComponent>(entity));
-
         foreach (var entity in entities)
             _poweredLight.TryDestroyBulb(entity);
     }
-
     #endregion
 
 
 
     #region Astral Nova
+    private void OnCosmicNova(Entity<CosmicCultComponent> uid, ref EventCosmicNova args) // This is the basic spell projectile code but updated to use non-obsolete functions, all so i can change the default projectile speed. Fuck.
+    {
+        var startPos = _transform.GetMapCoordinates(args.Performer);
+        var targetPos = _transform.ToMapCoordinates(args.Target);
+        var userVelocity = _physics.GetMapLinearVelocity(args.Performer);
 
+        var angle = targetPos.Position - startPos.Position;
+        if (angle.EqualsApprox(Vector2.Zero))
+            angle = new(.01f, 0);
 
+        args.Handled = true;
+        var ent = Spawn("ProjectileCosmicNova", startPos);
+        _gunSystem.ShootProjectile(ent, angle, userVelocity, args.Performer, args.Performer, 5f);
+        _audio.PlayPvs(uid.Comp.NovaCastSFX, uid, AudioParams.Default.WithVariation(0.1f));
+    }
+
+    private void OnNovaCollide(Entity<CosmicAstralNovaComponent> uid, ref StartCollideEvent args)
+    {
+        if (HasComp<CosmicCultComponent>(args.OtherEntity) || HasComp<BibleUserComponent>(args.OtherEntity))
+            return;
+
+        _stun.TryParalyze(args.OtherEntity, TimeSpan.FromSeconds(3f), false);
+        _damageable.TryChangeDamage(args.OtherEntity, uid.Comp.CosmicNovaDamage); // This'll probably trigger two or three times because of how collision works. I'm not being lazy here, it's a feature (kinda /s)
+    }
     #endregion
 
 
 
     #region Vacuous Imposition
-
-
+    private void OnCosmicImposition(Entity<CosmicCultComponent> uid, ref EventCosmicImposition args)
+    {
+        EnsureComp<CosmicImposingComponent>(uid, out var comp);
+        if (!uid.Comp.CosmicEmpowered) comp.ImposeCheckTimer = _timing.CurTime + comp.CheckWait;
+        else comp.ImposeCheckTimer = _timing.CurTime + comp.EmpoweredCheckWait;
+        Spawn(uid.Comp.ImpositionVFX, Transform(uid).Coordinates);
+        args.Handled = true;
+        _audio.PlayPvs(uid.Comp.ImpositionSFX, uid, AudioParams.Default.WithVariation(0.05f));
+    }
+    private void OnImpositionDamaged(Entity<CosmicImposingComponent> uid, ref BeforeDamageChangedEvent args)
+    {
+        args.Cancelled = true;
+    }
     #endregion
-
-
 
 
     #region Siphon Entropy
@@ -212,7 +256,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
 
 
 
-    #region "Blank" Stun
+    #region "Shunt" Stun
     private void OnCosmicBlank(Entity<CosmicCultComponent> uid, ref EventCosmicBlank args)
     {
         if (HasComp<CosmicCultComponent>(args.Target) || HasComp<CosmicMarkBlankComponent>(args.Target) || HasComp<BibleUserComponent>(args.Target)) // Blacklist the chaplain, obviously.

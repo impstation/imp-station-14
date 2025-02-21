@@ -118,7 +118,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    useDelay: 200
+    # useDelay: 120
     whitelist:
       components:
         - HumanoidAppearance
@@ -134,14 +134,15 @@
   description: LOREM IPSUM ##todo: description
   categories: [ HideSpawnMenu ]
   components:
-  - type: EntityWorldTargetAction
-    canTargetSelf: true
-    useDelay: 160
-    whitelist:
-      components:
-        - HumanoidAppearance
+  - type: WorldTargetAction
+    useDelay: 60
+    checkCanAccess: false
+    raiseOnUser: true
+    range: 60
     itemIconStyle: NoItem
     icon:
       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: nova
     event: !type:EventCosmicNova {}
+
+

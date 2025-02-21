@@ -22,6 +22,7 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Prying.Systems;
 using Content.Server.AlertLevel;
+using Content.Server.Atmos.Piping.Components;
 
 namespace Content.Server._Impstation.CosmicCult;
 
@@ -43,7 +44,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly PryingSystem _pry = default!;
     [Dependency] private readonly AlertLevelSystem _alert = default!;
 
     private const string MapPath = "Prototypes/_Impstation/CosmicCult/Maps/cosmicvoid.yml";
@@ -57,9 +57,14 @@ public sealed partial class CosmicCultSystem : EntitySystem
         SubscribeLocalEvent<CosmicCultComponent, ComponentInit>(OnStartCultist);
         SubscribeLocalEvent<CosmicCultLeadComponent, ComponentInit>(OnStartCultLead);
         SubscribeLocalEvent<MonumentComponent, ComponentInit>(OnStartMonument);
-        SubscribeLocalEvent<InfluenceStrideComponent, ComponentInit>(OnStartInfluenceStride);
-        SubscribeLocalEvent<InfluenceStrideComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMoveSpeed);
         SubscribeLocalEvent<MonumentComponent, InteractUsingEvent>(OnInfuseEntropy);
+
+        SubscribeLocalEvent<InfluenceStrideComponent, ComponentInit>(OnStartInfluenceStride);
+        SubscribeLocalEvent<InfluenceStrideComponent, ComponentRemove>(OnEndInfluenceStride);
+        SubscribeLocalEvent<InfluenceStrideComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMoveSpeed);
+        SubscribeLocalEvent<CosmicImposingComponent, ComponentInit>(OnStartImposition);
+        SubscribeLocalEvent<CosmicImposingComponent, ComponentRemove>(OnEndImposition);
+        SubscribeLocalEvent<CosmicImposingComponent, RefreshMovementSpeedModifiersEvent>(OnImpositionMoveSpeed);
 
         MakeSimpleExamineHandler<CosmicMarkStructureComponent>("cosmic-examine-text-structures");
         MakeSimpleExamineHandler<CosmicMarkBlankComponent>("cosmic-examine-text-abilityblank");
@@ -84,8 +89,8 @@ public sealed partial class CosmicCultSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var blanktimer = EntityQueryEnumerator<InVoidComponent>(); // Enumerator for Shunt Subjectivity's cosmic void pocket dimension
-        while (blanktimer.MoveNext(out var uid, out var comp))
+        var shuntQuery = EntityQueryEnumerator<InVoidComponent>(); // Enumerator for Shunt Subjectivity's cosmic void pocket dimension
+        while (shuntQuery.MoveNext(out var uid, out var comp))
         {
             if (_timing.CurTime >= comp.ExitVoidTime)
             {
@@ -98,6 +103,14 @@ public sealed partial class CosmicCultSystem : EntitySystem
                 RemComp<CosmicMarkBlankComponent>(comp.OriginalBody);
                 _popup.PopupEntity(Loc.GetString("cosmicability-blank-return"), comp.OriginalBody, comp.OriginalBody);
                 QueueDel(uid);
+            }
+        }
+        var imposeQuery = EntityQueryEnumerator<CosmicImposingComponent>(); // Enumerator for removing Vacuous Imposition's active effects & removing atmosphere.
+        while (imposeQuery.MoveNext(out var uid, out var comp))
+        {
+            if (_timing.CurTime >= comp.ImposeCheckTimer)
+            {
+                RemCompDeferred<CosmicImposingComponent>(uid);
             }
         }
         var vitQuery = EntityQueryEnumerator<MonumentComponent>(); // Enumerator for people who've unlocked Vacuous Vitality.
@@ -147,7 +160,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
                 var cultistsPresent = CultistCount = _cosmicGlyphs.GatherCultists(uid, 5).Count; //Let's use the cultist collecting hashset from Cosmic Glyphs to see how many folks are around!
                 if (cultistsPresent <= 10) CultistCount = cultistsPresent;
                 if (cultistsPresent > 10) CultistCount = 10;
-                Log.Debug($"{CultistCount} cultists near The Monument.");
                 _popup.PopupCoordinates(Loc.GetString("cosmiccult-finale-cultist-count", ("COUNT", CultistCount)), Transform(uid).Coordinates);
                 var modifyTime = TimeSpan.FromSeconds(420 * 5 / (420 - 36 * CultistCount) - 5);
                 comp.BufferTimer -= modifyTime;
@@ -222,9 +234,21 @@ public sealed partial class CosmicCultSystem : EntitySystem
     }
     #endregion
 
-    #region influences
 
+    #region Movespeed
     private void OnStartInfluenceStride(Entity<InfluenceStrideComponent> uid, ref ComponentInit args)
+    {
+        _movementSpeed.RefreshMovementSpeedModifiers(uid);
+    }
+    private void OnStartImposition(Entity<CosmicImposingComponent> uid, ref ComponentInit args)
+    {
+        _movementSpeed.RefreshMovementSpeedModifiers(uid);
+    }
+    private void OnEndInfluenceStride(Entity<InfluenceStrideComponent> uid, ref ComponentRemove args)
+    {
+        _movementSpeed.RefreshMovementSpeedModifiers(uid);
+    }
+    private void OnEndImposition(Entity<CosmicImposingComponent> uid, ref ComponentRemove args)
     {
         _movementSpeed.RefreshMovementSpeedModifiers(uid);
     }
@@ -232,6 +256,13 @@ public sealed partial class CosmicCultSystem : EntitySystem
     {
         if (HasComp<InfluenceStrideComponent>(uid))
             args.ModifySpeed(1.05f, 1.05f);
+        else
+            args.ModifySpeed(1f, 1f);
+    }
+    private void OnImpositionMoveSpeed(EntityUid uid, CosmicImposingComponent comp, RefreshMovementSpeedModifiersEvent args)
+    {
+        if (HasComp<CosmicImposingComponent>(uid))
+            args.ModifySpeed(0.55f, 0.55f);
         else
             args.ModifySpeed(1f, 1f);
     }

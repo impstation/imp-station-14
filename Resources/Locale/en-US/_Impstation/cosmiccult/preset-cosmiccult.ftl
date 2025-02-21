@@ -30,7 +30,7 @@ cosmiccult-roundend-monument-stage = {$stage ->
 }
 
 
-cosmiccult-roundend-cultcomplete = [color=#592869]Cosmic Cult complete victory![/color]
+cosmiccult-roundend-cultcomplete = [color=#4cabb3]Cosmic Cult complete victory![/color]
 cosmiccult-roundend-cultmajor = [color=#4cabb3]Cosmic Cult major victory![/color]
 cosmiccult-roundend-cultminor = [color=#4cabb3]Cosmic Cult minor victory![/color]
 cosmiccult-roundend-neutral = [color=yellow]Neutral ending![/color]
@@ -135,7 +135,7 @@ objective-condition-victory-desc = Beckon The Unknown, and herald the final curt
 ## CHAT ANNOUNCEMENTS
 
 cosmiccult-radio-tier1-progress = The monument is beckoned unto realspace..
-cosmiccult-announce-tier2-progress = An unnerving numbness prickles your senses. Something is steadily is growing in power.
+cosmiccult-announce-tier2-progress = An unnerving numbness prickles your senses.
 cosmiccult-announce-tier3-progress = Arcs of bluespace energy crackle across the station's groaning structure. The end draws near.
 cosmiccult-announce-victory-summon = A FRACTION OF COSMIC POWER IS CALLED FORTH.
 

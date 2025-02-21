@@ -175,54 +175,22 @@
   id: MonumentCosmicCult1
   suffix: Base, DO NOT MAP
 
- ########### STAGE 2 #############
+- type: entity
+  id: MonumentCosmicCult2
+  suffix: DO NOT MAP, DO NOT SPAWN
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/CosmicCult/Tileset/monument.rsi
+    layers:
+      - state: stage2
 
-# - type: entity
-#   parent: MonumentCosmicCultBase
-#   id: MonumentCosmicCult2
-#   suffix: Stage 2, DO NOT MAP
-#   components:
-#   - type: Visibility
-#     layer: 777
-#   - type: Sprite
-#     sprite: _Impstation/CosmicCult/Tileset/monument.rsi
-#     layers:
-#       - state: stage2
-#       - state: inserting2
-#         visible: false
-#         shader: unshaded
-#         map: ["enum.MaterialStorageVisualLayers.Inserting"]
-
-#  ########### STAGE 3 #############
-
-# - type: entity
-#   parent: MonumentCosmicCultBase
-#   id: MonumentCosmicCult3
-#   suffix: Stage 3, DO NOT MAP
-#   components:
-#   - type: Sprite
-#     sprite: _Impstation/CosmicCult/Tileset/monument.rsi
-#     layers:
-#       - state: stage3
-#       - state: inserting3
-#         visible: false
-#         shader: unshaded
-#         map: ["enum.MaterialStorageVisualLayers.Inserting"]
-
-#  ########### STAGE 4 #############
-
-# - type: entity
-#   parent: MonumentCosmicCultBase
-#   id: MonumentCosmicCult3+
-#   suffix: Stage 4, DO NOT MAP
-#   components:
-#   - type: Sprite
-#     sprite: _Impstation/CosmicCult/Tileset/monument.rsi
-#     layers:
-#       - state: stage3
-#       - state: inserting3
-#         visible: false
-#         shader: unshaded
-#         map: ["enum.MaterialStorageVisualLayers.Inserting"]
-#       - state: stage4-overlay
-#         shader: unshaded
+- type: entity
+  id: MonumentCosmicCult3
+  suffix: DO NOT MAP, DO NOT SPAWN
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/CosmicCult/Tileset/monument.rsi
+    layers:
+      - state: stage3

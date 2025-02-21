@@ -18,7 +18,7 @@ public sealed partial class CleanseOnUseComponent : Component
 
     [DataField] public EntProtoId CleanseVFX = "CleanseEffectVFX";
 
-    [DataField] public EntProtoId MalignVFX = "CosmicGlyphVFX";
+    [DataField] public EntProtoId MalignVFX = "CosmicGenericVFX";
 
     [DataField] public bool Enabled = true;
 

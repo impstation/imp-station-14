@@ -46,6 +46,8 @@ using Content.Server.RoundEnd;
 using Content.Server.Audio;
 using Content.Shared.Audio;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Damage;
+using Content.Server.Bible.Components;
 
 namespace Content.Server._Impstation.CosmicCult;
 
@@ -77,6 +79,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     [Dependency] private readonly RoundEndSystem _roundEndSystem = default!;
     [Dependency] private readonly ServerGlobalSoundSystem _sound = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
+    [Dependency] private readonly DamageableSystem _damage = default!;
     [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> NanoTrasenFactionId = "NanoTrasen";
     [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> CosmicFactionId = "CosmicCultFaction";
     public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/antag_cosmic_briefing.ogg");
@@ -256,29 +259,29 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         TotalCrew = _antag.GetTotalPlayerCount(_playerMan.Sessions);
         TotalNotCult = TotalCrew - TotalCult;
         PercentConverted = Math.Round((double)(100 * TotalCult) / TotalCrew);
-        Tier3Percent = Math.Round((double)25 / 100 * 40); // 40% of current pop //TODO: VALUE 25 must be replaced with TOTALCREW.
+        Tier3Percent = Math.Round((double)80 / 100 * 40); // 40% of current pop times 2.5. //TODO: replace 80 variable with TOTALCREW. Replace * 2.5 variable with SCALAR.
         if (CurrentTier == 1)
         {
             CrewTillNextTier = Convert.ToInt16(Tier3Percent / 2) - TotalCult;
-            TargetProgress = Convert.ToInt16(Tier3Percent / 2 * 3);
+            TargetProgress = Convert.ToInt16(Tier3Percent / 2 * 8);
         }
         else if (CurrentTier == 2)
         {
             CrewTillNextTier = Convert.ToInt16(Tier3Percent) - TotalCult;
-            TargetProgress = Convert.ToInt16(Tier3Percent * 3);
+            TargetProgress = Convert.ToInt16(Tier3Percent * 8);
         }
         else if (CurrentTier == 3)
         {
-            TargetProgress = Convert.ToInt16(Tier3Percent) * 3 + 20;
+            TargetProgress = Convert.ToInt16(Tier3Percent) * 8 + 20;
             uid.Comp.EntropyUntilNextStage = 0;
             uid.Comp.CrewToConvertNextStage = 0;
         }
 
-        CurrentProgress = TotalEntropy + TotalCult * 3;
+        CurrentProgress = TotalEntropy + TotalCult * 8;
 
         if (CurrentTier < 3)
         {
-            uid.Comp.CrewToConvertNextStage = Convert.ToInt16(Math.Ceiling(Convert.ToDouble((TargetProgress - CurrentProgress) / 3)));
+            uid.Comp.CrewToConvertNextStage = Convert.ToInt16(Math.Ceiling(Convert.ToDouble((TargetProgress - CurrentProgress) / 8)));
             uid.Comp.EntropyUntilNextStage = Convert.ToInt16(TargetProgress) - Convert.ToInt16(CurrentProgress);
         }
 
@@ -314,7 +317,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         {
             cultComp.UnlockedInfluences.Add("InfluenceForceIngress");
             cultComp.UnlockedInfluences.Add("InfluenceUnboundStep");
-            cultComp.EntropyBudget += Convert.ToInt16(Math.Floor(Math.Round((double)25 / 100 * 4))); // pity system. 4% of the playercount worth of entropy on tier up //TODO: VALUE 25 must be replaced with TOTALCREW.
+            cultComp.EntropyBudget += Convert.ToInt16(Math.Floor(Math.Round((double)TotalCrew / 100 * 4))); // pity system. 4% of the playercount worth of entropy on tier up //TODO: VALUE 25 must be replaced with TOTALCREW.
         }
         _announce.SendAnnouncementMessage(_announce.GetAnnouncementId("SpawnAnnounceCaptain"), Loc.GetString("cosmiccult-announce-tier2-progress"), sender, Color.FromHex("#cae8e8"));
         _audio.PlayGlobal("/Audio/_Impstation/CosmicCult/tier2.ogg", Filter.Broadcast(), false, AudioParams.Default);
@@ -323,7 +326,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         {
             objectiveComp.Tier = 2;
         }
-        for (int i = 0; i < _rand.Next(Convert.ToInt16(Math.Floor(Math.Round((double)25 / 100 * 25)))); i++) // spawn # malign rifts equal to 25% of the playercount //TODO: VALUE 25 must be replaced with TOTALCREW.
+        for (int i = 0; i < _rand.Next(Convert.ToInt16(Math.Floor(Math.Round((double)TotalCrew / 100 * 25)))); i++) // spawn # malign rifts equal to 25% of the playercount //TODO: VALUE 25 must be replaced with TOTALCREW.
             if (TryFindRandomTile(out var _, out var _, out var _, out var coords))
                 Spawn("CosmicMalignRift", coords);
     }
@@ -343,11 +346,12 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             EnsureComp<PressureImmunityComponent>(cultist);
             RemComp<TemperatureSpeedComponent>(cultist);
             RemComp<RespiratorComponent>(cultist);
+            _damage.SetDamageContainerID(cultist, "BiologicalMetaphysical");
             cultComp.UnlockedInfluences.Add("InfluenceVacuousImposition");
             cultComp.UnlockedInfluences.Add("InfluenceAstralNova");
             cultComp.UnlockedInfluences.Add("InfluenceAstralStride");
             cultComp.UnlockedInfluences.Add("InfluenceVacuousVitality");
-            cultComp.EntropyBudget += Convert.ToInt16(Math.Floor(Math.Round((double)TotalCrew / 100 * 4))); //pity system. 4% of the playercount worth of entropy on tier up //TODO: VALUE 25 must be replaced with TOTALCREW.
+            cultComp.EntropyBudget += Convert.ToInt16(Math.Floor(Math.Round((double)25 / 100 * 4))); //pity system. 4% of the playercount worth of entropy on tier up //TODO: VALUE 25 must be replaced with TOTALCREW.
         }
         var sender = Loc.GetString("cosmiccult-announcement-sender");
         var mapData = _map.GetMap(_transform.GetMapId(uid.Owner.ToCoordinates()));
@@ -379,6 +383,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     {
         if (!_mind.TryGetMind(uid, out var mindId, out var mind))
             return;
+        EnsureComp<CosmicCultComponent>(uid, out var cultComp);
+        EnsureComp<IntrinsicRadioReceiverComponent>(uid);
         _role.MindAddRole(mindId, "MindRoleCosmicCult", mind, true);
         _role.MindHasRole<CosmicCultRoleComponent>(mindId, out var cosmicRole);
         if (cosmicRole is not null)
@@ -390,8 +396,6 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-roundstart-fluff"), Color.FromHex("#4cabb3"), BriefingSound);
         _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-short-briefing"), Color.FromHex("#cae8e8"), null);
 
-        EnsureComp<CosmicCultComponent>(uid);
-        EnsureComp<IntrinsicRadioReceiverComponent>(uid);
         var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(uid);
         var radio = EnsureComp<ActiveRadioComponent>(uid);
         radio.Channels = new() { "CosmicRadio" };
@@ -404,6 +408,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             _euiMan.OpenEui(new CosmicRoundStartEui(), session);
         }
         TotalCult++;
+        cultComp.StoredDamageContainer = Comp<DamageableComponent>(uid).DamageContainerID!;
         rule.Comp.Cultists.Add(uid);
     }
 
@@ -425,10 +430,12 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-short-briefing"), Color.FromHex("#cae8e8"), null);
 
             var cultComp = EnsureComp<CosmicCultComponent>(uid);
+            cultComp.StoredDamageContainer = Comp<DamageableComponent>(uid).DamageContainerID!;
             EnsureComp<IntrinsicRadioReceiverComponent>(uid);
 
             if (CurrentTier == 3)
             {
+                _damage.SetDamageContainerID(uid, "BiologicalMetaphysical");
                 cultComp.EntropyBudget = 12; //TODO: tier pity balance
                 cultComp.UnlockedInfluences.Add("InfluenceVacuousImposition");
                 cultComp.UnlockedInfluences.Add("InfluenceAstralNova");
@@ -460,6 +467,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             {
                 _euiMan.OpenEui(new CosmicConvertedEui(), session);
             }
+            if (HasComp<BibleUserComponent>(uid))
+                RemCompDeferred<BibleUserComponent>(uid);
             TotalCult++;
             cosmicGamerule.Cultists.Add(uid);
             UpdateCultData(MonumentInGame);
@@ -487,7 +496,11 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
                 RemComp<PressureImmunityComponent>(uid);
                 RemComp<TemperatureImmunityComponent>(uid);
             }
-            if (CurrentTier == 3) RemComp<CosmicStarMarkComponent>(uid);
+            if (CurrentTier == 3)
+            {
+                RemComp<CosmicStarMarkComponent>(uid);
+                _damage.SetDamageContainerID(uid, uid.Comp.StoredDamageContainer);
+            }
 
             _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-deconverted-fluff"), Color.FromHex("#4cabb3"), DeconvertSound);
             _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-deconverted-briefing"), Color.FromHex("#cae8e8"), null);

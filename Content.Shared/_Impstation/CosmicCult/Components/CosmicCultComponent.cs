@@ -25,8 +25,7 @@ public sealed partial class CosmicCultComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "CosmicCultIcon";
 
-    [DataField]
-    public bool IsConstruct = false;
+    [DataField] public bool IsConstruct = false;
 
     #endregion
 
@@ -35,16 +34,20 @@ public sealed partial class CosmicCultComponent : Component
     {
         "InfluenceAberrantLapse",
         "InfluenceNullGlare",
-        "InfluenceEschewMetabolism",
+        "InfluenceEschewMetabolism"
     };
 
-    public List<ProtoId<EntityPrototype>> CosmicCultActions = new()
+    [DataField] public List<ProtoId<EntityPrototype>> CosmicCultActions = new()
     {
         "ActionCosmicSiphon",
-        "ActionCosmicBlank",
-        "ActionCosmicGlare"
+        "ActionCosmicBlank"
     };
     public List<EntityUid?> ActionEntities = new();
+
+    public List<ProtoId<InfluencePrototype>> OwnedInfluences = new()
+    {
+
+    };
 
     /// <summary>
     /// The duration of the doAfter for Siphon Entropy
@@ -81,6 +84,11 @@ public sealed partial class CosmicCultComponent : Component
     [DataField] public bool CosmicEmpowered = false;
 
     /// <summary>
+    /// A string for storing what damage container this cultist had upon conversion.
+    /// </summary>
+    [DataField] public string StoredDamageContainer = "Biological";
+
+    /// <summary>
     /// The damage to apply upon a successful Siphon Entropy
     /// </summary>
     [DataField, AutoNetworkedField]
@@ -98,10 +106,13 @@ public sealed partial class CosmicCultComponent : Component
     [DataField] public EntProtoId LapseVFX = "CosmicLapseAbilityVFX";
     [DataField] public EntProtoId BlankVFX = "CosmicBlankAbilityVFX";
     [DataField] public EntProtoId GlareVFX = "CosmicGlareAbilityVFX";
-    [DataField] public EntProtoId AbsorbVFX = "CosmicGlyphVFX";
+    [DataField] public EntProtoId AbsorbVFX = "CosmicGenericVFX";
+    [DataField] public EntProtoId ImpositionVFX = "CosmicImpositionAbilityVFX";
     [DataField] public SoundSpecifier BlankSFX = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/ability_blank.ogg");
     [DataField] public SoundSpecifier IngressSFX = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/ability_ingress.ogg");
     [DataField] public SoundSpecifier GlareSFX = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/ability_glare.ogg");
+    [DataField] public SoundSpecifier NovaCastSFX = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/ability_nova_cast.ogg");
+    [DataField] public SoundSpecifier ImpositionSFX = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/ability_imposition.ogg");
 
     #endregion
 }
