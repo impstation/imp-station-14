@@ -7,7 +7,7 @@ influence-name-lapse = Aberrant Lapse
 influence-description-lapse = Lapse person's form, rendering them unable to move or act for 22 seconds. Lapsed units are invulnerable tile obstructions.
 
 influence-name-glare = Null Glare
-influence-description-glare = Emit a horrific pulse of cosmic light, slowing and disorienting everyone around you. Doesn't affect cosmic cultists.
+influence-description-glare = Emit a horrific pulse of cosmic light, slowing and disorienting everyone around you.
 
 influence-name-ingress = Force ingress
 influence-description-ingress = Use a concentrated effort of power to wrench an airlock - or similarly secure door - open.

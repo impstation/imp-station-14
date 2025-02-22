@@ -9,6 +9,7 @@ using Content.Shared._Impstation.CosmicCult.Components;
 using Content.Shared._Impstation.CosmicCult.Components.Examine;
 using Content.Shared.Clothing;
 using Content.Shared.Damage;
+using Content.Shared.Examine;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Mind;
@@ -37,6 +38,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
 
     public override void Initialize()
     {
+        SubscribeLocalEvent<CosmicGlyphComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<CosmicGlyphComponent, ActivateInWorldEvent>(OnUseGlyph);
         SubscribeLocalEvent<CosmicGlyphConversionComponent, TryActivateGlyphEvent>(OnConversionGlyph);
         SubscribeLocalEvent<CosmicGlyphAstralProjectionComponent, TryActivateGlyphEvent>(OnAstralProjGlyph);
@@ -46,6 +48,38 @@ public sealed class CosmicGlyphSystem : EntitySystem
     }
 
     #region Base trigger
+
+    private void OnExamine(Entity<CosmicGlyphComponent> uid, ref ExaminedEvent args)
+    {
+        if (HasComp<CosmicCultComponent>(args.Examiner))
+        {
+            args.PushMarkup(Loc.GetString("cosmic-examine-glyph-cultcount", ("COUNT", uid.Comp.RequiredCultists)));
+            switch (uid.Comp.GlyphName) // This seems like the most straightforward way to do this, rather than making seperate examine events for each glyph component
+            {
+                case "knowledge":
+                    args.PushMarkup(Loc.GetString("cosmic-examine-glyph-knowledge"));
+                    break;
+                case "truth":
+                    args.PushMarkup(Loc.GetString("cosmic-examine-glyph-truth"));
+                    break;
+                case "cessation":
+                    args.PushMarkup(Loc.GetString("cosmic-examine-glyph-cessation"));
+                    break;
+                case "blades":
+                    args.PushMarkup(Loc.GetString("cosmic-examine-glyph-blades"));
+                    break;
+                case "warding":
+                    args.PushMarkup(Loc.GetString("cosmic-examine-glyph-warding"));
+                    break;
+                case "projection":
+                    args.PushMarkup(Loc.GetString("cosmic-examine-glyph-projection"));
+                    break;
+            }
+        }
+        else
+            args.PushMarkup(Loc.GetString("cosmic-examine-text-glyphs"));
+    }
+
     private void OnUseGlyph(Entity<CosmicGlyphComponent> uid, ref ActivateInWorldEvent args)
     {
         Log.Debug($"Glyph event triggered!");

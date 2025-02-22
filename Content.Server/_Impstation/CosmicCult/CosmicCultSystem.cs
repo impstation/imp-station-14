@@ -69,6 +69,8 @@ public sealed partial class CosmicCultSystem : EntitySystem
         MakeSimpleExamineHandler<CosmicMarkStructureComponent>("cosmic-examine-text-structures");
         MakeSimpleExamineHandler<CosmicMarkBlankComponent>("cosmic-examine-text-abilityblank");
         MakeSimpleExamineHandler<CosmicMarkLapseComponent>("cosmic-examine-text-abilitylapse");
+        MakeSimpleExamineHandler<CosmicImposingComponent>("cosmic-examine-text-imposition");
+        MakeSimpleExamineHandler<CosmicMarkGodComponent>("cosmic-examine-text-god");
 
         SubscribeAbilities(); //Hook up the cosmic cult ability system
         SubscribeFinale(); //Hook up the cosmic cult finale system
@@ -228,7 +230,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
         _cultRule.TotalEntropy += quant;
         _cultRule.UpdateCultData(monument);
         _popup.PopupEntity(Loc.GetString("cosmiccult-entropy-inserted", ("count", quant)), cultist, cultist);
-        _audio.PlayEntity("/Audio/_Impstation/CosmicCult/cosmiclance_hit.ogg", cultist, monument); //TODO: INSERTION SOUND EFFECT
+        _audio.PlayEntity("/Audio/_Impstation/CosmicCult/insert_entropy.ogg", cultist, monument);
         QueueDel(entropy);
         return true;
     }

@@ -23,7 +23,7 @@
   components:
   - type: EntityTargetAction
     canTargetSelf: true
-    useDelay: 140
+    useDelay: 120
     whitelist:
       components:
         - HumanoidAppearance
@@ -70,7 +70,7 @@
   components:
   - type: EntityTargetAction
     canTargetSelf: true
-    useDelay: 90
+    useDelay: 60
     whitelist:
       components:
         - HumanoidAppearance
@@ -83,11 +83,11 @@
 - type: entity
   id: ActionCosmicGlare
   name: Null Glare
-  description: LOREM IPSUM ##todo: description
+  description: Emit a horrific pulse of cosmic light, slowing and disorienting everyone around you.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    useDelay: 70
+    useDelay: 50
     itemIconStyle: NoItem
     icon:
       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
@@ -97,11 +97,11 @@
 - type: entity
   id: ActionCosmicIngress
   name: Force Ingress
-  description: LOREM IPSUM ##todo: description
+  description: Use a concentrated effort of power to wrench a secure doorway open.
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
-    useDelay: 60
+    useDelay: 40
     whitelist:
       components:
         - Door
@@ -114,11 +114,11 @@
 - type: entity
   id: ActionCosmicImposition
   name: Vacuous Imposition
-  description: LOREM IPSUM ##todo: description
+  description: For a short time, you negate any incoming damage.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    # useDelay: 120
+    useDelay: 160
     whitelist:
       components:
         - HumanoidAppearance
@@ -131,12 +131,11 @@
 - type: entity
   id: ActionCosmicNova
   name: Astral Nova
-  description: LOREM IPSUM ##todo: description
+  description: Hurl a large and disruptive blast of astral energy.
   categories: [ HideSpawnMenu ]
   components:
   - type: WorldTargetAction
-    useDelay: 60
-    checkCanAccess: false
+    useDelay: 30
     raiseOnUser: true
     range: 60
     itemIconStyle: NoItem

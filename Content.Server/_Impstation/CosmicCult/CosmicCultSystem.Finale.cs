@@ -104,8 +104,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
         comp.PlayedBufferSong = false;
         comp.FinaleActive = false;
         comp.FinaleReady = true;
-        Log.Debug($"{comp.FinaleRemainingTime} time remaining in Finale.");
-        Log.Debug($"{comp.BufferRemainingTime} time remaining in Buffer.");
         _appearance.SetData(uid, MonumentVisuals.FinaleReached, 1);
     }
 }

@@ -191,7 +191,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
         if (HasComp<CosmicCultComponent>(args.OtherEntity) || HasComp<BibleUserComponent>(args.OtherEntity))
             return;
 
-        _stun.TryParalyze(args.OtherEntity, TimeSpan.FromSeconds(3f), false);
+        _stun.TryParalyze(args.OtherEntity, TimeSpan.FromSeconds(2f), false);
         _damageable.TryChangeDamage(args.OtherEntity, uid.Comp.CosmicNovaDamage); // This'll probably trigger two or three times because of how collision works. I'm not being lazy here, it's a feature (kinda /s)
     }
     #endregion

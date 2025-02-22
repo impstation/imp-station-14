@@ -4,7 +4,7 @@
   - BaseMob
   id: MobCosmicAstralAscended
   name: astral ascended
-  description: Beyond, beyond
+  description: Transcendant, ascendant.
   components:
   - type: Input
     context: "ghost"
@@ -48,10 +48,6 @@
        enabled: true
        isLooped: true
        reverseWhenFinished: true
-  - type: IntrinsicRadioReceiver
-  - type: ActiveRadio
-    channels:
-    - CosmicRadio
 
 - type: entity
   parent:
@@ -59,7 +55,7 @@
   - BaseMob
   id: MobCosmicAstralProjection
   name: astral projection
-  description: Beyond, beyond
+  description: Neither here nor there.
   components:
   - type: Input
     context: "ghost"

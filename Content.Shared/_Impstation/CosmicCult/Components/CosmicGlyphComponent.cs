@@ -10,20 +10,16 @@ namespace Content.Shared._Impstation.CosmicCult.Components;
 [RegisterComponent]
 public sealed partial class CosmicGlyphComponent : Component
 {
-
+    [DataField] public string GlyphName = "base";
     [DataField] public int RequiredCultists = 1;
-
     [DataField] public float ActivationRange = 1f;
 
     /// <summary>
     ///     Damage dealt on glyph activation.
     /// </summary>
     [DataField] public DamageSpecifier? ActivationDamage;
-
     [DataField] public bool CanBeErased = true;
-
     [DataField] public EntProtoId GylphVFX = "CosmicGenericVFX";
-
     [DataField] public SoundSpecifier GylphSFX = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/glyph_trigger.ogg");
 }
 
