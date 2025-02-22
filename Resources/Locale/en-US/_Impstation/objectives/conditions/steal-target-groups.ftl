@@ -9,6 +9,7 @@ steal-target-groups-seedextractor = seed extractor
 steal-target-groups-medtekcartridge = MedTek cartridge
 steal-target-groups-logprobecartridge = LogProbe cartridge
 steal-target-groups-astronavcartridge = AstroNav cartridge
+steal-target-groups-stocktradingcartridge = StockTrading cartridge
 
 steal-target-groups-servicetechfab = service techfab machine board
 steal-target-groups-shipyardcomputercircuitboard = shipyard computer board
@@ -21,6 +22,7 @@ steal-target-groups-evil-skull = evil skull
 
 steal-target-groups-finfin = Fin Fin
 steal-target-groups-finfinmeat = Fin Fin's Fin-flesh
+steal-target-groups-animal-poly = Poly, the Chief Engineer's parrot
 
 # Thief Structure
 

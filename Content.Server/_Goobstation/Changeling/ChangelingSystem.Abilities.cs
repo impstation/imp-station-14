@@ -22,7 +22,6 @@ using Content.Shared.Damage.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.Mindshield.Components;
-using Content.Shared._Goobstation.FakeMindshield.Components;
 
 namespace Content.Server.Changeling;
 
@@ -67,6 +66,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         SubscribeLocalEvent<ChangelingComponent, ActionLastResortEvent>(OnLastResort);
         SubscribeLocalEvent<ChangelingComponent, ActionLesserFormEvent>(OnLesserForm);
         SubscribeLocalEvent<ChangelingComponent, ActionMindshieldFakeEvent>(OnMindshieldFake);
+        SubscribeLocalEvent<ChangelingComponent, ToggleTentacleEvent>(OnToggleTentacle); // imp edit
         SubscribeLocalEvent<ChangelingComponent, ActionSpacesuitEvent>(OnSpacesuit);
         SubscribeLocalEvent<ChangelingComponent, ActionHivemindAccessEvent>(OnHivemindAccess);
     }
@@ -244,9 +244,15 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     private void OnEnterStasis(EntityUid uid, ChangelingComponent comp, ref EnterStasisEvent args)
     {
-        if (comp.IsInStasis || HasComp<AbsorbedComponent>(uid))
+        if (comp.IsInStasis)
         {
-            _popup.PopupEntity(Loc.GetString("changeling-stasis-enter-fail"), uid, uid);
+            _popup.PopupEntity(Loc.GetString("changeling-stasis-enter-fail-already"), uid, uid);
+            return;
+        }
+
+        if (HasComp<AbsorbedComponent>(uid))
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-stasis-enter-fail-eaten"), uid, uid);
             return;
         }
 
@@ -314,6 +320,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         PlayMeatySound(uid, comp);
     }
+    
     private void OnCreateBoneShard(EntityUid uid, ChangelingComponent comp, ref CreateBoneShardEvent args)
     {
         if (!TryUseAbility(uid, comp, args))
@@ -413,8 +420,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (!TryComp<BlindableComponent>(target, out var blindable) || blindable.IsBlind)
             return;
 
-        _blindable.AdjustEyeDamage((target, blindable), 2);
-        var timeSpan = TimeSpan.FromSeconds(5f);
+        var timeSpan = TimeSpan.FromSeconds(18f);
         _statusEffect.TryAddStatusEffect(target, TemporaryBlindnessSystem.BlindingStatusEffect, timeSpan, false, TemporaryBlindnessSystem.BlindingStatusEffect);
     }
     private void OnStingCryo(EntityUid uid, ChangelingComponent comp, ref StingCryoEvent args)
@@ -712,10 +718,21 @@ public sealed partial class ChangelingSystem : EntitySystem
             return;
         }
 
-        EnsureComp<FakeMindShieldComponent>(ent);
+        EnsureComp<FakeMindShieldComponent>(ent, out var comp);
+        comp.IsEnabled = true;
+
         _popup.PopupEntity(Loc.GetString("changeling-mindshield-start"), ent, ent);
     }
+    private void OnToggleTentacle(EntityUid uid, ChangelingComponent comp, ref ToggleTentacleEvent args) //imp edit
+    {
+        if (!TryUseAbility(uid, comp, args))
+            return;
 
+        if (!TryToggleItem(uid, TentaclePrototype, comp))
+            return;
+
+        PlayMeatySound(uid, comp);
+    }
     public void OnSpacesuit(EntityUid uid, ChangelingComponent comp, ref ActionSpacesuitEvent args)
     {
         if (!TryUseAbility(uid, comp, args))

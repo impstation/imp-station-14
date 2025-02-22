@@ -84,6 +84,9 @@
   - type: EmbeddableProjectile
     embedOnThrow: false
   - type: EmbedPassiveDamage
+  - type: ItemToggleSignatureWriter
+    activatedFont: AndTheDoorCreeeaked
+    activatedColor: black
   # end imp edits #
 
 - type: entity
@@ -210,7 +213,6 @@
       doAfterDuration: 4.0
     - type: Contraband
       severity: Syndicate
-      allowedDepartments: null
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_dagger.rsi
     layers:
@@ -261,6 +263,7 @@
         Blunt: 0
   - type: ThrowingAngle
     angle: 315
+  - type: SignatureWriter
   # end imp edits #
 
 - type: entity
