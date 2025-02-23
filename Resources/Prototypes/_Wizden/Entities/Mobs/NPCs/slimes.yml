@@ -41,3 +41,31 @@
         Base: white_adult_slime
       Dead:
         Base: white_adult_slime_dead
+  - type: Body
+    prototype: Geras
+    requiredLegs: 1
+  - type: PassiveDamage # copied from slime person scaled
+    allowedStates:
+    - Alive
+    damageCap: 32
+    damage:
+      types:
+        Heat: -0.07
+      groups:
+        Brute: -0.07
+  - type: Storage # from slimes
+    clickInsert: false
+    grid:
+    - 0,0,1,2
+    maxItemSize: Large
+    storageInsertSound:
+      path: /Audio/Voice/Slime/slime_squish.ogg
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: PersistentSlimeStorage

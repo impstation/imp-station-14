@@ -1,10 +1,11 @@
 using Content.Server.Polymorph.Systems;
-using Content.Shared.Zombies;
 using Content.Server.Actions;
 using Content.Server.Popups;
 using Content.Shared._Wizden.Geras;
 using Content.Shared.Humanoid;
 using Robust.Shared.Player;
+using Content.Shared.Storage;
+using Content.Shared.Storage.EntitySystems;
 
 namespace Content.Server.Geras;
 
@@ -15,18 +16,14 @@ public sealed class GerasSystem : SharedGerasSystem
     [Dependency] private readonly PolymorphSystem _polymorphSystem = default!;
     [Dependency] private readonly ActionsSystem _actionsSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly IEntityManager _entities = default!;
+    [Dependency] private readonly SharedStorageSystem _storage = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
     {
         SubscribeLocalEvent<GerasComponent, MorphIntoGeras>(OnMorphIntoGeras);
         SubscribeLocalEvent<GerasComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<GerasComponent, EntityZombifiedEvent>(OnZombification);
-    }
-
-    private void OnZombification(EntityUid uid, GerasComponent component, EntityZombifiedEvent args)
-    {
-        _actionsSystem.RemoveAction(uid, component.GerasActionEntity);
     }
 
     private void OnMapInit(EntityUid uid, GerasComponent component, MapInitEvent args)
@@ -41,13 +38,19 @@ public sealed class GerasSystem : SharedGerasSystem
 
     private void OnMorphIntoGeras(EntityUid uid, GerasComponent component, MorphIntoGeras args)
     {
-        if (HasComp<ZombieComponent>(uid))
-            return; // i hate zomber.
 
         var ent = _polymorphSystem.PolymorphEntity(uid, component.GerasPolymorphId);
 
         if (!ent.HasValue)
             return;
+
+        if (_entities.TryGetComponent<StorageComponent>(uid, out var storage))
+        {
+            //Transfer
+            var gerasStorage = EnsureComp<StorageComponent>(ent.Value);
+
+            _storage.TransferEntities(uid, ent.Value, sourceComp: storage, targetComp: gerasStorage);
+        }
 
         var skinColor = Color.Green;
 
