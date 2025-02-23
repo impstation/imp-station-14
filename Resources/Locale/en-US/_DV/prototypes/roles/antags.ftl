@@ -9,3 +9,6 @@ roles-antag-fugitive-objective = Stay on the run for your crimes.
 
 roles-antag-syndicate-synthesis-name = Synthesis Specialist
 roles-antag-syndicate-synthesis-objective = Sell your finest chemicals.
+
+roles-antag-roboneuroticist-name = Syndicate Robo-Neuroticist
+roles-antag-roboneuroticist-objective = Conspiracy to Convert
