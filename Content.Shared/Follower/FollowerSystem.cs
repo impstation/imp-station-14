@@ -6,6 +6,7 @@ using Content.Shared.Ghost;
 using Content.Shared.Hands;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Pulling.Events;
+using Content.Shared.Polymorph; // imp
 using Content.Shared.Tag;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
@@ -42,6 +43,7 @@ public sealed class FollowerSystem : EntitySystem
         SubscribeLocalEvent<FollowedComponent, ComponentGetStateAttemptEvent>(OnFollowedAttempt);
         SubscribeLocalEvent<FollowerComponent, GotEquippedHandEvent>(OnGotEquippedHand);
         SubscribeLocalEvent<FollowedComponent, EntityTerminatingEvent>(OnFollowedTerminating);
+        SubscribeLocalEvent<FollowedComponent, PolymorphedEvent>(OnPolymorph); // imp
         SubscribeLocalEvent<BeforeSaveEvent>(OnBeforeSave);
     }
 
@@ -142,6 +144,13 @@ public sealed class FollowerSystem : EntitySystem
         StopAllFollowers(uid, component);
     }
 
+    // imp edit start
+    private void OnPolymorph(Entity<FollowedComponent> ent, ref PolymorphedEvent args)
+    {
+        foreach (var follower in ent.Comp.Following)
+            StartFollowingEntity(follower, args.NewEntity);
+    }
+    // imp edit end
     /// <summary>
     ///     Makes an entity follow another entity, by parenting to it.
     /// </summary>

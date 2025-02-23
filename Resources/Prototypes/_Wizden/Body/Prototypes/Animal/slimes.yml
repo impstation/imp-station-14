@@ -1,5 +1,5 @@
 ﻿- type: body
-  id: Slimes
+  id: Geras
   name: "slimes"
   root: torso
   slots:
@@ -11,7 +11,7 @@
         core: SentientSlimesCore
         lungs: OrganSlimesLungs
     legs:
-      part: LegsSlime # imp
+      part: LegsGeras
       connections:
       - feet
     feet:
