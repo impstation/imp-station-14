@@ -218,3 +218,14 @@
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/courier.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/courier.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitPitiful
+  name: pitiful jumpsuit
+  description: The perfect outfit for your pity party.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/pitifulsuit.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/pitifulsuit.rsi

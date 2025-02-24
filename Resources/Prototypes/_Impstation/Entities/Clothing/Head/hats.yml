@@ -171,3 +171,22 @@
       - state: equipped-HELMET
         offset: "0, 0.15" #this shit is so fiddly and i don't understand it at all
     sprite: _Impstation/Clothing/Head/Hats/circusclownhat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatPitifulHat
+  name: pitiful hat
+  description: "The perfect hat for your pity party."
+  components:
+  - type: Icon
+    sprite: _Impstation/Clothing/Head/Hats/pitifulhat.rsi
+    state: "icon"
+  - type: Sprite
+    state: "icon"
+    sprite: _Impstation/Clothing/Head/Hats/pitifulhat.rsi
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.15" #this shit is so fiddly and i don't understand it at all
+    sprite: _Impstation/Clothing/Head/Hats/pitifulhat.rsi
