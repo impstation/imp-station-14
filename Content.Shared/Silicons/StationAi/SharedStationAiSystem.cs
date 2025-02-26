@@ -1,4 +1,4 @@
-using System.Diagnostics.CodeAnalysis;
+using Content.Shared.Starlight;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Administration.Managers;
@@ -132,6 +132,10 @@ public abstract partial class SharedStationAiSystem : EntitySystem
 
     private void OnAiAccessible(Entity<StationAiOverlayComponent> ent, ref AccessibleOverrideEvent args)
     {
+        // Begin DeltaV Additions
+        if (ent.Comp.Cosmetic)
+            return;
+        // End DeltaV Additions
         args.Handled = true;
 
         // Hopefully AI never needs storage
@@ -150,6 +154,10 @@ public abstract partial class SharedStationAiSystem : EntitySystem
 
     private void OnAiMenu(Entity<StationAiOverlayComponent> ent, ref MenuVisibilityEvent args)
     {
+        // Begin DeltaV Additions
+        if (ent.Comp.Cosmetic)
+            return;
+        // End DeltaV Additions
         args.Visibility &= ~MenuVisibility.NoFov;
     }
 
@@ -187,11 +195,21 @@ public abstract partial class SharedStationAiSystem : EntitySystem
 
     private void OnAiInRange(Entity<StationAiOverlayComponent> ent, ref InRangeOverrideEvent args)
     {
+        // Begin DeltaV Additions
+        if (ent.Comp.Cosmetic)
+            return;
+        // End DeltaV Additions
         args.Handled = true;
-        var targetXform = Transform(args.Target);
+        var target = args.Target;
+        if (ent.Comp.AllowCrossGrid && TryComp(ent, out RelayInputMoverComponent? relay))
+        {
+            target = relay.RelayEntity;
+        }
+
+        var targetXform = Transform(target);
 
         // No cross-grid
-        if (targetXform.GridUid != Transform(args.User).GridUid)
+        if (targetXform.GridUid != Transform(args.User).GridUid && !ent.Comp.AllowCrossGrid)
         {
             return;
         }
