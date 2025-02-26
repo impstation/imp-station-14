@@ -218,3 +218,14 @@
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/courier.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/courier.rsi
+
+- type: entity
+  parent: [ BaseCentcommContraband, ClothingUniformBase ]
+  id: ClothingUniformJumpsuitChronoAgent
+  name: chronology agent's uniform
+  description: A special suit made for Central Command's elite temporal corps.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/chronoagent.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/chronoagent.rsi
