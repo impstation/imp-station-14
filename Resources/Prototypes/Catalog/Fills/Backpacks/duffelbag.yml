@@ -7,11 +7,15 @@
   - type: StorageFill
     contents:
       - id: Hemostat
-      - id: Saw
+      - id: SawElectric # Shitmed Change
       - id: Drill
       - id: Cautery
       - id: Retractor
       - id: Scalpel
+      - id: BoneGel # Shitmed Change
+      - id: SoapNT # Shitmed Change
+      - id: ClothingHandsGlovesNitrile # Shitmed Change
+      - id: ClothingMaskSterile # Shitmed Change
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle
@@ -29,6 +33,9 @@
       - id: ScalpelAdvanced
       - id: ClothingHandsGlovesNitrile
       - id: EmergencyRollerBedSpawnFolded
+      - id: BoneGel # Shitmed Change
+      - id: SoapSyndie # Shitmed Change
+      - id: ClothingMaskSterile # Shitmed Change
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle

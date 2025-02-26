@@ -83,6 +83,13 @@
     autoRemoveDuration: 30
   - type: EmbedPassiveDamage
   # end imp edits #
+  - type: Scalpel # Shitmed
+    speed: 0.45
+  - type: SurgeryTool # Shitmed
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg
 
 - type: entity
   parent: ShardBase
