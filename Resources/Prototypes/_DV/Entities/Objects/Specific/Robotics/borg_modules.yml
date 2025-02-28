@@ -1,5 +1,17 @@
 - type: entity
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  id: BaseBorgModuleSyndie
+  abstract: true
+  name: unfinished martyr cyborg module
+  description: This unfinished module has a large space for an explosive payload, with "boom" helpfully scribbled under it.
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+
+- type: entity
+  parent: [ BaseBorgModule, BaseProviderBorgModule ]
   id: BorgModuleRadioJammerRecharging # locked behind Syndie exofab
   description: "A module that comes with a recharging radio jammer."
   name: radio jammer cyborg module
