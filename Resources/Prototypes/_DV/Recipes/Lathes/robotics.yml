@@ -1,24 +1,4 @@
 - type: latheRecipe
-  parent: BaseGoldBorgModuleRecipe
-  id: BorgModuleSecurityEscalate
-  result: BorgModuleSecurityEscalate
-
-- type: latheRecipe
-  parent: BaseGoldBorgModuleRecipe
-  id: BorgModuleSecurityChase
-  result: BorgModuleSecurityChase
-
-- type: latheRecipe
-  parent: BaseBorgModuleRecipe
-  id: BorgModuleSecurityPatrol
-  result: BorgModuleSecurityPatrol
-
-- type: latheRecipe
-  parent: BaseBorgModuleRecipe
-  id: BorgModuleSecurityBastion
-  result: BorgModuleSecurityBastion
-
-- type: latheRecipe
   id: BorgModuleSyndicateWeapon
   result: BorgModuleSyndicateWeapon
   category: Robotics
@@ -43,17 +23,6 @@
     Gold: 500
     Plastic: 1000
     Uranium: 500
-
-- type: latheRecipe
-  id: BorgModuleMartyr
-  result: BorgModuleMartyr
-  category: Robotics
-  completetime: 10
-  materials:
-    Steel: 1500
-    Glass: 1000
-    Plastic: 1000
-    Silver: 500
 
 - type: latheRecipe
   id: BorgModuleBlades

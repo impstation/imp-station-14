@@ -98,6 +98,7 @@
   id: RoboNeuroticist
   components:
   - type: StationEvent
+    startAnnouncement: false # Impstation no announcement
     weight: 2
     minimumPlayers: 35 #big threat, but has to have ghosts to matter
   - type: LoadMapRule
