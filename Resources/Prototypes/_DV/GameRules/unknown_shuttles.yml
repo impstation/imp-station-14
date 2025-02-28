@@ -110,7 +110,7 @@
     - RoboNeuroticistBorgObjective
     - RoboNeuroticistKillObjective
     - RoboNeuroticistPlutoniumCoreStealObjective
-    - RoboNeuroticistUploadAILawObjective
+   # - RoboNeuroticistUploadAILawObjective # Imp - no ai upload
   - type: AntagSelection
     agentName: roboneuroticist-round-end-agent-name
     definitions:
