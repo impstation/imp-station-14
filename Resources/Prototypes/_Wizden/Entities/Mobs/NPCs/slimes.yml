@@ -69,3 +69,10 @@
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
   - type: PersistentSlimeStorage
+  # imp edits
+  - type: HTN
+    rootTask:
+      task: GerasIdleCompound
+  - type: SSDIndicator #this is broken. idk why
+  - type: MindContainer
+    showExamineInfo: true
