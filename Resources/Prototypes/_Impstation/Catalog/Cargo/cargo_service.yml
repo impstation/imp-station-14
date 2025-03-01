@@ -38,3 +38,14 @@
   cost: 750
   category: cargoproduct-category-name-fun
   group: market
+
+- type: cargoProduct
+  name: fishing crate
+  id: CrateFishing
+  icon:
+    sprite: _Impstation/Objects/Fishing/fishingrod.rsi
+    state: base
+  product: CrateFishing
+  cost: 800
+  category: cargoproduct-category-name-fun
+  group: market

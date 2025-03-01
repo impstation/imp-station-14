@@ -1,5 +1,7 @@
 using System.Numerics;
+using Content.Shared.Buckle.Components;
 using Content.Shared.CombatMode;
+using Content.Shared.Damage;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
@@ -9,6 +11,7 @@ using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Misc;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
@@ -29,6 +32,7 @@ public abstract class SharedFishingRodSystem : EntitySystem
     [Dependency] private readonly SharedJointSystem _joints = default!;
     [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
 
     public const string GrapplingJoint = "grappling";
 
@@ -58,9 +62,41 @@ public abstract class SharedFishingRodSystem : EntitySystem
     {
         foreach (var (shotUid, _) in args.Ammo)
         {
+            //Add tackle damage modifier
+            #region tackle damage modifier
+            //Get the tackle container
+            if (_container.TryGetContainer(uid, "tackle", out BaseContainer? container))
+            {
+                //Foreach in case we ever implement multiple tackle at once I guess
+                //Also saves me from checking if the tackle exists
+                foreach (var tackle in container.ContainedEntities)
+                {
+                    //Get the tackle component from the entity inside the tackle container
+                    if (TryComp<FishingTackleComponent>(tackle, out var tackleComp))
+                    {
+                        //Get the projectile component from the shot fired
+                        if (TryComp<ProjectileComponent>(shotUid, out var projectileComp))
+                        {
+                            //Add the damage modifier to the shot
+                            foreach (KeyValuePair<string, FixedPoint.FixedPoint2> bonusDamage in tackleComp.Damage.DamageDict)
+                            {
+                                if (projectileComp.Damage.DamageDict.ContainsKey(bonusDamage.Key))
+                                {
+                                    projectileComp.Damage.DamageDict[bonusDamage.Key] += bonusDamage.Value;
+                                }
+                                else
+                                {
+                                    projectileComp.Damage.DamageDict.Add(bonusDamage.Key, bonusDamage.Value);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            #endregion
+
             if (!HasComp<FishingProjectileComponent>(shotUid))
                 continue;
-
             //todo: this doesn't actually support multigrapple
             // At least show the visuals.
             component.Projectile = shotUid.Value;
