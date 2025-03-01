@@ -1,0 +1,15 @@
+- type: entity
+  parent: TrackingImplant
+  id: TrackingImplantShiva
+  name: tracking implant
+  categories: [ HideSpawnMenu ]
+  suffix: shiva
+  components:
+    - type: TriggerOnMobstateChange
+      mobState:
+      - Dead
+    - type: SuitSensor
+      randomMode: false
+      controlsLocked: true
+      mode: SensorVitals
+      activationContainer: "implant"
