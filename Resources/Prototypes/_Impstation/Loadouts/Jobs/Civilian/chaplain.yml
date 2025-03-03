@@ -124,3 +124,82 @@
   id: BeltChaplainDragon
   equipment:
     belt: ClothingBeltChaplainDragon
+
+# books
+- type: loadout
+  id: ChaplainBookBible
+  storage:
+    back:
+    - Bible
+
+- type: loadout
+  id: ChaplainBookQuran
+  storage:
+    back:
+    - BibleQuran
+
+- type: loadout
+  id: ChaplainBookTanakh
+  storage:
+    back:
+    - BibleTanakh
+
+- type: loadout
+  id: ChaplainBookBibble
+  storage:
+    back:
+    - BibleBibble
+
+- type: loadout
+  id: ChaplainBookTao
+  storage:
+    back:
+    - BibleTaoTeachings
+
+- type: loadout
+  id: ChaplainBookKojiki
+  storage:
+    back:
+    - BibleKojiki
+
+- type: loadout
+  id: ChaplainBookGrimoire
+  storage:
+    back:
+    - BibleChaplainsGrimoire
+
+- type: loadout
+  id: ChaplainBookDiscordia
+  storage:
+    back:
+    - BiblePrincipiaDiscordia
+
+- type: loadout
+  id: ChaplainBookUnitology
+  storage:
+    back:
+    - BibleUnitologyTome
+
+- type: loadout
+  id: ChaplainBookScroll
+  storage:
+    back:
+    - BibleHolyScroll
+
+- type: loadout
+  id: ChaplainBookTablet
+  storage:
+    back:
+    - BibleHolyTablet
+
+- type: loadout
+  id: ChaplainBookGreybible
+  storage:
+    back:
+    - Greybible
+
+- type: loadout
+  id: ChaplainBookETB
+  storage:
+    back:
+    - ExtremeTeenBible
