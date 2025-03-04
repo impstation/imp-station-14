@@ -1,0 +1,11 @@
+- type: damageModifierSet
+  id: Anomalocarid
+  coefficients:
+    Blunt: 1.2
+    Slash: .8
+    Piercing: 1.2
+    Cold: 1.5
+    Heat: 0 #inversion of decapoids
+    Poison: .9
+    Cellular: 1
+    Radiation: 1
