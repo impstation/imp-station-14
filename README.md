@@ -61,4 +61,5 @@ Content under these subdirectories either originate from their respective fork, 
 | `_Goobstation` | Goob Station | https://github.com/Goob-Station/Goob-Station/ | AGPL 3.0 |
 | `_Harmony` | Harmony | https://github.com/ss14-harmony/ss14-harmony | AGPL 3.0 |
 | `_NF` | Frontier Station | https://github.com/new-frontiers-14/frontier-station-14 | AGPL 3.0 |
+| `_Starlight` | Starlight | https://github.com/ss14Starlight/space-station-14 | Starlight |
 | `_White` | White Dream | https://github.com/WWhiteDreamProject/wwdpublic/ | AGPL 3.0 |
