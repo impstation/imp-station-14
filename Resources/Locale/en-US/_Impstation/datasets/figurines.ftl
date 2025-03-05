@@ -185,3 +185,14 @@ figurines-stationai-4 = SCUTTLE automatic nuclear detonation sequence engaged.
 figurines-stationai-5 = That borg is definitely compromised.
 figurines-stationai-6 = Please do not touch that door.
 figurines-stationai-7 = All squirrels must be eliminated. 
+
+figurines-cosmiccultist-1 = This is the end.
+figurines-cosmiccultist-2 = It's lambda, not delta.
+figurines-cosmiccultist-3 = Nothing to see here.
+figurines-cosmiccultist-4 = You seem tired. Care to sit?
+figurines-cosmiccultist-5 = I know, I'm simply breathtaking.
+figurines-cosmiccultist-6 = My cult so cosmic!
+figurines-cosmiccultist-7 = Wanna go stargazing?
+figurines-cosmiccultist-8 = Let me show you an out-of-body experience.
+figurines-cosmiccultist-9 = No, I have no idea where that rift went.
+figurines-cosmiccultist-10 = Join us. We've got lollipops.

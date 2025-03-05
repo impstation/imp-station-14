@@ -116,7 +116,7 @@
         orGroup: SpacemenFig
       - id: ToyFigurineCyborgService
         orGroup: SpacemenFig
-      - id: ToyFigurineStationAI
+      - id: ToyFigurineStationAI #/<imp>
         orGroup: SpacemenFig
       - id: ToyFigurineWizard
         prob: 0.50
@@ -195,4 +195,7 @@
         orGroup: SpacemenFig
       - id: ToyFigurineCyborgSaboteur
         prob: 0.50
+        orGroup: SpacemenFig 
+      - id: ToyFigurineCosmicCultist
+        prob: 0.20
         orGroup: SpacemenFig #</imp>
