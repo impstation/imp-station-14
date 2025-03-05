@@ -1,9 +1,5 @@
-using System;
 using System.Numerics;
-using Content.Shared.Actions;
-using Content.Shared.Buckle.Components;
 using Content.Shared.CombatMode;
-using Content.Shared.Damage;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
@@ -23,7 +19,6 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
-using Robust.Shared.Toolshed.TypeParsers;
 
 namespace Content.Shared._Impstation.Fishing;
 
@@ -34,8 +29,8 @@ public abstract class SharedFishingRodSystem : EntitySystem
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedStackSystem _stack = default!;
     [Dependency] private readonly SharedJointSystem _joints = default!;
+    [Dependency] private readonly SharedStackSystem _stack = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
@@ -75,13 +70,15 @@ public abstract class SharedFishingRodSystem : EntitySystem
                 if (transformComp.GridUid == null)
                 {
                     //Increase the fishing timer
-                    baitComp.Timer += frameTime;
+                    baitComp.BaitTimer += frameTime;
 
-                    //Make sure we're above minimum spawn time
-                    if (baitComp.Timer > baitComp.MinimumSpawnTime)
+                    //At the given time, reset the timer and try a catch
+                    if (baitComp.BaitTimer > baitComp.CatchAttemptTime)
                     {
+                        baitComp.BaitTimer = 0;
+
                         //Chance a catch
-                        if (_robustRandom.Prob(Math.Min(frameTime / baitComp.AverageSpawnTime, 1.0f)))
+                        if (_robustRandom.Prob(Math.Min(baitComp.CatchChance, 1.0f)))
                         {
                             //Select the catch
                             float totalProb = 0; //Sum of probabilities
@@ -91,20 +88,14 @@ public abstract class SharedFishingRodSystem : EntitySystem
                                 totalProb += potentialCatch.Value;
                                 if (totalProb > targetProb)
                                 {
-                                    //Remove a stack from the bait
-                                    if (TryComp<StackComponent>(uid, out var stackComp))
+                                    //Use one bait and spawn the entity
+                                    if (TryComp<StackComponent>(uid, out var stackComp) && _stack.Use(uid, 1, stackComp))
                                     {
-                                        if (_stack.Use(uid, 1))
-                                        {
-                                            //Reset the timer
-                                            baitComp.Timer = 0;
+                                        //Spawn a catch
+                                        EntityManager.SpawnNextToOrDrop(potentialCatch.Key, uid);
 
-                                            //Spawn a catch
-                                            EntityManager.SpawnEntity(potentialCatch.Key, Transform(uid).Coordinates);
-
-                                            //Stop looping
-                                            break;
-                                        }
+                                        //Stop looping
+                                        break;
                                     }
                                 }
                             }

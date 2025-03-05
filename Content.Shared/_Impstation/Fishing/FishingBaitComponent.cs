@@ -13,20 +13,19 @@ public sealed partial class FishingBaitComponent : Component
     /// Time since last catch
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float Timer = 0;
+    public float BaitTimer = 0;
 
     /// <summary>
-    /// Minimum spawn time before anything can bite in second
+    /// Attempt a catch everytime the timer reaches this
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float MinimumSpawnTime = 5;
+    public float CatchAttemptTime = 10;
 
     /// <summary>
-    /// Average spawn time for something to bite the bait in second
-    /// In practise, for a spawn time of x, we will attempt to spawn an item at a 1/x chance
+    /// Chance for a catch to succeed
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float AverageSpawnTime = 30;
+    public float CatchChance = 0.1f;
 
     /// <summary>
     /// List of things that can be caught and the probability of them being caught
@@ -39,11 +38,11 @@ public sealed partial class FishingBaitComponent : Component
     [DataField, AutoNetworkedField]
     public Dictionary<string, float> Catches = new Dictionary<string, float>
     {
-        {"MobCarp", 0.59f},
+        {"MobCarp", 0.50f},
         {"ClothingShoesBootsSalvage", 0.25f},
-        {"MobCarpMagic", 0.05f},
-        {"MobCarpHolo", 0.05f},
-        {"MobShark", 0.05f},
+        {"MobCarpMagic", 0.10f},
+        {"MobCarpHolo", 0.10f},
+        {"MobShark", 0.04f},
         {"MobDragonDungeon", 0.01f}
     };
 }
