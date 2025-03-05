@@ -1,4 +1,6 @@
+using System;
 using System.Numerics;
+using Content.Shared.Actions;
 using Content.Shared.Buckle.Components;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
@@ -8,6 +10,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Movement.Events;
 using Content.Shared.Physics;
 using Content.Shared.Projectiles;
+using Content.Shared.Stacks;
 using Content.Shared.Weapons.Misc;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Audio.Systems;
@@ -17,22 +20,26 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Dynamics.Joints;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
+using Robust.Shared.Toolshed.TypeParsers;
 
 namespace Content.Shared._Impstation.Fishing;
 
 //Imp : Basically a copy of GrapplingGunSystem
 public abstract class SharedFishingRodSystem : EntitySystem
 {
+    [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedStackSystem _stack = default!;
     [Dependency] private readonly SharedJointSystem _joints = default!;
-    [Dependency] private readonly SharedGunSystem _gun = default!;
+    [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
     public const string GrapplingJoint = "grappling";
 
@@ -51,7 +58,109 @@ public abstract class SharedFishingRodSystem : EntitySystem
         SubscribeLocalEvent<FishingProjectileComponent, JointRemovedEvent>(OnGrappleJointRemoved);
         SubscribeLocalEvent<FishingProjectileComponent, RemoveEmbedEvent>(OnRemoveEmbed);
     }
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
 
+        #region chumming
+        var queryBait = EntityQueryEnumerator<FishingBaitComponent>();
+
+        //For each bait
+        while (queryBait.MoveNext(out var uid, out var baitComp))
+        {
+            //Get the bait's transform component
+            if (TryComp<TransformComponent>(uid, out var transformComp))
+            {
+                //Check if it's spaced
+                if (transformComp.GridUid == null)
+                {
+                    //Increase the fishing timer
+                    baitComp.Timer += frameTime;
+
+                    //Make sure we're above minimum spawn time
+                    if (baitComp.Timer > baitComp.MinimumSpawnTime)
+                    {
+                        //Chance a catch
+                        if (_robustRandom.Prob(Math.Min(frameTime / baitComp.AverageSpawnTime, 1.0f)))
+                        {
+                            //Select the catch
+                            float totalProb = 0; //Sum of probabilities
+                            float targetProb = _robustRandom.GetRandom().NextFloat(); //Random number between 0 & 1
+                            foreach (KeyValuePair<string, float> potentialCatch in baitComp.Catches)
+                            {
+                                totalProb += potentialCatch.Value;
+                                if (totalProb > targetProb)
+                                {
+                                    //Remove a stack from the bait
+                                    if (TryComp<StackComponent>(uid, out var stackComp))
+                                    {
+                                        if (_stack.Use(uid, 1))
+                                        {
+                                            //Reset the timer
+                                            baitComp.Timer = 0;
+
+                                            //Spawn a catch
+                                            EntityManager.SpawnEntity(potentialCatch.Key, Transform(uid).Coordinates);
+
+                                            //Stop looping
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+        #endregion
+
+        #region reeling
+        var queryRod = EntityQueryEnumerator<FishingRodComponent>();
+
+        while (queryRod.MoveNext(out var uid, out var grappling))
+        {
+            if (!grappling.Reeling)
+            {
+                if (Timing.IsFirstTimePredicted)
+                {
+                    // Just in case.
+                    grappling.Stream = _audio.Stop(grappling.Stream);
+                }
+
+                continue;
+            }
+
+            if (!TryComp<JointComponent>(uid, out var jointComp) ||
+                !jointComp.GetJoints.TryGetValue(GrapplingJoint, out var joint) ||
+                joint is not DistanceJoint distance)
+            {
+                SetReeling(uid, grappling, false, null);
+                continue;
+            }
+
+            // TODO: This should be on engine.
+            distance.MaxLength = MathF.Max(distance.MinLength, distance.MaxLength - grappling.ReelRate * frameTime);
+            distance.Length = MathF.Min(distance.MaxLength, distance.Length);
+
+            _physics.WakeBody(joint.BodyAUid);
+            _physics.WakeBody(joint.BodyBUid);
+
+            if (jointComp.Relay != null)
+            {
+                _physics.WakeBody(jointComp.Relay.Value);
+            }
+
+            Dirty(uid, jointComp);
+
+            if (distance.MaxLength.Equals(distance.MinLength))
+            {
+                SetReeling(uid, grappling, false, null);
+            }
+        }
+        #endregion
+    }
     private void OnGrappleJointRemoved(EntityUid uid, FishingProjectileComponent component, JointRemovedEvent args)
     {
         if (_netManager.IsServer)
@@ -193,55 +302,6 @@ public abstract class SharedFishingRodSystem : EntitySystem
         component.Reeling = value;
         Dirty(uid, component);
     }
-
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        var query = EntityQueryEnumerator<FishingRodComponent>();
-
-        while (query.MoveNext(out var uid, out var grappling))
-        {
-            if (!grappling.Reeling)
-            {
-                if (Timing.IsFirstTimePredicted)
-                {
-                    // Just in case.
-                    grappling.Stream = _audio.Stop(grappling.Stream);
-                }
-
-                continue;
-            }
-
-            if (!TryComp<JointComponent>(uid, out var jointComp) ||
-                !jointComp.GetJoints.TryGetValue(GrapplingJoint, out var joint) ||
-                joint is not DistanceJoint distance)
-            {
-                SetReeling(uid, grappling, false, null);
-                continue;
-            }
-
-            // TODO: This should be on engine.
-            distance.MaxLength = MathF.Max(distance.MinLength, distance.MaxLength - grappling.ReelRate * frameTime);
-            distance.Length = MathF.Min(distance.MaxLength, distance.Length);
-
-            _physics.WakeBody(joint.BodyAUid);
-            _physics.WakeBody(joint.BodyBUid);
-
-            if (jointComp.Relay != null)
-            {
-                _physics.WakeBody(jointComp.Relay.Value);
-            }
-
-            Dirty(uid, jointComp);
-
-            if (distance.MaxLength.Equals(distance.MinLength))
-            {
-                SetReeling(uid, grappling, false, null);
-            }
-        }
-    }
-
     private void OnGrappleCollide(EntityUid uid, FishingProjectileComponent component, ref ProjectileEmbedEvent args)
     {
         if (!Timing.IsFirstTimePredicted)

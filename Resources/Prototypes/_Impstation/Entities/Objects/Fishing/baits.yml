@@ -12,8 +12,12 @@
         - state: worm
     - type: FishingBait #The component that handles the actual baiting
       catches:
-        PowerCellHigh: 50
-        MobCorgiMouse: 50
+        MobCarp: 0.59
+        ClothingShoesBootsSalvage: 0.25
+        MobCarpMagic: 0.05
+        MobCarpHolo: 0.05
+        MobShark: 0.05
+        MobDragonDungeon: 0.01
     - type: Tag
       tags:
       - Bait
