@@ -31,15 +31,17 @@
   - type: Bloodstream
     bloodReagent: CopperBlood
   - type: MeleeWeapon
-    attackRate: 0.55
+    attackRate: 0.6
     soundHit:
       collection: Punch
     angle: 30
     animation: WeaponArcPunch
     damage:
       types:
-        Blunt: 10
-        Structural: 5
+        Blunt: 8
+  - type: Tag
+    tags:
+    - AnomalocaridClaw
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -51,15 +53,14 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.35
-          #position: [0.0, -0.3] idk yet
-        density: 120
+        density: 300 #big
         restitution: 0.0
         mask:
         - MobMask
         layer:
         - MobLayer
   - type: TypingIndicator
-    proto: guardian
+    proto: anomalocarid
   - type: Speech
     speechVerb: Arachnid
     speechSounds: Arachnid
@@ -72,6 +73,7 @@
   - type: HumanoidAppearance
     species: Anomalocarid
   - type: Inventory
+    speciesId: anomalocarid
     templateId: anomalocarid
     displacements:
       jumpsuit:
@@ -79,6 +81,11 @@
           32:
             sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi
             state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi
+            state: shoes
 
 
 - type: entity
@@ -96,4 +103,9 @@
           32:
             sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi
             state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi
+            state: shoes
 
