@@ -79,6 +79,13 @@ public sealed partial record PolymorphConfiguration
     [DataField(serverOnly: true)]
     public bool TransferHumanoidAppearance;
 
+
+    /// <summary>
+    /// imp edit - Whether we try to transfer chemicals & blood in the body across polymorphs
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public bool TransferBloodstream = true;
+
     /// <summary>
     /// Whether or not the entity transfers its inventory and equipment between forms.
     /// </summary>
@@ -136,3 +143,17 @@ public enum PolymorphInventoryChange : byte
     Drop,
     Transfer,
 }
+
+// imp edit start
+public sealed class PolymorphedEvent : EntityEventArgs
+{
+    public EntityUid NewEntity;
+    public bool IsRevert;
+
+    public PolymorphedEvent(EntityUid newEn, bool revert = false)
+    {
+        NewEntity = newEn;
+        IsRevert = revert;
+    }
+}
+// imp edit end
