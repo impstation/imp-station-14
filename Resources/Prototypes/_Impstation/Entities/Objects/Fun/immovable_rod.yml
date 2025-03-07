@@ -99,3 +99,18 @@
     radius: 3
     color: red
     energy: 2.0
+
+- type: entity
+  id: ImmovableRodSuper
+  parent: ImmovableRod
+  description: It looks even hungrier than usual. Run.
+  name: super immovable rod
+  components:
+  - type: Sprite
+    sprite: _Impstation/objects/fun/super_immovable_rod.rsi
+    state: icon
+  - type: EventHorizon
+    canBreachContainment: true
+    radius: 2
+    colliderFixtureId: fix1
+    consumerFixtureId: fix1
