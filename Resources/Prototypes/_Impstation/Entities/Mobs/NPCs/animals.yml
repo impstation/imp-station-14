@@ -195,3 +195,110 @@
     allowedEmotes: ['Squeak']
   - type: ReplacementAccent
     accent: possum
+
+- type: entity
+  name: young kodepiia
+  parent: [ MobCombat, SimpleMobBase ]
+  id: MobYoungKodepiia
+  description: Not quite a not-quite-person.
+  components:
+  - type: VentCrawler
+    enterDelay: 1
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: young-kodepiia
+      sprite: _Impstation/Mobs/Aliens/young-kodepiia.rsi
+  - type: Butcherable
+    spawned:
+      - id: FoodLingzhi
+        amount: 1
+  - type: NpcFactionMember
+    factions:
+      - Xeno
+  - type: InputMover
+  - type: MobMover
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 130
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: young-kodepiia
+      Dead:
+        Base: young-kodepiia-dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      15: Dead
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcPunch
+    soundHit:
+      path: /Audio/_Impstation/Animals/bros_hit.ogg
+    damage:
+      types:
+        Blunt: 1
+  - type: ReplacementAccent
+    accent: bros
+  - type: Speech
+    speechSounds: Bros
+    speechVerb: Bros
+  - type: Vocal
+    sounds:
+      Male: Bros
+      Female: Bros
+      Unsexed: Bros
+    wilhelmProbability: 0.001
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Dead
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Impstation/Animals/bros_hurt.ogg
+      params:
+        variation: 0.125
+  - type: Bloodstream
+    bloodMaxVolume: 15
+    bloodReagent: VentCrud
+  - type: NoSlip
+  - type: ZombieImmune
+  - type: Food
+  - type: Absorbable # bros bite sized
+    biomassRestored: 0.05
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: VentCrud
+          Quantity: 2
+        - ReagentId: GroundBros
+          Quantity: 3
+  - type: NPCRetaliation
+  - type: Tag
+    tags:
+    - BROS
+    - Trash
+    - MultitoolDefibrillatorTarget
+  - type: FoodSequenceElement
+    entries:
+      Burger: BrosBurger
+  - type: CanEscapeInventory
+    baseResistTime: 2
