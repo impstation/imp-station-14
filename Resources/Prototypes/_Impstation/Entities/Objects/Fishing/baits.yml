@@ -7,7 +7,7 @@
       stackType: BaitStack
       count: 1
     - type: Sprite #The component that handles basic visuals
-      sprite: _Impstation/Objects/Fishing/fishingbait.rsi
+      sprite: _Impstation\Objects\Fishing\fishingbait.rsi
       layers:
         - state: worm
     - type: FishingBait #The component that handles the actual baiting
