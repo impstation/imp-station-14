@@ -5,10 +5,10 @@ using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
 using Robust.Shared.Collections;
 using Robust.Shared.Timing;
-using System.Linq;
-using Content.Shared.Actions;
 using Content.Shared.Interaction;
-using Robust.Shared.Random;
+using Content.Shared.Movement.Pulling.Events;
+using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Hands;
 
 namespace Content.Server._Impstation.NPC.Systems;
 
@@ -24,18 +24,28 @@ public sealed class YoungKodepiiaRetaliationSystem : EntitySystem
     /// <inheritdoc />
     public override void Initialize()
     {
-        SubscribeLocalEvent<YoungKodepiiaRetaliationComponent, ActivateInWorldEvent>(OnActivate);
-        SubscribeLocalEvent<YoungKodepiiaRetaliationComponent, AfterInteractEvent>(OnAfterInteract);
+        base.Initialize();
+
+        SubscribeLocalEvent<YoungKodepiiaRetaliationComponent, PullStartedMessage>(OnPull);
+        SubscribeLocalEvent<YoungKodepiiaRetaliationComponent, AttackedEvent>(OnAttack);
+        SubscribeLocalEvent<YoungKodepiiaRetaliationComponent, GotEquippedHandEvent>(OnPickup);
     }
 
-    private void OnActivate(Entity<YoungKodepiiaRetaliationComponent> ent, ActivateInWorldEvent args)
+    private void OnPull(Entity<YoungKodepiiaRetaliationComponent> ent, ref PullStartedMessage args)
     {
-        TryRetaliate(ent, args.user);
+        TryRetaliate(ent, args.PullerUid);
     }
 
-    private void OnAfterInteract(Entity<YoungKodepiiaRetaliationComponent> ent, AfterInteractEvent args)
+    private void OnAttack(Entity<YoungKodepiiaRetaliationComponent> ent, ref AttackedEvent args)
     {
-        TryRetaliate(ent, args.user);
+        TryRetaliate(ent, args.User);
+    }
+
+    private void OnPickup(Entity<YoungKodepiiaRetaliationComponent> ent, ref GotEquippedHandEvent args)
+    {
+        if (args.Handled)
+            return;
+        args.Handled = TryRetaliate(ent, args.User);
     }
 
     public bool TryRetaliate(Entity<YoungKodepiiaRetaliationComponent> ent, EntityUid target)

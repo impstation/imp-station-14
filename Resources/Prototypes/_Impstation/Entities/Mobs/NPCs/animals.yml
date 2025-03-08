@@ -203,18 +203,37 @@
   description: Not quite a not-quite-person.
   components:
   - type: VentCrawler
-    enterDelay: 1
+    enterDelay: 2
   - type: Item
-    size: Tiny
+    size: Normal
   - type: Sprite
     drawdepth: Mobs
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: young-kodepiia
       sprite: _Impstation/Mobs/Aliens/young-kodepiia.rsi
+  - type: RandomSprite
+    getAllGroups: true
+    available:
+    - enum.DamageStateVisualLayers.Base:
+        young-kodepiia: Pastel
+  - type: Clothing
+    quickEquip: false
+    sprite: _Impstation/Mobs/Aliens/young-kodepiia.rsi
+    equippedPrefix: 0
+    slots:
+    - HEAD
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2.5
+    baseSprintSpeed : 4
+    weightlessAcceleration: 1.5
+    weightlessFriction: 1
+    weightlessModifier: 1
+  - type: Bloodstream
+    bloodReagent: BloodKodepiia
   - type: Butcherable
     spawned:
-      - id: FoodLingzhi
+      - id: FoodLingzhi #squid filet
         amount: 1
   - type: NpcFactionMember
     factions:
@@ -244,26 +263,27 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      15: Dead
+      120: Dead
   - type: MeleeWeapon
     altDisarm: false
     angle: 0
     animation: WeaponArcPunch
     soundHit:
-      path: /Audio/_Impstation/Animals/bros_hit.ogg
+      collection: BoxingHit #maybe change this
     damage:
       types:
-        Blunt: 1
+        Blunt: 5
+        Cellular: 0.01
   - type: ReplacementAccent
-    accent: bros
+    accent: bros #yuuup
   - type: Speech
-    speechSounds: Bros
+    speechSounds: Bros # yuuuuuuuup
     speechVerb: Bros
   - type: Vocal
     sounds:
       Male: Bros
       Female: Bros
-      Unsexed: Bros
+      Unsexed: Bros #all of this yuuuuuuuuuuuuuuuuup
     wilhelmProbability: 0.001
   - type: TriggerOnMobstateChange
     mobState:
@@ -273,32 +293,14 @@
       path: /Audio/_Impstation/Animals/bros_hurt.ogg
       params:
         variation: 0.125
-  - type: Bloodstream
-    bloodMaxVolume: 15
-    bloodReagent: VentCrud
   - type: NoSlip
-  - type: ZombieImmune
   - type: Food
-  - type: Absorbable # bros bite sized
-    biomassRestored: 0.05
-  - type: Extractable
-    grindableSolutionName: food
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: VentCrud
-          Quantity: 2
-        - ReagentId: GroundBros
-          Quantity: 3
+  - type: Absorbable
+    biomassRestored: 0.6
   - type: YoungKodepiiaRetaliation
   - type: Tag
     tags:
-    - BROS
-    - Trash
+    - DoorBumpOpener
     - MultitoolDefibrillatorTarget
-  - type: FoodSequenceElement
-    entries:
-      Burger: BrosBurger
   - type: CanEscapeInventory
     baseResistTime: 2

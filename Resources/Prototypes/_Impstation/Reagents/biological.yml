@@ -56,3 +56,9 @@
             Brute: -1
       - !type:ModifyBleedAmount
         amount: -1
+
+- type: reagent
+  parent: Blood
+  id: BloodKodepiia
+  flavor: bloodkodepiia
+  color: "#4f0000"
