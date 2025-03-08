@@ -218,7 +218,7 @@
         amount: 1
   - type: NpcFactionMember
     factions:
-      - Xeno
+      - Passive
   - type: InputMover
   - type: MobMover
   - type: HTN
@@ -291,7 +291,7 @@
           Quantity: 2
         - ReagentId: GroundBros
           Quantity: 3
-  - type: NPCRetaliation
+  - type: YoungKodepiiaRetaliation
   - type: Tag
     tags:
     - BROS
