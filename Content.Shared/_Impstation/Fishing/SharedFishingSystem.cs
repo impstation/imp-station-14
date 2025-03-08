@@ -6,14 +6,17 @@ using Content.Shared.Interaction;
 using Content.Shared.Movement.Events;
 using Content.Shared.Physics;
 using Content.Shared.Projectiles;
+using Content.Shared.Stacks;
 using Content.Shared.Weapons.Misc;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Dynamics.Joints;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 
@@ -22,13 +25,16 @@ namespace Content.Shared._Impstation.Fishing;
 //Imp : Basically a copy of GrapplingGunSystem
 public abstract class SharedFishingRodSystem : EntitySystem
 {
+    [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedJointSystem _joints = default!;
-    [Dependency] private readonly SharedGunSystem _gun = default!;
+    [Dependency] private readonly SharedStackSystem _stack = default!;
+    [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
     public const string GrapplingJoint = "grappling";
 
@@ -47,7 +53,105 @@ public abstract class SharedFishingRodSystem : EntitySystem
         SubscribeLocalEvent<FishingProjectileComponent, JointRemovedEvent>(OnGrappleJointRemoved);
         SubscribeLocalEvent<FishingProjectileComponent, RemoveEmbedEvent>(OnRemoveEmbed);
     }
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
 
+        #region chumming
+        var queryBait = EntityQueryEnumerator<FishingBaitComponent>();
+
+        //For each bait
+        while (queryBait.MoveNext(out var uid, out var baitComp))
+        {
+            //Get the bait's transform component
+            if (TryComp<TransformComponent>(uid, out var transformComp))
+            {
+                //Check if it's spaced
+                if (transformComp.GridUid == null)
+                {
+                    //Increase the fishing timer
+                    baitComp.BaitTimer += frameTime;
+
+                    //At the given time, reset the timer and try a catch
+                    if (baitComp.BaitTimer > baitComp.CatchAttemptTime)
+                    {
+                        baitComp.BaitTimer = 0;
+
+                        //Chance a catch
+                        if (_robustRandom.Prob(Math.Min(baitComp.CatchChance, 1.0f)))
+                        {
+                            //Select the catch
+                            float totalProb = 0; //Sum of probabilities
+                            float targetProb = _robustRandom.GetRandom().NextFloat(); //Random number between 0 & 1
+                            foreach (KeyValuePair<string, float> potentialCatch in baitComp.Catches)
+                            {
+                                totalProb += potentialCatch.Value;
+                                if (totalProb > targetProb)
+                                {
+                                    //Use one bait and spawn the entity
+                                    if (TryComp<StackComponent>(uid, out var stackComp) && _stack.Use(uid, 1, stackComp))
+                                    {
+                                        //Spawn a catch
+                                        EntityManager.SpawnNextToOrDrop(potentialCatch.Key, uid);
+
+                                        //Stop looping
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+        #endregion
+
+        #region reeling
+        var queryRod = EntityQueryEnumerator<FishingRodComponent>();
+
+        while (queryRod.MoveNext(out var uid, out var grappling))
+        {
+            if (!grappling.Reeling)
+            {
+                if (Timing.IsFirstTimePredicted)
+                {
+                    // Just in case.
+                    grappling.Stream = _audio.Stop(grappling.Stream);
+                }
+
+                continue;
+            }
+
+            if (!TryComp<JointComponent>(uid, out var jointComp) ||
+                !jointComp.GetJoints.TryGetValue(GrapplingJoint, out var joint) ||
+                joint is not DistanceJoint distance)
+            {
+                SetReeling(uid, grappling, false, null);
+                continue;
+            }
+
+            // TODO: This should be on engine.
+            distance.MaxLength = MathF.Max(distance.MinLength, distance.MaxLength - grappling.ReelRate * frameTime);
+            distance.Length = MathF.Min(distance.MaxLength, distance.Length);
+
+            _physics.WakeBody(joint.BodyAUid);
+            _physics.WakeBody(joint.BodyBUid);
+
+            if (jointComp.Relay != null)
+            {
+                _physics.WakeBody(jointComp.Relay.Value);
+            }
+
+            Dirty(uid, jointComp);
+
+            if (distance.MaxLength.Equals(distance.MinLength))
+            {
+                SetReeling(uid, grappling, false, null);
+            }
+        }
+        #endregion
+    }
     private void OnGrappleJointRemoved(EntityUid uid, FishingProjectileComponent component, JointRemovedEvent args)
     {
         if (_netManager.IsServer)
@@ -58,9 +162,41 @@ public abstract class SharedFishingRodSystem : EntitySystem
     {
         foreach (var (shotUid, _) in args.Ammo)
         {
+            //Add tackle damage modifier
+            #region tackle damage modifier
+            //Get the tackle container
+            if (_container.TryGetContainer(uid, "tackle", out BaseContainer? container))
+            {
+                //Foreach in case we ever implement multiple tackle at once I guess
+                //Also saves me from checking if the tackle exists
+                foreach (var tackle in container.ContainedEntities)
+                {
+                    //Get the tackle component from the entity inside the tackle container
+                    if (TryComp<FishingTackleComponent>(tackle, out var tackleComp))
+                    {
+                        //Get the projectile component from the shot fired
+                        if (TryComp<ProjectileComponent>(shotUid, out var projectileComp))
+                        {
+                            //Add the damage modifier to the shot
+                            foreach (KeyValuePair<string, FixedPoint.FixedPoint2> bonusDamage in tackleComp.Damage.DamageDict)
+                            {
+                                if (projectileComp.Damage.DamageDict.ContainsKey(bonusDamage.Key))
+                                {
+                                    projectileComp.Damage.DamageDict[bonusDamage.Key] += bonusDamage.Value;
+                                }
+                                else
+                                {
+                                    projectileComp.Damage.DamageDict.Add(bonusDamage.Key, bonusDamage.Value);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            #endregion
+
             if (!HasComp<FishingProjectileComponent>(shotUid))
                 continue;
-
             //todo: this doesn't actually support multigrapple
             // At least show the visuals.
             component.Projectile = shotUid.Value;
@@ -157,55 +293,6 @@ public abstract class SharedFishingRodSystem : EntitySystem
         component.Reeling = value;
         Dirty(uid, component);
     }
-
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        var query = EntityQueryEnumerator<FishingRodComponent>();
-
-        while (query.MoveNext(out var uid, out var grappling))
-        {
-            if (!grappling.Reeling)
-            {
-                if (Timing.IsFirstTimePredicted)
-                {
-                    // Just in case.
-                    grappling.Stream = _audio.Stop(grappling.Stream);
-                }
-
-                continue;
-            }
-
-            if (!TryComp<JointComponent>(uid, out var jointComp) ||
-                !jointComp.GetJoints.TryGetValue(GrapplingJoint, out var joint) ||
-                joint is not DistanceJoint distance)
-            {
-                SetReeling(uid, grappling, false, null);
-                continue;
-            }
-
-            // TODO: This should be on engine.
-            distance.MaxLength = MathF.Max(distance.MinLength, distance.MaxLength - grappling.ReelRate * frameTime);
-            distance.Length = MathF.Min(distance.MaxLength, distance.Length);
-
-            _physics.WakeBody(joint.BodyAUid);
-            _physics.WakeBody(joint.BodyBUid);
-
-            if (jointComp.Relay != null)
-            {
-                _physics.WakeBody(jointComp.Relay.Value);
-            }
-
-            Dirty(uid, jointComp);
-
-            if (distance.MaxLength.Equals(distance.MinLength))
-            {
-                SetReeling(uid, grappling, false, null);
-            }
-        }
-    }
-
     private void OnGrappleCollide(EntityUid uid, FishingProjectileComponent component, ref ProjectileEmbedEvent args)
     {
         if (!Timing.IsFirstTimePredicted)
