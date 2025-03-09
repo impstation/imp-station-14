@@ -223,15 +223,23 @@
   - type: Clothing
     quickEquip: false
     sprite: _Impstation/Mobs/Aliens/young-kodepiia.rsi
-    equippedPrefix: 0
+    clothingVisuals:
+      outerClothing:
+      - state: young-kodepiia-equipped-HELMET
+      - state: eyes-equipped-HELMET
+        shader: unshaded
     slots:
     - HEAD
+  - type: Appearance
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.5
     baseSprintSpeed : 4
     weightlessAcceleration: 1.5
     weightlessFriction: 1
     weightlessModifier: 1
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: KodepiiaStep
   - type: Bloodstream
     bloodReagent: BloodKodepiia
   - type: Butcherable
@@ -280,23 +288,23 @@
         Blunt: 5
         Cellular: 0.01
   - type: ReplacementAccent
-    accent: bros #yuuup
+    accent: kodepiia
   - type: Speech
-    speechSounds: Bros # yuuuuuuuup
-    speechVerb: Bros
-    allowedEmotes: ['Chitter', 'Squeak']
+    speechSounds: Kodepiia
+    speechVerb: Kodepiia
+    allowedEmotes: ['Scream', 'Hiss', 'Squish', 'Bubble', 'Pop', 'Coo', 'Click', 'Chitter', 'Squeak']
   - type: Vocal
     sounds:
-      Male: Bros
-      Female: Bros
-      Unsexed: Bros #all of this yuuuuuuuuuuuuuuuuup
+      Male: Kodepiia
+      Female: Kodepiia
+      Unsexed: Kodepiia
     wilhelmProbability: 0.001
   - type: TriggerOnMobstateChange
     mobState:
     - Dead
   - type: EmitSoundOnTrigger
     sound:
-      path: /Audio/_Impstation/Animals/bros_hurt.ogg
+      collection: KodepiiaDeath
       params:
         variation: 0.125
   - type: NoSlip
