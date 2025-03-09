@@ -682,6 +682,15 @@
     - FootstepSound
   - type: StealTarget
     stealGroup: AnimalShiva
+  - type: AutoImplant #IMP
+    implants:
+    - TrackingImplantShiva
+  - type: IdCard
+    fullNameLocId: id-name-shiva
+    nameLocId: id-name-shiva
+  - type: PresetIdCard
+    job: Passenger
+    name: Shiva #END IMP
 
 - type: entity
   name: Willow
