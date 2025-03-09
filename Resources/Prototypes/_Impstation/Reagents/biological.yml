@@ -62,3 +62,18 @@
   id: BloodKodepiia
   flavor: bloodkodepiia
   color: "#4f0000"
+
+- type: reaction
+  id: KodepiiaBloodBreakdown
+  source: true
+  requiredMixerCategories:
+  - Centrifuge
+  reactants:
+    BloodKodepiia:
+      amount: 5
+  products:
+    Ice: 11
+    Copper: 0.5
+    TableSalt: 2
+    Ammonia: 3
+    Fat: 4

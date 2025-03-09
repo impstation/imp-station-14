@@ -207,11 +207,14 @@
   - type: Item
     size: Normal
   - type: Sprite
+    sprite: _Impstation/Mobs/Aliens/young-kodepiia.rsi
     drawdepth: Mobs
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: young-kodepiia
-      sprite: _Impstation/Mobs/Aliens/young-kodepiia.rsi
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: eyes
+      shader: unshaded
   - type: RandomSprite
     getAllGroups: true
     available:
@@ -258,8 +261,10 @@
     states:
       Alive:
         Base: young-kodepiia
+        BaseUnshaded: eyes
       Dead:
         Base: young-kodepiia-dead
+        BaseUnshaded: eyes-dead
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -279,6 +284,7 @@
   - type: Speech
     speechSounds: Bros # yuuuuuuuup
     speechVerb: Bros
+    allowedEmotes: ['Chitter', 'Squeak']
   - type: Vocal
     sounds:
       Male: Bros
@@ -301,6 +307,7 @@
   - type: Tag
     tags:
     - DoorBumpOpener
+    - VimPilot
     - MultitoolDefibrillatorTarget
   - type: CanEscapeInventory
     baseResistTime: 2
