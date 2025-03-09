@@ -433,12 +433,12 @@
   - type: AutoRecharge
     rechargeDuration: 20
   - type: Sprite
-    sprite: _Impstation\Prospectors\rdd.rsi
+    sprite: _Impstation/Prospectors/rdd.rsi
     state: icon
   - type: Item
     size: Normal
   - type: Clothing
-    sprite: Objects/Tools/rcd.rsi
+    sprite: Objects/Tools/rcd.rsi # REPLACE THIS WITH RDD WHEN POSSIBLE
     quickEquip: false
     slots:
     - Belt
