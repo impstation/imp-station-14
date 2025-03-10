@@ -309,7 +309,6 @@
       params:
         variation: 0.125
   - type: NoSlip
-  - type: Food
   - type: Absorbable
     biomassRestored: 0.6
   - type: YoungKodepiiaRetaliation
@@ -320,3 +319,8 @@
     - MultitoolDefibrillatorTarget
   - type: CanEscapeInventory
     baseResistTime: 2
+  - type: TypingIndicator
+    proto: slime #placeholder sprite
+  - type: Body
+    prototype: Kodepiia
+    requiredLegs: 1
