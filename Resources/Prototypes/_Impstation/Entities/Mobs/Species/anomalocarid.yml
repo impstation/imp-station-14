@@ -62,9 +62,13 @@
   - type: TypingIndicator
     proto: anomalocarid
   - type: Speech
-    speechVerb: Arachnid
+    speechVerb: Anomalocarid
     speechSounds: Arachnid
     allowedEmotes: ['Click', 'Chitter']
+    suffixSpeechVerbs:
+      chat-speech-verb-suffix-exclamation-strong: AnomalocaridExclamationStrong
+      chat-speech-verb-suffix-exclamation: AnomalocaridExclamation
+      chat-speech-verb-suffix-stutter: AnomalocaridStutter
   - type: Vocal
     sounds:
       Male: MaleArachnid
@@ -86,6 +90,11 @@
           32:
             sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi
             state: shoes
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi
+            state: hand
 
 
 - type: entity
@@ -108,4 +117,8 @@
           32:
             sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi
             state: shoes
-
+      hand:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi
+            state: hand

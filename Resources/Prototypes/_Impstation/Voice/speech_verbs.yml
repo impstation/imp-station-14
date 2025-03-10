@@ -1,0 +1,73 @@
+
+- type: speechVerb
+  id: FinfinExclamation
+  name: chat-speech-verb-name-finfin-exclamation
+  speechVerbStrings:
+  - chat-speech-verb-finfin-exclamation-1
+  - chat-speech-verb-finfin-exclamation-2
+
+- type: speechVerb
+  id: FinfinExclamationStrong
+  name: chat-speech-verb-name-finfin-exclamation
+  bold: true
+  speechVerbStrings:
+  - chat-speech-verb-finfin-exclamation-1
+  - chat-speech-verb-finfin-exclamation-2
+  priority: 10
+
+- type: speechVerb
+  id: FinfinStutter
+  name: chat-speech-verb-name-finfin-stutter
+  speechVerbStrings:
+  - chat-speech-verb-finfin-stutter-1
+  - chat-speech-verb-finfin-stutter-2
+
+- type: speechVerb
+  id: FinfinMumble
+  name: chat-speech-verb-name-finfin-mumble
+  speechVerbStrings:
+  - chat-speech-verb-finfin-mumble-1
+
+- type: speechVerb
+  id: Finfin
+  name: chat-speech-verb-name-finfin
+  speechVerbStrings:
+  - chat-speech-verb-finfin-1
+  - chat-speech-verb-finfin-2
+
+- type: speechVerb
+  id: Bros
+  name: chat-speech-verb-name-bros
+  speechVerbStrings:
+  - chat-speech-verb-bros
+
+- type: speechVerb
+  id: Anomalocarid
+  name: chat-speech-verb-name-anomalocarid
+  speechVerbStrings:
+  - chat-speech-verb-anomalocarid-1
+  - chat-speech-verb-anomalocarid-2
+  - chat-speech-verb-anomalocarid-3
+
+- type: speechVerb
+  id: AnomalocaridExclamation
+  name: chat-speech-verb-name-anomalocarid-exclamation
+  speechVerbStrings:
+  - chat-speech-verb-anomalocarid-exclamation-1
+  - chat-speech-verb-anomalocarid-exclamation-2
+
+- type: speechVerb
+  id: AnomalocaridExclamationStrong
+  name: chat-speech-verb-name-anomalocarid-exclamation-strong
+  bold: true
+  speechVerbStrings:
+  - chat-speech-verb-anomalocarid-exclamation-strong-1
+  - chat-speech-verb-anomalocarid-exclamation-strong-2
+  priority: 10
+
+- type: speechVerb
+  id: AnomalocaridStutter
+  name: chat-speech-verb-name-anomalocarid-stutter
+  speechVerbStrings:
+  - chat-speech-verb-anomalocarid-stutter-1
+  - chat-speech-verb-anomalocarid-stutter-2

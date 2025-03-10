@@ -23,3 +23,17 @@ chat-speech-verb-finfin-mumble-1 = quavers
 
 chat-speech-verb-name-bros = Bros
 chat-speech-verb-bros = grunts
+
+chat-speech-verb-name-anomalocarid = Anomalocarid
+chat-speech-verb-anomalocarid-1 = bubbles
+chat-speech-verb-anomalocarid-2 = clicks
+chat-speech-verb-anomalocarid-3 = glubs
+chat-speech-verb-name-anomalocarid-exclamation = Anomalocarid Exclaiming
+chat-speech-verb-anomalocarid-exclamation-1 = squeals
+chat-speech-verb-anomalocarid-exclamation-2 = chirps
+chat-speech-verb-name-anomalocarid-exclamation = Anomalocarid Exclaiming Strong
+chat-speech-verb-anomalocarid-exclamation-strong-1 = screeches
+chat-speech-verb-anomalocarid-exclamation-strong-2 = screams
+chat-speech-verb-name-anomalocarid-stutter = Anomalocarid Stuttering
+chat-speech-verb-anomalocarid-stutter-1 = rasps
+chat-speech-verb-anomalocarid-stutter-2 = gurgles
