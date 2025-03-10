@@ -9,6 +9,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Hands;
+using Content.Shared.Pointing;
 
 namespace Content.Server._Impstation.NPC.Systems;
 
@@ -29,6 +30,7 @@ public sealed class YoungKodepiiaRetaliationSystem : EntitySystem
         SubscribeLocalEvent<YoungKodepiiaRetaliationComponent, PullStartedMessage>(OnPull);
         SubscribeLocalEvent<YoungKodepiiaRetaliationComponent, AttackedEvent>(OnAttack);
         SubscribeLocalEvent<YoungKodepiiaRetaliationComponent, GotEquippedHandEvent>(OnPickup);
+        SubscribeLocalEvent<YoungKodepiiaRetaliationComponent, AfterGotPointedAtEvent>(OnPointedAt);
     }
 
     private void OnPull(Entity<YoungKodepiiaRetaliationComponent> ent, ref PullStartedMessage args)
@@ -46,6 +48,11 @@ public sealed class YoungKodepiiaRetaliationSystem : EntitySystem
         if (args.Handled)
             return;
         args.Handled = TryRetaliate(ent, args.User);
+    }
+
+    private void OnPointedAt(Entity<YoungKodepiiaRetaliationComponent> ent, ref AfterGotPointedAtEvent args)
+    {
+        TryRetaliate(ent, args.Pointer);
     }
 
     public bool TryRetaliate(Entity<YoungKodepiiaRetaliationComponent> ent, EntityUid target)

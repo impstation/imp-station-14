@@ -216,7 +216,6 @@
       state: eyes
       shader: unshaded
   - type: RandomSprite
-    getAllGroups: true
     available:
     - enum.DamageStateVisualLayers.Base:
         young-kodepiia: Pastel
@@ -225,8 +224,10 @@
     sprite: _Impstation/Mobs/Aliens/young-kodepiia.rsi
     clothingVisuals:
       outerClothing:
-      - state: young-kodepiia-equipped-HELMET
-      - state: eyes-equipped-HELMET
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: equipped-HELMET
+      - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+        state: eyes-equipped-HELMET
         shader: unshaded
     slots:
     - HEAD
@@ -287,8 +288,8 @@
       types:
         Blunt: 5
         Cellular: 0.01
-  - type: ReplacementAccent
-    accent: kodepiia
+  #- type: ReplacementAccent
+  #  accent: kodepiia
   - type: Speech
     speechSounds: Kodepiia
     speechVerb: Kodepiia
