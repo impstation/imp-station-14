@@ -10,6 +10,11 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Heretic;
 using Content.Server.Heretic.EntitySystems;
+using Content.Server.Humanoid;
+using Robust.Shared.Toolshed.TypeParsers;
+using Robust.Server.GameObjects;
+
+
 
 namespace Content.Server.Heretic.Ritual;
 
@@ -41,6 +46,8 @@ namespace Content.Server.Heretic.Ritual;
     protected DamageableSystem _damage = default!;
     protected EntityLookupSystem _lookup = default!;
     [Dependency] protected IPrototypeManager _proto = default!;
+    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
+    [Dependency] private readonly TransformSystem _transformSystem = default!;
 
     protected List<EntityUid> uids = new();
 
@@ -94,12 +101,24 @@ namespace Content.Server.Heretic.Ritual;
             var isCommand = args.EntityManager.HasComponent<CommandStaffComponent>(uids[i]);
             var knowledgeGain = isCommand ? 2f : 1f;
 
-            // YES!!! GIB!!!
+            //get the humanoid appearance component
+            if (!args.EntityManager.TryGetComponent<HumanoidAppearanceComponent>(uids[i], out var humanoid)) 
+                return; 
+
+            //get the species prototype from that
+            if (!_proto.TryIndex(humanoid.Species, out var speciesPrototype))
+                return;
+
+            //spawn a clone of the victim 
+            var sacrificialWhiteBoy = args.EntityManager.Spawn(speciesPrototype.Prototype, _transformSystem.GetMapCoordinates(uids[i]));
+            _humanoid.CloneAppearance(uids[i], sacrificialWhiteBoy);
+
+            //beat them to death
             if (args.EntityManager.TryGetComponent<DamageableComponent>(uids[i], out var dmg))
             {
                 var prot = (ProtoId<DamageGroupPrototype>) "Brute";
                 var dmgtype = _proto.Index(prot);
-                _damage.TryChangeDamage(uids[i], new DamageSpecifier(dmgtype, 1984f), true);
+                _damage.TryChangeDamage(sacrificialWhiteBoy, new DamageSpecifier(dmgtype, 1984f), true);
             }
 
             if (args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
