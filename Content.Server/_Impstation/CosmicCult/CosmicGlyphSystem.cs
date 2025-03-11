@@ -14,7 +14,6 @@ using Content.Shared.Interaction;
 using Content.Shared.Mind;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.SSDIndicator;
 using Content.Shared.Stunnable;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
@@ -35,7 +34,6 @@ public sealed class CosmicGlyphSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
 
     public override void Initialize()
     {
@@ -88,9 +86,6 @@ public sealed class CosmicGlyphSystem : EntitySystem
         var userCoords = Transform(args.User).Coordinates;
         if (args.Handled || !userCoords.TryDistance(EntityManager, tgtpos, out var distance) || distance > uid.Comp.ActivationRange || !HasComp<CosmicCultComponent>(args.User))
             return;
-
-        args.Handled = true;
-
         var cultists = GatherCultists(uid, uid.Comp.ActivationRange);
         if (cultists.Count < uid.Comp.RequiredCultists)
         {
@@ -98,15 +93,19 @@ public sealed class CosmicGlyphSystem : EntitySystem
             return;
         }
 
+        args.Handled = true;
+        var damageSpecifier = new DamageSpecifier();
         var tryInvokeEv = new TryActivateGlyphEvent(args.User, cultists);
         RaiseLocalEvent(uid, tryInvokeEv);
         if (tryInvokeEv.Cancelled)
             return;
 
+        damageSpecifier.DamageDict.Add("Asphyxiation", uid.Comp.ActivationDamage / cultists.Count);
         foreach (var cultist in cultists)
         {
-            DealDamage(cultist, uid.Comp.ActivationDamage);
+            DealDamage(cultist, damageSpecifier);
         }
+
         _audio.PlayPvs(uid.Comp.GylphSFX, tgtpos, AudioParams.Default.WithVolume(+1f));
         Spawn(uid.Comp.GylphVFX, tgtpos);
         QueueDel(uid);

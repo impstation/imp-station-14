@@ -77,3 +77,28 @@
     TableSalt: 2
     Ammonia: 3
     Fat: 4
+ 
+- type: reagent
+  id: SynthFlesh
+  name: reagent-name-synthflesh
+  group: Biological
+  desc: reagent-desc-synthflesh
+  flavor: people
+  color: "#FFC6C6"
+  recognizable: true
+  physicalDesc: reagent-physical-desc-alive
+  slippery: false
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -3
+      - !type:HealthChange
+        damage:
+          types:
+            Cellular: 2
+      - !type:ChemVomit
+        probability: 0.75
+      - !type:Jitter
