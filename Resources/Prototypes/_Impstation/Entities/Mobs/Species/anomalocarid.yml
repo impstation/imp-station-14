@@ -42,6 +42,10 @@
   - type: Tag
     tags:
     - AnomalocaridClaw
+    - DoorBumpOpener
+    - CanPilot
+    - FootstepSound
+    - AnomalyHost
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -95,6 +99,16 @@
           32:
             sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi
             state: hand
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi
+            state: outerClothing
+      belt:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi
+            state: belt
 
 
 - type: entity
@@ -122,3 +136,13 @@
           32:
             sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi
             state: hand
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi
+            state: outerClothing
+      belt:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi
+            state: belt
