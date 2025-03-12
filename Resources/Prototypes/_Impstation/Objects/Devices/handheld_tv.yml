@@ -1,6 +1,7 @@
 ﻿- type: entity
   id: CameraHandheld
   parent: [ BaseItem ]
+  suffix: entertainment
   name: handheld television
   description: A nifty device that lets you scare yourself from anywhere on the station!
   components:
@@ -21,6 +22,3 @@
     deviceNetId: Wireless
     receiveFrequencyId: SurveillanceCamera
     transmitFrequencyId: SurveillanceCamera
-  - type: SurveillanceCamera
-    setupAvailableNetworks:
-       - SurveillanceCameraEntertainment
