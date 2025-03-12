@@ -245,7 +245,7 @@
     bloodReagent: BloodKodepiia
   - type: Butcherable
     spawned:
-      - id: FoodLingzhi #squid filet
+      - id: FoodMeatKodepiia
         amount: 1
   - type: NpcFactionMember
     factions:
@@ -315,6 +315,7 @@
   - type: Tag
     tags:
     - DoorBumpOpener
+    - FootstepSound # I HATE TAGS!!!!!!!!!!!!!
     - VimPilot
     - MultitoolDefibrillatorTarget
   - type: CanEscapeInventory

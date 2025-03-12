@@ -32,4 +32,4 @@ flavor-complex-rodent = like rodents
 
 flavor-complex-orangecoffee = excitingly acidic
 
-flavor-base-bloodkodepiia = of umami
+flavor-base-kodepiia = of umami
