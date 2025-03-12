@@ -2,6 +2,7 @@ using Content.Server._Impstation.CosmicCult.Components;
 using Content.Server.Bible.Components;
 using Content.Shared._Impstation.CosmicCult;
 using Content.Shared._Impstation.CosmicCult.Components;
+using Content.Shared._Impstation.CosmicCult.Components.Examine;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
@@ -48,7 +49,7 @@ public sealed class DeconversionSystem : EntitySystem
         var deconCultTimer = EntityQueryEnumerator<CleanseCultComponent>();
         while (deconCultTimer.MoveNext(out var uid, out var comp))
         {
-            if (_timing.CurTime >= comp.CleanseTime && HasComp<SSDIndicatorComponent>(uid))
+            if (_timing.CurTime >= comp.CleanseTime && !HasComp<CosmicMarkBlankComponent>(uid))
             {
                 RemComp<CleanseCultComponent>(uid);
                 DeconvertCultist(uid);
@@ -60,7 +61,7 @@ public sealed class DeconversionSystem : EntitySystem
     {
         if (!TryComp(uid, out UseDelayComponent? useDelay) || _delay.IsDelayed((uid, useDelay)))
             return;
-        if (!args.CanReach || !uid.Comp.Enabled || args.Target == null || !_mobState.IsAlive(args.Target.Value))
+        if (!args.CanReach || !uid.Comp.Enabled || args.Target == null || _mobState.IsDead(args.Target.Value))
             return;
 
         if (!HasComp<BibleUserComponent>(args.User))
@@ -90,7 +91,7 @@ public sealed class DeconversionSystem : EntitySystem
     private void OnDoAfter(Entity<CleanseOnUseComponent> uid, ref CleanseOnDoAfterEvent args)
     {
         var target = args.Args.Target;
-        if (!TryComp(uid, out UseDelayComponent? useDelay) || args.Cancelled || args.Handled || target == null || !_mobState.IsAlive(target.Value))
+        if (!TryComp(uid, out UseDelayComponent? useDelay) || args.Cancelled || args.Handled || target == null || _mobState.IsDead(target.Value))
             return;
         var targetPosition = Transform(target.Value).Coordinates;
         //TODO: This could be made more agnostic, but there's only one cult for now, and frankly, i'm so tired. This is easy to read and easy to modify code. Expand it at thine leisure.
