@@ -10,6 +10,8 @@ using Content.Shared.Movement.Events;
 using Content.Shared.Speech;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee;
+using Content.Shared.Mech.EntitySystems;
+using Content.Shared.Mech.Components;
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
 
@@ -22,6 +24,7 @@ namespace Content.Shared.ActionBlocker
     public sealed class ActionBlockerSystem : EntitySystem
     {
         [Dependency] private readonly SharedContainerSystem _container = default!;
+        [Dependency] private readonly SharedMechSystem _mechSystem = default!;
 
         private EntityQuery<ComplexInteractionComponent> _complexInteractionQuery;
 
@@ -189,7 +192,13 @@ namespace Content.Shared.ActionBlocker
             // If target is in a container can we attack
             if (target != null && _container.IsEntityInContainer(target.Value))
             {
-                return false;
+                if (TryComp<MechComponent>(target, out var mechComponent))
+                {
+                    if (_mechSystem!.IsEmpty(mechComponent));
+                    {
+                        return true;
+                    }
+                }
             }
 
             _container.TryGetOuterContainer(uid, Transform(uid), out var outerContainer);

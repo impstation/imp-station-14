@@ -245,6 +245,9 @@ public sealed class NPCUtilitySystem : EntitySystem
                     if (TryComp<MechComponent>(container.Owner, out var mechComponent))
                     {
                         if (_mechSystem!.IsEmpty(mechComponent));
+                        {
+                            return 1.0f;
+                        }
                     }
                     else
                     {
