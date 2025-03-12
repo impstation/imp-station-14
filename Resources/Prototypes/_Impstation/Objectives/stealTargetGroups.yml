@@ -67,6 +67,13 @@
     sprite: _Impstation/Objects/Specific/Chemistry/pills_canister.rsi
     state: pill_canister-hos
 
+- type: stealTargetGroup
+  id: CommandTheGoods
+  name: steal-target-groups-thegoods
+  sprite:
+    sprite: _Impstation/Objects/Storage/thegoods.rsi
+    state: box
+
 # rare but otherwise not notable
 
 - type: stealTargetGroup

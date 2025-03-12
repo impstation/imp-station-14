@@ -107,7 +107,16 @@
     stealGroup: SecPillCanister
   - type: Objective
     difficulty: 1
-    
+
+- type: entity
+  parent: BaseThiefStealObjective
+  id: CommandTheGoodsStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: CommandTheGoods
+  - type: Objective
+    difficulty: 1
+
 - type: entity
   parent: BaseThiefStealObjective
   id: ShiningSpringStealObjective

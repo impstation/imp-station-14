@@ -1,0 +1,58 @@
+- type: entity
+  id: CigaretteTheGoods
+  parent: SoakedCigarette
+  name: smonk
+  description: The fabled smonk. It smells indescribably bad.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 60
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 10
+          - ReagentId: THC
+            Quantity: 5
+          - ReagentId: Nocturine
+            Quantity: 5
+          - ReagentId: TearGas
+            Quantity: 5
+          - ReagentId: Happiness
+            Quantity: 5
+          - ReagentId: Methadone
+            Quantity: 5
+          - ReagentId: Laughter
+            Quantity: 5
+          - ReagentId: JuiceThatMakesYouWeh
+            Quantity: 5
+          - ReagentId: BrosochloricBros
+            Quantity: 5
+          - ReagentId: Genderfluid
+            Quantity: 5
+          - ReagentId: Napalm
+            Quantity: 5
+      food:
+        maxVol: 60
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 10
+          - ReagentId: THC
+            Quantity: 5
+          - ReagentId: Nocturine
+            Quantity: 5
+          - ReagentId: TearGas
+            Quantity: 5
+          - ReagentId: Happiness
+            Quantity: 5
+          - ReagentId: Methadone
+            Quantity: 5
+          - ReagentId: Laughter
+            Quantity: 5
+          - ReagentId: JuiceThatMakesYouWeh
+            Quantity: 5
+          - ReagentId: BrosochloricBros
+            Quantity: 5
+          - ReagentId: Genderfluid
+            Quantity: 5
+          - ReagentId: Napalm
+            Quantity: 5
