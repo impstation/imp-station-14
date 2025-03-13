@@ -83,15 +83,15 @@
   description: "When you hit 88 MPH, legend says bluespace doors will open for you."
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Specific/skates.rsi
+    sprite: _impstation/clothing/Shoes/Specific/courierskates.rsi
   - type: Clothing
-    sprite: Clothing/Shoes/Specific/skates.rsi
+    sprite: _impstation/clothing/Shoes/Specific/courierskates.rsi
     clothingVisuals:
       shoes:
       - state: equipped-FEET
         offset: "0, -0.04"
   - type: Item
-    sprite: Clothing/Shoes/Specific/skates.rsi
+    sprite: _impstation/clothing/Shoes/Specific/courierskates.rsi
   - type: ClothingSpeedModifier
     walkModifier: 1.1
     sprintModifier: 1.1
