@@ -51,7 +51,7 @@
       head-vox:
       - state: equipped-head-light-vox
         shader: unshaded
-      head-anomalocarid:
+      head-anomalocarid: #imp edit
       - state: equipped-head-light-anomalocarid
         shader: unshaded
   - type: Clothing
@@ -64,7 +64,7 @@
       - state: equipped-head-vox
       - state: equipped-head-unshaded-vox
         shader: unshaded
-      head-anomalocarid:
+      head-anomalocarid: #imp edit
       - state: equipped-head-anomalocarid
       - state: equipped-head-unshaded-anomalocarid
         shader: unshaded
@@ -208,6 +208,9 @@
       head-vox:
       - state: equipped-head-light-vox
         shader: unshaded
+      head-anomalocarid: #imp edit
+      - state: equipped-head-light-anomalocarid
+        shader: unshaded
   - type: Clothing
     clothingVisuals:
       head:
@@ -217,6 +220,10 @@
       head-vox:
       - state: equipped-head-vox
       - state: equipped-head-unshaded-vox
+        shader: unshaded
+      head-anomalocarid: #imp edit
+      - state: equipped-head-anomalocarid
+      - state: equipped-head-unshaded-anomalocarid
         shader: unshaded
   - type: PointLight
     radius: 6
@@ -844,7 +851,7 @@
       - state: equipped-head-vox
       - state: equipped-head-unshaded-vox
         shader: unshaded
-      head-anomalocarid:
+      head-anomalocarid: #imp edit
       - state: equipped-head-anomalocarid
       - state: equipped-head-unshaded-anomalocarid
         shader: unshaded
