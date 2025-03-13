@@ -33,13 +33,15 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] protected IEntityManager _ent = default!;
+        [Dependency] private readonly IEntityManager _ent = default!;
 
         private const string MapPath = "Maps/_Impstation/Ruins/cozy-radio-planetoid.yml"; //TODO replace this with hell world
 
         public override void Initialize()
         {
             base.Initialize();
+
+            SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
         }
 
         /// <summary>
@@ -61,18 +63,19 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
          * 
          */
 
-        public override void Update(float frameTime) 
+        public override void Update(float frameTime)
         {
             base.Update(frameTime);
 
-            //hell world return, shamelessly stolen from cosmic shunt
+            //hell world return
             var returnQuery = EntityQueryEnumerator<HellVictimComponent>();
             while (returnQuery.MoveNext(out var uid, out var victimComp))
             {
                 //if they've been in hell long enough, return them
                 if (_timing.CurTime >= victimComp.ExitHellTime)
                 {
-                    _mind.TransferTo(victimComp.mind, victimComp.OriginalBody);
+                    _mind.TransferTo(victimComp.Mind, victimComp.OriginalBody);
+                    //TODO: give the original body some visual changes
                 }
             }
 

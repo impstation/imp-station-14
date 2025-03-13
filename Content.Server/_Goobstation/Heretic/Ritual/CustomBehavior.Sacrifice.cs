@@ -14,7 +14,6 @@ using Content.Server.Humanoid;
 using Robust.Shared.Toolshed.TypeParsers;
 using Robust.Server.GameObjects;
 using System;
-using Robust.Shared.Random;
 using System.Linq;
 using Content.Server._Goobstation.Heretic.EntitySystems;
 using Content.Server.Heretic.Components;
@@ -52,12 +51,11 @@ namespace Content.Server.Heretic.Ritual;
 
     protected DamageableSystem _damage = default!;
     protected EntityLookupSystem _lookup = default!;
-    [Dependency] protected IPrototypeManager _proto = default!;
-    [Dependency] protected IRobustRandom _random = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
     private HumanoidAppearanceSystem _humanoid = default!;
     private TransformSystem _transformSystem = default!;
     [Dependency] protected IEntityManager _mapsys = default!;
-    [Dependency] protected HellWorldSystem _hellworld = default!;
+    private HellWorldSystem _hellworld = default!;
 
 
     protected List<EntityUid> uids = new();
@@ -67,10 +65,13 @@ namespace Content.Server.Heretic.Ritual;
         //it was like this when i got here -kandiyaki
         _mind = args.EntityManager.System<SharedMindSystem>();
         _heretic = args.EntityManager.System<HereticSystem>();
+        _xform = args.EntityManager.System<SharedTransformSystem>();
         _damage = args.EntityManager.System<DamageableSystem>();
         _lookup = args.EntityManager.System<EntityLookupSystem>();
-        _transformSystem = args.EntityManager.System<TransformSystem>();
         _humanoid = args.EntityManager.System<HumanoidAppearanceSystem>();
+        _transformSystem = args.EntityManager.System<TransformSystem>();
+        _hellworld = args.EntityManager.System<HellWorldSystem>();
+
 
         if (!args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
         {
