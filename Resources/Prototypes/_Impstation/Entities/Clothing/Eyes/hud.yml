@@ -24,7 +24,7 @@
   parent: [ClothingEyesBase, BaseLensSlot, ShowSecurityIcons, ShowMedicalIcons, BaseSecurityCommandContraband] # BaseLensSlot from imp
   id: ClothingEyesHudMedSec
   name: medsec hud
-  description: A specialized visor that displays both medical and security information, complete with a compact antenna for data downlink and a flash-protective coating.
+  description: A specialized hud that displays both medical and security information, complete with a compact antenna for data downlink and a flash-protective coating.
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Eyes/Hud/medsechud.rsi

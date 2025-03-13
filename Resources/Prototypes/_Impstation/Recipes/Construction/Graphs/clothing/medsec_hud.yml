@@ -6,7 +6,7 @@
       edges:
         - to: medsecHud
           steps:
-            - tag: VisorMedical #imp
+            - tag: HudMedical #imp
               name: medical hud
               icon:
                 sprite: Clothing/Eyes/Hud/med.rsi
