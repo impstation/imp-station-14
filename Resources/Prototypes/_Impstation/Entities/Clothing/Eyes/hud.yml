@@ -1,0 +1,38 @@
+- type: entity
+  parent: [ClothingEyesBase, BaseLensSlot, ShowSecurityIcons, ShowMedicalIcons, BaseSecurityCommandContraband, ClothingHeadEyeBaseFlippable] # BaseLensSlot from imp
+  id: ClothingEyesPatchMedSec
+  name: medsec eyepatch
+  description: A specialized eyepatch that displays both medical and security information, complete with a compact antenna for data downlink and a flash-protective coating.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Eyes/Hud/medsecpatch.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Eyes/Hud/medsecpatch.rsi
+  - type: Construction
+    graph: PatchMedSec
+    node: medsecPatch
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+
+- type: entity
+  parent: [ClothingEyesPatchMedSec, ClothingHeadEyeBaseFlipped]
+  id: ClothingEyesPatchMedSecFlipped
+  name: medsec eyepatch
+
+- type: entity
+  parent: [ClothingEyesBase, BaseLensSlot, ShowSecurityIcons, ShowMedicalIcons, BaseSecurityCommandContraband] # BaseLensSlot from imp
+  id: ClothingEyesHudMedSec
+  name: medsec hud
+  description: A specialized visor that displays both medical and security information, complete with a compact antenna for data downlink and a flash-protective coating.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Eyes/Hud/medsechud.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Eyes/Hud/medsechud.rsi
+  - type: Construction
+    graph: HudMedSec
+    node: medsecHud
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5

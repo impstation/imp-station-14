@@ -76,14 +76,14 @@
   objectType: Item
 
 - type: construction
-  name: medsec hud
-  id: ClothingEyesHudMedSec
-  graph: HudMedSec
+  name: medsec glasses
+  id: ClothingEyesGlassesMedSec
+  graph: GlassesMedSec
   startNode: start
-  targetNode: medsecHud
+  targetNode: medsecGlasses
   category: construction-category-clothing
   description: Two huds joined into a new frame.
-  icon: { sprite: Clothing/Eyes/Hud/medsec.rsi, state: icon }
+  icon: { sprite: Clothing/Eyes/Glasses/medsecglasses.rsi, state: icon }
   objectType: Item
 
 - type: construction

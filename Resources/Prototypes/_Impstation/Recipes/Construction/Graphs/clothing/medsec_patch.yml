@@ -1,0 +1,28 @@
+﻿- type: constructionGraph
+  id: PatchMedSec
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: medsecPatch
+          steps:
+            - tag: PatchMedical #imp
+              name: medical patch
+              icon:
+                sprite: Clothing/Eyes/Hud/medpatch.rsi
+                state: icon
+              doAfter: 5
+            - tag: GlassesSecurity #imp
+              name: security glasses
+              icon:
+                sprite: Clothing/Eyes/glasses/secglasses.rsi
+                state: icon
+              doAfter: 5
+            - material: Cable
+              amount: 5
+              doAfter: 5
+            - material: Capacitor #imp but low key this is a bugfix
+              amount: 2
+              doAfter: 5
+    - node: medsecPatch
+      entity: ClothingEyesPatchMedSec
