@@ -25,9 +25,9 @@
     - type: ItemToggle
       onUse: false
       onActivate: false
-      soundActivate: 
+      soundActivate:
         path: /Audio/_Impstation/Effects/Footsteps/jesterstep_on.ogg
-      soundDeactivate: 
+      soundDeactivate:
         path: /Audio/_Impstation/Effects/Footsteps/jesterstep_off.ogg
 
 - type: entity
@@ -48,30 +48,7 @@
     - type: ItemToggle
       onUse: false
       onActivate: false
-      soundActivate: 
+      soundActivate:
         path: /Audio/_Impstation/Effects/Footsteps/jesterstep_on.ogg
-      soundDeactivate: 
+      soundDeactivate:
         path: /Audio/_Impstation/Effects/Footsteps/jesterstep_off.ogg
-
-- type: entity
-  parent: ClothingShoesClown
-  id: ClothingShoesPitiful
-  name: pitiful shoes
-  description: These shoes were made for walking, in puddles.
-  components:
-    - type: Sprite
-      sprite: _Impstation/Clothing/Shoes/Specific/pitifulshoes.rsi
-    - type: Clothing
-      sprite: _Impstation/Clothing/Shoes/Specific/pitifulshoes.rsi
-    - type: FootstepModifier
-      footstepSoundCollection: 
-        collection: FootstepPitiful
-        params: 
-          variation: 0.07 #copied from the existing jokester shoes
-    - type: ItemToggle
-      onUse: false
-      onActivate: false
-      soundActivate: 
-        path: /Audio/_Impstation/Effects/Footsteps/pitifulstep_on.ogg
-      soundDeactivate: 
-        path: /Audio/_Impstation/Effects/Footsteps/pitifulstep_off.ogg
