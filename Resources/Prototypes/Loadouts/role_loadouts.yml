@@ -38,9 +38,15 @@
   - GroupTankHarnessCommandWithOuterwearAquatic # imp special
 
 # Silicons
+#- type: roleLoadout
+#  id: JobBorg
+#  nameDataset: roleloadout doesn't support both so need to update that first.
+#  canCustomizeName: true
+
 - type: roleLoadout
   id: JobStationAi
   nameDataset: NamesAI
+  canCustomizeName: true
 
 # Civilian
 - type: roleLoadout
@@ -134,6 +140,7 @@
   groups:
   - LawyerNeck
   - LawyerJumpsuit
+  - LawyerOuterClothing # imp
   - LawyerShoes # imp
   - Glasses
   - CommonBackpack
@@ -157,6 +164,7 @@
   - ChaplainBelt # imp
   - Glasses
   - CommonBackpack
+  - ChaplainBook #imp
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
@@ -531,6 +539,7 @@
   - ChiefMedicalOfficerJumpsuit
   - ChiefMedicalOfficerOuterClothing
   - MedicalGloves
+  - ChiefMedicalOfficerBelt #imp
   - ChiefMedicalOfficerShoes
   - ChiefMedicalOfficerHeadset #imp
   - Glasses
@@ -650,6 +659,7 @@
   - PsychologistNeck # imp
   - PsychologistJumpsuit
   - PsychologistShoes # imp
+  - PsychologistOuterClothing # DeltaV
   - Glasses
   - MedicalBackpack
   - Survival

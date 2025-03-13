@@ -60,6 +60,7 @@
   description: aller-at-once-description
   showInVote: false #Please god dont do this
   rules:
+    - CosmicCult
     - Nukeops
     - Traitor
     - Revolutionary
@@ -268,6 +269,21 @@
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
     - MidpopLimiter
+
+- type: gamePreset
+  id: Wizard
+  alias:
+  - wizard
+  name: wizard-title
+  description: wizard-description
+  showInVote: false
+  rules:
+  - Wizard
+  - SubGamemodesRuleNoWizard #No Dual Wizards at the start, midround is fine
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
 
 - type: gamePreset
   id: Zombie

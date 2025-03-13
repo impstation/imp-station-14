@@ -502,7 +502,7 @@
       name: job-name-bartender
       requirements: # imp
         - !type:DepartmentTimeRequirement
-          department: Civilian
+          department: Service
           time: 1800
     - type: Loadout
       prototypes: [ VisitorBartender, VisitorBartenderAlt, VisitorBartenderAltA, VisitorBartenderAltB ] # imp
@@ -547,7 +547,7 @@
       name: job-name-chef
       requirements: # imp
         - !type:DepartmentTimeRequirement
-          department: Civilian
+          department: Service
           time: 1800
     - type: Loadout
       prototypes: [ VisitorChef, VisitorChefAlt ]
@@ -925,10 +925,10 @@
       name: ghost-role-information-syndie-disaster-victim-name
       description: ghost-role-information-syndie-disaster-victim-description
       rules: ghost-role-information-freeagent-rules
+      mindRoles:
+      - MindRoleGhostRoleFreeAgent
       raffle:
         settings: short
-      mindRoles: # imp
-      - MindRoleGhostRoleFreeAgent
     - type: Loadout
       prototypes: [ SyndicateOperativeGearCivilian ]
       roleLoadout: [ RoleSurvivalSyndicate ]

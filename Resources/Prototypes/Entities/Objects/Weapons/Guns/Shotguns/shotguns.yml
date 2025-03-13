@@ -13,7 +13,7 @@
     # If you update this also update the bulldog's size.
     size: Large
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Shotguns/db_shotgun.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi #imp
     quickEquip: false
     slots:
     - Back
@@ -46,7 +46,7 @@
     price: 500
 
 - type: entity
-  name: Bulldog
+  name: Hydra #imp
   # Don't parent to BaseWeaponShotgun because it differs significantly
   parent: [BaseItem, BaseGunWieldable, Tier3Contraband]
   id: WeaponShotgunBulldog
@@ -54,7 +54,7 @@
 
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/bulldog.rsi #imp
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -63,7 +63,7 @@
   - type: Item
     size: Large
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/bulldog.rsi #imp
     quickEquip: false
     slots:
     - Back
@@ -111,12 +111,12 @@
   description: An immortal classic of the American Frontier, whatever that is. Uses .50 shotgun shells. #imp
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Shotguns/db_shotgun.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi #imp
   - type: Item
     size: Normal
     shape:
     - 0,0,4,0
-    sprite: Objects/Weapons/Guns/Shotguns/db_shotgun_inhands_64x.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/db_shotgun_inhands_64x.rsi #imp
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 3
@@ -141,29 +141,29 @@
 
 - type: entity
   name: Enforcer
-  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseRestrictedContraband]
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponShotgunEnforcer
   description: A premium semi-automatic combat shotgun, featuring a pistol grip and sleek profile for those nasty close-quarters engagements. Uses .50 shotgun shells. #imp
   components: # intend for Enforcer to have wider choke for semi-auto function
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/enforcer.rsi #imp
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/enforcer.rsi #imp
   - type: Item
-    sprite: Objects/Weapons/Guns/Shotguns/enforcer_inhands_64x.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/enforcer_inhands_64x.rsi #imp
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
 
 - type: entity
   parent: WeaponShotgunEnforcer
   id: WeaponShotgunEnforcerRubber
-  suffix: Non-Lethal
+  suffix: Non-Lethal DEPRECATED DO NOT MAP
   components:
   - type: BallisticAmmoProvider
     proto: ShellShotgunBeanbag
 
 - type: entity
   name: Kammerer
-  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseRestrictedContraband]
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponShotgunKammerer
   description: Even centuries after his time, the legacy of John Moses Browning lives on. This pump-action shotgun is a favorite of hunters and militia forces across many worlds. Uses .50 shotgun shells. #imp
   components: # intend for Kammerer to have tighter choke for slower fire rate and/or manual cycling
@@ -171,14 +171,16 @@
     size: Normal
     shape:
     - 0,0,4,0
-    sprite: Objects/Weapons/Guns/Shotguns/pump_inhands_64x.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/pump_inhands_64x.rsi #imp
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/pump.rsi #imp
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/pump.rsi #imp
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 1
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/kammerer.ogg
   - type: Tag
     tags:
     - WeaponShotgunKammerer
@@ -190,12 +192,12 @@
   description: Groovy! Uses .50 shotgun shells.
   components: # needs to be super inaccurate because you don't need to wield it
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Shotguns/sawn.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/sawn.rsi #imp
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Shotguns/sawn.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/sawn.rsi #imp
   - type: Item
     size: Small
-    sprite: Objects/Weapons/Guns/Shotguns/sawn_inhands_64x.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/sawn_inhands_64x.rsi #imp
   - type: Gun
     fireRate: 3
   - type: BallisticAmmoProvider
@@ -277,14 +279,14 @@
   description: A shitty, hand-made shotgun. It can only hold one round in the chamber. Uses .50 shotgun shells.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Shotguns/improvised_shotgun.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/improvised_shotgun.rsi #imp
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Shotguns/improvised_shotgun.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/improvised_shotgun.rsi #imp
   - type: Item
     size: Normal
     shape:
     - 0,0,4,0
-    sprite: Objects/Weapons/Guns/Shotguns/improvised_shotgun_inhands_64x.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/improvised_shotgun_inhands_64x.rsi #imp
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 4 #No reason to stifle the firerate since you have to manually reload every time anyways.
