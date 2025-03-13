@@ -26,11 +26,11 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
   - type: BallisticAmmoProvider
-    capacity: 10
-    proto: CartridgeRifle #imp
+    capacity: 5 #imp
+    proto: CartridgeLightRifle
     whitelist:
       tags:
-      - CartridgeRifle
+      - CartridgeLightRifle
     soundRack:
       path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg #imp
   - type: ContainerContainer
@@ -44,8 +44,7 @@
   name: Kardashev-Mosin
   parent: [BaseWeaponSniper, BaseGunWieldable, Tier3Contraband]
   id: WeaponSniperMosin
-  description: A weapon for hunting, or endless trench warfare. There's a bayonet at the end, and the heft of the rifle could do some damage. Uses .20 rifle ammo. #imp
-# Melee and gun components don't play nice; description will change when fixed. Melee components also disabled for the time being
+  description: A weapon for hunting, or endless trench warfare, featuring a bayonet for going over the top. Uses .30 rifle ammo. #imp
   components:
   - type: Gun
     selectedMode: SemiAuto
@@ -53,18 +52,18 @@
     - SemiAuto
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi #imp
-#  - type: MeleeWeapon
-#    range: 2
-#    wideAnimationRotation: -135
-#    attackRate: 1.2
-#    damage:
-#      types:
-#        Piercing: 12
-#        Slash: 4
-#    angle: 0
-#    animation: WeaponArcThrust
-#    soundHit:
-#      path: /Audio/Weapons/bladeslice.ogg
+  - type: MeleeWeapon #imp
+    range: 2
+    wideAnimationRotation: -135
+    attackRate: 1.2
+    damage:
+      types:
+        Piercing: 12
+        Slash: 4
+    angle: 0
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
   - type: EmbeddableProjectile #imp
     offset: -0.15,0.0
     sound: /Audio/Weapons/star_hit.ogg
@@ -76,12 +75,14 @@
       types:
         Piercing: 15
         Slash: 5
-#  - type: Sharp
-#  - type: Execution
-#    doAfterDuration: 2.0
-#    animation: WeaponArcThrust
-#    angle: 0
-#  - type: MeleeRequiresWield
+  - type: Sharp #imp
+  - type: Execution #imp
+    doAfterDuration: 2.0
+    animation: WeaponArcThrust
+    angle: 0
+  - type: MeleeRequiresWield #imp
+  - type: AltFireMelee #imp
+    attackType: Heavy
 
 - type: entity
   name: Lindwyrm #imp
