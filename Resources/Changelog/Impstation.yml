@@ -1,91 +1,4 @@
 ﻿Entries:
-- author: widgetbeck
-  changes:
-  - message: Drones are now unable to use any item with the Contraband component.
-    type: Tweak
-  - message: Fixed the wrong popup appearing when a Drone attempts to use a blacklisted
-      item.
-    type: Fix
-  - message: Fixed Drone proximity warnings appearing when using whitelisted items.
-    type: Fix
-  - message: My real-life human brain is now fully functional.
-    type: Fix
-  id: 768
-  time: '2024-12-19T17:38:24.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1069
-- author: widgetbeck
-  changes:
-  - message: Immovable Fin-Fin now has a custom kill message. Added support for custom
-      kill messages to ImmovableRodComponent.
-    type: Tweak
-  id: 769
-  time: '2024-12-19T17:40:35.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1072
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: new Improvised Pistol that can be hand-crafted. It can use a variety
-      of magazines and ammo types!
-    type: Add
-  - message: 1 conversion kit of each type added to the Mk58 Safe, now called the
-      Pistol Safe
-    type: Add
-  - message: adjusted Research and Cargo costs for the .22 Auto Pistol items
-    type: Tweak
-  - message: .22 auto Security Techfab recipes have been adjusted. "Advanced Pistol
-      Munitions" has been removed.
-    type: Tweak
-  id: 770
-  time: '2024-12-20T15:39:23.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1076
-- author: honeyed-lemons
-  changes:
-  - message: Mapping Changes to Xeno, Box, and Fland, and all cargo shuttles
-    type: Add
-  - message: Fixed atmos monitoring computer locale
-    type: Fix
-  id: 771
-  time: '2024-12-20T16:21:27.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1075
-- author: DinnerCalzone
-  changes:
-  - message: All immovable rod types now have a custom kill message.
-    type: Add
-  id: 772
-  time: '2024-12-20T16:25:39.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1079
-- author: honeyed-lemons
-  changes:
-  - message: Holopad Tweaks
-    type: Tweak
-  id: 773
-  time: '2024-12-20T16:26:29.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1080
-- author: widgetbeck
-  changes:
-  - message: Removed gollylad's out-of-theme black jumpsuit.
-    type: Remove
-  - message: Some changes to the Goblin Castaways event to give it its own identity.
-    type: Tweak
-  id: 774
-  time: '2024-12-20T16:28:09.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1083
-- author: RosySaturniidae
-  changes:
-  - message: tweaked the colors on the cmo's jumpsuit/skirt
-    type: Tweak
-  id: 775
-  time: '2024-12-20T16:36:55.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1077
-- author: Pinkbat5, AftrLite
-  changes:
-  - message: Heads of Security now start with extra-strength antidepressants in their
-      locker.
-    type: Add
-  - message: Pill canisters now have a new sprite.
-    type: Tweak
-  id: 776
-  time: '2024-12-20T16:38:10.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1084
 - author: Darkmajia
   changes:
   - message: Captains have a new regal blue beret.
@@ -4095,3 +4008,89 @@
   id: 1267
   time: '2025-03-10T22:04:53.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/1866
+- author: Sha-Seng
+  changes:
+  - message: Silver Heart Locket for style choices
+    type: Add
+  - message: Rings have hand and neck sprites now
+    type: Tweak
+  id: 1268
+  time: '2025-03-10T22:58:34.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/1880
+- author: hivehum
+  changes:
+  - message: Removed the 'ensure fellow traitor stays alive' objective outside of
+      Spy vs Spy.
+    type: Remove
+  id: 1269
+  time: '2025-03-10T23:05:47.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/1875
+- author: Ecramox
+  changes:
+  - message: Added the R.A.D, and put it in the Nuclear Commander and Lone Op's loadouts
+    type: Add
+  id: 1270
+  time: '2025-03-10T23:43:55.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/1889
+- author: DinnerCalzone
+  changes:
+  - message: All job icons for the Service department jobs have been resprited to
+      be matching. Except for the jobs in the Theatre sub-department, which have been
+      resprited to not be matching.
+    type: Tweak
+  id: 1271
+  time: '2025-03-11T05:04:49.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/1871
+- author: Darkmajia
+  changes:
+  - message: The supermatter has a grace period at roundstart, absorbing 10x less
+      gas until it's powered.
+    type: Tweak
+  id: 1272
+  time: '2025-03-11T07:41:42.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/1895
+- author: AvianMaiden
+  changes:
+  - message: Chainlink fence gates sound a little different.
+    type: Tweak
+  - message: A few new Station AI names!
+    type: Add
+  id: 1273
+  time: '2025-03-11T14:31:35.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/1869
+- author: AvianMaiden
+  changes:
+  - message: Unique sprites for all types of shotgun shell projectiles! Stun slugs
+      now look different from buckshot!
+    type: Add
+  - message: Descriptions to each type of shotgun shell. (Shotgun shell naming conventions
+      are now all the same too!)
+    type: Add
+  - message: Slightly lowered the light given off by incendiary projectiles.
+    type: Tweak
+  - message: The cargo Enforcer order now lists the correct number of shell boxes.
+    type: Fix
+  id: 1274
+  time: '2025-03-11T14:32:47.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/1885
+- author: AvianMaiden
+  changes:
+  - message: Descriptions to all magazines and bullets! (Naming conventions should
+      be standardized too!)
+    type: Add
+  - message: Unique sprites for .25 caseless ammo and grenade projectiles! The L6
+      SAW also now sports a bloodred magazine!
+    type: Add
+  - message: 'New names for Syndicate long guns! Introducing: the L6 "Nidhogg" SAW,
+      C-20R "Gorgon", the Basilisk-11, the Lindwyrm (Hristov), and the Hydra (Bulldog)!'
+    type: Add
+  id: 1275
+  time: '2025-03-12T02:43:42.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/1904
+- author: sageu111
+  changes:
+  - message: woke shit IDK
+    type: Add
+  id: 1276
+  time: '2025-03-12T03:26:53.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/1907
