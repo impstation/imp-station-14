@@ -25,9 +25,9 @@
     - type: ItemToggle
       onUse: false
       onActivate: false
-      soundActivate: 
+      soundActivate:
         path: /Audio/_Impstation/Effects/Footsteps/jesterstep_on.ogg
-      soundDeactivate: 
+      soundDeactivate:
         path: /Audio/_Impstation/Effects/Footsteps/jesterstep_off.ogg
 
 - type: entity
@@ -48,9 +48,9 @@
     - type: ItemToggle
       onUse: false
       onActivate: false
-      soundActivate: 
+      soundActivate:
         path: /Audio/_Impstation/Effects/Footsteps/jesterstep_on.ogg
-      soundDeactivate: 
+      soundDeactivate:
         path: /Audio/_Impstation/Effects/Footsteps/jesterstep_off.ogg
 
 - type: entity
@@ -64,14 +64,40 @@
     - type: Clothing
       sprite: _Impstation/Clothing/Shoes/Specific/pitifulshoes.rsi
     - type: FootstepModifier
-      footstepSoundCollection: 
+      footstepSoundCollection:
         collection: FootstepPitiful
-        params: 
+        params:
           variation: 0.07 #copied from the existing jokester shoes
     - type: ItemToggle
       onUse: false
       onActivate: false
-      soundActivate: 
+      soundActivate:
         path: /Audio/_Impstation/Effects/Footsteps/pitifulstep_on.ogg
-      soundDeactivate: 
+      soundDeactivate:
         path: /Audio/_Impstation/Effects/Footsteps/pitifulstep_off.ogg
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesCourierSkates
+  name:  DeLorean Skates
+  description: "When you hit 88 MPH, legend says bluespace doors will open for you."
+  components:
+  - type: Sprite
+    sprite: Clothing/Shoes/Specific/skates.rsi
+  - type: Clothing
+    sprite: Clothing/Shoes/Specific/skates.rsi
+    clothingVisuals:
+      shoes:
+      - state: equipped-FEET
+        offset: "0, -0.04"
+  - type: Item
+    sprite: Clothing/Shoes/Specific/skates.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1.1
+    sprintModifier: 1.1
+  - type: CourierSkates
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepSkates
+      params:
+        variation: 0.08 #making a note so this is in the commit if we want to change this later - ruddygreat
