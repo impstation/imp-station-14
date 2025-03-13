@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Content.Shared.Humanoid.Prototypes;
+using Robust.Shared.Map;
 
 namespace Content.Server.Heretic.Components;
 
@@ -17,9 +19,19 @@ public sealed partial class HellVictimComponent : Component
     [AutoPausedField]
     public TimeSpan ExitHellTime = default!;
 
-    [ViewVariables(VVAccess.ReadOnly)]
+    [DataField]
     public EntityUid OriginalBody;
 
     [ViewVariables(VVAccess.ReadOnly)]
-    public EntityUid HellBody;
+    public EntityCoordinates OriginalPosition;
+
+    [DataField]
+    public SpeciesPrototype? CloneProto;
+
+    [DataField]
+    public EntityUid Mind;
+
+    [DataField, AutoNetworkedField]
+    public TimeSpan HellDuration = TimeSpan.FromSeconds(15);
+
 }

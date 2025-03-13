@@ -16,6 +16,8 @@ using Robust.Server.GameObjects;
 using System;
 using Robust.Shared.Random;
 using System.Linq;
+using Content.Server._Goobstation.Heretic.EntitySystems;
+using Content.Server.Heretic.Components;
 
 
 
@@ -55,6 +57,7 @@ namespace Content.Server.Heretic.Ritual;
     private HumanoidAppearanceSystem _humanoid = default!;
     private TransformSystem _transformSystem = default!;
     [Dependency] protected IEntityManager _mapsys = default!;
+    [Dependency] protected HellWorldSystem _hellworld = default!;
 
 
     protected List<EntityUid> uids = new();
@@ -66,11 +69,8 @@ namespace Content.Server.Heretic.Ritual;
         _heretic = args.EntityManager.System<HereticSystem>();
         _damage = args.EntityManager.System<DamageableSystem>();
         _lookup = args.EntityManager.System<EntityLookupSystem>();
-        _proto = IoCManager.Resolve<IPrototypeManager>();
         _transformSystem = args.EntityManager.System<TransformSystem>();
         _humanoid = args.EntityManager.System<HumanoidAppearanceSystem>();
-
-
 
         if (!args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
         {
@@ -107,9 +107,9 @@ namespace Content.Server.Heretic.Ritual;
         return true;
     }
 
+    //this does way too much
     public override void Finalize(RitualData args)
     {
-        
 
         for (int i = 0; i < Max; i++)
         {
@@ -129,7 +129,8 @@ namespace Content.Server.Heretic.Ritual;
             var sacrificialWhiteBoy = args.EntityManager.Spawn(speciesPrototype.Prototype, _transformSystem.GetMapCoordinates(uids[i]));
             _humanoid.CloneAppearance(uids[i], sacrificialWhiteBoy);
 
-            //beat them to death
+            //beat the clone to death. this is just to get matching organs
+            //TODO: figure out a way to give the sacrifice the same DNA
             if (args.EntityManager.TryGetComponent<DamageableComponent>(uids[i], out var dmg))
             {
                 var prot = (ProtoId<DamageGroupPrototype>) "Brute";
@@ -137,7 +138,9 @@ namespace Content.Server.Heretic.Ritual;
                 _damage.TryChangeDamage(sacrificialWhiteBoy, new DamageSpecifier(dmgtype, 1984f), true);
             }
 
-            //TODO: send the target to hell world here
+            //send the target to hell world
+            _hellworld.AddVictimComponent(uids[i]);
+            _hellworld.SendToHell(uids[i], args, speciesPrototype);
 
 
             //update the heretic's knowledge
@@ -162,31 +165,5 @@ namespace Content.Server.Heretic.Ritual;
         // reset it because it refuses to work otherwise.
         uids = new();
         args.EntityManager.EventBus.RaiseLocalEvent(args.Performer, new EventHereticUpdateTargets());
-    }
-
-    //ported from funkystation
-    private void TeleportRandomly(TransformComponent transform, RitualData args, EntityUid uid) // start le teleporting loop -space
-    {
-        var maxrandomtp = 40; // this is how many attempts it will try before breaking the loop -space
-        var maxrandomradius = 40; // this is the max range it will do -space
-
-
-        if (!args.EntityManager.TryGetComponent<TransformComponent>(uid, out var xform))
-            return;
-        var coords = xform.Coordinates;
-        var newCoords = coords.Offset(_random.NextVector2(maxrandomradius));
-        for (var i = 0; i < maxrandomtp; i++) //start of the loop -space
-        {
-            var randVector = _random.NextVector2(maxrandomradius);
-            newCoords = coords.Offset(randVector);
-            if (!args.EntityManager.TryGetComponent<TransformComponent>(uid, out var trans))
-                continue;
-            if (trans.GridUid != null && !_lookup.GetEntitiesIntersecting(newCoords.ToMap(_mapsys, _xform), LookupFlags.Static).Any()) // if they're not in space and not in wall, it will choose these coords and end the loop -space
-            {
-                break;
-            }
-        }
-
-        _xform.SetCoordinates(uid, newCoords);
     }
 }
