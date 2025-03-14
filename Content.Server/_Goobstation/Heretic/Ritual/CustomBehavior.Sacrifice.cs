@@ -45,17 +45,17 @@ namespace Content.Server.Heretic.Ritual;
     [DataField] public bool OnlyTargets = false;
 
     // this is awful but it works so i'm not complaining
+    // i'm complaining -kandiyaki
     protected SharedMindSystem _mind = default!;
     protected HereticSystem _heretic = default!;
     protected SharedTransformSystem _xform = default!;
-
     protected DamageableSystem _damage = default!;
     protected EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    private HumanoidAppearanceSystem _humanoid = default!;
-    private TransformSystem _transformSystem = default!;
-    [Dependency] protected IEntityManager _mapsys = default!;
-    private HellWorldSystem _hellworld = default!;
+    protected HumanoidAppearanceSystem _humanoid = default!;
+    protected TransformSystem _transformSystem = default!;
+    protected HellWorldSystem _hellworld = default!;
+    [Dependency] protected IPrototypeManager _proto = default!;
+    [Dependency] protected IEntityManager _entmanager = default!;
 
 
     protected List<EntityUid> uids = new();
@@ -71,6 +71,9 @@ namespace Content.Server.Heretic.Ritual;
         _humanoid = args.EntityManager.System<HumanoidAppearanceSystem>();
         _transformSystem = args.EntityManager.System<TransformSystem>();
         _hellworld = args.EntityManager.System<HellWorldSystem>();
+
+        _proto = IoCManager.Resolve<IPrototypeManager>();
+        _entmanager = IoCManager.Resolve<IEntityManager>();
 
 
         if (!args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))

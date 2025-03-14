@@ -18,6 +18,7 @@ using Content.Shared.Mind;
 using Robust.Shared.Random;
 using Content.Server.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
+using Content.Server.Administration.Systems;
 
 
 namespace Content.Server._Goobstation.Heretic.EntitySystems
@@ -31,6 +32,7 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
         [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
         [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
+        [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly IEntityManager _ent = default!;
@@ -58,7 +60,7 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
         //WHATS NEEDED:
         /* update() - take someone out of hell if needed
          * hell sending can be in the sacrifice system
-         * da plan: make a species urist, gib it, move the target to hell world, then move them back with a HellVictimComponent and visual changes
+         * da plan: make a species urist, gib it, move the target to a copy in hell world, then move them back with a HellVictimComponent and visual changes
          * hell returning will be here
          * 
          */
@@ -71,11 +73,13 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
             var returnQuery = EntityQueryEnumerator<HellVictimComponent>();
             while (returnQuery.MoveNext(out var uid, out var victimComp))
             {
-                //if they've been in hell long enough, return them
+                //if they've been in hell long enough, return and revive them
                 if (_timing.CurTime >= victimComp.ExitHellTime)
                 {
                     _mind.TransferTo(victimComp.Mind, victimComp.OriginalBody);
                     //TODO: give the original body some visual changes
+                    //TODO: brief the player on the fact they don't remember what happened. reference revolutionaryrulesystem line 246
+                    _rejuvenate.PerformRejuvenate(uid);
                 }
             }
 
@@ -127,7 +131,7 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
         private void TeleportRandomly(RitualData args, EntityUid uid) // start le teleporting loop -space
         {
             var maxrandomtp = 40; // this is how many attempts it will try before breaking the loop -space
-            var maxrandomradius = 40; // this is the max range it will do -space
+            var maxrandomradius = 20; // this is the max range it will do -space
 
 
             if (!args.EntityManager.TryGetComponent<TransformComponent>(uid, out var xform))
