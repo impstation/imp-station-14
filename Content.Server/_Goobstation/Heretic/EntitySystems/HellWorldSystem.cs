@@ -46,7 +46,7 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
             base.Initialize();
 
             SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
-            SubscribeLocalEvent<HellVictimComponent, ExaminedEvent>(OnExamined);
+            SubscribeLocalEvent<HellVictimComponent, ExaminedEvent>(OnExamine);
         }
 
         /// <summary>
@@ -116,18 +116,17 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
         //AddVictimComponent MUST BE RUN BEFORE CALLING THIS!!
         public void SendToHell(EntityUid target, RitualData args, SpeciesPrototype species)
         {
-            //TODO: add a check here so you can't send someone twice
-
-
             //get the hell victim component
             if (!args.EntityManager.TryGetComponent<HellVictimComponent>(target, out var victimComp))
                 return;
+            //if already sent, don't send again
+            if(victimComp.AlreadyHelled)
+                return;
+
             //get all possible spawn points, choose one, then get the place
             var spawnPoints = EntityManager.GetAllComponents(typeof(HellSpawnPointComponent)).ToImmutableList();
             var newSpawn = _random.Pick(spawnPoints);
             var spawnTgt = Transform(newSpawn.Uid).Coordinates;
-
-
 
             //spawn your hellsona
             MindComponent? mindComp = Comp<MindComponent>(victimComp.Mind);
@@ -140,8 +139,6 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
             _mind.TransferTo(victimComp.Mind, sufferingWhiteBoy);
             victimComp.AlreadyHelled = true;
 
-            //move the original body somewhere else
-            //TeleportRandomly(args, victimComp.OriginalBody);
             //returning the mind to the original body happens in Update()
         }
 
@@ -188,7 +185,7 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
 
         private void OnExamine(Entity<HellVictimComponent> ent, ref ExaminedEvent args)
         {
-            args.PushMarkup($"[color=red]{Loc.GetString("heretic-ghoul-examine", ("ent", args.Examined))}[/color]");
+            args.PushMarkup($"[color=red]{Loc.GetString("heretic-hell-victim-examine", ("ent", args.Examined))}[/color]");
         }
     }
 }

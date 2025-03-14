@@ -17,6 +17,7 @@ using System;
 using System.Linq;
 using Content.Server._Goobstation.Heretic.EntitySystems;
 using Content.Server.Heretic.Components;
+using Content.Server.Forensics;
 
 
 
@@ -131,6 +132,14 @@ namespace Content.Server.Heretic.Ritual;
 
             //spawn a clone of the victim 
             var sacrificialWhiteBoy = args.EntityManager.Spawn(speciesPrototype.Prototype, _transformSystem.GetMapCoordinates(uids[i]));
+            //make sure it has the right DNA
+            if (args.EntityManager.TryGetComponent<DnaComponent>(uids[i], out var victimDna))
+            {
+                if (args.EntityManager.TryGetComponent<DnaComponent>(sacrificialWhiteBoy, out var dummyDna))
+                {
+                    dummyDna.DNA = victimDna.DNA;
+                }
+            }
             _humanoid.CloneAppearance(uids[i], sacrificialWhiteBoy);
 
             //beat the clone to death. this is just to get matching organs
@@ -140,6 +149,7 @@ namespace Content.Server.Heretic.Ritual;
                 var prot = (ProtoId<DamageGroupPrototype>) "Brute";
                 var dmgtype = _proto.Index(prot);
                 _damage.TryChangeDamage(sacrificialWhiteBoy, new DamageSpecifier(dmgtype, 1984f), true);
+
             }
 
             //send the target to hell world
