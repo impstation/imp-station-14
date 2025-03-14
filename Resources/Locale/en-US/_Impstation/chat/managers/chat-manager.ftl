@@ -37,3 +37,7 @@ chat-speech-verb-anomalocarid-exclamation-strong-2 = screams
 chat-speech-verb-name-anomalocarid-stutter = Anomalocarid Stuttering
 chat-speech-verb-anomalocarid-stutter-1 = rasps
 chat-speech-verb-anomalocarid-stutter-2 = gurgles
+
+chat-speech-verb-name-suppy = Suppy
+chat-speech-verb-suppy1 = rumbles
+chat-speech-verb-suppy2 = resonates
