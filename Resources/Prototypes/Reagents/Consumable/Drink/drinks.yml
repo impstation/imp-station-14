@@ -460,6 +460,11 @@
         ratios:
           Ammonia: 1.0
           WaterVapor: -1.0
+      - !type:SatiateThirst # decapoids breathing water vapor don't get thirsty
+        conditions:
+        - !type:OrganType
+          type: Decapoid
+        factor: 2
       - !type:Oxygenate # thaven can breathe all gases safely
         conditions:
         - !type:OrganType
