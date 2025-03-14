@@ -4,32 +4,34 @@ using Content.Shared.Mind;
 using Robust.Server.GameObjects;
 using Robust.Server.Maps;
 using Robust.Shared.Timing;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Content.Server.Heretic.Components;
 using Content.Shared.Heretic.Prototypes;
+using Content.Shared.Examine;
 using Content.Server._Goobstation.Heretic.Components;
-using Content.Shared.Humanoid;
+using Content.Server._Goobstation.Heretic.UI;
 using System.Collections.Immutable;
-using Content.Shared.Mind;
+using Content.Server.EUI;
 using Robust.Shared.Random;
 using Content.Server.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Server.Administration.Systems;
+using Content.Shared.Humanoid;
+using JetBrains.FormatRipper.Elf;
+using Content.Shared.Heretic;
 
 
 namespace Content.Server._Goobstation.Heretic.EntitySystems
 {
 
-    public sealed partial class HellWorldSystem:EntitySystem
+    public sealed partial class HellWorldSystem : EntitySystem
     {
         [Dependency] private readonly SharedMindSystem _mind = default!;
         [Dependency] private readonly SharedMapSystem _map = default!;
+        [Dependency] private readonly MetaDataSystem _metaSystem = default!;
         [Dependency] private readonly SharedTransformSystem _xform = default!;
         [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
+        [Dependency] private readonly EuiManager _euiMan = default!;
         [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
         [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
@@ -44,6 +46,7 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
             base.Initialize();
 
             SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
+            SubscribeLocalEvent<HellVictimComponent, ExaminedEvent>(OnExamined);
         }
 
         /// <summary>
@@ -74,11 +77,21 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
             while (returnQuery.MoveNext(out var uid, out var victimComp))
             {
                 //if they've been in hell long enough, return and revive them
-                if (_timing.CurTime >= victimComp.ExitHellTime)
+                if (_timing.CurTime >= victimComp.ExitHellTime && !victimComp.CleanupDone)
                 {
+                    //make sure they won't get into this loop again
+                    victimComp.CleanupDone = true;
+                    //put them back in the original body
                     _mind.TransferTo(victimComp.Mind, victimComp.OriginalBody);
-                    //TODO: give the original body some visual changes
-                    //TODO: brief the player on the fact they don't remember what happened. reference revolutionaryrulesystem line 246
+                    //let them ghost again
+                    MindComponent? mindComp = Comp<MindComponent>(victimComp.Mind);
+                    mindComp.PreventGhosting = false;
+                    //give the original body some visual changes
+                    TransformVictim(uid);
+                    //tell them about the metashield
+                    if (_mind.TryGetSession(victimComp.Mind, out var session))
+                        _euiMan.OpenEui(new HellMemoryEui(), session);
+                    //and then revive the old body
                     _rejuvenate.PerformRejuvenate(uid);
                 }
             }
@@ -114,8 +127,13 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
             var newSpawn = _random.Pick(spawnPoints);
             var spawnTgt = Transform(newSpawn.Uid).Coordinates;
 
+
+
             //spawn your hellsona
+            MindComponent? mindComp = Comp<MindComponent>(victimComp.Mind);
+            mindComp.PreventGhosting = true;
             var sufferingWhiteBoy = Spawn(species.Prototype, spawnTgt);
+            _metaSystem.SetEntityName(sufferingWhiteBoy, MetaData(target).EntityName);
             _humanoid.CloneAppearance(victimComp.OriginalBody, sufferingWhiteBoy);
 
             //and then send the mind into the hellsona
@@ -123,12 +141,12 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
             victimComp.AlreadyHelled = true;
 
             //move the original body somewhere else
-            TeleportRandomly(args, victimComp.OriginalBody);
+            //TeleportRandomly(args, victimComp.OriginalBody);
             //returning the mind to the original body happens in Update()
         }
 
         //ported from funkystation
-        private void TeleportRandomly(RitualData args, EntityUid uid) // start le teleporting loop -space
+        public void TeleportRandomly(RitualData args, EntityUid uid) // start le teleporting loop -space
         {
             var maxrandomtp = 40; // this is how many attempts it will try before breaking the loop -space
             var maxrandomradius = 20; // this is the max range it will do -space
@@ -151,6 +169,26 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
             }
 
             _xform.SetCoordinates(uid, newCoords);
+        }
+
+        private void TransformVictim(EntityUid ent)
+        {
+            if (TryComp<HumanoidAppearanceComponent>(ent, out var humanoid))
+            {
+                //there's no color saturation methods so you get this garbage instead
+                var skinColor = humanoid.SkinColor;
+                var colorHSV = Color.ToHsv(skinColor);
+                colorHSV.Y /= 4;
+                var newColor = Color.FromHsv(colorHSV);
+                //make them look like they've seen some shit
+                _humanoid.SetSkinColor(ent, newColor, true, false, humanoid);
+                _humanoid.SetBaseLayerColor(ent, HumanoidVisualLayers.Eyes, Color.White, true, humanoid);
+            }
+        }
+
+        private void OnExamine(Entity<HellVictimComponent> ent, ref ExaminedEvent args)
+        {
+            args.PushMarkup($"[color=red]{Loc.GetString("heretic-ghoul-examine", ("ent", args.Examined))}[/color]");
         }
     }
 }

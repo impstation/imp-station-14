@@ -15,6 +15,9 @@ public sealed partial class HellVictimComponent : Component
     [DataField]
     public bool AlreadyHelled = false;
 
+    [DataField]
+    public bool CleanupDone = false;
+
     [ViewVariables]
     [AutoPausedField]
     public TimeSpan ExitHellTime = default!;

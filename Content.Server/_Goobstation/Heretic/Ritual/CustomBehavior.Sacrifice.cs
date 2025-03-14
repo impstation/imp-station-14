@@ -144,6 +144,7 @@ namespace Content.Server.Heretic.Ritual;
 
             //send the target to hell world
             _hellworld.AddVictimComponent(uids[i]);
+            _hellworld.TeleportRandomly(args, uids[i]);
             _hellworld.SendToHell(uids[i], args, speciesPrototype);
 
 
