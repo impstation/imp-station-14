@@ -87,6 +87,12 @@
       interactFailureString: petting-failure-carp
       interactFailureSound:
         path: /Audio/Effects/bite.ogg
+    - type: NightVision # EE edit
+      isActive: true
+      toggleAction: null
+      color: "#808080"
+      activateSound: null
+      deactivateSound: null
 
 - type: entity
   name: nice space carp

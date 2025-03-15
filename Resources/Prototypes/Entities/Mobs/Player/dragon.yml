@@ -156,6 +156,11 @@
     - DoorBumpOpener
   - type: Puller
     needsHands: false
+  - type: NightVision
+    isActive: true
+    color: "#808080"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   parent: BaseMobDragon
