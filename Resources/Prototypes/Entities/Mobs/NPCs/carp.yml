@@ -93,6 +93,10 @@
       color: "#808080"
       activateSound: null
       deactivateSound: null
+    - type: Body #imp
+      prototype: AnimalCarp
+    - type: Bloodstream #imp
+      bloodReagent: ShimmeringBlood
 
 - type: entity
   name: nice space carp
@@ -175,6 +179,10 @@
       interactFailureString: petting-failure-nicecarp
       interactFailureSound:
         path: /Audio/Effects/bite.ogg
+    - type: Body #imp
+      prototype: AnimalCarp
+    - type: Bloodstream #imp
+      bloodReagent: ShimmeringBlood
 
 - type: entity
   parent: BaseMobCarp

@@ -8,6 +8,7 @@
   components:
   - type: Bloodstream
     bloodMaxVolume: 650
+    bloodReagent: ShimmeringBlood #imp
   - type: GhostRole
     allowMovement: true
     allowSpeech: true
@@ -156,7 +157,9 @@
     - DoorBumpOpener
   - type: Puller
     needsHands: false
-  - type: NightVision
+  - type: Body #imp
+    prototype: AnimalCarp
+  - type: NightVision # EE
     isActive: true
     color: "#808080"
     activateSound: null
