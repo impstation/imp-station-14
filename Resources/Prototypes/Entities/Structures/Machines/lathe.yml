@@ -131,6 +131,7 @@
     - PowerCellsStatic
     - ElectronicsStatic
     - ImpAutoStatic # Imp
+    - ReportingStatic # DeltaV
     dynamicPacks:
     - ImpAutoDynamic # Imp
   - type: EmagLatheRecipes
@@ -196,6 +197,7 @@
     - ChemistryStatic
     - SurgeryStatic
     - ImpProtoStatic # Imp
+    - ReportingStatic # DeltaV
     dynamicPacks:
     - AdvancedTools
     - ScienceEquipment
@@ -212,6 +214,7 @@
     - Equipment
     - FauxTiles
     - ImpProtoDynamic # Imp
+    - NFService # Frontier
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo
@@ -529,6 +532,8 @@
     - Carpets
     - Bedsheets
     - ImpClothesStatic # Imp
+    - BeltsDeltaV # DeltaV
+    - ClothingJustice # DeltaV
   - type: EmagLatheRecipes
     emagStaticPacks:
     - ClothingCentComm

@@ -31,10 +31,12 @@
       - BarPack
       - KitchenPack
       - ServiceMiscPack
+      - RecordingStatic # DeltaV
     dynamicPacks:
       - CleanPackDynamic
       - ServiceMiscPackDynamic
-      - TilePackDynamic
+      - FauxTiles
+      - NFService # Frontier
   - type: EmagLatheRecipes
     emagStaticPacks:
       - ServiceEmagged

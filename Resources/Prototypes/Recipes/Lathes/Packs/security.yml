@@ -1,6 +1,8 @@
 ## Static recipes
 
 - type: latheRecipePack
+  parent:
+  - SecurityEquipmentStaticDeltaV # DeltaV
   id: SecurityEquipmentStatic
   recipes:
   - ClothingEyesHudSecurity

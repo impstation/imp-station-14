@@ -90,8 +90,6 @@
     - ClothingHeadHatCone
     - SprayPainter
     - HandLabeler
-    - TapeRecorder
-    - CassetteTape
 
 # Dynamic
 
@@ -102,22 +100,13 @@
     - AdvMopItem
     - WeaponSprayNozzle
     - ClothingBackpackWaterTank
-    - CleanerGrenade #imp recipe
+    - CleanerGrenade
 
 - type: latheRecipePack
   id: ServiceMiscPackDynamic
   recipes:
     - PlantAnalyzer #NF recipe
     - FishingRod #imp recipe
-
-- type: latheRecipePack
-  id: TilePackDynamic
-  recipes:
-    - FauxTileAstroGrass
-    - FauxTileMowedAstroGrass
-    - FauxTileJungleAstroGrass
-    - FauxTileAstroIce
-    - FauxTileAstroSnow
 
 # Emagged
 
