@@ -359,6 +359,11 @@
         Base: oswald_dead
       Dead:
         Base: oswald_dead
+  - type: ReplacementAccent
+    accent: chicken # this is basically the same thing as a penguin probably
+  - type: Speech
+    speechVerb: Vox
+    speechSounds: Cluck
   - type: Inventory
     speciesId: penguin
     templateId: oswald
