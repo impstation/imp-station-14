@@ -204,8 +204,8 @@
   components:
   - type: VentCrawler
     enterDelay: 2
-  - type: Item
-    size: Normal
+#  - type: Item
+#    size: Normal
   - type: Sprite
     sprite: _Impstation/Mobs/Aliens/young-kodepiia.rsi
     drawdepth: Mobs
@@ -219,25 +219,22 @@
     available:
     - enum.DamageStateVisualLayers.Base:
         young-kodepiia: Pastel
-  - type: Clothing
-    quickEquip: false
-    sprite: _Impstation/Mobs/Aliens/young-kodepiia.rsi
-    clothingVisuals:
-      outerClothing:
-      - map: ["enum.DamageStateVisualLayers.Base"]
-        state: equipped-HELMET
-      - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
-        state: eyes-equipped-HELMET
-        shader: unshaded
-    slots:
-    - HEAD
+  #- type: Clothing
+  #  quickEquip: false
+  #  sprite: _Impstation/Mobs/Aliens/young-kodepiia.rsi
+  #  clothingVisuals:
+  #    outerClothing:
+  #    - map: ["enum.DamageStateVisualLayers.Base"]
+  #      state: equipped-HELMET
+  #    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+  #      state: eyes-equipped-HELMET
+  #      shader: unshaded
+  #  slots:
+  #  - HEAD
   - type: Appearance
   - type: MovementSpeedModifier
-    baseWalkSpeed : 2.5
+    baseWalkSpeed : 2
     baseSprintSpeed : 4
-    weightlessAcceleration: 1.5
-    weightlessFriction: 1
-    weightlessModifier: 1
   - type: FootstepModifier
     footstepSoundCollection:
       collection: KodepiiaStep
@@ -250,8 +247,6 @@
   - type: NpcFactionMember
     factions:
       - Passive
-  - type: InputMover
-  - type: MobMover
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
@@ -260,8 +255,8 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.35
-        density: 130
+          radius: 0.30
+        density: 80
         mask:
         - MobMask
         layer:

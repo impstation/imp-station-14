@@ -31,6 +31,7 @@ public sealed class YoungKodepiiaRetaliationSystem : EntitySystem
         SubscribeLocalEvent<YoungKodepiiaRetaliationComponent, AttackedEvent>(OnAttack);
         SubscribeLocalEvent<YoungKodepiiaRetaliationComponent, GotEquippedHandEvent>(OnPickup);
         SubscribeLocalEvent<YoungKodepiiaRetaliationComponent, AfterGotPointedAtEvent>(OnPointedAt);
+        SubscribeLocalEvent<YoungKodepiiaRetaliationComponent, ActivateInWorldEvent>(OnAfterInteract); //TODO: comment out once item support exists
     }
 
     private void OnPull(Entity<YoungKodepiiaRetaliationComponent> ent, ref PullStartedMessage args)
@@ -53,6 +54,11 @@ public sealed class YoungKodepiiaRetaliationSystem : EntitySystem
     private void OnPointedAt(Entity<YoungKodepiiaRetaliationComponent> ent, ref AfterGotPointedAtEvent args)
     {
         TryRetaliate(ent, args.Pointer);
+    }
+
+    private void OnAfterInteract(Entity<YoungKodepiiaRetaliationComponent> ent, ref ActivateInWorldEvent args)
+    {
+        TryRetaliate(ent, args.User);
     }
 
     public bool TryRetaliate(Entity<YoungKodepiiaRetaliationComponent> ent, EntityUid target)
