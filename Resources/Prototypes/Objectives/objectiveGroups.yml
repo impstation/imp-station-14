@@ -23,6 +23,7 @@
     CaptainJetpackStealObjective: 0.5
     HandTeleporterStealObjective: 0.5
     EnergyShotgunStealObjective: 0.5
+    CommandTheGoodsStealObjective: 1 # imp
     #StealSupermatterSliverObjective: 0.5 # imp, disabled until StealCondition can verify the supermatter's existence
 
 - type: weightedRandom
@@ -105,6 +106,7 @@
     ShiningSpringStealObjective: 1
     ShipyardComputerCircuitboardStealObjective: 1
     SecPillCanisterStealObjective: 1
+    CommandTheGoodsStealObjective: 1
     EvilSkullArtifactItemStealObjective: 1
 
 - type: weightedRandom
