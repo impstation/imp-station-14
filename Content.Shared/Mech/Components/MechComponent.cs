@@ -109,8 +109,7 @@ public sealed partial class MechComponent : Component
     public float EntryDelay = 3;
 
     /// <summary>
-    /// How long it takes to pull *another person*
-    /// outside of the mech. You can exit instantly yourself.
+    /// How long it takes to exit the mech, or be pulled out.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float ExitDelay = 3;
