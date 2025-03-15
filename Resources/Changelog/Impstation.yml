@@ -1,66 +1,4 @@
 ﻿Entries:
-- author: honeyed-lemons
-  changes:
-  - message: Listening Post op has a unique ID with the correct accesses
-    type: Fix
-  id: 809
-  time: '2024-12-26T11:40:11.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1128
-- author: kipdotnet
-  changes:
-  - message: Banana update
-    type: Tweak
-  id: 810
-  time: '2024-12-26T11:40:54.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1132
-- author: Darkmajia
-  changes:
-  - message: Unknown shuttles will now announce properly.
-    type: Fix
-  id: 811
-  time: '2024-12-26T21:45:10.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1116
-- author: widgetbeck
-  changes:
-  - message: Decapoids can no longer be injected with needles.
-    type: Add
-  - message: Decapoid Vaporizers no longer block ingestion.
-    type: Tweak
-  id: 812
-  time: '2024-12-26T21:46:11.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1117
-- author: RosySaturniidae
-  changes:
-  - message: resprited the chemvend variant on the nukie planet, the syndiejuice
-    type: Tweak
-  id: 813
-  time: '2024-12-26T21:47:59.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1097
-- author: TheGrimbeeper
-  changes:
-  - message: artifact trigger beverage has one slightly less obtuse hint
-    type: Tweak
-  id: 814
-  time: '2024-12-27T06:50:38.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1135
-- author: TheGrimbeeper
-  changes:
-  - message: latest community books can now spawn from the artifact normal book effect
-    type: Add
-  id: 815
-  time: '2024-12-27T06:51:10.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1136
-- author: honeyed-lemons
-  changes:
-  - message: added the Supermatter Engine
-    type: Add
-  - message: Radiation shielding adjustments.
-    type: Tweak
-  - message: Radiation no longer prevents doafters
-    type: Tweak
-  id: 816
-  time: '2024-12-28T00:31:01.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1138
 - author: ATDoop
   changes:
   - message: 3 new lollipops for the chef to make (meat, cloth, and fruit), and one
@@ -4104,3 +4042,60 @@
   id: 1308
   time: '2025-03-14T07:10:55.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/1946
+- author: Darkmajia
+  changes:
+  - message: I'll get the admin and ban you forever!
+    type: Add
+  id: 1309
+  time: '2025-03-14T17:34:16.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/1948
+- author: crocodilecarousel
+  changes:
+  - message: Slimes can use hotkeys to open their slime storage.
+    type: Tweak
+  id: 1310
+  time: '2025-03-15T00:56:33.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/1958
+- author: hivehum, DVDPlayer, RosySaturniidae and Delta-V
+  changes:
+  - message: Added eight new items to the Syndicate uplink, straight from Delta-V
+      Sector.
+    type: Add
+  id: 1311
+  time: '2025-03-15T01:23:00.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/1863
+- author: Sha-Seng
+  changes:
+  - message: Sharkminnow Eyes marking for thaven
+    type: Add
+  id: 1312
+  time: '2025-03-15T02:26:12.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/1957
+- author: Kandiyaki, Axionyx
+  changes:
+  - message: heretics should be able to buy knowledge again.
+    type: Fix
+  id: 1313
+  time: '2025-03-15T05:07:30.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/1960
+- author: Ecramox
+  changes:
+  - message: Fixed Lone Ops not spawning with all their gear.
+    type: Fix
+  id: 1314
+  time: '2025-03-15T05:07:58.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/1964
+- author: mqole
+  changes:
+  - message: Spare pixels sent to the graveyard.
+    type: Fix
+  id: 1315
+  time: '2025-03-15T05:14:30.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/1959
+- author: TheGrimbeeper
+  changes:
+  - message: BROS are no longer poisoned by BROSochloricBROS
+    type: Fix
+  id: 1316
+  time: '2025-03-15T08:21:01.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/1962
