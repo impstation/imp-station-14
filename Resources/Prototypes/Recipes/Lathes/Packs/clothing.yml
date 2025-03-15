@@ -10,6 +10,7 @@
 - type: latheRecipePack
   parent:
   - ClothingCargoDeltaV # DeltaV
+  - ClothingCargoImp # imp
   id: ClothingCargo
   recipes:
   - ClothingUniformJumpsuitCargo
@@ -27,6 +28,7 @@
   id: ClothingCommand
   parent:
   - ClothingCommandDeltaV # DeltaV
+  - ClothingCommandImp # imp
   recipes:
   # Captain
   - ClothingHeadHatCapcap
@@ -122,6 +124,7 @@
   - ClothingUniformJumpskirtWarden
 
 - type: latheRecipePack
+  parent: ClothingServiceImp # imp
   id: ClothingService
   recipes:
   - ClothingUniformJumpsuitBartender
@@ -145,6 +148,7 @@
 - type: latheRecipePack
   parent:
   - WinterCoatsDeltaV # DeltaV
+  - WinterCoatsImp # imp
   id: WinterCoats
   recipes:
   - ClothingOuterWinterCap

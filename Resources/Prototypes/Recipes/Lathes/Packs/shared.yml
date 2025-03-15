@@ -16,6 +16,7 @@
   - ConveyorBeltAssembly
 
 - type: latheRecipePack
+  parent: ImpLightPack # imp
   id: LightsStatic
   recipes:
   - LightTube

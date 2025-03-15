@@ -25,11 +25,13 @@
     unlitIdleState: unlit
     unlitRunningState: unlit-building
     staticPacks:
-      - LightPack
+      - LightsStatic
+      - ServiceStatic
       - CleanPack
       - BotanyPack
       - BarPack
       - KitchenPack
+      - BasicChemistryStatic
       - ServiceMiscPack
       - RecordingStatic # DeltaV
     dynamicPacks:

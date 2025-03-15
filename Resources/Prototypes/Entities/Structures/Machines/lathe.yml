@@ -137,6 +137,7 @@
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SecurityAmmoStatic
+    - ImpAutoEmagged # imp
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -274,6 +275,7 @@
     - CameraBoards
     - MechBoards
     - ShuttleBoards
+    - ImpCircuitDynamic # imp
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityBoards
@@ -405,7 +407,6 @@
     - SecurityPracticeStatic
     - SecurityAmmoStatic
     - SecurityWeaponsStatic
-    - ImpSecStatic # Imp
     dynamicPacks:
     - SecurityEquipment
     - SecurityBoards
@@ -413,7 +414,6 @@
     - SecurityAmmo
     - SecurityWeapons
     - SecurityDisablers
-    - ImpSecDynamic # Imp
   - type: MaterialStorage
     whitelist:
       tags:
@@ -449,7 +449,6 @@
       unlitRunningState: unlit-building
       staticPacks:
       - SecurityAmmoStatic
-      - ImpAmmoStatic # Imp
     - type: MaterialStorage
       whitelist:
         tags:
@@ -531,7 +530,7 @@
     - Scarves
     - Carpets
     - Bedsheets
-    - ImpClothesStatic # Imp
+    - PrideFlags # imp
     - BeltsDeltaV # DeltaV
     - ClothingJustice # DeltaV
   - type: EmagLatheRecipes

@@ -1,31 +1,23 @@
 # Static
 
 - type: latheRecipePack
-  id: LightPack
+  id: ImpLightPack
   recipes:
-    - FlashlightLantern
-    - LightReplacer
-    - LightTube
-    - LedLightTube
-    - SodiumLightTube
-    - ExteriorLightTube
     - UvLightTube
-    - LightBulb
-    - LedLightBulb
-    - DimLightBulb
+    - DeskBell
+    - LightReplacer
+
+- type: latheRecipePack
+  id: ImpServiceStatic
+  recipes:
+    - Mousetrap
+    - TrashBag
 
 - type: latheRecipePack
   id: CleanPack
   recipes:
-    - Bucket
-    - SprayBottle
     - Plunger
-    - MopItem
     - MopBucket
-    - Holoprojector
-    - TrashBag
-    - Mousetrap
-    - WetFloorSign
     - SoapNT #imp recipe
 
 - type: latheRecipePack
@@ -43,12 +35,6 @@
 - type: latheRecipePack
   id: BarPack
   recipes:
-    - DrinkMug
-    - DrinkMugMetal
-    - DrinkGlass
-    - DrinkShotGlass
-    - DrinkGlassCoupeShaped
-    - CustomDrinkJug
     - DrinkShaker #imp recipe
     - DrinkJigger #imp recipe
     - DrinkFlaskBar #imp recipe
@@ -64,14 +50,6 @@
   id: KitchenPack
   recipes:
     - KitchenKnife
-    - FoodPlate
-    - FoodPlateSmall
-    - FoodPlatePlastic
-    - FoodPlateSmallPlastic
-    - FoodBowlBig
-    - FoodPlateTin
-    - FoodPlateMuffinTin
-    - FoodKebabSkewer
     - RollingPin #imp recipe
     - Fork #imp recipe
     - Spoon #imp recipe
@@ -82,14 +60,10 @@
 - type: latheRecipePack
   id: ServiceMiscPack
   recipes:
-    - Beaker
-    - LargeBeaker
     - Dropper
-    - Syringe
-    - DeskBell
     - ClothingHeadHatCone
     - SprayPainter
-    - HandLabeler
+    - FlashlightLantern
 
 # Dynamic
 
@@ -105,7 +79,6 @@
 - type: latheRecipePack
   id: ServiceMiscPackDynamic
   recipes:
-    - PlantAnalyzer #NF recipe
     - FishingRod #imp recipe
 
 # Emagged
