@@ -42,3 +42,12 @@
     path: /Audio/_Impstation/Kodepiia/kodeask.ogg
   exclaimSound:
     path: /Audio/_Impstation/Kodepiia/kodeexclaim.ogg
+    
+- type: speechSounds
+  id: Suppy
+  saySound:
+    collection: SuppySay
+  askSound:
+    collection: SuppyAsk
+  exclaimSound:
+    collection: SuppyExclaim
