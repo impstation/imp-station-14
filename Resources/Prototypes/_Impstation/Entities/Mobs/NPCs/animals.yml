@@ -196,6 +196,7 @@
   - type: ReplacementAccent
     accent: possum
 
+# commented out kodepiia stuff is for when i can be fucked to figure out how to make randomsprite work on inhands -mq
 - type: entity
   name: young kodepiia
   parent: [ MobCombat, SimpleMobBase ]
@@ -233,8 +234,8 @@
   #  - HEAD
   - type: Appearance
   - type: MovementSpeedModifier
-    baseWalkSpeed : 2
-    baseSprintSpeed : 4
+    baseWalkSpeed: 2
+    baseSprintSpeed: 4
   - type: FootstepModifier
     footstepSoundCollection:
       collection: KodepiiaStep
@@ -319,4 +320,12 @@
     proto: slime #placeholder sprite
   - type: Body
     prototype: Kodepiia
-    requiredLegs: 1
+    requiredLegs: 2 #if you change this number i will put you in a fucking saw trap -mq
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    makeSentient: true
+    name: ghost-role-information-young-kodepiia-name
+    description: ghost-role-information-young-kodepiia-description
+    rules: ghost-role-information-freeagent-rules
+    raffle:
+      settings: short
