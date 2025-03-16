@@ -195,10 +195,6 @@
 - type: soundCollection
   id: KodepiiaPews
   files:
-
-- type: soundCollection
-  id: KodepiiaBangs
-  files:
   - /Audio/Effects/Arcade/player_attack.ogg
   - /Audio/Effects/Arcade/player_charge.ogg
   - /Audio/Effects/Arcade/player_heal.ogg
@@ -214,6 +210,21 @@
   - /Audio/Weapons/Guns/Gunshots/taser.ogg
   - /Audio/Weapons/Guns/Gunshots/taser2.ogg
 
+- type: soundCollection
+  id: KodepiiaBangs
+  files:
+  - /Audio/Items/snap.ogg
+  - /Audio/Machines/blastdoor.ogg
+  - /Audio/Machines/machine_vend.ogg
+  - /Audio/Magic/disintegrate.ogg
+  - /Audio/Magic/fireball.ogg
+  - /Audio/Magic/forcewall.ogg
+  - /Audio/Magic/knock.ogg
+  - /Audio/Weapons/Guns/Gunshots/atreides.ogg
+  - /Audio/Weapons/Guns/Gunshots/bang.ogg
+  - /Audio/Weapons/Guns/Gunshots/c-20r.ogg
+  - /Audio/Weapons/Guns/Gunshots/mk58.ogg
+  - /Audio/Weapons/Guns/Gunshots/pistol.ogg
 
 - type: soundCollection
   id: KodepiiaBeeps
