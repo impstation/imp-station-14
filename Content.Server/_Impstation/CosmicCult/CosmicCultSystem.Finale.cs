@@ -137,11 +137,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
             uid.Comp.CurrentState = FinaleState.ReadyBuffer;
             comp.BufferRemainingTime = comp.BufferTimer - _timing.CurTime + TimeSpan.FromSeconds(15);
         }
-        else
-        {
-            uid.Comp.CurrentState = FinaleState.ReadyFinale;
-            comp.FinaleRemainingTime = comp.FinaleTimer - _timing.CurTime;
-        }
 
         comp.FinaleActive = false;
         comp.MusicBool = false;

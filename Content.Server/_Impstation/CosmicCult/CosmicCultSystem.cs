@@ -182,16 +182,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
                 Spawn("MobCosmicGodSpawn", Transform(uid).Coordinates);
                 comp.CurrentState = FinaleState.Victory;
             }
-
-            if (_timing.CurTime >= comp.CultistsCheckTimer && comp.CurrentState == FinaleState.ActiveBuffer) // speed up the buffer for each nearby cultist
-            {
-                comp.CultistsCheckTimer = _timing.CurTime + comp.CheckWait;
-                var cultistsPresent = CultistCount = _cosmicGlyphs.GatherCultists(uid, 5).Count; //Let's use the cultist collecting hashset from Cosmic Glyphs. beacuase
-                CultistCount = int.Clamp(cultistsPresent, 0, 10);
-                _popup.PopupCoordinates(Loc.GetString("cosmiccult-finale-cultist-count", ("COUNT", CultistCount)), Transform(uid).Coordinates);
-                var modifyTime = TimeSpan.FromSeconds(360 * 7 / (360 - 40 * CultistCount) - 5);
-                comp.BufferTimer -= modifyTime;
-            }
         }
     }
 

@@ -16,9 +16,14 @@ cosmiccult-gamemode-description =
     Scanners detect an anomalous increase in Λ-CDM. There is no additional data.
 
 
+cosmiccult-vote-leadership-title = Cosmic Cult Stewardship
+cosmiccult-vote-leadership-initiator = The Unknown
+
 cosmiccult-finale-autocall-briefing = The Monument activates {$minutesandseconds}! Gather yourselves, and prepare for the end.
 cosmiccult-finale-ready = A terrifying light surges forth from The Monument!
 cosmiccult-finale-count = There are {$COUNT} cultists empowering the monument..
+cosmiccult-finale-speedup = The summoning quickens! The world spins...
+
 cosmiccult-finale-cultist-count = {$COUNT ->
     [0] The summoning is stagnant..
     [1] The summoning begins to quicken.
@@ -124,8 +129,8 @@ cosmiccult-rift-alreadyempowered = You don't need to absorb another one.
 cosmiccult-rift-beginabsorb = You begin absorbing the malign rift..
 cosmiccult-rift-beginpurge = You begin purging the malign rift..
 
-cosmiccult-rift-absorb = You absorb the malign rift, empowering yourself.
-cosmiccult-rift-purge = You purge the malign rift.
+cosmiccult-rift-absorb = {$NAME} absorbs the rift, and malign light empowers their body!
+cosmiccult-rift-purge = {$NAME} purges the malign rift!
 
 
 
