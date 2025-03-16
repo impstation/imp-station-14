@@ -113,9 +113,9 @@
     allowedEmotes: ['Meow', 'Hiss', 'Mew', 'Purr', 'Growl', 'Bark', 'Snarl', 'Whine', 'Howl', 'Awoo', 'HarpyHonk', 'HarpyRing', 'HarpyPew', 'HarpyBang', 'HarpyBeep', 'HarpyRev', 'HarpyCaw', 'Squish', 'Chitter', 'Squeak', 'Click', 'Belch', 'Squish'] # Frontier: add Belch, Squish
   - type: Vocal
     sounds:
-      Male: SoundsHarpy
-      Female: SoundsHarpy
-      Unsexed: SoundsHarpy
+      Male: Kodepiia
+      Female: Kodepiia
+      Unsexed: Kodepiia
   - type: InstrumentVisuals
   - type: GenericVisualizer
     visuals:
@@ -127,7 +127,7 @@
 #    baseWalkSpeed: 2.5 # Frontier
 #    baseSprintSpeed: 5.0 # Frontier
     weightlessAcceleration: 2.5
-  - type: Inventory 
+  - type: Inventory
     speciesId: harpy
     displacements:
       jumpsuit:
@@ -154,7 +154,7 @@
   components:
   - type: HumanoidAppearance
     species: Harpy
-  - type: Inventory 
+  - type: Inventory
     speciesId: harpy
     displacements:
       jumpsuit:
