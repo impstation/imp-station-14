@@ -19,7 +19,7 @@
           path: /Maps/Shuttles/cargo_xeno.yml
         - type: StationJobs
           availableJobs: # Total of 62 jobs roundstart, max of 80 inc. latejoins and trainees.
-            # command - 8
+            # command - 9
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
             AdministrativeAssistant: [ 1, 1 ] # Imp
@@ -27,6 +27,7 @@
             ChiefMedicalOfficer: [ 1, 1 ]
             ResearchDirector: [ 1, 1 ]
             HeadOfSecurity: [ 1, 1 ]
+            HospitalityDirector: [ 1, 1 ] # imp
             Quartermaster: [ 1, 1 ]
             # service - 16-18
             Bartender: [ 2, 2 ]
@@ -61,9 +62,9 @@
             SecurityCadet: [ 4, 4 ]
             SecurityOfficer: [ 4, 4 ]
             Warden: [ 1, 1 ]
-            # supply - 8-11
+            # supply - 7-10
             CargoTechnician: [ 3, 3 ]
-            Courier: [ 2, 2 ] # Imp
+            Courier: [ 1, 1 ] # Imp
             SalvageSpecialist: [ 3, 3 ]
             SupplyAssistant: [ 3, 3 ] # Imp
             # civilian

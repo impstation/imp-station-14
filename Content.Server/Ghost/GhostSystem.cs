@@ -8,6 +8,7 @@ using Content.Server.Mind;
 using Content.Server.Polymorph.Components;
 using Content.Server.Roles.Jobs;
 using Content.Server.Warps;
+using Content.Shared._Impstation.CosmicCult.Components;
 using Content.Shared._Impstation.Ghost;
 using Content.Shared.Actions;
 using Content.Shared.CCVar;
@@ -28,6 +29,7 @@ using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Storage.Components;
+using Content.Shared.Tag;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
@@ -60,7 +62,6 @@ namespace Content.Server.Ghost
         [Dependency] private readonly MetaDataSystem _metaData = default!;
         [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly IConfigurationManager _configurationManager = default!;
         [Dependency] private readonly IChatManager _chatManager = default!;
         [Dependency] private readonly SharedMindSystem _mind = default!;
@@ -68,6 +69,7 @@ namespace Content.Server.Ghost
         [Dependency] private readonly DamageableSystem _damageable = default!;
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private readonly TagSystem _tag = default!;
 
         private EntityQuery<GhostComponent> _ghostQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
@@ -208,7 +210,7 @@ namespace Content.Server.Ghost
                 _visibilitySystem.RefreshVisibility(uid, visibilityComponent: visibility);
             }
 
-            SetCanSeeGhosts(uid, true);
+            SetCanSeeGhosts(uid, true, false);
 
             var time = _gameTiming.CurTime;
             component.TimeOfDeath = time;
@@ -226,7 +228,7 @@ namespace Content.Server.Ghost
                 _visibilitySystem.RefreshVisibility(uid, visibilityComponent: visibility);
             }
 
-            SetCanSeeGhosts(uid, true);
+            SetCanSeeGhosts(uid, true, true);
 
             var time = _gameTiming.CurTime;
         }
@@ -246,7 +248,7 @@ namespace Content.Server.Ghost
             }
 
             // Entity can't see ghosts anymore.
-            SetCanSeeGhosts(uid, false);
+            SetCanSeeGhosts(uid, false, false);
             _actions.RemoveAction(uid, component.BooActionEntity);
         }
 
@@ -265,16 +267,19 @@ namespace Content.Server.Ghost
             }
 
             // Entity can't see ghosts anymore.
-            SetCanSeeGhosts(uid, false);
+            SetCanSeeGhosts(uid, false, false);
         }
 
-        private void SetCanSeeGhosts(EntityUid uid, bool canSee, EyeComponent? eyeComponent = null)
+        private void SetCanSeeGhosts(EntityUid uid, bool canSee, bool medium, EyeComponent? eyeComponent = null)
         {
             if (!Resolve(uid, ref eyeComponent, false))
                 return;
 
             if (canSee)
+            {
                 _eye.SetVisibilityMask(uid, eyeComponent.VisibilityMask | (int) VisibilityFlags.Ghost, eyeComponent);
+                if (!medium) _eye.SetVisibilityMask(uid, eyeComponent.VisibilityMask | MonumentComponent.LayerMask); // IMP EDIT
+            }
             else
                 _eye.SetVisibilityMask(uid, eyeComponent.VisibilityMask & ~(int) VisibilityFlags.Ghost, eyeComponent);
         }
@@ -462,8 +467,11 @@ namespace Content.Server.Ghost
         public void MakeVisible(bool visible)
         {
             var entityQuery = EntityQueryEnumerator<GhostComponent, VisibilityComponent>();
-            while (entityQuery.MoveNext(out var uid, out _, out var vis))
+            while (entityQuery.MoveNext(out var uid, out var _, out var vis))
             {
+                if (!_tag.HasTag(uid, "AllowGhostShownByEvent"))
+                    continue;
+
                 if (visible)
                 {
                     _visibilitySystem.AddLayer((uid, vis), (int) VisibilityFlags.Normal, false);
@@ -566,7 +574,7 @@ namespace Content.Server.Ghost
             var playerEntity = mind.CurrentEntity;
 
             if (playerEntity != null && viaCommand)
-                _adminLogger.Add(LogType.Mind, $"{EntityManager.ToPrettyString(playerEntity.Value):player} is attempting to ghost via command");
+                _adminLog.Add(LogType.Mind, $"{EntityManager.ToPrettyString(playerEntity.Value):player} is attempting to ghost via command");
 
             var handleEv = new GhostAttemptHandleEvent(mind, canReturnGlobal);
             RaiseLocalEvent(handleEv);
@@ -638,7 +646,7 @@ namespace Content.Server.Ghost
             }
 
             if (playerEntity != null)
-                _adminLogger.Add(LogType.Mind, $"{EntityManager.ToPrettyString(playerEntity.Value):player} ghosted{(!canReturn ? " (non-returnable)" : "")}");
+                _adminLog.Add(LogType.Mind, $"{EntityManager.ToPrettyString(playerEntity.Value):player} ghosted{(!canReturn ? " (non-returnable)" : "")}");
 
             var ghost = SpawnGhost((mindId, mind), position, canReturn);
 
