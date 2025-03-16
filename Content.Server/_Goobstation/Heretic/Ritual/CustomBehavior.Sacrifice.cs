@@ -19,6 +19,12 @@ using System.Linq;
 using Content.Server._Goobstation.Heretic.EntitySystems;
 using Content.Server.Heretic.Components;
 using Content.Server.Forensics;
+using Content.Server.Body.Systems;
+using Content.Server.Body.Components;
+using Content.Shared.Forensics;
+using Content.Shared.Chemistry.Reagent;
+using Robust.Shared.GameObjects;
+using Content.Shared.Chemistry.EntitySystems;
 
 
 
@@ -56,6 +62,10 @@ namespace Content.Server.Heretic.Ritual;
     protected HumanoidAppearanceSystem _humanoid = default!;
     protected TransformSystem _transformSystem = default!;
     protected HellWorldSystem _hellworld = default!;
+    protected BloodstreamSystem _bloodstream = default!;
+    protected SharedSolutionContainerSystem _solutionContainerSystem = default!;
+
+
     [Dependency] protected IPrototypeManager _proto = default!;
     [Dependency] protected IEntityManager _entmanager = default!;
 
@@ -73,6 +83,8 @@ namespace Content.Server.Heretic.Ritual;
         _humanoid = args.EntityManager.System<HumanoidAppearanceSystem>();
         _transformSystem = args.EntityManager.System<TransformSystem>();
         _hellworld = args.EntityManager.System<HellWorldSystem>();
+        _bloodstream = args.EntityManager.System<BloodstreamSystem>();
+        _solutionContainerSystem = args.EntityManager.System<SharedSolutionContainerSystem>();
 
         _proto = IoCManager.Resolve<IPrototypeManager>();
         _entmanager = IoCManager.Resolve<IEntityManager>();
@@ -133,18 +145,27 @@ namespace Content.Server.Heretic.Ritual;
 
             //spawn a clone of the victim 
             var sacrificialWhiteBoy = args.EntityManager.Spawn(speciesPrototype.Prototype, _transformSystem.GetMapCoordinates(uids[i]));
+            _humanoid.CloneAppearance(uids[i], sacrificialWhiteBoy);
             //make sure it has the right DNA
             if (args.EntityManager.TryGetComponent<DnaComponent>(uids[i], out var victimDna))
             {
-                if (args.EntityManager.TryGetComponent<DnaComponent>(sacrificialWhiteBoy, out var dummyDna))
+                if (args.EntityManager.TryGetComponent<BloodstreamComponent>(sacrificialWhiteBoy, out var dummyBlood))
                 {
-                    dummyDna.DNA = victimDna.DNA;
+                    var ev = new GenerateDnaEvent {Owner = sacrificialWhiteBoy, DNA = victimDna.DNA};
+                    //this is copied from BloodstreamSystem's OnDnaGenerated
+                    //i hate it
+                    if(_solutionContainerSystem.ResolveSolution(sacrificialWhiteBoy, dummyBlood.BloodSolutionName, ref dummyBlood.BloodSolution, out var bloodSolution))
+        {
+                        foreach (var reagent in bloodSolution.Contents)
+                        {
+                            List<ReagentData> reagentData = reagent.Reagent.EnsureReagentData();
+                            reagentData.RemoveAll(x => x is DnaData);
+                            reagentData.AddRange(_bloodstream.GetEntityBloodData(uids[i]));
+                        }
+                    }
                 }
             }
-            _humanoid.CloneAppearance(uids[i], sacrificialWhiteBoy);
-
             //beat the clone to death. this is just to get matching organs
-            //TODO: figure out a way to give the sacrifice the same DNA
             if (args.EntityManager.TryGetComponent<DamageableComponent>(uids[i], out var dmg))
             {
                 var prot = (ProtoId<DamageGroupPrototype>) "Brute";

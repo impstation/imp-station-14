@@ -6,6 +6,7 @@ using System.Linq;
 using Content.Server.Heretic.Components;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Examine;
+using Content.Server.Body.Systems;
 using Content.Server._Goobstation.Heretic.Components;
 using Content.Server._Goobstation.Heretic.UI;
 using System.Collections.Immutable;
@@ -130,6 +131,7 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
             //spawn your hellsona
             MindComponent? mindComp = Comp<MindComponent>(victimComp.Mind);
             mindComp.PreventGhosting = true;
+            //don't have to change this one's blood because nobody's bringing a forensic scanner to hell
             var sufferingWhiteBoy = Spawn(species.Prototype, spawnTgt);
             _metaSystem.SetEntityName(sufferingWhiteBoy, MetaData(target).EntityName);
             _humanoid.CloneAppearance(victimComp.OriginalBody, sufferingWhiteBoy);
