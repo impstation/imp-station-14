@@ -19,6 +19,7 @@ using Content.Server.Administration.Systems;
 using Content.Shared.Humanoid;
 using JetBrains.FormatRipper.Elf;
 using Content.Shared.Heretic;
+using Robust.Shared.Utility;
 
 
 namespace Content.Server._Goobstation.Heretic.EntitySystems
@@ -39,7 +40,8 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly IEntityManager _ent = default!;
 
-        private const string MapPath = "Maps/_Impstation/Ruins/cozy-radio-planetoid.yml"; //TODO replace this with hell world
+        private readonly ResPath _mapPath = new("Maps/_Impstation/Nonstations/cosmicvoid.yml");
+
 
         public override void Initialize()
         {
@@ -54,10 +56,8 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
         /// </summary>
         private void OnRoundStart(RoundStartingEvent ev)
         {
-            _map.CreateMap(out var mapId);
-            var options = new MapLoadOptions { LoadMap = true };
-            if (_mapLoader.TryLoad(mapId, MapPath, out _, options))
-                _map.SetPaused(mapId, false);
+            if(_mapLoader.TryLoadMap(_mapPath, out var map, out _, new DeserializationOptions { InitializeMaps = true }))
+            _map.SetPaused(map.Value.Comp.MapId, false);
         }
 
         //WHATS NEEDED:
