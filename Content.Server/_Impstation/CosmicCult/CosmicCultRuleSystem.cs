@@ -59,6 +59,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared._Impstation.CosmicCult;
 using Content.Server.Administration.Logs;
 using Content.Shared.Database;
+using Content.Server.CrewManifest;
 
 namespace Content.Server._Impstation.CosmicCult;
 
@@ -95,9 +96,9 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly IVoteManager _votes = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly CrewManifestSystem _crewManifest = default!;
 
     private readonly SoundSpecifier _briefingSound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/antag_cosmic_briefing.ogg");
     private readonly SoundSpecifier _deconvertSound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/antag_cosmic_deconvert.ogg");
@@ -145,23 +146,18 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     {
         var cultists = new Dictionary<string, EntityUid>();
 
-        foreach (var player in _playerMan.Sessions)
+        var cultQuery = EntityQueryEnumerator<CosmicCultComponent>();
+        while (cultQuery.MoveNext(out var cult, out _))
         {
-            if (player.AttachedEntity is not { Valid: true } attached)
-                continue;
-
-            TryComp<MindContainerComponent>(attached, out var mind);
-            var playerInfo = $"{Comp<MetaDataComponent>(attached).EntityName}";
-
-            if (_mobState.IsAlive(attached) && HasComp<CosmicCultComponent>(attached))
-                cultists.Add(playerInfo, attached);
+            var playerInfo = $"{Comp<MetaDataComponent>(cult).EntityName}";
+            cultists.Add(playerInfo, cult);
         }
 
         var options = new VoteOptions
         {
             Title = Loc.GetString("cosmiccult-vote-leadership-title"),
             InitiatorText = Loc.GetString("cosmiccult-vote-leadership-initiator"),
-            Duration = TimeSpan.FromSeconds(45),
+            Duration = TimeSpan.FromSeconds(_config.GetCVar(ImpCCVars.CosmicCultStewardVoteTimer)),
             VoterEligibility = VoteManager.VoterEligibility.CosmicCult
         };
 
@@ -368,11 +364,10 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
     public void UpdateCultData(Entity<MonumentComponent> uid) // This runs every time Entropy is Inserted into The Monument, and every time a Cultist is Converted or Deconverted.
     {
-
         if (!TryComp<CosmicFinaleComponent>(uid, out var finaleComp))
             return;
 
-        TotalCrew = _playerMan.Sessions.Count(session => session.Status == SessionStatus.InGame);
+        TotalCrew = _playerMan.Sessions.Count(session => session.Status == SessionStatus.InGame && HasComp<HumanoidAppearanceComponent>(session.AttachedEntity));
 
 #if DEBUG
         if (TotalCrew < 25)
