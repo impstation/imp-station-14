@@ -80,6 +80,9 @@
       Unsexed: UnisexArachnid
   - type: HumanoidAppearance
     species: Anomalocarid
+    hideLayersOnEquip:
+    - Eyes
+    - HeadSide
   - type: Inventory
     speciesId: anomalocarid
     templateId: anomalocarid
