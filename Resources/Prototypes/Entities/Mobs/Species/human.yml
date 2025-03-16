@@ -28,7 +28,8 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-
+  - type: Speech # Frontier
+    allowedEmotes: ['Belch'] # Frontier
 
 - type: entity
   parent: BaseSpeciesDummy
