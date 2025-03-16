@@ -131,7 +131,6 @@ namespace Content.Server.Heretic.Ritual;
 
         for (int i = 0; i < Max; i++)
         {
-
             var isCommand = args.EntityManager.HasComponent<CommandStaffComponent>(uids[i]);
             var knowledgeGain = isCommand ? 2f : 1f;
 
@@ -151,11 +150,10 @@ namespace Content.Server.Heretic.Ritual;
             {
                 if (args.EntityManager.TryGetComponent<BloodstreamComponent>(sacrificialWhiteBoy, out var dummyBlood))
                 {
-                    var ev = new GenerateDnaEvent {Owner = sacrificialWhiteBoy, DNA = victimDna.DNA};
                     //this is copied from BloodstreamSystem's OnDnaGenerated
                     //i hate it
                     if(_solutionContainerSystem.ResolveSolution(sacrificialWhiteBoy, dummyBlood.BloodSolutionName, ref dummyBlood.BloodSolution, out var bloodSolution))
-        {
+                    {
                         foreach (var reagent in bloodSolution.Contents)
                         {
                             List<ReagentData> reagentData = reagent.Reagent.EnsureReagentData();
@@ -171,14 +169,12 @@ namespace Content.Server.Heretic.Ritual;
                 var prot = (ProtoId<DamageGroupPrototype>) "Brute";
                 var dmgtype = _proto.Index(prot);
                 _damage.TryChangeDamage(sacrificialWhiteBoy, new DamageSpecifier(dmgtype, 1984f), true);
-
             }
 
             //send the target to hell world
             _hellworld.AddVictimComponent(uids[i]);
             _hellworld.TeleportRandomly(args, uids[i]);
             _hellworld.SendToHell(uids[i], args, speciesPrototype);
-
 
             //update the heretic's knowledge
             if (args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))

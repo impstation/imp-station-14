@@ -42,7 +42,6 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
 
         private readonly ResPath _mapPath = new("Maps/_Impstation/Nonstations/Hellworld.yml"); 
 
-
         public override void Initialize()
         {
             base.Initialize();
@@ -59,14 +58,6 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
             if(_mapLoader.TryLoadMap(_mapPath, out var map, out _, new DeserializationOptions { InitializeMaps = true }))
             _map.SetPaused(map.Value.Comp.MapId, false);
         }
-
-        //WHATS NEEDED:
-        /* update() - take someone out of hell if needed
-         * hell sending can be in the sacrifice system
-         * da plan: make a species urist, gib it, move the target to a copy in hell world, then move them back with a HellVictimComponent and visual changes
-         * hell returning will be here
-         * 
-         */
 
         public override void Update(float frameTime)
         {
@@ -95,7 +86,6 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
                     _rejuvenate.PerformRejuvenate(uid);
                 }
             }
-
         }
 
         public void AddVictimComponent(EntityUid victim)
@@ -110,7 +100,6 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
                 return;
             }
             victimComp.Mind = mindContainer.Mind.Value;
-
         }
 
         //AddVictimComponent MUST BE RUN BEFORE CALLING THIS!!
