@@ -205,3 +205,13 @@ figurines-nukiepareidolia-6 = But if I take out telecomms I can't mock them over
 figurines-nukiepareidolia-7 = God I love the Nemesis. I mean Basilisk. Gorgon? Shit which was it again...?
 figurines-nukiepareidolia-8 = Oui, je suis la renard.
 figurines-nukiepareidolia-9 = I don't know about you but I'm having a great time.
+
+figurines-crewling-1 = Insulated fibers please. In-su-lated fibers. In-sul. Insuls? Hah! I get it now.
+figurines-crewling-2 = Dee Enn Are. Leave me. With body.
+figurines-crewling-3 = I'm just so hungry... so so hungry...
+figurines-crewling-4 = The main-ten-ance bar needs our attendance alone. Turn off your coords by the way.
+figurines-crewling-5 = This is so fucked- I mean pusked!
+figurines-crewling-6 = I'm not the fake, you're the fake!
+figurines-crewling-7 = We should stick together, there's monsters out there.
+figurines-crewling-8 = Help, someone help me. Help! Help. Help! Say it enough times and its just sounds waves things.
+figurines-crewling-9 = I'm not her but I could be.

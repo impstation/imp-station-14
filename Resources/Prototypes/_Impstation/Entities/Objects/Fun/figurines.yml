@@ -343,3 +343,16 @@
     state: icon
   - type: SpeakOnTrigger
     pack: ToyFigurineNukiePareidolia
+
+- type: entity
+  parent: BaseFigurine
+  id: ToyFigurineCrewLing
+  suffix: Do Not Map Keb Toy
+  name: figure?
+  description: A figurine depicting... uhhhhh...
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/changeling.rsi
+    state: icon
+  - type: SpeakOnTrigger
+    pack: ToyFigurineCrewLing
