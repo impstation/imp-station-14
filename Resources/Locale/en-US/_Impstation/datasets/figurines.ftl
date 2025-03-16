@@ -202,6 +202,6 @@ figurines-nukiepareidolia-3 = Seeing faces where there are none?
 figurines-nukiepareidolia-4 = You know what this room is missing? Some tritium.
 figurines-nukiepareidolia-5 = I've killed tweleve dumbass passengers and... Wait - which figurine am I again?
 figurines-nukiepareidolia-6 = But if I take out telecomms I can't mock them over the radio!
-figurines-nukiepareidolia-7 = God I love the Nemesis. I mean Basalisk. Gorgon? Shit which was it again...?
+figurines-nukiepareidolia-7 = God I love the Nemesis. I mean Basilisk. Gorgon? Shit which was it again...?
 figurines-nukiepareidolia-8 = Oui, je suis la renard.
 figurines-nukiepareidolia-9 = I don't know about you but I'm having a great time.
