@@ -109,13 +109,6 @@
   name: hellworldtarget
   description: "You go here if you do drugs."
   components:
-  - type: Sprite
-    sprite: Markers/jobs.rsi
-    layers:
-      - state: green
-      - sprite: Mobs/Demons/abomination.rsi
-        state: icon
-    state: observer
   - type: Transform
     anchored: true
   - type: Damageable

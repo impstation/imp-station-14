@@ -11,6 +11,7 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.Heretic;
 using Content.Server.Heretic.EntitySystems;
 using Content.Server.Humanoid;
+using Content.Shared.Forensics.Components;
 using Robust.Shared.Toolshed.TypeParsers;
 using Robust.Server.GameObjects;
 using System;

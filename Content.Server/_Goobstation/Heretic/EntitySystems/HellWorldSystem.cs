@@ -1,8 +1,6 @@
 using Content.Server.GameTicking.Events;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mind;
-using Robust.Server.GameObjects;
-using Robust.Server.Maps;
 using Robust.Shared.Timing;
 using System.Linq;
 using Content.Server.Heretic.Components;
@@ -17,9 +15,10 @@ using Content.Server.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Server.Administration.Systems;
 using Content.Shared.Humanoid;
-using JetBrains.FormatRipper.Elf;
-using Content.Shared.Heretic;
 using Robust.Shared.Utility;
+using Robust.Shared.EntitySerialization;
+using Robust.Shared.EntitySerialization.Systems;
+
 
 
 namespace Content.Server._Goobstation.Heretic.EntitySystems
@@ -40,7 +39,7 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly IEntityManager _ent = default!;
 
-        private readonly ResPath _mapPath = new("Maps/_Impstation/Nonstations/cosmicvoid.yml");
+        private readonly ResPath _mapPath = new("Maps/_Impstation/Nonstations/Hellworld.yml"); 
 
 
         public override void Initialize()
