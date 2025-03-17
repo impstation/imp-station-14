@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/16/2025 03:42:28
-  entityCount: 16813
+  time: 03/17/2025 07:11:19
+  entityCount: 16846
 maps:
 - 1
 grids:
@@ -735,6 +735,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: Hash
 - proto: AirAlarm
   entities:
   - uid: 131
@@ -35273,6 +35275,11 @@ entities:
       parent: 2
 - proto: ClosetJanitorFilled
   entities:
+  - uid: 1893
+    components:
+    - type: Transform
+      pos: -31.5,-10.5
+      parent: 2
   - uid: 6015
     components:
     - type: Transform
@@ -36523,13 +36530,6 @@ entities:
     components:
     - type: Transform
       pos: 16.5,19.5
-      parent: 2
-- proto: CrateServiceCleanades
-  entities:
-  - uid: 6017
-    components:
-    - type: Transform
-      pos: -31.5,-10.5
       parent: 2
 - proto: CrateServiceHolidayLights
   entities:
@@ -70312,6 +70312,11 @@ entities:
     - type: Transform
       pos: -23.5,6.5
       parent: 2
+  - uid: 6017
+    components:
+    - type: Transform
+      pos: -20.5,1.5
+      parent: 2
 - proto: LockerEvidence
   entities:
   - uid: 679
@@ -75920,6 +75925,68 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -11.454105,2.4385295
       parent: 2
+- proto: Screen
+  entities:
+  - uid: 16834
+    components:
+    - type: Transform
+      pos: 13.5,-20.5
+      parent: 2
+  - uid: 16835
+    components:
+    - type: Transform
+      pos: -0.5,-32.5
+      parent: 2
+  - uid: 16836
+    components:
+    - type: Transform
+      pos: 4.5,-41.5
+      parent: 2
+  - uid: 16838
+    components:
+    - type: Transform
+      pos: 2.5,-77.5
+      parent: 2
+  - uid: 16839
+    components:
+    - type: Transform
+      pos: -18.5,-32.5
+      parent: 2
+  - uid: 16840
+    components:
+    - type: Transform
+      pos: -20.5,-21.5
+      parent: 2
+  - uid: 16841
+    components:
+    - type: Transform
+      pos: -20.5,-10.5
+      parent: 2
+  - uid: 16842
+    components:
+    - type: Transform
+      pos: -22.5,0.5
+      parent: 2
+  - uid: 16843
+    components:
+    - type: Transform
+      pos: -18.5,14.5
+      parent: 2
+  - uid: 16844
+    components:
+    - type: Transform
+      pos: -0.5,23.5
+      parent: 2
+  - uid: 16845
+    components:
+    - type: Transform
+      pos: 5.5,17.5
+      parent: 2
+  - uid: 16846
+    components:
+    - type: Transform
+      pos: 30.5,14.5
+      parent: 2
 - proto: ScreenTimer
   entities:
   - uid: 2670
@@ -80312,6 +80379,11 @@ entities:
     - type: Transform
       pos: 40.5,-11.5
       parent: 2
+  - uid: 16824
+    components:
+    - type: Transform
+      pos: 32.5,-9.5
+      parent: 2
 - proto: SpawnPointChaplain
   entities:
   - uid: 5847
@@ -80401,6 +80473,11 @@ entities:
     - type: Transform
       pos: -30.5,-10.5
       parent: 2
+  - uid: 16814
+    components:
+    - type: Transform
+      pos: -29.5,-11.5
+      parent: 2
 - proto: SpawnPointLawyer
   entities:
   - uid: 5959
@@ -80427,6 +80504,11 @@ entities:
     - type: Transform
       pos: 34.5,-13.5
       parent: 2
+  - uid: 16825
+    components:
+    - type: Transform
+      pos: 35.5,-13.5
+      parent: 2
 - proto: SpawnPointMedicalDoctor
   entities:
   - uid: 988
@@ -80438,6 +80520,23 @@ entities:
     components:
     - type: Transform
       pos: 9.5,-17.5
+      parent: 2
+  - uid: 16819
+    components:
+    - type: Transform
+      pos: 16.5,-8.5
+      parent: 2
+- proto: SpawnPointMedicalIntern
+  entities:
+  - uid: 16820
+    components:
+    - type: Transform
+      pos: 6.5,-10.5
+      parent: 2
+  - uid: 16821
+    components:
+    - type: Transform
+      pos: 5.5,-11.5
       parent: 2
 - proto: SpawnPointMime
   entities:
@@ -80643,6 +80742,11 @@ entities:
     - type: Transform
       pos: 25.5,10.5
       parent: 2
+  - uid: 16823
+    components:
+    - type: Transform
+      pos: 24.5,10.5
+      parent: 2
 - proto: SpawnPointResearchDirector
   entities:
   - uid: 19
@@ -80674,6 +80778,11 @@ entities:
     - type: Transform
       pos: 17.5,9.5
       parent: 2
+  - uid: 16822
+    components:
+    - type: Transform
+      pos: 24.5,2.5
+      parent: 2
 - proto: SpawnPointSecurityCadet
   entities:
   - uid: 781
@@ -80703,6 +80812,18 @@ entities:
     - type: Transform
       pos: -12.5,-18.5
       parent: 2
+- proto: SpawnPointServiceWorker
+  entities:
+  - uid: 16815
+    components:
+    - type: Transform
+      pos: -23.5,-6.5
+      parent: 2
+  - uid: 16816
+    components:
+    - type: Transform
+      pos: -24.5,-6.5
+      parent: 2
 - proto: SpawnPointStationEngineer
   entities:
   - uid: 1898
@@ -80715,12 +80836,17 @@ entities:
     - type: Transform
       pos: -18.5,2.5
       parent: 2
+  - uid: 16818
+    components:
+    - type: Transform
+      pos: -20.5,2.5
+      parent: 2
 - proto: SpawnPointTechnicalAssistant
   entities:
   - uid: 1900
     components:
     - type: Transform
-      pos: -22.5,6.5
+      pos: -23.5,5.5
       parent: 2
 - proto: SpawnPointWarden
   entities:
@@ -80890,6 +81016,50 @@ entities:
     components:
     - type: Transform
       pos: 0.36584997,32.500843
+      parent: 2
+- proto: StationMap
+  entities:
+  - uid: 16827
+    components:
+    - type: Transform
+      pos: -3.5,-28.5
+      parent: 2
+  - uid: 16828
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -20.5,-23.5
+      parent: 2
+  - uid: 16829
+    components:
+    - type: Transform
+      pos: -23.5,0.5
+      parent: 2
+  - uid: 16830
+    components:
+    - type: Transform
+      pos: -1.5,23.5
+      parent: 2
+  - uid: 16831
+    components:
+    - type: Transform
+      pos: 31.5,14.5
+      parent: 2
+  - uid: 16832
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 30.5,-19.5
+      parent: 2
+  - uid: 16833
+    components:
+    - type: Transform
+      pos: 9.5,-20.5
+      parent: 2
+  - uid: 16837
+    components:
+    - type: Transform
+      pos: 8.5,-42.5
       parent: 2
 - proto: StatueBananiumClown
   entities:
@@ -83420,10 +83590,10 @@ entities:
       parent: 2
 - proto: VendingMachineEngiDrobe
   entities:
-  - uid: 1893
+  - uid: 16817
     components:
     - type: Transform
-      pos: -20.5,1.5
+      pos: -22.5,6.5
       parent: 2
 - proto: VendingMachineEngivend
   entities:
@@ -96412,6 +96582,11 @@ entities:
     components:
     - type: Transform
       pos: 34.5,-14.5
+      parent: 2
+  - uid: 16826
+    components:
+    - type: Transform
+      pos: 31.5,-14.5
       parent: 2
 - proto: WardrobePrisonFilled
   entities:
