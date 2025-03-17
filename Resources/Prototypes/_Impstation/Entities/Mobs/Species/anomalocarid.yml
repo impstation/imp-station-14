@@ -11,6 +11,10 @@
   - type: Icon
     sprite: _Impstation/Mobs/Species/Anomalocarid/parts.rsi
     state: full
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.4
   - type: Respirator
     damage:
       types:
@@ -82,7 +86,7 @@
     species: Anomalocarid
     hideLayersOnEquip:
     - Eyes
-    - HeadSide
+    - Head #eyeshine is on the head layer, some hats need to hide it and no other species hides this slot
   - type: Inventory
     speciesId: anomalocarid
     templateId: anomalocarid

@@ -1,7 +1,7 @@
 - type: marking
   id: AnomalocaridGrabbersDefault
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: HeadSide
+  markingCategory: HeadSide
   speciesRestriction: [ Anomalocarid ]
   forcedColoring: true
   coloring:
@@ -35,8 +35,8 @@
 
 - type: marking
   id: AnomalocaridEyeshine
-  bodyPart: HeadSide
-  markingCategory: HeadSide
+  bodyPart: Head
+  markingCategory: Head
   speciesRestriction: [ Anomalocarid ]
   forcedColoring: true
   coloring:
