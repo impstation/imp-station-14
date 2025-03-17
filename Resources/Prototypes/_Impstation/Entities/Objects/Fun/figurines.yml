@@ -335,6 +335,7 @@
   parent: BaseFigurine
   id: ToyFigurineNukiePareidolia
   suffix: Do Not Map Keb Toy
+  category: donotmap
   name: pareidolia-10
   description: A figurine depicting what a nuclear operative might wear.... You think? It emits a faint static hum.
   components:
@@ -342,7 +343,7 @@
     sprite: _Impstation/Objects/Fun/pareidolia.rsi
     state: icon
   - type: SpeakOnTrigger
-    pack: FigurineNukiePareidolia
+    pack: FigurinesNukiePareidolia
 
 - type: entity
   parent: BaseFigurine
@@ -354,4 +355,4 @@
     sprite: _Impstation/Objects/Fun/changeling.rsi
     state: icon
   - type: SpeakOnTrigger
-    pack: FigurineCrewLing
+    pack: FigurinesCrewLing
