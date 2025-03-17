@@ -8,10 +8,10 @@
   components:
   - type: Fixtures
     fixtures:
-      rune:
+      glyph:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.4,-0.4,0.4,0.4"
+          bounds: "-1.2,-0.5,1.2,0.5"
         hard: false
         mask:
         - ItemMask
@@ -21,7 +21,7 @@
   - type: Clickable
   - type: CosmicGlyph
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Objects/glyphs.rsi
+    sprite: _Impstation/CosmicCult/Objects/glyphs_floor.rsi
     layers:
       - state: aid
     drawdepth: Puddles
@@ -33,7 +33,7 @@
   name: Glyph of Truth
   components:
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Objects/glyphs.rsi
+    sprite: _Impstation/CosmicCult/Objects/glyphs_floor.rsi
     layers:
       - state: truth
     drawdepth: Puddles
@@ -50,7 +50,7 @@
   name: Glyph of Knowledge
   components:
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Objects/glyphs.rsi
+    sprite: _Impstation/CosmicCult/Objects/glyphs_floor.rsi
     layers:
       - state: knowledge
     drawdepth: Puddles
@@ -67,7 +67,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: _Impstation/CosmicCult/Objects/glyphs.rsi
+    - sprite: _Impstation/CosmicCult/Objects/glyphs_floor.rsi
       state: cessation
     drawdepth: Puddles
   - type: CosmicGlyphTransmuteSpire
@@ -82,7 +82,7 @@
   name: Glyph of Blades
   components:
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Objects/glyphs.rsi
+    sprite: _Impstation/CosmicCult/Objects/glyphs_floor.rsi
     layers:
       - state: blades
     drawdepth: Puddles
@@ -98,7 +98,7 @@
   name: Glyph of Warding
   components:
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Objects/glyphs.rsi
+    sprite: _Impstation/CosmicCult/Objects/glyphs_floor.rsi
     layers:
       - state: warding
     drawdepth: Puddles
@@ -114,7 +114,7 @@
   name: Glyph of Projection
   components:
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Objects/glyphs.rsi
+    sprite: _Impstation/CosmicCult/Objects/glyphs_floor.rsi
     layers:
       - state: projection
     drawdepth: Puddles
@@ -122,5 +122,4 @@
   - type: CosmicGlyph
     glyphName: projection
     requiredCultists: 1
-    activationRange: 0.5
 
