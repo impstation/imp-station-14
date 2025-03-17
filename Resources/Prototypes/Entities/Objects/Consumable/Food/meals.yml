@@ -272,7 +272,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - fishy
+      - carpflesh #imp
       - batter
       - spicy
   - type: Sprite
@@ -327,7 +327,7 @@
   - type: FlavorProfile
     flavors:
       - meaty
-      - fishy
+      - carpflesh #imp
   - type: Sprite
     state: bearsteak
   - type: SolutionContainerManager
@@ -568,7 +568,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - fishy
+      - carpflesh #imp
   - type: Sprite
     state: sashimi
   - type: SolutionContainerManager
@@ -584,34 +584,6 @@
     tags:
     - Meat
 # tastes exotic
-
-- type: entity
-  name: finfin sashimi
-  parent: FoodMealBase
-  id: FoodMealFinfinSashimi
-  description: An unscrupulous delicacy. Japanese-Teoean fusion cuisine!
-  components:
-  - type: FlavorProfile
-    flavors:
-      - fishy
-      - finfin
-  - type: Sprite
-    state: sashimi
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 18
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: CarpoToxin
-          Quantity: 15
-  - type: Tag
-    tags:
-    - Meat
-  - type: FoodSequenceElement
-    entries:
-      Burger: FinfinSashimiBurger
 
 - type: entity
   name: enchiladas

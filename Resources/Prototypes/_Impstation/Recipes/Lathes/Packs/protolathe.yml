@@ -4,22 +4,19 @@
   id: ImpProtoStatic
   recipes:
   - SGDRecipe
-  - DeskBell
-  - UvLightTube
-  - TapeRecorder # DV
-  - CassetteTape # DV
+  - Dropper
+  - Igniter
+  - Implanter
 
 # Dynamic
 
 - type: latheRecipePack
   id: ImpProtoDynamic
   recipes:
-  - BaseChemistryEmptyVial
   - Drone
   - CleanerGrenade
-  - PlantAnalyzer #NF
-  - FishingRod # Imp Recipe
-  - CameraHandheld # Imp Recipe
+  - FishingRod
+  - ExosuitFabricatorMachineCircuitboard
 
 # Emagged
 
