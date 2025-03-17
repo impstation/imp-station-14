@@ -12,17 +12,14 @@ roles-antag-cosmiccultlead-name = Cosmic Cult Leader
 roles-antag-cosmiccultlead-description = Organize the cult into a force to be reckoned with, so that you may usher in the end of all things.
 
 cosmiccult-gamemode-title = The Cosmic Cult
-cosmiccult-gamemode-description =
-    Scanners detect an anomalous increase in Λ-CDM. There is no additional data.
+cosmiccult-gamemode-description = Scanners detect an anomalous increase in Λ-CDM. There is no additional data.
 
-
-cosmiccult-vote-leadership-title = Cosmic Cult Stewardship
 cosmiccult-vote-leadership-initiator = The Unknown
+cosmiccult-vote-leadership-title = Cosmic Cult Stewardship
 
 cosmiccult-finale-autocall-briefing = The Monument activates {$minutesandseconds}! Gather yourselves, and prepare for the end.
 cosmiccult-finale-ready = A terrifying light surges forth from The Monument!
-cosmiccult-finale-count = There are {$COUNT} cultists empowering the monument..
-cosmiccult-finale-speedup = The summoning quickens! The world spins...
+cosmiccult-finale-speedup = The beckoning quickens! Energy surges through the surroundings...
 
 cosmiccult-finale-degen = You feel yourself unravelling!
 cosmiccult-finale-location = Scanners are detecting an enormous Λ-CDM spike {$location}!
@@ -168,11 +165,14 @@ objective-condition-victory-desc = Beckon The Unknown, and herald the final curt
 ## CHAT ANNOUNCEMENTS
 
 cosmiccult-radio-tier1-progress = The Monument is beckoned unto the station...
+
 cosmiccult-announce-tier2-progress = An unnerving numbness prickles your senses.
 cosmiccult-announce-tier2-warning = Scanners detect a notable increase in Λ-CDM! Rifts in realspace may appear shortly. Please alert your station's chaplain if sighted.
 
 cosmiccult-announce-tier3-progress = Arcs of bluespace energy crackle across the station's groaning structure. The end draws near.
-cosmiccult-announce-tier3-warning = Critical increase in Λ-CDM detected. Infected personnel are to be neutralized.
+cosmiccult-announce-tier3-warning = Critical increase in Λ-CDM detected. Infected personnel are to be subdued or neutralized on sight.
+
+cosmiccult-announce-finale-warning = All station crew. The Λ-CDM anomaly is going supercritical, instruments failing; blue-to-real transitional event horizon IMMINENT. If you are not already on counter-protocol, immediately sortie and intervene. Repeat: Intervene immediately or die.
 
 cosmiccult-announce-victory-summon = A FRACTION OF COSMIC POWER IS CALLED FORTH.
 

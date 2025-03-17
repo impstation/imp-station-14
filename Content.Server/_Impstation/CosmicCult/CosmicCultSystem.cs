@@ -171,10 +171,16 @@ public sealed partial class CosmicCultSystem : EntitySystem
                 comp.CurrentState = FinaleState.ActiveFinale;
                 comp.FinaleTimer = _timing.CurTime + comp.FinaleRemainingTime;
                 comp.SelectedSong = comp.FinaleMusic;
-                _sound.StopStationEventMusic(uid, StationEventMusicType.CosmicCult);
-                _sound.DispatchStationEventMusic(uid, comp.SelectedSong, StationEventMusicType.CosmicCult);
-                _appearance.SetData(uid, MonumentVisuals.FinaleReached, 3);
 
+                _sound.StopStationEventMusic(uid, StationEventMusicType.CosmicCult);
+                _appearance.SetData(uid, MonumentVisuals.FinaleReached, 3);
+                _announcer.SendAnnouncementMessage(_announcer.GetAnnouncementId("SpawnAnnounceCaptain"), Loc.GetString("cosmiccult-announce-finale-warning"), null, Color.FromHex("#cae8e8"));
+
+                Timer.Spawn(TimeSpan.FromSeconds(1),
+                    () =>
+                    {
+                        _sound.DispatchStationEventMusic(uid, comp.SelectedSong, StationEventMusicType.CosmicCult);
+                    });
             }
             else if (comp.CurrentState == FinaleState.ActiveFinale && _timing.CurTime >= comp.FinaleTimer) // trigger wincondition on time runout
             {

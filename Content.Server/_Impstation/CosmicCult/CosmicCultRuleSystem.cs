@@ -155,6 +155,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         var options = new VoteOptions
         {
+            DisplayVotes = false,
             Title = Loc.GetString("cosmiccult-vote-leadership-title"),
             InitiatorText = Loc.GetString("cosmiccult-vote-leadership-initiator"),
             Duration = TimeSpan.FromSeconds(_config.GetCVar(ImpCCVars.CosmicCultStewardVoteTimer)),
@@ -301,6 +302,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             MonumentInGame.Comp.Enabled = false;
             finComp.CurrentState = FinaleState.Unavailable;
             _popup.PopupCoordinates(Loc.GetString("cosmiccult-monument-powerdown"), Transform(MonumentInGame).Coordinates, PopupType.Large);
+            _sound.StopStationEventMusic(MonumentInGame, StationEventMusicType.CosmicCult);
+            UpdateMonumentAppearance(MonumentInGame, false);
         }
 
         if (TotalCult == 0)
@@ -486,11 +489,15 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             MonumentTier2(uid);
             UpdateMonumentReqsForTier(uid, CurrentTier);
 
-            Timer.Spawn(TimeSpan.FromSeconds(_config.GetCVar(ImpCCVars.CosmicCultT3RevealDelaySeconds)),
+            Timer.Spawn(TimeSpan.FromSeconds(_config.GetCVar(ImpCCVars.CosmicCultT2RevealDelaySeconds)),
                 () =>
                 {
                     //do spooky effects
-                    _audio.PlayGlobal(_tier2Sound, Filter.Broadcast(), false, AudioParams.Default);
+                    var sender = Loc.GetString("cosmiccult-announcement-sender");
+                    var mapData = _map.GetMap(_transform.GetMapId(MonumentInGame.Owner.ToCoordinates()));
+                    _announce.SendAnnouncementMessage(_announce.GetAnnouncementId("SpawnAnnounceCaptain"), Loc.GetString("cosmiccult-announce-tier2-progress"), sender, Color.FromHex("#4cabb3"));
+                    _announce.SendAnnouncementMessage(_announce.GetAnnouncementId("SpawnAnnounceCaptain"), Loc.GetString("cosmiccult-announce-tier2-warning"), null, Color.FromHex("#cae8e8"));
+                    _audio.PlayGlobal(_tier3Sound, Filter.Broadcast(), false, AudioParams.Default);
 
                     for (var i = 0; i < Convert.ToInt16(TotalCrew / 4); i++) // spawn # malign rifts equal to 25% of the playercount
                     {

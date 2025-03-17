@@ -137,9 +137,10 @@ public sealed partial class CosmicCultSystem : EntitySystem
             uid.Comp.CurrentState = FinaleState.ReadyBuffer;
             comp.BufferRemainingTime = comp.BufferTimer - _timing.CurTime + TimeSpan.FromSeconds(15);
         }
-
-        comp.FinaleActive = false;
-        comp.MusicBool = false;
+        else if (uid.Comp.CurrentState == FinaleState.ActiveFinale)
+        {
+            uid.Comp.CurrentState = FinaleState.ReadyFinale;
+        }
 
         if (TryComp<CosmicCorruptingComponent>(uid, out var corruptingComp))
             corruptingComp.CorruptionSpeed = TimeSpan.FromSeconds(6);
@@ -160,6 +161,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
             return;
 
         monument.Enabled = false;
+        comp.FinaleActive = false;
 
         Dirty(args.Args.Target!.Value, monument);
         _ui.SetUiState(uid.Owner, MonumentKey.Key, new MonumentBuiState(monument));

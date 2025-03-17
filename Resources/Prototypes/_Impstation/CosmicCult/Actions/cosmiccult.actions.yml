@@ -109,6 +109,10 @@
   description: Emit a horrific pulse of cosmic light, slowing and disorienting everyone around you.
   categories: [ HideSpawnMenu ]
   components:
+  - type: ConfirmableAction
+    popup: cosmicability-glare-confirm
+    confirmDelay: 0.1
+    primeTime: 5 #increased to give you more time to figure out where you want to put it
   - type: InstantAction
     useDelay: 55
     itemIconStyle: NoItem
