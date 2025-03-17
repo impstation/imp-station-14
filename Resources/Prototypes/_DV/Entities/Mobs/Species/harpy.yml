@@ -98,19 +98,25 @@
         - MobLayer
   - type: Body
     prototype: Harpy
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: KodepiiaStep
+  - type: Bloodstream
+    bloodReagent: BloodKodepiia
   - type: Damageable
     damageModifierSet: Harpy
   - type: MeleeWeapon
+    angle: 0
+    animation: WeaponArcPunch
     soundHit:
-      collection: AlienClaw
-    animation: WeaponArcClaw
+      collection: BoxingHit #maybe change this
     damage:
       types:
-        Piercing: 5
+        Blunt: 5
   - type: Speech
-    speechSounds: Harpy
-    speechVerb: Harpy
-    allowedEmotes: ['Hiss', 'Growl', 'Snarl', 'HarpyHonk', 'HarpyRing', 'HarpyPew', 'HarpyBang', 'HarpyBeep', 'HarpyRev', 'HarpyCaw', 'Squish', 'Chitter', 'Squeak', 'Click', 'Belch', 'Squish', 'Coo', 'Boom', 'Chirp', 'Bubble', 'Pop']
+    speechSounds: Kodepiia
+    speechVerb: Kodepiia
+    allowedEmotes: ['Hiss', 'Snarl', 'HarpyHonk', 'HarpyRing', 'HarpyPew', 'HarpyBang', 'HarpyBeep', 'HarpyRev', 'HarpyCaw', 'Squish', 'Chitter', 'Squeak', 'Click', 'Belch', 'Squish', 'Coo', 'Boom', 'Chirp', 'Bubble', 'Pop'] # my extremely normal beast
   - type: Vocal
     sounds:
       Male: Kodepiia
@@ -134,12 +140,6 @@
     femaleDisplacements: {}
   - type: HarpyVisuals
   - type: UltraVision
-  - type: Tag
-    tags:
-    - CanPilot
-    - FootstepSound
-    - DoorBumpOpener
-    - AnomalyHost
 
 - type: entity
   save: false

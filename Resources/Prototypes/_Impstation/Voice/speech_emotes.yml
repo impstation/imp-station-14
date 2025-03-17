@@ -21,7 +21,7 @@
   name: chat-emote-name-pop
   category: Vocal
   available: false
-  icon: _Impstation/Interface/Emotes/squish.png
+  icon: _Impstation/Interface/Emotes/pop.png
   whitelist:
     components:
     - Vocal
@@ -124,6 +124,7 @@
   id: Boom
   category: Vocal
   icon: _Impstation/Interface/Emotes/boom.png
+  available: false
   whitelist:
     components:
     - Vocal
