@@ -83,7 +83,7 @@
   name: chat-emote-name-coo
   category: Vocal
   available: false
-  icon: _Impstation/Interface/Emotes/chirp.png
+  icon: _Impstation/Interface/Emotes/whistle.png
   whitelist:
     components:
     - Vocal
@@ -123,6 +123,7 @@
 - type: emote
   id: Boom
   category: Vocal
+  icon: _Impstation/Interface/Emotes/boom.png
   whitelist:
     components:
     - Vocal
