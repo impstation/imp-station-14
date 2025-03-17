@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/17/2025 01:34:13
-  entityCount: 27065
+  time: 03/17/2025 23:56:41
+  entityCount: 27067
 maps:
 - 1
 grids:
@@ -11867,6 +11867,13 @@ entities:
     components:
     - type: Transform
       pos: 19.5,48.5
+      parent: 2
+- proto: BedsheetHD
+  entities:
+  - uid: 27066
+    components:
+    - type: Transform
+      pos: -7.5,-42.5
       parent: 2
 - proto: BedsheetHOP
   entities:
@@ -55240,6 +55247,13 @@ entities:
     components:
     - type: Transform
       pos: -46.370575,12.558496
+      parent: 2
+- proto: ClothingNeckFuckhubMedal
+  entities:
+  - uid: 27067
+    components:
+    - type: Transform
+      pos: -41.60347,14.56753
       parent: 2
 - proto: ClothingNeckLawyerbadge
   entities:
