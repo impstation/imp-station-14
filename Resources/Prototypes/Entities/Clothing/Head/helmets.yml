@@ -422,6 +422,10 @@
         Piercing: 0.99
         Heat: 0.99
   - type: IdentityBlocker
+  - type: HideLayerClothing #imp edit
+    slots:
+    - Eyes
+    - HeadSide
 
 #Justice Helmet
 - type: entity
