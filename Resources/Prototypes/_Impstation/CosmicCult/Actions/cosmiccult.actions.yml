@@ -199,6 +199,7 @@
         - HumanoidAppearance
     blacklist:
       components:
+        - RogueAscendedInfection
         - CosmicCult
         - BibleUser
     itemIconStyle: NoItem
@@ -214,12 +215,13 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
-    useDelay: 155
+    useDelay: 55
     whitelist:
       components:
         - HumanoidAppearance
     blacklist:
       components:
+        - RogueAscendedInfection
         - CosmicCult
         - BibleUser
     itemIconStyle: NoItem
@@ -235,7 +237,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    useDelay: 90
+    useDelay: 100
     itemIconStyle: NoItem
     icon:
       sprite: _Impstation/CosmicCult/Icons/cosmiccult_abilities.rsi
