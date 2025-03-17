@@ -126,23 +126,6 @@
     - cawed
 
 #Vulpkanin
-- type: emote
-  id: Bark
-  name: delta-chat-emote-name-bark
-  category: Vocal
-  available: false
-  whitelist:
-    components:
-    - Vocal
-  blacklist:
-    components:
-    - BorgChassis
-  chatMessages: [barks.]
-  chatTriggers:
-    - bark
-    - barks
-    - barked
-    - barking
 
 - type: emote
   id: Snarl

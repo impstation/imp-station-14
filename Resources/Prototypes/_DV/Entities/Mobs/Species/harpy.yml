@@ -38,7 +38,7 @@
       - map: [ "enum.HumanoidVisualLayers.Head" ]
       - map: [ "enum.HumanoidVisualLayers.Snout" ]
       - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-      - map: [ "enum.HumanoidVisualLayers.RArm" ] # Frontier: return to top near LArm
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
       - map: [ "enum.HumanoidVisualLayers.LArm" ]
       - map: [ "enum.HumanoidVisualLayers.RLeg" ]
       - map: [ "enum.HumanoidVisualLayers.LLeg" ]
@@ -73,7 +73,7 @@
         sprite: "Effects/creampie.rsi"
         state: "creampie_human"
         visible: false
-      - map: [ "enum.HumanoidVisualLayers.RArmExtension" ] # Frontier
+      - map: [ "enum.HumanoidVisualLayers.RArmExtension" ]
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
       - map: [ "mask" ]
@@ -110,7 +110,7 @@
   - type: Speech
     speechSounds: Harpy
     speechVerb: Harpy
-    allowedEmotes: ['Meow', 'Hiss', 'Mew', 'Purr', 'Growl', 'Bark', 'Snarl', 'Whine', 'Howl', 'Awoo', 'HarpyHonk', 'HarpyRing', 'HarpyPew', 'HarpyBang', 'HarpyBeep', 'HarpyRev', 'HarpyCaw', 'Squish', 'Chitter', 'Squeak', 'Click', 'Belch', 'Squish'] # Frontier: add Belch, Squish
+    allowedEmotes: ['Hiss', 'Mew', 'Purr', 'Growl', 'Bark', 'Snarl', 'Whine', 'Howl', 'Awoo', 'HarpyHonk', 'HarpyRing', 'HarpyPew', 'HarpyBang', 'HarpyBeep', 'HarpyRev', 'HarpyCaw', 'Squish', 'Chitter', 'Squeak', 'Click', 'Belch', 'Squish', 'Coo', 'Boom', 'Chirp']
   - type: Vocal
     sounds:
       Male: Kodepiia
@@ -123,10 +123,6 @@
         enum.InstrumentVisuals.Layer:
           False: {visible: false}
           True: {visible: true}
-  - type: MovementSpeedModifier
-#    baseWalkSpeed: 2.5 # Frontier
-#    baseSprintSpeed: 5.0 # Frontier
-    weightlessAcceleration: 2.5
   - type: Inventory
     speciesId: harpy
     displacements:
@@ -135,14 +131,15 @@
           32:
             sprite: _DV/Mobs/Species/Harpy/displacement.rsi
             state: jumpsuit
-    femaleDisplacements: {} # Frontier: female jumpsuit displacement
+    femaleDisplacements: {}
   - type: HarpyVisuals
   - type: UltraVision
-#  - type: Tag # Frontier
-#    tags: # Frontier
-#    - CanPilot # Frontier
-#    - FootstepSound # Frontier
-#    - DoorBumpOpener # Frontier
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
 
 - type: entity
   save: false
@@ -162,7 +159,7 @@
           32:
             sprite: _DV/Mobs/Species/Harpy/displacement.rsi
             state: jumpsuit
-    femaleDisplacements: {} # Frontier: female jumpsuit displacement
+    femaleDisplacements: {}
   - type: Sprite
     scale: 0.9, 0.9
     layers:
@@ -170,7 +167,7 @@
       - map: [ "enum.HumanoidVisualLayers.Head" ]
       - map: [ "enum.HumanoidVisualLayers.Snout" ]
       - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-      - map: [ "enum.HumanoidVisualLayers.RArm" ] # Frontier: return to top near LArm
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
       - map: [ "enum.HumanoidVisualLayers.LArm" ]
       - map: [ "enum.HumanoidVisualLayers.RLeg" ]
       - map: [ "enum.HumanoidVisualLayers.LLeg" ]
@@ -197,11 +194,11 @@
       - map: [ "enum.HumanoidVisualLayers.Tail" ]
       - map: [ "pocket1" ]
       - map: [ "pocket2" ]
-      - map: [ "clownedon" ] # Dynamically generated
+      - map: [ "clownedon" ]
         sprite: "Effects/creampie.rsi"
         state: "creampie_human"
         visible: false
-      - map: [ "enum.HumanoidVisualLayers.RArmExtension" ] # Frontier
+      - map: [ "enum.HumanoidVisualLayers.RArmExtension" ]
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
       - map: [ "mask" ]
       - map: [ "head" ]

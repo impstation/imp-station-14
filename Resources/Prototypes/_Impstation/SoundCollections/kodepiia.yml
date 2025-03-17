@@ -151,12 +151,6 @@
   - /Audio/Items/Toys/meow1.ogg
 
 - type: soundCollection
-  id: KodepiiaMews
-  files:
-  - /Audio/_Nyanotrasen/Voice/Felinid/cat_mew1.ogg
-  - /Audio/_Nyanotrasen/Voice/Felinid/cat_mew2.ogg
-
-- type: soundCollection
   id: KodepiiaGrowls
   files:
   - /Audio/_DV/Voice/Vulpkanin/dog_growl1.ogg
@@ -167,12 +161,6 @@
   - /Audio/_DV/Voice/Vulpkanin/dog_growl6.ogg
   - /Audio/_Nyanotrasen/Voice/Felinid/cat_growl1.ogg
   - /Audio/Animals/bear.ogg
-
-- type: soundCollection
-  id: KodepiiaPurrs
-  files:
-  - /Audio/_Nyanotrasen/Voice/Felinid/cat_purr1.ogg
-  - /Audio/Mecha/sound_mecha_hydraulic.ogg
 
 - type: soundCollection
   id: KodepiiaRings
@@ -198,6 +186,7 @@
   - /Audio/Effects/Arcade/player_attack.ogg
   - /Audio/Effects/Arcade/player_charge.ogg
   - /Audio/Effects/Arcade/player_heal.ogg
+  - /Audio/Magic/blink.ogg
   - /Audio/Magic/staff_animation.ogg
   - /Audio/Magic/staff_change.ogg
   - /Audio/Magic/staff_chaos.ogg
@@ -214,6 +203,7 @@
   id: KodepiiaBangs
   files:
   - /Audio/Items/snap.ogg
+  - /Audio/Machines/airlock_creaking.ogg
   - /Audio/Machines/blastdoor.ogg
   - /Audio/Machines/machine_vend.ogg
   - /Audio/Magic/disintegrate.ogg
@@ -273,6 +263,11 @@
   - /Audio/Weapons/chainsawwield.ogg
 
 - type: soundCollection
+  id: KodepiiaBooms
+  files:
+  - /Audio/Effects/flash_bang.ogg
+
+- type: soundCollection
   id: KodepiiaClicks
   files:
   - /Audio/Items/deconstruct.ogg
@@ -330,28 +325,11 @@
   - /Audio/_Impstation/Kodepiia/kodedeath2.ogg
 
 - type: soundCollection
-  id: KodepiiaBarks
-  files:
-  - /Audio/_DV/Voice/Vulpkanin/dog_bark1.ogg
-  - /Audio/_DV/Voice/Vulpkanin/dog_bark2.ogg
-  - /Audio/_DV/Voice/Vulpkanin/dog_bark3.ogg
-
-- type: soundCollection
   id: KodepiiaSnarls
   files:
   - /Audio/_DV/Voice/Vulpkanin/dog_snarl1.ogg
   - /Audio/_DV/Voice/Vulpkanin/dog_snarl2.ogg
   - /Audio/_DV/Voice/Vulpkanin/dog_snarl3.ogg
-
-- type: soundCollection
-  id: KodepiiaWhines
-  files:
-  - /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
-
-- type: soundCollection
-  id: KodepiiaHowls
-  files:
-  - /Audio/_DV/Voice/Vulpkanin/howl.ogg
 
 - type: soundCollection
   id: KodepiiaGasp

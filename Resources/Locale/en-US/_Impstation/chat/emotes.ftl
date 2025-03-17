@@ -16,3 +16,4 @@ chat-emote-msg-hiss = hisses.
 chat-emote-msg-wuhey = wuheys!
 chat-emote-msg-coo = coos.
 chat-emote-msg-blink = blinks.
+chat-emote-msg-booms = booms.

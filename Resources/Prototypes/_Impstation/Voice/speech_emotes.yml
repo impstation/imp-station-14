@@ -8,7 +8,6 @@
   whitelist:
     components:
     - Vocal
-    - Slime
   blacklist:
     components:
     - BorgChassis
@@ -26,7 +25,6 @@
   whitelist:
     components:
     - Vocal
-    - Slime
   blacklist:
     components:
     - BorgChassis
@@ -73,7 +71,7 @@
   id: Blink
   name: chat-emote-name-blink
   category: General
-  icon: _Impstation/Interface/Emotes/blink.png #imp
+  icon: _Impstation/Interface/Emotes/blink.png
   chatMessages: ["chat-emote-msg-blink"]
   chatTriggers:
     - blink
@@ -119,3 +117,22 @@
   - cracks her knuckles
   - cracks his knuckles
   - cracks its knuckles
+
+# Kodepiia
+
+- type: emote
+  id: Boom
+  category: Vocal
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-boom"]
+  chatTriggers:
+  - boom.
+  - booms.
+  - booms!
+  - booming.
+  - boomed.
