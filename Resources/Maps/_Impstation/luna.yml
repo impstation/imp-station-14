@@ -57124,9 +57124,6 @@ entities:
     - type: Transform
       pos: 19.5,48.5
       parent: 2
-    - type: Door
-      secondsUntilStateChange: -189404.52
-      state: Closing
   - uid: 8020
     components:
     - type: Transform
@@ -57139,9 +57136,6 @@ entities:
     - type: Transform
       pos: 10.5,80.5
       parent: 2
-    - type: Door
-      secondsUntilStateChange: -159711.62
-      state: Closing
 - proto: CurtainsGreenOpen
   entities:
   - uid: 10931
@@ -71134,9 +71128,6 @@ entities:
     - type: Transform
       pos: 27.5,-40.5
       parent: 2
-    - type: Door
-      secondsUntilStateChange: -131342.39
-      state: Closing
   - uid: 1184
     components:
     - type: Transform
@@ -71807,9 +71798,6 @@ entities:
     - type: Transform
       pos: -29.5,43.5
       parent: 2
-    - type: Door
-      secondsUntilStateChange: -15602.659
-      state: Closing
   - uid: 23879
     components:
     - type: Transform
@@ -72640,9 +72628,6 @@ entities:
     - type: Transform
       pos: 38.5,88.5
       parent: 2
-    - type: Door
-      secondsUntilStateChange: -138679.23
-      state: Closing
     - type: DeviceNetwork
       deviceLists:
       - 22815
@@ -73074,9 +73059,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 8.5,6.5
       parent: 2
-    - type: Door
-      secondsUntilStateChange: -27455.357
-      state: Closing
   - uid: 19801
     components:
     - type: Transform
@@ -73565,9 +73547,6 @@ entities:
     - type: Transform
       pos: 0.5,21.5
       parent: 2
-    - type: Door
-      secondsUntilStateChange: -78026.05
-      state: Closing
     - type: DeviceNetwork
       deviceLists:
       - 24367
@@ -73584,9 +73563,6 @@ entities:
     - type: Transform
       pos: 1.5,43.5
       parent: 2
-    - type: Door
-      secondsUntilStateChange: -85121.28
-      state: Closing
   - uid: 11304
     components:
     - type: Transform
@@ -73651,9 +73627,6 @@ entities:
     - type: Transform
       pos: 3.5,39.5
       parent: 2
-    - type: Door
-      secondsUntilStateChange: -132022.88
-      state: Closing
   - uid: 11315
     components:
     - type: Transform
@@ -74153,9 +74126,6 @@ entities:
     - type: Transform
       pos: 8.5,-50.5
       parent: 2
-    - type: Door
-      secondsUntilStateChange: -52910.6
-      state: Closing
     - type: DeviceNetwork
       deviceLists:
       - 24371
@@ -117255,9 +117225,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 11.5,50.5
       parent: 2
-    - type: Door
-      secondsUntilStateChange: -151076.73
-      state: Closing
   - uid: 3648
     components:
     - type: Transform
@@ -119970,10 +119937,10 @@ entities:
       parent: 2
     - type: Paper
       content: >-
-        Dear HoP, 
+        Dear HoP,
 
 
-        Please submit a report regarding the disappearance of my personal items to the HoS. The following is missing: 
+        Please submit a report regarding the disappearance of my personal items to the HoS. The following is missing:
 
 
         Beret
@@ -119982,7 +119949,7 @@ entities:
         Flask
 
 
-        Thank you, let me know when you get that done. 
+        Thank you, let me know when you get that done.
 
 
         P.S Need my 5 o'clock cleared tomorrow apparently we're getting a visit from H.R
