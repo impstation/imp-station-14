@@ -77,7 +77,7 @@ public sealed class NightVisionSystem : Client.Overlays.EquipmentHudSystem<Night
 
     private void UpdateNightVision(bool active)
     {
-        _lightManager.DrawLighting = !active;
+        _lightManager.DrawShadows = !active;
     }
 
     private void UpdateOverlay(NightVisionComponent? nvComp)
