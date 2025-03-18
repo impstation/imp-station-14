@@ -2,3 +2,10 @@
   id: ScienceExplosivesImp
   recipes:
   - Signaller # idk why this shit got removed everywhere
+
+
+- type: latheRecipePack
+  parent: CameraBoardsImp # imp
+  id: CameraBoards
+  recipes:
+  - CameraHandheld
