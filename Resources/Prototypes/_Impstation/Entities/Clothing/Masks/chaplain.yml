@@ -33,3 +33,6 @@
     sprite: _Impstation/Clothing/Mask/silentmask.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Mask/silentmask.rsi
+  - type: HideLayerClothing
+    slots:
+    - Eyes #eyes hidden for anomalocarids, doesn't effect other species
