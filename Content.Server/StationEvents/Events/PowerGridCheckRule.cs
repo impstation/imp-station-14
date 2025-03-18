@@ -54,13 +54,6 @@ namespace Content.Server.StationEvents.Events
                 }
             }
 
-            // Can't use the default EndAudio
-            component.AnnounceCancelToken?.Cancel();
-            component.AnnounceCancelToken = new CancellationTokenSource();
-            Timer.Spawn(3000, () =>
-            {
-                Audio.PlayGlobal(component.PowerOnSound, Filter.Broadcast(), true);
-            }, component.AnnounceCancelToken.Token);
             component.Unpowered.Clear();
         }
 
