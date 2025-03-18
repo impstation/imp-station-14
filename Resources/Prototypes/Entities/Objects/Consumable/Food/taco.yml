@@ -44,8 +44,8 @@
   components:
   - type: FlavorProfile
     flavors:
-      - meaty
-      - cheesy
+    - meaty
+    - cheesy
   - type: Food
     transferAmount: 3
   - type: Sprite
@@ -64,7 +64,7 @@
     storedRotation: -90
   - type: Tag
     tags:
-      - Meat
+    - Meat
 
 - type: entity
   name: beef taco
@@ -94,8 +94,8 @@
   components:
   - type: FlavorProfile
     flavors:
-      - onion
-      - fishy
+    - onion
+    - fishy
   - type: Food
   - type: Sprite
     state: fishtaco
@@ -140,10 +140,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 26
+        maxVol: 30 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 14
+          Quantity: 22 # imp
         - ReagentId: Vitamin
           Quantity: 6
 
@@ -159,10 +159,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 26
+        maxVol: 30 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 14
+          Quantity: 22 # imp
         - ReagentId: Vitamin
           Quantity: 6
 
@@ -174,12 +174,21 @@
   components:
   - type: FlavorProfile
     flavors:
-      - cheesy
-      - tomato
-      - meaty
-      - onion
+    - cheesy
+    - tomato
+    - meaty
+    - onion
   - type: Sprite
     state: softtaco
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 18
   - type: Tag
     tags:
-      - Meat
+    - Meat
