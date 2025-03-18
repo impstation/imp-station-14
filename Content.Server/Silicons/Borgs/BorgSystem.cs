@@ -296,6 +296,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
         {
             Toggle.TryActivate(uid);
             _powerCell.SetDrawEnabled(uid, _mobState.IsAlive(uid));
+            _powerCell.ResetUpdateTime(uid); // imp edit
         }
         _appearance.SetData(uid, BorgVisuals.HasPlayer, true);
     }

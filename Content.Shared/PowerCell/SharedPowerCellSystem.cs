@@ -90,6 +90,17 @@ public abstract class SharedPowerCellSystem : EntitySystem
     }
 
     /// <summary>
+    /// Imp: Resets the update time to the current game time.
+    /// </summary>
+    public void ResetUpdateTime(Entity<PowerCellDrawComponent?> ent)
+    {
+        if (!Resolve(ent, ref ent.Comp, false))
+            return;
+
+        ent.Comp.NextUpdateTime = Timing.CurTime;
+    }
+
+    /// <summary>
     /// Returns whether the entity has a slotted battery and <see cref="PowerCellDrawComponent.UseRate"/> charge.
     /// </summary>
     /// <param name="uid"></param>

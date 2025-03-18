@@ -1,6 +1,7 @@
 using Content.Shared.Bed.Sleep;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Traits.Assorted;
 
@@ -13,6 +14,7 @@ public sealed class NarcolepsySystem : EntitySystem
     private const string StatusEffectKey = "ForcedSleep"; // Same one used by N2O and other sleep chems.
 
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private readonly IGameTiming _timing = default!; // imp edit
     [Dependency] private readonly IRobustRandom _random = default!;
 
     /// <inheritdoc/>
@@ -24,7 +26,7 @@ public sealed class NarcolepsySystem : EntitySystem
     private void SetupNarcolepsy(EntityUid uid, NarcolepsyComponent component, ComponentStartup args)
     {
         component.NextIncidentTime =
-            _random.NextFloat(component.TimeBetweenIncidents.X, component.TimeBetweenIncidents.Y);
+            _timing.CurTime.Seconds + _random.NextFloat(component.TimeBetweenIncidents.X, component.TimeBetweenIncidents.Y); // imp edit
     }
 
     public void AdjustNarcolepsyTimer(EntityUid uid, int TimerReset, NarcolepsyComponent? narcolepsy = null)

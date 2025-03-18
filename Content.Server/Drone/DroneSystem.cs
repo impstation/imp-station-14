@@ -164,6 +164,7 @@ namespace Content.Server.Drone
             UpdateDroneAppearance(uid, DroneStatus.On);
             _popupSystem.PopupEntity(Loc.GetString("drone-activated"), uid, PopupType.Large);
             _powerCell.SetDrawEnabled(uid, true);
+            _powerCell.ResetUpdateTime(uid); // imp edit
         }
 
         private void OnMindRemoved(EntityUid uid, DroneComponent drone, MindRemovedMessage args)
