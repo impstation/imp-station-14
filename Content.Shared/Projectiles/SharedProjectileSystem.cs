@@ -199,7 +199,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         if (!TryComp(uid, out ProjectileComponent? projectile) || projectile.Weapon == null)
             return;
 
-        var ev = new ProjectileEmbedEvent(projectile.Shooter, projectile.Weapon!.Value, args.Target);
+        var ev = new ProjectileEmbedEvent(projectile.Shooter, projectile.Weapon.Value, args.Target);
         RaiseLocalEvent(uid, ref ev);
     }
 
