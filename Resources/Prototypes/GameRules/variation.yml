@@ -46,6 +46,8 @@
     tilesPerEntityStdDev: 4
     entities:
     - id: RandomSpawner
+    componentBlacklist: # imp
+    - type: Supermatter
 
 - type: weightedRandomFillSolution
   id: RandomFillTrashPuddle
@@ -77,6 +79,7 @@
     - Blood
     - CopperBlood
     - Slime
+    - ShimmeringBlood #imp
   - quantity: 25
     weight: 1
     reagents:

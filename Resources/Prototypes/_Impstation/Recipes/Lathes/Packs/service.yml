@@ -1,0 +1,89 @@
+# Static
+
+- type: latheRecipePack
+  id: ImpLightPack
+  recipes:
+    - UvLightTube
+    - LightReplacer
+
+- type: latheRecipePack
+  id: ImpServiceStatic
+  recipes:
+    - Mousetrap
+    - TrashBag
+    - DeskBell
+
+- type: latheRecipePack
+  id: CleanPack
+  recipes:
+    - Plunger
+    - MopBucket
+    - SoapNT
+
+- type: latheRecipePack
+  id: BotanyPack
+  recipes:
+    - DiseaseSwab
+    - HydroponicsToolMiniHoe
+    - HydroponicsToolScythe
+    - HydroponicsToolHatchet
+    - HydroponicsToolSpade
+    - HydroponicsToolClippers
+    - Shovel
+    - PlantBag
+
+- type: latheRecipePack
+  id: BarPack
+  recipes:
+    - DrinkShaker
+    - DrinkJigger
+    - DrinkFlaskBar
+    - DrinkVacuumFlask
+    - DrinkTeapotEmpty
+    - DrinkTeacupEmpty
+    - DrinkWaterBottleEmpty
+    - Pitcher
+    - BarSpoon
+    - DrinkDisposableCup
+
+- type: latheRecipePack
+  id: KitchenPack
+  recipes:
+    - KitchenKnife
+    - RollingPin
+    - Fork
+    - Spoon
+    - ForkPlastic
+    - SpoonPlastic
+    - PairedChopsticks
+
+- type: latheRecipePack
+  id: ServiceMiscPack
+  recipes:
+    - Dropper
+    - ClothingHeadHatCone
+    - SprayPainter
+    - FlashlightLantern
+
+# Dynamic
+
+- type: latheRecipePack
+  id: CleanPackDynamic
+  recipes:
+    - MegaSprayBottle
+    - AdvMopItem
+    - WeaponSprayNozzle
+    - ClothingBackpackWaterTank
+    - CleanerGrenade
+
+- type: latheRecipePack
+  id: ServiceMiscPackDynamic
+  recipes:
+    - FishingRod
+
+# Emagged
+
+- type: latheRecipePack
+  id: ServiceEmagged
+  recipes:
+    - ButchCleaver

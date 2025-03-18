@@ -22,6 +22,30 @@
   - type: Objective
     difficulty: 2.5 # this thing will not shut the fuck up
 
+- type: entity
+  parent: BaseThiefStealStructureObjective
+  id: PetSuppyStealObjective #engineering pet by supermatter
+  components:
+  - type: NotJobRequirement
+    job: StationEngineer
+  - type: StealCondition
+    stealGroup: PetSuppy
+    descriptionText: objective-condition-thief-suppy-description
+  - type: Objective
+    difficulty: 1.5
+
+- type: entity
+  parent: BaseThiefStealAnimalObjective
+  id: OswaldStealObjective
+  components:
+  - type: NotJobRequirement
+    job: HospitalityDirector
+  - type: StealCondition
+    verifyMapExistence: true # why tf is this false for stealanimalobjective anyway
+    stealGroup: AnimalOswald
+  - type: Objective
+    difficulty: 1 # shes literally nice
+
 # critical infrastructure
 
 - type: entity
@@ -108,8 +132,6 @@
   - type: Objective
     difficulty: 1
 
-# rare but otherwise not notable
-
 - type: entity
   parent: BaseThiefStealObjective
   id: ShiningSpringStealObjective
@@ -119,7 +141,9 @@
   - type: StealCondition
     stealGroup: ShiningSpring
   - type: Objective
-    difficulty: 0.5
+    difficulty: 1
+
+# rare but otherwise not notable
 
 - type: entity
   parent: BaseThiefStealObjective
@@ -132,7 +156,7 @@
     stealGroup: EvilSkullArtifactItem
     descriptionText: objective-condition-thief-evil-skull-description
   - type: Objective
-    difficulty: 0.6 #a little harder than the bible, it glows red and there's only on, and it's an artifact
+    difficulty: 0.6 #a little harder than the bible, it glows red and there's only one, and it's an artifact
 
 # pda cartridges
 

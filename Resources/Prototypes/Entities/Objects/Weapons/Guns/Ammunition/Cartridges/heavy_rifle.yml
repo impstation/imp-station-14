@@ -1,7 +1,7 @@
 - type: entity
   id: BaseCartridgeHeavyRifle
-  name: cartridge (.20 rifle)
-  parent: [ BaseCartridge, BaseRestrictedContraband ]
+  name: cartridge (heavy rifle) #imp
+  parent: [ BaseCartridge, BaseSecurityContraband ]
   abstract: true
   components:
   - type: Tag
@@ -11,7 +11,7 @@
   - type: CartridgeAmmo
     proto: BulletHeavyRifle
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi #imp
     layers:
     - state: base
       map: ["enum.AmmoVisualLayers.Base"]
@@ -22,7 +22,8 @@
 
 - type: entity
   id: CartridgeMinigun
-  name: cartridge (.10 rifle)
+  name: cartridge (.10 mini) #imp
+  description: A micro cartridge designed to make the dreams of an individual-portable minigun a reality. #imp
   parent: BaseCartridgeHeavyRifle
   components:
   - type: CartridgeAmmo

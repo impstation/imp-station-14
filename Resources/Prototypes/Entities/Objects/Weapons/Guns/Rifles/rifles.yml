@@ -9,7 +9,7 @@
   - type: Item
     size: Huge
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Rifles/ak.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Rifles/ak.rsi #imp
     quickEquip: false
     slots:
     - Back
@@ -53,12 +53,12 @@
 
 - type: entity
   name: AKMS
-  parent: [BaseWeaponRifle, BaseRestrictedContraband]
+  parent: [BaseWeaponRifle, BaseSecurityContraband]
   id: WeaponRifleAk
   description: An iconic weapon of war. Simple and effective; favored by revolutionaries everywhere. Uses .30 rifle ammo. #imp
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Rifles/ak.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Rifles/ak.rsi #imp
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -103,6 +103,31 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+#imp edit begin; weapon melee
+  - type: MeleeWeapon
+    range: 0.8
+    attackRate: 0.6
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+    soundSwing:
+      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_folley.ogg
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 10
+    damage:
+      types:
+        Blunt: 8
+  - type: StaminaDamageOnHit
+    damage: 10 #slight stagger, but still like 10 hits to stun completely
+  - type: MeleeRequiresWield
+  - type: MeleeThrowOnHit
+    distance: 0.8
+    speed: 5
+#imp edit end
 
 - type: entity
   name: M-90gl
@@ -150,19 +175,19 @@
 
 - type: entity
   name: Lecter
-  parent: [BaseWeaponRifle, BaseRestrictedContraband]
+  parent: [BaseWeaponRifle, BaseSecurityContraband]
   id: WeaponRifleLecter
-  description: A modern short-barreled assault rifle fielded by militaries and law enforcement throughout many worlds, complete with familiar controls and ergonomics. Uses .20 rifle ammo. #imp
+  description: A modern short-barreled assault rifle fielded by militaries and law enforcement across many worlds, complete with familiar controls and ergonomics. Uses .20 rifle ammo. #imp
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Rifles/lecter.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Rifles/lecter.rsi #imp
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Rifles/lecter.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Rifles/lecter.rsi #imp
   - type: Gun
     fireRate: 4.5 #imp
     selectedMode: FullAuto
@@ -199,6 +224,31 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+#imp edit begin; weapon melee
+  - type: MeleeWeapon
+    range: 0.8
+    attackRate: 0.6
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+    soundSwing:
+      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_folley.ogg
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 10
+    damage:
+      types:
+        Blunt: 8
+  - type: StaminaDamageOnHit
+    damage: 10 #slight stagger, but still like 10 hits to stun completely
+  - type: MeleeRequiresWield
+  - type: MeleeThrowOnHit
+    distance: 0.8
+    speed: 5
+#imp edit end
 
 - type: entity
   name: Foam Force Astro Ace

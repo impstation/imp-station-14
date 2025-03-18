@@ -96,6 +96,7 @@
     interfaces:
       enum.SiliconLawsUiKey.Key:
         type: SiliconLawBoundUserInterface
+  - type: ShowJobIcons
 
 # Ai
 - type: entity
@@ -537,8 +538,7 @@
 - type: entity
   id: StationAiBrain
   parent: PositronicBrain
-  categories: [ HideSpawnMenu ]
-  suffix: DO NOT MAP
+  categories: [ HideSpawnMenu, DoNotMap ]
   components:
   - type: Sprite
     # Once it's in a core it's pretty much an abstract entity at that point.
@@ -585,8 +585,7 @@
   id: StationAiHolo
   name: AI eye
   description: The AI's viewer.
-  categories: [ HideSpawnMenu ]
-  suffix: DO NOT MAP
+  categories: [ HideSpawnMenu, DoNotMap ]
   components:
   - type: NoFTL
   - type: WarpPoint
@@ -607,8 +606,7 @@
   id: StationAiHoloLocal
   name: AI hologram
   description: A holographic representation of an AI.
-  categories: [ HideSpawnMenu ]
-  suffix: DO NOT MAP
+  categories: [ HideSpawnMenu, DoNotMap ]
   components:
   - type: Transform
     anchored: true
@@ -858,13 +856,35 @@
       tags:
       - DroneUsable
       - Trash
+      - Crayon
     blacklist:
       tags:
       - Syringe
       - HighRiskItem
+      - Sidearm
+      - Taser
       components:
-      - Contraband
+      - Handcuff
+      - Gun
+      - EnergySword
+  - type: Illiterate # imp special component. Disables reading and writing on paper.
+  - type: ContainerContainer # imp.
+    containers:
+      cell_slot: !type:ContainerSlot { }
+  - type: PowerCellSlot # imp.
+    cellSlotId: cell_slot
+    fitsInCharger: true
+  - type: PowerCellDraw # imp
+    drawRate: 0.6
+  - type: ItemSlots # imp
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
+        disableEject: true
   - type: PAI # imp; this is added specifically for the internal station map feature but the other aspects are not especially against the identity of drones. and i dont want to put the work into ECS-ifying PAIComponent
+    mapActionId: ActionDroneOpenMap # redefining these to reflavor their descriptions.
+    midiActionId: ActionDronePlayMidi
   - type: Instrument # imp
     allowPercussion: false
     handheld: false
@@ -897,14 +917,13 @@
     - !type:DepartmentTimeRequirement
       department: Engineering
       time: 36000 # ten hours
+    - !type:DepartmentTimeRequirement
+      department: Silicon
+      time: 18000 # five hours
     makeSentient: true
-    name: Maintenance Drone
-    description: Maintain the station. Ignore other beings except drones.
-    rules: |
-     You are bound by these laws both in-game and out-of-character:
-     1. You may not interfere with the affairs of any being except another drone, regardless of intent or circumstance.
-     2. Your goal is to maintain or improve the station to the best of your ability.
-     3. You may not take any action which causes damage or harm to the station or its inhabitants.
+    name: ghost-role-information-drone-name
+    description: ghost-role-information-drone-description
+    rules: ghost-role-information-drone-rules
     mindRoles: # imp. this whole prototype needs to be pulled out of upstream
     - MindRoleGhostRoleSilicon
   - type: GhostTakeoverAvailable
@@ -914,6 +933,12 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 5
     baseSprintSpeed : 5
+    minimumFrictionSpeed: 0
+    weightlessAcceleration: 1.2
+    weightlessFriction: 1
+    weightlessFrictionNoInput: 2 
+    offGridFriction: 1.5
+    weightlessModifier: 1
   - type: MobState
     allowedStates:
       - Alive
@@ -921,7 +946,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      60: Dead
+      25: Dead
   - type: Flash
   - type: NoSlip
   - type: StatusEffects
@@ -946,7 +971,7 @@
     - state: shell
       sprite: Mobs/Silicon/drone.rsi
       map: ["base"]
-  - type: MovementIgnoreGravity
+  - type: MovementAlwaysTouching
   - type: Fixtures
     fixtures:
       fix1:
@@ -992,6 +1017,10 @@
       - EmagImmune
       - CanPilot
       - VimPilot
+  - type: Access
+    tags:
+    - Engineering
+    - Maintenance
 
 - type: entity
   name: onestar mecha

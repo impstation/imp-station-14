@@ -16,7 +16,7 @@
     tags:
     - Sidearm
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Revolvers/deckard.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Revolvers/deckard.rsi #imp
     quickEquip: false
     slots:
     - suitStorage
@@ -49,6 +49,25 @@
       path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
   - type: StaticPrice
     price: 500
+#imp edit begin; weapon melee
+  - type: MeleeWeapon
+    range: 0.8
+    attackRate: 0.8
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+    soundSwing:
+      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_folley.ogg
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 6
+    damage:
+      types:
+        Blunt: 5
+#imp edit end
 
 - type: entity
   name: Deckard
@@ -57,7 +76,7 @@
   description: A rare, custom-built revolver. Use when there is no time for the Voight-Kampff test. Uses .45 magnum ammo.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Revolvers/deckard.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Revolvers/deckard.rsi #imp
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -80,14 +99,14 @@
 
 - type: entity
   name: Inspector
-  parent: [BaseWeaponRevolver, BaseRestrictedContraband]
+  parent: [BaseWeaponRevolver, BaseSecurityContraband]
   id: WeaponRevolverInspector
   description: A detective's best friend. Uses .45 magnum ammo.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Revolvers/inspector.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Revolvers/inspector.rsi #imp
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Revolvers/inspector.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Revolvers/inspector.rsi #imp
   - type: RevolverAmmoProvider
     capacity: 6
     chambers: [ True, True, True, True, True, True ]
@@ -100,24 +119,32 @@
   description: The iconic sidearm of the dreaded death squads... allegedly. Uses .45 magnum ammo. #imp
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Revolvers/mateba.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Revolvers/mateba.rsi #imp
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Revolvers/mateba.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Revolvers/mateba.rsi #imp
   - type: Gun
     fireRate: 3
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
 
 - type: entity
+  parent: WeaponRevolverMateba
+  id: WeaponRevolverMatebaAP # For deathsquad
+  suffix: armor-piercing
+  components:
+  - type: RevolverAmmoProvider
+    proto: CartridgeMagnumAP
+
+- type: entity
   name: Python
   parent: [BaseWeaponRevolver, Tier3Contraband]
   id: WeaponRevolverPython
-  description: A robust revolver favored by Syndicate agents. Uses .45 magnum ammo.
+  description: Power without question; authority without asking. Uses .45 magnum ammo. #imp
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Revolvers/python.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Revolvers/python.rsi #imp
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Revolvers/python.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Revolvers/python.rsi #imp
   - type: Gun
     selectedMode: SemiAuto
     fireRate: 2
@@ -148,9 +175,9 @@
   description: An odd, old-looking revolver, favoured by pirate crews. Uses .45 magnum ammo.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Revolvers/pirate_revolver.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Revolvers/pirate_revolver.rsi #imp
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Revolvers/pirate_revolver.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Revolvers/pirate_revolver.rsi #imp
   - type: Gun
     fireRate: 1
   - type: ContainerContainer

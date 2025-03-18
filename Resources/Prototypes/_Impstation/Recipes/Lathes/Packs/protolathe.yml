@@ -1,0 +1,32 @@
+# Static
+
+- type: latheRecipePack
+  id: ImpProtoStatic
+  recipes:
+  - SGDRecipe
+  - Dropper
+  - Igniter
+  - Implanter
+
+# Dynamic
+
+- type: latheRecipePack
+  id: ImpProtoDynamic
+  recipes:
+  - Drone
+  - CleanerGrenade
+  - FishingRod
+  - ExosuitFabricatorMachineCircuitboard
+
+# Emagged
+
+- type: latheRecipePack
+  id: ImpProtoEmagged
+  recipes:
+    - FullAutoConversionKit
+    - HyperBurstConversionKit
+    - MagazineDMRIncendiary
+    - MagazineDMRUranium
+    - MagazineLPistolIncendiary
+    - MagazineLPistolUranium
+    - PRIbarPlusConversionKit
