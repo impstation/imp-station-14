@@ -8,6 +8,9 @@
     sprite: _Impstation/Clothing/Mask/clayshapermask.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Mask/clayshapermask.rsi
+  - type: HideLayerClothing
+    slots:
+    - Eyes #eyes hidden for anomalocarids, doesn't effect other species
 
 - type: entity
   parent: ClothingMaskPullableBase
