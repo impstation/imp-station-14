@@ -97,6 +97,7 @@
   - ArtifactCrusherMachineCircuitboard
 
 - type: latheRecipePack
+  parent: CameraBoardsImp # imp
   id: CameraBoards
   recipes:
   - SurveillanceCameraRouterCircuitboard
@@ -126,3 +127,4 @@
   - ThrusterMachineCircuitboard
   - GyroscopeMachineCircuitboard
   - MiniGravityGeneratorCircuitboard
+  - MiniGyroscopeMachineCircuitboard # Imp (I think?)
