@@ -10,6 +10,17 @@
     tags:
     - Fruit
     - Muffin
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 35
+        - ReagentId: Vitamin
+          Quantity: 12
+        - ReagentId: Sugar
+          Quantity: 5
 
 - type: entity
   name: forever weed brownies
@@ -28,16 +39,22 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 228
+        maxVol: 185
         reagents:
         - ReagentId: Nutriment
-          Quantity: 30
+          Quantity: 53
         - ReagentId: Theobromine
-          Quantity: 18
+          Quantity: 6
         - ReagentId: THC
-          Quantity: 30
+          Quantity: 48
         - ReagentId: ForeverWeed
-          Quantity: 15
+          Quantity: 16
+        - ReagentId: Sugar
+          Quantity: 30
+        - ReagentId: Butter
+          Quantity: 30
+        - ReagentId: CocoaPowder
+          Quantity: 2
   - type: PointLight
     radius: 1.5
     energy: 2
@@ -64,16 +81,22 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 38
+        maxVol: 35
         reagents:
         - ReagentId: Nutriment
-          Quantity: 5
+          Quantity: 8.83
         - ReagentId: Theobromine
-          Quantity: 3
+          Quantity: 1
         - ReagentId: THC
-          Quantity: 5
+          Quantity: 8
         - ReagentId: ForeverWeed
-          Quantity: 2.5
+          Quantity: 2.67
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: Butter
+          Quantity: 5
+        - ReagentId: CocoaPowder
+          Quantity: 0.33
   - type: PointLight
     radius: 1.5
     energy: 2

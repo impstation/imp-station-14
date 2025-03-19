@@ -45,7 +45,10 @@
         - ReagentId: UncookedAnimalProteins
           Quantity: 3
         - ReagentId: Fat
-          Quantity: 2
+          Quantity: 3
+  - type: Construction
+    graph: FinfinCutlet
+    node: finfin cutlet
 
 - type: entity
   name: finfin cutlet
@@ -66,16 +69,13 @@
       food:
         reagents:
         - ReagentId: Nutriment
-          Quantity: 2
+          Quantity: 3
         - ReagentId: Protein
-          Quantity: 2
-  # - type: Construction # huh?
-  #  graph: XenoCutlet
-  #  node: xeno cutlet
-  #- type: FoodSequenceElement
-  #  entries:
-  #    Burger: XenoCutlet
-  #    Taco: XenoCutlet
+          Quantity: 3
+  - type: FoodSequenceElement
+    entries:
+      Burger: FinfinCutlet
+      Taco: FinfinCutlet
 
 - type: entity
   name: cooked Fin Fin
@@ -154,12 +154,8 @@
       food:
         maxVol: 20
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
         - ReagentId: UncookedAnimalProteins
-          Quantity: 1
-        - ReagentId: Fat
-          Quantity: 5
+          Quantity: 20
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/candy.rsi
     state: heartcarpaccio
@@ -246,9 +242,9 @@
       food:
         reagents:
         - ReagentId: Nutriment
-          Quantity: 5
+          Quantity: 9
         - ReagentId: Protein
-          Quantity: 5
+          Quantity: 9
   - type: Construction
     graph: KodepiiaFlakes
     node: crispy kodepiia flakes
