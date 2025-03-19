@@ -1,0 +1,62 @@
+- type: gameMap
+  id: Slag
+  mapName: 'Slag'
+  mapPath: /Maps/_Impstation/slag.yml
+  minPlayers: 0
+  maxPlayers: 18
+  stations:
+    Slag:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Slag { 1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'F-IMP06'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/_Impstation/Shuttles/slag_evac.yml
+        - type: StationCargoShuttle
+          path: /Maps/_Impstation/Shuttles/slag_shuttle.yml
+        - type: StationJobs
+          availableJobs: # total of 31 Jobs
+            # command - 9
+            Captain: [ 1, 1 ]
+            HeadOfPersonnel: [ 1, 1 ]
+            AdministrativeAssistant: [ 1, 1 ]
+            ChiefEngineer: [ 1, 1 ]
+            ChiefMedicalOfficer: [ 1, 1 ]
+            ResearchDirector: [ 1, 1 ]
+            HeadOfSecurity: [ 1, 1 ]
+            HospitalityDirector: [ 1, 1 ]
+            Quartermaster: [ 1, 1 ]
+            # service - 7
+            Bartender: [ 1, 1 ]
+            Botanist: [ 1, 1 ]
+            Chef: [ 1, 1 ]
+            Clown: [ 1, 1 ]
+            Janitor: [ 1, 1 ]
+            Mime: [ 1, 1 ]
+            Musician: [ 1, 1 ]
+            # engineering - 2-3
+            AtmosphericTechnician: [ 1, 1 ]
+            StationEngineer: [ 1, 1 ]
+            TechnicalAssistant: [ 1, 1 ]
+            # medical - 3-4
+            Chemist: [ 1, 1 ]
+            MedicalDoctor: [ 1, 1 ]
+            MedicalIntern: [ 1, 1 ]
+            Paramedic: [ 1, 1 ]
+            # science - 2-3
+            Borg: [ 1, 1 ]
+            ResearchAssistant: [ 1, 1 ]
+            Scientist: [ 1, 1 ]
+            # security - 1-2
+            Brigmedic: [ 1, 1 ]
+            SecurityOfficer: [ 1, 1 ]
+            # cargo - 3-4
+            CargoTechnician: [ 1, 1 ]
+            Courier: [ 1, 1 ]
+            SalvageSpecialist: [ 1, 1 ]
+            SupplyAssistant: [ 1, 1 ]
+            # civilian
+            Passenger: [ -1, -1 ]
