@@ -19,6 +19,9 @@ public sealed partial class PowerGridCheckRuleComponent : Component
     [DataField]
     public SoundSpecifier PowerOnSound = new SoundCollectionSpecifier(DefaultPowerOn, AudioParams.Default.WithVolume(-4f));
 
+    // imp edit - unused, commented out
+    // public CancellationTokenSource? AnnounceCancelToken;
+
     public EntityUid AffectedStation;
     public readonly List<EntityUid> Powered = new();
     public readonly List<EntityUid> Unpowered = new();
