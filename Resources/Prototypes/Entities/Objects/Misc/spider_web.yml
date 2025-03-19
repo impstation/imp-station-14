@@ -76,6 +76,17 @@
       ignoreWhitelist:
         components:
             - IgnoreSpiderWeb
+    - type: FlavorProfile
+      flavors:
+        - cobwebs
+    - type: Food
+      delay: 2
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          reagents:
+          - ReagentId: Fiber
+            Quantity: 2
 
 - type: entity
   id: SpiderWebClown
