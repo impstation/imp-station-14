@@ -49,8 +49,8 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ProjectileComponent, PreventCollideEvent>(PreventCollision);
-        SubscribeLocalEvent<EmbeddableProjectileComponent, ProjectileHitEvent>(OnEmbedProjectileHit, before: [typeof(SharedDestructibleSystem)]);
-        SubscribeLocalEvent<EmbeddableProjectileComponent, ThrowDoHitEvent>(OnEmbedThrowDoHit, before: [typeof(SharedDestructibleSystem)]);
+        SubscribeLocalEvent<EmbeddableProjectileComponent, ProjectileHitEvent>(OnEmbedProjectileHit, before: [typeof(SharedDestructibleSystem)]); // imp edit. ee code. i dont know at this point
+        SubscribeLocalEvent<EmbeddableProjectileComponent, ThrowDoHitEvent>(OnEmbedThrowDoHit, before: [typeof(SharedDestructibleSystem)]); // imp edit. ee code. i dont know at this point
         SubscribeLocalEvent<EmbeddableProjectileComponent, ActivateInWorldEvent>(OnEmbedActivate, before: [typeof(ItemToggleSystem)]);
         SubscribeLocalEvent<EmbeddableProjectileComponent, GetVerbsEvent<InteractionVerb>>(AddPullOutVerb);
         SubscribeLocalEvent<EmbeddableProjectileComponent, RemoveEmbeddedProjectileEvent>(OnEmbedRemove);
@@ -168,6 +168,9 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             _hands.TryPickupAnyHand(removerUid, uid);
     }
 
+    /// <summary>
+    /// Imp: Unembeds all child entities on a given entity.
+    /// </summary>
     public void RemoveEmbeddedChildren(EntityUid uid)
     {
         var enumerator = Transform(uid).ChildEnumerator;
