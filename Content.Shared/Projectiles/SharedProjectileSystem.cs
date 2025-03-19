@@ -142,6 +142,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             return;
         }
 
+        // imp edit - who the fuck uses TryComp and just prays it returns something. are you fucking kidding me?
         if (!TryComp<PhysicsComponent>(uid, out var physics))
             return;
 
@@ -195,16 +196,18 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     {
         Embed(uid, args.Target, args.Shooter, component);
 
-        // Raise a specific event for projectiles.
+        // imp edit
         if (!TryComp<ProjectileComponent>(uid, out var projectile) || projectile.Weapon is not { } weapon)
             return;
 
+        // Raise a specific event for projectiles.
         var ev = new ProjectileEmbedEvent(projectile.Shooter, weapon, args.Target);
         RaiseLocalEvent(uid, ref ev);
     }
 
     private void Embed(EntityUid uid, EntityUid target, EntityUid? user, EmbeddableProjectileComponent component)
     {
+        // imp edit - who the fuck uses TryComp and just prays it returns something. are you fucking kidding me?
         if (!TryComp<PhysicsComponent>(uid, out var physics))
             return;
 
