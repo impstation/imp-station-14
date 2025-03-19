@@ -336,6 +336,8 @@
           Quantity: 7 # imp
         - ReagentId: Protein
           Quantity: 9 # imp
+        #- ReagentId: Vitamin # imp
+        #  Quantity: 2
         - ReagentId: MouseBites # imp - mq's request
           Quantity: 5
   - type: Tag
@@ -400,7 +402,7 @@
           Quantity: 6.66 # imp
         - ReagentId: Protein
           Quantity: 9 # imp
-        # - ReagentId: Vitamin
+        # - ReagentId: Vitamin # imp
         #  Quantity: 1
         - ReagentId: Mayo
           Quantity: 5 # imp
@@ -455,12 +457,12 @@
       food:
         maxVol: 30 # imp
         reagents:
-        - ReagentId: Nutriment # imp
-          Quantity: 7
         - ReagentId: Bicaridine #keeping it somewhat consistent with the meat itself
           Quantity: 20 # imp
         # - ReagentId: Vitamin # imp
         #  Quantity: 12
+        - ReagentId: Nutriment # imp
+          Quantity: 7
   - type: Tag
     tags:
     - Meat
@@ -548,6 +550,8 @@
           Quantity: 11 # imp
         - ReagentId: Protein
           Quantity: 9 # imp
+        #- ReagentId: Vitamin # imp
+        #  Quantity: 1
   - type: Tag
     tags:
     - Meat
@@ -653,12 +657,12 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 7
+        # - ReagentId: Vitamin # imp
+        #  Quantity: 12
         - ReagentId: Ash # imp
           Quantity: 25
         - ReagentId: Necrosol # imp
           Quantity: 25
-        # - ReagentId: Vitamin # imp
-        #  Quantity: 12
   - type: Tag
     tags:
     - ClothMade
@@ -882,8 +886,10 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 23 # imp
-        # - ReagentId: Vitamin # imp
-        #  Quantity: 4
+        #- ReagentId: Protein # imp
+        #  Quantity: 6
+        #- ReagentId: Vitamin
+        # Quantity: 4
 # Tastes like bun, redditors.
 
 - type: entity
@@ -909,7 +915,7 @@
           Quantity: 5
         - ReagentId: Carpetium # imp
           Quantity: 5
-        #- ReagentId: Protein
+        #- ReagentId: Protein # imp
         #  Quantity: 5
         #- ReagentId: Vitamin
         #  Quantity: 10
@@ -971,6 +977,8 @@
           Quantity: 9 # imp
         - ReagentId: Protein
           Quantity: 3 # imp
+        #- ReagentId: Vitamin # imp
+        #  Quantity: 3
 # Tastes like bun, tofu.
 
 - type: entity

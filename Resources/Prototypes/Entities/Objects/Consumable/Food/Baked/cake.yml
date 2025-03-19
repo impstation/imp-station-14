@@ -160,17 +160,19 @@
     state: carrot
   - type: SliceableFood
     slice: FoodCakeCarrotSlice
-  - type: SolutionContainerManager # imp
+  - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 55
+        maxVol: 55 # imp
         reagents:
         - ReagentId: JuiceCarrot
           Quantity: 15
-        - ReagentId: Nutriment
-          Quantity: 20
+        #- ReagentId: Sugar # imp
+        #  Quantity: 5
         - ReagentId: Vitamin
           Quantity: 17
+        - ReagentId: Nutriment
+          Quantity: 20
   - type: Tag
     tags:
     - Cake
@@ -191,10 +193,12 @@
         reagents:
         - ReagentId: JuiceCarrot
           Quantity: 3
-        - ReagentId: Nutriment # imp
-          Quantity: 4
+        #- ReagentId: Sugar # imp
+        #  Quantity: 1
         - ReagentId: Vitamin
           Quantity: 3.4 # imp
+        - ReagentId: Nutriment # imp
+          Quantity: 4
   - type: Tag
     tags:
     - Cake
@@ -520,7 +524,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 55
+        maxVol: 55 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 40 # imp
@@ -819,9 +823,9 @@
         - ReagentId: Nutriment
           Quantity: 5 # imp
         - ReagentId: Vitamin
-          Quantity: 1 # imp
+          Quantity: 1
         - ReagentId: Sugar
-          Quantity: 3 # imp
+          Quantity: 3
 # Tastes like sweetness, cake, vanilla.
 
 - type: entity
@@ -1023,8 +1027,8 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 80 # imp
-        - ReagentId: Sugar
-          Quantity: 30 # imp
+        - ReagentId: Sugar # imp
+          Quantity: 30
   - type: Food
     transferAmount: 12
   - type: Item
@@ -1053,8 +1057,8 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 10 # imp
-        - ReagentId: Sugar
-          Quantity: 3.75 # imp
+        - ReagentId: Sugar # imp
+          Quantity: 3.75
   - type: Food
     transferAmount: 3
   - type: PointLight

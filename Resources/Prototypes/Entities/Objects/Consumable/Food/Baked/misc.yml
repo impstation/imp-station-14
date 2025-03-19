@@ -156,10 +156,10 @@
           Quantity: 5 # imp
         # - ReagentId: Vitamin
         #  Quantity: 2
-        - ReagentId: Sugar # imp
-          Quantity: 10
         - ReagentId: JuiceBanana
           Quantity: 10 # imp
+        - ReagentId: Sugar # imp
+          Quantity: 10
   - type: Tag
     tags:
     - Fruit
@@ -671,7 +671,7 @@
         maxVol: 5
         reagents:
         - ReagentId: Nutriment
-          Quantity: 2.25
+          Quantity: 2.25 # imp
         - ReagentId: Vitamin
           Quantity: 0.2 # imp
         - ReagentId: TableSalt # imp
@@ -702,7 +702,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 2
+        maxVol: 5
         reagents:
         - ReagentId: Nutriment
           Quantity: 1.4 # imp

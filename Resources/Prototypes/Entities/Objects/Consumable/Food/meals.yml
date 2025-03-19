@@ -186,7 +186,7 @@
         # - ReagentId: Vitamin # imp
         #  Quantity: 3
         - ReagentId: TableSalt
-          Quantity: 1
+          Quantity: 1 # imp
 # Tastes like nachos, cheese.
 
 - type: entity
@@ -292,6 +292,7 @@
   - type: FlavorProfile
     flavors:
     - carpflesh #imp
+    #- fishy # imp
     - batter
     - spicy
   - type: Sprite
@@ -360,6 +361,8 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 2
+        #- ReagentId: Vitamin # imp
+        #  Quantity: 5
         - ReagentId: UncookedAnimalProteins # imp
           Quantity: 5
   - type: Tag
@@ -413,7 +416,7 @@
       food:
         maxVol: 25
         reagents:
-        # - ReagentId: Nutriment
+        # - ReagentId: Nutriment # imp
         #  Quantity: 3
         - ReagentId: Protein
           Quantity: 18 # imp
@@ -560,7 +563,7 @@
           Quantity: 9
         - ReagentId: Water
           Quantity: 10
-        # - ReagentId: Blackpepper
+        # - ReagentId: Blackpepper # imp
         #  Quantity: 3
         - ReagentId: Cola # imp
           Quantity: 5
