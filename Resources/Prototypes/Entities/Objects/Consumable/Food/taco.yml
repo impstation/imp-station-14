@@ -158,24 +158,27 @@
   name: beef taco supreme
   parent: FoodTacoBase
   id: FoodTacoBeefSupreme
-  description: It's like a regular beef taco, but surpeme!
+  description: It's like a regular beef taco, but supreme! # imp
   components:
+  - type: FlavorProfile # imp
+    flavors:
+    - meaty
+    - cheesy
+    - tomato
   - type: Food
   - type: Sprite
     state: beeftacosupreme
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 45 # imp
+        maxVol: 50 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 28 # imp
+          Quantity: 35 # imp
         - ReagentId: Vitamin
-          Quantity: 6
+          Quantity: 9 # imp
         - ReagentId: Protein # imp
           Quantity: 3
-        - ReagentId: TomatoJuice # imp
-          Quantity: 10
         - ReagentId: Allicin # imp
           Quantity: 1
 
@@ -183,24 +186,27 @@
   name: chicken taco supreme
   parent: FoodTacoBase
   id: FoodTacoChickenSupreme
-  description: It's like a regular chicken taco, but surpeme!
+  description: It's like a regular chicken taco, but supreme! # imp
   components:
+  - type: FlavorProfile # imp
+    flavors:
+    - meaty
+    - cheesy
+    - tomato
   - type: Food
   - type: Sprite
     state: chickentacosupreme
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 45 # imp
+        maxVol: 50 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 28 # imp
+          Quantity: 35 # imp
         - ReagentId: Vitamin
-          Quantity: 6
+          Quantity: 9 # imp
         - ReagentId: Protein # imp
           Quantity: 3
-        - ReagentId: TomatoJuice # imp
-          Quantity: 10
         - ReagentId: Allicin # imp
           Quantity: 1
 
