@@ -83,12 +83,12 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 60
+        maxVol: 75
         reagents:
         - ReagentId: Nutriment
-          Quantity: 30
-        - ReagentId: JuiceApple
-          Quantity: 30
+          Quantity: 60
+        - ReagentId: Vitamin
+          Quantity: 12
 
 - type: entity
   name: slice of apple pie
@@ -112,12 +112,12 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 15
+        maxVol: 20
         reagents:
         - ReagentId: Nutriment
-          Quantity: 7.5
-        - ReagentId: JuiceApple
-          Quantity: 7.5
+          Quantity: 15
+        - ReagentId: Vitamin
+          Quantity: 3
 # Tastes like pie, apple.
 
 - type: entity
@@ -275,9 +275,9 @@
         maxVol: 60
         reagents:
         - ReagentId: Nutriment
-          Quantity: 30
-        - ReagentId: JuiceBerry
-          Quantity: 30
+          Quantity: 45
+        - ReagentId: Vitamin
+          Quantity: 12
 
 - type: entity
   name: slice of berry clafoutis
@@ -304,9 +304,9 @@
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 7.5
-        - ReagentId: JuiceBerry
-          Quantity: 7.5
+          Quantity: 11.25
+        - ReagentId: Vitamin
+          Quantity: 3
 # Tastes like pie, blackberries.
 
 - type: entity
@@ -318,6 +318,7 @@
   - type: FlavorProfile
     flavors:
     - sweet
+    - cherry # imp
   - type: Sprite
     layers:
     - state: tin
@@ -334,9 +335,9 @@
         maxVol: 55
         reagents:
         - ReagentId: Nutriment
-          Quantity: 30
-        - ReagentId: JuiceBerry
-          Quantity: 25
+          Quantity: 45
+        - ReagentId: Vitamin
+          Quantity: 15
 
 - type: entity
   name: slice of cherry pie
@@ -362,9 +363,9 @@
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 7.5
-        - ReagentId: JuiceBerry
-          Quantity: 6.25
+          Quantity: 11.25
+        - ReagentId: Vitamin
+          Quantity: 3.75
 # Tastes like pie, cherries.
 
 - type: entity
@@ -703,19 +704,20 @@
   - type: FlavorProfile
     flavors:
     - sweet
+    - juice
   - type: Sprite
     state: grape
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 30
+        maxVol: 70
         reagents:
         - ReagentId: Nutriment
-          Quantity: 35
+          Quantity: 50
         - ReagentId: Sugar
           Quantity: 5
-        - ReagentId: JuiceGrape # imp
-          Quantity: 30
+        - ReagentId: Vitamin
+          Quantity: 12
   - type: Tag
     tags:
     - Fruit
@@ -743,11 +745,11 @@
         maxVol: 30
         reagents:
         - ReagentId: Nutriment
-          Quantity: 35
+          Quantity: 55
         - ReagentId: Sugar
           Quantity: 5
-        - ReagentId: JuiceApple
-          Quantity: 20
+        - ReagentId: Vitamin
+          Quantity: 8
 # Tastes like tart, apple, expensive metal.
 
 - type: entity

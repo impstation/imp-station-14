@@ -264,21 +264,20 @@
     - meaty
     - oily
     - cheesy
+    - tomato # imp
   - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 50 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 15 # imp
+          Quantity: 22 # imp
         - ReagentId: Protein # imp
           Quantity: 18
-        - ReagentId: JuiceTomato # imp
-          Quantity: 10
         - ReagentId: Allicin # imp
           Quantity: 2
         - ReagentId: Vitamin # imp
-          Quantity: 2
+          Quantity: 5
   - type: Sprite
     state: bigbite
   - type: Tag
@@ -391,6 +390,7 @@
     flavors:
     - bun
     - chicken
+    - mayonnaise # imp - mayo
   - type: Sprite
     state: chicken
   - type: SolutionContainerManager
@@ -404,8 +404,8 @@
           Quantity: 9 # imp
         # - ReagentId: Vitamin # imp
         #  Quantity: 1
-        - ReagentId: Mayo
-          Quantity: 5 # imp
+        #- ReagentId: Mayo
+        #  Quantity: 3
   - type: Tag
     tags:
     - Meat
@@ -736,12 +736,13 @@
     flavors:
     - bun
     - bacon
+    - sweet # imp - bbq sauce
   - type: Sprite
     state: mcrib
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 35 # imp
+        maxVol: 30 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 9 # imp
@@ -749,8 +750,8 @@
           Quantity: 18 # imp
         - ReagentId: Vitamin
           Quantity: 1 # imp
-        - ReagentId: BbqSauce
-          Quantity: 5 # imp
+        #- ReagentId: BbqSauce # imp
+        #  Quantity: 1
         - ReagentId: Allicin # imp
           Quantity: 1
   - type: Tag
@@ -932,19 +933,18 @@
     - meaty
     - oily
     - cheesy
+    - tomato # imp
   - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 60 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 27 # imp
+          Quantity: 34 # imp
         - ReagentId: Protein # imp
           Quantity: 18
-        - ReagentId: JuiceTomato # imp
-          Quantity: 10
-        # - ReagentId: Vitamin # imp
-        #  Quantity: 24
+        - ReagentId: Vitamin
+          Quantity: 3 # imp
         - ReagentId: TableSalt
           Quantity: 5
         # - ReagentId: Blackpepper # imp

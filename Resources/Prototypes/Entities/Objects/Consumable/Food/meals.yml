@@ -208,7 +208,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 30 # imp
+        maxVol: 25 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 9 # imp
@@ -216,8 +216,6 @@
           Quantity: 10 # imp
         - ReagentId: Vitamin
           Quantity: 4 # imp
-        - ReagentId: Ketchup # imp
-          Quantity: 5
 # Tastes like nachos, hot pepper.
 
 - type: entity
@@ -409,19 +407,20 @@
     flavors:
     - meaty
     - smokey
+    - sweet # imp - bbq sauce
   - type: Sprite
     state: ribs
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25
+        maxVol: 20 # imp
         reagents:
         # - ReagentId: Nutriment # imp
         #  Quantity: 3
         - ReagentId: Protein
           Quantity: 18 # imp
-        - ReagentId: BbqSauce
-          Quantity: 5 # imp
+        #- ReagentId: BbqSauce # imp
+        #  Quantity: 10
   - type: Tag
     tags:
     - Meat
@@ -669,32 +668,27 @@
     flavors:
     - fruity
     - sour
+    - apple # imp
+    - orange # imp
+    - watermelon # imp
   - type: Sprite
     state: melonfruitbowl
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 85 # imp
+        maxVol: 90 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 2 # imp
+          Quantity: 32 # imp
         - ReagentId: Vitamin
-          Quantity: 2 # imp
-        #- ReagentId: Water
-        #  Quantity: 5
+          Quantity: 18 # imp
+        - ReagentId: Water
+          Quantity: 10 # imp
         - ReagentId: Bicaridine
           Quantity: 5
         - ReagentId: Kelotane
           Quantity: 5
-        - ReagentId: JuiceWatermelon # imp
-          Quantity: 20
-        - ReagentId: JuiceApple # imp
-          Quantity: 10
         - ReagentId: JuiceBanana # imp
-          Quantity: 10
-        - ReagentId: JuiceLemon # imp
-          Quantity: 10
-        - ReagentId: JuiceOrange # imp
           Quantity: 10
         - ReagentId: Desoxyephedrine # imp
           Quantity: 10

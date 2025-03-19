@@ -84,6 +84,9 @@
     flavors:
       - whimsy
       - fruity
+      - apple
+      - orange
+      - watermelon
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/meals.rsi
     state: fruit-lollipop
@@ -95,17 +98,13 @@
         maxVol: 35
         reagents:
         - ReagentId: Nutriment
-          Quantity: 1
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 5.25
         - ReagentId: Sugar
           Quantity: 10
-        - ReagentId: JuiceOrange
-          Quantity: 5
-        - ReagentId: JuiceApple
-          Quantity: 5
-        - ReagentId: JuiceWatermelon
-          Quantity: 5
         - ReagentId: Water
-          Quantity: 5
+          Quantity: 7.5
 
 - type: entity
   name: meat lollipop

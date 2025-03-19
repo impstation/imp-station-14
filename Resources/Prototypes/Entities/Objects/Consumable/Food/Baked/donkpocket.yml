@@ -288,14 +288,15 @@
   - type: FlavorProfile
     flavors:
       - cheap
+      - berry # imp
   - type: SolutionContainerManager
     solutions:
       food:
         reagents:
         - ReagentId: Nutriment
-          Quantity: 3 # imp
-        - ReagentId: JuiceBerry # imp
-          Quantity: 1
+          Quantity: 3.5 # imp
+        - ReagentId: Vitamin
+          Quantity: 0.1
   - type: Sprite
     state: berry
 
@@ -308,16 +309,17 @@
   - type: FlavorProfile
     flavors:
       - cheap
+      - berry # imp
   - type: SolutionContainerManager
     solutions:
       food:
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6 # imp
+          Quantity: 8.5 # imp
         - ReagentId: Omnizine
           Quantity: 2
-        - ReagentId: JuiceBerry # imp
-          Quantity: 5
+        - ReagentId: Vitamin # imp
+          Quantity: 2
 
 - type: entity
   name: stonk-pocket

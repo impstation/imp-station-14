@@ -115,6 +115,7 @@
     - onion
     #- fishy # imp
     - carpflesh # imp
+    - tomato # imp
   - type: Food
   - type: Sprite
     state: fishtaco
@@ -124,15 +125,13 @@
         maxVol: 45 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 21 # imp
+          Quantity: 28 # imp
         - ReagentId: Vitamin
-          Quantity: 6 # imp
+          Quantity: 9 # imp
         - ReagentId: CarpoToxin # imp
           Quantity: 5
         - ReagentId: Allicin # imp
           Quantity: 2
-        - ReagentId: JuiceTomato # imp
-          Quantity: 10
 
 - type: entity
   name: rat taco

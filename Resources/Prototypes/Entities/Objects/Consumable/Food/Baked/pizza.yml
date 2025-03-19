@@ -76,6 +76,7 @@
       - cheesy
       - oily
       - bread
+      - tomato # imp
   - type: Sprite
     layers:
     - state: margherita
@@ -84,12 +85,12 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 50
+        maxVol: 55
         reagents:
         - ReagentId: Nutriment
-          Quantity: 19
-        - ReagentId: JuiceTomato
-          Quantity: 30
+          Quantity: 40
+        - ReagentId: Vitamin
+          Quantity: 12
 
 - type: entity
   name: slice of margherita pizza
@@ -102,6 +103,7 @@
       - cheesy
       - oily
       - bread
+      - tomato # imp
   - type: Sprite
     layers:
     - state: margherita-slice
@@ -111,9 +113,9 @@
         maxVol: 10
         reagents:
         - ReagentId: Nutriment
-          Quantity: 2.375
-        - ReagentId: JuiceTomato
-          Quantity: 3.75
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 1.5
 
 - type: entity
   name: meat pizza
@@ -127,6 +129,7 @@
       - cheesy
       - oily
       - bread
+      - tomato # imp
   - type: Sprite
     layers:
     - state: meat
@@ -142,11 +145,11 @@
         maxVol: 40
         reagents:
         - ReagentId: Nutriment
-          Quantity: 19
+          Quantity: 26
         - ReagentId: Protein
           Quantity: 9
-        - ReagentId: JuiceTomato
-          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 3
 
 - type: entity
   name: slice of meat pizza
@@ -174,11 +177,11 @@
         maxVol: 5
         reagents:
         - ReagentId: Nutriment
-          Quantity: 2.375
+          Quantity: 3.25
         - ReagentId: Protein
           Quantity: 1.125
-        - ReagentId: JuiceTomato
-          Quantity: 1.25
+        - ReagentId: Vitamin
+          Quantity: 0.375
 # Tastes like crust, tomato, cheese, meat.
 
 - type: entity
@@ -253,13 +256,11 @@
         maxVol: 75 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 50 # imp
+          Quantity: 57 # imp
         - ReagentId: JuiceCarrot
           Quantity: 10 # imp
         - ReagentId: Vitamin
-          Quantity: 4 # imp
-        - ReagentId: JuiceTomato # imp
-          Quantity: 10
+          Quantity: 7 # imp
 
 - type: entity
   name: slice of vegetable pizza
@@ -285,13 +286,11 @@
         maxVol: 10 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6.25 # imp
+          Quantity: 7.125 # imp
         - ReagentId: JuiceCarrot
           Quantity: 1.25 # imp
         - ReagentId: Vitamin
-          Quantity: 0.5 # imp
-        - ReagentId: JuiceTomato # imp
-          Quantity: 1.25
+          Quantity: 0.875 # imp
 
 # Tastes like crust, tomato, cheese, carrot.
 
@@ -304,6 +303,7 @@
   - type: FlavorProfile
     flavors:
       - donk
+      - tomato
   - type: Sprite
     layers:
     - state: donkpocket
@@ -315,13 +315,11 @@
         maxVol: 55 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 37 # imp
-        # - ReagentId: Vitamin # imp
-        #  Quantity: 6
+          Quantity: 44 # imp
+        - ReagentId: Vitamin
+          Quantity: 3 # imp
         - ReagentId: Omnizine
           Quantity: 6 # imp
-        - ReagentId: JuiceTomato # imp
-          Quantity: 10
   - type: Tag
     tags:
     - Meat
@@ -346,13 +344,11 @@
         maxVol: 10 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 4.63 # imp
-        # - ReagentId: Vitamin # imp
-        #  Quantity: 1
+          Quantity: 5.5 # imp
+        - ReagentId: Vitamin
+          Quantity: 0.375 # imp
         - ReagentId: Omnizine
           Quantity: 0.75 # imp
-        - ReagentId: JuiceTomato # imp
-          Quantity: 1.25
   - type: Tag
     tags:
     - Meat
@@ -372,6 +368,7 @@
       - bread
       - cheesy
       - leafy
+      - tomato # imp
   - type: Sprite
     layers:
     - state: dank
@@ -383,11 +380,11 @@
         maxVol: 60 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 19 # imp
+          Quantity: 26 # imp
         - ReagentId: THC
           Quantity: 30
-        - ReagentId: JuiceTomato # imp
-          Quantity: 10
+        - ReagentId: Vitamin # imp
+          Quantity: 3
 
 - type: entity
   name: slice of dank pizza
@@ -410,11 +407,11 @@
         maxVol: 10 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 2.38 # imp
+          Quantity: 3.25 # imp
         - ReagentId: THC
           Quantity: 3.75 # imp
-        - ReagentId: JuiceTomato # imp
-          Quantity: 1.25
+        - ReagentId: Vitamin # imp
+          Quantity: 0.375
 # Tastes like crust, tomato, cheese, meat, satisfaction.
 
 - type: entity
@@ -486,14 +483,14 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 35
+        maxVol: 40
         reagents:
         - ReagentId: Nutriment
-          Quantity: 15
+          Quantity: 25
         - ReagentId: Protein
           Quantity: 9
-        - ReagentId: JuicePineapple
-          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 2
 
 - type: entity
   name: slice of Hawaiian pizza
@@ -522,11 +519,11 @@
         maxVol: 5
         reagents:
         - ReagentId: Nutriment
-          Quantity: 1.875
+          Quantity: 3.125
         - ReagentId: Protein
           Quantity: 1.125
-        - ReagentId: JuicePineapple
-          Quantity: 1.25
+        - ReagentId: Vitamin
+          Quantity: 0.25
 # Tastes like crust, tomato, cheese, pineapple, ham.
 
 #TODO: This is a meme pizza from /tg/. It has specially coded mechanics.
@@ -646,6 +643,7 @@
     - cheesy
     - oily
     - bread
+    - tomato # imp
   - type: Sprite
     layers:
     - state: uranium-pizza
@@ -661,10 +659,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 95 # imp
+        maxVol: 85 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 23 # imp
+          Quantity: 37 # imp
         - ReagentId: Radium
           Quantity: 4
         - ReagentId: Uranium
@@ -672,9 +670,7 @@
         - ReagentId: CapsaicinOil # imp
           Quantity: 20
         - ReagentId: Vitamin # imp
-          Quantity: 8
-        - ReagentId: JuiceTomato # imp
-          Quantity: 20
+          Quantity: 14
   - type: RadiationSource
     intensity: 0.04
     slope: 3
@@ -691,6 +687,7 @@
     - cheesy
     - oily
     - bread
+    - tomato # imp
   - type: Sprite
     layers:
     - state: uranium-slice
@@ -708,7 +705,7 @@
         maxVol: 15 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 2.88 # imp
+          Quantity: 4.625 # imp
         - ReagentId: Radium
           Quantity: 0.5
         - ReagentId: Uranium
@@ -716,9 +713,7 @@
         - ReagentId: CapsaicinOil # imp
           Quantity: 2.5
         - ReagentId: Vitamin # imp
-          Quantity: 1
-        - ReagentId: JuiceTomato # imp
-          Quantity: 2.5
+          Quantity: 1.75
   - type: RadiationSource
     intensity: 0.04
     slope: 3

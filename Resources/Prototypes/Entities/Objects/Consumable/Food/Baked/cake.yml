@@ -101,7 +101,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 10
+        maxVol: 11
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -142,7 +142,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 10
+        maxVol: 11
         reagents:
         - ReagentId: Nutriment
           Quantity: 4
@@ -249,7 +249,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 10
+        maxVol: 11
         reagents:
         - ReagentId: Nutriment
           Quantity: 4
@@ -291,7 +291,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 10
+        maxVol: 11
         reagents:
         - ReagentId: Nutriment
           Quantity: 6.4
@@ -305,6 +305,10 @@
   id: FoodCakeOrange
   description: A cake with added orange.
   components:
+  - type: FlavorProfile # imp
+    flavors:
+    - sweet
+    - orange
   - type: Sprite
     state: orange
   - type: SliceableFood
@@ -319,17 +323,19 @@
         maxVol: 55
         reagents:
         - ReagentId: Nutriment
-          Quantity: 20
+          Quantity: 25
         - ReagentId: Vitamin
-          Quantity: 5
-        - ReagentId: JuiceOrange
-          Quantity: 10
+          Quantity: 9
 
 - type: entity
   name: slice of orange cake
   parent: FoodCakeSliceBase
   id: FoodCakeOrangeSlice
   components:
+  - type: FlavorProfile # imp
+    flavors:
+    - sweet
+    - orange
   - type: Sprite
     state: orange-slice
   - type: Tag
@@ -340,14 +346,12 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 10
+        maxVol: 11
         reagents:
         - ReagentId: Nutriment
-          Quantity: 4
+          Quantity: 5
         - ReagentId: Vitamin
-          Quantity: 1
-        - ReagentId: JuiceOrange
-          Quantity: 2
+          Quantity: 1.8
 # Tastes like sweetness, cake, oranges.
 
 - type: entity
@@ -356,6 +360,10 @@
   id: FoodCakeLime
   description: A cake with added lime.
   components:
+  - type: FlavorProfile # imp
+    flavors:
+    - sweet
+    - sour
   - type: Sprite
     state: lime
   - type: SliceableFood
@@ -370,17 +378,19 @@
         maxVol: 55
         reagents:
         - ReagentId: Nutriment
-          Quantity: 20
+          Quantity: 25
         - ReagentId: Vitamin
-          Quantity: 5
-        - ReagentId: JuiceLime
-          Quantity: 10
+          Quantity: 9
 
 - type: entity
   name: slice of lime cake
   parent: FoodCakeSliceBase
   id: FoodCakeLimeSlice
   components:
+  - type: FlavorProfile # imp
+    flavors:
+    - sweet
+    - sour
   - type: Sprite
     state: lime-slice
   - type: Tag
@@ -391,14 +401,12 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 10
+        maxVol: 11
         reagents:
         - ReagentId: Nutriment
-          Quantity: 4
+          Quantity: 5
         - ReagentId: Vitamin
-          Quantity: 1
-        - ReagentId: JuiceLime
-          Quantity: 2
+          Quantity: 1.8
 # Tastes like sweetness, cake, limes.
 
 - type: entity
@@ -407,6 +415,10 @@
   id: FoodCakeLemon
   description: A cake with added lemon.
   components:
+  - type: FlavorProfile # imp
+    flavors:
+    - sweet
+    - sour
   - type: Sprite
     state: lemon
   - type: SliceableFood
@@ -421,17 +433,19 @@
         maxVol: 55
         reagents:
         - ReagentId: Nutriment
-          Quantity: 20
+          Quantity: 25
         - ReagentId: Vitamin
-          Quantity: 5
-        - ReagentId: JuiceLemon
-          Quantity: 10
+          Quantity: 9
 
 - type: entity
   name: slice of lemon cake
   parent: FoodCakeSliceBase
   id: FoodCakeLemonSlice
   components:
+  - type: FlavorProfile # imp
+    flavors:
+    - sweet
+    - sour
   - type: Sprite
     state: lemon-slice
   - type: Tag
@@ -442,14 +456,12 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 10
+        maxVol: 11
         reagents:
         - ReagentId: Nutriment
-          Quantity: 4
+          Quantity: 5
         - ReagentId: Vitamin
-          Quantity: 1
-        - ReagentId: JuiceLemon
-          Quantity: 2
+          Quantity: 1.8
 # Tastes like sweetness, cake, lemons.
 
 - type: entity
@@ -563,6 +575,10 @@
   id: FoodCakeApple
   description: A cake centred with apple.
   components:
+  - type: FlavorProfile # imp - apple
+    flavors:
+    - sweet
+    - apple
   - type: Sprite
     state: apple
   - type: SliceableFood
@@ -574,14 +590,12 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 55
+        maxVol: 40
         reagents:
         - ReagentId: Nutriment
-          Quantity: 20
+          Quantity: 30
         - ReagentId: Vitamin
-          Quantity: 5
-        - ReagentId: JuiceApple
-          Quantity: 10
+          Quantity: 9
 
 - type: entity
   name: slice of apple cake
@@ -589,6 +603,10 @@
   id: FoodCakeAppleSlice
   description: A slice of heavenly cake.
   components:
+  - type: FlavorProfile # imp - apple
+    flavors:
+    - sweet
+    - apple
   - type: Sprite
     state: apple-slice
   - type: Tag
@@ -599,14 +617,12 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 10
+        maxVol: 11
         reagents:
         - ReagentId: Nutriment
-          Quantity: 4
+          Quantity: 6
         - ReagentId: Vitamin
-          Quantity: 1
-        - ReagentId: JuiceApple
-          Quantity: 2
+          Quantity: 1.8
 # Tastes like sweetness, cake, slime.
 
 - type: entity
@@ -651,7 +667,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 10
+        maxVol: 11
         reagents:
         - ReagentId: Nutriment
           Quantity: 4
@@ -775,7 +791,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 55
+        maxVol: 11
         reagents:
         - ReagentId: Nutriment
           Quantity: 4
@@ -861,7 +877,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 10 # imp
+        maxVol: 11 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 4
@@ -904,7 +920,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 10
+        maxVol: 11 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 6 # imp

@@ -56,12 +56,12 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 25
+        maxVol: 45
         reagents:
         - ReagentId: Nutriment
-          Quantity: 25
-        - ReagentId: JuiceTomato
-          Quantity: 20
+          Quantity: 39
+        - ReagentId: Vitamin
+          Quantity: 6
   - type: Tag
     tags:
     - Fruit

@@ -59,21 +59,25 @@
   id: FoodBakedMuffinBerry
   description: A delicious and spongy little cake, with berries.
   components:
+  - type: FlavorProfile # imp
+    flavors:
+    - sweet
+    - berry
   - type: Sprite
     state: muffin-berry
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 30 # imp
+        maxVol: 25 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 5 # imp
+          Quantity: 10 # imp
         - ReagentId: Sugar # imp
           Quantity: 10
-        #- ReagentId: Vitamin # imp
+        - ReagentId: Vitamin
+          Quantity: 4
+        #- ReagentId: JuiceBerry
         #  Quantity: 2
-        - ReagentId: JuiceBerry
-          Quantity: 10 # imp
   - type: Tag
     tags:
     - Fruit
@@ -84,21 +88,23 @@
   id: FoodBakedMuffinCherry
   description: A sweet muffin with cherry bits.
   components:
+  - type: FlavorProfile # imp
+    flavors:
+    - sweet
+    - cherry
   - type: Sprite
     state: muffin-cherry
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 30 # imp
+        maxVol: 35 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 5 # imp
+          Quantity: 14 # imp
         - ReagentId: Sugar # imp
           Quantity: 10
-        # - ReagentId: Vitamin
-        #  Quantity: 2
-        - ReagentId: JuiceCherry
-          Quantity: 15 # imp
+        - ReagentId: Vitamin
+          Quantity: 9 # imp
   - type: Tag
     tags:
     - Fruit
