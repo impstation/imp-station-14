@@ -86,18 +86,8 @@ public abstract class SharedPowerCellSystem : EntitySystem
             return;
 
         ent.Comp.Enabled = enabled;
+        ent.Comp.NextUpdateTime = Timing.CurTime; // imp edit
         Dirty(ent, ent.Comp);
-    }
-
-    /// <summary>
-    /// Imp: Resets the update time to the current game time.
-    /// </summary>
-    public void ResetUpdateTime(Entity<PowerCellDrawComponent?> ent)
-    {
-        if (!Resolve(ent, ref ent.Comp, false))
-            return;
-
-        ent.Comp.NextUpdateTime = Timing.CurTime;
     }
 
     /// <summary>
