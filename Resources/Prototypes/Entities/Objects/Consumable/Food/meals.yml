@@ -671,6 +671,7 @@
     - apple # imp
     - orange # imp
     - watermelon # imp
+    - banana # imp
   - type: Sprite
     state: melonfruitbowl
   - type: SolutionContainerManager
@@ -679,17 +680,15 @@
         maxVol: 90 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 32 # imp
+          Quantity: 38 # imp
         - ReagentId: Vitamin
-          Quantity: 18 # imp
+          Quantity: 20 # imp
         - ReagentId: Water
           Quantity: 10 # imp
         - ReagentId: Bicaridine
           Quantity: 5
         - ReagentId: Kelotane
           Quantity: 5
-        - ReagentId: JuiceBanana # imp
-          Quantity: 10
         - ReagentId: Desoxyephedrine # imp
           Quantity: 10
   - type: Tag

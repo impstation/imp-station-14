@@ -245,16 +245,17 @@
     flavors:
       - funny
       - cheap
+      - banana # imp
   - type: SolutionContainerManager
     solutions:
       food:
         reagents:
         - ReagentId: Nutriment
-          Quantity: 3 # imp
+          Quantity: 3.4 # imp
         - ReagentId: Omnizine
           Quantity: 1 # imp
-        - ReagentId: JuiceBanana # imp
-          Quantity: 1
+        - ReagentId: Vitamin # imp
+          Quantity: 0.1
   - type: Sprite
     state: banana
 
@@ -268,16 +269,17 @@
     flavors:
       - funny
       - cheap
+      - banana # imp
   - type: SolutionContainerManager
     solutions:
       food:
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6 # imp
+          Quantity: 8 # imp
         - ReagentId: Omnizine
           Quantity: 2 # imp
-        - ReagentId: JuiceBanana
-          Quantity: 5 # imp
+        - ReagentId: Vitamin # imp
+          Quantity: 1
 
 - type: entity
   name: berry-pocket

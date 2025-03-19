@@ -151,6 +151,10 @@
   id: FoodBakedMuffinBanana
   description: A delicious and spongy banana muffin.
   components:
+  - type: FlavorProfile # imp
+    flavors:
+    - sweet
+    - banana
   - type: Sprite
     state: muffin-banana
   - type: SolutionContainerManager
@@ -159,11 +163,9 @@
         maxVol: 12
         reagents:
         - ReagentId: Nutriment
-          Quantity: 5 # imp
-        # - ReagentId: Vitamin
-        #  Quantity: 2
-        - ReagentId: JuiceBanana
-          Quantity: 10 # imp
+          Quantity: 9 # imp
+        - ReagentId: Vitamin
+          Quantity: 2
         - ReagentId: Sugar # imp
           Quantity: 10
   - type: Tag

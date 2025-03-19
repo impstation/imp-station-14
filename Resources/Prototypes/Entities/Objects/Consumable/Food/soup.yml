@@ -329,6 +329,7 @@
     - apple # imp
     - juice # imp
     - watermelon # imp
+    - banana # imp
   - type: Sprite
     layers:
     - state: bowl
@@ -336,14 +337,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 45 # imp
+        maxVol: 40 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 21 # imp
+          Quantity: 25 # imp
         - ReagentId: Vitamin
-          Quantity: 11 # imp
-        - ReagentId: JuiceBanana # imp
-          Quantity: 10
+          Quantity: 13 # imp
         - ReagentId: Water # imp
           Quantity: 2
   - type: Tag
@@ -767,18 +766,16 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 35 # imp
+        maxVol: 30 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 4 # imp
+          Quantity: 8 # imp
         - ReagentId: Vitamin
-          Quantity: 2 # imp
+          Quantity: 4 # imp
         - ReagentId: Water
           Quantity: 10
         - ReagentId: Honk # imp
           Quantity: 5
-        - ReagentId: BananaJuice # imp
-          Quantity: 10
 
 - type: entity
   name: vegetable soup
@@ -971,18 +968,16 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 35 # imp
+        maxVol: 30 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 16 # imp
+          Quantity: 20 # imp
         - ReagentId: Vitamin
-          Quantity: 5
+          Quantity: 7 # imp
         - ReagentId: TableSalt
           Quantity: 1
         - ReagentId: Blackpepper
           Quantity: 1
-        - ReagentId: JuiceBanana # imp
-          Quantity: 10
   - type: Tag
     tags:
     - Meat

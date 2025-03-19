@@ -212,12 +212,12 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 60
+        maxVol: 50
         reagents:
         - ReagentId: Nutriment
-          Quantity: 30
-        - ReagentId: JuiceBanana
-          Quantity: 30
+          Quantity: 42
+        - ReagentId: Vitamin
+          Quantity: 6
 
 - type: entity
   name: slice of banana cream pie
@@ -243,9 +243,9 @@
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 7.5
-        - ReagentId: JuiceBanana
-          Quantity: 7.5
+          Quantity: 10.5
+        - ReagentId: Vitamin
+          Quantity: 1.5
 # Tastes like pie, cream, banana.
 
 - type: entity
@@ -615,14 +615,14 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 85
+        maxVol: 80
         reagents:
         - ReagentId: Nutriment
-          Quantity: 35
+          Quantity: 47
         - ReagentId: Sugar
           Quantity: 5
-        - ReagentId: JuiceBanana
-          Quantity: 30
+        - ReagentId: Vitamin
+          Quantity: 9
         - ReagentId: Nothing
           Quantity: 15
 
@@ -642,14 +642,14 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 25
+        maxVol: 20
         reagents:
         - ReagentId: Nutriment
-          Quantity: 8.75
+          Quantity: 11.75
         - ReagentId: Sugar
           Quantity: 1.25
-        - ReagentId: JuiceBanana
-          Quantity: 7.5
+        - ReagentId: Vitamin
+          Quantity: 2.25
         - ReagentId: Nothing
           Quantity: 3.75
 # Tastes like nothing.
