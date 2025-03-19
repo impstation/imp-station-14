@@ -53,11 +53,11 @@
       defaultMarkings: [ AnomalocaridEyeshine ]
     Chest:
       points: 1
-      required: true
-      defaultMarkings: [ AnomalocaridWingsDefault ]
+      required: false
     Tail:
       points: 1
       required: false
+      defaultMarkings: [ AnomalocaridWingsDefault ]
     Undershirt:
       points: 1
       required: false

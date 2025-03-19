@@ -23,7 +23,7 @@
       uiWindowPos: 1,1
       strippingWindowPos: 1,2
       displayName: Suit
-      offset: 0, -0.06 #zoomed all the way in this looks a bit bad, but also thats how everything looks zoomed in. so it's probably fine
+      offset: 0, -0.06
     - name: gloves
       slotTexture: gloves
       slotFlags: GLOVES
@@ -43,7 +43,7 @@
       uiWindowPos: 1,2
       strippingWindowPos: 1,1
       displayName: Mask
-      offset: 0, 0.38
+      offset: 0, 0.375
     - name: eyes
       slotTexture: glasses
       slotFlags: EYES
@@ -51,7 +51,7 @@
       uiWindowPos: 0,3
       strippingWindowPos: 0,0
       displayName: Eyes
-      offset: 0, 0.38
+      offset: 0, 0.375
     - name: ears
       slotTexture: ears
       slotFlags: EARS
@@ -59,7 +59,7 @@
       uiWindowPos: 2,2
       strippingWindowPos: 2,0
       displayName: Ears
-      offset: 0, 0.38
+      offset: 0, 0.375
     - name: head
       slotTexture: head
       slotFlags: HEAD
