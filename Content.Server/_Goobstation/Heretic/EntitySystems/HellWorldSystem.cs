@@ -46,14 +46,13 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
         {
             base.Initialize();
 
-            SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
             SubscribeLocalEvent<HellVictimComponent, ExaminedEvent>(OnExamine);
         }
 
         /// <summary>
         /// Creates the hell world map.
         /// </summary>
-        private void OnRoundStart(RoundStartingEvent ev)
+        public void MakeHell()
         {
             if(_mapLoader.TryLoadMap(_mapPath, out var map, out _, new DeserializationOptions { InitializeMaps = true }))
             _map.SetPaused(map.Value.Comp.MapId, false);
