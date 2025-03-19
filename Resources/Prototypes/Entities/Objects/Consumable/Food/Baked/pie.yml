@@ -80,6 +80,15 @@
     tags:
     - Fruit
     - Pie
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 60
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 30
+        - ReagentId: JuiceApple
+          Quantity: 30
 
 - type: entity
   name: slice of apple pie
@@ -100,6 +109,15 @@
     - Fruit
     - Pie
     - Slice
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 7.5
+        - ReagentId: JuiceApple
+          Quantity: 7.5
 # Tastes like pie, apple.
 
 - type: entity
@@ -118,6 +136,15 @@
     - state: baklava
   - type: SliceableFood
     slice: FoodPieBaklavaSlice
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 35
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 30
+        - ReagentId: TableSalt # sorry snails
+          Quantity: 5
 
 - type: entity
   name: slice of baklava
@@ -131,6 +158,15 @@
     - nutty
   - type: Sprite
     state: baklava-slice
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 7.5
+        - ReagentId: TableSalt # sorry snails
+          Quantity: 1.25
 # Tastes like pie, nuts.
 
 - type: entity
@@ -173,6 +209,15 @@
     - Pie
   - type: SliceableFood
     slice: FoodPieBananaCreamSlice
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 60
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 30
+        - ReagentId: JuiceBanana
+          Quantity: 30
 
 - type: entity
   name: slice of banana cream pie
@@ -192,6 +237,15 @@
     - Fruit
     - Pie
     - Slice
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 7.5
+        - ReagentId: JuiceBanana
+          Quantity: 7.5
 # Tastes like pie, cream, banana.
 
 - type: entity
@@ -215,6 +269,15 @@
     tags:
     - Fruit
     - Pie
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 60
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 30
+        - ReagentId: JuiceBerry
+          Quantity: 30
 
 - type: entity
   name: slice of berry clafoutis
@@ -235,6 +298,15 @@
     - Fruit
     - Pie
     - Slice
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 7.5
+        - ReagentId: JuiceBerry
+          Quantity: 7.5
 # Tastes like pie, blackberries.
 
 - type: entity
@@ -256,6 +328,15 @@
     tags:
     - Fruit
     - Pie
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 55
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 30
+        - ReagentId: JuiceBerry
+          Quantity: 25
 
 - type: entity
   name: slice of cherry pie
@@ -275,6 +356,15 @@
     - Fruit
     - Pie
     - Slice
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 7.5
+        - ReagentId: JuiceBerry
+          Quantity: 6.25
 # Tastes like pie, cherries.
 
 - type: entity
@@ -296,6 +386,15 @@
     tags:
     - Meat
     - Pie
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 60
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 30
+        - ReagentId: Protein
+          Quantity: 27
 
 - type: entity
   name: slice of meat pie
@@ -315,6 +414,15 @@
     - Meat
     - Pie
     - Slice
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 7.5
+        - ReagentId: Protein
+          Quantity: 6.75
 # Tastes like pie, meat.
 
 - type: entity
@@ -336,6 +444,17 @@
   - type: Tag
     tags:
     - Pie
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 60
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 30
+        - ReagentId: PumpkinFlesh
+          Quantity: 20
+        - ReagentId: Vitamin
+          Quantity: 5
 
 - type: entity
   name: slice of pumpkin pie
@@ -353,6 +472,17 @@
     tags:
     - Pie
     - Slice
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 7.5
+        - ReagentId: PumpkinFlesh
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 1.25
 
 - type: entity
   name: xeno pie
@@ -373,6 +503,15 @@
     tags:
     - Meat
     - Pie
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 60
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 39
+        - ReagentId: Protein
+          Quantity: 9
 
 - type: entity
   name: slice of xeno pie
@@ -393,6 +532,15 @@
     - Meat
     - Pie
     - Slice
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 9.75
+        - ReagentId: Protein
+          Quantity: 2.25
 # Tastes like pie, meat, acid.
 
 - type: entity
@@ -410,6 +558,17 @@
     - state: frosty
   - type: SliceableFood
     slice: FoodPieFrostySlice
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 85
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 42
+        - ReagentId: FrostOil
+          Quantity: 30
+        - ReagentId: Vitamin
+          Quantity: 12
 
 - type: entity
   name: slice of frosty pie
@@ -424,6 +583,17 @@
     - state: plain-slice
     - state: alpha-slice-filling
       color: blue
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8.4
+        - ReagentId: FrostOil
+          Quantity: 6
+        - ReagentId: Vitamin
+          Quantity: 2.4
 # Tastes like pie, mint.
 
 - type: entity
@@ -441,6 +611,19 @@
     heldPrefix: mime
   - type: SliceableFood
     slice: FoodTartMimeSlice
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 85
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 35
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: JuiceBanana
+          Quantity: 30
+        - ReagentId: Nothing
+          Quantity: 15
 
 - type: entity
   name: slice of mime tart
@@ -455,6 +638,19 @@
     - state: mimetart-slice
   - type: Item
     heldPrefix: mime
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8.75
+        - ReagentId: Sugar
+          Quantity: 1.25
+        - ReagentId: JuiceBanana
+          Quantity: 7.5
+        - ReagentId: Nothing
+          Quantity: 3.75
 # Tastes like nothing.
 
 # No Slice
@@ -476,11 +672,11 @@
         maxVol: 17
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 35 # imp
         - ReagentId: Amatoxin
-          Quantity: 3
-        - ReagentId: Vitamin
-          Quantity: 4
+          Quantity: 25 # imp - arguably the amatoxin could have cooked down but im down for making it more lethal lol
+        # - ReagentId: Vitamin # imp
+        #  Quantity: 4
 # Tastes like pie, mushrooms.
 
 - type: entity
@@ -515,11 +711,13 @@
         maxVol: 30
         reagents:
         - ReagentId: Nutriment
-          Quantity: 15
-        - ReagentId: Vitamin
-          Quantity: 5
+          Quantity: 35
+        # - ReagentId: Vitamin # imp
+        #  Quantity: 5
         - ReagentId: Sugar
           Quantity: 5
+        - ReagentId: JuiceGrape # imp
+          Quantity: 30
   - type: Tag
     tags:
     - Fruit
@@ -541,6 +739,17 @@
     tags:
     - Fruit
     - Pie
+  - type: SolutionContainerManager # imp - gold cant be metabolized atm so it got cooked out
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 35
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: JuiceApple
+          Quantity: 20
 # Tastes like tart, apple, expensive metal.
 
 - type: entity
@@ -557,10 +766,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 35 # imp
+        maxVol: 85 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 25 # imp
+          Quantity: 65 # imp
         - ReagentId: Theobromine
-          Quantity: 2
+          Quantity: 9 # imp
+        - ReagentId: Sugar # imp
+          Quantity: 5
+        - ReagentId: CocoaPowder # imp
+          Quantity: 3
 # Tastes like tart, dark chocolate.

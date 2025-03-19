@@ -75,6 +75,15 @@
   - type: Food
   - type: Sprite
     state: beeftaco
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 14
+        - ReagentId: Protein
+          Quantity: 3
 
 - type: entity
   name: chicken taco
@@ -85,6 +94,15 @@
   - type: Food
   - type: Sprite
     state: chickentaco
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 14
+        - ReagentId: Protein
+          Quantity: 3
 
 - type: entity
   name: fish taco
@@ -95,19 +113,26 @@
   - type: FlavorProfile
     flavors:
     - onion
-    - fishy
+    #- fishy # imp
+    - carpflesh # imp
   - type: Food
   - type: Sprite
     state: fishtaco
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20
+        maxVol: 45 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
+          Quantity: 21 # imp
         - ReagentId: Vitamin
-          Quantity: 6
+          Quantity: 6 # imp
+        - ReagentId: CarpoToxin # imp
+          Quantity: 5
+        - ReagentId: Allicin # imp
+          Quantity: 2
+        - ReagentId: JuiceTomato # imp
+          Quantity: 10
 
 - type: entity
   name: rat taco
@@ -121,12 +146,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 20
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: Vitamin
-          Quantity: 4
+          Quantity: 14
+        #- ReagentId: Vitamin # imp
+        #  Quantity: 4
+        - ReagentId: Protein # imp
+          Quantity: 3
 
 - type: entity
   name: beef taco supreme
@@ -140,12 +167,18 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 30 # imp
+        maxVol: 45 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 22 # imp
+          Quantity: 28 # imp
         - ReagentId: Vitamin
           Quantity: 6
+        - ReagentId: Protein # imp
+          Quantity: 3
+        - ReagentId: TomatoJuice # imp
+          Quantity: 10
+        - ReagentId: Allicin # imp
+          Quantity: 1
 
 - type: entity
   name: chicken taco supreme
@@ -159,12 +192,18 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 30 # imp
+        maxVol: 45 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 22 # imp
+          Quantity: 28 # imp
         - ReagentId: Vitamin
           Quantity: 6
+        - ReagentId: Protein # imp
+          Quantity: 3
+        - ReagentId: TomatoJuice # imp
+          Quantity: 10
+        - ReagentId: Allicin # imp
+          Quantity: 1
 
 - type: entity
   name: soft taco

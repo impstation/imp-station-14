@@ -32,6 +32,13 @@
     - pasta
   - type: Sprite
     state: boiled
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 25
 # Tastes like pasta.
 
 - type: entity
@@ -49,10 +56,12 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 40
+        maxVol: 25
         reagents:
         - ReagentId: Nutriment
-          Quantity: 35
+          Quantity: 25
+        - ReagentId: JuiceTomato
+          Quantity: 20
   - type: Tag
     tags:
     - Fruit
@@ -72,10 +81,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 80 # imp
+        maxVol: 50 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 70 # imp
+          Quantity: 50 # imp
 # Tastes like pasta, bad humor.
 
 - type: entity
@@ -93,12 +102,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25 # imp
+        maxVol: 45 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 15 # imp
+          Quantity: 36 # imp
         - ReagentId: Protein # imp
-          Quantity: 6
+          Quantity: 5
   - type: Tag
     tags:
     - Meat
@@ -144,15 +153,15 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 50 # imp
+        maxVol: 70 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 20 # imp
-        - ReagentId: Protein # imp
-          Quantity: 6
+          Quantity: 55 # imp
         - ReagentId: Vitamin # imp
-          Quantity: 20
-# Tastes like pasta, tomato.
+          Quantity: 4
+        - ReagentId: JuiceCarrot # imp
+          Quantity: 10
+# Tastes like pasta, tomato. # IMP - THERES NO TOMATOES IN THIS!!!!!!!
 
 - type: entity
   name: butter noodles
@@ -172,5 +181,7 @@
         maxVol: 25 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 23 # imp
+          Quantity: 25 # imp
+        - ReagentId: Butter # imp
+          Quantity: 15
 # Tastes like pasta, butter.

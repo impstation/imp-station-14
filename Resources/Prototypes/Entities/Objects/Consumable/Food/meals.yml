@@ -37,6 +37,15 @@
     - potatoes
   - type: Sprite
     state: loadedbakedpotato
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 14
+        - ReagentId: Vitamin
+          Quantity: 4
 # Tastes like potato.
 
 - type: entity
@@ -54,10 +63,12 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 26
+        maxVol: 20
         reagents:
         - ReagentId: Nutriment
-          Quantity: 20
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 4
         - ReagentId: TableSalt
           Quantity: 5
   - type: FoodSequenceElement # imp
@@ -81,10 +92,12 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 26
+        maxVol: 20
         reagents:
         - ReagentId: Nutriment
-          Quantity: 20
+          Quantity: 14
+        - ReagentId: Vitamin
+          Quantity: 4
         - ReagentId: TableSalt
           Quantity: 5
   - type: FoodSequenceElement # imp
@@ -110,10 +123,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 26
+        maxVol: 20 # imp
         reagents:
         - ReagentId: JuiceCarrot
-          Quantity: 20 # imp
+          Quantity: 10 # imp
         - ReagentId: TableSalt # imp
           Quantity: 5
   - type: FoodSequenceElement # imp
@@ -138,12 +151,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20 # imp
+        maxVol: 10 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 15 # imp
+          Quantity: 5 # imp
+        #- ReagentId: Vitamin # imp
+        #  Quantity: 1
         - ReagentId: TableSalt
-          Quantity: 2 # imp
+          Quantity: 1
 # Tastes like nachos.
 
 - type: entity
@@ -164,12 +179,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25 # imp
+        maxVol: 10 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 20 # imp
+          Quantity: 9 # imp
+        # - ReagentId: Vitamin # imp
+        #  Quantity: 3
         - ReagentId: TableSalt
-          Quantity: 2 # imp
+          Quantity: 1
 # Tastes like nachos, cheese.
 
 - type: entity
@@ -191,13 +208,15 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 40 # imp
+        maxVol: 30 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 25 # imp
+          Quantity: 9 # imp
         - ReagentId: CapsaicinOil
-          Quantity: 7
+          Quantity: 10 # imp
         - ReagentId: Vitamin
+          Quantity: 4 # imp
+        - ReagentId: Ketchup # imp
           Quantity: 5
 # Tastes like nachos, hot pepper.
 
@@ -220,7 +239,7 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 1
-        - ReagentId: TableSalt
+        - ReagentId: TableSalt # imp
           Quantity: 1
 # Tastes like parsnips, salt.
 
@@ -283,13 +302,13 @@
         maxVol: 55 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 40 # imp
+          Quantity: 27 # imp
         - ReagentId: CarpoToxin
-          Quantity: 3
+          Quantity: 10 # imp
         - ReagentId: Vitamin # imp
-          Quantity: 5
-        - ReagentId: CapsaicinOil # imp
           Quantity: 4
+        - ReagentId: CapsaicinOil # imp
+          Quantity: 10
   - type: Tag
     tags:
     - CubanCarp
@@ -331,7 +350,7 @@
   - type: FlavorProfile
     flavors:
     - meaty
-    - carpflesh #imp
+    - fishy
   - type: Sprite
     state: bearsteak
   - type: SolutionContainerManager
@@ -341,7 +360,7 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 2
-        - ReagentId: Vitamin
+        - ReagentId: UncookedAnimalProteins # imp
           Quantity: 5
   - type: Tag
     tags:
@@ -392,14 +411,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 35 # imp
+        maxVol: 25
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 3
+        # - ReagentId: Nutriment
+        #  Quantity: 3
         - ReagentId: Protein
-          Quantity: 20 # imp
+          Quantity: 18 # imp
         - ReagentId: BbqSauce
-          Quantity: 10
+          Quantity: 5 # imp
   - type: Tag
     tags:
     - Meat
@@ -535,14 +554,20 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25
+        maxVol: 30 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 9
         - ReagentId: Water
           Quantity: 10
-        - ReagentId: Blackpepper
+        # - ReagentId: Blackpepper
+        #  Quantity: 3
+        - ReagentId: Cola # imp
+          Quantity: 5
+        - ReagentId: Vitamin # imp
           Quantity: 3
+        - ReagentId: TableSalt # imp
+          Quantity: 5
 # Tastes awesome.
 
 - type: entity
@@ -559,6 +584,19 @@
     - type: FoodSequenceElement # imp
       entries:
         Burger: QuesoBurger
+    - type: SolutionContainerManager # imp
+      solutions:
+        food:
+          maxVol: 35
+          reagents:
+          - ReagentId: Nutriment
+            Quantity: 12
+          - ReagentId: Blackpepper
+            Quantity: 5
+          - ReagentId: CapsaicinOil
+            Quantity: 10
+          - ReagentId: Vitamin
+            Quantity: 4
 # Its queso! Everyone loves queso... Right?.
 
 - type: entity
@@ -569,18 +607,21 @@
   components:
   - type: FlavorProfile
     flavors:
+    #- fishy # imp
     - carpflesh #imp
   - type: Sprite
     state: sashimi
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25
+        maxVol: 15 # imp
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 6
+        #- ReagentId: Nutriment # imp
+        #  Quantity: 6
         - ReagentId: CarpoToxin
-          Quantity: 15
+          Quantity: 10 # imp
+        - ReagentId: TableSalt # imp
+          Quantity: 1
   - type: Tag
     tags:
     - Meat
@@ -600,16 +641,16 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 35 # imp
+        maxVol: 60 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 20 # imp
+          Quantity: 30 # imp
         - ReagentId: Protein # imp
-          Quantity: 5
+          Quantity: 2 # imp
         - ReagentId: CapsaicinOil
-          Quantity: 6
+          Quantity: 20 # imp
         - ReagentId: Vitamin # imp
-          Quantity: 6
+          Quantity: 8
   - type: Tag
     tags:
     - Meat
@@ -630,18 +671,30 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 65
+        maxVol: 85 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 30
+          Quantity: 2 # imp
         - ReagentId: Vitamin
-          Quantity: 15
-        - ReagentId: Water
-          Quantity: 5
+          Quantity: 2 # imp
+        #- ReagentId: Water
+        #  Quantity: 5
         - ReagentId: Bicaridine
           Quantity: 5
         - ReagentId: Kelotane
           Quantity: 5
+        - ReagentId: JuiceWatermelon # imp
+          Quantity: 20
+        - ReagentId: JuiceApple # imp
+          Quantity: 10
+        - ReagentId: JuiceBanana # imp
+          Quantity: 10
+        - ReagentId: JuiceLemon # imp
+          Quantity: 10
+        - ReagentId: JuiceOrange # imp
+          Quantity: 10
+        - ReagentId: Desoxyephedrine # imp
+          Quantity: 10
   - type: Tag
     tags:
     - Fruit
@@ -664,9 +717,11 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 10
+        maxVol: 25 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 4
-        - ReagentId: Vitamin
-          Quantity: 4
+          Quantity: 20
+        - ReagentId: Butter # imp
+          Quantity: 5
+        #- ReagentId: Vitamin
+        #  Quantity: 4
