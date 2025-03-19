@@ -46,7 +46,6 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
         {
             base.Initialize();
 
-            SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
             SubscribeLocalEvent<HellVictimComponent, ExaminedEvent>(OnExamine);
         }
 
