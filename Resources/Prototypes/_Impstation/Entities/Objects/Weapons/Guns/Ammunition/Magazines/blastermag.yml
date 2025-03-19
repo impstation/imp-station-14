@@ -43,7 +43,24 @@
     startingCharge: 600
   - type: ProjectileBatteryAmmoProvider
     proto: BulletLaser
-    fireCost: 50
+    fireCost: 75
   - type: Tag
     tags:
       - BlasterCell
+
+- type: entity
+  id: PowerCellBlasterPrinted
+  suffix: Empty
+  parent: PowerCellBlaster
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/blastermag.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-1
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Battery
+    maxCharge: 600
+    startingCharge: 0

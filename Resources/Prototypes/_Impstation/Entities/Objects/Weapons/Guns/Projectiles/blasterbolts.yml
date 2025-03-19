@@ -28,7 +28,7 @@
     maxIntensity: 2
     intensitySlope: 1
     totalIntensity: 4
-    maxTileBreak: 1
+    canCreateVacuum: false
   - type: Ammo
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler

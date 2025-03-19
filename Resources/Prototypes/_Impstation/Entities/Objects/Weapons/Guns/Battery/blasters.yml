@@ -9,14 +9,21 @@
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
+      - state: base-unshaded
+        map: ["enum.GunVisualLayers.BaseUnshaded"]
+        shader: unshaded
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
       - state: mag-unshaded-0
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
-  - type: Item
+  - type: Appearance 
+  - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Battery/blaster.rsi
-  - type: Appearance
+    quickEquip: false
+    slots:
+      - suitStorage
+      - Belt
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -69,7 +76,7 @@
     zeroVisible: false
   - type: GunRequiresWield
   - type: Gun
-    fireRate: 1
+    fireRate: 0.5
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/blastercannon.ogg
   - type: ProjectileBatteryAmmoProvider
