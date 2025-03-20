@@ -135,7 +135,8 @@ namespace Content.IntegrationTests.Tests
             "Lilboat",
             "Luna",
             "Skimmer",
-            "Union",
+            "Union"
+            "Hash",
         };
 
         /// <summary>
