@@ -69,7 +69,7 @@ public sealed partial class LatheMenu : DefaultWindow
                 ServerListButton.Visible = false;
             }
 
-            AmountLineEdit.SetText(latheComponent.DefaultProductionAmount.ToString()); // imp edit - moved from Opened() to SetEntity()
+            AmountLineEdit.SetText(latheComponent.DefaultProductionAmount.ToString());
         }
 
         MaterialsList.SetOwner(Entity);
