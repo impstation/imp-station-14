@@ -40,7 +40,7 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly IEntityManager _ent = default!;
 
-        private readonly ResPath _mapPath = new("Maps/_Impstation/Nonstations/Hellworld.yml"); 
+        private readonly ResPath _mapPath = new("Maps/_Impstation/Nonstations/InfiniteArchives.yml"); 
 
         public override void Initialize()
         {
