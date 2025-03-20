@@ -76,12 +76,14 @@
     damageContainer: Biological
     damageModifierSet: Anomalocarid
   - type: Bloodstream
-    bloodReagent: AnomalocaridCopperBlood #identical to CopperBlood, just a different color.
+    bloodReagent: AnomalocaridCopperBlood #similar to CopperBlood, just a different color.
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:
         sprite: _Impstation/Mobs/Effects/anomalocarid_brute_damage.rsi
         color: "#18d6a7"
+      Burn:
+        sprite: _Impstation/Mobs/Effects/anomalocarid_burn_damage.rsi
   - type: MeleeWeapon
     attackRate: 0.6
     soundHit:
