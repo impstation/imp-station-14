@@ -56,7 +56,8 @@
   - type: Metabolizer
     updateInterval: 1.5
     metabolizerTypes: [ Animal , Arachnid ] #imp eta arachnid
-    removeEmpty: true #imp edit (removes reagents with no metabolization data)
+    groups:
+      - id: SpiderFood
   - type: Tag # goob edit
     tags:
     - Meat

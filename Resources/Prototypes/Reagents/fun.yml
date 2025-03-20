@@ -41,6 +41,7 @@
         conditions:
         - !type:OrganType
           type: Moth
+          type: Arachnid  #imp, should work with specialdigestible to work only with silk
 
 - type: reagent
   id: Trash
