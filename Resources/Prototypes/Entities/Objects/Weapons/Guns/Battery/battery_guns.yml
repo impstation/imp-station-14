@@ -448,12 +448,15 @@
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Battery/laser_cannon.rsi #imp
   - type: Gun
-    fireRate: 3 #imp
+    fireRate: 4.5 #imp
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/lasermil.ogg #imp
   - type: HitscanBatteryAmmoProvider
     proto: RedHeavyLaser
-    fireCost: 50 #imp
+    fireCost: 40 #imp
+  - type: Battery #imp
+    maxCharge: 1200 #imp
+    startingCharge: 1200 #imp
 #imp edit begin; weapon melee
   - type: MeleeWeapon
     attackRate: 0.4 #slower, but hits harder; bigger object to shove with
