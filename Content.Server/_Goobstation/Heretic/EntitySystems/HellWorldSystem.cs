@@ -19,8 +19,11 @@ using Content.Shared.Humanoid;
 using Robust.Shared.Utility;
 using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
+using Robust.Server.GameObjects;
+using Content.Shared.Eye.Blinding.Systems;
+using Content.Shared.Eye.Blinding.Components;
 
-
+//this is kind of badly named since we're doing infinite archives stuff now but i dont feel like changing it :)
 
 namespace Content.Server._Goobstation.Heretic.EntitySystems
 {
@@ -36,6 +39,7 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
         [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
         [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
+        [Dependency] private readonly BlindableSystem _blind = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly IEntityManager _ent = default!;
@@ -123,6 +127,11 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
             var sufferingWhiteBoy = Spawn(species.Prototype, spawnTgt);
             _metaSystem.SetEntityName(sufferingWhiteBoy, MetaData(target).EntityName);
             _humanoid.CloneAppearance(victimComp.OriginalBody, sufferingWhiteBoy);
+            if (TryComp<BlindableComponent>(sufferingWhiteBoy, out var blindable))
+            {
+                _blind.AdjustEyeDamage(sufferingWhiteBoy, 5); //make it more disorienting
+
+            }
 
             //and then send the mind into the hellsona
             _mind.TransferTo(victimComp.Mind, sufferingWhiteBoy);
