@@ -132,7 +132,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 20
+        maxVol: 25
         reagents:
         - ReagentId: Nutriment
           Quantity: 13
@@ -156,7 +156,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15 # imp
+        maxVol: 20 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 7 # imp
@@ -184,7 +184,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 30
+        maxVol: 20 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 14.16 # imp
@@ -268,7 +268,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 50 # imp
+        maxVol: 55 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 22 # imp
@@ -426,7 +426,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 10
+        maxVol: 15 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 7 # imp
@@ -511,7 +511,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 90 # imp
+        maxVol: 95 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 43 # imp
@@ -544,7 +544,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20 # imp
+        maxVol: 25 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 11 # imp
@@ -622,7 +622,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 70 # imp
+        maxVol: 80 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 19 # imp
@@ -648,19 +648,18 @@
     flavors:
     - bun
     - spooky
+    - chalky # imp
   - type: Sprite
     state: ghost
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 60 # imp
+        maxVol: 40 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 7
         # - ReagentId: Vitamin # imp
         #  Quantity: 12
-        - ReagentId: Ash # imp
-          Quantity: 25
         - ReagentId: Necrosol # imp
           Quantity: 25
   - type: Tag
@@ -711,7 +710,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25 # imp
+        maxVol: 30 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 23 # imp
@@ -742,7 +741,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 30 # imp
+        maxVol: 35 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 9 # imp
@@ -828,7 +827,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 10 # imp
+        maxVol: 15 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 7 # imp
@@ -883,7 +882,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25 # imp
+        maxVol: 30 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 23 # imp
@@ -937,7 +936,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 60 # imp
+        maxVol: 70 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 34 # imp

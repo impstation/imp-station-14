@@ -18,7 +18,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 26
+        maxVol: 25 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 20
@@ -40,7 +40,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 8
+        maxVol: 5 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 4
@@ -163,7 +163,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 26
+        maxVol: 25 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -193,7 +193,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 8
+        maxVol: 5 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 2
@@ -219,7 +219,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 26
+        maxVol: 25 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 20 # imp - this is harder to make than bread... whys it worth less
@@ -267,7 +267,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 26 # imp
+        maxVol: 30 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 23 # imp
@@ -319,7 +319,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 30 # imp
+        maxVol: 35 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 25 # imp
@@ -466,7 +466,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 26
+        maxVol: 30 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 15 # imp
@@ -496,7 +496,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 6
+        maxVol: 10
         reagents:
         - ReagentId: Nutriment
           Quantity: 3 # imp
@@ -529,7 +529,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 35
+        maxVol: 35 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 25 # imp
@@ -560,7 +560,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 12
+        maxVol: 10 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 5 # imp
@@ -707,7 +707,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25 # imp
+        maxVol: 30 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 15 # imp
@@ -867,7 +867,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 10
+        maxVol: 15 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 10 # imp
@@ -891,7 +891,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 30
+        maxVol: 30 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 14 # imp
@@ -919,7 +919,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20 # imp
+        maxVol: 40 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 10 # imp
@@ -989,7 +989,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 45
+        maxVol: 50 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 25 # imp

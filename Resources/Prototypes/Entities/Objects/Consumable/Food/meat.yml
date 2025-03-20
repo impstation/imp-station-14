@@ -15,7 +15,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20
+        maxVol: 15 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -92,6 +92,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 20 # imp
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 9
@@ -121,6 +122,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 10 # imp
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 9
@@ -137,6 +139,7 @@
   components:
   - type: FlavorProfile
     flavors:
+      #- fishy # imp
       - carpflesh #imp
   - type: Tag
     tags:
@@ -147,6 +150,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 10 # imp
         reagents:
         - ReagentId: CarpoToxin
           Quantity: 5
@@ -175,6 +179,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 15 # imp
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 2
@@ -200,6 +205,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 20 # imp
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 9
@@ -217,13 +223,14 @@
   name: raw penguin meat
   parent: FoodMeatRawBase
   id: FoodMeatPenguin
-  description: A slab of raw penguin meat. Can be used as a substitute for fish in recipes.
+  description: A slab of raw penguin meat. # Can be used as a substitute for fish in recipes. # imp - this literally isnt true lol
   components:
   - type: Sprite
     state: bird
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 20 # imp
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 9
@@ -248,6 +255,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 20 # imp
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 9
@@ -274,6 +282,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 20 # imp
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 9
@@ -304,6 +313,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 25 # imp
         reagents:
         - ReagentId: Bicaridine
           Quantity: 20
@@ -326,6 +336,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 5 # imp
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 1
@@ -347,6 +358,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 10 # imp
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
@@ -377,6 +389,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 15 # imp
         reagents:
         - ReagentId: Ichor
           Quantity: 10
@@ -403,6 +416,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 10 # imp
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 3
@@ -423,6 +437,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxvol: 20 # imp
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 9
@@ -462,6 +477,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 15 # imp
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
@@ -487,6 +503,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 20 # imp
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 9
@@ -507,6 +524,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 20 # imp
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 10
@@ -527,6 +545,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 5 # imp
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 1
@@ -546,6 +565,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 15 # imp
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 10
@@ -575,6 +595,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 25 # imp
         reagents:
         - ReagentId: SulfuricAcid
           Quantity: 20
@@ -603,6 +624,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 25 # imp
         reagents:
         - ReagentId: SulfuricAcid
           Quantity: 20
@@ -653,6 +675,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
+        maxVol: 10
         reagents:
         - ReagentId: Nutriment
           Quantity: 3
@@ -680,6 +703,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
+        maxVol: 10
         reagents:
         - ReagentId: Nutriment
           Quantity: 3
@@ -730,7 +754,14 @@
         Quantity: 10
   - type: Sprite
     state: slime
-  - type: FoodSequenceElement
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Slime
+          Quantity: 10
+  - type: FoodSequenceElement # imp
     entries:
       Burger: SlimeballBurger
 
@@ -765,6 +796,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 200 # imp
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 90
@@ -805,6 +837,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 55 # imp
         reagents:
         - ReagentId: Omnizine
           Quantity: 30
@@ -835,6 +868,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 20 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -873,6 +907,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 15 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 9 # imp
@@ -903,6 +938,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 10 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 2 # imp
@@ -923,7 +959,7 @@
   name: penguin filet
   parent: FoodMeatBase
   id: FoodMeatPenguinCooked
-  description: A cooked filet of penguin. Can be used as a substitute for fish in recipes.
+  description: A cooked filet of penguin. # Can be used as a substitute for fish in recipes. # imp - this literally isnt true lol
   components:
   - type: Tag
     tags:
@@ -935,6 +971,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 20 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 9 # imp
@@ -967,6 +1004,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 20 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 9 # imp
@@ -1005,6 +1043,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 20 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 9 # imp
@@ -1031,6 +1070,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 20 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 9 # imp
@@ -1066,6 +1106,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 5 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 2 # imp
@@ -1096,6 +1137,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 10 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 3 # imp
@@ -1130,6 +1172,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 25 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -1160,6 +1203,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 20 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 9 # imp
@@ -1192,6 +1236,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 15 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 3 # imp
@@ -1217,6 +1262,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 20 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 11 # imp
@@ -1272,6 +1318,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 200 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 90 # imp
@@ -1305,6 +1352,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 10 # imp
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 3
@@ -1334,6 +1382,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 10 # imp
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 3
@@ -1348,7 +1397,7 @@
   name: raw penguin cutlet
   parent: FoodMeatBase
   id: FoodMeatPenguinCutlet
-  description: A cutlet of raw penguin meat. Can be used as a substitute for fish in recipes.
+  description: A cutlet of raw penguin meat. # Can be used as a substitute for fish in recipes. # imp - this literally isnt true lol
   components:
   - type: Tag
     tags:
@@ -1361,6 +1410,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 10 # imp
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 3
@@ -1388,6 +1438,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 10 # imp
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 3
@@ -1415,6 +1466,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 10 # imp
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 3
@@ -1445,6 +1497,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 10 # imp
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 3
@@ -1471,6 +1524,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 10 # imp
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 3
@@ -1501,6 +1555,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 10 # imp
         reagents:
         - ReagentId: SulfuricAcid
           Quantity: 6.67 # imp
@@ -1555,6 +1610,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 5 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 1
@@ -1582,6 +1638,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 10 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 3 # imp
@@ -1614,6 +1671,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 10 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 3 # imp
@@ -1644,6 +1702,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 10 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 3 # imp
@@ -1674,6 +1733,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 10 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 3 # imp
@@ -1704,6 +1764,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 10 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 3 # imp
@@ -1735,6 +1796,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 10 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 3 # imp
@@ -1764,6 +1826,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 10 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 3 # imp
@@ -1793,6 +1856,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 5 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 1

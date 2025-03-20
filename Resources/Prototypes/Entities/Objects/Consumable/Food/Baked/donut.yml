@@ -346,7 +346,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 5
+        maxVol: 10 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 3
@@ -470,7 +470,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 10
+        maxVol: 15 # imp
         reagents:
         - ReagentId: Amatoxin
           Quantity: 10

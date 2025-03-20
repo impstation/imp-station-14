@@ -15,7 +15,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 30 # Room for extra condiments
+        maxVol: 5 # imp - Room for extra condiments
         reagents:
         - ReagentId: Nutriment
           Quantity: 1 # imp
@@ -46,7 +46,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 15
+        maxVol: 10
         reagents:
         - ReagentId: Nutriment
           Quantity: 1
@@ -124,7 +124,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 15
+        maxVol: 10
         reagents:
         - ReagentId: Nutriment
           Quantity: 1
@@ -185,7 +185,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 30
+        maxVol: 25 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -248,7 +248,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 20
+        maxVol: 10
         reagents:
         - ReagentId: Nutriment
           Quantity: 1
@@ -276,7 +276,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 20
+        maxVol: 15
         reagents:
         - ReagentId: Nutriment
           Quantity: 3 # weird compromise because this is... like a recipe... but nobody ever makes it...
@@ -320,7 +320,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 20
+        maxVol: 10
         reagents:
         - ReagentId: Nutriment
           Quantity: 1
@@ -348,7 +348,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 20
+        maxVol: 10
         reagents:
         - ReagentId: Protein
           Quantity: 1
@@ -373,7 +373,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 20
+        maxVol: 15
         reagents:
         - ReagentId: Nutriment # higher bc not in vending machines
           Quantity: 10
@@ -391,7 +391,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 30 #big cup # imp
+        maxVol: 25 #big cup # imp
         reagents:
         - ReagentId: DryRamen
           Quantity: 10 # imp - equivalent of 4u nutriment roughly
@@ -412,7 +412,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 30 # imp
+        maxVol: 25 # imp
         reagents:
         - ReagentId: DryRamen
           Quantity: 10 # imp - equivalent of 4u nutriment roughly
@@ -436,7 +436,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20 # Room for extra condiments # imp
+        maxVol: 15 # Room for extra condiments # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 1 # imp
@@ -465,7 +465,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20 # Room for extra condiments # imp
+        maxVol: 10 # Room for extra condiments # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 1 # imp
@@ -491,7 +491,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 1
+        maxVol: 5 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 1
@@ -544,7 +544,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 5 # imp
+        maxVol: 10 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 5 # imp GO TO THE KITCHEN !!! I HATE YOU
@@ -585,7 +585,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 20 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 9 # imp

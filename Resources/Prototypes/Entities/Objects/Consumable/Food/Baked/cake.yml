@@ -40,7 +40,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 12 # imp
+        maxVol: 15 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 8 # imp
@@ -75,7 +75,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 55
+        maxVol: 40
         reagents:
         - ReagentId: Nutriment
           Quantity: 25
@@ -101,7 +101,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 11
+        maxVol: 10
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -123,7 +123,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 55
+        maxVol: 30
         reagents:
         - ReagentId: Nutriment
           Quantity: 20
@@ -142,7 +142,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 11
+        maxVol: 10
         reagents:
         - ReagentId: Nutriment
           Quantity: 4
@@ -163,7 +163,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 55 # imp
+        maxVol: 60 # imp
         reagents:
         - ReagentId: JuiceCarrot
           Quantity: 15
@@ -224,7 +224,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 55
+        maxVol: 35
         reagents:
         - ReagentId: Nutriment
           Quantity: 20
@@ -249,7 +249,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 11
+        maxVol: 10
         reagents:
         - ReagentId: Nutriment
           Quantity: 4
@@ -273,7 +273,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 55
+        maxVol: 45
         reagents:
         - ReagentId: Nutriment
           Quantity: 32
@@ -291,7 +291,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 11
+        maxVol: 10
         reagents:
         - ReagentId: Nutriment
           Quantity: 6.4
@@ -320,7 +320,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 55
+        maxVol: 40
         reagents:
         - ReagentId: Nutriment
           Quantity: 25
@@ -346,7 +346,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 11
+        maxVol: 10
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -375,7 +375,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 55
+        maxVol: 40
         reagents:
         - ReagentId: Nutriment
           Quantity: 25
@@ -401,7 +401,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 11
+        maxVol: 10
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -430,7 +430,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 55
+        maxVol: 40
         reagents:
         - ReagentId: Nutriment
           Quantity: 25
@@ -456,7 +456,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 11
+        maxVol: 10
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -481,7 +481,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 75 # imp
+        maxVol: 85 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 25 # imp
@@ -536,7 +536,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 55 # imp
+        maxVol: 60 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 40 # imp
@@ -590,7 +590,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 40
+        maxVol: 45
         reagents:
         - ReagentId: Nutriment
           Quantity: 30
@@ -617,7 +617,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 11
+        maxVol: 10
         reagents:
         - ReagentId: Nutriment
           Quantity: 6
@@ -642,7 +642,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 55
+        maxVol: 45
         reagents:
         - ReagentId: Nutriment
           Quantity: 20
@@ -667,7 +667,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 11
+        maxVol: 10
         reagents:
         - ReagentId: Nutriment
           Quantity: 4
@@ -771,7 +771,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 55
+        maxVol: 35
         reagents:
         - ReagentId: Nutriment
           Quantity: 20
@@ -791,7 +791,7 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 11
+        maxVol: 10
         reagents:
         - ReagentId: Nutriment
           Quantity: 4
@@ -814,7 +814,7 @@
   - type: SolutionContainerManager #TODO Sprinkles
     solutions:
       food:
-        maxVol: 55 # imp
+        maxVol: 50 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 25 # imp
@@ -834,7 +834,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15 # imp
+        maxVol: 10 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 5 # imp
@@ -857,7 +857,7 @@
   - type: SolutionContainerManager #TODO Sprinkles
     solutions:
       food:
-        maxVol: 55 # imp
+        maxVol: 45 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 20
@@ -877,7 +877,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 11 # imp
+        maxVol: 10 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 4
@@ -920,7 +920,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 11 # imp
+        maxVol: 15 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 6 # imp
@@ -1069,7 +1069,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15 # imp
+        maxVol: 20 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 10 # imp

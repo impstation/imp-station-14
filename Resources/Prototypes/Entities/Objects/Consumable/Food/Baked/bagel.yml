@@ -16,7 +16,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 7
+        maxVol: 10 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -71,7 +71,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 5 # imp
+        maxVol: 10 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 1.5 # imp
