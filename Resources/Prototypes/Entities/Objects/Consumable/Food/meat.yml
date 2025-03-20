@@ -437,7 +437,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxvol: 20 # imp
+        maxVol: 20 # imp
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 9

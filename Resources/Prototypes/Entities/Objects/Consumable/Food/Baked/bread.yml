@@ -267,12 +267,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 30 # imp
+        maxVol: 35 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 23 # imp
         # - ReagentId: Vitamin # imp
         #  Quantity: 5
+        - ReagentId: Milk # imp
+          Quantity: 5
 # Tastes like bread, cheese.
 
 - type: entity
@@ -867,10 +869,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15 # imp
+        maxVol: 25 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10 # imp
+          Quantity: 4 # imp
+        - ReagentId: Milk # imp
+          Quantity: 5
+        - ReagentId: EggCooked # imp
+          Quantity: 12
         #- ReagentId: Vitamin # imp
         #  Quantity: 2
 # Tastes like bread, butter.

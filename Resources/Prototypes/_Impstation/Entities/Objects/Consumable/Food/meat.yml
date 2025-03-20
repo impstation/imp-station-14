@@ -42,7 +42,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxvol: 10
+        maxVol: 10
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 3

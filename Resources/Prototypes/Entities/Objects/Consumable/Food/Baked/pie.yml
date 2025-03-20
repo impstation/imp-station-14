@@ -615,14 +615,14 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 85
+        maxVol: 45
         reagents:
         - ReagentId: Nutriment
-          Quantity: 47
+          Quantity: 15
         - ReagentId: Sugar
           Quantity: 5
-        - ReagentId: Vitamin
-          Quantity: 9
+        - ReagentId: Milk
+          Quantity: 5
         - ReagentId: Nothing
           Quantity: 15
 
@@ -642,14 +642,14 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 25
+        maxVol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 11.75
+          Quantity: 3.75
         - ReagentId: Sugar
           Quantity: 1.25
-        - ReagentId: Vitamin
-          Quantity: 2.25
+        - ReagentId: Milk
+          Quantity: 1.25
         - ReagentId: Nothing
           Quantity: 3.75
 # Tastes like nothing.
@@ -710,11 +710,13 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 75
+        maxVol: 60
         reagents:
         - ReagentId: Nutriment
-          Quantity: 50
+          Quantity: 30
         - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: Milk
           Quantity: 5
         - ReagentId: Vitamin
           Quantity: 12
@@ -733,23 +735,28 @@
   - type: FlavorProfile
     flavors:
     - apple
+    - metallic # imp
   - type: Sprite
     state: gapple
   - type: Tag
     tags:
     - Fruit
     - Pie
-  - type: SolutionContainerManager # imp - gold cant be metabolized atm so it got cooked out
+  - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 75
+        maxVol: 90
         reagents:
         - ReagentId: Nutriment
-          Quantity: 55
+          Quantity: 35
         - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: Milk
           Quantity: 5
         - ReagentId: Vitamin
           Quantity: 8
+        - ReagentId: DoctorsDelight
+          Quantity: 26
 # Tastes like tart, apple, expensive metal.
 
 - type: entity
@@ -766,14 +773,16 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 95 # imp
+        maxVol: 75 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 65 # imp
+          Quantity: 45 # imp
         - ReagentId: Theobromine
           Quantity: 9 # imp
         - ReagentId: Sugar # imp
           Quantity: 5
         - ReagentId: CocoaPowder # imp
           Quantity: 3
+        - ReagentId: Milk # imp
+          Quantity: 5
 # Tastes like tart, dark chocolate.

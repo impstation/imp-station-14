@@ -1240,12 +1240,12 @@
   time: 15
   group: Pie
   reagents:
-    Gold: 10
+    # Gold: 10 # imp - gapple real
     Sugar: 5
     Milk: 5
   solids:
     FoodDoughPie: 1
-    FoodApple: 2 #in absence of the real gapple i'm substituting one apple with 10u gold (one ingot)
+    FoodGoldenApple: 2 # imp
     FoodPlateTin: 1
 
 - type: microwaveMealRecipe

@@ -401,7 +401,11 @@
         maxVol: 20
         reagents:
         - ReagentId: Nutriment
-          Quantity: 15
+          Quantity: 5
+        - ReagentId: Milk
+          Quantity: 5
+        - ReagentId: EggCooked
+          Quantity: 6
 
 - type: entity
   name: blueberry pancake
@@ -409,6 +413,9 @@
   id: FoodBakedPancakeBb
   description: A fluffy and delicious blueberry pancake.
   components:
+  - type: FlavorProfile # imp
+    flavors:
+    - berry
   - type: Stack
     stackType: PancakeBb
     layerStates:
@@ -458,12 +465,16 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 40
+        maxVol: 30
         reagents:
         - ReagentId: Nutriment
-          Quantity: 15
-        - ReagentId: JuiceBerry
-          Quantity: 20
+          Quantity: 10
+        - ReagentId: Milk
+          Quantity: 5
+        - ReagentId: EggCooked
+          Quantity: 6
+        - ReagentId: Vitamin
+          Quantity: 8
 
 - type: entity
   name: chocolate chip pancake
@@ -519,9 +530,13 @@
         maxVol: 35 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 25 # imp
+          Quantity: 15 # imp
+        - ReagentId: Milk # imp
+          Quantity: 5
+        - ReagentId: EggCooked # imp
+          Quantity: 6
         - ReagentId: Theobromine
-          Quantity: 3 # imp
+          Quantity: 3
         - ReagentId: CocoaPowder # imp
           Quantity: 1
 
@@ -541,7 +556,11 @@
         maxVol: 20
         reagents:
         - ReagentId: Nutriment
-          Quantity: 15 # imp
+          Quantity: 5 # imp
+        - ReagentId: Milk # imp
+          Quantity: 5
+        - ReagentId: EggCooked # imp
+          Quantity: 6
         # - ReagentId: Vitamin # imp
         #  Quantity: 1
 
@@ -551,6 +570,9 @@
   id: FoodBakedWaffleSoy
   description: You feel healthier and - more feminine?
   components:
+  - type: FlavorProfile # imp
+    flavors:
+    - soy
   - type: Sprite
     layers:
       - state: tray
@@ -561,7 +583,9 @@
         maxVol: 20
         reagents:
         - ReagentId: Nutriment
-          Quantity: 15 # imp
+          Quantity: 10 # imp
+        - ReagentId: EggCooked # imp
+          Quantity: 6
         # - ReagentId: Vitamin
         #  Quantity: 1
 
@@ -742,11 +766,13 @@
         maxVol: 135 # imp - jesus christ
         reagents:
         - ReagentId: Nutriment
-          Quantity: 53 # imp
+          Quantity: 35 # imp
         - ReagentId: Theobromine
           Quantity: 6 # imp
         - ReagentId: Sugar # imp
           Quantity: 30
+        - ReagentId: EggCooked # imp
+          Quantity: 18
         - ReagentId: Butter # imp
           Quantity: 30
         - ReagentId: CocoaPowder # imp
@@ -775,11 +801,13 @@
         maxVol: 25 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 8.83 # imp
+          Quantity: 5.83 # imp
         - ReagentId: Theobromine
           Quantity: 1 # imp
         - ReagentId: Sugar # imp
           Quantity: 5
+        - ReagentId: EggCooked # imp
+          Quantity: 3
         - ReagentId: Butter # imp
           Quantity: 5
         - ReagentId: CocoaPowder # imp
@@ -808,13 +836,15 @@
         maxVol: 325 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 53 # imp
+          Quantity: 35 # imp
         - ReagentId: Theobromine
           Quantity: 6 # imp
         - ReagentId: THC
           Quantity: 180 # imp
-        - ReagentId: Sugar # imp
+        - ReagentId: Sugar
           Quantity: 30
+        - ReagentId: EggCooked # imp
+          Quantity: 18
         - ReagentId: Butter # imp
           Quantity: 20
         - ReagentId: CocoaPowder # imp
@@ -843,13 +873,15 @@
         maxVol: 55 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 8.83 # imp
+          Quantity: 5.83 # imp
         - ReagentId: Theobromine
           Quantity: 1 # imp
         - ReagentId: THC
           Quantity: 30 # imp
         - ReagentId: Sugar # imp
           Quantity: 5
+        - ReagentId: EggCooked # imp
+          Quantity: 3
         - ReagentId: Butter # imp
           Quantity: 4
         - ReagentId: CocoaPowder # imp

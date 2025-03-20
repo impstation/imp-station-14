@@ -713,7 +713,9 @@
         maxVol: 30 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 23 # imp
+          Quantity: 11 # imp
+        - ReagentId: EggCooked # imp
+          Quantity: 12
         #- ReagentId: Protein # imp
         #  Quantity: 7
         #- ReagentId: Vitamin
@@ -939,13 +941,15 @@
         maxVol: 70 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 34 # imp
+          Quantity: 31 # imp
         - ReagentId: Protein # imp
-          Quantity: 18
+          Quantity: 9
         - ReagentId: Vitamin
           Quantity: 3 # imp
         - ReagentId: TableSalt
           Quantity: 5
+        - ReagentId: EggCooked # imp
+          Quantity: 12
         # - ReagentId: Blackpepper # imp
         #  Quantity: 5
   - type: Sprite

@@ -39,20 +39,22 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 205
+        maxVol: 215
         reagents:
         - ReagentId: Nutriment
-          Quantity: 53
-        - ReagentId: Theobromine
-          Quantity: 6
+          Quantity: 35
+        - ReagentId: Sugar
+          Quantity: 30
+        - ReagentId: EggCooked
+          Quantity: 18
+        - ReagentId: Butter
+          Quantity: 30
         - ReagentId: THC
           Quantity: 48
         - ReagentId: ForeverWeed
           Quantity: 16
-        - ReagentId: Sugar
-          Quantity: 30
-        - ReagentId: Butter
-          Quantity: 30
+        - ReagentId: Theobromine
+          Quantity: 6
         - ReagentId: CocoaPowder
           Quantity: 2
   - type: PointLight
@@ -84,17 +86,19 @@
         maxVol: 35
         reagents:
         - ReagentId: Nutriment
-          Quantity: 8.83
-        - ReagentId: Theobromine
-          Quantity: 1
+          Quantity: 5.83
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: EggCooked
+          Quantity: 3
+        - ReagentId: Butter
+          Quantity: 5
         - ReagentId: THC
           Quantity: 8
         - ReagentId: ForeverWeed
-          Quantity: 2.67
-        - ReagentId: Sugar
-          Quantity: 5
-        - ReagentId: Butter
-          Quantity: 5
+          Quantity: 2
+        - ReagentId: Theobromine
+          Quantity: 1
         - ReagentId: CocoaPowder
           Quantity: 0.33
   - type: PointLight

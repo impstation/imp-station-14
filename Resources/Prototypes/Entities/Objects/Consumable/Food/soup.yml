@@ -450,9 +450,11 @@
         maxVol: 30 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 8 # imp
+          Quantity: 2 # imp
         - ReagentId: Vitamin
           Quantity: 4
+        - ReagentId: EggCooked # imp
+          Quantity: 6
         - ReagentId: Sugar # imp
           Quantity: 6
         - ReagentId: JuiceCarrot # imp
@@ -515,14 +517,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 30 # imp
+        maxVol: 35 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 8 # imp
         #- ReagentId: Vitamin # imp
         #  Quantity: 3
-        - ReagentId: Milk ##This is probably a reference to something but I don't get it
-          Quantity: 5
+        - ReagentId: Milk
+          Quantity: 10 # imp
         - ReagentId: Sugar
           Quantity: 11 # imp
 
@@ -817,7 +819,7 @@
   - type: FlavorProfile
     flavors:
     - nettles
-    - potatoes
+    - potatoes # imp
   - type: Sprite
     layers:
     - state: bowl
@@ -825,18 +827,20 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 55 # imp
+        maxVol: 40 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 16 # imp
+          Quantity: 10 # imp
         - ReagentId: Vitamin
-          Quantity: 19 # imp
+          Quantity: 4 # imp
         - ReagentId: Water
           Quantity: 10
         #- ReagentId: Omnizine # imp
         #  Quantity: 5
         - ReagentId: Histamine
           Quantity: 3 # imp
+        - ReagentId: EggCooked # imp
+          Quantity: 6
 
 - type: entity
   name: mystery soup
