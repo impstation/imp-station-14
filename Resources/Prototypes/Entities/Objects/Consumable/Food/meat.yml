@@ -726,6 +726,7 @@
     solutions:
       food:
         maxVol: 20
+        canReact: false # preventing an infinite meatball trick
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
