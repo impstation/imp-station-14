@@ -4,10 +4,9 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
-using Content.Server.Radiation.Components;
+using Content.Shared.Traits.Assorted;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
-
 using System.Linq;
 
 namespace Content.Server.Radiation.Systems;
@@ -29,6 +28,11 @@ public sealed class RadiationNoticingSystem : EntitySystem
         // Convert recieved radiation from event into actual radiation after rad damage reductions
         if (!TryComp<DamageableComponent>(uid, out var damageable))
             return; // If you aren't taking damage from radiation then what the messages say make no sense
+
+        // Pain insensitive people don't notice pain
+        if (HasComp<PainNumbnessComponent>(uid))
+            return;
+
         var trueTotalRads = args.TotalRads;
 
         DamageSpecifier damage = new();
