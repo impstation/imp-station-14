@@ -29,10 +29,6 @@ public sealed class RadiationNoticingSystem : EntitySystem
         if (!TryComp<DamageableComponent>(uid, out var damageable))
             return; // If you aren't taking damage from radiation then what the messages say make no sense
 
-        // Pain insensitive people don't notice pain
-        if (HasComp<PainNumbnessComponent>(uid))
-            return;
-
         var trueTotalRads = args.TotalRads;
 
         DamageSpecifier damage = new();
@@ -77,10 +73,10 @@ public sealed class RadiationNoticingSystem : EntitySystem
                 "radiation-noticing-message-1",
                 "radiation-noticing-message-2",
                 "radiation-noticing-message-3",
-                "radiation-noticing-message-4",
-                "radiation-noticing-message-5",
-                "radiation-noticing-message-6",
-                "radiation-noticing-message-7"
+                "radiation-noticing-message-pain-0",
+                "radiation-noticing-message-pain-1",
+                "radiation-noticing-message-pain-2",
+                "radiation-noticing-message-pain-3"
             ];
 
         // Todo: detect possessing specific types of organs/blood/etc and conditionally add related messages to the list
@@ -88,6 +84,9 @@ public sealed class RadiationNoticingSystem : EntitySystem
         // pick a random message
         var msgId = _random.Pick(msgArr);
         var msg = Loc.GetString(msgId);
+
+        if (HasComp<PainNumbnessComponent>(uid) && msgId.Contains("-pain-"))
+            return; // Do not show pain messages if the person has pain numbness
 
         // show it as a popup
         _popupSystem.PopupEntity(msg, uid, uid);
