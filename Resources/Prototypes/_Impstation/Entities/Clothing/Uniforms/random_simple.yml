@@ -1,0 +1,206 @@
+- type: entity
+  parent: [ClothingUniformRandom]
+  id: ClothingUniformRandomSimpleTee
+  name: simple tee outfit
+  description: A lightweight outfit with a simple tee and soft shorts. You can crop the tee with a knife if you're feeling inspired, though damaging the metamorphic fabric will cause unpredictable color shifts.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/procedural.rsi
+    layers:
+    - state: base_leg_simple_shorts
+      map: [ "leg" ]
+    - state: decor_leg_simple_belt
+      map: [ "decor" ]
+    - state: base_torso_simple_tee
+      map: [ "torso" ]
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/procedural.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: base_leg_simple_shorts
+        map: [ "leg" ]
+      - state: decor_leg_simple_belt
+        map: [ "decor" ]
+      - state: base_torso_simple_tee
+        map: [ "torso" ]
+  - type: RandomSprite
+    available:
+      - torso:
+          base_torso_simple_tee: SimpleTop
+        decor:
+          decor_leg_simple_belt: SimpleBeltbuckle
+        leg:
+          base_leg_simple_shorts: SimpleBottom
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: ClothingUniformRandomSimpleTeeCropped
+      amount: 1
+
+- type: entity
+  parent: [ClothingUniformRandom]
+  id: ClothingUniformRandomSimpleTeeCropped
+  name: simple tee outfit
+  suffix: cropped
+  description: A lightweight outfit with a simple cropped tee and soft shorts. Should you crop it higher? Where's your knife...
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/procedural.rsi
+    layers:
+    - state: base_leg_simple_shorts
+      map: [ "leg" ]
+    - state: decor_leg_simple_belt
+      map: [ "decor" ]
+    - state: base_torso_simple_tee_cropped
+      map: [ "torso" ]
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/procedural.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: base_leg_simple_shorts
+        map: [ "leg" ]
+      - state: decor_leg_simple_belt
+        map: [ "decor" ]
+      - state: base_torso_simple_tee_cropped
+        map: [ "torso" ]
+  - type: RandomSprite
+    available:
+      - torso:
+          base_torso_simple_tee_cropped: SimpleTop
+        decor:
+          decor_leg_simple_belt: SimpleBeltbuckle
+        leg:
+          base_leg_simple_shorts: SimpleBottom
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: ClothingUniformRandomSimpleShorts
+      amount: 1
+
+- type: entity
+  parent: [ClothingUniformRandom]
+  id: ClothingUniformRandomSimpleTank
+  name: simple tank outfit
+  description: A lightweight outfit with a simple tank and soft shorts. You can crop the tank with a knife if you're feeling inspired, though damaging the metamorphic fabric will cause unpredictable color shifts.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/procedural.rsi
+    layers:
+    - state: base_leg_simple_shorts
+      map: [ "leg" ]
+    - state: decor_leg_simple_belt
+      map: [ "decor" ]
+    - state: base_torso_simple_tank
+      map: [ "torso" ]
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/procedural.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: base_leg_simple_shorts
+        map: [ "leg" ]
+      - state: decor_leg_simple_belt
+        map: [ "decor" ]
+      - state: base_torso_simple_tank
+        map: [ "torso" ]
+  - type: RandomSprite
+    available:
+      - torso:
+          base_torso_simple_tank: SimpleTop
+        decor:
+          decor_leg_simple_belt: SimpleBeltbuckle
+        leg:
+          base_leg_simple_shorts: SimpleBottom
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: ClothingUniformRandomSimpleTankCropped
+      amount: 1
+
+- type: entity
+  parent: [ClothingUniformRandom]
+  id: ClothingUniformRandomSimpleTankCropped
+  name: simple tank outfit
+  suffix: cropped
+  description: A lightweight outfit with a simple cropped tank and soft shorts. Should you crop it higher? Where's your knife...
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/procedural.rsi
+    layers:
+    - state: base_leg_simple_shorts
+      map: [ "leg" ]
+    - state: decor_leg_simple_belt
+      map: [ "decor" ]
+    - state: base_torso_simple_tank_cropped
+      map: [ "torso" ]
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/procedural.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: base_leg_simple_shorts
+        map: [ "leg" ]
+      - state: decor_leg_simple_belt
+        map: [ "decor" ]
+      - state: base_torso_simple_tank_cropped
+        map: [ "torso" ]
+  - type: RandomSprite
+    available:
+      - torso:
+          base_torso_simple_tank_cropped: SimpleTop
+        decor:
+          decor_leg_simple_belt: SimpleBeltbuckle
+        leg:
+          base_leg_simple_shorts: SimpleBottom
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: ClothingUniformRandomSimpleShorts
+      amount: 1
+
+- type: entity
+  parent: [ClothingUniformRandom]
+  id: ClothingUniformRandomSimpleShorts
+  name: simple shorts outfit
+  description: Just a pair of soft shorts. The shirt was destroyed in the pursuit of perfection.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/procedural.rsi
+    layers:
+    - state: base_leg_simple_shorts
+      map: [ "leg" ]
+    - state: decor_leg_simple_belt
+      map: [ "decor" ]
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/procedural.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: base_leg_simple_shorts
+        map: [ "leg" ]
+      - state: decor_leg_simple_belt
+        map: [ "decor" ]
+  - type: RandomSprite
+    available:
+      - decor:
+          decor_leg_simple_belt: SimpleBeltbuckle
+        leg:
+          base_leg_simple_shorts: SimpleBottom
+
+- type: entity
+  parent: [ClothingUniformRandom]
+  id: ClothingUniformRandomSimpleTeeSpawner
+  name: random simple tee outfit
+  components:
+  - type: RandomSpawner
+    offset: 0
+    prototypes:
+    - ClothingUniformRandomSimpleTee
+
+- type: entity
+  parent: [ClothingUniformRandom]
+  id: ClothingUniformRandomSimpleTankSpawner
+  name: random simple tank outfit
+  components:
+  - type: RandomSpawner
+    offset: 0
+    prototypes:
+    - ClothingUniformRandomSimpleTank
+
