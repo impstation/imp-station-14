@@ -1,8 +1,8 @@
 - type: entity
-  parent: BaseKnife
+  parent: Shiv
   id: TailorsKnife
   name: tailor's knife
-  description: A simple, wedge-shaped knife designed to cut fabric, and only fabric. Short, narrow, and lacking a grip entirely. It would be kind to leave this by the ClothesMate when you're done using it.
+  description: A simple, wedge-shaped knife designed to cut fabric. Short, narrow, and lacking a grip entirely. It would be kind to leave this by the ClothesMate when you're done using it.
   components:
   - type: Tag
     tags:
@@ -12,11 +12,3 @@
     state: icon
   - type: Item
     sprite: _Impstation/Objects/Weapons/Melee/tailorsknife.rsi
-  - type: ThrowingAngle
-    angle: 225
-  - type: MeleeWeapon
-    damage:
-      types:
-        Slash: 1
-  - type: DamageOtherOnHit
-    staminaCost: 1
