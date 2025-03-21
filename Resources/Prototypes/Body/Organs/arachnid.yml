@@ -42,7 +42,7 @@
     digestionDelay: 30
     SpecialDigestible:  #imp edit
       tags:
-        - SpiderFood
+      - SpiderFood
     AdditiveDiet: true  #imp edit (should keep specialdigestible from making that the ONLY thing spiders can eat)
   - type: SolutionContainerManager
     solutions:
@@ -56,8 +56,6 @@
   - type: Metabolizer
     updateInterval: 1.5
     metabolizerTypes: [ Animal , Arachnid ] #imp eta arachnid
-    groups:
-      - id: SpiderFood
   - type: Tag # goob edit
     tags:
     - Meat
