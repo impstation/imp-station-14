@@ -1,102 +1,4 @@
 ﻿Entries:
-- author: aada
-  changes:
-  - message: Bananium can now be smelted in a microwave.
-    type: Add
-  id: 845
-  time: '2025-01-02T11:48:05.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1201
-- author: DinnerCalzone
-  changes:
-  - message: Removed the chemmaster flatpack prestige item from the bartender's loadout.
-    type: Remove
-  - message: Chemmasters and chemmaster machine boards have been added to the bar
-      across a number of stations.
-    type: Add
-  id: 846
-  time: '2025-01-02T11:50:15.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1163
-- author: ultramario1998
-  changes:
-  - message: Admins now have a new toy!
-    type: Add
-  id: 847
-  time: '2025-01-02T11:52:19.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1198
-- author: Darkmajia
-  changes:
-  - message: Air alarms can now override the pressure lockout functions of individual
-      air vents.
-    type: Add
-  id: 848
-  time: '2025-01-02T13:19:37.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1193
-- author: Darkmajia
-  changes:
-  - message: Embedded projectiles no longer disappear along with the destroyed or
-      eaten objects they're attached to.
-    type: Fix
-  id: 849
-  time: '2025-01-02T19:45:30.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1207
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: New sprites for the AKMS
-    type: Add
-  - message: some sound effects for the Daito and Nemesis were changed (not the firing
-      sounds)
-    type: Tweak
-  - message: Cargo Prices for Impstation guns have been reduced, as has the TC price
-      for the Nemesis reduced slightly.
-    type: Tweak
-  id: 850
-  time: '2025-01-02T20:05:23.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1208
-- author: hivehum
-  changes:
-  - message: New!!!! Food
-    type: Add
-  id: 851
-  time: '2025-01-03T03:17:15.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1206
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: Zipper is more common
-    type: Tweak
-  id: 852
-  time: '2025-01-03T15:45:58.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1210
-- author: mqole
-  changes:
-  - message: he needs mouse bites to live
-    type: Add
-  id: 853
-  time: '2025-01-03T19:02:40.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1213
-- author: MintyTheBinty
-  changes:
-  - message: Added 10 new suits and made them available in drobes and loadouts!
-    type: Add
-  id: 854
-  time: '2025-01-04T02:25:28.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1223
-- author: iaada
-  changes:
-  - message: The ninja's katana now deals stun damage. 4 hits to down.
-    type: Tweak
-  - message: The energy katana can be activated to return to its previous damage.  It
-      gets 10 attacks before needing to be charged.
-    type: Add
-  id: 855
-  time: '2025-01-04T14:54:06.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1225
-- author: DinnerCalzone
-  changes:
-  - message: Added a blood-red phone to the lone ops shuttle.
-    type: Add
-  id: 856
-  time: '2025-01-04T14:56:01.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1226
 - author: kipdotnet
   changes:
   - message: Banana has been updated!
@@ -4102,3 +4004,100 @@
   id: 1344
   time: '2025-03-18T20:40:15.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/1972
+- author: DinnerCalzone
+  changes:
+  - message: Origin Station has been shot with a gun.
+    type: Remove
+  id: 1345
+  time: '2025-03-18T23:44:47.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2006
+- author: Sha-Seng
+  changes:
+  - message: Barbel markings for thaven from Delta-V
+    type: Add
+  - message: +1 Head Top marking budget for thaven
+    type: Add
+  id: 1346
+  time: '2025-03-19T00:46:11.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/1989
+- author: Sha-Seng
+  changes:
+  - message: Decapoids can now be admin and supply assistants without immediately
+      suffocating
+    type: Fix
+  id: 1347
+  time: '2025-03-19T00:58:16.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2003
+- author: AftrLite
+  changes:
+  - message: Cosmic Cult is now officially in regular gamemode rotation!
+    type: Add
+  - message: Entropy is no longer itemized, and is now a cultist-innate resouruce.
+    type: Tweak
+  - message: Cosmic Cult 1.1.3r
+    type: Tweak
+  id: 1348
+  time: '2025-03-19T22:26:03.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2004
+- author: Darkmajia
+  changes:
+  - message: Power grid events will no longer trigger announcements twice when they
+      finish.
+    type: Fix
+  id: 1349
+  time: '2025-03-19T22:54:29.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2013
+- author: Toby222
+  changes:
+  - message: Decapoids now spawn with their tanks equipped instead of in their hand
+    type: Add
+  id: 1350
+  time: '2025-03-19T22:53:50.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2014
+- author: Darkmajia
+  changes:
+  - message: Fixed cyborg and drone batteries rapidly draining under certain conditions.
+    type: Fix
+  id: 1351
+  time: '2025-03-19T22:56:53.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2009
+- author: Darkmajia
+  changes:
+  - message: Embeddable items properly deal damage when thrown.
+    type: Fix
+  - message: Gibbing no longer deletes embedded items.
+    type: Fix
+  id: 1352
+  time: '2025-03-19T23:12:34.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2012
+- author: SixValentine
+  changes:
+  - message: Various Luna edits. Check PR.
+    type: Fix
+  id: 1353
+  time: '2025-03-20T05:12:25.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2022
+- author: AvianMaiden
+  changes:
+  - message: Hit and stab more things more ways more guns more!!
+    type: Add
+  id: 1354
+  time: '2025-03-20T12:57:51.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2020
+- author: kipdotnet, AfterLite
+  changes:
+  - message: Prize tickets have been added to the service techfab! they come in varying
+      values and are great monopoly money for poker night.
+    type: Add
+  id: 1355
+  time: '2025-03-20T13:00:12.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2024
+- author: Sha-Seng
+  changes:
+  - message: Polish pass for thaven hairstyles
+    type: Tweak
+  - message: Sharkminnow Eyeliner displays under bangs now
+    type: Tweak
+  id: 1356
+  time: '2025-03-20T13:05:57.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2023
