@@ -40,10 +40,10 @@
     heldPrefix: stomach
   - type: Stomach
     digestionDelay: 30
-    SpecialDigestible:  #imp edit
+    specialDigestible:  #imp edit
       tags:
       - SpiderFood
-    AdditiveDiet: true  #imp edit (should keep specialdigestible from making that the ONLY thing spiders can eat)
+    additiveDiet: true  #imp edit (should keep specialdigestible from making that the ONLY thing spiders can eat)
   - type: SolutionContainerManager
     solutions:
       stomach:
