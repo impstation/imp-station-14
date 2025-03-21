@@ -81,6 +81,7 @@
         - cobwebs
     - type: Food
       delay: 2
+      requiresSpecialDigestion: true
     - type: SolutionContainerManager
       solutions:
         food:
