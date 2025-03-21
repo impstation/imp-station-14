@@ -752,18 +752,18 @@
     flavors:
       - cobwebs
     ignoreReagents:
-      - Fiber
+      - Protein   #imp
   - type: Extractable
     juiceSolution:
       reagents:
-      - ReagentId: Fiber
+      - ReagentId: Protein  #imp
         Quantity: 3
   - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 3
         reagents:
-        - ReagentId: Fiber
+        - ReagentId: Protein  #imp
           Quantity: 3
   - type: Tag
     tags:
