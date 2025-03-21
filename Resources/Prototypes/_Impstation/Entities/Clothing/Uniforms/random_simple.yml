@@ -1,8 +1,50 @@
+# Pants version
 - type: entity
   parent: [ClothingUniformRandom]
   id: ClothingUniformRandomSimpleTee
   name: simple tee outfit
-  description: A lightweight outfit with a simple tee and soft shorts. You can crop the tee with a knife if you're feeling inspired, though damaging the metamorphic fabric will cause unpredictable color shifts.
+  description: A lightweight outfit with a simple tee and soft pants. You can make them into shorts with a knife if you're feeling inspired, though damaging the metamorphic fabric will cause unpredictable color shifts.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/procedural.rsi
+    layers:
+    - state: base_leg_simple_pants
+      map: [ "leg" ]
+    - state: decor_leg_simple_belt
+      map: [ "decor" ]
+    - state: base_torso_simple_tee
+      map: [ "torso" ]
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/procedural.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: base_leg_simple_pants
+        map: [ "leg" ]
+      - state: decor_leg_simple_belt
+        map: [ "decor" ]
+      - state: base_torso_simple_tee
+        map: [ "torso" ]
+  - type: RandomSprite
+    available:
+      - torso:
+          base_torso_simple_tee: SimpleTop
+        decor:
+          decor_leg_simple_belt: SimpleBeltbuckle
+        leg:
+          base_leg_simple_pants: SimpleBottom
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: ClothingUniformRandomSimpleTeeShorts
+      amount: 1
+
+# Shorts version
+- type: entity
+  parent: [ClothingUniformRandom]
+  id: ClothingUniformRandomSimpleTeeShorts
+  name: simple tee outfit
+  suffix: shorts
+  description: A lightweight outfit with a simple tee and soft shorts. You could probably crop the tee, too...
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Uniforms/procedural.rsi
@@ -37,6 +79,7 @@
     - id: ClothingUniformRandomSimpleTeeCropped
       amount: 1
 
+# Crop top version
 - type: entity
   parent: [ClothingUniformRandom]
   id: ClothingUniformRandomSimpleTeeCropped
@@ -77,11 +120,53 @@
     - id: ClothingUniformRandomSimpleShorts
       amount: 1
 
+# Pants version
 - type: entity
   parent: [ClothingUniformRandom]
   id: ClothingUniformRandomSimpleTank
   name: simple tank outfit
-  description: A lightweight outfit with a simple tank and soft shorts. You can crop the tank with a knife if you're feeling inspired, though damaging the metamorphic fabric will cause unpredictable color shifts.
+  description: A lightweight outfit with a simple tank and soft pants. You can make them into shorts with a knife if you're feeling inspired, though damaging the metamorphic fabric will cause unpredictable color shifts.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/procedural.rsi
+    layers:
+    - state: base_leg_simple_pants
+      map: [ "leg" ]
+    - state: decor_leg_simple_belt
+      map: [ "decor" ]
+    - state: base_torso_simple_tank
+      map: [ "torso" ]
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/procedural.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: base_leg_simple_pants
+        map: [ "leg" ]
+      - state: decor_leg_simple_belt
+        map: [ "decor" ]
+      - state: base_torso_simple_tank
+        map: [ "torso" ]
+  - type: RandomSprite
+    available:
+      - torso:
+          base_torso_simple_tank: SimpleTop
+        decor:
+          decor_leg_simple_belt: SimpleBeltbuckle
+        leg:
+          base_leg_simple_pants: SimpleBottom
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: ClothingUniformRandomSimpleTankShorts
+      amount: 1
+
+# Shorts version
+- type: entity
+  parent: [ClothingUniformRandom]
+  id: ClothingUniformRandomSimpleTankShorts
+  name: simple tank outfit
+  suffix: shorts
+  description: A lightweight outfit with a simple tank and soft shorts. You could probably crop the tank, too...
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Uniforms/procedural.rsi
@@ -116,6 +201,7 @@
     - id: ClothingUniformRandomSimpleTankCropped
       amount: 1
 
+# Crop top version
 - type: entity
   parent: [ClothingUniformRandom]
   id: ClothingUniformRandomSimpleTankCropped
@@ -156,11 +242,12 @@
     - id: ClothingUniformRandomSimpleShorts
       amount: 1
 
+# Just the shorts
 - type: entity
   parent: [ClothingUniformRandom]
   id: ClothingUniformRandomSimpleShorts
-  name: simple shorts outfit
-  description: Just a pair of soft shorts. The shirt was destroyed in the pursuit of perfection.
+  name: simple shorts
+  description: Just a pair of soft shorts. The shirt was destroyed in the pursuit of perfection. You'd better stop.
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Uniforms/procedural.rsi
