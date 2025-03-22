@@ -14,7 +14,7 @@
   - ShuttleGunKineticCircuitboard
   # These are roundstart but not replenishable for salvage
 
-#- type: technology
+#- type: technology # imp - combining draconic and uranium munitions research
 #  id: DraconicMunitions
 #  name: research-technology-draconic-munitions
 #  icon:
@@ -70,7 +70,7 @@
   - WeaponShotgunKammererBeanbag
   - WeaponShotgunEnforcerBeanbag
 
-#- type: technology
+#- type: technology # imp - combining draconic and uranium munitions research
 #  id: UraniumMunitions
 #  name: research-technology-uranium-munitions
 #  icon:
@@ -207,7 +207,7 @@
   - PortableRecharger
   - WeaponBlasterMagnum #imp
 
-#- type: technology
+#- type: technology # imp - rolled into Concentrated Laser Weaponry
 #  id: ExperimentalBatteryAmmo
 #  name: research-technology-experimental-battery-ammo
 #  icon:
