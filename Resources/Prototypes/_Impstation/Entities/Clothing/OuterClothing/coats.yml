@@ -213,15 +213,15 @@
       outerClothing:
       - state: PINK-equipped-OUTERCLOTHING
 
-# Departmental bomber jackets, all parented to this basic black 'Lightweight' one
+# Departmental bomber jackets, all parented to this basic black one
 - type: entity
   parent: [ClothingOuterBase, BaseFoldable] # NOTE: reparent to just ClothingOuterStorageFoldableBase once we get the upstream merge that fixes crashes when butchering storage clothing
-  id: ClothingOuterCoatBomberLightweight
-  name: lightweight bomber jacket
+  id: ClothingOuterCoatBomberBlack
+  name: black bomber jacket
   description: A plain black bomber jacket, worn with the sleeves pushed up. If you're feeling bold, you can loosen how it fits with a knife.
   components:
   - type: Sprite
-    sprite: _Impstation/Clothing/OuterClothing/BomberJackets/bomber_basic.rsi
+    sprite: _Impstation/Clothing/OuterClothing/BomberJackets/bomber_black.rsi
     layers: # NOTE: delete this line the aforementioned upstream merge happens
     - state: icon
       map: [ "unfoldedLayer" ]
@@ -229,7 +229,7 @@
       map: ["foldedLayer"]
       visible: false
   - type: Clothing
-    sprite: _Impstation/Clothing/OuterClothing/BomberJackets/bomber_basic.rsi
+    sprite: _Impstation/Clothing/OuterClothing/BomberJackets/bomber_black.rsi
   - type: Appearance # NOTE: delete this when the aforementioned upstream merge happens
   - type: Foldable
     canFoldInsideContainer: true # NOTE: delete this when the aforementioned upstream merge happens
@@ -241,11 +241,27 @@
   - type: Butcherable
     butcheringType: Knife
     spawned:
-    - id: ClothingOuterCoatBomberLightweightLoose
+    - id: ClothingOuterCoatBomberBlackLoose
       amount: 1
 
 - type: entity
-  parent: ClothingOuterCoatBomberLightweight
+  parent: ClothingOuterCoatBomberBlack
+  id: ClothingOuterCoatBomberWhite
+  name: white bomber jacket
+  description: A plain white bomber jacket, worn with the sleeves pushed up. If you're feeling bold, you can loosen how it fits with a knife.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/BomberJackets/bomber_white.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/BomberJackets/bomber_white.rsi
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: ClothingOuterCoatBomberWhiteLoose
+      amount: 1
+
+- type: entity
+  parent: ClothingOuterCoatBomberBlack
   id: ClothingOuterCoatBomberCargo
   name: cargo bomber jacket
   description: A brown bomber jacket, worn with the sleeves pushed up. It has plenty of pockets, and a Cargonian C on the back. If you're feeling bold, you can loosen how it fits with a knife.
@@ -261,7 +277,7 @@
       amount: 1
 
 - type: entity
-  parent: ClothingOuterCoatBomberLightweight
+  parent: ClothingOuterCoatBomberBlack
   id: ClothingOuterCoatBomberEngineer
   name: engineering bomber jacket
   description: An orange bomber jacket, worn with the sleeves pushed up. Features high-vis armbands, because safety is your number one concern. If you're feeling bold, you can loosen how it fits with a knife.
@@ -277,7 +293,7 @@
       amount: 1
 
 - type: entity
-  parent: ClothingOuterCoatBomberLightweight
+  parent: ClothingOuterCoatBomberBlack
   id: ClothingOuterCoatBomberMedical
   name: medical bomber jacket
   description: A blue bomber jacket, worn with the sleeves pushed up. Embroidered on the back is a caduceus, to remind you to do no harm. If you're feeling bold, you can loosen how it fits with a knife.
@@ -293,7 +309,7 @@
       amount: 1
 
 - type: entity
-  parent: ClothingOuterCoatBomberLightweight
+  parent: ClothingOuterCoatBomberBlack
   id: ClothingOuterCoatBomberScience
   name: science bomber jacket
   description: A purple bomber jacket, worn with the sleeves pushed up. Embroidered on the back is a microscope, because it's important to fuss over the little things. If you're feeling bold, you can loosen how it fits with a knife.
@@ -309,7 +325,7 @@
       amount: 1
 
 - type: entity
-  parent: [ClothingOuterCoatBomberLightweight, BaseSecurityContraband] # security contraband because this one's armored
+  parent: [ClothingOuterCoatBomberBlack, BaseSecurityContraband] # security contraband because this one's armored
   id: ClothingOuterCoatBomberSecurity
   name: security bomber jacket
   description: A red bomber jacket with kevlar lining, worn with the sleeves pushed up. The shield on the back is sewn with special high-vis thread. If you're feeling bold, you can loosen how it fits with a knife.
@@ -334,19 +350,35 @@
 
 # You can adjust your bomber jacket to fit loose around the shoulders by butchering it, or change it back the same way - think of it as clothing alterations
 - type: entity
-  parent: ClothingOuterCoatBomberLightweight
-  id: ClothingOuterCoatBomberLightweightLoose
-  name: lightweight bomber jacket (loose)
+  parent: ClothingOuterCoatBomberBlack
+  id: ClothingOuterCoatBomberBlackLoose
+  name: black bomber jacket (loose)
   description: A plain black bomber jacket, worn low and loose. If you're feeling modest, you can tighten how it fits with a knife.
   components:
   - type: Sprite
-    sprite: _Impstation/Clothing/OuterClothing/BomberJackets/bomber_basic_loose.rsi
+    sprite: _Impstation/Clothing/OuterClothing/BomberJackets/bomber_black_loose.rsi
   - type: Clothing
-    sprite: _Impstation/Clothing/OuterClothing/BomberJackets/bomber_basic_loose.rsi
+    sprite: _Impstation/Clothing/OuterClothing/BomberJackets/bomber_black_loose.rsi
   - type: Butcherable
     butcheringType: Knife
     spawned:
-    - id: ClothingOuterCoatBomberLightweight
+    - id: ClothingOuterCoatBomberBlack
+      amount: 1
+
+- type: entity
+  parent: ClothingOuterCoatBomberWhite
+  id: ClothingOuterCoatBomberWhiteLoose
+  name: white bomber jacket (loose)
+  description: A plain white bomber jacket, worn low and loose. If you're feeling modest, you can tighten how it fits with a knife.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/BomberJackets/bomber_white_loose.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/BomberJackets/bomber_white_loose.rsi
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: ClothingOuterCoatBomberWhite
       amount: 1
 
 - type: entity
