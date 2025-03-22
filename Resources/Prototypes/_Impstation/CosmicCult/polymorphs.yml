@@ -76,6 +76,17 @@
     duration: 12
     polymorphSound: /Audio/_Impstation/CosmicCult/ability_lapse.ogg
 
+- type: polymorph
+  id: CosmicLapseMobAnomalocarid
+  configuration:
+    entity: CosmicPolymorphEntAnomalocarid
+    forced: true
+    inventory: None
+    transferName: false
+    transferDamage: true
+    duration: 12
+    polymorphSound: /Audio/_Impstation/CosmicCult/ability_lapse.ogg
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: BaseStructure
@@ -193,4 +204,15 @@
     sprite: _Impstation/CosmicCult/Effects/ability_lapsepolymorph.rsi
     layers:
       - state: crab
+        shader: unshaded
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: CosmicPolymorphEnt
+  id: CosmicPolymorphEntAnomalocarid
+  components:
+  - type: Sprite
+    sprite: _Impstation/CosmicCult/Effects/ability_lapsepolymorph_anomalocarid.rsi
+    layers:
+      - state: anomalocarid
         shader: unshaded

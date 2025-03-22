@@ -1,0 +1,206 @@
+- type: entity
+  save: false
+  name: Urist McBlblbl
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobAnomalocarid
+  abstract: true
+  components:
+  - type: Absorbable
+  - type: Hunger
+  - type: Thirst
+  - type: Icon
+    sprite: _Impstation/Mobs/Species/Anomalocarid/parts.rsi
+    state: full
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.4
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 2
+    damageRecovery:
+      types:
+        Asphyxiation: -1.0
+  - type: Sprite #this is copied from moths for now
+    noRot: true
+    drawdepth: Mobs
+    layers:
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.Underwear" ]
+      - map: [ "enum.HumanoidVisualLayers.Undershirt" ]
+      - map: [ "jumpsuit" ]
+      - map: [ "enum.HumanoidVisualLayers.LHand" ]
+      - map: [ "enum.HumanoidVisualLayers.RHand" ]
+      - map: [ "enum.HumanoidVisualLayers.LFoot" ]
+      - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+      - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - map: [ "gloves" ]
+      - map: [ "shoes" ]
+      - map: [ "ears" ]
+      - map: [ "eyes" ]
+      - map: [ "belt" ]
+      - map: [ "id" ]
+      - map: [ "outerClothing" ]
+      - map: [ "back" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ] #layered above the back, maybe has very very minor balance implications (hiding guns behind your wings) but i think it's fine.
+      - map: [ "neck" ]
+      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      - map: [ "mask" ]
+      - map: [ "head" ]
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: [ "clownedon" ]
+        sprite: "Effects/creampie.rsi"
+        state: "creampie_anomalocarid"
+        visible: false
+        offset: 0, 0.375 #gotta offset the pie
+  - type: Body
+    prototype: Anomalocarid
+    requiredLegs: 2
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Anomalocarid
+  - type: Bloodstream
+    bloodReagent: AnomalocaridCopperBlood #similar to CopperBlood, just a different color.
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: _Impstation/Mobs/Effects/anomalocarid_brute_damage.rsi
+        color: "#18d6a7"
+      Burn:
+        sprite: _Impstation/Mobs/Effects/anomalocarid_burn_damage.rsi
+  - type: MeleeWeapon
+    attackRate: 0.6
+    soundHit:
+      collection: Punch
+    angle: 30
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Blunt: 8
+  - type: Tag
+    tags:
+    - AnomalocaridClaw
+    - DoorBumpOpener
+    - CanPilot
+    - FootstepSound
+    - AnomalyHost
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+      - id: FoodMeatCrab
+        amount: 5
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 300 #big
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: TypingIndicator
+    proto: anomalocarid
+  - type: Speech
+    speechVerb: Anomalocarid
+    speechSounds: Arachnid
+    allowedEmotes: ['Click', 'Chitter']
+    suffixSpeechVerbs:
+      chat-speech-verb-suffix-exclamation-strong: AnomalocaridExclamationStrong
+      chat-speech-verb-suffix-exclamation: AnomalocaridExclamation
+      chat-speech-verb-suffix-stutter: AnomalocaridStutter
+  - type: Vocal
+    sounds:
+      Male: MaleArachnid
+      Female: FemaleArachnid
+      Unsexed: UnisexArachnid
+  - type: HumanoidAppearance
+    species: Anomalocarid
+    hideLayersOnEquip:
+    - Eyes
+  - type: Inventory
+    speciesId: anomalocarid
+    templateId: anomalocarid
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi
+            state: shoes
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi
+            state: hand
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi
+            state: outerClothing
+      belt:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi
+            state: belt
+  - type: CosmicStarMarkOffset
+    offset: 0, 0.375
+
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobAnomalocaridDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HumanoidAppearance
+    species: Anomalocarid
+  - type: Inventory
+    templateId: anomalocarid
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi
+            state: shoes
+      hand:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi
+            state: hand
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi
+            state: outerClothing
+      belt:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi
+            state: belt
