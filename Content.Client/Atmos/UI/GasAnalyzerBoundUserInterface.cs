@@ -18,7 +18,7 @@ namespace Content.Client.Atmos.UI
             base.Open();
 
             _window = this.CreateWindowCenteredLeft<GasAnalyzerWindow>();
-            _window.OnClose += () => SendMessage(new GasAnalyzerDisableMessage());
+            _window.OnClose += () => SendMessage(new GasAnalyzerDisableMessage()); // imp. currently nonfunctional
         }
 
         protected override void ReceiveMessage(BoundUserInterfaceMessage message)

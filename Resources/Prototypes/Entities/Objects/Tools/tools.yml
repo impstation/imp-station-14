@@ -462,7 +462,7 @@
   - type: Tag
     tags:
     - Multitool
-    - DoorElectronicsConfigurator
+    - DoorElectronicsConfigurator # imp
   - type: Prying
     enabled: false
   - type: Tool
@@ -471,9 +471,9 @@
     speedModifier: 1.2 # Kept for future adjustments. Currently 1.2x for balance
     useSound: /Audio/Items/drill_use.ogg
   - type: ToolTileCompatible
-  - type: NetworkConfigurator
+  - type: NetworkConfigurator # imp
     switchDisabled: true
-  - type: UserInterface
+  - type: UserInterface # imp
     interfaces:
       enum.NetworkConfiguratorUiKey.Link:
         type: NetworkConfiguratorBoundUserInterface
