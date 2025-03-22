@@ -1,3 +1,12 @@
 marking-HumanHairGatheredlow = Gathered Low
 marking-HumanHairFrenchBraid = French Braid
 marking-HumanHairLowpigtails = Low Pigtails
+marking-HumanHairHalfUpUndercut = Half-Up (Undercut)
+marking-HumanHairHalfUpShort = Half-Up (Short)
+marking-HumanHairHalfUpLong = Half-Up (Long)
+marking-HumanHairMidpartLong = Middle Part (Long)
+marking-HumanHairMidpartLonger = Middle Part (Longer)
+marking-HumanHairMullet = Mullet
+marking-HumanHairMulletSideshave = Mullet (Sideshave)
+marking-HumanHairUndercutCurly = Undercut (Curly)
+marking-HumanHairSideshaveCurly = Sideshave (Curly)
