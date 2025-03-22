@@ -76,6 +76,22 @@
       ignoreWhitelist:
         components:
             - IgnoreSpiderWeb
+    - type: FlavorProfile #imp, consumable webs edits from here down
+      flavors:
+        - cobwebs
+    - type: Food
+      delay: 2
+      requiresSpecialDigestion: true
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          reagents:
+          - ReagentId: Protein
+            Quantity: 2
+    - type: Tag
+      tags:
+      - SpiderFood
+
 
 - type: entity
   id: SpiderWebClown
