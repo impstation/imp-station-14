@@ -238,6 +238,14 @@
   - type: FoldableClothing # NOTE: delete this when the aforementioned upstream merge happens
     foldedEquippedPrefix: open
     foldedHeldPrefix: open
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90
   - type: Butcherable
     butcheringType: Knife
     spawned:
