@@ -1,0 +1,34 @@
+﻿- type: entity
+  parent: ToolboxThief
+  id: BountyHunterGear
+  name: Bounty Hunter Toolbox
+  description: "DON'T FORGET TO WRITE THIS!"
+  components:
+  - type: ThiefUndeterminedBackpack
+    maxSelectedSets: 2
+    possibleSets:
+    - BountyHunterRifle
+    - BountyHunterHardsuit
+    - BountyHunterDisguise
+    - BountyHunterSubverter
+    - BountyHunterSamurai
+    - BountyHunterSyndie
+    - BountyHunterCaptain
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesBountyHunterGlasses
+  name: bounty hunter glasses
+  description: WRITE A DESCRIPTION!!
+  components:
+  - type: Sprite
+    sprite: _EE/Clothing/Eyes/Goggles/thermal.rsi
+  - type: Clothing
+    sprite: _EE/Clothing/Eyes/Goggles/thermal.rsi
+  - type: ThermalVision
+    isEquipment: true
+    pulseTime: 2
+    toggleAction: PulseThermalVision
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5

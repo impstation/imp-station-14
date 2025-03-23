@@ -1,0 +1,99 @@
+- type: thiefBackpackSet
+  id: BountyHunterRifle
+  name: "Big Fuckoff Gun Kit"
+  description: "BIG GUN"
+  sprite:
+    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    state: icon
+  content:
+  - WeaponRifleAk
+  - BoxMagazineLightRifle
+  - C4
+  - C4
+  - C4
+  - FreedomImplanter
+  - Multitool
+  - RemoteSignaller
+
+- type: thiefBackpackSet
+  id: BountyHunterHardsuit
+  name: "Hardsuit Kit"
+  description: "When the suit is hard"
+  sprite:
+    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    state: icon
+  content:
+  - ClothingOuterDesperado
+  - OxygenTankFilled
+  - NitrogenTankFilled
+  - ClothingShoesBootsMagSyndie
+
+- type: thiefBackpackSet
+  id: BountyHunterDisguise
+  name: "Disguise Kit"
+  description: "Sneaky"
+  sprite:
+    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    state: icon
+  content:
+  - ClothingBackpackChameleonFill
+  - AgentIDCard
+  - ClothingMaskGasVoiceChameleon
+  - DnaScramblerImplanter
+
+
+- type: thiefBackpackSet
+  id: BountyHunterSubverter
+  name: "Subversion Kit"
+  description: "Charasmatic"
+  sprite:
+    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    state: icon
+  content:
+  - CameraBug
+  - Emag
+  - AccessBreaker
+  - SpaceCash30000
+  - PlayerBorgSyndicateSaboteurGhostRole
+
+#Needs more, obviously
+- type: thiefBackpackSet
+  id: BountyHunterSamurai
+  name: "Samurai kit"
+  description: "Samurai!"
+  sprite:
+    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    state: icon
+  content:
+  - Katana
+
+- type: thiefBackpackSet
+  id: BountyHunterSyndie
+  name: "Knockoff Syndicate Commander Kit"
+  description: "Scary"
+  sprite:
+    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    state: icon
+  content:
+  - SyndicateBusinessCard
+  - ClothingOuterArmorRaid
+  - EncryptionKeySyndie
+  - EnergySword
+  - Telecrystal10
+  - ClothingHeadHatSyndieMAA
+  - ClothingMaskGasSyndicate
+
+- type: thiefBackpackSet
+  id: BountyHunterCaptain
+  name: "Rogue Captain Kit"
+  description: "Friend!"
+  sprite:
+    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    state: icon
+  content:
+  - ClothingOuterArmorCaptainCarapace
+  - WeaponAdvancedLaser
+  - ClothingBeltSheathFilled
+  - EncryptionKeyCommand
+  - ClothingUniformJumpsuitCaptain
+  - ClothingHeadHatCapcap

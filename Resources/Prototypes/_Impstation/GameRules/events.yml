@@ -45,3 +45,44 @@
       - type: Changeling
       mindRoles:
       - MindRoleChangeling
+
+# TODO: Un-ninjafy this, get objectives working
+- type: entity
+  parent: BaseGameRule
+  id: BountyHunterSpawn
+  components:
+  - type: StationEvent
+    weight: 6
+    duration: 1
+    earliestStart: 30
+    reoccurrenceDelay: 20
+    minimumPlayers: 20
+  - type: AntagLoadProfileRule
+  - type: RuleGrids
+  - type: LoadMapRule
+    gridPath: /Maps/_Impstation/Shuttles/ShuttleEvent/striker.yml
+  - type: AntagObjectives
+    objectives:
+    - KillRandomAntagObjective
+    - BountyHunterSurviveObjective
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointLoneNukeOperative # YOU!! SpawnPointLoneNukeOperative holds all the secrets I need, if I can find it
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: BountyHunterGear
+      roleLoadout:
+      - RoleSurvivalEVA
+      briefing:
+        text: "Hiiiiiiiiiii bounty hunter"
+        color: Orange
+        # sound: /Audio/Misc/ninja_greeting.ogg custom sound greeting??
+      mindRoles:
+      - MindRoleBountyHunter
+      components:
+      # TODO: Custom bounty hunter names
+      - type: RandomMetadata
+        nameSegments:
+        - names_ninja_title
+        - names_ninja

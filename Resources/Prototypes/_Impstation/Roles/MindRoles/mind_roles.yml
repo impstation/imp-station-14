@@ -6,3 +6,12 @@
   - type: MindRole
     roleType: FreeAgent
   - type: GhostRoleMarkerRole
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleBountyHunter
+  name: Bounty Hunter Role
+  components:
+  - type: MindRole
+    roleType: FreeAgent
+  - type: GhostRoleMarkerRole
