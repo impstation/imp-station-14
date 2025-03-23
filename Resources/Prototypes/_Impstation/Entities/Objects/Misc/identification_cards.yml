@@ -278,16 +278,16 @@
     virtualJobName: job-name-junior-cargo-technician
 
 - type: entity
-  parent: ChemistryIDCard
-  id: JuniorChemistryIDCard
+  parent: ChemistIDCard
+  id: JuniorChemistIDCard
   name: junior chemist ID card
   components:
   - type: PresetIdCard
     virtualJobName: job-name-junior-chemist
 
 - type: entity
-  parent: ScienceIDCard
-  id: JuniorScienceIDCard
+  parent: ResearchIDCard
+  id: JuniorResearchIDCard
   name: junior scientist ID card
   components:
   - type: PresetIdCard
@@ -310,8 +310,8 @@
     virtualJobName: job-name-junior-security-officer
 
 - type: entity
-  parent: EngineerIDCard
-  id: JuniorEngineerIDCard
+  parent: EngineeringIDCard
+  id: JuniorEngineeringIDCard
   name: junior engineer ID card
   components:
   - type: PresetIdCard

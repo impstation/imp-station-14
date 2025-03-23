@@ -248,7 +248,7 @@
     id: SalvagePDA
     belt: ClothingBeltSalvageWebbingApid
     outerClothing: ClothingOuterHardsuitSpatio
-    #head: 
+    #head:
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: SurvivalKnife
     ears: ClothingHeadsetCargo
@@ -397,7 +397,7 @@
   - HospitalityDirectorApron
   - HospitalityDirectorVest
   - HospitalityDirectorWintercoat
-  
+
 - type: loadoutGroup
   id: HospitalityDirectorShoes
   name: loadout-group-hospitality-director-shoes
@@ -713,6 +713,7 @@
   name: loadout-group-cargo-technician-id
   loadouts:
   - CargoTechnicianPDA
+  - JuniorCargoTechnicianPDA
   - SeniorCargoTechnicianPDA
 
 - type: loadoutGroup
