@@ -2672,11 +2672,6 @@
     damage:
       types:
         Piercing: 6
-  - type: Body  #imp edit (edible silk)
-    slots: 
-      Torso:
-        organs:
-          stomach: OrganArachnidStomach
 
 - type: entity
   parent:
