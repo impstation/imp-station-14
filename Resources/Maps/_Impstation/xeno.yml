@@ -10948,8 +10948,6 @@ entities:
       pos: 36.5,-40.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 8836
   - uid: 12992
@@ -11212,8 +11210,6 @@ entities:
       pos: 37.5,-50.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 8348
 - proto: AirSensorFreezer
@@ -56213,8 +56209,6 @@ entities:
       pos: 39.5,-47.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 8348
       - 12947
@@ -56551,8 +56545,6 @@ entities:
       pos: 36.5,-41.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 12947
       - 8836
@@ -56562,8 +56554,6 @@ entities:
       pos: 35.5,-41.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 12947
       - 8836
@@ -56573,8 +56563,6 @@ entities:
       pos: 34.5,-41.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 12947
       - 8836
@@ -56584,8 +56572,6 @@ entities:
       pos: 33.5,-41.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 12947
       - 8836
@@ -56595,8 +56581,6 @@ entities:
       pos: 32.5,-41.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 12947
       - 8836
@@ -56606,8 +56590,6 @@ entities:
       pos: 31.5,-40.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 12947
       - 8836
@@ -56617,8 +56599,6 @@ entities:
       pos: 31.5,-39.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 12947
       - 8836
@@ -56628,8 +56608,6 @@ entities:
       pos: 31.5,-38.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 12947
       - 8836
@@ -56646,8 +56624,6 @@ entities:
       pos: 39.5,-39.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 8836
       - 12949
@@ -75558,8 +75534,6 @@ entities:
       pos: 35.5,-39.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 8836
     - type: AtmosPipeColor
@@ -75918,8 +75892,6 @@ entities:
     - type: AtmosPipeColor
       color: '#505050FF'
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 8348
 - proto: GasVentPumpFreezer
@@ -76788,8 +76760,6 @@ entities:
       pos: 32.5,-39.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 8836
     - type: AtmosPipeColor
@@ -77226,8 +77196,6 @@ entities:
     - type: AtmosPipeColor
       color: '#FF0000FF'
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 8348
 - proto: GasVentScrubberFreezer
