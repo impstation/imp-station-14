@@ -4,7 +4,7 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/21/2025 03:11:49
+  time: 03/22/2025 23:26:07
   entityCount: 22975
 maps:
 - 17546
@@ -9816,7 +9816,7 @@ entities:
           -4,4:
             0: 62127
           -3,0:
-            0: 57343
+            0: 56797
           -3,1:
             0: 4095
           -3,2:
@@ -16759,6 +16759,15 @@ entities:
     - type: Transform
       pos: 9.5,-10.5
       parent: 2
+    - type: DeviceLinkSource
+      range: 1000
+      linkedPorts:
+        22957:
+        - DoorStatus: Open
+        22958:
+        - DoorStatus: Open
+        22959:
+        - DoorStatus: Open
 - proto: AirlockMaintGlassLocked
   entities:
   - uid: 62
@@ -120945,7 +120954,7 @@ entities:
       pos: -12.5,2.5
       parent: 2
     - type: DeviceLinkSink
-      invokeCounter: 1
+      invokeCounter: 2
   - uid: 22958
     components:
     - type: Transform
@@ -120953,7 +120962,7 @@ entities:
       pos: -12.5,1.5
       parent: 2
     - type: DeviceLinkSink
-      invokeCounter: 1
+      invokeCounter: 2
   - uid: 22959
     components:
     - type: Transform
@@ -120961,7 +120970,7 @@ entities:
       pos: -12.5,0.5
       parent: 2
     - type: DeviceLinkSink
-      invokeCounter: 1
+      invokeCounter: 2
 - proto: ShuttersNormalOpen
   entities:
   - uid: 2908
