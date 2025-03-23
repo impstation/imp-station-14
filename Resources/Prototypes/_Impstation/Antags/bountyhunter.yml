@@ -1,0 +1,23 @@
+- type: antag
+  id: BountyHunter
+  name: "Bounty Hunter"
+  antagonist: false
+  setPreference: false
+  objective: [BountyHunterKillRandomAntagObjective, BountyHunterSurviveObjective]
+
+- type: startingGear
+  id: BountyHunterGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBlack
+    head: ClothingHeadHatCowboyBountyHunter
+    back: ClothingBackpack
+    eyes: ClothingEyesBountyHunterGlasses
+    outerClothing: ClothingOuterVestWeb
+    shoes: ClothingShoesBootsCombatFilled
+    gloves: ClothingHandsMercGlovesCombat
+    id: PassengerPDA
+    ears: ClothingHeadsetFreelance
+    belt: ClothingBeltMilitaryWebbing
+    pocket1: WeaponPistolMk58
+    pocket2: BountyHunterGear
+

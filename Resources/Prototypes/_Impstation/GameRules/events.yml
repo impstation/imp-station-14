@@ -60,14 +60,14 @@
   - type: AntagLoadProfileRule
   - type: RuleGrids
   - type: LoadMapRule
-    gridPath: /Maps/_Impstation/Shuttles/ShuttleEvent/striker.yml
+    gridPath: /Maps/_Impstation/Shuttles/ShuttleEvent/striker.yml # To be replaced with custom shuttle
   - type: AntagObjectives
     objectives:
-    - KillRandomAntagObjective
+    - BountyHunterKillRandomAntagObjective
     - BountyHunterSurviveObjective
   - type: AntagSelection
     definitions:
-    - spawnerPrototype: SpawnPointLoneNukeOperative # YOU!! SpawnPointLoneNukeOperative holds all the secrets I need, if I can find it
+    - spawnerPrototype: SpawnPointGhostWizard # To be replaced with custom spawnpoint
       min: 1
       max: 1
       pickPlayer: false
@@ -81,6 +81,7 @@
       mindRoles:
       - MindRoleBountyHunter
       components:
+      - type: BountyHunter
       # TODO: Custom bounty hunter names
       - type: RandomMetadata
         nameSegments:

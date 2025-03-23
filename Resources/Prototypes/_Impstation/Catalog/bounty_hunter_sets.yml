@@ -1,7 +1,7 @@
 - type: thiefBackpackSet
   id: BountyHunterRifle
-  name: "Big Fuckoff Gun Kit"
-  description: "BIG GUN"
+  name: "Raider"
+  description: "You aren't a fan of subtlety.\nIncludes: An AKMS rifle, a box of .30 magazines, 3x composition C4, \nand a freedom implanter."
   sprite:
     sprite: Objects/Weapons/Guns/Pistols/viper.rsi
     state: icon
@@ -12,15 +12,13 @@
   - C4
   - C4
   - FreedomImplanter
-  - Multitool
-  - RemoteSignaller
 
 - type: thiefBackpackSet
   id: BountyHunterHardsuit
-  name: "Hardsuit Kit"
-  description: "When the suit is hard"
+  name: "Spacer"
+  description: "You're most comfortable in the void of space.\nIncludes: A stylish protective hardsuit and rocket-magboots."
   sprite:
-    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    sprite: Clothing/Shoes/Boots/magboots-syndicate.rsi
     state: icon
   content:
   - ClothingOuterDesperado
@@ -30,10 +28,10 @@
 
 - type: thiefBackpackSet
   id: BountyHunterDisguise
-  name: "Disguise Kit"
-  description: "Sneaky"
+  name: "Infiltrator"
+  description: "You use subterfuge to get close to your targets.\nIncludes: A full set of chameleon clothing, a voice chameleon mask, \nan agent ID, and a DNA scrambler implanter."
   sprite:
-    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    sprite: Clothing/Eyes/Glasses/outlawglasses.rsi
     state: icon
   content:
   - ClothingBackpackChameleonFill
@@ -44,10 +42,10 @@
 
 - type: thiefBackpackSet
   id: BountyHunterSubverter
-  name: "Subversion Kit"
-  description: "Charasmatic"
+  name: "Subverter"
+  description: "You have a knack for subverting a station's systems, \nmechanical or otherwise. Don't forget to emag your borg!\nIncludes: A cyborg companion, a camera bug, an emag, \nand an access breaker."
   sprite:
-    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    sprite: Objects/Tools/emag.rsi
     state: icon
   content:
   - CameraBug
@@ -56,23 +54,28 @@
   - SpaceCash30000
   - PlayerBorgSyndicateSaboteurGhostRole
 
-#Needs more, obviously
+
 - type: thiefBackpackSet
   id: BountyHunterSamurai
-  name: "Samurai kit"
-  description: "Samurai!"
+  name: "Samurai"
+  description: "To be added.\nIncludes: A katana, 2x hyperzine injectors, a samurai helmet, \nsamurai dogi, and an EMP implant."
   sprite:
-    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    sprite: Objects/Weapons/Melee/katana.rsi
     state: icon
   content:
   - Katana
+  - Stimpack
+  - Stimpack
+  - ClothingOuterDogi
+  - EmpImplanter
+
 
 - type: thiefBackpackSet
   id: BountyHunterSyndie
-  name: "Knockoff Syndicate Commander Kit"
-  description: "Scary"
+  name: "Rogue Operative"
+  description: "You were previously a member of the Gorlex Marauders. \nDon't expect a warm welcome.\nIncludes: A Syndicate Raid Suit, a Syndicate encryption key, \na Syndicate gas mask, and an energy sword."
   sprite:
-    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    sprite: Clothing/Mask/gassyndicate.rsi
     state: icon
   content:
   - SyndicateBusinessCard
@@ -85,10 +88,10 @@
 
 - type: thiefBackpackSet
   id: BountyHunterCaptain
-  name: "Rogue Captain Kit"
-  description: "Friend!"
+  name: "Rogue Captain"
+  description: "You were previously a member of NanoTrasen command. \nYou didn't leave on good terms.\nIncludes: An armored carapace, a command encryption key, \na cerimonial sabre, and an advanced laser pistol."
   sprite:
-    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    sprite: Clothing/Head/Hats/captain.rsi
     state: icon
   content:
   - ClothingOuterArmorCaptainCarapace
@@ -97,3 +100,29 @@
   - EncryptionKeyCommand
   - ClothingUniformJumpsuitCaptain
   - ClothingHeadHatCapcap
+
+- type: thiefBackpackSet
+  id: BountyHunterClown
+  name: "Rogue Clown"
+  description: "Hunting people for payment doesn't have to be BORING!\nIncludes: A pie cannon, 6x banana cream pies, a holoclown best friend, \na little guy's car, and various toys."
+  sprite:
+    sprite: Objects/Fun/bikehorn.rsi
+    state: icon
+  content:
+  - CrateFunToyBox
+  - BaseLittleTykesCar
+  - LauncherCreamPie
+  - SadTromboneImplanter
+  - BoxHoloclown
+  - ClothingMaskClown
+  - ClothingShoesClown
+  - ClothingUniformJumpsuitClown
+  - FoodBanana
+  - FoodBanana
+  - FoodPieBananaCream
+  - FoodPieBananaCream
+  - FoodPieBananaCream
+  - FoodPieBananaCream
+  - FoodPieBananaCream
+  - FoodPieBananaCream
+  - BikeHorn
