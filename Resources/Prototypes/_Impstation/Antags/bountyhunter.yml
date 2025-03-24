@@ -1,6 +1,6 @@
 - type: antag
   id: BountyHunter
-  name: "Bounty Hunter"
+  name: roles-antag-bounty-hunter-name
   antagonist: false
   setPreference: false
   playTimeTracker: AntagBountyHunter # imp
@@ -13,10 +13,10 @@
     head: ClothingHeadHatCowboyBountyHunter
     back: ClothingBackpack
     eyes: ClothingEyesBountyHunterGlasses
-    outerClothing: ClothingOuterVestWeb
+    outerClothing: ClothingOuterCoatBomber
     shoes: ClothingShoesBootsCombatFilled
     gloves: ClothingHandsMercGlovesCombat
-    id: PassengerPDA
+    id: BountyHunterIDCard
     ears: ClothingHeadsetFreelance
     belt: ClothingBeltMilitaryWebbing
     pocket1: WeaponPistolMk58

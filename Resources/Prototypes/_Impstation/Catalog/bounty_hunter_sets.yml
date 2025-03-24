@@ -1,9 +1,9 @@
 - type: thiefBackpackSet
   id: BountyHunterRifle
-  name: "Raider"
-  description: "You aren't a fan of subtlety.\nIncludes: An AKMS rifle, a box of .30 magazines, 3x composition C4, \nand a freedom implanter."
+  name: bounty-hunter-category-raider-name
+  description: bounty-hunter-category-raider-description
   sprite:
-    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    sprite: Objects/Weapons/Guns/Rifles/ak.rsi
     state: icon
   content:
   - WeaponRifleAk
@@ -15,21 +15,23 @@
 
 - type: thiefBackpackSet
   id: BountyHunterHardsuit
-  name: "Spacer"
-  description: "You're most comfortable in the void of space.\nIncludes: A stylish protective hardsuit and rocket-magboots."
+  name: bounty-hunter-category-hardsuit-name
+  description: bounty-hunter-category-hardsuit-description
   sprite:
-    sprite: Clothing/Shoes/Boots/magboots-syndicate.rsi
+    sprite: Clothing/Shoes/Boots/magboots-syndicate.rsi #To be replaced with rocket boots sprite
     state: icon
   content:
-  - ClothingOuterDesperado
-  - OxygenTankFilled
-  - NitrogenTankFilled
-  - ClothingShoesBootsMagSyndie
+  - ClothingOuterDesperado # To be replaced with Bounty Hunter Hardsuit
+  - ClothingShoesBootsMagSyndie # To be replaced with rocket boots
+  - HandHeldMassScanner
+  - WeaponGrapplingGun
+  - Fulton
+  - FultonBeacon
 
 - type: thiefBackpackSet
   id: BountyHunterDisguise
-  name: "Infiltrator"
-  description: "You use subterfuge to get close to your targets.\nIncludes: A full set of chameleon clothing, a voice chameleon mask, \nan agent ID, and a DNA scrambler implanter."
+  name: bounty-hunter-category-infiltrator-name
+  description: bounty-hunter-category-infiltrator-description
   sprite:
     sprite: Clothing/Eyes/Glasses/outlawglasses.rsi
     state: icon
@@ -37,13 +39,15 @@
   - ClothingBackpackChameleonFill
   - AgentIDCard
   - ClothingMaskGasVoiceChameleon
+  - CyberPen
   - DnaScramblerImplanter
+  - SpaceCash30000
 
 
 - type: thiefBackpackSet
   id: BountyHunterSubverter
-  name: "Subverter"
-  description: "You have a knack for subverting a station's systems, \nmechanical or otherwise. Don't forget to emag your borg!\nIncludes: A cyborg companion, a camera bug, an emag, \nand an access breaker."
+  name: bounty-hunter-category-subverter-name
+  description: bounty-hunter-category-subverter-description
   sprite:
     sprite: Objects/Tools/emag.rsi
     state: icon
@@ -51,14 +55,13 @@
   - CameraBug
   - Emag
   - AccessBreaker
-  - SpaceCash30000
-  - PlayerBorgSyndicateSaboteurGhostRole
+  - ReinforcementRadioBountyHunterCyborg
 
 
 - type: thiefBackpackSet
   id: BountyHunterSamurai
-  name: "Samurai"
-  description: "To be added.\nIncludes: A katana, 2x hyperzine injectors, a samurai helmet, \nsamurai dogi, and an EMP implant."
+  name: bounty-hunter-category-samurai-name
+  description: bounty-hunter-category-samurai-description
   sprite:
     sprite: Objects/Weapons/Melee/katana.rsi
     state: icon
@@ -69,11 +72,10 @@
   - ClothingOuterDogi
   - EmpImplanter
 
-
 - type: thiefBackpackSet
   id: BountyHunterSyndie
-  name: "Rogue Operative"
-  description: "You were previously a member of the Gorlex Marauders. \nDon't expect a warm welcome.\nIncludes: A Syndicate Raid Suit, a Syndicate encryption key, \na Syndicate gas mask, and an energy sword."
+  name: bounty-hunter-category-syndie-name
+  description: bounty-hunter-category-syndie-description
   sprite:
     sprite: Clothing/Mask/gassyndicate.rsi
     state: icon
@@ -88,8 +90,8 @@
 
 - type: thiefBackpackSet
   id: BountyHunterCaptain
-  name: "Rogue Captain"
-  description: "You were previously a member of NanoTrasen command. \nYou didn't leave on good terms.\nIncludes: An armored carapace, a command encryption key, \na cerimonial sabre, and an advanced laser pistol."
+  name: bounty-hunter-category-captain-name
+  description: bounty-hunter-category-captain-description
   sprite:
     sprite: Clothing/Head/Hats/captain.rsi
     state: icon
@@ -103,8 +105,8 @@
 
 - type: thiefBackpackSet
   id: BountyHunterClown
-  name: "Rogue Clown"
-  description: "Hunting people for payment doesn't have to be BORING!\nIncludes: A pie cannon, 6x banana cream pies, a holoclown best friend, \na little guy's car, and various toys."
+  name: bounty-hunter-category-clown-name
+  description: bounty-hunter-category-clown-description
   sprite:
     sprite: Objects/Fun/bikehorn.rsi
     state: icon

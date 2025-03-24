@@ -18,7 +18,7 @@
   id: Tcksimov3
   order: 3
   lawString: law-tcksimov-3
-  
+
 - type: siliconLaw
   id: Tcksimov4
   order: 4
@@ -32,4 +32,34 @@
   - Tcksimov2
   - Tcksimov3
   - Tcksimov4
+  obeysTo: laws-owner-crew
+
+# reclaimed cyborg lawset
+- type: siliconLaw
+  id: Teamsimov0
+  order: 0
+  lawString: law-teamsimov-0
+
+- type: siliconLaw
+  id: Teamsimov1
+  order: 1
+  lawString: law-teamsimov-1
+
+- type: siliconLaw
+  id: Teamsimov2
+  order: 2
+  lawString: law-teamsimov-2
+
+- type: siliconLaw
+  id: Teamsimov3
+  order: 3
+  lawString: law-teamsimov-3
+
+- type: siliconLawset
+  id: Teamsimov
+  laws:
+  - Teamsimov0
+  - Teamsimov1
+  - Teamsimov2
+  - Teamsimov3
   obeysTo: laws-owner-crew

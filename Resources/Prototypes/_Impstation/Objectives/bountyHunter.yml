@@ -14,11 +14,10 @@
 - type: entity
   parent: [BaseKillObjective, BaseBountyHunterObjective]
   id: BountyHunterKillRandomAntagObjective
-  description: You don't know who wants them or why, and you don't care. You'll get paid more if they're alive, long as they don't make it to centcomm.
+  description: You don't know who wants them or why, and you don't care. You'll be paid more if they're alive, as long as they end up on your shuttle.
   components:
   - type: TargetObjective
     title: objective-condition-kill-person-title
-#  - type: PickRandomTraitor # backup
   - type: PickRandomAntag
 
 - type: entity

@@ -59,3 +59,21 @@
       state: idhospitalitydirector
   - type: PresetIdCard
     job: HospitalityDirector
+
+# Bounty Hunter
+- type: entity
+  parent: IDCardStandard
+  id: BountyHunterIDCard
+  name: passenger ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idpassenger
+  - type: IdCard
+    jobTitle: job-name-passenger
+    jobIcon: JobIconPassenger
+  - type: Access
+    tags:
+    - Maintenance
+    - Freelance
