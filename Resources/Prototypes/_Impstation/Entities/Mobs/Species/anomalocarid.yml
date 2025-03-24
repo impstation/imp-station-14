@@ -84,6 +84,10 @@
         color: "#18d6a7"
       Burn:
         sprite: _Impstation/Mobs/Effects/anomalocarid_burn_damage.rsi
+  - type: FireVisuals
+    sprite: _Impstation/Mobs/Effects/anomalocarid_onfire.rsi #too big for normal onfire states, they need their own rsi
+    normalState: Generic_mob_burning_anomalocarid #because of the way fire stacks work, i duplicated the generic_mob_burning and made it bigger
+    alternateState: Standing_anomalocarid
   - type: MeleeWeapon
     attackRate: 0.6
     soundHit:
@@ -117,6 +121,17 @@
         - MobMask
         layer:
         - MobLayer
+#      fix2: #fixture for head, dunno how to do this right yet
+#        shape:
+#          !type:PhysShapeCircle
+#          radius: 0.2
+#          position: "0, -0.5"
+#        restitution: 0.0
+#        hard: false
+#        mask:
+#        - MobMask
+#        layer:
+#        - MobLayer
   - type: TypingIndicator
     proto: anomalocarid
   - type: Speech
@@ -177,6 +192,7 @@
   - type: HumanoidAppearance
     species: Anomalocarid
   - type: Inventory
+    speciesId: anomalocarid
     templateId: anomalocarid
     displacements:
       jumpsuit:
@@ -189,7 +205,7 @@
           32:
             sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi
             state: shoes
-      hand:
+      gloves:
         sizeMaps:
           32:
             sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi
