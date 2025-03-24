@@ -44,7 +44,7 @@
   id: ClothingUniformRandomSimpleTeeShorts
   name: simple tee outfit
   suffix: shorts
-  description: A lightweight outfit with a simple tee and soft shorts. You could probably crop the tee, too...
+  description: A lightweight outfit with a simple tee and soft shorts. You could probably crop the tee, too, if you want...
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Uniforms/procedural.rsi
@@ -85,7 +85,7 @@
   id: ClothingUniformRandomSimpleTeeCropped
   name: simple tee outfit
   suffix: cropped
-  description: A lightweight outfit with a simple cropped tee and soft shorts. Should you crop it higher? Where's your knife...
+  description: A lightweight outfit with a simple cropped tee and soft shorts. If you cut any more you'll ruin it.
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Uniforms/procedural.rsi
@@ -114,11 +114,6 @@
           decor_leg_simple_belt: SimpleBeltbuckle
         leg:
           base_leg_simple_shorts: SimpleBottom
-  - type: Butcherable
-    butcheringType: Knife
-    spawned:
-    - id: ClothingUniformRandomSimpleShorts
-      amount: 1
 
 # Pants version
 - type: entity
@@ -166,7 +161,7 @@
   id: ClothingUniformRandomSimpleTankShorts
   name: simple tank outfit
   suffix: shorts
-  description: A lightweight outfit with a simple tank and soft shorts. You could probably crop the tank, too...
+  description: A lightweight outfit with a simple tank and soft shorts. You could probably crop the tank, too, if you want...
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Uniforms/procedural.rsi
@@ -207,7 +202,7 @@
   id: ClothingUniformRandomSimpleTankCropped
   name: simple tank outfit
   suffix: cropped
-  description: A lightweight outfit with a simple cropped tank and soft shorts. Should you crop it higher? Where's your knife...
+  description: A lightweight outfit with a simple cropped tank and soft shorts. If you cut any more you'll ruin it.
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Uniforms/procedural.rsi
@@ -236,6 +231,35 @@
           decor_leg_simple_belt: SimpleBeltbuckle
         leg:
           base_leg_simple_shorts: SimpleBottom
+
+# Just the pants
+- type: entity
+  parent: [ClothingUniformRandom]
+  id: ClothingUniformRandomSimplePants
+  name: simple pants
+  description: Just a pair of soft pants. You can make them into shorts with a knife if you're feeling inspired, though damaging the metamorphic fabric will cause unpredictable color shifts.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/procedural.rsi
+    layers:
+    - state: base_leg_simple_pants
+      map: [ "leg" ]
+    - state: decor_leg_simple_belt
+      map: [ "decor" ]
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/procedural.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: base_leg_simple_pants
+        map: [ "leg" ]
+      - state: decor_leg_simple_belt
+        map: [ "decor" ]
+  - type: RandomSprite
+    available:
+      - decor:
+          decor_leg_simple_belt: SimpleBeltbuckle
+        leg:
+          base_leg_simple_pants: SimpleBottom
   - type: Butcherable
     butcheringType: Knife
     spawned:
@@ -247,7 +271,7 @@
   parent: [ClothingUniformRandom]
   id: ClothingUniformRandomSimpleShorts
   name: simple shorts
-  description: Just a pair of soft shorts. The shirt was destroyed in the pursuit of perfection. You'd better stop.
+  description: Just a pair of soft shorts. Perfect.
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Uniforms/procedural.rsi
@@ -290,4 +314,14 @@
     offset: 0
     prototypes:
     - ClothingUniformRandomSimpleTank
+
+- type: entity
+  parent: [ClothingUniformRandom]
+  id: ClothingUniformRandomSimplePantsSpawner
+  name: random simple pants outfit
+  components:
+  - type: RandomSpawner
+    offset: 0
+    prototypes:
+    - ClothingUniformRandomSimplePants
 
