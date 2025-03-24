@@ -416,9 +416,13 @@
   description: Strange-looking red hat-wear that most certainly belongs to a real magic user.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/redwizard.rsi
+    sprite: _Impstation/Clothing/Head/Hats/redwizard.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/redwizard.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.3"
+    sprite: _Impstation/Clothing/Head/Hats/redwizard.rsi
 
 - type: entity
   parent: ClothingHeadBase
@@ -531,9 +535,13 @@
   description: "Strange-looking violet hat-wear that most certainly belongs to a real magic user."
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/violetwizard.rsi
+    sprite: _Impstation/Clothing/Head/Hats/violetwizard.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/violetwizard.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.3"
+    sprite: _Impstation/Clothing/Head/Hats/violetwizard.rsi
 
 - type: entity
   parent: ClothingHeadBase
@@ -592,9 +600,13 @@
   description: Strange-looking blue hat-wear that most certainly belongs to a powerful magic user.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/wizardhat.rsi
+    sprite: _Impstation/Clothing/Head/Hats/wizardhat.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/wizardhat.rsi
+    ClothingVisuals:
+        head:
+        - state: equipped-HELMET
+          offset: "0,0.3"
+    sprite: _Impstation/Clothing/Head/Hats/wizardhat.rsi
   - type: Tag
     tags:
     - ClothMade
