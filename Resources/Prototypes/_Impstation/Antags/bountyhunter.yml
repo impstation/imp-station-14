@@ -3,6 +3,7 @@
   name: "Bounty Hunter"
   antagonist: false
   setPreference: false
+  playTimeTracker: AntagBountyHunter # imp
   objective: [BountyHunterKillRandomAntagObjective, BountyHunterSurviveObjective]
 
 - type: startingGear

@@ -11,7 +11,6 @@
   #    mindRoles:
   #    - MindRoleBountyHunter
 
-# TODO: Make it target a random antag. Ideally, give it a chance to target a command member as well.
 - type: entity
   parent: [BaseKillObjective, BaseBountyHunterObjective]
   id: BountyHunterKillRandomAntagObjective
@@ -19,7 +18,8 @@
   components:
   - type: TargetObjective
     title: objective-condition-kill-person-title
-  - type: PickRandomPerson
+#  - type: PickRandomTraitor # backup
+  - type: PickRandomAntag
 
 - type: entity
   parent: [BaseBountyHunterObjective, BaseSurviveObjective]

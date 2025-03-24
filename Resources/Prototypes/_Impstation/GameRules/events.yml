@@ -67,7 +67,7 @@
     - BountyHunterSurviveObjective
   - type: AntagSelection
     definitions:
-    - spawnerPrototype: SpawnPointGhostWizard # To be replaced with custom spawnpoint
+    - spawnerPrototype: SpawnPointGhostBountyHunter # To be replaced with custom spawnpoint
       min: 1
       max: 1
       pickPlayer: false
@@ -75,14 +75,13 @@
       roleLoadout:
       - RoleSurvivalEVA
       briefing:
-        text: "Hiiiiiiiiiii bounty hunter"
+        text: "You are an elite bounty hunter sponsored by an anonymous donor. You've tracked one of your marks to this system, and you're being paid a lot of money to bring them to your shuttle, dead or alive. But ideally alive.\nGood luck."
         color: Orange
         # sound: /Audio/Misc/ninja_greeting.ogg custom sound greeting??
       mindRoles:
       - MindRoleBountyHunter
       components:
-      - type: BountyHunter
-      # TODO: Custom bounty hunter names
+      #TODO: Custom bounty hunter names
       - type: RandomMetadata
         nameSegments:
         - names_ninja_title
