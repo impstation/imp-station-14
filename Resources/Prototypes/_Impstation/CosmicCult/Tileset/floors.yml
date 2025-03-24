@@ -147,7 +147,7 @@
 
 - type: entity
   id: FloorCosmicDecayAlt
-  suffix: DO NOT MAP
+  categories: [ HideSpawnMenu ]
   name: "???"
   placement:
     mode: SnapgridCenter
@@ -157,6 +157,7 @@
   - type: FloorOccluder
   - type: Physics
     bodyType: Static
+    canCollide: False
   - type: Transform
     anchored: true
   - type: SyncSprite

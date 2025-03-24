@@ -1,6 +1,6 @@
 - type: entity
   name: Daito
-  parent: [BaseWeaponRifle, BaseRestrictedContraband]
+  parent: [BaseWeaponRifle, BaseSecurityContraband]
   id: WeaponRifleDaito
   description: A military precision rifle for the efficient combatant. Uses .30 rifle ammo.
   components:
@@ -68,6 +68,7 @@
       path: /Audio/Effects/hit_kick.ogg
     soundSwing:
       path: /Audio/_Impstation/Weapons/Guns/Melee/shove_folley.ogg
+    resetOnHandSelected: false
   - type: AltFireMelee
     attackType: Heavy
   - type: DamageOtherOnHit #for throwing
@@ -154,6 +155,7 @@
       path: /Audio/Effects/hit_kick.ogg
     soundSwing:
       path: /Audio/_Impstation/Weapons/Guns/Melee/shove_folley.ogg
+    resetOnHandSelected: false
   - type: AltFireMelee
     attackType: Heavy
   - type: DamageOtherOnHit #for throwing
