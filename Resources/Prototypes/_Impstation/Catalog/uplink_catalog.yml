@@ -85,3 +85,14 @@
     Telecrystal: 1
   categories:
   - UplinkPointless
+
+- type: listing
+  id: UplinkKaijuCloak
+  name: uplink-kaijucloak-name
+  description: uplink-kaijucloak-desc
+  icon: { sprite: /Textures/_Impstation/Clothing/Neck/Cloaks/kaijucloak.rsi, state: icon }
+  productEntity: ClothingNeckCloakKaijuCloak
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkDeception
