@@ -273,7 +273,7 @@
   minLimit: 0
   loadouts:
   - PassengerWintercoat
-  - BomberLightweight #imp
+  - BomberBlack #imp
 
 - type: loadoutGroup
   id: PassengerShoes
@@ -604,7 +604,9 @@
   name: loadout-group-mime-jumpsuit
   loadouts:
   - MimeJumpsuit
+  - MimeJumpsuitCropped #imp
   - MimeJumpskirt
+  - MimeJumpskirtCropped #imp
 
 - type: loadoutGroup
   id: MimeBackpack
