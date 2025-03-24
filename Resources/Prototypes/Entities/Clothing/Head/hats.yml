@@ -421,7 +421,7 @@
     clothingVisuals:
       head:
       - state: equipped-HELMET
-        offset: "0, 0.3"
+        offset: "0, 0.0625"
     sprite: _Impstation/Clothing/Head/Hats/redwizard.rsi
 
 - type: entity
@@ -540,7 +540,7 @@
     clothingVisuals:
       head:
       - state: equipped-HELMET
-        offset: "0, 0.3"
+        offset: "0, 0.0625"
     sprite: _Impstation/Clothing/Head/Hats/violetwizard.rsi
 
 - type: entity
@@ -602,10 +602,10 @@
   - type: Sprite
     sprite: _Impstation/Clothing/Head/Hats/wizardhat.rsi
   - type: Clothing
-    ClothingVisuals:
+    clothingVisuals:
         head:
         - state: equipped-HELMET
-          offset: "0,0.3"
+          offset: "0, 0.125"
     sprite: _Impstation/Clothing/Head/Hats/wizardhat.rsi
   - type: Tag
     tags:
