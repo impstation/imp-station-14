@@ -36,20 +36,41 @@
     proto: ShellShotgun
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+    soundRack:
+      path: /Audio/_Impstation/Weapons/Guns/Cock/shotgun_cock.ogg #imp
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
         ents: []
   - type: StaticPrice
     price: 500
+#imp edit begin; weapon melee
+  - type: MeleeWeapon
+    range: 0.8
+    attackRate: 0.8
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+    soundSwing:
+      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_folley.ogg
+    resetOnHandSelected: false
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 6
+    damage:
+      types:
+        Blunt: 5
+#imp edit end
 
 - type: entity
-  name: Bulldog
+  name: Hydra #imp
   # Don't parent to BaseWeaponShotgun because it differs significantly
   parent: [BaseItem, BaseGunWieldable, Tier3Contraband]
   id: WeaponShotgunBulldog
   description: A fully-automatic magazine-fed assault shotgun designed for close-quarters combat. This will get the job done. Uses .50 shotgun shells. #imp
-
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Shotguns/bulldog.rsi #imp
@@ -101,6 +122,32 @@
   - type: Appearance
   - type: StaticPrice
     price: 500
+#imp edit begin; weapon melee
+  - type: MeleeWeapon
+    range: 0.8
+    attackRate: 0.6
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+    soundSwing:
+      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_folley.ogg
+    resetOnHandSelected: false
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 10
+    damage:
+      types:
+        Blunt: 8
+  - type: StaminaDamageOnHit
+    damage: 10 #slight stagger, but still like 10 hits to stun completely
+  - type: MeleeRequiresWield
+  - type: MeleeThrowOnHit
+    distance: 0.8
+    speed: 5
+#imp edit end
 
 - type: entity
   name: double-barreled shotgun
@@ -120,10 +167,27 @@
     fireRate: 3
   - type: BallisticAmmoProvider
     capacity: 2
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/shotgun_close.ogg #imp
   - type: Construction
     graph: ShotgunSawn
     node: start
     deconstructionTarget: null
+#imp edit begin; weapon melee
+  - type: MeleeWeapon
+    attackRate: 0.6
+  - type: StaminaDamageOnHit
+    damage: 10 #slight stagger, but still like 10 hits to stun completely
+  - type: MeleeRequiresWield
+  - type: MeleeThrowOnHit
+    distance: 0.8
+    speed: 5
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 10
+    damage:
+      types:
+        Blunt: 8
+#imp edit end
 
 - type: entity
   name: double-barreled shotgun
@@ -137,9 +201,9 @@
 
 - type: entity
   name: Enforcer
-  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseRestrictedContraband]
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponShotgunEnforcer
-  description: A premium semi-automatic combat shotgun, featuring a pistol grip and full-length magazine tube for those nasty close-quarters engagements. Uses .50 shotgun shells. #imp
+  description: A premium semi-automatic combat shotgun, featuring a pistol grip and sleek profile for those nasty close-quarters engagements. Uses .50 shotgun shells. #imp
   components: # intend for Enforcer to have wider choke for semi-auto function
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Shotguns/enforcer.rsi #imp
@@ -148,20 +212,35 @@
   - type: Item
     sprite: _Impstation/Objects/Weapons/Guns/Shotguns/enforcer_inhands_64x.rsi #imp
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+#imp edit begin; weapon melee
+  - type: MeleeWeapon
+    attackRate: 0.6
+  - type: StaminaDamageOnHit
+    damage: 10 #slight stagger, but still like 10 hits to stun completely
+  - type: MeleeRequiresWield
+  - type: MeleeThrowOnHit
+    distance: 0.8
+    speed: 5
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 10
+    damage:
+      types:
+        Blunt: 8
+#imp edit end
 
 - type: entity
   parent: WeaponShotgunEnforcer
   id: WeaponShotgunEnforcerRubber
-  suffix: Non-Lethal
+  suffix: Non-Lethal DEPRECATED DO NOT MAP
   components:
   - type: BallisticAmmoProvider
     proto: ShellShotgunBeanbag
 
 - type: entity
   name: Kammerer
-  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseRestrictedContraband]
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponShotgunKammerer
-  description: Even centuries after his time, the legacy of John Moses Browning lives on. This pump-action shotgun is a favorite of hunters and militia forces throughout many worlds. Uses .50 shotgun shells. #imp
+  description: Even centuries after his time, the legacy of John Moses Browning lives on. This pump-action shotgun is a favorite of hunters and militia forces across many worlds. Uses .50 shotgun shells. #imp
   components: # intend for Kammerer to have tighter choke for slower fire rate and/or manual cycling
   - type: Item
     size: Normal
@@ -175,9 +254,26 @@
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 1
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/kammerer.ogg #imp
   - type: Tag
     tags:
     - WeaponShotgunKammerer
+#imp edit begin; weapon melee
+  - type: MeleeWeapon
+    attackRate: 0.6
+  - type: StaminaDamageOnHit
+    damage: 10 #slight stagger, but still like 10 hits to stun completely
+  - type: MeleeRequiresWield
+  - type: MeleeThrowOnHit
+    distance: 0.8
+    speed: 5
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 10
+    damage:
+      types:
+        Blunt: 8
+#imp edit end
 
 - type: entity
   name: sawn-off shotgun
@@ -196,6 +292,8 @@
     fireRate: 3
   - type: BallisticAmmoProvider
     capacity: 2
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/shotgun_close.ogg #imp
   - type: Construction
     graph: ShotgunSawn
     node: shotgunsawn
@@ -232,6 +330,8 @@
     fireRate: 4
   - type: BallisticAmmoProvider
     capacity: 1
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/smg_cock.ogg #imp
   - type: Construction
     graph: ShotgunSawn
     node: shotgunsawn
@@ -257,6 +357,8 @@
     fireRate: 2
   - type: BallisticAmmoProvider
     capacity: 1
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/smg_cock.ogg #imp
   - type: StaticPrice
     price: 0
 
@@ -281,6 +383,8 @@
   - type: BallisticAmmoProvider
     capacity: 1
     proto: null
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/smg_cock.ogg #imp
   - type: Construction
     graph: ImprovisedShotgunGraph
     node: shotgun
