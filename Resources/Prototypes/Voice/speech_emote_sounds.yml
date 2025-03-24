@@ -44,8 +44,6 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
-    Belch: # Frontier
-      collection: Belch
 
 - type: emoteSounds
   id: FemaleHuman
@@ -92,8 +90,6 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
-    Belch: # Frontier
-      collection: Belch
 
 - type: emoteSounds
   id: MaleReptilian
@@ -132,8 +128,6 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: DeathGasp
-    Belch: # Frontier
-      collection: Belch
 
 - type: emoteSounds
   id: FemaleReptilian
@@ -172,8 +166,6 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
-    Belch: # Frontier
-      collection: Belch
 
 - type: emoteSounds
   id: MaleSlime
@@ -224,8 +216,6 @@
       collection: MaleSlimeGasp # imp
     DefaultDeathgasp:
       collection: MaleSlimeDeathGasp # imp
-    Belch: # Frontier
-      collection: Belch
   params:
     variation: 0.125
 
@@ -276,8 +266,6 @@
       collection: FemaleSlimeGasp # imp
     DefaultDeathgasp:
       collection: FemaleSlimeDeathGasp # imp
-    Belch: # Frontier
-      collection: Belch
   params:
     variation: 0.125
 
@@ -330,8 +318,6 @@
       collection: VoxHiss
       params:
         volume: -5
-    Belch: # Frontier
-      collection: Belch
     HarpyCaw: # imp
       collection: KodepiiaCaws
   params:
@@ -373,8 +359,6 @@
       collection: UnisexGasp # imp
     DefaultDeathgasp:
       collection: DeathGasp
-    Belch: # Frontier
-      collection: Belch
   params:
     variation: 0.125
 
@@ -417,8 +401,6 @@
       collection: UnisexGasp # imp
     DefaultDeathgasp:
       collection: DeathGasp
-    Belch: # Frontier
-      collection: Belch
 
 - type: emoteSounds
   id: UnisexDwarf
@@ -461,8 +443,6 @@
       collection: UnisexGasp # imp
     DefaultDeathgasp:
       collection: UnisexDeathGasp # imp
-    Belch: # Frontier
-      collection: Belch
   params:
     variation: 0.125
     pitch: 0.75
@@ -510,8 +490,6 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
-    Belch: # Frontier
-      collection: Belch
   params:
     variation: 0.125
     pitch: 0.75
@@ -541,8 +519,6 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MothDeathGasp
-    Belch: # Frontier
-      collection: Belch
 
 - type: emoteSounds
   id: UnisexSilicon
