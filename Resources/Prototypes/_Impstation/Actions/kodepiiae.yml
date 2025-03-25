@@ -1,9 +1,11 @@
 - type: entity
   id: ActionKodepiiaeScrambler
-  name: Slime Trail
-  description: Leave a trail of mucin.
+  name: Scramble Appearance
+  description: Scramble your appearance
   components:
   - type: InstantAction
-    icon: Interface/Actions/slime.png
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: transform
     event: !type:KodepiiaeScramblerEvent
     useDelay: 600
