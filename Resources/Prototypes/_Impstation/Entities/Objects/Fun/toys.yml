@@ -687,3 +687,34 @@
   - type: Sprite
     sprite: _Impstation/Objects/Fun/prizeticket.rsi
     state: diamond
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieFuzzboBlue
+  name: Blue Fuzzbo
+  description: These were once suspected of containing listening devices, and thus banned from high-security locations. But that's silly, right?
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    state: plushie_Fuzzbo_babyBlue
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/mousesqueek.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/Toys/mousesqueek.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/mousesqueek.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Items/Toys/mousesqueek.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: FlavorProfile
+    flavors:
+      - consumerelectronics
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Items/Toys/mousesqueek.ogg
