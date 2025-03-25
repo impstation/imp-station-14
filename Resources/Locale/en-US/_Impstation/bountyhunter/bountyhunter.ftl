@@ -20,7 +20,7 @@ bounty-hunter-category-raider-description =
 bounty-hunter-category-hardsuit-name = Spacer
 bounty-hunter-category-hardsuit-description =
     You're most comfortable in the void of space.
-    Includes: A stylish protective hardsuit, rocket-magboots, a
+    Includes: A lightweight and protective hardsuit, rocket-magboots, a
     handheld mass scanner, a set of fultons, and a grappling hook.
 
 bounty-hunter-category-infiltrator-name = Infiltrator
