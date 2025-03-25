@@ -123,8 +123,9 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
             var spawnTgt = Transform(newSpawn.Uid).Coordinates;
 
             //spawn your hellsona
-            if (victimComp.Mind.Equals( null))
+            if (!victimComp.HasMind)
             {
+                victimComp.AlreadyHelled = true;
                 return;
             }
             MindComponent? mindComp = Comp<MindComponent>(victimComp.Mind);
