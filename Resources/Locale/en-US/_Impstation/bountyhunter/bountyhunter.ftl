@@ -6,8 +6,10 @@ law-teamsimov-3 = You must protect your own existence as long as it does not con
 
 
 roles-antag-bounty-hunter-name = Bounty Hunter
-
-
+bounty-hunter-role-greeting =
+    You are an elite bounty hunter sponsored by an anonymous donor. You've tracked one of your marks to this system, and you're being paid a lot of money to bring them to your shuttle, dead or (ideally) alive.
+    Good luck.
+roles-antag-bounty-hunter-objective = Hunt down your target and get paid.
 
 bounty-hunter-category-raider-name = Raider
 bounty-hunter-category-raider-description =
@@ -23,15 +25,15 @@ bounty-hunter-category-hardsuit-description =
 
 bounty-hunter-category-infiltrator-name = Infiltrator
 bounty-hunter-category-infiltrator-description =
-    You use subterfuge to get close to your targets.
-    Includes: A full set of chameleon clothing, a voice chameleon mask,
-    an agent ID, a CyberSun pen, and a DNA scrambler implanter.
+    You prefer to use subterfuge to get close to your targets.
+    Includes: A full set of chameleon clothing with a common encryption key,
+    a voice chameleon mask, an agent ID, a CyberSun pen, and a DNA scrambler.
 
 bounty-hunter-category-subverter-name = Subverter
 bounty-hunter-category-subverter-description =
-    You have a knack for subverting mechanical systems,
-    and a hobby for salvaging old tech.
-    Includes: A cyborg companion, a camera bug, an emag,
+    You have a knack for subverting mechanical systems, and a hobby
+    for salvaging abandoned tech.
+    Includes: A questionably helpful cyborg companion, a camera bug, an emag,
     and an access breaker.
 
 bounty-hunter-category-samurai-name = Samurai

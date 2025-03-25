@@ -60,14 +60,14 @@
   - type: AntagLoadProfileRule
   - type: RuleGrids
   - type: LoadMapRule
-    gridPath: /Maps/_Impstation/Shuttles/ShuttleEvent/striker.yml # To be replaced with custom shuttle
+    gridPath: /Maps/_Impstation/Shuttles/ShuttleEvent/bounty_hunter_shuttle.yml # To be replaced with custom shuttle
   - type: AntagObjectives
     objectives:
     - BountyHunterKillRandomAntagObjective
     - BountyHunterSurviveObjective
   - type: AntagSelection
     definitions:
-    - spawnerPrototype: SpawnPointGhostBountyHunter # To be replaced with custom spawnpoint
+    - spawnerPrototype: SpawnPointGhostBountyHunter
       min: 1
       max: 1
       pickPlayer: false
@@ -75,14 +75,15 @@
       roleLoadout:
       - RoleSurvivalEVA
       briefing:
-        text: "You are an elite bounty hunter sponsored by an anonymous donor. You've tracked one of your marks to this system, and you're being paid a lot of money to bring them to your shuttle, dead or alive. But ideally alive.\nGood luck."
+        text: bounty-hunter-role-greeting
         color: Orange
-        # sound: /Audio/Misc/ninja_greeting.ogg custom sound greeting??
+        # TODO: Custom greeting sound
+        sound: /Audio/Misc/ninja_greeting.ogg
       mindRoles:
       - MindRoleBountyHunter
       components:
       #TODO: Custom bounty hunter names
       - type: RandomMetadata
         nameSegments:
-        - names_ninja_title
-        - names_ninja
+        - fake_human_first
+        - fake_human_last

@@ -6,10 +6,10 @@
   - type: Objective
     issuer: objective-issuer-self
     difficulty: 1
-  #- type: RoleRequirement
-  #  roles:
-  #    mindRoles:
-  #    - MindRoleBountyHunter
+  - type: RoleRequirement
+    roles:
+      mindRoles:
+      - MindRoleBountyHunter
 
 - type: entity
   parent: [BaseKillObjective, BaseBountyHunterObjective]

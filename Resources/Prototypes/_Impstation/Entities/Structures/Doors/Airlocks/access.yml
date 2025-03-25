@@ -284,8 +284,17 @@
 
 - type: entity
   parent: AirlockGlass # For Bounty Hunter
-  id: AirlockBountyHunter
+  id: AirlockFreelanceLocked
   suffix: Freelance, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsFreelance ]
+
+- type: entity
+  parent: AirlockShuttle # Bounty Hunter external airlock
+  id: AirlockExternalShuttleFreelanceLocked
+  suffix: External, Docking, Locked
   components:
   - type: ContainerFill
     containers:

@@ -4,21 +4,30 @@
   antagonist: false
   setPreference: false
   playTimeTracker: AntagBountyHunter # imp
-  objective: [BountyHunterKillRandomAntagObjective, BountyHunterSurviveObjective]
+  objective: roles-antag-bounty-hunter-objective
+  guides: [ SpaceNinja ]
 
 - type: startingGear
   id: BountyHunterGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorBlack
     head: ClothingHeadHatCowboyBountyHunter
-    back: ClothingBackpack
+    back: ClothingBackpackSatchel
     eyes: ClothingEyesBountyHunterGlasses
     outerClothing: ClothingOuterCoatBomber
-    shoes: ClothingShoesBootsCombatFilled
+    shoes: ClothingShoesBootsMercFilled
     gloves: ClothingHandsMercGlovesCombat
     id: BountyHunterIDCard
     ears: ClothingHeadsetFreelance
-    belt: ClothingBeltMilitaryWebbing
-    pocket1: WeaponPistolMk58
+    belt: ClothingBeltMercWebbing
+    pocket1: BaseSeclinkRadio
     pocket2: BountyHunterGear
+  storage:
+    back:
+    - WeaponPistolMk58
+    - Zipties
+    - Zipties
+    - Zipties
+    - SmokeGrenade
+    - SmokeGrenade
 
