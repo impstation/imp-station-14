@@ -109,21 +109,9 @@
         acts: [ "Destruction" ]
       - !type:SpawnEntitiesBehavior # don't want this to be more complicated than it needs to be
         spawn:
-          OrganArachnidEyes:
-            min: 0
-            max: 3
-          OrganHumanHeart:
-            min: 0
-            max: 5
-          OrganGrayLungs:
-            min: 0
-            max: 5
-          OrganDionaStomach:
-            min: 0
-            max: 5
-          OrganThavenLiver:
-            min: 0
-            max: 5
+          EldritchInfluenceSpent:
+            min: 1
+            max: 1
       - !type:SpillBehavior
         solution: blood
   - type: SolutionContainerManager # imp. Little bit o' everybody in there.
