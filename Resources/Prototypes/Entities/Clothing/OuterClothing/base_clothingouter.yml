@@ -23,6 +23,7 @@
     walkModifier: 0.9
     sprintModifier: 0.9
   - type: HeldSpeedModifier
+  - type: HarpyHideWings # Frontier, needed for Kodepiiae
 
 - type: entity
   abstract: true
@@ -149,7 +150,6 @@
     staminaCost: 44
     soundHit:
       collection: MetalThud
-  - type: HarpyHideWings # Frontier, needed for Kodepiiae
 
 - type: entity
   abstract: true

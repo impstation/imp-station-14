@@ -10,6 +10,8 @@
   maleFirstNames: KodepiiaFirst
   femaleFirstNames: KodepiiaFirst
   lastNames: KodepiiaLast
+  sexes:
+  - Unsexed
 
 - type: speciesBaseSprites
   id: MobKodepiiaSprites
@@ -36,6 +38,7 @@
 
 - type: markingPoints
   id: MobKodepiiaMarkingLimits
+  onlyWhitelisted: true
   points:
     Hair:
       points: 1

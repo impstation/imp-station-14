@@ -1,6 +1,6 @@
 # hair
 marking-KodaBob1 = Bob
-marking-KobaBob2 = Bob With Bangs
+marking-KodaBob2 = Bob With Bangs
 marking-KodaCIA = CIA
 marking-KodaCornrows = Cornrows
 marking-KodaCurls = Curls
@@ -20,8 +20,8 @@ marking-BigSquareEyes = Eyes (Big Square)
 marking-BigSquareEyes-bigsquareeyes1 = Iris
 marking-BigSquareEyes-bigsquareeyes2 = Pupil
 marking-BigSquareEyesUneven = Eyes (Big Square Uneven)
-marking-BigSquareEyesUneven-bigsquareeyesuneven1 = Iris
-marking-BigSquareEyesUneven-bigsquareeyesuneven2 = Pupil
+marking-BigSquareEyesUneven-bigsquareeyeseneven1 = Iris
+marking-BigSquareEyesUneven-bigsquareeyeseneven2 = Pupil
 marking-KodeGrayEyes = Eyes (Gray)
 marking-KodeGrayEyes-grayeyes = Eyes
 marking-KodeGrayEyesUneven = Eyes (Gray Uneven)
