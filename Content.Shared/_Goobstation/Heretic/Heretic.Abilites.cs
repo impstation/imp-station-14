@@ -94,8 +94,6 @@ public sealed partial class EventHereticCascade : InstantActionEvent { }
 public sealed partial class EventHereticFleshSurgery : EntityTargetActionEvent { }
 public sealed partial class EventHereticFleshAscend : InstantActionEvent { }
 
-
-
 // void (including upgrades)
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAristocratWayEvent : EntityEventArgs { }
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionVoidEvent : EntityEventArgs { }
