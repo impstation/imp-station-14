@@ -87,13 +87,14 @@
     state: finecoil
   - type: Lung
   - type: Metabolizer
+    updateInterval: 2.0
     removeEmpty: true
     solutionOnBody: false
     solution: "Lung"
     metabolizerTypes: [ Human ]
     groups:
     - id: Gas
-      rateModifier: 100.0
+      rateModifier: 200.0
   - type: SolutionContainerManager
     solutions:
       organ:

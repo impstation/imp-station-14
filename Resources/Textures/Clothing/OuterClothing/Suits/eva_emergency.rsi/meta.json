@@ -1,18 +1,21 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Sprites by Flareguy & cboyjet, heavily edited from space suit sprites found in https://github.com/tgstation/tgstation/commit/fb2d71495bfe81446159ef528534193d09dd8d34, harpy edit by VMSolidus",
+  "copyright": "Sprites by Flareguy & cboyjet, heavily edited from space suit sprites found in https://github.com/tgstation/tgstation/commit/fb2d71495bfe81446159ef528534193d09dd8d34, Kodepiia state made by LazyRiverfolk for Impstation.",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
       {
+          "name": "icon"
+      },
+      {
           "name": "equipped-OUTERCLOTHING",
           "directions": 4
       },
       {
-          "name": "equipped-OUTERCLOTHING-harpy",
+          "name": "equipped-OUTERCLOTHING-kodepiia",
           "directions": 4
       },
       {
@@ -22,9 +25,6 @@
       {
           "name": "equipped-OUTERCLOTHING-vox",
           "directions": 4
-      },
-      {
-          "name": "icon"
       },
       {
           "name": "inhand-left",
