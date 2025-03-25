@@ -282,8 +282,18 @@
     containers:
       board: [ DoorElectronicsSyndicateAgent ]
 
+# Freelance doors
 - type: entity
   parent: AirlockGlass # For Bounty Hunter
+  id: AirlockFreelanceLocked
+  suffix: Freelance, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsFreelance ]
+
+- type: entity
+  parent: Airlock # For Bounty Hunter
   id: AirlockFreelanceLocked
   suffix: Freelance, Locked
   components:
