@@ -250,7 +250,7 @@
     sprite: Clothing/Ears/Headsets/security.rsi
 
 - type: entity
-  parent: [ClothingHeadset, BaseRestrictedContraband]
+  parent: [ClothingHeadset, BaseCommandContraband]
   id: ClothingHeadsetHOS
   name: head of security's headset
   description: A headset for the head of security to ignore all security officer reports on.
@@ -269,7 +269,7 @@
     stealGroup: CommandHeadset
 
 - type: entity
-  parent: [ClothingHeadset, BaseRestrictedContraband]
+  parent: [ClothingHeadset, BaseSecurityContraband]
   id: ClothingHeadsetBrigmedic
   name: brigmedic headset
   description: A headset that helps to hear the death cries.

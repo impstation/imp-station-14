@@ -164,7 +164,10 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
             DebugTools.AssertEqual(antag.SelectionTime, AntagSelectionTime.PostPlayerSpawn);
 
-            if (!TryGetNextAvailableDefinition((uid, antag), out var def))
+            // do not count players in the lobby for the antag ratio
+            var players = _player.NetworkedSessions.Count(x => x.AttachedEntity != null);
+
+            if (!TryGetNextAvailableDefinition((uid, antag), out var def, players))
                 continue;
 
             if (TryMakeAntag((uid, antag), args.Player, def.Value))
@@ -317,7 +320,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         List<ICommonSession> guaranteed = [];
         foreach (var keyValuePair in playersByRoleTimeAsc) // for each entry, decide whether or not it should override random antag selection based on its weight, and add it to a list if it should.
         {
-            if (_random.Prob(probToGuarantee))
+            if (HasPrimaryAntagPreference(keyValuePair.Key, def) && _random.Prob(probToGuarantee))
             {
                 guaranteed.Add(keyValuePair.Key);
             }
