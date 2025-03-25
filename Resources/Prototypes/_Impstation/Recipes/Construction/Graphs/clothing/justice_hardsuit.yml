@@ -1,0 +1,21 @@
+- type: constructionGraph
+  id: HardsuitJustice
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: hardsuit
+      steps:
+      - tag: SecurityHardsuit
+        name: security hardsuit
+        icon:
+          sprite: Clothing/OuterClothing/Hardsuits/security.rsi
+          state: icon
+      - tag: JusticeHelm
+        name: justice helm
+        icon:
+          sprite: Clothing/Head/Helmets/justice.rsi
+          state: icon
+        doAfter: 5
+  - node: hardsuit
+    entity: ClothingOuterHardsuitJustice

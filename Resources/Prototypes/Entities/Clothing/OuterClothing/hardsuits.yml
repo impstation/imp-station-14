@@ -258,6 +258,9 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSecurity
+  - type: Tag #imp
+    tags:
+      - SecurityHardsuit
 
 #Brigmedic Hardsuit
 - type: entity

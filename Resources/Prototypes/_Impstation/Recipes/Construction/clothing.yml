@@ -21,3 +21,14 @@
   description: A haphazard solution, but at least it'll match...
   icon: { sprite: _Impstation/Clothing/Belt/utility_black.rsi, state: icon }
   objectType: Item
+
+- type: construction
+  name: justice hardsuit
+  id: ClothingOuterHardsuitJustice
+  graph: HardsuitJustice
+  startNode: start
+  targetNode: hardsuit
+  category: construction-category-clothing
+  description: A modified security hardsuit, designed for only the station's strongest warriors.
+  icon: { sprite: _Impstation/Clothing/OuterClothing/Hardsuits/justice.rsi, state: icon }
+  objectType: Item
