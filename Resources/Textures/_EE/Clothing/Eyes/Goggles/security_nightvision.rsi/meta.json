@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/blob/master/icons/obj/clothing/glasses.dmi",
+  "copyright": "Taken from https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/blob/master/icons/obj/clothing/glasses.dmi. Anom edit by Doop for Impstation.",
   "size": {
     "x": 32,
     "y": 32
@@ -30,7 +30,33 @@
       ]
     },
     {
+      "name": "equipped-EYES-anomalocarid",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
       "name": "equipped-EYES-off",
+      "directions": 4
+    },
+    {
+      "name": "equipped-EYES-off-anomalocarid",
       "directions": 4
     },
     {
