@@ -41,8 +41,6 @@
       collection: UnisexGasp
     DefaultDeathgasp:
       collection: UnisexDeathGasp
-    Belch: # Frontier
-      collection: Belch # Frontier
 
 - type: emoteSounds
   id: UnisexReptilian
@@ -127,8 +125,6 @@
       collection: UnisexSlimeGasp
     DefaultDeathgasp:
       collection: UnisexSlimeDeathGasp
-    Belch: # Frontier
-      collection: Belch
   params:
     variation: 0.125
 
@@ -181,8 +177,8 @@
       collection: VoxHiss
       params:
         volume: -5
-    Belch: # Frontier
-      collection: Belch
+    HarpyCaw:
+      collection: KodepiiaCaws
   params:
     variation: 0.125
 
@@ -233,8 +229,8 @@
       collection: VoxHiss
       params:
         volume: -5
-    Belch: # Frontier
-      collection: Belch
+    HarpyCaw:
+      collection: KodepiiaCaws
   params:
     variation: 0.125
 
@@ -271,8 +267,6 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: DeathGasp
-    Belch: # Frontier
-      collection: Belch
   params:
     variation: 0.125
 
@@ -309,8 +303,6 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
-    Belch: # Frontier
-      collection: Belch
   params:
     variation: 0.125
 
@@ -351,8 +343,6 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: DeathGasp
-    Belch: # Frontier
-      collection: Belch
 
 - type: emoteSounds
   id: FemaleArachnid
@@ -391,8 +381,6 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: DeathGasp
-    Belch: # Frontier
-      collection: Belch
 
 - type: emoteSounds
   id: MaleDwarf
@@ -437,8 +425,6 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
-    Belch: # Frontier
-      collection: Belch # Frontier
   params:
     variation: 0.125
     pitch: 0.75
@@ -482,8 +468,6 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MothDeathGasp
-    Belch: # Frontier
-      collection: Belch
 
 - type: emoteSounds
   id: FemaleMoth
@@ -524,8 +508,6 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: MothDeathGasp
-    Belch: # Frontier
-      collection: Belch
 
 - type: emoteSounds
   id: Raccoon
@@ -671,10 +653,6 @@
       collection: KodepiiaHisses
     CatMeow:
       collection: KodepiiaMeows
-    Mew:
-      collection: KodepiiaMews
-    Growl:
-      collection: KodepiiaGrowls
     Boom:
       collection: KodepiiaBooms
     HarpyRing:
@@ -721,8 +699,90 @@
       collection: KodepiiaGasp
     DefaultDeathgasp:
       collection: KodepiiaDeathgasp
-    Belch:
-      collection: Belch
+    Squish:
+      collection: Squishes
+    Bubble:
+      collection: Bubbles
+    Pop:
+      collection: Pops
+    Coo:
+      collection: VoxCoo
+      params:
+        volume: -7
+    Wuhey:
+      collection: Wuhey
+    Ungh:
+      collection: Ungh
+
+- type: emoteSounds
+  id: YoungKodepiia
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      path: /Audio/_Impstation/Kodepiia/kodeexclaim.ogg # you can imitate the supermatter when you grow up
+    Laugh:
+      collection: KodepiiaLaugh
+    Sneeze:
+      collection: KodepiiaSneezes
+    Cough:
+      collection: KodepiiaCoughs
+    Sigh:
+      collection: KodepiiaSigh
+    Crying:
+      collection: KodepiiaCry
+    Whistle:
+      collection: KodepiiaWhistles
+    CatHisses:
+      collection: KodepiiaHisses
+    Hiss:
+      collection: KodepiiaHisses
+    CatMeow:
+      collection: KodepiiaMeows
+    Boom:
+      collection: KodepiiaBooms
+    HarpyRing:
+      collection: KodepiiaRings
+    HarpyHonk:
+      collection: KodepiiaHonks
+      params:
+        volume: -5
+    HarpyPew:
+      collection: KodepiiaPews
+      params:
+        volume: -5
+    HarpyBeep:
+      collection: KodepiiaBeeps
+    Yawn:
+      collection: KodepiiaYawn
+    Snore:
+      collection: KodepiiaSnores
+    HarpyRev:
+      collection: KodepiiaRevs
+      params:
+        volume: -5
+    Click:
+      collection: KodepiiaClicks
+    Chitter:
+      collection: KodepiiaChitter
+    Squeak:
+      collection: KodepiiaSqueak
+    HarpyCaw:
+      collection: KodepiiaCaws
+    Chirp:
+      collection: KodepiiaChirps
+    Snarl:
+      collection: KodepiiaSnarls
+    Honk:
+      collection: KodepiiaHonks
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Gasp:
+      collection: KodepiiaGasp
+    DefaultDeathgasp:
+      collection: KodepiiaDeathgasp
     Squish:
       collection: Squishes
     Bubble:
