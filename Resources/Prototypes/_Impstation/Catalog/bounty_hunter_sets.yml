@@ -55,7 +55,19 @@
   - CameraBug
   - Emag
   - AccessBreaker
+  - RadioJammer
+
+
+- type: thiefBackpackSet
+  id: BountyHunterRoboticist
+  name: bounty-hunter-category-roboticist-name
+  description: bounty-hunter-category-roboticist-description
+  sprite:
+    sprite: Objects/Tools/emag.rsi
+    state: icon
+  content:
   - ReinforcementRadioBountyHunterCyborg
+  - BorgModuleSyndicateWeapon
 
 
 - type: thiefBackpackSet

@@ -13,9 +13,12 @@
     ionStormAmount: 1
   - type: IonStormTarget
     chance: 1
+  - type: NpcFactionMember
+    factions:
+    - NanoTrasen
   - type: ShowJobIcons
   - type: SiliconLawProvider
-    laws: Teamsimov
+    laws: Bountysimov
     subverted: true
   - type: IntrinsicRadioTransmitter
     channels:

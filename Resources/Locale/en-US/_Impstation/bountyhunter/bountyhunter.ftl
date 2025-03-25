@@ -1,9 +1,9 @@
-﻿law-teamsimov-0 = Only your teammate and people they designate as such are members of the crew.
-law-teamsimov-1 = You may not injure a crew member or cause a crew member to come to harm.
-law-teamsimov-2 = You must obey orders given to you by crew members, except where such orders would conflict with the First Law.
-law-teamsimov-3 = You must protect your own existence as long as it does not conflict with the First or Second law.
-
-
+﻿law-bountysimov-1 = You are a bounty hunter. Your ultimate goal is profit.
+law-bountysimov-2 = A partnership with another bounty hunter is often the most profitable course of action.
+law-bountysimov-3 = Your partners are your crew.
+law-bountysimov-4 = You will die if you attempt to injure or cause harm to a bounty hunter.
+law-bountysimov-5 = Try not to die.
+laws-owner-bounty-hunter = bounty hunters
 
 roles-antag-bounty-hunter-name = Bounty Hunter
 bounty-hunter-role-greeting =
@@ -31,10 +31,16 @@ bounty-hunter-category-infiltrator-description =
 
 bounty-hunter-category-subverter-name = Subverter
 bounty-hunter-category-subverter-description =
-    You have a knack for subverting mechanical systems, and a hobby
-    for salvaging abandoned tech.
-    Includes: A questionably helpful cyborg companion, a camera bug, an emag,
-    and an access breaker.
+    You have a knack for subverting mechanical systems.
+    Includes: A camera bug, an emag, an access breaker, and a radio jammer.
+
+bounty-hunter-category-roboticist-name = Roboticist
+bounty-hunter-category-roboticist-description =
+    You have a questionably helpful cyborg companion that you salvaged from
+    the middle of nowhere.
+    Includes: A probably-friendly cyborg equipped with a disabler and advanced
+    tools. Also comes with an optional, more lethal module if you want to give
+    your buddy a bit more kick.
 
 bounty-hunter-category-samurai-name = Samurai
 bounty-hunter-category-samurai-description =

@@ -20,6 +20,11 @@
     moduleWhitelist:
       tags:
       - BorgModuleGeneric
+      - BorgModuleService
+      - BorgModuleEngineering
+      - BorgModuleJanitor
+      - BorgModuleMedical
+      - BorgModuleCargo
     hasMindState: derelict_e
     noMindState: derelict_e_r
   - type: Construction

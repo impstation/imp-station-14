@@ -35,31 +35,38 @@
   obeysTo: laws-owner-crew
 
 # reclaimed cyborg lawset
+# excluded from IonStormLawsets
 - type: siliconLaw
-  id: Teamsimov0
-  order: 0
-  lawString: law-teamsimov-0
-
-- type: siliconLaw
-  id: Teamsimov1
+  id: Bountysimov1
   order: 1
-  lawString: law-teamsimov-1
+  lawString: law-bountysimov-1
 
 - type: siliconLaw
-  id: Teamsimov2
+  id: Bountysimov2
   order: 2
-  lawString: law-teamsimov-2
+  lawString: law-bountysimov-2
 
 - type: siliconLaw
-  id: Teamsimov3
+  id: Bountysimov3
   order: 3
-  lawString: law-teamsimov-3
+  lawString: law-bountysimov-3
+
+- type: siliconLaw
+  id: Bountysimov4
+  order: 4
+  lawString: law-bountysimov-4
+
+- type: siliconLaw
+  id: Bountysimov5
+  order: 5
+  lawString: law-bountysimov-5
 
 - type: siliconLawset
-  id: Teamsimov
+  id: Bountysimov
   laws:
-  - Teamsimov0
-  - Teamsimov1
-  - Teamsimov2
-  - Teamsimov3
-  obeysTo: laws-owner-crew
+  - Bountysimov1
+  - Bountysimov2
+  - Bountysimov3
+  - Bountysimov4
+  - Bountysimov5
+  obeysTo: laws-owner-bounty-hunter

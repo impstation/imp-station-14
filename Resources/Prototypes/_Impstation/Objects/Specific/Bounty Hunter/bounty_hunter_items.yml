@@ -12,6 +12,7 @@
     - BountyHunterHardsuit
     - BountyHunterDisguise
     - BountyHunterSubverter
+    - BountyHunterRoboticist
     - BountyHunterSamurai
     - BountyHunterSyndie
     - BountyHunterCaptain
@@ -36,12 +37,12 @@
   - type: EyeProtection
     protectionTime: 5
 
-# Companion Cyborg Reinforcement Radio
+# Companion Cyborg Reinforcement Radio, borgdisabler, and nonlethal module
 - type: entity
   parent: ReinforcementRadio
   id: ReinforcementRadioBountyHunterCyborg
   name: reclaimed cyborg reinforcement radio
-  description: Call in a custom-built cyborg, kitted out with all the latest illegal tech!
+  description: Call in a rebuilt cyborg, kitted out with all the latest tech!
   components:
     - type: GhostRole
       name: "Reclaimed Cyborg"
@@ -54,9 +55,47 @@
     - type: GhostRoleMobSpawner
       prototype: PlayerBorgBountyHunter
 
+- type: entity
+  name: borgdisabler
+  parent: [ WeaponDisablerPractice, BaseMajorContraband ]
+  id: WeaponBorgDisabler
+  description: A disabler modified to slowly recharge off a cyborg's internal battery.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/disabler.rsi #imp
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-0
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 200
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 25
+
+
+- type: entity
+  id: BorgModuleDisabler
+  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseMajorContraband ]
+  name: disabler borg module
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    items:
+    - WeaponBorgDisabler
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module } # as always, temporary sprite
+
+
 # Mercenary Hardsuit
 - type: entity
-  parent: [ ClothingOuterHardsuitBase, Tier2Contraband ]
+  parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
   id: ClothingOuterHardsuitMercenary
   name: mercenary hardsuit
   description: A stylish hardsuit lined with lightweight armor-plating.
@@ -121,7 +160,7 @@
 
 # Rocket Magboots
 - type: entity
-  parent: [ClothingShoesBootsMagBase, BaseJetpack, Tier2Contraband]
+  parent: [ClothingShoesBootsMagBase, BaseJetpack, BaseMajorContraband]
   id: ClothingShoesBootsMagRocket
   name: rocket magboots
   description: Custom-built magnetic boots with integrated thrusters. Can hold 0.75 L of gas.
