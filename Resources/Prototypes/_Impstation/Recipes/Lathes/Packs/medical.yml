@@ -7,12 +7,14 @@
   - PrescriptionLens
   - PrescriptionLensStrong
   - BlindingLens
+  - Dropper
 
 # Dynamic
 
-# - type: latheRecipePack
-#   id: ImpSecDynamic
-#   recipes:
+- type: latheRecipePack
+  id: ImpMedDynamic
+  recipes:
+  - ClothingEyesNightVisionMedicalGoggles
 
 # Emagged
 

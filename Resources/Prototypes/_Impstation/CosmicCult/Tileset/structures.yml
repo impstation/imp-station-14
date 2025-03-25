@@ -37,7 +37,7 @@
   - type: PointLight
     radius: 1.5
     energy: 1.6
-    enabled: false
+    enabled: true # Test fail if false
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
     offset: "0, 0.4"
@@ -245,9 +245,7 @@
   - type: CosmicMarkStructure
   - type: CosmicMalignRift
   - type: CosmicCorrupting
-    corruptionGrowth: true
-    corruptionRadius: 0.5
-    corruptionMaxRadius: 6
+    corruptionMaxTicks: 6
     corruptionSpeed: 8
     corruptionChance: 1
     corruptionReduction: 0.16
