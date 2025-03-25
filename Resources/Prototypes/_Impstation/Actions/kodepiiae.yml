@@ -1,0 +1,9 @@
+- type: entity
+  id: ActionKodepiiaeScrambler
+  name: Slime Trail
+  description: Leave a trail of mucin.
+  components:
+  - type: InstantAction
+    icon: Interface/Actions/slime.png
+    event: !type:KodepiiaeScramblerEvent
+    useDelay: 600
