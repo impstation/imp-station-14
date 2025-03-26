@@ -48,13 +48,13 @@
         visible: false
       - map: [ "gloves" ]
       - map: [ "shoes" ]
-      - map: [ "ears" ]
       - map: [ "eyes" ]
       - map: [ "belt" ]
       - map: [ "id" ]
       - map: [ "outerClothing" ]
       - map: [ "back" ]
       - map: [ "enum.HumanoidVisualLayers.Tail" ] #layered above the back, maybe has very very minor balance implications (hiding guns behind your wings) but i think it's fine.
+      - map: [ "ears" ] #above tail for over-ear headsets specifically. this means they layer over backpacks and outerclothing too, unsure about that right now.
       - map: [ "neck" ]
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
