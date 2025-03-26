@@ -1,0 +1,13 @@
+- type: entity
+  id: ActionKodepiiaScrambler
+  name: Scramble Appearance
+  description: Change your appearance in a rush. You don't have time to control what comes out!
+  components:
+  - type: ConfirmableAction
+    popup: dna-scrambler-action-popup
+  - type: InstantAction
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: transform
+    event: !type:KodepiiaScramblerEvent
+    useDelay: 600

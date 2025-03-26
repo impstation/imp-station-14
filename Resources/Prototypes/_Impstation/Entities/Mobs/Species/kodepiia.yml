@@ -6,7 +6,7 @@
   abstract: true
   components:
   - type: HarpySinger
-  - type: KodepiiaeScrambler
+  - type: KodepiiaScrambler
   - type: Instrument
     allowPercussion: false
     program: 52
@@ -192,7 +192,6 @@
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-    - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
     - map: [ "clownedon" ]
@@ -200,6 +199,7 @@
       state: "creampie_human"
       visible: false
     - map: [ "enum.HumanoidVisualLayers.RArmExtension" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "mask" ]
     - map: [ "head" ]
