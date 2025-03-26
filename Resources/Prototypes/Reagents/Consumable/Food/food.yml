@@ -79,6 +79,29 @@
         - !type:OrganType
           type: Kodepiia
           shouldHave: false
+      - !type:PopupMessage # imp - cant eat cooked meat lol
+        conditions:
+        - !type:OrganType
+          type: Kodepiia
+          shouldHave: true
+        type: Local
+        visualType: MediumCaution
+        messages: [ "generic-reagent-effect-sick" ]
+        probability: 0.5
+      - !type:ChemVomit  # imp
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Kodepiia
+          shouldHave: true
+      - !type:HealthChange # imp
+        conditions:
+        - !type:OrganType
+          type: Kodepiia
+          shouldHave: true
+        damage:
+          types:
+            Poison: 1
   pricePerUnit: 3
 
 - type: reagent
