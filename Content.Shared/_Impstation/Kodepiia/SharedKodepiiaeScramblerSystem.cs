@@ -1,3 +1,4 @@
+using Content.Shared._Impstation.Kodepiia.Components;
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Robust.Shared.Audio.Systems;
@@ -15,17 +16,17 @@ public abstract partial class SharedKodepiiaeScramblerSystem : EntitySystem
     [Serializable, NetSerializable]
     public sealed partial class KodepiiaeScramblerDoAfterEvent : SimpleDoAfterEvent;
 
-    public void OnStartup(Entity<Kodepiia.Components.KodepiiaeScramblerComponent> ent, ref ComponentStartup args)
+    public void OnStartup(Entity<KodepiiaeScramblerComponent> ent, ref ComponentStartup args)
     {
         _actionsSystem.AddAction(ent, ref ent.Comp.ScramblerAction, ent.Comp.ScramblerActionId);
     }
 
-    public void OnShutdown(Entity<Kodepiia.Components.KodepiiaeScramblerComponent> ent, ref ComponentShutdown args)
+    public void OnShutdown(Entity<KodepiiaeScramblerComponent> ent, ref ComponentShutdown args)
     {
         _actionsSystem.RemoveAction(ent, ent.Comp.ScramblerAction);
     }
 
-    public void PlaySound(EntityUid uid, Kodepiia.Components.KodepiiaeScramblerComponent comp)
+    public void PlaySound(EntityUid uid,KodepiiaeScramblerComponent comp)
     {
         _audio.PlayPredicted(comp.ScramblerSound, uid, uid);
     }

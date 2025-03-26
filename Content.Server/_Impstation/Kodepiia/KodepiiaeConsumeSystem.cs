@@ -3,8 +3,6 @@ using Content.Server.Atmos.Rotting;
 using Content.Server.Body.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Popups;
-using Content.Shared._Impstation.Kodepiiae;
-using Content.Shared._Impstation.Kodepiiae.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Changeling;
 using Content.Shared.Chemistry.EntitySystems;
