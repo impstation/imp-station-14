@@ -1,3 +1,4 @@
+using Content.Shared._Impstation.Kodepiia.Components;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
@@ -10,10 +11,10 @@ public sealed class KodepiiaeConsumedSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<Components.KodepiiaeConsumedComponent, ExaminedEvent>(OnExamine);
-        SubscribeLocalEvent<Components.KodepiiaeConsumedComponent, MobStateChangedEvent>(OnMobStateChange);
+        SubscribeLocalEvent<KodepiiaeConsumedComponent, ExaminedEvent>(OnExamine);
+        SubscribeLocalEvent<KodepiiaeConsumedComponent, MobStateChangedEvent>(OnMobStateChange);
     }
-    private void OnExamine(Entity<Components.KodepiiaeConsumedComponent> ent, ref ExaminedEvent args)
+    private void OnExamine(Entity<KodepiiaeConsumedComponent> ent, ref ExaminedEvent args)
     {
         var locIndex = ent.Comp.TimesConsumed switch
         {
@@ -24,9 +25,9 @@ public sealed class KodepiiaeConsumedSystem : EntitySystem
         };
         args.PushMarkup(Loc.GetString($"kodepiiae-consumed-onexamine-{locIndex}", ("target", Identity.Entity(ent, EntityManager))));
     }
-    private void OnMobStateChange(Entity<Components.KodepiiaeConsumedComponent> ent, ref MobStateChangedEvent args)
+    private void OnMobStateChange(Entity<KodepiiaeConsumedComponent> ent, ref MobStateChangedEvent args)
     {
         if (args.NewMobState != MobState.Dead)
-            RemComp<Components.KodepiiaeConsumedComponent>(ent);
+            RemComp<KodepiiaeConsumedComponent>(ent);
     }
 }
