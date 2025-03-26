@@ -2,21 +2,18 @@ using Content.Server.Actions;
 using Content.Server.DoAfter;
 using Content.Server.Humanoid;
 using Content.Server.Popups;
-using Content.Shared.Actions;
+using Content.Shared._Impstation.Kodepiiae.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Kodepiiae;
-using Content.Shared.Kodepiiae.Components;
 using Content.Shared.Popups;
 using Content.Shared.Preferences;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
-using Robust.Shared.Serialization;
 
 namespace Content.Server._Impstation.Kodepiiae;
 
-public sealed partial class KodepiiaeScramblerSystem : SharedKodepiiaeScramblerSystem
+public sealed partial class KodepiiaeScramblerSystem : Shared._Impstation.Kodepiiae.SharedKodepiiaeScramblerSystem
 {
     [Dependency] private readonly ActionsSystem _actionsSystem = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearance = default!;

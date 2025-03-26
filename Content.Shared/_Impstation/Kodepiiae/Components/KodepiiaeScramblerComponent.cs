@@ -1,7 +1,7 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Kodepiiae.Components;
+namespace Content.Shared._Impstation.Kodepiiae.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class KodepiiaeScramblerComponent : Component
