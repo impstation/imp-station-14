@@ -136,6 +136,11 @@
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
   - type: Stomach
+    specialDigestible:
+      tags:
+      - Raw
+      - Organ
+      - KodeEdible
   # The stomach metabolizes stuff like foods and drinks.
   # TODO: Have it work off of the ent's solution container, and move this
   # to intestines instead.
@@ -143,11 +148,6 @@
     # mm yummy
     maxReagents: 3
     metabolizerTypes: [ Kodepiia ]
-    specialDigestible:
-      tags:
-      - Raw
-      - Organ
-      - KodeEdible
     groups:
     - id: Food
       rateModifier: 1.25
