@@ -19,9 +19,9 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 
-namespace Content.Server._Impstation.Kodepiiae;
+namespace Content.Server._Impstation.Kodepiia;
 
-public sealed partial class KodepiiaeConsumeSystem : SharedKodepiiaeConsumeSystem
+public sealed partial class KodepiiaeConsumeSystem : Shared._Impstation.Kodepiia.SharedKodepiiaeConsumeSystem
 {
     [Dependency] private readonly ActionsSystem _actionsSystem = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
@@ -37,13 +37,13 @@ public sealed partial class KodepiiaeConsumeSystem : SharedKodepiiaeConsumeSyste
     {
         base.Initialize();
 
-        SubscribeLocalEvent<KodepiiaeConsumeActionComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<KodepiiaeConsumeActionComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<KodepiiaeConsumeActionComponent, KodepiiaeConsumeEvent>(Consume);
-        SubscribeLocalEvent<KodepiiaeConsumeActionComponent, KodepiiaeConsumeDoAfterEvent>(ConsumeDoafter);
+        SubscribeLocalEvent<Shared._Impstation.Kodepiia.Components.KodepiiaeConsumeActionComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<Shared._Impstation.Kodepiia.Components.KodepiiaeConsumeActionComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<Shared._Impstation.Kodepiia.Components.KodepiiaeConsumeActionComponent, KodepiiaeConsumeEvent>(Consume);
+        SubscribeLocalEvent<Shared._Impstation.Kodepiia.Components.KodepiiaeConsumeActionComponent, KodepiiaeConsumeDoAfterEvent>(ConsumeDoafter);
     }
 
-    public void Consume(Entity<KodepiiaeConsumeActionComponent> ent, ref KodepiiaeConsumeEvent args)
+    public void Consume(Entity<Shared._Impstation.Kodepiia.Components.KodepiiaeConsumeActionComponent> ent, ref KodepiiaeConsumeEvent args)
     {
         if (!_mobState.IsIncapacitated(args.Target))
         {
@@ -82,7 +82,7 @@ public sealed partial class KodepiiaeConsumeSystem : SharedKodepiiaeConsumeSyste
         _doAfter.TryStartDoAfter(doargs);
     }
 
-    public void ConsumeDoafter(Entity<KodepiiaeConsumeActionComponent> ent, ref KodepiiaeConsumeDoAfterEvent args)
+    public void ConsumeDoafter(Entity<Shared._Impstation.Kodepiia.Components.KodepiiaeConsumeActionComponent> ent, ref KodepiiaeConsumeDoAfterEvent args)
     {
         if (args.Target == null)
         {
@@ -126,19 +126,19 @@ public sealed partial class KodepiiaeConsumeSystem : SharedKodepiiaeConsumeSyste
         _popup.PopupEntity(popupOthers, ent, Filter.Pvs(ent).RemovePlayersByAttachedEntity(ent), true, PopupType.LargeCaution);
 
         //Consumed Componentry Stuff lol
-        EnsureComp<KodepiiaeConsumedComponent>(args.Target.Value, out var consumed);
+        EnsureComp<Shared._Impstation.Kodepiia.Components.KodepiiaeConsumedComponent>(args.Target.Value, out var consumed);
         consumed.TimesConsumed += 1;
         if (consumed.TimesConsumed >= 12 && TryComp<BodyComponent>(args.Target.Value, out var body))
         {
             _body.GibBody(args.Target.Value,true,body);
         }
     }
-    public void SetActionCooldown(Entity<KodepiiaeConsumeActionComponent> ent, int cooldown)
+    public void SetActionCooldown(Entity<Shared._Impstation.Kodepiia.Components.KodepiiaeConsumeActionComponent> ent, int cooldown)
     {
         _actionsSystem.SetCooldown(ent.Comp.ConsumeAction, TimeSpan.FromSeconds(cooldown));
     }
 
-    public void PlayMeatySound(Entity<KodepiiaeConsumeActionComponent> ent)
+    public void PlayMeatySound(Entity<Shared._Impstation.Kodepiia.Components.KodepiiaeConsumeActionComponent> ent)
     {
         var rand = _rand.Next(0, ent.Comp.SoundPool.Count - 1);
         var sound = ent.Comp.SoundPool.ToArray()[rand];
