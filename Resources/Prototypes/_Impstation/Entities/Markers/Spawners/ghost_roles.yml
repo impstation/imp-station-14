@@ -17,3 +17,15 @@
 #    - state: green
 #    - sprite: Objects/Weapons/Melee/energykatana.rsi
 #      state: icon
+
+- type: entity
+  id: SpawnPointBountyHunter
+  parent: MarkerBase
+  name: bounty hunter
+  components:
+  - type: SpawnPoint
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Clothing/Head/Hats/wizardhat.rsi
+      state: icon
