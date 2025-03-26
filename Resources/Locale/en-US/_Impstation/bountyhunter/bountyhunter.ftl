@@ -1,7 +1,7 @@
 ﻿law-bountysimov-1 = You are a bounty hunter. Your ultimate goal is profit.
 law-bountysimov-2 = A partnership with another bounty hunter is often the most profitable course of action.
 law-bountysimov-3 = Your partners are your crew.
-law-bountysimov-4 = You will die if you attempt to injure or cause harm to a bounty hunter.
+law-bountysimov-4 = You may not injure or cause harm to a crew member.
 law-bountysimov-5 = Try not to die.
 laws-owner-bounty-hunter = bounty hunters
 
