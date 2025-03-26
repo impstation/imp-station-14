@@ -1,0 +1,26 @@
+- type: entity
+  id: ActionKodepiiaeScrambler
+  name: Scramble Appearance
+  description: Scramble your appearance
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: transform
+    event: !type:KodepiiaeScramblerEvent
+    useDelay: 600
+
+- type: entity
+  id: ActionKodepiiaeConsume
+  name: Consume
+  description: Scramble your appearance
+  components:
+  - type: EntityTargetAction
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: absorb_dna
+    event: !type:KodepiiaeConsumeEvent
+    useDelay: 300
+    canTargetSelf: false
+    interactOnMiss: false
+    itemIconStyle: NoItem
