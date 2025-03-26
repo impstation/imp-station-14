@@ -33,7 +33,6 @@
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
   - type: Sprite
-    scale: 0.9, 0.9
     layers:
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
     - map: [ "enum.HumanoidVisualLayers.Head" ]
@@ -67,7 +66,6 @@
     - map: [ "neck" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-    - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
     - map: [ "clownedon" ] # Dynamically generated
@@ -75,6 +73,7 @@
       state: "creampie_human"
       visible: false
     - map: [ "enum.HumanoidVisualLayers.RArmExtension" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
     - map: [ "mask" ]
@@ -139,6 +138,11 @@
             sprite: _DV/Mobs/Species/Harpy/displacement.rsi
             state: jumpsuit
     femaleDisplacements: {}
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatKodepiia
+      amount: 5
   - type: HarpyVisuals
   - type: UltraVision
 
@@ -162,7 +166,6 @@
             state: jumpsuit
     femaleDisplacements: {}
   - type: Sprite
-    scale: 0.9, 0.9
     layers:
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
     - map: [ "enum.HumanoidVisualLayers.Head" ]
