@@ -6,7 +6,8 @@
   abstract: true
   components:
   - type: HarpySinger
-  - type: KodepiiaScrambler
+  - type: KodepiiaeScrambler
+  - type: KodepiiaeConsumeAction
   - type: Instrument
     allowPercussion: false
     program: 52
