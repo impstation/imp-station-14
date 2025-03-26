@@ -8,9 +8,11 @@
     - Zombie
     - Revolutionary
     - AllHostile
-    - Changeling
-    - Heretic
-    - Dino
+    - Wizard
+    - Changeling # imp
+    - Heretic # imp
+    - Dino # imp
+    - Penguin # imp
 
 - type: npcFaction
   id: NanoTrasen
@@ -22,13 +24,17 @@
   - Revolutionary
   - Dragon
   - AllHostile
-  - Dino
+  - Wizard
+  - Dino # imp
+
 
 - type: npcFaction
   id: Mouse
   hostile:
-    - PetsNT
-    - AllHostile
+  - PetsNT
+  - AllHostile
+  - Wizard
+  - Penguin # imp
 
 - type: npcFaction
   id: Passive
@@ -41,7 +47,8 @@
   - Zombie
   - Xeno
   - AllHostile
-  - Dino
+  - Wizard
+  - Dino # imp
 
 - type: npcFaction
   id: SimpleHostile
@@ -53,9 +60,11 @@
   - Zombie
   - Revolutionary
   - AllHostile
-  - Changeling
-  - Heretic
-  - Dino
+  - Wizard
+  - Changeling # imp
+  - Heretic # imp
+  - Dino # imp
+  - Penguin # imp
 
 - type: npcFaction
   id: SimpleNeutral
@@ -70,9 +79,11 @@
   - Zombie
   - Dragon
   - AllHostile
-  - Changeling
-  - Heretic
-  - Dino
+  - Wizard
+  - Changeling # imp
+  - Heretic # imp
+  - Dino # imp
+  - Penguin # imp
 
 - type: npcFaction
   id: Xeno
@@ -84,9 +95,11 @@
   - Zombie
   - Revolutionary
   - AllHostile
-  - Changeling
-  - Heretic
-  - Dino
+  - Wizard
+  - Changeling # imp
+  - Heretic # imp
+  - Dino # imp
+  - Penguin # imp
 
 - type: npcFaction
   id: Zombie
@@ -99,9 +112,11 @@
   - PetsNT
   - Revolutionary
   - AllHostile
-  - Changeling
-  - Heretic
-  - Dino
+  - Wizard
+  - Changeling # imp
+  - Heretic # imp
+  - Dino # imp
+  - Penguin # imp
 
 - type: npcFaction
   id: Revolutionary
@@ -111,7 +126,8 @@
   - SimpleHostile
   - Dragon
   - AllHostile
-  - Dino
+  - Wizard
+  - Dino # imp
 
 - type: npcFaction
   id: AllHostile
@@ -127,6 +143,29 @@
   - Xeno
   - Zombie
   - Revolutionary
-  - Changeling
-  - Heretic
-  - Dino
+  - Wizard
+  - Changeling # imp
+  - Heretic # imp
+  - Dino # imp
+  - Penguin # imp
+
+
+- type: npcFaction
+  id: Wizard
+  hostile:
+  - NanoTrasen
+  - Dragon
+  - Mouse
+  - Passive
+  - PetsNT
+  - SimpleHostile
+  - SimpleNeutral
+  - Syndicate
+  - Xeno
+  - Zombie
+  - Revolutionary
+  - AllHostile
+  - Changeling # imp
+  - Heretic # imp
+  - Dino # imp
+  - Penguin # imp

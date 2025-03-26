@@ -68,11 +68,13 @@
       - id: BookGatsby
       - id: BookCosmicCult
       - id: BookTenebraeConspiracy
+      - id: BookMansus
       - !type:GroupSelector
         children:
         - id: BookKeelBay
         - id: BookKeelBayWorn
         - id: BookTEGtorial
+        - id: BookSMForDummies
 
 - type: entity
   id: BookshelfFilled
