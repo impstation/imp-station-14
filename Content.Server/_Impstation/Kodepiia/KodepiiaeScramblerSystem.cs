@@ -2,21 +2,18 @@ using Content.Server.Actions;
 using Content.Server.DoAfter;
 using Content.Server.Humanoid;
 using Content.Server.Popups;
-using Content.Shared.Actions;
+using Content.Shared._Impstation.Kodepiia;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
-using Content.Shared._Impstation.Kodepiia;
-using Content.Shared._Impstation.Kodepiia.Components;
 using Content.Shared.Popups;
 using Content.Shared.Preferences;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
-using Robust.Shared.Serialization;
 
 namespace Content.Server._Impstation.Kodepiia;
 
-public sealed partial class KodepiiaScramblerSystem : SharedKodepiiaScramblerSystem
+public sealed partial class KodepiiaeScramblerSystem : SharedKodepiiaeScramblerSystem
 {
     [Dependency] private readonly ActionsSystem _actionsSystem = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearance = default!;
@@ -28,26 +25,26 @@ public sealed partial class KodepiiaScramblerSystem : SharedKodepiiaScramblerSys
     {
         base.Initialize();
 
-        SubscribeLocalEvent<KodepiiaScramblerComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<KodepiiaScramblerComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<KodepiiaScramblerComponent, KodepiiaScramblerEvent>(Scramble);
-        SubscribeLocalEvent<KodepiiaScramblerComponent, KodepiiaScramblerDoAfterEvent>(OnScrambleDoAfter);
+        SubscribeLocalEvent<Shared._Impstation.Kodepiia.Components.KodepiiaeScramblerComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<Shared._Impstation.Kodepiia.Components.KodepiiaeScramblerComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<Shared._Impstation.Kodepiia.Components.KodepiiaeScramblerComponent, KodepiiaeScramblerEvent>(Scramble);
+        SubscribeLocalEvent<Shared._Impstation.Kodepiia.Components.KodepiiaeScramblerComponent, KodepiiaeScramblerDoAfterEvent>(OnScrambleDoAfter);
     }
-    private void Scramble(Entity<KodepiiaScramblerComponent> ent, ref KodepiiaScramblerEvent args)
+    private void Scramble(Entity<Shared._Impstation.Kodepiia.Components.KodepiiaeScramblerComponent> ent, ref KodepiiaeScramblerEvent args)
     {
-        var doargs = new DoAfterArgs(EntityManager, ent, 4, new KodepiiaScramblerDoAfterEvent(), ent)
+        var doargs = new DoAfterArgs(EntityManager, ent, 4, new KodepiiaeScramblerDoAfterEvent(), ent)
         {
             BreakOnDamage = true,
             BreakOnMove = true,
         };
-        var popupOthers = Loc.GetString("kodepiia-scramble-others", ("name", Identity.Entity(ent, EntityManager)), ("ent", ent));
+        var popupOthers = Loc.GetString("kodepiiae-scramble-others", ("name", Identity.Entity(ent, EntityManager)), ("ent", ent));
         _popup.PopupEntity(popupOthers, ent, Filter.Pvs(ent).RemovePlayersByAttachedEntity(ent), true, PopupType.MediumCaution);
         _audio.PlayPvs(ent.Comp.ScramblerSound, ent);
         _doAfter.TryStartDoAfter(doargs);
         args.Handled = true;
     }
 
-    private void OnScrambleDoAfter(Entity<KodepiiaScramblerComponent> ent, ref KodepiiaScramblerDoAfterEvent args)
+    private void OnScrambleDoAfter(Entity<Shared._Impstation.Kodepiia.Components.KodepiiaeScramblerComponent> ent, ref KodepiiaeScramblerDoAfterEvent args)
     {
         if (args.Cancelled)
         {
@@ -60,7 +57,7 @@ public sealed partial class KodepiiaScramblerSystem : SharedKodepiiaScramblerSys
 
         if (!TryComp<HumanoidAppearanceComponent>(ent, out var humanoid))
             return;
-        var popupSelf = Loc.GetString("kodepiia-scramble-self", ("name", Identity.Entity(ent, EntityManager)));
+        var popupSelf = Loc.GetString("kodepiiae-scramble-self", ("name", Identity.Entity(ent, EntityManager)));
         _humanoidAppearance.LoadProfile(ent, HumanoidCharacterProfile.RandomWithSpecies(humanoid.Species), humanoid);
         _popup.PopupEntity(popupSelf, ent, ent);
         args.Handled = true;

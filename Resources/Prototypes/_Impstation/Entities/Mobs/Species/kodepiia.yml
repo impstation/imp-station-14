@@ -6,7 +6,11 @@
   abstract: true
   components:
   - type: HarpySinger
-  - type: KodepiiaScrambler
+  - type: KodepiiaeScrambler
+  - type: KodepiiaeConsumeAction
+    damage:
+      groups:
+        Genetic: 25
   - type: Instrument
     allowPercussion: false
     program: 52

@@ -1,5 +1,5 @@
 - type: entity
-  id: ActionKodepiiaScrambler
+  id: ActionKodepiiaeScrambler
   name: Scramble Appearance
   description: Change your appearance in a rush. You don't have time to control what comes out!
   components:
@@ -9,5 +9,20 @@
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: transform
-    event: !type:KodepiiaScramblerEvent
+    event: !type:KodepiiaeScramblerEvent
     useDelay: 600
+
+- type: entity
+  id: ActionKodepiiaeConsume
+  name: Consume
+  description: Consume target
+  components:
+  - type: EntityTargetAction
+    event: !type:KodepiiaeConsumeEvent
+    useDelay: 120
+    canTargetSelf: false
+    interactOnMiss: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: absorb_dna
