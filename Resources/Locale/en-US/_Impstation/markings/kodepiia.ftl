@@ -146,7 +146,9 @@ marking-KodeCapeJelly-jellycloak1 = Bell
 marking-KodeCapeJelly-jellycloak2 = Spots
 marking-KodeVariableWings = Variable Wings
 marking-KodeVariableWings-variablewings1 = Arms
-marking-KodeVariableWings-variablewings2 = Wings
+marking-KodeVariableWings-variablewings2 = Wing Base
+marking-KodeVariableWings-variablewings3 = Wing Stripes
+marking-KodeVariableWings-variablewings4 = Wing Palms
 # legs
 marking-KodeSockLFoot = Socks (L Foot)
 marking-KodeSockLFoot-socklfoot = Socks (L Foot)
