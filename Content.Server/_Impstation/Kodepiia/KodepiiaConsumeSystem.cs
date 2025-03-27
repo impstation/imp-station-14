@@ -2,6 +2,7 @@ using Content.Server.Actions;
 using Content.Server.Atmos.Rotting;
 using Content.Server.Body.Systems;
 using Content.Server.DoAfter;
+using Content.Server.Forensics;
 using Content.Server.Popups;
 using Content.Shared.Body.Components;
 using Content.Shared.Changeling;
@@ -32,6 +33,7 @@ public sealed partial class KodepiiaConsumeSystem : Shared._Impstation.Kodepiia.
     [Dependency] private readonly IRobustRandom _rand = default!;
     [Dependency] private readonly RottingSystem _rotting = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly ForensicsSystem _forensics = default!;
 
     public override void Initialize()
     {
@@ -118,6 +120,9 @@ public sealed partial class KodepiiaConsumeSystem : Shared._Impstation.Kodepiia.
                 }
             }
         }
+        // Transfer DNA
+        _forensics.TransferDna(args.Target.Value, ent, false);
+
         // Deal Damage
         _damage.TryChangeDamage(args.Target, ent.Comp.Damage, true, false);
 
