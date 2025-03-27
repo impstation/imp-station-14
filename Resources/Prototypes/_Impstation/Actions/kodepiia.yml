@@ -18,11 +18,11 @@
   description: Consume target
   components:
   - type: EntityTargetAction
-    icon:
-      sprite: _Goobstation/Changeling/changeling_abilities.rsi
-      state: absorb_dna
     event: !type:KodepiiaeConsumeEvent
-    useDelay: 300
+    useDelay: 120
     canTargetSelf: false
     interactOnMiss: false
     itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: absorb_dna

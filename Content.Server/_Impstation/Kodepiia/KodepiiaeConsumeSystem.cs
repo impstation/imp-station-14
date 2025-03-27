@@ -6,6 +6,7 @@ using Content.Server.Popups;
 using Content.Shared.Body.Components;
 using Content.Shared.Changeling;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
 using Content.Shared.IdentityManagement;
@@ -30,6 +31,7 @@ public sealed partial class KodepiiaeConsumeSystem : Shared._Impstation.Kodepiia
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
     [Dependency] private readonly RottingSystem _rotting = default!;
+    [Dependency] private readonly DamageableSystem _damage = default!;
 
     public override void Initialize()
     {
@@ -43,16 +45,17 @@ public sealed partial class KodepiiaeConsumeSystem : Shared._Impstation.Kodepiia
 
     public void Consume(Entity<Shared._Impstation.Kodepiia.Components.KodepiiaeConsumeActionComponent> ent, ref KodepiiaeConsumeEvent args)
     {
-        if (!_mobState.IsIncapacitated(args.Target))
-        {
-            SetActionCooldown(ent,5);
-            _popup.PopupEntity(Loc.GetString("kodepiiae-consume-fail-incapacitated", ("target", Identity.Entity(args.Target, EntityManager))), ent, ent);
-            return;
-        }
         if (!HasComp<AbsorbableComponent>(args.Target) || _rotting.IsRotten(args.Target))
         {
             SetActionCooldown(ent,5);
             _popup.PopupEntity(Loc.GetString("kodepiiae-consume-fail-inedible", ("target", Identity.Entity(args.Target, EntityManager))), ent, ent);
+            return;
+        }
+
+        if (!_mobState.IsIncapacitated(args.Target))
+        {
+            SetActionCooldown(ent,5);
+            _popup.PopupEntity(Loc.GetString("kodepiiae-consume-fail-incapacitated", ("target", Identity.Entity(args.Target, EntityManager))), ent, ent);
             return;
         }
 
@@ -78,6 +81,7 @@ public sealed partial class KodepiiaeConsumeSystem : Shared._Impstation.Kodepiia
         _popup.PopupEntity(popupOthers, ent, Filter.Pvs(ent).RemovePlayersByAttachedEntity(ent), true, PopupType.MediumCaution);
 
         _doAfter.TryStartDoAfter(doargs);
+        args.Handled = true;
     }
 
     public void ConsumeDoafter(Entity<Shared._Impstation.Kodepiia.Components.KodepiiaeConsumeActionComponent> ent, ref KodepiiaeConsumeDoAfterEvent args)
@@ -114,6 +118,8 @@ public sealed partial class KodepiiaeConsumeSystem : Shared._Impstation.Kodepiia
                 }
             }
         }
+        // Deal Damage
+        _damage.TryChangeDamage(args.Target, ent.Comp.Damage, true, false);
 
         // Play Sound
         PlayMeatySound(ent);
@@ -126,7 +132,7 @@ public sealed partial class KodepiiaeConsumeSystem : Shared._Impstation.Kodepiia
         //Consumed Componentry Stuff lol
         EnsureComp<Shared._Impstation.Kodepiia.Components.KodepiiaeConsumedComponent>(args.Target.Value, out var consumed);
         consumed.TimesConsumed += 1;
-        if (consumed.TimesConsumed >= 12 && TryComp<BodyComponent>(args.Target.Value, out var body))
+        if (consumed.TimesConsumed >= 12 && TryComp<BodyComponent>(args.Target.Value, out var body) && ent.Comp.Gib)
         {
             _body.GibBody(args.Target.Value,true,body);
         }
