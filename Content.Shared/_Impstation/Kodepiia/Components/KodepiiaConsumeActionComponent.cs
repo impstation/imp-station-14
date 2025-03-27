@@ -6,12 +6,12 @@ using Robust.Shared.GameStates;
 namespace Content.Shared._Impstation.Kodepiia.Components;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class KodepiiaeConsumeActionComponent : Component
+public sealed partial class KodepiiaConsumeActionComponent : Component
 {
     [DataField]
     public EntityUid? ConsumeAction;
     [DataField]
-    public string? ConsumeActionId = "ActionKodepiiaeConsume";
+    public string? ConsumeActionId = "ActionKodepiiaConsume";
 
     public List<SoundSpecifier?> SoundPool = new()
     {

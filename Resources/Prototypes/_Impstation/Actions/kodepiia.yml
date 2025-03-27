@@ -1,5 +1,5 @@
 - type: entity
-  id: ActionKodepiiaeScrambler
+  id: ActionKodepiiaScrambler
   name: Scramble Appearance
   description: Change your appearance in a rush. You don't have time to control what comes out!
   components:
@@ -13,7 +13,7 @@
     useDelay: 600
 
 - type: entity
-  id: ActionKodepiiaeConsume
+  id: ActionKodepiiaConsume
   name: Consume
   description: Consume target
   components:

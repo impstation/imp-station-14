@@ -20,7 +20,7 @@ using Robust.Shared.Random;
 
 namespace Content.Server._Impstation.Kodepiia;
 
-public sealed partial class KodepiiaeConsumeSystem : Shared._Impstation.Kodepiia.SharedKodepiiaeConsumeSystem
+public sealed partial class KodepiiaConsumeSystem : Shared._Impstation.Kodepiia.SharedKodepiiaConsumeSystem
 {
     [Dependency] private readonly ActionsSystem _actionsSystem = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
@@ -37,25 +37,25 @@ public sealed partial class KodepiiaeConsumeSystem : Shared._Impstation.Kodepiia
     {
         base.Initialize();
 
-        SubscribeLocalEvent<Shared._Impstation.Kodepiia.Components.KodepiiaeConsumeActionComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<Shared._Impstation.Kodepiia.Components.KodepiiaeConsumeActionComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<Shared._Impstation.Kodepiia.Components.KodepiiaeConsumeActionComponent, KodepiiaeConsumeEvent>(Consume);
-        SubscribeLocalEvent<Shared._Impstation.Kodepiia.Components.KodepiiaeConsumeActionComponent, KodepiiaeConsumeDoAfterEvent>(ConsumeDoafter);
+        SubscribeLocalEvent<Shared._Impstation.Kodepiia.Components.KodepiiaConsumeActionComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<Shared._Impstation.Kodepiia.Components.KodepiiaConsumeActionComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<Shared._Impstation.Kodepiia.Components.KodepiiaConsumeActionComponent, KodepiiaConsumeEvent>(Consume);
+        SubscribeLocalEvent<Shared._Impstation.Kodepiia.Components.KodepiiaConsumeActionComponent, KodepiiaConsumeDoAfterEvent>(ConsumeDoafter);
     }
 
-    public void Consume(Entity<Shared._Impstation.Kodepiia.Components.KodepiiaeConsumeActionComponent> ent, ref KodepiiaeConsumeEvent args)
+    public void Consume(Entity<Shared._Impstation.Kodepiia.Components.KodepiiaConsumeActionComponent> ent, ref KodepiiaConsumeEvent args)
     {
         if (!HasComp<AbsorbableComponent>(args.Target) || _rotting.IsRotten(args.Target))
         {
             SetActionCooldown(ent,5);
-            _popup.PopupEntity(Loc.GetString("kodepiiae-consume-fail-inedible", ("target", Identity.Entity(args.Target, EntityManager))), ent, ent);
+            _popup.PopupEntity(Loc.GetString("kodepiia-consume-fail-inedible", ("target", Identity.Entity(args.Target, EntityManager))), ent, ent);
             return;
         }
 
         if (!_mobState.IsIncapacitated(args.Target))
         {
             SetActionCooldown(ent,5);
-            _popup.PopupEntity(Loc.GetString("kodepiiae-consume-fail-incapacitated", ("target", Identity.Entity(args.Target, EntityManager))), ent, ent);
+            _popup.PopupEntity(Loc.GetString("kodepiia-consume-fail-incapacitated", ("target", Identity.Entity(args.Target, EntityManager))), ent, ent);
             return;
         }
 
@@ -64,7 +64,7 @@ public sealed partial class KodepiiaeConsumeSystem : Shared._Impstation.Kodepiia
         if (!TryComp<PhysicsComponent>(args.Target, out var targetPhysics))
             return;
 
-        var doargs = new DoAfterArgs(EntityManager, ent, targetPhysics.Mass/5, new KodepiiaeConsumeDoAfterEvent(), ent, args.Target)
+        var doargs = new DoAfterArgs(EntityManager, ent, targetPhysics.Mass/5, new KodepiiaConsumeDoAfterEvent(), ent, args.Target)
         {
             DistanceThreshold = 1.5f,
             BreakOnDamage = true,
@@ -74,8 +74,8 @@ public sealed partial class KodepiiaeConsumeSystem : Shared._Impstation.Kodepiia
             AttemptFrequency = AttemptFrequency.StartAndEnd
         };
 
-        var popupSelf = Loc.GetString("kodepiiae-consume-start-self", ("user", Identity.Entity(ent, EntityManager)), ("target", Identity.Entity(args.Target, EntityManager)));
-        var popupOthers = Loc.GetString("kodepiiae-consume-start-others", ("user", Identity.Entity(ent, EntityManager)), ("target", Identity.Entity(args.Target, EntityManager)));
+        var popupSelf = Loc.GetString("kodepiia-consume-start-self", ("user", Identity.Entity(ent, EntityManager)), ("target", Identity.Entity(args.Target, EntityManager)));
+        var popupOthers = Loc.GetString("kodepiia-consume-start-others", ("user", Identity.Entity(ent, EntityManager)), ("target", Identity.Entity(args.Target, EntityManager)));
 
         _popup.PopupEntity(popupSelf, ent, ent);
         _popup.PopupEntity(popupOthers, ent, Filter.Pvs(ent).RemovePlayersByAttachedEntity(ent), true, PopupType.MediumCaution);
@@ -84,7 +84,7 @@ public sealed partial class KodepiiaeConsumeSystem : Shared._Impstation.Kodepiia
         args.Handled = true;
     }
 
-    public void ConsumeDoafter(Entity<Shared._Impstation.Kodepiia.Components.KodepiiaeConsumeActionComponent> ent, ref KodepiiaeConsumeDoAfterEvent args)
+    public void ConsumeDoafter(Entity<Shared._Impstation.Kodepiia.Components.KodepiiaConsumeActionComponent> ent, ref KodepiiaConsumeDoAfterEvent args)
     {
         if (args.Target == null)
         {
@@ -124,25 +124,25 @@ public sealed partial class KodepiiaeConsumeSystem : Shared._Impstation.Kodepiia
         // Play Sound
         PlayMeatySound(ent);
 
-        var popupSelf = Loc.GetString("kodepiiae-consume-end-self", ("user", Identity.Entity(ent, EntityManager)), ("target", Identity.Entity(args.Target.Value, EntityManager)));
-        var popupOthers = Loc.GetString("kodepiiae-consume-end-others", ("user", Identity.Entity(ent, EntityManager)), ("target", Identity.Entity(args.Target.Value, EntityManager)));
+        var popupSelf = Loc.GetString("kodepiia-consume-end-self", ("user", Identity.Entity(ent, EntityManager)), ("target", Identity.Entity(args.Target.Value, EntityManager)));
+        var popupOthers = Loc.GetString("kodepiia-consume-end-others", ("user", Identity.Entity(ent, EntityManager)), ("target", Identity.Entity(args.Target.Value, EntityManager)));
         _popup.PopupEntity(popupSelf, ent, ent);
         _popup.PopupEntity(popupOthers, ent, Filter.Pvs(ent).RemovePlayersByAttachedEntity(ent), true, PopupType.LargeCaution);
 
         //Consumed Componentry Stuff lol
-        EnsureComp<Shared._Impstation.Kodepiia.Components.KodepiiaeConsumedComponent>(args.Target.Value, out var consumed);
+        EnsureComp<Shared._Impstation.Kodepiia.Components.KodepiiaConsumedComponent>(args.Target.Value, out var consumed);
         consumed.TimesConsumed += 1;
         if (consumed.TimesConsumed >= 12 && TryComp<BodyComponent>(args.Target.Value, out var body) && ent.Comp.Gib)
         {
             _body.GibBody(args.Target.Value,true,body);
         }
     }
-    public void SetActionCooldown(Entity<Shared._Impstation.Kodepiia.Components.KodepiiaeConsumeActionComponent> ent, int cooldown)
+    public void SetActionCooldown(Entity<Shared._Impstation.Kodepiia.Components.KodepiiaConsumeActionComponent> ent, int cooldown)
     {
         _actionsSystem.SetCooldown(ent.Comp.ConsumeAction, TimeSpan.FromSeconds(cooldown));
     }
 
-    public void PlayMeatySound(Entity<Shared._Impstation.Kodepiia.Components.KodepiiaeConsumeActionComponent> ent)
+    public void PlayMeatySound(Entity<Shared._Impstation.Kodepiia.Components.KodepiiaConsumeActionComponent> ent)
     {
         var rand = _rand.Next(0, ent.Comp.SoundPool.Count - 1);
         var sound = ent.Comp.SoundPool.ToArray()[rand];

@@ -6,8 +6,8 @@
   abstract: true
   components:
   - type: HarpySinger
-  - type: KodepiiaeScrambler
-  - type: KodepiiaeConsumeAction
+  - type: KodepiiaScrambler
+  - type: KodepiiaConsumeAction
     damage:
       groups:
         Genetic: 25
