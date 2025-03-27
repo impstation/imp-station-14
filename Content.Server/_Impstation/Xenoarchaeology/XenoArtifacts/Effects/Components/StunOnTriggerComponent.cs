@@ -13,7 +13,7 @@ public sealed partial class StunOnTriggerComponent : Component
     public float Range = 8f;
 
     /// <summary>
-    /// How strongly does stuff get thrown?
+    /// Do we knockdown locally (using range) or all stunnable entities on grid?
     /// </summary>
     [DataField("entireGrid"), ViewVariables(VVAccess.ReadWrite)]
     public bool EntireGrid = false;

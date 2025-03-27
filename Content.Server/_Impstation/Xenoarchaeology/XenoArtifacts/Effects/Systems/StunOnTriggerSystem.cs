@@ -31,17 +31,20 @@ public sealed class StunOnTriggerSystem : EntitySystem
         var gridUid = transform.GridUid;
         // knock over everyone on the same grid, fall back to range if not on a grid.
         if (component.EntireGrid && gridUid != null) {
-            var gridTransform = Transform((EntityUid)gridUid);
-            var childEnumerator = gridTransform.ChildEnumerator;
-            while (childEnumerator.MoveNext(out var child))
+            HashSet<Entity<StatusEffectsComponent>> entities = new();
+            _lookup.GetGridEntities<StatusEffectsComponent>((EntityUid)gridUid, entities);
+            foreach (var ent in entities)
             {
-                if (!_buckleQuery.TryGetComponent(child, out var buckle) || buckle.Buckled)
+                if (_buckleQuery.TryGetComponent(ent, out var buckle))
+                {
+                    if (buckle.Buckled)
+                        continue;
+                }
+
+                if (!_statusQuery.TryGetComponent(ent, out var status))
                     continue;
 
-                if (!_statusQuery.TryGetComponent(child, out var status))
-                    continue;
-
-                _stuns.TryParalyze(child, TimeSpan.FromSeconds(component.KnockdownTime), true, status);
+                _stuns.TryParalyze(ent, TimeSpan.FromSeconds(component.KnockdownTime), true, status);
             }
 
         }
@@ -51,8 +54,11 @@ public sealed class StunOnTriggerSystem : EntitySystem
 
             foreach (var ent in ents)
             {
-                if (!_buckleQuery.TryGetComponent(ent, out var buckle) || buckle.Buckled)
-                    continue;
+                if (_buckleQuery.TryGetComponent(ent, out var buckle))
+                {
+                    if (buckle.Buckled)
+                        continue;
+                }
 
                 if (!_statusQuery.TryGetComponent(ent, out var status))
                     continue;
