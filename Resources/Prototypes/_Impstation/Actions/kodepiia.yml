@@ -15,7 +15,7 @@
 - type: entity
   id: ActionKodepiiaConsume
   name: Consume
-  description: Consume target
+  description: Take a bite out of an incapacitated target.
   components:
   - type: EntityTargetAction
     event: !type:KodepiiaConsumeEvent
