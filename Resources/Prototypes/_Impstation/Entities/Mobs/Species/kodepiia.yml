@@ -142,8 +142,18 @@
       jumpsuit:
         sizeMaps:
           32:
-            sprite: _DV/Mobs/Species/Harpy/displacement.rsi
+            sprite: _Impstation/Mobs/Species/Kodepiia/displacement.rsi
             state: jumpsuit
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Kodepiia/displacement.rsi
+            state: outerClothing
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Kodepiia/displacement.rsi
+            state: hands
     femaleDisplacements: {}
   - type: Butcherable
     butcheringType: Spike
@@ -168,8 +178,18 @@
       jumpsuit:
         sizeMaps:
           32:
-            sprite: _DV/Mobs/Species/Harpy/displacement.rsi
+            sprite: _Impstation/Mobs/Species/Kodepiia/displacement.rsi
             state: jumpsuit
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Kodepiia/displacement.rsi
+            state: outerClothing
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Kodepiia/displacement.rsi
+            state: hands
     femaleDisplacements: {}
   - type: Sprite
     layers:

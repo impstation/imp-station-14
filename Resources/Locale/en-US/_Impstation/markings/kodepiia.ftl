@@ -121,6 +121,8 @@ marking-KodeOrgans-organs2 = Primary Organs
 marking-KodeOrgans-organs3 = Secondary Organs
 marking-KodeBelly = Belly
 marking-KodeBelly-belly = Belly
+marking-KodeTeethChest = Teeth
+marking-KodeTeethChest-tummyteeth = Teeth
 # arms
 marking-KodeWingsBlade = Arms (Blade)
 marking-KodeWingsBlade-bladewings = Upper
@@ -142,6 +144,9 @@ marking-KodeCapeSpines-spinecloak = Cape
 marking-KodeCapeJelly = Cape (Jelly)
 marking-KodeCapeJelly-jellycloak1 = Bell
 marking-KodeCapeJelly-jellycloak2 = Spots
+marking-KodeVariableWings = Variable Wings
+marking-KodeVariableWings-variablewings1 = Arms
+marking-KodeVariableWings-variablewings2 = Wings
 # legs
 marking-KodeSockLFoot = Socks (L Foot)
 marking-KodeSockLFoot-socklfoot = Socks (L Foot)

@@ -631,6 +631,16 @@
   - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
     state: organs3
 
+- type: marking
+  id: KodeTeethChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Kodepiia]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+    state: tummyteeth
+
 # arms
 
 - type: marking
@@ -720,6 +730,18 @@
     state: jellycloak1
   - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
     state: jellycloak2
+
+- type: marking
+  id: KodeVariableWings
+  bodyPart: RArmExtension
+  markingCategory: Arms
+  speciesRestriction: [Kodepiia]
+  followSkinColor: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+    state: variablewings1
+  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+    state: variablewings2
 
 # legs
 
