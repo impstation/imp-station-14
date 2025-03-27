@@ -17,11 +17,12 @@
     hideLayersOnEquip: #imp
     - HeadSide
     - Hair
+    - Tail
     #- type: VoxAccent # Not yet coded
   - type: Speech
     speechVerb: Vox
     speechSounds: Vox
-    allowedEmotes: ['Hiss', 'Chitter', 'Coo'] #imp
+    allowedEmotes: ['Hiss', 'Chitter', 'Coo', 'HarpyCaw'] #imp
   - type: TypingIndicator
     proto: vox
   - type: Vocal
