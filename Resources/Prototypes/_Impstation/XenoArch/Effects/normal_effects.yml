@@ -1,3 +1,23 @@
+- type: entity
+  id: InstantEffectLocalKnockdown
+  parent: AdminInstantEffectBase
+  components:
+  - type: StunOnTrigger
+    range: 8
+    entireGrid: false
+    knockdownTime: 4
+
+- type: artifactEffect
+  id: EffectLocalKnockdown
+  targetDepth: 3
+  effectHint: artifact-effect-hint-environment
+  effectProb: 0.7
+  components:
+  - type: SpawnArtifact
+    maxSpawns: 99999
+    spawns:
+    - id: InstantEffectLocalKnockdown
+
 - type: artifactEffect
   id: EffectLesserPresentSpawn
   targetDepth: 3
@@ -400,16 +420,26 @@
       prob: 1
       orGroup: magicbook
 
+
+- type: entity
+  id: InstantEffectGridKnockdown
+  parent: AdminInstantEffectBase
+  components:
+  - type: StunOnTrigger
+    range: 15
+    entireGrid: true
+    knockdownTime: 3
+
 - type: artifactEffect
   id: EffectGridKnockdown
   targetDepth: 4
   effectHint: artifact-effect-hint-environment
   effectProb: 0.6
   components:
-  - type: KnockdownArtifact
-    entireGrid: false
-    knockdownTime: 2.5
-    range: 15
+  - type: SpawnArtifact
+    maxSpawns: 99999
+    spawns:
+    - id: InstantEffectGridKnockdown
 
 - type: artifactEffect
   id: EffectAnimateSingle

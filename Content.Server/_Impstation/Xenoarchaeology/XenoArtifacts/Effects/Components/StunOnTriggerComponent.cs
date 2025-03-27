@@ -4,7 +4,7 @@
 /// Knocksdown everything within range, or on the entire local grid.
 /// </summary>
 [RegisterComponent]
-public sealed partial class KnockdownArtifactComponent : Component
+public sealed partial class StunOnTriggerComponent : Component
 {
     /// <summary>
     /// How close do you have to be to get knocked down?
