@@ -165,7 +165,7 @@ public sealed class FollowerSystem : EntitySystem
             StartFollowingEntity(follower, args.NewEntity);
         }
     }
-
+    
     /// <summary>
     ///     Makes an entity follow another entity, by parenting to it.
     /// </summary>
