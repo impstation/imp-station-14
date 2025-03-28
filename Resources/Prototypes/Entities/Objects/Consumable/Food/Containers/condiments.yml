@@ -140,7 +140,7 @@
 
 - type: entity
   parent: BaseFoodCondimentPacket
-  id: FoodCondimentPacketFrostoil
+  id: FoodCondimentPacketColdsauce
   name: coldsauce
   description: Coldsauce. Leaves the tongue numb in its passage.
   components:
@@ -149,7 +149,7 @@
       food:
         maxVol: 10
         reagents:
-        - ReagentId: Frostoil
+        - ReagentId: Coldsauce
           Quantity: 10
   - type: Icon
     state: packet-frostoil
@@ -305,25 +305,6 @@
 
 - type: entity
   parent: BaseFoodCondimentPacket
-  id: FoodCondimentPacketTeriyaki
-  name: teriyaki sauce
-  description: A sweet and savory marinade.
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: TeriyakiSauce
-          Quantity: 10
-  - type: Icon
-    state: packet-soysauce # TODO Make a new sprite?
-  - type: Appearance
-  - type: SolutionContainerVisuals
-    maxFillLevels: 2
-    fillBaseName: packet-solid-
-
-- type: entity
-  parent: BaseFoodCondimentPacket
   id: FoodCondimentPacketSugar
   name: sugar
   description: Tasty spacey sugar!
@@ -394,7 +375,7 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Frostoil
+        - ReagentId: Coldsauce
           Quantity: 30
   - type: Sprite
     layers:

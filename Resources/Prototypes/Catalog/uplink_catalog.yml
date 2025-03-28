@@ -19,11 +19,11 @@
   name: uplink-revolver-python-name
   description: uplink-revolver-python-desc
   productEntity: WeaponRevolverPythonAP
-  discountCategory: usualDiscounts
+  discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 4
+    Telecrystal: 2
   cost:
-    Telecrystal: 8 # Originally was 13 TC but was not used due to high cost
+    Telecrystal: 4 # Originally was 13 and then 8 TC but was not used due to high cost
   categories:
   - UplinkWeaponry
 
@@ -162,7 +162,7 @@
   id: UplinkSniperBundle
   name: uplink-sniper-bundle-name
   description: uplink-sniper-bundle-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Snipers/heavy_sniper.rsi, state: base }
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Snipers/heavy_sniper.rsi, state: base } #imp
   productEntity: BriefcaseSyndieSniperBundleFilled
   discountCategory: usualDiscounts
   discountDownTo:
@@ -176,7 +176,7 @@
   id: UplinkC20RBundle
   name: uplink-c20r-bundle-name
   description: uplink-c20r-bundle-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/SMGs/c20r.rsi, state: icon }
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/SMGs/c20r.rsi, state: icon } #imp
   productEntity: ClothingBackpackDuffelSyndicateFilledSMG
   discountCategory: veryRareDiscounts
   discountDownTo:
@@ -190,7 +190,7 @@
   id: UplinkBulldogBundle
   name: uplink-buldog-bundle-name
   description: uplink-buldog-bundle-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon }
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon } #imp
   productEntity: ClothingBackpackDuffelSyndicateFilledShotgun
   discountCategory: veryRareDiscounts
   discountDownTo:
@@ -204,7 +204,7 @@
   id: UplinkGrenadeLauncherBundle
   name: uplink-grenade-launcher-bundle-name
   description: uplink-grenade-launcher-bundle-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Launchers/china_lake.rsi, state: icon }
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Launchers/china_lake.rsi, state: icon } #imp
   productEntity: ClothingBackpackDuffelSyndicateFilledGrenadeLauncher
   discountCategory: veryRareDiscounts
   discountDownTo:
@@ -218,7 +218,7 @@
   id: UplinkL6SawBundle
   name: uplink-l6-saw-bundle-name
   description: uplink-l6-saw-bundle-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/LMGs/l6.rsi, state: icon }
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/LMGs/l6.rsi, state: icon } #imp
   productEntity: ClothingBackpackDuffelSyndicateFilledLMG
   discountCategory: veryRareDiscounts
   discountDownTo:
@@ -277,17 +277,17 @@
     - UplinkExplosives
 
 - type: listing
-  id: UplinkSupermatterGrenade
-  name: uplink-supermatter-grenade-name
-  description: uplink-supermatter-grenade-desc
-  productEntity: SupermatterGrenade
+  id: UplinkSingularityGrenade
+  name: uplink-singularity-grenade-name
+  description: uplink-singularity-grenade-desc
+  productEntity: SingularityGrenade
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 1
   cost:
-    Telecrystal: 6
+    Telecrystal: 2
   categories:
-    - UplinkExplosives
+    - UplinkDisruption
 
 - type: listing
   id: UplinkBeenade
@@ -308,9 +308,9 @@
   discountDownTo:
     Telecrystal: 1
   cost:
-    Telecrystal: 3
+    Telecrystal: 2
   categories:
-    - UplinkExplosives
+    - UplinkDisruption
 
 - type: listing
   id: UplinkGrenadePenguin
@@ -505,7 +505,7 @@
   id: UplinkPistol9mmMagazine
   name: uplink-pistol-magazine-name
   description: uplink-pistol-magazine-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi, state: red-icon }
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi, state: red-icon } #imp
   productEntity: MagazinePistol
   cost:
     Telecrystal: 1
@@ -517,7 +517,7 @@
   id: UplinkMagazinePistolSubMachineGun
   name: uplink-pistol-magazine-c20r-name
   description: uplink-pistol-magazine-c20r-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi, state: red-icon }
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi, state: red-icon } #imp
   productEntity: MagazinePistolSubMachineGun
   cost:
     Telecrystal: 2
@@ -529,7 +529,7 @@
   id: UplinkMagazinePistolCaselessRifle
   name: uplink-pistol-magazine-caseless-name
   description: uplink-pistol-magazine-caseless-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: red-icon }
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: red-icon } #imp
   productEntity: MagazinePistolCaselessRifle
   cost:
     Telecrystal: 1
@@ -541,7 +541,7 @@
   id: UplinkSpeedLoaderMagnumAP
   name: uplink-speedloader-magnum-name
   description: uplink-speedloader-magnu-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: icon }
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: icon } #imp
   productEntity: SpeedLoaderMagnumAP
   cost:
     Telecrystal: 3
@@ -905,15 +905,28 @@
 # Disruption
 
 - type: listing
+  id: UplinkAccessBreaker
+  name: uplink-access-breaker-name
+  description: uplink-access-breaker-desc
+  productEntity: AccessBreaker
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkDisruption
+
+- type: listing
   id: UplinkEmag
   name: uplink-emag-name
   description: uplink-emag-desc
   productEntity: Emag
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 2 # 5 is um. not a discount when it's normally 4
+    Telecrystal: 3
   cost:
-    Telecrystal: 4 # DV was 8, can no longer emag doors
+    Telecrystal: 5
   categories:
   - UplinkDisruption
 
@@ -1095,12 +1108,10 @@
     blacklist:
       tags:
       - NukeOpsUplink
-  # the impstation special (it's really funny when this happens)
-  # seems to be a roughly 10% chance to hit the juck pot 1 million$ and get a double surplus crate
-  #- !type:BuyerWhitelistCondition
-  #  blacklist:
-  #    components:
-  #    - SurplusBundle
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
 
 - type: listing
   id: UplinkSuperSurplusBundle
@@ -1116,8 +1127,6 @@
     blacklist:
       tags:
       - NukeOpsUplink
-  # not allowed to be recursive because it set off a chain reaction that crashed my localhost
-  # can still contain normal surplus bundles though smile
   - !type:BuyerWhitelistCondition
     blacklist:
       components:
@@ -1209,7 +1218,7 @@
   productEntity: ReinforcementRadioSyndicateNukeops
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-nukeop }
   cost:
-    Telecrystal: 35
+    Telecrystal: 30
   categories:
   - UplinkAllies
   conditions:
@@ -1396,6 +1405,20 @@
     - UplinkImplants
 
 - type: listing
+  id: UplinkRadioImplanter
+  name: uplink-radio-implanter-name
+  description: uplink-radio-implanter-desc
+  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
+  productEntity: RadioImplanter
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkImplants
+
+- type: listing
   id: UplinkMicroBombImplanter
   name: uplink-micro-bomb-implanter-name
   description: uplink-micro-bomb-implanter-desc
@@ -1488,6 +1511,20 @@
       blacklist:
         components:
           - SurplusBundle
+
+- type: listing
+  id: UplinkFakeMindshield
+  name: uplink-fake-mindshield-name
+  description: uplink-fake-mindshield-desc
+  icon: { sprite: Interface/Actions/actions_fakemindshield.rsi, state: icon-on }
+  productEntity: FakeMindShieldImplanter
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkImplants
+
 
 # Wearables
 
@@ -1649,7 +1686,7 @@
   id: UplinkClothingOuterArmorRaid
   name: uplink-syndie-raid-name
   description: uplink-syndie-raid-desc
-  icon: { sprite: /Textures/Clothing/OuterClothing/Armor/syndie-raid.rsi, state: icon }
+  icon: { sprite: _Impstation/Clothing/OuterClothing/Armor/syndie-raid.rsi, state: icon } #imp edit
   productEntity: ClothingBackpackDuffelSyndicateRaidBundle
   cost:
     Telecrystal: 8
@@ -1703,6 +1740,78 @@
       whitelist:
         tags:
           - NukeOpsUplink
+
+- type: listing # EE
+  id: UplinkNightGoggles
+  name: uplink-night-vision-name
+  description: uplink-night-vision-desc
+  productEntity: ClothingEyesNightVisionGogglesSyndie
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing # EE
+  id: UplinkNightGogglesNukie
+  name: uplink-night-vision-name
+  description: uplink-night-vision-desc
+  productEntity: ClothingEyesNightVisionGogglesNukie
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing # EE
+  id: UplinkThermalGoggles
+  name: uplink-thermal-vision-name
+  description: uplink-thermal-vision-desc
+  productEntity: ClothingEyesThermalVisionGogglesSyndie
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing # EE
+  id: UplinkThermalGogglesNukie
+  name: uplink-thermal-vision-name
+  description: uplink-thermal-vision-desc
+  productEntity: ClothingEyesThermalVisionGogglesNukie
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
 - type: listing
   id: UplinkClothingConductingGloves
@@ -2009,11 +2118,11 @@
   name: uplink-revolver-cap-gun-fake-name
   description: uplink-revolver-cap-gun-fake-desc
   productEntity: RevolverCapGunFake
-  discountCategory: usualDiscounts
+  discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 3
   cost:
-    Telecrystal: 9
+    Telecrystal: 5
   categories:
   - UplinkJob
   conditions:
@@ -2182,8 +2291,11 @@
   description: uplink-combat-bakery-desc
   icon: { sprite:  Objects/Consumable/Food/Baked/bread.rsi, state: baguette}
   productEntity: CombatBakeryKit
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 2
   cost:
-    Telecrystal: 6
+    Telecrystal: 4
   categories:
   - UplinkJob
   conditions:

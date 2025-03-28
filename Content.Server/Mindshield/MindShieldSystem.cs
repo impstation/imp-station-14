@@ -2,13 +2,14 @@ using Content.Server.Administration.Logs;
 using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Server.Roles;
-using Content.Shared._Goobstation.FakeMindshield.Components;
+using Content.Shared.Changeling;
 using Content.Shared.Database;
 using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Revolutionary.Components;
 using Content.Shared.Tag;
+using Robust.Shared.Containers;
 
 namespace Content.Server.Mindshield;
 
@@ -30,6 +31,7 @@ public sealed class MindShieldSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<SubdermalImplantComponent, ImplantImplantedEvent>(ImplantCheck);
+        SubscribeLocalEvent<MindShieldImplantComponent, EntGotRemovedFromContainerMessage>(OnImplantDraw);
     }
 
     /// <summary>
@@ -49,7 +51,7 @@ public sealed class MindShieldSystem : EntitySystem
     /// </summary>
     public void MindShieldRemovalCheck(EntityUid implanted, EntityUid implant)
     {
-        if (HasComp<FakeMindShieldComponent>(implanted))
+        if (HasComp<FakeMindShieldComponent>(implanted) && HasComp<ChangelingComponent>(implanted))
         {
             _popupSystem.PopupEntity(Loc.GetString("changeling-mindshield-overwrite"), implanted, implanted, Shared.Popups.PopupType.MediumCaution);
             RemComp<FakeMindShieldComponent>(implanted);
@@ -68,4 +70,10 @@ public sealed class MindShieldSystem : EntitySystem
             _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(implanted)} was deconverted due to being implanted with a Mindshield.");
         }
     }
+
+    private void OnImplantDraw(Entity<MindShieldImplantComponent> ent, ref EntGotRemovedFromContainerMessage args)
+    {
+        RemComp<MindShieldComponent>(args.Container.Owner);
+    }
 }
+

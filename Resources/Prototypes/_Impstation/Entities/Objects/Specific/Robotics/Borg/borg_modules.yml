@@ -1,3 +1,4 @@
+#TckTck modules
 - type: entity
   id: BorgModuleTckTck
   parent: [ BaseBorgModule, BaseProviderBorgModule, DecapoidEmpireContraband ]
@@ -9,13 +10,12 @@
     - state: icon-cables
   - type: ItemBorgModule
     items:
-    - CableMVStackLingering10
-    - CableApcStackLingering10
     - trayScanner
     - Multitool
+    - RCDRechargingTckTck
     - MicroDrill
   - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: wire-module }
+    icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: tcktck-tools-module }
   - type: Tag
     tags:
       - BorgModuleTckTck
@@ -32,10 +32,10 @@
   - type: ItemBorgModule
     items:
     - WeaponGrapplingGunTckTck
-    - FireExtinguisher
+    - FireExtinguisherTckTck
     - HandHeldMassScannerBorg
   - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: grappling-module }
+    icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: tcktck-eva-module }
   - type: Tag
     tags:
       - BorgModuleTckTck
@@ -44,7 +44,7 @@
   id: BorgModuleTckTckGun
   parent: [ BaseBorgModule, BaseProviderBorgModule, DecapoidEmpireContraband ]
   name: tck'tck gun module
-  suffix: DO NOT MAP
+  categories: [ DoNotMap ]
   components:
   - type: Sprite
     layers:
@@ -59,6 +59,7 @@
     tags:
       - BorgModuleTckTck
 
+#Borg modules
 - type: entity
   id: BorgModuleArtistic
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
@@ -115,3 +116,20 @@
     - BorgDropper
   - type: BorgModuleIcon
     icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: bartender-module }
+
+- type: entity
+  id: BorgModuleBasicMining
+  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  name: basic mining cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: cargo
+    - state: icon-mining-basic
+  - type: ItemBorgModule
+    items:
+    - BorgPickaxe
+    - OreBag
+    - RadioHandheld
+  - type: BorgModuleIcon
+    icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: basic-mining-module }

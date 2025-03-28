@@ -6,8 +6,8 @@
   components:
   - type: Speech
     speechVerb: Goblin
-  - type: Absorbable
-    reducedBiomass: true
+  - type: Absorbable # imp
+    biomassRestored: 0.5
 
 - type: entity
   parent: MobGoblin
@@ -60,6 +60,11 @@
   - type: RandomHumanoidAppearance
     randomizeName: false
     hair: GoblinHairA
+    hairColor: "#ffdd56"
+    eyeColor: "#0d4883"
+    age: 35
+    sex: Male
+    skinColor: "#608c76"
 
 - type: entity
   parent: MobGoblin
@@ -86,12 +91,12 @@
     - !type:GroupSelector # garbage weight
       weight: 50
       children:
-      - id: RandomSpawner100 
+      - id: RandomSpawner100
     - !type:GroupSelector # funny weight
       weight: 15
       children:
       - id: ToyHammer
-      - id: ToySword 
+      - id: ToySword
       - !type:GroupSelector # foam swords
         children:
         - id: FoamBlade
@@ -100,6 +105,6 @@
       weight: 2
       children:
       - id: UtilitySword
-      - id: Claymore 
+      - id: Claymore
       - id: EnergySword
         weight: 0.2

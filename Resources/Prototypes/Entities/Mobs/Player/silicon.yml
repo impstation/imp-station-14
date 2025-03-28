@@ -96,6 +96,7 @@
     interfaces:
       enum.SiliconLawsUiKey.Key:
         type: SiliconLawBoundUserInterface
+  - type: ShowJobIcons
 
 # Ai
 - type: entity
@@ -537,8 +538,7 @@
 - type: entity
   id: StationAiBrain
   parent: PositronicBrain
-  categories: [ HideSpawnMenu ]
-  suffix: DO NOT MAP
+  categories: [ HideSpawnMenu, DoNotMap ]
   components:
   - type: Sprite
     # Once it's in a core it's pretty much an abstract entity at that point.
@@ -561,6 +561,7 @@
   - type: Access
     groups:
     - AllAccess
+    - Silicon
   - type: Eye
     drawFov: false
   - type: Examiner
@@ -585,8 +586,7 @@
   id: StationAiHolo
   name: AI eye
   description: The AI's viewer.
-  categories: [ HideSpawnMenu ]
-  suffix: DO NOT MAP
+  categories: [ HideSpawnMenu, DoNotMap ]
   components:
   - type: NoFTL
   - type: WarpPoint
@@ -607,8 +607,7 @@
   id: StationAiHoloLocal
   name: AI hologram
   description: A holographic representation of an AI.
-  categories: [ HideSpawnMenu ]
-  suffix: DO NOT MAP
+  categories: [ HideSpawnMenu, DoNotMap ]
   components:
   - type: Transform
     anchored: true
@@ -633,7 +632,7 @@
   - type: ContainerFill
     containers:
       borg_brain:
-        - MMIFilled
+      - PositronicBrain
   - type: ItemSlots
     slots:
       cell_slot:
@@ -748,7 +747,7 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHigh
   - type: RandomMetadata
-    nameSegments: [names_borg]
+    nameSegments: [NamesBorg]
 
 - type: entity
   id: PlayerBorgDerelictGhostRole
@@ -849,157 +848,15 @@
   - type: ProtectedFromStepTriggers
 
 - type: entity
-  name: drone
-  id: Drone
-  parent: PlayerSiliconBase
-  components:
-  - type: Drone # this system has too much going on, it should really be like three different components
-    whitelist:
-      tags:
-      - DroneUsable
-      - Trash
-    blacklist:
-      tags:
-      - Syringe
-      - HighRiskItem
-      components:
-      - Contraband
-  - type: PAI # imp; this is added specifically for the internal station map feature but the other aspects are not especially against the identity of drones. and i dont want to put the work into ECS-ifying PAIComponent
-  - type: Instrument # imp
-    allowPercussion: false
-    handheld: false
-    bank: 1
-    program: 2
-  - type: Loadout # imp special. this replaces the InnateTool component.
-    prototypes:
-      - StartingGearDroneTools
-  - type: NameIdentifier
-    group: Drone
-  - type: Inventory
-    templateId: drone
-  - type: InventorySlots
-  - type: Strippable
-  - type: UserInterface
-    interfaces:
-      enum.StrippingUiKey.Key:
-        type: StrippableBoundUserInterface
-      enum.SiliconLawsUiKey.Key:
-        type: SiliconLawBoundUserInterface
-      enum.InstrumentUiKey.Key: #imp
-        type: InstrumentBoundUserInterface
-        requireInputValidation: false
-      enum.StationMapUiKey.Key: #imp
-        type: StationMapBoundUserInterface
-        requireInputValidation: false
-  - type: StationMap #imp
-  - type: GhostRole
-    makeSentient: true
-    name: Maintenance Drone
-    description: Maintain the station. Ignore other beings except drones.
-    rules: |
-     You are bound by these laws both in-game and out-of-character:
-     1. You may not interfere with the affairs of any being except another drone, regardless of intent or circumstance.
-     2. Your goal is to maintain or improve the station to the best of your ability.
-     3. You may not take any action which causes damage or harm to the station or its inhabitants.
-    mindRoles: # imp. this whole prototype needs to be pulled out of upstream
-    - MindRoleGhostRoleSilicon
-  - type: GhostTakeoverAvailable
-  - type: SiliconLawBound
-  - type: SiliconLawProvider
-    laws: Drone
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 5
-    baseSprintSpeed : 5
-  - type: MobState
-    allowedStates:
-      - Alive
-      - Dead
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      60: Dead
-  - type: Flash
-  - type: NoSlip
-  - type: StatusEffects
-    allowed:
-    - Stun
-    - KnockedDown
-    - SlowedDown
-  - type: SlowOnDamage
-    speedModifierThresholds:
-      30: 0.7
-      50: 0.5
-  - type: Temperature
-    heatDamageThreshold: 5000
-    currentTemperature: 310.15
-    specificHeat: 42
-    heatDamage:
-      types:
-        Heat : 1 #per second, scales with temperature & other constants
-  - type: Sprite
-    drawdepth: SmallMobs
-    layers:
-    - state: shell
-      sprite: Mobs/Silicon/drone.rsi
-      map: ["base"]
-  - type: MovementIgnoreGravity
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.35
-        density: 50
-        mask:
-        - SmallMobMask
-        layer:
-        - SmallMobLayer
-  - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.DroneVisuals.Status:
-        base:
-          Off: { state: shell }
-          On: { state: drone }
-  - type: ReplacementAccent
-    accent: silicon
-  - type: Repairable
-    fuelCost: 15
-    doAfterDelay: 8
-  - type: ActionGrant
-    actions:
-    - ActionViewLaws
-  - type: Actions
-  - type: UnpoweredFlashlight
-  - type: PointLight
-    enabled: false
-    radius: 3.5
-    softness: 1
-    mask: /Textures/Effects/LightMasks/cone.png
-    autoRot: true
-  - type: ProtectedFromStepTriggers
-  - type: InputMover
-  - type: MobMover
-  - type: ContentEye
-    maxZoom: 1.2, 1.2
-  - type: Tag
-    tags:
-      - CannotSuicide
-      - EmagImmune
-
-# onestar is kinda fucked cause the loadout component is broken. sooo they gotta find guns somewhere i guess. /shrug.
-- type: entity
   name: onestar mecha
   id: Onestar
+  description: A gigantic mech. You should really be shooting at it.
   parent: PlayerSiliconBase
+  suffix: Boss, Ghost Role
   components:
-# InnateToolComponent is broken and this doesn't work. might not ever be fixed.
-#  - type: InnateTool
-#    tools:
-#      - id: WeaponMinigun
-#      - id: EnergySword
-#      - id: WeaponLauncherMultipleRocket
-#      - id: WeaponXrayCannon
+  - type: Loadout # imp special. this replaces the InnateTool component.
+    prototypes:
+      - StartingGearOnestarWeapons
   - type: UserInterface
     interfaces:
       enum.StrippingUiKey.Key:
@@ -1019,10 +876,10 @@
     allowedStates:
       - Alive
       - Dead
-  - type: MobThresholds
+  - type: MobThresholds # imp 1000 > 2000
     thresholds:
       0: Alive
-      1000: Dead
+      2000: Dead
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -1051,3 +908,23 @@
   - type: Tag
     tags:
       - FootstepSound
+  - type: NpcFactionMember # imp
+    factions:
+    - AllHostile
+  - type: HTN # imp
+    rootTask:
+      task: SimpleRangedHostileCompound
+    blackboard:
+      NavSmash: !type:Bool
+        true
+  - type: Destructible # imp
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 2000
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: OnestarDeath
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

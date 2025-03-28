@@ -1,5 +1,4 @@
 using Content.Server.DoAfter;
-using Content.Server.Forensics;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Server.Store.Systems;
@@ -9,6 +8,7 @@ using Content.Shared.Changeling;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.FixedPoint;
+using Content.Shared.Forensics.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
@@ -105,6 +105,7 @@ public sealed partial class ChangelingSystem : EntitySystem
     [Dependency] private readonly BodySystem _bodySystem = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
+    public EntProtoId TentaclePrototype = "FishingRodLing"; // imp
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
 
     public EntProtoId ShieldPrototype = "ChangelingShield";
@@ -458,9 +459,11 @@ public sealed partial class ChangelingSystem : EntitySystem
         var data = new TransformData
         {
             Name = metadata.EntityName,
-            DNA = dna.DNA,
             Appearance = appearance
         };
+
+        if (dna.DNA != null)
+            data.DNA = dna.DNA;
 
         if (fingerprint.Fingerprint != null)
             data.Fingerprint = fingerprint.Fingerprint;
@@ -693,7 +696,17 @@ public sealed partial class ChangelingSystem : EntitySystem
     private void OnMobStateChange(EntityUid uid, ChangelingComponent comp, ref MobStateChangedEvent args)
     {
         if (args.NewMobState == MobState.Dead)
+        {
             RemoveAllChangelingEquipment(uid, comp);
+            // Automatically put the ling into stasis on death if there's enough biomass
+            if (!comp.IsInStasis && !HasComp<AbsorbedComponent>(uid) && comp.Biomass > 1)
+            {
+                comp.Chemicals = 0f;
+                comp.Biomass -= 1;
+                comp.IsInStasis = true;
+            }
+        }
+
     }
 
     private void OnDamageChange(Entity<ChangelingComponent> ent, ref DamageChangedEvent args)

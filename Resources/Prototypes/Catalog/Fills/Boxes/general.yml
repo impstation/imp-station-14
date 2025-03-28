@@ -82,7 +82,7 @@
         amount: 12
   - type: Tag
     tags:
-      - DroneUsable        
+      - DroneUsable
 
 - type: entity
   name: mixed lights box
@@ -101,7 +101,7 @@
         amount: 6
   - type: Tag
     tags:
-      - DroneUsable        
+      - DroneUsable
 
 - type: entity
   name: holiday lighttube box
@@ -197,7 +197,7 @@
       - id: FoodCondimentPacketKetchup
   - type: Sprite
     layers:
-      - state: box_olive
+      - state: box
       - state: writing
 
 - type: entity
@@ -238,8 +238,9 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingShoesBootsPerformer
-      - id: ClothingUniformJumpskirtPerformer
+      # - id: ClothingShoesBootsPerformer # Imp edit - vocaloid ref removal lazy ver
+      # - id: ClothingUniformJumpskirtPerformer
+      # - id: ClothingHeadPerformerWig
       - id: FoodMealMemoryleek
         amount: 2
 
@@ -281,7 +282,7 @@
       - state: trashbag
   - type: Tag
     tags:
-      - DroneUsable      
+      - DroneUsable
 
 - type: entity
   name: passenger encryption key box

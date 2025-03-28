@@ -5,6 +5,7 @@
 petting-success-nicecarp = You pet {THE($target)} on {POSS-ADJ($target)} friendly wet head.
 petting-success-finfin = You pet {THE($target)} on {POSS-ADJ($target)} friendly little head.
 petting-success-pipi = You pet {THE($target)} on {POSS-ADJ($target)} empty little head.
+petting-success-dolby = You pet {THE($target)} on {POSS-ADJ($target)} fluffy little head.
 petting-success-tomato = You reach out to pet {THE($target)}, but it jumps up and kisses your hand first.
 petting-success-cargorilla = You give {THE($target)} a big hug.
 
@@ -14,6 +15,8 @@ petting-failure-cargorilla = You try to give {THE($target)} a hug, but you strug
 
 petting-success-disgustingpig = You insult {THE($target)}, as it deserves.
 petting-failure-disgustingpig = You think about insulting {THE($target)}, but hold your tongue.
+
+petting-success-suppy = {THE($target)} crackles with energy as you pet one of {POSS-ADJ($target)} facets.
 
 petting-success-ray = You pet {$target}, it wiggles glowing pincers at you happily.
 

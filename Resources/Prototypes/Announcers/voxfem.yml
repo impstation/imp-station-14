@@ -55,6 +55,8 @@
       path: alerts/white.ogg
     - id: alertPuce # don't eat anything
       path: alerts/puce.ogg
+    - id: alertOctarine # Reality is about to collapse, do something about it
+      path: alerts/octarine.ogg
 
     # Events
     ## Wizard's Den
@@ -109,8 +111,6 @@
     # - id: slimesSpawn # Some simple slimes are appearing in vents
     #   path: events/vent_critters.ogg
     # - id: spiderSpawn # Some simple spiders are appearing in vents
-    #   path: events/vent_critters.ogg
-    # - id: trashAnimalMigration # Trash-eating critters are appearing in vents
     #   path: events/vent_critters.ogg
     # - id: snailMigration # Adorable little snails are appearing in vents
     #   path: events/vent_critters.ogg

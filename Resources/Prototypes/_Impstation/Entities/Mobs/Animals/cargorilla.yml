@@ -31,7 +31,7 @@
   - type: Loadout
     prototypes: [ MobCargorillaGear ]
   - type: RandomMetadata
-    nameSegments: [names_cargorilla]
+    nameSegments: [CargorillaNames]
   - type: Grammar
     attributes:
       proper: true
@@ -80,6 +80,8 @@
         Base: dead
       Dead:
         Base: dead
+  - type: Absorbable # lotta meat on a gorilla
+    biomassRestored: 0.8
   - type: Butcherable
     spawned:
     - id: FoodMeat

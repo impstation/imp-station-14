@@ -109,8 +109,16 @@
           cost: 2
         - proto: HeartLocket # imp
           prob: 0.7
+        - proto: HeartLocketSilver # imp
+          prob: 0.7
         - proto: CDDogtags # imp
           prob: 0.7
+        - proto: BigRock #imp
+          prob: 0.01
+        - proto: ClothingEyesNightVisionGoggles # EE
+          cost: 8
+        - proto: ClothingEyesGlassesThermal # EE
+          cost: 8
 
 # Mob loot table
 

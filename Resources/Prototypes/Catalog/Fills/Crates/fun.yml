@@ -41,14 +41,35 @@
     - id: PlushieMoth
     - id: PlushieArachind
     - id: PlushiePenguin
+    # imp edit start
     - id: PlushieGray
     - id: PlushieUrsaMinor
     - id: PlushieBug
       weight: 0.1
+    - id: PlushieEvilBug
+      weight: 0.01
     - id: PlushieDecapoid
     - id: PlushieSnail
+    - id: PlushieThaven
+    - id: PlushieThavenWeird
+      weight: 0.1
+    - id: PlushieDwarf
+      weight: 0.1
+    - id: PlushieApid
+      weight: 0.5
+    - id: PlushieGoblin
+      weight: 0.5
+    - id: PlushieGollylad
+      weight: 0.1
     - id: PlushieImp
       weight: 0.1
+    - id: PlushieHeadofPersonnel
+      weight: 0.1
+    - id: PlushieCaptain
+      weight: 0.1
+    - id: PlushieGiantBear
+      weight: 0.5
+    # imp edit end
 
 - type: entity
   id: CrateFunPlushie
@@ -121,8 +142,6 @@
         amount: 2
       - id: FrenchHornInstrument
         amount: 2
-      - id: SaxophoneInstrument
-        amount: 2
       - id: EuphoniumInstrument
       - id: TubaInstrument
 
@@ -158,6 +177,8 @@
       - id: ClarinetInstrument
       - id: FluteInstrument
       - id: HarmonicaInstrument
+        amount: 2
+      - id: SaxophoneInstrument
         amount: 2
       - id: OcarinaInstrument
       - id: PanFluteInstrument

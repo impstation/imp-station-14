@@ -20,6 +20,7 @@
     - id: RubberStampDenied
     - id: RubberStampQm
     - id: AstroNavCartridge
+    - id: MailTeleporterMachineCircuitboard
     - id: StockTradingCartridge # Delta-V
 
 - type: entity
@@ -118,7 +119,7 @@
     children:
     - id: AccessConfigurator
     - id: BoxEncryptionKeyPassenger
-    - id: BoxEncryptionKeyService
+    # - id: BoxEncryptionKeyService imp edit
     - id: BoxHeadset
     - id: BoxID
     - id: BoxPDA
@@ -130,7 +131,7 @@
       prob: 0.5
     - id: ClothingHeadsetCommand
     - id: ClothingNeckGoldmedal
-    - id: DoorRemoteService
+    - id: DoorRemoteCommand #imp edit
     - id: HoPIDCard
     - id: IDComputerCircuitboard
     - id: RubberStampApproved
@@ -172,7 +173,7 @@
   id: FillChiefEngineerHardsuit
   table: !type:AllSelector
     children:
-    - id: ClothingMaskBreath
+    - id: ClothingMaskGasAtmos
     - id: ClothingOuterHardsuitEngineeringWhite
     - id: ClothingShoesBootsMagAdv
     - id: JetpackVoidFilled
@@ -334,6 +335,7 @@
     - id: SecurityTechFabCircuitboard
     - id: WeaponDisabler
     - id: WantedListCartridge
+    - id: DrinkHosFlask
     - id: ClothingNeckBronzeheart #imp
     - id: TicketPad #imp special
     - id: BaseSeclinkRadio #imp

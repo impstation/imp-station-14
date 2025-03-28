@@ -40,6 +40,8 @@
     spawned:
     - id: FoodMeat
       amount: 1
+  - type: Absorbable # imp edit - mouse bite sized
+    biomassRestored: 0.1
   - type: InteractionPopup
     successChance: 0.2
     interactSuccessString: petting-success-soft-floofy
@@ -64,6 +66,12 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   name: bee
@@ -107,6 +115,17 @@
         Base: dead
       Dead:
         Base: dead
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: GroundBee
+          Quantity: 1
+  - type: Butcherable
+    spawned:
+    - id: null # Should give nothing when you butcher it so we set the item id it needs to spawn to null
   - type: Item
     size: Tiny
   - type: Tag
@@ -115,6 +134,7 @@
     - Trash
     - MultitoolDefibrillatorTarget
   - type: Bloodstream
+    bloodReagent: InsectBlood
     bloodMaxVolume: 0.1
   - type: MobPrice
     price: 50
@@ -218,6 +238,8 @@
     spawned:
     - id: FoodMeatChicken
       amount: 1
+  - type: Absorbable # imp edit - a good meal
+    biomassRestored: 0.2
   - type: InteractionPopup
     successChance: 0.8
     interactSuccessString: petting-success-bird
@@ -230,6 +252,7 @@
   - type: EggLayer
     eggSpawn:
     - id: FoodEgg
+  - type: ExaminableHunger
   - type: ReplacementAccent
     accent: chicken
   - type: SentienceTarget
@@ -354,6 +377,8 @@
     bloodReagent: InsectBlood
     bloodMaxVolume: 20
   - type: Food
+  - type: Absorbable # imp edit
+    biomassRestored: 0.1
   - type: FlavorProfile
     flavors:
     - horrible
@@ -399,6 +424,12 @@
     damage:
       types:
         Piercing: 0
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   name: glockroach
@@ -567,6 +598,12 @@
     interfaces:
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
   - type: InventorySlots
   - type: Inventory
     speciesId: hamster
@@ -597,6 +634,7 @@
           32:
             sprite: Mobs/Animals/mothroach/displacement.rsi
             state: neck
+
 
 
 # Note that the mallard duck is actually a male drake mallard, with the brown duck being the female variant of the same species, however ss14 lacks sex specific textures
@@ -654,6 +692,8 @@
     spawned:
     - id: FoodMeatDuck
       amount: 1
+  - type: Absorbable # imp edit
+    biomassRestored: 0.2
   - type: InteractionPopup
     successChance: 0.9
     interactSuccessString: petting-success-bird
@@ -666,6 +706,7 @@
   - type: EggLayer
     eggSpawn:
     - id: FoodEgg
+  - type: ExaminableHunger
   - type: ReplacementAccent
     accent: duck
   - type: SentienceTarget
@@ -772,13 +813,29 @@
         Base: dead
       Dead:
         Base: dead
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 1
+  - type: Butcherable
+    spawned:
+    - id: null # Should give nothing when you butcher it so we set the item id it needs to spawn to null
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - Trash
+    - MultitoolDefibrillatorTarget
   - type: Bloodstream
+    bloodReagent: InsectBlood
     bloodMaxVolume: 0.1
   - type: MobPrice
     price: 50
-  - type: Tag
-    tags:
-    - MultitoolDefibrillatorTarget
+
 
 - type: entity
   name: cow
@@ -834,10 +891,13 @@
     reagentId: Milk
     quantityPerUpdate: 25
     growthDelay: 30
+  - type: ExaminableHunger
   - type: Butcherable
     spawned:
     - id: FoodMeat
       amount: 5
+  - type: Absorbable # imp edit
+    biomassRestored: 0.7
   - type: Grammar
     attributes:
       gender: female # Here because of UdderComponent
@@ -913,6 +973,8 @@
     spawned:
     - id: FoodMeatCrab
       amount: 2
+  - type: Absorbable # imp edit
+    biomassRestored: 0.3
   - type: InteractionPopup
     successChance: 0.5
     interactSuccessString: petting-success-crab
@@ -933,6 +995,12 @@
       task: RuminantCompound
   - type: Body
     prototype: AnimalHemocyanin
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   name: goat
@@ -992,6 +1060,7 @@
     reagentId: MilkGoat
     quantityPerUpdate: 25
     growthDelay: 20
+  - type: ExaminableHunger
   - type: Wooly
   - type: Food
     solution: wool
@@ -1001,6 +1070,8 @@
   - type: FlavorProfile
     flavors:
     - fiber
+  - type: Absorbable # imp edit
+    biomassRestored: 0.5
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -1072,6 +1143,8 @@
     spawned:
     - id: FoodMeatChicken
       amount: 2
+  - type: Absorbable # imp edit
+    biomassRestored: 0.3
   - type: InteractionPopup # TODO: Make it so there's a separate chance to make certain animals outright hostile towards you.
     successChance: 0.1 # Yeah, good luck with that.
     interactSuccessString: petting-success-goose
@@ -1121,6 +1194,8 @@
     spawned:
     - id: FoodMeat
       amount: 4
+  - type: Absorbable # imp edit
+    biomassRestored: 0.8
   - type: Bloodstream
     bloodMaxVolume: 300
     # if you fuck with the gorilla he will harambe you
@@ -1178,6 +1253,8 @@
   - type: Butcherable
     spawned:
     - id: FoodMeat
+  - type: Absorbable # imp edit
+    biomassRestored: 0.8
   - type: DamageStateVisuals
     states:
       Alive:
@@ -1251,6 +1328,17 @@
   - type: Inventory
     templateId: monkey
     speciesId: monkey
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Animals/Monkey/displacement.rsi
+            state: jumpsuit
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Animals/Monkey/displacement.rsi
+            state: outerClothing
   - type: Deathgasp
     prototype: MonkeyDeathgasp
   - type: Blindable
@@ -1283,8 +1371,8 @@
       state: body-overlay-2
       visible: false
     - map: [ "ears" ]
-    - map: [ "outerClothing" ]
     - map: [ "id" ]
+    - map: [ "outerClothing" ]
     - map: [ "mask" ]
     - map: [ "head" ]
     - map: [ "clownedon" ]
@@ -1329,6 +1417,8 @@
     spawned:
     - id: FoodMeat
       amount: 3
+  - type: Absorbable # imp edit
+    biomassRestored: 0.4
   - type: Puller
     needsHands: false
   - type: CanHostGuardian
@@ -1638,7 +1728,7 @@
   id: MobMouse
   description: Squeak!
   components:
-  - type: VentCrawler
+  - type: VentCrawler # imp edit
     enterDelay: 1
   - type: Body
     prototype: Mouse
@@ -1723,6 +1813,8 @@
       Dead:
         Base: splat-0
   - type: Food
+  - type: Absorbable # imp edit
+    biomassRestored: 0.1
   - type: FlavorProfile
     flavors:
     - meaty
@@ -1819,6 +1911,12 @@
   - type: MeleeChemicalInjector #imp
     solution: mousebites
     transferAmount: 1
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   parent: MobMouse
@@ -1995,6 +2093,8 @@
     spawned:
     - id: FoodMeatLizard
       amount: 1
+  - type: Absorbable # imp edit
+    biomassRestored: 0.2
   - type: InteractionPopup
     successChance: 0.3
     interactSuccessString: petting-success-reptile
@@ -2011,6 +2111,12 @@
     tags:
     - VimPilot
     - MultitoolDefibrillatorTarget
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 
 - type: entity
@@ -2054,6 +2160,8 @@
     spawned:
     - id: FoodMeat
       amount: 1
+  - type: Absorbable # imp edit
+    biomassRestored: 0.1
   - type: InteractionPopup
     successChance: 0.3
     interactSuccessString: petting-success-generic
@@ -2064,6 +2172,12 @@
   - type: Tag
     tags:
     - MultitoolDefibrillatorTarget
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   name: frog
@@ -2113,6 +2227,8 @@
     spawned:
     - id: FoodMeat
       amount: 1
+  - type: Absorbable # imp edit
+    biomassRestored: 0.1
   - type: InteractionPopup
     successChance: 0.6
     interactSuccessString: petting-success-frog
@@ -2126,6 +2242,12 @@
     tags:
     - VimPilot
     - MultitoolDefibrillatorTarget
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 # Would be cool to have some functionality for the parrot to be able to sit on stuff
 - type: entity
@@ -2166,6 +2288,8 @@
     spawned:
     - id: FoodMeat
       amount: 1
+  - type: Absorbable # imp edit
+    biomassRestored: 0.2
   - type: Speech
     speechSounds: Parrot
     speechVerb: Parrot
@@ -2219,6 +2343,8 @@
     spawned:
     - id: FoodMeatPenguin
       amount: 3
+  - type: Absorbable # imp edit
+    biomassRestored: 0.3
   - type: InteractionPopup
     successChance: 0.5
     interactSuccessString: petting-success-bird
@@ -2354,6 +2480,8 @@
     spawned:
     - id: FoodMeatSnake
       amount: 1
+  - type: Absorbable # imp edit
+    biomassRestored: 0.2
   - type: InteractionPopup
     successChance: 0.6
     interactSuccessString: petting-success-reptile
@@ -2364,6 +2492,12 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Scale
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 # Code unique spider prototypes or combine them all into one spider and get a
 # random sprite state when you spawn it.
@@ -2469,6 +2603,14 @@
       groups:
         Brute: -0.07
         Burn: -0.07
+  - type: Absorbable # imp edit - big enough to restore a good amount of biomass
+    biomassRestored: 0.7
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   parent: MobSpiderBase
@@ -2530,6 +2672,8 @@
     damage:
       types:
         Piercing: 6
+  - type: Body    #imp edit
+    prototype: AnimalHemocyaninSpider
 
 - type: entity
   parent:
@@ -2643,6 +2787,8 @@
     spawned:
     - id: FoodMeat
       amount: 3
+  - type: Absorbable # imp edit
+    biomassRestored: 0.3
   - type: InteractionPopup
     successChance: 0.2 # Low when undomesticated.
     interactSuccessString: petting-success-possum # Possums don't really make much noise when they're happy. They make clicking noises as a mating call, but that is NOT the same thing!
@@ -2655,6 +2801,12 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   name: possum
@@ -2676,6 +2828,12 @@
         Base: possum_dead_old
       Dead:
         Base: possum_dead_old
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   name: raccoon
@@ -2716,6 +2874,8 @@
     spawned:
     - id: FoodMeat
       amount: 3
+  - type: Absorbable # imp edit
+    biomassRestored: 0.3
   - type: InteractionPopup
     successChance: 0.2 # Low when undomesticated.
     interactSuccessString: petting-success-soft-floofy
@@ -2729,6 +2889,12 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   name: fox
@@ -2776,6 +2942,8 @@
     spawned:
     - id: FoodMeat
       amount: 3
+  - type: Absorbable # imp edit
+    biomassRestored: 0.3
   - type: InteractionPopup
     successChance: 0.5
     interactSuccessString: petting-success-soft-floofy
@@ -2807,6 +2975,13 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: DogVision # imp
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   name: corgi
@@ -2823,6 +2998,7 @@
   - type: Physics
   - type: Speech
     speechVerb: Canine
+    speechSounds: Dog
   - type: Fixtures
     fixtures:
       fix1:
@@ -2849,6 +3025,8 @@
     spawned:
     - id: FoodMeat
       amount: 2
+  - type: Absorbable # imp edit
+    biomassRestored: 0.3
   - type: ReplacementAccent
     accent: dog
   - type: InteractionPopup
@@ -2867,6 +3045,7 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: DogVision # imp
 
 - type: entity
   name: corrupted corgi
@@ -3004,6 +3183,8 @@
     spawned:
     - id: FoodMeat
       amount: 3
+  - type: Absorbable # imp edit
+    biomassRestored: 0.3
   - type: ReplacementAccent
     accent: cat
   - type: InteractionPopup
@@ -3030,6 +3211,12 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   name: calico cat
@@ -3099,6 +3286,13 @@
         Slash: 6
         Piercing: 6
         Structural: 15
+  - type: IntrinsicRadioReceiver #imp
+  - type: IntrinsicRadioTransmitter #imp
+    channels:
+    - Syndicate
+  - type: ActiveRadio
+    channels:
+    - Syndicate
 
 - type: entity
   name: space cat
@@ -3237,6 +3431,8 @@
     spawned:
     - id: FoodMeat
       amount: 3
+  - type: Absorbable # imp edit
+    biomassRestored: 0.3
   - type: InteractionPopup
     successChance: 0.9
     interactSuccessString: petting-success-sloth
@@ -3292,6 +3488,8 @@
     spawned:
     - id: FoodMeat
       amount: 3
+  - type: Absorbable # imp edit
+    biomassRestored: 0.3
   - type: InteractionPopup
     successChance: 0.8
     interactDelay: 1.5 # Avoids overlapping SFX due to spam - these SFX are a little longer than the typical 1 second.
@@ -3306,6 +3504,12 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   name: hamster
@@ -3384,6 +3588,8 @@
       Dead:
         Base: splat-0
   - type: Food
+  - type: Absorbable # imp edit
+    biomassRestored: 0.2
   - type: FlavorProfile
     flavors:
     - meaty
@@ -3503,6 +3709,8 @@
     spawned:
     - id: FoodMeatBacon
       amount: 6
+  - type: Absorbable # imp edit
+    biomassRestored: 0.7
   - type: Grammar
     attributes:
       gender: epicene
@@ -3566,6 +3774,8 @@
     spawned:
     - id: MaterialWoodPlank1
       amount: 2
+  - type: Absorbable # imp edit
+    biomassRestored: 0.3
   - type: InteractionPopup
     successChance: 0.7
     interactSuccessString: petting-success-nymph
@@ -3667,6 +3877,8 @@
     spawned:
     - id: FoodMeat
       amount: 4
+  - type: Absorbable # imp edit
+    biomassRestored: 0.5
   - type: Bloodstream
     bloodMaxVolume: 300
     # Horns though
@@ -3685,6 +3897,12 @@
       task: SimpleHostileCompound
   - type: Puller
     needsHands: false
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   name: reindeer doe

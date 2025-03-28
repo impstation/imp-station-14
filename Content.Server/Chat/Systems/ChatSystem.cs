@@ -8,7 +8,7 @@ using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.Players.RateLimiting;
-using Content.Server.Speech.Components;
+using Content.Server.Speech.Prototypes;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
@@ -346,7 +346,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         _chatManager.ChatMessageToAll(ChatChannel.Radio, message, wrappedMessage, default, false, true, colorOverride);
         if (playSound)
         {
-            _audio.PlayGlobal(announcementSound == null ? DefaultAnnouncementSound : _audio.GetSound(announcementSound), Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
+            _audio.PlayGlobal(announcementSound == null ? DefaultAnnouncementSound : _audio.ResolveSound(announcementSound), Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
         }
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Global station announcement from {sender}: {message}");
     }
@@ -675,6 +675,11 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (checkEmote)
             TryEmoteChatInput(source, action);
         SendInVoiceRange(ChatChannel.Emotes, action, wrappedMessage, source, range, author);
+
+        // #IMP Send event to alert that generic emote has happened
+        var ev = new EntityEmotedEvent(source, wrappedMessage);
+        RaiseLocalEvent(source, ev);
+
         if (!hideLog)
             if (name != Name(source))
                 _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Emote from {ToPrettyString(source):user} as {name}: {action}");
@@ -1038,6 +1043,22 @@ public sealed class EntitySpokeEvent : EntityEventArgs
         Message = message;
         Channel = channel;
         ObfuscatedMessage = obfuscatedMessage;
+    }
+}
+
+/// <summary>
+///     #IMP
+///     Raised on an entity when it emotes, whether through emote wheel, hotkeys, /me, @ or * in textbox, etc.
+/// </summary>
+public sealed class EntityEmotedEvent : EntityEventArgs
+{
+    public readonly EntityUid Source;
+    public readonly string Message;
+
+    public EntityEmotedEvent(EntityUid source, string message)
+    {
+        Source = source;
+        Message = message;
     }
 }
 

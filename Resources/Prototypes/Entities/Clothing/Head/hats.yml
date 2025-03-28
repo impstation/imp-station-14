@@ -363,9 +363,9 @@
   description: A witch hat.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/witchhat.rsi
+    sprite: _Impstation/Clothing/Head/Hats/witchhat.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/witchhat.rsi
+    sprite: _Impstation/Clothing/Head/Hats/witchhat.rsi
 
 - type: entity
   parent: ClothingHeadBase
@@ -580,7 +580,7 @@
 
 - type: entity
   abstract: true
-  parent: ClothingHeadBase
+  parent: [ ClothingHeadBase, BaseMagicalContraband ]
   id: ClothingHeadHatWizardBase
   components:
   - type: WizardClothes

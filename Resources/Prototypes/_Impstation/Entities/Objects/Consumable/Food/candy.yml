@@ -1,0 +1,227 @@
+﻿- type: entity
+  name: one single gummy worm
+  parent: FoodMealBase
+  id: FoodGummyWorm
+  description: How did this get in here...
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/candy.rsi
+    state: asinglegummyworm
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 3
+
+- type: entity
+  name: conversation heart
+  parent: FoodMealBase
+  id: FoodConversationHeart
+  description: "You can barely make out the imprinted text: luv u"
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: FlavorProfile
+    flavors:
+    - chalky
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/candy.rsi
+    layers:
+    - state: chalkheartcolorable
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+  - type: RandomSprite
+    available:
+    - enum.DamageStateVisualLayers.Base:
+        chalkheartcolorable: Pastel
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 1
+  - type: RandomMetadata
+    descriptionSegments: [ConversationHeartDescriptions]
+
+- type: entity
+  name: chocolate heart
+  parent: FoodMealBase
+  id: FoodChocolateHeart
+  description: A mass-produced chocolate heart. How sweet.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/candy.rsi
+    layers:
+    - state: chocolateheart
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 2
+        - ReagentId: CocoaPowder # no chocolate i guess LOL
+          Quantity: 2
+        - ReagentId: Theobromine # cocoa powder doesnt metabolize into theobromine so i have to add it manually
+          Quantity: 1
+
+- type: entity
+  name: chocolate heart
+  suffix: dark
+  parent: FoodChocolateHeart
+  id: FoodChocolateHeartDark
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/candy.rsi
+    layers:
+    - state: chocolateheartdark
+
+- type: entity
+  name: chocolate heart
+  suffix: white
+  parent: FoodChocolateHeart
+  id: FoodChocolateHeartWhite
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/candy.rsi
+    layers:
+    - state: chocolateheartwhite
+
+- type: entity
+  name: homemade chocolate heart
+  parent: FoodChocolateHeart
+  id: FoodHomemadeChocolateHeart
+  description: A chocolate heart, made with love and a microwave.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/candy.rsi
+    layers:
+    - state: homemadechocolate
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15 # extra space for poison purposes
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 2
+        - ReagentId: CocoaPowder
+          Quantity: 2
+        - ReagentId: Milk
+          Quantity: 2
+        - ReagentId: Theobromine
+          Quantity: 1
+
+- type: entity
+  name: berry macaron
+  parent: FoodMealBase
+  id: FoodMacaronBerry
+  description: Complex to make, beautiful to look at, underwhelming to eat. A perfect romantic treat.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/candy.rsi
+    state: macaronberry
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 3
+        - ReagentId: JuiceBerry
+          Quantity: 2
+
+- type: entity
+  name: cherry macaron
+  parent: FoodMacaronBerry
+  id: FoodMacaronCherry
+  components:
+  - type: Sprite
+    state: macaroncherry
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 3
+        - ReagentId: JuiceCherry
+          Quantity: 2
+
+- type: entity
+  name: cotton macaron
+  parent: FoodMacaronBerry
+  id: FoodMacaronCotton
+  description: Hey, wait! This isn't a macaron! It's a doily!
+  components:
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ClothMade
+  - type: Sprite
+    state: macaroncotton
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 3
+        - ReagentId: Fiber
+          Quantity: 2
+
+- type: entity
+  name: lemon macaron
+  parent: FoodMacaronBerry
+  id: FoodMacaronLemon
+  components:
+  - type: Sprite
+    state: macaronlemon
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 3
+        - ReagentId: JuiceLemon
+          Quantity: 2
+
+- type: entity
+  name: mimana macaron
+  parent: FoodMacaronBerry
+  id: FoodMacaronMimana
+  description: Complex to make, beautiful to look at, underwhelming to eat. This one feels like nothing.
+  components:
+  - type: Sprite
+    state: macaronmimana
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 3
+        - ReagentId: MuteToxin
+          Quantity: 2

@@ -17,7 +17,7 @@
   id: Restricted
   examineColor: yellow
   examineText: contraband-examine-text-Restricted
-  showDepartments: true
+  showDepartmentsAndJobs: true
 
 # Having this as a regular crew member is considered grand theft. (nuke disk, captain's gear, objective items, etc)
 - type: contrabandSeverity
@@ -30,3 +30,9 @@
   id: Syndicate
   examineColor: crimson
   examineText: contraband-examine-text-Syndicate
+
+# This is magical contraband and not permitted to be used IC.
+- type: contrabandSeverity
+  id: Magical
+  examineColor: crimson
+  examineText: contraband-examine-text-Magical

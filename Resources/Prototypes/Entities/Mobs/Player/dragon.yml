@@ -8,6 +8,7 @@
   components:
   - type: Bloodstream
     bloodMaxVolume: 650
+    bloodReagent: ShimmeringBlood #imp
   - type: GhostRole
     allowMovement: true
     allowSpeech: true
@@ -118,6 +119,8 @@
     groups:
     - id: Medicine
     - id: Poison
+  - type: Absorbable # imp
+    biomassRestored: 0.8
   - type: Butcherable
     spawned:
     - id: FoodMeatDragon
@@ -154,6 +157,13 @@
     - DoorBumpOpener
   - type: Puller
     needsHands: false
+  - type: Body #imp
+    prototype: AnimalCarp
+  - type: NightVision # EE
+    isActive: true
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   parent: BaseMobDragon

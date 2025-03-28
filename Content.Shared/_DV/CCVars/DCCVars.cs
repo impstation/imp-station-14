@@ -16,19 +16,13 @@ public sealed class DCCVars
         CVarDef.Create("shuttle.shipyard", true, CVar.SERVERONLY);
 
     /// <summary>
-    /// How often mail is delivered in minutes
-    /// </summary>
-    public static readonly CVarDef<double> MailTeleportIntervalInMinutes =
-        CVarDef.Create("mail.teleportinterval", 5.0d, CVar.SERVERONLY);
-
-    /// <summary>
     /// How many mail candidates do we need per actual delivery sent when
     /// the mail goes out? The number of candidates is divided by this number
     /// to determine how many deliveries will be teleported in.
     /// It does not determine unique recipients. That is random.
     /// </summary>
     public static readonly CVarDef<int> MailCandidatesPerDelivery =
-        CVarDef.Create("mail.candidatesperdelivery", 8, CVar.SERVERONLY);
+        CVarDef.Create("mail.candidatesperdelivery", 6, CVar.SERVERONLY);
 
     /// <summary>
     /// Do not teleport any more mail in, if there are at least this many
@@ -47,7 +41,7 @@ public sealed class DCCVars
     /// mail lately to prevent entity bloat for the sake of performance.
     /// </remarks>
     public static readonly CVarDef<int> MailMaximumUndeliveredParcels =
-        CVarDef.Create("mail.maximumundeliveredparcels", 5, CVar.SERVERONLY);
+        CVarDef.Create("mail.maximumundeliveredparcels", 12, CVar.SERVERONLY);
 
     /// <summary>
     /// What's the base bonus for delivering a package intact?
@@ -91,7 +85,7 @@ public sealed class DCCVars
     /// if not delivered?
     /// </summary>
     public static readonly CVarDef<double> MailPriorityDuration =
-        CVarDef.Create("mail.priorityduration", 10.0d, CVar.SERVERONLY);
+        CVarDef.Create("mail.priorityduration", 5.0d, CVar.SERVERONLY);
 
     /// <summary>
     /// What's the bonus for delivering a priority package intact?
@@ -117,4 +111,9 @@ public sealed class DCCVars
     public static readonly CVarDef<int> MailLargeMalus =
         CVarDef.Create("mail.largemalus", -250, CVar.SERVERONLY);
 
+    /// <summary>
+    /// Disables all vision filters for species like Vulpkanin or Harpies. There are good reasons someone might want to disable these.
+    /// </summary>
+    public static readonly CVarDef<bool> NoVisionFilters =
+        CVarDef.Create("accessibility.no_vision_filters", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 }

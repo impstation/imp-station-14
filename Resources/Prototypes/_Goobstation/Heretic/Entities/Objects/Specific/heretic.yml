@@ -54,10 +54,43 @@
       drink:
         # it's a cryostasis flash filled with healing goodies what could possibly go wrong?
         # i will certainly not abuse it as a heretic chemist
-        maxVol: 100
-        canReact: false
+        # imp edit: ^^^^this guy no longer has his free 100u cryostasis beaker to pwn noobs with. jesus christ
+        maxVol: 75
+        canReact: true
         reagents:
         - ReagentId: Omnizine
-          Quantity: 80
+          Quantity: 60
         - ReagentId: TranexamicAcid
-          Quantity: 20
+          Quantity: 15
+
+- type: entity
+  id: AlwaysPoweredHellLight
+  parent: MarkerBase
+  name: hellworldlight
+  description: "An always powered light."
+  suffix: Always powered
+  components:
+  - type: PointLight
+    color: "#FF7777" # 5000K color temp
+    energy: 0.8
+    radius: 10
+    softness: 1
+    offset: "0, -0.5"
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Structures/Wallmounts/Lighting/light_tube.rsi
+        state: base
+
+- type: entity
+  id: HellSpawnPointMarker
+  parent: MarkerBase
+  name: hellworldtarget
+  description: "You go here if you do drugs."
+  components:
+  - type: HellSpawnPoint
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Mobs/Species/Human/parts.rsi
+        state: full

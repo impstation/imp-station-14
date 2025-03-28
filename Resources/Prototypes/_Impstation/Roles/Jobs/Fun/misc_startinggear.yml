@@ -29,3 +29,26 @@
   inhand:
     - GoblinClaymore
     - WoodenBuckler
+
+- type: startingGear
+  id: DinoCommanderGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTacticool
+    outerClothing: ClothingOuterHardsuitDinoUnremoveable
+    ears: ClothingHeadsetCommand
+    gloves: ClothingHandsGlovesCombat
+    shoes: ClothingShoesBootsJack
+
+- type: startingGear
+  id: PositivityForceGear
+  equipment:
+    jumpsuit: ClothingUniformPositivityForce
+    ears: ClothingHeadsetCommand
+    eyes: ClothingEyesHudBeer
+    head: ClothingHeadHatPositivityForcesoft
+    shoes: ClothingShoesColorWhite
+    back: ClothingBackpackSatchel
+    neck: ClothingNeckPositivityForceMedal
+    pocket1: ClothingNeckFuckhubMedal
+    pocket2: DrinkSpaceLube
+    id: ERTSecurityPDA

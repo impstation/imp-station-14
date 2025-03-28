@@ -10,7 +10,8 @@
 - type: entity
   parent: [ClothingNeckCloakStraight, BaseToggleClothing]
   id: ClothingHeadCloakStraightKill
-  suffix: KILL, DO NOT MAP
+  suffix: KILL
+  categories: [ DoNotMap ]
   components:
   - type: ToggleClothing
     action: ActionBecomeValid
@@ -49,39 +50,6 @@
     foldedEquippedPrefix: folded
 
 - type: entity
-  parent: [ClothingNeckBase, BaseCommandContraband]
-  id: ClothingNeckCloakCaptaingreatcoat
-  name: captain's greatcoat
-  description: "A long blue coat with an ornate trim, worn as a cape thanks to the gold aguilettes holding it around your neck. It carries a powerful aura of leadership."
-  components:
-  - type: Sprite
-    sprite: _Impstation/Clothing/Neck/Cloaks/captaingreatcoat.rsi
-  - type: StealTarget
-    stealGroup: HeadCloak
-
-- type: entity
-  parent: [ClothingNeckBase, BaseCommandContraband]
-  id: ClothingNeckCloakQmgreatcoat
-  name: quartermaster's greatcoat
-  description: A heavy brown greatcoat with a Cargonian C on the back, worn as a cape thanks to the leather belts holding it around your neck.
-  components:
-  - type: Sprite
-    sprite: _Impstation/Clothing/Neck/Cloaks/qmgreatcoat.rsi
-  - type: StealTarget
-    stealGroup: HeadCloak
-
-- type: entity
-  parent: [ClothingNeckBase, BaseCommandContraband]
-  id: ClothingNeckCloakHosgreatcoat
-  name: head of security's greatcoat
-  description: "A ruffled and flared coat with an ornate trim, worn as a cape thanks to the gold aguilettes holding it around your neck. Designed specifically to complement your dress uniform."
-  components:
-  - type: Sprite
-    sprite: _Impstation/Clothing/Neck/Cloaks/hosgreatcoat.rsi
-  - type: StealTarget
-    stealGroup: HeadCloak
-
-- type: entity
   parent: [ClothingNeckBase, DecapoidEmpireContraband]
   id: ClothingNeckCloakDecapoid
   name: outrigger's cloak
@@ -112,3 +80,45 @@
   - type: Sprite
     sprite: _Impstation/Clothing/Neck/Cloaks/cmogreatcloak.rsi
 
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakDriller
+  name: driller's cape
+  description: Worn by the bravest salvagers, whose diamond-tipped drills can pierce the very heavens.
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/Cloaks/driller.rsi
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckCloakHd
+  name: hospitality director's cloak
+  description: A lime-green cloak, showing your capacity for service. Sometimes, even with a smile!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Neck/Cloaks/hd.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: [ ClothingNeckBase, Tier1Contraband ]
+  id: ClothingNeckCloakKaijuCloak
+  name: kaiju cloak
+  description: A mantle combining wings and tail, both of which obscure items carried underneath. Inspired by a fictional creation — that is, the story of a mad scientist reptilian splicing a moth person with themself to gain the power of flight, becoming a massive uncontrollable monster in the process. The perfect gift for a shy or eccentric loved one in your life.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Neck/Cloaks/kaijucloak.rsi
+  - type: TypingIndicatorClothing
+    proto: alien
+  - type: HideLayerClothing
+    slots:
+    - Tail
+
+- type: entity
+  parent: [ClothingNeckBase, Tier1Contraband]
+  id: ClothingNeckCloakJuggernaut
+  name: juggernaut cloak
+  description: Originally designed to keep debris out of the joints of juggernaut armor, this ragged cloak now only serves to flaunt how many battles its owner has survived.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Neck/Cloaks/juggernautcloak.rsi

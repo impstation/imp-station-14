@@ -37,6 +37,18 @@
     damage:
       types:
         Blunt: 20
+  - type: Absorbable # imp edit - there's meat in there probably
+    biomassRestored: 0.6
   - type: MovementSpeedModifier
     baseWalkSpeed : 1
     baseSprintSpeed : 1
+  - type: Butcherable
+    spawned:
+    - id: DrinkChangelingStingCan
+      amount: 1
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null

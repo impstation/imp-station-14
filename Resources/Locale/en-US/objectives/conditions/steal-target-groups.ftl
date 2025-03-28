@@ -20,6 +20,7 @@ steal-target-groups-stamps = stamp
 steal-target-groups-door-remotes = door remote
 steal-target-groups-encryption-keys = encryption key
 steal-target-groups-technology-disks = technology disk
+steal-target-groups-mail = mail
 steal-target-groups-id-cards = ID Card
 steal-target-groups-lamps = LAMP
 
@@ -60,7 +61,7 @@ steal-target-groups-animal-named-cat = CMO's pet
 
 steal-target-groups-animal-ian = Ian
 steal-target-groups-animal-mc-griff = McGriff
-steal-target-groups-animal-walter = Walter
+steal-target-groups-animal-walter = Chemist's dog
 steal-target-groups-animal-morty = Morty
 steal-target-groups-animal-renault = Renault
 steal-target-groups-animal-shiva = Shiva

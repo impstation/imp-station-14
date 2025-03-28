@@ -18,21 +18,9 @@
   products:
     UAP: 6
 
-- type: reaction
-  id: MoscowMule
-  requiredMixerCategories:
-  - Stir
-  reactants:
-    Vodka:
-      amount: 2
-    JuiceLime:
-      amount: 1
-    SolDry:
-      amount: 3
-  products:
-    MoscowMule: 6
 
-       # Razz whatever the fuck you did here has caused horrible things
+
+# Razz whatever the fuck you did here has caused horrible things
 - type: reaction
   id: TheeHorsepussy
   requiredMixerCategories:
@@ -101,19 +89,19 @@
   products:
     GatorWine: 2
 
-- type: reaction
-  id: Rotgut
-  requiredMixerCategories:
-    - Shake
-  reactants:
-    Water:
-      amount: 1
-    Sugar:
-      amount: 4
-    Nicotine:
-      amount: 5
-  products:
-    Rotgut: 10
+#- type: reaction # This recipe doesn't work, and I don't understand why. It also doesnt seem to work in game and causes a testfail when enabled.
+#  id: Rotgut
+#  requiredMixerCategories:
+#    - Shake
+#  reactants:
+#    Water:
+#      amount: 1
+#    Sugar:
+#      amount: 4
+#    Nicotine:
+#      amount: 5
+#  products:
+#    Rotgut: 10
 
 - type: reaction
   id: BumWine
@@ -143,6 +131,8 @@
 
 - type: reaction
   id: KingSoda
+  requiredMixerCategories:
+    - Stir
   reactants:
     CoconutWater:
       amount: 1
@@ -183,6 +173,8 @@
 
 - type: reaction
   id: JungleJuice
+  requiredMixerCategories:
+    - Shake
   reactants:
     Beer:
       amount: 0.5
@@ -383,3 +375,45 @@
       amount: 1
   products:
     CleverGirl: 5
+
+- type: reaction
+  id: LovePotion
+  requiredMixerCategories:
+    - Stir
+  reactants:
+    SodaWater:
+      amount: 1
+    Sugar:
+      amount: 1
+    JuiceLemon:
+      amount: 1
+    JuiceBerry:
+      amount: 1
+  products:
+    LovePotion: 4
+
+- type: reaction
+  id: OrangeCoffee
+  requiredMixerCategories:
+    - Shake
+  reactants:
+    JuiceOrange:
+      amount: 1
+    Coffee:
+      amount: 1
+  products:
+    OrangeCoffee: 2
+
+- type: reaction
+  id: FeverDream
+  requiredMixerCategories:
+    - Stir
+  reactants:
+    ShimmeringBlood:
+      amount: 3
+    DeathInTheAfternoon:
+      amount: 2
+    Egg:
+      amount: 1
+  products:
+    FeverDream: 6

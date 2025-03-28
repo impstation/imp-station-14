@@ -1,0 +1,50 @@
+# Static
+
+- type: latheRecipePack
+  id: SecurityPracticeStaticImp
+  recipes:
+  - MagazineBoxLPistolPractice
+  - MagazineLPistolPractice
+
+- type: latheRecipePack
+  id: SecurityAmmoStaticImp
+  recipes:
+  - MagazineBoxLPistol
+  - MagazineDMR
+  - MagazineDMREmpty
+  - MagazineLPistol
+  - MagazineLPistolEmpty
+
+# Dynamic
+
+- type: latheRecipePack
+  id: SecurityEquipmentImp
+  recipes:
+  - PRIbarPlusConversionKit
+  - ClothingEyesNightVisionSecurityGoggles
+
+- type: latheRecipePack
+  id: SecurityAmmoImp
+  recipes:
+  - MagazineBoxLPistolIncendiary
+  - MagazineBoxLPistolUranium
+  - MagazineDMRIncendiary
+  - MagazineDMRUranium
+  - MagazineLPistolIncendiary
+  - MagazineLPistolUranium
+  - PowerCellBlaster
+
+- type: latheRecipePack
+  id: SecurityWeaponsImp
+  recipes:
+  - FullAutoConversionKit
+  - HyperBurstConversionKit
+  - WeaponBlasterPistol
+  - WeaponBlasterCannon
+  - WeaponBlasterMagnum
+
+- type: latheRecipePack
+  id: SecurityDisablersImp
+  recipes:
+  - WeaponShotgunEnforcerBeanbag
+  - WeaponShotgunKammererBeanbag

@@ -5,22 +5,25 @@ namespace Content.Shared._Impstation.Thaven;
 
 public abstract class SharedThavenMoodSystem : EntitySystem
 {
+    [Dependency] private readonly EmagSystem _emag = default!;
+
     public override void Initialize()
     {
         base.Initialize();
-
-        SubscribeLocalEvent<ThavenMoodsComponent, OnAttemptEmagEvent>(OnAttemptEmag);
         SubscribeLocalEvent<ThavenMoodsComponent, GotEmaggedEvent>(OnEmagged);
     }
 
-    private void OnAttemptEmag(EntityUid uid, ThavenMoodsComponent comp, ref OnAttemptEmagEvent args)
+    protected virtual void OnEmagged(Entity<ThavenMoodsComponent> ent, ref GotEmaggedEvent args)
     {
-        if (!comp.CanBeEmagged)
-            args.Handled = true;
-    }
+        if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+            return;
 
-    protected virtual void OnEmagged(EntityUid uid, ThavenMoodsComponent comp, ref GotEmaggedEvent args)
-    {
+        if (_emag.CheckFlag(ent, EmagType.Interaction))
+            return;
+
+        if (ent.Owner == args.UserUid)
+            return;
+
         args.Handled = true;
     }
 }

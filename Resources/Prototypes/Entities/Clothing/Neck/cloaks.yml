@@ -137,15 +137,6 @@
 
 - type: entity
   parent: ClothingNeckBase
-  id: ClothingNeckCloakDriller
-  name: driller's cape
-  description: Worn by the bravest salvagers, whose diamond-tipped drills can pierce the very heavens.
-  components:
-  - type: Sprite
-    sprite: Clothing/Neck/Cloaks/driller.rsi
-
-- type: entity
-  parent: ClothingNeckBase
   id: ClothingNeckCloakTrans
   name: vampire cloak
   description: Worn by high ranking vampires of the transylvanian society of vampires.
@@ -234,6 +225,15 @@
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/aro.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakAroace
+  name: aeropilot's cloak # thank you happyman442 this was the best name idea ever
+  description: Cloak awarded to Nanotrasen's finest pilots on planets with inhabitable atmospheres.
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/Cloaks/aroace.rsi
 
 - type: entity
   parent: ClothingNeckBase

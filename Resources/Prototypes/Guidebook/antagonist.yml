@@ -3,6 +3,7 @@
   name: guide-entry-antagonists
   text: "/ServerInfo/_Impstation/Guidebook/Antagonist/Antagonists.xml"
   children:
+  - CosmicCult # impstation - cosmic cult
   - Traitors
   - Changelings # goobstation - changelings
   - Heretics # goob - heretics
@@ -12,6 +13,7 @@
   - MinorAntagonists
   - SpaceNinja
   - Thieves
+  - Wizard
 
 - type: guideEntry
   id: Traitors
@@ -47,3 +49,8 @@
   id: Thieves
   name: guide-entry-thieves
   text: "/ServerInfo/Guidebook/Antagonist/Thieves.xml"
+
+- type: guideEntry
+  id: Wizard
+  name: guide-entry-wizard
+  text: "/ServerInfo/Guidebook/Antagonist/Wizard.xml"
