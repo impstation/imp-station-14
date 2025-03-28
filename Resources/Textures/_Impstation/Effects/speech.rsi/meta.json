@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "gray typing indicators by sageu111 for impstation, snail typing indicators by widgetbeck for impstation",
+    "copyright": "gray by sageu111, snail by widgetbeck, anom by doop",
     "size": {
       "x": 32,
       "y": 32
@@ -28,6 +28,17 @@
                     0.5
                 ]
             ]
+        },
+        {
+            "name": "anom",
+            "delays": [
+                [
+                    0.2,
+                    0.3,
+                    0.3,
+                    0.5
+                ]
+            ]
         }
-    ]
-  }
+      ]
+    }
