@@ -62,7 +62,7 @@
   name: large conical flask
   parent: LargeBeaker
   description: Used to contain a large amount of chemicals or solutions.
-  id: LargeConical
+  id: LargeConicalFlask
   components:
   - type: Spillable
     solution: beaker
@@ -96,7 +96,7 @@
   name: conical flask
   parent: BaseBeaker
   description: Used to contain a moderate amount of chemicals and solutions.
-  id: Conical
+  id: ConicalFlask
   components:
   - type: Spillable
     solution: beaker
