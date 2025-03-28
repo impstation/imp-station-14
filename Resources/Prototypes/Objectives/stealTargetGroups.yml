@@ -304,7 +304,7 @@
   id: FreezerHeater
   name: steal-target-groups-freezer-heater
   sprite:
-    sprite: _Impstation/Structures/Piping/Atmospherics/thermomachine.rsi
+    sprite: _Impstation/Structures/Piping/Atmospherics/thermomachine.rsi # imp
     state: heaterOff
 
 - type: stealTargetGroup
