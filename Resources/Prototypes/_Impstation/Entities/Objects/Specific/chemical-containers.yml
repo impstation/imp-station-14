@@ -106,8 +106,9 @@
       - state: conical
       - state: conical1
         map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
   - type: Item
-    size: Normal
+    size: Small
     sprite: _Impstation/Objects/Specific/Chemistry/conical.rsi
   - type: StaticPrice
     price: 10
