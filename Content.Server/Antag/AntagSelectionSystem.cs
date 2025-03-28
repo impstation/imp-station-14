@@ -490,7 +490,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         // The following is where we apply components, equipment, and other changes to our antagonist entity.
         EntityManager.AddComponents(player, def.Components);
 
-        // Modify factions
+        // IMP: Modify factions
         foreach (var addFaction in def.FactionsAdd)
         {
             _faction.AddFaction(player, addFaction);
