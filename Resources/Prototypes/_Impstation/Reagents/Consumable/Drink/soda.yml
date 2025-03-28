@@ -30,12 +30,13 @@
   desc: reagent-desc-genderfluid
   physicalDesc: reagent-physical-desc-gender
   flavor: genderfluid
+  color: "#dc6b91"
+  metamorphicChangeColor: false
   metamorphicSprite:
     sprite: _Impstation/Objects/Consumable/Drinks/genderfluid.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
-  metamorphicChangeColor: true
 
 - type: reagent
   id: ZombieSlushie
@@ -61,5 +62,5 @@
         conditions:
         - !type:OrganType
           type: Moth
-          shouldHave: false   
+          shouldHave: false
   fizziness: 0.2
