@@ -1,10 +1,12 @@
 using System.Linq;
 using Content.Server.Chat.Systems;
+using Content.Shared.Speech;
 using Content.Server.Speech.Components;
 using Content.Shared.Mind.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.Humanoid;
 
 namespace Content.Server.Speech.EntitySystems;
 
@@ -39,15 +41,21 @@ public sealed class ParrotSpeechSystem : EntitySystem
 
             if (component.NextUtterance != null)
             {
+                var speech = EnsureComp<SpeechComponent>(uid);
+                var oldVerb = speech.SpeechVerb;
+                speech.SpeechVerb = "Echo"; // Add a special speech verb override for echoing (NOTE: gets replaced with "Exclaims" anyway if the message echoed ends in a "!", arguably intended)
                 _chat.TrySendInGameICMessage(
                     uid,
                     _random.Pick(component.LearnedPhrases),
                     InGameICChatType.Speak,
-                    hideChat: true, // Don't spam the chat with randomly generated messages
+                    hideChat: !HasComp<HumanoidAppearanceComponent>(uid), // Only humanoids speak in chat with randomly generated messages (imp edit to shut up poly)
                     hideLog: true, // TODO: Don't spam admin logs either.
                                    // If a parrot learns something inappropriate, admins can search for
                                    // the player that said the inappropriate thing.
                     checkRadioPrefix: false);
+                speech.SpeechVerb = oldVerb; //Revert speech verb
+                //because changing the speechverb in this "hacky" way does not use code intended for use by voicemasks, hopefully admins don't get constant logs from this.
+                //hopefully
             }
 
             component.NextUtterance = _timing.CurTime + TimeSpan.FromSeconds(_random.Next(component.MinimumWait, component.MaximumWait));
