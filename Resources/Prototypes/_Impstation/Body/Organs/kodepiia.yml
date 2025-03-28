@@ -163,11 +163,11 @@
 - type: entity
   id: OrganKodepiiaHeart
   parent: BaseKodepiiaOrgan
-  name: heart
-  description: "I feel bad for the heartless bastard who lost this."
+  name: COAT
+  description: "Allegedly 'quirked up' with 'the sauce,' if rumors are to be believed."
   components:
   - type: Sprite
-    state: slough # placeholder needs new sprite
+    state: compartmentofallthings
   - type: Metabolizer
     maxReagents: 2
     metabolizerTypes: [ Kodepiia ]
