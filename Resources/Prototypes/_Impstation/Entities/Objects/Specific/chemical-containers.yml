@@ -100,6 +100,15 @@
   components:
   - type: Spillable
     solution: beaker
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Chemistry/conical.rsi
+    layers:
+      - state: conical
+      - state: conical1
+        map: ["enum.SolutionContainerLayers.Fill"]
+  - type: Item
+    size: Normal
+    sprite: _Impstation/Objects/Specific/Chemistry/conical.rsi
   - type: StaticPrice
     price: 10
   - type: PhysicalComposition
