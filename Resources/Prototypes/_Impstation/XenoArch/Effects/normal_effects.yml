@@ -1,4 +1,32 @@
 - type: entity
+  id: InstantEffectVeryLocalKnockdown
+  parent: AdminInstantEffectBase
+  components:
+  - type: StunOnTrigger
+    range: 4
+    entireGrid: false
+    knockdownTime: 1.5
+
+- type: entity
+  id: DelayedEffectLocalKnockdown
+  categories: [ HideSpawnMenu ]
+  parent: DelayedEffectBase
+  components:
+  - type: SpawnOnDespawn
+    prototype: InstantEffectVeryLocalKnockdown
+
+- type: artifactEffect
+  id: EffectVeryLocalKnockdown
+  targetDepth: 1
+  effectHint: artifact-effect-hint-environment
+  effectProb: 0.3
+  components:
+  - type: SpawnArtifact
+    maxSpawns: 99999
+    spawns:
+    - id: DelayedEffectVeryLocalKnockdown
+
+- type: entity
   id: InstantEffectLocalKnockdown
   parent: AdminInstantEffectBase
   components:
@@ -9,6 +37,7 @@
 
 - type: entity
   id: DelayedEffectLocalKnockdown
+  categories: [ HideSpawnMenu ]
   parent: DelayedEffectBase
   components:
   - type: SpawnOnDespawn
@@ -16,14 +45,14 @@
 
 - type: artifactEffect
   id: EffectLocalKnockdown
-  targetDepth: 2
+  targetDepth: 3
   effectHint: artifact-effect-hint-environment
   effectProb: 0.7
   components:
   - type: SpawnArtifact
     maxSpawns: 99999
     spawns:
-    - id: InstantEffectLocalKnockdown
+    - id: DelayedEffectLocalKnockdown
 
 - type: artifactEffect
   id: EffectLesserPresentSpawn
@@ -438,6 +467,7 @@
 
 - type: entity
   id: DelayedEffectGridKnockdown
+  categories: [ HideSpawnMenu ]
   parent: DelayedEffectBase
   components:
   - type: SpawnOnDespawn
@@ -452,7 +482,7 @@
   - type: SpawnArtifact
     maxSpawns: 99999
     spawns:
-    - id: InstantEffectGridKnockdown
+    - id: DelayedEffectGridKnockdown
 
 - type: artifactEffect
   id: EffectAnimateSingle
