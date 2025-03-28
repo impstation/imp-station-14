@@ -26,8 +26,8 @@
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
-    Underwear: MobHumanoidAnyMarking
-    Undershirt: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
     Chest: MobHumanTorso
     Eyes: MobHumanoidEyes
     HeadTop: MobHumanoidAnyMarking
@@ -68,11 +68,14 @@
     Chest:
       points: 4
       required: false
-    Underwear:
+    UndergarmentTop:
       points: 1
       required: false
-    Undershirt:
+    UndergarmentBottom:
       points: 1
+      required: false
+    Chest:
+      points: 4
       required: false
     Legs:
       points: 8 #impspecial
