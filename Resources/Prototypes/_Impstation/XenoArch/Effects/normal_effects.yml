@@ -7,9 +7,16 @@
     entireGrid: false
     knockdownTime: 4
 
+- type: entity
+  id: DelayedEffectLocalKnockdown
+  parent: DelayedEffectBase
+  components:
+  - type: SpawnOnDespawn
+    prototype: InstantEffectLocalKnockdown
+
 - type: artifactEffect
   id: EffectLocalKnockdown
-  targetDepth: 3
+  targetDepth: 2
   effectHint: artifact-effect-hint-environment
   effectProb: 0.7
   components:
@@ -420,7 +427,6 @@
       prob: 1
       orGroup: magicbook
 
-
 - type: entity
   id: InstantEffectGridKnockdown
   parent: AdminInstantEffectBase
@@ -429,6 +435,13 @@
     range: 15
     entireGrid: true
     knockdownTime: 3
+
+- type: entity
+  id: DelayedEffectGridKnockdown
+  parent: DelayedEffectBase
+  components:
+  - type: SpawnOnDespawn
+    prototype: InstantEffectGridKnockdown
 
 - type: artifactEffect
   id: EffectGridKnockdown
