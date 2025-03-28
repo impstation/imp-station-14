@@ -33,12 +33,12 @@ public sealed class ParrotSpeechSystem : EntitySystem
             if (component.LearnedPhrases.Count == 0)
                 // This parrot has not learned any phrases, so can't say anything interesting.
                 continue;
-            // if (TryComp<MindContainerComponent>(uid, out var mind) && mind.HasMind)
-                // Imp edit - need to skip this check for echolalia trait
-                // continue;
             if (_timing.CurTime < component.NextUtterance)
                 continue;
-
+            var humanoid = HasComp<HumanoidAppearanceComponent>(uid);
+            var shouldEcho = TryComp<MindContainerComponent>(uid, out var mind) && (humanoid ? (mind.HasMind) : (!mind.HasMind));
+                // only souled humanoids or non-humanoids without souls, echo (stops a bug with cosmic cult shunting)
+            if (!shouldEcho) continue;
             if (component.NextUtterance != null)
             {
                 var speech = EnsureComp<SpeechComponent>(uid);
@@ -48,7 +48,7 @@ public sealed class ParrotSpeechSystem : EntitySystem
                     uid,
                     _random.Pick(component.LearnedPhrases),
                     InGameICChatType.Speak,
-                    hideChat: !HasComp<HumanoidAppearanceComponent>(uid), // Only humanoids speak in chat with randomly generated messages (imp edit to shut up poly)
+                    hideChat: !humanoid, // Only humanoids can be heard in chat with randomly generated messages (imp edit to shut up poly)
                     hideLog: true, // TODO: Don't spam admin logs either.
                                    // If a parrot learns something inappropriate, admins can search for
                                    // the player that said the inappropriate thing.
