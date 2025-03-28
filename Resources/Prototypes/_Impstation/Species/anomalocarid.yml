@@ -55,9 +55,9 @@
       points: 1
       required: false
     Tail:
-      points: 1
-      required: false
-      defaultMarkings: [ AnomalocaridWingsDefault ]
+      points: 2
+      required: true
+      defaultMarkings: [ AnomalocaridWingsDefault, AnomalocaridTailDefault ]
     Undershirt:
       points: 1
       required: false
@@ -68,11 +68,11 @@
       points: 4
       required: false
     Overlay:
-      points: 6
+      points: 3
       required: false
     Snout:
       points: 1
-      required: true
+      required: false
     Legs:
       points: 2
       required: false

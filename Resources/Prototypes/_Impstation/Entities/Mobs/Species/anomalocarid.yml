@@ -48,6 +48,7 @@
     layers:
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Head" ]
+      - map: [ "enum.HumanoidVisualLayers.Snout" ]
       - map: [ "enum.HumanoidVisualLayers.Eyes" ]
       - map: [ "enum.HumanoidVisualLayers.RArm" ]
       - map: [ "enum.HumanoidVisualLayers.LArm" ]
@@ -75,7 +76,6 @@
       - map: [ "enum.HumanoidVisualLayers.Tail" ] #layered above the back, maybe has very very minor balance implications (hiding guns behind your wings) but i think it's fine.
       - map: [ "ears" ] #above tail for over-ear headsets specifically. this means they layer over backpacks and outerclothing too, unsure about that right now.
       - map: [ "neck" ]
-      - map: [ "enum.HumanoidVisualLayers.Snout" ] #snout above eyes for their eyeshine
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
@@ -171,6 +171,8 @@
     species: Anomalocarid
     hideLayersOnEquip:
     - Eyes
+    - HeadTop
+    - HeadSide #might go back on this
   - type: Inventory
     speciesId: anomalocarid
     templateId: anomalocarid
