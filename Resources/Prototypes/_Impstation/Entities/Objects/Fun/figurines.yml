@@ -315,3 +315,43 @@
        shader: unshaded
   - type: SpeakOnTrigger
     pack: FigurinesStationAI
+
+- type: entity
+  parent: BaseFigurine
+  id: ToyFigurineCosmicCultist
+  name: cosmic cultist figure
+  description: A figurine depicting an iridescent, alien looking hardsuit. You can feel the gaze of the abyss in its lack-of-a-face.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/figurines.rsi
+    layers:
+     - state: cosmiccultist
+     - state: cosmiccultist_unshaded
+       shader: unshaded
+  - type: SpeakOnTrigger
+    pack: FigurinesCosmicCultist
+
+- type: entity
+  parent: BaseFigurine
+  id: ToyFigurineNukiePareidolia
+  suffix: Do Not Map Keb Toy
+  name: pareidolia-10
+  description: A figurine depicting what a nuclear operative might wear.... You think? It emits a faint static hum.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/pareidolia.rsi
+    state: icon
+  - type: SpeakOnTrigger
+    pack: FigurinesNukiePareidolia
+
+- type: entity
+  parent: BaseFigurine
+  id: ToyFigurineCrewLing
+  name: figure?
+  description: A figurine depicting... uhhhhh...
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/changeling.rsi
+    state: icon
+  - type: SpeakOnTrigger
+    pack: FigurinesCrewLing

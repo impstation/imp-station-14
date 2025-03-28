@@ -7,6 +7,8 @@ loadout-group-tank-harness-with-outerwear-aquatic = Tank harness for water-breat
 loadout-group-tank-harness-command-with-outerwear-aquatic = Command tank harness for water-breathers (in inventory)
 loadout-group-breath-tool-decapoid = Vaporizer for decapoids
 loadout-group-breath-tool-inventory-decapoid = Vaporizer for decapoids (in inventory)
+loadout-group-breath-tool-inventory-decapoid-clown = Vaporizer for decapoid clowns (in inventory)
+loadout-group-breath-tool-inventory-decapoid-mime = Vaporizer for decapoid mimes (in inventory)
 
 # command
 loadout-group-tank-harness-command = Species-specific command survival equipment
@@ -24,9 +26,20 @@ loadout-group-hop-shoes = Head of Personnel shoes
 # service
 loadout-group-service-mask = Service mask
 
+loadout-group-hospitality-director-head = Hospitality Director head
+loadout-group-hospitality-director-neck = Hospitality Director neck
+loadout-group-hospitality-director-jumpsuit = Hospitality Director jumpsuit
+loadout-group-hospitality-director-gloves = Hospitality Director gloves
+loadout-group-hospitality-director-outerclothing = Hospitality Director outer clothing
+loadout-group-hospitality-director-shoes = Hospitality Director shoes
+loadout-group-hospitality-director-backpack = Hospitality Director backpack
+loadout-group-hospitality-director-headset = Hospitality Director headset
+
 loadout-group-bartender-neck = Bartender neck
 loadout-group-bartender-shoes = Bartender shoes
 loadout-group-bartender-id = Bartender ID
+
+loadout-group-botanist-gloves = Botanist gloves
 
 loadout-group-chef-neck = Chef neck
 loadout-group-chef-shoes = Chef shoes
@@ -34,11 +47,14 @@ loadout-group-chef-id = Chef ID
 
 loadout-group-librarian-neck = Librarian neck
 loadout-group-librarian-shoes = Librarian shoes
+
+loadout-group-lawyer-outerclothing = Lawyer outer clothing
 loadout-group-lawyer-shoes = Lawyer shoes
 
 loadout-group-chaplain-belt = Chaplain belt
 loadout-group-chaplain-eyes = Chaplain eye coverings
 loadout-group-chaplain-shoes = Chaplain shoes
+loadout-group-chaplain-books = Chaplain holy text
 
 loadout-group-janitor-mask = Janitor mask
 loadout-group-janitor-neck = Janitor neck
@@ -124,6 +140,7 @@ loadout-group-brigmedic-backpack = Brigmedic backpack
 # medical
 loadout-group-chief-medical-officer-backpack = Chief Medical Officer backpack
 loadout-group-chief-medical-officer-headset = Chief Medical Officer headset
+loadout-group-chief-medical-officer-belt = Chief Medical Officer belt
 
 loadout-group-medical-doctor-neck = Medical Doctor neck
 
@@ -137,3 +154,4 @@ loadout-group-paramedic-id = Paramedic ID
 
 loadout-group-psychologist-neck = Psychologist neck
 loadout-group-psychologist-shoes = Psychologist shoes
+loadout-group-psychologist-outerclothing = Psychologist outer clothing

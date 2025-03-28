@@ -1,6 +1,7 @@
 - type: guideEntry
   id: SS14
   name: guide-entry-ss14
+  priority: 20
   text: "/ServerInfo/Guidebook/SpaceStation14.xml"
   children:
   - Jobs
@@ -23,4 +24,4 @@
 - type: guideEntry
   id: AlertProcedure
   name: guide-entry-alertprocedure
-  text: "/ServerInfo/Guidebook/_DV/AlertProcedure.xml"
+  text: "/ServerInfo/_Impstation/Guidebook/AlertProcedure.xml"

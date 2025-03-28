@@ -59,7 +59,7 @@ thaven-mood-drunk-respect-name = The Noble Drunkard
 thaven-mood-drunk-respect-desc = You do not respect anyone who is not drunk, excluding yourself, of course.
 
 thaven-mood-rank-snob-name = Snob
-thaven-mood-rank-snob-desc = You refuse to respond to anyone who is of a lower rank than you.
+thaven-mood-rank-snob-desc = You are incredibly reluctant to respond to anyone who is of a lower rank than you. If they must be addressed, do so away from prying eyes.
 
 thaven-mood-hardsuits-bad-name = {$clothes} Are SO Last Year
 thaven-mood-hardsuits-bad-desc = Anyone wearing them in public should be shunned and derided. If you need to wear them, it should never be done where others can see it.
@@ -110,3 +110,7 @@ thaven-mood-crawler-desc = It is impolite not to perform a deep bow by entering 
 
 thaven-mood-elevated-name = The Floor Is Lava
 thaven-mood-elevated-desc = You prefer to be elevated whenever possible - Standing atop tables, railings, etc., is where you feel the most comfortable.
+
+# Testing Locales, only exist to shut up prototype tests
+DuplicateTest = You shouldn't see this
+DuplicateOverlapTest = Time, doctor freeman?

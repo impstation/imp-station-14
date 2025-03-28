@@ -18,7 +18,7 @@
   - Security
   - Brig
   - Maintenance
-  - Service
+  #- Service imp edit
   - External
   - Cryogenics
   special:
@@ -30,7 +30,7 @@
   equipment:
     eyes: ClothingEyesGlassesSunglasses # imp
     shoes: ClothingShoesBootsJackFilled
-    outerClothing: ClothingOuterArmorBasic
+    outerClothing: ClothingOuterArmorDuraVest # DeltaV - ClothingOuterArmorBasic replaced in favour of stab vest. Sucks to suck, cadets
     id: SecurityCadetPDA
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltSecurityFilled

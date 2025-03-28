@@ -19,6 +19,15 @@
   recognizable: true
 
 - type: reagent
+  id: Coldsauce
+  name: reagent-name-coldsauce
+  group: Foods
+  desc: reagent-desc-coldsauce
+  physicalDesc: reagent-physical-desc-cold
+  flavor: cold
+  color: skyblue
+
+- type: reagent
   id: Cornoil
   name: reagent-name-cornoil
   group: Foods
@@ -27,15 +36,6 @@
   flavor: oily
   color: yellow
   recognizable: true
-
-- type: reagent
-  id: Frostoil
-  name: reagent-name-frostoil
-  group: Foods
-  desc: reagent-desc-frostoil
-  physicalDesc: reagent-physical-desc-cold
-  flavor: cold
-  color: skyblue
 
 - type: reagent
   id: HorseradishSauce
@@ -124,23 +124,6 @@
   desc: reagent-desc-soysauce
   physicalDesc: reagent-physical-desc-salty
   flavor: salty
-  color: saddlebrown
-  recognizable: true
-  metabolisms:
-    Food:
-      effects:
-      - !type:SatiateHunger
-        factor: 0.5
-      - !type:SatiateThirst
-        factor: -0.5 # high salt content
-
-- type: reagent
-  id: TeriyakiSauce
-  name: reagent-name-teriyaki
-  group: Foods
-  desc: reagent-desc-teriyaki
-  physicalDesc: reagent-physical-desc-salty
-  flavor: savory
   color: saddlebrown
   recognizable: true
   metabolisms:

@@ -18,6 +18,11 @@
     slots:
       - suitStorage
       - Belt
+  - type: Appearance
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
   - type: Gun
     fireRate: 2
     soundGunshot:
@@ -25,7 +30,7 @@
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 100
-    
+
 - type: entity
   name: pocket disabler
   parent: [ WeaponDisablerPractice, BaseSecurityCommandContraband ]
@@ -50,6 +55,11 @@
     slots:
       - suitStorage
       - Belt
+  - type: Appearance
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
   - type: Battery
     maxCharge: 500
     startingCharge: 500
@@ -81,11 +91,6 @@
     slots:
       - suitStorage
       - Belt
-  - type: Appearance
-  - type: MagazineVisuals
-    magState: mag
-    steps: 6
-    zeroVisible: true
   - type: Gun
     minAngle: 2
     maxAngle: 15
@@ -103,7 +108,7 @@
   - type: ProjectileBatteryAmmoProvider
     proto: BulletAutoDisabler
     fireCost: 80
-    
+
 - type: entity
   name: stun projector
   parent: [ BaseWeaponBatterySmall, BaseSecurityCommandContraband ]
@@ -129,7 +134,7 @@
   - type: Appearance
   - type: MagazineVisuals
     magState: mag
-    steps: 4
+    steps: 5
     zeroVisible: true
   - type: Gun
     fireRate: 0.9

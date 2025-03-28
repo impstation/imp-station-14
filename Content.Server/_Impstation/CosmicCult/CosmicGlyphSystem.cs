@@ -14,7 +14,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Mind;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.SSDIndicator;
+using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
@@ -27,6 +27,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly CosmicCultRuleSystem _cultRule = default!;
+    [Dependency] private readonly CosmicCultSystem _cosmicCult = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
@@ -35,7 +36,6 @@ public sealed class CosmicGlyphSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
 
     public override void Initialize()
     {
@@ -88,9 +88,6 @@ public sealed class CosmicGlyphSystem : EntitySystem
         var userCoords = Transform(args.User).Coordinates;
         if (args.Handled || !userCoords.TryDistance(EntityManager, tgtpos, out var distance) || distance > uid.Comp.ActivationRange || !HasComp<CosmicCultComponent>(args.User))
             return;
-
-        args.Handled = true;
-
         var cultists = GatherCultists(uid, uid.Comp.ActivationRange);
         if (cultists.Count < uid.Comp.RequiredCultists)
         {
@@ -98,15 +95,19 @@ public sealed class CosmicGlyphSystem : EntitySystem
             return;
         }
 
+        args.Handled = true;
+        var damageSpecifier = new DamageSpecifier();
         var tryInvokeEv = new TryActivateGlyphEvent(args.User, cultists);
         RaiseLocalEvent(uid, tryInvokeEv);
         if (tryInvokeEv.Cancelled)
             return;
 
+        damageSpecifier.DamageDict.Add("Asphyxiation", uid.Comp.ActivationDamage / cultists.Count);
         foreach (var cultist in cultists)
         {
-            DealDamage(cultist, uid.Comp.ActivationDamage);
+            DealDamage(cultist, damageSpecifier);
         }
+
         _audio.PlayPvs(uid.Comp.GylphSFX, tgtpos, AudioParams.Default.WithVolume(+1f));
         Spawn(uid.Comp.GylphVFX, tgtpos);
         QueueDel(uid);
@@ -150,7 +151,14 @@ public sealed class CosmicGlyphSystem : EntitySystem
             else
             {
                 _stun.TryStun(target, TimeSpan.FromSeconds(4f), false);
+                _damageable.TryChangeDamage(target, uid.Comp.ConversionHeal * -1);
                 _cultRule.CosmicConversion(target);
+                var finaleQuery = EntityQueryEnumerator<CosmicFinaleComponent>(); // Enumerator for The Monument's Finale
+                while (finaleQuery.MoveNext(out var monument, out var comp) && comp.CurrentState == FinaleState.ActiveBuffer)
+                {
+                    comp.BufferTimer -= TimeSpan.FromSeconds(45);
+                    _popup.PopupCoordinates(Loc.GetString("cosmiccult-finale-speedup"), Transform(monument).Coordinates, PopupType.Large);
+                }
             }
         }
     }
@@ -163,7 +171,6 @@ public sealed class CosmicGlyphSystem : EntitySystem
         var projectionEnt = Spawn(uid.Comp.SpawnProjection, Transform(uid).Coordinates);
         if (_mind.TryGetMind(args.User, out var mindId, out var _))
             _mind.TransferTo(mindId, projectionEnt);
-        RemComp<SSDIndicatorComponent>(args.User);
         EnsureComp<CosmicMarkBlankComponent>(args.User);
         EnsureComp<CosmicAstralBodyComponent>(projectionEnt, out var astralComp);
         var mind = Comp<MindComponent>(mindId);
@@ -265,7 +272,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
     public HashSet<EntityUid> GatherCultists(EntityUid uid, float range)
     {
         var entities = _lookup.GetEntitiesInRange(Transform(uid).Coordinates, range);
-        entities.RemoveWhere(entity => !HasComp<CosmicCultComponent>(entity) || _container.IsEntityInContainer(entity));
+        entities.RemoveWhere(entity => !HasComp<CosmicCultComponent>(entity) || !_mobState.IsAlive(entity) || _container.IsEntityInContainer(entity));
         return entities;
     }
 
@@ -310,6 +317,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
         var possibleTargets = _lookup.GetEntitiesInRange<HumanoidAppearanceComponent>(Transform(uid).Coordinates, range);
         if (exclude != null)
             possibleTargets.RemoveWhere(exclude);
+        possibleTargets.RemoveWhere(target => HasComp<CosmicMarkBlankComponent>(target) || HasComp<CosmicMarkLapseComponent>(target)); // We never want these.
 
         return possibleTargets;
     }

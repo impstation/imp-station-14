@@ -8,10 +8,14 @@
       time: 14400 #4 hrs
   startingGear: MimeGear
   icon: "JobIconMime"
-  supervisors: job-supervisors-hop
+  supervisors: job-supervisors-hd
   access:
   - Theatre
   - Maintenance
+  #imp edit start
+  - Mime
+  - Service
+  #imp edit end
   special:
   - !type:AddComponentSpecial
     components:
@@ -24,6 +28,7 @@
     gloves: ClothingHandsGlovesColorWhite
     pocket1: CrayonMime
     pocket2: Paper
+    # shoes: ClothingShoesColorWhite # Imp - we let you pick your shoes here
     id: MimePDA
     ears: ClothingHeadsetService
   storage:
