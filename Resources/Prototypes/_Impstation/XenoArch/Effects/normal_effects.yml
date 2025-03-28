@@ -8,7 +8,7 @@
     knockdownTime: 1.5
 
 - type: entity
-  id: DelayedEffectLocalKnockdown
+  id: DelayedEffectVeryLocalKnockdown
   categories: [ HideSpawnMenu ]
   parent: DelayedEffectBase
   components:
