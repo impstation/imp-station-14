@@ -108,15 +108,19 @@
   category: cargoproduct-category-name-medical
   group: market
 
-- type: cargoProduct
-  id: MedicalMindShieldImplants
-  icon:
-    sprite: Objects/Specific/Medical/implanter.rsi
-    state: implanter0
-  product: CrateMindShieldImplants
-  cost: 4000 #imp edit. Double the price of a religious supply cate
-  category: cargoproduct-category-name-medical
-  group: market
+#imp edit - removed because having an unlimited source of mindshields can only really be used for metagaming & makes designing things annoying even if they never get used. also why is this in medical? this is a security thing!
+#for revs, mindshield implanters only really function as headrev detectors
+#for cult, they're a way for an On It sec / cargo dept to shut the cult down and functionally end the round
+#other cases (say, promoting people to command mid-shift & mindshielding them) are kinda eh, but a single crate being mapped for that case is fine
+#- type: cargoProduct
+#  id: MedicalMindShieldImplants
+#  icon:
+#    sprite: Objects/Specific/Medical/implanter.rsi
+#    state: implanter0
+#  product: CrateMindShieldImplants
+#  cost: 4000 #imp edit. Double the price of a religious supply cate
+#  category: cargoproduct-category-name-medical
+#  group: market
 
 - type: cargoProduct
   id: ChemistryP
