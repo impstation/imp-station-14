@@ -1,0 +1,28 @@
+- type: entity
+  parent: BaseItem # this should have prospector contraband but idk what it is
+  id: ProspectorCaber
+  name: prospector caber
+  description: A sober prospector would throw it.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Prospectors/Weapons/caber.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+    wideAnimationRotation: -135
+  - type: DamageOtherOnHit
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 10
+    intensitySlope: 20
+    totalIntensity: 100
+    canCreateVacuum: false
+  - type: ExplodeOnMeleeHit
+    explodeOnThrow: false
+    replaceWith: Claymore
