@@ -1,0 +1,30 @@
+- type: entity
+  id: BaseMindlessClone
+  parent: MobHuman
+  name: mindless clone
+  suffix: No AI
+  components:
+  - type: MindlessClone
+
+- type: entity
+  id: MobMindlessClone
+  parent: BaseMindlessClone
+  name: mindless clone
+  suffix: Passive 
+  components:
+  - type: ActiveListener
+    range: 6
+  - type: ParrotSpeech
+    maximumPhraseLength: 1000 # will repeat anything, even long sentences.
+    minimumWait: 10
+    maximumWait: 10 # between 10 seconds and 5 minutes.
+    learnChance: 1 # will repeat *anything* it hears.
+    hideMessagesInChat: false
+  - type: HTN
+    rootTask:
+      task: KisserTomatoCompound
+  - type: NPCImprintingOnSpawnBehaviour
+    spawnFriendsSearchRadius: 5
+    whitelist:
+      components:
+      - HumanoidAppearance

@@ -43,7 +43,7 @@ public sealed class ParrotSpeechSystem : EntitySystem
                     uid,
                     _random.Pick(component.LearnedPhrases),
                     InGameICChatType.Speak,
-                    hideChat: true, // Don't spam the chat with randomly generated messages
+                    hideChat: component.HideMessagesInChat, // Don't spam the chat with randomly generated messages(... unless its funny (imp change))
                     hideLog: true, // TODO: Don't spam admin logs either.
                                    // If a parrot learns something inappropriate, admins can search for
                                    // the player that said the inappropriate thing.

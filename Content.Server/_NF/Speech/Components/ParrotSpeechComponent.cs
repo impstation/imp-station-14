@@ -37,4 +37,7 @@ public sealed partial class ParrotSpeechComponent : Component
 
     [DataField(readOnly: true)]
     public List<string> LearnedPhrases = new();
+
+    [DataField] // imp. be very careful with this one. if it ends up being a problem even once, it should be removed
+    public bool HideMessagesInChat = true;
 }
