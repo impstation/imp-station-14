@@ -6,6 +6,11 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._Impstation.MindlessClone;
 
+public abstract partial class SharedMindlessCloneComponent : Component
+{
+
+}
+
 [Serializable, NetSerializable]
 public sealed partial class MindlessCloneSayDoAfterEvent : SimpleDoAfterEvent
 {

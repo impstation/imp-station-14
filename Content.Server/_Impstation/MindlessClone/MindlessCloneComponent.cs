@@ -10,7 +10,7 @@ namespace Content.Server._Impstation.MindlessClone;
 /// When applied to an entity with HumanoidAppearance, copies the appearance data of the nearest entity with HumanoidAppearance when spawned.
 /// </summary>
 [RegisterComponent]
-public sealed partial class MindlessCloneComponent : Component
+public sealed partial class MindlessCloneComponent : SharedMindlessCloneComponent
 {
     /// <summary>
     /// whether or not the entity will pick a randomized phrase to say after spawning.
@@ -19,5 +19,10 @@ public sealed partial class MindlessCloneComponent : Component
     public bool SpeakOnSpawn = false;
 
     [DataField]
+    public bool MindSwap = false;
+
+    [DataField]
     public ProtoId<DatasetPrototype> PhrasesToPick = "MindlessCloneConfusion";
+
+    public EntityUid IsCloneOf;
 }

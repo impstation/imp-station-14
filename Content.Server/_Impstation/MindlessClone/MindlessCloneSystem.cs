@@ -22,6 +22,15 @@ using Content.Server.DoAfter;
 using Content.Shared.DoAfter;
 using Robust.Shared.Random;
 using Content.Shared.Chat.TypingIndicator;
+using Content.Shared.Inventory;
+using Content.Shared.Pointing;
+using System.Linq;
+using Content.Server.Speech.Components;
+using Content.Server.Kitchen.Components;
+using Content.Server.NPC.HTN;
+using Content.Shared.NPC.Components;
+using Content.Shared.Examine;
+using Content.Shared.Mind.Components;
 
 namespace Content.Server._Impstation.MindlessClone;
 
@@ -30,6 +39,7 @@ public sealed class MindlessCloneSystem : SharedMindlessCloneSystem
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly IServerPreferencesManager _prefs = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
@@ -40,6 +50,7 @@ public sealed class MindlessCloneSystem : SharedMindlessCloneSystem
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
 
     public override void Initialize()
     {
@@ -47,6 +58,7 @@ public sealed class MindlessCloneSystem : SharedMindlessCloneSystem
 
         SubscribeLocalEvent<MindlessCloneComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<MindlessCloneComponent, MindlessCloneSayDoAfterEvent>(OnDoAfterComplete);
+        SubscribeLocalEvent<MindlessCloneComponent, ExaminedEvent>(OnExamined);
     }
 
     private void OnMapInit(Entity<MindlessCloneComponent> ent, ref MapInitEvent args)
@@ -60,6 +72,7 @@ public sealed class MindlessCloneSystem : SharedMindlessCloneSystem
 
         // break down the grabbed Entity<HumanoidAppearanceComponent> into its constituent parts.
         (var targetUid, var targetAppearance) = target.Value;
+        ent.Comp.IsCloneOf = targetUid;
 
         HumanoidCharacterProfile profile; // and now we create a HumanoidCharacterProfile out of the target's profile data.
         if (_mind.TryGetMind(targetUid, out _, out var mindComponent) && mindComponent.Session != null)
@@ -91,6 +104,9 @@ public sealed class MindlessCloneSystem : SharedMindlessCloneSystem
             cloneSpeech.SpeechVerb = targetSpeech.SpeechVerb;
             cloneSpeech.SuffixSpeechVerbs = targetSpeech.SuffixSpeechVerbs;
             cloneSpeech.SpeechBubbleOffset = targetSpeech.SpeechBubbleOffset;
+
+            if (TryComp<TypingIndicatorComponent>(targetUid, out var targetTyping)) // this doesn't work. i don't know why and it's annoying, so i quit
+                CopyComp(targetUid, ent, targetTyping);
         }
 
         // and finally, we load the final profile onto the spawned clone.
@@ -130,19 +146,68 @@ public sealed class MindlessCloneSystem : SharedMindlessCloneSystem
             }
         }
 
-        // start a DoAfter to delay our initial message by a bit. 
-        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, ent, _random.NextFloat(1f, 5f),
-            new MindlessCloneSayDoAfterEvent(), ent, ent)
+        // do our mindswapping logic before trying to speak, because otherwise the player starts the doafter but doesn't finish it.
+        if (ent.Comp.MindSwap)
         {
-            BlockDuplicate = true,
-            BreakOnDamage = false,
-            BreakOnMove = false,
-            Hidden = true
-        });
-        // enable the typing indicator for the duration of the DoAfter.
-        // NOTE: currently does not work
-        var netEv = new MindlessCloneFakeTypingEvent(GetNetEntity(ent.Owner), true);
-        RaiseNetworkEvent(netEv);
+            if (!_mind.TryGetMind(ent, out var cloneMind, out _) & !_mind.TryGetMind(targetUid, out var targetMind, out _))
+                return;
+
+            ent.Comp.MindSwap = false; // we don't want an infinite loop.
+
+            // now we copy the MindlessClone componentry over to our new host, and remove those components from the clone's original body.
+            CopyComp(ent, targetUid, ent.Comp);
+            RemCompDeferred(ent, ent.Comp);
+            ent.Comp.SpeakOnSpawn = false; // prevents the clone body from speaking - shouldn't prevent the original body from speaking, as it now has MindSwap set to false.
+
+            var cloneActiveListener = EnsureComp<ActiveListenerComponent>(ent);
+            var targetHasActiveListener = TryComp<ActiveListenerComponent>(targetUid, out var targetActiveListener);
+            CopyComp(ent, targetUid, cloneActiveListener);
+            if (!targetHasActiveListener)
+                RemCompDeferred(ent, cloneActiveListener);
+            else if (targetActiveListener != null)
+                CopyComp(targetUid, ent, targetActiveListener!);
+
+            var cloneParrotSpeech = EnsureComp<ParrotSpeechComponent>(ent);
+            var targetHasParrotSpeech = TryComp<ParrotSpeechComponent>(targetUid, out var targetParrotSpeech);
+            CopyComp(ent, targetUid, cloneParrotSpeech);
+            if (!targetHasParrotSpeech)
+                RemCompDeferred(ent, cloneParrotSpeech);
+            else if (targetParrotSpeech != null)
+                CopyComp(targetUid, ent, targetParrotSpeech);
+
+            var htn = EnsureComp<HTNComponent>(ent); // players shouldn't have HTN, so I don't have to worry about this.
+            CopyComp(ent, targetUid, htn);
+            RemCompDeferred(ent, htn);
+
+            var cloneNpcFactionMember = EnsureComp<NpcFactionMemberComponent>(ent);
+            var targetNpcFactionMember = EnsureComp<NpcFactionMemberComponent>(targetUid);
+            CopyComp(ent, targetUid, cloneNpcFactionMember);
+            CopyComp(targetUid, ent, targetNpcFactionMember);
+
+            var cloneMindContainer = EnsureComp<MindContainerComponent>(ent);
+            var targetMindContainer = EnsureComp<MindContainerComponent>(ent);
+            CopyComp(ent, targetUid, cloneMindContainer);
+            CopyComp(targetUid, ent, targetMindContainer);
+
+            _mind.TransferTo(cloneMind, targetUid);
+            _mind.TransferTo(targetMind, ent);
+        }
+
+        if (ent.Comp.SpeakOnSpawn)
+        {
+            // start a DoAfter to delay our initial message by a bit. 
+            _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, ent, _random.NextFloat(1f, 5f),
+                new MindlessCloneSayDoAfterEvent(), ent, ent)
+            {
+                BlockDuplicate = true,
+                BreakOnDamage = false,
+                BreakOnMove = false,
+                Hidden = true
+            });
+
+            // enable the typing indicator for the duration of the DoAfter.
+            _appearance.SetData(ent.Owner, TypingIndicatorVisuals.IsTyping, true);
+        }
     }
 
     public bool TryGetNearestHumanoid(MapCoordinates coordinates, [NotNullWhen(true)] out Entity<HumanoidAppearanceComponent>? target)
@@ -187,10 +252,12 @@ public sealed class MindlessCloneSystem : SharedMindlessCloneSystem
                     hideChat: false,
                     hideLog: true,
                     checkRadioPrefix: false);
-
         // disable the typing indicator, as "typing" has now finished.
-        // NOTE: currently does not work
-        var netEv = new MindlessCloneFakeTypingEvent(GetNetEntity(ent.Owner), false);
-        RaiseNetworkEvent(netEv);
+        _appearance.SetData(ent.Owner, TypingIndicatorVisuals.IsTyping, false);
+    }
+
+    private void OnExamined(Entity<MindlessCloneComponent> ent, ref ExaminedEvent args)
+    {
+        args.PushMarkup($"[color=mediumpurple]{Loc.GetString("comp-mind-examined-mindlessclone", ("ent", ent.Owner))}[/color]");
     }
 }

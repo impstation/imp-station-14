@@ -1,11 +1,12 @@
 using Content.Server.Speech.EntitySystems;
 using Content.Shared.Whitelist;
+using Content.Shared._NF.Speech; // imp
 
 namespace Content.Server.Speech.Components;
 
 [RegisterComponent]
 [Access(typeof(ParrotSpeechSystem))]
-public sealed partial class ParrotSpeechComponent : Component
+public sealed partial class ParrotSpeechComponent : SharedParrotSpeechComponent // imp - added shared system for TypingIndicators to work properly.
 {
     /// <summary>
     /// The maximum number of words the parrot can learn per phrase.
@@ -38,6 +39,14 @@ public sealed partial class ParrotSpeechComponent : Component
     [DataField(readOnly: true)]
     public List<string> LearnedPhrases = new();
 
-    [DataField] // imp. be very careful with this one. if it ends up being a problem even once, it should be removed
+    [DataField] // imp. be very careful with this one. if it ends up being a problem even once, it should be set to true on that entity.
     public bool HideMessagesInChat = true;
+
+    [DataField] // imp
+    public bool RequiresMind = true;
+
+    [DataField] // imp
+    public bool FakeTypingIndicator = true;
+
+    public string? NextMessage = null; // imp
 }
