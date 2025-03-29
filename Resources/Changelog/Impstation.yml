@@ -1,62 +1,4 @@
 ﻿Entries:
-- author: Pinkbat5
-  changes:
-  - message: The prestige clown gear is now available in a few more job loadouts.
-    type: Tweak
-  id: 925
-  time: '2025-01-14T23:39:01.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1336
-- author: Kandiyaki
-  changes:
-  - message: heretic store listings will now show their associated knowledge level
-      beside them.
-    type: Add
-  - message: the ghoul overlay will now show up on non-humanoid entities.
-    type: Fix
-  - message: '"Knowledge Points" are now "KP" in the heretic store (things were getting
-      cluttered).'
-    type: Tweak
-  id: 926
-  time: '2025-01-14T23:39:59.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1364
-- author: AftrLite
-  changes:
-  - message: Medkit inhands now use the correct(new) sprites!
-    type: Fix
-  id: 927
-  time: '2025-01-14T23:41:46.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1365
-- author: mqole
-  changes:
-  - message: Increased the time required to play certain command roles.
-    type: Tweak
-  id: 928
-  time: '2025-01-14T23:44:53.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1352
-- author: ATDoop
-  changes:
-  - message: Thieves now start with a special calling card! Copy it at the fax machine
-      if you need more!
-    type: Add
-  id: 929
-  time: '2025-01-14T23:47:30.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1366
-- author: EpicToast
-  changes:
-  - message: Add the StockTrading cartridge. Starts installed on QM and cargo tech
-      PDAs and can be found in the QM's locker.
-    type: Add
-  id: 930
-  time: '2025-01-14T23:49:38.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1314
-- author: DinnerCalzone
-  changes:
-  - message: Clown waddling now appears for other players. Consequently, clown shoes
-      now start toggled on.
-    type: Fix
-  id: 931
-  time: '2025-01-15T18:05:28.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1370
 - author: hivehum, crocodilecarousel
   changes:
   - message: Replaced the emote icons with something much more, well, emotive.
@@ -4076,3 +4018,61 @@
   id: 1424
   time: '2025-03-28T22:35:22.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/2121
+- author: Mousetrinity
+  changes:
+  - message: The monochrome cloak! It functions the same as the kaiju cloak, but you
+      should be shamed for buying this one.
+    type: Add
+  - message: The monochrome cloak will now be provided to fugitives. Chances of moths,
+      thaven and lizards escaping officers have increased!
+    type: Tweak
+  id: 1425
+  time: '2025-03-29T12:44:51.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2108
+- author: DinnerCalzone
+  changes:
+  - message: Fixed drones not fitting inside cyborg recharging stations.
+    type: Fix
+  id: 1426
+  time: '2025-03-29T12:46:48.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2134
+- author: pikay, sha-seng
+  changes:
+  - message: Senior cargo jumpsuit and belt added (made by Pikay!)
+    type: Add
+  - message: Long pants version of the cargo tech uniform in loadout and vendor
+    type: Add
+  - message: Cargo bomber is more yellow now so people know you're not the QM
+    type: Tweak
+  id: 1427
+  time: '2025-03-29T12:56:48.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2105
+- author: Sha-Seng
+  changes:
+  - message: Fever Dream recipe adjusted for upstream merge
+    type: Tweak
+  id: 1428
+  time: '2025-03-29T12:59:54.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2132
+- author: AvianMaiden
+  changes:
+  - message: Syndie helmet is contraband. Also other SWAT tweaks. They're coming for
+      you.
+    type: Tweak
+  id: 1429
+  time: '2025-03-29T13:03:29.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2118
+- author: mqole
+  changes:
+  - message: Derotated cult for the time being.
+    type: Remove
+  id: 1430
+  time: '2025-03-29T22:07:13.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2142
+- author: FlippenPage
+  changes:
+  - message: Added the SalvDrobe.
+    type: Add
+  id: 1431
+  time: '2025-03-29T22:27:21.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/1862
