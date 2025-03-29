@@ -169,6 +169,19 @@
     state: bigsquareeyesuneven2
 
 - type: marking
+  id: KodeEyestalk
+  bodyPart: HeadTop
+  markingCategory: Head
+  speciesRestriction: [Kodepiia]
+  followSkinColor: true
+  forcedColoring: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/eyes.rsi
+    state: eyestalk1
+  - sprite: _Impstation/Mobs/Customization/kodepiia/eyes.rsi
+    state: eyestalk2
+
+- type: marking
   id: KodeGrayEyes
   bodyPart: Eyes
   markingCategory: Head
@@ -287,6 +300,18 @@
     state: motheyes2
 
 - type: marking
+  id: KodeSideEye
+  bodyPart: HeadSide
+  markingCategory: Head
+  speciesRestriction: [Kodepiia]
+  forcedColoring: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/eyes.rsi
+    state: sideeye1
+  - sprite: _Impstation/Mobs/Customization/kodepiia/eyes.rsi
+    state: sideeye2
+
+- type: marking
   id: SquareEyes
   bodyPart: Eyes
   markingCategory: Head
@@ -340,6 +365,20 @@
     state: antennae
 
 - type: marking
+  id: Basilisk
+  bodyPart: HeadTop
+  markingCategory: Head
+  speciesRestriction: [Kodepiia]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+    state: basilisk1
+  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+    state: basilisk2
+  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+    state: basilisk3
+
+- type: marking
   id: KodeBeak
   bodyPart: Snout
   markingCategory: Head
@@ -372,6 +411,16 @@
     state: cheekfins
 
 - type: marking
+  id: KodeGillsDeca
+  bodyPart: HeadSide
+  markingCategory: Head
+  speciesRestriction: [Kodepiia]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+    state: decagills
+
+- type: marking
   id: KodeEyeSplotch
   bodyPart: Head
   markingCategory: Head
@@ -402,6 +451,16 @@
     state: foxears
 
 - type: marking
+  id: KodeGrayHead
+  bodyPart: HeadTop
+  markingCategory: Head
+  speciesRestriction: [Kodepiia]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+    state: grayhead
+
+- type: marking
   id: HappySmiler
   bodyPart: Head
   markingCategory: Head
@@ -410,6 +469,56 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
     state: happysmiler
+
+- type: marking
+  id: KodeFrillsHead
+  bodyPart: HeadSide
+  markingCategory: Head
+  speciesRestriction: [Kodepiia]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+    state: headfrill
+
+- type: marking
+  id: KodeHeadSlime
+  bodyPart: HeadTop
+  markingCategory: Head
+  speciesRestriction: [Kodepiia]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+    state: headslime
+
+- type: marking
+  id: KodeHornsCurly
+  bodyPart: HeadTop
+  markingCategory: Head
+  speciesRestriction: [Kodepiia]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+    state: hornscurly
+
+- type: marking
+  id: KodeHornsStraight
+  bodyPart: HeadTop
+  markingCategory: Head
+  speciesRestriction: [Kodepiia]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+    state: hornsstraight
+
+- type: marking
+  id: KodeHornsSweptBack
+  bodyPart: HeadTop
+  markingCategory: Head
+  speciesRestriction: [Kodepiia]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+    state: hornssweptback
 
 - type: marking
   id: KodeAntennaeMaple
@@ -422,6 +531,47 @@
     state: mapleantennae
 
 - type: marking
+  id: KodeMoustacheLong
+  bodyPart: Snout
+  markingCategory: Head
+  speciesRestriction: [Kodepiia]
+  followSkinColor: true
+  forcedColoring: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+    state: moustachelong
+
+- type: marking
+  id: KodeMoustacheShort
+  bodyPart: Snout
+  markingCategory: Head
+  speciesRestriction: [Kodepiia]
+  followSkinColor: true
+  forcedColoring: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+    state: moustacheshort
+
+- type: marking
+  id: KodeScorpion
+  bodyPart: HeadTop
+  markingCategory: Head
+  speciesRestriction: [Kodepiia]
+  followSkinColor: true
+  forcedColoring: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+    state: scorpion1
+  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+    state: scorpion2
+  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+    state: scorpion3
+  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+    state: scorpion4
+  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+    state: scorpion5
+
+- type: marking
   id: KodeSnoutSimple
   bodyPart: Snout
   markingCategory: Head
@@ -430,6 +580,16 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
     state: simplesnout
+
+- type: marking
+  id: KodeSmallBeak
+  bodyPart: Snout
+  markingCategory: Head
+  speciesRestriction: [Kodepiia]
+  followSkinColor: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+    state: smallbeak
 
 - type: marking
   id: KodeThavenEars
@@ -454,93 +614,53 @@
   - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
     state: wolf2
 
-- type: marking
-  id: Basilisk
-  bodyPart: HeadTop
-  markingCategory: Head
-  speciesRestriction: [Kodepiia]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
-    state: basilisk1
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
-    state: basilisk2
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
-    state: basilisk3
-
-- type: marking
-  id: KodeHornsStraight
-  bodyPart: HeadTop
-  markingCategory: Head
-  speciesRestriction: [Kodepiia]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
-    state: hornsstraight
-
-- type: marking
-  id: KodeHornsCurly
-  bodyPart: HeadTop
-  markingCategory: Head
-  speciesRestriction: [Kodepiia]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
-    state: hornscurly
-
-- type: marking
-  id: KodeHornsSweptBack
-  bodyPart: HeadTop
-  markingCategory: Head
-  speciesRestriction: [Kodepiia]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
-    state: hornssweptback
-
-- type: marking
-  id: KodeGillsDeca
-  bodyPart: HeadSide
-  markingCategory: Head
-  speciesRestriction: [Kodepiia]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
-    state: decagills
-
-- type: marking
-  id: KodeFrillsHead
-  bodyPart: HeadSide
-  markingCategory: Head
-  speciesRestriction: [Kodepiia]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
-    state: headfrill
-
-- type: marking
-  id: KodeMoustacheShort
-  bodyPart: Snout
-  markingCategory: Head
-  speciesRestriction: [Kodepiia]
-  followSkinColor: true
-  forcedColoring: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
-    state: moustacheshort
-
-- type: marking
-  id: KodeMoustacheLong
-  bodyPart: Snout
-  markingCategory: Head
-  speciesRestriction: [Kodepiia]
-  followSkinColor: true
-  forcedColoring: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
-    state: moustachelong
-
 # chest
+
+- type: marking
+  id: KodeBarsChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Kodepiia]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+    state: bars
+
+- type: marking
+  id: KodeBelly
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Kodepiia]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+    state: belly
+
+- type: marking
+  id: KodeCanvas
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Kodepiia]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+    state: canvas1
+  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+    state: canvas2
+  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+    state: canvas3
+  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+    state: canvas4
+  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+    state: canvas5
+  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+    state: canvas6
+  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+    state: canvas7
+  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+    state: canvas8
+  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+    state: canvas9
 
 - type: marking
   id: KodeChestGills
@@ -563,47 +683,6 @@
     state: koispots1
   - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
     state: koispots2
-
-- type: marking
-  id: KodeBarsChest
-  bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Kodepiia]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
-    state: bars
-
-- type: marking
-  id: KodeStripesChest
-  bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Kodepiia]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
-    state: stripes
-
-- type: marking
-  id: KodeStripesChestUnshaded
-  bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Kodepiia]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
-    state: stripes
-  shader: unshaded
-
-- type: marking
-  id: KodeBelly
-  bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Kodepiia]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
-    state: belly
 
 - type: marking
   id: MantleShade
@@ -632,6 +711,27 @@
     state: organs3
 
 - type: marking
+  id: KodeStripesChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Kodepiia]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+    state: stripes
+
+- type: marking
+  id: KodeStripesChestUnshaded
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Kodepiia]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+    state: stripes
+  shader: unshaded
+
+- type: marking
   id: KodeTeethChest
   bodyPart: Chest
   markingCategory: Chest
@@ -656,36 +756,42 @@
     state: bladewingtips
 
 - type: marking
-  id: KodeCapeSquid
+  id: KodeCloakArms
   bodyPart: RArmExtension
   markingCategory: Arms
   speciesRestriction: [Kodepiia]
   followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
-    state: squidcape
+    state: cloakarms1
+  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+    state: cloakarms2
+  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+    state: cloakarms3
+  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+    state: cloakarms4
 
 - type: marking
-  id: KodeCapePuffy
+  id: KodeArmsCrab
   bodyPart: RArmExtension
   markingCategory: Arms
   speciesRestriction: [Kodepiia]
   followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
-    state: puffycape
+    state: crabclaws
 
 - type: marking
-  id: KodeWingsThing
+  id: KodeCapeJelly
   bodyPart: RArmExtension
   markingCategory: Arms
   speciesRestriction: [Kodepiia]
   followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
-    state: thingwings1
+    state: jellycloak1
   - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
-    state: thingwings2
+    state: jellycloak2
 
 - type: marking
   id: KodeWingsMoth
@@ -700,14 +806,38 @@
     state: mothwings2
 
 - type: marking
-  id: KodeArmsCrab
+  id: KodeMyFirstWings
   bodyPart: RArmExtension
   markingCategory: Arms
   speciesRestriction: [Kodepiia]
   followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
-    state: crabclaws
+    state: myfirstwings1
+  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+    state: myfirstwings2
+
+- type: marking
+  id: KodeCapePuffy
+  bodyPart: RArmExtension
+  markingCategory: Arms
+  speciesRestriction: [Kodepiia]
+  followSkinColor: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+    state: puffycape
+
+- type: marking
+  id: KodeSlimeArms
+  bodyPart: RArmExtension
+  markingCategory: Arms
+  speciesRestriction: [Kodepiia]
+  followSkinColor: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+    state: slimearms1
+  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+    state: slimearms2
 
 - type: marking
   id: KodeCapeSpines
@@ -720,16 +850,60 @@
     state: spinecloak
 
 - type: marking
-  id: KodeCapeJelly
+  id: KodeCapeSquid
   bodyPart: RArmExtension
   markingCategory: Arms
   speciesRestriction: [Kodepiia]
   followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
-    state: jellycloak1
+    state: squidcape
+
+- type: marking
+  id: KodeSwanWings
+  bodyPart: RArmExtension
+  markingCategory: Arms
+  speciesRestriction: [Kodepiia]
+  followSkinColor: true
+  sprites:
   - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
-    state: jellycloak2
+    state: swanwings1
+  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+    state: swanwings2
+  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+    state: swanwings3
+
+- type: marking
+  id: KodeTentaWings
+  bodyPart: RArmExtension
+  markingCategory: Arms
+  speciesRestriction: [Kodepiia]
+  followSkinColor: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+    state: tentawings
+
+- type: marking
+  id: KodeWingsThing
+  bodyPart: RArmExtension
+  markingCategory: Arms
+  speciesRestriction: [Kodepiia]
+  followSkinColor: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+    state: thingwings1
+  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+    state: thingwings2
+
+- type: marking
+  id: KodeUnevenArmsSimple
+  bodyPart: RArmExtension
+  markingCategory: Arms
+  speciesRestriction: [Kodepiia]
+  followSkinColor: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+    state: unevenarmssimple
 
 - type: marking
   id: KodeVariableWings
@@ -748,6 +922,66 @@
     state: variablewings4
 
 # legs
+
+- type: marking
+  id: KodeBarLegL
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Kodepiia]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/legs.rsi
+    state: barlleg
+
+- type: marking
+  id: KodeBarLegR
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Kodepiia]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/legs.rsi
+    state: barrleg
+
+- type: marking
+  id: KodeClawFootL
+  bodyPart: LFoot
+  markingCategory: Legs
+  speciesRestriction: [Kodepiia]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/legs.rsi
+    state: clawlfoot
+
+- type: marking
+  id: KodeClawFootR
+  bodyPart: RFoot
+  markingCategory: Legs
+  speciesRestriction: [Kodepiia]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/legs.rsi
+    state: clawrfoot
+
+- type: marking
+  id: KodePinstripeLegL
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Kodepiia]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/legs.rsi
+    state: pinstripelleg
+
+- type: marking
+  id: KodePinstripeLegR
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Kodepiia]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/legs.rsi
+    state: pinstriperleg
 
 - type: marking
   id: KodeSockLFoot
@@ -789,67 +1023,34 @@
   - sprite: _Impstation/Mobs/Customization/kodepiia/legs.rsi
     state: sockrleg
 
-- type: marking
-  id: KodeBarLegL
-  bodyPart: LLeg
-  markingCategory: Legs
-  speciesRestriction: [Kodepiia]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/legs.rsi
-    state: barlleg
-
-- type: marking
-  id: KodeBarLegR
-  bodyPart: RLeg
-  markingCategory: Legs
-  speciesRestriction: [Kodepiia]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/legs.rsi
-    state: barrleg
-
-- type: marking
-  id: KodePinstripeLegL
-  bodyPart: LLeg
-  markingCategory: Legs
-  speciesRestriction: [Kodepiia]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/legs.rsi
-    state: pinstripelleg
-
-- type: marking
-  id: KodePinstripeLegR
-  bodyPart: RLeg
-  markingCategory: Legs
-  speciesRestriction: [Kodepiia]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/legs.rsi
-    state: pinstriperleg
-
-- type: marking
-  id: KodeClawFootL
-  bodyPart: LFoot
-  markingCategory: Legs
-  speciesRestriction: [Kodepiia]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/legs.rsi
-    state: clawlfoot
-
-- type: marking
-  id: KodeClawFootR
-  bodyPart: RFoot
-  markingCategory: Legs
-  speciesRestriction: [Kodepiia]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/legs.rsi
-    state: clawrfoot
-
 # tail
+
+- type: marking
+  id: KodeAmalgamTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Kodepiia]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
+    state: amalgamtail1
+  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
+    state: amalgamtail2
+  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
+    state: amalgamtail3
+  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
+    state: amalgamtail4
+
+- type: marking
+  id: KodeCrabLegs
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Kodepiia]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
+    state: crablegs
+
 - type: marking
   id: KodeFluffyTail
   bodyPart: Tail
@@ -871,60 +1072,18 @@
     state: lizardtail
 
 - type: marking
-  id: KodeShell
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Kodepiia]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
-    state: shell
-
-- type: marking
-  id: SeafoamMantle
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Kodepiia]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
-    state: seafoam1
-  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
-    state: seafoam2
-
-- type: marking
-  id: KodeSpiderLegs
+  id: KodeMultiArms
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Kodepiia]
   followSkinColor: true
-  forcedColoring: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
-    state: spider1
+    state: multiarms1
   - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
-    state: spider2
-
-- type: marking
-  id: KodeTailStubby
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Kodepiia]
-  followSkinColor: true
-  forcedColoring: true
-  sprites:
+    state: multiarms2
   - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
-    state: stubby
-
-- type: marking
-  id: KodePauldronSpikes
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Kodepiia]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
-    state: pauldspines
+    state: multiarms3
 
 - type: marking
   id: KodePauldronRoundL
@@ -965,6 +1124,83 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
     state: pauldsharpr
+
+- type: marking
+  id: KodePauldronSpikes
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Kodepiia]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
+    state: pauldspines
+
+- type: marking
+  id: SeafoamMantle
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Kodepiia]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
+    state: seafoam1
+  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
+    state: seafoam2
+
+- type: marking
+  id: KodeShell
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Kodepiia]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
+    state: shell
+
+- type: marking
+  id: KodeShellCone
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Kodepiia]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
+    state: shellcone
+
+- type: marking
+  id: KodeSpiderLegs
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Kodepiia]
+  followSkinColor: true
+  forcedColoring: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
+    state: spider1
+  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
+    state: spider2
+
+- type: marking
+  id: KodeTailStubby
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Kodepiia]
+  followSkinColor: true
+  forcedColoring: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
+    state: stubby
+
+- type: marking
+  id: KodeVoxTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Kodepiia]
+  followSkinColor: true
+  forcedColoring: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
+    state: voxtail
 
 # overlay
 
