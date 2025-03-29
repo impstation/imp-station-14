@@ -98,7 +98,7 @@
       visible: false
     - state: thrust_burn_unshaded
       map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
-      shader: unshaded
+      shader: ThrusterShader
       visible: false
       offset: 0, 1
 
