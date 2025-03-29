@@ -66,3 +66,95 @@ bounty-hunter-category-clown-description =
     Hunting people for payment doesn't have to be BORING!
     Includes: A pie cannon, 6x banana cream pies, a holographic best friend,
     a little guy's car, and various toys.
+
+
+
+
+names-bounty-hunter-dataset-1 = Flint
+names-bounty-hunter-dataset-2 = Ash
+names-bounty-hunter-dataset-3 = Rook
+names-bounty-hunter-dataset-4 = Cipher
+names-bounty-hunter-dataset-5 = Graves
+names-bounty-hunter-dataset-6 = Maverick
+names-bounty-hunter-dataset-7 = Bandit
+names-bounty-hunter-dataset-8 = Whiskey
+names-bounty-hunter-dataset-9 = McShooty
+names-bounty-hunter-dataset-10 = Duke
+names-bounty-hunter-dataset-11 = Victor
+names-bounty-hunter-dataset-12 = Vandal
+names-bounty-hunter-dataset-13 = Ransom
+names-bounty-hunter-dataset-14 = Knight
+names-bounty-hunter-dataset-15 = Ryker
+names-bounty-hunter-dataset-16 = Wesson
+names-bounty-hunter-dataset-17 = Zero
+names-bounty-hunter-dataset-18 = Justice
+names-bounty-hunter-dataset-19 = Wren
+names-bounty-hunter-dataset-20 = Jasper
+names-bounty-hunter-dataset-21 = Fletcher
+names-bounty-hunter-dataset-22 = Angel
+names-bounty-hunter-dataset-23 = Devil
+names-bounty-hunter-dataset-24 = Demon
+names-bounty-hunter-dataset-25 = Jackal
+names-bounty-hunter-dataset-26 = Talon
+names-bounty-hunter-dataset-27 = Raven
+names-bounty-hunter-dataset-28 = Hater
+names-bounty-hunter-dataset-29 = Blitz
+names-bounty-hunter-dataset-30 = McAwesome
+names-bounty-hunter-dataset-31 = Ithaca
+names-bounty-hunter-dataset-32 = Onyx
+names-bounty-hunter-dataset-33 = Dredd
+names-bounty-hunter-dataset-34 = Bro
+names-bounty-hunter-dataset-35 = Murphy
+names-bounty-hunter-dataset-36 = Solo
+names-bounty-hunter-dataset-37 = Falcon
+names-bounty-hunter-dataset-38 = Brisket
+names-bounty-hunter-dataset-39 = Bishop
+names-bounty-hunter-dataset-40 = Snake
+
+
+names-bounty-hunter-title-dataset-1 = Iron
+names-bounty-hunter-title-dataset-2 = Laughing
+names-bounty-hunter-title-dataset-3 = Widowmaker
+names-bounty-hunter-title-dataset-4 = Bloodhound
+names-bounty-hunter-title-dataset-5 = Hellbound
+names-bounty-hunter-title-dataset-6 = Vulture
+names-bounty-hunter-title-dataset-7 = Lawless
+names-bounty-hunter-title-dataset-8 = Reckoner
+names-bounty-hunter-title-dataset-9 = Lone
+names-bounty-hunter-title-dataset-10 = Outlaw
+names-bounty-hunter-title-dataset-11 = Silver
+names-bounty-hunter-title-dataset-12 = Bronze
+names-bounty-hunter-title-dataset-13 = Shackler
+names-bounty-hunter-title-dataset-14 = Pacifier
+names-bounty-hunter-title-dataset-15 = Ole'
+names-bounty-hunter-title-dataset-16 = Hobbler
+names-bounty-hunter-title-dataset-17 = Steel
+names-bounty-hunter-title-dataset-18 = Brass
+names-bounty-hunter-title-dataset-19 = Gunslinger
+names-bounty-hunter-title-dataset-20 = Outcast
+names-bounty-hunter-title-dataset-21 = Unforgiven
+names-bounty-hunter-title-dataset-22 = Striker
+names-bounty-hunter-title-dataset-23 = Pitiless
+names-bounty-hunter-title-dataset-24 = Cold
+names-bounty-hunter-title-dataset-25 = Silly
+names-bounty-hunter-title-dataset-26 = Evil
+names-bounty-hunter-title-dataset-27 = Big
+names-bounty-hunter-title-dataset-28 = One-Eyed
+names-bounty-hunter-title-dataset-29 = Two-Gun
+names-bounty-hunter-title-dataset-30 = Judge
+names-bounty-hunter-title-dataset-31 = Double-Tap
+names-bounty-hunter-title-dataset-32 = Captain
+names-bounty-hunter-title-dataset-33 = Loveable
+names-bounty-hunter-title-dataset-34 = Vigilante
+names-bounty-hunter-title-dataset-35 = Marshal
+names-bounty-hunter-title-dataset-36 = Harbinger
+names-bounty-hunter-title-dataset-37 = Savage
+names-bounty-hunter-title-dataset-38 = Gray
+names-bounty-hunter-title-dataset-39 = Trapper
+names-bounty-hunter-title-dataset-40 = Scar
+names-bounty-hunter-title-dataset-41 = Bane
+names-bounty-hunter-title-dataset-42 = Bubba
+names-bounty-hunter-title-dataset-43 = Hawk
+names-bounty-hunter-title-dataset-44 = Killer
+names-bounty-hunter-title-dataset-45 = Singing
+names-bounty-hunter-title-dataset-46 = Solid
