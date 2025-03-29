@@ -4,10 +4,10 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/medical.rsi
+    sprite: _Impstation/Objects/Specific/Medical/medical.rsi # imp
   - type: Item
     size: Small
-    sprite: Objects/Specific/Medical/medical.rsi
+    sprite: _Impstation/Objects/Specific/Medical/medical.rsi # imp
     heldPrefix: ointment
   # Inherited
   - type: StaticPrice

@@ -276,7 +276,7 @@
   id: NuclearBomb
   name: steal-target-groups-nuclear-bomb
   sprite:
-    sprite: Objects/Devices/nuke.rsi
+    sprite: _Impstation/Objects/Devices/nuke.rsi # imp
     state: nuclearbomb_base
 
 - type: stealTargetGroup
