@@ -25,3 +25,14 @@
     heldPrefix: silver
   - type: PresetIdCard
     job: AdministrativeAssistant
+
+- type: entity
+  parent: SyndicateIDCard
+  id: RoboNeuroticistIDCard
+  name: robo-neuroticist ID card
+  components:
+  - type: Access
+    tags:
+    - NuclearOperative
+    - SyndicateAgent
+    - Research
