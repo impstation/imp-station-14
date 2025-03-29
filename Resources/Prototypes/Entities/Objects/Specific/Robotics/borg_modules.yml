@@ -193,9 +193,9 @@
 
 # cargo modules
 - type: entity
-  id: BorgModuleAppraisal
+  id: BorgModuleCargoTools
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
-  name: appraisal cyborg module
+  name: cargo tools cyborg module
   components:
   - type: Sprite
     layers:
@@ -204,6 +204,10 @@
   - type: ItemBorgModule
     items:
     - AppraisalTool
+    - Crowbar
+    - Wrench
+    - Screwdriver
+    - Shiv
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: appraisal-module }
 
