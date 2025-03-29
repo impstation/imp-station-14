@@ -11,3 +11,8 @@
       drink:
         maxVol: 90
   - type: Engraveable
+  - type: Item
+    size: Normal
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 200 #piskun integration checks
