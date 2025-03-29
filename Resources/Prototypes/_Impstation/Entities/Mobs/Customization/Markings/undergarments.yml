@@ -10,7 +10,7 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
     state: undershirt
 
 - type: marking
@@ -25,38 +25,8 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
     state: rolled_undershirt
-
-- type: marking
-  id: UndershirtSleeveless
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
-  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
-  sexRestriction: [Male]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
-    state: sleeveless
-
-- type: marking
-  id: UndershirtRolledSleeveless
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
-  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
-  sexRestriction: [Male]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
-    state: rolled_undershirt_sleeveless
 
 - type: marking
   id: UndershirtGrossSleeveless
@@ -70,7 +40,7 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
     state: gross_sleeveless
 
 - type: marking
@@ -85,23 +55,8 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
     state: nanotrasen
-
-- type: marking
-  id: UndershirtBinderClassic
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
-  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
-  sexRestriction: [Male]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
-    state: binder_classic
 
 - type: marking
   id: UndershirtBraStrapless
@@ -115,7 +70,7 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
     state: strapless
 
 # Female sex versions
@@ -133,7 +88,7 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
     state: undershirt_f
 
 - type: marking
@@ -148,38 +103,8 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
     state: rolled_undershirt_f
-
-- type: marking
-  id: UndershirtSleevelessF
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
-  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
-  sexRestriction: [Female]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
-    state: sleeveless_f
-
-- type: marking
-  id: UndershirtRolledSleevelessF
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
-  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
-  sexRestriction: [Female]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
-    state: rolled_undershirt_sleeveless_f
 
 - type: marking
   id: UndershirtGrossSleevelessF
@@ -193,7 +118,7 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
     state: gross_sleeveless_f
 
 - type: marking
@@ -208,23 +133,8 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
     state: nanotrasen_f
-
-- type: marking
-  id: UndershirtBinderF
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
-  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
-  sexRestriction: [Female]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
-    state: binder_classic_f
 
 - type: marking
   id: UndershirtBraSportsF
@@ -238,7 +148,7 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
     state: sports_f
 
 - type: marking
@@ -253,8 +163,36 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
     state: strapless_f
+
+- type: marking
+  id: UndergarmentTopBinderF
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Diona, Human, Dwarf, Moth, Reptilian, SlimePerson]
+  sexRestriction: [Female]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+    state: binder_f
+
+- type: marking
+  id: UndergarmentTopTanktopF
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Diona, Human, Dwarf, Moth, Reptilian, SlimePerson]
+  sexRestriction: [Female]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi #imp
+    state: tanktop_f
 
 # Really dumb way of making it work for arachnids, who are unsexed. sexRestriction doesn't seem to support two sexes at once
 
@@ -269,7 +207,7 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
     state: undershirt
 
 - type: marking
@@ -283,36 +221,8 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
     state: rolled_undershirt
-
-- type: marking
-  id: UndershirtSleevelessA
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
-  speciesRestriction: [Arachnid]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
-    state: sleeveless
-
-- type: marking
-  id: UndershirtRolledSleevelessA
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
-  speciesRestriction: [Arachnid]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
-    state: rolled_undershirt_sleeveless
 
 - type: marking
   id: UndershirtGrossSleevelessA
@@ -325,7 +235,7 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
     state: gross_sleeveless
 
 - type: marking
@@ -339,22 +249,8 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
     state: nanotrasen
-
-- type: marking
-  id: UndershirtBinderA
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
-  speciesRestriction: [Arachnid]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
-    state: binder_classic
 
 - type: marking
   id: UndershirtBraSportsA
@@ -367,7 +263,7 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
     state: sports
 
 - type: marking
@@ -381,8 +277,34 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
     state: strapless
+
+- type: marking
+  id: UndergarmentTopBinderA
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Arachnid]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+    state: binder
+
+- type: marking
+  id: UndergarmentTopTanktopA
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Arachnid]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi #imp
+    state: tanktop
 
 #Unisex versions, as sexRestriction seems to not support more than one sex. Unisex body uses same body as male.
 
@@ -398,7 +320,7 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
     state: undershirt
 
 - type: marking
@@ -413,38 +335,8 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
     state: rolled_undershirt
-
-- type: marking
-  id: UndershirtSleevelessU
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
-  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
-  sexRestriction: [Unsexed]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
-    state: sleeveless
-
-- type: marking
-  id: UndershirtRolledSleevelessU
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
-  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
-  sexRestriction: [Unsexed]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
-    state: rolled_undershirt_sleeveless
 
 - type: marking
   id: UndershirtGrossSleevelessU
@@ -458,7 +350,7 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
     state: gross_sleeveless
 
 - type: marking
@@ -473,23 +365,8 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
     state: nanotrasen
-
-- type: marking
-  id: UndershirtBinderU
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
-  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
-  sexRestriction: [Unsexed]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
-    state: binder_classic
 
 - type: marking
   id: UndershirtBraSportsU
@@ -503,7 +380,7 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
     state: sports
 
 - type: marking
@@ -518,11 +395,39 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.yml
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
     state: strapless
 
+- type: marking
+  id: UndergarmentTopBinderU
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Diona, Human, Dwarf, Moth, Reptilian, SlimePerson]
+  sexRestriction: [Unsexed]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+    state: binder_f
+
+- type: marking
+  id: UndergarmentTopTanktopU
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Diona, Human, Dwarf, Moth, Reptilian, SlimePerson]
+  sexRestriction: [Unsexed]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi #imp
+    state: tanktop_f
+
 # Thaven-specific sprites, all unisex
-# Can be removed if we ever get displacement maps for markings
+# Can probably be safely removed if we ever get displacement maps for markings, but let Sha test it first please (if available)
 
 - type: marking
   id: UndershirtDefaultT
@@ -535,7 +440,7 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/thaven/thaven_undershirt.rsi
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven_undergarments.rsi
     state: undershirt
 
 - type: marking
@@ -549,36 +454,8 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/thaven/thaven_undershirt.rsi
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven_undergarments.rsi
     state: rolled_undershirt
-
-- type: marking
-  id: UndershirtSleevelessT
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
-  speciesRestriction: [Thaven]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/thaven/thaven_undershirt.rsi
-    state: sleeveless
-
-- type: marking
-  id: UndershirtRolledSleevelessT
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
-  speciesRestriction: [Thaven]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/thaven/thaven_undershirt.rsi
-    state: rolled_undershirt_sleeveless
 
 - type: marking
   id: UndershirtGrossSleevelessT
@@ -591,7 +468,7 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/thaven/thaven_undershirt.rsi
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven_undergarments.rsi
     state: gross_sleeveless
 
 - type: marking
@@ -605,22 +482,8 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/thaven/thaven_undershirt.rsi
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven_undergarments.rsi
     state: nanotrasen
-
-- type: marking
-  id: UndershirtBinderT
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
-  speciesRestriction: [Thaven]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/thaven/thaven_undershirt.rsi
-    state: binder_classic
 
 - type: marking
   id: UndershirtBraSportsT
@@ -633,7 +496,7 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/thaven/thaven_undershirt.rsi
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven_undergarments.rsi
     state: sports
 
 - type: marking
@@ -647,7 +510,7 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/thaven/thaven_undershirt.rsi
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven_undergarments.rsi
     state: strapless
 
 - type: marking
@@ -661,8 +524,34 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/thaven/thaven_undershirt.rsi
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven_undergarments.rsi
     state: classic
+
+- type: marking
+  id: UndergarmentTopBinderT
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Thaven]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+    state: binder
+
+- type: marking
+  id: UndergarmentTopTanktopT
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Thaven]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi #imp
+    state: tanktop
 
 # Upstream put undershirts and underwear all in the same file path so we should reflect that...
 
@@ -670,32 +559,88 @@
   id: UnderwearLowriders
   bodyPart: UndergarmentBottom
   markingCategory: UndergarmentBottom
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth]
+  speciesRestriction: [Dwarf, Human, Arachnid, SlimePerson, Diona, Moth]
   coloring:
     default:
       type:
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: Mobs/Customization/underwear.rsi
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
     state: lowriders
 
 - type: marking
   id: UnderwearTanga
   bodyPart: UndergarmentBottom
   markingCategory: UndergarmentBottom
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth]
+  speciesRestriction: [Dwarf, Human, Arachnid, SlimePerson, Diona, Moth]
   coloring:
     default:
       type:
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: Mobs/Customization/underwear.rsi
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
     state: tanga
 
-# Thaven-specific sprites, all unisex
-# Can be removed if we ever get displacement maps for markings
+- type: marking
+  id: UnderwearLowridersR
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+    state: lowriders_reptilian
+
+- type: marking
+  id: UnderwearTangaR
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+    state: tanga_reptilian
+
+- type: marking
+  id: UnderwearLowridersV
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Vox]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+    state: lowriders_vox
+
+- type: marking
+  id: UnderwearTangaV
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Vox]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+    state: tanga_vox
+
+# Thaven-specific underwear
+# Can probably be safely removed if we ever get displacement maps for markings, but let Sha test it first please (if available)
 
 - type: marking
   id: UnderwearDefaultT
@@ -708,7 +653,7 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/thaven/thaven_underwear.rsi
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven_undergarments.rsi
     state: boxers
 
 - type: marking
@@ -722,7 +667,7 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/thaven/thaven_underwear.rsi
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven_undergarments.rsi
     state: briefs
 
 - type: marking
@@ -736,7 +681,7 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/thaven/thaven_underwear.rsi
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven_undergarments.rsi
     state: lowriders
 
 - type: marking
@@ -750,7 +695,7 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/thaven/thaven_underwear.rsi
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven_undergarments.rsi
     state: satin
 
 - type: marking
@@ -764,5 +709,5 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/thaven/thaven_underwear.rsi
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven_undergarments.rsi
     state: tanga
