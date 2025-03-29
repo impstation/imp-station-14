@@ -35,3 +35,33 @@ public sealed class KillPersonConditionSystem : EntitySystem
 
         args.Progress = GetProgress(target.Value, comp.RequireDead);
     }
+    private float GetProgress(EntityUid target, bool requireDead)
+    {
+        // deleted or gibbed or something, counts as dead
+        if (!TryComp<MindComponent>(target, out var mind) || mind.OwnedEntity == null || TryComp<GhostBarPatronComponent>(mind.OwnedEntity, out _))
+            return 1f;
+
+        // dead is success
+        if (_mind.IsCharacterDeadIc(mind))
+            return 1f;
+
+        // if the target has to be dead dead then don't check evac stuff
+        if (requireDead)
+            return 0f;
+
+        // if evac is disabled then they really do have to be dead
+        if (!_config.GetCVar(CCVars.EmergencyShuttleEnabled))
+            return 0f;
+
+        // target is escaping so you fail
+        if (_emergencyShuttle.IsTargetEscaping(mind.OwnedEntity.Value))
+            return 0f;
+
+        // evac has left without the target, greentext since the target is afk in space with a full oxygen tank and coordinates off.
+        if (_emergencyShuttle.ShuttlesLeft)
+            return 1f;
+
+        // if evac is still here and target hasn't boarded, show 50% to give you an indicator that you are doing good
+        return _emergencyShuttle.EmergencyShuttleArrived ? 0.5f : 0f;
+    }
+}

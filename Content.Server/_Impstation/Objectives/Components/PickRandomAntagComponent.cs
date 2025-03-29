@@ -6,7 +6,5 @@ namespace Content.Server.Objectives.Components;
 /// Sets the target for <see cref="TargetObjectiveComponent"/> to a random antagonist.
 /// If there are none it will fallback to any person.
 /// </summary>
-[RegisterComponent, Access(typeof(KillPersonConditionSystem))]
-public sealed partial class PickRandomAntagComponent : Component
-{
-}
+[RegisterComponent]
+public sealed partial class PickRandomAntagComponent : Component;
