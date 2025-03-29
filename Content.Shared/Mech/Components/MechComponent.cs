@@ -3,6 +3,7 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Audio;
 
 namespace Content.Shared.Mech.Components;
 
@@ -108,8 +109,7 @@ public sealed partial class MechComponent : Component
     public float EntryDelay = 3;
 
     /// <summary>
-    /// How long it takes to pull *another person*
-    /// outside of the mech. You can exit instantly yourself.
+    /// How long it takes to exit the mech, or be pulled out.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float ExitDelay = 3;
@@ -136,6 +136,10 @@ public sealed partial class MechComponent : Component
     /// </summary>
     [DataField]
     public List<EntProtoId> StartingEquipment = new();
+
+
+    [DataField]
+    public SoundSpecifier? SoundNominal = new SoundPathSpecifier("/Audio/_Impstation/Mecha/nominal.ogg");
 
     #region Action Prototypes
     [DataField]
