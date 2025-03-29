@@ -59,3 +59,260 @@
       state: idhospitalitydirector
   - type: PresetIdCard
     job: HospitalityDirector
+
+## Alternate job titles
+
+# Administrative Assistant
+
+- type: entity
+  parent: AdminAssistantIDCard
+  id: AdminConsultantIDCard
+  name: administrative consultant ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-administrative-consultant
+
+- type: entity
+  parent: AdminAssistantIDCard
+  id: AdminTraineeIDCard
+  name: administrative trainee ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-administrative-trainee
+
+- type: entity
+  parent: AdminAssistantIDCard
+  id: SecretaryIDCard
+  name: secretary ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-administrative-consultant
+
+# Boxer
+
+- type: entity
+  parent: BoxerIDCard
+  id: PersonalTrainerIDCard
+  name: personal trainer ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-personal-trainer
+
+- type: entity
+  parent: BoxerIDCard
+  id: WrestlerIDCard
+  name: wrestler ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-wrestler
+
+# Chaplain
+
+- type: entity
+  parent: ChaplainIDCard
+  id: ExorcistIDCard
+  name: exorcist ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-exorcist
+
+- type: entity
+  parent: ChaplainIDCard
+  id: FuneralDirectorIDCard
+  name: funeral director ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-funeral-director
+
+# Clown
+
+- type: entity
+  parent: ClownIDCard
+  id: FoolIDCard
+  name: fool ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-fool
+
+- type: entity
+  parent: ClownIDCard
+  id: JesterIDCard
+  name: jester ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-jester
+
+# Librarian
+
+- type: entity
+  parent: LibrarianIDCard
+  id: ArchivistIDCard
+  name: archivist ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-archivist
+
+- type: entity
+  parent: LibrarianIDCard
+  id: GameMasterIDCard
+  name: game master ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-game-master
+
+
+# Passenger
+
+- type: entity
+  parent: PassengerIDCard
+  id: VisitorIDCard
+  name: visitor ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-visitor # redundant?
+
+- type: entity
+  parent: PassengerIDCard
+  id: TouristIDCard
+  name: tourist ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-tourist
+
+- type: entity
+  parent: PassengerIDCard
+  id: OffDutyCrewIDCard
+  name: off-duty crew ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-off-duty
+
+- type: entity
+  parent: PassengerIDCard
+  id: StudentIDCard
+  name: student ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-student
+
+- type: entity
+  parent: PassengerIDCard
+  id: BusinesspersonIDCard
+  name: businessperson ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-businessperson
+
+# Psychologist
+
+- type: entity
+  parent: PsychologistIDCard
+  id: StationCouncillorIDCard
+  name: station councillor ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-station-councillor
+
+- type: entity
+  parent: PsychologistIDCard
+  id: TherapistIDCard
+  name: therapist ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-therapist
+
+# Reporter
+
+- type: entity
+  parent: ReporterIDCard
+  id: JournalistIDCard
+  name: journalist ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-journalist
+
+# Scientist
+
+- type: entity
+  parent: ResearchIDCard
+  id: AnomalisticianIDCard
+  name: anomalistician ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-anomalistician
+
+# Roboticist is in another yml
+
+- type: entity
+  parent: ResearchIDCard
+  id: XenoarcheologistIDCard
+  name: xenoarcheologist ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-xenoarcheologist
+
+# Junior Job Titles
+
+- type: entity
+  parent: AtmosIDCard
+  id: JuniorAtmosIDCard
+  name: junior atmos ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-junior-atmospheric-technician
+
+- type: entity
+  parent: BotanistIDCard
+  id: JuniorBotanistIDCard
+  name: junior botanist ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-junior-botanist
+
+- type: entity
+  parent: CargoIDCard
+  id: JuniorCargoIDCard
+  name: junior cargo ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-junior-cargo-technician
+
+- type: entity
+  parent: ChemistIDCard
+  id: JuniorChemistIDCard
+  name: junior chemist ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-junior-chemist
+
+- type: entity
+  parent: ResearchIDCard
+  id: JuniorResearchIDCard
+  name: junior scientist ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-junior-scientist
+
+- type: entity
+  parent: SalvageIDCard
+  id: JuniorSalvageIDCard
+  name: junior salvager ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-junior-salvager
+
+- type: entity
+  parent: SecurityIDCard
+  id: JuniorSecurityIDCard
+  name: junior sec officer ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-junior-security-officer
+
+- type: entity
+  parent: EngineeringIDCard
+  id: JuniorEngineeringIDCard
+  name: junior engineer ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-junior-station-engineer

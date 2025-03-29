@@ -333,3 +333,270 @@
     accentHColor: "#447987"
   - type: Icon
     state: pda-hd
+
+## Alternate Job Titles
+# Sorted alphabetically
+
+# Administrative Assistant
+
+- type: entity
+  parent: AdminAssistantPDA
+  id: AdminConsultantPDA
+  name: administrative consultant PDA
+  components:
+  - type: Pda
+    id: AdminConsultantIDCard
+
+- type: entity
+  parent: AdminAssistantPDA
+  id: AdminTraineePDA
+  name: administrative trainee PDA
+  components:
+  - type: Pda
+    id: AdminTraineeIDCard
+
+- type: entity
+  parent: AdminAssistantPDA
+  id: SecretaryPDA
+  name: secretary PDA
+  components:
+  - type: Pda
+    id: SecretaryIDCard
+
+# Boxer
+
+- type: entity
+  parent: BoxerPDA
+  id: PersonalTrainerPDA
+  name: personal trainer PDA
+  components:
+  - type: Pda
+    id: PersonalTrainerIDCard
+
+- type: entity
+  parent: BoxerPDA
+  id: WrestlerPDA
+  name: wrestler PDA
+  components:
+  - type: Pda
+    id: WrestlerIDCard
+
+# Chaplain
+
+- type: entity
+  parent: ChaplainPDA
+  id: ExorcistPDA
+  name: exorcist PDA
+  components:
+  - type: Pda
+    id: ExorcistIDCard
+
+- type: entity
+  parent: ChaplainPDA
+  id: FuneralDirectorPDA
+  name: funeral director PDA
+  components:
+  - type: Pda
+    id: FuneralDirectorIDCard
+
+# Clown
+
+- type: entity
+  parent: ClownPDA
+  id: FoolPDA
+  name: fool PDA
+  components:
+  - type: Pda
+    id: FoolIDCard
+
+- type: entity
+  parent: ClownPDA
+  id: JesterPDA
+  name: jester PDA
+  description: Doesn't actually jingle when you move.
+  components:
+  - type: Pda
+    id: JesterIDCard
+
+# Librarian
+
+- type: entity
+  parent: LibrarianPDA
+  id: ArchivistPDA
+  name: archivist PDA
+  components:
+  - type: Pda
+    id: ArchivistIDCard
+
+- type: entity
+  parent: LibrarianPDA
+  id: GameMasterPDA
+  name: game master PDA
+  components:
+  - type: Pda
+    id: GameMasterIDCard
+
+# Passenger
+
+- type: entity
+  parent: PassengerPDA
+  id: AssistantPDA
+  name: assistant PDA
+  components:
+  - type: Pda
+    id: AssistantIDCard
+
+- type: entity
+  parent: PassengerPDA
+  id: BusinesspersonPDA
+  name: businessperson PDA
+  components:
+  - type: Pda
+    id: BusinesspersonIDCard
+
+- type: entity
+  parent: PassengerPDA
+  id: OffDutyCrewPDA
+  name: off-duty crew PDA
+  components:
+  - type: Pda
+    id: OffDutyCrewIDCard
+
+- type: entity
+  parent: PassengerPDA
+  id: StudentPDA
+  name: student PDA
+  components:
+  - type: Pda
+    id: StudentIDCard
+
+- type: entity
+  parent: PassengerPDA
+  id: TouristPDA
+  name: tourist PDA
+  description: Smells of warm sand and sunscreen.
+  components:
+  - type: Pda
+    id: TouristIDCard
+
+- type: entity
+  parent: PassengerPDA
+  id: VisitorPDA
+  name: visitor PDA
+  components:
+  - type: Pda
+    id: VisitorIDCard
+
+# Psychologist
+
+- type: entity
+  parent: PsychologistPDA
+  id: StationCouncillorPDA
+  name: station councillor PDA
+  components:
+  - type: Pda
+    id: StationCouncillorIDCard
+
+- type: entity
+  parent: PsychologistPDA
+  id: TherapistPDA
+  name: therapist PDA
+  components:
+  - type: Pda
+    id: TherapistIDCard
+
+# Reporter
+
+- type: entity
+  parent: ReporterPDA
+  id: JournalistPDA
+  name: journalist PDA
+  components:
+  - type: Pda
+    id: JournalistIDCard
+
+# Scientist
+
+- type: entity
+  parent: SciencePDA
+  id: AnomalisticianPDA
+  name: anomalistician PDA
+  components:
+  - type: Pda
+    id: AnomalisticianIDCard
+
+# Roboticist is in another yml
+
+- type: entity
+  parent: SciencePDA
+  id: XenoarcheologistPDA
+  name: xenoarcheologist PDA
+  components:
+  - type: Pda
+    id: XenoarcheologistIDCard
+
+# Junior Job Titles
+
+- type: entity
+  parent: AtmosPDA
+  id: JuniorAtmosPDA
+  name: junior atmos PDA
+  components:
+  - type: Pda
+    id: JuniorAtmosIDCard
+
+- type: entity
+  parent: BotanistPDA
+  id: JuniorBotanistPDA
+  name: junior botanist PDA
+  components:
+  - type: Pda
+    id: JuniorBotanistIDCard
+
+- type: entity
+  parent: CargoPDA
+  id: JuniorCargoPDA
+  name: junior cargo PDA
+  components:
+  - type: Pda
+    id: JuniorCargoIDCard
+
+- type: entity
+  parent: ChemistryPDA
+  id: JuniorChemistryPDA
+  name: junior chemist PDA
+  components:
+  - type: Pda
+    id: JuniorChemistIDCard
+
+- type: entity
+  parent: SciencePDA
+  id: JuniorSciencePDA
+  name: junior scientist PDA
+  components:
+  - type: Pda
+    id: JuniorResearchIDCard
+
+- type: entity
+  parent: SalvagePDA
+  id: JuniorSalvagePDA
+  name: junior salvager PDA
+  components:
+  - type: Pda
+    id: JuniorSalvagerIDCard
+
+- type: entity
+  parent: SecurityPDA
+  id: JuniorSecurityPDA
+  name: junior sec officer PDA
+  components:
+  - type: Pda
+    id: JuniorSecurityIDCard
+
+- type: entity
+  parent: EngineerPDA
+  id: JuniorEngineerPDA
+  name: junior engineer PDA
+  components:
+  - type: Pda
+    id: JuniorEngineeringIDCard
