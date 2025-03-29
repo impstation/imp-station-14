@@ -283,7 +283,7 @@
   id: FaxMachineCaptain
   name: steal-target-groups-fax-machine-captain
   sprite:
-    sprite: Structures/Machines/fax_machine.rsi
+    sprite: _Impstation/Structures/Machines/fax_machine.rsi # imp
     state: icon
 
 - type: stealTargetGroup
@@ -311,7 +311,7 @@
   id: Teg
   name: steal-target-groups-teg
   sprite:
-    sprite: Structures/Power/Generation/teg.rsi
+    sprite: _Impstation/Structures/Power/Generation/teg.rsi # imp
     state: teg
 
 - type: stealTargetGroup

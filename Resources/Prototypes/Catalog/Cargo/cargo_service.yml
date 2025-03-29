@@ -81,7 +81,7 @@
 - type: cargoProduct
   id: ServiceFaxMachine
   icon:
-    sprite: Structures/Machines/fax_machine.rsi
+    sprite: _Impstation/Structures/Machines/fax_machine.rsi # imp
     state: icon
   product: CrateServiceFaxMachine
   cost: 2000
