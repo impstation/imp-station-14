@@ -1,12 +1,15 @@
 using System.Linq;
 using Content.Server.Chat.Systems;
-using Content.Shared.Speech;
 using Content.Server.Speech.Components;
 using Content.Shared.Mind.Components;
 using Content.Shared.Whitelist;
+using Content.Server.DoAfter; //imp
+using Content.Shared.DoAfter; //imp
+using Content.Shared._NF.Speech; //imp
+using Content.Shared.Chat.TypingIndicator; //imp
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Content.Shared.Humanoid;
+using Robust.Server.GameObjects; //imp
 
 namespace Content.Server.Speech.EntitySystems;
 
@@ -16,6 +19,8 @@ public sealed class ParrotSpeechSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly DoAfterSystem _doAfter = default!;
+    [Dependency] private readonly AppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {
@@ -23,6 +28,7 @@ public sealed class ParrotSpeechSystem : EntitySystem
 
         SubscribeLocalEvent<ParrotSpeechComponent, ListenEvent>(OnListen);
         SubscribeLocalEvent<ParrotSpeechComponent, ListenAttemptEvent>(CanListen);
+        SubscribeLocalEvent<ParrotSpeechComponent, ParrotSpeechDoAfterEvent>(OnDoAfter);
     }
 
     public override void Update(float frameTime)
@@ -33,33 +39,54 @@ public sealed class ParrotSpeechSystem : EntitySystem
             if (component.LearnedPhrases.Count == 0)
                 // This parrot has not learned any phrases, so can't say anything interesting.
                 continue;
+
+            if (component.RequiresMind && TryComp<MindContainerComponent>(uid, out var mind) && mind.HasMind) // imp edit - some things do, some things don't
+                continue;
+
             if (_timing.CurTime < component.NextUtterance)
                 continue;
-            var humanoid = HasComp<HumanoidAppearanceComponent>(uid);
-            var shouldEcho = TryComp<MindContainerComponent>(uid, out var mind) && (humanoid ? (mind.HasMind) : (!mind.HasMind));
-                // only souled humanoids or non-humanoids without souls, echo (stops a bug with cosmic cult shunting)
-            if (!shouldEcho) continue;
-            if (component.NextUtterance != null)
+
+            if (component.NextUtterance != null) // imp - changed this whole deal
             {
-                var speech = EnsureComp<SpeechComponent>(uid);
-                var oldVerb = speech.SpeechVerb;
-                speech.SpeechVerb = "Echo"; // Add a special speech verb override for echoing (NOTE: gets replaced with "Exclaims" anyway if the message echoed ends in a "!", arguably intended)
-                _chat.TrySendInGameICMessage(
-                    uid,
-                    _random.Pick(component.LearnedPhrases),
-                    InGameICChatType.Speak,
-                    hideChat: !humanoid, // Only humanoids can be heard in chat with randomly generated messages (imp edit to shut up poly)
-                    hideLog: true, // TODO: Don't spam admin logs either.
-                                   // If a parrot learns something inappropriate, admins can search for
-                                   // the player that said the inappropriate thing.
-                    checkRadioPrefix: false);
-                speech.SpeechVerb = oldVerb; //Revert speech verb
-                //because changing the speechverb in this "hacky" way does not use code intended for use by voicemasks, hopefully admins don't get constant logs from this.
-                //hopefully
-            }
+                if (component.FakeTypingIndicator)
+                {
+                    component.NextMessage = _random.Pick(component.LearnedPhrases);
+                    var doAfterLength = TimeSpan.FromSeconds(0.1 * component.NextMessage.Length);
+                    _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, doAfterLength,
+                    new ParrotSpeechDoAfterEvent(), uid, uid)
+                    {
+                        BlockDuplicate = true,
+                        BreakOnDamage = false,
+                        BreakOnMove = false,
+                        Hidden = true
+                    });
+                    _appearance.SetData(uid, TypingIndicatorVisuals.IsTyping, true);
+                }
+                else
+                {
+                    SendMessage(uid, component);
+                }
+            } // end imp
 
             component.NextUtterance = _timing.CurTime + TimeSpan.FromSeconds(_random.Next(component.MinimumWait, component.MaximumWait));
         }
+    }
+
+    private void SendMessage(EntityUid uid, ParrotSpeechComponent component) // imp. moved this out of Update() and to its own method to reduce repitition repitition.
+    {
+        _chat.TrySendInGameICMessage(
+        uid,
+            component.NextMessage ?? _random.Pick(component.LearnedPhrases),
+            InGameICChatType.Speak,
+            hideChat: component.HideMessagesInChat, // Don't spam the chat with randomly generated messages(... unless its funny (imp change))
+            hideLog: true, // TODO: Don't spam admin logs either. If a parrot learns something inappropriate, admins can search for the player that said the inappropriate thing.
+            checkRadioPrefix: false);
+    }
+
+    private void OnDoAfter(Entity<ParrotSpeechComponent> ent, ref ParrotSpeechDoAfterEvent args)
+    {
+        SendMessage(ent.Owner, ent.Comp);
+        _appearance.SetData(ent.Owner, TypingIndicatorVisuals.IsTyping, false);
     }
 
     private void OnListen(EntityUid uid, ParrotSpeechComponent component, ref ListenEvent args)
