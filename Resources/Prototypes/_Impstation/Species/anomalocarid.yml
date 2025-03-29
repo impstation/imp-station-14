@@ -8,9 +8,9 @@
   markingLimits: MobAnomalocaridMarkingLimits
   dollPrototype: MobAnomalocaridDummy
   skinColoration: TintedHues
-  maleFirstNames: names_anomalocarid_first
-  femaleFirstNames: names_anomalocarid_first
-  lastNames: names_anomalocarid_last
+  maleFirstNames: NamesAnomalocaridFirst
+  femaleFirstNames: NamesAnomalocaridFirst
+  lastNames: NamesAnomalocaridLast
   sexes:
   - Male
   - Female
@@ -24,8 +24,8 @@
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
-    Underwear: MobHumanoidAnyMarking
-    Undershirt: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
     Chest: MobAnomalocaridTorso
     LArm: MobAnomalocaridLArm
     RArm: MobAnomalocaridRArm
@@ -58,10 +58,10 @@
       points: 2
       required: true
       defaultMarkings: [ AnomalocaridWingsDefault, AnomalocaridTailDefault ]
-    Undershirt:
+    UndergarmentTop:
       points: 1
       required: false
-    Underwear:
+    UndergarmentBottom:
       points: 1
       required: false
     Arms:
