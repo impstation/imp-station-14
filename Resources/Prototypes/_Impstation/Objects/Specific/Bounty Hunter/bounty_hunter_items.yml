@@ -3,7 +3,7 @@
   parent: ToolboxThief
   id: BountyHunterGear
   name: bounty hunter toolbox
-  description: An assortment of contraband you've collected over your career, some of which is more illegal than others.
+  description: An assortment of contraband you've collected over your career, some more forbidden than others.
   components:
   - type: ThiefUndeterminedBackpack
     maxSelectedSets: 2
@@ -26,9 +26,9 @@
   description: High-tech sunglasses that provide flash immunity and thermal vision.
   components:
   - type: Sprite
-    sprite: _EE/Clothing/Eyes/Goggles/thermal.rsi
+    sprite: _Impstation/Clothing/Eyes/Glasses/bountyhunterglasses.rsi
   - type: Clothing
-    sprite: _EE/Clothing/Eyes/Goggles/thermal.rsi
+    sprite: _Impstation/Clothing/Eyes/Glasses/bountyhunterglasses.rsi
   - type: ThermalVision
     isEquipment: true
     pulseTime: 2
@@ -62,7 +62,7 @@
   description: A disabler modified to slowly recharge off a cyborg's internal battery.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/disabler.rsi #imp
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/disabler.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -80,17 +80,17 @@
 - type: entity
   id: BorgModuleDisabler
   parent: [ BaseBorgModule, BaseProviderBorgModule, BaseMajorContraband ]
-  name: disabler borg module
+  name: disabler cyborg module
   components:
   - type: Sprite
     layers:
-    - state: syndicate
-    - state: icon-syndicate
+    - state: security
+    - state: icon-disabler
   - type: ItemBorgModule
     items:
     - WeaponBorgDisabler
   - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module } # as always, temporary sprite
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: disabler-module }
 
 
 # Mercenary Hardsuit
@@ -131,7 +131,7 @@
 
 # Merc hardsuit helmet
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBase ]
   id: ClothingHeadHelmetHardsuitMercenary
   name: mercenary hardsuit helmet
   description: A stylish helmet lined with lightweight armor-plating.
@@ -145,8 +145,6 @@
       visible: false
   - type: Clothing
     sprite: _Impstation/Clothing/OuterClothing/Hardsuits/syndicate_operator.rsi #^^^^
-  - type: PointLight
-    color: green
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
@@ -192,3 +190,35 @@
     staminaCost: 25
     soundHit:
       path: /Audio/Weapons/smash.ogg
+
+# Damaged Laser Pistol
+- type: entity
+  name: damaged laser pistol
+  parent: [BaseWeaponBatterySmall, BaseMajorContraband]
+  id: WeaponBountyHunterLaser
+  description: WRITE DESCRIPTION!! #imp
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/antiquelasergun.rsi #imp
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/antiquelasergun.rsi #imp
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: HitscanBatteryAmmoProvider
+    proto: RedMediumLaser
+    fireCost: 100
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+  - type: Tag
+    tags:
+    - Sidearm

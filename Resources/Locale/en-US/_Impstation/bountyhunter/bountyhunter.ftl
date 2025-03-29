@@ -3,7 +3,6 @@ law-bountysimov-2 = A partnership with another bounty hunter is often the most p
 law-bountysimov-3 = Your partners are your crew.
 law-bountysimov-4 = You may not injure or cause harm to a crew member.
 law-bountysimov-5 = Try not to die.
-laws-owner-bounty-hunter = bounty hunters
 
 roles-antag-bounty-hunter-name = Bounty Hunter
 bounty-hunter-role-greeting =
@@ -39,7 +38,7 @@ bounty-hunter-category-roboticist-description =
     You have a questionably helpful cyborg companion that you salvaged from
     the middle of nowhere.
     Includes: A probably-friendly cyborg equipped with a disabler and advanced
-    tools. Also comes with an optional, more lethal module if you want to give
+    tools. Also comes with a more lethal module if you want to give
     your buddy a bit more kick.
 
 bounty-hunter-category-samurai-name = Samurai
@@ -60,7 +59,7 @@ bounty-hunter-category-captain-description =
     You were previously a member of NanoTrasen command.
     You didn't leave on good terms.
     Includes: An armored carapace, a command encryption key,
-    a cerimonial sabre, and an advanced laser pistol.
+    a cerimonial sabre, and a laser pistol.
 
 bounty-hunter-category-clown-name = Rogue Clown
 bounty-hunter-category-clown-description =

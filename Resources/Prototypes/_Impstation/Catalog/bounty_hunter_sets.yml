@@ -63,8 +63,8 @@
   name: bounty-hunter-category-roboticist-name
   description: bounty-hunter-category-roboticist-description
   sprite:
-    sprite: Objects/Tools/emag.rsi
-    state: icon
+    sprite: Objects/Specific/Robotics/borgmodule.rsi
+    state: generic
   content:
   - ReinforcementRadioBountyHunterCyborg
   - BorgModuleSyndicateWeapon
@@ -109,7 +109,7 @@
     state: icon
   content:
   - ClothingOuterArmorCaptainCarapace
-  - WeaponAdvancedLaser
+  - WeaponBountyHunterLaser
   - ClothingBeltSheathFilled
   - EncryptionKeyCommand
   - ClothingUniformJumpsuitCaptain

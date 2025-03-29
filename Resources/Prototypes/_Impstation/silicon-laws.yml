@@ -35,7 +35,6 @@
   obeysTo: laws-owner-crew
 
 # reclaimed cyborg lawset
-# excluded from IonStormLawsets
 - type: siliconLaw
   id: Bountysimov1
   order: 1
@@ -69,4 +68,4 @@
   - Bountysimov3
   - Bountysimov4
   - Bountysimov5
-  obeysTo: laws-owner-bounty-hunter
+  obeysTo: laws-owner-crew
