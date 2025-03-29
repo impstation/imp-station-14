@@ -89,7 +89,7 @@
     state: nanotrasen
 
 - type: marking
-  id: UndershirtBinder
+  id: UndershirtBinderClassic
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
   speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
@@ -101,7 +101,7 @@
           color: "#FFFFFF"
   sprites:
   - sprite: _Impstation/Mobs/Customization/undergarments.yml
-    state: binder
+    state: binder_classic
 
 - type: marking
   id: UndershirtBraStrapless
@@ -224,7 +224,7 @@
           color: "#FFFFFF"
   sprites:
   - sprite: _Impstation/Mobs/Customization/undergarments.yml
-    state: binder_f
+    state: binder_classic_f
 
 - type: marking
   id: UndershirtBraSportsF
@@ -354,7 +354,7 @@
           color: "#FFFFFF"
   sprites:
   - sprite: _Impstation/Mobs/Customization/undergarments.yml
-    state: binder
+    state: binder_classic
 
 - type: marking
   id: UndershirtBraSportsA
@@ -489,7 +489,7 @@
           color: "#FFFFFF"
   sprites:
   - sprite: _Impstation/Mobs/Customization/undergarments.yml
-    state: binder
+    state: binder_classic
 
 - type: marking
   id: UndershirtBraSportsU
@@ -620,7 +620,7 @@
           color: "#FFFFFF"
   sprites:
   - sprite: _Impstation/Mobs/Customization/thaven/thaven_undershirt.rsi
-    state: binder
+    state: binder_classic
 
 - type: marking
   id: UndershirtBraSportsT
