@@ -163,13 +163,38 @@ marking-UnderwearTangaT = Tanga
 marking-UnderwearLowridersR-lowriders_reptilian = Underwear
 marking-UnderwearLowridersR = Lowriders
 
+
+
 marking-UnderwearTangaR-tanga_reptilian = Underwear
 marking-UnderwearTangaR = Tanga
-
-
 
 marking-UnderwearLowridersV-lowriders_vox = Underwear
 marking-UnderwearLowridersV = Lowriders
 
 marking-UnderwearTangaV-tanga_vox = Underwear
 marking-UnderwearTangaV = Tanga
+
+
+
+
+marking-UndergarmentTopTanktop-tanktop = Tanktop
+marking-UndergarmentTopBinder-binder = Binder
+marking-UndergarmentTopBra-classic = Bra
+marking-UndergarmentTopSportsbra-sportsz = Bra (Sports)
+
+marking-UndergarmentBottomBoxers-boxers = Underwear
+marking-UndergarmentBottomBriefs-briefs = Underwear
+marking-UndergarmentBottomSatin-satin = Underwear
+
+marking-UndergarmentTopTanktopVox-tanktop_vox = Tanktop
+marking-UndergarmentTopBinderVox-binder_vox = Binder
+marking-UndergarmentTopBraVox-classic_vox = Bra
+marking-UndergarmentTopSportsbraVox-sports_vox = Bra
+
+marking-UndergarmentBottomBoxersVox-boxers_vox = Underwear
+marking-UndergarmentBottomBriefsVox-briefs_vox = Underwear
+marking-UndergarmentBottomSatinVox-satin_vox = Underwear
+
+marking-UndergarmentBottomBoxersReptilian-boxers_reptilian = Underwear
+marking-UndergarmentBottomBriefsReptilian-briefs_reptilian = Underwear
+marking-UndergarmentBottomSatinReptilian-satin_reptilian = Underwear
