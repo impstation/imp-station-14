@@ -25,7 +25,7 @@ public sealed class VentCrittersRule : StationEventSystem<VentCrittersRuleCompon
         if (!TryGetRandomStation(out var station))
             return;
 
-        if (component.Announce)
+        if (component.Announce) //#IMP: added if statement
             _announcer.SendAnnouncement(
                 _announcer.GetAnnouncementId(args.RuleId),
                 Filter.Broadcast(),
