@@ -19,13 +19,15 @@
                                         <LineEdit Name="NameEdit" MinSize="270 0" VerticalAlignment="Center" Margin="5 0 0 0" />
                                         <Button Name="NameRandomize" Text="{Loc 'humanoid-profile-editor-name-random-button'}" />
                                     </BoxContainer>
+                                    <BoxContainer Orientation="Horizontal" VerticalExpand="True"> <!--IMP-->
                                     <!--imp edit: button to randomize appearance but not species-->
-                                    <Button Name="AppearanceRandomize" HorizontalAlignment="Center"
-                                            HorizontalExpand="False" MaxWidth="256"
-                                            Text="{Loc 'humanoid-profile-editor-appearance-random-button'}" />
-                                    <Button Name="RandomizeEverythingButton" HorizontalAlignment="Center"
-                                            HorizontalExpand="False" MaxWidth="256"
-                                            Text="{Loc 'humanoid-profile-editor-randomize-everything-button'}" />
+                                        <Button Name="AppearanceRandomize" HorizontalAlignment="Center"
+                                                HorizontalExpand="False" MaxWidth="256"
+                                                Text="{Loc 'humanoid-profile-editor-appearance-random-button'}" />
+                                        <Button Name="RandomizeEverythingButton" HorizontalAlignment="Center"
+                                                HorizontalExpand="False" MaxWidth="256"
+                                                Text="{Loc 'humanoid-profile-editor-randomize-everything-button'}" />
+                                    </BoxContainer>
                                     <RichTextLabel Name="WarningLabel" HorizontalExpand="False"
                                                    VerticalExpand="True" MaxWidth="425"
                                                    HorizontalAlignment="Left" />
