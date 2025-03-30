@@ -107,6 +107,13 @@ public sealed class DoAfterOverlay : Overlay
             {
                 // Hide some DoAfters from other players for stealthy actions (ie: thieving gloves)
                 var alpha = 1f;
+                if (doAfter.Args.HiddenFromUser) // imp. hides the doafter bar from *everyone*
+                {
+                    if (uid != localEnt)
+                        continue;
+                    // ideally we wouldn't draw the bar *at all* but that would require more lines being changed than I want to in this system.
+                    alpha = 0.0f;
+                } // end imp
                 if (doAfter.Args.Hidden || isInContainer)
                 {
                     if (uid != localEnt)
@@ -126,7 +133,8 @@ public sealed class DoAfterOverlay : Overlay
                     yOffset / scale + offset / EyeManager.PixelsPerMeter * scale);
 
                 // Draw the underlying bar texture
-                handle.DrawTexture(_barTexture, position);
+                if (!doAfter.Args.HiddenFromUser) // imp - don't, but only sometimes
+                    handle.DrawTexture(_barTexture, position);
 
                 Color color;
                 float elapsedRatio;

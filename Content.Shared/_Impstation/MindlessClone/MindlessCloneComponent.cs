@@ -18,15 +18,7 @@ public sealed partial class MindlessCloneSayDoAfterEvent : SimpleDoAfterEvent
 }
 
 [Serializable, NetSerializable]
-public sealed class MindlessCloneFakeTypingEvent : EntityEventArgs
+public sealed partial class MindlessCloneDelayDoAfterEvent : SimpleDoAfterEvent
 {
-    public readonly NetEntity User;
 
-    public readonly bool IsFakeTyping;
-
-    public MindlessCloneFakeTypingEvent(NetEntity user, bool isFakeTyping)
-    {
-        User = user;
-        IsFakeTyping = isFakeTyping;
-    }
 }

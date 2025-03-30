@@ -1,16 +1,17 @@
-- type: dataset
+- type: localizedDataset
   id: MindlessCloneConfusion
   values:
-  - Wait a second...
-  - That looks just like me!
-  - Huh?
-  - That's weird.
-  - That's odd.
-  - I feel strange...
-  - I don't feel anything.
-  - What happened?
-  - Uh?
-  - Why am I naked?
-  - Hey, that looks like me.
-  - Did it activate?
-  - Did it work?
+    prefix: mindlessclone-confusion-
+    count: 13
+
+- type: localizedDataset
+  id: MindlessCloneHostile
+  values:
+    prefix: mindlessclone-hostile-
+    count: 7
+
+- type: localizedDataset
+  id: MindlessCloneSinister
+  values:
+    prefix: mindlessclone-sinister-
+    count: 6

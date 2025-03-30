@@ -40,8 +40,9 @@ public sealed class ParrotSpeechSystem : EntitySystem
                 // This parrot has not learned any phrases, so can't say anything interesting.
                 continue;
 
-            if (component.RequiresMind && TryComp<MindContainerComponent>(uid, out var mind) && mind.HasMind) // imp edit - some things do, some things don't
-                continue;
+            if (component.RequiresMind && // imp 
+            !TryComp<MindContainerComponent>(uid, out var mind) | mind != null && !mind!.HasMind)
+                continue; // end imp
 
             if (_timing.CurTime < component.NextUtterance)
                 continue;
@@ -58,7 +59,8 @@ public sealed class ParrotSpeechSystem : EntitySystem
                         BlockDuplicate = true,
                         BreakOnDamage = false,
                         BreakOnMove = false,
-                        Hidden = true
+                        RequireCanInteract = false,
+                        HiddenFromUser = true
                     });
                     _appearance.SetData(uid, TypingIndicatorVisuals.IsTyping, true);
                 }

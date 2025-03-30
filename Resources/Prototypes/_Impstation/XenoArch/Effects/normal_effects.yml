@@ -553,3 +553,17 @@
     - id: PortalSupermatter
     - id: SupermatterNoAnnouncementSpawner
     - id: AdminInstantEffectGravityWell
+
+- type: artifactEffect
+  id: EffectMindlessClone
+  targetDepth: 4
+  effectHint: artifact-effect-hint-creation
+  components:
+  - type: SpawnArtifact
+    spawns:
+    - id: MobMindlessClone # ~2 in 3, passive
+      prob: 0.61
+    - id: MobMindlessCloneHostile # ~1 in 3, hostile
+      prob: 0.30
+    - id: MobMindlessCloneMindswapHostile # ~1 in 20, mindswap + hostile
+      prob: 0.05

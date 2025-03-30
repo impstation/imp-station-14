@@ -3,16 +3,20 @@
   parent: MobHuman
   name: mindless clone
   suffix: No AI
+  categories: [ DoNotMap ]
   components:
   - type: MindlessClone
   - type: MindContainer
-    showExamineInfo: false
+    showExamineInfo: false # have to make sure they're not all catatonic
+  - type: Bloodstream
+    bloodReagent: SynthFlesh # fun little easter egg for if someone manages to spawn a blank urist MindlessClone
 
 - type: entity
   id: MobMindlessClone
   parent: BaseMindlessClone
   name: mindless clone
   suffix: Passive 
+  categories: [ DoNotMap ]
   components:
   - type: MindlessClone
     speakOnSpawn: true
@@ -21,12 +25,16 @@
   - type: ParrotSpeech
     maximumPhraseLength: 1000 # will repeat anything, even long sentences.
     minimumWait: 10
-    maximumWait: 300 # between 10 seconds and 5 minutes.
+    maximumWait: 120 # between 10 seconds and 2 minutes.
     learnChance: 1 # will repeat *anything* it hears.
     hideMessagesInChat: false
+    requiresMind: false
+    blacklist:
+      components:
+      - ParrotSpeech # if you get a bunch of these guys, you don't want them copying each other infinitely.
   - type: HTN
     rootTask:
-      task: KisserTomatoCompound
+      task: MindlessClonePassiveCompound
   - type: NPCImprintingOnSpawnBehaviour
     spawnFriendsSearchRadius: 5
     whitelist:
@@ -38,20 +46,26 @@
   parent: BaseMindlessClone
   name: mindless clone
   suffix: Hostile 
+  categories: [ DoNotMap ]
   components:
   - type: MindlessClone
     speakOnSpawn: true
+    phrasesToPick: MindlessCloneHostile
   - type: ActiveListener
     range: 6
   - type: ParrotSpeech
     maximumPhraseLength: 1000 # will repeat anything, even long sentences.
     minimumWait: 10
-    maximumWait: 300 # between 10 seconds and 5 minutes.
+    maximumWait: 120 # between 10 seconds and 2 minutes.
     learnChance: 1 # will repeat *anything* it hears.
     hideMessagesInChat: false
+    requiresMind: false
+    blacklist:
+      components:
+      - ParrotSpeech # if you get a bunch of these guys, you don't want them copying each other infinitely.
   - type: HTN
     rootTask:
-      task: SimpleHostileCompound
+      task: MindlessCloneHostileCompound
   - type: NpcFactionMember
     factions:
       - SimpleHostile
@@ -61,29 +75,100 @@
   parent: BaseMindlessClone
   name: mindless clone
   suffix: Mind-swap
+  categories: [ DoNotMap ]
   components: 
   - type: MindlessClone
     speakOnSpawn: true
+    phrasesToPick: MindlessCloneSinister
     mindSwap: true
+    componentsToSwap:
+    - ActiveListener
+    - ParrotSpeech
+    - HTN
+    - NpcFactionMember
+    - MindContainer
   - type: ActiveListener
     range: 6
   - type: ParrotSpeech
     maximumPhraseLength: 1000 # will repeat anything, even long sentences.
     minimumWait: 10
-    maximumWait: 300 # between 10 seconds and 5 minutes.
+    maximumWait: 120 # between 10 seconds and 2 minutes.
     learnChance: 1 # will repeat *anything* it hears.
     hideMessagesInChat: false
+    requiresMind: false
+    blacklist:
+      components:
+      - ParrotSpeech # if you get a bunch of these guys, you don't want them copying each other infinitely.
   - type: HTN
     rootTask:
-      task: MindlessCloneHostileCompound
+      task: MindlessCloneHostileMindswapCompound
   - type: NpcFactionMember
     factions:
       - SimpleHostile
+
+# Spawner stuff
+
+# this spawner isn't actually used for anything in game, it's just a fun little toy for admins to initiate chaos with
+- type: entity
+  parent: MarkerBase
+  id: RandomMindlessCloneSpawner
+  name: random mindless clone spawner
+  suffix: DO NOT MAP
+  categories: [ DoNotMap ]
+  placement:
+    mode: PlaceFree
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomMindlessCloneTable
+
+- type: entityTable
+  id: RandomMindlessCloneTable
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 61 # ~2 in 3 chance for a passive clone
+      children:
+      - id: MobMindlessClone
+    - !type:GroupSelector
+      weight: 30 # ~1 in 3 chance for a hostile clone
+      children:
+      - id: MobMindlessCloneHostile
+    - !type:GroupSelector
+      weight: 5 # ~1 in 20 chance for a mindswap clone
+      children:
+      - id: MobMindlessCloneMindswapHostile
 
 # HTN compounds (for AI)
 
 - type: htnCompound
   id: MindlessCloneHostileCompound
+  branches:
+    - preconditions:
+      - !type:KeyNotExistsPrecondition
+        key: Handled
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:SetFloatOperator
+            targetKey: IdleTime
+            amount: 21
+
+        - !type:HTNCompoundTask
+          task: IdleCompound
+        
+        - !type:HTNPrimitiveTask
+          operator: !type:SetBoolOperator
+            targetKey: Handled
+            value: true
+    - tasks: 
+        - !type:HTNCompoundTask
+          task: SimpleHostileCompound
+
+- type: htnCompound
+  id: MindlessCloneHostileMindswapCompound # same as the other hostile one, but shorter cooldown.
   branches:
     - preconditions:
       - !type:KeyNotExistsPrecondition
@@ -105,3 +190,36 @@
         - !type:HTNCompoundTask
           task: SimpleHostileCompound
 
+- type: htnCompound
+  id: MindlessClonePassiveCompound
+  branches:
+    - preconditions:
+      - !type:KeyNotExistsPrecondition
+        key: Handled
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:SetFloatOperator
+            targetKey: IdleTime
+            amount: 21
+
+        - !type:HTNCompoundTask
+          task: IdleCompound
+        
+        - !type:HTNPrimitiveTask
+          operator: !type:SetBoolOperator
+            targetKey: Handled
+            value: true
+    - tasks: 
+        - !type:HTNCompoundTask
+          task: KisserTomatoCompound # idle, but they pick someone to follow around
+
+# CloningSettings
+
+- type: cloningSettings
+  id: MindlessClone
+  parent: CloningPod
+  forceCloning: true
+  components:
+  - Vocal
+  - Speech
+  - TypingIndicator

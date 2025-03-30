@@ -46,6 +46,13 @@ public sealed partial class DoAfterArgs
     [DataField]
     public bool Hidden;
 
+    /// <summary>
+    /// Imp. Hides the DoAfterBar from *everyone*, including the user.
+    /// Used in ParrotSpeech system and MindlessClone system for the fake typing indicators.
+    /// </summary>
+    [DataField]
+    public bool HiddenFromUser;
+
     #region Event options
     /// <summary>
     ///     The event that will get raised when the DoAfter has finished. If null, this will simply raise a <see cref="SimpleDoAfterEvent"/>
@@ -248,6 +255,7 @@ public sealed partial class DoAfterArgs
         Target = other.Target;
         Used = other.Used;
         Hidden = other.Hidden;
+        HiddenFromUser = other.HiddenFromUser; // imp
         EventTarget = other.EventTarget;
         Broadcast = other.Broadcast;
         NeedHand = other.NeedHand;
