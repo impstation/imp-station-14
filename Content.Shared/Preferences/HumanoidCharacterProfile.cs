@@ -82,10 +82,10 @@ namespace Content.Shared.Preferences
         public int Age { get; set; } = 18;
 
         [DataField]
-        public Sex Sex { get; private set; } = Sex.Male;
+        public Sex Sex { get; set; } = Sex.Male; //IMP public set
 
         [DataField]
-        public Gender Gender { get; private set; } = Gender.Male;
+        public Gender Gender { get; set; } = Gender.Male; //IMP public set
 
         /// <summary>
         /// <see cref="Appearance"/>
@@ -262,6 +262,16 @@ namespace Content.Shared.Preferences
                 Appearance = HumanoidCharacterAppearance.Random(species, sex),
             };
         }
+
+        //IMP EDIT START
+        public static HumanoidCharacterProfile RandomAppearance(string appearance)
+        {
+            return new HumanoidCharacterProfile()
+            {
+
+            };
+        }
+        //IMP EDIT END
 
         public HumanoidCharacterProfile WithName(string name)
         {
