@@ -107,6 +107,7 @@
   - type: StationEvent
     earliestStart: 20
     minimumPlayers: 4
+    reoccurrenceDelay: 10
     weight: 3
     duration: 60
   - type: VentCrittersRule
