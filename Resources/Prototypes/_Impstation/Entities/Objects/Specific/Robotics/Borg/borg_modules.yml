@@ -133,3 +133,22 @@
     - RadioHandheld
   - type: BorgModuleIcon
     icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: basic-mining-module }
+
+- type: entity
+  id: BorgModuleCargoTools
+  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  name: cargo tools cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: cargo
+    - state: icon-appraisal
+  - type: ItemBorgModule
+    items:
+    - AppraisalTool
+    - Crowbar
+    - Wrench
+    - Screwdriver
+    - Shiv
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: appraisal-module }
