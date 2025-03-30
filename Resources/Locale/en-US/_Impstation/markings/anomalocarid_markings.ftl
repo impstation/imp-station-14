@@ -47,6 +47,10 @@ marking-AnomalocaridArmTatHeartLeft-tat_heart_l = Tattoo
 marking-AnomalocaridArmTatHeartRight = Heart Tattoo (Right)
 marking-AnomalocaridArmTatHeartRight-tat_heart_r = Stripes
 
+marking-AnomalocaridNecklace1 = Coral Necklace
+marking-AnomalocaridNecklace1-necklace1_primary = Necklace Band
+marking-AnomalocaridNecklace1-necklace1_secondary = Necklace Secondary
+
 marking-AnomalocaridWingsDefault = Wings
 marking-AnomalocaridWingsDefault-wings1 = Wings
 
@@ -58,10 +62,11 @@ marking-AnomalocaridGlassEyeLeft-glasseye_l = Glass Eye
 marking-AnomalocaridGlassEyeRight = Glass Eye (Right)
 marking-AnomalocaridGlassEyeLeft-glasseye_r = Glass Eye
 marking-AnomalocaridEyeThird = Third Eye
-marking-AnomalocaridEyeThird-thirdeye = Third Eye
-marking-AnomalocaridNecklace1 = Coral Necklace
-marking-AnomalocaridNecklace1-necklace1_primary = Necklace Band
-marking-AnomalocaridNecklace1-necklace1_secondary = Necklace Secondary
+marking-AnomalocaridEyeThird-thirdeye_primary = Eye
+marking-AnomalocaridEyeThird-thirdeye_secondary = Shine
+marking-AnomalocaridEyeOpabinia = Opabinian Eyes
+marking-AnomalocaridEyeOpabinia-opabinia_primary = Eyes
+marking-AnomalocaridEyeOpabinia-opabinia_secondary = Shine
 
 marking-AnomalocaridEyeshine = Eyeshine
 marking-AnomalocaridEyeshine-eyeshine = Eyeshine

@@ -90,6 +90,17 @@ names-anomalocarid-first-dataset-89 = Beacon
 names-anomalocarid-first-dataset-90 = Bullseye
 names-anomalocarid-first-dataset-91 = Windrammer
 names-anomalocarid-first-dataset-92 = Capstan
+names-anomalocarid-first-dataset-93 = Archipelago
+names-anomalocarid-first-dataset-94 = Riptide
+names-anomalocarid-first-dataset-95 = Ballast
+names-anomalocarid-first-dataset-96 = Crest
+names-anomalocarid-first-dataset-97 = Spume
+names-anomalocarid-first-dataset-98 = Benthic
+names-anomalocarid-first-dataset-99 = Leagues
+names-anomalocarid-first-dataset-100 = Knots
+names-anomalocarid-first-dataset-101 = Octant
+names-anomalocarid-first-dataset-102 = Westerly
+names-anomalocarid-first-dataset-103 = Easterly
 
 names-anomalocarid-last-dataset-1 = Klkblblbl
 names-anomalocarid-last-dataset-2 = Glgbl

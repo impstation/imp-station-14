@@ -7,7 +7,7 @@
   defaultSkinTone: "#e5e5e5"
   markingLimits: MobAnomalocaridMarkingLimits
   dollPrototype: MobAnomalocaridDummy
-  skinColoration: TintedHues
+  skinColoration: Hues
   maleFirstNames: NamesAnomalocaridFirst
   femaleFirstNames: NamesAnomalocaridFirst
   lastNames: NamesAnomalocaridLast
@@ -55,9 +55,9 @@
       points: 1
       required: false
     Tail:
-      points: 2
+      points: 1
       required: true
-      defaultMarkings: [ AnomalocaridWingsDefault, AnomalocaridTailDefault ]
+      defaultMarkings: [ AnomalocaridWingsDefault ]
     UndergarmentTop:
       points: 1
       required: false

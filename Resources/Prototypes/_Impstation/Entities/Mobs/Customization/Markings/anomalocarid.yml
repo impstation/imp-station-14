@@ -255,6 +255,26 @@
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
     state: antennae11
 
+#Chest
+
+- type: marking
+  id: AnomalocaridNecklace1
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Anomalocarid ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#ff7f50"
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: necklace1_primary
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: necklace1_secondary
+
 #Arms
 
 - type: marking
@@ -373,21 +393,21 @@
 
 
 #Tails
-- type: marking
-  id: AnomalocaridTailDefault
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
-    state: tail1
+#- type: marking
+#  id: AnomalocaridTailDefault
+#  bodyPart: Tail
+#  markingCategory: Tail
+#  speciesRestriction: [ Anomalocarid ]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+#    state: tail1
 
 
 #Extra/Glass Eyes
 - type: marking
   id: AnomalocaridGlassEyeLeft
-  bodyPart: LFoot
+  bodyPart: LFoot #overlay so that it shows up over the eyeshine, LFoot cause i don't think i'm gonna use that slot.
   markingCategory: Overlay
   speciesRestriction: [ Anomalocarid ]
   coloring:
@@ -420,7 +440,7 @@
   bodyPart: LFoot
   markingCategory: Overlay
   speciesRestriction: [ Anomalocarid ]
-  forcedColoring: true
+  forcedColoring: false
   coloring:
     default:
       type:
@@ -429,10 +449,12 @@
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
-    state: thirdeye
+    state: thirdeye_primary
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: thirdeye_secondary
 
 - type: marking
-  id: AnomalocaridNecklace1
+  id: AnomalocaridEyeOpabinia
   bodyPart: LFoot
   markingCategory: Overlay
   speciesRestriction: [ Anomalocarid ]
@@ -441,13 +463,14 @@
     default:
       type:
         !type:SimpleColoring
-          color: "#ff7f50"
+          color: "#FFFFFF"
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
-    state: necklace1_primary
+    state: opabinia_primary
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
-    state: necklace1_secondary
+    state: opabinia_secondary
+
 
 #Misc
 - type: marking
