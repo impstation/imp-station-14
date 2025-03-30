@@ -557,6 +557,7 @@
 - type: artifactEffect
   id: EffectMindlessClone
   targetDepth: 4
+  effectProb: 0.5 # we can change this later
   effectHint: artifact-effect-hint-creation
   components:
   - type: SpawnArtifact
