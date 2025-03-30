@@ -263,16 +263,6 @@ namespace Content.Shared.Preferences
             };
         }
 
-        //IMP EDIT START
-        public static HumanoidCharacterProfile RandomAppearance(string appearance)
-        {
-            return new HumanoidCharacterProfile()
-            {
-
-            };
-        }
-        //IMP EDIT END
-
         public HumanoidCharacterProfile WithName(string name)
         {
             return new(this) { Name = name };
