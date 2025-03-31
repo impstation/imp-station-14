@@ -12,6 +12,7 @@ public sealed partial class EldritchItemSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doafter = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly HereticSystem _heretic = default!;
+    private ISawmill _sawmill = default!;
 
     public override void Initialize()
     {
@@ -21,33 +22,30 @@ public sealed partial class EldritchItemSystem : EntitySystem
         SubscribeLocalEvent<EldritchItemComponent, ExaminedEvent>(OnExamined);
     }
 
-    public bool UseEldritchItem(Entity<EldritchItemComponent> item, Entity<HereticComponent> user)
-    {
-        if (item.Comp.Spent)
-            return false;
-
-        var doAfter = new EldritchItemDoAfterEvent();
-        var dargs = new DoAfterArgs(EntityManager, user, 10f, doAfter, item, item);
-        _popup.PopupEntity(Loc.GetString("heretic-item-start"), item, user);
-        return _doafter.TryStartDoAfter(dargs);
-    }
-
     private void OnUseInHand(Entity<EldritchItemComponent> ent, ref UseInHandEvent args)
     {
-        if (args.Handled
-        || !TryComp<HereticComponent>(args.User, out var heretic))
+        //_sawmill.Debug("in OnUseinHand");
+        if (args.Handled || !TryComp<HereticComponent>(args.User, out var heretic))
             return;
 
-        args.Handled = UseEldritchItem(ent, (args.User, heretic));
+        var user = args.User;
+        if (ent.Comp.Spent)
+            return;
+
+        var dargs = new DoAfterArgs(EntityManager, args.User, 10f, new EldritchItemDoAfterEvent(), ent, used: ent);
+        _popup.PopupEntity(Loc.GetString("heretic-item-start"), ent, user);
+        _doafter.TryStartDoAfter(dargs);
+        args.Handled = true;
     }
     private void OnDoAfter(Entity<EldritchItemComponent> ent, ref EldritchItemDoAfterEvent args)
     {
+        //_sawmill.Debug("in OnDoAfter");
         if (args.Cancelled
         || args.Target == null
-        || !TryComp<HereticComponent>(args.User, out var heretic))
+        || !TryComp<HereticComponent>(args.Args.User, out var heretic))
             return;
 
-        _heretic.UpdateKnowledge(args.User, heretic, 1);
+        _heretic.UpdateKnowledge(args.Args.User, heretic, 1);
 
         ent.Comp.Spent = true;
     }
