@@ -23,7 +23,7 @@
     whitelist:
       components:
       - CardDeck
-  - type: OpenTriggeredStorageFill
+  - type: StorageFill
     contents:
     - id: CardDeckBase
       amount: 1
@@ -31,7 +31,6 @@
 
 - type: entity
   parent: BaseItem
-  abstract: true
   id: CardHandBase
   categories: [ HideSpawnMenu ]
   name: hand of cards
@@ -86,7 +85,7 @@
     - state: black_box_open
       map: [ "openLayer" ]
       visible: false
-  - type: OpenTriggeredStorageFill
+  - type: StorageFill
     contents:
     - id: CardDeckBlack
       amount: 1
@@ -788,7 +787,7 @@
     - state: nanotrasen_box_open
       map: [ "openLayer" ]
       visible: false
-  - type: OpenTriggeredStorageFill
+  - type: StorageFill
     contents:
     - id: CardDeckNanotrasen
       amount: 1
@@ -1489,7 +1488,7 @@
     - state: syndicate_box_open
       map: [ "openLayer" ]
       visible: false
-  - type: OpenTriggeredStorageFill
+  - type: StorageFill
     contents:
     - id: CardDeckSyndicate
       amount: 1
