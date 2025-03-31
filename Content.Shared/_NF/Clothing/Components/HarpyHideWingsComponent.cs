@@ -5,7 +5,4 @@ namespace Content.Shared._NF.Clothing.Components;
 /// To be used with Kodepiia
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class HarpyHideWingsComponent : Component
-{
-
-}
+public sealed partial class HarpyHideWingsComponent : Component;
