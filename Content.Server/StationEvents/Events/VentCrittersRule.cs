@@ -32,6 +32,7 @@ public sealed class VentCrittersRule : StationEventSystem<VentCrittersRuleCompon
             null,
             Color.Gold
         );
+    }
 
     protected override void Started(EntityUid uid, VentCrittersRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
