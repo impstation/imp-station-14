@@ -19,6 +19,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Components;
 using Content.Shared.Popups;
 using Content.Shared.Preferences;
+using Content.Shared.Speech.Components;
 using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
@@ -43,11 +44,11 @@ public sealed class MindlessCloneSystem : SharedMindlessCloneSystem
 {
     // interfaces and managers
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IReplayRecordingManager _replay = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ISerializationManager _serManager = default!;
     [Dependency] private readonly IServerPreferencesManager _prefs = default!;
 
@@ -178,6 +179,10 @@ public sealed class MindlessCloneSystem : SharedMindlessCloneSystem
         else
         {
             stunTime = ent.Comp.MindSwapStunTime;
+
+            // make sure that the spawned clone isn't always facing north. they face the person they're a clone of, instead
+            _rotateToFaceSystem.TryFaceCoordinates(ent, _transformSystem.ToMapCoordinates(Transform(ent.Comp.IsCloneOf).Coordinates).Position);
+
             _stun.TryParalyze(ent, stunTime, true);
         }
 
@@ -272,6 +277,9 @@ public sealed class MindlessCloneSystem : SharedMindlessCloneSystem
         if (TryComp<NpcFactionMemberComponent>(original, out var npcFactionComp))
             componentsToCopy.Remove("NpcFactionMember"); // we wanna make sure that we're not putting you and your evil clone on the same side.
 
+        if (TryComp<VocalComponent>(original, out var vocalComp))
+            vocalComp.ScreamActionEntity = null; // if i don't do this, VocalComponent errors upon being added to the clone, because CopyComp doesn't like attaching action entities.
+
         foreach (var componentName in componentsToCopy)
         {
             if (!_componentFactory.TryGetRegistration(componentName, out var componentRegistration))
@@ -282,9 +290,11 @@ public sealed class MindlessCloneSystem : SharedMindlessCloneSystem
 
             if (_entityManager.TryGetComponent(original, componentRegistration.Type, out var sourceComp))
             {
+                TryComp(clone, out MetaDataComponent? cloneMeta);
+
                 if (HasComp(clone, componentRegistration.Type))
                     RemComp(clone, componentRegistration.Type);
-                CopyComp(original, clone, sourceComp);
+                CopyComp(original, clone, sourceComp, cloneMeta);
             }
         }
 
@@ -331,15 +341,6 @@ public sealed class MindlessCloneSystem : SharedMindlessCloneSystem
 
     private void OnDelayComplete(Entity<MindlessCloneComponent> ent, ref MindlessCloneDelayDoAfterEvent args)
     {
-        // doing this here for stack reasons. if i try to do it OnMapInit, BloodstreamComponent hasn't had a chance to make the solutions yet.
-        // this makes for the slightly funny side-effect that clones will bleed SynthFlesh while stunned, but once the stun is up, they'll bleed whatever their target bleeds.
-        // fun little bit of worldbuilding there, if you think about it. 
-        if (TryComp<BloodstreamComponent>(ent.Comp.IsCloneOf, out var originalBloodComp) && originalBloodComp != null
-        && TryComp<BloodstreamComponent>(ent, out var cloneBloodComp))
-        {
-            _bloodstream.ChangeBloodReagent(ent, originalBloodComp.BloodReagent, cloneBloodComp);
-        }
-
         // if we're supposed to speak on spawn, try to speak on spawn. as long as you're not crit or dead
         if (ent.Comp.SpeakOnSpawn && !_mobState.IsIncapacitated(ent))
         {
@@ -434,7 +435,7 @@ public sealed class MindlessCloneSystem : SharedMindlessCloneSystem
             Dirty(arrow, pointing);
         }
 
-        var layer = (int) VisibilityFlags.Normal;
+        var layer = (int)VisibilityFlags.Normal;
         if (TryComp(pointer, out VisibilityComponent? playerVisibility))
         {
             var arrowVisibility = EntityManager.EnsureComponent<VisibilityComponent>(arrow);
@@ -488,7 +489,7 @@ public sealed class MindlessCloneSystem : SharedMindlessCloneSystem
 
         foreach (var viewer in viewers)
         {
-            if (viewer.AttachedEntity is not {Valid: true} viewerEntity)
+            if (viewer.AttachedEntity is not { Valid: true } viewerEntity)
             {
                 continue;
             }
