@@ -4,7 +4,7 @@
   bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [ Anomalocarid ]
-  forcedColoring: true
+  forcedColoring: false
   coloring:
     default:
       type:
@@ -19,7 +19,7 @@
   bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [ Anomalocarid ]
-  forcedColoring: true
+  forcedColoring: false
   coloring:
     default:
       type:
@@ -34,7 +34,7 @@
   bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [ Anomalocarid ]
-  forcedColoring: true
+  forcedColoring: false
   coloring:
     default:
       type:
@@ -49,7 +49,7 @@
   bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [ Anomalocarid ]
-  forcedColoring: true
+  forcedColoring: false
   coloring:
     default:
       type:
@@ -64,7 +64,7 @@
   bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [ Anomalocarid ]
-  forcedColoring: true
+  forcedColoring: false
   coloring:
     default:
       type:
@@ -73,6 +73,7 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
     state: grabbers5
+
 
 #Antennae
 - type: marking
@@ -85,8 +86,7 @@
   coloring:
     default:
       type:
-        !type:SimpleColoring
-          color: "#ff627c"
+        !type:EyeColoring
   sprites:
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
     state: antennae1
@@ -117,11 +117,12 @@
   coloring:
     default:
       type:
-        !type:SimpleColoring
-          color: "#ff627c"
+        !type:EyeColoring
   sprites:
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
-    state: antennae3
+    state: antennae3_primary
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: antennae3_secondary
 
 - type: marking
   id: AnomalocaridAntennae4
@@ -133,11 +134,12 @@
   coloring:
     default:
       type:
-        !type:SimpleColoring
-          color: "#ff627c"
+        !type:EyeColoring
   sprites:
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
-    state: antennae4
+    state: antennae4_primary
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: antennae4_secondary
 
 - type: marking
   id: AnomalocaridAntennae5
@@ -149,8 +151,7 @@
   coloring:
     default:
       type:
-        !type:SimpleColoring
-          color: "#ff627c"
+        !type:EyeColoring
   sprites:
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
     state: antennae5_primary
@@ -167,11 +168,12 @@
   coloring:
     default:
       type:
-        !type:SimpleColoring
-          color: "#ff627c"
+        !type:EyeColoring
   sprites:
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
-    state: antennae6
+    state: antennae6_primary
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: antennae6_secondary
 
 - type: marking
   id: AnomalocaridAntennae7
@@ -183,11 +185,12 @@
   coloring:
     default:
       type:
-        !type:SimpleColoring
-          color: "#ff627c"
+        !type:EyeColoring
   sprites:
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
-    state: antennae7
+    state: antennae7_primary
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: antennae7_secondary
 
 - type: marking
   id: AnomalocaridAntennae8
@@ -199,8 +202,7 @@
   coloring:
     default:
       type:
-        !type:SimpleColoring
-          color: "#ff627c"
+        !type:EyeColoring
   sprites:
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
     state: antennae8_primary
@@ -217,8 +219,7 @@
   coloring:
     default:
       type:
-        !type:SimpleColoring
-          color: "#ff627c"
+        !type:EyeColoring
   sprites:
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
     state: antennae9
@@ -233,8 +234,7 @@
   coloring:
     default:
       type:
-        !type:SimpleColoring
-          color: "#ff627c"
+        !type:EyeColoring
   sprites:
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
     state: antennae10
@@ -255,25 +255,41 @@
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
     state: antennae11
 
+
 #Chest
 
 - type: marking
-  id: AnomalocaridNecklace1
+  id: AnomalocaridChestTatAnchor
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Anomalocarid ]
+  followSkinColor: false
   forcedColoring: false
   coloring:
     default:
       type:
         !type:SimpleColoring
-          color: "#ff7f50"
-  followSkinColor: false
+          color: "#0b0a42"
   sprites:
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
-    state: necklace1_primary
+    state: tat_anchor
+
+- type: marking
+  id: AnomalocaridChestAlgae
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Anomalocarid ]
+  followSkinColor: false
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#3fb53c"
+  sprites:
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
-    state: necklace1_secondary
+    state: algae
+
 
 #Arms
 
@@ -287,11 +303,12 @@
   coloring:
     default:
       type:
-        !type:SimpleColoring
-          color: "#ff627c"
+        !type:EyeColoring
   sprites:
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
-    state: armstripes_thin_right
+    state: armstripes_thin_right_primary
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: armstripes_thin_right_secondary
 
 - type: marking
   id: AnomalocaridArmStripesThinLeft
@@ -303,11 +320,12 @@
   coloring:
     default:
       type:
-        !type:SimpleColoring
-          color: "#ff627c"
+        !type:EyeColoring
   sprites:
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
-    state: armstripes_thin_left
+    state: armstripes_thin_left_primary
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: armstripes_thin_left_secondary
 
 - type: marking
   id: AnomalocaridArmStripesThickLeft
@@ -319,11 +337,12 @@
   coloring:
     default:
       type:
-        !type:SimpleColoring
-          color: "#ff627c"
+        !type:EyeColoring
   sprites:
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
-    state: armstripes_thick_left
+    state: armstripes_thick_left_primary
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: armstripes_thick_left_secondary
 
 - type: marking
   id: AnomalocaridArmStripesThickRight
@@ -335,11 +354,12 @@
   coloring:
     default:
       type:
-        !type:SimpleColoring
-          color: "#ff627c"
+        !type:EyeColoring
   sprites:
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
-    state: armstripes_thick_right
+    state: armstripes_thick_right_primary
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: armstripes_thick_right_secondary
 
 - type: marking
   id: AnomalocaridArmTatHeartLeft
@@ -374,6 +394,42 @@
     state: tat_heart_r
 
 
+#Legs
+- type: marking
+  id: AnomalocaridLegStripesLeft
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [ Anomalocarid ]
+  followSkinColor: false
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: legstripes_left_primary
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: legstripes_left_secondary
+
+- type: marking
+  id: AnomalocaridLegStripesRight
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [ Anomalocarid ]
+  followSkinColor: false
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: legstripes_right_primary
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: legstripes_right_secondary
+
+
 #Wings
 - type: marking
   id: AnomalocaridWingsDefault
@@ -385,8 +441,7 @@
   coloring:
     default:
       type:
-        !type:SimpleColoring
-          color: "#ff627c"
+        !type:EyeColoring
   sprites:
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
     state: wings1
@@ -404,7 +459,7 @@
 #    state: tail1
 
 
-#Extra/Glass Eyes
+#Extra
 - type: marking
   id: AnomalocaridGlassEyeLeft
   bodyPart: LFoot #overlay so that it shows up over the eyeshine, LFoot cause i don't think i'm gonna use that slot.
@@ -444,8 +499,7 @@
   coloring:
     default:
       type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
+        !type:EyeColoring
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
@@ -462,14 +516,31 @@
   coloring:
     default:
       type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
+        !type:EyeColoring
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
     state: opabinia_primary
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
     state: opabinia_secondary
+
+- type: marking
+  id: AnomalocaridNecklace1
+  bodyPart: LFoot
+  markingCategory: Overlay
+  speciesRestriction: [ Anomalocarid ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#ff7f50"
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: necklace1_primary
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: necklace1_secondary
 
 
 #Misc
@@ -505,7 +576,82 @@
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anom_underwear.rsi
     state: boxers
 
+- type: marking
+  id: AnomalocaridUnderwearBriefs
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [ Anomalocarid ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anom_underwear.rsi
+    state: briefs
+
+- type: marking
+  id: AnomalocaridUnderwearSatin
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [ Anomalocarid ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anom_underwear.rsi
+    state: satin
+
 #Undershirts
+- type: marking
+  id: AnomalocaridUndershirtBinder
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [ Anomalocarid ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anom_underwear.rsi
+    state: binder
+
+- type: marking
+  id: AnomalocaridUndershirtClassic
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [ Anomalocarid ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anom_underwear.rsi
+    state: classic
+
+- type: marking
+  id: AnomalocaridUndershirtSports
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [ Anomalocarid ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anom_underwear.rsi
+    state: sports
+
 - type: marking
   id: AnomalocaridUndershirtStrapless
   bodyPart: UndergarmentTop
@@ -520,3 +666,18 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anom_underwear.rsi
     state: strapless
+
+- type: marking
+  id: AnomalocaridUndershirtTanktop
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [ Anomalocarid ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anom_underwear.rsi
+    state: tanktop
