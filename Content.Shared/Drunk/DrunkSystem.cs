@@ -22,8 +22,8 @@ public abstract class SharedDrunkSystem : EntitySystem
             boozePower *= trait.BoozeStrengthMultiplier;
 
         // imp edit
-        if (TryComp<HeavyweightDrunkComponent>(uid, out var trait2))             
-            boozePower *= trait2.BoozeStrengthMultiplier;
+        if (TryComp<HeavyweightDrunkComponent>(uid, out var traitHW))             
+            boozePower *= traitHW.BoozeStrengthMultiplier;
 
         if (applySlur)
         {
