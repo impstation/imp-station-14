@@ -23,7 +23,7 @@ namespace Content.Server.Speech.Muting
 
         private void OnEmote(EntityUid uid, MutedComponent component, ref EmoteEvent args)
         {
-            if (args.Handled)
+            if (args.Handled || !component.MutedEmotes)
                 return;
 
             //still leaves the text so it looks like they are pantomiming a laugh
@@ -33,7 +33,7 @@ namespace Content.Server.Speech.Muting
 
         private void OnScreamAction(EntityUid uid, MutedComponent component, ScreamActionEvent args)
         {
-            if (args.Handled)
+            if (args.Handled || !component.MutedScream)
                 return;
 
             if (HasComp<MimePowersComponent>(uid))
@@ -47,6 +47,9 @@ namespace Content.Server.Speech.Muting
 
         private void OnSpeakAttempt(EntityUid uid, MutedComponent component, SpeakAttemptEvent args)
         {
+            if (!component.MutedSpeech)
+                return;
+
             // TODO something better than this.
 
             if (HasComp<MimePowersComponent>(uid))
