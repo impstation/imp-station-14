@@ -31,7 +31,7 @@
     transferDamage: true
     revertOnCrit: false
     revertOnDeath: true
-    duration: 180
+    duration: 180 # imp change
     polymorphSound: !type:SoundPathSpecifier
       path: /Audio/Magic/forcewall.ogg
     exitPolymorphSound: !type:SoundPathSpecifier
@@ -62,7 +62,7 @@
     transferDamage: true
     revertOnCrit: true
     revertOnDeath: true
-    duration: 180
+    duration: 180 # imp change
     polymorphSound: !type:SoundPathSpecifier
       path: /Audio/Magic/forcewall.ogg
     exitPolymorphSound: !type:SoundPathSpecifier
@@ -93,7 +93,7 @@
     inventory: None
     revertOnCrit: true
     revertOnDeath: true
-    duration: 180
+    duration: 180 # imp change
     polymorphSound: !type:SoundPathSpecifier
       path: /Audio/Magic/forcewall.ogg
     exitPolymorphSound: !type:SoundPathSpecifier
@@ -129,7 +129,7 @@
     revertOnCrit: false
     revertOnDeath: true
     revertOnEat: true
-    duration: 180
+    duration: 180 # imp change 
     polymorphSound: !type:SoundPathSpecifier
       path: /Audio/Magic/forcewall.ogg
     exitPolymorphSound: !type:SoundPathSpecifier
