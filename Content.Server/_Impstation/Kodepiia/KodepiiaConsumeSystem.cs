@@ -1,9 +1,9 @@
-using Content.Server.Actions;
 using Content.Server.Atmos.Rotting;
 using Content.Server.Body.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Forensics;
 using Content.Server.Popups;
+using Content.Shared._Impstation.Kodepiia;
 using Content.Shared._Impstation.Kodepiia.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Changeling;
@@ -18,20 +18,17 @@ using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
-using Robust.Shared.Random;
 
 namespace Content.Server._Impstation.Kodepiia;
 
-public sealed partial class KodepiiaConsumeSystem : Shared._Impstation.Kodepiia.SharedKodepiiaConsumeSystem
+public sealed class KodepiiaConsumeSystem : SharedKodepiiaConsumeSystem
 {
-    [Dependency] private readonly ActionsSystem _actionsSystem = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly IRobustRandom _rand = default!;
     [Dependency] private readonly RottingSystem _rotting = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly ForensicsSystem _forensics = default!;
@@ -40,8 +37,6 @@ public sealed partial class KodepiiaConsumeSystem : Shared._Impstation.Kodepiia.
     {
         base.Initialize();
 
-        SubscribeLocalEvent<KodepiiaConsumeActionComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<KodepiiaConsumeActionComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<KodepiiaConsumeActionComponent, KodepiiaConsumeEvent>(Consume);
         SubscribeLocalEvent<KodepiiaConsumeActionComponent, KodepiiaConsumeDoAfterEvent>(ConsumeDoafter);
     }
@@ -50,14 +45,12 @@ public sealed partial class KodepiiaConsumeSystem : Shared._Impstation.Kodepiia.
     {
         if (!HasComp<AbsorbableComponent>(args.Target) || _rotting.IsRotten(args.Target))
         {
-            SetActionCooldown(ent,5);
             _popup.PopupEntity(Loc.GetString("kodepiia-consume-fail-inedible", ("target", Identity.Entity(args.Target, EntityManager))), ent, ent);
             return;
         }
 
         if (!_mobState.IsIncapacitated(args.Target))
         {
-            SetActionCooldown(ent,5);
             _popup.PopupEntity(Loc.GetString("kodepiia-consume-fail-incapacitated", ("target", Identity.Entity(args.Target, EntityManager))), ent, ent);
             return;
         }
@@ -89,17 +82,10 @@ public sealed partial class KodepiiaConsumeSystem : Shared._Impstation.Kodepiia.
 
     public void ConsumeDoafter(Entity<KodepiiaConsumeActionComponent> ent, ref KodepiiaConsumeDoAfterEvent args)
     {
-        if (args.Target == null)
+        if (args.Target == null || args.Cancelled || !TryComp<PhysicsComponent>(args.Target, out var targetPhysics))
         {
-            SetActionCooldown(ent, 5);
             return;
         }
-
-        if (!TryComp<PhysicsComponent>(args.Target, out var targetPhysics))
-            return;
-
-        if (args.Cancelled)
-            return;
 
         // Drink Bloodstream
         if (_solutionContainer.TryGetSolution(args.User, "chemicals", out var userSolutionComp, out var userSolution)
@@ -142,15 +128,10 @@ public sealed partial class KodepiiaConsumeSystem : Shared._Impstation.Kodepiia.
             _body.GibBody(args.Target.Value,true,body);
         }
     }
-    public void SetActionCooldown(Entity<KodepiiaConsumeActionComponent> ent, int cooldown)
-    {
-        _actionsSystem.SetCooldown(ent.Comp.ConsumeAction, TimeSpan.FromSeconds(cooldown));
-    }
 
-    public void PlayMeatySound(Entity<Shared._Impstation.Kodepiia.Components.KodepiiaConsumeActionComponent> ent)
+    public void PlayMeatySound(Entity<KodepiiaConsumeActionComponent> ent)
     {
-        var rand = _rand.Next(0, ent.Comp.SoundPool.Count - 1);
-        var sound = ent.Comp.SoundPool.ToArray()[rand];
-        _audio.PlayPvs(sound, ent, AudioParams.Default.WithVolume(-3f));
+        var soundPool = new SoundCollectionSpecifier("gib");
+        _audio.PlayPvs(soundPool, ent, AudioParams.Default.WithVolume(-3f));
     }
 }

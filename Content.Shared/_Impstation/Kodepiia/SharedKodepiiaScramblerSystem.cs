@@ -11,6 +11,14 @@ public abstract partial class SharedKodepiiaScramblerSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<KodepiiaScramblerComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<KodepiiaScramblerComponent, ComponentShutdown>(OnShutdown);
+    }
+
     public sealed partial class KodepiiaScramblerEvent : InstantActionEvent;
 
     [Serializable, NetSerializable]
