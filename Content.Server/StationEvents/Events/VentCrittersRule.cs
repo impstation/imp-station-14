@@ -22,18 +22,16 @@ public sealed class VentCrittersRule : StationEventSystem<VentCrittersRuleCompon
     {
         base.Added(uid, component, gameRule, args);
 
-        if (!TryGetRandomStation(out var station))
+        if (!TryGetRandomStation(out var station) || !component.Announce) //IMP: added component.Announce
             return;
 
-        if (component.Announce) //#IMP: added if statement
-            _announcer.SendAnnouncement(
-                _announcer.GetAnnouncementId(args.RuleId),
-                Filter.Broadcast(),
-                "station-event-vent-creatures-announcement",
-                null,
-                Color.Gold
-            );
-    }
+        _announcer.SendAnnouncement(
+            _announcer.GetAnnouncementId(args.RuleId),
+            Filter.Broadcast(),
+            "station-event-vent-creatures-announcement",
+            null,
+            Color.Gold
+        );
 
     protected override void Started(EntityUid uid, VentCrittersRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {

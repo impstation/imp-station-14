@@ -18,6 +18,6 @@ public sealed partial class VentCrittersRuleComponent : Component
     /// <summary>
     /// Toggle sending an announcement #IMP
     /// </summary>
-    [DataField("announce")]
+    [DataField]
     public bool Announce = true;
 }
