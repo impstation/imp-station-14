@@ -3,6 +3,7 @@ using Content.Server.DoAfter;
 using Content.Server.Humanoid;
 using Content.Server.Popups;
 using Content.Shared._Impstation.Kodepiia;
+using Content.Shared._Impstation.Kodepiia.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
@@ -25,12 +26,12 @@ public sealed partial class KodepiiaScramblerSystem : SharedKodepiiaScramblerSys
     {
         base.Initialize();
 
-        SubscribeLocalEvent<Shared._Impstation.Kodepiia.Components.KodepiiaScramblerComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<Shared._Impstation.Kodepiia.Components.KodepiiaScramblerComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<Shared._Impstation.Kodepiia.Components.KodepiiaScramblerComponent, KodepiiaScramblerEvent>(Scramble);
-        SubscribeLocalEvent<Shared._Impstation.Kodepiia.Components.KodepiiaScramblerComponent, KodepiiaScramblerDoAfterEvent>(OnScrambleDoAfter);
+        SubscribeLocalEvent<KodepiiaScramblerComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<KodepiiaScramblerComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<KodepiiaScramblerComponent, KodepiiaScramblerEvent>(Scramble);
+        SubscribeLocalEvent<KodepiiaScramblerComponent, KodepiiaScramblerDoAfterEvent>(OnScrambleDoAfter);
     }
-    private void Scramble(Entity<Shared._Impstation.Kodepiia.Components.KodepiiaScramblerComponent> ent, ref KodepiiaScramblerEvent args)
+    private void Scramble(Entity<KodepiiaScramblerComponent> ent, ref KodepiiaScramblerEvent args)
     {
         var doargs = new DoAfterArgs(EntityManager, ent, 4, new KodepiiaScramblerDoAfterEvent(), ent)
         {
@@ -44,7 +45,7 @@ public sealed partial class KodepiiaScramblerSystem : SharedKodepiiaScramblerSys
         args.Handled = true;
     }
 
-    private void OnScrambleDoAfter(Entity<Shared._Impstation.Kodepiia.Components.KodepiiaScramblerComponent> ent, ref KodepiiaScramblerDoAfterEvent args)
+    private void OnScrambleDoAfter(Entity<KodepiiaScramblerComponent> ent, ref KodepiiaScramblerDoAfterEvent args)
     {
         if (args.Cancelled)
         {

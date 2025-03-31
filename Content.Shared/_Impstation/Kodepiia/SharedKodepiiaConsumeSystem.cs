@@ -16,6 +16,7 @@ public abstract partial class SharedKodepiiaConsumeSystem : EntitySystem
     {
         _actionsSystem.RemoveAction(ent, ent.Comp.ConsumeAction);
     }
+
     public void OnStartup(Entity<Components.KodepiiaConsumeActionComponent> ent, ref ComponentStartup args)
     {
         _actionsSystem.AddAction(ent, ref ent.Comp.ConsumeAction, ent.Comp.ConsumeActionId);

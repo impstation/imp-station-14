@@ -4,6 +4,7 @@ using Content.Server.Body.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Forensics;
 using Content.Server.Popups;
+using Content.Shared._Impstation.Kodepiia.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Changeling;
 using Content.Shared.Chemistry.EntitySystems;
@@ -39,13 +40,13 @@ public sealed partial class KodepiiaConsumeSystem : Shared._Impstation.Kodepiia.
     {
         base.Initialize();
 
-        SubscribeLocalEvent<Shared._Impstation.Kodepiia.Components.KodepiiaConsumeActionComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<Shared._Impstation.Kodepiia.Components.KodepiiaConsumeActionComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<Shared._Impstation.Kodepiia.Components.KodepiiaConsumeActionComponent, KodepiiaConsumeEvent>(Consume);
-        SubscribeLocalEvent<Shared._Impstation.Kodepiia.Components.KodepiiaConsumeActionComponent, KodepiiaConsumeDoAfterEvent>(ConsumeDoafter);
+        SubscribeLocalEvent<KodepiiaConsumeActionComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<KodepiiaConsumeActionComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<KodepiiaConsumeActionComponent, KodepiiaConsumeEvent>(Consume);
+        SubscribeLocalEvent<KodepiiaConsumeActionComponent, KodepiiaConsumeDoAfterEvent>(ConsumeDoafter);
     }
 
-    public void Consume(Entity<Shared._Impstation.Kodepiia.Components.KodepiiaConsumeActionComponent> ent, ref KodepiiaConsumeEvent args)
+    public void Consume(Entity<KodepiiaConsumeActionComponent> ent, ref KodepiiaConsumeEvent args)
     {
         if (!HasComp<AbsorbableComponent>(args.Target) || _rotting.IsRotten(args.Target))
         {
@@ -86,7 +87,7 @@ public sealed partial class KodepiiaConsumeSystem : Shared._Impstation.Kodepiia.
         args.Handled = true;
     }
 
-    public void ConsumeDoafter(Entity<Shared._Impstation.Kodepiia.Components.KodepiiaConsumeActionComponent> ent, ref KodepiiaConsumeDoAfterEvent args)
+    public void ConsumeDoafter(Entity<KodepiiaConsumeActionComponent> ent, ref KodepiiaConsumeDoAfterEvent args)
     {
         if (args.Target == null)
         {
@@ -107,8 +108,7 @@ public sealed partial class KodepiiaConsumeSystem : Shared._Impstation.Kodepiia.
             if (userSolution.Volume < userSolution.MaxVolume)
             {
                 var transferAmount = targetSolution.MaxVolume / 10;
-                var realTransferAmount =
-                    FixedPoint2.Min(transferAmount, userSolution.AvailableVolume);
+                var realTransferAmount = FixedPoint2.Min(transferAmount, userSolution.AvailableVolume);
                 // how much protein to add to the mix
                 var protein = targetPhysics.Mass / 2;
                 if (realTransferAmount.Value > 0)
@@ -135,14 +135,14 @@ public sealed partial class KodepiiaConsumeSystem : Shared._Impstation.Kodepiia.
         _popup.PopupEntity(popupOthers, ent, Filter.Pvs(ent).RemovePlayersByAttachedEntity(ent), true, PopupType.LargeCaution);
 
         //Consumed Componentry Stuff lol
-        EnsureComp<Shared._Impstation.Kodepiia.Components.KodepiiaConsumedComponent>(args.Target.Value, out var consumed);
+        EnsureComp<KodepiiaConsumedComponent>(args.Target.Value, out var consumed);
         consumed.TimesConsumed += 1;
-        if (consumed.TimesConsumed >= 12 && TryComp<BodyComponent>(args.Target.Value, out var body) && ent.Comp.Gib)
+        if (consumed.TimesConsumed >= 12 && TryComp<BodyComponent>(args.Target.Value, out var body) && ent.Comp.CanGib)
         {
             _body.GibBody(args.Target.Value,true,body);
         }
     }
-    public void SetActionCooldown(Entity<Shared._Impstation.Kodepiia.Components.KodepiiaConsumeActionComponent> ent, int cooldown)
+    public void SetActionCooldown(Entity<KodepiiaConsumeActionComponent> ent, int cooldown)
     {
         _actionsSystem.SetCooldown(ent.Comp.ConsumeAction, TimeSpan.FromSeconds(cooldown));
     }

@@ -1,5 +1,4 @@
 using Content.Shared.Instruments;
-using Content.Shared.UserInterface;
 
 namespace Content.Shared._DV.Instruments;
 

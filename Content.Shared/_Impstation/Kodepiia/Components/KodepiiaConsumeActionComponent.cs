@@ -1,5 +1,4 @@
 using Content.Shared.Damage;
-using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
@@ -10,6 +9,7 @@ public sealed partial class KodepiiaConsumeActionComponent : Component
 {
     [DataField]
     public EntityUid? ConsumeAction;
+
     [DataField]
     public string? ConsumeActionId = "ActionKodepiiaConsume";
 
@@ -20,9 +20,9 @@ public sealed partial class KodepiiaConsumeActionComponent : Component
         new SoundPathSpecifier("/Audio/Effects/gib3.ogg"),
     };
 
-    [DataField(required: true)] [ViewVariables(VVAccess.ReadWrite)]
+    [DataField(required: true)]
     public DamageSpecifier Damage = new();
 
     [DataField]
-    public bool Gib = true;
+    public bool CanGib = true;
 }
