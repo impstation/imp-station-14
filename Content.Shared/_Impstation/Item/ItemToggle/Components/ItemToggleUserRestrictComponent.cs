@@ -14,9 +14,6 @@ public sealed partial class ItemToggleUserRestrictComponent : Component
     /// </summary>
     [DataField(required: true)]
     public ComponentRegistry Components = new();
-    //itemtoggleactivateattemptevent
-    //itemtoggledeactivateattemptevent
-    //itemtoggledevent
 
     /// <summary>
     /// the message a person unable to toggle it on will get if they try. null for no message
