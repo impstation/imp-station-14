@@ -14,6 +14,7 @@
     - belt
   - type: Item
     size: Ginormous
+  - type: Dumpable
   - type: Storage
     maxItemSize: Normal # allow up to 5 large beakers / 10 beakers / 10 pill canisters
     grid:
@@ -23,30 +24,3 @@
       components:
         - Delivery # imp - upstream mail
         - Envelope # DeltaV - Allow handwritten mail
-
-- type: entity
-  name: borg mail bag
-  id: BorgMailBag
-  parent: BaseStorageItem
-  description: Here's the mail, it never fails...
-  components:
-  - type: Sprite
-    sprite: _Impstation/Clothing/Belt/mailbag.rsi
-    state: icon
-  - type: Clothing
-    sprite: _Impstation/Clothing/Belt/mailbag.rsi
-    quickEquip: false
-    slots:
-    - belt
-  - type: Item
-    size: Ginormous
-  - type: Storage
-    maxItemSize: Normal # allow up to 5 large beakers / 10 beakers / 10 pill canisters
-    grid:
-    - 0,0,4,3
-    quickInsert: true
-    whitelist:
-      components:
-      - Delivery # imp - upstream mail
-      - Envelope # DeltaV - Allow handwritten mail
-  - type: Dumpable

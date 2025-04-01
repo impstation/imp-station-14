@@ -133,3 +133,19 @@
     - RadioHandheld
   - type: BorgModuleIcon
     icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: basic-mining-module }
+
+- type: entity
+  id: BorgModuleCourier
+  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  name: courier cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: cargo
+    - state: icon-mail-bag
+  - type: ItemBorgModule
+    items:
+    - MailBag
+    - BorgHoloBellProjector
+  - type: BorgModuleIcon
+    icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: courier-module }
