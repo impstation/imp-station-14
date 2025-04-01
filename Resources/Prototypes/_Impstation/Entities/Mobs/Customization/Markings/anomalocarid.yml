@@ -75,6 +75,23 @@
     state: grabbers5
 
 
+#Head
+#- type: marking
+#  id: AnomalocaridHeadSeaweed #this is mostly a joke marking
+#  bodyPart: Head
+#  markingCategory: Head
+#  speciesRestriction: [ Anomalocarid ]
+#  forcedColoring: true
+#  coloring:
+#    default:
+#      type:
+#        !type:SimpleColoring
+#          color: "#FFFFFF"
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+#    state: seaweedhair
+
+
 #Antennae
 - type: marking
   id: AnomalocaridAntennae1
@@ -290,6 +307,54 @@
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
     state: algae
 
+- type: marking
+  id: AnomalocaridChestScars
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Anomalocarid ]
+  followSkinColor: false
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: tat_skull
+
+- type: marking
+  id: AnomalocaridChestFishnet
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Anomalocarid ]
+  followSkinColor: false
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: fishnettop
+
+- type: marking
+  id: AnomalocaridChestTatSkull
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Anomalocarid ]
+  followSkinColor: false
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: chestscars
+
 
 #Arms
 
@@ -362,6 +427,78 @@
     state: armstripes_thick_right_secondary
 
 - type: marking
+  id: AnomalocaridArmStripesThinRightUnshaded
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [ Anomalocarid ]
+  followSkinColor: false
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: armstripes_thin_right_primary
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: armstripes_thin_right_secondary
+  shader: unshaded
+
+- type: marking
+  id: AnomalocaridArmStripesThinLeftUnshaded
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [ Anomalocarid ]
+  followSkinColor: false
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: armstripes_thin_left_primary
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: armstripes_thin_left_secondary
+  shader: unshaded
+
+- type: marking
+  id: AnomalocaridArmStripesThickLeftUnshaded
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [ Anomalocarid ]
+  followSkinColor: false
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: armstripes_thick_left_primary
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: armstripes_thick_left_secondary
+  shader: unshaded
+
+- type: marking
+  id: AnomalocaridArmStripesThickRightUnshaded
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [ Anomalocarid ]
+  followSkinColor: false
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: armstripes_thick_right_primary
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: armstripes_thick_right_secondary
+  shader: unshaded
+
+- type: marking
   id: AnomalocaridArmTatHeartLeft
   bodyPart: LArm
   markingCategory: Arms
@@ -379,7 +516,7 @@
 
 - type: marking
   id: AnomalocaridArmTatHeartRight
-  bodyPart: LArm
+  bodyPart: RArm
   markingCategory: Arms
   speciesRestriction: [ Anomalocarid ]
   followSkinColor: false
@@ -393,10 +530,42 @@
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
     state: tat_heart_r
 
+- type: marking
+  id: AnomalocaridArmScarsRight
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [ Anomalocarid ]
+  followSkinColor: false
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: armscars_right
+
+- type: marking
+  id: AnomalocaridArmScarsLeft
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [ Anomalocarid ]
+  followSkinColor: false
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: armscars_left
+
 
 #Legs
 - type: marking
-  id: AnomalocaridLegStripesLeft
+  id: AnomalocaridLegStripes
   bodyPart: LLeg
   markingCategory: Legs
   speciesRestriction: [ Anomalocarid ]
@@ -408,13 +577,13 @@
         !type:EyeColoring
   sprites:
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
-    state: legstripes_left_primary
+    state: legstripes_primary
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
-    state: legstripes_left_secondary
+    state: legstripes_secondary
 
 - type: marking
-  id: AnomalocaridLegStripesRight
-  bodyPart: RLeg
+  id: AnomalocaridLegStripesUnshaded
+  bodyPart: LLeg
   markingCategory: Legs
   speciesRestriction: [ Anomalocarid ]
   followSkinColor: false
@@ -425,10 +594,26 @@
         !type:EyeColoring
   sprites:
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
-    state: legstripes_right_primary
+    state: legstripes_primary
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
-    state: legstripes_right_secondary
+    state: legstripes_secondary
+  shader: unshaded
 
+- type: marking
+  id: AnomalocaridLegFishnets
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [ Anomalocarid ]
+  followSkinColor: false
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: fishnets
 
 #Wings
 - type: marking
