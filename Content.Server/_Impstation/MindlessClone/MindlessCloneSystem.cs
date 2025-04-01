@@ -74,7 +74,6 @@ public sealed class MindlessCloneSystem : EntitySystem
     /// <summary>
     /// Handles the "DoAfter"s. 
     /// </summary>
-    /// <param name="frametime"></param>
     public override void Update(float frametime)
     {
         base.Update(frametime);
@@ -274,9 +273,6 @@ public sealed class MindlessCloneSystem : EntitySystem
     /// <summary>
     /// Gets the nearest entity on the same map with HumanoidAppearanceComponent and a mind.
     /// </summary>
-    /// <param name="coordinates"></param>
-    /// <param name="target"></param>
-    /// <returns></returns>
     private bool TryGetNearestHumanoid(MapCoordinates coordinates, [NotNullWhen(true)] out EntityUid? target)
     {
         target = null;
@@ -306,10 +302,6 @@ public sealed class MindlessCloneSystem : EntitySystem
     /// A near copy of CloningSystem.TryClone, except without the bit where it spawns a whole ass new entity (which was annoying)
     /// and with a new bit about copying over traits.
     /// </summary>
-    /// <param name="original"></param>
-    /// <param name="clone"></param>
-    /// <param name="settingsId"></param>
-    /// <returns></returns>
     public bool TryCloneNoOverwrite(EntityUid original, EntityUid clone, ProtoId<CloningSettingsPrototype> settingsId)
     {
         if (!TryComp<HumanoidAppearanceComponent>(original, out var originalAppearance))
@@ -410,8 +402,6 @@ public sealed class MindlessCloneSystem : EntitySystem
     /// <summary>
     /// Custom examine text for when the clone is not crit or dead. 
     /// </summary>
-    /// <param name="ent"></param>
-    /// <param name="args"></param>
     private void OnExamined(Entity<MindlessCloneComponent> ent, ref ExaminedEvent args)
     {
         if (_mobState.IsAlive(ent))
@@ -477,12 +467,6 @@ public sealed class MindlessCloneSystem : EntitySystem
     /// <summary>
     /// Used in fake pointing for the popup messages.
     /// </summary>
-    /// <param name="source"></param>
-    /// <param name="viewers"></param>
-    /// <param name="pointed"></param>
-    /// <param name="selfMessage"></param>
-    /// <param name="viewerMessage"></param>
-    /// <param name="viewerPointedAtMessage"></param>
     private void SendMessage(
         EntityUid source,
         IEnumerable<ICommonSession> viewers,

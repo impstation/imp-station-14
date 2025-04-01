@@ -4,7 +4,6 @@ using Content.Server.Speech;
 using Content.Server._NF.Speech.Components;
 using Content.Shared.Mind.Components;
 using Content.Shared.Whitelist;
-using Content.Server.DoAfter; //imp
 using Content.Shared.Chat.TypingIndicator; //imp
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -18,7 +17,6 @@ public sealed class ParrotSpeechSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
 
     public override void Initialize()
