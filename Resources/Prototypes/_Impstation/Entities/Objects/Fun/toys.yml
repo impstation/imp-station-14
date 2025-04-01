@@ -696,8 +696,17 @@
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Fun/toys.rsi/fuzzbo.rsi
+    layers:
+    - state: plushie_fuzzbo_babyBlue
   - type: RandomSprite
-    maxSprite: 6
+    available:
+    - enum.DamageStateVisualLayers.Base:
+      plushie_fuzzbo_babyBlue: ""
+      plushie_fuzzbo_babyBrown: ""    
+      plushie_fuzzbo_babyGray: ""
+      plushie_fuzzbo_babyPurple: ""
+      plushie_fuzzbo_babyTiger: ""
+      plushie_fuzzbo_babyTreeFrog: ""
   - type: Rotatable
   - type: EmitSoundOnUse
     sound:
