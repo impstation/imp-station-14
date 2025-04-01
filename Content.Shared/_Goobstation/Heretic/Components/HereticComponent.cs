@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Heretic;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class HereticComponent : Component
 {
     #region Prototypes
@@ -46,4 +46,14 @@ public sealed partial class HereticComponent : Component
     ///     Requires wearing focus, codex cicatrix, hood or anything else that allows him to do so.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)] public bool CanCastSpells = false;
+
+    /// <summary>
+    ///     Indicates whether the heretic is using blazing dash.
+    /// </summary>
+    [DataField, AutoNetworkedField] public bool BlazingDashActive = false;
+
+    /// <summary>
+    ///     Indicates when blazing dash should end.
+    /// </summary>
+    [ViewVariables, AutoPausedField] public TimeSpan BlazingDashEndTime = default!;
 }
