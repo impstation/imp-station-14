@@ -3,6 +3,7 @@
   id: BorgModuleArtistic
   result: BorgModuleArtistic
 
+# Cargo Modules
 - type: latheRecipe
   parent: BaseBorgModuleRecipe
   id: BorgModuleMining
@@ -12,3 +13,12 @@
     Plastic: 500
     Gold: 100
   result: BorgModuleMining
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleCourier
+  materials:
+    Steel: 250
+    Glass: 250
+    Plastic: 250
+  result: BorgModuleCourier

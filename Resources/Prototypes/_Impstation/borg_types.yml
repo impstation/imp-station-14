@@ -12,7 +12,8 @@
     - BorgModuleCargo
 
   defaultModules:
-  - BorgModuleCargoTools # imp
+  - BorgModuleAppraisal # imp
+  - BorgModuleCourier #imp
 
   radioChannels:
   - Supply
