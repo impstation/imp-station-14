@@ -26,7 +26,7 @@
     availableModes:
       - SemiAuto
     soundGunshot:
-      path: /Audio/_Impstation/Weapons/Guns/Gunshots/daito.ogg
+      path: /Audio/Items/Toys/toysqueak1.ogg
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/Weapons/Guns/Cock/batrifle_cock.ogg
@@ -106,13 +106,13 @@
     fireRate: 5
     burstFireRate: 10
     shotsPerBurst: 3
-    burstCooldown: 0.50
+    burstCooldown: 0.40
     selectedMode: Burst
     availableModes:
       - SemiAuto
       - Burst
     soundGunshot:
-      path: /Audio/_Impstation/Weapons/Guns/Gunshots/nemesis.ogg
+      path: /Audio/Items/Toys/toysqueak1.ogg
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/Weapons/Guns/Cock/batrifle_cock.ogg
@@ -169,4 +169,3 @@
   - type: MeleeThrowOnHit
     distance: 0.8
     speed: 5
-    
