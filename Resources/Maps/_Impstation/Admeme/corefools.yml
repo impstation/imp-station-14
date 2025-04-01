@@ -109113,10 +109113,6 @@ entities:
         13598:
           position: 0,0
           _rotation: South
-    - type: UserInterface
-      actors:
-        enum.StorageUiKey.Key:
-        - invalid
     - type: ContainerContainer
       containers:
         storagebase: !type:Container
@@ -109124,7 +109120,6 @@ entities:
           occludes: True
           ents:
           - 13598
-    - type: ActiveUserInterface
   - uid: 22574
     components:
     - type: Transform
