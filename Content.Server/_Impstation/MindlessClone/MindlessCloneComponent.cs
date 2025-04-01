@@ -13,10 +13,10 @@ namespace Content.Server._Impstation.MindlessClone;
 public sealed partial class MindlessCloneComponent : Component
 {
     /// <summary>
-    /// whether or not the entity will pick a randomized phrase to say after spawning.
+    /// whether or not the entity will pick a randomized phrase to say after spawning. default false
     /// </summary>
     [DataField]
-    public bool SpeakOnSpawn = false;
+    public bool SpeakOnSpawn;
 
     /// <summary>
     /// a LocalizedDataset containing phrases for the clone to say if they SpeakOnSpawn
@@ -25,10 +25,10 @@ public sealed partial class MindlessCloneComponent : Component
     public ProtoId<LocalizedDatasetPrototype> PhrasesToPick = "MindlessCloneConfusion";
 
     /// <summary>
-    /// whether or not the entity will mindswap with its cloning target
+    /// whether or not the entity will mindswap with its cloning target. default false
     /// </summary>
     [DataField]
-    public bool MindSwap = false;
+    public bool MindSwap;
 
     /// <summary>
     /// the amount of time in seconds that the clone gets stunned and muted on spawn. Also applies to mindswap targets.
