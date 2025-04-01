@@ -1545,7 +1545,10 @@ namespace Content.Client.Lobby.UI
         // IMP EDIT START: randomize appearance without touching species
         private void RandomizeAppearance()
         {
-            if (Profile == null) return;
+            if (Profile == null)
+            {
+                return;
+            }
             HumanoidCharacterAppearance.Random(Profile.Species, Profile.Sex);
             Profile = new HumanoidCharacterProfile()
             {
