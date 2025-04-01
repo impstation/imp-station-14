@@ -412,8 +412,7 @@ public sealed class MindlessCloneSystem : EntitySystem
     /// This is largely a copy of PointingSystem.TryPoint. However, due to the way PointingSystem works, I can't just use the pointing events,
     /// on account of the clones not having a player session attached to them. Has no regard for range or blocking walls.
     /// </summary>
-    /// <param name="pointer"></param>
-    /// <param name="pointee"></param>
+
     private void TryFakePoint(EntityUid pointer, EntityUid pointee)
     {
         var coordsPointee = Transform(pointee).Coordinates;
