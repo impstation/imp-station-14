@@ -1,17 +1,16 @@
 using System.Linq;
 using Content.Server.Chat.Systems;
-using Content.Server.Speech.Components;
+using Content.Server.Speech;
+using Content.Server._NF.Speech.Components;
 using Content.Shared.Mind.Components;
 using Content.Shared.Whitelist;
 using Content.Server.DoAfter; //imp
-using Content.Shared.DoAfter; //imp
-using Content.Shared._NF.Speech; //imp
 using Content.Shared.Chat.TypingIndicator; //imp
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Server.GameObjects; //imp
 
-namespace Content.Server.Speech.EntitySystems;
+namespace Content.Server._NF.Speech.EntitySystems;
 
 public sealed class ParrotSpeechSystem : EntitySystem
 {
@@ -28,7 +27,6 @@ public sealed class ParrotSpeechSystem : EntitySystem
 
         SubscribeLocalEvent<ParrotSpeechComponent, ListenEvent>(OnListen);
         SubscribeLocalEvent<ParrotSpeechComponent, ListenAttemptEvent>(CanListen);
-        SubscribeLocalEvent<ParrotSpeechComponent, ParrotSpeechDoAfterEvent>(OnDoAfter);
     }
 
     public override void Update(float frameTime)
@@ -40,37 +38,46 @@ public sealed class ParrotSpeechSystem : EntitySystem
                 // This parrot has not learned any phrases, so can't say anything interesting.
                 continue;
 
-            if (component.RequiresMind && // imp 
-            !TryComp<MindContainerComponent>(uid, out var mind) | mind != null && !mind!.HasMind)
-                continue; // end imp
-
-            if (_timing.CurTime < component.NextUtterance)
+            if (component.RequiresMind && !TryComp<MindContainerComponent>(uid, out var mind) | mind != null && !mind!.HasMind) // imp
                 continue;
 
             if (component.NextUtterance != null) // imp - changed this whole deal
             {
                 if (component.FakeTypingIndicator)
                 {
-                    component.NextMessage = _random.Pick(component.LearnedPhrases);
-                    var doAfterLength = TimeSpan.FromSeconds(0.1 * component.NextMessage.Length);
-                    _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, doAfterLength,
-                    new ParrotSpeechDoAfterEvent(), uid, uid)
-                    {
-                        BlockDuplicate = true,
-                        BreakOnDamage = false,
-                        BreakOnMove = false,
-                        RequireCanInteract = false,
-                        HiddenFromUser = true
-                    });
-                    _appearance.SetData(uid, TypingIndicatorVisuals.IsTyping, true);
+                    CheckOrSetDelay(uid, component);
                 }
-                else
+                else if (_timing.CurTime > component.NextUtterance)
                 {
                     SendMessage(uid, component);
                 }
-            } // end imp
+            }
+
+            if (_timing.CurTime < component.NextUtterance) // imp - moved this below the actual speech code. otherwise the typing indicator length would effectively be (FakeTypingLength + NextUtterance)
+                continue;
 
             component.NextUtterance = _timing.CurTime + TimeSpan.FromSeconds(_random.Next(component.MinimumWait, component.MaximumWait));
+        }
+    }
+
+    /// <summary>
+    /// Sets a new typing delay time if there isn't one. If there is, checks it against CurTime, sends the message once the delay is up, and resets. 
+    /// </summary>
+    private void CheckOrSetDelay(EntityUid uid, ParrotSpeechComponent component)
+    {
+        if (component.NextFakeTypingSend == null && _timing.CurTime > component.NextUtterance)
+        {
+            component.NextMessage = _random.Pick(component.LearnedPhrases);
+            component.NextFakeTypingSend = _timing.CurTime + TimeSpan.FromSeconds(0.1 * component.NextMessage.Length);
+            _appearance.SetData(uid, TypingIndicatorVisuals.IsTyping, true);
+        }
+        else if (_timing.CurTime > component.NextFakeTypingSend)
+        {
+            SendMessage(uid, component);
+            _appearance.SetData(uid, TypingIndicatorVisuals.IsTyping, false);
+
+            // and reset.
+            component.NextFakeTypingSend = null;
         }
     }
 
@@ -85,12 +92,6 @@ public sealed class ParrotSpeechSystem : EntitySystem
             checkRadioPrefix: false);
     }
 
-    private void OnDoAfter(Entity<ParrotSpeechComponent> ent, ref ParrotSpeechDoAfterEvent args)
-    {
-        SendMessage(ent.Owner, ent.Comp);
-        _appearance.SetData(ent.Owner, TypingIndicatorVisuals.IsTyping, false);
-    }
-
     private void OnListen(EntityUid uid, ParrotSpeechComponent component, ref ListenEvent args)
     {
         if (_random.Prob(component.LearnChance))
@@ -99,7 +100,7 @@ public sealed class ParrotSpeechSystem : EntitySystem
             // split words correctly.
             var words = args.Message.Split(" ", StringSplitOptions.RemoveEmptyEntries);
             // Prefer longer phrases
-            var phraseLength = 1 + (int) (Math.Sqrt(_random.NextDouble()) * component.MaximumPhraseLength);
+            var phraseLength = 1 + (int)(Math.Sqrt(_random.NextDouble()) * component.MaximumPhraseLength);
 
             var startIndex = _random.Next(0, Math.Max(0, words.Length - phraseLength + 1));
 

@@ -1,15 +1,11 @@
-using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Chat.Systems;
-using Content.Server.DoAfter;
 using Content.Server.Humanoid;
 using Content.Server.Mind;
 using Content.Server.Pointing.Components;
 using Content.Server.Preferences.Managers;
-using Content.Shared._Impstation.MindlessClone;
 using Content.Shared.Chat.TypingIndicator;
 using Content.Shared.Cloning;
-using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Eye;
 using Content.Shared.Humanoid;
@@ -24,7 +20,6 @@ using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
-using Content.Shared.Traits;
 using Content.Shared.Whitelist;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
@@ -40,7 +35,7 @@ using System.Linq;
 
 namespace Content.Server._Impstation.MindlessClone;
 
-public sealed class MindlessCloneSystem : SharedMindlessCloneSystem
+public sealed class MindlessCloneSystem : EntitySystem
 {
     // interfaces and managers
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
@@ -53,10 +48,8 @@ public sealed class MindlessCloneSystem : SharedMindlessCloneSystem
     [Dependency] private readonly IServerPreferencesManager _prefs = default!;
 
     // everything else
-    [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
@@ -75,26 +68,59 @@ public sealed class MindlessCloneSystem : SharedMindlessCloneSystem
         base.Initialize();
 
         SubscribeLocalEvent<MindlessCloneComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<MindlessCloneComponent, MindlessCloneDelayDoAfterEvent>(OnDelayComplete);
-        SubscribeLocalEvent<MindlessCloneComponent, MindlessCloneSayDoAfterEvent>(OnDoAfterComplete);
         SubscribeLocalEvent<MindlessCloneComponent, ExaminedEvent>(OnExamined);
+    }
+
+    /// <summary>
+    /// Handles the "DoAfter"s. 
+    /// </summary>
+    /// <param name="frametime"></param>
+    public override void Update(float frametime)
+    {
+        base.Update(frametime);
+
+        var query = EntityQueryEnumerator<MindlessCloneComponent>();
+
+        while (query.MoveNext(out var uid, out var mindlessCloneComp))
+        {
+            if (mindlessCloneComp.NextDelayTime != null && _gameTiming.CurTime > mindlessCloneComp.NextDelayTime) // the null check is faster than the comparison, so it saves us some perf when we don't need the comparison anymore.
+            {
+                DelayBehavior(uid, mindlessCloneComp);
+                var sayTime = TimeSpan.FromSeconds(0.1 * mindlessCloneComp.NextPhrase.Length);
+                mindlessCloneComp.NextSayTime = _gameTiming.CurTime + sayTime;
+
+                // and prevent it from happening again.
+                mindlessCloneComp.NextDelayTime = null;
+            }
+            if (mindlessCloneComp.NextSayTime != null && _gameTiming.CurTime > mindlessCloneComp.NextSayTime)
+            {
+                SayBehavior(uid, mindlessCloneComp);
+
+                // and prevent it from happening again.
+                mindlessCloneComp.NextSayTime = null;
+            }
+        }
     }
 
     private void OnMapInit(Entity<MindlessCloneComponent> ent, ref MapInitEvent args)
     {
-        if (!TryComp(ent, out HumanoidAppearanceComponent? humanoid) || !string.IsNullOrEmpty(humanoid.Initial))
+        if (!TryComp<HumanoidAppearanceComponent>(ent, out var humanoid) || !string.IsNullOrEmpty(humanoid.Initial))
             return;
 
         var cloneCoords = _transformSystem.GetMapCoordinates(ent.Owner);
-        if (!TryGetNearestHumanoid(cloneCoords, out var target)) // grab the appearance data of the nearest humanoid with a mind.
+        if (!TryGetNearestHumanoid(cloneCoords, out var target) || target == null) // grab the appearance data of the nearest humanoid with a mind.
             return;
 
-        // break down the grabbed Entity<HumanoidAppearanceComponent> into its constituent parts.
-        (var targetUid, var targetAppearance) = target.Value;
+        var targetUid = (EntityUid)target; // have to explicitly cast out of nullable
+
         ent.Comp.IsCloneOf = targetUid;
 
         // clone the appearance and components of the original
-        TryCloneNoOverwrite(targetUid, ent, ent.Comp.SettingsId);
+        if (!TryCloneNoOverwrite(targetUid, ent, ent.Comp.SettingsId))
+        {
+            Log.Error($"MindlessCloneSystem failed to clone {ToPrettyString(targetUid)} onto {ToPrettyString(ent)}. Message @widgetbeck on discord about it.");
+            return;
+        }
 
         // do our mindswapping logic before trying to speak, because otherwise the player starts the doafter but doesn't finish it.
         if (ent.Comp.MindSwap)
@@ -184,19 +210,65 @@ public sealed class MindlessCloneSystem : SharedMindlessCloneSystem
             _rotateToFaceSystem.TryFaceCoordinates(ent, _transformSystem.ToMapCoordinates(Transform(ent.Comp.IsCloneOf).Coordinates).Position);
 
             _stun.TryParalyze(ent, stunTime, true);
+
+            stunTime += TimeSpan.FromSeconds(0.5); // to make the delay end *after* the stun is up. otherwise the mobstate check fails
         }
 
-        // delay starting the typing DoAfter until the clone (or the mindswapped original) is done being stunned.
+        // delay starting the typing "DoAfter" until the clone (or the mindswapped original) is done being stunned.
         // we do this on mindswapped clones too because otherwise their TypingIndicators don't show up properly.
-        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, ent, stunTime + TimeSpan.FromSeconds(0.5), // need to add a little, otherwise the clone is 
-            new MindlessCloneDelayDoAfterEvent(), ent, ent)
+        ent.Comp.NextDelayTime = _gameTiming.CurTime + stunTime;
+    }
+
+    private void DelayBehavior(EntityUid uid, MindlessCloneComponent comp)
+    {
+        // if we're supposed to speak on spawn, try to speak on spawn. as long as you're not crit or dead
+        if (comp.SpeakOnSpawn && !_mobState.IsIncapacitated(uid))
         {
-            BlockDuplicate = true,
-            BreakOnDamage = false,
-            BreakOnMove = false,
-            RequireCanInteract = false,
-            HiddenFromUser = true
-        });
+            // enable the typing indicator for the duration of the DoAfter.
+            _appearance.SetData(uid, TypingIndicatorVisuals.IsTyping, true);
+
+            var choices = _prototypeManager.Index(comp.PhrasesToPick).Values;
+            comp.NextPhrase = _random.Pick(choices);
+        }
+    }
+
+    private void SayBehavior(EntityUid uid, MindlessCloneComponent comp)
+    {
+        if (uid == comp.IsCloneOf) // If we've mindswapped, behavior should be a little different.
+        {
+            _chat.TrySendInGameICMessage(uid,
+                    Loc.GetString(comp.NextPhrase),
+                    InGameICChatType.Speak,
+                    hideChat: false,
+                    hideLog: true,
+                    checkRadioPrefix: false);
+            // higher chance, but not guaranteed, to point at the original body.
+            if (_random.Prob(0.6f))
+                TryFakePoint(uid, comp.OriginalBody);
+        }
+        else
+        {
+            _chat.TrySendInGameICMessage(uid,
+                Loc.GetString(comp.NextPhrase),
+                InGameICChatType.Speak,
+                hideChat: false,
+                hideLog: true,
+                checkRadioPrefix: false);
+            // twenty percent chance to hit 2 after
+            if (_random.Prob(0.2f))
+                _chat.TrySendInGameICMessage(uid,
+                    Loc.GetString("chat-emote-msg-scream"),
+                    InGameICChatType.Emote,
+                    hideChat: false,
+                    hideLog: true,
+                    checkRadioPrefix: false);
+            // twenty percent chance to point at the original
+            if (_random.Prob(0.2f))
+                TryFakePoint(uid, comp.IsCloneOf);
+        }
+
+        // disable the typing indicator, as "typing" has now finished.
+        _appearance.SetData(uid, TypingIndicatorVisuals.IsTyping, false);
     }
 
     /// <summary>
@@ -205,13 +277,13 @@ public sealed class MindlessCloneSystem : SharedMindlessCloneSystem
     /// <param name="coordinates"></param>
     /// <param name="target"></param>
     /// <returns></returns>
-    public bool TryGetNearestHumanoid(MapCoordinates coordinates, [NotNullWhen(true)] out Entity<HumanoidAppearanceComponent>? target)
+    private bool TryGetNearestHumanoid(MapCoordinates coordinates, [NotNullWhen(true)] out EntityUid? target)
     {
         target = null;
         var minDistance = float.PositiveInfinity;
 
         var enumerator = EntityQueryEnumerator<HumanoidAppearanceComponent, TransformComponent>();
-        while (enumerator.MoveNext(out var uid, out var targetComp, out var xform))
+        while (enumerator.MoveNext(out var uid, out _, out var xform))
         {
             if (coordinates.MapId != xform.MapID)
                 continue;
@@ -224,7 +296,7 @@ public sealed class MindlessCloneSystem : SharedMindlessCloneSystem
                 continue;
 
             minDistance = distanceSquared;
-            target = (uid, targetComp);
+            target = uid;
         }
 
         return target != null;
@@ -240,10 +312,10 @@ public sealed class MindlessCloneSystem : SharedMindlessCloneSystem
     /// <returns></returns>
     public bool TryCloneNoOverwrite(EntityUid original, EntityUid clone, ProtoId<CloningSettingsPrototype> settingsId)
     {
-        HumanoidCharacterProfile profile;
-        if (!TryComp<HumanoidAppearanceComponent>(original, out var originalAppearance) || originalAppearance == null)
+        if (!TryComp<HumanoidAppearanceComponent>(original, out var originalAppearance))
             return false;
 
+        HumanoidCharacterProfile profile;
         if (_mind.TryGetMind(original, out _, out var mindComponent) && mindComponent.Session != null)
         {
             // get the character profile of the humanoid out of its mind.
@@ -258,13 +330,9 @@ public sealed class MindlessCloneSystem : SharedMindlessCloneSystem
             .WithGender(originalAppearance.Gender);
         }
 
-        if (!_prototypeManager.TryIndex(settingsId, out var settings))
-            return false;
-
-        if (!TryComp<HumanoidAppearanceComponent>(original, out var humanoid))
-            return false;
-
-        if (!_prototypeManager.TryIndex(humanoid.Species, out var speciesPrototype))
+        if (!_prototypeManager.TryIndex(settingsId, out var settings)
+            || !TryComp<HumanoidAppearanceComponent>(original, out var humanoid)
+            || !_prototypeManager.TryIndex(humanoid.Species, out _))
             return false;
 
         _humanoid.CloneAppearance(original, clone);
@@ -274,7 +342,7 @@ public sealed class MindlessCloneSystem : SharedMindlessCloneSystem
         if (TryComp<StatusEffectsComponent>(original, out var statusComp))
             componentsToCopy.ExceptWith(statusComp.ActiveEffects.Values.Select(s => s.RelevantComponent).Where(s => s != null)!);
 
-        if (TryComp<NpcFactionMemberComponent>(original, out var npcFactionComp))
+        if (TryComp<NpcFactionMemberComponent>(original, out _))
             componentsToCopy.Remove("NpcFactionMember"); // we wanna make sure that we're not putting you and your evil clone on the same side.
 
         if (TryComp<VocalComponent>(original, out var vocalComp))
@@ -308,7 +376,7 @@ public sealed class MindlessCloneSystem : SharedMindlessCloneSystem
         {
             foreach (var traitId in profile.TraitPreferences)
             {
-                if (!_prototypeManager.TryIndex<TraitPrototype>(traitId, out var traitPrototype))
+                if (!_prototypeManager.TryIndex(traitId, out var traitPrototype))
                 {
                     Log.Warning($"No trait found with ID {traitId}!");
                     continue;
@@ -339,67 +407,6 @@ public sealed class MindlessCloneSystem : SharedMindlessCloneSystem
         return true;
     }
 
-    private void OnDelayComplete(Entity<MindlessCloneComponent> ent, ref MindlessCloneDelayDoAfterEvent args)
-    {
-        // if we're supposed to speak on spawn, try to speak on spawn. as long as you're not crit or dead
-        if (ent.Comp.SpeakOnSpawn && !_mobState.IsIncapacitated(ent))
-        {
-            // enable the typing indicator for the duration of the DoAfter.
-            _appearance.SetData(ent.Owner, TypingIndicatorVisuals.IsTyping, true);
-
-            // start a DoAfter to delay our initial message by a bit. 
-            _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, ent, _random.NextFloat(1f, 5f),
-                new MindlessCloneSayDoAfterEvent(), ent, ent)
-            {
-                BlockDuplicate = true,
-                BreakOnDamage = false,
-                BreakOnMove = false,
-                RequireCanInteract = false,
-                HiddenFromUser = true
-            });
-        }
-    }
-
-    private void OnDoAfterComplete(Entity<MindlessCloneComponent> ent, ref MindlessCloneSayDoAfterEvent args)
-    {
-        var choices = _prototypeManager.Index(ent.Comp.PhrasesToPick).Values;
-        if (ent.Owner == ent.Comp.IsCloneOf) // If we've mindswapped, behavior should be a little different.
-        {
-            _chat.TrySendInGameICMessage(ent,
-                    Loc.GetString(_random.Pick(choices)),
-                    InGameICChatType.Speak,
-                    hideChat: false,
-                    hideLog: true,
-                    checkRadioPrefix: false);
-            // higher chance, but not guaranteed, to point at the original body.
-            if (_random.Prob(0.6f))
-                TryFakePoint(ent, ent.Comp.OriginalBody);
-        }
-        else
-        {
-            _chat.TrySendInGameICMessage(ent,
-                    Loc.GetString(_random.Pick(choices)),
-                    InGameICChatType.Speak,
-                    hideChat: false,
-                    hideLog: true,
-                    checkRadioPrefix: false);
-            // twenty percent chance to hit 2 after
-            if (_random.Prob(0.2f))
-                _chat.TrySendInGameICMessage(ent,
-                    "screams!",
-                    InGameICChatType.Emote,
-                    hideChat: false,
-                    hideLog: true,
-                    checkRadioPrefix: false);
-            // twenty percent chance to point at the original
-            if (_random.Prob(0.2f))
-                TryFakePoint(ent, ent.Comp.IsCloneOf);
-        }
-
-        // disable the typing indicator, as "typing" has now finished.
-        _appearance.SetData(ent.Owner, TypingIndicatorVisuals.IsTyping, false);
-    }
-
     /// <summary>
     /// Custom examine text for when the clone is not crit or dead. 
     /// </summary>
@@ -408,7 +415,7 @@ public sealed class MindlessCloneSystem : SharedMindlessCloneSystem
     private void OnExamined(Entity<MindlessCloneComponent> ent, ref ExaminedEvent args)
     {
         if (_mobState.IsAlive(ent))
-            args.PushMarkup($"[color=mediumpurple]{Loc.GetString("comp-mind-examined-mindlessclone", ("ent", ent.Owner))}[/color]");
+            args.PushMarkup($"{Loc.GetString("comp-mind-examined-mindlessclone", ("ent", ent.Owner))}");
     }
 
     /// <summary>
@@ -420,7 +427,6 @@ public sealed class MindlessCloneSystem : SharedMindlessCloneSystem
     private void TryFakePoint(EntityUid pointer, EntityUid pointee)
     {
         var coordsPointee = Transform(pointee).Coordinates;
-
 
         var mapCoordsPointee = _transformSystem.ToMapCoordinates(coordsPointee);
         _rotateToFaceSystem.TryFaceCoordinates(pointer, mapCoordsPointee.Position);

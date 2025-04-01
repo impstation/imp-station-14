@@ -1,12 +1,11 @@
-using Content.Server.Speech.EntitySystems;
+using Content.Server._NF.Speech.EntitySystems;
 using Content.Shared.Whitelist;
-using Content.Shared._NF.Speech; // imp
 
-namespace Content.Server.Speech.Components;
+namespace Content.Server._NF.Speech.Components;
 
 [RegisterComponent]
 [Access(typeof(ParrotSpeechSystem))]
-public sealed partial class ParrotSpeechComponent : SharedParrotSpeechComponent // imp - added shared system for TypingIndicators to work properly.
+public sealed partial class ParrotSpeechComponent : Component
 {
     /// <summary>
     /// The maximum number of words the parrot can learn per phrase.
@@ -47,6 +46,11 @@ public sealed partial class ParrotSpeechComponent : SharedParrotSpeechComponent 
 
     [DataField] // imp
     public bool FakeTypingIndicator = true;
+
+    /// <summary>
+    ///  the next time the fake typing indicator will end and a message will be sent
+    /// </summary>
+    public TimeSpan? NextFakeTypingSend = null; // imp
 
     public string? NextMessage = null; // imp
 }
