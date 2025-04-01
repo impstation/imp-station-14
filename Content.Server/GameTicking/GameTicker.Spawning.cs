@@ -176,6 +176,19 @@ namespace Content.Server.GameTicking
                 return;
             }
 
+            // imp edit - cancel joining if the character has incompatible traits
+            foreach (var trait in character.TraitPreferences)
+            {
+                var traitProto = _prototypeManager.Index(trait);
+
+                if (!traitProto.IncompatibleWith.Any(incompatible => character.TraitPreferences.Contains(incompatible)))
+                    continue;
+
+                _chatManager.DispatchServerMessage(player, Loc.GetString("game-ticker-player-incompatible-traits"));
+                return;
+            }
+            // end imp edit
+
             // We raise this event to allow other systems to handle spawning this player themselves. (e.g. late-join wizard, etc)
             var bev = new PlayerBeforeSpawnEvent(player, character, jobId, lateJoin, station);
             RaiseLocalEvent(bev);

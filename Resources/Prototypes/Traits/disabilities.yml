@@ -40,6 +40,8 @@
   category: Disabilities
   components:
     - type: Unrevivable
+  incompatibleWith: # imp
+    - RandomUnrevivable
 
 - type: trait
   id: Muted

@@ -537,11 +537,23 @@ namespace Content.Client.Lobby.UI
                 foreach (var traitProto in categoryTraits)
                 {
                     var trait = _prototypeManager.Index<TraitPrototype>(traitProto);
-                    var selector = new TraitPreferenceSelector(trait);
+                    var selector = new TraitPreferenceSelector(trait, _prototypeManager); // imp edit
+                    var isEnabled = Profile?.TraitPreferences.Contains(trait.ID) == true; // imp edit
 
-                    selector.Preference = Profile?.TraitPreferences.Contains(trait.ID) == true;
+                    selector.Preference = isEnabled;
                     if (selector.Preference)
                         selectionCount += trait.Cost;
+
+                    // imp edit - disable incompatible traits
+                    foreach (var incompatible in trait.IncompatibleWith)
+                    {
+                        if (Profile?.TraitPreferences.Contains(incompatible) == false)
+                            continue;
+
+                        selector.Checkbox.Disabled = !isEnabled;
+                        selector.Checkbox.Label.FontColorOverride = Color.Red;
+                    }
+                    // end imp edit
 
                     selector.PreferenceChanged += preference =>
                     {
