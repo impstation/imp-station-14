@@ -90,6 +90,22 @@
   loadouts:
   - LoadoutDecapoidBreathToolInventory
 
+- type: loadoutGroup
+  id: GroupBreathToolDecapoidInventoryClown
+  name: loadout-group-breath-tool-inventory-decapoid-clown
+  minLimit: 1
+  hidden: true
+  loadouts:
+  - LoadoutDecapoidBreathToolInventoryClown
+
+- type: loadoutGroup
+  id: GroupBreathToolDecapoidInventoryMime
+  name: loadout-group-breath-tool-inventory-decapoid-mime
+  minLimit: 1
+  hidden: true
+  loadouts:
+  - LoadoutDecapoidBreathToolInventoryMime
+
 # apids
 
 - type: startingGear #the starting gear for the apid botanist. they dont have a backslot and whatever so ive gotta do it bespoke
@@ -694,6 +710,13 @@
   - ScarfBrown
 
 - type: loadoutGroup
+  id: CargoTechnicianBelt
+  name: loadout-group-cargo-technician-belt
+  minLimit: 0
+  loadouts:
+  - SeniorCargoBelt
+
+- type: loadoutGroup
   id: CargoTechnicianPDA
   name: loadout-group-cargo-technician-id
   loadouts:
@@ -926,6 +949,7 @@
   minLimit: 0
   loadouts:
   - ScarfRed
+  - SecPoncho
 
 - type: loadoutGroup
   id: UpperSecurityShoes

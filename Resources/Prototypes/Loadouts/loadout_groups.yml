@@ -26,6 +26,7 @@
   - ClothingNeckAromanticPin
   - ClothingNeckAsexualPin
   - ClothingNeckAutismPin
+  - ClothingNeckAroacePin
   - ClothingNeckBisexualPin
   - ClothingNeckGayPin
   - ClothingNeckGoldAutismPin
@@ -262,6 +263,8 @@
   name: loadout-group-passenger-neck
   minLimit: 0
   loadouts:
+  - WrappedScarfBlack #imp
+  - WrappedScarfWhite #imp
   - Mantle
   - GreyCloak #imp
 
@@ -271,7 +274,7 @@
   minLimit: 0
   loadouts:
   - PassengerWintercoat
-  - BomberLightweight #imp
+  - BomberBlack #imp
 
 - type: loadoutGroup
   id: PassengerShoes
@@ -602,7 +605,9 @@
   name: loadout-group-mime-jumpsuit
   loadouts:
   - MimeJumpsuit
+  - MimeJumpsuitCropped #imp
   - MimeJumpskirt
+  - MimeJumpskirtCropped #imp
 
 - type: loadoutGroup
   id: MimeBackpack
@@ -749,7 +754,9 @@
   name: loadout-group-cargo-technician-jumpsuit
   loadouts:
   - CargoTechnicianJumpsuit
+  - LongCargoTechnicianJumpsuit #imp
   - CargoTechnicianJumpskirt
+  - SeniorCargoTechnicianJumpsuit #imp
 
 - type: loadoutGroup
   id: CargoTechnicianBackpack
@@ -1372,10 +1379,14 @@
   - SpaceMedicalJumpsuit # imp
   - SeniorPhysicianJumpsuit
   - SeniorPhysicianJumpskirt
+  - VirologyJumpsuit # imp
+  - VirologyJumpskirt # imp
+  - GeneticsJumpsuit # imp
+  - GeneticsJumpskirt # imp
   - MedicalBlueScrubs
   - MedicalGreenScrubs
   - MedicalPurpleScrubs
-
+  
 - type: loadoutGroup
   id: MedicalDoctorOuterClothing
   name: loadout-group-medical-doctor-outerclothing
@@ -1383,6 +1394,8 @@
   loadouts:
   - RegularLabCoat
   - MedicalDoctorWintercoat
+  - GeneticsWinterCoat # imp
+  - VirologyWinterCoat # imp
   - SeniorPhysicianLabCoat
   - BomberMedical #imp
 
