@@ -61,7 +61,7 @@
     availableModes:
     - SemiAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+      path: /Audio/Items/Toys/toysqueak1.ogg
   - type: MagazineAmmoProvider
   - type: ItemSlots
     slots:
@@ -226,7 +226,7 @@
   - type: Gun
     projectileSpeed: 10
     soundGunshot:
-      path: /Audio/Effects/Lightning/lightningshock.ogg
+      path: /Audio/Items/Toys/toysqueak1.ogg
       params:
         variation: 0.2
   - type: ProjectileBatteryAmmoProvider
@@ -239,10 +239,10 @@
   - type: Appearance
 
 - type: entity
-  name: practice laser rifle
+  name: TD-95P practice laser carbine #imp
   parent: [BaseWeaponBattery, BaseGunWieldable]
   id: WeaponLaserCarbinePractice
-  description: This modified laser rifle fires nearly harmless beams in the 40-watt range, for target practice.
+  description: This modified TD-95 laser carbine fires nearly harmless beams at 5-watts for target practice. Best to wear eye protection. #imp
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Battery/laser_gun.rsi #imp
@@ -285,10 +285,10 @@
 #imp edit end
 
 - type: entity
-  name: TD-95 Laser Carbine #imp
+  name: TD-95 laser carbine #imp
   parent: [WeaponLaserCarbinePractice, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponLaserCarbine
-  description: A laser-based energy rifle with familiar ergonomics and controls to its kinetic counterparts. Favored by Nanotrasen for security forces, as they are cheap and easy to use. #imp
+  description: A laser-based energy carbine with familiar ergonomics and controls to its kinetic counterparts. Favored by Nanotrasen for security forces, as they are cheap and easy to use. #imp
   components:
   - type: StaticPrice
     price: 420
@@ -297,7 +297,7 @@
     fireCost: 62.5
 
 - type: entity
-  name: pulse pistol
+  name: PXS-21 pulse pistol #imp
   parent: BaseWeaponBatterySmall
   id: WeaponPulsePistol
   description: A state-of-the-art energy pistol favored as a sidearm by Nanotrasen operatives.
@@ -322,7 +322,7 @@
     availableModes:
     - SemiAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+      path: /Audio/Items/Toys/toysqueak1.ogg
   - type: HitscanBatteryAmmoProvider
     proto: Pulse
     fireCost: 200
@@ -331,7 +331,7 @@
     startingCharge: 2000
 
 - type: entity
-  name: pulse carbine
+  name: PX-14C pulse carbine #imp
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseCentcommContraband]
   id: WeaponPulseCarbine
   description: A high-tech energy carbine favored by Nanotrasen ERT operatives. #imp
@@ -358,7 +358,7 @@
       - SemiAuto
       - FullAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+      path: /Audio/Items/Toys/toysqueak1.ogg
   - type: HitscanBatteryAmmoProvider
     proto: Pulse
     fireCost: 200
@@ -382,7 +382,7 @@
 #imp edit end
 
 - type: entity
-  name: pulse rifle
+  name: PX-6 pulse rifle #imp
   parent: [BaseWeaponBattery, BaseGunWieldable]
   id: WeaponPulseRifle
   description: A weapon almost as infamous as its users.
@@ -429,10 +429,10 @@
 #imp edit end
 
 - type: entity
-  name: OL-71 Laser Rifle #imp
+  name: OL-71 laser rifle #imp
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponLaserCannon
-  description: Modern laser technology purpose-built into a military platform-- as deadly as it is precise. #imp
+  description: Modern laser technology purpose-built into a military platform—as deadly as it is precise. #imp
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Battery/laser_cannon.rsi #imp
@@ -452,7 +452,7 @@
   - type: Gun
     fireRate: 4.5 #imp
     soundGunshot:
-      path: /Audio/_Impstation/Weapons/Guns/Gunshots/lasermil.ogg #imp
+      path: /Audio/Items/Toys/toysqueak1.ogg #imp
   - type: HitscanBatteryAmmoProvider
     proto: RedHeavyLaser
     fireCost: 40 #imp
@@ -499,7 +499,7 @@
     - type: Gun
       fireRate: 0.5
       soundGunshot:
-        path: /Audio/Weapons/emitter.ogg
+        path: /Audio/Items/Toys/toysqueak1.ogg
         params:
           pitch: 2
     - type: ProjectileBatteryAmmoProvider
@@ -528,7 +528,7 @@
 #imp edit end
 
 - type: entity
-  name: x-ray cannon
+  name: EM-40 x-ray cannon #imp
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponXrayCannon
   description: An experimental weapon that uses concentrated x-ray energy against its target.
@@ -545,7 +545,7 @@
     sprite: _Impstation/Objects/Weapons/Guns/Battery/xray.rsi #imp
   - type: Gun
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
+      path: /Audio/Items/Toys/toysqueak1.ogg
   - type: HitscanBatteryAmmoProvider
     proto: XrayLaser
     fireCost: 100
@@ -602,7 +602,7 @@
   - type: Gun
     fireRate: 2
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
+      path: /Audio/Items/Toys/toysqueak1.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerPractice
     fireCost: 100
@@ -665,7 +665,7 @@
       - SemiAuto
       - FullAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
+      path: /Audio/Items/Toys/toysqueak1.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerSmg
     fireCost: 33
@@ -703,7 +703,7 @@
     - Belt
   - type: Gun
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/taser.ogg
+      path: /Audio/Items/Toys/toysqueak1.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletTaser
     fireCost: 200
@@ -731,7 +731,7 @@
     sprite: _Impstation/Objects/Weapons/Guns/Battery/antiquelasergun.rsi #imp
   - type: Gun
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+      path: /Audio/Items/Toys/toysqueak1.ogg
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
@@ -758,7 +758,7 @@
     # not putting a BlockMovement component here cause that's funny.
 
 - type: entity
-  name: X-66 Advanced Laser Pistol #imp
+  name: X-66 advanced laser pistol #imp
   parent: [ BaseWeaponBatterySmall, BaseSecurityContraband]
   id: WeaponAdvancedLaser
   description: An experimental high-energy laser pistol with a self-charging nuclear battery.
@@ -777,7 +777,7 @@
     sprite: _Impstation/Objects/Weapons/Guns/Battery/advancedlasergun.rsi #imp
   - type: Gun
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+      path: /Audio/Items/Toys/toysqueak1.ogg
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
@@ -818,7 +818,7 @@
     projectileSpeed: 10
     fireRate: 1.5
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
+      path: /Audio/Items/Toys/toysqueak1.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: AnomalousParticleDeltaStrong
     fireCost: 100
@@ -871,7 +871,7 @@
   - type: Gun
     fireRate: 1
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_clown.ogg
+      path: /Audio/Items/Toys/toysqueak1.ogg
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
@@ -882,7 +882,7 @@
     price: 750
 
 - type: entity
-  name: M-1 Energy Shotgun #imp
+  name: M-1 energy shotgun #imp
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseGrandTheftContraband]
   id: WeaponEnergyShotgun
   description: A one-of-a-kind prototype energy weapon that uses various shotgun configurations. It offers the possibility of both lethal and non-lethal shots, making it a versatile weapon.
@@ -905,7 +905,7 @@
   - type: Gun
     fireRate: 2
     soundGunshot:
-      path: /Audio/_Impstation/Weapons/Guns/Gunshots/eshotgun.ogg #imp
+      path: /Audio/Items/Toys/toysqueak1.ogg #imp
   - type: ProjectileBatteryAmmoProvider
     proto: BulletLaserSpread
     fireCost: 150
