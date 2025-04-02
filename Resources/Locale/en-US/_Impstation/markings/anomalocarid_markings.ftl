@@ -100,6 +100,8 @@ marking-AnomalocaridNecklace1-necklace1_secondary = Necklace Secondary
 
 marking-AnomalocaridWingsDefault = Wings
 marking-AnomalocaridWingsDefault-wings1 = Wings
+marking-AnomalocaridWingsDown = Currentswept Wings
+marking-AnomalocaridWingsDown-wings2 = Wings
 
 marking-AnomalocaridTailDefault = Tail
 marking-AnomalocaridTailDefault-tail1 = Tail

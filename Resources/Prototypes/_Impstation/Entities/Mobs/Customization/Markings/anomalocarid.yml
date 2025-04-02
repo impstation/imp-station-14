@@ -631,6 +631,21 @@
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
     state: wings1
 
+- type: marking
+  id: AnomalocaridWingsDown
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Anomalocarid ]
+  followSkinColor: false
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: wings2
+
 
 #Tails
 #- type: marking
