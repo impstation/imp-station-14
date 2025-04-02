@@ -7,14 +7,8 @@ using Content.Shared.Atmos;
 using Content.Server.Polymorph.Systems;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
-using Content.Server.EntityEffects.EffectConditions;
-using Content.Server.Temperature.Components;
-using Content.Shared.Speech.Muting;
 using Content.Server.Temperature.Systems;
 using Content.Shared.Movement.Systems;
-using Content.Server.Heretic.Components;
-using Content.Shared.Changeling;
-using JetBrains.FormatRipper.Elf;
 
 namespace Content.Server.Heretic.Abilities;
 
