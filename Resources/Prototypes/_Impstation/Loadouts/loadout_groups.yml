@@ -260,6 +260,7 @@
   loadouts:
   - CaptainSunglasses
   - CaptainVisor
+  - CaptainEyepatch
 
 - type: loadoutGroup
   id: CaptainGloves
@@ -277,6 +278,7 @@
   - BlackCommandHeels
   - BlueCommandHeels
   - CaptainJumpBoots
+  - CaptainHeeledBoots
 
 - type: loadoutGroup
   id: CommandHeadset
@@ -708,6 +710,13 @@
   minLimit: 0
   loadouts:
   - ScarfBrown
+
+- type: loadoutGroup
+  id: CargoTechnicianBelt
+  name: loadout-group-cargo-technician-belt
+  minLimit: 0
+  loadouts:
+  - SeniorCargoBelt
 
 - type: loadoutGroup
   id: CargoTechnicianPDA
