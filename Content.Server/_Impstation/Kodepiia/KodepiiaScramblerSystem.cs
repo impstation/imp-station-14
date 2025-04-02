@@ -14,7 +14,7 @@ using Robust.Shared.Player;
 
 namespace Content.Server._Impstation.Kodepiia;
 
-public sealed partial class KodepiiaScramblerSystem : SharedKodepiiaScramblerSystem
+public sealed class KodepiiaScramblerSystem : SharedKodepiiaScramblerSystem
 {
     [Dependency] private readonly ActionsSystem _actionsSystem = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearance = default!;
@@ -26,8 +26,6 @@ public sealed partial class KodepiiaScramblerSystem : SharedKodepiiaScramblerSys
     {
         base.Initialize();
 
-        SubscribeLocalEvent<KodepiiaScramblerComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<KodepiiaScramblerComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<KodepiiaScramblerComponent, KodepiiaScramblerEvent>(Scramble);
         SubscribeLocalEvent<KodepiiaScramblerComponent, KodepiiaScramblerDoAfterEvent>(OnScrambleDoAfter);
     }

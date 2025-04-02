@@ -13,13 +13,6 @@ public sealed partial class KodepiiaConsumeActionComponent : Component
     [DataField]
     public string? ConsumeActionId = "ActionKodepiiaConsume";
 
-    public List<SoundSpecifier?> SoundPool = new()
-    {
-        new SoundPathSpecifier("/Audio/Effects/gib1.ogg"),
-        new SoundPathSpecifier("/Audio/Effects/gib2.ogg"),
-        new SoundPathSpecifier("/Audio/Effects/gib3.ogg"),
-    };
-
     [DataField(required: true)]
     public DamageSpecifier Damage = new();
 

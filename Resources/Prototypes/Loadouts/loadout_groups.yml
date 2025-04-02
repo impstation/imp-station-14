@@ -44,7 +44,6 @@
   - FolderHamster #imp
   - FolderMime #imp
   - FolderPun #imp
-  - GoldRingTrinket #imp
   - Hairflower
   - HarmonicaInstrument #imp
   - Headphones
@@ -56,6 +55,7 @@
   - PlushieDollHair #imp
   - PlushieLizard
   - PlushieSpaceLizard
+  - GoldRingTrinket #imp
   - SilverRingTrinket #imp
   - TowelColorBlack
   - TowelColorDarkBlue
@@ -144,6 +144,7 @@
   - CaptainCap
   - CaptainBeret # imp
   - CaptainCrusherCap #imp
+  - CaptainTricorne # imp
 
 - type: loadoutGroup
   id: CaptainJumpsuit
@@ -165,6 +166,7 @@
   - CaptainMantle
   - CaptainGreatcoat # imp
   - ScarfBlue # imp
+  - CaptainAdmiralCloak # imp
 
 - type: loadoutGroup
   id: CaptainBackpack
@@ -278,6 +280,7 @@
   loadouts:
   - PassengerWintercoat
   - BomberBlack #imp
+  - BomberWhite #imp
 
 - type: loadoutGroup
   id: PassengerShoes
@@ -1386,10 +1389,14 @@
   - SpaceMedicalJumpsuit # imp
   - SeniorPhysicianJumpsuit
   - SeniorPhysicianJumpskirt
+  - VirologyJumpsuit # imp
+  - VirologyJumpskirt # imp
+  - GeneticsJumpsuit # imp
+  - GeneticsJumpskirt # imp
   - MedicalBlueScrubs
   - MedicalGreenScrubs
   - MedicalPurpleScrubs
-
+  
 - type: loadoutGroup
   id: MedicalDoctorOuterClothing
   name: loadout-group-medical-doctor-outerclothing
@@ -1397,6 +1404,8 @@
   loadouts:
   - RegularLabCoat
   - MedicalDoctorWintercoat
+  - GeneticsWinterCoat # imp
+  - VirologyWinterCoat # imp
   - SeniorPhysicianLabCoat
   - BomberMedical #imp
 
