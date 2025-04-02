@@ -129,10 +129,10 @@
     revertOnCrit: false
     revertOnDeath: true
     revertOnEat: true
-    duration: 180 # imp change 
-    polymorphSound: !type:SoundPathSpecifier
+    duration: 180 # imp change
+    polymorphSound: !type:SoundPathSpecifier # imp change
       path: /Audio/Magic/forcewall.ogg
-    exitPolymorphSound: !type:SoundPathSpecifier
+    exitPolymorphSound: !type:SoundPathSpecifier # imp change
       path: /Audio/Magic/forcewall.ogg
 
 - type: polymorph
