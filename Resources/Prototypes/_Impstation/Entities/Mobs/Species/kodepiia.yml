@@ -91,6 +91,8 @@
     hideLayersOnEquip:
     - HeadTop
     - HeadSide
+  - type: Hunger
+    baseDecayRate: 1.25 # might be too much but we'll see
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
@@ -161,7 +163,7 @@
 
 - type: entity
   save: false
-  name: Urist McHands
+  name: Urist McSquid
   parent: MobHumanDummy
   id: MobKodepiiaDummy
   categories: [ HideSpawnMenu ]
