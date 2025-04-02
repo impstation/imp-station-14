@@ -44,6 +44,8 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
             SubscribeLocalEvent<GasFilterComponent, GasFilterSelectGasMessage>(OnSelectGasMessage);
             SubscribeLocalEvent<GasFilterComponent, GasFilterToggleStatusMessage>(OnToggleStatusMessage);
 
+            SubscribeLocalEvent<GasFilterComponent, MapInitEvent>(OnMapInit); // Frontier
+
         }
 
         private void OnInit(EntityUid uid, GasFilterComponent filter, ComponentInit args)
@@ -210,6 +212,19 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
             }
 
             args.DeviceFlipped = inlet != null && filterNode != null && inlet.CurrentPipeDirection.ToDirection() == filterNode.CurrentPipeDirection.ToDirection().GetClockwise90Degrees();
+        }
+
+        private void OnMapInit(EntityUid uid, GasFilterComponent filter, ref MapInitEvent args) // Frontier - Enable on map init
+        {
+            if (!filter.StartEnabled)
+                return;
+
+            filter.Enabled = true;
+
+            UpdateAppearance(uid, filter);
+
+            DirtyUI(uid, filter);
+            _userInterfaceSystem.CloseUi(uid, GasFilterUiKey.Key);
         }
     }
 }

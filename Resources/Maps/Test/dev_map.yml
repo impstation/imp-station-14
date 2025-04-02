@@ -1,6 +1,17 @@
 meta:
-  format: 6
-  postmapinit: false
+  format: 7
+  category: Map
+  engineVersion: 248.0.2
+  forkId: ""
+  forkVersion: ""
+  time: 04/02/2025 05:20:12
+  entityCount: 1626
+maps:
+- 962
+grids:
+- 179
+orphans: []
+nullspace: []
 tilemap:
   0: Space
   89: FloorSteel
@@ -508,7 +519,6 @@ entities:
     - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
-    - type: LoadedMap
 - proto: AirAlarm
   entities:
   - uid: 800
@@ -4364,6 +4374,15 @@ entities:
     - type: Transform
       pos: 7.3675013,-6.725376
       parent: 179
+- proto: GasFilterEnabled
+  entities:
+  - uid: 729
+    components:
+    - type: Transform
+      pos: 1.5,-2.5
+      parent: 179
+    - type: GasFilter
+      filteredGas: Nitrogen
 - proto: GasMinerAmmonia
   entities:
   - uid: 1204
@@ -4438,6 +4457,14 @@ entities:
     - type: GasMixer
       inletTwoConcentration: 0.20999998
       inletOneConcentration: 0.79
+- proto: GasMixerEnabled
+  entities:
+  - uid: 1623
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.5,-2.5
+      parent: 179
 - proto: GasOutletInjector
   entities:
   - uid: 406
@@ -4546,6 +4573,41 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 17.5,-26.5
+      parent: 179
+  - uid: 1620
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 1.5,-3.5
+      parent: 179
+  - uid: 1621
+    components:
+    - type: Transform
+      pos: 1.5,-1.5
+      parent: 179
+  - uid: 1622
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 0.5,-2.5
+      parent: 179
+  - uid: 1624
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 2.5,-2.5
+      parent: 179
+  - uid: 1625
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 4.5,-2.5
+      parent: 179
+  - uid: 1626
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 3.5,-3.5
       parent: 179
 - proto: GasPipeBend
   entities:
