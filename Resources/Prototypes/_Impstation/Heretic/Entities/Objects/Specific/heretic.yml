@@ -1,6 +1,6 @@
 - type: entity
   parent: BaseItem
-  id: EldritchTomeBase
+  id: EldritchTome
   name: Eldritch Tome
   description: A strange book with some kind of ritual circle emblazoned on the front.
   components:
@@ -24,6 +24,25 @@
           eldritch-book-icon: ""
   - type: EldritchItem
   - type: PointLight
-    radius: 2
+    radius: 1.5
     energy: 0.5
     color: "#6e7500"
+    
+- type: entity
+  id: RealityTear
+  name: Reality Tear
+  description: It hurts your head to look at. 
+  components:
+  - type: TimedDespawn
+    lifetime: 1
+  - type: SpawnOnDespawn
+    prototype: EldritchTome
+  - type: PointLight
+    radius: 3
+    energy: 2.5
+    color: "#6e7500"
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Goobstation/Heretic/reality_fracture.rsi
+    state: icon_harvested
+  - type: Clickable

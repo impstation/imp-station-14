@@ -1,5 +1,4 @@
 using Content.Server.Heretic.Components;
-using Robust.Shared.Log;
 using Content.Server.Popups;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
@@ -13,12 +12,9 @@ public sealed partial class EldritchItemSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doafter = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly HereticSystem _heretic = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
-    private ISawmill _sawmill = default!;
 
     public override void Initialize()
     {
-        _sawmill = _logManager.GetSawmill("Debug");
         base.Initialize();
         SubscribeLocalEvent<EldritchItemComponent, UseInHandEvent>(OnUseInHand);
         SubscribeLocalEvent<EldritchItemComponent, EldritchItemDoAfterEvent>(OnDoAfter);
@@ -27,7 +23,6 @@ public sealed partial class EldritchItemSystem : EntitySystem
 
     private void OnUseInHand(Entity<EldritchItemComponent> ent, ref UseInHandEvent args)
     {
-        //_sawmill.Debug("in OnUseinHand");
         if (args.Handled || !TryComp<HereticComponent>(args.User, out var heretic))
             return;
 
@@ -42,18 +37,10 @@ public sealed partial class EldritchItemSystem : EntitySystem
     }
     private void OnDoAfter(Entity<EldritchItemComponent> ent, ref EldritchItemDoAfterEvent args)
     {
-        _sawmill.Debug("in OnDoAfter");
-        if (args.Cancelled)
+        if (args.Cancelled || !TryComp<HereticComponent>(args.User, out var heretic))
         {
-            _sawmill.Debug("args cancelled");
             return;
         }
-        if(!TryComp<HereticComponent>(args.User, out var heretic))
-        {
-            _sawmill.Debug("heretic component failed");
-            return;
-        }
-
         _heretic.UpdateKnowledge(args.User, heretic, 1f);
 
         ent.Comp.Spent = true;
