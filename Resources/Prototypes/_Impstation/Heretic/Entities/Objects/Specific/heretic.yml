@@ -1,0 +1,29 @@
+- type: entity
+  parent: BaseItem
+  id: EldritchTomeBase
+  name: Eldritch Tome
+  description: A strange book with some kind of ritual circle emblazoned on the front.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Heretic/eldritch_book.rsi
+    layers:
+    - state: eldritch-book-base
+      color: "#00FAFA"
+      map : [ "cover" ]
+    - state: eldritch-book-pages
+      map : [ "pages" ]
+    - state: eldritch-book-icon
+      map : [ "icon" ]
+  - type: RandomSprite
+    available:
+      - cover:
+          eldritch-book-base: Sixteen
+        pages:
+          eldritch-book-pages: ""
+        icon:
+          eldritch-book-icon: ""
+  - type: EldritchItem
+  - type: PointLight
+    radius: 2
+    energy: 0.5
+    color: "#6e7500"
