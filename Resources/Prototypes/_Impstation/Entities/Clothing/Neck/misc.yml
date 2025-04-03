@@ -1,0 +1,13 @@
+# Senior lawyer badge
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckDefenseattorneybadge
+  name: defense attorney badge
+  description: A badge to show that the owner is an honest-to-god defense attorney, experienced in negotiating plea bargains to get Nanotrasen organic resources back to work as soon as possible.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Neck/Misc/defenseattorneybadge.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Neck/Misc/defenseattorneybadge.rsi
+  - type: TypingIndicatorClothing
+    proto: lawyerblue
