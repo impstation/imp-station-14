@@ -15,6 +15,11 @@
   - MagazineLPistol
   - MagazineLPistolEmpty
 
+- type: latheRecipePack
+  id: SteelBriefcaseImp
+  recipes:
+  - BriefcaseSteelRecipe
+
 # Dynamic
 
 - type: latheRecipePack
@@ -48,8 +53,3 @@
   recipes:
   - WeaponShotgunEnforcerBeanbag
   - WeaponShotgunKammererBeanbag
-
-- type: latheRecipePack
-  id: SteelBriefcaseImp
-  recipes:
-  - BriefcaseSteelRecipe
