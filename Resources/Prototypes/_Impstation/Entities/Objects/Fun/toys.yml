@@ -697,7 +697,7 @@
   - type: Sprite
     sprite: _Impstation/Objects/Fun/toys.rsi/fuzzbo.rsi
     layers:
-    - state: plushie_fuzzbo_babyBlue
+    - state: RandomSprite
   - type: RandomSprite
     available:
     - enum.DamageStateVisualLayers.Base:
