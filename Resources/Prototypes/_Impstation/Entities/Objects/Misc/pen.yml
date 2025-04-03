@@ -2,7 +2,7 @@
   name: designer pen
   parent: LuxuryPen
   id: DesignerPen
-  description: A tasteful and elegant pen containing seven different colors of ink. The most expensive writing implement you can legally own aboard this station.
+  description: A tasteful and elegant pen. The most expensive writing implement you can legally own aboard this station.
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Misc/pens.rsi
@@ -13,9 +13,9 @@
   - type: SignatureWriter # imp
     colorList:
       black: "#2f4f4f"
-      blue: "#284283"
-      green: "#108473"
       red: "#ac3235"
-      teal: "#1c637b"
+      green: "#108473"
+      cyan: "#1a7694"
+      blue: "#284283"
       purple: "#6a3059"
       magenta: "#a42f6b"
