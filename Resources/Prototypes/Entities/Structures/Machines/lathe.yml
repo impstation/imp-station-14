@@ -200,6 +200,7 @@
     - SurgeryStatic
     - ImpProtoStatic # Imp
     - ReportingStatic # DeltaV
+    - SteelBriefcaseImp # Imp
     dynamicPacks:
     - AdvancedTools
     - ScienceEquipment
@@ -217,7 +218,6 @@
     - FauxTiles
     - ImpProtoDynamic # Imp
     - NFService # Frontier
-    - SteelBriefcaseImp # Imp
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo
