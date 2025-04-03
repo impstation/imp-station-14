@@ -132,6 +132,7 @@
     - ElectronicsStatic
     - ImpAutoStatic # Imp
     - ReportingStatic # DeltaV
+    - SteelBriefcaseImp # Imp
     dynamicPacks:
     - ImpAutoDynamic # Imp
   - type: EmagLatheRecipes
@@ -216,6 +217,7 @@
     - FauxTiles
     - ImpProtoDynamic # Imp
     - NFService # Frontier
+    - SteelBriefcaseImp # Imp
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo
@@ -407,6 +409,7 @@
     - SecurityPracticeStatic
     - SecurityAmmoStatic
     - SecurityWeaponsStatic
+    - SteelBriefcaseImp # Imp
     dynamicPacks:
     - SecurityEquipment
     - SecurityBoards
