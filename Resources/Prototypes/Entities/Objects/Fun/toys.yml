@@ -11,6 +11,7 @@
     tags:
       - Payload
       - ClothMade
+      - Plushie #imp
   - type: EmitSoundOnUse
     sound:
       collection: ToySqueak
@@ -1682,6 +1683,7 @@
     delay: 0.8
   - type: Slippery
     paralyzeTime: 0
+    launchForwardsMultiplier: 0 #imp edit (was default value before)
     slipSound:
       collection: Parp
       params:

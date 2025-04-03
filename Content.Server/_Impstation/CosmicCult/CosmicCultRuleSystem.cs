@@ -527,10 +527,11 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         UpdateMonumentAppearance(uid, false);
 
         Dirty(uid);
+
         _ui.SetUiState(uid.Owner, MonumentKey.Key, new MonumentBuiState(uid.Comp));
     }
 
-    //note - these ar the thresholds for moving to the next tier
+    //note - these are the thresholds for moving to the next tier
     //so t1 -> 2 needs 20% of the crew
     //t2 -> 3 needs 40%
     //and t3 -> finale needs an extra 20 entropy
@@ -838,7 +839,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             _role.MindTryRemoveRole<RoleBriefingComponent>(mindId);
             if (_mind.TryGetSession(mindId, out var session))
             {
-                _euiMan.OpenEui(new CosmicDeconvertedEui(), session);
+                _euiMan.OpenEui(new DeconvertedCultistEui(), session); //renamed because ReflectionManager.LooseGetType uses a wierd search criteria
             }
             _eye.SetVisibilityMask(uid, 1);
             TotalCult--;

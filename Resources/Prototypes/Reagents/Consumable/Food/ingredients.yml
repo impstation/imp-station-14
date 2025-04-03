@@ -104,13 +104,13 @@
   flavor: peppery
   color: black
   recognizable: true
-  metabolisms:
+  metabolisms: # imp
     Food:
       effects:
       - !type:Emote
         emote: Cough
         probability: 0.7
-  reactiveEffects:
+  reactiveEffects: # imp
     Acidic:
       methods: [ Touch ]
       effects:
@@ -241,6 +241,9 @@
       effects:
       - !type:SatiateHunger
         conditions:
+        - !type:OrganType # imp
+          type: Kodepiia
+          shouldHave: false
         - !type:ReagentThreshold #Only satiates when eaten with nutriment
           reagent: Nutriment
           min: 0.1
