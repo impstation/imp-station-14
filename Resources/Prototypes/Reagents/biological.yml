@@ -38,6 +38,13 @@
           groups:
             Brute: -3
             Burn: -1.25
+      - !type:HealthChange # imp
+        conditions:
+        - !type:OrganType
+          type: Kodepiia
+        damage:
+          groups:
+            Bloodloss: -0.5 # identical to a bloodpack unless im stupid
   plantMetabolism:
     - !type:PlantAdjustWater
       amount: 0.5
