@@ -632,9 +632,10 @@
   description: These were once suspected of containing listening devices, and thus banned from high-security locations. But that's silly, right?
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi/fuzzbo.rsi
     layers:
-    - state: RandomSprite
+        - state: red
+        - sprite: _Impstation/Objects/Fun/toys.rsi/fuzzbo.rsi
+          state: plushie_h
   - type: RandomSprite
     available:
     - enum.DamageStateVisualLayers.Base:
