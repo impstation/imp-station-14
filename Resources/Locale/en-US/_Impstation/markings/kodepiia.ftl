@@ -46,8 +46,8 @@ marking-KodeHumanEyesUneven-humaneyeseneven1 = Right
 marking-KodeHumanEyesUneven-humaneyeseneven2 = Left
 
 marking-KodeHumanEyesUnevenUnshaded = Eyes (Human Uneven Reflective)
-marking-KodeHumanEyesUnevenUnshaded-humaneyesuneven1 = Right
-marking-KodeHumanEyesUnevenUnshaded-humaneyesuneven2 = Left
+marking-KodeHumanEyesUnevenUnshaded-humaneyeseneven1 = Right
+marking-KodeHumanEyesUnevenUnshaded-humaneyeseneven2 = Left
 
 marking-KodeJamjar1 = Eyes (Jamjar)
 marking-KodeJamjar1-jamjareyes = Eyes
