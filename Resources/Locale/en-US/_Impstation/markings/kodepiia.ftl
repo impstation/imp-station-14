@@ -180,6 +180,10 @@ marking-KodeCanvas-canvas7 = Pixel 7
 marking-KodeCanvas-canvas8 = Pixel 8
 marking-KodeCanvas-canvas9 = Pixel 9
 
+marking-KodeChestEye = Large Eye (Chest)
+marking-KodeChestEye-chesteye1 = Schlera
+marking-KodeChestEye-chesteyes2 = Iris
+
 marking-KodeChestGills = Chest Gills
 marking-KodeChestGills-kodechestgills = Gills
 
@@ -245,9 +249,9 @@ marking-KodeCapeSquid = Cape (Squid)
 marking-KodeCapeSquid-squidcape = Cape
 
 marking-KodeSwanWings = Wings (Swan)
-marking-KodeSwanWings-swanswings1 = Main
-marking-KodeSwanWings-swanswings2 = Stripes
-marking-KodeSwanWings-swanswings3 = Spots
+marking-KodeSwanWings-swanwings1 = Main
+marking-KodeSwanWings-swanwings2 = Stripes
+marking-KodeSwanWings-swanwings3 = Spots
 
 marking-KodeTentaWings = Cape (Tentacles)
 marking-KodeTentaWings-tentawings = Cape
