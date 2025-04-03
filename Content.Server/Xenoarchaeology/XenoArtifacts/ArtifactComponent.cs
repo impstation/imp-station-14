@@ -128,7 +128,7 @@ public sealed partial class ArtifactNode : ICloneable
     /// <summary>
     /// The trigger for the node
     /// </summary>
-    [DataField("trigger", customTypeSerializer: typeof(PrototypeIdSerializer<ArtifactTriggerPrototype>), required: true), ViewVariables]
+    [DataField("trigger", customTypeSerializer: typeof(PrototypeIdSerializer<ArtifactTriggerPrototype>), required: true), ViewVariables(VVAccess.ReadWrite)]
     public string Trigger = default!;
 
     /// <summary>
@@ -140,7 +140,7 @@ public sealed partial class ArtifactNode : ICloneable
     /// <summary>
     /// The effect when the node is activated
     /// </summary>
-    [DataField("effect", customTypeSerializer: typeof(PrototypeIdSerializer<ArtifactEffectPrototype>), required: true), ViewVariables]
+    [DataField("effect", customTypeSerializer: typeof(PrototypeIdSerializer<ArtifactEffectPrototype>), required: true), ViewVariables(VVAccess.ReadWrite)]
     public string Effect = default!;
 
     /// <summary>
