@@ -695,9 +695,18 @@
   description: These were once suspected of containing listening devices, and thus banned from high-security locations. But that's silly, right?
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi/fuzzbo.rsi
+    sprite: _Impstation/Objects/Fun/toys.rsi
     layers:
     - state: plushie_fuzzbo_babyBlue
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+  - type: RandomSprite
+    available:
+      - enum.DamageStateVisualLayers.Base:
+          plushie_fuzzbo_babyGray: ""
+          plushie_fuzzbo_babyTiger: ""
+          plushie_fuzzbo_babyTreeFrog: ""
+          plushie_fuzzbo_babyBrown: ""
+          plushie_fuzzbo_babyPurple: ""
   - type: Rotatable
   - type: EmitSoundOnUse
     sound:
