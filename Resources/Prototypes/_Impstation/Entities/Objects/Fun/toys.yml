@@ -637,13 +637,12 @@
         state: plushie_fuzzbo_babyBlue
   - type: RandomSprite
     available:
-    - enum.DamageStateVisualLayers.Base:
-      plushie_fuzzbo_babyBlue: ""
-      plushie_fuzzbo_babyBrown: ""    
-      plushie_fuzzbo_babyGray: ""
-      plushie_fuzzbo_babyPurple: ""
-      plushie_fuzzbo_babyTiger: ""
-      plushie_fuzzbo_babyTreeFrog: ""
+      - plushie_fuzzbo_babyBlue: ""
+      - plushie_fuzzbo_babyBrown: ""    
+      - plushie_fuzzbo_babyGray: ""
+      - plushie_fuzzbo_babyPurple: ""
+      - plushie_fuzzbo_babyTiger: ""
+      - plushie_fuzzbo_babyTreeFrog: ""
   - type: Rotatable
   - type: EmitSoundOnUse
     sound:
