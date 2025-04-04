@@ -41,6 +41,7 @@ public sealed partial class BlazingDashSystem : EntitySystem
 
         SubscribeLocalEvent<BlazingDashComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
     }
+
     public override void Update(float timeframe)
     {
         base.Update(timeframe);
