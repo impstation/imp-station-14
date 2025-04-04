@@ -32,30 +32,12 @@
   loadouts:
   - LoadoutSpeciesAquaticFullTank
 
-# decapoid claw and tank
-- type: loadoutGroup
-  id: GroupDecapoidClawLeft
-  name: loadout-group-decapoid-claw-left
-  minLimit: 1
-  hidden: true
-  loadouts:
-  - LoadoutDecapoidClaw
-
-# the claw and tank but as StartingGear
-- type: startingGear
-  id: StartingGearDecapoidClaw
-  inhand:
-    - DecapoidVaporTank
-    - DecapoidClawItem
-
-# the full internals setup for decapoids but as StartingGear
+# the full internals setup for decapoids as StartingGear
 - type: startingGear
   id: StartingGearDecapoidVaporizer
   equipment:
     mask: DecapoidBreathingApparatus
-  inhand:
-    - DecapoidVaporTank
-    - DecapoidClawItem
+    suitstorage: DecapoidVaporTankFilled
 
 # The usual loadouts of the decapoid harness that spawn in your chest slot for jobs that don't have outerwear in their loadout
 - type: loadoutGroup
@@ -107,6 +89,22 @@
   hidden: true
   loadouts:
   - LoadoutDecapoidBreathToolInventory
+
+- type: loadoutGroup
+  id: GroupBreathToolDecapoidInventoryClown
+  name: loadout-group-breath-tool-inventory-decapoid-clown
+  minLimit: 1
+  hidden: true
+  loadouts:
+  - LoadoutDecapoidBreathToolInventoryClown
+
+- type: loadoutGroup
+  id: GroupBreathToolDecapoidInventoryMime
+  name: loadout-group-breath-tool-inventory-decapoid-mime
+  minLimit: 1
+  hidden: true
+  loadouts:
+  - LoadoutDecapoidBreathToolInventoryMime
 
 # apids
 
@@ -296,6 +294,7 @@
   loadouts:
   - EmergencyNitrogenCommand
   - EmergencyOxygenCommand
+  - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogenCommand
 
 - type: loadoutGroup
@@ -306,6 +305,7 @@
   loadouts:
   - EmergencyNitrogenExtendedCommand
   - EmergencyOxygenExtendedCommand
+  - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogenCommand
 
 - type: loadoutGroup
@@ -316,6 +316,7 @@
   loadouts:
   - EmergencyNitrogenSecurityCommand
   - EmergencyOxygenSecurityCommand
+  - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogenCommand
 
 - type: loadoutGroup
@@ -1025,6 +1026,7 @@
   loadouts:
   - EmergencyNitrogenBrigmedic
   - EmergencyOxygenBrigmedic
+  - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogen
 
 - type: loadoutGroup

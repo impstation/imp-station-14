@@ -106,10 +106,9 @@
     location: The Monument
   - type: CosmicMarkStructure
   - type: CosmicCorrupting
-    disintegrate: true
-    corruptionGrowth: true
     corruptionReduction: 0.01
     enabled: false
+    floodFillStarting: true
 
  ########### SPAWN-IN ANIMATION #############
 
@@ -117,7 +116,7 @@
   id: MonumentCosmicCultSpawnIn
   name: The Monument
   parent: BaseStructure
-  suffix: Spawn, DO NOT MAP
+  categories: [ HideSpawnMenu ]
   components:
   - type: Visibility
     layer: 777
@@ -174,7 +173,7 @@
   id: MonumentCosmicCultMoveStart
   name: The Monument
   parent: BaseStructure
-  suffix: Spawn, DO NOT MAP
+  categories: [ HideSpawnMenu ]
   components:
   - type: Visibility
     layer: 777
@@ -228,7 +227,7 @@
   id: MonumentCosmicCultMoveEnd
   name: The Monument
   parent: BaseStructure
-  suffix: Spawn, DO NOT MAP
+  categories: [ HideSpawnMenu ]
   components:
   - type: Visibility
     layer: 777
@@ -283,7 +282,7 @@
 
 - type: entity
   id: MonumentCollider
-  suffix: Debug, DO NOT MAP
+  categories: [ HideSpawnMenu ]
   parent: BaseStructure
   placement:
     mode: AlignTileAny
@@ -305,7 +304,7 @@
 
 - type: entity
   id: MonumentSlowZone
-  suffix: Debug, DO NOT MAP
+  categories: [ HideSpawnMenu ]
   placement:
     mode: SnapgridCenter
     snap:
@@ -341,12 +340,14 @@
 - type: entity
   parent: MonumentCosmicCultBase
   id: MonumentCosmicCult1
-  suffix: Base, DO NOT MAP
+  categories: [ DoNotMap ]
+  components:
+  - type: Monument # Causes test fail without
+    targetProgress: 35
 
 
 - type: entity
   id: MonumentCosmicCult2
-  suffix: DO NOT MAP, DO NOT SPAWN
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -356,7 +357,6 @@
 
 - type: entity
   id: MonumentCosmicCult3
-  suffix: DO NOT MAP, DO NOT SPAWN
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

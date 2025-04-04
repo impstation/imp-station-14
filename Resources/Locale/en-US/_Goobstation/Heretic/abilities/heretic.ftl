@@ -10,6 +10,7 @@ heretic-blade-examine = [color=yellow]Using it while it's in your hand will brea
 heretic-blade-use = The blade shatters, and you feel the voices pulling you away.
 
 heretic-ghoul-examine = { CAPITALIZE(POSS-ADJ($ent)) } body looks like a decaying corpse.
+heretic-hell-victim-examine = { CAPITALIZE(POSS-ADJ($ent)) } eyes and skin are worryingly pale.
 
 heretic-rust-mark-itembreak = {$name} shatters into dust!
 
@@ -21,11 +22,6 @@ heretic-manselink-start-target = You feel your mind being pulled somewhere...
 heretic-fleshsurgery-barf = The contents of your stomach come pouring out!
 heretic-fleshsurgery-eyes = Your vision becomes dull and cloudy!
 heretic-fleshsurgery-mute = Your tongue falls limp!
-
-heretic-livingheart-notargets = No available targets, visit the rune.
-heretic-livingheart-offstation = It's {$state}, off station, {$direction}!
-heretic-livingheart-onstation = It's {$state}, {$direction}!
-heretic-livingheart-unknown = It's... not in this plane of reality.
 
 ## speech
 heretic-speech-mansusgrasp = R'CH T'H TR'TH!

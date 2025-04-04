@@ -122,8 +122,8 @@
     price: 2500 # rat wealth
   - type: RandomMetadata
     nameSegments:
-    - RegalRatNameKingdom
-    - RegalRatNameTitle
+    - NamesRegalratKingdom
+    - NamesRegalratTitle
   - type: GuideHelp
     guides:
     - MinorAntagonists
@@ -148,6 +148,12 @@
         - ReagentId: UncookedAnimalProteins
           Quantity: 50
   - type: BadFood #imp end
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   id: MobRatKingBuff
@@ -334,6 +340,12 @@
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
   - type: BadFood #imp end
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 - type: entityTable
   id: RatKingLoot
