@@ -205,13 +205,13 @@ public sealed partial class MechSystem : SharedMechSystem
                 Priority = 1, // Promote to top to make ejecting the ALT-click action
                 Act = () =>
                 {
-                    var doAfterEventArgs = new DoAfterArgs(EntityManager, args.User, component.ExitDelay, new MechExitEvent(), uid, target: uid)
+                    if (args.User == uid || args.User == component.PilotSlot.ContainedEntity)
                     {
-                        BreakOnMove = true,
-                    };
-                    _popup.PopupEntity(Loc.GetString("mech-eject-pilot-alert", ("item", uid), ("user", args.User)), uid, PopupType.Large);
+                        TryEject(uid, component);
+                        return;
+                    }
 
-                    _doAfter.TryStartDoAfter(doAfterEventArgs);
+                    _popup.PopupEntity(Loc.GetString("mech-eject-pilot-alert", ("item", uid), ("user", args.User)), uid, PopupType.Large);
                 }
             };
             args.Verbs.Add(ejectVerb);
