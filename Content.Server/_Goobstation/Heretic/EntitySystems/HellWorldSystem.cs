@@ -174,7 +174,7 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
 
         private void OnExamine(Entity<HellVictimComponent> ent, ref ExaminedEvent args)
         {
-            args.PushMarkup(markup: $"[color=red]{Loc.GetString("heretic-hell-victim-examine", ("ent", args.Examined))}[/color]");
+            args.PushMarkup($"[color=red]{Loc.GetString("heretic-hell-victim-examine", ("ent", args.Examined))}[/color]");
         }
     }
 }

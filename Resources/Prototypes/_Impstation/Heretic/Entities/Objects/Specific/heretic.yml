@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseItem
   id: EldritchTome
-  name: Eldritch Tome
+  name: eldritch tome
   description: A strange book with some kind of ritual circle emblazoned on the front.
   components:
   - type: Sprite
@@ -22,15 +22,18 @@
           eldritch-book-pages: ""
         icon:
           eldritch-book-icon: ""
-  - type: EldritchItem
+  - type: HereticKnowledgeItem
   - type: PointLight
     radius: 1.5
     energy: 0.5
     color: "#6e7500"
+  - type: Tag
+    tags:
+      - Book
     
 - type: entity
   id: RealityTear
-  name: Reality Tear
+  name: reality tear
   description: It hurts your head to look at. 
   components:
   - type: TimedDespawn
