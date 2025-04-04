@@ -243,24 +243,6 @@
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: grappling-module }
 
-- type: entity
-  id: BorgModuleConstruction
-  parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
-  name: construction cyborg module
-  components:
-  - type: Sprite
-    layers:
-    - state: engineering
-    - state: icon-construction
-  - type: ItemBorgModule
-    items:
-    - SheetSteelLingering0
-    - SheetGlassLingering0
-    - PartRodMetalLingering0
-    - FloorTileItemSteelLingering0
-  - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: construction-module }
-
 # engineering modules
 - type: entity
   id: BorgModuleAdvancedTool
@@ -282,6 +264,24 @@
     - GeigerCounter
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-tools-module }
+
+- type: entity
+  id: BorgModuleConstruction
+  parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
+  name: construction cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: engineering
+    - state: icon-construction
+  - type: ItemBorgModule
+    items:
+    - SheetSteelLingering0
+    - SheetGlassLingering0
+    - PartRodMetalLingering0
+    - FloorTileItemSteelLingering0
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: construction-module }
 
 - type: entity
   id: BorgModuleRCD
