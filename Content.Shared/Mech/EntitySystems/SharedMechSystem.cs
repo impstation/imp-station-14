@@ -70,13 +70,7 @@ public abstract class SharedMechSystem : EntitySystem
         if (args.Handled)
             return;
         args.Handled = true;
-
-        var doAfterEventArgs = new DoAfterArgs(EntityManager, args.Performer, component.ExitDelay, new MechExitEvent(), uid, target: uid)
-        {
-            BreakOnMove = true,
-        };
-
-        _doAfter.TryStartDoAfter(doAfterEventArgs);
+        TryEject(uid, component);
     }
 
     private void RelayInteractionEvent(EntityUid uid, MechComponent component, UserActivateInWorldEvent args)

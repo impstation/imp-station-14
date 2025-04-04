@@ -209,6 +209,7 @@ public sealed partial class MechSystem : SharedMechSystem
                     {
                         BreakOnMove = true,
                     };
+                    _popup.PopupEntity(Loc.GetString("mech-eject-pilot-alert", ("item", uid), ("user", args.User)), uid, PopupType.Large);
 
                     _doAfter.TryStartDoAfter(doAfterEventArgs);
                 }

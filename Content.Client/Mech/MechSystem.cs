@@ -2,7 +2,7 @@
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.EntitySystems;
 using Robust.Client.GameObjects;
-using Robust.Shared.Audio.Systems;
+using Robust.Shared.Audio.Systems; //imp
 using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
 
 namespace Content.Client.Mech;
@@ -11,7 +11,7 @@ namespace Content.Client.Mech;
 public sealed class MechSystem : SharedMechSystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!; //imp
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -19,7 +19,7 @@ public sealed class MechSystem : SharedMechSystem
         base.Initialize();
 
         SubscribeLocalEvent<MechComponent, AppearanceChangeEvent>(OnAppearanceChanged);
-        SubscribeLocalEvent<MechComponent, MechEntryEvent>(OnMechEntry);
+        SubscribeLocalEvent<MechComponent, MechEntryEvent>(OnMechEntry); //imp
     }
 
     private void OnAppearanceChanged(EntityUid uid, MechComponent component, ref AppearanceChangeEvent args)
@@ -47,7 +47,7 @@ public sealed class MechSystem : SharedMechSystem
         args.Sprite.DrawDepth = (int) drawDepth;
     }
 
-    private void OnMechEntry(EntityUid uid, MechComponent component, MechEntryEvent args)
+    private void OnMechEntry(EntityUid uid, MechComponent component, MechEntryEvent args) //imp
     {
         if (args.Cancelled || args.Handled)
             return;
