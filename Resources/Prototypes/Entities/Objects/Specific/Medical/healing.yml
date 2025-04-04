@@ -4,10 +4,10 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/medical.rsi
+    sprite: _Impstation/Objects/Specific/Medical/medical.rsi # imp
   - type: Item
     size: Small
-    sprite: Objects/Specific/Medical/medical.rsi
+    sprite: _Impstation/Objects/Specific/Medical/medical.rsi # imp
     heldPrefix: ointment
   # Inherited
   - type: StaticPrice
@@ -77,6 +77,7 @@
     - Ointment
     - RegenerativeMesh
   - type: Sprite
+    sprite: Objects/Specific/Medical/medical.rsi # imp
     state: regenerative-mesh
   - type: Item
     heldPrefix: regenerative-mesh
@@ -167,6 +168,7 @@
     tags:
     - Brutepack
   - type: Sprite
+    sprite: Objects/Specific/Medical/medical.rsi # imp
     state: medicated-suture
   - type: Item
     heldPrefix: medicated-suture
@@ -208,6 +210,7 @@
   - type: Tag
     tags:
     - Bloodpack
+    - KodeEdible # imp
   - type: Sprite
     state: bloodpack
   - type: Healing
@@ -227,6 +230,16 @@
     count: 10
   - type: StackPrice
     price: 10
+  - type: Food # imp - kodepiia gogurt
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Blood
+          Quantity: 15
+
 
 - type: entity
   parent: Bloodpack
@@ -246,6 +259,7 @@
       tags:
         - SecBeltEquip
     - type: Sprite
+      sprite: Objects/Specific/Medical/medical.rsi # imp
       state: tourniquet
     - type: Healing
       damageContainers:
