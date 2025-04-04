@@ -18,18 +18,18 @@ public sealed partial class ItemToggleUserRestrictComponent : Component
     /// <summary>
     /// the message a person unable to toggle it on will get if they try. null for no message
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("restrictmessage"), AutoNetworkedField]
-    public LocId RestrictMessage; 
+    [DataField, AutoNetworkedField]
+    public LocId? RestrictMessage;
 
     /// <summary>
     /// can only restricted people toggle it on?
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("openrestrict"), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public bool OpenRestrict = true;
 
     /// <summary>
     /// can only restricted people toggle it off?
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("closerestrict"), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public bool CloseRestrict = true;
 }
