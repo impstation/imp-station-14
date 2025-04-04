@@ -1,97 +1,4 @@
 ﻿Entries:
-- author: DinnerCalzone
-  changes:
-  - message: Mail support has been added to Amber, Bagel, and Train.
-    type: Add
-  - message: Fixed problematic atmos setup in the kitchen car on Train.
-    type: Fix
-  id: 954
-  time: '2025-01-17T18:01:26.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1404
-- author: TheGrimbeeper
-  changes:
-  - message: fixed bug where people could see chemical composition or weapon damage
-      from behind windows.
-    type: Fix
-  id: 955
-  time: '2025-01-17T18:00:26.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1405
-- author: formlessnameless
-  changes:
-  - message: Traitors no longer have to kill and save the same people sometimes.
-    type: Fix
-  id: 956
-  time: '2025-01-17T22:24:51.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1409
-- author: formlessnameless
-  changes:
-  - message: Antagonist selection now happens before job selection.
-    type: Tweak
-  id: 957
-  time: '2025-01-17T23:07:01.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1059
-- author: TheGrimbeeper
-  changes:
-  - message: Minimum luminosity for solution text when examining it. Should stop vent
-      crud/zombie blood/etc from blending in.
-    type: Tweak
-  id: 958
-  time: '2025-01-18T01:30:02.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1412
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: New sprites for the Stun Baton
-    type: Tweak
-  id: 959
-  time: '2025-01-18T01:33:47.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1391
-- author: kipdotnet
-  changes:
-  - message: Added a Courier locker for mapping.
-    type: Add
-  id: 960
-  time: '2025-01-18T04:23:13.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1413
-- author: Saeko-44
-  changes:
-  - message: The ability to prop a bucket on top of doors to drop and spill its content
-      on unsuspecting dooropeners
-    type: Add
-  id: 961
-  time: '2025-01-18T10:24:44.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1406
-- author: kipdotnet
-  changes:
-  - message: Fixed Couriers spawning without a headset.
-    type: Fix
-  id: 962
-  time: '2025-01-18T10:25:56.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1415
-- author: kipdotnet
-  changes:
-  - message: Banana has been updated!
-    type: Tweak
-  id: 963
-  time: '2025-01-18T10:25:38.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1414
-- author: hivehum
-  changes:
-  - message: The nuke song "Clearly Nuclear" has been replaced with its remastered
-      version, "Blatantly Nuclear."
-    type: Tweak
-  id: 964
-  time: '2025-01-18T17:55:57.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1419
-- author: Darkmajia
-  changes:
-  - message: Air tanks set to low output pressure will no longer create a throwing
-      damage blender.
-    type: Fix
-  - message: Air tanks now pop out of tethers when they release gas.
-    type: Tweak
-  id: 965
-  time: '2025-01-18T19:31:38.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1417
 - author: kipdotnet
   changes:
   - message: Removed Loop station from the map pool.
@@ -4071,3 +3978,100 @@
   id: 1453
   time: '2025-04-01T12:24:22.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/2149
+- author: wendyribstonpippin
+  changes:
+  - message: Lobby art commemorating that one time we put Sapphos in a cute maid dress
+    type: Add
+  - message: i have hired cindy to stare at you
+    type: Add
+  id: 1454
+  time: '2025-04-02T03:12:21.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2170
+- author: bigsantino1
+  changes:
+  - message: Muzzles now mute sounds from emotes like screams or gasping for air.
+    type: Tweak
+  id: 1455
+  time: '2025-04-02T03:13:19.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2168
+- author: bigsantino1
+  changes:
+  - message: Wand polymorphs now have a 3 minute timer.
+    type: Tweak
+  - message: The bread polymorph has a sound effect like the others now.
+    type: Tweak
+  id: 1456
+  time: '2025-04-02T03:12:00.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2169
+- author: Impstation
+  changes:
+  - message: The Jester's Trials Have Ended
+    type: Remove
+  id: 1457
+  time: '2025-04-02T11:13:55.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2178
+- author: widgetbeck
+  changes:
+  - message: The dead no longer appear to speak.
+    type: Fix
+  id: 1458
+  time: '2025-04-02T11:14:34.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2181
+- author: Mousetrinity
+  changes:
+  - message: Wizard event spells no longer possess you with a desire to hoard guns
+      and kill people.
+    type: Remove
+  id: 1459
+  time: '2025-04-02T11:46:45.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2184
+- author: TheGrimbeeper
+  changes:
+  - message: random event - one singular basic critter can now crawl unannounced from
+      a vent.
+    type: Add
+  id: 1460
+  time: '2025-04-02T13:07:58.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2147
+- author: widgetbeck
+  changes:
+  - message: Echolalia has been moved to the Disabilities category and had its point
+      cost removed. You may need to reapply it to your characters.
+    type: Tweak
+  id: 1461
+  time: '2025-04-02T13:17:51.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2183
+- author: Impstation
+  changes:
+  - message: 'Added a new playable species: Kodepiiae!'
+    type: Add
+  - message: New uplink item, the Syrinx implant, which allows a Kodepiia to change
+      their voice to match anyone they desire.
+    type: Add
+  id: 1462
+  time: '2025-04-02T18:32:56.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/1991
+- author: hivehum
+  changes:
+  - message: Kodepiiae should no longer be constantly fucking starving.
+    type: Tweak
+  id: 1463
+  time: '2025-04-02T20:52:24.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2189
+- author: DinnerCalzone
+  changes:
+  - message: Suppy is now referred to as a "superdense being" by the random sentience
+      random event.
+    type: Tweak
+  id: 1464
+  time: '2025-04-03T14:05:06.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2192
+- author: TheGrimbeeper
+  changes:
+  - message: Kodes can now use inherent stores (ling & heretic)
+    type: Fix
+  - message: Kodes can now check their moods, if they have them
+    type: Fix
+  id: 1465
+  time: '2025-04-03T14:04:39.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2190
