@@ -85,7 +85,7 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
         var uiComp = EnsureComp<UserInterfaceComponent>(target);
         if (!_userInterfaceSystem.HasUi(target, StoreUiKey.Key, uiComp))
         {
-            _userInterfaceSystem.SetUi(target, StoreUiKey.Key, new InterfaceData("StoreBoundUserInterface", 2, true));
+            _userInterfaceSystem.SetUi(target, StoreUiKey.Key, new InterfaceData("StoreBoundUserInterface"));
         }
 
         rule.ChangelingMinds.Add(mindId);

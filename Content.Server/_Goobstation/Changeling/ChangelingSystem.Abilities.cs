@@ -722,7 +722,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         var uiComp = EnsureComp<UserInterfaceComponent>(targetUid);
         if (!_userInterfaceSystem.HasUi(targetUid, StoreUiKey.Key, uiComp))
         {
-            _userInterfaceSystem.SetUi(targetUid, StoreUiKey.Key, new InterfaceData("StoreBoundUserInterface", 2, true));
+            _userInterfaceSystem.SetUi(targetUid, StoreUiKey.Key, new InterfaceData("StoreBoundUserInterface"));
         }
 
         var popupSelf = Loc.GetString("changeling-transform-lesser-self");
