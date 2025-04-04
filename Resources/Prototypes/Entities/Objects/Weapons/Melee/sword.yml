@@ -138,6 +138,12 @@
     sprite: Objects/Weapons/Melee/machete.rsi
   - type: DisarmMalus
   # imp edits #
+  - type: Clothing
+    sprite: Objects/Weapons/Melee/machete.rsi
+    slots:
+    - Belt
+  # vicky edits!!! making machete go on belt. sprited by me and someone can fix it if it looks like shit but its just based on the machete inhand
+  # to do: test ingame
   - type: DamageOtherOnHit
     staminaCost: 5
   - type: EmbeddableProjectile
