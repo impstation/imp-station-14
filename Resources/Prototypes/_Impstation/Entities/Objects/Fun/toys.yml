@@ -695,43 +695,10 @@
   description: These were once suspected of containing listening devices, and thus banned from high-security locations. But that's silly, right?
   components:
   - type: Sprite
-    sprite: Objects/Specific/Xenoarchaeology/artifact_fragments.rsi
+    sprite: _Impstation/Objects/Fun/toys.rsi/fuzzbo.rsi
     layers:
-    - state: ancientball1
-      map: [ "enum.ArtifactsVisualLayers.Base" ]
-  - type: RandomSprite
-    available: #yaml hero
-    - enum.ArtifactsVisualLayers.Base:
-        ancientball1: ""
-        ancientball2: ""
-        ancientball3: ""
-        ancientball4: ""
-        ancientball5: ""
-        ancientball6: ""
-        eldritchball1: ""
-        eldritchball2: ""
-        eldritchball3: ""
-        eldritchball4: ""
-        eldritchball5: ""
-        eldritchball6: ""
-        martianball1: ""
-        martianball2: ""
-        martianball3: ""
-        martianball4: ""
-        martianball5: ""
-        martianball6: ""
-        precursorball1: ""
-        precursorball2: ""
-        precursorball3: ""
-        precursorball4: ""
-        precursorball5: ""
-        precursorball6: ""
-        wizardball1: ""
-        wizardball2: ""
-        wizardball3: ""
-        wizardball4: ""
-        wizardball5: ""
-        wizardball6: ""
+    - state: plushie_fuzzbo_babyBlue
+  - type: Rotatable
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Items/Toys/mousesqueek.ogg
