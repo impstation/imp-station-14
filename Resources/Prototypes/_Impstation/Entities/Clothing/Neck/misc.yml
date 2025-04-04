@@ -1,13 +1,13 @@
 - type: entity
   parent: ClothingNeckBase
-  id: ClothingNeckBarristerBadge
-  name: barrister badge
-  description: A badge to show that the owner is a 'legitimate' barrister who passed the NT bar exam required to practice law.
+  id: ClothingNeckDefenseAttorneyBadge
+  name: defense attorney badge
+  description: A badge to show that the owner is a 'legitimate' defense attorney who passed the NT bar exam required to practice law.
   components:
   - type: Sprite
-    sprite: _Impstation/Clothing/Neck/Misc/barristerbadge.rsi
+    sprite: _Impstation/Clothing/Neck/Misc/defenseattorneybadge.rsi
   - type: Clothing
-    sprite: _Impstation/Clothing/Neck/Misc/barristerbadge.rsi
+    sprite: _Impstation/Clothing/Neck/Misc/defenseattorneybadge.rsi
   - type: TypingIndicatorClothing
     proto: lawyerblue
 
@@ -35,14 +35,14 @@
     sprite: _Impstation/Clothing/Neck/Misc/prosecutorarmband.rsi
 
 - type: entity
-  parent: ClothingNeckBarristerBadge
-  id: ClothingNeckBarristerArmband
-  name: barrister armband
-  description: A prestigious armband that signifies a long career as a barrister, inspired by an ancient historical style.
+  parent: ClothingNeckDefenseAttorneyBadge
+  id: ClothingNeckDefenseAttorneyArmband
+  name: defense attorney armband
+  description: A prestigious armband that signifies a long career as a defense attorney, inspired by an ancient historical style.
   components:
   - type: Sprite
-    sprite: _Impstation/Clothing/Neck/Misc/barristerarmband.rsi
+    sprite: _Impstation/Clothing/Neck/Misc/defenseattorneyarmband.rsi
   - type: Clothing
-    sprite: _Impstation/Clothing/Neck/Misc/barristerarmband.rsi
+    sprite: _Impstation/Clothing/Neck/Misc/defenseattorneyarmband.rsi
   - type: TypingIndicatorClothing
     proto: lawyerblue

@@ -21,9 +21,9 @@
 
 # Neck
 - type: loadout
-  id: BarristerNeck
+  id: DefenseAttorneyNeck
   equipment:
-    neck: ClothingNeckBarristerBadge
+    neck: ClothingNeckDefenseAttorneyBadge
 
 - type: loadout
   id: LawyerArmband
@@ -42,9 +42,9 @@
     proto: SeniorLawyer
 
 - type: loadout
-  id: BarristerArmband
+  id: DefenseAttorneyArmband
   equipment:
-    neck: ClothingNeckBarristerArmband
+    neck: ClothingNeckDefenseAttorneyArmband
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorLawyer
