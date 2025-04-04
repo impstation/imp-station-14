@@ -1,13 +1,48 @@
-# Senior lawyer badge
 - type: entity
   parent: ClothingNeckBase
-  id: ClothingNeckDefenseAttorneyBadge
-  name: defense attorney badge
-  description: A badge to show that the owner is an honest-to-god defense attorney, experienced in negotiating plea bargains to get Nanotrasen organic resources back to work as soon as possible.
+  id: ClothingNeckBarristerBadge
+  name: barrister badge
+  description: A badge to show that the owner is a 'legitimate' barrister who passed the NT bar exam required to practice law.
   components:
   - type: Sprite
-    sprite: _Impstation/Clothing/Neck/Misc/defenseattorneybadge.rsi
+    sprite: _Impstation/Clothing/Neck/Misc/barristerbadge.rsi
   - type: Clothing
-    sprite: _Impstation/Clothing/Neck/Misc/defenseattorneybadge.rsi
+    sprite: _Impstation/Clothing/Neck/Misc/barristerbadge.rsi
+  - type: TypingIndicatorClothing
+    proto: lawyerblue
+
+# Senior lawyer armbands
+- type: entity
+  parent: ClothingNeckLawyerbadge
+  id: ClothingNeckLawyerArmband
+  name: lawyer armband
+  description: A prestigious armband that signifies a long career as a lawyer, inspired by an ancient historical style.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Neck/Misc/lawyerarmband.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Neck/Misc/lawyerarmband.rsi
+
+- type: entity
+  parent: ClothingNeckProsecutorbadge
+  id: ClothingNeckProsecutorArmband
+  name: prosecutor armband
+  description: A prestigious armband that signifies a long career as a prosecutor, inspired by an ancient historical style.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Neck/Misc/prosecutorarmband.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Neck/Misc/prosecutorarmband.rsi
+
+- type: entity
+  parent: ClothingNeckBarristerBadge
+  id: ClothingNeckBarristerArmband
+  name: barrister armband
+  description: A prestigious armband that signifies a long career as a barrister, inspired by an ancient historical style.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Neck/Misc/barristerarmband.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Neck/Misc/barristerarmband.rsi
   - type: TypingIndicatorClothing
     proto: lawyerblue
