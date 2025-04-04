@@ -140,9 +140,10 @@
   name: courier cyborg module
   components:
   - type: Sprite
+    sprite: _Impstation/Objects/Specific/Robotics/borgmodule.rsi
     layers:
     - state: cargo
-    - state: icon-mail-bag
+    - state: icon-courier
   - type: ItemBorgModule
     items:
     - MailBag
