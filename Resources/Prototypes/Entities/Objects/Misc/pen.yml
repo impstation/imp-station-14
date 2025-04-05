@@ -70,9 +70,9 @@
   - type: SignatureWriter # imp
     colorList:
       black: "#2f4f4f"
-      red: "#ac3235"
-      green: "#108473"
       blue: "#284283"
+      green: "#108473"
+      red: "#ac3235"
 
 - type: entity
   id: BaseAdvancedPen
@@ -120,12 +120,12 @@
       Wahroonga: Wahroonga
     colorList:
       black: "#2f4f4f"
-      red: "#ac3235"
-      green: "#108473"
-      cyan: "#1a7694"
       blue: "#284283"
-      purple: "#6a3059"
-      magenta: "#a42f6b"
+      green: "#108473"
+      red: "#ac3235"
+      cyan: "#1a7694" #imp
+      purple: "#6a3059" #imp
+      magenta: "#a42f6b" #imp
       command blue: "#1b67a5"
       CentComm green: "#009100"
 
