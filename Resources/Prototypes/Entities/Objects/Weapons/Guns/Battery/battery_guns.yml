@@ -464,7 +464,7 @@
     attackRate: 0.4 #slower, but hits harder; bigger object to shove with
     damage:
       types:
-        blunt: 8
+        Blunt: 8
   - type: StaminaDamageOnHit
     damage: 15 #slight stagger, but still like 7 hits to stun completely
   - type: MeleeRequiresWield
@@ -513,7 +513,7 @@
       attackRate: 0.4 #slower, but hits harder; bigger object to shove with
       damage:
         types:
-            blunt: 8
+            Blunt: 8
     - type: StaminaDamageOnHit
       damage: 15 #slight stagger, but still like 7 hits to stun completely
     - type: MeleeRequiresWield
@@ -559,7 +559,7 @@
     attackRate: 0.4 #slower, but hits harder; bigger object to shove with
     damage:
       types:
-        blunt: 8
+        Blunt: 8
   - type: StaminaDamageOnHit
     damage: 15 #slight stagger, but still like 7 hits to stun completely
   - type: MeleeRequiresWield
