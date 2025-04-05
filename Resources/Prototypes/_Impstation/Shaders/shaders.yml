@@ -31,3 +31,10 @@
   id: MonumentPulse
   kind: source
   path: "/Textures/_Impstation/Shaders/monument_pulse.swsl"
+
+- type: shader
+  id: ThrusterShader
+  kind: source
+  path: "/Textures/_Impstation/Shaders/thruster_shader.swsl"
+  params:
+    timeSize: 32, 32
