@@ -16,7 +16,8 @@
   components:
   - type: Objective
     icon:
-    sprite: 
+      sprite: _Impstation/Prospectors/Icons/objectives.rsi
+      state: placeholder
     difficulty: 0.8
   - type: NumberObjective
     min: 100000

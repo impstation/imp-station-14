@@ -1,0 +1,11 @@
+- type: factionIcon
+  id: ProspectorIcon
+  isShaded: false
+  priority: 11
+  showTo:
+    components:
+      - ShowAntagIcons
+      - Prospector
+  icon:
+    sprite: /Textures/_Impstation/Prospectors/Icons/antag_icons.rsi
+    state: Prospector
