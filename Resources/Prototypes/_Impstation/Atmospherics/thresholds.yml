@@ -8,12 +8,10 @@
     threshold: 1.5
 
 - type: alarmThreshold
-  id: thermostatTemperature
+  id: supermatterPressure
   upperBound: !type:AlarmThresholdSetting
-    threshold: 310.93 # danger at ~37.8C/~100F
+    threshold: 550 # HazardHighPressure from Atmospherics.cs
   lowerBound: !type:AlarmThresholdSetting
-    threshold: 273.15 # danger at 0C/32F
+    threshold: 0
   upperWarnAround: !type:AlarmThresholdSetting
-    threshold: 0.964 # warn at 299.74K/~26.7C/~80F
-  lowerWarnAround: !type:AlarmThresholdSetting
-    threshold: 1.036 # warn at 282.98K/~10C/~50F can you tell these were defined by an american yet?
+    threshold: 0.5
