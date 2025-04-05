@@ -9,11 +9,11 @@ namespace Content.Shared.Roles;
 /// <summary>
 ///     Describes information for a single antag.
 /// </summary>
-[Prototype("antag")]
+[Prototype]
 [Serializable, NetSerializable]
 public sealed partial class AntagPrototype : IPrototype
 {
-    [DataField("playTimeTracker", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<PlayTimeTrackerPrototype>))]
+    [DataField("playTimeTracker", customTypeSerializer: typeof(PrototypeIdSerializer<PlayTimeTrackerPrototype>))]
     public string PlayTimeTracker { get; private set; } = string.Empty; // imp
 
     [ViewVariables]
