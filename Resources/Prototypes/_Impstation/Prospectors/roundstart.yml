@@ -1,4 +1,3 @@
-
 - type: entity
   parent: BaseGameRule
   id: Prospector
@@ -11,7 +10,7 @@
       min: 60
       max: 120
   - type: LoadMapRule
-    mapPath: /_Impstation/Maps/Nonstations/prospectorplanet.yml
+    mapPath: /Maps/_Impstation/Nonstations/prospectorplanet.yml
   - type: AntagObjectives
     objectives:
     - LootSpesosObjective

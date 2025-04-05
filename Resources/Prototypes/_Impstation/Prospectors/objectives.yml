@@ -16,7 +16,7 @@
   components:
   - type: Objective
     icon:
-    sprite: _Impstation/Prospector/Icons/objectives.rsi
+    sprite: 
     difficulty: 0.8
   - type: NumberObjective
     min: 100000
@@ -173,5 +173,5 @@
   - type: Objective
     difficulty: 1.5
     icon:
-    sprite: Structures/Furniture/chairs.rsi
-    state: shuttle
+      sprite: Structures/Furniture/chairs.rsi
+      state: shuttle
