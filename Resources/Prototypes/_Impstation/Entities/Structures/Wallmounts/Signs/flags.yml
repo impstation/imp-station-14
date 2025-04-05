@@ -1,0 +1,9 @@
+- type: entity
+  parent: BaseFlag
+  id: ProspectorFlag
+  name: prospector flag
+  description: A crudely torn and painted-over Nanotrasen flag. The vile grin suggests mischief.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/flags.rsi
+    state: prosp_flag

@@ -145,3 +145,31 @@
     - ClothingHeadHatCone
     - PowerCellSmall
     - Decalamp
+
+- type: entity
+  id: RDD
+  parent: [ BaseMajorContraband, RCD ]
+  name: RDD
+  description: A jury-rigged RCD that can only destroy station fixtures. Bluespace enhancements generate its own compressed matter slowly.
+  suffix: AutoRecharge
+  components:
+  - type: RCD
+    availablePrototypes:
+    - Deconstruct
+  - type: LimitedCharges
+    maxCharges: 20
+    charges: 20
+  - type: AutoRecharge
+    rechargeDuration: 20
+  - type: Sprite
+    sprite: _Impstation/Prospectors/rdd.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: Clothing
+    sprite: Objects/Tools/rcd.rsi # REPLACE THIS WITH RDD WHEN POSSIBLE
+    quickEquip: false
+    slots:
+    - Belt
+  - type: StaticPrice
+    price: 0
