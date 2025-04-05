@@ -1,0 +1,11 @@
+- type: antag
+  id: ProspectorAntag
+  name: roles-antag-prospector-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-prospector-description
+  playTimeTracker: AntagProspector
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 43200 # 12h
+  guides: [ Prospector ]

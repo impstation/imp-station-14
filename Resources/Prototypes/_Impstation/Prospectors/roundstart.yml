@@ -1,0 +1,33 @@
+
+- type: entity
+  parent: BaseGameRule
+  id: Prospector
+
+  components:
+  - type: ProspectorRule
+  - type: GameRule
+    minPlayers: 20
+    delay:
+      min: 60
+      max: 120
+  - type: LoadMapRule
+    mapPath: /_Impstation/Maps/Nonstations/prospectorplanet.yml
+  - type: AntagObjectives
+    objectives:
+    - LootSpesosObjective
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ ProspectorAntag ]
+      fallbackRoles: [ ProspectorAntag ]
+      min: 1
+      max: 6
+      playerRatio: 10
+      lateJoinAdditional: true
+      blacklist:
+        components:
+        - AntagImmune
+      components:
+      - type: Prospector
+      mindRoles:
+      - MindRoleProspector
+

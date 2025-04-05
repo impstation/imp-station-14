@@ -1,4 +1,5 @@
 using Content.Server._Impstation.CosmicCult.Components;
+using Content.Server._Impstation.Prospectors.Components;
 using Content.Server.Administration.Commands;
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;
@@ -204,5 +205,19 @@ public sealed partial class AdminVerbSystem
             Message = Loc.GetString("admin-verb-make-cosmiccultist"),
         };
         args.Verbs.Add(cosmiccult);
+
+        // IMPSTATION - PROSPECTORS
+        Verb prospector = new()
+        {
+            Text = Loc.GetString("admin-verb-text-make-prospector"),
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/_Impstation/Prospectors/Icons/antag_icons.rsi"), "Prospector"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<ProspectorRuleComponent>(targetPlayer, "Prospector");
+            },
+            Impact = LogImpact.High,
+            Message = Loc.GetString("admin-verb-make-prospector"),
+        };
     }
 }
