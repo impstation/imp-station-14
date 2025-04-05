@@ -103,6 +103,7 @@
   name: bartender cyborg module
   components:
   - type: Sprite
+    sprite: _Impstation/Objects/Specific/Robotics/borgmodules.rsi
     layers:
     - state: service
     - state: icon-beer
@@ -123,6 +124,7 @@
   name: basic mining cyborg module
   components:
   - type: Sprite
+    sprite: _Impstation/Objects/Specific/Robotics/borgmodules.rsi
     layers:
     - state: cargo
     - state: icon-mining-basic
@@ -133,3 +135,20 @@
     - RadioHandheld
   - type: BorgModuleIcon
     icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: basic-mining-module }
+
+- type: entity
+  id: BorgModuleCourier
+  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  name: courier cyborg module
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Robotics/borgmodules.rsi
+    layers:
+    - state: cargo
+    - state: icon-courier
+  - type: ItemBorgModule
+    items:
+    - MailBag
+    - BorgHoloBellProjector
+  - type: BorgModuleIcon
+    icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: courier-module }
