@@ -103,6 +103,7 @@
   name: bartender cyborg module
   components:
   - type: Sprite
+    sprite: _Impstation/Objects/Specific/Robotics/borgmodules.rsi
     layers:
     - state: service
     - state: icon-beer
@@ -123,6 +124,7 @@
   name: basic mining cyborg module
   components:
   - type: Sprite
+    sprite: _Impstation/Objects/Specific/Robotics/borgmodules.rsi
     layers:
     - state: cargo
     - state: icon-mining-basic
@@ -140,7 +142,7 @@
   name: courier cyborg module
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Specific/Robotics/borgmodule.rsi
+    sprite: _Impstation/Objects/Specific/Robotics/borgmodules.rsi
     layers:
     - state: cargo
     - state: icon-courier

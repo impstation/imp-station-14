@@ -16,9 +16,15 @@
 - type: entity
   parent: HoloBellProjector
   id: BorgHoloBellProjector
-  name: borg holobell projector
-  description: Projects a temporary, fully functional hardlight doorbell.
+  suffix: borg
   components:
   - type: HolosignProjector
     signProto: HoloBell
-    chargeUse: 0
+    chargeUse: 240
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMicroreactor
+        disableEject: true
+        swap: false
