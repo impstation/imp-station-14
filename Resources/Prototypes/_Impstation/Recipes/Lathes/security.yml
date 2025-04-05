@@ -179,3 +179,11 @@
   materials:
     Steel: 25
     Plastic: 540
+
+- type: latheRecipe
+  id: BriefcaseSteelRecipe
+  result: BriefcaseSteel
+  completetime: 4
+  materials:
+    Plasteel: 300
+    Durathread: 100
