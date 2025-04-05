@@ -1,0 +1,51 @@
+- type: entity
+  parent: BaseItem
+  id: EldritchTome
+  name: eldritch tome
+  description: A strange book with some kind of ritual circle emblazoned on the front.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Heretic/eldritch_book.rsi
+    layers:
+    - state: eldritch-book-base
+      color: "#00FAFA"
+      map : [ "cover" ]
+    - state: eldritch-book-pages
+      map : [ "pages" ]
+    - state: eldritch-book-icon
+      map : [ "icon" ]
+  - type: RandomSprite
+    available:
+      - cover:
+          eldritch-book-base: Sixteen
+        pages:
+          eldritch-book-pages: ""
+        icon:
+          eldritch-book-icon: ""
+  - type: HereticKnowledgeItem
+  - type: PointLight
+    radius: 1.5
+    energy: 0.5
+    color: "#6e7500"
+  - type: Tag
+    tags:
+      - Book
+    
+- type: entity
+  id: RealityTear
+  name: reality tear
+  description: It hurts your head to look at. 
+  components:
+  - type: TimedDespawn
+    lifetime: 1
+  - type: SpawnOnDespawn
+    prototype: EldritchTome
+  - type: PointLight
+    radius: 3
+    energy: 2.5
+    color: "#6e7500"
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Goobstation/Heretic/reality_fracture.rsi
+    state: icon_harvested
+  - type: Clickable
