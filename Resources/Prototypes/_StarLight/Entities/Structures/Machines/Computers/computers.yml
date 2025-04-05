@@ -1,0 +1,52 @@
+#abductor
+- type: entity
+  parent: BaseComputer
+  id: SyndicateObservationConsole
+  name: syndicate observation console
+  description: A computer that is used for spying on the station.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Structures/Machines/abductor_camera_console.rsi
+    layers:
+    - map: ["console"]
+      state: console
+    - map: ["computerLayerScreen"]
+      state: comm_syndie
+  - type: AbductorHumanObservationConsole
+  - type: ActivatableUI
+    key: enum.AbductorCameraConsoleUIKey.Key
+  - type: UserInterface
+    interfaces:
+     enum.AbductorCameraConsoleUIKey.Key:
+        type: AbductorCameraConsoleBui
+  - type: PointLight
+    enabled: true
+    radius: 1.5
+    energy: 1.6
+    color: "#FC0097"
+
+- type: entity
+  parent:
+  - Incorporeal
+  - BaseMob
+  id: AbductorHumanObservationConsoleEye
+  name: abductor eye
+  description: The abductor's viewer.
+  categories: [ HideSpawnMenu ]
+  suffix: DO NOT MAP
+  components:
+  - type: NoFTL
+  - type: WarpPoint
+    follow: true
+  - type: Eye
+    pvsScale: 1.5
+  - type: Visibility
+    layer: 4
+  - type: Sprite
+    sprite: _Starlight/Structures/Machines/abductor_camera_console.rsi
+    layers:
+    - state: syndicate_eye
+      shader: unshaded
+  - type: Tag
+    tags:
+    - CantInteract
