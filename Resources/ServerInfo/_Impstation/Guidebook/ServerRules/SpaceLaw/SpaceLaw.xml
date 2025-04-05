@@ -14,7 +14,7 @@
 
   Sentencing is waived for [bold]foreign intruders[/bold] (such as nuclear operatives, ninjas, and other spacial aberrations), who are not governed by space law. Security should continue to follow standard alert procedure for such threats.
 
-  Traitors are [italic]not[/italic] considered foreign invaders, so their conduct is considered under space law — if they violate the rules, they must be treated in accordance with them.
+  Traitors are [italic]not[/italic] considered foreign invaders, and should be treated in accordance with Space Law, like any member of the crew. 
 
   ## Search and Seizure
   A [italic]personnel search[/italic] is a seizure of the objects in a person's backpack, hands, coat, belt, and pockets. If any [color=red]contraband items[/color] are found during a search, the officer may choose to either further the search into a detainment, or simply confiscate the restricted items. After the search is conducted, all legal items are to be returned to the person.
@@ -42,7 +42,7 @@
 
 [color=red]Detainees may not be forced or coerced into performing implant [bold]extraction[/bold] on themselves against their will.[/color]
 
-  The following implants are issued for use by Security, and have special circumstances required for their use. Anything not in this list can also be implanted, given legal pretext. If given explicit permission, a prisoner can also receive implantation or extraction procedures [italic]without[/italic] meeting the circumstances for an implant.
+  The following implants are issued for use by Security, and have special circumstances required for their use. Anything not in this list can also be implanted, given legal pretext. In extreme situations, or upon request of the individual in question, a prisoner can also receive implantation or extraction procedures [italic]without[/italic] meeting the circumstances for an implant.
 
   - [color=#a4885c]Tracking Implants:[/color] Trackers can be applied to any suspect that has been convicted of a violent crime (marked in red under Space Law).
   - [color=#a4885c]Mindshields:[/color] Required for members of Command and Security departments, mindshields protect the implantee from most undue mental tampering. Mindshields can be administered to any detainee who has been clearly mind-controlled, lost control of themselves, or has been charged with unlawful control. Unlike other implants, you [bold]may prolong the detainee's sentence until you finish issuing a mindshield[/bold], so long as it's done in a timely fashion. If the detainee refuses to cooperate or the implant fails to function, they can be charged with 5-00, Refusal of Mental Shielding.
@@ -53,7 +53,7 @@
 
   ## Punishments
   ### Standard Punishments
-  - [color=#a4885c]Warning:[/color] For minor crimes, resolve the issue, then [color=yellow]warn[/color] the person not to attempt the crime again. If recidivism occurs, confinement may be more appropriate.
+  - [color=#a4885c]Warning:[/color] For minor crimes, resolve the issue, then [color=yellow]warn[/color] the individual not to attempt the crime again. If the individual fails to comply with a warning, confinement may be more appropriate.
   - [color=#a4885c]Confinement:[/color] Confinement is a typical punishment; holding the offender in a cell for an amount of time determined by the crimes committed.
   - [color=#a4885c]Demotion:[/color] Demotion entails removing all departmental gear they have on their person and revoking the involved department access off their ID. This requires the Captain's or relevant department head's approval. Demotions should only be issued if the person pose a threat to their own department or are in a position where they may abuse their job's equipment to commit further crimes.
 
@@ -69,16 +69,23 @@
   A member of Security informing the Warden or other superiors of any sentence levied is considered [color=#7cfc00]good practice[/color], even for timed sentences. A [bold]Lawyer[/bold], if available, can be additionally consulted for concerns regarding sentencing.
 
   ### Inappropriate Sentencing
-  Security officers are required ([color=red]by server rules[/color]) to only issue a sentence of permanent confinement [bold]whenever space law would allow permanent confinement[/bold] — whenever total confinement length would be anything longer than 15 minutes. Beyond this requirement, inappropriate sentence lengths are an in-character decision by the officer, [i]not[/i] a failure to follow server rules.
+  Security officers may not issue a sentence of permanent confinement unless the length of the prisoner's sentence exceeds 15 minutes, or the prisoner requests it. [color=red]To unlawfully detain someone in permanent confinement is a violation of server rules.[/color] Outside of these circumstances, officers may make an in-character decision to sentence a criminal for an inappropriate length of time, but [i]excessive[/i] inappropriate sentencing may be met with admin action.
 
   The [color=#1b67a5]Captain[/color], [color=#cb0000]Head of Security[/color], and/or [color=#cb0000]Warden[/color] are responsible, for ensuring security officers sentence prisoners in accordance with Space Law. However, if these crew members become aware of any inappropriate sentencing, including excessively-long or non-commensurate sentences, and if there is not an urgent threat or danger that they must prioritize, then [bold]they must work to correct that sentence[/bold].
 
   [italic]Unreasonable failures of these crew members to ensure space law is followed, as determined by game admins, will be considered a [color=red]failure to follow server rules[/color].[/italic]
 
   ### Linked Crimes & Stacking Sentences
+  
+  [bold]Suspects can not be charged for multiple instances of the same crime at once[/bold]. If upon release and completion of sentence, it is discovered that the suspect committed another instance of the same crime prior to being processed, they may be retroactively sentenced for previous instances of the crime committed.
+  
+  For example...
+  - A prisoner has been detained for three counts of assault. The maximum sentence would be equivalent to that of a prisoner detained for only a single count of assault.
+  - After this prisoner is released, it is discovered that prior to being arrested, they assaulted a fourth person. They may be arrested and charged with another count of assault for this fourth instance, despite having previously served a sentence for the initial three counts of assault. 
+  
   If you charge someone with two or more different crimes at the same time, you should [color=#a4885c]combine the sentences[/color] you would give them for each crime.
 
-  Certain crimes are [italic]linked crimes[/italic], shown in matching colors and suffixes on the [textlink="Crime Listing" link="SpaceLawCrimeList"]. These [color=red]can not be stacked[/color] and, instead, override each other. You should pick the highest crime that matches the case when considering sentencing.
+  Certain categories of crimes are considered [italic]linked crimes[/italic], shown in matching colors and suffixes on the [textlink="Crime Listing" link="SpaceLawCrimeList"]. These [color=red]can not be stacked[/color] and, instead, override each other. You should pick the highest crime that matches the case when considering sentencing.
 
   For example...
   - A suspect has committed a 2-01 (possession: tier 2) and a 3-01 (possession: tier 3). The maximum sentence here would be 10 minutes due to them being linked crimes (both ending in '01'), and 3-01 is the greater crime.
