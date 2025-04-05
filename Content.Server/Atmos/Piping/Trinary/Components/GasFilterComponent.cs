@@ -30,6 +30,6 @@ namespace Content.Server.Atmos.Piping.Trinary.Components
         /// Frontier - Enables the device on MapInit if set to true.
         /// </summary>
         [DataField]
-        public bool StartEnabled = false;
+        public bool StartEnabled;
     }
 }

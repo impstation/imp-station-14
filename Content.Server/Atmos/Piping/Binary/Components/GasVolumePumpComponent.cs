@@ -53,6 +53,6 @@ namespace Content.Server.Atmos.Piping.Binary.Components
         /// Frontier - Enables the device on MapInit if set to true.
         /// </summary>
         [DataField]
-        public bool StartEnabled { get; set; } = false;
+        public bool StartEnabled;
     }
 }

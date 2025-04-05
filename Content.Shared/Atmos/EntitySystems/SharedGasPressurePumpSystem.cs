@@ -96,11 +96,11 @@ public abstract class SharedGasPressurePumpSystem : EntitySystem
         UserInterfaceSystem.CloseUi(uid, GasPressurePumpUiKey.Key);
     }
 
-    private void OnMapInit(EntityUid uid, GasPressurePumpComponent pump, MapInitEvent args) // Frontier - Enable on map init
+    // Frontier - Enable on map init
+    private void OnMapInit(EntityUid uid, GasPressurePumpComponent pump, MapInitEvent args)
     {
         if (!pump.StartEnabled)
             return;
-
         pump.Enabled = true;
         UpdateAppearance(uid, pump);
     }

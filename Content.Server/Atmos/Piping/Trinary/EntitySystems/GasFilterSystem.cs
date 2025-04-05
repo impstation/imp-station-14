@@ -214,15 +214,13 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
             args.DeviceFlipped = inlet != null && filterNode != null && inlet.CurrentPipeDirection.ToDirection() == filterNode.CurrentPipeDirection.ToDirection().GetClockwise90Degrees();
         }
 
-        private void OnMapInit(EntityUid uid, GasFilterComponent filter, ref MapInitEvent args) // Frontier - Enable on map init
+        // Frontier - Enable on map init
+        private void OnMapInit(EntityUid uid, GasFilterComponent filter, ref MapInitEvent args)
         {
             if (!filter.StartEnabled)
                 return;
-
             filter.Enabled = true;
-
             UpdateAppearance(uid, filter);
-
             DirtyUI(uid, filter);
             _userInterfaceSystem.CloseUi(uid, GasFilterUiKey.Key);
         }

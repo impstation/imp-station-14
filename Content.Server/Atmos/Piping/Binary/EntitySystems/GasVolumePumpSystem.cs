@@ -221,14 +221,13 @@ namespace Content.Server.Atmos.Piping.Binary.EntitySystems
             }
         }
 
-        private void OnMapInit(EntityUid uid, GasVolumePumpComponent pump, MapInitEvent args) // Frontier - Enable on map init
+        // Frontier - Enable on map init
+        private void OnMapInit(EntityUid uid, GasVolumePumpComponent pump, MapInitEvent args)
         {
             if (!pump.StartEnabled)
                 return;
-
             pump.Enabled = true;
             UpdateAppearance(uid, pump);
-
             DirtyUI(uid, pump);
             _userInterfaceSystem.CloseUi(uid, GasVolumePumpUiKey.Key);
 

@@ -29,5 +29,5 @@ public sealed partial class GasPressurePumpComponent : Component
     /// Frontier - Enables the device on MapInit if set to true.
     /// </summary>
     [DataField]
-    public bool StartEnabled = false;
+    public bool StartEnabled;
 }
