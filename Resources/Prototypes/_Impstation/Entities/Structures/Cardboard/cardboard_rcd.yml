@@ -223,7 +223,7 @@
         acts: ["Destruction"]
       - !type:PlaySoundBehavior
         sound:
-          collection: WoodBreak
+          collection: WoodDestroy
   - type: StaticPrice
     price: 1
   - type: Construction

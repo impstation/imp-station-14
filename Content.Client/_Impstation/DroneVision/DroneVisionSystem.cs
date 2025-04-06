@@ -23,15 +23,12 @@ public sealed partial class DroneVisionSystem : EntitySystem
         SubscribeLocalEvent<DroneVisionComponent, LocalPlayerAttachedEvent>(OnPlayerAttached);
         SubscribeLocalEvent<DroneVisionComponent, LocalPlayerDetachedEvent>(OnPlayerDetached);
 
-        Subs.CVar(_cfg, DCCVars.NoVisionFilters, OnNoVisionFiltersChanged);
-
         _overlay = new();
     }
 
     private void OnDroneVisionInit(EntityUid uid, DroneVisionComponent component, ComponentInit args)
     {
-        if (uid == _playerMan.LocalEntity && !_cfg.GetCVar(DCCVars.NoVisionFilters))
-            _overlayMan.AddOverlay(_overlay);
+        _overlayMan.AddOverlay(_overlay);
     }
 
     private void OnDroneVisionShutdown(EntityUid uid, DroneVisionComponent component, ComponentShutdown args)
