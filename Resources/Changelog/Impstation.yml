@@ -1,81 +1,4 @@
 ﻿Entries:
-- author: mqole
-  changes:
-  - message: 1 new word in grayspeak.
-    type: Add
-  id: 973
-  time: '2025-01-20T21:24:43.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1428
-- author: DinnerCalzone
-  changes:
-  - message: Mail has been added to Atlas, Origin, and Train for real this time.
-    type: Add
-  id: 974
-  time: '2025-01-20T21:24:09.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1426
-- author: honeyed-lemons
-  changes:
-  - message: Replaced the Synth Specialist ship with a newer, shiner one
-    type: Tweak
-  id: 975
-  time: '2025-01-20T21:25:56.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1430
-- author: DinnerCalzone
-  changes:
-  - message: Courier and Salvage restricted airlocks now have unique sprites.
-    type: Add
-  id: 976
-  time: '2025-01-20T21:36:17.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1435
-- author: harpy and fiend
-  changes:
-  - message: Slimes will gasp and whistle when they hear that some of their sounds
-      are a lot less choppy!
-    type: Tweak
-  id: 977
-  time: '2025-01-20T22:24:53.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1438
-- author: mqole
-  changes:
-  - message: Minor rules edits
-    type: Tweak
-  id: 978
-  time: '2025-01-20T23:07:33.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1440
-- author: TheGrimbeeper
-  changes:
-  - message: Reagent examine text should be more differentiable for solutions with
-      same color but different brightness.
-    type: Tweak
-  id: 979
-  time: '2025-01-21T02:37:42.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1439
-- author: ruddygreat
-  changes:
-  - message: All cyborgs can now use the L6C ROW module!
-    type: Tweak
-  id: 980
-  time: '2025-01-21T02:39:56.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1427
-- author: AftrLite
-  changes:
-  - message: Buffs to the Null Rod's [Divine Grasp] transform.
-    type: Tweak
-  - message: The Null Rod & its forms now also deal Holy Damage to entities vulnerable
-      to Holy.
-    type: Tweak
-  - message: The Bible now deals significantly less Holy Damage.
-    type: Tweak
-  id: 981
-  time: '2025-01-21T07:27:28.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1446
-- author: kipdotnet
-  changes:
-  - message: Added a selection of Imp specific packages to receive from cargo.
-    type: Add
-  id: 982
-  time: '2025-01-21T12:33:24.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1434
 - author: honeyed-lemons
   changes:
   - message: Tweaks all the mailrooms on Box, Fland, Oasis, and Xeno
@@ -4081,3 +4004,93 @@
   id: 1472
   time: '2025-04-05T04:14:38.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/2204
+- author: wendyribstonpippin
+  changes:
+  - message: Interdyne lobby art that spills it
+    type: Add
+  id: 1473
+  time: '2025-04-05T23:05:40.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2208
+- author: SixValentine
+  changes:
+  - message: General Luna Maintenance and some Engie love, Check PR.
+    type: Fix
+  id: 1474
+  time: '2025-04-05T23:38:12.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2198
+- author: jtfg-dev
+  changes:
+  - message: A goblin legend is also (now more obviously) a _queer_ legend.
+    type: Fix
+  id: 1475
+  time: '2025-04-05T23:48:11.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2187
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: Cargo shop now uses the correct sprites for guns and medkits.
+    type: Fix
+  id: 1476
+  time: '2025-04-06T01:14:57.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2202
+- author: Sha-Seng
+  changes:
+  - message: Polished and combined all of our and upstream's underwear (RE-ADD YOUR
+      UNDIES!!)
+    type: Tweak
+  id: 1477
+  time: '2025-04-06T01:21:14.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2136
+- author: Sha-Seng, rainyatrium
+  changes:
+  - message: Senior Lawyer PDA with a Designer Pen in it (also found in a hacked PTech)
+    type: Add
+  - message: Defense Attorney Badge and Black Briefcase to lawyer loadout and LawDrobe
+    type: Add
+  - message: Senior lawyers unlock armbands to get their funny speech bubbles another
+      way
+    type: Add
+  - message: Cybersun Pen now has cyan, purple, and magenta ink like the Designer
+      Pen
+    type: Tweak
+  - message: Cybersun Briefcase now does 12 blunt damage (up from 8)
+    type: Tweak
+  id: 1478
+  time: '2025-04-06T01:21:59.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2194
+- author: SixValentine
+  changes:
+  - message: HD get their own sirful cape, mantle and bellhop hat.
+    type: Add
+  id: 1479
+  time: '2025-04-06T07:23:24.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2203
+- author: jtfg-dev
+  changes:
+  - message: A player's echoed messages are back to being sent to the chat.
+    type: Fix
+  - message: Echolalia now might echo a message as a whisper.
+    type: Tweak
+  - message: Players who echo now do so smartly, making it more interesting to determine
+      what is and isn't an unconscious message.
+    type: Tweak
+  id: 1480
+  time: '2025-04-06T10:21:49.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2209
+- author: rainyatrium
+  changes:
+  - message: pan flute works the same as harmonica now (including fitting into neck
+      slot)
+    type: Tweak
+  - message: replace harmonica with pan flute in the trinkets list
+    type: Tweak
+  id: 1481
+  time: '2025-04-06T16:07:18.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2211
+- author: hivehum
+  changes:
+  - message: FakeHumanFirst FakeHumanLast is in custody and will no longer terrorize
+      the station.
+    type: Fix
+  id: 1482
+  time: '2025-04-06T16:08:47.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2215
