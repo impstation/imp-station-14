@@ -743,6 +743,7 @@
     wipeVerbPopup: pai-system-wiped-device
     stopSearchVerbText: pai-system-stop-searching-verb-text
     stopSearchVerbPopup: pai-system-stopped-searching
+  - type: PowerSwitch
   - type: Examiner
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
@@ -751,10 +752,19 @@
   - type: ActiveRadio
     channels:
     - Common
+  - type: ContainerContainer
+    containers:
+      key_slots: !type:Container
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+  - type: EncryptionKeyHolder
+    keySlots: 4
   - type: DoAfter
   - type: Actions
   - type: TypingIndicator
-    proto: robot
+    proto: moth
   - type: Speech
     speechVerb: Robotic
     speechSounds: Pai
