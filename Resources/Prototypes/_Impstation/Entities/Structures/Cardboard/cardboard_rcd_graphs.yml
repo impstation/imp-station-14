@@ -47,12 +47,21 @@
       steps:
         - material: Cardboard
           amount: 1
+
+    - to: door
+      completed:
+      - !type:SnapToGrid
+      steps:
+      - material: Cardboard
+        amount: 4
+        doAfter: 4
+
   - node: tile
     entity: FloorTileItemCardboard
 
   # Deconstruction is down here
   - node: wall
-    entity: WallCardboardDrone
+    entity: WallCardboard
     edges:
     - to: start
       completed:
@@ -95,6 +104,18 @@
       - !type:SpawnPrototype
         prototype: MaterialCardboard1
         amount: 1
+      steps:
+      - tool: Cutting
+        doAfter: 1
+
+  - node: door
+    entity: DoorCardboard
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: MaterialCardboard1
+        amount: 4
       steps:
       - tool: Cutting
         doAfter: 1
