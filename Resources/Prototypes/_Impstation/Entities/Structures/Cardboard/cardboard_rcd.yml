@@ -1,6 +1,6 @@
 - type: entity
   parent: BaseWall
-  id: WallCardboardDrone
+  id: WallCardboard
   name: cardboard wall
   description: Keeps the air in, and... Honestly, doesn't keep much of anything out.
   components:
@@ -271,3 +271,21 @@
   name: cardboard floor tile
   spawn: FloorTileItemCardboard
   maxCount: 30
+
+- type: entity
+  id: DoorCardboard
+  parent: WoodDoor
+  name: cardboard airlock
+  description: Somehow, it actually seems to form an airtight seal.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Cardboard/cardboard_door.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Web
+  - type: Construction
+    graph: CardboardStructures
+    node: door

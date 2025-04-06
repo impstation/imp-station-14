@@ -80,3 +80,19 @@
   description: "Four cardboard floor tiles."
   icon: { sprite: _Impstation/Structures/Cardboard/cardboard_tile.rsi, state: icon }
   objectType: Item
+
+- type: construction
+  name: cardboard airlock
+  id: DoorCardboard
+  graph: CardboardStructures
+  startNode: start
+  targetNode: door
+  category: construction-category-airlocks
+  description: "Somehow, it actually seems to form an airtight seal."
+  icon: { sprite: _Impstation/Structures/CArdboard/cardboard_door.rsi, state: closed }
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
