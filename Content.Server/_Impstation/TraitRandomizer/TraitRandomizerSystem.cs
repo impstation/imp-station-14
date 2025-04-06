@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Server.Database;
 using Content.Server.Preferences.Managers;
 using Content.Shared.Body.Systems;
 using Content.Shared.Hands.Components;
@@ -11,6 +10,7 @@ using Content.Shared.Traits;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Toolshed.Commands.Values;
 
 namespace Content.Server._Impstation.TraitRandomizer;
 
@@ -43,18 +43,11 @@ public sealed partial class TraitRandomizerSystem : EntitySystem
         // make a list of the traits we should be adding 
         foreach (var trait in allTraits)
         {
-            if (ent.Comp.Fonts && trait.Category == _prototypeManager.Index<TraitCategoryPrototype>("SignatureFonts"))
-                traits.Add(trait);
-
-            if (ent.Comp.Accents && trait.Category == _prototypeManager.Index<TraitCategoryPrototype>("SpeechTraits"))
-                traits.Add(trait);
-
-            if (ent.Comp.Quirks && trait.Category == _prototypeManager.Index<TraitCategoryPrototype>("Quirks"))
-                traits.Add(trait);
-
-            if (ent.Comp.Disabilities && trait.Category == _prototypeManager.Index<TraitCategoryPrototype>("Disabilities"))
-                traits.Add(trait);
-
+            foreach (var category in ent.Comp.Categories)
+            {
+                if (trait.Category == _prototypeManager.Index<TraitCategoryPrototype>(category))
+                    traits.Add(trait);
+            }
         }
 
         var curProfile = (HumanoidCharacterProfile)_prefs.GetPreferences(mindComponent.Session.UserId).SelectedCharacter;
@@ -69,7 +62,7 @@ public sealed partial class TraitRandomizerSystem : EntitySystem
         }
 
         // how many traits are we gonna get?
-        var traitsToRoll = _random.Next(ent.Comp.MinTraits, ent.Comp.MaxTraits);
+        var traitsToRoll = _random.Next(ent.Comp.MinTraits, ent.Comp.MaxTraits + 1);
         List<TraitPrototype> finalTraits = [];
 
         // pick a trait, ensure we don't pick it again, and add it to the final traits list. do this that many times.
@@ -83,41 +76,35 @@ public sealed partial class TraitRandomizerSystem : EntitySystem
 
         foreach (var traitId in finalTraits)
         {
-            if (!_prototypeManager.TryIndex<TraitPrototype>(traitId, out var traitPrototype))
-            {
-                Log.Warning($"No trait found with ID {traitId}!");
-                return;
-            }
-
-            if (_whitelistSystem.IsWhitelistFail(traitPrototype.Whitelist, ent) ||
-                _whitelistSystem.IsBlacklistPass(traitPrototype.Blacklist, ent))
+            if (_whitelistSystem.IsWhitelistFail(traitId.Whitelist, ent) ||
+                _whitelistSystem.IsBlacklistPass(traitId.Blacklist, ent))
                 continue;
 
             // Add all components required by the prototype to the body or specified organ
-            if (traitPrototype.Organ != null)
+            if (traitId.Organ != null)
             {
                 foreach (var organ in _bodySystem.GetBodyOrgans(ent))
                 {
-                    if (traitPrototype.Organ is { } organTag && _tagSystem.HasTag(organ.Id, organTag))
+                    if (traitId.Organ is { } organTag && _tagSystem.HasTag(organ.Id, organTag))
                     {
-                        EntityManager.AddComponents(organ.Id, traitPrototype.Components);
+                        EntityManager.AddComponents(organ.Id, traitId.Components);
                     }
                 }
             }
             else
             {
-                EntityManager.AddComponents(ent, traitPrototype.Components, false);
+                EntityManager.AddComponents(ent, traitId.Components, false);
             }
 
             // Add item required by the trait
-            if (traitPrototype.TraitGear == null)
+            if (traitId.TraitGear == null)
                 continue;
 
             if (!TryComp(ent, out HandsComponent? handsComponent))
                 continue;
 
             var coords = Transform(ent).Coordinates;
-            var inhandEntity = EntityManager.SpawnEntity(traitPrototype.TraitGear, coords);
+            var inhandEntity = EntityManager.SpawnEntity(traitId.TraitGear, coords);
             _sharedHandsSystem.TryPickup(ent,
                 inhandEntity,
                 checkActionBlocker: false,

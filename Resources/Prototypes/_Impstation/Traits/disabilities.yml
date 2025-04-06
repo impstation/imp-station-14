@@ -55,8 +55,9 @@
     - type: TraitRandomizer
       minTraits: 1
       maxTraits: 3
-      quirks: true
-      disabilities: true
+      categories:
+      - Quirks
+      - Disabilities
 
 - type: trait
   id: ImperfectCloneAccents
@@ -68,7 +69,8 @@
     - type: TraitRandomizer
       minTraits: 0
       maxTraits: 2
-      accents: true
+      categories:
+      - SpeechTraits
 
 - type: trait
   id: InconsistentHandwriting
@@ -80,7 +82,8 @@
     - type: TraitRandomizer
       minTraits: 1
       maxTraits: 1
-      fonts: true
+      categories:
+      - SignatureFonts
 
 - type: trait
   id: ChaosMagicVictim
@@ -92,6 +95,7 @@
     - type: TraitRandomizer
       minTraits: 5
       maxTraits: 5
-      disabilities: true
-      quirks: true
-      accents: true
+      categories:
+      - Disabilities
+      - Quirks
+      - SpeechTraits
