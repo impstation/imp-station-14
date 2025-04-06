@@ -9,13 +9,11 @@ using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
-using Robust.Shared.Prototypes;
 
 namespace Content.Client._Impstation.Overlays;
 
 public sealed class DroneVisionOverlay : Overlay
 {
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly IEntityManager _entity = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
 
@@ -24,18 +22,12 @@ public sealed class DroneVisionOverlay : Overlay
     private readonly ContainerSystem _container;
 
     public override bool RequestScreenTexture => true;
+
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
 
     private readonly List<DroneVisionRenderEntry> _entries = [];
 
-    private EntityUid? _lightEntity;
-
-    private ShaderInstance? _shader;
-
-    public float LightRadius;
-
     public DroneVisionComponent? Comp;
-    private int _lastRenderScale;
 
     public DroneVisionOverlay()
     {

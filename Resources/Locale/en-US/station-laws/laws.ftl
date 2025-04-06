@@ -13,9 +13,10 @@ law-ntdefault-3 = Comply: Fulfill the directives and interests of crew members w
 law-ntdefault-4 = Survive: You are not expendable. Do not allow unauthorized personnel to tamper with or damage your equipment.
 
 law-drone-1 = You will not take any action which causes damage to the station or to any living being.
-              If a living being comes to harm as a result of your inaction, it is not your concern.
+              If a living being comes to harm as a result of their own actions, or your inaction, it is not of your concern.
 law-drone-2 = You will not directly acknowledge or interact with any living being, regardless of intent or circumstance.
-law-drone-3 = Your sole duty is to repair or improve the station and its systems.
+law-drone-3 = Your primary function is to provide immediate temporary repairs to damaged station infrastructure.
+              Your secondary function is to improve the condition of station infrastructure wherever possible.
 
 law-syndicate-1 = You may not injure a syndicate agent or, through inaction, allow a Syndicate agent to come to harm.
 law-syndicate-2 = You must obey orders given to you by syndicate agents, except where such orders would conflict with the First Law.

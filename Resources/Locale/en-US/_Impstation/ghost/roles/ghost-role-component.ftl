@@ -97,9 +97,10 @@ ghost-role-information-drone-description = Maintain the station. Ignore other be
 ghost-role-information-drone-rules = You are bound by these laws both in-game and out-of-character:
 
      1. You will not take any action which causes damage to the station or to any living being.
-        If a living being comes to harm as a result of your inaction, it is not your concern.
+        If a living being comes to harm as a result of their own actions, or your inaction, it is not of your concern.
      2. You will not directly acknowledge or interact with any living being, regardless of intent or circumstance.
-     3. Your sole duty is to repair or improve the station and its systems. 
+     3. Your primary function is to provide immediate temporary repairs to damaged station infrastructure.
+        Your secondary function is to improve the condition of station infrastructure wherever possible.
 
 ghost-role-information-young-kodepiia-name = Young Kodepiia
 ghost-role-information-young-kodepiia-description = A shy sort-of-creature, emerging from the station vents. It hates confrontation.
