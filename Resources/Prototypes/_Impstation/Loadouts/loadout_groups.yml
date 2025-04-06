@@ -362,6 +362,7 @@
   - HospitalityDirectorBandana
   - BartenderHead
   - HospitalityDirectorBeret
+  - HospitalityDirectorBellhopHD
 
 - type: loadoutGroup
   id: HospitalityDirectorNeck
@@ -515,6 +516,20 @@
   - LacedShoes
   - LeatherShoes
   - BlackHeels
+
+- type: loadoutGroup
+  id: LawyerPDA
+  name: loadout-group-lawyer-id
+  loadouts:
+  - LawyerPDA
+  - SeniorLawyerPDA
+
+- type: loadoutGroup
+  id: LawyerBriefcase
+  name: loadout-group-lawyer-briefcase
+  loadouts:
+  - BrownBriefcase
+  - BlackBriefcase
 
 - type: loadoutGroup
   id: ChaplainEyes
