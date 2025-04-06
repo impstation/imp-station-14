@@ -747,6 +747,13 @@
         Plastic: 30
     - type: StaticPrice
       price: 15
+    #imp edit start
+    - type: Tag
+      tags:
+      - DroneUsable
+      - WeaponCapacitorRechargerCircuitboard
+    #imp edit end
+
 
 - type: entity
   id: TurboItemRechargerCircuitboard
@@ -1195,6 +1202,20 @@
       stackRequirements:
         Capacitor: 2
         Steel: 5
+
+- type: entity
+  id: MailTeleporterMachineCircuitboard
+  parent: [ BaseMachineCircuitboard, BaseCargoContraband ] # imp edit
+  name: mail teleporter machine board
+  description: A machine printed circuit board for a mail teleporter.
+  components:
+  - type: Sprite
+    state: supply
+  - type: MachineBoard
+    prototype: CargoMailTeleporter
+    stackRequirements:
+      Capacitor: 2
+      Steel: 5
 
 - type: entity
   id: SodaDispenserMachineCircuitboard

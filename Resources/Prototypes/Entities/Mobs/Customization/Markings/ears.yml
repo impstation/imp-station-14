@@ -1,10 +1,66 @@
+# upstream ears moved to HeadSide so they show with earrings
 - type: marking
   id: HumanLongEars
-  bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [Human, Dwarf]
+  bodyPart: HeadSide #imp
+  markingCategory: HeadSide #imp
   forcedColoring: true
   followSkinColor: true
+  speciesRestriction: [Human, Dwarf]
   sprites:
   - sprite: Mobs/Customization/ears.rsi
-    state: long_ears
+    state: long_ears_standard
+
+- type: marking
+  id: LongEarsWide
+  bodyPart: HeadSide #imp
+  markingCategory: HeadSide #imp
+  forcedColoring: true
+  followSkinColor: true
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: Mobs/Customization/ears.rsi
+    state: long_ears_wide
+
+- type: marking
+  id: LongEarsSmall
+  bodyPart: HeadSide #imp
+  markingCategory: HeadSide #imp
+  forcedColoring: true
+  followSkinColor: true
+  speciesRestriction: [Human, Dwarf]
+  sprites:
+  - sprite: Mobs/Customization/ears.rsi
+    state: long_ears_small
+
+- type: marking
+  id: LongEarsUpwards
+  bodyPart: HeadSide #imp
+  markingCategory: HeadSide #imp
+  forcedColoring: true
+  followSkinColor: true
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: Mobs/Customization/ears.rsi
+    state: long_ears_upwards
+
+- type: marking
+  id: LongEarsTall
+  bodyPart: HeadSide #imp
+  markingCategory: HeadSide #imp
+  forcedColoring: true
+  followSkinColor: true
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: Mobs/Customization/ears.rsi
+    state: long_ears_tall
+
+- type: marking
+  id: LongEarsThin
+  bodyPart: HeadSide #imp
+  markingCategory: HeadSide #imp
+  forcedColoring: true
+  followSkinColor: true
+  speciesRestriction: [Human, Dwarf]
+  sprites:
+  - sprite: Mobs/Customization/ears.rsi
+    state: long_ears_thin

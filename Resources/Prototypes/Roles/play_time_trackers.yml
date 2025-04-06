@@ -199,7 +199,16 @@
   id: AntagInitialInfected
 
 - type: playTimeTracker
+  id: AntagSurvivor
+
+- type: playTimeTracker
+  id: AntagWizard
+
+- type: playTimeTracker
   id: AntagZombie
+
+- type: playTimeTracker
+  id: AntagParadoxClone
 
 # non-upstream antagonists:
 
@@ -225,4 +234,4 @@
   id: AntagCosmicCultist
 
 - type: playTimeTracker
-  id: AntagCosmicCultLead
+  id: AntagRogueAscended

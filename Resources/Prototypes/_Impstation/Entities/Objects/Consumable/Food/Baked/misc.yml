@@ -10,3 +10,102 @@
     tags:
     - Fruit
     - Muffin
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 60
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 35
+        - ReagentId: Vitamin
+          Quantity: 12
+        - ReagentId: Sugar
+          Quantity: 5
+
+- type: entity
+  name: forever weed brownies
+  parent: FoodBakedBase
+  id: FoodBakedForeverWeedBrownieBatch
+  description: A pan of VERY "special" brownies.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - sweet
+    - magical
+    - chocolate
+  - type: Sprite
+    sprite: Objects/Consumable/Food/Baked/brownie.rsi
+    state: brownie-batch
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 215
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 35
+        - ReagentId: Sugar
+          Quantity: 30
+        - ReagentId: EggCooked
+          Quantity: 18
+        - ReagentId: Butter
+          Quantity: 30
+        - ReagentId: THC
+          Quantity: 48
+        - ReagentId: ForeverWeed
+          Quantity: 16
+        - ReagentId: Theobromine
+          Quantity: 6
+        - ReagentId: CocoaPowder
+          Quantity: 2
+  - type: PointLight
+    radius: 1.5
+    energy: 2
+  - type: RgbLightController
+    cycleRate: 0.6
+  - type: SliceableFood
+    count: 6
+    slice: FoodBakedForeverWeedBrownie
+
+- type: entity
+  name: forever weed brownie
+  parent: FoodBakedBase
+  id: FoodBakedForeverWeedBrownie
+  description: A VERY "special" brownie.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - sweet
+    - magical
+    - chocolate
+  - type: Sprite
+    sprite: Objects/Consumable/Food/snacks.rsi
+    state: mre-brownie-open
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 35
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5.83
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: EggCooked
+          Quantity: 3
+        - ReagentId: Butter
+          Quantity: 5
+        - ReagentId: THC
+          Quantity: 8
+        - ReagentId: ForeverWeed
+          Quantity: 2
+        - ReagentId: Theobromine
+          Quantity: 1
+        - ReagentId: CocoaPowder
+          Quantity: 0.33
+  - type: PointLight
+    radius: 1.5
+    energy: 2
+  - type: RgbLightController
+    cycleRate: 0.6
+  - type: Tag
+    tags:
+    - Slice

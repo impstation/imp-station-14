@@ -9,13 +9,14 @@
     roleType: TeamAntagonist
   - type: CosmicCultRole
 
+# Ascendant Event
 - type: entity
-  parent: MindRoleCosmicCult
-  id: MindRoleCosmicCultLead
-  name: Cosmic Cult Leader Role
+  parent: BaseMindRoleAntag
+  id: MindRoleCosmicAscended
+  name: Rogue Ascended Role
   components:
   - type: MindRole
-    antagPrototype: CosmicAntagLeader
-    exclusiveAntag: true
+    antagPrototype: RogueAscended
     roleType: TeamAntagonist
-  - type: CosmicCultRole
+    exclusiveAntag: true
+  - type: RogueAscendedRole

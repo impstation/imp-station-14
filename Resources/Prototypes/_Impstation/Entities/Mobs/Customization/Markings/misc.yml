@@ -237,6 +237,11 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Thaven ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: false
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -291,7 +296,7 @@
 
 - type: marking
   id: SharkminnowEyeliner
-  bodyPart: HeadTop
+  bodyPart: Eyes
   markingCategory: HeadTop
   speciesRestriction: [ Thaven ]
   forcedColoring: false

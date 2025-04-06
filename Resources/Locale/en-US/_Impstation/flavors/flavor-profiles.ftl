@@ -31,3 +31,12 @@ flavor-complex-medium = like your vision expanded
 flavor-complex-rodent = like rodents
 
 flavor-complex-orangecoffee = excitingly acidic
+
+flavor-base-kodepiia = of umami
+
+flavor-complex-thavenflesh = like salt and suffering
+flavor-complex-carpflesh = like alkali and ozone
+flavor-complex-shimmeringblood = sweet and slightly creamy
+flavor-complex-feverdream = like you're losing your mind
+
+flavor-complex-entropy = like your tastebuds are unravelling

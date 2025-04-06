@@ -141,7 +141,8 @@ public sealed class DrainSystem : SharedDrainSystem
             if (!_solutionContainerSystem.ResolveSolution((uid, manager), DrainComponent.SolutionName, ref drain.Solution, out var drainSolution))
                 continue;
 
-            if (drainSolution.AvailableVolume <= 0)
+            if (drainSolution.AvailableVolume <= 0 || // imp edit - re-added the old AvailableVolume check to allow drains to clog when full
+                drainSolution.Volume <= 0 && !drain.AutoDrain)
             {
                 _ambientSoundSystem.SetAmbience(uid, false);
                 continue;
@@ -158,7 +159,7 @@ public sealed class DrainSystem : SharedDrainSystem
                 _puddles.Clear();
                 _lookup.GetEntitiesInRange(Transform(uid).Coordinates, drain.Range, _puddles);
 
-                if (_puddles.Count == 0)
+                if (_puddles.Count == 0 && drainSolution.Volume <= 0)
                 {
                     _ambientSoundSystem.SetAmbience(uid, false);
                     continue;

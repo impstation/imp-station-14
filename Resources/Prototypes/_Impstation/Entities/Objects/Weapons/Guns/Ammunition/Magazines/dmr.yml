@@ -1,6 +1,7 @@
 - type: entity
   id: MagazineDMR
   name: "magazine (.30 rifle)"
+  description: A 20-round .30 rifle DMR magazine, marked as live-fire ammo.
   parent: BaseMagazineLightRifle
   components:
   - type: Tag
@@ -20,6 +21,7 @@
 - type: entity
   id: MagazineDMREmpty
   name: "magazine (.30 rifle any)"
+  description: A 20-round .30 rifle DMR magazine with no apparent markings.
   suffix: empty
   parent: MagazineDMR
   components:
@@ -29,10 +31,13 @@
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: [ "enum.GunVisualLayers.Mag" ]
 
 - type: entity
   id: MagazineDMRPractice
   name: "magazine (.30 rifle practice)"
+  description: A 20-round .30 rifle DMR magazine, marked as practice ammo.
   parent: MagazineDMR
   components:
   - type: BallisticAmmoProvider
@@ -47,6 +52,7 @@
 - type: entity
   id: MagazineDMRUranium
   name: "magazine (.30 rifle uranium)"
+  description: A 20-round .30 rifle DMR magazine, marked as uranium ammo.
   parent: MagazineDMR
   components:
   - type: BallisticAmmoProvider
@@ -61,14 +67,16 @@
 - type: entity
   id: MagazineDMRIncendiary
   name: "magazine (.30 rifle incendiary)"
+  description: A 20-round .30 rifle DMR magazine, marked as incendiary ammo.
   parent: MagazineDMR
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRifleIncendiary
-    
+
 - type: entity
   id: MagazineBR
   name: "magazine (.25 caseless)"
+  description: A 24-round .25 caseless battle rifle magazine, marked as live-fire ammo.
   parent: BaseMagazineCaselessRifle
   components:
   - type: Tag

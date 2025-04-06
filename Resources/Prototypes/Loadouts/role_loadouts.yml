@@ -38,9 +38,15 @@
   - GroupTankHarnessCommandWithOuterwearAquatic # imp special
 
 # Silicons
+#- type: roleLoadout
+#  id: JobBorg
+#  nameDataset: roleloadout doesn't support both so need to update that first.
+#  canCustomizeName: true
+
 - type: roleLoadout
   id: JobStationAi
   nameDataset: NamesAI
+  canCustomizeName: true
 
 # Civilian
 - type: roleLoadout
@@ -136,8 +142,10 @@
   - LawyerJumpsuit
   - LawyerOuterClothing # imp
   - LawyerShoes # imp
+  - LawyerBriefcase # imp
   - Glasses
   - CommonBackpack
+  - LawyerPDA # imp
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
@@ -219,7 +227,7 @@
   - SurvivalClown
   - Trinkets
   - GroupTankHarnessWithOuterwear
-  - GroupBreathToolDecapoidInventory # imp special
+  - GroupBreathToolDecapoidInventoryClown # imp special
   - GroupTankHarnessWithOuterwearAquatic # imp special
 
 - type: roleLoadout
@@ -237,7 +245,7 @@
   - SurvivalMime
   - Trinkets
   - GroupTankHarnessWithOuterwear
-  - GroupBreathToolDecapoidInventory # imp special
+  - GroupBreathToolDecapoidInventoryMime # imp special
   - GroupTankHarnessWithOuterwearAquatic # imp special
 
 - type: roleLoadout
@@ -284,6 +292,7 @@
   - CargoTechnicianNeck # imp
   - CargoTechnicianJumpsuit
   - CargoTechnicianOuterClothing
+  - CargoTechnicianBelt #imp
   - CargoTechnicianShoes
   - Glasses
   - CargoTechnicianBackpack
