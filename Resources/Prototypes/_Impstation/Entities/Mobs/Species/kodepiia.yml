@@ -36,6 +36,11 @@
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+      enum.ThavenMoodsUiKey.Key:
+        type: ThavenMoodsBoundUserInterface
+        requireInputValidation: false
   - type: Sprite
     layers:
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -91,8 +96,6 @@
     hideLayersOnEquip:
     - HeadTop
     - HeadSide
-  - type: Hunger
-    baseDecayRate: 1.25 # might be too much but we'll see
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
