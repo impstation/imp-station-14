@@ -101,11 +101,11 @@
   description: A stylish hardsuit lined with lightweight armor-plating.
   components:
   - type: Sprite
-    sprite: _Impstation/Clothing/OuterClothing/Hardsuits/syndicate_operator.rsi #to be replaced with custom sprite
+    sprite: _Impstation/Clothing/OuterClothing/Hardsuits/bounty_merc.rsi
   - type: Item
     size: Huge
   - type: Clothing
-    sprite: _Impstation/Clothing/OuterClothing/Hardsuits/syndicate_operator.rsi #^^^
+    sprite: _Impstation/Clothing/OuterClothing/Hardsuits/bounty_merc.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
@@ -137,14 +137,11 @@
   description: A stylish helmet lined with lightweight armor-plating.
   components:
   - type: Sprite
-    sprite: _Impstation/Clothing/OuterClothing/Hardsuits/syndicate_operator.rsi #to be replaced with custom sprite
+    sprite: _Impstation/Clothing/Head/Hardsuits/bounty_merc.rsi
     layers:
-    - state: icon-helmet #imp edit
-    - state: icon-helmet-light #imp edit
-      map: [ "light" ] #imp edit
-      visible: false
+    - state: icon
   - type: Clothing
-    sprite: _Impstation/Clothing/OuterClothing/Hardsuits/syndicate_operator.rsi #^^^^
+    sprite: _Impstation/Clothing/Head/Hardsuits/bounty_merc.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
@@ -193,10 +190,10 @@
 
 # Damaged Laser Pistol
 - type: entity
-  name: damaged laser pistol
+  name: dilapidated laser pistol
   parent: [BaseWeaponBatterySmall, BaseMajorContraband]
   id: WeaponBountyHunterLaser
-  description: WRITE DESCRIPTION!! #imp
+  description: A worn-down laser pistol that's clearly seen a lot of use.
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Battery/antiquelasergun.rsi #imp

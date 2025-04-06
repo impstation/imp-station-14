@@ -43,9 +43,9 @@ bounty-hunter-category-roboticist-description =
 
 bounty-hunter-category-samurai-name = Samurai
 bounty-hunter-category-samurai-description =
-    To be added.
-    Includes: A katana, 2x hyperzine injectors, a samurai helmet,
-    samurai dogi, and an EMP implant.
+    You live by a strict code of honor, and have deadly skills with a blade.
+    Includes: A katana, 2x hyperzine injectors, a samurai dogi,
+    and an EMP implant.
 
 bounty-hunter-category-syndie-name = Rogue Operative
 bounty-hunter-category-syndie-description =
@@ -71,7 +71,7 @@ bounty-hunter-category-clown-description =
 
 
 names-bounty-hunter-dataset-1 = Flint
-names-bounty-hunter-dataset-2 = Ash
+names-bounty-hunter-dataset-2 = Raider
 names-bounty-hunter-dataset-3 = Rook
 names-bounty-hunter-dataset-4 = Cipher
 names-bounty-hunter-dataset-5 = Graves
@@ -81,7 +81,7 @@ names-bounty-hunter-dataset-8 = Whiskey
 names-bounty-hunter-dataset-9 = McShooty
 names-bounty-hunter-dataset-10 = Duke
 names-bounty-hunter-dataset-11 = Victor
-names-bounty-hunter-dataset-12 = Vandal
+names-bounty-hunter-dataset-12 = Rider
 names-bounty-hunter-dataset-13 = Ransom
 names-bounty-hunter-dataset-14 = Knight
 names-bounty-hunter-dataset-15 = Ryker
@@ -114,7 +114,7 @@ names-bounty-hunter-dataset-40 = Snake
 
 names-bounty-hunter-title-dataset-1 = Iron
 names-bounty-hunter-title-dataset-2 = Laughing
-names-bounty-hunter-title-dataset-3 = Widowmaker
+names-bounty-hunter-title-dataset-3 = Dick
 names-bounty-hunter-title-dataset-4 = Bloodhound
 names-bounty-hunter-title-dataset-5 = Hellbound
 names-bounty-hunter-title-dataset-6 = Vulture
@@ -122,7 +122,7 @@ names-bounty-hunter-title-dataset-7 = Lawless
 names-bounty-hunter-title-dataset-8 = Reckoner
 names-bounty-hunter-title-dataset-9 = Lone
 names-bounty-hunter-title-dataset-10 = Outlaw
-names-bounty-hunter-title-dataset-11 = Silver
+names-bounty-hunter-title-dataset-11 = Two-Eyed
 names-bounty-hunter-title-dataset-12 = Bronze
 names-bounty-hunter-title-dataset-13 = Shackler
 names-bounty-hunter-title-dataset-14 = Pacifier
@@ -143,7 +143,7 @@ names-bounty-hunter-title-dataset-28 = One-Eyed
 names-bounty-hunter-title-dataset-29 = Two-Gun
 names-bounty-hunter-title-dataset-30 = Judge
 names-bounty-hunter-title-dataset-31 = Double-Tap
-names-bounty-hunter-title-dataset-32 = Captain
+names-bounty-hunter-title-dataset-32 = Hog
 names-bounty-hunter-title-dataset-33 = Loveable
 names-bounty-hunter-title-dataset-34 = Vigilante
 names-bounty-hunter-title-dataset-35 = Marshal

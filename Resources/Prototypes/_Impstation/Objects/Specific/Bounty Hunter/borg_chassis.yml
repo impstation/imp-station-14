@@ -2,16 +2,18 @@
   id: BorgChassisBountyHunter
   parent: BaseBorgChassisBountyHunter
   name: reclaimed cyborg
-  description: TO BE WRITTEN
+  description: A man-machine hybrid that assists in station activity. This one is patched together with spare parts.
   components:
   - type: Sprite
+    sprite: _Impstation/Mobs/Silicon/chassis.rsi
     layers:
-    - state: derelict
-    - state: derelict_e_r
+    - state: bounty
+      map: ["enum.BorgVisualLayers.Body", "movement"]
+    - state: bounty_e_r
       map: ["enum.BorgVisualLayers.Light"]
       shader: unshaded
       visible: false
-    - state: derelict_l
+    - state: bounty_l
       shader: unshaded
       map: ["light"]
       visible: false
@@ -25,8 +27,8 @@
       - BorgModuleJanitor
       - BorgModuleMedical
       - BorgModuleCargo
-    hasMindState: derelict_e
-    noMindState: derelict_e_r
+    hasMindState: bounty_e
+    noMindState: bounty_e_r
   - type: Construction
     node: derelictcyborg
   - type: InteractionPopup
