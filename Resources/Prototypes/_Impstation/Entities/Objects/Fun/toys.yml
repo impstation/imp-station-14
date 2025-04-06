@@ -730,19 +730,19 @@
   - type: PAI
   - type: BlockMovement
   - type: ToggleableGhostRole
-    examineTextMindPresent: pai-system-pai-installed
-    examineTextMindSearching: pai-system-still-searching
-    examineTextNoMind: pai-system-off
-    beginSearchingText: pai-system-searching
-    roleName: pai-system-role-name
-    roleDescription: pai-system-role-description
+    examineTextMindPresent: Fuzzbo-system-on
+    examineTextMindSearching: Fuzzbo-system-still-searching
+    examineTextNoMind: Fuzzbo-system-off
+    beginSearchingText: Fuzzbo-system-searching
+    roleName: Fuzzbo-system-role-name
+    roleDescription: Fuzzbo-system-role-description
     roleRules: ghost-role-information-familiar-rules
     mindRoles:
     - MindRoleGhostRoleFamiliar
-    wipeVerbText: pai-system-wipe-device-verb-text
-    wipeVerbPopup: pai-system-wiped-device
-    stopSearchVerbText: pai-system-stop-searching-verb-text
-    stopSearchVerbPopup: pai-system-stopped-searching
+    wipeVerbText: Fuzzbo-system-wipe-device-verb-text
+    wipeVerbPopup: Fuzzbo-system-wiped-device
+    stopSearchVerbText: Fuzzbo-system-stop-searching-verb-text
+    stopSearchVerbPopup: Fuzzbo-system-stopped-searching
   - type: Examiner
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
