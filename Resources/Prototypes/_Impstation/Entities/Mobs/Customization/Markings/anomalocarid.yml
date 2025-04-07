@@ -74,6 +74,23 @@
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
     state: grabbers5
 
+- type: marking
+  id: AnomalocaridGrabbersStriped
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [ Anomalocarid ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#333333"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: grabbers6_primary
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: grabbers6_secondary
+
 
 #Head
 #- type: marking
@@ -321,7 +338,7 @@
           color: "#FFFFFF"
   sprites:
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
-    state: tat_skull
+    state: chestscars
 
 - type: marking
   id: AnomalocaridChestFishnet
@@ -353,7 +370,7 @@
           color: "#FFFFFF"
   sprites:
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
-    state: chestscars
+    state: tat_skull
 
 
 #Arms
@@ -629,7 +646,9 @@
         !type:EyeColoring
   sprites:
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
-    state: wings1
+    state: wings1_primary
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: wings1_secondary
 
 - type: marking
   id: AnomalocaridWingsDown
@@ -644,7 +663,32 @@
         !type:EyeColoring
   sprites:
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
-    state: wings2
+    state: wings2_primary
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: wings2_secondary
+
+- type: marking
+  id: AnomalocaridWingsGlass
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Anomalocarid ]
+  followSkinColor: false
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: wings3_primary
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: wings3_glass1
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: wings3_glass2
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: wings3_glass3
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: wings3_glass4
 
 
 #Tails
@@ -723,6 +767,21 @@
     state: opabinia_primary
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
     state: opabinia_secondary
+
+- type: marking
+  id: AnomalocaridEyeMantis
+  bodyPart: LFoot
+  markingCategory: Overlay
+  speciesRestriction: [ Anomalocarid ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: mantis
 
 - type: marking
   id: AnomalocaridNecklace1
