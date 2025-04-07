@@ -1,13 +1,9 @@
 using Content.Shared.Item.ItemToggle.Components;
-using System.Collections.Immutable;
 
 namespace Content.Shared._Impstation.Item.ItemToggle.Components
 {
     public sealed class ItemToggleUserRestrictSystem : EntitySystem
     {
-
-        [Dependency] private readonly IEntityManager _ent = default!;
-        [Dependency] private readonly IComponentFactory _componentFactory = default!;
 
         public override void Initialize()
         {
