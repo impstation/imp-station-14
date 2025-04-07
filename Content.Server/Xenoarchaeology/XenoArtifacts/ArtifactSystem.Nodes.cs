@@ -235,6 +235,10 @@ public sealed partial class ArtifactSystem
         var trigger = _prototype.Index<ArtifactTriggerPrototype>(node.Trigger);
         var effect = _prototype.Index<ArtifactEffectPrototype>(node.Effect);
 
+        // #IMP: Save trigger & effect to allow proper exiting in case admin edits between entry and exit. Useful for testing and fun
+        node.StoredTrigger = node.Trigger;
+        node.StoredEffect = node.Effect;
+
         var allComponents = effect.Components.Concat(effect.PermanentComponents).Concat(trigger.Components);
         foreach (var (name, entry) in allComponents)
         {
@@ -271,8 +275,8 @@ public sealed partial class ArtifactSystem
             return;
         var currentNode = GetNodeFromId(component.CurrentNodeId.Value, component);
 
-        var trigger = _prototype.Index<ArtifactTriggerPrototype>(currentNode.Trigger);
-        var effect = _prototype.Index<ArtifactEffectPrototype>(currentNode.Effect);
+        var trigger = _prototype.Index<ArtifactTriggerPrototype>(currentNode.StoredTrigger);
+        var effect = _prototype.Index<ArtifactEffectPrototype>(currentNode.StoredEffect);
 
         var entityPrototype = MetaData(uid).EntityPrototype;
         var toRemove = effect.Components.Keys.Concat(trigger.Components.Keys).ToList();

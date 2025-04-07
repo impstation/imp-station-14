@@ -146,6 +146,16 @@ public sealed partial class ArtifactNode : ICloneable
     public string Effect = default!;
 
     /// <summary>
+    /// #IMP Save the trigger when node is entered, so if trigger for node changes (due to admin interference), the node can be properly exited
+    /// </summary>
+    public string StoredTrigger = default!;
+
+    /// <summary>
+    /// #IMP Save the effect when node is entered, so if effect for node changes (due to admin interference), the node can be properly exited
+    /// </summary>
+    public string StoredEffect = default!;
+
+    /// <summary>
     /// Used for storing cumulative information about nodes
     /// </summary>
     [DataField("nodeData"), ViewVariables]
