@@ -2,6 +2,8 @@ using Content.Shared.Inventory;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Slippery;
+using Content.Shared.StepTrigger.Components;
+using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Whitelist;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
@@ -27,6 +29,8 @@ public sealed class SpeedModifierContactsSystem : EntitySystem
         SubscribeLocalEvent<SpeedModifierContactsComponent, EndCollideEvent>(OnEntityExit);
         SubscribeLocalEvent<SpeedModifiedByContactComponent, RefreshMovementSpeedModifiersEvent>(MovementSpeedCheck);
         SubscribeLocalEvent<SpeedModifierContactsComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<SpeedModifierContactsComponent, StepTriggeredOffEvent>(OnStepTriggered); // imp edit
+        SubscribeLocalEvent<SpeedModifierContactsComponent, StepTriggerAttemptEvent>(OnStepTriggerAttempt); // imp edit
 
         UpdatesAfter.Add(typeof(SharedPhysicsSystem));
     }
@@ -148,6 +152,10 @@ public sealed class SpeedModifierContactsSystem : EntitySystem
 
     private void OnEntityEnter(EntityUid uid, SpeedModifierContactsComponent component, ref StartCollideEvent args)
     {
+        // imp edit - added StepTrigger check
+        if (HasComp<StepTriggerComponent>(uid))
+            return;
+
         AddModifiedEntity(args.OtherEntity);
     }
 
@@ -162,5 +170,17 @@ public sealed class SpeedModifierContactsSystem : EntitySystem
 
         EnsureComp<SpeedModifiedByContactComponent>(uid);
         _toUpdate.Add(uid);
+    }
+
+    // imp edit
+    private void OnStepTriggered(Entity<SpeedModifierContactsComponent> ent, ref StepTriggeredOffEvent args)
+    {
+        AddModifiedEntity(args.Tripper);
+    }
+
+    // imp edit
+    private static void OnStepTriggerAttempt(Entity<SpeedModifierContactsComponent> ent, ref StepTriggerAttemptEvent args)
+    {
+        args.Continue = true;
     }
 }
