@@ -198,7 +198,7 @@ namespace Content.Shared.ActionBlocker
             // If target is in a container can we attack
             if (target != null && _container.IsEntityInContainer(target.Value))
             {
-                if (TryComp<MechPilotComponent>(target, out var mechComponent)) //imp
+                if (HasComp<MechPilotComponent>(target)) //imp
                 {
                     return true;
                 }
