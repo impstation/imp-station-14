@@ -13,3 +13,6 @@
     damage:
       types:
         Blunt: 12
+  - type: DamageOtherOnHit # imp - toolbox throw damage
+    meleeDamageMultiplier: 1.33
+    staminaCost: 12.5
