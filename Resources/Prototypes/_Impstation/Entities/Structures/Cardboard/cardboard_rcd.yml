@@ -171,8 +171,6 @@
       graph: CardboardStructures
       node: directional
     - type: Appearance
-    - type: StaticPrice
-      price: 1
 
 - type: entity
   name: cardboard chair
@@ -224,8 +222,6 @@
       - !type:PlaySoundBehavior
         sound:
           collection: WoodDestroy
-  - type: StaticPrice
-    price: 1
   - type: Construction
     graph: CardboardStructures
     node: chair
@@ -264,7 +260,7 @@
   footstepSounds:
     collection: FootstepFloor
   itemDrop: FloorTileItemCardboard
-  heatCapacity: 10000
+  heatCapacity: 1000 # weak
 
 - type: stack
   id: FloorTileCardboard
