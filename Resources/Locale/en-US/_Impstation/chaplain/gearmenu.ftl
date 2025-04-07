@@ -14,8 +14,7 @@ chaplain-gearmenu-window-selected = Form selected: ({$selectedCount}/{$maxCount}
 chaplain-gearset-category-rosary-name = Silvered Rosary
 chaplain-gearset-category-rosary-description =
     An expensive-looking rosary, made from silver. Exudes somewhat
-    soothing vibes. Nice! A potent tool against those who devote
-    themselves to entities beyond the veil of bluespace.
+    soothing vibes. Nice!
 
 chaplain-gearset-category-grail-name = Gildgrail
 chaplain-gearset-category-grail-description =
