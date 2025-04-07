@@ -1,0 +1,10 @@
+- type: entity
+  parent: SeedBase
+  name: packet of rose seeds
+  description: "Seeds of a most romantic variety."
+  id: RoseSeeds
+  components:
+    - type: Seed
+      seedId: rose
+    - type: Sprite
+      sprite: _Impstation/Objects/Specific/Hydroponics/rose.rsi

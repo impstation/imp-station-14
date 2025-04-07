@@ -1,8 +1,13 @@
 - type: entity
   parent: Dart
   id: Rose
+  name: Rose
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Specific/Hydroponics/rose.rsi
   - type: Item
     sprite: _Impstation/Objects/Specific/Hydroponics/rose.rsi
+  - type: Clothing
+    slots: [mask]
+  - type: Produce
+    seedId: rose
