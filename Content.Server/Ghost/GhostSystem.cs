@@ -8,7 +8,6 @@ using Content.Server.Mind;
 using Content.Server.Polymorph.Components;
 using Content.Server.Roles.Jobs;
 using Content.Server.Warps;
-using Content.Shared._Impstation.CosmicCult.Components;
 using Content.Shared._Impstation.Ghost;
 using Content.Shared.Actions;
 using Content.Shared.CCVar;
@@ -210,7 +209,7 @@ namespace Content.Server.Ghost
                 _visibilitySystem.RefreshVisibility(uid, visibilityComponent: visibility);
             }
 
-            SetCanSeeGhosts(uid, true, false);
+            SetCanSeeGhosts(uid, true);
 
             var time = _gameTiming.CurTime;
             component.TimeOfDeath = time;
@@ -228,7 +227,7 @@ namespace Content.Server.Ghost
                 _visibilitySystem.RefreshVisibility(uid, visibilityComponent: visibility);
             }
 
-            SetCanSeeGhosts(uid, true, true);
+            SetCanSeeGhosts(uid, true);
 
             var time = _gameTiming.CurTime;
         }
@@ -248,7 +247,7 @@ namespace Content.Server.Ghost
             }
 
             // Entity can't see ghosts anymore.
-            SetCanSeeGhosts(uid, false, false);
+            SetCanSeeGhosts(uid, false);
             _actions.RemoveAction(uid, component.BooActionEntity);
         }
 
@@ -267,19 +266,16 @@ namespace Content.Server.Ghost
             }
 
             // Entity can't see ghosts anymore.
-            SetCanSeeGhosts(uid, false, false);
+            SetCanSeeGhosts(uid, false);
         }
 
-        private void SetCanSeeGhosts(EntityUid uid, bool canSee, bool medium, EyeComponent? eyeComponent = null)
+        private void SetCanSeeGhosts(EntityUid uid, bool canSee, EyeComponent? eyeComponent = null)
         {
             if (!Resolve(uid, ref eyeComponent, false))
                 return;
 
             if (canSee)
-            {
                 _eye.SetVisibilityMask(uid, eyeComponent.VisibilityMask | (int) VisibilityFlags.Ghost, eyeComponent);
-                if (!medium) _eye.SetVisibilityMask(uid, eyeComponent.VisibilityMask | MonumentComponent.LayerMask); // IMP EDIT
-            }
             else
                 _eye.SetVisibilityMask(uid, eyeComponent.VisibilityMask & ~(int) VisibilityFlags.Ghost, eyeComponent);
         }
