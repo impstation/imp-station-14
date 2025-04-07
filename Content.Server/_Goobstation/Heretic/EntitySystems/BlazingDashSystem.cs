@@ -5,29 +5,9 @@ using Content.Shared.Heretic;
 using Content.Shared.Movement.Systems;
 using Robust.Shared.Timing;
 using Content.Server.Atmos.EntitySystems;
+using Content.Shared.Heretic.Components;
 
 namespace Content.Server.Heretic.Abilities;
-
-[RegisterComponent, AutoGenerateComponentPause]
-public sealed partial class BlazingDashComponent : Component
-{
-    /// <summary>
-    ///     Indicates whether the heretic is using blazing dash.
-    /// </summary>
-    [DataField, AutoNetworkedField] public bool BlazingDashActive = false;
-
-    /// <summary>
-    ///     Indicates when blazing dash should end.
-    /// </summary>
-    [ViewVariables, AutoPausedField] public TimeSpan BlazingDashEndTime = default!;
-
-    public TimeSpan BlazingDashDuration = TimeSpan.FromSeconds(5);
-    public SoundSpecifier DashSound = new SoundPathSpecifier("/Audio/Magic/fireball.ogg");
-    public int DashFireStacks = 4;
-    public float DashWalkSpeed = 1.5f;
-    public float DashRunSpeed = 2f;
-}
-
 public sealed partial class BlazingDashSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
