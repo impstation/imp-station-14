@@ -87,7 +87,6 @@ public sealed partial class HumanoidAppearanceComponent : Component
     /// <summary>
     ///     Which layers of this humanoid that should be hidden on equipping a corresponding item..
     /// </summary>
-    /// IMP EDIT BTW: HIDE YOUR FUCKING FACIAL HAIR
     [DataField]
     public HashSet<HumanoidVisualLayers> HideLayersOnEquip = [HumanoidVisualLayers.Hair, HumanoidVisualLayers.FacialHair]; /// IMP EDIT: FACIAL HAIR SHAVE
 
