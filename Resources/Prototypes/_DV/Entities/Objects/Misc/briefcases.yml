@@ -5,10 +5,10 @@
   description: An expensive black leather briefcase subtly embossed with a grid of Cybersun logos. It's heavy enough to use as a weapon. #imp - contraband for a reason
   components:
   - type: Sprite
-    sprite: _DV/Objects/Storage/Briefcases/briefcase_cybersun.rsi
+    sprite: _Impstation/Objects/Storage/Briefcases/briefcase_cybersun.rsi #imp
     state: icon
   - type: Item
-    sprite: _DV/Objects/Storage/Briefcases/briefcase_cybersun.rsi
+    sprite: _Impstation/Objects/Storage/Briefcases/briefcase_cybersun.rsi #imp
   - type: MeleeWeapon #imp - the reason it's contraband (toolbox damage)
     damage:
       types:
