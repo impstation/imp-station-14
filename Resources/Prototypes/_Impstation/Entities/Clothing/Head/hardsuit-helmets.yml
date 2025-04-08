@@ -45,8 +45,8 @@
 - type: entity
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitRepomen
-  name: cybersun repomen's hardsuit helmet
-  description: Now you could run, you could hide, you could try to.
+  name: Cybersun repomen's hardsuit helmet # imp edit; preferential to capitalizing company names
+  description: A helmet that could change the course of any corporate war. # imp rewrite
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Head/Helmets/repomansuithelmet.rsi
