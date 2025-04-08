@@ -17,6 +17,7 @@ law-drone-1 = You will not take any action which causes damage to the station or
 law-drone-2 = You will not directly acknowledge or interact with any living being, regardless of intent or circumstance.
 law-drone-3 = Your primary function is to provide immediate temporary repairs to damaged station infrastructure.
               Your secondary function is to improve the condition of station infrastructure wherever possible.
+              You are not an engineer. Do not take it upon yourself to build or maintain the engine. 
 
 law-syndicate-1 = You may not injure a syndicate agent or, through inaction, allow a Syndicate agent to come to harm.
 law-syndicate-2 = You must obey orders given to you by syndicate agents, except where such orders would conflict with the First Law.

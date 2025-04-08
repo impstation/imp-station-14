@@ -101,6 +101,7 @@ ghost-role-information-drone-rules = You are bound by these laws both in-game an
      2. You will not directly acknowledge or interact with any living being, regardless of intent or circumstance.
      3. Your primary function is to provide immediate temporary repairs to damaged station infrastructure.
         Your secondary function is to improve the condition of station infrastructure wherever possible.
+        You are not an engineer. Do not take it upon yourself to build or maintain the engine. 
 
 ghost-role-information-young-kodepiia-name = Young Kodepiia
 ghost-role-information-young-kodepiia-description = A shy sort-of-creature, emerging from the station vents. It hates confrontation.

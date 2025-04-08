@@ -6,8 +6,10 @@
   parent: ClothingBeltStorageBase
   id: DroneMaterialsBelt
   name: internal storage
-  description: Placeholder.
+  suffix: Unremoveable
+  description: An internal pocket to hold your stuff. The space is limited.
   components:
+  - type: Unremoveable
   - type: Clothing
     slots: [back]
   - type: Icon

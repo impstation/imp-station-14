@@ -28,7 +28,8 @@ public sealed partial class DroneVisionSystem : EntitySystem
 
     private void OnDroneVisionInit(EntityUid uid, DroneVisionComponent component, ComponentInit args)
     {
-        _overlayMan.AddOverlay(_overlay);
+        if (uid == _playerMan.LocalEntity)
+            _overlayMan.AddOverlay(_overlay);
     }
 
     private void OnDroneVisionShutdown(EntityUid uid, DroneVisionComponent component, ComponentShutdown args)
