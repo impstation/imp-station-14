@@ -60,6 +60,9 @@
 - type: reagent
   parent: Blood
   id: BloodKodepiia
+  name: reagent-name-bloodkodepiia
+  group: Biological
+  desc: reagent-desc-bloodkodepiia
   flavor: kodepiia
   color: "#4f0000"
 
@@ -70,14 +73,14 @@
   - Centrifuge
   reactants:
     BloodKodepiia:
-      amount: 5
+      amount: 20
   products:
     Ice: 11
     Copper: 0.5
     TableSalt: 2
     Ammonia: 3
     Fat: 4
- 
+
 - type: reagent
   id: SynthFlesh
   name: reagent-name-synthflesh
@@ -139,3 +142,22 @@
     collection: FootstepBlood
     params:
       volume: 6
+
+- type: reagent
+  id: GrayBlood
+  name: reagent-name-gray-blood
+  group: Biological
+  parent: Radium
+  desc: reagent-desc-gray-blood
+  physicalDesc: reagent-physical-desc-glowing
+
+- type: reaction
+  id: GrayBloodBreakdown
+  source: true
+  requiredMixerCategories:
+  - Centrifuge
+  reactants:
+    GrayBlood:
+      amount: 5
+  products:
+    Radium: 5

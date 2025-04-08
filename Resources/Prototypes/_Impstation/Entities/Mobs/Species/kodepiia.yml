@@ -96,13 +96,15 @@
     hideLayersOnEquip:
     - HeadTop
     - HeadSide
+    - Hair 
+    - Tail
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
         shape:
           !type:PhysShapeCircle
           radius: 0.32
-        density: 90
+        density: 150
         restitution: 0.0
         mask:
         - MobMask
@@ -110,9 +112,6 @@
         - MobLayer
   - type: Body
     prototype: Kodepiia
-  - type: FootstepModifier
-    footstepSoundCollection:
-      collection: KodepiiaStep
   - type: Bloodstream
     bloodReagent: BloodKodepiia
   - type: Damageable
