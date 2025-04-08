@@ -629,7 +629,7 @@
   parent: BasePlushie
   id: PlushieFuzzbo
   name: Fuzzbo
-  description: These were once suspected of containing listening devices, and thus banned from high-security locations. But that's silly, right?
+  description: These plush electronics were once suspected of containing listening devices and thus banned from high-security locations. But that's silly, right?
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Fun/toys.rsi
@@ -648,7 +648,7 @@
   - type: Rotatable
   - type: EmitSoundOnUse
     sound:
-      path: /Audio/Voice/Toys/mousesqueek.ogg
+      path: /Audio/Items/Toys/mousesqueek.ogg
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/Toys/mousesqueek.ogg
@@ -719,10 +719,8 @@
   parent: PlushieFuzzbo
   id: PlushieFuzzboSkinned
   name: Fuzzbo (Skinned)
-  description: These were once suspe- oh my god why would you do that
+  description: These plush electronics were once suspe- oh god why would you do that
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Fun/toys.rsi
-    layers:
-    - state: plushie_fuzzbo_skinned
-      map: [ "enum.DamageStateVisualLayers.Base" ]
+    state: plushie_fuzzbo_skinned
