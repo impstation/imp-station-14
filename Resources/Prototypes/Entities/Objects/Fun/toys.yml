@@ -293,18 +293,18 @@
       path: /Audio/Voice/Arachnid/arachnid_laugh.ogg
   - type: EmitSoundOnTrigger
     sound:
-      path: /Audio/Voice/Arachnid/arachnid_laugh.ogg
+      path: /Audio/Voice/Arachnid/arachnid_scream.ogg #imp edit
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/Voice/Arachnid/arachnid_laugh.ogg
   - type: Food
     requiresSpecialDigestion: true
     useSound:
-      path: /Audio/Voice/Arachnid/arachnid_laugh.ogg
+      path: /Audio/Voice/Arachnid/arachnid_scream.ogg #imp edit
   - type: MeleeWeapon
     wideAnimationRotation: 180
     soundHit:
-      path: /Audio/Voice/Arachnid/arachnid_laugh.ogg
+      path: /Audio/Voice/Arachnid/arachnid_chitter.ogg  #imp edit
 
 - type: entity
   parent: BasePlushie
