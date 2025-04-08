@@ -1,0 +1,10 @@
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleProspector
+  name: Prospector Role
+  components:
+  - type: MindRole
+    antagPrototype: ProspectorAntag
+    exclusiveAntag: true
+    roleType: TeamAntagonist
+  - type: ProspectorRole
