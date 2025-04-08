@@ -233,6 +233,8 @@ public sealed partial class ArtifactSystem
         component.CurrentNodeId = node.Id;
 
         //#IMP Attempt to get trigger/effect from string, fall back to defaults if not in prototype
+        // Putting defaults in here rather than components because artifact component isn't guaranteed to exist,
+        // and these should never be modified in-game
         var defaultTrigger = "TriggerExamine";
         var defaultEffect = "EffectBadFeeling";
         _prototype.TryIndex<ArtifactTriggerPrototype>(node.Trigger, out var maybeTrigger);
