@@ -102,6 +102,7 @@
     keywords: [ "AI", "console", "interface" ]
     priority: -6
     event: !type:ToggleIntrinsicUIEvent { key: enum.RadarConsoleUiKey.Key }
+    useDelay: 60 # to discourage everyone from opening it at once and causing potential perf issues.
 
 - type: entity
   id: ActionGhostBoo
