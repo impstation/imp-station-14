@@ -6,6 +6,10 @@
       entity: PlushieFuzzbo
       edges:
         - to: PlushieFuzzboSkinned
+          completed:
+            - !type:SpawnPrototype
+              prototype: Cloth
+              amount: 1
           steps:
             - tool: Slicing
               doAfter: 3

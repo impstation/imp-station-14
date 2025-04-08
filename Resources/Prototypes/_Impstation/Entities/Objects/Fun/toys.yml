@@ -686,10 +686,10 @@
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Fun/prizeticket.rsi
-    state: diamond
+    state: diamushieond
 
 - type: entity
-  parent: BasePlushie
+  parent: BaseItem
   id: PlushieFuzzbo
   name: Fuzzbo
   description: These plush electronics were once suspected of containing listening devices and thus banned from high-security locations. But that's silly, right?
@@ -770,13 +770,6 @@
   - type: MobState
     allowedStates:
       - Alive
-  - type: Butcherable
-    butcheringType: Knife
-    spawned:
-    - id: MaterialCloth1
-      amount: 1
-    - id: PlushieFuzzboSkinned
-      amount: 1
 
 - type: entity
   parent: PlushieFuzzbo
@@ -786,4 +779,6 @@
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Fun/toys.rsi
-    state: plushie_fuzzbo_skinned
+    layers:
+    - state: plushie_fuzzbo_skinned
+      map: [ "enum.DamageStateVisualLayers.Base" ]
