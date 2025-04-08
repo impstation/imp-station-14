@@ -9,3 +9,6 @@ reagent-desc-anomalocarid-blood = A strangely effervescent fluid with a color th
 
 reagent-name-shimmering-blood = shimmering blood
 reagent-desc-shimmering-blood = The strange, nacreous blood of a creature related to space carp. The sweet scent is almost inviting.
+
+reagent-name-bloodkodepiia = kodepiia ooze
+reagent-desc-bloodkodepiia = The fluid that bleeds from a kodepiia if you cut it. Smells delicious.

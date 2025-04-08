@@ -15,3 +15,15 @@
   spritePath: /Textures/_Impstation/Effects/speech.rsi
   typingState: anom
   offset: -0.3, 0.6
+  
+- type: typingIndicator
+  id: kodepiia
+  spritePath: /Textures/_Impstation/Effects/speech.rsi
+  typingState: kode
+  offset: -0.45, 0.35
+
+- type: typingIndicator
+  id: lawyerblue
+  spritePath: /Textures/_Impstation/Effects/speech.rsi
+  typingState: lawyerblue0
+  offset: 0, 0.125
