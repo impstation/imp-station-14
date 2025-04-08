@@ -232,12 +232,27 @@ public sealed partial class ArtifactSystem
 
         component.CurrentNodeId = node.Id;
 
-        var trigger = _prototype.Index<ArtifactTriggerPrototype>(node.Trigger);
-        var effect = _prototype.Index<ArtifactEffectPrototype>(node.Effect);
+        //#IMP Attempt to get trigger/effect from string, fall back to defaults if not in prototype
+        var defaultTrigger = "TriggerExamine";
+        var defaultEffect = "EffectBadFeeling";
+        _prototype.TryIndex<ArtifactTriggerPrototype>(node.Trigger, out var maybeTrigger);
+        _prototype.TryIndex<ArtifactEffectPrototype>(node.Effect, out var maybeEffect);
 
-        // #IMP: Save trigger & effect to allow proper exiting in case admin edits between entry and exit. Useful for testing and fun
-        node.StoredTrigger = node.Trigger;
-        node.StoredEffect = node.Effect;
+        var trigger = _prototype.Index<ArtifactTriggerPrototype>(defaultTrigger);
+        var effect = _prototype.Index<ArtifactEffectPrototype>(defaultEffect);
+        if (maybeTrigger is null)
+            Log.Debug($"Trigger prototype {node.Trigger} not found for artifact entity {ToPrettyString(uid)}, falling back to default");
+        else
+            trigger = maybeTrigger;
+
+        if (maybeEffect is null)
+            Log.Debug($"Effect prototype {node.Effect} not found for artifact entity {ToPrettyString(uid)}, falling back to default");
+        else
+            effect = maybeEffect;
+
+        // #IMP: Save trigger & effect to allow proper exiting in case admin edits between entry and exit.
+        node.StoredTrigger = maybeTrigger != null ? node.Trigger : defaultTrigger;
+        node.StoredEffect = maybeEffect != null ? node.Effect : defaultEffect;
 
         var allComponents = effect.Components.Concat(effect.PermanentComponents).Concat(trigger.Components);
         foreach (var (name, entry) in allComponents)
