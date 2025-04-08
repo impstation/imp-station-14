@@ -709,6 +709,9 @@
           plushie_fuzzbo_babyPurple: ""
           plushie_fuzzbo_babyBlue: ""
   - type: Rotatable
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Toys/mousesqueek.ogg
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/Toys/mousesqueek.ogg
@@ -724,7 +727,6 @@
       path: /Audio/Items/Toys/mousesqueek.ogg
   - type: Input
     context: "human"
-  - type: PAI
   - type: BlockMovement
   - type: ToggleableGhostRole
     examineTextMindPresent: Fuzzbo-system-on
@@ -764,7 +766,26 @@
     proto: moth
   - type: Speech
     speechVerb: Robotic
-    speechSounds: Pai
+    speechSounds: Plushie
   - type: MobState
     allowedStates:
       - Alive
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: MaterialCloth1
+      amount: 1
+    - id: PlushieFuzzboSkinned
+      amount: 1
+
+- type: entity
+  parent: PlushieFuzzbo
+  id: PlushieFuzzboSkinned
+  name: Fuzzbo (Skinned)
+  description: These were once suspe- oh my god why would you do that
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    layers:
+    - state: plushie_fuzzbo_skinned
+      map: [ "enum.DamageStateVisualLayers.Base" ]
