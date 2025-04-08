@@ -205,6 +205,15 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
             case HumanoidSkinColor.GrayToned:
                 newSkinColor = Humanoid.SkinColor.GraySkinTone(newSkinColor);
                 break;
+
+            // if the species is Anomalocarid toned: desaturate and lighten if out of bounds. (IMP CHANGE (same as above))
+            case HumanoidSkinColor.AnomaloToned:
+                newSkinColor = Humanoid.SkinColor.AnomaloSkinTone(newSkinColor);
+
+                // same as with TintedHues, crushing other colours down. @doop, if youre okay with bright markings, feel free to delete these lines! -mq
+                colorPalette[1] = Humanoid.SkinColor.AnomaloSkinTone(colorPalette[1]);
+                colorPalette[2] = Humanoid.SkinColor.AnomaloSkinTone(colorPalette[2]);
+                break;
         }
 
         // now we loop through every extant marking category,

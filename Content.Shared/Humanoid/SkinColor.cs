@@ -20,6 +20,10 @@ public static class SkinColor
     // Imp edit start
     public const float GraySaturation = 5f / 100;
     public const float GrayValue = 1f; //this would be 71f / 100, but because of the way grays are sprited, we're leaving it at 1f
+
+    //hi doop! to edit the anomalo clamps, just change the first numbers to the % you want (currently at 80% and 20%). -mq
+    public const float MaxAnomaloSaturation = 80f / 100;
+    public const float MinAnomaloValue = 20f / 100;
     // Imp edit end
 
     public static Color ValidHumanSkinTone => Color.FromHsv(new Vector4(0.07f, 0.2f, 1f, 1f));
@@ -155,6 +159,38 @@ public static class SkinColor
     {
         // graytoned just ensures saturation is always .05, or 5% saturation at all times, and value is 71
         return Color.ToHsv(color).Y <= GraySaturation && Color.ToHsv(color).Z >= GrayValue;
+    }
+
+    /// <summary>
+    ///     Convert a color to the anomalotoned type.
+    /// </summary>
+    /// <param name="color">Color to convert</param>
+    /// <returns>anomalotoned color in RGB</returns>
+    public static Color AnomaloSkinTone(Color color)
+    {
+        var newColor = Color.ToHsv(color);
+        newColor.Y *= MaxAnomaloSaturation;
+        newColor.Z = MathHelper.Lerp(MinAnomaloValue, 1f, newColor.Z);
+
+        return Color.FromHsv(newColor);
+    }
+
+    /// <summary>
+    ///     Verify if a color is in the anomalotoned skin tone range.
+    /// </summary>
+    /// <param name="color">The color to verify</param>
+    /// <returns>True if valid, false otherwise.</returns>
+    public static bool VerifyAnomaloSkinTone(Color color)
+    {
+        var colorHsv = Color.ToHsv(color);
+
+        if (colorHsv.Y > MaxAnomaloSaturation)
+            return false;
+
+        if (colorHsv.Z < MinAnomaloValue)
+            return false;
+
+        return true;
     }
 
     // imp edit end
@@ -294,4 +330,5 @@ public enum HumanoidSkinColor : byte
     VoxFeathers, // Vox feathers are limited to a specific color range
     TintedHues, //This gives a color tint to a humanoid's skin (10% saturation with full hue range).
     GrayToned, //imp special, 5% saturation & 71 value/lightness
+    AnomaloToned, //imp, anomalocarid saturation & value clamp
 }
