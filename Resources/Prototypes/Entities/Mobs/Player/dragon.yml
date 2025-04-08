@@ -177,6 +177,17 @@
   - type: GuideHelp
     guides:
     - MinorAntagonists
+  - type: Inventory # imp
+    templateId: dragon
+  - type: InventorySlots # imp
+  - type: Loadout # imp
+    prototypes:
+      - StartingGearDragonPinpointer
+  - type: Strippable # imp
+  - type: UserInterface # imp
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
 
 - type: entity
   categories: [ HideSpawnMenu ]
