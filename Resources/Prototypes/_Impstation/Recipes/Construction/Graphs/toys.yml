@@ -1,0 +1,20 @@
+- type: constructionGraph
+  id: PlushieFuzzboSkinned
+  start: start
+  graph:
+    - node: PlushieFuzzbo
+      entity: PlushieFuzzbo
+      edges:
+        - to: PlushieFuzzboSkinned
+          steps:
+            - tool: Slicing
+              doAfter: 3
+
+    - node: PlushieFuzzboSkinned
+      entity: PlushieFuzzboSkinned
+      edges:
+        - to: PlushieFuzzbo
+          steps:
+            - material: Cloth
+              amount: 3
+              doAfter: 5
