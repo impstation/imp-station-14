@@ -28,31 +28,30 @@
   components:
   - type: Magic
 
-# Imp Change
-#- type: entity
-#  id: ActionCluwne
-#  name: Cluwne's Curse
-#  description: Turns someone into a Cluwne!
-#  components:
-#  - type: EntityTargetAction
-#    useDelay: 120
-#    itemIconStyle: BigAction
-#    whitelist:
-#      components:
-#      - Body
-#    canTargetSelf: false
-#    interactOnMiss: false
-#    sound: !type:SoundPathSpecifier
-#      path: /Audio/Items/brokenbikehorn.ogg
-#    icon:
-#      sprite: Clothing/Mask/cluwne.rsi
-#      state: icon
-#    event: !type:ChangeComponentsSpellEvent
-#      speech: action-speech-spell-cluwne
-#      toAdd:
-#      - type: Cluwne
-#  - type: Magic
-#    requiresClothes: true
+- type: entity
+  id: ActionCluwne
+  name: Cluwne's Curse
+  description: Turns someone into a Cluwne!
+  components:
+  - type: EntityTargetAction
+    useDelay: 120
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    interactOnMiss: false
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Items/brokenbikehorn.ogg
+    icon:
+      sprite: Clothing/Mask/cluwne.rsi
+      state: icon
+    event: !type:ChangeComponentsSpellEvent
+      speech: action-speech-spell-cluwne
+      toAdd:
+      - type: Cluwne
+  - type: Magic
+    requiresClothes: true
 
 - type: entity
   id: ActionSlippery
