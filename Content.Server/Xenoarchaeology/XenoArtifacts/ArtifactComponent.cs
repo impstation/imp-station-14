@@ -172,7 +172,9 @@ public sealed partial class ArtifactNode : ICloneable
             Trigger = Trigger,
             Triggered = Triggered,
             Effect = Effect,
-            NodeData = NodeData
+            NodeData = NodeData,
+            StoredTrigger = StoredTrigger,
+            StoredEffect = StoredEffect
         };
     }
 }
