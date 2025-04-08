@@ -254,6 +254,8 @@ public sealed partial class ArtifactSystem
         node.StoredTrigger = maybeTrigger != null ? node.Trigger : defaultTrigger;
         node.StoredEffect = maybeEffect != null ? node.Effect : defaultEffect;
 
+        //#END IMP
+
         var allComponents = effect.Components.Concat(effect.PermanentComponents).Concat(trigger.Components);
         foreach (var (name, entry) in allComponents)
         {
