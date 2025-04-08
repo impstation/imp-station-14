@@ -11,7 +11,6 @@
       - state: computer
       - state: computer-unshaded
         shader: unshaded
-  - type: CosmicMarkStructure
   - type: Thruster
     thrusterType: Angular # These are overpowered thruster-shuttle-console-hybrids that require no power grid. As such, they cannot be anchored or meaningfully taken outside of their intended use.
     requireSpace: false
@@ -62,7 +61,6 @@
   placement:
     mode: SnapgridCenter
   components:
-  - type: CosmicMarkStructure
   - type: Sprite
     sprite: _Impstation/CosmicCult/Tileset/cosmicchair.rsi
     state: chair
@@ -89,7 +87,6 @@
       - state: icon
     drawdepth: Mobs
     noRot: true
-  - type: CosmicMarkStructure
   - type: SpriteFade
   - type: InteractionOutline
   - type: Transform
@@ -119,7 +116,6 @@
   id: CosmicThruster
   name: malign engine
   components:
-  - type: CosmicMarkStructure
   - type: Fixtures
     fixtures:
       fix1:
@@ -185,7 +181,6 @@
       Brute:
         collection: GlassSmash
   - type: Transform
-  - type: CosmicMarkStructure
   - type: Clickable
   - type: InteractionOutline
   - type: Sprite
@@ -254,7 +249,6 @@
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
-  - type: CosmicMarkStructure
   - type: Destructible
     thresholds:
     - trigger:
