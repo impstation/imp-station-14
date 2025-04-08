@@ -27,45 +27,47 @@ namespace Content.Shared._Impstation.Item.ItemToggle.Components
 
         private void OnActivateAttempt(Entity<ItemToggleUserRestrictComponent> ent, ref ItemToggleActivateAttemptEvent args)
         {
-            if (ent.Comp.OpenRestrict)
+            if (!ent.Comp.OpenRestrict || args.Cancelled)
             {
-                //there has to be an easier way to do this but i can't find it!
-                var requiredComps = ent.Comp.Components.Keys.ToImmutableList();
-                foreach (var requiredComp in requiredComps)
+                return;
+            }
+
+            foreach (var reg in ent.Comp.Components.Values)
+            {
+                var type = reg.Component.GetType();
+                if (!HasComp(args.User, type))
                 {
-                    var registration = _componentFactory.GetRegistration(requiredComp);
-                    if (registration != null && args.User != null)
+                    args.Cancelled = true;
+                    if(ent.Comp.RestrictMessage != null)
                     {
-                        if (!_ent.HasComponent(args.User.Value, registration))
-                        {
-                            args.Cancelled = true;
-                            args.Popup = Loc.GetString(ent.Comp.RestrictMessage);
+                        args.Popup = Loc.GetString(ent.Comp.RestrictMessage);
                             break;
                         }
                     }
+                    break;
                 }
             }
         }
 
         private void OnDeactivateAttempt(Entity<ItemToggleUserRestrictComponent> ent, ref ItemToggleDeactivateAttemptEvent args)
         {
-            if (ent.Comp.CloseRestrict)
+            if (!ent.Comp.CloseRestrict || args.Cancelled)
             {
-                var requiredComps = ent.Comp.Components.Keys.ToImmutableList();
-                foreach (var requiredComp in requiredComps)
+                return;
+            }
+
+            foreach (var reg in ent.Comp.Components.Values)
+            {
+                var type = reg.Component.GetType();
+                if (!HasComp(args.User, type))
                 {
-                    var registration = _componentFactory.GetRegistration(requiredComp);
-                    if (registration != null && args.User != null)
-                    {
-                        if (!_ent.HasComponent(args.User.Value, registration))
-                        {
-                            args.Cancelled = true;
+                    args.Cancelled = true;
                             //idk why itemtoggledeactivatedattemptevent doesn't have a popup and i'm tired of trying to give it one
-                            break;
-                        }
-                    }
+                    break;
                 }
             }
         }
+    }
+}
     }
 }

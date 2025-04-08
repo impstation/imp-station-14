@@ -30,8 +30,8 @@
   - type: ItemToggle
     predictable: false
   - type: ItemToggleUserRestrict
-    restrictmessage: heretic-book-open-failure
-    closerestrict: false
+    restrictMessage: heretic-book-open-failure
+    closeRestrict: false
     components:
     - type: Heretic
   - type: ComponentToggler

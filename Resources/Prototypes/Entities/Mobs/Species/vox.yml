@@ -18,13 +18,14 @@
     - HeadSide
     - Hair
     - Tail
+    - FacialHair
     undergarmentTop: UndergarmentTopTanktopVox
     undergarmentBottom: UndergarmentBottomBoxersVox
     #- type: VoxAccent # Not yet coded
   - type: Speech
     speechVerb: Vox
     speechSounds: Vox
-    allowedEmotes: ['Hiss', 'Chitter', 'Coo', 'HarpyCaw'] #imp
+    allowedEmotes: ['Hiss', 'Chitter', 'Coo', 'Caw'] #imp
   - type: TypingIndicator
     proto: vox
   - type: Vocal
