@@ -1,20 +1,9 @@
 using Content.Shared.Item.ItemToggle.Components;
-using Content.Shared.Popups;
-using System.Collections.Immutable;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Impstation.Item.ItemToggle.Components
 {
     public sealed class ItemToggleUserRestrictSystem : EntitySystem
     {
-
-        [Dependency] private readonly IPrototypeManager _prot = default!;
-        [Dependency] private readonly IEntityManager _ent = default!;
-        [Dependency] private readonly IComponentFactory _componentFactory = default!;
-        [Dependency] private readonly SharedPopupSystem _popup = default!;
-        private ISawmill _sawmill = default!;
-
-
 
         public override void Initialize()
         {
@@ -22,7 +11,6 @@ namespace Content.Shared._Impstation.Item.ItemToggle.Components
 
             SubscribeLocalEvent<ItemToggleUserRestrictComponent, ItemToggleActivateAttemptEvent>(OnActivateAttempt);
             SubscribeLocalEvent<ItemToggleUserRestrictComponent, ItemToggleDeactivateAttemptEvent>(OnDeactivateAttempt);
-
         }
 
         private void OnActivateAttempt(Entity<ItemToggleUserRestrictComponent> ent, ref ItemToggleActivateAttemptEvent args)
@@ -38,11 +26,9 @@ namespace Content.Shared._Impstation.Item.ItemToggle.Components
                 if (!HasComp(args.User, type))
                 {
                     args.Cancelled = true;
-                    if(ent.Comp.RestrictMessage != null)
+                    if (ent.Comp.RestrictMessage != null)
                     {
                         args.Popup = Loc.GetString(ent.Comp.RestrictMessage);
-                            break;
-                        }
                     }
                     break;
                 }
@@ -62,12 +48,10 @@ namespace Content.Shared._Impstation.Item.ItemToggle.Components
                 if (!HasComp(args.User, type))
                 {
                     args.Cancelled = true;
-                            //idk why itemtoggledeactivatedattemptevent doesn't have a popup and i'm tired of trying to give it one
+                    //don't feel like adding popups to deactivateAttemptEvents so this stays
                     break;
                 }
             }
         }
-    }
-}
     }
 }
