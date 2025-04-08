@@ -30,9 +30,9 @@
     stealGroup: Hypospray
 
 - type: entity
-  name: gorlex hypospray
+  name: Gorlex hypospray # imp edit; preferential to capitalizing company names
   parent: BaseItem
-  description: Using reverse engineered designs from NT, Cybersun produced these in limited quantities for Gorlex Marauder operatives.
+  description: Using reverse engineered designs from NT, Cybersun produced these in limited quantities for Gorlex Marauders operatives. # imp edit; Gorlex Marauders is the name of the PMC, presumably
   id: SyndiHypo
   components:
   - type: Sprite
