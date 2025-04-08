@@ -129,20 +129,20 @@ public sealed partial class ArtifactNode : ICloneable
     /// The trigger for the node
     /// #IMP: added VVAccess.ReadWrite
     /// </summary>
-    [DataField("trigger", customTypeSerializer: typeof(PrototypeIdSerializer<ArtifactTriggerPrototype>), required: true), ViewVariables(VVAccess.ReadWrite)]
+    [DataField("trigger", customTypeSerializer: typeof(PrototypeIdSerializer<ArtifactTriggerPrototype>), required: true)]
     public string Trigger = default!;
 
     /// <summary>
     /// Whether or not the node has been triggered
-    /// #IMP: added VVAccess.ReadWrite
     /// </summary>
     [DataField("triggered"), ViewVariables(VVAccess.ReadWrite)]
     public bool Triggered;
 
     /// <summary>
     /// The effect when the node is activated
+    /// #IMP: added VVAccess.ReadWrite
     /// </summary>
-    [DataField("effect", customTypeSerializer: typeof(PrototypeIdSerializer<ArtifactEffectPrototype>), required: true), ViewVariables(VVAccess.ReadWrite)]
+    [DataField("effect", customTypeSerializer: typeof(PrototypeIdSerializer<ArtifactEffectPrototype>), required: true)]
     public string Effect = default!;
 
     /// <summary>
