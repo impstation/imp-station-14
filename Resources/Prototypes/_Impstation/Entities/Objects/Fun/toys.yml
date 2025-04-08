@@ -725,6 +725,9 @@
     wideAnimationRotation: 180
     soundHit:
       path: /Audio/Items/Toys/mousesqueek.ogg
+  - type: StealTarget
+    stealGroup: Plushie
+  - type: DamageOtherOnHit
   - type: Input
     context: "human"
   - type: BlockMovement
