@@ -766,13 +766,11 @@
       - EncryptionKeyCommon
   - type: EncryptionKeyHolder
     keySlots: 4
-  - type: DoAfter
-  - type: Actions
   - type: TypingIndicator
     proto: moth
   - type: Speech
     speechVerb: Robotic
-    speechSounds: Plushie
+    speechSounds: pAI
   - type: MobState
     allowedStates:
       - Alive
