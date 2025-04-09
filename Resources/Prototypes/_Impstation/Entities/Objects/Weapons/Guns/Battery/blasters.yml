@@ -46,6 +46,8 @@
         whitelist:
           tags:
             - BlasterCell
+  - type: MeleeWeapon
+    wideAnimationRotation: -80
 
 - type: entity
   name: TW-07 blaster cannon
@@ -134,3 +136,5 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 30
+  - type: MeleeWeapon
+    wideAnimationRotation: -80
