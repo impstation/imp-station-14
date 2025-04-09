@@ -5,6 +5,7 @@ using Content.Shared.Slippery;
 using Content.Shared.StepTrigger.Components;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Whitelist;
+using Robust.Shared.Map.Components; // imp edit
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
@@ -16,6 +17,7 @@ public sealed class SpeedModifierContactsSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _speedModifierSystem = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!; // imp edit
 
     // TODO full-game-save
     // Either these need to be processed before a map is saved, or slowed/slowing entities need to update on init.
@@ -92,6 +94,11 @@ public sealed class SpeedModifierContactsSystem : EntitySystem
         var entries = 0;
         foreach (var ent in _physics.GetContactingEntities(uid, physicsComponent))
         {
+            // imp edit - StepTrigger and TryBlacklist checks
+            if (TryComp<StepTriggerComponent>(ent, out var stepTriggerComponent) &&
+                !TryBlacklist((ent, stepTriggerComponent)))
+                continue;
+
             bool speedModified = false;
 
             if (TryComp<SpeedModifierContactsComponent>(ent, out var slowContactsComponent))
@@ -182,5 +189,36 @@ public sealed class SpeedModifierContactsSystem : EntitySystem
     private static void OnStepTriggerAttempt(Entity<SpeedModifierContactsComponent> ent, ref StepTriggerAttemptEvent args)
     {
         args.Continue = true;
+    }
+
+    // imp edit - copied from StepTriggerSystem, but converting that into a separate method is its own headache
+    private bool TryBlacklist(Entity<StepTriggerComponent> ent)
+    {
+        if (!ent.Comp.Active ||
+            ent.Comp.Colliding.Count == 0)
+        {
+            return true;
+        }
+
+        var transform = Transform(ent);
+
+        if (ent.Comp.Blacklist == null || !TryComp<MapGridComponent>(transform.GridUid, out var grid))
+            return true;
+
+        var pos = _map.LocalToTile(transform.GridUid.Value, grid, transform.Coordinates);
+        var anch = _map.GetAnchoredEntitiesEnumerator(ent, grid, pos);
+
+        while (anch.MoveNext(out var otherEnt))
+        {
+            if (otherEnt == ent)
+                continue;
+
+            if (_whitelistSystem.IsBlacklistPass(ent.Comp.Blacklist, otherEnt.Value))
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
