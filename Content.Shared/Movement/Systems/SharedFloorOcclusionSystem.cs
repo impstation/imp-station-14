@@ -1,6 +1,6 @@
 using Content.Shared.Movement.Components;
-using Content.Shared.StepTrigger.Components;
-using Content.Shared.StepTrigger.Systems;
+using Content.Shared.StepTrigger.Components; // imp edit
+using Content.Shared.StepTrigger.Systems; // imp edit
 using Robust.Shared.Physics.Events;
 
 namespace Content.Shared.Movement.Systems;

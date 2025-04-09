@@ -2,8 +2,8 @@ using Content.Shared.Inventory;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Slippery;
-using Content.Shared.StepTrigger.Components;
-using Content.Shared.StepTrigger.Systems;
+using Content.Shared.StepTrigger.Components; // imp edit
+using Content.Shared.StepTrigger.Systems; // imp edit
 using Content.Shared.Whitelist;
 using Robust.Shared.Map.Components; // imp edit
 using Robust.Shared.Physics.Components;
