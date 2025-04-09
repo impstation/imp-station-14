@@ -61,7 +61,7 @@
     availableModes:
     - SemiAuto
     soundGunshot:
-      path: /Audio/Items/Toys/toysqueak1.ogg
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
   - type: MagazineAmmoProvider
   - type: ItemSlots
     slots:
@@ -232,7 +232,7 @@
   - type: Gun
     projectileSpeed: 10
     soundGunshot:
-      path: /Audio/Items/Toys/toysqueak1.ogg
+      path: /Audio/Effects/Lightning/lightningshock.ogg
       params:
         variation: 0.2
   - type: ProjectileBatteryAmmoProvider
@@ -328,7 +328,7 @@
     availableModes:
     - SemiAuto
     soundGunshot:
-      path: /Audio/Items/Toys/toysqueak1.ogg
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: HitscanBatteryAmmoProvider
     proto: Pulse
     fireCost: 200
@@ -366,7 +366,7 @@
       - SemiAuto
       - FullAuto
     soundGunshot:
-      path: /Audio/Items/Toys/toysqueak1.ogg
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: HitscanBatteryAmmoProvider
     proto: Pulse
     fireCost: 200
@@ -460,7 +460,7 @@
   - type: Gun
     fireRate: 4.5 #imp
     soundGunshot:
-      path: /Audio/Items/Toys/toysqueak1.ogg #imp
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/lasermil.ogg #imp
   - type: HitscanBatteryAmmoProvider
     proto: RedHeavyLaser
     fireCost: 40 #imp
@@ -507,7 +507,7 @@
     - type: Gun
       fireRate: 0.5
       soundGunshot:
-        path: /Audio/Items/Toys/toysqueak1.ogg
+        path: /Audio/Weapons/emitter.ogg
         params:
           pitch: 2
     - type: ProjectileBatteryAmmoProvider
@@ -553,7 +553,7 @@
     sprite: _Impstation/Objects/Weapons/Guns/Battery/xray.rsi #imp
   - type: Gun
     soundGunshot:
-      path: /Audio/Items/Toys/toysqueak1.ogg
+      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
   - type: HitscanBatteryAmmoProvider
     proto: XrayLaser
     fireCost: 100
@@ -610,7 +610,7 @@
   - type: Gun
     fireRate: 2
     soundGunshot:
-      path: /Audio/Items/Toys/toysqueak1.ogg
+      path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerPractice
     fireCost: 100
@@ -675,7 +675,7 @@
       - SemiAuto
       - FullAuto
     soundGunshot:
-      path: /Audio/Items/Toys/toysqueak1.ogg
+      path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerSmg
     fireCost: 33
@@ -713,7 +713,7 @@
     - Belt
   - type: Gun
     soundGunshot:
-      path: /Audio/Items/Toys/toysqueak1.ogg
+      path: /Audio/Weapons/Guns/Gunshots/taser.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletTaser
     fireCost: 200
@@ -743,7 +743,7 @@
     sprite: _Impstation/Objects/Weapons/Guns/Battery/antiquelasergun.rsi #imp
   - type: Gun
     soundGunshot:
-      path: /Audio/Items/Toys/toysqueak1.ogg
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
@@ -791,7 +791,7 @@
     sprite: _Impstation/Objects/Weapons/Guns/Battery/advancedlasergun.rsi #imp
   - type: Gun
     soundGunshot:
-      path: /Audio/Items/Toys/toysqueak1.ogg
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
@@ -834,7 +834,7 @@
     projectileSpeed: 10
     fireRate: 1.5
     soundGunshot:
-      path: /Audio/Items/Toys/toysqueak1.ogg
+      path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: AnomalousParticleDeltaStrong
     fireCost: 100
@@ -889,7 +889,7 @@
   - type: Gun
     fireRate: 1
     soundGunshot:
-      path: /Audio/Items/Toys/toysqueak1.ogg
+      path: /Audio/Weapons/Guns/Gunshots/laser_clown.ogg
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
@@ -923,7 +923,7 @@
   - type: Gun
     fireRate: 2
     soundGunshot:
-      path: /Audio/Items/Toys/toysqueak1.ogg #imp
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/eshotgun.ogg #imp
   - type: ProjectileBatteryAmmoProvider
     proto: BulletLaserSpread
     fireCost: 150
