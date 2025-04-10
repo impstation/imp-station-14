@@ -43,6 +43,10 @@
   - type: RadioImplant  #imp edit
     radioChannels:
     - Supply
+    ActiveAddedChannels:
+    - Supply
+    TransmitterAddedChannels:
+    - Supply
 
 - type: entity
   parent: [ EncryptionKey, BaseCentcommContraband ]

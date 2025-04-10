@@ -742,9 +742,6 @@
     stopSearchVerbPopup: Fuzzbo-system-stopped-searching
   - type: Examiner
   - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Common
   - type: ActiveRadio
     channels:
     - Common
@@ -767,15 +764,3 @@
   - type: MobState
     allowedStates:
       - Alive
-
-- type: entity
-  parent: PlushieFuzzbo
-  id: PlushieFuzzboSkinned
-  name: Fuzzbo (Skinned)
-  description: These plush electronics were once suspe- oh god why would you do that
-  components:
-  - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
-    layers:
-    - state: plushie_fuzzbo_skinned
-      map: [ "enum.DamageStateVisualLayers.Base" ]
