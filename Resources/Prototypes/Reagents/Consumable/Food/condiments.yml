@@ -131,23 +131,10 @@
       effects:
       - !type:SatiateHunger
         factor: 0.5
-      - !type:SatiateThirst
-        factor: -0.5 # high salt content
-
-- type: reagent
-  id: TeriyakiSauce
-  name: reagent-name-teriyaki
-  group: Foods
-  desc: reagent-desc-teriyaki
-  physicalDesc: reagent-physical-desc-salty
-  flavor: savory
-  color: saddlebrown
-  recognizable: true
-  metabolisms:
-    Food:
-      effects:
-      - !type:SatiateHunger
-        factor: 0.5
+        conditions: # imp
+        - !type:OrganType
+          type: Kodepiia
+          shouldHave: false
       - !type:SatiateThirst
         factor: -0.5 # high salt content
 
@@ -216,6 +203,10 @@
       effects:
       - !type:SatiateHunger
         factor: 6.0 #Stronger than cookedramen
+        conditions: # imp
+        - !type:OrganType
+          type: Kodepiia
+          shouldHave: false
   footstepSound:
     collection: FootstepBlood
     params:

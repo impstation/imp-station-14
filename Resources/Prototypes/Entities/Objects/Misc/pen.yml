@@ -123,6 +123,9 @@
       blue: "#284283"
       green: "#108473"
       red: "#ac3235"
+      cyan: "#1a7694" #imp
+      purple: "#6a3059" #imp
+      magenta: "#a42f6b" #imp
       command blue: "#1b67a5"
       CentComm green: "#009100"
 
@@ -170,6 +173,28 @@
   components:
   - type: Sprite
     state: pen_hop
+  # imp edits #
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 8
+  - type: SignatureWriter
+    color: "#1b67a5"
+  # end imp edits #
+
+- type: entity
+  name: wizard's magical pen
+  parent: [ PenEmbeddable, BaseMagicalContraband ]
+  id: PenWiz
+  description: A luxurious fountain pen. Seems to have a magical crystal eraser.
+  components:
+  - type: Sprite
+    state: pen_wizard
+  - type: Tag
+    tags:
+    - WriteIgnoreStamps
+    - Write
+    - Pen
   # imp edits #
   - type: DamageOtherOnHit
     damage:

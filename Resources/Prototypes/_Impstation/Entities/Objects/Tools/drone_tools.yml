@@ -1,24 +1,35 @@
 # Imp special. This file covers all of the stuff needed for repair drones to spawn with their tools.
 
 # Unremovable versions of their items. I am aware that unremoveable is spelled wrong.
+
 - type: entity
-  parent: ClothingBackpackSatchelDrone
-  id: DroneSatchelUnremovable
+  parent: ClothingBeltStorageBase
+  id: DroneMaterialsBelt
+  name: internal storage
   suffix: Unremoveable
+  description: An internal pocket to hold your stuff. The space is limited.
   components:
   - type: Unremoveable
+  - type: Clothing
+    slots: [back]
+  - type: Icon
+    sprite: _Impstation/Mobs/Silicon/drone.rsi
+    state: shell
   - type: Sprite
     sprite: _Impstation/Clothing/Back/Satchels/dronesatchel.rsi
   - type: Storage
     grid:
-    - 0,0,1,1
-    - 3,0,4,1
-    - 6,0,7,1
+    - 0,0,7,1
+    whitelist:
+      tags:
+        - DroneUsable
+  - type: Appearance
 
 - type: entity
   parent: trayScanner
   id: trayScannerUnremoveable
   suffix: Unremoveable
+  categories: [ HideSpawnMenu ]
   components:
   - type: Unremoveable
 
@@ -26,6 +37,7 @@
   parent: Omnitool
   id: OmnitoolUnremoveable
   suffix: Unremoveable
+  categories: [ HideSpawnMenu ]
   components:
   - type: Unremoveable
 
@@ -33,6 +45,7 @@
   parent: WelderExperimental
   id: WelderExperimentalUnremoveable
   suffix: Unremoveable
+  categories: [ HideSpawnMenu ]
   components:
   - type: Unremoveable
 
@@ -41,6 +54,7 @@
   id: PinpointerStationUnremoveable
   description: You are the station. Find yourself. Press E to activate.
   suffix: Unremoveable
+  categories: [ HideSpawnMenu ]
   components:
   - type: Unremoveable
   - type: Pinpointer
@@ -48,13 +62,19 @@
     targetName: the station
 
 - type: entity
+  parent: GasAnalyzer
+  id: GasAnalyzerUnremoveable
+  suffix: Unremoveable
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Unremoveable
+
+- type: entity
   id: RCDRechargingDroneLighting
   parent: BaseItem
   name: lighting RCD
-  description: The sleek, pared-down offspring the standard Rapid Construction Device. Only capable of producing standardized lighting solutions. 
-  suffix: Unremoveable
+  description: The sleek, pared-down offspring the standard Rapid Construction Device. Only capable of producing standardized lighting solutions.
   components:
-  - type: Unremoveable
   - type: Sprite
     sprite: _Impstation/Objects/Tools/dronercd.rsi
     state: icon
@@ -79,13 +99,12 @@
     - DroneUsable
 
 - type: entity
-  id: RCDRechargingDrone
+  id: RCDRechargingCardboard
   parent: BaseItem
-  name: mini RCD
-  description: The sleek, pared-down offspring the standard Rapid Construction Device. Contains a nanomass compressor which allows it to recharge slowly over time, but severely limits its charge capacity. It also requires full charge to deconstruct.
-  suffix: Unremoveable
+  name: cardboard RCD
+  description: A nanomass-compressor fueled Rapid Construction Device designed for speedy, but temporary, repairs. Produces temporary structures made from fiberboard.
+  categories: [ HideSpawnMenu ]
   components:
-  - type: Unremoveable
   - type: Sprite
     sprite: _Impstation/Objects/Tools/dronercd.rsi
     state: icon
@@ -93,24 +112,20 @@
     maxCharges: 8
     charges: 10
   - type: AutoRecharge
-    rechargeDuration: 10
+    rechargeDuration: 5 # originally 10. buffing it to 5 until we get cardboard RCD
   - type: RCD
-    availablePrototypes:
-    - WallSolid
-    - FloorSteel
-    - Catwalk
-    - Grille
-    - Window
-    - WindowDirectional
-    - Airlock
-    - AirlockGlass
-    - Firelock
+    availablePrototypes: # significantly pared down - just the essentials for quick patch-jobs. If they want to do more permanent fixes, they start with the materials to do so.
+    - CardboardWall
+    - FloorCardboard
+    - CardboardWindow
+    - WindowCardboardDirectional
+    - ChairCardboard
+    - DoorCardboard
     - TubeLight
     - BulbLight
     - LVCable
     - MVCable
     - HVCable
-    - CableTerminal
     - ClothingHeadHatCone
     - DeconstructDrone
   - type: UserInterface
@@ -124,18 +139,13 @@
     tags:
     - DroneUsable
 
-# RCD functions
-
-- type: rcd
-  id: DeconstructDrone
-  name: rcd-component-deconstruct
-  category: Main
-  sprite: /Textures/Interface/Radial/RCD/deconstruct.png
-  mode: Deconstruct
-  prototype: EffectRCDDeconstructPreview
-  rotation: Camera
-  cost: 8
-  delay: 4
+- type: entity
+  id: RCDRechargingCardboardUnremoveable
+  suffix: Unremoveable
+  parent: RCDRechargingCardboard
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Unremoveable
 
 # PAI actions
 
@@ -202,14 +212,9 @@
   id: StartingGearDroneTools
   equipment:
     pocket1: trayScannerUnremoveable
-    pocket2: PinpointerStationUnremoveable
-    back: DroneSatchelUnremovable
-  storage:
-    back:
-    - SheetSteel
-    - SheetGlass
-    - PartRodMetal
+    pocket2: GasAnalyzerUnremoveable
+    pocket3: PinpointerStationUnremoveable
   inhand:
     - OmnitoolUnremoveable
     - WelderExperimentalUnremoveable
-    - RCDRechargingDrone
+    - RCDRechargingCardboardUnremoveable

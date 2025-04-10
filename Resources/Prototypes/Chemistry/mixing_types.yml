@@ -5,22 +5,22 @@
   id: DummyMix
   verbText: mixing-verb-default-mix
   icon:
-    sprite: Objects/Specific/Chemistry/beaker_large.rsi
+    sprite: _Impstation/Objects/Specific/Chemistry/beaker_large.rsi # imp
     state: beakerlarge
 
 - type: mixingCategory
   id: DummyGrind
   verbText: mixing-verb-default-grind
   icon:
-    sprite: Structures/Machines/juicer.rsi
-    state: juicer0
+    sprite: _Impstation/Structures/Machines/grinder.rsi # imp
+    state: grinder_empty
 
 - type: mixingCategory
   id: DummyJuice
   verbText: mixing-verb-default-juice
   icon:
-    sprite: Structures/Machines/juicer.rsi
-    state: juicer0
+    sprite: _Impstation/Structures/Machines/grinder.rsi # imp
+    state: grinder_empty
 
 - type: mixingCategory
   id: DummyCondense

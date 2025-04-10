@@ -137,7 +137,6 @@
     base: decay
   - type: Tag
     tags:
-      - Entropy
       - HideContextMenu
   - type: PointLight
     radius: 4.25
@@ -147,7 +146,7 @@
 
 - type: entity
   id: FloorCosmicDecayAlt
-  suffix: DO NOT MAP
+  categories: [ HideSpawnMenu ]
   name: "???"
   placement:
     mode: SnapgridCenter

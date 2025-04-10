@@ -12,6 +12,9 @@
     - Mousetrap
     - TrashBag
     - DeskBell
+    - PrizeTicketGold
+    - PrizeTicketSilver
+    - PrizeTicketBronze
 
 - type: latheRecipePack
   id: CleanPack
@@ -39,6 +42,7 @@
     - DrinkJigger
     - DrinkFlaskBar
     - DrinkVacuumFlask
+    - DrinkVacuumFlaskXL
     - DrinkTeapotEmpty
     - DrinkTeacupEmpty
     - DrinkWaterBottleEmpty
@@ -64,6 +68,15 @@
     - ClothingHeadHatCone
     - SprayPainter
     - FlashlightLantern
+    - ClothingBeltPlushie
+
+- type: latheRecipePack
+  id: LunchboxPack
+  recipes:
+    - SteelLunchbox
+    - SteelLunchboxBlue
+    - SteelLunchboxPink
+    - SteelLunchboxOrange
 
 # Dynamic
 
@@ -87,3 +100,4 @@
   id: ServiceEmagged
   recipes:
     - ButchCleaver
+    - PrizeTicketDiamond
