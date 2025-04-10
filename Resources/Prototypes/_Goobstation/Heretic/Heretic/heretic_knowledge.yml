@@ -20,13 +20,6 @@
   ritualPrototypes:
   - CodexCicatrix
 
-- type: hereticKnowledge
-  id: LivingHeart
-  ritualPrototypes:
-  - LivingHeart
-  actionPrototypes:
-  - ActionHereticLivingHeart
-
 ### ash path
 - type: hereticKnowledge
   id: NightwatcherSecret
@@ -39,6 +32,14 @@
   id: GraspOfAsh
   path: Ash
   stage: 2
+
+- type: hereticKnowledge
+  id: BlazingDash
+  path: Ash
+  sideKnowledge: true
+  stage: 3
+  actionPrototypes:
+  - ActionHereticBlazingDash
 
 - type: hereticKnowledge
   id: AshenShift

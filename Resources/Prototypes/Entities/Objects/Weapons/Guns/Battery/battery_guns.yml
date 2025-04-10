@@ -157,6 +157,8 @@
     magState: mag
     steps: 5
     zeroVisible: true
+  - type: MeleeWeapon #imp; for pistolwhip anim
+    wideAnimationRotation: -80
 
 - type: entity
   name: retro laser blaster
@@ -180,6 +182,8 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
+  - type: MeleeWeapon #imp; for pistolwhip anim
+    wideAnimationRotation: -80
 
 - type: entity
   name: makeshift laser pistol
@@ -208,6 +212,8 @@
   - type: Battery
     maxCharge: 500
     startingCharge: 500
+  - type: MeleeWeapon #imp; for pistolwhip anim
+    wideAnimationRotation: -80
 
 - type: entity
   name: tesla gun
@@ -239,10 +245,10 @@
   - type: Appearance
 
 - type: entity
-  name: practice laser rifle
+  name: TD-95P practice laser carbine #imp
   parent: [BaseWeaponBattery, BaseGunWieldable]
   id: WeaponLaserCarbinePractice
-  description: This modified laser rifle fires nearly harmless beams in the 40-watt range, for target practice.
+  description: This modified TD-95 laser carbine fires nearly harmless beams at 5-watts for target practice. Best to wear eye protection. #imp
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Battery/laser_gun.rsi #imp
@@ -285,10 +291,10 @@
 #imp edit end
 
 - type: entity
-  name: TD-95 Laser Carbine #imp
+  name: TD-95 laser carbine #imp
   parent: [WeaponLaserCarbinePractice, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponLaserCarbine
-  description: A laser-based energy rifle with familiar ergonomics and controls to its kinetic counterparts. Favored by Nanotrasen for security forces, as they are cheap and easy to use. #imp
+  description: A laser-based energy carbine with familiar ergonomics and controls to its kinetic counterparts. Favored by Nanotrasen for security forces, as they are cheap and easy to use. #imp
   components:
   - type: StaticPrice
     price: 420
@@ -297,7 +303,7 @@
     fireCost: 62.5
 
 - type: entity
-  name: pulse pistol
+  name: PXS-21 pulse pistol #imp
   parent: BaseWeaponBatterySmall
   id: WeaponPulsePistol
   description: A state-of-the-art energy pistol favored as a sidearm by Nanotrasen operatives.
@@ -329,9 +335,11 @@
   - type: Battery
     maxCharge: 2000
     startingCharge: 2000
+  - type: MeleeWeapon #imp; for pistolwhip anim
+    wideAnimationRotation: -80
 
 - type: entity
-  name: pulse carbine
+  name: PX-14C pulse carbine #imp
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseCentcommContraband]
   id: WeaponPulseCarbine
   description: A high-tech energy carbine favored by Nanotrasen ERT operatives. #imp
@@ -382,7 +390,7 @@
 #imp edit end
 
 - type: entity
-  name: pulse rifle
+  name: PX-6 pulse rifle #imp
   parent: [BaseWeaponBattery, BaseGunWieldable]
   id: WeaponPulseRifle
   description: A weapon almost as infamous as its users.
@@ -429,10 +437,10 @@
 #imp edit end
 
 - type: entity
-  name: OL-71 Laser Rifle #imp
+  name: OL-71 laser rifle #imp
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponLaserCannon
-  description: Modern laser technology purpose-built into a military platform-- as deadly as it is precise. #imp
+  description: Modern laser technology purpose-built into a military platform—as deadly as it is precise. #imp
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Battery/laser_cannon.rsi #imp
@@ -464,7 +472,7 @@
     attackRate: 0.4 #slower, but hits harder; bigger object to shove with
     damage:
       types:
-        blunt: 8
+        Blunt: 8
   - type: StaminaDamageOnHit
     damage: 15 #slight stagger, but still like 7 hits to stun completely
   - type: MeleeRequiresWield
@@ -513,7 +521,7 @@
       attackRate: 0.4 #slower, but hits harder; bigger object to shove with
       damage:
         types:
-            blunt: 8
+            Blunt: 8
     - type: StaminaDamageOnHit
       damage: 15 #slight stagger, but still like 7 hits to stun completely
     - type: MeleeRequiresWield
@@ -528,7 +536,7 @@
 #imp edit end
 
 - type: entity
-  name: x-ray cannon
+  name: EM-40 x-ray cannon #imp
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponXrayCannon
   description: An experimental weapon that uses concentrated x-ray energy against its target.
@@ -559,7 +567,7 @@
     attackRate: 0.4 #slower, but hits harder; bigger object to shove with
     damage:
       types:
-        blunt: 8
+        Blunt: 8
   - type: StaminaDamageOnHit
     damage: 15 #slight stagger, but still like 7 hits to stun completely
   - type: MeleeRequiresWield
@@ -610,6 +618,8 @@
     tags:
     - Taser
     - Sidearm
+  - type: MeleeWeapon #imp; for pistolwhip anim
+    wideAnimationRotation: -80
 
 - type: entity
   name: disabler
@@ -712,6 +722,8 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
+  - type: MeleeWeapon #imp; for pistolwhip anim
+    wideAnimationRotation: -80
 
 - type: entity
   name: antique laser pistol
@@ -756,9 +768,11 @@
     flavorKind: station-event-random-sentience-flavor-inanimate
     weight: 0.0002 # 5,000 times less likely than 1 regular animal
     # not putting a BlockMovement component here cause that's funny.
+  - type: MeleeWeapon #imp; for pistolwhip anim
+    wideAnimationRotation: -80
 
 - type: entity
-  name: X-66 Advanced Laser Pistol #imp
+  name: X-66 advanced laser pistol #imp
   parent: [ BaseWeaponBatterySmall, BaseSecurityContraband]
   id: WeaponAdvancedLaser
   description: An experimental high-energy laser pistol with a self-charging nuclear battery.
@@ -791,6 +805,8 @@
   - type: Appearance
   - type: StaticPrice
     price: 63
+  - type: MeleeWeapon #imp; for pistolwhip anim
+    wideAnimationRotation: -80
 
 - type: entity
   name: C.H.I.M.P. handcannon
@@ -837,6 +853,8 @@
     node: start
   - type: StaticPrice
     price: 100
+  - type: MeleeWeapon #imp; for pistolwhip anim
+    wideAnimationRotation: -80
 
 - type: entity
   name: experimental C.H.I.M.P. handcannon
@@ -882,7 +900,7 @@
     price: 750
 
 - type: entity
-  name: M-1 Energy Shotgun #imp
+  name: M-1 energy shotgun #imp
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseGrandTheftContraband]
   id: WeaponEnergyShotgun
   description: A one-of-a-kind prototype energy weapon that uses various shotgun configurations. It offers the possibility of both lethal and non-lethal shots, making it a versatile weapon.

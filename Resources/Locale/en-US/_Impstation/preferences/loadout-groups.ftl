@@ -50,6 +50,8 @@ loadout-group-librarian-shoes = Librarian shoes
 
 loadout-group-lawyer-outerclothing = Lawyer outer clothing
 loadout-group-lawyer-shoes = Lawyer shoes
+loadout-group-lawyer-id = Lawyer ID
+loadout-group-lawyer-briefcase = Lawyer briefcase
 
 loadout-group-chaplain-belt = Chaplain belt
 loadout-group-chaplain-eyes = Chaplain eye coverings
@@ -85,6 +87,7 @@ loadout-group-quartermaster-headset = Quartermaster headset
 loadout-group-cargo-technician-mask = Cargo Technician mask
 loadout-group-cargo-technician-neck = Cargo Technician neck
 loadout-group-cargo-technician-id = Cargo Technician ID
+loadout-group-cargo-technician-belt = Cargo Technician belt
 
 loadout-group-salvage-specialist-neck = Salvage Specialist neck
 loadout-group-salvage-specialist-jumpsuit = Salvage Specialist jumpsuit

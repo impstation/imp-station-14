@@ -1,6 +1,7 @@
 using Content.Server.Administration.Systems;
 using Content.Shared.Antag;
 using Content.Shared.Destructible.Thresholds;
+using Content.Shared.NPC.Prototypes;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
 using Content.Shared.Whitelist;
@@ -67,6 +68,13 @@ public sealed partial class AntagSelectionComponent : Component
     /// </summary>
     [DataField]
     public LocId? AgentName;
+
+    /// <summary>
+    /// If the player is pre-selected but fails to spawn in (e.g. due to only having antag-immune jobs selected),
+    /// should they be removed from the pre-selection list?
+    /// </summary>
+    [DataField]
+    public bool RemoveUponFailedSpawn = true;
 }
 
 [DataDefinition]
@@ -178,6 +186,20 @@ public partial struct AntagSelectionDefinition()
     /// </summary>
     [DataField]
     public List<EntProtoId>? MindRoles;
+
+    /// <summary>
+    /// NPC factions to add to the entity
+    /// #IMP
+    /// </sumamry>
+    [DataField]
+    public List<string> FactionsAdd = new();
+
+    /// <summary>
+    /// NPC factions to remove from the entity
+    /// #IMP
+    /// </sumamry>
+    [DataField]
+    public List<string> FactionsRemove = new();
 
     /// <summary>
     /// A set of starting gear that's equipped to the player.
