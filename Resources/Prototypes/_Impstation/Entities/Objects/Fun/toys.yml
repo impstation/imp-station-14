@@ -709,13 +709,7 @@
           plushie_fuzzbo_babyPurple: ""
           plushie_fuzzbo_babyBlue: ""
   - type: Rotatable
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/Items/Toys/mousesqueek.ogg
   - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Items/Toys/mousesqueek.ogg
-  - type: EmitSoundOnActivate
     sound:
       path: /Audio/Items/Toys/mousesqueek.ogg
   - type: MeleeWeapon
