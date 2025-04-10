@@ -40,6 +40,9 @@
     layers:
     - state: crypt_gray
     - state: cargo_label
+  - type: RadioImplant  #imp edit
+    radioChannels:
+    - Supply
 
 - type: entity
   parent: [ EncryptionKey, BaseCentcommContraband ]
