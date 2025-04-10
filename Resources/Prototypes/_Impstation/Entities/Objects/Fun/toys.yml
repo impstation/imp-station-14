@@ -718,9 +718,6 @@
   - type: EmitSoundOnActivate
     sound:
       path: /Audio/Items/Toys/mousesqueek.ogg
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Items/Toys/mousesqueek.ogg
   - type: MeleeWeapon
     wideAnimationRotation: 180
     soundHit:
@@ -733,7 +730,7 @@
   - type: StealTarget
     stealGroup: Plushie
   - type: Input
-    context: "human"
+    context: human
   - type: BlockMovement
   - type: ToggleableGhostRole
     examineTextMindPresent: Fuzzbo-system-on
@@ -770,7 +767,9 @@
     proto: moth
   - type: Speech
     speechVerb: Robotic
-    speechSounds: pAI
+    speechSounds: Pai
+  - type: DoAfter
+  - type: Actions
   - type: MobState
     allowedStates:
       - Alive
