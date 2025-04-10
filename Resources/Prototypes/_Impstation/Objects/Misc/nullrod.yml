@@ -24,7 +24,6 @@
   components:
   - type: ChaplainGearMenu
     possibleSets:
-    - ChaplainGearRosary
     - ChaplainGearGrail
     - ChaplainGearGlove
     - ChaplainGearBow
@@ -46,28 +45,6 @@
     sprite: _Impstation/Objects/Misc/nullrod.rsi
     quickEquip: false
     slots:
-    - Belt
-
-
-- type: entity
-  name: silvered rosary
-  id: NullRodRosary
-  parent: NullRodBase
-  description: An expensive-looking rosary, made from silver. Exudes somewhat soothing vibes. Nice!
-  components:
-  - type: Prayable
-    bibleUserOnly: true
-  - type: Sprite
-    sprite: _Impstation/Objects/Misc/nullrod.rsi
-    state: nullrod_rosary
-  - type: Item
-    size: Small
-    shape:
-    - 0,0,1,1
-  - type: Clothing
-    sprite: _Impstation/Objects/Misc/nullrod.rsi
-    slots:
-    - Neck
     - Belt
 
 - type: entity

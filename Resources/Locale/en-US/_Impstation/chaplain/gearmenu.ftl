@@ -11,11 +11,6 @@ chaplain-gearmenu-window-description =
     Permanently transform the Null Rod into something else entirely.
 chaplain-gearmenu-window-selected = Form selected: ({$selectedCount}/{$maxCount})
 
-chaplain-gearset-category-rosary-name = Silvered Rosary
-chaplain-gearset-category-rosary-description =
-    An expensive-looking rosary, made from silver. Exudes somewhat
-    soothing vibes. Nice!
-
 chaplain-gearset-category-grail-name = Gildgrail
 chaplain-gearset-category-grail-description =
     A jewel-encrusted golden chalice. Can hold a deceptively
