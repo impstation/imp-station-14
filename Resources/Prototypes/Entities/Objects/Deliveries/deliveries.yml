@@ -95,7 +95,7 @@
       visible: false
     - state: postmark
     - map: [ "enum.DeliveryVisualLayers.JobStamp" ]
-      offset: -0.125, -0.0625
+      offset: 0.19, 0.09 # imp - getting that job stamp in the right corner
     - state: fragile
       map: [ "enum.DeliveryVisualLayers.FragileStamp" ]
       visible: false
