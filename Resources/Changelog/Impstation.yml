@@ -1,32 +1,4 @@
 ﻿Entries:
-- author: honeyed-lemons
-  changes:
-  - message: Nerfed money received from mail
-    type: Tweak
-  id: 995
-  time: '2025-01-25T07:52:19.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1460
-- author: ATDoop
-  changes:
-  - message: Crewsimov Law 1 no longer has the "inaction" clause.
-    type: Tweak
-  id: 996
-  time: '2025-01-25T07:54:53.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1461
-- author: DinnerCalzone
-  changes:
-  - message: Supermatter has been added to Cog, along with some other layout changes.
-    type: Add
-  id: 997
-  time: '2025-01-25T07:59:49.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1468
-- author: DinnerCalzone
-  changes:
-  - message: The engine has been removed from Marathon.
-    type: Remove
-  id: 998
-  time: '2025-01-25T08:00:18.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1473
 - author: widgetbeck
   changes:
   - message: Gastropoid Mucin no longer speeds them up directly. Instead, using the
@@ -4099,3 +4071,38 @@
   id: 1494
   time: '2025-04-08T10:20:36.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/2226
+- author: Kandiyaki
+  changes:
+  - message: The codex cicatrix can now only be opened by heretics.
+    type: Tweak
+  - message: The codex cicatrix is only marked as contraband while open.
+    type: Tweak
+  - message: Changed the codex cicatrix ritual to take a heart instead of a pair of
+      eyes.
+    type: Tweak
+  id: 1495
+  time: '2025-04-08T16:17:13.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2167
+- author: widgetbeck
+  changes:
+  - message: Player ghosts can now warp to player ghosts & corpses.
+    type: Add
+  id: 1496
+  time: '2025-04-08T16:19:56.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2222
+- author: kipdotnet
+  changes:
+  - message: S-Cargo Moving Trunks no longer have a giant ERROR written on them.
+    type: Fix
+  id: 1497
+  time: '2025-04-09T13:35:16.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2236
+- author: Sha-Seng
+  changes:
+  - message: Moved gray Head markings to Head (Top) and you'll have to reapply them!!
+    type: Tweak
+  - message: Gray Head (Top) and Chest marking points have been increased to 3
+    type: Tweak
+  id: 1498
+  time: '2025-04-09T02:32:30.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2114
