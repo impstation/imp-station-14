@@ -495,9 +495,11 @@
   id: FoodMeatSpider
   description: A slab of spider meat. That's so Kafkaesque.
   components:
-  - type: Tag
+  - type: Tag # imp
     tags:
-      - SpiderMeat
+    - Raw
+    - Meat
+    - SpiderMeat
   - type: Sprite
     state: spider
   - type: SolutionContainerManager
@@ -530,6 +532,10 @@
           Quantity: 10
         - ReagentId: Fat
           Quantity: 3
+  - type: Tag # imp - why tf isnt this in FoodMeatBase
+    tags:
+    - Raw
+    - Meat
 
 - type: entity
   name: meatwheat clump
@@ -549,6 +555,9 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 1
+  - type: Tag # imp
+    tags:
+    - KodeEdible
 
 - type: entity
   name: raw snake meat
@@ -734,6 +743,9 @@
           Quantity: 5
         - ReagentId: Egg
           Quantity: 6
+  - type: Construction
+    graph: MeatMeatballCooked
+    node: start
 
 - type: entity
   name: slimeball
@@ -1273,6 +1285,9 @@
     entries:
       Burger: MeatBall
       Taco: MeatBall
+  - type: Construction
+    graph: MeatMeatballCooked
+    node: meatball cooked
 
 - type: entity
   name: boiled snail

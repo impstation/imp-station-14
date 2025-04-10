@@ -164,6 +164,7 @@ namespace Content.Client.Lobby.UI
 
             NameEdit.OnTextChanged += args => { SetName(args.Text); };
             NameRandomize.OnPressed += args => RandomizeName();
+            AppearanceRandomize.OnPressed += args => { RandomizeAppearance(); }; // IMP
             RandomizeEverythingButton.OnPressed += args => { RandomizeEverything(); };
             WarningLabel.SetMarkup($"[color=red]{Loc.GetString("humanoid-profile-editor-naming-rules-warning")}[/color]");
 
@@ -1102,7 +1103,7 @@ namespace Content.Client.Lobby.UI
                     var color = SkinColor.HumanSkinTone((int) Skin.Value);
 
                     Markings.CurrentSkinColor = color;
-                    Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));//
+                    Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
                     break;
                 }
                 case HumanoidSkinColor.Hues:
@@ -1145,6 +1146,22 @@ namespace Content.Client.Lobby.UI
                     Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
                     break;
                 }
+                // Imp edit start
+                case HumanoidSkinColor.GrayToned:
+                {
+                    if (!RgbSkinColorContainer.Visible)
+                    {
+                        Skin.Visible = false;
+                        RgbSkinColorContainer.Visible = true;
+                    }
+
+                    var color = SkinColor.GraySkinTone(_rgbSkinColorSelector.Color);
+
+                    Markings.CurrentSkinColor = color;
+                    Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
+                    break;
+                }
+                // Imp edit end
             }
 
             ReloadProfilePreview();
@@ -1552,6 +1569,27 @@ namespace Content.Client.Lobby.UI
             SetProfile(Profile, CharacterSlot);
             SetDirty();
         }
+
+        // IMP EDIT START: randomize appearance without touching species
+        private void RandomizeAppearance()
+        {
+            if (Profile == null)
+            {
+                return;
+            }
+            HumanoidCharacterAppearance.Random(Profile.Species, Profile.Sex);
+            Profile = new HumanoidCharacterProfile()
+            {
+                Name = Profile.Name,
+                Sex = Profile.Sex,
+                Age = Profile.Age,
+                Gender = Profile.Gender,
+                Species = Profile.Species,
+                Appearance = HumanoidCharacterAppearance.Random(Profile.Species, Profile.Sex),
+            };
+            SetProfile(Profile, CharacterSlot);
+        }
+        // IMP EDIT END
 
         private void RandomizeName()
         {
