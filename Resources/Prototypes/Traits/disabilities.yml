@@ -43,6 +43,8 @@
   components:
     - type: Unrevivable
       cloneable: true
+  incompatibleWith: # imp
+    - RandomUnrevivable
 
 - type: trait
   id: Muted
