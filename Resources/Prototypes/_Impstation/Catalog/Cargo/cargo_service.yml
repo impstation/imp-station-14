@@ -28,7 +28,7 @@
   category: cargoproduct-category-name-service
   group: market
 
-#- type: cargoProduct # come back next february
+#- type: cargoProduct
 #  name: romantic crate
 #  id: CrateValentines
 #  icon:
@@ -38,3 +38,14 @@
 #  cost: 750
 #  category: cargoproduct-category-name-fun
 #  group: market
+
+- type: cargoProduct
+  name: fishing crate
+  id: CrateFishing
+  icon:
+    sprite: _Impstation/Objects/Fishing/fishingrod.rsi
+    state: base
+  product: CrateFishing
+  cost: 800
+  category: cargoproduct-category-name-fun
+  group: market

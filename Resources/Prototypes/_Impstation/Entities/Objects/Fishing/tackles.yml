@@ -1,0 +1,47 @@
+- type: entity
+  id: FishingTackleBase
+  name: fishing tackle
+  parent: BaseItem
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite #The component that handles basic visuals
+      sprite: _Impstation/Objects/Fishing/fishingtackle.rsi
+      layers:
+        - state: tackle
+    - type: FishingTackle #The component that handles the damage modifying
+      damage:
+        types:
+          Blunt: 1
+    - type: Tag
+      tags:
+      - Tackle
+
+- type: entity
+  id: SharpTackle
+  name: sharp tackle
+  parent: FishingTackleBase
+  components:
+    - type: FishingTackle 
+      damage:
+        types:
+          Slash: 3
+
+- type: entity
+  id: BitingTackle
+  name: biting tackle
+  parent: FishingTackleBase
+  components:
+    - type: FishingTackle 
+      damage:
+        types:
+          Piercing: 5
+
+- type: entity
+  id: BluntTackle
+  name: blunt tackle
+  parent: FishingTackleBase
+  components:
+    - type: FishingTackle 
+      damage:
+        types:
+          Piercing: -5

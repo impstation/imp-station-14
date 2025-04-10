@@ -29,9 +29,23 @@
           unshaded:
             True: { state: base-unshaded }
             False: { state: base-unshaded-off }         
-    - type: Construction
+    - type: Construction #The component that makes this buildable from the construction menu
       graph: FishingRod
       node: rod
+    - type: ItemSlots # The component that handles the insertion of bait/lure/tackle
+      slots:
+        bait:
+          whitelist:
+            tags:
+            - Bait
+        lure:
+          whitelist:
+            tags:
+            - Lure
+        tackle:
+          whitelist:
+            tags:
+            - Tackle
 
 - type: entity
   name: plasma rod
