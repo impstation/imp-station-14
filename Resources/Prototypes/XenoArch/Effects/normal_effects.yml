@@ -205,8 +205,7 @@
   components:
   - type: FoamArtifact
     reagents:
-    - Oxygen
-    - Plasma
+    - Plasma #IMP: REMOVE OXYGEN
     - Blood
     - SpaceCleaner
     - Nutriment
