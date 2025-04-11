@@ -179,3 +179,19 @@
   materials:
     Steel: 25
     Plastic: 540
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: SpeedLoaderMagnumStun
+  result: SpeedLoaderMagnumStun
+  materials:
+    Steel: 150
+    Plastic: 40
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxMagnumStun
+  result: MagazineBoxMagnumStun
+  materials:
+    Steel: 160
+    Plastic: 80
