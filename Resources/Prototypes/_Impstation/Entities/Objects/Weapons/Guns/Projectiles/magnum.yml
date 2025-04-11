@@ -10,3 +10,8 @@
         Blunt: 5
   - type: StaminaDamageOnCollide
     damage: 30 #4 hits to stun
+  - type: Sprite
+    noRot: false
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: rubber
