@@ -113,6 +113,9 @@ marking-AnomalocaridWingsGlass-wings3_glass1 = Glass
 marking-AnomalocaridWingsGlass-wings3_glass2 = Glass
 marking-AnomalocaridWingsGlass-wings3_glass3 = Glass
 marking-AnomalocaridWingsGlass-wings3_glass4 = Glass
+marking-AnomalocaridWingsFan = Fanned Wings
+marking-AnomalocaridWingsFan-wings4_primary = Wings Primary
+marking-AnomalocaridWingsFan-wings4_secondary = Wings Primary
 
 marking-AnomalocaridTailDefault = Tail
 marking-AnomalocaridTailDefault-tail1 = Tail

@@ -690,6 +690,23 @@
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
     state: wings3_glass4
 
+- type: marking
+  id: AnomalocaridWingsFan
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Anomalocarid ]
+  followSkinColor: false
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: wings4_primary
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
+    state: wings4_secondary
+
 
 #Tails
 #- type: marking
