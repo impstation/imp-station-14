@@ -19,10 +19,12 @@
             # command - 7
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
+            AdministrativeAssistant: [ 1, 1 ] # imp
             ChiefEngineer: [ 1, 1 ]
             ChiefMedicalOfficer: [ 1, 1 ]
             ResearchDirector: [ 1, 1 ]
             HeadOfSecurity: [ 1, 1 ]
+            HospitalityDirector: [ 1, 1 ] # imp
             Quartermaster: [ 1, 1 ]
             # service - 19
             Bartender: [ 2, 2 ]
@@ -53,6 +55,7 @@
             Scientist: [ 4, 4 ]
             StationAi: [ 1, 1 ]
             # security - 10-14
+            Brigmedic: [ 1, 1 ] # imp
             Detective: [ 1, 1 ]
             Lawyer: [ 2, 2 ]
             SecurityCadet: [ 4, 4 ]
@@ -62,5 +65,6 @@
             CargoTechnician: [ 6, 6 ]
             Courier: [ 3, 3 ] # imp
             SalvageSpecialist: [ 3, 3 ]
+            SupplyAssistant: [ 3, 3 ] # imp
             # civilian
             Passenger: [ -1, -1 ]
