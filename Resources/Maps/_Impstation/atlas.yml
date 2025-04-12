@@ -4,8 +4,8 @@ meta:
   engineVersion: 250.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/12/2025 03:01:23
-  entityCount: 10195
+  time: 04/12/2025 06:43:39
+  entityCount: 10193
 maps:
 - 1
 grids:
@@ -3166,15 +3166,6 @@ entities:
     - type: NavMap
 - proto: ActionToggleInternals
   entities:
-  - uid: 3735
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 6770
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 6770
   - uid: 6754
     components:
     - type: Transform
@@ -3182,17 +3173,6 @@ entities:
     - type: InstantAction
       originalIconColor: '#FFFFFFFF'
       container: 6946
-- proto: ActionToggleJetpack
-  entities:
-  - uid: 3734
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 6770
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 6770
 - proto: AirAlarm
   entities:
   - uid: 3
@@ -48179,22 +48159,11 @@ entities:
       canCollide: False
 - proto: JetpackMiniFilled
   entities:
-  - uid: 6770
+  - uid: 3734
     components:
     - type: Transform
-      pos: -31.516647,19.654978
+      pos: -31.535782,19.65145
       parent: 2
-    - type: GasTank
-      toggleActionEntity: 3735
-    - type: Jetpack
-      toggleActionEntity: 3734
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 3734
-          - 3735
 - proto: Jukebox
   entities:
   - uid: 6771
