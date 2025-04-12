@@ -91,3 +91,34 @@
     access: [["Cargo"]]
   - type: StealTarget #imp
     stealGroup: SalvDrobe
+
+- type: entity
+  parent: VendingMachine
+  id: VendingMachineDanShrimp
+  name: Salty Dan's Shrimp Machine
+  description: A groundbreaking innovation in biovending technology, providing freshly grown shrimp and shrimp derived products directly to the consumer.
+  components:
+  - type: VendingMachine
+    pack: SalvDrobeInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    soundVend: /Audio/_Impstation/Effects/ame_injection.ogg #imp
+  - type: Advertise
+    pack: DanShrimpAds
+  - type: SpeakOnUIClosed
+    pack: GenericVendGoodbyes
+  - type: Sprite
+    sprite: _Impstation/Structures/Machines/VendingMachines/danshrimp.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#defff6"
