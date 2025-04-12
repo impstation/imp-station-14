@@ -91,3 +91,39 @@
     access: [["Cargo"]]
   - type: StealTarget #imp
     stealGroup: SalvDrobe
+
+- type: entity
+  parent: VendingMachine
+  id: VendingMachineAccessory
+  name: AccessoryMate
+  description: A vending machine for accessories.
+  components:
+  - type: VendingMachine
+    pack: AccessoryMateInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+    soundVend: /Audio/_Impstation/Machines/vending_drop.ogg #imp
+  - type: Advertise
+    pack: ClothesMateAds
+  - type: SpeakOnUIClosed
+    pack: GenericVendGoodbyes
+  - type: Speech
+  - type: Tag
+    tags:
+      - DroneUsable
+  - type: Sprite
+    sprite: Structures/Machines/VendingMachines/clothing.rsi #whatever i do this later!
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#3db83b"

@@ -1,4 +1,6 @@
 # DO NOT ADD MORE, USE UNIFORM DYING
+# imp: IF YOU ADD MORE, I WILL KILL YOU!!!!!!!!!!!!!!!!
+#      many upstream things have been removed to add to the appareldrobe, please put non-clothes in there instead
 - type: vendingMachineInventory
   id: ClothesMateInventory
   startingInventory:
@@ -11,14 +13,16 @@
     ClothingUniformRandomSimpleTeeSpawner: 6 #imp
     ClothingUniformRandomSimpleTankSpawner: 6 #imp
     ClothingUniformRandomSimplePantsSpawner: 6 #imp
-    ClothingHeadHatBeret: 4
-    ClothingHeadBandBlack: 2
-    ClothingHeadBandBlue: 2
-    ClothingHeadBandGreen: 2
-    ClothingHeadBandRed: 2
-    ClothingHeadBandSkull: 2
-    ClothingHeadHatGreyFlatcap: 3
-    ClothingHeadHatBrownFlatcap: 3
+    # imp edits start
+#    ClothingHeadHatBeret: 4
+#    ClothingHeadBandBlack: 2
+#    ClothingHeadBandBlue: 2
+#    ClothingHeadBandGreen: 2
+#    ClothingHeadBandRed: 2
+#    ClothingHeadBandSkull: 2
+#    ClothingHeadHatGreyFlatcap: 3
+#    ClothingHeadHatBrownFlatcap: 3
+    # imp edits end
     ClothingUniformJumpsuitColorGrey: 8
     ClothingUniformJumpskirtColorGrey: 8
     ClothingUniformJumpsuitColorWhite: 3
@@ -60,47 +64,43 @@
     ClothingUniformJumpsuitCasualGreen: 2
     ClothingUniformJumpskirtCasualGreen: 2
     # DO NOT ADD MORE, USE UNIFORM DYING
-    ClothingShoesColorBlack: 8
-    ClothingShoesColorBrown: 4
-    ClothingShoesColorWhite: 3
-    ClothingShoesColorBlue: 2
-    ClothingShoesColorYellow: 2
-    ClothingShoesColorGreen: 2
-    ClothingShoesColorOrange: 2
-    ClothingShoesColorRed: 2
-    ClothingShoesColorPurple: 2
-    ClothingShoesHeelsRed: 4 # imp
-    ClothingShoesHeelsBlack: 4 # imp
-    ClothingShoesHeelsBlue: 3 # imp
-    ClothingShoesHeelsGreen: 2 # imp
-    ClothingShoesHeelsBrown: 2 # imp
-    ClothingShoesFlipflopsBlack: 4 #imp
-    ClothingHeadHatGreysoft: 8
-    ClothingHeadHatMimesoft: 3
-    ClothingHeadHatBluesoft: 2
-    ClothingHeadHatYellowsoft: 2
-    ClothingHeadHatGreensoft: 2
-    ClothingHeadHatOrangesoft: 2
-    ClothingHeadHatRedsoft: 2
-    # DO NOT ADD MORE, USE UNIFORM DYING
-    ClothingHeadHatBlacksoft: 2
-    ClothingHeadHatPurplesoft: 2
-    ClothingHeadHatCorpsoft: 2
-    ClothingHeadFishCap: 2
-    ClothingHeadRastaHat: 2
-    ClothingBeltStorageWaistbag: 3
-    ClothingEyesGlasses: 6
-    ClothingHandsGlovesColorBlack: 4
-    ClothingHandsGlovesColorGray: 4
-    ClothingHandsGlovesColorBrown: 2
-    ClothingHandsGlovesColorWhite: 2
-    ClothingHandsGlovesColorRed: 2
-    ClothingHandsGlovesColorBlue: 2
-    ClothingHandsGlovesColorTeal: 2
-    ClothingHandsGlovesColorGreen: 2
-    ClothingHandsGlovesColorOrange: 2
-    ClothingHandsGlovesColorPurple: 2
-    ClothingEyesGlassesCheapSunglasses: 3
+    # imp edits start
+#    ClothingShoesColorBlack: 8
+#    ClothingShoesColorBrown: 4
+#    ClothingShoesColorWhite: 3
+#    ClothingShoesColorBlue: 2
+#    ClothingShoesColorYellow: 2
+#    ClothingShoesColorGreen: 2
+#    ClothingShoesColorOrange: 2
+#    ClothingShoesColorRed: 2
+#    ClothingShoesColorPurple: 2
+#    ClothingHeadHatGreysoft: 8
+#    ClothingHeadHatMimesoft: 3
+#    ClothingHeadHatBluesoft: 2
+#    ClothingHeadHatYellowsoft: 2
+#    ClothingHeadHatGreensoft: 2
+#    ClothingHeadHatOrangesoft: 2
+#    ClothingHeadHatRedsoft: 2
+#    # DO NOT ADD MORE, USE UNIFORM DYING
+#    ClothingHeadHatBlacksoft: 2
+#    ClothingHeadHatPurplesoft: 2
+#    ClothingHeadHatCorpsoft: 2
+#    ClothingHeadFishCap: 2
+#    ClothingHeadRastaHat: 2
+#    ClothingBeltStorageWaistbag: 3
+#    ClothingEyesGlasses: 6
+#    ClothingHandsGlovesColorBlack: 4
+#    ClothingHandsGlovesColorGray: 4
+#    ClothingHandsGlovesColorBrown: 2
+#    ClothingHandsGlovesColorWhite: 2
+#    ClothingHandsGlovesColorRed: 2
+#    ClothingHandsGlovesColorBlue: 2
+#    ClothingHandsGlovesColorTeal: 2
+#    ClothingHandsGlovesColorGreen: 2
+#    ClothingHandsGlovesColorOrange: 2
+#    ClothingHandsGlovesColorPurple: 2
+#    ClothingEyesGlassesCheapSunglasses: 3
+    # imp edits end
     # DO NOT ADD MORE, USE UNIFORM DYING
     # imp -Space Cadet Jumpsuits
     ClothingSpaceCadetJumpsuitColorWhite: 3
@@ -121,12 +121,11 @@
     ClothingUniformSpaceJumpsuitCasualMulti: 3
     ClothingUniformSpaceJumpsuitCasualBlue: 3
   contrabandInventory:
-    ClothingMaskNeckGaiter: 2
+#    ClothingMaskNeckGaiter: 2
     ClothingUniformJumpsuitTacticool: 1
     ClothingUniformJumpskirtTacticool: 1
-    ClothingShoesSwat: 2 # imp
-    ClothingMaskGas: 1
+#    ClothingMaskGas: 1
     ToyFigurinePassenger: 1
-    ToyFigurineGreytider: 1
+#    ToyFigurineGreytider: 1
     ClothingBackpackSatchelSmugglerUnanchored: 1
   # DO NOT ADD MORE, USE UNIFORM DYING
