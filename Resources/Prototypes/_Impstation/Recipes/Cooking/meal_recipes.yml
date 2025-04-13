@@ -49,16 +49,6 @@
      FoodMeat: 1
 
 - type: microwaveMealRecipe
-  id: RecipeCultLollipop
-  name: entro-pop recipe
-  result: FoodMealCultLollipop
-  group: BarsAndCookies
-  time: 5
-  solids:
-     FoodKebabSkewer: 1
-     MaterialCosmicCultEntropy1: 1 #wow this is quite possibly the worst idea you could have
-
-- type: microwaveMealRecipe
   id: RecipeCamelSoup
   name: camel's soup recipe
   result: FoodCamelSoup
@@ -424,3 +414,14 @@
   solids:
     FoodRainbowCannabisButter: 2
     FoodSnackChocolateBar: 2
+
+- type: microwaveMealRecipe # imp
+  id: RecipeBoiledSpiderLeg
+  name: boiled spider leg recipe
+  result: FoodMeatSpiderlegCooked
+  time: 5
+  group: Savory
+  reagents:
+    Water: 10
+  solids:
+    FoodMeatSpiderLeg: 1

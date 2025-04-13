@@ -1,7 +1,7 @@
-using Content.Server.Speech.EntitySystems;
+using Content.Server._NF.Speech.EntitySystems;
 using Content.Shared.Whitelist;
 
-namespace Content.Server.Speech.Components;
+namespace Content.Server._NF.Speech.Components;
 
 [RegisterComponent]
 [Access(typeof(ParrotSpeechSystem))]
@@ -37,4 +37,34 @@ public sealed partial class ParrotSpeechComponent : Component
 
     [DataField(readOnly: true)]
     public List<string> LearnedPhrases = new();
+
+    [DataField] // imp. be very careful with this one. if it ends up being a problem even once, it should be set to true on that entity.
+    public bool HideMessagesInChat = true;
+
+    [DataField] // imp
+    public bool RequiresMind = true;
+
+    /// <summary>
+    /// Preserves capitalization in memorized messages and appends a "..." to the start and end of sentence fragments.
+    /// For signifying the context recalled by smarter entities who aren't just repeating sounds (knowingly repeating words).
+    /// </summary>
+    [DataField] // imp
+    public bool PreserveContext = false;
+
+    /// <summary>
+    /// Percentage chance the echo will be a whisper instead of normal speech. Nervous stimming getting mistaken as syndicate clues. Y'know.
+    /// 1.0 = Always whispering. 0.0 = Doesn't whisper.
+    /// </summary>
+    [DataField] // imp
+    public float WhisperChance = 0.0f;
+
+    [DataField] // imp
+    public bool FakeTypingIndicator = true;
+
+    /// <summary>
+    ///  the next time the fake typing indicator will end and a message will be sent
+    /// </summary>
+    public TimeSpan? NextFakeTypingSend = null; // imp
+
+    public string? NextMessage = null; // imp
 }

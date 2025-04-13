@@ -260,6 +260,7 @@
   loadouts:
   - CaptainSunglasses
   - CaptainVisor
+  - CaptainEyepatch
 
 - type: loadoutGroup
   id: CaptainGloves
@@ -277,6 +278,7 @@
   - BlackCommandHeels
   - BlueCommandHeels
   - CaptainJumpBoots
+  - CaptainHeeledBoots
 
 - type: loadoutGroup
   id: CommandHeadset
@@ -294,6 +296,7 @@
   loadouts:
   - EmergencyNitrogenCommand
   - EmergencyOxygenCommand
+  - EmergencyMeatCommand
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogenCommand
 
@@ -305,6 +308,7 @@
   loadouts:
   - EmergencyNitrogenExtendedCommand
   - EmergencyOxygenExtendedCommand
+  - EmergencyMeatExtendedCommand
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogenCommand
 
@@ -316,6 +320,7 @@
   loadouts:
   - EmergencyNitrogenSecurityCommand
   - EmergencyOxygenSecurityCommand
+  - EmergencyMeatSecurityCommand
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogenCommand
 
@@ -357,6 +362,7 @@
   - HospitalityDirectorBandana
   - BartenderHead
   - HospitalityDirectorBeret
+  - HospitalityDirectorBellhopHD
 
 - type: loadoutGroup
   id: HospitalityDirectorNeck
@@ -380,6 +386,7 @@
   - HospitalityDirectorBartenderJumpsuit
   - HospitalityDirectorBartenderJumpskirt
   - HospitalityDirectorBotanyJumpsuit
+  - HospitalityDirectorProprietorJumpsuit
 
 - type: loadoutGroup
   id: HospitalityDirectorGloves
@@ -510,6 +517,20 @@
   - LacedShoes
   - LeatherShoes
   - BlackHeels
+
+- type: loadoutGroup
+  id: LawyerPDA
+  name: loadout-group-lawyer-id
+  loadouts:
+  - LawyerPDA
+  - SeniorLawyerPDA
+
+- type: loadoutGroup
+  id: LawyerBriefcase
+  name: loadout-group-lawyer-briefcase
+  loadouts:
+  - BrownBriefcase
+  - BlackBriefcase
 
 - type: loadoutGroup
   id: ChaplainEyes
@@ -708,6 +729,13 @@
   minLimit: 0
   loadouts:
   - ScarfBrown
+
+- type: loadoutGroup
+  id: CargoTechnicianBelt
+  name: loadout-group-cargo-technician-belt
+  minLimit: 0
+  loadouts:
+  - SeniorCargoBelt
 
 - type: loadoutGroup
   id: CargoTechnicianPDA
@@ -942,6 +970,7 @@
   minLimit: 0
   loadouts:
   - ScarfRed
+  - SecPoncho
 
 - type: loadoutGroup
   id: UpperSecurityShoes
@@ -1026,6 +1055,7 @@
   loadouts:
   - EmergencyNitrogenBrigmedic
   - EmergencyOxygenBrigmedic
+  - EmergencyMeatBrigmedic
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogen
 

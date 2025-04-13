@@ -32,7 +32,10 @@ public sealed partial class HellVictimComponent : Component
     public SpeciesPrototype? CloneProto;
 
     [DataField]
-    public EntityUid Mind;
+    public EntityUid? Mind;
+
+    [DataField]
+    public Boolean HasMind = false;
 
     [DataField, AutoNetworkedField]
     public TimeSpan HellDuration = TimeSpan.FromSeconds(15);

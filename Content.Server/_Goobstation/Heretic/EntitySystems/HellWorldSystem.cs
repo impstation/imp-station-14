@@ -22,6 +22,7 @@ using Robust.Shared.EntitySerialization.Systems;
 using Robust.Server.GameObjects;
 using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Eye.Blinding.Components;
+using Content.Server.StationEvents;
 
 //this is kind of badly named since we're doing infinite archives stuff now but i dont feel like changing it :)
 
@@ -75,11 +76,14 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
                 {
                     //make sure they won't get into this loop again
                     victimComp.CleanupDone = true;
-                    //put them back in the original body
-                    _mind.TransferTo(victimComp.Mind, victimComp.OriginalBody);
-                    //let them ghost again
-                    MindComponent? mindComp = Comp<MindComponent>(victimComp.Mind);
-                    mindComp.PreventGhosting = false;
+                    if (victimComp.Mind != null) //if they ghosted before the gib, no need to return the hell mind to the body
+                    {
+                        //put them back in the original body
+                        _mind.TransferTo(victimComp.Mind.Value, victimComp.OriginalBody);
+                        //let them ghost again
+                        MindComponent? mindComp = Comp<MindComponent>(victimComp.Mind.Value);
+                        mindComp.PreventGhosting = false;
+                    }
                     //give the original body some visual changes
                     TransformVictim(uid);
                     //tell them about the metashield
@@ -102,6 +106,7 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
             {
                 return;
             }
+            victimComp.HasMind = true;
             victimComp.Mind = mindContainer.Mind.Value;
         }
 
@@ -121,7 +126,12 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
             var spawnTgt = Transform(newSpawn.Uid).Coordinates;
 
             //spawn your hellsona
-            MindComponent? mindComp = Comp<MindComponent>(victimComp.Mind);
+            if (!victimComp.HasMind || victimComp.Mind == null) //just in case the 
+            {
+                victimComp.AlreadyHelled = true;
+                return;
+            }
+            MindComponent? mindComp = Comp<MindComponent>(victimComp.Mind.Value);
             mindComp.PreventGhosting = true;
             //don't have to change this one's blood because nobody's bringing a forensic scanner to hell
             var sufferingWhiteBoy = Spawn(species.Prototype, spawnTgt);
@@ -134,36 +144,20 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
             }
 
             //and then send the mind into the hellsona
-            _mind.TransferTo(victimComp.Mind, sufferingWhiteBoy);
+            _mind.TransferTo(victimComp.Mind.Value, sufferingWhiteBoy);
             victimComp.AlreadyHelled = true;
 
             //returning the mind to the original body happens in Update()
         }
 
-        //ported from funkystation
-        public void TeleportRandomly(RitualData args, EntityUid uid) // start le teleporting loop -space
+        public void TeleportRandomly(RitualData args, EntityUid uid) 
         {
-            var maxrandomtp = 40; // this is how many attempts it will try before breaking the loop -space
-            var maxrandomradius = 20; // this is the max range it will do -space
+            //get all possible spawn points, choose one, then get the place
+            var spawnPoints = EntityManager.GetAllComponents(typeof(MidRoundAntagSpawnLocationComponent)).ToImmutableList();
+            var newSpawn = _random.Pick(spawnPoints);
+            var spawnTgt = Transform(newSpawn.Uid).Coordinates;
 
-
-            if (!args.EntityManager.TryGetComponent<TransformComponent>(uid, out var xform))
-                return;
-            var coords = xform.Coordinates;
-            var newCoords = coords.Offset(_random.NextVector2(maxrandomradius));
-            for (var i = 0; i < maxrandomtp; i++) //start of the loop -space
-            {
-                var randVector = _random.NextVector2(maxrandomradius);
-                newCoords = coords.Offset(randVector);
-                if (!args.EntityManager.TryGetComponent<TransformComponent>(uid, out var trans))
-                    continue;
-                if (trans.GridUid != null && !_lookup.GetEntitiesIntersecting(newCoords.ToMap(_ent, _xform), LookupFlags.Static).Any()) // if they're not in space and not in wall, it will choose these coords and end the loop -space
-                {
-                    break;
-                }
-            }
-
-            _xform.SetCoordinates(uid, newCoords);
+            _xform.SetCoordinates(uid, spawnTgt);
         }
 
         private void TransformVictim(EntityUid ent)
