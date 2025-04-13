@@ -1,0 +1,10 @@
+- type: entity
+  id: CrateChemistryMucin
+  parent: CrateChemistrySecure
+  name: mucin crate
+  description: Why the fuck would anyone want this? Requires Chemistry access to open.
+  components:
+    - type: StorageFill
+      contents:
+        - id: JugMucin
+          amount: 2
