@@ -1,121 +1,4 @@
 ﻿Entries:
-- author: Darkmajia, AftrLite
-  changes:
-  - message: The supermatter has received a large amount of changes and upgrades.
-      Check out the updated guidebook!
-    type: Tweak
-  - message: The supermatter monitoring console now has full functionality.
-    type: Tweak
-  - message: The supermatter now emits waste gas as intended, instead of storing waste
-      inside itself.
-    type: Fix
-  id: 1004
-  time: '2025-01-25T08:44:54.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1359
-- author: AftrLite
-  changes:
-  - message: Syndicate Decoys have been fixed to match the new hardsuit sprites. Deploy
-      a swole new juggernaut dakimakura decoy today.
-    type: Fix
-  - message: Divine Grasp no longer unanchors on hit. That wasn't intended, whoops.
-    type: Fix
-  id: 1005
-  time: '2025-01-25T08:49:40.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1477
-- author: hivehum
-  changes:
-  - message: 'New to the SecLink: A special, non-lethal Space Blade!'
-    type: Add
-  id: 1006
-  time: '2025-01-26T03:13:41.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1484
-- author: mqole
-  changes:
-  - message: GOBLIN AND GREY LESS SICK! GOOBABA
-    type: Fix
-  id: 1007
-  time: '2025-01-26T03:18:58.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1487
-- author: 12rabbits
-  changes:
-  - message: Unborgable brains now dissolve into more appropriate reagents.
-    type: Tweak
-  id: 1008
-  time: '2025-01-27T00:40:13.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1437
-- author: kipdotnet
-  changes:
-  - message: Monkeys and Kobolds can now pilot shuttles.
-    type: Add
-  id: 1009
-  time: '2025-01-27T00:54:07.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1495
-- author: DinnerCalzone
-  changes:
-  - message: Fixed Marathon engineering missing it's PA computer board.
-    type: Fix
-  id: 1010
-  time: '2025-01-27T01:56:41.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1496
-- author: kipdotnet
-  changes:
-  - message: Added the NT-strugglebug, a cheap, compact salvage shuttle. Buy from
-      the shipyard today!
-    type: Add
-  - message: Drastically lowered the cost of the Shipyard's bargain bin option.
-    type: Tweak
-  id: 1011
-  time: '2025-01-27T15:04:49.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1498
-- author: Sleiphros
-  changes:
-  - message: Several changes to a few derelicts.
-    type: Tweak
-  id: 1012
-  time: '2025-01-27T15:06:35.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1497
-- author: Kandiyaki
-  changes:
-  - message: Heretic is back in rotation, now as a main antagonist!
-    type: Tweak
-  id: 1013
-  time: '2025-01-27T22:09:17.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1503
-- author: EpicToast
-  changes:
-  - message: You can now label mechs like the Ripley APLU with a hand labeler.
-    type: Tweak
-  id: 1014
-  time: '2025-01-27T22:13:12.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1502
-- author: AvianMaiden
-  changes:
-  - message: AI law boards can now be examined to see their laws!
-    type: Add
-  id: 1015
-  time: '2025-01-28T21:46:12.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1510
-- author: kipdotnet
-  changes:
-  - message: Tck'tck's now have a multitool and salvage access.
-    type: Tweak
-  id: 1016
-  time: '2025-01-29T19:39:40.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1514
-- author: honeyed-lemons
-  changes:
-  - message: Fixed vent crawling through gas pipe sensors
-    type: Fix
-  id: 1017
-  time: '2025-01-30T19:31:08.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1519
-- author: kipdotnet
-  changes:
-  - message: Removed the Flagship wreck.
-    type: Remove
-  id: 1018
-  time: '2025-01-30T19:56:40.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1518
 - author: dayn-e
   changes:
   - message: Reworked the dog accent to sound more scoob-like.
@@ -4106,3 +3989,121 @@
   id: 1503
   time: '2025-04-10T14:12:04.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/2242
+- author: jtfg-dev
+  changes:
+  - message: The jukebox is now sorted by track name, rather than by source / artist.
+    type: Tweak
+  - message: The recently-added music should sound a lot better, and is more in balance
+      volume-wise with the other songs. Your ears have been spared the wrath of FIRE
+      TEMPLE in the bar. (Gondal is, however, inescapable.)
+    type: Fix
+  id: 1504
+  time: '2025-04-12T04:22:42.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2248
+- author: MintyTheBinty
+  changes:
+  - message: 4 casual space outfits added to Clothesmate, with new jumpsuits available
+      for security officer, chef, and hospitality director round start!
+    type: Add
+  id: 1505
+  time: '2025-04-12T05:55:45.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2235
+- author: mqole
+  changes:
+  - message: You now have 2 extra minutes between rounds to shit and piss as needed.
+    type: Tweak
+  id: 1506
+  time: '2025-04-13T04:46:31.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2250
+- author: DinnerCalzone
+  changes:
+  - message: Station Specific and Dining Services departments no longer appear in
+      the late-join menu.
+    type: Tweak
+  id: 1507
+  time: '2025-04-13T04:47:42.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2252
+- author: TheGrimbeeper
+  changes:
+  - message: weakened pull when artifact opens a supermatter portal
+    type: Fix
+  id: 1508
+  time: '2025-04-13T04:49:42.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2244
+- author: hivehum
+  changes:
+  - message: Mail looks more like you're used to.
+    type: Tweak
+  id: 1509
+  time: '2025-04-13T04:57:46.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2217
+- author: DinnerCalzone
+  changes:
+  - message: Updates to Cluster, Marathon, Train, and other maps. Details in PR.
+    type: Tweak
+  id: 1510
+  time: '2025-04-13T05:00:05.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2249
+- author: SixValentine
+  changes:
+  - message: Fur trim to Warden's Hardsuit (Fashion Forward Militarism? Slay?)
+    type: Add
+  id: 1511
+  time: '2025-04-13T05:01:19.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2234
+- author: widgetbeck
+  changes:
+  - message: Player ghosts can now view a mass scanner interface.
+    type: Add
+  - message: Player ghosts can now view detailed inspect information on living players
+      from any distance.
+    type: Tweak
+  id: 1512
+  time: '2025-04-13T05:02:38.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2227
+- author: Darkmajia
+  changes:
+  - message: Catwalks placed over water tiles keep you above the surface.
+    type: Tweak
+  id: 1513
+  time: '2025-04-13T05:03:22.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2238
+- author: AvianMaiden
+  changes:
+  - message: Greater efforts by the Syndicate and affiliate corporations to decrease
+      toxicity in the workplace aboard NT stations.
+    type: Add
+  id: 1514
+  time: '2025-04-13T05:03:53.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2241
+- author: Oberonics
+  changes:
+  - message: Cluwne spells are now banned magic.
+    type: Remove
+  - message: Wizards can buy a cluwne wand instead.
+    type: Tweak
+  id: 1515
+  time: '2025-04-13T05:05:19.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2219
+- author: mqole
+  changes:
+  - message: LOBBY TIMER IS ACTUALLY 7 MINUTES NOW I PROMMY
+    type: Fix
+  id: 1516
+  time: '2025-04-13T08:49:29.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2255
+- author: MintyTheBinty
+  changes:
+  - message: New reinforced steel briefcase available in select lathes and fabs stationwide!
+    type: Add
+  id: 1517
+  time: '2025-04-13T09:06:11.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2197
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: Introducing the Portable Sensor Array, a Stealth Detector. Unlocked in
+      "Special Means" and produced at Science!
+    type: Add
+  id: 1518
+  time: '2025-04-13T15:54:18.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2232
