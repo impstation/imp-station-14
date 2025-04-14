@@ -4,7 +4,7 @@ meta:
   engineVersion: 250.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/13/2025 22:48:41
+  time: 04/14/2025 11:55:44
   entityCount: 27085
 maps:
 - 1
@@ -8438,7 +8438,7 @@ entities:
       pos: 11.5,-27.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -15555.712
+      secondsUntilStateChange: -15580.253
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -137165,7 +137165,7 @@ entities:
       pos: 0.5,-46.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -15985.966
+      secondsUntilStateChange: -16010.507
       state: Opening
   - uid: 7274
     components:
@@ -141772,11 +141772,6 @@ entities:
     - type: Transform
       pos: 7.5,-28.5
       parent: 2
-  - uid: 5055
-    components:
-    - type: Transform
-      pos: 5.5,-30.5
-      parent: 2
   - uid: 5056
     components:
     - type: Transform
@@ -144243,6 +144238,13 @@ entities:
     components:
     - type: Transform
       pos: -3.5,56.5
+      parent: 2
+- proto: VendingMachineDinnerware
+  entities:
+  - uid: 5054
+    components:
+    - type: Transform
+      pos: 5.5,-30.5
       parent: 2
 - proto: VendingMachineDiscount
   entities:
