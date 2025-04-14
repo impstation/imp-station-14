@@ -44,3 +44,146 @@
     - Trash
 
 #end shrimps
+#just kidding more shrimps
+
+- type: entity
+  name: salty dan's freshly grown shrimpsnax
+  parent: FoodSnackBase
+  id: FoodSnackDanShrimpsnaxBase
+  description: A bag of shrimps. They don't even seem cooked or anything. Yeah this is probably food.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/snacks.rsi
+    state: shrimpsnax
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Protein
+          Quantity: 4
+        - ReagentId: TableSalt
+          Quantity: 4
+  - type: FlavorProfile
+    flavors:
+      - artificial
+      - fishy
+  - type: Item
+    size: Tiny
+  - type: Food
+    trash:
+    - FoodPacketDanShrimpsnaxBaseTrash
+  - type: Tag
+    tags:
+    - FoodSnack
+
+- type: entity
+  parent: FoodPacketTrash
+  id: FoodPacketDanShrimpsnaxBaseTrash
+  name: salty dan's freshly emptied shrimpsnax
+  description: There's a few little ones still in there. Ah, whatever.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/snacks.rsi
+    state: shrimpsnax-trash
+  - type: Tag
+    tags:
+    - Trash
+
+- type: entity
+  name: douda dan's oum stupee! pedii kibeab zwoo!!
+  parent: FoodSnackBase
+  id: FoodSnackDanShrimpsnaxGreen
+  description: Is this some sort of misguided attempt to advertise to grays? These aren't even gray.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/snacks.rsi
+    state: shrimpsnaxgreen
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Protein
+          Quantity: 4
+        - ReagentId: GrayBlood
+          Quantity: 4
+        - ReagentId: Radium
+          Quantity: 1
+  - type: FlavorProfile
+    flavors:
+      - artificial
+      - outofthisworld
+  - type: Item
+    size: Tiny
+  - type: Food
+    trash:
+    - FoodPacketDanShrimpsnaxGreenTrash
+  - type: Tag
+    tags:
+    - FoodSnack
+
+- type: entity
+  parent: FoodPacketTrash
+  id: FoodPacketDanShrimpsnaxGreenTrash
+  name: empty douda dan's oum stupee! pedii kibeab zwoo!!
+  description: There's a few little ones still in there. Ah, whatever.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/snacks.rsi
+    state: shrimpsnaxgreen-trash
+  - type: Tag
+    tags:
+    - Trash
+
+- type: entity
+  name: chilly dan's shrimp frostbites
+  parent: FoodSnackBase
+  id: FoodSnackDanShrimpsnaxBlue
+  description:
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/snacks.rsi
+    state: shrimpsnaxblue
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Protein
+          Quantity: 4
+        - ReagentId: Fresium
+          Quantity: 4 #this does .08 cold damage to you
+        - ReagentId: Coldsauce
+          Quantity: 4
+  - type: FlavorProfile
+    flavors:
+      - artificial
+      - cold
+  - type: Item
+    size: Tiny
+  - type: Food
+    trash:
+    - FoodPacketDanShrimpsnaxBlueTrash
+  - type: Tag
+    tags:
+    - FoodSnack
+
+- type: entity
+  parent: FoodPacketTrash
+  id: FoodPacketDanShrimpsnaxBlueTrash
+  name: empty chilly dan's shrimp frostbites
+  description: There's a few little ones still in there. Ah, whatever.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/snacks.rsi
+    state: shrimpsnaxblue-trash
+  - type: Tag
+    tags:
+    - Trash

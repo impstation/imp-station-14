@@ -94,6 +94,11 @@
   description: flavor-base-evil
 
 - type: flavor
+  id: artificial
+  flavorType: Base
+  description: flavor-base-artificial
+
+- type: flavor
   id: secticket
   flavorType: Complex
   description: flavor-complex-secticket
@@ -152,3 +157,8 @@
   id: feverdream
   flavorType: Complex
   description: flavor-complex-feverdream
+
+- type: flavor
+  id: outofthisworld
+  flavorType: Complex
+  description: flavor-complex-outofthisworld
