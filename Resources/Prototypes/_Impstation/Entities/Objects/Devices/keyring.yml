@@ -1,0 +1,15 @@
+- type: entity
+  parent: BaseItem
+  id: KeyringJanitor
+  name: janitor's keyring
+  description: An absolutely unwieldy set of keys attached to a metal ring. The keys on the ring let you open most doors, letting you clean departments without needing to bug someone to let you in.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Devices/keyring.rsi
+    state: keyring
+  - type: Item
+    sprite: _Impstation/Objects/Devices/keyring.rsi
+  - type: Access
+    groups:
+    - Command
+  - type: Keyring
