@@ -32,7 +32,7 @@
 - type: entity
   name: Gorlex hypospray # imp edit; preferential to capitalizing company names
   parent: BaseItem
-  description: Using reverse engineered designs from NT, Cybersun produced these in limited quantities for Gorlex Marauders operatives. # imp edit; Gorlex Marauders is the name of the PMC, presumably
+  description: A sterile injector for rapid administration of drugs to patients. This design's been reverse-engineered from stolen Nanotrasen patents by Cybersun Industries, and produced exclusively, in limited quantities, for use by Gorlex Marauders. The fine print reads: 'Pain is weakness leaving the body.' # imp rewrite
   id: SyndiHypo
   components:
   - type: Sprite
