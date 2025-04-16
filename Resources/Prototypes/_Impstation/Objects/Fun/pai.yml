@@ -1,86 +1,8 @@
-# Placeholder PAIs, aka semi-automatic ghost roles
-# lot of this is the same compared to the pase PAI, but i think i'm just gonna have a cleaner time in my own file for all these fucking pais
-- type: entity
-  parent: BaseItem
-  id: PersonalAILearnerBase
-  name: Base personal ai learner device #this is just gonna be the base, not used anywhere
-  description: Your electronic pal, who's itching to learn!
-  components:
-  - type: Instrument
-    allowPercussion: false
-    handheld: false
-    bank: 1
-    program: 2
-  - type: UserInterface
-    interfaces:
-      enum.InstrumentUiKey.Key:
-        type: InstrumentBoundUserInterface
-        requireInputValidation: false
-      enum.StationMapUiKey.Key:
-        type: StationMapBoundUserInterface
-        requireInputValidation: false
-  - type: Sprite
-    sprite: _Impstation/Objects/Fun/pai.rsi
-    layers:
-    - state: pai-base
-    - state: engineer-pai-off-overlay
-      shader: unshaded
-      map: ["screen"]
-  - type: Input
-    context: "human"
-  - type: PAI
-  - type: BlockMovement
-  - type: ToggleableGhostRole
-    examineTextMindPresent: pai-system-pai-installed
-    examineTextMindSearching: pai-system-still-searching
-    examineTextNoMind: pai-system-off
-    beginSearchingText: pai-system-searching
-    roleName: pai-system-role-name-learner
-    roleDescription: pai-system-role-description-learner
-    roleRules: ghost-role-information-familiar-rules
-    mindRoles:
-    - MindRoleGhostRoleFamiliar
-    wipeVerbText: pai-system-wipe-device-verb-text
-    wipeVerbPopup: pai-system-wiped-device
-    stopSearchVerbText: pai-system-stop-searching-verb-text
-    stopSearchVerbPopup: pai-system-stopped-searching
-  - type: Examiner
-  - type: ActiveRadio
-    channels:
-    - Common
-  - type: DoAfter
-  - type: Actions
-  - type: TypingIndicator
-    proto: robot
-  - type: Speech
-    speechVerb: Robotic
-    speechSounds: Pai
-    # This has to be installed because otherwise they're not "alive",
-    #  so they can ghost and come back.
-    # Note that the personal AI never "dies".
-  - type: MobState
-    allowedStates:
-      - Alive
-  - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.ToggleableGhostRoleVisuals.Status:
-        screen:
-          Off: { state: engineering-pai-off-overlay }
-          Searching: { state: engineering-pai-searching-overlay }
-          On: { state: engineering-pai-on-overlay }
-  - type: StationMap
-  - type: ChangeVoiceInContainer
-    whitelist:
-      components:
-        - SecretStash
-  - type: DamageOtherOnHit # imp
-    damage:
-      types:
-        Blunt: 3
+# leaner PAIs! imp original
+# here's a base because i think just using the personal AI as a base is fucking the roletimers up
 
 - type: entity
-  parent: [ PersonalAILearnerBase ]
+  parent: PersonalAI
   id: PersonalAILearnerScience
   name: research director's personal learner device
   description: Your electronic pal, who's itching to learn!
@@ -93,9 +15,20 @@
       shader: unshaded
       map: ["screen"]
   - type: ToggleableGhostRole
-    roleDescription: pai-system-role-description-learner
+    examineTextMindPresent: pai-system-pai-installed
+    examineTextMindSearching: pai-system-still-searching
+    examineTextNoMind: pai-system-off
+    beginSearchingText: pai-system-searching
+    roleName: pai-system-role-name
+    roleDescription: pai-system-role-description
+    roleRules: ghost-role-information-familiar-rules
     mindRoles:
     - MindRoleGhostRoleFamiliar
+    wipeVerbText: pai-system-wipe-device-verb-text
+    wipeVerbPopup: pai-system-wiped-device
+    stopSearchVerbText: pai-system-stop-searching-verb-text
+    stopSearchVerbPopup: pai-system-stopped-searching
+    
   - type: ActiveRadio
     channels:
     - Science
@@ -109,7 +42,7 @@
           On: { state: science-pai-on-overlay }
 
 - type: entity
-  parent: [ PersonalAILearnerBase ]
+  parent: PersonalAI
   id: PersonalAILearnerEngineering
   name: chief engineer's personal learner device
   description: Your electronic pal, who's itching to learn!
@@ -122,7 +55,7 @@
       shader: unshaded
       map: ["screen"]
   - type: ToggleableGhostRole
-    roleDescription: pai-system-role-description-syndicate
+    roleDescription: pai-system-role-description-learner
     mindRoles:
     - MindRoleGhostRoleFamiliar
   - type: ActiveRadio
@@ -136,3 +69,148 @@
           Off: { state: engineering-pai-off-overlay }
           Searching: { state: engineering-pai-searching-overlay }
           On: { state: engineering-pai-on-overlay }
+
+- type: entity
+  parent: PersonalAI
+  id: PersonalAILearnerSecurity
+  name: head of security's personal learner device
+  description: Your electronic pal, who's itching to learn!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/pai.rsi
+    layers:
+    - state: pai-base
+    - state: security-pai-off-overlay
+      shader: unshaded
+      map: ["screen"]
+  - type: ToggleableGhostRole
+    roleDescription: pai-system-role-description-learner-security
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+  - type: ActiveRadio
+    channels:
+    - Security
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableGhostRoleVisuals.Status:
+        screen:
+          Off: { state: security-pai-off-overlay }
+          Searching: { state: security-pai-searching-overlay }
+          On: { state: security-pai-on-overlay }
+
+- type: entity
+  parent: PersonalAI
+  id: PersonalAILearnerMedical
+  name: chief medical officer's personal learner device
+  description: Your electronic pal, who's itching to learn!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/pai.rsi
+    layers:
+    - state: pai-base
+    - state: medical-pai-off-overlay
+      shader: unshaded
+      map: ["screen"]
+  - type: ToggleableGhostRole
+    roleDescription: pai-system-role-description-learner
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+  - type: ActiveRadio
+    channels:
+    - Medical
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableGhostRoleVisuals.Status:
+        screen:
+          Off: { state: medical-pai-off-overlay }
+          Searching: { state: medical-pai-searching-overlay }
+          On: { state: medical-pai-on-overlay }
+
+- type: entity
+  parent: PersonalAI
+  id: PersonalAILearnerCargo
+  name: quartermaster's personal learner device
+  description: Your electronic pal, who's itching to learn!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/pai.rsi
+    layers:
+    - state: pai-base
+    - state: cargo-pai-off-overlay
+      shader: unshaded
+      map: ["screen"]
+  - type: ToggleableGhostRole
+    roleDescription: pai-system-role-description-learner
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+  - type: ActiveRadio
+    channels:
+    - Supply
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableGhostRoleVisuals.Status:
+        screen:
+          Off: { state: cargo-pai-off-overlay }
+          Searching: { state: cargo-pai-searching-overlay }
+          On: { state: cargo-pai-on-overlay }
+
+- type: entity
+  parent: PersonalAI
+  id: PersonalAILearnerService
+  name: hospitality director's personal learner device
+  description: Your electronic pal, who's itching to learn!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/pai.rsi
+    layers:
+    - state: pai-base
+    - state: service-pai-off-overlay
+      shader: unshaded
+      map: ["screen"]
+  - type: ToggleableGhostRole
+    roleDescription: pai-system-role-description-learner
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+  - type: ActiveRadio
+    channels:
+    - Service
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableGhostRoleVisuals.Status:
+        screen:
+          Off: { state: service-pai-off-overlay }
+          Searching: { state: service-pai-searching-overlay }
+          On: { state: service-pai-on-overlay }
+      
+- type: entity
+  parent: PersonalAI
+  id: PersonalAILearnerCommand
+  name: captain's personal learner device
+  description: Your electronic pal, who's itching to learn!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/pai.rsi
+    layers:
+    - state: pai-base
+    - state: command-pai-off-overlay
+      shader: unshaded
+      map: ["screen"]
+  - type: ToggleableGhostRole
+    roleDescription: pai-system-role-description-learner
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+  - type: ActiveRadio
+    channels:
+    - Command
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableGhostRoleVisuals.Status:
+        screen:
+          Off: { state: command-pai-off-overlay }
+          Searching: { state: command-pai-searching-overlay }
+          On: { state: command-pai-on-overlay }

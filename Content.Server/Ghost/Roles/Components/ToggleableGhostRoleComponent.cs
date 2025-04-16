@@ -86,4 +86,8 @@ public sealed partial class ToggleableGhostRoleComponent : Component
     /// </summary>
     [DataField("job")]
     public ProtoId<JobPrototype>? JobProto;
+
+    // if this doesn't work ill
+    [DataField("requirements")]
+    public HashSet<JobRequirement>? Requirements;
 }
