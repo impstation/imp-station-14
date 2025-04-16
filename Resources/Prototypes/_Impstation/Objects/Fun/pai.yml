@@ -15,20 +15,18 @@
       shader: unshaded
       map: ["screen"]
   - type: ToggleableGhostRole
-    examineTextMindPresent: pai-system-pai-installed
-    examineTextMindSearching: pai-system-still-searching
-    examineTextNoMind: pai-system-off
-    beginSearchingText: pai-system-searching
-    roleName: pai-system-role-name
-    roleDescription: pai-system-role-description
+    requirements:
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 36000 # ten hours
+    - !type:DepartmentTimeRequirement
+      department: Silicon
+      time: 18000 # five hours
+    roleName: pai-system-role-name-learner
+    roleDescription: pai-system-role-description-learner
     roleRules: ghost-role-information-familiar-rules
     mindRoles:
     - MindRoleGhostRoleFamiliar
-    wipeVerbText: pai-system-wipe-device-verb-text
-    wipeVerbPopup: pai-system-wiped-device
-    stopSearchVerbText: pai-system-stop-searching-verb-text
-    stopSearchVerbPopup: pai-system-stopped-searching
-    
   - type: ActiveRadio
     channels:
     - Science
@@ -55,7 +53,9 @@
       shader: unshaded
       map: ["screen"]
   - type: ToggleableGhostRole
+    roleName: pai-system-role-name-learner
     roleDescription: pai-system-role-description-learner
+    roleRules: ghost-role-information-familiar-rules
     mindRoles:
     - MindRoleGhostRoleFamiliar
   - type: ActiveRadio
@@ -84,7 +84,9 @@
       shader: unshaded
       map: ["screen"]
   - type: ToggleableGhostRole
-    roleDescription: pai-system-role-description-learner-security
+    roleName: pai-system-role-name-learner
+    roleDescription: pai-system-role-description-learner
+    roleRules: ghost-role-information-familiar-rules
     mindRoles:
     - MindRoleGhostRoleFamiliar
   - type: ActiveRadio
@@ -113,7 +115,9 @@
       shader: unshaded
       map: ["screen"]
   - type: ToggleableGhostRole
+    roleName: pai-system-role-name-learner
     roleDescription: pai-system-role-description-learner
+    roleRules: ghost-role-information-familiar-rules
     mindRoles:
     - MindRoleGhostRoleFamiliar
   - type: ActiveRadio
@@ -142,7 +146,9 @@
       shader: unshaded
       map: ["screen"]
   - type: ToggleableGhostRole
+    roleName: pai-system-role-name-learner
     roleDescription: pai-system-role-description-learner
+    roleRules: ghost-role-information-familiar-rules
     mindRoles:
     - MindRoleGhostRoleFamiliar
   - type: ActiveRadio
@@ -171,7 +177,9 @@
       shader: unshaded
       map: ["screen"]
   - type: ToggleableGhostRole
+    roleName: pai-system-role-name-learner
     roleDescription: pai-system-role-description-learner
+    roleRules: ghost-role-information-familiar-rules
     mindRoles:
     - MindRoleGhostRoleFamiliar
   - type: ActiveRadio
@@ -200,7 +208,9 @@
       shader: unshaded
       map: ["screen"]
   - type: ToggleableGhostRole
+    roleName: pai-system-role-name-learner
     roleDescription: pai-system-role-description-learner
+    roleRules: ghost-role-information-familiar-rules
     mindRoles:
     - MindRoleGhostRoleFamiliar
   - type: ActiveRadio
