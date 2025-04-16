@@ -1,0 +1,58 @@
+- type: entity
+  name: griffy suit
+  description: "placeholder"
+  id: MascotGriffySuit
+  parent: ClothingOuterBase
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Misc/mascotgriffysuit.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Misc/mascotgriffysuit.rsi
+    slots:
+    - outerClothing
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Heat: 1.2
+        Cold: 0.8
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HideLayerClothing
+    slots:
+    - Tail
+  - type: ClothingMobStateVisuals
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING-incapacitated
+
+- type: entity
+  name: griffy head
+  description: "placeholder"
+  id: MascotGriffyHead
+  parent: ClothingHeadBase
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Misc/mascotgriffyhead.rsi
+  - type: Item
+    size: Normal
+  - type: IngestionBlocker
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Misc/mascotgriffyhead.rsi
+    equipDelay: 2
+    unequipDelay: 2
+  - type: IdentityBlocker
+  - type: VoiceMask
+    voiceMaskName: Griffy
+    addAction: false
+  - type: TemperatureProtection
+    heatingCoefficient: 1.2 # hot in there. 4 times as hot as the base winter coat hood
+  - type: MultiHandedItem
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
