@@ -41,10 +41,10 @@ public sealed partial class AntagGroupTimeRequirement : JobRequirement
         var antags = group.Roles;
         string proto;
 
-        // Check all jobs' playtime
+        // Check all antags' playtime
         foreach (var other in antags)
         {
-            // The schema is stored on the Job role but we want to explode if the timer isn't found anyway.
+            // The schema is stored on the Antag role but we want to explode if the timer isn't found anyway.
             proto = protoManager.Index(other).PlayTimeTracker;
 
             playTimes.TryGetValue(proto, out var otherTime);
