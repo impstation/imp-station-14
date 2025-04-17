@@ -6,8 +6,11 @@
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/OuterClothing/Misc/mascotgriffysuit.rsi
+    layers:
+      - state: icon
   - type: Clothing
     sprite: _Impstation/Clothing/OuterClothing/Misc/mascotgriffysuit.rsi
+    equippedPrefix: alive
     slots:
     - outerClothing
   - type: Armor
@@ -23,10 +26,12 @@
   - type: HideLayerClothing
     slots:
     - Tail
+    - Special
   - type: ClothingMobStateVisuals
     clothingVisuals:
       outerClothing:
-      - state: equipped-OUTERCLOTHING-incapacitated
+      - state: incapacitated-equipped-OUTERCLOTHING
+  - type: EquipmentForceFacing
 
 - type: entity
   name: griffy head

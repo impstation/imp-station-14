@@ -15,6 +15,12 @@ public abstract class SharedClothingMobStateVisualsSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ClothingMobStateVisualsComponent, InventoryRelayedEvent<MobStateChangedEvent>>(OnMobStateChanged);
+        SubscribeLocalEvent<ClothingMobStateVisualsComponent, MapInitEvent>(OnMapInit);
+    }
+
+    private void OnMapInit(Entity<ClothingMobStateVisualsComponent> ent, ref MapInitEvent args)
+    {
+        Dirty(ent, ent.Comp);
     }
 
     private void OnMobStateChanged(Entity<ClothingMobStateVisualsComponent> ent, ref InventoryRelayedEvent<MobStateChangedEvent> args)
@@ -25,6 +31,6 @@ public abstract class SharedClothingMobStateVisualsSystem : EntitySystem
         _itemSys.VisualsChanged(ent);
 
         var ev = new ClothingMobStateChangedEvent(ent, args.Args.Target, humanoidAppearance.Species, args.Args.NewMobState);
-        RaiseLocalEvent(ev);
+        RaiseLocalEvent(ent, ev);
     }
 }
