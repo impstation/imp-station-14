@@ -15,6 +15,11 @@ public sealed partial class ClothingMobStateVisualsComponent : Component
 
     [DataField]
     public Dictionary<string, List<PrototypeLayerData>> ClothingVisuals = new();
+
+    [DataField]
+    public string IncapacitatedPrefix = "incapacitated";
+
+    public string? ClothingPrefix = null;
 }
 
 public sealed class ClothingMobStateChangedEvent : EntityEventArgs

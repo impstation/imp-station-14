@@ -5,7 +5,10 @@ using Content.Shared.Inventory;
 using Robust.Client.GameObjects;
 using Robust.Shared.Prototypes;
 using Content.Shared.Clothing;
+using Content.Shared.Item;
 using System.Linq;
+using Content.Shared.Clothing.Components;
+using Content.Shared.Clothing.EntitySystems;
 
 namespace Content.Client._Impstation.ClothingMobStateVisuals;
 
@@ -13,6 +16,8 @@ public sealed partial class ClothingMobStateVisualsSystem : SharedClothingMobSta
 {
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly SharedItemSystem _itemSys = default!;
+    [Dependency] private readonly ClothingSystem _clothing = default!;
 
     public override void Initialize()
     {
@@ -22,9 +27,11 @@ public sealed partial class ClothingMobStateVisualsSystem : SharedClothingMobSta
         SubscribeLocalEvent<ClothingMobStateVisualsComponent, GetEquipmentVisualsEvent>(OnGetEquipmentVisuals);
     }
 
+
+
     private void OnClothingMobStateChanged(Entity<ClothingMobStateVisualsComponent> ent, ref ClothingMobStateChangedEvent args)
     {
-        if (!_protoMan.TryIndex<SpeciesPrototype>(args.SpeciesId, out var speciesProto))
+        if (!_protoMan.TryIndex(args.SpeciesId, out _))
             return;
         if (!TryComp<SpriteComponent>(ent, out var sprite))
             return;
@@ -34,33 +41,18 @@ public sealed partial class ClothingMobStateVisualsSystem : SharedClothingMobSta
         {
             sprite.LayerSetVisible(layer, enabled);
         }
+        _itemSys.VisualsChanged(ent);
     }
 
     private void OnGetEquipmentVisuals(Entity<ClothingMobStateVisualsComponent> ent, ref GetEquipmentVisualsEvent args)
     {
-        if (!TryComp(args.Equipee, out InventoryComponent? inventory))
-            return;
-        List<PrototypeLayerData>? layers = null;
-
-        // attempt to get species specific data
-        if (inventory != null && inventory.SpeciesId != null)
-            ent.Comp.ClothingVisuals.TryGetValue($"{args.Slot}-{inventory.SpeciesId}", out layers);
-
-        // No species specific data.  Try to default to generic data.
-        if (layers == null && !ent.Comp.ClothingVisuals.TryGetValue(args.Slot, out layers))
+        if (!TryComp(args.Equipee, out InventoryComponent? inventory) || !TryComp(ent, out ClothingComponent? clothingComp))
             return;
 
-        var i = 0;
-        foreach (var layer in layers)
-        {
-            var key = layer.MapKeys?.FirstOrDefault();
-            if (key == null)
-            {
-                key = i == 0 ? $"{args.Slot}-{ent.Comp.SpriteLayer}" : $"{args.Slot}-{ent.Comp.SpriteLayer}-{i}";
-                i++;
-            }
+        if (ent.Comp.ClothingPrefix == null)
+            ent.Comp.ClothingPrefix = clothingComp.EquippedPrefix;
 
-            args.Layers.Add((key, layer));
-        }
+        var prefix = _mobState.IsIncapacitated(args.Equipee) ? ent.Comp.IncapacitatedPrefix : ent.Comp.ClothingPrefix;
+        _clothing.SetEquippedPrefix(ent, prefix, clothingComp);
     }
 }

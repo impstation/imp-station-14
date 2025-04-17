@@ -31,7 +31,7 @@ public enum MobState : byte
 public record struct MobStateChangedEvent(EntityUid Target, MobStateComponent Component, MobState OldMobState,
     MobState NewMobState, EntityUid? Origin = null) : IInventoryRelayEvent
 {
-    public SlotFlags TargetSlots { get; }
+    public SlotFlags TargetSlots => SlotFlags.WITHOUT_POCKET;
 }
 
 public static class A
