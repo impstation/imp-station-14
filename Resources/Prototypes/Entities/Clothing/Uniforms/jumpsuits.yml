@@ -69,7 +69,7 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ClothingUniformJumpsuitCargo
-  name: cargo tech jumpsuit
+  name: cargo tech jumpsuit (shorts) #imp
   description: A sturdy jumpsuit, issued to members of the Cargo department.
   components:
   - type: Sprite
@@ -458,7 +458,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitPrisoner
   name: prisoner jumpsuit
-  description: Busted.
+  description: A jumpsuit used for prisoners. It has suit sensors automatically enabled at all times.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/color.rsi
