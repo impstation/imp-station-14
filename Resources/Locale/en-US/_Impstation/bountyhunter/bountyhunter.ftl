@@ -14,7 +14,7 @@ bounty-hunter-category-raider-name = Raider
 bounty-hunter-category-raider-description =
     You aren't a fan of subtlety.
     Includes: An AKMS rifle, a box of .30 magazines, 3x composition C4,
-    and a freedom implanter.
+    a web vest, and a freedom implanter.
 
 bounty-hunter-category-hardsuit-name = Spacer
 bounty-hunter-category-hardsuit-description =
@@ -45,15 +45,15 @@ bounty-hunter-category-roboticist-description =
 bounty-hunter-category-samurai-name = Samurai
 bounty-hunter-category-samurai-description =
     You live by a strict code of honor, and have deadly skills with a katana.
-    Includes: A katana, 2x hyperzine injectors, a samurai dogi,
-    and an EMP implant.
+    Includes: An energy katana, 2x hyperzine injectors, a death acidifier,
+    and a samurai dogi.
 
 bounty-hunter-category-syndie-name = Rogue Operative
 bounty-hunter-category-syndie-description =
     You were previously a member of the Gorlex Marauders.
     Don't expect a warm welcome.
     Includes: A Syndicate Raid Suit, a Syndicate encryption key,
-    a Syndicate gas mask, and an energy sword.
+    a Syndicate gas mask, an EMP implanter, and an energy sword.
 
 bounty-hunter-category-captain-name = Rogue Captain
 bounty-hunter-category-captain-description =
