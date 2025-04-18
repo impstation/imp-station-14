@@ -1,6 +1,6 @@
 - type: entity
   name: griffy suit
-  description: "placeholder"
+  description: The head of Griffy, the Sec Safety Dog! Comes with a friendly face, & absolutely no ventilation.
   id: MascotGriffySuit
   parent: ClothingOuterBase
   components:
@@ -28,14 +28,11 @@
     - Tail
     - Special
   - type: ClothingMobStateVisuals
-    clothingVisuals:
-      outerClothing:
-      - state: incapacitated-equipped-OUTERCLOTHING
   - type: EquipmentForceFacing
 
 - type: entity
   name: griffy head
-  description: "placeholder"
+  description: The body of Griffy, the Sec Safety Dog! Comes with padding to defend against attacks from animals or disgruntled children.
   id: MascotGriffyHead
   parent: ClothingHeadBase
   components:
@@ -61,3 +58,4 @@
     - Snout
     - HeadTop
     - HeadSide
+  - type: EquipmentHeater
