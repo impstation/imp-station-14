@@ -1,10 +1,24 @@
 - type: entity
+  parent: [BriefcaseBase, ContentsExplosionResistanceBase]
+  id: BriefcaseSteel
+  name: reinforced steel briefcase
+  description: A reinforced steel briefcase with a soft durathread internal coating, used for transporting fragile material or sensitive documents.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Storage/Briefcases/briefcase_steel.rsi
+    state: icon
+  - type: Item
+    sprite: _Impstation/Objects/Storage/Briefcases/briefcase_steel.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+ 
+- type: entity
   parent: BriefcaseBrown
   id: BriefcaseBlack
   name: black briefcase
   components:
   - type: Sprite
-    sprite: _DV/Objects/Storage/Briefcases/briefcase_cybersun.rsi # no point in respriting it, it's a black briefcase lol
+    sprite: _Impstation/Objects/Storage/Briefcases/briefcase_black.rsi
     state: icon
   - type: Item
-    sprite: _DV/Objects/Storage/Briefcases/briefcase_cybersun.rsi
+    sprite: _Impstation/Objects/Storage/Briefcases/briefcase_black.rsi

@@ -205,6 +205,16 @@
   - type: Wires
     layoutId: AirlockSecurity
 
+# Security
+- type: entity
+  parent: AirlockMaintSecLocked
+  id: AirlockMaintBrigLocked
+  suffix: Brig, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsBrig ]
+
 # Service
 - type: entity
   parent: AirlockMaintServiceLocked
@@ -271,6 +281,25 @@
       board: [ DoorElectronicsCourier ]
   - type: Wires
     layoutId: AirlockCargo
+
+# Vault
+- type: entity
+  parent: VaultDoor
+  id: VaultDoorCentralCommandLocked
+  suffix: Central Command, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCentralCommand ]
+
+- type: entity
+  parent: VaultDoor
+  id: VaultDoorCommandLocked
+  suffix: Command, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCommand ]
 
 # Misc.
 - type: entity
