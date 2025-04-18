@@ -191,7 +191,8 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return;
 
         if (!TryGetWeapon(user, out var weaponUid, out var weapon) ||
-            weaponUid != GetEntity(msg.Weapon))
+            weaponUid != GetEntity(msg.Weapon) ||
+            !weapon.CanWideSwing) // Goobstation Change
         {
             return;
         }
@@ -216,7 +217,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         if (!Resolve(uid, ref component, false))
             return new DamageSpecifier();
 
-        var ev = new GetMeleeDamageEvent(uid, new(component.Damage), new(), user, component.ResistanceBypass);
+        var ev = new GetMeleeDamageEvent(uid, new(component.Damage * Damageable.UniversalMeleeDamageModifier), new(), user, component.ResistanceBypass);
         RaiseLocalEvent(uid, ref ev);
 
         return DamageSpecifier.ApplyModifierSets(ev.Damage, ev.Modifiers);
@@ -249,7 +250,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return false;
 
-        var ev = new GetMeleeDamageEvent(uid, new(component.Damage), new(), user, component.ResistanceBypass);
+        var ev = new GetMeleeDamageEvent(uid, new(component.Damage * Damageable.UniversalMeleeDamageModifier), new(), user, component.ResistanceBypass);
         RaiseLocalEvent(uid, ref ev);
 
         return ev.ResistanceBypass;

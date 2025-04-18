@@ -23,13 +23,28 @@
   - type: Battery
     maxCharge: 1000
     startingCharge: 1000
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: false
-  - type: Appearance
   - type: StaticPrice
     price: 500
+#imp edit begin; weapon melee
+  - type: MeleeWeapon
+    range: 0.8
+    attackRate: 0.8
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+    soundSwing:
+      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_folley.ogg
+    resetOnHandSelected: false
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 6
+    damage:
+      types:
+        Blunt: 5
+#imp edit end
 
 - type: entity
   id: BaseWeaponPowerCell
@@ -65,6 +80,26 @@
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
+#imp edit begin; weapon melee
+  - type: MeleeWeapon
+    range: 0.8
+    attackRate: 0.8
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+    soundSwing:
+      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_folley.ogg
+    resetOnHandSelected: false
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 6
+    damage:
+      types:
+        Blunt: 5
+#imp edit end
 
 - type: entity
   id: BaseWeaponBatterySmall
@@ -104,7 +139,7 @@
 
 - type: entity
   name: svalinn laser pistol
-  parent: [ BaseWeaponPowerCellSmall, BaseRestrictedContraband ]
+  parent: [ BaseWeaponPowerCellSmall, BaseSecurityContraband ]
   id: WeaponLaserSvalinn
   description: A cheap and widely-used laser pistol.
   components:
@@ -122,6 +157,8 @@
     magState: mag
     steps: 5
     zeroVisible: true
+  - type: MeleeWeapon #imp; for pistolwhip anim
+    wideAnimationRotation: -80
 
 - type: entity
   name: retro laser blaster
@@ -145,6 +182,8 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
+  - type: MeleeWeapon #imp; for pistolwhip anim
+    wideAnimationRotation: -80
 
 - type: entity
   name: makeshift laser pistol
@@ -160,6 +199,11 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Battery/makeshift.rsi #imp
   - type: HitscanBatteryAmmoProvider
@@ -168,6 +212,8 @@
   - type: Battery
     maxCharge: 500
     startingCharge: 500
+  - type: MeleeWeapon #imp; for pistolwhip anim
+    wideAnimationRotation: -80
 
 - type: entity
   name: tesla gun
@@ -199,37 +245,78 @@
   - type: Appearance
 
 - type: entity
-  name: practice laser rifle
+  name: TD-95P practice laser carbine #imp
   parent: [BaseWeaponBattery, BaseGunWieldable]
   id: WeaponLaserCarbinePractice
-  description: This modified laser rifle fires nearly harmless beams in the 40-watt range, for target practice.
+  description: This modified TD-95 laser carbine fires nearly harmless beams at 5-watts for target practice. Best to wear eye protection. #imp
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/laser_gun.rsi #imp
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/laser_practice.rsi #imp
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/laser_gun.rsi #imp
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/laser_practice.rsi #imp
+  - type: Battery #imp
+    maxCharge: 160 #imp
+    startingCharge: 160 #imp
   - type: Gun
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
   - type: HitscanBatteryAmmoProvider
     proto: RedLaserPractice
-    fireCost: 62.5
+    fireCost: 10 #imp
   - type: StaticPrice
     price: 300
+#imp edit begin; weapon melee
+  - type: MeleeWeapon
+    attackRate: 0.6
+  - type: StaminaDamageOnHit
+    damage: 10 #slight stagger, but still like 10 hits to stun completely
+  - type: MeleeRequiresWield
+  - type: MeleeThrowOnHit
+    distance: 0.8
+    speed: 5
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 10
+    damage:
+      types:
+        Blunt: 8
+#imp edit end
 
 - type: entity
-  name: laser rifle
-  parent: [WeaponLaserCarbinePractice, BaseGunWieldable, BaseRestrictedContraband]
+  name: TD-95 laser carbine #imp
+  parent: [WeaponLaserCarbinePractice, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponLaserCarbine
-  description: Favored by Nanotrasen Security for being cheap and easy to use.
+  description: A laser-based energy carbine with familiar ergonomics and controls to its kinetic counterparts. Favored by Nanotrasen for security forces, as they are cheap and easy to use. #imp
   components:
+  - type: Sprite #imp edits start
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/laser_gun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/laser_gun.rsi #imp edits end
   - type: StaticPrice
     price: 420
   - type: HitscanBatteryAmmoProvider
@@ -237,10 +324,10 @@
     fireCost: 62.5
 
 - type: entity
-  name: pulse pistol
+  name: PXS-21 pulse pistol #imp
   parent: BaseWeaponBatterySmall
   id: WeaponPulsePistol
-  description: A state-of-the-art energy pistol favored as a sidearm by NT operatives.
+  description: A state-of-the-art energy pistol favored as a sidearm by Nanotrasen operatives.
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Battery/pulse_pistol.rsi #imp
@@ -250,6 +337,11 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Battery/pulse_pistol.rsi #imp
   - type: Gun
@@ -264,12 +356,14 @@
   - type: Battery
     maxCharge: 2000
     startingCharge: 2000
+  - type: MeleeWeapon #imp; for pistolwhip anim
+    wideAnimationRotation: -80
 
 - type: entity
-  name: pulse carbine
+  name: PX-14C pulse carbine #imp
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseCentcommContraband]
   id: WeaponPulseCarbine
-  description: A high-tech energy carbine favored by the NT-ERT operatives.
+  description: A high-tech energy carbine favored by Nanotrasen ERT operatives. #imp
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Battery/pulse_carbine.rsi #imp
@@ -279,6 +373,11 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Battery/pulse_carbine.rsi #imp
   - type: Gun
@@ -295,12 +394,27 @@
   - type: Battery
     maxCharge: 5000
     startingCharge: 5000
+#imp edit begin; weapon melee
+  - type: MeleeWeapon
+    attackRate: 0.6
+  - type: StaminaDamageOnHit
+    damage: 10 #slight stagger, but still like 10 hits to stun completely
+  - type: MeleeRequiresWield
+  - type: MeleeThrowOnHit
+    distance: 0.8
+    speed: 5
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 10
+    damage:
+      types:
+        Blunt: 8
+#imp edit end
 
 - type: entity
-  name: pulse rifle
+  name: PX-6 pulse rifle #imp
   parent: [BaseWeaponBattery, BaseGunWieldable]
   id: WeaponPulseRifle
-  description: A weapon that is almost as infamous as its users.
+  description: A weapon almost as infamous as its users.
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Battery/pulse_rifle.rsi #imp
@@ -310,6 +424,11 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Battery/pulse_rifle.rsi #imp
   - type: Gun
@@ -322,30 +441,71 @@
   - type: Battery
     maxCharge: 40000
     startingCharge: 40000
+#imp edit begin; weapon melee
+  - type: MeleeWeapon
+    attackRate: 0.6
+  - type: StaminaDamageOnHit
+    damage: 10 #slight stagger, but still like 10 hits to stun completely
+  - type: MeleeRequiresWield
+  - type: MeleeThrowOnHit
+    distance: 0.8
+    speed: 5
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 10
+    damage:
+      types:
+        Blunt: 8
+#imp edit end
 
 - type: entity
-  name: laser cannon
-  parent: [BaseWeaponBattery, BaseGunWieldable, BaseRestrictedContraband]
+  name: OL-71 laser rifle #imp
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponLaserCannon
-  description: A heavy-duty, high-powered laser weapon.
+  description: Modern laser technology purpose-built into a military platform—as deadly as it is precise. #imp
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Battery/laser_cannon.rsi #imp
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
-    - state: mag-unshaded-4
+    - state: mag-unshaded-4 #imp
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Battery/laser_cannon.rsi #imp
   - type: Gun
-    fireRate: 1.5
+    fireRate: 4.5 #imp
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/lasermil.ogg #imp
   - type: HitscanBatteryAmmoProvider
     proto: RedHeavyLaser
-    fireCost: 100
+    fireCost: 40 #imp
+  - type: Battery #imp
+    maxCharge: 1200 #imp
+    startingCharge: 1200 #imp
+#imp edit begin; weapon melee
+  - type: MeleeWeapon
+    attackRate: 0.4 #slower, but hits harder; bigger object to shove with
+    damage:
+      types:
+        Blunt: 8
+  - type: StaminaDamageOnHit
+    damage: 15 #slight stagger, but still like 7 hits to stun completely
+  - type: MeleeRequiresWield
+  - type: MeleeThrowOnHit
+    distance: 0.8
+    speed: 5
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 15
+    damage:
+      types:
+        Blunt: 12
+#imp edit end
 
 - type: entity
   name: portable particle decelerator
@@ -377,9 +537,27 @@
     - type: Battery
       maxCharge: 10000
       startingCharge: 10000
+#imp edit begin; weapon melee
+    - type: MeleeWeapon
+      attackRate: 0.4 #slower, but hits harder; bigger object to shove with
+      damage:
+        types:
+            Blunt: 8
+    - type: StaminaDamageOnHit
+      damage: 15 #slight stagger, but still like 7 hits to stun completely
+    - type: MeleeRequiresWield
+    - type: MeleeThrowOnHit
+      distance: 0.8
+      speed: 5
+    - type: DamageOtherOnHit #for throwing
+      staminaCost: 15
+      damage:
+        types:
+            Blunt: 12
+#imp edit end
 
 - type: entity
-  name: x-ray cannon
+  name: EM-40 x-ray cannon #imp
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponXrayCannon
   description: An experimental weapon that uses concentrated x-ray energy against its target.
@@ -405,6 +583,24 @@
     steps: 6 #impstation
     zeroVisible: true
   - type: Appearance
+#imp edit begin; weapon melee
+  - type: MeleeWeapon
+    attackRate: 0.4 #slower, but hits harder; bigger object to shove with
+    damage:
+      types:
+        Blunt: 8
+  - type: StaminaDamageOnHit
+    damage: 15 #slight stagger, but still like 7 hits to stun completely
+  - type: MeleeRequiresWield
+  - type: MeleeThrowOnHit
+    distance: 0.8
+    speed: 5
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 15
+    damage:
+      types:
+        Blunt: 12
+#imp edit end
 
 - type: entity
   name: practice disabler
@@ -413,7 +609,7 @@
   description: A self-defense weapon that exhausts organic targets, weakening them until they collapse. This one has been undertuned for cadets making it mostly harmless.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/disabler.rsi #imp
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/disablerpractice.rsi #imp
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -421,11 +617,14 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/disabler.rsi #imp
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/disablerpractice.rsi #imp
     quickEquip: false
     slots:
     - Belt
   - type: Appearance
+  - type: Battery #imp
+    maxCharge: 100 #imp
+    startingCharge: 100 #imp
   - type: MagazineVisuals
     magState: mag
     steps: 6 #impstation
@@ -438,11 +637,13 @@
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerPractice
-    fireCost: 100
+    fireCost: 10
   - type: Tag
     tags:
     - Taser
     - Sidearm
+  - type: MeleeWeapon #imp; for pistolwhip anim
+    wideAnimationRotation: -80
 
 - type: entity
   name: disabler
@@ -464,6 +665,9 @@
     slots:
       - suitStorage
       - Belt
+  - type: Battery #imp
+    maxCharge: 1000 #imp
+    startingCharge: 1000 #imp
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 100
@@ -474,7 +678,7 @@
 
 - type: entity
   name: disabler SMG
-  parent: [ BaseWeaponBattery, BaseRestrictedContraband ]
+  parent: [ BaseWeaponBattery, BaseSecurityContraband ]
   id: WeaponDisablerSMG
   description: An advanced weapon that exhausts organic targets, weakening them until they collapse. #imp
   components:
@@ -506,12 +710,13 @@
     magState: mag
     steps: 5
     zeroVisible: true
+  - type: Appearance
   - type: StaticPrice
     price: 260
 
 - type: entity
   name: taser
-  parent: [ BaseWeaponBatterySmall, BaseRestrictedContraband ]
+  parent: [ BaseWeaponBatterySmall, BaseSecurityContraband ]
   id: WeaponTaser
   description: A low-capacity, energy-based stun gun used by security teams to subdue targets at range.
   components:
@@ -544,6 +749,8 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
+  - type: MeleeWeapon #imp; for pistolwhip anim
+    wideAnimationRotation: -80
 
 - type: entity
   name: antique laser pistol
@@ -588,10 +795,12 @@
     flavorKind: station-event-random-sentience-flavor-inanimate
     weight: 0.0002 # 5,000 times less likely than 1 regular animal
     # not putting a BlockMovement component here cause that's funny.
+  - type: MeleeWeapon #imp; for pistolwhip anim
+    wideAnimationRotation: -80
 
 - type: entity
-  name: advanced laser pistol
-  parent: [ BaseWeaponBatterySmall, BaseRestrictedContraband]
+  name: X-66 advanced laser pistol #imp
+  parent: [ BaseWeaponBatterySmall, BaseSecurityContraband]
   id: WeaponAdvancedLaser
   description: An experimental high-energy laser pistol with a self-charging nuclear battery.
   components:
@@ -623,6 +832,8 @@
   - type: Appearance
   - type: StaticPrice
     price: 63
+  - type: MeleeWeapon #imp; for pistolwhip anim
+    wideAnimationRotation: -80
 
 - type: entity
   name: C.H.I.M.P. handcannon
@@ -669,6 +880,8 @@
     node: start
   - type: StaticPrice
     price: 100
+  - type: MeleeWeapon #imp; for pistolwhip anim
+    wideAnimationRotation: -80
 
 - type: entity
   name: experimental C.H.I.M.P. handcannon
@@ -710,16 +923,11 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 40
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: true
-  - type: Appearance
   - type: StaticPrice
     price: 750
 
 - type: entity
-  name: energy shotgun
+  name: M-1 energy shotgun #imp
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseGrandTheftContraband]
   id: WeaponEnergyShotgun
   description: A one-of-a-kind prototype energy weapon that uses various shotgun configurations. It offers the possibility of both lethal and non-lethal shots, making it a versatile weapon.
@@ -732,12 +940,17 @@
       - state: mag-unshaded-4
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Battery/energy_shotgun.rsi #imp
   - type: Gun
     fireRate: 2
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/eshotgun.ogg #imp
   - type: ProjectileBatteryAmmoProvider
     proto: BulletLaserSpread
     fireCost: 150
@@ -769,3 +982,18 @@
     autoRechargeRate: 24
     autoRechargePause: true
     autoRechargePauseTime: 30
+#imp edit begin; weapon melee
+  - type: MeleeWeapon
+    attackRate: 0.6
+  - type: StaminaDamageOnHit
+    damage: 10 #slight stagger, but still like 10 hits to stun completely
+  - type: MeleeRequiresWield
+  - type: MeleeThrowOnHit
+    distance: 0.8
+    speed: 5
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 10
+    damage:
+      types:
+        Blunt: 8
+#imp edit end

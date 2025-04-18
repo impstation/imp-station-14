@@ -1,0 +1,63 @@
+# Static
+
+- type: latheRecipePack
+  id: ClothingCargoImp
+  recipes:
+  - ClothingHeadHatCouriersoft
+  - ClothingUniformJumpskirtCourier
+  - ClothingUniformJumpskirtSalvageSpecialist
+  - ClothingUniformJumpsuitCourier
+
+- type: latheRecipePack
+  id: ClothingCommandImp
+  recipes:
+  - ClothingHeadHatBeretCaptain
+
+- type: latheRecipePack
+  id: ClothingServiceImp
+  recipes:
+  - ClothingUniformJumpsuitHD
+  - ClothingUniformJumpskirtHD
+  - ClothingUniformJumpsuitHDTurtle
+  - ClothingUniformJumpskirtHDTurtle
+  - ClothingUniformJumpsuitHospitalityDirectorJanitor
+  - ClothingUniformJumpskirtHospitalityDirectorJanitor
+  - ClothingUniformJumpsuitHospitalityDirectorBartender
+  - ClothingUniformJumpskirtHospitalityDirectorBartender
+  - ClothingUniformJumpsuitHospitalityDirectorBotany
+  - ClothingHeadHatHDsoft
+  - ClothingHeadBandHD
+  - ClothingHeadHatBeretHD
+
+- type: latheRecipePack
+  id: WinterCoatsImp
+  recipes:
+  - ClothingOuterWinterBrigmedic
+  - ClothingOuterWinterCourier
+
+- type: latheRecipePack
+  id: PrideFlags
+  recipes:
+  - ClothingNeckCloakAce
+  - ClothingNeckCloakAro
+  - ClothingNeckCloakBear
+  - ClothingNeckCloakBi
+  - ClothingNeckCloakEnby
+  - ClothingNeckCloakGay
+  - ClothingNeckCloakIntersex
+  - ClothingNeckCloakLesbian
+  - ClothingNeckCloakPan
+  - ClothingNeckCloakTrans
+
+# Dynamic
+
+# - type: latheRecipePack
+#   id: ImpClothesDynamic
+#   recipes:
+
+# Emagged
+
+- type: latheRecipePack
+  id: ImpClothesEmagged
+  recipes:
+  - ClothingNeckCloakStraight

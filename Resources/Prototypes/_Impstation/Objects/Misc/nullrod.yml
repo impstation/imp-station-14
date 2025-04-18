@@ -5,6 +5,8 @@
   parent: [ BaseItem, BaseMinorContraband ]
   components:
   - type: RevealRevenantOnCollide
+  - type: CollisionWake
+    enabled: false
   - type: Sprite
     sprite: _Impstation/Objects/Misc/nullrod.rsi
     state: nullrod_base
@@ -22,7 +24,6 @@
   components:
   - type: ChaplainGearMenu
     possibleSets:
-    - ChaplainGearRosary
     - ChaplainGearGrail
     - ChaplainGearGlove
     - ChaplainGearBow
@@ -46,36 +47,11 @@
     slots:
     - Belt
 
-
-- type: entity
-  name: silvered rosary
-  id: NullRodRosary
-  parent: NullRodBase
-  description: An expensive-looking rosary, made from silver. Exudes somewhat soothing vibes. Nice!
-  components:
-  - type: UseDelay
-    delay: 5.0
-  - type: CleanseOnUse
-  - type: Prayable
-    bibleUserOnly: true
-  - type: Sprite
-    sprite: _Impstation/Objects/Misc/nullrod.rsi
-    state: nullrod_rosary
-  - type: Item
-    size: Small
-    shape:
-    - 0,0,1,1
-  - type: Clothing
-    sprite: _Impstation/Objects/Misc/nullrod.rsi
-    slots:
-    - Neck
-    - Belt
-
 - type: entity
   name: gildgrail
   id: NullRodGrail
   parent: NullRodBase
-  description: Looks so expensive, it's almost concerning. Can hold a deceptively large volume of liquid. Said to ward off evil.
+  description: A jewel-encrusted golden chalice. Looks so expensive, it's almost concerning. Can hold a deceptively large volume of liquid.
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Misc/nullrod_grail.rsi
@@ -138,9 +114,6 @@
     - Holy
     - Shake
     mixMessage: "null-grail-mix-success"
-  - type: CleanseOnUse
-    enabled: false
-    canPurge: true
 
 - type: entity
   name: divine grasp
@@ -172,7 +145,6 @@
     mustBeEquippedToUse: true
   - type: MeleeThrowOnHit
     speed: 7
-    lifetime: 0.2
   - type: Reflect
     reflectProb: .22
     spread: 120
@@ -234,6 +206,7 @@
   - type: ContainerContainer
     containers:
       projectiles: !type:ContainerSlot
+      ballistic-ammo: !type:Container
   - type: BallisticAmmoProvider
     whitelist:
       tags:
@@ -261,6 +234,8 @@
       - state: quiver
       - state: quiver_unshaded
         shader: unshaded
+      - state: mag-0 # This is an empty sprite to get the mag visuals to shut up
+        map: [ "enum.GunVisualLayers.Mag" ]
     - type: Item
       size: Large
       shape:
@@ -279,3 +254,5 @@
       whitelist:
         tags:
         - HolyArrow
+    - type: MagazineVisuals
+      steps: 1 # Sprite is fake, I couldn't be bothered. Sorry :(

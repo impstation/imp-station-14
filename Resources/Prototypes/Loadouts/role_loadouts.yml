@@ -38,9 +38,15 @@
   - GroupTankHarnessCommandWithOuterwearAquatic # imp special
 
 # Silicons
+#- type: roleLoadout
+#  id: JobBorg
+#  nameDataset: roleloadout doesn't support both so need to update that first.
+#  canCustomizeName: true
+
 - type: roleLoadout
   id: JobStationAi
   nameDataset: NamesAI
+  canCustomizeName: true
 
 # Civilian
 - type: roleLoadout
@@ -136,8 +142,10 @@
   - LawyerJumpsuit
   - LawyerOuterClothing # imp
   - LawyerShoes # imp
+  - LawyerBriefcase # imp
   - Glasses
   - CommonBackpack
+  - LawyerPDA # imp
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
@@ -219,7 +227,7 @@
   - SurvivalClown
   - Trinkets
   - GroupTankHarnessWithOuterwear
-  - GroupBreathToolDecapoidInventory # imp special
+  - GroupBreathToolDecapoidInventoryClown # imp special
   - GroupTankHarnessWithOuterwearAquatic # imp special
 
 - type: roleLoadout
@@ -237,7 +245,7 @@
   - SurvivalMime
   - Trinkets
   - GroupTankHarnessWithOuterwear
-  - GroupBreathToolDecapoidInventory # imp special
+  - GroupBreathToolDecapoidInventoryMime # imp special
   - GroupTankHarnessWithOuterwearAquatic # imp special
 
 - type: roleLoadout
@@ -284,6 +292,7 @@
   - CargoTechnicianNeck # imp
   - CargoTechnicianJumpsuit
   - CargoTechnicianOuterClothing
+  - CargoTechnicianBelt #imp
   - CargoTechnicianShoes
   - Glasses
   - CargoTechnicianBackpack
@@ -680,6 +689,8 @@
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
 # They will be used without player configuration, thus they will only ever apply what is forced by MinLimit
 
+# gives vox a harness and breathing mask
+# nitrogen tank not included
 - type: roleLoadout
   id: RoleSurvivalVoxSupport
   groups:
@@ -687,6 +698,13 @@
   - GroupTankHarness
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessAquatic #imp special
+
+# gives vox a nitrogen breathing tank
+# other species get nothing
+- type: roleLoadout
+  id: RoleSurvivalVoxTank
+  groups:
+  - GroupEVATankVox
 
 - type: roleLoadout
   id: RoleSurvivalStandard

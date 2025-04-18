@@ -120,7 +120,7 @@ public abstract class SharedStunSystem : EntitySystem
     private void OnStunOnContactStartup(Entity<StunOnContactComponent> ent, ref ComponentStartup args)
     {
         if (TryComp<PhysicsComponent>(ent, out var body))
-            _broadphase.RegenerateContacts(ent, body);
+            _broadphase.RegenerateContacts((ent, body));
     }
 
     private void OnStunOnContactCollide(Entity<StunOnContactComponent> ent, ref StartCollideEvent args)
@@ -141,7 +141,7 @@ public abstract class SharedStunSystem : EntitySystem
     private void OnKnockInit(EntityUid uid, KnockedDownComponent component, ComponentInit args)
     {
         RaiseNetworkEvent(new CheckAutoGetUpEvent(GetNetEntity(uid))); // WD EDIT
-        _layingDown.TryLieDown(uid, null, null, DropHeldItemsBehavior.DropIfStanding); // WD EDIT
+        _layingDown.TryLieDown(uid, null, null, DropHeldItemsBehavior.AlwaysDrop); // WD EDIT
     }
 
     private void OnKnockShutdown(EntityUid uid, KnockedDownComponent component, ComponentShutdown args)

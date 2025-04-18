@@ -1,5 +1,4 @@
 using Content.Server.DoAfter;
-using Content.Server.Forensics;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Server.Store.Systems;
@@ -9,6 +8,7 @@ using Content.Shared.Changeling;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.FixedPoint;
+using Content.Shared.Forensics.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
@@ -459,9 +459,11 @@ public sealed partial class ChangelingSystem : EntitySystem
         var data = new TransformData
         {
             Name = metadata.EntityName,
-            DNA = dna.DNA,
             Appearance = appearance
         };
+
+        if (dna.DNA != null)
+            data.DNA = dna.DNA;
 
         if (fingerprint.Fingerprint != null)
             data.Fingerprint = fingerprint.Fingerprint;

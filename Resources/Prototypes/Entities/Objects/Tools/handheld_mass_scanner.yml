@@ -5,8 +5,10 @@
   description: A hand-held mass scanner.
   components:
   - type: Item
+    size: Normal
+    sprite: _Impstation/Objects/Tools/handheld_mass_scanner.rsi # imp
   - type: Sprite
-    sprite: Objects/Tools/handheld_mass_scanner.rsi
+    sprite: _Impstation/Objects/Tools/handheld_mass_scanner.rsi # imp
     state: icon
     layers:
       - state: icon
@@ -47,8 +49,11 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
+  - type: Item
+    size: Normal
+    sprite: _Impstation/Objects/Tools/handheld_mass_scanner.rsi # imp
   - type: Sprite
-    sprite: Objects/Tools/handheld_mass_scanner.rsi
+    sprite: _Impstation/Objects/Tools/handheld_mass_scanner.rsi # imp
     state: icon
     layers:
       - state: icon

@@ -21,6 +21,7 @@
     hideLayersOnEquip:
     - Hair
     - Snout
+    - FacialHair #imp
   - type: Inventory
     femaleDisplacements:
       jumpsuit:
@@ -28,7 +29,6 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-
 
 - type: entity
   parent: BaseSpeciesDummy

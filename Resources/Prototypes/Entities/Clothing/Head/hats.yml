@@ -416,9 +416,15 @@
   description: Strange-looking red hat-wear that most certainly belongs to a real magic user.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/redwizard.rsi
+    sprite: _Impstation/Clothing/Head/Hats/redwizard.rsi # imp edit
   - type: Clothing
-    sprite: Clothing/Head/Hats/redwizard.rsi
+    # imp edit start
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.0625"
+    sprite: _Impstation/Clothing/Head/Hats/redwizard.rsi
+    # imp edit end
 
 - type: entity
   parent: ClothingHeadBase
@@ -531,9 +537,15 @@
   description: "Strange-looking violet hat-wear that most certainly belongs to a real magic user."
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/violetwizard.rsi
+    sprite: _Impstation/Clothing/Head/Hats/violetwizard.rsi # imp edit
   - type: Clothing
-    sprite: Clothing/Head/Hats/violetwizard.rsi
+    # imp edit start
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.0625"
+    sprite: _Impstation/Clothing/Head/Hats/violetwizard.rsi
+    # imp edit end
 
 - type: entity
   parent: ClothingHeadBase
@@ -580,7 +592,7 @@
 
 - type: entity
   abstract: true
-  parent: ClothingHeadBase
+  parent: [ ClothingHeadBase, BaseMagicalContraband ]
   id: ClothingHeadHatWizardBase
   components:
   - type: WizardClothes
@@ -592,9 +604,15 @@
   description: Strange-looking blue hat-wear that most certainly belongs to a powerful magic user.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/wizardhat.rsi
+    sprite: _Impstation/Clothing/Head/Hats/wizardhat.rsi # imp edit
   - type: Clothing
-    sprite: Clothing/Head/Hats/wizardhat.rsi
+    # imp edit start
+    clothingVisuals:
+        head:
+        - state: equipped-HELMET
+          offset: "0, 0.125"
+    sprite: _Impstation/Clothing/Head/Hats/wizardhat.rsi
+    # imp edit end
   - type: Tag
     tags:
     - ClothMade
@@ -894,6 +912,8 @@
     sprite: Clothing/Head/Hats/capcap.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/capcap.rsi
+  - type: Item
+    sprite: Clothing/Head/Hats/capcap.rsi
   - type: Tag
     tags:
     - ClothMade
@@ -913,6 +933,8 @@
   - type: Sprite
     sprite: Clothing/Head/Hats/comcap.rsi
   - type: Clothing
+    sprite: Clothing/Head/Hats/comcap.rsi
+  - type: Item
     sprite: Clothing/Head/Hats/comcap.rsi
   - type: Tag
     tags:
