@@ -35,6 +35,7 @@ public sealed class KillPersonConditionSystem : EntitySystem
 
         args.Progress = GetProgress(target.Value, comp.RequireDead);
     }
+
     private float GetProgress(EntityUid target, bool requireDead)
     {
         // deleted or gibbed or something, counts as dead
