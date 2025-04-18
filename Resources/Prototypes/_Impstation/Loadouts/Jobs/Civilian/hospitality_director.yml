@@ -28,7 +28,7 @@
   id: HospitalityDirectorJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtHD
- 
+
 - type: loadout
   id: HospitalityDirectorTurtleneck
   equipment:
@@ -38,7 +38,7 @@
   id: HospitalityDirectorTurtleneckSkirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtHDTurtle
-    
+
 - type: loadout
   id: HospitalityDirectorJanitorJumpsuit
   equipment:
@@ -64,11 +64,21 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitHospitalityDirectorBotany
 
+- type: loadout
+  id: HospitalityDirectorProprietorJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformSpaceJumpsuitHospitalityDirectorProprietor
+
 # Head
 - type: loadout
   id: HospitalityDirectorHead
   equipment:
     head: ClothingHeadHatHDsoft
+
+- type: loadout
+  id: HospitalityDirectorBellhopHD
+  equipment:
+    head: ClothingHeadHatBellhopHD
 
 - type: loadout
   id: HospitalityDirectorBandana

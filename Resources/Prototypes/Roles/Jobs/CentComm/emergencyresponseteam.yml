@@ -138,7 +138,7 @@
     - FoodBakedBunHotX
     - FoodBakedBunHotX
     - Lighter
-    - NullRodDefault
+    - NullRodDefault # imp
 
 - type: startingGear
   id: ERTChaplainGearEVA
@@ -170,7 +170,7 @@
     - FoodBakedBunHotX
     - FoodBakedBunHotX
     - Lighter
-    - NullRodDefault
+    - NullRodDefault # imp
 
 # Engineer
 - type: job
@@ -370,9 +370,9 @@
     - MedkitCombatFilled
     - MedkitCombatFilled
     - CrowbarRed
-    - OmnizineChemistryBottle
-    - EpinephrineChemistryBottle
-    - EpinephrineChemistryBottle
+    - ChemistryBottleOmnizine
+    - ChemistryBottleEpinephrine
+    - ChemistryBottleEpinephrine
 
 - type: startingGear
   id: ERTMedicalGearEVA
@@ -394,9 +394,9 @@
     - MedkitCombatFilled
     - MedkitCombatFilled
     - CrowbarRed
-    - OmnizineChemistryBottle
-    - EpinephrineChemistryBottle
-    - EpinephrineChemistryBottle
+    - ChemistryBottleOmnizine
+    - ChemistryBottleEpinephrine
+    - ChemistryBottleEpinephrine
 
 # Janitor
 - type: job

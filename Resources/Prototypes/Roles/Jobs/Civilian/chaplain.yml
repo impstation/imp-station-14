@@ -5,8 +5,7 @@
   playTimeTracker: JobChaplain
   startingGear: ChaplainGear
   icon: "JobIconChaplain"
-  supervisors: job-supervisors-hd
-  canBeAntag: false #imp CULT HOTFIX. #TODO: ANTAG SELECTION REFACTOR
+  supervisors: job-supervisors-hd # imp
   access:
   - Service #imp edit
   - Chapel
@@ -25,4 +24,4 @@
     back:
 #    - Bible #imp now handled by loadouts
     - RubberStampChaplain
-    - NullRodDefault
+    - NullRodDefault # imp
