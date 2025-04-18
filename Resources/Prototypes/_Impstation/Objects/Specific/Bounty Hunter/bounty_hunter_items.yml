@@ -71,10 +71,93 @@
         shader: unshaded
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 200
+    fireCost: 20
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 25
+    autoRechargeRate: 5
+
+- type: entity
+  name: borgstunbaton
+  parent: [BaseItem, BaseMajorContraband]
+  id: WeaponBorgStunBaton
+  description: An internally-stored implement capable of safely incapacitating any criminal, modified to self-charge at the cost of battery life. #imp
+  components:
+  - type: Tag # goob edit
+    tags:
+    - Stunbaton
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Melee/stunbaton.rsi #imp
+    layers:
+    - state: stunbaton_off
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: Stunbaton
+    energyPerUse: 1
+  - type: ItemToggle
+    predictable: false
+    soundActivate:
+      collection: sparks
+      params:
+        variation: 0.250
+    soundDeactivate:
+      collection: sparks
+      params:
+        variation: 0.250
+    soundFailToActivate:
+      path: /Audio/Machines/button.ogg
+      params:
+        variation: 0.250
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+      types:
+        Blunt: 0
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 7
+    bluntStaminaDamageFactor: 2.0
+    angle: 60
+    animation: WeaponArcThrust
+  - type: StaminaDamageOnHit
+    damage: 35
+    sound: /Audio/Weapons/egloves.ogg
+  - type: LandAtCursor # it deals stamina damage when thrown
+  - type: Battery
+    maxCharge: 2
+    startingCharge: 2
+  - type: UseDelay
+  - type: Item
+    heldPrefix: off
+    size: Normal
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Melee/stunbaton.rsi
+    quickEquip: false
+    slots:
+    - Belt
+  - type: DisarmMalus
+    malus: 0.225
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+     enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: {state: stunbaton_on}
+          False: {state: stunbaton_off}
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+      Plastic: 100
+  - type: GuideHelp
+    guides:
+    - Security
+    - Antagonists
+  # imp edits #
+  - type: ItemToggleDamageOtherOnHit
+  - type: DamageOtherOnHit
+  # end imp edits #
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 0.1
 
 
 - type: entity
@@ -89,6 +172,7 @@
   - type: ItemBorgModule
     items:
     - WeaponBorgDisabler
+    - WeaponBorgStunBaton
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: disabler-module }
 
@@ -161,10 +245,10 @@
   description: Custom-built magnetic boots with integrated thrusters. Can hold 0.75 L of gas.
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/magboots-syndicate.rsi
+    sprite: _Impstation/Clothing/Shoes/Boots/bountyhuntermagboots.rsi
     state: icon
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/magboots-syndicate.rsi
+    sprite: _Impstation/Clothing/Shoes/Boots/bountyhuntermagboots.rsi
   - type: ClothingSpeedModifier
     walkModifier: 0.95
     sprintModifier: 0.9
@@ -196,7 +280,7 @@
   description: A worn-down laser pistol that's clearly seen a lot of use. The battery has been damaged.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/antiquelasergun.rsi #imp
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/bountyhunterantiquelaser.rsi #imp
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -204,7 +288,7 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/antiquelasergun.rsi #imp
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/bountyhunterantiquelaser.rsi #imp
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
