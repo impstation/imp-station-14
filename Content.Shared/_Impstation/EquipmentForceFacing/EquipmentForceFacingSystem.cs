@@ -1,9 +1,5 @@
-using Content.Shared.ActionBlocker;
-using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs;
-using Content.Shared.Mobs.Systems;
-using Robust.Shared.Map;
 
 namespace Content.Shared._Impstation.EquipmentForceFacing;
 
