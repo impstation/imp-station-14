@@ -26,7 +26,8 @@ bounty-hunter-category-infiltrator-name = Infiltrator
 bounty-hunter-category-infiltrator-description =
     You prefer to use subterfuge to get close to your targets.
     Includes: A full set of chameleon clothing with a common encryption key,
-    a voice chameleon mask, an agent ID, a CyberSun pen, and a DNA scrambler.
+    a voice chameleon mask, an agent ID, a Cybersun pen, a fake mindshield,
+    and a DNA scrambler.
 
 bounty-hunter-category-subverter-name = Subverter
 bounty-hunter-category-subverter-description =
@@ -38,12 +39,12 @@ bounty-hunter-category-roboticist-description =
     You have a questionably helpful cyborg companion that you salvaged from
     the middle of nowhere.
     Includes: A probably-friendly cyborg equipped with a disabler and advanced
-    tools. Also comes with a more lethal module if you want to give
-    your buddy a bit more kick.
+    tools. Also comes with a lethal module if you want to give your buddy a bit
+    more kick.
 
 bounty-hunter-category-samurai-name = Samurai
 bounty-hunter-category-samurai-description =
-    You live by a strict code of honor, and have deadly skills with a blade.
+    You live by a strict code of honor, and have deadly skills with a katana.
     Includes: A katana, 2x hyperzine injectors, a samurai dogi,
     and an EMP implant.
 
