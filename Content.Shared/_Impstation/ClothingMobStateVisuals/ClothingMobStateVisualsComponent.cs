@@ -1,9 +1,9 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Impstation.ClothingMobStateVisuals;
+namespace Content.Shared._Impstation.MobStateClothingVisuals;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class ClothingMobStateVisualsComponent : Component
+public sealed partial class MobStateClothingVisualsComponent : Component
 {
     [DataField]
     public string IncapacitatedPrefix = "incapacitated";

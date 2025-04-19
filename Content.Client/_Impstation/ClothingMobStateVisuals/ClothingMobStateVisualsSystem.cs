@@ -1,9 +1,9 @@
-using Content.Shared._Impstation.ClothingMobStateVisuals;
+using Content.Shared._Impstation.MobStateClothingVisuals;
 using Content.Shared.Item;
 
 namespace Content.Client._Impstation.ClothingMobStateVisuals;
 
-public sealed partial class ClothingMobStateVisualsSystem : SharedClothingMobStateVisualsSystem
+public sealed partial class ClothingMobStateVisualsSystem : SharedMobStateClothingVisualsSystem
 {
     [Dependency] private readonly SharedItemSystem _itemSys = default!;
 
@@ -11,10 +11,10 @@ public sealed partial class ClothingMobStateVisualsSystem : SharedClothingMobSta
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ClothingMobStateVisualsComponent, ClothingMobStateChangedEvent>(OnClothingMobStateChanged);
+        SubscribeLocalEvent<MobStateClothingVisualsComponent, ClothingMobStateChangedEvent>(OnClothingMobStateChanged);
     }
 
-    private void OnClothingMobStateChanged(Entity<ClothingMobStateVisualsComponent> ent, ref ClothingMobStateChangedEvent args)
+    private void OnClothingMobStateChanged(Entity<MobStateClothingVisualsComponent> ent, ref ClothingMobStateChangedEvent args)
     {
         _itemSys.VisualsChanged(ent);
     }

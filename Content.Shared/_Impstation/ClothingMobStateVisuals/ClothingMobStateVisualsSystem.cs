@@ -6,9 +6,9 @@ using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Mobs.Systems;
 
-namespace Content.Shared._Impstation.ClothingMobStateVisuals;
+namespace Content.Shared._Impstation.MobStateClothingVisuals;
 
-public abstract class SharedClothingMobStateVisualsSystem : EntitySystem
+public abstract class SharedMobStateClothingVisualsSystem : EntitySystem
 {
     [Dependency] private readonly SharedItemSystem _itemSys = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
@@ -18,11 +18,11 @@ public abstract class SharedClothingMobStateVisualsSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ClothingMobStateVisualsComponent, InventoryRelayedEvent<MobStateChangedEvent>>(OnMobStateChanged);
-        SubscribeLocalEvent<ClothingMobStateVisualsComponent, GetEquipmentVisualsEvent>(OnGetEquipmentVisuals);
+        SubscribeLocalEvent<MobStateClothingVisualsComponent, InventoryRelayedEvent<MobStateChangedEvent>>(OnMobStateChanged);
+        SubscribeLocalEvent<MobStateClothingVisualsComponent, GetEquipmentVisualsEvent>(OnGetEquipmentVisuals);
     }
 
-    private void OnMobStateChanged(Entity<ClothingMobStateVisualsComponent> ent, ref InventoryRelayedEvent<MobStateChangedEvent> args)
+    private void OnMobStateChanged(Entity<MobStateClothingVisualsComponent> ent, ref InventoryRelayedEvent<MobStateChangedEvent> args)
     {
         _itemSys.VisualsChanged(ent); // update clothing visuals
 
@@ -30,7 +30,7 @@ public abstract class SharedClothingMobStateVisualsSystem : EntitySystem
         RaiseLocalEvent(ent, ev);
     }
 
-    private void OnGetEquipmentVisuals(Entity<ClothingMobStateVisualsComponent> ent, ref GetEquipmentVisualsEvent args)
+    private void OnGetEquipmentVisuals(Entity<MobStateClothingVisualsComponent> ent, ref GetEquipmentVisualsEvent args)
     {
         if (!TryComp(ent, out ClothingComponent? clothingComp))
             return;
