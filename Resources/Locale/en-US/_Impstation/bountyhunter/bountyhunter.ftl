@@ -46,7 +46,7 @@ bounty-hunter-category-samurai-name = Samurai
 bounty-hunter-category-samurai-description =
     You live by a strict code of honor, and have deadly skills with a katana.
     Includes: An energy katana, 2x hyperzine injectors, a death acidifier,
-    and a samurai dogi.
+    a scram implanter, and a samurai dogi.
 
 bounty-hunter-category-syndie-name = Rogue Operative
 bounty-hunter-category-syndie-description =
