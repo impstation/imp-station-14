@@ -75,3 +75,12 @@
   components:
   - type: Sprite
     state: drones
+
+- type: entity
+  parent: BaseSign
+  id: SignContraband
+  name: evidence sign
+  description: A sign indicating the security department's evidence and contraband lockup.
+  components:
+  - type: Sprite
+    state: contraband
