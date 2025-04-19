@@ -1,11 +1,10 @@
 # leaner PAIs! imp original
-# here's a base because i think just using the personal AI as a base is fucking the roletimers up
 
 - type: entity
   parent: PersonalAI
   id: PersonalAILearnerScience
   name: research director's personal learner device
-  description: Your electronic pal, who's itching to learn!
+  description: Your electronic pal, who is itching to learn!
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Fun/pai.rsi
@@ -41,7 +40,7 @@
   parent: PersonalAI
   id: PersonalAILearnerEngineering
   name: chief engineer's personal learner device
-  description: Your electronic pal, who's itching to learn!
+  description: Your electronic pal, who is itching to learn!
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Fun/pai.rsi
@@ -77,7 +76,7 @@
   parent: PersonalAI
   id: PersonalAILearnerSecurity
   name: head of security's personal learner device
-  description: Your electronic pal, who's itching to learn!
+  description: Your electronic pal, who is itching to learn!
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Fun/pai.rsi
@@ -113,7 +112,7 @@
   parent: PersonalAI
   id: PersonalAILearnerMedical
   name: chief medical officer's personal learner device
-  description: Your electronic pal, who's itching to learn!
+  description: Your electronic pal, who is itching to learn!
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Fun/pai.rsi
@@ -149,7 +148,7 @@
   parent: PersonalAI
   id: PersonalAILearnerCargo
   name: quartermaster's personal learner device
-  description: Your electronic pal, who's itching to learn!
+  description: Your electronic pal, who is itching to learn!
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Fun/pai.rsi
@@ -185,7 +184,7 @@
   parent: PersonalAI
   id: PersonalAILearnerService
   name: hospitality director's personal learner device
-  description: Your electronic pal, who's itching to learn!
+  description: Your electronic pal, who is itching to learn!
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Fun/pai.rsi
@@ -221,7 +220,7 @@
   parent: PersonalAI
   id: PersonalAILearnerCommand
   name: captain's personal learner device
-  description: Your electronic pal, who's itching to learn!
+  description: Your electronic pal, who is itching to learn!
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Fun/pai.rsi
