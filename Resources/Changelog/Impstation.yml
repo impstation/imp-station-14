@@ -1,50 +1,4 @@
 ﻿Entries:
-- author: EpicToast
-  changes:
-  - message: Add visitor ghost roles for couriers, brigmedics and roboticists.
-    type: Add
-  - message: Visitor ghost roles now spawn with their respective job access.
-    type: Tweak
-  - message: Some visitor ghost roles (command, security, and others) now come with
-      playtime requirements.
-    type: Tweak
-  - message: Visitor ghost roles can now spawn with new cosmetics, such as the BROS
-      blazer or the circus clown outfit.
-    type: Tweak
-  id: 1025
-  time: '2025-01-30T23:42:39.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1499
-- author: mqole
-  changes:
-  - message: A minor addition to the examples of antag rule 4. Peruse keb pages.
-    type: Tweak
-  id: 1026
-  time: '2025-01-31T02:54:50.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1521
-- author: formlessnameless
-  changes:
-  - message: Space ticks and carp will no longer be sleeping in every single maint
-      locker.
-    type: Fix
-  id: 1027
-  time: '2025-01-31T07:58:23.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1527
-- author: DinnerCalzone
-  changes:
-  - message: Oasis has been updated to feature the supermatter engine, a service breakroom,
-      and a vox box.
-    type: Add
-  id: 1028
-  time: '2025-01-31T15:59:52.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1523
-- author: DinnerCalzone
-  changes:
-  - message: Origin's armory has gotten more stuff added to it along with some other
-      fixes.
-    type: Tweak
-  id: 1029
-  time: '2025-01-31T15:59:00.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1524
 - author: DinnerCalzone
   changes:
   - message: Amber has been updated to incorporate its latest upstream changes.
@@ -4101,3 +4055,43 @@
   id: 1524
   time: '2025-04-16T12:09:24.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/2266
+- author: Oberonics
+  changes:
+  - message: You can freely tie your jumpsuit around your waist once again.
+    type: Tweak
+  id: 1525
+  time: '2025-04-17T02:38:04.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2265
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: Practice Laser and Disabler have updated light sprites and now recharge
+      a lot faster.
+    type: Tweak
+  - message: Blasters and the Emergency Laser all have appropriate contraband tags
+      now.
+    type: Fix
+  id: 1526
+  time: '2025-04-18T04:54:18.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2271
+- author: dayne, crocodilecarousel
+  changes:
+  - message: New medical guidebook, in a library near you!
+    type: Add
+  id: 1527
+  time: '2025-04-18T04:53:48.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2270
+- author: heirdragonair
+  changes:
+  - message: Supply Assistant's may or may not have been randomly promoted!
+    type: Tweak
+  id: 1528
+  time: '2025-04-19T07:13:41.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2283
+- author: ultramario1998
+  changes:
+  - message: Willow's brain experiments were a success! You'll be able to inhabit
+      her body every round.
+    type: Tweak
+  id: 1529
+  time: '2025-04-19T07:15:24.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2262
