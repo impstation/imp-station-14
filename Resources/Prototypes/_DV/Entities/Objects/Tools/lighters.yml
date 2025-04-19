@@ -1,11 +1,11 @@
 ﻿- type: entity
   parent: [ FlippoLighter, Tier2Contraband ] # imp - its not tier 1 because its also a fucking gun lol
-  id: SyndicateFlippo
-  name: Blood-red flippo
+  id: FlippoSyndicateLighter #imp - flippo appears to be the brand name
+  name: flippo blood-red lighter #imp - ditto
   description: "A 'Valid' choice in lighters. Capable of superheating welding fuel into incendiary shots when lit. Contains no copper."
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Tools/lighters.rsi # imp resprite
+    sprite: _Impstation/Objects/Tools/lighters.rsi # imp start
     layers:
     - state: syndie-icon-base
       map: ["base"]
@@ -15,12 +15,12 @@
     - state: syndie-icon-open
       map: ["open"]
       visible: false
-    - state: flame-green
+    - state: flame-green # /imp end
       map: ["flame"]
       visible: false
       shader: unshaded
   - type: Item
-    sprite: _Impstation/Objects/Tools/lighters.rsi
+    sprite: _Impstation/Objects/Tools/lighters.rsi # imp resprite
     heldPrefix: syndie
   - type: Welder #removed lighting and upkeep to make it easier to judge how many shots you have
     # fuelConsumption: 0 # imp - free welder from this is crazy. im not doing that
@@ -53,14 +53,14 @@
         base:
           True: { visible: false }
           False: { visible: true }
-  - type: ToggleableLightVisuals #imp resprite
+  - type: ToggleableLightVisuals # imp start
     spriteLayer: flame-green
     inhandVisuals:
       left:
       - state: syndie-inhand-left-lit
         shader: unshaded
       right:
-      - state: syndie-inhand-right-lit
+      - state: syndie-inhand-right-lit # /imp
         shader: unshaded
   - type: PointLight
     enabled: false
