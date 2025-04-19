@@ -11,6 +11,7 @@
     - id: RevenantSpawn
     - id: ParadoxCloneSpawn
     - id: GoblinStowawaysEvent # imp
+    - id: BountyHunterSpawn # imp
 
 - type: entity
   id: ChangelingAwakening
@@ -52,11 +53,11 @@
   id: BountyHunterSpawn
   components:
   - type: StationEvent
-    weight: 6
+    weight: 5
     duration: 1
-    earliestStart: 30
+    earliestStart: 25
     reoccurrenceDelay: 20
-    minimumPlayers: 20
+#    minimumPlayers: 15
   - type: AntagLoadProfileRule
   - type: RuleGrids
   - type: LoadMapRule
@@ -78,11 +79,10 @@
         text: bounty-hunter-role-greeting
         color: Orange
         # TODO: Custom greeting sound
-        sound: /Audio/Misc/ninja_greeting.ogg
+        # sound: /Audio/Misc/ninja_greeting.ogg
       mindRoles:
       - MindRoleBountyHunter
       components:
-      #TODO: Custom bounty hunter names
       - type: RandomMetadata
         nameSegments:
         - NamesBountyHunterTitle
