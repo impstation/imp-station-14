@@ -28,9 +28,6 @@ namespace Content.Server.Spawners.EntitySystems
 
         private void TrySpawn(EntityUid uid, SpawnEntrySpawnerComponent component)
         {
-
-            var coordinates = Transform(uid).Coordinates;
-
             if (component.Spawns is not {} spawns)
                 return;
 
