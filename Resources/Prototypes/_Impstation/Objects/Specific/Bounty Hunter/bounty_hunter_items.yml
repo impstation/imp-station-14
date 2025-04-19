@@ -71,7 +71,7 @@
         shader: unshaded
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 20
+    fireCost: 10
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 5
@@ -82,9 +82,6 @@
   id: WeaponBorgStunBaton
   description: An internally-stored implement capable of safely incapacitating any criminal, modified to self-charge at the cost of battery life. #imp
   components:
-  - type: Tag # goob edit
-    tags:
-    - Stunbaton
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Melee/stunbaton.rsi #imp
     layers:
@@ -121,19 +118,13 @@
   - type: StaminaDamageOnHit
     damage: 35
     sound: /Audio/Weapons/egloves.ogg
-  - type: LandAtCursor # it deals stamina damage when thrown
   - type: Battery
-    maxCharge: 2
-    startingCharge: 2
+    maxCharge: 10
+    startingCharge: 10
   - type: UseDelay
   - type: Item
     heldPrefix: off
     size: Normal
-  - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Melee/stunbaton.rsi
-    quickEquip: false
-    slots:
-    - Belt
   - type: DisarmMalus
     malus: 0.225
   - type: Appearance
@@ -143,21 +134,15 @@
         enum.ToggleVisuals.Layer:
           True: {state: stunbaton_on}
           False: {state: stunbaton_off}
-  - type: PhysicalComposition
-    materialComposition:
-      Steel: 100
-      Plastic: 100
   - type: GuideHelp
     guides:
     - Security
     - Antagonists
-  # imp edits #
   - type: ItemToggleDamageOtherOnHit
   - type: DamageOtherOnHit
-  # end imp edits #
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 0.1
+    autoRechargeRate: 0.5
 
 
 - type: entity
@@ -168,13 +153,13 @@
   - type: Sprite
     layers:
     - state: security
-    - state: icon-disabler
+    - state: icon-grappling-gun # couldn't figure out how to get the custom sprite working in imp namespace
   - type: ItemBorgModule
     items:
     - WeaponBorgDisabler
     - WeaponBorgStunBaton
   - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: disabler-module }
+    icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: disabler-module }
 
 
 # Mercenary Hardsuit
