@@ -12,7 +12,7 @@
   description: Mmm, Donuts.
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Food/Baked/donut.rsi
+    sprite: _Wizden/Objects/Consumable/Food/Baked/donut.rsi # imp
     state: box
     layers:
     - state: box
@@ -45,7 +45,7 @@
       tags:
       - Donut
   - type: Item
-    sprite: Objects/Consumable/Food/Baked/donut.rsi
+    sprite: _Wizden/Objects/Consumable/Food/Baked/donut.rsi # imp
     size: Small
     heldPrefix: box
   - type: StorageFill
@@ -354,7 +354,7 @@
   description: 'Instructions: Heat in microwave. Product will cool if not eaten within seven minutes.'
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Food/Baked/donkpocket.rsi
+    sprite: _Wizden/Objects/Consumable/Food/Baked/donkpocket.rsi # imp
     state: box
   - type: Storage
     grid:
@@ -363,7 +363,7 @@
       tags:
       - DonkPocket
   - type: Item
-    sprite: Objects/Consumable/Food/Baked/donkpocket.rsi
+    sprite: _Wizden/Objects/Consumable/Food/Baked/donkpocket.rsi # imp
     size: Small
   - type: StorageFill
     contents:
@@ -378,7 +378,7 @@
   - type: Sprite
     state: spicy-box
   - type: Item
-    sprite: Objects/Consumable/Food/Baked/donkpocket.rsi
+    sprite: _Wizden/Objects/Consumable/Food/Baked/donkpocket.rsi # imp
   - type: StorageFill
     contents:
     - id: FoodDonkpocketSpicy
@@ -392,7 +392,7 @@
   - type: Sprite
     state: teriyaki-box
   - type: Item
-    sprite: Objects/Consumable/Food/Baked/donkpocket.rsi
+    sprite: _Wizden/Objects/Consumable/Food/Baked/donkpocket.rsi # imp
   - type: StorageFill
     contents:
     - id: FoodDonkpocketTeriyaki
@@ -406,7 +406,7 @@
   - type: Sprite
     state: pizza-box
   - type: Item
-    sprite: Objects/Consumable/Food/Baked/donkpocket.rsi
+    sprite: _Wizden/Objects/Consumable/Food/Baked/donkpocket.rsi # imp
   - type: StorageFill
     contents:
     - id: FoodDonkpocketPizza
@@ -420,7 +420,7 @@
   - type: Sprite
     state: stonk-box
   - type: Item
-    sprite: Objects/Consumable/Food/Baked/donkpocket.rsi
+    sprite: _Wizden/Objects/Consumable/Food/Baked/donkpocket.rsi # imp
   - type: StorageFill
     contents:
     - id: FoodDonkpocketStonk
@@ -446,7 +446,7 @@
   - type: Sprite
     state: berry-box
   - type: Item
-    sprite: Objects/Consumable/Food/Baked/donkpocket.rsi
+    sprite: _Wizden/Objects/Consumable/Food/Baked/donkpocket.rsi # imp
   - type: StorageFill
     contents:
     - id: FoodDonkpocketBerry
@@ -460,7 +460,7 @@
   - type: Sprite
     state: banana-box
   - type: Item
-    sprite: Objects/Consumable/Food/Baked/donkpocket.rsi
+    sprite: _Wizden/Objects/Consumable/Food/Baked/donkpocket.rsi # imp
   - type: StorageFill
     contents:
     - id: FoodDonkpocketHonk
@@ -475,7 +475,7 @@
   - type: Sprite
     state: dink-box
   - type: Item
-    sprite: Objects/Consumable/Food/Baked/donkpocket.rsi
+    sprite: _Wizden/Objects/Consumable/Food/Baked/donkpocket.rsi # imp
   - type: StorageFill
     contents:
     - id: FoodDonkpocketDink
@@ -489,12 +489,15 @@
   description: The toy is more edible than the food.
   components:
   - type: Sprite
-    sprite: Objects/Storage/Happyhonk/clown.rsi
+    sprite: _Wizden/Objects/Storage/Happyhonk/clown.rsi # imp
     state: box
     layers:
     - state: box
+      map: ["closeLayer"] # imp
+    - state: box-open # imp
+      map: ["openLayer"]
   - type: Item
-    sprite: Objects/Storage/Happyhonk/clown.rsi
+    sprite: _Wizden/Objects/Storage/Happyhonk/clown.rsi # imp
     heldPrefix: box
   - type: Storage
     maxItemSize: Normal
@@ -583,10 +586,10 @@
     - Trash
     - MimeHappyHonk
   - type: Sprite
-    sprite: Objects/Storage/Happyhonk/mime.rsi
+    sprite: _Wizden/Objects/Storage/Happyhonk/mime.rsi # imp
     state: box
   - type: Item
-    sprite: Objects/Storage/Happyhonk/mime.rsi
+    sprite: _Wizden/Objects/Storage/Happyhonk/mime.rsi # imp
     heldPrefix: box
 
 - type: entity
@@ -597,10 +600,10 @@
   suffix: Toy Unsafe
   components:
   - type: Sprite
-    sprite: Objects/Storage/Happyhonk/nukie.rsi
+    sprite: _Wizden/Objects/Storage/Happyhonk/nukie.rsi # imp
     state: box
   - type: Item
-    sprite: Objects/Storage/Happyhonk/nukie.rsi
+    sprite: _Wizden/Objects/Storage/Happyhonk/nukie.rsi # imp
     heldPrefix: box
   - type: StorageFill
     contents:
@@ -686,10 +689,10 @@
     - Trash
     - CluwneHappyHonk
   - type: Sprite
-    sprite: Objects/Storage/Happyhonk/cluwne.rsi
+    sprite: _Wizden/Objects/Storage/Happyhonk/cluwne.rsi # imp
     state: box
   - type: Item
-    sprite: Objects/Storage/Happyhonk/cluwne.rsi
+    sprite: _Wizden/Objects/Storage/Happyhonk/cluwne.rsi # imp
     heldPrefix: box
   - type: StorageFill
     contents:
