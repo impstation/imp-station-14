@@ -4,7 +4,7 @@ meta:
   engineVersion: 250.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/19/2025 16:08:48
+  time: 04/19/2025 17:15:55
   entityCount: 465
 maps:
 - 1
@@ -1069,7 +1069,7 @@ entities:
       pos: 23.5,0.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -246.5763
+      secondsUntilStateChange: -320.38623
       state: Opening
   - uid: 160
     components:
@@ -2243,11 +2243,6 @@ entities:
     - type: Transform
       pos: 11.5,4.5
       parent: 2
-  - uid: 336
-    components:
-    - type: Transform
-      pos: 19.5,4.5
-      parent: 2
   - uid: 337
     components:
     - type: Transform
@@ -2404,13 +2399,8 @@ entities:
   - uid: 364
     components:
     - type: Transform
-      pos: 22.582342,1.722168
+      pos: 22.581724,1.7751803
       parent: 2
-    - type: UserInterface
-      actors:
-        enum.StorageUiKey.Key:
-        - invalid
-    - type: ActiveUserInterface
 - proto: VendingMachineBooze
   entities:
   - uid: 365
@@ -2420,6 +2410,13 @@ entities:
       parent: 2
     missingComponents:
     - AccessReader
+- proto: VendingMachineCigs
+  entities:
+  - uid: 336
+    components:
+    - type: Transform
+      pos: 19.5,4.5
+      parent: 2
 - proto: VendingMachineClothing
   entities:
   - uid: 366
