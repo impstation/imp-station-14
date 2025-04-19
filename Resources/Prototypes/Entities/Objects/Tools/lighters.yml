@@ -267,11 +267,11 @@
       shader: unshaded 
   - type: StealTarget
     stealGroup: FlippoEngravedLighter
-  - type: Item # imp (new inhands)
+    # imp edit start
+  - type: Item
     sprite: _Impstation/Objects/Tools/lighters.rsi
     heldPrefix: engraved
   - type: ToggleableLightVisuals
-    #imp start 
     spriteLayer: flame-orange 
     inhandVisuals:
       left:
@@ -279,5 +279,5 @@
         shader: unshaded
       right:
       - state: engraved-inhand-right-lit
-      # /imp end
         shader: unshaded
+        # imp edit end
