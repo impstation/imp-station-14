@@ -5,7 +5,8 @@
   description: "A 'Valid' choice in lighters. Capable of superheating welding fuel into incendiary shots when lit. Contains no copper."
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Tools/lighters.rsi # imp start
+    # imp start
+    sprite: _Impstation/Objects/Tools/lighters.rsi 
     layers:
     - state: syndie-icon-base
       map: ["base"]
@@ -15,7 +16,8 @@
     - state: syndie-icon-open
       map: ["open"]
       visible: false
-    - state: flame-green # /imp end
+    - state: flame-green 
+    # /imp end
       map: ["flame"]
       visible: false
       shader: unshaded
@@ -53,14 +55,16 @@
         base:
           True: { visible: false }
           False: { visible: true }
-  - type: ToggleableLightVisuals # imp start
+  # imp start
+  - type: ToggleableLightVisuals 
     spriteLayer: flame-green
     inhandVisuals:
       left:
       - state: syndie-inhand-left-lit
         shader: unshaded
       right:
-      - state: syndie-inhand-right-lit # /imp
+      - state: syndie-inhand-right-lit 
+      # /imp end
         shader: unshaded
   - type: PointLight
     enabled: false

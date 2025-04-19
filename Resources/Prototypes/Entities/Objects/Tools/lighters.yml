@@ -137,7 +137,8 @@
   description: "A rugged metal lighter, lasts quite a while."
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Tools/lighters.rsi #imp start
+    #imp start
+    sprite: _Impstation/Objects/Tools/lighters.rsi 
     layers:
     - state: zippo-icon-base
       map: ["base"]
@@ -147,7 +148,8 @@
     - state: zippo-icon-open
       map: ["open"]
       visible: false
-    - state: flame-orange # /imp end
+    - state: flame-orange 
+    # /imp end
       map: ["flame"]
       visible: false
       shader: unshaded
@@ -210,13 +212,15 @@
     fuelLitCost: 0.1
     tankSafe: true
   - type: ToggleableLightVisuals
-    spriteLayer: flame-orange #imp start
+    # imp start
+    spriteLayer: flame-orange 
     inhandVisuals:
       left:
       - state: zippo-inhand-left-lit
         shader: unshaded
       right:
-      - state: zippo-inhand-right-lit # /imp end
+      - state: zippo-inhand-right-lit
+      # /imp end
         shader: unshaded
   - type: MeleeWeapon
     wideAnimationRotation: 180
@@ -245,7 +249,8 @@
   description: "A rugged golden lighter, lasts quite a while. Engravings serve no tactical advantage whatsoever."
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Tools/lighters.rsi #imp start
+    #imp start
+    sprite: _Impstation/Objects/Tools/lighters.rsi 
     layers:
     - state: engraved-icon-base
       map: ["base"]
@@ -256,20 +261,23 @@
       map: ["open"]
       visible: false
     - state: flame-orange
+    # /imp end
       map: ["flame"]
       visible: false
-      shader: unshaded # /imp end
+      shader: unshaded 
   - type: StealTarget
     stealGroup: FlippoEngravedLighter
   - type: Item # imp (new inhands)
     sprite: _Impstation/Objects/Tools/lighters.rsi
     heldPrefix: engraved
-  - type: ToggleableLightVisuals 
-    spriteLayer: flame-orange #imp start
+  - type: ToggleableLightVisuals
+    #imp start 
+    spriteLayer: flame-orange 
     inhandVisuals:
       left:
       - state: engraved-inhand-left-lit
         shader: unshaded
       right:
-      - state: engraved-inhand-right-lit # /imp end
+      - state: engraved-inhand-right-lit
+      # /imp end
         shader: unshaded
