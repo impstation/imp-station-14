@@ -6,3 +6,24 @@
     Steel: 500
     Durathread: 200
     Plasma: 100
+
+- type: latheRecipe
+  id: SlashTackle
+  result: SharpTackle
+  completetime: 1
+  materials:
+    Glass: 100
+
+- type: latheRecipe
+  id: PierceTackle
+  result: BitingTackle
+  completetime: 1
+  materials:
+    Steel: 100
+
+- type: latheRecipe
+  id: BluntTackle
+  result: BluntTackle
+  completetime: 1
+  materials:
+    Plastic: 100

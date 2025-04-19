@@ -38,3 +38,14 @@
         - id: DrinkShaker
         - id: CustomDrinkJug
           amount: 2
+
+- type: entity
+  id: CrateFishing
+  parent: CratePlastic
+  name: fishing crate
+  description: A basic fishing kit for any up-and-coming fisherperson. Contains a basic fishing rod and 50 baits.
+  components:
+  - type: StorageFill
+    contents:
+      - id: FishingRodBase
+      - id: FishingBait50

@@ -1,0 +1,25 @@
+- type: entity
+  id: FishingBaitBase
+  name: fishing bait
+  parent: BaseItem
+  components:
+    - type: Stack
+      stackType: BaitStack
+      count: 1
+    - type: Sprite #The component that handles basic visuals
+      sprite: _Impstation/Objects/Fishing/fishingbait.rsi
+      layers:
+        - state: worm
+    - type: FishingBait #The component that handles the actual baiting
+    - type: Tag
+      tags:
+      - Bait
+      
+- type: entity
+  id: FishingBait50
+  name: fishing baits
+  parent: FishingBaitBase
+  components:
+    - type: Stack
+      stackType: BaitStack
+      count: 50
