@@ -41,13 +41,12 @@
       tank:
         reagents:
         - ReagentId: Water
-          Quantity: 10000
-        maxVol: 10000
+          Quantity: 500
+        maxVol: 500
   - type: ExaminableSolution
     solution: tank
-  - type: ReagentTank
-    transferAmount: 100
   - type: Transform
     anchored: true
   - type: Physics
     bodyType: Static
+  - type: WashingMachine
