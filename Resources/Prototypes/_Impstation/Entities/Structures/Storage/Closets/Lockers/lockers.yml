@@ -100,7 +100,7 @@
 - type: entity
   id: LockerBelongings
   parent: LockerSecurity
-  name: evidence locker
+  name: belongings locker
   description: To safely store detainee and prisoner belongings during their stay. #imp
   components:
   - type: EntityStorageVisuals #imp
