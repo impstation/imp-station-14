@@ -13,7 +13,6 @@ namespace Content.Server._Impstation.Radio;
 
 public sealed class SelfHeadsetSystem : EntitySystem
 {
-    [Dependency] private readonly EncryptionKeyHolderComponent _keysUnlocked = default!;
 
     public override void Initialize()
     {
