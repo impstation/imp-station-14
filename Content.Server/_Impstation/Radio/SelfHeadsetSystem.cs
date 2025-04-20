@@ -1,11 +1,15 @@
-﻿using Robust.Shared.Containers;
+using Robust.Shared.Containers;
+using Content.Server._Impstation.Radio.Components;
+using Content.Server.Radio.Components;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
 using Content.Shared.Radio.EntitySystems;
 using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
+// from mq to asa: when ur done, make sure you delete the unused usings and organise ur usings in alphabetical order <3
+// do this for component file & dependencies too
 
-namespace Content.Server.Impstation.Radio;
+namespace Content.Server._Impstation.Radio;
 
 public sealed class SelfHeadsetSystem : EntitySystem
 {
