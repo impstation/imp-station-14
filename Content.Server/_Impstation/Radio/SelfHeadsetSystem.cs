@@ -13,35 +13,32 @@ namespace Content.Server._Impstation.Radio;
 
 public sealed class SelfHeadsetSystem : EntitySystem
 {
-    [Dependency] private readonly RadioImplantComponent _radioChannels = default!;
     [Dependency] private readonly EncryptionKeyHolderComponent _keysUnlocked = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SelfHeadsetComponent, EntGotInsertedIntoContainerMessage>(OnAdd);
+        SubscribeLocalEvent<SelfHeadsetComponent, EntGotInsertedIntoContainerMessage>(OnInsert);
         SubscribeLocalEvent<SelfHeadsetComponent, EntGotRemovedFromContainerMessage>(OnRemove);
     }
-
-
 
     /// <summary>
     /// If an encryption key is added, installs the necessary intrinsic radio components
     /// </summary>
-    private void OnAdd(Entity<SelfHeadsetComponent> ent, ref EncryptionKeyHolderComponent args)
+    private void OnInsert(Entity<SelfHeadsetComponent> ent, ref EntGotInsertedIntoContainerMessage args)
     {
 
-        var activeRadio = EnsureComp<ActiveRadioComponent>(args.Channels);
+        var activeRadio = EnsureComp<ActiveRadioComponent>(args.Container.Owner);
         foreach (var channel in ent.Comp.RadioChannels)
         {
             if (activeRadio.Channels.Add(channel))
                 ent.Comp.ActiveAddedChannels.Add(channel);
         }
 
-        EnsureComp<IntrinsicRadioReceiverComponent>(args.Channels);
+        EnsureComp<IntrinsicRadioReceiverComponent>(args.Container.Owner);
 
-        var intrinsicRadioTransmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(args.Channels);
+        var intrinsicRadioTransmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(args.Container.Owner);
         foreach (var channel in ent.Comp.RadioChannels)
         {
             if (intrinsicRadioTransmitter.Channels.Add(channel))

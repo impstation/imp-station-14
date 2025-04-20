@@ -1,16 +1,15 @@
+using Robust.Shared.Audio;
+using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
-using Content.Shared.Chat;
+using Content.Shared.Radio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
 using Content.Shared.Tools;
-using Robust.Shared.Audio;
-using Robust.Shared.Containers;
-using Content.Shared.Radio;
 
 namespace Content.Server._Impstation.Radio.Components;
 
 /// <summary>
-/// Gives the user access to a given channel without the need for a headset.
+/// Gives the user access to a given channel via encryption key without the need for a headset.
 /// </summary>
 [RegisterComponent]
 public sealed partial class SelfHeadsetComponent : Component
@@ -23,6 +22,12 @@ public sealed partial class SelfHeadsetComponent : Component
 
     [DataField("channels", customTypeSerializer: typeof(PrototypeIdHashSetSerializer<RadioChannelPrototype>))]
     public HashSet<string> Channels = new();
+
+    /// <summary>
+    ///     This is the channel that will be used when using the default/department prefix (<see cref="SharedChatSystem.DefaultChannelKey"/>).
+    /// </summary>
+    [DataField("defaultChannel", customTypeSerializer: typeof(PrototypeIdSerializer<RadioChannelPrototype>))]
+    public string? DefaultChannel;
 
     /// <summary>
     /// The radio channels that have been added via encryption key to a user's ActiveRadioComponent.
