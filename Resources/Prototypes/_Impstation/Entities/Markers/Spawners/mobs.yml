@@ -70,6 +70,8 @@
         amount: 2
         maxAmount: 2
       - id: MobGoose
+    - type: TimedDespawn
+      lifetime: 0.1
 
 - type: entity
   name: xeno lone praetorian spawner
