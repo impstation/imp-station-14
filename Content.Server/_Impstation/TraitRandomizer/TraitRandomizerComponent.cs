@@ -1,4 +1,5 @@
 using Content.Shared.Traits;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Impstation.TraitRandomizer;
 
@@ -12,5 +13,5 @@ public sealed partial class TraitRandomizerComponent : Component
     public int MinTraits;
 
     [DataField(required: true)]
-    public List<string> Categories;
+    public List<ProtoId<TraitCategoryPrototype>> Categories;
 }

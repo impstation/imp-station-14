@@ -10,7 +10,6 @@ using Content.Shared.Traits;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Toolshed.Commands.Values;
 
 namespace Content.Server._Impstation.TraitRandomizer;
 
@@ -45,7 +44,7 @@ public sealed partial class TraitRandomizerSystem : EntitySystem
         {
             foreach (var category in ent.Comp.Categories)
             {
-                if (trait.Category == _prototypeManager.Index<TraitCategoryPrototype>(category))
+                if (trait.Category == _prototypeManager.Index(category))
                     traits.Add(trait);
             }
         }
