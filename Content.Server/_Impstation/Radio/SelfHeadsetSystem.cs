@@ -1,11 +1,10 @@
-using Robust.Shared.Containers;
 using Content.Server._Impstation.Radio.Components;
 using Content.Server.Radio.Components;
+using Robust.Shared.Containers;
+using Content.Shared.Inventory;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
-using Content.Shared.Radio.EntitySystems;
-using Content.Shared.Implants;
-using Content.Shared.Implants.Components;
+
 // from mq to asa: when ur done, make sure you delete the unused usings and organise ur usings in alphabetical order <3
 // do this for component file & dependencies too
 
@@ -17,9 +16,15 @@ public sealed class SelfHeadsetSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-
+        SubscribeLocalEvent<SelfHeadsetComponent, InventoryRelayedEvent<GetDefaultRadioChannelEvent>>(OnGetDefault);
         SubscribeLocalEvent<SelfHeadsetComponent, EntGotInsertedIntoContainerMessage>(OnInsert);
         SubscribeLocalEvent<SelfHeadsetComponent, EntGotRemovedFromContainerMessage>(OnRemove);
+    }
+
+    private void OnGetDefault(EntityUid uid, SelfHeadsetComponent component, InventoryRelayedEvent<GetDefaultRadioChannelEvent> args)
+    {
+        if (TryComp(uid, out EncryptionKeyHolderComponent? keyHolder))
+            args.Args.Channel ??= keyHolder.DefaultChannel;
     }
 
     /// <summary>
@@ -45,25 +50,6 @@ public sealed class SelfHeadsetSystem : EntitySystem
         }
     }
 
-    public void UpdateChannels(Entity<SelfHeadsetComponent> uid, EncryptionKeyHolderComponent component)
-    {
-        if (!component.Initialized)
-            return;
-
-        component.Channels.Clear();
-        component.DefaultChannel = null;
-
-        foreach (var ent in component.KeyContainer.ContainedEntities)
-        {
-            if (TryComp<EncryptionKeyComponent>(ent, out var key))
-            {
-                component.Channels.UnionWith(key.Channels);
-                component.DefaultChannel ??= key.DefaultChannel;
-            }
-        }
-
-        RaiseLocalEvent(uid, new EncryptionChannelsChangedEvent(component));
-    }
 
     /// <summary>
     /// Removes intrinsic radio components once the encryption key is removed
