@@ -1,12 +1,13 @@
-﻿using Robust.Shared.Prototypes;
+using Robust.Shared.Prototypes;
 using Content.Shared.Chat;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
 using Content.Shared.Tools;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
+using Content.Shared.Radio;
 
-namespace Content.Shared.Radio.Components;
+namespace Content.Server._Impstation.Radio.Components;
 
 /// <summary>
 /// Gives the user access to a given channel without the need for a headset.
