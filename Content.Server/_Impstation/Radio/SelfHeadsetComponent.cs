@@ -1,5 +1,4 @@
 using Robust.Shared.Audio;
-using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Content.Shared.Radio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
@@ -24,12 +23,6 @@ public sealed partial class SelfHeadsetComponent : Component
     public HashSet<string> Channels = new();
 
     /// <summary>
-    ///     This is the channel that will be used when using the default/department prefix (<see cref="SharedChatSystem.DefaultChannelKey"/>).
-    /// </summary>
-    [DataField("defaultChannel", customTypeSerializer: typeof(PrototypeIdSerializer<RadioChannelPrototype>))]
-    public string? DefaultChannel;
-
-    /// <summary>
     /// The radio channels that have been added via encryption key to a user's ActiveRadioComponent.
     /// Used to track which channels were successfully added (not already in user)
     /// </summary>
@@ -50,13 +43,6 @@ public sealed partial class SelfHeadsetComponent : Component
     public HashSet<ProtoId<RadioChannelPrototype>> TransmitterAddedChannels = new();
 
     /// <summary>
-    ///     Whether or not encryption keys can be removed from the headset.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("keysUnlocked")]
-    public bool KeysUnlocked = true;
-
-    /// <summary>
     ///     The tool required to extract the encryption keys from the headset.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
@@ -64,19 +50,7 @@ public sealed partial class SelfHeadsetComponent : Component
     public string KeysExtractionMethod = "Screwing";
 
     [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("keySlots")]
-    public int KeySlots = 2;
-
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("keyExtractionSound")]
-    public SoundSpecifier KeyExtractionSound = new SoundPathSpecifier("/Audio/Items/pistol_magout.ogg");
-
-    [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
     public SoundSpecifier UseSound = new SoundCollectionSpecifier("eating");
-
-    [ViewVariables]
-    public Container KeyContainer = default!;
-    public const string KeyContainerName = "key_slots";
 }
 
