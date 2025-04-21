@@ -44,7 +44,7 @@ public sealed class SelfHeadsetSystem : EntitySystem
         }
     }
 
-    private void OnKeysChanged(EntityUid uid, SelfHeadsetComponent component, EncryptionChannelsChangedEvent args)
+    private void OnKeysChanged(EntityUid uid, SelfHeadsetComponent component, ref EncryptionChannelsChangedEvent args)
     {
         UpdateRadioChannels(uid, component, args.Component);
     }

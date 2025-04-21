@@ -16,7 +16,7 @@ public sealed partial class SelfHeadsetComponent : Component
     /// <summary>
     /// The radio channel(s) to grant access to.
     /// </summary>
-    [DataField(required: true)]
+    [DataField]
     public HashSet<ProtoId<RadioChannelPrototype>> RadioChannels = new();
 
     /// <summary>
