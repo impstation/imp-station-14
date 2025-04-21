@@ -745,8 +745,6 @@
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
   - type: ActiveRadio
-    channels:
-    - Common
   - type: ContainerFill
     containers:
       key_slots:
