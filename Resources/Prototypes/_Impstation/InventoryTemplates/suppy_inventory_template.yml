@@ -1,0 +1,20 @@
+- type: inventoryTemplate
+  id: suppy
+  slots:
+  - name: mask
+    slotTexture: mask
+    slotFlags: MASK
+    uiWindowPos: 1,1
+    strippingWindowPos: 1,1
+    displayName: Mask
+    offset: -0.3, -0.2
+    whitelist:
+      tags:
+        - PetWearable
+  - name: head
+    slotTexture: head
+    slotFlags: HEAD
+    uiWindowPos: 1,2
+    strippingWindowPos: 1,0
+    displayName: Head
+    offset: -0.1, 0.0

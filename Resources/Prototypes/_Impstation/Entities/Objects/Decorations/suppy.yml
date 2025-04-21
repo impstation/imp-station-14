@@ -1,6 +1,7 @@
 - type: entity
   name: Suppy
   id: PetSuppy
+  parent: StripableInventoryBase
   suffix: Engineering's pet, steal target
   description: Engineering's pet suppermatter chunk. He dreams of causing station-wide destruction some day, but his bark is bigger than his bite.
   components:
@@ -24,6 +25,8 @@
     state: suppermatter
     noRot: true
     drawdepth: Mobs
+  - type: Transform
+    noRot: true
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
@@ -80,6 +83,18 @@
   - type: Reactive
     groups:
       Extinguish: [ Touch ]
+  - type: SupermatterImmune
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 25
+    soundHit:
+      collection: MetalThud
+  - type: StaminaDamageOnHit #if you launch suppy at someone, it'll bonk them bad and knock them on their ass
+    damage: 100
+  - type: Inventory
+    speciesId: suppy
+    templateId: suppy
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-superdense
   - type: InteractionPopup
