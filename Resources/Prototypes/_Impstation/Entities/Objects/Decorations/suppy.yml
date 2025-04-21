@@ -14,7 +14,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.35
-        density: 300
+        density: 1000
         mask:
         - MobMask
         layer:
@@ -60,6 +60,8 @@
       Male: Suppy
       Female: Suppy
       Unsexed: Suppy
+  - type: Actions
+  - type: Alerts
   - type: AnimatedEmotes
   - type: MobState #for deathgasp
   - type: InputMover
@@ -75,6 +77,9 @@
   - type: Eye
   - type: ContentEye
   - type: CameraRecoil
+  - type: Reactive
+    groups:
+      Extinguish: [ Touch ]
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-superdense
   - type: InteractionPopup
