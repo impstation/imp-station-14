@@ -8,6 +8,30 @@
   - type: Item
     sprite: _Impstation/Objects/Specific/Hydroponics/rose.rsi
   - type: Clothing
-    slots: [mask]
+    sprite: _Impstation/Objects/Specific/Hydroponics/rose.rsi
+    slots:
+    - HEAD
+    - MASK
   - type: Produce
     seedId: rose
+
+- type: entity
+  parent: Rose
+  id: roseBlack
+  name: Black Rose
+  components:
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 5
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 3
+        reagents:
+        - ReagentId: Bungotoxin
+          Quantity: 2
+        - ReagentId: Razorium
+          Quantity: 1
+  - type: SolutionInjectOnEmbed
+    transferAmount: 3
