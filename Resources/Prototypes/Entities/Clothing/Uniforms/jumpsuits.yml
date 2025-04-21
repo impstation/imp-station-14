@@ -789,8 +789,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCentcomFormal
-  name: central command formal suit
-  description: A suit for special occasions.
+  name: Central Command formal suit # imp caps fix
+  description: A suit for extremely special occasions. # imp wording
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/centcomformal.rsi
