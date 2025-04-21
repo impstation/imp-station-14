@@ -1,12 +1,8 @@
+using Content.Server.Emp;
 using Content.Server._Impstation.Radio.Components;
 using Content.Server.Radio.Components;
-using Robust.Shared.Containers;
-using Content.Shared.Inventory;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
-
-// from mq to asa: when ur done, make sure you delete the unused usings and organise ur usings in alphabetical order <3
-// do this for component file & dependencies too
 
 namespace Content.Server._Impstation.Radio;
 
@@ -18,9 +14,13 @@ public sealed class SelfHeadsetSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<SelfHeadsetComponent, EncryptionChannelsChangedEvent>(OnKeysChanged);
+        SubscribeLocalEvent<SelfHeadsetComponent, EmpPulseEvent>(OnEmpPulse);
 
     }
 
+    /// <summary>
+    /// Used to give an entity access to radio channels when an Encryption Key is inserted, without the need for a headset.
+    /// </summary>
 
     private void OnKeysChanged(EntityUid uid, SelfHeadsetComponent component, ref EncryptionChannelsChangedEvent args)
     {
@@ -49,7 +49,6 @@ public sealed class SelfHeadsetSystem : EntitySystem
                 EnsureComp<IntrinsicRadioReceiverComponent>(uid);
         }
 
-
         {
             if (!Resolve(uid, ref keyHolder))
                 return;
@@ -58,6 +57,14 @@ public sealed class SelfHeadsetSystem : EntitySystem
                 RemCompDeferred<IntrinsicRadioTransmitterComponent>(uid);
             else
                 EnsureComp<IntrinsicRadioTransmitterComponent>(uid).Channels = new(keyHolder.Channels);
+        }
+    }
+
+    private void OnEmpPulse(EntityUid uid, SelfHeadsetComponent component, ref EmpPulseEvent args)
+    {
+        {
+            args.Affected = true;
+            args.Disabled = true;
         }
     }
 
