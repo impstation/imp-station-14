@@ -743,12 +743,10 @@
   - type: Examiner
   - type: SelfHeadset
   - type: Headset
-  - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
-  - type: ActiveRadioComponent
-  - type: ContainerContainer
-    containers:
-      key_slots: !type:Container
+  - type: ActiveRadio
+    channels:
+    - Common
   - type: ContainerFill
     containers:
       key_slots:
