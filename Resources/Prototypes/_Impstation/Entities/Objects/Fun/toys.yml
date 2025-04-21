@@ -742,8 +742,6 @@
     stopSearchVerbPopup: Fuzzbo-system-stopped-searching
   - type: Examiner
   - type: SelfHeadset
-    channels:
-    - Common
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
   - type: ActiveRadio
@@ -763,6 +761,3 @@
     speechSounds: Pai
   - type: DoAfter
   - type: Actions
-  - type: MobState
-    allowedStates:
-      - Alive

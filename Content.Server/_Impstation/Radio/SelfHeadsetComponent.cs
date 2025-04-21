@@ -19,9 +19,6 @@ public sealed partial class SelfHeadsetComponent : Component
     [DataField(required: true)]
     public HashSet<ProtoId<RadioChannelPrototype>> RadioChannels = new();
 
-    [DataField("channels", customTypeSerializer: typeof(PrototypeIdHashSetSerializer<RadioChannelPrototype>))]
-    public HashSet<string> Channels = new();
-
     /// <summary>
     /// The radio channels that have been added via encryption key to a user's ActiveRadioComponent.
     /// Used to track which channels were successfully added (not already in user)
