@@ -51,14 +51,25 @@ public sealed class SelfHeadsetSystem : EntitySystem
 
     private void UpdateRadioChannels(EntityUid uid, SelfHeadsetComponent component, EncryptionKeyHolderComponent? keyHolder = null)
     {
+        {
+            if (!Resolve(uid, ref keyHolder))
+                return;
 
-        if (!Resolve(uid, ref keyHolder))
-            return;
+            if (keyHolder.Channels.Count == 0)
+                RemComp<ActiveRadioComponent>(uid);
+            else
+                EnsureComp<ActiveRadioComponent>(uid).Channels = new(keyHolder.Channels);
+        }
 
-        if (keyHolder.Channels.Count == 0)
-            RemComp<ActiveRadioComponent>(uid);
-        else
-            EnsureComp<ActiveRadioComponent>(uid).Channels = new(keyHolder.Channels);
+        {
+            if (!Resolve(uid, ref keyHolder))
+                return;
+
+            if (keyHolder.Channels.Count == 0)
+                RemComp<IntrinsicRadioReceiverComponent>(uid);
+            else
+                EnsureComp<IntrinsicRadioTransmitterComponent>(uid).Channels = new(keyHolder.Channels);
+        }
     }
 
 
