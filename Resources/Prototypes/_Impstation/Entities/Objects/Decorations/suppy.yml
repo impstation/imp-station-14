@@ -24,8 +24,22 @@
     state: suppermatter
     noRot: true
     drawdepth: Mobs
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+    - Engineering
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Engineering
+  - type: Access
+    tags:
+    - Maintenance
+    - Engineering
   - type: Appearance
   - type: Body # for letting someone use the pet carrier on it
+  - type: Buckle
   - type: Climbing
   - type: Pullable
   - type: Damageable
@@ -51,11 +65,16 @@
   - type: InputMover
   - type: Input
     context: "human"
-  - type: Examiner
+  - type: LagCompensation
   - type: MobMover
   - type: MovementSpeedModifier
     baseWalkSpeed: 0.1
     baseSprintSpeed: 0.2
+  - type: DoAfter
+  - type: Examiner
+  - type: Eye
+  - type: ContentEye
+  - type: CameraRecoil
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-superdense
   - type: InteractionPopup
@@ -70,3 +89,6 @@
   - type: ContainerContainer
     containers:
       body_root_part: !type:ContainerSlot
+  - type: Tag
+    tags:
+    - DoorBumpOpener
