@@ -16,14 +16,15 @@ public sealed class SelfHeadsetSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<SelfHeadsetComponent, EntGotInsertedIntoContainerMessage>(OnInsert);
+        SubscribeLocalEvent<SelfHeadsetComponent, EntGotInsertedIntoContainerMessage>(OnAdd);
+        SubscribeLocalEvent<SelfHeadsetComponent, EncryptionChannelsChangedEvent>(OnKeysChanged);
         SubscribeLocalEvent<SelfHeadsetComponent, EntGotRemovedFromContainerMessage>(OnRemove);
     }
 
     /// <summary>
     /// If an encryption key is added, installs the necessary intrinsic radio components
     /// </summary>
-    private void OnInsert(Entity<SelfHeadsetComponent> ent, ref EntGotInsertedIntoContainerMessage args)
+    private void OnAdd(Entity<SelfHeadsetComponent> ent, ref EntGotInsertedIntoContainerMessage args)
     {
 
         var activeRadio = EnsureComp<ActiveRadioComponent>(args.Container.Owner);
@@ -41,6 +42,23 @@ public sealed class SelfHeadsetSystem : EntitySystem
             if (intrinsicRadioTransmitter.Channels.Add(channel))
                 ent.Comp.TransmitterAddedChannels.Add(channel);
         }
+    }
+
+    private void OnKeysChanged(EntityUid uid, SelfHeadsetComponent component, EncryptionChannelsChangedEvent args)
+    {
+        UpdateRadioChannels(uid, component, args.Component);
+    }
+
+    private void UpdateRadioChannels(EntityUid uid, SelfHeadsetComponent component, EncryptionKeyHolderComponent? keyHolder = null)
+    {
+
+        if (!Resolve(uid, ref keyHolder))
+            return;
+
+        if (keyHolder.Channels.Count == 0)
+            RemComp<ActiveRadioComponent>(uid);
+        else
+            EnsureComp<ActiveRadioComponent>(uid).Channels = new(keyHolder.Channels);
     }
 
 
