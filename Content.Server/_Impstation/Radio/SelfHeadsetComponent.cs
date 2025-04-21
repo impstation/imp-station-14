@@ -2,7 +2,6 @@ using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Content.Shared.Radio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
 using Content.Shared.Tools;
 
 namespace Content.Server._Impstation.Radio.Components;
