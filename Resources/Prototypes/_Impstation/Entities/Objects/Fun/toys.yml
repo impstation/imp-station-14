@@ -742,9 +742,6 @@
     stopSearchVerbPopup: Fuzzbo-system-stopped-searching
   - type: Examiner
   - type: SelfHeadset
-  - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
-  - type: ActiveRadio
   - type: ContainerContainer
     containers:
       key_slots: !type:Container

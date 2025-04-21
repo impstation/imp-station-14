@@ -16,15 +16,8 @@ public sealed class SelfHeadsetSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<SelfHeadsetComponent, InventoryRelayedEvent<GetDefaultRadioChannelEvent>>(OnGetDefault);
         SubscribeLocalEvent<SelfHeadsetComponent, EntGotInsertedIntoContainerMessage>(OnInsert);
         SubscribeLocalEvent<SelfHeadsetComponent, EntGotRemovedFromContainerMessage>(OnRemove);
-    }
-
-    private void OnGetDefault(EntityUid uid, SelfHeadsetComponent component, InventoryRelayedEvent<GetDefaultRadioChannelEvent> args)
-    {
-        if (TryComp(uid, out EncryptionKeyHolderComponent? keyHolder))
-            args.Args.Channel ??= keyHolder.DefaultChannel;
     }
 
     /// <summary>
