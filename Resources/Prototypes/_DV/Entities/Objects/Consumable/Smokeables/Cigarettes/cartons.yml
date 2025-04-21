@@ -2,7 +2,7 @@
   id: CigCartonSyndicate
   parent: [CigCartonGreen, Tier2Contraband] # imp - same contraband tier as interdynes
   name: Interdyne Herbals carton
-  description: A carton containing 6 packets of Interdynes, plus an exclusive flippo.
+  description: A carton containing 6 packets of Interdynes, plus an exclusive Flippo. # imp brand name fix
   components:
   - type: Sprite
     sprite: _DV/Objects/Consumable/Smokeables/Cigarettes/Cartons/syndicate.rsi

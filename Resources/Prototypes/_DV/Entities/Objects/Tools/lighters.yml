@@ -1,8 +1,8 @@
 ﻿- type: entity
   parent: [ FlippoLighter, Tier2Contraband ] # imp - its not tier 1 because its also a fucking gun lol
   id: SyndicateFlippo
-  name: Blood-red flippo
-  description: "A 'Valid' choice in lighters. Capable of superheating welding fuel into incendiary shots when lit. Contains no copper."
+  name: blood-red Flippo # imp caps fix - why was blood capitalized. who is Blood. can i meet them
+  description: "A 'valid' choice in lighters. Capable of superheating welding fuel into incendiary shots when lit. Contains no copper."
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Tools/syndielighter.rsi # imp resprite
