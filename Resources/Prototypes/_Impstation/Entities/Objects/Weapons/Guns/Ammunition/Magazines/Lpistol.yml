@@ -35,7 +35,7 @@
 - type: entity
   id: BaseMagazineZipper
   name: Zipper .22 magazine (.22 auto)
-  description: A 6-round holder-of-bullets. Looks like half a toy.
+  description: A 6-round holder-of-bullets. Looks like half a toy. # gave this a description for roleplay when it shows up in maints loot
   parent: BaseItem
   abstract: true
   components:
