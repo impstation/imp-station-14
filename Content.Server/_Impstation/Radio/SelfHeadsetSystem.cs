@@ -46,6 +46,17 @@ public sealed class SelfHeadsetSystem : EntitySystem
             if (keyHolder.Channels.Count == 0)
                 RemCompDeferred<IntrinsicRadioReceiverComponent>(uid);
             else
+                EnsureComp<IntrinsicRadioReceiverComponent>(uid);
+        }
+
+
+        {
+            if (!Resolve(uid, ref keyHolder))
+                return;
+
+            if (keyHolder.Channels.Count == 0)
+                RemCompDeferred<IntrinsicRadioTransmitterComponent>(uid);
+            else
                 EnsureComp<IntrinsicRadioTransmitterComponent>(uid).Channels = new(keyHolder.Channels);
         }
     }
