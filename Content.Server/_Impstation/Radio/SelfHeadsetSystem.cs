@@ -1,15 +1,20 @@
 using Content.Server.Emp;
 using Content.Server._Impstation.Radio.Components;
 using Content.Server.Radio.Components;
-using Robust.Shared.Audio.Systems;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
+using Content.Shared.Interaction;
 
 namespace Content.Server._Impstation.Radio;
 
 public sealed class SelfHeadsetSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
 
     public override void Initialize()
     {
@@ -17,7 +22,7 @@ public sealed class SelfHeadsetSystem : EntitySystem
 
         SubscribeLocalEvent<SelfHeadsetComponent, EncryptionChannelsChangedEvent>(OnKeysChanged);
         SubscribeLocalEvent<SelfHeadsetComponent, EmpPulseEvent>(OnEmpPulse);
-
+        SubscribeLocalEvent<EncryptionKeyHolderComponent, InteractUsingEvent>(OnInteractUsing);
     }
 
     /// <summary>
@@ -60,9 +65,27 @@ public sealed class SelfHeadsetSystem : EntitySystem
             else
                 EnsureComp<IntrinsicRadioTransmitterComponent>(uid).Channels = new(keyHolder.Channels);
         }
+    }
 
+    private void OnInteractUsing(EntityUid uid, EncryptionKeyHolderComponent component, InteractUsingEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (HasComp<EncryptionKeyComponent>(args.Used))
+        {
+            args.Handled = true;
+            TryInsertKey(uid, component, args);
+        }
+    }
+
+    private void TryInsertKey(EntityUid uid, EncryptionKeyHolderComponent component, InteractUsingEvent args)
+    {
+        if (_container.Insert(args.Used, component.KeyContainer))
         {
             _audio.PlayPredicted(component.KeyInsertionSound, uid, uid);
+            args.Handled = true;
+            return;
         }
     }
 

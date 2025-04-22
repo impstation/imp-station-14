@@ -3,6 +3,7 @@ using Robust.Shared.Prototypes;
 using Content.Shared.Radio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Content.Shared.Tools;
+using Robust.Shared.Containers;
 
 namespace Content.Server._Impstation.Radio.Components;
 
@@ -48,5 +49,8 @@ public sealed partial class SelfHeadsetComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("keyInsertionSound")]
     public SoundSpecifier KeyInsertionSound = new SoundPathSpecifier("Eating");
+
+    [ViewVariables]
+    public Container KeyContainer = default!;
 }
 
