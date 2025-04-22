@@ -1,5 +1,4 @@
 using Content.Server.Chat.Systems;
-using Content.Server.EntityEffects.Effects.StatusEffects;
 using Content.Server.Heretic.Components;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Temperature.Components;
@@ -9,9 +8,7 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
-using Content.Shared.Explosion.Components;
 using Content.Shared.Eye.Blinding.Systems;
-using Content.Shared.Hands;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
@@ -117,7 +114,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
             return;
         }
 
-        var target = (EntityUid) args.Target;
+        var target = (EntityUid)args.Target;
 
         if ((TryComp<HereticComponent>(args.Target, out var th) && th.CurrentPath == ent.Comp.Path))
             return;
