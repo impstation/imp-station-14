@@ -94,8 +94,11 @@ public sealed class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
 
         EntityManager.AddComponents(ent, injectedAnom.Components);
 
-        _stun.TryParalyze(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration), true);
-        _jitter.DoJitter(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration), true);
+        if (!ent.Comp.SkipStun) // imp. added this check for anomalites
+        {
+            _stun.TryParalyze(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration), true);
+            _jitter.DoJitter(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration), true);
+        }
 
         if (ent.Comp.StartSound is not null)
             _audio.PlayPvs(ent.Comp.StartSound, ent);
