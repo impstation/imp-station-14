@@ -15,6 +15,7 @@ using Content.Shared.Hands;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Item;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Speech.Muting;
@@ -174,7 +175,8 @@ public sealed partial class MansusGraspSystem : EntitySystem
         || !TryComp<HereticComponent>(args.User, out var heretic) // not a heretic - how???
         || !heretic.MansusGraspActive // no grasp - not special
         || HasComp<ActiveDoAfterComponent>(args.User) // prevent rune shittery
-        || (!tags.Contains("Write") && !tags.Contains("DecapoidClaw"))) // not a writing implement or decapoid claw
+        || (!tags.Contains("Write") && !tags.Contains("DecapoidClaw")) // not a writing implement or decapoid claw
+        || args.Target != null && HasComp<ItemComponent>(args.Target)) //don't allow clicking items (otherwise the circle gets stuck to them)
             return;
 
         // remove our rune if clicked
