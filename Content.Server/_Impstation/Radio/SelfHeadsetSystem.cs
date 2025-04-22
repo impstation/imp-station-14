@@ -1,6 +1,7 @@
 using Content.Server.Emp;
 using Content.Server._Impstation.Radio.Components;
 using Content.Server.Radio.Components;
+using Robust.Shared.Audio.Systems;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
 
@@ -8,6 +9,7 @@ namespace Content.Server._Impstation.Radio;
 
 public sealed class SelfHeadsetSystem : EntitySystem
 {
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -57,6 +59,10 @@ public sealed class SelfHeadsetSystem : EntitySystem
                 RemCompDeferred<IntrinsicRadioTransmitterComponent>(uid);
             else
                 EnsureComp<IntrinsicRadioTransmitterComponent>(uid).Channels = new(keyHolder.Channels);
+        }
+
+        {
+            _audio.PlayPredicted(component.KeyInsertionSound, uid, uid);
         }
     }
 

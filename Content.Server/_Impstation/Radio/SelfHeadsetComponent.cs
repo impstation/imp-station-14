@@ -46,7 +46,7 @@ public sealed partial class SelfHeadsetComponent : Component
     public string KeysExtractionMethod = "Screwing";
 
     [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("keyExtractionSound")]
-    public SoundSpecifier KeyExtractionSound = new SoundPathSpecifier("eating");
+    [DataField("keyInsertionSound")]
+    public SoundSpecifier KeyInsertionSound = new SoundPathSpecifier("Eating");
 }
 
