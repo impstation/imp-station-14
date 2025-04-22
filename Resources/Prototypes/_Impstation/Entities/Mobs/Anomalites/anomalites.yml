@@ -1,12 +1,11 @@
 - type: entity
-  parent: BaseAnomalyCore
+  parent: BaseAnomalyInertCore
   id: AnomaliteCore
   name: anomalite core
   description: It's empty.
   components:
-  - type: AnomalyCore
-    timeToDecay: 0
-    isDecayed: true
+  - type: Sprite
+    sprite: Structures/Specific/Anomalies/Cores/gravity_core.rsi
 
 # Base Anomalite
 - type: entity
@@ -83,6 +82,42 @@
     needsHands: false
   - type: ComplexInteraction
   - type: SSDIndicator
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      150: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          AnomaliteCore:
+            min: 1
+            max: 1
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 1500
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawnInContainer: true
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:BurnBodyBehavior { }
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MeatLaserImpact
+  - type: StandingState
   # Anomaly component. Some settings changed to make them not be fucked-up powerful. now they're only a little bit fucked-up powerful. 
   - type: Anomaly
     cannotSupercrit: true
@@ -459,17 +494,17 @@
     softness: 10
     color: "#793a80"
   - type: NameIdentifier
-    group: AnomaliteFlora
+    group: AnomaliteShadow
   # Anomaly functionality
   - type: InnerBodyAnomaly
-    injectionProto: AnomalyInjectionFlora
+    injectionProto: AnomalyInjectionShadow
+    skipStun: true
   - type: NightVision
     isActive: true
     toggleAction: null
     color: "#50595C"
     activateSound: null
     deactivateSound: null
-    skipStun: true
 
 # Tech
 - type: entity
