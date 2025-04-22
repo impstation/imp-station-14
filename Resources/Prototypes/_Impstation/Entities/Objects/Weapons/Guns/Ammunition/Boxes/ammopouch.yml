@@ -44,10 +44,6 @@
     whitelist:
       tags:
         - Cartridge
-  - type: StorageFill
-    contents:
-    - id: CartridgeMagnum
-      amount: 12
   - type: ItemCounter
     count:
       tags: [Cartridge]
@@ -72,10 +68,6 @@
     sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Boxes/ammo_pouch.rsi
   - type: Item
     sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Boxes/ammo_pouch.rsi
-  - type: StorageFill
-    contents:
-    - id: CartridgeMagnum
-      amount: 0
 
 - type: entity
   id: AmmoPouch
