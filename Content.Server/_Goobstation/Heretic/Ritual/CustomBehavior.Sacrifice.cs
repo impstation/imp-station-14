@@ -1,5 +1,4 @@
 using Content.Shared.Heretic.Prototypes;
-using Content.Shared.Changeling;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared.Humanoid;
@@ -12,18 +11,12 @@ using Content.Shared.Heretic;
 using Content.Server.Heretic.EntitySystems;
 using Content.Server.Humanoid;
 using Content.Shared.Forensics.Components;
-using Robust.Shared.Toolshed.TypeParsers;
 using Robust.Server.GameObjects;
-using System;
-using System.Linq;
-using Content.Server._Goobstation.Heretic.EntitySystems;
 using Content.Server.Heretic.Components;
-using Content.Server.Forensics;
 using Content.Server.Body.Systems;
 using Content.Server.Body.Components;
-using Content.Shared.Forensics;
+using Content.Server._Goobstation.Heretic.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
-using Robust.Shared.GameObjects;
 using Content.Shared.Chemistry.EntitySystems;
 
 
