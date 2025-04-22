@@ -39,8 +39,11 @@ ghostrole-prophet-desc = Aid your summoner in achieving ascension. Connect other
 ghostrole-stalker-desc = Aid your summoner in achieving ascension. Jaunt and sabotage crew's lighting.
 ghostrole-ghoul-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with the one who summoned you and other eldritch beings.
 
+ghoul-notif-text =
+    You have been resurrected as a ghoul!
+
+    Protect your new master and follow their orders.
 ghoul-notif-title = Return to Flesh
-ghoul-notif-text = You have been resurrected as a ghoul! You are now a servant of whoever resurrected you.
 
 ##hell memory loss notification
 hell-memory-title = Memory Loss
