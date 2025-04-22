@@ -58,6 +58,9 @@
   - type: IgnitionSource
     temperature: 400
     ignited: true
+  - type: Summonable # imp
+    requiresBibleUser: false
+    specialItem: SpawnPointGhostAnomalitePyroclastic
 
 - type: entity
   parent: BaseAnomalyCore
@@ -71,6 +74,9 @@
     energy: 10
     color: "#1e070e"
     castShadows: false
+  - type: Summonable # imp
+    requiresBibleUser: false
+    specialItem: SpawnPointGhostAnomaliteGravity
 
 - type: entity
   parent: BaseAnomalyCore
