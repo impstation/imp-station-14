@@ -1,0 +1,49 @@
+# Pyroclastic
+- type: entity
+  parent: MarkerBase
+  id: SpawnPointGhostAnomalitePyroclastic
+  name: anomalite spawn point
+  suffix: Pyroclastic
+  categories: [ DoNotMap ]
+  components:
+  - type: GhostRole
+    name: ghost-role-information-fireanomalite-name
+    description: ghost-role-information-fireanomalite-description
+    rules: ghost-role-information-familiar-anomalite-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+    raffle:
+      settings: short
+  - type: GhostRoleMobSpawner
+    prototype: MobAnomalitePyroclastic
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: _Impstation/Mobs/Anomalites/anomalite.rsi
+        state: anomalyfire
+
+# Gravity
+- type: entity
+  parent: MarkerBase
+  id: SpawnPointGhostAnomaliteGravity
+  name: anomalite spawn point
+  suffix: Gravity
+  categories: [ DoNotMap ]
+  components:
+  - type: GhostRole
+    name: ghost-role-information-gravanomalite-name
+    description: ghost-role-information-gravanomalite-description
+    rules: ghost-role-information-familiar-anomalite-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+    raffle:
+      settings: short
+  - type: GhostRoleMobSpawner
+    prototype: MobAnomaliteGravity
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: _Impstation/Mobs/Anomalites/anomalite.rsi
+        state: anomalygravity

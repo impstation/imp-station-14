@@ -105,3 +105,5 @@ ghost-role-information-drone-rules = You are bound by these laws both in-game an
 
 ghost-role-information-young-kodepiia-name = Young Kodepiia
 ghost-role-information-young-kodepiia-description = A shy sort-of-creature, emerging from the station vents. It hates confrontation.
+
+
