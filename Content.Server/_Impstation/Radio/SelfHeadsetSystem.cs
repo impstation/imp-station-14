@@ -22,7 +22,7 @@ public sealed class SelfHeadsetSystem : EntitySystem
 
         SubscribeLocalEvent<SelfHeadsetComponent, EncryptionChannelsChangedEvent>(OnKeysChanged);
         SubscribeLocalEvent<SelfHeadsetComponent, EmpPulseEvent>(OnEmpPulse);
-        SubscribeLocalEvent<EncryptionKeyHolderComponent, InteractUsingEvent>(OnInteractUsing);
+        SubscribeLocalEvent<SelfHeadsetComponent, InteractUsingEvent>(OnInteractUsing);
     }
 
     /// <summary>
@@ -67,19 +67,19 @@ public sealed class SelfHeadsetSystem : EntitySystem
         }
     }
 
-    private void OnInteractUsing(EntityUid uid, EncryptionKeyHolderComponent component, InteractUsingEvent args)
+    private void OnInteractUsing(EntityUid uid, SelfHeadsetComponent component, InteractUsingEvent args)
     {
         if (args.Handled)
             return;
 
-        if (HasComp<EncryptionKeyComponent>(args.Used))
+        if (HasComp<SelfHeadsetComponent>(args.Used))
         {
             args.Handled = true;
             TryInsertKey(uid, component, args);
         }
     }
 
-    private void TryInsertKey(EntityUid uid, EncryptionKeyHolderComponent component, InteractUsingEvent args)
+    private void TryInsertKey(EntityUid uid, SelfHeadsetComponent component, InteractUsingEvent args)
     {
         if (_container.Insert(args.Used, component.KeyContainer))
         {
@@ -89,6 +89,9 @@ public sealed class SelfHeadsetSystem : EntitySystem
         }
     }
 
+    /// <summary>
+    /// Disables radio when hit by an EMP.
+    /// </summary>
     private void OnEmpPulse(EntityUid uid, SelfHeadsetComponent component, ref EmpPulseEvent args)
     {
         {
