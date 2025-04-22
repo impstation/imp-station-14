@@ -95,6 +95,12 @@
   - type: Inventory
     speciesId: suppy
     templateId: suppy
+  - type: ContainerContainer
+    containers:
+      body_root_part: !type:ContainerSlot
+      mask: !type:ContainerSlot
+      eyes: !type:ContainerSlot
+      head: !type:ContainerSlot
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-superdense
   - type: InteractionPopup
