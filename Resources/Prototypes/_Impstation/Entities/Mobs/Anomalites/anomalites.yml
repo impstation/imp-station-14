@@ -63,6 +63,21 @@
       path: /Audio/Animals/mouse_squeak.ogg # this should be unique per-type.
     interactFailureSound:
       path: /Audio/Effects/tesla_consume.ogg # this should be unique per-type.
+  - type: StatusEffects
+    allowed:
+    - Stun
+    - KnockedDown
+    - SlowedDown
+    - Stutter
+    - Electrocution
+    - ForcedSleep
+    - TemporaryBlindness
+    - Pacified
+    - StaminaModifier
+    - Flashed
+    - RadiationProtection
+    - Drowsiness
+    - Adrenaline
   - type: Puller
     needsHands: false
   - type: ComplexInteraction
