@@ -8,8 +8,7 @@
     difficulty: 1
   - type: RoleRequirement
     roles:
-      mindRoles:
-      - MindRoleBountyHunter
+    - MindRoleBountyHunter
 
 - type: entity
   parent: [BaseKillObjective, BaseBountyHunterObjective]
