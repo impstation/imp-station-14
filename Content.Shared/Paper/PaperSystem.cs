@@ -10,6 +10,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Audio.Systems;
 using static Content.Shared.Paper.PaperComponent;
 using Content.Shared._Impstation.Illiterate;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Paper;
 
@@ -23,6 +24,9 @@ public sealed class PaperSystem : EntitySystem
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+
+    private static readonly ProtoId<TagPrototype> WriteIgnoreStampsTag = "WriteIgnoreStamps";
+    private static readonly ProtoId<TagPrototype> WriteTag = "Write";
 
     public override void Initialize()
     {
@@ -101,8 +105,8 @@ public sealed class PaperSystem : EntitySystem
     private void OnInteractUsing(Entity<PaperComponent> entity, ref InteractUsingEvent args)
     {
         // only allow editing if there are no stamps or when using a cyberpen
-        var editable = entity.Comp.StampedBy.Count == 0 || _tagSystem.HasTag(args.Used, "WriteIgnoreStamps");
-        if (_tagSystem.HasTag(args.Used, "Write"))
+        var editable = entity.Comp.StampedBy.Count == 0 || _tagSystem.HasTag(args.Used, WriteIgnoreStampsTag);
+        if (_tagSystem.HasTag(args.Used, WriteTag))
         {
             if (editable)
             {
@@ -182,8 +186,10 @@ public sealed class PaperSystem : EntitySystem
         {
             SetContent(entity, args.Text);
 
+            var paperStatus = string.IsNullOrWhiteSpace(args.Text) ? PaperStatus.Blank : PaperStatus.Written;
+
             if (TryComp<AppearanceComponent>(entity, out var appearance))
-                _appearance.SetData(entity, PaperVisuals.Status, PaperStatus.Written, appearance);
+                _appearance.SetData(entity, PaperVisuals.Status, paperStatus, appearance);
 
             if (TryComp(entity, out MetaDataComponent? meta))
                 _metaSystem.SetEntityDescription(entity, "", meta);
@@ -223,6 +229,26 @@ public sealed class PaperSystem : EntitySystem
         }
         return true;
     }
+
+    /// <summary>
+    ///     Copy any stamp information from one piece of paper to another.
+    /// </summary>
+    public void CopyStamps(Entity<PaperComponent?> source, Entity<PaperComponent?> target)
+    {
+        if (!Resolve(source, ref source.Comp) || !Resolve(target, ref target.Comp))
+            return;
+
+        target.Comp.StampedBy = new List<StampDisplayInfo>(source.Comp.StampedBy);
+        target.Comp.StampState = source.Comp.StampState;
+        Dirty(target);
+
+        if (TryComp<AppearanceComponent>(target, out var appearance))
+        {
+            // delete any stamps if the stamp state is null
+            _appearance.SetData(target, PaperVisuals.Stamp, target.Comp.StampState ?? "", appearance);
+        }
+    }
+
 
     public void SetContent(Entity<PaperComponent> entity, string content)
     {
