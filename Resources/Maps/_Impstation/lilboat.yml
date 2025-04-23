@@ -1,4 +1,4 @@
-meta:
+`meta:
   format: 7
   category: Map
   engineVersion: 251.0.0
@@ -51814,8 +51814,6 @@ entities:
       pos: 6.5,27.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
 - proto: SurveillanceWirelessCameraPocket
   entities:
   - uid: 2585
@@ -53684,32 +53682,24 @@ entities:
       pos: 32.5,8.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
   - uid: 2336
     components:
     - type: Transform
       pos: 36.5,8.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
   - uid: 2337
     components:
     - type: Transform
       pos: 40.5,8.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
   - uid: 3538
     components:
     - type: Transform
       pos: 8.5,16.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
 - proto: WallShuttle
   entities:
   - uid: 11
