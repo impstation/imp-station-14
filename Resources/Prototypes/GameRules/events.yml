@@ -243,6 +243,7 @@
         nameSegments:
         - NamesNinjaTitle
         - NamesNinja
+        nameFormat: name-format-ninja
       mindRoles:
       - MindRoleNinja
 
@@ -264,7 +265,7 @@
     objectives:
     - ParadoxCloneKillObjective
     - ParadoxCloneLivingObjective
-  - type: AntagRandomSpawn # TODO: improve spawning so they only start in maints
+  # - type: AntagRandomSpawn imp edit, uses midround antag spawners
   - type: AntagSelection
     agentName: paradox-clone-round-end-agent-name
     definitions:
@@ -329,6 +330,7 @@
         nameSegments:
         - NamesWizardFirst
         - NamesWizardLast
+        nameFormat: name-format-wizard
       mindRoles:
       - MindRoleWizard
 
@@ -477,6 +479,7 @@
         nameSegments:
         - NamesSyndicatePrefix
         - NamesSyndicateNormal
+        nameFormat: name-format-nukie-generic
       - type: NpcFactionMember
         factions:
         - Syndicate
