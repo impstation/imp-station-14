@@ -386,8 +386,8 @@ namespace Content.Server.Ghost
                 var jobName = _jobs.MindTryGetJobName(mind?.Mind);
                 var playerInfo = $"{Comp<MetaDataComponent>(attached).EntityName} ({jobName})";
 
-                // imp. removed check for alive or crit - so ghosts can warp to other ghosts.
-                yield return new GhostWarp(GetNetEntity(attached), playerInfo, false);
+                if (_mobState.IsAlive(attached) || _mobState.IsCritical(attached))
+                    yield return new GhostWarp(GetNetEntity(attached), playerInfo, false);
             }
 
             // imp - added this so people can warp to dead players
