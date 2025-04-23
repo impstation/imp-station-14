@@ -15,11 +15,29 @@
   potency: 10
   idealLight: 6
   chemicals:
-    Nutriment:
+    Razorium:
       Min: 1
-      Max: 10
+      Max: 3
       PotencyDivisor: 10
-    Vitamin:
+
+- type: seed
+  id: blackRose
+  name: seeds-blackRose-name
+  noun: seeds-noun-seeds
+  displayName: seeds-blackRose-display-name
+  plantRsi: _Impstation/Objects/Specific/Hydroponics/rose.rsi
+  packetPrototype: BlackoseSeeds
+  productPrototypes:
+    - RoseBlack
+  harvestRepeat: Repeat
+  lifespan: 55
+  maturation: 6
+  production: 6
+  yield: 3
+  potency: 10
+  idealLight: 6
+  chemicals:
+    Razorium:
       Min: 1
-      Max: 4
-      PotencyDivisor: 25
+      Max: 3
+      PotencyDivisor: 10
