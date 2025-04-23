@@ -20,7 +20,6 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Chemistry.EntitySystems;
 
 
-
 namespace Content.Server.Heretic.Ritual;
 
 /// <summary>
@@ -39,11 +38,6 @@ namespace Content.Server.Heretic.Ritual;
     ///     Maximum amount of corpses.
     /// </summary>
     [DataField] public float Max = 1;
-
-    /// <summary>
-    ///     Should we count only targets?
-    /// </summary>
-    [DataField] public bool OnlyTargets = false;
 
     // this is awful but it works so i'm not complaining
     // i'm complaining -kandiyaki
@@ -82,13 +76,14 @@ namespace Content.Server.Heretic.Ritual;
         _proto = IoCManager.Resolve<IPrototypeManager>();
         _entmanager = IoCManager.Resolve<IEntityManager>();
 
-
+        //if the performer isn't a heretic, stop
         if (!args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
         {
             outstr = string.Empty;
             return false;
         }
 
+        //get all entities in range of the circle
         var lookup = _lookup.GetEntitiesInRange(args.Platform, .75f);
         if (lookup.Count == 0 || lookup == null)
         {
@@ -107,6 +102,7 @@ namespace Content.Server.Heretic.Ritual;
                 uids.Add(look);
         }
 
+        //if none are dead, say so
         if (uids.Count < Min)
         {
             outstr = Loc.GetString("heretic-ritual-fail-sacrifice-ineligible");
@@ -146,7 +142,7 @@ namespace Content.Server.Heretic.Ritual;
                 {
                     //this is copied from BloodstreamSystem's OnDnaGenerated
                     //i hate it
-                    if(_solutionContainerSystem.ResolveSolution(sacrificialWhiteBoy, dummyBlood.BloodSolutionName, ref dummyBlood.BloodSolution, out var bloodSolution))
+                    if (_solutionContainerSystem.ResolveSolution(sacrificialWhiteBoy, dummyBlood.BloodSolutionName, ref dummyBlood.BloodSolution, out var bloodSolution))
                     {
                         foreach (var reagent in bloodSolution.Contents)
                         {
@@ -160,7 +156,7 @@ namespace Content.Server.Heretic.Ritual;
             //beat the clone to death. this is just to get matching organs
             if (args.EntityManager.TryGetComponent<DamageableComponent>(uids[i], out var dmg))
             {
-                var prot = (ProtoId<DamageGroupPrototype>) "Brute";
+                var prot = (ProtoId<DamageGroupPrototype>)"Brute";
                 var dmgtype = _proto.Index(prot);
                 _damage.TryChangeDamage(sacrificialWhiteBoy, new DamageSpecifier(dmgtype, 1984f), true);
             }
@@ -175,7 +171,7 @@ namespace Content.Server.Heretic.Ritual;
             if (args.EntityManager.TryGetComponent<HellVictimComponent>(uids[i], out var hellVictim))
             {
                 //i'm so sorry to all of my computer science professors. i've failed you
-                if(hellVictim.HasMind)
+                if (hellVictim.HasMind)
                 {
                     _hellworld.SendToHell(uids[i], args, speciesPrototype);
                 }
