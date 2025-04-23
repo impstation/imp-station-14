@@ -4,7 +4,7 @@ meta:
   engineVersion: 250.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/23/2025 05:39:25
+  time: 04/23/2025 08:10:35
   entityCount: 17734
 maps:
 - 5005
@@ -14618,13 +14618,13 @@ entities:
             0: 28791
           -21,12:
             1: 15
-            6: 30464
+            4: 30464
           -20,13:
             0: 52381
             1: 4352
           -21,13:
             1: 65280
-            6: 7
+            4: 7
           -20,14:
             1: 24337
             0: 12
@@ -14786,7 +14786,7 @@ entities:
             0: 32
           -23,8:
             1: 255
-            4: 57344
+            5: 57344
           -22,4:
             1: 8184
           -22,5:
@@ -14817,12 +14817,12 @@ entities:
             1: 226
           -23,11:
             1: 61440
-            6: 224
+            4: 224
           -23,9:
-            5: 224
-            6: 57344
-          -23,10:
             6: 224
+            4: 57344
+          -23,10:
+            4: 224
             7: 57344
           -23,12:
             1: 242
@@ -14999,6 +14999,21 @@ entities:
         - volume: 2500
           temperature: 293.15
           moles:
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
           - 6666.982
           - 0
           - 0
@@ -15016,21 +15031,6 @@ entities:
           moles:
           - 0
           - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
-          - 0
           - 0
           - 0
           - 0
@@ -50443,12 +50443,6 @@ entities:
       parent: 1
 - proto: ComfyChair
   entities:
-  - uid: 42
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -77.5,54.5
-      parent: 1
   - uid: 1441
     components:
     - type: Transform
@@ -85369,6 +85363,13 @@ entities:
     - type: Transform
       pos: 16.5,31.5
       parent: 1
+- proto: HolopadCommandHd
+  entities:
+  - uid: 42
+    components:
+    - type: Transform
+      pos: -77.5,54.5
+      parent: 1
 - proto: HolopadCommandHop
   entities:
   - uid: 16638
@@ -101082,7 +101083,7 @@ entities:
       pos: 16.5,48.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -44524.297
+      secondsUntilStateChange: -44602.73
       state: Opening
 - proto: SpaceCash10000
   entities:
