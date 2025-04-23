@@ -4,8 +4,8 @@ meta:
   engineVersion: 251.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/23/2025 12:50:26
-  entityCount: 8961
+  time: 04/23/2025 14:36:39
+  entityCount: 8959
 maps:
 - 1
 grids:
@@ -20735,13 +20735,6 @@ entities:
       parent: 1168
     - type: Physics
       canCollide: False
-- proto: ClothingHeadHatCatEarsValid
-  entities:
-  - uid: 6966
-    components:
-    - type: Transform
-      pos: 24.51072,46.876003
-      parent: 2
 - proto: ClothingHeadHatParamedicsoft
   entities:
   - uid: 373
@@ -22542,6 +22535,14 @@ entities:
     - type: Transform
       pos: 16.126606,-14.254995
       parent: 2
+- proto: DehydratedSpaceCarp
+  entities:
+  - uid: 3332
+    components:
+    - type: Transform
+      pos: 37.655643,-39.80984
+      parent: 2
+    - type: Conveyed
 - proto: DeskBell
   entities:
   - uid: 223
@@ -42850,13 +42851,6 @@ entities:
     - type: Transform
       pos: 35.303833,34.46147
       parent: 2
-- proto: PlushieCarp
-  entities:
-  - uid: 3332
-    components:
-    - type: Transform
-      pos: 37.50104,-39.678646
-      parent: 2
 - proto: PlushieDecapoid
   entities:
   - uid: 3681
@@ -42870,13 +42864,6 @@ entities:
     components:
     - type: Transform
       pos: 19.426603,28.94547
-      parent: 2
-- proto: PlushieEvilBug
-  entities:
-  - uid: 8932
-    components:
-    - type: Transform
-      pos: 19.445108,46.551975
       parent: 2
 - proto: PlushieFinfin
   entities:
@@ -43037,11 +43024,28 @@ entities:
       parent: 2
 - proto: PlushieThavenWeird
   entities:
-  - uid: 8823
+  - uid: 6966
     components:
     - type: Transform
-      pos: 12.71298,-42.458702
+      pos: 19.439114,46.534893
       parent: 2
+    - type: GhostRole
+      mindRoles:
+      - MindRoleGhostRoleNeutral
+      rules: >-
+        All normal rules apply unless an administrator tells you otherwise.
+
+
+        You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
+      description: just a normal thaven
+      name: normal thaven
+    - type: GhostTakeoverAvailable
+    - type: MindContainer
+    - type: InputMover
+    - type: MobMover
+    - type: MovementSpeedModifier
+    - type: Emoting
+    - type: Examiner
 - proto: PlushieUrsaMinor
   entities:
   - uid: 6715
