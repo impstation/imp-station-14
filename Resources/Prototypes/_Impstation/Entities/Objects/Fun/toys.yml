@@ -686,4 +686,83 @@
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Fun/prizeticket.rsi
-    state: diamond
+    state: diamushieond
+
+- type: entity
+  parent: BaseItem
+  id: PlushieFuzzbo
+  name: Fuzzbo
+  description: These plush electronics were once suspected of containing listening devices and thus banned from high-security locations. But that's silly, right?
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    layers:
+    - state: plushie_fuzzbo_babyBlue
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+  - type: RandomSprite
+    available:
+      - enum.DamageStateVisualLayers.Base:
+          plushie_fuzzbo_babyGray: ""
+          plushie_fuzzbo_babyTiger: ""
+          plushie_fuzzbo_babyTreeFrog: ""
+          plushie_fuzzbo_babyBrown: ""
+          plushie_fuzzbo_babyPurple: ""
+          plushie_fuzzbo_babyBlue: ""
+  - type: Rotatable
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/Toys/mousesqueek.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Items/Toys/mousesqueek.ogg
+    damage:
+      types:
+        Blunt: 0
+  - type: UseDelay
+    delay: 1.0
+  - type: StealTarget
+    stealGroup: Plushie
+  - type: Input
+    context: human
+  - type: BlockMovement
+  - type: ToggleableGhostRole
+    examineTextMindPresent: Fuzzbo-system-on
+    examineTextMindSearching: Fuzzbo-system-still-searching
+    examineTextNoMind: Fuzzbo-system-off
+    beginSearchingText: Fuzzbo-system-searching
+    roleName: Fuzzbo-system-role-name
+    roleDescription: Fuzzbo-system-role-description
+    roleRules: ghost-role-information-familiar-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+    wipeVerbText: Fuzzbo-system-wipe-device-verb-text
+    wipeVerbPopup: Fuzzbo-system-wiped-device
+    stopSearchVerbText: Fuzzbo-system-stop-searching-verb-text
+    stopSearchVerbPopup: Fuzzbo-system-stopped-searching
+  - type: Examiner
+  - type: SelfHeadset     #replace with "SelfHeadset" to allow to talk on self and not just receive channels
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+  - type: ActiveRadio
+    channels:
+    - Common
+  - type: ContainerContainer
+    containers:
+      key_slots: !type:Container
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+  - type: EncryptionKeyHolder
+    keySlots: 4
+  - type: TypingIndicator
+    proto: moth
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Pai
+  - type: DoAfter
+  - type: Actions
+  - type: MobState
+    allowedStates:
+      - Alive
