@@ -1,34 +1,4 @@
 ﻿Entries:
-- author: Darkmajia
-  changes:
-  - message: 'DINO WARS: FINAL REMIX'
-    type: Add
-  id: 1051
-  time: '2025-02-05T00:11:08.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1565
-- author: 12rabbits
-  changes:
-  - message: Mobs will no longer automatically unbuckle themselves after recovering
-      from a critical state.
-    type: Fix
-  id: 1052
-  time: '2025-02-05T09:15:51.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1569
-- author: formlessnameless
-  changes:
-  - message: Dead changelings will now automatically go into stasis if they have enough
-      biomass left.
-    type: Fix
-  id: 1053
-  time: '2025-02-05T09:40:32.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1557
-- author: hivehum
-  changes:
-  - message: Heretic rounds should have more random events.
-    type: Tweak
-  id: 1054
-  time: '2025-02-06T00:36:31.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1579
 - author: RosySaturniidae
   changes:
   - message: added a few new figurines!
@@ -4105,3 +4075,37 @@
   id: 1550
   time: '2025-04-23T10:17:10.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/2309
+- author: TheGrimbeeper
+  changes:
+  - message: reduced romerol slime probability
+    type: Tweak
+  - message: coffee slime (it is yum OR poison)
+    type: Add
+  id: 1551
+  time: '2025-04-23T14:20:29.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2288
+- author: MintyTheBinty
+  changes:
+  - message: Added a quick dose of Cardassian justice and enlightenment to our dear
+      players at the end of a shift.
+    type: Add
+  id: 1552
+  time: '2025-04-23T14:27:42.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2297
+- author: RosySaturniidae
+  changes:
+  - message: slightly improved model for flippo lighters!
+    type: Tweak
+  - message: syndicate flippo lighters no longer have cloaking technology.
+    type: Tweak
+  id: 1553
+  time: '2025-04-23T14:30:24.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2275
+- author: Kandiyaki
+  changes:
+  - message: it is no longer possible to draw a heretic rune on held items, permanently
+      sticking it to the holder.
+    type: Fix
+  id: 1554
+  time: '2025-04-23T14:32:47.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2316
