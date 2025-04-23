@@ -205,14 +205,3 @@
     layers:
       - state: crab
         shader: unshaded
-
-- type: entity
-  categories: [ HideSpawnMenu ]
-  parent: CosmicPolymorphEnt
-  id: CosmicPolymorphEntAnomalocarid
-  components:
-  - type: Sprite
-    sprite: _Impstation/CosmicCult/Effects/ability_lapsepolymorph_anomalocarid.rsi
-    layers:
-      - state: anomalocarid
-        shader: unshaded

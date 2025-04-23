@@ -327,9 +327,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
             case "Decapoid":
                 _polymorph.PolymorphEntity(action.Target, "CosmicLapseMobDecapoid");
                 break;
-            case "Anomalocarid":
-                _polymorph.PolymorphEntity(action.Target, "CosmicLapseMobAnomalocarid");
-                break;
             default:
                 _polymorph.PolymorphEntity(action.Target, "CosmicLapseMobHuman");
                 break;
