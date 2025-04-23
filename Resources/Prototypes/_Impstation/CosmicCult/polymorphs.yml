@@ -76,17 +76,6 @@
     duration: 12
     polymorphSound: /Audio/_Impstation/CosmicCult/ability_lapse.ogg
 
-- type: polymorph
-  id: CosmicLapseMobAnomalocarid
-  configuration:
-    entity: CosmicPolymorphEntAnomalocarid
-    forced: true
-    inventory: None
-    transferName: false
-    transferDamage: true
-    duration: 12
-    polymorphSound: /Audio/_Impstation/CosmicCult/ability_lapse.ogg
-
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: BaseStructure
