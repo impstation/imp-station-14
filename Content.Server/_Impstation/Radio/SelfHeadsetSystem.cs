@@ -7,11 +7,15 @@ using Content.Shared.Radio.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Content.Shared.Interaction;
+using Content.Shared.Emag.Systems;
+using Content.Shared.CombatMode;
 
 namespace Content.Server._Impstation.Radio;
 
 public sealed class SelfHeadsetSystem : EntitySystem
 {
+
+    [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
@@ -23,6 +27,7 @@ public sealed class SelfHeadsetSystem : EntitySystem
         SubscribeLocalEvent<SelfHeadsetComponent, EncryptionChannelsChangedEvent>(OnKeysChanged);
         SubscribeLocalEvent<SelfHeadsetComponent, EmpPulseEvent>(OnEmpPulse);
         SubscribeLocalEvent<SelfHeadsetComponent, InteractUsingEvent>(OnInteractUsing);
+        SubscribeLocalEvent<SelfHeadsetComponent, GotEmaggedEvent>(OnEmagged);
     }
 
     /// <summary>
@@ -97,6 +102,28 @@ public sealed class SelfHeadsetSystem : EntitySystem
         {
             args.Affected = true;
             args.Disabled = true;
+        }
+    }
+    /// <summary>
+    /// Makes Fuzzbo EVIL!!!!!
+    /// </summary>
+    /// <param name="uid"></param>
+    /// <param name="component"></param>
+    /// <param name="args"></param>
+    private void OnEmagged(EntityUid uid, SelfHeadsetComponent component, ref GotEmaggedEvent args)
+    {
+        {
+            if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+                return;
+
+            if (_emag.CheckFlag(uid, EmagType.Interaction))
+                return;
+
+            args.Handled = true;
+        }
+
+        {
+            EnsureComp<CombatModeComponent>(uid);
         }
     }
 
