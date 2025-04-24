@@ -17,7 +17,7 @@
   id: AdvancedMunitions
   name: research-technology-advanced-munitions
   icon:
-    sprite: Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi
+    sprite: _Wizden/Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi
     state: incendiarydisplay
   discipline: Arsenal
   tier: 1
@@ -28,6 +28,7 @@
   - MagazineRifleIncendiary
   - MagazinePistolIncendiary
   - MagazinePistolSubMachineGunIncendiary
+  - MagazinePistolP2Incendiary
   - MagazineLightRifleIncendiary
   - MagazineLPistolIncendiary
   - SpeedLoaderMagnumIncendiary
@@ -40,6 +41,7 @@
   - MagazineRifleUranium
   - MagazineLPistolUranium
   - MagazinePistolUranium
+  - MagazinePistolP2Uranium
   - MagazineDMRUranium
   - MagazinePistolSubMachineGunUranium
   - MagazineLightRifleUranium
