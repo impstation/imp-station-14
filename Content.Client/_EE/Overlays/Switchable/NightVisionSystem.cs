@@ -77,7 +77,7 @@ public sealed class NightVisionSystem : Client.Overlays.EquipmentHudSystem<Night
 
     private void UpdateNightVision(bool active)
     {
-        _lightManager.DrawShadows = !active;
+        _lightManager.DrawLighting = !active; // imp - changed to match goob. unfortunately their solution was better
     }
 
     private void UpdateOverlay(NightVisionComponent? nvComp)
