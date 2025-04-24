@@ -40,6 +40,13 @@ public sealed partial class SelfHeadsetComponent : Component
     public HashSet<ProtoId<RadioChannelPrototype>> TransmitterAddedChannels = new();
 
     /// <summary>
+    /// Should the radio channels be examinable.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
+    public bool Hidden;
+
+    /// <summary>
     ///     The tool required to extract the encryption keys from the headset.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
@@ -48,7 +55,7 @@ public sealed partial class SelfHeadsetComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("keyInsertionSound")]
-    public SoundSpecifier KeyInsertionSound = new SoundPathSpecifier("Eating");
+    public SoundSpecifier KeyInsertionSound = new SoundPathSpecifier("eating");
 
     [ViewVariables]
     public Container KeyContainer = default!;

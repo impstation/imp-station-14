@@ -1,14 +1,16 @@
 using Content.Server.Emp;
 using Content.Server._Impstation.Radio.Components;
 using Content.Server.Radio.Components;
+using Content.Shared.CombatMode;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Interaction;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
-using Content.Shared.Interaction;
+
 using Content.Shared.Emag.Systems;
-using Content.Shared.CombatMode;
+
 
 namespace Content.Server._Impstation.Radio;
 
@@ -105,11 +107,8 @@ public sealed class SelfHeadsetSystem : EntitySystem
         }
     }
     /// <summary>
-    /// Makes Fuzzbo EVIL!!!!!
+    /// Makes Fuzzbo EVIL!!!!! (Allows the player inhabiting the ghost role to activate Harm Mode at will.)
     /// </summary>
-    /// <param name="uid"></param>
-    /// <param name="component"></param>
-    /// <param name="args"></param>
     private void OnEmagged(EntityUid uid, SelfHeadsetComponent component, ref GotEmaggedEvent args)
     {
         {
