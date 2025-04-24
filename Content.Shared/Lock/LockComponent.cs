@@ -95,7 +95,7 @@ public sealed partial class LockComponent : Component
         Params = new AudioParams
         {
             Volume = -5f,
-            Variation = 0.3f
+            Pitch = 1.272f
         }
     };
 }
