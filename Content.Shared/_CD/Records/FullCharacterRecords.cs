@@ -1,5 +1,8 @@
 using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.StatusIcon;
 using Robust.Shared.Enums;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._CD.Records;
@@ -52,16 +55,16 @@ public sealed class FullCharacterRecords(
     public string JobTitle = jobTitle;
 
     /// <summary>
-    ///     Job icon tied to this record.
+    ///     Job icon tied to this record. Imp edit - made this a protoID
     /// </summary>
     [ViewVariables]
-    public string JobIcon = jobIcon;
+    public ProtoId<JobIconPrototype> JobIcon = jobIcon;
 
     /// <summary>
-    ///     Species tied to this record.
+    ///     Species tied to this record. imp edit - made this a protoID
     /// </summary>
     [ViewVariables]
-    public string Species = species;
+    public ProtoId<SpeciesPrototype> Species = species;
 
     /// <summary>
     ///     Gender identity tied to this record.

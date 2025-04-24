@@ -37,6 +37,8 @@
                             <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
                                 <Label Text="{Loc 'cd-character-records-viewer-record-job'}"/>
                                 <Control HorizontalExpand="True" />
+                                <!-- imp edit - icon display -->
+                                <TextureRect Name="RecordContainerJobIcon" TextureScale="2 2" Margin="6 0" VerticalAlignment="Center"/>
                                 <Label Name="RecordContainerJob" Align="Right" />
                             </BoxContainer>
                             <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
