@@ -14,7 +14,7 @@ public sealed partial class CCVars
     ///     Allows flavor text (character descriptions)
     /// </summary>
     public static readonly CVarDef<bool> FlavorText =
-        CVarDef.Create("ic.flavor_text", false, CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("ic.flavor_text", true, CVar.SERVER | CVar.REPLICATED); //REMEMBER TO FUCKING UNTOUCH THIS IF YOU'RE READING THIS ON PROD IT'S TOO LATE!!!
 
     /// <summary>
     ///     Adds a period at the end of a sentence if the sentence ends in a letter.
