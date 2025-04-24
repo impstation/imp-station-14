@@ -4,7 +4,7 @@ humanoid-profile-editor-cd-records-tab = Records
 # General
 humanoid-profile-editor-cd-records-height = Height (cm):
 humanoid-profile-editor-cd-records-weight = Weight (kg):
-humanoid-profile-editor-cd-records-contact-name = Current Location of Residency:
+humanoid-profile-editor-cd-records-contact-name = Current Place of Residency:
 
 # Imp edit for wording; tweaked emergency contacts to residency
 
