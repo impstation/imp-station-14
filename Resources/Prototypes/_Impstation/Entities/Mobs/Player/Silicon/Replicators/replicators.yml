@@ -24,11 +24,8 @@
     drawdepth: Mobs
     sprite: _Impstation/Mobs/Replicator/replicator.rsi # //TODOOOOOOOO
     layers:
-    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+    - map: ["enum.DamageStateVisualLayers.Base"]
       state: alive
-    - map: ["enum.ReplicatorVisual.Upgraded"]
-      state: Upgraded
-      visible: false
     - map: ["enum.ReplicatorVisual.Combat"]
       state: combat
       visible: false
@@ -67,6 +64,10 @@
       types:
         Slashing: 7
         Structural: 14 # breaks down the walls and airlocks in 10 hits
+  - type: StaminaDamageOnHit
+    damage: 15
+    overtime: 40
+    sound: /Audio/Weapons/egloves.ogg
   - type: MovementSpeedModifier
     baseWalkSpeed : 2 # same as slime
     baseSprintSpeed : 4
@@ -96,17 +97,17 @@
   #  queen: true
 
 - type: entity
-  id: MobReplicatorUpgraded
+  id: MobReplicatorTier1
   parent: MobReplicator
   suffix: Upgraded
   components:
-  #-type: Replicator
-  # upgraded: true
+  - type: Replicator
+    upgradeStage: 1
   - type: Sprite
     drawDepth: Mobs
     sprite: _Impstation/Mobs/Replicator/replicator.rsi # //TODOOOOOOOO
     layers:
-    - map: ["enum.ReplicatorVisual.Upgraded"]
+    - map: ["enum.DamageStateVisualLayers.Base"]
       state: Upgraded
     - map: ["enum.ReplicatorVisual.Combat"]
       state: combat
@@ -115,7 +116,7 @@
     rotate: false
     states:
       Alive:
-        Base: Upgraded
+        Base: upgraded
       Dead:
         Base: dead_upgraded
   - type: MeleeWeapon

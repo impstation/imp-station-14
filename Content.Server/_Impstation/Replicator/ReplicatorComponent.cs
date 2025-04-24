@@ -3,6 +3,7 @@
 // the original Bingle PR can be found here: https://github.com/Goob-Station/Goob-Station/pull/1519
 
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization;
 
 namespace Content.Server._Impstation.Replicator;
 
@@ -10,16 +11,26 @@ namespace Content.Server._Impstation.Replicator;
 public sealed partial class ReplicatorComponent : Component
 {
     /// <summary>
-    /// If a replicator is Queen, it will spawn a nest. 
+    /// If a replicator is Queen, it will spawn a nest when it spawns.
     /// </summary>
     [DataField]
     public bool Queen;
 
+    /// <summary>
+    /// Current upgrade stage. Allows us to have an arbitrary number of upgrades, dictated by MaxUpgradeStage.
+    /// Currently this is functionally a boolean - it's up to Kazne if he wants to make more stages.
+    /// </summary>
     [DataField]
-    public bool Upgraded;
+    public int UpgradeStage = 0;
 
     /// <summary>
     /// Keeps track of the nest this Replicator is responsible for.
     /// </summary>
     public EntityUid? MyNest;
+}
+
+[Serializable, NetSerializable]
+public enum ReplicatorVisuals : byte
+{
+    Combat
 }
