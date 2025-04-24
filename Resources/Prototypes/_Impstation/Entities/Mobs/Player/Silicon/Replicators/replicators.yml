@@ -1,0 +1,133 @@
+# these are HEAVILY based on the Bingle free-agent ghostrole from GoobStation, but reflavored and reprogrammed to make them more Robust (and less of a meme.)
+# all credit for the core gameplay concepts and a lot of the core functionality of the code goes to the folks over at Goob, but I re-wrote enough of it to justify putting it in our filestructure.
+# the original Bingle PR can be found here: https://github.com/Goob-Station/Goob-Station/pull/1519
+- type: entity
+  name: replicator
+  description: It's just a little guy. What harm could it do?
+  id: MobReplicator
+  parent: PlayerSiliconBase
+  components:
+  #- type: Replicator //TODO
+  - type: SiliconLawBound
+  - type: SiliconLawProvider
+    laws: Replicator
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    name: ghost-role-information-replicator-name
+    description: ghost-role-information-replicator-desc
+    rules: ghost-role-information-replicator-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: default
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Impstation/Mobs/Replicator/replicator.rsi # //TODOOOOOOOO
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: alive
+    - map: ["enum.ReplicatorVisual.Upgraded"]
+      state: Upgraded
+      visible: false
+    - map: ["enum.ReplicatorVisual.Combat"]
+      state: combat
+      visible: false
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialSteel:
+            min: 1
+            max: 60
+  - type: DamageStateVisuals
+    rotate: false
+    states:
+      Alive:
+        Base: alive
+      Dead:
+        Base: dead
+  - type: MeleeWeapon
+    soundHit: 
+      path: "/Audio/Items/wirecutter.ogg"
+    angle: 0
+    wideAnimationRotation: 0
+    animation: WeaponArcSlash
+    damage:
+      types:
+        Slashing: 7
+        Structural: 14 # breaks down the walls and airlocks in 10 hits
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2 # same as slime
+    baseSprintSpeed : 4
+  - type: Stamina
+    critThreshold: 120
+  - type: StaminaDamageOnHit # from stunbaton
+    damage: 15
+    overtime: 40
+    sound: /Audio/Weapons/egloves.ogg
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: PassiveDamage #passive Healing
+    allowedStates:
+    - Alive
+    damage:
+      groups:
+        Brute: -0.5
+        Burn: -0.5
+
+- type: entity
+  id: MobReplicatorQueen
+  parent: MobReplicator
+  suffix: Queen
+  components:
+  #- type: Replicator
+  #  queen: true
+
+- type: entity
+  id: MobReplicatorUpgraded
+  parent: MobReplicator
+  suffix: Upgraded
+  components:
+  #-type: Replicator
+  # upgraded: true
+  - type: Sprite
+    drawDepth: Mobs
+    sprite: _Impstation/Mobs/Replicator/replicator.rsi # //TODOOOOOOOO
+    layers:
+    - map: ["enum.ReplicatorVisual.Upgraded"]
+      state: Upgraded
+    - map: ["enum.ReplicatorVisual.Combat"]
+      state: combat
+      visible: false
+  - type: DamageStateVisuals
+    rotate: false
+    states:
+      Alive:
+        Base: Upgraded
+      Dead:
+        Base: dead_upgraded
+  - type: MeleeWeapon
+    soundHit:
+      path: "/Audio/Items/wirecutter.ogg"
+    angle: 0
+    wideAnimationRotation: 0
+    animation: WeaponArcSlash
+    damage:
+      types:
+        Slashing: 14
+        Structural: 28
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: StructuralMetallicStrong # this may be too much.
