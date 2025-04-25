@@ -66,10 +66,11 @@ public sealed partial class HereticSystem : EntitySystem
 
         _timer = 0f;
 
-        foreach (var heretic in EntityQuery<HereticComponent>())
+        var query = EntityQueryEnumerator<HereticComponent>();
+        while (query.MoveNext(out var uid, out var heretic))
         {
             // passive point gain every 20 minutes
-            UpdateKnowledge(heretic.Owner, heretic, 1f);
+            UpdateKnowledge(uid, heretic, 1f);
         }
     }
 

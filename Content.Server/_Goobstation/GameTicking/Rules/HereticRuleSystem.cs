@@ -110,12 +110,13 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
         var mostKnowledge = 0f;
         var mostKnowledgeName = string.Empty;
 
-        foreach (var heretic in EntityQuery<HereticComponent>())
+        var query = EntityQueryEnumerator<HereticComponent>();
+        while (query.MoveNext(out var uid, out var heretic))
         {
-            if (!_mind.TryGetMind(heretic.Owner, out var mindId, out var mind))
+            if (!_mind.TryGetMind(uid, out var mindId, out var mind))
                 continue;
 
-            var name = _objective.GetTitle((mindId, mind), Name(heretic.Owner));
+            var name = _objective.GetTitle((mindId, mind), Name(uid));
             if (_mind.TryGetObjectiveComp<HereticKnowledgeConditionComponent>(mindId, out var objective, mind))
             {
                 if (objective.Researched > mostKnowledge)

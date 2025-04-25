@@ -23,13 +23,14 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
         base.Update(frameTime);
 
         // we are deliberately including paused entities. rod hungers for all
-        foreach (var (rod, trans) in EntityManager.EntityQuery<ImmovableVoidRodComponent, TransformComponent>(true))
+        var query = EntityQueryEnumerator<ImmovableVoidRodComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var rod, out var trans))
         {
             rod.Accumulator += frameTime;
 
             if (rod.Accumulator > rod.Lifetime.TotalSeconds)
             {
-                QueueDel(rod.Owner);
+                QueueDel(uid);
                 return;
             }
 

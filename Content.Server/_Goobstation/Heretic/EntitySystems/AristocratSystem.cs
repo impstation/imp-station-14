@@ -33,13 +33,14 @@ public sealed partial class AristocratSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        foreach (var aristocrat in EntityQuery<AristocratComponent>())
+        var query = EntityQueryEnumerator<AristocratComponent>();
+        while (query.MoveNext(out var uid, out var aristocrat))
         {
             aristocrat.UpdateTimer += frameTime;
 
             if (aristocrat.UpdateTimer >= aristocrat.UpdateDelay)
             {
-                Cycle((aristocrat.Owner, aristocrat));
+                Cycle((uid, aristocrat));
                 aristocrat.UpdateTimer = 0;
             }
         }

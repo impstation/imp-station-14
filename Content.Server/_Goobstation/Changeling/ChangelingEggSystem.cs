@@ -4,6 +4,7 @@ using Content.Shared.Changeling;
 using Content.Shared.Mind;
 using Content.Server.Body.Systems;
 using Content.Shared.Store.Components;
+using System.Linq;
 
 namespace Content.Server.Changeling;
 
@@ -21,10 +22,9 @@ public sealed partial class ChangelingEggSystem : EntitySystem
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        foreach (var comp in EntityManager.EntityQuery<ChangelingEggComponent>())
+        var query = EntityQueryEnumerator<ChangelingEggComponent>();
+        while (query.MoveNext(out var uid, out var comp))
         {
-            var uid = comp.Owner;
-
             if (_timing.CurTime < comp.UpdateTimer)
                 continue;
 

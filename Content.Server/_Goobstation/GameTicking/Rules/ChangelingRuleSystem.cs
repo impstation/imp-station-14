@@ -100,12 +100,13 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
         var mostAbsorbed = 0f;
         var mostStolen = 0f;
 
-        foreach (var ling in EntityQuery<ChangelingComponent>())
+        var query = EntityQueryEnumerator<ChangelingComponent>();
+        while (query.MoveNext(out var user, out var ling))
         {
-            if (!_mind.TryGetMind(ling.Owner, out var mindId, out var mind))
+            if (!_mind.TryGetMind(user, out var mindId, out var mind))
                 continue;
 
-            if (!TryComp<MetaDataComponent>(ling.Owner, out var metaData))
+            if (!TryComp<MetaDataComponent>(user, out var metaData))
                 continue;
 
             if (ling.TotalAbsorbedEntities > mostAbsorbed)
