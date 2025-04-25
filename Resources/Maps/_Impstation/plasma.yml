@@ -4,8 +4,8 @@ meta:
   engineVersion: 251.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/25/2025 05:20:10
-  entityCount: 26416
+  time: 04/25/2025 05:39:22
+  entityCount: 26415
 maps:
 - 1
 grids:
@@ -9931,15 +9931,6 @@ entities:
       container: 2904
 - proto: ActionToggleLight
   entities:
-  - uid: 9459
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 23311
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 23311
   - uid: 17811
     components:
     - type: Transform
@@ -39876,7 +39867,7 @@ entities:
   - uid: 23304
     components:
     - type: Transform
-      pos: -112.261406,-29.224083
+      pos: -112.45186,-29.251945
       parent: 2
 - proto: CableApcStack1
   entities:
@@ -81879,30 +81870,16 @@ entities:
       parent: 2
 - proto: FlashlightLantern
   entities:
+  - uid: 9459
+    components:
+    - type: Transform
+      pos: -112.51436,-29.45507
+      parent: 2
   - uid: 22903
     components:
     - type: Transform
       pos: -54.584934,-70.46617
       parent: 2
-  - uid: 23311
-    components:
-    - type: Transform
-      pos: -112.68251,-29.376944
-      parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 9459
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 9459
-    - type: ActionsContainer
   - uid: 26366
     components:
     - type: Transform
@@ -167684,7 +167661,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -207413.19
+      secondsUntilStateChange: -207489.58
       state: Opening
     - type: Airlock
       autoClose: False
