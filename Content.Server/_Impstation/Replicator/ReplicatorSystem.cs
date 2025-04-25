@@ -82,11 +82,11 @@ public sealed class ReplicatorSystem : EntitySystem
             args.Cancel();
         }
 
-/*         if (HasComp<ReplicatorNestComponent>(args.Target))
+        if (HasComp<ReplicatorNestComponent>(args.Target))
         {
             _popup.PopupClient(Loc.GetString("replicator-on-nest-attack-fail"), ent);
             args.Cancel();
-        } */
+        }
     }
 
     private void OnCombatToggle(Entity<ReplicatorComponent> ent, ref ToggleCombatActionEvent args)
