@@ -126,14 +126,14 @@ public sealed class LockSystem : EntitySystem
         // IMP ADDITION - lockTime can now either be the component's lock time, OR the FromInside time.
         // given that lockTime is only used by deployable barrier, it's unlikely this will conflict with anything
         var lockTime = lockComp.LockTime;
-        if(canToggleLock == "FromInside") {
+        if (canToggleLock == "FromInside") {
             lockTime = lockComp.InsideToggleTime;
         }
         // END IMP ADD
 
         if (!skipDoAfter && lockTime != TimeSpan.Zero)
         {
-            if(canToggleLock == "FromInside") { // IMP ADDITION
+            if (canToggleLock == "FromInside") { // IMP ADDITION
                 _audio.PlayPredicted(lockComp.InsideToggleSound, uid, user);
                 _sharedPopupSystem.PopupClient(Loc.GetString("inside-lock-toggle-attempt"), uid, user);
             }
@@ -234,14 +234,14 @@ public sealed class LockSystem : EntitySystem
         // IMP ADDITION - lockTime can now either be the component's lock time, OR the FromInside time.
         // given that lockTime is only used by deployable barrier, it's unlikely this will conflict with anything
         var lockTime = lockComp.LockTime;
-        if(canToggleLock == "FromInside") {
+        if (canToggleLock == "FromInside") {
             lockTime = lockComp.InsideToggleTime;
         }
         // END IMP ADD
 
         if (!skipDoAfter && lockTime != TimeSpan.Zero)
         {
-            if(canToggleLock == "FromInside") { // IMP ADDITION
+            if (canToggleLock == "FromInside") { // IMP ADDITION
                 _audio.PlayPredicted(lockComp.InsideToggleSound, uid, user);
                 _sharedPopupSystem.PopupClient(Loc.GetString("inside-lock-toggle-attempt"), uid, user);
             }
@@ -294,6 +294,10 @@ public sealed class LockSystem : EntitySystem
 
         var userEv = new UserLockToggleAttemptEvent(uid, quiet);
         RaiseLocalEvent(user, ref userEv, true);
+
+        if (userEv.Cancelled)
+            return "false";
+
         return "true"; // IMP
     }
 
