@@ -1,51 +1,45 @@
-using Content.Server.Body.Systems;
 using Content.Server._Impstation.Drone.Components;
+using Content.Server.Body.Systems;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Popups;
-using Content.Server.Tools.Innate;
 using Content.Server.PowerCell;
-using Content.Shared.Alert;
-using Content.Shared.UserInterface;
-using Content.Shared.Body.Components;
+using Content.Server.Tools.Innate;
 using Content.Shared._Impstation.Drone;
+using Content.Shared.Alert;
+using Content.Shared.Body.Components;
 using Content.Shared.Emoting;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Item.ItemToggle;
-using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
-using Content.Shared.Tag;
-using Content.Shared.Throwing;
-using Content.Shared.Whitelist;
 using Content.Shared.PowerCell;
 using Content.Shared.PowerCell.Components;
-using Robust.Shared.Timing;
+using Content.Shared.Throwing;
+using Content.Shared.UserInterface;
+using Content.Shared.Whitelist;
 using Robust.Server.GameObjects;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Impstation.Drone
 {
     public sealed class DroneSystem : SharedDroneSystem
     {
+        [Dependency] private readonly AlertsSystem _alerts = default!;
         [Dependency] private readonly BodySystem _bodySystem = default!;
-        [Dependency] private readonly PopupSystem _popupSystem = default!;
-        [Dependency] private readonly TagSystem _tagSystem = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
+        [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly InnateToolSystem _innateToolSystem = default!;
         [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-        [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+        [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly PowerCellSystem _powerCell = default!;
-        [Dependency] private readonly SharedMindSystem _mind = default!;
-        [Dependency] private readonly ItemToggleSystem _toggle = default!;
+        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly UserInterfaceSystem _ui = default!;
-        [Dependency] private readonly AlertsSystem _alerts = default!;
 
         public override void Initialize()
         {
