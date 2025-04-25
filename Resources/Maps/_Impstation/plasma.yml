@@ -4,8 +4,8 @@ meta:
   engineVersion: 251.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/25/2025 05:39:22
-  entityCount: 26415
+  time: 04/25/2025 06:25:33
+  entityCount: 26423
 maps:
 - 1
 grids:
@@ -9068,7 +9068,8 @@ entities:
           -28,7:
             1: 61166
           -29,7:
-            1: 65535
+            1: 61439
+            3: 4096
           -27,5:
             1: 52701
           -27,6:
@@ -24739,6 +24740,15 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -62.5,-54.5
       parent: 2
+- proto: BikeHorn
+  entities:
+  - uid: 26420
+    components:
+    - type: Transform
+      parent: 26325
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: Biogenerator
   entities:
   - uid: 16639
@@ -65284,6 +65294,15 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+- proto: ClownRecorder
+  entities:
+  - uid: 26419
+    components:
+    - type: Transform
+      parent: 26325
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: ComfyChair
   entities:
   - uid: 1641
@@ -83047,6 +83066,15 @@ entities:
     - type: Transform
       pos: -100.40071,-38.496914
       parent: 2
+- proto: FrenchHornInstrument
+  entities:
+  - uid: 26418
+    components:
+    - type: Transform
+      parent: 26325
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: FuelDispenser
   entities:
   - uid: 23339
@@ -126681,6 +126709,40 @@ entities:
     - type: Transform
       pos: -115.5,31.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 23311
+          - 26273
+          - 26417
+          - 26418
+          - 26419
+          - 26420
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
 - proto: LockerCourierFilled
   entities:
   - uid: 18175
@@ -143745,6 +143807,11 @@ entities:
     - type: Transform
       pos: -114.5,30.5
       parent: 2
+  - uid: 26421
+    components:
+    - type: Transform
+      pos: -114.5,28.5
+      parent: 2
 - proto: SpawnPointCourier
   entities:
   - uid: 26370
@@ -143873,11 +143940,6 @@ entities:
     - type: Transform
       pos: -52.5,-40.5
       parent: 2
-  - uid: 26273
-    components:
-    - type: Transform
-      pos: -114.5,28.5
-      parent: 2
   - uid: 26274
     components:
     - type: Transform
@@ -143973,6 +144035,20 @@ entities:
     components:
     - type: Transform
       pos: -33.5,-50.5
+      parent: 2
+- proto: SpawnPointMime
+  entities:
+  - uid: 26422
+    components:
+    - type: Transform
+      pos: -55.5,-38.5
+      parent: 2
+- proto: SpawnPointMusician
+  entities:
+  - uid: 26423
+    components:
+    - type: Transform
+      pos: -51.5,-38.5
       parent: 2
 - proto: SpawnPointObserver
   entities:
@@ -150056,6 +150132,29 @@ entities:
       parent: 7826
     - type: Physics
       canCollide: False
+- proto: TrashBananaPeel
+  entities:
+  - uid: 23311
+    components:
+    - type: Transform
+      parent: 26325
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 26273
+    components:
+    - type: Transform
+      parent: 26325
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 26417
+    components:
+    - type: Transform
+      parent: 26325
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: trayScanner
   entities:
   - uid: 2532
@@ -167661,7 +167760,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -207489.58
+      secondsUntilStateChange: -207611.89
       state: Opening
     - type: Airlock
       autoClose: False
