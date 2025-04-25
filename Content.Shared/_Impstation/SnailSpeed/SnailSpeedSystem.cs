@@ -1,6 +1,3 @@
-using Robust.Shared.Serialization;
-using Robust.Shared.Network;
-using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 
 namespace Content.Shared.SnailSpeed;
@@ -10,10 +7,6 @@ namespace Content.Shared.SnailSpeed;
 /// </summary>
 public abstract partial class SharedSnailSpeedSystem : EntitySystem
 {
-    // Managers
-    [Dependency] private readonly INetManager _netManager = default!;
-
-    // Systems
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
     [Dependency] private readonly SharedJetpackSystem _jetpack = default!;
 

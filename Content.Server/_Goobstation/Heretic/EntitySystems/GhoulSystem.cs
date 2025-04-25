@@ -8,7 +8,6 @@ using Content.Server.Mind.Commands;
 using Content.Server.Roles;
 using Content.Server.Temperature.Components;
 using Content.Shared.Body.Systems;
-using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Ghost.Roles.Components;
 using Content.Shared.Heretic;
@@ -22,23 +21,20 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Nutrition.AnimalHusbandry;
 using Content.Shared.Nutrition.Components;
-using Content.Shared.Roles;
 using Robust.Shared.Audio;
 
 namespace Content.Server.Heretic.EntitySystems;
 
 public sealed partial class GhoulSystem : Shared.Heretic.EntitySystems.SharedGhoulSystem
 {
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
-    [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
-    [Dependency] private readonly NpcFactionSystem _faction = default!;
-    [Dependency] private readonly SharedRoleSystem _role = default!;
-    [Dependency] private readonly MobThresholdSystem _threshold = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
+    [Dependency] private readonly MobThresholdSystem _threshold = default!;
+    [Dependency] private readonly NpcFactionSystem _faction = default!;
+    [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
 
     public void GhoulifyEntity(Entity<GhoulComponent> ent)
     {
