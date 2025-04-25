@@ -35,7 +35,8 @@ namespace Content.Server.Heretic.Ritual;
 ///     gibs it and gives the heretic knowledge points.
 /// </summary>
 // these classes should be lead out and shot
-[Virtual] public partial class RitualSacrificeBehavior : RitualCustomBehavior
+[Virtual]
+public partial class RitualSacrificeBehavior : RitualCustomBehavior
 {
     /// <summary>
     ///     Minimal amount of corpses.
@@ -153,7 +154,7 @@ namespace Content.Server.Heretic.Ritual;
                 {
                     //this is copied from BloodstreamSystem's OnDnaGenerated
                     //i hate it
-                    if(_solutionContainerSystem.ResolveSolution(sacrificialWhiteBoy, dummyBlood.BloodSolutionName, ref dummyBlood.BloodSolution, out var bloodSolution))
+                    if (_solutionContainerSystem.ResolveSolution(sacrificialWhiteBoy, dummyBlood.BloodSolutionName, ref dummyBlood.BloodSolution, out var bloodSolution))
                     {
                         foreach (var reagent in bloodSolution.Contents)
                         {
@@ -167,7 +168,7 @@ namespace Content.Server.Heretic.Ritual;
             //beat the clone to death. this is just to get matching organs
             if (args.EntityManager.TryGetComponent<DamageableComponent>(uids[i], out var dmg))
             {
-                var prot = (ProtoId<DamageGroupPrototype>) "Brute";
+                var prot = (ProtoId<DamageGroupPrototype>)"Brute";
                 var dmgtype = _proto.Index(prot);
                 _damage.TryChangeDamage(sacrificialWhiteBoy, new DamageSpecifier(dmgtype, 1984f), true);
             }
@@ -182,7 +183,7 @@ namespace Content.Server.Heretic.Ritual;
             if (args.EntityManager.TryGetComponent<HellVictimComponent>(uids[i], out var hellVictim))
             {
                 //i'm so sorry to all of my computer science professors. i've failed you
-                if(hellVictim.HasMind)
+                if (hellVictim.HasMind)
                 {
                     _hellworld.SendToHell(uids[i], args, speciesPrototype);
                 }

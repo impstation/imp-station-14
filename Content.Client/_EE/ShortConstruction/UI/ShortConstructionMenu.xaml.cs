@@ -97,10 +97,10 @@ public sealed class ShortConstructionMenu : RadialMenu
         }
 
         _placementManager.BeginPlacing(new PlacementInformation
-            {
-                IsTile = false,
-                PlacementOption = prototype.PlacementMode
-            },
+        {
+            IsTile = false,
+            PlacementOption = prototype.PlacementMode
+        },
             new ConstructionPlacementHijack(_construction, prototype));
 
         // Should only close the menu if we're placing a construction hijack.

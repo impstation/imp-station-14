@@ -93,7 +93,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             return;
 
         // heal teammates, mostly ghouls
-        _dmg.SetAllDamage((EntityUid) args.Target, dmg, 0);
+        _dmg.SetAllDamage((EntityUid)args.Target, dmg, 0);
         args.Handled = true;
     }
     private void OnFleshAscendPolymorph(Entity<HereticComponent> ent, ref EventHereticFleshAscend args)
@@ -133,7 +133,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             }
         } // end imp
 
-        _aud.PlayPvs(new SoundPathSpecifier("/Audio/Animals/space_dragon_roar.ogg"), (EntityUid) urist, AudioParams.Default.AddVolume(2f));
+        _aud.PlayPvs(new SoundPathSpecifier("/Audio/Animals/space_dragon_roar.ogg"), (EntityUid)urist, AudioParams.Default.AddVolume(2f));
 
         args.Handled = true;
     }
@@ -144,7 +144,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         Color eyeColor;
         Color bloodColor;
         if (TryComp<HumanoidAppearanceComponent>(entity, out var humanoid) && TryComp<BloodstreamComponent>(entity, out var bloodstream) // get the humanoidappearance and bloodstream
-        && _prot.TryIndex(bloodstream.BloodReagent, out ReagentPrototype? reagentProto) && reagentProto != null) // get the blood reagent 
+        && _prot.TryIndex(bloodstream.BloodReagent, out ReagentPrototype? reagentProto) && reagentProto != null) // get the blood reagent
         {
             skinColor = humanoid.SkinColor;
             eyeColor = humanoid.EyeColor;
@@ -153,6 +153,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             return (skinColor, eyeColor, bloodColor);
         }
 
-        else return null; // if (for some reason - like perhaps admin intervention) a non-humanoid or someone with no bloodstream ascends, we don't want to try to modify the colors. 
+        else return null; // if (for some reason - like perhaps admin intervention) a non-humanoid or someone with no bloodstream ascends, we don't want to try to modify the colors.
     }
 }

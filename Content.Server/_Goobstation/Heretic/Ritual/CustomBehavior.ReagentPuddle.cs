@@ -25,9 +25,9 @@ public sealed partial class RitualReagentPuddleBehavior : RitualCustomBehavior
         }
         string reagStrings = "";
 
-        foreach(var Reagent in Reagents)
+        foreach (var reagent in Reagents)
         {
-            reagStrings += (Reagent.Id + ", ");
+            reagStrings += reagent.Id + ", ";
 
             outstr = null;
             _lookup = args.EntityManager.System<EntityLookupSystem>();
@@ -44,7 +44,7 @@ public sealed partial class RitualReagentPuddleBehavior : RitualCustomBehavior
 
                 var soln = puddle.Solution.Value;
 
-                if (!soln.Comp.Solution.ContainsPrototype(Reagent))
+                if (!soln.Comp.Solution.ContainsPrototype(reagent))
                     continue;
 
                 uids.Add(ent);

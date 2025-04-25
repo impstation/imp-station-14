@@ -60,7 +60,8 @@ public sealed class InjectionArtifactSystem : EntitySystem
                 _solutionContainer.AddSolution(injectable.Value, component.ChemicalSolution);
 
                 //Spawn Effect
-                if (component.ShowEffect){
+                if (component.ShowEffect)
+                {
                     var uidXform = Transform(ent);
                     Spawn(component.VisualEffectPrototype, uidXform.Coordinates);
                 }

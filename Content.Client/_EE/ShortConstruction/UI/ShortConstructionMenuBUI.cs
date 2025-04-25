@@ -38,7 +38,7 @@ public sealed class ShortConstructionMenuBUI : BoundUserInterface
     {
         base.Open();
 
-        _menu = new ShortConstructionMenu(Owner, this,_construction);
+        _menu = new ShortConstructionMenu(Owner, this, _construction);
         _menu.OnClose += Close;
 
         // Open the menu, centered on the mouse
