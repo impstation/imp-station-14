@@ -75,34 +75,21 @@ namespace Content.Server._Impstation.Drone
         // Imp. this replaces OnInteractionAttempt from the upstream version of DroneSystem.
         private void OnUseAttempt(EntityUid uid, DroneComponent component, UseAttemptEvent args)
         {
-            if (args.Used != null && NonDronesInRange(uid, component))
+            if (_whitelist.IsWhitelistPass(component.Whitelist, args.Used)) /// tag whitelist. sends proximity warning popup if the item isn't whitelisted. Doesn't prevent actions. Takes precedent over blacklist.
             {
-                if (_whitelist.IsWhitelistPass(component.Whitelist, args.Used)) /// tag whitelist. sends proximity warning popup if the item isn't whitelisted. Doesn't prevent actions. Takes precedent over blacklist.
-				{
-                    if (_gameTiming.CurTime >= component.NextProximityAlert)
-                    {
-                        _popupSystem.PopupEntity(Loc.GetString("drone-too-close", ("being", component.NearestEnt)), uid, uid);
-                        component.NextProximityAlert = _gameTiming.CurTime + component.ProximityDelay;
-                    }
-                }
-
-                else if (_whitelist.IsBlacklistPass(component.Blacklist, args.Used)) // imp special. blacklist. this one *does* prevent actions. it would probably be best if this read from the component or something.
+                if (_gameTiming.CurTime >= component.NextProximityAlert)
                 {
-                    args.Cancel();
-                    if (_gameTiming.CurTime >= component.NextProximityAlert)
-                    {
-                        _popupSystem.PopupEntity(Loc.GetString("drone-cant-use-nearby", ("being", component.NearestEnt)), uid, uid);
-                        component.NextProximityAlert = _gameTiming.CurTime + component.ProximityDelay;
-                    }
+                    _popupSystem.PopupEntity(Loc.GetString("drone-too-close", ("being", component.NearestEnt)), uid, uid);
+                    component.NextProximityAlert = _gameTiming.CurTime + component.ProximityDelay;
                 }
             }
 
-            else if (args.Used != null && _whitelist.IsWhitelistFail(component.Whitelist, args.Used) && _whitelist.IsBlacklistPass(component.Blacklist, args.Used)) // prevent actions when no one is nearby only if the whitelist fails AND the blacklist passes.
+            else if (_whitelist.IsBlacklistPass(component.Blacklist, args.Used)) // imp special. blacklist. this one *does* prevent actions. it would probably be best if this read from the component or something.
             {
                 args.Cancel();
                 if (_gameTiming.CurTime >= component.NextProximityAlert)
                 {
-                    _popupSystem.PopupEntity(Loc.GetString("drone-cant-use"), uid, uid);
+                    _popupSystem.PopupEntity(Loc.GetString("drone-cant-use-nearby", ("being", component.NearestEnt)), uid, uid);
                     component.NextProximityAlert = _gameTiming.CurTime + component.ProximityDelay;
                 }
             }

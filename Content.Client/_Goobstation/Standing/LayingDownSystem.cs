@@ -39,7 +39,7 @@ public sealed class LayingDownSystem : SharedLayingDownSystem
         if (_animation.HasRunningAnimation(uid, "rotate"))
             return;
 
-        if (!TryComp<TransformComponent>(uid, out var transform)
+        if (!TryComp(uid, out TransformComponent? transform)
             || !TryComp<SpriteComponent>(uid, out var sprite)
             || !TryComp<RotationVisualsComponent>(uid, out var rotationVisuals))
         {
@@ -66,7 +66,7 @@ public sealed class LayingDownSystem : SharedLayingDownSystem
 
         var uid = GetEntity(ev.User);
 
-        if (!TryComp<TransformComponent>(uid, out var transform) || !TryComp<RotationVisualsComponent>(uid, out var rotationVisuals))
+        if (!TryComp(uid, out TransformComponent? transform) || !TryComp<RotationVisualsComponent>(uid, out var rotationVisuals))
             return;
 
         var rotation = transform.LocalRotation + (_eyeManager.CurrentEye.Rotation - (transform.LocalRotation - transform.WorldRotation));

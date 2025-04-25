@@ -15,7 +15,6 @@ public abstract partial class SharedSnailSpeedSystem : EntitySystem
 
     // Systems
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private readonly SharedJetpackSystem _jetpack = default!;
 
     public override void Initialize()
@@ -27,7 +26,7 @@ public abstract partial class SharedSnailSpeedSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, SnailSpeedComponent comp, MapInitEvent args)
     {
-        _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
+        _movement.RefreshMovementSpeedModifiers(uid);
     }
 
     /// apply constant movespeed modifier as long as entity is not flying

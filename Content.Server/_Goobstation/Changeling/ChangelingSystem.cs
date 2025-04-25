@@ -189,7 +189,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         Dirty(uid, comp);
         _alerts.ShowAlert(uid, "ChangelingBiomass");
 
-        var random = (int) _rand.Next(1, 3);
+        var random = (int)_rand.Next(1, 3);
 
         if (comp.Biomass <= 0)
             // game over, man
@@ -383,7 +383,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (!comp.Equipment.TryGetValue(proto.Id, out var item))
         {
             item = Spawn(proto, Transform(uid).Coordinates);
-            if (!_hands.TryForcePickupAnyHand(uid, (EntityUid) item))
+            if (!_hands.TryForcePickupAnyHand(uid, (EntityUid)item))
             {
                 _popup.PopupEntity(Loc.GetString("changeling-fail-hands"), uid, uid);
                 QueueDel(item);
@@ -438,7 +438,7 @@ public sealed partial class ChangelingSystem : EntitySystem
     public bool TryStealDNA(EntityUid uid, EntityUid target, ChangelingComponent comp, bool countObjective = false)
     {
         if (!TryComp<HumanoidAppearanceComponent>(target, out var appearance)
-        || !TryComp<MetaDataComponent>(target, out var metadata)
+        || !TryComp(target, out MetaDataComponent? metadata)
         || !TryComp<DnaComponent>(target, out var dna)
         || !TryComp<FingerprintComponent>(target, out var fingerprint))
         {

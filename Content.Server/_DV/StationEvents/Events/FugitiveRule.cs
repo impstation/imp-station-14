@@ -114,7 +114,7 @@ public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
 
         if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
         {
-            report.AddMarkup(Loc.GetString("fugitive-report-inhuman", ("name", uid)));
+            report.TryAddMarkup(Loc.GetString("fugitive-report-inhuman", ("name", uid)), out _);
             return report;
         }
 

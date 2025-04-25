@@ -35,7 +35,7 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
 
     public readonly ProtoId<CurrencyPrototype> Currency = "EvolutionPoint";
 
-    [ValidatePrototypeId<EntityPrototype>] EntProtoId mindRole = "MindRoleChangeling";
+    [ValidatePrototypeId<EntityPrototype>] EntProtoId _mindRole = "MindRoleChangeling";
 
     public override void Initialize()
     {
@@ -54,10 +54,10 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
             return false;
 
-        _role.MindAddRole(mindId, mindRole.Id, mind, true);
+        _role.MindAddRole(mindId, _mindRole.Id, mind, true);
 
         // briefing
-        if (TryComp<MetaDataComponent>(target, out var metaData))
+        if (TryComp(target, out MetaDataComponent? metaData))
         {
             var briefing = Loc.GetString("changeling-role-greeting", ("name", metaData?.EntityName ?? "Unknown"));
             var briefingShort = Loc.GetString("changeling-role-greeting-short", ("name", metaData?.EntityName ?? "Unknown"));
@@ -106,7 +106,7 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
             if (!_mind.TryGetMind(user, out var mindId, out var mind))
                 continue;
 
-            if (!TryComp<MetaDataComponent>(user, out var metaData))
+            if (!TryComp(user, out MetaDataComponent? metaData))
                 continue;
 
             if (ling.TotalAbsorbedEntities > mostAbsorbed)
