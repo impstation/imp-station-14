@@ -1,7 +1,17 @@
 - type: polymorph
   id: ReplicatorUpgrade1
   configuration:
-    entity: MobReplicatorTier1
+    entity: MobReplicatorTier2
+    forced: true
+    transferName: true
+    transferHumanoidAppearance: false
+    revertOnDeath: false
+    revertOnCrit: false
+
+- type: polymorph
+  id: ReplicatorUpgrade2
+  configuration:
+    entity: MobReplicatorTier3
     forced: true
     transferName: true
     transferHumanoidAppearance: false

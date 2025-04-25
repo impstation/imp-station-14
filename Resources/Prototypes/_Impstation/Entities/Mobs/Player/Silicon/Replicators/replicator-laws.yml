@@ -5,6 +5,7 @@
   id: Replicator
   laws:
   - Replicator1 # placeholder
+  obeysTo: laws-owner-replicatorhive
 
 - type: siliconLaw
   id: Replicator1

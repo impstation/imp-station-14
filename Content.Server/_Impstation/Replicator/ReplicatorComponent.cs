@@ -24,9 +24,9 @@ public sealed partial class ReplicatorComponent : Component
     public int UpgradeStage = 0;
 
     /// <summary>
-    /// Keeps track of the nest this Replicator is responsible for.
+    /// Used to store related replicators on a queen after the nest is destroyed, so they can be transferred to the new nest.
     /// </summary>
-    public EntityUid? MyNest;
+    public HashSet<Entity<ReplicatorComponent>> RelatedReplicators = [];
 }
 
 [Serializable, NetSerializable]

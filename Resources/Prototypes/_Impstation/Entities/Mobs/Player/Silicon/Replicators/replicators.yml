@@ -7,7 +7,7 @@
   id: MobReplicator
   parent: PlayerSiliconBase
   components:
-  #- type: Replicator //TODO
+  - type: Replicator
   - type: SiliconLawBound
   - type: SiliconLawProvider
     laws: Replicator
@@ -26,8 +26,8 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: alive
-    - map: ["enum.ReplicatorVisual.Combat"]
-      state: combat
+    - map: ["enum.ReplicatorVisuals.Combat"]
+      state: combat_level1
       visible: false
   - type: MobThresholds
     thresholds:
@@ -73,10 +73,6 @@
     baseSprintSpeed : 4
   - type: Stamina
     critThreshold: 120
-  - type: StaminaDamageOnHit # from stunbaton
-    damage: 15
-    overtime: 40
-    sound: /Audio/Weapons/egloves.ogg
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
@@ -96,13 +92,13 @@
   parent: MobReplicator
   suffix: Queen
   components:
-  #- type: Replicator
-  #  queen: true
+  - type: Replicator
+    queen: true
 
 - type: entity
-  id: MobReplicatorTier1
+  id: MobReplicatorTier2
   parent: MobReplicator
-  suffix: Upgraded
+  suffix: Level 2
   components:
   - type: Replicator
     upgradeStage: 1
@@ -111,17 +107,17 @@
     sprite: _Impstation/Mobs/Replicator/replicator.rsi # //TODOOOOOOOO
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: Upgraded
-    - map: ["enum.ReplicatorVisual.Combat"]
-      state: combat
+      state: alive_level2
+    - map: ["enum.ReplicatorVisuals.Combat"]
+      state: combat_level2
       visible: false
   - type: DamageStateVisuals
     rotate: false
     states:
       Alive:
-        Base: upgraded
+        Base: alive_level2
       Dead:
-        Base: dead_upgraded
+        Base: dead_level2
   - type: MeleeWeapon
     soundHit:
       path: "/Audio/Items/wirecutter.ogg"
@@ -135,3 +131,27 @@
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: StructuralMetallicStrong # this may be too much.
+
+- type: entity
+  id: MobReplicatorTier3
+  parent: MobReplicatorTier2
+  suffix: Level 3
+  components:
+  - type: Replicator
+    upgradeStage: 2
+  - type: Sprite
+    drawDepth: Mobs
+    sprite: _Impstation/Mobs/Replicator/replicator.rsi # //TODOOOOOOOO
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: alive_level3
+    - map: ["enum.ReplicatorVisuals.Combat"]
+      state: combat_level3
+      visible: false
+  - type: DamageStateVisuals
+    rotate: false
+    states:
+      Alive:
+        Base: alive_level3
+      Dead:
+        Base: dead_level3

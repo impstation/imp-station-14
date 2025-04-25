@@ -8,7 +8,7 @@
   placement:
     mode: SnapGridCenter
   components:
-  #- type: ReplicatorNest
+  - type: ReplicatorNest
   - type: StepTrigger
     requiredTriggeredSpeed: 0
     intersectRatio: 0.4
@@ -34,8 +34,17 @@
   - type: Sprite
     drawdepth: FloorTiles
     layers:
-    - sprite: _Impstation/Mobs/Replicator/replicator.rsi
-      state: pit
+    - map: ["enum.ReplicatorNestVisuals.Level1"]
+      sprite: _Impstation/Mobs/Replicator/replicator.rsi
+      state: nest1
+    - map: ["enum.ReplicatorNestVisuals.Level2"]
+      sprite: _Impstation/Mobs/Replicator/replicator.rsi
+      state: nest2
+      visible: false
+    - map: ["enum.ReplicatorNestVisuals.Level3"]
+      sprite: _Impstation/Mobs/Replicator/replicator.rsi
+      state: nest3
+      visible: false
   - type: InteractionOutline
   - type: Clickable
   - type: Damageable

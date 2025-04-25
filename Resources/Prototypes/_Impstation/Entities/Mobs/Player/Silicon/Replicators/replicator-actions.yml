@@ -1,0 +1,11 @@
+- type: entity
+  id: ActionReplicatorSpawnNest
+  name: Manufacture Nest
+  description: Create a new nest for your hive.
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon: _Impstation/Interface/Actions/spawn_nest.png
+    event: !type:ReplicatorSpawnNestActionEvent
+    useDelay: 20
+    temporary: true

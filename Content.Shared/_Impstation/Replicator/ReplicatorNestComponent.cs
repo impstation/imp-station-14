@@ -6,8 +6,9 @@ using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
-namespace Content.Server._Impstation.Replicator;
+namespace Content.Shared._Impstation.Replicator;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ReplicatorNestComponent : Component
@@ -38,7 +39,18 @@ public sealed partial class ReplicatorNestComponent : Component
     /// <summary>
     /// The number of points required to spawn a new replicator.
     /// </summary>
+    [DataField]
     public int SpawnNewAt = 20;
+    /// <summary>
+    /// The number of points required to upgrade existing replicators.
+    /// </summary>
+    [DataField]
+    public int UpgradeAt = 10;
+    /// <summary>
+    /// The level at which the nest stops growing. It will still produce and upgrade replicators.
+    /// </summary>
+    [DataField]
+    public int EndgameLevel = 3;
 
     /// <summary>
     /// Entity to be spawned when reaching spawn point thresholds.
@@ -47,10 +59,28 @@ public sealed partial class ReplicatorNestComponent : Component
     public EntProtoId ToSpawn = "SpawnPointGhostReplicator";
 
     /// <summary>
+    /// The action to spawn a new nest.
+    /// </summary>
+    [DataField]
+    public EntProtoId SpawnNewNestAction = "ActionReplicatorSpawnNest";
+
+    /// <summary>
     /// The level at which the nest starts accepting living beings.
     /// </summary>
     [DataField]
     public int AllowLivingThreshold = 2;
 
     public SoundSpecifier FallingSound = new SoundPathSpecifier("/Audio/Effects/falling.ogg");
+    public HashSet<EntityUid> SpawnedMinions = [];
+    public HashSet<EntityUid> UnclaimedSpawners = [];
+    public int NextSpawnAt = 20;
 }
+
+[Serializable, NetSerializable]
+public enum ReplicatorNestVisuals : byte
+{
+    Level1,
+    Level2,
+    Level3
+}
+
