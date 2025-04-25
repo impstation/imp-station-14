@@ -4,7 +4,7 @@ meta:
   engineVersion: 251.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/24/2025 06:07:00
+  time: 04/25/2025 03:51:47
   entityCount: 25362
 maps:
 - 1
@@ -118219,18 +118219,6 @@ entities:
     - type: Transform
       pos: 70.59027,-7.3798804
       parent: 2
-- proto: MedkitRadiation
-  entities:
-  - uid: 24927
-    components:
-    - type: Transform
-      pos: 6.643174,4.5166254
-      parent: 2
-  - uid: 24928
-    components:
-    - type: Transform
-      pos: 6.455674,4.3135004
-      parent: 2
 - proto: MedkitRadiationFilled
   entities:
   - uid: 16929
@@ -118242,6 +118230,16 @@ entities:
     components:
     - type: Transform
       pos: 68.845924,-13.316096
+      parent: 2
+  - uid: 24927
+    components:
+    - type: Transform
+      pos: 6.422379,4.2634487
+      parent: 2
+  - uid: 24928
+    components:
+    - type: Transform
+      pos: 6.625504,4.4196987
       parent: 2
 - proto: MedkitToxinFilled
   entities:
@@ -161826,7 +161824,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -194194.5
+      secondsUntilStateChange: -194270.06
       state: Opening
     - type: Airlock
       autoClose: False
