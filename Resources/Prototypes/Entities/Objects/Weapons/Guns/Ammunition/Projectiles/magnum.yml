@@ -4,6 +4,8 @@
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectKineticSmall
   - type: Projectile
     damage:
       types:
@@ -26,6 +28,8 @@
   name: bullet (.45 magnum incendiary)
   categories: [ HideSpawnMenu ]
   components:
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectKineticSmall
   - type: Projectile
     damage:
       types:
@@ -38,6 +42,8 @@
   parent: BaseBulletAP
   categories: [ HideSpawnMenu ]
   components:
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectKineticSmall
   - type: Projectile
     damage:
       types:
@@ -50,6 +56,8 @@
   parent: BaseBulletUranium
   categories: [ HideSpawnMenu ]
   components:
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectKineticSmall
   - type: Projectile
     damage:
       types:

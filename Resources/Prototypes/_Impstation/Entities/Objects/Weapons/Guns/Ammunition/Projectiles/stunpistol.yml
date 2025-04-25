@@ -4,6 +4,8 @@
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectKineticSmall
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
