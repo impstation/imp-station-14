@@ -25,7 +25,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
-using Robust.Shared.GameObjects.Components.Localization;
+using Robust.Shared.GameObjects.Components.Localization; //imp
 
 namespace Content.Server.Station.Systems;
 
