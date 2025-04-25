@@ -34,7 +34,6 @@ public abstract partial class SharedExcretionSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedStackSystem _stackSystem = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private readonly SharedJetpackSystem _jetpack = default!;
     [Dependency] private readonly StepTriggerSystem _stepTrigger = default!;
     [Dependency] private readonly SharedPuddleSystem _puddleSystem = default!;
@@ -56,7 +55,7 @@ public abstract partial class SharedExcretionSystem : EntitySystem
     {
         _actionsSystem.AddAction(uid, ref comp.ActionEntity, comp.Action);
         /// refreshes the movement speed modifier so that the snailSlowdownModifier triggers.
-        _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
+        _movement.RefreshMovementSpeedModifiers(uid);
     }
 
     /// <summary>

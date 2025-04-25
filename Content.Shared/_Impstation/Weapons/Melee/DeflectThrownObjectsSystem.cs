@@ -8,7 +8,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.Weapons.Melee;
 
-public class DeflectThrownObjectsSystem : EntitySystem
+public abstract class DeflectThrownObjectsSystem : EntitySystem
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly EntityLookupSystem _entLookup = default!;
