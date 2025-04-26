@@ -1,9 +1,5 @@
-using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Content.Shared.Radio;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-using Content.Shared.Tools;
-using Robust.Shared.Containers;
 
 namespace Content.Server._Impstation.Radio.Components;
 
@@ -23,41 +19,12 @@ public sealed partial class SelfHeadsetComponent : Component
     /// The radio channels that have been added via encryption key to a user's ActiveRadioComponent.
     /// Used to track which channels were successfully added (not already in user)
     /// </summary>
-    /// <remarks>
-    /// Should not be modified outside RadioImplantSystem.cs
-    /// </remarks>
-    [DataField]
     public HashSet<ProtoId<RadioChannelPrototype>> ActiveAddedChannels = new();
 
     /// <summary>
     /// The radio channels that have been added via encryption key to a user's IntrinsicRadioTransmitterComponent.
     /// Used to track which channels were successfully added (not already in user)
     /// </summary>
-    /// <remarks>
-    /// Should not be modified outside RadioImplantSystem.cs
-    /// </remarks>
     [DataField]
     public HashSet<ProtoId<RadioChannelPrototype>> TransmitterAddedChannels = new();
-
-    /// <summary>
-    /// Should the radio channels be examinable.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField]
-    public bool Hidden;
-
-    /// <summary>
-    ///     The tool required to extract the encryption keys from the headset.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("keysExtractionMethod", customTypeSerializer: typeof(PrototypeIdSerializer<ToolQualityPrototype>))]
-    public string KeysExtractionMethod = "Screwing";
-
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("keyInsertionSound")]
-    public SoundSpecifier KeyInsertionSound = new SoundPathSpecifier("eating");
-
-    [ViewVariables]
-    public Container KeyContainer = default!;
 }
-
