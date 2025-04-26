@@ -10,13 +10,14 @@ namespace Content.Server.Magic;
 
 public sealed partial class ChainFireballSystem : EntitySystem
 {
-    [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly PhysicsSystem _physics = default!;
-    [Dependency] private readonly IMapManager _mapMan = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly SharedGunSystem _gun = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -78,11 +79,10 @@ public sealed partial class ChainFireballSystem : EntitySystem
         var fromMap = _transform.ToMapCoordinates(fromCoords);
         var spawnCoords = _mapMan.TryFindGridAt(fromMap, out var gridUid, out _)
             ? _transform.WithEntityId(fromCoords, gridUid)
-            : new(_mapMan.GetMapEntityId(fromMap.MapId), fromMap.Position);
+            : new(_map.GetMap(fromMap.MapId), fromMap.Position);
 
-
-        var direction = toCoords.ToMapPos(EntityManager, _transform) -
-                        spawnCoords.ToMapPos(EntityManager, _transform);
+        var direction = toCoords.Position -
+                        spawnCoords.Position;
 
         _gun.ShootProjectile(ball, direction, userVelocity, uid, uid);
 

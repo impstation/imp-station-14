@@ -269,7 +269,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             if (gamer.AttachedEntity == null)
                 continue;
 
-            var pos = Transform(gamer.AttachedEntity!.Value).WorldPosition;
+            var pos = _transform.GetWorldPosition(gamer.AttachedEntity!.Value);
             var delta = center.Position - pos;
 
             if (delta.EqualsApprox(Vector2.Zero))

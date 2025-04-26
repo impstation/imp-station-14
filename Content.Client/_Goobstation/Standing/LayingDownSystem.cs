@@ -10,11 +10,12 @@ namespace Content.Client._Goobstation.Standing;
 
 public sealed class LayingDownSystem : SharedLayingDownSystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IEyeManager _eyeManager = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly AnimationPlayerSystem _animation = default!;
+    [Dependency] private readonly IEyeManager _eyeManager = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedBuckleSystem _buckle = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!;
 
     public override void Initialize()
     {
@@ -46,7 +47,7 @@ public sealed class LayingDownSystem : SharedLayingDownSystem
             return;
         }
 
-        var rotation = transform.LocalRotation + (_eyeManager.CurrentEye.Rotation - (transform.LocalRotation - transform.WorldRotation));
+        var rotation = transform.LocalRotation + (_eyeManager.CurrentEye.Rotation - (transform.LocalRotation - _transform.GetWorldRotation(uid)));
 
         if (rotation.GetDir() is Direction.SouthEast or Direction.East or Direction.NorthEast or Direction.North)
         {
@@ -69,7 +70,7 @@ public sealed class LayingDownSystem : SharedLayingDownSystem
         if (!TryComp(uid, out TransformComponent? transform) || !TryComp<RotationVisualsComponent>(uid, out var rotationVisuals))
             return;
 
-        var rotation = transform.LocalRotation + (_eyeManager.CurrentEye.Rotation - (transform.LocalRotation - transform.WorldRotation));
+        var rotation = transform.LocalRotation + (_eyeManager.CurrentEye.Rotation - (transform.LocalRotation - _transform.GetWorldRotation(uid)));
 
         if (rotation.GetDir() is Direction.SouthEast or Direction.East or Direction.NorthEast or Direction.North)
         {

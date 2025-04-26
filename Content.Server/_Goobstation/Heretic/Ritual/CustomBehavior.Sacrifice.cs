@@ -53,9 +53,9 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly TransformSystem _transformSystem = default!;
 
-    private IPrototypeManager _proto = default!;
     private IEntityManager _entmanager = default!;
-    private List<EntityUid> _uids = new();
+    private IPrototypeManager _proto = default!;
+    protected List<EntityUid> Uids = new();
 
     public override bool Execute(RitualData args, out string? outstr)
     {
@@ -85,11 +85,11 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
                 continue;
 
             if (mobstate.CurrentState == Shared.Mobs.MobState.Dead)
-                _uids.Add(look);
+                Uids.Add(look);
         }
 
         //if none are dead, say so
-        if (_uids.Count < Min)
+        if (Uids.Count < Min)
         {
             outstr = Loc.GetString("heretic-ritual-fail-sacrifice-ineligible");
             return false;
@@ -105,11 +105,11 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
 
         for (int i = 0; i < Max; i++)
         {
-            var isCommand = args.EntityManager.HasComponent<CommandStaffComponent>(_uids[i]);
+            var isCommand = args.EntityManager.HasComponent<CommandStaffComponent>(Uids[i]);
             var knowledgeGain = isCommand ? 2f : 1f;
 
             //get the humanoid appearance component
-            if (!args.EntityManager.TryGetComponent<HumanoidAppearanceComponent>(_uids[i], out var humanoid))
+            if (!args.EntityManager.TryGetComponent<HumanoidAppearanceComponent>(Uids[i], out var humanoid))
                 return;
 
             //get the species prototype from that
@@ -119,10 +119,10 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
             //spawn a clone of the victim
             //this should really use the cloningsystem but i coded this before that existed
             //and it works so i'm not changing it unless it causes issues
-            var sacrificialWhiteBoy = args.EntityManager.Spawn(speciesPrototype.Prototype, _transformSystem.GetMapCoordinates(_uids[i]));
-            _humanoid.CloneAppearance(_uids[i], sacrificialWhiteBoy);
+            var sacrificialWhiteBoy = args.EntityManager.Spawn(speciesPrototype.Prototype, _transformSystem.GetMapCoordinates(Uids[i]));
+            _humanoid.CloneAppearance(Uids[i], sacrificialWhiteBoy);
             //make sure it has the right DNA
-            if (args.EntityManager.TryGetComponent<DnaComponent>(_uids[i], out var victimDna))
+            if (args.EntityManager.TryGetComponent<DnaComponent>(Uids[i], out var victimDna))
             {
                 if (args.EntityManager.TryGetComponent<BloodstreamComponent>(sacrificialWhiteBoy, out var dummyBlood))
                 {
@@ -134,13 +134,13 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
                         {
                             List<ReagentData> reagentData = reagent.Reagent.EnsureReagentData();
                             reagentData.RemoveAll(x => x is DnaData);
-                            reagentData.AddRange(_bloodstream.GetEntityBloodData(_uids[i]));
+                            reagentData.AddRange(_bloodstream.GetEntityBloodData(Uids[i]));
                         }
                     }
                 }
             }
             //beat the clone to death. this is just to get matching organs
-            if (args.EntityManager.TryGetComponent<DamageableComponent>(_uids[i], out var dmg))
+            if (args.EntityManager.TryGetComponent<DamageableComponent>(Uids[i], out var dmg))
             {
                 var prot = (ProtoId<DamageGroupPrototype>)"Brute";
                 var dmgtype = _proto.Index(prot);
@@ -148,18 +148,18 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
             }
 
             //send the target to hell world
-            _hellworld.AddVictimComponent(_uids[i]);
+            _hellworld.AddVictimComponent(Uids[i]);
 
             //teleport the body to a midround antag spawn spot so it's not just tossed into space
-            _hellworld.TeleportRandomly(args, _uids[i]);
+            _hellworld.TeleportRandomly(args, Uids[i]);
 
             //make sure that my shitty AddVictimComponent thing actually worked before trying to use a mind that isn't there
-            if (args.EntityManager.TryGetComponent<HellVictimComponent>(_uids[i], out var hellVictim))
+            if (args.EntityManager.TryGetComponent<HellVictimComponent>(Uids[i], out var hellVictim))
             {
                 //i'm so sorry to all of my computer science professors. i've failed you
                 if (hellVictim.HasMind)
                 {
-                    _hellworld.SendToHell(_uids[i], args, speciesPrototype);
+                    _hellworld.SendToHell(Uids[i], args, speciesPrototype);
                 }
 
             }
@@ -184,7 +184,7 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
         }
 
         // reset it because it refuses to work otherwise.
-        _uids = new();
+        Uids = new();
         args.EntityManager.EventBus.RaiseLocalEvent(args.Performer, new EventHereticUpdateTargets());
     }
 }
