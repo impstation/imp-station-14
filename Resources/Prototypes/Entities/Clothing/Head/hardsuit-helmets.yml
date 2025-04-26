@@ -797,14 +797,14 @@
   parent: [ BaseCentcommContraband, ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingHeadHelmetCBURN
   name: CBURN exosuit helmet
-  description: A pressure resistant and fireproof hood worn by special cleanup units.
+  description: A pressure resistant, fireproof, and HAZMAT certified hood, worn by specialized CBURN units. # imp
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/cburn.rsi
+    sprite: _Impstation/Clothing/Head/Hardsuits/cburn.rsi # imp resprite
     layers:
     - state: icon
-    - state: icon-unshaded
-      shader: unshaded
+  # - state: icon-unshaded # imp, not needed for resprite
+    #   shader: unshaded
     - state: light-overlay
       visible: false
       shader: unshaded
@@ -813,8 +813,10 @@
     clothingVisuals:
       head:
       - state: equipped-head
-      - state: equipped-head-unshaded
-        shader: unshaded
+      head-vox:
+      - state: equipped-head-vox
+    # - state: equipped-head-unshaded # imp
+      # shader: unshaded
   - type: PointLight
     color: orange
   - type: PressureProtection
