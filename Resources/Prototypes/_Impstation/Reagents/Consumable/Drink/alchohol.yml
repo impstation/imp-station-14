@@ -617,7 +617,7 @@
   name: reagent-name-lungclogger
   parent: BaseAlcohol
   desc: reagent-desc-lungclogger
-  physicalDesc: reagent-physical-desc-lungclogger
+  physicalDesc: reagent-physical-desc-pungent
   flavor: lungclogger
   color: "#1F9275"
   metamorphicSprite:
@@ -631,6 +631,9 @@
       effects:
       - !type:SatiateThirst
         factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.15
       - !type:Emote
         emote: Cough
         showInChat: true
@@ -653,7 +656,7 @@
   name: reagent-name-sleepytimejunction
   parent: BaseAlcohol
   desc: reagent-desc-sleepytimejunction
-  physicalDesc: reagent-physical-desc-sleepytimejunction
+  physicalDesc: reagent-physical-desc-cloudy
   flavor: sleepytimejunction
   color: "#941FDB"
   metamorphicSprite:
@@ -671,10 +674,10 @@
         emote: Yawn
         showInChat: true
         force: true
-        probability: 0.1
+        probability: 0.05
       - !type:MovespeedModifier
-        walkSpeedModifier: 0.65
-        sprintSpeedModifier: 0.65
+        walkSpeedModifier: 0.85
+        sprintSpeedModifier: 0.85
       - !type:GenericStatusEffect
         key: Drowsiness
         component: Drowsiness
@@ -691,7 +694,7 @@
   name: reagent-name-breathoffreshair
   parent: BaseAlcohol
   desc: reagent-desc-breathoffreshair
-  physicalDesc: reagent-physical-desc-breathoffreshairr
+  physicalDesc: reagent-physical-desc-refreshing
   flavor: breathoffreshair
   color: "#538FBC"
   metamorphicSprite:
@@ -719,7 +722,7 @@
   name: reagent-name-minotaurslament
   parent: BaseAlcohol
   desc: reagent-desc-minotaurslament
-  physicalDesc: reagent-physical-desc-minotaurslament
+  physicalDesc: reagent-physical-desc-strong-smelling
   flavor: minotaurslament
   color: "#D7F407"
   metamorphicSprite:
@@ -733,16 +736,19 @@
       effects:
       - !type:SatiateThirst
         factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.15
     Medicine:
       effects:
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 20
-        probability: 0.25
+        probability: 0.75
         damage:
           types:
-            Poison: 1
+            Poison: .3
   fizziness: .2
 
 - type: reagent 
@@ -750,7 +756,7 @@
   name: reagent-name-burnchamber
   parent: BaseAlcohol
   desc: reagent-desc-burnchamber
-  physicalDesc: reagent-physical-desc-burnchamber
+  physicalDesc: reagent-physical-desc-burning
   flavor: burnchamber
   color: "#FFC503"
   metamorphicSprite:
@@ -764,6 +770,9 @@
       effects:
       - !type:SatiateThirst
         factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.15
     Poison:
       effects:
         - !type:AdjustTemperature
@@ -774,7 +783,7 @@
               min: 10
           damage:
             types:
-              Caustic: 1
+              Heat: .5
         - !type:PopupMessage
           type: Local
           messages: [ "capsaicin-effect-light-burn" ]
@@ -786,9 +795,9 @@
   name: reagent-name-weldingcoils
   parent: BaseAlcohol
   desc: reagent-desc-weldingcoils
-  physicalDesc: reagent-physical-desc-weldingcoils
+  physicalDesc: reagent-physical-desc-electric
   flavor: weldingcoils
-  color: "#3C3E9C"
+  color: "#7030e6"
   metamorphicSprite:
     sprite: _Impstation/Objects/Consumable/Drinks/weldingcoils.rsi
     state: icon_empty
@@ -800,4 +809,11 @@
       effects:
       - !type:SatiateThirst
         factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.25
+      - !type:AdjustReagent
+        probability: 0.05
+        reagent: Licoxide
+        amount: 0.01
   fizziness: .5

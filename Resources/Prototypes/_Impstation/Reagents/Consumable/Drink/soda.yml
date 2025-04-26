@@ -69,7 +69,7 @@
   name: reagent-name-supermixer
   parent: BaseSoda
   desc: reagent-desc-supermixer
-  physicalDesc: reagent-physical-desc-supermixer
+  physicalDesc: reagent-physical-desc-sweet
   flavor: supermixer
   color: "#FDD54E"
   metamorphicSprite:
@@ -83,26 +83,20 @@
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:GenericStatusEffect
-        key: ParacusiaDrink
-        component: Paracusia
-        conditions:
-        - !type:ReagentThreshold
-          min: 20
   fizziness: 0.8
 
 - type: reagent
   id: Supermixerpsych
   name: reagent-name-supermixerpsych
   parent: BaseSoda
-  desc: reagent-desc-supermixerpsych
+  desc: reagent-physical-desc-shiny
   physicalDesc: reagent-physical-desc-supermixerpsych
   flavor: supermixerpsych
   color: "#5471A8"
   metamorphicSprite:
     sprite: _Impstation/Objects/Consumable/Drinks/supermixerpsych.rsi
     state: icon_empty
-  metamorphicMaxFillLevels: 4
+  metamorphicMaxFillLevels: 3
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
@@ -112,11 +106,5 @@
         factor: 2
       - !type:AdjustReagent
         reagent: Psicodine
-        amount: 0.15
-      - !type:GenericStatusEffect
-        key: ParacusiaDrink
-        component: Paracusia
-        conditions:
-        - !type:ReagentThreshold
-          min: 20
+        amount: 0.10
   fizziness: 0.8

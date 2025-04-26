@@ -41,11 +41,11 @@ flavor-complex-feverdream = like you're losing your mind
 
 flavor-complex-soju = like juice
 
-flavor-complex-breathoffreshair = like
-flavor-complex-burnchamer = like
-flavor-complex-lungclogger = like
-flavor-complex-minotaurslament = like
-flavor-complex-sleepytimejunction = like
-flavor-complex-weldingcoils = like
-flavor-complex-supermixer = like
-flavor-complex-supermixerpsych = like
+flavor-complex-breathoffreshair = like artifical air and soda
+flavor-complex-burnchamber = a little too hot for consumption
+flavor-complex-lungclogger = like broken hearts and collapsed lungs
+flavor-complex-minotaurslament = like dead xenos and ammonia
+flavor-complex-sleepytimejunction = like sweet dreams and cream
+flavor-complex-weldingcoils = electrifying!
+flavor-complex-supermixer = boringly sweet
+flavor-complex-supermixerpsych = like a psychiatric appointment
