@@ -173,6 +173,9 @@
     - Eyes
     - HeadTop
     - HeadSide #might go back on this
+  - type: ActionGun
+    action: ActionAnomalocaridSpit
+    gunProto: AnomalocaridSpitGun
   - type: Inventory
     speciesId: anomalocarid
     templateId: anomalocarid
@@ -242,3 +245,59 @@
           32:
             sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi
             state: belt
+
+
+#TODO: Make the burst fire work and use thirst as ammo
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: AnomalocaridSpitGun
+  name: anomalocarid water gun
+  description: For anomalocarid spit
+  components:
+  - type: Gun
+    clumsyProof: true
+    cameraRecoilScalar: 0 #no recoil
+    fireRate: 6
+    burstFireRate: 12
+    availableModes:
+    - Burst
+    shotsPerBurst: 5
+    burstCooldown: 0
+    selectedMode: Burst #imp
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/water_spray.ogg
+  - type: SolutionContainerManager
+    solutions:
+      chamber:
+        maxVol: 50 #10 shots
+  - type: SolutionRegeneration
+    solution: chamber
+    generated:
+      reagents:
+      - ReagentId: Water
+        Quantity: 10
+  - type: SolutionAmmoProvider
+    solutionId: chamber
+    proto: BulletWaterShot
+  - type: SolutionTransfer
+    transferAmount: 5
+    maxTransferAmount: 50
+    minTransferAmount: 5
+    canChangeTransferAmount: true
+  - type: UserInterface
+    interfaces:
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
+
+- type: entity
+  id: ActionAnomalocaridSpit
+  name: "[color=teal]Spit Water[/color]"
+  description: Spit a small stream of water!
+  components:
+  - type: WorldTargetAction
+    icon: { sprite : _Impstation/Mobs/Species/Anomalocarid/abilities.rsi, state: spit }
+    event: !type:ActionGunShootEvent
+    priority: 2
+    checkCanAccess: false
+    range: 0
+    itemIconStyle: BigAction
