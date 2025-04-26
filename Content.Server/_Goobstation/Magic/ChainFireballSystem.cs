@@ -71,18 +71,11 @@ public sealed partial class ChainFireballSystem : EntitySystem
             sfc.IgnoredTargets = sfc.IgnoredTargets.Count > 0 ? sfc.IgnoredTargets : ignoredTargets;
 
         // launch it towards the target
-        var fromCoords = Transform(uid).Coordinates;
-        var toCoords = Transform(target).Coordinates;
+        var fromCoords = _transform.GetMapCoordinates(uid);
+        var toCoords = _transform.GetMapCoordinates(target);
         var userVelocity = _physics.GetMapLinearVelocity(uid);
 
-        // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
-        var fromMap = _transform.ToMapCoordinates(fromCoords);
-        var spawnCoords = _mapMan.TryFindGridAt(fromMap, out var gridUid, out _)
-            ? _transform.WithEntityId(fromCoords, gridUid)
-            : new(_map.GetMap(fromMap.MapId), fromMap.Position);
-
-        var direction = toCoords.Position -
-                        spawnCoords.Position;
+        var direction = toCoords.Position - fromCoords.Position;
 
         _gun.ShootProjectile(ball, direction, userVelocity, uid, uid);
 
