@@ -41,25 +41,9 @@ public sealed partial class DrawRitualRuneDoAfterEvent : SimpleDoAfterEvent
     }
 }
 [Serializable, NetSerializable]
-public sealed partial class HereticMansusLinkDoAfter : SimpleDoAfterEvent
-{
-    [NonSerialized] public EntityUid Target;
-
-    public HereticMansusLinkDoAfter(EntityUid target)
-    {
-        Target = target;
-    }
-}
+public sealed partial class HereticMansusLinkDoAfter : SimpleDoAfterEvent { }
 [Serializable, NetSerializable]
-public sealed partial class EventHereticFleshSurgeryDoAfter : SimpleDoAfterEvent
-{
-    [NonSerialized] public EntityUid? Target;
-
-    public EventHereticFleshSurgeryDoAfter(EntityUid target)
-    {
-        Target = target;
-    }
-}
+public sealed partial class EventHereticFleshSurgeryDoAfter : SimpleDoAfterEvent { }
 
 #endregion
 
