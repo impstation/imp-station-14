@@ -1,20 +1,23 @@
-using Content.Shared.Heretic.Prototypes;
-using Content.Shared.Mobs.Components;
-using Robust.Shared.Prototypes;
-using Content.Shared.Humanoid;
+using Content.Server._Goobstation.Heretic.EntitySystems;
+using Content.Server.Body.Components;
+using Content.Server.Body.Systems;
+using Content.Server.Heretic.Components;
+using Content.Server.Heretic.EntitySystems;
+using Content.Server.Humanoid;
+using Content.Server.Objectives.Components;
 using Content.Server.Revolutionary.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Forensics.Components;
+using Content.Shared.Heretic;
+using Content.Shared.Heretic.Prototypes;
+using Content.Shared.Humanoid;
+using Content.Shared.Mind;
+using Content.Shared.Mobs.Components;
 using Robust.Server.GameObjects;
-using Content.Server.Heretic.Components;
-using Content.Server.Body.Systems;
-using Content.Server.Body.Components;
-using Content.Server._Goobstation.Heretic.EntitySystems;
-using Content.Shared.Chemistry.Reagent;
-using Content.Shared.Chemistry.EntitySystems;
+using Robust.Shared.Prototypes;
 
 
 namespace Content.Server.Heretic.Ritual;
@@ -40,15 +43,15 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
     // this is awful but it works so i'm not complaining
     // i'm complaining -kandiyaki
     // IM ALSO COMPLAINING -mq
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly HereticSystem _heretic = default!;
+    [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
-    [Dependency] private readonly TransformSystem _transformSystem = default!;
     [Dependency] private readonly HellWorldSystem _hellworld = default!;
-    [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
+    [Dependency] private readonly HereticSystem _heretic = default!;
+    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private readonly TransformSystem _transformSystem = default!;
 
     private IPrototypeManager _proto = default!;
     private IEntityManager _entmanager = default!;
@@ -86,7 +89,7 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
         }
 
         //if none are dead, say so
-        if (uids.Count < Min)
+        if (_uids.Count < Min)
         {
             outstr = Loc.GetString("heretic-ritual-fail-sacrifice-ineligible");
             return false;
