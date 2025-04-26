@@ -48,4 +48,4 @@ flavor-complex-minotaurslament = like
 flavor-complex-sleepytimejunction = like
 flavor-complex-weldingcoils = like
 flavor-complex-supermixer = like
-flavor-complex-supermixer_psych = like
+flavor-complex-supermixerpsych = like

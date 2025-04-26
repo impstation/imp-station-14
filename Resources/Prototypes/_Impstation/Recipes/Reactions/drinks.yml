@@ -430,18 +430,6 @@
   products:
     Soju: 2
 
-- type: reaction
-  id: Soju
-  requiredMixerCategories:
-    - Stir
-  reactants:
-    Ethanol:
-      amount: 1
-    JuiceWatermelon:
-      amount: 1
-  products:
-    Soju: 2
-
 ##mouse barrier, remove in PR push
 
 - type: reaction
@@ -536,13 +524,13 @@
     Supermixer: 3
 
 - type: reaction
-  id: Supermixer_Psych
+  id: SupermixerPsych
   requiredMixerCategories:
     - Stir
   reactants:
     Supermixer:
       amount: 2
-    Psycodine:
+    Psicodine:
       amount: 1
   products:
-    Supermixer_Psych
+    SupermixerPsych: 3

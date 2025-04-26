@@ -94,15 +94,15 @@
   fizziness: 0.8
 
 - type: reagent
-  id: Supermixer_psych
-  name: reagent-name-supermixer_psych
+  id: Supermixerpsych
+  name: reagent-name-supermixerpsych
   parent: BaseSoda
-  desc: reagent-desc-supermixer_psych
-  physicalDesc: reagent-physical-desc-supermixer_psych
-  flavor: supermixer_psych
+  desc: reagent-desc-supermixerpsych
+  physicalDesc: reagent-physical-desc-supermixerpsych
+  flavor: supermixerpsych
   color: "#5471A8"
   metamorphicSprite:
-    sprite: _Impstation/Objects/Consumable/Drinks/supermixer_psych.rsi
+    sprite: _Impstation/Objects/Consumable/Drinks/supermixerpsych.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
