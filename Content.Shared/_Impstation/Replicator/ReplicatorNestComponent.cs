@@ -2,6 +2,7 @@
 // all credit for the core gameplay concepts and a lot of the core functionality of the code goes to the folks over at Goob, but I re-wrote enough of it to justify putting it in our filestructure.
 // the original Bingle PR can be found here: https://github.com/Goob-Station/Goob-Station/pull/1519
 
+using Content.Shared.Item;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
@@ -20,12 +21,15 @@ public sealed partial class ReplicatorNestComponent : Component
 
     /// <summary>
     /// Total stored points. Points are acquired by putting things in the hole.
+    /// is a datafield so admins can VV it
     /// </summary>
+    [DataField(readOnly: true)]
     public int TotalPoints = 0;
 
     /// <summary>
     /// The current level of the nest.
     /// </summary>
+    [DataField(readOnly: true)]
     public int CurrentLevel = 1;
 
     /// <summary>
@@ -84,3 +88,8 @@ public enum ReplicatorNestVisuals : byte
     Level3
 }
 
+[Serializable, NetSerializable]
+public sealed partial class ReplicatorNestSizeChangedEvent : EntityEventArgs
+{
+
+}

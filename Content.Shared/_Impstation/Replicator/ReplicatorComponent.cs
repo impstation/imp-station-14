@@ -5,7 +5,7 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
-namespace Content.Server._Impstation.Replicator;
+namespace Content.Shared._Impstation.Replicator;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ReplicatorComponent : Component

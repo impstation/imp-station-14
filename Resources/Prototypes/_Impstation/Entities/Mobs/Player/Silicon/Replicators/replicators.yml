@@ -28,7 +28,31 @@
       state: alive
     - map: ["enum.ReplicatorVisuals.Combat"]
       state: combat_level1
+      shader: unshaded
       visible: false
+  - type: Appearance
+  - type: ReplacementAccent
+    accent: silicon
+  - type: ActionGrant
+    actions:
+    - ActionViewLaws
+  - type: CombatMode
+  - type: Actions
+  - type: ProtectedFromStepTriggers
+  - type: InputMover
+  - type: MobMover
+  - type: ContentEye
+    maxZoom: 1.2, 1.2
+  - type: Tag
+    tags:
+      - CannotSuicide
+      - EmagImmune
+      - CanPilot
+      - VimPilot
+  - type: MobState
+    allowedStates:
+      - Alive
+      - Dead
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -44,9 +68,14 @@
         acts: [ "Destruction" ]
       - !type:SpawnEntitiesBehavior
         spawn:
-          MaterialSteel:
+          SheetPlasteel1:
             min: 1
-            max: 60
+            max: 6
+  - type: StatusEffects
+    allowed:
+    - Stun
+    - KnockedDown
+    - SlowedDown
   - type: DamageStateVisuals
     rotate: false
     states:
@@ -66,7 +95,6 @@
         Structural: 14 # breaks down the walls and airlocks in 10 hits
   - type: StaminaDamageOnHit
     damage: 15
-    overtime: 40
     sound: /Audio/Weapons/egloves.ogg
   - type: MovementSpeedModifier
     baseWalkSpeed : 2 # same as slime
@@ -110,6 +138,7 @@
       state: alive_level2
     - map: ["enum.ReplicatorVisuals.Combat"]
       state: combat_level2
+      shader: unshaded
       visible: false
   - type: DamageStateVisuals
     rotate: false
@@ -147,6 +176,7 @@
       state: alive_level3
     - map: ["enum.ReplicatorVisuals.Combat"]
       state: combat_level3
+      shader: unshaded
       visible: false
   - type: DamageStateVisuals
     rotate: false

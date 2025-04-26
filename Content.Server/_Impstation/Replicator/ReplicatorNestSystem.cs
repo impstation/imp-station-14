@@ -32,6 +32,10 @@ using Content.Shared.Actions;
 using Content.Server.Mind;
 using Content.Shared.Mind.Components;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Content.Shared.Item;
+using Content.Server.Item;
+using Robust.Shared.Prototypes;
+using Content.Shared.Construction.Components;
 
 namespace Content.Server._Impstation.Replicator;
 
@@ -52,7 +56,7 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly ItemSystem _item = default!;
 
     public override void Initialize()
     {
@@ -107,15 +111,17 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
         if (HasComp<ReplicatorNestFallingComponent>(args.Tripper))
             return;
 
+        var isReplicator = HasComp<ReplicatorComponent>(args.Tripper);
+
         // Allow dead replicators regardless of current level. 
-        if (TryComp<MobStateComponent>(args.Tripper, out var mobState) && HasComp<ReplicatorComponent>(args.Tripper) && mobState.CurrentState == MobState.Dead)
+        if (TryComp<MobStateComponent>(args.Tripper, out var mobState) && isReplicator && mobState.CurrentState == MobState.Dead)
         {
             StartFalling(ent, args.Tripper);
             return;
         }
 
-        // Only allow consuming living beings if the AllowLivingThreshold has been surpassed.
-        if (mobState != null && ent.Comp.CurrentLevel < ent.Comp.AllowLivingThreshold)
+        // Only allow consuming living beings if the AllowLivingThreshold has been surpassed. Don't allow consuming living replicators.
+        if (isReplicator || mobState != null && ent.Comp.CurrentLevel < ent.Comp.AllowLivingThreshold)
             return;
 
         StartFalling(ent, args.Tripper);
@@ -146,8 +152,22 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
 
     private void HandlePoints(Entity<ReplicatorNestComponent> ent, EntityUid tripper) // this is its own method because I think it reads cleaner. also the way goobcode handled this sucked.
     {
-        // regardless of what falls in, you get a point.
+        // regardless of what falls in, you get at least one point.
         ent.Comp.TotalPoints++;
+
+        // you get a bonus point if the item is Normal sized, 2 bonus points if it's Large, and 3 bonus points if it's above that.
+        if (TryComp<ItemComponent>(tripper, out var itemComp))
+        {
+            if (_item.GetSizePrototype(itemComp.Size) == _item.GetSizePrototype("Normal"))
+                ent.Comp.TotalPoints++;
+            else if (_item.GetSizePrototype(itemComp.Size) == _item.GetSizePrototype("Large"))
+                ent.Comp.TotalPoints += 2;
+            else if (_item.GetSizePrototype(itemComp.Size) >= _item.GetSizePrototype("Huge"))
+                ent.Comp.TotalPoints += 3;
+        }
+        // if it wasn't an item and was anchorable, you get 4 bonus points.
+        else if (TryComp<AnchorableComponent>(tripper, out _))
+            ent.Comp.TotalPoints += 4;
 
         // you get bonus points if it was alive.
         if (TryComp<MobStateComponent>(tripper, out var mobState) && mobState.CurrentState != MobState.Dead)
@@ -199,14 +219,6 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
             SpawnNew(ent);
             ent.Comp.NextSpawnAt += ent.Comp.SpawnNewAt;
         }
-
-        // make the nest sprite grow as long as we have sprites for it. I am NOT scaling it.
-        if (ent.Comp.CurrentLevel <= ent.Comp.EndgameLevel)
-            Embiggen(ent);
-
-        // if we've reached the endgame, the nest will ignore gravity when picking targets - actively pulling them in.
-        if (ent.Comp.CurrentLevel == ent.Comp.EndgameLevel)
-            _stepTrigger.SetIgnoreWeightless(ent, true);
     }
 
     private void SpawnNew(Entity<ReplicatorNestComponent> ent)
@@ -244,6 +256,8 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
             visualsLevel = ReplicatorNestVisuals.Level3;
 
         _appearance.SetData(ent, visualsLevel, true, appearanceComp);
+        var ev = new ReplicatorNestSizeChangedEvent();
+        RaiseLocalEvent(ev);
     }
 
     private void OnDestruction(Entity<ReplicatorNestComponent> ent, ref DestructionEventArgs args)
