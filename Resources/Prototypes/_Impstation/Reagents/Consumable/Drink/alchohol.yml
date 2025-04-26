@@ -635,20 +635,10 @@
         reagent: Ethanol
         amount: 0.15
       - !type:Emote
-        emote: Cough
+        emote: Thump
         showInChat: true
         force: true
         probability: 0.2
-    Medicine:
-      - !type:HealthChange
-        probability: 0.75
-        damage:
-          types:
-            Asphyxiation: 1
-    footstepSound:
-          collection: FootstepSticky
-          params:
-          volume: 6
   fizziness: .4
 
 - type: reagent
@@ -681,12 +671,8 @@
       - !type:GenericStatusEffect
         key: Drowsiness
         component: Drowsiness
-        time: 3
+        time: 2
         type: Add
-      footstepSound:
-          collection: FootstepSticky
-          params:
-          volume: 6
   fizziness: .1
 
 - type: reagent
