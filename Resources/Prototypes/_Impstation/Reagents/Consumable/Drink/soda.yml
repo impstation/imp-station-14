@@ -63,3 +63,64 @@
           type: Moth
           shouldHave: false
   fizziness: 0.2
+
+- type: reagent
+  id: Supermixer
+  name: reagent-name-supermixer
+  parent: BaseSoda
+  desc: reagent-desc-supermixer
+  physicalDesc: reagent-physical-desc-supermixer
+  flavor: supermixer
+  color: "#FDD54E"
+  metamorphicSprite:
+    sprite: _Impstation/Objects/Consumable/Drinks/supermixer.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:GenericStatusEffect
+        probability: 0.01
+        key: Paracusia
+        component: Paracusia
+        type: Add
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+  fizziness: 0.8
+
+- type: reagent
+  id: Supermixer_psych
+  name: reagent-name-supermixer_psych
+  parent: BaseSoda
+  desc: reagent-desc-supermixer_psych
+  physicalDesc: reagent-physical-desc-supermixer_psych
+  flavor: supermixer_psych
+  color: "#5471A8"
+  metamorphicSprite:
+    sprite: _Impstation/Objects/Consumable/Drinks/supermixer_psych.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Psycodine
+        amount: 0.15
+      - !type:GenericStatusEffect
+        probability: 0.01
+        key: Paracusia
+        component: Paracusia
+        type: Add
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+  fizziness: 0.8

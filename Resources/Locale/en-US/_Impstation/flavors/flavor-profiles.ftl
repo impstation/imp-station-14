@@ -40,3 +40,12 @@ flavor-complex-shimmeringblood = sweet and slightly creamy
 flavor-complex-feverdream = like you're losing your mind
 
 flavor-complex-soju = like juice
+
+flavor-complex-breathoffreshair = like
+flavor-complex-burnchamer = like
+flavor-complex-lungclogger = like
+flavor-complex-minotaurslament = like
+flavor-complex-sleepytimejunction = like
+flavor-complex-weldingcoils = like
+flavor-complex-supermixer = like
+flavor-complex-supermixer_psych = like

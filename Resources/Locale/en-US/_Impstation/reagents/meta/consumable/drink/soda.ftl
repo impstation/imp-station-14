@@ -9,3 +9,9 @@ reagent-desc-genderfluid = Looking at this drink makes you feel... ahem. Well.
 
 reagent-name-zombieslushie = zombie slushie
 reagent-desc-zombieslushie = Ice, Cream, and Raw Meat come together to create... this?
+
+reagent-name-supermixer = the supermixer
+reagent-desc-supermixer = A simple, sweet mixer. It leaves a little to be desired on its own.. Do not chug!
+
+reagent-name-supermixer_psych = the supermixer
+reagent-desc-supermixer_psych = A touch of introspection to keep down the heat!
