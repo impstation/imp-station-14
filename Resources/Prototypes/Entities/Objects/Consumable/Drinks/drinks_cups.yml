@@ -53,6 +53,9 @@
     sprite: Objects/Consumable/Drinks/golden_cup.rsi
   - type: StaticPrice
     price: 125
+  - type: PhysicalComposition
+    materialComposition:
+      Gold: 100 # 1 bar
 
 - type: entity
   parent: DrinkBaseCup
