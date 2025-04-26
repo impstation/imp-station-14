@@ -670,6 +670,7 @@
       - !type:Emote
         emote: Yawn
         showInChat: true
+        force: true
         probability: 0.1
       - !type:MovespeedModifier
         walkSpeedModifier: 0.65
@@ -677,9 +678,8 @@
       - !type:GenericStatusEffect
         key: Drowsiness
         component: Drowsiness
-        time: 2
+        time: 3
         type: Add
-        refresh: false
       footstepSound:
           collection: FootstepSticky
           params:
@@ -736,16 +736,16 @@
     Medicine:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
         probability: 0.25
         damage:
           types:
             Poison: 1
-        conditions:
-        - !type:ReagentThreshold
-          min: 20
   fizziness: .2
 
-- type: reagent
+- type: reagent 
   id: Burnchamber
   name: reagent-name-burnchamber
   parent: BaseAlcohol
@@ -781,7 +781,7 @@
           probability: 0.2
   fizziness: .5
 
-- type: reagent
+- type: reagent 
   id: WeldingCoils
   name: reagent-name-weldingcoils
   parent: BaseAlcohol

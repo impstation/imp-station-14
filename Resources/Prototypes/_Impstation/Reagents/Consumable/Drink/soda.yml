@@ -84,10 +84,8 @@
       - !type:SatiateThirst
         factor: 2
       - !type:GenericStatusEffect
-        probability: 0.01
-        key: Paracusia
+        key: ParacusiaDrink
         component: Paracusia
-        type: Add
         conditions:
         - !type:ReagentThreshold
           min: 20
@@ -113,13 +111,11 @@
       - !type:SatiateThirst
         factor: 2
       - !type:AdjustReagent
-        reagent: Psycodine
+        reagent: Psicodine
         amount: 0.15
       - !type:GenericStatusEffect
-        probability: 0.01
-        key: Paracusia
+        key: ParacusiaDrink
         component: Paracusia
-        type: Add
         conditions:
         - !type:ReagentThreshold
           min: 20

@@ -594,7 +594,7 @@
 
 - type: entity
   parent: DrinkGlass
-  id: DrinkSupermixerPsych
+  id: DrinkSupermixerpsych
   suffix: the supermixer
   components:
   - type: SolutionContainerManager
@@ -602,7 +602,7 @@
       drink:
         maxVol: 30
         reagents:
-        - ReagentId: SupermixerPsych
+        - ReagentId: Supermixerpsych
           Quantity: 30
   - type: Icon
     sprite: _Impstation/Objects/Consumable/Drinks/supermixerpsych.rsi
