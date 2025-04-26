@@ -482,7 +482,7 @@
 
 - type: entity
   parent: DrinkGlass
-  id: DrinkLungClogger
+  id: DrinkLungCloggerGlass
   suffix: lung clogger
   components:
   - type: SolutionContainerManager
@@ -498,7 +498,7 @@
 
 - type: entity
   parent: DrinkGlass
-  id: DrinkBreathofFreshAir
+  id: DrinkBreathofFreshAirGlass
   suffix: a breath of fresh air
   components:
   - type: SolutionContainerManager
@@ -514,7 +514,7 @@
 
 - type: entity
   parent: DrinkGlass
-  id: DrinkSleepytimeJunction
+  id: DrinkSleepytimeJunctionGlass
   suffix: sleepytime junction
   components:
   - type: SolutionContainerManager
@@ -530,7 +530,7 @@
 
 - type: entity
   parent: DrinkGlass
-  id: DrinkMinotaursLament
+  id: DrinkMinotaursLamentGlass
   suffix: minotaur's lament
   components:
   - type: SolutionContainerManager
@@ -546,8 +546,8 @@
 
 - type: entity
   parent: DrinkGlass
-  id: DrinkBurnchamber
-  suffix: burnchamber
+  id: DrinkBurnchamberGlass
+  suffix: the burnchamber
   components:
   - type: SolutionContainerManager
     solutions:
@@ -562,7 +562,7 @@
 
 - type: entity
   parent: DrinkGlass
-  id: DrinkWeldingCoils
+  id: DrinkWeldingCoilsGlass
   suffix: weldin' coils
   components:
   - type: SolutionContainerManager
@@ -578,7 +578,7 @@
 
 - type: entity
   parent: DrinkGlass
-  id: DrinkSupermixer
+  id: DrinkSupermixerGlass
   suffix: the supermixer
   components:
   - type: SolutionContainerManager
@@ -594,7 +594,7 @@
 
 - type: entity
   parent: DrinkGlass
-  id: DrinkSupermixerpsych
+  id: DrinkSupermixerpsychGlass
   suffix: the supermixer
   components:
   - type: SolutionContainerManager

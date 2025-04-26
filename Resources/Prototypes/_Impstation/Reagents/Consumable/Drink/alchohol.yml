@@ -639,13 +639,13 @@
         showInChat: true
         force: true
         probability: 0.2
-      Medicine:
+    Medicine:
       - !type:HealthChange
         probability: 0.75
         damage:
           types:
             Asphyxiation: 1
-      footstepSound:
+    footstepSound:
           collection: FootstepSticky
           params:
           volume: 6
