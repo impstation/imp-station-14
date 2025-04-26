@@ -7,3 +7,23 @@
       amount: 1
   products:
     JuiceThatMakesYouUngh: 2
+
+- type: reaction
+  id: Something
+  reactants:
+    Happiness:
+      amount: 1
+    Sadness:
+      amount: 1
+  products:
+    Something: 2
+
+- type: reaction
+  id: SomethingNothing
+  reactants:
+    Something:
+      amount: 1
+    Nothing:
+      amount: 1
+  products:
+    Something: 2 #what did you expect
