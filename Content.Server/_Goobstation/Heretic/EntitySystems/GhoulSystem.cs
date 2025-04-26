@@ -2,11 +2,13 @@ using Content.Server.Administration.Systems;
 using Content.Server.Antag;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
+using Content.Server.EUI;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Humanoid;
 using Content.Server.Mind.Commands;
 using Content.Server.Roles;
 using Content.Server.Temperature.Components;
+using Content.Server._Goobstation.Heretic.UI;
 using Content.Shared.Body.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Ghost.Roles.Components;
@@ -27,9 +29,13 @@ namespace Content.Server.Heretic.EntitySystems;
 
 public sealed partial class GhoulSystem : Shared.Heretic.EntitySystems.SharedGhoulSystem
 {
+    [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
+    [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
+    [Dependency] private readonly NpcFactionSystem _faction = default!;
+    [Dependency] private readonly EuiManager _euiMan = default!;
     [Dependency] private readonly MobThresholdSystem _threshold = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
@@ -48,7 +54,15 @@ public sealed partial class GhoulSystem : Shared.Heretic.EntitySystems.SharedGho
 
         var hasMind = _mind.TryGetMind(ent, out var mindId, out var mind);
         if (hasMind && ent.Comp.BoundHeretic != null)
+        {
             SendBriefing(ent, mindId, mind);
+
+            if (_mind.TryGetSession(mindId, out var session))
+            {
+                _euiMan.OpenEui(new GhoulNotifEui(), session);
+            }
+
+        }
 
         if (TryComp<HumanoidAppearanceComponent>(ent, out var humanoid))
         {

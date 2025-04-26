@@ -1,23 +1,21 @@
-using Content.Server._Goobstation.Heretic.EntitySystems;
-using Content.Server.Body.Components;
-using Content.Server.Body.Systems;
-using Content.Server.Heretic.Components;
-using Content.Server.Heretic.EntitySystems;
-using Content.Server.Humanoid;
-using Content.Server.Objectives.Components;
+using Content.Shared.Heretic.Prototypes;
+using Content.Shared.Mobs.Components;
+using Robust.Shared.Prototypes;
+using Content.Shared.Humanoid;
 using Content.Server.Revolutionary.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Forensics.Components;
-using Content.Shared.Heretic;
-using Content.Shared.Heretic.Prototypes;
-using Content.Shared.Humanoid;
-using Content.Shared.Mind;
-using Content.Shared.Mobs.Components;
 using Robust.Server.GameObjects;
-using Robust.Shared.Prototypes;
+using Content.Server.Heretic.Components;
+using Content.Server.Body.Systems;
+using Content.Server.Body.Components;
+using Content.Server._Goobstation.Heretic.EntitySystems;
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Chemistry.EntitySystems;
+
 
 namespace Content.Server.Heretic.Ritual;
 
@@ -38,11 +36,6 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
     ///     Maximum amount of corpses.
     /// </summary>
     [DataField] public float Max = 1;
-
-    /// <summary>
-    ///     Should we count only targets?
-    /// </summary>
-    [DataField] public bool OnlyTargets = false;
 
     // this is awful but it works so i'm not complaining
     // i'm complaining -kandiyaki
@@ -66,13 +59,14 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
         _proto = IoCManager.Resolve<IPrototypeManager>();
         _entmanager = IoCManager.Resolve<IEntityManager>();
 
-
+        //if the performer isn't a heretic, stop
         if (!args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
         {
             outstr = string.Empty;
             return false;
         }
 
+        //get all entities in range of the circle
         var lookup = _lookup.GetEntitiesInRange(args.Platform, .75f);
         if (lookup.Count == 0 || lookup == null)
         {
@@ -91,7 +85,8 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
                 _uids.Add(look);
         }
 
-        if (_uids.Count < Min)
+        //if none are dead, say so
+        if (uids.Count < Min)
         {
             outstr = Loc.GetString("heretic-ritual-fail-sacrifice-ineligible");
             return false;
