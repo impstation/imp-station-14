@@ -39,6 +39,7 @@ namespace Content.Server._Impstation.Drone
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly PowerCellSystem _powerCell = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+        [Dependency] private readonly SharedTransformSystem _transform = default!;
         [Dependency] private readonly UserInterfaceSystem _ui = default!;
 
         public override void Initialize()
@@ -236,7 +237,7 @@ namespace Content.Server._Impstation.Drone
         private bool NonDronesInRange(EntityUid uid, DroneComponent component)
         {
             var xform = Comp<TransformComponent>(uid);
-            foreach (var entity in _lookup.GetEntitiesInRange(xform.MapPosition, component.InteractionBlockRange))
+            foreach (var entity in _lookup.GetEntitiesInRange(_transform.GetMapCoordinates(xform), component.InteractionBlockRange))
             {
                 // Return true if the entity is/was controlled by a player and is not a drone or ghost.
                 if (HasComp<MindContainerComponent>(entity) && !HasComp<DroneComponent>(entity) && !HasComp<GhostComponent>(entity))

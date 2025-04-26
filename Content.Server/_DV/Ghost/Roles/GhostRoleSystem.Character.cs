@@ -6,7 +6,6 @@ using Content.Server.Station.Systems;
 using Content.Shared.Mind.Components;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Ghost.Roles
 {
@@ -14,7 +13,6 @@ namespace Content.Server.Ghost.Roles
     {
         [Dependency] private readonly IServerPreferencesManager _prefs = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
         private void OnSpawnerTakeCharacter(EntityUid uid, GhostRoleCharacterSpawnerComponent component,
             ref TakeGhostRoleEvent args)
@@ -33,7 +31,7 @@ namespace Content.Server.Ghost.Roles
             _transform.AttachToGridOrMap(mob);
 
             string? outfit = null;
-            if (_prototypeManager.TryIndex<StartingGearPrototype>(component.OutfitPrototype, out var outfitProto))
+            if (_prototype.TryIndex<StartingGearPrototype>(component.OutfitPrototype, out var outfitProto))
                 outfit = outfitProto.ID;
 
             var spawnedEvent = new GhostRoleSpawnerUsedEvent(uid, mob);

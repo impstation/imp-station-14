@@ -260,7 +260,7 @@ public sealed partial class ChangelingSystem : EntitySystem
     {
         _audio.PlayPvs(comp.ShriekSound, uid);
 
-        var center = Transform(uid).MapPosition;
+        var center = _transform.GetMapCoordinates(uid);
         var gamers = Filter.Empty();
         gamers.AddInRange(center, comp.ShriekPower, _player, EntityManager);
 

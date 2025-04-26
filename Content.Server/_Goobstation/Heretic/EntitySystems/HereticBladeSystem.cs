@@ -173,7 +173,7 @@ public sealed partial class HereticBladeSystem : EntitySystem
 
     private EntityCoordinates? SelectRandomTileInRange(TransformComponent userXform, float radius)
     {
-        var userCoords = userXform.Coordinates.ToMap(EntityManager, _xform);
+        var userCoords = _xform.ToMapCoordinates(userXform.Coordinates);
         _targetGrids.Clear();
         _lookupSystem.GetEntitiesInRange(userCoords, radius, _targetGrids);
         Entity<MapGridComponent>? targetGrid = null;

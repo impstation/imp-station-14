@@ -75,9 +75,9 @@ public sealed partial class ChainFireballSystem : EntitySystem
         var userVelocity = _physics.GetMapLinearVelocity(uid);
 
         // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
-        var fromMap = fromCoords.ToMap(EntityManager, _transform);
+        var fromMap = _transform.ToMapCoordinates(fromCoords);
         var spawnCoords = _mapMan.TryFindGridAt(fromMap, out var gridUid, out _)
-            ? fromCoords.WithEntityId(gridUid, EntityManager)
+            ? _transform.WithEntityId(fromCoords, gridUid)
             : new(_mapMan.GetMapEntityId(fromMap.MapId), fromMap.Position);
 
 
