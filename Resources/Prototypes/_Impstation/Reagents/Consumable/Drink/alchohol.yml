@@ -813,7 +813,7 @@
         reagent: Ethanol
         amount: 0.25
       - !type:AdjustReagent
-        probability: 0.05
+        probability: 0.1 # with so little licoxide, it'll only shock you half the time it actually rolls this
         reagent: Licoxide
         amount: 0.01
   fizziness: .5

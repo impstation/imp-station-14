@@ -430,8 +430,6 @@
   products:
     Soju: 2
 
-##mouse barrier, remove in PR push
-
 - type: reaction
   id: LungClogger
   requiredMixerCategories:
@@ -479,7 +477,7 @@
 - type: reaction
   id: MinotaursLament
   reactants:
-    Xenobasher:
+    XenoBasher:
       amount: 1
     Absinthe:
       amount: 1
@@ -506,7 +504,7 @@
       amount: 1
     Vodka:
       amount: 2
-    AsteradeLemon:
+    LemonAsterade:
       amount: 3
   products:
     WeldingCoils: 6
@@ -516,7 +514,7 @@
   reactants:
     Sugar:
       amount: 1
-    Sodawater:
+    SodaWater:
       amount: 1
     JuiceLemon:
       amount: 1
@@ -524,7 +522,7 @@
     Supermixer: 3
 
 - type: reaction
-  id: SupermixerPsych
+  id: Supermixerpsych
   requiredMixerCategories:
     - Stir
   reactants:
@@ -533,4 +531,4 @@
     Psicodine:
       amount: 1
   products:
-    SupermixerPsych: 3
+    Supermixerpsych: 3

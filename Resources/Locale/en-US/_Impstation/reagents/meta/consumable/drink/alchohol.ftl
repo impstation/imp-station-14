@@ -79,8 +79,8 @@ reagent-desc-sleepytimejunction = Whipped cream pillows and sweet chlorine to ro
 reagent-name-minotaurslament = minotaur's lament
 reagent-desc-minotaurslament = Even minotaurs die in their labyrinths
 
-reagent-name-burnchamer = burnchamer
-reagent-desc-burnchamer = Burns as hot as the real thing. Don't forget a firesuit!
+reagent-name-burnchamber = burnchamber
+reagent-desc-burnchamber = Burns as hot as the real thing. Don't forget a firesuit!
 
 reagent-name-weldingcoils = weldin' coils
 reagent-desc-weldingcoils = Perfect for drinking away your problems! There's coils to weld.
