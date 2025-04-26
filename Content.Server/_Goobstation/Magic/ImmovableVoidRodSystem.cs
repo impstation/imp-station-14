@@ -1,9 +1,7 @@
-using Content.Server.Heretic.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Maps;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
-using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
@@ -14,7 +12,6 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
 {
     [Dependency] private readonly IEntityManager _ent = default!;
     [Dependency] private readonly IPrototypeManager _prot = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly TileSystem _tile = default!;
 
