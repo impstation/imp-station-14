@@ -45,7 +45,7 @@
   parent: [ EncryptionKey, BaseCentcommContraband ]
   id: EncryptionKeyCentCom
   name: Central Command encryption key # imp caps fix
-  description: An encryption key used by your bosses' bosses. # imp wording
+  description: An encryption key used by your boss's bosses. # imp wording
   components:
   - type: EncryptionKey
     channels:
