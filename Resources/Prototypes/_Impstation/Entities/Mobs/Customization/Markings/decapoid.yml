@@ -8,10 +8,10 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
-    state: crabchestbiopulse1
-  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
-    state: crabchestbiopulse2
+  - sprite: _Impstation/Mobs/Customization/Decapoid/chest.rsi
+    state: biopulse1
+  - sprite: _Impstation/Mobs/Customization/Decapoid/chest.rsi
+    state: biopulse2
   shader: unshaded
 
 - type: marking
@@ -22,8 +22,8 @@
   forcedColoring: true
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: crabchestmasked
+  - sprite: _Impstation/Mobs/Customization/Decapoid/chest.rsi
+    state: masked
 
 - type: marking
   id: CrabCorset
@@ -33,8 +33,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: crabtorsocorset
+  - sprite: _Impstation/Mobs/Customization/Decapoid/chest.rsi
+    state: corset
 
 - type: marking
   id: CrabCrackedChest
@@ -44,8 +44,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: crabcrackedchest
+  - sprite: _Impstation/Mobs/Customization/Decapoid/chest.rsi
+    state: crackedchest
 
 - type: marking
   id: CrabSpine
@@ -55,8 +55,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: crabspine
+  - sprite: _Impstation/Mobs/Customization/Decapoid/chest.rsi
+    state: spine
 
 - type: marking
   id: DecapoidAbPlate
@@ -64,7 +64,7 @@
   markingCategory: Chest
   speciesRestriction: [ Decapoid ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/decapoid.rsi
+  - sprite: _Impstation/Mobs/Customization/Decapoid/chest.rsi
     state: abdominalplate
 
 - type: marking
@@ -73,7 +73,7 @@
   markingCategory: Chest
   speciesRestriction: [ Decapoid ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/decapoid.rsi
+  - sprite: _Impstation/Mobs/Customization/Decapoid/chest.rsi
     state: lowerplate
 
 - type: marking
@@ -82,7 +82,7 @@
   markingCategory: Chest
   speciesRestriction: [ Decapoid ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/decapoid.rsi
+  - sprite: _Impstation/Mobs/Customization/Decapoid/chest.rsi
     state: pectoralplate
 
 - type: marking
@@ -93,12 +93,12 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: crabflowermoonupper1
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: crabflowermoonupper2
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: crabflowermoonupper3
+  - sprite: _Impstation/Mobs/Customization/Decapoid/chest.rsi
+    state: flowermoonupper1
+  - sprite: _Impstation/Mobs/Customization/Decapoid/chest.rsi
+    state: flowermoonupper2
+  - sprite: _Impstation/Mobs/Customization/Decapoid/chest.rsi
+    state: flowermoonupper3
 
 # Head
 
@@ -110,8 +110,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: crabcrackedhead
+  - sprite: _Impstation/Mobs/Customization/Decapoid/head.rsi
+    state: crackedhead
 
 - type: marking
   id: CrabHeadHighlight
@@ -121,8 +121,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: crabheadhighlight
+  - sprite: _Impstation/Mobs/Customization/Decapoid/head.rsi
+    state: highlight
 
 - type: marking
   id: GaudyClownHead
@@ -132,10 +132,10 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: crabgaudyclownhead1
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: crabgaudyclownhead2
+  - sprite: _Impstation/Mobs/Customization/Decapoid/head.rsi
+    state: gaudyclownhead1
+  - sprite: _Impstation/Mobs/Customization/Decapoid/head.rsi
+    state: gaudyclownhead2
 
 # Snout
 
@@ -158,10 +158,10 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: crabgillstripes1
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: crabgillstripes2
+  - sprite: _Impstation/Mobs/Customization/Decapoid/snout.rsi
+    state: gillstripes1
+  - sprite: _Impstation/Mobs/Customization/Decapoid/snout.rsi
+    state: gillstripes2
 
 # Eyes
 
@@ -173,10 +173,10 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: crabtalleyes1
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: crabtalleyes2
+  - sprite: _Impstation/Mobs/Customization/Decapoid/eyes.rsi
+    state: tall1
+  - sprite: _Impstation/Mobs/Customization/Decapoid/eyes.rsi
+    state: tall2
 
 - type: marking
   id: DecapoidEyesDefault
@@ -188,8 +188,8 @@
       type:
         !type:EyeColoring
   sprites:
-  - sprite: _Impstation/Mobs/Customization/decapoid.rsi
-    state: eyes-1
+  - sprite: _Impstation/Mobs/Customization/Decapoid/eyes.rsi
+    state: eyes1
 
 - type: marking
   id: DecapoidEyesSpider
@@ -201,8 +201,8 @@
       type:
         !type:EyeColoring
   sprites:
-  - sprite: _Impstation/Mobs/Customization/decapoid.rsi
-    state: eyes-6
+  - sprite: _Impstation/Mobs/Customization/Decapoid/eyes.rsi
+    state: eyes6
 
 - type: marking
   id: DecapoidEyesStalks
@@ -214,8 +214,8 @@
       type:
         !type:EyeColoring
   sprites:
-  - sprite: _Impstation/Mobs/Customization/decapoid.rsi
-    state: eyes-4
+  - sprite: _Impstation/Mobs/Customization/Decapoid/eyes.rsi
+    state: eyes4
 
 - type: marking
   id: DecapoidEyesThree
@@ -227,8 +227,8 @@
       type:
         !type:EyeColoring
   sprites:
-  - sprite: _Impstation/Mobs/Customization/decapoid.rsi
-    state: eyes-2
+  - sprite: _Impstation/Mobs/Customization/Decapoid/eyes.rsi
+    state: eyes2
 
 - type: marking
   id: DecapoidEyesWideClose
@@ -240,8 +240,8 @@
       type:
         !type:EyeColoring
   sprites:
-  - sprite: _Impstation/Mobs/Customization/decapoid.rsi
-    state: eyes-3
+  - sprite: _Impstation/Mobs/Customization/Decapoid/eyes.rsi
+    state: eyes3
 
 - type: marking
   id: DecapoidEyesWideFar
@@ -253,8 +253,8 @@
       type:
         !type:EyeColoring
   sprites:
-  - sprite: _Impstation/Mobs/Customization/decapoid.rsi
-    state: eyes-5
+  - sprite: _Impstation/Mobs/Customization/Decapoid/eyes.rsi
+    state: eyes5
 
 # RArm
 
@@ -266,8 +266,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: crabrarmstripes
+  - sprite: _Impstation/Mobs/Customization/Decapoid/rarm.rsi
+    state: stripes
 
 - type: marking
   id: DecapoidPauldronRight
@@ -275,7 +275,7 @@
   markingCategory: Arms
   speciesRestriction: [ Decapoid ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/decapoid.rsi
+  - sprite: _Impstation/Mobs/Customization/Decapoid/rarm.rsi
     state: pauldronright
 
 - type: marking
@@ -286,12 +286,12 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: crabrightpauldronencrusted1
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: crabrightpauldronencrusted2
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: crabrightpauldronencrusted3
+  - sprite: _Impstation/Mobs/Customization/Decapoid/rarm.rsi
+    state: pauldronencrusted1
+  - sprite: _Impstation/Mobs/Customization/Decapoid/rarm.rsi
+    state: pauldronencrusted2
+  - sprite: _Impstation/Mobs/Customization/Decapoid/rarm.rsi
+    state: pauldronencrusted3
 
 - type: marking
   id: RPauldronArmored
@@ -301,8 +301,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: crabrightpauldronarmored
+  - sprite: _Impstation/Mobs/Customization/Decapoid/rarm.rsi
+    state: pauldronarmored
 
 # LArm
 
@@ -312,8 +312,8 @@
   markingCategory: Arms
   speciesRestriction: [ Decapoid ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/decapoid.rsi
-    state: pauldronleft
+  - sprite: _Impstation/Mobs/Customization/Decapoid/larm.rsi
+    state: pauldron
 
 - type: marking
   id: DecapoidPauldronSpike
@@ -321,7 +321,7 @@
   markingCategory: Arms
   speciesRestriction: [ Decapoid ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/decapoid.rsi
+  - sprite: _Impstation/Mobs/Customization/Decapoid/larm.rsi
     state: pauldronspike
 
 - type: marking
@@ -332,10 +332,10 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: crabflowermoonpauldron1
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: crabflowermoonpauldron2
+  - sprite: _Impstation/Mobs/Customization/Decapoid/larm.rsi
+    state: flowermoonpauldron1
+  - sprite: _Impstation/Mobs/Customization/Decapoid/larm.rsi
+    state: flowermoonpauldron2
 
 - type: marking
   id: LeftEncrustedPauldron
@@ -345,12 +345,12 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: crableftpauldronencrusted1
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: crableftpauldronencrusted2
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: crableftpauldronencrusted3
+  - sprite: _Impstation/Mobs/Customization/Decapoid/larm.rsi
+    state: pauldronencrusted1
+  - sprite: _Impstation/Mobs/Customization/Decapoid/larm.rsi
+    state: pauldronencrusted2
+  - sprite: _Impstation/Mobs/Customization/Decapoid/larm.rsi
+    state: pauldronencrusted3
 
 - type: marking
   id: LPauldronArmored
@@ -360,8 +360,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: crableftpauldronarmored
+  - sprite: _Impstation/Mobs/Customization/Decapoid/larm.rsi
+    state: pauldronarmored
 
 - type: marking
   id: PauldronCracked
@@ -371,8 +371,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: crabpauldroncracked
+  - sprite: _Impstation/Mobs/Customization/Decapoid/larm.rsi
+    state: pauldroncracked
 
 - type: marking
   id: PauldronSheerspine
@@ -382,8 +382,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: crabpauldronsheerspine
+  - sprite: _Impstation/Mobs/Customization/Decapoid/larm.rsi
+    state: sheerspine
 
 - type: marking
   id: PauldronWarlord
@@ -393,8 +393,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: crableftpauldronwarlord
+  - sprite: _Impstation/Mobs/Customization/Decapoid/larm.rsi
+    state: warlord
 
 # RLeg
 
@@ -418,10 +418,10 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: crabsplitclaw1
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: crabsplitclaw2
+  - sprite: _Impstation/Mobs/Customization/Decapoid/lhand.rsi
+    state: splitclaw1
+  - sprite: _Impstation/Mobs/Customization/Decapoid/lhand.rsi
+    state: splitclaw2
 
 - type: marking
   id: DecapoidClawGradient
@@ -429,8 +429,8 @@
   markingCategory: Arms
   speciesRestriction: [ Decapoid ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/decapoid.rsi
-    state: clawgradient
+  - sprite: _Impstation/Mobs/Customization/Decapoid/lhand.rsi
+    state: gradient
 
 - type: marking
   id: DecapoidClawPlate
@@ -438,8 +438,8 @@
   markingCategory: Arms
   speciesRestriction: [ Decapoid ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/decapoid.rsi
-    state: clawplate
+  - sprite: _Impstation/Mobs/Customization/Decapoid/lhand.rsi
+    state: plate
 
 # RHand
 
@@ -449,8 +449,8 @@
   markingCategory: Arms
   speciesRestriction: [ Decapoid ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/decapoid.rsi
-    state: righthandgradient
+  - sprite: _Impstation/Mobs/Customization/Decapoid/rhand.rsi
+    state: gradient
 
 - type: marking
   id: DecapoidRHandPlate
@@ -458,8 +458,8 @@
   markingCategory: Arms
   speciesRestriction: [ Decapoid ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/decapoid.rsi
-    state: righthandplate
+  - sprite: _Impstation/Mobs/Customization/Decapoid/rhand.rsi
+    state: plate
 
 # FacialHair
 
@@ -473,7 +473,7 @@
   forcedColoring: true
   speciesRestriction: [ Decapoid ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/decapoid.rsi
+  - sprite: _Impstation/Mobs/Customization/Decapoid/hair.rsi
     state: flathead
 
 # HeadSide
