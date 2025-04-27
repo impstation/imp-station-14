@@ -17,3 +17,14 @@
     antagPrototype: BountyHunter
     roleType: FreeAgent
   - type: MindRoleBountyHunter
+
+#Lone Op
+- type: entity
+  parent: MindRoleNukeops
+  id: MindRoleNukeopsLone
+  name: Lone Operative Role
+  components:
+  - type: MindRole
+    roleType: SoloAntagonist
+    antagPrototype: NukeopsLone
+  - type: NukeopsRole
