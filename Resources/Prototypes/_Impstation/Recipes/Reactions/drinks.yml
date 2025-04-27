@@ -511,6 +511,8 @@
 
 - type: reaction
   id: Supermixer
+  requiredMixerCategories:
+    - Shake
   reactants:
     Sugar:
       amount: 1
