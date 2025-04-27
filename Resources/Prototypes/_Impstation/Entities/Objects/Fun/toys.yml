@@ -727,6 +727,9 @@
     context: human
   - type: RelentlessPositivity
   - type: BlockMovement
+  - type: Emoting
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
   - type: MouseRotator
   - type: ToggleableGhostRole
     examineTextMindPresent: Fuzzbo-system-on

@@ -3,6 +3,7 @@ using Content.Shared.Interaction;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Content.Shared.Emag.Systems;
+using Content.Server.Speech.Components;
 
 
 namespace Content.Server._Impstation.Toys;
@@ -27,9 +28,6 @@ public sealed class FuzzboSystem : EntitySystem
     /// </summary>
     private void OnInteractUsing(EntityUid uid, FuzzboComponent component, InteractUsingEvent args)
     {
-        if (args.Handled)
-            return;
-
         if (HasComp<FuzzboComponent>(args.Used))
         {
             args.Handled = true;
@@ -48,7 +46,7 @@ public sealed class FuzzboSystem : EntitySystem
     }
 
     /// <summary>
-    /// Allows the player inhabiting the ghost role to activate Harm Mode at will.
+    /// Allows the player inhabiting the ghost role to activate Harm Mode at will, removes Relentless Positivity accent.
     /// </summary>
     private void OnEmagged(EntityUid uid, FuzzboComponent component, ref GotEmaggedEvent args)
     {
@@ -64,6 +62,10 @@ public sealed class FuzzboSystem : EntitySystem
 
         {
             EnsureComp<CombatModeComponent>(uid);
+        }
+
+        {
+            RemComp<RelentlessPositivityComponent>(uid);
         }
     }
 
