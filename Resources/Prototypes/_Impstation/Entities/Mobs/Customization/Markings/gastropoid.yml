@@ -1,3 +1,52 @@
+# Chest
+
+- type: marking
+  id: GastropoidPuff1
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Gastropoid]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/snail/snail_pattern.rsi
+    state: puff_1
+
+- type: marking
+  id: GastropoidPuff2
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Gastropoid]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/snail/snail_pattern.rsi
+    state: puff_2
+
+- type: marking
+  id: GastropoidSpotsBody
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Gastropoid]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/snail/snail_pattern.rsi
+    state: spots_body
+
+- type: marking
+  id: GastropoidStripesBody
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Gastropoid]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/snail/snail_pattern.rsi
+    state: stripes_body
+
+- type: marking
+  id: GastropoidVertStripes
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Gastropoid]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/snail/snail_pattern.rsi
+    state: vert_stripes
+
+# Head
+
 - type: marking
   id: GastropoidAltHead
   bodyPart: Head
@@ -6,6 +55,25 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/snail/snail_face.rsi
     state: alt_head
+
+- type: marking
+  id: GastropoidCheekGlow
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Gastropoid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: snailcheekglow
+  shader: unshaded
+
+- type: marking
+  id: GastropoidCheeks
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Gastropoid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: snailcheeks
 
 - type: marking
   id: GastropoidFaceEyes1
@@ -61,6 +129,74 @@
   - sprite: _Impstation/Mobs/Customization/snail/snail_face.rsi
     state: stripes_head
 
+# Snout
+
+# Eyes
+
+# RArm
+
+- type: marking
+  id: GastropoidSpotsArmRight
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Gastropoid]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/snail/snail_pattern.rsi
+    state: spots_arm_right
+
+- type: marking
+  id: GastropoidStripesArmRight
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Gastropoid]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/snail/snail_pattern.rsi
+    state: stripes_arm_right
+
+# LArm
+
+- type: marking
+  id: GastropoidSpotsArmLeft
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Gastropoid]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/snail/snail_pattern.rsi
+    state: spots_arm_left
+
+- type: marking
+  id: GastropoidStripesArmLeft
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Gastropoid]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/snail/snail_pattern.rsi
+    state: stripes_arm_left
+
+# RLeg
+
+# LLeg
+
+# UndergarmentBottom
+
+# UndergarmentTop
+
+# LFoot
+
+# RFoot
+
+# LHand
+
+# RHand
+
+# FacialHair
+
+# Hair
+
+# HeadSide
+
+# HeadTop
+
 - type: marking
   id: GastropoidTentacleBeard
   bodyPart: HeadTop
@@ -78,6 +214,8 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/snail/snail_face.rsi
     state: tentacle_moustache
+
+# Tail
 
 - type: marking
   id: GastropoidShellBig
@@ -98,6 +236,33 @@
     state: shell_big_stripes
 
 - type: marking
+  id: GastropoidShellCone
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Gastropoid]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/snail/snail_shell.rsi
+    state: shell_cone
+
+- type: marking
+  id: GastropoidShellProsthetic
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Gastropoid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: snailshellprosthetic
+
+- type: marking
+  id: GastropoidShellProstheticSimple
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Gastropoid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: snailshellprostheticsimple
+
+- type: marking
   id: GastropoidShellSmall
   bodyPart: Tail
   markingCategory: Tail
@@ -116,91 +281,79 @@
     state: shell_small_stripes
 
 - type: marking
-  id: GastropoidShellCone
+  id: GlowInTheDarkStars
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Gastropoid]
+  markingCategory: Overlay
+  speciesRestriction: [ Gastropoid ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/snail/snail_shell.rsi
-    state: shell_cone
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: snailshellprostheticsimpleglowinthedarkstars
+  shader: unshaded
 
 - type: marking
-  id: GastropoidPuff1
-  bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Gastropoid]
+  id: ProstheticInnerLight
+  bodyPart: Tail
+  markingCategory: Overlay
+  speciesRestriction: [ Gastropoid ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/snail/snail_pattern.rsi
-    state: puff_1
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: snailshellprostheticinnerlight
+  shader: unshaded
 
 - type: marking
-  id: GastropoidPuff2
-  bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Gastropoid]
+  id: ProstheticPulse
+  bodyPart: Tail
+  markingCategory: Overlay
+  speciesRestriction: [ Gastropoid ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/snail/snail_pattern.rsi
-    state: puff_2
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: snailshellprostheticpulse
+  shader: unshaded
 
 - type: marking
-  id: GastropoidStripesBody
-  bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Gastropoid]
+  id: SimpleBow
+  bodyPart: Tail
+  markingCategory: Overlay
+  speciesRestriction: [ Gastropoid ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/snail/snail_pattern.rsi
-    state: stripes_body
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: snailshellprostheticsimplebow
 
 - type: marking
-  id: GastropoidVertStripes
-  bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Gastropoid]
+  id: SimpleCracks
+  bodyPart: Tail
+  markingCategory: Overlay
+  speciesRestriction: [ Gastropoid ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/snail/snail_pattern.rsi
-    state: vert_stripes
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: snailshellprostheticsimplecracks
 
 - type: marking
-  id: GastropoidSpotsBody
-  bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Gastropoid]
+  id: SnailWeewoo
+  bodyPart: Tail
+  markingCategory: Overlay
+  speciesRestriction: [ Gastropoid ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/snail/snail_pattern.rsi
-    state: spots_body
+  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
+    state: weewoo1
+  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
+    state: weewoo2
+  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
+    state: weewoo3
+  shader: unshaded
 
 - type: marking
-  id: GastropoidSpotsArmLeft
-  bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [Gastropoid]
+  id: SnailWeewooSmall
+  bodyPart: Tail
+  markingCategory: Overlay
+  speciesRestriction: [ Gastropoid ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/snail/snail_pattern.rsi
-    state: spots_arm_left
+  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
+    state: weewoosmall1
+  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
+    state: weewoosmall2
+  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
+    state: weewoosmall3
+  shader: unshaded
 
-- type: marking
-  id: GastropoidStripesArmLeft
-  bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [Gastropoid]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/snail/snail_pattern.rsi
-    state: stripes_arm_left
-
-- type: marking
-  id: GastropoidSpotsArmRight
-  bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [Gastropoid]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/snail/snail_pattern.rsi
-    state: spots_arm_right
-
-- type: marking
-  id: GastropoidStripesArmRight
-  bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [Gastropoid]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/snail/snail_pattern.rsi
-    state: stripes_arm_right
+# RArmExtension
