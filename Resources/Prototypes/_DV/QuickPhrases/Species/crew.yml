@@ -35,9 +35,9 @@
   text: species-name-slime
 
 - type: quickPhrase
-  id: SpeciesGreyPhrase
+  id: SpeciesGrayPhrase
   parent: BaseCrewSpeciesPhrase
-  text: species-name-grey
+  text: species-name-gray
 
 - type: quickPhrase
   id: SpeciesGastropoidPhrase
@@ -77,4 +77,4 @@
 - type: quickPhrase
   id: SpeciesGoblinPhrase
   parent: BaseCrewSpeciesPhrase
-  text: species-name-decapoid
+  text: species-name-goblin

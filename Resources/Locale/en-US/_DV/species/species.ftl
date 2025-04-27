@@ -1,6 +1,6 @@
 ## Species Names
 
-species-name-grey = Grey
+species-name-gray = Gray
 species-name-gastropoid = Gastropoid
 species-name-kodepiia = Kodepiia
 species-name-thaven = Thaven

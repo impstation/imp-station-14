@@ -1,104 +1,104 @@
 - type: quickPhrase
-  id: BaseEpistemicsSubjectPhrase
-  parent: [ BaseSubjectPhrase, BaseEpistemicsPhrase ]
+  id: BaseScienceSubjectPhrase
+  parent: [ BaseSubjectPhrase, BaseSciencePhrase ]
   abstract: true
 
 - type: quickPhrase
   id: AnomalyPhrase
-  parent: BaseEpistemicsSubjectPhrase
+  parent: BaseScienceSubjectPhrase
   text: phrase-anomaly
 
 - type: quickPhrase
   id: APEPhrase
-  parent: BaseEpistemicsSubjectPhrase
+  parent: BaseScienceSubjectPhrase
   text: phrase-ape
 
 - type: quickPhrase
   id: AnomalyVesselPhrase
-  parent: BaseEpistemicsSubjectPhrase
+  parent: BaseScienceSubjectPhrase
   text: phrase-anomaly-vessel
 
 - type: quickPhrase
   id: ArtifactPhrase
-  parent: BaseEpistemicsSubjectPhrase
+  parent: BaseScienceSubjectPhrase
   text: phrase-artifact
 
 - type: quickPhrase
   id: ArtifactContainerPhrase
-  parent: BaseEpistemicsSubjectPhrase
+  parent: BaseScienceSubjectPhrase
   text: phrase-artifact-container
 
 - type: quickPhrase
   id: RoboticsPhrase
-  parent: BaseEpistemicsSubjectPhrase
+  parent: BaseScienceSubjectPhrase
   text: phrase-robotics
 
 - type: quickPhrase
   id: CircuitBoardPhrase
-  parent: BaseEpistemicsSubjectPhrase
+  parent: BaseScienceSubjectPhrase
   text: phrase-circuit-board
 
 - type: quickPhrase
   id: ResearchPhrase
-  parent: BaseEpistemicsSubjectPhrase
+  parent: BaseScienceSubjectPhrase
   text: phrase-research
 
 - type: quickPhrase
   id: ResearchConsolePhrase
-  parent: BaseEpistemicsSubjectPhrase
+  parent: BaseScienceSubjectPhrase
   text: phrase-research-console
 
 - type: quickPhrase
   id: OraclePhrase
-  parent: BaseEpistemicsSubjectPhrase
+  parent: BaseScienceSubjectPhrase
   text: phrase-oracle
 
 - type: quickPhrase
   id: SophiePhrase
-  parent: BaseEpistemicsSubjectPhrase
+  parent: BaseScienceSubjectPhrase
   text: phrase-sophie
 
 - type: quickPhrase
   id: GlimmerPhrase
-  parent: BaseEpistemicsSubjectPhrase
+  parent: BaseScienceSubjectPhrase
   text: phrase-glimmer
 
 - type: quickPhrase
   id: PsionicsPhrase
-  parent: BaseEpistemicsSubjectPhrase
+  parent: BaseScienceSubjectPhrase
   text: phrase-psionic
 
 - type: quickPhrase
   id: LotophagolOilPhrase
-  parent: BaseEpistemicsSubjectPhrase
+  parent: BaseScienceSubjectPhrase
   text: phrase-lotophagol-oil
 
 - type: quickPhrase
   id: MindbreakPhase
-  parent: BaseEpistemicsSubjectPhrase
+  parent: BaseScienceSubjectPhrase
   text: phrase-mindbreak-phase
 
 - type: quickPhrase
   id: ProtolathePhrase
-  parent: BaseEpistemicsSubjectPhrase
+  parent: BaseScienceSubjectPhrase
   text: phrase-protolathe
 
 - type: quickPhrase
   id: CircuitImprinterPhrase
-  parent: BaseEpistemicsSubjectPhrase
+  parent: BaseScienceSubjectPhrase
   text: phrase-circuit-imprinter
 
 - type: quickPhrase
-  id: EpistemicsBluespacePhrase
-  parent: BaseEpistemicsSubjectPhrase
+  id: ScienceBluespacePhrase
+  parent: BaseScienceSubjectPhrase
   text: phrase-bluespace-crystal
 
 - type: quickPhrase
   id: EpiUpgradePhrase
-  parent: BaseEpistemicsSubjectPhrase
+  parent: BaseScienceSubjectPhrase
   text: phrase-upgrade
 
 - type: quickPhrase
   id: ChassisPhrase
-  parent: BaseEpistemicsSubjectPhrase
+  parent: BaseScienceSubjectPhrase
   text: phrase-chassis

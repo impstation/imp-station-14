@@ -1,161 +1,161 @@
 - type: quickPhrase
-  id: BaseLogisticsSubjectPhrase
-  parent: [ BaseSubjectPhrase, BaseLogisticsPhrase ]
+  id: BaseCargoSubjectPhrase
+  parent: [ BaseSubjectPhrase, BaseCargoPhrase ]
   abstract: true
 
 - type: quickPhrase
   id: BountyPhrase
-  parent: BaseLogisticsSubjectPhrase
+  parent: BaseCargoSubjectPhrase
   text: phrase-bounty
 
 - type: quickPhrase
   id: CargoShuttlePhrase
-  parent: BaseLogisticsSubjectPhrase
+  parent: BaseCargoSubjectPhrase
   text: phrase-cargo-shuttle
 
 - type: quickPhrase
   id: CratePhrase
-  parent: BaseLogisticsSubjectPhrase
+  parent: BaseCargoSubjectPhrase
   text: phrase-crate
 
 - type: quickPhrase
   id: MailPhrase
-  parent: BaseLogisticsSubjectPhrase
+  parent: BaseCargoSubjectPhrase
   text: phrase-mail
 
 - type: quickPhrase
   id: OrderPhrase
-  parent: BaseLogisticsSubjectPhrase
+  parent: BaseCargoSubjectPhrase
   text: phrase-order
 
 - type: quickPhrase
   id: OreProcessorPhrase
-  parent: BaseLogisticsSubjectPhrase
+  parent: BaseCargoSubjectPhrase
   text: phrase-ore-processor
 
 - type: quickPhrase
   id: RequestPhrase
-  parent: BaseLogisticsSubjectPhrase
+  parent: BaseCargoSubjectPhrase
   text: phrase-request
 
 - type: quickPhrase
   id: SpesosPhrase
-  parent: BaseLogisticsSubjectPhrase
+  parent: BaseCargoSubjectPhrase
   text: phrase-spesos
 
 - type: quickPhrase
   id: RestockPhrase
-  parent: BaseLogisticsSubjectPhrase
+  parent: BaseCargoSubjectPhrase
   text: phrase-restock
 
 - type: quickPhrase
   id: FultonPhrase
-  parent: BaseLogisticsSubjectPhrase
+  parent: BaseCargoSubjectPhrase
   text: phrase-fulton
 
 - type: quickPhrase
   id: JetpackPhrase
-  parent: BaseLogisticsSubjectPhrase
+  parent: BaseCargoSubjectPhrase
   text: phrase-jetpack
 
 - type: quickPhrase
   id: CrusherPhrase
-  parent: BaseLogisticsSubjectPhrase
+  parent: BaseCargoSubjectPhrase
   text: phrase-crusher
 
 - type: quickPhrase
   id: PKAPhrase
-  parent: BaseLogisticsSubjectPhrase
+  parent: BaseCargoSubjectPhrase
   text: phrase-pka
 
 - type: quickPhrase
   id: PickaxePhrase
-  parent: BaseLogisticsSubjectPhrase
+  parent: BaseCargoSubjectPhrase
   text: phrase-pickaxe
 
 - type: quickPhrase
   id: DrillPhrase
-  parent: BaseLogisticsSubjectPhrase
+  parent: BaseCargoSubjectPhrase
   text: phrase-drill
 
 - type: quickPhrase
   id: OreBagPhrase
-  parent: BaseLogisticsSubjectPhrase
+  parent: BaseCargoSubjectPhrase
   text: phrase-ore-bag
 
 - type: quickPhrase
   id: SalvMagnetPhrase
-  parent: BaseLogisticsSubjectPhrase
+  parent: BaseCargoSubjectPhrase
   text: phrase-salv-magnet
 
 - type: quickPhrase
   id: ExpeditionPhrase
-  parent: BaseLogisticsSubjectPhrase
+  parent: BaseCargoSubjectPhrase
   text: phrase-expedition
 
 - type: quickPhrase
   id: PlanetsidePhrase
-  parent: BaseLogisticsSubjectPhrase
+  parent: BaseCargoSubjectPhrase
   text: phrase-planetside
 
 # Ores
 
 - type: quickPhrase
-  id: PhraseLogisticsIron
-  parent: BaseLogisticsSubjectPhrase
+  id: PhraseCargoIron
+  parent: BaseCargoSubjectPhrase
   text: phrase-iron
 
 - type: quickPhrase
-  id: PhraseLogisticsCoal
-  parent: BaseLogisticsSubjectPhrase
+  id: PhraseCargoCoal
+  parent: BaseCargoSubjectPhrase
   text: phrase-coal
 
 - type: quickPhrase
-  id: PhraseLogisticsQuartz
-  parent: BaseLogisticsSubjectPhrase
+  id: PhraseCargoQuartz
+  parent: BaseCargoSubjectPhrase
   text: phrase-quartz
 
 - type: quickPhrase
-  id: PhraseLogisticsSalt
-  parent: BaseLogisticsSubjectPhrase
+  id: PhraseCargoSalt
+  parent: BaseCargoSubjectPhrase
   text: phrase-salt
 
 - type: quickPhrase
-  id: PhraseLogisticsGold
-  parent: BaseLogisticsSubjectPhrase
+  id: PhraseCargoGold
+  parent: BaseCargoSubjectPhrase
   text: phrase-gold
 
 - type: quickPhrase
-  id: PhraseLogisticsSilver
-  parent: BaseLogisticsSubjectPhrase
+  id: PhraseCargoSilver
+  parent: BaseCargoSubjectPhrase
   text: phrase-silver
 
 - type: quickPhrase
-  id: PhraseLogisticsPlasma
-  parent: BaseLogisticsSubjectPhrase
+  id: PhraseCargoPlasma
+  parent: BaseCargoSubjectPhrase
   text: phrase-plasma
 
 - type: quickPhrase
-  id: PhraseLogisticsUranium
-  parent: BaseLogisticsSubjectPhrase
+  id: PhraseCargoUranium
+  parent: BaseCargoSubjectPhrase
   text: phrase-uranium
 
 - type: quickPhrase
-  id: PhraseLogisticsBananium
-  parent: BaseLogisticsSubjectPhrase
+  id: PhraseCargoBananium
+  parent: BaseCargoSubjectPhrase
   text: phrase-bananium
 
 - type: quickPhrase
-  id: PhraseLogisticsArtifactFragment
-  parent: BaseLogisticsSubjectPhrase
+  id: PhraseCargoArtifactFragment
+  parent: BaseCargoSubjectPhrase
   text: phrase-artifact-fragment
 
 - type: quickPhrase
-  id: PhraseLogisticsBluespaceCrystal
-  parent: BaseLogisticsSubjectPhrase
+  id: PhraseCargoBluespaceCrystal
+  parent: BaseCargoSubjectPhrase
   text: phrase-bluespace-crystal
 
 - type: quickPhrase
-  id: PhraseLogisticsDiamond
-  parent: BaseLogisticsSubjectPhrase
+  id: PhraseCargoDiamond
+  parent: BaseCargoSubjectPhrase
   text: phrase-diamond

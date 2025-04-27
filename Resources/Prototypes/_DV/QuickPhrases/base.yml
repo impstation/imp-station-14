@@ -50,21 +50,15 @@
   abstract: true
 
 - type: quickPhrase
-  id: BaseEpistemicsPhrase
-  group: Epistemics
-  styleClass: EpistemicsButton
+  id: BaseSciencePhrase
+  group: Science
+  styleClass: ScienceButton
   abstract: true
 
 - type: quickPhrase
-  id: BaseJusticePhrase
-  group: Justice
-  styleClass: JusticeButton
-  abstract: true
-
-- type: quickPhrase
-  id: BaseLogisticsPhrase
-  group: Logistics
-  styleClass: LogisticsButton
+  id: BaseCargoPhrase
+  group: Cargo
+  styleClass: CargoButton
   abstract: true
 
 - type: quickPhrase

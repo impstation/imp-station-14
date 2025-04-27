@@ -14,18 +14,13 @@
   abstract: true
 
 - type: quickPhrase
-  parent: [ BaseEpistemicsPhrase, BaseJobPhrase ]
-  id: BaseEpistemicsJobPhrase
+  parent: [ BaseSciencePhrase, BaseJobPhrase ]
+  id: BaseScienceJobPhrase
   abstract: true
 
 - type: quickPhrase
-  parent: [ BaseJusticePhrase, BaseJobPhrase ]
-  id: BaseJusticeJobPhrase
-  abstract: true
-
-- type: quickPhrase
-  parent: [ BaseLogisticsPhrase, BaseJobPhrase ]
-  id: BaseLogisticsJobPhrase
+  parent: [ BaseCargoPhrase, BaseJobPhrase ]
+  id: BaseCargoJobPhrase
   abstract: true
 
 - type: quickPhrase
@@ -99,86 +94,59 @@
   id: TechAssistantPhrase
   text: job-name-technical-assistant
 
-# Epistemics
+# Science
 
 - type: quickPhrase
-  parent: BaseEpistemicsJobPhrase
-  id: MystagoguePhrase
+  parent: BaseScienceJobPhrase
+  id: ResearchDirectorPhrase
   text: job-name-rd
 
 - type: quickPhrase
-  parent: BaseEpistemicsJobPhrase
-  id: PsionicMantisPhrase
-  text: job-name-mantis
-
-- type: quickPhrase
-  parent: BaseEpistemicsJobPhrase
+  parent: BaseScienceJobPhrase
   id: ScientistPhrase
   text: job-name-scientist
 
 - type: quickPhrase
-  parent: BaseEpistemicsJobPhrase
+  parent: BaseScienceJobPhrase
   id: ResearchAssistantPhrase
   text: job-name-research-assistant
 
 - type: quickPhrase
-  parent: BaseEpistemicsJobPhrase
+  parent: BaseScienceJobPhrase
   id: RoboticistPhrase
   text: job-name-roboticist
 
 - type: quickPhrase
-  parent: BaseEpistemicsJobPhrase
+  parent: BaseScienceJobPhrase
   id: BorgPhrase
   text: job-name-borg
 
-# Logistics
+# Cargo
 
 - type: quickPhrase
-  parent: BaseLogisticsJobPhrase
-  id: LogisticsOfficerPhrase
+  parent: BaseCargoJobPhrase
+  id: QuartermasterPhrase
   text: job-name-qm
 
 - type: quickPhrase
-  parent: BaseLogisticsJobPhrase
+  parent: BaseCargoJobPhrase
   id: CargoTechnicianPhrase
   text: job-name-cargotech
 
 - type: quickPhrase
-  parent: BaseLogisticsJobPhrase
+  parent: BaseCargoJobPhrase
   id: SalvageSpecialistPhrase
   text: job-name-salvagespec
 
 - type: quickPhrase
-  parent: BaseLogisticsJobPhrase
+  parent: BaseCargoJobPhrase
   id: CourierPhrase
   text: job-name-courier
 
 - type: quickPhrase
-  parent: BaseLogisticsJobPhrase
+  parent: BaseCargoJobPhrase
   id: CargoAssistantPhrase
   text: job-name-cargo-assistant
-
-# Justice
-
-- type: quickPhrase
-  parent: BaseJusticeJobPhrase
-  id: ChiefJusticePhrase
-  text: job-name-chief-justice
-
-- type: quickPhrase
-  parent: BaseJusticeJobPhrase
-  id: LawyerPhrase
-  text: job-name-lawyer
-
-- type: quickPhrase
-  parent: BaseJusticeJobPhrase
-  id: ProsecutorPhrase
-  text: job-name-prosecutor
-
-- type: quickPhrase
-  parent: BaseJusticeJobPhrase
-  id: ClerkPhrase
-  text: job-name-clerk
 
 # Medical
 
@@ -233,11 +201,6 @@
   parent: BaseSecurityJobPhrase
   id: SecurityCadetPhrase
   text: job-name-cadet
-
-- type: quickPhrase
-  parent: BaseSecurityJobPhrase
-  id: PrisonGuardPhrase
-  text: job-name-guard
 
 - type: quickPhrase
   parent: BaseSecurityJobPhrase
@@ -317,23 +280,3 @@
   parent: BaseServiceJobPhrase
   id: ZookeeperPhrase
   text: job-name-zookeeper
-
-- type: quickPhrase
-  parent: BaseCivilianJobPhrase
-  id: MartialArtistPhease
-  text: job-name-martialartist
-
-- type: quickPhrase
-  parent: BaseCivilianJobPhrase
-  id: PrisonerPhrase
-  text: job-name-prisoner
-
-- type: quickPhrase
-  parent: BaseCivilianJobPhrase
-  id: GladiatorPhrase
-  text: job-name-gladiator
-
-- type: quickPhrase
-  parent: BaseSecurityJobPhrase
-  id: CorpsmanPhrase
-  text: job-name-brigmedic
