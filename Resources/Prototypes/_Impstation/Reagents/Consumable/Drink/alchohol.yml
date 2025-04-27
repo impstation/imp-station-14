@@ -635,10 +635,10 @@
         reagent: Ethanol
         amount: 0.15
       - !type:Emote
-        emote: Thump
+        emote: Cough
         showInChat: true
         force: true
-        probability: 0.2
+        probability: 0.15
   fizziness: .4
 
 - type: reagent
@@ -725,7 +725,7 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.15
-    Medicine:
+    Poison:
       effects:
       - !type:HealthChange
         conditions:
@@ -798,8 +798,8 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.25
-      - !type:AdjustReagent
-        probability: 0.1 # with so little licoxide, it'll only shock you half the time it actually rolls this
-        reagent: Licoxide
-        amount: 0.01
+    Poison:
+      effects:
+      - !type:Electrocute
+        probability: 0.05
   fizziness: .5

@@ -68,7 +68,7 @@ reagent-name-soju = soju
 reagent-desc-soju = A clear distilled spirit made from rice or other grains.
 
 reagent-name-lungclogger = lungclogger
-reagent-desc-lungclogger = Heartbreak with a dash of syndicate contraband and plasma is a deadly combination.
+reagent-desc-lungclogger = They say heartbreak'll kill you in the right circumstances... This won't, though! Probably...
 
 reagent-name-breathoffreshair = a breath of fresh air
 reagent-desc-breathoffreshair = Just like the real thing!
