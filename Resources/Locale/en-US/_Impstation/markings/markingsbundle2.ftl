@@ -11,16 +11,6 @@ marking-EyebrowsBigger-eyebrowsultra = Eyebrows (Bigger)
 marking-EyebrowsUnibrow = Eyebrows (Unibrow)
 marking-EyebrowsUnibrow-eyebrowsunibrow = Eyebrows (Unibrow)
 
-# arachnid
-marking-AbdomenBasic = Abdomen (Basic)
-marking-AbdomenBasic-abdomenbasic1 = Legs
-marking-AbdomenBasic-abdomenbasic2 = Abdomen
-marking-CreepyArms = Creepy Arms
-marking-CreepyArms-creepy = Creepy Arms
-marking-AbdomenWidow = Abdomen (Widow)
-marking-AbdomenWidow-widow1 = Abdomen and Arms
-marking-AbdomenWidow-widow2 = Marking
-
 # gastropoid
 marking-SnailWeewoo = Weewoo (Large Shell)
 marking-SnailWeewoo-weewoo1 = Light 1

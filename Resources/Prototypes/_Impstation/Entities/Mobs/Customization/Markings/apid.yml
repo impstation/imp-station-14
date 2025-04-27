@@ -52,7 +52,7 @@
   forcedColoring: true
   speciesRestriction: [ Apid ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/apid.rsi
+  - sprite: _Impstation/Mobs/Customization/Apid/hair.rsi
     state: defaultAntennae
 
 - type: marking
@@ -63,7 +63,7 @@
   forcedColoring: true
   speciesRestriction: [ Apid ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/apid.rsi
+  - sprite: _Impstation/Mobs/Customization/Apid/hair.rsi
     state: antennaeDroopy
 
 - type: marking
@@ -74,7 +74,7 @@
   forcedColoring: true
   speciesRestriction: [ Apid ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/apid.rsi
+  - sprite: _Impstation/Mobs/Customization/Apid/hair.rsi
     state: antennaeSad
 
 - type: marking
@@ -85,7 +85,7 @@
   forcedColoring: true
   speciesRestriction: [ Apid ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/apid.rsi
+  - sprite: _Impstation/Mobs/Customization/Apid/hair.rsi
     state: antennaeForward
 
 # HeadSide
@@ -100,7 +100,7 @@
   markingCategory: Tail
   speciesRestriction: [ Apid ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/apid.rsi
+  - sprite: _Impstation/Mobs/Customization/Apid/tail.rsi
     state: apidWingsDefault
 
 # RArmExtension
