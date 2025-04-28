@@ -1,9 +1,5 @@
 # this file is subject to getting its shit moved to other files at a later date#
 
-# diona
-marking-DionaMoonBloom = Moon Bloom
-marking-DionaMoonBloom-dionamoonbloom = Moon Bloom
-
 # dwarves
 marking-DwarfBearCheeks = Glowing Cheeks
 marking-DwarfBearCheeks-dwarfbearcheeks = Glowing Cheeks
