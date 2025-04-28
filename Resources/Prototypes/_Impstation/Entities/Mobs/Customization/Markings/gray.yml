@@ -6,8 +6,8 @@
   markingCategory: Chest
   speciesRestriction: [ Gray ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
-    state: bellygem1
+  - sprite: _Impstation/Mobs/Customization/Gray/chest.rsi
+    state: bellygem
 
 - type: marking
   id: GrayObject
@@ -17,10 +17,10 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
-    state: grayobject1
-  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
-    state: grayobject2
+  - sprite: _Impstation/Mobs/Customization/Gray/chest.rsi
+    state: object1
+  - sprite: _Impstation/Mobs/Customization/Gray/chest.rsi
+    state: object2
 
 - type: marking
   id: GrayTattooCar
@@ -30,10 +30,10 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
-    state: graytattoocar1
-  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
-    state: graytattoocar2
+  - sprite: _Impstation/Mobs/Customization/Gray/chest.rsi
+    state: car1
+  - sprite: _Impstation/Mobs/Customization/Gray/chest.rsi
+    state: car2
 
 - type: marking
   id: GrayTattooPlane
@@ -43,10 +43,10 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
-    state: graytattooplane1
-  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
-    state: graytattooplane2
+  - sprite: _Impstation/Mobs/Customization/Gray/chest.rsi
+    state: plane1
+  - sprite: _Impstation/Mobs/Customization/Gray/chest.rsi
+    state: plane2
 
 - type: marking
   id: RadiumGlow
@@ -56,7 +56,7 @@
   forcedColoring: true
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+  - sprite: _Impstation/Mobs/Customization/Gray/chest.rsi
     state: radiumglow
   shader: unshaded
 
@@ -70,7 +70,7 @@
   forcedColoring: true
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
+  - sprite: _Impstation/Mobs/Customization/Gray/head.rsi
     state: radiumglowbrain
   shader: unshaded
 
@@ -82,7 +82,7 @@
   forcedColoring: true
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
+  - sprite: _Impstation/Mobs/Customization/Gray/head.rsi
     state: radiumglowcheeks
   shader: unshaded
 
@@ -93,7 +93,7 @@
 - type: marking
   id: GrayCoolEyes
   bodyPart: Eyes
-  markingCategory: Head
+  markingCategory: Eyes
   speciesRestriction: [ Gray ]
   forcedColoring: true
   coloring:
@@ -103,12 +103,12 @@
         color: "#000000"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gray/eyes.rsi
-    state: eyes_cool
+    state: cool
 
 - type: marking
   id: GrayCuteEyes
   bodyPart: Eyes
-  markingCategory: Head
+  markingCategory: Eyes
   speciesRestriction: [ Gray ]
   forcedColoring: true
   coloring:
@@ -118,7 +118,7 @@
         color: "#FFFFFF"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gray/eyes.rsi
-    state: eyes_cute
+    state: cute
 
 - type: marking
   id: GrayFakeLashes
@@ -128,13 +128,13 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: grayfakelashes
+  - sprite: _Impstation/Mobs/Customization/Gray/eyes.rsi
+    state: fakelashes
 
 - type: marking
   id: GrayWideEyes
   bodyPart: Eyes
-  markingCategory: Head
+  markingCategory: Eyes
   speciesRestriction: [ Gray ]
   forcedColoring: false
   coloring:
@@ -144,7 +144,7 @@
         color: "#3D3D3D"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gray/eyes.rsi
-    state: eyes_wide
+    state: wide
 
 # RArm
 
@@ -169,8 +169,8 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
-    state: grayunderwearclassic
+  - sprite: _Impstation/Mobs/Customization/Gray/undergarmentbottom.rsi
+    state: classic
 
 - type: marking
   id: GrayUnderwearStriped
@@ -180,10 +180,10 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
-    state: grayunderwearstriped1
-  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
-    state: grayunderwearstriped2
+  - sprite: _Impstation/Mobs/Customization/Gray/undergarmentbottom.rsi
+    state: striped1
+  - sprite: _Impstation/Mobs/Customization/Gray/undergarmentbottom.rsi
+    state: striped2
 
 - type: marking
   id: GrayUnderwearToga
@@ -193,8 +193,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
-    state: grayunderweartoga
+  - sprite: _Impstation/Mobs/Customization/Gray/undergarmentbottom.rsi
+    state: toga
 
 # UndergarmentTop
 
@@ -220,8 +220,8 @@
   forcedColoring: true
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/Gray/ears.rsi
-    state: ears_cute
+  - sprite: _Impstation/Mobs/Customization/Gray/headside.rsi
+    state: cute
 
 # HeadTop
 
@@ -234,7 +234,7 @@
   followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gray/antenna.rsi
-    state: antenna_classic
+    state: classic
 
 # Tail
 

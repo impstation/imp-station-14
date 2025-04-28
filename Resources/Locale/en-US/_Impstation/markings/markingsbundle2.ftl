@@ -11,27 +11,6 @@ marking-EyebrowsBigger-eyebrowsultra = Eyebrows (Bigger)
 marking-EyebrowsUnibrow = Eyebrows (Unibrow)
 marking-EyebrowsUnibrow-eyebrowsunibrow = Eyebrows (Unibrow)
 
-# gray
-marking-BellyGem = Belly Gem
-marking-BellyGem-bellygem1 = Belly Gem
-marking-GrayTattooCar = Car Tattoo
-marking-GrayTattooCar-graytattoocar1 = Car
-marking-GrayTattooCar-graytattoocar2 = Wheels
-marking-GrayTattooPlane = Plane Tattoo
-marking-GrayTattooPlane-graytattooplane1 = Body
-marking-GrayTattooPlane-graytattooplane2 = Livery
-marking-GrayUnderwearClassic = Classics Of Stupee Culture
-marking-GrayUnderwearClassic-grayunderwearclassic = Classics Of Stupee Culture
-marking-GrayUnderwearToga = Toga
-marking-GrayUnderwearToga-grayunderweartoga = Toga
-marking-GrayUnderwearStriped = Striped Underwear
-marking-GrayUnderwearStriped-grayunderwearstriped1 = Stripes
-marking-GrayUnderwearStriped-grayunderwearstriped2 = Stripes
-marking-RadiumGlowCheeks = Radium Glow Blush
-marking-RadiumGlowCheeks-radiumglowcheeks = Radium Glow Blush
-marking-RadiumGlowBrain = Radium Glow Brain
-marking-RadiumGlowBrain-radiumglowbrain = Radium Glow Brain
-
 # moth
 marking-LunaWings = Wings (Luna Moth)
 marking-LunaWings-luna1 = Wings

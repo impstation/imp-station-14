@@ -1,14 +1,5 @@
 # this file is subject to getting its shit moved to other files at a later date#
 
-# grays
-marking-GrayObject = Inscrutable Objects
-marking-GrayObject-grayobject1 = Keb Orb
-marking-GrayObject-grayobject2 = Yaer Keb Orb
-marking-RadiumGlow = Radium Glow
-marking-RadiumGlow-radiumglow = Radium Glow
-marking-GrayFakeLashes = Fake Lashes
-marking-GrayFakeLashes-grayfakelashes = Fake Lashes
-
 # humans
 marking-VitiligoHeadL = Vitiligo (Left Eye)
 marking-VitiligoHeadR = Vitiligo (Right Eye)
