@@ -11,16 +11,6 @@ marking-EyebrowsBigger-eyebrowsultra = Eyebrows (Bigger)
 marking-EyebrowsUnibrow = Eyebrows (Unibrow)
 marking-EyebrowsUnibrow-eyebrowsunibrow = Eyebrows (Unibrow)
 
-# gastropoid
-marking-SnailWeewoo = Weewoo (Large Shell)
-marking-SnailWeewoo-weewoo1 = Light 1
-marking-SnailWeewoo-weewoo2 = Light 2
-marking-SnailWeewoo-weewoo3 = Base
-marking-SnailWeewooSmall = Weewoo (Small Shell)
-marking-SnailWeewooSmall-weewoosmall1 = Light 1
-marking-SnailWeewooSmall-weewoosmall2 = Light 2
-marking-SnailWeewooSmall-weewoosmall3 = Base
-
 # gray
 marking-BellyGem = Belly Gem
 marking-BellyGem-bellygem1 = Belly Gem
