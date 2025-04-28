@@ -419,7 +419,7 @@
   - type: SpawnItemsOnUse
     items:
       - id: FoodPacketDanShrimpsnaxRegretTrash
-      - id: FoodSnackNutribrickOpen
+      - id: MobWeirdShrimp
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -432,7 +432,7 @@
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/snacks.rsi
-    state: shrimpsnaxbreakfast-trash
+    state: shrimpsnaxregret-trash
   - type: Tag
     tags:
     - Trash

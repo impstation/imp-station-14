@@ -101,13 +101,17 @@ ghost-role-information-drone-rules = You are bound by these laws both in-game an
      2. You will not directly acknowledge or interact with any living being, regardless of intent or circumstance.
      3. Your primary function is to provide immediate temporary repairs to damaged station infrastructure.
         Your secondary function is to improve the condition of station infrastructure wherever possible.
-        You are not an engineer. Do not take it upon yourself to build or maintain the engine. 
+        You are not an engineer. Do not take it upon yourself to build or maintain the engine.
 
 ghost-role-information-young-kodepiia-name = Young Kodepiia
 ghost-role-information-young-kodepiia-description = A shy sort-of-creature, emerging from the station vents. It hates confrontation.
 
-ghost-role-information-anomalite-description = A small sprite, born from the latent energies of an anomaly core. Loyal to its core, or whoever possesses it. 
+ghost-role-information-anomalite-description = A small sprite, born from the latent energies of an anomaly core. Loyal to its core, or whoever possesses it.
 ghost-role-information-familiar-anomalite-rules = You are a [color=#6495ed][bold]Familiar[/bold][/color], loyal to the Anomaly Core you came from (or whoever happens to have it right now.) Serve the interests of your master, whatever those may be.
+
+ghost-role-information-weirdshrimp-name = Weird Shrimp
+ghost-role-information-weirdshrimp-description = A curious creature, born just moments ago. It's excited to see the world and imprints on others easily. It seems to have a strange attachment to Discount Dan's products.
+ghost-role-information-familiar-weirdshrimp-rules = You are a [color=#6495ed][bold]Familiar[/bold][/color], loyal to whoever you see first. Do your best to help your new best friend.
 
                                                   You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
 

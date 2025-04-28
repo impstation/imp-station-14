@@ -335,3 +335,83 @@
       groups:
         Genetic: 5
     canGib: false
+
+- type: entity
+  name: weird shrimp
+  parent: [ SimpleMobBase, FlyingMobBase, MobCombat ]
+  id: MobWeirdShrimp
+  description: You don't think this is edible. #It is though.
+  components:
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3.5
+    baseSprintSpeed: 5
+    weightlessAcceleration: 1.5
+    weightlessFriction: 1
+    weightlessModifier: 1
+  - type: MovementIgnoreGravity
+    gravityState: true
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      sprite: _Impstation/Mobs/Aliens/weirdshrimp.rsi
+      state: weirdshrimp
+  - type: Speech
+    speechSounds: Squeak
+    speechVerb: SmallMob
+    allowedEmotes: ['Squeak']
+  - type: Fixtures #do somthing
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+        density: 10
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: weirdshrimp
+      Critical:
+        Base: weirdshrimp
+      Dead:
+        Base: weirdshrimp-dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat #replace with anomalocarid meat
+      amount: 1
+  - type: Absorbable # imp edit - a good meal
+    biomassRestored: 0.2
+  - type: InteractionPopup
+    successChance: 0.2
+    interactSuccessString: petting-success-soft-floofy
+    interactFailureString: petting-failure-bat
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/fox_squeak.ogg
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-organic
+  - type: Bloodstream
+    bloodMaxVolume: 50
+    bloodReagent: EnergyDrink #replace with anomalocarid blood
+  - type: ReplacementAccent
+    accent: kodepiia #replace with baby anomalocarid accent
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 8
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    makeSentient: true
+    name: ghost-role-information-weirdshrimp-name
+    description: ghost-role-information-weirdshrimp-description
+    rules: ghost-role-information-familiar-weirdshrimp-rules
+    raffle:
+      settings: short
