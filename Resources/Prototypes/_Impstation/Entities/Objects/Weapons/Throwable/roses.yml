@@ -2,6 +2,7 @@
   parent: BaseItem
   id: Rose
   name: Rose
+  description: Smells like love.
   components:
   - type: EmbeddableProjectile
     minimumSpeed: 3
@@ -42,7 +43,6 @@
         Piercing: 4
   - type: Item
     sprite: _Impstation/Objects/Specific/Hydroponics/rose.rsi
-    heldPrefix: produce
     size: Small
   - type: SolutionContainerManager
     solutions:
@@ -55,8 +55,6 @@
   - type: SolutionInjectOnEmbed
     transferAmount: 2
     solution: food
-    pierceArmor: false
-    blockSlots: OUTERCLOTHING
   - type: SolutionTransfer
     maxTransferAmount: 2
   - type: Damageable
@@ -102,6 +100,40 @@
   parent: [Rose, BaseMajorContraband]
   id: RoseBlack
   name: Black Rose
+  description: Smells like darkness.
+  components:
+  - type: Clothing
+    sprite: _Impstation/Objects/Specific/Hydroponics/blackRose.rsi
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Hydroponics/blackRose.rsi
+  - type: Item
+    sprite: _Impstation/Objects/Specific/Hydroponics/blackRose.rsi
+  - type: Produce
+    seedId: blackRose
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 5
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 3
+        reagents:
+        - ReagentId: SulfuricAcid
+          Quantity: 1
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 3
+        reagents:
+        - ReagentId: Razorium
+          Quantity: 1
+
+- type: entity
+  parent: [Rose, BaseMajorContraband]
+  id: RoseSyndicate
+  name: Blood Red Rose
+  description: Smells like communism.
   components:
   - type: DamageOtherOnHit
     damage:
@@ -114,4 +146,3 @@
         reagents:
         - ReagentId: SulfuricAcid
           Quantity: 1
-

@@ -18,15 +18,15 @@
     Razorium:
       Min: 1
       Max: 3
-      PotencyDivisor: 10
+      PotencyDivisor: 12
 
 - type: seed
   id: blackRose
   name: seeds-blackRose-name
   noun: seeds-noun-seeds
   displayName: seeds-blackRose-display-name
-  plantRsi: _Impstation/Objects/Specific/Hydroponics/rose.rsi
-  packetPrototype: BlackoseSeeds
+  plantRsi: _Impstation/Objects/Specific/Hydroponics/blackRose.rsi
+  packetPrototype: BlackRoseSeeds
   productPrototypes:
     - RoseBlack
   harvestRepeat: Repeat
@@ -39,5 +39,9 @@
   chemicals:
     Razorium:
       Min: 1
-      Max: 3
+      Max: 5
+      PotencyDivisor: 8
+    SulfuricAcid:
+      Min: 1
+      Max: 8
       PotencyDivisor: 10
