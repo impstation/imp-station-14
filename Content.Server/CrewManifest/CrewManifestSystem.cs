@@ -10,14 +10,12 @@ using Content.Shared.CCVar;
 using Content.Shared.CrewManifest;
 using Content.Shared.GameTicking;
 using Content.Shared.Roles;
-using Content.Shared.Silicons.StationAi; // imp
 using Content.Shared.StationRecords;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using Robust.Shared.GameObjects.Components.Localization; //imp
 
 namespace Content.Server.CrewManifest;
 
@@ -225,20 +223,6 @@ public sealed class CrewManifestSystem : EntitySystem
     private void BuildCrewManifest(EntityUid station)
     {
         var iter = _recordsSystem.GetRecordsOfType<GeneralStationRecord>(station);
-
-        //START IMP EDIT: if the station has an AI on-board, add it as a fake record
-        var query = EntityQueryEnumerator<GrammarComponent, StationAiHeldComponent>(station);
-        while (query.MoveNext(out var ai, out var grammar, out _)){
-            var aiGSR = new GeneralStationRecord();
-            aiGSR.Name = ai.Comp.Name;
-            aiGSR.Gender = grammar.Gender;
-            aiGSR.JobTitle = "StationAi";
-            aiGSR.JobIcon = "JobIconStationAi";
-            aiGSR.JobPrototype = "StationAi";
-
-            //add it to the iterator????? somehow???
-        }
-        //END IMP EDIT
 
         var entries = new CrewManifestEntries();
 
