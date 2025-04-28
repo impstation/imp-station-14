@@ -77,7 +77,7 @@ reagent-name-sleepytimejunction = sleepytime junction
 reagent-desc-sleepytimejunction = Whipped cream pillows and sweet chlorine to rock you to sleep...
 
 reagent-name-minotaurslament = minotaur's lament
-reagent-desc-minotaurslament = Even minotaurs die in their labyrinths
+reagent-desc-minotaurslament = Even minotaurs die in their labyrinths.
 
 reagent-name-burnchamber = burnchamber
 reagent-desc-burnchamber = Burns as hot as the real thing. Don't forget a firesuit!
