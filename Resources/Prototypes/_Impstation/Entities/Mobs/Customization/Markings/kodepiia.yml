@@ -7,7 +7,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/chest.rsi
     state: bars
 
 - type: marking
@@ -17,7 +17,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/chest.rsi
     state: belly
 
 - type: marking
@@ -26,24 +26,24 @@
   markingCategory: Chest
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+  sprites: # this is an abomination lol
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/chest.rsi
     state: canvas1
-  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/chest.rsi
     state: canvas2
-  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/chest.rsi
     state: canvas3
-  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/chest.rsi
     state: canvas4
-  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/chest.rsi
     state: canvas5
-  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/chest.rsi
     state: canvas6
-  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/chest.rsi
     state: canvas7
-  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/chest.rsi
     state: canvas8
-  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/chest.rsi
     state: canvas9
 
 - type: marking
@@ -53,10 +53,10 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
-    state: chesteye1
-  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
-    state: chesteye2
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/chest.rsi
+    state: eye1
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/chest.rsi
+    state: eye2
 
 - type: marking
   id: KodeChestGills
@@ -65,8 +65,8 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
-    state: kodechestgills
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/chest.rsi
+    state: gills
 
 - type: marking
   id: KodeOrgans
@@ -75,11 +75,11 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/chest.rsi
     state: organs1
-  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/chest.rsi
     state: organs2
-  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/chest.rsi
     state: organs3
 
 - type: marking
@@ -89,7 +89,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/chest.rsi
     state: stripes
 
 - type: marking
@@ -99,7 +99,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/chest.rsi
     state: stripes
   shader: unshaded
 
@@ -110,7 +110,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/chest.rsi
     state: tummyteeth
 
 - type: marking
@@ -120,9 +120,9 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/chest.rsi
     state: koispots1
-  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/chest.rsi
     state: koispots2
 
 - type: marking
@@ -132,9 +132,9 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/chest.rsi
     state: mantleshade1
-  - sprite: _Impstation/Mobs/Customization/kodepiia/chest.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/chest.rsi
     state: mantleshade2
 
 # Head
@@ -146,7 +146,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/head.rsi
     state: fakevoxhead
 
 - type: marking
@@ -156,7 +156,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/head.rsi
     state: happysmiler
 
 - type: marking
@@ -166,7 +166,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/head.rsi
     state: eyesplotch
 
 - type: marking
@@ -176,7 +176,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/head.rsi
     state: foxears
 
 # Snout
@@ -188,7 +188,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/snout.rsi
     state: beak
 
 - type: marking
@@ -199,7 +199,7 @@
   followSkinColor: true
   forcedColoring: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/snout.rsi
     state: moustachelong
 
 - type: marking
@@ -210,7 +210,7 @@
   followSkinColor: true
   forcedColoring: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/snout.rsi
     state: moustacheshort
 
 - type: marking
@@ -220,7 +220,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/snout.rsi
     state: smallbeak
 
 - type: marking
@@ -230,8 +230,8 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
-    state: simplesnout
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/snout.rsi
+    state: simple
 
 # Eyes
 
@@ -242,10 +242,10 @@
   speciesRestriction: [ Kodepiia ]
   forcedColoring: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/eyes.rsi
-    state: bigsquareeyes1
-  - sprite: _Impstation/Mobs/Customization/kodepiia/eyes.rsi
-    state: bigsquareeyes2
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/eyes.rsi
+    state: bigsquare1
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/eyes.rsi
+    state: bigsquare2
 
 - type: marking
   id: BigSquareEyesUneven
@@ -254,10 +254,10 @@
   speciesRestriction: [ Kodepiia ]
   forcedColoring: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/eyes.rsi
-    state: bigsquareeyesuneven1
-  - sprite: _Impstation/Mobs/Customization/kodepiia/eyes.rsi
-    state: bigsquareeyesuneven2
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/eyes.rsi
+    state: bigsquareuneven1
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/eyes.rsi
+    state: bigsquareuneven2
 
 - type: marking
   id: KodeGrayEyes
@@ -266,8 +266,8 @@
   speciesRestriction: [ Kodepiia ]
   forcedColoring: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/eyes.rsi
-    state: grayeyes
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/eyes.rsi
+    state: gray
 
 - type: marking
   id: KodeGrayEyesUneven
@@ -276,8 +276,8 @@
   speciesRestriction: [ Kodepiia ]
   forcedColoring: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/eyes.rsi
-    state: grayeyesuneven
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/eyes.rsi
+    state: grayuneven
 
 - type: marking
   id: KodeHumanEyes
@@ -286,8 +286,8 @@
   speciesRestriction: [ Kodepiia ]
   forcedColoring: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/eyes.rsi
-    state: humaneyes
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/eyes.rsi
+    state: human
 
 - type: marking
   id: KodeHumanEyesUnshaded
@@ -296,8 +296,8 @@
   speciesRestriction: [ Kodepiia ]
   forcedColoring: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/eyes.rsi
-    state: humaneyes
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/eyes.rsi
+    state: human
   shader: unshaded
 
 - type: marking
@@ -307,10 +307,10 @@
   speciesRestriction: [ Kodepiia ]
   forcedColoring: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/eyes.rsi
-    state: humaneyeseneven1
-  - sprite: _Impstation/Mobs/Customization/kodepiia/eyes.rsi
-    state: humaneyeseneven2
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/eyes.rsi
+    state: humanuneven1
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/eyes.rsi
+    state: humanuneven2
 
 - type: marking
   id: KodeHumanEyesUnevenUnshaded
@@ -319,10 +319,10 @@
   speciesRestriction: [ Kodepiia ]
   forcedColoring: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/eyes.rsi
-    state: humaneyeseneven1
-  - sprite: _Impstation/Mobs/Customization/kodepiia/eyes.rsi
-    state: humaneyeseneven2
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/eyes.rsi
+    state: humanuneven1
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/eyes.rsi
+    state: humanuneven2
   shader: unshaded
 
 - type: marking
@@ -332,8 +332,8 @@
   speciesRestriction: [ Kodepiia ]
   forcedColoring: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/eyes.rsi
-    state: jamjareyes
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/eyes.rsi
+    state: jamjar
 
 - type: marking
   id: KodeJamjar2
@@ -342,8 +342,8 @@
   speciesRestriction: [ Kodepiia ]
   forcedColoring: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/eyes.rsi
-    state: jamjareyes2
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/eyes.rsi
+    state: jamjar2
 
 - type: marking
   id: MaskEyes
@@ -352,8 +352,8 @@
   speciesRestriction: [ Kodepiia ]
   forcedColoring: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/eyes.rsi
-    state: maskeyes
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/eyes.rsi
+    state: mask
 
 - type: marking
   id: KodeMothEyes
@@ -362,8 +362,8 @@
   speciesRestriction: [ Kodepiia ]
   forcedColoring: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/eyes.rsi
-    state: motheyes
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/eyes.rsi
+    state: moth
 
 - type: marking
   id: KodeMothEyesUneven
@@ -372,10 +372,10 @@
   speciesRestriction: [ Kodepiia ]
   forcedColoring: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/eyes.rsi
-    state: motheyes1
-  - sprite: _Impstation/Mobs/Customization/kodepiia/eyes.rsi
-    state: motheyes2
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/eyes.rsi
+    state: moth1
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/eyes.rsi
+    state: moth2
 
 - type: marking
   id: SquareEyes
@@ -384,8 +384,8 @@
   speciesRestriction: [ Kodepiia ]
   forcedColoring: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/eyes.rsi
-    state: squareeyes
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/eyes.rsi
+    state: square
 
 - type: marking
   id: SquareEyesUnshaded
@@ -394,8 +394,8 @@
   speciesRestriction: [ Kodepiia ]
   forcedColoring: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/eyes.rsi
-    state: squareeyes
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/eyes.rsi
+    state: square
   shader: unshaded
 
 - type: marking
@@ -405,8 +405,8 @@
   speciesRestriction: [ Kodepiia ]
   forcedColoring: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/eyes.rsi
-    state: squareeyesuneven
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/eyes.rsi
+    state: squareuneven
 
 - type: marking
   id: SquareEyesUnevenUnshaded
@@ -415,8 +415,8 @@
   speciesRestriction: [ Kodepiia ]
   forcedColoring: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/eyes.rsi
-    state: squareeyesuneven
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/eyes.rsi
+    state: squareuneven
   shader: unshaded
 
 # RArm
@@ -432,8 +432,8 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/legs.rsi
-    state: barrleg
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rleg.rsi
+    state: bar
 
 - type: marking
   id: KodePinstripeLegR
@@ -442,8 +442,8 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/legs.rsi
-    state: pinstriperleg
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rleg.rsi
+    state: pinstripe
 
 - type: marking
   id: KodeSockRLeg
@@ -452,8 +452,8 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/legs.rsi
-    state: sockrleg
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rleg.rsi
+    state: sock
 
 # LLeg
 
@@ -464,8 +464,8 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/legs.rsi
-    state: barlleg
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/lleg.rsi
+    state: bar
 
 - type: marking
   id: KodePinstripeLegL
@@ -474,8 +474,8 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/legs.rsi
-    state: pinstripelleg
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/lleg.rsi
+    state: pinstripe
 
 - type: marking
   id: KodeSockLLeg
@@ -484,8 +484,8 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/legs.rsi
-    state: socklleg
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/lleg.rsi
+    state: sock
 
 # UndergarmentBottom
 
@@ -500,8 +500,8 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/legs.rsi
-    state: clawlfoot
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/lfoot.rsi
+    state: claw
 
 - type: marking
   id: KodeSockLFoot
@@ -510,8 +510,8 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/legs.rsi
-    state: socklfoot
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/lfoot.rsi
+    state: sock
 
 # RFoot
 
@@ -522,8 +522,8 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/legs.rsi
-    state: clawrfoot
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rfoot.rsi
+    state: claw
 
 - type: marking
   id: KodeSockRFoot
@@ -532,8 +532,8 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/legs.rsi
-    state: sockrfoot
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rfoot.rsi
+    state: sock
 
 # LHand
 
@@ -549,8 +549,8 @@
   markingCategory: Hair
   speciesRestriction: [ Kodepiia ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/hair.rsi
-    state: kodabob4
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/hair.rsi
+    state: bob4
 
 - type: marking
   id: KodaBob2
@@ -558,8 +558,8 @@
   markingCategory: Hair
   speciesRestriction: [ Kodepiia ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/hair.rsi
-    state: kodabob5
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/hair.rsi
+    state: bob5
 
 - type: marking
   id: KodaCIA
@@ -567,8 +567,8 @@
   markingCategory: Hair
   speciesRestriction: [ Kodepiia ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/hair.rsi
-    state: kodacia
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/hair.rsi
+    state: cia
 
 - type: marking
   id: KodaCornrows
@@ -576,8 +576,8 @@
   markingCategory: Hair
   speciesRestriction: [ Kodepiia ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/hair.rsi
-    state: kodacornrowbraid
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/hair.rsi
+    state: cornrowbraid
 
 - type: marking
   id: KodaCurls
@@ -585,8 +585,8 @@
   markingCategory: Hair
   speciesRestriction: [ Kodepiia ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/hair.rsi
-    state: kodacurls
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/hair.rsi
+    state: curls
 
 - type: marking
   id: KodaDandy
@@ -594,8 +594,8 @@
   markingCategory: Hair
   speciesRestriction: [ Kodepiia ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/hair.rsi
-    state: kodadandypompadour
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/hair.rsi
+    state: dandypompadour
 
 - type: marking
   id: KodaDoubleBun
@@ -603,8 +603,8 @@
   markingCategory: Hair
   speciesRestriction: [ Kodepiia ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/hair.rsi
-    state: kodadoublebun
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/hair.rsi
+    state: doublebun
 
 - type: marking
   id: KodaDoubleBunNormal
@@ -612,8 +612,8 @@
   markingCategory: Hair
   speciesRestriction: [ Kodepiia ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/hair.rsi
-    state: kodadoublebunnoeyes
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/hair.rsi
+    state: doublebunnoeyes
 
 - type: marking
   id: KodaEmo
@@ -621,8 +621,8 @@
   markingCategory: Hair
   speciesRestriction: [ Kodepiia ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/hair.rsi
-    state: kodaemo2
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/hair.rsi
+    state: emo2
 
 - type: marking
   id: KodaHalfShaved
@@ -630,8 +630,8 @@
   markingCategory: Hair
   speciesRestriction: [ Kodepiia ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/hair.rsi
-    state: kodahalfshaved
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/hair.rsi
+    state: halfshaved
 
 - type: marking
   id: KodaHime
@@ -639,8 +639,8 @@
   markingCategory: Hair
   speciesRestriction: [ Kodepiia ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/hair.rsi
-    state: kodahimecut2
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/hair.rsi
+    state: himecut2
 
 - type: marking
   id: KodaMessy
@@ -648,8 +648,8 @@
   markingCategory: Hair
   speciesRestriction: [ Kodepiia ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/hair.rsi
-    state: kodamessy
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/hair.rsi
+    state: messy
 
 - type: marking
   id: KodaPonytail
@@ -657,8 +657,8 @@
   markingCategory: Hair
   speciesRestriction: [ Kodepiia ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/hair.rsi
-    state: kodaponytail3
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/hair.rsi
+    state: ponytail3
 
 - type: marking
   id: KodaSpiky
@@ -666,8 +666,8 @@
   markingCategory: Hair
   speciesRestriction: [ Kodepiia ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/hair.rsi
-    state: kodaspiky
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/hair.rsi
+    state: spiky
 
 - type: marking
   id: KodaShort
@@ -675,8 +675,8 @@
   markingCategory: Hair
   speciesRestriction: [ Kodepiia ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/hair.rsi
-    state: kodaveryshortovereyealternate
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/hair.rsi
+    state: veryshortovereyealternate
 
 - type: marking
   id: KodaLong
@@ -684,8 +684,8 @@
   markingCategory: Hair
   speciesRestriction: [ Kodepiia ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/hair.rsi
-    state: kodavlongfringe
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/hair.rsi
+    state: vlongfringe
 
 # HeadSide
 
@@ -696,9 +696,9 @@
   speciesRestriction: [ Kodepiia ]
   forcedColoring: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/eyes.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/headside.rsi
     state: sideeye1
-  - sprite: _Impstation/Mobs/Customization/kodepiia/eyes.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/headside.rsi
     state: sideeye2
 
 - type: marking
@@ -708,7 +708,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/headside.rsi
     state: cheekfins
 
 - type: marking
@@ -718,7 +718,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/headside.rsi
     state: decagills
 
 - type: marking
@@ -728,7 +728,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/headside.rsi
     state: headfrill
 
 - type: marking
@@ -739,8 +739,8 @@
   followSkinColor: true
   forcedColoring: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
-    state: thavenears
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/headside.rsi
+    state: thaven
 
 # HeadTop
 
@@ -751,11 +751,11 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/headtop.rsi
     state: basilisk1
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/headtop.rsi
     state: basilisk2
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/headtop.rsi
     state: basilisk3
 
 - type: marking
@@ -765,7 +765,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/headtop.rsi
     state: antennae
 
 - type: marking
@@ -775,7 +775,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/headtop.rsi
     state: mapleantennae
 
 - type: marking
@@ -785,10 +785,10 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
-    state: bunnyears1
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
-    state: bunnyears2
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/headtop.rsi
+    state: bunny1
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/headtop.rsi
+    state: bunny2
 
 - type: marking
   id: KodeEyestalk
@@ -798,9 +798,9 @@
   followSkinColor: true
   forcedColoring: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/eyes.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/headtop.rsi
     state: eyestalk1
-  - sprite: _Impstation/Mobs/Customization/kodepiia/eyes.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/headtop.rsi
     state: eyestalk2
 
 - type: marking
@@ -810,7 +810,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/headtop.rsi
     state: grayhead
 
 - type: marking
@@ -820,7 +820,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/headtop.rsi
     state: headslime
 
 - type: marking
@@ -830,7 +830,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/headtop.rsi
     state: hornscurly
 
 - type: marking
@@ -840,7 +840,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/headtop.rsi
     state: hornsstraight
 
 - type: marking
@@ -850,7 +850,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/headtop.rsi
     state: hornssweptback
 
 - type: marking
@@ -861,15 +861,15 @@
   followSkinColor: true
   forcedColoring: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/headtop.rsi
     state: scorpion1
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/headtop.rsi
     state: scorpion2
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/headtop.rsi
     state: scorpion3
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/headtop.rsi
     state: scorpion4
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/headtop.rsi
     state: scorpion5
 
 - type: marking
@@ -879,9 +879,9 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/headtop.rsi
     state: wolf1
-  - sprite: _Impstation/Mobs/Customization/kodepiia/head.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/headtop.rsi
     state: wolf2
 
 # Tail
@@ -893,14 +893,14 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
-    state: amalgamtail1
-  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
-    state: amalgamtail2
-  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
-    state: amalgamtail3
-  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
-    state: amalgamtail4
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/tail.rsi
+    state: amalgam1
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/tail.rsi
+    state: amalgam2
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/tail.rsi
+    state: amalgam3
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/tail.rsi
+    state: amalgam4
 
 - type: marking
   id: KodeCrabLegs
@@ -909,7 +909,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/tail.rsi
     state: crablegs
 
 - type: marking
@@ -919,8 +919,8 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
-    state: fluffytail
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/tail.rsi
+    state: fluffy
 
 - type: marking
   id: KodeLizardTail
@@ -929,7 +929,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/tail.rsi
     state: lizardtail
 
 - type: marking
@@ -939,11 +939,11 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/tail.rsi
     state: multiarms1
-  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/tail.rsi
     state: multiarms2
-  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/tail.rsi
     state: multiarms3
 
 - type: marking
@@ -953,7 +953,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/tail.rsi
     state: pauldroundl
 
 - type: marking
@@ -963,7 +963,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/tail.rsi
     state: pauldroundr
 
 - type: marking
@@ -973,7 +973,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/tail.rsi
     state: pauldsharpl
 
 - type: marking
@@ -983,7 +983,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/tail.rsi
     state: pauldsharpr
 
 - type: marking
@@ -993,7 +993,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/tail.rsi
     state: pauldspines
 
 - type: marking
@@ -1003,7 +1003,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/tail.rsi
     state: shell
 
 - type: marking
@@ -1013,7 +1013,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/tail.rsi
     state: shellcone
 
 - type: marking
@@ -1024,9 +1024,9 @@
   followSkinColor: true
   forcedColoring: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/tail.rsi
     state: spider1
-  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/tail.rsi
     state: spider2
 
 - type: marking
@@ -1037,7 +1037,7 @@
   followSkinColor: true
   forcedColoring: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/tail.rsi
     state: stubby
 
 - type: marking
@@ -1048,7 +1048,7 @@
   followSkinColor: true
   forcedColoring: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/tail.rsi
     state: voxtail
 
 - type: marking
@@ -1058,9 +1058,9 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/tail.rsi
     state: seafoam1
-  - sprite: _Impstation/Mobs/Customization/kodepiia/tail.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/tail.rsi
     state: seafoam2
 
 # RArmExtension
@@ -1072,7 +1072,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rarmextension.rsi
     state: crabclaws
 
 - type: marking
@@ -1082,9 +1082,9 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rarmextension.rsi
     state: jellycloak1
-  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rarmextension.rsi
     state: jellycloak2
 
 - type: marking
@@ -1094,7 +1094,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rarmextension.rsi
     state: puffycape
 
 - type: marking
@@ -1104,7 +1104,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rarmextension.rsi
     state: spinecloak
 
 - type: marking
@@ -1114,7 +1114,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rarmextension.rsi
     state: squidcape
 
 - type: marking
@@ -1124,13 +1124,13 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rarmextension.rsi
     state: cloakarms1
-  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rarmextension.rsi
     state: cloakarms2
-  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rarmextension.rsi
     state: cloakarms3
-  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rarmextension.rsi
     state: cloakarms4
 
 - type: marking
@@ -1140,9 +1140,9 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rarmextension.rsi
     state: myfirstwings1
-  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rarmextension.rsi
     state: myfirstwings2
 
 - type: marking
@@ -1152,9 +1152,9 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rarmextension.rsi
     state: slimearms1
-  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rarmextension.rsi
     state: slimearms2
 
 - type: marking
@@ -1164,11 +1164,11 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rarmextension.rsi
     state: swanwings1
-  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rarmextension.rsi
     state: swanwings2
-  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rarmextension.rsi
     state: swanwings3
 
 - type: marking
@@ -1178,7 +1178,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rarmextension.rsi
     state: tentawings
 
 - type: marking
@@ -1188,7 +1188,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rarmextension.rsi
     state: unevenarmssimple
 
 - type: marking
@@ -1198,13 +1198,13 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rarmextension.rsi
     state: variablewings1
-  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rarmextension.rsi
     state: variablewings2
-  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rarmextension.rsi
     state: variablewings3
-  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rarmextension.rsi
     state: variablewings4
 
 - type: marking
@@ -1214,9 +1214,9 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rarmextension.rsi
     state: bladewings
-  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rarmextension.rsi
     state: bladewingtips
 
 - type: marking
@@ -1226,9 +1226,9 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rarmextension.rsi
     state: mothwings1
-  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rarmextension.rsi
     state: mothwings2
 
 - type: marking
@@ -1238,7 +1238,7 @@
   speciesRestriction: [ Kodepiia ]
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rarmextension.rsi
     state: thingwings1
-  - sprite: _Impstation/Mobs/Customization/kodepiia/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Kodepiia/rarmextension.rsi
     state: thingwings2
