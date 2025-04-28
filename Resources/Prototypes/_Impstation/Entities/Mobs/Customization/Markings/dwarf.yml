@@ -6,8 +6,8 @@
   markingCategory: Chest
   speciesRestriction: [ Dwarf ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: dwarfchesthair
+  - sprite: _Impstation/Mobs/Customization/Dwarf/chest.rsi
+    state: chesthair
 
 - type: marking
   id: DwarfConstellationChest
@@ -21,8 +21,8 @@
         color: "#FFFFFF"
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
-    state: dwarfconstellationchest
+  - sprite: _Impstation/Mobs/Customization/Dwarf/chest.rsi
+    state: constellation
   shader: unshaded
 
 - type: marking
@@ -36,8 +36,8 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
-    state: dwarfmarkbear
+  - sprite: _Impstation/Mobs/Customization/Dwarf/chest.rsi
+    state: markbear
   shader: unshaded
 
 - type: marking
@@ -51,8 +51,8 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
-    state: dwarfmarkcobra
+  - sprite: _Impstation/Mobs/Customization/Dwarf/chest.rsi
+    state: markcobra
   shader: unshaded
 
 - type: marking
@@ -66,8 +66,8 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
-    state: dwarfmarkspider
+  - sprite: _Impstation/Mobs/Customization/Dwarf/chest.rsi
+    state: markspider
   shader: unshaded
 
 - type: marking
@@ -81,8 +81,8 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: dwarftattooshootingstar
+  - sprite: _Impstation/Mobs/Customization/Dwarf/chest.rsi
+    state: shootingstar
   shader: unshaded
 
 # Head
@@ -95,8 +95,8 @@
   forcedColoring: true
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: dwarfbearcheeks
+  - sprite: _Impstation/Mobs/Customization/Dwarf/head.rsi
+    state: bearcheeks
   shader: unshaded
 
 - type: marking
@@ -111,8 +111,8 @@
         color: "#FFFFFF"
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
-    state: dwarfconstellationhead
+  - sprite: _Impstation/Mobs/Customization/Dwarf/head.rsi
+    state: constellation
   shader: unshaded
 
 - type: marking
@@ -123,8 +123,8 @@
   forcedColoring: true
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
-    state: dwarfheadglow
+  - sprite: _Impstation/Mobs/Customization/Dwarf/head.rsi
+    state: glow
   shader: unshaded
 
 # Snout
@@ -145,8 +145,8 @@
         color: "#FFFFFF"
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
-    state: dwarfconstellationrarm
+  - sprite: _Impstation/Mobs/Customization/Dwarf/rarm.rsi
+    state: constellation
   shader: unshaded
 
 # LArm
@@ -157,8 +157,8 @@
   markingCategory: Arms
   speciesRestriction: [ Dwarf ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: dwarfarmhair
+  - sprite: _Impstation/Mobs/Customization/Dwarf/larm.rsi
+    state: hair
 
 - type: marking
   id: DwarfConstellationLArm
@@ -172,8 +172,8 @@
         color: "#FFFFFF"
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
-    state: dwarfconstellationlarm
+  - sprite: _Impstation/Mobs/Customization/Dwarf/larm.rsi
+    state: constellation
   shader: unshaded
 
 # RLeg
@@ -190,8 +190,8 @@
         color: "#FFFFFF"
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
-    state: dwarfconstellationrleg
+  - sprite: _Impstation/Mobs/Customization/Dwarf/rleg.rsi
+    state: constellation
   shader: unshaded
 
 # LLeg
@@ -208,8 +208,8 @@
         color: "#FFFFFF"
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
-    state: dwarfconstellationlleg
+  - sprite: _Impstation/Mobs/Customization/Dwarf/lleg.rsi
+    state: constellation
   shader: unshaded
 
 - type: marking
@@ -218,8 +218,8 @@
   markingCategory: Legs
   speciesRestriction: [ Dwarf ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: dwarfleghair
+  - sprite: _Impstation/Mobs/Customization/Dwarf/lleg.rsi
+    state: hair
 
 # UndergarmentBottom
 
@@ -239,8 +239,8 @@
         color: "#FFFFFF"
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
-    state: dwarfconstellationlfoot
+  - sprite: _Impstation/Mobs/Customization/Dwarf/lfoot.rsi
+    state: constellation
   shader: unshaded
 
 # RFoot
@@ -257,8 +257,8 @@
         color: "#FFFFFF"
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
-    state: dwarfconstellationrfoot
+  - sprite: _Impstation/Mobs/Customization/Dwarf/rfoot.rsi
+    state: constellation
   shader: unshaded
 
 # LHand
@@ -275,8 +275,8 @@
         color: "#FFFFFF"
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
-    state: dwarfconstellationlhand
+  - sprite: _Impstation/Mobs/Customization/Dwarf/lhand.rsi
+    state: constellation
   shader: unshaded
 
 - type: marking
@@ -290,8 +290,8 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
-    state: dwarfmarkkangaroolhand
+  - sprite: _Impstation/Mobs/Customization/Dwarf/lhand.rsi
+    state: markkangaroo
   shader: unshaded
 
 # RHand
@@ -308,8 +308,8 @@
         color: "#FFFFFF"
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
-    state: dwarfconstellationrhand
+  - sprite: _Impstation/Mobs/Customization/Dwarf/rhand.rsi
+    state: constellation
   shader: unshaded
 
 - type: marking
@@ -323,8 +323,8 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
-    state: dwarfmarkkangaroo
+  - sprite: _Impstation/Mobs/Customization/Dwarf/rhand.rsi
+    state: markkangaroo
   shader: unshaded
 
 # FacialHair

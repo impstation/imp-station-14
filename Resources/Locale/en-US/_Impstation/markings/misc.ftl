@@ -1,49 +1,5 @@
 # this file is subject to getting its shit moved to other files at a later date#
 
-# dwarves
-marking-DwarfBearCheeks = Glowing Cheeks
-marking-DwarfBearCheeks-dwarfbearcheeks = Glowing Cheeks
-marking-DwarfHeadGlow = Glowing Star
-marking-DwarfHeadGlow-dwarfheadglow = Glowing Star
-marking-DwarfConstellationHead = Head Constellation
-marking-DwarfConstellationHead-dwarfconstellationhead = Head Constellation
-marking-DwarfConstellationChest = Chest Constellation
-marking-DwarfConstellationChest-dwarfconstellationchest = Chest Constellation
-marking-DwarfConstellationLArm = Arm Constellation (Left)
-marking-DwarfConstellationLArm-dwarfconstellationlarm = Arm Constellation (Left)
-marking-DwarfConstellationRArm = Arm Constellation (Right)
-marking-DwarfConstellationRArm-dwarfconstellationrarm = Arm Constellation (Right)
-marking-DwarfConstellationLHand = Hand Constellation (Left)
-marking-DwarfConstellationLHand-dwarfconstellationlhand = Hand Constellation (Left)
-marking-DwarfConstellationRHand = Hand Constellation (Right)
-marking-DwarfConstellationRHand-dwarfconstellationrhand = Hand Constellation (Right)
-marking-DwarfConstellationLLeg = Leg Constellation (Left)
-marking-DwarfConstellationLLeg-dwarfconstellationlleg = Leg Constellation (Left)
-marking-DwarfConstellationRLeg = Leg Constellation (Right)
-marking-DwarfConstellationRLeg-dwarfconstellationrleg = Leg Constellation (Right)
-marking-DwarfConstellationLFoot = Foot Constellation (Left)
-marking-DwarfConstellationLFoot-dwarfconstellationlfoot = Foot Constellation (Left)
-marking-DwarfConstellationRFoot = Foot Constellation (Right)
-marking-DwarfConstellationRFoot-dwarfconstellationrfoot = Foot Constellation (Right)
-marking-DwarfChestHair = Chest Hair
-marking-DwarfChestHair-dwarfchesthair = Chest Hair
-marking-DwarfArmHair = Arm Hair
-marking-DwarfArmHair-dwarfarmhair = Arm Hair
-marking-DwarfLegHair = Leg Hair
-marking-DwarfLegHair-dwarfleghair = Leg Hair
-marking-DwarfTattooShootingStar = Shooting Star Tattoo
-marking-DwarfTattooShootingStar-dwarftattooshootingstar = Shooting Star Tattoo
-marking-DwarfMarkBear = Mark of the Bear
-marking-DwarfMarkBear-dwarfmarkbear = Mark of the Bear
-marking-DwarfMarkKangarooLHand = Mark of the Kangaroo (Left)
-marking-DwarfMarkKangarooLHand-dwarfmarkkangaroolhand = Mark of the Kangaroo (Left)
-marking-DwarfMarkKangarooRHand = Mark of the Kangaroo (Right)
-marking-DwarfMarkKangarooRHand-dwarfmarkkangaroo = Mark of the Kangaroo (Right)
-marking-DwarfMarkCobra = Mark of the Cobra
-marking-DwarfMarkCobra-dwarfmarkcobra = Mark of the Cobra
-marking-DwarfMarkSpider = Mark of the Spider
-marking-DwarfMarkSpider-dwafmarkspider = Mark of the Spider
-
 # grays
 marking-GrayObject = Inscrutable Objects
 marking-GrayObject-grayobject1 = Keb Orb
