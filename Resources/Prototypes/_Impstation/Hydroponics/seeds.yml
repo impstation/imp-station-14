@@ -1,0 +1,47 @@
+- type: seed
+  id: rose
+  name: seeds-rose-name
+  noun: seeds-noun-seeds
+  displayName: seeds-rose-display-name
+  plantRsi: _Impstation/Objects/Specific/Hydroponics/rose.rsi
+  packetPrototype: RoseSeeds
+  productPrototypes:
+    - Rose
+  harvestRepeat: Repeat
+  lifespan: 55
+  maturation: 6
+  production: 6
+  yield: 3
+  potency: 10
+  idealLight: 6
+  chemicals:
+    Razorium:
+      Min: 1
+      Max: 3
+      PotencyDivisor: 12
+
+- type: seed
+  id: blackRose
+  name: seeds-blackRose-name
+  noun: seeds-noun-seeds
+  displayName: seeds-blackRose-display-name
+  plantRsi: _Impstation/Objects/Specific/Hydroponics/blackRose.rsi
+  packetPrototype: BlackRoseSeeds
+  productPrototypes:
+    - RoseBlack
+  harvestRepeat: Repeat
+  lifespan: 55
+  maturation: 6
+  production: 6
+  yield: 3
+  potency: 10
+  idealLight: 6
+  chemicals:
+    Razorium:
+      Min: 1
+      Max: 5
+      PotencyDivisor: 8
+    SulfuricAcid:
+      Min: 1
+      Max: 8
+      PotencyDivisor: 10
