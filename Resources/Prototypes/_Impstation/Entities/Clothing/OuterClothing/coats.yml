@@ -207,6 +207,54 @@
 
 - type: entity
   parent: ClothingOuterCoatBomberBlack
+  id: ClothingOuterCoatBomberAtmos
+  name: atmos bomber jacket
+  description: no desc !!!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/BomberJackets/bomber_atmos.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/BomberJackets/bomber_atmos.rsi
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: ClothingOuterCoatBomberEngineerLoose
+      amount: 1
+
+- type: entity
+  parent: ClothingOuterCoatBomberBlack
+  id: ClothingOuterCoatBomberAtmosHolo
+  name: holofan bomber jacket
+  description: no desc !!!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/BomberJackets/bomber_atmos_holo.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/BomberJackets/bomber_atmos_holo.rsi
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: ClothingOuterCoatBomberEngineerLoose
+      amount: 1
+
+- type: entity
+  parent: ClothingOuterCoatBomberBlack
+  id: ClothingOuterCoatBomberAtmosHoloLoose
+  name: holofan bomber jacket (loose)
+  description: no desc !!! loose holo jacket
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/BomberJackets/bomber_atmos_holo_loose.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/BomberJackets/bomber_atmos_holo_loose.rsi
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: ClothingOuterCoatBomberAtmosHolo
+      amount: 1
+
+- type: entity
+  parent: ClothingOuterCoatBomberBlack
   id: ClothingOuterCoatBomberMedical
   name: medical bomber jacket
   description: A blue bomber jacket, worn with the sleeves pushed up. Embroidered on the back is a caduceus, to remind you to do no harm. If you're feeling bold, you can loosen how it fits with a knife.
