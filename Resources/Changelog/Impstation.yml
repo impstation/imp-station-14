@@ -1,73 +1,4 @@
 ﻿Entries:
-- author: ultramario1998
-  changes:
-  - message: A few more packages can now be sent your way!
-    type: Add
-  id: 1076
-  time: '2025-02-08T02:18:27.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1604
-- author: Sha-Seng
-  changes:
-  - message: Touched up highlights on Gathered Low hairstyle
-    type: Tweak
-  id: 1077
-  time: '2025-02-08T02:20:00.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1605
-- author: mqole
-  changes:
-  - message: Bottles and vials are a bit bigger. They might not fit as easily into
-      small containers.
-    type: Tweak
-  id: 1078
-  time: '2025-02-08T02:24:56.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1606
-- author: widgetbeck
-  changes:
-  - message: Goblins can once more open doors, pilot shuttles, and host anomalies.
-    type: Fix
-  id: 1079
-  time: '2025-02-08T12:23:44.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1611
-- author: DinnerCalzone
-  changes:
-  - message: Using a mop as a melee weapon now splashes some of its contents when
-      it hits a mob.
-    type: Add
-  id: 1080
-  time: '2025-02-08T12:40:50.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1589
-- author: hivehum
-  changes:
-  - message: You have no longer heard of Hatsune Miku.
-    type: Remove
-  - message: Due to its status as a religious uniform, the shrine maiden outfit has
-      been moved to the PietyVend.
-    type: Tweak
-  id: 1081
-  time: '2025-02-08T22:54:30.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1614
-- author: hivehum
-  changes:
-  - message: Courier and Brigmedic now have appropriate text highlighting auto-fills.
-    type: Add
-  id: 1082
-  time: '2025-02-09T04:39:10.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1615
-- author: crocodilecarousel, RosySaturniidae
-  changes:
-  - message: Added some more figurines for our metallic friends!
-    type: Add
-  id: 1083
-  time: '2025-02-09T09:21:12.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1619
-- author: TheGrimbeeper
-  changes:
-  - message: Heretics can no longer have changelings appear on the sacrifice heartbeat,
-      because changelings cannot be sacrificed.
-    type: Fix
-  id: 1084
-  time: '2025-02-09T09:24:40.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1620
 - author: irismessage
   changes:
   - message: 'Round dividers for #postround chat'
@@ -4130,3 +4061,79 @@
   id: 1575
   time: '2025-04-26T02:48:25.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/2350
+- author: Ecramox
+  changes:
+  - message: Removed the metal gear chime from the cardboard box. Your exclamation
+      mark and general Metal Gear reference is still preserved, but so are your ears.
+    type: Remove
+  id: 1576
+  time: '2025-04-27T08:35:00.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2357
+- author: DinnerCalzone
+  changes:
+  - message: Nukeops Commander now requires 4 hours of playtime of any team nukeops
+      role in place of its previous requirements.
+    type: Tweak
+  - message: Lone Operative playtime will now be tracked separately from the regular
+      Nuclear Operative role and will not count towards Nukeops Commander playtime
+      requirements.
+    type: Tweak
+  id: 1577
+  time: '2025-04-27T17:47:40.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2272
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: +20/25% heat resist on Security/HoS hardsuits. HoS hardsuit explosion
+      protection upped to 60% from 40% (on-par with standard security hardsuit)
+    type: Tweak
+  id: 1578
+  time: '2025-04-27T17:49:57.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2233
+- author: Mousetrinity
+  changes:
+  - message: Learner PAIs are here for every department! Heads of staff, check your
+      lockers and turn these puppies on!
+    type: Add
+  id: 1579
+  time: '2025-04-27T18:02:38.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2269
+- author: AvianMaiden
+  changes:
+  - message: Nanotrasen revisions to security's management of storing restricted items,
+      evidence, and prisoners' items, bring a new appearance and goodies!
+    type: Add
+  id: 1580
+  time: '2025-04-27T18:03:55.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2286
+- author: DinnerCalzone
+  changes:
+  - message: Amber, Atlas, Bagel, Cog, Cluster, Hummingbird, Marathon, Oasis, Omega,
+      Plasma, Saltern, and Train now have Griffy lockers.
+    type: Add
+  id: 1581
+  time: '2025-04-27T18:12:02.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2348
+- author: kipdotnet
+  changes:
+  - message: Decapoids can now wear a vaporizer with no clothing requirements.
+    type: Tweak
+  id: 1582
+  time: '2025-04-27T18:18:47.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2353
+- author: argentsunshine
+  changes:
+  - message: Changed the periodic table sprite and description.
+    type: Tweak
+  id: 1583
+  time: '2025-04-27T18:21:44.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2358
+- author: meridiadottxt
+  changes:
+  - message: gate station now has expanded zookeeper area, atmos canister storage,
+      various other small fixes and additions
+    type: Add
+  - message: gumbo. he was never here.
+    type: Remove
+  id: 1584
+  time: '2025-04-28T00:55:49.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2361
