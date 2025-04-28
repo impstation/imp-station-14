@@ -1,46 +1,5 @@
 # this file is subject to getting its shit moved to other files at a later date#
 
-# humans
-
-
-
-# moths
-marking-MothTrueButterfly = Rainbow Wings
-marking-MothTrueButterfly-mothtruebutterfly1 = Stripes
-marking-MothTrueButterfly-mothtruebutterfly2 = Dots
-marking-MothTrueButterfly-mothtruebutterfly3 = Wings
-marking-MothGlowAntenna = Glowing Antenna
-marking-MothGlowAntenna-mothglowantenna = Glowing Antenna
-marking-MothFireflyOverlay = Firefly (Overlay)
-marking-MothFireflyOverlay-mothfirefly1 = Firefly (Overlay)
-marking-MothFirefly = Firefly Wings (Underlay)
-marking-MothFirefly-mothfirefly2 = Firefly Wings
-marking-MothBee = Bumblebee
-marking-MothBee-bee1 = Outer stripes
-marking-MothBee-bee2 = Wings
-marking-MothBee-bee3 = Inner stripe
-marking-MothBeetleTail = Beetle Wings (Junebug)
-marking-MothBeetleTail-beetle1 = Outline
-marking-MothBeetleTail-beetle2 = Wings
-marking-MothBeetleTail-beetle3 = Shine
-marking-MothBeetleHorn1 = Beetle Horn (Pronged)
-marking-MothBeetleHorn1-mothbeetlehorn1 = Beetle Horn (Pronged)
-marking-MothBeetleHorn2 = Beetle Horn (Lance)
-marking-MothBeetleHorn2-mothbeetlehorn2 = Beetle Horn (Lance)
-marking-MothBiggerEyes = Bigger Eyes
-marking-MothBiggerEyes-mothbiggereyes = Bigger Eyes
-marking-MothSnoth = Snoth Wings
-marking-MothSnoth-snoth1 = Wings
-marking-MothSnoth-snoth2 = Shell
-marking-MothGlasswing = Glasswing
-marking-MothGlasswing-glasswing1 = Outer
-marking-MothGlasswing-glasswing2 = Inner
-marking-MothGlasswing-glasswing3 = Stripe
-marking-MothRhinoBeetle = Beetle Wings (Rhino)
-marking-MothRhinoBeetle-rhinobeetle1 = Outline
-marking-MothRhinoBeetle-rhinobeetle2 = Shine
-marking-MothRhinoBeetle-rhinobeetle3 = Wings
-
 # slimes
 marking-fizz = Fizz
 marking-fizz-fizz = Fizz
