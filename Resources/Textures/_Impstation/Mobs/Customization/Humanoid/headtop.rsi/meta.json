@@ -1,30 +1,34 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "By Widgetbeck",
+  "copyright": "By Sha-Seng (Github)",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
-      "name": "shell_big",
+      "name": "earrings1",
       "directions": 4
     },
     {
-      "name": "shell_small",
+      "name": "earrings2",
       "directions": 4
     },
     {
-      "name": "shell_big_stripes",
+      "name": "earringsdrop1",
       "directions": 4
     },
     {
-      "name": "shell_small_stripes",
+      "name": "earringsdrop2",
       "directions": 4
     },
     {
-      "name": "shell_cone",
+      "name": "earringsweights1",
+      "directions": 4
+    },
+    {
+      "name": "earringsweights2",
       "directions": 4
     }
   ]
