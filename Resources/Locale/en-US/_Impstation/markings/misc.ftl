@@ -1,18 +1,8 @@
 # this file is subject to getting its shit moved to other files at a later date#
 
 # diona
-marking-DionaLivingNymph = Living Nymphs
-marking-DionaLivingNymph-dionalivingnymph = Living Nymphs
-marking-DionaMossChest = Moss Drape
-marking-DionaMossChest-dionamosschest = Moss Drape
 marking-DionaMoonBloom = Moon Bloom
 marking-DionaMoonBloom-dionamoonbloom = Moon Bloom
-marking-DionaBigFirefly = Big Fireflies
-marking-DionaBigFirefly-dionabigfirefly = Big Fireflies
-marking-DionaFirefly = Fireflies
-marking-DionaFirefly-dionafirefly = Fireflies
-marking-DionaPollenDust = Pollen Cloud
-marking-DionaPollenDust-dionapollendust = Pollen Cloud
 
 # dwarves
 marking-DwarfBearCheeks = Glowing Cheeks
