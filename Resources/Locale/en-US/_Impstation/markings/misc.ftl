@@ -1,57 +1,8 @@
 # this file is subject to getting its shit moved to other files at a later date#
 
 # thaven
-marking-Gills = Gills
-marking-Gills-thavenchestgills = Gills
-marking-ThavenChestScales = Scales
-marking-ThavenChestScales-thavenchestscales = Scales
-marking-ThavenHeadScales = Scales
-marking-ThavenHeadScales-thavenheadscales = Scales
-marking-ThavenLArmScales = Scales (Left Arm)
-marking-ThavenLArmScales-thavenleftarmscales = Scales (Left Arm)
-marking-ThavenRArmScales = Scales (Right Arm)
-marking-ThavenRArmScales-thavenrightarmscales = Scales (Right Arm)
-marking-ThavenLLegScales = Scales (Left)
-marking-ThavenLLegScales-thavenleftlegscales = Scales (Left)
-marking-ThavenRLegScales = Scales (Right)
-marking-ThavenRLegScales-thavenrightlegscales = Scales (Right)
-marking-ThavenLHandScales = Scales (Left Hand)
-marking-ThavenLHandScales-thavenlefthandscales = Scales (Left Hand)
-marking-ThavenRHandScales = Scales (Right Hand)
-marking-ThavenRHandScales-thavenrighthandscales = Scales (Right Hand)
-marking-ThavenTopSurgery = Top Surgery
-marking-ThavenTopSurgery-thavennonaturals = Thaven Top Surgery
-marking-ThavenFishEars = Finned Ears
-marking-ThavenFishEars-thavenfishears = Finned Ears
-marking-ThavenSpinechill = Spinechill
-marking-ThavenSpinechill-thavenspinechill = Spinechill
-marking-ThavenTattooVines = Vine Tattoo
-marking-ThavenTattooVines-thaventattoovines = Vine Tattoo
-marking-ThavenSpines = Spines
-marking-ThavenSpines-thavenspines = Spines
-marking-ThavenBiteMark = Big Bite Scar
-marking-ThavenBiteMark-thavenbitemark = Big Bite Scar
-marking-ThavenTattooWave = Wave Tattoo
-marking-ThavenTattooWave-thaventattoowave = Wave Tattoo
-marking-SharkminnowEyeliner = Sharkminnow Eyeliner
-marking-SharkminnowEyeliner-thaventattoosharkminnoweyeliner = Sharkminnow Eyeliner
-marking-ThavenTiger = Tiger Stripes
-marking-ThavenTiger-thaventiger1 = Tiger Belly
-marking-ThavenTiger-thaventiger2 = Tiger Stripes
-marking-ThavenTigerRArm = Tiger Stripes (Right)
-marking-ThavenTigerRArm-thaventigerarmsr = Tiger Stripes (Right)
-marking-ThavenTigerLArm = Tiger Stripes (Left)
-marking-ThavenTigerLArm-thaventigerarmsl = Tiger Stripes (Left)
-marking-ThavenHeadStripes = Pinstripes
-marking-ThavenHeadStripes-thavenheadstripes = Pinstripes
-marking-ThavenBodyStripes = Pinstripes
-marking-ThavenBodyStripes-thavenbodystripes = Pinstripes
-marking-ThavenEarsBigFins = Big Fins
-marking-ThavenEarsBigFins-thavenearsbigfins = Outer
-marking-ThavenEarsBigFins-thavenearsbigfins2 = Inner
-marking-ThavenHeadCap = Dappled Crown
-marking-ThavenHeadCap-thavenheadcap1 = Crown
-marking-ThavenHeadCap-thavenheadcap2 = Dapples
+
+
 
 # vox
 marking-VoxCocktail = Cocktail
