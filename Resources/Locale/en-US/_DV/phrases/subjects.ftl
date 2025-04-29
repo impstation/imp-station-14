@@ -83,7 +83,6 @@ phrase-robotics = robotics
 phrase-circuit-board = circuit board
 phrase-research = research
 phrase-research-console = R&D computer
-phrase-mindbreak-phase = mindbreak
 phrase-protolathe = protolathe
 phrase-circuit-imprinter = circuit imprinter
 phrase-bounty = bounty
