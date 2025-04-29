@@ -233,9 +233,9 @@
 - type: entity
   parent: FoodProduceBase
   id: FoodCoconutJoke
-  name: coconut
+  name: hard coconut
   description: Where'd this come from?
-  suffix: Admeme
+  categories: [ DoNotMap ]
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Specific/Hydroponics/coconut.rsi
