@@ -74,9 +74,6 @@ public sealed class SelfHeadsetSystem : EntitySystem
     /// <summary>
     /// Ensures entities with SelfHeadset are capable of receiving encryption keys if not otherwise specified.
     /// </summary>
-    /// <param name="uid"></param>
-    /// <param name="component"></param>
-    /// <param name="args"></param>
     private void OnAdd(EntityUid uid, SelfHeadsetComponent component, ref ComponentStartup args)
     {
         EnsureComp<EncryptionKeyHolderComponent>(uid);
