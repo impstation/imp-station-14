@@ -18,7 +18,6 @@ phrase-species-ferret = ferret
 phrase-species-carp = carp
 phrase-species-xeno = xeno
 phrase-species-hamster = hamster
-phrase-species-ifrit = ifrit
 phrase-species-raccoon = raccoon
 phrase-species-rouny = rouny
 phrase-species-fox = fox
