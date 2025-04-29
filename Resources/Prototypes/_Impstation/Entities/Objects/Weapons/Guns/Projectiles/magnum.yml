@@ -4,8 +4,6 @@
   parent: ImpstationBaseBullet
   categories: [ HideSpawnMenu ]
   components:
-  - type: Ammo
-    muzzleFlash: MuzzleFlashEffectKineticSmall
   - type: Projectile
     damage:
       types:

@@ -1,6 +1,6 @@
 - type: entity
   parent: MuzzleFlashEffect
-  id: MuzzleFlashEffectKineticSmall
+  id: MuzzleFlashEffectSmall
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -21,7 +21,7 @@
     enabled: true
     color: "#83db2b"
     radius: 1.4
-    energy: 4.0
+    energy: 5.0
   - type: Sprite
     drawdepth: BelowMobs
     offset: 0.15, 0
@@ -54,7 +54,7 @@
     enabled: true
     color: "#c800ff"
     radius: 1.4
-    energy: 4.0
+    energy: 5.0
   - type: Sprite
     drawdepth: BelowMobs
     offset: 0.15, 0
@@ -73,7 +73,7 @@
     enabled: true
     color: "#2248a7"
     radius: 1.4
-    energy: 2.0
+    energy: 3.0
   - type: Sprite
     drawdepth: BelowMobs
     offset: 0.15, 0
@@ -92,7 +92,7 @@
     enabled: true
     color: "#820a16"
     radius: 1.4
-    energy: 2.0
+    energy: 3.0
   - type: Sprite
     drawdepth: BelowMobs
     offset: 0.15, 0

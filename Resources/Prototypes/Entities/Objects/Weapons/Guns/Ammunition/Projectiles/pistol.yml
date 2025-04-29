@@ -4,8 +4,6 @@
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
-  - type: Ammo
-    muzzleFlash: MuzzleFlashEffectKineticSmall
   - type: Projectile
     damage:
       types:
@@ -17,8 +15,6 @@
   parent: BaseBulletPractice
   categories: [ HideSpawnMenu ]
   components:
-  - type: Ammo
-    muzzleFlash: MuzzleFlashEffectKineticSmall
   - type: Projectile
     damage:
       types:
@@ -30,8 +26,6 @@
   name: bullet (.35 auto incendiary)
   categories: [ HideSpawnMenu ]
   components:
-  - type: Ammo
-    muzzleFlash: MuzzleFlashEffectKineticSmall
   - type: Projectile
     damage:
       types:
@@ -44,8 +38,6 @@
   name: bullet (.35 auto uranium)
   categories: [ HideSpawnMenu ]
   components:
-  - type: Ammo
-    muzzleFlash: MuzzleFlashEffectKineticSmall
   - type: Projectile
     damage:
       types:
