@@ -14,6 +14,7 @@ public sealed class SelfHeadsetSystem : EntitySystem
 
         SubscribeLocalEvent<SelfHeadsetComponent, EncryptionChannelsChangedEvent>(OnKeysChanged);
         SubscribeLocalEvent<SelfHeadsetComponent, EmpPulseEvent>(OnEmpPulse);
+        SubscribeLocalEvent<SelfHeadsetComponent, ComponentStartup>(OnAdd);
 
     }
 
@@ -68,5 +69,10 @@ public sealed class SelfHeadsetSystem : EntitySystem
             args.Affected = true;
             args.Disabled = true;
         }
+    }
+
+    private void OnAdd(EntityUid uid, SelfHeadsetComponent component, ref ComponentStartup args)
+    {
+        EnsureComp<EncryptionKeyHolderComponent>(uid);
     }
 }
