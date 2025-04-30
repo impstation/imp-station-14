@@ -373,9 +373,9 @@
 - type: roleLoadout
   id: JobAtmosphericTechnician
   groups:
+  - AtmosphericTechnicianHead # imp
   - StationEngineerMask # imp
   - AtmosphericTechnicianNeck # imp
-  - AtmosphericTechnicianHead # imp
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianOuterClothing
   - AtmosphericTechnicianShoes
