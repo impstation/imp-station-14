@@ -112,13 +112,13 @@ marking-LPauldronArmored = Armored Pauldron Left
 marking-LPauldronArmored-pauldronarmored = Pauldron
 
 marking-PauldronCracked = Cracked Pauldron
-marking-PauldronCracked-crabpauldroncracked = Cracked Pauldron
+marking-PauldronCracked-pauldroncracked = Cracked Pauldron
 
 marking-PauldronSheerspine = Sheerspine Pauldron
-marking-PauldronSheerspine-crabpauldronsheerspine = Pauldron
+marking-PauldronSheerspine-pauldronsheerspine = Pauldron
 
 marking-PauldronWarlord = Warlord Pauldron
-marking-PauldronWarlord-crableftpauldronwarlord = Pauldron
+marking-PauldronWarlord-leftpauldronwarlord = Pauldron
 # RLeg
 
 # LLeg

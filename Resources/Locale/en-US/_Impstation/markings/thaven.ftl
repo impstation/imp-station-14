@@ -169,6 +169,8 @@ marking-HijabSimpleThaven = Hijab (Simple)
 
 marking-MessyPonytailThaven = Messy Ponytail
 
+marking-NiqabThaven = Niqab
+
 marking-ThavenHair80s = Short Hair 80s
 
 marking-ThavenHairA = Short Hair
@@ -206,7 +208,6 @@ marking-ThavenHairBigpompadour = Pompadour (Big)
 marking-ThavenHairBob = Bob Hair
 
 marking-ThavenHairBob2 = Bob Hair 2
-
 
 marking-ThavenHairBob4 = Bob Hair 4
 
