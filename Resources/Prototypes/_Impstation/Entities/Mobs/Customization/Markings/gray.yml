@@ -14,8 +14,6 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Gray ]
-  forcedColoring: false
-  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gray/chest.rsi
     state: object1
@@ -27,8 +25,6 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Gray ]
-  forcedColoring: false
-  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gray/chest.rsi
     state: car1
@@ -40,8 +36,6 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Gray ]
-  forcedColoring: false
-  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gray/chest.rsi
     state: plane1
@@ -54,7 +48,6 @@
   markingCategory: Chest
   speciesRestriction: [ Gray ]
   forcedColoring: true
-  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gray/chest.rsi
     state: radiumglow
@@ -68,7 +61,6 @@
   markingCategory: HeadTop
   speciesRestriction: [ Gray ]
   forcedColoring: true
-  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gray/head.rsi
     state: radiumglowbrain
@@ -80,7 +72,6 @@
   markingCategory: HeadTop
   speciesRestriction: [ Gray ]
   forcedColoring: true
-  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gray/head.rsi
     state: radiumglowcheeks
@@ -125,8 +116,6 @@
   bodyPart: Eyes
   markingCategory: HeadTop
   speciesRestriction: [ Gray ]
-  forcedColoring: false
-  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gray/eyes.rsi
     state: fakelashes
@@ -136,7 +125,6 @@
   bodyPart: Eyes
   markingCategory: Eyes
   speciesRestriction: [ Gray ]
-  forcedColoring: false
   coloring:
     default:
       type:
@@ -162,7 +150,6 @@
   markingCategory: UndergarmentBottom
   speciesRestriction: [ Gray ]
   forcedColoring: true
-  followSkinColor: false
   coloring:
     default:
       type:
@@ -177,8 +164,6 @@
   bodyPart: UndergarmentBottom
   markingCategory: UndergarmentBottom
   speciesRestriction: [ Gray ]
-  forcedColoring: false
-  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gray/undergarmentbottom.rsi
     state: striped1
@@ -190,8 +175,6 @@
   bodyPart: UndergarmentBottom
   markingCategory: UndergarmentBottom
   speciesRestriction: [ Gray ]
-  forcedColoring: false
-  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gray/undergarmentbottom.rsi
     state: toga
@@ -230,7 +213,6 @@
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [ Gray ]
-  forcedColoring: false
   followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gray/headtop.rsi
