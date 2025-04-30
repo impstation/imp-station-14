@@ -11,8 +11,8 @@
         !type:SimpleColoring
       fallbackColor: "#666666"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/vox_scars.rsi
-    state: claw_torso
+  - sprite: _Impstation/Mobs/Customization/Vox/chest.rsi
+    state: claw
 
 - type: marking
   id: SpotsChest
@@ -21,10 +21,10 @@
   speciesRestriction: [ Vox ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: spotschest1
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: spotschest2
+  - sprite: _Impstation/Mobs/Customization/Vox/chest.rsi
+    state: spots1
+  - sprite: _Impstation/Mobs/Customization/Vox/chest.rsi
+    state: spots2
 
 - type: marking
   id: VChest
@@ -33,12 +33,12 @@
   speciesRestriction: [ Vox ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: vchest1
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: vchest2
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: vchest3
+  - sprite: _Impstation/Mobs/Customization/Vox/chest.rsi
+    state: v1
+  - sprite: _Impstation/Mobs/Customization/Vox/chest.rsi
+    state: v2
+  - sprite: _Impstation/Mobs/Customization/Vox/chest.rsi
+    state: v3
 
 - type: marking
   id: VoxBelly
@@ -48,8 +48,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxbelly
+  - sprite: _Impstation/Mobs/Customization/Vox/chest.rsi
+    state: belly
 
 - type: marking
   id: VoxChestPlumage
@@ -59,8 +59,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxchestplumage
+  - sprite: _Impstation/Mobs/Customization/Vox/chest.rsi
+    state: plumage
 
 - type: marking
   id: VoxScarIncision
@@ -69,7 +69,7 @@
   speciesRestriction: [ Vox ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+  - sprite: _Impstation/Mobs/Customization/Vox/chest.rsi
     state: scarincision
 
 - type: marking
@@ -79,7 +79,7 @@
   speciesRestriction: [ Vox ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+  - sprite: _Impstation/Mobs/Customization/Vox/chest.rsi
     state: scarmangled
 
 - type: marking
@@ -89,7 +89,7 @@
   speciesRestriction: [ Vox ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+  - sprite: _Impstation/Mobs/Customization/Vox/chest.rsi
     state: scarspinal
 
 - type: marking
@@ -100,8 +100,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxtailsinglestripe
+  - sprite: _Impstation/Mobs/Customization/Vox/chest.rsi
+    state: tailsinglestripe
 
 - type: marking
   id: VoxTailStripes
@@ -111,8 +111,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxtailstripes
+  - sprite: _Impstation/Mobs/Customization/Vox/chest.rsi
+    state: tailstripes
 
 # Head
 
@@ -127,8 +127,8 @@
         !type:SimpleColoring
       fallbackColor: "#666666"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/vox_scars.rsi
-    state: bigslash_l_head
+  - sprite: _Impstation/Mobs/Customization/Vox/head.rsi
+    state: bigslashleft
 
 - type: marking
   id: ScarsVoxBigslashRightHead
@@ -141,8 +141,8 @@
         !type:SimpleColoring
       fallbackColor: "#666666"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/vox_scars.rsi
-    state: bigslash_r_head
+  - sprite: _Impstation/Mobs/Customization/Vox/head.rsi
+    state: bigslashright
 
 - type: marking
   id: ScarsVoxRoadrashLeftHead
@@ -155,8 +155,8 @@
         !type:SimpleColoring
       fallbackColor: "#666666"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/vox_scars.rsi
-    state: roadrash_l_head
+  - sprite: _Impstation/Mobs/Customization/Vox/head.rsi
+    state: roadrashleft
 
 - type: marking
   id: ScarsVoxRoadrashRightHead
@@ -169,8 +169,8 @@
         !type:SimpleColoring
       fallbackColor: "#666666"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/vox_scars.rsi
-    state: roadrash_r_head
+  - sprite: _Impstation/Mobs/Customization/Vox/head.rsi
+    state: roadrashright
 
 - type: marking
   id: ScarsVoxSlashLeftHead
@@ -183,8 +183,8 @@
         !type:SimpleColoring
       fallbackColor: "#666666"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/vox_scars.rsi
-    state: slash_l_head
+  - sprite: _Impstation/Mobs/Customization/Vox/head.rsi
+    state: slashleft
 
 - type: marking
   id: ScarsVoxSlashRightHead
@@ -197,8 +197,8 @@
         !type:SimpleColoring
       fallbackColor: "#666666"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/vox_scars.rsi
-    state: slash_r_head
+  - sprite: _Impstation/Mobs/Customization/Vox/head.rsi
+    state: slashright
 
 - type: marking
   id: VoxCheeks
@@ -208,8 +208,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxcheeks
+  - sprite: _Impstation/Mobs/Customization/Vox/head.rsi
+    state: cheeks
 
 - type: marking
   id: VoxEarhole
@@ -218,7 +218,7 @@
   speciesRestriction: [ Vox ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+  - sprite: _Impstation/Mobs/Customization/Vox/head.rsi
     state: earhole
 
 - type: marking
@@ -229,12 +229,12 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxheadgradient1
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxheadgradient2
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxheadgradient3
+  - sprite: _Impstation/Mobs/Customization/Vox/head.rsi
+    state: gradient1
+  - sprite: _Impstation/Mobs/Customization/Vox/head.rsi
+    state: gradient2
+  - sprite: _Impstation/Mobs/Customization/Vox/head.rsi
+    state: gradient3
 
 - type: marking
   id: VoxNeckband
@@ -243,7 +243,7 @@
   speciesRestriction: [ Vox ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+  - sprite: _Impstation/Mobs/Customization/Vox/head.rsi
     state: neckband
 
 - type: marking
@@ -253,8 +253,8 @@
   speciesRestriction: [ Vox ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: scarheadblasted
+  - sprite: _Impstation/Mobs/Customization/Vox/head.rsi
+    state: scarblasted
 
 # Snout
 
@@ -266,8 +266,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxbeakcolor
+  - sprite: _Impstation/Mobs/Customization/Vox/snout.rsi
+    state: color
 
 - type: marking
   id: VoxBeakSplit
@@ -277,10 +277,10 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxbeaksplit1
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxbeaksplit2
+  - sprite: _Impstation/Mobs/Customization/Vox/snout.rsi
+    state: split1
+  - sprite: _Impstation/Mobs/Customization/Vox/snout.rsi
+    state: split2
 
 - type: marking
   id: VoxBeakTipped
@@ -290,8 +290,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxbeaktipped
+  - sprite: _Impstation/Mobs/Customization/Vox/snout.rsi
+    state: tipped
 
 # Eyes
 
@@ -304,19 +304,19 @@
   speciesRestriction: [ Vox ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: spotsarmr
+  - sprite: _Impstation/Mobs/Customization/Vox/rarm.rsi
+    state: spots
 
 - type: marking
-  id: VoxArmsStripesRHand
+  id: VoxArmsStripesRHand # what i would pay to be able to rename prototypes
   bodyPart: RArm
   markingCategory: Arms
   speciesRestriction: [ Vox ]
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxarmsstripesr
+  - sprite: _Impstation/Mobs/Customization/Vox/rarm.rsi
+    state: stripes
 
 # LArm
 
@@ -327,8 +327,8 @@
   speciesRestriction: [ Vox ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: spotsarml
+  - sprite: _Impstation/Mobs/Customization/Vox/larm.rsi
+    state: spots
 
 - type: marking
   id: VoxArmsStripesLHand
@@ -338,8 +338,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxarmsstripesl
+  - sprite: _Impstation/Mobs/Customization/Vox/larm.rsi
+    state: stripes
 
 # RLeg
 
@@ -350,8 +350,8 @@
   speciesRestriction: [ Vox ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: featheredlegr
+  - sprite: _Impstation/Mobs/Customization/Vox/rleg.rsi
+    state: feathered
 
 - type: marking
   id: VoxLegGradientRLeg
@@ -361,8 +361,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxfootgradientr2
+  - sprite: _Impstation/Mobs/Customization/Vox/rleg.rsi
+    state: gradient
 
 - type: marking
   id: VoxLegsStripesRLeg
@@ -372,8 +372,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxlegsstripesr
+  - sprite: _Impstation/Mobs/Customization/Vox/rleg.rsi
+    state: stripes
 
 # LLeg
 
@@ -384,8 +384,8 @@
   speciesRestriction: [ Vox ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: featheredlegl
+  - sprite: _Impstation/Mobs/Customization/Vox/lleg.rsi
+    state: feathered
 
 - type: marking
   id: VoxLegGradientLLeg
@@ -395,8 +395,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxfootgradientl2
+  - sprite: _Impstation/Mobs/Customization/Vox/lleg.rsi
+    state: gradient
 
 - type: marking
   id: VoxLegsStripesLLeg
@@ -406,8 +406,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxlegsstripesl
+  - sprite: _Impstation/Mobs/Customization/Vox/lleg.rsi
+    state: stripes
 
 # UndergarmentBottom
 
@@ -422,8 +422,8 @@
       type: null
       fallbackColor: '#FFFFFF'
   sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: underwearbriefs
+  - sprite: _Impstation/Mobs/Customization/Vox/undergarmentbottom.rsi
+    state: briefs
 
 - type: marking
   id: UnderwearHighWaisted
@@ -436,8 +436,8 @@
       type: null
       fallbackColor: '#FFFFFF'
   sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: underwearhighwaisted
+  - sprite: _Impstation/Mobs/Customization/Vox/undergarmentbottom.rsi
+    state: highwaisted
 
 - type: marking
   id: UnderwearIxixSpecial
@@ -450,10 +450,10 @@
       type: null
       fallbackColor: '#FFFFFF'
   sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: underwearixixspecial1
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: underwearixixspecial2
+  - sprite: _Impstation/Mobs/Customization/Vox/undergarmentbottom.rsi
+    state: ixixspecial1
+  - sprite: _Impstation/Mobs/Customization/Vox/undergarmentbottom.rsi
+    state: ixixspecial2
 
 - type: marking
   id: UnderwearLowridersV
@@ -466,8 +466,8 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
-    state: lowriders_vox
+  - sprite: _Impstation/Mobs/Customization/Vox/undergarmentbottom.rsi
+    state: lowriders
 
 - type: marking
   id: UnderwearStrappy
@@ -480,12 +480,12 @@
       type: null
       fallbackColor: '#703c14'
   sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: understrappy1
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: understrappy2
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: understrappy3
+  - sprite: _Impstation/Mobs/Customization/Vox/undergarmentbottom.rsi
+    state: strappy1
+  - sprite: _Impstation/Mobs/Customization/Vox/undergarmentbottom.rsi
+    state: strappy2
+  - sprite: _Impstation/Mobs/Customization/Vox/undergarmentbottom.rsi
+    state: strappy3
 
 - type: marking
   id: UnderwearTangaV
@@ -498,8 +498,8 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
-    state: tanga_vox
+  - sprite: _Impstation/Mobs/Customization/Vox/undergarmentbottom.rsi
+    state: tanga
 
 # UndergarmentTop
 
@@ -513,8 +513,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxfootgradientl1
+  - sprite: _Impstation/Mobs/Customization/Vox/lfoot.rsi
+    state: gradient
 
 # RFoot
 
@@ -526,8 +526,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxfootgradientr1
+  - sprite: _Impstation/Mobs/Customization/Vox/rfoot.rsi
+    state: gradient
 
 # LHand
 
@@ -539,12 +539,12 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxhandgradientl1
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxhandgradientl2
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxhandgradientl3
+  - sprite: _Impstation/Mobs/Customization/Vox/lhand.rsi
+    state: gradient1
+  - sprite: _Impstation/Mobs/Customization/Vox/lhand.rsi
+    state: gradient2
+  - sprite: _Impstation/Mobs/Customization/Vox/lhand.rsi
+    state: gradient3
 
 - type: marking
   id: VoxLArmProsthetic
@@ -559,8 +559,8 @@
         !type:SimpleColoring
         color: "#E4E4E4"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxarmprostheticl
+  - sprite: _Impstation/Mobs/Customization/Vox/lhand.rsi
+    state: prosthetic
 
 # RHand
 
@@ -572,12 +572,12 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxhandgradientr1
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxhandgradientr2
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxhandgradientr3
+  - sprite: _Impstation/Mobs/Customization/Vox/rhand.rsi
+    state: gradient1
+  - sprite: _Impstation/Mobs/Customization/Vox/rhand.rsi
+    state: gradient2
+  - sprite: _Impstation/Mobs/Customization/Vox/rhand.rsi
+    state: gradient3
 
 - type: marking
   id: VoxRArmProsthetic
@@ -592,8 +592,8 @@
         !type:SimpleColoring
         color: "#E4E4E4"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxarmprostheticr
+  - sprite: _Impstation/Mobs/Customization/Vox/rhand.rsi
+    state: prosthetic
 
 # FacialHair
 
@@ -604,8 +604,8 @@
   speciesRestriction: [ Vox ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: beardpadovana
+  - sprite: _Impstation/Mobs/Customization/Vox/facialhair.rsi
+    state: padovana
 
 - type: marking
   id: LargeWattle
@@ -614,8 +614,8 @@
   speciesRestriction: [ Vox ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: beardlargewattle
+  - sprite: _Impstation/Mobs/Customization/Vox/facialhair.rsi
+    state: largewattle
 
 - type: marking
   id: SmallWattle
@@ -624,8 +624,8 @@
   speciesRestriction: [ Vox ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: beardsmallwattle
+  - sprite: _Impstation/Mobs/Customization/Vox/facialhair.rsi
+    state: smallwattle
 
 # Hair
 
@@ -636,8 +636,8 @@
   speciesRestriction: [ Vox ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: hairpadovana
+  - sprite: _Impstation/Mobs/Customization/Vox/hair.rsi
+    state: padovana
 
 - type: marking
   id: HijabSimpleVox
@@ -645,8 +645,8 @@
   markingCategory: Hair
   speciesRestriction: [ Vox ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/headcovers.rsi
-    state: hijabsimplevox
+  - sprite: _Impstation/Mobs/Customization/Vox/hair.rsi
+    state: hijabsimple
 
 - type: marking
   id: HijabFashionableVox
@@ -654,8 +654,8 @@
   markingCategory: Hair
   speciesRestriction: [ Vox ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/headcovers.rsi
-    state: hijabchicvox
+  - sprite: _Impstation/Mobs/Customization/Vox/hair.rsi
+    state: hijabchic
 
 - type: marking
   id: LargeComb
@@ -664,7 +664,7 @@
   speciesRestriction: [ Vox ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+  - sprite: _Impstation/Mobs/Customization/Vox/hair.rsi
     state: largecomb
 
 - type: marking
@@ -673,8 +673,8 @@
   markingCategory: Hair
   speciesRestriction: [ Vox ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/headcovers.rsi
-    state: tichelsimplevox
+  - sprite: _Impstation/Mobs/Customization/Vox/hair.rsi
+    state: tichelsimple
 
 - type: marking
   id: TichelFashionableVox
@@ -682,8 +682,8 @@
   markingCategory: Hair
   speciesRestriction: [ Vox ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/headcovers.rsi
-    state: tichelfashionablevox
+  - sprite: _Impstation/Mobs/Customization/Vox/hair.rsi
+    state: tichelfashionable
 
 - type: marking
   id: VoxBald
@@ -692,7 +692,7 @@
   speciesRestriction: [ Vox ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+  - sprite: _Impstation/Mobs/Customization/Vox/hair.rsi
     state: balding
 
 - type: marking
@@ -702,8 +702,8 @@
   speciesRestriction: [ Vox ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: hairemover
+  - sprite: _Impstation/Mobs/Customization/Vox/hair.rsi
+    state: emover
 
 - type: marking
   id: VoxPolish
@@ -712,8 +712,8 @@
   speciesRestriction: [ Vox ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: hairpolish
+  - sprite: _Impstation/Mobs/Customization/Vox/hair.rsi
+    state: polish
 
 - type: marking
   id: VoxWindswept
@@ -722,8 +722,8 @@
   speciesRestriction: [ Vox ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: hairwindswept
+  - sprite: _Impstation/Mobs/Customization/Vox/hair.rsi
+    state: windswept
 
 # HeadSide
 
@@ -734,12 +734,12 @@
   speciesRestriction: [ Vox ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: sidequills1
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: sidequills2
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: sidequills3
+  - sprite: _Impstation/Mobs/Customization/Vox/headside.rsi
+    state: quills1
+  - sprite: _Impstation/Mobs/Customization/Vox/headside.rsi
+    state: quills2
+  - sprite: _Impstation/Mobs/Customization/Vox/headside.rsi
+    state: quills3
 
 - type: marking
   id: VoxStreamers
@@ -748,11 +748,11 @@
   speciesRestriction: [ Vox ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+  - sprite: _Impstation/Mobs/Customization/Vox/headside.rsi
     state: streamers1
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+  - sprite: _Impstation/Mobs/Customization/Vox/headside.rsi
     state: streamers2
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+  - sprite: _Impstation/Mobs/Customization/Vox/headside.rsi
     state: streamers3
 
 # HeadTop
@@ -766,9 +766,9 @@
   speciesRestriction: [ Vox ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi
     state: friendsfeather1
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi
     state: friendsfeather2
 
 - type: marking
@@ -778,8 +778,8 @@
   speciesRestriction: [ Vox ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: spotstail
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi
+    state: spots
 
 - type: marking
   id: TailBloom
@@ -788,12 +788,12 @@
   speciesRestriction: [ Vox ]
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: tailbloom1
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: tailbloom2
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: tailbloom3
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi
+    state: bloom1
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi
+    state: bloom2
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi
+    state: bloom3
 
 - type: marking
   id: VoxChains
@@ -803,8 +803,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxchains
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi
+    state: chains
 
 - type: marking
   id: VoxCocktail
@@ -814,14 +814,14 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxcocktail1
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxcocktail2
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxcocktail3
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxcocktail4
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi
+    state: cocktail1
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi
+    state: cocktail2
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi
+    state: cocktail3
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi
+    state: cocktail4
 
 - type: marking
   id: VoxFootSpines
@@ -831,8 +831,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxfootspines
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi
+    state: footspines
 
 - type: marking
   id: VoxTailBack
@@ -842,8 +842,8 @@
   forcedColoring: true
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxtailcolorable
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi
+    state: colorable
 
 - type: marking
   id: VoxTailBalled
@@ -853,8 +853,8 @@
   forcedColoring: true
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxtailballed
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi
+    state: balled
 
 - type: marking
   id: VoxTailBell
@@ -864,10 +864,10 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxtailbell1
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxtailbell2
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi
+    state: bell1
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi
+    state: bell2
 
 - type: marking
   id: VoxTailLantern
@@ -877,8 +877,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxtaillantern
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi
+    state: lantern
   shader: unshaded
 
 - type: marking
@@ -889,8 +889,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxtailsmallplume
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi
+    state: smallplume
 
 - type: marking
   id: VoxTailSpines
@@ -900,8 +900,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxtailspines
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi
+    state: spines
 
 - type: marking
   id: VoxTailSplit
@@ -911,8 +911,8 @@
   forcedColoring: true
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxtailsplit
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi
+    state: split
 
 - type: marking
   id: VoxSunAndMoon
@@ -922,16 +922,7 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: voxsunandmoon
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi
+    state: sunandmoon
 
 # RArmExtension
-
-
-
-
-
-
-
-
-
