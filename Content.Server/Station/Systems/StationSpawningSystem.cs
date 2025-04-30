@@ -133,10 +133,12 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             }
             //START IMP EDIT: let silicon have detail text and pronouns
             if (profile != null){
-                if (string.IsNullOrEmpty(profile.FlavorText) && _configurationManager.GetCVar(CCVars.FlavorText))
+                if (!string.IsNullOrEmpty(profile.FlavorText) && _configurationManager.GetCVar(CCVars.FlavorText))
                     AddComp<DetailExaminableComponent>(jobEntity).Content = profile.FlavorText;
-                if (TryComp<GrammarComponent>(jobEntity, out var grammar))
+                if (TryComp<GrammarComponent>(jobEntity, out var grammar)){
+                    grammar.ProperNoun = true;
                     grammar.Gender = profile.Gender;
+                }
             }
             //END IMP EDIT
             DoJobSpecials(job, jobEntity);

@@ -26,6 +26,8 @@ using Content.Shared.Whitelist;
 using Content.Shared.Wires;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
+using Robust.Shared.GameObjects.Components.Localization; // imp
+using Robust.Shared.Enums; // imp
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -256,6 +258,13 @@ public sealed partial class BorgSystem : SharedBorgSystem
             return;
         }
 
+        //IMP EDIT: body-hopping preserves your pronouns!
+        if (TryComp<GrammarComponent>(GetEntity(mind.OriginalOwnedEntity!), out var formerSelf) && TryComp<GrammarComponent>(uid, out var grammar))
+        {
+            grammar.ProperNoun = true;
+            grammar.Gender = formerSelf.Gender;
+        }
+        //END IMP EDIT
         _mind.TransferTo(mindId, containerEnt, mind: mind);
     }
 
@@ -297,6 +306,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
             Toggle.TryActivate(uid);
             _powerCell.SetDrawEnabled(uid, _mobState.IsAlive(uid));
         }
+        //imp note: pronouns for job-start borgs are set by StationSpawningSystem, and pronouns for MMIs are set by OnBrainMindAdded
         _appearance.SetData(uid, BorgVisuals.HasPlayer, true);
     }
 
@@ -306,6 +316,12 @@ public sealed partial class BorgSystem : SharedBorgSystem
     public void BorgDeactivate(EntityUid uid, BorgChassisComponent component)
     {
         Popup.PopupEntity(Loc.GetString("borg-mind-removed", ("name", Identity.Name(uid, EntityManager))), uid);
+        //IMP EDIT: an empty vessel is back to being an object
+        if(TryComp<GrammarComponent>(uid, out var grammar)){
+            grammar.ProperNoun = false;
+            grammar.Gender = Gender.Neuter; // it/its
+        }
+        //END IMP EDIT
         Toggle.TryDeactivate(uid);
         _powerCell.SetDrawEnabled(uid, false);
         _appearance.SetData(uid, BorgVisuals.HasPlayer, false);
