@@ -707,9 +707,13 @@
   - type: Sprite
     sprite: _Impstation/Objects/Fun/toys.rsi
     state: plushie_odds
+  - type: Item
+    inhandVisuals:
+      left:
+        - state: plushie_odds-inhand-left
+      right:
+        - state: plushie_odds-inhand-right
   - type: MeleeWeapon
-    soundHit:
-      path: /Audio/_Impstation/Animals/spooky_horse.ogg
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -720,7 +724,7 @@
       behaviors:
       - !type:PlaySoundBehavior
         sound:
-          path: /Audio/Effects/snap.ogg
+          path: /Audio/_Impstation/Animals/spooky_horse.ogg
       - !type:ExplodeBehavior
   - type: DamageOnLand
     damage:
@@ -732,3 +736,13 @@
     maxIntensity: 0.01
     intensitySlope: 1
     totalIntensity: 0.01
+  - type: Clothing
+    quickEquip: false
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    equippedPrefix: odd
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: odds-equipped-HELMET
+        offset: "0, 0.06"
