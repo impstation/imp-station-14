@@ -580,8 +580,9 @@
   - type: StartingMindRole
     mindRole: "MindRoleSiliconBrain"
     silent: true
-  - type: Grammar #imp
-    proper: true
+  - type: Grammar # imp
+    attributes:
+      proper: true
 
 # Hologram projection that the AI's eye tracks.
 - type: entity
