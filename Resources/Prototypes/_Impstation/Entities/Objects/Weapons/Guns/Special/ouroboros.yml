@@ -41,6 +41,12 @@
     magState: mag
     steps: 2
     zeroVisible: true
+  - type: RepulseAttract
+    speed: 15
+    range: 1
+    whitelist:
+      components:
+      - TimedDespawn
   - type: Appearance
   - type: MeleeWeapon
     range: 0.8
