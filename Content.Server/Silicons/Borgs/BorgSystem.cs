@@ -3,10 +3,12 @@ using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Explosion.EntitySystems;
+using Content.Server.Ghost.Roles.Components; // imp; for the GhostRole check
 using Content.Server.Hands.Systems;
 using Content.Server.PowerCell;
 using Content.Shared.Alert;
 using Content.Shared.Database;
+using Content.Shared.Humanoid; // imp; for HumanoidAppearanceComponent
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Item.ItemToggle.Components;
@@ -24,10 +26,11 @@ using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Throwing;
 using Content.Shared.Whitelist;
 using Content.Shared.Wires;
+
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
-using Robust.Shared.GameObjects.Components.Localization; // imp
-using Robust.Shared.Enums; // imp
+using Robust.Shared.GameObjects.Components.Localization; // imp; for Gender
+using Robust.Shared.Enums; // imp; for Gender
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -158,6 +161,14 @@ public sealed partial class BorgSystem : SharedBorgSystem
 
         if (HasComp<BorgBrainComponent>(args.Entity) && _mind.TryGetMind(args.Entity, out var mindId, out var mind) && args.Container == component.BrainContainer)
         {
+            //IMP EDIT: body-hopping preserves your pronouns!
+            if (!TryComp<GhostRoleComponent>(uid, out var ghostrole) && //check to make sure this isn't a ghostrole (i.e. derelicts)
+            TryComp<HumanoidAppearanceComponent>(GetEntity(mind.OriginalOwnedEntity!), out var formerSelf) && TryComp<GrammarComponent>(uid, out var grammar))
+            {
+                grammar.ProperNoun = true;
+                grammar.Gender = formerSelf.Gender;
+            }
+            //END IMP EDIT
             _mind.TransferTo(mindId, uid, mind: mind);
         }
     }
@@ -168,12 +179,19 @@ public sealed partial class BorgSystem : SharedBorgSystem
 
         if (HasComp<BorgBrainComponent>(args.Entity) && _mind.TryGetMind(uid, out var mindId, out var mind) && args.Container == component.BrainContainer)
         {
+            //IMP EDIT: an empty vessel is back to being an object
+            if(TryComp<GrammarComponent>(uid, out var grammar)){
+                grammar.ProperNoun = false;
+                grammar.Gender = Gender.Neuter; // it/its
+            }
+            //END IMP EDIT
             _mind.TransferTo(mindId, args.Entity, mind: mind);
         }
     }
 
     private void OnMindAdded(EntityUid uid, BorgChassisComponent component, MindAddedMessage args)
     {
+
         BorgActivate(uid, component);
     }
 
@@ -257,14 +275,6 @@ public sealed partial class BorgSystem : SharedBorgSystem
             _throwing.TryThrow(uid, _random.NextVector2() * 5, 5f);
             return;
         }
-
-        //IMP EDIT: body-hopping preserves your pronouns!
-        if (TryComp<GrammarComponent>(GetEntity(mind.OriginalOwnedEntity!), out var formerSelf) && TryComp<GrammarComponent>(uid, out var grammar))
-        {
-            grammar.ProperNoun = true;
-            grammar.Gender = formerSelf.Gender;
-        }
-        //END IMP EDIT
         _mind.TransferTo(mindId, containerEnt, mind: mind);
     }
 
@@ -306,8 +316,8 @@ public sealed partial class BorgSystem : SharedBorgSystem
             Toggle.TryActivate(uid);
             _powerCell.SetDrawEnabled(uid, _mobState.IsAlive(uid));
         }
-        //imp note: pronouns for job-start borgs are set by StationSpawningSystem, and pronouns for MMIs are set by OnBrainMindAdded
         _appearance.SetData(uid, BorgVisuals.HasPlayer, true);
+
     }
 
     /// <summary>
@@ -316,12 +326,6 @@ public sealed partial class BorgSystem : SharedBorgSystem
     public void BorgDeactivate(EntityUid uid, BorgChassisComponent component)
     {
         Popup.PopupEntity(Loc.GetString("borg-mind-removed", ("name", Identity.Name(uid, EntityManager))), uid);
-        //IMP EDIT: an empty vessel is back to being an object
-        if(TryComp<GrammarComponent>(uid, out var grammar)){
-            grammar.ProperNoun = false;
-            grammar.Gender = Gender.Neuter; // it/its
-        }
-        //END IMP EDIT
         Toggle.TryDeactivate(uid);
         _powerCell.SetDrawEnabled(uid, false);
         _appearance.SetData(uid, BorgVisuals.HasPlayer, false);

@@ -647,6 +647,9 @@
   - type: StartingMindRole
     mindRole: "MindRoleSiliconBrain"
     silent: true
+  - type: Grammar # imp
+    attributes:
+      properNoun: true
 
 - type: entity
   id: PlayerBorgSyndicateAssaultBattery
