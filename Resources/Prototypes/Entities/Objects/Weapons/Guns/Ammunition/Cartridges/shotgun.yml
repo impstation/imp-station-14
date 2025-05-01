@@ -66,6 +66,7 @@
     - Cartridge
     - ShellShotgun
     - ShellShotgunLight
+    - ShellShotgunFire #imp
   - type: Sprite
     layers:
       - state: flare
@@ -94,6 +95,12 @@
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
   description: A shotgun shell loaded with soft pellets containing a pyrophoric compound, setting targets ablaze.
   components:
+  - type: Tag # imp
+    tags: 
+    - Cartridge
+    - ShellShotgun
+    - ShellShotgunLight
+    - ShellShotgunFire # /imp
   - type: Sprite
     layers:
       - state: incendiary

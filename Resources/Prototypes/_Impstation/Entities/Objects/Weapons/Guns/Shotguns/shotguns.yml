@@ -98,8 +98,7 @@
   - type: BallisticAmmoProvider
     whitelist:
       tags:
-      - ShellShotgunIncendiary
-      - ShellShotgunFlare
+      - ShellShotgunFire
     capacity: 7
     proto: ShellShotgunIncendiary
     soundInsert:

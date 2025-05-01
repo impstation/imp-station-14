@@ -5,7 +5,7 @@
   playTimeTracker: JobCBURN
   setPreference: false
   startingGear: CBURNGear
-  icon: "JobIconCBURN" #imp
+  icon: "JobIconCBURN" # imp
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:
@@ -19,7 +19,7 @@
 - type: startingGear
   id: CBURNGear
   equipment:
-    jumpsuit: ClothingUniformCBURN #imp
+    jumpsuit: ClothingUniformCBURN # imp
     back: ClothingBackpackDuffelCBURN
     mask: ClothingMaskGasERT
     eyes: ClothingEyesGlassesSecurity
@@ -33,9 +33,9 @@
     belt: ClothingBeltBandolier
   storage:
     back:
-    - WeaponShotgunEnforcerIncendiary #imp
+    - WeaponShotgunEnforcerIncendiary # imp
     - BoxShotgunIncendiary
-    - BoxShotgunFlare #imp
+    - BoxShotgunFlare # imp
     - GrenadeFlashBang
     - PillAmbuzolPlus
     - PillAmbuzol
