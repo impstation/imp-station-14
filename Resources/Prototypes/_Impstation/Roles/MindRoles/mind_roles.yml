@@ -6,3 +6,25 @@
   - type: MindRole
     roleType: FreeAgent
   - type: GhostRoleMarkerRole
+
+# Bounty Hunter
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleBountyHunter
+  name: Bounty Hunter Role
+  components:
+  - type: MindRole
+    antagPrototype: BountyHunter
+    roleType: FreeAgent
+  - type: MindRoleBountyHunter
+
+#Lone Op
+- type: entity
+  parent: MindRoleNukeops
+  id: MindRoleNukeopsLone
+  name: Lone Operative Role
+  components:
+  - type: MindRole
+    roleType: SoloAntagonist
+    antagPrototype: NukeopsLone
+  - type: NukeopsRole
