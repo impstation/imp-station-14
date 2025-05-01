@@ -80,8 +80,8 @@
   - type: Item
     sprite: Clothing/Neck/Misc/bling.rsi
   - type: PhysicalComposition
-    materialComposition: 
-    Gold: 100 # 1 bar
+    materialComposition:
+      Gold: 100 # 1 bar
     
 - type: entity
   parent: ClothingNeckBase
