@@ -83,6 +83,87 @@
 
 - type: entity
   parent: ClothingMaskBase
+  id: ClothingMaskClownBase
+  abstract: true
+  name: clown mask
+  description: A true prankster's facial attire.
+  components:
+  - type: BreathMask
+  - type: Tag
+    tags:
+    - ClownMask
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ClothingMaskClownBase, BaseFoldable]
+  id: ClothingMaskClown
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Mask/clown.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Mask/clown.rsi
+  - type: Tag
+    tags:
+    - ClownMask
+    - HamsterWearable
+    - WhitelistChameleon
+    - Mask
+  - type: HideLayerClothing
+    slots:
+    - Snout
+
+- type: entity
+  parent: [ClothingMaskClown, BaseSecurityContraband]
+  id: ClothingMaskClownSecurity
+  name: security clown wig and mask
+  description: A debatably oxymoronic but protective mask and wig.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Mask/clown_security.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Mask/clown_security.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+
+# admeme only
+- type: entity
+  parent: [ClothingMaskClown, BaseCommandContraband]
+  id: ClothingMaskClownCaptain
+  name: authority clown wig and mask
+  description: A mask and wig for when the captain shows their true colors.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Mask/clown_captain.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Mask/clown_captain.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+
+- type: entity
+  parent: ClothingMaskClownBase
+  id: ClothingMaskClownBanana
+  name: banana clown wig and mask
+  components:
+  - type: Sprite
+    sprite: Clothing/Mask/clown_banana.rsi
+  - type: Clothing
+    sprite: Clothing/Mask/clown_banana.rsi
+  - type: Construction
+    graph: BananaClownMask
+    node: mask
+
+- type: entity
+  parent: ClothingMaskClownBase
   id: ClothingMaskClownNose
   name: clown nose
   description: A particularly controversial fashion statement in clown culture.
@@ -91,7 +172,5 @@
     sprite: _Impstation/Clothing/Mask/clownnose.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Mask/clownnose.rsi
-  - type: BreathMask #clown magic
-  - type: Tag
-    tags:
-    - ClownMask
+
+    
