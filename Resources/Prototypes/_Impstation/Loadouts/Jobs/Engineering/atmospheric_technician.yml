@@ -23,9 +23,9 @@
     outerClothing: ClothingOuterCoatBomberAtmos
 
 - type: loadout
-  id: BomberAtmos
+  id: BomberAtmosHolo
   equipment:
-    outerClothing: ClothingOuterCoatBomberAtmos
+    outerClothing: ClothingOuterCoatBomberAtmosHolo
   effects:
   - !type:GroupLoadoutEffect
     proto: Atmos10hr
