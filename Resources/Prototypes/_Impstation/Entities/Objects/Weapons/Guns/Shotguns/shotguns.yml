@@ -73,3 +73,34 @@
     damage:
       types:
         Blunt: 8
+
+- type: entity
+  name: conflagration Enforcer
+  parent: WeaponShotgunEnforcer
+  id: WeaponShotgunEnforcerIncendiary
+  description: A premium combat shotgun with a pistol grip and built-in silencer, modified to only accept .50 incendiary and flare shells.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/conflagrationenforcer.rsi
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/conflagrationenforcer.rsi
+  - type: Item
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/conflagrationenforcer_inhands_64x.rsi
+  - type: Gun
+    fireRate: 2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/silenced2.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - ShellShotgunIncendiary
+      - ShellShotgunFlare
+    capacity: 7
+    proto: ShellShotgunIncendiary
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
