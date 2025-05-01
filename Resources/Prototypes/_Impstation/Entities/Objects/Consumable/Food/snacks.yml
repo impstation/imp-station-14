@@ -21,6 +21,7 @@
   - type: FlavorProfile
     flavors:
       - salty
+      - shrimp
   - type: Item
     size: Tiny
   - type: Food
@@ -48,7 +49,7 @@
 #just kidding more shrimps
 
 - type: entity
-  name: salty dan's freshly grown shrimpsnax
+  name: Salty Dan's Freshly Grown ShrimpSnax
   parent: FoodSnackBase
   id: FoodSnackDanShrimpsnaxBase
   description: A bag of shrimps. They don't even seem cooked or anything. Yeah this is probably food.
@@ -70,7 +71,7 @@
   - type: FlavorProfile
     flavors:
       - artificial
-      - fishy
+      - shrimp
   - type: Item
     size: Tiny
   - type: Food
@@ -85,7 +86,7 @@
   categories: [ HideSpawnMenu ]
   parent: FoodPacketTrash
   id: FoodPacketDanShrimpsnaxBaseTrash
-  name: salty dan's freshly emptied shrimpsnax
+  name: Salty Dan's Freshly Emptied ShrimpSnax
   description: There's a few little ones still in there. Ah, whatever.
   components:
   - type: Sprite
@@ -96,7 +97,7 @@
     - Trash
 
 - type: entity
-  name: douda dan's oum stupee! pedii kibeab zwoo!!
+  name: Douda Dan's Oum Stupee! Pedii Kibeab Zwoo!!
   parent: FoodSnackBase
   id: FoodSnackDanShrimpsnaxGreen
   description: Is this some sort of misguided attempt to advertise to grays? These aren't even gray.
@@ -120,6 +121,7 @@
   - type: FlavorProfile
     flavors:
       - artificial
+      - shrimp
       - outofthisworld
   - type: Item
     size: Tiny
@@ -135,7 +137,7 @@
   categories: [ HideSpawnMenu ]
   parent: FoodPacketTrash
   id: FoodPacketDanShrimpsnaxGreenTrash
-  name: empty shrimpsnax bag
+  name: empty ShrimpSnax bag
   description: There's a few little ones still in there. Ah, whatever.
   components:
   - type: Sprite
@@ -146,7 +148,7 @@
     - Trash
 
 - type: entity
-  name: chilly dan's shrimp frostbites
+  name: Chilly Dan's Shrimp Frostbites
   parent: FoodSnackBase
   id: FoodSnackDanShrimpsnaxBlue
   description: A layer of frost is forming on the bag. Is this safe...?
@@ -170,6 +172,7 @@
   - type: FlavorProfile
     flavors:
       - artificial
+      - shrimp
       - cold
   - type: Item
     size: Tiny
@@ -185,7 +188,7 @@
   categories: [ HideSpawnMenu ]
   parent: FoodPacketTrash
   id: FoodPacketDanShrimpsnaxBlueTrash
-  name: empty shrimpsnax bag
+  name: empty ShrimpSnax bag
   description: There's a few little ones still in there. Ah, whatever.
   components:
   - type: Sprite
@@ -196,7 +199,7 @@
     - Trash
 
 - type: entity
-  name: discount denise's odored sealife "for girls!"
+  name: Discount Denise's Odored Sealife "For Girls!"
   parent: FoodSnackBase
   id: FoodSnackDanShrimpsnaxGirl
   description: Finally. Odored sealife for girls.
@@ -224,6 +227,7 @@
   - type: FlavorProfile
     flavors:
       - artificial
+      - shrimp
   - type: Item
     size: Tiny
   - type: Food
@@ -238,7 +242,7 @@
   categories: [ HideSpawnMenu ]
   parent: FoodPacketTrash
   id: FoodPacketDanShrimpsnaxGirlTrash
-  name: empty shrimpsnax bag
+  name: empty ShrimpSnax bag
   description: There's a few little ones still in there. Ah, whatever.
   components:
   - type: Sprite
@@ -249,7 +253,7 @@
     - Trash
 
 - type: entity
-  name: shameful dan's sorrowful secret
+  name: Shameful Dan's Sorrowful Secret
   parent: FoodSnackBase
   id: FoodSnackDanShrimpsnaxSad
   description: Looking at this bag fills you with a deep sense of foreboding.
@@ -271,6 +275,7 @@
   - type: FlavorProfile
     flavors:
       - artificial
+      - shrimp
   - type: Item
     size: Tiny
   - type: Food
@@ -285,7 +290,7 @@
   categories: [ HideSpawnMenu ]
   parent: FoodPacketTrash
   id: FoodPacketDanShrimpsnaxSadTrash
-  name: empty shrimpsnax bag
+  name: empty ShrimpSnax bag
   description: There's a few little ones still in there. Ah, whatever.
   components:
   - type: Sprite
@@ -296,7 +301,7 @@
     - Trash
 
 - type: entity
-  name: apidan's nautical honey helpers
+  name: Apidan's Nautical Honey Helpers
   parent: FoodSnackBase
   id: FoodSnackDanShrimpsnaxBee
   description: You can hear buzzing inside.
@@ -323,6 +328,7 @@
     flavors:
       - artificial
       - honey
+      - shrimp
   - type: Item
     size: Tiny
   - type: Food
@@ -337,7 +343,7 @@
   categories: [ HideSpawnMenu ]
   parent: FoodPacketTrash
   id: FoodPacketDanShrimpsnaxBeeTrash
-  name: empty shrimpsnax bag
+  name: empty ShrimpSnax bag
   description: There's a few little ones still in there. Ah, whatever.
   components:
   - type: Sprite
@@ -348,7 +354,7 @@
     - Trash
 
 - type: entity
-  name: salty dan's savory sunrise surprise
+  name: Salty Dan's Savory Sunrise Surprise
   parent: FoodSnackBase
   id: FoodSnackDanShrimpsnaxBreakfast
   description: An exciting breakthrough in auto-sausaging biotechnology!
@@ -378,6 +384,7 @@
       - artificial
       - bacon
       - meaty
+      - shrimp
   - type: Item
     size: Tiny
   - type: Food
@@ -392,7 +399,7 @@
   categories: [ HideSpawnMenu ]
   parent: FoodPacketTrash
   id: FoodPacketDanShrimpsnaxBreakfastTrash
-  name: empty shrimpsnax bag
+  name: empty ShrimpSnax bag
   description: There's a few little ones still in there. Ah, whatever.
   components:
   - type: Sprite
@@ -405,7 +412,7 @@
 - type: entity
   id: FoodPacketDanShrimpsnaxRegret
   parent: BaseItem
-  name: trawlin' dan's regretliest catch
+  name: Trawlin' Dan's Regretliest Catch
   description: This one seems different.
   components:
   - type: Item
@@ -427,7 +434,7 @@
   categories: [ HideSpawnMenu ]
   parent: FoodPacketTrash
   id: FoodPacketDanShrimpsnaxRegretTrash
-  name: empty shrimpsnax bag
+  name: empty ShrimpSnax bag
   description: It's empty.
   components:
   - type: Sprite

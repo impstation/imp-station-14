@@ -6,4 +6,14 @@
     FoodSnackDanShrimpsnaxGreen: 3
     FoodSnackDanShrimpsnaxBlue: 3
   contrabandInventory:
-    #FoodSnackDanShrimpsnaxGhost: 1
+    FoodSnackDanShrimpsnaxRegret: 1
+
+- type: vendingMachineInventory
+  id: DanShrimpInventoryAlt
+  startingInventory:
+    FoodSnackDanShrimpsnaxBase: 3
+    FoodSnackDanShrimpsnaxGirl: 3
+    FoodSnackDanShrimpsnaxSad: 3
+    FoodSnackDanShrimpsnaxBreakfast: 3
+  contrabandInventory:
+    FoodSnackDanShrimpsnaxRegret: 1

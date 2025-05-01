@@ -9,3 +9,6 @@ reagent-desc-genderfluid = Looking at this drink makes you feel... ahem. Well.
 
 reagent-name-zombieslushie = zombie slushie
 reagent-desc-zombieslushie = Ice, Cream, and Raw Meat come together to create... this?
+
+reagent-name-shrimpsoda = shrimp soda
+reagent-name-shrimpsoda = A revolting melange of millions of CO2 infused microshrimps.

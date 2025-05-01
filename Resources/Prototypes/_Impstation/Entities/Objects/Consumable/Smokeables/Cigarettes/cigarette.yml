@@ -20,3 +20,30 @@
             Quantity: 30
           - ReagentId: Leporazine
             Quantity: 20
+
+- type: entity
+  id: CigaretteShrimp
+  parent: BaseCigar
+  name: shrimparette
+  description: Are you sure about this?
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Smokeables/Cigarettes/cigarette.rsi
+    state: unlit-icon
+  - type: Tag
+    tags:
+      - Cigarette
+      - Trash
+      - PetWearable # imp
+      - KodeEdible # imp
+  - type: StaticPrice
+    price: 1
+  - type: SpaceGarbage
+  - type: Clothing
+    sprite: Objects/Consumable/Smokeables/Cigarettes/cigarette.rsi
+    slots: [ mask ]
+    equippedPrefix: unlit
+  - type: Item
+    size: Tiny
+    sprite: Objects/Consumable/Smokeables/Cigarettes/cigarette.rsi
+    heldPrefix: unlit

@@ -3,6 +3,7 @@ flavor-base-drinkdrink = like dogshit
 flavor-base-unholy = unholy
 flavor-base-evil = evil
 flavor-base-artificial = artificial
+flavor-base-shrimp = shrimpy
 flavor-base-something = like something
 
 flavor-complex-raktaccino = fantastically bitter

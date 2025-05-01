@@ -63,3 +63,12 @@
           type: Moth
           shouldHave: false
   fizziness: 0.2
+
+- type: reagent
+  id: ShrimpSoda
+  name: reagent-name-shrimpsoda
+  parent: BaseSoda
+  desc: reagent-desc-shrimpsoda
+  physicalDesc: reagent-physical-desc-fizzy
+  flavor: shrimp
+  color: "#e66986"
