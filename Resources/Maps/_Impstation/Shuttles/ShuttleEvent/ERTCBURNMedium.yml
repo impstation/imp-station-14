@@ -411,8 +411,6 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
   - uid: 281
-    mapInit: true
-    paused: true
     components:
     - type: MetaData
       name: solution - food
@@ -2381,8 +2379,6 @@ entities:
 - proto: PaperOffice
   entities:
   - uid: 280
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       pos: 5.580394,19.400152
