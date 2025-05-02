@@ -5,6 +5,7 @@ using System.Numerics;
 using Robust.Shared.Utility;
 using Content.Server.Shuttles.Events;
 using Content.Shared.IdentityManagement;
+using Content.Server.Bible.Components;
 
 namespace Content.Server.Pinpointer;
 
@@ -51,7 +52,7 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
         TogglePinpointer(uid, component);
 
         if (!component.CanRetarget)
-            LocateTarget(uid, component);
+            LocateTarget(uid, component, args);
 
         args.Handled = true;
     }
@@ -73,7 +74,7 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
         }
     }
 
-    private void LocateTarget(EntityUid uid, PinpointerComponent component)
+    private void LocateTarget(EntityUid uid, PinpointerComponent component, ActivateInWorldEvent? args = null)
     {
         // try to find target from whitelist
         if (component.IsActive && component.Component != null)
@@ -87,6 +88,11 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
 
             var target = FindTargetFromComponent(uid, reg.Type);
             SetTarget(uid, target, component);
+        }
+        // #IMP For anomalites to find their cores, use familiar component to get core EntityUid
+        else if (args is not null && TryComp<FamiliarComponent>(args.User, out var familiarComp))
+        {
+            SetTarget(uid, familiarComp.Source, component);
         }
     }
 

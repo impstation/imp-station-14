@@ -26,3 +26,32 @@
   id: StartingGearDragonPinpointer
   equipment:
     pocket1: PinpointerDragon
+
+- type: entity
+  parent: PinpointerBase
+  name: core pull
+  description: You have an instinctual knowledge of the location of your core.
+  suffix: Station, Unremoveable
+  id: PinpointerAnomalite
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Devices/pinpointer.rsi
+    layers:
+    - state: pinpointer-dragon
+      map: ["enum.PinpointerLayers.Base"]
+    - state: pinonnull
+      map: ["enum.PinpointerLayers.Screen"]
+      shader: unshaded
+      visible: false
+  - type: Icon
+    sprite: _Impstation/Objects/Devices/pinpointer.rsi
+    state: pinpointer-dragon
+  - type: Pinpointer
+    familiarHome: true
+    targetName: your core
+  - type: Unremoveable
+
+- type: startingGear
+  id: StartingGearAnomalitePinpointer
+  equipment:
+    pocket1: PinpointerAnomalite
