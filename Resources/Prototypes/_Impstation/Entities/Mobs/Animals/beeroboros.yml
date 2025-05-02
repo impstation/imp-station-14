@@ -11,14 +11,14 @@
       state: 0
       sprite: _Impstation/Mobs/Animals/beeroboros.rsi
   - type: TimedDespawn
-    lifetime: 5
+    lifetime: 8
   - type: OuroborosAmmoMarker
   - type: MobThresholds
     thresholds:
       0: Alive
       5: Dead
   - type: Stamina
-    critThreshold: 5
+    critThreshold: 8
   - type: PointLight
     radius: 1.5
     color: "#d63b28"

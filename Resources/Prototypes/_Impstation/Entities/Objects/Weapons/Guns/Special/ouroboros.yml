@@ -23,6 +23,7 @@
     size: Huge
   - type: GunRequiresWield
   - type: Gun
+    projectileSpeed: 15
     fireRate: 3
     selectedMode: SemiAuto
     availableModes:
@@ -34,7 +35,7 @@
     rechargeSound:
       path: /Audio/_Impstation/Weapons/Guns/Cock/beecharge.ogg
   - type: BasicEntityAmmoProvider
-    proto: MobBeeroboros
+    proto: BulletOuroboros
     capacity: 6
     count: 6 
   - type: MagazineVisuals
@@ -42,8 +43,8 @@
     steps: 2
     zeroVisible: true
   - type: RepulseAttract
-    speed: 15
-    range: 1
+    speed: 19
+    range: 10
     whitelist:
       components:
       - OuroborosAmmoMarker
