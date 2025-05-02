@@ -515,7 +515,7 @@
   suffix: ERTRole
   components:
     - type: Sprite
-      sprite: Markers/jobs.rsi
+      sprite: _Impstation/Markers/jobs.rsi # imp
       state: cburn
     - type: RandomHumanoidSpawner
       settings: CBURNAgent
