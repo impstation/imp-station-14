@@ -632,10 +632,6 @@ entities:
     - type: Transform
       pos: 1.3964319,17.827784
       parent: 1
-    - type: UserInterface
-      actors:
-        enum.StorageUiKey.Key:
-        - invalid
     - type: ActiveUserInterface
 - proto: BoxShotgunFlare
   entities:
@@ -1530,8 +1526,6 @@ entities:
       pos: 5.5,15.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 319
       - 320
