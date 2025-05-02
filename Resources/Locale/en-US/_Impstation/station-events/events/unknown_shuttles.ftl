@@ -14,3 +14,4 @@ station-event-unknown-shuttle-meat-zone-announcement = Attention! An unidentifie
 station-event-unknown-shuttle-microshuttle-announcement = Attention! An unidentified space shuttle has been spotted approaching your sector.
 station-event-unknown-shuttle-spacebus-announcement = Attention! An unidentified space shuttle has been spotted approaching your sector.
 station-event-unknown-shuttle-man-o-war-announcement = Attention! An unidentified space shuttle has been spotted approaching your sector.
+station-event-e-r-t-c-b-u-r-n-medium-shuttle-announcement = An emergency hazardous materials team has been dispatched via shuttle. Security and Medical personnel should cooperate where needed.
