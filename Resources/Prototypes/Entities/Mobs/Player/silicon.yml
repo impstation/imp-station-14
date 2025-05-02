@@ -519,6 +519,9 @@
           type: HolopadBoundUserInterface
         enum.HolopadUiKey.AiActionWindow:
           type: HolopadBoundUserInterface
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
 
 # The job-ready version of an AI spawn.
 - type: entity
@@ -833,7 +836,7 @@
   - type: ComplexInteraction
   - type: Body
     prototype: Drone
-    thermalVisibility: false # imp edit. mostly for drones, but i think this is cool and interesting 
+    thermalVisibility: false # imp edit. mostly for drones, but i think this is cool and interesting
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
