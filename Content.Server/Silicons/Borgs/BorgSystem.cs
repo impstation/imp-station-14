@@ -8,7 +8,6 @@ using Content.Server.Hands.Systems;
 using Content.Server.PowerCell;
 using Content.Shared.Alert;
 using Content.Shared.Database;
-using Content.Shared.Humanoid; // imp; for HumanoidAppearanceComponent
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Item.ItemToggle.Components;
@@ -26,10 +25,9 @@ using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Throwing;
 using Content.Shared.Whitelist;
 using Content.Shared.Wires;
-
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
-using Robust.Shared.GameObjects.Components.Localization; // imp; for Gender
+using Robust.Shared.GameObjects.Components.Localization; // imp; for Grammar
 using Robust.Shared.Enums; // imp; for Gender
 using Robust.Shared.Player;
 using Robust.Shared.Random;
@@ -162,10 +160,10 @@ public sealed partial class BorgSystem : SharedBorgSystem
         if (HasComp<BorgBrainComponent>(args.Entity) && _mind.TryGetMind(args.Entity, out var mindId, out var mind) && args.Container == component.BrainContainer)
         {
             //IMP EDIT: body-hopping preserves your pronouns!
-            if (!TryComp<GhostRoleComponent>(uid, out var ghostrole) && //check to make sure this isn't a ghostrole (i.e. derelicts)
-            TryComp<HumanoidAppearanceComponent>(GetEntity(mind.OriginalOwnedEntity!), out var formerSelf) && TryComp<GrammarComponent>(uid, out var grammar))
+            var grammar = EnsureComp<GrammarComponent>(uid);
+            if (TryComp<GrammarComponent>(args.Entity, out var formerSelf))
             {
-                grammar.ProperNoun = true;
+                grammar.ProperNoun = true; //it's a person now, it's not just a chassis labeled its name
                 grammar.Gender = formerSelf.Gender;
             }
             //END IMP EDIT

@@ -5,6 +5,7 @@ using Content.Shared.Body.Events;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Pointing;
+using Robust.Shared.GameObjects.Components.Localization; // imp; for Grammar
 
 namespace Content.Server.Body.Systems
 {
@@ -32,6 +33,14 @@ namespace Content.Server.Body.Systems
             var ghostOnMove = EnsureComp<GhostOnMoveComponent>(newEntity);
             if (HasComp<BodyComponent>(newEntity))
                 ghostOnMove.MustBeDead = true;
+
+            //IMP EDIT: brain remembers its old identity
+            if(TryComp<GrammarComponent>(oldEntity, out var formerSelf) && !HasComp<GrammarComponent>(newEntity)){ //we only need to set what the brain's pronouns are once (upon leaving the body)
+                var grammar = EnsureComp<GrammarComponent>(newEntity);
+                grammar.ProperNoun = formerSelf.ProperNoun;
+                grammar.Gender = formerSelf.Gender;
+            }
+            //END IMP EDIT
 
             if (!_mindSystem.TryGetMind(oldEntity, out var mindId, out var mind))
                 return;

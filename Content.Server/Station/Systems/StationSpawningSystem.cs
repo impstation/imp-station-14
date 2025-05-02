@@ -136,7 +136,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
                 if (!string.IsNullOrEmpty(profile.FlavorText) && _configurationManager.GetCVar(CCVars.FlavorText))
                     AddComp<DetailExaminableComponent>(jobEntity).Content = profile.FlavorText;
                 if (TryComp<GrammarComponent>(jobEntity, out var grammar)){
-                    grammar.ProperNoun = true;
+                    grammar.ProperNoun = true; //it's a person now, not just a chassis labeled with a funny name
                     grammar.Gender = profile.Gender;
                 }
             }
