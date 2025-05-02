@@ -4,11 +4,16 @@
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: grenade
   - type: Ammo
   - type: SpawnOnTrigger
     proto: MobBeeroboros
+    amount: 1
   - type: ActiveTimerTrigger
-    timeRemaining: 0.2
+    timeRemaining: 0.3
   - type: DeleteOnTrigger
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler
