@@ -4,6 +4,7 @@ using Robust.Client.Audio;
 using Robust.Client.UserInterface;
 using Robust.Shared.Audio.Components;
 using Robust.Shared.Prototypes;
+using Content.Shared.Emag.Components; //imp
 
 namespace Content.Client.Audio.Jukebox;
 
@@ -72,7 +73,14 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
 
     public void PopulateMusic()
     {
-        _menu?.Populate(_protoManager.EnumeratePrototypes<JukeboxPrototype>().OrderBy(x => x.Name).ToList()); //imp edit - order the list alphabetically
+        //imp edit -- support emagging the jukebox
+        var songList = _protoManager.EnumeratePrototypes<JukeboxPrototype>().Where(x => !x.EmagOnly).ToList();
+        var emagSongList = _protoManager.EnumeratePrototypes<JukeboxPrototype>().Where(x => x.EmagOnly).ToList();
+
+        if (EntMan.TryGetComponent(Owner, out EmaggedComponent? emComp)){ // if the jukebox this is attached to is emagged...
+            songList.AddRange(emagSongList);
+        }
+        _menu?.Populate(songList.OrderBy(x => x.Name)); //imp edit - order the list alphabetically
     }
 
     public void SelectSong(ProtoId<JukeboxPrototype> songid)
