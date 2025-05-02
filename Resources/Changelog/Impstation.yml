@@ -1,48 +1,4 @@
 ﻿Entries:
-- author: Pinkbat5
-  changes:
-  - message: Baton, disabler and utility tokens now start in seclinks instead of roundstart
-      security inventories.
-    type: Tweak
-  id: 1091
-  time: '2025-02-10T21:01:29.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1631
-- author: Darkmajia
-  changes:
-  - message: Box Station's atmospherics department and supermatter chamber have been
-      revamped slightly.
-    type: Tweak
-  id: 1092
-  time: '2025-02-10T21:11:07.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1634
-- author: kipdotnet
-  changes:
-  - message: You can now take a Sip-u-lacrum.
-    type: Add
-  id: 1093
-  time: '2025-02-10T21:19:46.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1632
-- author: FutureExalt
-  changes:
-  - message: new roundstart coats for secoff, warden, and detective.
-    type: Add
-  id: 1094
-  time: '2025-02-10T22:41:58.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1612
-- author: Saeko-44
-  changes:
-  - message: The fishing rod, capable of reeling things in, as a tier 1 civilian tech
-    type: Add
-  id: 1095
-  time: '2025-02-10T22:49:04.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1482
-- author: Darkmajia
-  changes:
-  - message: Grays and dwarves have had their accents fixed up a little.
-    type: Tweak
-  id: 1096
-  time: '2025-02-10T23:05:05.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1571
 - author: Darkmajia
   changes:
   - message: Corpses no longer collide with plastic flaps.
@@ -4126,3 +4082,66 @@
   id: 1590
   time: '2025-04-30T05:25:52.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/2370
+- author: jtfg-dev, rosysaturniidae
+  changes:
+  - message: The Intergalactic Standards Association continues its silent war on inconsistency.
+    type: Tweak
+  - message: Some item descriptions explain what they do a little better.
+    type: Tweak
+  - message: A sabotaged Shining Spring no longer reveals its about-to-kill-nerds
+      nature on inspection. (Should you get your hands on one, the description IS
+      different, though...)
+    type: Fix
+  - message: The mail RPDS is not Syndicate contraband. Don't believe anyone who says
+      otherwise.
+    type: Fix
+  id: 1591
+  time: '2025-04-30T14:18:52.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2306
+- author: TuttlePants, Ecramox, AvianMaiden
+  changes:
+  - message: Added the bounty hunter, a new midround free agent with the goal of capturing
+      an antagonist!
+    type: Add
+  id: 1592
+  time: '2025-04-30T20:10:01.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2280
+- author: starlighthowls
+  changes:
+  - message: a normal new plushie!
+    type: Add
+  id: 1593
+  time: '2025-04-30T20:14:01.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2340
+- author: jtfg-dev
+  changes:
+  - message: 'Cyborgs now get the pronouns and detailed examine text set for the character
+      you join with, like any other job. (NOTE: For dedicated cyborg characters, if
+      you haven''t already, you should make a unique profile!)'
+    type: Add
+  - message: Altered the examine description of cyborgs to minimize misgendering.
+    type: Tweak
+  - message: Small piece of broken grammar on partly-consumed bodies.
+    type: Fix
+  id: 1594
+  time: '2025-04-30T20:13:04.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2335
+- author: CombustibleToast
+  changes:
+  - message: Atmos techs can now wear the engineering beret (with sufficient department
+      playtime)
+    type: Add
+  id: 1595
+  time: '2025-04-30T20:14:36.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2362
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: you can now choose a Gunpet and a box of snap pops as your "pistol" and
+      "ammo" as a secoff.
+    type: Add
+  - message: security workers no longer have the opportunity to forget their service
+      weapon.
+    type: Tweak
+  id: 1596
+  time: '2025-05-01T07:26:11.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2368
