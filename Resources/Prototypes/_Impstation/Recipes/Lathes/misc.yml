@@ -21,3 +21,11 @@
     Steel: 500
     Glass: 500
     Plastic: 500
+
+- type: latheRecipe
+  id: TankHarness
+  result: ClothingOuterVestTank
+  completetime: 2
+  materials:
+    Cloth: 100
+    Steel: 100
