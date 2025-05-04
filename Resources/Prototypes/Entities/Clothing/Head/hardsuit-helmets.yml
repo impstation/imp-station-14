@@ -51,6 +51,9 @@
       head-vox:
       - state: equipped-head-light-vox
         shader: unshaded
+      head-anomalocarid: #imp edit
+      - state: equipped-head-light-anomalocarid
+        shader: unshaded
   - type: Clothing
     clothingVisuals:
       head:
@@ -60,6 +63,10 @@
       head-vox:
       - state: equipped-head-vox
       - state: equipped-head-unshaded-vox
+        shader: unshaded
+      head-anomalocarid: #imp edit
+      - state: equipped-head-anomalocarid
+      - state: equipped-head-unshaded-anomalocarid
         shader: unshaded
   - type: PointLight
     color: "#adffe6"
@@ -183,6 +190,9 @@
       head-vox:
       - state: equipped-head-light-vox
         shader: unshaded
+      head-anomalocarid: #imp edit
+      - state: equipped-head-light-anomalocarid
+        shader: unshaded
   - type: Clothing
     clothingVisuals:
       head:
@@ -192,6 +202,10 @@
       head-vox:
       - state: equipped-head-vox
       - state: equipped-head-unshaded-vox
+        shader: unshaded
+      head-anomalocarid: #imp edit
+      - state: equipped-head-anomalocarid
+      - state: equipped-head-unshaded-anomalocarid
         shader: unshaded
   - type: PointLight
     radius: 6
@@ -337,9 +351,9 @@
   description: Lightweight medical hardsuit helmet that doesn't restrict your head movements.
   components:
   - type: Sprite
-    sprite: _Impstation/Clothing/Head/Helmets/impcmohelmet.rsi
+    sprite: _Impstation/Clothing/Head/Helmets/impcmohelmet.rsi #imp edit
   - type: Clothing
-    sprite: _Impstation/Clothing/Head/Helmets/impcmohelmet.rsi
+    sprite: _Impstation/Clothing/Head/Helmets/impcmohelmet.rsi #imp edit
   - type: PointLight
     color: "#adf1ff"
   - type: PressureProtection
@@ -814,6 +828,14 @@
       head:
       - state: equipped-head
       - state: equipped-head-unshaded
+        shader: unshaded
+      head-vox:
+      - state: equipped-head-vox
+      - state: equipped-head-unshaded-vox
+        shader: unshaded
+      head-anomalocarid: #imp edit
+      - state: equipped-head-anomalocarid
+      - state: equipped-head-unshaded-anomalocarid
         shader: unshaded
   - type: PointLight
     color: orange

@@ -11,6 +11,12 @@
   offset: -0.1, 0.1
 
 - type: typingIndicator
+  id: anomalocarid
+  spritePath: /Textures/_Impstation/Effects/speech.rsi
+  typingState: anom
+  offset: -0.3, 0.6
+  
+- type: typingIndicator
   id: kodepiia
   spritePath: /Textures/_Impstation/Effects/speech.rsi
   typingState: kode
