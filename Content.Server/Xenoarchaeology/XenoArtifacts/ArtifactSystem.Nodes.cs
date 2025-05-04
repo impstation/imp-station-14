@@ -1,7 +1,6 @@
 using System.Linq;
 using Content.Server.Xenoarchaeology.XenoArtifacts.Events;
 using Content.Shared.Whitelist;
-using Content.Shared.Xenoarchaeology.XenoArtifacts;
 using JetBrains.Annotations;
 using Robust.Shared.Random;
 
@@ -14,6 +13,9 @@ public sealed partial class ArtifactSystem
     private const int MaxEdgesPerNode = 4;
 
     private readonly HashSet<int> _usedNodeIds = new();
+
+    private readonly string _defaultTrigger = "TriggerExamine";
+    private readonly string _defaultEffect = "EffectBadFeeling";
 
     /// <summary>
     /// Generate an Artifact tree with fully developed nodes.
@@ -184,7 +186,7 @@ public sealed partial class ArtifactSystem
         return maxProbID;
     }
 
-     /// <summary>
+    /// <summary>
     /// Selects an trigger using the probability weight
     /// </summary>
     private string GetTriggerIDUsingProb(IEnumerable<ArtifactTriggerPrototype> triggerObjects)
@@ -235,13 +237,12 @@ public sealed partial class ArtifactSystem
         //#IMP Attempt to get trigger/effect from string, fall back to defaults if not in prototype
         // Putting defaults in here rather than components because artifact component isn't guaranteed to exist,
         // and these should never be modified in-game
-        var defaultTrigger = "TriggerExamine";
-        var defaultEffect = "EffectBadFeeling";
+
         _prototype.TryIndex<ArtifactTriggerPrototype>(node.Trigger, out var maybeTrigger);
         _prototype.TryIndex<ArtifactEffectPrototype>(node.Effect, out var maybeEffect);
 
-        var trigger = _prototype.Index<ArtifactTriggerPrototype>(defaultTrigger);
-        var effect = _prototype.Index<ArtifactEffectPrototype>(defaultEffect);
+        var trigger = _prototype.Index<ArtifactTriggerPrototype>(_defaultTrigger);
+        var effect = _prototype.Index<ArtifactEffectPrototype>(_defaultEffect);
         if (maybeTrigger is null)
             Log.Debug($"Trigger prototype {node.Trigger} not found for artifact entity {ToPrettyString(uid)}, falling back to default");
         else
@@ -253,8 +254,8 @@ public sealed partial class ArtifactSystem
             effect = maybeEffect;
 
         // #IMP: Save trigger & effect to allow proper exiting in case admin edits between entry and exit.
-        node.StoredTrigger = maybeTrigger != null ? node.Trigger : defaultTrigger;
-        node.StoredEffect = maybeEffect != null ? node.Effect : defaultEffect;
+        node.StoredTrigger = maybeTrigger != null ? node.Trigger : _defaultTrigger;
+        node.StoredEffect = maybeEffect != null ? node.Effect : _defaultEffect;
 
         //#END IMP
 
