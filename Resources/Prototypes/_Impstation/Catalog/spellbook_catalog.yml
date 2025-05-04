@@ -23,3 +23,16 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+- type: listing
+  id: SpellbookLesserAnimate
+  name: spellbook-lesseranimate-name
+  description: spellbook-lesseranimate-desc
+  productAction: ActionLesserAnimateSpell
+  cost:.3
+    WizCoin: 3
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
