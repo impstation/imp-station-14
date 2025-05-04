@@ -1175,7 +1175,7 @@ login-tips-dataset-846 = Pinned a message.
 login-tips-dataset-847 = You’ve Got to Find my Cube!
 login-tips-dataset-848 = Forgotten what you’re meant to be doing? Check the mails marked with a λ. Don’t worry, I haven’t forgotten that you’re a big fan of Half-Life!
 login-tips-dataset-849 =
-    [Collect / Retrieve at] Special Machine
+    {"["}Collect / Retrieve at] Special Machine
            Collect 3 kg or More of Special Machine
 login-tips-dataset-850 = It's a picture...but I wouldn't call it art.
 login-tips-dataset-851 =
@@ -1232,7 +1232,7 @@ login-tips-dataset-873 =
     Then hour by hour… Crew fell as atoms soured.
 login-tips-dataset-874 = A MACHINE BUILT TO END WAR IS ALWAYS A MACHINE BUILT TO CONTINUE WAR.
 login-tips-dataset-875 =
-    [Verse 1]
+    {"["}Verse 1]
     Remember King Kong? Remember Ferris Bueller?
     Remember WarGames and Back to the Future?
     Remember Tomb Raider? Remember Weird Science?
@@ -1242,11 +1242,11 @@ login-tips-dataset-875 =
     Remember when neon used to be trendy?
     Remember the "where's the beef?" lady from Wendy's?
 
-    [Chorus]
+    {"["}Chorus]
     ('Mary had a Little Lamb' on keyboards)
     (I-I-I-I-I-I remember)
 
-    [Verse 2]
+    {"["}Verse 2]
     Remember Akira? That's from Japan
     Remember Galaga and Mrs. Pac Man?
     Remember Contra? Remember Street Fighter?
@@ -1256,7 +1256,7 @@ login-tips-dataset-875 =
     Remember Highlander and Highlander II?
     Remember Star Trek? We certainly do
 
-    [Chorus]
+    {"["}Chorus]
     ('Mary had a Little Lamb' on keyboards)
     (Ready Player One!)
 login-tips-dataset-876 = vent foam can literally be girl dinner
