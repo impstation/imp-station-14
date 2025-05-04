@@ -2,6 +2,7 @@ using Content.Shared.Audio.Jukebox;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 using Robust.Shared.Prototypes;
+using Content.Shared.Emag.Systems; // imp
 
 namespace Content.Client.Audio.Jukebox;
 
@@ -19,6 +20,7 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         SubscribeLocalEvent<JukeboxComponent, AppearanceChangeEvent>(OnAppearanceChange);
         SubscribeLocalEvent<JukeboxComponent, AnimationCompletedEvent>(OnAnimationCompleted);
         SubscribeLocalEvent<JukeboxComponent, AfterAutoHandleStateEvent>(OnJukeboxAfterState);
+        SubscribeLocalEvent<JukeboxComponent, GotEmaggedEvent>(OnEmagged); //imp
 
         _protoManager.PrototypesReloaded += OnProtoReload;
     }

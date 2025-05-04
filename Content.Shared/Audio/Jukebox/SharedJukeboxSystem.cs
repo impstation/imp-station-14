@@ -11,12 +11,7 @@ public abstract class SharedJukeboxSystem : EntitySystem
     //support emagging the jukebox
     [Dependency] private readonly EmagSystem _emag = default!;
 
-    public override void Initialize(){
-        base.Initialize();
-
-        SubscribeLocalEvent<JukeboxComponent, GotEmaggedEvent>(OnEmagged);
-    }
-    private void OnEmagged(EntityUid uid, JukeboxComponent component, ref GotEmaggedEvent args)
+    protected void OnEmagged(EntityUid uid, JukeboxComponent component, ref GotEmaggedEvent args)
     {
         if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
             return;
