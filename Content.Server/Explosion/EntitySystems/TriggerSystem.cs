@@ -173,18 +173,22 @@ namespace Content.Server.Explosion.EntitySystems
         {
             var xform = Transform(ent);
 
-            if (ent.Comp.mapCoords)
+            while (ent.Comp.Amount > 0)
             {
-                var mapCoords = _transformSystem.GetMapCoordinates(ent, xform);
-                Spawn(ent.Comp.Proto, mapCoords);
-            }
-            else
-            {
-                var coords = xform.Coordinates;
-                if (!coords.IsValid(EntityManager))
-                    return;
-                Spawn(ent.Comp.Proto, coords);
+                if (ent.Comp.mapCoords)
+                {
+                    var mapCoords = _transformSystem.GetMapCoordinates(ent, xform);
+                    Spawn(ent.Comp.Proto, mapCoords);
+                }
+                else
+                {
+                    var coords = xform.Coordinates;
+                    if (!coords.IsValid(EntityManager))
+                        return;
+                    Spawn(ent.Comp.Proto, coords);
 
+                }
+                ent.Comp.Amount -= 1;
             }
         }
 
