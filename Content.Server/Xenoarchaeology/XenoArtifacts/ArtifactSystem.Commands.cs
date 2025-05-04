@@ -21,7 +21,8 @@ public partial class ArtifactSystem
 
         _conHost.RegisterCommand("randomizeartifact", "Randomize an artifact's node tree. Keep existing structure 'true' will randomize the trigger and effect of the nodes, while false will also randomize the number and structure of the entire tree.",
             "randomizeartifact <uid> [keep existing structure]",
-            RandomizeArtifactCommand);
+            RandomizeArtifactCommand,
+            RandomizeArtifactCompletions);
 
         _conHost.RegisterCommand("addartifactnode", "Adds a new node to an artifact node tree. If trigger or effect prototype ID is incorrect, will use defaults. To randomize trigger/effect, put the word 'random' instead of a prototype id or leave empty. Example use: addartifactnode 1234 555 TriggerBlood EffectChemicalPuddle", "addartifactnode <uid> <parent node ID> <trigger prototype id> <effect prototype id>",
             AddArtifactNode,
@@ -114,7 +115,7 @@ public partial class ArtifactSystem
             artifact.NodeTree.Add(child);
 
             if (string.Equals(trigger, "random") || string.Equals(trigger, "'random'"))
-                child.Trigger = GetRandomTrigger((EntityUid)uid, ref child);
+                child.Trigger = GetRandomTrigger((EntityUid)uid, child);
             else
             {
                 child.Trigger = trigger;
@@ -126,7 +127,7 @@ public partial class ArtifactSystem
                 }
             }
             if (string.Equals(effect, "random") || string.Equals(effect, "'random'"))
-                child.Effect = GetRandomEffect((EntityUid)uid, ref child);
+                child.Effect = GetRandomEffect((EntityUid)uid, child);
             else
             {
                 child.Effect = effect;
@@ -174,17 +175,37 @@ public partial class ArtifactSystem
         if (!NetEntity.TryParse(args[0], out var uidNet) || !TryGetEntity(uidNet, out var uid) || !bool.TryParse(args[1], out var keepStructure))
             return;
 
-        if (!TryComp<ArtifactComponent>(uid, out var artifact))
+        var eUid = (EntityUid)uid;
+
+        if (!TryComp<ArtifactComponent>(uid, out var artifactComp))
             return;
 
         if (keepStructure)
         {
-            //TODO save current node ID, exit current node, enter each node and randomly pick new trigger & effect, then re-enter saved ID.
+            var currentNode = artifactComp.NodeTree.FirstOrDefault(n => n.Id == artifactComp.CurrentNodeId);
+
+            ExitNode(eUid, artifactComp);
+            foreach (var node in artifactComp.NodeTree)
+            {
+                node.Trigger = GetRandomTrigger(eUid, node);
+                node.Effect = GetRandomEffect(eUid, node);
+            }
+            if (currentNode is not null)
+                EnterNode(eUid, ref currentNode, artifactComp);
         }
         else
         {
-            //TODO exit current node, throw out entire tree, re-generate new tree, then enter the node.
+            ExitNode(eUid, artifactComp);
+            artifactComp.NodeTree = new();
+            RandomizeArtifact(eUid, artifactComp);
         }
+    }
+
+    private CompletionResult RandomizeArtifactCompletions(IConsoleShell shell, string[] args)
+    {
+        return args.Length != 1
+            ? CompletionResult.Empty
+            : CompletionResult.FromHintOptions(CompletionHelper.Components<ArtifactComponent>(args[0]), "<uid>");
     }
 
 }

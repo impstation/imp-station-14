@@ -42,8 +42,8 @@ public sealed partial class ArtifactSystem
             var node = uninitializedNodes[0];
             uninitializedNodes.Remove(node);
 
-            node.Trigger = GetRandomTrigger(artifact, ref node);
-            node.Effect = GetRandomEffect(artifact, ref node);
+            node.Trigger = GetRandomTrigger(artifact, node);
+            node.Effect = GetRandomEffect(artifact, node);
 
             var maxChildren = _random.Next(1, MaxEdgesPerNode - 1);
 
@@ -82,7 +82,7 @@ public sealed partial class ArtifactSystem
     //yeah these two functions are near duplicates but i don't
     //want to implement an interface or abstract parent
 
-    private string GetRandomTrigger(EntityUid artifact, ref ArtifactNode node)
+    private string GetRandomTrigger(EntityUid artifact, ArtifactNode node)
     {
         var allTriggers = _prototype.EnumeratePrototypes<ArtifactTriggerPrototype>()
             .Where(x => _whitelistSystem.IsWhitelistPassOrNull(x.Whitelist, artifact) &&
@@ -94,10 +94,10 @@ public sealed partial class ArtifactSystem
         var targetTriggers = allTriggers
             .Where(x => x.TargetDepth == selectedRandomTargetDepth).ToList();
 
-        return GetTriggerIDUsingProb(targetTriggers);;
+        return GetTriggerIDUsingProb(targetTriggers);
     }
 
-    private string GetRandomEffect(EntityUid artifact, ref ArtifactNode node)
+    private string GetRandomEffect(EntityUid artifact, ArtifactNode node)
     {
         var allEffects = _prototype.EnumeratePrototypes<ArtifactEffectPrototype>()
             .Where(x => _whitelistSystem.IsWhitelistPassOrNull(x.Whitelist, artifact) &&
