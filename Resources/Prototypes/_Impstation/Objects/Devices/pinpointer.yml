@@ -20,6 +20,7 @@
   - type: Pinpointer
     component: ResearchServer
     targetName: the station
+    activateImmediately: true
   - type: Unremoveable
 
 - type: startingGear
@@ -48,6 +49,7 @@
     state: pinpointer-dragon
   - type: Pinpointer
     targetName: your core
+    activateImmediately: true
   - type: Unremoveable
 
 - type: startingGear
