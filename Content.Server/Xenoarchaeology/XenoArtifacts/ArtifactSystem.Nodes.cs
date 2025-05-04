@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Server.Xenoarchaeology.XenoArtifacts.Events;
 using Content.Shared.Whitelist;
+using Content.Shared.Xenoarchaeology.XenoArtifacts;
 using JetBrains.Annotations;
 using Robust.Shared.Random;
 

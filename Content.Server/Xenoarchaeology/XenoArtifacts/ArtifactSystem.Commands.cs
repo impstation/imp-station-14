@@ -23,8 +23,9 @@ public partial class ArtifactSystem
             "randomizeartifact <uid> [keep existing structure]",
             RandomizeArtifactCommand);
 
-        _conHost.RegisterCommand("addartifactnode", "Adds a new node to an artifact node tree. If trigger or effect prototype ID is incorrect or empty, will use defaults. To randomize trigger/effect, put the word 'random' instead of a prototype id. Example use: addartifactnode 1234 555 TriggerBlood EffectChemicalPuddle", "addartifactnode <uid> <parent node ID> <trigger prototype id> <effect prototype id>",
-            AddArtifactNode);
+        _conHost.RegisterCommand("addartifactnode", "Adds a new node to an artifact node tree. If trigger or effect prototype ID is incorrect, will use defaults. To randomize trigger/effect, put the word 'random' instead of a prototype id or leave empty. Example use: addartifactnode 1234 555 TriggerBlood EffectChemicalPuddle", "addartifactnode <uid> <parent node ID> <trigger prototype id> <effect prototype id>",
+            AddArtifactNode,
+            AddArtifactNodeCompletions);
     }
 
     [AdminCommand(AdminFlags.Fun)]
@@ -50,6 +51,9 @@ public partial class ArtifactSystem
 
     private CompletionResult ForceArtifactNodeCompletions(IConsoleShell shell, string[] args)
     {
+        if (args.Length == 1)
+            return CompletionResult.FromHintOptions(CompletionHelper.Components<ArtifactComponent>(args[0]), "<uid>");
+
         if (args.Length == 2 && NetEntity.TryParse(args[0], out var uidNet) && TryGetEntity(uidNet, out var uid))
         {
             if (TryComp<ArtifactComponent>(uid, out var artifact))
@@ -89,8 +93,8 @@ public partial class ArtifactSystem
         if (!NetEntity.TryParse(args[0], out var uidNet) || !TryGetEntity(uidNet, out var uid) || !int.TryParse(args[1], out var id))
             return;
 
-        var trigger = args.Length >= 3 ? args[2] : _defaultTrigger;
-        var effect = args.Length == 4 ? args[3] : _defaultEffect;
+        var trigger = args.Length >= 3 ? args[2] : "random";
+        var effect = args.Length == 4 ? args[3] : "random";
 
         if (!TryComp<ArtifactComponent>(uid, out var artifact))
             return;
@@ -109,31 +113,53 @@ public partial class ArtifactSystem
             child.Edges.Add(node.Id);
             artifact.NodeTree.Add(child);
 
-            if (string.Equals(trigger, "random"))
-                node.Trigger = GetRandomTrigger((EntityUid)uid, ref node);
+            if (string.Equals(trigger, "random") || string.Equals(trigger, "'random'"))
+                child.Trigger = GetRandomTrigger((EntityUid)uid, ref child);
             else
             {
-                node.Trigger = trigger;
+                child.Trigger = trigger;
                 _prototype.TryIndex<ArtifactTriggerPrototype>(trigger, out var maybeTrigger);
                 if (maybeTrigger is null)
                 {
                     shell.WriteLine($"{trigger} is not a valid prototype. Defaulting to {_defaultTrigger}");
-                    node.Trigger = _defaultTrigger;
+                    child.Trigger = _defaultTrigger;
                 }
             }
-            if (string.Equals(effect, "random"))
-                node.Effect = GetRandomEffect((EntityUid)uid, ref node);
+            if (string.Equals(effect, "random") || string.Equals(effect, "'random'"))
+                child.Effect = GetRandomEffect((EntityUid)uid, ref child);
             else
             {
-                node.Effect = effect;
+                child.Effect = effect;
                 _prototype.TryIndex<ArtifactEffectPrototype>(effect, out var maybeEffect);
                 if (maybeEffect is null)
                 {
                     shell.WriteLine($"{effect} is not a valid prototype. Defaulting to {_defaultEffect}");
-                    node.Effect = _defaultEffect;
+                    child.Effect = _defaultEffect;
                 }
             }
+            shell.WriteLine($"Created artifact with id: {child.Id}");
         }
+        else
+            shell.WriteError("Invalid node Id");
+    }
+
+    private CompletionResult AddArtifactNodeCompletions(IConsoleShell shell, string[] args)
+    {
+        if (args.Length == 1)
+            return CompletionResult.FromHintOptions(CompletionHelper.Components<ArtifactComponent>(args[0]), "<uid>");
+        if (args.Length == 2 && NetEntity.TryParse(args[0], out var uidNet) && TryGetEntity(uidNet, out var uid))
+        {
+            if (TryComp<ArtifactComponent>(uid, out var artifact))
+            {
+                return CompletionResult.FromHintOptions(artifact.NodeTree.Select(s => s.Id.ToString()), "<node id>");
+            }
+        }
+        if (args.Length == 3)
+            return CompletionResult.FromHintOptions(CompletionHelper.PrototypeIDs<ArtifactTriggerPrototype>(), "<trigger prototype>, also accepts 'random'");
+        if (args.Length == 4)
+            return CompletionResult.FromHintOptions(CompletionHelper.PrototypeIDs<ArtifactEffectPrototype>(), "<effect prototype>, also accepts 'random'");
+
+        return CompletionResult.Empty;
     }
 
    [AdminCommand(AdminFlags.Fun)]
