@@ -32,7 +32,7 @@
           makeSentient: true
           allowSpeech: true
           allowMovement: true
-          name: penis
+          name: "name"
           description: An object endowed with a soul by a wizard!
           mindRoles: # imp
           - MindRoleGhostRoleFamiliar
@@ -41,6 +41,7 @@
         - type: InputMover
         - type: MobMover
         - type: MovementSpeedModifier
+        - type: ComplexInteraction
         - type: CombatMode
         - type: MeleeWeapon
           animation: WeaponArcPunch
@@ -55,8 +56,6 @@
         - type: NpcFactionMember
           factions:
           - Wizard
-        - type: NoSlip
-        - type: MovementAlwaysTouching
         - type: CanMoveInAir
         - type: Damageable
           damageContainer: ManifestedSpirit
@@ -75,7 +74,5 @@
         - type: CanEscapeInventory
         toRemove:
         - RequireProjectileTarget
-        - BlockMovement
-        - Item
         speech: action-speech-spell-animate
         doSpeech: false
