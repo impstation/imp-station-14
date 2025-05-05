@@ -172,6 +172,7 @@ namespace Content.Server.Explosion.EntitySystems
         private void OnSpawnTrigger(Entity<SpawnOnTriggerComponent> ent, ref TriggerEvent args)
         {
             var xform = Transform(ent);
+            var savedAmount = ent.Comp.Amount;
 
             while (ent.Comp.Amount > 0)
             {
@@ -190,6 +191,8 @@ namespace Content.Server.Explosion.EntitySystems
                 }
                 ent.Comp.Amount -= 1;
             }
+            if (!ent.Comp.SingleUse)
+                ent.Comp.Amount = savedAmount;
         }
 
         private void HandleExplodeTrigger(EntityUid uid, ExplodeOnTriggerComponent component, TriggerEvent args)
