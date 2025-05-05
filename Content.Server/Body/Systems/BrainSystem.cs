@@ -12,6 +12,7 @@ namespace Content.Server.Body.Systems
     public sealed class BrainSystem : EntitySystem
     {
         [Dependency] private readonly SharedMindSystem _mindSystem = default!;
+        [Dependency] private readonly GrammarSystem _grammar = default!; // imp
 
         public override void Initialize()
         {
@@ -35,10 +36,11 @@ namespace Content.Server.Body.Systems
                 ghostOnMove.MustBeDead = true;
 
             //IMP EDIT: brain remembers its old identity
-            if(TryComp<GrammarComponent>(oldEntity, out var formerSelf) && !HasComp<GrammarComponent>(newEntity)){ //we only need to set what the brain's pronouns are once (upon leaving the body)
-                var grammar = EnsureComp<GrammarComponent>(newEntity);
-                grammar.ProperNoun = formerSelf.ProperNoun;
-                grammar.Gender = formerSelf.Gender;
+            if (TryComp<GrammarComponent>(oldEntity, out var formerSelf) && !HasComp<GrammarComponent>(newEntity))
+            { //we only need to set what the brain's pronouns are once (upon leaving the body)
+                var newGrammar = EnsureComp<GrammarComponent>(newEntity);
+                _grammar.SetProperNoun((newEntity, newGrammar), formerSelf.ProperNoun);
+                _grammar.SetGender((newEntity, newGrammar), formerSelf.Gender);
             }
             //END IMP EDIT
 

@@ -104,8 +104,8 @@ public sealed partial class LockComponent : Component
     /// If specified, replaces the entity's name in the examine text.
     /// For clarity on things like borgs, which wouldn't normally be described as "locked" or "unlocked" by themselves
     /// </summary>
-    [DataField("customLockText")]
-    public string CustomLockText = "";
+    [DataField]
+    public string? CustomLockText;
 }
 
 /// <summary>

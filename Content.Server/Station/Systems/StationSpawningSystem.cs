@@ -46,6 +46,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
     [Dependency] private readonly PdaSystem _pdaSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly GrammarSystem _grammar = default!; // imp
 
     private bool _randomizeCharacters;
 
@@ -132,12 +133,14 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
                 EquipRoleName(jobEntity, loadout, roleProto!);
             }
             //START IMP EDIT: let silicon have detail text and pronouns
-            if (profile != null){
+            if (profile != null)
+            {
                 if (!string.IsNullOrEmpty(profile.FlavorText) && _configurationManager.GetCVar(CCVars.FlavorText))
                     AddComp<DetailExaminableComponent>(jobEntity).Content = profile.FlavorText;
-                if (TryComp<GrammarComponent>(jobEntity, out var grammar)){
-                    grammar.ProperNoun = true; //it's a person now, not just a chassis labeled with a funny name
-                    grammar.Gender = profile.Gender;
+                if (TryComp<GrammarComponent>(jobEntity, out var grammar))
+                {
+                    _grammar.SetProperNoun((jobEntity, grammar), true); //it's a person now, not just a chassis labeled with a funny name
+                    _grammar.SetGender((jobEntity, grammar), profile.Gender);
                 }
             }
             //END IMP EDIT

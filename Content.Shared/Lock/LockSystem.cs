@@ -96,7 +96,7 @@ public sealed class LockSystem : EntitySystem
         args.PushText(Loc.GetString(lockComp.Locked
                 ? "lock-comp-on-examined-is-locked"
                 : "lock-comp-on-examined-is-unlocked",
-            ("entityName", string.IsNullOrEmpty(lockComp.CustomLockText) ? Identity.Name(uid, EntityManager) : lockComp.CustomLockText))); // imp; added custom lock text
+            ("entityName", (lockComp.CustomLockText == null) ? Identity.Name(uid, EntityManager) : lockComp.CustomLockText))); // imp; added custom lock text
     }
 
     /// <summary>

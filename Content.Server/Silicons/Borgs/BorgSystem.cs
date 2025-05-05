@@ -57,6 +57,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly GrammarSystem _grammar = default!; // imp
 
 
     [ValidatePrototypeId<JobPrototype>]
@@ -163,8 +164,8 @@ public sealed partial class BorgSystem : SharedBorgSystem
             var grammar = EnsureComp<GrammarComponent>(uid);
             if (TryComp<GrammarComponent>(args.Entity, out var formerSelf))
             {
-                grammar.ProperNoun = true; //it's a person now, it's not just a chassis labeled its name
-                grammar.Gender = formerSelf.Gender;
+                _grammar.SetProperNoun((uid, grammar), true); //it's a person now, it's not just a chassis labeled its name
+                _grammar.SetGender((uid, grammar), formerSelf.Gender);
             }
             //END IMP EDIT
             _mind.TransferTo(mindId, uid, mind: mind);
@@ -178,9 +179,10 @@ public sealed partial class BorgSystem : SharedBorgSystem
         if (HasComp<BorgBrainComponent>(args.Entity) && _mind.TryGetMind(uid, out var mindId, out var mind) && args.Container == component.BrainContainer)
         {
             //IMP EDIT: an empty vessel is back to being an object
-            if(TryComp<GrammarComponent>(uid, out var grammar)){
-                grammar.ProperNoun = false;
-                grammar.Gender = Gender.Neuter; // it/its
+            if (TryComp<GrammarComponent>(uid, out var grammar))
+            {
+                _grammar.SetProperNoun((uid, grammar), false);
+                _grammar.SetGender((uid, grammar), Gender.Neuter);
             }
             //END IMP EDIT
             _mind.TransferTo(mindId, args.Entity, mind: mind);
@@ -189,7 +191,6 @@ public sealed partial class BorgSystem : SharedBorgSystem
 
     private void OnMindAdded(EntityUid uid, BorgChassisComponent component, MindAddedMessage args)
     {
-
         BorgActivate(uid, component);
     }
 
@@ -273,6 +274,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
             _throwing.TryThrow(uid, _random.NextVector2() * 5, 5f);
             return;
         }
+
         _mind.TransferTo(mindId, containerEnt, mind: mind);
     }
 
@@ -315,7 +317,6 @@ public sealed partial class BorgSystem : SharedBorgSystem
             _powerCell.SetDrawEnabled(uid, _mobState.IsAlive(uid));
         }
         _appearance.SetData(uid, BorgVisuals.HasPlayer, true);
-
     }
 
     /// <summary>

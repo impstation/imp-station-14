@@ -64,8 +64,9 @@ public sealed partial class BorgSystem
 
         //IMP EDIT: keep the pronouns of the brain inserted
         var grammar = EnsureComp<GrammarComponent>(uid);
-        if(TryComp<GrammarComponent>(ent, out var formerSelf)){
-            grammar.Gender = formerSelf.Gender;
+        if (TryComp<GrammarComponent>(ent, out var formerSelf))
+        {
+            _grammar.SetGender((uid, grammar), formerSelf.Gender);
             //man-machine interface is not a proper noun, so i'm not setting proper here
         }
         //END IMP EDIT
@@ -89,8 +90,9 @@ public sealed partial class BorgSystem
     private void OnMMIMindRemoved(EntityUid uid, MMIComponent component, MindRemovedMessage args)
     {
         //IMP EDIT: no brain, no gender, bucko
-        if(TryComp<GrammarComponent>(uid, out var grammar)){
-            grammar.Gender = Gender.Neuter; // it/its
+        if (TryComp<GrammarComponent>(uid, out var grammar))
+        {
+            _grammar.SetGender((uid, grammar), Gender.Neuter); // it/its
         }
         //END IMP EDIT
 
