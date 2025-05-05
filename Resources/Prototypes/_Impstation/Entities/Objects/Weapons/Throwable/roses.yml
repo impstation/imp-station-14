@@ -121,16 +121,11 @@
         reagents:
         - ReagentId: SulfuricAcid
           Quantity: 1
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 3
-        reagents:
         - ReagentId: Razorium
           Quantity: 1
 
 - type: entity
-  parent: [Rose, BaseMajorContraband]
+  parent: [Rose, Tier3Contraband]
   id: RoseSyndicate
   name: Blood Red Rose
   description: Smells like communism.
