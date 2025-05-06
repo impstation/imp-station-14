@@ -25,7 +25,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
-//using Robust.Shared.GameObjects.Components.Localization; //imp
+using Robust.Shared.GameObjects.Components.Localization; //imp
 
 namespace Content.Server.Station.Systems;
 
@@ -46,7 +46,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
     [Dependency] private readonly PdaSystem _pdaSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    //[Dependency] private readonly GrammarSystem _grammar = default!; // imp
+    [Dependency] private readonly GrammarSystem _grammar = default!; // imp
 
     private bool _randomizeCharacters;
 
@@ -132,6 +132,8 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             {
                 EquipRoleName(jobEntity, loadout, roleProto!);
             }
+            if (prototype?.ID == "StationAi" && profile != null && TryComp<GrammarComponent>(jobEntity, out var grammar)) //station AI get pronouns
+                _grammar.SetGender((jobEntity, grammar), profile.Gender);
             /*//START IMP EDIT: let silicon have detail text and pronouns
             if (profile != null)
             {
