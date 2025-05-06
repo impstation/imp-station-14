@@ -5,6 +5,7 @@ using Content.Server.EUI;
 using Content.Server.Heretic.Components;
 using Content.Server.Humanoid;
 using Content.Server.StationEvents;
+using Content.Shared.Bed.Cryostorage;
 using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Eye.Blinding.Systems;
@@ -13,6 +14,7 @@ using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
+using Robust.Server.GameObjects;
 using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Random;
@@ -148,6 +150,11 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
         {
             //get all possible spawn points, choose one, then get the place
             var spawnPoints = EntityManager.GetAllComponents(typeof(MidRoundAntagSpawnLocationComponent)).ToImmutableList();
+            if (spawnPoints.Count == 0)
+            {
+                //fallback to cryo, incase someone forgot to map points
+                spawnPoints = EntityManager.GetAllComponents(typeof(CryostorageComponent)).ToImmutableList();
+            }
             var newSpawn = _random.Pick(spawnPoints);
             var spawnTgt = Transform(newSpawn.Uid).Coordinates;
 
