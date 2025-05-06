@@ -26,7 +26,7 @@ public sealed partial class SpawnOnTriggerComponent : Component
     public int Amount = 1;
 
     /// <summary>
-    ///     Amount reduces by one for every entity spawned.
+    ///     #IMP Amount reduces by one for every entity spawned.
     ///     If SingleUse is set to false, this will be reset after all entities spawned.
     /// </summary>
     [DataField]

@@ -172,25 +172,29 @@ namespace Content.Server.Explosion.EntitySystems
         private void OnSpawnTrigger(Entity<SpawnOnTriggerComponent> ent, ref TriggerEvent args)
         {
             var xform = Transform(ent);
-            var savedAmount = ent.Comp.Amount;
+            var savedAmount = ent.Comp.Amount; //#IMP: SingleUse
 
-            while (ent.Comp.Amount > 0)
+            if (ent.Comp.mapCoords)
             {
-                if (ent.Comp.mapCoords)
+                var mapCoords = _transformSystem.GetMapCoordinates(ent, xform);
+                while (ent.Comp.Amount > 0) //#IMP While loop to allow amount to actually do something
                 {
-                    var mapCoords = _transformSystem.GetMapCoordinates(ent, xform);
                     Spawn(ent.Comp.Proto, mapCoords);
+                    ent.Comp.Amount -= 1; //#IMP While loop to allow amount to actually do something
                 }
-                else
-                {
-                    var coords = xform.Coordinates;
-                    if (!coords.IsValid(EntityManager))
-                        return;
-                    Spawn(ent.Comp.Proto, coords);
-
-                }
-                ent.Comp.Amount -= 1;
             }
+            else
+            {
+                var coords = xform.Coordinates;
+                if (!coords.IsValid(EntityManager))
+                    return;
+                while (ent.Comp.Amount > 0)//#IMP While loop to allow amount to actually do something
+                {
+                    Spawn(ent.Comp.Proto, coords);
+                    ent.Comp.Amount -= 1; //#IMP While loop to allow amount to actually do something
+                }
+            }
+            // #IMP: SingleUse
             if (!ent.Comp.SingleUse)
                 ent.Comp.Amount = savedAmount;
         }
