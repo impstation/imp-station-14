@@ -1,151 +1,4 @@
 ﻿Entries:
-- author: Darkmajia
-  changes:
-  - message: Grays and dwarves have had their accents fixed up a little.
-    type: Tweak
-  id: 1096
-  time: '2025-02-10T23:05:05.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1571
-- author: Darkmajia
-  changes:
-  - message: Corpses no longer collide with plastic flaps.
-    type: Fix
-  id: 1097
-  time: '2025-02-10T23:11:13.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1572
-- author: Darkmajia
-  changes:
-  - message: Bonfires can be built, lit, and extinguished.
-    type: Add
-  id: 1098
-  time: '2025-02-10T23:35:23.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1613
-- author: Sha-Seng
-  changes:
-  - message: Detectives and brigmeds can now spawn with sec armor vests if they wanna
-    type: Add
-  id: 1099
-  time: '2025-02-10T23:35:31.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1608
-- author: Darkmajia
-  changes:
-  - message: Surplus crates can no longer contain more surplus crates.
-    type: Remove
-  id: 1100
-  time: '2025-02-10T23:36:43.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1637
-- author: DinnerCalzone
-  changes:
-  - message: Courier support has been added to Cluster and Saltern.
-    type: Add
-  id: 1101
-  time: '2025-02-11T07:19:28.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1646
-- author: mqole
-  changes:
-  - message: Supply and Command intern roles! If you've already played a lot of the
-      department, don't worry. You won't need to reunlock anything!
-    type: Add
-  - message: QM now requires 6 hours of Salvage time, bumped up from 3.
-    type: Tweak
-  id: 1102
-  time: '2025-02-11T09:17:20.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1640
-- author: Darkmajia
-  changes:
-  - message: Supply assistant locks out after 15 hours of cargo department playtime.
-    type: Fix
-  id: 1103
-  time: '2025-02-11T20:52:58.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1654
-- author: Darkmajia
-  changes:
-  - message: Administrative assistant's HUD has been removed from its roundstart equipment,
-      and added to its locker.
-    type: Tweak
-  id: 1104
-  time: '2025-02-11T21:04:38.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1649
-- author: Darkmajia
-  changes:
-  - message: Supply assistant's loadout options reduced to be in line with other intern
-      roles.
-    type: Remove
-  id: 1105
-  time: '2025-02-11T21:05:23.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1655
-- author: mqole
-  changes:
-  - message: Command playtime is no longer required for most command roles.
-    type: Tweak
-  id: 1106
-  time: '2025-02-11T22:31:36.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1659
-- author: Blackern5000
-  changes:
-  - message: Added four new big snake tail markings for reptilians.
-    type: Add
-  id: 1107
-  time: '2025-02-11T22:32:20.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1658
-- author: Darkmajia
-  changes:
-  - message: Solar panels can be directly upgraded to their plasma/uranium variants,
-      similarly to window upgrading.
-    type: Add
-  id: 1108
-  time: '2025-02-11T22:31:13.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1656
-- author: Pivotbash
-  changes:
-  - message: Sec Space Blade, Portable Criminal Records Computer, and the Pribar now
-      fit in the security belt
-    type: Tweak
-  - message: Pribar now prys 10% faster
-    type: Tweak
-  - message: moved spaceblade to the utility tab instead of the disabler tab
-    type: Tweak
-  id: 1109
-  time: '2025-02-11T22:34:26.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1643
-- author: formlessnameless
-  changes:
-  - message: Thief access breaker is back in the box.
-    type: Fix
-  id: 1110
-  time: '2025-02-11T22:36:24.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1662
-- author: TheGrimbeeper
-  changes:
-  - message: 'New artifact trigger: Expressiveness'
-    type: Add
-  id: 1111
-  time: '2025-02-11T22:36:05.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1642
-- author: rainyatrium
-  changes:
-  - message: Added 21 new Syndicate factions from character backstories
-    type: Add
-  id: 1112
-  time: '2025-02-13T10:39:29.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1675
-- author: widgetbeck
-  changes:
-  - message: (Most) antag roles now have playtime tracking in the stats menu.
-    type: Add
-  - message: Antag rolling is now slightly weighted towards people with lower playtime
-      in a given antag role.
-    type: Tweak
-  id: 1113
-  time: '2025-02-13T14:38:44.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1673
-- author: DinnerCalzone
-  changes:
-  - message: Courier support has been added to Plasma.
-    type: Add
-  id: 1114
-  time: '2025-02-13T14:44:05.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1663
 - author: Sha-Seng
   changes:
   - message: Body bags now have high-vis tape on them
@@ -4141,3 +3994,165 @@
   id: 1595
   time: '2025-04-30T20:14:36.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/2362
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: you can now choose a Gunpet and a box of snap pops as your "pistol" and
+      "ammo" as a secoff.
+    type: Add
+  - message: security workers no longer have the opportunity to forget their service
+      weapon.
+    type: Tweak
+  id: 1596
+  time: '2025-05-01T07:26:11.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2368
+- author: crekulon
+  changes:
+  - message: The kodepiiae 'ring' emote now may play a new sound.
+    type: Tweak
+  id: 1597
+  time: '2025-05-04T00:39:51.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2401
+- author: TheGrimbeeper
+  changes:
+  - message: Allow Kodepaiia to use subjuzine
+    type: Fix
+  id: 1598
+  time: '2025-05-04T23:50:28.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2399
+- author: Sha-Seng
+  changes:
+  - message: Logistics 101 is now properly in the Guidebookshelf
+    type: Add
+  id: 1599
+  time: '2025-05-04T23:54:39.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2383
+- author: CrystalClover
+  changes:
+  - message: Added ability to eat food with Shovels/Spades
+    type: Add
+  id: 1600
+  time: '2025-05-04T23:53:29.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2396
+- author: AvianMaiden
+  changes:
+  - message: Vox working atmospherics should now look fashionable in the burn chamber.
+    type: Add
+  id: 1601
+  time: '2025-05-04T23:54:05.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2393
+- author: meridiadottxt
+  changes:
+  - message: many small changes to Gate Station, possible last update for a while?
+    type: Tweak
+  id: 1602
+  time: '2025-05-04T23:52:34.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2395
+- author: AvianMaiden
+  changes:
+  - message: Space mobs and snakes can now be like every other creature; if it bleeds,
+      you can flash it.
+    type: Tweak
+  id: 1603
+  time: '2025-05-04T23:52:07.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2387
+- author: Darkmajia
+  changes:
+  - message: Thieving beacons have been given minor contraband status, and can be
+      anchored under tiles similar to the smuggler's satchel.
+    type: Tweak
+  id: 1604
+  time: '2025-05-04T23:55:24.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2382
+- author: AvianMaiden
+  changes:
+  - message: Station-specific category no longer appears on the job selection menu,
+      as the jobs are not station-specific.
+    type: Tweak
+  id: 1605
+  time: '2025-05-05T00:03:01.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2394
+- author: TuttlePants, AvianMaiden
+  changes:
+  - message: Added a Bounty Hunter guidebook entry
+    type: Add
+  - message: Bounty Hunters now spawn with a gas mask
+    type: Tweak
+  - message: A few minor changes the Heron
+    type: Tweak
+  - message: borgdisabler and borgstunbaton no longer show up in the spawning menu
+    type: Tweak
+  - message: Bounty Hunters now spawn more often
+    type: Tweak
+  - message: Bounty Hunter gear is now (mostly) put into a bag instead of spilling
+      onto the floor
+    type: Fix
+  - message: Bounty Hunters now have last names
+    type: Fix
+  id: 1606
+  time: '2025-05-05T00:02:24.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2402
+- author: rainyatrium
+  changes:
+  - message: Basic pirate accent without forced Yarr! and Garr! before sentences
+    type: Add
+  id: 1607
+  time: '2025-05-05T00:04:50.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2375
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: Hey my disablers and blasters don't use the standard muzzle flash sprite
+      anymore
+    type: Add
+  - message: Hey the standard muzzle flash sprite is different and animated now what
+      the heck
+    type: Tweak
+  id: 1608
+  time: '2025-05-05T00:05:33.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2351
+- author: Kandiyaki
+  changes:
+  - message: Sacrifice victims can no longer be ghouled.
+    type: Tweak
+  - message: Sacrifice victims can no longer be reused.
+    type: Fix
+  id: 1609
+  time: '2025-05-05T01:26:48.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2392
+- author: AvianMaiden, ruddygreat
+  changes:
+  - message: Updates to Nanotrasen's data infrastructure now permit accessing employees'
+      historical records from the respective consoles. Please ensure all information
+      is correct before your shift. Thank you, and thank you to our friends in the
+      Delta and Cosmatic sectors.
+    type: Add
+  id: 1610
+  time: '2025-05-05T03:18:24.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2307
+- author: irismessage
+  changes:
+  - message: CONGRATULATIONS!! Your name has been approved by the Toon Council.
+    type: Add
+  id: 1611
+  time: '2025-05-06T22:41:27.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2406
+- author: honeyed-lemons
+  changes:
+  - message: Atmos Techs in Xeno might feel more confident taking their chute to engineering
+    type: Fix
+  id: 1612
+  time: '2025-05-06T22:42:11.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2409
+- author: ruddygreat
+  changes:
+  - message: The AI and cyborgs no longer show up in the station records computer.
+    type: Fix
+  id: 1613
+  time: '2025-05-06T22:43:39.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2410
+- author: Cutinup99
+  changes:
+  - message: the pride vend can finally be restocked!
+    type: Tweak
+  id: 1614
+  time: '2025-05-06T22:43:57.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2411
