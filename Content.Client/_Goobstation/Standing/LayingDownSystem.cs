@@ -40,13 +40,13 @@ public sealed class LayingDownSystem : SharedLayingDownSystem
         if (_animation.HasRunningAnimation(uid, "rotate"))
             return;
 
-        if (!TryComp(uid, out TransformComponent? transform)
-            || !TryComp<SpriteComponent>(uid, out var sprite)
+        if (!TryComp<SpriteComponent>(uid, out var sprite)
             || !TryComp<RotationVisualsComponent>(uid, out var rotationVisuals))
         {
             return;
         }
 
+        var transform = Transform(uid);
         var rotation = transform.LocalRotation + (_eyeManager.CurrentEye.Rotation - (transform.LocalRotation - _transform.GetWorldRotation(uid)));
 
         if (rotation.GetDir() is Direction.SouthEast or Direction.East or Direction.NorthEast or Direction.North)

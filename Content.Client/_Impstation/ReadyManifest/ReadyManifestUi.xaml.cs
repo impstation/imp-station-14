@@ -13,7 +13,6 @@ using Robust.Shared.Timing;
 
 namespace Content.Client._Impstation.ReadyManifest;
 
-
 [GenerateTypedNameReferences]
 public sealed partial class ReadyManifestUi : DefaultWindow
 {
@@ -126,7 +125,7 @@ public sealed partial class ReadyManifestUi : DefaultWindow
                 }
 
                 var jobIcon = _prototypeManager.Index(job.Icon);
-                icon.Texture = _sprite.GetFrame(jobIcon.Icon, _timing.RealTime);
+                icon.Texture = _sprite.Frame0(jobIcon.Icon);
                 jobContainer.AddChild(icon);
                 jobContainer.AddChild(title);
                 gridContainer.AddChild(jobContainer);

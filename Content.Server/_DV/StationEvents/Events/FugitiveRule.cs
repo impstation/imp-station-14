@@ -107,32 +107,32 @@ public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
     private FormattedMessage GenerateReport(EntityUid uid, FugitiveRuleComponent rule)
     {
         var report = new FormattedMessage();
-        report.TryAddMarkup(Loc.GetString("fugitive-report-title"), out _);
+        report.AddMarkupOrThrow(Loc.GetString("fugitive-report-title"));
         report.PushNewline();
         report.PushNewline();
-        report.TryAddMarkup(Loc.GetString("fugitive-report-first-line"), out _);
+        report.AddMarkupOrThrow(Loc.GetString("fugitive-report-first-line"));
         report.PushNewline();
         report.PushNewline();
 
         if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
         {
-            report.TryAddMarkup(Loc.GetString("fugitive-report-inhuman", ("name", uid)), out _);
+            report.AddMarkupOrThrow(Loc.GetString("fugitive-report-inhuman", ("name", uid)));
             report.PushNewline();
             return report;
         }
 
         var species = PrototypeManager.Index(humanoid.Species);
 
-        report.TryAddMarkup(Loc.GetString("fugitive-report-morphotype", ("species", Loc.GetString(species.Name))), out _);
+        report.AddMarkupOrThrow(Loc.GetString("fugitive-report-morphotype", ("species", Loc.GetString(species.Name))));
         report.PushNewline();
-        report.TryAddMarkup(Loc.GetString("fugitive-report-age", ("age", humanoid.Age)), out _);
+        report.AddMarkupOrThrow(Loc.GetString("fugitive-report-age", ("age", humanoid.Age)));
         report.PushNewline();
-        report.TryAddMarkup(Loc.GetString("fugitive-report-sex", ("sex", humanoid.Sex.ToString())), out _);
+        report.AddMarkupOrThrow(Loc.GetString("fugitive-report-sex", ("sex", humanoid.Sex.ToString())));
         report.PushNewline();
 
         if (TryComp<PhysicsComponent>(uid, out var physics))
         {
-            report.TryAddMarkup(Loc.GetString("fugitive-report-weight", ("weight", Math.Round(physics.FixturesMass))), out _);
+            report.AddMarkupOrThrow(Loc.GetString("fugitive-report-weight", ("weight", Math.Round(physics.FixturesMass))));
             report.PushNewline();
         }
 
@@ -145,7 +145,7 @@ public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
 
         report.PushNewline();
         report.PushNewline();
-        report.TryAddMarkup(Loc.GetString("fugitive-report-crimes-header"), out _);
+        report.AddMarkupOrThrow(Loc.GetString("fugitive-report-crimes-header"));
         report.PushNewline();
 
         // generate some random crimes to avoid this situation
@@ -155,7 +155,7 @@ public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
         report.PushNewline();
 
         report.PushNewline();
-        report.TryAddMarkup(Loc.GetString("fugitive-report-last-line"), out _);
+        report.AddMarkupOrThrow(Loc.GetString("fugitive-report-last-line"));
 
         return report;
     }
@@ -183,7 +183,7 @@ public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
         foreach (var crime in crimes)
         {
             var count = RobustRandom.Next(rule.MinCounts, rule.MaxCounts + 1);
-            report.TryAddMarkup(Loc.GetString("fugitive-report-crime", ("crime", Loc.GetString(crime)), ("count", count)), out _);
+            report.AddMarkupOrThrow(Loc.GetString("fugitive-report-crime", ("crime", Loc.GetString(crime)), ("count", count)));
             report.PushNewline();
         }
     }
