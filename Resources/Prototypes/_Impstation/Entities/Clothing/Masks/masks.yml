@@ -150,17 +150,15 @@
         Heat: 0.95
 
 - type: entity
-  parent: ClothingMaskClownBase
-  id: ClothingMaskClownBanana
-  name: banana clown wig and mask
+  parent: ClothingMaskClown
+  id: ClothingMaskClownCargo
+  name: strong clown wig and mask
+  description: A powerful mask and wig for the clown that can drag a crate with one hand.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/clown_banana.rsi
+    sprite: Clothing/Mask/clown_cargo.rsi
   - type: Clothing
-    sprite: Clothing/Mask/clown_banana.rsi
-  - type: Construction
-    graph: BananaClownMask
-    node: mask
+    sprite: Clothing/Mask/clown_cargo.rsi
 
 - type: entity
   parent: ClothingMaskClownBase
