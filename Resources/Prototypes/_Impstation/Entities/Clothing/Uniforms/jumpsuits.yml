@@ -394,3 +394,15 @@
   - type: Clothing
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/spacesecurity.rsi
 
+- type: entity
+  parent: [ClothingUniformBase, BaseCentcommContraband]
+  id: ClothingUniformCBURN
+  name: CBURN jumpsuit
+  description: "A loose, single-piece garment worn by specialized CBURN units."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/cburn.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/cburn.rsi
+
+
