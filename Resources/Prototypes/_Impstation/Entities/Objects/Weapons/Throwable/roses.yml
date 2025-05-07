@@ -95,6 +95,9 @@
     flavors:
       - food
   - type: Food
+  - type: Tag
+    tags:
+    - Flower
 
 - type: entity
   parent: [Rose, BaseMajorContraband]
@@ -130,14 +133,20 @@
   name: Blood Red Rose
   description: Smells like communism.
   components:
+  - type: SolutionInjectOnEmbed
+    transferAmount: 5
+    solution: food
   - type: DamageOtherOnHit
     damage:
       types:
         Piercing: 5
+        Slash: 3
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 3
+        maxVol: 5
         reagents:
-        - ReagentId: SulfuricAcid
-          Quantity: 1
+        - ReagentId: Tazinide
+          Quantity: 2
+        - ReagentId: PolytrinicAcid
+          Quantity: 3

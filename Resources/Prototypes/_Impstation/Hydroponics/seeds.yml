@@ -7,9 +7,11 @@
   packetPrototype: RoseSeeds
   productPrototypes:
     - Rose
+  mutationPrototypes:
+    - blackRose
   harvestRepeat: Repeat
   lifespan: 55
-  maturation: 6
+  maturation: 8
   production: 6
   yield: 3
   potency: 10
@@ -22,16 +24,16 @@
 
 - type: seed
   id: blackRose
-  name: seeds-blackRose-name
+  name: seeds-blackrose-name
   noun: seeds-noun-seeds
-  displayName: seeds-blackRose-display-name
+  displayName: seeds-blackrose-display-name
   plantRsi: _Impstation/Objects/Specific/Hydroponics/blackRose.rsi
   packetPrototype: BlackRoseSeeds
   productPrototypes:
     - RoseBlack
   harvestRepeat: Repeat
   lifespan: 55
-  maturation: 6
+  maturation: 8
   production: 6
   yield: 3
   potency: 10
@@ -45,3 +47,4 @@
       Min: 1
       Max: 8
       PotencyDivisor: 10
+
