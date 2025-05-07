@@ -25,6 +25,6 @@ public sealed partial class JukeboxPrototype : IPrototype
     /// IMP ADDITION
     /// True if the song should only appear when the jukebox is emagged.
     /// </summary>
-    [DataField(required: false)]
-    public bool EmagOnly = false;
+    [DataField]
+    public bool EmagOnly;
 }

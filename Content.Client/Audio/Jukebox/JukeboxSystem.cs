@@ -20,7 +20,6 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         SubscribeLocalEvent<JukeboxComponent, AppearanceChangeEvent>(OnAppearanceChange);
         SubscribeLocalEvent<JukeboxComponent, AnimationCompletedEvent>(OnAnimationCompleted);
         SubscribeLocalEvent<JukeboxComponent, AfterAutoHandleStateEvent>(OnJukeboxAfterState);
-        SubscribeLocalEvent<JukeboxComponent, GotEmaggedEvent>(OnEmagged); //imp
 
         _protoManager.PrototypesReloaded += OnProtoReload;
     }
