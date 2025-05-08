@@ -142,7 +142,7 @@
   parent: SpawnPointJobBase
   name: service worker
   components:
-  - type: SpawnPoint #imp
+  - type: SpawnPoint
     job_id: ServiceWorker
   - type: Sprite
     layers:
