@@ -1,70 +1,4 @@
 ﻿Entries:
-- author: TheGrimbeeper
-  changes:
-  - message: 'New artifact trigger: Expressiveness'
-    type: Add
-  id: 1111
-  time: '2025-02-11T22:36:05.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1642
-- author: rainyatrium
-  changes:
-  - message: Added 21 new Syndicate factions from character backstories
-    type: Add
-  id: 1112
-  time: '2025-02-13T10:39:29.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1675
-- author: widgetbeck
-  changes:
-  - message: (Most) antag roles now have playtime tracking in the stats menu.
-    type: Add
-  - message: Antag rolling is now slightly weighted towards people with lower playtime
-      in a given antag role.
-    type: Tweak
-  id: 1113
-  time: '2025-02-13T14:38:44.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1673
-- author: DinnerCalzone
-  changes:
-  - message: Courier support has been added to Plasma.
-    type: Add
-  id: 1114
-  time: '2025-02-13T14:44:05.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1663
-- author: Sha-Seng
-  changes:
-  - message: Body bags now have high-vis tape on them
-    type: Tweak
-  id: 1115
-  time: '2025-02-13T14:48:00.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1666
-- author: Sha-Seng
-  changes:
-  - message: The WinterDrobe has coat and boot colors now!
-    type: Add
-  id: 1116
-  time: '2025-02-13T14:47:12.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1667
-- author: crocodilecarousel
-  changes:
-  - message: Explorer gas mask got a minor visual refresh.
-    type: Tweak
-  id: 1117
-  time: '2025-02-13T14:46:31.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1664
-- author: AvianMaiden
-  changes:
-  - message: Reverted the Drozd sprite to what it was before
-    type: Remove
-  id: 1118
-  time: '2025-02-13T17:14:41.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1671
-- author: AvianMaiden
-  changes:
-  - message: Reverted the empty gun click sound
-    type: Remove
-  id: 1119
-  time: '2025-02-13T17:19:38.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1672
 - author: Darkmajia
   changes:
   - message: Security cadets spawn with sunglasses.
@@ -4159,3 +4093,68 @@
   id: 1610
   time: '2025-05-05T03:18:24.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/2307
+- author: irismessage
+  changes:
+  - message: CONGRATULATIONS!! Your name has been approved by the Toon Council.
+    type: Add
+  id: 1611
+  time: '2025-05-06T22:41:27.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2406
+- author: honeyed-lemons
+  changes:
+  - message: Atmos Techs in Xeno might feel more confident taking their chute to engineering
+    type: Fix
+  id: 1612
+  time: '2025-05-06T22:42:11.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2409
+- author: ruddygreat
+  changes:
+  - message: The AI and cyborgs no longer show up in the station records computer.
+    type: Fix
+  id: 1613
+  time: '2025-05-06T22:43:39.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2410
+- author: Cutinup99
+  changes:
+  - message: the pride vend can finally be restocked!
+    type: Tweak
+  id: 1614
+  time: '2025-05-06T22:43:57.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2411
+- author: FlippenPage
+  changes:
+  - message: Added the BoogieBot. Craft one today!
+    type: Add
+  id: 1615
+  time: '2025-05-08T20:03:28.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2415
+- author: AvianMaiden
+  changes:
+  - message: Shotgun and axe cabinets finally got cleaned
+    type: Tweak
+  id: 1616
+  time: '2025-05-08T20:04:16.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2416
+- author: hivehum
+  changes:
+  - message: All moths can sigh.
+    type: Fix
+  id: 1617
+  time: '2025-05-08T23:39:19.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2420
+- author: Ecramox
+  changes:
+  - message: The RD has a shiny new cloak in place of the old shitty one.
+    type: Tweak
+  id: 1618
+  time: '2025-05-08T23:40:54.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2418
+- author: hivehum, crocodilecarousel, faelingdraws
+  changes:
+  - message: 65 new markings have been added for further customization.
+    type: Add
+  - message: Gray antennae and ears are visible again.
+    type: Fix
+  id: 1619
+  time: '2025-05-08T23:42:33.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2412
