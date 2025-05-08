@@ -4,6 +4,8 @@ using Content.Server.Body.Components;
 using Content.Server.Chat.Systems;
 using Content.Server.EntityEffects.EffectConditions;
 using Content.Server.EntityEffects.Effects;
+using Content.Server.Popups; // imp edit
+using Content.Shared._Impstation.CPR; // imp edit
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Alert;
 using Content.Shared.Atmos;
@@ -14,8 +16,10 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.EntityEffects;
+using Content.Shared.Interaction; // imp edit
 using Content.Shared.Mobs.Systems;
 using JetBrains.Annotations;
+using Robust.Shared.Player; // imp edit
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
@@ -35,6 +39,8 @@ public sealed class RespiratorSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly CprGiverSystem _cprGiver = default!; // imp edit
+    [Dependency] private readonly PopupSystem _popup = default!; // imp edit
 
     private static readonly ProtoId<MetabolismGroupPrototype> GasId = new("Gas");
 
@@ -47,6 +53,8 @@ public sealed class RespiratorSystem : EntitySystem
         SubscribeLocalEvent<RespiratorComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<RespiratorComponent, EntityUnpausedEvent>(OnUnpaused);
         SubscribeLocalEvent<RespiratorComponent, ApplyMetabolicMultiplierEvent>(OnApplyMetabolicMultiplier);
+        SubscribeLocalEvent<RespiratorComponent, InteractHandEvent>(OnInteractHand); // imp edit: cpr
+        SubscribeLocalEvent<RespiratorComponent, ReceiveCprEvent>(OnReceiveCpr); // imp edit: cpr
     }
 
     private void OnMapInit(Entity<RespiratorComponent> ent, ref MapInitEvent args)
@@ -76,7 +84,7 @@ public sealed class RespiratorSystem : EntitySystem
 
             UpdateSaturation(uid, -(float) respirator.UpdateInterval.TotalSeconds, respirator);
 
-            if (!_mobState.IsIncapacitated(uid)) // cannot breathe in crit.
+            if (!_mobState.IsIncapacitated(uid) || respirator.CritBreathCounter > 0) // cannot breathe in crit. imp: added crit breath counter check
             {
                 switch (respirator.Status)
                 {
@@ -89,6 +97,9 @@ public sealed class RespiratorSystem : EntitySystem
                         respirator.Status = RespiratorStatus.Inhaling;
                         break;
                 }
+
+                // imp edit: crit breath counter
+                respirator.CritBreathCounter = Math.Max(respirator.CritBreathCounter - 1, 0);
             }
 
             if (respirator.Saturation < respirator.SuffocationThreshold)
@@ -344,6 +355,36 @@ public sealed class RespiratorSystem : EntitySystem
         ent.Comp.Saturation /= args.Multiplier;
         ent.Comp.MaxSaturation /= args.Multiplier;
         ent.Comp.MinSaturation /= args.Multiplier;
+    }
+
+    // imp edit: cpr
+    private void OnInteractHand(Entity<RespiratorComponent> ent, ref InteractHandEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        args.Handled = _cprGiver.TryCpr(args.User, args.Target, ent.Comp.UpdateInterval);
+    }
+
+    // imp edit: cpr
+    private void OnReceiveCpr(Entity<RespiratorComponent> ent, ref ReceiveCprEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
+        var user = args.Performer;
+        var target = ent.Owner;
+
+        var popupUser = Loc.GetString("cpr-perform-user", ("target", target));
+        var popupTarget = Loc.GetString("cpr-perform-patient", ("user", user));
+        var popupOthers = Loc.GetString("cpr-perform-others", ("user", user), ("target", target));
+        var otherFilter = Filter.Pvs(target).RemovePlayersByAttachedEntity(user, target);
+
+        _popup.PopupEntity(popupUser, target, user);
+        _popup.PopupEntity(popupTarget, target, target);
+        _popup.PopupEntity(popupOthers, user, otherFilter, true);
+
+        ent.Comp.CritBreathCounter = Math.Min(ent.Comp.CritBreathCounter + ent.Comp.CritBreathIncrease, ent.Comp.CritBreathMax);
     }
 }
 

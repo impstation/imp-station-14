@@ -77,6 +77,24 @@ namespace Content.Server.Body.Components
 
         [ViewVariables]
         public RespiratorStatus Status = RespiratorStatus.Inhaling;
+
+        /// <summary>
+        /// IMP: Amount of times the mob can breathe in crit.
+        /// </summary>
+        [DataField]
+        public int CritBreathCounter;
+
+        /// <summary>
+        /// IMP: The amount of breaths added per successful CPR attempt.
+        /// </summary>
+        [DataField]
+        public int CritBreathIncrease = 5;
+
+        /// <summary>
+        /// IMP: The maximum possible value of <see cref="CritBreathCounter"/>.
+        /// </summary>
+        [DataField]
+        public int CritBreathMax = 8;
     }
 }
 
