@@ -1,7 +1,7 @@
 ﻿- type: entity # imp this is a refactor of the original home run bat to remove the deflectthrownobjects component
   name: home run bat
   parent: [BaseItem, BaseMinorContraband]
-  id: BaseBallBatHomeRunNoThrowTest
+  id: BaseBallBatHomeRun
   description: Heavy metal bat with an extra kick.
   components:
   - type: Sprite
