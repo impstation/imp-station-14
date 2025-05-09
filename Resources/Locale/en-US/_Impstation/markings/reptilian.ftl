@@ -107,6 +107,8 @@ marking-TichelFashionableLizard-tichelfashionablelizard = Tichel (Fashionable)
 marking-LizardHeadFlat = Flat Head
 marking-LizardHeadFlat-flat = Flat Head
 
+marking-LizardFrill = Head Frill
+
 marking-LizardHornsKoboldEarspiercings = Lizard Ears (Kobold, Pierced)
 marking-LizardHornsKoboldEarspiercings-koboldears = Ears
 marking-LizardHornsKoboldEarspiercings-kobold_earspiercings = Piercings
@@ -116,6 +118,7 @@ marking-LizardHornsNubby = Lizard Horns (Nubby)
 
 marking-LizardLittleHorns = Lizard Horns (Small)
 marking-LizardLittleHorns-small = Horns
+
 
 # Tail
 
