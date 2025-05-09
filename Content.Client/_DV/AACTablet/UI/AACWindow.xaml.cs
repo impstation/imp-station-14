@@ -18,12 +18,15 @@ public sealed partial class AACWindow : FancyWindow
     private readonly Dictionary<string, List<QuickPhrasePrototype>> _filteredPhrases = new();
     public event Action<List<ProtoId<QuickPhrasePrototype>>>? PhraseButtonPressed;
 
-    private const float SpaceWidth = 10f;
-    private const float ParentWidth = 540f;
-    private const int ColumnCount = 4;
+    private const float SpaceWidth = 3f;
+    private const float ParentWidth = 470f;
+    private const int ColumnCount = 3;
 
     private const int ButtonWidth =
         (int)((ParentWidth - SpaceWidth * 2) / ColumnCount - SpaceWidth * ((ColumnCount - 1f) / ColumnCount));
+
+    private const int ButtonHeight =
+        (int)(ButtonWidth * .5f);
 
     public const int MaxPhrases = 10; // no writing novels
 
@@ -199,7 +202,7 @@ public sealed partial class AACWindow : FancyWindow
         var phraseButton = new Button
         {
             Access = AccessLevel.Public,
-            MaxSize = new Vector2(ButtonWidth, ButtonWidth),
+            MinSize = new Vector2(ButtonWidth, ButtonHeight),
             ClipText = false,
             HorizontalExpand = true,
             StyleClasses = { styleClass }
