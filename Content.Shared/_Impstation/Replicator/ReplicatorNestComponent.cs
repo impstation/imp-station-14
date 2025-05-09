@@ -11,7 +11,7 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._Impstation.Replicator;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ReplicatorNestComponent : Component
 {
     /// <summary>
@@ -29,7 +29,7 @@ public sealed partial class ReplicatorNestComponent : Component
     /// <summary>
     /// The current level of the nest.
     /// </summary>
-    [DataField(readOnly: true)]
+    [DataField, AutoNetworkedField]
     public int CurrentLevel = 1;
 
     /// <summary>
@@ -78,6 +78,9 @@ public sealed partial class ReplicatorNestComponent : Component
     public HashSet<EntityUid> SpawnedMinions = [];
     public HashSet<EntityUid> UnclaimedSpawners = [];
     public int NextSpawnAt = 20;
+
+    [DataField, AutoNetworkedField]
+    public bool NeedsUpdate;
 }
 
 [Serializable, NetSerializable]

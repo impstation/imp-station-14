@@ -14,6 +14,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Content.Server.Ghost.Roles.Events;
 using Content.Shared._Impstation.SpawnedFromTracker;
+using Content.Server.Actions;
 
 
 
@@ -24,6 +25,7 @@ public sealed class ReplicatorSystem : EntitySystem
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
+    [Dependency] private readonly ActionsSystem _actions = default!;
 
     public override void Initialize()
     {
@@ -36,8 +38,6 @@ public sealed class ReplicatorSystem : EntitySystem
         SubscribeLocalEvent<ReplicatorComponent, ReplicatorSpawnNestActionEvent>(OnSpawnNestAction);
     }
 
-    public readonly int MaxUpgradeStage = 2;
-
     private void OnMapInit(Entity<ReplicatorComponent> ent, ref MapInitEvent args)
     {
         var xform = Transform(ent);
@@ -46,7 +46,7 @@ public sealed class ReplicatorSystem : EntitySystem
         if (!coords.IsValid(EntityManager) || xform.MapID == MapId.Nullspace)
             return;
 
-        if (ent.Comp.Queen) // if you're the queen,
+        if (ent.Comp.Queen) // if you're the queen, which you'll only be if you're the first one spawned,
         {
             // spawn a nest, then make sure it has ReplicatorNestComponent
             var myNest = EnsureComp<ReplicatorNestComponent>(Spawn("ReplicatorNest", xform.Coordinates));
@@ -76,7 +76,8 @@ public sealed class ReplicatorSystem : EntitySystem
         // and we don't need the RelatedReplicators list anymore, so,
         ent.Comp.RelatedReplicators.Clear();
 
-        // then we need to remove the action, to ensure it can't be used infinitely. Currently this is done in yml via temporary: true but i'm not sure that works.
+        // then we need to remove the action, to ensure it can't be used infinitely.
+        _actions.RemoveAction(args.Action);
     }
 
     private void OnGhostRoleSpawnerUsed(Entity<ReplicatorComponent> ent, ref GhostRoleSpawnerUsedEvent args)
@@ -87,22 +88,6 @@ public sealed class ReplicatorSystem : EntitySystem
         nestComp.SpawnedMinions.Add(ent);
         // then remove the spawner from the nest's list of unclaimed spawners.
         nestComp.UnclaimedSpawners.Remove(args.Spawner);
-    }
-
-    public void UpgradeReplicator(Entity<ReplicatorComponent> ent)
-    {
-        if (ent.Comp.UpgradeStage == MaxUpgradeStage)
-            return;
-
-        var polyComp = EnsureComp<PolymorphableComponent>(ent);
-
-        var upgradePolymorph = "ReplicatorUpgrade1";
-        if (ent.Comp.UpgradeStage == 1)
-            upgradePolymorph = "ReplicatorUpgrade2";
-
-        _polymorph.CreatePolymorphAction(upgradePolymorph, (ent, polyComp));
-        _popup.PopupEntity(Loc.GetString($"replicator-upgrade-t{ent.Comp.UpgradeStage + 1}-self"), ent, ent);
-        _popup.PopupEntity(Loc.GetString($"replicator-upgrade-t{ent.Comp.UpgradeStage + 1}-others", ("replicator", Name(ent))), ent, Filter.Pvs(ent).RemovePlayersByAttachedEntity(ent), true, PopupType.MediumCaution);
     }
 
     public void OnAttackAttempt(Entity<ReplicatorComponent> ent, ref AttackAttemptEvent args)

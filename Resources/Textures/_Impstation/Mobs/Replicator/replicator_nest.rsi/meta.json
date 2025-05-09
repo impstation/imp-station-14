@@ -3,39 +3,18 @@
   "license": "CC-BY-SA-3.0",
   "copyright": "AftrLite",
   "size": {
-        "x": 64,
-        "y": 64
+        "x": 96,
+        "y": 96
   },
   "states": [
     {
-        "name": "nest1",
-        "delays": [
-            [
-              0.2,
-              0.2,
-              0.2
-            ]
-          ]
+      "name": "nest1"
     },
     {
-      "name": "nest2",
-      "delays": [
-          [
-            0.2,
-            0.2,
-            0.2
-          ]
-        ]
+      "name": "nest2"
     },
     {
-      "name": "nest3",
-      "delays": [
-          [
-            0.2,
-            0.2,
-            0.2
-          ]
-        ]
+      "name": "nest3"
     }
   ]
 }

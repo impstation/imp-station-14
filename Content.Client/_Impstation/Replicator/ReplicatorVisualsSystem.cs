@@ -11,17 +11,19 @@ namespace Content.Client._Impstation.Replicator;
 public sealed class ReplicatorVisualsSystem : EntitySystem
 {
     [Dependency] private readonly AppearanceSystem _appearance = default!;
+    [Dependency] private readonly EntityManager _entMan = default!;
+
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<ReplicatorComponent, AppearanceChangeEvent>(OnAppearanceChange);
         SubscribeLocalEvent<ReplicatorComponent, ToggleCombatActionEvent>(OnToggleCombat);
-
-        SubscribeLocalEvent<ReplicatorNestComponent, AppearanceChangeEvent>(OnNestAppearanceChange);
-        SubscribeLocalEvent<ReplicatorNestComponent, ReplicatorNestSizeChangedEvent>(OnNestSizeChanged);
     }
 
+    /// <summary>
+    /// tell the entity to enable or disable their combat sprite
+    /// </summary>
     private void OnToggleCombat(Entity<ReplicatorComponent> ent, ref ToggleCombatActionEvent args)
     {
         if (!TryComp<SpriteComponent>(ent, out var sprite))
@@ -30,6 +32,9 @@ public sealed class ReplicatorVisualsSystem : EntitySystem
         _appearance.OnChangeData(ent, sprite);
     }
 
+    /// <summary>
+    /// enable or disable the combat sprite
+    /// </summary>
     private void OnAppearanceChange(Entity<ReplicatorComponent> ent, ref AppearanceChangeEvent args)
     {
         if (args.Sprite == null)
@@ -39,25 +44,5 @@ public sealed class ReplicatorVisualsSystem : EntitySystem
         if (!args.Sprite.LayerMapTryGet(ReplicatorVisuals.Combat, out var layer))
             return;
         args.Sprite.LayerSetVisible(layer, combat.IsInCombatMode);
-    }
-
-    private void OnNestSizeChanged(Entity<ReplicatorNestComponent> ent, ref ReplicatorNestSizeChangedEvent args)
-    {
-        if (!TryComp<SpriteComponent>(ent, out var sprite))
-            return;
-
-        _appearance.OnChangeData(ent, sprite);
-    }
-
-    private void OnNestAppearanceChange(Entity<ReplicatorNestComponent> ent, ref AppearanceChangeEvent args)
-    {
-        if (args.Sprite == null)
-            return;
-
-        int layer;
-        if (ent.Comp.CurrentLevel == 2 && args.Sprite.LayerMapTryGet(ReplicatorNestVisuals.Level2, out layer))
-            args.Sprite.LayerSetVisible(layer, true);
-        else if (ent.Comp.CurrentLevel == 3 && args.Sprite.LayerMapTryGet(ReplicatorNestVisuals.Level3, out layer))
-            args.Sprite.LayerSetVisible(layer, true);
     }
 }

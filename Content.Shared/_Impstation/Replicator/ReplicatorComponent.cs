@@ -3,6 +3,7 @@
 // the original Bingle PR can be found here: https://github.com/Goob-Station/Goob-Station/pull/1519
 
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._Impstation.Replicator;
@@ -26,7 +27,12 @@ public sealed partial class ReplicatorComponent : Component
     /// <summary>
     /// Used to store related replicators on a queen after the nest is destroyed, so they can be transferred to the new nest.
     /// </summary>
+    [DataField]
     public HashSet<Entity<ReplicatorComponent>> RelatedReplicators = [];
+
+    public EntProtoId Level2Id = "MobReplicatorTier2";
+
+    public EntProtoId Level3Id = "MobReplicatorTier3";
 }
 
 [Serializable, NetSerializable]

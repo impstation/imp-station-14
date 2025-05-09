@@ -12,7 +12,6 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
-
 using Content.Shared._Impstation.Replicator;
 using Robust.Server.Containers;
 using Robust.Server.Audio;
@@ -65,9 +64,9 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
         SubscribeLocalEvent<ReplicatorNestComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<ReplicatorNestComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
         SubscribeLocalEvent<ReplicatorNestComponent, StepTriggerAttemptEvent>(OnStepTriggerAttempt);
-        SubscribeLocalEvent<ReplicatorNestComponent, StepTriggeredOffEvent>(OnStepTriggered);
         SubscribeLocalEvent<ReplicatorNestFallingComponent, UpdateCanMoveEvent>(OnUpdateCanMove);
         SubscribeLocalEvent<ReplicatorNestComponent, DestructionEventArgs>(OnDestruction);
+        SubscribeLocalEvent<ReplicatorNestComponent, ComponentRemove>(OnComponentRemove);
         SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndTextAppend);
     }
 
@@ -105,162 +104,22 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
         args.Continue = true;
     }
 
-    private void OnStepTriggered(Entity<ReplicatorNestComponent> ent, ref StepTriggeredOffEvent args)
-    {
-        // dont accept if they are already falling
-        if (HasComp<ReplicatorNestFallingComponent>(args.Tripper))
-            return;
-
-        var isReplicator = HasComp<ReplicatorComponent>(args.Tripper);
-
-        // Allow dead replicators regardless of current level. 
-        if (TryComp<MobStateComponent>(args.Tripper, out var mobState) && isReplicator && mobState.CurrentState == MobState.Dead)
-        {
-            StartFalling(ent, args.Tripper);
-            return;
-        }
-
-        // Only allow consuming living beings if the AllowLivingThreshold has been surpassed. Don't allow consuming living replicators.
-        if (isReplicator || mobState != null && ent.Comp.CurrentLevel < ent.Comp.AllowLivingThreshold)
-            return;
-
-        StartFalling(ent, args.Tripper);
-    }
-
-    private void StartFalling(Entity<ReplicatorNestComponent> ent, EntityUid tripper, bool playSound = true)
-    {
-        HandlePoints(ent, tripper);
-
-        if (TryComp<PullableComponent>(tripper, out var pullable) && pullable.BeingPulled)
-            _pulling.TryStopPull(tripper, pullable);
-
-        // handle starting the falling animation
-        var fall = EnsureComp<ReplicatorNestFallingComponent>(tripper);
-        fall.FallingTarget = ent;
-        fall.NextDeletionTime = _timing.CurTime + fall.DeletionTime;
-        // no funny business
-        _stun.TryKnockdown(tripper, fall.DeletionTime, false);
-
-        if (playSound)
-            _audio.PlayPvs(ent.Comp.FallingSound, tripper);
-    }
-
     private void OnUpdateCanMove(Entity<ReplicatorNestFallingComponent> ent, ref UpdateCanMoveEvent args)
     {
         args.Cancel();
     }
 
-    private void HandlePoints(Entity<ReplicatorNestComponent> ent, EntityUid tripper) // this is its own method because I think it reads cleaner. also the way goobcode handled this sucked.
+    private void OnComponentRemove(Entity<ReplicatorNestComponent> ent, ref ComponentRemove args)
     {
-        // regardless of what falls in, you get at least one point.
-        ent.Comp.TotalPoints++;
-
-        // you get a bonus point if the item is Normal sized, 2 bonus points if it's Large, and 3 bonus points if it's above that.
-        if (TryComp<ItemComponent>(tripper, out var itemComp))
-        {
-            if (_item.GetSizePrototype(itemComp.Size) == _item.GetSizePrototype("Normal"))
-                ent.Comp.TotalPoints++;
-            else if (_item.GetSizePrototype(itemComp.Size) == _item.GetSizePrototype("Large"))
-                ent.Comp.TotalPoints += 2;
-            else if (_item.GetSizePrototype(itemComp.Size) >= _item.GetSizePrototype("Huge"))
-                ent.Comp.TotalPoints += 3;
-        }
-        // if it wasn't an item and was anchorable, you get 4 bonus points.
-        else if (TryComp<AnchorableComponent>(tripper, out _))
-            ent.Comp.TotalPoints += 4;
-
-        // you get bonus points if it was alive.
-        if (TryComp<MobStateComponent>(tripper, out var mobState) && mobState.CurrentState != MobState.Dead)
-            ent.Comp.TotalPoints += ent.Comp.BonusPointsAlive;
-
-        // you get additional bonus points if it was a humanoid:
-        // if the humanoid was alive, you get enough bonus points to spawn a new replicator. Otherwise, you get standard bonus points * nest level.
-        if (HasComp<HumanoidAppearanceComponent>(tripper) && mobState != null)
-        {
-            if (mobState.CurrentState == MobState.Alive)
-                ent.Comp.TotalPoints += ent.Comp.SpawnNewAt;
-            else
-                ent.Comp.TotalPoints += ent.Comp.BonusPointsHumanoid * ent.Comp.CurrentLevel;
-        }
-
-        // recycling four dead replicators nets you one new replicator.
-        if (HasComp<ReplicatorComponent>(tripper))
-            ent.Comp.TotalPoints += ent.Comp.SpawnNewAt / 4;
-
-        // if we exceed the upgrade threshold after points are added, 
-        if (ent.Comp.TotalPoints >= ent.Comp.UpgradeAt)
-        {
-            // level up
-            ent.Comp.CurrentLevel++;
-
-            // this allows us to have an arbitrary number of unique messages for when the nest levels up - and a default for if we run out. 
-            var growthMessage = $"replicator-nest-level{ent.Comp.CurrentLevel}";
-            if (Loc.TryGetString(growthMessage, out var localizedMsg))
-                _popup.PopupEntity(localizedMsg, ent);
-            else
-                _popup.PopupEntity("replicator-nest-levelup", ent);
-
-            // make the nest sprite grow as long as we have sprites for it. I am NOT scaling it.
-            if (ent.Comp.CurrentLevel <= ent.Comp.EndgameLevel)
-                Embiggen(ent);
-
-            // if we've reached the endgame, the nest will ignore gravity when picking targets - actively pulling them in.
-            if (ent.Comp.CurrentLevel == ent.Comp.EndgameLevel)
-                _stepTrigger.SetIgnoreWeightless(ent, true);
-
-            // double the threshold for the next upgrade, and upgrade all our guys.
-            ent.Comp.UpgradeAt += ent.Comp.UpgradeAt;
-            UpgradeAll(ent);
-        }
-
-        // after upgrading, if we exceed the next spawn threshold, spawn a new (un-upgraded) replicator, then set the next spawn threshold.
-        if (ent.Comp.TotalPoints >= ent.Comp.NextSpawnAt)
-        {
-            SpawnNew(ent);
-            ent.Comp.NextSpawnAt += ent.Comp.SpawnNewAt;
-        }
-    }
-
-    private void SpawnNew(Entity<ReplicatorNestComponent> ent)
-    {
-        // spawn a new replicator
-        var spawner = Spawn(ent.Comp.ToSpawn, Transform(ent).Coordinates);
-        // TODO:
-        //OnSpawnTile(ent, ent.comp.Level * 2, "FloorReplicator");
-
-        // make sure our new GhostRoleSpawnPoint knows where it came from, so it can pass that down to the replicator it spawns.
-        var tracker = EnsureComp<SpawnedFromTrackerComponent>(spawner);
-        tracker.SpawnedFrom = ent;
-
-        ent.Comp.UnclaimedSpawners.Add(spawner);
-    }
-
-    public void UpgradeAll(Entity<ReplicatorNestComponent> ent)
-    {
-        var query = EntityQueryEnumerator<ReplicatorComponent>();
-        while (query.MoveNext(out var uid, out var comp))
-        {
-            if (ent.Comp.SpawnedMinions.Contains(uid))
-                _replicator.UpgradeReplicator((uid, comp));
-        }
-    }
-
-    private void Embiggen(Entity<ReplicatorNestComponent> ent)
-    {
-        var appearanceComp = EnsureComp<AppearanceComponent>(ent);
-
-        var visualsLevel = ReplicatorNestVisuals.Level1;
-        if (ent.Comp.CurrentLevel == 2)
-            visualsLevel = ReplicatorNestVisuals.Level2;
-        else if (ent.Comp.CurrentLevel == 3)
-            visualsLevel = ReplicatorNestVisuals.Level3;
-
-        _appearance.SetData(ent, visualsLevel, true, appearanceComp);
-        var ev = new ReplicatorNestSizeChangedEvent();
-        RaiseLocalEvent(ev);
+        HandleDestruction(ent);
     }
 
     private void OnDestruction(Entity<ReplicatorNestComponent> ent, ref DestructionEventArgs args)
+    {
+        HandleDestruction(ent);
+    }
+
+    private void HandleDestruction(Entity<ReplicatorNestComponent> ent)
     {
         if (ent.Comp.Hole != null) // hole should never be null, because hole is created when the component initializes
         {
