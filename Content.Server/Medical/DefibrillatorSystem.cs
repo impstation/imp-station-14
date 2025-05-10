@@ -222,7 +222,7 @@ public sealed class DefibrillatorSystem : EntitySystem
             _chatManager.TrySendInGameICMessage(uid, Loc.GetString(unrevivable.ReasonMessage),
                 InGameICChatType.Speak, true);
 
-            return;
+            return; //imp
         }
 
         if (HasComp<RandomUnrevivableComponent>(target))
@@ -234,9 +234,9 @@ public sealed class DefibrillatorSystem : EntitySystem
                 if (component.ShowMessages)
                     _chatManager.TrySendInGameICMessage(uid, Loc.GetString("defibrillator-unrevivable"), InGameICChatType.Speak, true);
                 dnrComponent.Chance = 0f;
-                var unrevivable = AddComp<UnrevivableComponent>(target);
-                unrevivable.Cloneable = true;
-                RemComp<RandomUnrevivableComponent>(target);
+                var unrevivable = AddComp<UnrevivableComponent>(target); //imp
+                unrevivable.Cloneable = true; //imp
+                RemComp<RandomUnrevivableComponent>(target); //imp
 
                 return;
             }
