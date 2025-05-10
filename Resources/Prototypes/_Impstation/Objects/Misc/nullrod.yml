@@ -67,7 +67,7 @@
   - type: SolutionContainerManager
     solutions:
       grail:
-        maxVol: 30
+        maxVol: 60
   - type: MixableSolution
     solution: grail
   - type: RefillableSolution
@@ -142,7 +142,7 @@
         variation: 0.35
     mustBeEquippedToUse: true
   - type: MeleeThrowOnHit
-    disctance: 1 # Down from 20 if this variable even does anything
+    distance: 1 # Down from 20 if this variable even does anything
     speed: 1 # Down from 7
   - type: Reflect
     reflectProb: .22
