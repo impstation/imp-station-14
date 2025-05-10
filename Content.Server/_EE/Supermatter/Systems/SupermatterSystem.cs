@@ -281,7 +281,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         if (!sm.HasBeenPowered)
             LogFirstPower(uid, sm, target);
 
-        if (!HasComp<ProjectileComponent>(target))
+        if (!TryComp<ProjectileComponent>(target, out var projectile))
         {
             var popup = "supermatter-collide";
 
@@ -310,7 +310,7 @@ public sealed partial class SupermatterSystem : EntitySystem
 
         if (TryComp<SupermatterFoodComponent>(target, out var food))
             sm.Power += food.Energy;
-        else if (TryComp<ProjectileComponent>(target, out var projectile))
+        else if (projectile != null)
             sm.Power += (float)projectile.Damage.GetTotal();
         else
             sm.Power++;
