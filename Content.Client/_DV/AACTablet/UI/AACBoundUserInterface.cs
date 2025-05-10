@@ -5,14 +5,10 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._DV.AACTablet.UI;
 
-public sealed class AACBoundUserInterface : BoundUserInterface
+public sealed class AACBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {
     [ViewVariables]
     private AACWindow? _window;
-
-    public AACBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
-    {
-    }
 
     protected override void Open()
     {
