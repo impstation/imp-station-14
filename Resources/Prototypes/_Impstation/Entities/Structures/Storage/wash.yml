@@ -1,6 +1,6 @@
 - type: entity
   parent: [ CrateBaseWeldable, BaseMachinePowered ]
-  id: WashingMachine
+  id: WashingMachineEmpty
   name: washing machine
   components:
   - type: Icon
@@ -39,15 +39,168 @@
   - type: SolutionContainerManager
     solutions:
       tank:
-        reagents:
-        - ReagentId: Water
-          Quantity: 10000
-        maxVol: 10000
+        maxVol: 500
   - type: ExaminableSolution
     solution: tank
-  - type: ReagentTank
-    transferAmount: 100
+  - type: RefillableSolution
+    solution: tank
+  - type: DrainableSolution
+    solution: tank
   - type: Transform
     anchored: true
   - type: Physics
     bodyType: Static
+  - type: Destructible
+  #- TODO explosive or whatever
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Breakage"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+  - type: WashingMachine
+  - type: ChemicalWashingMachineAdapter
+    solution: tank
+    reagentWater:
+      Water: 1
+    reagentCleaner:
+      Bleach: 1
+  - type: CleansForensics
+    cleanDelay: 0
+  - type: DoAfter #we need this so we can clean forensics off things :/
+
+- type: entity
+  parent: WashingMachineEmpty
+  id: WashingMachine
+  suffix: Full
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: Water
+          Quantity: 500
+        maxVol: 500
+
+- type: entity
+  parent: ClothingUniformBase
+  id: WashingLintTest
+  name: DRYER LINT
+  description: FOR TESTING REASONS!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/spacecadet.rsi
+    layers:
+    - state: icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/spacecadet.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+  - type: Tag
+    tags:
+    - Lint
+
+- type: entity
+  parent: ClothingUniformBase
+  id: WashingWhiteUniformTest
+  name: WHITE UNIFORM
+  description: FOR TESTING REASONS!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/spacecadet.rsi
+    layers:
+    - state: icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/spacecadet.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+  - type: Dyeable
+    recipes:
+      red: WashingRainbowUniformTest
+
+- type: entity
+  parent: CrayonRed
+  id: WashingCrayonTestRed
+  name: RED CRAYON DYE
+  description: FOR TESTING REASONS!
+  components:
+  - type: Dye
+    color: red
+
+- type: entity
+  parent: CrayonBlue
+  id: WashingCrayonTestBlue
+  name: BLUE CRAYON DYE
+  description: FOR TESTING REASONS!
+  components:
+  - type: Dye
+    color: blue
+
+- type: entity
+  parent: CrayonGreen
+  id: WashingCrayonTestGreen
+  name: GREEN CRAYON DYE
+  description: FOR TESTING REASONS!
+  components:
+  - type: Dye
+    color: green
+
+- type: entity
+  parent: CrayonBlack
+  id: WashingCrayonTestBlack
+  name: BLACK CRAYON DYE
+  description: FOR TESTING REASONS!
+  components:
+  - type: Dye
+    color: black
+
+- type: entity
+  parent: PlushieBug
+  id: TOTALLY NORMAL BUG PLUSHIE
+  components:
+  - type: Dyeable
+    recipes:
+      black: PlushieEvilBug
+
+- type: entity
+  parent: [ ClothingUniformBase, ClothingUniformFoldableBase ]
+  id: WashingRainbowUniformTest
+  name: RAINBOW UNIFORM
+  description: FOR TESTING REASONS!
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/rainbow.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/rainbow.rsi
+
+- type: entity
+  parent: PlushieSnail
+  id: WashingCleanerTest
+  name: WASHING CLEANER
+  description: FOR TESTING REASONS!
+  components:
+  - type: DyeCleaner
