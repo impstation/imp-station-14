@@ -1,7 +1,7 @@
 # Night Vision Goggles
 
 - type: entity
-  parent: ClothingEyesBase
+  parent: [ClothingEyesBase, BaseLensSlot] # BaseLensSlot from imp
   id: ClothingEyesNightVisionGoggles
   name: night vision goggles
   description: An advanced heads-up display which provides id data and vision in complete darkness.
@@ -69,7 +69,7 @@
 # Thermal Vision Goggles
 
 - type: entity
-  parent: ClothingEyesBase
+  parent: [ClothingEyesBase, BaseLensSlot] # BaseLensSlot from imp
   id: ClothingEyesThermalVisionGoggles
   name: thermal vision goggles
   description: Thermals in the shape of glasses.
