@@ -1,0 +1,39 @@
+- type: damageModifierSet
+  id: Replicator1
+  coefficients:
+    Blunt: 0.7
+    Slash: 0.5
+    Piercing: 0.7
+    Shock: 1.2
+    Structural: 0.5
+  flatReductions:
+    Blunt: 5
+    Heat: 5
+
+- type: damageModifierSet
+  id: Replicator2
+  coefficients:
+    Blunt: 0.6
+    Slash: 0.5
+    Piercing: 0.6
+    Shock: 1.2
+    Structural: 0.5
+  flatReductions:
+    Blunt: 5
+    Slash: 5
+    Piercing: 5
+    Heat: 5
+
+- type: damageModifierSet
+  id: Replicator3
+  coefficients:
+    Blunt: 0.5
+    Slash: 0.5
+    Piercing: 0.5
+    Shock: 1.2
+    Structural: 0.5
+  flatReductions:
+    Blunt: 6
+    Slash: 6
+    Piercing: 6
+    Heat: 6
