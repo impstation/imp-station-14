@@ -231,8 +231,9 @@ public sealed class DefibrillatorSystem : EntitySystem
             {
                 if (component.ShowMessages)
                     _chatManager.TrySendInGameICMessage(uid, Loc.GetString("defibrillator-unrevivable"), InGameICChatType.Speak, true);
-                    dnrComponent.Chance = 0f;
-                    AddComp<UnrevivableComponent>(target);
+                dnrComponent.Chance = 0f;
+                var unrevivable = AddComp<UnrevivableComponent>(target);
+                unrevivable.Cloneable = true;
                 return;
             }
             else
