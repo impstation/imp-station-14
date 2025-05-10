@@ -108,6 +108,7 @@ marking-LizardHeadFlat = Flat Head
 marking-LizardHeadFlat-flat = Flat Head
 
 marking-LizardFrill = Head Frill
+marking-LizardFrill-frill = Head Frill
 
 marking-LizardHornsKoboldEarspiercings = Lizard Ears (Kobold, Pierced)
 marking-LizardHornsKoboldEarspiercings-koboldears = Ears
