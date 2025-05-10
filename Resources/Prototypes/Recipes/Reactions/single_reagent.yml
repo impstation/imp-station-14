@@ -57,15 +57,3 @@
       amount: 1
   products:
     Holywater: 1
-
-- type: reaction
-  id: WatertoHolyAquam
-  impact: Low
-  requiredMixerCategories:
-  - Gildgrail
-  reactants:
-    Water:
-      amount: 1
-  products:
-    Holywater: 0.5
-    AquamDivinos: 0.5
