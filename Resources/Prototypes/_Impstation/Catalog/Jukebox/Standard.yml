@@ -60,6 +60,12 @@
     path: /Audio/_Impstation/Music/dont_drink_it.ogg
 
 - type: jukebox
+  id: DriversLounge
+  name: "[Hitman 2] Drivers' Lounge (Unreleased) // Niels bye Nielsen & Dynamedion GbR"
+  path:
+    path: /Audio/_Impstation/Music/drivers_lounge.ogg
+
+- type: jukebox
   id: Epoch
   name: "[Cobalt Core] Epoch // Aaron Cherof"
   path:
@@ -115,7 +121,7 @@
 
 - type: jukebox
   id: HourglassMeadow
-  name: "[ENA - Temptation Stairway] Hourglass Meadow // Oliver Buckland"
+  name: "[ENA: Temptation Stairway] Hourglass Meadow // Oliver Buckland"
   path:
     path: /Audio/_Impstation/Music/hourglass_meadow.ogg
 
@@ -252,6 +258,12 @@
     path: /Audio/_Impstation/Music/pillars_of_creation.ogg
 
 - type: jukebox
+  id: Purge
+  name: "[ENA: Dream BBQ] PURGE // METAROOM"
+  path:
+    path: /Audio/_Impstation/Music/purge.ogg
+
+- type: jukebox
   id: FFXPrelude
   name: "[FINAL FANTASY X] Prelude // Junya Nakano, Masashi Hamauzu and Nobuo Uematsu"
   path:
@@ -336,6 +348,12 @@
     path: /Audio/_Impstation/Music/warsaw.ogg
 
 - type: jukebox
+  id: WizardDisco
+  name: "WIZARD DISCO // Louie Zong"
+  path:
+    path: /Audio/_Impstation/Music/wizard_disco.ogg
+
+- type: jukebox
   id: YouBlowMyMind
   name: "[Street Fighter III: 3rd Strike] You Blow My Mind // Hideki Okugawa" # i'm not including the subsubtitle. who give a shit
   path:
@@ -355,6 +373,20 @@
   name: "_error-code:537461727320616E642047616D6573 // 416C66205361726F" # scary
   path:
     path: /Audio/_Impstation/Music/stars_and_games.ogg
+
+- type: jukebox
+  id: ANewDawn
+  emagOnly: true # for its intensity and finality. and also once cult's back in it'll fit in in this pool with nukebox as "songs that plays when you motherfucker die"
+  name: "[Space Station 14] A New Dawn // Nahu Pyrope"
+  path:
+    path: /Audio/_Impstation/Music/a_new_dawn.ogg
+
+- type: jukebox
+  id: AntiAlienAlarm
+  emagOnly: true
+  name: "[Doo>FUCKYOUALIEN!!!¡ëÙnm] E1M1 - At Doom's Ga1Í3|PROTECTIVESHIELD!$$!Å3te // BobK»öùn(ÁÁ‰ANTI-ALIENALAARRÑ1Çœ+p¼¿by Prince"
+  path:
+    path: /Audio/_Impstation/Music/anti_alien_alarm.ogg
 
 ## NUKEBOX BELOW; ALSO EMAG ONLY
 
