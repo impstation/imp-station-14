@@ -26,3 +26,11 @@ accent-words-kodepiia-3 = Ghrr.
 accent-words-kodepiia-4 = Crhcrh!
 accent-words-kodepiia-5 = Hrrrss.
 accent-words-kodepiia-6 = Brrh?
+
+# Baby Anomalocarid
+accent-words-babyanom-1 = Blblbl...
+accent-words-babyanom-2 = Klkl...
+accent-words-babyanom-3 = Blbl...
+accent-words-babyanom-4 = Blblbl?
+accent-words-babyanom-5 = Brbl.
+accent-words-babyanom-6 = Klklkl!
