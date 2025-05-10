@@ -2,23 +2,23 @@
 // all credit for the core gameplay concepts and a lot of the core functionality of the code goes to the folks over at Goob, but I re-wrote enough of it to justify putting it in our filestructure.
 // the original Bingle PR can be found here: https://github.com/Goob-Station/Goob-Station/pull/1519
 
-using Content.Shared.Actions;
-using Content.Shared.StepTrigger.Systems;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Movement.Pulling.Components;
 using Content.Shared._Impstation.SpawnedFromTracker;
-using Content.Shared.Item;
-using Content.Shared.Movement.Pulling.Systems;
-using Robust.Shared.Timing;
-using Content.Shared.Stunnable;
+using Content.Shared.Actions;
 using Content.Shared.Construction.Components;
 using Content.Shared.Humanoid;
-using Robust.Shared.Audio.Systems;
-using Content.Shared.Popups;
-using Robust.Shared.Network;
+using Content.Shared.Item;
 using Content.Shared.Mind;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.Popups;
+using Content.Shared.StepTrigger.Systems;
+using Content.Shared.Stunnable;
 using Content.Shared.Whitelist;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Network;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._Impstation.Replicator;
 
@@ -27,15 +27,15 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
 
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedItemSystem _item = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly StepTriggerSystem _stepTrigger = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly StepTriggerSystem _stepTrigger = default!;
 
     public override void Initialize()
     {

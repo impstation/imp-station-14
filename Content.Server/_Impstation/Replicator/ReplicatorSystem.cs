@@ -2,16 +2,16 @@
 // all credit for the core gameplay concepts and a lot of the core functionality of the code goes to the folks over at Goob, but I re-wrote enough of it to justify putting it in our filestructure.
 // the original Bingle PR can be found here: https://github.com/Goob-Station/Goob-Station/pull/1519
 
+using Content.Server.Actions;
+using Content.Server.Ghost.Roles.Events;
 using Content.Server.Popups;
+using Content.Shared._Impstation.Replicator;
+using Content.Shared._Impstation.SpawnedFromTracker;
 using Content.Shared.CombatMode;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
-using Content.Shared._Impstation.Replicator;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
-using Content.Server.Ghost.Roles.Events;
-using Content.Shared._Impstation.SpawnedFromTracker;
-using Content.Server.Actions;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Impstation.Replicator;
@@ -19,9 +19,10 @@ namespace Content.Server._Impstation.Replicator;
 public sealed class ReplicatorSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
+
     [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly AppearanceSystem _appearance = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
 
     public override void Initialize()
     {

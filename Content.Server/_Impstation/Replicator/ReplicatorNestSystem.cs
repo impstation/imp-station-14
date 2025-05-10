@@ -2,39 +2,40 @@
 // all credit for the core gameplay concepts and a lot of the core functionality of the code goes to the folks over at Goob, but I re-wrote enough of it to justify putting it in our filestructure.
 // the original Bingle PR can be found here: https://github.com/Goob-Station/Goob-Station/pull/1519
 
-using Content.Server.Stunnable;
-using Content.Shared.StepTrigger.Systems;
-using Content.Shared.Stunnable;
-using Robust.Shared.Containers;
-using Robust.Shared.Timing;
-using Content.Shared._Impstation.Replicator;
-using Robust.Server.Containers;
-using Content.Server.Popups;
-using Robust.Server.GameObjects;
+using Content.Server.Actions;
 using Content.Server.GameTicking;
 using Content.Server.Pinpointer;
-using Content.Shared.Movement.Events;
-using Content.Shared.Destructible;
-using Robust.Shared.Random;
-using Content.Shared.Mobs.Systems;
-using Content.Server.Actions;
+using Content.Server.Popups;
+using Content.Server.Stunnable;
+using Content.Shared._Impstation.Replicator;
 using Content.Shared.Actions;
+using Content.Shared.Destructible;
 using Content.Shared.Mind.Components;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Movement.Events;
+using Content.Shared.StepTrigger.Systems;
+using Content.Shared.Stunnable;
+using Robust.Server.Containers;
+using Robust.Server.GameObjects;
+using Robust.Shared.Containers;
+using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Impstation.Replicator;
 
 public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
 {
-    [Dependency] private readonly ContainerSystem _containerSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly NavMapSystem _navMap = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
+
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
+    [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly ContainerSystem _containerSystem = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly NavMapSystem _navMap = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly StunSystem _stun = default!;
+    [Dependency] private readonly TransformSystem _transform = default!;
 
     public override void Initialize()
     {
