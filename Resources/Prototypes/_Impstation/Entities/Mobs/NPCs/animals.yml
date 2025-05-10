@@ -387,8 +387,8 @@
     biomassRestored: 0.2
   - type: InteractionPopup
     successChance: 0.2
-    interactSuccessString: petting-success-soft-floofy
-    interactFailureString: petting-failure-bat
+    interactSuccessString: petting-success-crab #todo: custom these
+    interactFailureString: petting-failure-monkey
     interactSuccessSpawn: EffectHearts
     interactSuccessSound:
       path: /Audio/Animals/fox_squeak.ogg
