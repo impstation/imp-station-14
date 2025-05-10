@@ -5,10 +5,14 @@
   id: ReplicatorNest
   name: replicator nest
   description: A roiling mass of nanotechnology is eating through the station's infrastructure.
+  categories: [ HideSpawnMenu ] # don't want admins spawning unlinked nests
   placement:
     mode: SnapGridCenter
   components:
   - type: ReplicatorNest
+    blacklist:
+      tags:
+      - BROS # too many of em. therefore worthless
   - type: StepTrigger
     requiredTriggeredSpeed: 0
     intersectRatio: 0.4

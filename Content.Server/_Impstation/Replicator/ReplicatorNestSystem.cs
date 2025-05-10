@@ -3,38 +3,23 @@
 // the original Bingle PR can be found here: https://github.com/Goob-Station/Goob-Station/pull/1519
 
 using Content.Server.Stunnable;
-using Content.Shared.Humanoid;
-using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Stunnable;
-using Content.Shared.Movement.Pulling.Components;
-using Content.Shared.Movement.Pulling.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 using Content.Shared._Impstation.Replicator;
 using Robust.Server.Containers;
-using Robust.Server.Audio;
 using Content.Server.Popups;
 using Robust.Server.GameObjects;
 using Content.Server.GameTicking;
 using Content.Server.Pinpointer;
 using Content.Shared.Movement.Events;
-using Content.Shared._Impstation.SpawnedFromTracker;
-using Content.Shared.Tools.Components;
 using Content.Shared.Destructible;
-using Robust.Shared.Serialization.TypeSerializers.Implementations;
 using Robust.Shared.Random;
 using Content.Shared.Mobs.Systems;
 using Content.Server.Actions;
 using Content.Shared.Actions;
-using Content.Server.Mind;
 using Content.Shared.Mind.Components;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Content.Shared.Item;
-using Content.Server.Item;
-using Robust.Shared.Prototypes;
-using Content.Shared.Construction.Components;
 
 namespace Content.Server._Impstation.Replicator;
 
@@ -42,20 +27,14 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
 {
     [Dependency] private readonly ContainerSystem _containerSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly ReplicatorSystem _replicator = default!;
-    [Dependency] private readonly StepTriggerSystem _stepTrigger = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
-    [Dependency] private readonly ItemSystem _item = default!;
 
     public override void Initialize()
     {
@@ -97,6 +76,9 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
             QueueDel(ent);
 
         ent.Comp.Hole = _containerSystem.EnsureContainer<Container>(ent, "hole");
+
+        ent.Comp.NextSpawnAt = ent.Comp.SpawnNewAt;
+        ent.Comp.NextUpgradeAt = ent.Comp.UpgradeAt;
     }
 
     private void OnStepTriggerAttempt(Entity<ReplicatorNestComponent> ent, ref StepTriggerAttemptEvent args)
@@ -160,13 +142,16 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
 
             _popup.PopupEntity(Loc.GetString("replicator-nest-destroyed"), replicator, replicator);
         }
-        // if there's no queen, pick a new queen at random from this nest's living replicators, and give them the action to make a new nest.
-        if (queen == null && livingReplicators.Count > 0)
+        // if there are living replicators, select one and give the action to create a new nest.
+        if (livingReplicators.Count > 0)
         {
-            queen = _random.Pick(livingReplicators);
+            // if there's no queen, pick a new one
+            if (queen == null)
+                queen = _random.Pick(livingReplicators);
+
             var comp = EnsureComp<ReplicatorComponent>((EntityUid)queen);
             comp.Queen = true;
-            comp.RelatedReplicators = livingReplicators;
+            comp.RelatedReplicators = livingReplicators; // make sure we know who belongs to our nest
 
             if (!TryComp<MindContainerComponent>(queen, out var mindContainer) || mindContainer.Mind == null)
                 return;

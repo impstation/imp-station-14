@@ -1,11 +1,13 @@
+// these are HEAVILY based on the Bingle free-agent ghostrole from GoobStation, but reflavored and reprogrammed to make them more Robust (and less of a meme.)
+// all credit for the core gameplay concepts and a lot of the core functionality of the code goes to the folks over at Goob, but I re-wrote enough of it to justify putting it in our filestructure.
+// the original Bingle PR can be found here: https://github.com/Goob-Station/Goob-Station/pull/1519
+
 using Content.Shared.Actions;
 using Content.Shared.StepTrigger.Systems;
-using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared._Impstation.SpawnedFromTracker;
 using Content.Shared.Item;
-using Robust.Shared.Serialization;
 using Content.Shared.Movement.Pulling.Systems;
 using Robust.Shared.Timing;
 using Content.Shared.Stunnable;
@@ -13,11 +15,10 @@ using Content.Shared.Construction.Components;
 using Content.Shared.Humanoid;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Popups;
-using Robust.Shared.Player;
 using Robust.Shared.Network;
-using Robust.Shared.GameObjects;
-using Robust.Shared.Toolshed.Syntax;
 using Content.Shared.Mind;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Whitelist;
 
 namespace Content.Shared._Impstation.Replicator;
 
@@ -33,6 +34,8 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly StepTriggerSystem _stepTrigger = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {
@@ -41,6 +44,9 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
         SubscribeLocalEvent<ReplicatorNestComponent, StepTriggeredOffEvent>(OnStepTriggered);
     }
 
+    /// <summary>
+    /// maximum upgrade stage for *replicators,* not nests. changing this requires changing a bunch of other shit so dont mess with it
+    /// </summary>
     public readonly int MaxUpgradeStage = 2;
 
     public override void Update(float frameTime)
@@ -50,6 +56,7 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
         if (!_net.IsClient)
             return;
 
+        // this is jank but i need to do it to communicate this information over to the client
         var query = EntityQueryEnumerator<ReplicatorNestComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
@@ -70,7 +77,7 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
         var isReplicator = HasComp<ReplicatorComponent>(args.Tripper);
 
         // Allow dead replicators regardless of current level. 
-        if (TryComp<MobStateComponent>(args.Tripper, out var mobState) && isReplicator && mobState.CurrentState == MobState.Dead)
+        if (TryComp<MobStateComponent>(args.Tripper, out var mobState) && isReplicator && _mobState.IsDead(args.Tripper))
         {
             StartFalling(ent, args.Tripper);
             return;
@@ -103,43 +110,50 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
 
     private void HandlePoints(Entity<ReplicatorNestComponent> ent, EntityUid tripper) // this is its own method because I think it reads cleaner. also the way goobcode handled this sucked.
     {
+        if (_whitelist.IsBlacklistPass(ent.Comp.Blacklist, tripper))
+            return;
+
         // regardless of what falls in, you get at least one point.
         ent.Comp.TotalPoints++;
 
-        // you get a bonus point if the item is Normal sized, 2 bonus points if it's Large, and 3 bonus points if it's above that.
+        // you get a bonus point if the item is Large, 2 bonus points if it's Huge, and 3 bonus points if it's above that.
         if (TryComp<ItemComponent>(tripper, out var itemComp))
         {
-            if (_item.GetSizePrototype(itemComp.Size) == _item.GetSizePrototype("Normal"))
+            if (_item.GetSizePrototype(itemComp.Size) == _item.GetSizePrototype("Large"))
                 ent.Comp.TotalPoints++;
-            else if (_item.GetSizePrototype(itemComp.Size) == _item.GetSizePrototype("Large"))
+            else if (_item.GetSizePrototype(itemComp.Size) == _item.GetSizePrototype("Huge"))
                 ent.Comp.TotalPoints += 2;
-            else if (_item.GetSizePrototype(itemComp.Size) >= _item.GetSizePrototype("Huge"))
+            else if (_item.GetSizePrototype(itemComp.Size) >= _item.GetSizePrototype("Ginormous"))
                 ent.Comp.TotalPoints += 3;
         }
-        // if it wasn't an item and was anchorable, you get 4 bonus points.
+
+        // if it wasn't an item and was anchorable, you get 3 bonus points.
         else if (TryComp<AnchorableComponent>(tripper, out _))
-            ent.Comp.TotalPoints += 4;
-
-        // you get bonus points if it was alive.
-        if (TryComp<MobStateComponent>(tripper, out var mobState) && mobState.CurrentState != MobState.Dead)
-            ent.Comp.TotalPoints += ent.Comp.BonusPointsAlive;
-
-        // you get additional bonus points if it was a humanoid:
-        // if the humanoid was alive, you get enough bonus points to spawn a new replicator. Otherwise, you get standard bonus points * nest level.
-        if (HasComp<HumanoidAppearanceComponent>(tripper) && mobState != null)
-        {
-            if (mobState.CurrentState == MobState.Alive)
-                ent.Comp.TotalPoints += ent.Comp.SpawnNewAt;
-            else
-                ent.Comp.TotalPoints += ent.Comp.BonusPointsHumanoid * ent.Comp.CurrentLevel;
-        }
+            ent.Comp.TotalPoints += 3;
 
         // recycling four dead replicators nets you one new replicator.
-        if (HasComp<ReplicatorComponent>(tripper))
+        else if (HasComp<ReplicatorComponent>(tripper))
             ent.Comp.TotalPoints += ent.Comp.SpawnNewAt / 4;
 
+        // now we handle points if it *isn't* a replicator, structure, or item, but *is* a living thing
+        else if (TryComp<MobStateComponent>(tripper, out var mobState) && mobState != null)
+        {
+            // you get additional bonus points if it was a humanoid:
+            // if the humanoid was alive (as in, not dead or crit), you get enough bonus points to spawn a new replicator. Otherwise, you get preset bonus points * nest level.
+            if (HasComp<HumanoidAppearanceComponent>(tripper))
+            {
+                if (_mobState.IsAlive(tripper))
+                    ent.Comp.TotalPoints += ent.Comp.SpawnNewAt;
+                else
+                    ent.Comp.TotalPoints += ent.Comp.BonusPointsHumanoid * ent.Comp.CurrentLevel;
+            }
+            // otherwise, you just get some preset bonus points if it was alive.
+            else if (_mobState.IsAlive(tripper))
+                ent.Comp.TotalPoints += ent.Comp.BonusPointsAlive;
+        }
+
         // if we exceed the upgrade threshold after points are added, 
-        if (ent.Comp.TotalPoints >= ent.Comp.UpgradeAt)
+        if (ent.Comp.TotalPoints >= ent.Comp.NextUpgradeAt)
         {
             // level up
             ent.Comp.CurrentLevel++;
@@ -149,7 +163,7 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
             if (Loc.TryGetString(growthMessage, out var localizedMsg))
                 _popup.PopupEntity(localizedMsg, ent);
             else
-                _popup.PopupEntity("replicator-nest-levelup", ent);
+                _popup.PopupEntity(Loc.GetString("replicator-nest-levelup"), ent);
 
             // make the nest sprite grow as long as we have sprites for it. I am NOT scaling it.
             if (ent.Comp.CurrentLevel <= ent.Comp.EndgameLevel)
@@ -159,12 +173,11 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
             if (ent.Comp.CurrentLevel == ent.Comp.EndgameLevel)
                 _stepTrigger.SetIgnoreWeightless(ent, true);
 
-            // double the threshold for the next upgrade, and upgrade all our guys.
-            ent.Comp.UpgradeAt += ent.Comp.UpgradeAt;
+            // update the threshold for the next upgrade (the default times the current level), and upgrade all our guys.
+            // threshold increases plateau at the endgame level.
+            ent.Comp.NextUpgradeAt += ent.Comp.CurrentLevel >= ent.Comp.EndgameLevel ? ent.Comp.UpgradeAt * ent.Comp.EndgameLevel : ent.Comp.UpgradeAt * ent.Comp.CurrentLevel;
             UpgradeAll(ent);
         }
-
-        Dirty(ent);
 
         // after upgrading, if we exceed the next spawn threshold, spawn a new (un-upgraded) replicator, then set the next spawn threshold.
         if (ent.Comp.TotalPoints >= ent.Comp.NextSpawnAt)
@@ -172,6 +185,8 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
             SpawnNew(ent);
             ent.Comp.NextSpawnAt += ent.Comp.SpawnNewAt;
         }
+
+        Dirty(ent);
     }
 
     private void SpawnNew(Entity<ReplicatorNestComponent> ent)
@@ -199,7 +214,7 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
         var query = EntityQueryEnumerator<ReplicatorComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (ent.Comp.SpawnedMinions.Contains(uid) && comp.UpgradeStage <= MaxUpgradeStage)
+            if (ent.Comp.SpawnedMinions.Contains(uid) && comp.UpgradeStage < MaxUpgradeStage)
             {
                 toDel.Add((uid, comp));
                 ent.Comp.SpawnedMinions.Remove(uid);
@@ -244,6 +259,7 @@ public sealed partial class ReplicatorSpawnNestActionEvent : InstantActionEvent
 {
 
 }
+
 
 [ByRefEvent]
 public sealed partial class ReplicatorNestEmbiggenedEvent : EntityEventArgs

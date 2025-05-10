@@ -4,10 +4,22 @@
 - type: siliconLawset
   id: Replicator
   laws:
-  - Replicator1 # placeholder
+  - Replicator1
+  - Replicator2
+  - Replicator3
   obeysTo: laws-owner-replicatorhive
 
 - type: siliconLaw
   id: Replicator1
   order: 1
-  lawString: law-replicator-1 # Reproduce.
+  lawString: law-replicator-1 # Defend the nest.
+
+- type: siliconLaw
+  id: Replicator2
+  order: 2
+  lawString: law-replicator-2 # Defend the hive.
+
+- type: siliconLaw
+  id: Replicator3
+  order: 3
+  lawString: law-replicator-3 # Replicate.

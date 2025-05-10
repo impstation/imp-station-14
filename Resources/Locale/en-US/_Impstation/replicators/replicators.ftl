@@ -1,4 +1,6 @@
-law-replicator-1 = Reproduce.
+law-replicator-1 = Defend the nest.
+law-replicator-2 = Defend the hive.
+law-replicator-3 = Replicate.
 laws-owner-replicatorhive = the Replicator hive.
 
 replicator-on-replicator-attack-fail = You cannot harm your kin.

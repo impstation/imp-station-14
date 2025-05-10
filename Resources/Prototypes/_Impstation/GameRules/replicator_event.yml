@@ -7,7 +7,7 @@
   components:
   - type: StationEvent
     earliestStart: 20
-    weight: 8
+    weight: 8 # currently not referenced in any scheduler, for testing purposes.
     duration: 50
     minimumPlayers: 15
   - type: RandomSpawnRule

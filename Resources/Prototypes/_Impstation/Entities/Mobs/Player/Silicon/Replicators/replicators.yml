@@ -4,7 +4,8 @@
 - type: entity
   name: replicator
   description: It's just a little guy. What harm could it do?
-  id: MobReplicator
+  id: BaseMobReplicator
+  abstract: true
   parent: PlayerSiliconBase
   components:
   - type: Replicator
@@ -22,7 +23,7 @@
       settings: default
   - type: Sprite
     drawdepth: Mobs
-    sprite: _Impstation/Mobs/Replicator/replicator.rsi # //TODOOOOOOOO
+    sprite: _Impstation/Mobs/Replicator/replicator.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: alive
@@ -30,6 +31,10 @@
       state: combat_level1
       shader: unshaded
       visible: false
+  - type: UserInterface
+    interfaces:
+      enum.SiliconLawsUiKey.Key:
+        type: SiliconLawBoundUserInterface
   - type: Appearance
   - type: ReplacementAccent
     accent: silicon
@@ -92,19 +97,18 @@
     damage:
       types:
         Slashing: 7
-        Structural: 14 # breaks down the walls and airlocks in 10 hits
   - type: StaminaDamageOnHit
-    damage: 15
+    damage: 10
     sound: /Audio/Weapons/egloves.ogg
   - type: MovementSpeedModifier
-    baseWalkSpeed : 2 # same as slime
-    baseSprintSpeed : 4
+    baseWalkSpeed: 2 # same as slime
+    baseSprintSpeed: 4
   - type: Stamina
     critThreshold: 120
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: Metallic
-  - type: PassiveDamage #passive Healing
+    damageModifierSet: Replicator1
+  - type: PassiveDamage # passive healing
     allowedStates:
     - Alive
     damage:
@@ -114,25 +118,87 @@
   - type: NightVision
     color: "#9d0000"
   - type: FlashImmunity
+  - type: Puller
+    needsHands: false
+    applySpeedModifier: false
+  - type: Prying # approved by mira
+    pryPowered: true
+    force: true
+    speedModifier: 1
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
 
 - type: entity
   id: MobReplicatorQueen
   parent: MobReplicator
-  suffix: Queen
+  categories: [ HideSpawnMenu ]
+  suffix: Queen, Level 1
   components:
   - type: Replicator
     queen: true
 
 - type: entity
+  id: MobReplicator
+  parent: BaseMobReplicator
+  categories: [HideSpawnMenu] # I don't want admins spawning a replicator that's unlinked to a nest
+  components:
+  - type: Physics
+    bodyStatus: InAir
+  - type: CanMoveInAir
+  - type: MovementIgnoreGravity
+    gravityState: true
+  - type: FloatingVisuals
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2 # same as slime
+    baseSprintSpeed: 4
+    weightlessFriction: 1
+    weightlessFrictionNoInput: 2
+    weightlessAcceleration: 1.8
+  - type: NoSlip
+  - type: Sprite
+    drawDepth: SmallMobs
+    sprite: _Impstation/Mobs/Replicator/replicator.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: alive
+    - map: ["enum.ReplicatorVisuals.Combat"]
+      state: combat_level1
+      shader: unshaded
+      visible: false
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: Body
+    prototype: Replicator1
+
+- type: entity
   id: MobReplicatorTier2
-  parent: MobReplicator
+  parent: BaseMobReplicator
+  categories: [HideSpawnMenu] # I don't want admins spawning a replicator that's unlinked to a nest
   suffix: Level 2
   components:
   - type: Replicator
     upgradeStage: 1
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2 # same as slime
+    baseSprintSpeed: 4
+    weightlessFriction: 1
+    weightlessFrictionNoInput: 2
+    weightlessAcceleration: 1.2
   - type: Sprite
     drawDepth: Mobs
-    sprite: _Impstation/Mobs/Replicator/replicator.rsi # //TODOOOOOOOO
+    sprite: _Impstation/Mobs/Replicator/replicator.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: alive_level2
@@ -140,6 +206,7 @@
       state: combat_level2
       shader: unshaded
       visible: false
+  - type: NoSlip
   - type: DamageStateVisuals
     rotate: false
     states:
@@ -147,30 +214,30 @@
         Base: alive_level2
       Dead:
         Base: dead_level2
-  - type: MeleeWeapon
-    soundHit:
-      path: "/Audio/Items/wirecutter.ogg"
-    angle: 0
-    wideAnimationRotation: 0
-    animation: WeaponArcSlash
-    damage:
-      types:
-        Slashing: 14
-        Structural: 28
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: StructuralMetallicStrong # this may be too much.
+    damageModifierSet: Replicator2
+  - type: Body
+    prototype: Replicator2
+  - type: Loadout
+    prototypes:
+      - StartingGearReplicatorTools
 
 - type: entity
   id: MobReplicatorTier3
-  parent: MobReplicatorTier2
+  parent: BaseMobReplicator
+  categories: [HideSpawnMenu] # I don't want admins spawning a replicator that's unlinked to a nest
+  description: Oh, my.
   suffix: Level 3
   components:
   - type: Replicator
     upgradeStage: 2
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 0.8 # these fellas are the tanks
+    baseSprintSpeed: 4
   - type: Sprite
     drawDepth: Mobs
-    sprite: _Impstation/Mobs/Replicator/replicator.rsi # //TODOOOOOOOO
+    sprite: _Impstation/Mobs/Replicator/replicator.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: alive_level3
@@ -185,3 +252,13 @@
         Base: alive_level3
       Dead:
         Base: dead_level3
+  - type: Body
+    prototype: Replicator3
+  - type: Loadout
+    prototypes:
+      - StartingGearReplicatorWeapon
+  - type: NoSlip
+  - type: Magboots
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Replicator3

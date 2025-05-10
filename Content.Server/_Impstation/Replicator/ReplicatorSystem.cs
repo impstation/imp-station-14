@@ -2,8 +2,6 @@
 // all credit for the core gameplay concepts and a lot of the core functionality of the code goes to the folks over at Goob, but I re-wrote enough of it to justify putting it in our filestructure.
 // the original Bingle PR can be found here: https://github.com/Goob-Station/Goob-Station/pull/1519
 
-using Content.Server.Polymorph.Components;
-using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Shared.CombatMode;
 using Content.Shared.Interaction.Events;
@@ -11,18 +9,16 @@ using Content.Shared.Popups;
 using Content.Shared._Impstation.Replicator;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
-using Robust.Shared.Player;
 using Content.Server.Ghost.Roles.Events;
 using Content.Shared._Impstation.SpawnedFromTracker;
 using Content.Server.Actions;
-
-
+using Robust.Shared.Timing;
 
 namespace Content.Server._Impstation.Replicator;
 
 public sealed class ReplicatorSystem : EntitySystem
 {
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
@@ -57,6 +53,9 @@ public sealed class ReplicatorSystem : EntitySystem
 
     private void OnSpawnNestAction(Entity<ReplicatorComponent> ent, ref ReplicatorSpawnNestActionEvent args)
     {
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
         var xform = Transform(ent);
         var coords = xform.Coordinates;
 
