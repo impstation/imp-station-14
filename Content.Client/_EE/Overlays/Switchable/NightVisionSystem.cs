@@ -63,7 +63,7 @@ public sealed class NightVisionSystem : Client.Overlays.EquipmentHudSystem<Night
                 break;
         }
 
-        UpdateNightVision(active);
+        UpdateNightVision(active, nvComp);
         UpdateOverlay(nvComp);
     }
 
@@ -71,13 +71,23 @@ public sealed class NightVisionSystem : Client.Overlays.EquipmentHudSystem<Night
     {
         base.DeactivateInternal();
 
-        UpdateNightVision(false);
+        UpdateNightVision(false, null);
         UpdateOverlay(null);
     }
 
-    private void UpdateNightVision(bool active)
+    private void UpdateNightVision(bool active, NightVisionComponent? nvComp) // imp. changed this whole method for drones
     {
-        _lightManager.DrawShadows = !active;
+        if (nvComp == null)
+        {
+            _lightManager.DrawLighting = true;
+            _lightManager.DrawShadows = true;
+            return;
+        }
+
+        if (nvComp.UseGoodLighting)
+            _lightManager.DrawLighting = !active;
+        else
+            _lightManager.DrawShadows = !active;
     }
 
     private void UpdateOverlay(NightVisionComponent? nvComp)
