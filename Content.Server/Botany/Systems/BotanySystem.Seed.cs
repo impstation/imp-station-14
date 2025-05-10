@@ -16,6 +16,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
+using System.Text.RegularExpressions; // imp
 
 namespace Content.Server.Botany.Systems;
 
@@ -87,7 +88,19 @@ public sealed partial class BotanySystem : EntitySystem
         using (args.PushGroup(nameof(SeedComponent), 1))
         {
             var name = Loc.GetString(seed.DisplayName);
-            args.PushMarkup(Loc.GetString($"seed-component-description", ("seedName", name)));
+            //IMP EDIT: support good grammar
+            //supports plural crop descriptions (i.e. "some ears of corn", "an apple tree", "some cannabis"... etc.)
+            var englishArticle = "some";
+            if (!(seed.IsPluralName || seed.IsSingularPluralName)) //if not plural
+            {
+                if (Regex.IsMatch(name, "^[aeiou]")) // if the display name starts with a vowel
+                    englishArticle = "an";
+                else englishArticle = "a";
+                //See locale notes in PlantHolderSystem.cs
+            }
+
+            args.PushMarkup(Loc.GetString($"seed-component-description", ("seedName", name), ("article", englishArticle)));
+            //end imp edits
             args.PushMarkup(Loc.GetString($"seed-component-plant-yield-text", ("seedYield", seed.Yield)));
             args.PushMarkup(Loc.GetString($"seed-component-plant-potency-text", ("seedPotency", seed.Potency)));
         }

@@ -26,6 +26,7 @@ using Content.Server.Labels.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
+using System.Text.RegularExpressions; // imp
 
 namespace Content.Server.Botany.Systems;
 
@@ -104,9 +105,25 @@ public sealed class PlantHolderSystem : EntitySystem
             else if (!component.Dead)
             {
                 var displayName = Loc.GetString(component.Seed.DisplayName);
-                args.PushMarkup(Loc.GetString("plant-holder-component-something-already-growing-message",
+                //IMP EDITS: sprucing this shit up (ha, botany pun) to support better grammatical examine
+                //supports plural plant descriptions (i.e. "Ears of corn are", "An apple tree is", "Cannabis is"... etc.)
+                displayName = string.Concat(displayName[0].ToString().ToUpperInvariant(), displayName.AsSpan(1)); // forces sentence case for the plant itself; thanks stack overflow
+                var englishArticle = "";
+                if (!(component.Seed.IsPluralName || component.Seed.IsSingularPluralName)) //if not plural
+                {
+                    if (Regex.IsMatch(displayName, "^[AEIOU]")) // if the display name starts with a vowel
+                        englishArticle = "An";
+                    else englishArticle = "A";
+                    displayName = displayName.ToLowerInvariant();
+                    // LOCALE NOTE: this is a soft-coded anglospheric solution and i realize it kinda sucks (the concern isn't pressing as of writing this since nobody's making a serious effort to translate the game afaik)
+                    // as-is, the englishArticle can be translated by the .ftl as a switch statement, if other languages have a similar rule
+                }
+                var output = Loc.GetString("plant-holder-component-something-already-growing-message",
+                    ("article", englishArticle),
                     ("seedName", displayName),
-                    ("toBeForm", displayName.EndsWith('s') ? "are" : "is")));
+                    ("count", component.Seed.IsPluralName)).TrimStart(' ');
+                args.PushMarkup(output);
+                //END IMP EDITS
 
                 if (component.Health <= component.Seed.Endurance / 2)
                 {
