@@ -127,6 +127,7 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         {
             if (user is not null)
                 _popup.PopupEntity(Loc.GetString("food-sequence-no-space"), start, user.Value);
+            if (start.Comp.MaxLayers > 80)
                 EnsureComp<EatSignComponent>(start); // Imp eat sign
             return false;
         }

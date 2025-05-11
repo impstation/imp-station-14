@@ -25,7 +25,7 @@ public sealed partial class FoodSequenceStartPointComponent : Component
     /// The maximum number of layers of food that can be placed on this item.
     /// </summary>
     [DataField]
-    public int MaxLayers = 100; // imp
+    public int MaxLayers = 30; // imp
 
     /// <summary>
     /// Can we put more layers?
