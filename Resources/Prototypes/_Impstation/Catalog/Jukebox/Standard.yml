@@ -391,6 +391,13 @@
 ## NUKEBOX BELOW; ALSO EMAG ONLY
 
 - type: jukebox
+  id: Alicorn
+  emagOnly: true
+  name: "[ACE COMBAT 7: SKIES UNKNOWN] Alicorn // Keiki Kobayashi & PROJECT ACES"
+  path:
+    path: /Audio/_Impstation/Music/alicorn.ogg
+
+- type: jukebox
   id: BossPlok
   emagOnly: true
   name: "[Plok!] Boss // Geoff Follin"
@@ -412,11 +419,25 @@
     path: /Audio/_Impstation/Music/cyber_grind.ogg
 
 - type: jukebox
+  id: Cyberwildlife
+  emagOnly: true
+  name: "[Cyberpunk 2077] Cyberwildlife Park // Marcin Przybyłowicz"
+  path:
+    path: /Audio/_Impstation/Music/cyberwildlife_park.ogg
+
+- type: jukebox
   id: Departure
   emagOnly: true
   name: "[Mega Man Zero 2] Departure // Ippo Yamada; arranged by III (for REMASTERED TRACKS ROCKMAN ZERO Mythos)"
   path:
     path: /Audio/_Impstation/Music/departure.ogg
+
+- type: jukebox
+  id: EonSMTV
+  emagOnly: true
+  name: "[Shin Megami Tensei V] Battle -eon- (I) // Ryota Kozuka"
+  path:
+    path: /Audio/_Impstation/Music/eon.ogg
 
 - type: jukebox
   id: Fiend
@@ -426,6 +447,20 @@
     path: /Audio/_Impstation/Music/fiend.ogg
 
 - type: jukebox
+  id: FinalHours
+  emagOnly: true
+  name: "[The Legend Of Zelda: Majora's Mask] Final Hours // Koji Kondo"
+  path:
+    path: /Audio/_Impstation/Music/final_hours.ogg
+
+- type: jukebox
+  id: FlyOctoFly
+  emagOnly: true
+  name: "[Splatoon 2] Fly Octo Fly ~ Ebb & Flow // Toru Minegishi"
+  path:
+    path: /Audio/_Impstation/Music/fly_octo_fly.ogg
+
+- type: jukebox
   id: ForgetFreeman
   emagOnly: true
   name: "[Black Mesa] Forget About Freeman // Joel Nielsen"
@@ -433,11 +468,25 @@
     path: /Audio/_Impstation/Music/forget_about_freeman.ogg
 
 - type: jukebox
+  id: GreatHeat
+  emagOnly: true
+  name: "[BAROQUE] Great Heat 20320514 // Masaharu Iwata"
+  path:
+    path: /Audio/_Impstation/Music/great_heat.ogg
+
+- type: jukebox
   id: HurryUp
   emagOnly: true
   name: "[Wario Land 4] Hurry Up! // Ryoji Yoshitomi"
   path:
     path: /Audio/_Impstation/Music/hurry_up.ogg
+
+- type: jukebox
+  id: DeathStrandingNuke
+  emagOnly: true
+  name: "[Death Stranding] Nuke // Ludvig Forssell"
+  path:
+    path: /Audio/_Impstation/Music/ds_nuke.ogg
 
 - type: jukebox
   id: Roadkilla
@@ -456,7 +505,7 @@
 - type: jukebox
   id: RuinousIntnt
   emagOnly: true
-  name: "[corru.observer] RUINOUS INTNT // NoisyRejects, Deltanoyz, corru.works"
+  name: "[corru.observer] RUINOUS INTNT // NoisyRejects, Deltanoyz, & corru.works"
   path:
     path: /Audio/_Impstation/Music/ruinous_intnt.ogg
 
