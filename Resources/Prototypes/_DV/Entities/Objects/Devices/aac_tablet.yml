@@ -10,7 +10,6 @@
       - state: aac_tablet
       - state: aac_screen
         shader: unshaded
-    state: icon
   - type: Item
     inhandVisuals:
       left:
@@ -39,6 +38,6 @@
       enum.AACTabletKey.Key:
         type: AACBoundUserInterface
   - type: Speech
-    speechSounds: Alto
+    speechSounds: Borg
   - type: AACTablet
   - type: VoiceMask
