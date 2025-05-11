@@ -1,148 +1,4 @@
 ﻿Entries:
-- author: TheGrimbeeper
-  changes:
-  - message: reduced radioactivity of uranium and uranium-based materials
-    type: Tweak
-  id: 1125
-  time: '2025-02-14T07:49:54.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1644
-- author: Sha-Seng
-  changes:
-  - message: Portable Criminal Records now fits in the tank slot!
-    type: Tweak
-  id: 1126
-  time: '2025-02-14T08:12:45.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1618
-- author: FlippenPage
-  changes:
-  - message: made heretic transmutation runes less visible
-    type: Tweak
-  id: 1127
-  time: '2025-02-15T00:37:47.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1687
-- author: TheGrimbeeper
-  changes:
-  - message: Heretics should no longer be able to get themselves (or other heretics)
-      or changelings as targets
-    type: Fix
-  id: 1128
-  time: '2025-02-15T00:41:26.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1688
-- author: hivehum, crocodilecarousel
-  changes:
-  - message: Six lovely pairs of glasses available now in your loadout menu!
-    type: Add
-  id: 1129
-  time: '2025-02-15T00:50:02.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1679
-- author: FlippenPage
-  changes:
-  - message: Added Drone rooms!
-    type: Add
-  id: 1130
-  time: '2025-02-15T08:09:07.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1694
-- author: irismessage
-  changes:
-  - message: Our knowledge has widened.
-    type: Add
-  id: 1131
-  time: '2025-02-15T21:44:16.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1697
-- author: Sha-Seng
-  changes:
-  - message: Security jetpacks are now in security hardsuit lockers (they're coming
-      for you)
-    type: Tweak
-  id: 1132
-  time: '2025-02-16T01:25:56.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1668
-- author: widgetbeck
-  changes:
-  - message: Drones now have a station pinpointer in their pocket, so they don't get
-      lost in space.
-    type: Add
-  - message: Drones now have a 10-hour Engineering time requirement. Learn the G menu.
-    type: Add
-  - message: Drones can now pilot shuttles.
-    type: Add
-  id: 1133
-  time: '2025-02-16T02:43:16.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1695
-- author: widgetbeck
-  changes:
-  - message: The mail telepad will now notify Supply when a shipment arrives, complete
-      with the time until the next shipment.
-    type: Add
-  - message: The time between mail shipments is now slightly randomized.
-    type: Add
-  id: 1134
-  time: '2025-02-16T02:44:26.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1696
-- author: mqole
-  changes:
-  - message: Syndicats can now send and receive messages on the Syndicate radio channel.
-    type: Add
-  id: 1135
-  time: '2025-02-16T08:29:56.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1708
-- author: TheGrimbeeper
-  changes:
-  - message: Gray stomachs are now able to be used as ingredients in rituals
-    type: Fix
-  id: 1136
-  time: '2025-02-16T08:29:12.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1705
-- author: kipdotnet
-  changes:
-  - message: Quartermasters can now pick an extra extra extra large winter coat in
-      the loadout screen.
-    type: Add
-  id: 1137
-  time: '2025-02-16T08:31:47.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1691
-- author: Pivotbash
-  changes:
-  - message: Sec Spaceblade now costs 1 Utility Token. Whoops!
-    type: Fix
-  id: 1138
-  time: '2025-02-16T12:20:55.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1703
-- author: mqole
-  changes:
-  - message: Dolby can now spawn as a station pet.
-    type: Add
-  id: 1139
-  time: '2025-02-16T12:24:18.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1706
-- author: Sha-Seng
-  changes:
-  - message: Thaven now have all underwear options (yay)
-    type: Add
-  id: 1140
-  time: '2025-02-16T12:25:53.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1710
-- author: hivehum
-  changes:
-  - message: You can engrave messages on bullets and bombs.
-    type: Add
-  id: 1141
-  time: '2025-02-16T12:31:53.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1690
-- author: DinnerCalzone
-  changes:
-  - message: Brigmedic support has been added to Plasma Station.
-    type: Add
-  id: 1142
-  time: '2025-02-16T23:18:36.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1709
-- author: LandsharkRAWR
-  changes:
-  - message: Changed Witch Robe and Witch Hat to a new design and sprite.
-    type: Tweak
-  id: 1143
-  time: '2025-02-17T01:19:12.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1660
 - author: AvianMaiden
   changes:
   - message: Replacement lines for a few vendors pertaining to Security, removing
@@ -4168,3 +4024,155 @@
   id: 1624
   time: '2025-05-09T00:06:47.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/2421
+- author: CombustibleToast
+  changes:
+  - message: The lead custodial jumpskirt is no longer called a jumpsuit
+    type: Fix
+  - message: The lead custodial jumpskirt and lead bartending uniform no longer have
+      the option to be folded (wasn't implemented).
+    type: Remove
+  id: 1625
+  time: '2025-05-09T21:14:02.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2428
+- author: meridiadottxt
+  changes:
+  - message: properly labeled every substation, as well as many of the cameras on
+      Gate Station
+    type: Add
+  - message: a few excessive crew monitors have been removed or replaced
+    type: Remove
+  id: 1626
+  time: '2025-05-10T07:21:40.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2437
+- author: Mousetrinity
+  changes:
+  - message: captain is no longer wearing that hideous green!
+    type: Tweak
+  id: 1627
+  time: '2025-05-10T07:22:55.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2436
+- author: widgetbeck
+  changes:
+  - message: Anomalites are now only accessible through crit cores. Sorry, you gotta
+      work a little harder for your little guys.
+    type: Tweak
+  id: 1628
+  time: '2025-05-10T07:23:53.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2435
+- author: Darkmajia
+  changes:
+  - message: You gonna learn. This is the real world.
+    type: Add
+  - message: Adjusted the volume of several round end sounds to make them more audible.
+    type: Tweak
+  id: 1629
+  time: '2025-05-10T07:28:31.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2432
+- author: Sha-Seng
+  changes:
+  - message: Droopy and Cyclops eyes for slimes, and a glowing version of the slime
+      core
+    type: Add
+  id: 1630
+  time: '2025-05-10T07:32:55.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2413
+- author: Sha-Seng
+  changes:
+  - message: A spare Military-Style Medical Mask is now in the brigmed locker
+    type: Add
+  id: 1631
+  time: '2025-05-10T07:34:41.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2414
+- author: LazyRiverfolk
+  changes:
+  - message: Kodepiiae have a unique warden's hardsuit.
+    type: Tweak
+  id: 1632
+  time: '2025-05-10T07:35:54.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2419
+- author: mhachimagus
+  changes:
+  - message: New long-tailed variant of the Ponytail (Spiky) hairstyle.
+    type: Add
+  id: 1633
+  time: '2025-05-10T07:42:22.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2434
+- author: Stonylogray
+  changes:
+  - message: Adjusted home run bat to prevent double damage and reduce wall clipping.
+    type: Tweak
+  id: 1634
+  time: '2025-05-10T07:43:09.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2433
+- author: Oberonics
+  changes:
+  - message: You can now be cloned no matter your body composition.
+    type: Tweak
+  - message: Being unrevivable now actually means you can't be revived.
+    type: Fix
+  id: 1635
+  time: '2025-05-10T11:36:09.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2438
+- author: Oberonics
+  changes:
+  - message: Handheld Mass Scanners are no longer comically large (and can fit in
+      your pocket again).
+    type: Fix
+  id: 1636
+  time: '2025-05-10T11:36:51.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2439
+- author: CrystalClover
+  changes:
+  - message: Added new blinking noise to Slimes and Gastropoids
+    type: Add
+  - message: Blinking now has pitch variation
+    type: Tweak
+  id: 1637
+  time: '2025-05-10T11:38:01.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2442
+- author: jtfg-dev
+  changes:
+  - message: The cryptographic sequencer has been updated with the latest jukebox-cracker
+      from notorious Syndicate pirate radio DJ D2NT BEATZ, which you may recognize
+      from all the times its sick nasty tunes have heralded your demise.
+    type: Add
+  id: 1638
+  time: '2025-05-10T13:45:47.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2397
+- author: TheGrimbeeper
+  changes:
+  - message: Beenades and BROSnades
+    type: Fix
+  id: 1639
+  time: '2025-05-10T13:48:45.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2405
+- author: Darkmajia
+  changes:
+  - message: Gastropoid and slimeperson body emotes have had their sound restored.
+    type: Fix
+  id: 1640
+  time: '2025-05-10T17:08:32.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2446
+- author: TheLuggage05
+  changes:
+  - message: Adds lens slots to all most crew eyewear that didn't already have it.
+    type: Add
+  id: 1641
+  time: '2025-05-10T23:42:04.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2441
+- author: CrystalClover
+  changes:
+  - message: Added Head Frill marking for Reptilians
+    type: Add
+  id: 1642
+  time: '2025-05-11T03:58:55.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2431
+- author: TheGrimbeeper
+  changes:
+  - message: Anomalites can now always locate their core, so they know who to obey.
+    type: Add
+  - message: drones, dragons, and anomalite pinpointers now automatically activate.
+    type: Tweak
+  id: 1643
+  time: '2025-05-11T04:41:22.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2390
