@@ -46,9 +46,13 @@ public sealed class ReplicatorSystem : EntitySystem
         if (ent.Comp.Queen) // if you're the queen, which you'll only be if you're the first one spawned,
         {
             // spawn a nest, then make sure it has ReplicatorNestComponent
-            var myNest = EnsureComp<ReplicatorNestComponent>(Spawn("ReplicatorNest", xform.Coordinates));
+            var myNest = Spawn("ReplicatorNest", xform.Coordinates);
+            var myNestComp = EnsureComp<ReplicatorNestComponent>(myNest);
             // then add yourself to its list of replicators.
-            myNest.SpawnedMinions.Add(ent);
+            myNestComp.SpawnedMinions.Add(ent);
+
+            // and then we gotta tell the queen which nest is hers.
+            ent.Comp.MyNest = myNest;
         }
     }
 
@@ -66,7 +70,7 @@ public sealed class ReplicatorSystem : EntitySystem
         // spawn a nest, then make sure it has ReplicatorNestComponent
         var myNest = EnsureComp<ReplicatorNestComponent>(Spawn("ReplicatorNest", xform.Coordinates));
 
-        // then set that nest's spawned minions to our saved list of related replicators. Unfortunately first we need to deconstruct them, so:
+        // then set that nest's spawned minions to our saved list of related replicators.
         HashSet<EntityUid> newMinions = [];
         foreach (var (uid, _) in ent.Comp.RelatedReplicators)
         {
@@ -77,7 +81,7 @@ public sealed class ReplicatorSystem : EntitySystem
         ent.Comp.RelatedReplicators.Clear();
 
         // then we need to remove the action, to ensure it can't be used infinitely.
-        _actions.RemoveAction(args.Action);
+        QueueDel(args.Action);
     }
 
     private void OnGhostRoleSpawnerUsed(Entity<ReplicatorComponent> ent, ref GhostRoleSpawnerUsedEvent args)
@@ -88,6 +92,9 @@ public sealed class ReplicatorSystem : EntitySystem
         nestComp.SpawnedMinions.Add(ent);
         // then remove the spawner from the nest's list of unclaimed spawners.
         nestComp.UnclaimedSpawners.Remove(args.Spawner);
+
+        // finally, tell the new fella who they momma is
+        ent.Comp.MyNest = tracker.SpawnedFrom;
     }
 
     public void OnAttackAttempt(Entity<ReplicatorComponent> ent, ref AttackAttemptEvent args)
@@ -95,14 +102,14 @@ public sealed class ReplicatorSystem : EntitySystem
         // Can't attack your friends.
         if (HasComp<ReplicatorComponent>(args.Target))
         {
-            _popup.PopupEntity(Loc.GetString("replicator-on-replicator-attack-fail"), ent, ent, PopupType.Medium);
+            _popup.PopupEntity(Loc.GetString("replicator-on-replicator-attack-fail"), ent, ent, PopupType.MediumCaution);
             args.Cancel();
         }
 
         // Can't attack the nest.
         if (HasComp<ReplicatorNestComponent>(args.Target))
         {
-            _popup.PopupClient(Loc.GetString("replicator-on-nest-attack-fail"), ent);
+            _popup.PopupEntity(Loc.GetString("replicator-on-nest-attack-fail"), ent, ent, PopupType.MediumCaution);
             args.Cancel();
         }
     }

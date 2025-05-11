@@ -13,6 +13,9 @@
     blacklist:
       tags:
       - BROS # too many of em. therefore worthless
+      - Cartridge
+      - CartridgeMagnum
+      - Trash
   - type: StepTrigger
     requiredTriggeredSpeed: 0
     intersectRatio: 0.4
@@ -48,12 +51,12 @@
   - type: Clickable
   - type: Damageable
     damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallicStrong
+    damageModifierSet: ReplicatorNest
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600
+        damage: 100
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]

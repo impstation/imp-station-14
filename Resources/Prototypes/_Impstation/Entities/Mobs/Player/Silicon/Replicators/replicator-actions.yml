@@ -11,4 +11,25 @@
     icon: _Impstation/Interface/Actions/spawn_nest.png
     event: !type:ReplicatorSpawnNestActionEvent
     useDelay: 20
-    temporary: true
+
+- type: entity
+  id: ActionReplicatorUpgrade2
+  name: Upgrade (Tier 2)
+  description: Gather nanites. Gain manipulation.
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon: _Impstation/Interface/Actions/replicator_level2.png
+    event: !type:ReplicatorUpgrade2ActionEvent
+    useDelay: 20
+
+- type: entity
+  id: ActionReplicatorUpgrade3
+  name: Upgrade (Tier 3)
+  description: Gather nanites. Become stronger.
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon: _Impstation/Interface/Actions/replicator_level3.png
+    event: !type:ReplicatorUpgrade3ActionEvent
+    useDelay: 20

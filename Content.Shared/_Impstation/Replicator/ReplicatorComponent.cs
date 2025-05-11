@@ -18,20 +18,33 @@ public sealed partial class ReplicatorComponent : Component
     public bool Queen;
 
     /// <summary>
-    /// Current upgrade stage. Allows us to have an arbitrary number of upgrades, dictated by MaxUpgradeStage.
-    /// Currently this is functionally a boolean - it's up to Kazne if he wants to make more stages.
+    /// Current upgrade stage.
     /// </summary>
     [DataField]
     public int UpgradeStage = 0;
+
+    /// <summary>
+    /// Used in determining what action should be granted on leveling up the nest.
+    /// </summary>
+    public int TargetUpgradeStage = 0;
 
     /// <summary>
     /// Used to store related replicators on a queen after the nest is destroyed, so they can be transferred to the new nest.
     /// </summary>
     public HashSet<Entity<ReplicatorComponent>> RelatedReplicators = [];
 
+    /// <summary>
+    /// Used to store the EntityUid of the source nest of this replicator.
+    /// </summary>
+    public EntityUid? MyNest = null;
+
     public EntProtoId Level2Id = "MobReplicatorTier2";
 
     public EntProtoId Level3Id = "MobReplicatorTier3";
+
+    public EntProtoId Level2Action = "ActionReplicatorUpgrade2";
+
+    public EntProtoId Level3Action = "ActionReplicatorUpgrade3";
 }
 
 [Serializable, NetSerializable]

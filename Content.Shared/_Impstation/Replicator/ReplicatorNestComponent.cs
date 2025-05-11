@@ -32,6 +32,11 @@ public sealed partial class ReplicatorNestComponent : Component
     [DataField(readOnly: true)]
     public int TotalPoints = 0;
     /// <summary>
+    /// A separate point total for when a new replicator should be spawned, so we can be more granular about balance. 
+    /// </summary>
+    [DataField(readOnly: true)]
+    public int SpawningProgress = 0;
+    /// <summary>
     /// The current level of the nest.
     /// </summary>
     [DataField(readOnly: true), AutoNetworkedField]
@@ -45,13 +50,13 @@ public sealed partial class ReplicatorNestComponent : Component
     /// The number of additional points given for incapacitated humanoid targets.
     /// Is multiplied by the current level.
     /// </summary>
-    public int BonusPointsHumanoid = 1;
+    public int BonusPointsHumanoid = 2;
     /// <summary>
     /// The number of points required to spawn a new replicator. 
     /// Does not increase over time.
     /// </summary>
     [DataField]
-    public int SpawnNewAt = 12;
+    public int SpawnNewAt = 20;
     /// <summary>
     /// The number of points required to upgrade existing replicators & the nest itself.
     /// Multiplied by current nest level.
@@ -77,12 +82,6 @@ public sealed partial class ReplicatorNestComponent : Component
     /// </summary>
     [DataField]
     public EntProtoId SpawnNewNestAction = "ActionReplicatorSpawnNest";
-
-    /// <summary>
-    /// The level at which the nest starts accepting living beings.
-    /// </summary>
-    [DataField]
-    public int AllowLivingThreshold = 2;
 
     public SoundSpecifier FallingSound = new SoundPathSpecifier("/Audio/Effects/falling.ogg");
     public HashSet<EntityUid> SpawnedMinions = [];

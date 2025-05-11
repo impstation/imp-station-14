@@ -18,10 +18,10 @@ replicator-upgrade-t2-others = {CAPITALIZE(THE($replicator))} chitters loudly.
 # messages for when the nest is upgraded
 replicator-nest-level2 = The nest chitters loudly.
 replicator-nest-level3 = The floor groans.
-replicator-nest-level4 = You can hear it ripping apart the subfloor.
-replicator-nest-level5 = How has it not spaced the room yet?
+replicator-nest-level4 = You can hear the subfloor buckling.
+replicator-nest-level5 = How is the hull still intact?!
 
 # the default message for when we run out of custom levelup messages.
-replicator-nest-levelup = There's a flurry of activity from the nest.
+replicator-nest-levelup = There is a flurry of activity from the nest.
 
 replicator-nest-destroyed = Your nest has been destroyed. A Replicator has been selected to replace it.

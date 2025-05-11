@@ -30,9 +30,14 @@
     animation: WeaponArcSlash
     damage:
       types:
-        Blunt: 10
+        Blunt: 25
         Structural: 30
   - type: StaminaDamageOnHit
-    damage: 30
-    sound: /Audio/Weapons/egloves.ogg
+    damage: 5
   - type: Unremoveable
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 1
+    useSound:
+      path: /Audio/Items/crowbar.ogg
