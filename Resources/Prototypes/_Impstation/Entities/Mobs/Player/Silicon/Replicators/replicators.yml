@@ -52,6 +52,7 @@
     tags:
       - CannotSuicide
       - EmagImmune
+      - DoorBumpOpener
       - CanPilot
       - VimPilot
   - type: MobState
@@ -139,15 +140,18 @@
   - type: Replicator
     queen: true
 
-# Tier 1: These guys are mooks. They're vulnerable, bad at dragging, and don't do much damage, but they have the highest stun. 
+# Tier 1: These guys are mooks. They're vulnerable, bad at dragging, and don't do much damage, but they have the highest stun & a disabler ranged attack. 
 - type: entity
   id: MobReplicator
   parent: BaseMobReplicator
   categories: [HideSpawnMenu] # I don't want admins spawning a replicator that's unlinked to a nest
   components:
   - type: StaminaDamageOnHit
-    damage: 25
+    damage: 20
     sound: /Audio/Weapons/egloves.ogg
+  - type: ActionGun
+    action: ActionReplicatorStunRay
+    gunProto: ReplicatorStunRay
   - type: Physics
     bodyStatus: InAir
   - type: CanMoveInAir

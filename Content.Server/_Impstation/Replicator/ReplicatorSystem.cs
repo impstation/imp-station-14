@@ -7,8 +7,10 @@ using Content.Server.Ghost.Roles.Events;
 using Content.Server.Popups;
 using Content.Shared._Impstation.Replicator;
 using Content.Shared._Impstation.SpawnedFromTracker;
+using Content.Shared.Actions;
 using Content.Shared.CombatMode;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Mind.Components;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
@@ -21,6 +23,7 @@ public sealed class ReplicatorSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
 
     [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
 
@@ -28,31 +31,30 @@ public sealed class ReplicatorSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ReplicatorComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<ReplicatorComponent, MindAddedMessage>(OnMindAdded);
         SubscribeLocalEvent<ReplicatorComponent, AttackAttemptEvent>(OnAttackAttempt);
         SubscribeLocalEvent<ReplicatorComponent, ToggleCombatActionEvent>(OnCombatToggle);
         SubscribeLocalEvent<ReplicatorComponent, GhostRoleSpawnerUsedEvent>(OnGhostRoleSpawnerUsed);
         SubscribeLocalEvent<ReplicatorComponent, ReplicatorSpawnNestActionEvent>(OnSpawnNestAction);
     }
 
-    private void OnMapInit(Entity<ReplicatorComponent> ent, ref MapInitEvent args)
+    private void OnMindAdded(Entity<ReplicatorComponent> ent, ref MindAddedMessage args)
     {
-        var xform = Transform(ent);
-        var coords = xform.Coordinates;
-
-        if (!coords.IsValid(EntityManager) || xform.MapID == MapId.Nullspace)
+        if (ent.Comp.HasSpawnedNest)
             return;
 
         if (ent.Comp.Queen) // if you're the queen, which you'll only be if you're the first one spawned,
         {
-            // spawn a nest, then make sure it has ReplicatorNestComponent
-            var myNest = Spawn("ReplicatorNest", xform.Coordinates);
-            var myNestComp = EnsureComp<ReplicatorNestComponent>(myNest);
-            // then add yourself to its list of replicators.
-            myNestComp.SpawnedMinions.Add(ent);
+            // give the action to spawn a nest.
+            if (!TryComp<MindContainerComponent>(ent, out var mindContainer) || mindContainer.Mind == null)
+                return;
 
-            // and then we gotta tell the queen which nest is hers.
-            ent.Comp.MyNest = myNest;
+            if (!mindContainer.HasMind)
+                _actions.AddAction((EntityUid)ent, ent.Comp.SpawnNewNestAction);
+            else
+                _actionContainer.AddAction((EntityUid)mindContainer.Mind, ent.Comp.SpawnNewNestAction);
+
+            ent.Comp.HasSpawnedNest = true;
         }
     }
 
@@ -68,7 +70,8 @@ public sealed class ReplicatorSystem : EntitySystem
             return;
 
         // spawn a nest, then make sure it has ReplicatorNestComponent
-        var myNest = EnsureComp<ReplicatorNestComponent>(Spawn("ReplicatorNest", xform.Coordinates));
+        var myNest = Spawn("ReplicatorNest", xform.Coordinates);
+        var myNestComp = EnsureComp<ReplicatorNestComponent>(myNest);
 
         // then set that nest's spawned minions to our saved list of related replicators.
         HashSet<EntityUid> newMinions = [];
@@ -76,7 +79,10 @@ public sealed class ReplicatorSystem : EntitySystem
         {
             newMinions.Add(uid);
         }
-        myNest.SpawnedMinions = newMinions;
+        myNestComp.SpawnedMinions = newMinions;
+        // make sure the nest knows who we are, and vice versa.
+        myNestComp.SpawnedMinions.Add(ent);
+        ent.Comp.MyNest = myNest;
         // and we don't need the RelatedReplicators list anymore, so,
         ent.Comp.RelatedReplicators.Clear();
 

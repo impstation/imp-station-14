@@ -45,6 +45,14 @@ public sealed partial class ReplicatorComponent : Component
     public EntProtoId Level2Action = "ActionReplicatorUpgrade2";
 
     public EntProtoId Level3Action = "ActionReplicatorUpgrade3";
+
+    /// <summary>
+    /// The action to spawn a new nest.
+    /// </summary>
+    [DataField]
+    public EntProtoId SpawnNewNestAction = "ActionReplicatorSpawnNest";
+    // prevent adding additional nest action if someone ghosts out and re-attaches
+    public bool HasSpawnedNest;
 }
 
 [Serializable, NetSerializable]
