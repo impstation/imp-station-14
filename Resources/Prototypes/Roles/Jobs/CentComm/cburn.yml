@@ -31,15 +31,15 @@
     pocket1: RadioHandheld
     pocket2: WeaponLaserGun
     belt: ClothingBeltBandolier
-  storage:
+  storage: #imp start
     back:
-    - WeaponShotgunEnforcerIncendiary # imp
+    - WeaponShotgunEnforcerIncendiary 
     - BoxShotgunIncendiary
-    - BoxShotgunFlare # imp
+    - BoxShotgunFlare 
 #   - GrenadeFlashBang
     - TearGasGrenade # imp, seems more thematically relevant
-    - TearGasGrenade # imp
+    - TearGasGrenade 
     - PillAmbuzolPlus
 #   - PillAmbuzol # imp, ideally they'd be doing this on-site
     - Zipties # imp, for people who dont want to respect quarantine
-    - Zipties # imp
+    - Zipties # /imp end
