@@ -1,23 +1,4 @@
 ﻿Entries:
-- author: FlippenPage
-  changes:
-  - message: Fixed wooden tables not counting for the Heretic Armorer Ritual
-    type: Fix
-  id: 1145
-  time: '2025-02-17T01:25:15.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1707
-- author: Sha-Seng
-  changes:
-  - message: More shoes for RD, AA, bartender, psychologist, reporter, chaplain, lawyer,
-      librarian, and musician
-    type: Add
-  - message: Admin assistant can select the nightclub suits now
-    type: Add
-  - message: Admin assistant doesn't have to select outerwear anymore
-    type: Tweak
-  id: 1146
-  time: '2025-02-17T01:45:51.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1683
 - author: widgetbeck
   changes:
   - message: NT's mail telepads no longer exponentially increase the time between
@@ -4175,3 +4156,17 @@
   id: 1644
   time: '2025-05-11T12:39:22.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/2451
+- author: Stonylogray
+  changes:
+  - message: Adjusted divine grasp and gildgrail. Take a sip, babes!
+    type: Tweak
+  id: 1645
+  time: '2025-05-11T13:59:58.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2445
+- author: mqole
+  changes:
+  - message: Removed Service Worker. Rest in Peace Laura Klaus
+    type: Remove
+  id: 1646
+  time: '2025-05-11T14:03:09.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2423
