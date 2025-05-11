@@ -19,11 +19,13 @@ public partial class ArtifactSystem
         _conHost.RegisterCommand("getartifactmaxvalue", "Reports the maximum research point value for a given artifact", "forceartifacteffect <uid>",
             GetArtifactMaxValue);
 
+        // #IMP
         _conHost.RegisterCommand("randomizeartifact", "Randomize an artifact's node tree. Keep existing structure 'true' will randomize the trigger and effect of the nodes, while false will also randomize the number and structure of the entire tree.",
             "randomizeartifact <uid> [keep existing structure]",
             RandomizeArtifactCommand,
             RandomizeArtifactCompletions);
 
+        // #IMP
         _conHost.RegisterCommand("addartifactnode", "Adds a new node to an artifact node tree. If trigger or effect prototype ID is incorrect, will use defaults. To randomize trigger/effect, put the word 'random' instead of a prototype id or leave empty. Example use: addartifactnode 1234 555 TriggerBlood EffectChemicalPuddle", "addartifactnode <uid> <parent node ID> <trigger prototype id> <effect prototype id>",
             AddArtifactNode,
             AddArtifactNodeCompletions);
@@ -52,7 +54,7 @@ public partial class ArtifactSystem
 
     private CompletionResult ForceArtifactNodeCompletions(IConsoleShell shell, string[] args)
     {
-        if (args.Length == 1)
+        if (args.Length == 1) // #IMP
             return CompletionResult.FromHintOptions(CompletionHelper.Components<ArtifactComponent>(args[0]), "<uid>");
 
         if (args.Length == 2 && NetEntity.TryParse(args[0], out var uidNet) && TryGetEntity(uidNet, out var uid))
@@ -82,7 +84,9 @@ public partial class ArtifactSystem
         shell.WriteLine($"Max point value for {ToPrettyString(uid.Value)} with {artifact.NodeTree.Count} nodes: {pointSum}");
     }
 
-   [AdminCommand(AdminFlags.Fun)]
+
+    // #IMP AddArtifactNode command is imp special
+    [AdminCommand(AdminFlags.Fun)]
     private void AddArtifactNode(IConsoleShell shell, string argstr, string[] args)
     {
         if (args.Length < 2 || args.Length > 4)
@@ -91,14 +95,30 @@ public partial class ArtifactSystem
             return;
         }
 
-        if (!NetEntity.TryParse(args[0], out var uidNet) || !TryGetEntity(uidNet, out var uid) || !int.TryParse(args[1], out var id))
+        if (!NetEntity.TryParse(args[0], out var uidNet))
+        {
+            shell.WriteError($"{args[0]} is not a valid net entity");
             return;
+        }
+        if (!TryGetEntity(uidNet, out var uid))
+        {
+            shell.WriteError($"{args[0]} is not a valid entity id");
+            return;
+        }
+        if (!int.TryParse(args[1], out var id))
+        {
+            shell.WriteError($"{args[1]} is not a valid integer");
+            return;
+        }
 
         var trigger = args.Length >= 3 ? args[2] : "random";
         var effect = args.Length == 4 ? args[3] : "random";
 
         if (!TryComp<ArtifactComponent>(uid, out var artifact))
+        {
+            shell.WriteError($"{uid} does not have an artifact component");
             return;
+        }
 
         if (artifact.NodeTree.FirstOrDefault(n => n.Id == id) is { } node)
         {
@@ -144,6 +164,7 @@ public partial class ArtifactSystem
             shell.WriteError("Invalid node Id");
     }
 
+    // #IMP
     private CompletionResult AddArtifactNodeCompletions(IConsoleShell shell, string[] args)
     {
         if (args.Length == 1)
@@ -163,7 +184,8 @@ public partial class ArtifactSystem
         return CompletionResult.Empty;
     }
 
-   [AdminCommand(AdminFlags.Fun)]
+    // #IMP RandomizeArtifact command is imp special
+    [AdminCommand(AdminFlags.Fun)]
     private void RandomizeArtifactCommand(IConsoleShell shell, string argstr, string[] args)
     {
         if (args.Length != 2)
