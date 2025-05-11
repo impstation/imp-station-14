@@ -59,9 +59,14 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Appearance
+  - type: TagOnBreakage #imp
+    tags:
+    - Broken
+    replaceOldTags: true
   - type: Tag
     tags:
     - Trash
+    - LightBulb #imp
   - type: PhysicalComposition
     materialComposition:
       Glass: 25
@@ -110,6 +115,9 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Tag
+    tags:
+    - LightTube
 
 # Lighting color values gathered from
 # https://andi-siess.de/rgb-to-color-temperature/
@@ -220,7 +228,7 @@
     tags:
     - LightBulb
     - Trash
-    - LightBroken #imp
+    - Broken #imp
 
 - type: entity
   parent: BaseLightbulb
@@ -285,7 +293,8 @@
     startingState: Broken
   - type: Tag #imp
     tags:
-      - LightBroken
+      - Broken
+      - Trash
       - LightTube
 
 - type: entity

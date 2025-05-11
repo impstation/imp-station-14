@@ -10,8 +10,6 @@
   - type: Clickable
   - type: InteractionOutline
   #- type: Construction TODO
-    #graph: FloorLightFixture
-    #node: floorLight
   - type: Sprite
     sprite: _Impstation/Structures/Lighting/floorlights.rsi
     drawdepth: HighFloorObjects
@@ -47,70 +45,64 @@
   components:
   - type: Sprite
     sprite: _Impstation/Structures/Lighting/floorlights.rsi
-    layers: #life hates me
-    - map: ["enum.PoweredLightLayers.Base"]
-      state: empty
+    layers: # to be refactored
+    - state: empty
+      visible: false
+      map: ["enum.PoweredLightLayers.Base"]
     - state: baseGlow
       visible: false
       shader: unshaded
-      map: ["enum.PoweredLightLayers.Glow"]
     - state: ledGlow
       visible: false
       shader: unshaded
-      map: ["enum.PoweredLightLayers.Glow"]
     - state: exteriorGlow
       visible: false
       shader: unshaded
-      map: ["enum.PoweredLightLayers.Glow"]
     - state: sodiumGlow
       visible: false
       shader: unshaded
-      map: ["enum.PoweredLightLayers.Glow"]
     - state: oldGlow
       visible: false
       shader: unshaded
-      map: ["enum.PoweredLightLayers.Glow"]
     - state: redGlow
       visible: false
       shader: unshaded
-      map: ["enum.PoweredLightLayers.Glow"]
     - state: blueGlow
       visible: false
       shader: unshaded
-      map: ["enum.PoweredLightLayers.Glow"]
     - state: cyanGlow
       visible: false
       shader: unshaded
-      map: ["enum.PoweredLightLayers.Glow"]
     - state: greenGlow
       visible: false
       shader: unshaded
-      map: ["enum.PoweredLightLayers.Glow"]
     - state: yellowGlow
       visible: false
       shader: unshaded
-      map: ["enum.PoweredLightLayers.Glow"]
     - state: orangeGlow
       visible: false
       shader: unshaded
-      map: ["enum.PoweredLightLayers.Glow"]
     - state: pinkGlow
       visible: false
       shader: unshaded
-      map: ["enum.PoweredLightLayers.Glow"]
     - state: blackGlow
       visible: false
       shader: unshaded
-      map: ["enum.PoweredLightLayers.Glow"]
   - type: Icon
     sprite: _Impstation/Structures/Lighting/floorlights.rsi
     state: empty
-  - type: ItemMapper #probably a sin against god
+  - type: ItemMapper # to be refactored to use a custom comp
     mapLayers:
+      empty:
+        minCount: 0
+        maxCount: 0
+        whitelist:
+          tags:
+            - LightTube
       broken:
         whitelist:
           tags:
-            - LightBroken
+            - Broken
       base:
         whitelist:
           tags:
@@ -357,6 +349,7 @@
     energy: 0.5
     softness: 1
     color: "#FFDABB"
+    offset: "0, -0.5" #sprite is off center
   - type: DamageOnInteract
     damage:
       types:
@@ -506,6 +499,7 @@
     energy: 3
     softness: 0.5
     color: "#fb4747"
+    offset: "0, -0.5" #sprite is off center
   - type: DamageOnInteract
     damage:
       types:
