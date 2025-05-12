@@ -27,16 +27,16 @@
             HospitalityDirector: [ 1, 1 ] # imp
             Quartermaster: [ 1, 1 ]
             # service - 12
-            Bartender: [ 1, 1 ]
+            Bartender: [ 2, 2 ] #imp 1 > 2
             Botanist: [ 2, 2 ]
             Chaplain: [ 1, 1 ]
-            Chef: [ 1, 1 ]
+            Chef: [ 2, 2 ] #imp 1 > 2
             Clown: [ 1, 1 ]
             Janitor: [ 1, 1 ]
             Librarian: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
-            ServiceWorker: [ 2, 2 ]
+            #ServiceWorker: [ 2, 2 ] #imp
             # engineering - 6-10
             AtmosphericTechnician: [ 2, 2 ]
             StationEngineer: [ 4, 4 ]
@@ -44,7 +44,7 @@
             # medical - 7-10
             Chemist: [ 2, 2 ]
             MedicalDoctor: [ 3, 3 ]
-            MedicalIntern: [ 4, 4 ]
+            MedicalIntern: [ 4, 4 ] #intern, not counted
             Paramedic: [ 1, 1 ]
             # science - 7-9
             Borg: [ 2, 2 ]
