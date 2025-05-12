@@ -9,14 +9,14 @@
   parent: BaseGoldCircuitboardRecipe
   id: RoboticArmCircuitboard
   icon:
-    sprite: _Goobstation/Structures/Machines/robotic_arm.rsi
-    state: icon
+    sprite: Objects/Misc/module.rsi
+    state: engineering
   result: RoboticArmCircuitboard
 
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
   id: StorageBinCircuitboard
   icon:
-    sprite: _Goobstation/Structures/Machines/storage_bin.rsi
-    state: icon
+    sprite: Objects/Misc/module.rsi
+    state: generic
   result: StorageBinCircuitboard
