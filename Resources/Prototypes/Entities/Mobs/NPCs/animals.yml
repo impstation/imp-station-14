@@ -424,7 +424,7 @@
     animation: WeaponArcBite
     damage:
       types:
-        Piercing: 1
+        Piercing: 1 # imp edit
   - type: NightVision # EE edit
     isActive: true
     toggleAction: null
@@ -1890,7 +1890,7 @@
     animation: WeaponArcBite
     damage:
       types:
-        Piercing: 1
+        Piercing: 1 # imp edit
   - type: Bloodstream
     bloodMaxVolume: 50
   - type: CanEscapeInventory
