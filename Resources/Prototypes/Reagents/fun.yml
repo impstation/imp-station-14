@@ -187,7 +187,10 @@
     Poison:
       effects:
       - !type:Electrocute
-        probability: 0.35
+       conditions: # imp - crew obtainable, so you cant insta stun a nukie with a spear or whatever
+        - !type:ReagentThreshold
+          min: 8
+       probability: 0.1 # imp - down from 35%
 
 - type: reagent
   id: Razorium

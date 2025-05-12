@@ -111,7 +111,7 @@
 - type: reaction
   id: Licoxide
   reactants:
-    Lead:
+    Gold: # imp - crew obtainable
       amount: 1
     Zinc:
       amount: 1
@@ -148,7 +148,7 @@
   products:
     Ice: 5
 
-- type: reaction
+- type: reaction 
   id: Fresium
   priority: 20
   maxTemp: 300
@@ -160,15 +160,15 @@
       catalyst: true
     Nitrogen:
       amount: 2
-    Cryoxadone:
-      amount: 0.22
+  #  Cryoxadone: - imp, not really a medicine
+  #    amount: 0.22
     TableSalt:
-      amount: 0.08
-    Water:
-      amount: 1.5
+      amount: 1 # imp - fixed ratio
+  #  Water: imp - water doesnt actually freeze that well, plus it breaks with the saline reaction
+  #    amount: 1.5 
   effects:
   - !type:CreateGas
-    gas: Nitrogen
+    gas: NitrousOxide # imp - frezon reaction in atmos, funny
   products:
     Fresium: 5
 
