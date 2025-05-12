@@ -106,7 +106,7 @@
       effects:
       - !type:AdjustReagent
         reagent: CapsaicinOil #Congratulations, Hotsauce is now Hot!
-        amount: 1 #Set to 1u since Capsaicin processes at that rate.
+        amount: 0.75
 
 - type: reagent
   id: Ketchup
