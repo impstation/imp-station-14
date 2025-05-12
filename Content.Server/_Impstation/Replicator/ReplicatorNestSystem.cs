@@ -104,11 +104,13 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
 
     private void HandleDestruction(Entity<ReplicatorNestComponent> ent)
     {
-
-        foreach (var uid in _containerSystem.EmptyContainer(ent.Comp.Hole))
+        if (ent.Comp.Hole != null)
         {
-            RemCompDeferred<StunnedComponent>(uid);
-            _stun.TryKnockdown(uid, TimeSpan.FromSeconds(2), false);
+            foreach (var uid in _containerSystem.EmptyContainer(ent.Comp.Hole))
+            {
+                RemCompDeferred<StunnedComponent>(uid);
+                _stun.TryKnockdown(uid, TimeSpan.FromSeconds(2), false);
+            }
         }
 
         // delete all unclaimed spawners
