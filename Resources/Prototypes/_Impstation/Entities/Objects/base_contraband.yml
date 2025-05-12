@@ -6,7 +6,7 @@
   - type: Contraband
     allowedDepartments: [ Security ]
     allowedJobs: [ Lawyer ]
-    implicitlyAllowedJobs: [ Captain, HeadOfPersonnel ]
+#    implicitlyAllowedJobs: [ Captain, HeadOfPersonnel, HospitalityDirector ]
 
 # For non-sanctioned decapoid tech
 - type: entity
