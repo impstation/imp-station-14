@@ -16,6 +16,9 @@
       types:
         Blunt: 1
     staminaCost: 1
+  - type: ObviousClothing # imp
+    thing: pride pin
+    examineText: obvious-pin-nothing
 
 - type: entity
   parent: ClothingNeckPinBase
@@ -27,6 +30,8 @@
     state: lgbt
   - type: Clothing
     equippedPrefix: lgbt
+  - type: ObviousClothing # imp
+    examineText: obvious-pin-lgbt
 
 - type: entity
   parent: ClothingNeckPinBase
@@ -38,6 +43,8 @@
     state: ally
   - type: Clothing
     equippedPrefix: ally
+  - type: ObviousClothing # imp
+    examineText: obvious-pin-ally
 
 - type: entity
   parent: ClothingNeckPinBase
@@ -49,6 +56,8 @@
     state: aro
   - type: Clothing
     equippedPrefix: aro
+  - type: ObviousClothing # imp
+    examineText: obvious-pin-aro
 
 - type: entity
   parent: ClothingNeckPinBase
@@ -60,6 +69,8 @@
     state: aroace
   - type: Clothing
     equippedPrefix: aroace
+  - type: ObviousClothing # imp
+    examineText: obvious-pin-aroace
 
 - type: entity
   parent: ClothingNeckPinBase
@@ -71,6 +82,8 @@
     state: asex
   - type: Clothing
     equippedPrefix: asex
+  - type: ObviousClothing # imp
+    examineText: obvious-pin-asex
 
 - type: entity
   parent: ClothingNeckPinBase
@@ -82,6 +95,8 @@
     state: bi
   - type: Clothing
     equippedPrefix: bi
+  - type: ObviousClothing # imp
+    examineText: obvious-pin-bi
 
 - type: entity
   parent: ClothingNeckPinBase
@@ -93,6 +108,8 @@
     state: gay
   - type: Clothing
     equippedPrefix: gay
+  - type: ObviousClothing # imp
+    examineText: obvious-pin-gay
 
 - type: entity
   parent: ClothingNeckPinBase
@@ -104,6 +121,8 @@
     state: inter
   - type: Clothing
     equippedPrefix: inter
+  - type: ObviousClothing # imp
+    examineText: obvious-pin-intersex
 
 - type: entity
   parent: ClothingNeckPinBase
@@ -115,6 +134,8 @@
     state: les
   - type: Clothing
     equippedPrefix: les
+  - type: ObviousClothing # imp
+    examineText: obvious-pin-lesbian
 
 - type: entity
   parent: ClothingNeckPinBase
@@ -126,6 +147,8 @@
     state: non
   - type: Clothing
     equippedPrefix: non
+  - type: ObviousClothing # imp
+    examineText: obvious-pin-nonbiney
 
 - type: entity
   parent: ClothingNeckPinBase
@@ -137,6 +160,8 @@
     state: pan
   - type: Clothing
     equippedPrefix: pan
+  - type: ObviousClothing # imp
+    examineText: obvious-pin-pan
 
 - type: entity
   parent: ClothingNeckPinBase
@@ -148,6 +173,8 @@
     state: omni
   - type: Clothing
     equippedPrefix: omni
+  - type: ObviousClothing # imp
+    examineText: obvious-pin-omni
 
 - type: entity
   parent: ClothingNeckPinBase
@@ -159,6 +186,8 @@
     state: gender
   - type: Clothing
     equippedPrefix: gender
+  - type: ObviousClothing # imp
+    examineText: obvious-pin-gq
 
 - type: entity
   parent: ClothingNeckPinBase
@@ -170,6 +199,8 @@
     state: trans
   - type: Clothing
     equippedPrefix: trans
+  - type: ObviousClothing # imp
+    examineText: obvious-pin-trans
 
 - type: entity
   parent: ClothingNeckPinBase
@@ -181,6 +212,8 @@
     state: autism
   - type: Clothing
     equippedPrefix: autism
+  - type: ObviousClothing # imp
+    examineText: obvious-pin-autism
 
 - type: entity
   parent: ClothingNeckPinBase
@@ -192,3 +225,5 @@
     state: goldautism
   - type: Clothing
     equippedPrefix: goldautism
+  - type: ObviousClothing # imp
+    examineText: obvious-pin-autism
