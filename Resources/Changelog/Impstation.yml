@@ -1,86 +1,4 @@
 ﻿Entries:
-- author: widgetbeck
-  changes:
-  - message: NT's mail telepads no longer exponentially increase the time between
-      deliveries.
-    type: Fix
-  id: 1147
-  time: '2025-02-17T04:22:48.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1715
-- author: nowaitstop
-  changes:
-  - message: BATTERY GRUMBA VAPES! pib cartridges..!
-    type: Add
-  - message: disposable vape bars! pib deni vape pens!
-    type: Add
-  - message: thusd vendor beeg new vapes! old vapes zazz GLURM!
-    type: Tweak
-  id: 1148
-  time: '2025-02-17T14:54:23.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1676
-- author: kipdotnet
-  changes:
-  - message: Added the spacepresso machine for mapping.
-    type: Add
-  - message: The service techfab can now print disposable coffee cups.
-    type: Add
-  id: 1149
-  time: '2025-02-17T15:17:56.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1719
-- author: Pinkbat5
-  changes:
-  - message: Added two zero-point accents that automatically correct your capitalization
-      and/or punctuation.
-    type: Add
-  - message: Added stilted speech, an accent that Makes You Talk Like This.
-    type: Add
-  id: 1150
-  time: '2025-02-17T15:19:34.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1717
-- author: widgetbeck
-  changes:
-  - message: Thieving gloves can now only initiate one stripping doafter at a time.
-    type: Tweak
-  id: 1151
-  time: '2025-02-17T15:22:10.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1711
-- author: 12rabbits
-  changes:
-  - message: Added the Hemophilia trait to character customization.
-    type: Add
-  id: 1152
-  time: '2025-02-17T15:24:39.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1682
-- author: AirFryerBuyOneGetOneFree
-  changes:
-  - message: Added 14 New "Gimmick" Traitor Objectives.
-    type: Add
-  id: 1153
-  time: '2025-02-17T15:36:26.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1686
-- author: FlippenPage
-  changes:
-  - message: secret reinforced walls
-    type: Add
-  id: 1154
-  time: '2025-02-17T16:24:32.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1167
-- author: Toby222, Honeyed_Lemons_
-  changes:
-  - message: Adds Nanochat Lookup! Look up your friends in your Nanochat app today!
-    type: Add
-  - message: The Nanochat ui has been spruced up a lot, look at keybinds too!
-    type: Tweak
-  id: 1155
-  time: '2025-02-17T18:30:46.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1692
-- author: hivehum, flippenpage
-  changes:
-  - message: You can now be colorblind.
-    type: Add
-  id: 1156
-  time: '2025-02-17T18:30:27.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1702
 - author: hivehum
   changes:
   - message: Added courier slots to Plasma, and a security cadet slot to Banana.
@@ -4170,3 +4088,93 @@
   id: 1646
   time: '2025-05-11T14:03:09.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/2423
+- author: TheGrimbeeper
+  changes:
+  - message: Rat king ghost role rules are once again properly antagonist after upstream
+      merge convinced the king to be nice.
+    type: Fix
+  id: 1647
+  time: '2025-05-12T06:02:12.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2461
+- author: crocodilecarousel
+  changes:
+  - message: slimes can actually have earrings now
+    type: Fix
+  id: 1648
+  time: '2025-05-12T10:07:18.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2464
+- author: Mousetrinity
+  changes:
+  - message: salvage has always been purple.
+    type: Tweak
+  id: 1649
+  time: '2025-05-12T10:09:10.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2449
+- author: LandsharkRAWR
+  changes:
+  - message: Rose seeds to the exotic seed crate! they can mutate into dangerous black
+      roses and traitors can buy the dastardly Blood Red Rose! (you cant grow those
+      ones though) hold them in your mouth and hat slots to maximize your romantic
+      swagger.
+    type: Add
+  id: 1650
+  time: '2025-05-12T10:12:26.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2426
+- author: widgetbeck
+  changes:
+  - message: Thaven who are sleeping can now be emagged.
+    type: Fix
+  id: 1651
+  time: '2025-05-12T10:14:39.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2457
+- author: Ominashi
+  changes:
+  - message: Bunny ears can now be found in your local autodrobe!
+    type: Add
+  id: 1652
+  time: '2025-05-12T10:33:30.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2453
+- author: LazyRiverfolk
+  changes:
+  - message: Added a variety of new topicals; visit your local Medifabs and Nanomeds
+      now!
+    type: Add
+  - message: Aloe Cream is now squishy when it lands.
+    type: Add
+  - message: Aloe Cream now heal 10 heat instead of being an Ointment reskin.
+    type: Tweak
+  - message: Medicated Sutures got a visual update; don't worry, it still works the
+      same as before.
+    type: Tweak
+  - message: Aloe Cream's sprite is now Centered. You no longer have to account for
+      the offset when placing it politely on tables.
+    type: Fix
+  id: 1653
+  time: '2025-05-12T10:34:52.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2450
+- author: Deltanadas, AirFryerBuyOneGetOneFree, Kip
+  changes:
+  - message: Added Automation! Robotic Arms, filters, automation kits, and storage
+      bins have been added. Make the factory of your dreams today.
+    type: Add
+  - message: Hyper-convection boards have been replaced with hyper-convection upgrade
+      kits, apply directly to machines to upgrade them!
+    type: Tweak
+  id: 1654
+  time: '2025-05-12T11:59:11.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2440
+- author: mqole
+  changes:
+  - message: Advanced topicals removed from nanomed pending further discussion. craft
+      them in the medifab
+    type: Tweak
+  id: 1655
+  time: '2025-05-12T13:09:06.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2467
+- author: ruddygreat
+  changes:
+  - message: The Nuke is slightly less allergic to space
+    type: Tweak
+  id: 1656
+  time: '2025-05-12T13:57:17.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2458
