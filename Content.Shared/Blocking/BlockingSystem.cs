@@ -9,6 +9,8 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Maps;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Movement.Components;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.Toggleable;
@@ -37,6 +39,7 @@ public sealed partial class BlockingSystem : EntitySystem
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
 
     public override void Initialize()
     {
@@ -54,6 +57,8 @@ public sealed partial class BlockingSystem : EntitySystem
 
         SubscribeLocalEvent<BlockingComponent, GetVerbsEvent<ExamineVerb>>(OnVerbExamine);
         SubscribeLocalEvent<BlockingComponent, MapInitEvent>(OnMapInit);
+
+        SubscribeLocalEvent<BlockingUserComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed); // imp
     }
 
     private void OnMapInit(EntityUid uid, BlockingComponent component, MapInitEvent args)
@@ -117,9 +122,9 @@ public sealed partial class BlockingSystem : EntitySystem
         }
 
         if (component.IsBlocking)
-            StopBlocking(uid, component, args.Performer);
+            StopBlocking((uid, component), args.Performer); // imp. changed to Entity<T>
         else
-            StartBlocking(uid, component, args.Performer);
+            StartBlocking((uid, component), args.Performer); // imp. ditto
 
         args.Handled = true;
     }
@@ -134,88 +139,40 @@ public sealed partial class BlockingSystem : EntitySystem
         }
     }
 
-    /// <summary>
-    /// Called where you want the user to start blocking
-    /// Creates a new hard fixture to bodyblock
-    /// Also makes the user static to prevent prediction issues
-    /// </summary>
-    /// <param name="item"> The entity with the blocking component</param>
-    /// <param name="component"> The <see cref="BlockingComponent"/></param>
-    /// <param name="user"> The entity who's using the item to block</param>
-    /// <returns></returns>
-    public bool StartBlocking(EntityUid item, BlockingComponent component, EntityUid user)
+    // imp - redid this whole thing to remove the anchoring part and replace it with a movement speed modifier.
+    public bool StartBlocking(Entity<BlockingComponent> ent, EntityUid user)
     {
-        if (component.IsBlocking)
+        if (ent.Comp.IsBlocking)
             return false;
 
-        var xform = Transform(user);
-
-        var shieldName = Name(item);
+        var shieldName = Name(ent);
 
         var blockerName = Identity.Entity(user, EntityManager);
         var msgUser = Loc.GetString("action-popup-blocking-user", ("shield", shieldName));
         var msgOther = Loc.GetString("action-popup-blocking-other", ("blockerName", blockerName), ("shield", shieldName));
 
-        if (component.BlockingToggleAction != null)
+        if (ent.Comp.BlockingToggleAction != null)
         {
-            //Don't allow someone to block if they're not parented to a grid
-            if (xform.GridUid != xform.ParentUid)
-            {
-                CantBlockError(user);
-                return false;
-            }
-
             // Don't allow someone to block if they're not holding the shield
-            if(!_handsSystem.IsHolding(user, item, out _))
+            if (!_handsSystem.IsHolding(user, ent, out _))
             {
                 CantBlockError(user);
                 return false;
             }
 
-            //Don't allow someone to block if someone else is on the same tile
-            var playerTileRef = xform.Coordinates.GetTileRef();
-            if (playerTileRef != null)
-            {
-                var intersecting = _lookup.GetLocalEntitiesIntersecting(playerTileRef.Value, 0f);
-                var mobQuery = GetEntityQuery<MobStateComponent>();
-                foreach (var uid in intersecting)
-                {
-                    if (uid != user && mobQuery.HasComponent(uid))
-                    {
-                        TooCloseError(user);
-                        return false;
-                    }
-                }
-            }
-
-            //Don't allow someone to block if they're somehow not anchored.
-            _transformSystem.AnchorEntity(user, xform);
-            if (!xform.Anchored)
-            {
-                CantBlockError(user);
-                return false;
-            }
-            _actionsSystem.SetToggled(component.BlockingToggleActionEntity, true);
+            _actionsSystem.SetToggled(ent.Comp.BlockingToggleActionEntity, true);
             if (_gameTiming.IsFirstTimePredicted)
             {
                 _popupSystem.PopupEntity(msgOther, user, Filter.PvsExcept(user), true);
-                if(_gameTiming.InPrediction)
+                if (_gameTiming.InPrediction)
                     _popupSystem.PopupEntity(msgUser, user, user);
             }
         }
 
-        if (TryComp<PhysicsComponent>(user, out var physicsComponent))
-        {
-            _fixtureSystem.TryCreateFixture(user,
-                component.Shape,
-                BlockingComponent.BlockFixtureID,
-                hard: true,
-                collisionLayer: (int) CollisionGroup.WallLayer,
-                body: physicsComponent);
-        }
+        _movementSpeed.RefreshMovementSpeedModifiers(user);
 
-        component.IsBlocking = true;
-        Dirty(item, component);
+        ent.Comp.IsBlocking = true;
+        Dirty(ent);
 
         return true;
     }
@@ -226,56 +183,54 @@ public sealed partial class BlockingSystem : EntitySystem
         _popupSystem.PopupEntity(msgError, user, user);
     }
 
-    private void TooCloseError(EntityUid user)
-    {
-        var msgError = Loc.GetString("action-popup-blocking-user-too-close");
-        _popupSystem.PopupEntity(msgError, user, user);
-    }
+    // imp - orphaned by change to StartBlocking
+    //private void TooCloseError(EntityUid user)
+    //{
+    //    var msgError = Loc.GetString("action-popup-blocking-user-too-close");
+    //    _popupSystem.PopupEntity(msgError, user, user);
+    //}
 
-    /// <summary>
-    /// Called where you want the user to stop blocking.
-    /// </summary>
-    /// <param name="item"> The entity with the blocking component</param>
-    /// <param name="component"> The <see cref="BlockingComponent"/></param>
-    /// <param name="user"> The entity who's using the item to block</param>
-    /// <returns></returns>
-    public bool StopBlocking(EntityUid item, BlockingComponent component, EntityUid user)
+    // imp - changed this whole thing to remove fixtures/anchoring and replace with slowdown
+    public bool StopBlocking(Entity<BlockingComponent> ent, EntityUid user)
     {
-        if (!component.IsBlocking)
+        if (!ent.Comp.IsBlocking)
             return false;
 
-        var xform = Transform(user);
-
-        var shieldName = Name(item);
+        var shieldName = Name(ent);
 
         var blockerName = Identity.Entity(user, EntityManager);
         var msgUser = Loc.GetString("action-popup-blocking-disabling-user", ("shield", shieldName));
         var msgOther = Loc.GetString("action-popup-blocking-disabling-other", ("blockerName", blockerName), ("shield", shieldName));
 
-        //If the component blocking toggle isn't null, grab the users SharedBlockingUserComponent and PhysicsComponent
-        //then toggle the action to false, unanchor the user, remove the hard fixture
-        //and set the users bodytype back to their original type
-        if (component.BlockingToggleAction != null && TryComp<BlockingUserComponent>(user, out var blockingUserComponent)
-                                                     && TryComp<PhysicsComponent>(user, out var physicsComponent))
+        if (ent.Comp.BlockingToggleAction != null && TryComp<BlockingUserComponent>(user, out _))
         {
-            if (xform.Anchored)
-                _transformSystem.Unanchor(user, xform);
-
-            _actionsSystem.SetToggled(component.BlockingToggleActionEntity, false);
-            _fixtureSystem.DestroyFixture(user, BlockingComponent.BlockFixtureID, body: physicsComponent);
-            _physics.SetBodyType(user, blockingUserComponent.OriginalBodyType, body: physicsComponent);
+            _actionsSystem.SetToggled(ent.Comp.BlockingToggleActionEntity, false);
             if (_gameTiming.IsFirstTimePredicted)
             {
                 _popupSystem.PopupEntity(msgOther, user, Filter.PvsExcept(user), true);
-                if(_gameTiming.InPrediction)
+                if (_gameTiming.InPrediction)
                     _popupSystem.PopupEntity(msgUser, user, user);
             }
+
+            _movementSpeed.RefreshMovementSpeedModifiers(user);
         }
 
-        component.IsBlocking = false;
-        Dirty(item, component);
+        ent.Comp.IsBlocking = false;
+        Dirty(ent);
 
         return true;
+    }
+
+    // imp - necessary for movement speed modifier
+    private void OnRefreshMovespeed(Entity<BlockingUserComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
+    {
+        if (!TryComp<BlockingComponent>(ent.Comp.BlockingItem, out var blockingComp) || blockingComp == null)
+            return;
+
+        if (!blockingComp.IsBlocking)
+            args.ModifySpeed(blockingComp.SlowdownModifier);
+        else
+            args.ModifySpeed(1f);
     }
 
     /// <summary>
@@ -288,7 +243,7 @@ public sealed partial class BlockingSystem : EntitySystem
     private void StopBlockingHelper(EntityUid uid, BlockingComponent component, EntityUid user)
     {
         if (component.IsBlocking)
-            StopBlocking(uid, component, user);
+            StopBlocking((uid, component), user); // imp - switched to Entity<T>
 
         var userQuery = GetEntityQuery<BlockingUserComponent>();
         var handQuery = GetEntityQuery<HandsComponent>();
