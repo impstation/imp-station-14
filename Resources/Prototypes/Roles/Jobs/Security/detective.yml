@@ -15,7 +15,7 @@
   - Security
   - Brig
   - Maintenance
-  - Service
+  #- Service imp edit
   - Detective
   - Cryogenics
   - External
@@ -28,7 +28,7 @@
   equipment:
     eyes: ClothingEyesGlassesSecurity
     ears: ClothingHeadsetSecurity
-    belt: ClothingBeltHolsterFilled
+    belt: ClothingBeltHolster # imp
   storage:
     back:
     - Flash

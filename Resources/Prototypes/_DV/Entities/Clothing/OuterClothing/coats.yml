@@ -1,0 +1,33 @@
+﻿- type: entity
+  parent: [ ClothingOuterStorageBase, Tier1Contraband ] # imp - contraband
+  id: ClothingOuterCoatCybersunWindbreaker
+  name: Cybersun windbreaker # imp edit; preferential to capitalizing company names
+  description: A paramedics windbreaker, sporting the official heraldry of Cybersun's meditech division. Its made of sturdy ballistic fiber. # imp typo fix :)
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Coats/cybersunwindbreaker.rsi #imp - added hand cutouts
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Coats/cybersunwindbreaker.rsi #imp - added hand cutouts
+  - type: TemperatureProtection
+    coolingCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.75
+  - type: AllowSuitStorage #Syndicate Windbreaker, so gun.
+
+- type: entity
+  parent: [ ClothingOuterStorageBase, Tier1Contraband ] # imp - contraband
+  id: ClothingOuterCybersunOvercoat
+  name: Cybersun overcoat # imp edit; preferential to capitalizing company names
+  description: Heavy black robes with magenta and gold trim, used in legal ceremonies and extrajudicial activities. It smells old. # imp edit for sauce
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Coats/cybersunovercoat.rsi #imp - added hand cutouts
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Coats/cybersunovercoat.rsi #imp - added hand cutouts
+  - type: TemperatureProtection
+    coolingCoefficient: 0.1

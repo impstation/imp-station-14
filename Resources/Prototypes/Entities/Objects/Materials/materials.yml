@@ -57,6 +57,21 @@
           Quantity: 6
   - type: Item
     heldPrefix: cardboard
+  - type: UserInterface
+    interfaces:
+      enum.ShortConstructionUiKey.Key:
+        type: ShortConstructionMenuBUI
+  - type: ActivatableUI
+    key: enum.ShortConstructionUiKey.Key
+  - type: ShortConstruction
+    prototypes:
+    - WallCardboard
+    - WindowCardboard
+    - WindowDirectionalCardboard
+    - ChairCardboard
+    - TileCardboard
+    - DoorCardboard
+
 
 - type: entity
   parent: MaterialCardboard
@@ -341,6 +356,7 @@
         reagents:
         - ReagentId: Cellulose
           Quantity: 10
+# imp edits below
   - type: UserInterface
     interfaces:
       enum.ShortConstructionUiKey.Key:
@@ -350,7 +366,25 @@
   - type: ShortConstruction
     prototypes:
     - TileWood
+    - TileWoodBlack
+    - TileWoodChess
+    - TileWoodChessBlack
+    - TileWoodChessDark
+    - TileWoodChessLight
+    - TileWoodChessRed
+    - TileWoodDark
     - TileWoodLarge
+    - TileWoodLargeBlack
+    - TileWoodLargeDark
+    - TileWoodLargeLight
+    - TileWoodLargeRed
+    - TileWoodLight
+    - TileWoodParquet
+    - TileWoodParquetBlack
+    - TileWoodParquetDark
+    - TileWoodParquetLight
+    - TileWoodParquetRed
+    - TileWoodRed
 
 - type: entity
   parent: MaterialWoodPlank
@@ -733,23 +767,24 @@
     flavors:
       - cobwebs
     ignoreReagents:
-      - Fiber
+      - Protein   #imp
   - type: Extractable
     juiceSolution:
       reagents:
-      - ReagentId: Fiber
+      - ReagentId: Protein  #imp
         Quantity: 3
   - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 3
         reagents:
-        - ReagentId: Fiber
+        - ReagentId: Protein  #imp
           Quantity: 3
   - type: Tag
     tags:
-      - ClothMade
-      - RawMaterial
+    - ClothMade
+    - RawMaterial
+    - SpiderFood  #imp edit
   - type: Item
     sprite: Objects/Materials/silk.rsi
     heldPrefix: silk
@@ -877,6 +912,11 @@
           Quantity: 3
   - type: Item
     heldPrefix: bones
+  - type: Tag # imp
+    tags:
+    - DroneUsable
+    - RawMaterial
+    - KodeEdible
 
 - type: entity
   parent: MaterialBones

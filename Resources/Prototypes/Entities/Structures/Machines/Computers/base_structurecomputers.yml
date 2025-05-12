@@ -5,6 +5,7 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: Animateable
   - type: MeleeSound
     soundGroups:
       Brute:
@@ -20,7 +21,7 @@
   - type: ExtensionCableReceiver
   - type: ActivatableUIRequiresPower
   - type: Sprite
-    sprite: Structures/Machines/computers.rsi
+    sprite: _Impstation/Structures/Machines/computers.rsi # imp
     layers:
     - map: ["computerLayerBody"]
       state: computer
@@ -80,6 +81,7 @@
   - type: Wires
     boardName: wires-board-name-computer
     layoutId: Computer
+  - type: PowerSwitch #imp; idk thought it'd be cute and immersive to turn computers on and off - AvianMaiden
 #
 #     This is overwritten by children, so needs to be defined there
 #  - type: UserInterface

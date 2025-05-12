@@ -468,7 +468,7 @@
   parent: PosterBase
   id: PosterContrabandTheBigGasTruth
   name: "The Big Gas Giant Truth"
-  description: "Don't believe everything you see on a poster, patriots. All the lizards at central command don't want to answer this SIMPLE QUESTION: WHERE IS THE GAS MINER MINING FROM, CENTCOMM?"
+  description: "Don't believe everything you see on a poster, patriots. All the lizards at Central Command don't want to answer this SIMPLE QUESTION: WHERE IS THE GAS MINER MINING FROM, CENTCOMM?" # imp caps fix...
   components:
   - type: Sprite
     state: poster48_contraband
@@ -1037,9 +1037,10 @@
   parent: PosterBase
   id: PosterLegitPeriodicTable
   name: "Periodic Table of the Elements"
-  description: "A periodic table of the elements, from Hydrogen to Oganesson, and everything inbetween."
+  description: "A periodic table of the elements, from Hydrogen to Unhexennium, and everything inbetween." #Imp
   components:
     - type: Sprite
+      sprite: _Impstation/Structures/Wallmounts/posters.rsi #Imp
       state: poster49_legit
 
 - type: entity
@@ -1077,6 +1078,15 @@
   components:
   - type: Sprite
     state: poster53_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitTyrone
+  name: "Tyrone's Guide to Space"
+  description: "A poster advertising online schooling about space. The classes listed seem to cover things from the basic usage of station equipment to complicated subjects like creating pipebombs or covering entire hallways in spacelube. A disclaimer reads \"It's never THAT bad, and at the end you might even get a tortilla.\""
+  components:
+  - type: Sprite
+    state: poster54_legit
 
 
 #maps

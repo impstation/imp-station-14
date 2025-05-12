@@ -1,7 +1,7 @@
 - type: cargoProduct
   id: MedicalSupplies
   icon:
-    sprite: Objects/Specific/Medical/firstaidkits.rsi
+    sprite: _Impstation/Objects/Specific/Medical/firstaidkits.rsi
     state: firstaid
   product: CrateMedicalSupplies
   cost: 2400
@@ -11,7 +11,7 @@
 - type: cargoProduct
   id: MedicalChemistrySupplies
   icon:
-    sprite: Objects/Specific/Chemistry/beaker.rsi
+    sprite: _Impstation/Objects/Specific/Chemistry/beaker.rsi # imp
     state: beaker
   product: CrateChemistrySupplies
   cost: 750
@@ -31,7 +31,7 @@
 - type: cargoProduct
   id: EmergencyBurnKit
   icon:
-    sprite: Objects/Specific/Medical/firstaidkits.rsi
+    sprite: _Impstation/Objects/Specific/Medical/firstaidkits.rsi
     state: burnkit
   product: CrateEmergencyBurnKit
   cost: 700
@@ -41,7 +41,7 @@
 - type: cargoProduct
   id: EmergencyToxinKit
   icon:
-    sprite: Objects/Specific/Medical/firstaidkits.rsi
+    sprite: _Impstation/Objects/Specific/Medical/firstaidkits.rsi
     state: toxinkit
   product: CrateEmergencyToxinKit
   cost: 600
@@ -51,7 +51,7 @@
 - type: cargoProduct
   id: EmergencyO2Kit
   icon:
-    sprite: Objects/Specific/Medical/firstaidkits.rsi
+    sprite: _Impstation/Objects/Specific/Medical/firstaidkits.rsi
     state: o2kit
   product: CrateEmergencyO2Kit
   cost: 600
@@ -61,7 +61,7 @@
 - type: cargoProduct
   id: EmergencyBruteKit
   icon:
-    sprite: Objects/Specific/Medical/firstaidkits.rsi
+    sprite: _Impstation/Objects/Specific/Medical/firstaidkits.rsi
     state: brutekit
   product: CrateEmergencyBruteKit
   cost: 600
@@ -71,7 +71,7 @@
 - type: cargoProduct
   id: EmergencyAdvancedKit
   icon:
-    sprite: Objects/Specific/Medical/firstaidkits.rsi
+    sprite: _Impstation/Objects/Specific/Medical/firstaidkits.rsi
     state: advkit
   product: CrateEmergencyAdvancedKit
   cost: 2400
@@ -81,7 +81,7 @@
 - type: cargoProduct
   id: EmergencyRadiationKit
   icon:
-    sprite: Objects/Specific/Medical/firstaidkits.rsi
+    sprite: _Impstation/Objects/Specific/Medical/firstaidkits.rsi
     state: radkit
   product: CrateEmergencyRadiationKit
   cost: 600
@@ -121,7 +121,7 @@
 - type: cargoProduct
   id: ChemistryP
   icon:
-    sprite: Structures/Storage/Crates/chemcrate_secure.rsi
+    sprite: _Impstation/Structures/Storage/Crates/chemcrate_secure.rsi # imp
     state: icon
   product: CrateChemistryP
   cost: 850
@@ -131,7 +131,7 @@
 - type: cargoProduct
   id: ChemistryS
   icon:
-    sprite: Structures/Storage/Crates/chemcrate_secure.rsi
+    sprite: _Impstation/Structures/Storage/Crates/chemcrate_secure.rsi # imp
     state: icon
   product: CrateChemistryS
   cost: 750
@@ -141,7 +141,7 @@
 - type: cargoProduct
   id: CrateChemistryD
   icon:
-    sprite: Structures/Storage/Crates/chemcrate_secure.rsi
+    sprite: _Impstation/Structures/Storage/Crates/chemcrate_secure.rsi # imp
     state: icon
   product: CrateChemistryD
   cost: 750

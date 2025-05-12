@@ -33,6 +33,10 @@
       color: "#ff2fff"
   - type: Paper
     content: book-text-clown-law
+  - type: Tag
+    tags:
+    - Book
+    - Guidebook
 
 - type: entity
   parent: BookBase
@@ -54,6 +58,10 @@
       color: "#95BE76"
   - type: Paper
     content: book-text-tegtorial
+  - type: Tag
+    tags:
+    - Book
+    - Guidebook
 
 - type: entity
   parent: BookBase
@@ -74,6 +82,23 @@
 
 - type: entity
   parent: BookBase
+  id: BookJarvisBayCulture
+  name: Suns Among the Void, A Cultural Guide to Medical
+  description: A freshly-made, off-white book with a medical cross etched into the cover. It is surrounded by a ring of gold, from which Rods of Asclepius branch out.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/book.rsi
+    layers:
+    - state: culturebay
+  - type: Paper
+    content: book-text-jarvisbay
+  - type: Tag
+    tags:
+    - Book
+    - Guidebook
+
+- type: entity
+  parent: BookBase
   id: BookKeelBayWorn
   name: Keel-Ree's guide to medical
   description: This copy seems less than pristine, the margins are filled with illegible notes and some diagrams depicting medibot placements have been scratched out entirely.
@@ -90,6 +115,10 @@
       color: "#c03F3F"
   - type: Paper
     content: book-text-keelbay
+  - type: Tag
+    tags:
+    - Book
+    - Guidebook
 
 - type: entity
   parent: BookBase
@@ -109,6 +138,10 @@
       color: "#c03F3F"
   - type: Paper
     content: book-text-keelbay
+  - type: Tag
+    tags:
+    - Book
+    - Guidebook
 
 - type: entity
   parent: BookBase
@@ -122,6 +155,26 @@
     - state: cosmiccultbook
   - type: Paper
     content: book-text-cosmiccult
+
+- type: entity
+  parent: BookBase
+  id: BookMansus
+  name: On the Nature of the Mansus
+  description: It's adorned with an image of a ritual circle, which your eyes seem to instinctively try to avoid.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#4f2e0b"
+    - state: decor_spine
+      color: "#9e0b0b"
+    - state: icon_pentagramm
+      color: "#2b0000"
+  - type: Paper
+    content: book-text-mansus
+
 
 - type: entity
   parent: BookBase
@@ -148,3 +201,7 @@
     - state: smfordummies
   - type: Paper
     content: book-text-smfordummies
+  - type: Tag
+    tags:
+    - Book
+    - Guidebook

@@ -9,8 +9,6 @@ namespace Content.Server.Store.Conditions;
 
 public sealed partial class HereticPathCondition : ListingCondition
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-
     public int AlternatePathPenalty = 1; //you can only buy alternate paths' abilities if they are this amount under your initial path's top ability level.
     [DataField] public HashSet<string>? Whitelist;
     [DataField] public HashSet<string>? Blacklist;
@@ -24,10 +22,10 @@ public sealed partial class HereticPathCondition : ListingCondition
 
 
 
-        if (!minds.TryGetMind(args.Buyer, out var mindId, out var mind))
+        if (!ent.TryGetComponent<MindComponent>(args.Buyer, out var mind))
             return false;
 
-        if (!ent.TryGetComponent<HereticComponent>(args.Buyer, out var hereticComp))
+        if (!ent.TryGetComponent<HereticComponent>(mind.OwnedEntity, out var hereticComp))
             return false;
 
         //Stage is the level of the knowledge we're looking at

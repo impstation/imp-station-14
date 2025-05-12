@@ -178,11 +178,13 @@
     - Snout
     - HeadTop
     - HeadSide
+    - FacialHair #imp
 
 - type: entity
   abstract: true
-  parent: ClothingHeadHardsuitBase
-  id: ClothingHeadHardsuitWithLightBase
+  # No parent since it isn't an item
+  # must parent both this and the desired helmet base when using 
+  id: ClothingHeadSuitWithLightBase
   name: base hardsuit helmet with light
   categories: [ HideSpawnMenu ]
   components:

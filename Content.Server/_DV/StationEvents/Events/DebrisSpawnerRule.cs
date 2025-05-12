@@ -5,14 +5,11 @@
 */
 
 using Content.Server.GameTicking.Rules;
-using Content.Server.Station.Components;
 using Content.Server.StationEvents.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Salvage;
-using Robust.Server.GameObjects;
-using Robust.Server.Maps;
 using Robust.Shared.Configuration;
-using Robust.Shared.Map;
+using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -25,6 +22,7 @@ public sealed class DebrisSpawnerRule : StationEventSystem<DebrisSpawnerRuleComp
     [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -43,7 +41,7 @@ public sealed class DebrisSpawnerRule : StationEventSystem<DebrisSpawnerRuleComp
         foreach (var gridId in args.Grids)
         {
             var grid = Comp<MapGridComponent>(gridId);
-            var aabb = Transform(gridId).WorldMatrix.TransformBox(grid.LocalAABB);
+            var aabb = _transform.GetWorldMatrix(gridId).TransformBox(grid.LocalAABB);
             boxes.Add(aabb);
         }
 
@@ -58,14 +56,8 @@ public sealed class DebrisSpawnerRule : StationEventSystem<DebrisSpawnerRuleComp
 
             var offset = RobustRandom.NextVector2(dist, dist * 2.5f);
             var randomer = RobustRandom.NextVector2(dist, dist * 5f); //Second random vector to ensure the outpost isn't perfectly centered in the debris field
-            var options = new MapLoadOptions
-            {
-                Offset = aabb.Center + offset + randomer,
-                LoadMap = false,
-            };
-
             var salvage = RobustRandom.PickAndTake(salvageMaps);
-            _mapLoader.Load(args.Map, salvage.MapPath.ToString(), options);
+            _mapLoader.TryLoadGrid(args.Map, salvage.MapPath, out _, offset: aabb.Center + offset + randomer);
         }
     }
 }

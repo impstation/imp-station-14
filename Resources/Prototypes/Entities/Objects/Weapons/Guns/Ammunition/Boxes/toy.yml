@@ -18,6 +18,7 @@
   parent: BoxDonkSoftBase
   id: BoxDonkSoftBox
   name: box of foam darts
+  description: A box made for 40 of only the finest. #imp
   components:
   - type: BallisticAmmoProvider
     whitelist:
@@ -26,7 +27,7 @@
     capacity: 40
     proto: BulletFoam
   - type: Sprite
-    sprite: Objects/Storage/boxes.rsi
+    sprite: _Wizden/Objects/Storage/boxes.rsi # imp
     layers:
       - state: boxwidetoy
       - state: shelltoy
@@ -35,15 +36,20 @@
   parent: BaseMagazineBoxMagnum
   id: BoxCartridgeCap
   name: cap gun cartridge box
+  description: A box made for 20 pew pew shots. #imp
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeCap
     capacity: 20
+  #- type: MagazineVisuals # imp - cabinetification revert
+  #  magState: mag-cap
+  #  steps: 4
+  #  zeroVisible: false
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Boxes/magnum.rsi
+    sprite: _Wizden/Objects/Weapons/Guns/Ammunition/Boxes/magnum.rsi # imp
     layers:
-      - state: capbase
+      - state: capbase # imp
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-1
+      - state: mag-1 # imp
         map: ["enum.GunVisualLayers.Mag"]
-      - state: cap
+      - state: cap # imp

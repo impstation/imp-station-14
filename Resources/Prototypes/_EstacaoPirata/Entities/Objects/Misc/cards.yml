@@ -48,6 +48,9 @@
     interfaces:
       enum.CardUiKey.Key:
         type: CardHandMenuBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      cardstack-container: !type:Container
 
 - type: entity
   parent: BaseItem
@@ -64,6 +67,9 @@
     - 0,0,1,0
   - type: CardDeck
   - type: CardStack
+  - type: ContainerContainer
+    containers:
+      cardstack-container: !type:Container
 
 
 # Black
@@ -772,7 +778,7 @@
 - type: entity
   parent: CardBoxBase
   id: CardBoxNanotrasen
-  name: nanotrasen deck box
+  name: Nanotrasen deck box # imp edit; preferential to capitalizing company names
   components:
   - type: Item
     size: Small

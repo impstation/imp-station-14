@@ -8,9 +8,9 @@
   markingLimits: MobDecapoidMarkingLimits
   dollPrototype: MobDecapoidDummy
   skinColoration: Hues
-  maleFirstNames: names_decapoid_first
-  femaleFirstNames: names_decapoid_first
-  lastNames: names_decapoid_last
+  maleFirstNames: NamesDecapoidFirst
+  femaleFirstNames: NamesDecapoidFirst
+  lastNames: NamesDecapoidLast
   sexes:
   - Unsexed
 
@@ -50,7 +50,7 @@
     Chest:
       points: 4
       required: false
-    Undershirt:
+    UndergarmentTop:
       points: 1
       required: false
     Tail:
@@ -67,8 +67,8 @@
 - type: humanoidBaseSprite
   id: MobDecapoidEyes
   baseSprite:
-    sprite: _Impstation/Mobs/Customization/decapoid.rsi
-    state: eyes-1
+    sprite: _Impstation/Mobs/Customization/Decapoid/eyes.rsi
+    state: eyes1
 
 - type: humanoidBaseSprite
   id: MobDecapoidHead

@@ -5,6 +5,8 @@
   parent: [ BaseItem, BaseMinorContraband ]
   components:
   - type: RevealRevenantOnCollide
+  - type: CollisionWake
+    enabled: false
   - type: Sprite
     sprite: _Impstation/Objects/Misc/nullrod.rsi
     state: nullrod_base
@@ -22,7 +24,6 @@
   components:
   - type: ChaplainGearMenu
     possibleSets:
-    # - ChaplainGearRosary ## UNFINISHED! SoonTM.
     - ChaplainGearGrail
     - ChaplainGearGlove
     - ChaplainGearBow
@@ -46,29 +47,6 @@
     slots:
     - Belt
 
-
-- type: entity
-  name: silvered rosary
-  id: NullRodRosary
-  parent: NullRodBase
-  description: An expensive-looking rosary, made from silver. Exudes somewhat soothing vibes. Nice!
-  components:
-  - type: Prayable
-    bibleUserOnly: true
-  - type: Sprite
-    sprite: _Impstation/Objects/Misc/nullrod.rsi
-    state: nullrod_rosary
-  - type: Item
-    size: Small
-    shape:
-    - 0,0,1,1
-  - type: Clothing
-    sprite: _Impstation/Objects/Misc/nullrod.rsi
-    slots:
-    - Neck
-    - Belt
-
-
 - type: entity
   name: gildgrail
   id: NullRodGrail
@@ -84,14 +62,12 @@
         visible: false
   - type: Item
     size: Small
-    shape:
-    - 0,0,1,1
   - type: FitsInDispenser
     solution: grail
   - type: SolutionContainerManager
     solutions:
       grail:
-        maxVol: 200
+        maxVol: 60
   - type: MixableSolution
     solution: grail
   - type: RefillableSolution
@@ -123,7 +99,7 @@
     inHandsMaxFillLevels: 1
     inHandsFillBaseName: -fill-
   - type: Shakeable
-    shakeDuration: 1.6
+    shakeDuration: 3
     requireInHand: true
     shakeVerbText: null-grail-verb
     shakePopupMessageOthers: null-grail-popup-others
@@ -133,10 +109,9 @@
   - type: ReactionMixer
     mixOnInteract: false
     reactionTypes:
-    - Holy
+    - Gildgrail #mix changed to make half holy water and half aquam divinos
     - Shake
     mixMessage: "null-grail-mix-success"
-
 
 - type: entity
   name: divine grasp
@@ -154,12 +129,12 @@
   - type: Clothing
     sprite: _Impstation/Objects/Misc/nullrod_glove.rsi
   - type: StaminaDamageOnHit
-    damage: 23
+    damage: 5 # Down from 24
   - type: MeleeWeapon
     attackRate: 0.68
     damage:
       types:
-        Blunt: 14
+        Blunt: 10 # Down from 14
         Holy: 20
     soundHit:
       path: /Audio/_Impstation/Weapons/nullglove.ogg
@@ -167,8 +142,8 @@
         variation: 0.35
     mustBeEquippedToUse: true
   - type: MeleeThrowOnHit
-    speed: 7
-    lifetime: 0.2
+    distance: 1 # Down from 20 if this variable even does anything
+    speed: 1 # Down from 7
   - type: Reflect
     reflectProb: .22
     spread: 120
@@ -230,6 +205,7 @@
   - type: ContainerContainer
     containers:
       projectiles: !type:ContainerSlot
+      ballistic-ammo: !type:Container
   - type: BallisticAmmoProvider
     whitelist:
       tags:
@@ -257,6 +233,8 @@
       - state: quiver
       - state: quiver_unshaded
         shader: unshaded
+      - state: mag-0 # This is an empty sprite to get the mag visuals to shut up
+        map: [ "enum.GunVisualLayers.Mag" ]
     - type: Item
       size: Large
       shape:
@@ -275,3 +253,5 @@
       whitelist:
         tags:
         - HolyArrow
+    - type: MagazineVisuals
+      steps: 1 # Sprite is fake, I couldn't be bothered. Sorry :(

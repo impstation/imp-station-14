@@ -1,0 +1,24 @@
+# Static
+
+- type: latheRecipePack
+  id: ImpMedStatic
+  recipes:
+  - BaseChemistryEmptyVial
+  - PrescriptionLens
+  - PrescriptionLensStrong
+  - BlindingLens
+  - Dropper
+  - WalkingCane
+
+# Dynamic
+
+- type: latheRecipePack
+  id: ImpMedDynamic
+  recipes:
+  - ClothingEyesNightVisionMedicalGoggles
+
+# Emagged
+
+# - type: latheRecipePack
+#   id: ImpSecEmagged
+#   recipes:

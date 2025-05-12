@@ -1,4 +1,12 @@
-﻿# non-stealth syndicate stuff
+﻿# any type of magical items used by wizards and similiar
+- type: entity
+  id: BaseMagicalContraband
+  abstract: true
+  components:
+  - type: Contraband
+    severity: Magical
+
+# non-stealth syndicate stuff
 - type: entity
   id: BaseSyndicateContraband
   abstract: true
@@ -22,14 +30,17 @@
   - type: Contraband
     severity: Major
 
-# minor contraband by default restricted to security only
+# base department restricted contraband, this should only be used as a parent for other contraband prototypes, not the restricted items themselves.
 - type: entity
   id: BaseRestrictedContraband
   abstract: true
   components:
   - type: Contraband
     severity: Restricted
-    allowedDepartments: [ Security ]
+    allowedDepartments: [  ]
+    allowedJobs: [  ]
+    implicitlyAllowedDepartments: [ CentralCommand ] #imp edit
+    implicitlyAllowedJobs: [ Captain, HeadOfPersonnel ] #imp edit
 
 # one department restricted contraband
 - type: entity
@@ -39,6 +50,9 @@
   components:
   - type: Contraband
     allowedDepartments: [ CentralCommand ]
+    implicitlyAllowedDepartments: [ ] #imp edit
+    implicitlyAllowedJobs: [ ] #imp edit
+
 
 - type: entity
   id: BaseCommandContraband
@@ -81,12 +95,12 @@
     allowedDepartments: [ Medical ]
 
 - type: entity
-  id: BaseCivilianContraband
+  id: BaseServiceContraband #imp edit
   parent: BaseRestrictedContraband
   abstract: true
   components:
   - type: Contraband
-    allowedDepartments: [ Civilian ]
+    allowedDepartments: [ Service ] #imp edit
 
 - type: entity
   id: BaseCargoContraband
@@ -162,6 +176,7 @@
   - type: Contraband
     allowedDepartments: [ Security ]
     allowedJobs: [ Bartender ]
+    implicitlyAllowedJobs: [ Captain, HeadOfPersonnel, HospitalityDirector ] #imp edit
 
 - type: entity
   id: BaseSecurityLawyerContraband
@@ -171,6 +186,7 @@
   - type: Contraband
     allowedDepartments: [ Security ]
     allowedJobs: [ Lawyer ]
+    implicitlyAllowedJobs: [ Captain, HeadOfPersonnel, HospitalityDirector ] #imp edit
 
 - type: entity
   id: BaseJanitorContraband
@@ -179,6 +195,16 @@
   components:
   - type: Contraband
     allowedJobs: [ Janitor ]
+    implicitlyAllowedJobs: [ Captain, HeadOfPersonnel, HospitalityDirector ] #imp edit
+
+- type: entity
+  id: BaseBrigmedicContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedJobs: [ Brigmedic ]
+    implicitlyAllowedJobs: [ Captain, HeadOfPersonnel, HeadOfSecurity ] #imp edit
 
 # for ~objective items
 - type: entity

@@ -4,10 +4,10 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/medical.rsi
+    sprite: _Impstation/Objects/Specific/Medical/medical.rsi # imp
   - type: Item
     size: Small
-    sprite: Objects/Specific/Medical/medical.rsi
+    sprite: _Impstation/Objects/Specific/Medical/medical.rsi # imp
     heldPrefix: ointment
   # Inherited
   - type: StaticPrice
@@ -76,6 +76,7 @@
     - Ointment
     - RegenerativeMesh
   - type: Sprite
+    sprite: Objects/Specific/Medical/medical.rsi # imp
     state: regenerative-mesh
   - type: Item
     heldPrefix: regenerative-mesh
@@ -119,6 +120,8 @@
     - Brutepack
   - type: Sprite
     state: brutepack
+  - type: Item
+    heldPrefix: brutepack
   - type: Healing
     damageContainers:
       - Biological
@@ -164,6 +167,7 @@
     tags:
     - Brutepack
   - type: Sprite
+    sprite: Objects/Specific/Medical/medical.rsi # imp
     state: medicated-suture
   - type: Item
     heldPrefix: medicated-suture
@@ -201,9 +205,12 @@
   id: Bloodpack
   suffix: Full
   components:
+  - type: Item
+    heldPrefix: bloodpack
   - type: Tag
     tags:
     - Bloodpack
+    - KodeEdible # imp
   - type: Sprite
     state: bloodpack
   - type: Healing
@@ -222,6 +229,25 @@
     count: 10
   - type: StackPrice
     price: 10
+  - type: Food # imp - kodepiia gogurt
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Blood
+          Quantity: 15
+
+
+- type: entity
+  parent: Bloodpack
+  id: Bloodpack1
+  suffix: Single
+  components:
+  - type: Stack
+    stackType: Bloodpack
+    count: 1
 
 - type: entity
   parent: Bloodpack
@@ -241,7 +267,10 @@
       tags:
         - SecBeltEquip
     - type: Sprite
+      sprite: Objects/Specific/Medical/medical.rsi # imp
       state: tourniquet
+    - type: Item
+      heldPrefix: tourniquet
     - type: Healing
       damageContainers:
         - Biological
@@ -269,12 +298,15 @@
     - Gauze
   - type: Sprite
     state: gauze
+  - type: Item
+    heldPrefix: gauze
   - type: Construction
     graph: Gauze
     node: gauze
   - type: Healing
     damageContainers:
       - Biological
+      - BiologicalMetaphysical #imp
     damage:
       types:
         Slash: -5
@@ -328,10 +360,10 @@
   id: HealingToolbox
   name: healing toolbox
   description: A powerful toolbox imbued with robust energy. It can heal your wounds and fill you with murderous intent.
-  suffix: DO NOT MAP
+  categories: [ DoNotMap ]
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/healing_toolbox.rsi
+    sprite: _Wizden/Objects/Specific/Medical/healing_toolbox.rsi # imp
     state: icon
   - type: Healing
     damageContainers:
@@ -1048,3 +1080,37 @@
         reagents:
         - ReagentId: Stimulants
           Quantity: 15
+
+# Entity Tables
+- type: entityTable
+  id: RandomSafePillTable
+  table: !type:GroupSelector
+    children:
+    - id: PillBicaridine
+    - id: PillCharcoal
+    - id: PillCopper
+    - id: PillDermaline
+    - id: PillDexalin
+    - id: PillDylovene
+    - id: PillHyronalin
+    - id: PillIron
+    - id: PillKelotane
+    - id: PillPotassiumIodide
+    - id: PillTricordrazine
+    - id: StrangePill
+
+- type: entityTable
+  id: RandomSafeSyringeTable
+  table: !type:GroupSelector
+    children:
+    - id: SyringeBicaridine
+    - id: SyringeDermaline
+    - id: SyringeEphedrine
+    - id: SyringeEthylredoxrazine
+    - id: SyringeHyronalin
+    - id: SyringeInaprovaline
+    - id: SyringeIpecac
+    - id: SyringePhalanximine
+    - id: SyringeSaline
+    - id: SyringeSigynate
+    - id: SyringeTranexamicAcid

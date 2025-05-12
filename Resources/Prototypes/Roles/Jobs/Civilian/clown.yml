@@ -5,10 +5,14 @@
   playTimeTracker: JobClown
   startingGear: ClownGear
   icon: "JobIconClown"
-  supervisors: job-supervisors-hop
+  supervisors: job-supervisors-hd
   access:
   - Theatre
   - Maintenance
+  # imp edit start
+  - Clown
+  - Service
+  #imp edit end
   special:
   - !type:AddComponentSpecial
     components:

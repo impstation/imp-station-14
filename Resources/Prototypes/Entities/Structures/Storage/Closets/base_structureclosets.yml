@@ -5,12 +5,13 @@
   description: A standard-issue Nanotrasen storage unit.
   abstract: true
   components:
+  - type: Animateable
   - type: ResistLocker
   - type: Transform
     noRot: true
   - type: Sprite
     noRot: true
-    sprite: Structures/Storage/closet.rsi
+    sprite: _Impstation/Structures/Storage/closet.rsi # imp
     layers:
     - state: generic
       map: ["enum.StorageVisualLayers.Base"]
@@ -26,8 +27,8 @@
   - type: MovedByPressure
   - type: PaperLabel
     labelSlot:
-      insertVerbText: Attach Label
-      ejectVerbText: Remove Label
+      insertVerbText: comp-paper-label-insert
+      ejectVerbText: comp-paper-label-eject
       whitelist:
         components:
         - Paper
@@ -156,7 +157,7 @@
   - type: Sprite
     drawdepth: WallMountedItems
     noRot: false
-    sprite: Structures/Storage/wall_locker.rsi
+    sprite: _Impstation/Structures/Storage/wall_locker.rsi # imp
     layers:
     - state: generic
       map: ["enum.StorageVisualLayers.Base"]
@@ -220,7 +221,7 @@
   - type: Lock
   - type: LockVisuals
   - type: Sprite
-    sprite: Structures/Storage/wall_locker.rsi
+    sprite: _Impstation/Structures/Storage/wall_locker.rsi # imp
     layers:
     - state: generic
       map: ["enum.StorageVisualLayers.Base"]
@@ -252,7 +253,7 @@
     noRot: true
   - type: Sprite
     noRot: true
-    sprite: Structures/Storage/suit_storage.rsi
+    sprite: _Impstation/Structures/Storage/suit_storage.rsi # imp
     layers:
     - state: base
     - state: door

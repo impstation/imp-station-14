@@ -64,9 +64,14 @@
     - id: PlushieImp
       weight: 0.1
     - id: PlushieHeadofPersonnel
-    - id: PlushieCaptain
-    - id: PlushieGiantBear
       weight: 0.1
+    - id: PlushieCaptain
+      weight: 0.1
+    - id: PlushieOdds
+      weight: 0.4
+    - id: PlushieGiantBear
+      weight: 0.5
+    - id: PlushieGriffy
     # imp edit end
 
 - type: entity
@@ -140,8 +145,6 @@
         amount: 2
       - id: FrenchHornInstrument
         amount: 2
-      - id: SaxophoneInstrument
-        amount: 2
       - id: EuphoniumInstrument
       - id: TubaInstrument
 
@@ -178,6 +181,8 @@
       - id: FluteInstrument
       - id: HarmonicaInstrument
         amount: 2
+      - id: SaxophoneInstrument
+        amount: 2
       - id: OcarinaInstrument
       - id: PanFluteInstrument
 
@@ -204,7 +209,7 @@
   id: CrateFunInstrumentsSpecial
   parent: CrateGenericSteel
   name: special instrument collector's crate
-  description: Create some noise with this special collection of arguably-instruments! Centcomm is not responsible for any trauma caused by the contents.
+  description: Create some noise with this special collection of arguably-instruments! CentComm is not responsible for any trauma caused by the contents. # imp caps fix
   components:
   - type: StorageFill
     contents:
@@ -316,6 +321,21 @@
         amount: 2
       - id: WeaponWaterPistol
         amount: 4
+
+- type: entity
+  id: CrateFunFoamGuns
+  parent: CratePlastic
+  name: Foam Force crate
+  description: Contains four Foam Force rifles, some grenades, and extra ammo. It's [REDACTED] or nothing!
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleFoam
+      amount: 4
+    - id: BoxDonkSoftBox
+      amount: 2
+    - id: GrenadeFoamDart
+      amount: 4
 
 - type: entity
   id: CrateFunBoxing

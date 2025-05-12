@@ -5,6 +5,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
+using Content.Shared.Store;
 using Content.Shared.Store.Components;
 using Content.Shared.Popups;
 using Content.Shared.Damage;
@@ -15,7 +16,7 @@ using Content.Server.Light.Components;
 using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Server.Flash.Components;
-using Content.Server.Forensics;
+using Content.Shared.Forensics.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
@@ -30,6 +31,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 {
     [Dependency] private readonly SharedRottingSystem _rotting = default!;
     [Dependency] private readonly SharedStealthSystem _stealth = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _userInterfaceSystem = default!;
 
     public void SubscribeAbilities()
     {
@@ -536,7 +538,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         var eggComp = EnsureComp<ChangelingEggComponent>(target);
         eggComp.lingComp = comp;
-        eggComp.lingMind = (EntityUid) mind;
+        eggComp.lingMind = (EntityUid)mind;
         eggComp.lingStore = _serialization.CreateCopy(storeComp, notNullableOverride: true);
 
         EnsureComp<AbsorbedComponent>(target);
@@ -545,9 +547,9 @@ public sealed partial class ChangelingSystem : EntitySystem
         _blood.ChangeBloodReagent(target, "FerrochromicAcid");
         _blood.SpillAllSolutions(target);
 
-        PlayMeatySound((EntityUid) uid, comp);
+        PlayMeatySound(uid, comp);
 
-        _bodySystem.GibBody((EntityUid) uid);
+        _bodySystem.GibBody(uid);
     }
 
     #endregion
@@ -605,7 +607,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             var puller = Comp<PullableComponent>(uid).Puller;
             if (puller != null)
             {
-                _puddle.TrySplashSpillAt((EntityUid) puller, Transform((EntityUid) puller).Coordinates, soln, out _);
+                _puddle.TrySplashSpillAt((EntityUid)puller, Transform((EntityUid)puller).Coordinates, soln, out _);
                 return;
             }
         }
@@ -716,6 +718,12 @@ public sealed partial class ChangelingSystem : EntitySystem
         }
 
         var targetUid = (EntityUid)newUid;
+
+        var uiComp = EnsureComp<UserInterfaceComponent>(targetUid);
+        if (!_userInterfaceSystem.HasUi(targetUid, StoreUiKey.Key, uiComp))
+        {
+            _userInterfaceSystem.SetUi(targetUid, StoreUiKey.Key, new InterfaceData("StoreBoundUserInterface"));
+        }
 
         var popupSelf = Loc.GetString("changeling-transform-lesser-self");
         var popupOthers = Loc.GetString("changeling-transform-lesser-others", ("user", Identity.Entity(uid, EntityManager)));

@@ -88,6 +88,16 @@
       interactFailureString: petting-failure-carp
       interactFailureSound:
         path: /Audio/Effects/bite.ogg
+    - type: NightVision # EE edit
+      isActive: true
+      toggleAction: null
+      color: "#50595C"
+      activateSound: null
+      deactivateSound: null
+    - type: Body #imp
+      prototype: AnimalCarp
+    - type: Bloodstream #imp
+      bloodReagent: ShimmeringBlood
 
 - type: entity
   name: nice space carp
@@ -170,6 +180,16 @@
       interactFailureString: petting-failure-nicecarp
       interactFailureSound:
         path: /Audio/Effects/bite.ogg
+    - type: NightVision # EE edit
+      isActive: true
+      toggleAction: null
+      color: "#50595C"
+      activateSound: null
+      deactivateSound: null
+    - type: Body #imp
+      prototype: AnimalCarp
+    - type: Bloodstream #imp
+      bloodReagent: ShimmeringBlood
 
 - type: entity
   parent: BaseMobCarp
@@ -256,7 +276,7 @@
       description: ghost-role-information-sentient-carp-description
       rules: ghost-role-information-space-dragon-summoned-carp-rules
       mindRoles:
-      - MindRoleGhostRoleTeamAntagonist
+      - MindRoleGhostRoleTeamAntagonistFlock
       raffle:
         settings: short
     - type: GhostTakeoverAvailable

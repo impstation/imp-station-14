@@ -232,22 +232,43 @@ public sealed partial class ArtifactSystem
 
         component.CurrentNodeId = node.Id;
 
-        var trigger = _prototype.Index<ArtifactTriggerPrototype>(node.Trigger);
-        var effect = _prototype.Index<ArtifactEffectPrototype>(node.Effect);
+        //#IMP Attempt to get trigger/effect from string, fall back to defaults if not in prototype
+        // Putting defaults in here rather than components because artifact component isn't guaranteed to exist,
+        // and these should never be modified in-game
+        var defaultTrigger = "TriggerExamine";
+        var defaultEffect = "EffectBadFeeling";
+        _prototype.TryIndex<ArtifactTriggerPrototype>(node.Trigger, out var maybeTrigger);
+        _prototype.TryIndex<ArtifactEffectPrototype>(node.Effect, out var maybeEffect);
+
+        var trigger = _prototype.Index<ArtifactTriggerPrototype>(defaultTrigger);
+        var effect = _prototype.Index<ArtifactEffectPrototype>(defaultEffect);
+        if (maybeTrigger is null)
+            Log.Debug($"Trigger prototype {node.Trigger} not found for artifact entity {ToPrettyString(uid)}, falling back to default");
+        else
+            trigger = maybeTrigger;
+
+        if (maybeEffect is null)
+            Log.Debug($"Effect prototype {node.Effect} not found for artifact entity {ToPrettyString(uid)}, falling back to default");
+        else
+            effect = maybeEffect;
+
+        // #IMP: Save trigger & effect to allow proper exiting in case admin edits between entry and exit.
+        node.StoredTrigger = maybeTrigger != null ? node.Trigger : defaultTrigger;
+        node.StoredEffect = maybeEffect != null ? node.Effect : defaultEffect;
+
+        //#END IMP
 
         var allComponents = effect.Components.Concat(effect.PermanentComponents).Concat(trigger.Components);
         foreach (var (name, entry) in allComponents)
         {
             var reg = _componentFactory.GetRegistration(name);
 
-            if (node.Discovered && EntityManager.HasComponent(uid, reg.Type))
-            {
-                // Don't re-add permanent components unless this is the first time you've entered this node
-                if (effect.PermanentComponents.ContainsKey(name))
-                    continue;
+            // Don't re-add permanent components, ever
+            if (effect.PermanentComponents.ContainsKey(name) && EntityManager.HasComponent(uid, reg.Type))
+                continue;
 
+            if (node.Discovered && EntityManager.HasComponent(uid, reg.Type))
                 EntityManager.RemoveComponent(uid, reg.Type);
-            }
 
             var comp = (Component)_componentFactory.GetComponent(reg);
 
@@ -273,8 +294,8 @@ public sealed partial class ArtifactSystem
             return;
         var currentNode = GetNodeFromId(component.CurrentNodeId.Value, component);
 
-        var trigger = _prototype.Index<ArtifactTriggerPrototype>(currentNode.Trigger);
-        var effect = _prototype.Index<ArtifactEffectPrototype>(currentNode.Effect);
+        var trigger = _prototype.Index<ArtifactTriggerPrototype>(currentNode.StoredTrigger);
+        var effect = _prototype.Index<ArtifactEffectPrototype>(currentNode.StoredEffect);
 
         var entityPrototype = MetaData(uid).EntityPrototype;
         var toRemove = effect.Components.Keys.Concat(trigger.Components.Keys).ToList();

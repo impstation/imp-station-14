@@ -69,6 +69,12 @@
   - type: GhostTakeoverAvailable
   - type: Speech
     speechVerb: LargeMob
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   name: space bear
@@ -169,6 +175,10 @@
       collection: FootstepBounce
   - type: ReplacementAccent
     accent: kangaroo
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 1
 
 - type: entity
   id: MobKangarooSpaceSalvage
@@ -213,6 +223,8 @@
     - id: EggSpider
       amount: 1
       prob: 0.5
+    - id: FoodMeatSpiderLeg # imp
+      amount: 1
   - type: Bloodstream
     bloodMaxVolume: 250
     bloodReagent: Cryoxadone
@@ -440,7 +452,7 @@
     description: ghost-role-information-snail-description
     rules: ghost-role-information-freeagent-rules
     mindRoles:
-    - MindRoleGhostRoleFreeAgent
+    - MindRoleGhostRoleFreeAgentHarmless
   - type: GhostTakeoverAvailable
   - type: Emoting
   - type: Sprite
@@ -567,10 +579,13 @@
   id: MobSnailInstantDeath
   suffix: Smite
   components:
+  - type: GhostRole
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
   - type: MobStateActions
     actions:
       Alive:
-      - ActionSmite
+      - ActionSmiteNoReq
       Critical:
       - ActionCritSuccumb
       - ActionCritFakeDeath

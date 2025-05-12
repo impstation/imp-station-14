@@ -205,7 +205,7 @@
   components:
   - type: FoamArtifact
     reagents:
-    - Oxygen
+    #- Oxygen #IMP REMOVED
     - Plasma
     - Blood
     - SpaceCleaner
@@ -340,6 +340,7 @@
   components:
   - type: SpawnArtifact
     maxSpawns: 5
+    ghostRoleProb: 0.1 #IMP
     spawns:
     - id: MobCarpHolo
       orGroup: carp
@@ -353,6 +354,7 @@
   components:
   - type: SpawnArtifact
     maxSpawns: 5
+    ghostRoleProb: 0.1 #IMP
     spawns:
     - id: MobAdultSlimesYellowAngry
       orGroup: fauna
@@ -560,16 +562,6 @@
     intensity: 2
     slope: 0.3
 
-- type: artifactEffect
-  id: EffectLocalKnockdown
-  targetDepth: 3
-  effectHint: artifact-effect-hint-environment
-  effectProb: 0.7
-  components:
-  - type: KnockdownArtifact
-    range: 8
-    entireGrid: false
-    knockdownTime: 4
 
 - type: artifactEffect
   id: EffectMaterialSpawn

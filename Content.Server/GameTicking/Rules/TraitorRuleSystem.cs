@@ -1,5 +1,6 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Antag;
+using Content.Server.Antag.Components;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Mind;
 using Content.Server.Objectives;
@@ -13,6 +14,7 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Mind;
 using Content.Shared.NPC.Systems;
 using Content.Shared.PDA;
+using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Roles.RoleCodeword;
@@ -96,7 +98,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         string[] codewords = new string[finalCodewordCount];
         for (var i = 0; i < finalCodewordCount; i++)
         {
-            codewords[i] = _random.PickAndTake(codewordPool);
+            codewords[i] = Loc.GetString(_random.PickAndTake(codewordPool));
         }
         return codewords;
     }
@@ -120,7 +122,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
             briefing = Loc.GetString("traitor-role-codewords-short", ("codewords", string.Join(", ", component.Codewords)));
         }
 
-        var issuer = _random.Pick(_prototypeManager.Index(component.ObjectiveIssuers).Values);
+        var issuer = _random.Pick(_prototypeManager.Index(component.ObjectiveIssuers));
 
         // Uplink code will go here if applicable, but we still need the variable if there aren't any
         Note[]? code = null;
@@ -274,5 +276,37 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         }
 
         return traitors;
+    }
+
+// imp edit for Bounty Hunter
+    public List<(EntityUid Id, MindComponent Mind)> GetOtherAntagMindsAliveAndConnected(MindComponent ourMind)
+    {
+        List<(EntityUid Id, MindComponent Mind)> allAntags = new();
+
+        var query = EntityQueryEnumerator<AntagObjectivesComponent>();
+        while (query.MoveNext(out var uid, out var antag))
+        {
+            foreach (var role in GetOtherAntagMindsAliveAndConnected(ourMind, (uid, antag)))
+            {
+                if (!allAntags.Contains(role))
+                    allAntags.Add(role);
+            }
+        }
+
+        return allAntags;
+    }
+
+    private List<(EntityUid Id, MindComponent Mind)> GetOtherAntagMindsAliveAndConnected(MindComponent ourMind, Entity<AntagObjectivesComponent> rule)
+    {
+        var antags = new List<(EntityUid Id, MindComponent Mind)>();
+        foreach (var mind in _antag.GetAntagMinds(rule.Owner))
+        {
+            if (mind.Comp == ourMind)
+                continue;
+
+            antags.Add((mind, mind));
+        }
+
+        return antags;
     }
 }

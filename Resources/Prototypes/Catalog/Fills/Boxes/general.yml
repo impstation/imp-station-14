@@ -197,7 +197,7 @@
       - id: FoodCondimentPacketKetchup
   - type: Sprite
     layers:
-      - state: box_olive
+      - state: box_olive # imp
       - state: writing
 
 - type: entity
@@ -238,8 +238,9 @@
   components:
   - type: StorageFill
     contents:
-      # - id: ClothingShoesBootsPerformer # imp - death to vocaloid
-      # - id: ClothingUniformJumpskirtPerformer # imp - death to vocaloid
+      # - id: ClothingShoesBootsPerformer # Imp edit - vocaloid ref removal lazy ver
+      # - id: ClothingUniformJumpskirtPerformer
+      # - id: ClothingHeadPerformerWig
       - id: FoodMealMemoryleek
         amount: 2
 

@@ -4,6 +4,7 @@ using Content.Shared.Anomaly.Prototypes;
 using Content.Shared.Database;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
+using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -41,19 +42,22 @@ public abstract class SharedAnomalySystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<AnomalyComponent, MeleeThrowOnHitStartEvent>(OnAnomalyThrowStart);
-        SubscribeLocalEvent<AnomalyComponent, MeleeThrowOnHitEndEvent>(OnAnomalyThrowEnd);
+        SubscribeLocalEvent<AnomalyComponent, LandEvent>(OnLand);
     }
 
     private void OnAnomalyThrowStart(Entity<AnomalyComponent> ent, ref MeleeThrowOnHitStartEvent args)
     {
-        if (!TryComp<CorePoweredThrowerComponent>(args.Used, out var corePowered) || !TryComp<PhysicsComponent>(ent, out var body))
+        if (!TryComp<CorePoweredThrowerComponent>(args.Weapon, out var corePowered) || !TryComp<PhysicsComponent>(ent, out var body))
             return;
+
+        // anomalies are static by default, so we have set them to dynamic to be throwable
         _physics.SetBodyType(ent, BodyType.Dynamic, body: body);
         ChangeAnomalyStability(ent, Random.NextFloat(corePowered.StabilityPerThrow.X, corePowered.StabilityPerThrow.Y), ent.Comp);
     }
 
-    private void OnAnomalyThrowEnd(Entity<AnomalyComponent> ent, ref MeleeThrowOnHitEndEvent args)
+    private void OnLand(Entity<AnomalyComponent> ent, ref LandEvent args)
     {
+        // revert back to static
         _physics.SetBodyType(ent, BodyType.Static);
     }
 
@@ -112,21 +116,29 @@ public abstract class SharedAnomalySystem : EntitySystem
     /// <summary>
     /// Begins the animation for going supercritical
     /// </summary>
-    /// <param name="uid"></param>
-    public void StartSupercriticalEvent(EntityUid uid)
+    /// <param name="ent">Entity to go supercritical</param>
+    public void StartSupercriticalEvent(Entity<AnomalyComponent?> ent)
     {
-        // don't restart it if it's already begun
-        if (HasComp<AnomalySupercriticalComponent>(uid))
+        if (!TryComp<AnomalyComponent>(ent, out var anomComp) || anomComp.CannotSupercrit) // imp
             return;
 
-        AdminLog.Add(LogType.Anomaly, LogImpact.Extreme, $"Anomaly {ToPrettyString(uid)} began to go supercritical.");
-        if (_net.IsServer)
-            Log.Info($"Anomaly is going supercritical. Entity: {ToPrettyString(uid)}");
+        // don't restart it if it's already begun
+        if (HasComp<AnomalySupercriticalComponent>(ent))
+            return;
 
-        var super = AddComp<AnomalySupercriticalComponent>(uid);
+        if(!Resolve(ent, ref ent.Comp))
+            return;
+
+        AdminLog.Add(LogType.Anomaly, LogImpact.High, $"Anomaly {ToPrettyString(ent.Owner)} began to go supercritical.");
+        if (_net.IsServer)
+            Log.Info($"Anomaly is going supercritical. Entity: {ToPrettyString(ent.Owner)}");
+
+        Audio.PlayPvs(ent.Comp.SupercriticalSoundAtAnimationStart, Transform(ent).Coordinates);
+
+        var super = AddComp<AnomalySupercriticalComponent>(ent);
         super.EndTime = Timing.CurTime + super.SupercriticalDuration;
-        Appearance.SetData(uid, AnomalyVisuals.Supercritical, true);
-        Dirty(uid, super);
+        Appearance.SetData(ent, AnomalyVisuals.Supercritical, true);
+        Dirty(ent, super);
     }
 
     /// <summary>
@@ -159,7 +171,7 @@ public abstract class SharedAnomalySystem : EntitySystem
         var ev = new AnomalySupercriticalEvent(uid, powerMod);
         RaiseLocalEvent(uid, ref ev, true);
 
-        EndAnomaly(uid, component, true);
+        EndAnomaly(uid, component, true, logged: true);
     }
 
     /// <summary>
@@ -169,13 +181,17 @@ public abstract class SharedAnomalySystem : EntitySystem
     /// <param name="component"></param>
     /// <param name="supercritical">Whether or not the anomaly ended via supercritical event</param>
     /// <param name="spawnCore">Create anomaly cores based on the result of completing an anomaly?</param>
-    public void EndAnomaly(EntityUid uid, AnomalyComponent? component = null, bool supercritical = false, bool spawnCore = true)
+    /// <param name="logged">Whether or not the anomaly decaying/going supercritical is logged</param>
+    public void EndAnomaly(EntityUid uid, AnomalyComponent? component = null, bool supercritical = false, bool spawnCore = true, bool logged = false)
     {
-        // Logging before resolve, in case the anomaly has deleted itself.
-        if (_net.IsServer)
-            Log.Info($"Ending anomaly. Entity: {ToPrettyString(uid)}");
-        AdminLog.Add(LogType.Anomaly, supercritical ? LogImpact.High : LogImpact.Low,
-                     $"Anomaly {ToPrettyString(uid)} {(supercritical ? "went supercritical" : "decayed")}.");
+        if (logged)
+        {
+            // Logging before resolve, in case the anomaly has deleted itself.
+            if (_net.IsServer)
+                Log.Info($"Ending anomaly. Entity: {ToPrettyString(uid)}");
+            AdminLog.Add(LogType.Anomaly, supercritical ? LogImpact.High : LogImpact.Low,
+                $"Anomaly {ToPrettyString(uid)} {(supercritical ? "went supercritical" : "decayed")}.");
+        }
 
         if (!Resolve(uid, ref component))
             return;
@@ -232,7 +248,7 @@ public abstract class SharedAnomalySystem : EntitySystem
         var newVal = component.Severity + change;
 
         if (newVal >= 1)
-            StartSupercriticalEvent(uid);
+            StartSupercriticalEvent((uid, component));
 
         component.Severity = Math.Clamp(newVal, 0, 1);
         Dirty(uid, component);
@@ -256,7 +272,7 @@ public abstract class SharedAnomalySystem : EntitySystem
 
         if (newVal < 0)
         {
-            EndAnomaly(uid, component);
+            EndAnomaly(uid, component, logged: true);
             return;
         }
 
@@ -313,6 +329,9 @@ public abstract class SharedAnomalySystem : EntitySystem
         var anomalyQuery = EntityQueryEnumerator<AnomalyComponent>();
         while (anomalyQuery.MoveNext(out var ent, out var anomaly))
         {
+            if (anomaly.CannotRandomPulse) // imp
+                continue;
+
             // if the stability is under the death threshold,
             // update it every second to start killing it slowly.
             if (anomaly.Stability < anomaly.DecayThreshold)
@@ -339,6 +358,9 @@ public abstract class SharedAnomalySystem : EntitySystem
         var supercriticalQuery = EntityQueryEnumerator<AnomalySupercriticalComponent, AnomalyComponent>();
         while (supercriticalQuery.MoveNext(out var ent, out var super, out var anom))
         {
+            if (anom.CannotSupercrit) // imp
+                continue;
+
             if (Timing.CurTime <= super.EndTime)
                 continue;
             DoAnomalySupercriticalEvent(ent, anom);

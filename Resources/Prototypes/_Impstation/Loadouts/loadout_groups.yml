@@ -32,30 +32,12 @@
   loadouts:
   - LoadoutSpeciesAquaticFullTank
 
-# decapoid claw and tank
-- type: loadoutGroup
-  id: GroupDecapoidClawLeft
-  name: loadout-group-decapoid-claw-left
-  minLimit: 1
-  hidden: true
-  loadouts:
-  - LoadoutDecapoidClaw
-
-# the claw and tank but as StartingGear
-- type: startingGear
-  id: StartingGearDecapoidClaw
-  inhand:
-    - DecapoidVaporTank
-    - DecapoidClawItem
-
-# the full internals setup for decapoids but as StartingGear
+# the full internals setup for decapoids as StartingGear
 - type: startingGear
   id: StartingGearDecapoidVaporizer
   equipment:
     mask: DecapoidBreathingApparatus
-  inhand:
-    - DecapoidVaporTank
-    - DecapoidClawItem
+    suitstorage: DecapoidVaporTankFilled
 
 # The usual loadouts of the decapoid harness that spawn in your chest slot for jobs that don't have outerwear in their loadout
 - type: loadoutGroup
@@ -107,6 +89,22 @@
   hidden: true
   loadouts:
   - LoadoutDecapoidBreathToolInventory
+
+- type: loadoutGroup
+  id: GroupBreathToolDecapoidInventoryClown
+  name: loadout-group-breath-tool-inventory-decapoid-clown
+  minLimit: 1
+  hidden: true
+  loadouts:
+  - LoadoutDecapoidBreathToolInventoryClown
+
+- type: loadoutGroup
+  id: GroupBreathToolDecapoidInventoryMime
+  name: loadout-group-breath-tool-inventory-decapoid-mime
+  minLimit: 1
+  hidden: true
+  loadouts:
+  - LoadoutDecapoidBreathToolInventoryMime
 
 # apids
 
@@ -187,6 +185,73 @@
     ears: ClothingHeadsetCargo
     #eyes:
 
+- type: startingGear #science
+  id: StartingGearApidScientist
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitScientist
+    id: SciencePDA
+    belt: ClothingBeltUtilityBlackFilled
+    outerClothing: ClothingOuterWinterSci
+    #head:
+    pocket1: EmergencyOxygenTankFilled
+    pocket2: ClothingMaskBreath
+    ears: ClothingHeadsetScience
+    eyes: ClothingEyesGlasses
+
+- type: startingGear #janitor
+  id: StartingGearApidJanitor
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitJanitor
+    id: JanitorPDA
+    belt: ClothingBeltJanitorFilled
+    outerClothing: ClothingOuterWinterJani
+    head: ClothingHeadHatPurplesoftFlipped
+    pocket1: EmergencyOxygenTankFilled
+    pocket2: ClothingMaskBreath
+    ears: ClothingHeadsetService
+    eyes: ClothingEyesGlassesChemical
+  inhand:
+  - AdvMopItem
+
+- type: startingGear #AA
+  id: StartingGearApidAdministrativeAssistant
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitAdminAssistant
+    id: AdminAssistantPDA
+    belt: ClothingBeltPaperworkFilled
+    outerClothing: ClothingOuterWinterColorBlue
+    #head:
+    pocket1: EmergencyOxygenTankCommandFilled
+    pocket2: ClothingMaskBreathCommand
+    ears: ClothingHeadsetAdminAssistant
+    eyes: ClothingEyesHudCommand
+
+- type: startingGear #Chaplain
+  id: StartingGearApidChaplain
+  equipment:
+    jumpsuit: ClothingUniformSkirtDruid
+    id: ChaplainPDA
+    belt: Beeble #thusd beeble
+    #outerClothing: ClothingOuterCoatGentle
+    head: ClothingHeadHatFlowerWreath
+    pocket1: EmergencyOxygenTankFilled
+    pocket2: ClothingMaskBreath
+    ears: ClothingHeadsetService
+    #eyes:
+
+- type: startingGear #Salvage
+  id: StartingGearApidSalvageSpecialist
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSalvageSpecialist
+    id: SalvagePDA
+    belt: ClothingBeltSalvageWebbingApid
+    outerClothing: ClothingOuterHardsuitSpatio
+    #head:
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: SurvivalKnife
+    ears: ClothingHeadsetCargo
+    eyes: ClothingEyesGlassesMeson
+
 # command
 
 - type: loadoutGroup
@@ -195,6 +260,7 @@
   loadouts:
   - CaptainSunglasses
   - CaptainVisor
+  - CaptainEyepatch
 
 - type: loadoutGroup
   id: CaptainGloves
@@ -212,6 +278,7 @@
   - BlackCommandHeels
   - BlueCommandHeels
   - CaptainJumpBoots
+  - CaptainHeeledBoots
 
 - type: loadoutGroup
   id: CommandHeadset
@@ -229,6 +296,8 @@
   loadouts:
   - EmergencyNitrogenCommand
   - EmergencyOxygenCommand
+  - EmergencyMeatCommand
+  - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogenCommand
 
 - type: loadoutGroup
@@ -239,6 +308,8 @@
   loadouts:
   - EmergencyNitrogenExtendedCommand
   - EmergencyOxygenExtendedCommand
+  - EmergencyMeatExtendedCommand
+  - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogenCommand
 
 - type: loadoutGroup
@@ -249,6 +320,8 @@
   loadouts:
   - EmergencyNitrogenSecurityCommand
   - EmergencyOxygenSecurityCommand
+  - EmergencyMeatSecurityCommand
+  - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogenCommand
 
 - type: loadoutGroup
@@ -279,6 +352,90 @@
   minLimit: 0
   loadouts:
   - ServiceClown
+
+- type: loadoutGroup
+  id: HospitalityDirectorHead
+  name: loadout-group-hospitality-director-head
+  minLimit: 0
+  loadouts:
+  - HospitalityDirectorHead
+  - HospitalityDirectorBandana
+  - BartenderHead
+  - HospitalityDirectorBeret
+  - HospitalityDirectorBellhopHD
+
+- type: loadoutGroup
+  id: HospitalityDirectorNeck
+  name: loadout-group-hospitality-director-neck
+  minLimit: 0
+  loadouts:
+  - HospitalityDirectorCloak
+  - HospitalityDirectorMantle
+  - ScarfLightGreen
+
+- type: loadoutGroup
+  id: HospitalityDirectorJumpsuit
+  name: loadout-group-hospitality-director-jumpsuit
+  loadouts:
+  - HospitalityDirectorJumpsuit
+  - HospitalityDirectorJumpskirt
+  - HospitalityDirectorTurtleneck
+  - HospitalityDirectorTurtleneckSkirt
+  - HospitalityDirectorJanitorJumpsuit
+  - HospitalityDirectorJanitorJumpskirt
+  - HospitalityDirectorBartenderJumpsuit
+  - HospitalityDirectorBartenderJumpskirt
+  - HospitalityDirectorBotanyJumpsuit
+  - HospitalityDirectorProprietorJumpsuit
+
+- type: loadoutGroup
+  id: HospitalityDirectorGloves
+  name: loadout-group-hospitality-director-gloves
+  minLimit: 0
+  loadouts:
+  - JanitorRubberGloves
+  - BotanistLeatherGloves
+
+
+- type: loadoutGroup
+  id: HospitalityDirectorOuterClothing
+  name: loadout-group-hospitality-director-outerclothing
+  minLimit: 0
+  loadouts:
+  - HospitalityDirectorApron
+  - HospitalityDirectorVest
+  - HospitalityDirectorWintercoat
+
+- type: loadoutGroup
+  id: HospitalityDirectorShoes
+  name: loadout-group-hospitality-director-shoes
+  loadouts:
+  - BlackShoes
+  - LacedShoes
+  - LeatherShoes
+  - BlackHeels
+  - GreenWinterBoots
+  - ClownShoesExpert
+
+- type: loadoutGroup
+  id: HospitalityDirectorBackpack
+  name: loadout-group-hospitality-director-backpack
+  loadouts:
+  - CommonBackpack
+  - CommonSatchel
+  - CommonDuffel
+  - LeatherSatchel
+  - CommandVeteranBackpack
+  - CommandVeteranSatchel
+  - CommandVeteranDuffel
+
+- type: loadoutGroup
+  id: HospitalityDirectorHeadset
+  name: loadout-group-hospitality-director-headset
+  loadouts:
+  - HospitalityDirectorHeadsetBasic
+  - HospitalityDirectorHeadset
+  - HospitalityDirectorVeteranHeadset
 
 - type: loadoutGroup
   id: BartenderNeck
@@ -344,12 +501,36 @@
   - BlackHeels
 
 - type: loadoutGroup
+  id: LawyerOuterClothing
+  name: loadout-group-lawyer-outerclothing
+  minLimit: 0
+  loadouts:
+  - BartenderVest
+  - ClerkVest
+  - WinterCoatBlack
+  - WinterCoatBrown
+
+- type: loadoutGroup
   id: LawyerShoes
   name: loadout-group-lawyer-shoes
   loadouts:
   - LacedShoes
   - LeatherShoes
   - BlackHeels
+
+- type: loadoutGroup
+  id: LawyerPDA
+  name: loadout-group-lawyer-id
+  loadouts:
+  - LawyerPDA
+  - SeniorLawyerPDA
+
+- type: loadoutGroup
+  id: LawyerBriefcase
+  name: loadout-group-lawyer-briefcase
+  loadouts:
+  - BrownBriefcase
+  - BlackBriefcase
 
 - type: loadoutGroup
   id: ChaplainEyes
@@ -374,6 +555,25 @@
   - LeatherShoes
   - BlackHeels
   - ClownShoesExpert
+
+- type: loadoutGroup
+  id: ChaplainBook
+  name: loadout-group-chaplain-books
+  minLimit: 1
+  loadouts:
+  - ChaplainBookBible
+  - ChaplainBookQuran
+  - ChaplainBookTanakh
+  - ChaplainBookScroll
+  - ChaplainBookTablet
+  - ChaplainBookGreybible
+  - ChaplainBookKojiki
+  - ChaplainBookTao
+  - ChaplainBookGrimoire
+  - ChaplainBookETB
+  - ChaplainBookDiscordia
+  - ChaplainBookUnitology
+  - ChaplainBookBibble
 
 - type: loadoutGroup
   id: JanitorMask
@@ -403,6 +603,14 @@
   loadouts:
   - ScarfBrown
   - ScarfGreen
+  - ScarfLightGreen
+
+- type: loadoutGroup
+  id: BotanistGloves
+  name: loadout-group-botanist-gloves
+  minLimit: 0
+  loadouts:
+  - BotanistLeatherGloves
 
 - type: loadoutGroup
   id: BotanistShoes
@@ -523,6 +731,13 @@
   - ScarfBrown
 
 - type: loadoutGroup
+  id: CargoTechnicianBelt
+  name: loadout-group-cargo-technician-belt
+  minLimit: 0
+  loadouts:
+  - SeniorCargoBelt
+
+- type: loadoutGroup
   id: CargoTechnicianPDA
   name: loadout-group-cargo-technician-id
   loadouts:
@@ -538,6 +753,7 @@
   - DrillerCape
   - SaMantle
   - ScarfBrown
+  - RainCape
 
 - type: loadoutGroup
   id: SalvageSpecialistJumpsuit
@@ -545,6 +761,8 @@
   loadouts:
   - SalvageSpecialistJumpsuit
   - SalvageSpecialistJumpskirt
+  - SalvageSpecialistJumpsuitDV # DeltaV
+  - SalvageSpecialistJumpskirtDV # DeltaV
 
 - type: loadoutGroup
   id: SalvageSpecialistGlasses
@@ -617,6 +835,7 @@
   loadouts:
   - LeatherShoes
   - CourierWinterBoots
+
 # engineering
 
 - type: loadoutGroup
@@ -658,6 +877,13 @@
   minLimit: 0
   loadouts:
   - ScarfLightBlue
+
+- type: loadoutGroup
+  id: AtmosphericTechnicianHead
+  name: loadout-group-atmospheric-technician-head
+  minLimit: 0
+  loadouts:
+  - AtmosphericTechnicianBeret
 
 - type: loadoutGroup
   id: AtmosphericTechnicianPDA
@@ -724,6 +950,22 @@
   - HeadofSecurityShoulderHolster
 
 - type: loadoutGroup
+  id: SecurityCommandFirearm
+  name: loadout-group-security-gun-command
+  loadouts:
+  - SecurityPistolMk58
+  - SecurityPistolP2
+  - SecurityPistolSturm
+
+- type: loadoutGroup
+  id: SecurityCommandAmmo
+  name: loadout-group-security-ammo-command
+  loadouts:
+  - SecurityAmmoPistol
+  - SecurityAmmoP2
+  - SecurityAmmoSturm
+
+- type: loadoutGroup
   id: WardenNeck
   name: loadout-group-warden-neck
   minLimit: 0
@@ -751,6 +993,7 @@
   minLimit: 0
   loadouts:
   - ScarfRed
+  - SecPoncho
 
 - type: loadoutGroup
   id: UpperSecurityShoes
@@ -774,6 +1017,27 @@
   loadouts:
   - DetectivePDA
   - SeniorDetectivePDA
+
+- type: loadoutGroup
+  id: DetectiveFirearm
+  name: loadout-group-detective-gun
+  loadouts:
+  - SecurityRevolverInspector
+  - SecurityRevolverDerringer
+  - SecurityPistolFreelancer
+
+- type: loadoutGroup
+  id: DetectiveAmmo
+  name: loadout-group-detective-ammo
+  minLimit: 1
+  maxLimit: 2
+  loadouts:
+  - SecurityAmmoSpeedloaderLethal
+  - SecurityAmmoSpeedloaderStun
+  - SecurityAmmoPouchLethal
+  - SecurityAmmoPouchStun
+  - SecurityAmmoFreelancerLethal
+  - SecurityAmmoFreelancerStun
 
 - type: loadoutGroup
   id: BrigmedicHead
@@ -808,6 +1072,8 @@
   - ArmorVest
   - ArmorVestSlim
   - ArmorVestCompact
+  - PlateCarrier # DeltaV
+  - DuraVest # DeltaV
   - BomberSecurity
 
 - type: loadoutGroup
@@ -833,7 +1099,27 @@
   loadouts:
   - EmergencyNitrogenBrigmedic
   - EmergencyOxygenBrigmedic
+  - EmergencyMeatBrigmedic
+  - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogen
+
+- type: loadoutGroup
+  id: SecurityOfficerFirearm
+  name: loadout-group-security-gun
+  loadouts:
+  - SecurityPistolMk58
+  - SecurityPistolP2
+  - SecurityPistolBlaster
+  - SecurityPistolGunpet
+
+- type: loadoutGroup
+  id: SecurityOfficerAmmo
+  name: loadout-group-security-ammo
+  loadouts:
+  - SecurityAmmoPistol
+  - SecurityAmmoP2
+  - SecurityAmmoBlaster
+  - SecurityAmmoSnapPop
 
 - type: loadoutGroup
   id: GroupSpeciesBreathToolMedSec
@@ -863,6 +1149,13 @@
   - CommandVeteranBackpack
   - CommandVeteranSatchel
   - CommandVeteranDuffel
+
+- type: loadoutGroup
+  id: ChiefMedicalOfficerBelt
+  name: loadout-group-chief-medical-officer-belt
+  loadouts:
+  - BeltMedical
+  - BeltMedicalEMT
 
 - type: loadoutGroup
   id: MedicalDoctorNeck

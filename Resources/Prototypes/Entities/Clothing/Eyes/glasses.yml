@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingEyesBase
+  parent: [ClothingEyesBase, BaseLensSlot] # BaseLensSlot from imp
   id: ClothingEyesGlassesGar
   name: gar glasses
   description: Go beyond impossible and kick reason to the curb!
@@ -15,7 +15,7 @@
         Blunt: 10
 
 - type: entity
-  parent: ClothingEyesBase
+  parent: [ClothingEyesBase, BaseLensSlot] # BaseLensSlot from imp
   id: ClothingEyesGlassesGarOrange
   name: orange gar glasses
   description: Just who the hell do you think I am?!
@@ -34,7 +34,7 @@
         Blunt: 10
 
 - type: entity
-  parent: ClothingEyesBase
+  parent: [ClothingEyesBase, BaseLensSlot] # BaseLensSlot from imp
   id: ClothingEyesGlassesGarGiga
   name: giga gar glasses
   description: We evolve past the person we were a minute before. Little by little we advance with each turn. That's how a drill works!
@@ -160,7 +160,7 @@
   # imp end
 
 - type: entity
-  parent: ClothingEyesBase
+  parent: [ClothingEyesBase, BaseLensSlot] # BaseLensSlot from imp
   id: ClothingEyesGlassesCheapSunglasses
   name: cheap sunglasses
   description: A pair of black sunglasses. Doesn't block light well, more of an accessory than something useful.
@@ -192,7 +192,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingEyesBase, BaseLensSlot, ShowSecurityIcons, BaseRestrictedContraband] # BaseLensSlot from imp
+  parent: [ClothingEyesBase, BaseLensSlot, ShowSecurityIcons, BaseSecurityContraband] # BaseLensSlot from imp
   id: ClothingEyesGlassesSecurity
   name: security glasses
   description: Upgraded sunglasses that provide flash immunity and a security HUD.
@@ -236,6 +236,7 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
+    - AdministrationGlasses # imp, for crafting
   - type: IdentityBlocker
     coverage: EYES
   - type: ShowJobIcons
@@ -300,3 +301,5 @@
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
   - type: FlashImmunity
+  - type: NightVision # EE edit
+    isEquipment: true

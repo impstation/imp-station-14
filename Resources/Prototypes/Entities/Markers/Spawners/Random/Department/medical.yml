@@ -8,7 +8,7 @@
     - type: Sprite
       layers:
         - state: red
-        - sprite: Objects/Specific/Medical/medical.rsi
+        - sprite: _Impstation/Objects/Specific/Medical/medical.rsi # imp
           state: brutepack
     - type: RandomSpawner
       rarePrototypes:
@@ -33,7 +33,7 @@
     - type: Sprite
       layers:
         - state: red
-        - sprite: Objects/Specific/Medical/firstaidkits.rsi
+        - sprite: _Impstation/Objects/Specific/Medical/firstaidkits.rsi # imp
           state: firstaid
     - type: RandomSpawner
       rarePrototypes:
@@ -55,7 +55,7 @@
         - Ointment
         - Gauze
         - EmergencyMedipen
-        - EpinephrineChemistryBottle
+        - ChemistryBottleEpinephrine
         - PillCanisterTricordrazine
         - PillCanisterCharcoal
         - PillCanisterHyronalin

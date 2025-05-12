@@ -15,7 +15,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobPassenger
-      time: 360000 # 100 hours. Only a true passenger main will have access to the greycloak.
+      time: 360000 # 100 hours, ~67 rounds. Only a true passenger main will have access to the greycloak.
 
 # Neck
 - type: loadout
@@ -31,8 +31,23 @@
   equipment:
     neck: ClothingNeckCloakPassenger
 
+- type: loadout
+  id: WrappedScarfBlack
+  equipment:
+    neck: ClothingNeckScarfWrappedBlack
+
+- type: loadout
+  id: WrappedScarfWhite
+  equipment:
+    neck: ClothingNeckScarfWrappedWhite
+
 # Outer Clothing
 - type: loadout
-  id: BomberLightweight
+  id: BomberBlack
   equipment:
-    outerClothing: ClothingOuterCoatBomberLightweight
+    outerClothing: ClothingOuterCoatBomberBlack
+
+- type: loadout
+  id: BomberWhite
+  equipment:
+    outerClothing: ClothingOuterCoatBomberWhite

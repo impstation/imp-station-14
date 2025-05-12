@@ -111,3 +111,47 @@
       - !type:ExtinguishReaction
   tileReactions:
   - !type:ExtinguishTileReaction { }
+
+- type: reagent
+  id: Brutoxidone
+  name: reagent-name-brutoxidone
+  group: Medicine
+  desc: reagent-desc-brutoxidone
+  physicalDesc: reagent-physical-desc-alive
+  flavor: people
+  color: "#FF3232"
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:Temperature
+          max: 213.0
+        damage:
+          groups:
+            Brute: -4
+
+- type: reagent
+  id: ClarifiedPhalanximine
+  name: reagent-name-clarified-phalanximine
+  group: Medicine
+  desc: reagent-desc-clarified-phalanximine
+  physicalDesc: reagent-physical-desc-acrid
+  flavor: medicine
+  color: "#8C803B"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.1
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Cellular: -0.3
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 16
+        damage:
+          types:
+            Radiation: 0.2

@@ -143,7 +143,7 @@
   parent: [ ClothingScarfBase, BaseCentcommContraband ]
   id: ClothingNeckScarfStripedCentcom
   name: striped CentComm scarf
-  description: A stylish striped centcomm colored scarf. The perfect winter accessory for those with a keen fashion sense, and those who need to do paperwork in the cold.
+  description: A stylish striped CentComm-colored scarf. The perfect winter accessory for those with a keen fashion sense, and those who need to do paperwork in the cold. # imp caps fix
   components:
     - type: Sprite
       sprite: Clothing/Neck/Scarfs/centcom.rsi
@@ -183,6 +183,17 @@
     sprite: Clothing/Neck/Scarfs/PrideScarfs/aro.rsi
   - type: Clothing
     sprite: Clothing/Neck/Scarfs/PrideScarfs/aro.rsi
+
+- type: entity
+  parent: ClothingScarfBase
+  id: ClothingNeckScarfStripedAroace
+  name: striped aroace scarf
+  description: A stylish striped aroace scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/Scarfs/PrideScarfs/aroace.rsi
+  - type: Clothing
+    sprite: Clothing/Neck/Scarfs/PrideScarfs/aroace.rsi
 
 - type: entity
   parent: ClothingScarfBase
@@ -271,6 +282,17 @@
     sprite: Clothing/Neck/Scarfs/PrideScarfs/trans.rsi
   - type: Clothing
     sprite: Clothing/Neck/Scarfs/PrideScarfs/trans.rsi
+
+- type: entity
+  parent: ClothingScarfBase
+  id: ClothingNeckScarfStripedLesbianLong
+  name: long bacon
+  description: Long bacon! Perfect for sharing with your girlfriend!
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/Scarfs/PrideScarfs/lesbian-long.rsi
+  - type: Clothing
+    sprite: Clothing/Neck/Scarfs/PrideScarfs/lesbian-long.rsi
 
 - type: entity
   parent: ClothingScarfBase

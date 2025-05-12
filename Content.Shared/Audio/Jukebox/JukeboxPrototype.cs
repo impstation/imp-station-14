@@ -10,7 +10,7 @@ namespace Content.Shared.Audio.Jukebox;
 public sealed partial class JukeboxPrototype : IPrototype
 {
     [IdDataField]
-    public string ID { get; } = string.Empty;
+    public string ID { get; private set; } = string.Empty;
 
     /// <summary>
     /// User friendly name to use in UI.
@@ -20,4 +20,11 @@ public sealed partial class JukeboxPrototype : IPrototype
 
     [DataField(required: true)]
     public SoundPathSpecifier Path = default!;
+
+    /// <summary>
+    /// IMP ADDITION
+    /// True if the song should only appear when the jukebox is emagged.
+    /// </summary>
+    [DataField]
+    public bool EmagOnly;
 }

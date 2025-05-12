@@ -8,9 +8,9 @@
   markingLimits: MobArachnidMarkingLimits
   dollPrototype: MobArachnidDummy
   skinColoration: Hues
-  maleFirstNames: names_arachnid_first
-  femaleFirstNames: names_arachnid_first
-  lastNames: names_arachnid_last
+  maleFirstNames: NamesArachnidFirst
+  femaleFirstNames: NamesArachnidFirst
+  lastNames: NamesArachnidLast
   sexes:
   - Male
   - Female
@@ -21,13 +21,14 @@
   sprites:
     Head: MobArachnidHead
     Snout: MobHumanoidAnyMarking
-    Underwear: MobHumanoidAnyMarking
-    Undershirt: MobHumanoidAnyMarking
+    Hair: MobHumanoidAnyMarking # imp, arachnid hair arachnid hair!
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
     Chest: MobArachnidTorso
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
-    Eyes: MobArachnidEyes
+    Eyes: MobHumanoidAnyMarking #imp, so they can pick their eyes
     LArm: MobArachnidLArm
     RArm: MobArachnidRArm
     LHand: MobArachnidLHand
@@ -47,8 +48,12 @@
   id: MobArachnidMarkingLimits
   onlyWhitelisted: true
   points:
+    Eyes: #imp, so they can pick their eyes
+      points: 1
+      required: true
+      defaultMarkings: [ ArachnidEyesDefault ]
     Hair:
-      points: 0
+      points: 1
       required: false
     FacialHair:
       points: 0
@@ -64,14 +69,14 @@
       points: 1
       required: true
       defaultMarkings: [ ArachnidCheliceraeDownwards ]
+    UndergarmentTop:
+      points: 1
+      required: false
+    UndergarmentBottom:
+      points: 1
+      required: false
     Chest:
       points: 4
-      required: false
-    Underwear:
-      points: 1
-      required: false
-    Undershirt:
-      points: 1
       required: false
     Legs:
       points: 8 #impspecial

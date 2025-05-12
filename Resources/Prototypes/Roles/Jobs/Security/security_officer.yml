@@ -15,7 +15,7 @@
   - Security
   - Brig
   - Maintenance
-  - Service
+  #- Service imp edit
   - External
   - Cryogenics
   special:
@@ -27,8 +27,8 @@
   equipment:
     eyes: ClothingEyesGlassesSecurity
     ears: ClothingHeadsetSecurity
-    pocket1: WeaponPistolMk58
+    # pocket1: WeaponPistolMk58 imp loadouts
   storage:
     back:
     - Flash
-    - MagazinePistol
+    # - MagazinePistol imp loadouts

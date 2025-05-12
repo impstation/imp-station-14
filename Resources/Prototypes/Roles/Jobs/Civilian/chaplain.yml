@@ -5,8 +5,9 @@
   playTimeTracker: JobChaplain
   startingGear: ChaplainGear
   icon: "JobIconChaplain"
-  supervisors: job-supervisors-hop
+  supervisors: job-supervisors-hd # imp
   access:
+  - Service #imp edit
   - Chapel
   - Maintenance
   special:
@@ -21,6 +22,6 @@
     ears: ClothingHeadsetService
   storage:
     back:
-    - Bible
+#    - Bible #imp now handled by loadouts
     - RubberStampChaplain
-    - NullRodDefault
+    - NullRodDefault # imp

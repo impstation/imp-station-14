@@ -48,7 +48,7 @@ public sealed class ShipyardConsoleSystem : SharedShipyardConsoleSystem
             return;
         }
 
-        if (_shipyard.TrySendShuttle(bank.Owner, GetResPath(vessel).ToString()) is not {} shuttle)
+        if (_shipyard.TrySendShuttle(bank.Owner, GetResPath(vessel)) is not {} shuttle)
         {
             var popup = Loc.GetString("shipyard-console-error");
             Popup.PopupEntity(popup, ent, user);
@@ -58,7 +58,7 @@ public sealed class ShipyardConsoleSystem : SharedShipyardConsoleSystem
 
         _meta.SetEntityName(shuttle, $"{vessel.Name} {_random.Next(1000):000}");
 
-        _cargo.UpdateBankAccount(bank, bank.Comp, -vessel.Price);
+        _cargo.UpdateBankAccount(bank.Owner, -vessel.Price);
 
         var message = Loc.GetString("shipyard-console-docking", ("vessel", vessel.Name.ToString()));
         _radio.SendRadioMessage(ent, message, ent.Comp.Channel, ent);

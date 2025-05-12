@@ -502,7 +502,7 @@
       name: job-name-bartender
       requirements: # imp
         - !type:DepartmentTimeRequirement
-          department: Civilian
+          department: Service
           time: 1800
     - type: Loadout
       prototypes: [ VisitorBartender, VisitorBartenderAlt, VisitorBartenderAltA, VisitorBartenderAltB ] # imp
@@ -547,7 +547,7 @@
       name: job-name-chef
       requirements: # imp
         - !type:DepartmentTimeRequirement
-          department: Civilian
+          department: Service
           time: 1800
     - type: Loadout
       prototypes: [ VisitorChef, VisitorChefAlt ]
@@ -565,7 +565,7 @@
       roleLoadout: [ RoleSurvivalClown ]
     - type: RandomMetadata
       nameSegments:
-      - names_clown
+      - NamesClown
 
 - type: randomHumanoidSettings
   id: VisitorJanitor
@@ -721,8 +721,9 @@
       roleLoadout: [ RoleSurvivalVoxSupport ]
     - type: RandomMetadata
       nameSegments:
-      - names_first
-      - names_last
+      - NamesFirst
+      - NamesLast
+      nameFormat: name-format-standard
 
 - type: randomHumanoidSettings
   id: ChallengeVictimChiefEngineer
@@ -740,8 +741,9 @@
       roleLoadout: [ RoleSurvivalVoxSupport ]
     - type: RandomMetadata
       nameSegments:
-      - names_first
-      - names_last
+      - NamesFirst
+      - NamesLast
+      nameFormat: name-format-standard
 
 - type: randomHumanoidSettings
   id: ChallengeVictimCMO
@@ -759,8 +761,9 @@
       roleLoadout: [ RoleSurvivalVoxSupport ]
     - type: RandomMetadata
       nameSegments:
-      - names_first
-      - names_last
+      - NamesFirst
+      - NamesLast
+      nameFormat: name-format-standard
 
 - type: randomHumanoidSettings
   id: ChallengeVictimHeadOfPersonnel
@@ -778,8 +781,9 @@
       roleLoadout: [ RoleSurvivalVoxSupport ]
     - type: RandomMetadata
       nameSegments:
-      - names_first
-      - names_last
+      - NamesFirst
+      - NamesLast
+      nameFormat: name-format-standard
 
 - type: randomHumanoidSettings
   id: ChallengeVictimHeadOfSecurity
@@ -797,8 +801,9 @@
       roleLoadout: [ RoleSurvivalVoxSupport ]
     - type: RandomMetadata
       nameSegments:
-      - names_first
-      - names_last
+      - NamesFirst
+      - NamesLast
+      nameFormat: name-format-standard
 
 - type: randomHumanoidSettings
   id: ChallengeVictimResearchDirector
@@ -816,8 +821,9 @@
       roleLoadout: [ RoleSurvivalVoxSupport ]
     - type: RandomMetadata
       nameSegments:
-      - names_first
-      - names_last
+      - NamesFirst
+      - NamesLast
+      nameFormat: name-format-standard
 
 - type: randomHumanoidSettings
   id: ChallengeVictimQuartermaster
@@ -835,8 +841,9 @@
       roleLoadout: [ RoleSurvivalVoxSupport ]
     - type: RandomMetadata
       nameSegments:
-      - names_first
-      - names_last
+      - NamesFirst
+      - NamesLast
+      nameFormat: name-format-standard
 
 # Security
 # Following use EventHumanoidMindShielded since they are heads and probably should have mindshields
@@ -859,8 +866,9 @@
       roleLoadout: [ RoleSurvivalVoxSupport ]
     - type: RandomMetadata
       nameSegments:
-      - names_first
-      - names_last
+      - NamesFirst
+      - NamesLast
+      nameFormat: name-format-standard
 
 # Engineering
 
@@ -886,10 +894,10 @@
       name: ghost-role-information-syndie-soldier-teamlead-name
       description: ghost-role-information-syndie-soldier-teamlead-description
       rules: ghost-role-information-rules-team-antagonist
+      mindRoles:
+      - MindRoleGhostRoleTeamAntagonist
       raffle:
         settings: default
-      mindRoles: # imp
-      - MindRoleGhostRoleTeamAntagonist
     - type: Loadout
       prototypes: [ SyndicateFootsoldierTeamLeaderGear ]
       roleLoadout: [ RoleSurvivalSyndicate ]
@@ -906,10 +914,10 @@
       name: ghost-role-information-syndie-soldier-name
       description: ghost-role-information-syndie-soldier-description
       rules: ghost-role-information-rules-team-antagonist
+      mindRoles:
+      - MindRoleGhostRoleTeamAntagonist
       raffle:
         settings: default
-      mindRoles: # imp
-      - MindRoleGhostRoleTeamAntagonist
     - type: Loadout
       prototypes: [ SyndicateFootsoldierGear ]
       roleLoadout: [ RoleSurvivalSyndicate ]
@@ -925,10 +933,10 @@
       name: ghost-role-information-syndie-disaster-victim-name
       description: ghost-role-information-syndie-disaster-victim-description
       rules: ghost-role-information-freeagent-rules
+      mindRoles:
+      - MindRoleGhostRoleFreeAgent
       raffle:
         settings: short
-      mindRoles: # imp
-      - MindRoleGhostRoleFreeAgent
     - type: Loadout
       prototypes: [ SyndicateOperativeGearCivilian ]
       roleLoadout: [ RoleSurvivalSyndicate ]
@@ -944,10 +952,10 @@
       name: ghost-role-information-pirate-name
       description: ghost-role-information-pirate-description
       rules: ghost-role-information-rules-team-antagonist
+      mindRoles:
+      - MindRoleGhostRoleTeamAntagonist
       raffle:
         settings: default
-      mindRoles: # imp
-      - MindRoleGhostRoleTeamAntagonist
     - type: Loadout
       prototypes: [ PirateScoonerAltA, PirateScoonerAltB, PirateScoonerAltC, PirateScoonerAltD ]
       roleLoadout: [ RoleSurvivalEVA ]
@@ -963,10 +971,10 @@
       name: ghost-role-information-pirate-captain-name
       description: ghost-role-information-pirate-captain-description
       rules: ghost-role-information-rules-team-antagonist
+      mindRoles:
+      - MindRoleGhostRoleTeamAntagonist
       raffle:
         settings: default
-      mindRoles: # imp
-      - MindRoleGhostRoleTeamAntagonist
     - type: Loadout
       prototypes: [ PirateCaptainScooner ]
       roleLoadout: [ RoleSurvivalEVA ]
@@ -981,10 +989,10 @@
       name: ghost-role-information-blackmarketeer-name
       description: ghost-role-information-blackmarketeer-description
       rules: ghost-role-information-freeagent-rules
+      mindRoles:
+      - MindRoleGhostRoleFreeAgent
       raffle:
         settings: default
-      mindRoles: # imp
-      - MindRoleGhostRoleFreeAgent
     - type: Loadout
       prototypes: [ VisitorBlackmarketeer, VisitorBlackmarketeer ]
       roleLoadout: [ RoleSurvivalStandard ]
@@ -1001,10 +1009,10 @@
       name: ghost-role-information-cossack-name
       description: ghost-role-information-cossack-description
       rules: ghost-role-information-freeagent-rules
+      mindRoles:
+      - MindRoleGhostRoleFreeAgent
       raffle:
         settings: default
-      mindRoles: # imp
-      - MindRoleGhostRoleFreeAgent
     - type: Loadout
       prototypes: [ CossackGear ]
       roleLoadout: [ RoleSurvivalEVA ]

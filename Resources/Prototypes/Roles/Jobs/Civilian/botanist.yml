@@ -5,7 +5,7 @@
   playTimeTracker: JobBotanist
   startingGear: BotanistGear
   icon: "JobIconBotanist"
-  supervisors: job-supervisors-hop
+  supervisors: job-supervisors-hd
   access:
   - Service
   - Maintenance
@@ -13,6 +13,10 @@
   extendedAccess:
   - Kitchen
   - Bar
+  special:
+  - !type:GiveItemOnHolidaySpecial
+    holiday: FourTwenty
+    prototype: CannabisSeeds
 
 - type: startingGear
   id: BotanistGear
