@@ -3,6 +3,8 @@ using System.Numerics;
 using System.Text;
 using Content.Server.Chat.Systems;
 using Content.Server.Singularity.Components;
+using Content.Server.Ghost;
+using Content.Server.Light.Components;
 using Content.Shared._EE.CCVar;
 using Content.Shared._EE.Supermatter.Components;
 using Content.Shared._Impstation.Thaven.Components;
@@ -34,6 +36,9 @@ namespace Content.Server._EE.Supermatter.Systems;
 
 public sealed partial class SupermatterSystem
 {
+    [Dependency] private readonly GhostSystem _ghost = default!;
+    [Dependency] private readonly IRobustRandom _rand = default!;
+
     /// <summary>
     /// Handle power and radiation output depending on atmospheric things.
     /// </summary>
@@ -688,6 +693,15 @@ public sealed partial class SupermatterSystem
 
         // Scramble the thaven shared mood
         _moods.NewSharedMoods();
+
+        // Flickers the stations lights
+        var lights = EntityQueryEnumerator<PoweredLightComponent>();
+        while (lights.MoveNext(out var light, out _))
+        {
+            if (!_rand.Prob(0.33f))
+                continue;
+            _ghost.DoGhostBooEvent(light);
+        }
 
         // Add post-delamination event scheduler
         var gamerule = _gameTicker.AddGameRule(sm.DelamGamerulePrototype);
