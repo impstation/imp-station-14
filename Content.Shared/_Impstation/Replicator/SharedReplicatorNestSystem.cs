@@ -50,11 +50,6 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
         SubscribeLocalEvent<ReplicatorComponent, ReplicatorUpgrade3ActionEvent>(OnUpgrade3);
     }
 
-    /// <summary>
-    /// maximum upgrade stage for *replicators,* not nests. changing this requires changing a bunch of other shit so dont mess with it
-    /// </summary>
-    public readonly int MaxUpgradeStage = 2;
-
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -149,7 +144,7 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
             ent.Comp.SpawningProgress += ent.Comp.SpawnNewAt / 4;
 
         // now we handle points if it *isn't* a replicator, structure, or item, but *is* a living thing
-        else if (TryComp<MobStateComponent>(tripper, out var mobState) && mobState != null)
+        else if (HasComp<MobStateComponent>(tripper))
         {
             // you get additional bonus points if it was a humanoid:
             if (HasComp<HumanoidAppearanceComponent>(tripper))
@@ -232,10 +227,10 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
 
         foreach (var replicator in ent.Comp.SpawnedMinions)
         {
-            if (!TryComp<ReplicatorComponent>(replicator, out var comp) || comp == null)
+            if (!TryComp<ReplicatorComponent>(replicator, out var comp))
                 continue;
 
-            if (comp.UpgradeStage >= MaxUpgradeStage || comp.TargetUpgradeStage >= MaxUpgradeStage)
+            if (comp.UpgradeStage >= ent.Comp.MaxUpgradeStage || comp.TargetUpgradeStage >= ent.Comp.MaxUpgradeStage)
                 continue;
 
             if (!TryComp<MindContainerComponent>(replicator, out var mindContainer) || mindContainer.Mind == null)
@@ -326,11 +321,7 @@ public sealed partial class ReplicatorUpgrade3ActionEvent : InstantActionEvent
 }
 
 [ByRefEvent]
-public sealed partial class ReplicatorNestEmbiggenedEvent : EntityEventArgs
+public sealed partial class ReplicatorNestEmbiggenedEvent(Entity<ReplicatorNestComponent> ent) : EntityEventArgs
 {
-    public Entity<ReplicatorNestComponent> Ent { get; set; }
-    public ReplicatorNestEmbiggenedEvent(Entity<ReplicatorNestComponent> ent)
-    {
-        Ent = ent;
-    }
+    public Entity<ReplicatorNestComponent> Ent { get; set; } = ent;
 }

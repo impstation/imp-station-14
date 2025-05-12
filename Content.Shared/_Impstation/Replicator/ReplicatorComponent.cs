@@ -21,12 +21,12 @@ public sealed partial class ReplicatorComponent : Component
     /// Current upgrade stage.
     /// </summary>
     [DataField]
-    public int UpgradeStage = 0;
+    public int UpgradeStage;
 
     /// <summary>
     /// Used in determining what action should be granted on leveling up the nest.
     /// </summary>
-    public int TargetUpgradeStage = 0;
+    public int TargetUpgradeStage;
 
     /// <summary>
     /// Used to store related replicators on a queen after the nest is destroyed, so they can be transferred to the new nest.
@@ -38,12 +38,16 @@ public sealed partial class ReplicatorComponent : Component
     /// </summary>
     public EntityUid? MyNest = null;
 
+    [DataField]
     public EntProtoId Level2Id = "MobReplicatorTier2";
 
+    [DataField]
     public EntProtoId Level3Id = "MobReplicatorTier3";
 
+    [DataField]
     public EntProtoId Level2Action = "ActionReplicatorUpgrade2";
 
+    [DataField]
     public EntProtoId Level3Action = "ActionReplicatorUpgrade3";
 
     /// <summary>

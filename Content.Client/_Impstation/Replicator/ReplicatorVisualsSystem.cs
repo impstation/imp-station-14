@@ -11,7 +11,6 @@ namespace Content.Client._Impstation.Replicator;
 public sealed class ReplicatorVisualsSystem : EntitySystem
 {
     [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly EntityManager _entMan = default!;
 
     public override void Initialize()
     {

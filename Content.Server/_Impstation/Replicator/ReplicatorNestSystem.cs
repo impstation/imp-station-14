@@ -104,18 +104,19 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
 
     private void HandleDestruction(Entity<ReplicatorNestComponent> ent)
     {
-        if (ent.Comp.Hole != null) // hole should never be null, because hole is created when the component initializes
+
+        foreach (var uid in _containerSystem.EmptyContainer(ent.Comp.Hole))
         {
-            foreach (var uid in _containerSystem.EmptyContainer(ent.Comp.Hole))
-            {
-                RemCompDeferred<StunnedComponent>(uid);
-                _stun.TryKnockdown(uid, TimeSpan.FromSeconds(2), false);
-            }
+            RemCompDeferred<StunnedComponent>(uid);
+            _stun.TryKnockdown(uid, TimeSpan.FromSeconds(2), false);
         }
 
         // delete all unclaimed spawners
         foreach (var spawner in ent.Comp.UnclaimedSpawners)
+        {
+            ent.Comp.UnclaimedSpawners.Remove(spawner);
             QueueDel(spawner);
+        }
 
         // remove the falling component from anyone currently falling into this nest
         var query = EntityQueryEnumerator<ReplicatorNestFallingComponent>();
@@ -130,7 +131,7 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
         HashSet<Entity<ReplicatorComponent>> livingReplicators = [];
         foreach (var replicator in ent.Comp.SpawnedMinions)
         {
-            if (!TryComp<ReplicatorComponent>(replicator, out var replicatorComp) || replicatorComp == null)
+            if (!TryComp<ReplicatorComponent>(replicator, out var replicatorComp))
                 continue;
 
             if (!_mobState.IsAlive(replicator))

@@ -23,15 +23,12 @@ public sealed partial class ReplicatorNestVisualsSystem : SharedReplicatorNestSy
         if (!TryComp<SpriteComponent>(ent, out var sprite))
             return;
 
-        var targetLayer = ReplicatorNestVisuals.Level1; // this would probably be more readable as a switch but i dont want to use a switch for three cases
-        if (ent.Comp.CurrentLevel >= 3)
+        var targetLayer = ent.Comp.CurrentLevel switch
         {
-            targetLayer = ReplicatorNestVisuals.Level3;
-        }
-        else if (ent.Comp.CurrentLevel == 2)
-        {
-            targetLayer = ReplicatorNestVisuals.Level2;
-        }
+            >= 3 => ReplicatorNestVisuals.Level3,
+            2 => ReplicatorNestVisuals.Level2,
+            _ => ReplicatorNestVisuals.Level1,
+        };
 
         if (!sprite.LayerMapTryGet(targetLayer, out var layerIndex))
             return;

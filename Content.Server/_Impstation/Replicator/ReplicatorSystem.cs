@@ -103,7 +103,7 @@ public sealed class ReplicatorSystem : EntitySystem
         ent.Comp.MyNest = tracker.SpawnedFrom;
     }
 
-    public void OnAttackAttempt(Entity<ReplicatorComponent> ent, ref AttackAttemptEvent args)
+    private void OnAttackAttempt(Entity<ReplicatorComponent> ent, ref AttackAttemptEvent args)
     {
         // Can't attack your friends.
         if (HasComp<ReplicatorComponent>(args.Target))

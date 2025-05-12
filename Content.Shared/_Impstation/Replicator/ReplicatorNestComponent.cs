@@ -15,6 +15,11 @@ namespace Content.Shared._Impstation.Replicator;
 public sealed partial class ReplicatorNestComponent : Component
 {
     /// <summary>
+    /// maximum upgrade stage for *replicators,* not nests. changing this requires changing a bunch of other shit so dont mess with it
+    /// </summary>
+    public readonly int MaxUpgradeStage = 2;
+
+    /// <summary>
     /// The container we're storing things in. If the nest is destroyed, anything in this will be dumped out.
     /// </summary>
     public Container Hole = default!;
@@ -30,12 +35,12 @@ public sealed partial class ReplicatorNestComponent : Component
     /// is a datafield so admins can VV it
     /// </summary>
     [DataField(readOnly: true)]
-    public int TotalPoints = 0;
+    public int TotalPoints;
     /// <summary>
     /// A separate point total for when a new replicator should be spawned, so we can be more granular about balance. 
     /// </summary>
     [DataField(readOnly: true)]
-    public int SpawningProgress = 0;
+    public int SpawningProgress;
     /// <summary>
     /// The current level of the nest.
     /// </summary>
@@ -45,11 +50,13 @@ public sealed partial class ReplicatorNestComponent : Component
     /// <summary>
     /// The number of additional points given for living targets.
     /// </summary>
+    [DataField]
     public int BonusPointsAlive = 1;
     /// <summary>
     /// The number of additional points given for incapacitated humanoid targets.
     /// Is multiplied by the current level.
     /// </summary>
+    [DataField]
     public int BonusPointsHumanoid = 2;
     /// <summary>
     /// The number of points required to spawn a new replicator. 
@@ -83,6 +90,7 @@ public sealed partial class ReplicatorNestComponent : Component
     [DataField]
     public EntProtoId SpawnNewNestAction = "ActionReplicatorSpawnNest";
 
+    [DataField]
     public SoundSpecifier FallingSound = new SoundPathSpecifier("/Audio/Effects/falling.ogg");
     public HashSet<EntityUid> SpawnedMinions = [];
     public HashSet<EntityUid> UnclaimedSpawners = [];

@@ -237,7 +237,6 @@ public sealed class StepTriggerSystem : EntitySystem
         Dirty(uid, component);
     }
 
-
     // Goobstation
     public void SetIgnoreWeightless(EntityUid uid, bool ignore, StepTriggerComponent? component = null)
     {
