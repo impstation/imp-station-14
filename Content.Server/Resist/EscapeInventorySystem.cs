@@ -29,66 +29,66 @@ public sealed class EscapeInventorySystem : EntitySystem
         SubscribeLocalEvent<CanEscapeInventoryComponent, DroppedEvent>(OnDropped);
     }
 
-    private void OnRelayMovement(EntityUid uid, CanEscapeInventoryComponent component, ref MoveInputEvent args)
+    private void OnRelayMovement(Entity<CanEscapeInventoryComponent> ent, ref MoveInputEvent args)
     {
         if (!args.HasDirectionalMovement)
             return;
 
-        if (!_containerSystem.TryGetContainingContainer((uid, null, null), out var container) || !_actionBlockerSystem.CanInteract(uid, container.Owner))
+        if (!_containerSystem.TryGetContainingContainer((ent, null, null), out var container) || !_actionBlockerSystem.CanInteract(ent, container.Owner))
             return;
 
         // Make sure there's nothing stopped the removal (like being glued)
-        if (!_containerSystem.CanRemove(uid, container))
+        if (!_containerSystem.CanRemove(ent, container))
         {
-            _popupSystem.PopupEntity(Loc.GetString("escape-inventory-component-failed-resisting"), uid, uid);
+            _popupSystem.PopupEntity(Loc.GetString("escape-inventory-component-failed-resisting"), ent, ent);
             return;
         }
 
         // Contested
-        if (_handsSystem.IsHolding(container.Owner, uid, out _))
+        if (_handsSystem.IsHolding(container.Owner, ent, out _))
         {
-            AttemptEscape(uid, container.Owner, component);
+            AttemptEscape(ent, container.Owner);
             return;
         }
 
         // Uncontested
         if (HasComp<StorageComponent>(container.Owner) || HasComp<InventoryComponent>(container.Owner) || HasComp<SecretStashComponent>(container.Owner))
-            AttemptEscape(uid, container.Owner, component);
+            AttemptEscape(ent, container.Owner);
     }
 
-    public void AttemptEscape(EntityUid user, EntityUid container, CanEscapeInventoryComponent component, float multiplier = 1f) // imp edit
+    public void AttemptEscape(Entity<CanEscapeInventoryComponent> ent, EntityUid container, float multiplier = 1f) // imp edit
     {
-        if (component.IsEscaping)
+        if (ent.Comp.IsEscaping)
             return;
 
-        var doAfterEventArgs = new DoAfterArgs(EntityManager, user, component.BaseResistTime * multiplier, new EscapeInventoryEvent(), user, target: container)
+        var doAfterEventArgs = new DoAfterArgs(EntityManager, ent, ent.Comp.BaseResistTime * multiplier, new EscapeInventoryEvent(), ent, target: container)
         {
             BreakOnMove = true,
             BreakOnDamage = true,
             NeedHand = false
         };
 
-        if (!_doAfterSystem.TryStartDoAfter(doAfterEventArgs, out component.DoAfter))
+        if (!_doAfterSystem.TryStartDoAfter(doAfterEventArgs, out ent.Comp.DoAfter))
             return;
 
-        _popupSystem.PopupEntity(Loc.GetString("escape-inventory-component-start-resisting"), user, user);
+        _popupSystem.PopupEntity(Loc.GetString("escape-inventory-component-start-resisting"), ent, ent);
         _popupSystem.PopupEntity(Loc.GetString("escape-inventory-component-start-resisting-target"), container, container);
     }
 
-    private void OnEscape(EntityUid uid, CanEscapeInventoryComponent component, EscapeInventoryEvent args)
+    private void OnEscape(Entity<CanEscapeInventoryComponent> ent, ref EscapeInventoryEvent args)
     {
-        component.DoAfter = null;
+        ent.Comp.DoAfter = null;
 
         if (args.Handled || args.Cancelled)
             return;
 
-        _containerSystem.AttachParentToContainerOrGrid((uid, Transform(uid)));
+        _containerSystem.AttachParentToContainerOrGrid((ent, Transform(ent)));
         args.Handled = true;
     }
 
-    private void OnDropped(EntityUid uid, CanEscapeInventoryComponent component, DroppedEvent args)
+    private void OnDropped(Entity<CanEscapeInventoryComponent> ent, ref DroppedEvent args)
     {
-        if (component.DoAfter != null)
-            _doAfterSystem.Cancel(component.DoAfter);
+        if (ent.Comp.DoAfter != null)
+            _doAfterSystem.Cancel(ent.Comp.DoAfter);
     }
 }

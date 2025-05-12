@@ -15,32 +15,32 @@ namespace Content.Shared.Carrying
             SubscribeLocalEvent<CarryingSlowdownComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMoveSpeed);
         }
 
-        public void SetModifier(EntityUid uid, float walkSpeedModifier, float sprintSpeedModifier, CarryingSlowdownComponent? component = null)
+        public void SetModifier(Entity<CarryingSlowdownComponent?> ent, float walkSpeedModifier, float sprintSpeedModifier)
         {
-            if (!Resolve(uid, ref component))
+            if (!Resolve(ent, ref ent.Comp))
                 return;
 
-            component.WalkModifier = walkSpeedModifier;
-            component.SprintModifier = sprintSpeedModifier;
-            _movementSpeed.RefreshMovementSpeedModifiers(uid);
+            ent.Comp.WalkModifier = walkSpeedModifier;
+            ent.Comp.SprintModifier = sprintSpeedModifier;
+            _movementSpeed.RefreshMovementSpeedModifiers(ent);
         }
-        private void OnGetState(EntityUid uid, CarryingSlowdownComponent component, ref ComponentGetState args)
+        private void OnGetState(Entity<CarryingSlowdownComponent> ent, ref ComponentGetState args)
         {
-            args.State = new CarryingSlowdownComponentState(component.WalkModifier, component.SprintModifier);
+            args.State = new CarryingSlowdownComponentState(ent.Comp.WalkModifier, ent.Comp.SprintModifier);
         }
 
-        private void OnHandleState(EntityUid uid, CarryingSlowdownComponent component, ref ComponentHandleState args)
+        private void OnHandleState(Entity<CarryingSlowdownComponent> ent, ref ComponentHandleState args)
         {
             if (args.Current is not CarryingSlowdownComponentState state)
                 return;
 
-            component.WalkModifier = state.WalkModifier;
-            component.SprintModifier = state.SprintModifier;
-            _movementSpeed.RefreshMovementSpeedModifiers(uid);
+            ent.Comp.WalkModifier = state.WalkModifier;
+            ent.Comp.SprintModifier = state.SprintModifier;
+            _movementSpeed.RefreshMovementSpeedModifiers(ent);
         }
-        private void OnRefreshMoveSpeed(EntityUid uid, CarryingSlowdownComponent component, RefreshMovementSpeedModifiersEvent args)
+        private void OnRefreshMoveSpeed(Entity<CarryingSlowdownComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
         {
-            args.ModifySpeed(component.WalkModifier, component.SprintModifier);
+            args.ModifySpeed(ent.Comp.WalkModifier, ent.Comp.SprintModifier);
         }
     }
 }

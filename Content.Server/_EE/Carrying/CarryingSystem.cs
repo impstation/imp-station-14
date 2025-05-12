@@ -26,7 +26,6 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Storage;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Server.GameObjects;
@@ -77,7 +76,7 @@ namespace Content.Server.Carrying
         private void AddCarryVerb(EntityUid uid, CarriableComponent component, GetVerbsEvent<AlternativeVerb> args)
         {
             if (!args.CanInteract || !args.CanAccess || !_mobStateSystem.IsAlive(args.User)
-                || !CanCarry(args.User, uid, component)
+                || !CanCarry(args.User, uid)
                 || HasComp<CarryingComponent>(args.User)
                 || HasComp<BeingCarriedComponent>(args.User) || HasComp<BeingCarriedComponent>(args.Target)
                 || args.User == args.Target)
@@ -98,19 +97,19 @@ namespace Content.Server.Carrying
         /// <summary>
         /// Since the carried entity is stored as 2 virtual items, when deleted we want to drop them.
         /// </summary>
-        private void OnVirtualItemDeleted(EntityUid uid, CarryingComponent component, VirtualItemDeletedEvent args)
+        private void OnVirtualItemDeleted(Entity<CarryingComponent> ent, ref VirtualItemDeletedEvent args)
         {
             if (!HasComp<CarriableComponent>(args.BlockingEntity))
                 return;
 
-            DropCarried(uid, args.BlockingEntity);
+            DropCarried(ent, args.BlockingEntity);
         }
 
         /// <summary>
         /// Basically using virtual item passthrough to throw the carried person. A new age!
         /// Maybe other things besides throwing should use virt items like this...
         /// </summary>
-        private void OnThrow(EntityUid uid, CarryingComponent component, ref BeforeThrowEvent args)
+        private void OnThrow(Entity<CarryingComponent> ent, ref BeforeThrowEvent args)
         {
             if (!TryComp<VirtualItemComponent>(args.ItemUid, out var virtItem)
                 || !HasComp<CarriableComponent>(virtItem.BlockingEntity))
@@ -118,8 +117,8 @@ namespace Content.Server.Carrying
 
             args.ItemUid = virtItem.BlockingEntity;
 
-            var contestCoeff = _contests.MassContest(uid, virtItem.BlockingEntity, false, 2f) // Frontier: "args.throwSpeed *="<"var contestCoeff ="
-                                * _contests.StaminaContest(uid, virtItem.BlockingEntity);
+            var contestCoeff = _contests.MassContest(ent, virtItem.BlockingEntity, false, 2f) // Frontier: "args.throwSpeed *="<"var contestCoeff ="
+                                * _contests.StaminaContest(ent, virtItem.BlockingEntity);
 
             // Frontier: sanitize our range regardless of CVar values - TODO: variable throw distance ranges (via traits, etc.)
             contestCoeff = float.Min(BaseDistanceCoeff * contestCoeff, MaxDistanceCoeff);
@@ -128,91 +127,91 @@ namespace Content.Server.Carrying
             // End Frontier
         }
 
-        private void OnParentChanged(EntityUid uid, CarryingComponent component, ref EntParentChangedMessage args)
+        private void OnParentChanged(Entity<CarryingComponent> ent, ref EntParentChangedMessage args)
         {
-            var xform = Transform(uid);
+            var xform = Transform(ent);
             if (xform.MapUid != args.OldMapId || xform.ParentUid == xform.GridUid)
                 return;
 
-            DropCarried(uid, component.Carried);
+            DropCarried(ent, ent.Comp.Carried);
         }
 
-        private void OnMobStateChanged(EntityUid uid, CarryingComponent component, MobStateChangedEvent args)
+        private void OnMobStateChanged(Entity<CarryingComponent> ent, ref MobStateChangedEvent args)
         {
-            DropCarried(uid, component.Carried);
+            DropCarried(ent, ent.Comp.Carried);
         }
 
         /// <summary>
         /// Only let the person being carried interact with their carrier and things on their person.
         /// </summary>
-        private void OnInteractionAttempt(EntityUid uid, BeingCarriedComponent component, InteractionAttemptEvent args)
+        private void OnInteractionAttempt(Entity<BeingCarriedComponent> ent, ref InteractionAttemptEvent args)
         {
             if (args.Target == null)
                 return;
 
             var targetParent = Transform(args.Target.Value).ParentUid;
 
-            if (args.Target.Value != component.Carrier && targetParent != component.Carrier && targetParent != uid)
+            if (args.Target.Value != ent.Comp.Carrier && targetParent != ent.Comp.Carrier && targetParent != ent.Owner)
                 args.Cancelled = true;
         }
 
         /// <summary>
         /// Try to escape via the escape inventory system.
         /// </summary>
-        private void OnMoveInput(EntityUid uid, BeingCarriedComponent component, ref MoveInputEvent args)
+        private void OnMoveInput(Entity<BeingCarriedComponent> ent, ref MoveInputEvent args)
         {
-            if (!TryComp<CanEscapeInventoryComponent>(uid, out var escape)
+            if (!TryComp<CanEscapeInventoryComponent>(ent.Owner, out _)
                 || !args.HasDirectionalMovement)
                 return;
 
             // Check if the victim is in any way incapacitated, and if not make an escape attempt.
             // Escape time scales with the inverse of a mass contest. Being lighter makes escape harder.
-            if (_actionBlockerSystem.CanInteract(uid, component.Carrier))
+            if (_actionBlockerSystem.CanInteract(ent, ent.Comp.Carrier))
             {
-                var disadvantage = _contests.MassContest(component.Carrier, uid, false, 2f);
-                _escapeInventorySystem.AttemptEscape(uid, component.Carrier, escape, disadvantage);
+                var disadvantage = _contests.MassContest(ent.Comp.Carrier, ent, false, 2f);
+                _escapeInventorySystem.AttemptEscape(ent.Owner, ent.Comp.Carrier, disadvantage);
             }
         }
 
-        private void OnMoveAttempt(EntityUid uid, BeingCarriedComponent component, UpdateCanMoveEvent args)
+        private void OnMoveAttempt(Entity<BeingCarriedComponent> ent, ref UpdateCanMoveEvent args)
         {
             args.Cancel();
         }
 
-        private void OnStandAttempt(EntityUid uid, BeingCarriedComponent component, StandAttemptEvent args)
+        private void OnStandAttempt(Entity<BeingCarriedComponent> ent, ref StandAttemptEvent args)
         {
             args.Cancel();
         }
 
-        private void OnInteractedWith(EntityUid uid, BeingCarriedComponent component, GettingInteractedWithAttemptEvent args)
+        private void OnInteractedWith(Entity<BeingCarriedComponent> ent, ref GettingInteractedWithAttemptEvent args)
         {
-            if (args.Uid != component.Carrier)
+            if (args.Uid != ent.Comp.Carrier)
                 args.Cancelled = true;
         }
 
-        private void OnPullAttempt(EntityUid uid, BeingCarriedComponent component, PullAttemptEvent args)
+        private void OnPullAttempt(Entity<BeingCarriedComponent> ent, ref PullAttemptEvent args)
         {
             args.Cancelled = true;
         }
 
-        private void OnStartClimb(EntityUid uid, BeingCarriedComponent component, ref StartClimbEvent args)
+        private void OnStartClimb(Entity<BeingCarriedComponent> ent, ref StartClimbEvent args)
         {
-            DropCarried(component.Carrier, uid);
+            DropCarried(ent.Comp.Carrier, ent);
         }
 
-        private void OnBuckleChange<TEvent>(EntityUid uid, BeingCarriedComponent component, TEvent args)
+        private void OnBuckleChange<TEvent>(Entity<BeingCarriedComponent> ent, ref TEvent args)
         {
-            DropCarried(component.Carrier, uid);
+            DropCarried(ent.Comp.Carrier, ent);
         }
 
-        private void OnDoAfter(EntityUid uid, CarriableComponent component, CarryDoAfterEvent args)
+        private void OnDoAfter(Entity<CarriableComponent> ent, ref CarryDoAfterEvent args)
         {
-            component.CancelToken = null;
+            ent.Comp.CancelToken = null;
             if (args.Handled || args.Cancelled
-                || !CanCarry(args.Args.User, uid, component))
+                || !CanCarry(args.Args.User, ent.Owner))
                 return;
 
-            Carry(args.Args.User, uid);
+            Carry(args.Args.User, ent);
             args.Handled = true;
         }
         private void StartCarryDoAfter(EntityUid carrier, EntityUid carried, CarriableComponent component)
@@ -275,10 +274,10 @@ namespace Content.Server.Carrying
             _actionBlockerSystem.UpdateCanMove(carried);
         }
 
-        public bool TryCarry(EntityUid carrier, EntityUid toCarry, CarriableComponent? carriedComp = null)
+        public bool TryCarry(EntityUid carrier, Entity<CarriableComponent?> toCarry)
         {
-            if (!Resolve(toCarry, ref carriedComp, false)
-                || !CanCarry(carrier, toCarry, carriedComp)
+            if (!Resolve(toCarry, ref toCarry.Comp, false)
+                || !CanCarry(carrier, toCarry)
                 || HasComp<BeingCarriedComponent>(carrier)
                 || HasComp<ItemComponent>(carrier)
                 || TryComp<PhysicsComponent>(carrier, out var carrierPhysics)
@@ -315,15 +314,15 @@ namespace Content.Server.Carrying
             _slowdown.SetModifier(carrier, modifier, modifier, slowdownComp);
         }
 
-        public bool CanCarry(EntityUid carrier, EntityUid carried, CarriableComponent? carriedComp = null)
+        public bool CanCarry(EntityUid carrier, Entity<CarriableComponent?> carried)
         {
-            if (!Resolve(carried, ref carriedComp, false)
-                || carriedComp.CancelToken != null
+            if (!Resolve(carried, ref carried.Comp, false)
+                || carried.Comp.CancelToken != null
                 || !HasComp<MapGridComponent>(Transform(carrier).ParentUid)
                 || HasComp<BeingCarriedComponent>(carrier)
                 || HasComp<BeingCarriedComponent>(carried)
                 || !TryComp<HandsComponent>(carrier, out var hands)
-                || hands.CountFreeHands() < carriedComp.FreeHandsRequired)
+                || hands.CountFreeHands() < carried.Comp.FreeHandsRequired)
                 return false;
 
             return true;
