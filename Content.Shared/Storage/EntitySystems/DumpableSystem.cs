@@ -6,7 +6,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Item;
 using Content.Shared.Placeable;
 using Content.Shared.Storage.Components;
-using Content.Shared.Tag;
+using Content.Shared.Tag; // DeltaV - ough why do you not use events for this
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;

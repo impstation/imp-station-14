@@ -6,6 +6,7 @@ using Content.Shared.Popups;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._DV.SmartFridge;
 
@@ -17,6 +18,7 @@ public sealed class SmartFridgeSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -75,7 +77,7 @@ public sealed class SmartFridgeSystem : EntitySystem
 
     private void OnDispenseItem(Entity<SmartFridgeComponent> ent, ref SmartFridgeDispenseItemMessage args)
     {
-        if (!Allowed(ent, args.Actor))
+        if (!_timing.IsFirstTimePredicted || !Allowed(ent, args.Actor))
             return;
 
         if (!ent.Comp.ContainedEntries.TryGetValue(args.Entry, out var contained))
