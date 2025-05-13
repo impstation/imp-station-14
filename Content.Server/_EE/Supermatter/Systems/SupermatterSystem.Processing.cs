@@ -761,7 +761,7 @@ public sealed partial class SupermatterSystem
         foreach (var mob in lookup)
         {
             // Not in line of sight, or is dead
-            if (!_examine.InRangeUnOccluded(uid, mob, 6f) ||
+            if (!_examine.InRangeUnOccluded(uid, mob, sm.HallucinationRange) ||
                 mob.Comp.CurrentState == MobState.Dead)
                 continue;
 
