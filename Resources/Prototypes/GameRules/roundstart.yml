@@ -135,6 +135,7 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
+      - type: RandomHumanoidAppearance # Imp
       mindRoles:
       - MindRoleNukeopsCommander
     - prefRoles: [ NukeopsMedic ]
@@ -152,6 +153,7 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
+      - type: RandomHumanoidAppearance # Imp
       mindRoles:
       - MindRoleNukeopsMedic
     - prefRoles: [ Nukeops ]
@@ -171,6 +173,7 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
+      - type: RandomHumanoidAppearance # Imp
       mindRoles:
       - MindRoleNukeops
 
