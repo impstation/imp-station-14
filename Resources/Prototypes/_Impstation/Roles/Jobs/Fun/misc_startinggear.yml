@@ -24,6 +24,7 @@
 - type: startingGear
   id: GoblinKnightArmor
   equipment:
+#    neck: ClothingNeckGenderfluidPin #to be uncommented when pin gets merged from upstream https://github.com/space-wizards/space-station-14/pull/35854
     outerClothing: ClothingOuterGoblinKnightArmor
     back: ClothingBackpackSatchelLeather
   inhand:
@@ -52,3 +53,4 @@
     pocket1: ClothingNeckFuckhubMedal
     pocket2: DrinkSpaceLube
     id: ERTSecurityPDA
+

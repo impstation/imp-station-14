@@ -7,7 +7,7 @@
   defaultSkinTone: "#b8b8b8"
   markingLimits: MobGrayMarkingLimits
   dollPrototype: MobGrayDummy
-  skinColoration: TintedHues
+  skinColoration: GrayToned
   maleFirstNames: NamesGrayFirst
   femaleFirstNames: NamesGrayFirst
   lastNames: NamesGrayLast
@@ -39,15 +39,18 @@
   onlyWhitelisted: true
   points:
     Head:
-      points: 1
-      required: true
-      defaultMarkings: [ GrayCuteEyes ]
+      points: 3
+      required: false
     HeadTop:
-      points: 1
+      points: 3
       required: false
     HeadSide:
       points: 1
       required: false
+    Eyes:
+      points: 1
+      required: true
+      defaultMarkings: [ GrayCuteEyes ]
     UndergarmentTop:
       points: 1
       required: false
@@ -55,7 +58,7 @@
       points: 1
       required: false
     Chest:
-      points: 1
+      points: 3
       required: false
     Legs:
       points: 0

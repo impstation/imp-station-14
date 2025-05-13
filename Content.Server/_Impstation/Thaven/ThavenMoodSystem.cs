@@ -30,6 +30,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
     [Dependency] private readonly UserInterfaceSystem _bui = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly EmagSystem _emag = default!;
 
     public IReadOnlyList<ThavenMood> SharedMoods => _sharedMoods.AsReadOnly();
     private readonly List<ThavenMood> _sharedMoods = new();
@@ -60,7 +61,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
         SubscribeLocalEvent<RoundRestartCleanupEvent>((_) => NewSharedMoods());
     }
 
-    private void NewSharedMoods()
+    public void NewSharedMoods()
     {
         _sharedMoods.Clear();
         for (int i = 0; i < _config.GetCVar(ImpCCVars.ThavenSharedMoodCount); i++)
@@ -297,46 +298,23 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
     }
 
     /// <summary>
-    /// lazily wipes all of a Thaven's moods. This leaves them mood-less.
+    /// Clears the moods for a thaven, then applies a new set of moods.
     /// </summary>
-    public void ClearMoods(Entity<ThavenMoodsComponent> ent, bool notify = false)
+    public void RefreshMoods(Entity<ThavenMoodsComponent> ent)
     {
-        ent.Comp.Moods = new List<ThavenMood>();
-        Dirty(ent);
+        ent.Comp.Moods = _emptyMoods.ToList();
 
-        if (notify)
-            NotifyMoodChange(ent);
-        else
-            UpdateBUIState(ent);
-    }
+        // "Yes, and" moods
+        if (TryPick(YesAndDataset, out var mood, GetActiveMoods(ent)))
+            TryAddMood(ent, mood, true, false);
 
-    /// <summary>
-    /// Allows external systems to toggle wether or not a ThavenMoodsComponent follows the shared thaven mood.
-    /// </summary>
-    public void ToggleSharedMoods(Entity<ThavenMoodsComponent> ent, bool notify = false)
-    {
-        if (!ent.Comp.FollowsSharedMoods)
-            ent.Comp.FollowsSharedMoods = true;
-        else
-            ent.Comp.FollowsSharedMoods = false;
-        Dirty(ent);
+        // "No, and" moods
+        if (TryPick(NoAndDataset, out mood, GetActiveMoods(ent)))
+            TryAddMood(ent, mood, true, false);
 
-        if (notify)
-            NotifyMoodChange(ent);
-        else
-            UpdateBUIState(ent);
-    }
-
-    /// <summary>
-    /// Allows external sytems to toggle wether or not a ThavenMoodsComponent is emaggable.
-    /// </summary>
-    public void ToggleEmaggable(Entity<ThavenMoodsComponent> ent)
-    {
-        if (!ent.Comp.CanBeEmagged)
-            ent.Comp.CanBeEmagged = true;
-        else
-            ent.Comp.CanBeEmagged = false;
-        Dirty(ent);
+        // Wildcard moods
+        if (_emag.CheckFlag(ent, EmagType.Interaction))
+            AddWildcardMood(ent, false);
     }
 
     public HashSet<ProtoId<ThavenMoodPrototype>> GetConflicts(IEnumerable<ThavenMood> moods)
@@ -391,13 +369,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
 
     private void OnThavenMoodInit(Entity<ThavenMoodsComponent> ent, ref MapInitEvent args)
     {
-        // "Yes, and" moods
-        if (TryPick(YesAndDataset, out var mood, GetActiveMoods(ent)))
-            TryAddMood(ent, mood, true, false);
-
-        // "No, and" moods
-        if (TryPick(NoAndDataset, out mood, GetActiveMoods(ent)))
-            TryAddMood(ent, mood, true, false);
+        RefreshMoods(ent);
 
         ent.Comp.Action = _actions.AddAction(ent.Owner, ActionViewMoods);
     }

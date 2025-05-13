@@ -109,6 +109,7 @@
         amount: 2
       - id: ClothingOuterHardsuitBrigmedic
       - id: BoxSterileMask
+      - id: ClothingMaskBreathMedicalSecurity
       - id: ClothingHeadHatBeretBrigmedic
       - id: ClothingOuterCoatAMG
       - id: ClothingUniformJumpsuitBrigmedic
@@ -156,8 +157,9 @@
       - id: HoloprojectorSecurity
       - id: BoxEvidenceMarkers
       - id: HandLabeler
-      - id: BaseSeclinkRadio # imp
       - id: BoxTapeRecorder # DeltaV
+      - id: HandheldCriminalRecords #imp
+      - id: SpeedLoaderMagnum #imp
 
 - type: entity
   id: ClosetBombFilled

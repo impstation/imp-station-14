@@ -54,10 +54,11 @@
         path: /Audio/Weapons/Xeno/alien_claw_flesh1.ogg
     angle: 0
     animation: WeaponArcClaw
-    damage: # IMP: Significant nerf to this damage. Formerly 12 slash 8 pierce
+    damage: # IMP: Significant nerf to this damage, but added structural. Formerly 12 slash 8 pierce 0 structural
       types:
         Slash: 4
         Piercing: 2
+        Structural: 2
   - type: Body
     prototype: Rat
     requiredLegs: 1 # TODO: More than 1 leg
@@ -91,7 +92,7 @@
     makeSentient: true
     name: ghost-role-information-rat-king-name
     description: ghost-role-information-rat-king-description
-    rules: ghost-role-information-freeagent-rat-king-rules
+    rules: ghost-role-information-antagonist-rat-king-rules # IMP
     mindRoles:
     - MindRoleGhostRoleSoloAntagonist
     raffle:
@@ -124,6 +125,7 @@
     nameSegments:
     - NamesRegalratKingdom
     - NamesRegalratTitle
+    nameFormat: name-format-regal-rat
   - type: GuideHelp
     guides:
     - MinorAntagonists

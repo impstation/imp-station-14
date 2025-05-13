@@ -4,10 +4,10 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/medical.rsi
+    sprite: _Impstation/Objects/Specific/Medical/medical.rsi # imp
   - type: Item
     size: Small
-    sprite: Objects/Specific/Medical/medical.rsi
+    sprite: _Impstation/Objects/Specific/Medical/medical.rsi # imp
     heldPrefix: ointment
   # Inherited
   - type: StaticPrice
@@ -30,7 +30,6 @@
   - type: Healing
     damageContainers:
       - Biological
-      - BiologicalMetaphysical #imp
     damage:
       types:
         Heat: -5
@@ -77,13 +76,13 @@
     - Ointment
     - RegenerativeMesh
   - type: Sprite
+    sprite: Objects/Specific/Medical/medical.rsi # imp
     state: regenerative-mesh
   - type: Item
     heldPrefix: regenerative-mesh
   - type: Healing
     damageContainers:
       - Biological
-      - BiologicalMetaphysical #imp
     damage:
       types:
         Heat: -10
@@ -121,10 +120,11 @@
     - Brutepack
   - type: Sprite
     state: brutepack
+  - type: Item
+    heldPrefix: brutepack
   - type: Healing
     damageContainers:
       - Biological
-      - BiologicalMetaphysical #imp
     damage:
       groups:
         Brute: -15 # 5 for each type in the group
@@ -174,7 +174,6 @@
   - type: Healing
     damageContainers:
       - Biological
-      - BiologicalMetaphysical #imp
     damage:
       groups:
         Brute: -30 # 10 for each type in the group
@@ -205,15 +204,17 @@
   id: Bloodpack
   suffix: Full
   components:
+  - type: Item
+    heldPrefix: bloodpack
   - type: Tag
     tags:
     - Bloodpack
+    - KodeEdible # imp
   - type: Sprite
     state: bloodpack
   - type: Healing
     damageContainers:
       - Biological
-      - BiologicalMetaphysical #imp
     damage:
       types:
         Bloodloss: -0.5 #lowers bloodloss damage
@@ -227,6 +228,25 @@
     count: 10
   - type: StackPrice
     price: 10
+  - type: Food # imp - kodepiia gogurt
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Blood
+          Quantity: 15
+
+
+- type: entity
+  parent: Bloodpack
+  id: Bloodpack1
+  suffix: Single
+  components:
+  - type: Stack
+    stackType: Bloodpack
+    count: 1
 
 - type: entity
   parent: Bloodpack
@@ -246,11 +266,13 @@
       tags:
         - SecBeltEquip
     - type: Sprite
+      sprite: Objects/Specific/Medical/medical.rsi # imp
       state: tourniquet
+    - type: Item
+      heldPrefix: tourniquet
     - type: Healing
       damageContainers:
         - Biological
-        - BiologicalMetaphysical #imp
       damage:
         groups:
           Brute: 5 # Tourniquets HURT!
@@ -275,6 +297,8 @@
     - Gauze
   - type: Sprite
     state: gauze
+  - type: Item
+    heldPrefix: gauze
   - type: Construction
     graph: Gauze
     node: gauze
@@ -314,15 +338,29 @@
     lingering: true
     count: 10
 
+# Making Aloe Cream it's own unique topical now. From Ointment (5 Heat/Shock/Cold & 1.5 Caut) -> 10 Heat, squishes when thrown. #imp
 - type: entity
   name: aloe cream
   description: A topical cream for burns.
-  parent: Ointment ##Yes it's a direct reskin
+  parent: BaseHealingItem 
   id: AloeCream
   components:
+  - type: Healing
+    damageContainers:
+      - Biological
+    damage:
+      types:
+        Heat: -10
+    healingBeginSound:
+      path: "/Audio/Items/Toys/ToyFall2.ogg"
+    healingEndSound: 
+      path: "/Audio/Items/Medical/ointment_end.ogg"
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/aloe.rsi
     state: cream
+  - type: EmitSoundOnLand
+    sound:
+      path: "/Audio/Voice/Slime/slime_squish.ogg"
   - type: Stack
     stackType: AloeCream
     count: 10
@@ -338,12 +376,11 @@
   categories: [ DoNotMap ]
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/healing_toolbox.rsi
+    sprite: _Wizden/Objects/Specific/Medical/healing_toolbox.rsi # imp
     state: icon
   - type: Healing
     damageContainers:
     - Biological
-    - BiologicalMetaphysical #imp
     damage:
       groups: # these are all split across multiple types
         Brute: -150
