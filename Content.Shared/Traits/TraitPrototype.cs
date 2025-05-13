@@ -67,4 +67,10 @@ public sealed partial class TraitPrototype : IPrototype
     /// </summary>
     [DataField]
     public ProtoId<TagPrototype>? Organ;
+
+    /// <summary>
+    /// Imp: Traits that, when selected, lock this trait out from being selected.
+    /// </summary>
+    [DataField]
+    public List<ProtoId<TraitPrototype>> IncompatibleWith = [];
 }

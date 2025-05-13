@@ -13,6 +13,8 @@
   category: Disabilities
   components:
     - type: RandomUnrevivable
+  incompatibleWith:
+    - Unrevivable
 
 - type: trait
   id: SGDrequired

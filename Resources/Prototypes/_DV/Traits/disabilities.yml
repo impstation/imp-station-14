@@ -5,6 +5,8 @@
   category: Disabilities
   components:
     - type: UltraVision
+  incompatibleWith:
+    - DogVision
 
 - type: trait
   id: DogVision
@@ -13,3 +15,5 @@
   category: Disabilities
   components:
     - type: DogVision
+  incompatibleWith:
+    - UltraVision
