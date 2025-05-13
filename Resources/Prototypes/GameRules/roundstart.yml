@@ -136,6 +136,8 @@
         factions:
         - Syndicate
       - type: RandomHumanoidAppearance # Imp
+        randomizeName: false
+        keepPronouns: true
       mindRoles:
       - MindRoleNukeopsCommander
     - prefRoles: [ NukeopsMedic ]
@@ -154,6 +156,8 @@
         factions:
         - Syndicate
       - type: RandomHumanoidAppearance # Imp
+        randomizeName: false
+        keepPronouns: true
       mindRoles:
       - MindRoleNukeopsMedic
     - prefRoles: [ Nukeops ]
@@ -174,6 +178,8 @@
         factions:
         - Syndicate
       - type: RandomHumanoidAppearance # Imp
+        randomizeName: false
+        keepPronouns: true
       mindRoles:
       - MindRoleNukeops
 
@@ -312,6 +318,9 @@
         - NamesWizardFirst
         - NamesWizardLast
         nameFormat: name-format-wizard
+      - type: RandomHumanoidAppearance # Imp
+        randomizeName: false
+        keepPronouns: true
       mindRoles:
       - MindRoleWizard
 

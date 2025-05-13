@@ -64,5 +64,7 @@
         - NamesWizardLast
         nameFormat: name-format-wizard
       - type: RandomHumanoidAppearance # Imp
+        randomizeName: false
+        keepPronouns: true
       mindRoles:
       - MindRoleWizard
