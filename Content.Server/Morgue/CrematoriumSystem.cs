@@ -16,6 +16,7 @@ using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
+using Content.Shared.Power;
 
 namespace Content.Server.Morgue;
 
@@ -38,6 +39,9 @@ public sealed class CrematoriumSystem : EntitySystem
         SubscribeLocalEvent<CrematoriumComponent, GetVerbsEvent<AlternativeVerb>>(AddCremateVerb);
         SubscribeLocalEvent<CrematoriumComponent, SuicideByEnvironmentEvent>(OnSuicideByEnvironment);
         SubscribeLocalEvent<ActiveCrematoriumComponent, StorageOpenAttemptEvent>(OnAttemptOpen);
+
+        SubscribeLocalEvent<CrematoriumComponent, PowerChangedEvent>(OnPowerChanged);
+        SubscribeLocalEvent<ActiveCrematoriumComponent, PowerChangedEvent>(OnActivePowerChanged);
     }
 
     private void OnExamine(EntityUid uid, CrematoriumComponent component, ExaminedEvent args)
@@ -114,7 +118,7 @@ public sealed class CrematoriumSystem : EntitySystem
         if (!Resolve(uid, ref component, ref storage))
             return false;
 
-        if (storage.Open || storage.Contents.ContainedEntities.Count < 1)
+        if (storage.Open || storage.Contents.ContainedEntities.Count < 1 || component.Powered == false)
             return false;
 
         return Cremate(uid, component, storage);
@@ -191,5 +195,20 @@ public sealed class CrematoriumSystem : EntitySystem
             if (act.Accumulator >= crem.CookTime)
                 FinishCooking(uid, crem);
         }
+    }
+
+    private void OnPowerChanged(Entity<CrematoriumComponent> entity, ref PowerChangedEvent args)
+    {
+        entity.Comp.Powered = args.Powered;
+    }
+
+    private void OnActivePowerChanged(Entity<ActiveCrematoriumComponent> entity, ref PowerChangedEvent args)
+    {
+        if (!args.Powered)
+        {
+            _appearance.SetData(entity.Owner, CrematoriumVisuals.Burning, false);
+            RemComp<ActiveCrematoriumComponent>(entity.Owner);
+        }
+
     }
 }

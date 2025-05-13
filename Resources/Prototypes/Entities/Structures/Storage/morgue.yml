@@ -76,6 +76,7 @@
 
 - type: entity
   id: Crematorium
+  parent: BaseMachinePowered
   name: crematorium
   description: A human incinerator. Works well on barbecue nights.
   placement:
