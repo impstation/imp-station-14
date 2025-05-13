@@ -120,7 +120,7 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
         for (int i = 0; i < Max; i++)
         {
             var isCommand = args.EntityManager.HasComponent<CommandStaffComponent>(Uids[i]);
-            var knowledgeGain = isCommand ? 2f : 1f;
+            var knowledgeGain = isCommand ? 3f : 2f;
 
             //get the humanoid appearance component
             if (!args.EntityManager.TryGetComponent<HumanoidAppearanceComponent>(Uids[i], out var humanoid))
