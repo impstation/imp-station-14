@@ -58,6 +58,15 @@
         factions:
         - Syndicate
       - type: Accentless # Imp
+        removes:
+        - type: LizardAccent
+        - type: MothAccent
+        - type: ReplacementAccent
+          accent: dwarf
+        - type: SnalienAccent
+        - type: GrayAccent
+        - type: DwarfAccent
+        - type: NoContractionsAccent
       mindRoles:
       - MindRolePostOperator
 
