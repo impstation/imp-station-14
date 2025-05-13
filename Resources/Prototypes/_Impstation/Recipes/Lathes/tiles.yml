@@ -4,3 +4,8 @@
   completetime: 1
   materials:
     Steel: 50
+
+- type: latheRecipe
+  parent: BaseFauxTileRecipe
+  id: FauxTileShoveledAstroSnow
+  result: FloorTileItemShoveledAstroSnow

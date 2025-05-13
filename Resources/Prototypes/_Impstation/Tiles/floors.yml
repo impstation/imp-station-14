@@ -13,3 +13,30 @@
     collection: FootstepTile
   itemDrop: FloorTileItemApid
   heatCapacity: 10000
+
+- type: tile
+  id: FloorShoveledAstroSnow
+  name: tiles-shoveled-astro-snow
+  sprite: /Textures/Tiles/Planet/Snow/snow.png
+  variants: 13
+  placementVariants:
+  - 0.8
+  - 0.0166
+  - 0.0166
+  - 0.0166
+  - 0.0166
+  - 0.0166
+  - 0.0166
+  - 0.0166
+  - 0.0166
+  - 0.0166
+  - 0.0166
+  - 0.0116
+  - 0.0116
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  itemDrop: FloorTileItemShoveledAstroSnow
+  footstepSounds:
+    collection: FootstepSnow
+  heatCapacity: 10000
