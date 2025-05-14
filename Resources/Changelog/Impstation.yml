@@ -1,65 +1,4 @@
 ﻿Entries:
-- author: mqole
-  changes:
-  - message: Supply Assistants will now properly spawn in Cargo.
-    type: Fix
-  id: 1170
-  time: '2025-02-20T03:01:34.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1752
-- author: Pinkbat5
-  changes:
-  - message: Suspicious beacons are no longer contraband.
-    type: Tweak
-  id: 1171
-  time: '2025-02-20T03:06:44.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1731
-- author: hivehum
-  changes:
-  - message: Removed 64 songs from the jukebox, lobby music and nuke music selections.
-    type: Remove
-  id: 1172
-  time: '2025-02-20T03:08:53.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1744
-- author: bigsantino1
-  changes:
-  - message: .22 auto ammo boxes, SMG magazines, and WT magazines to the ammo techfab.
-    type: Add
-  id: 1173
-  time: '2025-02-20T03:14:44.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1746
-- author: honeyed-lemons
-  changes:
-  - message: Adjust nanochat textures to have more contrast
-    type: Tweak
-  id: 1174
-  time: '2025-02-21T02:15:08.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1754
-- author: TheGrimbeeper
-  changes:
-  - message: artifacts now listen for all types of @ emotes instead of only the special
-      ones on the quick wheel
-    type: Tweak
-  id: 1175
-  time: '2025-02-21T02:50:09.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1704
-- author: hivehum, devin
-  changes:
-  - message: Added nine new CRAZY HAMBURGERS!!!
-    type: Add
-  id: 1176
-  time: '2025-02-21T03:25:26.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1737
-- author: ATDoop
-  changes:
-  - message: Added 8 new plushies! Find them in a plushie crate today!!
-    type: Add
-  - message: Added 2 new trinkets, sentimental dolls!
-    type: Add
-  - message: You can now wear the bug plush on your head.
-    type: Tweak
-  id: 1177
-  time: '2025-02-21T03:39:37.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1747
 - author: MintyTheBinty
   changes:
   - message: Added two new business casual outfits with randomized colored clothes,
@@ -4189,3 +4128,81 @@
   id: 1669
   time: '2025-05-14T05:42:11.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/2430
+- author: TheLuggage05
+  changes:
+  - message: New option to purchase SAW ammo, but you have to load it yourself.
+    type: Add
+  - message: Mosin ammo in the uplink now gives the correct kind of ammo.
+    type: Fix
+  id: 1670
+  time: '2025-05-14T13:05:11.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2488
+- author: animal-collective
+  changes:
+  - message: three new hairs for humanoids
+    type: Add
+  id: 1671
+  time: '2025-05-14T13:46:32.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2491
+- author: AirFryerBuyOneGetOneFree
+  changes:
+  - message: Added the AAC Tablet, allowing mute crewmembers to play certain words
+      or phrases for swift communication.
+    type: Add
+  id: 1672
+  time: '2025-05-14T17:59:29.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2352
+- author: jtfg-dev
+  changes:
+  - message: Nanotrasen has issued an apology and summary hush-money to various borg
+      rights organizations. The guidebook has been slightly updated.
+    type: Remove
+  - message: Station AI pronouns and name now appear in the manifest!
+    type: Add
+  - message: Brains now remember what gender they went by in life, and rehousing one
+      in a metal shell is respected!
+    type: Add
+  - message: MMIs are now called OSIs (organic-synthetic interfaces) to remove unnecessarily
+      human-centric language.
+    type: Tweak
+  - message: A number of examinable objects now convey the gender of the object.
+    type: Tweak
+  - message: Minor change, but the cyborg itself is no longer 'locked'; the text now
+      clarifies what _part_ of its chassis is locked.
+    type: Tweak
+  id: 1673
+  time: '2025-05-14T17:59:52.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2378
+- author: Impstation
+  changes:
+  - message: Music suggestions from the Imp sector community from April have been
+      added. 11 new lobby songs, 3[?] new jukebox songs, 7 new nuke songs, and a single
+      new expedition song.
+    type: Add
+  id: 1674
+  time: '2025-05-14T18:01:47.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2454
+- author: starlighthowls
+  changes:
+  - message: Adds the drink Moonrise Blend
+    type: Add
+  id: 1675
+  time: '2025-05-14T18:03:10.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2483
+- author: Darkmajia
+  changes:
+  - message: It's only game. Why you have to be mad?
+    type: Add
+  id: 1676
+  time: '2025-05-14T18:08:25.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2492
+- author: DinnerCalzone
+  changes:
+  - message: Shoveled astro-snow and astro-cave tiles can now be crafted after researching
+      Faux Astro-Tiles.
+    type: Add
+  - message: Asphalt tiles can now be crafted at cutter machines.
+    type: Add
+  id: 1677
+  time: '2025-05-14T18:23:15.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2487
