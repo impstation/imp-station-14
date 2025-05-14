@@ -1,6 +1,8 @@
 using System.Linq;
 using Content.Shared._DV.SmartFridge; // DeltaV - ough why do you not use events for this
 using Content.Shared.Disposal;
+using Content.Shared.Disposal.Components;
+using Content.Shared.Disposal.Unit;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
@@ -158,7 +160,7 @@ public sealed class DumpableSystem : EntitySystem
 
         var dumped = false;
 
-        if (_disposalUnitSystem.HasDisposals(args.Args.Target))
+        if (HasComp<DisposalUnitComponent>(args.Args.Target))
         {
             dumped = true;
 
