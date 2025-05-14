@@ -51,7 +51,6 @@
   recipeUnlocks:
   - WeaponLaserCarbine
   - WeaponBlasterPistol #imp
-  - PowerCellBlaster #imp
 
 - type: technology
   id: NonlethalAmmunition
@@ -139,6 +138,7 @@
   cost: 5000
   recipeUnlocks:
   - PRIbarPlusConversionKit #imp
+  - PortableSensorArray #imp
   - ClothingBackpackElectropack
 
 # Tier 2

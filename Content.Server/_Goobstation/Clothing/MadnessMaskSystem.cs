@@ -1,4 +1,5 @@
 using Content.Server.EntityEffects.Effects;
+using Content.Shared.Clothing;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
@@ -20,19 +21,30 @@ public sealed partial class MadnessMaskSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<MadnessMaskComponent, ClothingGotEquippedEvent>(OnEquip);
+        SubscribeLocalEvent<MadnessMaskComponent, ClothingGotUnequippedEvent>(OnUnequip);
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        foreach (var mask in EntityQuery<MadnessMaskComponent>())
+        var query = EntityQueryEnumerator<MadnessMaskComponent>();
+        while (query.MoveNext(out var uid, out var mask))
         {
+            if (!mask.Equipped)
+                continue;
             mask.UpdateAccumulator += frameTime;
             if (mask.UpdateAccumulator < mask.UpdateTimer)
                 continue;
 
             mask.UpdateAccumulator = 0;
 
-            var lookup = _lookup.GetEntitiesInRange(mask.Owner, 5f);
+            var lookup = _lookup.GetEntitiesInRange(uid, 5f);
             foreach (var look in lookup)
             {
                 // heathens exclusive
@@ -50,5 +62,15 @@ public sealed partial class MadnessMaskSystem : EntitySystem
                     _statusEffect.TryAddStatusEffect<SeeingRainbowsComponent>(look, "SeeingRainbows", TimeSpan.FromSeconds(10f), false);
             }
         }
+    }
+
+    private void OnEquip(Entity<MadnessMaskComponent> mask, ref ClothingGotEquippedEvent args)
+    {
+        mask.Comp.Equipped = true;
+    }
+
+    private void OnUnequip(Entity<MadnessMaskComponent> mask, ref ClothingGotUnequippedEvent args)
+    {
+        mask.Comp.Equipped = false;
     }
 }
