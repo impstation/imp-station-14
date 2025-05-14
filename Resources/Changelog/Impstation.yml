@@ -1,39 +1,4 @@
 ﻿Entries:
-- author: Sha-Seng
-  changes:
-  - message: Engineer bomber jacket has a new wrench from Landshark
-    type: Tweak
-  id: 1167
-  time: '2025-02-20T02:43:12.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1729
-- author: Toby222
-  changes:
-  - message: Envelopes go in mail bags
-    type: Add
-  id: 1168
-  time: '2025-02-20T02:48:53.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1742
-- author: DinnerCalzone
-  changes:
-  - message: Mail support has been added to Plasma for real this time I promise.
-    type: Add
-  id: 1169
-  time: '2025-02-20T02:50:59.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1750
-- author: mqole
-  changes:
-  - message: Supply Assistants will now properly spawn in Cargo.
-    type: Fix
-  id: 1170
-  time: '2025-02-20T03:01:34.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1752
-- author: Pinkbat5
-  changes:
-  - message: Suspicious beacons are no longer contraband.
-    type: Tweak
-  id: 1171
-  time: '2025-02-20T03:06:44.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1731
 - author: hivehum
   changes:
   - message: Removed 64 songs from the jukebox, lobby music and nuke music selections.
@@ -4186,3 +4151,43 @@
   id: 1666
   time: '2025-05-13T14:27:14.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/2444
+- author: DinnerCalzone
+  changes:
+  - message: Winter boots have had their cooling protection reduced.
+    type: Tweak
+  - message: Scarves now help keep you warm and protect from the cold, similar to
+      winter boots.
+    type: Add
+  id: 1667
+  time: '2025-05-14T01:30:27.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2477
+- author: AirFryerBuyOneGetOneFree
+  changes:
+  - message: Fixed microwaves not ejecting contents on end of cooking.
+    type: Fix
+  id: 1668
+  time: '2025-05-14T05:39:33.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2489
+- author: hivehum
+  changes:
+  - message: Botanists can now brew beer.
+    type: Add
+  id: 1669
+  time: '2025-05-14T05:42:11.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2430
+- author: TheLuggage05
+  changes:
+  - message: New option to purchase SAW ammo, but you have to load it yourself.
+    type: Add
+  - message: Mosin ammo in the uplink now gives the correct kind of ammo.
+    type: Fix
+  id: 1670
+  time: '2025-05-14T13:05:11.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2488
+- author: animal-collective
+  changes:
+  - message: three new hairs for humanoids
+    type: Add
+  id: 1671
+  time: '2025-05-14T13:46:32.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2491
