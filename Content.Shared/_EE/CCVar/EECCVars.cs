@@ -234,12 +234,6 @@ public sealed partial class EECCVars : CVars
         CVarDef.Create("contests.do_contests_system", true, CVar.REPLICATED | CVar.SERVER);
 
     /// <summary>
-    ///     Contest functions normally include an optional override to bypass the clamp set by max_percentage.
-    ///     This CVar disables the bypass when false, forcing all implementations to comply with max_percentage.
-    /// </summary>
-    public static readonly CVarDef<bool> AllowClampOverride =
-        CVarDef.Create("contests.allow_clamp_override", true, CVar.REPLICATED | CVar.SERVER);
-    /// <summary>
     ///     Toggles all MassContest functions. All mass contests output 1f when false
     /// </summary>
     public static readonly CVarDef<bool> DoMassContests =
@@ -250,25 +244,6 @@ public sealed partial class EECCVars : CVars
     /// </summary>
     public static readonly CVarDef<bool> DoStaminaContests =
         CVarDef.Create("contests.do_stamina_contests", true, CVar.REPLICATED | CVar.SERVER);
-
-    /// <summary>
-    ///     Toggles all HealthContest functions. All health contests output 1f when false
-    /// </summary>
-    public static readonly CVarDef<bool> DoHealthContests =
-        CVarDef.Create("contests.do_health_contests", true, CVar.REPLICATED | CVar.SERVER);
-
-    /// <summary>
-    ///     Toggles all MindContest functions. All mind contests output 1f when false.
-    ///     MindContests are not currently implemented, and are awaiting completion of the Psionic Refactor
-    /// </summary>
-    public static readonly CVarDef<bool> DoMindContests =
-        CVarDef.Create("contests.do_mind_contests", true, CVar.REPLICATED | CVar.SERVER);
-
-    /// <summary>
-    ///     Toggles all MoodContest functions. All mood contests output 1f when false.
-    /// </summary>
-    public static readonly CVarDef<bool> DoMoodContests =
-        CVarDef.Create("contests.do_mood_contests", true, CVar.REPLICATED | CVar.SERVER);
 
     /// <summary>
     ///     The maximum amount that Mass Contests can modify a physics multiplier, given as a +/- percentage

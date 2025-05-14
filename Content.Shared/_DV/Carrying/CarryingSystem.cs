@@ -24,7 +24,7 @@ using Robust.Shared.Physics.Components;
 using System.Numerics;
 using System.Threading;
 // frontier:
-using Content.Shared.Contests;
+using Content.Shared._EE.Contests;
 using Content.Shared.Movement.Pulling.Systems;
 using Robust.Shared.Network;
 
@@ -115,7 +115,7 @@ public sealed class CarryingSystem : EntitySystem
         var carried = virtItem.BlockingEntity;
         args.ItemUid = carried;
 
-        var contestCoeff = _contests.MassContest(ent, virtItem.BlockingEntity, false, 2f) * _contests.StaminaContest(ent, virtItem.BlockingEntity); // Frontier: "args.throwSpeed *="<"var contestCoeff ="
+        var contestCoeff = _contests.MassContest(ent.Owner, virtItem.BlockingEntity, 2f) * _contests.StaminaContest(ent.Owner, virtItem.BlockingEntity); // Frontier: "args.throwSpeed *="<"var contestCoeff ="
 
         // Frontier: sanitize our range regardless of CVar values - TODO: variable throw distance ranges (via traits, etc.)
         contestCoeff = float.Min(BaseDistanceCoeff * contestCoeff, MaxDistanceCoeff);
@@ -230,8 +230,8 @@ public sealed class CarryingSystem : EntitySystem
         }
 
         var length = carried.Comp.PickupDuration //Frontier: removed outer TimeSpan.FromSeconds()
-        * _contests.MassContest(carriedPhysics, carrierPhysics, false, 4f)
-        * _contests.StaminaContest(carrier, carried)
+        * _contests.MassContest(carried.Owner, carrier, 4f)
+        * _contests.StaminaContest(carrier, carried.Owner)
         * (_standingState.IsDown(carried) ? 0.5f : 1); // Frontier: replace !HasComp<KnockedDownComponent> with IsDown
 
         // Frontier: sanitize time duration regardless of CVars - no near-instant pickups.
@@ -328,7 +328,7 @@ public sealed class CarryingSystem : EntitySystem
     private void ApplyCarrySlowdown(EntityUid carrier, EntityUid carried)
     {
         // Frontier edits. Yup, we're using mass contests again.
-        var massRatio = _contests.MassContest(carrier, carried, true);
+        var massRatio = _contests.MassContest(carrier, carried);
         var massRatioSq = MathF.Pow(massRatio, 2);
         var modifier = 1 - 0.15f / massRatioSq;
         modifier = Math.Max(0.1f, modifier);

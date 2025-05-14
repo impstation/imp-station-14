@@ -1,6 +1,6 @@
 using Content.Server.Resist;
 using Content.Shared.ActionBlocker;
-using Content.Shared.Contests;
+using Content.Shared._EE.Contests;
 using Content.Shared.Movement.Events;
 using Content.Shared._DV.Carrying;
 
@@ -33,7 +33,7 @@ public sealed class CarryingSystem : EntitySystem
         var carrier = ent.Comp.Carrier;
         if (_actionBlocker.CanInteract(ent, carrier))
         {
-            var disadvantage = _contests.MassContest(carrier, ent, false, 2f);
+            var disadvantage = _contests.MassContest(carrier, ent.Owner, 2f);
             _escapeInventory.AttemptEscape(ent, carrier, escape, disadvantage);
         }
     }
