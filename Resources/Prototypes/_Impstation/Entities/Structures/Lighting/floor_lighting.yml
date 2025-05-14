@@ -40,7 +40,7 @@
   name: floor light
   description: "A light fixture. Draws power and produces light when equipped with a light tube."
   id: PoweredFloorLightEmpty
-  suffix: Empty
+  suffix: empty
   parent: AlwaysPoweredFloorLight
   components:
   - type: Sprite

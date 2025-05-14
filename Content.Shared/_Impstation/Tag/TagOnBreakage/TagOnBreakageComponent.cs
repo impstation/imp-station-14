@@ -15,17 +15,19 @@ public sealed partial class TagOnBreakageComponent : Component
     /// </summary>
     [DataField("tags", required: true), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public ProtoId<TagPrototype>[] Tags;
+
     /// <summary>
     /// Bool to determine if the system should replace the original tags or not (if any exist). Defaults to false.
     /// </summary>
     [DataField("replaceOldTags"), ViewVariables(VVAccess.ReadOnly)]
-    public bool ReplaceTags = false;
+    public bool ReplaceTags;
+
     /// <summary>
     /// Bool to determine if the system should bromg back the original tags if repaired. Does nothing if replaceOldTags isn't
     /// set to true. Defaults to false.
     /// </summary>
     [DataField("reTagOnRepair"), ViewVariables(VVAccess.ReadOnly)]
-    public bool ReTagOnRepair = false;
+    public bool ReTagOnRepair;
 
     [ViewVariables(VVAccess.ReadOnly)]
     public bool IsTagged = false;
