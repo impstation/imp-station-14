@@ -32,7 +32,7 @@ public sealed partial class HereticKnowledgeItemSystem : EntitySystem
         if (ent.Comp.Spent)
             return;
 
-        var dargs = new DoAfterArgs(EntityManager, args.User, 10f, new HereticKnowledgeItemDoAfterEvent(), ent, used: ent)
+        var dargs = new DoAfterArgs(EntityManager, args.User, ent.Comp.UseTimeSeconds, new HereticKnowledgeItemDoAfterEvent(), ent, used: ent)
         {
             BreakOnMove = true,
             BreakOnDamage = true,
@@ -51,7 +51,7 @@ public sealed partial class HereticKnowledgeItemSystem : EntitySystem
         {
             return;
         }
-        _heretic.UpdateKnowledge(args.User, heretic, 1f);
+        _heretic.UpdateKnowledge(args.User, heretic, ent.Comp.PointGain);
 
         ent.Comp.Spent = true;
     }
