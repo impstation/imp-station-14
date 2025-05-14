@@ -56,3 +56,14 @@
     sprite: _Goobstation/Heretic/reality_fracture.rsi
     state: icon_harvested
   - type: Clickable
+  
+- type: entity
+  parent: EldritchTome
+  id: DebugEldritchTome
+  name: debug tome
+  description: once you understand everything, all you will be able to think about is Halloween.
+  suffix: Debug
+  components:
+  - type: HereticKnowledgeItem
+    pointGain: 999
+    useTimeSeconds: 1
