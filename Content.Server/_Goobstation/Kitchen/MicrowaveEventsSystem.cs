@@ -24,7 +24,7 @@ public sealed class MicrowaveEventsSystem : EntitySystem
 
     private void OnRemoveAttempt(Entity<ActiveMicrowaveComponent> ent, ref ContainerIsRemovingAttemptEvent args)
     {
-        if (HasComp<RoboticArmComponent>(args.Container.Owner))
+        if (HasComp<RoboticArmComponent>(args.Container.Owner))  // Imp edit, fix microwaves not ejecting beakers and such
         {
             args.Cancel();
         }
