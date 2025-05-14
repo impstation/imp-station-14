@@ -559,17 +559,6 @@
   categories:
   - UplinkAmmo
 
-  # For the saw, budget option
-- type: listing
-  id: UplinkSawAmmo
-  name: uplink-saw-ammo-name
-  description: uplink-saw-ammo-desc
-  productEntity: MagazineBoxRifle
-  cost:
-    Telecrystal: 2
-  categories:
-  - UplinkAmmo
-
 # for the hristov
 - type: listing
   id: UplinkHristovAmmo
