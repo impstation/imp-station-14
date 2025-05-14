@@ -58,6 +58,7 @@
   - WeaponGauntletGorilla
 
 - type: latheRecipePack
+  parent: FauxTilesImp # imp
   id: FauxTiles
   recipes:
   - FauxTileAstroGrass
@@ -66,8 +67,6 @@
   - FauxTileAstroIce
   - FauxTileAstroSnow
   - FauxTileAstroAsteroidSand
-  - FauxTileShoveledAstroSnow # imp
-  - FauxTileAstroCave # imp
 
 # Only contains parts for making basic modular grenades, no actual explosives
 - type: latheRecipePack
