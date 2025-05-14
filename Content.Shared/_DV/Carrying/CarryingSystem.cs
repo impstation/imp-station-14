@@ -44,9 +44,9 @@ public sealed class CarryingSystem : EntitySystem
     [Dependency] private readonly ContestsSystem _contests = default!; // frontier
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
-    public const float BaseDistanceCoeff = 0.5f; // Frontier: default throwing speed reduction
-    public const float MaxDistanceCoeff = 1.0f; // Frontier: default throwing speed reduction
-    public const float DefaultMaxThrowDistance = 4.0f; // Frontier: maximum throwing distance
+    private const float BaseDistanceCoeff = 0.5f; // Frontier: default throwing speed reduction
+    private const float MaxDistanceCoeff = 1.0f; // Frontier: default throwing speed reduction
+    private const float DefaultMaxThrowDistance = 4.0f; // Frontier: maximum throwing distance
 
     public override void Initialize()
     {
@@ -200,7 +200,7 @@ public sealed class CarryingSystem : EntitySystem
             This component has been removed for whatever reason, so just make sure that the
             carrier is cleaned up.
             */
-        if (!TryComp<CarryingComponent>(ent.Comp.Carrier, out var carryingComponent))
+        if (!HasComp<CarryingComponent>(ent.Comp.Carrier)) // Imp trycomp > hascomp
             // This carrier has probably already been cleaned, no reason to try again
             return;
 
@@ -211,7 +211,7 @@ public sealed class CarryingSystem : EntitySystem
     {
         ent.Comp.CancelToken = null;
         if (args.Handled || args.Cancelled
-        || !CanCarry(args.Args.User, ent))
+            || !CanCarry(args.Args.User, ent))
             return;
 
         Carry(args.Args.User, ent);
@@ -222,17 +222,17 @@ public sealed class CarryingSystem : EntitySystem
     {
         // NF: change arbitrary doafter length cancel to a mass check
         if (!TryComp<PhysicsComponent>(carrier, out var carrierPhysics)
-        || !TryComp<PhysicsComponent>(carried, out var carriedPhysics)
-        || carriedPhysics.Mass > carrierPhysics.Mass * 2f)
+            || !TryComp<PhysicsComponent>(carried, out var carriedPhysics)
+            || carriedPhysics.Mass > carrierPhysics.Mass * 2f)
         {
             _popup.PopupClient(Loc.GetString("carry-too-heavy"), carried, carrier, PopupType.SmallCaution);
             return;
         }
 
         var length = carried.Comp.PickupDuration //Frontier: removed outer TimeSpan.FromSeconds()
-        * _contests.MassContest(carried.Owner, carrier, 4f)
-        * _contests.StaminaContest(carrier, carried.Owner)
-        * (_standingState.IsDown(carried) ? 0.5f : 1); // Frontier: replace !HasComp<KnockedDownComponent> with IsDown
+            * _contests.MassContest(carried.Owner, carrier, 4f)
+            * _contests.StaminaContest(carrier, carried.Owner)
+            * (_standingState.IsDown(carried) ? 0.5f : 1); // Frontier: replace !HasComp<KnockedDownComponent> with IsDown
 
         // Frontier: sanitize time duration regardless of CVars - no near-instant pickups.
         var duration = TimeSpan.FromSeconds(float.Clamp(length, carried.Comp.MinPickupDuration, carried.Comp.MaxPickupDuration));
@@ -258,8 +258,6 @@ public sealed class CarryingSystem : EntitySystem
         if (TryComp<PullableComponent>(carried, out var pullable))
             _pulling.TryStopPull(carried, pullable);
 
-        var carrierXform = Transform(carrier);
-        var xform = Transform(carried);
         _transform.AttachToGridOrMap(carrier);
         _transform.AttachToGridOrMap(carried);
         _transform.SetParent(carried, carrier);
@@ -283,24 +281,7 @@ public sealed class CarryingSystem : EntitySystem
         _virtualItem.TrySpawnVirtualItemInHand(carried, carrier);
     }
 
-    public bool TryCarry(EntityUid carrier, Entity<CarriableComponent?> toCarry)
-    {
-        if (!Resolve(toCarry, ref toCarry.Comp, false))
-            return false;
-
-        if (!CanCarry(carrier, (toCarry, toCarry.Comp)) || HasComp<BeingCarriedComponent>(carrier))
-            return false;
-
-        // Frontier: replace timespan with phys check
-        if (TryComp<PhysicsComponent>(carrier, out var carrierPhysics) && TryComp<PhysicsComponent>(toCarry, out var toCarryPhysics) && carrierPhysics.Mass < toCarryPhysics.Mass * 2f)
-            return false;
-
-        Carry(carrier, toCarry);
-
-        return true;
-    }
-
-    public void DropCarried(EntityUid carrier, EntityUid carried)
+    private void DropCarried(EntityUid carrier, EntityUid carried)
     {
         Drop(carried);
         CleanupCarrier(carrier, carried);
@@ -337,20 +318,18 @@ public sealed class CarryingSystem : EntitySystem
         _slowdown.SetModifier(carrier, modifier);
     }
 
-    public bool CanCarry(EntityUid carrier, Entity<CarriableComponent> carried)
+    private bool CanCarry(EntityUid carrier, Entity<CarriableComponent> carried)
     {
         return
             carrier != carried.Owner &&
-            // can't carry multiple people, even if you have 4 hands it will break invariants when removing carryingcomponent for first carried person
-            !HasComp<CarryingComponent>(carrier) &&
-            // can't carry someone in a locker, buckled, etc
-            HasComp<MapGridComponent>(Transform(carrier).ParentUid) &&
-            // no tower of spacemen or stack overflow
-            !HasComp<BeingCarriedComponent>(carrier) &&
-            !HasComp<BeingCarriedComponent>(carried) &&
-            // finally check that there are enough free hands
-            TryComp<HandsComponent>(carrier, out var hands) &&
-            hands.CountFreeHands() >= carried.Comp.FreeHandsRequired;
+                // can't carry multiple people, even if you have 4 hands it will break invariants when removing carryingcomponent for first carried person
+                !HasComp<CarryingComponent>(carrier) &&
+                // can't carry someone in a locker, buckled, etc
+                HasComp<MapGridComponent>(Transform(carrier).ParentUid) &&
+                // no tower of spacemen or stack overflow
+                !HasComp<BeingCarriedComponent>(carrier) && !HasComp<BeingCarriedComponent>(carried) &&
+                // finally check that there are enough free hands
+                TryComp<HandsComponent>(carrier, out var hands) && hands.CountFreeHands() >= carried.Comp.FreeHandsRequired;
     }
 
     public override void Update(float frameTime)
