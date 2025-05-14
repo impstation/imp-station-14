@@ -553,9 +553,20 @@
   id: UplinkMosinAmmo
   name: uplink-mosin-ammo-name
   description: uplink-mosin-ammo-desc
-  productEntity: MagazineBoxRifle
+  productEntity: MagazineBoxLightRifle
   cost:
     Telecrystal: 1
+  categories:
+  - UplinkAmmo
+
+  # For the saw, budget option
+- type: listing
+  id: UplinkSawAmmo
+  name: uplink-saw-ammo-name
+  description: uplink-saw-ammo-desc
+  productEntity: MagazineBoxRifle
+  cost:
+    Telecrystal: 2
   categories:
   - UplinkAmmo
 
