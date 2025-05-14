@@ -40,3 +40,12 @@
   footstepSounds:
     collection: FootstepSnow
   heatCapacity: 10000
+
+- type: tile
+  id: FloorAstroAsphalt
+  name: tiles-astro-asphalt
+  parent: FloorAsphalt
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  itemDrop: FloorTileItemAstroAsphalt

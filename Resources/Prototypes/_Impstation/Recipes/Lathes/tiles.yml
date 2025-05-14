@@ -9,3 +9,8 @@
   parent: BaseFauxTileRecipe
   id: FauxTileShoveledAstroSnow
   result: FloorTileItemShoveledAstroSnow
+
+- type: latheRecipe
+  parent: BaseConcreteTileRecipe
+  id: FloorTileItemAstroAsphalt
+  result: FloorTileItemAstroAsphalt
