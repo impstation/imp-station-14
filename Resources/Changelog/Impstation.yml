@@ -1,47 +1,4 @@
 ﻿Entries:
-- author: AirFryerBuyOneGetOneFree
-  changes:
-  - message: Fixed Gimmick traitor objective rarity.
-    type: Fix
-  id: 1162
-  time: '2025-02-18T02:34:58.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1728
-- author: hivehum, arimah
-  changes:
-  - message: The Chief Engineer has adopted a new macaw. Everyone say hello to Poly!
-    type: Add
-  id: 1163
-  time: '2025-02-18T06:28:55.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1700
-- author: kipdotnet
-  changes:
-  - message: The Tck'tck now has proper access for cargo and maintenance.
-    type: Fix
-  id: 1164
-  time: '2025-02-18T17:41:18.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1733
-- author: hivehum
-  changes:
-  - message: Supply Assistant and Administrative Assistant now have automatic text
-      highlighting options.
-    type: Add
-  id: 1165
-  time: '2025-02-20T02:38:54.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1736
-- author: Sha-Seng
-  changes:
-  - message: Sec bomber is now the correct size and lacks pockets
-    type: Fix
-  id: 1166
-  time: '2025-02-20T02:41:06.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1738
-- author: Sha-Seng
-  changes:
-  - message: Engineer bomber jacket has a new wrench from Landshark
-    type: Tweak
-  id: 1167
-  time: '2025-02-20T02:43:12.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1729
 - author: Toby222
   changes:
   - message: Envelopes go in mail bags
@@ -4178,3 +4135,57 @@
   id: 1661
   time: '2025-05-12T22:59:46.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/2471
+- author: AirFryerBuyOneGetOneFree
+  changes:
+  - message: Lowered power draw of robotic arm, should not flicker the power constantly!
+    type: Tweak
+  id: 1662
+  time: '2025-05-13T00:35:56.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2476
+- author: AirFryerBuyOneGetOneFree, LazyRiverfolk
+  changes:
+  - message: Changed the limit for the number of burger tower items from 30 to 100!
+      Have fun chefs!
+    type: Tweak
+  id: 1663
+  time: '2025-05-13T11:43:47.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2448
+- author: sowelipililimute, Darkmajia
+  changes:
+  - message: SmartFridges are now implemented. You can store large amounts of chemicals
+      and plants within them for people to take.
+    type: Add
+  id: 1664
+  time: '2025-05-13T12:17:48.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2482
+- author: salamanderskies
+  changes:
+  - message: Added a new trait, heavyweight drunk.
+    type: Add
+  id: 1665
+  time: '2025-05-13T12:30:14.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2164
+- author: Darkmajia
+  changes:
+  - message: Supermatter lightning can no longer explode nearby airlocks, air alarms,
+      or other objects.
+    type: Remove
+  - message: Reduced the range at which direct eye contact with the supermatter induces
+      hallucinations.
+    type: Tweak
+  - message: Carbon dioxide affects the supermatter more strongly at lower values,
+      and tesla/singularity delaminations are easier to trigger.
+    type: Tweak
+  id: 1666
+  time: '2025-05-13T14:27:14.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2444
+- author: DinnerCalzone
+  changes:
+  - message: Winter boots have had their cooling protection reduced.
+    type: Tweak
+  - message: Scarves now help keep you warm and protect from the cold, similar to
+      winter boots.
+    type: Add
+  id: 1667
+  time: '2025-05-14T01:30:27.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2477
