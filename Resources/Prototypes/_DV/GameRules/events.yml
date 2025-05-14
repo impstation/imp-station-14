@@ -67,6 +67,9 @@
         - type: GrayAccent
         - type: DwarfAccent
         - type: NoContractionsAccent
+      - type: RandomHumanoidAppearance # Imp
+        randomizeName: false
+        keepPronouns: true
       mindRoles:
       - MindRolePostOperator
 
