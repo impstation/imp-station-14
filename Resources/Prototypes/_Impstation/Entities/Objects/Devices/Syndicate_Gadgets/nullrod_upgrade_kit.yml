@@ -1,0 +1,14 @@
+- type: entity
+  name: # Defilement Kit?
+  parent: [BaseItem, BaseSyndicateContraband]
+  id: NullrodUpgradeKit
+  description: # Makes your shit so fucking evil, dog
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: abductor_mod
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - NullrodUpgradeKit

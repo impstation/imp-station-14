@@ -159,6 +159,9 @@
     interfaces:
       enum.MeleeSpeechUiKey.Key:
         type: MeleeSpeechBoundUserInterface
+  - type: Construction
+    graph: UpgradeNullRodGlove
+    node: start
 
 
 - type: entity

@@ -1,0 +1,13 @@
+- type: constructionGraph
+  id: UpgradeNullRodGlove
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: upgraded
+          steps:
+            - tag: NullrodUpgradeKit
+              doAfter: 5
+
+    - node: upgraded
+      entity: NullRodGloveEvil
