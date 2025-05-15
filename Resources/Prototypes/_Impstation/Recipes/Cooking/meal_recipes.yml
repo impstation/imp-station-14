@@ -425,3 +425,12 @@
     Water: 10
   solids:
     FoodMeatSpiderLeg: 1
+
+- type: microwaveMealRecipe
+  id: RecipeIDTart
+  name: identification tart recipe
+  result: IDTartCooked
+  time: 5
+  group: Dessert
+  solids:
+    IDTart: 1
