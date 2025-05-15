@@ -1,0 +1,21 @@
+- type: entity
+  name: liquimetal sheathe
+  parent: [ BaseItem, BaseCommandContraband ]
+  id: CaptainSwordLiquid
+  description: A regal sheathe filled with liquid metal able to take on the form of a blade of your choosing.
+  components:
+  - type: CaptainSwordMenu
+    possibleSets:
+    - CaptainSwordSabre
+    - CaptainSwordRapier
+  - type: ActivatableUI
+    key: enum.CaptainSwordMenuUIKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.CaptainSwordMenuUIKey.Key:
+        type: CaptainSwordMenuBoundUserInterface
+  - type: Sprite
+    sprite: Clothing/Belt/sheath.rsi
+    state: sheath
+  - type: Item
+    size: Ginormous

@@ -80,3 +80,47 @@
   # - type: Reflect
   # - type: ThrowingAngle
   #   angle: 300
+
+- type: entity
+  name: captain's rapier #Imp
+  parent: [ BaseSword, BaseCommandContraband ]
+  id: CaptainRapier
+  description: A ceremonial weapon belonging to the captain of the station. Built for thrusting attacks, it has almost no sharp edge.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/captain_sabre.rsi
+  - type: MeleeWeapon
+    resistanceBypass: true
+    attackRate: 1.25
+    damage:
+      types:
+        Piercing: 10 #Low damage to account for AP
+    angle: 0
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Reflect
+    reflectProb: .1
+    spread: 90
+  - type: Item
+    sprite: Objects/Weapons/Melee/captain_sabre.rsi
+  - type: Tag
+    tags:
+    - CaptainSabre
+  - type: DisarmMalus
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-inanimate
+    weight: 0.0002 # 5,000 times less likely than 1 regular animal
+  - type: PirateAccent
+    # not putting a BlockMovement component here cause that's funny.
+  # imp edits #
+  - type: DamageOtherOnHit
+    ignoreResistances: true
+    damage:
+      types:
+        Piercing: 15
+    staminaCost: 5
+  - type: EmbeddableProjectile
+  - type: EmbedPassiveDamage
+  - type: ThrowingAngle
+    angle: 225
+  # end imp edits #
