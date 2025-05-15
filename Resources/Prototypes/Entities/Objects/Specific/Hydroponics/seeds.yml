@@ -528,7 +528,7 @@
       sprite: Objects/Specific/Hydroponics/glasstle.rsi
 
 - type: entity
-  parent: [SeedBase, BaseMinorContraband]
+  parent: [SeedBase, BaseMajorContraband]
   name: packet of fly amanita spores
   description: "The iconic, extremely deadly mushroom to be used for purely ornamental purposes."
   id: FlyAmanitaSeeds
