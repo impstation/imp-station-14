@@ -24,15 +24,18 @@ using Robust.Shared.Physics.Components;
 using System.Numerics;
 using System.Threading;
 // frontier:
+using CCVars = Content.Shared._EE.CCVar.EECCVars;
 using Content.Shared._EE.Contests;
 using Content.Shared.Movement.Pulling.Systems;
+using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 
 namespace Content.Shared._DV.Carrying;
-public sealed class CarryingSystem : EntitySystem
+public sealed partial class CarryingSystem : EntitySystem
 {
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly CarryingSlowdownSystem _slowdown = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
@@ -44,15 +47,19 @@ public sealed class CarryingSystem : EntitySystem
     [Dependency] private readonly ContestsSystem _contests = default!; // frontier
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
-    private const float BaseDistanceCoeff = 0.5f; // Frontier: default throwing speed reduction
-    private const float MaxDistanceCoeff = 1.0f; // Frontier: default throwing speed reduction
-    private const float DefaultMaxThrowDistance = 4.0f; // Frontier: maximum throwing distance
+    private float _baseDistanceCoeff; // Frontier: default throwing speed reduction
+    private float _maxDistanceCoeff; // Frontier: default throwing speed reduction
+    private float _defaultMaxThrowDistance; // Frontier: maximum throwing distance
 
     public override void Initialize()
     {
         base.Initialize();
 
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
+
+        Subs.CVar(_cfg, CCVars.BaseDistanceCoeff, value => _baseDistanceCoeff = value, true);
+        Subs.CVar(_cfg, CCVars.MaxDistanceCoeff, value => _maxDistanceCoeff = value, true);
+        Subs.CVar(_cfg, CCVars.DefaultMaxThrowDistance, value => _defaultMaxThrowDistance = value, true);
 
         SubscribeLocalEvent<CarriableComponent, GetVerbsEvent<AlternativeVerb>>(AddCarryVerb);
         SubscribeLocalEvent<CarryingComponent, VirtualItemDeletedEvent>(OnVirtualItemDeleted);
@@ -118,9 +125,9 @@ public sealed class CarryingSystem : EntitySystem
         var contestCoeff = _contests.MassContest(ent.Owner, virtItem.BlockingEntity, 2f) * _contests.StaminaContest(ent.Owner, virtItem.BlockingEntity); // Frontier: "args.throwSpeed *="<"var contestCoeff ="
 
         // Frontier: sanitize our range regardless of CVar values - TODO: variable throw distance ranges (via traits, etc.)
-        contestCoeff = float.Min(BaseDistanceCoeff * contestCoeff, MaxDistanceCoeff);
-        if (args.Direction.Length() > DefaultMaxThrowDistance * contestCoeff)
-            args.Direction = args.Direction.Normalized() * DefaultMaxThrowDistance * contestCoeff;
+        contestCoeff = float.Min(_baseDistanceCoeff * contestCoeff, _maxDistanceCoeff);
+        if (args.Direction.Length() > _defaultMaxThrowDistance * contestCoeff)
+            args.Direction = args.Direction.Normalized() * _defaultMaxThrowDistance * contestCoeff;
         // End Frontier
     }
 

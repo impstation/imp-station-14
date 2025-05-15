@@ -246,11 +246,30 @@ public sealed partial class EECCVars : CVars
         CVarDef.Create("contests.do_stamina_contests", true, CVar.REPLICATED | CVar.SERVER);
 
     /// <summary>
-    ///     The maximum amount that Mass Contests can modify a physics multiplier, given as a +/- percentage
+    ///     The maximum amount that Contests can modify a physics multiplier, given as a +/- percentage
     ///     Default of 0.25f outputs between * 0.75f and 1.25f
     /// </summary>
-    public static readonly CVarDef<float> MassContestsMaxPercentage =
+    public static readonly CVarDef<float> ContestsMaxPercentage =
         CVarDef.Create("contests.max_percentage", 0.25f, CVar.REPLICATED | CVar.SERVER);
+
+    // FRONTIER EDITS:
+    /// <summary>
+    /// base throwing speed reduction
+    /// </summary>
+    public static readonly CVarDef<float> BaseDistanceCoeff =
+        CVarDef.Create("contests.base_distance_coeff", 0.5f, CVar.REPLICATED | CVar.SERVER);
+
+    /// <summary>
+    /// max throwing speed reduction
+    /// </summary>
+    public static readonly CVarDef<float> MaxDistanceCoeff =
+        CVarDef.Create("contests.max_distance_coeff", 1.0f, CVar.REPLICATED | CVar.SERVER);
+
+    /// <summary>
+    /// max throw distance
+    /// </summary>
+    public static readonly CVarDef<float> DefaultMaxThrowDistance =
+        CVarDef.Create("contests.default_max_throw_distance", 4.0f, CVar.REPLICATED | CVar.SERVER);
 
     #endregion
 }
