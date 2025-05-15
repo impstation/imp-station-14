@@ -11,6 +11,8 @@
     - state: idpassenger
   - type: PresetIdCard
     job: Passenger
+  - type: Produce
+    seedId: HoPsSeeds
 
 - type: entity
   parent: FoodMealBase
