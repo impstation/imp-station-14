@@ -725,7 +725,7 @@
       sprite: Objects/Specific/Hydroponics/cotton.rsi
 
 - type: entity
-  parent: SeedBase
+  parent: [SeedBase, BaseMinorContraband]
   name: packet of pyrotton seeds
   id: PyrottonSeeds
   components:
