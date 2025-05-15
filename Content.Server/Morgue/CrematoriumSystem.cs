@@ -118,7 +118,7 @@ public sealed class CrematoriumSystem : EntitySystem
         if (!Resolve(uid, ref component, ref storage))
             return false;
 
-        if (storage.Open || storage.Contents.ContainedEntities.Count < 1 || component.Powered == false)
+        if (storage.Open || storage.Contents.ContainedEntities.Count < 1 || component.Powered == false) // imp
             return false;
 
         return Cremate(uid, component, storage);

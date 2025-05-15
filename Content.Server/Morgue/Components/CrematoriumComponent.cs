@@ -20,10 +20,6 @@ public sealed partial class CrematoriumComponent : Component
     [DataField("cremateFinishSound")]
     public SoundSpecifier CremateFinishSound = new SoundPathSpecifier("/Audio/Machines/ding.ogg");
 
-    /// <summary>
-    /// Whether or not the machine has power. We put it here
-    /// so we can network and predict it.
-    /// </summary>
-    [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
-    public bool Powered;
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool Powered; // imp
 }
