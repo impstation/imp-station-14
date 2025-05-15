@@ -40,8 +40,8 @@ public sealed class CrematoriumSystem : EntitySystem
         SubscribeLocalEvent<CrematoriumComponent, SuicideByEnvironmentEvent>(OnSuicideByEnvironment);
         SubscribeLocalEvent<ActiveCrematoriumComponent, StorageOpenAttemptEvent>(OnAttemptOpen);
 
-        SubscribeLocalEvent<CrematoriumComponent, PowerChangedEvent>(OnPowerChanged);
-        SubscribeLocalEvent<ActiveCrematoriumComponent, PowerChangedEvent>(OnActivePowerChanged);
+        SubscribeLocalEvent<CrematoriumComponent, PowerChangedEvent>(OnPowerChanged); // imp
+        SubscribeLocalEvent<ActiveCrematoriumComponent, PowerChangedEvent>(OnActivePowerChanged); // imp
     }
 
     private void OnExamine(EntityUid uid, CrematoriumComponent component, ExaminedEvent args)
@@ -196,12 +196,13 @@ public sealed class CrematoriumSystem : EntitySystem
                 FinishCooking(uid, crem);
         }
     }
-
+    //imp
     private void OnPowerChanged(Entity<CrematoriumComponent> entity, ref PowerChangedEvent args)
     {
         entity.Comp.Powered = args.Powered;
     }
 
+    //imp
     private void OnActivePowerChanged(Entity<ActiveCrematoriumComponent> entity, ref PowerChangedEvent args)
     {
         if (!args.Powered)

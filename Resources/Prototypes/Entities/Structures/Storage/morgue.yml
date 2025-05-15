@@ -76,7 +76,6 @@
 
 - type: entity
   id: Crematorium
-  parent: BaseMachinePowered
   name: crematorium
   description: A human incinerator. Works well on barbecue nights.
   placement:
@@ -144,3 +143,8 @@
           False: { visible: false }
   - type: Transform
     anchored: true
+  - type: ApcPowerReceiver # imp
+    powerLoad: 1000
+  - type: ExtensionCableReceiver # imp
+  - type: LightningTarget # imp
+    priority: 1
