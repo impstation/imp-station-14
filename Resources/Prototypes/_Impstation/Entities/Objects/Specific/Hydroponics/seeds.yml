@@ -63,9 +63,9 @@
     sprite: _Impstation/Objects/Specific/Hydroponics/employedhops.rsi
 
 - type: entity
-  parent: SeedBase
+  parent: [SeedBase, Tier2Contraband]
   name: packet of agent grain seeds
-  id: [AgentGrainSeeds, Tier2Contraband]
+  id: AgentGrainSeeds
   components:
   - type: Seed
     seedId: agentgrain
