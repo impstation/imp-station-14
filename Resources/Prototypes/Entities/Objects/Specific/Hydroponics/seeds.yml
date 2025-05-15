@@ -171,7 +171,7 @@
       sprite: Objects/Specific/Hydroponics/orange.rsi
 
 - type: entity
-  parent: [SeedBase, TierXContraband]
+  parent: SeedBase
   name: packet of extradimensional orange seeds
   description: "Polygonal seeds."
   id: ExtradimensionalOrangeSeeds
