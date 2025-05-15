@@ -734,7 +734,7 @@
 
 - type: entity
   name: extradimensional orange
-  parent: FoodProduceBase
+  parent: [FoodProduceBase, TierXContraband]
   id: FoodExtradimensionalOrange
   description: You can hardly wrap your head around this thing.
   components:
