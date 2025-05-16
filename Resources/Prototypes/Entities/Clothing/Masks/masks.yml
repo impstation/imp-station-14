@@ -201,16 +201,30 @@
     price: 30 # increases in price after decomposed into raw materials
 
 - type: entity
-  parent: ClothingMaskBase
+  parent: [ClothingMaskBase, BaseFoldable]
   id: ClothingMaskClownBase
   abstract: true
   name: clown wig and mask
-  description: A true prankster's facial attire. A clown is incomplete without his wig and mask.
+  description: A true prankster's facial attire. A clown is incomplete without a wig and mask.
   components:
+  - type: Appearance
   - type: Sprite
-    sprite: Clothing/Mask/clown.rsi
+    sprite: _Impstation/Clothing/Mask/clown.rsi
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon-wigless
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: untuck-verb-clothing-mask
+    foldVerbText: tuck-verb-clothing-mask
+  - type: FoldableClothing
+    foldedEquippedPrefix: wigless
+    foldedHeldPrefix: wigless
   - type: Clothing
-    sprite: Clothing/Mask/clown.rsi
+    sprite: _Impstation/Clothing/Mask/clown.rsi
   - type: BreathMask
   - type: IdentityBlocker
   - type: Tag
