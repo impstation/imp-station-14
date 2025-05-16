@@ -187,7 +187,7 @@
 
 #LED
 - type: entity
-  id: PoweredFloorLightLED
+  id: PoweredFloorLightLed
   suffix: LED
   parent: PoweredFloorLight
   components:
@@ -773,7 +773,7 @@
     node: metamorphicLightHole
 
 - type: entity
-  id: PoweredSmallFloorLightLED
+  id: PoweredSmallFloorLightLed
   suffix: LED
   parent: PoweredSmallFloorLight
   components:
@@ -787,7 +787,7 @@
     hasLampOnSpawn: LedLightBulb
   - type: Construction
     graph: FloorLightFixture
-    node: smallFloorLightLED
+    node: smallFloorLightLed
   - type: DamageOnInteract
     damage:
       types:

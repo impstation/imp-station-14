@@ -29,7 +29,7 @@
       steps:
       - allTags: [LightBulb, LightNormal]
         name: "add bulb."
-    - to: smallFloorLightLED
+    - to: smallFloorLightLed
       steps:
       - allTags: [LightBulb, LightLed]
         name: "add bulb."
@@ -78,7 +78,7 @@
       steps:
       - allTags: [LightTube, LightNormal]
         name: "add tube."
-    - to: floorLightLED
+    - to: floorLightLed
       steps:
       - allTags: [LightTube, LightLed]
         name: "add tube."
@@ -143,8 +143,8 @@
       steps:
       - remove: LightNormal
         name: "the tube."
-  - node: floorLightLED
-    entity: PoweredFloorLightLED
+  - node: floorLightLed
+    entity: PoweredFloorLightLed
     edges:
     - to: metamorphicLightHole
       steps:
@@ -242,8 +242,8 @@
       steps:
       - remove: LightNormal
         name: "the bulb."
-  - node: smallFloorLightLED
-    entity: PoweredSmallFloorLightLED
+  - node: smallFloorLightLed
+    entity: PoweredSmallFloorLightLed
     edges:
     - to: metamorphicLightHole
       steps:
