@@ -1,18 +1,10 @@
 - type: entity
-  parent: IDCardStandard
+  parent: PassengerIDCard
   id: IDTart
-  name: identification card # Meant to seem identical to a regular ID until microwaved
-  description: A card necessary to access various areas aboard the station.
-  abstract: true
+  name: passenger ID card # Meant to seem identical to a regular ID until microwaved
   components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idpassenger
-  - type: PresetIdCard
-    job: Passenger
   - type: Produce
-    seedId: HoPsSeeds
+    seedId: employedhops
 
 - type: entity
   parent: FoodMealBase
