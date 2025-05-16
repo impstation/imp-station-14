@@ -89,7 +89,7 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/captain_sabre.rsi
-    resistanceBypass: true
+  - type: MeleeWeapon
     attackRate: 1.15
     damage:
       types:

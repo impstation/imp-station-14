@@ -7,11 +7,16 @@ captain-swordmenu-window-selected = Form selected: ({$selectedCount}/{$maxCount}
 
 captain-swordset-category-sabre-name = Captain's Sabre
 captain-swordset-category-sabre-description =
-    A classic.
+    The classic.
     Heavy slash damage, and fast attack rate make it extremely
     reliable.
 
 captain-swordset-category-rapier-name = Captain's Rapier
 captain-swordset-category-rapier-description =
     For the more cunning individual.
-    Trades off damage and wide swings to pierce armor perfectly.
+    Trades off wide swings to deal even heavier damage.
+
+captain-swordset-category-foam-name = Captain's Foam Sword
+captain-swordset-category-foam-description =
+    For the clowning individual.
+    Not a real sword.

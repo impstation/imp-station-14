@@ -19,3 +19,14 @@
   content:
   - CaptainRapier
   - ClothingBeltSheath
+
+- type: captainSwordMenuSet
+  id: CaptainSwordFoam
+  name: captain-swordset-category-foam-name
+  description: captain-swordset-category-foam-description
+  sprite:
+    sprite: _DV/Objects/Fun/Toys/foam_sabre.rsi
+    state: icon
+  content:
+  - FoamSabre
+  - ClothingBeltFoamSheath
