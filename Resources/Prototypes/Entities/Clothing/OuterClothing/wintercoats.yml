@@ -112,7 +112,7 @@
       right:
       - state: BRIGMEDIC-inhand-right
   - type: Clothing
-    sprite: _Impstation/Clothing/OuterClothing/WinterCoats/coat.rsi #imp
+    sprite: _Impstation/Clothing/OuterClothing/WinterCoats/brigmediccoat.rsi #imp
     clothingVisuals:
       outerClothing:
       - state: BRIGMEDIC-equipped-OUTERCLOTHING
@@ -771,7 +771,7 @@
       right:
       - state: WARD-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _ImpstationClothing/OuterClothing/WinterCoats/wardencoat.rsi #imp
     clothingVisuals:
       outerClothing:
       - state: WARD-equipped-OUTERCLOTHING
