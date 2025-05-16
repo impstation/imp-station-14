@@ -24,6 +24,27 @@
     radius: 10
     softness: 1
     offset: "0, 0"
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors: #excess damage, don't spawn entities.
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:EmptyAllContainersBehaviour
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
   - type: Fixtures
     fixtures:
       fix1:
@@ -72,10 +93,35 @@
       on: empty
       broken: empty
       burned: empty
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors: #excess damage, don't spawn entities.
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:EmptyAllContainersBehaviour
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 2
+            max: 2
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
   - type: Construction
     graph: FloorLightFixture
     node: metamorphicLightHole
-    containerSlot: light_bulb
 
 - type: entity
   id: PoweredFloorLight
@@ -112,6 +158,27 @@
   - type: Construction
     graph: FloorLightFixture
     node: floorLight
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors: #excess damage, don't spawn entities.
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:EmptyAllContainersBehaviour
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
   - type: DamageOnInteract
     damage:
       types:
@@ -643,27 +710,29 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 200
       behaviors: #excess damage, don't spawn entities.
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
     - trigger:
         !type:DamageTrigger
-        damage: 25
+        damage: 30
       behaviors:
       - !type:EmptyAllContainersBehaviour
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          SheetSteel1:
-            min: 1
-            max: 1
       - !type:DoActsBehavior
         acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
 
 - type: entity
   description: "A light bulb shoved into a metamorphic hole."
   id: PoweredSmallFloorLight
   parent: AlwaysPoweredSmallFloorLight
+  suffix: ""
   components:
   - type: Sprite
     sprite: _Impstation/Structures/Lighting/floorlights.rsi
@@ -702,7 +771,6 @@
   - type: Construction
     graph: FloorLightFixture
     node: metamorphicLightHole
-    containerSlot: smallFloorLight
 
 - type: entity
   id: PoweredSmallFloorLightLED
@@ -720,7 +788,6 @@
   - type: Construction
     graph: FloorLightFixture
     node: smallFloorLightLED
-    containerSlot: light_bulb
   - type: DamageOnInteract
     damage:
       types:
@@ -743,7 +810,6 @@
   - type: Construction
     graph: FloorLightFixture
     node: smallFloorLightDim
-    containerSlot: light_bulb
   - type: DamageOnInteract
     damage:
       types:
@@ -766,7 +832,6 @@
   - type: Construction
     graph: FloorLightFixture
     node: smallFloorLightWarm
-    containerSlot: light_bulb
   - type: DamageOnInteract
     damage:
       types:
@@ -789,7 +854,6 @@
   - type: Construction
     graph: FloorLightFixture
     node: smallFloorLightCyan
-    containerSlot: light_bulb
   - type: DamageOnInteract
     damage:
       types:
@@ -812,7 +876,6 @@
   - type: Construction
     graph: FloorLightFixture
     node: smallFloorLightBlue
-    containerSlot: light_bulb
   - type: DamageOnInteract
     damage:
       types:
@@ -835,7 +898,6 @@
   - type: Construction
     graph: FloorLightFixture
     node: smallFloorLightYellow
-    containerSlot: light_bulb
   - type: DamageOnInteract
     damage:
       types:
@@ -858,7 +920,6 @@
   - type: Construction
     graph: FloorLightFixture
     node: smallFloorLightPink
-    containerSlot: light_bulb
   - type: DamageOnInteract
     damage:
       types:
@@ -881,7 +942,6 @@
   - type: Construction
     graph: FloorLightFixture
     node: smallFloorLightOrange
-    containerSlot: light_bulb
   - type: DamageOnInteract
     damage:
       types:
@@ -904,7 +964,6 @@
   - type: Construction
     graph: FloorLightFixture
     node: smallFloorLightBlack
-    containerSlot: light_bulb
   - type: DamageOnInteract
     damage:
       types:
@@ -927,7 +986,6 @@
   - type: Construction
     graph: FloorLightFixture
     node: smallFloorLightRed
-    containerSlot: light_bulb
   - type: DamageOnInteract
     damage:
       types:
@@ -950,7 +1008,6 @@
   - type: Construction
     graph: FloorLightFixture
     node: smallFloorLightGreen
-    containerSlot: light_bulb
   - type: DamageOnInteract
     damage:
       types:
@@ -960,7 +1017,8 @@
 #admeme lights
 #the power of using the construction graph to change prototypes. put the DEATH TUBE in and suffer.
 - type: entity
-  id: PoweredFloorLightSun
+  name: sun floor light
+  id: SunFloorLight
   suffix: DO NOT MAP, Admeme, Sun
   categories: [ DoNotMap ]
   parent: AlwaysPoweredFloorLight
@@ -977,10 +1035,22 @@
     blinkingSound:
       path: "/Audio/Machines/genetics.ogg"
     spriteStateMap:
-      off: led
-      on: led
-      broken: broken
-      burned: burned
+      off: sun
+      on: sun
+      broken: sun
+      burned: sun
+  - type: Physics
+    bodyType: Static
+    fixedRotation: true
+  - type: Fixtures
+    fixtures:
+      slips:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.50
+        hard: false
+        layer:
+        - LowImpassable
   - type: PoweredLight
     bulb: Tube
     hasLampOnSpawn: SunLightTube
@@ -995,7 +1065,7 @@
     damage:
       types:
         Heat: 1500 #dont map this
-    popupText: "you flew too close to the sun."
+    popupText: powered-light-component-burn-hand
   - type: Contraband
     severity: TierXContraband
   - type: Destructible
