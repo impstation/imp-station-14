@@ -1,0 +1,357 @@
+- type: constructionGraph
+  id: FloorLightFixture
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: metamorphicLightHole
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 2.0
+#we are hole now
+  - node: metamorphicLightHole
+    entity: PoweredFloorLightEmpty
+    edges:
+    - to: start
+      conditions:
+      - !type:ContainerEmpty
+        containerSlot: "light_bulb"
+      steps:
+      - tool: Screwing
+        doAfter: 2.0
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      - !type:DeleteEntity {}
+#bulbs
+    - to: smallFloorLight
+      steps:
+      - allTags: [LightBulb, LightNormal]
+        containerSlot: light_bulb
+        name: "add bulb."
+    - to: smallFloorLightLED
+      steps:
+      - allTags: [LightBulb, LightLed]
+        containerSlot: light_bulb
+        name: "add bulb."
+    - to: smallFloorLightDim
+      steps:
+      - allTags: [LightBulb, LightDim]
+        containerSlot: light_bulb
+        name: "add bulb."
+    - to: smallFloorLightWarm
+      steps:
+      - allTags: [LightBulb, LightWarm]
+        containerSlot: light_bulb
+        name: "add bulb."
+    - to: smallFloorLightCyan
+      steps:
+      - allTags: [LightBulb, LightCyan]
+        containerSlot: light_bulb
+        name: "add bulb."
+    - to: smallFloorLightBlue
+      steps:
+      - allTags: [LightBulb, LightBlue]
+        containerSlot: light_bulb
+        name: "add bulb."
+    - to: smallFloorLightYellow
+      steps:
+      - allTags: [LightBulb, LightYellow]
+        containerSlot: light_bulb
+        name: "add bulb."
+    - to: smallFloorLightPink
+      steps:
+      - allTags: [LightBulb, LightPink]
+        containerSlot: light_bulb
+        name: "add bulb."
+    - to: smallFloorLightOrange
+      steps:
+      - allTags: [LightBulb, LightOrange]
+        containerSlot: light_bulb
+        name: "add bulb."
+    - to: smallFloorLightBlack
+      steps:
+      - allTags: [LightBulb, LightBlack]
+        containerSlot: light_bulb
+        name: "add bulb."
+    - to: smallFloorLightRed
+      steps:
+      - allTags: [LightBulb, LightRed]
+        containerSlot: light_bulb
+        name: "add bulb."
+    - to: smallFloorLightGreen
+      steps:
+      - allTags: [LightBulb, LightGreen]
+        containerSlot: light_bulb
+        name: "add bulb."
+#tubes
+    - to: floorLight
+      steps:
+      - allTags: [LightTube, LightNormal]
+        containerSlot: light_bulb
+        name: "add tube."
+    - to: floorLightLED
+      steps:
+      - allTags: [LightTube, LightLed]
+        containerSlot: light_bulb
+        name: "add tube."
+    - to: floorLightExterior
+      steps:
+      - allTags: [LightTube, LightExterior]
+        containerSlot: light_bulb
+        name: "add tube."
+    - to: floorLightSodium
+      steps:
+      - allTags: [LightTube, LightSodium]
+        containerSlot: light_bulb
+        name: "add tube."
+    - to: floorLightOld
+      steps:
+      - allTags: [LightTube, LightOld]
+        containerSlot: light_bulb
+        name: "add tube."
+    - to: floorLightUv
+      steps:
+      - allTags: [LightTube, LightUv]
+        containerSlot: light_bulb
+        name: "add tube."
+    - to: floorLightCyan
+      steps:
+      - allTags: [LightTube, LightCyan]
+        containerSlot: light_bulb
+        name: "add tube."
+    - to: floorLightBlue
+      steps:
+      - allTags: [LightTube, LightBlue]
+        containerSlot: light_bulb
+        name: "add tube."
+    - to: floorLightYellow
+      steps:
+      - allTags: [LightTube, LightYellow]
+        containerSlot: light_bulb
+        name: "add tube."
+    - to: floorLightPink
+      steps:
+      - allTags: [LightTube, LightPink]
+        containerSlot: light_bulb
+        name: "add tube."
+    - to: floorLightOrange
+      steps:
+      - allTags: [LightTube, LightOrange]
+        containerSlot: light_bulb
+        name: "add tube."
+    - to: floorLightBlack
+      steps:
+      - allTags: [LightTube, LightBlack]
+        containerSlot: light_bulb
+        name: "add tube."
+    - to: floorLightRed
+      steps:
+      - allTags: [LightTube, LightRed]
+        containerSlot: light_bulb
+        name: "add tube."
+    - to: floorLightGreen
+      steps:
+      - allTags: [LightTube, LightGreen]
+        containerSlot: light_bulb
+        name: "add tube."
+#admeme (you can't get the tube with the proper tag in-game without admin intervention)
+    - to: floorLightSun
+      steps:
+      - allTags: [LightTube, SunTube]
+        containerSlot: light_bulb
+        name: "add the sun."
+#tube to hole
+  - node: floorLight
+    entity: PoweredFloorLight
+    edges:
+    - to: metamorphicLightHole
+      steps:
+      - remove: LightNormal
+        name: "the tube."
+  - node: floorLightLED
+    entity: PoweredFloorLightLED
+    edges:
+    - to: metamorphicLightHole
+      steps:
+        - remove: LightLed
+          name: "the tube."
+  - node: floorLightExterior
+    entity: PoweredFloorLightExterior
+    edges:
+    - to: metamorphicLightHole
+      steps:
+      - remove: LightExterior
+        name: "the tube."
+  - node: floorLightSodium
+    entity: PoweredFloorLightSodium
+    edges:
+    - to: metamorphicLightHole
+      steps:
+      - remove: LightSodium
+        name: "the tube."
+  - node: floorLightOld
+    entity: PoweredFloorLightOld
+    edges:
+    - to: metamorphicLightHole
+      steps:
+      - remove: LightOld
+        name: "the tube."
+  - node: floorLightUv
+    entity: PoweredFloorLightUv
+    edges:
+    - to: metamorphicLightHole
+      steps:
+      - remove: LightUv
+        name: "the tube."
+  - node: floorLightCyan
+    entity: PoweredFloorLightCyan
+    edges:
+    - to: metamorphicLightHole
+      steps:
+      - remove: LightCyan
+        name: "the tube."
+  - node: floorLightBlue
+    entity: PoweredFloorLightBlue
+    edges:
+    - to: metamorphicLightHole
+      steps:
+      - remove: LightBlue
+        name: "the tube."
+  - node: floorLightYellow
+    entity: PoweredFloorLightYellow
+    edges:
+    - to: metamorphicLightHole
+      steps:
+      - remove: LightYellow
+        name: "the tube."
+  - node: floorLightPink
+    entity: PoweredFloorLightPink
+    edges:
+    - to: metamorphicLightHole
+      steps:
+      - remove: LightPink
+        name: "the tube."
+  - node: floorLightOrange
+    entity: PoweredFloorLightOrange
+    edges:
+    - to: metamorphicLightHole
+      steps:
+      - remove: LightOrange
+        name: "the tube."
+  - node: floorLightBlack
+    entity: PoweredFloorLightBlack
+    edges:
+    - to: metamorphicLightHole
+      steps:
+      - remove: LightBlack
+        name: "the tube."
+  - node: floorLightRed
+    entity: PoweredFloorLightRed
+    edges:
+    - to: metamorphicLightHole
+      steps:
+      - remove: LightRed
+        name: "the tube."
+  - node: floorLightGreen
+    entity: PoweredFloorLightGreen
+    edges:
+    - to: metamorphicLightHole
+      steps:
+      - remove: LightGreen
+        name: "the tube."
+#bulbs to hole
+  - node: smallFloorLight
+    entity: PoweredSmallFloorLight
+    edges:
+    - to: metamorphicLightHole
+      steps:
+      - remove: LightNormal
+        name: "the bulb."
+  - node: smallFloorLightLED
+    entity: PoweredSmallFloorLightLED
+    edges:
+    - to: metamorphicLightHole
+      steps:
+      - remove: LightLed
+        name: "the bulb."
+  - node: smallFloorLightDim
+    entity: PoweredSmallFloorLightDim
+    edges:
+    - to: metamorphicLightHole
+      steps:
+      - remove: LightDim
+        name: "the bulb."
+  - node: smallFloorLightWarm
+    entity: PoweredSmallFloorLightWarm
+    edges:
+    - to: metamorphicLightHole
+      steps:
+      - remove: LightWarm
+        name: "the bulb."
+  - node: smallFloorLightCyan
+    entity: PoweredSmallFloorLightCyan
+    edges:
+    - to: metamorphicLightHole
+      steps:
+      - remove: LightCyan
+        name: "the bulb."
+  - node: smallFloorLightBlue
+    entity: PoweredSmallFloorLightBlue
+    edges:
+    - to: metamorphicLightHole
+      steps:
+      - remove: LightBlue
+        name: "the bulb."
+  - node: smallFloorLightYellow
+    entity: PoweredSmallFloorLightYellow
+    edges:
+    - to: metamorphicLightHole
+      steps:
+      - remove: LightYellow
+        name: "the bulb."
+  - node: smallFloorLightPink
+    entity: PoweredSmallFloorLightPink
+    edges:
+    - to: metamorphicLightHole
+      steps:
+      - remove: LightPink
+        name: "the bulb."
+  - node: smallFloorLightOrange
+    entity: PoweredSmallFloorLightOrange
+    edges:
+    - to: metamorphicLightHole
+      steps:
+      - remove: LightOrange
+        name: "the bulb."
+  - node: smallFloorLightBlack
+    entity: PoweredSmallFloorLightBlack
+    edges:
+    - to: metamorphicLightHole
+      steps:
+      - remove: LightBlack
+        name: "the bulb."
+  - node: smallFloorLightRed
+    entity: PoweredSmallFloorLightRed
+    edges:
+    - to: metamorphicLightHole
+      steps:
+      - remove: LightRed
+        name: "the bulb."
+  - node: smallFloorLightGreen
+    entity: PoweredSmallFloorLightGreen
+    edges:
+    - to: metamorphicLightHole
+      steps:
+      - remove: LightGreen
+        name: "the bulb."
+#admemes
+    - node: floorLightSun
+      entity: PoweredFloorLightSun
+      edges:
+      - to: metamorphicLightHole
+        steps:
+        - remove: SunTube
+          name: "the sun. at your own risk."

@@ -59,11 +59,6 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Appearance
-  - type: TagOnBreakage #imp
-    tags:
-    - Broken
-    - Trash
-    replaceOldTags: true
   - type: Tag
     tags:
     - Trash

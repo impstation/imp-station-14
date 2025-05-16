@@ -1,7 +1,7 @@
 - type: entity
-  id: AlwaysPoweredFloorLight
+  id: AlwaysPoweredFloorLight #im too lazy to add the other always powered variants
   name: floor light
-  description: "An always powered light."
+  description: "An always powered floor light."
   suffix: Always powered
   parent: AlwaysPoweredWallLight
   components:
@@ -9,7 +9,6 @@
     anchored: true
   - type: Clickable
   - type: InteractionOutline
-  #- type: Construction TODO
   - type: Sprite
     sprite: _Impstation/Structures/Lighting/floorlights.rsi
     drawdepth: HighFloorObjects
@@ -38,180 +37,18 @@
 
 - type: entity
   name: floor light
-  description: "A light fixture. Draws power and produces light when equipped with a light tube."
+  description: "A metamorphic hole, meant to turn into a floor light! Just insert a light tube."
   id: PoweredFloorLightEmpty
   suffix: empty
   parent: AlwaysPoweredFloorLight
   components:
   - type: Sprite
     sprite: _Impstation/Structures/Lighting/floorlights.rsi
-    layers: # to be refactored
-    - state: empty
-      visible: false
-      map: ["enum.PoweredLightLayers.Base"]
-    - state: baseGlow
-      visible: false
-      shader: unshaded
-    - state: ledGlow
-      visible: false
-      shader: unshaded
-    - state: exteriorGlow
-      visible: false
-      shader: unshaded
-    - state: sodiumGlow
-      visible: false
-      shader: unshaded
-    - state: oldGlow
-      visible: false
-      shader: unshaded
-    - state: redGlow
-      visible: false
-      shader: unshaded
-    - state: blueGlow
-      visible: false
-      shader: unshaded
-    - state: cyanGlow
-      visible: false
-      shader: unshaded
-    - state: greenGlow
-      visible: false
-      shader: unshaded
-    - state: yellowGlow
-      visible: false
-      shader: unshaded
-    - state: orangeGlow
-      visible: false
-      shader: unshaded
-    - state: pinkGlow
-      visible: false
-      shader: unshaded
-    - state: blackGlow
-      visible: false
-      shader: unshaded
-  - type: Icon
-    sprite: _Impstation/Structures/Lighting/floorlights.rsi
-    state: empty
-  - type: ItemMapper # to be refactored to use a custom comp
-    mapLayers:
-      empty:
-        minCount: 0
-        maxCount: 0
-        whitelist:
-          tags:
-            - LightTube
-      broken:
-        whitelist:
-          tags:
-            - Broken
-      base:
-        whitelist:
-          tags:
-            - LightNormal
-      baseGlow:
-        whitelist:
-          tags:
-            - LightNormal
-      led:
-        whitelist:
-          tags:
-            - LightLed
-      ledGlow:
-        whitelist:
-          tags:
-            - LightLed
-      exterior:
-        whitelist:
-          tags:
-            - LightExterior
-      exteriorGlow:
-        whitelist:
-          tags:
-            - LightExterior
-      sodium:
-        whitelist:
-          tags:
-            - LightSodium
-      sodiumGlow:
-        whitelist:
-          tags:
-            - LightSodium
-      old:
-        whitelist:
-          tags:
-            - LightOld
-      oldGlow:
-        whitelist:
-          tags:
-            - LightOld
-      red:
-        whitelist:
-          tags:
-            - LightRed
-      redGlow:
-        whitelist:
-          tags:
-            - LightRed
-      blue:
-        whitelist:
-          tags:
-            - LightBlue
-      blueGlow:
-        whitelist:
-          tags:
-            - LightBlue
-      cyan:
-        whitelist:
-          tags:
-            - LightCyan
-      cyanGlow:
-        whitelist:
-          tags:
-            - LightCyan
-      green:
-        whitelist:
-          tags:
-            - LightGreen
-      greenGlow:
-        whitelist:
-          tags:
-            - LightGreen
-      yellow:
-        whitelist:
-          tags:
-            - LightYellow
-      yellowGlow:
-        whitelist:
-          tags:
-            - LightYellow
-      orange:
-        whitelist:
-          tags:
-            - LightOrange
-      orangeGlow:
-        whitelist:
-          tags:
-            - LightOrange
-      pink:
-        whitelist:
-          tags:
-            - LightPink
-      pinkGlow:
-        whitelist:
-          tags:
-            - LightPink
-      black:
-        whitelist:
-          tags:
-            - LightBlack
-      blackGlow:
-        whitelist:
-          tags:
-            - LightBlack
-    sprite: _Impstation/Structures/Lighting/floorlights.rsi
+    layers:
+    - map: ["enum.PoweredLightLayers.Base"]
+      state: empty
   - type: PointLight
     enabled: false
-  - type: PoweredLight
-    bulb: Tube
   - type: ContainerContainer
     containers:
       light_bulb: !type:ContainerSlot
@@ -229,29 +66,39 @@
       - Toggle
   - type: Appearance
   - type: PoweredLightVisuals
+    spriteStateMap:
+      empty: empty
+      off: empty
+      on: empty
+      broken: empty
+      burned: empty
+  - type: Construction
+    graph: FloorLightFixture
+    node: metamorphicLightHole
+    containerSlot: light_bulb
+
+- type: entity
+  id: PoweredFloorLight
+  description: "A light tube shoved into a metamorphic hole."
+  suffix: ""
+  parent: PoweredFloorLightEmpty
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Lighting/floorlights.rsi
+    layers:
+    - map: [ "enum.PoweredLightLayers.Base" ]
+      state: base
+    - map: [ "enum.PoweredLightLayers.Glow" ]
+      state: baseGlow
+      shader: unshaded
+  - type: PoweredLightVisuals
     blinkingSound:
       path: "/Audio/Machines/light_tube_on.ogg"
     spriteStateMap:
-      empty: empty
       off: base
       on: base
       broken: broken
       burned: burned
-  - type: DamageOnInteract
-    damage:
-      types:
-        Heat: 2
-    popupText: powered-light-component-burn-hand
-
-- type: entity
-  id: PoweredFloorLight
-  description: "A light fixture. Draws power and produces light when equipped with a light tube."
-  suffix: ""
-  parent: PoweredFloorLightEmpty
-  components:
-  - type: Icon
-    sprite: _Impstation/Structures/Lighting/floorlights.rsi
-    state: base
   - type: PointLight
     enabled: true
   - type: PoweredLight
@@ -262,6 +109,9 @@
     range: 2
     sound:
       path: /Audio/Ambience/Objects/light_hum.ogg
+  - type: Construction
+    graph: FloorLightFixture
+    node: floorLight
   - type: DamageOnInteract
     damage:
       types:
@@ -271,20 +121,36 @@
 #LED
 - type: entity
   id: PoweredFloorLightLED
-  description: "A light fixture. Draws power and produces light when equipped with a light tube."
   suffix: LED
   parent: PoweredFloorLight
   components:
-  - type: Icon
+  - type: Sprite
     sprite: _Impstation/Structures/Lighting/floorlights.rsi
-    state: led
+    layers:
+    - map: [ "enum.PoweredLightLayers.Base" ]
+      state: led
+    - map: [ "enum.PoweredLightLayers.Glow" ]
+      state: ledGlow
+      shader: unshaded
+  - type: PoweredLightVisuals
+    blinkingSound:
+      path: "/Audio/Machines/light_tube_on.ogg"
+    spriteStateMap:
+      off: led
+      on: led
+      broken: broken
+      burned: burned
   - type: PoweredLight
+    bulb: Tube
     hasLampOnSpawn: LedLightTube
   - type: PointLight
     radius: 15
     energy: 1
     softness: 0.9
     color: "#EEEEFF"
+  - type: Construction
+    graph: FloorLightFixture
+    node: floorLightLed
   - type: DamageOnInteract
     damage:
       types:
@@ -294,15 +160,30 @@
 #Exterior
 - type: entity
   id: PoweredFloorLightExterior
-  description: "A light fixture. Draws power and produces light when equipped with a light tube."
   suffix: Exterior
   parent: PoweredFloorLight
   components:
-  - type: Icon
+  - type: Sprite
     sprite: _Impstation/Structures/Lighting/floorlights.rsi
-    state: exterior
+    layers:
+    - map: [ "enum.PoweredLightLayers.Base" ]
+      state: exterior
+    - map: [ "enum.PoweredLightLayers.Glow" ]
+      state: exteriorGlow
+      shader: unshaded
+  - type: PoweredLightVisuals
+    blinkingSound:
+      path: "/Audio/Machines/light_tube_on.ogg"
+    spriteStateMap:
+      off: exterior
+      on: exterior
+      broken: broken
+      burned: burned
   - type: PoweredLight
     hasLampOnSpawn: ExteriorLightTube
+  - type: Construction
+    graph: FloorLightFixture
+    node: floorLightExterior
   - type: DamageOnInteract
     damage:
       types:
@@ -312,13 +193,25 @@
 #Sodium
 - type: entity
   id: PoweredFloorLightSodium
-  description: "A light fixture. Draws power and produces light when equipped with a light tube."
   suffix: Sodium
   parent: PoweredFloorLight
   components:
-  - type: Icon
+  - type: Sprite
     sprite: _Impstation/Structures/Lighting/floorlights.rsi
-    state: sodium
+    layers:
+    - map: [ "enum.PoweredLightLayers.Base" ]
+      state: sodium
+    - map: [ "enum.PoweredLightLayers.Glow" ]
+      state: sodiumGlow
+      shader: unshaded
+  - type: PoweredLightVisuals
+    blinkingSound:
+      path: "/Audio/Machines/light_tube_on.ogg"
+    spriteStateMap:
+      off: sodium
+      on: sodium
+      broken: broken
+      burned: burned
   - type: PoweredLight
     hasLampOnSpawn: SodiumLightTube
   - type: PointLight
@@ -326,6 +219,9 @@
     energy: 2.5
     softness: 0.9
     color: "#FFAF38"
+  - type: Construction
+    graph: FloorLightFixture
+    node: floorLightSodium
   - type: DamageOnInteract
     damage:
       types:
@@ -335,13 +231,25 @@
 #Old
 - type: entity
   id: PoweredFloorLightOld
-  description: "A light fixture. Draws power and produces light when equipped with a light tube."
   suffix: Old
   parent: PoweredFloorLight
   components:
-  - type: Icon
+  - type: Sprite
     sprite: _Impstation/Structures/Lighting/floorlights.rsi
-    state: old
+    layers:
+    - map: [ "enum.PoweredLightLayers.Base" ]
+      state: old
+    - map: [ "enum.PoweredLightLayers.Glow" ]
+      state: oldGlow
+      shader: unshaded
+  - type: PoweredLightVisuals
+    blinkingSound:
+      path: "/Audio/Machines/light_tube_on.ogg"
+    spriteStateMap:
+      off: old
+      on: old
+      broken: broken
+      burned: burned
   - type: PoweredLight
     hasLampOnSpawn: LightTubeOld
   - type: PointLight
@@ -350,10 +258,51 @@
     softness: 1
     color: "#FFDABB"
     offset: "0, -0.5" #sprite is off center
+  - type: Construction
+    graph: FloorLightFixture
+    node: floorLightOld
   - type: DamageOnInteract
     damage:
       types:
         Heat: 2
+    popupText: powered-light-component-burn-hand
+
+#UV
+- type: entity
+  id: PoweredFloorLightUv
+  suffix: UV
+  parent: PoweredFloorLight
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Lighting/floorlights.rsi
+    layers:
+    - map: [ "enum.PoweredLightLayers.Base" ]
+      state: uv
+    - map: [ "enum.PoweredLightLayers.Glow" ]
+      state: uvGlow
+      shader: unshaded
+  - type: PoweredLightVisuals
+    blinkingSound:
+      path: "/Audio/Machines/light_tube_on.ogg"
+    spriteStateMap:
+      off: uv
+      on: uv
+      broken: broken
+      burned: burned
+  - type: PoweredLight
+    hasLampOnSpawn: UvLightTube
+  - type: PointLight
+    radius: 15
+    energy: 1
+    softness: 0.9
+    color: "#9E00FF"
+  - type: Construction
+    graph: FloorLightFixture
+    node: floorLightUv
+  - type: DamageOnInteract
+    damage:
+      types:
+        Heat: 1
     popupText: powered-light-component-burn-hand
 
 #Colored
@@ -362,9 +311,22 @@
   suffix: Cyan
   parent: PoweredFloorLight
   components:
-  - type: Icon
+  - type: Sprite
     sprite: _Impstation/Structures/Lighting/floorlights.rsi
-    state: cyan
+    layers:
+    - map: [ "enum.PoweredLightLayers.Base" ]
+      state: cyan
+    - map: [ "enum.PoweredLightLayers.Glow" ]
+      state: cyanGlow
+      shader: unshaded
+  - type: PoweredLightVisuals
+    blinkingSound:
+      path: "/Audio/Machines/light_tube_on.ogg"
+    spriteStateMap:
+      off: cyan
+      on: cyan
+      broken: broken
+      burned: burned
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalCyan
   - type: PointLight
@@ -372,6 +334,9 @@
     energy: 3
     softness: 0.5
     color: "#47f8ff"
+  - type: Construction
+    graph: FloorLightFixture
+    node: floorLightCyan
   - type: DamageOnInteract
     damage:
       types:
@@ -383,9 +348,22 @@
   suffix: Blue
   parent: PoweredFloorLight
   components:
-  - type: Icon
+  - type: Sprite
     sprite: _Impstation/Structures/Lighting/floorlights.rsi
-    state: blue
+    layers:
+    - map: [ "enum.PoweredLightLayers.Base" ]
+      state: blue
+    - map: [ "enum.PoweredLightLayers.Glow" ]
+      state: blueGlow
+      shader: unshaded
+  - type: PoweredLightVisuals
+    blinkingSound:
+      path: "/Audio/Machines/light_tube_on.ogg"
+    spriteStateMap:
+      off: blue
+      on: blue
+      broken: broken
+      burned: burned
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalBlue
   - type: PointLight
@@ -393,6 +371,9 @@
     energy: 3
     softness: 0.5
     color: "#39a1ff"
+  - type: Construction
+    graph: FloorLightFixture
+    node: floorLightBlue
   - type: DamageOnInteract
     damage:
       types:
@@ -404,9 +385,22 @@
   suffix: Yellow
   parent: PoweredFloorLight
   components:
-  - type: Icon
+  - type: Sprite
     sprite: _Impstation/Structures/Lighting/floorlights.rsi
-    state: yellow
+    layers:
+    - map: [ "enum.PoweredLightLayers.Base" ]
+      state: yellow
+    - map: [ "enum.PoweredLightLayers.Glow" ]
+      state: yellowGlow
+      shader: unshaded
+  - type: PoweredLightVisuals
+    blinkingSound:
+      path: "/Audio/Machines/light_tube_on.ogg"
+    spriteStateMap:
+      off: yellow
+      on: yellow
+      broken: broken
+      burned: burned
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalYellow
   - type: PointLight
@@ -414,6 +408,9 @@
     energy: 3
     softness: 0.5
     color: "#ffde46"
+  - type: Construction
+    graph: FloorLightFixture
+    node: floorLightYellow
   - type: DamageOnInteract
     damage:
       types:
@@ -425,9 +422,22 @@
   suffix: Pink
   parent: PoweredFloorLight
   components:
-  - type: Icon
+  - type: Sprite
     sprite: _Impstation/Structures/Lighting/floorlights.rsi
-    state: pink
+    layers:
+    - map: [ "enum.PoweredLightLayers.Base" ]
+      state: pink
+    - map: [ "enum.PoweredLightLayers.Glow" ]
+      state: pinkGlow
+      shader: unshaded
+  - type: PoweredLightVisuals
+    blinkingSound:
+      path: "/Audio/Machines/light_tube_on.ogg"
+    spriteStateMap:
+      off: pink
+      on: pink
+      broken: broken
+      burned: burned
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalPink
   - type: PointLight
@@ -435,6 +445,9 @@
     energy: 3
     softness: 0.5
     color: "#ff66cc"
+  - type: Construction
+    graph: FloorLightFixture
+    node: floorLightPink
   - type: DamageOnInteract
     damage:
       types:
@@ -446,9 +459,22 @@
   suffix: Orange
   parent: PoweredFloorLight
   components:
-  - type: Icon
+  - type: Sprite
     sprite: _Impstation/Structures/Lighting/floorlights.rsi
-    state: orange
+    layers:
+    - map: [ "enum.PoweredLightLayers.Base" ]
+      state: orange
+    - map: [ "enum.PoweredLightLayers.Glow" ]
+      state: orangeGlow
+      shader: unshaded
+  - type: PoweredLightVisuals
+    blinkingSound:
+      path: "/Audio/Machines/light_tube_on.ogg"
+    spriteStateMap:
+      off: orange
+      on: orange
+      broken: broken
+      burned: burned
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalOrange
   - type: PointLight
@@ -456,6 +482,9 @@
     energy: 3
     softness: 0.5
     color: "#ff8227"
+  - type: Construction
+    graph: FloorLightFixture
+    node: floorLightOrange
   - type: DamageOnInteract
     damage:
       types:
@@ -468,9 +497,22 @@
   parent: PoweredFloorLight
   description:
   components:
-  - type: Icon
+  - type: Sprite
     sprite: _Impstation/Structures/Lighting/floorlights.rsi
-    state: black
+    layers:
+    - map: [ "enum.PoweredLightLayers.Base" ]
+      state: black
+    - map: [ "enum.PoweredLightLayers.Glow" ]
+      state: blackGlow
+      shader: unshaded
+  - type: PoweredLightVisuals
+    blinkingSound:
+      path: "/Audio/Machines/light_tube_on.ogg"
+    spriteStateMap:
+      off: black
+      on: black
+      broken: broken
+      burned: burned
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalBlack
   - type: PointLight
@@ -478,6 +520,9 @@
     energy: 1
     softness: 0.5
     color: "#363636"
+  - type: Construction
+    graph: FloorLightFixture
+    node: floorLightBlack
   - type: DamageOnInteract
     damage:
       types:
@@ -489,9 +534,22 @@
   suffix: Red
   parent: PoweredFloorLight
   components:
-  - type: Icon
+  - type: Sprite
     sprite: _Impstation/Structures/Lighting/floorlights.rsi
-    state: red
+    layers:
+    - map: [ "enum.PoweredLightLayers.Base" ]
+      state: red
+    - map: [ "enum.PoweredLightLayers.Glow" ]
+      state: redGlow
+      shader: unshaded
+  - type: PoweredLightVisuals
+    blinkingSound:
+      path: "/Audio/Machines/light_tube_on.ogg"
+    spriteStateMap:
+      off: red
+      on: red
+      broken: broken
+      burned: burned
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalRed
   - type: PointLight
@@ -500,6 +558,9 @@
     softness: 0.5
     color: "#fb4747"
     offset: "0, -0.5" #sprite is off center
+  - type: Construction
+    graph: FloorLightFixture
+    node: floorLightRed
   - type: DamageOnInteract
     damage:
       types:
@@ -511,9 +572,22 @@
   suffix: Green
   parent: PoweredFloorLight
   components:
-  - type: Icon
+  - type: Sprite
     sprite: _Impstation/Structures/Lighting/floorlights.rsi
-    state: green
+    layers:
+    - map: [ "enum.PoweredLightLayers.Base" ]
+      state: green
+    - map: [ "enum.PoweredLightLayers.Glow" ]
+      state: greenGlow
+      shader: unshaded
+  - type: PoweredLightVisuals
+    blinkingSound:
+      path: "/Audio/Machines/light_tube_on.ogg"
+    spriteStateMap:
+      off: green
+      on: green
+      broken: broken
+      burned: burned
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalGreen
   - type: PointLight
@@ -521,8 +595,430 @@
     energy: 3
     softness: 0.5
     color: "#52ff39"
+  - type: Construction
+    graph: FloorLightFixture
+    node: floorLightGreen
   - type: DamageOnInteract
     damage:
       types:
         Heat: 2
     popupText: powered-light-component-burn-hand
+
+#Bulbs
+- type: entity
+  name: small floor light
+  description: "An always powered floor light."
+  id: AlwaysPoweredSmallFloorLight
+  suffix: Always Powered
+  parent: AlwaysPoweredFloorLight
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Lighting/floorlights.rsi
+    state: base
+  - type: PoweredLightVisuals
+    blinkingSound:
+      path: "/Audio/Machines/light_tube_on.ogg"
+    spriteStateMap:
+      empty: empty
+      off: base
+      on: base
+      broken: broken
+      burned: burned
+  - type: Appearance
+  - type: AmbientSound
+    volume: -15
+    range: 2
+    sound:
+      path: /Audio/Ambience/Objects/light_hum.ogg
+  - type: PointLight
+    energy: 1.0
+    radius: 6
+    softness: 1.1
+    enabled: true
+  - type: Physics
+    bodyType: Static
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors: #excess damage, don't spawn entities.
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:EmptyAllContainersBehaviour
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  description: "A light bulb shoved into a metamorphic hole."
+  id: PoweredSmallFloorLight
+  parent: AlwaysPoweredSmallFloorLight
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Lighting/floorlights.rsi
+    drawdepth: HighFloorObjects
+    layers:
+    - map: ["enum.PoweredLightLayers.Base"]
+      state: base
+    - map: ["enum.PoweredLightLayers.Glow"]
+      state: baseGlow
+      shader: unshaded
+  - type: PointLight
+    energy: 1.0
+    radius: 6
+    softness: 1.1
+    enabled: true
+  - type: ApcPowerReceiver
+  - type: ExtensionCableReceiver
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: SmartLight
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSink
+    ports:
+    - On
+    - Off
+    - Toggle
+  - type: Appearance
+  - type: PoweredLightVisuals
+    spriteStateMap:
+      empty: empty
+      off: base
+      on: base
+      broken: broken
+      burned: burned
+  - type: Construction
+    graph: FloorLightFixture
+    node: metamorphicLightHole
+    containerSlot: smallFloorLight
+
+- type: entity
+  id: PoweredSmallFloorLightLED
+  suffix: LED
+  parent: PoweredSmallFloorLight
+  components:
+  - type: PointLight
+    enabled: true
+    radius: 8
+    energy: 1
+    softness: 1
+    color: "#EEEEFF"
+  - type: PoweredLight
+    hasLampOnSpawn: LedLightBulb
+  - type: Construction
+    graph: FloorLightFixture
+    node: smallFloorLightLED
+    containerSlot: light_bulb
+  - type: DamageOnInteract
+    damage:
+      types:
+        Heat: 1
+    popupText: powered-light-component-burn-hand
+
+- type: entity
+  id: PoweredSmallFloorLightDim
+  suffix: Dim
+  parent: PoweredSmallFloorLight
+  components:
+  - type: PointLight
+    enabled: true
+    radius: 5
+    energy: 0.5
+    softness: 3
+    color: "#ba473f"
+  - type: PoweredLight
+    hasLampOnSpawn: DimLightBulb
+  - type: Construction
+    graph: FloorLightFixture
+    node: smallFloorLightDim
+    containerSlot: light_bulb
+  - type: DamageOnInteract
+    damage:
+      types:
+        Heat: 1
+    popupText: powered-light-component-burn-hand
+
+- type: entity
+  id: PoweredSmallFloorLightWarm
+  suffix: Warm
+  parent: PoweredSmallFloorLight
+  components:
+  - type: PointLight
+    enabled: true
+    radius: 6
+    energy: 1
+    softness: 3
+    color: "#FF8A0C"
+  - type: PoweredLight
+    hasLampOnSpawn: WarmLightBulb
+  - type: Construction
+    graph: FloorLightFixture
+    node: smallFloorLightWarm
+    containerSlot: light_bulb
+  - type: DamageOnInteract
+    damage:
+      types:
+        Heat: 2
+    popupText: powered-light-component-burn-hand
+
+- type: entity
+  id: PoweredSmallFloorLightCyan
+  suffix: Cyan
+  parent: PoweredSmallFloorLight
+  components:
+  - type: PointLight
+    enabled: true
+    energy: 1.0
+    radius: 6
+    softness: 1.1
+    color: "#47f8ff"
+  - type: PoweredLight
+    hasLampOnSpawn: LightBulbCrystalCyan
+  - type: Construction
+    graph: FloorLightFixture
+    node: smallFloorLightCyan
+    containerSlot: light_bulb
+  - type: DamageOnInteract
+    damage:
+      types:
+        Heat: 2
+    popupText: powered-light-component-burn-hand
+
+- type: entity
+  id: PoweredSmallFloorLightBlue
+  suffix: Blue
+  parent: PoweredSmallFloorLight
+  components:
+  - type: PointLight
+    enabled: true
+    energy: 1.0
+    radius: 6
+    softness: 1.1
+    color: "#39a1ff"
+  - type: PoweredLight
+    hasLampOnSpawn: LightBulbCrystalBlue
+  - type: Construction
+    graph: FloorLightFixture
+    node: smallFloorLightBlue
+    containerSlot: light_bulb
+  - type: DamageOnInteract
+    damage:
+      types:
+        Heat: 2
+    popupText: powered-light-component-burn-hand
+
+- type: entity
+  id: PoweredSmallFloorLightYellow
+  suffix: Yellow
+  parent: PoweredSmallFloorLight
+  components:
+  - type: PointLight
+    enabled: true
+    energy: 1.0
+    radius: 6
+    softness: 1.1
+    color: "#ffde46"
+  - type: PoweredLight
+    hasLampOnSpawn: LightBulbCrystalYellow
+  - type: Construction
+    graph: FloorLightFixture
+    node: smallFloorLightYellow
+    containerSlot: light_bulb
+  - type: DamageOnInteract
+    damage:
+      types:
+        Heat: 2
+    popupText: powered-light-component-burn-hand
+
+- type: entity
+  id: PoweredSmallFloorLightPink
+  suffix: Pink
+  parent: PoweredSmallFloorLight
+  components:
+  - type: PointLight
+    enabled: true
+    energy: 1.0
+    radius: 6
+    softness: 1.1
+    color: "#ff66cc"
+  - type: PoweredLight
+    hasLampOnSpawn: LightBulbCrystalPink
+  - type: Construction
+    graph: FloorLightFixture
+    node: smallFloorLightPink
+    containerSlot: light_bulb
+  - type: DamageOnInteract
+    damage:
+      types:
+        Heat: 2
+    popupText: powered-light-component-burn-hand
+
+- type: entity
+  id: PoweredSmallFloorLightOrange
+  suffix: Orange
+  parent: PoweredSmallFloorLight
+  components:
+  - type: PointLight
+    enabled: true
+    energy: 1.0
+    radius: 6
+    softness: 1.1
+    color: "#ff8227"
+  - type: PoweredLight
+    hasLampOnSpawn: LightBulbCrystalOrange
+  - type: Construction
+    graph: FloorLightFixture
+    node: smallFloorLightOrange
+    containerSlot: light_bulb
+  - type: DamageOnInteract
+    damage:
+      types:
+        Heat: 2
+    popupText: powered-light-component-burn-hand
+
+- type: entity
+  id: PoweredSmallFloorLightBlack
+  suffix: Black
+  parent: PoweredSmallFloorLight
+  components:
+  - type: PointLight
+    enabled: true
+    energy: 1.0
+    radius: 6
+    softness: 1.1
+    color: "#363636"
+  - type: PoweredLight
+    hasLampOnSpawn: LightBulbCrystalBlack
+  - type: Construction
+    graph: FloorLightFixture
+    node: smallFloorLightBlack
+    containerSlot: light_bulb
+  - type: DamageOnInteract
+    damage:
+      types:
+        Heat: 2
+    popupText: powered-light-component-burn-hand
+
+- type: entity
+  id: PoweredSmallFloorLightRed
+  suffix: Red
+  parent: PoweredSmallFloorLight
+  components:
+  - type: PointLight
+    enabled: true
+    energy: 1.0
+    radius: 6
+    softness: 1.1
+    color: "#fb4747"
+  - type: PoweredLight
+    hasLampOnSpawn: LightBulbCrystalRed
+  - type: Construction
+    graph: FloorLightFixture
+    node: smallFloorLightRed
+    containerSlot: light_bulb
+  - type: DamageOnInteract
+    damage:
+      types:
+        Heat: 2
+    popupText: powered-light-component-burn-hand
+
+- type: entity
+  id: PoweredSmallFloorLightGreen
+  suffix: Green
+  parent: PoweredSmallFloorLight
+  components:
+  - type: PointLight
+    enabled: true
+    energy: 1.0
+    radius: 6
+    softness: 1.1
+    color: "#52ff39"
+  - type: PoweredLight
+    hasLampOnSpawn: LightBulbCrystalGreen
+  - type: Construction
+    graph: FloorLightFixture
+    node: smallFloorLightGreen
+    containerSlot: light_bulb
+  - type: DamageOnInteract
+    damage:
+      types:
+        Heat: 2
+    popupText: powered-light-component-burn-hand
+
+#admeme lights
+#the power of using the construction graph to change prototypes. put the DEATH TUBE in and suffer.
+- type: entity
+  id: PoweredFloorLightSun
+  suffix: DO NOT MAP, Admeme, Sun
+  categories: [ DoNotMap ]
+  parent: AlwaysPoweredFloorLight
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Lighting/floorlights.rsi
+    layers:
+    - map: [ "enum.PoweredLightLayers.Base" ]
+      state: sun
+    - map: [ "enum.PoweredLightLayers.Glow" ]
+      state: sun
+      shader: unshaded
+  - type: PoweredLightVisuals
+    blinkingSound:
+      path: "/Audio/Machines/genetics.ogg"
+    spriteStateMap:
+      off: led
+      on: led
+      broken: broken
+      burned: burned
+  - type: PoweredLight
+    bulb: Tube
+    hasLampOnSpawn: SunLightTube
+  - type: PointLight
+    color: "#cc3516"
+    energy: 50
+    radius: 20
+  - type: Construction
+    graph: FloorLightFixture
+    node: floorLightSun
+  - type: DamageOnInteract
+    damage:
+      types:
+        Heat: 1500 #dont map this
+    popupText: "you flew too close to the sun."
+  - type: Contraband
+    severity: TierXContraband
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:TriggerBehavior
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: LandMine
+    sound:
+      path: /Audio/Effects/PowerSink/charge_fire.ogg
+      params:
+        maxDistance: 10
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    stepOn: true
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 20
+    intensitySlope: 4
+    totalIntensity: 300
+    canCreateVacuum: true

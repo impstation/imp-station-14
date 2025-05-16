@@ -38,7 +38,6 @@ namespace Content.Server.Light.EntitySystems
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly PointLightSystem _pointLight = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-        [Dependency] private readonly DamageableSystem _damageable = default!; //imp
         [Dependency] private readonly DamageOnInteractSystem _damageOnInteractSystem = default!;
 
         private static readonly TimeSpan ThunkDelay = TimeSpan.FromSeconds(2);
@@ -238,7 +237,6 @@ namespace Content.Server.Light.EntitySystems
         }
         #endregion
 
-        // TODO: add UpdatePrototype when I add ReplacePrototype. or like. idk. turn that shit into behaviours.
         private void UpdateLight(EntityUid uid,
             PoweredLightComponent? light = null,
             ApcPowerReceiverComponent? powerReceiver = null,
@@ -299,14 +297,11 @@ namespace Content.Server.Light.EntitySystems
         public void HandleLightDamaged(EntityUid uid, PoweredLightComponent component, DamageChangedEvent args)
         {
             // Was it being repaired, or did it take damage?
-            if (args.DamageIncreased && // imp change
-                args.DamageDelta != null &&
-                component.LightBulbContainer != null)
+            if (args.DamageIncreased)
             {
-                var damage = args.DamageDelta;
-                _damageable.TryChangeDamage(component.LightBulbContainer.ContainedEntity, damage);
-                TryDestroyBulb(uid, component); // not imp. old not imp comment this had: // Eventually, this logic should all be done by this (or some other) system, not a component.
-            } // imp change end
+                // Eventually, this logic should all be done by this (or some other) system, not a component.
+                TryDestroyBulb(uid, component);
+            }
         }
 
         private void OnGhostBoo(EntityUid uid, PoweredLightComponent light, GhostBooEvent args)
