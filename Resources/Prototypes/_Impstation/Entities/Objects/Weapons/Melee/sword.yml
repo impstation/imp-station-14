@@ -89,12 +89,11 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/captain_sabre.rsi
-  - type: MeleeWeapon
     resistanceBypass: true
-    attackRate: 1.25
+    attackRate: 1.15
     damage:
       types:
-        Piercing: 10 #Low damage to account for AP
+        Piercing: 22
     angle: 0
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
@@ -114,10 +113,9 @@
     # not putting a BlockMovement component here cause that's funny.
   # imp edits #
   - type: DamageOtherOnHit
-    ignoreResistances: true
     damage:
       types:
-        Piercing: 15
+        Piercing: 28
     staminaCost: 5
   - type: EmbeddableProjectile
   - type: EmbedPassiveDamage
