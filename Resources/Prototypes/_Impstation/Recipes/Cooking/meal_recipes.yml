@@ -392,6 +392,14 @@
 # FIRST CLOOOOOOOO IS SOMETHING GREEN
 
 - type: microwaveMealRecipe
+  id: RecipeDriedGreenMarijuana
+  name: dried green marijuana leaves recipe
+  result: LeavesCannabisDried
+  time: 10
+  solids:
+    LeavesGreenMarijuana: 1
+
+- type: microwaveMealRecipe
   id: RecipeRainbowCannabisButter
   name: rainbow cannabis butter recipe
   result: FoodRainbowCannabisButter
