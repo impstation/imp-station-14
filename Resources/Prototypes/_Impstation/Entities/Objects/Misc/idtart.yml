@@ -1,6 +1,7 @@
 - type: entity
   parent: PassengerIDCard
-  id: IDTart
+  suffix: HoPfruit
+  id: HopTart
   name: passenger ID card # Meant to seem identical to a regular ID until microwaved
   components:
   - type: Produce
@@ -8,8 +9,8 @@
 
 - type: entity
   parent: FoodMealBase
-  id: IDTartCooked
-  name: identification tart
+  id: HopTartCooked
+  name: HoPtart
   description: A tart necessary to enjoy various tastes aboard the station.
   components:
   - type: Sprite
@@ -18,7 +19,48 @@
   - type: Food
   - type: FlavorProfile
     flavors:
-      - cheap
+      - armory
+      - atmospherics
+      - bar
+      - brig
+      - captain
+      - cargo
+      - centcomm
+      - chapel
+      - chemistry
+      - chiefengineer
+      - chiefmedicalofficer
+      - clown
+      - command
+      - courier
+      - cryogenics
+      - detective
+      - engineering
+      - external
+      - headofpersonnel
+      - headofsecurity
+      - hospitalitydirector
+      - hydroponics
+      - janitor
+      - kitchen
+      - lawyer
+      - librarian
+      - logistics
+      - maintenance
+      - medical
+      - mime
+      - musician
+      - nuclearoperative
+      - quartermaster
+      - reporter
+      - research
+      - researchdirector
+      - salvage
+      - security
+      - service
+      - syndicateagent
+      - theatre
+      - wizard
   - type: SolutionContainerManager
     solutions:
       food:
