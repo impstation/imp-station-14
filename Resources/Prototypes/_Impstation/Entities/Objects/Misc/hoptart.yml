@@ -1,8 +1,7 @@
 - type: entity
-  parent: PassengerIDCard
+  parent: PassengerIDCard # Meant to seem identical to a regular ID until microwaved
   id: HopTart
   suffix: HoPfruit
-  name: passenger ID card # Meant to seem identical to a regular ID until microwaved
   components:
   - type: Produce
     seedId: employedhops
