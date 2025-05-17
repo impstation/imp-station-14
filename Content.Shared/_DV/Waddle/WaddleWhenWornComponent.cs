@@ -47,5 +47,5 @@ public sealed partial class WaddleWhenWornComponent : Component
     /// Alert displayed while waddling is on. Imp addition
     /// </summary>
     [DataField]
-    public ProtoId<AlertPrototype> WaddlingAlert = "Waddling";
+    public ProtoId<AlertPrototype>? WaddlingAlert;
 }
