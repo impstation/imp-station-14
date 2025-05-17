@@ -121,35 +121,11 @@
   - grape
 
 - type: candyFlavor
-  id: bubbletea
-  name: bubble tea
-  color: '#d2b18c'
-  flavors:
-  - bubbletea
-
-- type: candyFlavor
   id: mystery
   name: mystery flavor
   color: '#202020'
   flavors:
   - spaceshroom # it's a "mysterious" flavor
-
-- type: candyFlavor
-  id: creamystrawberry
-  name: creamy strawberry
-  color: '#f8d9df'
-  flavors:
-  - creamy
-  - candystrawberry
-
-- type: candyFlavor
-  id: strawberryyogurt
-  name: strawberry yogurt
-  color: '#f8d9df'
-  flavors:
-  - sour
-  - candystrawberry
-  - milk
 
 - type: candyFlavor
   id: sourapple
@@ -158,13 +134,6 @@
   flavors:
   - sour
   - apple
-
-- type: candyFlavor
-  id: bubblegum
-  name: bubble gum
-  color: '#f988d9'
-  flavors:
-  - candybubblegum
 
 - type: candyFlavor
   id: chilibungo
@@ -200,25 +169,11 @@
 # weird flavors below!
 
 - type: candyFlavor
-  id: foof
-  name: foof
-  color: '#ff00ff'
-  flavors:
-  - pinkdrink
-
-- type: candyFlavor
   id: feline
   name: cat-flavored
   color: '#7c4511'
   flavors:
   - cat
-
-- type: candyFlavor
-  id: blellow
-  name: blellow
-  color: '#737373'
-  flavors:
-  - blellow
 
 - type: candyFlavor
   id: stale
@@ -234,3 +189,52 @@
   color: '#59b23a'
   flavors:
   - weh
+
+# Commenting out unique DeltaV flavours
+
+# - type: candyFlavor
+#   id: bubbletea
+#   name: bubble tea
+#   color: '#d2b18c'
+#   flavors:
+#   - bubbletea
+
+# - type: candyFlavor
+#   id: creamystrawberry
+#   name: creamy strawberry
+#   color: '#f8d9df'
+#   flavors:
+#   - creamy
+#   - candystrawberry
+
+# - type: candyFlavor
+#   id: strawberryyogurt
+#   name: strawberry yogurt
+#   color: '#f8d9df'
+#   flavors:
+#   - sour
+#   - candystrawberry
+#   - milk
+
+# - type: candyFlavor
+#   id: bubblegum
+#   name: bubble gum
+#   color: '#f988d9'
+#   flavors:
+#   - candybubblegum
+
+# - type: candyFlavor
+#   id: foof
+#   name: foof
+#   color: '#ff00ff'
+#   flavors:
+#   - pinkdrink
+
+# - type: candyFlavor
+#   id: blellow
+#   name: blellow
+#   color: '#737373'
+#   flavors:
+#   - blellow
+
+
