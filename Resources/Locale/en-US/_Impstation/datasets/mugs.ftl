@@ -33,3 +33,7 @@ novelty-mugs-dataset-32 = It says: "I got hospitalized for lead poisoning and al
 novelty-mugs-dataset-33 = It says: "World's best third other thing".
 novelty-mugs-dataset-34 = It says: "Working hard!".
 novelty-mugs-dataset-35 = It says: "Hardly working!".
+novelty-mugs-dataset-36 = It says: "This and some Yuri".
+novelty-mugs-dataset-37 = It says: "This and some Yaoi".
+novelty-mugs-dataset-38 = It says: "HoS: head of Sass".
+novelty-mugs-dataset-39 = It says: "Forcefem survivor".
