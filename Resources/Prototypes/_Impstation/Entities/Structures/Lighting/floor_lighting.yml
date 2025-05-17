@@ -1045,6 +1045,11 @@
   - type: Physics
     bodyType: Static
     fixedRotation: true
+  - type: DeviceLinkSink
+    ports:
+    - On
+    - Off
+    - Toggle
   - type: Fixtures
     fixtures:
       slips:
