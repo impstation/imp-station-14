@@ -761,6 +761,9 @@
     - Off
     - Toggle
   - type: Appearance
+  - type: ContainerContainer
+    containers:
+      light_bulb: !type:ContainerSlot
   - type: PoweredLightVisuals
     spriteStateMap:
       empty: empty
@@ -1051,6 +1054,9 @@
         hard: false
         layer:
         - LowImpassable
+  - type: ContainerContainer
+    containers:
+      light_bulb: !type:ContainerSlot
   - type: PoweredLight
     bulb: Tube
     hasLampOnSpawn: SunLightTube
