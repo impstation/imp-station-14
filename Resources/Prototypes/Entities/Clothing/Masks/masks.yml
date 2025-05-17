@@ -118,9 +118,9 @@
   description: A military-grade gas mask that can be connected to an air supply.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/gasexplorer.rsi
+    sprite: _Impstation/Clothing/Mask/gasexplorer.rsi #imp
   - type: Clothing
-    sprite: Clothing/Mask/gasexplorer.rsi
+    sprite: _Impstation/Clothing/Mask/gasexplorer.rsi #imp
   - type: Armor
     modifiers:
       coefficients:
@@ -199,6 +199,10 @@
       Plastic: 100
   - type: StaticPrice
     price: 30 # increases in price after decomposed into raw materials
+  - type: HideLayerClothing #imp PUT YOUR FUCKING NOSE AWAY.
+    layers:
+      Snout: Mask
+    hideOnToggle: true
 
 - type: entity
   parent: [ClothingMaskBase, BaseFoldable]
