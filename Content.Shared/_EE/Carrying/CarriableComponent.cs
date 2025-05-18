@@ -57,25 +57,25 @@ public sealed partial class CarriableComponent : Component
     /// <summary>
     /// Multiplier of pickup length when this entity is knocked down.
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public float PickupKnockdownMultiplier = 0.5f;
 
     /// <summary>
     /// Coefficient applied to a carrying entity's mass to determine whether this entity exceeds the mass threshold for carrying.
     /// eg. weightthreshold of 2 means that this entity can be carried by anything half its mass.
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public float WeightThreshold = 2f;
 
     /// <summary>
     /// Minimum slowdown multiplier applied to carrier entity.
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public float MinCarrySlowdown = 0.1f;
 
     /// <summary>
     /// Slowdown multiplier applied to carrier entity before contests.
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public float CarrySlowdown = 0.15f;
 }

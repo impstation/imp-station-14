@@ -1,8 +1,8 @@
 using Content.Server.Resist;
 using Content.Shared.ActionBlocker;
+using Content.Shared._EE.Carrying;
 using Content.Shared._EE.Contests;
 using Content.Shared.Movement.Events;
-using Content.Shared._DV.Carrying;
 
 namespace Content.Server._EE.Carrying;
 
