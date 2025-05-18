@@ -30,7 +30,8 @@ using Content.Shared.Movement.Pulling.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 
-namespace Content.Shared._DV.Carrying;
+namespace Content.Shared._EE.Carrying;
+
 public sealed partial class CarryingSystem : EntitySystem
 {
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
@@ -116,13 +117,13 @@ public sealed partial class CarryingSystem : EntitySystem
     /// </summary>
     private void OnThrow(Entity<CarryingComponent> ent, ref BeforeThrowEvent args)
     {
-        if (!TryComp<VirtualItemComponent>(args.ItemUid, out var virtItem) || !HasComp<CarriableComponent>(virtItem.BlockingEntity))
+        if (!TryComp<VirtualItemComponent>(args.ItemUid, out var virtItem) || !TryComp<CarriableComponent>(virtItem.BlockingEntity, out var carriable))
             return;
 
         var carried = virtItem.BlockingEntity;
         args.ItemUid = carried;
 
-        var contestCoeff = _contests.MassContest(ent.Owner, virtItem.BlockingEntity, 2f) * _contests.StaminaContest(ent.Owner, virtItem.BlockingEntity); // Frontier: "args.throwSpeed *="<"var contestCoeff ="
+        var contestCoeff = _contests.MassContest(ent.Owner, carried, carriable.ThrowPotential) * _contests.StaminaContest(ent.Owner, carried); // Frontier: "args.throwSpeed *="<"var contestCoeff ="
 
         // Frontier: sanitize our range regardless of CVar values - TODO: variable throw distance ranges (via traits, etc.)
         contestCoeff = float.Min(_baseDistanceCoeff * contestCoeff, _maxDistanceCoeff);
@@ -230,16 +231,18 @@ public sealed partial class CarryingSystem : EntitySystem
         // NF: change arbitrary doafter length cancel to a mass check
         if (!TryComp<PhysicsComponent>(carrier, out var carrierPhysics)
             || !TryComp<PhysicsComponent>(carried, out var carriedPhysics)
-            || carriedPhysics.Mass > carrierPhysics.Mass * 2f)
+            || carriedPhysics.Mass > carrierPhysics.Mass * carried.Comp.WeightThreshold)
         {
             _popup.PopupClient(Loc.GetString("carry-too-heavy"), carried, carrier, PopupType.SmallCaution);
             return;
         }
 
         var length = carried.Comp.PickupDuration //Frontier: removed outer TimeSpan.FromSeconds()
-            * _contests.MassContest(carried.Owner, carrier, 4f)
-            * _contests.StaminaContest(carrier, carried.Owner)
-            * (_standingState.IsDown(carried) ? 0.5f : 1); // Frontier: replace !HasComp<KnockedDownComponent> with IsDown
+            * _contests.MassContest(carried.Owner, carrier, carried.Comp.PickupContestPotential)
+            * _contests.StaminaContest(carrier, carried.Owner); // Frontier: replace !HasComp<KnockedDownComponent> with IsDown
+
+        if (_standingState.IsDown(carried))
+            length *= carried.Comp.PickupKnockdownMultiplier;
 
         // Frontier: sanitize time duration regardless of CVars - no near-instant pickups.
         var duration = TimeSpan.FromSeconds(float.Clamp(length, carried.Comp.MinPickupDuration, carried.Comp.MaxPickupDuration));
@@ -313,13 +316,15 @@ public sealed partial class CarryingSystem : EntitySystem
         _standingState.Stand(carried);
     }
 
-    private void ApplyCarrySlowdown(EntityUid carrier, EntityUid carried)
+    private void ApplyCarrySlowdown(EntityUid carrier, Entity<CarriableComponent?> carried)
     {
+        if (!Resolve(carried, ref carried.Comp))
+            return;
         // Frontier edits. Yup, we're using mass contests again.
-        var massRatio = _contests.MassContest(carrier, carried);
+        var massRatio = _contests.MassContest(carrier, carried.Owner);
         var massRatioSq = MathF.Pow(massRatio, 2);
-        var modifier = 1 - 0.15f / massRatioSq;
-        modifier = Math.Max(0.1f, modifier);
+        var modifier = 1 - carried.Comp.CarrySlowdown / massRatioSq;
+        modifier = Math.Max(carried.Comp.MinCarrySlowdown, modifier);
         // End frontier edits
 
         _slowdown.SetModifier(carrier, modifier);

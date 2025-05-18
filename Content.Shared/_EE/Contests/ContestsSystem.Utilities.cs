@@ -1,4 +1,5 @@
 namespace Content.Shared._EE.Contests;
+
 public sealed partial class ContestsSystem
 {
     /// <summary>

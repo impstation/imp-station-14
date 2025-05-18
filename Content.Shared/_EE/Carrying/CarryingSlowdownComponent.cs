@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._DV.Carrying;
+namespace Content.Shared._EE.Carrying;
 
 [RegisterComponent, NetworkedComponent, Access(typeof(CarryingSlowdownSystem))]
 [AutoGenerateComponentState]
