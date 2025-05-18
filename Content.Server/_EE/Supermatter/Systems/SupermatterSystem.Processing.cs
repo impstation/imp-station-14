@@ -16,6 +16,7 @@ using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
+using Content.Shared.Popups;
 using Content.Shared.Radiation.Components;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Speech;
@@ -36,9 +37,6 @@ namespace Content.Server._EE.Supermatter.Systems;
 
 public sealed partial class SupermatterSystem
 {
-    [Dependency] private readonly GhostSystem _ghost = default!;
-    [Dependency] private readonly IRobustRandom _rand = default!;
-
     /// <summary>
     /// Handle power and radiation output depending on atmospheric things.
     /// </summary>
@@ -694,11 +692,12 @@ public sealed partial class SupermatterSystem
         // Scramble the thaven shared mood
         _moods.NewSharedMoods();
 
-        // Flickers the stations lights
-        var lights = EntityQueryEnumerator<PoweredLightComponent>();
-        while (lights.MoveNext(out var light, out _))
+        // Flickers all powered lights on the map
+        var lightLookup = new HashSet<Entity<PoweredLightComponent>>();
+        _entityLookup.GetEntitiesOnMap<PoweredLightComponent>(mapId, lightLookup);
+        foreach (var light in lightLookup)
         {
-            if (!_rand.Prob(0.33f))
+            if (!_rand.Prob(sm.LightFlickerChance))
                 continue;
             _ghost.DoGhostBooEvent(light);
         }
@@ -811,6 +810,9 @@ public sealed partial class SupermatterSystem
 
             if (!EnsureComp<ParacusiaComponent>(mob, out var paracusia))
             {
+                _popup.PopupEntity(Loc.GetString("supermatter-paracusia-player-message"), mob, mob, PopupType.LargeCaution);
+                _audio.PlayEntity(sm.GainParacusiaSound, mob, mob);
+                _audio.PlayEntity(sm.GiveParacusiaSound, mob, uid);
                 _paracusia.SetSounds(mob, paracusiaSounds, paracusia);
                 _paracusia.SetTime(mob, paracusiaMinTime, paracusiaMaxTime, paracusia);
                 _paracusia.SetDistance(mob, paracusiaDistance, paracusia);
