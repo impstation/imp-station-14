@@ -1,0 +1,22 @@
+- type: latheRecipe
+  id: FloorTileItemApid
+  result: FloorTileItemApid
+  completetime: 1
+  materials:
+    Steel: 50
+
+- type: latheRecipe
+  parent: BaseConcreteTileRecipe
+  id: FloorTileItemCraftedAsphalt
+  result: FloorTileItemCraftedAsphalt
+
+# Faux sci tiles
+- type: latheRecipe
+  parent: BaseFauxTileRecipe
+  id: FauxTileShoveledAstroSnow
+  result: FloorTileItemShoveledAstroSnow
+
+- type: latheRecipe
+  parent: BaseFauxTileRecipe
+  id: FauxTileAstroCave
+  result: FloorTileItemAstroCave
