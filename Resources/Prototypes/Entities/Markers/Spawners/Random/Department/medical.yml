@@ -19,6 +19,8 @@
         - Brutepack
         - Ointment
         - Gauze
+        - SimpleSuture #IMP
+        - Tincture #IMP
         - EmergencyMedipen
         - PillCanisterIron
       chance: 0.9
@@ -33,7 +35,7 @@
     - type: Sprite
       layers:
         - state: red
-        - sprite: Objects/Specific/Medical/firstaidkits.rsi
+        - sprite: _Impstation/Objects/Specific/Medical/firstaidkits.rsi # imp
           state: firstaid
     - type: RandomSpawner
       rarePrototypes:
@@ -52,7 +54,14 @@
         - Beaker
         - LargeBeaker
         - Brutepack
+        - SimpleSuture #IMP
+        - ElectrodePad #IMP
+        - Tincture #IMP
         - Ointment
+        - AloeCream #IMP (adding this)
+        - ShockGel #IMP
+        - ColdPack #IMP
+        - EZGraft #IMP
         - Gauze
         - EmergencyMedipen
         - ChemistryBottleEpinephrine
