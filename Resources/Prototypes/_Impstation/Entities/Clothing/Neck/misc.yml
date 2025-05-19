@@ -50,7 +50,7 @@
 # your angel or your devil
 - type: entity
   parent: ClothingNeckBase
-  id: ClothingNeckClothingNeckAngelWings
+  id: ClothingNeckAngelWings
   name: angelwings
   description: I can be your angle....
   components:
@@ -61,7 +61,7 @@
 
 - type: entity
   parent: ClothingNeckBase
-  id: ClothingNeckClothingNeckDevilWings
+  id: ClothingNeckDevilWings
   name: devil wings
   description: ...or yuor devil.
   components:
