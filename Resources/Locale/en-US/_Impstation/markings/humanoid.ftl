@@ -408,6 +408,8 @@ marking-HumanHairShaggyLonger = Shaggy (Longer)
 
 marking-HumanHairShaggyMessy = Shaggy (Messy)
 
+marking-HumanHairSusie = Mean Girl (Bangs)
+
 # HeadSide
 
 # HeadTop
