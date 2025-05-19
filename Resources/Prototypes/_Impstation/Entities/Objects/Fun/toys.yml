@@ -746,3 +746,32 @@
       head:
       - state: odds-equipped-HELMET
         offset: "0, 0.06"
+
+- type: entity
+  parent: BaseItem
+  id: DevilPitchfork
+  name: devil's pitchfork
+  description: Perfect for prodding and poking sinners!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/devilpitchfork.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.5
+    angle: 0
+    animation: WeaponArcThrust
+    wideAnimationRotation: 90
+    damage:
+      types:
+        Blunt: 0
+  - type: Item
+    size: Small
+    sprite: _Impstation/Objects/Fun/devilpitchfork.rsi
+    heldPrefix: foamblade
+    inhandVisuals:
+      left:
+        - state: inhand-left
+      right:
+        - state: inhand-right
+  - type: UseDelay
+  

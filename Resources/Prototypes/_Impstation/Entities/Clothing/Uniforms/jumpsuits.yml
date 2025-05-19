@@ -394,3 +394,14 @@
   - type: Clothing
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/spacesecurity.rsi
 
+- type: entity
+  parent: [ClothingUniformBase]
+  id: ClothingUniformJesterEvil
+  name: devious jester
+  description: Heeheehee...
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/jesterevil.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/jesterevil.rsi
+    
