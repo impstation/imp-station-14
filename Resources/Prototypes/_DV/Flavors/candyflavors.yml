@@ -22,14 +22,6 @@
   - bananahonk
 
 - type: candyFlavor
-  id: vanilla
-  name: vanilla
-  color: '#f9e5bc'
-  flavors:
-  - creamy
-  - vanilla
-
-- type: candyFlavor
   id: orange
   name: orange
   color: '#fa7000'
@@ -56,13 +48,6 @@
   color: '#290e05'
   flavors:
   - rootbeersoda
-
-- type: candyFlavor
-  id: lemon
-  name: lemon
-  color: '#fef250'
-  flavors:
-  - lemondrop
 
 - type: candyFlavor
   id: cola
@@ -237,4 +222,18 @@
 #   flavors:
 #   - blellow
 
+# - type: candyFlavor
+#   id: lemon
+#   name: lemon
+#   color: '#fef250'
+#   flavors:
+#   - lemondrop
+
+# - type: candyFlavor
+#   id: vanilla
+#   name: vanilla
+#   color: '#f9e5bc'
+#   flavors:
+#   - creamy
+#   - vanilla
 
