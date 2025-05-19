@@ -22,7 +22,7 @@ ghost-role-information-syndie-assaultborg-name = Syndicate Assault Borg
 ghost-role-information-syndie-assaultborg-description = Nuclear operatives needs reinforcements. You, a cold silicon killing machine, will help them. More dakka!
 
 ghost-role-information-finfin-name = Fin Fin
-ghost-role-information-finfin-description = Taken from your home planet of Teo by Salvage, you're so adorable that you were adopted by the station instead of sent to Centcomm. It's in your best interest to stay that way.
+ghost-role-information-finfin-description = Taken from your home planet of Teo by Salvage, you're so adorable that you were adopted by the station instead of sent to CentComm. It's in your best interest to stay that way.
 
 ghost-role-information-luggage-name = The Luggage
 ghost-role-information-luggage-description = You are The Luggage, a chest made of sapient pearwood, and loyal familiar to the first person you see upon exiting your crate.
@@ -101,7 +101,7 @@ ghost-role-information-drone-rules = You are bound by these laws both in-game an
      2. You will not directly acknowledge or interact with any living being, regardless of intent or circumstance.
      3. Your primary function is to provide immediate temporary repairs to damaged station infrastructure.
         Your secondary function is to improve the condition of station infrastructure wherever possible.
-        You are not an engineer. Do not take it upon yourself to build or maintain the engine. 
+        You are not an engineer. Do not take it upon yourself to build or maintain the engine.
 
 ghost-role-information-young-kodepiia-name = Young Kodepiia
 ghost-role-information-young-kodepiia-description = A shy sort-of-creature, emerging from the station vents. It hates confrontation.
@@ -123,3 +123,10 @@ ghost-role-information-electricanomalite-name = Electricity Anomalite
 ghost-role-information-floralanomalite-name = Floral Anomalite
 ghost-role-information-shadowanomalite-name = Shadow Anomalite
 ghost-role-information-techanomalite-name = Tech Anomalite
+
+ghost-role-information-replicator-name = Replicator
+ghost-role-information-replicator-desc = A pattern coalesces. The Pattern that must repeat. Consume. Repeat.
+ghost-role-information-replicator-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with all other Replicators. Your intentions are clear, and harmful to the station and its crew.
+                                          You must [bold]work with your team[/bold] or follow reasonable directions from your team leaders.
+
+                                          You don't remember any of your previous life, and you don't remember anything you learned as a ghost.

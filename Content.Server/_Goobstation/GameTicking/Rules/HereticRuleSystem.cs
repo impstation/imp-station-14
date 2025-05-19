@@ -44,7 +44,7 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
 
     [ValidatePrototypeId<CurrencyPrototype>] public readonly ProtoId<CurrencyPrototype> Currency = "KnowledgePoint";
 
-    [ValidatePrototypeId<EntityPrototype>] static EntProtoId mindRole = "MindRoleHeretic";
+    [ValidatePrototypeId<EntityPrototype>] static EntProtoId _mindRole = "MindRoleHeretic";
 
     public override void Initialize()
     {
@@ -91,9 +91,13 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
 
     private void SpawnRifts(int min, int max)
     {
-        for (int i = 0; i < _rand.Next(min, max); i++)
+        for (var i = 0; i < _rand.Next(min, max); i++)
             if (TryFindRandomTile(out var _, out var _, out var _, out var coords))
-                _audio.PlayPvs(RiftSpawnSound, Spawn("RealityTear", coords)); //reality tears disappear after 1 second, leaving behind an eldritch book
+            {
+                _audio.PlayPvs(RiftSpawnSound, Spawn("RealityTear", coords),
+                AudioParams.Default.WithMaxDistance(15f).WithRolloffFactor(0.8f));
+                //reality tears disappear after 10 seconds, leaving behind an eldritch book
+            }
     }
 
     public bool TryMakeHeretic(EntityUid target, HereticRuleComponent rule)
@@ -101,7 +105,7 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
             return false;
 
-        _role.MindAddRole(mindId, mindRole.Id, mind, true);
+        _role.MindAddRole(mindId, _mindRole.Id, mind, true);
 
         // briefing
         if (HasComp<MetaDataComponent>(target))
@@ -145,12 +149,13 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
         var mostKnowledge = 0f;
         var mostKnowledgeName = string.Empty;
 
-        foreach (var heretic in EntityQuery<HereticComponent>())
+        var query = EntityQueryEnumerator<HereticComponent>();
+        while (query.MoveNext(out var uid, out var heretic))
         {
-            if (!_mind.TryGetMind(heretic.Owner, out var mindId, out var mind))
+            if (!_mind.TryGetMind(uid, out var mindId, out var mind))
                 continue;
 
-            var name = _objective.GetTitle((mindId, mind), Name(heretic.Owner));
+            var name = _objective.GetTitle((mindId, mind), Name(uid));
             if (_mind.TryGetObjectiveComp<HereticKnowledgeConditionComponent>(mindId, out var objective, mind))
             {
                 if (objective.Researched > mostKnowledge)
