@@ -80,26 +80,30 @@ public sealed class WallAnomalySystem : SharedWallAnomalySystem
         }
     }
 
-    // watered down cosmiccult code. because cosmiccorrupting has a bunch of stuff hardcoded in and we just want walls
+    // VERY watered down cosmiccult code. because cosmiccorrupting had a bunch of stuff hardcoded in and we just want walls
     private void ConvertWalls(Entity<WallSpawnAnomalyComponent> uid, WallSpawnSettingsEntry entry, float stability, float severity, float powerMod)
     {
         var tgtPos = Transform(uid);
         if (tgtPos.GridUid is not { } gridUid || !TryComp(gridUid, out MapGridComponent? mapGrid))
             return;
 
-        //TODO: take MinimumRange setting into account
-        var amount = (int) (MathHelper.Lerp(entry.Settings.MinAmount, entry.Settings.MaxAmount, severity * stability * powerMod) + 0.5f);
+        var amountSpawned = (int) (MathHelper.Lerp(entry.Settings.MinAmount, entry.Settings.MaxAmount, severity * stability * powerMod) + 0.5f);
         var radius = entry.Settings.MaxRange;
         var entityHash = _lookup.GetEntitiesInRange(Transform(uid).Coordinates, radius);
+        int spawnedCount = 0;
         foreach (var entity in entityHash)
         {
+            if (spawnedCount >= amountSpawned)
+                break;
+
             if (TryComp<TagComponent>(entity, out var tag))
             {
                 var tags = tag.Tags;
-                if (tags.Contains("Wall") && Prototype(entity) != null)
+                if (tags.Contains("Wall") && Prototype(entity) != null && Prototype(entity)!.ID != entry.Wall)
                 {
                     Spawn(entry.Wall, Transform(entity).Coordinates);
                     QueueDel(entity);
+                    spawnedCount++;
                 }
             }
         }
