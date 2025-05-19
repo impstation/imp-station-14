@@ -248,6 +248,15 @@
   - type: Tag
     tags:
     - ClothMade
-    - HamsterWearable
     - WhitelistChameleon
     
+- type: entity
+  parent: ClothingHeadHatHolyWatermelon
+  id: ClothingHeadHalo
+  name: halo
+  description: An ordinary, theatrical halo! Please do not eat.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/holyhatmelon.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/holyhatmelon.rsi

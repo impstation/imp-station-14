@@ -5,13 +5,13 @@
   description: For those descending from the heavens.
   components:
   - type: Sprite
-    sprite: _ImpstationObjects/Fun/Instruments/handheldharp.rsi
+    sprite: _Impstation/Objects/Fun/Instruments/handheldharp.rsi
     state: icon
   - type: Instrument
     program: 46
   - type: Item
     size: Normal
-    sprite: _ImpstationObjects/Fun/Instruments/handheldharp.rsi
+    sprite: _Impstation/Objects/Fun/Instruments/handheldharp.rsi
     inhandVisuals:
       left:
         - state: inhand-left
