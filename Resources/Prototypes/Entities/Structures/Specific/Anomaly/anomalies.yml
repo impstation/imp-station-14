@@ -263,7 +263,7 @@
       - MobFleshClamp
       - MobFleshLover
       - FleshKudzu
-  - type: WallSpawnAnomaly
+  - type: WallSpawnAnomaly #imp
     entries:
     - settings:
         spawnOnPulse: true
@@ -380,7 +380,7 @@
     damage:
       types:
         Cold: 10
-  - type: WallSpawnAnomaly
+  - type: WallSpawnAnomaly #imp
     entries:
     - settings:
         spawnOnPulse: true
@@ -434,7 +434,7 @@
         maxAmount: 50
         maxRange: 12
       floor: FloorAsteroidTile
-  - type: WallSpawnAnomaly
+  - type: WallSpawnAnomaly #imp
     entries:
     - settings:
         spawnOnPulse: true
@@ -1030,7 +1030,7 @@
     damage:
       types:
         Cold: 10
-  - type: TileSpawnAnomaly
+  - type: TileSpawnAnomaly #imp
     entries:
     - settings:
         spawnOnPulse: true
@@ -1044,7 +1044,7 @@
         maxAmount: 30
         maxRange: 15
       floor: FloorChromite
-  - type: WallSpawnAnomaly
+  - type: WallSpawnAnomaly #imp
     entries:
     - settings:
         spawnOnPulse: true

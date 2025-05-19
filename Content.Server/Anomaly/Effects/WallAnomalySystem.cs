@@ -11,9 +11,7 @@ namespace Content.Server.Anomaly.Effects;
 // this is all very hacky, yes.
 public sealed class WallAnomalySystem : SharedWallAnomalySystem
 {
-    [Dependency] private readonly SharedAnomalySystem _anomaly = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IRobustRandom _rand = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -87,7 +85,7 @@ public sealed class WallAnomalySystem : SharedWallAnomalySystem
         if (tgtPos.GridUid is not { } gridUid || !TryComp(gridUid, out MapGridComponent? mapGrid))
             return;
 
-        var amountSpawned = (int) (MathHelper.Lerp(entry.Settings.MinAmount, entry.Settings.MaxAmount, severity * stability * powerMod) + 0.5f);
+        var amountSpawned = (int)(MathHelper.Lerp(entry.Settings.MinAmount, entry.Settings.MaxAmount, severity * stability * powerMod) + 0.5f);
         var radius = entry.Settings.MaxRange;
         var entityHash = _lookup.GetEntitiesInRange(Transform(uid).Coordinates, radius);
         int spawnedCount = 0;
