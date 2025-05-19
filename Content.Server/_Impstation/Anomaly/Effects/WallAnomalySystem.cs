@@ -1,12 +1,10 @@
 using Robust.Shared.Map.Components;
-using Robust.Shared.Random;
-using Content.Shared.Anomaly;
 using Content.Shared.Anomaly.Components;
-using Content.Shared.Anomaly.Effects;
-using Content.Shared.Anomaly.Effects.Components;
+using Content.Shared._Impstation.Anomaly.Effects;
+using Content.Shared._Impstation.Anomaly.Effects.Components;
 using Content.Shared.Tag;
 
-namespace Content.Server.Anomaly.Effects;
+namespace Content.Server._Impstation.Anomaly.Effects;
 
 // this is all very hacky, yes.
 public sealed class WallAnomalySystem : SharedWallAnomalySystem
