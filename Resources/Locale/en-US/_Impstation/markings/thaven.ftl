@@ -551,6 +551,8 @@ marking-ThavenHairSpiky = Spiky 2
 
 marking-ThavenHairSpiky2 = Spiky 3
 
+marking-ThavenHairSpikyponytailLong = Ponytail (Spiky Long)
+
 marking-ThavenHairSpikyponytail = Ponytail (Spiky)
 
 marking-ThavenHairSpookyLong = Spooky Long
@@ -612,6 +614,10 @@ marking-ThavenHairWisp = Wisp
 marking-TichelFashionableThaven = Tichel (Fashionable)
 
 marking-TichelSimpleThaven = Tichel (Simple)
+
+marking-ShaggyThaven = Shaggy
+
+marking-ShaggyLongerThaven = Shaggy (Longer)
 
 # HeadSide
 

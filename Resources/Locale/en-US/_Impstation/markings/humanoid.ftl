@@ -388,6 +388,8 @@ marking-HumanHairMullet = Mullet
 
 marking-HumanHairMulletSideshave = Mullet (Sideshave)
 
+marking-HumanHairSpikyPonytailLong = Ponytail (Spiky Long)
+
 marking-HumanHairUndercutCurly = Undercut (Curly)
 
 marking-HumanHairSideshaveCurly = Sideshave (Curly)
@@ -399,6 +401,12 @@ marking-Niqab = Niqab
 marking-TichelFashionable = Tichel (Fashionable)
 
 marking-TichelSimple = Tichel (Simple)
+
+marking-HumanHairShaggy = Shaggy
+
+marking-HumanHairShaggyLonger = Shaggy (Longer)
+
+marking-HumanHairShaggyMessy = Shaggy (Messy)
 
 # HeadSide
 
