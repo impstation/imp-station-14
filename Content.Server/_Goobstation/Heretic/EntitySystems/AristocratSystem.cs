@@ -28,7 +28,8 @@ public sealed partial class AristocratSystem : EntitySystem
     [Dependency] private readonly TemperatureSystem _temp = default!;
     [Dependency] private readonly TileSystem _tile = default!;
 
-    private string _snowWallPrototype = "WallSnowCobblebrick";
+    private string _snowWallPrototype = "WallIce";
+    private string _iceTilePrototype = "FloorAstroIce";
 
     public override void Update(float frameTime)
     {
@@ -82,6 +83,9 @@ public sealed partial class AristocratSystem : EntitySystem
         }
     }
 
+    //apparently void ascension is supposed to replace tiles?
+    //it doesn't
+    //i guess they didn't test this
     private void SpawnTiles(Entity<AristocratComponent> ent)
     {
         var xform = Transform(ent);
@@ -109,7 +113,7 @@ public sealed partial class AristocratSystem : EntitySystem
 
         foreach (var tileref in tiles)
         {
-            var tile = _prot.Index<ContentTileDefinition>("FloorAstroSnow");
+            var tile = _prot.Index<ContentTileDefinition>(_iceTilePrototype);
             _tile.ReplaceTile(tileref, tile);
         }
 
