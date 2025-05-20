@@ -46,10 +46,11 @@ public sealed partial class ReplicatorComponent : Component
     public HashSet<EntProtoId> UpgradeActions = [];
 
     /// <summary>
-    /// loc id for the message that gets displayed when a replicator is ready to upgrade. -self and -others are automatically appended to it when relevant
+    /// locid for the message that gets displayed when a replicator is ready to upgrade. -self and -others are automatically appended to it when relevant
+    /// this is a string because this exact locid doesn't actually exist.
     /// </summary>
     [DataField]
-    public LocId ReadyToUpgradeMessage = "replicator-upgrade-t1";
+    public string ReadyToUpgradeMessage = "replicator-upgrade-t1";
 
     /// <summary>
     /// The action to spawn a new nest.
