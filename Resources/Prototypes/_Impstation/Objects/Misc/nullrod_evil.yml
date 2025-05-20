@@ -10,7 +10,7 @@
   - type: Clothing
     sprite: _Impstation/Objects/Misc/nullrod_glove.rsi
   - type: StaminaDamageOnHit
-    damage: 5
+    damage: 10
   - type: MeleeWeapon
     attackRate: 1.5
     damage:
@@ -25,3 +25,22 @@
   - type: MeleeThrowOnHit
     distance: 5
     speed: 25
+
+- type: entity
+  name: gildgrail but evil
+  id: NullRodGrailEvil
+  parent: NullRodGrail
+  description: A jewel-encrusted golden chalice. Looks so expensive, it's almost concerning. Can hold a deceptively large volume of liquid.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/nullrod_grail.rsi
+    layers:
+      - state: grail
+      - state: grail1
+        map: [ "enum.SolutionContainerLayers.Fill" ]
+        visible: false
+  - type: ReactionMixer
+    mixOnInteract: false
+    reactionTypes:
+    - GildgrailEvil
+    - Shake
