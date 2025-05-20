@@ -32,6 +32,8 @@ public sealed partial class BotanySystem : EntitySystem
     [Dependency] private readonly RandomHelperSystem _randomHelper = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
+    [GeneratedRegex("^[AEIOUaeiou]", RegexOptions.IgnoreCase, "en-US")]
+    private static partial Regex StartsWithVowel();
     public override void Initialize()
     {
         base.Initialize();
@@ -93,9 +95,10 @@ public sealed partial class BotanySystem : EntitySystem
             var englishArticle = "some";
             if (!(seed.IsPluralName || seed.IsSingularPluralName)) //if not plural
             {
-                if (Regex.IsMatch(name, "^[aeiou]")) // if the display name starts with a vowel
+                if (StartsWithVowel().IsMatch(name)) // if the display name starts with a vowel
                     englishArticle = "an";
-                else englishArticle = "a";
+                else
+                    englishArticle = "a";
                 //See locale notes in PlantHolderSystem.cs
             }
 

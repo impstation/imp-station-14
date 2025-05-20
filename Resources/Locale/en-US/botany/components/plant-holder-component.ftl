@@ -18,7 +18,7 @@ plant-holder-component-compost-others-message = {$user} composts {$usingItem} in
 # imp fix ..
 plant-holder-component-nothing-planted-message = It has nothing planted in it.
 # imp edit
-plant-holder-component-something-already-growing-message = {$article} [color=green]{$seedName}[/color] {$count ->
+plant-holder-component-something-already-growing-message = { CAPITALIZE($seedNameAndArticle) } {$count ->
                                 [true] are
                                 *[false] is
                             } growing here.
