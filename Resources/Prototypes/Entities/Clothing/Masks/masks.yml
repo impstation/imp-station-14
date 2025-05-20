@@ -204,12 +204,29 @@
       Snout: Mask
     hideOnToggle: true
 
-- type: entity
-  parent: [ClothingMaskBase, BaseFoldable]
+#start of imp edits
+- type: entity 
+  parent: ClothingMaskBase
   id: ClothingMaskClownBase
   abstract: true
   name: clown wig and mask
-  description: A true prankster's facial attire. A clown is incomplete without a wig and mask.
+  description: A true prankster's facial attire. A clown is incomplete without a wig and mask. #imp
+  components:
+  - type: BreathMask
+  - type: IdentityBlocker
+  - type: Tag
+    tags:
+    - ClownMask
+    - WhitelistChameleon
+    - Mask
+  - type: HideLayerClothing
+    slots:
+    - Snout
+
+
+- type: entity
+  parent: [ClothingMaskClownBase, BaseFoldable] 
+  id: ClothingMaskClown
   components:
   - type: Appearance
   - type: Sprite
@@ -228,22 +245,7 @@
     foldedEquippedPrefix: wigless
     foldedHeldPrefix: wigless
   - type: Clothing
-    sprite: _Impstation/Clothing/Mask/clown.rsi
-  - type: BreathMask
-  - type: IdentityBlocker
-  - type: Tag
-    tags:
-    - ClownMask
-    - WhitelistChameleon
-    - Mask
-  - type: HideLayerClothing
-    slots:
-    - Snout
-
-- type: entity
-  parent: ClothingMaskClownBase
-  id: ClothingMaskClown
-  components:
+    sprite: _Impstation/Clothing/Mask/clown.rsi 
   - type: Tag
     tags:
     - ClownMask
@@ -254,10 +256,10 @@
     - Snout
 
 - type: entity
-  parent: ClothingMaskClown
+  parent: ClothingMaskClownBase #imp
   id: ClothingMaskClownBanana
   name: banana clown wig and mask
-  components:
+  components: 
   - type: Sprite
     sprite: Clothing/Mask/clown_banana.rsi
   - type: Clothing
@@ -265,6 +267,12 @@
   - type: Construction
     graph: BananaClownMask
     node: mask
+  - type: Tag 
+    tags:
+    - ClownMask
+    - HamsterWearable
+    - WhitelistChameleon 
+
 
 - type: entity
   parent: [ClothingMaskClown, BaseSecurityContraband]
@@ -379,6 +387,7 @@
     sprite: Clothing/Mask/clown_service.rsi
   - type: Clothing
     sprite: Clothing/Mask/clown_service.rsi
+#end of imp edits
 
 - type: entity
   parent: ClothingMaskBase
