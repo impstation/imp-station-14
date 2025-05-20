@@ -4,8 +4,8 @@ meta:
   engineVersion: 251.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/20/2025 08:56:52
-  entityCount: 3539
+  time: 05/20/2025 09:04:58
+  entityCount: 3554
 maps:
 - 1
 grids:
@@ -5784,6 +5784,26 @@ entities:
     components:
     - type: Transform
       pos: -44.5,-28.5
+      parent: 2
+  - uid: 3540
+    components:
+    - type: Transform
+      pos: -38.5,14.5
+      parent: 2
+  - uid: 3541
+    components:
+    - type: Transform
+      pos: -37.5,14.5
+      parent: 2
+  - uid: 3542
+    components:
+    - type: Transform
+      pos: -36.5,14.5
+      parent: 2
+  - uid: 3543
+    components:
+    - type: Transform
+      pos: -35.5,14.5
       parent: 2
 - proto: CableHV
   entities:
@@ -11689,6 +11709,12 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#FF0000FF'
+  - uid: 3547
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -46.5,16.5
+      parent: 2
 - proto: GasPipeFourway
   entities:
   - uid: 2460
@@ -14208,6 +14234,23 @@ entities:
       rot: 3.141592653589793 rad
       pos: -42.5,-9.5
       parent: 2
+  - uid: 3545
+    components:
+    - type: Transform
+      pos: -38.5,15.5
+      parent: 2
+  - uid: 3546
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -39.5,16.5
+      parent: 2
+  - uid: 3548
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -40.5,14.5
+      parent: 2
 - proto: GasPipeTJunction
   entities:
   - uid: 2442
@@ -14648,6 +14691,11 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -16.5,6.5
+      parent: 2
+  - uid: 3544
+    components:
+    - type: Transform
+      pos: -42.5,16.5
       parent: 2
 - proto: GasPort
   entities:
@@ -18792,6 +18840,38 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+- proto: SheetSteel1
+  entities:
+  - uid: 3549
+    components:
+    - type: Transform
+      pos: -45.5765,16.136856
+      parent: 2
+  - uid: 3550
+    components:
+    - type: Transform
+      pos: -43.685875,14.777481
+      parent: 2
+  - uid: 3551
+    components:
+    - type: Transform
+      pos: -40.404625,14.449356
+      parent: 2
+  - uid: 3552
+    components:
+    - type: Transform
+      pos: -38.639,16.168106
+      parent: 2
+  - uid: 3553
+    components:
+    - type: Transform
+      pos: -38.467125,13.418106
+      parent: 2
+  - uid: 3554
+    components:
+    - type: Transform
+      pos: -45.842125,13.918106
+      parent: 2
 - proto: SheetSteel10
   entities:
   - uid: 88
