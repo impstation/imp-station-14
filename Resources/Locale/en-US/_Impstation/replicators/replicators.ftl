@@ -35,4 +35,4 @@ replicator-nest-destroyed = Your nest has been destroyed.
 
 # action confirmations
 replicator-nest-confirm = Are you sure? Use the action again to confirm.
-replicator-levelup-confirm = Are you sure? All other level-up actions you have currently will become unavailable.
+replicator-levelup-confirm = Are you sure? Use the action again to confirm.

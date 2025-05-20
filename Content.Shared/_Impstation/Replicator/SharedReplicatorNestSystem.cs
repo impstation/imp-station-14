@@ -249,16 +249,14 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
 
         foreach (var replicator in ent.Comp.SpawnedMinions)
         {
-            if (!TryComp<ReplicatorComponent>(replicator, out var comp))
+            if (!TryComp<ReplicatorComponent>(replicator, out var comp) || comp.UpgradeActions.Count == 0)
                 continue;
 
-            if (comp.UpgradeStage >= ent.Comp.MaxUpgradeStage || comp.TargetUpgradeStage >= ent.Comp.MaxUpgradeStage)
+            if (comp.UpgradeStage >= ent.Comp.MaxUpgradeStage || comp.HasBeenGivenUpgradeActions == true)
                 continue;
 
             if (!TryComp<MindContainerComponent>(replicator, out var mindContainer) || mindContainer.Mind == null)
                 continue;
-
-            comp.TargetUpgradeStage++;
 
             foreach (var action in comp.UpgradeActions)
             {
@@ -267,6 +265,7 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
                 else if (mindContainer.Mind != null)
                     comp.Actions.Add(_actionContainer.AddAction((EntityUid)mindContainer.Mind, action));
             }
+            comp.HasBeenGivenUpgradeActions = true;
         }
     }
 
@@ -302,7 +301,6 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
         var upgraded = Spawn(nextStage, xform.Coordinates);
         var upgradedComp = EnsureComp<ReplicatorComponent>(upgraded);
         upgradedComp.RelatedReplicators = ent.Comp.RelatedReplicators;
-        upgradedComp.TargetUpgradeStage = ent.Comp.TargetUpgradeStage;
         upgradedComp.MyNest = ent.Comp.MyNest;
 
         if (ent.Comp.MyNest != null)

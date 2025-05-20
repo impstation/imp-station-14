@@ -16,6 +16,7 @@
 
 - type: entity
   id: BaseReplicatorLevelupAction
+  categories: [HideSpawnMenu]
   components:
   - type: ConfirmableAction
     popup: replicator-levelup-confirm

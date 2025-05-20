@@ -30,11 +30,6 @@ public sealed partial class ReplicatorComponent : Component
     public int UpgradeStage;
 
     /// <summary>
-    /// Used in determining what action should be granted on leveling up the nest.
-    /// </summary>
-    public int TargetUpgradeStage;
-
-    /// <summary>
     /// Used to store related replicators on a queen after the nest is destroyed, so they can be transferred to the new nest.
     /// </summary>
     public HashSet<Entity<ReplicatorComponent>> RelatedReplicators = [];
@@ -48,7 +43,7 @@ public sealed partial class ReplicatorComponent : Component
     /// actions granted when this replicator is ready to upgrade
     /// </summary>
     [DataField]
-    public HashSet<EntProtoId> UpgradeActions = new HashSet<EntProtoId>();
+    public HashSet<EntProtoId> UpgradeActions = [];
 
     /// <summary>
     /// loc id for the message that gets displayed when a replicator is ready to upgrade. -self and -others are automatically appended to it when relevant
@@ -66,6 +61,7 @@ public sealed partial class ReplicatorComponent : Component
     public HashSet<EntityUid?> Actions = [];
 
     public bool HasSpawnedNest;
+    public bool HasBeenGivenUpgradeActions;
 }
 
 [Serializable, NetSerializable]
