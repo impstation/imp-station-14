@@ -204,7 +204,6 @@
       Snout: Mask
     hideOnToggle: true
 
-#start of imp edits
 - type: entity 
   parent: ClothingMaskBase
   id: ClothingMaskClownBase
@@ -212,6 +211,10 @@
   name: clown wig and mask
   description: A true prankster's facial attire. A clown is incomplete without a wig and mask. #imp
   components:
+  #- type: Sprite #imp edit
+  #  sprite: Clothing/Mask/clown.rsi #imp edit
+  #- type: Clothing #imp edit
+  #  sprite: Clothing/Mask/clown.rsi #imp edit
   - type: BreathMask
   - type: IdentityBlocker
   - type: Tag
@@ -225,27 +228,27 @@
 
 
 - type: entity
-  parent: [ClothingMaskClownBase, BaseFoldable] 
+  parent: [ClothingMaskClownBase, BaseFoldable] #imp
   id: ClothingMaskClown
   components:
-  - type: Appearance
-  - type: Sprite
-    sprite: _Impstation/Clothing/Mask/clown.rsi
-    layers:
-    - state: icon
-      map: [ "unfoldedLayer" ]
-    - state: icon-wigless
-      map: ["foldedLayer"]
-      visible: false
-  - type: Foldable
-    canFoldInsideContainer: true
-    unfoldVerbText: untuck-verb-clothing-mask
-    foldVerbText: tuck-verb-clothing-mask
-  - type: FoldableClothing
-    foldedEquippedPrefix: wigless
-    foldedHeldPrefix: wigless
-  - type: Clothing
-    sprite: _Impstation/Clothing/Mask/clown.rsi 
+  - type: Appearance #imp
+  - type: Sprite #imp
+    sprite: _Impstation/Clothing/Mask/clown.rsi #imp
+    layers: #imp
+    - state: icon #imp
+      map: [ "unfoldedLayer" ] #imp
+    - state: icon-wigless #imp
+      map: ["foldedLayer"] #imp
+      visible: false #imp
+  - type: Foldable #imp
+    canFoldInsideContainer: true #imp
+    unfoldVerbText: untuck-verb-clothing-mask #imp
+    foldVerbText: tuck-verb-clothing-mask #imp
+  - type: FoldableClothing #imp
+    foldedEquippedPrefix: wigless #imp
+    foldedHeldPrefix: wigless #imp
+  - type: Clothing #imp
+    sprite: _Impstation/Clothing/Mask/clown.rsi  #imp
   - type: Tag
     tags:
     - ClownMask
@@ -254,7 +257,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
-#end of imp edits
+
 
 - type: entity
   parent: ClothingMaskClownBase #imp
@@ -268,7 +271,7 @@
   - type: Construction
     graph: BananaClownMask
     node: mask
-  - type: Tag 
+  - type: Tag  #imp
     tags:
     - ClownMask
     - HamsterWearable
