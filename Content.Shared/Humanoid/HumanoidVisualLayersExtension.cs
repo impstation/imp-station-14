@@ -63,6 +63,7 @@ namespace Content.Shared.Humanoid
                     yield return HumanoidVisualLayers.Chest;
                     yield return HumanoidVisualLayers.Tail;
                     yield return HumanoidVisualLayers.TailBehind;
+                    yield return HumanoidVisualLayers.TailBehindBackpack;
                     yield return HumanoidVisualLayers.TailOversuit;
                     break;
                 default:

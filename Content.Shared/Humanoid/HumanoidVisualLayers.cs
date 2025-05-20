@@ -22,6 +22,7 @@ namespace Content.Shared.Humanoid
         HeadSide, // side parts (i.e., frills)
         HeadTop,  // top parts (i.e., ears)
         TailBehind, // FLOOF - add tails that dont have to go through a brutal cookiecutter to work
+        TailBehindBackpack, // imp - to layer behind backpacks, treat this like an oversuit
         TailOversuit, // FLOOF - add tails that dont have to go through a brutal cookiecutter to work
         Eyes,
         RArm,
