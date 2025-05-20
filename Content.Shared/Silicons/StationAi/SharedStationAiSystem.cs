@@ -11,6 +11,8 @@ using Content.Shared.Intellicard;
 using Content.Shared.Interaction;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Mind;
+using Content.Shared.Mobs.Components; //imp
+using Content.Shared.Mobs; //imp
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
@@ -29,6 +31,10 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared.UserInterface; //imp
+using Content.Shared.Interaction.Components; //imp
+using Content.Shared.Speech.Components; //imp
+using Content.Shared.Damage; //imp
 
 namespace Content.Shared.Silicons.StationAi;
 
@@ -57,6 +63,8 @@ public abstract partial class SharedStationAiSystem : EntitySystem
     [Dependency] private readonly   SharedTransformSystem _xforms = default!;
     [Dependency] private readonly   SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly   StationAiVisionSystem _vision = default!;
+    [Dependency] private readonly   SharedActionsSystem _action = default!; //imp
+    [Dependency] private readonly   ActionContainerSystem _actionContainer = default!; //imp
 
     // StationAiHeld is added to anything inside of an AI core.
     // StationAiHolder indicates it can hold an AI positronic brain (e.g. holocard / core).
@@ -104,6 +112,7 @@ public abstract partial class SharedStationAiSystem : EntitySystem
         SubscribeLocalEvent<StationAiCoreComponent, ComponentShutdown>(OnAiShutdown);
         SubscribeLocalEvent<StationAiCoreComponent, PowerChangedEvent>(OnCorePower);
         SubscribeLocalEvent<StationAiCoreComponent, GetVerbsEvent<Verb>>(OnCoreVerbs);
+        SubscribeLocalEvent<StationAiCoreComponent, MobStateChangedEvent>(OnAIStateChanged); //imp
     }
 
     private void OnCoreVerbs(Entity<StationAiCoreComponent> ent, ref GetVerbsEvent<Verb> args)
@@ -481,6 +490,60 @@ public abstract partial class SharedStationAiSystem : EntitySystem
         ClearEye(ent);
     }
 
+    private void OnAIStateChanged(Entity<StationAiCoreComponent> ent, ref MobStateChangedEvent args) //imp
+    {
+        if (args.NewMobState == MobState.Dead)
+        {
+            KillAI(ent);
+            return;
+        }
+
+        if (args.NewMobState == MobState.Alive)
+        {
+            ReviveAI(ent);
+            return;
+        }
+    }
+
+    private void ReviveAI(Entity<StationAiCoreComponent> ent) //imp
+    {
+        TryGetHeld((ent.Owner, ent.Comp), out var brain);
+        UpdateAppearance(ent.Owner);
+        UpdateAIDamageAccent(ent);
+        EnsureComp<ComplexInteractionComponent>(brain);
+        EnsureComp<IntrinsicUIComponent>(brain);
+        _action.AddAction(brain, ref ent.Comp.AIRadarActionEntity, ent.Comp.AIRadarAction);
+        _action.AddAction(brain, ref ent.Comp.AIMonitorActionEntity, ent.Comp.AIMonitorAction);
+        _action.AddAction(brain, ref ent.Comp.AICommsActionEntity, ent.Comp.AICommsAction);
+        _action.AddAction(brain, ref ent.Comp.AIRecordsActionEntity, ent.Comp.AIRecordsAction);
+    }
+
+    private void KillAI(Entity<StationAiCoreComponent> ent) //imp
+    {
+        TryGetHeld((ent.Owner, ent.Comp), out var brain);
+        UpdateAppearance(ent.Owner);
+        RemComp<ComplexInteractionComponent>(brain);
+        RemComp<IntrinsicUIComponent>(brain);
+        UpdateAIDamageAccent(ent);
+        _action.RemoveProvidedActions(brain, ent);
+        QueueDel(ent.Comp.AIRadarActionEntity);
+        QueueDel(ent.Comp.AIMonitorActionEntity);
+        QueueDel(ent.Comp.AICommsActionEntity);
+        QueueDel(ent.Comp.AIRecordsActionEntity);
+        return;
+    }
+
+    private void UpdateAIDamageAccent(Entity<StationAiCoreComponent> ent) //imp. handles synching the AI core damage state with the brain's speech comps.
+    {
+        TryGetHeld((ent.Owner, ent.Comp), out var brain);
+        if ((TryComp<DamagedSiliconAccentComponent>(brain, out var accent))
+        && (TryComp<DamageableComponent>(ent, out var damage)))
+        if (accent != null && damage != null)
+            {
+                accent.OverrideTotalDamage = damage.TotalDamage;
+            }
+    }
+
     private void UpdateAppearance(Entity<StationAiHolderComponent?> entity)
     {
         if (!Resolve(entity.Owner, ref entity.Comp, false))
@@ -490,6 +553,13 @@ public abstract partial class SharedStationAiSystem : EntitySystem
             container.Count == 0)
         {
             _appearance.SetData(entity.Owner, StationAiVisualState.Key, StationAiState.Empty);
+            return;
+        }
+
+        TryComp<MobStateComponent>(entity.Owner, out var damState); //imp. sets AI death appearance
+        if (damState?.CurrentState == MobState.Dead)
+        {
+            _appearance.SetData(entity.Owner, StationAiVisualState.Key, StationAiState.Dead);
             return;
         }
 
