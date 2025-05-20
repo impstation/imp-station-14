@@ -254,6 +254,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+#end of imp edits
 
 - type: entity
   parent: ClothingMaskClownBase #imp
@@ -261,9 +262,9 @@
   name: banana clown wig and mask
   components: 
   - type: Sprite
-    sprite: Clothing/Mask/clown_banana.rsi
+    sprite: Clothing/Mask/clown_banana.rsi #imp
   - type: Clothing
-    sprite: Clothing/Mask/clown_banana.rsi
+    sprite: Clothing/Mask/clown_banana.rsi #imp
   - type: Construction
     graph: BananaClownMask
     node: mask
@@ -281,9 +282,9 @@
   description: A debatably oxymoronic but protective mask and wig.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/clown_security.rsi
+    sprite: _Impstation/Clothing/Mask/clown_security.rsi #imp
   - type: Clothing
-    sprite: Clothing/Mask/clown_security.rsi
+    sprite: _Impstation/Clothing/Mask/clown_security.rsi #imp
   - type: Armor
     modifiers:
       coefficients:
@@ -300,9 +301,9 @@
   description: A mask and wig for when the captain shows their true colors.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/clown_captain.rsi
+    sprite: _Impstation/Clothing/Mask/clown_captain.rsi #imp
   - type: Clothing
-    sprite: Clothing/Mask/clown_captain.rsi
+    sprite: _Impstation/Clothing/Mask/clown_captain.rsi #imp
   - type: Armor
     modifiers:
       coefficients:
@@ -318,9 +319,9 @@
   description: A powerful mask and wig for the clown that can drag a crate with one hand.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/clown_cargo.rsi
+    sprite: _Impstation/Clothing/Mask/clown_cargo.rsi #imp
   - type: Clothing
-    sprite: Clothing/Mask/clown_cargo.rsi
+    sprite: _Impstation/Clothing/Mask/clown_cargo.rsi #imp
 
 - type: entity
   parent: ClothingMaskClown
@@ -329,9 +330,9 @@
   description: A mask and wig symbolizing clown asceticism.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/clown_chaplain.rsi
+    sprite: _Impstation/Clothing/Mask/clown_chaplain.rsi #imp
   - type: Clothing
-    sprite: Clothing/Mask/clown_chaplain.rsi
+    sprite: _Impstation/Clothing/Mask/clown_chaplain.rsi #imp
 
 - type: entity
   parent: ClothingMaskClown
@@ -340,20 +341,20 @@
   description: A problem solver's mask and wig.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/clown_engineer.rsi
+    sprite: _Impstation/Clothing/Mask/clown_engineer.rsi #imp
   - type: Clothing
-    sprite: Clothing/Mask/clown_engineer.rsi
+    sprite: _Impstation/Clothing/Mask/clown_engineer.rsi #imp
 
 - type: entity
   parent: ClothingMaskClown
   id: ClothingMaskClownMedical
   name: helpful clown wig and mask
-  description: Copyright infringing mask and wig.
+  description: Mask and wig of a clown that treats boo-boos and ouchies.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/clown_medical.rsi
+    sprite: _Impstation/Clothing/Mask/clown_medical.rsi #imp
   - type: Clothing
-    sprite: Clothing/Mask/clown_medical.rsi
+    sprite: _Impstation/Clothing/Mask/clown_medical.rsi #imp
 
 - type: entity
   parent: ClothingMaskClown
@@ -362,9 +363,9 @@
   description: Mask and wig of choice for the clown that doesn't need to be taught how to use a computer.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/clown_robotics.rsi
+    sprite: _Impstation/Clothing/Mask/clown_robotics.rsi #imp
   - type: Clothing
-    sprite: Clothing/Mask/clown_robotics.rsi
+    sprite: _Impstation/Clothing/Mask/clown_robotics.rsi #imp
 
 - type: entity
   parent: ClothingMaskClown
@@ -373,9 +374,9 @@
   description: Only the smartest clowns get to wear this mask and wig.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/clown_science.rsi
+    sprite: _Impstation/Clothing/Mask/clown_science.rsi #imp
   - type: Clothing
-    sprite: Clothing/Mask/clown_science.rsi
+    sprite: _Impstation/Clothing/Mask/clown_science.rsi #imp
 
 - type: entity
   parent: ClothingMaskClown
@@ -384,10 +385,10 @@
   description: Mask and wig for the clown with the willpower not to steal.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/clown_service.rsi
+    sprite: _Impstation/Clothing/Mask/clown_service.rsi #imp
   - type: Clothing
-    sprite: Clothing/Mask/clown_service.rsi
-#end of imp edits
+    sprite: _Impstation/Clothing/Mask/clown_service.rsi #imp
+
 
 - type: entity
   parent: ClothingMaskBase
