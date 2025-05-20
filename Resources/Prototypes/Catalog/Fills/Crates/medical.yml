@@ -171,13 +171,3 @@
         amount: 2
       - id: ClothingMaskSterile
         amount: 2
-
-- type: entity #Imp
-  id: CrateEmergencyInjectorKit
-  parent: CrateMedical
-  name: emergency autoinjector crate
-  description: Crate filled with a injector kit
-  components:
-  - type: StorageFill
-    contents:
-    - id: MedkitInjectorFilled
