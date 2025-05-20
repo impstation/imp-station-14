@@ -44,23 +44,17 @@ public sealed partial class ReplicatorComponent : Component
     /// </summary>
     public EntityUid? MyNest = null;
 
+    /// <summary>
+    /// actions granted when this replicator is ready to upgrade
+    /// </summary>
     [DataField]
-    public EntProtoId Level2Id = "MobReplicatorTier2";
+    public HashSet<EntProtoId> UpgradeActions = new HashSet<EntProtoId>();
 
+    /// <summary>
+    /// loc id for the message that gets displayed when a replicator is ready to upgrade. -self and -others are automatically appended to it when relevant
+    /// </summary>
     [DataField]
-    public EntProtoId Level2AltId = "MobReplicatorTier2Alt";
-
-    [DataField]
-    public EntProtoId Level3Id = "MobReplicatorTier3";
-
-    [DataField]
-    public EntProtoId Level2Action = "ActionReplicatorUpgrade2";
-
-    [DataField]
-    public EntProtoId? Level2AltAction = "ActionReplicatorUpgrade2Alt";
-
-    [DataField]
-    public EntProtoId Level3Action = "ActionReplicatorUpgrade3";
+    public LocId ReadyToUpgradeMessage = "replicator-upgrade-t1";
 
     /// <summary>
     /// The action to spawn a new nest.

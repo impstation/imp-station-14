@@ -2,6 +2,7 @@
 // all credit for the core gameplay concepts and a lot of the core functionality of the code goes to the folks over at Goob, but I re-wrote enough of it to justify putting it in our filestructure.
 // the original Bingle PR can be found here: https://github.com/Goob-Station/Goob-Station/pull/1519
 
+using System.Linq;
 using Content.Shared._Impstation.SpawnedFromTracker;
 using Content.Shared.Actions;
 using Content.Shared.Construction.Components;
@@ -96,7 +97,7 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
 
         var isReplicator = HasComp<ReplicatorComponent>(args.Tripper);
 
-        // Allow dead replicators regardless of current level. 
+        // Allow dead replicators regardless of current level.
         if (TryComp<MobStateComponent>(args.Tripper, out var mobState) && isReplicator && _mobState.IsDead(args.Tripper))
         {
             StartFalling(ent, args.Tripper);
@@ -179,13 +180,13 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
             }
         }
 
-        // if we exceed the upgrade threshold after points are added, 
+        // if we exceed the upgrade threshold after points are added,
         if (ent.Comp.TotalPoints >= ent.Comp.NextUpgradeAt)
         {
             // level up
             ent.Comp.CurrentLevel++;
 
-            // this allows us to have an arbitrary number of unique messages for when the nest levels up - and a default for if we run out. 
+            // this allows us to have an arbitrary number of unique messages for when the nest levels up - and a default for if we run out.
             var growthMessage = $"replicator-nest-level{ent.Comp.CurrentLevel}";
             if (Loc.TryGetString(growthMessage, out var localizedMsg))
                 _popup.PopupEntity(localizedMsg, ent);
@@ -259,23 +260,7 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
 
             comp.TargetUpgradeStage++;
 
-            HashSet<EntProtoId> targetActions = [];
-
-            switch (comp.TargetUpgradeStage)
-            {
-                case 1:
-                    targetActions.Add(comp.Level2Action);
-                    if (comp.Level2AltAction != null)
-                    {
-                        targetActions.Add(comp.Level2AltAction.Value);
-                    }
-                    break;
-                case 2:
-                    targetActions.Add(comp.Level3Action);
-                    break;
-            }
-
-            foreach (var action in targetActions)
+            foreach (var action in comp.UpgradeActions)
             {
                 if (!mindContainer.HasMind)
                     comp.Actions.Add(_actions.AddAction(replicator, action));
@@ -291,7 +276,7 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
         if (_net.IsClient || !_timing.IsFirstTimePredicted)
             return;
 
-        if (ent.Comp.MyNest == null || UpgradeReplicator(ent, args.TargetLevel) == null)
+        if (ent.Comp.MyNest == null || UpgradeReplicator(ent, ref args) == null)
         {
             _popup.PopupEntity(Loc.GetString("replicator-cant-find-nest"), ent, PopupType.MediumCaution);
             return;
@@ -299,35 +284,20 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
 
         QueueDel(ent);
         foreach (var action in ent.Comp.Actions)
+        {
             QueueDel(action);
+        }
 
-        _popup.PopupEntity(Loc.GetString("replicator-upgrade-t2-others"), ent, PopupType.MediumCaution);
+        _popup.PopupEntity(Loc.GetString($"{ent.Comp.ReadyToUpgradeMessage}-others"), ent, PopupType.MediumCaution);
     }
 
-    public EntityUid? UpgradeReplicator(Entity<ReplicatorComponent> ent, int desiredLevel)
+    public EntityUid? UpgradeReplicator(Entity<ReplicatorComponent> ent, ref ReplicatorUpgradeActionEvent args)
     {
         if (!_mind.TryGetMind(ent, out var mind, out _))
             return null;
 
         var xform = Transform(ent);
-
-        // if adding more stages, maybe make this a switch.
-        EntProtoId nextStage;
-
-        switch (desiredLevel)
-        {
-            case 2: // level 2
-                nextStage = ent.Comp.Level2Id;
-                break;
-            case 3: // level 3
-                nextStage = ent.Comp.Level3Id;
-                break;
-            case 4: // alternative level 2
-                nextStage = ent.Comp.Level2AltId;
-                break;
-            default:
-                return null;
-        }
+        var nextStage = args.NextStage;
 
         var upgraded = Spawn(nextStage, xform.Coordinates);
         var upgradedComp = EnsureComp<ReplicatorComponent>(upgraded);
@@ -344,8 +314,7 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
 
         _mind.TransferTo(mind, upgraded);
 
-        var messageSelf = desiredLevel == 2 ? "replicator-upgrade-t2-self" : "replicator-upgrade-t3-self";
-        _popup.PopupEntity(Loc.GetString(messageSelf), ent, PopupType.Medium);
+        _popup.PopupEntity(Loc.GetString($"{ent.Comp.ReadyToUpgradeMessage}-self"), ent, PopupType.Medium); //this seems to not work with my changes? - ruddygreat
 
         return upgraded;
     }
@@ -365,7 +334,7 @@ public sealed partial class ReplicatorSpawnNestActionEvent : InstantActionEvent
 public sealed partial class ReplicatorUpgradeActionEvent : InstantActionEvent
 {
     [DataField(required: true)]
-    public int TargetLevel;
+    public EntProtoId NextStage;
 }
 
 [ByRefEvent]

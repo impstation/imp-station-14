@@ -30,7 +30,7 @@
     itemIconStyle: NoItem
     icon: _Impstation/Interface/Actions/replicator_level2.png
     event: !type:ReplicatorUpgradeActionEvent
-      targetLevel: 2
+      nextStage: MobReplicatorTier2
     useDelay: 20
 
 - type: entity
@@ -43,7 +43,7 @@
     itemIconStyle: NoItem
     icon: _Impstation/Interface/Actions/replicator_level2alt.png
     event: !type:ReplicatorUpgradeActionEvent
-      targetLevel: 4
+      nextStage: MobReplicatorTier2Alt
     useDelay: 20
 
 - type: entity
@@ -56,5 +56,5 @@
     itemIconStyle: NoItem
     icon: _Impstation/Interface/Actions/replicator_level3.png
     event: !type:ReplicatorUpgradeActionEvent
-      targetLevel: 3
+      nextStage: MobReplicatorTier3
     useDelay: 20
