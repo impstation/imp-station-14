@@ -1,43 +1,4 @@
 ﻿Entries:
-- author: kipdotnet
-  changes:
-  - message: The tck'tck now has a unique fire extinguisher and some new art assets.
-    type: Add
-  - message: The tck'tck no longer is ignored by hostile AI
-    type: Fix
-  id: 1200
-  time: '2025-02-25T21:00:19.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1777
-- author: Toby222
-  changes:
-  - message: Fixed being able to add empty NanoChat contacts
-    type: Fix
-  id: 1201
-  time: '2025-02-25T20:59:44.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1778
-- author: formlessnameless
-  changes:
-  - message: Changelings can now eat a lot of different things for varying reward
-      to stave off hunger, but only temporarily...
-    type: Tweak
-  id: 1202
-  time: '2025-02-25T21:12:34.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1771
-- author: Kandiyaki
-  changes:
-  - message: ashen passage's sound has a much larger radius.
-    type: Tweak
-  - message: ashen passage will heat the user directly upon exiting. sorry, atmos-heads.
-    type: Tweak
-  - message: the flask ritual should accept all water tanks now.
-    type: Fix
-  - message: the madness mask should accept all masks now.
-    type: Fix
-  - message: the codex & knowledge rituals should show their names correctly.
-    type: Fix
-  id: 1203
-  time: '2025-02-25T21:27:48.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1678
 - author: DinnerCalzone
   changes:
   - message: Convex has been derotated to reduce map maintenance load.
@@ -4235,3 +4196,32 @@
   id: 1699
   time: '2025-05-20T09:21:09.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/2531
+- author: kipdotnet
+  changes:
+  - message: Buffed Frank.
+    type: Tweak
+  id: 1700
+  time: '2025-05-20T15:54:59.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2534
+- author: starlighthowls
+  changes:
+  - message: Remade the cute bartender and chef aprons in loadouts!
+    type: Tweak
+  id: 1701
+  time: '2025-05-20T22:19:30.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2535
+- author: widgetbeck
+  changes:
+  - message: The Replicator Hive has evolved.
+    type: Tweak
+  id: 1702
+  time: '2025-05-20T23:21:18.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2530
+- author: Darkmajia
+  changes:
+  - message: Robotic arms now have a consistent power draw, rather than increasing
+      while moving. This may help alleviate light flickering issues, but no prommies.
+    type: Tweak
+  id: 1703
+  time: '2025-05-20T23:23:41.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2526
