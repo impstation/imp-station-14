@@ -85,10 +85,6 @@
   - type: Icon
     sprite: _Impstation/Mobs/Replicator/replicator.rsi
     state: t2altweapon
-  - type: Gun
-    fireRate: 0.7
-    soundGunshot:
-      path: /Audio/_Impstation/Weapons/Guns/Gunshots/stunprojector.ogg
 
 - type: entity
   id: ReplicatorT2AltMeleeWeapon
@@ -112,7 +108,7 @@
         Shock: 3
         Structural: 15
   - type: StaminaDamageOnHit
-    damage: 15
+    damage: 5
     sound: /Audio/Weapons/egloves.ogg
 
 - type: entity
