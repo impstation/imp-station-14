@@ -222,9 +222,9 @@
     - ClownMask
     - WhitelistChameleon
     - Mask
-  - type: HideLayerClothing
-    slots:
-    - Snout
+  - type: HideLayerClothing #imp
+    layers: #imp
+      Snout: Mask #imp
 
 
 - type: entity
@@ -247,6 +247,10 @@
   - type: FoldableClothing #imp
     foldedEquippedPrefix: wigless #imp
     foldedHeldPrefix: wigless #imp
+    foldedHideLayers: #imp
+    - Snout #imp
+    unfoldedHideLayers: #imp
+    - Snout #imp
   - type: Clothing #imp
     sprite: _Impstation/Clothing/Mask/clown.rsi  #imp
   - type: Tag
@@ -254,9 +258,9 @@
     - ClownMask
     - HamsterWearable
     - WhitelistChameleon
-  - type: HideLayerClothing
-    slots:
-    - Snout
+  #- type: HideLayerClothing #imp
+  #  slots: #imp
+  #  - Snout #imp
 
 
 - type: entity
