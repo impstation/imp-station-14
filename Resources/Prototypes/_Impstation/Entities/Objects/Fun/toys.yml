@@ -768,9 +768,11 @@
   - type: Item
     inhandVisuals:
       left:
-        - state: inhand-left
+        sprite: _Impstation/Objects/Fun/devilpitchfork.rsi
+        state: inhand-left
       right:
-        - state: inhand-right
+        sprite: _Impstation/Objects/Fun/devilpitchfork.rsi
+        state: inhand-right
 
 - type: entity
   parent: BasePlushie
