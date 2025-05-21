@@ -25,19 +25,6 @@ public sealed partial class BlockingComponent : Component
     [ViewVariables, AutoNetworkedField]
     public bool IsBlocking;
 
-    // imp - removed this functionality
-    /// <summary>
-    /// The ID for the fixture that's dynamically created when blocking
-    /// </summary>
-    //public const string BlockFixtureID = "blocking-active";
-
-    // imp - removed this functionality
-    /// <summary>
-    /// The shape of the blocking fixture that will be dynamically spawned
-    /// </summary>
-    //[DataField("shape"), ViewVariables(VVAccess.ReadWrite)]
-    //public IPhysShape Shape = new PhysShapeCircle(0.5f);
-
     /// <summary>
     /// The damage modifer to use while passively blocking
     /// </summary>
