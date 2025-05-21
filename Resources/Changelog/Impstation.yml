@@ -1,109 +1,4 @@
 ﻿Entries:
-- author: DinnerCalzone
-  changes:
-  - message: Slime bubble and vox chitter emotes should now use positional audio properly.
-    type: Fix
-  id: 1198
-  time: '2025-02-25T14:25:31.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1779
-- author: widgetbeck
-  changes:
-  - message: Added a guidebook section on Ghostroles. Embrace the wikification of
-      the guidebook.
-    type: Add
-  id: 1199
-  time: '2025-02-25T21:00:05.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1281
-- author: kipdotnet
-  changes:
-  - message: The tck'tck now has a unique fire extinguisher and some new art assets.
-    type: Add
-  - message: The tck'tck no longer is ignored by hostile AI
-    type: Fix
-  id: 1200
-  time: '2025-02-25T21:00:19.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1777
-- author: Toby222
-  changes:
-  - message: Fixed being able to add empty NanoChat contacts
-    type: Fix
-  id: 1201
-  time: '2025-02-25T20:59:44.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1778
-- author: formlessnameless
-  changes:
-  - message: Changelings can now eat a lot of different things for varying reward
-      to stave off hunger, but only temporarily...
-    type: Tweak
-  id: 1202
-  time: '2025-02-25T21:12:34.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1771
-- author: Kandiyaki
-  changes:
-  - message: ashen passage's sound has a much larger radius.
-    type: Tweak
-  - message: ashen passage will heat the user directly upon exiting. sorry, atmos-heads.
-    type: Tweak
-  - message: the flask ritual should accept all water tanks now.
-    type: Fix
-  - message: the madness mask should accept all masks now.
-    type: Fix
-  - message: the codex & knowledge rituals should show their names correctly.
-    type: Fix
-  id: 1203
-  time: '2025-02-25T21:27:48.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1678
-- author: DinnerCalzone
-  changes:
-  - message: Convex has been derotated to reduce map maintenance load.
-    type: Remove
-  id: 1204
-  time: '2025-02-26T16:03:38.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1783
-- author: starlighthowls, honeyed_lemons_
-  changes:
-  - message: Tweaks Xenoarch and adds mail to cruise
-    type: Tweak
-  id: 1205
-  time: '2025-02-28T00:38:49.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1792
-- author: hivehum, crocodilecarousel
-  changes:
-  - message: You can now see when someone is looking at a handheld map and can't hear
-      you.
-    type: Tweak
-  id: 1206
-  time: '2025-02-28T00:39:30.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1788
-- author: TheGrimbeeper
-  changes:
-  - message: You should now be able to notice something is wrong if you are being
-      irradiated
-    type: Add
-  id: 1207
-  time: '2025-02-28T00:46:37.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1782
-- author: Sha-Seng
-  changes:
-  - message: Reduced or removed prestige item requirements per feedback
-    type: Tweak
-  id: 1208
-  time: '2025-02-28T01:00:32.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1781
-- author: mqole
-  changes:
-  - message: The overall changeling population has been lightly culled.
-    type: Tweak
-  id: 1209
-  time: '2025-02-28T16:12:14.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1793
-- author: ruddygreat
-  changes:
-  - message: Reflective vests no longer provide their reflection while being held.
-    type: Fix
-  id: 1210
-  time: '2025-02-28T16:13:17.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1799
 - author: ATDoop
   changes:
   - message: New lobby screen art by Doop!
@@ -4235,3 +4130,112 @@
   id: 1697
   time: '2025-05-19T00:32:28.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/2452
+- author: SixValentine
+  changes:
+  - message: Luna science and engineering raves have been removed
+    type: Fix
+  id: 1698
+  time: '2025-05-20T09:13:33.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2527
+- author: kipdotnet
+  changes:
+  - message: Completely remade Banana from scratch. She's now bigger, nicer, and has
+      extra space.
+    type: Tweak
+  id: 1699
+  time: '2025-05-20T09:21:09.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2531
+- author: kipdotnet
+  changes:
+  - message: Buffed Frank.
+    type: Tweak
+  id: 1700
+  time: '2025-05-20T15:54:59.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2534
+- author: starlighthowls
+  changes:
+  - message: Remade the cute bartender and chef aprons in loadouts!
+    type: Tweak
+  id: 1701
+  time: '2025-05-20T22:19:30.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2535
+- author: widgetbeck
+  changes:
+  - message: The Replicator Hive has evolved.
+    type: Tweak
+  id: 1702
+  time: '2025-05-20T23:21:18.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2530
+- author: Darkmajia
+  changes:
+  - message: Robotic arms now have a consistent power draw, rather than increasing
+      while moving. This may help alleviate light flickering issues, but no prommies.
+    type: Tweak
+  id: 1703
+  time: '2025-05-20T23:23:41.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2526
+- author: Cutinup99
+  changes:
+  - message: Emergency Autoinjector Crate! full of useful injectors for emergencies
+    type: Add
+  - message: Space medipen is actually obtainable now!
+    type: Tweak
+  - message: the Space medipen has been made smaller, providing 12 seconds of spacing
+      immunity rather than 40
+    type: Tweak
+  id: 1704
+  time: '2025-05-21T08:01:42.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2533
+- author: hivehum
+  changes:
+  - message: Chemists no longer start with plasma.
+    type: Remove
+  id: 1705
+  time: '2025-05-21T08:09:46.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2524
+- author: animal-collective
+  changes:
+  - message: 2 new humanoid hairstyles, 1 new thaven hairstyle
+    type: Add
+  id: 1706
+  time: '2025-05-21T08:18:31.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2520
+- author: AvianMaiden
+  changes:
+  - message: Tiny supermatter delam addition.
+    type: Add
+  - message: More obvious insanity from peering into the heart of darkness without
+      protection.
+    type: Add
+  id: 1707
+  time: '2025-05-21T08:30:15.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2479
+- author: ArtisticRoomba
+  changes:
+  - message: Tesla coils can now hold a max capacity of 5 MJ, and receive 5 MJ of
+      energy when struck by lightning.
+    type: Tweak
+  - message: Tesla coils can now only output a maximum of 350 kW to the grid. This
+      was done to make power flow smoother (it was triggering epilepsy in extreme
+      circumstances).
+    type: Tweak
+  - message: The TEG now outputs smoother power when pressure across the circulators
+      flutter. (This was causing epilepsy in extreme circumstances).
+    type: Fix
+  id: 1708
+  time: '2025-05-21T08:38:08.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2540
+- author: Mousetrinity
+  changes:
+  - message: you can be their angle... or theur devil
+    type: Add
+  id: 1709
+  time: '2025-05-21T11:21:43.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2522
+- author: meridiadottxt
+  changes:
+  - message: Gate Station is now in rotation! Yay!
+    type: Add
+  id: 1710
+  time: '2025-05-21T17:27:19.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2541
