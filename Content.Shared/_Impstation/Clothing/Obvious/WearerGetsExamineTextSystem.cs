@@ -70,7 +70,7 @@ public sealed class WearerGetsExamineTextSystem : EntitySystem
             ("used", Loc.GetString(entity.Comp.PocketEvident ? "obvious-type-pockets" : "obvious-type-default")),
             ("thing", entity.Comp.Thing),
             ("me", Identity.Entity(entity, EntityManager)));
-        if (entity.Comp.WarnExamine && TryComp(entity, out ContrabandComponent? contra))
+        if (entity.Comp.WarnExamine && !currentlyWorn && TryComp(entity, out ContrabandComponent? contra))
         {
             switch (contra.Severity) // apply additional text if the item is contraband to note that displaying it might be really bad
             {

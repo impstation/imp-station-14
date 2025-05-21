@@ -1,12 +1,12 @@
-obvious-on-item = When {$used}, { SUBJECT($me) } will be [color=white]obvious[/color] to anyone who examines you.
-obvious-on-item-currently = Since { SUBJECT($me) } { CONJUGATE-BE($me) } {$used}, { SUBJECT($me) } { CONJUGATE-BE($me) } [color=white]obvious[/color] to others.
-obvious-on-item-for-others = [italic][color=#A3A3A3]Others {$will} see:[/color] "{$output}"[/italic]
+obvious-on-item = When {$used}, { SUBJECT($me) } will be [color=white]obvious[/color] to casual examination.
+obvious-on-item-currently = { CAPITALIZE(SUBJECT($me)) } { CONJUGATE-BE($me) } [color=white]obvious[/color] to casual examination.
+obvious-on-item-for-others = [italic][color=#777777]Others {$will} see:[/color] "{$output}"[/italic]
 
 obvious-type-default = worn
 obvious-type-pockets = worn or pocketed
 
-obvious-on-item-contra-syndicate = Displaying it might make you seem [color=#ff0000]evil[/color].
-obvious-on-item-contra-magical = Displaying it might make you seem [color=blue]mystical[/color].
+obvious-on-item-contra-syndicate = Might make you seem [color=#ff0000]evil[/color].
+obvious-on-item-contra-magical = Might make you seem [color=blue]mystical[/color].
 obvious-on-item-contra-major = Don't be surprised if [color=#cb0000]some people[/color] aren't a fan.
 
 obvious-prefix-wearing = { CAPITALIZE(SUBJECT($user)) } { CONJUGATE-BE($user) } wearing

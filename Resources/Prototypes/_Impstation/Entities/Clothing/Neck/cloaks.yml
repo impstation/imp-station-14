@@ -144,7 +144,7 @@
   - type: WearerGetsExamineText # imp
     thing: cloak
     examineText: obvious-cloak-straight
-    warnExamine: false
+    # warnExamine is true because the fugitive KNOWS
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
