@@ -65,6 +65,9 @@
   - type: GuideHelp
     guides:
     - Xenoarchaeology
+  - type: WarpPoint #imp addition
+    follow: true
+    location: handheld alien artifact
 
 - type: entity
   parent: BaseXenoArtifactItem
