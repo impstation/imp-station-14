@@ -72,3 +72,18 @@
       - id: SyringeSaline
       - id: FireExtinguisherMini
       - id: WeaponGrapplingGun
+
+- type: entity
+  id: ClothingBeltQuiverNullrodFilled
+  parent: ClothingBeltQuiverNullrod
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: HolyArrow
+      - id: HolyArrow
+      - id: HolyArrow
+      - id: HolyArrow
+      - id: HolyArrow
+      - id: HolyArrow
+      - id: HolyArrow
