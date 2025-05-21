@@ -7,11 +7,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Maps;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
-using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.Toggleable;
 using Content.Shared.Verbs;
@@ -20,7 +16,6 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -183,13 +178,6 @@ public sealed partial class BlockingSystem : EntitySystem
         _popupSystem.PopupEntity(msgError, user, user);
     }
 
-    // imp - orphaned by change to StartBlocking
-    //private void TooCloseError(EntityUid user)
-    //{
-    //    var msgError = Loc.GetString("action-popup-blocking-user-too-close");
-    //    _popupSystem.PopupEntity(msgError, user, user);
-    //}
-
     // imp - changed this whole thing to remove fixtures/anchoring and replace with slowdown
     public bool StopBlocking(Entity<BlockingComponent> ent, EntityUid user)
     {
@@ -224,7 +212,7 @@ public sealed partial class BlockingSystem : EntitySystem
     // imp - necessary for movement speed modifier
     private void OnRefreshMovespeed(Entity<BlockingUserComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
     {
-        if (!TryComp<BlockingComponent>(ent.Comp.BlockingItem, out var blockingComp) || blockingComp == null)
+        if (!TryComp<BlockingComponent>(ent.Comp.BlockingItem, out var blockingComp))
             return;
 
         if (!blockingComp.IsBlocking)
