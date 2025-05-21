@@ -64,9 +64,7 @@
       storagebase: !type:Container # needed for the EffectStorage artifactEffect
         ents: [ ]
       revolver-ammo: !type:Container # needed for the EffectBigIron artifactEffect
-  - type: WarpPoint #imp addition
-    follow: true
-    location: alien artifact
+
 
 - type: entity
   parent: BaseXenoArtifact

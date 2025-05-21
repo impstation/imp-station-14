@@ -58,9 +58,7 @@
     damage:
       types:
         Radiation: 10
-  - type: WarpPoint #imp addition
-    follow: true
-    location: anomaly
+
 
 - type: entity
   id: AnomalyPyroclastic
