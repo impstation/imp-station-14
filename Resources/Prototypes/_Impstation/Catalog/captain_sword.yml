@@ -14,11 +14,11 @@
   name: captain-swordset-category-rapier-name
   description: captain-swordset-category-rapier-description
   sprite: 
-    sprite: Objects/Weapons/Melee/captain_sabre.rsi
+    sprite: _Impstation/Objects/Weapons/Melee/captain_rapier.rsi
     state: icon
   content:
   - CaptainRapier
-  - ClothingBeltSheath
+  - ClothingBeltRapierSheath
 
 - type: captainSwordMenuSet
   id: CaptainSwordFoam

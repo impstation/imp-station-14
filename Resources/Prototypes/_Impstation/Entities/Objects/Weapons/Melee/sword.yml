@@ -88,7 +88,7 @@
   description: A ceremonial weapon belonging to the captain of the station. Built for thrusting attacks, it has almost no sharp edge.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Melee/captain_sabre.rsi
+    sprite: _Impstation/Objects/Weapons/Melee/captain_rapier.rsi
   - type: MeleeWeapon
     attackRate: 1.15
     damage:
@@ -101,7 +101,7 @@
     reflectProb: .1
     spread: 90
   - type: Item
-    sprite: Objects/Weapons/Melee/captain_sabre.rsi
+    sprite: _Impstation/Objects/Weapons/Melee/captain_rapier.rsi
   - type: Tag
     tags:
     - CaptainSabre
