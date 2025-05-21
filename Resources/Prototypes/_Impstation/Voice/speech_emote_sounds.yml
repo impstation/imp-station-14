@@ -722,7 +722,7 @@
     Scream:
       path: /Audio/_Impstation/Kodepiia/kodeexclaim.ogg # you can imitate the supermatter when you grow up
     Laugh:
-      collection: KodepiiaLaugh
+      collection: AnomLaugh
     Sneeze:
       collection: KodepiiaSneezes
     Cough:
@@ -864,3 +864,48 @@
       path: /Audio/_EE/Supermatter/charge.ogg
     DefaultDeathgasp:
       path: /Audio/_EE/Supermatter/status/ohfuck.ogg
+
+
+- type: emoteSounds
+  id: Anomalocarid
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      path: /Audio/_Impstation/Voice/Anomalocarid/anom_scream.ogg
+    Laugh:
+      path: /Audio/_Impstation/Voice/Anomalocarid/anom_laugh.ogg
+    Sneeze:
+      collection: UnisexSneezes
+    Cough:
+      collection: UnisexCoughs
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: UnisexYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: CluwneHorn
+    Sigh:
+      collection: UnisexSigh
+    Crying:
+      collection: UnisexCry
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Wuhey:
+      collection: Wuhey
+    Ungh:
+      collection: Ungh
+    Gasp:
+      collection: UnisexGasp
+    DefaultDeathgasp:
+      collection: UnisexDeathGasp

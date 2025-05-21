@@ -340,7 +340,7 @@
   name: weird shrimp
   parent: [ SimpleMobBase, FlyingMobBase, MobCombat ]
   id: MobWeirdShrimp
-  description: You don't think this is edible. #It is though.
+  description: You don't think this is edible.
   components:
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.5
@@ -358,8 +358,14 @@
       state: weirdshrimp
   - type: Speech
     speechSounds: Squeak
-    speechVerb: SmallMob
+    speechVerb: BabyAnom
     allowedEmotes: ['Squeak']
+  - type: Vocal
+    sounds:
+      Male: Anomalocarid
+      Female: Anomalocarid
+      Unsexed: Anomalocarid
+    wilhelmProbability: 0 #Enough.
   - type: Fixtures #do somthing
     fixtures:
       fix1:
@@ -376,19 +382,19 @@
       Alive:
         Base: weirdshrimp
       Critical:
-        Base: weirdshrimp
+        Base: weirdshrimp-dead
       Dead:
         Base: weirdshrimp-dead
   - type: Butcherable
     spawned:
-    - id: FoodMeat #replace with anomalocarid meat
+    - id: FoodMeatFish #replace with anomalocarid meat
       amount: 1
   - type: Absorbable # imp edit - a good meal
     biomassRestored: 0.2
   - type: InteractionPopup
     successChance: 0.2
-    interactSuccessString: petting-success-crab #todo: custom these
-    interactFailureString: petting-failure-monkey
+    interactSuccessString: petting-success-babyanom
+    interactFailureString: petting-success-babyanom
     interactSuccessSpawn: EffectHearts
     interactSuccessSound:
       path: /Audio/Animals/fox_squeak.ogg
@@ -396,7 +402,7 @@
     flavorKind: station-event-random-sentience-flavor-organic
   - type: Bloodstream
     bloodMaxVolume: 50
-    bloodReagent: EnergyDrink #replace with anomalocarid blood
+    bloodReagent: AnomalocaridCopperBlood
   - type: ReplacementAccent
     accent: babyanom
   - type: MeleeWeapon

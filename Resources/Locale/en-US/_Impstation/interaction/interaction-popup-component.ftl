@@ -33,3 +33,8 @@ petting-failure-apid = You try to pet {$target}, but your fingers are shocked by
 
 petting-success-anomalite = You pet {THE($target)} on their anomalous little head.
 petting-failure-anomalite = You try to pet {THE($target)}, but your fingers are zapped by its energy field!
+
+## Baby Anomalocarids
+
+petting-success-babyanom = You pet {THE($target)} on its smooth wet head.
+petting-failure-babyanom = You try to pet {THE($target)}, but it nips at your fingers!
