@@ -1,4 +1,3 @@
-using System.Text.RegularExpressions;
 using Content.Server.Speech.Components;
 
 namespace Content.Server.Speech.EntitySystems;

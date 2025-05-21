@@ -292,9 +292,6 @@ accent-pg-words-replace-97 = lose it
 accent-pg-words-98 = losing their shit
 accent-pg-words-replace-98 = losing it
 
-accent-pg-words-98 = lost their shit
-accent-pg-words-replace-98 = lost it
-
 accent-pg-words-99 = lose her shit
 accent-pg-words-replace-99 = lose it
 
@@ -404,7 +401,7 @@ accent-pg-words-135 = went to shit
 accent-pg-words-replace-135 = went bad
 
 accent-pg-words-136 = to shit
-accent-pg-words-replace-1 = to crap
+accent-pg-words-replace-136 = to crap
 
 accent-pg-words-137 = shitting
 accent-pg-words-replace-137 = crapping
@@ -509,7 +506,7 @@ accent-pg-words-170 = piss them off
 accent-pg-words-replace-170 = get them riled up
 
 accent-pg-words-171 = pissing them off
-accent-pg-words-replace-1 = getting them riled up
+accent-pg-words-replace-171 = getting them riled up
 
 accent-pg-words-172 = pissed them off
 accent-pg-words-replace-172 = got them riled up
@@ -850,5 +847,8 @@ accent-pg-words-replace-283 = was normal
 accent-pg-words-284 = sexual
 accent-pg-words-replace-284 = inappro-pro
 
-accent-pg-words-25 = fucking our pussies
+accent-pg-words-285 = fucking our pussies
 accent-pg-words-replace-285 = overriding our mainframe
+
+accent-pg-words-286 = lost their shit
+accent-pg-words-replace-286 = lost it
