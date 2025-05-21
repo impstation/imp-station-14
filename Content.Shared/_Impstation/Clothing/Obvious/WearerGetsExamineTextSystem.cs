@@ -27,12 +27,10 @@ public sealed class WearerGetsExamineTextSystem : EntitySystem
     {
         if (!TryComp(entity, out ClothingComponent? clothing))
             return;
-
-
-        if (!entity.Comp.PocketEvident) //if it's not evident in our pockets
+        var isCorrectSlot = (clothing.Slots & args.SlotFlags) != Inventory.SlotFlags.NONE;
+        if (!entity.Comp.PocketEvident) //if it can't be evident in our pockets
         {
             // Make sure the clothing item was equipped to the right slot, and not just held in a hand.
-            var isCorrectSlot = (clothing.Slots & args.SlotFlags) != Inventory.SlotFlags.NONE;
             if (!isCorrectSlot)
                 return;
         }
@@ -42,7 +40,9 @@ public sealed class WearerGetsExamineTextSystem : EntitySystem
 
         //GIVE THEM INSPECT TEXT
         var obviousExamine = EnsureComp<ExtraExamineTextComponent>(args.Equipee);
-        obviousExamine.Lines.TryAdd(entity.Comp.ExamineOnWearer, entity.Comp.PrefixExamineOnWearer); //using try so that we don't cause an error if we move something from slot to slot
+        obviousExamine.Lines.Remove(entity.Comp.ExamineOnWearer); // if prefix needs to be updated
+        obviousExamine.Lines.TryAdd(entity.Comp.ExamineOnWearer,  //using try so that we don't cause an error if we move something from slot to slot
+            isCorrectSlot ? entity.Comp.PrefixExamineOnWearer : "obvious-prefix-have"); // uses a different prefix if worn / displayed
     }
 
     private void OnUnequipped(Entity<WearerGetsExamineTextComponent> entity, ref GotUnequippedEvent args)
@@ -92,7 +92,8 @@ public sealed class WearerGetsExamineTextSystem : EntitySystem
         if (entity.Comp.WarnExamine)
         {
             var affecting = currentlyWorn ? entity.Comp.Wearer.GetValueOrDefault() : args.Examiner;
-            var prefix = Loc.GetString(entity.Comp.PrefixExamineOnWearer,
+
+            var prefix = Loc.GetString(entity.Comp.PocketEvident ? "obvious-prefix-have" : entity.Comp.PrefixExamineOnWearer, // this is hacky but it's less noticeable than having no check here
                 ("user", Identity.Entity(affecting, EntityManager)),
                 ("name", Identity.Name(affecting, EntityManager)));
             var examine = Loc.GetString(entity.Comp.ExamineOnWearer,

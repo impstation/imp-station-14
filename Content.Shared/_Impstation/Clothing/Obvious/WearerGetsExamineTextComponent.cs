@@ -39,7 +39,7 @@ public sealed partial class WearerGetsExamineTextComponent : Component
     /// <summary>
     /// If true, an entity with this item in any slot (i.e. in pockets) will gain the examine text,
     /// instead of when just equipped as clothing.
-    /// Should be used sparingly; this is a half-measure for lack of a special pin slot.
+    /// Should be used sparingly only when truly appropriate; this is effectively a half-measure for lack of a special pin slot.
     /// </summary>
     [DataField]
     public bool PocketEvident;
