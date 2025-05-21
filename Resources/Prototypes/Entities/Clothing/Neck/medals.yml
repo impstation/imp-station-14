@@ -19,6 +19,11 @@
   - type: Tag
     tags:
       - Medal
+  - type: WearerGetsExamineText # imp
+    thing: medal
+    examineText: obvious-medal-nothing
+    pocketEvident: true
+
 
 - type: entity
   parent: ClothingNeckBronzeheart

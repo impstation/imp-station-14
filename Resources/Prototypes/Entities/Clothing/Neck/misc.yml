@@ -92,6 +92,9 @@
     sprite: _Impstation/Clothing/Neck/Misc/lawyerbadge.rsi #imp
   - type: TypingIndicatorClothing
     proto: lawyer
+  - type: WearerGetsExamineText # imp
+    thing: badge
+    examineText: obvious-badge-law
 
 - type: entity
   parent: ClothingNeckBase

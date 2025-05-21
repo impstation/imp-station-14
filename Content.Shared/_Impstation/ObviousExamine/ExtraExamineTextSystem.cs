@@ -9,7 +9,7 @@ namespace Content.Shared._Impstation.Obvious;
 /// Like, that's it. It's basic -- all it does is add the line to the attached entity.
 /// This is particularly used for assigning players unique examine text.
 /// </summary>
-public sealed class ObviousExamineSystem : EntitySystem
+public sealed class ExtraExamineTextSystem : EntitySystem
 {
 
     [Dependency] private readonly IEntityManager _entManager = default!;
@@ -17,17 +17,20 @@ public sealed class ObviousExamineSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ObviousExamineComponent, ExaminedEvent>(OnExamine);
+        SubscribeLocalEvent<ExtraExamineTextComponent, ExaminedEvent>(OnExamine);
     }
 
-    private void OnExamine(Entity<ObviousExamineComponent> entity, ref ExaminedEvent args)
+    private void OnExamine(Entity<ExtraExamineTextComponent> entity, ref ExaminedEvent args)
     {
         if (entity.Comp.Lines.Count != 0)
         {
-            var prefix = Loc.GetString("obvious-wearing", ("user", Identity.Entity(entity, EntityManager)), ("name", Identity.Name(entity, EntityManager))) + " ";
+            var prefix = "";
             foreach (var l in entity.Comp.Lines)
             {
-                args.PushMarkup(prefix + Loc.GetString(l));
+                if (l.Value != "") // if a prefix is defined
+                    prefix = Loc.GetString(l.Value, ("user", Identity.Entity(entity, EntityManager)), ("name", Identity.Name(entity, EntityManager))) + " ";
+                args.PushMarkup(prefix + Loc.GetString(l.Key, ("user", Identity.Entity(entity, EntityManager)), ("name", Identity.Name(entity, EntityManager))));
+                prefix = "";
             }
         }
     }

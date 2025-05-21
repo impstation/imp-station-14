@@ -6,6 +6,10 @@
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Neck/Cloaks/straight.rsi
+  - type: WearerGetsExamineText
+    thing: cloak
+    examineText: obvious-cloak-straight
+    warnExamine: false
 
 - type: entity
   parent: [ClothingNeckCloakStraight, BaseToggleClothing]
@@ -123,7 +127,7 @@
   - type: Sprite
     sprite: _Impstation/Clothing/Neck/Cloaks/juggernautcloak.rsi
 
-    
+
 - type: entity
   parent: [ClothingNeckBase, BaseSyndicateContraband]
   id: ClothingNeckCloakFugitiveCloak
@@ -137,6 +141,11 @@
   - type: HideLayerClothing
     slots:
     - Tail
+  - type: WearerGetsExamineText # imp
+    thing: cloak
+    examineText: obvious-cloak-straight
+    warnExamine: false
+
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckCloakCaptainAdmiral

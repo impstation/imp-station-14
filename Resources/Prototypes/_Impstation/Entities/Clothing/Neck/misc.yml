@@ -10,6 +10,9 @@
     sprite: _Impstation/Clothing/Neck/Misc/defenseattorneybadge.rsi
   - type: TypingIndicatorClothing
     proto: lawyerblue
+  - type: WearerGetsExamineText
+    thing: badge
+    examineText: obvious-badge-law-defense
 
 # Senior lawyer armbands
 - type: entity

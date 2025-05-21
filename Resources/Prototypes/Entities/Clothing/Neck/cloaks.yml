@@ -143,6 +143,10 @@
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/trans.rsi
+  - type: WearerGetsExamineText # imp
+    thing: cloak
+    examineText: obvious-cloak-trans
+    warnExamine: false
 
 - type: entity
   parent: ClothingNeckBase
@@ -216,6 +220,10 @@
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/ace.rsi
+  - type: WearerGetsExamineText # imp
+    thing: cloak
+    examineText: obvious-cloak-asex
+    warnExamine: false
 
 - type: entity
   parent: ClothingNeckBase
@@ -225,6 +233,10 @@
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/aro.rsi
+  - type: WearerGetsExamineText # imp
+    thing: cloak
+    examineText: obvious-cloak-aro
+    warnExamine: false
 
 - type: entity
   parent: ClothingNeckBase
@@ -234,6 +246,10 @@
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/aroace.rsi
+  - type: WearerGetsExamineText # imp
+    thing: cloak
+    examineText: obvious-cloak-aroace
+    warnExamine: false
 
 - type: entity
   parent: ClothingNeckBase
@@ -243,6 +259,10 @@
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/bi.rsi
+  - type: WearerGetsExamineText # imp
+    thing: cloak
+    examineText: obvious-cloak-bi
+    warnExamine: false
 
 - type: entity
   parent: ClothingNeckBase
@@ -252,6 +272,10 @@
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/intersex.rsi
+  - type: WearerGetsExamineText # imp
+    thing: cloak
+    examineText: obvious-cloak-intersex
+    warnExamine: false
 
 - type: entity
   parent: ClothingNeckBase
@@ -261,6 +285,10 @@
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/les.rsi
+  - type: WearerGetsExamineText # imp
+    thing: cloak
+    examineText: obvious-cloak-lesbian
+    warnExamine: false
 
 - type: entity
   parent: ClothingNeckBase
@@ -270,6 +298,10 @@
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/gay.rsi
+  - type: WearerGetsExamineText # imp
+    thing: cloak
+    examineText: obvious-cloak-gay
+    warnExamine: false
 
 - type: entity
   parent: ClothingNeckBase
@@ -279,6 +311,10 @@
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/enby.rsi
+  - type: WearerGetsExamineText # imp
+    thing: cloak
+    examineText: obvious-cloak-nonbiney
+    warnExamine: false
 
 - type: entity
   parent: ClothingNeckBase
@@ -288,6 +324,10 @@
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/pan.rsi
+  - type: WearerGetsExamineText # imp
+    thing: cloak
+    examineText: obvious-cloak-pan
+    warnExamine: false
 
 - type: entity
   parent: ClothingNeckBase
@@ -297,4 +337,8 @@
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/bear.rsi
+  - type: WearerGetsExamineText # imp
+    thing: cloak
+    examineText: obvious-cloak-bear
+    warnExamine: false
 
