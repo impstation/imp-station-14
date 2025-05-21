@@ -223,8 +223,8 @@
     - WhitelistChameleon
     - Mask
   - type: HideLayerClothing #imp
-    layers: #imp
-      Snout: Mask #imp
+    slots: 
+    - Snout
 
 
 - type: entity
@@ -233,34 +233,34 @@
   components:
   - type: Appearance #imp
   - type: Sprite #imp
-    sprite: _Impstation/Clothing/Mask/clown.rsi #imp
-    layers: #imp
-    - state: icon #imp
-      map: [ "unfoldedLayer" ] #imp
-    - state: icon-wigless #imp
-      map: ["foldedLayer"] #imp
-      visible: false #imp
+    sprite: _Impstation/Clothing/Mask/clown.rsi 
+    layers:
+    - state: icon 
+      map: [ "unfoldedLayer" ] 
+    - state: icon-wigless 
+      map: ["foldedLayer"] 
+      visible: false 
   - type: Foldable #imp
-    canFoldInsideContainer: true #imp
-    unfoldVerbText: untuck-verb-clothing-mask #imp
-    foldVerbText: tuck-verb-clothing-mask #imp
+    canFoldInsideContainer: true 
+    unfoldVerbText: untuck-verb-clothing-mask 
+    foldVerbText: tuck-verb-clothing-mask 
   - type: FoldableClothing #imp
-    foldedEquippedPrefix: wigless #imp
-    foldedHeldPrefix: wigless #imp
-    foldedHideLayers: #imp
-    - Snout #imp
-    unfoldedHideLayers: #imp
-    - Snout #imp
+    foldedEquippedPrefix: wigless 
+    foldedHeldPrefix: wigless 
+    foldedHideLayers:
+    - Snout 
+    unfoldedHideLayers: 
+    - Snout 
   - type: Clothing #imp
-    sprite: _Impstation/Clothing/Mask/clown.rsi  #imp
+    sprite: _Impstation/Clothing/Mask/clown.rsi  
   - type: Tag
     tags:
     - ClownMask
     - HamsterWearable
     - WhitelistChameleon
   #- type: HideLayerClothing #imp
-  #  slots: #imp
-  #  - Snout #imp
+  #  slots:
+  #  - Snout 
 
 
 - type: entity
