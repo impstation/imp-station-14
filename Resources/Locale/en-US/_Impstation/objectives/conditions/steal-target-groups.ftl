@@ -24,6 +24,7 @@ steal-target-groups-finfin = Fin Fin
 steal-target-groups-finfinmeat = Fin Fin's Fin-flesh
 steal-target-groups-animal-poly = Poly, the Chief Engineer's parrot
 steal-target-groups-suppy = Suppy, Engineering's pet suppermatter chunk
+steal-target-groups-animal-oswald = Oswald, the Hospitality Director's penguin
 
 # Thief Structure
 
@@ -40,6 +41,7 @@ steal-target-groups-secdrobe = SecDrobe
 steal-target-groups-bardrobe = BarDrobe
 steal-target-groups-pietyvend = PietyVend
 steal-target-groups-cargodrobe = CargoDrobe
+steal-target-groups-salvdrobe = SalvDrobe
 steal-target-groups-medidrobe = MediDrobe
 steal-target-groups-chemdrobe = ChemDrobe
 steal-target-groups-curadrobe = CuraDrobe

@@ -141,6 +141,7 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
   - type: Body
+    thermalVisibility: false # EE edit
   - type: StatusEffects
     allowed:
     - Stun
@@ -155,6 +156,7 @@
   - type: Vocal
     sounds:
       Unsexed: UnisexSilicon
+  - type: DamagedSiliconAccent
   - type: UnblockableSpeech
   - type: FootstepModifier
     footstepSoundCollection:
@@ -283,7 +285,7 @@
   components:
   - type: RandomMetadata
     nameSegments:
-      - names_borg
+    - NamesBorg
   - type: NpcFactionMember
     factions:
     - NanoTrasen
@@ -291,6 +293,8 @@
     enabled: false
     groups:
     - AllAccess
+    tags:
+    - Borg
   - type: AccessReader
     access: [["Command"], ["Research"]]
   - type: ShowJobIcons

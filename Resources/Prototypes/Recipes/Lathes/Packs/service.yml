@@ -1,6 +1,7 @@
 ## Static
 
 - type: latheRecipePack
+  parent: ImpServiceStatic # imp
   id: ServiceStatic
   recipes:
   - Bucket
@@ -19,6 +20,7 @@
   - FoodPlateMuffinTin
   - FoodKebabSkewer
   - SprayBottle
+  - LightReplacer
   - MopItem
   - Holoprojector
   - WetFloorSign

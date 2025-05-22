@@ -15,13 +15,16 @@ using Content.Shared.Examine;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Inventory;
+using Content.Shared.Mech.EntitySystems; //imp
 using Content.Shared.Mobs;
+using Content.Shared.Mech.Components; //imp
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Tools.Systems;
+using Content.Shared.Turrets;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
@@ -50,12 +53,14 @@ public sealed class NPCUtilitySystem : EntitySystem
     [Dependency] private readonly OpenableSystem _openable = default!;
     [Dependency] private readonly PuddleSystem _puddle = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedMechSystem _mechSystem = default!; //imp
     [Dependency] private readonly SharedSolutionContainerSystem _solutions = default!;
     [Dependency] private readonly WeldableSystem _weldable = default!;
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly MobThresholdSystem _thresholdSystem = default!;
     [Dependency] private readonly SharedCuffableSystem _cuffableSystem = default!;
+    [Dependency] private readonly TurretTargetSettingsSystem _turretTargetSettings = default!;
 
     private EntityQuery<PuddleComponent> _puddleQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -239,6 +244,13 @@ public sealed class NPCUtilitySystem : EntitySystem
                             return 0.0f;
                         }
                     }
+                    if (TryComp<MechComponent>(container.Owner, out var mechComponent)) //imp
+                    {
+                        if (_mechSystem.IsEmpty(mechComponent))
+                        {
+                            return 1.0f;
+                        }
+                    }
                     else
                     {
                         // If we're in a container (e.g. held or whatever) then we probably can't get it. Only exception
@@ -369,6 +381,14 @@ public sealed class NPCUtilitySystem : EntitySystem
                 {
                     if (TryComp(targetUid, out FlammableComponent? fire) && fire.OnFire)
                         return 1f;
+                    return 0f;
+                }
+            case TurretTargetingCon:
+                {
+                    if (!TryComp<TurretTargetSettingsComponent>(owner, out var turretTargetSettings) ||
+                        _turretTargetSettings.EntityIsTargetForTurret((owner, turretTargetSettings), targetUid))
+                        return 1f;
+
                     return 0f;
                 }
             default:

@@ -30,6 +30,11 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Thaven
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#ff624a"
   - type: MeleeWeapon
     attackRate: 0.55
     soundHit:
@@ -59,7 +64,7 @@
         layer:
         - MobLayer
   - type: TypingIndicator
-    proto: guardian
+    proto: thaven # DeltaV unique typing indicator
   - type: Vocal
     sounds:
       Male: MaleThaven
@@ -72,7 +77,11 @@
     hideLayersOnEquip:
     - Hair
     - Snout
+    - Tail
+  - type: Bloodstream
+    bloodReagent: ShimmeringBlood
   - type: Inventory
+    speciesId: thaven
     templateId: thaven
     displacements:
       jumpsuit:
@@ -85,26 +94,6 @@
           32:
             sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
             state: head
-      eyes:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
-            state: eyes
-      ears:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
-            state: head
-      mask:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
-            state: mask
-      neck:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
-            state: neck
       outerClothing:
         sizeMaps:
           32:
@@ -137,26 +126,6 @@
           32:
             sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
             state: head
-      eyes:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
-            state: eyes
-      ears:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
-            state: head
-      mask:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
-            state: mask
-      neck:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
-            state: neck
       outerClothing:
         sizeMaps:
           32:

@@ -1,8 +1,8 @@
 - type: entity
-  parent: [ BaseItem, TierXContraband ]
+  parent: [ BaseItem ]
   id: CodexCicatrix
   name: codex cicatrix
-  description: An ominous book you've never seen before. The letters seem to be contantly rearranging themselves.
+  description: An ominous book you've never seen before. The letters seem to be constantly rearranging themselves.
   components:
   - type: Sprite
     sprite: _Goobstation/Heretic/book.rsi
@@ -24,14 +24,21 @@
     enabled: false
     radius: 2
     energy: 1
-    color: "#6e7500"
+    color: "#6e7500"    
     netsync: false
   - type: Appearance
   - type: ItemToggle
     predictable: false
+  - type: ItemToggleUserRestrict
+    restrictMessage: heretic-book-open-failure
+    closeRestrict: false
+    components:
+    - type: Heretic
   - type: ComponentToggler
     components:
     - type: HereticMagicItem
+    - type: Contraband
+      severity: TierXContraband
   - type: ItemTogglePointLight
   - type: ToggleableLightVisuals
   - type: ItemToggleSize
@@ -62,3 +69,35 @@
           Quantity: 60
         - ReagentId: TranexamicAcid
           Quantity: 15
+
+- type: entity
+  id: AlwaysPoweredHellLight
+  parent: MarkerBase
+  name: hellworldlight
+  description: "An always powered light."
+  suffix: Always powered
+  components:
+  - type: PointLight
+    color: "#FF7777" # 5000K color temp
+    energy: 0.8
+    radius: 10
+    softness: 1
+    offset: "0, -0.5"
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Structures/Wallmounts/Lighting/light_tube.rsi
+        state: base
+
+- type: entity
+  id: HellSpawnPointMarker
+  parent: MarkerBase
+  name: hellworldtarget
+  description: "You go here if you do drugs."
+  components:
+  - type: HellSpawnPoint
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Mobs/Species/Human/parts.rsi
+        state: full

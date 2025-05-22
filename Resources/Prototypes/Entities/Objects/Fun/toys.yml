@@ -11,6 +11,7 @@
     tags:
       - Payload
       - ClothMade
+      - Plushie #imp
   - type: EmitSoundOnUse
     sound:
       collection: ToySqueak
@@ -364,7 +365,9 @@
     speechVerb: Reptilian # for pais (In the secret stash)
   - type: Tag
     tags:
-      - PlushieLizard
+    - ClothMade
+    - Payload
+    - PlushieLizard
 
 - type: entity
   parent: PlushieLizard
@@ -795,6 +798,8 @@
   components:
   - type: Sprite
     state: plushie_snake
+  - type: Item
+    heldPrefix: plushiesnake
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Items/Toys/rattle.ogg
@@ -818,6 +823,13 @@
     wideAnimationRotation: 180
     soundHit:
       path: /Audio/Items/Toys/rattle.ogg
+  - type: Clothing
+    quickEquip: false
+    equippedPrefix: plushiesnake
+    slots:
+    - NECK
+  - type: Speech
+    speechVerb: Reptilian # for pais (In the secret stash)
 
 - type: entity
   parent: BasePlushie
@@ -1682,6 +1694,7 @@
     delay: 0.8
   - type: Slippery
     paralyzeTime: 0
+    launchForwardsMultiplier: 0 #imp edit (was default value before)
     slipSound:
       collection: Parp
       params:

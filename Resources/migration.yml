@@ -176,8 +176,8 @@ FoodBoxDonkpocketGondola: FoodBoxDonkpocketPizza
 # 2024-01-31
 SpyCrewMonitor: null
 SpyCrewMonitorEmpty: null
-SyndiCrewMonitor: null
-SyndiCrewMonitorEmpty: null
+# SyndiCrewMonitor: null # imp
+# SyndiCrewMonitorEmpty: null # imp
 
 SpawnVehicleWheelchair: null
 SpawnVehicleWheelchairFolded: null
@@ -220,7 +220,7 @@ FoodDonutJellyBlumpkin: FoodDonutJellyBluePumpkin
 SolarAssemblyPart: SolarAssemblyFlatpack
 AmePart: AmePartFlatpack
 AmePartStealObjective: AmePartFlatpackStealObjective
-Observationskit: null
+# Observationskit: null # imp
 
 # 2024-02-26
 CrateBaseWeldable: CrateGenericSteel
@@ -554,6 +554,26 @@ MagazineBoxCaselessRifle10x24: null
 MagazineBoxCaselessRifleBig: null
 MagazinePistolHighCapacityRubber: null
 
+# 2025-03-18
+EpinephrineChemistryBottle: ChemistryBottleEpinephrine
+RobustHarvestChemistryBottle: ChemistryBottleRobustHarvest
+EZNutrientChemistryBottle: ChemistryBottleEZNutrient
+Left4ZedChemistryBottle: ChemistryBottleLeft4Zed
+UnstableMutagenChemistryBottle: ChemistryBottleUnstableMutagen
+PotassiumChemistryBottle: ChemistryBottlePotassium
+NocturineChemistryBottle: ChemistryBottleNocturine
+NitrogenChemistryBottle: ChemistryBottleNitrogen
+EphedrineChemistryBottle: ChemistryBottleEphedrine
+PhosphorusChemistryBottle: ChemistryBottlePhosphorus
+OmnizineChemistryBottle: ChemistryBottleOmnizine
+HydrogenChemistryBottle: ChemistryBottleHydrogen
+CognizineChemistryBottle: ChemistryBottleCognizine
+EthanolChemistryBottle: ChemistryBottleEthanol
+PaxChemistryBottle: ChemistryBottlePax
+MuteToxinChemistryBottle: ChemistryBottleMuteToxin
+LeadChemistryBottle: ChemistryBottleLead
+ToxinChemistryBottle: ChemistryBottleToxin
+
 # IMPSTATION SPECIFIC MIGRATIONS BELOW
 # ====================================
 
@@ -582,3 +602,11 @@ ClothingHeadHelmetTemplar: null
 # impstation: Replace Walter spawns with the Walter/Dolby spawner
 SpawnMobWalter: SpawnMobChemDog
 
+# 2025-03-13
+# impstation: make the courier hardsuit non-roundstart
+SuitStorageCourier: null
+LockerCourierFilledHardsuit: LockerCourierFilled
+
+# 2025-03-25
+# impstation: swap mail systems
+MailTeleporter: CargoMailTeleporter

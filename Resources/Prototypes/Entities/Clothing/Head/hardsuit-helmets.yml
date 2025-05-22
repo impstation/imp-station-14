@@ -279,9 +279,9 @@
   description: A modified riot helmet. Oddly comfortable.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/security-warden.rsi
+    sprite: _Impstation/Clothing/Head/Hardsuits/security-warden.rsi #Imp
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/security-warden.rsi
+    sprite: _Impstation/Clothing/Head/Hardsuits/security-warden.rsi #imp
   - type: PointLight
     color: "#ffeead"
   - type: PressureProtection
@@ -857,6 +857,10 @@
         Heat: 0.80
         Radiation: 0.80
         Caustic: 0.95
+  - type: ThermalVision # EE edit
+    isEquipment: true
+    color: "#98EEFB"
+    lightRadius: 15
 
 #MISC. HARDSUITS
 #Clown Hardsuit

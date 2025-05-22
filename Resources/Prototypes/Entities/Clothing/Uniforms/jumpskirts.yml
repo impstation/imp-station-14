@@ -261,9 +261,14 @@
   description: ...
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/mime.rsi
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/mime.rsi #imp
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/mime.rsi
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/mime.rsi #imp
+  - type: Butcherable #imp
+    butcheringType: Knife
+    spawned:
+    - id: ClothingUniformJumpskirtMimeCropped
+      amount: 1
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -291,7 +296,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpskirtPrisoner
   name: prisoner jumpskirt
-  description: Busted.
+  description: A jumpskirt used for prisoners. It has suit sensors automatically enabled at all times.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/color.rsi

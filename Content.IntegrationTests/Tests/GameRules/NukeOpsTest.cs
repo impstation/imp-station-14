@@ -33,6 +33,7 @@ public sealed class NukeOpsTest
     /// Check that a nuke ops game mode can start without issue. I.e., that the nuke station and such all get loaded.
     /// </summary>
     [Test]
+    [Ignore("Broken due to engine issue relating to RemCompDeferred. Note: This test will only fail occasionally.")]
     public async Task TryStopNukeOpsFromConstantlyFailing()
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings
@@ -155,7 +156,7 @@ public sealed class NukeOpsTest
         // The game rule exists, and all the stations/shuttles/maps are properly initialized
         var rule = entMan.AllComponents<NukeopsRuleComponent>().Single();
         var ruleComp = rule.Component;
-        var gridsRule = entMan.AllComponents<RuleGridsComponent>().Single().Component;
+        var gridsRule = entMan.GetComponent<RuleGridsComponent>(rule.Uid);
         foreach (var grid in gridsRule.MapGrids)
         {
             Assert.That(entMan.EntityExists(grid));

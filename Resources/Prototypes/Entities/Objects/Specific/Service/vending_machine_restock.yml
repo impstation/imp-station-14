@@ -125,6 +125,7 @@
     - AtmosDrobeInventory
     - BarDrobeInventory
     - CargoDrobeInventory
+    - SalvDrobeInventory #imp
     - ChefDrobeInventory
     - ChemDrobeInventory
     - DetDrobeInventory
@@ -342,6 +343,7 @@
     - SpaceUpInventory
     - SodaInventory
     - DrGibbInventory
+    - SmiteInventory 
   - type: Sprite
     layers:
     - state: base
