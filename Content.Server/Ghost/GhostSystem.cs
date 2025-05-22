@@ -8,10 +8,8 @@ using Content.Server.Ghost.Components;
 using Content.Server.Mind;
 using Content.Server.Roles.Jobs;
 using Content.Server.Warps;
-using Content.Server.Xenoarchaeology.XenoArtifacts;
 using Content.Shared._Impstation.Ghost;
 using Content.Shared.Actions;
-using Content.Shared.Anomaly.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
@@ -308,7 +306,7 @@ namespace Content.Server.Ghost
                 return;
             }
 
-            var response = new GhostWarpsResponseEvent(GetPlayerWarps(entity).Concat(GetLocationWarps()).Concat(GetMiscWarps()).ToList()); # imp - added .Concat(GetMiscWarps()) so that the new misc warps function is used.
+            var response = new GhostWarpsResponseEvent(GetPlayerWarps(entity).Concat(GetLocationWarps()).Concat(GetMiscWarps()).ToList()); // imp - added .Concat(GetMiscWarps()) so that the new misc warps function is used.
             RaiseNetworkEvent(response, args.SenderSession.Channel);
         }
 
@@ -408,20 +406,14 @@ namespace Content.Server.Ghost
                 }
             }
         }
-        // imp - alt queries for ghost roles can go in here
+        // imp - get all warp locations with the misc warp component.
         private IEnumerable<GhostWarp> GetMiscWarps()
         {
-            var artifactQuery = AllEntityQuery<ArtifactComponent>();
-            while (artifactQuery.MoveNext(out var uid, out var art))
+            var artifactQuery = AllEntityQuery<MiscGhostWarpComponent>();
+            while (artifactQuery.MoveNext(out var uid, out var warp))
             {
                 TryName(uid, out var name);
-                yield return new GhostWarp(GetNetEntity(uid), $"{name ?? "unknown"} ({uid.ToString()})", false);
-            }
-            var anomalyQuery = AllEntityQuery<AnomalyComponent>();
-            while (anomalyQuery.MoveNext(out var uid, out var anom))
-            {
-                TryName(uid, out var name);
-                yield return new GhostWarp(GetNetEntity(uid), $"{name ?? "unknown"} ({uid.ToString()})", false);
+                yield return new GhostWarp(GetNetEntity(uid), $"{warp.DisplayName ?? name} ({uid.ToString()})", false);
             }
         }
         #endregion
