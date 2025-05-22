@@ -58,7 +58,8 @@
     damage:
       types:
         Radiation: 10
-  - type: MiscGhostWarp # imp addition
+  - type: WarpPoint # imp addition
+    differentiate: true
 
 - type: entity
   id: AnomalyPyroclastic

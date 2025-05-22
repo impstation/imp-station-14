@@ -306,7 +306,7 @@ namespace Content.Server.Ghost
                 return;
             }
 
-            var response = new GhostWarpsResponseEvent(GetPlayerWarps(entity).Concat(GetLocationWarps()).Concat(GetMiscWarps()).ToList()); // imp - added .Concat(GetMiscWarps()) so that the new misc warps function is used.
+            var response = new GhostWarpsResponseEvent(GetPlayerWarps(entity).Concat(GetLocationWarps()).ToList()); // imp - added .Concat(GetMiscWarps()) so that the new misc warps function is used.
             RaiseNetworkEvent(response, args.SenderSession.Channel);
         }
 
@@ -368,7 +368,15 @@ namespace Content.Server.Ghost
 
             while (allQuery.MoveNext(out var uid, out var warp))
             {
-                yield return new GhostWarp(GetNetEntity(uid), warp.Location ?? Name(uid), true);
+                if (warp.Differentiate) //if statment is an addition, origal code is what is in else statement
+                {
+                    TryName(uid, out var name);
+                    yield return new GhostWarp(GetNetEntity(uid), $"{warp.Location ?? name} ({uid.ToString()})", true);
+                }
+                else
+                {
+                    yield return new GhostWarp(GetNetEntity(uid), warp.Location ?? Name(uid), true);
+                }
             }
         }
 
@@ -406,16 +414,7 @@ namespace Content.Server.Ghost
                 }
             }
         }
-        // imp - get all warp locations with the misc warp component.
-        private IEnumerable<GhostWarp> GetMiscWarps()
-        {
-            var artifactQuery = AllEntityQuery<MiscGhostWarpComponent>();
-            while (artifactQuery.MoveNext(out var uid, out var warp))
-            {
-                TryName(uid, out var name);
-                yield return new GhostWarp(GetNetEntity(uid), $"{warp.DisplayName ?? name} ({uid.ToString()})", false);
-            }
-        }
+
         #endregion
 
         private void OnEntityStorageInsertAttempt(EntityUid uid, GhostComponent comp, ref InsertIntoEntityStorageAttemptEvent args)
