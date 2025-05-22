@@ -143,6 +143,27 @@
         refresh: false
 
 - type: reagent
+  id: Nano-binarase
+  name: reagent-name-nano-binarase
+  group: Medicine
+  desc: reagent-desc-nano-binarase
+  physicalDesc: reagent-physical-desc-hormonal
+  flavor: neutral
+  color: "#fcf434"
+  boilingPoint: 1321.0
+  meltingPoint: 424.1
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.02
+      effects:
+      - !type:GenericStatusEffect
+        key: Androgynized
+        component: Androgynized
+        type: Add
+        time: 2
+        refresh: false
+
+- type: reagent
   id: Holium
   # group: Special # The recipe is complicated enough that I think we shouldnt hide the recipe honestly
   name: reagent-name-holium

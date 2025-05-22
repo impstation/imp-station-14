@@ -25,6 +25,10 @@ trait-estradiol-sensitive-desc = Your body is capable of taking on Nanotrasen's 
 trait-testosterone-sensitive-name = Testosterone sensitive
 trait-testosterone-sensitive-desc = Your body is capable of taking on Nanotrasen's special masculinization medicines.
 
+# imp, for nonbinary hrt
+trait-nano-binarase-sensitive-name = Nano-binarase sensitive
+trait-nano-binarase-sensitive-desc = Your body is capable of taking on Nanotrasen's special androgynization medicines.
+
 # impstation edit - removing mentions of unimplemented species
 
 trait-ultravision-name = Ultraviolet vision

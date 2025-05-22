@@ -15,3 +15,12 @@
   components:
     - type: HormoneSensitive
       target: Male
+
+- type: trait # imp
+  id: Nano-Binarase-Sensitive
+  name: trait-nano-binarase-sensitive-name
+  description: trait-nano-binarase-sensitive-desc
+  category: Quirks
+  components:
+    - type: HormoneSensitive
+      target: Unsexed

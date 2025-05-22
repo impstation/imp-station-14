@@ -10,7 +10,7 @@
       amount: 2
   products:
     Estradiol: 5
-    
+
 - type: reaction
   id: Testosterone
   impact: Medium
@@ -23,7 +23,20 @@
       amount: 2
   products:
     Testosterone: 5
-    
+
+- type: reaction
+  id: Nano-binarase
+  impact: Medium
+  reactants:
+    Hydroxide:
+      amount: 2
+    Potassium:
+      amount: 1
+    Vitamin:
+      amount: 2
+  products:
+    Nano-binarase: 5
+
 - type: reaction
   id: PhilosophersJuice
   impact: Medium
@@ -41,7 +54,7 @@
       amount: 100
   products:
     PhilosophersJuice: 1
-    
+
 - type: reaction
   id: Holium
   impact: High
@@ -62,7 +75,7 @@
       catalyst: true
   products:
     Holium: 1
-    
+
 - type: reaction
   id: Medium
   impact: Medium #lol
