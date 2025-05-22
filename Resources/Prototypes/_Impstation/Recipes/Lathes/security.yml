@@ -295,6 +295,7 @@
     Cloth: 100
     Plastic: 100
 
+- type: latheRecipe
   parent: BaseWeaponRecipe
   id: WeaponRifleTranq
   result: WeaponRifleTranq
@@ -304,7 +305,7 @@
     Plastic: 500
 
 - type: latheRecipe
-  parent: BaseWeaponRecipe
+  parent: BaseAmmoRecipe
   id: IrwizineDart
   result: IrwizineDart
   materials:
@@ -313,7 +314,7 @@
     Plasma: 300
 
 - type: latheRecipe
-  parent: BaseWeaponRecipe
+  parent: BaseAmmoRecipe
   id: TranqDart
   result: TranqDart
   materials:

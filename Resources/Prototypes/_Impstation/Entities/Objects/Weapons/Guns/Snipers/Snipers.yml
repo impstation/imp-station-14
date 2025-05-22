@@ -2,7 +2,7 @@
   name: Muldoon
   parent: [BaseWeaponSniper, BaseGunWieldable,BaseSecurityBartenderContraband]
   id: WeaponRifleTranq
-  description: A tranquilizer rifle designed to administer drugs to dangerous animals. Only takes pre-loaded darts.
+  description: A tranquilizer rifle designed to administer drugs to dangerous animals. Only takes pre-loaded darts. Not to be used on human targets.
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Snipers/tranqrifle.rsi
