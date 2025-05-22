@@ -65,7 +65,7 @@
         ents: [ ]
       revolver-ammo: !type:Container # needed for the EffectBigIron artifactEffect
   - type: MiscGhostWarp
-    displayName: alien artifact
+    displayName: alien artifact # imp addition
 
 - type: entity
   parent: BaseXenoArtifact
