@@ -308,7 +308,7 @@ namespace Content.Server.Ghost
                 return;
             }
 
-            var response = new GhostWarpsResponseEvent(GetPlayerWarps(entity).Concat(GetLocationWarps()).Concat(GetMiscWarps()).ToList());
+            var response = new GhostWarpsResponseEvent(GetPlayerWarps(entity).Concat(GetLocationWarps()).Concat(GetMiscWarps()).ToList()); # imp - added .Concat(GetMiscWarps()) so that the new misc warps function is used.
             RaiseNetworkEvent(response, args.SenderSession.Channel);
         }
 
