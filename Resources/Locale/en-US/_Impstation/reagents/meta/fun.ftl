@@ -18,3 +18,6 @@ reagent-desc-medium = An alchemical medium to the afterlife.
 
 reagent-name-mouse-bites = mouse bites
 reagent-desc-mouse-bites = The patient needs mouse bites to live
+
+reagent-name-irwizine = irwizine
+reagent-desc-irwizine = A chemical that harmlessly pacifies hostile beasts with 15u of accumulation. Useful for zookeepers looking to put together an exhibit.

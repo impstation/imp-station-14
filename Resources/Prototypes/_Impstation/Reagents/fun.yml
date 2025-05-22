@@ -181,3 +181,19 @@
       # its just a weaker tranex with no od
       - !type:ModifyBleedAmount
         amount: -0.5
+
+- type: reagent
+  id: Irwizine
+  name: reagent-name-irwizine
+  desc: reagent-desc-irwizine
+  physicalDesc: reagent-physical-desc-irwizine
+  flavor: irwizine
+  color: "#fff174"
+  recognizable: true
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:Pacify
+          conditions:
+          - !type:ReagentThreshold
+            min: 15

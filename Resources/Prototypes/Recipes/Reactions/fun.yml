@@ -272,3 +272,101 @@
     maxTotalIntensity: 250
     tileBreakScale: 0.00001
 
+- type: reaction
+  id: Irwizine
+  impact: Medium
+  reactants:
+    CarpoToxin:
+      amount: 1
+    Pax:
+      amount: 1
+  products:
+    Irwizine: 2
+    
+- type: reaction
+  id: Irwater # No Foamnades for you losers!
+  impact: Medium
+  reactants:
+    Irwizine:
+      amount: 1
+    Water:
+      amount: 1
+  products:
+    TableSalt: 1
+
+- type: reaction
+  id: Irosurfactant # See Above
+  impact: Medium
+  reactants:
+    Irwizine:
+      amount: 1
+    Fluorosurfactant:
+      amount: 1
+  products:
+    TableSalt: 1
+
+- type: reaction
+  id: Irpotassium # See Above
+  impact: Medium
+  reactants:
+    Irwizine:
+      amount: 1
+    Potassium:
+      amount: 1
+  products:
+    TableSalt: 1
+
+- type: reaction
+  id: Irsugar # See Above
+  impact: Medium
+  reactants:
+    Irwizine:
+      amount: 1
+    Sugar:
+      amount: 1
+  products:
+    TableSalt: 1
+
+- type: reaction
+  id: Irphorus # See Above
+  impact: Medium
+  reactants:
+    Irwizine:
+      amount: 1
+    Phosphorus:
+      amount: 1
+  products:
+    TableSalt: 1
+
+- type: reaction
+  id: Iragent # See Above
+  impact: Medium
+  reactants:
+    Irwizine:
+      amount: 1
+    FoamingAgent:
+      amount: 1
+  products:
+    TableSalt: 1
+
+- type: reaction
+  id: Iruminium # See Above
+  impact: Medium
+  reactants:
+    Irwizine:
+      amount: 1
+    Aluminium:
+      amount: 1
+  products:
+    TableSalt: 1
+
+- type: reaction
+  id: Irwon # See Above
+  impact: Medium
+  reactants:
+    Irwizine:
+      amount: 1
+    Iron:
+      amount: 1
+  products:
+    TableSalt: 1
