@@ -28,9 +28,6 @@ public sealed partial class AristocratSystem : EntitySystem
     [Dependency] private readonly TemperatureSystem _temp = default!;
     [Dependency] private readonly TileSystem _tile = default!;
 
-    private string _snowWallPrototype = "WallIce";
-    private string _iceTilePrototype = "FloorAstroIce";
-
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -74,9 +71,9 @@ public sealed partial class AristocratSystem : EntitySystem
 
                 // replace walls with snow ones
                 if (_rand.Prob(.45f) && tags.Contains("Wall")
-                && Prototype(look) != null && Prototype(look)!.ID != _snowWallPrototype)
+                && Prototype(look) != null && Prototype(look)!.ID != ent.Comp.SnowWallPrototype)
                 {
-                    Spawn(_snowWallPrototype, Transform(look).Coordinates);
+                    Spawn(ent.Comp.SnowWallPrototype, Transform(look).Coordinates);
                     QueueDel(look);
                 }
             }
@@ -85,7 +82,7 @@ public sealed partial class AristocratSystem : EntitySystem
 
     //apparently void ascension is supposed to replace tiles?
     //it doesn't
-    //i guess they didn't test this
+    //i guess they didn't test this -kandi
     private void SpawnTiles(Entity<AristocratComponent> ent)
     {
         var xform = Transform(ent);
@@ -113,7 +110,7 @@ public sealed partial class AristocratSystem : EntitySystem
 
         foreach (var tileref in tiles)
         {
-            var tile = _prot.Index<ContentTileDefinition>(_iceTilePrototype);
+            var tile = _prot.Index<ContentTileDefinition>(ent.Comp.IceTilePrototype);
             _tile.ReplaceTile(tileref, tile);
         }
 

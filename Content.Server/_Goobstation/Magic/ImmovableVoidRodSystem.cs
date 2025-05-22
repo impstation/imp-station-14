@@ -15,9 +15,6 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly TileSystem _tile = default!;
 
-    private string _snowWallPrototype = "WallIce";
-    private string _iceTilePrototype = "FloorAstroIce";
-
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -38,7 +35,7 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
                 continue;
 
             var tileref = grid.GetTileRef(trans.Coordinates);
-            var tile = _prot.Index<ContentTileDefinition>(_iceTilePrototype);
+            var tile = _prot.Index<ContentTileDefinition>(rod.IceTilePrototype);
             _tile.ReplaceTile(tileref, tile);
         }
     }
@@ -60,9 +57,9 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
         TryComp<TagComponent>(args.OtherEntity, out var tag);
         var tags = tag?.Tags ?? new();
 
-        if (tags.Contains("Wall") && Prototype(args.OtherEntity) != null && Prototype(args.OtherEntity)!.ID != _snowWallPrototype)
+        if (tags.Contains("Wall") && Prototype(args.OtherEntity) != null && Prototype(args.OtherEntity)!.ID != ent.Comp.SnowWallPrototype)
         {
-            Spawn(_snowWallPrototype, Transform(args.OtherEntity).Coordinates);
+            Spawn(ent.Comp.SnowWallPrototype, Transform(args.OtherEntity).Coordinates);
             QueueDel(args.OtherEntity);
         }
     }
