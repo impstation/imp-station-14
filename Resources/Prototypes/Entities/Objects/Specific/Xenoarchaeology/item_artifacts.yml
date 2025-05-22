@@ -65,8 +65,8 @@
   - type: GuideHelp
     guides:
     - Xenoarchaeology
-  - type: MiscGhostWarp
-    displayName: alien artifact # imp addition
+  - type: MiscGhostWarp # imp addition
+    displayName: alien artifact 
     
 - type: entity
   parent: BaseXenoArtifactItem
