@@ -765,6 +765,8 @@
         Blunt: 0
   - type: EmbeddableProjectile
     sound: /Audio/Weapons/star_hit.ogg
+  - type: ThrowingAngle 
+    angle: 225
   - type: PacifismAllowedGun
 
 - type: entity
