@@ -221,42 +221,6 @@
           tags:
           - HolyArrow
 
-# Leaving this in as a monument to how insane this implementation is.
-#- type: entity
-#  name: aureate quiver
-#  parent: [ AmmoProviderShotgunShell, BaseMinorContraband ]
-#  id: NullRodArrowQuiver
-#  description: A divine quiver, bristling with sparks of light.
-#  components:
-#    - type: Sprite
-#      sprite: _Impstation/Objects/Misc/nullrod_quiver.rsi
-#      layers:
-#      - state: quiver
-#      - state: quiver_unshaded
-#        shader: unshaded
-#      - state: mag-0 # This is an empty sprite to get the mag visuals to shut up
-#        map: [ "enum.GunVisualLayers.Mag" ]
-#    - type: Item
-#      size: Large
-#      shape:
-#      - 0,0,2,2
-#      sprite: _Impstation/Objects/Misc/nullrod_quiver.rsi
-#    - type: Clothing
-#      quickEquip: false
-#      sprite: _Impstation/Objects/Misc/nullrod_quiver.rsi
-#      slots:
-#      - Back
-#      - suitStorage
-#    - type: BallisticAmmoProvider
-#      proto: HolyArrow
-#      mayTransfer: true
-#      capacity: 7
-#      whitelist:
-#        tags:
-#        - HolyArrow
-#    - type: MagazineVisuals
-#      steps: 1 # Sprite is fake, I couldn't be bothered. Sorry :(
-
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltQuiverNullrod
