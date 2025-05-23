@@ -1191,6 +1191,24 @@
     state: drillruru
 
 - type: marking
+  id: ThavenHairDyedLong
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Thaven ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/hair.rsi
+    state: dyedlong1
+
+- type: marking
+  id: ThavenHairDyedShort
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Thaven ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/hair.rsi
+    state: dyedshort1
+
+- type: marking
   id: ThavenHairEmo2
   bodyPart: Hair
   markingCategory: Hair
@@ -2280,42 +2298,6 @@
     state: twostrands
 
 - type: marking
-  id: ThavenHairTwotoneLong
-  bodyPart: Hair
-  markingCategory: FacialHair
-  speciesRestriction: [ Thaven ]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Thaven/hair.rsi
-    state: twotonelong1
-
-- type: marking
-  id: ThavenHairTwotoneLongHighlights
-  bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [ Thaven ]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Thaven/hair.rsi
-    state: twotonelong2
-
-- type: marking
-  id: ThavenHairTwotoneShort
-  bodyPart: Hair
-  markingCategory: FacialHair
-  speciesRestriction: [ Thaven ]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Thaven/hair.rsi
-    state: twotoneshort1
-
-- type: marking
-  id: ThavenHairTwotoneShortHighlights
-  bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [ Thaven ]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Thaven/hair.rsi
-    state: twotoneshort2
-
-- type: marking
   id: ThavenHairUndercut
   bodyPart: Hair
   markingCategory: Hair
@@ -2594,33 +2576,6 @@
     state: piercings2
 
 # Tail
-
-- type: marking
-  id: ThavenTailAngler
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Thaven ]
-  followSkinColor: true
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Thaven/tail.rsi
-    state: angler1
-  - sprite: _Impstation/Mobs/Customization/Thaven/tail.rsi
-    state: angler2
-
-- type: marking
-  id: ThavenTailAnglerOverlay
-  bodyPart: Tail
-  markingCategory: Overlay
-  speciesRestriction: [ Thaven ]
-  coloring:
-    default:
-      type:
-        !type:EyeColoring
-        negative: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Thaven/tail.rsi
-    state: angler3
-  shader: unshaded
 
 - type: marking
   id: ThavenBasicTail

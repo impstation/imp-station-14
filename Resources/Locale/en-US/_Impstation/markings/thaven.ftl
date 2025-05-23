@@ -323,6 +323,10 @@ marking-ThavenHairDrillhairextended = Drill Hair (Extended)
 
 marking-ThavenHairDrillruru = Drillruru
 
+marking-ThavenHairDyedLong = Dyed Long
+
+marking-ThavenHairDyedShort = Dyed Short
+
 marking-ThavenHairE = Short Hair 5
 
 marking-ThavenHairEmo = Emo
@@ -585,12 +589,6 @@ marking-ThavenHairTwintail = Twintails
 
 marking-ThavenHairTwoStrands = Two Strands
 
-marking-ThavenHairTwotoneLong = Dyed Long
-marking-ThavenHairTwotoneLongHighlights = Dyed Long Highlights (See Facial Hair)
-
-marking-ThavenHairTwotoneShort = Dyed Short
-marking-ThavenHairTwotoneShortHighlights = Dyed Short Highlights (See Facial Hair)
-
 marking-ThavenHairUndercut = Undercut
 
 marking-ThavenHairUndercutCurly = Undercut (Curly)
@@ -668,13 +666,6 @@ marking-ThavenPiercings2-piercings2 = Hoop Piercing
 
 # Tail
 
-marking-ThavenTailAngler = Angler Tail (Underlay)
-marking-ThavenTailAngler-angler1 = Tail
-marking-ThavenTailAngler-angler2 = Stripe
-
-marking-ThavenTailAnglerOverlay = Angler Tail (Overlay)
-marking-ThavenTailAnglerOverlay-angler3 = Angler Tail (Overlay)
-
 marking-ThavenBasicTail = Basic Tail
 marking-ThavenBasicTail-basic = Basic Tail
 
@@ -687,19 +678,19 @@ marking-ThavenTadpoleTail-tadpole1 = Tail
 marking-ThavenTadpoleTail-tadpole2 = Fin
 
 marking-ThavenTailEel = Eel Tail (Underlay)
-marking-ThavenTailEel-taileel1 = Tail
-marking-ThavenTailEel-taileel2 = Fin
+marking-ThavenTailEel-eel1 = Tail
+marking-ThavenTailEel-eel2 = Fin
 
 marking-ThavenTailEelOverlay = Eel Tail (Overlay)
-marking-ThavenTailEelOverlay-taileel3 = Eel Tail (Overlay)
+marking-ThavenTailEelOverlay-eel3 = Eel Tail (Overlay)
 
 marking-ThavenTailNurse = Swept Tail
-marking-ThavenTailNurse-tailnurse1 = Tail
-marking-ThavenTailNurse-tailnurse2 = Stripes
+marking-ThavenTailNurse-nurse1 = Tail
+marking-ThavenTailNurse-nurse2 = Stripes
 
 marking-ThavenTailStub = Stub Tail
-marking-ThavenTailStub-tailstub1 = Tail
-marking-ThavenTailStub-tailstub2 = Stripes
+marking-ThavenTailStub-stub1 = Tail
+marking-ThavenTailStub-stub2 = Stripes
 
 marking-ThavenTailThresher = Thresher Tail
 marking-ThavenTailThresher-thresher1 = Tail
