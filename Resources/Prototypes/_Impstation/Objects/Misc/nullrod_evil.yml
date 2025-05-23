@@ -46,21 +46,6 @@
     - Shake
 
 - type: entity
-  id: ClothingBeltQuiverNullrodFilled
-  parent: ClothingBeltQuiverNullrod
-  suffix: Filled
-  components:
-  - type: StorageFill
-    contents:
-      - id: HolyArrow
-      - id: HolyArrow
-      - id: HolyArrow
-      - id: HolyArrow
-      - id: HolyArrow
-      - id: HolyArrow
-      - id: HolyArrow
-
-- type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltQuiverNullrodEvil
   name: aureate quiverEVIL
