@@ -19,4 +19,7 @@ public sealed partial class CrematoriumComponent : Component
 
     [DataField("cremateFinishSound")]
     public SoundSpecifier CremateFinishSound = new SoundPathSpecifier("/Audio/Machines/ding.ogg");
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool Powered; // imp
 }
