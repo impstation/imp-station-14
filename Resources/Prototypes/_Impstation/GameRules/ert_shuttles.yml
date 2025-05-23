@@ -1,0 +1,9 @@
+- type: entity
+  id: ERTCBURNMediumShuttle
+  parent: BaseUnknownShuttleRule
+  components:
+  - type: StationEvent
+    startAnnouncement: true
+    weight: 0 #  Admin only.
+  - type: LoadMapRule
+    preloadedGrid: ERTCBURNMedium
