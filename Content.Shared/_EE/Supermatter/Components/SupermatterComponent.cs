@@ -31,7 +31,10 @@ public sealed partial class SupermatterComponent : Component
     public Color LightColorNormal = Color.FromHex("#ffe000");
 
     [DataField]
-    public Color LightColorDelam = Color.FromHex("#ffe000");
+    public Color LightColorDelam = Color.FromHex("#ff5555");
+
+    [DataField]
+    public float HallucinationRange = 6f;
 
     #endregion
 
@@ -69,6 +72,12 @@ public sealed partial class SupermatterComponent : Component
 
     [DataField]
     public EntProtoId CollisionResultPrototype = "Ash";
+
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public EntProtoId DelamEffectsPrototype = "SupermatterDelamEffects";
+
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public EntProtoId DelamGamerulePrototype = "SupermatterDelamEventScheduler";
 
     #endregion
 
@@ -115,6 +124,12 @@ public sealed partial class SupermatterComponent : Component
 
     [DataField]
     public ProtoId<SpeechSoundsPrototype>? StatusCurrentSound;
+
+    [DataField]
+    public SoundSpecifier GainParacusiaSound = new SoundPathSpecifier("/Audio/Ambience/ambidanger.ogg");
+
+    [DataField]
+    public SoundSpecifier GiveParacusiaSound = new SoundPathSpecifier("/Audio/Ambience/ambireebe3.ogg");
 
     #endregion
 
@@ -275,6 +290,12 @@ public sealed partial class SupermatterComponent : Component
     #endregion
 
     #region Damage
+
+    /// <summary>
+    /// The chance for lights across the station to flicker on a delamination
+    /// </summary>
+    [DataField]
+    public float LightFlickerChance = 0.33f;
 
     /// <summary>
     /// The amount of damage taken

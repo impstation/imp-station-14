@@ -1607,14 +1607,54 @@
   - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
     state: tichelsimple
 
+- type: marking
+  id: HumanHairShaggy
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: shaggy
+
+- type: marking
+  id: HumanHairShaggyLonger
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: shaggylonger
+
+- type: marking
+  id: HumanHairShaggyMessy
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: shaggymessy
+
+- type: marking
+  id: HumanHairSusie
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: susie
+
+- type: marking
+  id: HumanHairSusieNoBangs
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: susienobangs
+
 # HeadSide
 
 # HeadTop
 
 - type: marking
   id: HeadEarrings
-  bodyPart: HeadTop
-  markingCategory: HeadTop
+  bodyPart: HeadSide
+  markingCategory: HeadSide
   speciesRestriction: [ Human, Dwarf, SlimePerson ]
   coloring:
     default:
@@ -1629,8 +1669,8 @@
 
 - type: marking
   id: HeadEarringsDrop
-  bodyPart: HeadTop
-  markingCategory: HeadTop
+  bodyPart: HeadSide
+  markingCategory: HeadSide
   speciesRestriction: [ Human, Dwarf, SlimePerson ]
   coloring:
     default:
@@ -1645,8 +1685,8 @@
 
 - type: marking
   id: HeadEarringsWeights
-  bodyPart: HeadTop
-  markingCategory: HeadTop
+  bodyPart: HeadSide
+  markingCategory: HeadSide
   speciesRestriction: [ Human, Dwarf, SlimePerson ]
   coloring:
     default:
