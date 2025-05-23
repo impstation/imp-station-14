@@ -37,7 +37,7 @@
       - HolyArrow
       - Trash
   - type: Ammo
-    muzzleFlash: null
+    muzzleFlash: MuzzleFlashEffectGoldLaser
   - type: PointLight
     radius: 1.15
     color: gold
@@ -56,3 +56,10 @@
       types:
         Piercing: 31
         Holy: 20
+
+- type: entity
+  id: HolyArrowEvil
+  description: Impermanent and luminescent.
+  name: aureate arrow
+  parent: BaseItem
+  components:

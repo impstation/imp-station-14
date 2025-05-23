@@ -44,3 +44,45 @@
     reactionTypes:
     - GildgrailEvil
     - Shake
+
+- type: entity
+  id: ClothingBeltQuiverNullrodFilled
+  parent: ClothingBeltQuiverNullrod
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: HolyArrow
+      - id: HolyArrow
+      - id: HolyArrow
+      - id: HolyArrow
+      - id: HolyArrow
+      - id: HolyArrow
+      - id: HolyArrow
+
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltQuiverNullrodEvil
+  name: aureate quiverEVIL
+  description: A PROFANE quiver, bristling with sparks of light. # change this
+  components:
+   - type: Sprite
+     sprite: _Impstation/Objects/Misc/nullrod_quiver.rsi
+     layers:
+     - state: quiver
+     - map: [ "enum.StorageContainerVisualLayers.Fill" ]
+       visible: false
+   - type: Clothing
+   - type: Storage
+     grid:
+     - 0,0,6,3
+     maxItemSize: Small
+     whitelist:
+      tags:
+      - HolyArrow
+      - HolyArrowEvil
+   - type: Appearance
+   - type: StorageContainerVisuals
+     maxFillLevels: 3
+     fillBaseName: fill-
+
