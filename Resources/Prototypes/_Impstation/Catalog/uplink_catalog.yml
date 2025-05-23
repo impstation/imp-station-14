@@ -153,3 +153,16 @@
     Telecrystal: 2
   categories:
   - UplinkAmmo
+
+- type: listing
+  id: UplinkPoisonAuto-Injector
+  name: uplink-poison-injector-name
+  description: uplink-poison-injector-desc
+  productEntity: PoisonAutoInjector
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 6
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkChemicals

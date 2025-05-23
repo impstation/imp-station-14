@@ -1,0 +1,45 @@
+- type: entity
+  name: lethal poison auto-injector
+  parent: [ChemicalMedipen, Tier3Contraband]
+  id: PoisonAutoInjector
+  description: A single dose of a lethal toxin mix, designed to incapacitate and eliminate a subject within the span of a minute or two.
+  components:
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-needle-inhand-left
+      - state: base-colorA-inhand-left
+        color: "#232226"
+      - state: base-colorB-inhand-left
+        color: "#3e3d3f"
+      right:
+      - state: base-needle-inhand-right
+      - state: base-colorA-inhand-right
+        color: "#232226"
+      - state: base-colorB-inhand-right
+        color: "#3e3d3f"
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: poisonpen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: poisonpen_empty
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 25
+    onlyAffectsMobs: false
+    injectOnly: true
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 25
+        reagents:
+        - ReagentId: Bungotoxin
+          Quantity: 22
+        - ReagentId: Toxin
+          Quantity: 3
+  - type: Tag
+    tags: []
