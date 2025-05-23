@@ -1,0 +1,13 @@
+﻿- type: stack
+  id: ShroomsDried
+  name: dried shrooms
+  icon: { sprite: /Textures/Objects/Misc/reagent_fillings.rsi, state: powderpile }
+  spawn: ShroomsDried
+  maxCount: 5
+
+- type: stack
+  id: GroundTobaccoShrooms
+  name: fungal whiff tobacco
+  icon: { sprite: /Textures/Objects/Misc/reagent_fillings.rsi, state: powderpile }
+  spawn: GroundTobaccoShrooms
+  maxCount: 5

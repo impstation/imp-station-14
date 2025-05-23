@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   name: pear
   parent: FoodProduceBase
   id: FoodPear
@@ -363,29 +363,3 @@
   - type: Construction
     graph: Everyspice
     node: FoodEveryspiceRoasted
-
-- type: entity
-  name: monkanana
-  parent: FoodProduceBase
-  id: FoodMonkanana
-  description: Looks like a monkeyfied banana.
-  components:
-  - type: FlavorProfile
-    flavors:
-    - hairy
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 25
-        reagents:
-        - ReagentId: Ook
-          Quantity: 10
-  - type: Sprite
-    sprite: _NF/Objects/Specific/Hydroponics/monkanana.rsi
-  - type: Produce
-    seedId: monkanana
-  - type: Extractable
-    grindableSolutionName: food
-  - type: Tag
-    tags:
-    - Fruit

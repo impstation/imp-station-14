@@ -1,81 +1,90 @@
+using System.Linq;
+using Content.Client.Chemistry.EntitySystems;
+using Content.Server.Medical.Components;
+using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
 using Content.Shared.Kitchen;
+using Robust.Server.Player;
+using Robust.Shared.Enums;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
+using Robust.Shared.Utility;
 
-namespace Content.Client.Chemistry.EntitySystems;
+namespace Content.Server._NF.Medical.EntitySystems;
 
-// A clone of the FoodGuideDataSystem. Thank you to Mnemotechnician for the original implementation.
-// Redundancy.
-public abstract class SharedMedicalGuideDataSystem : EntitySystem
+public sealed class MedicalRecipeDataSystem : SharedMedicalGuideDataSystem
 {
-    public List<MedicalGuideEntry> Registry = new();
-}
+    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    [Dependency] private readonly IComponentFactory _componentFactory = default!;
 
-[Serializable, NetSerializable]
-public sealed class MedicalGuideRegistryChangedEvent : EntityEventArgs
-{
-    [DataField]
-    public List<MedicalGuideEntry> Changeset;
+    private Dictionary<string, List<MedicalRecipeData>> _sources = new();
 
-    public MedicalGuideRegistryChangedEvent(List<MedicalGuideEntry> changeset)
+    public override void Initialize()
     {
-        Changeset = changeset;
+        SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
+        _player.PlayerStatusChanged += OnPlayerStatusChanged;
+
+        ReloadRecipes();
     }
-}
 
-[DataDefinition, Serializable, NetSerializable]
-public partial struct MedicalGuideEntry
-{
-    [DataField]
-    public EntProtoId Result;
-
-    [DataField]
-    public string Identifier; // Used for sorting
-
-    [DataField]
-    public MedicalRecipeData[] Recipes;
-
-    [DataField]
-    public ReagentQuantity[] Composition;
-
-    [DataField]
-    public DamageSpecifier? Healing;
-
-    public MedicalGuideEntry(EntProtoId result, string identifier, MedicalRecipeData[] recipes, ReagentQuantity[] composition, DamageSpecifier? healing)
+    private void OnPrototypesReloaded(PrototypesReloadedEventArgs args)
     {
-        Result = result;
-        Identifier = identifier;
-        Recipes = recipes;
-        Composition = composition;
-        Healing = healing;
+        if (!args.WasModified<EntityPrototype>()
+            && !args.WasModified<FoodRecipePrototype>()
+        )
+            return;
+
+        ReloadRecipes();
     }
-}
 
-[Serializable, NetSerializable]
-public sealed partial class MedicalRecipeData
-{
-    [DataField]
-    public ProtoId<FoodRecipePrototype> Recipe;
-
-    [DataField]
-    public EntProtoId Result;
-
-    [DataField]
-    private int _outputCount;
-    public int OutputCount => _outputCount;
-
-    /// <summary>
-    ///     A string used to distinguish different sources. Typically the name of the related entity.
-    /// </summary>
-    public string Identitier;
-
-    public MedicalRecipeData(FoodRecipePrototype proto)
+    public void ReloadRecipes()
     {
-        Identitier = proto.Name;
-        Recipe = proto.ID;
-        Result = proto.Result;
-        _outputCount = proto.ResultCount;
+        _sources.Clear();
+
+        // Recipes
+        foreach (var recipe in _protoMan.EnumeratePrototypes<FoodRecipePrototype>())
+        {
+            if (recipe.HideInGuidebook)
+                continue;
+
+            MicrowaveRecipeType recipeType = (MicrowaveRecipeType)recipe.RecipeType;
+            if (recipeType.HasFlag(MicrowaveRecipeType.MedicalAssembler))
+            {
+                _sources.GetOrNew(recipe.Result).Add(new MedicalRecipeData(recipe));
+            }
+        }
+
+        Registry.Clear();
+
+        foreach (var (result, sources) in _sources)
+        {
+            var proto = _protoMan.Index<EntityPrototype>(result);
+            ReagentQuantity[] reagents = [];
+            // Hack: assume there is only one solution in the result
+            if (proto.TryGetComponent<SolutionContainerManagerComponent>(out var manager, _componentFactory))
+                reagents = manager?.Solutions?.FirstOrNull()?.Value?.Contents?.ToArray() ?? [];
+
+            DamageSpecifier? damage = null;
+            if (proto.TryGetComponent<HealingComponent>(out var healing, _componentFactory))
+                damage = healing.Damage;
+
+            // Limit the number of sources to 10 - shouldn't be an issue for medical recipes, but just in case.
+            var distinctSources = sources.DistinctBy(it => it.Identitier).Take(10);
+
+            var entry = new MedicalGuideEntry(result, proto.Name, distinctSources.ToArray(), reagents, damage);
+            Registry.Add(entry);
+        }
+
+        RaiseNetworkEvent(new MedicalGuideRegistryChangedEvent(Registry));
+    }
+
+    private void OnPlayerStatusChanged(object? sender, SessionStatusEventArgs args)
+    {
+        if (args.NewStatus != SessionStatus.Connected)
+            return;
+
+        RaiseNetworkEvent(new MedicalGuideRegistryChangedEvent(Registry), args.Session);
     }
 }
