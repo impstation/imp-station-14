@@ -537,6 +537,29 @@
       path: /Audio/_Impstation/Animals/Gorilla_Gasp.ogg
     DefaultDeathgasp:
       path: /Audio/_Impstation/Animals/Gorilla_Scream.ogg
+    BeatingChest:
+      collection: ChestBeat
+
+- type: emoteSounds
+  id: GorillaBody
+  sounds:
+    Clap:
+      collection: Claps
+    ClapSingle:
+      collection: ClapSingle
+    Snap:
+      collection: Snaps
+      params:
+        volume: -3
+    Salute:
+      collection: Salutes
+    Crack:
+      collection: Cracks
+    Blink:
+      collection: Blinks
+      params:
+        volume: -3
+        variation: 0.1
 
 - type: emoteSounds
   id: Bros

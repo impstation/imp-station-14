@@ -86,9 +86,12 @@
     layers:
       - state: green
       - state: ai
-  - type: ConditionalSpawner
+  - type: RandomSpawner # imp edit - this was originally a conditional spawner with just morticia.
     prototypes:
       - MobRaccoonMorticia
+    rarePrototypes:  
+      - MobCargorillaStationPet
+    rareChance: 0.01
 
 - type: entity
   name: Fox Renault Spawner
