@@ -261,3 +261,17 @@
   - type: Clothing
     sprite: Clothing/Head/Hats/holyhatmelon.rsi
   - type: Armor
+
+  -type: entity
+  name: detective's deerstalker
+  id: deerstalker
+  description: Heavily modified to stalk clues instead.
+  components:
+  -type: Sprite
+  sprite: _Impstation/Clothing/Hats/deerstalker.rsi
+  -type: Clothing
+  sprite: _Impstation/Clothing/Hats/deerstalker.rsi
+  -type: Tag
+  tags:
+  - ClothMade
+  - WhitelistChameleon
