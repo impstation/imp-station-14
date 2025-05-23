@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "stub/nurse/eel made by Sha-Seng (github), rest by crocodilecarousel (github)",
+    "copyright": "basic/big/tadpole by crocodilecarousel (github), stub/nurse/eel made by Sha-Seng (github), angler/thresher by Faeling",
     "size": {
         "x": 32,
         "y": 32
@@ -88,6 +88,108 @@
         {
             "name": "tadpole2",
             "directions": 4
+        },
+        {
+            "name": "thresher1",
+            "directions": 4
+        },
+        {
+            "name": "thresher2",
+            "directions": 4
+        },
+        {
+            "name": "angler1",
+            "directions": 4
+        },
+        {
+            "name": "angler2",
+            "directions": 4
+        },
+        {
+            "name": "angler3",
+            "directions": 4,
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
         }
     ]
 }

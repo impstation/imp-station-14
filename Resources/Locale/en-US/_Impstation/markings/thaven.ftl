@@ -585,6 +585,12 @@ marking-ThavenHairTwintail = Twintails
 
 marking-ThavenHairTwoStrands = Two Strands
 
+marking-ThavenHairTwotoneLong = Dyed Long
+marking-ThavenHairTwotoneLongHighlights = Dyed Long Highlights (See Facial Hair)
+
+marking-ThavenHairTwotoneShort = Dyed Short
+marking-ThavenHairTwotoneShortHighlights = Dyed Short Highlights (See Facial Hair)
+
 marking-ThavenHairUndercut = Undercut
 
 marking-ThavenHairUndercutCurly = Undercut (Curly)
@@ -639,6 +645,9 @@ marking-ThavenEarsBigFins = Big Fins
 marking-ThavenEarsBigFins-bigfins = Outer
 marking-ThavenEarsBigFins-bigfins2 = Inner
 
+marking-ThavenEarsTwinFins = Twin Fins
+marking-ThavenEarsTwinFins-twinfin = Twin Fins
+
 marking-ThavenFishEars = Finned Ears
 marking-ThavenFishEars-fishears = Finned Ears
 
@@ -647,6 +656,10 @@ marking-ThavenNoEars-noears = For use with head coverings
 
 # HeadTop
 
+marking-ThavenHibiscus = Hibiscus
+marking-ThavenHibiscus-hibiscus1 = Petals
+marking-ThavenHibiscus-hibiscus2 = Anthers
+
 marking-ThavenPiercings =  Helix Piercing
 marking-ThavenPiercings-piercings = Helix Piercing
 
@@ -654,6 +667,13 @@ marking-ThavenPiercings2 = Hoop Piercing
 marking-ThavenPiercings2-piercings2 = Hoop Piercing
 
 # Tail
+
+marking-ThavenTailAngler = Angler Tail (Underlay)
+marking-ThavenTailAngler-angler1 = Tail
+marking-ThavenTailAngler-angler2 = Stripe
+
+marking-ThavenTailAnglerOverlay = Angler Tail (Overlay)
+marking-ThavenTailAnglerOverlay-angler3 = Angler Tail (Overlay)
 
 marking-ThavenBasicTail = Basic Tail
 marking-ThavenBasicTail-basic = Basic Tail
@@ -680,5 +700,9 @@ marking-ThavenTailNurse-tailnurse2 = Stripes
 marking-ThavenTailStub = Stub Tail
 marking-ThavenTailStub-tailstub1 = Tail
 marking-ThavenTailStub-tailstub2 = Stripes
+
+marking-ThavenTailThresher = Thresher Tail
+marking-ThavenTailThresher-thresher1 = Tail
+marking-ThavenTailThresher-thresher2 = Stripes
 
 # RArmExtension
