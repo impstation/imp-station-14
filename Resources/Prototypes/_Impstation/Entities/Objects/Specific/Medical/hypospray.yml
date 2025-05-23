@@ -1,7 +1,7 @@
 - type: entity
   name: lethal poison auto-injector
   parent: [BaseItem, Tier3Contraband]
-  description: A single dose of a lethal toxin mix, designed to incapacitate and eliminate a subject within the span of a minute or two. Chest tightness and throat irritation are common post-injection.
+  description: A single dose of a lethal toxin mix, induces gradual organ failure and esophagus inflammation which eliminates a subject within one to two minutes of injection. Small print on it says "Non-Recyclable. Please return to Gorlex Customer Satisfaction for reuse and rebate."
   id: PoisonAutoInjector
   components:
   - type: Sprite
@@ -31,11 +31,13 @@
         maxVol: 30
         reagents:
         - ReagentId: Bungotoxin
-          Quantity: 21.6
+          Quantity: 19.8
         - ReagentId: Toxin
           Quantity: 3
         - ReagentId: Blackpepper
-          Quantity: 5.4
+          Quantity: 5.2
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 2
   - type: ExaminableSolution
     solution: pen
   - type: Hypospray
