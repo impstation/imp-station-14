@@ -405,3 +405,24 @@
   - type: Clothing
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/jesterevil.rsi
     
+- type: entity
+  parent: [ClothingUniformBase]
+  id: ClothingUniformSailorSuit
+  name: sailor suit
+  description: Wrong kind of ship!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/sailoruniform.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/sailoruniform.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, Tier3Contraband]
+  id: ClothingUniformBurglarJumpsuit
+  name: suspicious crime jumpsuit
+  description: The wearer of this is one sneaky snitch...
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/burglarjumpsuit.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/burglarjumpsuit.rsi
