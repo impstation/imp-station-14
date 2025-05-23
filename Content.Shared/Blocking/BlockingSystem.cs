@@ -14,7 +14,6 @@ using Content.Shared.Verbs;
 using Robust.Shared.Network;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
-using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -25,12 +24,8 @@ public sealed partial class BlockingSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly FixtureSystem _fixtureSystem = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
@@ -135,10 +130,10 @@ public sealed partial class BlockingSystem : EntitySystem
     }
 
     // imp - redid this whole thing to remove the anchoring part and replace it with a movement speed modifier.
-    public bool StartBlocking(Entity<BlockingComponent> ent, EntityUid user)
+    public void StartBlocking(Entity<BlockingComponent> ent, EntityUid user)
     {
         if (ent.Comp.IsBlocking)
-            return false;
+            return;
 
         var shieldName = Name(ent);
 
@@ -152,7 +147,7 @@ public sealed partial class BlockingSystem : EntitySystem
             if (!_handsSystem.IsHolding(user, ent, out _))
             {
                 CantBlockError(user);
-                return false;
+                return;
             }
 
             _actionsSystem.SetToggled(ent.Comp.BlockingToggleActionEntity, true);
@@ -169,7 +164,7 @@ public sealed partial class BlockingSystem : EntitySystem
         ent.Comp.IsBlocking = true;
         Dirty(ent);
 
-        return true;
+        return;
     }
 
     private void CantBlockError(EntityUid user)
@@ -179,10 +174,10 @@ public sealed partial class BlockingSystem : EntitySystem
     }
 
     // imp - changed this whole thing to remove fixtures/anchoring and replace with slowdown
-    public bool StopBlocking(Entity<BlockingComponent> ent, EntityUid user)
+    public void StopBlocking(Entity<BlockingComponent> ent, EntityUid user)
     {
         if (!ent.Comp.IsBlocking)
-            return false;
+            return;
 
         var shieldName = Name(ent);
 
@@ -206,7 +201,7 @@ public sealed partial class BlockingSystem : EntitySystem
         ent.Comp.IsBlocking = false;
         Dirty(ent);
 
-        return true;
+        return;
     }
 
     // imp - necessary for movement speed modifier
