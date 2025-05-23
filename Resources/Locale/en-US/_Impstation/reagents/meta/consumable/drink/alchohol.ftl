@@ -89,4 +89,4 @@ reagent-name-poormansfrezon = poor man's frezon
 reagent-desc-poormansfrezon = For when you can't get your hands on the real deal.
 
 reagent-name-doublegreen = double green
-reagent-desc-doublegreen = A slimy mixture of blood, mindbreaker, and strong alcohol. None of it wants to mix.
+reagent-desc-doublegreen = None of these ingredients wants to mix.
