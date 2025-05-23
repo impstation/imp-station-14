@@ -2,7 +2,7 @@
   name: lethal poison auto-injector
   parent: [ChemicalMedipen, Tier3Contraband]
   id: PoisonAutoInjector
-  description: A single dose of a lethal toxin mix, designed to incapacitate and eliminate a subject within the span of a minute or two.
+  description: A single dose of a lethal toxin mix, designed to incapacitate and eliminate a subject within the span of a minute or two. Chest tightness and throat irritation are common post-injection.  
   components:
   - type: Item
     inhandVisuals:
@@ -29,17 +29,19 @@
     emptySpriteName: poisonpen_empty
   - type: Hypospray
     solutionName: pen
-    transferAmount: 25
+    transferAmount: 30
     onlyAffectsMobs: false
     injectOnly: true
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 25
+        maxVol: 30
         reagents:
         - ReagentId: Bungotoxin
           Quantity: 22
         - ReagentId: Toxin
           Quantity: 3
+        - ReagentId: Blackpepper
+          Quantity: 5
   - type: Tag
     tags: []
