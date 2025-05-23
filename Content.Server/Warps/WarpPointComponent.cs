@@ -14,5 +14,10 @@ namespace Content.Server.Warps
         /// </summary>
         [DataField]
         public bool Follow;
+        /// <summary>
+        ///     If true, add UID in ghostwarp list to differentiate.
+        /// </summary>
+        [DataField("differentiate")] //imp addition
+        public bool Differentiate;
     }
 }

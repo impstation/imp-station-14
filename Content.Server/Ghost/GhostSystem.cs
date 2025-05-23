@@ -306,7 +306,7 @@ namespace Content.Server.Ghost
                 return;
             }
 
-            var response = new GhostWarpsResponseEvent(GetPlayerWarps(entity).Concat(GetLocationWarps()).ToList());
+            var response = new GhostWarpsResponseEvent(GetPlayerWarps(entity).Concat(GetLocationWarps()).ToList()); // imp - added .Concat(GetMiscWarps()) so that the new misc warps function is used.
             RaiseNetworkEvent(response, args.SenderSession.Channel);
         }
 
@@ -368,7 +368,15 @@ namespace Content.Server.Ghost
 
             while (allQuery.MoveNext(out var uid, out var warp))
             {
-                yield return new GhostWarp(GetNetEntity(uid), warp.Location ?? Name(uid), true);
+                if (warp.Differentiate) //if statment is an addition, origal code is what is in else statement
+                {
+                    TryName(uid, out var name);
+                    yield return new GhostWarp(GetNetEntity(uid), $"{warp.Location ?? name} ({uid.ToString()})", true);
+                }
+                else
+                {
+                    yield return new GhostWarp(GetNetEntity(uid), warp.Location ?? Name(uid), true);
+                }
             }
         }
 
