@@ -1,7 +1,7 @@
 using Robust.Shared.GameStates;
-using Content.Shared.Clothing.EntitySystems;
+using Content.Shared._Impstation.Clothing;
 
-namespace Content.Shared._Impstation.Obvious;
+namespace Content.Shared._Impstation.Examine;
 
 /// <summary>
 /// Adds examine text to the entity, intentionally "obvious details".
@@ -15,11 +15,10 @@ public sealed partial class ExtraExamineTextComponent : Component
     /// <summary>
     /// The LocIds that will be added to the attached entity's examination.
     ///
-    /// The key is the examine text that will be added, and the value is optional prefix text.
-    /// We have to put the specific examine text in front so that keys are unique and so we can remove text when necessary.
+    /// The key is the source of the line, and the value is the text
+    /// (built by the component that creates this one).
     /// </summary>
-    [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
-
-    public Dictionary<LocId, LocId> Lines { get; set; } = new();
+    [DataField, AutoNetworkedField]
+    public Dictionary<EntityUid, LocId> Lines { get; set; } = new();
 
 }

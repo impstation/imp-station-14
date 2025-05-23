@@ -1,7 +1,6 @@
 using Robust.Shared.GameStates;
-using Content.Shared.Clothing.EntitySystems;
 
-namespace Content.Shared._Impstation.Obvious;
+namespace Content.Shared._Impstation.Clothing;
 
 /// <summary>
 /// Adds examine text to the entity that wears item, for making things obvious.
@@ -11,27 +10,40 @@ namespace Content.Shared._Impstation.Obvious;
 public sealed partial class WearerGetsExamineTextComponent : Component
 {
     /// <summary>
-    /// Shortname of the object. Used for the examine text on the object
-    /// (warning/notifying the player that this will be visible on casual examine).
+    /// The LocId that specifies what category of object this is.
+    /// i.e. "pin" or "scarf"
+    /// Should be redefined on a per-category basis, naturally.
     /// </summary>
-    [DataField]
-    public string Thing = "thing";
+    [DataField("thing")]
+    public LocId Category = "obvious-thing-default";
+
+    /// <summary>
+    /// The LocId that specifies what member of the category this is.
+    /// i.e. "lesbian pride"
+    /// Can be used to define text colors that are copied to all things
+    /// which share this specifier (i.e. the other items of the same pride).
+    /// (And summarily, makes accessibility-based changes for these colors a cinch.)
+    /// Should be defined by each thing that has this component.
+    /// </summary>
+    [DataField("thingType")]
+    public LocId Specifier = "obvious-type-default";
 
     /// <summary>
     /// The LocId that will be added to any wearing entity's examination.
+    /// Typically only needs redefining on a per-category basis,
+    /// but items that should have totally-unique obvious text can simply specify them here.
     /// </summary>
     [DataField("examineText", required: true)]
-    public LocId ExamineOnWearer;
+    public LocId ExamineOnWearer = "obvious-desc-default";
 
     /// <summary>
     /// Reference to the entity wearing this clothing.
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? Wearer;
-
     /// <summary>
     /// The string that is attached to this item's ExamineOnWearer.
-    /// Typically shouldn't be redefined.
+    /// Typically doesn't need to be redefined.
     /// </summary>
     [DataField]
     public LocId PrefixExamineOnWearer = "obvious-prefix-wearing";
