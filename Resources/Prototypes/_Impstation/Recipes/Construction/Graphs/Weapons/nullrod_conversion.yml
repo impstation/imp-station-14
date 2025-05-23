@@ -12,3 +12,16 @@
     - node: upgraded
       entity: NullRodGloveEvil
 
+- type: constructionGraph
+  id: UpgradeNullRodGrail
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: upgraded
+          steps:
+            - tag: NullrodUpgradeKit
+              doAfter: 5
+
+    - node: upgraded
+      entity: NullRodGrailEvil

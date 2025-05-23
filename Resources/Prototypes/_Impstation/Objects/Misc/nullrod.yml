@@ -112,6 +112,9 @@
     - Gildgrail #mix changed to make half holy water and half aquam divinos
     - Shake
     mixMessage: "null-grail-mix-success"
+  - type: Construction
+    graph: UpgradeNullRodGrail
+    node: start
 
 - type: entity
   name: divine grasp
