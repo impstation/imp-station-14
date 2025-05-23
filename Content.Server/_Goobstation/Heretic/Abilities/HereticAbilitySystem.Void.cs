@@ -1,10 +1,12 @@
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
+using Content.Server.Database;
 using Content.Server.Heretic.Components;
 using Content.Server.Temperature.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Heretic;
+using Content.Shared.Movement.Components;
 using Content.Shared.Temperature.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Physics.Components;
@@ -50,10 +52,13 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             _phys.SetBodyStatus(rod, phys, BodyStatus.InAir);
 
             var xform = Transform(rod);
-            var vel = _transform.GetWorldRotation(ent).ToWorldVec() * 15f;
+            var direction = _transform.ToMapCoordinates(args.Target).Position - _transform.GetWorldPosition(ent);
+            direction.Normalize();
+
+            var vel = direction * 15f;
 
             _phys.SetLinearVelocity(rod, vel, body: phys);
-            xform.LocalRotation = Transform(ent).LocalRotation;
+            xform.LocalRotation = direction.ToAngle();
         }
 
         args.Handled = true;

@@ -35,7 +35,7 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
                 continue;
 
             var tileref = grid.GetTileRef(trans.Coordinates);
-            var tile = _prot.Index<ContentTileDefinition>("FloorAstroSnow");
+            var tile = _prot.Index<ContentTileDefinition>(rod.IceTilePrototype);
             _tile.ReplaceTile(tileref, tile);
         }
     }
@@ -57,9 +57,9 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
         TryComp<TagComponent>(args.OtherEntity, out var tag);
         var tags = tag?.Tags ?? new();
 
-        if (tags.Contains("Wall") && Prototype(args.OtherEntity) != null && Prototype(args.OtherEntity)!.ID != "WallSnowCobblebrick")
+        if (tags.Contains("Wall") && Prototype(args.OtherEntity) != null && Prototype(args.OtherEntity)!.ID != ent.Comp.SnowWallPrototype)
         {
-            Spawn("WallSnowCobblebrick", Transform(args.OtherEntity).Coordinates);
+            Spawn(ent.Comp.SnowWallPrototype, Transform(args.OtherEntity).Coordinates);
             QueueDel(args.OtherEntity);
         }
     }
