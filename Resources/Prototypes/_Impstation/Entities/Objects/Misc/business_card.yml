@@ -8,7 +8,7 @@
       sprite: Objects/Misc/bureaucracy.rsi
       layers:
       - state: thief_card
-      - state: thief_card_writing
+      - state: thief_card
         map: ["enum.PaperVisualLayers.Writing"]
         visible: false
       - state: paper_stamp-generic
