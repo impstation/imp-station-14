@@ -263,8 +263,9 @@
   - type: Armor
 
   -type: entity
-  name: detective's deerstalker
+  parent: ClothingHeadBase
   id: deerstalker
+  name: detective's deerstalker
   description: Heavily modified to stalk clues instead.
   components:
   -type: Sprite
