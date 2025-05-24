@@ -31,13 +31,15 @@
         maxVol: 30
         reagents:
         - ReagentId: Bungotoxin
-          Quantity: 19.8
+          Quantity: 20.7
         - ReagentId: Toxin
-          Quantity: 3
+          Quantity: 1.5
         - ReagentId: Blackpepper
-          Quantity: 5.2
+          Quantity: 4.8
         - ReagentId: UncookedAnimalProteins
           Quantity: 2
+        - ReagentId: Impedrezene
+          Quantity: 1
   - type: ExaminableSolution
     solution: pen
   - type: Hypospray
