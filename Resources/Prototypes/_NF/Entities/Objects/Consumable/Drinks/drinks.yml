@@ -34,22 +34,6 @@
 
 - type: entity
   parent: DrinkGlass
-  id: DrinkGoldenCat
-  suffix: golden cat
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: GoldenCat
-          Quantity: 30
-  - type: Icon
-    sprite: _NF/Objects/Consumable/Drinks/goldencat.rsi
-    state: icon
-
-- type: entity
-  parent: DrinkGlass
   id: DrinkPineappleBlast
   suffix: pineapple blast
   components:

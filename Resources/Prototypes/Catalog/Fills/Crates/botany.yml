@@ -20,14 +20,17 @@
         amount: 2
       - id: BungoSeeds
         amount: 2
-      - id: LemoSeeds #imp
+      # imp below
+      - id: LemoSeeds
         amount: 2
-      - id: CoconutSeeds #imp
+      - id: CoconutSeeds
         amount: 2
-      - id: HopsSeeds #imp
+      - id: HopsSeeds
         amount: 2
-      - id: RoseSeeds #imp
-        amount: 2 #imp
+      - id: RoseSeeds
+        amount: 2
+      - id: BeeSeeds # Frontier
+        amount: 2
 
 - type: entity
   id: CrateHydroponicsSeedsMedicinal

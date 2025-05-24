@@ -2,8 +2,8 @@
 - type: entity
   id: KitchenElectricRange
   parent: [ BaseMachinePowered, ConstructibleMachine ]
-  name: electric range
-  description: A functional range with a range of functions.
+  name: oven # imp
+  description: Why do they call it oven when you of in the cold food of out hot eat the food? # imp
   components:
   - type: Microwave
     capacity: 10
@@ -126,7 +126,7 @@
 - type: entity
   id: SyndicateKitchenElectricRange
   parent: KitchenElectricRange
-  name: donk co. electric range
+  name: donk co. oven
   components:
   - type: Microwave
     cookTimeMultiplier: 0.5

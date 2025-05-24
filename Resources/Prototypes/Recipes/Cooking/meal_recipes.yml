@@ -2360,18 +2360,6 @@
   recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
-  id: RecipeCookedSpaceshroom
-  name: cooked spaceshroom recipe
-  result: FoodSpaceshroomCooked
-  time: 5
-  group: Moth
-  solids:
-    FoodSpaceshroom: 1
-  recipeType: # Frontier
-  - Oven # Frontier
-  - Microwave # Frontier
-
-- type: microwaveMealRecipe
   id: RecipeCannabisButter
   name: cannabis butter recipe
   result: FoodCannabisButter
