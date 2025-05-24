@@ -15,7 +15,7 @@ namespace Content.Shared.Movement.Components
         public const float DefaultMinimumFrictionSpeed = 0.005f;
         public const float DefaultWeightlessFriction = 1f;
         public const float DefaultWeightlessFrictionNoInput = 0.2f;
-        public const float DefaultOffGridFriction = 0.05f;
+        public const float DefaultOffGridFriction = 0.15f; // imp. changed default to make recovery from spacing slightly more likely. this way if you walk off the station, you come to a stop around 20 meters out.
         public const float DefaultWeightlessModifier = 0.7f;
         public const float DefaultWeightlessAcceleration = 1f;
 
