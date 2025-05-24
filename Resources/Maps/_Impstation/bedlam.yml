@@ -1472,8 +1472,6 @@ entities:
 - proto: ActionToggleBlock
   entities:
   - uid: 3734
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       parent: 2103
@@ -1483,8 +1481,6 @@ entities:
 - proto: ActionToggleLight
   entities:
   - uid: 3375
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       parent: 3374
