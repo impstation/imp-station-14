@@ -263,16 +263,16 @@
   - type: Armor
 
   - type: entity
-  parent: ClothingHeadBase
+  parent: CothingHeadBase
   id: ClothingHeadDeerstalker
   name: deerstalker
   description: Heavily modified to stalk clues instead.
   components:
-  - type: Sprite
-  sprite: _Impstation/Clothing/Hats/deerstalker.rsi
-  - type: Clothing
-  sprite: _Impstation/Clothing/Hats/deerstalker.rsi
-  - type: Tag
-  tags:
-  - ClothMade
-  - WhitelistChameleon
+  - type: sprite
+    sprite: _Impstation/Clothing/Hats/deerstalker.rsi
+  - type: clothing
+    _Impstation/Clothing/Hats/deerstalker.rsi
+  - type: tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
