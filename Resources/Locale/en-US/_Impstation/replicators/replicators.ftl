@@ -36,3 +36,6 @@ replicator-nest-destroyed = Your nest has been destroyed.
 # action confirmations
 replicator-nest-confirm = Are you sure? Use the action again to confirm.
 replicator-levelup-confirm = Are you sure? Use the action again to confirm.
+
+# ninja spawn warning
+terror-replicators = Attention crew, it appears that someone on your station has made an unexpected communication with a distributed machine intelligence in nearby space.
