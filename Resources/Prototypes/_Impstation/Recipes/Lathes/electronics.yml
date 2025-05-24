@@ -34,3 +34,13 @@
   parent: BaseCircuitboardRecipe
   id: CameraHandheld
   result: CameraHandheld
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: SyndicateMicrowaveMachineCircuitboard
+  result: SyndicateMicrowaveMachineCircuitboard
+
+- type: latheRecipe # yeah frontier didnt make a lathe recipe for this ig
+  parent: BaseCircuitboardRecipe
+  id: SyndicateElectricRangeMachineCircuitboard
+  result: SyndicateElectricRangeMachineCircuitboard
