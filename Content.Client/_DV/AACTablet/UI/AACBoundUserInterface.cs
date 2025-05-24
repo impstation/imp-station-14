@@ -14,7 +14,7 @@ public sealed class AACBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUs
     {
         base.Open();
         _window?.Close();
-        _window = this.CreateWindow<AACWindow>();
+        _window = new AACWindow(Owner);
         _window.PhraseButtonPressed += OnPhraseButtonPressed;
     }
 

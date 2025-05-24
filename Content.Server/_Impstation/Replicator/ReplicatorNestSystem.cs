@@ -28,6 +28,7 @@ using Content.Server.Audio;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Silicons.Laws.Components;
 using System.Linq;
+using Content.Shared.Destructible;
 
 namespace Content.Server._Impstation.Replicator;
 
@@ -56,7 +57,7 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
         SubscribeLocalEvent<ReplicatorNestComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
         SubscribeLocalEvent<ReplicatorNestComponent, StepTriggerAttemptEvent>(OnStepTriggerAttempt);
         SubscribeLocalEvent<ReplicatorNestFallingComponent, UpdateCanMoveEvent>(OnUpdateCanMove);
-        SubscribeLocalEvent<ReplicatorNestComponent, ComponentRemove>(OnComponentRemove);
+        SubscribeLocalEvent<ReplicatorNestComponent, DestructionEventArgs>(OnDestroyed);
         SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndTextAppend);
     }
 
@@ -123,7 +124,7 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
         args.Cancel();
     }
 
-    private void OnComponentRemove(Entity<ReplicatorNestComponent> ent, ref ComponentRemove args)
+    private void OnDestroyed(Entity<ReplicatorNestComponent> ent, ref DestructionEventArgs args)
     {
         HandleDestruction(ent);
     }
