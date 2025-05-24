@@ -47,10 +47,6 @@ public sealed partial class PlantHolderSystem : EntitySystem
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
-    [GeneratedRegex("^[AEIOUaeiou]", RegexOptions.IgnoreCase, "en-US")]
-    private static partial Regex StartsWithVowel();
-
-
     public const float HydroponicsSpeedMultiplier = 1f;
     public const float HydroponicsConsumptionMultiplier = 2f;
 
@@ -110,20 +106,10 @@ public sealed partial class PlantHolderSystem : EntitySystem
                 var displayName = Loc.GetString(component.Seed.DisplayName);
                 //IMP EDITS: sprucing this shit up (ha, botany pun) to support better grammatical examine
                 //supports plural plant descriptions (i.e. "Ears of corn are", "An apple tree is", "Cannabis is"... etc.)
-                // forces sentence case for the plant itself; thanks stack overflow
-                var englishArticle = "";
-                if (!(component.Seed.IsPluralName || component.Seed.IsSingularPluralName)) //if not plural
-                {
-                    if (StartsWithVowel().IsMatch(displayName)) // if the display name starts with a vowel
-                        englishArticle = "an";
-                    else
-                        englishArticle = "a";
-                    englishArticle += " ";
-                    // LOCALE NOTE: this is a soft-coded anglospheric solution and i realize it kinda sucks (the concern isn't pressing as of writing this since nobody's making a serious effort to translate the game afaik)
-                    // as-is, the englishArticle can be translated by the .ftl as a switch statement, if other languages have a similar rule
-                }
+                var seedNameAndArticle = Loc.GetString("plant-holder-crop-name", ("seedName", displayName),
+                    ("getsArticle", !(component.Seed.IsPluralName || component.Seed.IsSingularPluralName)));
                 var output = Loc.GetString("plant-holder-component-something-already-growing-message",
-                    ("seedNameAndArticle", englishArticle + "[color=green]" + displayName + "[/color]"),
+                    ("seedNameAndArticle", seedNameAndArticle),
                     ("count", component.Seed.IsPluralName)).TrimStart(' ');
                 args.PushMarkup(output);
                 //END IMP EDITS

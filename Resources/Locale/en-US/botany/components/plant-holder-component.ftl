@@ -17,8 +17,13 @@ plant-holder-component-compost-message = You compost {$usingItem} into {$owner}.
 plant-holder-component-compost-others-message = {$user} composts {$usingItem} into {$owner}.
 # imp fix ..
 plant-holder-component-nothing-planted-message = It has nothing planted in it.
+# imp add
+plant-holder-crop-name = {$getsArticle ->
+                                [true] { CAPITALIZE(INDEFINITE($seedName)) } [color=green]{ $seedName }[/color]
+                                *[false] [color=green]{ CAPITALIZE($seedName) }[/color]
+                        }
 # imp edit
-plant-holder-component-something-already-growing-message = { CAPITALIZE($seedNameAndArticle) } {$count ->
+plant-holder-component-something-already-growing-message = { $seedNameAndArticle } {$count ->
                                 [true] are
                                 *[false] is
                             } growing here.
