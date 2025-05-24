@@ -412,6 +412,8 @@ marking-HumanHairSusie = Mean Girl (Bangs)
 
 marking-HumanHairSusieNoBangs = Mean Girl
 
+marking-HumanHairKafka = Kafka
+
 # HeadSide
 
 # HeadTop

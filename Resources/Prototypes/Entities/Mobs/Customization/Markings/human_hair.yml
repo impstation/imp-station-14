@@ -1384,3 +1384,10 @@
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: longbow
+- type: marking
+  id: HumanHairKafka
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprites: Mobs/Customization/human_hair.rsi
+      state: kafka
