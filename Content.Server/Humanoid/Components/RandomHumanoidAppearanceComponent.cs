@@ -12,6 +12,13 @@ public sealed partial class RandomHumanoidAppearanceComponent : Component
 {
     [DataField("randomizeName")] public bool RandomizeName = true;
 
+    // Imp edit
+    /// <summary>
+    /// When true, will set sex & gender to whatever the player has selected in character customization.
+    /// </summary>
+    [DataField]
+    public bool KeepPronouns = false;
+
     // Overrides //
 
     /// <summary>
@@ -49,7 +56,7 @@ public sealed partial class RandomHumanoidAppearanceComponent : Component
     [DataField] public Color? SkinColor = null;
     /// <summary>
     /// After randomizing, adds the markings from this dict, if applicable.
-    /// Will overwrite all randomized markings, if there are any. 
+    /// Will overwrite all randomized markings, if there are any.
     /// Defined in YML as, for example:
     /// markings:
     ///   ArachnidTorsoFiddleback: [ "#daf7da" ]
