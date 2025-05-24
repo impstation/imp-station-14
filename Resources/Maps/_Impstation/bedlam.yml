@@ -4,8 +4,8 @@ meta:
   engineVersion: 250.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/22/2025 07:14:36
-  entityCount: 7637
+  time: 05/24/2025 12:48:11
+  entityCount: 7641
 maps:
 - 1
 grids:
@@ -924,7 +924,7 @@ entities:
             0: 56799
           4,-9:
             0: 61440
-            4: 224
+            2: 224
           5,-8:
             0: 65535
           5,-7:
@@ -1110,8 +1110,8 @@ entities:
           4,-11:
             0: 61166
           4,-10:
-            2: 224
-            3: 57344
+            3: 224
+            4: 57344
           4,-13:
             1: 35263
           5,-12:
@@ -1422,6 +1422,21 @@ entities:
           temperature: 293.15
           moles:
           - 0
+          - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
           - 0
           - 0
           - 0
@@ -1438,21 +1453,6 @@ entities:
           moles:
           - 6666.982
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
-          - 6666.982
           - 0
           - 0
           - 0
@@ -19587,36 +19587,50 @@ entities:
     - type: Transform
       pos: -16.5,-32.5
       parent: 2
+    - type: FaxMachine
+      name: CMO's Office
   - uid: 2001
     components:
     - type: Transform
       pos: -13.5,-36.5
       parent: 2
+    - type: FaxMachine
+      name: CE's Office
   - uid: 2019
     components:
     - type: Transform
       pos: -2.5,0.5
       parent: 2
+    - type: FaxMachine
+      name: HoP's office
   - uid: 2032
     components:
     - type: Transform
       pos: 25.5,2.5
       parent: 2
+    - type: FaxMachine
+      name: HoS's office
   - uid: 2038
     components:
     - type: Transform
       pos: 0.5,-25.5
       parent: 2
+    - type: FaxMachine
+      name: HD's Office
   - uid: 2085
     components:
     - type: Transform
       pos: 28.5,-5.5
       parent: 2
+    - type: FaxMachine
+      name: Security
   - uid: 2192
     components:
     - type: Transform
       pos: 15.5,0.5
       parent: 2
+    - type: FaxMachine
+      name: Detective's Office
   - uid: 2229
     components:
     - type: Transform
@@ -19627,6 +19641,36 @@ entities:
     - type: Transform
       pos: -8.5,-8.5
       parent: 2
+    - type: FaxMachine
+      name: Library
+  - uid: 7638
+    components:
+    - type: Transform
+      pos: 10.5,-28.5
+      parent: 2
+    - type: FaxMachine
+      name: RD's Office
+  - uid: 7639
+    components:
+    - type: Transform
+      pos: -13.5,0.5
+      parent: 2
+    - type: FaxMachine
+      name: QM's Office
+  - uid: 7640
+    components:
+    - type: Transform
+      pos: -21.5,-0.5
+      parent: 2
+    - type: FaxMachine
+      name: Cargo
+  - uid: 7641
+    components:
+    - type: Transform
+      pos: -8.5,-1.5
+      parent: 2
+    - type: FaxMachine
+      name: Newsroom
 - proto: FaxMachineCaptain
   entities:
   - uid: 1873
@@ -19634,6 +19678,8 @@ entities:
     - type: Transform
       pos: 8.5,7.5
       parent: 2
+    - type: FaxMachine
+      name: Bridge
 - proto: FireAlarm
   entities:
   - uid: 7186
@@ -34840,7 +34886,7 @@ entities:
   - uid: 2074
     components:
     - type: Transform
-      pos: -13.407305,0.5786619
+      pos: -12.4144,0.58096075
       parent: 2
 - proto: HighSecArmoryLocked
   entities:
