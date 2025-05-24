@@ -1,6 +1,6 @@
 - type: entity
   name: Ouroboros
-  parent: [WeaponProtoKineticAcceleratorBase, BaseSyndicateContraband]
+  parent: [BaseItem, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponSpecialOuroboros
   description: A specially engineered organism is contained within this combination air gun/incubator. If you want to continue to use its weaponized offspring, be sure to keep them well fed.
   components:
@@ -23,38 +23,38 @@
     size: Huge
   - type: GunRequiresWield
   - type: Gun
-    projectileSpeed: 15
-    fireRate: 3
+    projectileSpeed: 19
+    fireRate: 4
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/beecannon2.ogg
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 3
-    rechargeSound:
-      path: /Audio/_Impstation/Weapons/Guns/Cock/beecharge.ogg
-  - type: BasicEntityAmmoProvider
+  - type: SolutionContainerManager
+    solutions:
+      chamber:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 32
+        maxVol: 24 #8 shots
+  - type: SolutionAmmoProvider
+    solutionId: chamber
     proto: BulletOuroboros
-    capacity: 6
-    count: 6 
+    fireCost: 3
+  - type: FoodReagentExtractor
+    solutionId: chamber
+    extractSound: /Audio/_Impstation/Weapons/Guns/Cock/beecharge.ogg
   - type: MagazineVisuals
     magState: mag
-    steps: 2
+    steps: 7
     zeroVisible: true
-  - type: RepulseAttract
-    speed: 19
-    range: 10
-    whitelist:
-      components:
-      - OuroborosAmmoMarker
   - type: Appearance
   - type: MeleeWeapon
     range: 0.8
-    attackRate: 0.6
+    attackRate: 0.5
     damage:
       types:
-        Blunt: 5
+        Blunt: 9
     soundHit:
       path: /Audio/Effects/hit_kick.ogg
     soundSwing:
@@ -63,10 +63,10 @@
   - type: AltFireMelee
     attackType: Heavy
   - type: DamageOtherOnHit #for throwing
-    staminaCost: 10
+    staminaCost: 15 #heavy
     damage:
       types:
-        Blunt: 8
+        Blunt: 12
   - type: StaminaDamageOnHit
     damage: 10 #slight stagger, but still like 10 hits to stun completely
   - type: MeleeRequiresWield

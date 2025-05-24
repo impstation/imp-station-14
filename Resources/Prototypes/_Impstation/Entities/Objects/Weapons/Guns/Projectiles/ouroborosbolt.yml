@@ -4,19 +4,26 @@
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
+  - type: PointLight
+    radius: 1.5
+    color: "#d63b28"
+    energy: 10.0
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/disablerbolts.rsi
     layers:
-      - state: grenade
+      - state: bee
   - type: Ammo
+    muzzleFlash: MuzzleFlashEffectEnergySmall
   - type: SpawnOnTrigger
     proto: MobBeeroboros
-    amount: 1
   - type: ActiveTimerTrigger
-    timeRemaining: 0.3
+    timeRemaining: 0.25
   - type: DeleteOnTrigger
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler
+    damage:
+      types:
+        Blunt: 0
     soundHit:
       collection: WeakHit
     forceSound: true
