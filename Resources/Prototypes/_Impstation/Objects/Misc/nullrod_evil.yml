@@ -46,6 +46,69 @@
     - Shake
 
 - type: entity
+  name: aureole arc EVIL
+  id: NullRodBowEvil
+  parent: NullRodBase
+  description: Wrought from ornately carved synthwood, this golden-inlaid bow hums with a preternatural power. # change this
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/nullrod_bow.rsi
+    layers:
+    - state: nullrod_bow
+    - state: unwielded-arrow
+      shader: unshaded
+      map: [ arrow ]
+      visible: false
+  - type: Item
+    size: Huge
+  - type: Wieldable
+    wieldSound:
+      path: /Audio/Items/bow_pull.ogg
+  - type: UseDelay
+    delay: 1
+  - type: GunRequiresWield
+  - type: Gun
+    minAngle: 0
+    maxAngle: 5
+    fireRate: 1.5
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      collection: BulletMiss
+    soundEmpty: null
+  - type: ItemSlots
+    slots:
+      projectiles:
+        name: Projectiles
+        startingItem: null
+        insertSound: /Audio/Weapons/Guns/Misc/arrow_nock.ogg
+        whitelist:
+          tags:
+          - HolyArrow
+  - type: ContainerContainer
+    containers:
+      projectiles: !type:ContainerSlot
+      ballistic-ammo: !type:Container
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - HolyArrow
+        - HolyArrowEvil
+    capacity: 1
+  - type: Appearance
+  - type: ItemMapper
+    spriteLayers:
+    - arrow
+    mapLayers:
+      arrow:
+        whitelist:
+          tags:
+          - HolyArrow
+          - HolyArrowEvil
+
+
+- type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltQuiverNullrodEvil
   name: aureate quiverEVIL

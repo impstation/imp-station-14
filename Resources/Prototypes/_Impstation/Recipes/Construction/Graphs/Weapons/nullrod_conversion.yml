@@ -25,3 +25,17 @@
 
     - node: upgraded
       entity: NullRodGrailEvil
+
+- type: constructionGraph
+  id: UpgradeNullRodBow
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: upgraded
+          steps:
+            - tag: NullrodUpgradeKit
+              doAfter: 5
+
+    - node: upgraded
+      entity: CrateSyndicateNullRodBowEvil

@@ -226,6 +226,9 @@
         whitelist:
           tags:
           - HolyArrow
+  - type: Construction
+    graph: UpgradeNullRodBow
+    node: start
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -236,17 +239,17 @@
     - type: Sprite
       sprite: _Impstation/Objects/Misc/nullrod_quiver.rsi
       layers:
-    - state: quiver
-    - map: [ "enum.StorageContainerVisualLayers.Fill" ]
-      visible: false
+      - state: quiver
+      - map: [ "enum.StorageContainerVisualLayers.Fill" ]
+        visible: false
     - type: Clothing
     - type: Storage
       grid:
       - 0,0,6,1
       maxItemSize: Small
       whitelist:
-      tags:
-      - HolyArrow
+       tags:
+       - HolyArrow
     - type: Appearance
     - type: StorageContainerVisuals
       maxFillLevels: 3
