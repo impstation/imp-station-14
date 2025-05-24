@@ -412,7 +412,9 @@ marking-HumanHairSusie = Mean Girl (Bangs)
 
 marking-HumanHairSusieNoBangs = Mean Girl
 
-marking-HumanHairKafka = Kafka
+marking-HumanHairSpiderLily = Ponytail with Fringe
+
+marking-HumanHairSidePonyEye = Side Ponytail with Bangs
 
 # HeadSide
 

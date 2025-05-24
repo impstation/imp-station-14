@@ -1648,13 +1648,20 @@
     state: susienobangs
 
 - type: marking
-  id: HumanHairKafka
+  id: HumanHairSpiderLily
   bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
-      state: kafka
+      state: spiderlily
 
+- type: marking
+  id: HumanHairSidePonyEye
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
+      state: sideponyeye
 # HeadSide
 
 # HeadTop
