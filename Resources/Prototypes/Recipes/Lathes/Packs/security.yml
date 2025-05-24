@@ -141,3 +141,11 @@
   recipes:
   - WeaponDisabler
   - WeaponDisablerSMG
+
+- type: latheRecipePack
+  parent: TranquilizersImp # imp
+  id: Tranquilizers
+  recipes:
+  - WeaponRifleTranq
+  - IrwizineDart
+  - TranqDart
