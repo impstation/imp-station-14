@@ -4,7 +4,7 @@ using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Interaction;
-using Robust.Shared.Audio;
+using Robust.Server.Audio;
 
 public sealed class FoodReagentExtractorSystem : EntitySystem
 {
