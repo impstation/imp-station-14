@@ -262,17 +262,17 @@
     sprite: Clothing/Head/Hats/holyhatmelon.rsi
   - type: Armor
 
-  - type: entity
-  parent: CothingHeadBase
+- type: entity
+  parent: ClothingHeadBase
   id: ClothingHeadDeerstalker
   name: deerstalker
   description: Heavily modified to stalk clues instead.
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Hats/deerstalker.rsi
-  - type: clothing
+  - type: Clothing
     sprite: _Impstation/Clothing/Hats/deerstalker.rsi
-  - type: tag
+  - type: Tag
     tags:
     - ClothMade
     - WhitelistChameleon
