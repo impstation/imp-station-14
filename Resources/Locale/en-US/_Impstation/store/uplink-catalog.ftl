@@ -33,3 +33,6 @@ uplink-bloodredrosekit-desc = A set of roses for the romantic killer to get clos
 
 uplink-saw-ammo-name = Ammunition box (.20 rifle)
 uplink-saw-ammo-desc = A box of 50 cartridges compatible with the L6 Nidhogg light machine gun. Doesn't come with any ammo boxes, load it yourself!
+
+uplink-poison-injector-name = Lethal Poison Auto-Injector
+uplink-poison-injector-desc = A single dose of a lethal toxin mix, courtesy of Gorlex's Stealth Operations department, induces gradual organ failure and esophagus inflammation which eliminates a subject within one to two minutes of injection.
