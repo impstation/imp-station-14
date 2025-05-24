@@ -205,3 +205,26 @@
   - type: Clothing
     sprite: _Impstation/Clothing/Belt/suspenders_brown.rsi
     quickEquip: true
+
+- type: entity
+  parent: ClothingBeltSheath
+  id: ClothingBeltRapierSheath
+  name: rapier sheath
+  description: An ornate sheath designed to hold an officer's rapier.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Belt/rapiersheath.rsi
+    state: sheath
+  - type: Clothing
+    sprite: _Impstation/Clothing/Belt/rapiersheath.rsi
+  - type: ItemSlots
+    slots:
+      item:
+        name: Rapier
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - CaptainSabre
