@@ -416,6 +416,8 @@ marking-HumanHairSpiderLily = Ponytail with Fringe
 
 marking-HumanHairSidePonyEye = Side Ponytail with Bangs
 
+marking-HumanHairAsymBuns = Asymmetric Buns
+
 # HeadSide
 
 # HeadTop
