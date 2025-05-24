@@ -96,7 +96,7 @@
     hideLayersOnEquip:
     - HeadTop
     - HeadSide
-    - Hair 
+    - Hair
     - Tail
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
@@ -162,6 +162,7 @@
     - id: FoodMeatKodepiia
       amount: 5
   - type: HarpyVisuals
+  - type: Carriable # Carrying system from nyanotrasen.
 
 - type: entity
   save: false
