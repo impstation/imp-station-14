@@ -1,8 +1,8 @@
 - type: entity
   id: ElectricRangeMachineCircuitboard
   parent: BaseMachineCircuitboard
-  name: electric range machine board
-  description: A machine printed circuit board for an electric range.
+  name: oven machine board
+  description: A machine printed circuit board for an oven.
   components:
   - type: Sprite
     state: service
@@ -17,8 +17,8 @@
 - type: entity
   id: SyndicateElectricRangeMachineCircuitboard
   parent: BaseMachineCircuitboard
-  name: syndicate electric range machine board
-  description: A machine printed circuit board for an syndicate electric range.
+  name: syndicate oven machine board
+  description: A machine printed circuit board for an syndicate oven.
   components:
   - type: Sprite
     state: service

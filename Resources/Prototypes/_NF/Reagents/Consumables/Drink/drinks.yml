@@ -71,29 +71,6 @@
   metamorphicChangeColor: false
 
 - type: reagent
-  id: GoldenCat
-  name: reagent-name-golden-cat
-  parent: BaseAlcohol
-  desc: reagent-desc-golden-cat
-  physicalDesc: reagent-physical-desc-aromatic
-  flavor: greed
-  color: "#eed037"
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 0.2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
-  metamorphicSprite:
-    sprite: _NF/Objects/Consumable/Drinks/goldencat.rsi
-    state: icon_empty
-  metamorphicMaxFillLevels: 5
-  metamorphicFillBaseName: fill-
-  metamorphicChangeColor: false
-
-- type: reagent
   id: PineappleBlast
   name: reagent-name-pineapple-blast
   parent: BaseAlcohol
