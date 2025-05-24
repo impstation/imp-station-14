@@ -12,3 +12,5 @@
         Piercing: 0.5
   - type: TimedDespawn
     lifetime: 15
+  - type: MobPrice # imp - despite the timed despawn this fails a material arbitrage test lol
+    price: 20

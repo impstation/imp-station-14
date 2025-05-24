@@ -7,6 +7,7 @@
   flavor: raisins
   color: "#3f1d04"
   recognizable: true
+  viscosity: 0.8
   metabolisms:
     Food:
       effects:
@@ -17,3 +18,7 @@
       - !type:AdjustReagent
         reagent: Nutriment
         amount: 0.1
+  footstepSound:
+    collection: FootstepSticky
+    params:
+      volume: 6
