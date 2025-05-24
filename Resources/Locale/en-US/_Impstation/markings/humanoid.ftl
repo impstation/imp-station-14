@@ -418,6 +418,8 @@ marking-HumanHairSidePonyEye = Side Ponytail with Bangs
 
 marking-HumanHairAsymBuns = Asymmetric Buns
 
+marking-HumanHairIntakeShort = Intake (Short)
+
 # HeadSide
 
 # HeadTop
