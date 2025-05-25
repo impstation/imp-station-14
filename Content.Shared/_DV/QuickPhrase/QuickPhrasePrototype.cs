@@ -67,7 +67,7 @@ public sealed partial class QuickPhraseGroupPrototype : IPrototype, IInheritingP
     /// The prototype we inherit from.
     /// </summary>
     [ViewVariables]
-    [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<QuickPhrasePrototype>))]
+    [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<QuickPhraseGroupPrototype>))]
     public string[]? Parents { get; }
 
     [ViewVariables]
@@ -79,5 +79,5 @@ public sealed partial class QuickPhraseGroupPrototype : IPrototype, IInheritingP
     /// List of prototype IDs in this group.
     /// </summary>
     [DataField]
-    public HashSet<ProtoId<QuickPhrasePrototype>> Prototypes { get; set; } = default!;
+    public List<ProtoId<QuickPhrasePrototype>> Prototypes { get; set; } = default!;
 }
