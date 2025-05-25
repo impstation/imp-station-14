@@ -5,7 +5,7 @@
   id: PoisonAutoInjector
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Specific/Medical/medipen.rsi
+    sprite: _Impstation/Objects/Specific/Medical/poisonpen.rsi
     layers:
     - state: poisonpen
       map: ["enum.SolutionContainerLayers.Fill"]
