@@ -1,0 +1,25 @@
+- type: entity
+  id: HomunculusHuman
+  parent: HomunculusBase
+  name: homunculus
+  description: A wet chunk of synthetic flesh. It's alive.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Homunculi/homunculus_human.rsi/
+    layers:
+    - map: [ "base" ]
+      state: base
+    - map: [ "skinMap" ]
+      state: skin
+    - map: [ "eyeMap" ]
+      state: eyes
+  - type: Vocal
+    sounds:
+      Male: MaleHuman
+      Female: MaleHuman
+      Unsexed: MaleHuman
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Effects/Footsteps/slime1.ogg
+      params:
+        volume: -6

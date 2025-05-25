@@ -1,5 +1,6 @@
 - type: entity
   parent: SimpleMobBase
+  categories: [ HideSpawnMenu ]
   id: HomunculusBase
   components:
   - type: Item
@@ -13,7 +14,7 @@
     description: ghost-role-information-homunculus-description
     rules: ghost-role-information-familiar-rules
     mindRoles:
-      - MindRoleGhostRoleFamiliar
+    - MindRoleGhostRoleFamiliar
   - type: Physics
   - type: UserInterface
   - type: Fixtures
@@ -42,23 +43,3 @@
     - VimPilot
   - type: Puller
     needsHands: false
-
-- type: entity
-  id: HomunculusHuman
-  parent: HomunculusBase
-  name: homunculus
-  description: A wet chunk of synthetic flesh. It's alive.
-  components:
-  - type: Sprite
-    sprite: _Impstation/Mobs/Pets/homunculus.rsi/
-    state: homunculus
-  - type: Vocal
-    sounds:
-      Male: MaleHuman
-      Female: MaleHuman
-      Unsexed: MaleHuman
-  - type: FootstepModifier
-    footstepSoundCollection:
-      path: /Audio/Effects/Footsteps/slime1.ogg
-      params:
-        volume: -6
