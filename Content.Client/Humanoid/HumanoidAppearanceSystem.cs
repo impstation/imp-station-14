@@ -135,7 +135,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
 
         var customBaseLayers = new Dictionary<HumanoidVisualLayers, CustomBaseLayerInfo>();
 
-        var speciesPrototype = _prototypeManager.Index(profile.Species);
+        var speciesPrototype = _prototypeManager.Index(profile.Species); // Floof
         var markings = new MarkingSet(speciesPrototype.MarkingPoints, _markingManager, _prototypeManager);
 
         // Add markings that doesn't need coloring. We store them until we add all other markings that doesn't need it.
@@ -318,13 +318,11 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         }
     }
 
-    private void ApplyMarking(
-        MarkingPrototype markingPrototype,
+    private void ApplyMarking(MarkingPrototype markingPrototype,
         IReadOnlyList<Color>? colors,
         bool visible,
         HumanoidAppearanceComponent humanoid,
-        SpriteComponent sprite
-        )
+        SpriteComponent sprite)
     {
         // FLOOF ADD START
         // make a handy dict of filename -> colors
@@ -484,8 +482,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         {
             if (!visible)
                 return;
-            else
-                index = sprite.LayerMapReserveBlank(layer);
+            index = sprite.LayerMapReserveBlank(layer);
         }
 
         var spriteLayer = sprite[index];

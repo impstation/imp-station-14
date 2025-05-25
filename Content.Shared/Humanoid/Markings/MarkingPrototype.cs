@@ -3,7 +3,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Humanoid.Markings
 {
-    [Prototype("marking")]
+    [Prototype("marking")] // Floof
     public sealed partial class MarkingPrototype : IPrototype
     {
         [IdDataField]
