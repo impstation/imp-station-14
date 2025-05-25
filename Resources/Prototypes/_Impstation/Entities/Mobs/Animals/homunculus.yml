@@ -1,14 +1,9 @@
 - type: entity
-  name: homunculus
   parent: SimpleMobBase
-  id: Homunculus
-  description: A wet chunk of synthetic flesh. It's alive.
+  id: HomunculusBase
   components:
   - type: Item
     size: Normal
-  - type: Sprite
-    sprite: _Impstation/Mobs/Pets/homunculus.rsi/
-    state: homunculus
   - type: GhostTakeoverAvailable
   - type: GhostRole
     makeSentient: true
@@ -37,11 +32,6 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 0.2
     baseSprintSpeed : 0.3
-  - type: FootstepModifier
-    footstepSoundCollection:
-      path: /Audio/Effects/Footsteps/slime1.ogg
-      params:
-        volume: -6
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -50,10 +40,25 @@
     tags:
     - FootstepSound
     - VimPilot
+  - type: Puller
+    needsHands: false
+
+- type: entity
+  id: HomunculusHuman
+  parent: HomunculusBase
+  name: homunculus
+  description: A wet chunk of synthetic flesh. It's alive.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Pets/homunculus.rsi/
+    state: homunculus
   - type: Vocal
     sounds:
       Male: MaleHuman
       Female: MaleHuman
       Unsexed: MaleHuman
-  - type: Puller
-    needsHands: false
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Effects/Footsteps/slime1.ogg
+      params:
+        volume: -6
