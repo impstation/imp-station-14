@@ -414,11 +414,19 @@ marking-HumanHairSusieNoBangs = Mean Girl
 
 marking-HumanHairSpiderLily = Ponytail with Fringe
 
-marking-HumanHairSidePonyEye = Side Ponytail with Bangs
+marking-HumanHairSidePonyEye = Bang Side-Pony
+
+marking-HumanHairOverEyeMed = Bang Medium
 
 marking-HumanHairAsymBuns = Asymmetric Buns
 
 marking-HumanHairIntakeShort = Intake (Short)
+
+marking-HumanHairIntakeMed = Intake
+
+marking-HumanHairOverEyes = Over-Eyes
+
+marking-HumanHairOverEyesTail = Over-Eyes Tail
 
 # HeadSide
 

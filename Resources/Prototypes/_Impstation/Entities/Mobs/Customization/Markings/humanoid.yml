@@ -1664,6 +1664,14 @@
       state: sideponyeye
 
 - type: marking
+  id: HumanHairOverEyeMed
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
+      state: overeyemedium
+
+- type: marking
   id: HumanHairAsymBuns
   bodyPart: Hair
   markingCategory: Hair
@@ -1678,6 +1686,30 @@
   sprites:
     - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
       state: intakeshort
+
+- type: marking
+  id: HumanHairIntakeMed
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
+      state: intakemedium
+
+- type: marking
+  id: HumanHairOverEyes
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
+      state: overeyes
+
+- type: marking
+  id: HumanHairOverEyesTail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
+      state: overeyestail
 # HeadSide
 
 # HeadTop
