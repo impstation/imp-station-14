@@ -94,12 +94,12 @@
 
 - type: entity
   parent: VendingMachine
-  id: VendingMachineSovietSoda
-  name: BODA
+  id: VendingMachineSovietSoda # keeping this name to avoid remapping
+  name: Artic Seltz
   description: An old vending machine containing sweet water.
   components:
   - type: VendingMachine
-    pack: BodaInventory
+    pack: ArticSeltzInventory
     dispenseOnHitChance: 0.25
     dispenseOnHitThreshold: 2
     offState: off
@@ -110,9 +110,9 @@
     initialStockQuality: 0.33
     soundVend: /Audio/_Impstation/Machines/vending_drop.ogg #imp
   - type: Advertise
-    pack: BodaAds
+    pack: ArticSeltzAds
   - type: SpeakOnUIClosed
-    pack: BodaGoodbyes
+    pack: ArticSeltzGoodbyes
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/sovietsoda.rsi
     layers:
