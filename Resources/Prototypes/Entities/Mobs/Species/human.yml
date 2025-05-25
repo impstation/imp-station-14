@@ -31,6 +31,11 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  - type: HomunculiType #imp
+    homunculiType: HomunculusHuman #imp
+    recipe:
+      Blood: 1
+      Water: 1
 
 - type: entity
   parent: BaseSpeciesDummy
