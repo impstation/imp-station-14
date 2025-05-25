@@ -14,8 +14,11 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Examine;
 using Content.Shared.Forensics.Components;
+using Content.Shared.Humanoid;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
+using Content.Shared.Sprite;
+using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using YamlDotNet.Serialization.Schemas;
 
@@ -172,7 +175,7 @@ public sealed class IncubatorSystem : SharedIncubatorSystem
 
             var savedSolutions = solution.Value.Comp.Solution.Contents.ToList();
             // Go through all the reagents in the saved solution, if the reagent matches one in the recipe, remove it
-            // I have to check for reagent data because it needs to be specific smh smh smh
+            // I have to check for reagent data because it needs to be specific or else it wont drain
             foreach (var (reagent, amount) in homunculiTypeComponent.Recipe)
             {
                 var match = savedSolutions.FirstOrDefault(rq => rq.Reagent.Prototype == reagent);
@@ -194,9 +197,37 @@ public sealed class IncubatorSystem : SharedIncubatorSystem
             EnsureComp<DnaComponent>(homunculi, out var homunculiDnaComponent);
             homunculiDnaComponent.DNA = dnaComponent.DNA;
 
+            if (TryComp<HumanoidAppearanceComponent>(victim, out var humanoidAppearance))
+            {
+                homunculiTypeComponent.Colors.skinColor = humanoidAppearance.SkinColor;
+                homunculiTypeComponent.Colors.eyeColor = humanoidAppearance.EyeColor;
+            }
+            else
+            {
+                homunculiTypeComponent.Colors.skinColor = homunculiTypeComponent.DefaultSkinColor;
+                homunculiTypeComponent.Colors.eyeColor = Color.Black;
+            }
+
+            var netHomunculi = GetNetEntity(homunculi);
+            var colorsChangedEvent = new HomunculiColorsChangedEvent(homunculiTypeComponent.Colors.skinColor,
+                homunculiTypeComponent.Colors.eyeColor,
+                netHomunculi);
+            RaiseLocalEvent(homunculi, colorsChangedEvent, true);
+
             return true;
         }
         return false;
+    }
+
+    public static (Color skinColor, Color? hairColor, Color eyeColor) GetHumanoidColors(HumanoidAppearanceComponent comp)
+    {
+        Color? hairColor = new Color(1,1,1,1);
+
+        if (comp.CachedHairColor != null)
+        {
+            hairColor = comp.CachedHairColor;
+        }
+        return (comp.SkinColor, hairColor , comp.EyeColor);
     }
 
     private static bool SatisfiesRecipe(HomunculiTypeComponent component, List<ReagentQuantity> reagents)

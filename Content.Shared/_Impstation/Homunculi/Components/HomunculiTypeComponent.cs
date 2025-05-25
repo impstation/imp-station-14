@@ -12,7 +12,12 @@ public sealed partial class HomunculiTypeComponent : Component
     [DataField(customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>), required:true)]
     public string HomunculiType = "HolosignWetFloor";
 
-    [DataField("recipe", customTypeSerializer:typeof(PrototypeIdDictionarySerializer<FixedPoint2, ReagentPrototype>))]
+    [DataField(customTypeSerializer:typeof(PrototypeIdDictionarySerializer<FixedPoint2, ReagentPrototype>))]
     public Dictionary<string, FixedPoint2> Recipe = new();
 
+    [DataField]
+    public (Color skinColor, Color eyeColor) Colors;
+
+    [DataField]
+    public Color DefaultSkinColor;
 }
