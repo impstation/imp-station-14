@@ -1,83 +1,4 @@
 ﻿Entries:
-- author: Piras314, hivehum, Darkmajia
-  changes:
-  - message: Lobby art is credited at the bottom of the lobby screen.
-    type: Add
-  id: 1221
-  time: '2025-03-02T21:32:21.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1817
-- author: AftrLite
-  changes:
-  - message: Cosmic Cult 1.03 (Experimental)
-    type: Tweak
-  id: 1222
-  time: '2025-03-02T22:05:49.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1818
-- author: Cutinup99
-  changes:
-  - message: Warden's hardsuit has been changed, the armor is better but its slower
-    type: Tweak
-  id: 1223
-  time: '2025-03-03T01:52:24.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1819
-- author: Darkmajia
-  changes:
-  - message: The goliath hardsuit is no longer craftable.
-    type: Remove
-  - message: The goliath hardsuit can be found rarely on salvage.
-    type: Tweak
-  - message: The goliath and maxim hardsuits can be found rarely in grand lottery
-      crates.
-    type: Tweak
-  id: 1224
-  time: '2025-03-03T03:13:28.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1820
-- author: widgetbeck
-  changes:
-  - message: Drones can weld now. Oops.
-    type: Fix
-  id: 1225
-  time: '2025-03-03T08:43:36.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1822
-- author: Sha-Seng
-  changes:
-  - message: Greatcoat logos touched up to match the style of departmental bomber
-      logos
-    type: Tweak
-  - message: Emergency gas tanks are now properly labeled so that they fit into tank
-      harnesses
-    type: Fix
-  id: 1226
-  time: '2025-03-03T08:46:34.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1780
-- author: mqole
-  changes:
-  - message: more pages blagh thusd Cosmic Cult Guidebook. Read Them
-    type: Add
-  id: 1227
-  time: '2025-03-03T09:15:10.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1824
-- author: AftrLite
-  changes:
-  - message: Cosmic Cult 1.04 (Provisional)
-    type: Tweak
-  id: 1228
-  time: '2025-03-04T02:01:39.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1829
-- author: AftrLite
-  changes:
-  - message: Cosmic Cult Patch 1.05 (Provisional)
-    type: Tweak
-  id: 1229
-  time: '2025-03-04T11:40:16.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1830
-- author: Delta-V
-  changes:
-  - message: 'A shipment from Delta-V Sector: tons of new clothes!'
-    type: Add
-  id: 1230
-  time: '2025-03-04T13:32:46.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1786
 - author: Allie
   changes:
   - message: Add a few cosmetic bible flavours for chaplains to choose from, ranging
@@ -4224,3 +4145,85 @@
   id: 1720
   time: '2025-05-23T20:10:13.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/2569
+- author: widgetbeck
+  changes:
+  - message: Shields now *properly* slow you down instead of bodyblocking.
+    type: Tweak
+  id: 1721
+  time: '2025-05-24T22:09:57.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2574
+- author: DinnerCalzone
+  changes:
+  - message: Banana's cargo shuttle should be less likely to start clipped inside
+      of other grids.
+    type: Fix
+  id: 1722
+  time: '2025-05-25T06:49:04.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2579
+- author: astral_amy
+  changes:
+  - message: Bedlam Station, a lowpop map adapted from a reclaimed starship
+    type: Add
+  id: 1723
+  time: '2025-05-25T06:57:13.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2567
+- author: Faeling, Sha-Seng
+  changes:
+  - message: Lily Mantle for senior botanists (has a toggleable collar)
+    type: Add
+  id: 1724
+  time: '2025-05-25T06:56:13.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2576
+- author: Stonylogray
+  changes:
+  - message: Aquam divinos and aqua avari now have small effects on contact.
+    type: Tweak
+  - message: Gildgrail can new be used to splash liquids on heathens and the faithful
+      alike.
+    type: Tweak
+  id: 1725
+  time: '2025-05-25T07:08:47.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2532
+- author: Cutinup99
+  changes:
+  - message: Armory crate purchase for the the Drozd, Lecter, and Kammerer
+    type: Add
+  - message: AKMS is now obtainable via cargo.
+    type: Add
+  - message: renamed the SMG and shotgun crates to reflect whats actually within them
+    type: Tweak
+  - message: daitos are now marginally cheaper
+    type: Tweak
+  id: 1726
+  time: '2025-05-25T07:25:46.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2566
+- author: msTheowo
+  changes:
+  - message: Business cards! Get them by crafting them!
+    type: Add
+  id: 1727
+  time: '2025-05-25T07:48:39.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2557
+- author: MintyTheBinty
+  changes:
+  - message: 'New Dan''s Soaked Smokes: Rejects, dangerously fun cigs! Available in
+      uplinks, emag''d Discount Dan''s, and select maints lockers station wide.'
+    type: Add
+  id: 1728
+  time: '2025-05-25T10:21:53.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2578
+- author: Stonylogray
+  changes:
+  - message: Adjusted implanter failure text to match the lack of genetic damage.
+    type: Fix
+  id: 1729
+  time: '2025-05-25T15:40:17.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2470
+- author: MintyTheBinty
+  changes:
+  - message: Lethal poison auto-injectors now available in select syndicate and nuclear
+      operative uplinks, get jabbin' agent!
+    type: Add
+  id: 1730
+  time: '2025-05-25T19:04:50.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2556
