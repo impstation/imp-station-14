@@ -564,6 +564,9 @@
           Quantity: 6
         # - ReagentId: Vitamin # imp
         #  Quantity: 1
+  - type: Construction # Frontier
+    graph: WaffleCone
+    node: start
 
 - type: entity
   name: soy waffles

@@ -1,0 +1,47 @@
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkSilverjackGlass
+  name: silverjack glass
+  description: Reminds you of family.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Silverjack
+          Quantity: 30
+  - type: Sprite
+    sprite: _Nyanotrasen/Objects/Consumable/Drinks/silverjack.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkSapoPicanteGlass
+  name: sapo picante glass
+  description: Tastes nothing like a toad.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: SapoPicante
+          Quantity: 30
+  - type: Sprite
+    sprite: _Nyanotrasen/Objects/Consumable/Drinks/sapopicante.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkAtomicPunchGlass
+  name: atomic punch glass
+  description: Will NOT make you immune to bullets; Isotopes included!
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: AtomicPunch
+          Quantity: 30
+  - type: Sprite
+    sprite: _Nyanotrasen/Objects/Consumable/Drinks/atomicpunch.rsi

@@ -284,6 +284,8 @@
     - ImpCircuitDynamic # imp
     - UpgradeKits # Goobstation
   - type: EmagLatheRecipes
+    emagStaticPacks: # imp
+    - ImpCircuitEmagged
     emagDynamicPacks:
     - SecurityBoards
   - type: MaterialStorage
