@@ -71,7 +71,7 @@
   description: It's a very sterile backpack.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Backpacks/brigmedic.rsi
+    sprite: _Impstation/Clothing/Back/Backpacks/brigmedic.rsi #imp
 
 - type: entity
   parent: ClothingBackpack
@@ -107,7 +107,7 @@
   description: It's a special backpack made exclusively for Nanotrasen officers.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Backpacks/captain.rsi
+    sprite: _Impstation/Clothing/Back/Backpacks/captain.rsi #imp
 
 - type: entity
   parent: ClothingBackpack

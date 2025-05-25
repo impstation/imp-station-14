@@ -20,6 +20,7 @@
 ## Dynamic
 
 - type: latheRecipePack
+  parent: ScienceEquipmentImp #Imp
   id: ScienceEquipment
   recipes:
   - AnomalyScanner
@@ -57,6 +58,7 @@
   - WeaponGauntletGorilla
 
 - type: latheRecipePack
+  parent: FauxTilesImp # imp
   id: FauxTiles
   recipes:
   - FauxTileAstroGrass
@@ -81,9 +83,11 @@
   id: ScienceBoards
   recipes:
   - TurboItemRechargerCircuitboard
-  - AutolatheHyperConvectionMachineCircuitboard
-  - ProtolatheHyperConvectionMachineCircuitboard
-  - CircuitImprinterHyperConvectionMachineCircuitboard
+  # Begin DeltaV Removals - replaced by techfabs/upgrade kits
+  #- AutolatheHyperConvectionMachineCircuitboard
+  #- ProtolatheHyperConvectionMachineCircuitboard
+  #- CircuitImprinterHyperConvectionMachineCircuitboard
+  # End DeltaV Removals
   - TechDiskComputerCircuitboard
   - FlatpackerMachineCircuitboard
   - SheetifierMachineCircuitboard

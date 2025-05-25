@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 247.2.0
+  engineVersion: 251.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/18/2025 07:12:56
-  entityCount: 14435
+  time: 04/25/2025 02:43:15
+  entityCount: 14437
 maps:
 - 1
 grids:
@@ -415,6 +415,7 @@ entities:
             2316: -51,8
             2323: -1,-35
             2324: 2,-32
+            2420: -38,14
         - node:
             angle: 4.71238898038469 rad
             color: '#DE3A3AFF'
@@ -11819,11 +11820,6 @@ entities:
     - type: Transform
       pos: -22.5,-14.5
       parent: 2
-  - uid: 1155
-    components:
-    - type: Transform
-      pos: -22.5,-16.5
-      parent: 2
   - uid: 1156
     components:
     - type: Transform
@@ -11838,6 +11834,13 @@ entities:
     components:
     - type: Transform
       pos: -29.5,-17.5
+      parent: 2
+- proto: BookshelfGuidebooksFilled
+  entities:
+  - uid: 1155
+    components:
+    - type: Transform
+      pos: -22.5,-16.5
       parent: 2
 - proto: BoozeDispenser
   entities:
@@ -28605,6 +28608,13 @@ entities:
     - type: Transform
       pos: -51.5,0.5
       parent: 2
+- proto: CargoMailTeleporter
+  entities:
+  - uid: 14202
+    components:
+    - type: Transform
+      pos: 16.5,21.5
+      parent: 2
 - proto: Carpet
   entities:
   - uid: 4455
@@ -35285,11 +35295,6 @@ entities:
     - type: Transform
       pos: 14.5,23.5
       parent: 2
-  - uid: 5464
-    components:
-    - type: Transform
-      pos: 18.5,11.5
-      parent: 2
 - proto: CrateEngineeringAMEJar
   entities:
   - uid: 5465
@@ -36216,26 +36221,20 @@ entities:
     - type: Transform
       pos: 9.5,-43.5
       parent: 2
-- proto: DefaultStationBeaconSolars
+- proto: DefaultStationBeaconSolarsPort
   entities:
   - uid: 5567
     components:
     - type: Transform
       pos: -52.5,-24.5
       parent: 2
-    - type: NavMapBeacon
-      text: Port Solars
-    - type: WarpPoint
-      location: Port Solars
+- proto: DefaultStationBeaconSolarsStarboard
+  entities:
   - uid: 5568
     components:
     - type: Transform
       pos: 32.5,-38.5
       parent: 2
-    - type: NavMapBeacon
-      text: Starboard Solars
-    - type: WarpPoint
-      location: Starboard Solars
 - proto: DefaultStationBeaconTechVault
   entities:
   - uid: 5569
@@ -62712,11 +62711,6 @@ entities:
       parent: 2
 - proto: HighSecCommandLocked
   entities:
-  - uid: 9387
-    components:
-    - type: Transform
-      pos: -2.5,21.5
-      parent: 2
   - uid: 9388
     components:
     - type: Transform
@@ -64516,6 +64510,13 @@ entities:
     - type: Transform
       pos: -4.5,26.5
       parent: 2
+- proto: LockerGriffyFilled
+  entities:
+  - uid: 11583
+    components:
+    - type: Transform
+      pos: -37.5,15.5
+      parent: 2
 - proto: LockerHeadOfPersonnelFilled
   entities:
   - uid: 9590
@@ -64863,7 +64864,7 @@ entities:
     - type: Transform
       pos: -22.5,-21.5
       parent: 2
-- proto: LockerWardenFilled
+- proto: LockerWardenFilledHardsuit
   entities:
   - uid: 9607
     components:
@@ -64951,13 +64952,6 @@ entities:
     components:
     - type: Transform
       pos: -21.281672,23.225285
-      parent: 2
-- proto: MailTeleporter
-  entities:
-  - uid: 14202
-    components:
-    - type: Transform
-      pos: 16.5,21.5
       parent: 2
 - proto: MaintenanceFluffSpawner
   entities:
@@ -65522,11 +65516,10 @@ entities:
       parent: 2
 - proto: OreBox
   entities:
-  - uid: 9712
+  - uid: 14436
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 22.5,12.5
+      pos: 31.5,14.5
       parent: 2
 - proto: OreProcessor
   entities:
@@ -67011,14 +67004,6 @@ entities:
     components:
     - type: Transform
       pos: -48.5,-9.5
-      parent: 2
-    - type: ContainerContainer
-      containers:
-        stash: !type:ContainerSlot {}
-  - uid: 9962
-    components:
-    - type: Transform
-      pos: -17.5,1.5
       parent: 2
     - type: ContainerContainer
       containers:
@@ -76943,13 +76928,6 @@ entities:
     - type: Transform
       pos: -36.5,22.5
       parent: 2
-- proto: SuitStorageWarden
-  entities:
-  - uid: 11583
-    components:
-    - type: Transform
-      pos: -37.5,15.5
-      parent: 2
 - proto: SurveillanceCameraCommand
   entities:
   - uid: 11584
@@ -80047,6 +80025,14 @@ entities:
     - type: Transform
       pos: -14.5,31.5
       parent: 2
+- proto: TailorsKnife
+  entities:
+  - uid: 14437
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -22.549665,0.8129976
+      parent: 2
 - proto: TargetHuman
   entities:
   - uid: 12052
@@ -80650,6 +80636,13 @@ entities:
     - type: Transform
       pos: -38.5,-33.5
       parent: 2
+- proto: VaultDoorCommandLocked
+  entities:
+  - uid: 9387
+    components:
+    - type: Transform
+      pos: -2.5,21.5
+      parent: 2
 - proto: VendingBarDrobe
   entities:
   - uid: 12108
@@ -81031,6 +81024,13 @@ entities:
     components:
     - type: Transform
       pos: 24.5,17.5
+      parent: 2
+- proto: VendingMachineSalvDrobe
+  entities:
+  - uid: 9712
+    components:
+    - type: Transform
+      pos: 22.5,12.5
       parent: 2
 - proto: VendingMachineSciDrobe
   entities:
@@ -90776,6 +90776,18 @@ entities:
       parent: 2
     - type: BombingTarget
       location: Dining Area
+- proto: WashingMachine
+  entities:
+  - uid: 5464
+    components:
+    - type: Transform
+      pos: 18.5,11.5
+      parent: 2
+  - uid: 9962
+    components:
+    - type: Transform
+      pos: -17.5,1.5
+      parent: 2
 - proto: WaterCooler
   entities:
   - uid: 13981
