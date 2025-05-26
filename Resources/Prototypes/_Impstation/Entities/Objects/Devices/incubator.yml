@@ -3,9 +3,23 @@
   name: Portable Incubator
   id: PortableIncubator
   components:
+  - type: Item
+    size: Normal
   - type: Sprite
-    sprite: _Impstation/Objects/Devices/holobellprojector.rsi
-    state: icon
+    sprite: _Impstation/Objects/Devices/incubator.rsi
+    layers:
+    - state: icon
+    - state: powered
+      map: [ "enum.ToggleVisuals.Layer" ]
+      visible: false
+      shader: unshaded
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
   - type: ItemSlots
     slots:
       beaker_slot:
@@ -24,13 +38,3 @@
     beakerSlotId: beaker_slot
   - type: ItemToggle
     predictable: false
-    soundActivate:
-      collection: WelderOn
-      params:
-        variation: 0.125
-        volume: -5
-    soundDeactivate:
-      collection: WelderOff
-      params:
-        variation: 0.125
-        volume: -5
