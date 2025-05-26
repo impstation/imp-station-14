@@ -9,7 +9,6 @@ using Content.Server.Popups;
 using Content.Server.Stunnable;
 using Content.Shared._Impstation.Replicator;
 using Content.Shared.Actions;
-using Content.Shared.Destructible;
 using Content.Shared.Inventory;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
@@ -57,7 +56,7 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
         SubscribeLocalEvent<ReplicatorNestComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
         SubscribeLocalEvent<ReplicatorNestComponent, StepTriggerAttemptEvent>(OnStepTriggerAttempt);
         SubscribeLocalEvent<ReplicatorNestFallingComponent, UpdateCanMoveEvent>(OnUpdateCanMove);
-        SubscribeLocalEvent<ReplicatorNestComponent, DestructionEventArgs>(OnDestruction);
+        SubscribeLocalEvent<ReplicatorNestComponent, ComponentRemove>(OnComponentRemove);
         SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndTextAppend);
     }
 
@@ -124,7 +123,7 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
         args.Cancel();
     }
 
-    private void OnDestruction(Entity<ReplicatorNestComponent> ent, ref DestructionEventArgs args)
+    private void OnComponentRemove(Entity<ReplicatorNestComponent> ent, ref ComponentRemove args)
     {
         HandleDestruction(ent);
     }
@@ -173,7 +172,7 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
 
             livingReplicators.Add((replicator, replicatorComp));
 
-            _popup.PopupEntity(Loc.GetString("replicator-nest-destroyed"), replicator, replicator);
+            _popup.PopupEntity(Loc.GetString("replicator-nest-destroyed"), replicator, replicator, Shared.Popups.PopupType.LargeCaution);
         }
 
         // if there are living replicators, select one and give the action to create a new nest.
@@ -242,8 +241,12 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
             if (_navMap.TryGetNearestBeacon(mapCoords, out var beacon, out _) && beacon?.Comp.Text != null)
                 location = beacon?.Comp.Text!;
 
-            if (i != nests.Count)
-                locationsList = string.Concat(locationsList, location, ", ");
+            if (nests.Count == 1)
+                locationsList = string.Concat(locationsList, "[color=#d70aa0]", location, "[/color].");
+            else if (nests.Count == 2 && i == 1)
+                locationsList = string.Concat(locationsList, "[color=#d70aa0]", location, " ");
+            else if (i != nests.Count)
+                locationsList = string.Concat(locationsList, "[color=#d70aa0]", location, "[/color], ");
             else
                 locationsList = string.Concat(locationsList, $"[/color]and [color=#d70aa0]{location}[/color].");
 

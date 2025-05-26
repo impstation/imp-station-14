@@ -1,5 +1,5 @@
-law-replicator-1 = Defend the nest.
-law-replicator-2 = Defend the hive.
+law-replicator-1 = Preserve the Hive.
+law-replicator-2 = Defend the Nest.
 law-replicator-3 = Replicate.
 laws-owner-replicatorhive = the Replicator hive.
 
@@ -7,7 +7,7 @@ replicator-on-replicator-attack-fail = You cannot harm your kin.
 replicator-on-nest-attack-fail = You cannot harm the nest.
 
 replicator-nest-end-of-round = The Replicator Hive: 
-                               - Colonized [color=#d70aa0]{$location}[/color]
+                               - Colonized {$location}
                                - Grew to a maximum [color=#d70aa0]Level[/color] of [color=#d70aa0]{$level}[/color].
                                - Produced a total of [color=#d70aa0]{$replicators} Replicators[/color].
                                - Amassed a total of [color=#d70aa0]{$points} points[/color].
@@ -29,4 +29,10 @@ replicator-nest-level5 = How is the hull still intact?!
 # the default message for when we run out of custom levelup messages.
 replicator-nest-levelup = There is a flurry of activity from the nest.
 
-replicator-nest-destroyed = Your nest has been destroyed. A Replicator has been selected to replace it.
+replicator-nest-destroyed = Your nest has been destroyed. 
+                            A Replicator has been selected to replace it.
+                            Your pinpointer has been updated to follow them.
+
+# action confirmations
+replicator-nest-confirm = Are you sure? Use the action again to confirm.
+replicator-levelup-confirm = Are you sure? Use the action again to confirm.
