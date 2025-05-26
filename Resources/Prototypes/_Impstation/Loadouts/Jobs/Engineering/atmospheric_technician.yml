@@ -9,12 +9,12 @@
       time: 36000 #10 hrs, ~7 rounds
 
 # Head
-- type: loadout
-  id: AtmosphericTechnicianBeret
-  startingGear: EngineeringBeret
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorEngineering #From default senior engineering playtime in Resources\Prototypes\Loadouts\Jobs\Engineering\station_engineer.yml
+# - type: loadout
+#   id: AtmosphericTechnicianBeret
+#   startingGear: EngineeringBeret
+#   effects:
+#   - !type:GroupLoadoutEffect
+#     proto: SeniorEngineering #From default senior engineering playtime in Resources\Prototypes\Loadouts\Jobs\Engineering\station_engineer.yml
 
 #OuterClothing
 - type: loadout
