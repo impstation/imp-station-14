@@ -23,7 +23,7 @@ public sealed partial class CaptainSwordMenuComponent : Component
     public List<int> SelectedSets = new();
 
     [DataField]
-    public SoundSpecifier ApproveSound = new SoundPathSpecifier("/Audio/Effects/holy.ogg");
+    public SoundSpecifier ApproveSound = new SoundPathSpecifier("/Audio/Items/unsheath.ogg");
 
     /// <summary>
     /// Max number of sets you can select.

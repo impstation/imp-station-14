@@ -2,7 +2,7 @@ captain-sheathe-transformed = Your liquid metal blade coalesces!
 
 captain-swordmenu-window-title = Form Blade
 captain-swordmenu-window-description =
-    Permanently shape your sword into a shape of your choice.
+    Permanently form your sword into a shape of your choice.
 captain-swordmenu-window-selected = Form selected: ({$selectedCount}/{$maxCount})
 
 captain-swordset-category-sabre-name = Captain's Sabre

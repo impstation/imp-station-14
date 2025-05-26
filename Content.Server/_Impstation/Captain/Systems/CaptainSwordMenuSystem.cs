@@ -45,7 +45,7 @@ public sealed class CaptainSwordMenuSystem : EntitySystem
 
     private void OnApprove(Entity<CaptainSwordMenuComponent> backpack, ref CaptainSwordMenuApproveMessage args)
     {
-        var soundApprove = new SoundPathSpecifier("/Audio/Effects/holy.ogg");
+        var soundApprove = new SoundPathSpecifier("/Audio/Items/unsheath.ogg");
         if (backpack.Comp.SelectedSets.Count != backpack.Comp.MaxSelectedSets)
             return;
 
