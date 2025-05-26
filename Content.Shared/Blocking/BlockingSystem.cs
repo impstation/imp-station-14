@@ -159,10 +159,10 @@ public sealed partial class BlockingSystem : EntitySystem
             }
         }
 
-        _movementSpeed.RefreshMovementSpeedModifiers(user);
-
         ent.Comp.IsBlocking = true;
         Dirty(ent);
+
+        _movementSpeed.RefreshMovementSpeedModifiers(user);
 
         return;
     }
@@ -194,12 +194,12 @@ public sealed partial class BlockingSystem : EntitySystem
                 if (_gameTiming.InPrediction)
                     _popupSystem.PopupEntity(msgUser, user, user);
             }
-
-            _movementSpeed.RefreshMovementSpeedModifiers(user);
         }
 
         ent.Comp.IsBlocking = false;
         Dirty(ent);
+
+        _movementSpeed.RefreshMovementSpeedModifiers(user);
 
         return;
     }
@@ -210,7 +210,7 @@ public sealed partial class BlockingSystem : EntitySystem
         if (!TryComp<BlockingComponent>(ent.Comp.BlockingItem, out var blockingComp))
             return;
 
-        if (!blockingComp.IsBlocking)
+        if (blockingComp.IsBlocking)
             args.ModifySpeed(blockingComp.SlowdownModifier);
         else
             args.ModifySpeed(1f);
