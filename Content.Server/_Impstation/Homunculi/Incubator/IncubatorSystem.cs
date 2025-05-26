@@ -1,14 +1,12 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Fluids.EntitySystems;
-using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.PowerCell;
 using Content.Shared._Impstation.Homunculi.Components;
 using Content.Shared._Impstation.Homunculi.Incubator;
 using Content.Shared._Impstation.Homunculi.Incubator.Components;
 using Content.Shared.Chemistry.Components;
-using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Containers.ItemSlots;
@@ -18,21 +16,21 @@ using Content.Shared.Humanoid;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Sprite;
-using Robust.Shared.Serialization;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
-using YamlDotNet.Serialization.Schemas;
 
 namespace Content.Server._Impstation.Homunculi.Incubator;
 
 public sealed class IncubatorSystem : SharedIncubatorSystem
 {
-    [Dependency] private readonly ItemToggleSystem _toggle = default!;
-    [Dependency] private readonly PowerCellSystem _cell = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
-    [Dependency] private readonly ItemSlotsSystem _slots = default!;
-    [Dependency] private readonly PuddleSystem _puddle = default!;
+    [Dependency] private readonly ItemToggleSystem _toggle = null!;
+    [Dependency] private readonly PowerCellSystem _cell = null!;
+    [Dependency] private readonly IGameTiming _timing = null!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solution = null!;
+    [Dependency] private readonly ItemSlotsSystem _slots = null!;
+    [Dependency] private readonly PuddleSystem _puddle = null!;
+    [Dependency] private readonly SharedAudioSystem _audio = null!;
 
     public override void Initialize()
     {
@@ -40,7 +38,7 @@ public sealed class IncubatorSystem : SharedIncubatorSystem
 
         SubscribeLocalEvent<IncubatorComponent, ItemToggleActivateAttemptEvent>(OnActivateAttempt);
         SubscribeLocalEvent<IncubatorComponent, ItemToggleDeactivateAttemptEvent>(OnDeactivateAttempt);
-
+        SubscribeLocalEvent<IncubatorComponent, ItemToggledEvent>(OnToggled);
         SubscribeLocalEvent<IncubatorComponent, ExaminedEvent>(OnExamine);
 
     }
@@ -52,28 +50,27 @@ public sealed class IncubatorSystem : SharedIncubatorSystem
         var beaker = _slots.GetItemOrNull(ent, ent.Comp.BeakerSlotId);
         if (beaker == null)
         {
-            popup = "no beaker stupid";
+            popup = Loc.GetString("incubator-no-beaker");
         }
-        else if (!TryGetSolutionFromBeaker(ent.Comp,(Entity<SolutionContainerManagerComponent?>)beaker, out var solution) ||
-                 solution.Value.Comp.Solution.Contents.Count == 0)
+        else if (!TryGetSolution(ent.Owner, out var solution))
         {
-            popup = "no solution stupid";
+            popup = Loc.GetString("incubator-no-solution");
         }
         else if (!TryGetDnaData(solution, out var dnaData))
         {
-            popup = "no dna data stupid";
+            popup = Loc.GetString("incubator-no-dna");
         }
         else if (dnaData.Count > 1)
         {
-            popup = "too much dna data stupid";
+            popup = Loc.GetString("incubator-too-much-dna");
         }
         else if (!_cell.TryGetBatteryFromSlot(ent, out var battery))
         {
-            popup = "no battery stupid";
+            popup = Loc.GetString("incubator-no-cell");
         }
         else if (UsesRemaining(ent.Comp, battery) <= 0)
         {
-            popup = "no battery charge stupid";
+            popup = Loc.GetString("incubator-insufficient-power");
         }
 
         if (popup != null)
@@ -94,13 +91,22 @@ public sealed class IncubatorSystem : SharedIncubatorSystem
         }
     }
 
-    private bool TryGetSolutionFromBeaker(IncubatorComponent incubator, Entity<SolutionContainerManagerComponent?> solutionManager, [NotNullWhen(true)] out Entity<SolutionComponent>? solution)
+    private bool TryGetSolution(Entity<IncubatorComponent?> ent,
+        [NotNullWhen(true)] out Entity<SolutionComponent>? solution)
     {
-        if (_solution.TryGetSolution(solutionManager, incubator.BeakerContainerId, out var foundSolution, out _))
+        if (!Resolve(ent, ref ent.Comp))
+        {
+            solution = null;
+            return false;
+        }
+
+        var container = _slots.GetItemOrNull(ent, ent.Comp.BeakerSlotId);
+        if (container != null && _solution.TryGetFitsInDispenser(container.Value, out var foundSolution, out _))
         {
             solution = foundSolution;
             return true;
         }
+
         solution = null;
         return false;
     }
@@ -123,37 +129,43 @@ public sealed class IncubatorSystem : SharedIncubatorSystem
             if (comp.IncubationFinishTime == null || comp.IncubationFinishTime > _timing.CurTime)
                 continue;
 
-            FinishIncubation(uid,comp);
+            FinishIncubation(uid);
         }
     }
 
-    public void FinishIncubation(EntityUid uid, IncubatorComponent incubator)
+    private void OnToggled(Entity<IncubatorComponent> ent, ref ItemToggledEvent args)
     {
+        if (args.Activated)
+            ent.Comp.PlayingStream = _audio.PlayPvs(ent.Comp.LoopingSound, ent, AudioParams.Default.WithLoop(true).WithMaxDistance(5))?.Entity;
+        else
+            _audio.Stop(ent.Comp.PlayingStream);
+    }
+
+    public void FinishIncubation(Entity<IncubatorComponent?> ent)
+    {
+        if (!Resolve(ent, ref ent.Comp))
+            return;
 
         // Spawn Homunculi
-        if (!SpawnHomunculi(uid,incubator))
+        if (!SpawnHomunculi(ent))
         {
-            var beaker = _slots.GetItemOrNull(uid, incubator.BeakerSlotId);
-            if (beaker != null && TryGetSolutionFromBeaker(incubator,(Entity<SolutionContainerManagerComponent?>)beaker, out var solution))
+            if (TryGetSolution(ent, out var solution))
             {
-                _puddle.TrySpillAt(uid, solution.Value.Comp.Solution, out _ );
+                _puddle.TrySpillAt(ent, solution.Value.Comp.Solution, out _ );
                 _solution.RemoveAllSolution(solution.Value);
             }
         }
 
-        incubator.IncubationFinishTime = null;
-
-        _cell.TryUseCharge(uid, incubator.ChargeUse);
-
-        _toggle.TryDeactivate(uid);
+        ent.Comp.IncubationFinishTime = null;
+        _cell.TryUseCharge(ent, ent.Comp.ChargeUse);
+        _toggle.TryDeactivate(ent.Owner);
     }
 
-    public bool SpawnHomunculi(EntityUid uid, IncubatorComponent incubator)
+    public bool SpawnHomunculi(Entity<IncubatorComponent?> ent)
     {
-        // Get Beaker, if Beaker is null or contains no solution, return false
-        var beaker = _slots.GetItemOrNull(uid, incubator.BeakerSlotId);
-        if (beaker == null || !TryGetSolutionFromBeaker(incubator,(Entity<SolutionContainerManagerComponent?>)beaker, out var solution))
+        if (!TryGetSolution(ent, out var solution))
             return false;
+
         // If there's no DNA data in the solution (shouldn't happen but whatever) return
         if (!TryGetDnaData(solution, out var dnaData))
             return false;
@@ -164,10 +176,8 @@ public sealed class IncubatorSystem : SharedIncubatorSystem
         var query = EntityQueryEnumerator<HomunculiTypeComponent>();
         while (query.MoveNext(out var victim, out var homunculiTypeComponent))
         {
-            // If you cant make it you cant make it!!
             if (!SatisfiesRecipe(homunculiTypeComponent, reagentList))
                 continue;
-            // Check for DNA!
             if (!TryComp<DnaComponent>(victim, out var dnaComponent))
                 continue;
             if (dnaComponent.DNA != dnaData.First().DNA)
@@ -175,7 +185,7 @@ public sealed class IncubatorSystem : SharedIncubatorSystem
 
             var savedSolutions = solution.Value.Comp.Solution.Contents.ToList();
             // Go through all the reagents in the saved solution, if the reagent matches one in the recipe, remove it
-            // I have to check for reagent data because it needs to be specific or else it wont drain
+            // I have to check for reagent data because it needs to be specific or else it won't drain
             foreach (var (reagent, amount) in homunculiTypeComponent.Recipe)
             {
                 var match = savedSolutions.FirstOrDefault(rq => rq.Reagent.Prototype == reagent);
@@ -186,48 +196,51 @@ public sealed class IncubatorSystem : SharedIncubatorSystem
                     _solution.RemoveReagent(solution.Value, reagent, amount);
             }
 
-            var transform = EntityManager.GetComponent<TransformComponent>(uid);
+            var transform = EntityManager.GetComponent<TransformComponent>(ent);
             var transformSystem = EntityManager.System<SharedTransformSystem>();
 
-            // Spawn Homunculi Entity
-            var homunculi = EntityManager.SpawnEntity(homunculiTypeComponent.HomunculiType, transformSystem.GetMapCoordinates(uid, xform: transform));
-            transformSystem.AttachToGridOrMap(uid);
+            var homunculi = EntityManager.SpawnEntity(homunculiTypeComponent.HomunculiType, transformSystem.GetMapCoordinates(ent, xform: transform));
+            transformSystem.AttachToGridOrMap(ent);
 
-            // Copy DNA from Homunculi DNA donor to the Homunculi
             EnsureComp<DnaComponent>(homunculi, out var homunculiDnaComponent);
             homunculiDnaComponent.DNA = dnaComponent.DNA;
 
-            if (TryComp<HumanoidAppearanceComponent>(victim, out var humanoidAppearance))
-            {
-                homunculiTypeComponent.Colors.skinColor = humanoidAppearance.SkinColor;
-                homunculiTypeComponent.Colors.eyeColor = humanoidAppearance.EyeColor;
-            }
-            else
-            {
-                homunculiTypeComponent.Colors.skinColor = homunculiTypeComponent.DefaultSkinColor;
-                homunculiTypeComponent.Colors.eyeColor = Color.Black;
-            }
-
-            var netHomunculi = GetNetEntity(homunculi);
-            var colorsChangedEvent = new HomunculiColorsChangedEvent(homunculiTypeComponent.Colors.skinColor,
-                homunculiTypeComponent.Colors.eyeColor,
-                netHomunculi);
-            RaiseLocalEvent(homunculi, colorsChangedEvent, true);
-
+            SetHomunculusAppearance(victim,homunculi);
             return true;
         }
         return false;
     }
 
-    public static (Color skinColor, Color? hairColor, Color eyeColor) GetHumanoidColors(HumanoidAppearanceComponent comp)
+    private void SetHomunculusAppearance(EntityUid urist, EntityUid homunculi)
     {
-        Color? hairColor = new Color(1,1,1,1);
-
-        if (comp.CachedHairColor != null)
+        (Color skinColor, Color eyeColor)? colors;
+        if (TryComp<HumanoidAppearanceComponent>(urist, out var appearanceComponent))
         {
-            hairColor = comp.CachedHairColor;
+            colors = GetHumanoidColors(appearanceComponent);
         }
-        return (comp.SkinColor, hairColor , comp.EyeColor);
+        else
+            return;
+
+        if (!TryComp<RandomSpriteComponent>(homunculi, out var randomSprite))
+            return;
+
+        foreach (var entry in randomSprite.Selected)
+        {
+            var state = randomSprite.Selected[entry.Key];
+            state.Color = entry.Key switch
+            {
+                "skinMap" => colors.Value.skinColor,
+                "eyeMap" => colors.Value.eyeColor,
+                _ => state.Color,
+            };
+            randomSprite.Selected[entry.Key] = state;
+        }
+        Dirty(urist, randomSprite);
+    }
+
+    private static (Color skinColor, Color eyeColor) GetHumanoidColors(HumanoidAppearanceComponent comp)
+    {
+        return (comp.SkinColor , comp.EyeColor);
     }
 
     private static bool SatisfiesRecipe(HomunculiTypeComponent component, List<ReagentQuantity> reagents)

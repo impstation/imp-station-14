@@ -1,3 +1,4 @@
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._Impstation.Homunculi.Incubator.Components;
@@ -26,8 +27,13 @@ public sealed partial class IncubatorComponent : Component
     [DataField, AutoPausedField, Access(typeof(SharedIncubatorSystem))]
     public TimeSpan? IncubationFinishTime;
 
+
+    public EntityUid? PlayingStream;
+
+    [DataField]
+    public SoundSpecifier?  LoopingSound = new SoundPathSpecifier("/Audio/Machines/spinning.ogg");
+
     [DataField]
     public string BeakerSlotId = "beaker_slot";
-    [DataField]
-    public string BeakerContainerId = "beaker";
+
 }

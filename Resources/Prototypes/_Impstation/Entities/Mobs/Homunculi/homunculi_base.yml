@@ -3,8 +3,6 @@
   categories: [ HideSpawnMenu ]
   id: HomunculusBase
   components:
-  - type: Item
-    size: Normal
   - type: GhostTakeoverAvailable
   - type: GhostRole
     makeSentient: true
@@ -28,18 +26,16 @@
         - MobMask
         layer:
         - MobLayer
-  - type: Bloodstream
-    bloodMaxVolume: 30
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 0.2
-    baseSprintSpeed : 0.3
   - type: MobThresholds
     thresholds:
       0: Alive
-      59: Dead
+      50: Critical
+      100: Dead
   - type: Tag
     tags:
     - FootstepSound
     - VimPilot
   - type: Puller
     needsHands: false
+  - type: Speech
+    speechSounds: Alto

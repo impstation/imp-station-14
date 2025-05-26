@@ -13,13 +13,29 @@
       state: skin
     - map: [ "eyeMap" ]
       state: eyes
+  - type: Body
+    prototype: HomunculusHuman
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatHuman
+      amount: 5
   - type: Vocal
     sounds:
       Male: MaleHuman
-      Female: MaleHuman
-      Unsexed: MaleHuman
+      Female: FemaleHuman
+      Unsexed: UnisexHuman
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/Effects/Footsteps/slime1.ogg
       params:
         volume: -6
+  - type: RandomSprite # Lie.
+    selected:
+      skinMap:
+        skin: "#ffd2ba" # Default
+      eyeMap:
+        eyes: "#000000" # Default
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 0.3
+    baseSprintSpeed : 0.5

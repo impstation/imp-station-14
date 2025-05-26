@@ -1,3 +1,4 @@
+using Content.Shared._Impstation.Homunculi.Components;
 using Content.Shared._Impstation.Homunculi.Incubator.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Humanoid;
@@ -11,7 +12,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._Impstation.Homunculi.Incubator;
 
-public abstract class SharedIncubatorSystem : EntitySystem
+public abstract class  SharedIncubatorSystem : EntitySystem
 {
     [Dependency] private readonly ItemToggleSystem _toggle = default!;
 
@@ -22,19 +23,6 @@ public abstract class SharedIncubatorSystem : EntitySystem
         SubscribeLocalEvent<IncubatorComponent, ItemSlotEjectAttemptEvent>(OnItemSlotEjectAttempt);
     }
 
-    [Serializable, NetSerializable]
-    public sealed class HomunculiColorsChangedEvent : EntityEventArgs
-    {
-        public readonly (Color skinColor, Color eyeColor) Colors;
-        public readonly NetEntity Homunculus;
-
-        public HomunculiColorsChangedEvent(Color skinColor, Color eyeColor, NetEntity homunculus)
-        {
-            Homunculus = homunculus;
-            Colors.skinColor = skinColor;
-            Colors.eyeColor = eyeColor;
-        }
-    }
     private void OnItemSlotEjectAttempt(Entity<IncubatorComponent> ent, ref ItemSlotEjectAttemptEvent args)
     {
         if (args.Cancelled)
@@ -43,5 +31,4 @@ public abstract class SharedIncubatorSystem : EntitySystem
         if (_toggle.IsActivated(ent.Owner))
             args.Cancelled = true;
     }
-
 }

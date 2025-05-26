@@ -1,0 +1,34 @@
+- type: body
+  id: HomunculusHuman
+  name: "Homunculi"
+  root: torso
+  slots:
+    torso:
+      part: TorsoHomunculusHuman
+      connections:
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganHumanEyes
+        heart: OrganHumanHeart
+        lungs: OrganHumanLungs
+        stomach: OrganHumanStomach
+        liver: OrganHumanLiver
+        kidneys: OrganHumanKidneys
+
+- type: entity
+  id: TorsoHomunculusHuman
+  parent: PartHuman
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BodyPart
+    partType: Torso
+  - type: Damageable
+    damageContainer: Biological
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
