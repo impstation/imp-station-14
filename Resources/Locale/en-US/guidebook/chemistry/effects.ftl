@@ -404,9 +404,3 @@ reagent-effect-guidebook-plant-seeds-remove =
         [1] Removes the
         *[other] remove the
     } seeds of the plant
-
-reagent-effect-guidebook-pacify =
-    { $chance ->
-        [1] Pacifies
-        *[other] Pacify
-    } the metabolizer

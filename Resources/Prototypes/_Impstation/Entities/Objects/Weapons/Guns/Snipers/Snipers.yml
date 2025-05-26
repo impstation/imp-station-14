@@ -1,6 +1,6 @@
 - type: entity
   name: Muldoon
-  parent: [BaseWeaponSniper, BaseGunWieldable,BaseSecurityBartenderContraband]
+  parent: [ BaseWeaponSniper, BaseGunWieldable, BaseRestrictedZookeeperContraband ]
   id: WeaponRifleTranq
   description: A tranquilizer rifle designed to administer drugs to dangerous animals. Only takes pre-loaded darts. Not to be used on human targets.
   components:
