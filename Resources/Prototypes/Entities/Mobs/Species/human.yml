@@ -32,11 +32,10 @@
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
   - type: HomunculiType #imp
-    homunculiType: HomunculusHuman #imp
+    homunculiType: HomunculusHuman
     recipe:
       Blood: 1
       Water: 1
-    defaultSkinColor: "#FFE1CCFF"
 
 - type: entity
   parent: BaseSpeciesDummy

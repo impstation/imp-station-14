@@ -1,20 +1,4 @@
 - type: reaction
-  id: CreateSynthFlesh
-  impact: Low
-  quantized: true
-  conserveEnergy: true
-  reactants:
-    Blood:
-      amount: 1
-    Lacerinol:
-      amount: 1
-    Saline:
-      amount: 1
-  effects:
-  products:
-    SynthFlesh: 2
-
-- type: reaction
   id: WatertoHolyAquam
   impact: Low
   requiredMixerCategories:
