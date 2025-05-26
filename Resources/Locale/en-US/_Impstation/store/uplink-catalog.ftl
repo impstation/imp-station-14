@@ -72,3 +72,12 @@ uplink-rocketcon-desc = A box containing 3 concussion rockets compatible with th
 
 uplink-echioncell-name = Echion power cell
 uplink-echioncell-desc = A special power cell made with Echion. While not the most efficient as a battery, it's especially useful when used with weapons.
+
+uplink-mixed-rejects-name = Dan's Soaked Smokes Rejects
+uplink-mixed-rejects-desc = Dan worked with Interdyne chemistry to dispose of excess chemicals, ENJOY CAUTIOUSLY.
+
+uplink-mixed-rejects-carton-name = Dan's Soaked Smokes Rejects Carton
+uplink-mixed-rejects-carton-desc = A carton containing 6 packets of Dan's Soaked Smokes: Rejects, plus an exclusive Syndicate-branded flippo.
+
+uplink-poison-injector-name = Lethal Poison Auto-Injector
+uplink-poison-injector-desc = A single dose of a lethal toxin mix, courtesy of Gorlex's Stealth Operations department, induces gradual organ failure and esophagus inflammation which eliminates a subject within one to two minutes of injection.
