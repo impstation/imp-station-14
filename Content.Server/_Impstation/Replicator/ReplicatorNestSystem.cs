@@ -3,32 +3,32 @@
 // the original Bingle PR can be found here: https://github.com/Goob-Station/Goob-Station/pull/1519
 
 using Content.Server.Actions;
+using Content.Server.Audio;
 using Content.Server.GameTicking;
 using Content.Server.Pinpointer;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
 using Content.Shared._Impstation.Replicator;
 using Content.Shared.Actions;
+using Content.Shared.Audio;
+using Content.Shared.Destructible;
+using Content.Shared.Explosion.Components;
+using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Events;
+using Content.Shared.Objectives.Components;
+using Content.Shared.Pinpointer;
+using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Stunnable;
-using Content.Shared.Pinpointer;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Content.Shared.Humanoid;
-using Content.Shared.Explosion.Components;
-using Content.Shared.Audio;
-using Content.Server.Audio;
-using Content.Shared.Objectives.Components;
-using Content.Shared.Silicons.Laws.Components;
 using System.Linq;
-using Content.Shared.Destructible;
 
 namespace Content.Server._Impstation.Replicator;
 
