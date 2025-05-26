@@ -70,7 +70,8 @@
   result: Gauze1
   completetime: 1
   materials:
-    Cloth: 100 # lathe more efficient than handcrafting
+    Cloth: 50 # lathe more efficient than handcrafting #imp
+    Plastic: 50 #imp
 
 - type: latheRecipe
   id: HandheldHealthAnalyzer
