@@ -412,8 +412,8 @@ accent-nocontractions-words-replace-136 = that is
 accent-nocontractions-words-137 = thats
 accent-nocontractions-words-replace-137 = that is
 
-accent-nocontractions-words-138 = I'd
-accent-nocontractions-words-replace-138 = I would
+accent-nocontractions-words-138 = i'd
+accent-nocontractions-words-replace-138 = i would
 
 accent-nocontractions-words-139 = y'all
 accent-nocontractions-words-replace-139 = you all
