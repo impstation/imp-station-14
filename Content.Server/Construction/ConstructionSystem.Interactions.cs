@@ -43,7 +43,6 @@ namespace Content.Server.Construction
             SubscribeLocalEvent<ConstructionComponent, OnTemperatureChangeEvent>(EnqueueEvent);
             SubscribeLocalEvent<ConstructionComponent, PartAssemblyPartInsertedEvent>(EnqueueEvent);
             SubscribeLocalEvent<ConstructionComponent, EntRemovedFromContainerMessage>(EnqueueEvent); // imp
-
         }
 
         /// <summary>

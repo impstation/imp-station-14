@@ -111,7 +111,7 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: Tag
+  - type: Tag # imp
     tags:
     - LightTube
 
@@ -204,7 +204,7 @@
     lightEnergy: 0.3 # old incandescents just arent as bright
     lightRadius: 6
     lightSoftness: 1.1
-  - type: Tag #imp
+  - type: Tag
     tags:
     - LightBulb
     - Trash
@@ -220,7 +220,7 @@
   - type: LightBulb
     startingState: Broken
     bulb: Bulb
-  - type: Tag #imp
+  - type: Tag
     tags:
     - LightBulb
     - Trash
@@ -551,7 +551,7 @@
     tags:
     - LightBulb
     - Trash
-    - LightCyan #imp
+    - LightCyan
 
 - type: entity
   parent: BaseLightbulbCrystal
@@ -571,7 +571,7 @@
     tags:
     - LightBulb
     - Trash
-    - LightBlue #imp
+    - LightBlue
 
 - type: entity
   parent: BaseLightbulbCrystal
@@ -591,7 +591,7 @@
     tags:
     - LightBulb
     - Trash
-    - LightYellow #imp
+    - LightYellow
 
 - type: entity
   parent: BaseLightbulbCrystal
@@ -611,7 +611,7 @@
     tags:
     - LightBulb
     - Trash
-    - LightPink #imp
+    - LightPink
 
 - type: entity
   parent: BaseLightbulbCrystal
@@ -631,7 +631,7 @@
     tags:
     - LightBulb
     - Trash
-    - LightOrange #imp
+    - LightOrange
 
 - type: entity
   parent: BaseLightbulbCrystal
@@ -654,7 +654,7 @@
     tags:
     - LightBulb
     - Trash
-    - LightBlack #imp
+    - LightBlack
 
 - type: entity
   parent: BaseLightbulbCrystal
@@ -674,7 +674,7 @@
     tags:
     - LightBulb
     - Trash
-    - LightRed #imp
+    - LightRed
 
 - type: entity
   parent: BaseLightbulbCrystal
@@ -694,4 +694,4 @@
     tags:
     - LightBulb
     - Trash
-    - LightGreen #imp
+    - LightGreen

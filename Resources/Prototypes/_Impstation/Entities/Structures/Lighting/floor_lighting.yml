@@ -5,10 +5,6 @@
   suffix: Always powered
   parent: AlwaysPoweredWallLight
   components:
-  - type: Transform
-    anchored: true
-  - type: Clickable
-  - type: InteractionOutline
   - type: Sprite
     sprite: _Impstation/Structures/Lighting/floorlights.rsi
     drawdepth: HighFloorObjects
@@ -19,10 +15,6 @@
       state: baseGlow
       shader: unshaded
   - type: PointLight
-    color: "#FFE4CE"
-    energy: 0.8
-    radius: 10
-    softness: 1
     offset: "0, 0"
   - type: Destructible
     thresholds:
@@ -60,7 +52,7 @@
   name: floor light
   description: "A metamorphic hole, meant to turn into a floor light! Just insert a light tube."
   id: PoweredFloorLightEmpty
-  suffix: empty
+  suffix: Empty
   parent: AlwaysPoweredFloorLight
   components:
   - type: Sprite
@@ -1022,7 +1014,7 @@
 - type: entity
   name: sun floor light
   id: SunFloorLight
-  suffix: DO NOT MAP, Admeme, Sun
+  suffix: Admeme, Sun
   categories: [ DoNotMap ]
   parent: AlwaysPoweredFloorLight
   components:
