@@ -1,39 +1,4 @@
 ﻿Entries:
-- author: widgetbeck
-  changes:
-  - message: Drones now have fewer toys. It's more fun to find your own supplies.
-    type: Remove
-  id: 1238
-  time: '2025-03-07T01:26:32.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1846
-- author: DinnerCalzone, EpicToastTM, honeyed_lemons
-  changes:
-  - message: Hospitality Director has been added, the new head of staff for the service
-      department!
-    type: Add
-  - message: Clown, Mime, Reporter, and Librarian access types have been added. The
-      clown locker, mime locker, musician locker (new!), news console, and Curadrobe
-      are now locked by those respective access types.
-    type: Add
-  - message: The janitor closet now has its own sprite. The janitor biohazard and
-      bombsuit closets have been resprited to match it.
-    type: Add
-  - message: Airlocks for service jobs have received a new stripe of paint.
-    type: Tweak
-  - message: The stun Kammerer is now restricted as Security/Bartender contraband.
-    type: Tweak
-  - message: The ninja's bombing objective should be assigned on far more maps.
-    type: Fix
-  id: 1239
-  time: '2025-03-07T01:18:18.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1732
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: bunch of the guns might look a little different
-    type: Tweak
-  id: 1240
-  time: '2025-03-07T01:31:14.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1833
 - author: Sha-Seng
   changes:
   - message: CMO can now select standard or paramedic belt from loadout
@@ -4227,3 +4192,25 @@
   id: 1737
   time: '2025-05-26T23:29:22.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/2462
+- author: DinnerCalzone
+  changes:
+  - message: Ambuzol and Ambuzol Plus pills can no longer spawn in randomized pill
+      canisters.
+    type: Remove
+  id: 1738
+  time: '2025-05-27T01:55:12.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2592
+- author: widgetbeck
+  changes:
+  - message: Hole is thirsty.
+    type: Add
+  id: 1739
+  time: '2025-05-27T01:59:35.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2591
+- author: Pinkbat5
+  changes:
+  - message: Decapoids can now click and chitter like arachnids!
+    type: Add
+  id: 1740
+  time: '2025-05-27T04:06:10.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2594
