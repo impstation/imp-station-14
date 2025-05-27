@@ -35,10 +35,10 @@ uplink-saw-ammo-name = Ammunition box (.20 rifle)
 uplink-saw-ammo-desc = A box of 50 cartridges compatible with the L6 Nidhogg light machine gun. Doesn't come with any ammo boxes, load it yourself!
 
 uplink-adder-name = Adder bundle
-uplink-adder-desc = One state-of-the-art Adder plasma pistol, bundled with 2 cannisters of its proprietary liquid ammo.
+uplink-adder-desc = One state-of-the-art Adder plasma pistol, bundled with 2 canisters of its proprietary liquid ammo.
 
 uplink-akurra-name = Akurra bundle
-uplink-akurra-desc = Fearsome as it is advanced, the venerable Akurra bundled with 4 cannisters of its proprietary liquid ammo.
+uplink-akurra-desc = Fearsome as it is advanced, the venerable Akurra bundled with 4 canisters of its proprietary liquid ammo.
 
 uplink-flamethrower-name = FG13 Xiuhcoatl flamethrower
 uplink-flamethrower-desc = Invite Nanotrasen to the cookout with this portable incendiary weapon.

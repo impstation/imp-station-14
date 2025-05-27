@@ -68,7 +68,7 @@
   parent: [BoxCardboard, BaseSyndicateContraband]
   id: AdderBox
   name: Adder bundle box
-  description: A state-of-the-art plasma pistol, bundled with 2 cannisters of its proprietary fuel.
+  description: A state-of-the-art plasma pistol, bundled with 2 canisters of its proprietary fuel.
   components:
   - type: Storage
     grid:
@@ -76,7 +76,7 @@
   - type: StorageFill
     contents:
       - id: WeaponPlasmaAdder
-      - id: EchionCannister
+      - id: EchionCanister
         amount: 2
   - type: Sprite
     sprite: /Textures/_Impstation/Objects/Storage/boxes.rsi
