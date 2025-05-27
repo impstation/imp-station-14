@@ -52,8 +52,8 @@ uplink-anaconda-desc = Waffle Corp. is not responsible for any injuries sustaine
 uplink-leviathan-name = Leviathan
 uplink-leviathan-desc = Sometimes, it really is the size that matters.
 
-uplink-magazine-echion-name = Echion cannister
-uplink-magazine-echion-desc = A special refueling cannister containing 75 units of Echion. Compatible with the Adder and Akurra.
+uplink-magazine-echion-name = Echion canister
+uplink-magazine-echion-desc = A special refueling canister containing 75 units of Echion. Compatible with the Adder and Akurra.
 
 uplink-echion-synth-name = Echion synthesizer
 uplink-echion-synth-desc = An advanced catalyser that produces Echion at a steady rate while powered. Compatible with the Adder and Akurra.
