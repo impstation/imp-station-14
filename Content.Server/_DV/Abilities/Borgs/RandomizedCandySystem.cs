@@ -52,32 +52,6 @@ public sealed partial class RandomizedCandySystem : EntitySystem
         var meta = MetaData(uid);
         if (!string.IsNullOrEmpty(candyFlavor.Name))
             _metaData.SetEntityName(uid, $"{candyFlavor.Name} {meta.EntityName}", meta);
-        _metaData.SetEntityDescription(uid, $"{meta.EntityDescription} {GetExamineFluff(candyFlavor.Flavors)}");
         Dirty(uid, meta);
-    }
-
-    // this technically duplicates code from FlavorProfileSystem but what we would need to call
-    // is upstream code in a private method with fixed loc strings and unnecessary sorting, so i don't want to touch it
-    private string GetExamineFluff(HashSet<ProtoId<FlavorPrototype>> flavorIds)
-    {
-        var flavors = new List<string>();
-        foreach (var flavorId in flavorIds)
-        {
-            if (_prototypeManager.TryIndex(flavorId, out var flavor) &&
-                Loc.TryGetString(flavor.FlavorDescription, out var flavorText))
-            {
-                flavors.Add(flavorText);
-            }
-        }
-
-        return flavors.Count switch
-        {
-            > 1 => Loc.GetString("candy-flavor-profile-multiple",
-                ("lastFlavor", flavors.Pop()),
-                ("flavors", string.Join(", ", flavors))
-            ),
-            1 => Loc.GetString("candy-flavor-profile", ("flavor", flavors.Single())),
-            _ => Loc.GetString("candy-flavor-profile-unknown")
-        };
     }
 }

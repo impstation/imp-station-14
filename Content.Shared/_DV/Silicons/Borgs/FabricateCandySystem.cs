@@ -3,7 +3,6 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DV.Silicons.Borgs;
 
