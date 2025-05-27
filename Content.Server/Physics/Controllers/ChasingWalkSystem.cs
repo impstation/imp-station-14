@@ -1,15 +1,14 @@
-using System.Linq;
-using System.Numerics;
 using Content.Server.Physics.Components;
-using Robust.Shared.Random;
-using Robust.Shared.Timing;
-using Robust.Shared.Physics.Systems;
+using Content.Shared.Movement.Pulling.Components; // imp
+using Content.Shared.Movement.Pulling.Systems; // imp
+using Content.Shared.Projectiles; // imp
+using Content.Shared.Throwing; // imp
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Controllers;
-using Content.Shared.Throwing;
-using Content.Shared.Projectiles;
-using Content.Shared.Movement.Pulling.Systems;
-using Content.Shared.Movement.Pulling.Components;
+using Robust.Shared.Physics.Systems;
+using Robust.Shared.Random;
+using Robust.Shared.Timing;
+using System.Numerics;
 
 namespace Content.Server.Physics.Controllers;
 
@@ -25,7 +24,7 @@ public sealed class ChasingWalkSystem : VirtualController
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly ThrowingSystem _throw = default!; // imp
     [Dependency] private readonly SharedProjectileSystem _projectile = default!; //imp
-    [Dependency] private readonly PullingSystem _pulling = default!;
+    [Dependency] private readonly PullingSystem _pulling = default!; // imp
 
     private readonly HashSet<Entity<IComponent>> _potentialChaseTargets = new();
 
@@ -106,7 +105,7 @@ public sealed class ChasingWalkSystem : VirtualController
         var delta = pos2 - pos1;
         var speed = delta.Length() > 0 ? delta.Normalized() * component.Speed : Vector2.Zero;
 
-        if (!component.Throw)
+        if (!component.Throw) // imp - everything after this is ours
         {
             if (component.BreakPulling && TryComp<PullableComponent>(uid, out var pullable))
                 _pulling.TryStopPull(uid, pullable);

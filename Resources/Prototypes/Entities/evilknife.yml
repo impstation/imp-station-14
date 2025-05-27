@@ -31,9 +31,6 @@
       minSpeed: 20
       maxSpeed: 20
       maxChaseRadius: 5
-      stepOnStartup: true
-      minStepCooldown: 2
-      maxStepCooldown: 2
     - type: MovementIgnoreGravity
       gravityState: true
     - type: Tag

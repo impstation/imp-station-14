@@ -1,10 +1,10 @@
 using System.Numerics;
 using Content.Server.Physics.Components;
-using Content.Server.Projectiles;
+using Content.Server.Projectiles; // imp
 using Content.Shared.Follower.Components;
-using Content.Shared.Movement.Pulling.Components;
-using Content.Shared.Movement.Pulling.Systems;
-using Content.Shared.Projectiles;
+using Content.Shared.Movement.Pulling.Components; // imp
+using Content.Shared.Movement.Pulling.Systems; // imp
+using Content.Shared.Projectiles; // imp
 using Content.Shared.Throwing;
 using Robust.Server.GameObjects;
 using Robust.Shared.Physics.Components;
@@ -88,7 +88,7 @@ internal sealed class RandomWalkController : VirtualController
         if (randomWalk.BreakPulling && TryComp<PullableComponent>(uid, out var pulling))
             _pulling.TryStopPull(uid, pulling);
 
-        if (TryComp<EmbeddableProjectileComponent>(uid, out var embeddable) && embeddable.Target != null)
+        if (TryComp<EmbeddableProjectileComponent>(uid, out var embeddable) && embeddable.Target != null) // imp - everything after this is ours.
         {
             // calculate the direction away from the embed target
             var pos = _transform.GetWorldPosition(uid);
