@@ -17,7 +17,7 @@ public sealed partial class EntityRemoveConstructionGraphStep : ConstructionGrap
     /// <summary>
     /// A string representing the '$name' variable of the Loc file. By default, it's "Next, remove {$name}".
     /// </summary>
-    [DataField("name")]
+    [DataField]
     public string Name { get; private set; } = string.Empty;
 
     /// <summary>
