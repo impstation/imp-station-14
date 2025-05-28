@@ -1,0 +1,10 @@
+- type: entity
+  id: ActionXenoBase
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: InstantAction
+    backgroundOn:
+      sprite: _RMC14/Actions/xeno_actions.rsi
+      state: template_active_big
+  - type: ActionReducedUseDelay   # to keep track of cooldown reductions

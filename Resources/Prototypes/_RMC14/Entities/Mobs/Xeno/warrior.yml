@@ -1,0 +1,78 @@
+- type: entity
+  parent:
+  - CMXenoDeveloped
+  - CMXenoTail
+  - CMXenoFlammable
+  - RMCXenoSpeechSounds
+  - RMCXenoCommendationReceiver
+  - RMCXenoMobCollision
+  id: CMXenoWarrior
+  name: Warrior
+  description: A beefy alien with an armored carapace.
+  components:
+  - type: GuideHelp
+    guides:
+    - RMCGuideRoleWarrior
+  - type: GhostRole
+    name: cm-job-name-xeno-warrior
+  - type: Sprite
+    sprite: _RMC14/Mobs/Xenonids/Warrior/warrior.rsi
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Critical
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      500: Critical
+      600: Dead
+  - type: Xeno
+    role: CMXenoWarrior
+    actionIds:
+    - ActionXenoRest
+    - ActionXenoRegurgitate
+    - ActionXenoWatch
+    - ActionXenoTailStab
+    - ActionXenoPunch
+    - ActionXenoLunge
+    - ActionXenoFling
+    - ActionXenoDevolve
+    tier: 2
+    hudOffset: -0.15,0.25
+    unlockAt: 540 # 9 minutes
+  - type: XenoRegen
+    restHealMultiplier:  1.4
+  - type: XenoLight
+  - type: XenoDevolve
+    devolvesTo:
+    - CMXenoDefender
+  - type: XenoDevour
+  - type: XenoPunch
+    damage:
+      types:
+        Blunt: 27.5
+  - type: XenoFling
+  - type: XenoLunge
+  - type: XenoPlasma
+    plasma: 0
+    maxPlasma: 0
+    plasmaRegenOnWeeds: 0
+  - type: XenoEvolution
+    max: 500
+    evolvesTo:
+    - RMCXenoCrusher
+    - CMXenoPraetorian
+  - type: XenoClaws
+    clawType: Sharp
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 35
+  - type: XenoTailStab
+    tailDamage:
+      groups:
+        Brute: 48
+  - type: XenoLifesteal
+  - type: RMCXenoDamageVisuals
+    prefix: warrior

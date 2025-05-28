@@ -1,0 +1,178 @@
+﻿- type: entity
+  parent:
+  - CMXenoDeveloped
+  - CMXenoTail
+  - CMXenoFlammable
+  - RMCXenoSpeechSounds
+  - RMCXenoCommendationReceiver
+  - RMCXenoMobCollision
+  id: RMCXenoCarrierBase
+  name: Carrier
+  description: A strange-looking alien creature. It carries a number of scuttling jointed crablike creatures.
+  abstract: true
+  components:
+  - type: GhostRole
+    name: cm-job-name-xeno-carrier
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Critical
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      650: Critical
+      750: Dead
+  - type: Xeno
+    role: CMXenoCarrier
+    tier: 2
+    hudOffset: 0,0.19
+    unlockAt: 300 # 5 minutes
+  - type: XenoHeavy
+  - type: XenoDevolve
+    devolvesTo:
+    - CMXenoDrone
+  - type: XenoConstruction
+    canOrderConstruction:
+    - HiveCoreXenoConstructionNode
+    - HiveEggMorpherXenoConstructionNode
+    - HiveClusterXenoConstructionNode
+    - HiveRecoveryNodeXenoConstructionNode
+  - type: XenoPheromones
+    pheromonesMultiplier: 2
+  - type: XenoPlasma
+    plasma: 500
+    maxPlasma: 500
+    plasmaRegenOnWeeds: 3.5
+  - type: XenoDevour
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 27.5
+  - type: XenoTailStab
+    tailDamage:
+      groups:
+        Brute: 42
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 3.5
+  - type: EggPlantTime
+    plantTime: 1
+  - type: XenoEggRetriever
+  - type: XenoNurturing
+  - type: RMCXenoDamageVisuals
+    prefix: carrier
+  - type: XenoInhands
+    prefix: carrier
+
+- type: entity
+  parent: RMCXenoCarrierBase
+  id: CMXenoCarrier
+  components:
+  - type: GuideHelp
+    guides:
+    - RMCGuideRoleCarrier
+  - type: Sprite
+    sprite: _RMC14/Mobs/Xenonids/Carrier/carrier.rsi
+    layers:
+    - map: [ "enum.XenoVisualLayers.Base" ]
+      state: alive
+    - map: [ "enum.RMCDamageVisualLayers.Base" ]
+      visible: false
+    - map: [ "enum.ParasiteOverlayLayers.RightArm" ]
+      visible: false
+    - map: [ "enum.ParasiteOverlayLayers.Head" ]
+      visible: false
+    - map: [ "enum.ParasiteOverlayLayers.LeftArm" ]
+      visible: false
+    - map: [ "enum.ParasiteOverlayLayers.Back" ]
+      visible: false
+    - map: [ "enum.XenoInhandVisualLayers.Left" ]
+      visible: false
+    - map: [ "enum.XenoInhandVisualLayers.Right" ]
+      visible: false
+    - map: [ "focused" ]
+      sprite: _RMC14/Interface/xeno_hud.rsi
+      state: hudeye
+      visible: false
+  
+  - type: Xeno
+    actionIds:
+    - ActionXenoRest
+    - ActionXenoRegurgitate
+    - ActionXenoWatch
+    - ActionXenoTailStab
+    - ActionXenoOrderConstruction
+    - ActionXenoPheromones
+    - ActionXenoPlantWeeds
+    - ActionXenoResinHole
+    - ActionXenoThrowParasite
+    - ActionXenoRetrieveEgg
+    - ActionXenoParasiteReserve
+    - ActionXenoDevolve
+  - type: XenoParasiteThrower
+  - type: XenoEvolution
+    strains:
+    - RMCXenoCarrierEggsac
+
+- type: entity
+  parent: RMCXenoCarrierBase
+  id: RMCXenoCarrierEggsac
+  suffix: Eggsac
+  components:
+  - type: GuideHelp
+    guides:
+    - RMCGuideRoleEggsac
+  - type: Sprite
+    sprite: _RMC14/Mobs/Xenonids/Carrier/eggsac_carrier.rsi
+    layers:
+    - map: [ "enum.XenoVisualLayers.Base" ]
+      state: alive
+    - map: [ "enum.XenoEggStorageVisualLayers.Base" ]
+      state: eggsac_0
+    - map: [ "enum.RMCDamageVisualLayers.Base" ]
+      visible: false
+    - map: [ "enum.XenoInhandVisualLayers.Left" ]
+      visible: false
+    - map: [ "enum.XenoInhandVisualLayers.Right" ]
+      visible: false
+    - map: [ "focused" ]
+      sprite: _RMC14/Interface/xeno_hud.rsi
+      state: hudeye
+      visible: false
+    - map: [ "targetedDirection" ]
+      sprite: _RMC14/Effects/targeted.rsi
+      state: sniper_lockon_direction
+      visible: false
+    - map: [ "targetedDirectionIntense" ]
+      sprite: _RMC14/Effects/targeted.rsi
+      state: sniper_lockon_intense_direction
+      visible: false
+  - type: Xeno
+    actionIds:
+    - ActionXenoRest
+    - ActionXenoRegurgitate
+    - ActionXenoWatch
+    - ActionXenoTailStab
+    - ActionXenoOrderConstruction
+    - ActionXenoPheromones
+    - ActionXenoPlantWeeds
+    - ActionXenoGenerateEggs
+    - ActionXenoRetrieveEgg
+    - ActionXenoDevolve
+  - type: XenoStrain
+    name: rmc-xeno-eggsac-name
+    description: rmc-xeno-eggsac-description
+    popup: rmc-xeno-eggsac-popup
+  - type: XenoPheromones
+    pheromonesMultiplier: 3
+    pheroSuffix: strong
+  - type: XenoEggRetriever
+    maxEggs: 12
+  - type: XenoEggStorageVisuals
+  - type: EggPlantingDistance
+    distance: 2.5
+  - type: XenoGenerateEggs
+  - type: XenoEggSustainer
+  - type: XenoHidden
+

@@ -1,0 +1,109 @@
+- type: entity
+  parent:
+  - CMXenoUndeveloped
+  - CMXenoFlammable
+  id: CMXenoParasite
+  name: Parasite
+  components:
+  - type: GuideHelp
+    guides:
+    - RMCGuideRoleParasite
+  - type: GhostRole
+    name: cm-job-name-xeno-parasite
+    prob: 0
+    raffle:
+      settings: parasiteTimeRequirement
+  - type: Sprite
+    sprite: _RMC14/Mobs/Xenonids/Parasite/parasite.rsi
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      35: Dead # TODO RMC14 gib on death
+  - type: Xeno
+    role: CMXenoParasite
+    actionIds:
+    - ActionXenoRest
+    - ActionXenoWatch
+    - ActionXenoHide
+    - ActionXenoLeap
+    tier: 0
+    hudOffset: -0.1,0.1
+    contributesToVictory: false
+    countedInSlots: false
+    unlockAt: 0
+    emoteSounds: Larva
+    muteOnSpawn: true
+  - type: XenoPlasma
+    maxPlasma: 10
+    plasmaRegenOnWeeds: 0.1
+  - type: XenoHide
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 185
+        mask:
+        - SmallMobMask
+        - BarbedBarricade
+        layer:
+        - SmallMobLayer
+  - type: XenoAnimateMovement
+  - type: XenoLeap
+    knockdownTime: 1
+  - type: XenoParasite
+  - type: Item
+    size: Invalid
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.7
+    baseSprintSpeed: 5
+  - type: DamageOffWeeds
+    damage:
+      types:
+        Blunt: 0.5
+  - type: SoundOnDeath
+    sound:
+      path: /Audio/_RMC14/Xeno/alien_parasite_dies.ogg
+      params:
+        volume: -4
+  - type: IdentityBlocker
+  - type: Clothing
+    quickEquip: false
+    slots: [mask]
+    sprite: _RMC14/Mobs/Xenonids/Parasite/parasite.rsi
+  - type: HideLayerClothing
+    slots:
+    - Snout
+  - type: Speech
+    speechSounds: XenonidLarva
+    allowedEmotes: [ "XenoRoar" ]
+  - type: ParasiteAI
+  - type: CanEscapeInventory
+    baseResistTime: 1
+  - type: HTN
+    rootTask:
+      task: RMCParasiteActiveCompound
+    blackboard:
+      VisionRadius: !type:Single
+        3.0
+  - type: AddAccentClothing
+    accent: ReplacementAccent
+    replacement: mumble
+  - type: Blindfold
+  - type: StandingState
+    downSound: null
+  - type: XenoInhandSprite
+    stateName: parasite
+  - type: XenoRankNames #TODO change ranks based on total hugs done
+    rankNames:
+      0: rmc-xeno-young
+      1: rmc-xeno-young
+      2: rmc-xeno-mature-parasite
+      3: rmc-xeno-elder-parasite
+      4: rmc-xeno-ancient-parasite
+      5: rmc-xeno-prime-parasite

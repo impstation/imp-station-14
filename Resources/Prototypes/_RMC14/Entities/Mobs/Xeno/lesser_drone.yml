@@ -1,0 +1,79 @@
+- type: entity
+  parent:
+  - CMXenoDeveloped
+  - CMXenoTail
+  - CMXenoFlammable
+  - RMCXenoSpeechSounds
+  id: CMXenoLesserDrone
+  name: Lesser Drone
+  description: An alien drone. Looks... smaller.
+  components:
+  - type: GhostRole
+    name: cm-job-name-xeno-lesser-drone
+    description: roles-lesser-drone-description
+    raffle:
+      settings: short
+  - type: Sprite
+    sprite: _RMC14/Mobs/Xenonids/LesserDrone/lesser_drone.rsi
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      160: Dead # TODO RMC14 gib on death
+  - type: Xeno
+    role: CMXenoLesserDrone
+    actionIds:
+    - ActionXenoRest
+    - ActionXenoRegurgitate
+    - ActionXenoWatch
+    - ActionXenoTailStab
+    - ActionXenoAcidWeak
+    - ActionXenoPheromones
+    - ActionLesserDronePlantWeeds
+    - ActionXenoChooseStructure
+    - ActionXenoSecreteStructure
+    tier: 0
+    hudOffset: -0.15,-0.03
+    contributesToVictory: false
+    countedInSlots: false
+    unlockAt: 0
+    muteOnSpawn: true
+  - type: XenoLight
+  - type: XenoAcid
+  - type: XenoConstruction
+    buildDelay: 4
+    canBuild:
+    - WallXenoResin
+    - WallXenoMembrane
+    - DoorXenoResin
+  - type: XenoDevour
+  - type: XenoPheromones
+    pheroSuffix: weak
+  - type: XenoPlasma
+    plasma: 300
+    maxPlasma: 300
+    plasmaRegenOnWeeds: 4
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 20
+  - type: XenoTailStab
+    tailDamage:
+      groups:
+        Brute: 24
+  - type: DamageOffWeeds
+    damage:
+      types:
+        Blunt: 2.5
+  - type: XenoHiveCoreRole
+  - type: RMCXenoDamageVisuals
+    prefix: lesser
+  - type: AcidTrap
+    trapLevel: 1
+    cost: 70
+    spray: XenoAcidSprayTrapWeak
+  - type: XenoInhands
+    prefix: lesser
