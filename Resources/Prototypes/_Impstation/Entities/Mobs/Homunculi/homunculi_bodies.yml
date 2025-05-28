@@ -32,3 +32,74 @@
       - ReagentId: Blood
         Quantity: 20
 
+- type: body
+  id: HomunculusGray
+  name: "Homunculi"
+  root: torso
+  slots:
+    torso:
+      part: TorsoHomunculusGray
+      connections:
+      organs:
+        brain: OrganGrayBrain
+        eyes: OrganGrayEyes
+        ears: OrganGrayEars
+        tongue: OrganGrayTongue
+        lungs: OrganGrayLungs
+        heart: OrganGrayHeart
+        stomach: OrganGrayStomach
+        liver: OrganGrayLiver
+        kidneys: OrganGrayKidneys
+        appendix: OrganGrayAppendix
+
+- type: entity
+  id: TorsoHomunculusGray
+  parent: PartGray
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BodyPart
+    partType: Torso
+  - type: Damageable
+    damageContainer: Biological
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: GrayBlood
+        Quantity: 20
+
+- type: body
+  id: HomunculusMoth
+  name: "Homunculi"
+  root: torso
+  slots:
+    torso:
+      part: TorsoHomunculusMoth
+      connections:
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganHumanEyes
+        heart: OrganAnimalHeart
+        lungs: OrganHumanLungs
+        stomach: OrganMothStomach
+        liver: OrganAnimalLiver
+        kidneys: OrganHumanKidneys
+
+- type: entity
+  id: TorsoHomunculusMoth
+  parent: PartMoth
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BodyPart
+    partType: Torso
+  - type: Damageable
+    damageContainer: Biological
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: InsectBlood
+        Quantity: 20
+
