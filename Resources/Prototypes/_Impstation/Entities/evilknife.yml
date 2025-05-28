@@ -19,7 +19,6 @@
     - type: RandomWalk
       throw: true
       breakPulling: true
-      stepOnStartup: true
       minSpeed: 20
       minStepCooldown: 15
       maxStepCooldown: 15
