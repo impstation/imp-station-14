@@ -111,11 +111,11 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltQuiverNullrodEvil
-  name: aureate quiverEVIL
-  description: A PROFANE quiver, bristling with sparks of light. # change this
+  name: argentine quiver
+  description: A defiled quiver. The wicked have no scruples about using the powers of the divine and profane alike.
   components:
    - type: Sprite
-     sprite: _Impstation/Objects/Misc/nullrod_quiver.rsi
+     sprite: _Impstation/Objects/Misc/nullrod_quiver_evil.rsi
      layers:
      - state: quiver
      - map: [ "enum.StorageContainerVisualLayers.Fill" ]
