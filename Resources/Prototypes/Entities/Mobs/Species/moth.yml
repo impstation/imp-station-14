@@ -133,7 +133,11 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-
+  - type: HomunculiType
+    homunculiType: HomunculusMoth
+    recipe:
+      SynthFlesh: 30
+      Saline: 20
 
 - type: entity
   parent: BaseSpeciesDummy
