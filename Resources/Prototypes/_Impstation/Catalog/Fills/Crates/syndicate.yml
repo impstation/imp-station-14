@@ -1,13 +1,13 @@
 - type: entity
   id: CrateSyndicateNullRodBowEvil
   parent: CratePlastic
-  name: ark of evil # change this
-  description: Evil ass chest # change this
+  name: ark of umbra
+  description: Appears to be made of a fine wood of a gorgeous, deep purple hue. Suspiciously light.
   components:
     - type: Icon
-      sprite: _Impstation/Structures/Storage/Crates/plastic.rsi # change this
+      sprite: _Impstation/Structures/Storage/Crates/ark_of_umbra.rsi
     - type: Sprite
-      sprite: _Impstation/Structures/Storage/Crates/plastic.rsi # change this
+      sprite: _Impstation/Structures/Storage/Crates/ark_of_umbra.rsi
     - type: StorageFill
       contents:
         - id: NullRodBowEvil
