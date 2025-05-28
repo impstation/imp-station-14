@@ -2,18 +2,19 @@ using Content.Shared.EntityEffects;
 using Content.Shared.Mind.Components;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
+using Content.Shared.NPC.Prototypes;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Impstation.EntityEffects.Effects;
 
-///im coding frankensteins yaml here jesus christ
 ///Ty to Mqole, Ada and Ruddy for the help. 
 
-
-public sealed partial class Pacify : EntityEffect
+public sealed partial class FactionChange : EntityEffect
 {
+    [DataField]
+    public ProtoId<NpcFactionPrototype> Faction;
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-    => Loc.GetString("reagent-effect-guidebook-pacify", ("chance", Probability));
+    => Loc.GetString("reagent-effect-guidebook-factionchange", ("chance", Probability));
 
     public override void Effect(EntityEffectBaseArgs args)
     {
@@ -38,9 +39,9 @@ public sealed partial class Pacify : EntityEffect
         //get the faction system from the ent manager
         var factionSystem = entMan.System<NpcFactionSystem>();
 
-        //do the factionSystem stuff
+        ///do the factionSystem stuff
         factionSystem.ClearFactions(entAsTuple);
-        factionSystem.AddFaction(entAsTuple, "Passive");
+        factionSystem.AddFaction(entAsTuple, Faction);
     }
 
 }

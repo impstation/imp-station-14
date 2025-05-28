@@ -197,10 +197,12 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:Pacify
-          conditions:
-          - !type:ReagentThreshold
-            min: 15
+      - !type:FactionChange
+        faction: Passive
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+
 - type: reagent
   id: Sadness
   name: reagent-name-sadness

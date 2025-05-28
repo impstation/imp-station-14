@@ -1,5 +1,5 @@
-reagent-effect-guidebook-pacify =
+reagent-effect-guidebook-factionchange =
     { $chance ->
-        [1] Pacifies
-        *[other] Pacify
+        [1] Changes the faction of
+        *[other] change the faction of
     } the metabolizer
