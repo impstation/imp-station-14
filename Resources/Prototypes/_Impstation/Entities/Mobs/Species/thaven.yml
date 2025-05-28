@@ -106,6 +106,11 @@
             sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
             state: hands
   - type: Carriable # Carrying system from nyanotrasen.
+  - type: HomunculiType
+    homunculiType: HomunculusThaven
+    recipe:
+      SynthFlesh: 30
+      Saline: 20
 
 - type: entity
   parent: BaseSpeciesDummy
