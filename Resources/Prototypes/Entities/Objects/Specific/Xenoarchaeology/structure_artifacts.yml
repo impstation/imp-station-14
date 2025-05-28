@@ -65,7 +65,8 @@
         ents: [ ]
       revolver-ammo: !type:Container # needed for the EffectBigIron artifactEffect
   - type: WarpPoint # imp addition
-    differentiate: true
+  - type: NameIdentifier # imp addition
+    group: Artifact
 
 - type: entity
   parent: BaseXenoArtifact

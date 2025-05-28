@@ -59,7 +59,8 @@
       types:
         Radiation: 10
   - type: WarpPoint # imp addition
-    differentiate: true
+  - type: NameIdentifier # imp addition
+    group: Anomaly
 
 - type: entity
   id: AnomalyPyroclastic
