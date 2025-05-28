@@ -59,8 +59,8 @@
 
 - type: entity
   id: HolyArrowEvil
-  description: Impermanent and luminescent.
-  name: aureate arrow EVIL
+  description: Vile and volatile.
+  name: argentine arrow
   parent: BaseItem
   components:
   - type: RevealRevenantOnCollide
@@ -69,7 +69,7 @@
   - type: Item
     size: Small
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/nullrod_arrow.rsi
+    sprite: _Impstation/Objects/Misc/nullrod_arrow_evil.rsi
     layers:
       - state: arrowprojectile
         shader: unshaded
