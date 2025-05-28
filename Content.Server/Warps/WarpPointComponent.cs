@@ -14,6 +14,5 @@ namespace Content.Server.Warps
         /// </summary>
         [DataField]
         public bool Follow;
-
     }
 }
