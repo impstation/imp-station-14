@@ -34,8 +34,8 @@
   - type: HomunculiType #imp
     homunculiType: HomunculusHuman
     recipe:
-      Blood: 1
-      Water: 1
+      SynthFlesh: 30
+      Saline: 20
 
 - type: entity
   parent: BaseSpeciesDummy

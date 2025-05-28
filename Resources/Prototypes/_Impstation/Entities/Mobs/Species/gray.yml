@@ -121,6 +121,11 @@
     hideLayersOnEquip:
     - Hair
     - Snout
+  - type: HomunculiType
+    homunculiType: HomunculusGray
+    recipe:
+      SynthFlesh: 30
+      Saline: 20
 
 - type: entity
   parent: BaseSpeciesDummy

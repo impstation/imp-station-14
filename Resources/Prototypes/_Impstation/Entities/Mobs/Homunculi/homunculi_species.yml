@@ -1,11 +1,11 @@
 - type: entity
   id: HomunculusHuman
-  parent: HomunculusBase
+  parent: [StripableInventoryBase, HomunculusBase]
   name: homunculus
   description: A wet chunk of synthetic flesh. It's alive.
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Homunculi/homunculus_human.rsi/
+    sprite: _Impstation/Mobs/Homunculi/Human/body.rsi/
     layers:
     - map: [ "base" ]
       state: base
@@ -13,6 +13,12 @@
       state: skin
     - map: [ "eyeMap" ]
       state: eyes
+  - type: RandomSprite # Lie.
+    selected:
+      skinMap:
+        skin: "#ffd2ba" # Default
+      eyeMap:
+        eyes: "#000000" # Default
   - type: Body
     prototype: HomunculusHuman
   - type: Butcherable
@@ -30,12 +36,249 @@
       path: /Audio/Effects/Footsteps/slime1.ogg
       params:
         volume: -6
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 0.3
+    baseSprintSpeed : 0.5
+  - type: Inventory
+    templateId: homunculus
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Homunculi/Human/displacement.rsi/
+            state: head
+      ears:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Homunculi/Human/displacement.rsi/
+            state: ears
+      mask:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Homunculi/Human/displacement.rsi/
+            state: mask
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Homunculi/Human/displacement.rsi/
+            state: glasses
+      suitstorage:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Homunculi/Human/displacement.rsi/
+            state: suitstorage
+  - type: Tag
+    tags:
+    - FootstepSound
+    - VimPilot
+    - DoorBumpOpener
+
+- type: entity
+  id: HomunculusGray
+  parent: [StripableInventoryBase, HomunculusBase]
+  name: homunculus
+  description: How... How is it floating..?
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Homunculi/Gray/body.rsi/
+    offset: 0,0
+    layers:
+    - map: [ "base" ]
+      state: base
+    - map: [ "skinMap" ]
+      state: skin
+    - map: [ "eyeMap" ]
+      state: eyes
+  - type: RandomSprite # Lie.
+    selected:
+      skinMap:
+        skin: "#FFFFFF" # Default
+      eyeMap:
+        eyes: "#FFFFFF" # Default
+  - type: Body
+    prototype: HomunculusGray
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatHuman
+      amount: 5
+  - type: Vocal
+    sounds:
+      Male: UnisexGray
+      Female: UnisexGray
+      Unsexed: UnisexGray
+  - type: GrayAccent
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 2
+    damageRecovery:
+      types:
+        Asphyxiation: -1.0
+  - type: Bloodstream
+    bloodReagent: GrayBlood
+  - type: Speech
+    speechSounds: PVC
+  - type: TypingIndicator
+    proto: gray
+  - type: Puller
+    needsHands: true
+  - type: Physics
+    bodyStatus: InAir
+  - type: CanMoveInAir
+  - type: MovementIgnoreGravity
+    gravityState: true
+  - type: MovementAlwaysTouching
+  - type: SyncSprite
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 4
+    weightlessFriction: 0.05
+    weightlessFrictionNoInput: 0 # Get lost in space little gray.
+    weightlessAcceleration: 1
+  - type: NoSlip
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 40
+        restitution: 0.0
+        mask:
+        - CrateMask
+        layer:
+        - MobLayer
+  - type: ProtectedFromStepTriggers
+  - type: Inventory
+    speciesId: gray
+    templateId: homunculus
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gray/displacement.rsi
+            state: head
+      ears:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gray/displacement.rsi
+            state: ears
+      mask:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gray/displacement.rsi
+            state: head
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gray/displacement.rsi
+            state: eyes
+      suitstorage:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Homunculi/Gray/displacement.rsi/
+            state: suitstorage
+
+- type: entity
+  id: HomunculusMoth
+  parent: [StripableInventoryBase, HomunculusBase]
+  name: homunculus
+  description: It's... Fluffy? I think?
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Homunculi/Moth/body.rsi/
+    layers:
+    - map: [ "skinMap" ]
+      state: skin
+    - map: [ "eyeMap" ]
+      state: eyes
   - type: RandomSprite # Lie.
     selected:
       skinMap:
         skin: "#ffd2ba" # Default
       eyeMap:
         eyes: "#000000" # Default
+  - type: Body
+    prototype: HomunculusMoth
+  - type: Bloodstream
+    bloodReagent: InsectBlood
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeat
+      amount: 5
+  - type: MothAccent
+  - type: ZombieAccentOverride
+    accent: zombieMoth
+  - type: Speech
+    speechVerb: Moth
+    allowedEmotes: [ 'Chitter', 'Squeak' ]
+  - type: TypingIndicator
+    proto: moth
+  - type: Vocal
+    sounds:
+      Male: MaleMoth
+      Female: FemaleMoth
+      Unsexed: UnisexMoth
+  - type: Flammable
+    damage:
+      types:
+        Heat: 4.5 # moths burn more easily
+  - type: Temperature # Moths hate the heat and thrive in the cold.
+    heatDamageThreshold: 320
+    coldDamageThreshold: 230
+    currentTemperature: 310.15
+    specificHeat: 46
+    coldDamage:
+      types:
+        Cold: 0.05 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat: 3 #per second, scales with temperature & other constants
+  - type: TemperatureSpeed
+    thresholds:
+      289: 0.8
+      275: 0.6
+      250: 0.4
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Effects/Footsteps/slime1.ogg
+      params:
+        volume: -6
   - type: MovementSpeedModifier
-    baseWalkSpeed : 0.3
-    baseSprintSpeed : 0.5
+    baseWalkSpeed : 0.4
+    baseSprintSpeed : 0.6
+  - type: Inventory
+    templateId: homunculus
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Homunculi/Moth/displacement.rsi/
+            state: head
+      ears:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Homunculi/Moth/displacement.rsi/
+            state: ears
+      mask:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Homunculi/Moth/displacement.rsi/
+            state: mask
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Homunculi/Moth/displacement.rsi/
+            state: glasses
+      suitstorage:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Homunculi/Moth/displacement.rsi/
+            state: suitstorage
+  - type: Tag
+    tags:
+    - FootstepSound
+    - VimPilot
+    - DoorBumpOpener
