@@ -1,14 +1,14 @@
 - type: entity
-  name: god hand
+  name: devil's fist
   id: NullRodGloveEvil
   parent: [ NullRodGlove, ClothingHandsInedibleBase]
-  description: Dragon kick your ass into the Milky Way! (Milky Way!) # Placeholder
+  description: The devil works quick, and this gauntlet is no exception.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/nullrod_glove.rsi
+    sprite: _Impstation/Objects/Misc/nullrod_glove_evil.rsi
     state: icon
   - type: Clothing
-    sprite: _Impstation/Objects/Misc/nullrod_glove.rsi
+    sprite: _Impstation/Objects/Misc/nullrod_glove_evil.rsi
   - type: StaminaDamageOnHit
     damage: 10
   - type: MeleeWeapon
