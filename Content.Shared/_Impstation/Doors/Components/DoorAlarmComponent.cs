@@ -23,5 +23,22 @@ public sealed partial class DoorAlarmComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool AlarmWireCut;
+    /// <summary>
+    /// Alarm sound
+    /// </summary>
+    [DataField]
+    public SoundSpecifier AlarmSound = new SoundPathSpecifier("/Audio/_Impstation/Machines/door_alarm.ogg");
+
+    /// <summary>
+    /// Alarm sound volume
+    /// </summary>
+    [DataField]
+    public float volume = 8;
+    /// <summary>
+    /// Alarm sound range
+    /// </summary>
+    [DataField]
+    public float range = 15;
+
 
 }

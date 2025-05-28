@@ -13,7 +13,7 @@ public sealed partial class DoorAlarmWireAction : ComponentWireAction<DoorAlarmC
     public override string Name { get; set; } = "wire-name-door-alarm";
 
     [DataField("timeout")]
-    private int _timeout = 30;
+    private int _timeout = 10;
 
 
     public override StatusLightState? GetLightState(Wire wire, DoorAlarmComponent comp)
@@ -33,7 +33,8 @@ public sealed partial class DoorAlarmWireAction : ComponentWireAction<DoorAlarmC
     public override bool Cut(EntityUid user, Wire wire, DoorAlarmComponent door)
     {
         WiresSystem.TryCancelWireAction(wire.Owner, PulseTimeoutKey.Key);
-        EntityManager.System<DoorSystem>().SetAlarmTripped((wire.Owner, door), false);
+        EntityManager.System<DoorSystem>().SetAlarmTripped((wire.Owner, door),false);
+        EntityManager.System<DoorSystem>().DisableAlarmSound((wire.Owner, door));
         return true;
     }
 
@@ -45,7 +46,7 @@ public sealed partial class DoorAlarmWireAction : ComponentWireAction<DoorAlarmC
     public override void Pulse(EntityUid user, Wire wire, DoorAlarmComponent door)
     {
         EntityManager.System<DoorSystem>().SetAlarmTripped((wire.Owner, door),true);
-
+        EntityManager.System<DoorSystem>().EnableAlarmSound((wire.Owner, door));
         WiresSystem.StartWireAction(wire.Owner, _timeout, PulseTimeoutKey.Key, new TimedWireEvent(AwaitAlarmTimerFinish, wire));
     }
 
@@ -65,6 +66,7 @@ public sealed partial class DoorAlarmWireAction : ComponentWireAction<DoorAlarmC
             if (EntityManager.TryGetComponent<DoorAlarmComponent>(wire.Owner, out var door))
             {
                 EntityManager.System<DoorSystem>().SetAlarmTripped((wire.Owner, door),false);
+                EntityManager.System<DoorSystem>().DisableAlarmSound((wire.Owner, door));
             }
         }
     }
@@ -73,4 +75,5 @@ public sealed partial class DoorAlarmWireAction : ComponentWireAction<DoorAlarmC
     {
         Key
     }
+
 }
