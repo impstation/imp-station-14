@@ -1,4 +1,5 @@
 using Content.Shared.EntityEffects;
+using Content.Shared.Mind.Components;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
 using Robust.Shared.Prototypes;
@@ -11,15 +12,21 @@ namespace Content.Shared._Impstation.EntityEffects.Effects;
 
 public sealed partial class Pacify : EntityEffect
 {
-    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
     => Loc.GetString("reagent-effect-guidebook-pacify", ("chance", Probability));
 
     public override void Effect(EntityEffectBaseArgs args)
     {
+
         //get these out of the args to be less annoying
         var entMan = args.EntityManager;
         var ent = args.TargetEntity;
+
+        //stops it from applying to player-controlled entities
+        if (entMan.TryGetComponent<MindContainerComponent>(ent, out var mindContainer) && mindContainer.HasMind)
+        {
+            return;
+        }
 
         //do nothing if the faction has no faction member comp
         if (!entMan.TryGetComponent<NpcFactionMemberComponent>(ent, out var npcFactionMember))
@@ -35,6 +42,5 @@ public sealed partial class Pacify : EntityEffect
         factionSystem.ClearFactions(entAsTuple);
         factionSystem.AddFaction(entAsTuple, "Passive");
     }
-
 
 }
