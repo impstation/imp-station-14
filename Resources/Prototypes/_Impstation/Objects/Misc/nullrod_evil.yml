@@ -46,13 +46,13 @@
     - Shake
 
 - type: entity
-  name: aureole arc EVIL
+  name: umbral arc
   id: NullRodBowEvil
   parent: NullRodBase
-  description: Wrought from ornately carved synthwood, this golden-inlaid bow hums with a preternatural power. # change this
+  description: Carved from Hellwood harvested by Hellenists from the Hellforests of Hel.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/nullrod_bow.rsi
+    sprite: _Impstation/Objects/Misc/nullrod_bow_evil.rsi
     layers:
     - state: nullrod_bow
     - state: unwielded-arrow
@@ -86,6 +86,7 @@
         whitelist:
           tags:
           - HolyArrow
+          - HolyArrowEvil
   - type: ContainerContainer
     containers:
       projectiles: !type:ContainerSlot
