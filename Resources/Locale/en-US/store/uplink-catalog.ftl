@@ -112,7 +112,7 @@ uplink-mosin-ammo-desc = A box of 60 cartridges for the surplus rifle.
 
 #imp desc tweak
 uplink-sniper-ammo-name = Ammunition box (.60 antimateriel)
-uplink-sniper-ammo-desc = A box of 10 cartridges for the Lyndworm sniper rifle.
+uplink-sniper-ammo-desc = A box of 10 cartridges for the Lyndwirm sniper rifle and Anaconda Revolver.
 
 # Utility
 uplink-holopara-kit-name = Holoparasite Kit
@@ -252,7 +252,7 @@ uplink-ammo-bundle-desc = Reloading! Contains 4 magazines for the C-20R Gorgon, 
 
 #imp name tweaks
 uplink-sniper-bundle-name = Sniper Bundle
-uplink-sniper-bundle-desc = An inconspicuous briefcase that contains a Lyndworm, 10 spare bullets, and a convenient disguise.
+uplink-sniper-bundle-desc = An inconspicuous briefcase that contains a Lyndwirm, 10 spare bullets, and a convenient disguise.
 
 #imp name tweak
 uplink-c20r-bundle-name = C-20R Gorgon Bundle
