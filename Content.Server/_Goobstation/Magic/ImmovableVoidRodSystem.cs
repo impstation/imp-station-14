@@ -57,7 +57,9 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
         TryComp<TagComponent>(args.OtherEntity, out var tag);
         var tags = tag?.Tags ?? new();
 
-        if (tags.Contains("Wall") && Prototype(args.OtherEntity) != null && Prototype(args.OtherEntity)!.ID != ent.Comp.SnowWallPrototype)
+        var proto = Prototype(args.OtherEntity);
+
+        if (tags.Contains("Wall") && proto != null && proto.ID != ent.Comp.SnowWallPrototype)
         {
             Spawn(ent.Comp.SnowWallPrototype, Transform(args.OtherEntity).Coordinates);
             QueueDel(args.OtherEntity);

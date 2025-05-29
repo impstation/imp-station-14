@@ -1,12 +1,10 @@
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
-using Content.Server.Database;
 using Content.Server.Heretic.Components;
 using Content.Server.Temperature.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Heretic;
-using Content.Shared.Movement.Components;
 using Content.Shared.Temperature.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Physics.Components;
