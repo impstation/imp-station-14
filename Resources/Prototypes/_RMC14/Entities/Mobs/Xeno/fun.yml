@@ -1,7 +1,6 @@
 - type: entity
   parent:
   - CMXenoRunner
-  - RMCXenoCommendationReceiver
   id: RMCXenoRouny
   name: Rouny
   suffix: RMC14
@@ -17,7 +16,6 @@
 - type: entity
   parent:
   - CMXenoRunner
-  - RMCXenoCommendationReceiver
   id: RMCXenoWehny
   name: Wehny
   description: A cruel, cruel joke made by some sick individual.
@@ -118,7 +116,6 @@
       components:
       - XenoParasite
       - XenoEgg
-      - XenoFruit
   - type: DamageOffWeeds
     damage:
       types:

@@ -52,13 +52,6 @@
     plasma: 400
     maxPlasma: 400
     plasmaRegenOnWeeds: 3
-  - type: XenoEvolution
-    canEvolveWithoutGranter: true
-    max: 200
-    evolvesTo:
-    - CMXenoSpitter
-    evolvesToWithoutPoints:
-    - CMXenoQueen
   - type: XenoAcid
   - type: XenoParalyzingSlash
   - type: XenoSlowingSpit
@@ -73,7 +66,3 @@
         Brute: 30
   - type: RMCXenoDamageVisuals
     prefix: sentinel
-  - type: AcidTrap
-    trapLevel: 1
-    cost: 70
-    spray: XenoAcidSprayTrapWeak

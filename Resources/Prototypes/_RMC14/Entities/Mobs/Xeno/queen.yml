@@ -55,11 +55,9 @@
     - ActionXenoTailStab
     - ActionXenoOrderConstruction
     - ActionXenoAcidNormal
-    - ActionXenoPheromones
     - ActionXenoWordQueen
 #    - ActionXenoPsychicWhisper
 #    - ActionXenoPsychicRadiance
-    - ActionXenoGut
     - ActionXenoPlantWeeds
     - ActionXenoChooseStructure
     - ActionXenoSecreteStructure
@@ -87,15 +85,11 @@
     - HiveClusterXenoConstructionNode
     - HiveRecoveryNodeXenoConstructionNode
   - type: XenoDevour
-  - type: XenoPheromones
-    pheromonesMultiplier: 4
-    pheroSuffix: queen
   - type: XenoPlasma
     plasma: 1000
     maxPlasma: 1000
     plasmaRegenOnWeeds: 4
   - type: XenoWordQueen
-  - type: XenoGut
   - type: XenoClaws
     clawType: VerySharp
   - type: MeleeWeapon
@@ -159,15 +153,12 @@
     critThreshold: 1000
     deadThreshold: 1100
     addComponents:
-    - type: XenoScreech
     - type: XenoToggleSpit
     addActions:
-    - ActionXenoScreech
     - ActionXenoSpitQueen
     - ActionXenoToggleSpitType
   - type: RMCXenoDamageVisuals
     prefix: queen
-  - type: AcidTrap
   - type: ManageHive
   - type: HiveLeaderGranter
   - type: XenoHeal
@@ -176,12 +167,7 @@
     plasmaCost: 50
   - type: XenoInhands
     prefix: queen
-  - type: XenoOmitNumber
   - type: QueenEyeAction
-  - type: StunFriendlyXenoOnStep
-  - type: XenoToggleChargingKnockback
-    enabled: false
-  - type: XenoToggleChargingStop
 
 - type: entity
   parent: RMCXenoQueenBase
@@ -190,11 +176,6 @@
   # - type: XenoEvolution #can be enabled for events like april fools.
   #   strains:
   #   - RMCXenoQueenMaid
-
-- type: entity
-  id: XenoLeaderPheromoneRelay
-  components:
-  - type: XenoPheromones
 
 - type: entity
   parent: RMCXenoQueenBase

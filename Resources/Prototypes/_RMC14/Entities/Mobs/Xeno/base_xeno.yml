@@ -156,12 +156,8 @@
         type: XenoWatchBui
       enum.XenoChooseStructureUI.Key:
         type: XenoChooseStructureBui
-      enum.XenoPheromonesUI.Key:
-        type: XenoPheromonesBui
       enum.XenoOrderConstructionUI.Key:
         type: XenoOrderConstructionBui
-      enum.XenoFruitChooseUI.Key:
-        type: XenoFruitChooseBui
       enum.XenoWordQueenUI.Key:
         type: XenoWordQueenBui
       enum.XenoReserveParasiteChangeUI.Key:
@@ -312,7 +308,6 @@
     - DoorBumpOpener
   - type: Hands
     examineShowEmpty: false
-  - type: XenoToggleChargingKnockback
 
 - type: entity
   abstract: true
