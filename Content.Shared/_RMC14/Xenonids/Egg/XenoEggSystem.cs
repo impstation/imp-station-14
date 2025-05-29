@@ -1,7 +1,6 @@
 ﻿using Content.Shared._RMC14.Xenonids.Construction;
 using Content.Shared._RMC14.Xenonids.Construction.Tunnel;
 using Content.Shared._RMC14.Xenonids.Egg.EggRetriever;
-using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared._RMC14.Xenonids.Parasite;
 using Content.Shared._RMC14.Xenonids.Plasma;
 using Content.Shared._RMC14.Xenonids.Weeds;
@@ -16,6 +15,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Ghost;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
@@ -55,7 +55,6 @@ public sealed class XenoEggSystem : EntitySystem
     [Dependency] private readonly FixtureSystem _fixture = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly SharedXenoHiveSystem _hive = default!;
     [Dependency] private readonly SharedXenoParasiteSystem _parasite = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
@@ -146,7 +145,6 @@ public sealed class XenoEggSystem : EntitySystem
         {
             BreakOnMove = true,
             MovementThreshold = 0.001f,
-            BreakOnRest = !hasOvipositor,
         };
 
         if (_doAfter.TryStartDoAfter(doAfterArgs))
@@ -345,7 +343,7 @@ public sealed class XenoEggSystem : EntitySystem
         var used = args.Used;
 
         // Doesn't check hive or if a xeno is doing it
-        if (!HasComp<XenoParasiteComponent>(used) || !_rmcHands.IsPickupByAllowed(args.Used, user))
+        if (!HasComp<XenoParasiteComponent>(used))
             return;
 
         args.Handled = true;
@@ -650,9 +648,8 @@ public sealed class XenoEggSystem : EntitySystem
     private bool CanPlaceEggPopup(EntityUid user, Entity<XenoEggComponent> egg, EntityCoordinates coordinates, bool handled, out bool hasHiveWeeds)
     {
         hasHiveWeeds = false;
-        if (HasComp<MarineComponent>(user))
+        if (HasComp<HumanoidAppearanceComponent>(user))
         {
-            // TODO RMC14 this should have a better filter than marine component
             if (!handled)
             {
                 _hands.TryDrop(user, egg, coordinates);

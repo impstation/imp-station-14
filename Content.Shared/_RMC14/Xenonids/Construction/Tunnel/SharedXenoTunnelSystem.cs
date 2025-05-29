@@ -1,5 +1,4 @@
 using System.Diagnostics.CodeAnalysis;
-using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
@@ -14,12 +13,9 @@ namespace Content.Shared._RMC14.Xenonids.Construction.Tunnel;
 public abstract partial class SharedXenoTunnelSystem : EntitySystem
 {
     private const string TunnelPrototypeId = "XenoTunnel";
-
-    [Dependency] protected readonly SharedXenoHiveSystem Hive = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedXenoHiveSystem _hive = default!;
 
     private readonly List<string> _greekLetters = new()
         {

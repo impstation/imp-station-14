@@ -1,5 +1,4 @@
 using Content.Shared._RMC14.Xenonids.Heal;
-using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared._RMC14.Xenonids.Rest;
 using Content.Shared.Coordinates;
 using Content.Shared.Damage;
@@ -23,7 +22,6 @@ public sealed partial class RecoveryNodeSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _time = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedXenoHiveSystem _hive = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedXenoHealSystem _heal = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;

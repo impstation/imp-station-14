@@ -42,9 +42,6 @@ public abstract partial class SharedXenoEggRetrieverSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (!_rmcActions.TryUseAction(xeno, args.Action))
-            return;
-
         args.Handled = true;
         ToggleProduceEggs(xeno, xeno.Comp);
         if (xeno.Comp.Active)

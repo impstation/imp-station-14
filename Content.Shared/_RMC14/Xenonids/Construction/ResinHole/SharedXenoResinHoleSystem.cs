@@ -1,5 +1,3 @@
-using Content.Shared._RMC14.Xenonids.Announce;
-using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared._RMC14.Xenonids.Parasite;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
@@ -16,11 +14,9 @@ public abstract class SharedXenoResinHoleSystem : EntitySystem
 {
     [Dependency] protected readonly SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] protected readonly MobStateSystem _mobState = default!;
-    [Dependency] protected readonly SharedXenoHiveSystem _hive = default!;
     [Dependency] protected readonly INetManager _net = default!;
     [Dependency] protected readonly SharedPopupSystem _popup = default!;
     [Dependency] protected readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedXenoAnnounceSystem _announce = default!;
 
     public override void Initialize()
     {

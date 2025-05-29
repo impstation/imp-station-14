@@ -1,5 +1,4 @@
 using Content.Shared._RMC14.Xenonids.Egg;
-using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared._RMC14.Xenonids.Parasite;
 using Content.Shared._RMC14.Xenonids.Projectile.Parasite;
 using Content.Shared.Coordinates;
@@ -20,7 +19,6 @@ namespace Content.Shared._RMC14.Xenonids.Construction.EggMorpher;
 public sealed partial class EggMorpherSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _time = default!;
-    [Dependency] private readonly SharedXenoHiveSystem _hive = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly INetManager _net = default!;
