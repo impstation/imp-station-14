@@ -1,12 +1,12 @@
 - type: entity
-  name: # Defilement Kit?
+  name: profane censer
   parent: [BaseItem, BaseSyndicateContraband]
   id: NullrodUpgradeKit
-  description: # Makes your shit so fucking evil, dog
+  description: It even smells evil.
   components:
   - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: abductor_mod
+    sprite: _Impstation/Objects/Misc/profane_censer.rsi
+    state: burning
   - type: Item
     size: Small
   - type: Tag
