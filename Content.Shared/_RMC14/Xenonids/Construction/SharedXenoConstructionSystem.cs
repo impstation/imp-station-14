@@ -1,9 +1,6 @@
 ﻿using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Shared._RMC14.Areas;
-using Content.Shared._RMC14.Map;
-using Content.Shared._RMC14.Sentry;
 using Content.Shared._RMC14.Xenonids.Announce;
 using Content.Shared._RMC14.Xenonids.Construction.Events;
 using Content.Shared._RMC14.Xenonids.Construction.Nest;
@@ -48,7 +45,6 @@ namespace Content.Shared._RMC14.Xenonids.Construction;
 public sealed class SharedXenoConstructionSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly AreaSystem _area = default!;
     [Dependency] private readonly SharedXenoAnnounceSystem _announce = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogs = default!;
@@ -64,7 +60,6 @@ public sealed class SharedXenoConstructionSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly QueenEyeSystem _queenEye = default!;
-    [Dependency] private readonly RMCMapSystem _rmcMap = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TagSystem _tags = default!;
@@ -82,7 +77,6 @@ public sealed class SharedXenoConstructionSystem : EntitySystem
     private EntityQuery<XenoConstructionSupportComponent> _constructionSupportQuery;
     private EntityQuery<XenoConstructionRequiresSupportComponent> _constructionRequiresSupportQuery;
     private EntityQuery<HiveConstructionNodeComponent> _hiveConstructionNodeQuery;
-    private EntityQuery<SentryComponent> _sentryQuery;
     private EntityQuery<TransformComponent> _transformQuery;
     private EntityQuery<XenoConstructComponent> _xenoConstructQuery;
     private EntityQuery<XenoEggComponent> _xenoEggQuery;
@@ -100,7 +94,6 @@ public sealed class SharedXenoConstructionSystem : EntitySystem
         _constructionSupportQuery = GetEntityQuery<XenoConstructionSupportComponent>();
         _constructionRequiresSupportQuery = GetEntityQuery<XenoConstructionRequiresSupportComponent>();
         _hiveConstructionNodeQuery = GetEntityQuery<HiveConstructionNodeComponent>();
-        _sentryQuery = GetEntityQuery<SentryComponent>();
         _transformQuery = GetEntityQuery<TransformComponent>();
         _xenoConstructQuery = GetEntityQuery<XenoConstructComponent>();
         _xenoEggQuery = GetEntityQuery<XenoEggComponent>();
@@ -911,7 +904,6 @@ public sealed class SharedXenoConstructionSystem : EntitySystem
             if (_xenoConstructQuery.HasComp(uid) ||
                 _xenoEggQuery.HasComp(uid) ||
                 _xenoTunnelQuery.HasComp(uid) ||
-                _sentryQuery.HasComp(uid) ||
                 _blockXenoConstructionQuery.HasComp(uid))
             {
                 _popup.PopupClient(Loc.GetString("cm-xeno-construction-failed-cant-build"), target, xeno);
@@ -1161,7 +1153,6 @@ public sealed class SharedXenoConstructionSystem : EntitySystem
                 _tags.HasAnyTag(uid.Value, StructureTag, AirlockTag) ||
                 HasComp<StrapComponent>(uid) ||
                 _xenoTunnelQuery.HasComp(uid) ||
-                _sentryQuery.HasComp(uid) ||
                 _blockXenoConstructionQuery.HasComp(uid))
             {
                 popupType = "rmc-xeno-construction-blocked";

@@ -1,6 +1,3 @@
-using Content.Shared._RMC14.Damage.ObstacleSlamming;
-using Content.Shared._RMC14.Marines;
-using Content.Shared._RMC14.Pulling;
 using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared.Coordinates;
 using Content.Shared.Interaction;
@@ -33,9 +30,7 @@ public sealed class XenoLungeSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedXenoHiveSystem _hive = default!;
     [Dependency] private readonly XenoSystem _xeno = default!;
-    [Dependency] private readonly RMCPullingSystem _rmcPulling = default!;
     [Dependency] private readonly MobStateSystem _mob = default!;
-    [Dependency] private readonly RMCObstacleSlammingSystem _rmcObstacleSlamming = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
     private EntityQuery<ThrownItemComponent> _thrownItemQuery;

@@ -1,4 +1,3 @@
-using Content.Shared._RMC14.Weapons.Melee;
 using Content.Shared.Damage;
 using Content.Shared.Explosion;
 using Content.Shared.FixedPoint;

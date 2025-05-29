@@ -30,7 +30,6 @@
 - type: entity
   parent:
   - CMXenoDeveloped
-  - CMXenoTail
   - CMXenoFlammable
   - RMCXenoSpeechSounds
   id: RMCXenoLesserCarrier
@@ -68,10 +67,8 @@
     - ActionXenoRest
     - ActionXenoRegurgitate
     - ActionXenoWatch
-    - ActionXenoTailStab
     - ActionLesserDronePlantWeeds
     - ActionXenoThrowParasite
-    - ActionXenoRetrieveEgg
     - ActionXenoParasiteReserve
     tier: 0
     hudOffset: -0.15,-0.03
@@ -89,10 +86,6 @@
     damage:
       groups:
         Brute: 25
-  - type: XenoTailStab
-    tailDamage:
-      groups:
-        Brute: 30
   - type: MobState
     allowedStates:
     - Alive

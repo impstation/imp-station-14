@@ -1,5 +1,4 @@
 using Content.Shared.Chat.Prototypes;
-using Content.Shared._RMC14.Medical.Surgery;
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -70,12 +69,6 @@ public sealed partial class VictimInfectedComponent : Component
 
     [DataField, AutoNetworkedField]
     public SoundSpecifier BurstSound = new SoundCollectionSpecifier("XenoChestBurst");
-
-    /// <summary>
-    ///     Used by larva removal surgery.
-    /// </summary>
-    [DataField, AutoNetworkedField, Access(typeof(SharedCMSurgerySystem))]
-    public bool RootsCut;
 
     /// <summary>
     ///     What hive the larva is from.

@@ -2,7 +2,6 @@
   abstract: true
   parent:
   - CMXenoDeveloped
-  - CMXenoTail
   - RMCXenoSpeechSounds
   - RMCXenoMobCollision
   id: RMCXenoQueenBase
@@ -52,7 +51,6 @@
     - ActionXenoRest
     - ActionXenoRegurgitate
     - ActionXenoWatch
-    - ActionXenoTailStab
     - ActionXenoOrderConstruction
     - ActionXenoAcidNormal
     - ActionXenoWordQueen
@@ -96,10 +94,6 @@
     damage:
       groups:
         Brute: 40
-  - type: XenoTailStab
-    tailDamage:
-      groups:
-        Brute: 54
   - type: XenoOvipositorCapable
   - type: TunnelRenamer
   - type: Fixtures
@@ -159,7 +153,6 @@
     - ActionXenoToggleSpitType
   - type: RMCXenoDamageVisuals
     prefix: queen
-  - type: ManageHive
   - type: HiveLeaderGranter
   - type: XenoHeal
   - type: XenoSpit

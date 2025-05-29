@@ -1,4 +1,3 @@
-using Content.Shared._RMC14.Areas;
 using Content.Shared._RMC14.Xenonids.Evolution;
 using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared._RMC14.Xenonids.Parasite;
@@ -11,7 +10,6 @@ namespace Content.Shared._RMC14.Xenonids.Announce;
 
 public abstract class SharedXenoAnnounceSystem : EntitySystem
 {
-    [Dependency] private readonly AreaSystem _areas = default!;
     [Dependency] private readonly XenoEvolutionSystem _xenoEvolution = default!;
 
     [Dependency] protected readonly SharedXenoHiveSystem Hive = default!;

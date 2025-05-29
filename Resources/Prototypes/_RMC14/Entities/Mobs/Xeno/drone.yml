@@ -2,7 +2,6 @@
   abstract: true
   parent:
   - CMXenoDeveloped
-  - CMXenoTail
   - CMXenoFlammable
   - RMCXenoSpeechSounds
   - RMCXenoMobCollision
@@ -26,10 +25,6 @@
     damage:
       groups:
         Brute: 22.5
-  - type: XenoTailStab
-    tailDamage:
-      groups:
-        Brute: 30
   - type: Xeno
     role: CMXenoDrone
     hudOffset: -0.1,0.15
@@ -82,7 +77,6 @@
     - ActionXenoRest
     - ActionXenoRegurgitate
     - ActionXenoWatch
-    - ActionXenoTailStab
     - ActionXenoAcidWeak
     - ActionXenoOrderConstruction
     - ActionXenoPlantWeeds
@@ -106,13 +100,10 @@
     - ActionXenoRest
     - ActionXenoRegurgitate
     - ActionXenoWatch
-    - ActionXenoTailStab
     - ActionXenoAcidWeak
     - ActionXenoOrderConstruction
     - ActionXenoPlantWeeds
-    - ActionXenoApplySalve
     - ActionXenoHealerDroneTransferPlasma
-    - ActionXenoSacrifice
     - ActionXenoDevolve
   - type: XenoPlasma
     plasma: 1000
@@ -123,10 +114,6 @@
     damage:
       groups:
         Brute: 17.5
-  - type: XenoTailStab
-    tailDamage:
-      groups:
-        Brute: 25
   - type: XenoStrain
     name: rmc-xeno-healer-name
     description: rmc-xeno-healer-description

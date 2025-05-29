@@ -1,5 +1,4 @@
 using System.Diagnostics.CodeAnalysis;
-using Content.Shared._RMC14.Areas;
 using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
@@ -17,7 +16,6 @@ public abstract partial class SharedXenoTunnelSystem : EntitySystem
     private const string TunnelPrototypeId = "XenoTunnel";
 
     [Dependency] protected readonly SharedXenoHiveSystem Hive = default!;
-    [Dependency] protected readonly AreaSystem Area = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;

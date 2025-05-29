@@ -1,7 +1,9 @@
 ﻿using Content.Shared.Damage;
+using Content.Shared.Alert;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._RMC14.Xenonids.Projectile.Spit.Charge;
 
@@ -32,6 +34,9 @@ public sealed partial class UserAcidedComponent : Component
 
     [DataField, AutoNetworkedField]
     public TimeSpan ResistDuration = TimeSpan.FromSeconds(3);
+
+    [DataField]
+    public ProtoId<AlertPrototype> FireAlert = "Fire";
 }
 
 [Serializable, NetSerializable]

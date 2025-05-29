@@ -1,9 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
-using Content.Shared._RMC14.Chat;
-using Content.Shared._RMC14.Ghost;
-using Content.Shared._RMC14.Inventory;
-using Content.Shared._RMC14.Map;
 using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared._RMC14.Xenonids.Parasite;
 using Content.Shared._RMC14.Xenonids.Weeds;
@@ -51,8 +47,6 @@ public sealed class XenoNestSystem : EntitySystem
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
-    [Dependency] private readonly SharedCMChatSystem _rmcChat = default!;
-    [Dependency] private readonly RMCMapSystem _rmcMap = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -73,8 +67,6 @@ public sealed class XenoNestSystem : EntitySystem
         _xenoNestSurfaceQuery = GetEntityQuery<XenoNestSurfaceComponent>();
         _xenoWeedableQuery = GetEntityQuery<XenoWeedableComponent>();
 
-        SubscribeLocalEvent<GhostAttemptHandleEvent>(OnNestedGhostAttemptHandle);
-
         SubscribeLocalEvent<XenoComponent, GetUsedEntityEvent>(OnXenoGetUsedEntity);
 
         SubscribeLocalEvent<XenoNestSurfaceComponent, InteractHandEvent>(OnSurfaceInteractHand);
@@ -88,7 +80,6 @@ public sealed class XenoNestSystem : EntitySystem
         SubscribeLocalEvent<XenoNestComponent, EntityTerminatingEvent>(OnNestTerminating);
 
         SubscribeLocalEvent<XenoNestableComponent, BeforeRangedInteractEvent>(OnNestableBeforeRangedInteract);
-        SubscribeLocalEvent<XenoNestableComponent, ShouldHandleVirtualItemInteractEvent>(OnNestableShouldHandle);
 
         SubscribeLocalEvent<XenoNestedComponent, ComponentStartup>(OnNestedAdd);
         SubscribeLocalEvent<XenoNestedComponent, ComponentRemove>(OnNestedRemove);
@@ -148,15 +139,6 @@ public sealed class XenoNestSystem : EntitySystem
         TryStartNesting(args.User, (args.Target.Value, surface), ent);
     }
 
-    private void OnNestableShouldHandle(Entity<XenoNestableComponent> ent, ref ShouldHandleVirtualItemInteractEvent args)
-    {
-        if (HasComp<XenoComponent>(args.Event.User) &&
-            HasComp<XenoNestSurfaceComponent>(args.Event.Target))
-        {
-            args.Handle = true;
-        }
-    }
-
     private void OnNestedAdd(Entity<XenoNestedComponent> ent, ref ComponentStartup args)
     {
         _parasite.RefreshIncubationMultipliers(ent.Owner);
@@ -171,7 +153,7 @@ public sealed class XenoNestSystem : EntitySystem
 
         // TODO RMC14
         if (HasComp<KnockedDownComponent>(ent) || _mobState.IsIncapacitated(ent))
-            _standing.Down(ent, changeCollision: true);
+            _standing.Down(ent);
 
         if (ent.Comp.GhostedId is { } id &&
             _player.TryGetSessionById(id, out var player) &&
@@ -322,21 +304,6 @@ public sealed class XenoNestSystem : EntitySystem
     {
         if (ent.Comp.Running)
             args.Multiply(ent.Comp.IncubationMultiplier);
-    }
-
-    private void OnNestedGhostAttemptHandle(GhostAttemptHandleEvent args)
-    {
-        if (args.Mind.CurrentEntity is not { } ent ||
-            !TryComp(ent, out XenoNestedComponent? nested))
-        {
-            return;
-        }
-
-        if (args.Mind.UserId is not { } userId)
-            return;
-
-        nested.GhostedId = userId;
-        Dirty(ent, nested);
     }
 
     public bool TryStartNesting(EntityUid user, Entity<XenoNestSurfaceComponent> surface, EntityUid victim, out DoAfterId? doAfterId, bool allDirs = false)

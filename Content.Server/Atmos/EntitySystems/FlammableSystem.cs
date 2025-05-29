@@ -303,7 +303,16 @@ namespace Content.Server.Atmos.EntitySystems
             if (!Resolve(uid, ref flammable))
                 return;
 
+            var attemptEv = new RMCIgniteAttemptEvent(); //RMC edit
+            RaiseLocalEvent(uid, attemptEv); //RMC edit
+
+            if (attemptEv.Cancelled) //RMC edit
+            {
+                return;
+            }
+
             flammable.FireStacks = MathF.Min(MathF.Max(flammable.MinimumFireStacks, stacks), flammable.MaximumFireStacks);
+            Dirty(uid, flammable); //RMC edit
 
             if (flammable.FireStacks <= 0)
             {
@@ -313,6 +322,17 @@ namespace Content.Server.Atmos.EntitySystems
             {
                 flammable.OnFire |= ignite;
                 UpdateAppearance(uid, flammable);
+
+                if (flammable.OnFire) //RMC edit
+                {
+                    var ev = new RMCIgniteEvent(); //RMC edit
+                    RaiseLocalEvent(uid, ref ev);
+                }
+                else
+                {
+                    var ev = new RMCExtinguishedEvent(); //RMC edit
+                    RaiseLocalEvent(uid, ref ev);
+                }
             }
         }
 
@@ -327,6 +347,7 @@ namespace Content.Server.Atmos.EntitySystems
             _adminLogger.Add(LogType.Flammable, $"{ToPrettyString(uid):entity} stopped being on fire damage");
             flammable.OnFire = false;
             flammable.FireStacks = 0;
+            Dirty(uid, flammable); //RMC edit
 
             _ignitionSourceSystem.SetIgnited(uid, false);
 
@@ -334,7 +355,9 @@ namespace Content.Server.Atmos.EntitySystems
             if (flammable.ToggleAmbientSound && TryComp<AmbientSoundComponent>(uid, out var ambient))
                 _ambient.SetAmbience(uid, false, ambient);
 
-
+            //RMC edit
+            var ev = new RMCExtinguishedEvent();
+            RaiseLocalEvent(uid, ref ev);
             UpdateAppearance(uid, flammable);
         }
 
@@ -364,6 +387,11 @@ namespace Content.Server.Atmos.EntitySystems
                 !ambient.Enabled)
                 _ambient.SetAmbience(uid, true, ambient);
 
+            //RMC edit
+            var ev = new RMCIgniteEvent();
+            RaiseLocalEvent(uid, ref ev);
+
+            Dirty(uid, flammable);
             UpdateAppearance(uid, flammable);
         }
 

@@ -1,8 +1,5 @@
 using System.Numerics;
-using Content.Shared._RMC14.CameraShake;
-using Content.Shared._RMC14.Pulling;
 using Content.Shared._RMC14.Xenonids.Hive;
-using Content.Shared._RMC14.Xenonids.Invisibility;
 using Content.Shared._RMC14.Xenonids.Plasma;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Coordinates;
@@ -45,7 +42,6 @@ public sealed class XenoLeapSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly RMCPullingSystem _rmcPulling = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -55,7 +51,6 @@ public sealed class XenoLeapSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damagable = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _colorFlash = default!;
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
-    [Dependency] private readonly RMCCameraShakeSystem _cameraShake = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
 

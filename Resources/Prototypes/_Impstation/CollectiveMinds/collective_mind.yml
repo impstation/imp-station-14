@@ -13,3 +13,11 @@
   color: "#e36b00"
   requiredComponents:
   - Hivemind
+
+- type: collectiveMind
+  id: Xenomind
+  name: collective-mind-xeno
+  keycode: "x"
+  color: "#8b36a6"
+  requiredComponents:
+  - Xeno

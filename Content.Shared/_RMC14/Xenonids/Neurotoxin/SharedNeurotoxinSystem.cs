@@ -1,5 +1,4 @@
 using System.Numerics;
-using Content.Shared._RMC14.Marines;
 using Content.Shared._RMC14.Xenonids.Construction.Nest;
 using Content.Shared._RMC14.Xenonids.Parasite;
 using Content.Shared.ActionBlocker;
@@ -19,13 +18,9 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Shared.Projectiles;
-using Content.Shared._RMC14.Pulling;
-using Content.Shared._RMC14.Slow;
-using Content.Shared._RMC14.Synth;
-using Content.Shared._RMC14.BlurredVision;
-using Content.Shared._RMC14.Stamina;
-using Content.Shared._RMC14.Stun;
-using Content.Shared._RMC14.Deafness;
+using Content.Shared.Humanoid;
+using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Shared._RMC14.Xenonids.Neurotoxin;
 
@@ -35,23 +30,19 @@ public abstract class SharedNeurotoxinSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly RMCStaminaSystem _stamina = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly SharedSlurredSystem _slurred = default!;
     [Dependency] private readonly SharedStutteringSystem _stutter = default!;
-    [Dependency] private readonly RMCDazedSystem _daze = default!;
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!; //It's how this fakes movement
     [Dependency] private readonly ActionBlockerSystem _blocker = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly RMCPullingSystem _rmcPulling = default!;
-    [Dependency] private readonly RMCSlowSystem _slow = default!;
-    [Dependency] private readonly SharedDeafnessSystem _deafness = default!;
+    [Dependency] private readonly StaminaSystem _stamina = default!;
 
-    private readonly HashSet<Entity<MarineComponent>> _marines = new();
+    private readonly HashSet<Entity<HumanoidAppearanceComponent>> _marines = new();
     public override void Initialize()
     {
         base.Initialize();
@@ -66,7 +57,7 @@ public abstract class SharedNeurotoxinSystem : EntitySystem
 
     private void OnProjectileHit(Entity<NeurotoxinInjectorComponent> ent, ref ProjectileHitEvent args)
     {
-        if (!HasComp<MarineComponent>(args.Target))
+        if (!HasComp<HumanoidAppearanceComponent>(args.Target))
             return;
 
         if (!ent.Comp.AffectsDead && _mobState.IsDead(args.Target))
@@ -88,8 +79,7 @@ public abstract class SharedNeurotoxinSystem : EntitySystem
             neuro.LastStumbleTime = time;
         }
 
-        _statusEffects.TryAddStatusEffect<RMCBlindedComponent>(args.Target, "Blinded", neuro.BlurTime * 6, true);
-        _daze.TryDaze(ent, ent.Comp.DazeTime, true, stutter: true);
+        _statusEffects.TryAddStatusEffect<TemporaryBlindnessComponent>(args.Target, "Blinded", neuro.BlurTime * 6, true);
         neuro.NeurotoxinAmount += ent.Comp.NeuroPerSecond;
         neuro.ToxinDamage = ent.Comp.ToxinDamage;
         neuro.OxygenDamage = ent.Comp.OxygenDamage;
@@ -136,8 +126,7 @@ public abstract class SharedNeurotoxinSystem : EntitySystem
                 if (time < builtNeurotoxin.NextGasInjectionAt)
                     continue;
 
-                _statusEffects.TryAddStatusEffect<RMCBlindedComponent>(marine, "Blinded", builtNeurotoxin.BlurTime * 12, true);
-                _daze.TryDaze(marine, neuroGas.DazeTime, true, stutter: true);
+                _statusEffects.TryAddStatusEffect<TemporaryBlindnessComponent>(marine, "Blinded", builtNeurotoxin.BlurTime * 12, true);
                 builtNeurotoxin.NeurotoxinAmount += neuroGas.NeuroPerSecond;
                 builtNeurotoxin.ToxinDamage = neuroGas.ToxinDamage;
                 builtNeurotoxin.OxygenDamage = neuroGas.OxygenDamage;
@@ -152,7 +141,7 @@ public abstract class SharedNeurotoxinSystem : EntitySystem
         {
             neuro.NeurotoxinAmount -= frameTime * neuro.DepletionPerSecond;
 
-            if (neuro.NeurotoxinAmount <= 0 || HasComp<SynthComponent>(uid))
+            if (neuro.NeurotoxinAmount <= 0)
             {
                 RemCompDeferred<NeurotoxinComponent>(uid);
                 continue;
@@ -162,7 +151,7 @@ public abstract class SharedNeurotoxinSystem : EntitySystem
                 continue;
 
             //Basic Effects
-            _stamina.DoStaminaDamage(uid, neuro.StaminaDamagePerSecond * frameTime, visual: false);
+            _stamina.TakeStaminaDamage(uid, neuro.StaminaDamagePerSecond * frameTime, visual: false);
             _statusEffects.TryAddStatusEffect<DrunkComponent>(uid, "Drunk", neuro.DizzyStrength, true);
 
             NeurotoxinNonStackingEffects(uid, neuro, time, out var coughChance, out var stumbleChance);

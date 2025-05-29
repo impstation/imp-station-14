@@ -1,7 +1,4 @@
-﻿using Content.Shared._RMC14.Explosion;
-using Content.Shared._RMC14.Light;
-using Content.Shared._RMC14.Weapons.Ranged;
-using Content.Shared._RMC14.Xenonids.Construction;
+﻿using Content.Shared._RMC14.Xenonids.Construction;
 using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared._RMC14.Xenonids.Plasma;
 using Content.Shared.FixedPoint;
@@ -29,36 +26,24 @@ public sealed class XenoProjectileSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly CMPoweredLightSystem _rmcPoweredLight = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly XenoSystem _xeno = default!;
     [Dependency] private readonly XenoPlasmaSystem _xenoPlasma = default!;
 
     private EntityQuery<ProjectileComponent> _projectileQuery;
-    private EntityQuery<PreventAttackLightOffComponent> _preventAttackLightOffQuery;
-
     public override void Initialize()
     {
         _projectileQuery = GetEntityQuery<ProjectileComponent>();
-        _preventAttackLightOffQuery = GetEntityQuery<PreventAttackLightOffComponent>();
 
         SubscribeLocalEvent<XenoProjectileComponent, PreventCollideEvent>(OnPreventCollide);
         SubscribeLocalEvent<XenoProjectileComponent, ProjectileHitEvent>(OnProjectileHit);
-        SubscribeLocalEvent<XenoProjectileComponent, CMClusterSpawnedEvent>(OnClusterSpawned);
     }
 
     private void OnPreventCollide(Entity<XenoProjectileComponent> ent, ref PreventCollideEvent args)
     {
         if (args.Cancelled)
             return;
-
-        if (_preventAttackLightOffQuery.HasComp(args.OtherEntity) &&
-            _rmcPoweredLight.IsOff(args.OtherEntity))
-        {
-            args.Cancelled = true;
-            return;
-        }
 
         if (ent.Comp.DeleteOnFriendlyXeno)
             return;
@@ -85,17 +70,6 @@ public sealed class XenoProjectileSystem : EntitySystem
         {
             var ev = new XenoProjectileHitUserEvent(args.Target);
             RaiseLocalEvent(shooter, ref ev);
-        }
-    }
-
-    private void OnClusterSpawned(Entity<XenoProjectileComponent> ent, ref CMClusterSpawnedEvent args)
-    {
-        if (_hive.GetHive(ent.Owner) is not {} hive)
-            return;
-
-        foreach (var spawned in args.Spawned)
-        {
-            _hive.SetHive(spawned, hive);
         }
     }
 

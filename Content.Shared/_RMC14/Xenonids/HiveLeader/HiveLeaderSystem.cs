@@ -1,10 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using Content.Shared._RMC14.Chat;
-using Content.Shared._RMC14.Dialog;
 using Content.Shared._RMC14.Xenonids.Egg;
 using Content.Shared._RMC14.Xenonids.Evolution;
 using Content.Shared._RMC14.Xenonids.Hive;
-using Content.Shared._RMC14.Xenonids.Pheromones;
 using Content.Shared._RMC14.Xenonids.Watch;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
@@ -18,27 +15,21 @@ namespace Content.Shared._RMC14.Xenonids.HiveLeader;
 public sealed class HiveLeaderSystem : EntitySystem
 {
     [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly DialogSystem _dialog = default!;
     [Dependency] private readonly SharedXenoHiveSystem _hive = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedCMChatSystem _rmcChat = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedXenoWatchSystem _xenoWatch = default!;
 
     private EntityQuery<XenoAttachedOvipositorComponent> _attachedOvipositorQuery;
     private EntityQuery<HiveLeaderComponent> _hiveLeaderQuery;
     private EntityQuery<HiveLeaderGranterComponent> _hiveLeaderGranterQuery;
-    private EntityQuery<XenoActivePheromonesComponent> _activePheromonesQuery;
-    private EntityQuery<XenoPheromonesComponent> _pheromonesQuery;
 
     public override void Initialize()
     {
         _attachedOvipositorQuery = GetEntityQuery<XenoAttachedOvipositorComponent>();
         _hiveLeaderQuery = GetEntityQuery<HiveLeaderComponent>();
         _hiveLeaderGranterQuery = GetEntityQuery<HiveLeaderGranterComponent>();
-        _activePheromonesQuery = GetEntityQuery<XenoActivePheromonesComponent>();
-        _pheromonesQuery = GetEntityQuery<XenoPheromonesComponent>();
 
         SubscribeLocalEvent<NewXenoEvolvedEvent>(OnLeaderNewXenoEvolved);
         SubscribeLocalEvent<XenoDevolvedEvent>(OnLeaderXenoDevolved);
@@ -52,8 +43,6 @@ public sealed class HiveLeaderSystem : EntitySystem
         SubscribeLocalEvent<HiveLeaderGranterComponent, MobStateChangedEvent>(OnGranterMobStateChanged);
         SubscribeLocalEvent<HiveLeaderGranterComponent, HiveLeaderActionEvent>(OnGranterAction);
         SubscribeLocalEvent<HiveLeaderGranterComponent, HiveLeaderWatchEvent>(OnGranterWatch);
-        SubscribeLocalEvent<HiveLeaderGranterComponent, XenoPheromonesActivatedEvent>(OnGranterPheromonesActivated);
-        SubscribeLocalEvent<HiveLeaderGranterComponent, XenoPheromonesDeactivatedEvent>(OnGranterPheromonesDeactivated);
         SubscribeLocalEvent<HiveLeaderGranterComponent, XenoOvipositorChangedEvent>(OnGranterOvipositorChanged);
     }
 
@@ -164,16 +153,6 @@ public sealed class HiveLeaderSystem : EntitySystem
         }
 
         _xenoWatch.Watch(ent.Owner, leader.Value);
-    }
-
-    private void OnGranterPheromonesActivated(Entity<HiveLeaderGranterComponent> ent, ref XenoPheromonesActivatedEvent args)
-    {
-        SyncPheromones(ent);
-    }
-
-    private void OnGranterPheromonesDeactivated(Entity<HiveLeaderGranterComponent> ent, ref XenoPheromonesDeactivatedEvent args)
-    {
-        SyncPheromones(ent, true);
     }
 
     private void OnGranterOvipositorChanged(Entity<HiveLeaderGranterComponent> ent, ref XenoOvipositorChangedEvent args)

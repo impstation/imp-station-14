@@ -1,7 +1,6 @@
 - type: entity
   parent:
   - CMXenoDeveloped
-  - CMXenoTail
   - CMXenoFlammable
   - RMCXenoSpeechSounds
   - RMCXenoCommendationReceiver
@@ -33,7 +32,6 @@
     - ActionXenoRest
     - ActionXenoRegurgitate
     - ActionXenoWatch
-    - ActionXenoTailStab
     - ActionXenoAcidWeak
     - ActionXenoSlowingSpit
     - ActionXenoScatteredSpit
@@ -60,9 +58,5 @@
     damage:
       groups:
         Brute: 22.5
-  - type: XenoTailStab
-    tailDamage:
-      groups:
-        Brute: 30
   - type: RMCXenoDamageVisuals
     prefix: sentinel

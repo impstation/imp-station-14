@@ -1,5 +1,4 @@
 ﻿using System.Text.RegularExpressions;
-using Content.Shared._RMC14.Chat;
 using Content.Shared._RMC14.Xenonids.Announce;
 using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared._RMC14.Xenonids.Plasma;
@@ -16,7 +15,6 @@ namespace Content.Shared._RMC14.Xenonids.Word;
 public sealed class XenoWordQueenSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedCMChatSystem _cmChat = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;

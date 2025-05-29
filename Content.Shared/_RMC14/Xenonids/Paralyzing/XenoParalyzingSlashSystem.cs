@@ -1,5 +1,3 @@
-using Content.Shared._RMC14.Actions;
-using Content.Shared._RMC14.Xenonids.Dodge;
 using Content.Shared._RMC14.Xenonids.Plasma;
 using Content.Shared.Actions;
 using Content.Shared.Jittering;
@@ -19,7 +17,6 @@ public sealed class XenoParalyzingSlashSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly XenoSystem _xeno = default!;
-    [Dependency] private readonly RMCActionsSystem _rmcActions = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
 

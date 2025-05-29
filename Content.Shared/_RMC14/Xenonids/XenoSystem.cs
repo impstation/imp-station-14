@@ -1,25 +1,16 @@
 using System.Linq;
-using Content.Shared._RMC14.Atmos;
 using Content.Shared._RMC14.CCVar;
-using Content.Shared._RMC14.Damage;
-using Content.Shared._RMC14.Marines;
-using Content.Shared._RMC14.Medical.Scanner;
-using Content.Shared._RMC14.NightVision;
-using Content.Shared._RMC14.Rules;
-using Content.Shared._RMC14.Tackle;
-using Content.Shared._RMC14.Vendors;
 using Content.Shared._RMC14.Xenonids.Construction.Nest;
 using Content.Shared._RMC14.Xenonids.Devour;
 using Content.Shared._RMC14.Xenonids.Egg;
 using Content.Shared._RMC14.Xenonids.Evolution;
-using Content.Shared._RMC14.Xenonids.Fortify;
 using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared._RMC14.Xenonids.HiveLeader;
 using Content.Shared._RMC14.Xenonids.Parasite;
-using Content.Shared._RMC14.Xenonids.Pheromones;
 using Content.Shared._RMC14.Xenonids.Plasma;
 using Content.Shared._RMC14.Xenonids.Rest;
 using Content.Shared._RMC14.Xenonids.Weeds;
+using Content.Shared._RMC14.Atmos;
 using Content.Shared.Access.Components;
 using Content.Shared.Actions;
 using Content.Shared.Buckle.Components;
@@ -32,6 +23,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Lathe;
+using Content.Shared.MedicalScanner;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -46,6 +38,8 @@ using Content.Shared.Stunnable;
 using Content.Shared.Tools.Systems;
 using Content.Shared.UserInterface;
 using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.IdentityManagement;
+using Content.Shared.Popups;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -66,10 +60,6 @@ public sealed partial class XenoSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly MobThresholdSystem _mobThresholds = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
-    [Dependency] private readonly SharedNightVisionSystem _nightVision = default!;
-    [Dependency] private readonly SharedRMCDamageableSystem _rmcDamageable = default!;
-    [Dependency] private readonly SharedRMCFlammableSystem _rmcFlammable = default!;
-    [Dependency] private readonly RMCPlanetSystem _rmcPlanet = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
@@ -78,6 +68,7 @@ public sealed partial class XenoSystem : EntitySystem
     [Dependency] private readonly WeldableSystem _weldable = default!;
     [Dependency] private readonly XenoPlasmaSystem _xenoPlasma = default!;
     [Dependency] private readonly SharedXenoWeedsSystem _weeds = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
 
     private static readonly ProtoId<DamageTypePrototype> HeatDamage = "Heat";
 
@@ -88,7 +79,6 @@ public sealed partial class XenoSystem : EntitySystem
     private EntityQuery<XenoFriendlyComponent> _xenoFriendlyQuery;
     private EntityQuery<XenoNestedComponent> _xenoNestedQuery;
     private EntityQuery<XenoPlasmaComponent> _xenoPlasmaQuery;
-    private EntityQuery<XenoRecoveryPheromonesComponent> _xenoRecoveryQuery;
     private EntityQuery<VictimInfectedComponent> _victimInfectedQuery;
 
     private float _xenoDamageDealtMultiplier;
@@ -107,15 +97,13 @@ public sealed partial class XenoSystem : EntitySystem
         _xenoFriendlyQuery = GetEntityQuery<XenoFriendlyComponent>();
         _xenoNestedQuery = GetEntityQuery<XenoNestedComponent>();
         _xenoPlasmaQuery = GetEntityQuery<XenoPlasmaComponent>();
-        _xenoRecoveryQuery = GetEntityQuery<XenoRecoveryPheromonesComponent>();
         _victimInfectedQuery = GetEntityQuery<VictimInfectedComponent>();
 
-        SubscribeLocalEvent<XenoComponent, MapInitEvent>(OnXenoMapInit, before: [typeof(SharedXenoPheromonesSystem)]);
+        SubscribeLocalEvent<XenoComponent, MapInitEvent>(OnXenoMapInit);
         SubscribeLocalEvent<XenoComponent, GetAccessTagsEvent>(OnXenoGetAdditionalAccess);
         SubscribeLocalEvent<XenoComponent, NewXenoEvolvedEvent>(OnNewXenoEvolved);
         SubscribeLocalEvent<XenoComponent, XenoDevolvedEvent>(OnXenoDevolved);
-        SubscribeLocalEvent<XenoComponent, HealthScannerAttemptTargetEvent>(OnXenoHealthScannerAttemptTarget);
-        SubscribeLocalEvent<XenoComponent, GetDefaultRadioChannelEvent>(OnXenoGetDefaultRadioChannel);
+        SubscribeLocalEvent<XenoComponent, HealthAnalyzerDoAfterEvent>(OnXenoHealthScannerAttemptTarget);
         SubscribeLocalEvent<XenoComponent, AttackAttemptEvent>(OnXenoAttackAttempt);
         SubscribeLocalEvent<XenoComponent, UserOpenActivatableUIAttemptEvent>(OnXenoOpenActivatableUIAttempt);
         SubscribeLocalEvent<XenoComponent, GetMeleeDamageEvent>(OnXenoGetMeleeDamage);
@@ -131,12 +119,11 @@ public sealed partial class XenoSystem : EntitySystem
             before: [typeof(SharedHandsSystem), typeof(StaminaSystem)],
             after: [typeof(TackleSystem)]);
 
-        SubscribeLocalEvent<XenoRegenComponent, MapInitEvent>(OnXenoRegenMapInit, before: [typeof(SharedXenoPheromonesSystem)]);
-        SubscribeLocalEvent<XenoRegenComponent, DamageStateCritBeforeDamageEvent>(OnXenoRegenBeforeCritDamage, before: [typeof(SharedXenoPheromonesSystem)]);
+        SubscribeLocalEvent<XenoRegenComponent, MapInitEvent>(OnXenoRegenMapInit);
+        SubscribeLocalEvent<XenoRegenComponent, DamageStateCritBeforeDamageEvent>(OnXenoRegenBeforeCritDamage);
 
         //In XenoSystem.Visuals
         SubscribeLocalEvent<XenoStateVisualsComponent, MobStateChangedEvent>(OnVisualsMobStateChanged);
-        SubscribeLocalEvent<XenoStateVisualsComponent, XenoFortifiedEvent>(OnVisualsFortified);
         SubscribeLocalEvent<XenoStateVisualsComponent, XenoRestEvent>(OnVisualsRest);
         SubscribeLocalEvent<XenoStateVisualsComponent, DownedEvent>(OnVisualsProne);
         SubscribeLocalEvent<XenoStateVisualsComponent, StoodEvent>(OnVisualsStand);
@@ -147,7 +134,6 @@ public sealed partial class XenoSystem : EntitySystem
         Subs.CVar(_config, RMCCVars.CMXenoSpeedMultiplier, UpdateXenoSpeedMultiplier, true);
         Subs.CVar(_config, RMCCVars.RMCXenoSpawnInitialMuteDurationSeconds, v => _xenoSpawnMuteDuration = TimeSpan.FromSeconds(v), true);
 
-        UpdatesAfter.Add(typeof(SharedXenoPheromonesSystem));
     }
 
     private void OnXenoMapInit(Entity<XenoComponent> xeno, ref MapInitEvent args)
@@ -188,17 +174,12 @@ public sealed partial class XenoSystem : EntitySystem
         _transform.SetWorldRotation(newXeno, oldRotation);
     }
 
-    private void OnXenoHealthScannerAttemptTarget(Entity<XenoComponent> ent, ref HealthScannerAttemptTargetEvent args)
+    private void OnXenoHealthScannerAttemptTarget(Entity<XenoComponent> ent, ref HealthAnalyzerDoAfterEvent args)
     {
-        args.Popup = "The scanner can't make sense of this creature.";
-        args.Cancelled = true;
+        var msg = Loc.GetString("The scanner can't make sense of this creature.", ("user", Identity.Entity(args.User, EntityManager)));
+        _popupSystem.PopupEntity(msg, ent, args.User, PopupType.Medium);
+        args.Handled = true;
     }
-
-    private void OnXenoGetDefaultRadioChannel(Entity<XenoComponent> ent, ref GetDefaultRadioChannelEvent args)
-    {
-        args.Channel = SharedChatSystem.HivemindChannel;
-    }
-
     private void OnXenoAttackAttempt(Entity<XenoComponent> xeno, ref AttackAttemptEvent args)
     {
         if (args.Target is not { } target)
@@ -315,15 +296,18 @@ public sealed partial class XenoSystem : EntitySystem
         args.VisibilityMask |= (int) ent.Comp.Visibility;
     }
 
-    private void OnLeaderDisarmed(Entity<XenoComponent> ent, ref CMDisarmEvent args)
+    private void OnLeaderDisarmed(Entity<XenoComponent> ent, ref DisarmAttackEvent args)
     {
         if (args.Handled)
             return;
 
-        if (!_hive.FromSameHive(ent.Owner, args.User))
+        var target = GetEntity(args.Target!.Value);
+        if (!TryComp<HiveMemberComponent>(target, out var targetMember))
+
+        if (!_hive.FromSameHive(ent.Owner, targetMember))
             return;
 
-        if (!_hiveLeader.IsLeader(args.User, out var leader))
+        if (!_hiveLeader.IsLeader(args.Target, out var leader))
             return;
 
         if (_hiveLeader.IsLeader(ent.Owner, out _))
@@ -341,7 +325,7 @@ public sealed partial class XenoSystem : EntitySystem
         Dirty(ent);
     }
 
-    private void OnXenoRegenBeforeCritDamage(Entity<XenoRegenComponent> ent, ref DamageStateCritBeforeDamageEvent args)
+    private void OnXenoRegenBeforeCritDamage(Entity<XenoRegenComponent> ent, ref MobStateChangedEvent args)
     {
         if (!_rmcFlammable.IsOnFire(ent.Owner) && !ent.Comp.HealOffWeeds && !_weeds.IsOnWeeds(ent.Owner))
             return;

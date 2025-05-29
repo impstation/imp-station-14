@@ -41,7 +41,6 @@ public abstract class SharedXenoAcidSystem : EntitySystem
         SubscribeLocalEvent<XenoAcidComponent, XenoCorrosiveAcidDoAfterEvent>(OnXenoCorrosiveAcidDoAfter);
 
         SubscribeLocalEvent<InheritAcidComponent, AmmoShotEvent>(OnAmmoShot);
-        SubscribeLocalEvent<InheritAcidComponent, GrenadeContentThrownEvent>(OnGrenadeContentThrown);
 
         Subs.CVar(_config,
             RMCCVars.RMCCorrosiveAcidTickDelaySeconds,
@@ -134,17 +133,6 @@ public abstract class SharedXenoAcidSystem : EntitySystem
         foreach (var projectile in args.FiredProjectiles)
         {
             ApplyAcid(corroding.AcidPrototype, projectile, corroding.LightDps, corroding.Dps, corroding.CorrodesAt, true);
-        }
-    }
-
-    /// <summary>
-    ///     Transfer any acid stacks from the grenade to the thrown contents.
-    /// </summary>
-    private void OnGrenadeContentThrown(Entity<InheritAcidComponent> ent, ref GrenadeContentThrownEvent args)
-    {
-        if (TryComp(args.Source, out TimedCorrodingComponent? corroding))
-        {
-            ApplyAcid(corroding.AcidPrototype,ent, corroding.Dps, corroding.LightDps, corroding.CorrodesAt, true);
         }
     }
 

@@ -1,11 +1,6 @@
-using Content.Shared._RMC14.Atmos;
-using Content.Shared._RMC14.Damage;
-using Content.Shared._RMC14.Deafness;
-using Content.Shared._RMC14.Hands;
 using Content.Shared._RMC14.Xenonids.Construction.Nest;
 using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared._RMC14.Xenonids.Leap;
-using Content.Shared._RMC14.Xenonids.Pheromones;
 using Content.Shared.Actions;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Chat.Prototypes;
@@ -52,7 +47,6 @@ public abstract partial class SharedXenoParasiteSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly RMCHandsSystem _rmcHands = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly INetManager _net = default!;
@@ -68,7 +62,6 @@ public abstract partial class SharedXenoParasiteSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly SharedRottingSystem _rotting = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
-    [Dependency] private readonly SharedDeafnessSystem _deafen = default!;
 
     public override void Initialize()
     {
@@ -90,7 +83,7 @@ public abstract partial class SharedXenoParasiteSystem : EntitySystem
 
         SubscribeLocalEvent<ParasiteSpentComponent, MapInitEvent>(OnParasiteSpentMapInit);
         SubscribeLocalEvent<ParasiteSpentComponent, UpdateMobStateEvent>(OnParasiteSpentUpdateMobState,
-            after: [typeof(MobThresholdSystem), typeof(SharedXenoPheromonesSystem)]);
+            after: [typeof(MobThresholdSystem)]);
         SubscribeLocalEvent<ParasiteSpentComponent, ExaminedEvent>(OnExamined);
 
         SubscribeLocalEvent<VictimInfectedComponent, MapInitEvent>(OnVictimInfectedMapInit);
@@ -101,7 +94,7 @@ public abstract partial class SharedXenoParasiteSystem : EntitySystem
 
         SubscribeLocalEvent<VictimBurstComponent, MapInitEvent>(OnVictimBurstMapInit);
         SubscribeLocalEvent<VictimBurstComponent, UpdateMobStateEvent>(OnVictimUpdateMobState,
-            after: [typeof(MobThresholdSystem), typeof(SharedXenoPheromonesSystem)]);
+            after: [typeof(MobThresholdSystem)]);
         SubscribeLocalEvent<VictimBurstComponent, RejuvenateEvent>(OnVictimBurstRejuvenate);
         SubscribeLocalEvent<VictimBurstComponent, ExaminedEvent>(OnVictimBurstExamine);
 
@@ -140,7 +133,7 @@ public abstract partial class SharedXenoParasiteSystem : EntitySystem
 
     private void OnParasiteAfterInteract(Entity<XenoParasiteComponent> ent, ref AfterInteractEvent args)
     {
-        if (!args.CanReach || args.Target == null || args.Handled || !_rmcHands.IsPickupByAllowed(ent.Owner, args.User))
+        if (!args.CanReach || args.Target == null || args.Handled)
             return;
 
         if (StartInfect(ent, args.Target.Value, args.User))
@@ -185,7 +178,7 @@ public abstract partial class SharedXenoParasiteSystem : EntitySystem
 
     private void OnParasiteCanDropDragged(Entity<XenoParasiteComponent> ent, ref CanDropDraggedEvent args)
     {
-        if (args.User != ent.Owner && !_rmcHands.IsPickupByAllowed(ent.Owner, args.User))
+        if (args.User != ent.Owner)
             return;
 
         if (!CanInfectPopup(ent, args.Target, args.User, false))
@@ -197,7 +190,7 @@ public abstract partial class SharedXenoParasiteSystem : EntitySystem
 
     private void OnParasiteDragDropDragged(Entity<XenoParasiteComponent> ent, ref DragDropDraggedEvent args)
     {
-        if (args.User != ent.Owner && !_rmcHands.IsPickupByAllowed(ent.Owner, args.User))
+        if (args.User != ent.Owner)
             return;
 
         StartInfect(ent, args.Target, args.User);
@@ -232,13 +225,6 @@ public abstract partial class SharedXenoParasiteSystem : EntitySystem
         if (!HasComp<ParasiteAIComponent>(ent))
         {
             _popup.PopupClient(Loc.GetString("rmc-xeno-parasite-player-pickup", ("parasite", ent)), ent, args.User, PopupType.SmallCaution);
-            args.Cancel();
-            return;
-        }
-
-        if (HasComp<OnFireComponent>(args.User))
-        {
-            _popup.PopupClient("Touching the parasite while you're on fire would burn it!", ent, args.User, PopupType.MediumCaution);
             args.Cancel();
             return;
         }
@@ -436,7 +422,6 @@ public abstract partial class SharedXenoParasiteSystem : EntitySystem
 
         _stun.TryParalyze(victim, parasite.Comp.ParalyzeTime, true);
         _status.TryAddStatusEffect(victim, "Muted", parasite.Comp.ParalyzeTime, true, "Muted");
-        _deafen.TryDeafen(victim, parasite.Comp.ParalyzeTime, true);
         RefreshIncubationMultipliers(victim);
 
         _inventory.TryEquip(victim, parasite.Owner, "mask", true, true, true);
@@ -500,8 +485,6 @@ public abstract partial class SharedXenoParasiteSystem : EntitySystem
 
                 if (_mobState.IsDead(uid) || TerminatingOrDeleted(uid))
                     continue;
-
-                _rmcNpc.WakeNPC(uid);
 
                 if (trap.DisableAt > time)
                     continue;
@@ -678,7 +661,6 @@ public abstract partial class SharedXenoParasiteSystem : EntitySystem
 
         //TODO Minor limb damage and causes pain
         _stun.TryParalyze(victim, knockdownTime, false);
-        _deafen.TryDeafen(victim, knockdownTime, false);
         _status.TryAddStatusEffect(victim, "Muted", knockdownTime, true, "Muted");
         _status.TryAddStatusEffect(victim, "TemporaryBlindness", knockdownTime, true, "TemporaryBlindness");
         _jitter.DoJitter(victim, jitterTime, false);
@@ -721,7 +703,6 @@ public abstract partial class SharedXenoParasiteSystem : EntitySystem
             NeedHand = false,
             BreakOnDamage = false,
             BreakOnMove = false,
-            BreakOnRest = false,
             Hidden = true,
             CancelDuplicate = true,
             BlockDuplicate = true,

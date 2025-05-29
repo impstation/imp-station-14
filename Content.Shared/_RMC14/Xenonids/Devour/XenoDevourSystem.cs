@@ -1,7 +1,4 @@
 using System.Diagnostics.CodeAnalysis;
-using Content.Shared._RMC14.Armor;
-using Content.Shared._RMC14.CombatMode;
-using Content.Shared._RMC14.Inventory;
 using Content.Shared._RMC14.Xenonids.Construction.Nest;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Buckle.Components;
@@ -55,7 +52,6 @@ public sealed class XenoDevourSystem : EntitySystem
         SubscribeLocalEvent<DevourableComponent, CanDropDraggedEvent>(OnDevourableCanDropDragged);
         SubscribeLocalEvent<DevourableComponent, DragDropDraggedEvent>(OnDevourableDragDropDragged);
         SubscribeLocalEvent<DevourableComponent, BeforeRangedInteractEvent>(OnDevourableBeforeRangedInteract);
-        SubscribeLocalEvent<DevourableComponent, ShouldHandleVirtualItemInteractEvent>(OnDevourableShouldHandle);
 
         SubscribeLocalEvent<DevouredComponent, ComponentStartup>(OnDevouredStartup);
         SubscribeLocalEvent<DevouredComponent, ComponentRemove>(OnDevouredRemove);
@@ -78,20 +74,9 @@ public sealed class XenoDevourSystem : EntitySystem
         SubscribeLocalEvent<XenoDevourComponent, XenoRegurgitateActionEvent>(OnXenoRegurgitateAction);
         SubscribeLocalEvent<XenoDevourComponent, EntityTerminatingEvent>(OnXenoTerminating);
         SubscribeLocalEvent<XenoDevourComponent, MobStateChangedEvent>(OnXenoMobStateChanged);
-        SubscribeLocalEvent<XenoDevourComponent, RMCCombatModeInteractOverrideUserEvent>(OnXenoCombatModeInteract);
 
         SubscribeLocalEvent<UsableWhileDevouredComponent, GetMeleeDamageEvent>(OnUsableWhileDevouredGetMeleeDamage);
         SubscribeLocalEvent<UsableWhileDevouredComponent, GetMeleeAttackRateEvent>(OnUsableWhileDevouredGetMeleeAttackRate);
-        SubscribeLocalEvent<UsableWhileDevouredComponent, CMGetArmorPiercingEvent>(OnUsableWhileDevouredGetArmorPiercing);
-    }
-
-    private void OnDevourableShouldHandle(Entity<DevourableComponent> ent, ref ShouldHandleVirtualItemInteractEvent args)
-    {
-        if (HasComp<XenoDevourComponent>(args.Event.User) &&
-            args.Event.User == args.Event.Target)
-        {
-            args.Handle = true;
-        }
     }
 
     private void OnDevourableCanDropDragged(Entity<DevourableComponent> devourable, ref CanDropDraggedEvent args)
@@ -309,20 +294,6 @@ public sealed class XenoDevourSystem : EntitySystem
         RegurgitateAll(xeno);
     }
 
-    private void OnXenoCombatModeInteract(Entity<XenoDevourComponent> ent, ref RMCCombatModeInteractOverrideUserEvent args)
-    {
-        if (ent.Owner != args.Target)
-            return;
-
-        if (CompOrNull<PullerComponent>(ent)?.Pulling is not { } pulling)
-            return;
-
-        if (!HasComp<DevourableComponent>(pulling))
-            return;
-
-        args.Handled = true;
-    }
-
     private void OnUsableWhileDevouredGetMeleeDamage(Entity<UsableWhileDevouredComponent> ent, ref GetMeleeDamageEvent args)
     {
         if (ent.Comp.Damage != null && IsHeldByDevoured(ent))
@@ -333,12 +304,6 @@ public sealed class XenoDevourSystem : EntitySystem
     {
         if (IsHeldByDevoured(ent))
             args.Rate *= ent.Comp.AttackRateMultiplier;
-    }
-
-    private void OnUsableWhileDevouredGetArmorPiercing(Entity<UsableWhileDevouredComponent> ent, ref CMGetArmorPiercingEvent args)
-    {
-        if (IsHeldByDevoured(ent))
-            args.Piercing += 100;
     }
 
     private bool IsHeldByDevoured(EntityUid item)
@@ -420,7 +385,6 @@ public sealed class XenoDevourSystem : EntitySystem
         {
             BreakOnMove = true,
             AttemptFrequency = AttemptFrequency.EveryTick,
-            ForceVisible = true,
         };
 
         _popup.PopupClient(Loc.GetString("cm-xeno-devour-start-self", ("target", target)), target, xeno);

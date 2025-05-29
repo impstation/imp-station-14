@@ -1,8 +1,4 @@
-﻿using Content.Shared._RMC14.Pulling;
-using Content.Shared._RMC14.Slow;
-using Content.Shared._RMC14.Weapons.Melee;
-using Content.Shared._RMC14.Xenonids.Heal;
-using Content.Shared._RMC14.Xenonids.Rage;
+﻿using Content.Shared._RMC14.Xenonids.Heal;
 using Content.Shared.Coordinates;
 using Content.Shared.Damage;
 using Content.Shared.Effects;
@@ -21,15 +17,11 @@ public sealed class XenoFlingSystem : EntitySystem
     [Dependency] private readonly SharedColorFlashEffectSystem _colorFlash = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly RMCPullingSystem _rmcPulling = default!;
-    [Dependency] private readonly RMCSlowSystem _rmcSlow = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly XenoSystem _xeno = default!;
-    [Dependency] private readonly SharedRMCMeleeWeaponSystem _rmcMelee = default!;
     [Dependency] private readonly SharedXenoHealSystem _xenoHeal = default!;
-    [Dependency] private readonly XenoRageSystem _rage = default!;
 
     public override void Initialize()
     {

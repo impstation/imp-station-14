@@ -1,12 +1,13 @@
-using Content.Shared._RMC14.Marines;
-using Content.Shared._RMC14.Pulling;
 using Content.Shared._RMC14.Xenonids.Plasma;
 using Content.Shared.Coordinates;
 using Content.Shared.Damage;
 using Content.Shared.Effects;
+using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
+using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.Movement.Pulling.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -28,10 +29,10 @@ public sealed class XenoTailSweepSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly XenoSystem _xeno = default!;
     [Dependency] private readonly XenoPlasmaSystem _xenoPlasma = default!;
-    [Dependency] private readonly RMCPullingSystem _rmcPulling = default!;
     [Dependency] private readonly SharedInteractionSystem _interact = default!;
+    [Dependency] private readonly PullingSystem _pulling = default!;
 
-    private readonly HashSet<Entity<MarineComponent>> _hit = new();
+    private readonly HashSet<Entity<HumanoidAppearanceComponent>> _hit = new();
 
     public override void Initialize()
     {
@@ -73,14 +74,15 @@ public sealed class XenoTailSweepSystem : EntitySystem
             if (!_interact.InRangeUnobstructed(xeno.Owner, marine.Owner, xeno.Comp.Range))
                 continue;
 
-            _rmcPulling.TryStopAllPullsFromAndOn(marine);
+            if (TryComp<PullerComponent>(marine, out var puller) && TryComp<PullableComponent>(puller.Pulling, out var pullable))
+                _pulling.TryStopPull(marine, pullable);
 
             var marineCoords = _transform.GetMapCoordinates(marine);
             var diff = marineCoords.Position - origin.Position;
             diff = diff.Normalized() * xeno.Comp.Range;
 
             if (xeno.Comp.Damage is { } damage)
-                _damageable.TryChangeDamage(marine, damage, origin: xeno, tool: xeno);
+                _damageable.TryChangeDamage(marine, damage, origin: xeno);
 
             var filter = Filter.Pvs(marine, entityManager: EntityManager);
             _colorFlash.RaiseEffect(Color.Red, new List<EntityUid> { marine }, filter);

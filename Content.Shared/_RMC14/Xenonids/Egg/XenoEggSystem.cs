@@ -1,7 +1,4 @@
-﻿using Content.Shared._RMC14.Dropship;
-using Content.Shared._RMC14.Hands;
-using Content.Shared._RMC14.Marines;
-using Content.Shared._RMC14.Xenonids.Construction;
+﻿using Content.Shared._RMC14.Xenonids.Construction;
 using Content.Shared._RMC14.Xenonids.Construction.Tunnel;
 using Content.Shared._RMC14.Xenonids.Egg.EggRetriever;
 using Content.Shared._RMC14.Xenonids.Hive;
@@ -69,7 +66,6 @@ public sealed class XenoEggSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly EntityManager _entities = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly RMCHandsSystem _rmcHands = default!;
     [Dependency] private readonly TagSystem _tags = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
@@ -89,8 +85,6 @@ public sealed class XenoEggSystem : EntitySystem
     public override void Initialize()
     {
         _stepTriggerQuery = GetEntityQuery<StepTriggerComponent>();
-
-        SubscribeLocalEvent<DropshipHijackStartEvent>(OnDropshipHijackStart);
 
         SubscribeLocalEvent<XenoComponent, XenoGrowOvipositorActionEvent>(OnXenoGrowOvipositorAction);
         SubscribeLocalEvent<XenoComponent, XenoGrowOvipositorDoAfterEvent>(OnXenoGrowOvipositorDoAfter);
@@ -120,19 +114,6 @@ public sealed class XenoEggSystem : EntitySystem
 
         SubscribeLocalEvent<XenoEggSustainerComponent, EntityTerminatingEvent>(OnEggSustainerDelete);
         SubscribeLocalEvent<XenoEggSustainerComponent, MobStateChangedEvent>(OnEggSustainerDeath);
-    }
-
-    private void OnDropshipHijackStart(ref DropshipHijackStartEvent ev)
-    {
-        var query = EntityQueryEnumerator<XenoOvipositorCapableComponent>();
-        while (query.MoveNext(out var uid, out _))
-        {
-            foreach (var (actionId, action) in _actions.GetActions(uid))
-            {
-                if (action.BaseEvent is XenoGrowOvipositorActionEvent)
-                    _actions.ClearCooldown(actionId);
-            }
-        }
     }
 
     private void OnXenoGrowOvipositorAction(Entity<XenoComponent> xeno, ref XenoGrowOvipositorActionEvent args)

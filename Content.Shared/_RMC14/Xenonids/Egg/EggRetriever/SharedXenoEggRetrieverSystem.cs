@@ -1,4 +1,3 @@
-using Content.Shared._RMC14.Actions;
 using Content.Shared.Actions;
 using Content.Shared.Examine;
 using Content.Shared.Mobs;
@@ -14,7 +13,6 @@ public abstract partial class SharedXenoEggRetrieverSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] protected readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly RMCActionsSystem _rmcActions = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] protected readonly SharedPopupSystem _popup = default!;
     public override void Initialize()

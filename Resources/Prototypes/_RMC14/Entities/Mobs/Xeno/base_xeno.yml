@@ -174,7 +174,7 @@
   - type: Pullable
   - type: Speech
     speechVerb: Xeno
-    allowedEmotes: [ "Growl", "Hiss", "XenoRoar", "XenoHelp", "XenoTailSwipe" ]
+    allowedEmotes: [ "Growl", "Hiss", "XenoRoar", "XenoHelp" ]
   - type: GhostOnMove
     mustBeDead: true
   - type: NightVision 
@@ -308,16 +308,6 @@
     - DoorBumpOpener
   - type: Hands
     examineShowEmpty: false
-
-- type: entity
-  abstract: true
-  id: CMXenoTail
-  components:
-  - type: XenoTailStab
-    tailDamage:
-      groups:
-        Brute: 30
-    tailRange: 2.5
 
 - type: entity
   abstract: true
