@@ -1,16 +1,16 @@
 meta:
   format: 7
-  category: Map
+  category: Grid
   engineVersion: 250.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/29/2025 18:20:40
-  entityCount: 595
-maps:
-- 150
+  time: 05/29/2025 18:40:09
+  entityCount: 598
+maps: []
 grids:
 - 410
-orphans: []
+orphans:
+- 410
 nullspace: []
 tilemap:
   0: Space
@@ -28,25 +28,13 @@ tilemap:
 entities:
 - proto: ""
   entities:
-  - uid: 150
-    components:
-    - type: MetaData
-      name: Map Entity
-    - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: PhysicsMap
-    - type: GridTree
-    - type: MovedGrids
-    - type: Broadphase
-    - type: OccluderTree
   - uid: 410
     components:
     - type: MetaData
       name: NT Evac Tough Pill
     - type: Transform
       pos: 2.2710133,-2.4148211
-      parent: 150
+      parent: invalid
     - type: MapGrid
       chunks:
         -1,0:
@@ -404,6 +392,11 @@ entities:
       parent: 410
 - proto: BedsheetMedical
   entities:
+  - uid: 160
+    components:
+    - type: Transform
+      pos: -9.5,0.5
+      parent: 410
   - uid: 177
     components:
     - type: Transform
@@ -413,12 +406,6 @@ entities:
     components:
     - type: Transform
       pos: -10.5,0.5
-      parent: 410
-  - uid: 182
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -9.5,0.5
       parent: 410
 - proto: BoozeDispenser
   entities:
@@ -1588,39 +1575,49 @@ entities:
       parent: 410
 - proto: ClosetWallEmergencyFilledRandom
   entities:
-  - uid: 586
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -9.5,-6.5
-      parent: 410
-  - uid: 587
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 0.5,-6.5
-      parent: 410
-  - uid: 588
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -2.5,-3.5
-      parent: 410
-  - uid: 589
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -7.5,8.5
-      parent: 410
-- proto: ClosetWallEmergencyFilledWinter
-  entities:
-  - uid: 160
+  - uid: 150
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -4.5,10.5
       parent: 410
-- proto: ClosetWallEmergencyN2FilledRandom
+  - uid: 586
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -7.5,8.5
+      parent: 410
+  - uid: 587
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -8.5,4.5
+      parent: 410
+  - uid: 588
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.5,4.5
+      parent: 410
+  - uid: 589
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -9.5,-6.5
+      parent: 410
+  - uid: 590
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 0.5,-6.5
+      parent: 410
+  - uid: 591
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -2.5,-3.5
+      parent: 410
+- proto: ClosetWallEmergencyN2FilledWinter
   entities:
   - uid: 378
     components:
@@ -1631,26 +1628,26 @@ entities:
   - uid: 475
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -6.5,-3.5
-      parent: 410
-  - uid: 584
-    components:
-    - type: Transform
       rot: -1.5707963267948966 rad
       pos: -8.5,-5.5
       parent: 410
-  - uid: 585
+  - uid: 584
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -0.5,-5.5
       parent: 410
-  - uid: 590
+  - uid: 585
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -5.5,10.5
+      parent: 410
+  - uid: 592
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -6.5,-3.5
       parent: 410
 - proto: ClosetWallFireFilledRandom
   entities:
@@ -1659,25 +1656,39 @@ entities:
     - type: Transform
       pos: 1.5,10.5
       parent: 410
-  - uid: 592
-    components:
-    - type: Transform
-      pos: -8.5,-0.5
-      parent: 410
   - uid: 593
     components:
     - type: Transform
-      pos: -0.5,-0.5
+      rot: 1.5707963267948966 rad
+      pos: -1.5,7.5
       parent: 410
   - uid: 594
     components:
     - type: Transform
-      pos: -9.5,10.5
+      pos: -8.5,-0.5
       parent: 410
   - uid: 595
     components:
     - type: Transform
-      pos: 0.5,10.5
+      pos: -0.5,-0.5
+      parent: 410
+  - uid: 596
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -3.5,10.5
+      parent: 410
+  - uid: 597
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 1.5,4.5
+      parent: 410
+  - uid: 598
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -10.5,4.5
       parent: 410
 - proto: ComputerAlert
   entities:
@@ -2293,14 +2304,14 @@ entities:
       parent: 410
 - proto: LockerMedicineFilled
   entities:
-  - uid: 591
+  - uid: 205
     components:
     - type: Transform
       pos: -10.5,1.5
       parent: 410
 - proto: MedicalBed
   entities:
-  - uid: 205
+  - uid: 182
     components:
     - type: Transform
       pos: -9.5,0.5
