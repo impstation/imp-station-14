@@ -17,7 +17,7 @@
   parent: ClothingNeckPinBase
   id: ClothingNeckNoviceMark
   name: novice's mark
-  description: A green and gold mark for self-identifying as a novice, also called a 'shoshinsha'. With this pin in your pockets or on your lapel, others will know to be more patient around you.
+  description: A mark in CentComm's green and gold, for identifying yourself as unskilled to others. Take it (as a trinket) if you need to! # the rest of the description is handled by WearerGetsExamineText
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Neck/Misc/novicemark.rsi

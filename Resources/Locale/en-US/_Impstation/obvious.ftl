@@ -61,5 +61,5 @@ obvious-x-medal-nothing = a [color=#FFD700]gleaming medal[/color]!
 # imp only items
 obvious-x-pin-straight = a [color=#7c7c7c]straight[/color] [color=white]pride[/color] pin... [italic]Ew.[/italic]
 obvious-x-cloak-straight = a cloak in the [color=#7c7c7c]straight[/color] [color=white]pride[/color] colors... [italic]Ew.[/italic]
-obvious-x-pin-novice = a [color=#F4EE12]novice[/color] [color=#1CAC99]mark[/color], marking { REFLEXIVE($user) } as unskilled. [italic]{ CAPITALIZE(SUBJECT($user)) } may need guidance and patience from others.[/italic]
+obvious-x-pin-novice = a [color=#F4EE12]novice[/color] [color=#1CAC99]mark[/color], identifying as [color=#efefef]unskilled[/color]. [color=#1CAC99][italic]Be patient and considerate with { OBJECT($user) }.[/italic][/color]
 
