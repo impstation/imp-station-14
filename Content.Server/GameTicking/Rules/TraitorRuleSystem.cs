@@ -18,6 +18,7 @@ using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Roles.RoleCodeword;
+using Content.Shared.Mobs.Components; // imp edit
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Server.Player;
@@ -41,6 +42,8 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     [Dependency] private readonly SharedRoleCodewordSystem _roleCodewordSystem = default!;
     [Dependency] private readonly SharedRoleSystem _roleSystem = default!;
     [Dependency] private readonly UplinkSystem _uplink = default!;
+
+    [Dependency] private readonly EntityManager _entityManager = default!; //imp edit
 
     public AntagSelectionPlayerPool? CurrentAntagPool = null;
     public bool ForceAllPossible = false;
@@ -278,7 +281,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         return traitors;
     }
 
-// imp edit for Bounty Hunter
+// imp addition
     public List<(EntityUid Id, MindComponent Mind)> GetOtherAntagMindsAliveAndConnected(MindComponent ourMind)
     {
         List<(EntityUid Id, MindComponent Mind)> allAntags = new();
@@ -301,6 +304,14 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         var antags = new List<(EntityUid Id, MindComponent Mind)>();
         foreach (var mind in _antag.GetAntagMinds(rule.Owner))
         {
+
+            var mindEntity = mind.Comp.Owner;
+            if (!_entityManager.EntityExists(mindEntity))
+                continue; //if the mind isn't connected to an entity, its not a target
+            if (!_entityManager.TryGetComponent<MobStateComponent>(mindEntity, out var mobState))
+                continue; //if the entity can't be dead or alive, it's not a target
+            if (mobState.CurrentState == Content.Shared.Mobs.MobState.Dead ) //just fully qualifying this because I couldn't find the enum declaration
+                continue; //if the entity is dead, it's not a target
             if (mind.Comp == ourMind)
                 continue;
 
@@ -309,4 +320,6 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 
         return antags;
     }
+
+//end imp edit
 }
