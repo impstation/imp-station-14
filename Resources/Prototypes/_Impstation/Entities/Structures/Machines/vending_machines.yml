@@ -96,7 +96,7 @@
   parent: VendingMachine
   id: VendingMachineSovietSoda # keeping this name to avoid remapping
   name: Artic Seltz
-  description: An old vending machine containing sweet water.
+  description:  #An old vending machine containing sweet water.
   components:
   - type: VendingMachine
     pack: ArticSeltzInventory
@@ -114,7 +114,7 @@
   - type: SpeakOnUIClosed
     pack: ArticSeltzGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/sovietsoda.rsi
+    sprite: _Impstation/Structures/Machines/VendingMachines/articseltz.rsi
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
