@@ -55,9 +55,14 @@
     sprite: _Impstation/Objects/Misc/nullrod_bow_evil.rsi
     layers:
     - state: nullrod_bow
-    - state: unwielded-arrow
+      map: [ base ]
+    - state: unwielded-arrowsilver
       shader: unshaded
-      map: [ arrow ]
+      map: [ arrowsilver ]
+      visible: false
+    - state: unwielded-arrowgolden
+      shader: unshaded
+      map: [ arrowgolden ]
       visible: false
   - type: Item
     size: Huge
@@ -100,14 +105,17 @@
   - type: Appearance
   - type: ItemMapper
     spriteLayers:
-    - arrow
+    - arrowsilver
+    - arrowgolden
     mapLayers:
-      arrow:
+      arrowsilver:
+        whitelist:
+          tags:
+          - HolyArrowEvil
+      arrowgolden:
         whitelist:
           tags:
           - HolyArrow
-          - HolyArrowEvil
-
 
 - type: entity
   parent: ClothingBeltStorageBase
