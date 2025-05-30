@@ -415,6 +415,10 @@
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/sailoruniform.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/sailoruniform.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - ClothMade
 
 - type: entity
   parent: [ClothingUniformBase, Tier3Contraband]
@@ -426,3 +430,7 @@
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/burglarjumpsuit.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/burglarjumpsuit.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - ClothMade
