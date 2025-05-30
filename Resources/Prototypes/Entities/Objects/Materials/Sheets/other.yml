@@ -2,7 +2,7 @@
   abstract: true
   parent: BaseItem
   id: SheetOtherBase
-  description: A sheet of material, used often on the station in various applications.
+  description: It's... uh... what is this? It's a sheet of something. # imp
   components:
   - type: Sprite
     sprite: Objects/Materials/Sheets/other.rsi
@@ -32,6 +32,7 @@
   parent: SheetOtherBase
   id: SheetPaper
   name: paper
+  description: Most commercially-made paper is made from paper. Paper is made from wood, trees, and paper. # imp
   suffix: Full
   components:
   - type: Stack
@@ -78,6 +79,7 @@
   parent: SheetOtherBase
   id: SheetPlasma
   name: plasma
+  description: What Nanotrasen calls 'plasma' or 'phoron' is an enigmatic, highly-reactive material that taps into... Well, it'll make you rich. # imp
   suffix: Full
   components:
   - type: Material
@@ -137,6 +139,7 @@
   parent: SheetOtherBase
   id: SheetPlastic
   name: plastic
+  description: A sheet of non-descript polymers that can be molded into anything you can imagine. Fun to play with, but not to eat. # imp
   suffix: Full
   components:
   - type: Tag
@@ -201,6 +204,7 @@
   parent: [SheetOtherBase, EdibleBase]
   id: SheetUranium
   name: uranium
+  description: Element number 92, it's lean, it's mean, and oh boy, is it green. Puts the 'new' in 'nuclear' and the 'active' in 'radioactive'. # imp
   suffix: Full
   components:
   - type: Material
@@ -258,6 +262,7 @@
   parent: SheetOtherBase
   id: MaterialSheetMeat
   name: meat sheet
+  description: A sheet of meat; a meat sheet. Doesn't have the answers to your tests, but DOES have a lot of protein. # imp
   suffix: Full
   components:
     - type: Sprite
