@@ -249,7 +249,7 @@
     tags:
     - ClothMade
     - WhitelistChameleon
-    
+
 - type: entity
   parent: ClothingHeadHatHolyWatermelon
   id: ClothingHeadHalo
@@ -261,3 +261,25 @@
   - type: Clothing
     sprite: Clothing/Head/Hats/holyhatmelon.rsi
   - type: Armor
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadSipsiHat
+  name: sipsi hat
+  description: Cheap plastic version of a traditional Gray headdress. Has a picture of a surfing penguin on the front.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hats/beret_hd.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hats/beret_hd.rsi
+  - type: ExaminableSolution
+    solution: drink
+  - type: Appearance
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
