@@ -517,7 +517,6 @@ public abstract partial class SharedXenoParasiteSystem : EntitySystem
                 _inventory.TryUnequip(infectedVictim, "mask", true, true, true);
 
                 var victimComp = EnsureComp<VictimInfectedComponent>(infectedVictim);
-                SetHive((infectedVictim, victimComp), _hive.GetHive(uid)?.Owner);
 
                 // TODO RMC14 also do damage to the parasite
                 EnsureComp<ParasiteSpentComponent>(uid);
@@ -760,9 +759,6 @@ public abstract partial class SharedXenoParasiteSystem : EntitySystem
             foreach (var larva in container.ContainedEntities)
             {
                 RemCompDeferred<BursterComponent>(larva);
-                var invc = EnsureComp<RMCTemporaryInvincibilityComponent>(larva);
-                invc.ExpiresAt = _timing.CurTime + ent.Comp.LarvaInvincibilityTime;
-                Dirty(larva, invc);
             }
 
             _container.EmptyContainer(container, destination: coords);
@@ -856,9 +852,6 @@ public abstract partial class SharedXenoParasiteSystem : EntitySystem
     {
         var larvaContainer = _container.EnsureContainer<ContainerSlot>(victim.Owner, victim.Comp.LarvaContainerId);
         spawned = SpawnInContainerOrDrop(victim.Comp.BurstSpawn, victim.Owner, larvaContainer.ID);
-
-        if (HasComp<XenoComponent>(spawned))
-            _hive.SetHive(spawned, victim.Comp.Hive);
 
         victim.Comp.CurrentStage = 6;
         victim.Comp.SpawnedLarva = spawned;

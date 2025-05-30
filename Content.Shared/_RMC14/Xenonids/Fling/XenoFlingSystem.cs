@@ -48,12 +48,10 @@ public sealed class XenoFlingSystem : EntitySystem
             _audio.PlayPvs(xeno.Comp.Sound, xeno);
         }
 
-        var rage = _rage.GetRage(xeno.Owner);
-
         var targetId = args.Target;
         _rmcPulling.TryStopAllPullsFromAndOn(targetId);
 
-        var damage = _damageable.TryChangeDamage(targetId, xeno.Comp.Damage, origin: xeno, tool: xeno);
+        var damage = _damageable.TryChangeDamage(targetId, xeno.Comp.Damage, origin: xeno);
         if (damage?.GetTotal() > FixedPoint2.Zero)
         {
             var filter = Filter.Pvs(targetId, entityManager: EntityManager).RemoveWhereAttachedEntity(o => o == xeno.Owner);
@@ -62,12 +60,6 @@ public sealed class XenoFlingSystem : EntitySystem
 
         var healAmount = xeno.Comp.HealAmount;
         var throwRange = xeno.Comp.Range;
-
-        if (rage >= 2)
-        {
-            throwRange += xeno.Comp.EnragedRange;
-            healAmount += xeno.Comp.EnragedHealAmount;
-        }
 
         var origin = _transform.GetMapCoordinates(xeno);
         var target = _transform.GetMapCoordinates(targetId);
@@ -80,7 +72,7 @@ public sealed class XenoFlingSystem : EntitySystem
         if (!_net.IsServer)
             return;
 
-        _rmcSlow.TrySlowdown(targetId, xeno.Comp.SlowTime);
+        _stun.TrySlowdown(targetId, xeno.Comp.SlowTime, true);
         _stun.TryParalyze(targetId, xeno.Comp.ParalyzeTime, true);
         _throwing.TryThrow(targetId, diff, xeno.Comp.ThrowSpeed);
 

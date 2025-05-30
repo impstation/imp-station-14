@@ -1,5 +1,4 @@
 ﻿using Content.Shared._RMC14.Xenonids.Construction;
-using Content.Shared._RMC14.Xenonids.Construction.Tunnel;
 using Content.Shared._RMC14.Xenonids.Egg.EggRetriever;
 using Content.Shared._RMC14.Xenonids.Parasite;
 using Content.Shared._RMC14.Xenonids.Plasma;
@@ -502,8 +501,6 @@ public sealed class XenoEggSystem : EntitySystem
         var eggContainer = _container.EnsureContainer<ContainerSlot>(egg.Owner, egg.Comp.CreatureContainerId);
         spawned = SpawnInContainerOrDrop(egg.Comp.Spawn, egg.Owner, eggContainer.ID);
 
-        _hive.SetSameHive(egg.Owner, spawned.Value);
-
         egg.Comp.SpawnedCreature = spawned;
         Dirty(egg);
 
@@ -679,8 +676,7 @@ public sealed class XenoEggSystem : EntitySystem
 
             if (HasComp<XenoConstructComponent>(uid) ||
                 _tags.HasAnyTag(uid.Value, StructureTag, AirlockTag) ||
-                HasComp<StrapComponent>(uid) ||
-                HasComp<XenoTunnelComponent>(uid))
+                HasComp<StrapComponent>(uid))
             {
                 var msg = Loc.GetString("cm-xeno-egg-blocked");
                 _popup.PopupClient(msg, uid.Value, user, PopupType.SmallCaution);
@@ -877,7 +873,6 @@ public sealed class XenoEggSystem : EntitySystem
 
             var egg = SpawnAtPosition(capable.Spawn, xform.Coordinates.Offset(capable.Offset));
             // egg belongs to whichever hive planted it, not the queen. you can steal eggs to claim them for your hive
-            _hive.SetSameHive(uid, egg);
 
             _transform.SetLocalRotation(egg, Angle.Zero);
         }

@@ -42,6 +42,8 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared.VendingMachines;
+using Content.Shared.Humanoid;
 
 namespace Content.Shared._RMC14.Xenonids;
 
@@ -110,9 +112,6 @@ public sealed partial class XenoSystem : EntitySystem
         SubscribeLocalEvent<XenoComponent, CanDragEvent>(OnXenoCanDrag);
         SubscribeLocalEvent<XenoComponent, BuckleAttemptEvent>(OnXenoBuckleAttempt);
         SubscribeLocalEvent<XenoComponent, GetVisMaskEvent>(OnXenoGetVisMask);
-        SubscribeLocalEvent<XenoComponent, CMDisarmEvent>(OnLeaderDisarmed,
-            before: [typeof(SharedHandsSystem), typeof(StaminaSystem)],
-            after: [typeof(TackleSystem)]);
 
         SubscribeLocalEvent<XenoRegenComponent, MapInitEvent>(OnXenoRegenMapInit);
         SubscribeLocalEvent<XenoRegenComponent, DamageStateCritBeforeDamageEvent>(OnXenoRegenBeforeCritDamage);
@@ -181,7 +180,7 @@ public sealed partial class XenoSystem : EntitySystem
             return;
 
         // TODO RMC14 this still falsely plays the hit red flash effect on xenos if others are hit in a wide swing
-        if ((_xenoFriendlyQuery.HasComp(target) && _hive.FromSameHive(xeno.Owner, target)) ||
+        if (_xenoFriendlyQuery.HasComp(target) ||
             _mobState.IsDead(target))
         {
             if (!args.Disarm)
@@ -203,7 +202,7 @@ public sealed partial class XenoSystem : EntitySystem
             return;
 
         if (HasComp<LatheComponent>(args.Target) ||
-            HasComp<CMAutomatedVendorComponent>(args.Target))
+            HasComp<VendingMachineComponent>(args.Target))
         {
             args.Cancel();
         }
@@ -285,29 +284,6 @@ public sealed partial class XenoSystem : EntitySystem
         args.VisibilityMask |= (int) ent.Comp.Visibility;
     }
 
-    private void OnLeaderDisarmed(Entity<XenoComponent> ent, ref DisarmAttackEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        var target = GetEntity(args.Target!.Value);
-        if (!TryComp<HiveMemberComponent>(target, out var targetMember))
-
-        if (!_hive.FromSameHive(ent.Owner, targetMember))
-            return;
-
-        if (!_hiveLeader.IsLeader(args.Target, out var leader))
-            return;
-
-        if (_hiveLeader.IsLeader(ent.Owner, out _))
-            return;
-
-        if (HasComp<XenoEvolutionGranterComponent>(ent))
-            return;
-
-        _stun.TryParalyze(ent, leader.FriendlyStunTime, true);
-    }
-
     private void OnXenoRegenMapInit(Entity<XenoRegenComponent> ent, ref MapInitEvent args)
     {
         ent.Comp.NextRegenTime = _timing.CurTime + ent.Comp.RegenCooldown;
@@ -356,18 +332,12 @@ public sealed partial class XenoSystem : EntitySystem
             multiplier = xeno.Comp.StandHealingMultiplier;
 
         var passiveHeal = threshold.Value / 65 + xeno.Comp.FlatHealing;
-        var recovery = (CompOrNull<XenoRecoveryPheromonesComponent>(xeno)?.Multiplier ?? 0);
-        if (!CanHeal(xeno))
-            recovery = FixedPoint2.Zero;
-
-        var recoveryHeal = (threshold.Value / 65) * (recovery / 2);
+        var recoveryHeal = threshold.Value / 65;
         return (passiveHeal + recoveryHeal) * multiplier / 2; // TODO RMC14 add Strain based multiplier for Gardener Drone
     }
 
     public void HealDamage(Entity<DamageableComponent?> xeno, FixedPoint2 amount)
     {
-        if (_rmcFlammable.IsOnFire(xeno.Owner))
-            return;
 
         if (!_damageableQuery.Resolve(xeno, ref xeno.Comp, false) ||
             xeno.Comp.Damage.GetTotal() <= FixedPoint2.Zero)
@@ -397,10 +367,6 @@ public sealed partial class XenoSystem : EntitySystem
         if (xeno == target)
             return false;
 
-        // hiveless xenos can attack eachother
-        if (_hive.FromSameHive(xeno, target))
-            return false;
-
         if (_mobState.IsDead(target))
             return false;
 
@@ -410,7 +376,7 @@ public sealed partial class XenoSystem : EntitySystem
         if (_xenoNestedQuery.HasComp(target))
             return false;
 
-        return HasComp<MarineComponent>(target) || hitNonMarines;
+        return HasComp<HumanoidAppearanceComponent>(target) || hitNonMarines;
     }
 
     public bool CanHeal(EntityUid xeno)
@@ -418,24 +384,6 @@ public sealed partial class XenoSystem : EntitySystem
         var ev = new XenoHealAttemptEvent();
         RaiseLocalEvent(xeno, ref ev);
         return !ev.Cancelled;
-    }
-
-    public int GetGroundXenosAlive()
-    {
-        var count = 0;
-        var xenos = EntityQueryEnumerator<ActorComponent, XenoComponent, MobStateComponent,  TransformComponent>();
-        while (xenos.MoveNext(out _, out _, out var mobState, out var xform))
-        {
-            if (mobState.CurrentState == MobState.Dead)
-                continue;
-
-            if (!_rmcPlanet.IsOnPlanet(xform))
-                continue;
-
-            count++;
-        }
-
-        return count;
     }
 
     public override void Update(float frameTime)
@@ -474,12 +422,6 @@ public sealed partial class XenoSystem : EntitySystem
                 {
                     var plasmaRestored = plasma.PlasmaRegenOnWeeds * plasma.MaxPlasma / 100 / 2;
                     _xenoPlasma.RegenPlasma((uid, plasma), plasmaRestored);
-
-                    if (_xenoRecoveryQuery.TryComp(uid, out var recovery))
-                    {
-                        var amount = plasmaRestored * recovery.Multiplier / 4;
-                        _xenoPlasma.RegenPlasma((uid, plasma), amount);
-                    }
                 }
             }
         }

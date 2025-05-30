@@ -155,9 +155,6 @@ public sealed class XenoLeapSystem : EntitySystem
         //Handle close-range or same-tile leaps
         foreach (var ent in _physics.GetContactingEntities(xeno.Owner, physics))
         {
-            if (_hive.FromSameHive(xeno.Owner, ent))
-                continue;
-
             if (ApplyLeapingHitEffects((xeno, leaping), ent))
                 return;
         }
@@ -247,12 +244,6 @@ public sealed class XenoLeapSystem : EntitySystem
         if(!IsValidLeapHit(xeno, target))
             return false;
 
-        if (_hive.FromSameHive(xeno.Owner, target))
-        {
-            StopLeap(xeno);
-            return true;
-        }
-
         xeno.Comp.KnockedDown = true;
         Dirty(xeno);
 
@@ -264,25 +255,13 @@ public sealed class XenoLeapSystem : EntitySystem
                 _broadphase.RegenerateContacts(xeno, physics);
         }
 
-        if (!xeno.Comp.KnockdownRequiresInvisibility || HasComp<XenoActiveInvisibleComponent>(xeno))
-        {
-            var victim = EnsureComp<LeapIncapacitatedComponent>(target);
-            victim.RecoverAt = _timing.CurTime + xeno.Comp.ParalyzeTime;
-            Dirty(target, victim);
-
-            _stun.TrySlowdown(xeno, xeno.Comp.MoveDelayTime, true, 0f, 0f);
-
-            if (_net.IsServer)
-                _stun.TryParalyze(target, xeno.Comp.ParalyzeTime, true);
-        }
-
         if (xeno.Comp.HitEffect != null)
         {
             if (_net.IsServer)
                 SpawnAttachedTo(xeno.Comp.HitEffect, target.ToCoordinates());
         }
 
-        var damage = _damagable.TryChangeDamage(target, xeno.Comp.Damage, origin: xeno, tool: xeno);
+        var damage = _damagable.TryChangeDamage(target, xeno.Comp.Damage, origin: xeno);
         if (damage?.GetTotal() > FixedPoint2.Zero)
         {
             var filter = Filter.Pvs(target, entityManager: EntityManager).RemoveWhereAttachedEntity(o => o == xeno.Owner);

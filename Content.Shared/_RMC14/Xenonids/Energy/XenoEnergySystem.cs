@@ -97,7 +97,7 @@ public sealed class XenoEnergySystem : EntitySystem
         var max = _alerts.GetMaxSeverity(xeno.Comp.Alert);
         var severity = max - ContentHelpers.RoundToLevels(level, xeno.Comp.Max, max + 1);
         string? energyResourceMessage = (int)xeno.Comp.Current + " / " + xeno.Comp.Max;
-        _alerts.ShowAlert(xeno, xeno.Comp.Alert, (short)severity, dynamicMessage: energyResourceMessage);
+        _alerts.ShowAlert(xeno, xeno.Comp.Alert, (short)severity);
     }
 
     private void OnXenoActionEnergyUseAttempt(Entity<XenoActionEnergyComponent> action, ref RMCActionUseAttemptEvent args)

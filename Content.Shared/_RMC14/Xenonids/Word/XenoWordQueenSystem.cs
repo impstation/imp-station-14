@@ -54,12 +54,6 @@ public sealed class XenoWordQueenSystem : EntitySystem
         if (!_xenoPlasma.HasPlasmaPopup(queen.Owner, queen.Comp.PlasmaCost))
             return;
 
-        if (_hive.GetHive(queen.Owner) is not {} hive)
-        {
-            _popup.PopupClient(Loc.GetString("cm-xeno-words-of-the-queen-nobody-hear-you"), queen, queen, PopupType.LargeCaution);
-            return;
-        }
-
         if (_net.IsClient)
             return;
 
@@ -67,8 +61,7 @@ public sealed class XenoWordQueenSystem : EntitySystem
             text = text[.._characterLimit].Trim();
 
         var xenos = Filter
-            .Empty()
-            .AddWhereAttachedEntity(ent => _hive.IsMember(ent, hive));
+            .Empty();
 
         if (xenos.Count <= 1)
         {

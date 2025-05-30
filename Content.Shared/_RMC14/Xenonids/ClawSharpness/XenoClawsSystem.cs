@@ -45,7 +45,7 @@ public sealed class XenoClawsSystem : EntitySystem
 
     private void OnReceiverDamageModify(Entity<ReceiverXenoClawsComponent> ent, ref DamageModifyEvent args)
     {
-        var xeno = args.Tool;
+        var xeno = args.Origin;
         var receiver = ent.Comp;
 
         if (!_meleeWeaponQuery.HasComp(xeno))
@@ -64,7 +64,7 @@ public sealed class XenoClawsSystem : EntitySystem
 
     private void OnAirlockReceiverDamageModify(Entity<AirlockReceiverXenoClawsComponent> ent, ref DamageModifyEvent args)
     {
-        var xeno = args.Tool;
+        var xeno = args.Origin;
         var receiver = ent.Comp;
 
         if (!_meleeWeaponQuery.HasComp(xeno))

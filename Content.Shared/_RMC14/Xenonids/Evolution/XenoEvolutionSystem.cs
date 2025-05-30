@@ -152,32 +152,8 @@ public sealed class XenoEvolutionSystem : EntitySystem
         if (!DamagedCheckPopup(xeno, false))
             return;
 
-        var time = _timing.CurTime;
-        if (_prototypes.TryIndex(args.Choice, out var choice) &&
-            choice.HasComponent<XenoEvolutionGranterComponent>(_compFactory) &&
-            _xenoHive.GetHive(xeno.Owner) is { } hive &&
-            hive.Comp.LastQueenDeath is { } lastQueenDeath &&
-            time < lastQueenDeath + hive.Comp.NewQueenCooldown)
-        {
-            var left = lastQueenDeath + hive.Comp.NewQueenCooldown - time;
-            var msg = Loc.GetString("rmc-xeno-evolution-cant-evolve-recent-queen-death-minutes",
-                ("minutes", left.Minutes),
-                ("seconds", left.Seconds));
-            if (left.Minutes == 0)
-            {
-                msg = Loc.GetString("rmc-xeno-evolution-cant-evolve-recent-queen-death-seconds",
-                    ("seconds", left.Seconds));
-            }
-
-            _popup.PopupEntity(msg, xeno, xeno, PopupType.MediumCaution);
-            return;
-        }
-
         var ev = new XenoEvolutionDoAfterEvent(args.Choice);
-        var doAfter = new DoAfterArgs(EntityManager, xeno, xeno.Comp.EvolutionDelay, ev, xeno)
-        {
-            BreakOnRest = false,
-        };
+        var doAfter = new DoAfterArgs(EntityManager, xeno, xeno.Comp.EvolutionDelay, ev, xeno);
 
         if (xeno.Comp.EvolutionDelay > TimeSpan.Zero)
             _popup.PopupClient(Loc.GetString("cm-xeno-evolution-start"), xeno, xeno);
@@ -405,52 +381,6 @@ public sealed class XenoEvolutionSystem : EntitySystem
             return false;
         }
 
-        if (newXenoComp != null &&
-            !newXenoComp.BypassTierCount &&
-            _xenoHive.GetHive(xeno.Owner) is { } oldHive &&
-            _xenoHive.TryGetTierLimit((oldHive, oldHive.Comp), newXenoComp.Tier, out var limit))
-        {
-            var existing = 0;
-            var total = Math.Sqrt(oldHive.Comp.BurrowedLarva * oldHive.Comp.BurrowedLarvaSlotFactor);
-            total = Math.Min(total, oldHive.Comp.BurrowedLarva);
-
-            var current = EntityQueryEnumerator<XenoComponent, HiveMemberComponent>();
-            var slotCount = oldHive.Comp.FreeSlots.ToDictionary();
-            while (current.MoveNext(out var uid, out var existingComp, out var member))
-            {
-                if (_mobState.IsDead(uid))
-                    continue;
-
-                if (member.Hive != oldHive.Owner || !existingComp.CountedInSlots)
-                    continue;
-
-                total++;
-
-                if (existingComp.Tier < newXenoComp.Tier)
-                    continue;
-
-                if (slotCount.ContainsKey(existingComp.Role.Id) && slotCount[existingComp.Role.Id] > 0)
-                    slotCount[existingComp.Role.Id] -= 1;
-                else
-                    existing++;
-            }
-
-            if (total != 0 && existing / (float) total >= limit && (!slotCount.ContainsKey(newXeno) || slotCount[newXeno] <= 0))
-            {
-                if (doPopup)
-                {
-                    _popup.PopupEntity(
-                        Loc.GetString("cm-xeno-evolution-failed-hive-full", ("tier", newXenoComp.Tier)),
-                        xeno,
-                        xeno,
-                        PopupType.MediumCaution
-                    );
-                }
-
-                return false;
-            }
-        }
-
         if (TryComp(xeno, out XenoRecentlyDevolvedComponent? recently) &&
             recently.Recent.TryGetValue(newXeno, out var at) &&
             at + _evolveSameCasteCooldown > _timing.CurTime)
@@ -560,7 +490,6 @@ public sealed class XenoEvolutionSystem : EntitySystem
     {
         var coordinates = _transform.GetMoverCoordinates(xeno);
         var newXeno = Spawn(proto, coordinates);
-        _xenoHive.SetSameHive(xeno, newXeno);
 
         if (_mind.TryGetMind(xeno, out var mindId, out _))
         {
@@ -695,8 +624,6 @@ public sealed class XenoEvolutionSystem : EntitySystem
                     uid,
                     PopupType.LargeCaution
                 );
-
-                _xenoHive.AnnounceNeedsOvipositorToSameHive(uid);
             }
         }
 

@@ -4,6 +4,7 @@ using Content.Shared._RMC14.Xenonids.Projectile.Spit.Scattered;
 using Content.Shared._RMC14.Xenonids.Projectile.Spit.Slowing;
 using Content.Shared._RMC14.Xenonids.Projectile.Spit.Stacks;
 using Content.Shared._RMC14.Xenonids.Projectile.Spit.Standard;
+using Content.Shared._RMC14.Actions;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Chemistry.EntitySystems;
@@ -49,6 +50,7 @@ public sealed class XenoSpitSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly XenoSystem _xeno = default!;
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
+    [Dependency] private readonly RMCActionsSystem _rmcActions = default!;
 
     private static readonly ProtoId<ReagentPrototype> AcidRemovedBy = "Water";
 
@@ -76,8 +78,6 @@ public sealed class XenoSpitSystem : EntitySystem
 
         SubscribeLocalEvent<UserAcidedComponent, MapInitEvent>(OnUserAcidedMapInit);
         SubscribeLocalEvent<UserAcidedComponent, ComponentRemove>(OnUserAcidedRemove);
-        SubscribeLocalEvent<UserAcidedComponent, ShowFireAlertEvent>(OnUserAcidedShowFireAlert);
-        SubscribeLocalEvent<UserAcidedComponent, VaporHitEvent>(OnUserAcidedVaporHit);
 
         SubscribeLocalEvent<InventoryComponent, HitBySlowingSpitEvent>(_inventory.RelayEvent);
 
@@ -191,18 +191,13 @@ public sealed class XenoSpitSystem : EntitySystem
             return;
 
         var target = args.Target;
-        if (_hive.FromSameHive(spit.Owner, target))
-        {
-            QueueDel(spit);
-            return;
-        }
 
         if (spit.Comp.Slow > TimeSpan.Zero)
         {
             if (spit.Comp.SuperSlow)
-                _slow.TrySuperSlowdown(target, spit.Comp.Slow);
+                _stun.TrySlowdown(target, spit.Comp.Slow, true);
             else
-                _slow.TrySlowdown(target, spit.Comp.Slow);
+                _stun.TrySlowdown(target, spit.Comp.Slow, true);
         }
 
         var resisted = false;
@@ -269,9 +264,6 @@ public sealed class XenoSpitSystem : EntitySystem
 
     private void OnApplyAcidStacksProjectileHit(Entity<ApplyAcidStacksComponent> ent, ref ProjectileHitEvent args)
     {
-        if (args.Handled)
-            return;
-
         ApplyAcidStacks(args.Target, ent.Comp.Amount, ent.Comp.Max, ent.Comp.Damage, ent.Comp.Whitelist);
     }
 
@@ -366,7 +358,7 @@ public sealed class XenoSpitSystem : EntitySystem
             return;
 
         var target = args.Target;
-        if (_hive.FromSameHive(spit.Owner, target) || !_solution.TryGetSolution(target, spit.Comp.TargetSolution, out var solEnt, out var solu))
+        if (!_solution.TryGetSolution(target, spit.Comp.TargetSolution, out var solEnt, out var solu))
             return;
 
         if (solu == null || solEnt == null)
@@ -413,7 +405,7 @@ public sealed class XenoSpitSystem : EntitySystem
                 continue;
 
             acided.NextDamageAt = time + acided.DamageEvery;
-            _damageable.TryChangeDamage(uid, acided.Damage, armorPiercing: acided.ArmorPiercing);
+            _damageable.TryChangeDamage(uid, acided.Damage);
         }
 
         var stacks = EntityQueryEnumerator<VictimXenoAcidStacksComponent>();

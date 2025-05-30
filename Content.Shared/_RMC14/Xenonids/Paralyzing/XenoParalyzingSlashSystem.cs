@@ -1,4 +1,5 @@
 using Content.Shared._RMC14.Xenonids.Plasma;
+using Content.Shared._RMC14.Actions;
 using Content.Shared.Actions;
 using Content.Shared.Jittering;
 using Content.Shared.Popups;
@@ -19,6 +20,8 @@ public sealed class XenoParalyzingSlashSystem : EntitySystem
     [Dependency] private readonly XenoSystem _xeno = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
+    [Dependency] private readonly RMCActionsSystem _rmcActions = default!;
+
 
     public override void Initialize()
     {

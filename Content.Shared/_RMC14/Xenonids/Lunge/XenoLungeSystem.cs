@@ -72,7 +72,6 @@ public sealed class XenoLungeSystem : EntitySystem
         xeno.Comp.Target = args.Target;
         Dirty(xeno);
 
-        _rmcObstacleSlamming.MakeImmune(xeno);
         _throwing.TryThrow(xeno, diff, 30, animated: false);
 
         if (!_physicsQuery.TryGetComponent(xeno, out var physics))
@@ -133,9 +132,6 @@ public sealed class XenoLungeSystem : EntitySystem
 
         if (_timing.IsFirstTimePredicted && xeno.Comp.Charge != null)
             xeno.Comp.Charge = null;
-
-        if (_hive.FromSameHive(xeno.Owner, targetId))
-            return true;
 
         if (_net.IsServer)
         {

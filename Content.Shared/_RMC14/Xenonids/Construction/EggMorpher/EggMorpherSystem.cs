@@ -152,19 +152,6 @@ public sealed partial class EggMorpherSystem : EntitySystem
     {
         var (ent, comp) = eggMorpher;
         var user = args.User;
-        if (_hive.FromSameHive(user, ent))
-        {
-            var changeReserveVerb = new ActivationVerb()
-            {
-                Text = Loc.GetString("xeno-reserve-parasites-verb"),
-                Act = () =>
-                {
-                    _ui.OpenUi(ent, XenoReserveParasiteChangeUI.Key, user);
-                }
-            };
-
-            args.Verbs.Add(changeReserveVerb);
-        }
 
         if (HasComp<ActorComponent>(user) && HasComp<GhostComponent>(user) &&
             comp.CurParasites > comp.ReservedParasites && comp.CurParasites > 0)
@@ -259,17 +246,6 @@ public sealed partial class EggMorpherSystem : EntitySystem
 
     private TimeSpan GetParasiteSpawnCooldown(Entity<EggMorpherComponent> eggMorpher)
     {
-        if (_hive.GetHive(eggMorpher.Owner) is not { } hive)
-        {
-            return eggMorpher.Comp.StandardSpawnCooldown;
-        }
-
-        if (hive.Comp.CurrentQueen is { } curQueen &&
-            HasComp<XenoAttachedOvipositorComponent>(curQueen))
-        {
-            return eggMorpher.Comp.OviSpawnCooldown;
-        }
-
         return eggMorpher.Comp.StandardSpawnCooldown;
     }
 
@@ -299,7 +275,6 @@ public sealed partial class EggMorpherSystem : EntitySystem
         }
 
         parasite = SpawnAtPosition(EggMorpherComponent.ParasitePrototype, ent.ToCoordinates());
-        _hive.SetSameHive(eggMorpher.Owner, parasite.Value);
         return true;
     }
 }

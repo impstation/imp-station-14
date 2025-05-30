@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Shared._RMC14.Xenonids.Parasite;
 using Content.Shared._RMC14.Xenonids.Weeds;
+using Content.Shared._RMC14.Map;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Coordinates;
 using Content.Shared.DoAfter;
@@ -50,6 +51,7 @@ public sealed class XenoNestSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly SharedXenoWeedsSystem _xenoWeeds = default!;
+    [Dependency] private readonly RMCMapSystem _rmcMap = default!;
 
     private EntityQuery<OccluderComponent> _occluderQuery;
     private EntityQuery<XenoNestComponent> _xenoNestQuery;
@@ -209,8 +211,6 @@ public sealed class XenoNestSystem : EntitySystem
 
         var nest = SpawnAttachedTo(ent.Comp.Nest, nestCoordinates);
         _transform.SetCoordinates(nest, nestCoordinates.Offset(offset));
-
-        _hive.SetSameHive(args.User, nest);
 
         ent.Comp.Nests[direction.Value] = nest;
         Dirty(ent);

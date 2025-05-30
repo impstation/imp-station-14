@@ -21,6 +21,7 @@ using Content.Shared.Projectiles;
 using Content.Shared.Humanoid;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Stunnable;
 
 namespace Content.Shared._RMC14.Xenonids.Neurotoxin;
 
@@ -41,6 +42,7 @@ public abstract class SharedNeurotoxinSystem : EntitySystem
     [Dependency] private readonly ActionBlockerSystem _blocker = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly StaminaSystem _stamina = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
 
     private readonly HashSet<Entity<HumanoidAppearanceComponent>> _marines = new();
     public override void Initialize()
@@ -170,7 +172,6 @@ public abstract class SharedNeurotoxinSystem : EntitySystem
                 }
                 _popup.PopupEntity(Loc.GetString("rmc-stumble-others", ("victim", uid)), uid, Filter.PvsExcept(uid), true, PopupType.SmallCaution);
                 _popup.PopupEntity(Loc.GetString("rmc-stumble"), uid, uid, PopupType.MediumCaution);
-                _daze.TryDaze(uid, neuro.DazeLength * 5, true, stutter: true);
                 _jitter.DoJitter(uid, neuro.StumbleJitterTime, true);
                 _statusEffects.TryAddStatusEffect<DrunkComponent>(uid, "Drunk", neuro.DizzyStrengthOnStumble, true);
                 var ev = new NeurotoxinEmoteEvent() { Emote = neuro.PainId };
@@ -179,7 +180,7 @@ public abstract class SharedNeurotoxinSystem : EntitySystem
 
             if (_random.Prob(coughChance * frameTime))
             {
-                _slow.TrySlowdown(uid, neuro.BloodCoughDuration);
+                _stun.TrySlowdown(uid, neuro.BloodCoughDuration, true);
                 _damage.TryChangeDamage(uid, neuro.CoughDamage); // TODO RMC-14 specifically chest damage
                 _popup.PopupEntity(Loc.GetString("rmc-bloodcough"), uid, uid, PopupType.MediumCaution);
                 var ev = new NeurotoxinEmoteEvent() { Emote = neuro.CoughId };
@@ -209,14 +210,14 @@ public abstract class SharedNeurotoxinSystem : EntitySystem
         else if (neurotoxin.NeurotoxinAmount <= 19)
         {
             int chance = _random.Next(4);
-            if(chance == 0)
+            if (chance == 0)
             {
                 message = "rmc-neuro-where";
                 poptype = PopupType.Large;
             }
             else
             {
-                message = _random.Pick(new List<string> {"rmc-neuro-very-numb", "rmc-neuro-erratic", "rmc-neuro-panic"});
+                message = _random.Pick(new List<string> { "rmc-neuro-very-numb", "rmc-neuro-erratic", "rmc-neuro-panic" });
                 poptype = PopupType.MediumCaution;
             }
             coughChance = 0.10f;
@@ -245,7 +246,7 @@ public abstract class SharedNeurotoxinSystem : EntitySystem
             }
             else
             {
-                message = _random.Pick(new List<string> { "rmc-neuro-pain", "rmc-neuro-agh", "rmc-neuro-so-numb", "rmc-neuro-limbs", "rmc-neuro-think"});
+                message = _random.Pick(new List<string> { "rmc-neuro-pain", "rmc-neuro-agh", "rmc-neuro-so-numb", "rmc-neuro-limbs", "rmc-neuro-think" });
                 poptype = PopupType.LargeCaution;
             }
             coughChance = 0.25f;
@@ -263,7 +264,7 @@ public abstract class SharedNeurotoxinSystem : EntitySystem
     {
         if (neurotoxin.NeurotoxinAmount >= 10)
         {
-            _statusEffects.TryAddStatusEffect<RMCBlindedComponent>(victim, "Blinded", neurotoxin.BlurTime, true);
+            _statusEffects.TryAddStatusEffect<TemporaryBlindnessComponent>(victim, "Blinded", neurotoxin.BlurTime, true);
             if (currTime - neurotoxin.LastAccentTime >= neurotoxin.MinimumDelayBetweenEvents)
             {
                 neurotoxin.LastAccentTime = currTime;
@@ -289,9 +290,7 @@ public abstract class SharedNeurotoxinSystem : EntitySystem
 
         if (neurotoxin.NeurotoxinAmount >= 27)
         {
-            _daze.TryDaze(victim, neurotoxin.DazeLength, true, stutter: true);
             _damage.TryChangeDamage(victim, neurotoxin.ToxinDamage * frameTime);
-            _deafness.TryDeafen(victim, neurotoxin.DeafenTime, true, ignoreProtection: true);
         }
 
         if (neurotoxin.NeurotoxinAmount >= 50)

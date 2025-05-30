@@ -46,23 +46,12 @@ public sealed class XenoProjectileSystem : EntitySystem
         if (ent.Comp.DeleteOnFriendlyXeno)
             return;
 
-        if (_hive.FromSameHive(ent.Owner, args.OtherEntity) &&
-            (HasComp<XenoComponent>(args.OtherEntity) || HasComp<HiveCoreComponent>(args.OtherEntity)))
+        if (HasComp<XenoComponent>(args.OtherEntity) || HasComp<HiveCoreComponent>(args.OtherEntity))
             args.Cancelled = true;
     }
 
     private void OnProjectileHit(Entity<XenoProjectileComponent> ent, ref ProjectileHitEvent args)
     {
-        if (_hive.FromSameHive(ent.Owner, args.Target))
-        {
-            args.Handled = true;
-
-            if (_net.IsServer || IsClientSide(ent))
-                QueueDel(ent);
-
-            return;
-        }
-
         if (_projectileQuery.TryComp(ent, out var projectile) &&
             projectile.Shooter is { } shooter)
         {
@@ -128,8 +117,6 @@ public sealed class XenoProjectileSystem : EntitySystem
 
             // let hive member logic apply
             EnsureComp<XenoProjectileComponent>(projectile);
-
-            _hive.SetSameHive(xeno, projectile);
 
             if (fixedDistance != null)
             {

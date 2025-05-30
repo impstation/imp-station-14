@@ -47,7 +47,7 @@ public sealed class XenoCollisionSystem : EntitySystem
         if (args.Cancelled)
             return;
 
-        if (_stunFriendlyXenoOnStepQuery.HasComp(args.Entity))
+        if (_stunFriendlyXenoOnStepQuery.HasComp(ent))
             args.Cancelled = true;
     }
 
@@ -93,9 +93,6 @@ public sealed class XenoCollisionSystem : EntitySystem
                 if (ratio < comp.Ratio)
                     continue;
 
-                if (!_hive.FromSameHive(uid, other))
-                    continue;
-
                 var recently = EnsureComp<RecentlyStunnedByFriendlyXenoComponent>(other);
                 if (time < recently.At + comp.Cooldown)
                     continue;
@@ -103,7 +100,7 @@ public sealed class XenoCollisionSystem : EntitySystem
                 recently.At = time;
                 Dirty(other, recently);
 
-                _stun.TryParalyze(other, comp.Duration, true, force: true);
+                _stun.TryParalyze(other, comp.Duration, true);
             }
         }
     }

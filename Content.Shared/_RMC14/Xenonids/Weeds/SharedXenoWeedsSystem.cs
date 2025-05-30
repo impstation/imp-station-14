@@ -1,9 +1,8 @@
 ﻿using Content.Shared._RMC14.Xenonids.Construction;
 using Content.Shared._RMC14.Xenonids.Construction.FloorResin;
-using Content.Shared._RMC14.Xenonids.Construction.ResinHole;
-using Content.Shared._RMC14.Xenonids.Construction.Tunnel;
 using Content.Shared._RMC14.Xenonids.Egg;
 using Content.Shared._RMC14.Xenonids.Rest;
+using Content.Shared._RMC14.Map;
 using Content.Shared.Coordinates;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Damage;
@@ -43,6 +42,7 @@ public abstract class SharedXenoWeedsSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly EntityManager _entities = default!;
+    [Dependency] private readonly RMCMapSystem _rmcMap = default!;
 
     private readonly HashSet<EntityUid> _toUpdate = new();
     private readonly HashSet<EntityUid> _intersecting = new();
@@ -195,8 +195,7 @@ public abstract class SharedXenoWeedsSystem : EntitySystem
         var isXeno = _xenoQuery.HasComp(ent);
         //Checks hive for applying slows now
         //Weed speedup only effects xenos, but slowdown does not hurt hive mems
-        //Fast resin speedup only effect xenos, but sticky also doesn't hurt hive mems
-        _hiveQuery.TryComp(ent, out var hive);
+        //Fast resin speedup only effect xenos, but sticky also doesn't hurt hive mems;
 
         var anyWeeds = false;
         var anySlowResin = false;
@@ -207,26 +206,15 @@ public abstract class SharedXenoWeedsSystem : EntitySystem
         {
             if (_slowResinQuery.TryComp(contacting, out var slowResin))
             {
-                if (hive == null || !_hive.IsMember(contacting, hive.Hive))
-                {
-                    if (HasComp<RMCArmorSpeedTierUserComponent>(contacting))
-                        speedResin += slowResin.OutsiderSpeedModifierArmor;
-                    else
-                        speedResin += slowResin.OutsiderSpeedModifier;
-
-                    entriesResin++;
-                }
+                entriesResin++;
                 anySlowResin = true;
                 continue;
             }
 
             if (_fastResinQuery.TryComp(contacting, out var fastResin))
             {
-                if (isXeno && hive != null && _hive.IsMember(contacting, hive.Hive))
-                {
-                    speedResin += fastResin.HiveSpeedModifier;
-                    entriesResin++;
-                }
+                speedResin += fastResin.HiveSpeedModifier;
+                entriesResin++;
                 anyFastResin = true;
                 continue;
             }
@@ -236,20 +224,8 @@ public abstract class SharedXenoWeedsSystem : EntitySystem
 
             anyWeeds = true;
 
-            if (isXeno && hive != null && _hive.IsMember(contacting, hive.Hive))
-            {
-                speedWeeds += weeds.SpeedMultiplierXeno;
-                entriesWeeds++;
-            }
-            else if (hive == null || !_hive.IsMember(contacting, hive.Hive))
-            {
-                if (HasComp<RMCArmorSpeedTierUserComponent>(contacting))
-                    speedWeeds += weeds.SpeedMultiplierOutsiderArmor;
-                else
-                    speedWeeds += weeds.SpeedMultiplierOutsider;
-
-                entriesWeeds++;
-            }
+            speedWeeds += weeds.SpeedMultiplierXeno;
+            entriesWeeds++;
         }
 
         if (!anyWeeds &&
@@ -418,8 +394,6 @@ public abstract class SharedXenoWeedsSystem : EntitySystem
             return;
         }
 
-        _hive.SetSameHive(ent, newWeedSource);
-
         var curWeeds = weedComp.Spread;
         foreach (var curWeed in curWeeds)
         {
@@ -463,9 +437,6 @@ public abstract class SharedXenoWeedsSystem : EntitySystem
         {
             if (_blockWeedsQuery.HasComp(uid))
                 return false;
-
-            if (source && HasComp<XenoResinHoleComponent>(uid))
-                return false;
         }
 
         return true;
@@ -490,8 +461,7 @@ public abstract class SharedXenoWeedsSystem : EntitySystem
         var query = EntityQueryEnumerator<DamageOffWeedsComponent, DamageableComponent>();
         while (query.MoveNext(out var uid, out var damage, out var damageable))
         {
-            if ((TryComp(uid, out AffectableByWeedsComponent? affected) && affected.OnXenoWeeds) ||
-                HasComp<InXenoTunnelComponent>(uid))
+            if ((TryComp(uid, out AffectableByWeedsComponent? affected) && affected.OnXenoWeeds))
             {
                 if (damage.DamageAt != null)
                 {

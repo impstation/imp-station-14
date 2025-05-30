@@ -1,9 +1,9 @@
 using Content.Shared._RMC14.Xenonids.Construction.EggMorpher;
-using Content.Shared._RMC14.Xenonids.Construction.ResinHole;
 using Content.Shared._RMC14.Xenonids.Egg;
 using Content.Shared._RMC14.Xenonids.Leap;
 using Content.Shared._RMC14.Xenonids.Projectile.Parasite;
 using Content.Shared._RMC14.Xenonids.Rest;
+using Content.Shared._RMC14.NPC;
 using Content.Shared.Actions;
 using Content.Shared.Database;
 using Content.Shared.Examine;
@@ -25,6 +25,7 @@ public abstract partial class SharedXenoParasiteSystem
 {
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private readonly SharedRMCNPCSystem _rmcNpc = default!;
 
     public void IntializeAI()
     {
@@ -46,7 +47,7 @@ public abstract partial class SharedXenoParasiteSystem
 
         SubscribeLocalEvent<ParasiteTiredOutComponent, MapInitEvent>(OnParasiteAIMapInit);
         SubscribeLocalEvent<ParasiteTiredOutComponent, UpdateMobStateEvent>(OnParasiteAIUpdateMobState,
-            after: [typeof(MobThresholdSystem), typeof(SharedXenoPheromonesSystem)]);
+            after: [typeof(MobThresholdSystem)]);
     }
 
     private void OnTrapAdded(Entity<TrapParasiteComponent> para, ref ComponentStartup args)
@@ -294,12 +295,6 @@ public abstract partial class SharedXenoParasiteSystem
         foreach (var egg in _entityLookup.GetEntitiesInRange<XenoEggComponent>(_transform.GetMoverCoordinates(para), para.Comp.RangeCheck))
         {
             if (egg.Comp.State == XenoEggState.Opened)
-                return;
-        }
-
-        foreach (var trap in _entityLookup.GetEntitiesInRange<XenoResinHoleComponent>(_transform.GetMoverCoordinates(para), para.Comp.RangeCheck))
-        {
-            if (trap.Comp.TrapPrototype == null)
                 return;
         }
 
