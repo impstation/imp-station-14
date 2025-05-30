@@ -12,3 +12,16 @@
     equippedPrefix: straight
   - type: WearerGetsExamineText
     examineText: obvious-x-pin-straight
+
+- type: entity
+  parent: ClothingNeckPinBase
+  id: ClothingNeckNoviceMark
+  name: novice's mark
+  description: A green and gold mark for self-identifying as a novice, also called a 'shoshinsha'. With this pin in your pockets or on your lapel, others will know to be more patient around you.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Neck/Misc/novicemark.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Neck/Misc/novicemark.rsi
+  - type: WearerGetsExamineText
+    examineText: obvious-x-pin-novice
