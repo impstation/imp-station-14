@@ -269,9 +269,9 @@
   description: Cheap plastic version of a traditional Gray headdress. Has a picture of a surfing penguin on the front.
   components:
   - type: Sprite
-    sprite: _Impstation/Clothing/Head/Hats/beret_hd.rsi
+    sprite: _Impstation/Clothing/Head/Hats/sipsi_hat.rsi
   - type: Clothing
-    sprite: _Impstation/Clothing/Head/Hats/beret_hd.rsi
+    sprite: _Impstation/Clothing/Head/Hats/sipsi_hat.rsi
   - type: ExaminableSolution
     solution: drink
   - type: Appearance
@@ -279,6 +279,30 @@
     solutions:
       drink:
         maxVol: 30
+  - type: MixableSolution
+    solution: drink
+  - type: SolutionTransfer
+    canChangeTransferAmount: true
+  - type: Drink
+  - type: MeleeWeapon
+    soundNoDamage:
+      path: "/Audio/Effects/Fluids/splat.ogg"
+    damage:
+      types:
+        Blunt: 0
+  - type: Spillable
+    solution: drink
+  - type: DrawableSolution
+    solution: drink
+  - type: RefillableSolution
+    solution: drink
+  - type: DrainableSolution
+    solution: drink
+  - type: UserInterface
+    interfaces:
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
+  - type: DnaSubstanceTrace
   - type: Tag
     tags:
     - HamsterWearable
