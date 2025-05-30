@@ -176,7 +176,8 @@
   - type: Sprite
     sprite: _Impstation/Objects/Misc/nullrod_bow.rsi
     layers:
-    - state: nullrod_bow
+    - state: unwielded
+      map: [ base ]
     - state: unwielded-arrow
       shader: unshaded
       map: [ arrow ]
@@ -226,6 +227,15 @@
         whitelist:
           tags:
           - HolyArrow
+  - type: GenericVisualizer
+    visuals:
+      enum.WieldableVisuals.Wielded:
+        arrow:
+          True: { state: wielded-arrow }
+          False: { state: unwielded-arrow }
+        base:
+          True: { state: wielded }
+          False: { state: unwielded }
   - type: Construction
     graph: UpgradeNullRodBow
     node: start
