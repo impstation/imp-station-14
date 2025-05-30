@@ -428,6 +428,8 @@ marking-HumanHairOverEyes = Over-Eyes
 
 marking-HumanHairOverEyesTail = Over-Eyes Tail
 
+marking-HumanHairChonmage = Chonmage
+
 # HeadSide
 
 # HeadTop
