@@ -75,6 +75,7 @@
   - TowelColorYellow
   - TutorialAI_Newcomer #imp <15 hours
   - WalkingCane #imp
+  - AACTablet # DeltaV
 
 - type: loadoutGroup
   id: Glasses
@@ -946,6 +947,8 @@
   loadouts:
   - AtmosphericTechnicianWintercoat
   - BomberEngineering #imp
+  - BomberAtmos #imp
+  - BomberAtmosHolo #imp
 
 - type: loadoutGroup
   id: AtmosphericTechnicianBackpack
@@ -959,6 +962,7 @@
   id: AtmosphericTechnicianShoes
   name: loadout-group-atmospheric-technician-shoes
   loadouts:
+  - WorkBoots #imp
   - WhiteShoes
   - EngineeringWinterBoots
 

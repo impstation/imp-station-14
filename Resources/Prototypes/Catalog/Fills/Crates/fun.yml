@@ -51,6 +51,7 @@
     - id: PlushieDecapoid
     - id: PlushieSnail
     - id: PlushieThaven
+    - id: PlushieKodepiia
     - id: PlushieThavenWeird
       weight: 0.1
     - id: PlushieDwarf
@@ -67,8 +68,11 @@
       weight: 0.1
     - id: PlushieCaptain
       weight: 0.1
+    - id: PlushieOdds
+      weight: 0.4
     - id: PlushieGiantBear
       weight: 0.5
+    - id: PlushieGriffy
     # imp edit end
 
 - type: entity
@@ -162,6 +166,7 @@
       - id: CelloInstrument
       - id: ViolaInstrument
       - id: HarpInstrument
+      - id: HandheldHarpInstrument #imp
 
 - type: entity
   id: CrateFunInstrumentsWoodwind
@@ -206,7 +211,7 @@
   id: CrateFunInstrumentsSpecial
   parent: CrateGenericSteel
   name: special instrument collector's crate
-  description: Create some noise with this special collection of arguably-instruments! Centcomm is not responsible for any trauma caused by the contents.
+  description: Create some noise with this special collection of arguably-instruments! CentComm is not responsible for any trauma caused by the contents. # imp caps fix
   components:
   - type: StorageFill
     contents:

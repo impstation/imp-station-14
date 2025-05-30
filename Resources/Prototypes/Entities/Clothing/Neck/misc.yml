@@ -37,16 +37,35 @@
   #    path: /Audio/Items/flashlight_off.ogg
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: Clothing
   id: ClothingNeckStethoscope
   name: stethoscope
   description: An outdated medical apparatus for listening to the sounds of the human body. It also makes you look like you know what you're doing.
   components:
+  - type: Item
+    size: Small
   - type: Sprite
     sprite: Clothing/Neck/Misc/stethoscope.rsi
+    state: icon
   - type: Clothing
     sprite: Clothing/Neck/Misc/stethoscope.rsi
+    quickEquip: true
+    slots:
+    - neck
   - type: Stethoscope
+
+- type: entity
+  id: ActionStethoscope
+  name: Listen with stethoscope
+  components:
+  - type: EntityTargetAction
+    icon:
+      sprite: Clothing/Neck/Misc/stethoscope.rsi
+      state: icon
+    event: !type:StethoscopeActionEvent
+    checkCanInteract: false
+    priority: -1
+    itemIconStyle: BigAction
 
 - type: entity
   parent: ClothingNeckBase
@@ -62,7 +81,7 @@
     sprite: Clothing/Neck/Misc/bling.rsi
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: [ ClothingNeckBase, BaseObviousBadge ] # imp
   id: ClothingNeckLawyerbadge
   name: lawyer badge
   description: A badge to show that the owner is a 'legitimate' lawyer who passed the NT bar exam required to practice law.
@@ -73,18 +92,8 @@
     sprite: _Impstation/Clothing/Neck/Misc/lawyerbadge.rsi #imp
   - type: TypingIndicatorClothing
     proto: lawyer
-
-- type: entity
-  id: ActionStethoscope
-  name: Listen with stethoscope
-  components:
-  - type: EntityTargetAction
-    icon:
-      sprite: Clothing/Neck/Misc/stethoscope.rsi
-      state: icon
-    event: !type:StethoscopeActionEvent
-    checkCanInteract: false
-    priority: -1
+  - type: WearerGetsExamineText # imp
+    thingType: obvious-type-law
 
 - type: entity
   parent: ClothingNeckBase

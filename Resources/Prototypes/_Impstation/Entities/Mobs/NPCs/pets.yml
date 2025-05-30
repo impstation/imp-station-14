@@ -281,7 +281,7 @@
   name: Dolby
   parent: MobCorgiPuppy
   id: MobDolby
-  description: Dobie Digital.
+  description: Dobie Digital. Now with Frost Shield!
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -339,6 +339,9 @@
     - VimPilot
   - type: StealTarget
     stealGroup: AnimalWalter
+  - type: Reflect
+    reflectProb: 1
+    spread: 75
 
 - type: entity
   name: Oswald
@@ -391,3 +394,24 @@
     stealGroup: AnimalOswald
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-avian
+
+- type: entity
+  id: MobMascotGriffy
+  parent: MobMcGriff
+  components:
+  - type: Sprite
+    drawDepth: Mobs
+    sprite: _Impstation/Mobs/Pets/mascotgriffy.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: mascotgriffy
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: mascotgriffy
+      Critical:
+        Base: mascotgriffy
+      Dead:
+        Base: mascotgriffy
+  - type: StealTarget
+    stealGroup: AnimalMcGriff

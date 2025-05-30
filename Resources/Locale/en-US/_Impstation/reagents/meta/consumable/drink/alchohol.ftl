@@ -63,3 +63,30 @@ reagent-desc-moscowmule = A fresh and sparkly cocktail, with just the right kick
 
 reagent-name-lovepotion = love potion
 reagent-desc-lovepotion = One taste and you'll fall in love. This is not a legally binding statement.
+
+reagent-name-soju = soju
+reagent-desc-soju = A clear distilled spirit made from rice or other grains.
+
+reagent-name-lungclogger = lungclogger
+reagent-desc-lungclogger = They say heartbreak'll kill you in the right circumstances... This won't, though! Probably...
+
+reagent-name-breathoffreshair = a breath of fresh air
+reagent-desc-breathoffreshair = Just like the real thing!
+
+reagent-name-sleepytimejunction = sleepytime junction
+reagent-desc-sleepytimejunction = Whipped cream pillows and sweet chlorine to rock you to sleep...
+
+reagent-name-minotaurslament = minotaur's lament
+reagent-desc-minotaurslament = Even minotaurs die in their labyrinths.
+
+reagent-name-burnchamber = burnchamber
+reagent-desc-burnchamber = Burns as hot as the real thing. Don't forget a firesuit!
+
+reagent-name-weldingcoils = weldin' coils
+reagent-desc-weldingcoils = Perfect for drinking away your problems! There's coils to weld.
+
+reagent-name-poormansfrezon = poor man's frezon
+reagent-desc-poormansfrezon = For when you can't get your hands on the real deal.
+
+reagent-name-doublegreen = double green
+reagent-desc-doublegreen = None of these ingredients want to mix.

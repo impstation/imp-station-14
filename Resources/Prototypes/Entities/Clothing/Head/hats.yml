@@ -155,9 +155,9 @@
   description: A corporate blue beret with a warden's rank emblem. For officers that are more inclined towards style than safety.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/beret_warden.rsi
+    sprite: _Impstation/Clothing/Head/Hats/beret_warden.rsi #imp
   - type: Clothing
-    sprite: Clothing/Head/Hats/beret_warden.rsi
+    sprite: _Impstation/Clothing/Head/Hats/beret_warden.rsi #imp
 
 - type: entity
   parent: ClothingHeadBase
@@ -177,9 +177,9 @@
   description: White beret, looks like a cream pie on the head.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/beret_brigmedic.rsi
+    sprite: _Impstation/Clothing/Head/Hats/beret_brigmedic.rsi #imp
   - type: Clothing
-    sprite: Clothing/Head/Hats/beret_brigmedic.rsi
+    sprite: _Impstation/Clothing/Head/Hats/beret_brigmedic.rsi #imp
 
 - type: entity
   parent: [ ClothingHeadBase ]
@@ -554,9 +554,9 @@
   description: A police officer's Hat. This hat emphasizes that you are THE LAW
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/warden.rsi
+    sprite: _Impstation/Clothing/Head/Hats/warden.rsi #imp
   - type: Clothing
-    sprite: Clothing/Head/Hats/warden.rsi
+    sprite: _Impstation/Clothing/Head/Hats/warden.rsi #imp
   - type: StealTarget
     stealGroup: ClothingHeadHatWarden
 
@@ -708,6 +708,17 @@
     sprite: Clothing/Head/Hats/fishcap.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/fishcap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadWehcellentCap
+  name: wehcellent cap
+  description: It was a net hat! Tiders wear them all the time! It's got airholes in the back to keep a cross-breeze going and everything!
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/wehcellentcap.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/wehcellentcap.rsi
 
 - type: entity
   parent: ClothingHeadBase

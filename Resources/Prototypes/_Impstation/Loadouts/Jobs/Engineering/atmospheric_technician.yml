@@ -1,0 +1,23 @@
+# 10 Hr
+- type: loadoutEffectGroup
+  id: Atmos10hr
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobAtmosphericTechnician
+      time: 36000 #10 hrs, ~7 rounds
+
+#OuterClothing
+- type: loadout
+  id: BomberAtmos
+  equipment:
+    outerClothing: ClothingOuterCoatBomberAtmos
+
+- type: loadout
+  id: BomberAtmosHolo
+  equipment:
+    outerClothing: ClothingOuterCoatBomberAtmosHolo
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Atmos10hr

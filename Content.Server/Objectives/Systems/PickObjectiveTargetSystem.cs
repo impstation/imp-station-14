@@ -29,6 +29,7 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
         SubscribeLocalEvent<PickRandomPersonComponent, ObjectiveAssignedEvent>(OnRandomPersonAssigned);
         SubscribeLocalEvent<PickRandomHeadComponent, ObjectiveAssignedEvent>(OnRandomHeadAssigned);
         SubscribeLocalEvent<PickRandomTraitorComponent, ObjectiveAssignedEvent>(OnTraitorAssigned);
+        SubscribeLocalEvent<PickRandomAntagComponent, ObjectiveAssignedEvent>(OnAntagAssigned);
 
         SubscribeLocalEvent<RandomTraitorProgressComponent, ObjectiveAssignedEvent>(OnRandomTraitorProgressAssigned);
         SubscribeLocalEvent<RandomTraitorAliveComponent, ObjectiveAssignedEvent>(OnRandomTraitorAliveAssigned);
@@ -314,4 +315,46 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
         var randomTarget = _random.Pick(traitors); // Imp edit
         _target.SetTarget(ent.Owner, randomTarget, target);
     }
+
+    // imp addition for Bounty Hunters
+    private void OnAntagAssigned(Entity<PickRandomAntagComponent> ent, ref ObjectiveAssignedEvent args)
+    {
+        // invalid prototype
+        if (!TryComp<TargetObjectiveComponent>(ent.Owner, out var target))
+        {
+            args.Cancelled = true;
+            return;
+        }
+
+        var antags = _traitorRule.GetOtherAntagMindsAliveAndConnected(args.Mind).Select(t => t.Id).ToHashSet(); // Imp edit -  just get entity
+
+        // failed to roll an antag as a target
+        if (antags.Count == 0)
+        {
+
+            var allHumans = _mind.GetAliveHumans(args.MindId).Select(p => p.Owner).ToHashSet();
+            //fallback to target a random head
+            foreach (var person in allHumans)
+            {
+            if (TryComp<MindComponent>(person, out var mind) && mind.OwnedEntity is { } owned && HasComp<CommandStaffComponent>(owned))
+                antags.Add(person);
+            }
+
+            // just go for some random person if there's no command.
+            if (antags.Count == 0)
+            {
+                antags = allHumans;
+            }
+
+            // One last check for the road, then cancel it if there's nothing left
+            if (antags.Count == 0)
+            {
+                args.Cancelled = true;
+                return;
+            }
+        }
+        var randomTarget = _random.Pick(antags);
+        _target.SetTarget(ent.Owner, randomTarget, target);
+    }
+    // imp edit end
 }
