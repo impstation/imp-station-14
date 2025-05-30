@@ -1,0 +1,147 @@
+- type: species
+  id: Rachnid
+  name: species-name-rachnid
+  roundStart: true
+  prototype: MobRachnid
+  sprites: MobRachnidSprites
+  defaultSkinTone: "#385878"
+  markingLimits: MobRachnidMarkingLimits
+  dollPrototype: MobRachnidDummy
+  skinColoration: Hues
+  naming: FirstDashFirst
+  maleFirstNames: names_rachnid_first
+  femaleFirstNames: names_rachnid_first
+  lastNames: names_rachnid_last
+  sexes:
+  - Unsexed
+
+- type: speciesBaseSprites
+  id: MobRachnidSprites
+  sprites:
+    Head: MobRachnidHead
+    Chest: MobRachnidTorso
+    Tail: MobHumanoidAnyMarking
+    Eyes: MobRachnidEyes
+    LArm: MobRachnidLArm
+    RArm: MobRachnidRArm
+    LHand: MobRachnidLHand
+    RHand: MobRachnidRHand
+    LLeg: MobRachnidLLeg
+    RLeg: MobRachnidRLeg
+    LFoot: MobRachnidLFoot
+    RFoot: MobRachnidRFoot
+
+- type: markingPoints
+  id: MobRachnidMarkingLimits
+  onlyWhitelisted: true
+  points:
+    Head:
+      points: 1
+      required: true
+      defaultMarkings: [ "RachnidMarkingHead" ]
+    Tail:
+      points: 4
+      required: true
+      defaultMarkings: [ "RachnidMarkingCarapace", "RachnidMarkingCarapaceOver", "RachnidMarkingSpinneretCerberus", "RachnidMarkingSpinneretCerberusOver" ]
+    Chest:
+      points: 1
+      required: true
+      defaultMarkings: [ "RachnidMarkingChest" ]
+    Legs:
+      points: 4 # imp 2<8
+      required: true
+      defaultMarkings: [ "RachnidMarkingLLeg", "RachnidMarkingLFoot", "RachnidMarkingRLeg", "RachnidMarkingRFoot" ]
+    Arms:
+      points: 2 # imp 2<8
+      required: true
+      defaultMarkings: [ "RachnidMarkingLHand", "RachnidMarkingRHand" ]
+
+- type: humanoidBaseSprite
+  id: MobRachnidEyes
+  baseSprite:
+    sprite: _hereelabs/Mobs/Species/Rachnid/parts.rsi
+    state: eyes
+
+- type: humanoidBaseSprite
+  id: MobRachnidHead
+  baseSprite:
+    sprite: _hereelabs/Mobs/Species/Rachnid/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobRachnidHeadMale
+  baseSprite:
+    sprite: _hereelabs/Mobs/Species/Rachnid/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobRachnidHeadFemale
+  baseSprite:
+    sprite: _hereelabs/Mobs/Species/Rachnid/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobRachnidTorso
+  baseSprite:
+    sprite: _hereelabs/Mobs/Species/Rachnid/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobRachnidTorsoMale
+  baseSprite:
+    sprite: _hereelabs/Mobs/Species/Rachnid/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobRachnidTorsoFemale
+  baseSprite:
+    sprite: _hereelabs/Mobs/Species/Rachnid/parts.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobRachnidLLeg
+  baseSprite:
+    sprite: _hereelabs/Mobs/Species/Rachnid/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobRachnidLHand
+  baseSprite:
+    sprite: _hereelabs/Mobs/Species/Rachnid/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobRachnidLArm
+  baseSprite:
+    sprite: _hereelabs/Mobs/Species/Rachnid/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobRachnidLFoot
+  baseSprite:
+    sprite: _hereelabs/Mobs/Species/Rachnid/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobRachnidRLeg
+  baseSprite:
+    sprite: _hereelabs/Mobs/Species/Rachnid/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobRachnidRHand
+  baseSprite:
+    sprite: _hereelabs/Mobs/Species/Rachnid/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobRachnidRArm
+  baseSprite:
+    sprite: _hereelabs/Mobs/Species/Rachnid/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobRachnidRFoot
+  baseSprite:
+    sprite: _hereelabs/Mobs/Species/Rachnid/parts.rsi
+    state: r_foot

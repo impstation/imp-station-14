@@ -1,0 +1,190 @@
+# Rachnid  body overlays / plating / watver
+- type: marking
+  id: RachnidMarkingHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Rachnid]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_parts.rsi
+    state: head_over
+
+- type: marking
+  id: RachnidMarkingChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Rachnid]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_parts.rsi
+    state: torso_over
+
+- type: marking
+  id: RachnidMarkingLHand
+  bodyPart: LHand
+  markingCategory: Arms
+  speciesRestriction: [Rachnid]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_parts.rsi
+    state: l_hand_over
+
+- type: marking
+  id: RachnidMarkingLLeg
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Rachnid]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_parts.rsi
+    state: l_leg_over
+
+
+- type: marking
+  id: RachnidMarkingLFoot
+  bodyPart: LFoot
+  markingCategory: Legs
+  speciesRestriction: [Rachnid]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_parts.rsi
+    state: l_foot_over
+
+- type: marking
+  id: RachnidMarkingRHand
+  bodyPart: RHand
+  markingCategory: Arms
+  speciesRestriction: [Rachnid]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_parts.rsi
+    state: r_hand_over
+
+- type: marking
+  id: RachnidMarkingRLeg
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Rachnid]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_parts.rsi
+    state: r_leg_over
+
+
+- type: marking
+  id: RachnidMarkingRFoot
+  bodyPart: RFoot
+  markingCategory: Legs
+  speciesRestriction: [Rachnid]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_parts.rsi
+    state: r_foot_over
+
+# spinneret
+
+- type: marking
+  id: RachnidMarkingSpinneretCerberus
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Rachnid]
+  sprites:
+  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+    state: cerberus
+    
+- type: marking
+  id: RachnidMarkingSpinneretCerberusOver
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Rachnid]
+  sprites:
+  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+    state: secondary_cerberus
+
+- type: marking
+  id: RachnidMarkingSpinneretProngs
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Rachnid]
+  sprites:
+  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+    state: prongs
+    
+- type: marking
+  id: RachnidMarkingSpinneretProngsOver
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Rachnid]
+  sprites:
+  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+    state: secondary_prongs
+
+- type: marking
+  id: RachnidMarkingSpinneretQueen
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Rachnid]
+  sprites:
+  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+    state: queen
+    
+- type: marking
+  id: RachnidMarkingSpinneretQueenOver
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Rachnid]
+  sprites:
+  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+    state: secondary_queen
+
+# carapace
+
+- type: marking
+  id: RachnidMarkingCarapace
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Rachnid]
+  sprites:
+  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_legs.rsi
+    state: carapace
+    
+- type: marking
+  id: RachnidMarkingCarapaceOver
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Rachnid]
+  sprites:
+  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_legs.rsi
+    state: carapace_over

@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": "https://github.com/shiptest-ss13/Shiptest/tree/41e4acebd276652c5e82fd1e09b30d3f6d58b159",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "spikecore",
+      "directions": 4
+    },
+    {
+      "name": "secondary_spikecore",
+      "directions": 4
+    },
+    {
+      "name": "cerberus",
+      "directions": 4
+    },
+    {
+      "name": "secondary_cerberus",
+      "directions": 4
+    },
+    {
+      "name": "queen",
+      "directions": 4
+    },
+    {
+      "name": "secondary_queen",
+      "directions": 4
+    },
+    {
+      "name": "secondary_prongs",
+      "directions": 4
+    },
+    {
+      "name": "prongs",
+      "directions": 4
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+# TODO: Add descriptions (many)
+# TODO BODY: Part damage
+- type: entity
+  id: PartRachnid
+  parent: [BaseItem, BasePart]
+  name: "rachnid body part"
+  abstract: true
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: CopperBlood
+        Quantity: 10
+
+- type: entity
+  id: TorsoRachnid
+  name: "rachnid torso"
+  parent: [PartRachnid, BaseTorso]
+  components:
+  - type: Sprite
+    sprite: _hereelabs/Mobs/Species/Rachnid/parts.rsi
+    state: "torso_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: CopperBlood
+        Quantity: 20
+
+- type: entity
+  id: HeadRachnid
+  name: "rachnid head"
+  parent: [PartRachnid, BaseHead]
+  components:
+  - type: Sprite
+    sprite: _hereelabs/Mobs/Species/Rachnid/parts.rsi
+    state: "head_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 5
+      - ReagentId: CopperBlood
+        Quantity: 10
+
+- type: entity
+  id: LeftArmRachnid
+  name: "left rachnid arm"
+  parent: [PartRachnid, BaseLeftArm]
+  components:
+  - type: Sprite
+    sprite: _hereelabs/Mobs/Species/Rachnid/parts.rsi
+    state: "l_arm"
+
+- type: entity
+  id: RightArmRachnid
+  name: "right rachnid arm"
+  parent: [PartRachnid, BaseRightArm]
+  components:
+  - type: Sprite
+    sprite: _hereelabs/Mobs/Species/Rachnid/parts.rsi
+    state: "r_arm"
+
+- type: entity
+  id: LeftHandRachnid
+  name: "left rachnid hand"
+  parent: [PartRachnid, BaseLeftHand]
+  components:
+  - type: Sprite
+    sprite: _hereelabs/Mobs/Species/Rachnid/parts.rsi
+    state: "l_hand"
+
+- type: entity
+  id: RightHandRachnid
+  name: "right rachnid hand"
+  parent: [PartRachnid, BaseRightHand]
+  components:
+  - type: Sprite
+    sprite: _hereelabs/Mobs/Species/Rachnid/parts.rsi
+    state: "r_hand"
+
+- type: entity
+  id: LeftLegRachnid
+  name: "left rachnid leg"
+  parent: [PartRachnid, BaseLeftLeg]
+  components:
+  - type: Sprite
+    sprite: _hereelabs/Mobs/Species/Rachnid/parts.rsi
+    state: "l_leg"
+  - type: MovementBodyPart
+
+- type: entity
+  id: RightLegRachnid
+  name: "right rachnid leg"
+  parent: [PartRachnid, BaseRightLeg]
+  components:
+  - type: Sprite
+    sprite: _hereelabs/Mobs/Species/Rachnid/parts.rsi
+    state: "r_leg"
+  - type: MovementBodyPart
+
+- type: entity
+  id: LeftFootRachnid
+  name: "left rachnid foot"
+  parent: [PartRachnid, BaseLeftFoot]
+  components:
+  - type: Sprite
+    sprite: _hereelabs/Mobs/Species/Rachnid/parts.rsi
+    state: "l_foot"
+
+- type: entity
+  id: RightFootRachnid
+  name: "right rachnid foot"
+  parent: [PartRachnid, BaseRightFoot]
+  components:
+  - type: Sprite
+    sprite: _hereelabs/Mobs/Species/Rachnid/parts.rsi
+    state: "r_foot"

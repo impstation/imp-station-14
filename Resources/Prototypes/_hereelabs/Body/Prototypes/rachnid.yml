@@ -1,0 +1,50 @@
+﻿- type: body
+  id: Rachnid
+  name: "rachnid"
+  root: torso
+  slots:
+    head:
+      part: HeadRachnid
+      connections:
+      - torso
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganArachnidEyes
+    torso:
+      part: TorsoRachnid
+      organs:
+        heart: OrganArachnidHeart
+        lungs: OrganAnimalLungs
+        stomach: OrganArachnidStomach
+        liver: OrganArachnidLiver
+        kidneys: OrganArachnidKidneys
+      connections:
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      - head # Shitmed
+    right arm:
+      part: RightArmRachnid
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmRachnid
+      connections:
+      - left hand
+    right hand:
+      part: RightHandRachnid
+    left hand:
+      part: LeftHandRachnid
+    right leg:
+      part: RightLegRachnid
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegRachnid
+      connections:
+      - left foot
+    right foot:
+      part: RightFootRachnid
+    left foot:
+      part: LeftFootRachnid
