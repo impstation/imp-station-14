@@ -34,28 +34,32 @@ using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared._RMC14.Weapons.Ranged;
+using Robust.Shared.Physics.Events;
+using Robust.Shared.Physics;
+using Content.Shared.Physics;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
 public abstract partial class SharedGunSystem : EntitySystem
 {
-    [Dependency] private   readonly ActionBlockerSystem _actionBlockerSystem = default!;
+    [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] protected readonly IMapManager MapManager = default!;
-    [Dependency] private   readonly INetManager _netManager = default!;
+    [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] protected readonly IPrototypeManager ProtoManager = default!;
     [Dependency] protected readonly IRobustRandom Random = default!;
     [Dependency] protected readonly ISharedAdminLogManager Logs = default!;
     [Dependency] protected readonly DamageableSystem Damageable = default!;
     [Dependency] protected readonly ExamineSystemShared Examine = default!;
-    [Dependency] private   readonly ItemSlotsSystem _slots = default!;
-    [Dependency] private   readonly RechargeBasicEntityAmmoSystem _recharge = default!;
+    [Dependency] private readonly ItemSlotsSystem _slots = default!;
+    [Dependency] private readonly RechargeBasicEntityAmmoSystem _recharge = default!;
     [Dependency] protected readonly SharedActionsSystem Actions = default!;
     [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
-    [Dependency] private   readonly SharedCombatModeSystem _combatMode = default!;
+    [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
     [Dependency] protected readonly SharedContainerSystem Containers = default!;
-    [Dependency] private   readonly SharedGravitySystem _gravity = default!;
+    [Dependency] private readonly SharedGravitySystem _gravity = default!;
     [Dependency] protected readonly SharedPointLightSystem Lights = default!;
     [Dependency] protected readonly SharedPopupSystem PopupSystem = default!;
     [Dependency] protected readonly SharedPhysicsSystem Physics = default!;
@@ -63,8 +67,13 @@ public abstract partial class SharedGunSystem : EntitySystem
     [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
     [Dependency] protected readonly TagSystem TagSystem = default!;
     [Dependency] protected readonly ThrowingSystem ThrowingSystem = default!;
-    [Dependency] private   readonly UseDelaySystem _useDelay = default!;
+    [Dependency] private readonly UseDelaySystem _useDelay = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly SharedBroadphaseSystem _broadphase = default!;
+
+    private EntityQuery<PhysicsComponent> _physicsQuery;
+
+    private readonly int _blockArcCollisionGroup = (int) (CollisionGroup.HighImpassable | CollisionGroup.Impassable);
 
     private const float InteractNextFire = 0.3f;
     private const double SafetyNextFire = 0.5;
@@ -97,6 +106,10 @@ public abstract partial class SharedGunSystem : EntitySystem
         SubscribeLocalEvent<GunComponent, CycleModeEvent>(OnCycleMode);
         SubscribeLocalEvent<GunComponent, HandSelectedEvent>(OnGunSelected);
         SubscribeLocalEvent<GunComponent, MapInitEvent>(OnMapInit);
+
+        // RMC fuckery. im not porting the entire fucking system for one projectile
+        SubscribeLocalEvent<ProjectileFixedDistanceComponent, PreventCollideEvent>(OnCollisionCheckArc);
+        SubscribeLocalEvent<ProjectileFixedDistanceComponent, PhysicsSleepEvent>(OnEventToStopProjectile);
     }
 
     private void OnMapInit(Entity<GunComponent> gun, ref MapInitEvent args)
@@ -307,7 +320,8 @@ public abstract partial class SharedGunSystem : EntitySystem
                 default:
                     throw new ArgumentOutOfRangeException($"No implemented shooting behavior for {gun.SelectedMode}!");
             }
-        } else
+        }
+        else
         {
             shots = Math.Min(shots, gun.ShotsPerBurstModified - gun.ShotCounter);
         }
@@ -444,7 +458,7 @@ public abstract partial class SharedGunSystem : EntitySystem
     /// <summary>
     /// Call this whenever the ammo count for a gun changes.
     /// </summary>
-    protected virtual void UpdateAmmoCount(EntityUid uid, bool prediction = true) {}
+    protected virtual void UpdateAmmoCount(EntityUid uid, bool prediction = true) { }
 
     protected void SetCartridgeSpent(EntityUid uid, CartridgeAmmoComponent cartridge, bool spent)
     {
@@ -523,7 +537,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         var shotDirection = (toMap - fromMap).Normalized();
 
         const float impulseStrength = 25.0f;
-        var impulseVector =  shotDirection * impulseStrength;
+        var impulseVector = shotDirection * impulseStrength;
         Physics.ApplyLinearImpulse(user, -impulseVector, body: userPhysics);
     }
 
@@ -612,6 +626,32 @@ public abstract partial class SharedGunSystem : EntitySystem
     public sealed class HitscanEvent : EntityEventArgs
     {
         public List<(NetCoordinates coordinates, Angle angle, SpriteSpecifier Sprite, float Distance)> Sprites = new();
+    }
+
+    /// <summary>
+    /// If the projectile collides with anything that doesn't have CollisionGroup.Impassable like walls, and it's arcing, ignore the collision.
+    /// </summary>
+    private void OnCollisionCheckArc(Entity<ProjectileFixedDistanceComponent> ent, ref PreventCollideEvent args)
+    {
+        if (ent.Comp.ArcProj && (args.OtherFixture.CollisionLayer & _blockArcCollisionGroup) == 0)
+            args.Cancelled = true;
+    }
+
+    private void OnEventToStopProjectile<T>(Entity<ProjectileFixedDistanceComponent> ent, ref T args)
+    {
+        StopProjectile(ent);
+    }
+
+    private void StopProjectile(Entity<ProjectileFixedDistanceComponent> projectile)
+    {
+        if (!_physicsQuery.TryGetComponent(projectile, out var physics))
+            return;
+
+        Physics.SetLinearVelocity(projectile, Vector2.Zero, body: physics);
+        Physics.SetBodyStatus(projectile, physics, BodyStatus.OnGround);
+
+        if (physics.Awake)
+            _broadphase.RegenerateContacts(projectile, physics);
     }
 }
 

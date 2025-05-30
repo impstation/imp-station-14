@@ -30,7 +30,7 @@ public sealed class RequireProjectileTargetSystem : EntitySystem
         var other = args.OtherEntity;
 
         if (TryComp(other, out TargetedProjectileComponent? targeted) &&
-            (targeted.Target == null || targeted.Target == ent))
+            (targeted.Target == null || targeted.Target == ent.Owner))
             return;
 
         if (TryComp(other, out ProjectileComponent? projectile))

@@ -83,8 +83,6 @@ public sealed class XenoEvolutionSystem : EntitySystem
 
         SubscribeLocalEvent<XenoNewlyEvolvedComponent, PreventCollideEvent>(OnNewlyEvolvedPreventCollide);
 
-        SubscribeLocalEvent<XenoEvolutionGranterComponent, NewXenoEvolvedEvent>(OnGranterEvolved);
-
         SubscribeLocalEvent<XenoOvipositorChangedEvent>(OnOvipositorChanged);
 
         Subs.BuiEvents<XenoEvolutionComponent>(XenoEvolutionUIKey.Key,
@@ -260,11 +258,6 @@ public sealed class XenoEvolutionSystem : EntitySystem
     {
         if (ent.Comp.StopCollide.Contains(args.OtherEntity))
             args.Cancelled = true;
-    }
-
-    private void OnGranterEvolved(Entity<XenoEvolutionGranterComponent> ent, ref NewXenoEvolvedEvent args)
-    {
-        _xenoAnnounce.AnnounceSameHive(ent.Owner, Loc.GetString("rmc-new-queen"));
     }
 
     private void OnOvipositorChanged(ref XenoOvipositorChangedEvent ev)

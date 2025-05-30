@@ -4,6 +4,8 @@ using Content.Shared._RMC14.Xenonids.Energy;
 using Content.Shared._RMC14.Xenonids.Parasite;
 using Content.Shared._RMC14.Xenonids.Plasma;
 using Content.Shared._RMC14.Xenonids.Strain;
+using Content.Shared._RMC14.Damage;
+using Content.Shared._RMC14.Atmos;
 using Content.Shared.Coordinates;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
@@ -39,67 +41,14 @@ public abstract class SharedXenoHealSystem : EntitySystem
     [Dependency] private readonly XenoEnergySystem _xenoEnergy = default!;
     [Dependency] private readonly XenoStrainSystem _xenoStrain = default!;
     [Dependency] private readonly RMCActionsSystem _rmcActions = default!;
+    [Dependency] private readonly SharedRMCDamageableSystem _rmcDamageable = default!;
+    [Dependency] private readonly SharedRMCFlammableSystem _flammable = default!;
 
     private static readonly ProtoId<DamageGroupPrototype> BruteGroup = "Brute";
     private static readonly ProtoId<DamageGroupPrototype> BurnGroup = "Burn";
     private static readonly ProtoId<DamageTypePrototype> BluntGroup = "Blunt";
 
     private readonly HashSet<Entity<XenoComponent>> _xenos = new();
-
-    public override void Initialize()
-    {
-        SubscribeLocalEvent<XenoHealComponent, XenoHealActionEvent>(OnXenoHealAction);
-    }
-
-    private void OnXenoHealAction(Entity<XenoHealComponent> ent, ref XenoHealActionEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        if (!_rmcActions.TryUseAction(args.Performer, args.Action))
-            return;
-
-        args.Handled = true;
-
-        _xenos.Clear();
-        _entityLookup.GetEntitiesInRange(args.Target, ent.Comp.Radius, _xenos);
-
-        if (_xenos.Count == 0)
-            return;
-
-        var msg = "We channel our plasma to heal our sisters' wounds around this area.";
-        _popup.PopupClient(msg, args.Target, ent, PopupType.Large);
-
-        foreach (var xeno in _xenos)
-        {
-            if (_mobState.IsDead(xeno) ||
-                _flammable.IsOnFire(xeno.Owner))
-            {
-                continue;
-            }
-
-            if (!_mobThreshold.TryGetIncapThreshold(xeno, out var threshold) ||
-                threshold <= FixedPoint2.Zero)
-            {
-                continue;
-            }
-
-            var heal = EnsureComp<XenoBeingHealedComponent>(xeno);
-            var healStack = new XenoHealStack()
-            {
-                HealAmount = threshold.Value * ent.Comp.Percentage /
-                             (ent.Comp.Duration.TotalSeconds * 10) *
-                             (ent.Comp.TimeBetweenHeals.TotalSeconds * 10),
-                Charges = (int)(ent.Comp.Duration.TotalSeconds / ent.Comp.TimeBetweenHeals.TotalSeconds),
-                TimeBetweenHeals = ent.Comp.TimeBetweenHeals,
-            };
-
-            heal.HealStacks.Add(healStack);
-
-            if (_net.IsServer)
-                SpawnAttachedTo(ent.Comp.HealEffect, xeno.Owner.ToCoordinates());
-        }
-    }
 
     public void Heal(EntityUid target, FixedPoint2 amount)
     {

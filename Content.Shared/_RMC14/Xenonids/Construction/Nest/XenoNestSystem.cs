@@ -3,6 +3,7 @@ using System.Numerics;
 using Content.Shared._RMC14.Xenonids.Parasite;
 using Content.Shared._RMC14.Xenonids.Weeds;
 using Content.Shared._RMC14.Map;
+using Content.Shared._RMC14.Chat;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Coordinates;
 using Content.Shared.DoAfter;
@@ -52,6 +53,7 @@ public sealed class XenoNestSystem : EntitySystem
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly SharedXenoWeedsSystem _xenoWeeds = default!;
     [Dependency] private readonly RMCMapSystem _rmcMap = default!;
+    [Dependency] private readonly SharedCMChatSystem _rmcChat = default!;
 
     private EntityQuery<OccluderComponent> _occluderQuery;
     private EntityQuery<XenoNestComponent> _xenoNestQuery;
@@ -161,10 +163,6 @@ public sealed class XenoNestSystem : EntitySystem
             HasComp<GhostComponent>(ghost))
         {
             _rmcChat.ChatMessageToOne("\n[font size=24][color=red]You have been freed from your nest and may go back to your body![/color][/font]\n", ghost);
-
-            var returnTo = EnsureComp<RMCGhostReturnComponent>(ghost);
-            returnTo.Target = ent;
-            Dirty(ghost, returnTo);
 
             _ghost.SetCanReturnToBody(ghost, true);
         }

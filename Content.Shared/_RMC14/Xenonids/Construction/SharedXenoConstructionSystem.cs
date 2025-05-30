@@ -426,14 +426,7 @@ public sealed class SharedXenoConstructionSystem : EntitySystem
         }
 
         string msg;
-        var areaName = "Unknown";
-        if (_area.TryGetArea(target, out _, out var areaProto))
-        {
-            areaName = areaProto.Name;
-        }
-
-        msg = Loc.GetString("rmc-xeno-order-construction-structure-designated", ("construct", structureProto.Name), ("area", areaName));
-        _announce.AnnounceSameHive(xeno.Owner, msg, needsQueen: true);
+        msg = Loc.GetString("rmc-xeno-order-construction-structure-designated", ("construct", structureProto.Name));
     }
 
     private void OnHiveConstructionNodeAddPlasmaDoAfter(Entity<XenoConstructionComponent> xeno, ref XenoConstructionAddPlasmaDoAfterEvent args)
@@ -868,9 +861,6 @@ public sealed class SharedXenoConstructionSystem : EntitySystem
                 return false;
             }
         }
-
-        if (!_area.CanResinPopup((gridId, grid, null), tile, xeno))
-            return false;
 
         return true;
     }

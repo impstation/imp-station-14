@@ -11,6 +11,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
+using Content.Shared.Movement.Pulling.Components;
 
 namespace Content.Shared._RMC14.Xenonids.Lunge;
 
@@ -61,7 +62,10 @@ public sealed class XenoLungeSystem : EntitySystem
 
         args.Handled = true;
 
-        _rmcPulling.TryStopAllPullsFromAndOn(xeno);
+        if (TryComp<PullerComponent>(xeno, out var puller) && TryComp<PullableComponent>(puller.Pulling, out var pullable))
+        {
+            _pulling.TryStopPull(puller.Pulling.Value, pullable);
+        }
 
         var origin = _transform.GetMapCoordinates(xeno);
         var target = _transform.GetMapCoordinates(args.Target);

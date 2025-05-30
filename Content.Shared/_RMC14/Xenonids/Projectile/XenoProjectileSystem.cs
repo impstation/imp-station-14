@@ -1,5 +1,6 @@
 ﻿using Content.Shared._RMC14.Xenonids.Construction;
 using Content.Shared._RMC14.Xenonids.Plasma;
+using Content.Shared._RMC14.Weapons.Ranged;
 using Content.Shared.FixedPoint;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Ranged.Components;

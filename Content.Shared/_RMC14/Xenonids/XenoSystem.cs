@@ -9,6 +9,7 @@ using Content.Shared._RMC14.Xenonids.Plasma;
 using Content.Shared._RMC14.Xenonids.Rest;
 using Content.Shared._RMC14.Xenonids.Weeds;
 using Content.Shared._RMC14.Atmos;
+using Content.Shared._RMC14.Damage;
 using Content.Shared.Access.Components;
 using Content.Shared.Actions;
 using Content.Shared.Buckle.Components;
@@ -67,6 +68,8 @@ public sealed partial class XenoSystem : EntitySystem
     [Dependency] private readonly XenoPlasmaSystem _xenoPlasma = default!;
     [Dependency] private readonly SharedXenoWeedsSystem _weeds = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly SharedRMCDamageableSystem _rmcDamageable = default!;
+    [Dependency] private readonly SharedRMCFlammableSystem _rmcFlammable = default!;
 
     private static readonly ProtoId<DamageTypePrototype> HeatDamage = "Heat";
 
@@ -114,7 +117,6 @@ public sealed partial class XenoSystem : EntitySystem
         SubscribeLocalEvent<XenoComponent, GetVisMaskEvent>(OnXenoGetVisMask);
 
         SubscribeLocalEvent<XenoRegenComponent, MapInitEvent>(OnXenoRegenMapInit);
-        SubscribeLocalEvent<XenoRegenComponent, DamageStateCritBeforeDamageEvent>(OnXenoRegenBeforeCritDamage);
 
         //In XenoSystem.Visuals
         SubscribeLocalEvent<XenoStateVisualsComponent, MobStateChangedEvent>(OnVisualsMobStateChanged);
@@ -288,15 +290,6 @@ public sealed partial class XenoSystem : EntitySystem
     {
         ent.Comp.NextRegenTime = _timing.CurTime + ent.Comp.RegenCooldown;
         Dirty(ent);
-    }
-
-    private void OnXenoRegenBeforeCritDamage(Entity<XenoRegenComponent> ent, ref MobStateChangedEvent args)
-    {
-        if (!_rmcFlammable.IsOnFire(ent.Owner) && !ent.Comp.HealOffWeeds && !_weeds.IsOnWeeds(ent.Owner))
-            return;
-
-        //Don't take bleedout damage on fire or on weeds
-        args.Damage.ClampMax(0);
     }
 
     private void UpdateXenoSpeedMultiplier(float speed)

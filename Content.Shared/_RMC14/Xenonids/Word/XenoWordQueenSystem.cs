@@ -1,5 +1,7 @@
 ﻿using System.Text.RegularExpressions;
 using Content.Shared._RMC14.Xenonids.Plasma;
+using Content.Shared._RMC14.Xenonids.Announce;
+using Content.Shared._RMC14.Chat;
 using Content.Shared.Actions;
 using Content.Shared.CCVar;
 using Content.Shared.Popups;
@@ -18,6 +20,8 @@ public sealed class XenoWordQueenSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly XenoPlasmaSystem _xenoPlasma = default!;
+    [Dependency] private readonly SharedXenoAnnounceSystem _xenoAnnounce = default!;
+    [Dependency] private readonly SharedCMChatSystem _cmChat = default!;
 
     private readonly Regex _newLineRegex = new("\n{3,}", RegexOptions.Compiled);
     private int _characterLimit = 1000;

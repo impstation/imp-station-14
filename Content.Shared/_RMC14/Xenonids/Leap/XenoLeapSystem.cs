@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Shared._RMC14.Xenonids.Plasma;
+using Content.Shared._RMC14.CameraShake;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Coordinates;
 using Content.Shared.Damage;
@@ -25,6 +26,8 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
+using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Movement.Pulling.Systems;
 
 namespace Content.Shared._RMC14.Xenonids.Leap;
 
@@ -35,7 +38,7 @@ public sealed class XenoLeapSystem : EntitySystem
     [Dependency] private readonly BlindableSystem _blindable = default!;
     [Dependency] private readonly SharedBroadphaseSystem _broadphase = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!; 
+    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
@@ -49,6 +52,8 @@ public sealed class XenoLeapSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damagable = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _colorFlash = default!;
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
+    [Dependency] private readonly PullingSystem _pulling = default!;
+    [Dependency] private readonly RMCCameraShakeSystem _cameraShake = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -130,7 +135,10 @@ public sealed class XenoLeapSystem : EntitySystem
             return;
         }
 
-        _rmcPulling.TryStopAllPullsFromAndOn(xeno);
+        if (TryComp<PullerComponent>(xeno, out var puller) && TryComp<PullableComponent>(puller.Pulling, out var pullable))
+        {
+            _pulling.TryStopPull(puller.Pulling.Value, pullable);
+        }
 
         var origin = _transform.GetMapCoordinates(xeno);
         var target = _transform.ToMapCoordinates(args.Coordinates);
@@ -241,7 +249,7 @@ public sealed class XenoLeapSystem : EntitySystem
 
     private bool ApplyLeapingHitEffects(Entity<XenoLeapingComponent> xeno, EntityUid target)
     {
-        if(!IsValidLeapHit(xeno, target))
+        if (!IsValidLeapHit(xeno, target))
             return false;
 
         xeno.Comp.KnockedDown = true;

@@ -8,6 +8,9 @@ using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared._RMC14.Weapons.Melee;
 
 namespace Content.Shared._RMC14.Xenonids.Fling;
 
@@ -22,6 +25,8 @@ public sealed class XenoFlingSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly XenoSystem _xeno = default!;
     [Dependency] private readonly SharedXenoHealSystem _xenoHeal = default!;
+    [Dependency] private readonly PullingSystem _pulling = default!;
+    [Dependency] private readonly SharedRMCMeleeWeaponSystem _rmcMelee = default!;
 
     public override void Initialize()
     {
@@ -49,7 +54,10 @@ public sealed class XenoFlingSystem : EntitySystem
         }
 
         var targetId = args.Target;
-        _rmcPulling.TryStopAllPullsFromAndOn(targetId);
+        if (TryComp<PullerComponent>(targetId, out var puller) && TryComp<PullableComponent>(puller.Pulling, out var pullable))
+        {
+            _pulling.TryStopPull(puller.Pulling.Value, pullable);
+        }
 
         var damage = _damageable.TryChangeDamage(targetId, xeno.Comp.Damage, origin: xeno);
         if (damage?.GetTotal() > FixedPoint2.Zero)

@@ -22,6 +22,8 @@ using Content.Shared.Humanoid;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Stunnable;
+using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Movement.Pulling.Systems;
 
 namespace Content.Shared._RMC14.Xenonids.Neurotoxin;
 
@@ -43,6 +45,7 @@ public abstract class SharedNeurotoxinSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly StaminaSystem _stamina = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly PullingSystem _pulling = default!;
 
     private readonly HashSet<Entity<HumanoidAppearanceComponent>> _marines = new();
     public override void Initialize()
@@ -165,7 +168,10 @@ public abstract class SharedNeurotoxinSystem : EntitySystem
                 // This is how we randomly move them - by throwing
                 if (_blocker.CanMove(uid))
                 {
-                    _rmcPulling.TryStopPullsOn(uid);
+                    if (TryComp<PullerComponent>(uid, out var puller) && TryComp<PullableComponent>(puller.Pulling, out var pullable))
+                    {
+                        _pulling.TryStopPull(puller.Pulling.Value, pullable);
+                    }
                     _physics.SetLinearVelocity(uid, Vector2.Zero);
                     _physics.SetAngularVelocity(uid, 0f);
                     _throwing.TryThrow(uid, _random.NextAngle().ToVec().Normalized() / 10, 10, animated: false, playSound: false, doSpin: false);

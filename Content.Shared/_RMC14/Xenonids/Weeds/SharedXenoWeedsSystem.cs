@@ -429,9 +429,6 @@ public abstract class SharedXenoWeedsSystem : EntitySystem
             return false;
         }
 
-        if (!_area.CanResinPopup((grid, grid, null), tile, user))
-            return false;
-
         var targetTileAnchored = _mapSystem.GetAnchoredEntitiesEnumerator(grid, grid, tile);
         while (targetTileAnchored.MoveNext(out var uid))
         {

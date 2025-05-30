@@ -4,6 +4,7 @@ using Content.Shared._RMC14.Xenonids.Leap;
 using Content.Shared._RMC14.Xenonids.Projectile.Parasite;
 using Content.Shared._RMC14.Xenonids.Rest;
 using Content.Shared._RMC14.NPC;
+using Content.Shared._RMC14.Hands;
 using Content.Shared.Actions;
 using Content.Shared.Database;
 using Content.Shared.Examine;
@@ -26,6 +27,7 @@ public abstract partial class SharedXenoParasiteSystem
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly SharedRMCNPCSystem _rmcNpc = default!;
+    [Dependency] private readonly RMCHandsSystem _rmcHands = default!;
 
     public void IntializeAI()
     {
