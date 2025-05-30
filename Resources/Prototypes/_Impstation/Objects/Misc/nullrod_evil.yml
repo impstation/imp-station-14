@@ -54,7 +54,7 @@
   - type: Sprite
     sprite: _Impstation/Objects/Misc/nullrod_bow_evil.rsi
     layers:
-    - state: nullrod_bow
+    - state: unwielded
       map: [ base ]
     - state: unwielded-arrowsilver
       shader: unshaded
@@ -116,6 +116,18 @@
         whitelist:
           tags:
           - HolyArrow
+  - type: GenericVisualizer
+    visuals:
+      enum.WieldableVisuals.Wielded:
+        arrowgolden:
+          True: { state: wielded-arrowgolden }
+          False: { state: unwielded-arrowgolden }
+        arrowsilver:
+          True: { state: wielded-arrowsilver }
+          False: { state: unwielded-arrowsilver }
+        base:
+          True: { state: wielded }
+          False: { state: unwielded }
 
 - type: entity
   parent: ClothingBeltStorageBase
