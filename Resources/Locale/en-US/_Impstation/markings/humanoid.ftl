@@ -432,6 +432,8 @@ marking-HumanHairDrillTail = Ponytail (Drill)
 
 marking-HumanHairFringeRat = Fringe Bangs (Rat Tail)
 
+marking-HumanHairKelly = Poster Person
+
 marking-HumanHairChonmage = Chonmage
 
 marking-HumanHairAdoringFan = Adoring Fan
