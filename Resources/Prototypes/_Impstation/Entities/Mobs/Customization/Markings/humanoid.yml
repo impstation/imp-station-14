@@ -1648,52 +1648,20 @@
     state: susienobangs
 
 - type: marking
-  id: HumanHairSpiderLily
+  id: HumanHairEyeBangLong
   bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
-      state: spiderlily
+      state: eyebanglong
 
 - type: marking
-  id: HumanHairSidePonyEye
+  id: HumanHairEyeBangSideTail
   bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
-      state: sideponyeye
-
-- type: marking
-  id: HumanHairOverEyeMed
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
-      state: overeyemedium
-
-- type: marking
-  id: HumanHairAsymBuns
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
-      state: asymbuns
-
-- type: marking
-  id: HumanHairIntakeShort
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
-      state: intakeshort
-
-- type: marking
-  id: HumanHairIntakeMed
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
-      state: intakemedium
+      state: eyebangsidetail
 
 - type: marking
   id: HumanHairOverEyes
@@ -1710,6 +1678,38 @@
   sprites:
     - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
       state: overeyestail
+
+- type: marking
+  id: HumanHairFringeTail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
+      state: fringetail
+
+- type: marking
+  id: HumanHairAsymBun
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
+      state: asymbun
+
+- type: marking
+  id: HumanHairIntakeShort
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
+      state: intakeshort
+
+- type: marking
+  id: HumanHairIntakeLong
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
+      state: intakelong
 
 - type: marking
   id: HumanHairChonmage
