@@ -1736,6 +1736,30 @@
       state: intakeshort
 
 - type: marking
+  id: HumanHairLiberator
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
+      state: liberator
+
+- type: marking
+  id: HumanHairLiberatorTied
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
+      state: liberatortied
+
+- type: marking
+  id: HumanHairLiberatorShort
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
+      state: liberatorshort
+
+- type: marking
   id: HumanHairDrillTail
   bodyPart: Hair
   markingCategory: Hair

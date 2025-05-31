@@ -428,6 +428,12 @@ marking-HumanHairIntakeShort = Intake (Short)
 
 marking-HumanHairIntakeLong = Intake (Long)
 
+marking-HumanHairLiberator = Liberator (Medium)
+
+marking-HumanHairLiberatorTied = Liberator (Tied)
+
+marking-HumanHairLiberatorShort = Liberator (Short)
+
 marking-HumanHairDrillTail = Ponytail (Drill)
 
 marking-HumanHairFringeRat = Fringe Bangs (Rat Tail)
