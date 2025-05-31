@@ -1720,6 +1720,14 @@
       state: drilltail
 
 - type: marking
+  id: HumanHairFringeRat
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
+      state: fringerat
+
+- type: marking
   id: HumanHairChonmage
   bodyPart: Hair
   markingCategory: Hair

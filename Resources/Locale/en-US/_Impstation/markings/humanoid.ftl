@@ -428,7 +428,9 @@ marking-HumanHairIntakeShort = Intake (Short)
 
 marking-HumanHairIntakeLong = Intake (Long)
 
-maring-HumanHairDrillTail = Ponytail (Drill)
+marking-HumanHairDrillTail = Ponytail (Drill)
+
+marking-HumanHairFringeRat = Fringe Bangs (Rat Tail)
 
 marking-HumanHairChonmage = Chonmage
 
