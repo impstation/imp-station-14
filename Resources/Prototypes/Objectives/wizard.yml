@@ -32,3 +32,14 @@
     icon:
       sprite: Objects/Magic/magicactions.rsi
       state: fireball
+
+- type: entity
+  parent: [BaseWizardObjective, BaseFreeObjective]
+  id: WizardRespectObjective
+  name: Demand respect
+  description: You are a representative of the Space Wizards Federation and deserve to be treated as such.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: spell_default
