@@ -1712,12 +1712,28 @@
       state: intakelong
 
 - type: marking
+  id: HumanHairDrillTail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
+      state: drilltail
+
+- type: marking
   id: HumanHairChonmage
   bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
       state: chonmage
+
+- type: marking
+  id: HumanHairAdoringFan
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
+      state: adoringfan
 # HeadSide
 
 # HeadTop

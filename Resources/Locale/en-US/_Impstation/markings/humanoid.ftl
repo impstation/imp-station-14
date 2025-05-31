@@ -428,7 +428,11 @@ marking-HumanHairIntakeShort = Intake (Short)
 
 marking-HumanHairIntakeLong = Intake (Long)
 
+maring-HumanHairDrillTail = Ponytail (Drill)
+
 marking-HumanHairChonmage = Chonmage
+
+marking-HumanHairAdoringFan = Adoring Fan
 
 # HeadSide
 
