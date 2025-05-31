@@ -91,3 +91,17 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckSailorAscot
+  name: sailor's ascot
+  description: The preferred accessory for mystery solving whtieboys
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Neck/Misc/sailorascot.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Neck/Misc/sailorascot.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
