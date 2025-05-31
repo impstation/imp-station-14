@@ -420,19 +420,27 @@ marking-HumanHairOverEyes = Over-Eyes
 
 marking-HumanHairOverEyesTail = Over-Eyes (Long Tail)
 
-marking-HumanHairFringeTail = Fringe Bangs (Messy Tail)
-
-marking-HumanHairAsymBun = Asymmetrical Bun
-
 marking-HumanHairIntakeShort = Intake (Short)
 
 marking-HumanHairIntakeLong = Intake (Long)
+
+marking-HumanHairLiberator = Liberator (Long)
+
+marking-HumanHairLiberatorShort = Liberator (Short)
+
+marking-HumanHairLiberatorTied = Liberator (Tied)
+
+marking-HumanHairFringeTail = Fringe Bangs (Messy Tail)
+
+marking-HumanHairAsymBun = Asymmetrical Bun
 
 marking-HumanHairDrillTail = Ponytail (Drill)
 
 marking-HumanHairFringeRat = Fringe Bangs (Rat Tail)
 
 marking-HumanHairKelly = Poster Person
+
+marking-HumanHairMiddlePart = Middle Part
 
 marking-HumanHairChonmage = Chonmage
 

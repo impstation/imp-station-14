@@ -1688,6 +1688,38 @@
       state: fringetail
 
 - type: marking
+  id: HumanHairIntakeLong
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
+      state: intakelong
+
+- type: marking
+  id: HumanHairLiberator
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
+      state: liberator
+
+- type: marking
+  id: HumanHairLiberatorLong
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
+      state: liberatorlong
+
+- type: marking
+  id: HumanHairLiberatorTied
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
+      state: liberatortied
+
+- type: marking
   id: HumanHairAsymBun
   bodyPart: Hair
   markingCategory: Hair
@@ -1702,14 +1734,6 @@
   sprites:
     - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
       state: intakeshort
-
-- type: marking
-  id: HumanHairIntakeLong
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
-      state: intakelong
 
 - type: marking
   id: HumanHairDrillTail
@@ -1734,6 +1758,14 @@
   sprites:
     - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
       state: posterperson
+
+- type: marking
+  id: HumanHairMiddlePart
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
+      state: middlepart
 
 - type: marking
   id: HumanHairChonmage
