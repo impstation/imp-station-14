@@ -91,3 +91,37 @@
     access: [["Cargo"]]
   - type: StealTarget #imp
     stealGroup: SalvDrobe
+
+- type: entity
+  parent: VendingMachine
+  id: VendingMachineJuice
+  name: Juice-O-Mat
+  description: A contentious new contender in the service industry standard. Bringing you absolutely zero buzz since 2XXX
+  components:
+  - type: VendingMachine
+    pack: JuiceOMatInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+    loopDeny: false
+  - type: Advertise
+    pack: JuiceOMatAds
+  - type: SpeakOnUIClosed
+    pack: JuiceOMatGoodbyes
+  - type: Sprite
+    sprite: Structures/Machines/VendingMachines/boozeomat.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: AccessReader
+    access: [["Bar"]]
+  - type: GuideHelp
+    guides:
+    - Bartender
+    - Drinks
