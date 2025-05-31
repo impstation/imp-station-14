@@ -1,0 +1,27 @@
+- type: entity
+  id: ActionPleebnarTelepathy
+  name: Telepathy
+  description: Send an inscrutable vision to a target.
+  components:
+  - type: EntityTargetAction
+    range: 15
+    event: !type:PleebnarTelepathyEvent
+    useDelay: 30
+    canTargetSelf: false
+    interactOnMiss: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: absorb_dna
+
+- type: entity
+  id: ActionPleebnarVision
+  name: Select vision
+  description: Select a vision to send.
+  components:
+  - type: InstantAction
+    event: !type:PleebnarVisionEvent
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: absorb_dna
