@@ -421,3 +421,13 @@
   - type: Icon
     sprite: _Impstation/Objects/Devices/griffy_pda.rsi
     state: pda-mascotgriffy
+
+# Impstation Specific Job Distribution Error Jobs
+- type: entity
+  parent: ServiceWorkerPDA
+  id: CatererPDA
+  name: caterer PDA
+  description: ADD
+  components:
+  - type: Pda
+    id: CatererIDCard

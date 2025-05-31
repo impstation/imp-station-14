@@ -407,3 +407,12 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitCaterer
+  name: caterer's uniform
+  description: A nice and tidy uniform. 30 minutes or less, or the pizza's free!
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/bartender.rsi

@@ -77,3 +77,16 @@
     tags:
     - Maintenance
     - Freelance
+
+# Impstation Specific Job Distribution Error Jobs
+- type: entity
+  parent: IDCardStandard
+  id: CatererIDCard
+  name: caterer ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idintern-service
+  - type: PresetIdCard
+    job: Caterer
