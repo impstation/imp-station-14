@@ -147,3 +147,21 @@
     sprite: _Impstation/Clothing/Neck/Cloaks/capcloakadmiral.rsi
   - type: StealTarget
     stealGroup: HeadCloak
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakWebSimple
+  name: simple web cloak
+  description: This tattered cloak looks a little spooky.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Neck/Cloaks/webcloaksimple.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakWebFancy
+  name: fancy web cloak
+  description: This tattered cloak looks really spooky.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Neck/Cloaks/webcloakfancy.rsi
