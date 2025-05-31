@@ -1,4 +1,5 @@
 using Content.Server.Atmos.Components;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs;

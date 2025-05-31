@@ -26,7 +26,6 @@
     role: CMXenoLarva
     actionIds:
     - ActionXenoRest
-    - ActionXenoWatch
     - ActionXenoHide
     hudOffset: -0.1,0.25
     tier: 0
@@ -45,9 +44,7 @@
     max: 60
     evolvesTo:
     - CMXenoDrone
-    - CMXenoDefender
     - CMXenoSentinel
-    - CMXenoRunner
   - type: XenoHide
   - type: Fixtures
     fixtures:
@@ -58,7 +55,6 @@
         density: 185
         mask:
         - SmallMobMask
-        - BarbedBarricade
         layer:
         - SmallMobLayer
   - type: Flammable

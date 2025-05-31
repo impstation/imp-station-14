@@ -39,24 +39,14 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: ImmuneToUnarmed
   - type: MeleeSound
     soundGroups:
       Brute:
         collection: XenoMove
   - type: XenoConstruct
-  - type: RMCNightVisionVisible
-    priority: -1
-    transparency: 0.2
   - type: XenoConstructionBuildSpeed
     buildTimeMult: 0.5
-  - type: MeleeReceivedMultiplier
-    otherMultiplier: 8.2
-    xenoDamage:
-      types:
-        Slash: 45
   - type: StickyResinSurgeBlocker
-  - type: DeletedByWeedKiller
 
 - type: entity
   parent: XenoBaseFloorResin

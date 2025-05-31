@@ -1,8 +1,7 @@
-﻿using Content.Server._RMC14.NPC.HTN;
-using Content.Server.NPC.HTN;
+﻿using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
-using Content.Shared._RMC14.Dropship;
 using Content.Shared._RMC14.NPC;
+using Content.Server._RMC14.NPC.HTN;
 
 namespace Content.Server._RMC14.NPC;
 
@@ -15,31 +14,7 @@ public sealed class RMCNPCSystem : SharedRMCNPCSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<DropshipLandedOnPlanetEvent>(OnDropshipLandedOnPlanet);
-
         SubscribeLocalEvent<SleepNPCComponent, MapInitEvent>(OnSleepNPCMapInit, after: [typeof(HTNSystem)]);
-    }
-
-    private void OnDropshipLandedOnPlanet(ref DropshipLandedOnPlanetEvent ev)
-    {
-        if (!TryComp(ev.Dropship, out TransformComponent? dropshipTransform))
-            return;
-
-        var wake = EntityQueryEnumerator<WakeNPCOnDropshipLandingComponent, TransformComponent>();
-        while (wake.MoveNext(out var uid, out var npc, out var npcTransform))
-        {
-            if (npc.FirstOnly && npc.Attempted)
-                continue;
-
-            if (dropshipTransform.MapUid != npcTransform.MapUid)
-                continue;
-
-            npc.Attempted = true;
-            if (!_transform.InRange(dropshipTransform.Coordinates, npcTransform.Coordinates, npc.Range))
-                continue;
-
-            WakeNPC(uid);
-        }
     }
 
     private void OnSleepNPCMapInit(Entity<SleepNPCComponent> ent, ref MapInitEvent args)

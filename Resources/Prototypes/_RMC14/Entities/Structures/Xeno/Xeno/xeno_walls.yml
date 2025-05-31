@@ -26,10 +26,6 @@
   - type: XenoStructureUpgradeable
     to: WallXenoResinThick
     cost: 50
-  - type: MeleeReceivedMultiplier
-    xenoDamage:
-      types:
-        Slash: 225
 
 - type: entity
   parent: WallXenoResin
@@ -53,10 +49,6 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
-  - type: MeleeReceivedMultiplier
-    xenoDamage:
-      types:
-        Slash: 338
   - type: XenoConstructionPlasmaCost
     plasma: 170
   - type: XenoStructureUpgradeable
@@ -94,10 +86,6 @@
   - type: XenoNestSurface
   - type: XenoConstructionPlasmaCost
     plasma: 95
-  - type: MeleeReceivedMultiplier
-    xenoDamage:
-      types:
-        Slash: 150
 
 - type: entity
   parent: BaseMembraneXeno
@@ -147,10 +135,6 @@
   - type: IconSmooth
     key: walls
     base: thickmembrane
-  - type: MeleeReceivedMultiplier
-    xenoDamage:
-      types:
-        Slash: 300
   - type: XenoConstructionPlasmaCost
     plasma: 120
 

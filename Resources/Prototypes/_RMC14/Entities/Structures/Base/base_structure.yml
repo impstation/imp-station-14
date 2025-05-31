@@ -1,0 +1,42 @@
+- type: entity
+  parent: BaseStructure
+  id: CMBaseXenoStructure
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Corrodible
+    isCorrodible: false
+  - type: XenoConstructionSupport
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        collection: XenoResinBreak
+  - type: XenoConstruct
+  - type: NpcFactionMember
+    factions:
+    - RMCXeno
+
+- type: entity
+  parent:
+  - BaseWall
+  - CMBaseXenoStructure
+  id: CMBaseWallXeno
+  name: resin wall
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Damageable
+    damageContainer: StructuralXeno
+    damageModifierSet: Resin
+  - type: Appearance
+  - type: RadiationBlocker
+    resistance: 5
+  - type: PlacementReplacement
+    key: walls
+  - type: ExplosionResistance
+    damageCoefficient: 3.64
+  - type: Tag
+    tags:
+    - SpreaderIgnore

@@ -36,10 +36,6 @@
     key: cm_xeno_weeds
     base: weed_dir
     mode: CardinalFlags
-  - type: IconSmoothRandom
-    overrides:
-    - weed_dir0
-    - weed_dir15
   - type: RandomSprite
     available:
     - 0:
@@ -86,22 +82,10 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: ImmuneToUnarmed
-  - type: CMIconSmooth
-    smooth: true
   - type: MeleeSound
     soundGroups:
       Brute:
         collection: XenoResinBreak
-  - type: ExplosionRandomResistance
-    min: 0.06
-    max: 0.3
-  - type: DeletedByWeedKiller
-  - type: RMCDeleteAnchoredOnInit
-    enabled: false
-    whitelist:
-      tags:
-      - XenoWeedTile
   - type: Tag
     tags:
     - XenoWeedTile
@@ -135,13 +119,6 @@
         acts: [ "Destruction" ]
   - type: XenoConstructionPlasmaCost
     plasma: 215
-  - type: RMCDeleteAnchoredOnInit
-    enabled: true
-    whitelist:
-      tags:
-      - XenoWeedNode
-      - XenoWeedTile
-  - type: QueenEyeVision
   - type: Tag
     tags:
     - XenoWeedNode
@@ -173,10 +150,6 @@
     key: cm_xeno_weeds
     base: hive_weed
     mode: CardinalFlags
-  - type: IconSmoothRandom
-    overrides:
-    - hive_weed0
-    - hive_weed15
   - type: RandomSprite
     available:
     - 0:
@@ -305,12 +278,8 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: ImmuneToUnarmed
   - type: WallMount
     arc: 360
-  - type: RMCNightVisionVisible
-    priority: -1
-    transparency: 0.2
 
 # Gardener's weeds
 - type: entity # TODO RMC14 sound

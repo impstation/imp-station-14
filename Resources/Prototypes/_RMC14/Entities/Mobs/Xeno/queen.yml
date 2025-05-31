@@ -50,7 +50,6 @@
     actionIds:
     - ActionXenoRest
     - ActionXenoRegurgitate
-    - ActionXenoWatch
     - ActionXenoOrderConstruction
     - ActionXenoAcidNormal
     - ActionXenoWordQueen
@@ -60,7 +59,6 @@
     - ActionXenoChooseStructure
     - ActionXenoSecreteStructure
     - ActionXenoGrowOvipositor
-    - ActionXenoManageHive
 #    - ActionXenoRoyalJelly
 #    - ActionXenoMarkResin
     tier: 0
@@ -95,7 +93,6 @@
       groups:
         Brute: 40
   - type: XenoOvipositorCapable
-  - type: TunnelRenamer
   - type: Fixtures
     fixtures:
       fix1:
@@ -105,7 +102,6 @@
         density: 185
         mask:
         - MobMask
-        - BarbedBarricade
         layer:
         - MobLayer
       fix2:
@@ -140,9 +136,6 @@
       path: /Audio/_RMC14/Xeno/alien_queen_command.ogg
       params:
         volume: -8
-  - type: XenoAnnounceDeath
-    message: cm-xeno-death-queen
-    color: "#921992"
   - type: XenoMaturing
     critThreshold: 1000
     deadThreshold: 1100
@@ -153,14 +146,12 @@
     - ActionXenoToggleSpitType
   - type: RMCXenoDamageVisuals
     prefix: queen
-  - type: HiveLeaderGranter
   - type: XenoHeal
   - type: XenoSpit
     projectileId: XenoQueenNeuroSpitProjectile
     plasmaCost: 50
   - type: XenoInhands
     prefix: queen
-  - type: QueenEyeAction
 
 - type: entity
   parent: RMCXenoQueenBase
@@ -191,21 +182,3 @@
   - type: OwOAccent
   - type: Speech
     speechSounds: Cat
-
-- type: entity
-  parent: StationAiHolo
-  id: RMCQueenEye
-  name: queen eye
-  description: It seems to be a visual projection of someone.
-  categories: [ HideSpawnMenu, DoNotMap ]
-  components:
-  - type: Sprite
-    color: "#a800a8"
-    sprite: _RMC14/Effects/xeno_eye.rsi
-    layers:
-    - state: hologram
-  - type: Eye
-    drawFov: false
-  - type: QueenEye
-  - type: Visibility
-    layer: 32770

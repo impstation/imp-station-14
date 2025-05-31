@@ -2,11 +2,8 @@ using System.Linq;
 using System.Numerics;
 using Content.Server.Hands.Systems;
 using Content.Server.Mind;
-using Content.Shared._RMC14.Atmos;
-using Content.Shared._RMC14.Damage.ObstacleSlamming;
 using Content.Shared._RMC14.Xenonids;
 using Content.Shared._RMC14.Xenonids.Evolution;
-using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared._RMC14.Xenonids.Parasite;
 using Content.Shared._RMC14.Xenonids.Projectile.Parasite;
 using Content.Shared.Actions;
@@ -32,10 +29,8 @@ public sealed partial class XenoParasiteThrowerSystem : SharedXenoParasiteThrowe
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly SharedXenoHiveSystem _hive = default!;
     [Dependency] private readonly SharedXenoParasiteSystem _parasite = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly RMCObstacleSlammingSystem _rmcObstacleSlamming = default!;
 
     public override void Initialize()
     {
@@ -107,7 +102,6 @@ public sealed partial class XenoParasiteThrowerSystem : SharedXenoParasiteThrowe
                 target = coords.WithPosition(coords.Position + fixedTrajectory);
             }
 
-            _rmcObstacleSlamming.MakeImmune(heldEntity);
             _throw.TryThrow(heldEntity, target, user: xeno, compensateFriction: true);
 
             // Not parity but should help the ability be more consistent/not look weird since para AI goes rest on idle.
@@ -133,16 +127,8 @@ public sealed partial class XenoParasiteThrowerSystem : SharedXenoParasiteThrowe
         if (!_hands.TryGetEmptyHand(xeno, out var _))
             return;
 
-        if (HasComp<OnFireComponent>(xeno))
-        {
-            _popup.PopupEntity("Retrieving a stored parasite while we're on fire would burn it!", xeno, args.Performer, PopupType.MediumCaution);
-            return;
-        }
-
         if (RemoveParasite(xeno) is not { } newParasite)
             return;
-
-        _hive.SetSameHive(xeno.Owner, newParasite);
 
         _hands.TryPickupAnyHand(xeno, newParasite);
 
@@ -212,14 +198,11 @@ public sealed partial class XenoParasiteThrowerSystem : SharedXenoParasiteThrowe
         if (chance != 1.0 && xeno.Comp.CurParasites > 0)
             _popup.PopupEntity(Loc.GetString("rmc-xeno-parasite-carrier-death", ("xeno", xeno)), xeno, PopupType.MediumCaution);
 
-        var hive = _hive.GetHive(xeno.Owner);
-
         for (var i = 0; i < xeno.Comp.CurParasites; ++i)
         {
             if (chance != 1.0 && !_random.Prob(chance))
                 continue;
             var newParasite = Spawn(xeno.Comp.ParasitePrototype);
-            _hive.SetHive(newParasite, hive);
             _transform.DropNextTo(newParasite, xeno.Owner);
             //So they don't eat eachother before they gloriously fly into the sunset
             _stun.TryStun(newParasite, xeno.Comp.ThrownParasiteStunDuration, true);
@@ -325,7 +308,6 @@ public sealed partial class XenoParasiteThrowerSystem : SharedXenoParasiteThrowe
         if (para == null)
             return null;
 
-        _hive.SetSameHive(xeno.Owner, para.Value);
         _transform.DropNextTo(para.Value, xeno.Owner);
         // Small throw
         _throw.TryThrow(para.Value, _random.NextAngle().RotateVec(Vector2.One), 3);

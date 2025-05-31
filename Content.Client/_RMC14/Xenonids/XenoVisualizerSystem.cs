@@ -1,7 +1,6 @@
 using Content.Client._RMC14.Sprite;
 using Content.Shared._RMC14.Sprite;
 using Content.Shared._RMC14.Xenonids;
-using Content.Shared._RMC14.Xenonids.Charge;
 using Content.Shared._RMC14.Xenonids.Egg;
 using Content.Shared._RMC14.Xenonids.Leap;
 using Content.Shared._RMC14.Xenonids.Movement;
@@ -118,13 +117,6 @@ public sealed class XenoVisualizerSystem : VisualizerSystem<XenoComponent>
                     break;
                 }
 
-                if (rsi.TryGetState("thrown", out _) &&
-                    IsThrown((entity, leaping, thrown, null)))
-                {
-                    sprite.LayerSetState(layer, "thrown");
-                    break;
-                }
-
                 if (AppearanceSystem.TryGetData(entity, XenoVisualLayers.Fortify, out bool fortify, appearance) &&
                     fortify &&
                     rsi.TryGetState("fortify", out _))
@@ -177,14 +169,6 @@ public sealed class XenoVisualizerSystem : VisualizerSystem<XenoComponent>
         sprite.LayerSetVisible(oviLayer, true);
         sprite.LayerSetVisible(layer, false);
     }
-
-    private bool IsThrown(Entity<XenoLeapingComponent?, ThrownItemComponent?, ActiveXenoToggleChargingComponent?> xeno)
-    {
-        return xeno.Comp1 != null ||
-               xeno.Comp2 != null ||
-               Resolve(xeno, ref xeno.Comp3, false) && xeno.Comp3.Stage > 0;
-    }
-
     public override void Update(float frameTime)
     {
         var xenoQuery = EntityQueryEnumerator<XenoComponent>();

@@ -6,6 +6,7 @@ using Content.Shared.Eye;
 using Content.Shared.Roles;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Audio;
 
 namespace Content.Shared._RMC14.Xenonids;
 
@@ -59,4 +60,7 @@ public sealed partial class XenoComponent : Component
 
     [DataField, AutoNetworkedField]
     public VisibilityFlags Visibility = VisibilityFlags.Xeno;
+
+    [DataField, AutoNetworkedField]
+    public SoundSpecifier XenoSound = new SoundCollectionSpecifier("XenoQueenCommand", AudioParams.Default.WithVolume(-6));
 }

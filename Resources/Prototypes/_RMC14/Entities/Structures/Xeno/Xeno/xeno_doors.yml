@@ -78,22 +78,12 @@
   - type: XenoStructureUpgradeable
     to: DoorXenoResinThick
     cost: 25
-  - type: MeleeReceivedMultiplier
-    xenoDamage:
-      types:
-        Slash: 600
   - type: XenoConstructionRequiresSupport
   - type: ExplosionResistance
     damageCoefficient: 7.5 # Doors take 15x explosive damage, resin doors reduce that by 50%
   - type: XenoConstruct
   - type: ResinDoor
   - type: AllowWeedSpread
-  - type: ResinSurgeReinforcable
-  - type: RMCDeleteAnchoredOnInit
-    whitelist: { }
-  - type: XenoToggleChargingDamage
-    stageLoss: 2
-    destroy: true
 
 - type: entity
   parent: DoorXenoResin
@@ -133,10 +123,6 @@
   - type: IconSmooth
     key: walls
     mode: NoSprite
-  - type: MeleeReceivedMultiplier
-    xenoDamage:
-      types:
-        Slash: 900
   - type: XenoConstructionPlasmaCost
     plasma: 145
   - type: XenoStructureUpgradeable

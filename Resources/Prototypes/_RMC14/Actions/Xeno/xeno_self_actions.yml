@@ -23,27 +23,6 @@
     state: resting
 
 - type: entity
-  id: ActionXenoWatch
-  parent: ActionXenoBase
-  name: Watch Xenonid
-  components:
-  - type: InstantAction
-    itemIconStyle: NoItem
-    icon:
-      sprite: _RMC14/Actions/xeno_actions.rsi
-      state: watch_xeno
-    event: !type:XenoWatchActionEvent
-
-- type: entity
-  parent: CMGuidebookActionXenoBase
-  id: RMCGuidebookActionXenoWatch
-  name: Watch Xenonid
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: Sprite
-      state: watch_xeno
-
-- type: entity
   id: ActionXenoHide
   parent: ActionXenoBase
   name: Hide
@@ -122,7 +101,6 @@
     event: !type:XenoWordQueenActionEvent
     useDelay: 10
   - type: XenoWordQueenAction
-  - type: RMCDazeableAction
 
 - type: entity
   id: ActionXenoGrowOvipositor
@@ -195,46 +173,6 @@
   components:
     - type: Sprite
       state: reserve_parasite
-
-- type: entity
-  parent: ActionXenoBase
-  id: ActionXenoManageHive
-  name: Manage The Hive
-  components:
-  - type: InstantAction
-    itemIconStyle: NoItem
-    icon:
-      sprite: _RMC14/Actions/xeno_actions.rsi
-      state: xeno_readmit
-    event: !type:ManageHiveActionEvent
-    useDelay: 0.5
-
-- type: entity
-  parent: ActionXenoBase
-  id: ActionXenoBurrow
-  name: Burrow
-  description: Burrow underground preventing you from getting hit from all sources. Once burrowed click a tile to move to it and resurface after a doafter that depends on distance.
-  components:
-  - type: WorldTargetAction
-    itemIconStyle: NoItem
-    icon:
-      sprite: _RMC14/Actions/xeno_actions.rsi
-      state: burrow
-    event: !type:XenoBurrowActionEvent
-    range: 8
-    repeat: true
-    deselectOnMiss: false
-    checkCanAccess: false
-    checkCanInteract: false
-  - type: ActionBlockIfResting
-
-- type: entity
-  parent: CMGuidebookActionXenoBase
-  id: RMCGuidebookActionXenoBurrow
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: Sprite
-      state: burrow
 
 - type: entity
   parent: ActionXenoBase

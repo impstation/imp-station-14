@@ -1,4 +1,5 @@
 using Content.Server.Atmos.Components;
+using Content.Shared.Atmos.Components;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.NPC.Queries;
 using Content.Server.NPC.Queries.Considerations;

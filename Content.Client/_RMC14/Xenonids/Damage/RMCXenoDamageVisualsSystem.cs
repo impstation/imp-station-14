@@ -31,12 +31,6 @@ public sealed class RMCXenoDamageVisualsSystem : VisualizerSystem<RMCXenoDamageV
             return;
         }
 
-        if (AppearanceSystem.TryGetData(uid, RMCXenoStateVisuals.Fortified, out bool fortified) && fortified)
-        {
-            sprite.LayerSetState(layer, $"{component.Prefix}_fortify_{state}");
-            return;
-        }
-
         if (AppearanceSystem.TryGetData(uid, RMCXenoStateVisuals.Resting, out bool resting) && resting)
         {
             sprite.LayerSetState(layer, $"{component.Prefix}_rest_{state}");

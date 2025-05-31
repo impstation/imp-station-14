@@ -4,7 +4,6 @@
   - CMXenoDeveloped
   - CMXenoFlammable
   - RMCXenoSpeechSounds
-  - RMCXenoCommendationReceiver
   - RMCXenoMobCollision
   id: CMXenoPraetorianBase
   name: Praetorian
@@ -29,10 +28,8 @@
     actionIds:
     - ActionXenoRest
     - ActionXenoRegurgitate
-    - ActionXenoWatch
     - ActionXenoAcidNormal
     - ActionXenoSpit
-    - ActionXenoDash
     - ActionXenoAcidBall
     - ActionXenoDevolve
     tier: 3
@@ -62,7 +59,6 @@
         density: 185
         mask:
         - MobMask
-        - BarbedBarricade
         layer:
         - MobLayer
       fix2:
@@ -90,6 +86,4 @@
     knockdownTime: 0
     range: 6
     moveDelayTime: 0
-  - type: XenoShield
-    shield: Praetorian
   - type: XenoAcidBall

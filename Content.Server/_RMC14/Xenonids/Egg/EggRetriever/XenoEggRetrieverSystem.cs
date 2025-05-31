@@ -4,7 +4,6 @@ using Content.Shared._RMC14.Xenonids.Announce;
 using Content.Shared._RMC14.Xenonids.Egg;
 using Content.Shared._RMC14.Xenonids.Egg.EggRetriever;
 using Content.Shared._RMC14.Xenonids.Evolution;
-using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared._RMC14.Xenonids.Plasma;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
@@ -23,7 +22,6 @@ public sealed partial class XenoEggRetrieverSystem : SharedXenoEggRetrieverSyste
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly EntityManager _entities = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedXenoHiveSystem _hive = default!;
     [Dependency] private readonly ThrowingSystem _throw = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedXenoAnnounceSystem _announce = default!;
@@ -95,8 +93,6 @@ public sealed partial class XenoEggRetrieverSystem : SharedXenoEggRetrieverSyste
         if (RemoveEgg(eggRetriever) is not EntityUid newEgg)
             return;
 
-        _hive.SetSameHive(eggRetriever.Owner, newEgg);
-
         _hands.TryPickupAnyHand(eggRetriever, newEgg);
 
         var unstashMsg = Loc.GetString("cm-xeno-retrieve-egg-unstash-egg", ("cur_eggs", eggRetriever.Comp.CurEggs), ("max_eggs", eggRetriever.Comp.MaxEggs));
@@ -149,7 +145,6 @@ public sealed partial class XenoEggRetrieverSystem : SharedXenoEggRetrieverSyste
         XenoComponent? xenComp = null;
         TryComp(xeno, out xenComp);
         bool eggDropped = false;
-        var hive = _hive.GetHive(xeno.Owner);
 
         for (var i = 0; i < xeno.Comp.CurEggs; ++i)
         {
@@ -157,14 +152,11 @@ public sealed partial class XenoEggRetrieverSystem : SharedXenoEggRetrieverSyste
                 continue;
             eggDropped = true;
             var newEgg = Spawn(xeno.Comp.EggPrototype);
-            _hive.SetHive(newEgg, hive);
             _transform.DropNextTo(newEgg, xeno.Owner);
             _throw.TryThrow(newEgg, _random.NextAngle().RotateVec(Vector2.One) * _random.NextFloat(0.15f, 0.7f), 3);
         }
         xeno.Comp.CurEggs = 0; // Just in case
         _appearance.SetData(xeno, XenoEggStorageVisuals.Number, xeno.Comp.CurEggs);
-        if (chance != 1.0 && eggDropped)
-            _announce.AnnounceSameHive(xeno.Owner, Loc.GetString("rmc-xeno-egg-carrier-death", ("xeno", xeno)));
 
         Dirty(xeno);
         return true;

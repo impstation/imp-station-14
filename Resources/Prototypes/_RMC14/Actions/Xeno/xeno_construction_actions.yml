@@ -32,7 +32,6 @@
       state: place_resin
     event: !type:XenoChooseStructureActionEvent
   - type: XenoChooseConstructionAction
-  - type: RMCDazeableAction
 
 - type: entity
   parent: CMGuidebookActionXenoBase
@@ -62,7 +61,6 @@
     checkStructureSelected: true
     checkWeeds: true
     canUpgrade: true
-  - type: RMCDazeableAction
 
 - type: entity
   parent: CMGuidebookActionXenoBase
@@ -92,7 +90,6 @@
     checkStructureSelected: true
     checkWeeds: true
     canUpgrade: false
-  - type: RMCDazeableAction
 
 - type: entity
   id: ActionXenoOrderConstruction
@@ -111,7 +108,6 @@
   - type: XenoConstructionAction
     checkStructureSelected: false
     checkWeeds: false
-  - type: RMCDazeableAction
 
 - type: entity
   parent: CMGuidebookActionXenoBase
@@ -122,21 +118,6 @@
   components:
     - type: Sprite
       state: morph_resin
-
-- type: entity
-  id: ActionXenoResinHole
-  parent: ActionXenoBase
-  name: Plant Resin Hole (200)
-  description: Places a resin hole on weeds. It can be filled with boiler gas, acid, or parasites.
-  components:
-  - type: InstantAction
-    itemIconStyle: NoItem
-    icon:
-      sprite: _RMC14/Actions/xeno_actions.rsi
-      state: place_trap
-    event: !type:XenoPlaceResinHoleActionEvent
-    useDelay: 1
-  - type: RMCDazeableAction
 
 - type: entity
   parent: CMGuidebookActionXenoBase
@@ -161,28 +142,6 @@
       plasmaCost: 125
       prototype: XenoHardyWeedsSource
     useDelay: 120
-
-- type: entity
-  id: ActionXenoDigTunnel
-  parent: ActionXenoBase
-  name: Dig Tunnel (200)
-  description: Dig a tunnel for speedy transportation across the hive.
-  components:
-  - type: InstantAction
-    event: !type:XenoDigTunnelActionEvent
-    itemIconStyle: NoItem
-    icon:
-      sprite: _RMC14/Actions/xeno_actions.rsi
-      state: build_tunnel
-    useDelay: 300
-
-- type: entity
-  parent: CMGuidebookActionXenoBase
-  id: RMCGuidebookActionXenoDigTunnel
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: Sprite
-      state: build_tunnel
 
 # For lesser drone
 - type: entity

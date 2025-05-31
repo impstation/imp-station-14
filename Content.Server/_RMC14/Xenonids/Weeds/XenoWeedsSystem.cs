@@ -3,7 +3,6 @@ using Content.Server.Atmos.Components;
 using Content.Server.Spreader;
 using Content.Shared._RMC14.Map;
 using Content.Shared._RMC14.Xenonids.Construction.Nest;
-using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared._RMC14.Xenonids.Weeds;
 using Content.Shared.Atmos;
 using Content.Shared.Coordinates;
@@ -19,7 +18,6 @@ namespace Content.Server._RMC14.Xenonids.Weeds;
 public sealed class XenoWeedsSystem : SharedXenoWeedsSystem
 {
     [Dependency] private readonly MapSystem _mapSystem = default!;
-    [Dependency] private readonly SharedXenoHiveSystem _hive = default!;
     [Dependency] private readonly MapSystem _map = default!;
     [Dependency] private readonly RMCMapSystem _rmcMap = default!;
     [Dependency] private readonly TagSystem _tag = default!;
@@ -146,8 +144,6 @@ public sealed class XenoWeedsSystem : SharedXenoWeedsSystem
                 neighborWeedsComp.IsSource = false;
                 neighborWeedsComp.Source = source;
                 sourceWeeds?.Spread.Add(neighborWeeds);
-
-                _hive.SetSameHive(uid, neighborWeeds);
 
                 Dirty(neighborWeeds, neighborWeedsComp);
 

@@ -6,7 +6,6 @@ using Robust.Shared.Audio;
 using Robust.Shared.Player;
 
 namespace Content.Shared._RMC14.Xenonids.Announce;
-
 public abstract class SharedXenoAnnounceSystem : EntitySystem
 {
     [Dependency] private readonly XenoEvolutionSystem _xenoEvolution = default!;

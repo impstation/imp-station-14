@@ -3,7 +3,6 @@
   - CMXenoDeveloped
   - CMXenoFlammable
   - RMCXenoSpeechSounds
-  - RMCXenoCommendationReceiver
   - RMCXenoMobCollision
   id: CMXenoSentinel
   name: Sentinel
@@ -31,11 +30,9 @@
     actionIds:
     - ActionXenoRest
     - ActionXenoRegurgitate
-    - ActionXenoWatch
     - ActionXenoAcidWeak
     - ActionXenoSlowingSpit
     - ActionXenoScatteredSpit
-    - ActionXenoParalyzingSlash
     - ActionXenoDevolve
     tier: 1
     hudOffset: -0.15,0.157

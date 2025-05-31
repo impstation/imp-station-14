@@ -96,7 +96,6 @@
       sprite: _RMC14/Actions/xeno_actions.rsi
       state: regurgitate
     event: !type:XenoRegurgitateActionEvent
-  - type: RMCDazeableAction
 
 - type: entity
   id: ActionXenoLeap
@@ -113,7 +112,6 @@
     range: 15
     useDelay: 3
     checkCanAccess: false
-  - type: RMCDazeableAction
 
 - type: entity
   id: ActionXenoTailSweep
@@ -128,7 +126,6 @@
       state: tail_sweep
     event: !type:XenoTailSweepActionEvent
     useDelay: 15
-  - type: RMCDazeableAction
 
 - type: entity
   parent: CMGuidebookActionXenoBase
@@ -246,7 +243,6 @@
     useDelay: 7
     deselectOnMiss: false
   - type: XenoOffensiveAction
-  - type: RMCDazeableAction
 
 - type: entity
   parent: CMGuidebookActionXenoBase
@@ -272,7 +268,6 @@
     useDelay: 10
     deselectOnMiss: false
   - type: XenoOffensiveAction
-  - type: RMCDazeableAction
 
 - type: entity
   parent: CMGuidebookActionXenoBase

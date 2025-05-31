@@ -60,11 +60,6 @@
       - CMActionGhost
   - type: Deathgasp
     prototype: CMXenoDeathGasp
-  - type: SoundOnDeath
-    sound:
-      collection: XenoDeath
-      params:
-        volume: -4
   - type: HealthExaminable
     examineShowEmpty: false
     examinableTypes:
@@ -152,8 +147,6 @@
         type: XenoEvolutionBui
       enum.XenoDevolveUIKey.Key:
         type: XenoDevolveBui
-      enum.XenoWatchUIKey.Key:
-        type: XenoWatchBui
       enum.XenoChooseStructureUI.Key:
         type: XenoChooseStructureBui
       enum.XenoOrderConstructionUI.Key:
@@ -165,8 +158,6 @@
       enum.XenoParasiteGhostUI.Key:
         type: XenoParasiteGhostBui
         requireInputValidation: false
-      enum.DialogUiKey.Key:
-        type: DialogBui
   - type: TypingIndicator
     proto: alien
   - type: MovedByPressure
@@ -208,10 +199,6 @@
     channels:
     - Hivemind
   - type: StandingState
-  - type: DamageMobState
-    critDamage:
-      groups:
-        Brute: 1.25
   - type: AffectableByWeeds
   - type: ComplexInteraction
   - type: MovementIgnoreGravity
@@ -220,11 +207,6 @@
   - type: NpcFactionMember
     factions:
     - Xeno
-  - type: UserBlacklistActivatableUI
-    keys:
-    - enum.VendingMachineUiKey.Key
-    - enum.PaperUiKey.Key
-  - type: InputMover
   - type: RequireProjectileTarget
     active: false
   - type: Buckle
@@ -333,7 +315,6 @@
   components:
   - type: MobCollision
     minimumSpeedModifier: 0.25
-  - type: RMCMobCollision
 
 - type: speechVerb
   id: Xeno
