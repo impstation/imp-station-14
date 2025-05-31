@@ -1696,6 +1696,14 @@
       state: intakelong
 
 - type: marking
+  id: HumanHairIntakeShort
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
+      state: intakeshort
+
+- type: marking
   id: HumanHairLiberator
   bodyPart: Hair
   markingCategory: Hair
@@ -1726,14 +1734,6 @@
   sprites:
     - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
       state: asymbun
-
-- type: marking
-  id: HumanHairIntakeShort
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
-      state: intakeshort
 
 - type: marking
   id: HumanHairDrillTail
