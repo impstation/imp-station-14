@@ -1,7 +1,7 @@
 - type: entity
   name: devil's fist
   id: NullRodGloveEvil
-  parent: [ NullRodGlove, ClothingHandsInedibleBase]
+  parent: NullRodGlove
   description: The devil works quick, and this gauntlet is no exception.
   components:
   - type: Sprite
