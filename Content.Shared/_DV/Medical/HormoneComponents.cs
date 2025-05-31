@@ -23,3 +23,11 @@ public sealed partial class FeminizedComponent : Component, IHormoneComponent {
     [DataField("original")]
     public Sex? Original { get; set; } = null;
 }
+
+[RegisterComponent, NetworkedComponent]
+public sealed partial class AndrogynizedComponent : Component, IHormoneComponent { // imp
+    public Sex Target => Sex.Unsexed;
+
+    [DataField("original")]
+    public Sex? Original { get; set; } = null;
+}
