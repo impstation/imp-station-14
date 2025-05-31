@@ -3,7 +3,7 @@
   parent: BaseItem
   id: SheetGlassBase
   name: glass
-  description: A sheet of glass, used often on the station in various applications.
+  description: You'd know it if you couldn't see it. Try not to smudge it. Or smash it. # imp
   components:
   - type: Sprite
     sprite: Objects/Materials/Sheets/glass.rsi
@@ -132,7 +132,7 @@
   parent: SheetGlassBase
   id: SheetRGlass
   name: reinforced glass
-  description: A reinforced sheet of glass.
+  description: Glass that's been made stronger. Tough enough to stand up to space, and no longer brittle enough to yield to your fists. # imp
   suffix: Full
   components:
   - type: PhysicalComposition
@@ -222,7 +222,7 @@
   parent: SheetGlassBase
   id: SheetPGlass
   name: plasma glass
-  description: A sheet of translucent plasma.
+  description: A naturally-occurring silicon-plasma mix, melted into glass. Looking through it makes everything feel better. # imp
   suffix: Full
   components:
   - type: PhysicalComposition
@@ -307,7 +307,7 @@
   parent: SheetPGlass
   id: SheetRPGlass
   name: reinforced plasma glass
-  description: A reinforced sheet of translucent plasma.
+  description: Plasma, silicon, steel. Each marks an epochal leap-forward in industry. These titans of the periodic table join forces to form... some strong pink glass. # imp
   suffix: Full
   components:
   - type: PhysicalComposition
@@ -372,7 +372,7 @@
   parent: SheetGlassBase
   id: SheetUGlass
   name: uranium glass
-  description: A sheet of uranium glass.
+  description: Glass which had uranium added to its mix prior to melting, giving it a trademark green tint. Perfect for fiestas. # imp
   suffix: Full
   components:
   - type: PhysicalComposition
@@ -457,7 +457,7 @@
   parent: SheetUGlass
   id: SheetRUGlass
   name: reinforced uranium glass
-  description: A reinforced sheet of uranium.
+  description: Tough green glass made with the stuff of nukes, but probably still not tough enough to survive a nuclear blast. #imp
   components:
   - type: PhysicalComposition
     materialComposition:
