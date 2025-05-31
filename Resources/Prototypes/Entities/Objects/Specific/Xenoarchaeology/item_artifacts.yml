@@ -65,6 +65,9 @@
   - type: GuideHelp
     guides:
     - Xenoarchaeology
+  - type: WarpPoint # imp addition
+  - type: NameIdentifier # imp addition
+    group: Artifact
 
 - type: entity
   parent: BaseXenoArtifactItem
