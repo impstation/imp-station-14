@@ -205,6 +205,11 @@
           32:
             sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi
             state: belt
+      back:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi
+            state: back
   #- type: CosmicStarMarkOffset
   #  offset: 0, 0.375
 
@@ -245,7 +250,11 @@
           32:
             sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi
             state: belt
-
+      back:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi
+            state: back
 
 #TODO: Make the burst fire work and use thirst as ammo
 - type: entity
