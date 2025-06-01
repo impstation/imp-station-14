@@ -171,4 +171,14 @@
   weights:
     EscapeThiefShuttleObjective: 1
 
+- type: weightedRandom
+  id: WizardPridefulGroup # imp
+  weights:
+     WizardRespectObjectived: 1
+     WizardChaosObjective: 1
+     WizardFearObjective: 1
+     WizardJusticeObjective: 1
+     WizardBenefactorObjective: 1
+     WizardGetRealObjective: 1
+
 #Crew, wizard, when you code it...

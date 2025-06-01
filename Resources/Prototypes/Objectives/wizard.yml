@@ -33,6 +33,7 @@
       sprite: Objects/Magic/magicactions.rsi
       state: fireball
 
+## IMP Random Objectives
 - type: entity
   parent: [BaseWizardObjective, BaseFreeObjective]
   id: WizardRespectObjective
@@ -43,3 +44,64 @@
     icon:
       sprite: Objects/Magic/magicactions.rsi
       state: spell_default
+    difficulty: 1
+
+- type: entity
+  parent: [BaseWizardObjective, BaseFreeObjective]
+  id: WizardChaosObjective
+  name: Agent of Chaos
+  description: A wizard is nothing if not unpredictable. Keep 'em guessing!
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: spell_default
+    difficulty: 1
+
+- type: entity
+  parent: [BaseWizardObjective, BaseFreeObjective]
+  id: WizardFearObjective
+  name: Inspire Fear
+  description: Force these cowards to quake in fear at the very mention of your name
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: spell_default
+    difficulty: 1
+
+- type: entity
+  parent: [BaseWizardObjective, BaseFreeObjective]
+  id: WizardJusticeObjective
+  name: Force of Justice
+  description: You are the sole arbiter of Right and Wrong. Teach these fools the difference.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: spell_default
+    difficulty: 1
+
+- type: entity
+  parent: [BaseWizardObjective, BaseFreeObjective]
+  id: WizardBenefactorObjective
+  name: Malevolent Benefactor
+  description: It may be amusing to humor the requests of these whelps... and make them regret asking.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: spell_default
+    difficulty: 1
+
+- type: entity
+  parent: [BaseWizardObjective, BaseFreeObjective]
+  id: WizardGetRealObjective
+  name: Get Real!
+  description: Nobody takes life seriously anymore. Give 'em a cold dose of reality.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: spell_default
+    difficulty: 1
