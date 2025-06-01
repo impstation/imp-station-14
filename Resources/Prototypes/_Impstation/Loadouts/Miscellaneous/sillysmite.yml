@@ -28,3 +28,26 @@
   equipment:
     head: ClothingHeadHalo
     neck: ClothingNeckAngelWings
+
+# caveman
+- type: startingGear
+  id: CaveMan
+  equipment:
+    jumpsuit: ClothingUniformCavemanHides
+
+# sailor
+- type: startingGear
+  id: Sailor
+  equipment:
+    jumpsuit: ClothingUniformSailorSuit
+    neck: ClothingNeckSailorAscot
+    head: ClothingHeadSailorCap
+    shoes: ClothingShoesBootsLaceup
+
+# burglar
+- type: startingGear
+  id: Sailor
+  equipment:
+    jumpsuit: ClothingUniformBurglarJumpsuit
+    mask: ClothingMaskBurglarMask
+    shoes: ClothingShoesBootsLaceup
