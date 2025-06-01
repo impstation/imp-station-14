@@ -404,7 +404,10 @@
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/jesterevil.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/jesterevil.rsi
-    
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
 - type: entity 
   parent: [ClothingUniformBase, BaseCentcommContraband]
   id: ClothingUniformCBURN
@@ -415,4 +418,6 @@
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/cburn.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/cburn.rsi
-
+  - type: Tag
+    tags:
+    - WhitelistChameleon
