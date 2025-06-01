@@ -438,7 +438,15 @@ marking-HumanHairDrillTail = Ponytail (Drill)
 
 marking-HumanHairFringeRat = Fringe Bangs (Rat Tail)
 
+marking-HumanHairBraidedMed = Braided (Medium)
+
+marking-HumanHairLocsTied = Tied Locs
+
+marking-HumanHairCurlyPerm = Curly Perm
+
 marking-HumanHairKelly = Poster Person
+
+marking-HumanHairWavyLong = Wavy Long
 
 marking-HumanHairChonmage = Chonmage
 

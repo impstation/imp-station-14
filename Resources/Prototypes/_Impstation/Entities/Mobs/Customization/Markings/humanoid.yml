@@ -1752,12 +1752,44 @@
       state: fringerat
 
 - type: marking
+  id: HumanHairBraidedMed
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
+      state: braidedmedium
+
+- type: marking
+  id: HumanHairLocsTied
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
+      state: locstied
+
+- type: marking
+  id: HumanHairCurlyPerm
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
+      state: curlyperm
+
+- type: marking
   id: HumanHairKelly
   bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
       state: posterperson
+
+- type: marking
+  id: HumanHairWavyLong
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
+      state: wavylong
 
 - type: marking
   id: HumanHairChonmage
