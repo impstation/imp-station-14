@@ -1688,14 +1688,6 @@
       state: fringetail
 
 - type: marking
-  id: HumanHairIntakeLong
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
-      state: intakelong
-
-- type: marking
   id: HumanHairAsymBun
   bodyPart: Hair
   markingCategory: Hair
@@ -1710,6 +1702,14 @@
   sprites:
     - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
       state: intakeshort
+
+- type: marking
+  id: HumanHairIntakeLong
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
+      state: intakelong
 
 - type: marking
   id: HumanHairLiberator

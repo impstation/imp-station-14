@@ -446,7 +446,7 @@ marking-HumanHairCurlyPerm = Curly Perm
 
 marking-HumanHairKelly = Poster Person
 
-marking-HumanHairWavyLong = Wavy Long
+marking-HumanHairWavyLong = Wavy Hair (Long)
 
 marking-HumanHairMiddlePart = Middle Part
 

@@ -651,7 +651,7 @@ marking-CurlyPermThaven = Curly Perm
 
 marking-KellyThaven = Poster Person
 
-marking-WavyLongThaven = Wavy Long
+marking-WavyLongThaven = Wavy Hair (Long)
 
 marking-MiddlePartThaven = Middle Part
 

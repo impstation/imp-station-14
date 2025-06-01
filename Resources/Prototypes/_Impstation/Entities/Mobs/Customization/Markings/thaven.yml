@@ -2577,6 +2577,15 @@
     state: fringeratthaven
 
 - type: marking
+  id: WavyLongThaven
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Thaven ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/hair.rsi
+    state: wavylongthaven
+
+- type: marking
   id: MiddlePartThaven
   bodyPart: Hair
   markingCategory: Hair
