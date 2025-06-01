@@ -1,0 +1,3 @@
+prayer-chat-notify-wizard = WIZARD
+
+prayer-popup-notify-wizard-sent = You left a voicemail message for Space Wizards Federation...
