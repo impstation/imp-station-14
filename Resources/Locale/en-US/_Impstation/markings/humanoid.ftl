@@ -454,6 +454,8 @@ marking-HumanHairChonmage = Chonmage
 
 marking-HumanHairAdoringFan = Adoring Fan
 
+marking-HumanHairBabyHair = Baby Hair
+
 # HeadSide
 
 # HeadTop
