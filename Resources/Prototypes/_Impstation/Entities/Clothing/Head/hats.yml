@@ -261,6 +261,9 @@
   - type: Clothing
     sprite: Clothing/Head/Hats/holyhatmelon.rsi
   - type: Armor
+  - type: Tag
+    tags:
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingHeadBase
