@@ -621,6 +621,42 @@ marking-ShaggyLongerThaven = Shaggy (Longer)
 
 marking-SusieThaven = Mean Girl (Bangs)
 
+marking-EyeBangLongThaven = Eye-Bang (Long)
+
+marking-EyeBangSideTailThaven = Eye-Bang (Side Tail)
+
+marking-OverEyesThaven = Over-Eyes
+
+marking-OverEyesTailThaven = Over-Eyes (Long Tail)
+
+marking-FringeTailThaven = Fringe Bangs (Messy Tail)
+
+marking-AsymBunThaven = Asymmetrical Bun
+
+marking-IntakeShortThaven = Intake (Short)
+
+marking-IntakeLongThaven = Intake (Long)
+
+marking-LiberatorThaven = Liberator (Medium)
+
+marking-LiberatorTiedThaven = Liberator (Tied)
+
+marking-LiberatorShortThaven = Liberator (Short)
+
+marking-BraidedMediumThaven = Braided (Medium)
+
+marking-TiedLocsThaven = Tied Locs
+
+marking-CurlyPermThaven = Curly Perm
+
+marking-KellyThaven = Poster Person
+
+marking-WavyLongThaven = Wavy Long
+
+marking-MiddlePartThaven = Middle Part
+
+marking-ChonmageThaven = Chonmage
+
 # HeadSide
 
 marking-ThavenEars1 = Small Ears

@@ -448,6 +448,8 @@ marking-HumanHairKelly = Poster Person
 
 marking-HumanHairWavyLong = Wavy Long
 
+marking-HumanHairMiddlePart = Middle Part
+
 marking-HumanHairChonmage = Chonmage
 
 marking-HumanHairAdoringFan = Adoring Fan
