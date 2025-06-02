@@ -438,3 +438,17 @@
     tags:
     - WhitelistChameleon
     - ClothMade
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCentcommContraband]
+  id: ClothingUniformImpishOutfit
+  name: impish outfit
+  description: 
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Other/impishoutfit.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Other/impishoutfit.rsi
+  - type: Tag
+    tags:
+    - ClothMade
