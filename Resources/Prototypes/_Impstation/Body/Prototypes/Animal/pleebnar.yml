@@ -1,0 +1,22 @@
+- type: body
+  id: pleebnar
+  name: "Pleebnar"
+  root: torso
+  slots:
+    torso:
+      part: TorsoAnimal
+      connections:
+      - legs
+      organs:
+        stomach: OrganGrayStomach
+        lungs: OrganAnimalLungs
+        liver: OrganAnimalLiver
+        heart: OrganAnimalHeart
+        kidneys: OrganAnimalKidneys
+        eyes: OrganGrayEyes
+    legs:
+      part: LegsAnimal
+      connections:
+      - feet
+    feet:
+      part: FeetAnimal

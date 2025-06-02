@@ -30,13 +30,7 @@ public sealed class PleebnarTelepathyVisionMessage : BoundUserInterfaceMessage
         Vision = vision;
     }
 }
-public sealed class PleebnarTelepathyConfirmMessage : BoundUserInterfaceMessage
-{
 
-    public PleebnarTelepathyConfirmMessage()
-    {
-    }
-}
 public abstract partial class SharedPleebnarTelepathySystem : EntitySystem
 {
 
@@ -53,7 +47,6 @@ public abstract partial class SharedPleebnarTelepathySystem : EntitySystem
 
     public sealed partial class PleebnarTelepathyEvent : EntityTargetActionEvent;
     public sealed partial class PleebnarVisionEvent : InstantActionEvent;
-
     [Serializable, NetSerializable]
     public sealed partial class PleebnarTelepathyDoAfterEvent : SimpleDoAfterEvent;
 

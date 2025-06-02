@@ -1,4 +1,5 @@
 using Content.Shared.Speech;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -14,6 +15,14 @@ public sealed partial class PleebnarTelepathyActionComponent : Component
     public string? TelepathyActionId = "ActionPleebnarTelepathy";
 
     [DataField]
+    public SoundSpecifier? Announce = new SoundPathSpecifier("/Audio/_Impstation/Animals/pleebnar_weird.ogg")
+    {
+        Params = AudioParams.Default.WithVolume(4)
+    };
+
+    [DataField]
+    public string? announceAudioPath = "/Audio/_Impstation/Animals/pleebnar_weird.ogg";
+    [DataField]
     public EntityUid? VisionAction;
 
     [DataField]
@@ -21,4 +30,6 @@ public sealed partial class PleebnarTelepathyActionComponent : Component
 
     [DataField]
     public string? PleebnarVison;
+    [DataField]
+    public string? PleebnarVisonName;
 }

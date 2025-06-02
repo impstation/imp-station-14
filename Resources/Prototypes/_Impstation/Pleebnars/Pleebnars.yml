@@ -7,13 +7,13 @@
   - type: VentCrawler # imp edit
     enterDelay: 1
   - type: Body
-    prototype: Mouse
+    prototype: pleebnar
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
     allowMovement: true
-    name: ghost-role-information-mouse-name
-    description: ghost-role-information-mouse-description
+    name: ghost-role-information-pleebnar-name
+    description: ghost-role-information-pleebnar-description
     rules: ghost-role-information-freeagent-rules
     mindRoles:
     - MindRoleGhostRoleFreeAgentHarmless
@@ -127,6 +127,7 @@
       types:
         Piercing: 0
   - type: Bloodstream
+    bloodReagent: GrayBlood
     bloodMaxVolume: 50
 #  - type: CanEscapeInventory
   - type: FireVisuals
@@ -135,14 +136,14 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Mouse
-  - type: NightVision # EE edit
-    isActive: true
-    toggleAction: null
-    color: "#50595C"
-    activateSound: null
-    deactivateSound: null
+  - type: PointLight
+    enabled: true
+    color: "#8bff82"
+    radius: 1.5
+  - type: PleebnarGibbable
   - type: Appearance
   - type: PleebnarTelepathyAction
+  - type: PleebnarGibAction
   - type: UserInterface
     interfaces:
       enum.PleebnarTelepathyUIKey.Key:

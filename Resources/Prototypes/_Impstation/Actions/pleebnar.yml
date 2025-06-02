@@ -25,3 +25,18 @@
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: absorb_dna
+- type: entity
+  id: ActionPleebnarGib
+  name: Gib
+  description: Gib a small animal with your mind powers!
+  components:
+  - type: EntityTargetAction
+    range: 15
+    event: !type:PleebnarGibEvent
+    useDelay: 30
+    canTargetSelf: true
+    interactOnMiss: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: absorb_dna
