@@ -11,6 +11,11 @@
 - type: latheRecipe
   abstract: true
   parent: BaseTileRecipe
+  id: TESTRECIPE
+
+- type: latheRecipe
+  abstract: true
+  parent: BaseTileRecipe
   id: BaseWoodTileRecipe
   materials:
     Wood: 25
