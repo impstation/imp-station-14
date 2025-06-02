@@ -398,23 +398,27 @@ namespace Content.Client.Hands.Systems
         }
         #endregion
 
-        private void AddHand(EntityUid uid, Hand newHand, HandsComponent? handsComp = null)
+        // imp added return type, was void
+        private Hand? AddHand(EntityUid uid, Hand newHand, HandsComponent? handsComp = null)
         {
-            AddHand(uid, newHand.Name, newHand.Location, handsComp);
+            return AddHand(uid, newHand.Name, newHand.Location, handsComp); // imp added return
         }
 
-        public override void AddHand(EntityUid uid, string handName, HandLocation handLocation, HandsComponent? handsComp = null)
+        // imp added return type, was void
+        public override Hand? AddHand(EntityUid uid, string handName, HandLocation handLocation, HandsComponent? handsComp = null)
         {
-            base.AddHand(uid, handName, handLocation, handsComp);
+            var newHand = base.AddHand(uid, handName, handLocation, handsComp); // imp edit
 
             if (uid == _playerManager.LocalEntity)
                 OnPlayerAddHand?.Invoke(handName, handLocation);
 
             if (handsComp == null)
-                return;
+                return newHand; // imp edit
 
             if (handsComp.ActiveHand == null)
                 SetActiveHand(uid, handsComp.Hands[handName], handsComp);
+
+            return newHand; // imp add
         }
         public override void RemoveHand(EntityUid uid, string handName, HandsComponent? handsComp = null)
         {

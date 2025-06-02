@@ -6,13 +6,12 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Body.Part;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage.Systems;
-using Content.Shared.Decapoids.Components; // Imp
 using Content.Shared.Explosion;
+using Content.Shared.Hands; // Imp, believe it or not
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Input;
 using Content.Shared.Inventory.VirtualItem;
-using Content.Shared.Item; // Imp
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Pulling.Systems;
@@ -133,16 +132,12 @@ namespace Content.Server.Hands.Systems
                 _ => throw new ArgumentOutOfRangeException(nameof(args.Part.Comp.Symmetry))
             };
 
-            AddHand(uid, args.Slot, location);
-
-            // ImpStation - for giving Decapoids their claws
-            if (TryComp<InnateHeldItemComponent>(args.Part, out var innateHeldItem))
+            var newHand = AddHand(uid, args.Slot, location, component); // imp edit
+            if (newHand != null) // imp add
             {
-                var item = Spawn(innateHeldItem.ItemPrototype);
-                if (!TryPickup(uid, item, component.Hands[component.SortedHands[^1]], false, false, component, Comp<ItemComponent>(item)))
-                {
-                    Log.Error("Failed to put innately held item into hand");
-                }
+                var evt = new HandAddedEvent_Imp((uid, component), newHand); // imp event
+                RaiseLocalEvent(args.Part, evt);
+                RaiseLocalEvent(uid, evt);
             }
         }
 

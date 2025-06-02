@@ -310,6 +310,21 @@ namespace Content.Shared.Hands
         }
     }
 
+    /// <summary>
+    /// impstation. Event raised on the hand body part and the recevier getting the hand.
+    /// </summary>
+    public sealed class HandAddedEvent_Imp : EntityEventArgs
+    {
+        public HandAddedEvent_Imp(Entity<HandsComponent> receiver, Hand newHand)
+        {
+            Receiver = receiver;
+            NewHand = newHand;
+        }
+
+        public Entity<HandsComponent> Receiver { get; }
+        public Hand NewHand { get; }
+    }
+
     public sealed class HandCountChangedEvent : EntityEventArgs
     {
         public HandCountChangedEvent(EntityUid sender)
