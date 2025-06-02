@@ -47,19 +47,11 @@
     prefix: drone
   - type: XenoConstruction
     buildDelay: 2
-    canOrderConstruction:
-    - HiveCoreXenoConstructionNode
-    - HiveEggMorpherXenoConstructionNode
-    - HiveClusterXenoConstructionNode
-    - HiveRecoveryNodeXenoConstructionNode
   - type: XenoEvolution
     canEvolveWithoutGranter: true
-    max: 200
+    max: 10
     evolvesTo:
     - CMXenoPraetorian
-    - CMXenoSentinel
-    evolvesToWithoutPoints:
-    - CMXenoQueen
   - type: XenoInhands
     prefix: drone
 
@@ -75,13 +67,12 @@
   - type: Xeno
     actionIds:
     - ActionXenoRest
-    - ActionXenoRegurgitate
-    - ActionXenoAcidWeak
-    - ActionXenoOrderConstruction
     - ActionXenoPlantWeeds
+    - ActionXenoTransferPlasma
     - ActionXenoChooseStructure
     - ActionXenoSecreteStructure
-    - ActionXenoTransferPlasma
+    - ActionXenoAcidWeak
+    - ActionXenoRegurgitate
     - ActionXenoDevolve
   - type: XenoAcid
   - type: XenoConstruction

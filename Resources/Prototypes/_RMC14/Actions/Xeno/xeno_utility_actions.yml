@@ -6,19 +6,12 @@
   components:
   - type: EntityTargetAction
     itemIconStyle: NoItem
+    priority: -19
     icon:
-      sprite: _RMC14/Actions/xeno_actions.rsi
-      state: transfer_plasma
+      sprite: _Impstation/Actions/xeno_actions.rsi
+      state: alien_transfer
     event: !type:XenoTransferPlasmaActionEvent
     range: 2
-
-- type: entity
-  parent: CMGuidebookActionXenoBase
-  id: RMCGuidebookActionXenoTransferPlasma
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: Sprite
-      state: transfer_plasma
 
 - type: entity
   id: ActionXenoHealerDroneTransferPlasma
@@ -28,9 +21,10 @@
   components:
   - type: EntityTargetAction
     itemIconStyle: NoItem
+    priority: -19
     icon:
-      sprite: _RMC14/Actions/xeno_actions.rsi
-      state: transfer_plasma
+      sprite: _Impstation/Actions/xeno_actions.rsi
+      state: alien_transfer
     event: !type:XenoTransferPlasmaActionEvent
       amount: 100
     range: 1.5
@@ -43,9 +37,10 @@
   components:
   - type: EntityTargetAction
     itemIconStyle: NoItem
+    priority: -19
     icon:
-      sprite: _RMC14/Actions/xeno_actions.rsi
-      state: transfer_plasma
+      sprite: _Impstation/Actions/xeno_actions.rsi
+      state: alien_transfer
     event: !type:XenoTransferPlasmaActionEvent
       amount: 200
     range: 7

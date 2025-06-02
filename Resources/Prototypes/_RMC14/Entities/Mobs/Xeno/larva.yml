@@ -27,6 +27,7 @@
     actionIds:
     - ActionXenoRest
     - ActionXenoHide
+    - ActionXenoTransferPlasma
     hudOffset: -0.1,0.25
     tier: 0
     unlockAt: 0
@@ -41,7 +42,7 @@
   - type: XenoEvolution
     canEvolveWithoutGranter: true
     requiresGranter: false
-    max: 60
+    max: 10
     evolvesTo:
     - CMXenoDrone
     - CMXenoSentinel
@@ -62,13 +63,29 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.7
     baseSprintSpeed: 6.7
-  - type: RestrictEvolveOffWeeds
   - type: Speech
     speechSounds: XenonidLarva
     allowedEmotes: [ "XenoRoar" ]
   - type: Tag
     tags:
     - RMCXenoLarva
+  - type: CombatMode
+  - type: MeleeWeapon
+    autoAttack: true
+    altDisarm: true
+    angle: 0
+    soundHit:
+      collection: AlienClaw
+    animation: WeaponArcBite
+    damage:
+      groups:
+        Brute: 1
+    soundSwing:
+      path: /Audio/_RMC14/Weapons/alien_claw_swipe.ogg
+      params:
+        variation: 0.1
+        volume: -5
+  - type: XenoClaws
 
 # For surgeries/failed incubations
 - type: entity

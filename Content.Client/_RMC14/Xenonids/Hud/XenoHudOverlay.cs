@@ -114,15 +114,6 @@ public sealed class XenoHudOverlay : Overlay
 
         handle.UseShader(_shader);
 
-        if (isXeno)
-        {
-            DrawBars(in args, scaleMatrix, rotationMatrix);
-            if (!isGhost)
-                DrawDeadIcon(in args, scaleMatrix, rotationMatrix);
-
-            DrawAcidStacks(in args, scaleMatrix, rotationMatrix);
-        }
-
         if (isXeno || isAdminGhost)
         {
             DrawInfectedIcon(in args, scaleMatrix, rotationMatrix);
@@ -130,117 +121,6 @@ public sealed class XenoHudOverlay : Overlay
 
         handle.UseShader(null);
         handle.SetTransform(Matrix3x2.Identity);
-    }
-
-    private void DrawBars(in OverlayDrawArgs args, Matrix3x2 scaleMatrix, Matrix3x2 rotationMatrix)
-    {
-        var handle = args.WorldHandle;
-        var xenos = _entity.AllEntityQueryEnumerator<XenoComponent, SpriteComponent, TransformComponent>();
-        while (xenos.MoveNext(out var uid, out var xeno, out var sprite, out var xform))
-        {
-            if (xform.MapID != args.MapId)
-                continue;
-
-            if (_container.IsEntityOrParentInContainer(uid, xform: xform))
-                continue;
-
-            var bounds = sprite.Bounds;
-            var worldPos = _transform.GetWorldPosition(xform, _xformQuery);
-
-            if (!bounds.Translated(worldPos).Intersects(args.WorldAABB))
-                continue;
-
-            var worldMatrix = Matrix3x2.CreateTranslation(worldPos);
-            var scaledWorld = Matrix3x2.Multiply(scaleMatrix, worldMatrix);
-            var matrix = Matrix3x2.Multiply(rotationMatrix, scaledWorld);
-            handle.SetTransform(matrix);
-
-            if (_mobStateQuery.TryComp(uid, out var mobState) &&
-                _mobState.IsDead(uid, mobState))
-            {
-                continue;
-            }
-
-            UpdateHealth((uid, xeno, sprite, mobState), handle);
-            UpdatePlasma((uid, xeno, sprite), handle);
-            UpdateEnergy((uid, xeno, sprite), handle);
-        }
-    }
-
-    private void DrawDeadIcon(in OverlayDrawArgs args, Matrix3x2 scaleMatrix, Matrix3x2 rotationMatrix)
-    {
-        var icon = _healthIcons.GetDeadIcon().Icon;
-        var handle = args.WorldHandle;
-        var infected = _entity.AllEntityQueryEnumerator<MobStateComponent, SpriteComponent, TransformComponent>();
-        while (infected.MoveNext(out var uid, out var comp, out var sprite, out var xform))
-        {
-            if (xform.MapID != args.MapId)
-                continue;
-
-            if (comp.CurrentState != MobState.Dead)
-                continue;
-
-            if (_container.IsEntityOrParentInContainer(uid, xform: xform))
-                continue;
-
-            if (_xenoParasiteQuery.HasComp(uid))
-                continue;
-
-            var bounds = sprite.Bounds;
-            var worldPos = _transform.GetWorldPosition(xform, _xformQuery);
-
-            if (!bounds.Translated(worldPos).Intersects(args.WorldAABB))
-                continue;
-
-            var worldMatrix = Matrix3x2.CreateTranslation(worldPos);
-            var scaledWorld = Matrix3x2.Multiply(scaleMatrix, worldMatrix);
-            var matrix = Matrix3x2.Multiply(rotationMatrix, scaledWorld);
-            handle.SetTransform(matrix);
-
-            var texture = _sprite.GetFrame(icon, _timing.CurTime);
-
-            var yOffset = (bounds.Height + sprite.Offset.Y) / 2f - (float) texture.Height / EyeManager.PixelsPerMeter * bounds.Height;
-            var xOffset = (bounds.Width + sprite.Offset.X) / 2f - (float) texture.Width / EyeManager.PixelsPerMeter * bounds.Width;
-
-            var position = new Vector2(xOffset, yOffset);
-            handle.DrawTexture(texture, position);
-        }
-    }
-
-    private void DrawAcidStacks(in OverlayDrawArgs args, Matrix3x2 scaleMatrix, Matrix3x2 rotationMatrix)
-    {
-        var handle = args.WorldHandle;
-        var stacks = _entity
-            .AllEntityQueryEnumerator<VictimXenoAcidStacksComponent, SpriteComponent, TransformComponent>();
-        while (stacks.MoveNext(out var uid, out var comp, out var sprite, out var xform))
-        {
-            if (xform.MapID != args.MapId)
-                continue;
-
-            if (_container.IsEntityOrParentInContainer(uid, xform: xform))
-                continue;
-
-            var bounds = sprite.Bounds;
-            var worldPos = _transform.GetWorldPosition(xform, _xformQuery);
-
-            if (!bounds.Translated(worldPos).Intersects(args.WorldAABB))
-                continue;
-
-            var worldMatrix = Matrix3x2.CreateTranslation(worldPos);
-            var scaledWorld = Matrix3x2.Multiply(scaleMatrix, worldMatrix);
-            var matrix = Matrix3x2.Multiply(rotationMatrix, scaledWorld);
-            handle.SetTransform(matrix);
-
-            var level = Math.Clamp(comp.Current, 0, 4);
-            var icon = new Rsi(_rsiPath, $"acid_stacks{level}");
-            var texture = _sprite.GetFrame(icon, _timing.CurTime);
-
-            var yOffset = (bounds.Height + sprite.Offset.Y) / 2f - (float) texture.Height / EyeManager.PixelsPerMeter * bounds.Height;
-            var xOffset = (bounds.Width + sprite.Offset.X) / 2f - (float) texture.Width / EyeManager.PixelsPerMeter * bounds.Width;
-
-            var position = new Vector2(xOffset, yOffset);
-            handle.DrawTexture(texture, position);
-        }
     }
 
     private void DrawInfectedIcon(in OverlayDrawArgs args, Matrix3x2 scaleMatrix, Matrix3x2 rotationMatrix)

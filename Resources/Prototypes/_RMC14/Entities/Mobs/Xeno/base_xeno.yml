@@ -55,9 +55,9 @@
   - type: MobStateActions
     actions:
       Critical:
-      - CMActionGhost
-      Dead:
-      - CMActionGhost
+      - ActionCritSuccumb
+      - ActionCritFakeDeath
+      - ActionCritLastWords
   - type: Deathgasp
     prototype: CMXenoDeathGasp
   - type: HealthExaminable
@@ -74,7 +74,7 @@
   - type: Climbing
   - type: Insulated
   - type: Input
-    context: "xenonid"
+    context: "human"
   - type: Clickable
   - type: InteractionOutline
   - type: InputMover
@@ -168,9 +168,8 @@
     allowedEmotes: [ "Growl", "Hiss", "XenoRoar", "XenoHelp" ]
   - type: GhostOnMove
     mustBeDead: true
-  - type: NightVision 
-    isActive: true
-    color: "#50595C"
+  - type: ThermalVision
+    toggleAction: XenoThermalVision
     activateSound: null
     deactivateSound: null
   - type: GhostTakeoverAvailable
@@ -200,7 +199,6 @@
     - Hivemind
   - type: StandingState
   - type: AffectableByWeeds
-  - type: ComplexInteraction
   - type: MovementIgnoreGravity
   - type: ExplosionResistance
     damageCoefficient: 2
@@ -212,6 +210,8 @@
   - type: Buckle
     buckleDelay: 0
     clickUnbuckle: false
+  - type: NameIdentifier
+    group: GenericNumber
 
 - type: entity
   abstract: true
@@ -290,6 +290,9 @@
     - DoorBumpOpener
   - type: Hands
     examineShowEmpty: false
+  - type: ComplexInteraction
+  - type: Body
+    prototype: Xeno
 
 - type: entity
   abstract: true

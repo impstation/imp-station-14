@@ -1,5 +1,5 @@
-using Content.Server.Atmos.Components;
-using Content.Shared.Atmos.Components;
+using System.Linq;
+using Content.Server._RMC14.NPC;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.NPC.Queries;
 using Content.Server.NPC.Queries.Considerations;
@@ -8,22 +8,25 @@ using Content.Server.NPC.Queries.Queries;
 using Content.Server.Nutrition.Components;
 using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Storage.Components;
+using Content.Shared._RMC14.Xenonids;
+using Content.Shared._RMC14.Xenonids.Construction;
+using Content.Shared._RMC14.Xenonids.Construction.EggMorpher;
+using Content.Shared._RMC14.Xenonids.Construction.Nest;
+using Content.Shared._RMC14.Xenonids.Egg;
+using Content.Shared._RMC14.Xenonids.Parasite;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Cuffs;
-using Content.Shared.Cuffs.Components;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Inventory;
-using Content.Shared.Mech.EntitySystems; //imp
 using Content.Shared.Mobs;
-using Content.Shared.Mech.Components; //imp
-using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Standing;
 using Content.Shared.Stunnable;
 using Content.Shared.Tools.Systems;
 using Content.Shared.Turrets;
@@ -35,7 +38,6 @@ using Microsoft.Extensions.ObjectPool;
 using Robust.Server.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using System.Linq;
 
 namespace Content.Server.NPC.Systems;
 
@@ -55,14 +57,13 @@ public sealed class NPCUtilitySystem : EntitySystem
     [Dependency] private readonly OpenableSystem _openable = default!;
     [Dependency] private readonly PuddleSystem _puddle = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedMechSystem _mechSystem = default!; //imp
     [Dependency] private readonly SharedSolutionContainerSystem _solutions = default!;
     [Dependency] private readonly WeldableSystem _weldable = default!;
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly MobThresholdSystem _thresholdSystem = default!;
-    [Dependency] private readonly SharedCuffableSystem _cuffableSystem = default!;
     [Dependency] private readonly TurretTargetSettingsSystem _turretTargetSettings = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!;
 
     private EntityQuery<PuddleComponent> _puddleQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -246,13 +247,6 @@ public sealed class NPCUtilitySystem : EntitySystem
                             return 0.0f;
                         }
                     }
-                    if (TryComp<MechComponent>(container.Owner, out var mechComponent)) //imp
-                    {
-                        if (_mechSystem.IsEmpty(mechComponent))
-                        {
-                            return 1.0f;
-                        }
-                    }
                     else
                     {
                         // If we're in a container (e.g. held or whatever) then we probably can't get it. Only exception
@@ -369,16 +363,6 @@ public sealed class NPCUtilitySystem : EntitySystem
 
                 return 0f;
             }
-            case TargetIsCuffableCon:
-            {
-                if (TryComp<CuffableComponent>(targetUid, out var cuffable))
-                {
-                    if(_cuffableSystem.IsCuffed((targetUid, cuffable), true))
-                        return 0f;
-                    return 1f;
-                }
-                return 0f;
-            }
             case TargetOnFireCon:
                 {
                     if (TryComp(targetUid, out FlammableComponent? fire) && fire.OnFire)
@@ -397,6 +381,40 @@ public sealed class NPCUtilitySystem : EntitySystem
 
                     return 0f;
                 }
+            case TargetIsNotDeadCon:
+            {
+                return !_mobState.IsDead(targetUid) ? 1f : 0f;
+            }
+            case TargetXenoCon:
+            {
+                return HasComp<XenoComponent>(targetUid) ? 1f : 0f;
+            }
+            case TargetIsNotConstructCon:
+            {
+                return HasComp<XenoConstructComponent>(targetUid) ? 0f : 1f;
+            }
+            case TargetInfectableCon:
+            {
+                return TryComp<InfectableComponent>(targetUid, out var infectable)
+                        && !infectable.BeingInfected
+                        && !HasComp<VictimInfectedComponent>(targetUid) ? 1f : 0f;
+            }
+            case TargetOpenEggCon:
+            {
+                return TryComp<XenoEggComponent>(targetUid, out var egg) && egg.State == XenoEggState.Opened ? 1f : 0f;
+            }
+            case TargetIsDownCon:
+            {
+                return _standing.IsDown(targetUid) || HasComp<XenoNestedComponent>(targetUid) ? 1f : 0f;
+            }
+            case TargetIsStandingCon:
+            {
+                return _standing.IsDown(targetUid) && !HasComp<XenoNestedComponent>(targetUid) ? 0f : 1f;
+            }
+            case TargetAvailibleEggMorpherCon:
+            {
+                return TryComp<EggMorpherComponent>(targetUid, out var eggmorpher) && eggmorpher.CurParasites < eggmorpher.MaxParasites ? 1f : 0f;
+            }
             default:
                 throw new NotImplementedException();
         }

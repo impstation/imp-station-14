@@ -26,11 +26,15 @@
   - type: Xeno
     role: CMXenoPraetorian
     actionIds:
+    - ActionXenoTailSweep
     - ActionXenoRest
-    - ActionXenoRegurgitate
-    - ActionXenoAcidNormal
+    - ActionXenoPlantWeeds
+    - ActionXenoTransferPlasma
+    - ActionXenoChooseStructure
+    - ActionXenoSecreteStructure
+    - ActionXenoAcidWeak
     - ActionXenoSpit
-    - ActionXenoAcidBall
+    - ActionXenoRegurgitate
     - ActionXenoDevolve
     tier: 3
     hudOffset: -0.15,0.16
@@ -38,8 +42,7 @@
   - type: XenoHeavy
   - type: XenoDevolve
     devolvesTo:
-    - CMXenoWarrior
-    - CMXenoSpitter
+    - CMXenoDrone
   - type: XenoAcid
   - type: XenoDevour
   - type: XenoPlasma
@@ -72,6 +75,11 @@
     prefix: praetorian
   - type: XenoSpit
     projectileId: XenoSpitProjectilePraetorian
+  - type: XenoEvolution
+    canEvolveWithoutGranter: true
+    max: 10
+    evolvesTo:
+    - CMXenoQueen
 
 - type: entity
   parent: CMXenoPraetorianBase

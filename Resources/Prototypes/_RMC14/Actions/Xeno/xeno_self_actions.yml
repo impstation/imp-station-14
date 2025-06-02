@@ -7,20 +7,10 @@
   - type: InstantAction
     itemIconStyle: NoItem
     icon:
-      sprite: _RMC14/Actions/xeno_actions.rsi
-      state: resting
+      sprite: _Impstation/Actions/xeno_actions.rsi
+      state: alien_rest
     event: !type:XenoRestActionEvent
     useDelay: 1
-
-- type: entity
-  parent: CMGuidebookActionXenoBase
-  id: RMCGuidebookActionXenoRest
-  name: Rest
-  description: Lie down to regenerate health more quickly while on weeds.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    state: resting
 
 - type: entity
   id: ActionXenoHide
@@ -30,19 +20,12 @@
   components:
   - type: InstantAction
     itemIconStyle: NoItem
+    priority: -20
     icon:
-      sprite: _RMC14/Actions/xeno_actions.rsi
-      state: xenohide
+      sprite: _Impstation/Actions/xeno_actions.rsi
+      state: alien_hide
     event: !type:XenoHideActionEvent
     useDelay: 0.5
-
-- type: entity
-  parent: CMGuidebookActionXenoBase
-  id: RMCGuidebookActionXenoHide
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    state: xenohide
 
 - type: entity
   id: ActionXenoResinWalker
@@ -59,14 +42,6 @@
     useDelay: 0.25
 
 - type: entity
-  parent: CMGuidebookActionXenoBase
-  id: RMCGuidebookActionXenoResinWalker
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: Sprite
-      state: toggle_speed
-
-- type: entity
   id: ActionXenoZoom
   parent: ActionXenoBase
   name: Toggle Long-Range Sight
@@ -78,14 +53,6 @@
       state: toggle_long_range
     event: !type:XenoZoomActionEvent
     useDelay: 0.2
-
-- type: entity
-  parent: CMGuidebookActionXenoBase
-  id: RMCGuidebookActionXenoToggleLongRangeSight
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: Sprite
-      state: toggle_long_range
 
 - type: entity
   id: ActionXenoWordQueen
@@ -117,16 +84,6 @@
   - type: XenoGrowOvipositorAction
 
 - type: entity
-  parent: CMGuidebookActionXenoBase
-  id: RMCGuidebookActionXenoGrowOvipositor
-  name: Grow Ovipositor
-  description: Become immobile and start laying eggs which will produce parasites.
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: Sprite
-      state: grow_ovipositor
-
-- type: entity
   id: ActionXenoThrowParasite
   parent: ActionXenoBase
   name: Throw Parasite
@@ -145,14 +102,6 @@
     useDelay: 0
 
 - type: entity
-  parent: CMGuidebookActionXenoBase
-  id: RMCGuidebookActionXenoThrowParasite
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: Sprite
-      state: throw_parasite
-
-- type: entity
   id: ActionXenoParasiteReserve
   parent: ActionXenoBase
   name: Set Parasite Reserve
@@ -167,14 +116,6 @@
     useDelay: 1
 
 - type: entity
-  parent: CMGuidebookActionXenoBase
-  id: RMCGuidebookActionXenoSetParasiteReserve
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: Sprite
-      state: reserve_parasite
-
-- type: entity
   parent: ActionXenoBase
   id: ActionXenoGenerateEggs
   name: Generate Eggs (50)
@@ -183,14 +124,19 @@
   - type: InstantAction
     itemIconStyle: NoItem
     icon:
-      sprite: _RMC14/Actions/xeno_actions.rsi
-      state: lay_egg
+      sprite: _Impstation/Actions/xeno_actions.rsi
+      state: alien_egg
     event: !type:XenoGenerateEggsActionEvent
 
 - type: entity
-  parent: CMGuidebookActionXenoBase
-  id: RMCGuidebookActionXenoGenerateEggs
+  id: XenoThermalVision
+  name: Use Xeno Eyes
+  description: Toggles the ability to see through walls.
   categories: [ HideSpawnMenu ]
   components:
-    - type: Sprite
-      state: lay_egg
+  - type: InstantAction
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Impstation/Actions/xeno_actions.rsi
+      state: alien_eyes
+    event: !type:ToggleThermalVisionEvent

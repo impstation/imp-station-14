@@ -1,0 +1,14 @@
+- type: body
+  id: Xeno
+  name: "xeno"
+  root: torso
+  slots:
+    torso:
+      part: TorsoBorg
+      connections:
+      - hand 1
+      - hand 2
+    hand 1:
+      part: LeftArmBorg
+    hand 2:
+      part: RightArmBorg

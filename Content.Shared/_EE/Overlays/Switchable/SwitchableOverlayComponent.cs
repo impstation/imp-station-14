@@ -1,6 +1,7 @@
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Content.Shared.Alert;
 
 namespace Content.Shared._EE.Overlays.Switchable;
 
@@ -40,6 +41,7 @@ public abstract partial class SwitchableOverlayComponent : BaseOverlayComponent
 
     [ViewVariables]
     public EntityUid? ToggleActionEntity;
+
 }
 
 [Serializable, NetSerializable]

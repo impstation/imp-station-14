@@ -6,9 +6,10 @@
   components:
   - type: EntityTargetAction
     itemIconStyle: NoItem
+    priority: -16
     icon:
-      sprite: _RMC14/Actions/xeno_actions.rsi
-      state: corrosive_acid
+      sprite: _Impstation/Actions/xeno_actions.rsi
+      state: alien_acid
     event: !type:XenoCorrosiveAcidEvent
       acidId: XenoAcidNormal
       plasmaCost: 100
@@ -18,14 +19,6 @@
     checkCanInteract: false
 
 - type: entity
-  parent: CMGuidebookActionXenoBase
-  id: RMCGuidebookActionXenoCorrosiveAcid
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: Sprite
-      state: corrosive_acid
-
-- type: entity
   parent: ActionXenoAcidNormal
   id: ActionXenoAcidWeak
   name: Weak Corrosive Acid (75)  # TODO RMC14 proper plasma costs
@@ -33,9 +26,10 @@
   components:
   - type: EntityTargetAction
     itemIconStyle: NoItem
+    priority: -14
     icon:
-      sprite: _RMC14/Actions/xeno_actions.rsi
-      state: corrosive_acid
+      sprite: _Impstation/Actions/xeno_actions.rsi
+      state: alien_acid
     event: !type:XenoCorrosiveAcidEvent
       acidId: XenoAcidWeak
       plasmaCost: 75
@@ -52,33 +46,13 @@
   components:
   - type: EntityTargetAction
     itemIconStyle: NoItem
+    priority: -16
     icon:
-      sprite: _RMC14/Actions/xeno_actions.rsi
-      state: corrosive_acid
+      sprite: _Impstation/Actions/xeno_actions.rsi
+      state: alien_acid
     event: !type:XenoCorrosiveAcidEvent
       acidId: XenoAcidStrong
       plasmaCost: 125
-      time: 20 # seconds
-      dps: 20
-      expendableLightDps: 23.4375
-    checkCanInteract: false
-
-- type: entity
-  parent: ActionXenoAcidNormal
-  id: ActionXenoAcidAcider
-  name: Strong Corrosive Acid (100 acid)
-  description: Melts down barricades or items over time. You cannot melt structures.
-  components:
-  - type: EntityTargetAction
-    itemIconStyle: NoItem
-    icon:
-      sprite: _RMC14/Actions/xeno_actions.rsi
-      state: corrosive_acid
-    event: !type:XenoCorrosiveAcidEvent
-      acidId: XenoAcidStrong
-      plasmaCost: 0
-      energyCost: 100
-      applyTimeMultiplier: 0.25
       time: 20 # seconds
       dps: 20
       expendableLightDps: 23.4375
@@ -92,9 +66,10 @@
   components:
   - type: InstantAction
     itemIconStyle: NoItem
+    priority: -13
     icon:
-      sprite: _RMC14/Actions/xeno_actions.rsi
-      state: regurgitate
+      sprite: _Impstation/Actions/xeno_actions.rsi
+      state: alien_barf
     event: !type:XenoRegurgitateActionEvent
 
 - type: entity
@@ -122,60 +97,10 @@
   - type: InstantAction
     itemIconStyle: NoItem
     icon:
-      sprite: _RMC14/Actions/xeno_actions.rsi
-      state: tail_sweep
+      sprite: _Impstation/Actions/xeno_actions.rsi
+      state: tailsweep
     event: !type:XenoTailSweepActionEvent
     useDelay: 15
-
-- type: entity
-  parent: CMGuidebookActionXenoBase
-  id: RMCGuidebookActionXenoTailSweep
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: Sprite
-      state: tail_sweep
-
-- type: entity
-  id: ActionXenoSlowingSpit
-  parent: ActionXenoBase
-  name: Slowing Spit (20) # TODO RMC14 proper plasma costs
-  description: Launches a damageless projectile that will slow the first enemy that it hits, and paralyze them if they have no armor. It'll also drain helpful substances from their body.
-  components:
-  - type: EntityWorldTargetAction
-    itemIconStyle: NoItem
-    icon:
-      sprite: _RMC14/Actions/xeno_actions.rsi
-      state: xeno_spit
-    event: !type:XenoSlowingSpitActionEvent
-    useDelay: 2
-    range: 15
-    checkCanAccess: false
-  - type: ActionBlockIfResting
-
-- type: entity
-  id: ActionXenoScatteredSpit
-  parent: ActionXenoBase
-  name: Scattered Spit (20) # TODO RMC14 proper plasma costs
-  description: Launches multiple damageless projectiles that will briefly paralyze any enemies they hit.
-  components:
-  - type: EntityWorldTargetAction
-    itemIconStyle: NoItem
-    icon:
-      sprite: _RMC14/Actions/xeno_actions.rsi
-      state: acid_shotgun
-    event: !type:XenoScatteredSpitActionEvent
-    useDelay: 7
-    range: 15
-    checkCanAccess: false
-  - type: ActionBlockIfResting
-
-- type: entity
-  parent: CMGuidebookActionXenoBase
-  id: RMCGuidebookActionXenoScatteredSpit
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: Sprite
-      state: acid_shotgun
 
 - type: entity
   id: ActionXenoSpit
@@ -186,46 +111,13 @@
   - type: EntityWorldTargetAction
     itemIconStyle: NoItem
     icon:
-      sprite: _RMC14/Actions/xeno_actions.rsi
-      state: xeno_spit
+      sprite: _Impstation/Actions/xeno_actions.rsi
+      state: alien_neurotoxin
     event: !type:XenoSpitActionEvent
     useDelay: 2
     range: 15
     checkCanAccess: false
   - type: ActionBlockIfResting
-
-- type: entity
-  parent: CMGuidebookActionXenoBase
-  id: RMCGuidebookActionXenoSpit
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: Sprite
-      state: xeno_spit
-
-- type: entity
-  id: ActionXenoAcidBall
-  parent: ActionXenoBase
-  name: Acid Ball (80) # TODO RMC14 proper plasma costs
-  description: Throws a projectile that will explode into acid spit in all directions after a short delay.
-  components:
-  - type: WorldTargetAction
-    itemIconStyle: NoItem
-    icon:
-      sprite: _RMC14/Actions/xeno_actions.rsi
-      state: prae_acid_ball
-    event: !type:XenoAcidBallActionEvent
-    useDelay: 0
-    range: 15
-    checkCanAccess: false
-  - type: ActionBlockIfResting
-
-- type: entity
-  parent: CMGuidebookActionXenoBase
-  id: RMCGuidebookActionXenoAcidBall
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: Sprite
-      state: prae_acid_ball
 
 - type: entity
   id: ActionXenoFling
@@ -245,14 +137,6 @@
   - type: XenoOffensiveAction
 
 - type: entity
-  parent: CMGuidebookActionXenoBase
-  id: RMCGuidebookActionXenoFling
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: Sprite
-      state: fling
-
-- type: entity
   id: ActionXenoLunge
   parent: ActionXenoBase
   name: Lunge
@@ -270,28 +154,6 @@
   - type: XenoOffensiveAction
 
 - type: entity
-  parent: CMGuidebookActionXenoBase
-  id: RMCGuidebookActionXenoLunge
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: Sprite
-      state: lunge
-
-
-- type: entity
-  parent: ActionXenoFling
-  id: ActionXenoRam
-  name: Ram (10)
-  components:
-  - type: EntityTargetAction
-    icon:
-      sprite: _RMC14/Actions/xeno_actions.rsi
-      state: fling # TODO RMC14 ram
-    useDelay: 10
-  - type: XenoActionPlasma
-    cost: 10
-
-- type: entity
   id: ActionXenoSpitQueen
   parent: ActionXenoSpit
   name: Xeno Spit (50/25)
@@ -307,9 +169,9 @@
     itemIconStyle: NoItem
     backgroundOn: null
     icon:
-      sprite: _RMC14/Actions/xeno_actions.rsi
-      state: shift_spit_neurotoxin
+      sprite: _Impstation/Actions/xeno_actions.rsi
+      state: alien_neurotoxin
     iconOn:
-      sprite: _RMC14/Actions/xeno_actions.rsi
-      state: shift_spit_xeno_acid
+      sprite: _Impstation/Actions/xeno_actions.rsi
+      state: alien_neurotoxin
     event: !type:XenoSpitToggleActionEvent

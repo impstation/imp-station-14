@@ -357,23 +357,6 @@ public sealed class XenoEvolutionSystem : EntitySystem
             }
         }
 
-        prototype.TryGetComponent(out XenoComponent? newXenoComp, _compFactory);
-        if (newXenoComp != null &&
-            newXenoComp.UnlockAt > _gameTicker.RoundDuration())
-        {
-            if (doPopup)
-            {
-                _popup.PopupEntity(
-                    Loc.GetString("cm-xeno-evolution-failed-cannot-support"),
-                    xeno,
-                    xeno,
-                    PopupType.MediumCaution
-                );
-            }
-
-            return false;
-        }
-
         if (TryComp(xeno, out XenoRecentlyDevolvedComponent? recently) &&
             recently.Recent.TryGetValue(newXeno, out var at) &&
             at + _evolveSameCasteCooldown > _timing.CurTime)

@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Shared._RMC14.Xenonids.Plasma;
 using Content.Shared._RMC14.CameraShake;
+using Content.Shared._RMC14.Xenonids.Hide;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Coordinates;
 using Content.Shared.Damage;
@@ -261,6 +262,18 @@ public sealed class XenoLeapSystem : EntitySystem
 
             if (physics.Awake)
                 _broadphase.RegenerateContacts(xeno, physics);
+        }
+
+        if (HasComp<XenoHideComponent>(xeno))
+        {
+            var victim = EnsureComp<LeapIncapacitatedComponent>(target);
+            victim.RecoverAt = _timing.CurTime + xeno.Comp.ParalyzeTime;
+            Dirty(target, victim);
+
+            _stun.TrySlowdown(xeno, xeno.Comp.MoveDelayTime, true, 0f, 0f);
+
+            if (_net.IsServer)
+                _stun.TryParalyze(target, xeno.Comp.ParalyzeTime, true);
         }
 
         if (xeno.Comp.HitEffect != null)
