@@ -280,21 +280,6 @@
     tags:
     - WhitelistChameleon
     - ClothMade
-    
-- type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadDevilHorns
-  name: devil horns headband
-  description: Little pointy horns for the impish and nefarious!
-  components:
-  - type: Sprite
-    sprite: _Impstation/Clothing/Head/Hats/devilhorns.rsi
-  - type: Clothing
-    sprite: _Impstation/Clothing/Head/Hats/devilhorns.rsi
-  - type: Tag
-    tags:
-    - ClothMade
-    - WhitelistChameleon
 
 - type: entity
   parent: [ClothingHeadBase, BaseCentcommContraband]
