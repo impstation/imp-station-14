@@ -2,7 +2,7 @@
   name: Adder
   parent: [BaseItem, BaseSyndicateContraband]
   id: WeaponPlasmaAdder
-  description: While not the intended product of Cybersun's research, the Adder's liquid-ammo platform is a fearsome technology. Uses Echion, produced from advanced synthesizers.
+  description: The future of stellar warfare in the palm of your hand. Uses Echion, produced from advanced synthesizers.
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Special/adder.rsi
@@ -64,7 +64,7 @@
   name: Akurra
   parent: [WeaponPlasmaAdder, BaseGunWieldable]
   id: WeaponPlasmaAkurra
-  description: Critics call the Adder's successor "a beautiful marriage of technology and malice in a single package". Uses Echion, produced from advanced synthesizers.
+  description: A beautiful marriage of technology and malice in a single package. Uses Echion, produced from advanced synthesizers.
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Special/akurra.rsi
