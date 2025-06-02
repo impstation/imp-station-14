@@ -163,6 +163,10 @@ marking-UndershirtRolledT-rolledundershirt = Undershirt
 
 marking-BurqaSolidThaven = Burqa
 
+marking-HairFloralLongThaven = Floral hair (Long)
+
+marking-HairFloralMidThaven = Floral hair (Medium)
+
 marking-HijabFashionableThaven = Hijab (Fashionable)
 
 marking-HijabSimpleThaven = Hijab (Simple)
@@ -318,6 +322,10 @@ marking-ThavenHairDrillHair = Drill Hair
 marking-ThavenHairDrillhairextended = Drill Hair (Extended)
 
 marking-ThavenHairDrillruru = Drillruru
+
+marking-ThavenHairDyedLong = Dyed Long
+
+marking-ThavenHairDyedShort = Dyed Short
 
 marking-ThavenHairE = Short Hair 5
 
@@ -547,6 +555,8 @@ marking-ThavenHairSpiky = Spiky 2
 
 marking-ThavenHairSpiky2 = Spiky 3
 
+marking-ThavenHairSpikyponytailLong = Ponytail (Spiky Long)
+
 marking-ThavenHairSpikyponytail = Ponytail (Spiky)
 
 marking-ThavenHairSpookyLong = Spooky Long
@@ -609,6 +619,12 @@ marking-TichelFashionableThaven = Tichel (Fashionable)
 
 marking-TichelSimpleThaven = Tichel (Simple)
 
+marking-ShaggyThaven = Shaggy
+
+marking-ShaggyLongerThaven = Shaggy (Longer)
+
+marking-SusieThaven = Mean Girl (Bangs)
+
 # HeadSide
 
 marking-ThavenEars1 = Small Ears
@@ -627,6 +643,9 @@ marking-ThavenEarsBigFins = Big Fins
 marking-ThavenEarsBigFins-bigfins = Outer
 marking-ThavenEarsBigFins-bigfins2 = Inner
 
+marking-ThavenEarsTwinFins = Twin Fins
+marking-ThavenEarsTwinFins-twinfin = Twin Fins
+
 marking-ThavenFishEars = Finned Ears
 marking-ThavenFishEars-fishears = Finned Ears
 
@@ -634,6 +653,10 @@ marking-ThavenNoEars = Recolorable ears
 marking-ThavenNoEars-noears = For use with head coverings
 
 # HeadTop
+
+marking-ThavenHibiscus = Hibiscus
+marking-ThavenHibiscus-hibiscus1 = Petals
+marking-ThavenHibiscus-hibiscus2 = Anthers
 
 marking-ThavenPiercings =  Helix Piercing
 marking-ThavenPiercings-piercings = Helix Piercing
@@ -655,18 +678,22 @@ marking-ThavenTadpoleTail-tadpole1 = Tail
 marking-ThavenTadpoleTail-tadpole2 = Fin
 
 marking-ThavenTailEel = Eel Tail (Underlay)
-marking-ThavenTailEel-taileel1 = Tail
-marking-ThavenTailEel-taileel2 = Fin
+marking-ThavenTailEel-eel1 = Tail
+marking-ThavenTailEel-eel2 = Fin
 
 marking-ThavenTailEelOverlay = Eel Tail (Overlay)
-marking-ThavenTailEelOverlay-taileel3 = Eel Tail (Overlay)
+marking-ThavenTailEelOverlay-eel3 = Eel Tail (Overlay)
 
 marking-ThavenTailNurse = Swept Tail
-marking-ThavenTailNurse-tailnurse1 = Tail
-marking-ThavenTailNurse-tailnurse2 = Stripes
+marking-ThavenTailNurse-nurse1 = Tail
+marking-ThavenTailNurse-nurse2 = Stripes
 
 marking-ThavenTailStub = Stub Tail
-marking-ThavenTailStub-tailstub1 = Tail
-marking-ThavenTailStub-tailstub2 = Stripes
+marking-ThavenTailStub-stub1 = Tail
+marking-ThavenTailStub-stub2 = Stripes
+
+marking-ThavenTailThresher = Thresher Tail
+marking-ThavenTailThresher-thresher1 = Tail
+marking-ThavenTailThresher-thresher2 = Stripes
 
 # RArmExtension

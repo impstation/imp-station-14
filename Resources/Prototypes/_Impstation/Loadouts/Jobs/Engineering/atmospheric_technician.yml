@@ -1,7 +1,23 @@
-# Head
+# 10 Hr
+- type: loadoutEffectGroup
+  id: Atmos10hr
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobAtmosphericTechnician
+      time: 36000 #10 hrs, ~7 rounds
+
+#OuterClothing
 - type: loadout
-  id: AtmosphericTechnicianBeret
-  startingGear: EngineeringBeret
+  id: BomberAtmos
+  equipment:
+    outerClothing: ClothingOuterCoatBomberAtmos
+
+- type: loadout
+  id: BomberAtmosHolo
+  equipment:
+    outerClothing: ClothingOuterCoatBomberAtmosHolo
   effects:
   - !type:GroupLoadoutEffect
-    proto: SeniorEngineering #From default senior engineering playtime in Resources\Prototypes\Loadouts\Jobs\Engineering\station_engineer.yml
+    proto: Atmos10hr

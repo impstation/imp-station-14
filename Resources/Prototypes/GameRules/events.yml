@@ -41,6 +41,7 @@
     - id: GoblinStowawaysEvent # imp
     - id: GoblinCastawaysEvent # imp
     - id: BountyHunterSpawn # imp
+    - id: ReplicatorSpawn # imp
 
 - type: entityTable
   id: SleeperlessAntagEventsTable
@@ -61,6 +62,7 @@
     - id: GoblinStowawaysEvent # imp
     - id: GoblinCastawaysEvent # imp
     - id: BountyHunterSpawn # imp
+    - id: ReplicatorSpawn # imp
 
 - type: entity
   id: BaseStationEvent
@@ -556,7 +558,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    weight: 2 #imp. tf you mean this was weight 5
+    weight: 5
     minimumPlayers: 25
     reoccurrenceDelay: 20
   - type: GreytideVirusRule
