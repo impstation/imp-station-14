@@ -56,13 +56,15 @@
 - type: startingGear
   id: MimiImpishSimple
   equipment:
-    jumpsuit: ClothingUniformBurglarJumpsuit
-    mask: ClothingMaskBurglar
-    shoes: ClothingShoesBootsLaceup
+    neck: ClothingNeckImpishAccessories
+    head: ClothingHeadImpishHorns
 
 - type: startingGear
   id: MimiImpishFull
   equipment:
-    jumpsuit: ClothingUniformBurglarJumpsuit
-    mask: ClothingMaskBurglar
-    shoes: ClothingShoesBootsLaceup
+    jumpsuit: ClothingUniformImpishOutfit
+    head: ClothingHeadImpishHorns
+    neck: ClothingNeckImpishAccessories
+    gloves: ClothingHandsImpishWristbands
+    shoes: ClothingShoesImpishShoes
+    back: ClothingBackpackImpishBackpack
