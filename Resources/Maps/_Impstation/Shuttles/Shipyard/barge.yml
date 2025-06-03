@@ -4,7 +4,7 @@ meta:
   engineVersion: 251.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/03/2025 01:45:28
+  time: 06/03/2025 02:45:11
   entityCount: 643
 maps:
 - 227
@@ -3412,15 +3412,16 @@ entities:
   - uid: 434
     components:
     - type: Transform
-      pos: -0.5,4.5
+      rot: 1.5707963267948966 rad
+      pos: 0.5,4.5
       parent: 1
     - type: DeviceLinkSource
       linkedPorts:
-        24:
+        400:
         - Pressed: Toggle
-        25:
+        399:
         - Pressed: Toggle
-        26:
+        398:
         - Pressed: Toggle
   - uid: 435
     components:
@@ -3443,9 +3444,9 @@ entities:
       parent: 1
     - type: DeviceLinkSource
       linkedPorts:
-        401:
-        - Pressed: Toggle
         402:
+        - Pressed: Toggle
+        401:
         - Pressed: Toggle
   - uid: 437
     components:
@@ -3465,25 +3466,18 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 0.5,-0.5
       parent: 1
-    - type: DeviceLinkSource
-      linkedPorts:
-        401:
-        - Pressed: Toggle
-        402:
-        - Pressed: Toggle
   - uid: 439
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 0.5,4.5
+      pos: -0.5,4.5
       parent: 1
     - type: DeviceLinkSource
       linkedPorts:
-        400:
+        24:
         - Pressed: Toggle
-        399:
+        25:
         - Pressed: Toggle
-        398:
+        26:
         - Pressed: Toggle
 - proto: SignCargoDock
   entities:
@@ -3861,21 +3855,21 @@ entities:
       parent: 1
     - type: DeviceLinkSource
       linkedPorts:
-        234:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
-        233:
-        - Left: Forward
-        - Right: Reverse
+        231:
+        - Left: Reverse
+        - Right: Forward
         - Middle: Off
         232:
-        - Left: Forward
-        - Right: Reverse
+        - Left: Reverse
+        - Right: Forward
         - Middle: Off
-        231:
-        - Left: Forward
-        - Right: Reverse
+        233:
+        - Left: Reverse
+        - Right: Forward
+        - Middle: Off
+        234:
+        - Left: Reverse
+        - Right: Forward
         - Middle: Off
   - uid: 508
     components:
@@ -3885,20 +3879,20 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         231:
-        - Left: Forward
-        - Right: Reverse
+        - Left: Reverse
+        - Right: Forward
         - Middle: Off
         232:
-        - Left: Forward
-        - Right: Reverse
+        - Left: Reverse
+        - Right: Forward
         - Middle: Off
         233:
-        - Left: Forward
-        - Right: Reverse
+        - Left: Reverse
+        - Right: Forward
         - Middle: Off
         234:
-        - Left: Forward
-        - Right: Reverse
+        - Left: Reverse
+        - Right: Forward
         - Middle: Off
   - uid: 509
     components:
@@ -3907,29 +3901,29 @@ entities:
       parent: 1
     - type: DeviceLinkSource
       linkedPorts:
-        243:
-        - Left: Forward
-        - Right: Reverse
+        239:
+        - Left: Reverse
+        - Right: Forward
         - Middle: Off
         238:
-        - Left: Forward
-        - Right: Reverse
+        - Left: Reverse
+        - Right: Forward
         - Middle: Off
-        239:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
-        242:
-        - Left: Forward
-        - Right: Reverse
+        243:
+        - Left: Reverse
+        - Right: Forward
         - Middle: Off
         240:
-        - Left: Forward
-        - Right: Reverse
+        - Left: Reverse
+        - Right: Forward
         - Middle: Off
         241:
-        - Left: Forward
-        - Right: Reverse
+        - Left: Reverse
+        - Right: Forward
+        - Middle: Off
+        242:
+        - Left: Reverse
+        - Right: Forward
         - Middle: Off
   - uid: 510
     components:
@@ -3939,24 +3933,24 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         245:
-        - Left: Forward
-        - Right: Reverse
+        - Left: Reverse
+        - Right: Forward
         - Middle: Off
         244:
-        - Left: Forward
-        - Right: Reverse
+        - Left: Reverse
+        - Right: Forward
         - Middle: Off
         235:
-        - Left: Forward
-        - Right: Reverse
+        - Left: Reverse
+        - Right: Forward
         - Middle: Off
         236:
-        - Left: Forward
-        - Right: Reverse
+        - Left: Reverse
+        - Right: Forward
         - Middle: Off
         237:
-        - Left: Forward
-        - Right: Reverse
+        - Left: Reverse
+        - Right: Forward
         - Middle: Off
 - proto: VendingMachineBoozeUnlocked
   entities:
@@ -3965,19 +3959,19 @@ entities:
     - type: Transform
       pos: -5.5,-4.5
       parent: 1
-- proto: VendingMachineEngiDrobe
-  entities:
-  - uid: 512
-    components:
-    - type: Transform
-      pos: 3.5,5.5
-      parent: 1
 - proto: VendingMachineSalvage
   entities:
   - uid: 513
     components:
     - type: Transform
       pos: -4.5,-1.5
+      parent: 1
+- proto: VendingMachineSalvDrobe
+  entities:
+  - uid: 512
+    components:
+    - type: Transform
+      pos: 3.5,5.5
       parent: 1
 - proto: VendingMachineSustenance
   entities:
