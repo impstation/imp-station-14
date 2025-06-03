@@ -446,7 +446,7 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: _Impstation/Structures/Storage/Crates/lockbox.rsi #imp edit
+    sprite: Structures/Storage/Crates/lockbox.rsi
   - type: GenericVisualizer
     visuals:
       enum.PaperLabelVisuals.HasLabel:
@@ -463,11 +463,6 @@
         lid_overlay:
           True: { visible: false }
           False: { visible: true }
-      #imp edit start
-        lid_overlay_lip:
-          True: { visible: true }
-          False: { visible: false }
-      #imp edit end
   - type: OverrideSell
   - type: Fixtures
     fixtures:
@@ -490,17 +485,12 @@
     layers:
     - state: base
     - state: overlay
-      color: "#EFB341" #imp edit, color in departmental palette
+      color: "#ad8c27"
     - state: closed
       map: ["enum.StorageVisualLayers.Door"]
     - state: overlay-closed
-      color: "#EFB341" #imp edit, color in departmental palette
+      color: "#ad8c27"
       map: [ lid_overlay ]
-    # imp edit start
-    - state: overlay-open
-      color: "#EFB341"
-      map: [ lid_overlay_lip ]
-    # imp edit end
     - state: welded
       visible: false
       map: ["enum.WeldableLayers.BaseWelded"]
@@ -525,17 +515,12 @@
     layers:
     - state: base
     - state: overlay
-      color: "#52B4E9" #imp edit, color in departmental palette
+      color: "#92c7e8"
     - state: closed
       map: ["enum.StorageVisualLayers.Door"]
     - state: overlay-closed
-      color: "#52B4E9" #imp edit, color in departmental palette
+      color: "#92c7e8"
       map: [ lid_overlay ]
-    # imp edit start
-    - state: overlay-open
-      color: "#52B4E9"
-      map: [ lid_overlay_lip ]
-    # imp edit end
     - state: welded
       visible: false
       map: ["enum.WeldableLayers.BaseWelded"]
@@ -560,18 +545,13 @@
     layers:
     - state: base
     - state: overlay
-      color: "#D381C9" #imp edit, color in departmental palette
+      color: "#ba4bf0"
     - state: closed
       map: ["enum.StorageVisualLayers.Door"]
     - state: overlay-closed
-      color: "#D381C9"
+      color: "#ba4bf0"
       map: [ lid_overlay ]
-    # imp edit start
-    - state: overlay-open
-      color: "#D381C9"
-      map: [ lid_overlay_lip ]
-    # imp edit end
-    - state: welded #imp edit, color in departmental palette
+    - state: welded
       visible: false
       map: ["enum.WeldableLayers.BaseWelded"]
     - state: locked
@@ -595,17 +575,12 @@
     layers:
     - state: base
     - state: overlay
-      color: "#DE3A3A" #imp edit, color in departmental palette
+      color: "#c12d30"
     - state: closed
       map: ["enum.StorageVisualLayers.Door"]
     - state: overlay-closed
-      color: "#DE3A3A" #imp edit, color in departmental palette
+      color: "#c12d30"
       map: [ lid_overlay ]
-    # imp edit start
-    - state: overlay-open
-      color: "#DE3A3A"
-      map: [ lid_overlay_lip ]
-    # imp edit end
     - state: welded
       visible: false
       map: ["enum.WeldableLayers.BaseWelded"]
@@ -630,17 +605,12 @@
     layers:
     - state: base
     - state: overlay
-      color: "#9FED58" #imp edit, color in departmental palette
+      color: "#53b723"
     - state: closed
       map: ["enum.StorageVisualLayers.Door"]
     - state: overlay-closed
-      color: "#9FED58" #imp edit, color in departmental palette
+      color: "#53b723"
       map: [ lid_overlay ]
-    # imp edit start
-    - state: overlay-open
-      color: "#9FED58"
-      map: [ lid_overlay_lip ]
-    # imp edit end
     - state: welded
       visible: false
       map: ["enum.WeldableLayers.BaseWelded"]
