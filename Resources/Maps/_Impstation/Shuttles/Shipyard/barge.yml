@@ -1,16 +1,16 @@
 meta:
   format: 7
-  category: Map
+  category: Grid
   engineVersion: 251.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/03/2025 02:45:11
+  time: 06/03/2025 11:35:47
   entityCount: 643
-maps:
-- 227
+maps: []
 grids:
 - 1
-orphans: []
+orphans:
+- 1
 nullspace: []
 tilemap:
   0: Space
@@ -30,7 +30,7 @@ entities:
     components:
     - type: MetaData
     - type: Transform
-      parent: 227
+      parent: invalid
     - type: MapGrid
       chunks:
         -1,-1:
@@ -470,18 +470,6 @@ entities:
     - type: SpreaderGrid
     - type: GravityShake
       shakeTimes: 10
-  - uid: 227
-    components:
-    - type: MetaData
-      name: Map Entity
-    - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: PhysicsMap
-    - type: GridTree
-    - type: MovedGrids
-    - type: Broadphase
-    - type: OccluderTree
 - proto: AirCanister
   entities:
   - uid: 2
@@ -3007,10 +2995,10 @@ entities:
       parent: 1
 - proto: Gyroscope
   entities:
-  - uid: 366
+  - uid: 495
     components:
     - type: Transform
-      pos: -3.5,8.5
+      pos: 0.5,-17.5
       parent: 1
 - proto: HandLabeler
   entities:
@@ -3051,6 +3039,13 @@ entities:
     components:
     - type: Transform
       pos: -4.5,1.5
+      parent: 1
+- proto: PlushieRainbowLizard
+  entities:
+  - uid: 366
+    components:
+    - type: Transform
+      pos: -6.366668,-1.5608063
       parent: 1
 - proto: PowerCellRecharger
   entities:
@@ -3466,6 +3461,12 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 0.5,-0.5
       parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        401:
+        - Pressed: Toggle
+        402:
+        - Pressed: Toggle
   - uid: 439
     components:
     - type: Transform
@@ -3778,11 +3779,11 @@ entities:
       parent: 1
 - proto: Thruster
   entities:
-  - uid: 495
+  - uid: 227
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -6.5,-1.5
+      pos: -3.5,8.5
       parent: 1
   - uid: 496
     components:
