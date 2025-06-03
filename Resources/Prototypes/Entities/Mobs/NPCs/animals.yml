@@ -3252,7 +3252,7 @@
   description: Explosive kitten.
   components:
   - type: Sprite
-    sprite: Textures/impstation/mobs/pets/cats.rsi
+    sprite: impstation/mobs/pets/cats.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: syndicat
