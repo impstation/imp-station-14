@@ -107,7 +107,7 @@ public sealed class CrematoriumSystem : EntitySystem
         _audio.PlayPvs(component.CremateStartSound, uid);
         _appearance.SetData(uid, CrematoriumVisuals.Burning, true);
 
-        component.CrematingSoundEntity = _audio.PlayPvs(component.CrematingSound, uid);
+        component.CrematingSoundEntity = _audio.PlayPvs(component.CrematingSound, uid); // imp
 
         AddComp<ActiveCrematoriumComponent>(uid);
         return true;
@@ -120,11 +120,9 @@ public sealed class CrematoriumSystem : EntitySystem
 
         if (storage.Open || storage.Contents.ContainedEntities.Count < 1 || component.Powered == false) // imp
         {
+            _popup.PopupEntity(Loc.GetString("microwave-component-interact-using-no-power"), uid); // imp
             return false;
-            _popup.PopupEntity(Loc.GetString("microwave-component-interact-using-no-power"), uid);
         }
-
-
 
         return Cremate(uid, component, storage);
     }
@@ -151,7 +149,7 @@ public sealed class CrematoriumSystem : EntitySystem
 
         _entityStorage.OpenStorage(uid, storage);
         _audio.PlayPvs(component.CremateFinishSound, uid);
-        component.CrematingSoundEntity = null;
+        component.CrematingSoundEntity = null; // imp
     }
 
     private void OnSuicideByEnvironment(EntityUid uid, CrematoriumComponent component, SuicideByEnvironmentEvent args)

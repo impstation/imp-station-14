@@ -24,5 +24,9 @@ public sealed partial class CrematoriumComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public bool Powered; // imp
 
-    public (EntityUid, AudioComponent)? CrematingSoundEntity;
+    /// <summary>
+    /// Stores entity of <see cref="CrematingSoundEntity"/> to allow ending it early when power is interrupted.
+    /// </summary>
+    [DataField]
+    public (EntityUid, AudioComponent)? CrematingSoundEntity; // imp
 }
