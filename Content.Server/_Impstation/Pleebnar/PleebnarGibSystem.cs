@@ -26,7 +26,6 @@ public sealed class PleebnarGibSystem : SharedPleebnarGibSystem
 
         SubscribeLocalEvent<PleebnarGibActionComponent, PleebnarGibEvent>(PleebnarGib);
         SubscribeLocalEvent<PleebnarGibActionComponent, PleebnarGibDoAfterEvent>(PleebnarGibDoafter);
-
     }
 
     public void PleebnarGib(Entity<PleebnarGibActionComponent> ent, ref PleebnarGibEvent args)
@@ -54,13 +53,18 @@ public sealed class PleebnarGibSystem : SharedPleebnarGibSystem
         };
         _doAfter.TryStartDoAfter(doargs);
         args.Handled = true;
-
     }
 
     public void PleebnarGibDoafter(Entity<PleebnarGibActionComponent> ent, ref PleebnarGibDoAfterEvent args)
     {
         if (args.Target == null)
         {
+            return;
+        }
+
+        if (HasComp<PleebnarMindShieldComponent>(args.Target))
+        {
+            _body.GibBody(ent, true);
             return;
         }
         _body.GibBody((EntityUid)args.Target,true);

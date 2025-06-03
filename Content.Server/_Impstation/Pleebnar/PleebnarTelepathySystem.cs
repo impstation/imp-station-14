@@ -91,8 +91,8 @@ public sealed class PleebnarTelepathySystem : SharedPleebnarTelepathySystem
             false,
             true,
             Color.MediumPurple,
-            ent.Comp.announceAudioPath,
-            2f);
+            ent.Comp.WeirdAudioPath,
+            -2f);
     }
     private void OpenUi(Entity<PleebnarTelepathyActionComponent> ent,ref PleebnarVisionEvent args)
     {
@@ -110,7 +110,7 @@ public sealed class PleebnarTelepathySystem : SharedPleebnarTelepathySystem
     private void UpdateUI(Entity<PleebnarTelepathyActionComponent> entity)
     {
         if (_uiSystem.HasUi(entity, PleebnarTelepathyUIKey.Key))
-            _uiSystem.SetUiState(entity.Owner, PleebnarTelepathyUIKey.Key, new PleebnarTelepathyBuiState(Loc.GetString(entity.Comp.PleebnarVisonName??"pleebnar-vision-none-name")));
+            _uiSystem.SetUiState(entity.Owner, PleebnarTelepathyUIKey.Key, new PleebnarTelepathyBuiState(entity.Comp.PleebnarVisonID));
     }
     private void OnChangeVision(Entity<PleebnarTelepathyActionComponent> entity, ref PleebnarTelepathyVisionMessage msg)
     {
@@ -120,7 +120,8 @@ public sealed class PleebnarTelepathySystem : SharedPleebnarTelepathySystem
         var visProto = _proto.Index<PleebnarVisionPrototype>(msg.Vision!);
         entity.Comp.PleebnarVison = visProto.VisionString;
         entity.Comp.PleebnarVisonName = visProto.Name;
-
+        entity.Comp.PleebnarVisonID = visProto.ID;
+        _popupSystem.PopupEntity(Loc.GetString("pleebnar-telepathy-select")+" "+Loc.GetString(entity.Comp.PleebnarVisonName),entity.Owner,PopupType.Small);
         UpdateUI(entity);
     }
 

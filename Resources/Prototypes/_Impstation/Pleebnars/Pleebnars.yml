@@ -95,7 +95,7 @@
       Peckish: 15
       Starving: 10
       Dead: 0
-    baseDecayRate: 0.5 # I'm very hungry! Give me. The cheese.
+    baseDecayRate: 0.5
   - type: Extractable
     grindableSolutionName: food
   - type: SolutionContainerManager
@@ -105,7 +105,7 @@
         - ReagentId: UncookedAnimalProteins
           Quantity: 3
   - type: ReplacementAccent
-    accent: mouse
+    accent: pleebnar
   - type: Tag
     tags:
     - Trash

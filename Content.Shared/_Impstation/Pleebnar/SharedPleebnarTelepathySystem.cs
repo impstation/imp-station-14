@@ -43,8 +43,6 @@ public abstract partial class SharedPleebnarTelepathySystem : EntitySystem
         SubscribeLocalEvent<PleebnarTelepathyActionComponent, ComponentShutdown>(OnShutdown);
     }
 
-
-
     public sealed partial class PleebnarTelepathyEvent : EntityTargetActionEvent;
     public sealed partial class PleebnarVisionEvent : InstantActionEvent;
     [Serializable, NetSerializable]

@@ -12,7 +12,7 @@
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
-      state: absorb_dna
+      state: mindshield
 
 - type: entity
   id: ActionPleebnarVision
@@ -24,7 +24,8 @@
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
-      state: absorb_dna
+      state: mindshield
+
 - type: entity
   id: ActionPleebnarGib
   name: Gib
@@ -38,5 +39,5 @@
     interactOnMiss: false
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Changeling/changeling_abilities.rsi
-      state: absorb_dna
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: mansus_link

@@ -15,13 +15,8 @@ public sealed partial class PleebnarTelepathyActionComponent : Component
     public string? TelepathyActionId = "ActionPleebnarTelepathy";
 
     [DataField]
-    public SoundSpecifier? Announce = new SoundPathSpecifier("/Audio/_Impstation/Animals/pleebnar_weird.ogg")
-    {
-        Params = AudioParams.Default.WithVolume(4)
-    };
+    public string? WeirdAudioPath = "/Audio/_Impstation/Animals/pleebnar_weird.ogg";
 
-    [DataField]
-    public string? announceAudioPath = "/Audio/_Impstation/Animals/pleebnar_weird.ogg";
     [DataField]
     public EntityUid? VisionAction;
 
@@ -32,4 +27,6 @@ public sealed partial class PleebnarTelepathyActionComponent : Component
     public string? PleebnarVison;
     [DataField]
     public string? PleebnarVisonName;
+    [DataField]
+    public string? PleebnarVisonID;
 }
