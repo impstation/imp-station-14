@@ -1,0 +1,33 @@
+- type: entity
+  parent: [ClothingHeadEyeBaseFlippable, BaseCommandContraband]
+  id: ClothingEyesGlassesCaptaineyepatch
+  name: captain's eyepatch
+  description: "An awesome eyepatch to protect eyes that may or may not actually be damaged."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Eyes/Misc/capeyepatch.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Eyes/Misc/capeyepatch.rsi
+  - type: EyeProtection
+    protectionTime: 5
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - Eyepatch
+    - CaptainsEyepatch
+
+- type: entity
+  parent: [ClothingEyesGlassesCaptaineyepatch]
+  id: ClothingEyesGlassesCaptainEyepatchAdministrativeHud
+  name: captain's eyepatch
+  suffix: AdministrativeHUD
+  categories: [ DoNotMap ]
+  components:
+  - type: ShowJobIcons
+  - type: Construction
+    graph: AdminHudCaptainsEyepatch
+    node: adminhudcaptainseyepatch
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - Eyepatch

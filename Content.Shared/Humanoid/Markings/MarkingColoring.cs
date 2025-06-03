@@ -26,12 +26,12 @@ public static class MarkingColoring
     /// <summary>
     ///     Returns list of colors for marking layers
     /// </summary>
-    public static List<Color> GetMarkingLayerColors
-    (
+    public static List<Color> GetMarkingLayerColors(
         MarkingPrototype prototype,
         Color? skinColor,
         Color? eyeColor,
-        MarkingSet markingSet
+        MarkingSet markingSet,
+        List<string>? ignores = null // Floof
     )
     {
         var colors = new List<Color>();
@@ -89,7 +89,7 @@ public static class MarkingColoring
 public sealed partial class LayerColoringDefinition
 {
     [DataField("type")]
-    public LayerColoringType Type = new SkinColoring();
+    public LayerColoringType? Type = new SkinColoring();
 
     /// <summary>
     ///     Coloring types that will be used if main coloring type will return nil
@@ -105,7 +105,9 @@ public sealed partial class LayerColoringDefinition
 
     public Color GetColor(Color? skin, Color? eyes, MarkingSet markingSet)
     {
-        var color = Type.GetColor(skin, eyes, markingSet);
+        Color? color = null;
+        if (Type != null)
+            color = Type.GetColor(skin, eyes, markingSet);
         if (color == null)
         {
             foreach (var type in FallbackTypes)

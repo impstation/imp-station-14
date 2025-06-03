@@ -94,8 +94,11 @@ public sealed class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
 
         EntityManager.AddComponents(ent, injectedAnom.Components);
 
-        _stun.TryParalyze(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration), true);
-        _jitter.DoJitter(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration), true);
+        if (!ent.Comp.SkipStun) // imp. added this check for anomalites
+        {
+            _stun.TryParalyze(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration), true);
+            _jitter.DoJitter(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration), true);
+        }
 
         if (ent.Comp.StartSound is not null)
             _audio.PlayPvs(ent.Comp.StartSound, ent);
@@ -116,14 +119,15 @@ public sealed class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
 
             _popup.PopupEntity(message, ent, ent, PopupType.MediumCaution);
 
-            _adminLog.Add(LogType.Anomaly,LogImpact.Extreme,$"{ToPrettyString(ent)} became anomaly host.");
+            _adminLog.Add(LogType.Anomaly,LogImpact.Medium,$"{ToPrettyString(ent)} became anomaly host.");
         }
         Dirty(ent);
     }
 
     private void OnAnomalyPulse(Entity<InnerBodyAnomalyComponent> ent, ref AnomalyPulseEvent args)
     {
-        _stun.TryParalyze(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration / 2 * args.Severity), true);
+        if (!ent.Comp.SkipStun) // imp. added this check for anomalites
+            _stun.TryParalyze(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration / 2 * args.Severity), true);
         _jitter.DoJitter(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration / 2 * args.Severity), true);
     }
 
@@ -210,7 +214,8 @@ public sealed class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
         if (_proto.TryIndex(ent.Comp.InjectionProto, out var injectedAnom))
             EntityManager.RemoveComponents(ent, injectedAnom.Components);
 
-        _stun.TryParalyze(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration), true);
+        if (!ent.Comp.SkipStun) // imp. added this check for anomalites
+            _stun.TryParalyze(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration), true);
 
         if (ent.Comp.EndMessage is not null &&
             _mind.TryGetMind(ent, out _, out var mindComponent) &&

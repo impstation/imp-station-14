@@ -1,0 +1,20 @@
+- type: antag
+  id: ParadoxClone
+  name: roles-antag-paradox-clone-name
+  antagonist: true
+  requirements:
+  - !type:OverallPlaytimeRequirement # Imp
+    time: 3600 # 1h
+  playTimeTracker: AntagParadoxClone
+  objective: roles-antag-paradox-clone-objective
+  setPreference: false
+
+# they need to be able to espace when spawning inside a locked room
+# TODO: remove this once we got a better spawning loacation selection
+- type: startingGear
+  id: ParadoxCloneGear
+  inhand:
+  - ToolboxMechanicalFilledAllTools
+  storage:
+    back:
+    - ClothingHandsGlovesColorYellow

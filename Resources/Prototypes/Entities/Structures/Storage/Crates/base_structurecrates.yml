@@ -9,12 +9,12 @@
   - type: Transform
     noRot: true
   - type: Icon
-    sprite: Structures/Storage/Crates/generic.rsi
+    sprite: _Impstation/Structures/Storage/Crates/generic.rsi # imp
     state: icon
   - type: Sprite
     noRot: true
-    sprite: Structures/Storage/Crates/generic.rsi
-    offset: 0, 0.25
+    sprite: _Impstation/Structures/Storage/Crates/generic.rsi # imp
+    offset: 0, 0.25 # imp
     layers:
     - state: base
       map: ["enum.StorageVisualLayers.Base"]
@@ -24,7 +24,7 @@
       visible: false
       map: ["enum.WeldableLayers.BaseWelded"]
     - state: paper
-      sprite: Structures/Storage/Crates/labels.rsi
+      sprite: _Impstation/Structures/Storage/Crates/labels.rsi # imp
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: InteractionOutline
   - type: Physics
@@ -113,10 +113,10 @@
   - type: LockVisuals
   - type: AccessReader
   - type: Icon
-    sprite: Structures/Storage/Crates/secure.rsi
+    sprite: _Impstation/Structures/Storage/Crates/secure.rsi # imp
     state: icon
   - type: Sprite
-    sprite: Structures/Storage/Crates/secure.rsi
+    sprite: _Impstation/Structures/Storage/Crates/secure.rsi # imp
     layers:
     - state: base
     - state: closed
@@ -128,7 +128,7 @@
       map: ["enum.LockVisualLayers.Lock"]
       shader: unshaded
     - state: paper
-      sprite: Structures/Storage/Crates/labels.rsi
+      sprite: _Impstation/Structures/Storage/Crates/labels.rsi # imp
       offset: "-0.5,0"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: Damageable

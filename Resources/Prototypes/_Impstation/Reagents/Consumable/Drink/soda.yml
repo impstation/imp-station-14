@@ -61,5 +61,84 @@
         conditions:
         - !type:OrganType
           type: Moth
-          shouldHave: false   
+          shouldHave: false
   fizziness: 0.2
+
+- type: reagent
+  id: Supermixer
+  name: reagent-name-supermixer
+  parent: BaseSoda
+  desc: reagent-desc-supermixer
+  physicalDesc: reagent-physical-desc-sweet
+  flavor: supermixer
+  color: "#FDD54E"
+  metamorphicSprite:
+    sprite: _Impstation/Objects/Consumable/Drinks/supermixer.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+  fizziness: 0.8
+
+- type: reagent
+  id: Supermixerpsych
+  name: reagent-name-supermixerpsych
+  parent: BaseSoda
+  desc: reagent-desc-supermixerpsych
+  physicalDesc: reagent-physical-desc-shiny
+  flavor: supermixerpsych
+  color: "#5471A8"
+  metamorphicSprite:
+    sprite: _Impstation/Objects/Consumable/Drinks/supermixerpsych.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 3
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Psicodine
+        amount: 0.10
+  fizziness: 0.8
+
+- type: reagent
+  id: Moonrise
+  name: reagent-name-moonrise
+  parent: BaseSoda
+  desc: reagent-desc-moonrise
+  physicalDesc: reagent-physical-desc-frosty
+  flavor: moonrise
+  color: "#ff9e9e"
+  metamorphicSprite:
+    sprite: _Impstation/Objects/Consumable/Drinks/moonrise.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 6
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:Emote
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        emote: Pop
+        showInChat: true
+        force: true
+        probability: 0.35
+    Poison:
+      effects:
+        - !type:AdjustTemperature
+          amount: -200 # thermal energy, not temp
+  fizziness: 0.3

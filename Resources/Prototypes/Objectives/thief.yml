@@ -7,8 +7,7 @@
     issuer: objective-issuer-thief
   - type: RoleRequirement
     roles:
-      mindRoles:
-      - ThiefRole
+    - ThiefRole
 
 - type: entity
   abstract: true
@@ -44,7 +43,7 @@
   id: BaseThiefStealAnimalObjective
   components:
   - type: StealCondition
-    verifyMapExistence: false
+    verifyMapExistence: true #imp edit
     checkAlive: true
     objectiveNoOwnerText: objective-condition-steal-title-alive-no-owner
     descriptionText: objective-condition-thief-animal-description
@@ -113,6 +112,20 @@
 
 - type: entity
   parent: BaseThiefStealCollectionObjective
+  id: MailStealCollectionObjective
+  components:
+  - type: NotJobRequirement
+    job: [ CargoTechnician, Courier, SalvageSpecialist ] # imp
+  - type: StealCondition
+    stealGroup: Mail
+    minCollectionSize: 4
+    maxCollectionSize: 8
+    verifyMapExistence: false
+  - type: Objective
+    difficulty: 0.8
+
+- type: entity
+  parent: BaseThiefStealCollectionObjective
   id: IDCardsStealCollectionObjective
   components:
   - type: StealCondition
@@ -147,7 +160,7 @@
   id: ForensicScannerStealObjective
   components:
   - type: NotJobRequirement
-    job: Detective
+    job: [ SecurityOfficer, Detective, Brigmedic, Warden ] # imp
   - type: StealCondition
     stealGroup: ForensicScanner
   - type: Objective
@@ -187,7 +200,7 @@
   id: ClothingOuterHardsuitVoidParamedStealObjective
   components:
   - type: NotJobRequirement
-    job: Paramedic
+    job: [ Paramedic, MedicalDoctor, Chemist ] # imp edit
   - type: StealCondition
     stealGroup: ClothingOuterHardsuitVoidParamed
   - type: Objective
@@ -198,13 +211,13 @@
   id: MedicalTechFabCircuitboardStealObjective
   components:
   - type: NotJobRequirement
-    job: MedicalDoctor
+    job: [ MedicalDoctor, Paramedic, Chemist ] # imp edit
   - type: StealCondition
     stealGroup: MedicalTechFabCircuitboard
   - type: Objective
     difficulty: 1
 
-#- type: entity
+#- type: entity # imp - removed in favor of a broader headset theft objective
   #parent: BaseThiefStealObjective
   #id: ClothingHeadsetAltMedicalStealObjective
   #components:
@@ -220,7 +233,7 @@
   id: FireAxeStealObjective
   components:
   - type: NotJobRequirement
-    job: AtmosphericTechnician
+    job: [ AtmosphericTechnician, StationEngineer ] # imp edit
   - type: StealCondition
     stealGroup: FireAxe
   - type: Objective
@@ -231,7 +244,7 @@
   id: AmePartFlatpackStealObjective
   components:
   - type: NotJobRequirement
-    job: StationEngineer
+    job: [ StationEngineer, AtmosphericTechnician ] # imp edit
   - type: StealCondition
     stealGroup: AmePartFlatpack
   - type: Objective
@@ -242,7 +255,7 @@
   id: ExpeditionsCircuitboardStealObjective
   components:
   - type: NotJobRequirement
-    job: SalvageSpecialist
+    job: [ SalvageSpecialist, CargoTechnician, Courier ] # imp edit
   - type: StealCondition
     stealGroup: SalvageExpeditionsComputerCircuitboard
   - type: Objective
@@ -253,7 +266,7 @@
   id: CargoShuttleCircuitboardStealObjective
   components:
   - type: NotJobRequirement
-    job: CargoTechnician
+    job: [ CargoTechnician, SalvageSpecialist, Courier ] # imp edit
   - type: StealCondition
     stealGroup: CargoShuttleConsoleCircuitboard
   - type: Objective
@@ -332,7 +345,7 @@
   id: ChemDispenserStealObjective
   components:
   - type: NotJobRequirement
-    job: Chemist
+    job: [ Chemist, MedicalDoctor, Paramedic ]
   - type: StealCondition
     stealGroup: ChemDispenser
   - type: Objective
@@ -354,7 +367,7 @@
   id: FreezerHeaterStealObjective
   components:
   - type: NotJobRequirement
-    job: AtmosphericTechnician
+    job: [ AtmosphericTechnician, StationEngineer, Chef ] # imp edit
   - type: StealCondition
     stealGroup: FreezerHeater
   - type: Objective
@@ -365,7 +378,7 @@
   id: TegStealObjective
   components:
   - type: NotJobRequirement
-    job: AtmosphericTechnician
+    job: [ AtmosphericTechnician, StationEngineer ] # imp edit
   - type: StealCondition
     stealGroup: Teg
   - type: Objective
@@ -432,8 +445,11 @@
   parent: BaseThiefStealAnimalObjective
   id: BingusStealObjective
   components:
+  - type: NotJobRequirement #imp edit
+    job: [MedicalDoctor, Paramedic, Chemist ] # imp edit
   - type: StealCondition
     stealGroup: AnimalNamedCat
+    verifyMapExistence: true # imp - because sometimes the cat is finfin
   - type: Objective
     difficulty: 1
 
@@ -442,7 +458,7 @@
   id: McGriffStealObjective
   components:
   - type: NotJobRequirement
-    job: Detective
+    job: [ SecurityOfficer, Detective, Brigmedic, Warden ] # imp
   - type: StealCondition
     stealGroup: AnimalMcGriff
   - type: Objective
@@ -453,7 +469,7 @@
   id: WalterStealObjective
   components:
   - type: NotJobRequirement
-    job: Chemist
+    job: [MedicalDoctor, Paramedic, Chemist ] # imp edit
   - type: StealCondition
     stealGroup: AnimalWalter
   - type: Objective
@@ -463,6 +479,8 @@
   parent: BaseThiefStealAnimalObjective
   id: MortyStealObjective
   components:
+  - type: NotJobRequirement #imp edit
+    job: [MedicalDoctor, Paramedic, Chemist, Chaplain ] # imp edit
   - type: StealCondition
     stealGroup: AnimalMorty
   - type: Objective
@@ -484,7 +502,7 @@
   id: ShivaStealObjective
   components:
   - type: NotJobRequirement
-    job: SecurityOfficer
+    job: [ SecurityOfficer, Detective, Brigmedic, Warden ] # imp
   - type: StealCondition
     stealGroup: AnimalShiva
   - type: Objective
@@ -495,7 +513,7 @@
   id: TropicoStealObjective
   components:
   - type: NotJobRequirement
-    job: AtmosphericTechnician
+    job: [ AtmosphericTechnician, StationEngineer ] # imp edit
   - type: StealCondition
     stealGroup: AnimalTropico
   - type: Objective
@@ -506,7 +524,7 @@
 - type: entity
   parent: [BaseThiefObjective, BaseLivingObjective]
   id: EscapeThiefShuttleObjective
-  name: Escape to centcomm alive and unrestrained.
+  name: Escape to CentComm alive and unrestrained. # imp caps fix
   description: You don't want your illegal activities to be discovered by anyone, do you?
   components:
   - type: Objective

@@ -109,6 +109,20 @@
       methods: [ Touch ]
       effects:
       - !type:ExtinguishReaction
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Holy: 0.5
+            Blunt: -0.1
+#            Poison: -0.2
+            Heat: -0.1
+            Shock: -0.1
+            Cold: -0.1
   tileReactions:
   - !type:ExtinguishTileReaction { }
 
@@ -132,3 +146,26 @@
           groups:
             Brute: -4
 
+- type: reagent
+  id: ClarifiedPhalanximine
+  name: reagent-name-clarified-phalanximine
+  group: Medicine
+  desc: reagent-desc-clarified-phalanximine
+  physicalDesc: reagent-physical-desc-acrid
+  flavor: medicine
+  color: "#8C803B"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.1
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Cellular: -0.3
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 16
+        damage:
+          types:
+            Radiation: 0.2

@@ -8,6 +8,12 @@
       inverted: true # don't let experienced players select these
 
 - type: loadout
+  id: NoviceMark # no playtime lockout for needing time :)
+  storage:
+    back:
+    - ClothingNeckNoviceMark
+
+- type: loadout
   id: CigPackNewport
   storage:
     back:
@@ -51,6 +57,15 @@
   storage:
     back:
     - HarmonicaInstrument
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MusicallyTalented
+
+- type: loadout
+  id: PanFluteInstrument
+  storage:
+    back:
+    - PanFluteInstrument
   effects:
   - !type:GroupLoadoutEffect
     proto: MusicallyTalented

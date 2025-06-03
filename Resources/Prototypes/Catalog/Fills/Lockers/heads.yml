@@ -20,8 +20,10 @@
     - id: RubberStampDenied
     - id: RubberStampQm
     - id: AstroNavCartridge
+    - id: MailTeleporterMachineCircuitboard
     - id: StockTradingCartridge # Delta-V
-
+    - id: PersonalAILearnerCargo #impspecial
+    
 - type: entity
   id: LockerQuarterMasterFilled
   suffix: Filled
@@ -55,7 +57,8 @@
     - id: WeaponDisabler
     - id: ClothingEyesGlassesCommand
     - id: TicketPad #imp special
-
+    - id: PersonalAILearnerCommand #impspecial
+  
 # No laser table + Laser table
 - type: entityTable
   id: LockerFillCaptainLaser
@@ -166,6 +169,7 @@
     - id: RCD
     - id: RCDAmmo
     - id: RubberStampCE
+    - id: PersonalAILearnerEngineering #impspecial
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -224,6 +228,7 @@
     - id: MedkitFilled
     - id: RubberStampCMO
     - id: MedTekCartridge
+    - id: PersonalAILearnerMedical #impspecial
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -275,6 +280,7 @@
     - id: ProtolatheMachineCircuitboard
     - id: ResearchComputerCircuitboard
     - id: RubberStampRd
+    - id: PersonalAILearnerScience #impspecial
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -339,6 +345,7 @@
     - id: TicketPad #imp special
     - id: BaseSeclinkRadio #imp
     - id: PillCanisterHOS #imp
+    - id: PersonalAILearnerSecurity #impspecial
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

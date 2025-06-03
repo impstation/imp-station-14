@@ -11,18 +11,18 @@
     state: icon
   objectType: Item
 
-- type: construction
-  name: fishing rod
-  id: FishingRod
-  graph: FishingRod
-  startNode: start
-  targetNode: rod
-  category: construction-category-tools
-  objectType: Item
-  description: A tool of the ages used to bring things out of reach closer.
-  icon:
-    sprite: _Impstation/Objects/Fishing/fishingrod.rsi
-    state: base
+#- type: construction # disabled until there is something to fish
+#  name: fishing rod
+#  id: FishingRod
+#  graph: FishingRod
+#  startNode: start
+#  targetNode: rod
+#  category: construction-category-tools
+#  objectType: Item
+#  description: A tool of the ages used to bring things out of reach closer.
+#  icon:
+#    sprite: _Impstation/Objects/Fishing/fishingrod.rsi
+#    state: base
 
 - type: construction
   name: yarn noodles
@@ -74,4 +74,17 @@
   description: A thoughtful and inedible gift for your loved one(s).
   icon:
     sprite: _Impstation/Objects/Fun/bouquet.rsi
+    state: icon
+
+- type: construction
+  name: makeshift loader
+  id: makeshiftloader
+  graph: MakeshiftLoaderGraph
+  startNode: start
+  targetNode: loader
+  category: construction-category-weapons
+  objectType: Item
+  description: The interior parts of a magazine, used in the creation of firearms.
+  icon:
+    sprite: _Impstation/Objects/Misc/makeshift_loader.rsi
     state: icon

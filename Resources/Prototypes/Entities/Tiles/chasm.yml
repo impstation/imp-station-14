@@ -27,6 +27,8 @@
     state: full
   - type: IconSmooth
     key: chasm
+    additionalKeys:
+    - walls
     base: chasm
   - type: Physics
     bodyType: Static
@@ -45,6 +47,13 @@
   - type: Tag
     tags:
     - HideContextMenu
+  - type: SolutionContainerManager # imp
+    solutions:
+      drainBuffer:
+        maxVol: 1000
+  - type: Drain # imp
+    unitsPerSecond: 10
+    unitsDestroyedPerSecond: 10
 
 - type: entity
   parent: FloorChasmEntity

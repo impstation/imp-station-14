@@ -1,62 +1,62 @@
-using Content.Server.GameTicking.Events;
-using Content.Shared.Mind.Components;
-using Content.Shared.Mind;
-using Robust.Shared.Timing;
-using System.Linq;
-using Content.Server.Heretic.Components;
-using Content.Shared.Heretic.Prototypes;
-using Content.Shared.Examine;
-using Content.Server.Body.Systems;
 using Content.Server._Goobstation.Heretic.Components;
 using Content.Server._Goobstation.Heretic.UI;
-using System.Collections.Immutable;
-using Content.Server.EUI;
-using Robust.Shared.Random;
-using Content.Server.Humanoid;
-using Content.Shared.Humanoid.Prototypes;
 using Content.Server.Administration.Systems;
+using Content.Server.EUI;
+using Content.Server.Heretic.Components;
+using Content.Server.Humanoid;
+using Content.Server.StationEvents;
+using Content.Shared.Bed.Cryostorage;
+using Content.Shared.Examine;
+using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Eye.Blinding.Systems;
+using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Humanoid;
-using Robust.Shared.Utility;
+using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Mind;
+using Content.Shared.Mind.Components;
+using Robust.Server.GameObjects;
 using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
+using Robust.Shared.Random;
+using Robust.Shared.Timing;
+using Robust.Shared.Utility;
+using System.Collections.Immutable;
 
-
+//this is kind of badly named since we're doing infinite archives stuff now but i dont feel like changing it :)
 
 namespace Content.Server._Goobstation.Heretic.EntitySystems
 {
 
     public sealed partial class HellWorldSystem : EntitySystem
     {
-        [Dependency] private readonly SharedMindSystem _mind = default!;
-        [Dependency] private readonly SharedMapSystem _map = default!;
-        [Dependency] private readonly MetaDataSystem _metaSystem = default!;
-        [Dependency] private readonly SharedTransformSystem _xform = default!;
-        [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
+        [Dependency] private readonly BlindableSystem _blind = default!;
         [Dependency] private readonly EuiManager _euiMan = default!;
         [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
-        [Dependency] private readonly EntityLookupSystem _lookup = default!;
-        [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly IEntityManager _ent = default!;
+        [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
+        [Dependency] private readonly MetaDataSystem _metaSystem = default!;
+        [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
+        [Dependency] private readonly SharedMapSystem _map = default!;
+        [Dependency] private readonly SharedMindSystem _mind = default!;
+        [Dependency] private readonly SharedTransformSystem _xform = default!;
 
-        private readonly ResPath _mapPath = new("Maps/_Impstation/Nonstations/Hellworld.yml"); 
+        private readonly ResPath _mapPath = new("Maps/_Impstation/Nonstations/InfiniteArchives.yml");
 
         public override void Initialize()
         {
             base.Initialize();
 
-            SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
             SubscribeLocalEvent<HellVictimComponent, ExaminedEvent>(OnExamine);
         }
 
         /// <summary>
         /// Creates the hell world map.
         /// </summary>
-        private void OnRoundStart(RoundStartingEvent ev)
+        public void MakeHell()
         {
-            if(_mapLoader.TryLoadMap(_mapPath, out var map, out _, new DeserializationOptions { InitializeMaps = true }))
-            _map.SetPaused(map.Value.Comp.MapId, false);
+            if (_mapLoader.TryLoadMap(_mapPath, out var map, out _, new DeserializationOptions { InitializeMaps = true }))
+                _map.SetPaused(map.Value.Comp.MapId, false);
         }
 
         public override void Update(float frameTime)
@@ -72,11 +72,14 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
                 {
                     //make sure they won't get into this loop again
                     victimComp.CleanupDone = true;
-                    //put them back in the original body
-                    _mind.TransferTo(victimComp.Mind, victimComp.OriginalBody);
-                    //let them ghost again
-                    MindComponent? mindComp = Comp<MindComponent>(victimComp.Mind);
-                    mindComp.PreventGhosting = false;
+                    if (victimComp.Mind != null) //if they ghosted before the gib, no need to return the hell mind to the body
+                    {
+                        //put them back in the original body
+                        _mind.TransferTo(victimComp.Mind.Value, victimComp.OriginalBody);
+                        //let them ghost again
+                        MindComponent? mindComp = Comp<MindComponent>(victimComp.Mind.Value);
+                        mindComp.PreventGhosting = false;
+                    }
                     //give the original body some visual changes
                     TransformVictim(uid);
                     //tell them about the metashield
@@ -99,6 +102,7 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
             {
                 return;
             }
+            victimComp.HasMind = true;
             victimComp.Mind = mindContainer.Mind.Value;
         }
 
@@ -109,7 +113,7 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
             if (!args.EntityManager.TryGetComponent<HellVictimComponent>(target, out var victimComp))
                 return;
             //if already sent, don't send again
-            if(victimComp.AlreadyHelled)
+            if (victimComp.AlreadyHelled)
                 return;
 
             //get all possible spawn points, choose one, then get the place
@@ -118,44 +122,43 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
             var spawnTgt = Transform(newSpawn.Uid).Coordinates;
 
             //spawn your hellsona
-            MindComponent? mindComp = Comp<MindComponent>(victimComp.Mind);
+            if (!victimComp.HasMind || victimComp.Mind == null) //just in case the
+            {
+                victimComp.AlreadyHelled = true;
+                return;
+            }
+            MindComponent? mindComp = Comp<MindComponent>(victimComp.Mind.Value);
             mindComp.PreventGhosting = true;
             //don't have to change this one's blood because nobody's bringing a forensic scanner to hell
             var sufferingWhiteBoy = Spawn(species.Prototype, spawnTgt);
             _metaSystem.SetEntityName(sufferingWhiteBoy, MetaData(target).EntityName);
             _humanoid.CloneAppearance(victimComp.OriginalBody, sufferingWhiteBoy);
+            if (TryComp<BlindableComponent>(sufferingWhiteBoy, out var blindable))
+            {
+                _blind.AdjustEyeDamage(sufferingWhiteBoy, 5); //make it more disorienting
+
+            }
 
             //and then send the mind into the hellsona
-            _mind.TransferTo(victimComp.Mind, sufferingWhiteBoy);
+            _mind.TransferTo(victimComp.Mind.Value, sufferingWhiteBoy);
             victimComp.AlreadyHelled = true;
 
             //returning the mind to the original body happens in Update()
         }
 
-        //ported from funkystation
-        public void TeleportRandomly(RitualData args, EntityUid uid) // start le teleporting loop -space
+        public void TeleportRandomly(RitualData args, EntityUid uid)
         {
-            var maxrandomtp = 40; // this is how many attempts it will try before breaking the loop -space
-            var maxrandomradius = 20; // this is the max range it will do -space
-
-
-            if (!args.EntityManager.TryGetComponent<TransformComponent>(uid, out var xform))
-                return;
-            var coords = xform.Coordinates;
-            var newCoords = coords.Offset(_random.NextVector2(maxrandomradius));
-            for (var i = 0; i < maxrandomtp; i++) //start of the loop -space
+            //get all possible spawn points, choose one, then get the place
+            var spawnPoints = EntityManager.GetAllComponents(typeof(MidRoundAntagSpawnLocationComponent)).ToImmutableList();
+            if (spawnPoints.Count == 0)
             {
-                var randVector = _random.NextVector2(maxrandomradius);
-                newCoords = coords.Offset(randVector);
-                if (!args.EntityManager.TryGetComponent<TransformComponent>(uid, out var trans))
-                    continue;
-                if (trans.GridUid != null && !_lookup.GetEntitiesIntersecting(newCoords.ToMap(_ent, _xform), LookupFlags.Static).Any()) // if they're not in space and not in wall, it will choose these coords and end the loop -space
-                {
-                    break;
-                }
+                //fallback to cryo, incase someone forgot to map points
+                spawnPoints = EntityManager.GetAllComponents(typeof(CryostorageComponent)).ToImmutableList();
             }
+            var newSpawn = _random.Pick(spawnPoints);
+            var spawnTgt = Transform(newSpawn.Uid).Coordinates;
 
-            _xform.SetCoordinates(uid, newCoords);
+            _xform.SetCoordinates(uid, spawnTgt);
         }
 
         private void TransformVictim(EntityUid ent)

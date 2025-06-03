@@ -90,6 +90,22 @@
   loadouts:
   - LoadoutDecapoidBreathToolInventory
 
+- type: loadoutGroup
+  id: GroupBreathToolDecapoidInventoryClown
+  name: loadout-group-breath-tool-inventory-decapoid-clown
+  minLimit: 1
+  hidden: true
+  loadouts:
+  - LoadoutDecapoidBreathToolInventoryClown
+
+- type: loadoutGroup
+  id: GroupBreathToolDecapoidInventoryMime
+  name: loadout-group-breath-tool-inventory-decapoid-mime
+  minLimit: 1
+  hidden: true
+  loadouts:
+  - LoadoutDecapoidBreathToolInventoryMime
+
 # apids
 
 - type: startingGear #the starting gear for the apid botanist. they dont have a backslot and whatever so ive gotta do it bespoke
@@ -244,6 +260,7 @@
   loadouts:
   - CaptainSunglasses
   - CaptainVisor
+  - CaptainEyepatch
 
 - type: loadoutGroup
   id: CaptainGloves
@@ -261,6 +278,7 @@
   - BlackCommandHeels
   - BlueCommandHeels
   - CaptainJumpBoots
+  - CaptainHeeledBoots
 
 - type: loadoutGroup
   id: CommandHeadset
@@ -278,6 +296,7 @@
   loadouts:
   - EmergencyNitrogenCommand
   - EmergencyOxygenCommand
+  - EmergencyMeatCommand
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogenCommand
 
@@ -289,6 +308,7 @@
   loadouts:
   - EmergencyNitrogenExtendedCommand
   - EmergencyOxygenExtendedCommand
+  - EmergencyMeatExtendedCommand
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogenCommand
 
@@ -300,6 +320,7 @@
   loadouts:
   - EmergencyNitrogenSecurityCommand
   - EmergencyOxygenSecurityCommand
+  - EmergencyMeatSecurityCommand
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogenCommand
 
@@ -341,6 +362,7 @@
   - HospitalityDirectorBandana
   - BartenderHead
   - HospitalityDirectorBeret
+  - HospitalityDirectorBellhopHD
 
 - type: loadoutGroup
   id: HospitalityDirectorNeck
@@ -364,6 +386,7 @@
   - HospitalityDirectorBartenderJumpsuit
   - HospitalityDirectorBartenderJumpskirt
   - HospitalityDirectorBotanyJumpsuit
+  - HospitalityDirectorProprietorJumpsuit
 
 - type: loadoutGroup
   id: HospitalityDirectorGloves
@@ -382,6 +405,8 @@
   - HospitalityDirectorApron
   - HospitalityDirectorVest
   - HospitalityDirectorWintercoat
+  - BartenderCuteApron
+  - ChefCuteApron
 
 - type: loadoutGroup
   id: HospitalityDirectorShoes
@@ -496,6 +521,20 @@
   - BlackHeels
 
 - type: loadoutGroup
+  id: LawyerPDA
+  name: loadout-group-lawyer-id
+  loadouts:
+  - LawyerPDA
+  - SeniorLawyerPDA
+
+- type: loadoutGroup
+  id: LawyerBriefcase
+  name: loadout-group-lawyer-briefcase
+  loadouts:
+  - BrownBriefcase
+  - BlackBriefcase
+
+- type: loadoutGroup
   id: ChaplainEyes
   name: loadout-group-chaplain-eyes
   minLimit: 0
@@ -567,6 +606,7 @@
   - ScarfBrown
   - ScarfGreen
   - ScarfLightGreen
+  - BotanistLilyMantle
 
 - type: loadoutGroup
   id: BotanistGloves
@@ -692,6 +732,13 @@
   minLimit: 0
   loadouts:
   - ScarfBrown
+
+- type: loadoutGroup
+  id: CargoTechnicianBelt
+  name: loadout-group-cargo-technician-belt
+  minLimit: 0
+  loadouts:
+  - SeniorCargoBelt
 
 - type: loadoutGroup
   id: CargoTechnicianPDA
@@ -835,6 +882,13 @@
   - ScarfLightBlue
 
 - type: loadoutGroup
+  id: AtmosphericTechnicianHead
+  name: loadout-group-atmospheric-technician-head
+  minLimit: 0
+  loadouts:
+  - SeniorEngineerBeret
+
+- type: loadoutGroup
   id: AtmosphericTechnicianPDA
   name: loadout-group-atmospheric-technician-id
   loadouts:
@@ -899,6 +953,22 @@
   - HeadofSecurityShoulderHolster
 
 - type: loadoutGroup
+  id: SecurityCommandFirearm
+  name: loadout-group-security-gun-command
+  loadouts:
+  - SecurityPistolMk58
+  - SecurityPistolP2
+  - SecurityPistolSturm
+
+- type: loadoutGroup
+  id: SecurityCommandAmmo
+  name: loadout-group-security-ammo-command
+  loadouts:
+  - SecurityAmmoPistol
+  - SecurityAmmoP2
+  - SecurityAmmoSturm
+
+- type: loadoutGroup
   id: WardenNeck
   name: loadout-group-warden-neck
   minLimit: 0
@@ -926,6 +996,7 @@
   minLimit: 0
   loadouts:
   - ScarfRed
+  - SecPoncho
 
 - type: loadoutGroup
   id: UpperSecurityShoes
@@ -949,6 +1020,27 @@
   loadouts:
   - DetectivePDA
   - SeniorDetectivePDA
+
+- type: loadoutGroup
+  id: DetectiveFirearm
+  name: loadout-group-detective-gun
+  loadouts:
+  - SecurityRevolverInspector
+  - SecurityRevolverDerringer
+  - SecurityPistolFreelancer
+
+- type: loadoutGroup
+  id: DetectiveAmmo
+  name: loadout-group-detective-ammo
+  minLimit: 1
+  maxLimit: 2
+  loadouts:
+  - SecurityAmmoSpeedloaderLethal
+  - SecurityAmmoSpeedloaderStun
+  - SecurityAmmoPouchLethal
+  - SecurityAmmoPouchStun
+  - SecurityAmmoFreelancerLethal
+  - SecurityAmmoFreelancerStun
 
 - type: loadoutGroup
   id: BrigmedicHead
@@ -1010,8 +1102,27 @@
   loadouts:
   - EmergencyNitrogenBrigmedic
   - EmergencyOxygenBrigmedic
+  - EmergencyMeatBrigmedic
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogen
+
+- type: loadoutGroup
+  id: SecurityOfficerFirearm
+  name: loadout-group-security-gun
+  loadouts:
+  - SecurityPistolMk58
+  - SecurityPistolP2
+  - SecurityPistolBlaster
+  - SecurityPistolGunpet
+
+- type: loadoutGroup
+  id: SecurityOfficerAmmo
+  name: loadout-group-security-ammo
+  loadouts:
+  - SecurityAmmoPistol
+  - SecurityAmmoP2
+  - SecurityAmmoBlaster
+  - SecurityAmmoSnapPop
 
 - type: loadoutGroup
   id: GroupSpeciesBreathToolMedSec
@@ -1118,3 +1229,4 @@
   - LeatherShoes
   - BlackHeels
   - ClownShoesExpert
+

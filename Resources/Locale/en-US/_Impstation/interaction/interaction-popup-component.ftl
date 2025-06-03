@@ -16,9 +16,12 @@ petting-failure-cargorilla = You try to give {THE($target)} a hug, but you strug
 petting-success-disgustingpig = You insult {THE($target)}, as it deserves.
 petting-failure-disgustingpig = You think about insulting {THE($target)}, but hold your tongue.
 
-petting-success-suppy = {THE($target)} crackles with energy as you pet one of {POSS-ADJ($target)} facets.
+petting-success-suppy = {CAPITALIZE(THE($target))} crackles with energy as you pet one of {POSS-ADJ($target)} facets.
 
 petting-success-ray = You pet {$target}, it wiggles glowing pincers at you happily.
+
+petting-success-smspider = You pet {THE($target)} and feel a wave of dread wash over you.
+petting-failure-smspider = You reach out to pet {THE($target)}, but decide against it.
 
 ## Petting silicons
 
@@ -28,3 +31,8 @@ petting-success-cargo-cyborg = You pet {THE($target)} on {POSS-ADJ($target)} scr
 
 petting-success-apid = You pet {$target} on their fuzzy little head.
 petting-failure-apid = You try to pet {$target}, but your fingers are shocked by static electricity!
+
+## Anomalites
+
+petting-success-anomalite = You pet {THE($target)} on their anomalous little head.
+petting-failure-anomalite = You try to pet {THE($target)}, but your fingers are zapped by its energy field!

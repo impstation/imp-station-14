@@ -915,11 +915,13 @@
   - type: Access
     groups:
     - AllAccess
+    - Silicon
     tags:
     - CentralCommand
     - NuclearOperative
     - SyndicateAgent
     - Wizard
+    - Freelance # (imp)
   - type: NanoChatCard # DeltaV
     notificationsMuted: true
     listNumber: false

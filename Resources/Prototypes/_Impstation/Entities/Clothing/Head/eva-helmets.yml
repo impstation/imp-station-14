@@ -1,0 +1,14 @@
+#Large Winter EVA Helmet
+- type: entity
+  parent: ClothingHeadEVAHelmetBase
+  id: ClothingHeadHelmetWinterEVALarge
+  name: winter EVA mask
+  description: An helps against the biting cold and blinding snow.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Helmets/eva_winter.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Helmets/eva_winter.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 1.05
+    coolingCoefficient: 0.7

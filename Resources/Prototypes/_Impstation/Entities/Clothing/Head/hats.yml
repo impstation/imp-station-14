@@ -171,7 +171,7 @@
       - state: equipped-HELMET
         offset: "0, 0.15" #this shit is so fiddly and i don't understand it at all
     sprite: _Impstation/Clothing/Head/Hats/circusclownhat.rsi
-    
+
 - type: entity
   parent: [ClothingHeadBase, BaseCommandContraband]
   id: ClothingHeadHatBeretHD
@@ -187,4 +187,80 @@
     - ClothMade
     - DroneUsable
     - HamsterWearable
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ClothingHeadBase, BaseCommandContraband]
+  id: ClothingHeadHatCaptainTricorne
+  name: captain's tricorne
+  description: It's good being the admiral.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hats/captricorne.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hats/captricorne.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ClothingHeadBase, BaseCommandContraband]
+  id: ClothingHeadHatBellhopHD
+  name: hospitality director's bellhop hat
+  description: A hat styled after a hotel bellhop. Can I take your coat sir?
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hats/bellhop_hd.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hats/bellhop_hd.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadDevilHorns
+  name: devil horns headband
+  description: Little pointy horns for the impish and nefarious!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hats/devilhorns.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hats/devilhorns.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadJesterEvilHat
+  name: evil jester hood
+  description: It is I! Your evil, silly doppelgänger!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hats/jesterevilhat.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hats/jesterevilhat.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHatHolyWatermelon
+  id: ClothingHeadHalo
+  name: halo
+  description: An ordinary, theatrical halo! Please do not eat.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/holyhatmelon.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/holyhatmelon.rsi
+  - type: Armor
+  - type: Tag
+    tags:
     - WhitelistChameleon

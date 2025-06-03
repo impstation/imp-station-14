@@ -34,9 +34,11 @@
       - BasicChemistryStatic
       - ServiceMiscPack
       - ReportingStatic # DeltaV
+      - LunchboxPack
+      - SteelBriefcaseImp
     dynamicPacks:
       - CleanPackDynamic
-      - ServiceMiscPackDynamic
+      # - ServiceMiscPackDynamic # disabled until there is something to fish
       - FauxTiles
       - NFService # Frontier
   - type: EmagLatheRecipes

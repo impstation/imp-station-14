@@ -15,6 +15,9 @@ public sealed partial class ArtifactSystem
 
     private readonly HashSet<int> _usedNodeIds = new();
 
+    private readonly string _defaultTrigger = "TriggerExamine";
+    private readonly string _defaultEffect = "EffectBadFeeling";
+
     /// <summary>
     /// Generate an Artifact tree with fully developed nodes.
     /// </summary>
@@ -39,8 +42,8 @@ public sealed partial class ArtifactSystem
             var node = uninitializedNodes[0];
             uninitializedNodes.Remove(node);
 
-            node.Trigger = GetRandomTrigger(artifact, ref node);
-            node.Effect = GetRandomEffect(artifact, ref node);
+            node.Trigger = GetRandomTrigger(artifact, node);
+            node.Effect = GetRandomEffect(artifact, node);
 
             var maxChildren = _random.Next(1, MaxEdgesPerNode - 1);
 
@@ -79,7 +82,7 @@ public sealed partial class ArtifactSystem
     //yeah these two functions are near duplicates but i don't
     //want to implement an interface or abstract parent
 
-    private string GetRandomTrigger(EntityUid artifact, ref ArtifactNode node)
+    private string GetRandomTrigger(EntityUid artifact, ArtifactNode node)
     {
         var allTriggers = _prototype.EnumeratePrototypes<ArtifactTriggerPrototype>()
             .Where(x => _whitelistSystem.IsWhitelistPassOrNull(x.Whitelist, artifact) &&
@@ -91,10 +94,10 @@ public sealed partial class ArtifactSystem
         var targetTriggers = allTriggers
             .Where(x => x.TargetDepth == selectedRandomTargetDepth).ToList();
 
-        return GetTriggerIDUsingProb(targetTriggers);;
+        return GetTriggerIDUsingProb(targetTriggers);
     }
 
-    private string GetRandomEffect(EntityUid artifact, ref ArtifactNode node)
+    private string GetRandomEffect(EntityUid artifact, ArtifactNode node)
     {
         var allEffects = _prototype.EnumeratePrototypes<ArtifactEffectPrototype>()
             .Where(x => _whitelistSystem.IsWhitelistPassOrNull(x.Whitelist, artifact) &&
@@ -184,7 +187,7 @@ public sealed partial class ArtifactSystem
         return maxProbID;
     }
 
-     /// <summary>
+    /// <summary>
     /// Selects an trigger using the probability weight
     /// </summary>
     private string GetTriggerIDUsingProb(IEnumerable<ArtifactTriggerPrototype> triggerObjects)
@@ -232,8 +235,30 @@ public sealed partial class ArtifactSystem
 
         component.CurrentNodeId = node.Id;
 
-        var trigger = _prototype.Index<ArtifactTriggerPrototype>(node.Trigger);
-        var effect = _prototype.Index<ArtifactEffectPrototype>(node.Effect);
+        //#IMP Attempt to get trigger/effect from string, fall back to defaults if not in prototype
+        // Putting defaults in here rather than components because artifact component isn't guaranteed to exist,
+        // and these should never be modified in-game
+
+        _prototype.TryIndex<ArtifactTriggerPrototype>(node.Trigger, out var maybeTrigger);
+        _prototype.TryIndex<ArtifactEffectPrototype>(node.Effect, out var maybeEffect);
+
+        var trigger = _prototype.Index<ArtifactTriggerPrototype>(_defaultTrigger);
+        var effect = _prototype.Index<ArtifactEffectPrototype>(_defaultEffect);
+        if (maybeTrigger is null)
+            Log.Debug($"Trigger prototype {node.Trigger} not found for artifact entity {ToPrettyString(uid)}, falling back to default");
+        else
+            trigger = maybeTrigger;
+
+        if (maybeEffect is null)
+            Log.Debug($"Effect prototype {node.Effect} not found for artifact entity {ToPrettyString(uid)}, falling back to default");
+        else
+            effect = maybeEffect;
+
+        // #IMP: Save trigger & effect to allow proper exiting in case admin edits between entry and exit.
+        node.StoredTrigger = maybeTrigger != null ? node.Trigger : _defaultTrigger;
+        node.StoredEffect = maybeEffect != null ? node.Effect : _defaultEffect;
+
+        //#END IMP
 
         var allComponents = effect.Components.Concat(effect.PermanentComponents).Concat(trigger.Components);
         foreach (var (name, entry) in allComponents)
@@ -271,8 +296,8 @@ public sealed partial class ArtifactSystem
             return;
         var currentNode = GetNodeFromId(component.CurrentNodeId.Value, component);
 
-        var trigger = _prototype.Index<ArtifactTriggerPrototype>(currentNode.Trigger);
-        var effect = _prototype.Index<ArtifactEffectPrototype>(currentNode.Effect);
+        var trigger = _prototype.Index<ArtifactTriggerPrototype>(currentNode.StoredTrigger);
+        var effect = _prototype.Index<ArtifactEffectPrototype>(currentNode.StoredEffect);
 
         var entityPrototype = MetaData(uid).EntityPrototype;
         var toRemove = effect.Components.Keys.Concat(trigger.Components.Keys).ToList();

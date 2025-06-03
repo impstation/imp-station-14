@@ -22,6 +22,7 @@
     - Plunger
     - MopBucket
     - SoapNT
+    - WelderJanitorial
 
 - type: latheRecipePack
   id: BotanyPack
@@ -42,12 +43,14 @@
     - DrinkJigger
     - DrinkFlaskBar
     - DrinkVacuumFlask
+    - DrinkVacuumFlaskXL
     - DrinkTeapotEmpty
     - DrinkTeacupEmpty
     - DrinkWaterBottleEmpty
     - Pitcher
     - BarSpoon
     - DrinkDisposableCup
+    - DrinkNoveltyMug
 
 - type: latheRecipePack
   id: KitchenPack
@@ -67,6 +70,15 @@
     - ClothingHeadHatCone
     - SprayPainter
     - FlashlightLantern
+    - ClothingBeltPlushie
+
+- type: latheRecipePack
+  id: LunchboxPack
+  recipes:
+    - SteelLunchbox
+    - SteelLunchboxBlue
+    - SteelLunchboxPink
+    - SteelLunchboxOrange
 
 # Dynamic
 
@@ -79,10 +91,10 @@
     - ClothingBackpackWaterTank
     - CleanerGrenade
 
-- type: latheRecipePack
-  id: ServiceMiscPackDynamic
-  recipes:
-    - FishingRod
+#- type: latheRecipePack # disabled until there is something to fish
+#  id: ServiceMiscPackDynamic
+#  recipes:
+#    - FishingRod
 
 # Emagged
 

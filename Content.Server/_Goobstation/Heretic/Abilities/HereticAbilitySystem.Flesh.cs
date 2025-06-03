@@ -1,14 +1,15 @@
 using Content.Server.Body.Components;
 using Content.Shared.Body.Components;
-using Content.Shared.Body.Part;
+using Content.Shared.Chemistry.Reagent; // imp
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Heretic;
+using Content.Shared.Humanoid; // imp
 using Content.Shared.Popups;
 using Content.Shared.Speech.Muting;
+using Content.Shared.Sprite; // imp
 using Robust.Shared.Audio;
-using Robust.Shared.Player;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -27,9 +28,9 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             return;
 
         if (HasComp<GhoulComponent>(args.Target)
-        || (TryComp<HereticComponent>(args.Target, out var th) && th.CurrentPath == ent.Comp.CurrentPath))
+        || TryComp<HereticComponent>(args.Target, out var th) && th.CurrentPath == ent.Comp.CurrentPath)
         {
-            var dargs = new DoAfterArgs(EntityManager, ent, 10f, new EventHereticFleshSurgeryDoAfter(args.Target), ent, args.Target)
+            var dargs = new DoAfterArgs(EntityManager, ent, 10f, new EventHereticFleshSurgeryDoAfter(), ent, args.Target)
             {
                 BreakOnDamage = true,
                 BreakOnMove = true,
@@ -89,7 +90,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             return;
 
         // heal teammates, mostly ghouls
-        _dmg.SetAllDamage((EntityUid) args.Target, dmg, 0);
+        _dmg.SetAllDamage((EntityUid)args.Target, dmg, 0);
         args.Handled = true;
     }
     private void OnFleshAscendPolymorph(Entity<HereticComponent> ent, ref EventHereticFleshAscend args)
@@ -101,8 +102,54 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (urist == null)
             return;
 
-        _aud.PlayPvs(new SoundPathSpecifier("/Audio/Animals/space_dragon_roar.ogg"), (EntityUid) urist, AudioParams.Default.AddVolume(2f));
+        var colors = GrabHumanoidColors(ent); // begin imp
+
+        if (colors != null) // match the colors of the ascended entity to those of the ascendee
+        {
+            (var skinColor, var eyeColor, var bloodColor) = colors.Value;
+            if (TryComp<RandomSpriteComponent>(urist, out var randomSprite)) // we have to do this using RandomSpriteComponent, otherwise I'd be making a whole species prototype just for this.
+            {
+                foreach (var entry in randomSprite.Selected)
+                {
+                    var state = randomSprite.Selected[entry.Key];
+                    switch (entry.Key)
+                    {
+                        case "fleshMap":
+                            state.Color = skinColor;
+                            break;
+                        case "eyesMap":
+                            state.Color = eyeColor;
+                            break;
+                        case "bloodMap":
+                            state.Color = bloodColor;
+                            break;
+                    }
+                    randomSprite.Selected[entry.Key] = state;
+                }
+                Dirty(urist.Value, randomSprite);
+            }
+        } // end imp
+
+        _aud.PlayPvs(new SoundPathSpecifier("/Audio/Animals/space_dragon_roar.ogg"), (EntityUid)urist, AudioParams.Default.AddVolume(2f));
 
         args.Handled = true;
+    }
+
+    private (Color, Color, Color)? GrabHumanoidColors(EntityUid entity) // imp
+    {
+        Color skinColor;
+        Color eyeColor;
+        Color bloodColor;
+        if (TryComp<HumanoidAppearanceComponent>(entity, out var humanoid) && TryComp<BloodstreamComponent>(entity, out var bloodstream) // get the humanoidappearance and bloodstream
+        && _prot.TryIndex(bloodstream.BloodReagent, out ReagentPrototype? reagentProto) && reagentProto != null) // get the blood reagent
+        {
+            skinColor = humanoid.SkinColor;
+            eyeColor = humanoid.EyeColor;
+            bloodColor = reagentProto.SubstanceColor;
+
+            return (skinColor, eyeColor, bloodColor);
+        }
+
+        else return null; // if (for some reason - like perhaps admin intervention) a non-humanoid or someone with no bloodstream ascends, we don't want to try to modify the colors.
     }
 }
