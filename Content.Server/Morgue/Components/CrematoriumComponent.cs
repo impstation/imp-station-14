@@ -1,4 +1,5 @@
 using Robust.Shared.Audio;
+using Robust.Shared.Audio.Components;
 
 namespace Content.Server.Morgue.Components;
 
@@ -22,4 +23,6 @@ public sealed partial class CrematoriumComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite)]
     public bool Powered; // imp
+
+    public (EntityUid, AudioComponent)? CrematingSoundEntity;
 }
