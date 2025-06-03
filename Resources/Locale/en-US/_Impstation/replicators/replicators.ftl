@@ -32,7 +32,21 @@ replicator-nest-levelup = There is a flurry of activity from the nest.
 replicator-nest-destroyed = Your nest has been destroyed. 
                             A Replicator has been selected to replace it.
                             Your pinpointer has been updated to follow them.
+replicator-queen-died-msg = The Queen has been deactivated.
+                            You are orphaned from the nest.
 
 # action confirmations
 replicator-nest-confirm = Are you sure? Use the action again to confirm.
 replicator-levelup-confirm = Are you sure? Use the action again to confirm.
+
+# ninja spawn warning
+terror-replicators = Attention crew, it appears that someone on your station has made an unexpected communication with a distributed machine intelligence in nearby space.
+
+# AAC phrases
+repli-phrase-species-organic = Organic
+repli-phrase-species-silicon = Silicon
+phrase-we = We
+phrase-we-are = We are
+phrase-this-unit = This unit
+phrase-that-unit = That unit
+phrase-is = Is
