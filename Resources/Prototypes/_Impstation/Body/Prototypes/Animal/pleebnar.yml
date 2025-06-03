@@ -8,12 +8,12 @@
       connections:
       - legs
       organs:
-        stomach: OrganGrayStomach
-        lungs: OrganAnimalLungs
-        liver: OrganAnimalLiver
-        heart: OrganAnimalHeart
-        kidneys: OrganAnimalKidneys
-        eyes: OrganGrayEyes
+        stomach: OrganPleebnarStomach
+        lungs: OrganPleebnarLungs
+        liver: OrganPleebnarLiver
+        heart: OrganPleebnarHeart
+        kidneys: OrganPleebnarKidneys
+        eyes: OrganPleebnarEyes
     legs:
       part: LegsAnimal
       connections:

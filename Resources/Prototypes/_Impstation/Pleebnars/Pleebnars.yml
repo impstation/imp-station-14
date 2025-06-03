@@ -19,18 +19,29 @@
     - MindRoleGhostRoleFreeAgentHarmless
   - type: GhostTakeoverAvailable
   - type: Speech
-    speechSounds: Squeak
+    speechSounds: PleebnarPVC
     speechVerb: SmallMob
-    allowedEmotes: ['Squeak']
+    allowedEmotes: ['Squeak','Scream','Blink']
   - type: Sprite
     drawdepth: SmallMobs
     sprite: _Impstation/Mobs/Aliens/pleebnar.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: pleebnar
-#  - type: Item
-#    size: Tiny
-#    heldPrefix: 0
+  - type: Item
+    size: Tiny
+    heldPrefix: 0
+  - type: Clothing
+    quickEquip: false
+    sprite: _Impstation/Mobs/Aliens/pleebnar.rsi
+    clothingVisuals:
+       head:
+        - map: ["enum.DamageStateVisualLayers.Base"]
+          state: 0-equipped-HELMET
+          offset: "0,0.5"
+    equippedPrefix: 0
+    slots:
+    - HEAD
   - type: NpcFactionMember
     factions:
     - Mouse
@@ -112,9 +123,9 @@
         Blunt: 0.1
   - type: Vocal
     sounds:
-      Male: Mouse
-      Female: Mouse
-      Unsexed: Mouse
+      Male: Pleebnar
+      Female: Pleebnar
+      Unsexed: Pleebnar
     wilhelmProbability: 0.001
   # TODO: Remove CombatMode when Prototype Composition is added
   - type: CombatMode
