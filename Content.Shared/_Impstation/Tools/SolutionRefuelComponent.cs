@@ -17,6 +17,9 @@ public sealed partial class SolutionRefuelComponent : Component
     [DataField]
     public float WelderTimer;
 
+    [DataField, AutoNetworkedField]
+    public string? Name;
+
     /// <summary>
     ///     Name of <see cref="FuelSolution"/>.
     /// </summary>

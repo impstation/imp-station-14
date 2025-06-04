@@ -3,6 +3,7 @@ using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
+using Content.Shared.IdentityManagement;
 using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Tools.Components;
@@ -15,6 +16,13 @@ public abstract partial class SharedToolSystem
     {
         SubscribeLocalEvent<SolutionRefuelComponent, ExaminedEvent>(SolutionRefuelExamine);
         SubscribeLocalEvent<SolutionRefuelComponent, AfterInteractEvent>(OnSolutionRefuelAfterInteract);
+    }
+
+    private string GetName(Entity<SolutionRefuelComponent> entity)
+    {
+        if (entity.Comp.Name == null)
+            return Identity.Name(entity, EntityManager);
+        return Loc.GetString(entity.Comp.Name);
     }
 
     public (FixedPoint2 fuel, FixedPoint2 capacity) GetSolutionFuelAndCapacity(EntityUid uid, SolutionRefuelComponent? welder = null, SolutionContainerManagerComponent? solutionContainer = null)
@@ -64,6 +72,7 @@ public abstract partial class SharedToolSystem
             && _whitelist.CheckBoth(entity, tank.FuelBlacklist, tank.FuelWhitelist)
             && SolutionContainerSystem.TryGetSolution(entity.Owner, entity.Comp.FuelSolutionName, out var solutionComp, out var welderSolution))
         {
+            var name = GetName(entity);
             var trans = FixedPoint2.Min(welderSolution.AvailableVolume, targetSolution.Volume);
             if (trans > 0)
             {
@@ -74,7 +83,7 @@ public abstract partial class SharedToolSystem
             }
             else if (welderSolution.AvailableVolume <= 0)
             {
-                _popup.PopupClient(Loc.GetString("welder-component-already-full"), entity, args.User);
+                _popup.PopupClient(Loc.GetString("solution-refuel-component-already-full", ("name", name)), entity, args.User);
             }
             else
             {
