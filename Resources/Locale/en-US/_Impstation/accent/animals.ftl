@@ -26,3 +26,9 @@ accent-words-kodepiia-3 = Ghrr.
 accent-words-kodepiia-4 = Crhcrh!
 accent-words-kodepiia-5 = Hrrrss.
 accent-words-kodepiia-6 = Brrh?
+
+# V-Rex
+accent-words-vrex-1 = Guoh guoh.
+accent-words-vrex-2 = Grrrouuh!
+accent-words-vrex-3 = Ghrrr....
+accent-words-vrex-4 = Gruuuooh!

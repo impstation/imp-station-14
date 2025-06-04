@@ -38,3 +38,8 @@
   id: Replicators
   announcement: terror-replicators
   rule: ReplicatorSpawn
+
+- type: ninjaHackingThreat
+  id: VRex
+  announcement: terror-vrex
+  rule: VRexEvent
