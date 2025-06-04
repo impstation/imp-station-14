@@ -31,6 +31,7 @@
   - type: Item
     size: Tiny
     heldPrefix: 0
+  - type: CanEscapeInventory
   - type: Clothing
     quickEquip: false
     sprite: _Impstation/Mobs/Aliens/pleebnar.rsi
@@ -140,7 +141,6 @@
   - type: Bloodstream
     bloodReagent: GrayBlood
     bloodMaxVolume: 50
-#  - type: CanEscapeInventory
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
