@@ -30,11 +30,7 @@ public sealed class PleebnarGibSystem : SharedPleebnarGibSystem
 
     public void PleebnarGib(Entity<PleebnarGibActionComponent> ent, ref PleebnarGibEvent args)
     {
-        if (!HasComp<PleebnarGibbableComponent>(args.Target))
-        {
-            return;
-        }
-        if (!HasComp<BodyComponent>(args.Target))
+        if ((!HasComp<PleebnarGibbableComponent>(args.Target))&&(!HasComp<BodyComponent>(args.Target)))
         {
             return;
         }
