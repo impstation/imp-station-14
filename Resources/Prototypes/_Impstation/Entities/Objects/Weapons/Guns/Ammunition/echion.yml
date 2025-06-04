@@ -26,6 +26,8 @@
     fillBaseName: canister-
   - type: ExaminableSolution
     solution: tank
+  - type: SolutionItemStatus
+    solution: tank
   - type: ReagentTank
     tankType: Fuel
     fuelWhitelist: 
