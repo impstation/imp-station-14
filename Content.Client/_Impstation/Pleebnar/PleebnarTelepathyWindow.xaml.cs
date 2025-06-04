@@ -61,6 +61,7 @@ public sealed partial class PleebnarTelepathyWindow : FancyWindow
         {
             _visionsbuttons.SetItemMetadata(id, metadata);
         }
+        _visionsbuttons.GetChild(0).GetChild(id).ToolTip = Loc.GetString(visionString);
         if (visionName == _vision)
             _visionsbuttons.Select(id);
     }
