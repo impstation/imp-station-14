@@ -1,0 +1,21 @@
+- type: job
+  id: Caterer
+  name: job-name-caterer
+  description: job-description-caterer
+  playTimeTracker: JobCaterer
+  icon: JobIconCaterer
+  startingGear: CatererGear
+  supervisors: job-supervisors-hd
+  access:
+  - Service
+  - Maintenance
+  - Bar
+  - Kitchen
+
+- type: startingGear
+  id: CatererGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCaterer
+    id: CatererPDA
+    ears: ClothingHeadsetService
+    shoes: ClothingShoesColorBlack
