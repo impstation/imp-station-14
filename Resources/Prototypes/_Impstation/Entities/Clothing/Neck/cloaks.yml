@@ -171,6 +171,22 @@
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Neck/Cloaks/webcloaksimple.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: MaterialWebSilk1
+      amount: 10
+  - type: FlavorProfile
+    flavors:
+      - cobwebs
+    ignoreReagents:
+      - Fiber
+  - type: Construction
+    graph: WebObjects
+    node: cloaksimple
 
 - type: entity
   parent: ClothingNeckBase
@@ -180,3 +196,19 @@
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Neck/Cloaks/webcloakfancy.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: MaterialWebSilk1
+      amount: 10
+  - type: FlavorProfile
+    flavors:
+      - cobwebs
+    ignoreReagents:
+      - Fiber
+  - type: Construction
+    graph: WebObjects
+    node: cloakfancy

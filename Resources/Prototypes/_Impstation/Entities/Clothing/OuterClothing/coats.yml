@@ -446,3 +446,21 @@
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/OuterClothing/Coats/websweater.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Coats/websweater.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: MaterialWebSilk1
+      amount: 10
+  - type: FlavorProfile
+    flavors:
+      - cobwebs
+    ignoreReagents:
+      - Fiber
+  - type: Construction
+    graph: WebObjects
+    node: websweater
