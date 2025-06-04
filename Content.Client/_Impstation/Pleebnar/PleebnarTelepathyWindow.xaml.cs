@@ -1,3 +1,4 @@
+using System.Collections;
 using Content.Client._EstacaoPirata.Cards.Hand.UI;
 using Content.Client.UserInterface.Controls;
 using Content.Shared._Impstation.Pleebnar;
@@ -20,7 +21,7 @@ public sealed partial class PleebnarTelepathyWindow : FancyWindow
     public Action<string?>? OnVisionSelect;
     public Action? OnConfirm;
     private string? _vision;
-    private List<(string, string)> _visions = new();
+    private List<(string, string, string)> _visions = new();
     private RadioOptions<string> _visionsbuttons;
     private int prevsize = 0;
     public PleebnarTelepathyWindow()
@@ -37,7 +38,7 @@ public sealed partial class PleebnarTelepathyWindow : FancyWindow
     {
         foreach (var vision in proto.EnumeratePrototypes<PleebnarVisionPrototype>())
         {
-            _visions.Add((Loc.GetString(vision.Name), vision.ID));
+            _visions.Add((vision.ID,vision.Name,vision.VisionString));
         }
         _visions.Sort((a, b) => a.Item1.CompareTo(b.Item1));
     }
@@ -45,22 +46,22 @@ public sealed partial class PleebnarTelepathyWindow : FancyWindow
     public void AddVisions()
     {
         _visionsbuttons.Clear();
-        foreach (var (name, id) in _visions)
+        foreach (var entry in _visions)
         {
-            AddVision(name, id);
+            AddVision(entry.Item1, entry.Item2,entry.Item3);
         }
+
     }
 
-    private void AddVision(string name, string vision)
+    private void AddVision(string visionId, string visionName, string visionString)
     {
         var id = _visionsbuttons.ItemCount;
-        _visionsbuttons.AddItem(Loc.GetString(name), vision);
-        if (vision is { } metadata)
+        _visionsbuttons.AddItem(Loc.GetString(visionName), visionId);
+        if (visionId is { } metadata)
         {
             _visionsbuttons.SetItemMetadata(id, metadata);
         }
-
-        if (vision == _vision)
+        if (visionName == _vision)
             _visionsbuttons.Select(id);
     }
 
