@@ -31,6 +31,22 @@
   objectType: Item
 
 - type: construction
+  name: web sweater
+  id: ClothingOuterCoatWebSweater
+  graph: WebObjects
+  startNode: start
+  targetNode: websweater
+  category: construction-category-clothing
+  description: "A soft, comfy sweater made of spider silk. Surprisingly light and breezy. Whoever made this must have put a lot of heart into it."
+  entityWhitelist:
+    tags:
+    - SpiderCraft
+  icon:
+    sprite: _Impstation/Clothing/OuterClothing/Coats/websweater.rsi
+    state: icon
+  objectType: Item
+
+- type: construction
   name: web jumpsuit
   id: ClothingUniformJumpsuitWeb
   graph: WebObjects
@@ -159,6 +175,22 @@
   objectType: Item
 
 - type: construction
+  name: web beret
+  id: ClothingHeadHatWebBeret
+  graph: WebObjects
+  startNode: start
+  targetNode: webberet
+  category: construction-category-clothing
+  description: "It's light and fashionable, if a little stringy."
+  entityWhitelist:
+    tags:
+    - SpiderCraft
+  icon:
+    sprite: _Impstation/Clothing/Head/Hats/beret_web.rsi
+    state: icon
+  objectType: Item
+
+- type: construction
   name: web gloves
   id: ClothingHandsGlovesColorWeb
   graph: WebObjects
@@ -267,5 +299,37 @@
     - SpiderCraft
   icon:
     sprite: Clothing/Neck/mantles/webmantle.rsi
+    state: icon
+  objectType: Item
+
+- type: construction
+  name: simple web cloak
+  id: ClothingNeckCloakWebSimple
+  graph: WebObjects
+  startNode: start
+  targetNode: cloaksimple
+  category: construction-category-clothing
+  description: "This tattered cloak looks a little spooky."
+  entityWhitelist:
+    tags:
+    - SpiderCraft
+  icon:
+    sprite: _Impstation/Clothing/Neck/cloaks/webcloaksimple.rsi
+    state: icon
+  objectType: Item
+
+- type: construction
+  name: fancy web cloak
+  id: ClothingNeckCloakWebFancy
+  graph: WebObjects
+  startNode: start
+  targetNode: cloakfancy
+  category: construction-category-clothing
+  description: "This tattered cloak looks really spooky."
+  entityWhitelist:
+    tags:
+    - SpiderCraft
+  icon:
+    sprite: _Impstation/Clothing/Neck/cloaks/webcloakfancy.rsi
     state: icon
   objectType: Item
