@@ -171,9 +171,8 @@
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Neck/Cloaks/webcloaksimple.rsi
-  - type: Tag
-    tags:
-    - ClothMade
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Coats/webcloaksimple.rsi
   - type: Butcherable
     butcheringType: Knife
     spawned:
@@ -196,9 +195,8 @@
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Neck/Cloaks/webcloakfancy.rsi
-  - type: Tag
-    tags:
-    - ClothMade
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Coats/webcloakfancy.rsi
   - type: Butcherable
     butcheringType: Knife
     spawned:
