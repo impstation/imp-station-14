@@ -1,12 +1,16 @@
 using System.Linq;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
+using Content.Server.Radio; //imp
 using Content.Shared.Chat;
 using Content.Shared.Mind;
 using Content.Shared.Roles;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.StationAi;
+using Content.Shared.Mobs.Components; //imp
+using Content.Shared.Mobs; //imp
 using Robust.Shared.Audio;
+using Robust.Shared.Containers; //imp
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using static Content.Server.Chat.Systems.ChatSystem;
@@ -20,6 +24,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
     [Dependency] private readonly SharedTransformSystem _xforms = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedRoleSystem _roles = default!;
+    [Dependency] private readonly SharedContainerSystem _containers = default!; //imp
 
     private readonly HashSet<Entity<StationAiCoreComponent>> _ais = new();
 
@@ -28,6 +33,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
         base.Initialize();
 
         SubscribeLocalEvent<ExpandICChatRecipientsEvent>(OnExpandICChatRecipients);
+        SubscribeLocalEvent<StationAiHeldComponent, RadioSendAttemptEvent>(HeldUpdateRadio); //imp
     }
 
     private void OnExpandICChatRecipients(ExpandICChatRecipientsEvent ev)
@@ -129,5 +135,15 @@ public sealed class StationAiSystem : SharedStationAiSystem
 
         _chats.ChatMessageToMany(ChatChannel.Notifications, msg, msg, entity, false, true, filter.Recipients.Select(o => o.Channel));
         // Apparently there's no sound for this.
+    }
+
+    private void HeldUpdateRadio(Entity<StationAiHeldComponent> ent, ref RadioSendAttemptEvent args) //imp. cancels radio messages sent when AI is dead.
+    {
+        if (_containers.TryGetOuterContainer(ent, Transform(ent), out var container));
+        TryComp<MobStateComponent>(container?.Owner, out var damState);
+        if (damState?.CurrentState == MobState.Dead)
+        {
+            args.Cancelled = true;
+        }
     }
 }

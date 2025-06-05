@@ -1,6 +1,8 @@
 using Content.Shared.Doors.Components;
 using Robust.Shared.Serialization;
 using Content.Shared.Electrocution;
+using Content.Shared.Mobs.Components; //imp
+using Content.Shared.Mobs; //imp
 
 namespace Content.Shared.Silicons.StationAi;
 
@@ -20,7 +22,10 @@ public abstract partial class SharedStationAiSystem
     /// </summary>
     private void OnAirlockBolt(EntityUid ent, DoorBoltComponent component, StationAiBoltEvent args)
     {
-        if (component.BoltWireCut)
+        if (_containers.TryGetOuterContainer(args.User, Transform(args.User), out var container)); //imp. shows a "not responding" popup if the AI is dead.
+        TryComp<MobStateComponent>(container?.Owner, out var damState);
+
+        if (damState?.CurrentState == MobState.Dead || component.BoltWireCut)
         {
             ShowDeviceNotRespondingPopup(args.User);
             return;
@@ -38,7 +43,10 @@ public abstract partial class SharedStationAiSystem
     /// </summary>
     private void OnAirlockEmergencyAccess(EntityUid ent, AirlockComponent component, StationAiEmergencyAccessEvent args)
     {
-        if (!PowerReceiver.IsPowered(ent))
+        if (_containers.TryGetOuterContainer(args.User, Transform(args.User), out var container)); //imp. shows a "not responding" popup if the AI is dead.
+        TryComp<MobStateComponent>(container?.Owner, out var damState);
+
+        if (!PowerReceiver.IsPowered(ent) || damState?.CurrentState == MobState.Dead)
         {
             ShowDeviceNotRespondingPopup(args.User);
             return;
@@ -52,9 +60,13 @@ public abstract partial class SharedStationAiSystem
     /// </summary>
     private void OnElectrified(EntityUid ent, ElectrifiedComponent component, StationAiElectrifiedEvent args)
     {
+        if (_containers.TryGetOuterContainer(args.User, Transform(args.User), out var container)); //imp. shows a "not responding" popup if the AI is dead.
+        TryComp<MobStateComponent>(container?.Owner, out var damState);
+
         if (
             component.IsWireCut
             || !PowerReceiver.IsPowered(ent)
+            || damState?.CurrentState == MobState.Dead //imp
         )
         {
             ShowDeviceNotRespondingPopup(args.User);

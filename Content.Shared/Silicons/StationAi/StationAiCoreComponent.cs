@@ -39,4 +39,20 @@ public sealed partial class StationAiCoreComponent : Component
     public EntProtoId? PhysicalEntityProto = "StationAiHoloLocal";
 
     public const string Container = "station_ai_mind_slot";
+
+    //Imp. hacky way of doing this, but intrinsicUI actions dont like to play nice. 
+
+    [DataField]
+    public EntProtoId AIRadarAction = "ActionAGhostShowRadar";
+    [DataField]
+    public EntProtoId AIMonitorAction = "ActionAGhostShowCrewMonitoring";
+    [DataField]
+    public EntProtoId AIRecordsAction = "ActionAGhostShowStationRecords";
+    [DataField]
+    public EntProtoId AICommsAction = "ActionAGhostShowCommunications";
+
+    [DataField] public EntityUid? AIRadarActionEntity;
+    [DataField] public EntityUid? AIMonitorActionEntity;
+    [DataField] public EntityUid? AIRecordsActionEntity;
+    [DataField] public EntityUid? AICommsActionEntity;
 }
