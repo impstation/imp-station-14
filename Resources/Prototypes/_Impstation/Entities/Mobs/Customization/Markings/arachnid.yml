@@ -398,6 +398,24 @@
   - sprite: _Impstation/Mobs/Customization/Arachnid/headside.rsi
     state: small
 
+- type: marking
+  id: ArachnidCheliceraeBig
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [ Arachnid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Arachnid/headside.rsi
+    state: big
+
+- type: marking
+  id: ArachnidCheliceraeSolifugid
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [ Arachnid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Arachnid/headside.rsi
+    state: solifugid
+
 # HeadTop
 
 # Tail
