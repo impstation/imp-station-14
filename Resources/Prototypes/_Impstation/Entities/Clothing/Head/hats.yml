@@ -80,7 +80,6 @@
   - type: Tag
     tags:
     - HamsterWearable
-    - ClothMade
   - type: Butcherable
     butcheringType: Knife
     spawned:
@@ -91,13 +90,6 @@
       - cobwebs
     ignoreReagents:
       - Fiber
-  - type: SolutionContainerManager
-    solutions: 
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Protein
-          Quantity: 5
   - type: Construction
     graph: WebObjects
     node: webberet
