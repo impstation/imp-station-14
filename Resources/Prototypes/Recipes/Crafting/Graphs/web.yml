@@ -172,6 +172,9 @@
   - node: elegantdress
     entity: ClothingUniformJumpskirtWebElegantDress
 
+  - node: websweater
+    entity: ClothingOuterCoatWebSweater
+
   - node: loungewear
     entity: ClothingUniformJumpsuitLoungewearWeb
 
@@ -181,6 +184,9 @@
   - node: widehat
     entity: ClothingHeadHatWebHat
 
+  - node: webberet
+    entity: ClothingHeadHatWebBeret
+
   - node: gloves
     entity: ClothingHandsGlovesColorWeb
 
@@ -189,6 +195,12 @@
 
   - node: mantle
     entity: ClothingNeckMantleWeb
+
+  - node: cloaksimple
+    entity: ClothingNeckCloakWebSimple
+  
+  - node: cloakfancy
+    entity: ClothingNeckCloakWebFancy
 
   - node: shortscarf
     entity: ClothingNeckScarfStripedZebraWeb
