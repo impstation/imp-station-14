@@ -1,0 +1,32 @@
+- type: captainSwordMenuSet
+  id: CaptainSwordSabre
+  name: captain-swordset-category-sabre-name
+  description: captain-swordset-category-sabre-description
+  sprite: 
+    sprite: Objects/Weapons/Melee/captain_sabre.rsi
+    state: icon
+  content:
+  - CaptainSabre
+  - ClothingBeltSheath
+
+- type: captainSwordMenuSet
+  id: CaptainSwordRapier
+  name: captain-swordset-category-rapier-name
+  description: captain-swordset-category-rapier-description
+  sprite: 
+    sprite: _Impstation/Objects/Weapons/Melee/captain_rapier.rsi
+    state: icon
+  content:
+  - CaptainRapier
+  - ClothingBeltRapierSheath
+
+- type: captainSwordMenuSet
+  id: CaptainSwordFoam
+  name: captain-swordset-category-foam-name
+  description: captain-swordset-category-foam-description
+  sprite:
+    sprite: _DV/Objects/Fun/Toys/foam_sabre.rsi
+    state: icon
+  content:
+  - FoamSabre
+  - ClothingBeltFoamSheath
