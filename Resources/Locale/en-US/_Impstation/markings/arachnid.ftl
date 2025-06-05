@@ -131,6 +131,8 @@ marking-SpiderHair3 = Wisps
 
 marking-ArachnidCheliceraeSmall = Chelicerae (Small)
 marking-ArachnidCheliceraeSmall-small = Chelicerae
+marking-ArachnidCheliceraeBig = Chelicerae (Big)
+marking-ArachnidCheliceraeSolifugid = Chelicerae (Solifugid)
 
 # HeadTop
 
