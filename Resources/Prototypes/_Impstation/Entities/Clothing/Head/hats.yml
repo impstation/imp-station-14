@@ -69,11 +69,13 @@
 
 - type: entity
   parent: ClothingHeadBase
-  id: ClothingHeadHatWebBeret
+  id: ClothingHeadBase
   name: web beret
-  description: It's light and fashionable, if a little stringy.
+  description: It's light and fashionable, if a bit stringy.
   components:
   - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hats/beret_web.rsi
+  - type: Clothing
     sprite: _Impstation/Clothing/Head/Hats/beret_web.rsi
   - type: Tag
     tags:
