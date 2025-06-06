@@ -103,6 +103,8 @@ public sealed class ArtifactCrusherSystem : SharedArtifactCrusherSystem
                 }
             }
 
+            //#IMP XENOMERGE TODO: force activate Oldxeno artifacts
+            //_artifact.ForceActivateArtifact(contained);
             if (!TryComp<BodyComponent>(contained, out var body))
                 Del(contained);
 

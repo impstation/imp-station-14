@@ -1,5 +1,5 @@
 - type: entity
-  id: BaseXenoArtifact
+  id: BaseXAEXenoArtifact
   parent: BaseMob # we use this since it can technically get inhabited
   name: artifact
   description: A strange artifact from time unknown. Looks like a good time.
@@ -60,4 +60,4 @@
       sprite: Objects/Specific/Xenoarchaeology/xeno_artifacts.rsi
       state: ano29
     useDelay: 300
-    event: !type:ArtifactSelfActivateEvent
+    event: !type:XAEArtifactSelfActivateEvent
