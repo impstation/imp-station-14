@@ -20,6 +20,8 @@ public sealed class HormoneSystem : EntitySystem
         SubscribeLocalEvent<FeminizedComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<MasculinizedComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<MasculinizedComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<AndrogynizedComponent, ComponentInit>(OnInit); // imp
+        SubscribeLocalEvent<AndrogynizedComponent, ComponentShutdown>(OnShutdown); //imp
     }
 
     private void OnInit(EntityUid uid, IHormoneComponent component, ComponentInit args)
