@@ -8,7 +8,7 @@ namespace Content.Client._Impstation.Pleebnar;
 public sealed class PleebnarTelepathyBoundUserInterface : BoundUserInterface
 {
 
-    [Dependency] private readonly IPrototypeManager _protomanager = default!;
+
 
     [ViewVariables]
     private PleebnarTelepathyWindow? _window;
@@ -23,7 +23,7 @@ public sealed class PleebnarTelepathyBoundUserInterface : BoundUserInterface
     {
         base.Open();
         _window = this.CreateWindow<PleebnarTelepathyWindow>();
-        _window.ReloadVisions(_protomanager);
+        _window.ReloadVisions();
         _window.AddVisions();
 
         _window.OnVisionSelect += vision => SendMessage(new PleebnarTelepathyVisionMessage(vision));
@@ -37,7 +37,7 @@ public sealed class PleebnarTelepathyBoundUserInterface : BoundUserInterface
             return;
         }
 
-        _window.UpdateState(cast.Vision);
+        if (cast.Vision!=null) _window.UpdateState(cast.Vision);
     }
     protected override void Dispose(bool disposing)
     {

@@ -3,8 +3,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._Impstation.Pleebnar;
 
 /// <summary>
-///     Handles replacing speech verbs and other conditional chat modifications like bolding or font type depending
-///     on punctuation or by directly overriding the prototype.
+///     prototype that hold visions
 /// </summary>
 [Prototype]
 public sealed partial class PleebnarVisionPrototype : IPrototype
