@@ -1,0 +1,43 @@
+- type: entity
+  id: ActionPleebnarTelepathy
+  name: Telepathy
+  description: Send an inscrutable vision to a target.
+  components:
+  - type: EntityTargetAction
+    range: 15
+    event: !type:PleebnarTelepathyEvent
+    useDelay: 30
+    canTargetSelf: false
+    interactOnMiss: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: mindshield
+
+- type: entity
+  id: ActionPleebnarVision
+  name: Select vision
+  description: Select a vision to send.
+  components:
+  - type: InstantAction
+    event: !type:PleebnarVisionEvent
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: mindshield
+
+- type: entity
+  id: ActionPleebnarGib
+  name: Gib
+  description: Gib a small animal with your mind powers!
+  components:
+  - type: EntityTargetAction
+    range: 15
+    event: !type:PleebnarGibEvent
+    useDelay: 30
+    canTargetSelf: true
+    interactOnMiss: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: mansus_link
