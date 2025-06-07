@@ -133,6 +133,7 @@ marking-ArachnidCheliceraeSmall = Chelicerae (Small)
 marking-ArachnidCheliceraeSmall-small = Chelicerae
 marking-ArachnidCheliceraeBig = Chelicerae (Big)
 marking-ArachnidCheliceraeSolifugid = Chelicerae (Solifugid)
+marking-ArachnidCheliceraeLongjaw = Chelicerae (Longjaw)
 
 # HeadTop
 
