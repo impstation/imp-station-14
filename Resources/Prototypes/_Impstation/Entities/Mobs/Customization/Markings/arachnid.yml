@@ -54,6 +54,15 @@
   - sprite: _Impstation/Mobs/Customization/Arachnid/snout.rsi
     state: whipspidermouth
 
+- type: marking
+  id: ArachnidCheliceraeLongjaw
+  bodypart: Snout
+  markingCategory: HeadSide
+  speciesRestriction: [ Arachnid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Arachnid/snout.rsi
+    state: longjaw
+
 # Eyes
 
 - type: marking
@@ -415,15 +424,6 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/headside.rsi
     state: solifugid
-
-- type: marking
-  id: ArachnidCheliceraeLongjaw
-  bodypart: HeadSide
-  markingCategory: HeadSide
-  speciesRestriction: [ Arachnid ]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Arachnid/headside.rsi
-    state: longjaw
 
 # HeadTop
 

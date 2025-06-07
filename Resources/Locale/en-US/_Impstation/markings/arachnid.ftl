@@ -20,6 +20,8 @@ marking-ArachnidHeadSegments-segments2 = Stripe
 
 marking-WhipSpiderMouth = Chelicerae (Whip)
 marking-WhipSpiderMouth-whipspidermouth = Chelicerae
+marking-ArachnidCheliceraeLongjaw = Chelicerae (Longjaw)
+marking-ArachnidCheliceraeLongjaw-longjaw = Chelicerae
 
 # Eyes
 
@@ -132,8 +134,9 @@ marking-SpiderHair3 = Wisps
 marking-ArachnidCheliceraeSmall = Chelicerae (Small)
 marking-ArachnidCheliceraeSmall-small = Chelicerae
 marking-ArachnidCheliceraeBig = Chelicerae (Big)
+marking-ArachnidCheliceraeBig-big = Chelicerae
 marking-ArachnidCheliceraeSolifugid = Chelicerae (Solifugid)
-marking-ArachnidCheliceraeLongjaw = Chelicerae (Longjaw)
+marking-ArachnidCheliceraeSolifugid-solifugid = Chelicerae
 
 # HeadTop
 

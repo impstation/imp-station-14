@@ -1,12 +1,16 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Drawn by crocodilecarousel (github) for Impstation",
+    "copyright": "Whipspidermouth drawn by crocodilecarousel (github) for Impstation, Longjaw drawn by Entings (github) for Impstation",
     "size": {
         "x": 32,
         "y": 32
     },
     "states": [
+        {
+            "name": "longjaw",
+            "directions": 4
+        },
         {
             "name": "whipspidermouth",
             "directions": 4
