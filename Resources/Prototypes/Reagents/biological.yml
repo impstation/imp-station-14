@@ -82,10 +82,17 @@
       effects:
       - !type:SatiateHunger
         factor: 1
+      - !type:ModifyBloodLevel # imp
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        amount: 0.45
   footstepSound:
     collection: FootstepBlood
     params:
       volume: 6
+
 
 - type: reagent
   id: Sap
@@ -141,7 +148,7 @@
   id: ZombieBlood
   name: reagent-name-zombie-blood
   group: Biological
-  desc: reagent-desc-zombie-blood
+  desc: reagent-desc-zombie-bloodd
   physicalDesc: reagent-physical-desc-necrotic
   flavor: bitter
   color: "#2b0700"

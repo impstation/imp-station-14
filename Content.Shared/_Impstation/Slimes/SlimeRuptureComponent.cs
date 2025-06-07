@@ -1,7 +1,7 @@
 namespace Content.Shared._Impstation.Slimes;
 
 /// <summary>
-/// Causes slimes to take increased bloodloss from blood stacks. BloodstreamSystem will check for this component and modify bleed bloodloss accordingly.
+/// Causes mobs to take increased bloodloss per blood stack. BloodstreamSystem will check for this component and modify bleed bloodloss accordingly.
 /// </summary>
 [RegisterComponent]
 public sealed partial class SlimeRuptureComponent : Component
