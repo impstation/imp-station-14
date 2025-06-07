@@ -7,5 +7,5 @@ namespace Content.Shared._Impstation.Slimes;
 public sealed partial class SlimeRuptureComponent : Component
 {
     [DataField("bleedIncreaseMultiplier"), ViewVariables(VVAccess.ReadWrite)]
-    public float BleedIncreaseMultiplier = 1.5f;
+    public float BleedIncreaseMultiplier = 1.33f;
 }

@@ -2,6 +2,7 @@ using Content.Server.Body.Components;
 using Content.Server.EntityEffects.Effects;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Popups;
+using Content.Shared._Impstation.Slimes;
 using Content.Shared._Impstation.Traits.Assorted;
 using Content.Shared.Alert;
 using Content.Shared.Chemistry.Components;
@@ -131,7 +132,7 @@ public sealed class BloodstreamSystem : EntitySystem
             if (bloodstream.BleedAmount > 0)
             {
                 // Blood is removed from the bloodstream at a 1-1 rate with the bleed amount
-                TryModifyBloodLevel(uid, -(bloodstream.BleedAmount*BleedIncreaseMultiplier), bloodstream);
+                TryModifyBloodLevel(uid, (-bloodstream.BleedAmount), bloodstream);
                 // Bleed rate is reduced by the bleed reduction amount in the bloodstream component.
                 TryModifyBleedAmount(uid, -bloodstream.BleedReductionAmount, bloodstream);
             }
@@ -364,7 +365,9 @@ public sealed class BloodstreamSystem : EntitySystem
         // Removal is more involved,
         // since we also wanna handle moving it to the temporary solution
         // and then spilling it if necessary.
-        var newSol = _solutionContainerSystem.SplitSolution(component.BloodSolution.Value, -amount);
+        var slimeAmount = TryComp<SlimeRuptureComponent>(uid, out var trait) ? amount * trait.BleedIncreaseMultiplier : amount;
+
+        var newSol = _solutionContainerSystem.SplitSolution(component.BloodSolution.Value, -slimeAmount);
 
         if (!_solutionContainerSystem.ResolveSolution(uid, component.BloodTemporarySolutionName, ref component.TemporarySolution, out var tempSolution))
             return true;
