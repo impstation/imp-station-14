@@ -83,3 +83,11 @@
   loadouts:
   - BlackGloves
   - WhiteGloves
+
+- type: loadoutGroup # imp addition
+  id: AdminAssistantHead
+  name: loadout-group-admin-assistant-head
+  minLimit: 0
+  loadouts:
+  - CommandBeret
+  - CommandSoftHat
