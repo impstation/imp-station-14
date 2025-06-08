@@ -1,11 +1,11 @@
-namespace Content.Shared._Impstation.Slimes;
+namespace Content.Shared._Impstation.Hemorage;
 
 /// <summary>
 /// Causes mobs to take increased bloodloss per blood stack. BloodstreamSystem will check for this component and modify bleed bloodloss accordingly.
 /// </summary>
 [RegisterComponent]
-public sealed partial class SlimeRuptureComponent : Component
+public sealed partial class HemorageComponent : Component
 {
     [DataField("bleedIncreaseMultiplier"), ViewVariables(VVAccess.ReadWrite)]
-    public float BleedIncreaseMultiplier = 1.33f;
+    public float BleedIncreaseMultiplier = 1.4f;
 }

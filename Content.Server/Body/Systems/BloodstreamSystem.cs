@@ -2,7 +2,7 @@ using Content.Server.Body.Components;
 using Content.Server.EntityEffects.Effects;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Popups;
-using Content.Shared._Impstation.Slimes;
+using Content.Shared._Impstation.Hemorage;
 using Content.Shared._Impstation.Traits.Assorted;
 using Content.Shared.Alert;
 using Content.Shared.Chemistry.Components;
@@ -365,9 +365,9 @@ public sealed class BloodstreamSystem : EntitySystem
         // Removal is more involved,
         // since we also wanna handle moving it to the temporary solution
         // and then spilling it if necessary.
-        var slimeAmount = TryComp<SlimeRuptureComponent>(uid, out var trait) ? amount * trait.BleedIncreaseMultiplier : amount;
+        var hemorageAdjust = TryComp<HemorageComponent>(uid, out var trait) ? amount * trait.BleedIncreaseMultiplier : amount;
 
-        var newSol = _solutionContainerSystem.SplitSolution(component.BloodSolution.Value, -slimeAmount);
+        var newSol = _solutionContainerSystem.SplitSolution(component.BloodSolution.Value, -hemorageAdjust);
 
         if (!_solutionContainerSystem.ResolveSolution(uid, component.BloodTemporarySolutionName, ref component.TemporarySolution, out var tempSolution))
             return true;
