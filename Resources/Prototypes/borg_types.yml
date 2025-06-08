@@ -84,6 +84,7 @@
   - BorgModuleGrapplingGun
   - BorgModuleBasicMining # imp
   - BorgModuleAppraisal
+  - BorgModuleTool
 
   radioChannels:
   - Supply
@@ -169,6 +170,9 @@
   - type: ShowHealthIcons
     damageContainers:
     - Biological
+  - type: FabricateCandy # Borg Candy - DeltaV
+    actions:
+    - ActionFabricateGumball
 
   # Visual
   inventoryTemplateId: borgDutch

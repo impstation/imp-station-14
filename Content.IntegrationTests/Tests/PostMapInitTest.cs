@@ -126,6 +126,7 @@ namespace Content.IntegrationTests.Tests
             "Saltern",
             "Train",
             "Xeno",
+            "dm01-entryway",
 
             // _Harmony/Maps
             "Barratry",
@@ -133,6 +134,7 @@ namespace Content.IntegrationTests.Tests
             // _Impstation/Maps
             "E1M1",
             "Banana",
+            "Bedlam",
             "Boat",
             "Hummingbird",
             "Lilboat",
