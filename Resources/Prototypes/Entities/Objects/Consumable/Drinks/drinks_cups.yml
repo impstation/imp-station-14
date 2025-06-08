@@ -53,6 +53,9 @@
     sprite: Objects/Consumable/Drinks/golden_cup.rsi
   - type: StaticPrice
     price: 125
+  - type: PhysicalComposition
+    materialComposition:
+      Gold: 100
 
 - type: entity
   parent: DrinkBaseCup
@@ -75,6 +78,10 @@
   - type: PhysicalComposition
     materialComposition:
       Glass: 25
+  - type: SolutionContainerManager #IMP START #Increased to 30 to match metamorphics, so theyre not a downgrade.
+    solutions:
+      drink:
+        maxVol: 30 #IMP END
 
 - type: entity
   parent: DrinkBaseMug
