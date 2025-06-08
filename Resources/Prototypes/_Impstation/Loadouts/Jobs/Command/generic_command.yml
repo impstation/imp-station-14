@@ -47,3 +47,25 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: VeteranCommand
+
+# Jumpsuit
+- type: loadout
+  id: CommandJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCommandGeneric
+
+- type: loadout
+  id: CommandJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCommandGeneric
+
+# Head
+- type: loadout
+  id: CommandBeret
+  equipment:
+    head: ClothingHeadHatBeretCommand
+
+- type: loadout
+  id: CommandSoftHat
+  equipment:
+    head: ClothingHeadHatCommandSoft

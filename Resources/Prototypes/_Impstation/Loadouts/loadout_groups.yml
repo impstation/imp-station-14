@@ -344,6 +344,14 @@
   - CommonDuffel
   - LeatherSatchel
 
+- type: loadoutGroup
+  id: AdminAssistantHead
+  name: loadout-group-admin-assistant-head
+  minLimit: 0
+  loadouts:
+  - CommandBeret
+  - CommandSoftHat
+
 # service
 
 - type: loadoutGroup
@@ -363,6 +371,8 @@
   - BartenderHead
   - HospitalityDirectorBeret
   - HospitalityDirectorBellhopHD
+  - CommandBeret
+  - CommandSoftHat
 
 - type: loadoutGroup
   id: HospitalityDirectorNeck
@@ -387,6 +397,8 @@
   - HospitalityDirectorBartenderJumpskirt
   - HospitalityDirectorBotanyJumpsuit
   - HospitalityDirectorProprietorJumpsuit
+  - CommandJumpsuit
+  - CommandJumpskirt
 
 - type: loadoutGroup
   id: HospitalityDirectorGloves
