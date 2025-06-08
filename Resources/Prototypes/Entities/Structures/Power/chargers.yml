@@ -217,7 +217,7 @@
   - type: WallMount
   - type: Charger
     slotId: charger_slot #imp edit
-    chargeRate: 25
+    chargeRate: 20 #imp edit, same as normal recharger
   - type: ItemSlots
     slots:
       charger_slot:
