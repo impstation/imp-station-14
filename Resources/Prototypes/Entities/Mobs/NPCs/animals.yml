@@ -343,6 +343,7 @@
   - type: Item
     size: Tiny
   - type: HTN
+    constantlyReplan: false
     rootTask:
       task: MouseCompound
   - type: Physics
@@ -1778,6 +1779,7 @@
     factions:
       - Mouse
   - type: HTN
+    constantlyReplan: false
     rootTask:
       task: MouseCompound
   - type: Physics
@@ -2452,7 +2454,7 @@
   name: snake
   parent: SimpleMobBase
   id: MobSnake
-  description: Hissss! Bites aren't poisonous.
+  description: Hisss! Bites aren't venomous. #imp poisonous isn't venomous. Also matches snake hissing length
   components:
   - type: VentCrawler
     enterDelay: 2
@@ -3219,6 +3221,9 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 4
   - type: NightVision # EE edit
     isActive: true
     toggleAction: null
@@ -3252,6 +3257,7 @@
   description: Explosive kitten.
   components:
   - type: Sprite
+    sprite: _Impstation/Mobs/Pets/cats.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: syndicat
