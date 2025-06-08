@@ -1,6 +1,6 @@
 pleebnar-vision-none-name = none
 
-pleebnar-vision-newports = A pack of newports.
+pleebnar-vision-newports = A pack of Newports.
 pleebnar-vision-newports-name = newports
 
 pleebnar-vision-flowers = A field of flowers blooming.
@@ -99,7 +99,7 @@ pleebnar-vision-ranch-name = ranch dressing
 pleebnar-vision-wheel = A wheel turning unendingly.
 pleebnar-vision-wheel-name = wheel
 
-pleebnar-vision-oldports = A pack of oldports.
+pleebnar-vision-oldports = A pack of Oldports.
 pleebnar-vision-oldports-name = oldports
 
 pleebnar-vision-blood = A ocean of blood, a person is floating face down.

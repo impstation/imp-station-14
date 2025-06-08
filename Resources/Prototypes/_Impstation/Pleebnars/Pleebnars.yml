@@ -4,7 +4,7 @@
   id: MobPleebnar
   description: UNIDENTIFIED PISKUN THING!
   components:
-  - type: VentCrawler # imp edit
+  - type: VentCrawler
     enterDelay: 1
   - type: Body
     prototype: pleebnar
@@ -75,7 +75,7 @@
     baseWalkSpeed : 2.5
     baseSprintSpeed : 5
   - type: Food
-  - type: Absorbable # imp edit
+  - type: Absorbable
     biomassRestored: 0.1
   - type: FlavorProfile
     flavors:
