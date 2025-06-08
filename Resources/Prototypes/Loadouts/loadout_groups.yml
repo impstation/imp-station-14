@@ -158,6 +158,8 @@
   - CaptainBeret # imp
   - CaptainCrusherCap #imp
   - CaptainTricorne # imp
+  - CommandBeret # imp
+  - CommandSoftHat # imp
 
 - type: loadoutGroup
   id: CaptainJumpsuit
@@ -168,6 +170,8 @@
   - CaptainFormalSuit
   - CaptainFormalSkirt
   - CaptainEveningAttire #imp
+  - CommandJumpsuit # imp
+  - CommandJumpskirt # imp
 
 - type: loadoutGroup
   id: CaptainNeck
@@ -206,6 +210,8 @@
   minLimit: 0
   loadouts:
   - HoPHead
+  - CommandBeret # imp
+  - CommandSoftHat # imp
 
 - type: loadoutGroup
   id: HoPJumpsuit
@@ -214,6 +220,8 @@
   - HoPJumpsuit
   - HoPJumpskirt
   - HoPBoatswain # DeltaV
+  - CommandJumpsuit # imp
+  - CommandJumpskirt # imp
 
 - type: loadoutGroup
   id: HoPNeck
@@ -730,6 +738,8 @@
   loadouts:
   - QuartermasterHead
   - QuartermasterBeret
+  - CommandBeret # imp
+  - CommandSoftHat # imp
 
 - type: loadoutGroup
   id: QuartermasterJumpsuit
@@ -740,6 +750,8 @@
   - QuartermasterTurtleneck
   - QuartermasterTurtleneckSkirt
   - QuartermasterFormalSuit
+  - CommandJumpsuit # imp
+  - CommandJumpskirt # imp
 
 - type: loadoutGroup
   id: QuartermasterNeck
@@ -841,6 +853,8 @@
   loadouts:
   - ChiefEngineerHead
   - ChiefEngineerBeret
+  - CommandBeret # imp
+  - CommandSoftHat # imp
 
 - type: loadoutGroup
   id: ChiefEngineerJumpsuit
@@ -850,6 +864,8 @@
   - ChiefEngineerJumpskirt
   - ChiefEngineerTurtleneck
   - ChiefEngineerTurtleneckSkirt
+  - CommandJumpsuit # imp
+  - CommandJumpskirt # imp
 
 - type: loadoutGroup
   id: ChiefEngineerNeck
@@ -990,6 +1006,8 @@
   loadouts:
   - ResearchDirectorBeret
   - ResearchDirectorHood # DeltaV
+  - CommandBeret # imp
+  - CommandSoftHat # imp
 
 - type: loadoutGroup
   id: ResearchDirectorNeck
@@ -1007,6 +1025,8 @@
   loadouts:
   - ResearchDirectorJumpsuit
   - ResearchDirectorJumpskirt
+  - CommandJumpsuit # imp
+  - CommandJumpskirt # imp
 
 - type: loadoutGroup
   id: ResearchDirectorOuterClothing
@@ -1126,6 +1146,8 @@
   - HeadofSecurityHeadDV # DeltaV
   - HeadofSecurityBeret
   - HeadofSecurityPatrolCap # imp
+  - CommandBeret # imp
+  - CommandSoftHat # imp
 
 - type: loadoutGroup
   id: HeadofSecurityJumpsuit
@@ -1141,6 +1163,8 @@
   - HeadofSecurityProfessionalJumpskirt # imp
   - HeadofSecurityFormalSuit
   - HeadofSecurityFormalSkirt
+  - CommandJumpsuit # imp
+  - CommandJumpskirt # imp
 
 - type: loadoutGroup
   id: HeadofSecurityNeck
@@ -1350,6 +1374,8 @@
   loadouts:
   - ChiefMedicalOfficerBeret
   - CMOMedicalHeadMirror
+  - CommandBeret # imp
+  - CommandSoftHat # imp
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerJumpsuit
@@ -1359,6 +1385,8 @@
   - ChiefMedicalOfficerJumpskirt
   - ChiefMedicalOfficerTurtleneckJumpsuit
   - ChiefMedicalOfficerTurtleneckJumpskirt
+  - CommandJumpsuit # imp
+  - CommandJumpskirt # imp
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerOuterClothing
