@@ -101,7 +101,7 @@ public sealed class ReplicatorSystem : EntitySystem
         // then set that nest's spawned minions to our saved list of related replicators.
         // while we're in here, we might as well update all their pinpointers.
         HashSet<EntityUid> newMinions = [];
-        foreach (var (uid, _) in ent.Comp.RelatedReplicators)
+        foreach (var (uid, comp) in ent.Comp.RelatedReplicators)
         {
             newMinions.Add(uid);
 
@@ -109,6 +109,8 @@ public sealed class ReplicatorSystem : EntitySystem
                 continue;
             // set the target to the nest
             _pinpointer.SetTarget(pocket1.Value, myNest, pinpointer);
+
+            comp.MyNest = myNest;
         }
         myNestComp.SpawnedMinions = newMinions;
         // make sure the nest knows who we are, and vice versa.
@@ -116,6 +118,9 @@ public sealed class ReplicatorSystem : EntitySystem
         ent.Comp.MyNest = myNest;
         // and we don't need the RelatedReplicators list anymore, so,
         ent.Comp.RelatedReplicators.Clear();
+
+        // remove queen status from this replicator
+        ent.Comp.Queen = false;
 
         // then we need to remove the action, to ensure it can't be used infinitely.
         QueueDel(args.Action);
@@ -162,8 +167,16 @@ public sealed class ReplicatorSystem : EntitySystem
 
     private void OnMobStateChanged(Entity<ReplicatorComponent> ent, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState == MobState.Critical || args.NewMobState == MobState.Dead)
-            _appearance.SetData(ent, ReplicatorVisuals.Combat, false);
+        if (args.NewMobState != MobState.Critical || args.NewMobState != MobState.Dead)
+            return;
+
+        _appearance.SetData(ent, ReplicatorVisuals.Combat, false);
+
+        if (ent.Comp.Queen && ent.Comp.MyNest == null)
+        {
+            foreach (var (uid, comp) in ent.Comp.RelatedReplicators)
+                _popup.PopupEntity(Loc.GetString(comp.QueenDiedMessage), uid, uid, PopupType.LargeCaution);
+        }
     }
 
     private void OnEmpPulse(Entity<ReplicatorComponent> ent, ref EmpPulseEvent args)
