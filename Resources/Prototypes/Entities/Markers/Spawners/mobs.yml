@@ -754,9 +754,6 @@
   - type: ConditionalSpawner
     prototypes:
     - MobButterfly
-    - type: Tag #imp, for butterfly orchid
-      tags:
-      - Butterfly
 
 - type: entity
   name: Cow Spawner
