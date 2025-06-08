@@ -5,9 +5,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/disablerbolts.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
     layers:
-    - state: litelaser
+    - state: lightstun
       shader: unshaded
   - type: Ammo
   - type: StaminaDamageOnCollide
@@ -16,7 +16,7 @@
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Heat: 3
+        Heat: 0
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -26,7 +26,7 @@
   staminaDamage: 40
   damage:
     types:
-      Heat: 7
+      Heat: 0
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_omni

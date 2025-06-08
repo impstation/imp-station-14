@@ -139,6 +139,11 @@ namespace Content.Server.Forensics
             {
                 dest.Fingerprints.Add(print);
             }
+
+            foreach (var residue in src.Residues)
+            {
+                dest.Residues.Add(residue);
+            }
         }
 
         //gets the name of a person from the DNA inside it. RETURNS NULL FOR ANIMALS, OR ANYTHING ELSE WITH UNKNOWN DNA.
@@ -317,11 +322,9 @@ namespace Content.Server.Forensics
             {
                 if (TryComp<FiberComponent>(gloves, out var fiber) && !string.IsNullOrEmpty(fiber.FiberMaterial))
                     component.Fibers.Add(string.IsNullOrEmpty(fiber.FiberColor) ? Loc.GetString("forensic-fibers", ("material", fiber.FiberMaterial)) : Loc.GetString("forensic-fibers-colored", ("color", fiber.FiberColor), ("material", fiber.FiberMaterial)));
-
-                if (HasComp<FingerprintMaskComponent>(gloves))
-                    return;
             }
-            if (TryComp<FingerprintComponent>(user, out var fingerprint))
+
+            if (TryComp<FingerprintComponent>(user, out var fingerprint) && CanAccessFingerprint(user, out _))
                 component.Fingerprints.Add(fingerprint.Fingerprint ?? "");
         }
 
@@ -380,6 +383,23 @@ namespace Content.Server.Forensics
                 recipientComp.DNAs.Add(donorComp.DNA);
                 recipientComp.CanDnaBeCleaned = canDnaBeCleaned;
             }
+        }
+
+        /// <summary>
+        /// Checks if there's a way to access the fingerprint of the target entity.
+        /// </summary>
+        /// <param name="target">The entity with the fingerprint</param>
+        /// <param name="blocker">The entity that blocked accessing the fingerprint</param>
+        public bool CanAccessFingerprint(EntityUid target, out EntityUid? blocker)
+        {
+            var ev = new TryAccessFingerprintEvent();
+
+            RaiseLocalEvent(target, ev);
+            if (!ev.Cancelled && TryComp<InventoryComponent>(target, out var inv))
+                _inventory.RelayEvent((target, inv), ev);
+
+            blocker = ev.Blocker;
+            return !ev.Cancelled;
         }
 
         #endregion

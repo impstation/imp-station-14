@@ -2,7 +2,7 @@
   parent: [BaseMob, StripableInventoryBase]
   id: BaseBorgChassis
   name: cyborg
-  description: A man-machine hybrid that assists in station activity. They love being asked to state their laws over and over.
+  description: A man-machine hybrid that assists in station activity. Follows silicon laws, loves to talk constantly about them. #imp
   save: false
   abstract: true
   components:
@@ -113,6 +113,7 @@
       - BorgChassis
       - RoboticsConsole
   - type: WiresPanel
+    openingTool: Prying
   - type: ActivatableUIRequiresPanel
   - type: NameIdentifier
     group: Silicon
@@ -156,6 +157,7 @@
   - type: Vocal
     sounds:
       Unsexed: UnisexSilicon
+  - type: DamagedSiliconAccent
   - type: UnblockableSpeech
   - type: FootstepModifier
     footstepSoundCollection:
@@ -169,6 +171,7 @@
   - type: Lock
     locked: true
     unlockOnClick: false
+    customLockText: "back panel" # imp
   - type: ActivatableUIRequiresLock
   - type: LockedWiresPanel
   - type: Damageable
@@ -235,6 +238,8 @@
     - DoorBumpOpener
     - FootstepSound
     - CanPilot
+    - SiliconEmotes
+    - Unimplantable
   - type: Emoting
   - type: GuideHelp
     guides:
@@ -276,6 +281,7 @@
     canCreateVacuum: false # its for killing the borg not the station
   - type: SignatureFont # imp
     font: Sixtyfour
+  - type: SkipLoadingCharacterRecords #imp edit - make it so borgs doesn't show up in the character records list
 
 - type: entity
   id: BaseBorgChassisNT

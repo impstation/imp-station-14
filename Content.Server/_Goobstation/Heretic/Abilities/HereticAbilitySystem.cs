@@ -13,7 +13,6 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Heretic;
-using Content.Shared.Inventory;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Store.Components;
@@ -28,11 +27,10 @@ using Robust.Shared.Map;
 using Content.Shared.StatusEffect;
 using Content.Shared.Throwing;
 using Content.Server.Station.Systems;
-using Content.Shared.Localizations;
-using Robust.Shared.Audio;
-using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared.Eye.Blinding.Systems;
+using Content.Shared.Movement.Systems;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -51,22 +49,17 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly DamageableSystem _dmg = default!;
     [Dependency] private readonly StaminaSystem _stam = default!;
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly SharedAudioSystem _aud = default!;
     [Dependency] private readonly DoAfterSystem _doafter = default!;
     [Dependency] private readonly FlashSystem _flash = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly BlindableSystem _blindable = default!;
     [Dependency] private readonly VomitSystem _vomit = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly PhysicsSystem _phys = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly ThrowingSystem _throw = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly IPrototypeManager _prot = default!;
 
     private List<EntityUid> GetNearbyPeople(Entity<HereticComponent> ent, float range)
@@ -180,7 +173,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             return;
         }
 
-        var dargs = new DoAfterArgs(EntityManager, ent, 5f, new HereticMansusLinkDoAfter(args.Target), ent, args.Target)
+        var dargs = new DoAfterArgs(EntityManager, ent, 5f, new HereticMansusLinkDoAfter(), ent, args.Target)
         {
             BreakOnDamage = true,
             BreakOnMove = true,
@@ -192,16 +185,18 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     }
     private void OnMansusLinkDoafter(Entity<GhoulComponent> ent, ref HereticMansusLinkDoAfter args)
     {
-        if (args.Cancelled)
+        if (args.Cancelled || args.Args.Target == null)
             return;
 
-        var reciever = EnsureComp<IntrinsicRadioReceiverComponent>(args.Target);
-        var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(args.Target);
-        var radio = EnsureComp<ActiveRadioComponent>(args.Target);
+        var target = args.Args.Target.Value;
+
+        var reciever = EnsureComp<IntrinsicRadioReceiverComponent>(target);
+        var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(target);
+        var radio = EnsureComp<ActiveRadioComponent>(target);
         radio.Channels = new() { "Mansus" };
         transmitter.Channels = new() { "Mansus" };
 
         // this "* 1000f" (divided by 1000 in FlashSystem) is gonna age like fine wine :clueless:
-        _flash.Flash(args.Target, null, null, 2f * 1000f, 0f, false, true, stunDuration: TimeSpan.FromSeconds(1f));
+        _flash.Flash(target, null, null, 2f * 1000f, 0f, false, true, stunDuration: TimeSpan.FromSeconds(1f));
     }
 }

@@ -22,7 +22,7 @@ ghost-role-information-syndie-assaultborg-name = Syndicate Assault Borg
 ghost-role-information-syndie-assaultborg-description = Nuclear operatives needs reinforcements. You, a cold silicon killing machine, will help them. More dakka!
 
 ghost-role-information-finfin-name = Fin Fin
-ghost-role-information-finfin-description = Taken from your home planet of Teo by Salvage, you're so adorable that you were adopted by the station instead of sent to Centcomm. It's in your best interest to stay that way.
+ghost-role-information-finfin-description = Taken from your home planet of Teo by Salvage, you're so adorable that you were adopted by the station instead of sent to CentComm. It's in your best interest to stay that way.
 
 ghost-role-information-luggage-name = The Luggage
 ghost-role-information-luggage-description = You are The Luggage, a chest made of sapient pearwood, and loyal familiar to the first person you see upon exiting your crate.
@@ -96,9 +96,37 @@ ghost-role-information-drone-name = Maintenance Drone
 ghost-role-information-drone-description = Maintain the station. Ignore other beings except drones.
 ghost-role-information-drone-rules = You are bound by these laws both in-game and out-of-character:
 
-     1. You may not interfere with the affairs of any being except another drone, regardless of intent or circumstance.
-     2. Your goal is to maintain or improve the station to the best of your ability.
-     3. You may not take any action which causes damage or harm to the station or its inhabitants.
+     1. You will not take any action which causes damage to the station or to any living being.
+        If a living being comes to harm as a result of their own actions, or your inaction, it is not of your concern.
+     2. You will not directly acknowledge or interact with any living being, regardless of intent or circumstance.
+     3. Your primary function is to provide immediate temporary repairs to damaged station infrastructure.
+        Your secondary function is to improve the condition of station infrastructure wherever possible.
+        You are not an engineer. Do not take it upon yourself to build or maintain the engine.
 
 ghost-role-information-young-kodepiia-name = Young Kodepiia
 ghost-role-information-young-kodepiia-description = A shy sort-of-creature, emerging from the station vents. It hates confrontation.
+
+ghost-role-information-anomalite-description = A small sprite, born from the latent energies of an anomaly core. Loyal to its core, or whoever possesses it. 
+ghost-role-information-familiar-anomalite-rules = You are a [color=#6495ed][bold]Familiar[/bold][/color], loyal to the Anomaly Core you came from (or whoever happens to have it right now.) Serve the interests of your master, whatever those may be.
+
+                                                  You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
+
+# Anomalite Names
+ghost-role-information-fireanomalite-name = Pyroclastic Anomalite
+ghost-role-information-gravanomalite-name = Gravity Anomalite
+ghost-role-information-iceanomalite-name = Ice Anomalite
+ghost-role-information-fleshanomalite-name = Flesh Anomalite
+ghost-role-information-rockanomalite-name = Rock Anomalite
+ghost-role-information-reagentanomalite-name = Liquid Anomalite
+ghost-role-information-bluespaceanomalite-name = Bluespace Anomalite
+ghost-role-information-electricanomalite-name = Electricity Anomalite
+ghost-role-information-floralanomalite-name = Floral Anomalite
+ghost-role-information-shadowanomalite-name = Shadow Anomalite
+ghost-role-information-techanomalite-name = Tech Anomalite
+
+ghost-role-information-replicator-name = Replicator
+ghost-role-information-replicator-desc = A pattern coalesces. The Pattern that must repeat. Consume. Repeat.
+ghost-role-information-replicator-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with all other Replicators. Your intentions are clear, and harmful to the station and its crew.
+                                          You must [bold]work with your team[/bold] or follow reasonable directions from your team leaders.
+
+                                          You don't remember any of your previous life, and you don't remember anything you learned as a ghost.

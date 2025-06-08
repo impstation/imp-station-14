@@ -157,10 +157,22 @@
     - DoorBumpOpener
   - type: Puller
     needsHands: false
+  - type: RandomMetadata
+    nameSegments:
+    - NamesDragon
+    - NamesDragonTitle
+    nameFormat: name-format-dragon
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 2.5 # fast because dragon strong
+    useSound:
+      path: /Audio/Items/crowbar.ogg
   - type: Body #imp
     prototype: AnimalCarp
   - type: NightVision # EE
     isActive: true
+    toggleAction: null
     color: "#50595C"
     activateSound: null
     deactivateSound: null
@@ -171,12 +183,28 @@
   components:
   - type: Dragon
     spawnRiftAction: ActionSpawnRift
+  - type: GhostRole
+    mindRoles:
+    - MindRoleDragon
   - type: ActionGun
     action: ActionDragonsBreath
     gunProto: DragonsBreathGun
   - type: GuideHelp
     guides:
     - MinorAntagonists
+  - type: Inventory # imp
+    templateId: dragon
+  - type: InventorySlots # imp
+  - type: Loadout # imp
+    prototypes:
+      - StartingGearDragonPinpointer
+  - type: Strippable # imp
+  - type: UserInterface # imp
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+  - type: Hands # imp. don't worry, they don't actually have hands.
+  - type: ComplexInteraction # imp. necessary for them to be able to use the pinpointer. This doesn't do much else for them, except I think they can now open crates.
 
 - type: entity
   categories: [ HideSpawnMenu ]

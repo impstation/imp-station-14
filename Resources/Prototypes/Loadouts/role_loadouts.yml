@@ -38,10 +38,10 @@
   - GroupTankHarnessCommandWithOuterwearAquatic # imp special
 
 # Silicons
-#- type: roleLoadout
-#  id: JobBorg
-#  nameDataset: roleloadout doesn't support both so need to update that first.
-#  canCustomizeName: true
+- type: roleLoadout
+  id: JobBorg
+  nameDataset: NamesBorg
+  canCustomizeName: true
 
 - type: roleLoadout
   id: JobStationAi
@@ -215,6 +215,7 @@
 
 - type: roleLoadout
   id: JobClown
+  canCustomizeName: true
   groups:
   - ClownHead
   - ClownMask #imp
@@ -232,6 +233,7 @@
 
 - type: roleLoadout
   id: JobMime
+  canCustomizeName: true
   groups:
   - MimeHead
   - MimeMask
@@ -373,6 +375,7 @@
 - type: roleLoadout
   id: JobAtmosphericTechnician
   groups:
+  - AtmosphericTechnicianHead # imp
   - StationEngineerMask # imp
   - AtmosphericTechnicianNeck # imp
   - AtmosphericTechnicianJumpsuit
@@ -460,6 +463,8 @@
   - GroupTankHarnessCommandWithOuterwear
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessCommandWithOuterwearAquatic # imp special
+  - SecurityCommandFirearm # imp
+  - SecurityCommandAmmo # imp
 
 - type: roleLoadout
   id: JobWarden
@@ -480,6 +485,8 @@
   - GroupTankHarnessWithOuterwear
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessWithOuterwearAquatic # imp special
+  - SecurityCommandFirearm # imp
+  - SecurityCommandAmmo # imp
 
 - type: roleLoadout
   id: JobSecurityOfficer
@@ -500,6 +507,8 @@
   - GroupTankHarnessWithOuterwear
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessWithOuterwearAquatic # imp special
+  - SecurityOfficerFirearm # imp
+  - SecurityOfficerAmmo # imp
 
 - type: roleLoadout
   id: JobDetective
@@ -519,6 +528,8 @@
   - GroupTankHarnessWithOuterwear
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessWithOuterwearAquatic # imp special
+  - DetectiveFirearm # imp
+  - DetectiveAmmo # imp
 
 - type: roleLoadout
   id: JobSecurityCadet
@@ -545,9 +556,10 @@
   - ChiefMedicalOfficerBelt #imp
   - ChiefMedicalOfficerShoes
   - ChiefMedicalOfficerHeadset #imp
-  - Glasses
   - ChiefMedicalOfficerBackpack #imp
   - SurvivalCommand #imp
+  - MedicalEyewear
+  - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
   - GroupTankHarnessCommandWithOuterwear
@@ -563,10 +575,10 @@
   - MedicalDoctorJumpsuit
   - MedicalDoctorOuterClothing
   - MedicalGloves
-  - MedicalDoctorShoes
-  - Glasses
   - MedicalBackpack
+  - MedicalShoes
   - MedicalDoctorPDA
+  - MedicalEyewear
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
@@ -580,6 +592,7 @@
   - MedicalInternJumpsuit
   - Glasses
   - MedicalBackpack
+  - MedicalEyewear
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
@@ -616,7 +629,7 @@
   - ParamedicOuterClothing
   - MedicalGloves
   - ParamedicShoes
-  - Glasses
+  - MedicalEyewear
   - MedicalBackpack
   - ParamedicPDA # imp
   - SurvivalMedical
@@ -689,6 +702,8 @@
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
 # They will be used without player configuration, thus they will only ever apply what is forced by MinLimit
 
+# gives vox a harness and breathing mask
+# nitrogen tank not included
 - type: roleLoadout
   id: RoleSurvivalVoxSupport
   groups:
@@ -696,6 +711,13 @@
   - GroupTankHarness
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessAquatic #imp special
+
+# gives vox a nitrogen breathing tank
+# other species get nothing
+- type: roleLoadout
+  id: RoleSurvivalVoxTank
+  groups:
+  - GroupEVATankVox
 
 - type: roleLoadout
   id: RoleSurvivalStandard

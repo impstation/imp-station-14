@@ -2,6 +2,8 @@ using Content.Shared.DisplacementMap;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Serialization.Manager;
+using Robust.Shared.Prototypes;
+using static Robust.Client.GameObjects.SpriteComponent;
 
 namespace Content.Client.DisplacementMap;
 
@@ -9,29 +11,44 @@ public sealed class DisplacementMapSystem : EntitySystem
 {
     [Dependency] private readonly ISerializationManager _serialization = default!;
 
-    public bool TryAddDisplacement(DisplacementData data, SpriteComponent sprite, int index, string key, HashSet<string> revealedLayers)
+    /// <summary>
+    /// Attempting to apply a displacement map to a specific layer of SpriteComponent
+    /// </summary>
+    /// <param name="data">Information package for applying the displacement map</param>
+    /// <param name="sprite">SpriteComponent</param>
+    /// <param name="index">Index of the layer where the new map layer will be added</param>
+    /// <param name="key">Unique layer key, which will determine which layer to apply displacement map to</param>
+    /// <param name="displacementKey">The key of the new displacement map layer added by this function.</param>
+    /// <returns></returns>
+    public bool TryAddDisplacement(DisplacementData data,
+        SpriteComponent sprite,
+        int index,
+        object key,
+        out string displacementKey)
     {
+        displacementKey = $"{key}-displacement";
+
+        if (key.ToString() is null)
+            return false;
+
         if (data.ShaderOverride != null)
         {
+            var test = sprite[index];
             //imp edit start - replaced the simple shader replacement w/ a ternary that checks if the layer is unshaded before setting the shader
             sprite.LayerSetShader(index,
-                sprite[index] is SpriteComponent.Layer { ShaderPrototype: "unshaded" }
+                sprite[index] is Layer layer && layer.ShaderPrototype == "unshaded"
                     ? data.ShaderOverrideUnshaded
                     : data.ShaderOverride);
             //imp edit end
         }
 
-        var displacementKey = $"{key}-displacement";
-        if (!revealedLayers.Add(displacementKey))
-        {
-            Log.Warning($"Duplicate key for DISPLACEMENT: {displacementKey}.");
-            return false;
-        }
+        if (sprite.LayerMapTryGet(displacementKey, out var oldIndex))
+            sprite.RemoveLayer(oldIndex);
 
         //allows you not to write it every time in the YML
         foreach (var pair in data.SizeMaps)
         {
-            pair.Value.CopyToShaderParameters??= new()
+            pair.Value.CopyToShaderParameters ??= new()
             {
                 LayerKey = "dummy",
                 ParameterTexture = "displacementMap",
@@ -52,20 +69,21 @@ public sealed class DisplacementMapSystem : EntitySystem
         if (actualRSI is not null)
         {
             if (actualRSI.Size.X != actualRSI.Size.Y)
-                Log.Warning($"DISPLACEMENT: {displacementKey} has a resolution that is not 1:1, things can look crooked");
+            {
+                Log.Warning(
+                    $"DISPLACEMENT: {displacementKey} has a resolution that is not 1:1, things can look crooked");
+            }
 
             var layerSize = actualRSI.Size.X;
-            if (data.SizeMaps.ContainsKey(layerSize))
-                displacementDataLayer = data.SizeMaps[layerSize];
+            if (data.SizeMaps.TryGetValue(layerSize, out var map))
+                displacementDataLayer = map;
         }
 
         var displacementLayer = _serialization.CreateCopy(displacementDataLayer, notNullableOverride: true);
-        displacementLayer.CopyToShaderParameters!.LayerKey = key;
+        displacementLayer.CopyToShaderParameters!.LayerKey = key.ToString() ?? "this is impossible";
 
         sprite.AddLayer(displacementLayer, index);
         sprite.LayerMapSet(displacementKey, index);
-
-        revealedLayers.Add(displacementKey);
 
         return true;
     }
