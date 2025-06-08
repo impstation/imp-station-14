@@ -368,7 +368,6 @@
     - Deconstruct
   - type: LimitedCharges
     maxCharges: 30
-    charges: 30
   - type: Sprite
     sprite: _Impstation/Objects/Tools/rcd.rsi # imp
     state: icon
@@ -402,7 +401,7 @@
   suffix: Empty
   components:
   - type: LimitedCharges
-    charges: 0
+    lastCharges: -1
 
 - type: entity
   id: RCDRecharging
@@ -413,7 +412,6 @@
   components:
   - type: LimitedCharges
     maxCharges: 20
-    charges: 20
   - type: AutoRecharge
     rechargeDuration: 10
 
@@ -462,7 +460,6 @@
   - type: Tag
     tags:
     - Multitool
-    - DoorElectronicsConfigurator # imp
   - type: Prying
     enabled: false
   - type: Tool
@@ -471,12 +468,6 @@
     speedModifier: 1.2 # Kept for future adjustments. Currently 1.2x for balance
     useSound: /Audio/Items/drill_use.ogg
   - type: ToolTileCompatible
-  - type: NetworkConfigurator # imp
-    switchDisabled: true
-  - type: UserInterface # imp
-    interfaces:
-      enum.NetworkConfiguratorUiKey.Link:
-        type: NetworkConfiguratorBoundUserInterface
   - type: MultipleTool
     statusShowBehavior: true
     entries:
@@ -551,6 +542,10 @@
     staminaCost: 8.5
   - type: ThrowingAngle
     angle: 45
+  - type: Utensil #literally shoveling food in your mouth
+    types:
+    - Spoon
+    - Fork
   # end imp edits #
 
 - type: entity

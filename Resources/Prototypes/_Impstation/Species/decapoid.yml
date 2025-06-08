@@ -17,6 +17,8 @@
 - type: speciesBaseSprites
   id: MobDecapoidSprites
   sprites:
+    TailBehind: MobHumanoidAnyMarking # floof
+    TailOversuit: MobHumanoidAnyMarking # floof
     Eyes: MobHumanoidAnyMarking
     Head: MobDecapoidHead
     HeadTop: MobHumanoidAnyMarking
@@ -67,8 +69,8 @@
 - type: humanoidBaseSprite
   id: MobDecapoidEyes
   baseSprite:
-    sprite: _Impstation/Mobs/Customization/decapoid.rsi
-    state: eyes-1
+    sprite: _Impstation/Mobs/Customization/Decapoid/eyes.rsi
+    state: eyes1
 
 - type: humanoidBaseSprite
   id: MobDecapoidHead
