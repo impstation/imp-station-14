@@ -77,7 +77,7 @@
     soundHit:
       path: /Audio/Effects/hit_kick.ogg
     soundSwing:
-      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_folley.ogg
+      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
     resetOnHandSelected: false
     wideAnimationRotation: -80
   - type: AltFireMelee
@@ -233,7 +233,7 @@
 
 - type: entity
   name: N1984
-  parent: [BaseWeaponPistol, BaseCentcommContraband]
+  parent: [BaseWeaponPistol, BaseSecurityContraband]
   id: WeaponPistolN1984
   description: The sidearm of any self-respecting officer, often favored by ERT security forces. Uses .45 magnum ammo. #imp
   components:

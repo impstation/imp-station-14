@@ -60,6 +60,12 @@
     path: /Audio/_Impstation/Music/dont_drink_it.ogg
 
 - type: jukebox
+  id: DriversLounge
+  name: "[Hitman 2] Drivers' Lounge (Unreleased) // Niels bye Nielsen & Dynamedion GbR"
+  path:
+    path: /Audio/_Impstation/Music/drivers_lounge.ogg
+
+- type: jukebox
   id: Epoch
   name: "[Cobalt Core] Epoch // Aaron Cherof"
   path:
@@ -115,7 +121,7 @@
 
 - type: jukebox
   id: HourglassMeadow
-  name: "[ENA - Temptation Stairway] Hourglass Meadow // Oliver Buckland"
+  name: "[ENA: Temptation Stairway] Hourglass Meadow // Oliver Buckland"
   path:
     path: /Audio/_Impstation/Music/hourglass_meadow.ogg
 
@@ -159,7 +165,7 @@
   id: LifeIsBeautiful
   name: "[Deadly Premonition] Life is Beautiful // Riyou Kinugasa, Takuya Kobayashi & Hiromi Mizutani"
   path:
-    path: /Audio/_Impstation/Music/level_0.ogg
+    path: /Audio/_Impstation/Music/life_is_beautiful.ogg
 
 - type: jukebox
   id: LiveStudioAudience
@@ -252,6 +258,12 @@
     path: /Audio/_Impstation/Music/pillars_of_creation.ogg
 
 - type: jukebox
+  id: Purge
+  name: "[ENA: Dream BBQ] PURGE // METAROOM"
+  path:
+    path: /Audio/_Impstation/Music/purge.ogg
+
+- type: jukebox
   id: FFXPrelude
   name: "[FINAL FANTASY X] Prelude // Junya Nakano, Masashi Hamauzu and Nobuo Uematsu"
   path:
@@ -313,7 +325,7 @@
 
 - type: jukebox
   id: ThrashardInTheCave
-  name: "[Akumajō Dracula] Thrashard In The Cave - Stage 2 // Shin-chan, Keizo Nakamura, & Hiroshi Kobayashi; arranged by Sota Fujimori (for Castlevania Chronicles)"
+  name: "[Akumajō Dracula] Thrashard In The Cave - Stage 2 // Konami Kukeiha Club; arranged by Sota Fujimori (for Castlevania Chronicles)"
   path:
     path: /Audio/_Impstation/Music/thrashard_in_the_cave.ogg
 
@@ -336,6 +348,12 @@
     path: /Audio/_Impstation/Music/warsaw.ogg
 
 - type: jukebox
+  id: WizardDisco
+  name: "WIZARD DISCO // Louie Zong"
+  path:
+    path: /Audio/_Impstation/Music/wizard_disco.ogg
+
+- type: jukebox
   id: YouBlowMyMind
   name: "[Street Fighter III: 3rd Strike] You Blow My Mind // Hideki Okugawa" # i'm not including the subsubtitle. who give a shit
   path:
@@ -346,3 +364,182 @@
   name: "ZIP YKK ARRANGE // Rukunetsu"
   path:
     path: /Audio/_Impstation/Music/zip_ykk_arrange.ogg
+
+## EMAG ONLY
+
+- type: jukebox
+  id: UnfuckedGondal
+  emagOnly: true
+  name: "_error-code:537461727320616E642047616D6573 // 416C66205361726F" # scary
+  path:
+    path: /Audio/_Impstation/Music/stars_and_games.ogg
+
+- type: jukebox
+  id: ANewDawn
+  emagOnly: true # for its intensity and finality. and also once cult's back in it'll fit in in this pool with nukebox as "songs that plays when you motherfucker die"
+  name: "[Space Station 14] A New Dawn // Nahu Pyrope"
+  path:
+    path: /Audio/_Impstation/Music/a_new_dawn.ogg
+
+- type: jukebox
+  id: AntiAlienAlarm
+  emagOnly: true
+  name: "[Doo>FUCKYOUALIEN!!!¡ëÙnm] E1M1 - At Doom's Ga1Í3|PROTECTIVESHIELD!$$!Å3te // BobK»öùn(ÁÁ‰ANTI-ALIENALAARRÑ1Çœ+p¼¿by Prince"
+  path:
+    path: /Audio/_Impstation/Music/anti_alien_alarm.ogg
+
+## NUKEBOX BELOW; ALSO EMAG ONLY
+
+- type: jukebox
+  id: Alicorn
+  emagOnly: true
+  name: "[ACE COMBAT 7: SKIES UNKNOWN] Alicorn // Keiki Kobayashi & PROJECT ACES"
+  path:
+    path: /Audio/_Impstation/Music/alicorn.ogg
+
+- type: jukebox
+  id: BossPlok
+  emagOnly: true
+  name: "[Plok!] Boss // Geoff Follin"
+  path:
+    path: /Audio/_Impstation/Music/boss.ogg
+
+- type: jukebox
+  id: BlatantlyNuclear
+  emagOnly: true
+  name: "Blatantly Nuclear // mrjajkes"
+  path:
+    path: /Audio/_Impstation/Music/blatantly_nuclear.ogg
+
+- type: jukebox
+  id: CyberGrind
+  emagOnly: true
+  name: "[Ultrakill] The Cyber Grind // meganeko"
+  path:
+    path: /Audio/_Impstation/Music/cyber_grind.ogg
+
+- type: jukebox
+  id: Cyberwildlife
+  emagOnly: true
+  name: "[Cyberpunk 2077] Cyberwildlife Park // Marcin Przybyłowicz"
+  path:
+    path: /Audio/_Impstation/Music/cyberwildlife_park.ogg
+
+- type: jukebox
+  id: Departure
+  emagOnly: true
+  name: "[Mega Man Zero 2] Departure // Ippo Yamada; arranged by III (for REMASTERED TRACKS ROCKMAN ZERO Mythos)"
+  path:
+    path: /Audio/_Impstation/Music/departure.ogg
+
+- type: jukebox
+  id: EonSMTV
+  emagOnly: true
+  name: "[Shin Megami Tensei V] Battle -eon- (I) // Ryota Kozuka"
+  path:
+    path: /Audio/_Impstation/Music/eon.ogg
+
+- type: jukebox
+  id: Fiend
+  emagOnly: true
+  name: "[FINAL FANTASY XIV] Fiend // The Primals" # i'm crediting the unit Soken and Koji Fox formed together because it's simpler
+  path:
+    path: /Audio/_Impstation/Music/fiend.ogg
+
+- type: jukebox
+  id: FinalHours
+  emagOnly: true
+  name: "[The Legend Of Zelda: Majora's Mask] Final Hours // Koji Kondo"
+  path:
+    path: /Audio/_Impstation/Music/final_hours.ogg
+
+- type: jukebox
+  id: FlyOctoFly
+  emagOnly: true
+  name: "[Splatoon 2] Fly Octo Fly ~ Ebb & Flow // Toru Minegishi"
+  path:
+    path: /Audio/_Impstation/Music/fly_octo_fly.ogg
+
+- type: jukebox
+  id: ForgetFreeman
+  emagOnly: true
+  name: "[Black Mesa] Forget About Freeman // Joel Nielsen"
+  path:
+    path: /Audio/_Impstation/Music/forget_about_freeman.ogg
+
+- type: jukebox
+  id: GreatHeat
+  emagOnly: true
+  name: "[BAROQUE] Great Heat 20320514 // Masaharu Iwata"
+  path:
+    path: /Audio/_Impstation/Music/great_heat.ogg
+
+- type: jukebox
+  id: HurryUp
+  emagOnly: true
+  name: "[Wario Land 4] Hurry Up! // Ryoji Yoshitomi"
+  path:
+    path: /Audio/_Impstation/Music/hurry_up.ogg
+
+- type: jukebox
+  id: DeathStrandingNuke
+  emagOnly: true
+  name: "[Death Stranding] Nuke // Ludvig Forssell"
+  path:
+    path: /Audio/_Impstation/Music/ds_nuke.ogg
+
+- type: jukebox
+  id: Roadkilla
+  emagOnly: true
+  name: "[Slayers X: Terminal Aftermath] Roadkilla (Combat X-Mix) // Jay Tholen" # no sub-subtitles okay?
+  path:
+    path: /Audio/_Impstation/Music/roadkilla.ogg
+
+- type: jukebox
+  id: RulesOfNature
+  emagOnly: true
+  name: "[Metal Gear Rising: Revengeance] Rules of Nature // Jamie Christopherson & Jason Miller"
+  path:
+    path: /Audio/_Impstation/Music/rules_of_nature.ogg
+
+- type: jukebox
+  id: RuinousIntnt
+  emagOnly: true
+  name: "[corru.observer] RUINOUS INTNT // NoisyRejects, Deltanoyz, & corru.works"
+  path:
+    path: /Audio/_Impstation/Music/ruinous_intnt.ogg
+
+- type: jukebox
+  id: SecondWarning
+  emagOnly: true
+  name: "[Lobotomy Corporation] Second Warning // Dr.ReB"
+  path:
+    path: /Audio/_Impstation/Music/secondwarning.ogg
+
+- type: jukebox
+  id: Shootem
+  emagOnly: true
+  name: "Shoot 'Em // Washboard Rhythm Kings"
+  path:
+    path: /Audio/_Impstation/Music/shootem.ogg
+
+- type: jukebox
+  id: Unbreakable
+  emagOnly: true
+  name: "[ARMORED CORE VI: FIRES OF RUBICON] Unbreakable // Kota Hoshino"
+  path:
+    path: /Audio/_Impstation/Music/unbreakable.ogg
+
+- type: jukebox
+  id: WarWithoutReason
+  emagOnly: true
+  name: "[Ultrakill] War Without Reason // Heaven Pierce Her"
+  path:
+    path: /Audio/_Impstation/Music/war_without_reason.ogg
+
+- type: jukebox
+  id: Werehog
+  emagOnly: true
+  name: "[Sonic Unleashed] Werehog Battle Theme // Kenichi Tokoi & SEGA SOUND TEAM"
+  path:
+    path: /Audio/_Impstation/Music/werehog_battle_theme.ogg

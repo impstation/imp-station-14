@@ -36,6 +36,8 @@ using Robust.Shared.Player;
 using Content.Shared.StatusEffect;
 using Content.Shared.Flash.Components;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Prototypes;
+
 
 namespace Content.Server.Revenant.EntitySystems;
 
@@ -53,6 +55,7 @@ public sealed partial class RevenantSystem
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly RevenantAnimatedSystem _revenantAnimated = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
 
     [ValidatePrototypeId<StatusEffectPrototype>]
     private const string RevenantEssenceRegen = "EssenceRegen";
@@ -60,6 +63,8 @@ public sealed partial class RevenantSystem
     [ValidatePrototypeId<StatusEffectPrototype>]
     private const string FlashedId = "Flashed";
 
+
+    private static readonly ProtoId<TagPrototype> WindowTag = "Window";
 
     private void InitializeAbilities()
     {
@@ -282,8 +287,8 @@ public sealed partial class RevenantSystem
             component: new RevenantRegenModifierComponent(witnesses, newHaunts)
         ))
         {
-            if (_mind.TryGetMind(uid, out var _, out var mind) && mind.Session != null)
-                RaiseNetworkEvent(new RevenantHauntWitnessEvent(witnesses), mind.Session);
+            if (_mind.TryGetMind(uid, out var _, out var mind) && _playerManager.TryGetSessionById(mind.UserId, out var session))
+                RaiseNetworkEvent(new RevenantHauntWitnessEvent(witnesses), session);
 
             _store.TryAddCurrency(new Dictionary<string, FixedPoint2>
             { {comp.StolenEssenceCurrencyPrototype, comp.HauntStolenEssencePerWitness * newHaunts} }, uid);
@@ -330,7 +335,7 @@ public sealed partial class RevenantSystem
         foreach (var ent in lookup)
         {
             //break windows
-            if (tags.HasComponent(ent) && _tag.HasTag(ent, "Window"))
+            if (tags.HasComponent(ent) && _tag.HasTag(ent, WindowTag))
             {
                 //hardcoded damage specifiers til i die.
                 var dspec = new DamageSpecifier();

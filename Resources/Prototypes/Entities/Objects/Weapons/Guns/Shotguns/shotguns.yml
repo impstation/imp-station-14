@@ -54,7 +54,7 @@
     soundHit:
       path: /Audio/Effects/hit_kick.ogg
     soundSwing:
-      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_folley.ogg
+      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
     resetOnHandSelected: false
   - type: AltFireMelee
     attackType: Heavy
@@ -132,7 +132,7 @@
     soundHit:
       path: /Audio/Effects/hit_kick.ogg
     soundSwing:
-      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_folley.ogg
+      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
     resetOnHandSelected: false
   - type: AltFireMelee
     attackType: Heavy
@@ -151,7 +151,7 @@
 
 - type: entity
   name: double-barreled shotgun
-  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityBartenderContraband]
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityBartenderZookeeperContraband]
   id: WeaponShotgunDoubleBarreled
   description: An immortal classic of the American Frontier, whatever that is. Uses .50 shotgun shells. #imp
   components:

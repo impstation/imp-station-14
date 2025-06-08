@@ -405,6 +405,8 @@
   - HospitalityDirectorApron
   - HospitalityDirectorVest
   - HospitalityDirectorWintercoat
+  - BartenderCuteApron
+  - ChefCuteApron
 
 - type: loadoutGroup
   id: HospitalityDirectorShoes
@@ -604,6 +606,7 @@
   - ScarfBrown
   - ScarfGreen
   - ScarfLightGreen
+  - BotanistLilyMantle
 
 - type: loadoutGroup
   id: BotanistGloves
@@ -879,6 +882,13 @@
   - ScarfLightBlue
 
 - type: loadoutGroup
+  id: AtmosphericTechnicianHead
+  name: loadout-group-atmospheric-technician-head
+  minLimit: 0
+  loadouts:
+  - SeniorEngineerBeret
+
+- type: loadoutGroup
   id: AtmosphericTechnicianPDA
   name: loadout-group-atmospheric-technician-id
   loadouts:
@@ -943,6 +953,22 @@
   - HeadofSecurityShoulderHolster
 
 - type: loadoutGroup
+  id: SecurityCommandFirearm
+  name: loadout-group-security-gun-command
+  loadouts:
+  - SecurityPistolMk58
+  - SecurityPistolP2
+  - SecurityPistolSturm
+
+- type: loadoutGroup
+  id: SecurityCommandAmmo
+  name: loadout-group-security-ammo-command
+  loadouts:
+  - SecurityAmmoPistol
+  - SecurityAmmoP2
+  - SecurityAmmoSturm
+
+- type: loadoutGroup
   id: WardenNeck
   name: loadout-group-warden-neck
   minLimit: 0
@@ -994,6 +1020,27 @@
   loadouts:
   - DetectivePDA
   - SeniorDetectivePDA
+
+- type: loadoutGroup
+  id: DetectiveFirearm
+  name: loadout-group-detective-gun
+  loadouts:
+  - SecurityRevolverInspector
+  - SecurityRevolverDerringer
+  - SecurityPistolFreelancer
+
+- type: loadoutGroup
+  id: DetectiveAmmo
+  name: loadout-group-detective-ammo
+  minLimit: 1
+  maxLimit: 2
+  loadouts:
+  - SecurityAmmoSpeedloaderLethal
+  - SecurityAmmoSpeedloaderStun
+  - SecurityAmmoPouchLethal
+  - SecurityAmmoPouchStun
+  - SecurityAmmoFreelancerLethal
+  - SecurityAmmoFreelancerStun
 
 - type: loadoutGroup
   id: BrigmedicHead
@@ -1058,6 +1105,24 @@
   - EmergencyMeatBrigmedic
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogen
+
+- type: loadoutGroup
+  id: SecurityOfficerFirearm
+  name: loadout-group-security-gun
+  loadouts:
+  - SecurityPistolMk58
+  - SecurityPistolP2
+  - SecurityPistolBlaster
+  - SecurityPistolGunpet
+
+- type: loadoutGroup
+  id: SecurityOfficerAmmo
+  name: loadout-group-security-ammo
+  loadouts:
+  - SecurityAmmoPistol
+  - SecurityAmmoP2
+  - SecurityAmmoBlaster
+  - SecurityAmmoSnapPop
 
 - type: loadoutGroup
   id: GroupSpeciesBreathToolMedSec
@@ -1164,3 +1229,4 @@
   - LeatherShoes
   - BlackHeels
   - ClownShoesExpert
+
