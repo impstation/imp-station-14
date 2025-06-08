@@ -111,6 +111,7 @@ namespace Content.IntegrationTests.Tests
             "Core",
             "Dev",
             "TestTeg",
+            "Eclipse",
             "Elkridge",
             "Fland",
             "Gate",
