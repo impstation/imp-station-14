@@ -2,7 +2,7 @@
   abstract: true
   parent: BaseItem
   id: SheetMetalBase
-  description: Not a musical genre. You've no idea exactly what alloy Nanotrasen uses, but damn, do they use it everywhere. # imp
+  description: A sheet of metal, used often on the station in various applications.
   components:
   - type: Sprite
     sprite: Objects/Materials/Sheets/metal.rsi
@@ -198,7 +198,7 @@
   parent: SheetMetalBase
   id: SheetPlasteel
   name: plasteel
-  description: Plasma-hardened steel. Has the weirdness of plasma, and the strength and certainty of steel. # imp
+  description: A sheet of plasma-hardened steel. Strength, tempered by uncertainty. # imp
   suffix: Full
   components:
   - type: Material
