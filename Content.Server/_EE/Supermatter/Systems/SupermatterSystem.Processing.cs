@@ -2,6 +2,8 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using Content.Server.Chat.Systems;
+using Content.Server.Ghost;
+using Content.Server.Light.Components;
 using Content.Server.Singularity.Components;
 using Content.Shared._EE.CCVar;
 using Content.Shared._EE.Supermatter.Components;
@@ -14,6 +16,7 @@ using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
+using Content.Shared.Popups;
 using Content.Shared.Radiation.Components;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Speech;
@@ -106,8 +109,8 @@ public sealed partial class SupermatterSystem
         // Ramps up or down in increments of 0.02 up to the proportion of CO2
         // Given infinite time, powerloss_dynamic_scaling = co2comp
         // Some value from 0-1
-        if (moles > _config.GetCVar(EECCVars.SupermatterPowerlossInhibitionMoleThreshold) &&
-            gasComposition.GetMoles(Gas.CarbonDioxide) > _config.GetCVar(EECCVars.SupermatterPowerlossInhibitionGasThreshold))
+        if (moles > _config.GetCVar(EECCVars.SupermatterPowerlossInhibitionMoleThreshold) && // if there are more than 6 mols,
+            gasComposition.GetMoles(Gas.CarbonDioxide) > _config.GetCVar(EECCVars.SupermatterPowerlossInhibitionGasThreshold)) // and more than 20% co2
         {
             var co2powerloss = Math.Clamp(gasComposition.GetMoles(Gas.CarbonDioxide) - sm.PowerlossDynamicScaling, -0.02f, 0.02f);
             sm.PowerlossDynamicScaling = Math.Clamp(sm.PowerlossDynamicScaling + co2powerloss, 0f, 1f);
@@ -115,7 +118,7 @@ public sealed partial class SupermatterSystem
         else
             sm.PowerlossDynamicScaling = Math.Clamp(sm.PowerlossDynamicScaling - 0.05f, 0f, 1f);
 
-        // Ranges from 0~1(1 - (0~1 * 1~(1.5 * (mol / 500))))
+        // Ranges from 0~1(1 - (0~1 * 1~(1.5 * (mol / 150))))
         // We take the mol count, and scale it to be our inhibitor
         sm.PowerlossInhibitor = Math.Clamp(
             1 - sm.PowerlossDynamicScaling * Math.Clamp(moles / _config.GetCVar(EECCVars.SupermatterPowerlossInhibitionMoleBoostThreshold), 1f, 1.5f),
@@ -218,7 +221,7 @@ public sealed partial class SupermatterSystem
         }
 
         if (zapCount >= 1)
-            _lightning.ShootRandomLightnings(uid, zapRange, zapCount, sm.LightningPrototypes[zapPower], hitCoordsChance: sm.ZapHitCoordinatesChance);
+            _lightning.ShootRandomLightnings(uid, zapRange, zapCount, sm.LightningPrototypes[zapPower], hitCoordsChance: sm.ZapHitCoordinatesChance, canExplode: false);
     }
 
     /// <summary>
@@ -689,6 +692,16 @@ public sealed partial class SupermatterSystem
         // Scramble the thaven shared mood
         _moods.NewSharedMoods();
 
+        // Flickers all powered lights on the map
+        var lightLookup = new HashSet<Entity<PoweredLightComponent>>();
+        _entityLookup.GetEntitiesOnMap<PoweredLightComponent>(mapId, lightLookup);
+        foreach (var light in lightLookup)
+        {
+            if (!_rand.Prob(sm.LightFlickerChance))
+                continue;
+            _ghost.DoGhostBooEvent(light);
+        }
+
         // Add post-delamination event scheduler
         var gamerule = _gameTicker.AddGameRule(sm.DelamGamerulePrototype);
         _gameTicker.StartGameRule(gamerule);
@@ -773,7 +786,7 @@ public sealed partial class SupermatterSystem
         foreach (var mob in lookup)
         {
             // Not in line of sight, or is dead
-            if (!_examine.InRangeUnOccluded(uid, mob, 20f) ||
+            if (!_examine.InRangeUnOccluded(uid, mob, sm.HallucinationRange) ||
                 mob.Comp.CurrentState == MobState.Dead)
                 continue;
 
@@ -797,6 +810,9 @@ public sealed partial class SupermatterSystem
 
             if (!EnsureComp<ParacusiaComponent>(mob, out var paracusia))
             {
+                _popup.PopupEntity(Loc.GetString("supermatter-paracusia-player-message"), mob, mob, PopupType.LargeCaution);
+                _audio.PlayEntity(sm.GainParacusiaSound, mob, mob);
+                _audio.PlayEntity(sm.GiveParacusiaSound, mob, uid);
                 _paracusia.SetSounds(mob, paracusiaSounds, paracusia);
                 _paracusia.SetTime(mob, paracusiaMinTime, paracusiaMaxTime, paracusia);
                 _paracusia.SetDistance(mob, paracusiaDistance, paracusia);

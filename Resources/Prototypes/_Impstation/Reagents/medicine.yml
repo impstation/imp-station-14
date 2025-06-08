@@ -59,7 +59,6 @@
   flavor: sour
   color: "#64ffe6"
   physicalDesc: reagent-physical-desc-enigmatic
-  slippery: false
   metabolisms:
     # Bad omnizine that also gives you cancer
     Medicine:
@@ -109,6 +108,20 @@
       methods: [ Touch ]
       effects:
       - !type:ExtinguishReaction
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Holy: 0.5
+            Blunt: -0.1
+#            Poison: -0.2
+            Heat: -0.1
+            Shock: -0.1
+            Cold: -0.1
   tileReactions:
   - !type:ExtinguishTileReaction { }
 
