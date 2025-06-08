@@ -145,6 +145,13 @@
     - UplinkWeaponry
 
 - type: listing
+  id: uplinkNullrodUpgrade
+  name: uplink-nullrod-upgrade-name
+  description: uplink-nullrod-upgrade-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Misc/profane_censer.rsi, state: icon }
+  productEntity: NullrodUpgradeKit
+  discountCategory: rareDiscounts
+=======
   id: UplinkSawAmmo
   name: uplink-saw-ammo-name
   description: uplink-saw-ammo-desc
@@ -191,6 +198,16 @@
   cost:
     Telecrystal: 8
   categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Chaplain
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+=======
   - UplinkChemicals
   conditions:
   - !type:StoreWhitelistCondition
