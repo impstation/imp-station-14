@@ -9,8 +9,8 @@ namespace Content.Shared._Impstation.Homunculi.Components;
 [RegisterComponent]
 public sealed partial class HomunculiTypeComponent : Component
 {
-    [DataField(customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>), required:true)]
-    public string HomunculiType;
+    [DataField(customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
+    public required string HomunculiType;
 
     [DataField(customTypeSerializer:typeof(PrototypeIdDictionarySerializer<FixedPoint2, ReagentPrototype>))]
     public Dictionary<string, FixedPoint2> Recipe = new();
