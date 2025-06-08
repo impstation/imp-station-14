@@ -11,6 +11,7 @@
       state: any
   - type: RandomSpawner
     prototypes:
+    - VendingMachineArticSeltz # imp
     - VendingMachineChang
     - VendingMachineCigs
     - VendingMachineCoffee
@@ -29,7 +30,7 @@
     - VendingMachineSnackOrange
     - VendingMachineSnackTeal
     - VendingMachineSoda #Robust Sofdrinks [Soda]
-    - VendingMachineSovietSoda #IMP Artic Seltz
+    - VendingMachineSovietSoda #Boda
     - VendingMachineSpaceUp
     - VendingMachineStarkist
     chance: 1
