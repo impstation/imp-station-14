@@ -79,7 +79,7 @@
   parent: SheetOtherBase
   id: SheetPlasma
   name: plasma
-  description: What Nanotrasen calls 'plasma' or 'phoron' is an enigmatic, highly-reactive material that taps into... Well, it'll make you rich. # imp
+  description: AKA 'phoron'. An enigmatic, highly-reactive material that taps into... Well, it'll make you rich. # imp
   suffix: Full
   components:
   - type: Material
@@ -139,7 +139,7 @@
   parent: SheetOtherBase
   id: SheetPlastic
   name: plastic
-  description: A sheet of non-descript polymers that can be molded into anything you can imagine. Fun to play with, but not to eat. # imp
+  description: Non-descript polymers that can be molded into almost anything. Fun to play with, but not to eat. # imp
   suffix: Full
   components:
   - type: Tag
@@ -204,7 +204,7 @@
   parent: [SheetOtherBase, EdibleBase]
   id: SheetUranium
   name: uranium
-  description: Element number 92, it's lean, it's mean, and oh boy, is it green. Puts the 'new' in 'nuclear' and the 'active' in 'radioactive'. # imp
+  description: A sheet of Element 92. It's lean, it's mean, and oh boy, is it green. Puts the 'new' in 'nuclear'. # imp
   suffix: Full
   components:
   - type: Material
