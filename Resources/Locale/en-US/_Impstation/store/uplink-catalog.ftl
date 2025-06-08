@@ -28,8 +28,8 @@ uplink-satchel-syndicate-desc = A lightweight explosion-proof satchel for when s
 uplink-fugitivecloak-name = Monochrome cloak
 uplink-fugitivecloak-desc = While this cloak hides your extra appendages, it also will reveal who you REALLY want to kiss under the moonlight.
 
-uplink-bloodredrosekit-name = Blood Red Rose Kit
-uplink-bloodredrosekit-desc = A set of roses for the romantic killer to get close to their dear victims.
+uplink-bloodredrosekit-name = Blood-red rose kit
+uplink-bloodredrosekit-desc = A set of roses for the romantic killer to get close to their dear victims. They'll really take your breath / facial features away.
 
 uplink-saw-ammo-name = Ammunition box (.20 rifle)
 uplink-saw-ammo-desc = A box of 50 cartridges compatible with the L6 Nidhogg light machine gun. Doesn't come with any ammo boxes, load it yourself!
@@ -42,3 +42,6 @@ uplink-mixed-rejects-carton-desc = A carton containing 6 packets of Dan's Soaked
 
 uplink-poison-injector-name = Lethal Poison Auto-Injector
 uplink-poison-injector-desc = A single dose of a lethal toxin mix, courtesy of Gorlex's Stealth Operations department, induces gradual organ failure and esophagus inflammation which eliminates a subject within one to two minutes of injection.
+
+uplink-mascot-cindy-suit-bundle-name = Cindy, the Red Chaos Cat bundle
+uplink-mascot-cindy-suit-bundle-desc = A suit in the image of Cindy, The Red Carnage Cat! Space-safe, and equipped with minimal armor to wreak maximum morale damage against those NanoTrasen dogs!
