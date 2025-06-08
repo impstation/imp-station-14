@@ -339,7 +339,7 @@
   - type: Produce
     seedId: butterflyorchid
   - type: Extractable
-    grindableSolution:
+    juiceSolution:
       reagents:
       - ReagentId: ButterfliesReagent
         Quantity: 15
@@ -363,7 +363,7 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
-        - ReagentId: ButterfliesReagent
+        - ReagentId: ButterfliesBiggerReagent
           Quantity: 10
   - type: Sprite
     sprite: _Impstation/Objects/Specific/Hydroponics/biggerfly_orchid.rsi
@@ -371,11 +371,10 @@
   - type: Produce
     seedId: biggerflyorchid
   - type: Extractable
-    grindableSolution:
+    juiceSolution:
       reagents:
-      - ReagentId: ButterfliesReagent
-        Quantity: 25
+      - ReagentId: ButterfliesBiggerReagent
+        Quantity: 15
   - type: Tag
     tags:
     - Flower
-
