@@ -232,6 +232,9 @@
   - type: Construction
     graph: WallWeaponCapacitorRecharger
     node: wall_recharger
+  - type: Physics
+    bodyType: Static
+    canCollide: false
   - type: Fixtures
     fixtures: {} #kills the fixtures to make directionality work
   # imp end
