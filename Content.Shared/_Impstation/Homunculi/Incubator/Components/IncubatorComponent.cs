@@ -19,7 +19,7 @@ public sealed partial class IncubatorComponent : Component
     ///     How long to wait before finishing incubation.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public TimeSpan IncubationDuration = TimeSpan.FromSeconds(5);
+    public TimeSpan IncubationDuration = TimeSpan.FromMinutes(1);
 
     /// <summary>
     ///     When incubation is finished.
