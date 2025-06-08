@@ -66,9 +66,9 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.6
         Heat: 0.7
         Caustic: 0.75 # not the full 90% from ss13 because of the head
   - type: ExplosionResistance
@@ -82,10 +82,11 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
+        Blunt: 0.65
+        Slash: 0.65
         Piercing: 0.7
         Heat: 0.7
+        Caustic: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.9
 
@@ -321,9 +322,9 @@
   description: A sturdy, utilitarian jacket designed to protect a warden from any brig-bound threats.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/warden.rsi
+    sprite: _Impstation/Clothing/OuterClothing/Coats/warden.rsi #imp
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/warden.rsi
+    sprite: _Impstation/Clothing/OuterClothing/Coats/warden.rsi #imp
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -405,9 +406,9 @@
   components:
   - type: AllowSuitStorage
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/brigmedic.rsi
+    sprite: _Impstation/Clothing/OuterClothing/Coats/brigmedic.rsi #imp
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/brigmedic.rsi
+    sprite: _Impstation/Clothing/OuterClothing/Coats/brigmedic.rsi #imp
   - type: Armor
     modifiers:
       coefficients:

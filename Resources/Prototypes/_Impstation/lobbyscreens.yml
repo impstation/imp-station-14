@@ -29,12 +29,6 @@
   artist: GooseyTeeth
 
 - type: lobbyBackground
-  id: SamGreetingCard
-  background: /Textures/_Impstation/LobbyScreens/greeting_card_lobby.webp
-  name: Greeting Card
-  artist: ghostphasemoon
-
-- type: lobbyBackground
   id: Bellmoth
   background: /Textures/_Impstation/LobbyScreens/Shovel_incident.webp
   name: Shovel Incident
@@ -111,3 +105,15 @@
   background: /Textures/_Impstation/LobbyScreens/teabar.webp
   name: Hey Whats In This Ice Cream Anyway
   artist: Happy99
+
+- type: lobbyBackground
+  id: movebitch
+  background: /Textures/_Impstation/LobbyScreens/dont_care.webp
+  name: Dont care
+  artist: Ionward
+
+- type: lobbyBackground
+  id: smoko
+  background: /Textures/_Impstation/LobbyScreens/smoko.webp
+  name: Smoko?
+  artist: Wowls

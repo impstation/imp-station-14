@@ -131,6 +131,8 @@
         Caustic: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.35
+  #- type: StaminaResistance
+  #  damageCoefficient: 0.45
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -180,6 +182,8 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 2
+  - type: Item
+    size: Normal
 
 - type: entity
   parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowSuitStorageClothing ]
@@ -274,9 +278,9 @@
   description: "An armored chestpiece that provides protection whilst still offering maximum mobility and flexibility. Issued only to the station's finest."
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Armor/captain_carapace.rsi
+    sprite: _Impstation/Clothing/OuterClothing/Armor/captain_carapace.rsi #imp
   - type: Clothing
-    sprite: Clothing/OuterClothing/Armor/captain_carapace.rsi
+    sprite: _Impstation/Clothing/OuterClothing/Armor/captain_carapace.rsi #imp
   - type: Armor
     modifiers:
       coefficients:
