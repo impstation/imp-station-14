@@ -102,7 +102,7 @@ pleebnar-vision-wheel-name = wheel
 pleebnar-vision-oldports = A pack of Oldports.
 pleebnar-vision-oldports-name = oldports
 
-pleebnar-vision-blood = A ocean of blood, a person is floating face down.
+pleebnar-vision-blood = A ocean of blood, you see a person is floating face down in it.
 pleebnar-vision-blood-name = blood
 
 pleebnar-vision-train = An approaching train.
@@ -144,55 +144,55 @@ pleebnar-vision-monster-name = lore
 pleebnar-vision-horse = A horse galloping across a blue sky.
 pleebnar-vision-horse-name = horse
 
-pleebnar-vision-money = A swimming pool filled with gold coins
+pleebnar-vision-money = A swimming pool filled with gold coins.
 pleebnar-vision-money-name = riches
 
-pleebnar-vision-weed = A drawing of a cartoon character smoking weed
+pleebnar-vision-weed = A drawing of a cartoon character smoking weed.
 pleebnar-vision-weed-name = weed
 
-pleebnar-vision-voicemail = A voicemail in a language you don't recognize
+pleebnar-vision-voicemail = A voicemail in a language you don't recognize.
 pleebnar-vision-voicemail-name = a message
 
-pleebnar-vision-failure = A joint, rolled incredibly poorly
+pleebnar-vision-failure = A joint, rolled incredibly poorly.
 pleebnar-vision-failure-name = failure
 
-pleebnar-vision-theater = A middle-aged man on a couch, laughing while eating a bowl of chips
+pleebnar-vision-theater = A middle-aged man on a couch, laughing while eating a bowl of chips.
 pleebnar-vision-theater-name = theater
 
-pleebnar-vision-dog = A black dog standing in the distance
+pleebnar-vision-dog = A black dog standing in the distance.
 pleebnar-vision-dog-name = omen
 
-pleebnar-vision-stars = Stars going dark one after another
+pleebnar-vision-stars = Stars going dark one after another.
 pleebnar-vision-stars-name = the end
 
-pleebnar-vision-death = A ferryman, rowing away
+pleebnar-vision-death = A ferryman, rowing away.
 pleebnar-vision-death-name = death
 
-pleebnar-vision-grinch = A horrible green figure infiltrating a chimney on a snowy night
+pleebnar-vision-grinch = A horrible green figure infiltrating a chimney on a snowy night.
 pleebnar-vision-grinch-name = grinch
 
-pleebnar-vision-sport = Your home planet being dribbled like a basketball
+pleebnar-vision-sport = Your home planet being dribbled like a basketball.
 pleebnar-vision-sport-name = sport
 
-pleebnar-vision-cheese = A slice of processed cheese falling to the floor
+pleebnar-vision-cheese = A slice of processed cheese falling to the floor.
 pleebnar-vision-cheese-name = tragedy
 
-pleebnar-vision-before = Something you feel like you remember seeing before you were born
+pleebnar-vision-before = Something you feel like you remember seeing before you were born.
 pleebnar-vision-before-name = the before
 
-pleebnar-vision-danger = A convertible speeding down a freeway, its driver laughing with a beer in hand
+pleebnar-vision-danger = A convertible speeding down a freeway, its driver laughing with a beer in hand.
 pleebnar-vision-danger-name = danger
 
-pleebnar-vision-battle = A frame of an ancient cartoon featuring a cat and a mouse
+pleebnar-vision-battle = A frame of an ancient cartoon featuring a cat and a mouse.
 pleebnar-vision-battle-name = battle
 
-pleebnar-vision-books = An endless library
+pleebnar-vision-books = An endless library.
 pleebnar-vision-books-name = knowledge
 
-pleebnar-vision-hotdog = Hotdogs rotating in an infernal machine
+pleebnar-vision-hotdog = Hotdogs rotating in an infernal machine.
 pleebnar-vision-hotdog-name = yummy
 
-pleebnar-vision-fire = A series of instructions for how to make fire
+pleebnar-vision-fire = A series of instructions for how to make fire.
 pleebnar-vision-fire-name = fire
 
 pleebnar-vision-larva = A mass of fat little white worms, they all have your face.
@@ -213,13 +213,13 @@ pleebnar-vision-nuclearbomb-name = fission
 pleebnar-vision-bunnies = Wild bunnies hopping about a lush field.
 pleebnar-vision-bunnies-name = bunnies
 
-pleebnar-vision-tower = A desert of white sand against a black sky, a white tower rises from the sand.
+pleebnar-vision-tower = A desert of white sand against a black sky. A white tower rises from the sand.
 pleebnar-vision-tower-name = tower
 
-pleebnar-vision-stage = A stage lit by a strong white light. a mime stands over the battered corpse of a clown.
+pleebnar-vision-stage = A stage lit by a strong white light. A mime stands over the battered corpse of a clown.
 pleebnar-vision-stage-name = stage
 
-pleebnar-vision-cradle = An empty cradle in a dark room, a baby can be heard crying.
+pleebnar-vision-cradle = An empty cradle in a dark room; a baby can be heard crying.
 pleebnar-vision-cradle-name = cradle
 
 pleebnar-vision-bugs = Your mothers face covered in insects, she is smiling,
@@ -234,17 +234,17 @@ pleebnar-vision-paradoxclone-name = mirror
 pleebnar-vision-latenight = A child playing videogames in a dark room.
 pleebnar-vision-latenight-name = late night
 
-pleebnar-vision-enemies = You and your worst enemy holding hands while skipping along and signing.
+pleebnar-vision-enemies = You and your worst enemy holding hands while skipping along and singing.
 pleebnar-vision-enemies-name = enemies
 
 pleebnar-vision-fourthwall = A human playing a game that seems all too familiar to you.
 pleebnar-vision-fourthwall-name = SS14
 
-pleebnar-vision-organist = a priest playing an organ, but with every note a jet of thick black fluid flies out of the pipes.
+pleebnar-vision-organist = A priest playing an organ, but with every note a jet of inky dark fluid flies out of the pipes.
 pleebnar-vision-organist-name = church
 
-pleebnar-vision-family = a family at around an empty dinner table, they have no faces.
+pleebnar-vision-family = A family at around an empty dinner table, they have no faces.
 pleebnar-vision-family-name = family
 
-pleebnar-vision-theimp = a cyan haired imp holding a bong, your view is quickly blocked by white smoke.
+pleebnar-vision-theimp = You see cyan haired imp holding a bong, but your view is quickly blocked by white smoke.
 pleebnar-vision-theimp-name = the imp
