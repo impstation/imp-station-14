@@ -6,6 +6,7 @@ using Content.Shared.NukeOps; // imp
 using Content.Shared.Revolutionary.Components; //imp
 using Content.Server.GameTicking.Rules;
 using Content.Server.Revolutionary.Components;
+using Robust.Shared.Player; // imp
 using Robust.Shared.Random;
 using System.Linq;
 
@@ -20,6 +21,7 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
     [Dependency] private readonly TargetObjectiveSystem _target = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly ISharedPlayerManager _playerManager = default!; // imp edit
     [Dependency] private readonly TraitorRuleSystem _traitorRule = default!;
     [Dependency] private readonly SharedJobSystem _job = default!; // imp edit
 
@@ -224,7 +226,7 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
                 var poolSessions = _traitorRule.CurrentAntagPool.GetPoolSessions();
                 foreach (var mind in allHumans)
                 {
-                    if (!args.Mind.ObjectiveTargets.Contains(mind) && _job.MindTryGetJob(mind, out var prototype) && prototype.CanBeAntag && _mind.TryGetSession(mind, out var session) && poolSessions.Contains(session))
+                    if (!args.Mind.ObjectiveTargets.Contains(mind) && _job.MindTryGetJob(mind, out var prototype) && prototype.CanBeAntag && _playerManager.TryGetSessionByEntity(mind, out var session) && poolSessions.Contains(session))
                     {
                         allValidTraitorCandidates.Add(mind);
                     }
@@ -292,7 +294,7 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
                 var poolSessions = _traitorRule.CurrentAntagPool.GetPoolSessions();
                 foreach (var mind in allHumans)
                 {
-                    if (!args.Mind.ObjectiveTargets.Contains(mind) && _job.MindTryGetJob(mind, out var prototype) && prototype.CanBeAntag && _mind.TryGetSession(mind, out var session) && poolSessions.Contains(session))
+                    if (!args.Mind.ObjectiveTargets.Contains(mind) && _job.MindTryGetJob(mind, out var prototype) && prototype.CanBeAntag && _playerManager.TryGetSessionByEntity(mind, out var session) && poolSessions.Contains(session))
                     {
                         allValidTraitorCandidates.Add(mind);
                     }
@@ -344,8 +346,8 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
             //fallback to target a random head
             foreach (var person in allHumans)
             {
-            if (TryComp<MindComponent>(person, out var mind) && mind.OwnedEntity is { } owned && HasComp<CommandStaffComponent>(owned))
-                antags.Add(person);
+                if (TryComp<MindComponent>(person, out var mind) && mind.OwnedEntity is { } owned && HasComp<CommandStaffComponent>(owned))
+                    antags.Add(person);
             }
 
             // just go for some random person if there's no command.
