@@ -21,3 +21,6 @@ reagent-desc-mouse-bites = The patient needs mouse bites to live
 
 reagent-name-sadness = sadness
 reagent-desc-sadness = The pure concept of sadness, in a liquid form. Even looking at it makes you tear up.
+
+reagent-name-butterflies = butterflies
+reagent-desc-butterflies = The pure essence of that fluttery, nervous feeling you get sometimes in the pit of your stomach.

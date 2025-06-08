@@ -206,3 +206,35 @@
       - !type:Emote
         emote: Crying
         force: true
+
+- type: reagent
+  id: ButterfliesReagent
+  name: reagent-name-butterflies
+  group: Toxins #getting scared is basically toxins
+  desc: reagent-desc-butterflies
+  physicalDesc: reagent-physical-desc-nervous
+  flavor: sweet
+  color: "#f8eb73"
+  tileReactions:
+  - !type:CreateEntityTileReaction
+    entity: MobButterfly
+    usage: 3
+    maxOnTile: 3
+    randomOffsetMax: 0.3
+    maxOnTileWhitelist:
+      tags: [ Butterfly ]
+  metabolisms:
+    Poison:
+      effects:
+      - !type:PopupMessage
+        type: Local
+        messages:
+          - "butterflies-effect-stomach"
+          - "butterflies-effect-looks"
+          - "butterflies-effect-heart"
+          - "butterflies-effect-exciting"
+          - "butterflies-effect-hands"
+          - "butterflies-effect-chaos"
+          - "butterflies-effect-chaos-two"
+          - "butterflies-effect-chaos-three"
+        probability: 0.1
