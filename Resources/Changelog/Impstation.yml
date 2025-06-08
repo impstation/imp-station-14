@@ -1,113 +1,6 @@
 ﻿Entries:
 - author: AvianMaiden
   changes:
-  - message: All Kammerer models now make an iconic rack sound when you shoot. Pump-action
-      shotguns live forever!
-    type: Add
-  - message: A few weapons have slightly tweaked descriptions for wording or to match
-      their new sprites!
-    type: Tweak
-  - message: Unique weapon rack sounds, C20-R empty beeps, special disabler tweaks,
-      stun kammerers matching their lethal counterparts, and burstfire on SMGs should
-      once again be back in the game.
-    type: Fix
-  id: 1264
-  time: '2025-03-10T18:47:51.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1872
-- author: FlippenPage
-  changes:
-  - message: Monkeys can now wear most clothing. It also fits them properly!
-    type: Tweak
-  id: 1265
-  time: '2025-03-10T18:54:57.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1874
-- author: Tyranex
-  changes:
-  - message: Added a new basic mining module for salvage cyborg!
-    type: Add
-  - message: Cyborgs can now scream! And syndicate assault cyborgs can now laugh.
-      Go give the crew a heart attack.
-    type: Add
-  - message: The mining module is no longer given to the salvage chassis, it must
-      instead be researched and crafted.
-    type: Tweak
-  id: 1266
-  time: '2025-03-10T19:12:47.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1884
-- author: MintyTheBinty
-  changes:
-  - message: New uniforms and medals for the recent wing of the ERT Positivity Force.
-    type: Add
-  id: 1267
-  time: '2025-03-10T22:04:53.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1866
-- author: Sha-Seng
-  changes:
-  - message: Silver Heart Locket for style choices
-    type: Add
-  - message: Rings have hand and neck sprites now
-    type: Tweak
-  id: 1268
-  time: '2025-03-10T22:58:34.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1880
-- author: hivehum
-  changes:
-  - message: Removed the 'ensure fellow traitor stays alive' objective outside of
-      Spy vs Spy.
-    type: Remove
-  id: 1269
-  time: '2025-03-10T23:05:47.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1875
-- author: Ecramox
-  changes:
-  - message: Added the R.A.D, and put it in the Nuclear Commander and Lone Op's loadouts
-    type: Add
-  id: 1270
-  time: '2025-03-10T23:43:55.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1889
-- author: DinnerCalzone
-  changes:
-  - message: All job icons for the Service department jobs have been resprited to
-      be matching. Except for the jobs in the Theatre sub-department, which have been
-      resprited to not be matching.
-    type: Tweak
-  id: 1271
-  time: '2025-03-11T05:04:49.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1871
-- author: Darkmajia
-  changes:
-  - message: The supermatter has a grace period at roundstart, absorbing 10x less
-      gas until it's powered.
-    type: Tweak
-  id: 1272
-  time: '2025-03-11T07:41:42.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1895
-- author: AvianMaiden
-  changes:
-  - message: Chainlink fence gates sound a little different.
-    type: Tweak
-  - message: A few new Station AI names!
-    type: Add
-  id: 1273
-  time: '2025-03-11T14:31:35.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1869
-- author: AvianMaiden
-  changes:
-  - message: Unique sprites for all types of shotgun shell projectiles! Stun slugs
-      now look different from buckshot!
-    type: Add
-  - message: Descriptions to each type of shotgun shell. (Shotgun shell naming conventions
-      are now all the same too!)
-    type: Add
-  - message: Slightly lowered the light given off by incendiary projectiles.
-    type: Tweak
-  - message: The cargo Enforcer order now lists the correct number of shell boxes.
-    type: Fix
-  id: 1274
-  time: '2025-03-11T14:32:47.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1885
-- author: AvianMaiden
-  changes:
   - message: Descriptions to all magazines and bullets! (Naming conventions should
       be standardized too!)
     type: Add
@@ -4215,3 +4108,104 @@
   id: 1763
   time: '2025-06-04T08:31:52.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/2663
+- author: so many people
+  changes:
+  - message: Another upstream merge. Check the upstream changelog, and please report
+      any bugs you run into!
+    type: Add
+  - message: Departmental economy is real.
+    type: Add
+  - message: Many stations now feature the genpop prison system.
+    type: Add
+  - message: Atlas and Cluster have been derotated.
+    type: Remove
+  - message: No more stocks.
+    type: Remove
+  - message: Some Xenoarcheology effects and triggers have entered cryogenic stasis.
+    type: Remove
+  - message: Drones can no longer use maps or midis (FOR NOW. FIX COMING SOON).
+    type: Remove
+  - message: Heretic's mansus link channel now uses 'l' instead of 'z'.
+    type: Tweak
+  id: 1764
+  time: '2025-06-08T02:45:01.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2648
+- author: Sha-Seng
+  changes:
+  - message: updated legacy kaasi lobby art per feedback
+    type: Tweak
+  id: 1765
+  time: '2025-06-08T02:52:04.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2673
+- author: AvianMaiden, Cutinup99
+  changes:
+  - message: Televisions and computers give off cozier lights!
+    type: Add
+  - message: New variant of the desk lamp with a warmer glow!
+    type: Add
+  id: 1766
+  time: '2025-06-08T02:53:16.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2644
+- author: widgetbeck
+  changes:
+  - message: Raw spider legs are twitchy.
+    type: Add
+  id: 1767
+  time: '2025-06-08T04:03:20.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2602
+- author: kipdotnet
+  changes:
+  - message: Apid salvagers now start with a special, fully accurate PKA variant,
+      to make up for not being able to wield a normal one properly.
+    type: Tweak
+  id: 1768
+  time: '2025-06-08T04:09:08.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2665
+- author: sev7ves
+  changes:
+  - message: Added a door alarm wire to high sec doors
+    type: Add
+  id: 1769
+  time: '2025-06-08T04:10:56.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2586
+- author: ThatKidConnor
+  changes:
+  - message: Gave the syndicat a recolour resembling Impstation Bloodred hardsuits.
+    type: Tweak
+  id: 1770
+  time: '2025-06-08T04:16:44.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2646
+- author: DinnerCalzone, hivehum, crocodilecarousel, ATDoop
+  changes:
+  - message: A number of things have been added to celebrate Impstation's anniversary
+      on June 16th! An anniversary crate can be ordered from cargo!
+    type: Add
+  id: 1771
+  time: '2025-06-08T04:15:06.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2637
+- author: Oberonics
+  changes:
+  - message: Cremators across all stations are now electrically powered. How they
+      worked before is classified.
+    type: Tweak
+  id: 1772
+  time: '2025-06-08T04:12:59.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2502
+- author: AvianMaiden
+  changes:
+  - message: Slime/Gastro blinks work with directional audio now. Kode babies harm
+      your ears less upon death.
+    type: Tweak
+  id: 1773
+  time: '2025-06-08T04:14:24.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2639
+- author: animal-collective
+  changes:
+  - message: thaven have the bangs-less version of the Mean Girl hair now
+    type: Add
+  - message: made some adjustments to shading of all the Shaggy hairstyles for humanoids
+      and thaven
+    type: Tweak
+  id: 1774
+  time: '2025-06-08T04:13:55.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2640
