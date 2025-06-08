@@ -16,6 +16,7 @@
     prototypes:
       - DrinkAbsintheGlass
       - DrinkAleGlass
+      - DrinkAlienBrainHemorrhage
       - DrinkAloe
       - DrinkAndalusia
       - DrinkAntifreeze
@@ -32,17 +33,21 @@
       - DrinkBloodyMaryGlass
       - DrinkBooger
       - DrinkBraveBullGlass
+      - DrinkBronxGlass
       - BudgetInsulsDrinkGlass
       - DrinkCarrotJuice
       - DrinkCoconutRum
       - DrinkChocolateGlass
       - DrinkCognacGlass
       - DrinkCosmopolitan
+      - DrinkCrushDepthGlass
       - DrinkCubaLibreGlass
+      - DrinkDarkandStormyGlass
       - DrinkDeadRumGlass
       - DrinkDevilsKiss
       - DrinkDriestMartiniGlass
       - DrinkDrGibbGlass
+      - DrinkElectricSharkGlass
       - DrinkErikaSurprise
       - DrinkFourteenLokoGlass
       - DrinkGargleBlasterGlass
@@ -62,6 +67,9 @@
       - DrinkIrishCarBomb
       - DrinkIrishCoffeeGlass
       - DrinkLemonadeGlass
+      - DrinkJackRoseGlass
+      - DrinkJungleBirdGlass
+      - DrinkKalimotxoGlass
       - DrinkKiraSpecial
       - DrinkLongIslandIcedTeaGlass
       - DrinkManhattanGlass
@@ -71,11 +79,13 @@
       - DrinkMeadGlass
       - DrinkMilkshake
       - DrinkMojito
+      - DrinkMonkeyBusinessGlass
       - DrinkNTCahors
       - DrinkPainkillerGlass
       - DrinkPatronGlass
       - DrinkPinaColadaGlass
       - DrinkPoscaGlass
+      - DrinkRadlerGlass
       - DrinkRedMeadGlass
       - DrinkRewriter
       - DrinkRoyRogersGlass
@@ -92,7 +102,9 @@
       - DrinkSyndicatebomb
       - DrinkTequilaSunriseGlass
       - DrinkThreeMileIslandGlass
+      - DrinkTortugaGlass
       - DrinkToxinsSpecialGlass
+      - DrinkVampiroGlass
       - DrinkVodkaMartiniGlass
       - DrinkVodkaRedBool
       - DrinkVodkaTonicGlass
@@ -107,7 +119,28 @@
       - DrinkShakeWhite
       - DrinkTheMartinez
       - DrinkMoonshineGlass
+      # imp drinks
+      - DrinkAppleMartiniCrystalLiteGlass
+      - DrinkBloodierMaryGlass
+      - DrinkBumWineGlass
+      - DrinkBurnchamberGlass
+      - DrinkCleverGirlGlass
+      - DrinkCottonBoolGlass
+      - DrinkDontTellGlass
+      - DrinkGatorWineGlass
+      - DrinkGenderfluidGlass
+      - DrinkHummingBirdGlass
+      - DrinkLiquidLunchGlass
+      - DrinkLoveTapGlass
+      - DrinkLungCloggerGlass
+      - DrinkMinotaursLamentGlass
+      - DrinkOrangeCoffeeGlass
+      - DrinkRaktaccinoGlass
+      - DrinkStarryNightGlass
+      - DrinkSojuGlass
+      - DrinkSupermixerGlass
       - DrinkTheGreaseGlass
+      - DrinkVoxRocksGlass
     chance: 0.8
     offset: 0.0
     #rare
@@ -126,4 +159,18 @@
       - DrinkHoochGlass
       - DrinkBeepskySmashGlass
       - DrinkBacchusBlessing
+      # imp drinks, skipped horsepussy but im looking skeptically at bacchusblessing one line above this
+      - DrinkBreathofFreshAirGlass
+      - DrinkDoubleGreenGlass
+      - DrinkFeverDreamGlass
+      - DrinkLovePotionGlass
+      - DrinkPoorMansFrezonGlass
+      - DrinkReaganomicsGlass
+      - DrinkRotgutGlass
+      - DrinkSalvagersSootheGlass
+      - DrinkSupermixerpsychGlass
+      - DrinkThavenBadGlass
+      - DrinkUAPGlass
+      - DrinkWeldingCoilsGlass
+      - DrinkZombieSlushieGlass
     rareChance: 0.05

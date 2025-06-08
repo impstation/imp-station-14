@@ -3,7 +3,7 @@
   mapName: 'Refsdal'
   mapPath: /Maps/_Impstation/refsdal.yml
   minPlayers: 0
-  maxPlayers: 25
+  maxPlayers: 23
   stations:
     Refsdal:
       stationProto: StandardNanotrasenStation
@@ -12,7 +12,7 @@
           mapNameTemplate: '{0} Refsdal {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: '-DF-'
+            prefixCreator: '-DF'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/_Impstation/Shuttles/emergency_refsdal.yml
         - type: StationCargoShuttle
@@ -30,9 +30,9 @@
             HospitalityDirector: [ 1, 1 ]
             Quartermaster: [ 1, 1 ]
             # service
-            Bartender: [ 1, 1 ]
+            Bartender: [ 2, 2 ]
             Botanist: [ 1, 1 ]
-            Chef: [ 1, 1 ]
+            Chef: [ 2, 2 ]
             Clown: [ 1, 1 ]
             Janitor: [ 1, 1 ]
             Mime: [ 1, 1 ]
@@ -40,9 +40,10 @@
             Chaplain: [1, 1]
             Librarian: [1, 1]
             Reporter: [1, 1]
-            ServiceWorker: [2, 2]
+            Boxer: [2, 2]
+            #ServiceWorker: [2, 2]
             # engineering
-            AtmosphericTechnician: [ 2, 2 ]
+            AtmosphericTechnician: [ 1, 1 ]
             StationEngineer: [ 1, 1 ]
             TechnicalAssistant: [ 1, 1 ]
             # medical
@@ -55,7 +56,7 @@
             Borg: [ 1, 1 ]
             ResearchAssistant: [ 1, 1 ]
             Scientist: [ 1, 1 ]
-            StationAi: [1,1]
+            StationAi: [1, 1]
             # security
             SecurityCadet: [ 1, 1 ]
             Brigmedic: [1, 1]

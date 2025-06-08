@@ -245,7 +245,8 @@ figurines-nukie-3 = The nuke makes boom.
 figurines-nukie-4 = What's the code?
 figurines-nukie-5 = Commander...? ...That's a balloon...
 
-figurines-nukie-elite-1 = Not a word in nanotrasen.
+figurines-nukie-elite-1 = Not a word in Nanotrasen.
+# imp edit; preferential to capitalizing company names
 figurines-nukie-elite-2 = THAT'S A KEG!
 figurines-nukie-elite-3 = Guys are you alive?
 figurines-nukie-elite-4 = Breach and clear!
@@ -265,7 +266,7 @@ figurines-footsoldier-4 = Down with Nanotrasen!
 figurines-footsoldier-5 = I'd rather die than join Nanotrasen.
 
 figurines-wizard-1 = Ei Nath!!
-figurines-wizard-2 = Wehgardium Leviosa!
+figurines-wizard-2 = Real wizards support trans rights.
 figurines-wizard-3 = Skidaddle skadoodle!
 figurines-wizard-4 = FIREBALL!
 

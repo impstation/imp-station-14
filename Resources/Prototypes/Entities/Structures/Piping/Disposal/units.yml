@@ -8,6 +8,8 @@
     snap:
     - Disposal
   components:
+  - type: Climbable
+    vaultable: false
   - type: Sprite
     sprite: _Impstation/Structures/Piping/disposal.rsi # imp
     layers:
@@ -29,6 +31,17 @@
       map: [ "enum.DisposalUnitVisualLayers.OverlayEngaged" ]
   - type: Physics
     bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 55
+        mask:
+        - TableMask
+        layer:
+        - TableLayer
   - type: Destructible
     thresholds:
     - trigger:
@@ -84,6 +97,20 @@
     interfaces:
       enum.DisposalUnitUiKey.Key:
         type: DisposalUnitBoundUserInterface
+  - type: AutomationSlots # Goobstation
+    slots:
+    - !type:AutomatedContainer
+      input: AutomationSlotInput
+      output: AutomationSlotInput
+      containerId: disposals
+      maxItems: 30 # disposals doesn't have a limit this is just so you can't use it as an ME system
+    - !type:AutomatedPorts
+      sinks:
+      - Toggle
+      - DisposalFlush
+      - DisposalEject
+      sources:
+      - DisposalReady
   - type: Rummageable
   - type: RequireProjectileTarget
 
@@ -117,7 +144,6 @@
     graph: DisposalMachine
     node: mailing_unit
   - type: DisposalUnit
-    autoEngageEnabled: false
     whitelist:
       components:
       - Item
@@ -138,6 +164,6 @@
   - type: UserInterface
     interfaces:
       enum.MailingUnitUiKey.Key:
-        type: DisposalUnitBoundUserInterface
+        type: MailingUnitBoundUserInterface
       enum.ConfigurationUiKey.Key:
         type: ConfigurationBoundUserInterface

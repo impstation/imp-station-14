@@ -19,6 +19,10 @@
   id: Aloe
 
 - type: Tag
+  id: AllowBiomeLoading # Entities with this tag will load terrain, even if a ghost.
+
+
+- type: Tag
   id: AllowGhostShownByEvent
 
 - type: Tag
@@ -236,36 +240,6 @@
 
 - type: Tag
   id: Carpet
-
-- type: Tag
-  id: CarpetBlack
-
-- type: Tag
-  id: CarpetBlue
-
-- type: Tag
-  id: CarpetCyan
-
-- type: Tag
-  id: CarpetGreen
-
-- type: Tag
-  id: CarpetOrange
-
-- type: Tag
-  id: CarpetPink
-
-- type: Tag
-  id: CarpetPurple
-
-- type: Tag
-  id: CarpetRed
-
-- type: Tag
-  id: CarpetSBlue
-
-- type: Tag
-  id: CarpetWhite
 
 - type: Tag
   id: Carrot
@@ -641,6 +615,10 @@
 - type: Tag
   id: GeigerCounter
 
+# Used for warps
+- type: Tag
+  id: GhostOnlyWarp
+
 - type: Tag
   id: GlassAirlock
 
@@ -703,6 +681,9 @@
 
 - type: Tag
   id: Handcuffs
+
+- type: Tag
+  id: HandGrenade
 
 - type: Tag
   id: HappyHonk
@@ -1075,6 +1056,9 @@
   id: Pipe
 
 - type: Tag
+  id: Pistachios
+
+- type: Tag
   id: Pizza
 
 - type: Tag
@@ -1130,6 +1114,9 @@
 
 - type: Tag
   id: Powerdrill
+
+- type: Tag
+  id: PreventAccessLogging
 
 - type: Tag
   id: PrisonUniform
@@ -1248,6 +1235,9 @@
 
 - type: Tag
   id: SilentStorageUser # used in SharedStorageSystem, so the entity will do all silently
+
+- type: Tag
+  id: SiliconEmotes
 
 - type: Tag
   id: SkeletonMotorcycleKeys
@@ -1416,6 +1406,12 @@
 
 - type: Tag
   id: Truncheon
+
+- type: Tag
+  id: TurretCompatibleWeapon # Used in the construction of sentry turrets
+
+- type: Tag
+  id: TurretControlElectronics # Used in the construction of sentry turret control panels
 
 - type: Tag
   id: Unimplantable

@@ -1,3 +1,4 @@
+using Content.Shared.Access.Components;
 using Content.Shared.DoAfter;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -32,6 +33,12 @@ public sealed partial class LockComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool UnlockOnClick = true;
+
+    /// <summary>
+    /// Whether the lock requires access validation through <see cref="AccessReaderComponent"/>
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool UseAccess = true;
 
     /// <summary>
     /// The sound played when unlocked.
@@ -77,6 +84,35 @@ public sealed partial class LockComponent : Component
     [DataField]
     [AutoNetworkedField]
     public TimeSpan UnlockTime;
+
+    /// <summary>
+    /// IMP ADDITION
+    /// How long it takes to toggle a lock from the inside. Defaults to 4 seconds.
+    /// </summary>
+    [DataField("insideToggleTime")]
+    public TimeSpan InsideToggleTime = TimeSpan.FromSeconds(4);
+
+    /// <summary>
+    /// IMP ADDITION
+    /// The sound played when toggling a lock from the inside.
+    /// </summary>
+    [DataField("insideToggleSound"), ViewVariables(VVAccess.ReadWrite)]
+    public SoundSpecifier InsideToggleSound = new SoundPathSpecifier("/Audio/Machines/vending_restock_start.ogg")
+    {
+        Params = new AudioParams
+        {
+            Volume = -5f,
+            Pitch = 1.272f
+        }
+    };
+
+    /// <summary>
+    /// IMP ADDITION
+    /// If specified, replaces the entity's name in the examine text.
+    /// For clarity on things like borgs, which wouldn't normally be described as "locked" or "unlocked" by themselves
+    /// </summary>
+    [DataField]
+    public string? CustomLockText;
 }
 
 /// <summary>
@@ -84,7 +120,7 @@ public sealed partial class LockComponent : Component
 /// Can be cancelled to prevent it.
 /// </summary>
 [ByRefEvent]
-public record struct LockToggleAttemptEvent(EntityUid User, bool Silent = false, bool Cancelled = false);
+public record struct LockToggleAttemptEvent(EntityUid User, bool Silent = false, bool Cancelled = false, bool FromInside = false); // IMP - added FromInside for when trying to toggle from inside something
 
 /// <summary>
 /// Event raised on the user when a toggle is attempted.

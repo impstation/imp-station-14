@@ -36,9 +36,8 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMedium
         disableEject: true
-  - type: PAI # imp; this is added specifically for the internal station map feature but the other aspects are not especially against the identity of drones. and i dont want to put the work into ECS-ifying PAIComponent
-    mapActionId: ActionDroneOpenMap # redefining these to reflavor their descriptions.
-    midiActionId: ActionDronePlayMidi
+  # imp: removed PAI component due to PAI shop additions.
+  # this is the excuse to refactor midi action and map action. hahahahah kill me
   - type: Instrument # imp
     allowPercussion: false
     handheld: false
@@ -156,10 +155,10 @@
   - type: UnpoweredFlashlight
   - type: PointLight
     enabled: false
-    radius: 3.5
-    softness: 1
-    mask: /Textures/Effects/LightMasks/cone.png
-    autoRot: true
+    radius: 4
+    energy: 0.8
+    softness: 10
+    color: "#bfe9ff"
   - type: ProtectedFromStepTriggers
   - type: InputMover
   - type: MobMover
