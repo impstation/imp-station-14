@@ -5,7 +5,7 @@
   playTimeTracker: JobCBURN
   setPreference: false
   startingGear: CBURNGear
-  icon: "JobIconCBURN" #imp
+  icon: "JobIconCBURN" # imp
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:
@@ -19,7 +19,7 @@
 - type: startingGear
   id: CBURNGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitColorBrown
+    jumpsuit: ClothingUniformCBURN # imp
     back: ClothingBackpackDuffelCBURN
     mask: ClothingMaskGasERT
     eyes: ClothingEyesGlassesSecurity
@@ -31,10 +31,15 @@
     pocket1: RadioHandheld
     pocket2: WeaponLaserGun
     belt: ClothingBeltBandolier
-  storage:
+  storage: #imp start
     back:
-    - WeaponShotgunDoubleBarreled
+    - WeaponShotgunEnforcerIncendiary 
     - BoxShotgunIncendiary
-    - GrenadeFlashBang
+    - BoxShotgunFlare 
+#   - GrenadeFlashBang
+    - TearGasGrenade # imp, seems more thematically relevant
+    - TearGasGrenade 
     - PillAmbuzolPlus
-    - PillAmbuzol
+#   - PillAmbuzol # imp, ideally they'd be doing this on-site
+    - Zipties # imp, for people who dont want to respect quarantine
+    - Zipties # /imp end
