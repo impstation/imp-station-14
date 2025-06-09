@@ -244,7 +244,7 @@
   - type: NotJobRequirement
     job: HeadOfPersonnel
   - type: ObjectiveLimit
-    limit: 2.5 # ian only has 2 slices, 3 obj for drama # imp - increase chance of multiple objectives
+    limit: 3 # ian only has 2 slices, 3 obj for drama
   - type: StealCondition
     stealGroup: FoodMeatCorgi
     owner: objective-condition-steal-Ian
