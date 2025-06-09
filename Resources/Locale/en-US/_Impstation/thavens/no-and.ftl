@@ -115,7 +115,7 @@ thaven-mood-coulrophobia-name = Coulrophobia
 thaven-mood-coulrophobia-desc = Clowns are such awful things, just seeing one is extremely upsetting to you.
 
 thaven-mood-clown-ignore-name = Ignore clowns
-thaven-mood-clown-ignore-desc = The very existence of clowns has become difficult to grasp, you cannot acknowledge anything related clowns.
+thaven-mood-clown-ignore-desc = The very existence of clowns has become difficult to grasp, you cannot acknowledge anything related to clowns.
 
 # Testing Locales, only exist to shut up prototype tests
 DuplicateTest = You shouldn't see this
