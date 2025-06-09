@@ -101,3 +101,19 @@
   icon:
     sprite: _Impstation/Clothing/Eyes/Misc/doubleeyepatch.rsi
     state: icon
+
+- type: construction
+  id: HempWovenCloth
+  graph: HempObjects
+  startNode: start
+  targetNode: hempcloth
+  category: construction-category-misc
+  objectType: Item
+
+- type: construction
+  id: hempWovenSack
+  graph: HempWovenSack
+  startNode: start
+  targetNode: hempsack
+  category: construction-category-misc
+  objectType: Item

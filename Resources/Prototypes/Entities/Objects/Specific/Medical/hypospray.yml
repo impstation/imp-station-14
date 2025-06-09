@@ -152,9 +152,6 @@
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: firstaid_empty
-  - type: Tag
-    tags:
-    - Trash
   - type: PhysicalComposition
     materialComposition:
       Plastic: 50
@@ -228,7 +225,7 @@
           Quantity: 10
         - ReagentId: Epinephrine
           Quantity: 5
-  - type: Tag
+  - type: Tag # goob
     tags: []
 
 - type: entity
@@ -272,7 +269,7 @@
           Quantity: 15
         - ReagentId: TranexamicAcid
           Quantity: 5
-  - type: Tag
+  - type: Tag # goob
     tags: []
 
 - type: entity
@@ -316,7 +313,7 @@
           Quantity: 10
         - ReagentId: Leporazine
           Quantity: 10
-  - type: Tag
+  - type: Tag # goob
     tags: []
 
 - type: entity
@@ -360,7 +357,7 @@
           Quantity: 15
         - ReagentId: Bicaridine
           Quantity: 5
-  - type: Tag
+  - type: Tag # goob
     tags: []
 
 - type: entity
@@ -404,7 +401,7 @@
           Quantity: 10
         - ReagentId: TranexamicAcid
           Quantity: 5
-  - type: Tag
+  - type: Tag # goob
     tags: []
 
 - type: entity
@@ -448,7 +445,7 @@
           Quantity: 10
         - ReagentId: Dermaline
           Quantity: 10
-  - type: Tag
+  - type: Tag # goob
     tags: []
 
 - type: entity
@@ -492,7 +489,7 @@
           Quantity: 20
         - ReagentId: DexalinPlus
           Quantity: 20
-  - type: Tag
+  - type: Tag # goob
     tags: []
 
 - type: entity
@@ -537,7 +534,7 @@
             Quantity: 4 # 10 -> 4
           - ReagentId: Barozine
             Quantity: 6 #end imp edits - 20 -> 6
-  - type: Tag
+  - type: Tag # goob
     tags: []
 
 - type: entity
@@ -583,7 +580,7 @@
     injectOnly: true
   - type: StaticPrice
     price: 500
-  - type: Tag
+  - type: Tag # goob
     tags: []
 
 - type: entity
@@ -624,7 +621,7 @@
     emptySpriteName: microstimpen_empty
   - type: StaticPrice
     price: 100
-  - type: Tag
+  - type: Tag # goob
     tags: []
 
 - type: entity
@@ -670,7 +667,7 @@
     injectOnly: true
   - type: StaticPrice
     price: 500
-  - type: Tag
+  - type: Tag # goob
     tags: []
 
 - type: entity
@@ -742,5 +739,5 @@
     transferAmount: 1
     onlyAffectsMobs: false
     injectOnly: true
-  - type: Tag
+  - type: Tag # goob
     tags: []

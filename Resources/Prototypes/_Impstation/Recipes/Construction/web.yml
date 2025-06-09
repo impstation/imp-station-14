@@ -1,0 +1,15 @@
+- type: construction
+  id: WebWindow
+  graph: WebStructures
+  startNode: start
+  targetNode: window
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  entityWhitelist:
+    tags:
+    - SpiderCraft
+  conditions:
+    - !type:TileNotBlocked

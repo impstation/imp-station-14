@@ -55,14 +55,14 @@
     FacialHair:
       points: 1
       required: false
-    UndergarmentTop:
+    UndergarmentTop: # imp
       points: 1
       required: false
-    UndergarmentBottom:
-      points: 1
+    UndergarmentBottom: # imp
+      points: 2
       required: false
     Chest:
-      points: 4
+      points: 2
       required: false
     Legs:
       points: 8 #impspecial
