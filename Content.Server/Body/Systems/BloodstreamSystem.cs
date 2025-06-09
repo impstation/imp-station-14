@@ -365,7 +365,7 @@ public sealed class BloodstreamSystem : EntitySystem
         // Removal is more involved,
         // since we also wanna handle moving it to the temporary solution
         // and then spilling it if necessary.
-        var hemorageAdjust = TryComp<HemorageComponent>(uid, out var trait) ? amount * trait.BleedIncreaseMultiplier : amount;
+        var hemorageAdjust = TryComp<HemorageComponent>(uid, out var trait) ? amount * trait.BleedIncreaseMultiplier : amount; // imp Multiplies the blood lost per stack by the value set
 
         var newSol = _solutionContainerSystem.SplitSolution(component.BloodSolution.Value, -hemorageAdjust);
 
