@@ -331,7 +331,7 @@
 
 - type: entity
   id: IntercomAll
-  parent: Intercom
+  parent: BaseIntercomSecure
   suffix: All
   components:
   - type: ContainerFill
