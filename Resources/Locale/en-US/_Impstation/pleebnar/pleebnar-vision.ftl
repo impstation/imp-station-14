@@ -72,7 +72,7 @@ pleebnar-vision-pig-name = Pig
 pleebnar-vision-skull = A laughing skull.
 pleebnar-vision-skull-name = Skull
 
-pleebnar-vision-maze = A maze, its walls are covered in the faces of mandrills staring at you.
+pleebnar-vision-maze = A maze; its walls are covered in the faces of mandrills staring at you.
 pleebnar-vision-maze-name = Maze
 
 pleebnar-vision-cube = A rotating cube.
@@ -108,7 +108,7 @@ pleebnar-vision-blood-name = Blood
 pleebnar-vision-train = An approaching train.
 pleebnar-vision-train-name = Train
 
-pleebnar-vision-pizza = A human in intense focus, a slice of pizza levitating in front of them.
+pleebnar-vision-pizza = A human in intense focus; a slice of pizza levitating in front of them.
 pleebnar-vision-pizza-name = Powers
 
 pleebnar-vision-suit = A human in a suit shaking hands with a little green alien.
@@ -195,7 +195,7 @@ pleebnar-vision-hotdog-name = Yummy
 pleebnar-vision-fire = A series of instructions for how to make fire.
 pleebnar-vision-fire-name = Fire
 
-pleebnar-vision-larva = A mass of fat little white worms, they all have your face.
+pleebnar-vision-larva = A mass of fat little white worms; they all have your face.
 pleebnar-vision-larva-name = Larva
 
 pleebnar-vision-myhouse = A burnt husk of a home, it feels familiar.
@@ -204,7 +204,7 @@ pleebnar-vision-myhouse-name = My house
 pleebnar-vision-puppy = A little puppy squirming about worthlessly.
 pleebnar-vision-puppy-name = Puppy
 
-pleebnar-vision-newtonscradle = A newtons cradle in motion.
+pleebnar-vision-newtonscradle = A Newton's cradle in motion.
 pleebnar-vision-newtonscradle-name = Balls
 
 pleebnar-vision-nuclearbomb = A small home being devastated by a nuclear bomb.
@@ -222,13 +222,13 @@ pleebnar-vision-stage-name = Stage
 pleebnar-vision-cradle = An empty cradle in a dark room; a baby can be heard crying.
 pleebnar-vision-cradle-name = Cradle
 
-pleebnar-vision-bugs = Your mothers face covered in insects, she is smiling,
+pleebnar-vision-bugs = Your mothers face covered in insects; she is smiling,
 pleebnar-vision-bugs-name = Bugs
 
-pleebnar-vision-soylentgray = A gray alian being rolled up into a newport.
+pleebnar-vision-soylentgray = A gray alien being rolled up into a Newport cigarette.
 pleebnar-vision-soylentgray-name = Grays
 
-pleebnar-vision-paradoxclone = You standing over your own corpse,
+pleebnar-vision-paradoxclone = You, standing over your own corpse.
 pleebnar-vision-paradoxclone-name = Mirror
 
 pleebnar-vision-latenight = A child playing videogames in a dark room.
@@ -243,8 +243,11 @@ pleebnar-vision-fourthwall-name = SS14
 pleebnar-vision-organist = A priest playing an organ, but with every note a jet of inky dark fluid flies out of the pipes.
 pleebnar-vision-organist-name = Church
 
-pleebnar-vision-family = A family at around an empty dinner table, they have no faces.
+pleebnar-vision-family = A family at around an empty dinner table; they have no faces.
 pleebnar-vision-family-name = Family
 
 pleebnar-vision-theimp = You see cyan haired imp whom is quickly enshrouded by white smoke.
 pleebnar-vision-theimp-name = The imp
+
+pleebnar-vision-alian = A universe where everything is the same except 'alien' is spelled 'alian'.
+pleebnar-vision-alian-name = Alian
