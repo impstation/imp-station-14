@@ -228,7 +228,7 @@ pleebnar-vision-bugs-name = Bugs
 pleebnar-vision-soylentgray = A gray alian being rolled up into a newport.
 pleebnar-vision-soylentgray-name = Grays
 
-pleebnar-vision-paradoxclone = You standing over your own corpse,
+pleebnar-vision-paradoxclone = You standing over your own corpse.
 pleebnar-vision-paradoxclone-name = Mirror
 
 pleebnar-vision-latenight = A child playing videogames in a dark room.
