@@ -1,23 +1,11 @@
 - type: entity
-  id: OrganOppaStomach
-  parent: OrganMouseStomach
+  id: OrganOppaStomach #can't figure out a way to implement it right now, but the unique stomach is for seed-eating capabilities
+  parent: OrganMouseStomach #if seed eating capabilities are figured out, stomach will be edited accordingly and justify its existence
   name: stomach
   categories: [ HideSpawnMenu ]
   components:
-  - type: Stomach
-    specialDigestible:
-      tags:
-      - Paper #tried making a seed tag to make this guy exclusively want to eat seeds, but it wasn't working. ugh!
-  - type: Metabolizer
-    maxReagents: 3
-    metabolizerTypes: [ Animal ]
-    groups:
-    - id: Food
-    - id: Drink
   - type: SolutionContainerManager
     solutions:
       stomach:
         maxVol: 70
-  - type: Item
-    size: Small
-    heldPrefix: stomach
+ 
