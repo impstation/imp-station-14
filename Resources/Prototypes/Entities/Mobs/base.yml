@@ -46,6 +46,9 @@
     active: False
   - type: AnimatedEmotes
   - type: CollectiveMind
+  - type: DizzyVisuals # imp edit
+    sprite: _Impstation/Effects/dizzy.rsi
+    state: stars
 
 - type: entity
   save: false

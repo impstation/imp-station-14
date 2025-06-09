@@ -46,3 +46,19 @@
           GlassBeaker:
             amount: 1
             defaultPrototype: Beaker
+
+- type: entity
+  id: WashingMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: washing machine board
+  description: A machine printed circuit board for a washing machine.
+  components:
+    - type: MachineBoard
+      prototype: WashingMachineEmpty
+      stackRequirements:
+        MatterBin: 2
+        Manipulator: 1
+      tagRequirements:
+        GlassBeaker:
+          amount: 3
+          defaultPrototype: Beaker
