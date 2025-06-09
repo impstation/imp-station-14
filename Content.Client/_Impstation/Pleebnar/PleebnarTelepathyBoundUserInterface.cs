@@ -1,7 +1,5 @@
 using Content.Shared._Impstation.Pleebnar;
-using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
-using Robust.Shared.Prototypes;
 
 namespace Content.Client._Impstation.Pleebnar;
 
@@ -18,7 +16,7 @@ public sealed class PleebnarTelepathyBoundUserInterface : BoundUserInterface
     public PleebnarTelepathyBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
     }
-
+    //handles opening the ui and setting button behaviour
     protected override void Open()
     {
         base.Open();
@@ -30,6 +28,7 @@ public sealed class PleebnarTelepathyBoundUserInterface : BoundUserInterface
 
     }
 
+    //handles actually updating the ui
     protected override void UpdateState(BoundUserInterfaceState state)
     {
         if (state is not PleebnarTelepathyBuiState cast || _window == null)
@@ -39,6 +38,7 @@ public sealed class PleebnarTelepathyBoundUserInterface : BoundUserInterface
 
         if (cast.Vision!=null) _window.UpdateState(cast.Vision);
     }
+    //handles closing the ui
     protected override void Dispose(bool disposing)
     {
         base.Dispose(disposing);

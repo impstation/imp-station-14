@@ -3,7 +3,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._Impstation.Pleebnar;
 
 /// <summary>
-///     prototype that hold visions
+///     prototype that hold vision data
 /// </summary>
 [Prototype]
 public sealed partial class PleebnarVisionPrototype : IPrototype

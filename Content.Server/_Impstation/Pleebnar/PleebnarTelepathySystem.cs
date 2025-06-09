@@ -1,23 +1,18 @@
-using System.Diagnostics;
-using Content.Server.Administration;
 using Content.Server.Chat.Managers;
-using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
-using Content.Server.Mind;
-using Content.Server.Popups;
 using Content.Shared._Impstation.Pleebnar;
 using Content.Shared._Impstation.Pleebnar.Components;
 using Content.Shared.Chat;
 using Content.Shared.DoAfter;
-using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Popups;
-using Content.Shared.Speech;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Impstation.Pleebnar;
-
+/// <summary>
+/// handles the behaviour of the telepathy
+/// </summary>
 public sealed class PleebnarTelepathySystem : SharedPleebnarTelepathySystem
 {
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
@@ -25,6 +20,7 @@ public sealed class PleebnarTelepathySystem : SharedPleebnarTelepathySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
+        //init function
     public override void Initialize()
     {
         base.Initialize();
@@ -35,28 +31,20 @@ public sealed class PleebnarTelepathySystem : SharedPleebnarTelepathySystem
         SubscribeLocalEvent<PleebnarTelepathyActionComponent, PleebnarVisionEvent>(OpenUi);
 
     }
-
+    //after target is selected this is run
     public void Telepathy(Entity<PleebnarTelepathyActionComponent> ent, ref PleebnarTelepathyEvent args)
     {
-        if (!TryComp<MindContainerComponent>(args.Target, out var mind))return;
-        if (!mind.HasMind)
+        if (!TryComp<MindContainerComponent>(args.Target, out var mind))return; // try to get the mind container, if it fails return
+        if (!mind.HasMind)//check if there is an active mind
         {
             _popupSystem.PopupEntity(Loc.GetString("pleebnar-telepathy-nomind"), ent, args.Performer,PopupType.SmallCaution);
             return;
         }
-        if (ent.Comp.PleebnarVison == null)
+        if (ent.Comp.PleebnarVison == null)//check if player has selected a vision
         {
             _popupSystem.PopupEntity(Loc.GetString("pleebnar-telepathy-novision"), ent, args.Performer,PopupType.SmallCaution);
             return;
         }
-
-
-
-
-        //_popupSystem.PopupEntity(Loc.GetString("pleebnar-telepathy-struck"),args.Target,ent,PopupType.Large);
-        //_popupSystem.PopupEntity(Loc.GetString("pleebnar-telepathy-struck"),args.Target,args.Target,PopupType.Large);
-        //_popupSystem.PopupEntity(ent.Comp.PleebnarVison,args.Target,ent,PopupType.Large);
-        //_popupSystem.PopupEntity(ent.Comp.PleebnarVison,args.Target,args.Target,PopupType.Large);
 
         _popupSystem.PopupEntity(Loc.GetString("pleebnar-focus"),ent.Owner,PopupType.Small);
         var doargs = new DoAfterArgs(EntityManager, ent, 1, new SharedPleebnarTelepathySystem.PleebnarTelepathyDoAfterEvent(), ent, args.Target)
@@ -73,15 +61,15 @@ public sealed class PleebnarTelepathySystem : SharedPleebnarTelepathySystem
 
 
     }
-
+    //send vision after a delay
     private void TelepathyDoAfterEvent(Entity<PleebnarTelepathyActionComponent> ent,
         ref PleebnarTelepathyDoAfterEvent args)
     {
-        if (args.Target == null)
+        if (args.Target == null)//check if target still exists
         {
             return;
         }
-        Filter visionAware = Filter.Empty().FromEntities([ent.Owner,(EntityUid)args.Target!]);
+        Filter visionAware = Filter.Empty().FromEntities([ent.Owner,(EntityUid)args.Target!]);// filter for chat message, contains the sender and receiver
         _chatManager.ChatMessageToManyFiltered(
             visionAware,
             ChatChannel.Notifications,
@@ -94,24 +82,27 @@ public sealed class PleebnarTelepathySystem : SharedPleebnarTelepathySystem
             ent.Comp.WeirdAudioPath,
             -2f);
     }
+    //handles telling the game to open the ui
     private void OpenUi(Entity<PleebnarTelepathyActionComponent> ent,ref PleebnarVisionEvent args)
     {
-        var maskEntity = args.Action.Comp.Container;
+        var pleebnar = args.Action.Comp.Container;
 
-        if (!TryComp<PleebnarTelepathyActionComponent>(maskEntity, out var telepathyComp))
+        if (!TryComp<PleebnarTelepathyActionComponent>(pleebnar, out var telepathyComp))
             return;
 
-        if (!_uiSystem.HasUi(maskEntity.Value, PleebnarTelepathyUIKey.Key))
+        if (!_uiSystem.HasUi(pleebnar.Value, PleebnarTelepathyUIKey.Key))
             return;
 
-        _uiSystem.OpenUi(maskEntity.Value, PleebnarTelepathyUIKey.Key, args.Performer);
-        UpdateUI((maskEntity.Value, telepathyComp));
+        _uiSystem.OpenUi(pleebnar.Value, PleebnarTelepathyUIKey.Key, args.Performer);
+        UpdateUI((pleebnar.Value, telepathyComp));
     }
+    //handles sending the game info to update the ui, sends back the selected id pretty much
     private void UpdateUI(Entity<PleebnarTelepathyActionComponent> entity)
     {
         if (_uiSystem.HasUi(entity, PleebnarTelepathyUIKey.Key))
             _uiSystem.SetUiState(entity.Owner, PleebnarTelepathyUIKey.Key, new PleebnarTelepathyBuiState(entity.Comp.PleebnarVisonID));
     }
+    //handles setting the selected vision
     private void OnChangeVision(Entity<PleebnarTelepathyActionComponent> entity, ref PleebnarTelepathyVisionMessage msg)
     {
         if(msg.Vision==null)return;

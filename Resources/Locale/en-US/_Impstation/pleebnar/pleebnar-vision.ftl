@@ -246,5 +246,5 @@ pleebnar-vision-organist-name = Church
 pleebnar-vision-family = A family at around an empty dinner table, they have no faces.
 pleebnar-vision-family-name = Family
 
-pleebnar-vision-theimp = You see cyan haired imp holding a bong, but your view is quickly blocked by white smoke.
+pleebnar-vision-theimp = You see cyan haired imp whom is quickly enshrouded by white smoke.
 pleebnar-vision-theimp-name = The imp

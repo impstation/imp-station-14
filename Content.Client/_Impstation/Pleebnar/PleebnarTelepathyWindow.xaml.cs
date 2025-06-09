@@ -26,7 +26,7 @@ public sealed partial class PleebnarTelepathyWindow : FancyWindow
     ProtoId<PleebnarVisionPrototype> _vision;
     private List<PleebnarVisionPrototype> _visions = new();
     private RadioOptions<string> _visionsbuttons;
-
+    // init after opening
     public PleebnarTelepathyWindow()
     {
         IoCManager.InjectDependencies(this);
@@ -36,9 +36,10 @@ public sealed partial class PleebnarTelepathyWindow : FancyWindow
         _visionsbuttons.OnItemSelected += args =>
         {
             OnVisionSelect?.Invoke((string?) args.Button.GetItemMetadata(args.Id));
-            _visionsbuttons.Select(args.Id);
+            _visionsbuttons.Select(args.Id);//need to actually tell the ui element to select the relevant radio button or else it won't stick
         };
     }
+    //reload visions and add to vision list
     public void ReloadVisions()
     {
         foreach (var vision in _proto.EnumeratePrototypes<PleebnarVisionPrototype>())
@@ -47,7 +48,7 @@ public sealed partial class PleebnarTelepathyWindow : FancyWindow
         }
         _visions.Sort((a, b) => a.Name.CompareTo((b.Name)));
     }
-
+    //add visions to the radiobutton element
     public void AddVisions()
     {
         _visionsbuttons.Clear();
@@ -57,24 +58,23 @@ public sealed partial class PleebnarTelepathyWindow : FancyWindow
         }
 
     }
-
+    //add a vision (ruddygreat made this one because the radio button is evil, thank you)
     private void AddVision(string name, ProtoId<PleebnarVisionPrototype> vision)
     {
         var id = _visionsbuttons.AddItem(Loc.GetString(name), vision);
         //gets child 0 because that's the container that the radio button options are put in
         _visionsbuttons.GetChild(0).GetChild(id).ToolTip = Loc.GetString(_proto.Index(vision).VisionString);
         _visionsbuttons.SetItemMetadata(id, vision.Id);
-        if (vision == _vision)
+        if (vision == _vision)// if the currently added button corresponds to the selected id then select it
             _visionsbuttons.Select(id);
     }
-
+    //update the state
     public void UpdateState(ProtoId<PleebnarVisionPrototype> vision)
     {
-        _vision = vision;
-
-        for (int id = 0; id < _visionsbuttons.ItemCount; id++)
+        _vision = vision;//set new vision
+        for (int id = 0; id < _visionsbuttons.ItemCount; id++)//get vision id
         {
-            if (string.Equals(vision.Id, _visionsbuttons.GetItemMetadata(id)))
+            if (string.Equals(vision.Id, _visionsbuttons.GetItemMetadata(id)))//if ids match then select that id
             {
                 _visionsbuttons.Select(id);
                 break;

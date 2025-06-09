@@ -88,7 +88,7 @@
       Thirsty: 15
       Parched: 10
       Dead: 0
-    baseDecayRate: 0.04
+    baseDecayRate: 0.04 # taken from mice
   - type: Hunger
     thresholds:
       Overfed: 35
@@ -96,7 +96,7 @@
       Peckish: 15
       Starving: 10
       Dead: 0
-    baseDecayRate: 0.5
+    baseDecayRate: 0.5 # taken from mice, original comment: "I'm very hungry! Give me. The cheese."
   - type: Extractable
     grindableSolutionName: food
   - type: SolutionContainerManager

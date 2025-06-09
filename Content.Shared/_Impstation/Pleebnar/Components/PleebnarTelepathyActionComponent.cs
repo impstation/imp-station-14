@@ -4,7 +4,9 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Impstation.Pleebnar.Components;
-
+/// <summary>
+/// component for the pleebnar telepathy action component
+/// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class PleebnarTelepathyActionComponent : Component
 {
