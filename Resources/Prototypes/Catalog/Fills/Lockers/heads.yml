@@ -23,7 +23,7 @@
     - id: MailTeleporterMachineCircuitboard
     - id: StockTradingCartridge # Delta-V
     - id: PersonalAILearnerCargo #impspecial
-    
+
 - type: entity
   id: LockerQuarterMasterFilled
   suffix: Filled
@@ -58,7 +58,7 @@
     - id: ClothingEyesGlassesCommand
     - id: TicketPad #imp special
     - id: PersonalAILearnerCommand #impspecial
-  
+
 # No laser table + Laser table
 - type: entityTable
   id: LockerFillCaptainLaser
@@ -120,9 +120,9 @@
   table: !type:AllSelector
     children:
     - id: AccessConfigurator
-    - id: BoxEncryptionKeyPassenger
+  #  - id: BoxEncryptionKeyPassenger imp greencomms removal
     # - id: BoxEncryptionKeyService imp edit
-    - id: BoxHeadset
+#    - id: BoxHeadset they ain't got no keys no more
     - id: BoxID
     - id: BoxPDA
     - id: CigarGoldCase

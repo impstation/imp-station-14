@@ -247,7 +247,7 @@
       board:
       - IntercomElectronics
       key_slots:
-      - EncryptionKeyCommon
+#      - EncryptionKeyCommon imp greencomms removal
       - EncryptionKeyCommand
 
 - type: entity
@@ -260,7 +260,7 @@
       board:
       - IntercomElectronics
       key_slots:
-      - EncryptionKeyCommon
+#      - EncryptionKeyCommon imp greencomms removal
       - EncryptionKeyEngineering
 
 - type: entity
@@ -273,7 +273,7 @@
       board:
       - IntercomElectronics
       key_slots:
-      - EncryptionKeyCommon
+#      - EncryptionKeyCommon imp greencomms removal
       - EncryptionKeyMedical
 
 - type: entity
@@ -286,7 +286,7 @@
       board:
       - IntercomElectronics
       key_slots:
-      - EncryptionKeyCommon
+#      - EncryptionKeyCommon imp greencomms removal
       - EncryptionKeyScience
 
 - type: entity
@@ -300,7 +300,7 @@
       board:
       - IntercomElectronics
       key_slots:
-      - EncryptionKeyCommon
+#      - EncryptionKeyCommon imp greencomms removal
       - EncryptionKeySecurity
 
 - type: entity
@@ -313,7 +313,7 @@
       board:
       - IntercomElectronics
       key_slots:
-      - EncryptionKeyCommon
+#      - EncryptionKeyCommon imp greencomms removal
       - EncryptionKeyService
 
 - type: entity
@@ -326,7 +326,7 @@
       board:
       - IntercomElectronics
       key_slots:
-      - EncryptionKeyCommon
+#      - EncryptionKeyCommon imp greencomms removal
       - EncryptionKeyCargo
 
 - type: entity
@@ -339,7 +339,7 @@
       board:
       - IntercomElectronics
       key_slots:
-      - EncryptionKeyCommon
+#      - EncryptionKeyCommon imp greencomms removal
       - EncryptionKeyStationMaster
 
 - type: entity
@@ -352,5 +352,5 @@
       board:
       - IntercomElectronics
       key_slots:
-      - EncryptionKeyCommon
+#      - EncryptionKeyCommon imp greencomms removal
       - EncryptionKeyFreelance
