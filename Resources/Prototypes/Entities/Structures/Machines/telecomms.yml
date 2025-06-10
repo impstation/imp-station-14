@@ -78,7 +78,7 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyCommon
+#      - EncryptionKeyCommon imp greencomms removal
       - EncryptionKeyCargo
       - EncryptionKeyEngineering
       - EncryptionKeyMedical
@@ -95,7 +95,7 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyCommon
+#      - EncryptionKeyCommon imp greencomms removal
 
 - type: entity
   parent: TelecomServer

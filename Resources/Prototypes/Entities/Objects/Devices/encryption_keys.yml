@@ -64,7 +64,7 @@
   components:
   - type: EncryptionKey
     channels:
-    - Common
+#    - Common imp greencomms removal
     - Command
     - Engineering
     - Medical

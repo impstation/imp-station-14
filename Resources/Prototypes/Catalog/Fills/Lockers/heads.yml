@@ -123,9 +123,9 @@
   table: !type:AllSelector
     children:
     - id: AccessConfigurator
-    - id: BoxEncryptionKeyPassenger
+  #  - id: BoxEncryptionKeyPassenger imp greencomms removal
     # - id: BoxEncryptionKeyService imp edit
-    - id: BoxHeadset
+#    - id: BoxHeadset they ain't got no keys no more
     - id: BoxID
     - id: BoxPDA
     - id: CigarGoldCase
