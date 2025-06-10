@@ -297,20 +297,6 @@
 
 - type: entity
   parent: [BaseTraitorObjective]
-  id: SpySecretsGimmickObjective
-  name: Find Their Darkest Secrets
-  description: Spy on the crew and uncover their deepest darkest secrets. This objective is not tracked and will automatically succeed, so just have fun with it!
-  components:
-  - type: Objective
-    unique: true
-    difficulty: 1.25
-    icon:
-      sprite: Objects/Devices/camera_bug.rsi
-      state: camera_bug
-  - type: AutoCompleteCondition
-
-- type: entity
-  parent: [BaseTraitorObjective]
   id: UselessIdiotGimmickObjective
   name: Be Useless
   description: Be as useless and incomptetent as possible without getting killed for it. This objective is not tracked and will automatically succeed, so just have fun with it!
@@ -321,20 +307,6 @@
     icon:
       sprite: Objects/Consumable/Drinks/whiskeybottle.rsi
       state: icon
-  - type: AutoCompleteCondition
-
-- type: entity
-  parent: [BaseTraitorObjective]
-  id: StealMedsGimmickObjective
-  name: Steal Medical Items and Chemicals
-  description: Try to deprive the station of medical tools, items, and healing chemicals. This objective is not tracked and will automatically succeed, so just have fun with it!
-  components:
-  - type: Objective
-    unique: true
-    difficulty: 1.25
-    icon:
-      sprite: _Impstation/Objects/Specific/Medical/medical.rsi
-      state: gauze
   - type: AutoCompleteCondition
 
 - type: entity
@@ -353,37 +325,9 @@
 
 - type: entity
   parent: [BaseTraitorObjective]
-  id: MakeRumorsGimmickObjective
-  name: Spread Nasty Rumors
-  description: Spread rumors about a crew member of your choice and ruin their reputation. This objective is not tracked and will automatically succeed, so just have fun with it!
-  components:
-  - type: Objective
-    unique: true
-    difficulty: 1.25
-    icon:
-      sprite: Clothing/Head/Hats/brownfedora.rsi
-      state: icon
-  - type: AutoCompleteCondition
-
-- type: entity
-  parent: [BaseTraitorObjective]
   id: SlanderDepartmentGimmickObjective
   name: Slander a Department
   description: Try to make everyone hate a specific station department of your choice, through misdrection and slander. This objective is not tracked and will automatically succeed, so just have fun with it!
-  components:
-  - type: Objective
-    unique: true
-    difficulty: 1.25
-    icon:
-      sprite: _Impstation/Tippy/nerd_emoji.rsi
-      state: icon
-  - type: AutoCompleteCondition
-
-- type: entity
-  parent: [BaseTraitorObjective]
-  id: SlanderIndividualGimmickObjective
-  name: Slander Someone
-  description: Try to make everyone hate a specific crew member of your choice, through misdrection and slander. This objective is not tracked and will automatically succeed, so just have fun with it!
   components:
   - type: Objective
     unique: true
@@ -437,14 +381,14 @@
 
 - type: entity
   parent: [BaseTraitorObjective]
-  id: StalkGimmickObjective
-  name: Stalk Someone
-  description: Single out a crew member and stalk them everywhere they go. This objective is not tracked and will automatically succeed, so just have fun with it!
+  id: PrankGimmickObjective
+  name: Prank Someone
+  description: Single out a crew member and repeatedly prank them. Escalate the intensity of the pranks with each one. This objective is not tracked and will automatically succeed, so just have fun with it!
   components:
   - type: Objective
     unique: true
     difficulty: 1.25
     icon:
-      sprite: Objects/Devices/camera_bug.rsi
-      state: camera_bug
+      sprite: Objects/Fun/whoopie.rsi
+      state: icon
   - type: AutoCompleteCondition
