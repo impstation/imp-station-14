@@ -42,6 +42,16 @@
 
 - type: entity
   parent: Airlock
+  id: AirlockSalvage
+  suffix: Salvage
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Doors/Airlocks/Standard/salvage.rsi # imp
+  - type: Wires
+    layoutId: AirlockCargo
+
+- type: entity
+  parent: Airlock
   id: AirlockHydroponics
   suffix: Hydroponics
   components:
@@ -103,6 +113,7 @@
     department: Command
   - type: Wires
     layoutId: AirlockCommand
+  - type: DoorAlarm #imp change
 
 - type: entity
   parent: Airlock
@@ -209,6 +220,16 @@
 
 - type: entity
   parent: AirlockGlass
+  id: AirlockSalvageGlass
+  suffix: Salvage
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Doors/Airlocks/Glass/salvage.rsi # imp
+  - type: Wires
+    layoutId: AirlockCargo
+
+- type: entity
+  parent: AirlockGlass
   id: AirlockHydroponicsGlass
   suffix: Hydroponics
   components:
@@ -270,6 +291,7 @@
     securityLevel: medSecurity
   - type: Wires
     layoutId: AirlockCommand
+  - type: DoorAlarm #imp change
 
 - type: entity
   parent: AirlockGlass
