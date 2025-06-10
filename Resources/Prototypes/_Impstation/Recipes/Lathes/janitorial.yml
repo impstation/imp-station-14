@@ -5,3 +5,11 @@
   icon:
     sprite: _Impstation/Objects/Tools/welder_janitorial.rsi
     state: icon
+
+- type: latheRecipe
+  id: MopBucketCube
+  result: MopBucketCube
+  completetime: 2
+  materials: #matches mop bucket lathe recipe cost
+    Steel: 100
+    Plastic: 100
