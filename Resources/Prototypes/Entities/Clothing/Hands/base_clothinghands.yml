@@ -84,6 +84,7 @@
         neck:
         - state: equipped-NECK
           color: "#ffc833" #imp end
+    - type: StatusIcon #imp edit. for the salvohud
 
 - type: entity
   abstract: true
@@ -104,3 +105,4 @@
         neck:
         - state: equipped-NECK
           color: "#bdbdbd" #imp end
+    - type: StatusIcon #imp edit. for the salvohud
