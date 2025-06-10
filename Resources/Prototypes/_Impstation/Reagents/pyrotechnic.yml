@@ -4,7 +4,8 @@
   parent: BasePyrotechnic
   desc: reagent-desc-echion
   physicalDesc: reagent-physical-desc-ionizing
-  slippery: false
+  slipData:
+    requiredSlipSpeed: 3.5
   flavor: radiation
   flavorMinimum: 0.01
   color: "#83db2b"
