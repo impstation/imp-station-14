@@ -56,6 +56,10 @@
       sprite: Objects/Misc/cablecuffs.rsi
       state: cuff
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -70,6 +74,10 @@
       sprite: Objects/Weapons/Grenades/modular.rsi
       state: complete
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -84,6 +92,10 @@
       sprite: Objects/Weapons/Guns/Pistols/viper.rsi
       state: icon
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -98,6 +110,10 @@
       sprite: Objects/Misc/handcuffs.rsi
       state: handcuff
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -112,6 +128,10 @@
       sprite: _Impstation/Objects/Specific/Medical/medical.rsi
       state: gauze
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -126,6 +146,10 @@
       sprite: Objects/Weapons/Guns/Pistols/viper.rsi
       state: icon
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -140,6 +164,10 @@
       sprite: Objects/Misc/inflatable_wall.rsi
       state: inflatable_wall
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -154,6 +182,10 @@
       sprite: Objects/Weapons/Melee/cane.rsi
       state: cane
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -168,6 +200,10 @@
       sprite: Objects/Misc/Handy_Flags/syndie_handy_flag.rsi
       state: icon
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -182,6 +218,10 @@
       sprite: Objects/Weapons/Guns/Pistols/viper.rsi
       state: icon
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -196,6 +236,10 @@
       sprite: Clothing/Head/Hats/captain.rsi
       state: icon
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -210,6 +254,10 @@
       sprite: Clothing/Head/Hats/brownfedora.rsi
       state: icon
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -224,6 +272,10 @@
       sprite: Clothing/Head/Helmets/security.rsi
       state: icon
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -238,6 +290,10 @@
       sprite: _Impstation/Clothing/Neck/Cloaks/straight.rsi
       state: icon
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -252,6 +308,10 @@
       sprite: Objects/Consumable/Food/Tins/maint_peaches.rsi
       state: trash
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -266,6 +326,10 @@
       sprite: Objects/Consumable/Drinks/whiskeybottle.rsi
       state: icon
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -280,6 +344,10 @@
       sprite: Objects/Weapons/Guns/Pistols/viper.rsi
       state: icon
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -294,6 +362,10 @@
       sprite: Clothing/Hands/Gloves/Color/black.rsi
       state: icon
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -308,6 +380,10 @@
       sprite: Objects/Consumable/Drinks/whiskeybottle.rsi
       state: icon
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -322,6 +398,10 @@
       sprite: _Impstation/Objects/Tools/greatwrench.rsi
       state: icon
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -336,6 +416,10 @@
       sprite: _Impstation/Tippy/nerd_emoji.rsi
       state: icon
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -350,6 +434,10 @@
       sprite: Objects/Economy/cash.rsi
       state: cash_1000000
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -364,6 +452,10 @@
       sprite: _Impstation/Clothing/Neck/Cloaks/straight.rsi
       state: icon
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -378,6 +470,10 @@
       sprite: Objects/Misc/handcuffs.rsi
       state: handcuff
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -392,3 +488,7 @@
       sprite: Objects/Fun/whoopie.rsi
       state: icon
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
