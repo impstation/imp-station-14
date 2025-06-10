@@ -367,11 +367,11 @@
 
 - type: cargoBounty
   id: BountySoap
-  reward: 4000
+  reward: 2000 #imp edit down from 4000, made soap orderable
   description: bounty-description-soap
   entries:
   - name: bounty-item-soap
-    amount: 3
+    amount: 4 #imp edit, takes half a soap order to fulfil
     whitelist:
       tags:
       - Soap
