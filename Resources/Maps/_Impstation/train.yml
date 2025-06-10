@@ -4,8 +4,8 @@ meta:
   engineVersion: 255.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/10/2025 04:59:02
-  entityCount: 19947
+  time: 06/10/2025 05:35:31
+  entityCount: 19925
 maps:
 - 1
 grids:
@@ -31086,86 +31086,6 @@ entities:
     components:
     - type: Transform
       pos: 0.5,-377.5
-      parent: 2
-  - uid: 19514
-    components:
-    - type: Transform
-      pos: 1.5,-351.5
-      parent: 2
-  - uid: 19515
-    components:
-    - type: Transform
-      pos: 2.5,-351.5
-      parent: 2
-  - uid: 19516
-    components:
-    - type: Transform
-      pos: 3.5,-351.5
-      parent: 2
-  - uid: 19517
-    components:
-    - type: Transform
-      pos: 4.5,-351.5
-      parent: 2
-  - uid: 19518
-    components:
-    - type: Transform
-      pos: 5.5,-351.5
-      parent: 2
-  - uid: 19519
-    components:
-    - type: Transform
-      pos: 6.5,-351.5
-      parent: 2
-  - uid: 19520
-    components:
-    - type: Transform
-      pos: 6.5,-350.5
-      parent: 2
-  - uid: 19521
-    components:
-    - type: Transform
-      pos: 6.5,-352.5
-      parent: 2
-  - uid: 19522
-    components:
-    - type: Transform
-      pos: -0.5,-351.5
-      parent: 2
-  - uid: 19523
-    components:
-    - type: Transform
-      pos: -1.5,-351.5
-      parent: 2
-  - uid: 19524
-    components:
-    - type: Transform
-      pos: -2.5,-351.5
-      parent: 2
-  - uid: 19525
-    components:
-    - type: Transform
-      pos: -3.5,-351.5
-      parent: 2
-  - uid: 19526
-    components:
-    - type: Transform
-      pos: -4.5,-351.5
-      parent: 2
-  - uid: 19527
-    components:
-    - type: Transform
-      pos: -5.5,-351.5
-      parent: 2
-  - uid: 19528
-    components:
-    - type: Transform
-      pos: -5.5,-350.5
-      parent: 2
-  - uid: 19529
-    components:
-    - type: Transform
-      pos: -5.5,-352.5
       parent: 2
 - proto: CableHVStack
   entities:
@@ -82615,36 +82535,6 @@ entities:
     components:
     - type: Transform
       pos: 15.5,-214.5
-      parent: 2
-  - uid: 19508
-    components:
-    - type: Transform
-      pos: 6.5,-350.5
-      parent: 2
-  - uid: 19509
-    components:
-    - type: Transform
-      pos: 6.5,-351.5
-      parent: 2
-  - uid: 19510
-    components:
-    - type: Transform
-      pos: 6.5,-352.5
-      parent: 2
-  - uid: 19511
-    components:
-    - type: Transform
-      pos: -5.5,-350.5
-      parent: 2
-  - uid: 19512
-    components:
-    - type: Transform
-      pos: -5.5,-351.5
-      parent: 2
-  - uid: 19513
-    components:
-    - type: Transform
-      pos: -5.5,-352.5
       parent: 2
   - uid: 19645
     components:
