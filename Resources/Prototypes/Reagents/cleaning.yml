@@ -98,9 +98,9 @@
   #imp edit start
   tileReactions:
   - !type:CleanTileReaction
-    cleanCost: 1 #cleans reagents in puddles at a 1:1 ratio, 1/4 as efficient as space cleaner
+    cleanCost: .5 #cleans reagents in puddles at a 1:2 ratio, 1/2 as efficient as space cleaner
   - !type:CleanDecalsReaction
-    cleanCost: 1 #1/4 the efficiency of space cleaner, still cleans 10 decals with one spray bottle spray
+    cleanCost: .5 #1/2 the efficiency of space cleaner, still cleans 10 decals with one spray bottle spray
   #imp edit end
 
 - type: reagent

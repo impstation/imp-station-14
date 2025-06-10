@@ -365,16 +365,16 @@
       tags:
       - Shiv
 
-- type: cargoBounty
-  id: BountySoap
-  reward: 2000 #imp edit down from 4000, made soap orderable
-  description: bounty-description-soap
-  entries:
-  - name: bounty-item-soap
-    amount: 4 #imp edit, takes half a soap order to fulfil
-    whitelist:
-      tags:
-      - Soap
+#- type: cargoBounty #imp edit, made soap orderable
+#  id: BountySoap
+#  reward: 4000
+#  description: bounty-description-soap
+#  entries:
+#  - name: bounty-item-soap
+#    amount: 3
+#    whitelist:
+#      tags:
+#      - Soap
 
 - type: cargoBounty
   id: BountySoup
