@@ -4,8 +4,8 @@ meta:
   engineVersion: 255.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/10/2025 05:35:31
-  entityCount: 19925
+  time: 06/10/2025 08:22:08
+  entityCount: 19934
 maps:
 - 1
 grids:
@@ -41967,6 +41967,13 @@ entities:
     - type: Transform
       pos: -16.5,-305.5
       parent: 2
+- proto: CrateContrabandStorageSecure
+  entities:
+  - uid: 13871
+    components:
+    - type: Transform
+      pos: 4.5,-342.5
+      parent: 2
 - proto: CrateEngineeringAMEControl
   entities:
   - uid: 18245
@@ -43011,11 +43018,6 @@ entities:
     components:
     - type: Transform
       pos: 4.5,-337.5
-      parent: 2
-  - uid: 5806
-    components:
-    - type: Transform
-      pos: 4.5,-335.5
       parent: 2
 - proto: DeskBell
   entities:
@@ -52462,6 +52464,28 @@ entities:
     components:
     - type: Transform
       pos: -5.7352834,-54.166782
+      parent: 2
+- proto: DrinkMugBlack
+  entities:
+  - uid: 19509
+    components:
+    - type: Transform
+      pos: -0.7222977,-370.1332
+      parent: 2
+  - uid: 19510
+    components:
+    - type: Transform
+      pos: -0.5347977,-370.1957
+      parent: 2
+  - uid: 19511
+    components:
+    - type: Transform
+      pos: -0.7379227,-370.30508
+      parent: 2
+  - uid: 19512
+    components:
+    - type: Transform
+      pos: -0.5504227,-370.43008
       parent: 2
 - proto: DrinkMugDog
   entities:
@@ -86791,6 +86815,23 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -2.5,-333.5
       parent: 2
+  - uid: 19514
+    components:
+    - type: Transform
+      pos: 4.5,-359.5
+      parent: 2
+  - uid: 19515
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -1.5,-366.5
+      parent: 2
+  - uid: 19516
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 4.5,-374.5
+      parent: 2
 - proto: IntercomService
   entities:
   - uid: 11648
@@ -87419,6 +87460,11 @@ entities:
       parent: 2
 - proto: LockerEvidence
   entities:
+  - uid: 5806
+    components:
+    - type: Transform
+      pos: 4.5,-335.5
+      parent: 2
   - uid: 11728
     components:
     - type: Transform
@@ -87777,6 +87823,11 @@ entities:
     components:
     - type: Transform
       pos: -8.5,-341.5
+      parent: 2
+  - uid: 19513
+    components:
+    - type: Transform
+      pos: 2.5,-338.5
       parent: 2
 - proto: LockerWallMedicalFilled
   entities:
@@ -102060,12 +102111,6 @@ entities:
     - type: Transform
       pos: -5.5,-337.5
       parent: 2
-  - uid: 13871
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 4.5,-342.5
-      parent: 2
   - uid: 13872
     components:
     - type: Transform
@@ -106461,7 +106506,7 @@ entities:
   - uid: 14434
     components:
     - type: Transform
-      pos: -0.60493964,-370.23328
+      pos: -0.20667273,-370.35196
       parent: 2
 - proto: ToySpawner
   entities:
@@ -122344,7 +122389,7 @@ entities:
       pos: 0.5,-338.5
       parent: 2
     - type: WarpPoint
-      location: 'Car 12: Brig'
+      location: 'Car 12: Security'
     - type: BombingTarget
       location: 'Car 12: Brig'
   - uid: 17059
@@ -122354,7 +122399,7 @@ entities:
       pos: 0.5,-363.5
       parent: 2
     - type: WarpPoint
-      location: 'Car 13: Permabrig'
+      location: 'Car 13: Brig'
     - type: BombingTarget
       location: 'Car 13: Permabrig'
 - proto: WarpPointBombing
@@ -122465,6 +122510,11 @@ entities:
     components:
     - type: Transform
       pos: 7.5,-199.5
+      parent: 2
+  - uid: 19508
+    components:
+    - type: Transform
+      pos: 4.5,-360.5
       parent: 2
 - proto: WaterTankFull
   entities:
