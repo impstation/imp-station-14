@@ -1,6 +1,5 @@
 using Content.Shared.Administration.Logs;
 using Content.Shared.Camera;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Events;
 using Content.Shared.Database;
@@ -32,7 +31,7 @@ namespace Content.Shared.Damage.Systems
         [Dependency] private readonly SharedPhysicsSystem _physics = default!;
         [Dependency] private readonly MeleeSoundSystem _meleeSound = default!;
         [Dependency] private readonly IPrototypeManager _protoManager = default!;
-        [Dependency] private readonly StaminaSystem _stamina = default!;
+        [Dependency] private readonly SharedStaminaSystem _stamina = default!;
 
         public override void Initialize()
         {

@@ -119,8 +119,10 @@ stack-aloe-cream = aloe cream
 stack-gauze = gauze
 stack-brutepack = brutepack
 stack-bloodpack = bloodpack
-stack-medicated-suture = medicated-suture
-stack-regenerative-mesh = regenerative-mesh
+# imp edits: typo fixes lol
+stack-medicated-suture = medicated suture
+stack-regenerative-mesh = regenerative mesh
+# end imp edits
 stack-capacitor = capacitor
 stack-micro-manipulator = micro manipulator
 stack-matter-bin = matter bin

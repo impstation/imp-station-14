@@ -7,7 +7,8 @@
         - to: medsecHud
           steps:
             - tag: HudSecurity
-              name: security hud
+              name: construction-graph-tag-security-hud
+
               icon:
                 sprite: Clothing/Eyes/Hud/sec.rsi
                 state: icon
@@ -19,7 +20,7 @@
                 state: icon
               doAfter: 5
             - tag: Sunglasses #imp
-              name: construction-graph-tag-sunglasses
+              name: construction-graph-tag-sun-glasses
               icon:
                 sprite: Clothing/Eyes/Glasses/sunglasses.rsi
                 state: icon
