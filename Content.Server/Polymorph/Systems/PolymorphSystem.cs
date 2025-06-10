@@ -4,6 +4,7 @@ using Content.Server.Inventory;
 using Content.Server.Mind.Commands;
 using Content.Shared.Nutrition;
 using Content.Server.Polymorph.Components;
+using Content.Shared._DV.Polymorph; // DeltaV
 using Content.Shared.Actions;
 using Content.Shared.Buckle;
 using Content.Shared.Coordinates;
@@ -23,6 +24,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Robust.Shared.Toolshed.Commands.Generic;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Polymorph.Systems;
@@ -233,6 +235,10 @@ public sealed partial class PolymorphSystem : EntitySystem
         {
             _damageable.SetDamage(child, damageParent, damage);
         }
+
+        // DeltaV - Drop MindContainer entities on polymorph
+        var beforePolymorphedEv = new BeforePolymorphedEvent();
+        RaiseLocalEvent(uid, ref beforePolymorphedEv);
 
         if (configuration.Inventory == PolymorphInventoryChange.Transfer)
         {
