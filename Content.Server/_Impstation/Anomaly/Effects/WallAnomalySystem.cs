@@ -1,13 +1,13 @@
 using Robust.Shared.Map.Components;
 using Content.Shared.Anomaly.Components;
-using Content.Shared._Impstation.Anomaly.Effects;
-using Content.Shared._Impstation.Anomaly.Effects.Components;
+using Content.Server._Impstation.Anomaly.Effects;
+using Content.Server._Impstation.Anomaly.Effects.Components;
 using Content.Shared.Tag;
 
 namespace Content.Server._Impstation.Anomaly.Effects;
 
 // this is all very hacky, yes.
-public sealed class WallAnomalySystem : SharedWallAnomalySystem
+public sealed class WallAnomalySystem : EntitySystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
