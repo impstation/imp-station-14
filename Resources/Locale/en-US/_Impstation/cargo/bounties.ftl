@@ -1,6 +1,5 @@
 bounty-item-lemo = Lemo
 bounty-item-regenerative-mesh = Regenerative mesh
-bounty-item-jugs = Chemical jugs
 bounty-item-crushers = Crusher weapon
 bounty-item-aloe-cream = Aloe cream
 bounty-item-bagels = Bagels
@@ -13,7 +12,6 @@ bounty-item-spider-meat = Slab of spider meat
 
 bounty-description-lemo = Nanotrasen's terraforming of the planet Teo is behind schedule. We need further Lemo fruit to quell swelling demand in this sector.
 bounty-description-regenerative-mesh = Some idiot sent us real laser guns instead of the practice ones! Send us some of those fancy burn meds, on the double!
-bounty-description-jugs = Due to an alarmingly high variety of chemicals being produced and utilized, several medical branches are without enough containers for distribution. Send us some!
 bounty-description-crushers = Kru’Kle The Ninth likes crushing things. Crush also like crusher. Give Kru’Kle Crusher so Crush can have crush and like Kru’Kle.
 bounty-description-aloe-cream = A colony of Thaven are recovering from a dragon attack, and are currently rejecting more modern chemicals. Please provide an efficient Neolithic solution that will still prove effective.
 bounty-description-bagels = It's breakfast time.
