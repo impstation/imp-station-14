@@ -62,7 +62,7 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-  - type: MagazineAmmoProvider #imp
+  - type: MagazineAmmoProvider #imp, removed HitscanBatteryAmmoProvider to replace with this.
   - type: ItemSlots
     slots:
       gun_magazine: #imp
