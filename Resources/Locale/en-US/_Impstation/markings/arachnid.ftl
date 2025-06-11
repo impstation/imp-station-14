@@ -153,4 +153,7 @@ marking-AbdomenWidow-widow2 = Marking
 marking-CreepyArms = Creepy Arms
 marking-CreepyArms-creepy = Creepy Arms
 
+marking-Scorpion = Scorpion
+marking-Scorpion-scorpion = Legs and Pincers
+
 # RArmExtension
