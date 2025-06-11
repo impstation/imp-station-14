@@ -75,6 +75,15 @@
   - type: Sprite
     sprite: _Impstation/Structures/Doors/Airlocks/Standard/morgue.rsi
 
+# Organic Resources
+- type: entity
+  parent: Airlock
+  id: AirlockOrganicResources
+  suffix: OrganicResources
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Doors/Airlocks/Standard/hr.rsi
+
 # Science
 
 - type: entity
@@ -298,6 +307,15 @@
   components:
   - type: Sprite
     sprite: _Impstation/Structures/Doors/Airlocks/Glass/morgue.rsi
+
+# Organic Resources
+- type: entity
+  parent: AirlockGlass
+  id: AirlockOrganicResourcesGlass
+  suffix: OrganicResources
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Doors/Airlocks/Glass/hr.rsi
 
 # Science
 

@@ -7,6 +7,16 @@
   - type: NavMapBeacon
     defaultText: station-beacon-paramedic
 
+# Organic Resources
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconOrganicResources
+  suffix: OrganicResources
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-organic-resources
+    color: "#DB3B60"
+
 #Science
 - type: entity
   parent: DefaultStationBeaconScience

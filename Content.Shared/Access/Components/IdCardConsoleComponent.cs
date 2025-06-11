@@ -74,6 +74,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "Medical",
         "Mime", // Imp
         "Musician", // Imp
+        "OrganicResources", // Imp
         "Quartermaster",
         "Reporter", // Imp
         "Research",
