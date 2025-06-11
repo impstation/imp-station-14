@@ -460,4 +460,13 @@
   - sprite: _Impstation/Mobs/Customization/Arachnid/tail.rsi
     state: creepy
 
+- type: marking
+  id: Scorpion
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Arachnid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Arachnid/tail.rsi
+    state: scorpion
+
 # RArmExtension
