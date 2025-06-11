@@ -180,7 +180,12 @@
           32:
             sprite: Mobs/Species/Moth/displacement.rsi
             state: shoes
-
+  - type: HomunculiType
+    homunculiType: HomunculusMoth
+    recipe:
+      SynthFlesh: 30
+      Saline: 20
+      
 - type: entity
   parent: BaseSpeciesDummy
   id: MobMothDummy
