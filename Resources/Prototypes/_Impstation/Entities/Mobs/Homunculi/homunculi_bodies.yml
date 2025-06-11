@@ -20,6 +20,9 @@
   parent: PartHuman
   categories: [ HideSpawnMenu ]
   components:
+  - type: Sprite
+    sprite: Mobs/Species/Moth/parts.rsi
+    state: "torso_m"
   - type: BodyPart
     partType: Torso
   - type: Damageable
@@ -50,6 +53,9 @@
   parent: PartGray
   categories: [ HideSpawnMenu ]
   components:
+  - type: Sprite
+    sprite: Mobs/Species/Moth/parts.rsi
+    state: "torso_m"
   - type: BodyPart
     partType: Torso
   - type: Damageable
@@ -77,6 +83,9 @@
   parent: PartMoth
   categories: [ HideSpawnMenu ]
   components:
+  - type: Sprite
+    sprite: Mobs/Species/Moth/parts.rsi
+    state: "torso_m"
   - type: BodyPart
     partType: Torso
   - type: Damageable
@@ -104,6 +113,9 @@
   parent: PartThaven
   categories: [ HideSpawnMenu ]
   components:
+  - type: Sprite
+    sprite: Mobs/Species/Moth/parts.rsi
+    state: "torso_m"
   - type: BodyPart
     partType: Torso
   - type: Damageable
