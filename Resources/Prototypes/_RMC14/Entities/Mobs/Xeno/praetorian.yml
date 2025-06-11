@@ -6,7 +6,7 @@
   - RMCXenoSpeechSounds
   - RMCXenoMobCollision
   id: CMXenoPraetorianBase
-  name: Praetorian
+  name: Exomorph Praetorian
   description: A huge, looming beast of an alien.
   components:
   - type: GhostRole
@@ -80,6 +80,12 @@
     max: 10
     evolvesTo:
     - CMXenoQueen
+  - type: XenoConstruction
+    buildDelay: 2
+    canBuild:
+    - WallXenoResin
+    - WallXenoMembrane
+    - DoorXenoResin
 
 - type: entity
   parent: CMXenoPraetorianBase

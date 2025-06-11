@@ -6,7 +6,7 @@
   - RMCXenoSpeechSounds
   - RMCXenoMobCollision
   id: CMXenoDroneBase
-  name: Drone
+  name: Exomorph Drone
   description: An alien drone.
   components:
   - type: GhostRole
@@ -80,5 +80,3 @@
     - WallXenoResin
     - WallXenoMembrane
     - DoorXenoResin
-    - XenoStickyResin
-    - XenoFastResin

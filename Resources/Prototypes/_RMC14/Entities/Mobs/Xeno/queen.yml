@@ -5,7 +5,7 @@
   - RMCXenoSpeechSounds
   - RMCXenoMobCollision
   id: RMCXenoQueenBase
-  name: Queen
+  name: Exomorph Queen
   description: A huge, looming alien creature. The biggest and the baddest.
   components:
   - type: GuideHelp
@@ -70,8 +70,6 @@
     - WallXenoResin
     - WallXenoMembrane
     - DoorXenoResin
-    - XenoStickyResin
-    - XenoFastResin
   - type: XenoDevour
   - type: XenoPlasma
     plasma: 1000
