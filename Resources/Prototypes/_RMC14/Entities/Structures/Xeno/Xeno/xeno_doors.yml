@@ -8,13 +8,13 @@
   components:
   - type: InteractionOutline
   - type: Sprite
-    sprite: _RMC14/Structures/Xenos/xeno_resin_door.rsi
+    sprite: Structures/Doors/Airlocks/Standard/xeno.rsi
     layers:
-    - state: resin
+    - state: closed
       map: ["enum.DoorVisualLayers.Base"]
     - state: closed_unlit
       map: ["enum.DoorVisualLayers.BaseUnlit"]
-    - state: closed_unlit
+    - state: bolted_unlit
       map: ["enum.DoorVisualLayers.BaseBolted"]
   - type: AnimationPlayer
   - type: Physics
@@ -34,10 +34,10 @@
     crushDamage:
       types:
         Blunt: 15
-    openSpriteState: resinopen
-    closedSpriteState: resin
-    openingSpriteState: resinopening
-    closingSpriteState: resinclosing
+    openSpriteState: open
+    closedSpriteState: closed
+    openingSpriteState: opening
+    closingSpriteState: closing
     openSound:
       path: /Audio/_RMC14/Xeno/alien_resin_move1.ogg
     closeSound:
@@ -74,7 +74,7 @@
     openingSpriteState: closed_unlit
     closingSpriteState: closed_unlit
   - type: XenoConstructionPlasmaCost
-    plasma: 120
+    plasma: 80
   - type: XenoConstructionRequiresSupport
   - type: ExplosionResistance
     damageCoefficient: 7.5 # Doors take 15x explosive damage, resin doors reduce that by 50%

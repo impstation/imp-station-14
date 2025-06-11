@@ -1,0 +1,193 @@
+- type: entity
+  abstract: true
+  id: XenoBaseProjectile
+  name: projectile
+  components:
+  - type: Clickable
+  - type: Sprite
+    noRot: false
+    sprite: _RMC14/Objects/Xeno/xeno_projectiles.rsi
+  - type: Physics
+    bodyType: Dynamic
+    linearDamping: 0
+    angularDamping: 0
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: Projectile
+    impactEffect: XenoProjectileImpactEffect
+    damage: {}
+  - type: XenoProjectile
+
+- type: entity
+  abstract: true
+  id: XenoSpitImpactSounds
+  components:
+  - type: Projectile
+    soundHit:
+      path: /Audio/_RMC14/Xeno/acid_impact1.ogg
+
+- type: entity
+  parent: [XenoSpitImpactSounds, XenoBaseProjectile]
+  id: XenoSpitProjectile
+  name: spit
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Xeno/xeno_projectiles.rsi
+    layers:
+    - state: xeno_acid_weak
+      shader: unshaded
+  - type: Projectile
+    impactEffect: null
+    damage:
+      types:
+        Heat: 20 # TODO RMC14 damage fall-off and higher at close range
+  - type: XenoProjectile
+    deleteOnFriendlyXeno: true
+
+- type: entity
+  id: XenoSlowingSpitProjectile
+  parent: [XenoSpitImpactSounds, XenoBaseProjectile]
+  name: slowing spit
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Xeno/xeno_projectiles.rsi
+    layers:
+    - state: neurotoxin
+      shader: unshaded
+  - type: XenoSlowingSpitProjectile
+    armorResistsKnockdown: true
+  - type: XenoProjectile
+    deleteOnFriendlyXeno: true
+  - type: DrainOnHit
+
+- type: entity
+  id: XenoNeuroSpitProjectile
+  parent: [XenoSpitImpactSounds, XenoBaseProjectile]
+  name: neurotoxic spit
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Xeno/xeno_projectiles.rsi
+    layers:
+    - state: neurotoxin
+      shader: unshaded
+  - type: XenoSlowingSpitProjectile
+    armorResistsKnockdown: false
+    slow: 0
+    paralyze: 4
+  - type: XenoProjectile
+    deleteOnFriendlyXeno: true
+
+- type: entity
+  id: XenoScatteredSpitProjectile
+  parent: [XenoSpitImpactSounds, XenoBaseProjectile]
+  name: scattered spit
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Xeno/xeno_projectiles.rsi
+    layers:
+    - state: neurotoxin
+      shader: unshaded
+  - type: XenoSlowingSpitProjectile
+    slow: 0
+    paralyze: 1
+    armorResistsKnockdown: false
+  - type: XenoProjectile
+    deleteOnFriendlyXeno: true
+
+- type: entity
+  parent: XenoSpitProjectile
+  id: XenoAcidBallSpitProjectile
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Xeno/xeno_projectiles.rsi
+    layers:
+    - state: xeno_acid_normal
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 25
+  - type: ApplyAcidStacks
+    damage:
+      types:
+        Heat: 30
+
+- type: entity
+  parent: XenoAcidBallSpitProjectile
+  id: XenoSpitProjectilePraetorian
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Xeno/xeno_projectiles.rsi
+    layers:
+    - state: xeno_acid_strong
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 30
+
+- type: entity
+  id: XenoAcidBallProjectile
+  name: acid ball
+  description: A small, pulsating ball of gas.
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: Clickable
+  - type: Physics
+    bodyType: Dynamic
+    linearDamping: 0
+    angularDamping: 0
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: true
+        mask:
+        - Impassable
+        - BarricadeImpassable
+  - type: Sprite
+    sprite: _RMC14/Objects/Xeno/xeno_acid_ball.rsi
+    layers:
+    - state: neuro_nade
+      shader: unshaded
+  - type: Projectile
+    deleteOnCollide: false
+    damage: {}
+  - type: ProjectileGrenade
+    fillPrototype: XenoAcidBallSpitProjectile
+    capacity: 14
+    directHit: false
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container

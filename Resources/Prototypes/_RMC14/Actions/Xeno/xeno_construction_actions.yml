@@ -1,7 +1,7 @@
 - type: entity
   id: ActionXenoPlantWeeds
   parent: ActionXenoBase
-  name: Plant Weeds (75) # TODO RMC14 proper plasma costs
+  name: Plant Weeds (50) # TODO RMC14 proper plasma costs
   description: Plant a weed node that will spread more weeds.
   components:
   - type: InstantAction
@@ -47,6 +47,6 @@
     checkCanAccess: false
   - type: XenoConstructionAction
     checkStructureSelected: true
-    checkWeeds: true
-    canUpgrade: true
+    checkWeeds: false
+    canUpgrade: false
 

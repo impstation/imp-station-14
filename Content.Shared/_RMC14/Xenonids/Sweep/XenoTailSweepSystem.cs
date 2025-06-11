@@ -91,7 +91,6 @@ public sealed class XenoTailSweepSystem : EntitySystem
             _stun.TryParalyze(marine, xeno.Comp.ParalyzeTime, true);
 
             _audio.PlayPvs(xeno.Comp.HitSound, marine);
-            SpawnAttachedTo(xeno.Comp.HitEffect, marine.Owner.ToCoordinates());
         }
     }
 

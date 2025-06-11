@@ -14,7 +14,7 @@ namespace Content.Shared._RMC14.Xenonids;
 [Access(typeof(XenoSystem))]
 public sealed partial class XenoComponent : Component
 {
-    [DataField(required: true), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public ProtoId<JobPrototype> Role;
 
     [DataField, AutoNetworkedField]

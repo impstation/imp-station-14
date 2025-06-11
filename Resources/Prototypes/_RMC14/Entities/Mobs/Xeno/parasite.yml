@@ -22,18 +22,13 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      35: Dead # TODO RMC14 gib on death
+      35: Dead
   - type: Xeno
-    role: CMXenoParasite
     actionIds:
     - ActionXenoRest
     - ActionXenoHide
     - ActionXenoLeap
-    tier: 0
     hudOffset: -0.1,0.1
-    contributesToVictory: false
-    countedInSlots: false
-    unlockAt: 0
     emoteSounds: Larva
     muteOnSpawn: true
   - type: XenoPlasma

@@ -23,18 +23,15 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      500: Critical
-      600: Dead
+      150: Critical
+      175: Dead
   - type: Xeno
-    role: CMXenoSentinel
     actionIds:
     - ActionXenoRest
     - ActionXenoRegurgitate
     - ActionXenoAcidWeak
     - ActionXenoDevolve
-    tier: 1
     hudOffset: -0.15,0.157
-    unlockAt: 300 # 5 minutes
   - type: XenoLight
   - type: XenoDevolve
     devolvesTo:
@@ -42,13 +39,10 @@
     canBeDevolvedByOther: false
   - type: XenoDevour
   - type: XenoPlasma
-    plasma: 400
-    maxPlasma: 400
-    plasmaRegenOnWeeds: 3
+    plasma: 100
+    maxPlasma: 250
+    plasmaRegenOnWeeds: 5
   - type: XenoAcid
-  - type: XenoParalyzingSlash
-  - type: XenoSlowingSpit
-  - type: XenoScatteredSpit
   - type: MeleeWeapon
     damage:
       groups:

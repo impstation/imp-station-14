@@ -23,22 +23,19 @@
       35: Critical
       70: Dead
   - type: Xeno
-    role: CMXenoLarva
     actionIds:
     - ActionXenoRest
     - ActionXenoHide
     - ActionXenoTransferPlasma
     hudOffset: -0.1,0.25
-    tier: 0
-    unlockAt: 0
     emoteSounds: Larva
   - type: XenoRegen
     healOffWeeds: true
   - type: XenoLight
   - type: XenoPlasma
-    plasma: 10
-    maxPlasma: 10
-    plasmaRegenOnWeeds: 0.1
+    plasma: 100
+    maxPlasma: 100
+    plasmaRegenOnWeeds: 2.5
   - type: XenoEvolution
     canEvolveWithoutGranter: true
     requiresGranter: false

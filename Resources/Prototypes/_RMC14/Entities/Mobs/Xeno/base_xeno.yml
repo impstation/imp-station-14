@@ -27,12 +27,11 @@
   icon: Interface/Emotes/deathgasp.png
   chatMessages: [ "cm-xeno-death-gasp" ]
 
-# TODO RMC14 xenos should bleed and hurt nearby marines when damaged
 - type: entity
   id: CMXenoBase
   abstract: true
   save: false
-  components: # TODO RMC14 camera recoil from large explosions? check 13
+  components:
   - type: Damageable
     damageContainer: Xeno
   - type: Destructible
@@ -190,13 +189,6 @@
     - Muted
     - Dazed
     - Blinded
-  - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Hivemind
-  - type: ActiveRadio
-    channels:
-    - Hivemind
   - type: StandingState
   - type: AffectableByWeeds
   - type: MovementIgnoreGravity

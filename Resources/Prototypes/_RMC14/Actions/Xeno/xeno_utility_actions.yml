@@ -2,7 +2,7 @@
   id: ActionXenoTransferPlasma
   parent: ActionXenoBase
   name: Transfer plasma (50) # TODO RMC14 proper plasma costs
-  description: Give plasma to a nearby xenonid.
+  description: Give plasma to a nearby exomorph.
   components:
   - type: EntityTargetAction
     itemIconStyle: NoItem
@@ -17,7 +17,7 @@
   id: ActionXenoHealerDroneTransferPlasma
   parent: ActionXenoBase
   name: Transfer plasma (100) # TODO RMC14 proper plasma costs
-  description: Give plasma to a nearby xenonid.
+  description: Give plasma to a nearby exomorph.
   components:
   - type: EntityTargetAction
     itemIconStyle: NoItem
@@ -33,7 +33,7 @@
   id: ActionXenoTransferPlasmaHivelord
   parent: ActionXenoBase
   name: Transfer plasma (200) # TODO RMC14 proper plasma costs
-  description: Give plasma to a xenonid.
+  description: Give plasma to a nearby exomorph.
   components:
   - type: EntityTargetAction
     itemIconStyle: NoItem

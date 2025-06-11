@@ -27,8 +27,5 @@ public sealed partial class XenoTailSweepComponent : Component
     public SoundSpecifier Sound = new SoundCollectionSpecifier("XenoTailSwipe");
 
     [DataField, AutoNetworkedField]
-    public EntProtoId HitEffect = "CMEffectPunch";
-
-    [DataField, AutoNetworkedField]
     public SoundSpecifier HitSound = new SoundPathSpecifier("/Audio/_RMC14/Xeno/alien_claw_block.ogg");
 }

@@ -19,18 +19,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      500: Critical
-      600: Dead
+      125: Critical
+      150: Dead
   - type: MeleeWeapon
     damage:
       groups:
-        Brute: 22.5
+        Brute: 20
   - type: Xeno
-    role: CMXenoDrone
     hudOffset: -0.1,0.15
-    tier: 1
-    bypassTierCount: true
-    unlockAt: 60 # 1 minute
   - type: XenoLight
   - type: XenoDevolve
     devolvesTo:
@@ -38,9 +34,9 @@
     canBeDevolvedByOther: false
   - type: XenoDevour
   - type: XenoPlasma
-    plasma: 1000
-    maxPlasma: 1000
-    plasmaRegenOnWeeds: 4.5
+    plasma: 200
+    maxPlasma: 500
+    plasmaRegenOnWeeds: 7.5
   - type: EggPlantTime
     plantTime: 2.5
   - type: RMCXenoDamageVisuals
@@ -59,9 +55,6 @@
   parent: CMXenoDroneBase
   id: CMXenoDrone
   components:
-  - type: GuideHelp
-    guides:
-    - RMCGuideRoleDrone
   - type: Sprite
     sprite: _RMC14/Mobs/Xenonids/Drone/drone.rsi
   - type: Xeno

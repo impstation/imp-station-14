@@ -45,22 +45,14 @@
     - DoorBumpOpener
     - FootstepSound
   - type: Xeno
-    role: CMXenoQueen
-    spawnAtLeaderPoint: true
     actionIds:
     - ActionXenoRest
     - ActionXenoRegurgitate
     - ActionXenoAcidNormal
-#    - ActionXenoPsychicWhisper
-#    - ActionXenoPsychicRadiance
     - ActionXenoPlantWeeds
     - ActionXenoChooseStructure
     - ActionXenoSecreteStructure
-#    - ActionXenoRoyalJelly
-#    - ActionXenoMarkResin
-    tier: 0
-    bypassTierCount: true
-    unlockAt: 0
+    - ActionXenoSpit
     hudOffset: -0.1,0
   - type: XenoHeavy
   - type: XenoAcid
@@ -72,16 +64,16 @@
     - DoorXenoResin
   - type: XenoDevour
   - type: XenoPlasma
-    plasma: 1000
-    maxPlasma: 1000
-    plasmaRegenOnWeeds: 4
+    plasma: 200
+    maxPlasma: 500
+    plasmaRegenOnWeeds: 10
   - type: XenoWordQueen
   - type: XenoClaws
     clawType: VerySharp
   - type: MeleeWeapon
     damage:
       groups:
-        Brute: 40
+        Brute: 50
   - type: XenoOvipositorCapable
   - type: Fixtures
     fixtures:
@@ -110,13 +102,6 @@
       collection: XenoFootstepLarge
       params:
         volume: -6
-#  - type: RandomSound
-#    sound:
-#      collection: XenoQueenBreath # TODO RMC14
-#      params:
-#        volume: -10
-#    min: 45
-#    max: 60
   - type: XenoEvolutionGranter
   - type: XenoEvolutionCapped
     id: CMXenoQueen
@@ -126,19 +111,11 @@
       path: /Audio/_RMC14/Xeno/alien_queen_command.ogg
       params:
         volume: -8
-  - type: XenoMaturing
-    critThreshold: 1000
-    deadThreshold: 1100
-    addComponents:
-    - type: XenoToggleSpit
-    addActions:
-    - ActionXenoSpitQueen
-    - ActionXenoToggleSpitType
   - type: RMCXenoDamageVisuals
     prefix: queen
   - type: XenoHeal
   - type: XenoSpit
-    projectileId: XenoQueenNeuroSpitProjectile
+    projectileId: XenoNeuroSpitProjectile
     plasmaCost: 50
   - type: XenoInhands
     prefix: queen

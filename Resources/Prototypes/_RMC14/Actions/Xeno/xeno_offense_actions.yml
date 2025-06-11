@@ -62,7 +62,7 @@
   id: ActionXenoRegurgitate
   parent: ActionXenoBase
   name: Regurgitate
-  description: Eject any devoured marines.
+  description: Eject any devoured humanoids.
   components:
   - type: InstantAction
     itemIconStyle: NoItem
@@ -105,8 +105,8 @@
 - type: entity
   id: ActionXenoSpit
   parent: ActionXenoBase
-  name: Xeno Spit (25) # TODO RMC14 proper plasma costs
-  description: Launches a projectile that will deal damage to the first enemy that it hits.
+  name: Exo Spit (50) # TODO RMC14 proper plasma costs
+  description: Launches a projectile that will paralyze the first enemy it hits.
   components:
   - type: EntityWorldTargetAction
     itemIconStyle: NoItem
@@ -156,7 +156,7 @@
 - type: entity
   id: ActionXenoSpitQueen
   parent: ActionXenoSpit
-  name: Xeno Spit (50/25)
+  name: Exo Spit (50/25)
   description: Launches a projectile that will either paralyze the first enemy it hits or damage them and cover them in acid.
 
 - type: entity
