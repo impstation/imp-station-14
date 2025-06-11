@@ -197,7 +197,7 @@
   - type: SyncSprite
   - type: MovementSpeedModifier
     baseWalkSpeed: 2 # same as slime
-    baseSprintSpeed: 4.5 # same as a person
+    baseSprintSpeed: 4.2
     weightlessFriction: 1
     weightlessFrictionNoInput: 2
     weightlessAcceleration: 1.8
@@ -253,7 +253,7 @@
     needsHands: false
   - type: MovementSpeedModifier
     baseWalkSpeed: 2 # same as slime
-    baseSprintSpeed: 4
+    baseSprintSpeed: 4.2
     weightlessFriction: 1
     weightlessFrictionNoInput: 2
     weightlessAcceleration: 1.2
@@ -310,7 +310,7 @@
     needsHands: false
   - type: MovementSpeedModifier
     baseWalkSpeed: 2 # same as slime
-    baseSprintSpeed: 4
+    baseSprintSpeed: 4.2
     weightlessFriction: 1
     weightlessFrictionNoInput: 2
     weightlessAcceleration: 1.2
@@ -405,8 +405,8 @@
         Brute: -0.75
         Burn: -0.75
       types:
-        Shock: -0.75
-        Structural: -0.75
+        Shock: -0.5
+        Structural: -0.5
   - type: Speech
     speechVerb: Robotic
     speechSounds: Replicator
