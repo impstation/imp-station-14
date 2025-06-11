@@ -6,10 +6,10 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 54000 # 15 hours
+      time: 54000 # 15 hours, imp
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 54000 # 15 hours
+      time: 54000 # 15 hours, imp
     - !type:DepartmentTimeRequirement
       department: Security
       time: 54000 # 15 hours
