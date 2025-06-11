@@ -5,7 +5,7 @@
   - RMCXenoSpeechSounds
   - RMCXenoMobCollision
   id: RMCXenoQueenBase
-  name: Exomorph Queen
+  name: exomorph queen
   description: A huge, looming alien creature. The biggest and the baddest.
   components:
   - type: GuideHelp
@@ -95,7 +95,7 @@
         - BulletImpassable
   - type: MovementSpeedModifier
     baseWalkSpeed: 1.4
-    baseSprintSpeed: 2.5
+    baseSprintSpeed: 2.1
   - type: MobMover
   - type: FootstepModifier
     footstepSoundCollection:

@@ -3,7 +3,7 @@
   - CMXenoUndeveloped
   - CMXenoFlammable
   id: CMXenoParasite
-  name: Exomorph Parasite
+  name: exomorph parasite
   components:
   - type: GuideHelp
     guides:
@@ -85,3 +85,4 @@
   - type: StandingState
   - type: XenoInhandSprite
     stateName: parasite
+  - type: VentCrawler

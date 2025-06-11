@@ -3,7 +3,7 @@
   - CMXenoUndeveloped
   - CMXenoFlammable
   id: CMXenoLarva
-  name: Exomorph Larva
+  name: exomorph larva
   components:
   - type: GuideHelp
     guides:
@@ -83,6 +83,7 @@
         variation: 0.1
         volume: -5
   - type: XenoClaws
+  - type: VentCrawler
 
 # For surgeries/failed incubations
 - type: entity

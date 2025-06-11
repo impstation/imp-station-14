@@ -5,7 +5,7 @@
   - RMCXenoSpeechSounds
   - RMCXenoMobCollision
   id: CMXenoSentinel
-  name: Exomorph Sentinel
+  name: exomorph sentinel
   description: A slithery, spitting kind of alien.
   components:
   - type: GuideHelp
@@ -49,3 +49,4 @@
         Brute: 22.5
   - type: RMCXenoDamageVisuals
     prefix: sentinel
+  - type: VentCrawler

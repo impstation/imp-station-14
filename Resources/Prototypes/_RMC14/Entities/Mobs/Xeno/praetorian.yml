@@ -6,7 +6,7 @@
   - RMCXenoSpeechSounds
   - RMCXenoMobCollision
   id: CMXenoPraetorianBase
-  name: Exomorph Praetorian
+  name: exomorph praetorian
   description: A huge, looming beast of an alien.
   components:
   - type: GhostRole
@@ -85,6 +85,7 @@
     - WallXenoMembrane
     - DoorXenoResin
   - type: XenoTailSweep
+  - type: VentCrawler
 
 - type: entity
   parent: CMXenoPraetorianBase

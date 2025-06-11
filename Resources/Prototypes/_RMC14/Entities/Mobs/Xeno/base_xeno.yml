@@ -69,7 +69,7 @@
     - Shock
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.2
-    baseSprintSpeed: 4
+    baseSprintSpeed: 3
   - type: Climbing
   - type: Insulated
   - type: Input
@@ -191,7 +191,6 @@
     - Blinded
   - type: StandingState
   - type: AffectableByWeeds
-  - type: MovementIgnoreGravity
   - type: ExplosionResistance
     damageCoefficient: 2
   - type: NpcFactionMember
