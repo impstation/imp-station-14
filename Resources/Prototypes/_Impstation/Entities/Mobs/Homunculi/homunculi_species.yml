@@ -123,8 +123,6 @@
     speechSounds: PVC
   - type: TypingIndicator
     proto: gray
-  - type: Puller
-    needsHands: true
   - type: Physics
     bodyStatus: InAir
   - type: CanMoveInAir
