@@ -92,7 +92,7 @@
   - type: Sprite
     sprite: _Impstation/Structures/Wallmounts/signs.rsi
     state: contraband
-    
+
 - type: entity
   parent: BaseSign
   id: SignApid
@@ -102,3 +102,23 @@
   - type: Sprite
     sprite: _Impstation/Structures/Wallmounts/signs.rsi
     state: apid
+
+- type: entity
+  parent: BaseSignDirectional
+  id: SignDirectionalOrganicResources
+  name: organic resources sign
+  description: A direction sign, pointing out which way the Organic Resources department is.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/signs.rsi
+    state: direction_hr
+
+- type: entity
+  parent: BaseSign
+  id: SignOrganicResources
+  name: organic resources sign
+  description: A sign indicating the Organic Resources area.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/signs.rsi
+    state: hr

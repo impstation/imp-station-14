@@ -35,3 +35,13 @@
   primary: false
   editorHidden: true
   manifestHidden: true
+
+- type: department
+  id: OrganicResources
+  name: department-OrganicResources
+  description: department-OrganicResources-description
+  color: "#DB3B60"
+  weight: 50
+  roles:
+  - HeadOfPersonnel
+  - Lawyer

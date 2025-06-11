@@ -111,3 +111,12 @@
   components:
   - type: AccessReader
     access: [["Freelance"]]
+
+# Organic Resources
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsOrganicResources
+  suffix: OrganicResources, Locked
+  components:
+  - type: AccessReader
+    access: [["OrganicResources"]]

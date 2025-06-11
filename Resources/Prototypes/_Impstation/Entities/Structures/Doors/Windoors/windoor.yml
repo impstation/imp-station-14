@@ -157,3 +157,22 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsFreelance ]
+
+# Organic Resources
+- type: entity
+  parent: Windoor
+  id: WindoorOrganicResourcesLocked
+  suffix: OrganicResources, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsOrganicResources ]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureOrganicResourcesLocked
+  suffix: OrganicResources, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsOrganicResources ]

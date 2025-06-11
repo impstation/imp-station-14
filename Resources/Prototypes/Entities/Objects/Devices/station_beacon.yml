@@ -229,7 +229,7 @@
     defaultText: station-beacon-detective
 
 - type: entity
-  parent: DefaultStationBeaconSecurity
+  parent: DefaultStationBeaconOrganicResources # imp edit
   id: DefaultStationBeaconCourtroom
   suffix: Courtroom
   components:
@@ -237,7 +237,7 @@
     defaultText: station-beacon-courtroom
 
 - type: entity
-  parent: DefaultStationBeaconSecurity
+  parent: DefaultStationBeaconOrganicResources # imp edit
   id: DefaultStationBeaconLawOffice
   suffix: Law Office
   components:
