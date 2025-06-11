@@ -47,6 +47,7 @@ obvious-type-pride-gf = [color=#FF76A4]genderfluid[/color] [color=#2F3CBE]pride[
 obvious-type-pride-aut = [color=#FFD700]autism[/color] [color=white]pride[/color]
 obvious-type-pride-straightally = [color=#7c7c7c]straight[/color] [color=#d479d4]LGBTQ ally[/color]
 obvious-type-pride-gq = [color=#B57EDC]genderqueer[/color] [color=#4A8123]pride[/color]
+obvious-type-pride-plural = [color=#31C69E]plural[/color] [color=#6B3FBD]pride[/color]
 
 # lawyers
 obvious-type-law = [color=white]certified[/color] [color=#FFD700]lawyer[/color]
@@ -61,4 +62,5 @@ obvious-x-medal-nothing = a [color=#FFD700]gleaming medal[/color]!
 # imp only items
 obvious-x-pin-straight = a [color=#7c7c7c]straight[/color] [color=white]pride[/color] pin... [italic]Ew.[/italic]
 obvious-x-cloak-straight = a cloak in the [color=#7c7c7c]straight[/color] [color=white]pride[/color] colors... [italic]Ew.[/italic]
+obvious-x-pin-novice = a [color=#F4EE12]novice[/color] [color=#1CAC99]mark[/color], identifying as [color=#efefef]unskilled[/color]. [color=#1CAC99][italic]Be patient and considerate with { OBJECT($user) }.[/italic][/color]
 
