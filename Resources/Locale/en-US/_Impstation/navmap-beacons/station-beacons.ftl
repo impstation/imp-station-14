@@ -1,9 +1,6 @@
 # Medical
 station-beacon-paramedic = Paramedic
 
-# Organic Resources
-station-beacon-organic-resources = Organic Resources
-
 # Science
 station-beacon-xenoarchaeology = Xenoarch
 

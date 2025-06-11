@@ -39,7 +39,6 @@
     mime:        _Impstation/Structures/Doors/Airlocks/Standard/mime.rsi
     musician:    _Impstation/Structures/Doors/Airlocks/Standard/musician.rsi
     morgue:      _Impstation/Structures/Doors/Airlocks/Standard/morgue.rsi
-    hr:          _Impstation/Structures/Doors/Airlocks/Standard/hr.rsi
     qm:          _Impstation/Structures/Doors/Airlocks/Standard/qm.rsi
     rd:          _Impstation/Structures/Doors/Airlocks/Standard/rd.rsi
     reporter:    _Impstation/Structures/Doors/Airlocks/Standard/reporter.rsi
@@ -86,7 +85,6 @@
     mime:        _Impstation/Structures/Doors/Airlocks/Glass/mime.rsi
     musician:    _Impstation/Structures/Doors/Airlocks/Glass/musician.rsi
     morgue:      _Impstation/Structures/Doors/Airlocks/Glass/morgue.rsi
-    hr:          _Impstation/Structures/Doors/Airlocks/Glass/hr.rsi
     qm:          _Impstation/Structures/Doors/Airlocks/Glass/qm.rsi
     rd:          _Impstation/Structures/Doors/Airlocks/Glass/rd.rsi
     reporter:    _Impstation/Structures/Doors/Airlocks/Glass/reporter.rsi
@@ -133,7 +131,6 @@
     command: Command
     engineering: Engineering
     medical: Medical
-    hr: OrganicResources
     salvage: Cargo
     science: Science
     security: Security
@@ -162,7 +159,7 @@
     clown: Service
     janitor: Service
     kitchen: Service
-    lawyer: OrganicResources #imp
+    lawyer: Civilian #imp
     librarian: Service
     mime: Service
     musician: Service

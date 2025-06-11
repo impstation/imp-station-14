@@ -10,16 +10,6 @@
     containers:
       board: [ DoorElectronicsHospitalityDirector ]
 
-# Organic Resources
-- type: entity
-  parent: AirlockOrganicResources
-  id: AirlockOrganicResourcesLocked
-  suffix: OrganicResources, Locked
-  components:
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsOrganicResources ]
-
 # Service
 - type: entity
   parent: AirlockClown
@@ -96,16 +86,6 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsHospitalityDirector ]
-
-# Organic Resources
-- type: entity
-  parent: AirlockOrganicResourcesGlass
-  id: AirlockOrganicResourcesGlassLocked
-  suffix: OrganicResources, Locked
-  components:
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsOrganicResources ]
 
 # Service
 - type: entity

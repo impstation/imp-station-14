@@ -6,4 +6,3 @@ id-card-access-level-logistics = Logistics
 id-card-access-level-mime = Mime
 id-card-access-level-musician = Musician
 id-card-access-level-reporter = Reporter
-id-card-access-level-organic-resources = Organic Resources
