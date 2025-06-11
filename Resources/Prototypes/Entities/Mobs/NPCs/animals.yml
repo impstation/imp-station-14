@@ -538,7 +538,7 @@
     baseSprintSpeed : 4
     weightlessAcceleration: 1.5
     weightlessFriction: 1
-    weightlessModifier: 1
+    baseWeightlessModifier: 1
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Moth
@@ -832,6 +832,7 @@
     tags:
     - Trash
     - MultitoolDefibrillatorTarget
+    - Butterfly #imp, for butterfly orchid
   - type: Bloodstream
     bloodReagent: InsectBlood
     bloodMaxVolume: 0.1
