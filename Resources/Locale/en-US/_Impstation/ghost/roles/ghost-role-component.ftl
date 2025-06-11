@@ -130,3 +130,6 @@ ghost-role-information-replicator-rules = You are a [color=red][bold]Team Antago
                                           You must [bold]work with your team[/bold] or follow reasonable directions from your team leaders.
 
                                           You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
+
+ghost-role-information-vrex-name = V-Rex
+ghost-role-information-vrex-desc = Not sure how you got here, but you're mad about it! Swing your weight around and express your anger, all while avoiding the dangers of barotrauma.
