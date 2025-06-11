@@ -310,14 +310,14 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.35 #imp edit, previously 0.5
-        Slash: 0.35 #imp edit, previously 0.6
-        Piercing: 0.35 #imp edit, previously 0.6
-        Heat: 0.35 #imp edit, had none previously (i.e. 1.0)
-        Caustic: 0.5 #imp edit, previously 0.7
+        Blunt: 0.35 #imp edit, currently 0.4 upstream
+        Slash: 0.35 #imp edit, currently 0.5 upstream
+        Piercing: 0.35 #imp edit, currently 0.6 upstream
+        Heat: 0.35 #imp edit, currently 0.8 upstream
+        Caustic: 0.5 #imp edit, currently 0.7 upstream
   - type: ClothingSpeedModifier
-    walkModifier: 0.9 #imp edit, previously 0.7
-    sprintModifier: 0.65 #imp edit, previously 0.65
+    walkModifier: 0.9 #imp edit, currently 0.7 upstream
+    sprintModifier: 0.65 #imp edit, currently 0.65 upstream
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitWarden
