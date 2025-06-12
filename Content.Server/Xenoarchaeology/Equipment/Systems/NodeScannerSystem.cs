@@ -1,14 +1,14 @@
-using Content.Shared.Xenoarchaeology.Equipment;
-using Content.Shared.Xenoarchaeology.Equipment.Components;
+// using Content.Shared.Xenoarchaeology.Equipment;
+// using Content.Shared.Xenoarchaeology.Equipment.Components;
 
-namespace Content.Server.Xenoarchaeology.Equipment.Systems;
+// namespace Content.Server.Xenoarchaeology.Equipment.Systems;
 
-/// <inheritdoc cref="SharedNodeScannerSystem"/>
-public sealed class NodeScannerSystem : SharedNodeScannerSystem
-{
-    protected override void TryOpenUi(Entity<NodeScannerComponent> device, EntityUid actor)
-    {
-        // no-op
-    }
-    //#IMP XENOMERGE TODO: Reimpliment this for oldxeno?
-}
+// /// <inheritdoc cref="SharedNodeScannerSystem"/>
+// public sealed class NodeScannerSystem : SharedNodeScannerSystem
+// {
+//     protected override void TryOpenUi(Entity<NodeScannerComponent> device, EntityUid actor)
+//     {
+//         // no-op
+//     }
+//     //#IMP XENOMERGE TODO: Reimpliment this for oldxeno?
+// }

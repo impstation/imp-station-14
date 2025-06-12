@@ -32,7 +32,7 @@ public sealed class PolyOthersArtifactSystem : EntitySystem
         var humanoids = new HashSet<Entity<HumanoidAppearanceComponent>>();
         _lookup.GetEntitiesInRange(xform.Coordinates, ent.Comp.Range, humanoids);
         if (args.Activator is not null && HasComp<HumanoidAppearanceComponent>(args.Activator.Value))
-            humanoids.Add((Entity<HumanoidAppearanceComponent>)args.Activator.Value);
+            humanoids.Add((Entity<HumanoidAppearanceComponent>)args.Activator.Value!);
         foreach (var comp in humanoids)
         {
             var target = comp.Owner;

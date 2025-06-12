@@ -3,6 +3,7 @@ using Content.Server.Power.Components;
 using Content.Server.Research.Systems;
 using Content.Shared.UserInterface;
 using Content.Server.Xenoarchaeology.Equipment.Components;
+using Content.Shared.Xenoarchaeology.Equipment;
 using Content.Server.Xenoarchaeology.XenoArtifacts;
 using Content.Server.Xenoarchaeology.XenoArtifacts.Events;
 using Content.Shared.Audio;
@@ -14,7 +15,7 @@ using Content.Shared.Popups;
 using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Research.Components;
-using Content.Shared.Xenoarchaeology.Equipment;
+using Content.Shared.Xenoarchaeology.Equipment.Components;
 using Content.Shared.Xenoarchaeology.XenoArtifacts;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
@@ -30,7 +31,8 @@ namespace Content.Server.Xenoarchaeology.Equipment.Systems;
 /// This system is used for managing the artifact analyzer as well as the analysis console.
 /// It also hanadles scanning and ui updates for both systems.
 /// </summary>
-public sealed class OldArtifactAnalyzerSystem : EntitySystem {
+public sealed class ArtifactAnalyzerSystem : EntitySystem
+{
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly ArtifactSystem _artifact = default!;
@@ -57,20 +59,20 @@ public sealed class OldArtifactAnalyzerSystem : EntitySystem {
         SubscribeLocalEvent<OldArtifactAnalyzerComponent, ItemRemovedEvent>(OnItemRemoved);
 
         SubscribeLocalEvent<OldArtifactAnalyzerComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<OldArtifactAnalyzerComponent, NewLinkEvent>(OnNewLink);
-        SubscribeLocalEvent<OldArtifactAnalyzerComponent, PortDisconnectedEvent>(OnPortDisconnected);
+        SubscribeLocalEvent<OldAnalysisConsoleComponent, NewLinkEvent>(OnNewLink);
+        SubscribeLocalEvent<OldAnalysisConsoleComponent, PortDisconnectedEvent>(OnPortDisconnected);
 
-        SubscribeLocalEvent<OldArtifactAnalyzerComponent, AnalysisConsoleServerSelectionMessage>(OnServerSelectionMessage);
-        SubscribeLocalEvent<OldArtifactAnalyzerComponent, AnalysisConsoleScanButtonPressedMessage>(OnScanButton);
-        SubscribeLocalEvent<OldArtifactAnalyzerComponent, AnalysisConsolePrintButtonPressedMessage>(OnPrintButton);
-        SubscribeLocalEvent<OldArtifactAnalyzerComponent, AnalysisConsoleExtractButtonPressedMessage>(OnExtractButton);
-        SubscribeLocalEvent<OldArtifactAnalyzerComponent, AnalysisConsoleBiasButtonPressedMessage>(OnBiasButton);
+        SubscribeLocalEvent<OldAnalysisConsoleComponent, OldAnalysisConsoleServerSelectionMessage>(OnServerSelectionMessage);
+        SubscribeLocalEvent<OldAnalysisConsoleComponent, AnalysisConsoleScanButtonPressedMessage>(OnScanButton);
+        SubscribeLocalEvent<OldAnalysisConsoleComponent, AnalysisConsolePrintButtonPressedMessage>(OnPrintButton);
+        SubscribeLocalEvent<OldAnalysisConsoleComponent, OldAnalysisConsoleExtractButtonPressedMessage>(OnExtractButton);
+        SubscribeLocalEvent<OldAnalysisConsoleComponent, AnalysisConsoleBiasButtonPressedMessage>(OnBiasButton);
 
-        SubscribeLocalEvent<OldArtifactAnalyzerComponent, ResearchClientServerSelectedMessage>((e, c, _) => UpdateUserInterface(e, c),
+        SubscribeLocalEvent<OldAnalysisConsoleComponent, ResearchClientServerSelectedMessage>((e, c, _) => UpdateUserInterface(e, c),
             after: new[] { typeof(ResearchSystem) });
-        SubscribeLocalEvent<OldArtifactAnalyzerComponent, ResearchClientServerDeselectedMessage>((e, c, _) => UpdateUserInterface(e, c),
+        SubscribeLocalEvent<OldAnalysisConsoleComponent, ResearchClientServerDeselectedMessage>((e, c, _) => UpdateUserInterface(e, c),
             after: new[] { typeof(ResearchSystem) });
-        SubscribeLocalEvent<OldArtifactAnalyzerComponent, BeforeActivatableUIOpenEvent>((e, c, _) => UpdateUserInterface(e, c));
+        SubscribeLocalEvent<OldAnalysisConsoleComponent, BeforeActivatableUIOpenEvent>((e, c, _) => UpdateUserInterface(e, c));
     }
 
     public override void Update(float frameTime)
@@ -154,7 +156,7 @@ public sealed class OldArtifactAnalyzerSystem : EntitySystem {
 
         foreach (var source in sink.LinkedSources)
         {
-            if (!TryComp<OldArtifactAnalyzerComponent>(source, out var analysis))
+            if (!TryComp<OldAnalysisConsoleComponent>(source, out var analysis))
                 continue;
             component.Console = source;
             analysis.AnalyzerEntity = uid;
@@ -162,7 +164,7 @@ public sealed class OldArtifactAnalyzerSystem : EntitySystem {
         }
     }
 
-    private void OnNewLink(EntityUid uid, OldArtifactAnalyzerComponent component, NewLinkEvent args)
+    private void OnNewLink(EntityUid uid, OldAnalysisConsoleComponent component, NewLinkEvent args)
     {
         if (!TryComp<OldArtifactAnalyzerComponent>(args.Sink, out var analyzer))
             return;
@@ -173,7 +175,7 @@ public sealed class OldArtifactAnalyzerSystem : EntitySystem {
         UpdateUserInterface(uid, component);
     }
 
-    private void OnPortDisconnected(EntityUid uid, OldArtifactAnalyzerComponent component, PortDisconnectedEvent args)
+    private void OnPortDisconnected(EntityUid uid, OldAnalysisConsoleComponent component, PortDisconnectedEvent args)
     {
         if (args.Port == component.LinkingPort && component.AnalyzerEntity != null)
         {
@@ -185,7 +187,7 @@ public sealed class OldArtifactAnalyzerSystem : EntitySystem {
         UpdateUserInterface(uid, component);
     }
 
-    private void UpdateUserInterface(EntityUid uid, OldArtifactAnalyzerComponent? component = null)
+    private void UpdateUserInterface(EntityUid uid, OldAnalysisConsoleComponent? component = null)
     {
         if (!Resolve(uid, ref component, false))
             return;
@@ -222,10 +224,10 @@ public sealed class OldArtifactAnalyzerSystem : EntitySystem {
         if (TryComp<TraversalDistorterComponent>(component.AnalyzerEntity, out var trav))
             biasDirection = trav.BiasDirection;
 
-        var state = new AnalysisConsoleUpdateState(GetNetEntity(artifact), analyzerConnected, serverConnected,
+        var state = new OldAnalysisConsoleUpdateState(GetNetEntity(artifact), analyzerConnected, serverConnected,
             canScan, canPrint, msg, scanning, paused, active?.StartTime, active?.AccumulatedRunTime, totalTime, points, biasDirection == BiasDirection.Down);
 
-        _ui.SetUiState(uid, ArtifactAnalzyerUiKey.Key, state);
+        _ui.SetUiState(uid, OldArtifactAnalyzerUiKey.Key, state);
     }
 
     /// <summary>
@@ -234,7 +236,7 @@ public sealed class OldArtifactAnalyzerSystem : EntitySystem {
     /// <param name="uid"></param>
     /// <param name="component"></param>
     /// <param name="args"></param>
-    private void OnServerSelectionMessage(EntityUid uid, OldArtifactAnalyzerComponent component, AnalysisConsoleServerSelectionMessage args)
+    private void OnServerSelectionMessage(EntityUid uid, OldAnalysisConsoleComponent component, OldAnalysisConsoleServerSelectionMessage args)
     {
         _ui.OpenUi(uid, ResearchClientUiKey.Key, args.Actor);
     }
@@ -245,7 +247,7 @@ public sealed class OldArtifactAnalyzerSystem : EntitySystem {
     /// <param name="uid"></param>
     /// <param name="component"></param>
     /// <param name="args"></param>
-    private void OnScanButton(EntityUid uid, OldArtifactAnalyzerComponent component, AnalysisConsoleScanButtonPressedMessage args)
+    private void OnScanButton(EntityUid uid, OldAnalysisConsoleComponent component, AnalysisConsoleScanButtonPressedMessage args)
     {
         if (component.AnalyzerEntity == null)
             return;
@@ -270,7 +272,7 @@ public sealed class OldArtifactAnalyzerSystem : EntitySystem {
         UpdateUserInterface(uid, component);
     }
 
-    private void OnPrintButton(EntityUid uid, OldArtifactAnalyzerComponent component, AnalysisConsolePrintButtonPressedMessage args)
+    private void OnPrintButton(EntityUid uid, OldAnalysisConsoleComponent component, AnalysisConsolePrintButtonPressedMessage args)
     {
         if (component.AnalyzerEntity == null)
             return;
@@ -285,13 +287,13 @@ public sealed class OldArtifactAnalyzerSystem : EntitySystem {
         analyzer.ReadyToPrint = false;
 
         var report = Spawn(component.ReportEntityId, Transform(uid).Coordinates);
-        _metaSystem.SetEntityName(report, Loc.GetString("analysis-report-title", ("id", analyzer.LastAnalyzedNode.Id)));
+        _metaSystem.SetEntityName(report, Loc.GetString("old-analysis-report-title", ("id", analyzer.LastAnalyzedNode.Id)));
 
         var msg = GetArtifactScanMessage(analyzer);
         if (msg == null)
             return;
 
-        _popup.PopupEntity(Loc.GetString("analysis-console-print-popup"), uid);
+        _popup.PopupEntity(Loc.GetString("old-analysis-console-print-popup"), uid);
         if (TryComp<PaperComponent>(report, out var paperComp))
             _paper.SetContent((report, paperComp), msg.ToMarkup());
         UpdateUserInterface(uid, component);
@@ -305,14 +307,14 @@ public sealed class OldArtifactAnalyzerSystem : EntitySystem {
 
         var n = component.LastAnalyzedNode;
 
-        msg.AddMarkupOrThrow(Loc.GetString("analysis-console-info-id", ("id", n.Id)));
+        msg.AddMarkupOrThrow(Loc.GetString("old-analysis-console-info-id", ("id", n.Id)));
         msg.PushNewline();
-        msg.AddMarkupOrThrow(Loc.GetString("analysis-console-info-depth", ("depth", n.Depth)));
+        msg.AddMarkupOrThrow(Loc.GetString("old-analysis-console-info-depth", ("depth", n.Depth)));
         msg.PushNewline();
 
         var activated = n.Triggered
-            ? "analysis-console-info-triggered-true"
-            : "analysis-console-info-triggered-false";
+            ? "old-analysis-console-info-triggered-true"
+            : "old-analysis-console-info-triggered-false";
         msg.AddMarkupOrThrow(Loc.GetString(activated));
         msg.PushNewline();
 
@@ -322,7 +324,7 @@ public sealed class OldArtifactAnalyzerSystem : EntitySystem {
         var triggerProto = _prototype.Index<ArtifactTriggerPrototype>(n.Trigger);
         if (triggerProto.TriggerHint != null)
         {
-            msg.AddMarkupOrThrow(Loc.GetString("analysis-console-info-trigger",
+            msg.AddMarkupOrThrow(Loc.GetString("old-analysis-console-info-trigger",
                 ("trigger", Loc.GetString(triggerProto.TriggerHint))) + "\n");
             needSecondNewline = true;
         }
@@ -330,7 +332,7 @@ public sealed class OldArtifactAnalyzerSystem : EntitySystem {
         var effectproto = _prototype.Index<ArtifactEffectPrototype>(n.Effect);
         if (effectproto.EffectHint != null)
         {
-            msg.AddMarkupOrThrow(Loc.GetString("analysis-console-info-effect",
+            msg.AddMarkupOrThrow(Loc.GetString("old-analysis-console-info-effect",
                 ("effect", Loc.GetString(effectproto.EffectHint))) + "\n");
             needSecondNewline = true;
         }
@@ -338,11 +340,11 @@ public sealed class OldArtifactAnalyzerSystem : EntitySystem {
         if (needSecondNewline)
             msg.PushNewline();
 
-        msg.AddMarkupOrThrow(Loc.GetString("analysis-console-info-edges", ("edges", n.Edges.Count)));
+        msg.AddMarkupOrThrow(Loc.GetString("old-analysis-console-info-edges", ("edges", n.Edges.Count)));
         msg.PushNewline();
 
         if (component.LastAnalyzerPointValue != null)
-            msg.AddMarkupOrThrow(Loc.GetString("analysis-console-info-value", ("value", component.LastAnalyzerPointValue)));
+            msg.AddMarkupOrThrow(Loc.GetString("old-analysis-console-info-value", ("value", component.LastAnalyzerPointValue)));
 
         return msg;
     }
@@ -353,7 +355,7 @@ public sealed class OldArtifactAnalyzerSystem : EntitySystem {
     /// <param name="uid"></param>
     /// <param name="component"></param>
     /// <param name="args"></param>
-    private void OnExtractButton(EntityUid uid, OldArtifactAnalyzerComponent component, AnalysisConsoleExtractButtonPressedMessage args)
+    private void OnExtractButton(EntityUid uid, OldAnalysisConsoleComponent component, OldAnalysisConsoleExtractButtonPressedMessage args)
     {
         if (component.AnalyzerEntity == null)
             return;
@@ -376,13 +378,13 @@ public sealed class OldArtifactAnalyzerSystem : EntitySystem {
 
         _audio.PlayPvs(component.ExtractSound, component.AnalyzerEntity.Value, AudioParams.Default.WithVolume(2f));
 
-        _popup.PopupEntity(Loc.GetString("analyzer-artifact-extract-popup"),
+        _popup.PopupEntity(Loc.GetString("old-analyzer-artifact-extract-popup"),
             component.AnalyzerEntity.Value, PopupType.Large);
 
         UpdateUserInterface(uid, component);
     }
 
-    private void OnBiasButton(EntityUid uid, OldArtifactAnalyzerComponent component, AnalysisConsoleBiasButtonPressedMessage args)
+    private void OnBiasButton(EntityUid uid, OldAnalysisConsoleComponent component, AnalysisConsoleBiasButtonPressedMessage args)
     {
         if (component.AnalyzerEntity == null)
             return;

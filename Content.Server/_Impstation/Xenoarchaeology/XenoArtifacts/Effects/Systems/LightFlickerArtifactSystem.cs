@@ -21,7 +21,7 @@ public sealed class LightFlickerArtifactSystem : EntitySystem
         SubscribeLocalEvent<LightFlickerArtifactComponent, ArtifactActivatedEvent>(OnActivated);
     }
 
-    private void OnActivated(Entity<LightFlickerArtifactComponent> ent, ArtifactActivatedEvent args)
+    private void OnActivated(Entity<LightFlickerArtifactComponent> ent, ref ArtifactActivatedEvent args)
     {
         var lights = GetEntityQuery<PoweredLightComponent>();
         foreach (var light in _lookup.GetEntitiesInRange(ent, ent.Comp.Radius, LookupFlags.StaticSundries ))

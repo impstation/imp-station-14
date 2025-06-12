@@ -4,13 +4,13 @@ using Robust.Shared.Utility;
 namespace Content.Shared.Xenoarchaeology.Equipment;
 
 [Serializable, NetSerializable]
-public enum ArtifactAnalzyerUiKey : byte
+public enum OldArtifactAnalyzerUiKey : byte
 {
     Key
 }
 
 [Serializable, NetSerializable]
-public sealed class AnalysisConsoleServerSelectionMessage : BoundUserInterfaceMessage
+public sealed class OldAnalysisConsoleServerSelectionMessage : BoundUserInterfaceMessage
 {
 }
 
@@ -25,7 +25,7 @@ public sealed class AnalysisConsolePrintButtonPressedMessage : BoundUserInterfac
 }
 
 [Serializable, NetSerializable]
-public sealed class AnalysisConsoleExtractButtonPressedMessage : BoundUserInterfaceMessage
+public sealed class OldAnalysisConsoleExtractButtonPressedMessage : BoundUserInterfaceMessage
 {
 }
 
@@ -36,7 +36,7 @@ public sealed class AnalysisConsoleBiasButtonPressedMessage(bool isDown) : Bound
 }
 
 [Serializable, NetSerializable]
-public sealed class AnalysisConsoleUpdateState(
+public sealed class OldAnalysisConsoleUpdateState(
     NetEntity? artifact,
     bool analyzerConnected,
     bool serverConnected,
