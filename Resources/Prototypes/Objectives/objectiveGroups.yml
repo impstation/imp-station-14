@@ -170,14 +170,31 @@
   weights:
     EscapeThiefShuttleObjective: 1
 
+# imp wizard prompt objectives
+- type: weightedRandom # imp this only seems to work with nested groups for reasons I don't understand
+  id: WizardPridefulGroups
+  weights:
+    WizardPridefulGroup: 1
+
 - type: weightedRandom
-  id: WizardPridefulGroup # imp
+  id: WizardChaosGroups
+  weights:
+    WizardChaosGroup: 1
+
+- type: weightedRandom
+  id: WizardPridefulGroup
   weights:
      WizardRespectObjective: 1
-     WizardChaosObjective: 1
      WizardFearObjective: 1
      WizardJusticeObjective: 1
+
+- type: weightedRandom
+  id: WizardChaosGroup
+  weights:
+     WizardChaosObjective: 1
      WizardBenefactorObjective: 1
      WizardGetRealObjective: 1
+
+
 
 #Crew, wizard, when you code it...
