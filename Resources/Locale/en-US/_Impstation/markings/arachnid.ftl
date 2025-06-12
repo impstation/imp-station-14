@@ -154,6 +154,6 @@ marking-CreepyArms = Creepy Arms
 marking-CreepyArms-creepy = Creepy Arms
 
 marking-AppendagesScorpion = Appendages (Scorpion)
-marking-AppendagesScorpion-appendagesscorpion = Legs and Pincers
+marking-AppendagesScorpion-scorpion = Legs and Pincers
 
 # RArmExtension
