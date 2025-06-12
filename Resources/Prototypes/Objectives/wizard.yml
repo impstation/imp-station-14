@@ -60,7 +60,7 @@
   parent: [BaseWizardObjective, BaseFreeObjective]
   id: WizardFearObjective
   name: Inspire Fear
-  description: Force these cowards to quake in fear at the very mention of your name
+  description: Force these cowards to quake in fear at the very mention of your name!
   components:
   - type: Objective
     icon:
@@ -93,7 +93,29 @@
   parent: [BaseWizardObjective, BaseFreeObjective]
   id: WizardGetRealObjective
   name: Get Real!
-  description: Nobody takes life seriously anymore. Give 'em a cold dose of reality.
+  description: Nobody takes life seriously anymore. Give these knaves a cold dose of reality.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: spell_default
+
+- type: entity
+  parent: [BaseWizardObjective, BaseFreeObjective]
+  id: WizardGeasObjective
+  name: Quest Giver
+  description: The worms of this station need your direction. Place your geas upon them. They defy you at their own peril.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: spell_default
+
+- type: entity
+  parent: [BaseWizardObjective, BaseFreeObjective]
+  id: WizardShameObjective
+  name: Shame Them
+  description: Remind these cretins just how pathetic they are in the face of the Federation!
   components:
   - type: Objective
     icon:
