@@ -74,6 +74,7 @@ public sealed class XenoEggSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDestructibleSystem _destruction = default!;
     [Dependency] private readonly NameModifierSystem _nameModifier = default!;
+    [Dependency] private readonly SharedXenoWeedsSystem _xenoWeeds = default!;
 
     private static readonly ProtoId<TagPrototype> AirlockTag = "Airlock";
     private static readonly ProtoId<TagPrototype> StructureTag = "Structure";
@@ -97,8 +98,7 @@ public sealed class XenoEggSystem : EntitySystem
         SubscribeLocalEvent<XenoEggComponent, UseInHandEvent>(OnXenoEggUseInHand);
         SubscribeLocalEvent<XenoEggComponent, InteractUsingEvent>(OnXenoEggInteractUsing);
         SubscribeLocalEvent<XenoEggComponent, XenoEggReturnParasiteDoAfterEvent>(OnXenoEggReturnParasiteDoAfter);
-        SubscribeLocalEvent<XenoEggComponent, AfterInteractEvent>(OnXenoEggAfterInteract);
-        SubscribeLocalEvent<XenoEggComponent, XenoEggPlaceDoAfterEvent>(OnXenoEggPlaceDoAfter);
+        SubscribeLocalEvent<XenoComponent, XenoEggPlaceEvent>(OnXenoEggPlace);
         SubscribeLocalEvent<XenoEggComponent, ActivateInWorldEvent>(OnXenoEggActivateInWorld);
         SubscribeLocalEvent<XenoEggComponent, StepTriggerAttemptEvent>(OnXenoEggStepTriggerAttempt);
         SubscribeLocalEvent<XenoEggComponent, StepTriggeredOffEvent>(OnXenoEggStepTriggered);
@@ -217,74 +217,38 @@ public sealed class XenoEggSystem : EntitySystem
         args.Handled = ev.Handled;
     }
 
-    private void OnXenoEggAfterInteract(Entity<XenoEggComponent> egg, ref AfterInteractEvent args)
+    private void OnXenoEggPlace(Entity<XenoComponent> xeno, ref XenoEggPlaceEvent args)
     {
         if (args.Handled)
             return;
 
-        if (egg.Comp.State != XenoEggState.Item || !HasComp<TransformComponent>(egg))
+        args.Handled = true;
+
+        var coordinates = Transform(xeno).Coordinates;
+
+        if (!_plasma.TryRemovePlasmaPopup(args.Performer, 30))
             return;
 
-        if ((!HasComp<EggPlantingDistanceComponent>(args.User) && !args.CanReach) ||
-            (TryComp<EggPlantingDistanceComponent>(args.User, out var plantDis) && !_interaction.InRangeUnobstructed(args.User, args.ClickLocation, plantDis.Distance)))
+        if (_transform.GetGrid(coordinates) is not { } gridUid ||
+            !TryComp(gridUid, out MapGridComponent? gridComp))
         {
-            if (_timing.IsFirstTimePredicted)
-                _popup.PopupCoordinates(Loc.GetString("cm-xeno-cant-reach-there"), args.ClickLocation, Filter.Local(), true);
-
             return;
         }
 
-        if (!CanPlaceEggPopup(args.User, egg, args.ClickLocation, args.Handled, out _))
+        var grid = new Entity<MapGridComponent>(gridUid, gridComp);
+        if (_xenoWeeds.IsOnWeeds(grid, coordinates, false))
         {
-            args.Handled = true;
             return;
         }
 
-        args.Handled = true;
+        var egg = Spawn(args.Prototype, coordinates);
 
-        var plantTime = TimeSpan.FromSeconds(3.5);
-        if (TryComp<EggPlantTimeComponent>(args.User, out var time))
-            plantTime = time.PlantTime;
-
-        var ev = new XenoEggPlaceDoAfterEvent(GetNetCoordinates(args.ClickLocation));
-        var doAfter = new DoAfterArgs(EntityManager, args.User, plantTime, ev, egg)
+        if (TryComp<XenoEggComponent>(egg, out var eggComp))
         {
-            BreakOnMove = true,
-            BlockDuplicate = true,
-            DuplicateCondition = DuplicateConditions.SameEvent
-        };
-
-        _popup.PopupPredicted(Loc.GetString("rmc-xeno-egg-plant-self"), Loc.GetString("rmc-xeno-egg-plant", ("user", args.User)), egg, args.User);
-
-        _doAfter.TryStartDoAfter(doAfter);
-    }
-
-    private void OnXenoEggPlaceDoAfter(Entity<XenoEggComponent> egg, ref XenoEggPlaceDoAfterEvent args)
-    {
-        if (args.Handled || args.Cancelled)
-            return;
-
-        args.Handled = true;
-
-        var coordinates = GetCoordinates(args.Coordinates);
-        if (!CanPlaceEggPopup(args.User, egg, coordinates, false, out var hiveweeds))
-            return;
-
-        if (!_plasma.TryRemovePlasmaPopup(args.User, 30))
-            return;
-
-        //Eggsac code
-        if (!hiveweeds)
-            EggsacSustain(args.User, egg);
-
-        // Hand code is god-awful and its reach distance is inconsistent with args.CanReach
-        // so we need to set the position ourselves.
-        _transform.SetCoordinates(egg, EntityManager.GetCoordinates(args.Coordinates));
-        _transform.SetLocalRotation(egg, 0);
-
-        SetEggState(egg, XenoEggState.Growing);
-        _transform.AnchorEntity(egg, Transform(egg));
-        _audio.PlayPredicted(egg.Comp.PlantSound, egg, args.User);
+            _transform.SetLocalRotation(egg, 0);
+            SetEggState((egg, eggComp), XenoEggState.Growing);
+            _transform.AnchorEntity(egg, Transform(egg));
+        }
     }
 
     private void EggsacSustain(EntityUid user, Entity<XenoEggComponent> egg)

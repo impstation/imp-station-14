@@ -126,7 +126,7 @@
     icon:
       sprite: _Impstation/Actions/xeno_actions.rsi
       state: alien_egg
-    event: !type:XenoGenerateEggsActionEvent
+    event: !type:XenoEggPlaceEvent
 
 - type: entity
   id: XenoThermalVision
