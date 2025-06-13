@@ -167,6 +167,8 @@
   - type: Gun #imp - everything listed in this component
     minAngle: 21
     maxAngle: 40
+    angleIncrease: 2
+    angleDecay: 15
     fireRate: 6
     selectedMode: FullAuto
     availableModes:
