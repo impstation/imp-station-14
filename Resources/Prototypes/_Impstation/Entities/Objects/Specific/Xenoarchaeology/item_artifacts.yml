@@ -1,57 +1,44 @@
-﻿#this is copied from the BaseXenoArtifactItem prototyped instead of parenting because I needed to remove the random sprites and using RemoveComp sounds scary
-- type: entity
-  parent: BaseItem
+﻿- type: entity
+  parent: [ BaseItem, BaseXenoArtifactItem ]
   id: EvilSkullArtifactItem
   name: evil skull
   suffix: Hummingbird thief objective
   description: Beware.
   components:
   - type: Sprite
-    sprite: Mobs/Species/Skeleton/parts.rsi
-    state: skull_icon
-  - type: Damageable
-  - type: Physics
-    bodyType: Dynamic
-  - type: CollisionWake
-    enabled: false
-  - type: InteractionOutline
-  - type: Reactive
-    groups:
-      Acidic: [Touch]
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.25,-0.25,0.25,0.25"
-        density: 20
-        mask:
-        - ItemMask
-        layer:
-        - Opaque
-        restitution: 0.3  # fite me
-        friction: 0.2
-  - type: Artifact
-    activationSound: !type:SoundPathSpecifier
-      params:
-        variation: 0.125
-      path: /Audio/Voice/Skeleton/skeleton_scream.ogg
-    nodesMax: 13
-    nodesMin: 5
-  - type: UserInterface #needs to be here for certain effects
-    interfaces:
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
-      enum.TransferAmountUiKey.Key:
-        type: TransferAmountBoundUserInterface
-      enum.InstrumentUiKey.Key:
-        type: InstrumentBoundUserInterface
-      enum.IntercomUiKey.Key:
-        type: IntercomBoundUserInterface
-  - type: Appearance
+    sprite: _Impstation/Objects/Specific/Xenoarchaeology/skull_artifact.rsi
+    layers:
+    - state: ano01
+      map: [ "enum.ArtifactsVisualLayers.Base" ]
+    - state: ano01_on
+      map: [ "enum.ArtifactsVisualLayers.UnlockingEffect" ]
+      visible: false
+    - state: artifact-activation
+      map: [ "enum.ArtifactsVisualLayers.ActivationEffect" ]
+      visible: false
   - type: Item
     size: Normal
-  - type: Actions
+    sprite: _Impstation/Objects/Specific/Xenoarchaeology/skull_artifact.rsi
+  - type: RandomArtifactSprite
+    maxSprite: 1
+  - type: RandomSprite
+    available:
+    - enum.ArtifactsVisualLayers.UnlockingEffect:
+        ano01_on: ""
+  - type: XenoArtifact
+    forceActivationSoundSpecifier:
+      path: /Audio/Voice/Skeleton/skeleton_scream.ogg
+    unlockActivationSuccessfulSound:
+      path: /Audio/Voice/Skeleton/skeleton_scream.ogg
+      params:
+        variation: 0.1
+        volume: 3.0
+        pitch: 1.15
+    unlockActivationFailedSound:
+      path: /Audio/Voice/Skeleton/skeleton_scream.ogg
+      params:
+        variation: 0.1
+        pitch: 0.85
   - type: Speech
     speechSounds: Alto
     speechVerb: Skeleton

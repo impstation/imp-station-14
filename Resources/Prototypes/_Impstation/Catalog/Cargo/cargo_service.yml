@@ -1,10 +1,10 @@
 - type: cargoProduct
-  id: ServiceJanitorialCleanades
+  id: ServiceJanitorialSoap
   icon:
-    sprite: Objects/Specific/Janitorial/wet_floor_sign.rsi
-    state: icon
-  product: CrateServiceCleanades
-  cost: 800
+    sprite: Objects/Specific/Janitorial/soap.rsi
+    state: nt-4
+  product: CrateServiceSoap
+  cost: 250
   category: cargoproduct-category-name-service
   group: market
 
@@ -38,3 +38,14 @@
 #  cost: 750
 #  category: cargoproduct-category-name-fun
 #  group: market
+
+- type: cargoProduct
+  name: anniversary crate
+  id: CrateAnniversary
+  icon:
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    state: plushie_imp
+  product: CrateAnniversaryFilled
+  cost: 750
+  category: cargoproduct-category-name-fun
+  group: market
