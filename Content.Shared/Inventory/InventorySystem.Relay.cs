@@ -28,6 +28,7 @@ using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared._EE.Overlays.Switchable;
 using Content.Shared.Mobs; // EE edit
 using Content.Shared.Zombies;
+using Content.Shared.Examine; // Harmony
 
 namespace Content.Shared.Inventory;
 
@@ -53,6 +54,7 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, SelfBeforeClimbEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, CoefficientQueryEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, ZombificationResistanceQueryEvent>(RelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, ExaminedEvent>(RelayInventoryEvent); // Harmony - added for lanyards.
 
         // by-ref events
         SubscribeLocalEvent<InventoryComponent, RefreshFrictionModifiersEvent>(RefRelayInventoryEvent);
