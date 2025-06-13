@@ -165,6 +165,8 @@
           tags:
             - CartridgeRifle
   - type: Gun #imp - everything listed in this component
+    minAngle: 21
+    maxAngle: 40
     fireRate: 6
     selectedMode: FullAuto
     availableModes:
