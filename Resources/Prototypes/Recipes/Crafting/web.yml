@@ -179,22 +179,6 @@
   objectType: Item
 
 - type: construction
-  name: web beret
-  id: ClothingHeadHatWebBeret
-  graph: WebObjects
-  startNode: start
-  targetNode: webberet
-  category: construction-category-clothing
-  description: "It's light and fashionable, if a little stringy."
-  entityWhitelist:
-    tags:
-    - SpiderCraft
-  icon:
-    sprite: _Impstation/Clothing/Head/Hats/beret_web.rsi
-    state: icon
-  objectType: Item
-
-- type: construction
   name: web gloves
   id: ClothingHandsGlovesColorWeb
   graph: WebObjects
