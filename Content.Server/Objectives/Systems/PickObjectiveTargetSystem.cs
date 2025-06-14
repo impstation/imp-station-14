@@ -2,6 +2,7 @@ using Content.Server.Objectives.Components;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Roles; // imp
+using Content.Shared._DV.Roles; // imp
 using Content.Shared.Roles.Jobs; // imp
 using Content.Server.GameTicking.Rules;
 using Content.Server.Revolutionary.Components;
@@ -352,17 +353,19 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
             }
             Logger.Debug($"Checking mind {mindId} controlling {ToPrettyString(owned)}");
 
-            //huge list of every single targetable antag's role component
-            if (_role.MindHasRole<ThiefRoleComponent>(mindId)    /*Thief*/
-            || _role.MindHasRole<TraitorRoleComponent>(mindId)   /*Traitor*/
-            || _role.MindHasRole<HereticRoleComponent>(mindId)   /*Heretic*/
-            || _role.MindHasRole<ChangelingRoleComponent>(mindId)/*Changeling*/
+            //huge list of every single whitelisted antag's role component
+            if (_role.MindHasRole<ChangelingRoleComponent>(mindId)  /*Changeling*/
             || _role.MindHasRole<RevolutionaryRoleComponent>(mindId)/*Head Rev*/
+            || _role.MindHasRole<HereticRoleComponent>(mindId)      /*Heretic*/
+            || _role.MindHasRole<ThiefRoleComponent>(mindId)        /*Thief*/
+            || _role.MindHasRole<TraitorRoleComponent>(mindId)      /*Traitor*/
 
-            || _role.MindHasRole<NukeopsRoleComponent>(mindId)/*Nukies*/
-            || _role.MindHasRole<WizardRoleComponent>(mindId)/*Wizard*/
+            || _role.MindHasRole<FugitiveRoleComponent>(mindId)    /*Fugitive*/
+            || _role.MindHasRole<NinjaRoleComponent>(mindId)       /*Ninja*/
+            || _role.MindHasRole<NukeopsRoleComponent>(mindId)     /*Nukies*/
             || _role.MindHasRole<ParadoxCloneRoleComponent>(mindId)/*Paradox Clone*/
-            || _role.MindHasRole<NinjaRoleComponent>(mindId)/*Ninja*/
+            || _role.MindHasRole<SynthesisRoleComponent>(mindId)   /*Synthesis Specialist*/
+            || _role.MindHasRole<WizardRoleComponent>(mindId)      /*Wizard*/
             )
             {
                 Logger.Debug($"FOUND TARGET");
