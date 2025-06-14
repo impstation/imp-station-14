@@ -19,10 +19,6 @@
     mindRoles:
     - MindRoleGhostRoleFreeAgentHarmless
   - type: GhostTakeoverAvailable
-  - type: Speech
-    speechSounds: Squeak
-    speechVerb: SmallMob
-    allowedEmotes: ['Squeak']
   - type: Sprite
     drawdepth: SmallMobs
     sprite: _Impstation/Mobs/Animals/oppa.rsi
@@ -116,8 +112,6 @@
       amount: 2
     - id: OppaPouch
       amount: 1
-  - type: ReplacementAccent
-    accent: mouse
   - type: Tag
     tags:
     - Trash
@@ -126,12 +120,6 @@
     - Mouse
     - Meat
     - MultitoolDefibrillatorTarget
-  - type: Vocal
-    sounds:
-      Male: Mouse
-      Female: Mouse
-      Unsexed: Mouse
-    wilhelmProbability: 0.001
   # TODO: Remove CombatMode when Prototype Composition is added
   - type: CombatMode
   - type: MeleeWeapon
@@ -175,6 +163,19 @@
     color: Black
     radius: 1.1
     energy: 2
+#fixing vocal
+  - type: Speech
+    speechSounds: Squeak
+    speechVerb: SmallMob
+    allowedEmotes: ['Squeak']
+  - type: Vocal
+    sounds:
+      Male: Mouse
+      Female: Mouse
+      Unsexed: Mouse
+    wilhelmProbability: 0.001
+  - type: ReplacementAccent
+    accent: mouse
 #here comes the scary pinpointer zone, directly copied from dragon for fun?
   - type: Inventory 
     templateId: dragon
