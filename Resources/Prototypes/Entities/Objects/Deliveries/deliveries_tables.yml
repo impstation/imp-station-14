@@ -62,18 +62,12 @@
   id: LetterCommonEntityTable # Basically trash and spam mail, maybe something barely useful here and there
   table: !type:GroupSelector
     children:
-    - !type:NestedSelector # Don't you love getting mailed trash?
-      weight: 2 #imp edit. we dont ^
-      tableId: GenericTrashItems
     - !type:NestedSelector
-      weight: 2 #imp
+      weight: 3 #imp
       tableId: SpamMailTable
-    - !type:NestedSelector #start imp
-      weight: 2 
-      tableId: LetterImpBookEntityTable
     - !type:NestedSelector
-      weight: 4
-      tableId: LetterImpSnacksEntityTable #end imp
+      weight: 7
+      tableId: LetterImpCommonEntityTable
 
 - type: entityTable # TODO: Add more variety!
   id: LetterUncommonEntityTable # Some more varied things, should never be more expensive than 100 spesos
@@ -82,15 +76,10 @@
     - !type:NestedSelector
       tableId: RandomSafePillTable
     - !type:NestedSelector
-      tableId: RandomSafeSyringeTable
-    - !type:NestedSelector
       tableId: UncommonLetterBundleTable
     - !type:NestedSelector #start imp
-      weight: 0.3
-      tableId: LetterImpMiscEntityTable
-    - !type:NestedSelector
-      weight: 0.2
-      tableId: LetterImpSmokesEntityTable #end imp
+      weight: 0.45
+      tableId: LetterImpUncommonEntityTable #end imp
 
 - type: entityTable # TODO: Add more variety!
   id: LetterRareEntityTable # Interesting things that can actually be of use, should never be more expensive than 500 spesos
@@ -106,13 +95,11 @@
       - id: Brutepack
       - id: Ointment
       - id: Gauze
-      - id: SimpleSuture #IMP
-      - id: Tincture #IMP
       - id: Bloodpack
-    - !type:NestedSelector #start imp
-      tableId: LetterImpKnifeEntityTable
-#    - !type:NestedSelector
-#      tableId: LetterImpEffectEntityTable # ough this is broken!!! end imp
+      - id: SimpleSuture #start imp
+      - id: Tincture
+    - !type:NestedSelector
+      tableId: LetterImpRareEntityTable # end imp
 
 # Packages
 # TODO: Currently mostly maints loot, should be updated in the future.
@@ -124,14 +111,9 @@
       tableId: MaintToolsTable
       rolls: !type:RangeNumberSelector
         range: 1, 2
-    - !type:NestedSelector # start imp
-      tableId: PackageImpFoodEntityTable
-      weight: 0.25
-    - !type:NestedSelector
-      tableId: PackageImpMiscEntityTable
-      weight: 0.35
-    - !type:NestedSelector
-      tableId: PackageImpInstrumentEntityTable #end imp
+    - !type:NestedSelector #start imp
+      weight: 0.5
+      tableId: PackageImpCommonEntityTable #end imp
 
 - type: entityTable
   id: PackageUncommonEntityTable
@@ -139,7 +121,7 @@
     children:
     - !type:NestedSelector
       tableId: MaintFluffTable
-      weight: 0.1 #imp
+      weight: 0.25 #imp
       rolls: !type:RangeNumberSelector
         range: 1, 2
     - !type:NestedSelector
@@ -148,14 +130,9 @@
     - !type:NestedSelector
       tableId: RandomAllAlcoholTable
       weight: 0.2
-      rolls: !type:RangeNumberSelector
-        range: 2, 3
     - !type:NestedSelector #start imp
-      weight: 0.25
-      tableId: PackageToyWeaponEntityTable
-    - !type:NestedSelector
-      weight: 0.25
-      tableId: PackageImpCosplayEntityTable #end imp
+      tableId: PackageImpUncommonEntityTable
+      weight: 0.35 #end imp
 
 - type: entityTable # TODO: Add more variety!
   id: PackageRareEntityTable

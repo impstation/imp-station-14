@@ -1,4 +1,73 @@
-## letters
+## supertables
+# letters
+- type: entityTable 
+  id: LetterImpCommonEntityTable # TODO: populating the spam letter list with a lot of imp letters
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      weight: 2 
+      tableId: LetterImpBookEntityTable
+    - !type:NestedSelector
+      weight: 4
+      tableId: LetterImpSnacksEntityTable
+    - !type:NestedSelector
+      weight: 2 
+      tableId: LetterImpToysEntityTable
+    - !type:NestedSelector
+      tableId: LetterImpCreaturesEntityTable
+
+- type: entityTable 
+  id: LetterImpUncommonEntityTable
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      children:
+      - id: ItemBouquet
+      - id: ClothingHeadFishCap
+      - id: SprayBottleCarpetium
+      - id: SpaceCash100
+      - id: Joint
+    - !type:NestedSelector
+      tableId: LetterImpTrinketEntityTable
+    - !type:NestedSelector
+      tableId: LetterImpSyringeEntityTable
+    - !type:NestedSelector
+      tableId: LetterImpSmokesEntityTable
+
+- type: entityTable 
+  id: LetterImpRareEntityTable
+  table: !type:GroupSelector
+    children:
+    - id: LightImplanter
+    - id: BikeHornImplanter
+    - !type:NestedSelector
+      tableId: LetterImpKnifeEntityTable
+# packages
+- type: entityTable 
+  id: PackageImpCommonEntityTable
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: PackageImpMiscEntityTable
+    - !type:NestedSelector
+      tableId: PackageImpFoodEntityTable
+    - !type:NestedSelector
+      tableId: PackageImpInstrumentEntityTable
+    - !type:NestedSelector
+      tableId: PackageImpBongEntityTable
+
+- type: entityTable 
+  id: PackageImpUncommonEntityTable
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: PackageToyWeaponEntityTable
+    - !type:NestedSelector
+      tableId: PackageImpCosplayEntityTable
+    - !type:NestedSelector
+      tableId: PackageImpClothesEntityTable
+
+## letter subcategories
 # books
 - type: entityTable
   id: LetterImpBookEntityTable
@@ -8,7 +77,7 @@
       tableId: RandomBookTable #imp books are in the random book table TODO: make them more common?
     - !type:NestedSelector
       tableId: HolyTextEntityTable
-      weight: 0.05
+      weight: 0.03
 # pens
 - type: entityTable
   id: LetterImpPenEntityTable
@@ -20,6 +89,17 @@
     - id: PenCentcom
       weight: 0.1
     - id: PenWiz
+      weight: 0.1
+# medicine
+- type: entityTable
+  id: LetterImpSyringeEntityTable
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: RandomSafeSyringeTable
+    - id: SyringeEstradiol
+      weight: 0.1
+    - id: SyringeTestosterone
       weight: 0.1
 # small foods
 - type: entityTable
@@ -104,7 +184,7 @@
       - id: FlippoLighter
 # effects
 - type: entityTable
-  id: LetterImpEffectEntityTable #they don't work yay!
+  id: LetterImpEffectEntityTable #these don't work and aren't in the pool! CS warriors save me
   table: !type:GroupSelector
     children:
     - id: DelayedEMP
@@ -159,30 +239,31 @@
       - id: MobLizard
       - id: MobFrog
     - id: MobBros
-      weight: 0.15
+      weight: 0.1
     - id: MobAngryBee
-      weight: 0.15
-# assorted items
+      weight: 0.1
+# toys
 - type: entityTable 
-  id: LetterImpMiscEntityTable
+  id: LetterImpToysEntityTable
   table: !type:GroupSelector
     children:
-    - !type:GroupSelector
-      children:
-      - id: ItemBouquet
-      - id: ClothingHeadFishCap
-      - id: MysteryFigureBox
-      - id: MysterySpaceBladeBox
-      - id: SprayBottleCarpetium
-      - id: SpaceCash100
-      - id: Joint
-      - id: PrizeTicketBronze
-    - !type:NestedSelector
-      tableId: LetterImpTrinketEntityTable
-    - !type:NestedSelector
-      tableId: LetterImpCreaturesEntityTable
+    - id: BeachBall
+    - id: MysteryFigureBox
+    - id: MysterySpaceBladeBox
+    - id: PrizeBall
+    - id: PrizeTicketBronze
+    - id: BalloonNT
+    - id: MrChips
+    - id: MrDips
+    - id: WhoopieCushion
+    - id: GlowstickBlue
+    - id: GlowstickPurple
+    - id: GlowstickYellow
+    - id: DiceBag
+    - id: d20Dice
+    - id: ChessBoard
 
-## packages
+## package subcategories
 # food!
 - type: entityTable
   id: PackageImpFoodEntityTable
@@ -248,6 +329,7 @@
       tableId: PackageImpTacticalMaidCosplay
     - !type:NestedSelector
       tableId: PackageImpMaidCosplay
+    - id: MailImpContractKillerKit
 
 - type: entityTable
   id: PackageImpMaidCosplay
@@ -324,11 +406,22 @@
       tableId: PackageImpShoesEntityTable
     - !type:NestedSelector
       tableId: PackageImpBedsheetEntityTable
+    - !type:NestedSelector
+      tableId: PackageImpBoxingGlovesEntityTable
     - id: ClothingOuterWinterCoat #after making all of those food tables im too tired to do big clothes tables
     - id: ClothingOuterCoatPufferPink
     - id: ClothingOuterApronCuteChef
     - id: ClothingEyesGlassesSunglasses
     - id: ClothingNeckChameleon
+
+- type: entityTable
+  id: PackageImpBoxingGlovesEntityTable
+  table: !type:GroupSelector
+    children:
+      - id: ClothingHandsGlovesBoxingRed
+      - id: ClothingHandsGlovesBoxingBlue
+      - id: ClothingHandsGlovesBoxingYellow
+      - id: ClothingHandsGlovesBoxingGreen
 
 - type: entityTable
   id: PackageImpShoesEntityTable
@@ -389,6 +482,8 @@
     - id: DevilPitchfork
     - id: RevolverCapGun
     - id: FoamCrossbow
+    - id: WeaponWaterBlaster
+    - id: WeaponWaterPistol
     - id: ToySword
     - id: ToyHammer
     - !type:GroupSelector
@@ -432,11 +527,16 @@
   id: PackageImpMiscEntityTable
   table: !type:GroupSelector
     children:
-    - id: BlockGameArcadeComputerCircuitboard
-    - id: SpaceVillainArcadeComputerCircuitboard
-    - id: CrayonBox
-    - id: ClothingBackpackSCargoDuffelPurple
-    - id: ClothingBackpackSCargoDuffelCyan
+    - !type:GroupSelector
+      children:
+      - id: BlockGameArcadeComputerCircuitboard
+      - id: SpaceVillainArcadeComputerCircuitboard
+      - id: CrayonBox
+      - id: ClothingBackpackSCargoDuffelPurple
+      - id: ClothingBackpackSCargoDuffelCyan
+      - id: CowToolboxFilled
+      - id: BoxSoapsAssorted
+      - id: BoxSoapsAssortedOmega
     - !type:AllSelector
       children:
       - id: Multitool
@@ -446,12 +546,6 @@
       - id: Handcuffs
       - id: ClothingMaskMuzzle
       - id: ClothingEyesBlindfold
-    - !type:NestedSelector
-      weight: 0.2
-      tableId: PackageImpClothesEntityTable
-    - !type:NestedSelector
-      weight: 0.2
-      tableId: PackageImpBongEntityTable
 # friends! i'm impatient for tcktck to come back and i dont wanna wait for departmental mail
 - type: entityTable 
   id: PackageImpFriendsEntityTable
@@ -468,7 +562,10 @@
         - id: MobFerret
         - id: MobHamster
         - id: MobTckTck
-          weight: 0.2
+          weight: 0.1
         - id: MobDiscworldLuggage
-          weight: 0.2
-#       - id: MobGoblinStowaway # these crashed in localhost. sad
+          weight: 0.1
+        - id: MobGoblinStowaway
+          weight: 0.1
+        - id: MobMimic
+          weight: 0.1
