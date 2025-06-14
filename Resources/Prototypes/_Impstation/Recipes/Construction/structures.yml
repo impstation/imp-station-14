@@ -125,3 +125,16 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+
+- type: construction
+  id: PoweredFloorLightEmpty
+  graph: FloorLightFixture
+  startNode: start
+  targetNode: metamorphicLightHole
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
