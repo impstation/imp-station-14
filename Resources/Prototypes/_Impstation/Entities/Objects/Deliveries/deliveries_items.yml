@@ -44,3 +44,52 @@
         reagents:
         - ReagentId: Estradiol
           Quantity: 15
+
+# Some Homunculus Items
+- type: entity
+  parent: Beaker
+  suffix: homunculus kit
+  id: HomunculusKitBeaker
+  name: beaker solution
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 50
+        reagents:
+        - ReagentId: Fat
+          Quantity: 10
+        - ReagentId: Lacerinol
+          Quantity: 10
+
+- type: entity
+  parent: BaseChemistryEmptyVial
+  suffix: homunculus kit
+  id: HomunculusKitVialA
+  name: vial a
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 50
+        reagents:
+        - ReagentId: Saline
+          Quantity: 20
+
+- type: entity
+  name: homunculus kit
+  parent: BoxCardboard
+  id: BoxHomunculusKit
+  description: A high quality cardboard box filled with various beakers and vials.
+  components:
+  - type: StorageFill
+    contents:
+    - id: HomunculusKitBeaker
+    - id: HomunculusKitVialA
+    - id: BaseChemistryEmptyVial
+    - id: Syringe
+    - id: PaperMailHomunculusKit
+  - type: Sprite
+    layers:
+    - state: box_hug
+    - state: heart

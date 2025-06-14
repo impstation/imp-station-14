@@ -550,7 +550,9 @@
   table: !type:GroupSelector
     children:
     - id: PetRockCarrier
+      weight: 0.5
     - !type:AllSelector
+      weight: 0.4
       children:
       - id: PetCarrier
       - !type:GroupSelector
@@ -567,3 +569,9 @@
           weight: 0.1
         - id: MobMimic
           weight: 0.1
+    - !type:AllSelector
+      weight: 0.1
+      children:
+      - id: PortableIncubator
+      - id: BoxHomunculusKit
+
