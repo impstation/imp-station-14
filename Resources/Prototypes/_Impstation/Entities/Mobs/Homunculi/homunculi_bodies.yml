@@ -97,7 +97,7 @@
   root: torso
   slots:
     torso:
-      part: TorsoHomunculusThavem
+      part: TorsoHomunculusThaven
       connections:
       organs:
         brain: OrganThavenBrain
@@ -109,7 +109,7 @@
         kidneys: OrganThavenKidneys
 
 - type: entity
-  id: TorsoHomunculusThavem
+  id: TorsoHomunculusThaven
   parent: PartThaven
   categories: [ HideSpawnMenu ]
   components:

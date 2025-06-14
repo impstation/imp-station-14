@@ -1,7 +1,8 @@
 - type: entity
   parent: SimpleMobBase
-  categories: [ HideSpawnMenu ]
-  id: HomunculusBase
+  abstract: true
+  name: homunculus
+  id: BaseHomunculus
   components:
   - type: GhostTakeoverAvailable
   - type: GhostRole
