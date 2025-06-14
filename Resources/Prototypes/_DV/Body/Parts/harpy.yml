@@ -1,24 +1,23 @@
 - type: entity
   id: PartHarpy
-  parent: BaseItem
+  parent: [BaseItem, BasePart] # Frontier: add BasePart, consistency with upstream
   name: "harpy body part"
   abstract: true
   components:
-  - type: BodyPart
-  - type: ContainerContainer
-    containers:
-      bodypart: !type:Container
-        ents: []
-  - type: StaticPrice #DynamicPrice
-    price: 100
-  - type: Tag
-    tags:
-      - Trash
+  # Frontier: added lines below, consistency with upstream
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: Blood
+        Quantity: 10
+  # End Frontier: consistency with upstream
 
 - type: entity
   id: TorsoHarpy
   name: "harpy torso"
-  parent: PartHarpy
+  parent: [PartHarpy, BaseTorso] # Frontier: add BaseTorso
   components:
   - type: Sprite
     netsync: false
@@ -27,14 +26,20 @@
   - type: Icon
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
     state: "torso_m"
-  - type: BodyPart
-    partType: Torso
- 
+  # Frontier: added lines below, consistency with upstream
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+  # End Frontier: consistency with upstream
 
 - type: entity
   id: HeadHarpy
   name: "harpy head"
-  parent: PartHarpy
+  parent: [PartHarpy, BaseHead] # Frontier: add BaseHead
   components:
   - type: Sprite
     netsync: false
@@ -43,21 +48,20 @@
   - type: Icon
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
     state: "head_m"
-  - type: BodyPart
-    partType: Head
-    vital: true
-  - type: Input
-    context: "ghost"
-  - type: InputMover
-  - type: GhostOnMove
-  - type: Tag
-    tags:
-      - Head
+  # Frontier: added lines below, consistency with upstream
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 5
+      - ReagentId: Blood
+        Quantity: 10
+  # End Frontier: consistency with upstream
 
 - type: entity
   id: LeftArmHarpy
   name: "left harpy arm"
-  parent: PartHarpy
+  parent: [PartHarpy, BaseLeftArm] # Frontier: add BaseLeftArm
   components:
   - type: Sprite
     netsync: false
@@ -66,14 +70,11 @@
   - type: Icon
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
     state: "l_arm"
-  - type: BodyPart
-    partType: Arm
-    symmetry: Left
 
 - type: entity
   id: RightArmHarpy
   name: "right harpy arm"
-  parent: PartHarpy
+  parent: [PartHarpy, BaseRightArm] # Frontier: add BaseRightArm
   components:
   - type: Sprite
     netsync: false
@@ -82,19 +83,11 @@
   - type: Icon
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
     state: "r_arm"
-  - type: BodyPart
-    partType: Arm
-    symmetry: Right
-    onAdd:
-    - type: Flight
-      isLayerAnimated: true
-      layer: "/Textures/_EinsteinEngines/Mobs/Customization/Harpy/harpy_wings.rsi"
-      animationKey: "Flap"
 
 - type: entity
   id: LeftHandHarpy
   name: "left harpy hand"
-  parent: PartHarpy
+  parent: [PartHarpy, BaseLeftHand] # Frontier: add BaseLeftHand
   components:
   - type: Sprite
     netsync: false
@@ -103,14 +96,11 @@
   - type: Icon
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
     state: "l_hand"
-  - type: BodyPart
-    partType: Hand
-    symmetry: Left
 
 - type: entity
   id: RightHandHarpy
   name: "right harpy hand"
-  parent: PartHarpy
+  parent: [PartHarpy, BaseRightHand] # Frontier: add BaseRightHand
   components:
   - type: Sprite
     netsync: false
@@ -119,14 +109,11 @@
   - type: Icon
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
     state: "r_hand"
-  - type: BodyPart
-    partType: Hand
-    symmetry: Right
 
 - type: entity
   id: LeftLegHarpy
   name: "left harpy leg"
-  parent: PartHarpy
+  parent: [PartHarpy, BaseLeftLeg] # Frontier: add BaseLeftLeg
   components:
   - type: Sprite
     netsync: false
@@ -135,15 +122,11 @@
   - type: Icon
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
     state: "l_leg"
-  - type: BodyPart
-    partType: Leg
-    symmetry: Left
-  - type: MovementBodyPart
 
 - type: entity
   id: RightLegHarpy
   name: "right harpy leg"
-  parent: PartHarpy
+  parent: [PartHarpy, BaseRightLeg] # Frontier: add BaseRightLeg
   components:
   - type: Sprite
     netsync: false
@@ -152,15 +135,11 @@
   - type: Icon
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
     state: "r_leg"
-  - type: BodyPart
-    partType: Leg
-    symmetry: Right
-  - type: MovementBodyPart
 
 - type: entity
   id: LeftFootHarpy
   name: "left harpy foot"
-  parent: PartHarpy
+  parent: [PartHarpy, BaseLeftFoot] # Frontier: add BaseLeftFoot
   components:
   - type: Sprite
     netsync: false
@@ -169,14 +148,11 @@
   - type: Icon
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
     state: "l_foot"
-  - type: BodyPart
-    partType: Foot
-    symmetry: Left
 
 - type: entity
   id: RightFootHarpy
   name: "right harpy foot"
-  parent: PartHarpy
+  parent: [PartHarpy, BaseRightFoot] # Frontier: add BaseRightFoot
   components:
   - type: Sprite
     netsync: false
@@ -185,6 +161,3 @@
   - type: Icon
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
     state: "r_foot"
-  - type: BodyPart
-    partType: Foot
-    symmetry: Right

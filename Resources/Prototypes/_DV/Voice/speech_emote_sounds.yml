@@ -1,6 +1,6 @@
 # species
 - type: emoteSounds
-  id: SoundsHarpyFemale
+  id: SoundsHarpy
   params:
     variation: 0.125
   sounds:
@@ -28,18 +28,26 @@
       collection: HarpyGrowls
     Purr:
       collection: HarpyPurrs
-    Ring:
+    HarpyRing:
       collection: HarpyRings
-    Pew:
+    HarpyHonk:
+      collection: HarpyHonks
+      params: # Frontier
+        volume: -5 # Frontier
+    HarpyPew:
       collection: HarpyPews
-    Bang:
+    HarpyBang:
       collection: HarpyBangs
-    Beep:
+      params: # Frontier
+        volume: -5 # Frontier
+    HarpyBeep:
       collection: HarpyBeeps
-    Rev:
+    HarpyRev:
       collection: HarpyRevs
-#    Click:
-#      collection: HarpyClicks
+      params: # Frontier
+        volume: -5 # Frontier
+    Click:
+      collection: HarpyClicks
     Chitter:
       collection: HarpyChitter
     Squeak:
@@ -58,90 +66,17 @@
       collection: VulpkaninHowls
     Awoo:
       collection: VulpkaninHowls
-    Honk:
-      collection: HarpyHonks
     Weh:
       collection: Weh
+    Hew:
+      collection: Hew
     Gasp:
-      collection: FemaleGasp
+      collection: HarpyGasp
     DefaultDeathgasp:
-      collection: FemaleDeathGasp
-    Gekker:
-      collection: VulpkaninGekker
-    Yap:
-      collection: VulpkaninYap
+      collection: DeathGasp
+    Squish: # Frontier
+      collection: HarpySquishes # Frontier
 
-- type: emoteSounds
-  id: SoundsHarpyMale
-  params:
-    variation: 0.125
-  sounds:
-    Scream:
-      collection: HarpyScreams
-    Laugh:
-      collection: HarpyLaugh
-    Sneeze:
-      collection: MaleSneezes
-    Cough:
-      collection: MaleCoughs
-    Sigh:
-      collection: MaleSigh
-    Crying:
-      collection: HarpyCry
-    Whistle:
-      collection: Whistles
-    Hiss:
-      collection: HarpyHisses
-    Meow:
-      collection: HarpyMeows
-    Mew:
-      collection: HarpyMews
-    Growl:
-      collection: HarpyGrowls
-    Purr:
-      collection: HarpyPurrs
-    Ring:
-      collection: HarpyRings
-    Pew:
-      collection: HarpyPews
-    Bang:
-      collection: HarpyBangs
-    Beep:
-      collection: HarpyBeeps
-    Rev:
-      collection: HarpyRevs
-#    Click:
-#      collection: HarpyClicks
-    Chitter:
-      collection: HarpyChitter
-    Squeak:
-      collection: HarpySqueak
-    Caw:
-      collection: HarpyCaws
-    Chirp:
-      collection: HarpyChirps
-    Snarl:
-      collection: VulpkaninSnarls
-    Bark:
-      collection: VulpkaninBarks
-    Whine:
-      collection: VulpkaninWhines
-    Howl:
-      collection: VulpkaninHowls
-    Awoo:
-      collection: VulpkaninHowls
-    Honk:
-      collection: HarpyHonks
-    Weh:
-      collection: Weh
-    Gasp:
-      collection: MaleGasp
-    DefaultDeathgasp:
-      collection: MaleDeathGasp
-    Gekker:
-      collection: VulpkaninGekker
-    Yap:
-      collection: VulpkaninYap
 
 - type: emoteSounds
   id: FemaleVulpkanin
@@ -234,7 +169,7 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
-    Yap: 
+    Yap:
       collection: VulpkaninYap
     Gekker:
       collection: VulpkaninGekker

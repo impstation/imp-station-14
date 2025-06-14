@@ -21,11 +21,16 @@
       "Sax": {66: 0}
       "Piano": {1: 0}
       "Church Organ": {19: 0}
-      "Violin": {41: 0}
+      "Harp": {46: 0}
+    onlySetBySelf: true
   - type: UserInterface
     interfaces:
       enum.InstrumentUiKey.Key:
         type: InstrumentBoundUserInterface
+      enum.HumanoidMarkingModifierKey.Key:
+        type: HumanoidMarkingModifierBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
   - type: Sprite
     scale: 0.9, 0.9
     layers:
@@ -33,15 +38,16 @@
       - map: [ "enum.HumanoidVisualLayers.Head" ]
       - map: [ "enum.HumanoidVisualLayers.Snout" ]
       - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ] # Frontier: return to top near LArm
       - map: [ "enum.HumanoidVisualLayers.LArm" ]
       - map: [ "enum.HumanoidVisualLayers.RLeg" ]
       - map: [ "enum.HumanoidVisualLayers.LLeg" ]
       - map: [ "underpants" ]
       - map: [ "undershirt" ]
       - map: [ "socks" ]
-      - map: ["enum.HumanoidVisualLayers.LFoot"] # reordered
-      - map: ["enum.HumanoidVisualLayers.RFoot"]
       - map: [ "jumpsuit" ]
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
       - map: ["enum.HumanoidVisualLayers.LHand"]
       - map: ["enum.HumanoidVisualLayers.RHand"]
       - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
@@ -51,6 +57,7 @@
         visible: false
       - map: [ "id" ]
       - map: [ "gloves" ]
+      - map: [ "shoes" ]
       - map: [ "ears" ]
       - map: [ "outerClothing" ]
       - map: [ "culteyes" ] # funky cult
@@ -60,8 +67,8 @@
         visible: false
       - map: [ "eyes" ]
       - map: [ "belt" ]
-      - map: [ "neck" ]
       - map: [ "back" ]
+      - map: [ "neck" ]
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
       - map: [ "enum.HumanoidVisualLayers.Tail" ]
@@ -71,8 +78,7 @@
         sprite: "Effects/creampie.rsi"
         state: "creampie_human"
         visible: false
-# Yes, RArm has to be down here
-      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RArmExtension" ] # Frontier
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
       - map: [ "mask" ]
@@ -109,31 +115,32 @@
   - type: Speech
     speechSounds: Harpy
     speechVerb: Harpy
+    allowedEmotes: ['Meow', 'Hiss', 'Mew', 'Purr', 'Growl', 'Bark', 'Snarl', 'Whine', 'Howl', 'Awoo', 'HarpyHonk', 'HarpyRing', 'HarpyPew', 'HarpyBang', 'HarpyBeep', 'HarpyRev', 'HarpyCaw', 'Squish', 'Chitter', 'Squeak', 'Click', 'Belch', 'Squish'] # Frontier: add Belch, Squish
   - type: Vocal
     sounds:
-      Male: SoundsHarpyMale
-      Female: SoundsHarpyFemale
-      Unsexed: SoundsHarpyFemale
+      Male: SoundsHarpy
+      Female: SoundsHarpy
+      Unsexed: SoundsHarpy
+  - type: InstrumentVisuals
   - type: GenericVisualizer
     visuals:
-      enum.HarpyVisualLayers.Singing:
-        singingLayer:
-          False:  {visible: false}
-          True:  {visible: true}
+      enum.InstrumentVisuals.Playing:
+        enum.InstrumentVisuals.Layer:
+          False: {visible: false}
+          True: {visible: true}
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.5
-    baseSprintSpeed: 5.0
     weightlessAcceleration: 2.5
   - type: Inventory
     speciesId: harpy
-    templateId: digitigrade # Einstein Engines
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _DV/Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit
+    femaleDisplacements: {} # Frontier: female jumpsuit displacement
   - type: HarpyVisuals
-  - type: Tag
-    tags:
-    - CanPilot
-    - FootstepSound
-    - DoorBumpOpener
-    - HarpyEmotes
+  - type: UltraVision
 
 - type: entity
   save: false
@@ -147,7 +154,13 @@
     species: Harpy
   - type: Inventory
     speciesId: harpy
-    templateId: digitigrade
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _DV/Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit
+    femaleDisplacements: {} # Frontier: female jumpsuit displacement
   - type: Sprite
     scale: 0.9, 0.9
     layers:
@@ -155,6 +168,7 @@
       - map: [ "enum.HumanoidVisualLayers.Head" ]
       - map: [ "enum.HumanoidVisualLayers.Snout" ]
       - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ] # Frontier: return to top near LArm
       - map: [ "enum.HumanoidVisualLayers.LArm" ]
       - map: [ "enum.HumanoidVisualLayers.RLeg" ]
       - map: [ "enum.HumanoidVisualLayers.LLeg" ]
@@ -168,6 +182,7 @@
       - map: ["enum.HumanoidVisualLayers.RHand"]
       - map: [ "id" ]
       - map: [ "gloves" ]
+      - map: [ "shoes" ]
       - map: [ "ears" ]
       - map: [ "outerClothing" ]
       - map: [ "culteyes" ] # funky cult
@@ -189,13 +204,7 @@
         sprite: "Effects/creampie.rsi"
         state: "creampie_human"
         visible: false
-      - map: [ "culthalo" ] # funky cult
-        sprite: "_Funkystation/BloodCult/Effects/halo.rsi"
-        state: "halo"
-        shader: unshaded
-        visible: false
-# Yes, RArm has to be down here
-      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RArmExtension" ] # Frontier
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
       - map: [ "mask" ]
       - map: [ "head" ]
@@ -204,7 +213,6 @@
   id: ActionHarpyPlayMidi
   name: Play MIDI
   description: Sing your heart out! Right click yourself to set an instrument.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Action
     checkCanInteract: false
@@ -213,14 +221,13 @@
       state: kodepiia_sing
   - type: InstantAction
     event: !type:OpenUiActionEvent
-      key: enum.InstrumentUiKey.Key #saveys!
+      key: enum.InstrumentUiKey.Key
 
 - type: entity
   parent: BaseAction
   id: ActionSyrinxChangeVoiceMask
   name: Set name
   description: Change the name others hear to something else.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Action
     icon: _DV/Interface/Actions/harpy_syrinx.png
