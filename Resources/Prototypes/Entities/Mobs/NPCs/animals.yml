@@ -636,7 +636,7 @@
           32:
             sprite: Mobs/Animals/mothroach/displacement.rsi
             state: neck
-
+  - type: PleebnarGibbable # imp edit
 
 
 # Note that the mallard duck is actually a male drake mallard, with the brown duck being the female variant of the same species, however ss14 lacks sex specific textures
@@ -838,7 +838,7 @@
     bloodMaxVolume: 0.1
   - type: MobPrice
     price: 50
-
+  - type: PleebnarGibbable # imp edit
 
 - type: entity
   name: cow
@@ -1736,6 +1736,7 @@
   id: MobMouse
   description: Squeak!
   components:
+  - type: PleebnarGibbable # imp edit
   - type: VentCrawler # imp edit
     enterDelay: 1
   - type: Body
@@ -2126,6 +2127,7 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: PleebnarGibbable # imp edit
 
 
 - type: entity
@@ -2187,6 +2189,7 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: PleebnarGibbable # imp edit
 
 - type: entity
   name: frog
@@ -2257,6 +2260,7 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: PleebnarGibbable # imp edit
 
 # Would be cool to have some functionality for the parrot to be able to sit on stuff
 - type: entity
@@ -3673,6 +3677,7 @@
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
+  - type: PleebnarGibbable # imp edit
 
 - type: entity
   name: pig
@@ -3746,6 +3751,7 @@
   - type: HTN
     rootTask:
       task: RuminantCompound
+  - type: PleebnarGibbable # imp edit
 
 - type: entity
   name: diona nymph
@@ -3848,6 +3854,7 @@
   components:
   - type: ReplacementAccent
     accent: nymph
+  - type: PleebnarGibbable # imp edit, if tupid then pleebnar meal
 
 - type: entity
   name: reindeer buck
