@@ -39,3 +39,6 @@ reagent-desc-testosterone = A fundamental bodily hormone, synthesized from plant
 
 reagent-name-estradiol = estradiol
 reagent-desc-estradiol = A fundamental bodily hormone, synthesized from cell matter for pharmaceutical distribution.
+
+reagent-name-nano-binarase = nano-binarase
+reagent-desc-nano-binarase = An artificial bodily hormone, synthesized from cell matter for pharmaceutical distribution.
