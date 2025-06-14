@@ -152,11 +152,11 @@
     activateSound: null
     deactivateSound: null
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3.5
-    baseSprintSpeed: 4
-    weightlessAcceleration: 1.75 # zoom
-    weightlessFriction: 2.5
-    weightlessModifier: 3
+    baseWalkSpeed: 8
+    baseSprintSpeed: 10
+    weightlessAcceleration: 1.5 # zoom
+    weightlessFriction: 1
+    baseweightlessModifier: 1
   - type: MovementIgnoreGravity # nyoom
     gravityState: true
   - type: PointLight

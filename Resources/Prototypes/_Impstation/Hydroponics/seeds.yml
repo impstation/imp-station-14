@@ -187,6 +187,15 @@
   yield: 3
   potency: 10
   nutrientConsumption: 0.40
+  chemicals:
+    ButterfliesReagent:
+      Min: 1
+      Max: 15
+      PotencyDivisor: 25
+    Nutriment:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 25
 
 - type: seed
   id: biggerflyorchid
@@ -204,6 +213,15 @@
   yield: 3
   potency: 25
   nutrientConsumption: 0.40
+  chemicals:
+    ButterfliesBiggerReagent:
+      Min: 1
+      Max: 25
+      PotencyDivisor: 25
+    Nutriment:
+      Min: 1
+      Max: 15
+      PotencyDivisor: 25
 
 - type: seed
   id: butterorchid
@@ -221,3 +239,8 @@
   yield: 3
   potency: 10
   nutrientConsumption: 0.40
+  chemicals:
+    ButterfliesReagent:
+      Min: 1
+      Max: 5
+      PotencyDivisor: 25
