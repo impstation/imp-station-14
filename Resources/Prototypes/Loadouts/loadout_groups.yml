@@ -95,6 +95,7 @@
   - GlassesColorfulGreen
   - GlassesColorfulPurple
   - GlassesColorfulYellow
+  - EyePatch
   # imp edit end
   - GlassesJamjar
   - GlassesJensen
@@ -253,6 +254,7 @@
   - GreyJumpskirt
   - AncientJumpsuit
   - RainbowJumpsuit
+  - RainbowJumpskirt
   - GraytiderSpaceJumpsuit #imp
 
 - type: loadoutGroup
@@ -667,9 +669,10 @@
   loadouts:
   - EmergencyNitrogenMime
   - EmergencyOxygenMime
+  - EmergencySpeciesMothMime
+  - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatMime # imp
   - LoadoutSpeciesAquaticFullTank # Imp
-  - LoadoutSpeciesVoxNitrogen
 
 - type: loadoutGroup
   id: MusicianJumpsuit
@@ -1277,6 +1280,7 @@
   loadouts:
   - DetectiveFedora
   - DetectiveFedoraGrey
+  - ClothingHeadDeerstalker #imp
 
 - type: loadoutGroup
   id: DetectiveNeck
@@ -1545,7 +1549,18 @@
   loadouts:
   - MedicalHud
   - MedicalEyePatchHud
+  - MedicalGlassesHud #imp
   - Glasses
+  # imp edit start - its in the middle for alphabetizing reasons sorry
+  - GlassesCheapSunglasses
+  - GlassesColorfulPink
+  - GlassesColorfulRed
+  - GlassesColorfulBlue
+  - GlassesColorfulGreen
+  - GlassesColorfulPurple
+  - GlassesColorfulYellow
+  - EyePatch
+  # imp edit end
   - GlassesJamjar
   - GlassesJensen
 
