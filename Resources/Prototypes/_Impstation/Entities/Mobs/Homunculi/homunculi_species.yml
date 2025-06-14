@@ -1,8 +1,7 @@
 - type: entity
   id: HomunculusHuman
   suffix: Human
-  parent: [StripableInventoryBase, HomunculusBase]
-  name: homunculus
+  parent: [StripableInventoryBase, BaseHomunculus]
   description: A wet chunk of synthetic flesh. It's alive.
   components:
   - type: Sprite
@@ -14,7 +13,7 @@
       state: skin
     - map: [ "eyeMap" ]
       state: eyes
-  - type: RandomSprite # Lie.
+  - type: RandomSprite # This is necessary due to it being impossible to modify sprite component anywhere but the client
     selected:
       skinMap:
         skin: "#ffd2ba" # Default
@@ -77,8 +76,7 @@
 - type: entity
   id: HomunculusGray
   suffix: Gray
-  parent: [StripableInventoryBase, HomunculusBase]
-  name: homunculus
+  parent: [StripableInventoryBase, BaseHomunculus]
   description: How... How is it floating..?
   components:
   - type: Sprite
@@ -91,7 +89,7 @@
       state: skin
     - map: [ "eyeMap" ]
       state: eyes
-  - type: RandomSprite # Lie.
+  - type: RandomSprite # This is necessary due to it being impossible to modify sprite component anywhere but the client
     selected:
       skinMap:
         skin: "#FFFFFF" # Default
@@ -183,8 +181,7 @@
 - type: entity
   id: HomunculusMoth
   suffix: Moth
-  parent: [StripableInventoryBase, HomunculusBase]
-  name: homunculus
+  parent: [StripableInventoryBase, BaseHomunculus]
   description: It's... Fluffy? I think?
   components:
   - type: Sprite
@@ -194,7 +191,7 @@
       state: skin
     - map: [ "eyeMap" ]
       state: eyes
-  - type: RandomSprite # Lie.
+  - type: RandomSprite # This is necessary due to it being impossible to modify sprite component anywhere but the client
     selected:
       skinMap:
         skin: "#ffd2ba" # Default
@@ -287,8 +284,7 @@
 - type: entity
   id: HomunculusThaven
   suffix: Thaven
-  parent: [StripableInventoryBase, HomunculusBase]
-  name: homunculus
+  parent: [StripableInventoryBase, BaseHomunculus]
   description: You'll witness before you a phenomenon like no other; a thaven of the sea...
   components:
   - type: UserInterface
@@ -305,7 +301,7 @@
       state: skin
     - map: [ "eyeMap" ]
       state: eyes
-  - type: RandomSprite # Lie.
+  - type: RandomSprite # This is necessary due to it being impossible to modify sprite component anywhere but the client
     selected:
       skinMap:
         skin: "#ffd2ba" # Default
