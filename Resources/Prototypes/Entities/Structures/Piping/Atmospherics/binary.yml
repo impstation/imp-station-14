@@ -539,6 +539,11 @@
   - type: GuideHelp
     guides:
     - Radiators
+  - type: PointLight #imp
+    radius: 1.5
+    energy: 1.6
+    color: "#ff00ea"
+    enabled: false
 
 - type: entity
   parent: HeatExchanger
