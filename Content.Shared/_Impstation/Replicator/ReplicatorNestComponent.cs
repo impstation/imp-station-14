@@ -25,7 +25,7 @@ public sealed partial class ReplicatorNestComponent : Component
     public Container Hole = default!;
 
     /// <summary>
-    /// Items containing components or tags on this list will not give any points when consumed. 
+    /// Items containing components or tags on this list will not give any points when consumed.
     /// </summary>
     [DataField]
     public EntityWhitelist Blacklist = new();
@@ -37,7 +37,7 @@ public sealed partial class ReplicatorNestComponent : Component
     [DataField(readOnly: true)]
     public int TotalPoints;
     /// <summary>
-    /// A separate point total for when a new replicator should be spawned, so we can be more granular about balance. 
+    /// A separate point total for when a new replicator should be spawned, so we can be more granular about balance.
     /// </summary>
     [DataField(readOnly: true)]
     public int SpawningProgress;
@@ -59,8 +59,8 @@ public sealed partial class ReplicatorNestComponent : Component
     [DataField]
     public int BonusPointsHumanoid = 20;
     /// <summary>
-    /// The number of points required to spawn a new replicator. 
-    /// Increases linearly with the number of unclaimed ghostroles. 
+    /// The number of points required to spawn a new replicator.
+    /// Increases linearly with the number of unclaimed ghostroles.
     /// </summary>
     [DataField]
     public int SpawnNewAt = 300;
@@ -72,7 +72,7 @@ public sealed partial class ReplicatorNestComponent : Component
     public int UpgradeAt = 400;
 
     /// <summary>
-    /// The level at which the nest stops growing. It will still produce and upgrade replicators, 
+    /// The level at which the nest stops growing. It will still produce and upgrade replicators,
     /// but the upgrade thresholds will not increase, and the nest will start ignoring weightlessness.
     /// </summary>
     [DataField]

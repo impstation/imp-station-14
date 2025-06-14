@@ -139,7 +139,7 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
             ent.Comp.SpawningProgress += 10;
         }
 
-        // if the item is in a stack, you get points depending on how many items are in that stack. 
+        // if the item is in a stack, you get points depending on how many items are in that stack.
         if (TryComp<StackComponent>(tripper, out var stackComp))
         {
             ent.Comp.TotalPoints += stackComp.Count;
