@@ -76,7 +76,7 @@
     flavors:
     - meaty
   - type: Thirst
-    startingThirst: 70  
+    startingThirst: 70
     thresholds:
       OverHydrated: 70
       Okay: 50
@@ -177,14 +177,14 @@
   - type: ReplacementAccent
     accent: mouse
 #here comes the scary pinpointer zone, directly copied from dragon for fun?
-  - type: Inventory 
+  - type: Inventory
     templateId: dragon
-  - type: InventorySlots 
-  - type: Loadout 
+  - type: InventorySlots
+  - type: Loadout
     prototypes:
       - StartingGearDragonPinpointer
-  - type: Strippable 
-  - type: UserInterface 
+  - type: Strippable
+  - type: UserInterface
     interfaces:
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
