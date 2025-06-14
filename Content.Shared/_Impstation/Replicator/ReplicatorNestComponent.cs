@@ -51,32 +51,32 @@ public sealed partial class ReplicatorNestComponent : Component
     /// The number of additional points given for living targets.
     /// </summary>
     [DataField]
-    public int BonusPointsAlive = 1;
+    public int BonusPointsAlive = 10;
     /// <summary>
     /// The number of additional points given for incapacitated humanoid targets.
     /// Is multiplied by the current level.
     /// </summary>
     [DataField]
-    public int BonusPointsHumanoid = 2;
+    public int BonusPointsHumanoid = 20;
     /// <summary>
     /// The number of points required to spawn a new replicator. 
     /// Increases linearly with the number of unclaimed ghostroles. 
     /// </summary>
     [DataField]
-    public int SpawnNewAt = 30;
+    public int SpawnNewAt = 300;
     /// <summary>
     /// The number of points required to upgrade existing replicators & the nest itself.
     /// Multiplied by current nest level.
     /// </summary>
     [DataField]
-    public int UpgradeAt = 40;
+    public int UpgradeAt = 400;
 
     /// <summary>
     /// The level at which the nest stops growing. It will still produce and upgrade replicators, 
     /// but the upgrade thresholds will not increase, and the nest will start ignoring weightlessness.
     /// </summary>
     [DataField]
-    public int EndgameLevel = 3;
+    public int EndgameLevel = 30;
 
     /// <summary>
     /// Entity to be spawned when reaching spawn point thresholds.
