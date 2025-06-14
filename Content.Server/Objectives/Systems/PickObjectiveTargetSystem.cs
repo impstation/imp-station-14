@@ -332,12 +332,8 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
             return;
         }
 
-        //if you see this, I forgot to remove the debug loggers
-
         var antags = new HashSet<EntityUid>();
         var allHumans = _mind.GetAliveHumans(args.MindId);
-
-        Logger.Debug($"Checking {allHumans.Count} potential humans for antags");
 
         // check for any of the valid antagonist mindroles
         foreach (var person in allHumans)
@@ -348,10 +344,8 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
             // get the mind and its owned entity
             if (mind.OwnedEntity is not { } owned)
             {
-                Logger.Debug($"Mind {ToPrettyString(mindId)}, has no owned entity");
                 continue;
             }
-            Logger.Debug($"Checking mind {mindId} controlling {ToPrettyString(owned)}");
 
             //huge list of every single whitelisted antag's role component
             if (_role.MindHasRole<ChangelingRoleComponent>(mindId)  /*Changeling*/
@@ -368,12 +362,10 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
             || _role.MindHasRole<WizardRoleComponent>(mindId)      /*Wizard*/
             )
             {
-                Logger.Debug($"FOUND TARGET");
                 antags.Add(person);
                 continue;
             }
         }
-        Logger.Info($"Bounty Hunter Found {antags.Count} antags.");
 
         // failed to roll an antag as a target
         if (antags.Count == 0)
@@ -383,7 +375,6 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
             {
                 if (TryComp<MindComponent>(person, out var mind) && mind.OwnedEntity is { } owned && HasComp<CommandStaffComponent>(owned))
                 {
-                    Logger.Info($"Targeting command instead");
                     antags.Add(person);
                 }
 
