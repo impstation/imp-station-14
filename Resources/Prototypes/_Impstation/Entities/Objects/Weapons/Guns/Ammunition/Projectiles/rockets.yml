@@ -32,7 +32,7 @@
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Projectiles/bazooka.rsi
-    layers: 
+    layers:
       - state: concussionproj
   - type: Projectile
     impactEffect: BulletImpactEffect

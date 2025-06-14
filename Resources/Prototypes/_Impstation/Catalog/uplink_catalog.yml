@@ -118,7 +118,6 @@
   categories:
     - UplinkWearables
 
-
 - type: listing
   id: UplinkFugitiveCloak
   name: uplink-fugitivecloak-name
@@ -134,7 +133,7 @@
   id: UplinkBloodRedRoseBox
   name: uplink-bloodredrosekit-name
   description: uplink-bloodredrosekit-desc
-  icon: { sprite: /Textures/_Impstation/Objects/Storage/boxes.rsi, state: syndicaterosebox } # imp
+  icon: { sprite: /Textures/_Impstation/Objects/Storage/boxes.rsi, state: syndicaterosebox }
   productEntity: BloodRedRoseBox
   discountCategory: rareDiscounts
   discountDownTo:
@@ -221,7 +220,7 @@
     Telecrystal: 8
   categories:
     - UplinkWeaponry
-  
+
 - type: listing
   id: UplinkMixedRejects
   name: uplink-mixed-rejects-name

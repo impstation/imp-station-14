@@ -35,10 +35,10 @@
     solution: tank
   - type: ReagentTank
     tankType: Fuel
-    fuelWhitelist: 
+    fuelWhitelist:
       tags:
         - EchionGun
-    fuelBlacklist: 
+    fuelBlacklist:
       tags:
         - WeldingTool
   - type: SolutionContainerManager
