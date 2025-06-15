@@ -17,11 +17,13 @@
   # traits
   # - LegsParalyzed (you get healed)
   - LightweightDrunk
+  - Muted
   - Narcolepsy
   - Pacified
   - PainNumbness
   - Paracusia
   - PermanentBlindness
+  - Snoring
   - Unrevivable
   # job specific
   - BibleUser
@@ -37,6 +39,7 @@
   - BleatingAccent
   - DamagedSiliconAccent
   - FrenchAccent
+  - FrontalLisp
   - GermanAccent
   - LizardAccent
   - MobsterAccent
@@ -57,6 +60,7 @@
   - SouthernAccent
   - SpanishAccent
   - StutteringAccent
+  - UnadaptedToSpace # imp edit
   blacklist:
     components:
     - AttachedClothing # helmets, which are part of the suit
