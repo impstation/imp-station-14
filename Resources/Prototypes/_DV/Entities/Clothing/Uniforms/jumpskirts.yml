@@ -1,3 +1,26 @@
+# Head of Personnel
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtHoPMess
+  name: head of personnel's mess kit
+  description: A swanky uniform with tasteful gold and red trim. Keep your latte away from this.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/hopmesskit.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/hopmesskit.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtHoPFormal
+  name: head of personnel's formal dress
+  description: A well-made dress with gold buttons and a red trim. Might as well look sharp when botany goes up in flames.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/hopformaldress.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/hopformaldress.rsi
+
 # Detective
 
 - type: entity

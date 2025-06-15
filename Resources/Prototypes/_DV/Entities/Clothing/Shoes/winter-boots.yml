@@ -1,0 +1,9 @@
+﻿- type: entity
+  parent: ClothingShoesBaseWinterBoots
+  id: ClothingShoesBootsWinterHeadOfPersonel
+  name: HoP's winter boots
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Shoes/Boots/winterbootshop.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Shoes/Boots/winterbootshop.rsi

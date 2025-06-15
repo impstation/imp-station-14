@@ -214,7 +214,13 @@
   loadouts:
   - HoPJumpsuit
   - HoPJumpskirt
-  - HoPBoatswain # DeltaV
+  # Begin DeltaV additions
+  - HoPFormal
+  - HoPFormalDress
+  - HoPMessSkirt
+  - HoPMessSuit
+  - HoPBoatswain
+  # End DeltaV additions
 
 - type: loadoutGroup
   id: HoPNeck
@@ -229,9 +235,14 @@
   id: HoPBackpack
   name: loadout-group-hop-backpack
   loadouts:
-  - CommonBackpack
-  - CommonSatchel
-  - CommonDuffel
+  # Start DeltaV changes
+  # - CommonBackpack
+  # - CommonSatchel
+  # - CommonDuffel
+  - BackpackHoP
+  - SatchelHoP
+  - HopDuffel
+  # End of DeltaV changes
   - HoPBackpackIan
   - CommandVeteranBackpack #imp
   - CommandVeteranSatchel #imp
@@ -243,6 +254,7 @@
   minLimit: 0
   loadouts:
   - HoPWintercoat
+  - HoPFormalCoat # Delta-v
 
 # Civilian
 - type: loadoutGroup
