@@ -17,7 +17,7 @@ public sealed partial class CombatModeSprintComponent : Component
     public LocId? EndCombatMessage = null;
 
     /// <summary>
-    /// Settings for impact damage, if applicable. 
+    /// Settings for impact damage, if applicable.
     /// </summary>
     [DataField]
     public float MinimumSpeed = 3f;
