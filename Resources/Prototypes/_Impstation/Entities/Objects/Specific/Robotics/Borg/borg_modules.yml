@@ -100,7 +100,6 @@
   id: BorgModuleCourier
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
   name: courier cyborg module
-  sprite:
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Specific/Robotics/borgmodules.rsi
