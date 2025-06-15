@@ -39,3 +39,20 @@
           params:
             volume: 5
       - type: ExplodeOnTrigger
+
+- type: entity
+  name: electro-disruptor
+  description: The official NT branded solution to robotic problems. Despite the fancy name it's actually just a cheap knock off of an EMP grenade.
+  parent: [GrenadeBase, BaseSecurityContraband]
+  id: EMPGrenadeSecurity
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/empgrenade.rsi
+  - type: EmpOnTrigger
+    range: 2.5
+    energyConsumption: 20000
+  - type: DeleteOnTrigger
+  - type: Appearance
+  - type: TimerTriggerVisuals
+    primingSound:
+      path: /Audio/Effects/countdown.ogg
