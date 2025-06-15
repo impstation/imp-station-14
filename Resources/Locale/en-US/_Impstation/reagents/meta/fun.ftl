@@ -30,3 +30,6 @@ reagent-desc-butterflies = The pure essence of that fluttery, nervous feeling yo
 
 reagent-name-butterfliesbigger = butterflies infestation
 reagent-desc-butterfliesbigger = The pure essence of that fluttery, nervous feeling you get sometimes in the pit of your stomach. This variant, however, is more akin to a panic attack.
+
+reagent-name-pulp = Pulp 
+reagent-desc-pulp = The mushed up remains of a wood-based product. Moths are able to derive sustainess from this.
