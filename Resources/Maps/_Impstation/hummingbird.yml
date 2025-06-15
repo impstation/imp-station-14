@@ -4,8 +4,8 @@ meta:
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 06/15/2025 07:37:55
-  entityCount: 25396
+  time: 06/15/2025 08:03:41
+  entityCount: 25397
 maps:
 - 1
 grids:
@@ -137693,6 +137693,13 @@ entities:
     - type: Transform
       pos: 20.5,-6.5
       parent: 2
+- proto: SpawnPointWarden
+  entities:
+  - uid: 9091
+    components:
+    - type: Transform
+      pos: 117.5,-1.5
+      parent: 2
 - proto: SpawnVendingMachineRestockDrink
   entities:
   - uid: 19968
@@ -162556,7 +162563,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -214222.8
+      secondsUntilStateChange: -214251.48
       state: Opening
     - type: Airlock
       autoClose: False
