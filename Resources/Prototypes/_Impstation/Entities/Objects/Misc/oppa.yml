@@ -86,7 +86,7 @@
     - id: BungoSeeds
       amount: !type:RangeNumberSelector
         range: 0, 1
-    - id: FakeCapfruitSeeds
+    - id: RealCapfruitSeeds #THESE WEREN'T MEANT TO BE HARMFUL OH MY GOD. WHAT DO YOU MEAN FAKE CAPFRUIT IS THE ONE THAT SHOOTS REAL BULLETS
       amount: !type:RangeNumberSelector
         range: 0, 1
 
