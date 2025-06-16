@@ -69,7 +69,7 @@
         reagent: Nutriment
         amount: 0.5
       - !type:SatiateHunger #drinking raw yeast makes your stomach upset. Don't do that...
-        amount: -2
+        factor: -2
 
 
 - type: reagent

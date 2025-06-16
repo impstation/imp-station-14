@@ -10,7 +10,7 @@
   metabolisms: #imp
     Food:
       effects:
-      - !type:HealthChange 
+      - !type:HealthChange
         probability: 0.5
         damage:
           types:
