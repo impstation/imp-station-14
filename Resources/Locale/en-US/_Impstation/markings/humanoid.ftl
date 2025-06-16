@@ -452,7 +452,7 @@ marking-HumanHairSmiler = Happy Smiler
 
 marking-HumanHairWavyLong = Wavy (Long)
 
-marking-HumanHairMiddlePart = Middle-part
+marking-HumanHairMiddlePartShort = Middle part (Short)
 
 marking-HumanHairFadeHighlight = Fade Highlights
 

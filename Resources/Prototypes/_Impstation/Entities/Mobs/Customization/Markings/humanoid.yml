@@ -1808,6 +1808,14 @@
     state: wavylong
 
 - type: marking
+  id: HumanHairMiddlePartShort
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: middlepartshort
+
+- type: marking
   id: HumanHairFadeHighlight
   bodyPart: Hair
   markingCategory: Hair
