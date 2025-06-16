@@ -537,6 +537,7 @@
     tags:
     - Raw
     - Meat
+  - type: RandomWalk # imp - twitchy.
 
 - type: entity
   name: meatwheat clump
@@ -1337,8 +1338,8 @@
     node: cooked meat patty
   - type: FoodSequenceElement
     entries:
-      Burger: MeatSteak
-      Taco: MeatSteak
+      Burger: MeatPatty
+      Taco: MeatPatty
 
 - type: entity
   name: boiled snail
