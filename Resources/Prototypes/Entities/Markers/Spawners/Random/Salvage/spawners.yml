@@ -411,13 +411,16 @@
       children:
       - id: MobCarpSalvage
         weight: 2
-      - !type:AllSelector
+      # imp edit begin, remove scrap spawn trolling
+      - id: LandMineExplosive
         weight: 1
-        children:
-        #- id: LandMineExplosive #imp. die
-        - !type:NestedSelector # what's that thing underneath the scrap?
-          prob: 0.33
-          tableId: SalvageScrapSpawnerCommon
+      #- !type:AllSelector
+      #  weight: 1
+      #  children:
+      #  - id: LandMineExplosive
+      #  - !type:NestedSelector # what's that thing underneath the scrap?
+      #    prob: 0.33
+      #    tableId: SalvageScrapSpawnerCommon
     - !type:GroupSelector # scary monsters
       weight: 5
       children:
