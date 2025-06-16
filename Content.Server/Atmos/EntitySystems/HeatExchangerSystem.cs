@@ -161,10 +161,10 @@ public sealed class HeatExchangerSystem : EntitySystem
         float radiatorTemperature = radiatorEmittedEnergy / radiatorSpecificHeat;
         // Log.Debug($"rad temp is {radiatorTemperature} for uid {uid}");
 
-        //Update the energy and color of the light based on the temperature of the radiator
-        //Steel begins to glow at 538C (811K)
+        //Find the color of the light based on the temperature of the radiator
+        //Glowing starts at 798K (Draper point)
         //Disable the glow if the temperature is below this, and skip all future calculations
-        if (radiatorTemperature < 811)
+        if (radiatorTemperature < 798)
         {
             _pointLight.SetEnabled(uid, false, pointLight);
             return;
