@@ -118,9 +118,9 @@
   description: A military-grade gas mask that can be connected to an air supply.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/gasexplorer.rsi
+    sprite: _Impstation/Clothing/Mask/gasexplorer.rsi #imp
   - type: Clothing
-    sprite: Clothing/Mask/gasexplorer.rsi
+    sprite: _Impstation/Clothing/Mask/gasexplorer.rsi #imp
   - type: Armor
     modifiers:
       coefficients:
@@ -148,6 +148,10 @@
     - PetWearable
     - WhitelistChameleon
     - BreathMask # goob edit
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 50
+      Plastic: 50
 
 - type: entity
   parent: ClothingMaskBreathMedical
@@ -199,6 +203,10 @@
       Plastic: 100
   - type: StaticPrice
     price: 30 # increases in price after decomposed into raw materials
+  - type: HideLayerClothing #imp PUT YOUR FUCKING NOSE AWAY.
+    layers:
+      Snout: Mask
+    hideOnToggle: true
 
 - type: entity
   parent: ClothingMaskBase
@@ -220,7 +228,10 @@
     - Mask
   - type: HideLayerClothing
     slots:
+    - Hair
     - Snout
+    - HeadTop
+    - HeadSide
 
 - type: entity
   parent: ClothingMaskClownBase
@@ -233,7 +244,10 @@
     - WhitelistChameleon
   - type: HideLayerClothing
     slots:
+    - Hair
     - Snout
+    - HeadTop
+    - HeadSide
 
 - type: entity
   parent: ClothingMaskClown
@@ -480,7 +494,7 @@
 - type: entity
   parent: [ ClothingMaskGas, BaseSecurityContraband ]
   id: ClothingMaskGasSwat
-  name: swat gas mask
+  name: SWAT gas mask #imp capitalizing SWAT
   description: A elite issue Security gas mask.
   components:
   - type: Sprite
@@ -494,6 +508,8 @@
     slots:
     - Hair
     - Snout
+    - HeadTop
+    - HeadSide
     hideOnToggle: true
   - type: Armor
     modifiers:
@@ -559,6 +575,11 @@
     sprite: Clothing/Mask/squadron.rsi
   - type: Clothing
     sprite: Clothing/Mask/squadron.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - HeadTop
+    - HeadSide
   - type: Armor
     modifiers:
       coefficients:

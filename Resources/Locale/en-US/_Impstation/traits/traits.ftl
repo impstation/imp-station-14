@@ -1,3 +1,6 @@
+trait-heavyweightdrunk-name = Heavyweight Drunk
+trait-heavyweightdrunk-desc = Alcohol has less of an effect on you.
+
 trait-hemophilia-name = Hemophilia
 trait-hemophilia-desc = Your blood does not clot properly, and it is harder to stop bleeding.
 
@@ -87,3 +90,6 @@ trait-chaos-magic-victim-name = Chaos magic victim
 trait-chaos-magic-victim-desc = At the start of each shift, you will roll 5 random traits of any kind, excluding signature fonts.
 
 trait-category-randomizers = Randomizers
+
+trait-unadapted-to-space-name = Unadapted to space
+trait-unadapted-to-space-desc = Your body hasn't adapted to space, making you take more damage from exposure to it.

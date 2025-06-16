@@ -1,3 +1,4 @@
+using Content.Shared.Access.Components;
 using Content.Shared.DoAfter;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -32,6 +33,12 @@ public sealed partial class LockComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool UnlockOnClick = true;
+
+    /// <summary>
+    /// Whether the lock requires access validation through <see cref="AccessReaderComponent"/>
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool UseAccess = true;
 
     /// <summary>
     /// The sound played when unlocked.
@@ -98,6 +105,14 @@ public sealed partial class LockComponent : Component
             Pitch = 1.272f
         }
     };
+
+    /// <summary>
+    /// IMP ADDITION
+    /// If specified, replaces the entity's name in the examine text.
+    /// For clarity on things like borgs, which wouldn't normally be described as "locked" or "unlocked" by themselves
+    /// </summary>
+    [DataField]
+    public string? CustomLockText;
 }
 
 /// <summary>

@@ -21,11 +21,19 @@
         Slash: -10
         Piercing: -5
     bloodlossModifier: -10
+<<<<<<< HEAD
     healingBeginSound: 
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
     healingEndSound: 
       path: "/Audio/Items/Medical/brutepack_end.ogg"
   - type: Stack 
+=======
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+  - type: Stack
+>>>>>>> f472483b7b401901680f42951cede4f51864aae6
     stackType: SimpleSuture
     count: 10
   - type: StackPrice
@@ -61,11 +69,19 @@
       types:
         Shock: -10
         Heat: -5
+<<<<<<< HEAD
     healingBeginSound: 
       path: "/Audio/Items/Medical/ointment_begin.ogg"
     healingEndSound: 
       path: "/Audio/Items/Medical/ointment_end.ogg"
   - type: Stack 
+=======
+    healingBeginSound:
+      path: "/Audio/Items/Medical/ointment_begin.ogg"
+    healingEndSound:
+      path: "/Audio/Items/Medical/ointment_end.ogg"
+  - type: Stack
+>>>>>>> f472483b7b401901680f42951cede4f51864aae6
     stackType: ShockGel
     count: 10
   - type: StackPrice
@@ -101,16 +117,28 @@
       types:
         Blunt: -10
         Asphyxiation: -5
+<<<<<<< HEAD
     applyWrithe: true # I am channeling all my growing pains that I have ever experienced in my life through this one variable.
     healingBeginSound:
       path: "/Audio/Items/appraiser.ogg"
     healingEndSound: 
       path: "/Audio/Effects/sparks4.ogg"
   - type: Stack 
+=======
+    healingBeginSound:
+      path: "/Audio/Items/appraiser.ogg"
+    healingEndSound:
+      path: "/Audio/Effects/sparks4.ogg"
+  - type: Stack
+>>>>>>> f472483b7b401901680f42951cede4f51864aae6
     stackType: ElectrodePad
     count: 10
   - type: StackPrice
     price: 5
+<<<<<<< HEAD
+=======
+  - type: StunOnHeal # imp
+>>>>>>> f472483b7b401901680f42951cede4f51864aae6
 
 - type: entity
   id: ElectrodePad1
@@ -145,9 +173,15 @@
         Burn: -8 #2 of each
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
+<<<<<<< HEAD
     healingEndSound: 
       path: "/Audio/Items/Medical/ointment_end.ogg"
   - type: Stack 
+=======
+    healingEndSound:
+      path: "/Audio/Items/Medical/ointment_end.ogg"
+  - type: Stack
+>>>>>>> f472483b7b401901680f42951cede4f51864aae6
     stackType: Tincture
     count: 10
   - type: StackPrice
@@ -204,9 +238,15 @@
         Slash: 3
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
+<<<<<<< HEAD
     healingEndSound: 
       path: "/Audio/Items/Medical/ointment_end.ogg"
   - type: Stack 
+=======
+    healingEndSound:
+      path: "/Audio/Items/Medical/ointment_end.ogg"
+  - type: Stack
+>>>>>>> f472483b7b401901680f42951cede4f51864aae6
     stackType: EZGraft
     count: 10
   - type: StackPrice
@@ -243,12 +283,20 @@
         Cold: -10
     healingBeginSound:
       path: "/Audio/Items/Toys/ToyFall2.ogg" #the logic is flawless.
+<<<<<<< HEAD
     healingEndSound: 
+=======
+    healingEndSound:
+>>>>>>> f472483b7b401901680f42951cede4f51864aae6
       path: "/Audio/Items/Medical/ointment_end.ogg"
   - type: EmitSoundOnLand
     sound:
       path: "/Audio/Voice/Slime/slime_squish.ogg" # Added Immersion.
+<<<<<<< HEAD
   - type: Stack 
+=======
+  - type: Stack
+>>>>>>> f472483b7b401901680f42951cede4f51864aae6
     stackType: ColdPack
     count: 10
   - type: StackPrice
@@ -261,4 +309,8 @@
   components:
   - type: Stack
     stackType: ColdPack
+<<<<<<< HEAD
     count: 1
+=======
+    count: 1
+>>>>>>> f472483b7b401901680f42951cede4f51864aae6

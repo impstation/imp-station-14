@@ -34,8 +34,13 @@
   result: SimpleSuture1
   completetime: 1
   materials:
+<<<<<<< HEAD
     Cloth: 25
     Plastic: 25
+=======
+    Cloth: 50
+    Plastic: 50
+>>>>>>> f472483b7b401901680f42951cede4f51864aae6
 
 - type: latheRecipe
   id: ElectrodePad

@@ -282,3 +282,103 @@
           Quantity: 5
         - ReagentId: CoconutWater
           Quantity: 10
+
+- type: entity
+  name: hops
+  parent: FoodProduceBase
+  id: FoodHops
+  description: Looking to start your own craft brewery, huh? With your own unique twist on the IPA?
+  components:
+  - type: FlavorProfile
+    flavors:
+    - beer
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 9
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 4
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Hydroponics/hops.rsi
+    state: hops
+  - type: Produce
+    seedId: hops
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Beer
+        Quantity: 10
+  - type: Tag
+    tags:
+    - Fruit
+
+- type: entity
+  name: butterfly orchid bunch
+  parent: FoodProduceBase
+  id: FoodButterflyOrchid
+  description: It looks as if there are many butterflies flying around it. It gives a touch of spring.
+  components:
+  - type: Clothing
+    slots:
+    - HEAD
+    quickEquip: false
+  - type: FlavorProfile
+    flavors:
+    - honey
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: ButterfliesReagent
+          Quantity: 5
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Hydroponics/butterfly_orchid.rsi
+    state: produce
+  - type: Produce
+    seedId: butterflyorchid
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: ButterfliesReagent
+        Quantity: 15
+  - type: Tag
+    tags:
+    - Flower
+
+- type: entity
+  name: biggerfly orchid bunch
+  parent: FoodProduceBase
+  id: FoodBiggerflyOrchid
+  description: It looks as if there are many butterflies flying around it. They're large.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - honey
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: ButterfliesBiggerReagent
+          Quantity: 10
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Hydroponics/biggerfly_orchid.rsi
+    state: produce
+  - type: Produce
+    seedId: biggerflyorchid
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: ButterfliesBiggerReagent
+        Quantity: 15
+  - type: Tag
+    tags:
+    - Flower

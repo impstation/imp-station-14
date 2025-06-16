@@ -16,6 +16,8 @@
 - type: speciesBaseSprites
   id: MobSlimeSprites
   sprites:
+    TailBehind: MobHumanoidAnyMarking # floof
+    TailOversuit: MobHumanoidAnyMarking # floof
     Head: MobSlimeHead
     Hair: MobSlimeMarkingFollowSkin
     FacialHair: MobSlimeMarkingFollowSkin
@@ -23,6 +25,8 @@
     UndergarmentBottom: MobHumanoidAnyMarking
     Chest: MobSlimeTorso
     Eyes: MobHumanoidAnyMarking #imp, so they can pick their eyes
+    HeadTop: MobHumanoidAnyMarking #imp
+    HeadSide: MobHumanoidAnyMarking #imp
     LArm: MobSlimeLArm
     RArm: MobSlimeRArm
     LHand: MobSlimeLHand
@@ -39,6 +43,12 @@
       points: 1
       required: true
       defaultMarkings: [ SlimeEyesDefault ]
+    HeadTop: #imp
+      points: 1
+      required: false
+    HeadSide: #imp
+      points: 1
+      required: false
     Hair:
       points: 1
       required: false
@@ -52,7 +62,7 @@
       points: 1
       required: false
     Chest:
-      points: 4
+      points: 4 # imp
       required: false
     Legs:
       points: 8 #impspecial
