@@ -135,6 +135,20 @@
       prob: 0
 
 - type: entity
+  id: CorpseEjectedFromVents
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: true
+    reoccurrenceDelay: 10
+    weight: 3
+  - type: VentCrittersRule
+    announce: false
+    specialEntries:
+    - id: SalvageHumanCorpse
+      prob: 0
+
+- type: entity
   id: PleebnarMigration
   parent: BaseStationEventShortDelay
   components:
