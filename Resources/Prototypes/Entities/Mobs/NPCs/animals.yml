@@ -872,7 +872,7 @@
       behaviors:
       - !type:GibBehavior
         recursive: false
-- type: PleebnarGibbable # imp edit
+  - type: PleebnarGibbable # imp edit
 
 - type: entity
   name: cow
@@ -3742,7 +3742,7 @@
       behaviors:
       - !type:GibBehavior
         recursive: false
-- type: PleebnarGibbable # imp edit
+  - type: PleebnarGibbable # imp edit
 
 - type: entity
   name: pig
