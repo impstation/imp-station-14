@@ -62,6 +62,15 @@
   physicalDesc: reagent-physical-desc-chalky
   flavor: bitter
   color: "#009900"
+  metabolisms:
+    Food:
+      effects:
+      - !type:AdjustReagent #
+        reagent: Nutriment
+        amount: 0.5
+      - !type:SatiateHunger #drinking raw yeast makes your stomach upset. Don't do that...
+        amount: -2
+
 
 - type: reagent
   id: Egg

@@ -16,5 +16,13 @@
         - !type:OrganType
           type: Kodepiia
           shouldHave: false
-      - !type:SatiateThirst
-        factor: -0.5 # high salt content
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 1
+        - !type:OrganType
+          type: Snail
+          shouldHave: true
+        damage:
+          types:
+            Poison: 4 #Teriyaki existed before snails.
