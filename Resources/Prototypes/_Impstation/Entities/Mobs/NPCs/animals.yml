@@ -1,4 +1,89 @@
 - type: entity
+  name: boar
+  parent: [ MobCombat, SimpleMobBase ]
+  id: MobBoar
+  description: Thank fuck there aren't 30-50 of them.
+  components:
+    - type: Sprite
+      sprite: _Impstation/Mobs/Animals/boar.rsi
+      drawdepth: Mobs
+      layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: boar
+      - map: ["enum.DamageStateVisualLayers.BaseUnshaded"]
+        state: eyes
+        shader: unshaded
+    - type: Butcherable
+      spawned:
+      - id: FoodMeat
+        amount: 4
+    - type: MeleeThrowOnHit
+      unanchorOnHit: true
+      distance: 5
+      speed: 6
+    - type: Tag
+      tags:
+        - DoorBumpOpener
+        - FootstepSound
+        - KodeEdible
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.48
+          density: 200
+          mask:
+          - MobMask
+          layer:
+          - MobLayer
+    - type: MovementSpeedModifier
+      baseWalkSpeed : 1.5
+      baseSprintSpeed : 2.5
+    - type: NpcFactionMember
+      factions:
+        - Passive
+    - type: HTN
+      rootTask:
+        task: SimpleHostileCompound
+    - type: YoungKodepiiaRetaliation
+      attackMemoryLength: 10
+    - type: Absorbable
+      biomassRestored: 0.8
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        200: Critical
+        250: Dead
+    - type: MeleeWeapon
+      altDisarm: false
+      angle: 0
+      animation: WeaponArcPunch
+      soundHit:
+        collection: Punch
+      damage:
+        types:
+          Blunt: 10
+          Piercing: 15
+    - type: DamageUserOnTrigger
+      damage: 
+        types:
+          Stamina: 10
+    - type: Prying
+      pryPowered: true
+      useSound:
+        path: /Audio/Items/crowbar.ogg
+    - type: InteractionPopup
+      successChance: 0.2
+      interactSuccessString: petting-success-disgustingpig
+      interactFailureString: petting-failure-disgustingpig
+      interactSuccessSpawn: EffectHearts
+      interactSuccessSound:
+        path: /Audio/Animals/pig_oink.ogg
+        params:
+          variation: .5
+
+- type: entity
   name: BROS
   parent: [ MobCombat, SimpleMobBase ]
   id: MobBros
