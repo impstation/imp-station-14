@@ -49,15 +49,16 @@
   - type: Appearance
   - type: Food #imp
     requiresSpecialDigestion: true
-    delay: 5
+    delay: 10
   - type: FlavorProfile #imp
     flavors:
     - paper
   - type: Extractable
-    grindableSolutionName: cardboard
+    grindableSolutionName: food #imp
   - type: SolutionContainerManager
     solutions:
-      cardboard:
+      food: #imp
+        maxVol: 6 #imp
         reagents:
         - ReagentId: Pulp #imp
           Quantity: 6
@@ -358,7 +359,7 @@
   - type: Appearance
   - type: Food #imp
     requiresSpecialDigestion: true
-    delay: 10
+    delay: 30
   - type: FlavorProfile #imp
     flavors:
     - paper
@@ -371,10 +372,11 @@
     - RawMaterial
     - ClothMade #imp
   - type: Extractable
-    grindableSolutionName: wood
+    grindableSolutionName: food #imp
   - type: SolutionContainerManager
     solutions:
-      wood:
+      food: #imp
+        maxVol: 10 #imp
         reagents:
         - ReagentId: Pulp #imp
           Quantity: 10
