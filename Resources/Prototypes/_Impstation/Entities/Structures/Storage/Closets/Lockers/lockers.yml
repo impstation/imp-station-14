@@ -62,6 +62,19 @@
     stateDoorClosed: hd_door
   - type: AccessReader
     access: [["HospitalityDirector"]]
+# Janitor
+- type: entity
+  id: LockerBelongings
+  parent: LockerBaseSecure
+  name: belongings locker
+  description: It's a storage unit for janitorial gear.
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: belongings
+    stateDoorOpen: sec_open
+    stateDoorClosed: belongings_door
+  - type: AccessReader
+    access: [["Janitor"]]
 
 # Musician
 - type: entity
