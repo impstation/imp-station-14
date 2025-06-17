@@ -18,7 +18,8 @@ ion-storm-x-and-y = {$x} AND {$y}
 # subjects can generally be threats or jobs or objects
 # thing is specified above it
 ion-storm-law-on-station = THERE ARE {$joined} {$subjects} ON THE STATION
-ion-storm-law-call-shuttle = THE SHUTTLE MUST BE CALLED BECAUSE OF {$joined} {$subjects} ON THE STATION
+# imp edit, comment shuttle law out
+# ion-storm-law-call-shuttle = THE SHUTTLE MUST BE CALLED BECAUSE OF {$joined} {$subjects} ON THE STATION
 ion-storm-law-crew-are = THE {$who} ARE NOW {$joined} {$subjects}
 
 ion-storm-law-subjects-harmful = {$adjective} {$subjects} ARE HARMFUL TO THE CREW
