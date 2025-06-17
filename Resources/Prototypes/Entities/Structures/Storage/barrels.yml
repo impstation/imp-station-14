@@ -3,7 +3,7 @@
   id: BaseBarrelChem
   abstract: true
   name: chemical barrel
-  description: A plastic chemical barrel. Luckily it isn't perched high. #imp edit, funny worf plastic barrel reference
+  description: A plastic chemical barrel. Luckily, it isn't perched up high. #imp edit, funny worf plastic barrel reference
   components:
   - type: Sprite
     sprite: _Impstation/Structures/Storage/barrels.rsi #imp edit
@@ -49,7 +49,7 @@
   - type: ExaminableSolution
     solution: tank
   - type: StaticPrice
-    price: 500
+    price: 600 # imp edit, plastic more spensive than steel
 
 - type: entity
   parent: BaseBarrelChem
