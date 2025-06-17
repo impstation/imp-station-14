@@ -89,7 +89,10 @@ public sealed class GasCondenserSystem : EntitySystem
         var energy = comp.Load * dt;
 
         //Alpha is a tuning variable to condense around 1u per second.
-        //TODO: not actually tuned right now lol
+        //GasCondenserComponent MolesToReagentMultiplier = 0.2137f, so we want to tune the return of this function to be around 5.
+        //Gas specific heat stats: mean specific heat is 13.75, median is 3.75. Probably should balance for the median.
+        //Median gasses are nitrogen and carbon dioxide
+        //TODO: tune alpha such that condensing co2 returns 5
         var alpha = 1f;
 
         Log.Debug($"Mols condensed: {energy / (alpha * specificHeat)}");
