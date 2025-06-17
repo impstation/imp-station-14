@@ -693,3 +693,7 @@ BorgModulePaper: BorgModuleService
 # 2025-06-09
 # impstation: migrate our cleanade crate to upstream implementation
 CrateServiceCleanades: CrateServiceCleanerGrenades
+
+# 2025-06-17
+# impstation: candy bowls can now be meat bowl or fruit bowl
+CandyBowl: BowlSpawner
