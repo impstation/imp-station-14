@@ -333,11 +333,12 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
         }
 
         var antags = new HashSet<EntityUid>();
-        var allHumans = _mind.GetAliveHumans(args.MindId);
+        var allHumans = _mind.GetAliveHumans(args.MindId); //imp edit - just get the mind ID
 
         // check for any of the valid antagonist mindroles
         foreach (var person in allHumans)
         {
+            // imp edit
             var mindId = person.Owner;
             var mind = person.Comp;
 
@@ -365,6 +366,7 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
                 antags.Add(person);
                 continue;
             }
+            // imp edit end
         }
 
         // failed to roll an antag as a target
@@ -374,17 +376,13 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
             foreach (var person in allHumans)
             {
                 if (TryComp<MindComponent>(person, out var mind) && mind.OwnedEntity is { } owned && HasComp<CommandStaffComponent>(owned))
-                {
                     antags.Add(person);
-                }
-
-
             }
 
             // just go for some random person if there's no command.
             if (antags.Count == 0)
             {
-                antags = new HashSet<EntityUid>(allHumans.Select(p => p.Owner));
+                antags = new HashSet<EntityUid>(allHumans.Select(p => p.Owner)); //imp
             }
 
             // One last check for the road, then cancel it if there's nothing left
