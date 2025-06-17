@@ -1,4 +1,14 @@
 - type: cargoProduct
+  id: InjectorKit
+  icon:
+    sprite: _Impstation/Objects/Specific/Medical/firstaidkits.rsi
+    state: blackkit
+  product: CrateEmergencyInjectorKit
+  cost: 6500
+  category: cargoproduct-category-name-medical
+  group: market
+
+- type: cargoProduct
   id: ChemistryMucin
   icon:
     sprite: _Impstation/Structures/Storage/Crates/chemcrate_secure.rsi

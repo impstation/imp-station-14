@@ -12,12 +12,12 @@
       - state: base-unshaded
         map: ["enum.GunVisualLayers.BaseUnshaded"]
         shader: unshaded
-      - state: mag-0
+      - state: mag-4
         map: ["enum.GunVisualLayers.Mag"]
-      - state: mag-unshaded-0
+      - state: mag-unshaded-4
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
-  - type: Appearance 
+  - type: Appearance
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Battery/blaster.rsi
     quickEquip: false
@@ -29,7 +29,7 @@
     steps: 5
     zeroVisible: true
   - type: Gun
-    fireRate: 1.5
+    fireRate: 2.5
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -51,7 +51,7 @@
 
 - type: entity
   name: TW-07 blaster cannon
-  parent: [BaseWeaponBattery, BaseGunWieldable]
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponBlasterCannon
   description: What once started as an overzealous gardening tool was soon picked up by military developers. Packs one hell of a punch!
   components:
@@ -103,7 +103,7 @@
 
 - type: entity
   name: TT-10 blaster magnum
-  parent: WeaponDisablerPractice
+  parent: [WeaponDisablerPractice, BaseSecurityContraband]
   id: WeaponBlasterMagnum
   description: A culmination of energy weapons research rolled into a single, menacing package.
   components:
@@ -126,6 +126,9 @@
     magState: mag
     steps: 5
     zeroVisible: true
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
   - type: Gun
     fireRate: 1
     soundGunshot:

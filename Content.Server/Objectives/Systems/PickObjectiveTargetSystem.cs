@@ -2,8 +2,11 @@ using Content.Server.Objectives.Components;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Roles.Jobs; // imp
+using Content.Shared.NukeOps; // imp
+using Content.Shared.Revolutionary.Components; //imp
 using Content.Server.GameTicking.Rules;
 using Content.Server.Revolutionary.Components;
+using Robust.Shared.Player; // imp
 using Robust.Shared.Random;
 using System.Linq;
 
@@ -18,6 +21,7 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
     [Dependency] private readonly TargetObjectiveSystem _target = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly ISharedPlayerManager _playerManager = default!; // imp edit
     [Dependency] private readonly TraitorRuleSystem _traitorRule = default!;
     [Dependency] private readonly SharedJobSystem _job = default!; // imp edit
 
@@ -29,6 +33,7 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
         SubscribeLocalEvent<PickRandomPersonComponent, ObjectiveAssignedEvent>(OnRandomPersonAssigned);
         SubscribeLocalEvent<PickRandomHeadComponent, ObjectiveAssignedEvent>(OnRandomHeadAssigned);
         SubscribeLocalEvent<PickRandomTraitorComponent, ObjectiveAssignedEvent>(OnTraitorAssigned);
+        SubscribeLocalEvent<PickRandomAntagComponent, ObjectiveAssignedEvent>(OnAntagAssigned);
 
         SubscribeLocalEvent<RandomTraitorProgressComponent, ObjectiveAssignedEvent>(OnRandomTraitorProgressAssigned);
         SubscribeLocalEvent<RandomTraitorAliveComponent, ObjectiveAssignedEvent>(OnRandomTraitorAliveAssigned);
@@ -221,7 +226,7 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
                 var poolSessions = _traitorRule.CurrentAntagPool.GetPoolSessions();
                 foreach (var mind in allHumans)
                 {
-                    if (!args.Mind.ObjectiveTargets.Contains(mind) && _job.MindTryGetJob(mind, out var prototype) && prototype.CanBeAntag && _mind.TryGetSession(mind, out var session) && poolSessions.Contains(session))
+                    if (!args.Mind.ObjectiveTargets.Contains(mind) && _job.MindTryGetJob(mind, out var prototype) && prototype.CanBeAntag && _playerManager.TryGetSessionByEntity(mind, out var session) && poolSessions.Contains(session))
                     {
                         allValidTraitorCandidates.Add(mind);
                     }
@@ -289,7 +294,7 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
                 var poolSessions = _traitorRule.CurrentAntagPool.GetPoolSessions();
                 foreach (var mind in allHumans)
                 {
-                    if (!args.Mind.ObjectiveTargets.Contains(mind) && _job.MindTryGetJob(mind, out var prototype) && prototype.CanBeAntag && _mind.TryGetSession(mind, out var session) && poolSessions.Contains(session))
+                    if (!args.Mind.ObjectiveTargets.Contains(mind) && _job.MindTryGetJob(mind, out var prototype) && prototype.CanBeAntag && _playerManager.TryGetSessionByEntity(mind, out var session) && poolSessions.Contains(session))
                     {
                         allValidTraitorCandidates.Add(mind);
                     }
@@ -314,4 +319,52 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
         var randomTarget = _random.Pick(traitors); // Imp edit
         _target.SetTarget(ent.Owner, randomTarget, target);
     }
+
+    // imp addition for Bounty Hunters
+    private void OnAntagAssigned(Entity<PickRandomAntagComponent> ent, ref ObjectiveAssignedEvent args)
+    {
+        // invalid prototype
+        if (!TryComp<TargetObjectiveComponent>(ent.Owner, out var target))
+        {
+            args.Cancelled = true;
+            return;
+        }
+
+        var antags = _traitorRule.GetOtherAntagMindsAliveAndConnected(args.Mind).Select(t => t.Id).ToHashSet(); // Imp edit -  just get entity
+        var allHumans = _mind.GetAliveHumans(args.MindId).Select(p => p.Owner).ToHashSet();
+
+        // add nukies and headrevs to the list. If there's anything else we want to whitelist it'd probably be better to have a method make the check instead
+        foreach (var person in allHumans)
+        {
+            if (TryComp<MindComponent>(person, out var mind) && mind.OwnedEntity is { } owned && (HasComp<NukeOperativeComponent>(owned) || HasComp<HeadRevolutionaryComponent>(owned)))
+                antags.Add(person);
+        }
+
+        // failed to roll an antag as a target
+        if (antags.Count == 0)
+        {
+            //fallback to target a random head
+            foreach (var person in allHumans)
+            {
+                if (TryComp<MindComponent>(person, out var mind) && mind.OwnedEntity is { } owned && HasComp<CommandStaffComponent>(owned))
+                    antags.Add(person);
+            }
+
+            // just go for some random person if there's no command.
+            if (antags.Count == 0)
+            {
+                antags = allHumans;
+            }
+
+            // One last check for the road, then cancel it if there's nothing left
+            if (antags.Count == 0)
+            {
+                args.Cancelled = true;
+                return;
+            }
+        }
+        var randomTarget = _random.Pick(antags);
+        _target.SetTarget(ent.Owner, randomTarget, target);
+    }
+    // imp edit end
 }

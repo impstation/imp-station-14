@@ -1,10 +1,13 @@
+using Content.Shared._Impstation.Thaven.Components; // imp
 using Content.Shared.Administration.Logs;
+using Content.Shared.Bed.Sleep; // imp
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Database;
 using Content.Shared.Emag.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
+using Content.Shared.Mobs.Systems; // imp
 using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Content.Shared.Whitelist;
@@ -22,11 +25,12 @@ namespace Content.Shared.Emag.Systems;
 public sealed class EmagSystem : EntitySystem
 {
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedChargesSystem _charges = default!;
+    [Dependency] private readonly SharedChargesSystem _sharedCharges = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!; // DeltaV - Add a whitelist/blacklist to the Emag
+    [Dependency] private readonly MobStateSystem _mobState = default!; // imp - thaven can only be emagged when crit or dead
     public override void Initialize()
     {
         base.Initialize();
@@ -71,8 +75,16 @@ public sealed class EmagSystem : EntitySystem
         }
         // End of DV code
 
-        TryComp<LimitedChargesComponent>(ent, out var charges);
-        if (_charges.IsEmpty(ent, charges))
+        // imp. if the target is a thaven who is not sleeping, dead, or crit, skip.
+        if (TryComp<ThavenMoodsComponent>(target, out _) && !HasComp<SleepingComponent>(target) && !_mobState.IsIncapacitated(target) && target != user)
+        {
+            _popup.PopupClient(Loc.GetString("emag-thaven-alive", ("emag", ent), ("target", target)), user, user);
+            return false;
+        }
+        // end imp
+
+        Entity<LimitedChargesComponent?> chargesEnt = ent.Owner;
+        if (_sharedCharges.IsEmpty(chargesEnt))
         {
             _popup.PopupClient(Loc.GetString("emag-no-charges"), user, user);
             return false;
@@ -90,8 +102,8 @@ public sealed class EmagSystem : EntitySystem
 
         _adminLogger.Add(LogType.Emag, LogImpact.High, $"{ToPrettyString(user):player} emagged {ToPrettyString(target):target} with flag(s): {ent.Comp.EmagType}");
 
-        if (charges != null && emaggedEvent.Handled)
-            _charges.UseCharge(ent, charges);
+        if (emaggedEvent.Handled)
+            _sharedCharges.TryUseCharge(chargesEnt);
 
         if (!emaggedEvent.Repeatable)
         {

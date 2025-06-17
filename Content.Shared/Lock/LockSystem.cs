@@ -40,7 +40,7 @@ public sealed class LockSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<LockComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<LockComponent, ActivateInWorldEvent>(OnActivated);
+        SubscribeLocalEvent<LockComponent, ActivateInWorldEvent>(OnActivated, before: [typeof(ActivatableUISystem)]);
         SubscribeLocalEvent<LockComponent, StorageOpenAttemptEvent>(OnStorageOpenAttempt);
         SubscribeLocalEvent<LockComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<LockComponent, GetVerbsEvent<AlternativeVerb>>(AddToggleLockVerb);
@@ -70,13 +70,11 @@ public sealed class LockSystem : EntitySystem
         // Only attempt an unlock by default on Activate
         if (lockComp.Locked && lockComp.UnlockOnClick)
         {
-            TryUnlock(uid, args.User, lockComp);
-            args.Handled = true;
+            args.Handled = TryUnlock(uid, args.User, lockComp);
         }
         else if (!lockComp.Locked && lockComp.LockOnClick)
         {
-            TryLock(uid, args.User, lockComp);
-            args.Handled = true;
+            args.Handled = TryLock(uid, args.User, lockComp);
         }
     }
 
@@ -96,7 +94,7 @@ public sealed class LockSystem : EntitySystem
         args.PushText(Loc.GetString(lockComp.Locked
                 ? "lock-comp-on-examined-is-locked"
                 : "lock-comp-on-examined-is-unlocked",
-            ("entityName", Identity.Name(uid, EntityManager))));
+            ("entityName", (lockComp.CustomLockText == null) ? Identity.Name(uid, EntityManager) : lockComp.CustomLockText))); // imp; added custom lock text
     }
 
     /// <summary>
@@ -115,16 +113,31 @@ public sealed class LockSystem : EntitySystem
         if (!Resolve(uid, ref lockComp))
             return false;
 
-        if (!CanToggleLock(uid, user, quiet: false))
+        // IMP EDIT - CanToggleLock has three outcomes, so it's now a string
+        var canToggleLock = CanToggleLock(uid, user, quiet: false);
+        if (canToggleLock == "false")
             return false;
 
-        if (!HasUserAccess(uid, user, quiet: false))
+        if (lockComp.UseAccess && !HasUserAccess(uid, user, quiet: false))
             return false;
 
-        if (!skipDoAfter && lockComp.LockTime != TimeSpan.Zero)
+        // IMP ADDITION - lockTime can now either be the component's lock time, OR the FromInside time.
+        // given that lockTime is only used by deployable barrier, it's unlikely this will conflict with anything
+        var lockTime = lockComp.LockTime;
+        if (canToggleLock == "FromInside") {
+            lockTime = lockComp.InsideToggleTime;
+        }
+        // END IMP ADD
+
+        if (!skipDoAfter && lockTime != TimeSpan.Zero)
         {
+            if (canToggleLock == "FromInside") { // IMP ADDITION
+                _audio.PlayPredicted(lockComp.InsideToggleSound, uid, user);
+                _sharedPopupSystem.PopupClient(Loc.GetString("inside-lock-toggle-attempt"), uid, user);
+            }
+
             return _doAfter.TryStartDoAfter(
-                new DoAfterArgs(EntityManager, user, lockComp.LockTime, new LockDoAfter(), uid, uid)
+                new DoAfterArgs(EntityManager, user, lockTime, new LockDoAfter(), uid, uid)
                 {
                     BreakOnDamage = true,
                     BreakOnMove = true,
@@ -143,6 +156,9 @@ public sealed class LockSystem : EntitySystem
     public void Lock(EntityUid uid, EntityUid? user, LockComponent? lockComp = null)
     {
         if (!Resolve(uid, ref lockComp))
+            return;
+
+        if (lockComp.Locked)
             return;
 
         if (user is { Valid: true })
@@ -173,6 +189,9 @@ public sealed class LockSystem : EntitySystem
     public void Unlock(EntityUid uid, EntityUid? user, LockComponent? lockComp = null)
     {
         if (!Resolve(uid, ref lockComp))
+            return;
+
+        if (!lockComp.Locked)
             return;
 
         if (user is { Valid: true })
@@ -208,16 +227,31 @@ public sealed class LockSystem : EntitySystem
         if (!Resolve(uid, ref lockComp))
             return false;
 
-        if (!CanToggleLock(uid, user, quiet: false))
+        // IMP EDIT - CanToggleLock has three outcomes, so it's now a string
+        var canToggleLock = CanToggleLock(uid, user, quiet: false);
+        if (canToggleLock == "false")
             return false;
 
-        if (!HasUserAccess(uid, user, quiet: false))
+        if (lockComp.UseAccess && !HasUserAccess(uid, user, quiet: false))
             return false;
 
-        if (!skipDoAfter && lockComp.UnlockTime != TimeSpan.Zero)
+        // IMP ADDITION - lockTime can now either be the component's lock time, OR the FromInside time.
+        // given that lockTime is only used by deployable barrier, it's unlikely this will conflict with anything
+        var lockTime = lockComp.LockTime;
+        if (canToggleLock == "FromInside") {
+            lockTime = lockComp.InsideToggleTime;
+        }
+        // END IMP ADD
+
+        if (!skipDoAfter && lockTime != TimeSpan.Zero)
         {
+            if (canToggleLock == "FromInside") { // IMP ADDITION
+                _audio.PlayPredicted(lockComp.InsideToggleSound, uid, user);
+                _sharedPopupSystem.PopupClient(Loc.GetString("inside-lock-toggle-attempt"), uid, user);
+            }
+
             return _doAfter.TryStartDoAfter(
-                new DoAfterArgs(EntityManager, user, lockComp.LockTime, new UnlockDoAfter(), uid, uid)
+                new DoAfterArgs(EntityManager, user, lockTime, new UnlockDoAfter(), uid, uid)
                 {
                     BreakOnDamage = true,
                     BreakOnMove = true,
@@ -245,20 +279,30 @@ public sealed class LockSystem : EntitySystem
     /// <summary>
     /// Raises an event for other components to check whether or not
     /// the entity can be locked in its current state.
+    ///
+    /// IMP EDIT: CHANGED THIS TO RETURN A STRING
+    /// in order to allow for triggering the 'FromInside' doAfter via component events
     /// </summary>
-    public bool CanToggleLock(EntityUid uid, EntityUid user, bool quiet = true)
+    public string CanToggleLock(EntityUid uid, EntityUid user, bool quiet = true)
     {
         if (!_actionBlocker.CanComplexInteract(user))
-            return false;
+            return "false"; // IMP
 
         var ev = new LockToggleAttemptEvent(user, quiet);
         RaiseLocalEvent(uid, ref ev, true);
         if (ev.Cancelled)
-            return false;
+            return "false"; // IMP
+
+        if (ev.FromInside)
+            return "FromInside"; // IMP
 
         var userEv = new UserLockToggleAttemptEvent(uid, quiet);
         RaiseLocalEvent(user, ref userEv, true);
-        return !userEv.Cancelled;
+
+        if (userEv.Cancelled)
+            return "false";
+
+        return "true"; // IMP
     }
 
     // TODO: this should be a helper on AccessReaderSystem since so many systems copy paste it
@@ -394,7 +438,11 @@ public sealed class LockSystem : EntitySystem
         {
             args.Cancel();
             if (lockComp.Locked)
+            {
                 _sharedPopupSystem.PopupClient(Loc.GetString("entity-storage-component-locked-message"), uid, args.User);
+            }
+
+            _audio.PlayPredicted(component.AccessDeniedSound, uid, args.User);
         }
     }
 

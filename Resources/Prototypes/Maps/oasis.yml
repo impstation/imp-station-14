@@ -15,18 +15,17 @@
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/emergency_accordia.yml
         - type: StationJobs
-          availableJobs: # Total of 80 jobs roundstart, max of 98 inc. latejoins and trainees.
-            # command - 9
+          availableJobs: # Total of 79 jobs roundstart, max of 95 inc. latejoins and trainees.
+            # command - 8
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
-            AdministrativeAssistant: [ 1, 1 ] # imp
             ChiefEngineer: [ 1, 1 ]
             ChiefMedicalOfficer: [ 1, 1 ]
             ResearchDirector: [ 1, 1 ]
             HeadOfSecurity: [ 1, 1 ]
             HospitalityDirector: [ 1, 1 ] # imp
             Quartermaster: [ 1, 1 ]
-            # service - 23
+            # service - 23 incl. service worker
             Bartender: [ 2, 2 ]
             Botanist: [ 3, 3 ]
             Chaplain: [ 1, 1 ]
@@ -37,7 +36,7 @@
             Mime: [ 2, 2 ]
             Musician: [ 2, 2 ]
             Reporter: [ 2, 2 ]
-            ServiceWorker: [ 2, 2 ]
+            #ServiceWorker: [ 2, 2 ] #imp
             Zookeeper: [ 1, 1 ]
             # engineering - 8-12
             AtmosphericTechnician: [ 3, 3 ]
@@ -51,7 +50,6 @@
             Psychologist: [ 1, 1 ]
             # science - 8-11
             Borg: [ 3, 3 ]
-            ResearchAssistant: [ 3, 3 ]
             Scientist: [ 4, 4 ]
             StationAi: [ 1, 1 ]
             # security - 13-17
@@ -61,10 +59,10 @@
             SecurityCadet: [ 4, 4 ]
             SecurityOfficer: [ 7, 7 ]
             Warden: [ 1, 1 ]
-            # supply - 8-11
+            # supply - 8-9
             CargoTechnician: [ 4, 4 ]
             Courier: [ 1, 1 ] # imp
             SalvageSpecialist: [ 3, 3 ]
-            SupplyAssistant: [ 3, 3 ] # imp
+            SupplyAssistant: [ 1, 1 ] # imp
             # civilian
             Passenger: [ -1, -1 ]

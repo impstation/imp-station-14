@@ -8,19 +8,19 @@
   - HospitalityDirector
   - Bartender
   - Botanist
-  - Boxer
-  - Chaplain
+  #- Boxer
+  #- Chaplain
   - Chef
   - Clown
   - Janitor
-  - Lawyer
-  - Librarian
+ # - Lawyer hop goon now
+  #- Librarian
   - Mime
   - Musician
-  - Reporter
-  - Visitor
-  - Zookeeper
-  - ServiceWorker
+  #- Reporter
+  #- Visitor
+  #- Zookeeper
+  #- ServiceWorker
 
 #Used for HD playtime requirments
 - type: department
@@ -31,7 +31,7 @@
   roles:
   - Bartender
   - Chef
-  - ServiceWorker
+  #- ServiceWorker
   primary: false
   editorHidden: true
   manifestHidden: true

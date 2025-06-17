@@ -25,6 +25,7 @@
   - type: Tag
     tags:
     - Recyclable
+    - SalvageScrap
 
 - type: entity
   parent: BaseStructure
@@ -91,25 +92,6 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 3000 # 30 sheets
-
-- type: entity
-  parent: BaseScrap
-  id: ScrapPlasticSlag
-  name: plastic slag pile
-  description: A pile of slag composed of fused steel and plastic. There's some usable material to be had here.
-  components:
-  - type: Sprite
-    layers:
-      - state: plastic-slag
-        map: [ "base" ]
-  - type: Item
-    size: Ginormous
-    heldPrefix: metal
-  - type: MultiHandedItem
-  - type: PhysicalComposition
-    materialComposition:
-      Steel: 500 # 5 sheets
-      Plastic: 2000 # 20 sheets
 
 - type: entity
   parent: BaseScrap
@@ -384,6 +366,7 @@
   description: Hopefully they got some use out of it.
   components:
   - type: Sprite
+    sprite: _Wizden/Objects/Materials/Scrap/generic.rsi # imp
     layers:
     - state: junk-medkit-1
       map: [ "base" ]
@@ -436,6 +419,7 @@
   description: Wow! What a one-in-a-million find! This would be worth a fortune... if it was in good condition.
   components:
   - type: Sprite
+    sprite: _Impstation/Objects/Materials/Scrap/generic.rsi # imp
     layers:
     - state: junk-pai-gold
   - type: Item

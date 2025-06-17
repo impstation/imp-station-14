@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Numerics;
+using Content.Server.Access.Systems; //imp
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
@@ -9,7 +10,6 @@ using Content.Server.Roles.Jobs;
 using Content.Server.Warps;
 using Content.Shared._Impstation.Ghost;
 using Content.Shared.Actions;
-using Content.Shared.Body.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
@@ -19,7 +19,6 @@ using Content.Shared.Eye;
 using Content.Shared.FixedPoint;
 using Content.Shared.Follower;
 using Content.Shared.Ghost;
-using Content.Shared.Humanoid;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
@@ -29,8 +28,10 @@ using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.Popups;
+using Content.Shared.SSDIndicator; //imp
 using Content.Shared.Storage.Components;
 using Content.Shared.Tag;
+using Content.Shared.Warps;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
@@ -56,7 +57,7 @@ namespace Content.Server.Ghost
         [Dependency] private readonly MindSystem _minds = default!;
         [Dependency] private readonly MobStateSystem _mobState = default!;
         [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
+        [Dependency] private readonly ISharedPlayerManager _player = default!;
         [Dependency] private readonly TransformSystem _transformSystem = default!;
         [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
         [Dependency] private readonly MetaDataSystem _metaData = default!;
@@ -71,9 +72,12 @@ namespace Content.Server.Ghost
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly TagSystem _tag = default!;
         [Dependency] private readonly NameModifierSystem _nameMod = default!;
+        [Dependency] private readonly IdCardSystem _id = default!; // imp. used for identifying dead players' jobs
 
         private EntityQuery<GhostComponent> _ghostQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
+
+        private static readonly ProtoId<TagPrototype> AllowGhostShownByEventTag = "AllowGhostShownByEvent";
 
         public override void Initialize()
         {
@@ -371,7 +375,7 @@ namespace Content.Server.Ghost
 
         private IEnumerable<GhostWarp> GetPlayerWarps(EntityUid except)
         {
-            foreach (var player in _playerManager.Sessions)
+            foreach (var player in _player.Sessions)
             {
                 if (player.AttachedEntity is not {Valid: true} attached)
                     continue;
@@ -381,20 +385,23 @@ namespace Content.Server.Ghost
                 TryComp<MindContainerComponent>(attached, out var mind);
 
                 var jobName = _jobs.MindTryGetJobName(mind?.Mind);
-                var isGhost = TryComp<GhostComponent>(attached, out var ghost) && ghost.CanGhostInteract == false; // imp. used in modification to line below. second check is to exclude aghosts
-                var playerInfo = isGhost ? $"{Comp<MetaDataComponent>(attached).EntityName} (Ghost of {jobName})" : $"{Comp<MetaDataComponent>(attached).EntityName} ({jobName})";
+                var playerInfo = $"{Comp<MetaDataComponent>(attached).EntityName} ({jobName})";
 
-                // imp. removed check for alive or crit - so ghosts can warp to other ghosts.
-                yield return new GhostWarp(GetNetEntity(attached), playerInfo, false);
+                if (_mobState.IsAlive(attached) || _mobState.IsCritical(attached))
+                    yield return new GhostWarp(GetNetEntity(attached), playerInfo, false);
             }
 
-            // imp - added this so people can warp to dead crewmates
-            var bodyEnumerator = EntityQueryEnumerator<BodyComponent, MindContainerComponent, HumanoidAppearanceComponent>();
-            while (bodyEnumerator.MoveNext(out var uid, out _, out _, out _))
+            // imp - added this so people can warp to dead players
+            var bodyEnumerator = EntityQueryEnumerator<SSDIndicatorComponent>();
+            while (bodyEnumerator.MoveNext(out var uid, out var ssdIndicator))
             {
-                if (_mobState.IsDead(uid))
+                if (ssdIndicator.HasHadPlayer && ssdIndicator.IsSSD)
                 {
-                    var info = $"{Comp<MetaDataComponent>(uid).EntityName} (Dead)";
+                    var status = _mobState.IsDead(uid) ? "Dead" : "SSD";
+
+                    var info = _id.TryFindIdCard(uid, out var idCard) && idCard.Comp.LocalizedJobTitle != null ?
+                    $"{Comp<MetaDataComponent>(uid).EntityName} ({idCard.Comp.LocalizedJobTitle}, {status})" : $"{Comp<MetaDataComponent>(uid).EntityName} ({status})";
+
                     yield return new GhostWarp(GetNetEntity(uid), info, false);
                 }
             }
@@ -424,7 +431,7 @@ namespace Content.Server.Ghost
             var entityQuery = EntityQueryEnumerator<GhostComponent, VisibilityComponent>();
             while (entityQuery.MoveNext(out var uid, out var _, out var vis))
             {
-                if (!_tag.HasTag(uid, "AllowGhostShownByEvent"))
+                if (!_tag.HasTag(uid, AllowGhostShownByEventTag))
                     continue;
 
                 if (visible)
@@ -461,7 +468,7 @@ namespace Content.Server.Ghost
             if (spawnPosition?.IsValid(EntityManager) != true)
                 return false;
 
-            var mapUid = spawnPosition?.GetMapUid(EntityManager);
+            var mapUid = _transformSystem.GetMap(spawnPosition.Value);
             var gridUid = spawnPosition?.EntityId;
             // Test if the map is being deleted
             if (mapUid == null || TerminatingOrDeleted(mapUid.Value))
@@ -503,15 +510,15 @@ namespace Content.Server.Ghost
             // However, that should rarely happen.
             if (!string.IsNullOrWhiteSpace(mind.Comp.CharacterName))
                 _metaData.SetEntityName(ghost, mind.Comp.CharacterName);
-            else if (!string.IsNullOrWhiteSpace(mind.Comp.Session?.Name))
-                _metaData.SetEntityName(ghost, mind.Comp.Session.Name);
+            else if (mind.Comp.UserId is { } userId && _player.TryGetSessionById(userId, out var session))
+                _metaData.SetEntityName(ghost, session.Name);
 
             if (mind.Comp.TimeOfDeath.HasValue)
             {
-                SetTimeOfDeath(ghost, mind.Comp.TimeOfDeath!.Value, ghostComponent);
+                SetTimeOfDeath((ghost, ghostComponent), mind.Comp.TimeOfDeath!.Value);
             }
 
-            SetCanReturnToBody(ghostComponent, canReturn);
+            SetCanReturnToBody((ghost, ghostComponent), canReturn);
 
             if (canReturn)
                 _minds.Visit(mind.Owner, ghost, mind.Comp);
@@ -549,9 +556,9 @@ namespace Content.Server.Ghost
 
             if (mind.PreventGhosting && !forced)
             {
-                if (mind.Session != null) // Logging is suppressed to prevent spam from ghost attempts caused by movement attempts
+                if (_player.TryGetSessionById(mind.UserId, out var session)) // Logging is suppressed to prevent spam from ghost attempts caused by movement attempts
                 {
-                    _chatManager.DispatchServerMessage(mind.Session, Loc.GetString("comp-mind-ghosting-prevented"),
+                    _chatManager.DispatchServerMessage(session, Loc.GetString("comp-mind-ghosting-prevented"),
                         true);
                 }
 

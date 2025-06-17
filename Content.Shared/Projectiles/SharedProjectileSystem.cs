@@ -8,7 +8,7 @@ using Content.Shared.Examine;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
-using Content.Shared.Item.ItemToggle;
+using Content.Shared.Inventory;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Throwing;
@@ -105,8 +105,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
     private void OnEmbedRemove(Entity<EmbeddableProjectileComponent> embeddable, ref RemoveEmbeddedProjectileEvent args)
     {
-        // Whacky prediction issues.
-        if (args.Cancelled || _net.IsClient)
+        if (args.Cancelled)
             return;
 
         EmbedDetach(embeddable, embeddable.Comp, args.User);
@@ -120,8 +119,11 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         EmbedDetach(embeddable, embeddable.Comp);
     }
 
-    public void EmbedDetach(EntityUid uid, EmbeddableProjectileComponent component, EntityUid? remover = null)
+    public void EmbedDetach(EntityUid uid, EmbeddableProjectileComponent? component, EntityUid? remover = null)
     {
+        if (!Resolve(uid, ref component))
+            return;
+
         component.AutoRemoveTime = null;
         component.Target = null;
 
@@ -316,7 +318,10 @@ public sealed class ImpactEffectEvent : EntityEventArgs
 /// Raised when an entity is just about to be hit with a projectile but can reflect it
 /// </summary>
 [ByRefEvent]
-public record struct ProjectileReflectAttemptEvent(EntityUid ProjUid, ProjectileComponent Component, bool Cancelled);
+public record struct ProjectileReflectAttemptEvent(EntityUid ProjUid, ProjectileComponent Component, bool Cancelled) : IInventoryRelayEvent
+{
+    SlotFlags IInventoryRelayEvent.TargetSlots => SlotFlags.WITHOUT_POCKET;
+}
 
 /// <summary>
 /// Raised when a projectile hits an entity

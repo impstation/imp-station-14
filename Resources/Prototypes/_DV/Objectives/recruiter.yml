@@ -7,8 +7,7 @@
     difficulty: 0 # difficulty is unused
   - type: RoleRequirement
     roles:
-      mindRoles:
-      - RecruiterRole
+    - RecruiterRole
 
 - type: entity
   parent: [BaseRecruiterObjective, EscapeShuttleObjective]
@@ -18,11 +17,11 @@
 - type: entity
   parent: BaseRecruiterObjective
   id: RecruiterRecruitingObjective
-  description: Interview the finest nanotrasen rejects and have them sign your contract, in blood, with your recruiter pen.
+  description: Interview the finest Nanotrasen rejects and have them sign your contract, in blood, with your recruiter pen. # imp edit; preferential to capitalizing company names
   components:
   - type: Objective
     icon:
-      sprite: Objects/Storage/Briefcases/briefcase_brown.rsi
+      sprite: _Impstation/Objects/Storage/Briefcases/briefcase_cybersun.rsi # imp
       state: icon
   - type: NumberObjective
     min: 2
