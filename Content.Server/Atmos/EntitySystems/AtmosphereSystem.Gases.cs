@@ -61,32 +61,29 @@ namespace Content.Server.Atmos.EntitySystems
 
             //Create a proportional moles vector. Essentially we want the heat capacity of one mol of gas.
             //Note: we *don't* want a normalized vector, as the denominator of the fraction will be a square root.
-            // E.g. A mix with 50/50 oxygen/nitrogen will compute to be 0.70 oxygen and 0.70 nitrogen.
+            //E.g. A mix with 50/50 oxygen/nitrogen will compute to be 0.70 oxygen and 0.70 nitrogen instead of 0.5 and 0.5.
             Span<float> temp = stackalloc float[moles.Length];
 
             //Get the sum of the vector.
-            //temp contains the square values of moles here.
-            NumericsHelpers.Multiply(moles, moles, temp);
-            Log.Debug($"Squared mole vector: {string.Join(", ", temp.ToArray())}");
-            var molesMagnitude = (float)MathF.Sqrt(NumericsHelpers.HorizontalAdd(temp));
-            Log.Debug($"Mole vector length {molesMagnitude}");
+            var molesSum = NumericsHelpers.HorizontalAdd(moles);
+            Log.Debug($"Sum of moles {molesSum}");
 
             //This should never happen because of the guard clause at the start of the function. But just in case.
             //Maybe could be removed for performance?
-            if (molesMagnitude == 0f)
+            if (molesSum == 0f)
             {
                 Log.Debug("Specific heat mole normalization almost divided by zero!");
                 return 0f;
             }
 
-            //Normalize the mols vector by dividing all elements within it by its magnitude.
-            //temp contains a unit vector with the fractional values of each gas in the mixture here.
-            NumericsHelpers.Divide(moles, molesMagnitude, temp);
-            Log.Debug($"Normalized mole vector: {string.Join(", ", temp.ToArray())}");
+            //Proportionalize the mols vector by dividing all elements within it by its sum.
+            //Here temp contains a unit vector with the fractional values of each gas in the mixture.
+            NumericsHelpers.Divide(moles, molesSum, temp);
+            Log.Debug($"Proportionalized mole vector: {string.Join(", ", temp.ToArray())}");
 
             //Multiply fractional moles with specific heats and return the sum. This is the specific heat of the mixture.
-            NumericsHelpers.Multiply(temp, GasSpecificHeats);
-            //Temp contains the partial specific heat of each gas in the mixture here.
+            //Here temp contains the partial specific heat of each gas in the mixture.
+            NumericsHelpers.Multiply(temp, GasSpecificHeats, temp);
             Log.Debug($"Gas specific heats {string.Join(", ", GasSpecificHeats)}");
             Log.Debug($"Partial specific heats {string.Join(", ", temp.ToArray())}");
             Log.Debug($"Mixture specific heat {NumericsHelpers.HorizontalAdd(temp)}");
