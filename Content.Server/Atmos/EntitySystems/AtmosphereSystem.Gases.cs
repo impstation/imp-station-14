@@ -42,6 +42,34 @@ namespace Content.Server.Atmos.EntitySystems
         }
 
         /// <summary>
+        ///     Calculates the specific heat for a gas mixture.
+        ///     <br></br><b>Ensure that you know the difference between specific heat and heat capacity, and that you're using the correct function.</b>
+        /// </summary>
+        /// <param name="mixture">The mixture whose specific heat should be calculated</param>
+        public float GetSpecificHeat(GasMixture mixture)
+            => GetSpecificHeatCalculation(mixture.Moles, mixture.Immutable);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private float GetSpecificHeatCalculation(float[] moles, bool space)
+        {
+            // TODO: don't know what to do if no gas or in space. Prob just 0?
+            if (space && MathHelper.CloseTo(NumericsHelpers.HorizontalAdd(moles), 0f))
+            {
+                return 0f;
+            }
+
+            //Normalize mols vector; we basically want the heat capacity of one mol of gas (?)
+            Span<float> molsSquared = stackalloc float[moles.Length];
+            NumericsHelpers.Multiply(moles, moles, molsSquared);
+
+            Span<float> tmp = stackalloc float[moles.Length];
+            NumericsHelpers.Multiply(moles, GasSpecificHeats, tmp);
+            // Adjust heat capacity by speedup, because this is primarily what
+            // determines how quickly gases heat up/cool.
+            return MathF.Max(NumericsHelpers.HorizontalAdd(tmp), Atmospherics.MinimumHeatCapacity);
+        }
+
+        /// <summary>
         ///     Calculates the heat capacity for a gas mixture.
         /// </summary>
         /// <param name="mixture">The mixture whose heat capacity should be calculated</param>
