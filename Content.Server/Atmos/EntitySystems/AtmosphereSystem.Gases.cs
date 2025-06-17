@@ -53,10 +53,10 @@ namespace Content.Server.Atmos.EntitySystems
         private float GetSpecificHeatCalculation(float[] moles, bool space)
         {
             Log.Debug($"Calculating moles {string.Join(", ", moles)}");
-            //TODO: don't know what to do if no gas or in space. Prob just 0?
+            //Mirroring heat capacity calculation: return space's specific heat
             if (space && MathHelper.CloseTo(NumericsHelpers.HorizontalAdd(moles), 0f))
             {
-                return 0f;
+                return Atmospherics.SpaceHeatCapacity;
             }
 
             //Create a proportional moles vector. Essentially we want the heat capacity of one mol of gas.
@@ -68,12 +68,11 @@ namespace Content.Server.Atmos.EntitySystems
             var molesSum = NumericsHelpers.HorizontalAdd(moles);
             Log.Debug($"Sum of moles {molesSum}");
 
-            //This should never happen because of the guard clause at the start of the function. But just in case.
-            //Maybe could be removed for performance?
+            //This should never happen, but just in case.
             if (molesSum == 0f)
             {
                 Log.Debug("Specific heat mole normalization almost divided by zero!");
-                return 0f;
+                return Atmospherics.SpaceHeatCapacity;
             }
 
             //Proportionalize the mols vector by dividing all elements within it by its sum.
