@@ -168,7 +168,7 @@
   metabolisms: #imp
     Food:
       effects:
-      - !type:SatiateHunger 
+      - !type:SatiateHunger
         conditions:
         - !type:OrganType
           type: Moth
