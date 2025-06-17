@@ -93,7 +93,7 @@ public sealed class GasCondenserSystem : EntitySystem
         //Gas specific heat stats: mean specific heat is 13.75, median is 3.75. Probably should balance for the median.
         //Median gasses are nitrogen and carbon dioxide
         //TODO: tune alpha such that condensing co2 returns 5
-        var alpha = 1f;
+        var alpha = 285f;
 
         Log.Debug($"Mols condensed: {energy / (alpha * specificHeat)}");
         return energy / (alpha * specificHeat);
