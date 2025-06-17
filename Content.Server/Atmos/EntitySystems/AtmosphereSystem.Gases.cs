@@ -52,7 +52,6 @@ namespace Content.Server.Atmos.EntitySystems
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private float GetSpecificHeatCalculation(float[] moles, bool space)
         {
-            Log.Debug($"Calculating moles {string.Join(", ", moles)}");
             //Mirroring heat capacity calculation: return space's specific heat
             if (space && MathHelper.CloseTo(NumericsHelpers.HorizontalAdd(moles), 0f))
             {
@@ -66,26 +65,20 @@ namespace Content.Server.Atmos.EntitySystems
 
             //Get the sum of the vector.
             var molesSum = NumericsHelpers.HorizontalAdd(moles);
-            Log.Debug($"Sum of moles {molesSum}");
 
             //This should never happen, but just in case.
             if (molesSum == 0f)
             {
-                Log.Debug("Specific heat mole normalization almost divided by zero!");
                 return Atmospherics.SpaceHeatCapacity;
             }
 
             //Proportionalize the mols vector by dividing all elements within it by its sum.
             //Here temp contains a unit vector with the fractional values of each gas in the mixture.
             NumericsHelpers.Divide(moles, molesSum, temp);
-            Log.Debug($"Proportionalized mole vector: {string.Join(", ", temp.ToArray())}");
 
             //Multiply fractional moles with specific heats and return the sum. This is the specific heat of the mixture.
             //Here temp contains the partial specific heat of each gas in the mixture.
             NumericsHelpers.Multiply(temp, GasSpecificHeats, temp);
-            Log.Debug($"Gas specific heats {string.Join(", ", GasSpecificHeats)}");
-            Log.Debug($"Partial specific heats {string.Join(", ", temp.ToArray())}");
-            Log.Debug($"Mixture specific heat {NumericsHelpers.HorizontalAdd(temp)}");
             return NumericsHelpers.HorizontalAdd(temp);
         }
 
