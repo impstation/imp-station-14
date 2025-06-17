@@ -67,17 +67,32 @@ public sealed class GasCondenserSystem : EntitySystem
 
     public float NumberOfMolesToConvert(ApcPowerReceiverComponent comp, GasMixture mix, float dt)
     {
-        var hc = _atmosphereSystem.GetHeatCapacity(mix, true);
-        Log.Debug($"HC {hc}");
+        //ORIGINAL HEAT CAPACITY IMPLEMENTATION
+        // var hc = _atmosphereSystem.GetHeatCapacity(mix, true);
+        // Log.Debug($"HC {hc}");
 
-        //Use the SPECIFIC HEAT of the mixture instead of heat capacity because we are trickling the gas, not condensing the entire storage at once.
-        //Heat capacity is sum(mol[i] * specificheat[i]) for each gas present in the mixture
+        // //Use the SPECIFIC HEAT of the mixture instead of heat capacity because we are trickling the gas, not condensing the entire storage at once.
+        // //Heat capacity is sum(mol[i] * specificheat[i]) for each gas present in the mixture
 
-        var alpha = 0.8f; // tuned to give us 1-ish u/second of reagent conversion
-        // ignores the energy needed to cool down the solution to the condensation point, but that probably adds too much difficulty and so let's not simulate that
+        // var alpha = 0.8f; // tuned to give us 1-ish u/second of reagent conversion
+        // // ignores the energy needed to cool down the solution to the condensation point, but that probably adds too much difficulty and so let's not simulate that
+        // var energy = comp.Load * dt;
+        // Log.Debug($"Mols in volume: {mix.TotalMoles}");
+        // Log.Debug($"Mols condensed: {energy / (alpha * hc)}");
+        // return energy / (alpha * hc);
+
+        //NEW SPECIFIC HEAT IMPLEMENTATION
+        var specificHeat = _atmosphereSystem.GetSpecificHeat(mix);
+        Log.Debug($"C: {specificHeat}");
+
+        //Power usage of the condenser is a holdover from the old implementation. Could stand to be removed as it's essentially a constant 5333.333.
         var energy = comp.Load * dt;
-        Log.Debug($"energy {energy}");
-        Log.Debug($"Number of mols {energy / (alpha * hc)}");
-        return energy / (alpha * hc);
+
+        //Alpha is a tuning variable to condense around 1u per second.
+        //TODO: not actually tuned right now lol
+        var alpha = 1f;
+
+        Log.Debug($"Mols condensed: {energy / (alpha * specificHeat)}");
+        return energy / (alpha * specificHeat);
     }
 }

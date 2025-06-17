@@ -52,21 +52,40 @@ namespace Content.Server.Atmos.EntitySystems
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private float GetSpecificHeatCalculation(float[] moles, bool space)
         {
-            // TODO: don't know what to do if no gas or in space. Prob just 0?
+            Log.Debug($"Calculating moles {string.Join(", ", moles)}");
+            //TODO: don't know what to do if no gas or in space. Prob just 0?
             if (space && MathHelper.CloseTo(NumericsHelpers.HorizontalAdd(moles), 0f))
             {
                 return 0f;
             }
 
-            //Normalize mols vector; we basically want the heat capacity of one mol of gas (?)
-            Span<float> molsSquared = stackalloc float[moles.Length];
-            NumericsHelpers.Multiply(moles, moles, molsSquared);
+            //Create a normalized moles vector. Essentially we want the heat capacity of one mol of gas.
+            Span<float> moleFractions = stackalloc float[moles.Length];
+            //Get the magnitude of the vector
+            NumericsHelpers.Multiply(moles, moles, moleFractions);
+            Log.Debug($"Squared mole vector: {string.Join(", ", moleFractions.ToArray())}");
+            var molsMagnitude = (float)MathF.Sqrt(NumericsHelpers.HorizontalAdd(moleFractions));
+            Log.Debug($"Mole vector length {molsMagnitude}");
 
-            Span<float> tmp = stackalloc float[moles.Length];
-            NumericsHelpers.Multiply(moles, GasSpecificHeats, tmp);
-            // Adjust heat capacity by speedup, because this is primarily what
-            // determines how quickly gases heat up/cool.
-            return MathF.Max(NumericsHelpers.HorizontalAdd(tmp), Atmospherics.MinimumHeatCapacity);
+            //This should never happen because of the guard clause at the start of the function. But just in case.
+            //Maybe could be removed for performance?
+            if (molsMagnitude == 0f)
+            {
+                Log.Debug("Specific heat mole normalization almost divided by zero!");
+                return 0f;
+            }
+
+            //Normalize the mols vector
+            NumericsHelpers.Divide(moleFractions, molsMagnitude, moleFractions);
+            //TODO NH.DIV DOESNT SEEM TO WORK for scalar??? ITS NOT USED ANYWHERE ELSE IN THE REPO
+            Log.Debug($"Normalized mole vector: {string.Join(", ", moleFractions.ToArray())}");
+
+            //Apply fractional moles to specific heats and return the sum.
+            //Reuse of moleFractions here for performance (instead of creating a new temporary Span).
+            NumericsHelpers.Multiply(moleFractions, GasSpecificHeats);
+            Log.Debug($"Partial specific heats {string.Join(", ", moleFractions.ToArray())}");
+            Log.Debug($"Mixture specific heat {NumericsHelpers.HorizontalAdd(moleFractions)}");
+            return NumericsHelpers.HorizontalAdd(moleFractions);
         }
 
         /// <summary>
