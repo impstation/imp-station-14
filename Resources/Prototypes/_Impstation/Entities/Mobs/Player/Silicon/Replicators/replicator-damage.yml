@@ -6,7 +6,7 @@
     Piercing: 1.1
     Shock: 1.9
     Heat: 0.8
-    Structural: 0.7
+    Structural: 0.8
 
 - type: damageModifierSet
   id: Replicator2
@@ -16,7 +16,7 @@
     Piercing: 0.7
     Shock: 1.7
     Heat: 0.8
-    Structural: 0.6
+    Structural: 0.4
 
 - type: damageModifierSet
   id: Replicator3
@@ -26,7 +26,7 @@
     Piercing: 0.2
     Shock: 1.2
     Heat: 0.25
-    Structural: 0.5
+    Structural: 0.1
 
 - type: damageModifierSet # ideally the nest should be able to be destroyed relatively easily with a couple grenades or a brave soul with a pickaxe.
   id: ReplicatorNest
