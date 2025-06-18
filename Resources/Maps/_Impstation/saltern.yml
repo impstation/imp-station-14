@@ -4,8 +4,8 @@ meta:
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 06/18/2025 03:40:54
-  entityCount: 13108
+  time: 06/18/2025 03:55:09
+  entityCount: 13110
 maps:
 - 658
 grids:
@@ -639,7 +639,8 @@ entities:
           0,-7:
             0: 56829
           -1,-7:
-            0: 53247
+            0: 52735
+            3: 512
           0,-6:
             0: 65532
           0,-9:
@@ -869,7 +870,7 @@ entities:
             2: 57344
           8,5:
             0: 4352
-            3: 17472
+            4: 17472
           8,6:
             0: 1
             2: 65472
@@ -913,10 +914,10 @@ entities:
             0: 61951
           11,2:
             0: 4351
-            4: 49152
+            5: 49152
           11,3:
             0: 61457
-            4: 204
+            5: 204
           11,-1:
             0: 30583
           11,4:
@@ -928,9 +929,9 @@ entities:
             0: 28791
           12,2:
             0: 119
-            4: 28672
+            5: 28672
           12,3:
-            4: 119
+            5: 119
             0: 61440
           12,-1:
             0: 29311
@@ -1348,17 +1349,17 @@ entities:
           8,8:
             2: 65534
           9,5:
-            5: 4368
-            4: 17472
+            6: 4368
+            5: 17472
           9,6:
             2: 7952
           10,5:
-            4: 4368
-            6: 17472
+            5: 4368
+            7: 17472
           10,6:
             2: 3840
           11,5:
-            4: 21840
+            5: 21840
           11,6:
             2: 3856
           12,5:
@@ -1566,6 +1567,21 @@ entities:
           moles:
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+          - 20.078888
+          - 75.53487
           - 0
           - 0
           - 0
@@ -3683,6 +3699,17 @@ entities:
     - type: Transform
       pos: -7.5,10.5
       parent: 31
+- proto: ActionToggleInternals
+  entities:
+  - uid: 8214
+    mapInit: true
+    paused: true
+    components:
+    - type: Transform
+      parent: 3730
+    - type: InstantAction
+      originalIconColor: '#FFFFFFFF'
+      container: 3730
 - proto: ActionToggleLight
   entities:
   - uid: 3658
@@ -6146,7 +6173,7 @@ entities:
       pos: -29.5,-18.5
       parent: 31
     - type: Door
-      secondsUntilStateChange: -38566.31
+      secondsUntilStateChange: -39001.38
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -30109,6 +30136,11 @@ entities:
       parent: 31
 - proto: ClosetBombFilled
   entities:
+  - uid: 221
+    components:
+    - type: Transform
+      pos: -7.5,-25.5
+      parent: 31
   - uid: 3703
     components:
     - type: Transform
@@ -30173,11 +30205,6 @@ entities:
     - type: Transform
       pos: -20.5,22.5
       parent: 31
-  - uid: 7825
-    components:
-    - type: Transform
-      pos: -9.5,-25.5
-      parent: 31
   - uid: 8805
     components:
     - type: Transform
@@ -30228,6 +30255,11 @@ entities:
     - type: Transform
       pos: 5.5,-20.5
       parent: 31
+  - uid: 13110
+    components:
+    - type: Transform
+      pos: -11.5,-27.5
+      parent: 31
 - proto: ClosetEmergencyN2FilledRandom
   entities:
   - uid: 1414
@@ -30257,11 +30289,6 @@ entities:
       parent: 31
 - proto: ClosetFireFilled
   entities:
-  - uid: 221
-    components:
-    - type: Transform
-      pos: -7.5,-25.5
-      parent: 31
   - uid: 3922
     components:
     - type: Transform
@@ -30307,6 +30334,11 @@ entities:
     - type: Transform
       pos: 16.5,14.5
       parent: 31
+  - uid: 10536
+    components:
+    - type: Transform
+      pos: -7.5,-28.5
+      parent: 31
   - uid: 10753
     components:
     - type: Transform
@@ -30328,6 +30360,13 @@ entities:
     components:
     - type: Transform
       pos: -19.5,-10.5
+      parent: 31
+- proto: ClosetL3ScienceFilled
+  entities:
+  - uid: 7825
+    components:
+    - type: Transform
+      pos: -8.5,-25.5
       parent: 31
 - proto: ClosetL3SecurityFilled
   entities:
@@ -30480,6 +30519,11 @@ entities:
       parent: 31
 - proto: ClosetRadiationSuitFilled
   entities:
+  - uid: 60
+    components:
+    - type: Transform
+      pos: -9.5,-25.5
+      parent: 31
   - uid: 5127
     components:
     - type: Transform
@@ -30494,11 +30538,6 @@ entities:
     components:
     - type: Transform
       pos: -11.5,-11.5
-      parent: 31
-  - uid: 8214
-    components:
-    - type: Transform
-      pos: -8.5,-25.5
       parent: 31
 - proto: ClosetSteelBase
   entities:
@@ -30875,7 +30914,7 @@ entities:
   - uid: 4147
     components:
     - type: Transform
-      pos: -11.563622,-27.408012
+      pos: -11.091345,-31.387482
       parent: 31
   - uid: 10661
     components:
@@ -35921,7 +35960,7 @@ entities:
   - uid: 4205
     components:
     - type: Transform
-      pos: -10.86558,-31.534925
+      pos: -10.653845,-31.356232
       parent: 31
 - proto: DrinkMugMoebius
   entities:
@@ -36462,8 +36501,16 @@ entities:
   - uid: 3730
     components:
     - type: Transform
-      pos: -11.445563,-27.496508
+      pos: -10.98197,-31.246857
       parent: 31
+    - type: GasTank
+      toggleActionEntity: 8214
+    - type: ActionsContainer
+    - type: ContainerContainer
+      containers:
+        actions: !type:Container
+          ents:
+          - 8214
 - proto: ExtinguisherCabinet
   entities:
   - uid: 10537
@@ -36544,6 +36591,11 @@ entities:
     components:
     - type: Transform
       pos: 5.5,29.5
+      parent: 31
+  - uid: 10547
+    components:
+    - type: Transform
+      pos: -12.5,-17.5
       parent: 31
   - uid: 10889
     components:
@@ -39157,7 +39209,7 @@ entities:
       deviceLists:
       - 12756
     - type: Door
-      secondsUntilStateChange: -53266.81
+      secondsUntilStateChange: -53701.88
       state: Closing
   - uid: 8815
     components:
@@ -40629,7 +40681,7 @@ entities:
   - uid: 3985
     components:
     - type: Transform
-      pos: -11.359732,-27.422089
+      pos: -11.185095,-31.309357
       parent: 31
 - proto: GasFilter
   entities:
@@ -58873,7 +58925,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -14.5,-19.5
       parent: 31
-  - uid: 10536
+  - uid: 9414
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -61715,11 +61767,6 @@ entities:
     - type: ContainerContainer
       containers:
         stash: !type:ContainerSlot {}
-  - uid: 10547
-    components:
-    - type: Transform
-      pos: -7.5,-28.5
-      parent: 31
 - proto: PottedPlantRD
   entities:
   - uid: 2171
@@ -63966,11 +64013,6 @@ entities:
     - type: Transform
       pos: 35.5,-3.5
       parent: 31
-  - uid: 9414
-    components:
-    - type: Transform
-      pos: -11.5,-27.5
-      parent: 31
   - uid: 9786
     components:
     - type: Transform
@@ -64451,11 +64493,6 @@ entities:
       parent: 31
 - proto: RandomArtifactSpawner
   entities:
-  - uid: 60
-    components:
-    - type: Transform
-      pos: -8.5,-31.5
-      parent: 31
   - uid: 3735
     components:
     - type: Transform
@@ -70734,6 +70771,16 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 15.5,-14.5
       parent: 31
+  - uid: 13109
+    components:
+    - type: Transform
+      pos: -20.5,-20.5
+      parent: 31
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraMedical
+      nameSet: True
+      id: Psychologist
 - proto: SurveillanceCameraRouterCommand
   entities:
   - uid: 8414
@@ -82382,6 +82429,24 @@ entities:
     - type: Transform
       pos: -2.5,-25.5
       parent: 31
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
 - proto: WardrobeWhite
   entities:
   - uid: 7110
