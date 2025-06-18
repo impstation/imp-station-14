@@ -33,7 +33,7 @@ uplink-bloodredrosekit-desc = A set of roses for the romantic killer to get clos
 
 uplink-nullrod-upgrade-name = Profane Censer
 uplink-nullrod-upgrade-desc = A vile incense burner used to transform nullrod items into more sinister forms.
-=======
+
 uplink-bloodredrosekit-name = Blood-red rose kit
 uplink-bloodredrosekit-desc = A set of roses for the romantic killer to get close to their dear victims. They'll really take your breath / facial features away.
 
