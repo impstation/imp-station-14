@@ -133,3 +133,6 @@ ghost-role-information-replicator-rules = You are a [color=red][bold]Team Antago
 
 ghost-role-information-oppa-name = Oppa
 ghost-role-information-oppa-description = It's the end of hibernation, and you're hungry enough to empty a kitchen! First, though, you need to get on board the station.
+
+ghost-role-information-mouseth-name = Mouseth
+ghost-role-information-mouseth-description = A Connoisseur of food and fabric alike.
