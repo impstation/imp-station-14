@@ -228,10 +228,8 @@
     - Mask
   - type: HideLayerClothing
     slots:
-    #- Hair #imp
     - Snout
-    #- HeadTop #imp
-    #- HeadSide #imp
+
 
 
 - type: entity
@@ -265,12 +263,10 @@
     - ClownMask
     - HamsterWearable
     - WhitelistChameleon
-  #- type: HideLayerClothing #imp
-  #  slots:
-  #  - Hair 
-  #  - Snout
-  #  - HeadTop 
-  #  - HeadSide 
+  - type: HideLayerClothing
+    slots:
+    - Snout
+
 
 
 - type: entity
