@@ -8,6 +8,7 @@
           steps:
             - tag: NullrodUpgradeKit
               doAfter: 5
+              name: construction-graph-tag-upgrade-kit-nullrod
 
     - node: upgraded
       entity: NullRodGloveEvil
@@ -22,6 +23,7 @@
           steps:
             - tag: NullrodUpgradeKit
               doAfter: 5
+              name: construction-graph-tag-upgrade-kit-nullrod
 
     - node: upgraded
       entity: NullRodGrailEvil
@@ -36,6 +38,7 @@
           steps:
             - tag: NullrodUpgradeKit
               doAfter: 5
+              name: construction-graph-tag-upgrade-kit-nullrod
 
     - node: upgraded
       entity: CrateSyndicateNullRodBowEvil
