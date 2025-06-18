@@ -1,74 +1,4 @@
 ﻿Entries:
-- author: SixValentine
-  changes:
-  - message: Train got some new lumps! Check the PR for details
-    type: Add
-  id: 1363
-  time: '2025-03-22T15:13:39.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2049
-- author: DinnerCalzone
-  changes:
-  - message: Thieves will no longer receive steal objectives for steal targets that
-      they may have easy access to through their departments.
-    type: Tweak
-  id: 1364
-  time: '2025-03-22T15:14:53.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2054
-- author: widgetbeck
-  changes:
-  - message: Drone update.
-    type: Tweak
-  id: 1365
-  time: '2025-03-22T15:22:28.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2025
-- author: Tyranex
-  changes:
-  - message: Lathes now have an option to return 30 of a material.
-    type: Tweak
-  - message: The ore processor now defaults to 30, instead of 10.
-    type: Tweak
-  id: 1366
-  time: '2025-03-22T15:30:59.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2040
-- author: mqole, crocodilecarousel
-  changes:
-  - message: Head Revolutionaries now start with 4 revolutionary radio keys to give
-      to their comrades. Viva!
-    type: Add
-  id: 1367
-  time: '2025-03-22T15:32:07.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2047
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: Adjustments to the Arsenal Tech Tree for some small simplification
-    type: Tweak
-  - message: New firing sounds for the Laser Cannon and Energy Shotgun; new names
-      for laser weapons (except the Captain's)
-    type: Tweak
-  - message: Laser Cannon's stats have been dramatically changed.
-    type: Tweak
-  - message: 3 new blaster energy weapons can be researched and built
-    type: Add
-  - message: uplink and research icons for several weapons/ammo now use the new art
-      rather than the old art.
-    type: Fix
-  id: 1368
-  time: '2025-03-22T15:42:54.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2030
-- author: crocodilecarousel
-  changes:
-  - message: 'Huge buff to janitors and Reinem: headphones can show music notes again!'
-    type: Fix
-  id: 1369
-  time: '2025-03-23T23:26:39.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2026
-- author: SixValentine
-  changes:
-  - message: Added Hash
-    type: Add
-  id: 1370
-  time: '2025-03-24T02:27:02.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2029
 - author: honeyed-lemons
   changes:
   - message: Completely rebuild xeno's bar and kitchen
@@ -4213,3 +4143,67 @@
   id: 1862
   time: '2025-06-17T14:23:59.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/2750
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: You can now purchase a box of .25 Caseless bullets for 2 telecrystals.
+    type: Add
+  - message: You can now print .25 Caseless magazines and bullets from emagged autolathes.
+    type: Add
+  id: 1863
+  time: '2025-06-17T21:11:14.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2801
+- author: DinnerCalzone
+  changes:
+  - message: Saltern now supports Pyschologist and Reporter.
+    type: Add
+  id: 1864
+  time: '2025-06-18T07:35:50.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2810
+- author: DinnerCalzone
+  changes:
+  - message: Boxer, Chaplain, Librarian, Reporter, and Zookeeper are once again part
+      of the Service department.
+    type: Tweak
+  id: 1865
+  time: '2025-06-18T07:35:21.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2805
+- author: meridiadottxt
+  changes:
+  - message: Submarine now in rotation!
+    type: Add
+  id: 1866
+  time: '2025-06-18T07:45:26.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2807
+- author: DinnerCalzone
+  changes:
+  - message: The janitor's closet is now secured by janitor access and the Shining
+      Spring has been moved back into from the HD's locker.
+    type: Tweak
+  id: 1867
+  time: '2025-06-18T09:04:51.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2797
+- author: TheLuggage05
+  changes:
+  - message: Added a cargo order for the Mail RPDS. Up your courier game today!
+    type: Add
+  - message: The RPDS mail capsules Work Now.
+    type: Fix
+  id: 1868
+  time: '2025-06-18T09:15:34.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2809
+- author: DinnerCalzone
+  changes:
+  - message: Fixed reinforced secret doors not appearing in the construction menu
+      properly.
+    type: Fix
+  id: 1869
+  time: '2025-06-18T09:23:40.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2812
+- author: DinnerCalzone
+  changes:
+  - message: A large number of new chemical barrels have been added to the salvage
+      loot pool.
+    type: Add
+  id: 1870
+  time: '2025-06-18T09:36:56.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2811
