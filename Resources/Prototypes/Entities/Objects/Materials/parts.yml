@@ -27,6 +27,7 @@
   parent: PartBase
   id: PartRodMetal
   name: metal rod
+  description: A long piece of steel. Very movable. # imp
   suffix: Full
   components:
   - type: PhysicalComposition
@@ -127,6 +128,24 @@
 - type: entity
   parent: FloorTileItemSteel
   id: FloorTileItemSteelLingering0
+  suffix: Lingering, 0
+  components:
+  - type: Stack
+    lingering: true
+    count: 0
+
+- type: entity
+  parent: FloorTileItemWhite
+  id: FloorTileItemWhiteLingering0
+  suffix: Lingering, 0
+  components:
+  - type: Stack
+    lingering: true
+    count: 0
+
+- type: entity
+  parent: FloorTileItemDark
+  id: FloorTileItemDarkLingering0
   suffix: Lingering, 0
   components:
   - type: Stack

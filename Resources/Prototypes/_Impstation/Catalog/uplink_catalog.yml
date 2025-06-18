@@ -26,7 +26,7 @@
   productEntity: WeaponPistolZipperAP
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 22
+    Telecrystal: 18
   cost:
     Telecrystal: 20
   categories:
@@ -52,6 +52,16 @@
   description: uplink-rifle-magazine-nemesis-desc
   icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/nemesismag.rsi, state: icon }
   productEntity: MagazineBR
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkCaselessAmmo
+  name: uplink-caseless-ammo-name
+  description: uplink-caseless-ammo-desc
+  productEntity: MagazineBoxCaselessRifle
   cost:
     Telecrystal: 2
   categories:
@@ -173,7 +183,7 @@
     Telecrystal: 2
   categories:
   - UplinkChemicals
-  
+
 - type: listing
   id: UplinkMixedRejectsCarton
   name: uplink-mixed-rejects-carton-name
