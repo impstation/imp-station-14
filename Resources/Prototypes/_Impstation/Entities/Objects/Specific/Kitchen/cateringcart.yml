@@ -1,0 +1,76 @@
+- type: entity
+  id: CateringCart
+  parent: BaseDeployFoldable
+  name: catering cart
+  description: A foldable stainless steel cart meant for a catering crew; what's for dinner?
+  components:
+  - type: Item
+    size: normal
+    heldPrefix: catering cart
+  - type: Sprite
+    sprite: Objects/Specific/Medical/Morgue/bodybags.rsi
+    layers:
+    - state: bag
+      map: ["unfoldedLayer", "enum.StorageVisualLayers.Base"]
+    - state: bag_overlay #imp
+      map: ["unfoldedLayerOverlay"] #imp
+      shader: unshaded #imp
+    - state: bag_folded
+      map: ["foldedLayer"]
+      visible: false
+    - state: open_overlay
+      map: ["enum.StorageVisualLayers.Door"]
+  - type: Icon
+    sprite: Objects/Specific/Medical/Morgue/bodybags.rsi
+    state: bag
+  - type: Clickable
+  - type: InteractionOutline
+  - type: MovedByPressure
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.4,0.25,0.1"
+        density: 20
+        mask:
+        - ItemMask
+  - type: EntityStorage
+    capacity: 1
+    isCollidableWhenOpen: true
+    whitelist: 
+      components:
+        - Food
+        - Drink
+  - type: EntityStorageLayingDownOverride
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateDoorOpen: open_overlay
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Pullable
+  - type: ItemSlots
+  - type: ContainerContainer
+    containers:
+      entity_storage: !type:Container
+  - type: StaticPrice
+    price: 250
+
+- type: entity
+  id: CateringCartFolded
+  name: catering cart
+  description: A plastic bag designed for the storage and transportation of cadavers to stop body decomposition.
+  parent: CateringCart
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
