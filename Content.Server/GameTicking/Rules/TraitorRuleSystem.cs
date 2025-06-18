@@ -284,35 +284,4 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         return traitors;
     }
 
-// imp edit for Bounty Hunter
-    public List<(EntityUid Id, MindComponent Mind)> GetOtherAntagMindsAliveAndConnected(MindComponent ourMind)
-    {
-        List<(EntityUid Id, MindComponent Mind)> allAntags = new();
-
-        var query = EntityQueryEnumerator<AntagObjectivesComponent>();
-        while (query.MoveNext(out var uid, out var antag))
-        {
-            foreach (var role in GetOtherAntagMindsAliveAndConnected(ourMind, (uid, antag)))
-            {
-                if (!allAntags.Contains(role))
-                    allAntags.Add(role);
-            }
-        }
-
-        return allAntags;
-    }
-
-    private List<(EntityUid Id, MindComponent Mind)> GetOtherAntagMindsAliveAndConnected(MindComponent ourMind, Entity<AntagObjectivesComponent> rule)
-    {
-        var antags = new List<(EntityUid Id, MindComponent Mind)>();
-        foreach (var mind in _antag.GetAntagMinds(rule.Owner))
-        {
-            if (mind.Comp == ourMind)
-                continue;
-
-            antags.Add((mind, mind));
-        }
-
-        return antags;
-    }
 }
