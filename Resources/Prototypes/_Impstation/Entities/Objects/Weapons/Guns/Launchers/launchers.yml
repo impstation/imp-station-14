@@ -74,6 +74,38 @@
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
 
 - type: entity
+  name: handheld grenade launcher
+  parent: [WeaponFlareGun, BaseSecurityContraband]
+  id: WeaponGrenadeLauncherSecurity
+  description: A handheld device for launching 40mm grenades. For when you can't afford to be subtle.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/flaregun_security.rsi #imp
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+  - type: Item
+    size: Small
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/flaregun_security.rsi #imp
+  - type: Wieldable
+    unwieldOnUse: false
+  - type: ItemSlots
+    slots:
+      gun_chamber:
+        name: Chamber
+        priority: 1
+        whitelist:
+          tags:
+            - Grenade
+  - type: Gun
+    fireRate: 8
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+  - type: Tag
+    tags:
+    - Sidearm
+
+- type: entity
   name: Urist McMeteor launcher
   parent: WeaponLauncherAdmemeMeteorLarge
   id: WeaponLauncherAdmemeUrist
