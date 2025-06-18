@@ -92,7 +92,7 @@
         tableId: RandomChemicalBarrelCondiments
       - !type:NestedSelector
         weight: 0.8
-        tableId: RandomDrinkBarrelDrinks
+        tableId: RandomChemicalBarrelDrinks
       - !type:NestedSelector
         weight: 0.8
         tableId: RandomChemicalBarrelBiological
