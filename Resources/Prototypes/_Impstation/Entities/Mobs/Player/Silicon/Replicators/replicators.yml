@@ -8,6 +8,7 @@
   abstract: true
   parent: PlayerSiliconBase
   components:
+  - type: ZombieImmune
   - type: Replicator
   - type: NameIdentifier
     group: Replicator
