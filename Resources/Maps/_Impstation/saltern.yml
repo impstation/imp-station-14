@@ -4,7 +4,7 @@ meta:
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 06/17/2025 23:31:23
+  time: 06/18/2025 03:40:54
   entityCount: 13108
 maps:
 - 658
@@ -869,7 +869,7 @@ entities:
             2: 57344
           8,5:
             0: 4352
-            4: 17472
+            3: 17472
           8,6:
             0: 1
             2: 65472
@@ -913,10 +913,10 @@ entities:
             0: 61951
           11,2:
             0: 4351
-            3: 49152
+            4: 49152
           11,3:
             0: 61457
-            3: 204
+            4: 204
           11,-1:
             0: 30583
           11,4:
@@ -928,9 +928,9 @@ entities:
             0: 28791
           12,2:
             0: 119
-            3: 28672
+            4: 28672
           12,3:
-            3: 119
+            4: 119
             0: 61440
           12,-1:
             0: 29311
@@ -1349,16 +1349,16 @@ entities:
             2: 65534
           9,5:
             5: 4368
-            3: 17472
+            4: 17472
           9,6:
             2: 7952
           10,5:
-            3: 4368
+            4: 4368
             6: 17472
           10,6:
             2: 3840
           11,5:
-            3: 21840
+            4: 21840
           11,6:
             2: 3856
           12,5:
@@ -1580,7 +1580,7 @@ entities:
           temperature: 293.15
           moles:
           - 0
-          - 0
+          - 6666.982
           - 0
           - 0
           - 0
@@ -1595,7 +1595,7 @@ entities:
           temperature: 293.15
           moles:
           - 0
-          - 6666.982
+          - 0
           - 0
           - 0
           - 0
@@ -6146,7 +6146,7 @@ entities:
       pos: -29.5,-18.5
       parent: 31
     - type: Door
-      secondsUntilStateChange: -38547.902
+      secondsUntilStateChange: -38566.31
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -6330,12 +6330,11 @@ entities:
     - type: Transform
       pos: 25.5,9.5
       parent: 31
-- proto: AirlockReporterLocked
+- proto: AirlockReporterGlassLocked
   entities:
   - uid: 12890
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 3.5,-31.5
       parent: 31
 - proto: AirlockResearchDirectorGlassLocked
@@ -39158,7 +39157,7 @@ entities:
       deviceLists:
       - 12756
     - type: Door
-      secondsUntilStateChange: -53248.402
+      secondsUntilStateChange: -53266.81
       state: Closing
   - uid: 8815
     components:
