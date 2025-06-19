@@ -35,6 +35,8 @@
         - JawsOfLife
         - GPS
         - WeldingMask
+        - Dart #Until Zookeeper gets its own belt they're gonna have to share. This is a temporary stopgap.
+        - DartGun
       components:
         - StationMap
         - SprayPainter

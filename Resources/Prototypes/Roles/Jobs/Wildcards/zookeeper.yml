@@ -21,11 +21,11 @@
     head: ClothingHeadSafari
     shoes: ClothingShoesColorWhite
     id: ZookeeperPDA
+    belt: ClothingBeltUtility
     ears: ClothingHeadsetService
-  inhand:
-    - WeaponRifleTranq
   storage:
-    back:
+    belt: 
+    - WeaponRifleTranq
     - TranqDart
     - TranqDart
     - TranqDart
