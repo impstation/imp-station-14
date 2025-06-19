@@ -6,6 +6,7 @@
   - type: ShowJobIcons
   - type: ShowMindShieldIcons
   - type: ShowCriminalRecordIcons
+  - type: ShowContrabandDetails
 
 - type: entity
   id: ShowMedicalIcons
@@ -69,6 +70,9 @@
   - type: Clothing
     sprite: Clothing/Eyes/Hud/command.rsi
   - type: ShowJobIcons
+  - type: Tag # imp
+    tags:
+    - HudAdmin
 
 - type: entity
   parent: [ClothingEyesBase, BaseLensSlot] # BaseLensSlot from imp

@@ -16,6 +16,10 @@
     slots:
     - Back
     - suitStorage
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Snipers/tranqrifle.rsi
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Snipers/tranqrifle.rsi
   - type: GunRequiresWield
   - type: Gun
     fireRate: 0.4

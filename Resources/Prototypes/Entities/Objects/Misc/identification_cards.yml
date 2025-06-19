@@ -373,6 +373,7 @@
   name: lawyer ID card
   components:
     - type: Sprite
+      sprite: _Impstation/Objects/Misc/id_cards.rsi # imp edit
       layers:
         - state: default
         - state: idlawyer
