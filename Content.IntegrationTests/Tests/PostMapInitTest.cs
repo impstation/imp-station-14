@@ -63,7 +63,7 @@ namespace Content.IntegrationTests.Tests
             "/Maps/_Impstation/meta.yml", // Contains warden's rubber stamp
             "/Maps/_Impstation/reach.yml", // Contains handheld crew monitor
             "/Maps/_Impstation/xeno.yml", // Contains PTK-800 "Matter Dematerializer"
-
+            "/Maps/_Impstation/eclipse.yml", // Contains PTK-800 "Matter Dematerializer", LSE-400c "Svalinn machine gun"
 
 
             // Shuttles
@@ -111,6 +111,7 @@ namespace Content.IntegrationTests.Tests
             "Core",
             "Dev",
             "TestTeg",
+            "Eclipse",
             "Elkridge",
             "Fland",
             "Gate",
@@ -124,6 +125,7 @@ namespace Content.IntegrationTests.Tests
             "Plasma",
             "Reach",
             "Saltern",
+            "Submarine",
             "Train",
             "Xeno",
             "dm01-entryway",
@@ -142,7 +144,8 @@ namespace Content.IntegrationTests.Tests
             "Skimmer",
             "Union",
             "Hash",
-            "Refsdal"
+            "Refsdal",
+            "Bedlam"
         };
 
         /// <summary>

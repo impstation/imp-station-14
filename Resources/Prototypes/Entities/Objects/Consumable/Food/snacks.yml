@@ -569,7 +569,6 @@
     sound:
       path: /Audio/Effects/unwrap.ogg
 
-
 - type: entity
   id: FoodSnackMREBrownieOpen
   parent: FoodSnackBase
@@ -614,21 +613,21 @@
     tags:
     - Trash
   - type: PhysicalComposition
-    materialComposition:
-      Steel: 50
-      Plastic: 50
+    materialComposition: #imp edit
+      Steel: 75
+      Plastic: 25
   - type: SpaceGarbage
-  - type: Food
-    requiresSpecialDigestion: true
+  - type: StaticPrice
+    price: 0
   - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 10
         reagents:
-          - ReagentId: Trash
-            Quantity: 10
-  - type: StaticPrice
-    price: 0
+        - ReagentId: ToxinTrash
+          Quantity: 10 # imp 5 > 10
+  - type: Food
+    requiresSpecialDigestion: true
 
 - type: entity
   categories: [ HideSpawnMenu ]
