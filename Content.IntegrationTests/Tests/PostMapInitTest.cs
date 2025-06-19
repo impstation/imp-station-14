@@ -125,6 +125,7 @@ namespace Content.IntegrationTests.Tests
             "Plasma",
             "Reach",
             "Saltern",
+            "Submarine",
             "Train",
             "Xeno",
             "dm01-entryway",
@@ -143,7 +144,8 @@ namespace Content.IntegrationTests.Tests
             "Skimmer",
             "Union",
             "Hash",
-            "Refsdal"
+            "Refsdal",
+            "Bedlam"
         };
 
         /// <summary>
