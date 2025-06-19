@@ -4,10 +4,18 @@
   id: WeaponRifleTranq
   description: A tranquilizer rifle designed to administer drugs to dangerous animals. Only takes pre-loaded darts. Not to be used on human targets.
   components:
+  - type: Tag
+    tags:
+    - DartGun
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Snipers/tranqrifle.rsi
+  - type: Item
+    size: Normal
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Snipers/tranqrifle.rsi
+    slots:
+    - Back
+    - suitStorage
   - type: GunRequiresWield
   - type: Gun
     fireRate: 0.4
