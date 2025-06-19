@@ -62,12 +62,10 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: RedLightLaser
-    fireCost: 50
+  - type: MagazineAmmoProvider #imp, removed HitscanBatteryAmmoProvider to replace with this.
   - type: ItemSlots
     slots:
-      cell_slot:
+      gun_magazine: #imp
         name: Magazine
         startingItem: PowerCellSmall
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
@@ -76,14 +74,12 @@
           tags:
             - PowerCell
             - PowerCellSmall
-  - type: PowerCellSlot
-    cellSlotId: cell_slot
   - type: Appearance
   - type: StaticPrice
     price: 500
   - type: ContainerContainer
     containers:
-      cell_slot: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot #imp
 #imp edit begin; weapon melee
   - type: MeleeWeapon
     range: 0.8
@@ -142,10 +138,10 @@
     - Belt
 
 - type: entity
-  name: svalinn laser pistol
+  name: Svalinn laser pistol #imp
   parent: [ BaseWeaponPowerCellSmall, BaseSecurityContraband ]
   id: WeaponLaserSvalinn
-  description: A cheap and widely-used laser pistol.
+  description: A cheap and widely-used laser pistol with an interchangeable power cell. #imp
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
@@ -226,7 +222,7 @@
   description: The power of the primordial element of lightning in your hands.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/tesla_gun.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/tesla_gun.rsi #imp
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -1008,13 +1004,13 @@
 #imp edit end
 
 - type: entity
-  name: temperature gun
+  name: RA-96 temperature gun #imp
   parent: [BaseWeaponBattery, BaseGunWieldable]
   id: WeaponTemperatureGun
   description: An advanced gun that shoots body-temperature-changing beams. This probably constitutes as some kind of war crime.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/temp_gun.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/temp_gun.rsi #imp
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -1031,7 +1027,7 @@
     steps: 5
     zeroVisible: false
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/temp_gun.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/temp_gun.rsi #imp
   - type: Gun
     fireRate: 1
     soundGunshot:
