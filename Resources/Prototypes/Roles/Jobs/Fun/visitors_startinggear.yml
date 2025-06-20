@@ -1561,9 +1561,10 @@
     ears: ClothingHeadsetService
     pocket1: WeaponFlareGun
     pocket2: PillCanisterDylovene
+  inhand: #imp
+    - WeaponRifleTranq
   storage: # imp
     belt:
-    - WeaponRifleTranq
     - TranqDart
     - TranqDart
     - TranqDart
@@ -1584,6 +1585,17 @@
     ears: ClothingHeadsetService
     pocket1: WeaponFlareGun
     pocket2: PillCanisterDylovene
+  inhand: #imp
+    - WeaponRifleTranq
+  storage: # imp
+    belt:
+    - TranqDart
+    - TranqDart
+    - TranqDart
+    - IrwizineDart
+    - IrwizineDart
+    - IrwizineDart
+    - IrwizineDart
 
 # Misc
 
