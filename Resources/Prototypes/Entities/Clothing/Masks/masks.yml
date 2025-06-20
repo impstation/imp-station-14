@@ -208,7 +208,7 @@
       Snout: Mask
     hideOnToggle: true
 
-- type: entity 
+- type: entity
   parent: ClothingMaskBase
   id: ClothingMaskClownBase
   abstract: true
@@ -238,26 +238,26 @@
   components:
   - type: Appearance #imp
   - type: Sprite #imp
-    sprite: _Impstation/Clothing/Mask/clown.rsi 
+    sprite: _Impstation/Clothing/Mask/clown.rsi
     layers:
-    - state: icon 
-      map: [ "unfoldedLayer" ] 
-    - state: icon-wigless 
-      map: ["foldedLayer"] 
-      visible: false 
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon-wigless
+      map: ["foldedLayer"]
+      visible: false
   - type: Foldable #imp
-    canFoldInsideContainer: true 
-    unfoldVerbText: untuck-verb-clothing-mask 
-    foldVerbText: tuck-verb-clothing-mask 
+    canFoldInsideContainer: true
+    unfoldVerbText: untuck-verb-clothing-mask
+    foldVerbText: tuck-verb-clothing-mask
   - type: FoldableClothing #imp
-    foldedEquippedPrefix: wigless 
-    foldedHeldPrefix: wigless 
+    foldedEquippedPrefix: wigless
+    foldedHeldPrefix: wigless
     foldedHideLayers:
-    - Snout 
-    unfoldedHideLayers: 
-    - Snout 
+    - Snout
+    unfoldedHideLayers:
+    - Snout
   - type: Clothing #imp
-    sprite: _Impstation/Clothing/Mask/clown.rsi  
+    sprite: _Impstation/Clothing/Mask/clown.rsi
   - type: Tag
     tags:
     - ClownMask
