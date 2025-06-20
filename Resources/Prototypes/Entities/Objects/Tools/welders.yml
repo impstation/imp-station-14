@@ -251,3 +251,10 @@
       reagents:
       - ReagentId: WeldingFuel
         Quantity: 0.1
+  # imp edit start
+  - type: SolutionPurge
+    solution: Welder
+    preserve:
+    - WeldingFuel
+    quantity: 0.2
+  # imp edit end
