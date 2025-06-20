@@ -58,6 +58,12 @@ public sealed class RandomHumanoidAppearanceSystem : EntitySystem
         .WithSex(component.Sex ?? profile.Sex)
         .WithGender(component.Gender ?? profile.Gender);
 
+        // Imp pronoun check
+        if (component.KeepPronouns)
+        {
+            finalProfile.Sex = humanoid.Sex;
+            finalProfile.Gender = humanoid.Gender;
+        }
         _humanoid.LoadProfile(uid, finalProfile, humanoid);
 
         if (component.RandomizeName)
