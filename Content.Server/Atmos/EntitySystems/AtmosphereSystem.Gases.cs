@@ -74,7 +74,7 @@ namespace Content.Server.Atmos.EntitySystems
             }
 
             //Proportionalize the mols vector by dividing all elements within it by its sum.
-            //Here temp contains a unit vector with the fractional values of each gas in the mixture.
+            //Here temp contains the fractional values of each gas in the mixture.
             NumericsHelpers.Divide(moles, molesSum, temp);
 
             //Multiply fractional moles with specific heats and return the sum. This is the specific heat of the mixture.
