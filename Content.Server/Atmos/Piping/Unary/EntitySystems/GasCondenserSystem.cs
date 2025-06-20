@@ -67,6 +67,15 @@ public sealed class GasCondenserSystem : EntitySystem
 
     public float NumberOfMolesToConvert(ApcPowerReceiverComponent comp, GasMixture mix, float dt)
     {
+        /* IMP EDIT: UPSTREAM IMPLEMENTATION
+        var hc = _atmosphereSystem.GetHeatCapacity(mix, true);
+        var alpha = 0.8f; // tuned to give us 1-ish u/second of reagent conversion
+        // ignores the energy needed to cool down the solution to the condensation point, but that probably adds too much difficulty and so let's not simulate that
+        var energy = comp.Load * dt;
+        return energy / (alpha * hc);
+        */
+
+        // BEGIN IMP ADD
         //Rate of condensation is based on the gas mixture's specific heat (not heat capacity!).
         var specificHeat = _atmosphereSystem.GetSpecificHeat(mix);
 
@@ -74,10 +83,11 @@ public sealed class GasCondenserSystem : EntitySystem
         var energy = comp.Load * dt;
 
         //Alpha is a tuning variable to condense around 1u per second. Also a holdover from the previous implementation.
-        //GasCondenserComponent MolesToReagentMultiplier = 0.2137f, so we want to tune the return of this function to be around 5.
+        //GasCondenserComponent MolesToReagentMultiplier = 0.2137f, so we want to tune the return of this function to be around 5 to get 1u per tick.
         //Alpha is tuned based on the median gas specific heat (nitrogen).
         var alpha = 285f;
 
         return energy / (alpha * specificHeat);
+        // END IMP ADD
     }
 }

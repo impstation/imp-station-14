@@ -41,6 +41,7 @@ namespace Content.Server.Atmos.EntitySystems
             }
         }
 
+        // BEGIN IMP ADD
         /// <summary>
         ///     Calculates the specific heat for a gas mixture.
         ///     <br></br><b>Ensure that you know the difference between specific heat and heat capacity, and that you're using the correct function.</b>
@@ -81,6 +82,7 @@ namespace Content.Server.Atmos.EntitySystems
             NumericsHelpers.Multiply(temp, GasSpecificHeats, temp);
             return NumericsHelpers.HorizontalAdd(temp);
         }
+        // END IMP ADD
 
         /// <summary>
         ///     Calculates the heat capacity for a gas mixture.
