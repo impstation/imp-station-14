@@ -86,6 +86,7 @@
   id: KesslerSyndromeScheduler
   components:
   - type: GameRule
+    minPlayers: 20 # imp
   - type: RampingStationEventScheduler
     scheduledGameRules: !type:NestedSelector
       tableId: BasicMeteorSwarmEventsTable
