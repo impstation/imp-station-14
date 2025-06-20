@@ -98,3 +98,13 @@
       forceAllPossible: true
       mindRoles:
       - MindRoleTraitor
+
+# population limiters
+
+- type: entity
+  parent: BaseGameRule
+  id: LowpopLimiter
+  components:
+  - type: GameRule
+    maxPlayers: 14
+    cancelPresetOnTooManyPlayers: true
