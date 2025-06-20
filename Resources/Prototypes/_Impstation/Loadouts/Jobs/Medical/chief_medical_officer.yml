@@ -28,3 +28,38 @@
   id: CMOPrestigeLabcoat
   equipment:
     outerClothing: ClothingOuterCoatCMO
+
+- type: loadout
+  id: CMOCasualSkirt
+  equipment:
+    innerClothing: ClothingUniformJumpskirtCMOCasual
+
+- type: loadout
+  id: CMOCasualSuit
+  equipment:
+    innerClothing: ClothingUniformJumpsuitCMOCasual
+
+- type: loadout
+  id: CMOFormalDress
+  equipment:
+    innerClothing: ClothingUniformJumpskirtCMOFormal
+
+- type: loadout
+  id: CMOFormalSuit
+  equipment:
+    innerClothing: ClothingUniformJumpsuitCMOFormal
+
+- type: loadout
+  id: CMOScrubs
+  equipment:
+    innerClothing: ClothingUniformJumpsuitCMOScrubs
+
+- type: loadout
+  id: CMOApron
+  equipment:
+    outerClothing: ClothingOuterApronCMO
+
+- type: loadout
+  id: CMOClip
+  equipment:
+    head: ClothingHeadHatCMOClip
