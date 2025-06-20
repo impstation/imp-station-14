@@ -73,6 +73,9 @@ uplink-rocketcon-desc = A box containing 3 concussion rockets compatible with th
 uplink-echioncell-name = Echion power cell
 uplink-echioncell-desc = A special power cell made with Echion. While not the most efficient as a battery, it's especially useful when used with weapons.
 
+uplink-caseless-ammo-name = Ammunition box (.25 caseless)
+uplink-caseless-ammo-desc = A box of 50 cartridges compatible with the Basilisk-11 and the Cobra. Doesn't come with any magazines, load it yourself!
+
 uplink-mixed-rejects-name = Dan's Soaked Smokes Rejects
 uplink-mixed-rejects-desc = Dan worked with Interdyne chemistry to dispose of excess chemicals, ENJOY CAUTIOUSLY.
 
