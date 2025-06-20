@@ -2,6 +2,7 @@
 // all credit for the core gameplay concepts and a lot of the core functionality of the code goes to the folks over at Goob, but I re-wrote enough of it to justify putting it in our filestructure.
 // the original Bingle PR can be found here: https://github.com/Goob-Station/Goob-Station/pull/1519
 
+using Content.Server._Impstation.Administration.Components;
 using Content.Server.Actions;
 using Content.Server.Audio;
 using Content.Server.GameTicking;
@@ -15,6 +16,7 @@ using Content.Shared.Destructible;
 using Content.Shared.Explosion.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
+using Content.Shared.Mech.Components;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Events;
@@ -77,6 +79,7 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
                 !HasComp<HumanoidAppearanceComponent>(uid) && // Store people
                 !HasComp<OnUseTimerTriggerComponent>(uid) && // Store grenades
                 !HasComp<StealTargetComponent>(uid) && // Store steal targets
+                !HasComp<MechComponent>(uid) && // Store mechs like Ripley
                 !TryComp<MindContainerComponent>(uid, out var mind) | (mind != null && !mind!.HasMind)) // Store anything else that has a mind
             {
                 toDel.Add(uid);
@@ -195,6 +198,9 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
                 comp.Actions.Add(_actions.AddAction((EntityUid)queen, ent.Comp.SpawnNewNestAction));
             else
                 comp.Actions.Add(_actionContainer.AddAction((EntityUid)mindContainer.Mind, ent.Comp.SpawnNewNestAction));
+
+            // then add the Crown.
+            EnsureComp<ReplicatorSignComponent>((EntityUid)queen);
         }
 
         // finally, loop over our living replicators and set their pinpointers to target the queen.
@@ -251,7 +257,7 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
             else
                 locationsList = string.Concat(locationsList, $"[/color]and [color=#d70aa0]{location}[/color].");
 
-            totalPoints += pointsStorage.TotalPoints;
+            totalPoints += pointsStorage.TotalPoints / 10; // dividing by ten gives us a slightly more manageable number + keeps it consistent with pre-stackcount point calculation.
 
             totalSpawned += pointsStorage.TotalReplicators;
 
