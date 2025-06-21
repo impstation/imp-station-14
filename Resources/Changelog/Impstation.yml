@@ -1,106 +1,4 @@
 ﻿Entries:
-- author: honeyed-lemons
-  changes:
-  - message: Completely rebuild xeno's bar and kitchen
-    type: Tweak
-  id: 1371
-  time: '2025-03-24T02:29:55.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2064
-- author: Sha-Seng
-  changes:
-  - message: Cropped mime uniforms in loadout or from butchering
-    type: Add
-  - message: Touched up colors on mime uniforms
-    type: Tweak
-  id: 1372
-  time: '2025-03-24T03:00:58.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2032
-- author: Sha-Seng
-  changes:
-  - message: Juggernaut Cloak and Syndicate Satchel added to uplink
-    type: Add
-  - message: SyndieDrobes now have backpacks and satchels for nukies
-    type: Tweak
-  id: 1373
-  time: '2025-03-24T03:01:20.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2031
-- author: Sha-Seng
-  changes:
-  - message: Undershirt sprites adjusted slightly to not show under short sleeve tops
-    type: Tweak
-  id: 1374
-  time: '2025-03-24T03:05:04.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2034
-- author: Sha-Seng
-  changes:
-  - message: Decapoid clowns and mimes now have special vaporizers
-    type: Add
-  - message: Decapoids have special huge puffer coat sprites and circus clown sprites
-    type: Tweak
-  id: 1375
-  time: '2025-03-24T03:34:07.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2002
-- author: AvianMaiden
-  changes:
-  - message: You no longer have to contemplate the idea of using corporate-sanctioned
-      or unsanctioned violence to end another's life when wielding a gun. You can
-      now shoot for free with no thoughts or hesitation!!
-    type: Fix
-  - message: Uplink items should be CORRECT.
-    type: Fix
-  id: 1376
-  time: '2025-03-24T03:42:49.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2055
-- author: Sha-Seng
-  changes:
-  - message: You can now butcher your bomber jackets for a loose look
-    type: Add
-  id: 1377
-  time: '2025-03-24T03:54:44.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2033
-- author: Sha-Seng
-  changes:
-  - message: Simple tee, simple tank, and black flip flops added to the Clothesmate
-    type: Add
-  - message: Black and white wrapped scarves added to the Winterdrobe and passenger
-      loadout
-    type: Add
-  - message: Tailor's Knife (a legal shiv) for mappers
-    type: Add
-  id: 1378
-  time: '2025-03-24T04:59:58.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2046
-- author: hivehum
-  changes:
-  - message: You speak to your mother with that mouth? Go wash your mouth out with
-      soap and think about what you've done!
-    type: Tweak
-  id: 1379
-  time: '2025-03-24T05:01:07.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2050
-- author: Sha-Seng
-  changes:
-  - message: Ten tattoos and seven jewelry markings!
-    type: Add
-  id: 1380
-  time: '2025-03-24T05:20:43.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2059
-- author: DinnerCalzone
-  changes:
-  - message: The Dining Services and Station Specific departments no longer show up
-      on the crew monitoring console.
-    type: Fix
-  id: 1381
-  time: '2025-03-24T05:28:44.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2066
-- author: argentsunshine
-  changes:
-  - message: Added nine new hairstyles (half-up styles, middle parts, mullets, and
-      a curly undercut and side shave).
-    type: Add
-  id: 1382
-  time: '2025-03-24T05:35:04.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2060
 - author: Mousetrinity
   changes:
   - message: Introducing the Kaiju cloak, a way to hide your tails, wings, and spare
@@ -4207,3 +4105,115 @@
   id: 1870
   time: '2025-06-18T09:36:56.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/2811
+- author: msTheowo
+  changes:
+  - message: You can print plastic knives at service techfabs now!
+    type: Tweak
+  id: 1871
+  time: '2025-06-19T04:15:51.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2820
+- author: ATDoop
+  changes:
+  - message: Removed the ion storm law that forced silicons to call the shuttle.
+    type: Remove
+  id: 1872
+  time: '2025-06-19T05:44:14.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2798
+- author: mqole
+  changes:
+  - message: Circumcised lizards.
+    type: Fix
+  id: 1873
+  time: '2025-06-20T04:29:46.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2827
+- author: DinnerCalzone
+  changes:
+  - message: Empty liquid storage tanks can now be ordered from Cargo.
+    type: Add
+  id: 1874
+  time: '2025-06-20T05:23:43.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2826
+- author: MintyTheBinty
+  changes:
+  - message: Paprika is now available from tampered condiment vendors!
+    type: Add
+  - message: Changed the English Spice's and Lethal Poison Injector's pepper to paprika
+      for an extra kick!
+    type: Tweak
+  id: 1875
+  time: '2025-06-20T05:30:46.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2825
+- author: youtubevideo3
+  changes:
+  - message: Nanotrasen's various tobacco product subsidiaries have consulted with
+      marketing firms in order to create fresh and unique brand identities.
+    type: Tweak
+  id: 1876
+  time: '2025-06-20T05:34:28.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2819
+- author: widgetbeck
+  changes:
+  - message: Eddid thi Vowel Rotation eccint treot, whoch rutetis ell vuwils tu thi
+      roght by uni. AEIOU -> EIOUA
+    type: Add
+  id: 1877
+  time: '2025-06-20T05:35:09.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2817
+- author: widgetbeck
+  changes:
+  - message: Replicator Tier 3 speed has been reduced.
+    type: Tweak
+  - message: Replicator flat structural damage reductions have been removed.
+    type: Tweak
+  - message: All Replicator tiers are now vulnerable to flash.
+    type: Add
+  - message: There is now a clear visual indicator for which Replicator is the Queen
+      once the nest has been destroyed.
+    type: Add
+  - message: Replicator Tier 1 stun has been slightly reduced, and Tier 2 stun has
+      been slightly increased (along with a new sprite.)
+    type: Tweak
+  - message: Replicator Tier 2's whip has received a small damage buff.
+    type: Tweak
+  - message: Replicators cannot be zombified.
+    type: Remove
+  id: 1878
+  time: '2025-06-20T05:44:14.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2804
+- author: Ruddygreat, DarkIcedCoffee
+  changes:
+  - message: Added the S.A.L.V.O hud.
+    type: Add
+  id: 1879
+  time: '2025-06-20T05:43:16.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2669
+- author: CrystalClover
+  changes:
+  - message: Added Pulp, a mushy substance derived from wood products.
+    type: Add
+  - message: Moths now derive sustainence from Cellulose, with Fiber and Pulp being
+      digested into Cellulose.
+    type: Tweak
+  - message: Moths can now (slowly) eat Cardboard and Wood sheets.
+    type: Tweak
+  - message: The Nutribrick wrapper is now actually paper; it contains 10 Pulp and
+      recycles into Cardboard.
+    type: Tweak
+  id: 1880
+  time: '2025-06-21T01:08:24.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2806
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: The M-1 Energy Shotgun doesn't need to wait 30 seconds to recharge anymore,
+      but recharges a bit slower.
+    type: Tweak
+  id: 1881
+  time: '2025-06-21T01:12:08.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2802
+- author: ruddygreat
+  changes:
+  - message: Sechuds no longer try to figure out if you should arrest materials!
+    type: Fix
+  id: 1882
+  time: '2025-06-21T01:13:30.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2834
