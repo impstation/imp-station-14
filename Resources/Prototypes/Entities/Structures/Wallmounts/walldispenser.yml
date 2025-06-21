@@ -58,12 +58,16 @@
       tank:
         reagents:
         - ReagentId: SpaceCleaner
-          Quantity: 5000
+          Quantity: 1000 #imp edit, was 5000
   - type: DrainableSolution
     solution: tank
   - type: ReagentTank
   - type: ExaminableSolution
     solution: tank
+  # imp edit start, allows refilling with verb or click-and-dragging
+  - type: DumpableSolution
+    solution: tank
+  # imp edit end
 
 - type: entity
   parent: CleanerDispenser

@@ -104,8 +104,8 @@
 - type: entity
   id: MagazinePistolCaselessRifle
   name: "pistol magazine (.25 caseless)"
-  description: A 10-round .25 caseless pistol magazine, marked as live-fire ammo. #imp
   parent: BaseMagazinePistolCaselessRifle
+  description: A 10-round .25 caseless pistol magazine, marked as live-fire ammo. #imp
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeCaselessRifle
@@ -121,12 +121,18 @@
     steps: 6
     zeroVisible: false
   - type: Appearance
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      right:
+      - state: inhand-right-mag
 
 - type: entity
   id: MagazinePistolCaselessRiflePractice
   name: "pistol magazine (.25 caseless practice)"
-  description: A 10-round .25 caseless pistol magazine, marked as practice ammo. #imp
   parent: BaseMagazinePistolCaselessRifle
+  description: A 10-round .25 caseless pistol magazine, marked as practice ammo. #imp
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeCaselessRiflePractice
@@ -142,6 +148,16 @@
     steps: 6
     zeroVisible: false
   - type: Appearance
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#d63b28" #imp
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#d63b28" #imp
 
 - type: entity
   id: MagazineCaselessRifle
@@ -157,6 +173,16 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#820a16" #imp
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#820a16" #imp
 
 - type: entity
   id: MagazineCaselessRiflePractice
@@ -172,6 +198,16 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#d63b28" #imp
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#d63b28" #imp
 
 - type: entity
   id: MagazineCaselessRifleShort
@@ -188,6 +224,16 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#820a16" #imp
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#820a16" #imp
 
 - type: entity
   id: MagazineCaselessRifleShortPractice
@@ -204,3 +250,13 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#d63b28" #imp
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#d63b28" #imp

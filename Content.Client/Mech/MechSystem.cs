@@ -2,6 +2,7 @@
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.EntitySystems;
 using Robust.Client.GameObjects;
+using Robust.Shared.Audio.Systems; //imp
 using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
 
 namespace Content.Client.Mech;
@@ -10,6 +11,8 @@ namespace Content.Client.Mech;
 public sealed class MechSystem : SharedMechSystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!; //imp
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -17,6 +20,7 @@ public sealed class MechSystem : SharedMechSystem
         base.Initialize();
 
         SubscribeLocalEvent<MechComponent, AppearanceChangeEvent>(OnAppearanceChanged);
+        SubscribeLocalEvent<MechComponent, MechEntryEvent>(OnMechEntry); //imp
     }
 
     private void OnAppearanceChanged(EntityUid uid, MechComponent component, ref AppearanceChangeEvent args)
@@ -24,7 +28,7 @@ public sealed class MechSystem : SharedMechSystem
         if (args.Sprite == null)
             return;
 
-        if (!args.Sprite.TryGetLayer((int) MechVisualLayers.Base, out var layer))
+        if (!_sprite.LayerExists((uid, args.Sprite), MechVisualLayers.Base))
             return;
 
         var state = component.BaseState;
@@ -40,7 +44,15 @@ public sealed class MechSystem : SharedMechSystem
             drawDepth = DrawDepth.SmallMobs;
         }
 
-        layer.SetState(state);
-        args.Sprite.DrawDepth = (int) drawDepth;
+        _sprite.LayerSetRsiState((uid, args.Sprite), MechVisualLayers.Base, state);
+        _sprite.SetDrawDepth((uid, args.Sprite), (int)drawDepth);
+    }
+
+    private void OnMechEntry(EntityUid uid, MechComponent component, MechEntryEvent args) //imp
+    {
+        if (args.Cancelled || args.Handled)
+            return;
+
+        _audio.PlayPredicted(component.SoundNominal, uid, uid);
     }
 }

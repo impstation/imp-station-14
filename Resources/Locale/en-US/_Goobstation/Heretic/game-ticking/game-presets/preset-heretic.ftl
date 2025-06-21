@@ -1,7 +1,7 @@
 heretic-roundend-name = heretic
 
 roundend-prepend-heretic-ascension-success = {$name}, [color=green] has Ascended![/color]
-roundend-prepend-heretic-ascension-fail = {$name}, [color=red] has failed![/color]
+roundend-prepend-heretic-ascension-fail = {$name}, [color=red] has failed to ascend![/color]
 roundend-prepend-heretic-knowledge-named = [color=white]{$name}[/color] has researched a total of [color=purple]{$number}[/color] knowledge.
 
 heretic-gamemode-title = Heretics
@@ -38,6 +38,12 @@ ghostrole-ghoul-desc = Aid your summoner in achieving ascension.
 ghostrole-prophet-desc = Aid your summoner in achieving ascension. Connect other believers to the Mansus Link.
 ghostrole-stalker-desc = Aid your summoner in achieving ascension. Jaunt and sabotage crew's lighting.
 ghostrole-ghoul-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with the one who summoned you and other eldritch beings.
+
+ghoul-notif-text =
+    You have been resurrected as a ghoul!
+
+    Protect your new master and follow their orders.
+ghoul-notif-title = Return to Flesh
 
 ##hell memory loss notification
 hell-memory-title = Memory Loss

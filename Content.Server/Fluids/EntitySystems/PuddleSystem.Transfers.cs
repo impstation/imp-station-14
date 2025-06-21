@@ -2,18 +2,31 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.DragDrop;
 using Content.Shared.FixedPoint;
 using Content.Shared.Fluids;
+using Content.Shared.Fluids.Components; //imp edit
+using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Verbs; //imp edit
+using Robust.Shared.Utility; //imp edit
 
 namespace Content.Server.Fluids.EntitySystems;
 
 public sealed partial class PuddleSystem
 {
+    [Dependency] private readonly OpenableSystem _openable = default!;
+
     private void InitializeTransfers()
     {
         SubscribeLocalEvent<RefillableSolutionComponent, DragDropDraggedEvent>(OnRefillableDragged);
+        SubscribeLocalEvent<DumpableSolutionComponent, GetVerbsEvent<Verb>>(AddFillVerb); //imp edit
     }
 
     private void OnRefillableDragged(Entity<RefillableSolutionComponent> entity, ref DragDropDraggedEvent args)
     {
+        if (!_actionBlocker.CanComplexInteract(args.User))
+        {
+            _popups.PopupEntity(Loc.GetString("mopping-system-no-hands"), args.User, args.User);
+            return;
+        }
+
         if (!_solutionContainerSystem.TryGetSolution(entity.Owner, entity.Comp.Solution, out var soln, out var solution) || solution.Volume == FixedPoint2.Zero)
         {
             _popups.PopupEntity(Loc.GetString("mopping-system-empty", ("used", entity.Owner)), entity, args.User);
@@ -24,6 +37,12 @@ public sealed partial class PuddleSystem
         if (TryComp<DumpableSolutionComponent>(args.Target, out var dump))
         {
             if (!_solutionContainerSystem.TryGetDumpableSolution((args.Target, dump, null), out var dumpableSoln, out var dumpableSolution))
+                return;
+
+            if (!_solutionContainerSystem.TryGetDrainableSolution(entity.Owner, out _, out _))
+                return;
+
+            if (_openable.IsClosed(entity))
                 return;
 
             bool success = true;
@@ -68,4 +87,33 @@ public sealed partial class PuddleSystem
             }
         }
     }
+
+    // imp addition start
+    // adds a verb to entities with the DumpableSolution component to allow a player to dump a solution into the entity without needing to click-and-drag
+    // mostly copied from DrainSystem
+    private void AddFillVerb(Entity<DumpableSolutionComponent> entity, ref GetVerbsEvent<Verb> args)
+    {
+        if (!args.CanAccess || !args.CanInteract || args.Using == null)
+            return;
+
+        if (!TryComp(args.Using, out SpillableComponent? spillable) ||
+            !TryComp(args.Target, out DumpableSolutionComponent? dumpable))
+            return;
+
+        var used = args.Using.Value;
+        var user = args.User;
+        var target = args.Target;
+        Verb verb = new()
+        {
+            Text = Loc.GetString("dumpablesolution-component-fill-verb-inhand", ("object", Name(used))),
+            Act = () =>
+            {
+                var fill = new DragDropDraggedEvent(user, target);
+                RaiseLocalEvent(used, ref fill);
+            },
+            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/eject.svg.192dpi.png"))
+        };
+        args.Verbs.Add(verb);
+    }
+    // end imp addition
 }

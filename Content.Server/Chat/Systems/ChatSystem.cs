@@ -20,7 +20,6 @@ using Content.Shared.CollectiveMind;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
-using Content.Shared._Impstation.Ghost;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Players;
@@ -300,7 +299,6 @@ public sealed partial class ChatSystem : SharedChatSystem
         var sendType = type;
         // If dead player LOOC is disabled, unless you are an admin with Moderator perms, send dead messages to dead chat
         if ((_adminManager.IsAdmin(player) && _adminManager.HasAdminFlag(player, AdminFlags.Moderator)) // Override if admin
-            || !HasComp<GhostBarPatronComponent>(source) // I'm part of the problem!
             || _deadLoocEnabled
             || (!HasComp<GhostComponent>(source) && !_mobStateSystem.IsDead(source))) // Check that player is not dead
         {
@@ -878,7 +876,6 @@ public sealed partial class ChatSystem : SharedChatSystem
     {
         return Filter.Empty()
             .AddWhereAttachedEntity(HasComp<GhostComponent>)
-            .AddWhereAttachedEntity(HasComp<GhostBarPatronComponent>)
             .Recipients
             .Union(_adminManager.ActiveAdmins)
             .Select(p => p.Channel);

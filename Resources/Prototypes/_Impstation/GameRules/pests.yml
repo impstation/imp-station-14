@@ -10,11 +10,13 @@
   - type: VentCrittersRule
     entries:
     - id: MobAdultSlimesBlueAngry
-      prob: 0.02
+      prob: 0.01998
     - id: MobAdultSlimesGreenAngry
-      prob: 0.02
+      prob: 0.01998
     - id: MobAdultSlimesYellowAngry
-      prob: 0.02
+      prob: 0.01998
+    - id: ReagentSlimeSpawner
+      prob: 0.00006
 
 - type: entity
   id: SnakeSpawn
@@ -130,4 +132,18 @@
     - id: MobFrog
       prob: 0
     - id: MobButterfly
+      prob: 0
+
+- type: entity
+  id: CorpseEjectedFromVents
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: true
+    reoccurrenceDelay: 10
+    weight: 3
+  - type: VentCrittersRule
+    announce: false
+    specialEntries:
+    - id: SalvageHumanCorpse
       prob: 0

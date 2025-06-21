@@ -1,5 +1,6 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Antag;
+using Content.Server.Antag.Components;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Mind;
 using Content.Server.Objectives;
@@ -206,13 +207,19 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink is PDA");
             // Codes are only generated if the uplink is a PDA
-            code = EnsureComp<RingerUplinkComponent>(pda.Value).Code;
+            var ev = new GenerateUplinkCodeEvent();
+            RaiseLocalEvent(pda.Value, ref ev);
 
-            // If giveUplink is false the uplink code part is omitted
-            briefing = string.Format("{0}\n{1}",
-                briefing,
-                Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", code).Replace("sharp", "#"))));
-            return (code, briefing);
+            if (ev.Code is { } generatedCode)
+            {
+                code = generatedCode;
+
+                // If giveUplink is false the uplink code part is omitted
+                briefing = string.Format("{0}\n{1}",
+                    briefing,
+                    Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", code).Replace("sharp", "#"))));
+                return (code, briefing);
+            }
         }
         else if (pda is null && uplinked)
         {
@@ -276,4 +283,5 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 
         return traitors;
     }
+
 }

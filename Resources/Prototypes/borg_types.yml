@@ -1,4 +1,4 @@
-﻿# Generic borg
+# Generic borg
 - type: borgType
   id: generic
 
@@ -10,10 +10,12 @@
   moduleWhitelist:
     tags:
     - BorgModuleGeneric
+    - BorgModuleScience #until sciborgs are added
 
   defaultModules:
   - BorgModuleTool
-
+  - BorgModuleArtifact
+  - BorgModuleAnomaly
   radioChannels:
   - Science
 
@@ -80,15 +82,16 @@
     - BorgModuleCargo
 
   defaultModules:
-  - BorgModuleGrapplingGun
-  - BorgModuleBasicMining # imp
+  - BorgModuleTool
+  - BorgModuleMining
+  - BorgModuleTraversal
   - BorgModuleAppraisal
 
   radioChannels:
   - Supply
   - Science
 
-  addComponents:
+  addComponents: # imp
   - type: Magboots
 
   # Visual
@@ -119,8 +122,9 @@
     - BorgModuleJanitor
 
   defaultModules:
-  - BorgModuleLightReplacer
+  - BorgModuleTool
   - BorgModuleCleaning
+  - BorgModuleCustodial
 
   radioChannels:
   - Science
@@ -154,7 +158,10 @@
     - BorgModuleMedical
 
   defaultModules:
-  - BorgModuleTreatment
+  - BorgModuleTool
+  - BorgModuleChemical
+  - BorgModuleTopicals
+  - BorgModuleRescue
 
   radioChannels:
   - Science
@@ -168,6 +175,9 @@
   - type: ShowHealthIcons
     damageContainers:
     - Biological
+  - type: FabricateCandy # Borg Candy - DeltaV
+    actions:
+    - ActionFabricateGumball
 
   # Visual
   inventoryTemplateId: borgDutch
@@ -201,11 +211,13 @@
     - BorgModuleService
 
   defaultModules:
+  - BorgModuleTool
   - BorgModuleMusique
   - BorgModuleBartender # imp
-  - BorgModulePaper # imp
+  - BorgModuleService
   - BorgModuleClowning
-
+  - BorgModuleGardening
+  - BorgModuleHarvesting
   radioChannels:
   - Science
   - Service

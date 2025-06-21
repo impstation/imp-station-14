@@ -57,8 +57,6 @@
       path: alerts/white.ogg
     - id: alertPuce # don't eat anything
       path: alerts/puce.ogg
-    - id: alertOctarine # Reality is about to collapse, do something about it
-      path: alerts/octarine.ogg
 
     # Events
     ## Wizard's Den
@@ -109,6 +107,8 @@
     # - id: solarFlareComplete # The solar flare has passed
     #   path: events/solar_flare-complete.ogg
     - id: ventClog # A random reagent is coming out of a scrubber
+      path: events/vent_clog.ogg
+    - id: corpseEjectedFromVents # vent clog, kind of
       path: events/vent_clog.ogg
     # - id: slimesSpawn # Some simple slimes are appearing in vents
     #   path: events/vent_critters.ogg
