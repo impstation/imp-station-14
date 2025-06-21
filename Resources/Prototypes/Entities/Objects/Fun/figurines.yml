@@ -18,7 +18,7 @@
     tags:
     - Figurine
   - type: UseDelay
-    delay: 10
+    delay: 5
   - type: TriggerOnActivate
   - type: TriggerOnSignal
   - type: Speech
@@ -205,6 +205,7 @@
   components:
   - type: Sprite
     state: salvage
+    sprite: _Impstation/Objects/Fun/figurines.rsi #imp
   - type: SpeakOnTrigger
     pack: FigurinesSalvage
 

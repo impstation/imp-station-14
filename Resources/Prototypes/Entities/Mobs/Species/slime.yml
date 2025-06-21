@@ -55,6 +55,8 @@
       Male: MaleSlime
       Female: FemaleSlime
       Unsexed: UnisexSlime
+  - type: BodyEmotes #imp edit
+    soundsId: SlimeBodyEmotes
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Slime
@@ -123,6 +125,7 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  - type: Hemorrhage # imp
 
 - type: entity
   parent: MobHumanDummy

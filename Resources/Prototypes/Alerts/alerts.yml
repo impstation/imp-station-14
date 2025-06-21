@@ -7,7 +7,6 @@
     - alertType: ChangelingBiomass
     - category: Health
     - category: Stamina
-    - alertType: CosmicEntropy
     - alertType: ChangelingChemicals
     - alertType: SuitPower
     - category: Internals
@@ -138,6 +137,7 @@
     state: walking
   name: alerts-walking-name
   description: alerts-walking-desc
+  clientHandled: true
 
 - type: alert
   id: Stun

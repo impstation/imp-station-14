@@ -5,11 +5,11 @@
   playTimeTracker: JobLibrarian
   startingGear: LibrarianGear
   icon: "JobIconLibrarian"
-  supervisors: job-supervisors-hd
+  supervisors: job-supervisors-hd #imp edit
   access:
   - Service
   - Maintenance
-  - Librarian #Imp
+  - Librarian #imp edit
 
 - type: startingGear
   id: LibrarianGear

@@ -25,8 +25,8 @@
   - Dragon
   - AllHostile
   - Wizard
+  - Xenoborg
   - Dino # imp
-
 
 - type: npcFaction
   id: Mouse
@@ -49,6 +49,7 @@
   - AllHostile
   - Wizard
   - Dino # imp
+  - Dragon
 
 - type: npcFaction
   id: SimpleHostile
@@ -59,12 +60,16 @@
   - PetsNT
   - Zombie
   - Revolutionary
+  - Dragon
+  - Xeno
   - AllHostile
   - Wizard
+  - Xenoborg
   - Changeling # imp
   - Heretic # imp
   - Dino # imp
   - Penguin # imp
+  - Dragon
 
 - type: npcFaction
   id: SimpleNeutral
@@ -80,6 +85,7 @@
   - Dragon
   - AllHostile
   - Wizard
+  - Xenoborg
   - Changeling # imp
   - Heretic # imp
   - Dino # imp
@@ -100,6 +106,8 @@
   - Heretic # imp
   - Dino # imp
   - Penguin # imp
+  - Dragon
+  - Xenoborg
 
 - type: npcFaction
   id: Zombie
@@ -117,6 +125,8 @@
   - Heretic # imp
   - Dino # imp
   - Penguin # imp
+  - Dragon
+  - Xenoborg
 
 - type: npcFaction
   id: Revolutionary
@@ -127,6 +137,7 @@
   - Dragon
   - AllHostile
   - Wizard
+  - Xenoborg
   - Dino # imp
 
 - type: npcFaction
@@ -144,11 +155,11 @@
   - Zombie
   - Revolutionary
   - Wizard
+  - Xenoborg
   - Changeling # imp
   - Heretic # imp
   - Dino # imp
   - Penguin # imp
-
 
 - type: npcFaction
   id: Wizard
@@ -165,7 +176,28 @@
   - Zombie
   - Revolutionary
   - AllHostile
+  - Xenoborg
   - Changeling # imp
   - Heretic # imp
   - Dino # imp
   - Penguin # imp
+
+- type: npcFaction
+  id: Xenoborg
+  hostile:
+  # they have brains
+  - NanoTrasen
+  - Syndicate
+  - Zombie
+  - Revolutionary
+  - Wizard
+  - Changeling # imp
+  - Heretic # imp
+  - Dino # imp
+  - Penguin # imp
+
+  - Xeno # rivalry
+
+  # cause they are hostile to them
+  - SimpleHostile
+  - AllHostile

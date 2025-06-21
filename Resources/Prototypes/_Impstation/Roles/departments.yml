@@ -13,14 +13,13 @@
   - Chef
   - Clown
   - Janitor
-  - Lawyer
   - Librarian
   - Mime
   - Musician
   - Reporter
   - Visitor
   - Zookeeper
-  - ServiceWorker
+  #- ServiceWorker
 
 #Used for HD playtime requirments
 - type: department
@@ -31,7 +30,7 @@
   roles:
   - Bartender
   - Chef
-  - ServiceWorker
+  #- ServiceWorker
   primary: false
   editorHidden: true
   manifestHidden: true

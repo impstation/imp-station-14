@@ -5,7 +5,6 @@
   description: A hand-held mass scanner.
   components:
   - type: Item
-    size: Normal
     sprite: _Impstation/Objects/Tools/handheld_mass_scanner.rsi # imp
   - type: Sprite
     sprite: _Impstation/Objects/Tools/handheld_mass_scanner.rsi # imp
@@ -14,7 +13,7 @@
       - state: icon
       - state: scanner
         shader: unshaded
-        visible: true
+        visible: false
         map: [ "enum.PowerDeviceVisualLayers.Powered" ]
   - type: RadarConsole
     maxRange: 256
@@ -50,7 +49,6 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
   - type: Item
-    size: Normal
     sprite: _Impstation/Objects/Tools/handheld_mass_scanner.rsi # imp
   - type: Sprite
     sprite: _Impstation/Objects/Tools/handheld_mass_scanner.rsi # imp

@@ -19,27 +19,27 @@ namespace Content.Server.Heretic.EntitySystems;
 // void path heretic exclusive
 public sealed partial class AristocratSystem : EntitySystem
 {
-    [Dependency] private readonly TileSystem _tile = default!;
-    [Dependency] private readonly IRobustRandom _rand = default!;
-    [Dependency] private readonly IPrototypeManager _prot = default!;
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly TemperatureSystem _temp = default!;
+    [Dependency] private readonly IPrototypeManager _prot = default!;
+    [Dependency] private readonly IRobustRandom _rand = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
-
-    private string _snowWallPrototype = "WallSnowCobblebrick";
+    [Dependency] private readonly TemperatureSystem _temp = default!;
+    [Dependency] private readonly TileSystem _tile = default!;
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        foreach (var aristocrat in EntityQuery<AristocratComponent>())
+        var query = EntityQueryEnumerator<AristocratComponent>();
+        while (query.MoveNext(out var uid, out var aristocrat))
         {
             aristocrat.UpdateTimer += frameTime;
 
             if (aristocrat.UpdateTimer >= aristocrat.UpdateDelay)
             {
-                Cycle((aristocrat.Owner, aristocrat));
+                Cycle((uid, aristocrat));
                 aristocrat.UpdateTimer = 0;
             }
         }
@@ -71,15 +71,18 @@ public sealed partial class AristocratSystem : EntitySystem
 
                 // replace walls with snow ones
                 if (_rand.Prob(.45f) && tags.Contains("Wall")
-                && Prototype(look) != null && Prototype(look)!.ID != _snowWallPrototype)
+                && Prototype(look) != null && Prototype(look)!.ID != ent.Comp.SnowWallPrototype)
                 {
-                    Spawn(_snowWallPrototype, Transform(look).Coordinates);
+                    Spawn(ent.Comp.SnowWallPrototype, Transform(look).Coordinates);
                     QueueDel(look);
                 }
             }
         }
     }
 
+    //apparently void ascension is supposed to replace tiles?
+    //it doesn't
+    //i guess they didn't test this -kandi
     private void SpawnTiles(Entity<AristocratComponent> ent)
     {
         var xform = Transform(ent);
@@ -89,7 +92,7 @@ public sealed partial class AristocratSystem : EntitySystem
 
         var pos = xform.Coordinates.Position;
         var box = new Box2(pos + new Vector2(-ent.Comp.Range, -ent.Comp.Range), pos + new Vector2(ent.Comp.Range, ent.Comp.Range));
-        var tilerefs = grid.GetLocalTilesIntersecting(box).ToList();
+        var tilerefs = _map.GetLocalTilesIntersecting(ent, grid, box).ToList();
 
         if (tilerefs.Count == 0)
             return;
@@ -107,7 +110,7 @@ public sealed partial class AristocratSystem : EntitySystem
 
         foreach (var tileref in tiles)
         {
-            var tile = _prot.Index<ContentTileDefinition>("FloorAstroSnow");
+            var tile = _prot.Index<ContentTileDefinition>(ent.Comp.IceTilePrototype);
             _tile.ReplaceTile(tileref, tile);
         }
 

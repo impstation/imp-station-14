@@ -11,6 +11,7 @@ using Content.Shared.Store;
 using Content.Shared.Store.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
+using Robust.Shared.GameObjects;
 using System.Text;
 
 namespace Content.Server.GameTicking.Rules;
@@ -22,6 +23,7 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
     [Dependency] private readonly SharedRoleSystem _role = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly ObjectivesSystem _objective = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _userInterfaceSystem = default!;
 
     public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/_Goobstation/Ambience/Antag/changeling_start.ogg");
 
@@ -33,7 +35,7 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
 
     public readonly ProtoId<CurrencyPrototype> Currency = "EvolutionPoint";
 
-    [ValidatePrototypeId<EntityPrototype>] EntProtoId mindRole = "MindRoleChangeling";
+    [ValidatePrototypeId<EntityPrototype>] EntProtoId _mindRole = "MindRoleChangeling";
 
     public override void Initialize()
     {
@@ -52,19 +54,18 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
             return false;
 
-        _role.MindAddRole(mindId, mindRole.Id, mind, true);
+        _role.MindAddRole(mindId, _mindRole.Id, mind, true);
 
         // briefing
-        if (TryComp<MetaDataComponent>(target, out var metaData))
-        {
-            var briefing = Loc.GetString("changeling-role-greeting", ("name", metaData?.EntityName ?? "Unknown"));
-            var briefingShort = Loc.GetString("changeling-role-greeting-short", ("name", metaData?.EntityName ?? "Unknown"));
+        var metaData = MetaData(target);
+        var briefing = Loc.GetString("changeling-role-greeting", ("name", metaData?.EntityName ?? "Unknown"));
+        var briefingShort = Loc.GetString("changeling-role-greeting-short", ("name", metaData?.EntityName ?? "Unknown"));
 
-            _antag.SendBriefing(target, briefing, Color.Yellow, BriefingSound);
+        _antag.SendBriefing(target, briefing, Color.Yellow, BriefingSound);
 
-            if (_role.MindHasRole<ChangelingRoleComponent>(mindId, out var mr))
-                AddComp(mr.Value, new RoleBriefingComponent { Briefing = briefingShort }, overwrite: true);
-        }
+        if (_role.MindHasRole<ChangelingRoleComponent>(mindId, out var mr))
+            AddComp(mr.Value, new RoleBriefingComponent { Briefing = briefingShort }, overwrite: true);
+
         // hivemind stuff
         _npcFaction.RemoveFaction(target, NanotrasenFactionId, false);
         _npcFaction.AddFaction(target, ChangelingFactionId);
@@ -79,6 +80,13 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
         store.CurrencyWhitelist.Add(Currency);
         store.Balance.Add(Currency, changelingComp.MaxEvolutionPoints);
 
+        //#IMP: Make sure they can use the store button
+        var uiComp = EnsureComp<UserInterfaceComponent>(target);
+        if (!_userInterfaceSystem.HasUi(target, StoreUiKey.Key, uiComp))
+        {
+            _userInterfaceSystem.SetUi(target, StoreUiKey.Key, new InterfaceData("StoreBoundUserInterface"));
+        }
+
         rule.ChangelingMinds.Add(mindId);
 
         return true;
@@ -91,14 +99,13 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
         var mostAbsorbed = 0f;
         var mostStolen = 0f;
 
-        foreach (var ling in EntityQuery<ChangelingComponent>())
+        var query = EntityQueryEnumerator<ChangelingComponent>();
+        while (query.MoveNext(out var user, out var ling))
         {
-            if (!_mind.TryGetMind(ling.Owner, out var mindId, out var mind))
+            if (!_mind.TryGetMind(user, out var mindId, out var mind))
                 continue;
 
-            if (!TryComp<MetaDataComponent>(ling.Owner, out var metaData))
-                continue;
-
+            var metaData = MetaData(user);
             if (ling.TotalAbsorbedEntities > mostAbsorbed)
             {
                 mostAbsorbed = ling.TotalAbsorbedEntities;

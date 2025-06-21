@@ -1,0 +1,10 @@
+- type: antag
+  id: NukeopsLone
+  name: ghost-role-information-loneop-name
+  antagonist: true
+  playTimeTracker: AntagLoneOperative
+  objective: ghost-role-information-loneop-description
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 18000
+  guides: [ NuclearOperatives ]

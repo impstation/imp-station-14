@@ -1,6 +1,6 @@
 #Medical
 - type: entity
-  parent: DefaultStationBeaconScience
+  parent: DefaultStationBeaconMedical
   id: DefaultStationBeaconParamedic
   suffix: Paramedic
   components:
@@ -15,6 +15,15 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-xenoarchaeology
+
+#Security
+- type: entity
+  parent: DefaultStationBeaconSecurity
+  id: DefaultStationBeaconEvidence
+  suffix: Evidence
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-evidence
 
 #Supply
 - type: entity
@@ -34,6 +43,7 @@
   - type: NavMapBeacon
     defaultText: station-beacon-smengine
 
+#Solars
 - type: entity
   parent: DefaultStationBeaconEngineering
   id: DefaultStationBeaconSolarsNorth
@@ -163,6 +173,69 @@
   - type: NavMapBeacon
     defaultText: station-beacon-solars-port-quarter
 
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconSolarsAI
+  suffix: Solars, Station AI
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-solars-ai
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconSolarsBridge
+  suffix: Solars, Bridge
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-solars-bridge
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconSolarsCargo
+  suffix: Solars, Cargo
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-solars-cargo
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconSolarsScience
+  suffix: Solars, Science
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-solars-science
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconSolarsSecurity
+  suffix: Solars, Security
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-solars-security
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconSolarsService
+  suffix: Solars, Service
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-solars-service
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconSolarsEngineering
+  suffix: Solars, Engineering
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-solars-engineering
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconSolarsMedical
+  suffix: Solars, Medical
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-solars-medical
 
 #Service
 - type: entity

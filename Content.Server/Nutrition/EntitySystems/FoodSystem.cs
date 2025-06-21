@@ -338,7 +338,15 @@ public sealed class FoodSystem : EntitySystem
         if (ev.Cancelled)
             return;
 
+        var attemptEv = new DestructionAttemptEvent();
+        RaiseLocalEvent(food, attemptEv);
+        if (attemptEv.Cancelled)
+            return;
+
         _projectile.RemoveEmbeddedChildren(food); // imp edit
+
+        var afterEvent = new AfterFullyEatenEvent(user);
+        RaiseLocalEvent(food, ref afterEvent);
 
         var dev = new DestructionEventArgs();
         RaiseLocalEvent(food, dev);
@@ -438,10 +446,8 @@ public sealed class FoodSystem : EntitySystem
             if (_whitelistSystem.IsWhitelistPass(ent.Comp1.SpecialDigestible, food))
                 return true;
 
-            if (ent.Comp1.AdditiveDiet)
-                continue;
-            else
-                // They can only eat whitelist food and the food isn't in the whitelist. It's not edible.
+            // If their diet is whitelist exclusive, then they cannot eat anything but what follows their whitelisted tags. Else, they can eat their tags AND human food.
+            if (ent.Comp1.IsSpecialDigestibleExclusive)
                 return false;
         }
 
