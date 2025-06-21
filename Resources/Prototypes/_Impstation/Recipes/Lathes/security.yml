@@ -46,6 +46,14 @@
 
 - type: latheRecipe
   parent: BaseWeaponRecipe
+  id: WeaponGrenadeLauncherSecurity
+  result: WeaponGrenadeLauncherSecurity
+  materials:
+    Steel: 1500
+    Plastic: 500
+
+- type: latheRecipe
+  parent: BaseWeaponRecipe
   id: FullAutoConversionKit
   result: FullAutoConversionKit
   materials:
