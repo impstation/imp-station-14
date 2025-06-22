@@ -41,6 +41,7 @@
   components:
     - type: GhostRole
       name: job-name-librarian
+      rules: ghost-role-information-antagonistchance-rules
     - type: Loadout
       prototypes: [ VisitorLibrarian, VisitorLibrarianAlt ]
       roleLoadout: [ RoleSurvivalStandard ]
