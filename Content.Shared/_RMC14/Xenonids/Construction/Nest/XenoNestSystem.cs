@@ -94,7 +94,7 @@ public sealed class XenoNestSystem : EntitySystem
         SubscribeLocalEvent<XenoNestedComponent, PickupAttemptEvent>(OnNestedCancel);
         SubscribeLocalEvent<XenoNestedComponent, AttackAttemptEvent>(OnNestedCancel);
         SubscribeLocalEvent<XenoNestedComponent, ChangeDirectionAttemptEvent>(OnNestedCancel);
-        SubscribeLocalEvent<XenoNestedComponent, DownAttemptEvent>(OnNestedCancel);
+        SubscribeLocalEvent<XenoNestedComponent, StandAttemptEvent>(OnNestedCancel);
         SubscribeLocalEvent<XenoNestedComponent, IsEquippingAttemptEvent>(OnNestedCancel);
         SubscribeLocalEvent<XenoNestedComponent, IsUnequippingAttemptEvent>(OnNestedCancel);
         SubscribeLocalEvent<XenoNestedComponent, GetInfectedIncubationMultiplierEvent>(OnInNestGetInfectedIncubationMultiplier);
@@ -198,19 +198,10 @@ public sealed class XenoNestSystem : EntitySystem
             return;
 
         var nestCoordinates = ent.Owner.ToCoordinates();
-        var offset = direction switch
-        {
-            Direction.South => new Vector2(0, -0.25f),
-            Direction.East => new Vector2(0.5f, 0),
-            Direction.North => new Vector2(0, 0.5f),
-            Direction.West => new Vector2(-0.5f, 0),
-            _ => Vector2.Zero,
-        };
 
         var nest = SpawnAttachedTo(ent.Comp.Nest, nestCoordinates);
-        _transform.SetCoordinates(nest, nestCoordinates.Offset(offset));
+        _transform.SetCoordinates(nest, nestCoordinates);
 
-        ent.Comp.Nests[direction.Value] = nest;
         Dirty(ent);
 
         var nestComp = EnsureComp<XenoNestComponent>(nest);
@@ -225,7 +216,7 @@ public sealed class XenoNestSystem : EntitySystem
         _transform.SetCoordinates(victim, nest.ToCoordinates());
         _transform.SetLocalRotation(victim, direction.Value.ToAngle());
 
-        _standing.Stand(victim, force: true);
+        _standing.Down(victim, force: true);
 
         // TODO RMC14 make a method to do this
         _popup.PopupClient(Loc.GetString("cm-xeno-nest-securing-self", ("target", victim)), args.User, args.User);
@@ -400,7 +391,7 @@ public sealed class XenoNestSystem : EntitySystem
         if (!directions.Contains(Direction.West) && (allDirs || flags.HasFlag(DirectionFlag.West)))
             directions.Add(Direction.West);
 
-        if (!Resolve(surface, ref surface.Comp) || !IsNestSurfaceFromHiveWeeds((surface.Owner, surface.Comp), priorityDir, user))
+        if (!Resolve(surface, ref surface.Comp))
         {
             if (!silent)
                 _popup.PopupClient(Loc.GetString("cm-xeno-nest-failed-cant-there"), surface, user);
@@ -463,45 +454,6 @@ public sealed class XenoNestSystem : EntitySystem
         }
 
         return true;
-    }
-
-    private bool IsNestSurfaceFromHiveWeeds(Entity<XenoNestSurfaceComponent> nestSurface, Direction dir, EntityUid user)
-    {
-        var (ent, comp) = nestSurface;
-
-        // Check if the weeds under this is a hive weed. (Resin wall)
-        if (comp.Weedable is null)
-        {
-            var grid = _transform.GetGrid(ent);
-            if (grid is null || !TryComp(grid, out MapGridComponent? gridComp))
-            {
-                return false;
-            }
-
-            if (HasComp<XenoNestIgnoreWeedsUserComponent>(user))
-                return true;
-
-            return _xenoWeeds.IsOnHiveWeeds((grid.Value, gridComp), ent.ToCoordinates());
-        }
-        // Check if the weeds in the direction of this is a hive weed. (Weed wall)
-        else
-        {
-            var nestCoords = _transform.GetMoverCoordinates(nestSurface);
-
-            var underNestCooords = nestCoords.Offset(dir.ToVec());
-
-            if (_transform.GetGrid(underNestCooords) is not EntityUid gridEntity ||
-                !TryComp<MapGridComponent>(gridEntity, out var gridComp))
-            {
-                return false;
-            }
-
-            if (HasComp<XenoNestIgnoreWeedsUserComponent>(user))
-                return true;
-
-            return _xenoWeeds.IsOnHiveWeeds((gridEntity, gridComp), underNestCooords);
-        }
-
     }
 
     private void DetachNested(EntityUid? nest, EntityUid? nestedNullable)

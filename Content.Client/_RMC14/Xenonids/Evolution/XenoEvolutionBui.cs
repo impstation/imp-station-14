@@ -7,6 +7,7 @@ using JetBrains.Annotations;
 using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
 using Robust.Shared.Prototypes;
+using Content.Shared._RMC14.Xenonids.Plasma;
 
 namespace Content.Client._RMC14.Xenonids.Evolution;
 
@@ -30,16 +31,6 @@ public sealed class XenoEvolutionBui : BoundUserInterface
     {
         base.Open();
         _window = this.CreateWindow<XenoEvolutionWindow>();
-
-        if (EntMan.TryGetComponent(Owner, out XenoEvolutionComponent? xeno))
-        {
-            foreach (var strain in xeno.Strains)
-            {
-                AddStrain(strain);
-            }
-        }
-
-        _window.StrainsLabel.Visible = _window.StrainsContainer.ChildCount > 0;
 
         Refresh();
     }
@@ -66,44 +57,15 @@ public sealed class XenoEvolutionBui : BoundUserInterface
         _window?.EvolutionsContainer.AddChild(control);
     }
 
-    private void AddStrain(EntProtoId strainId)
-    {
-        if (_window is not { IsOpen: true })
-            return;
-
-        if (!_prototype.TryIndex(strainId, out var strain))
-            return;
-
-        var control = new XenoChoiceControl();
-        var name = strain.Name;
-        if (strain.TryGetComponent(out XenoStrainComponent? strainComp, _compFactory))
-        {
-            name = $"{Loc.GetString(strainComp.Name)} {name}";
-
-            if (strainComp.Description is { } description)
-            {
-                control.Button.ToolTip = Loc.GetString(description);
-                control.Button.TooltipDelay = 0.1f;
-            }
-        }
-
-        control.Set(name, _sprite.Frame0(strain));
-
-        control.Button.OnPressed += _ =>
-        {
-            SendPredictedMessage(new XenoStrainBuiMsg(strainId));
-            Close();
-        };
-
-        _window.StrainsContainer.AddChild(control);
-    }
-
     public void Refresh()
     {
         if (_window == null)
             return;
 
         if (!EntMan.TryGetComponent(Owner, out XenoEvolutionComponent? xeno))
+            return;
+
+        if (!EntMan.TryGetComponent(Owner, out XenoPlasmaComponent? plasma))
             return;
 
         _window.PointsLabel.Visible = xeno.Max > FixedPoint2.Zero;
@@ -114,7 +76,7 @@ public sealed class XenoEvolutionBui : BoundUserInterface
             AddEvolution(evolutionId);
         }
 
-        if (xeno.Points >= xeno.Max)
+        if (plasma.Plasma >= xeno.Max)
         {
             foreach (var evolutionId in xeno.EvolvesTo)
             {
@@ -122,20 +84,9 @@ public sealed class XenoEvolutionBui : BoundUserInterface
             }
         }
 
-        _window.Separator.Visible = _window.EvolutionsContainer.ChildCount > 0 && _window.StrainsContainer.ChildCount > 0;
+        _window.Separator.Visible = _window.EvolutionsContainer.ChildCount > 0;
 
-        var lackingOvipositor = State is XenoEvolveBuiState { LackingOvipositor: true };
-        var points = xeno.Points;
-        _window.PointsLabel.Text = $"Evolution points: {(int) Math.Floor(points.Double())} / {xeno.Max}";
-        if (lackingOvipositor)
-        {
-            // TODO RMC14 for some reason this doesn't properly wrap text
-            _window.OvipositorNeededLabel.SetMarkupPermissive("[bold][color=red]The Queen must be in their\novipositor for you to gain points![/color][/bold]");
-            _window.OvipositorNeededLabel.Visible = xeno.Max > FixedPoint2.Zero;
-        }
-        else
-        {
-            _window.OvipositorNeededLabel.Visible = false;
-        }
+        var points = plasma.Plasma;
+        _window.PointsLabel.Text = $"Plasma: {(int) Math.Floor(points.Double())} / {xeno.Max}";
     }
 }

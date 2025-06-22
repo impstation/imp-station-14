@@ -43,6 +43,7 @@
     - FootstepSound
   - type: Xeno
     actionIds:
+    - ActionXenoTailSweep
     - ActionXenoRest
     - ActionXenoRegurgitate
     - ActionXenoAcidNormal
@@ -55,16 +56,17 @@
   - type: XenoHeavy
   - type: XenoAcid
   - type: XenoConstruction
-    buildDelay: 2
+    buildDelay: 1
     canBuild:
     - WallXenoResin
     - WallXenoMembrane
     - DoorXenoResin
+    - XenoNest
   - type: XenoDevour
   - type: XenoPlasma
     plasma: 200
     maxPlasma: 500
-    plasmaRegenOnWeeds: 10
+    plasmaRegenOnWeeds: 6
   - type: XenoWordQueen
   - type: XenoClaws
     clawType: VerySharp
@@ -117,6 +119,7 @@
     plasmaCost: 50
   - type: XenoInhands
     prefix: queen
+  - type: XenoTailSweep
 
 - type: entity
   parent: RMCXenoQueenBase

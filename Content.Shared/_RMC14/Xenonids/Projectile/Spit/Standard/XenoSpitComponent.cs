@@ -20,5 +20,5 @@ public sealed partial class XenoSpitComponent : Component
     public EntProtoId ProjectileId = "XenoSpitProjectile";
 
     [DataField, AutoNetworkedField]
-    public SoundSpecifier Sound = new SoundCollectionSpecifier("XenoSpitAcid", AudioParams.Default.WithVolume(-10f));
+    public SoundSpecifier Sound = new SoundCollectionSpecifier("XenoSpitAcid", AudioParams.Default.WithVolume(-5f));
 }

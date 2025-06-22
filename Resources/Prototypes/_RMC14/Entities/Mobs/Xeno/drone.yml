@@ -36,16 +36,16 @@
   - type: XenoPlasma
     plasma: 200
     maxPlasma: 500
-    plasmaRegenOnWeeds: 7.5
+    plasmaRegenOnWeeds: 5
   - type: EggPlantTime
     plantTime: 2.5
   - type: RMCXenoDamageVisuals
     prefix: drone
   - type: XenoConstruction
-    buildDelay: 2
+    buildDelay: 1
   - type: XenoEvolution
     canEvolveWithoutGranter: true
-    max: 10
+    max: 500
     evolvesTo:
     - CMXenoPraetorian
   - type: XenoInhands
@@ -64,7 +64,7 @@
     - ActionXenoTransferPlasma
     - ActionXenoChooseStructure
     - ActionXenoSecreteStructure
-    - ActionXenoAcidWeak
+    - ActionXenoAcidNormal
     - ActionXenoRegurgitate
     - ActionXenoDevolve
   - type: XenoAcid
@@ -73,4 +73,5 @@
     - WallXenoResin
     - WallXenoMembrane
     - DoorXenoResin
+    - XenoNest
   - type: VentCrawler

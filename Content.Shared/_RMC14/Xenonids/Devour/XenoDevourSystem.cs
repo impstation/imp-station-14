@@ -327,8 +327,7 @@ public sealed class XenoDevourSystem : EntitySystem
             return false;
         }
 
-        if (_mobState.IsIncapacitated(xeno) ||
-            HasComp<XenoNestedComponent>(victim))
+        if (HasComp<XenoNestedComponent>(victim))
         {
             if (popup)
                 _popup.PopupClient(Loc.GetString("cm-xeno-devour-failed-cant-now"), victim, xeno);
@@ -340,16 +339,6 @@ public sealed class XenoDevourSystem : EntitySystem
         {
             if (popup)
                 _popup.PopupClient(Loc.GetString("cm-xeno-devour-success"), victim, xeno);
-
-            return false;
-        }
-
-        if (_mobState.IsDead(victim))
-        {
-            if (popup)
-            {
-                _popup.PopupClient(Loc.GetString("cm-xeno-devour-failed-target-roting", ("target", victim)), victim, xeno);
-            }
 
             return false;
         }
@@ -388,18 +377,7 @@ public sealed class XenoDevourSystem : EntitySystem
         };
 
         _popup.PopupClient(Loc.GetString("cm-xeno-devour-start-self", ("target", target)), target, xeno);
-
         _popup.PopupEntity(Loc.GetString("cm-xeno-devour-start-target", ("user", xeno)), xeno, target, PopupType.MediumCaution);
-
-        var others = Filter.PvsExcept(xeno).RemovePlayerByAttachedEntity(target);
-        foreach (var session in others.Recipients)
-        {
-            if (session.AttachedEntity is not { } recipient)
-                continue;
-
-            _popup.PopupEntity(Loc.GetString("cm-xeno-devour-start-observer", ("user", xeno), ("target", target)), target, recipient, PopupType.SmallCaution);
-        }
-
         _doAfter.TryStartDoAfter(doAfter);
         return true;
     }
@@ -478,12 +456,6 @@ public sealed class XenoDevourSystem : EntitySystem
             }
 
             var xeno = container.Owner;
-            if (_mobState.IsDead(uid))
-            {
-                Regurgitate((uid, comp), (xeno, devour));
-                continue;
-            }
-
             if (!comp.Warned && time >= comp.WarnAt)
             {
                 comp.Warned = true;

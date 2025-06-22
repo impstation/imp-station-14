@@ -40,7 +40,6 @@ public sealed class XenoEggVisualizerSystem : EntitySystem
 
         var state = ent.Comp.State switch
         {
-            XenoEggState.Item => ent.Comp.ItemState,
             XenoEggState.Growing => ent.Comp.GrowingState,
             XenoEggState.Grown => ent.Comp.GrownState,
             XenoEggState.Opened => ent.Comp.OpenedState,

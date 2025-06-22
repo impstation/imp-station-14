@@ -121,7 +121,7 @@
     speechVerb: LargeMob
 
 - type: entity
-  name: praetorian
+  name: lesser praetorian
   parent: MobXeno
   id: MobXenoPraetorian
   components:
@@ -154,7 +154,7 @@
         - MobLayer
 
 - type: entity
-  name: drone
+  name: lesser drone
   parent: MobXeno
   id: MobXenoDrone
   components:
@@ -191,7 +191,7 @@
         - MobLayer
 
 - type: entity
-  name: queen
+  name: lesser queen
   parent: MobXeno
   id: MobXenoQueen
   components:

@@ -1,0 +1,25 @@
+- type: entity  
+  id: SpawnPointGhostXenoBase
+  name: exomorph spawn point
+  abstract: true
+  parent: MarkerBase
+  components:
+  - type: GhostRole
+    name: cm-job-name-xeno-larva
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: short
+  - type: GhostRoleMobSpawner
+    prototype: CMXenoLarva
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: _RMC14/Mobs/Xenonids/Larva/larva.rsi
+        state: sleeping
+
+- type: entity
+  id: SpawnPointGhostXeno
+  parent: SpawnPointGhostXenoBase
+  categories: [ HideSpawnMenu ]

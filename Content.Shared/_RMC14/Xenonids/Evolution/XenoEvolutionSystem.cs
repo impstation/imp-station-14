@@ -30,6 +30,7 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared._RMC14.Xenonids.Plasma;
 
 namespace Content.Shared._RMC14.Xenonids.Evolution;
 
@@ -77,9 +78,7 @@ public sealed class XenoEvolutionSystem : EntitySystem
 
         SubscribeLocalEvent<XenoEvolutionComponent, MapInitEvent>(OnXenoEvolveMapInit);
         SubscribeLocalEvent<XenoEvolutionComponent, XenoOpenEvolutionsActionEvent>(OnXenoEvolveAction);
-        SubscribeLocalEvent<XenoEvolutionComponent, XenoEvolutionDoAfterEvent>(OnXenoEvolveDoAfter);
-        SubscribeLocalEvent<XenoEvolutionComponent, NewXenoEvolvedEvent>(OnXenoEvolutionNewEvolved);
-        SubscribeLocalEvent<XenoEvolutionComponent, XenoDevolvedEvent>(OnXenoEvolutionDevolved);
+        SubscribeLocalEvent<XenoPlasmaComponent, XenoEvolutionDoAfterEvent>(OnXenoEvolveDoAfter);
 
         SubscribeLocalEvent<XenoNewlyEvolvedComponent, PreventCollideEvent>(OnNewlyEvolvedPreventCollide);
 
@@ -89,7 +88,6 @@ public sealed class XenoEvolutionSystem : EntitySystem
             subs =>
             {
                 subs.Event<XenoEvolveBuiMsg>(OnXenoEvolveBui);
-                subs.Event<XenoStrainBuiMsg>(OnXenoStrainBui);
             });
 
         Subs.BuiEvents<XenoDevolveComponent>(XenoDevolveUIKey.Key,
@@ -168,51 +166,24 @@ public sealed class XenoEvolutionSystem : EntitySystem
         }
     }
 
-    private void OnXenoStrainBui(Entity<XenoEvolutionComponent> xeno, ref XenoStrainBuiMsg args)
-    {
-        var actor = args.Actor;
-        _ui.CloseUi(xeno.Owner, XenoEvolutionUIKey.Key, actor);
-
-        if (_net.IsClient)
-            return;
-
-        if (!xeno.Comp.Strains.Contains(args.Choice))
-        {
-            Log.Warning($"{ToPrettyString(actor)} sent an invalid strain choice: {args.Choice}.");
-            return;
-        }
-
-        if (!ContainedCheckPopup(xeno))
-            return;
-
-        if (!DamagedCheckPopup(xeno, false))
-            return;
-
-        var newXeno = TransferXeno(xeno, args.Choice);
-        var ev = new NewXenoEvolvedEvent(xeno, newXeno, false);
-        RaiseLocalEvent(newXeno, ref ev, true);
-
-        _adminLog.Add(LogType.RMCEvolve, $"Xenonid {ToPrettyString(xeno)} chose strain {ToPrettyString(newXeno)}");
-
-        Del(xeno.Owner);
-
-        var afterEv = new AfterNewXenoEvolvedEvent();
-        RaiseLocalEvent(newXeno, ref afterEv);
-    }
-
     private void OnXenoDevolveBui(Entity<XenoDevolveComponent> xeno, ref XenoDevolveBuiMsg args)
     {
         _ui.CloseUi(xeno.Owner, XenoEvolutionUIKey.Key, xeno);
         TryDevolve(xeno, args.Choice);
     }
 
-    private void OnXenoEvolveDoAfter(Entity<XenoEvolutionComponent> xeno, ref XenoEvolutionDoAfterEvent args)
+    private void OnXenoEvolveDoAfter(Entity<XenoPlasmaComponent> xeno, ref XenoEvolutionDoAfterEvent args)
     {
         if (_net.IsClient ||
             args.Handled ||
             args.Cancelled ||
-            !_mind.TryGetMind(xeno, out _, out _) ||
-            !CanEvolvePopup(xeno, args.Choice))
+            !_mind.TryGetMind(xeno, out _, out _))
+        {
+            return;
+        }
+
+        if (!TryComp(xeno, out XenoEvolutionComponent? evoComp) ||
+            !CanEvolvePopup((xeno.Owner, evoComp), args.Choice))
         {
             return;
         }
@@ -231,27 +202,6 @@ public sealed class XenoEvolutionSystem : EntitySystem
 
         var afterEv = new AfterNewXenoEvolvedEvent();
         RaiseLocalEvent(newXeno, ref afterEv);
-    }
-
-    private void OnXenoEvolutionNewEvolved(Entity<XenoEvolutionComponent> xeno, ref NewXenoEvolvedEvent args)
-    {
-        TransferPoints((args.OldXeno, args.OldXeno), xeno, args.SubtractPoints);
-        _jitter.DoJitter(xeno, xeno.Comp.EvolutionJitterDuration, true, 80, 8, true);
-    }
-
-    private void OnXenoEvolutionDevolved(Entity<XenoEvolutionComponent> xeno, ref XenoDevolvedEvent args)
-    {
-        TransferPoints(args.OldXeno, (xeno, xeno), false);
-    }
-
-    private void TransferPoints(Entity<XenoEvolutionComponent?> old, Entity<XenoEvolutionComponent> xeno, bool subtract)
-    {
-        if (!Resolve(old, ref old.Comp, false))
-            return;
-
-        xeno.Comp.Points = subtract ? FixedPoint2.Max(0, old.Comp.Points - old.Comp.Max) : old.Comp.Points;
-
-        Dirty(xeno);
     }
 
     private void OnNewlyEvolvedPreventCollide(Entity<XenoNewlyEvolvedComponent> ent, ref PreventCollideEvent args)
@@ -580,29 +530,6 @@ public sealed class XenoEvolutionSystem : EntitySystem
 
         var time = _timing.CurTime;
         var roundDuration = _gameTicker.RoundDuration();
-        var needsOvipositor = NeedsOvipositor();
-        var hasGranter = needsOvipositor
-            ? HasOvipositor()
-            : HasLiving<XenoEvolutionGranterComponent>(1);
-        if (needsOvipositor)
-        {
-            var granters = EntityQueryEnumerator<XenoEvolutionGranterComponent>();
-            while (granters.MoveNext(out var uid, out var granter))
-            {
-                if (granter.GotOvipositorPopup)
-                    continue;
-
-                granter.GotOvipositorPopup = true;
-                Dirty(uid, granter);
-
-                _popup.PopupEntity("It is time to settle down and let your children grow.",
-                    uid,
-                    uid,
-                    PopupType.LargeCaution
-                );
-            }
-        }
-
         var evoBonus = FixedPoint2.Zero;
         var bonuses = EntityQueryEnumerator<EvolutionBonusComponent>();
         while (bonuses.MoveNext(out var comp))
@@ -640,14 +567,7 @@ public sealed class XenoEvolutionSystem : EntitySystem
             }
             var points = (_earlyEvoBoostBefore > _gameTicker.RoundDuration()) ? comp.EarlyPointsPerSecond : comp.PointsPerSecond;
             var gain = evoOverride ?? points + evoBonus;
-            if (comp.Points < comp.Max || roundDuration < _evolutionAccumulatePointsBefore)
-            {
-                if (needsOvipositor && comp.RequiresGranter && !hasGranter)
-                    continue;
-
-                SetPoints((uid, comp), comp.Points + gain);
-            }
-            else if (comp.Points > comp.Max)
+            if (comp.Points > comp.Max)
             {
                 SetPoints((uid, comp), FixedPoint2.Max(comp.Points - gain, comp.Max));
             }

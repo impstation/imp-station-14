@@ -5,9 +5,6 @@
   id: CMXenoLarva
   name: exomorph larva
   components:
-  - type: GuideHelp
-    guides:
-    - RMCGuideRoleDrone
   - type: GhostRole
     name: cm-job-name-xeno-larva
   - type: Sprite
@@ -33,13 +30,13 @@
     healOffWeeds: true
   - type: XenoLight
   - type: XenoPlasma
-    plasma: 100
+    plasma: 0
     maxPlasma: 100
     plasmaRegenOnWeeds: 2.5
   - type: XenoEvolution
     canEvolveWithoutGranter: true
     requiresGranter: false
-    max: 10
+    max: 100
     evolvesTo:
     - CMXenoDrone
     - CMXenoSentinel

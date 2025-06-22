@@ -1,0 +1,13 @@
+- type: entity
+  id: XenoSpawn
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    startAnnouncement: true
+    earliestStart: 20
+    weight: 6.5
+    duration: null
+    minimumPlayers: 25
+    maxOccurrences: 1
+  - type: RandomSpawnRule
+    prototype: SpawnPointGhostXeno

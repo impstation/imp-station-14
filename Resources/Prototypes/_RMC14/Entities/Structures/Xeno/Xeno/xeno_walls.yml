@@ -19,9 +19,11 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
-  - type: XenoNestSurface
   - type: XenoConstructionPlasmaCost
     plasma: 55
+  - type: XenoConstructionBuildSpeed
+    buildTimeMult: 0.5
+  - type: XenoNestSurface
 
 - type: entity
   parent: CMBaseWallXeno
@@ -52,9 +54,10 @@
         layer:
         - GlassLayer
         density: 1000
-  - type: XenoNestSurface
   - type: XenoConstructionPlasmaCost
     plasma: 55
+  - type: XenoConstructionBuildSpeed
+    buildTimeMult: 0.5
 
 - type: entity
   parent: BaseMembraneXeno

@@ -31,7 +31,7 @@
     - ActionXenoTransferPlasma
     - ActionXenoChooseStructure
     - ActionXenoSecreteStructure
-    - ActionXenoAcidWeak
+    - ActionXenoAcidNormal
     - ActionXenoSpit
     - ActionXenoRegurgitate
     - ActionXenoDevolve
@@ -45,7 +45,7 @@
   - type: XenoPlasma
     plasma: 200
     maxPlasma: 500
-    plasmaRegenOnWeeds: 7.5
+    plasmaRegenOnWeeds: 5
   - type: MeleeWeapon
     damage:
       groups:
@@ -75,17 +75,17 @@
     plasmaCost: 50
   - type: XenoEvolution
     canEvolveWithoutGranter: true
-    max: 10
+    max: 500
     evolvesTo:
     - CMXenoQueen
   - type: XenoConstruction
-    buildDelay: 2
+    buildDelay: 1
     canBuild:
     - WallXenoResin
     - WallXenoMembrane
     - DoorXenoResin
+    - XenoNest
   - type: XenoTailSweep
-  - type: VentCrawler
 
 - type: entity
   parent: CMXenoPraetorianBase

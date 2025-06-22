@@ -1,0 +1,35 @@
+- type: entity
+  id: XenoNest
+  name: resin nest
+  description: Something is nesting here. Better not stick around.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        layer:
+        - SlipLayer
+        mask:
+        - ItemMask
+        density: 1000
+        hard: false
+  - type: Clickable
+  - type: Sprite
+    sprite: _Impstation/Structures/Xenos/xeno_nest.rsi
+    drawdepth: HighFloorObjects
+    layers:
+    - state: base
+  - type: IconSmooth
+    key: cm_xeno_nest
+    base: nest_
+  - type: XenoNestSurface

@@ -85,16 +85,7 @@ public sealed class XenoEggSystem : EntitySystem
     {
         _stepTriggerQuery = GetEntityQuery<StepTriggerComponent>();
 
-        SubscribeLocalEvent<XenoComponent, XenoGrowOvipositorActionEvent>(OnXenoGrowOvipositorAction);
-        SubscribeLocalEvent<XenoComponent, XenoGrowOvipositorDoAfterEvent>(OnXenoGrowOvipositorDoAfter);
-
-        SubscribeLocalEvent<XenoAttachedOvipositorComponent, MapInitEvent>(OnXenoAttachedMapInit);
-        SubscribeLocalEvent<XenoAttachedOvipositorComponent, ComponentRemove>(OnXenoAttachedRemove);
-        SubscribeLocalEvent<XenoAttachedOvipositorComponent, MobStateChangedEvent>(OnXenoMobStateChanged);
-        SubscribeLocalEvent<XenoAttachedOvipositorComponent, XenoConstructionRangeEvent>(OnXenoConstructionRange);
-
         SubscribeLocalEvent<XenoEggComponent, AfterAutoHandleStateEvent>(OnXenoEggAfterState);
-        SubscribeLocalEvent<XenoEggComponent, GettingPickedUpAttemptEvent>(OnXenoEggPickedUpAttempt);
         SubscribeLocalEvent<XenoEggComponent, UseInHandEvent>(OnXenoEggUseInHand);
         SubscribeLocalEvent<XenoEggComponent, InteractUsingEvent>(OnXenoEggInteractUsing);
         SubscribeLocalEvent<XenoEggComponent, XenoEggReturnParasiteDoAfterEvent>(OnXenoEggReturnParasiteDoAfter);
@@ -102,112 +93,14 @@ public sealed class XenoEggSystem : EntitySystem
         SubscribeLocalEvent<XenoEggComponent, ActivateInWorldEvent>(OnXenoEggActivateInWorld);
         SubscribeLocalEvent<XenoEggComponent, StepTriggerAttemptEvent>(OnXenoEggStepTriggerAttempt);
         SubscribeLocalEvent<XenoEggComponent, StepTriggeredOffEvent>(OnXenoEggStepTriggered);
-        SubscribeLocalEvent<XenoEggComponent, BeforeDamageChangedEvent>(OnXenoEggBeforeDamageChanged);
         SubscribeLocalEvent<XenoEggComponent, GetVerbsEvent<ActivationVerb>>(OnGetVerbs);
         SubscribeLocalEvent<XenoEggComponent, DestructionEventArgs>(OnDestruction);
-
-        SubscribeLocalEvent<XenoFragileEggComponent, ComponentShutdown>(OnFragileConvert);
-        SubscribeLocalEvent<XenoFragileEggComponent, RefreshNameModifiersEvent>(OnFragileRefreshModifier);
-        SubscribeLocalEvent<XenoFragileEggComponent, EntityTerminatingEvent>(OnFragileDelete);
-
-        SubscribeLocalEvent<XenoEggSustainerComponent, EntityTerminatingEvent>(OnEggSustainerDelete);
-        SubscribeLocalEvent<XenoEggSustainerComponent, MobStateChangedEvent>(OnEggSustainerDeath);
-    }
-
-    private void OnXenoGrowOvipositorAction(Entity<XenoComponent> xeno, ref XenoGrowOvipositorActionEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        var hasOvipositor = HasComp<XenoAttachedOvipositorComponent>(xeno);
-        if (!hasOvipositor &&
-            !_plasma.HasPlasmaPopup(xeno.Owner, args.AttachPlasmaCost))
-        {
-            return;
-        }
-
-        args.Handled = true;
-
-        var ev = new XenoGrowOvipositorDoAfterEvent { PlasmaCost = args.AttachPlasmaCost };
-        var delay = args.AttachDoAfter;
-        var popup = new LocId("cm-xeno-ovipositor-attach");
-        var popupType = PopupType.Medium;
-        if (hasOvipositor)
-        {
-            ev.PlasmaCost = FixedPoint2.Zero;
-            delay = args.DetachDoAfter;
-            popup = "cm-xeno-ovipositor-detach";
-            popupType = PopupType.MediumCaution;
-        }
-
-        var doAfterArgs = new DoAfterArgs(EntityManager, xeno, delay, ev, xeno)
-        {
-            BreakOnMove = true,
-            MovementThreshold = 0.001f,
-        };
-
-        if (_doAfter.TryStartDoAfter(doAfterArgs))
-            _popup.PopupClient(Loc.GetString(popup), xeno, xeno, popupType);
-    }
-
-    private void OnXenoGrowOvipositorDoAfter(Entity<XenoComponent> xeno, ref XenoGrowOvipositorDoAfterEvent args)
-    {
-        if (args.Cancelled ||
-            args.Handled ||
-            !_plasma.TryRemovePlasmaPopup(xeno.Owner, args.PlasmaCost))
-        {
-            return;
-        }
-
-        args.Handled = true;
-
-        if (TryComp(xeno, out XenoAttachedOvipositorComponent? attached))
-            DetachOvipositor((xeno, attached));
-        else
-            AttachOvipositor(xeno.Owner);
-    }
-
-    private void OnXenoAttachedMapInit(Entity<XenoAttachedOvipositorComponent> attached, ref MapInitEvent args)
-    {
-        if (TryComp(attached, out TransformComponent? xform))
-            _transform.AnchorEntity(attached, xform);
-
-        var ev = new XenoOvipositorChangedEvent(true);
-        RaiseLocalEvent(attached, ref ev, true);
-    }
-
-    private void OnXenoAttachedRemove(Entity<XenoAttachedOvipositorComponent> attached, ref ComponentRemove args)
-    {
-        if (!TerminatingOrDeleted(attached) && TryComp(attached, out TransformComponent? xform))
-        {
-            _transform.Unanchor(attached, xform);
-            _physics.TrySetBodyType(attached, BodyType.KinematicController);
-        }
-
-        var ev = new XenoOvipositorChangedEvent(false);
-        RaiseLocalEvent(attached, ref ev, true);
-    }
-
-    private void OnXenoMobStateChanged(Entity<XenoAttachedOvipositorComponent> ent, ref MobStateChangedEvent args)
-    {
-        DetachOvipositor(ent);
-    }
-
-    private void OnXenoConstructionRange(Entity<XenoAttachedOvipositorComponent> ent, ref XenoConstructionRangeEvent args)
-    {
-        args.Range = 0;
     }
 
     private void OnXenoEggAfterState(Entity<XenoEggComponent> egg, ref AfterAutoHandleStateEvent args)
     {
         var ev = new XenoEggStateChangedEvent();
         RaiseLocalEvent(egg, ref ev);
-    }
-
-    private void OnXenoEggPickedUpAttempt(Entity<XenoEggComponent> egg, ref GettingPickedUpAttemptEvent args)
-    {
-        if (egg.Comp.State != XenoEggState.Item)
-            args.Cancel();
     }
 
     private void OnXenoEggUseInHand(Entity<XenoEggComponent> egg, ref UseInHandEvent args)
@@ -219,14 +112,14 @@ public sealed class XenoEggSystem : EntitySystem
 
     private void OnXenoEggPlace(Entity<XenoComponent> xeno, ref XenoEggPlaceEvent args)
     {
-        if (args.Handled)
+        if (args.Handled || _net.IsClient)
             return;
 
         args.Handled = true;
 
         var coordinates = Transform(xeno).Coordinates;
 
-        if (!_plasma.TryRemovePlasmaPopup(args.Performer, 30))
+        if (!_plasma.TryRemovePlasmaPopup(args.Performer, 75))
             return;
 
         if (_transform.GetGrid(coordinates) is not { } gridUid ||
@@ -234,52 +127,24 @@ public sealed class XenoEggSystem : EntitySystem
         {
             return;
         }
-
-        var grid = new Entity<MapGridComponent>(gridUid, gridComp);
-        if (_xenoWeeds.IsOnWeeds(grid, coordinates, false))
+        var tile = _map.TileIndicesFor(gridUid, gridComp, coordinates);
+        var anchored = _map.GetAnchoredEntitiesEnumerator(gridUid, gridComp, tile);
+        while (anchored.MoveNext(out var uid))
         {
-            return;
+            if (HasComp<XenoEggComponent>(uid))
+            {
+                return;
+            }
         }
 
         var egg = Spawn(args.Prototype, coordinates);
 
         if (TryComp<XenoEggComponent>(egg, out var eggComp))
         {
+            CanPlaceEggPopup(xeno, (egg, eggComp), coordinates, false);
             _transform.SetLocalRotation(egg, 0);
             SetEggState((egg, eggComp), XenoEggState.Growing);
             _transform.AnchorEntity(egg, Transform(egg));
-        }
-    }
-
-    private void EggsacSustain(EntityUid user, Entity<XenoEggComponent> egg)
-    {
-        SetEggSprite(egg, egg.Comp.SustainedSprite);
-        if (_net.IsClient)
-            return;
-
-        //Means we must have the eggSustainer comp
-        if (!TryComp<XenoEggSustainerComponent>(user, out var sustainer))
-            return;
-
-        var fragile = EnsureComp<XenoFragileEggComponent>(egg);
-        fragile.SustainedBy = user;
-        fragile.SustainRange = sustainer.SustainedEggsRange;
-        fragile.ExpireAt = _timing.CurTime + sustainer.SustainedEggMaxTime;
-        fragile.ShortExpireAt = _timing.CurTime + fragile.SustainDuration;
-        fragile.CheckSustainAt = _timing.CurTime + fragile.SustainCheckEvery;
-        _nameModifier.RefreshNameModifiers(egg.Owner);
-        Dirty(egg, fragile);
-
-        sustainer.SustainedEggs.Add(egg);
-        if (sustainer.SustainedEggs.Count > sustainer.MaxSustainedEggs)
-        {
-            var decayEgg = sustainer.SustainedEggs[0];
-            sustainer.SustainedEggs.Remove(decayEgg);
-            if (TryComp<XenoFragileEggComponent>(decayEgg, out var fragileDecay) && TryComp<XenoEggComponent>(decayEgg, out var eggDecay))
-            {
-                UnsustainEgg(decayEgg, eggDecay, fragileDecay, true);
-                _popup.PopupEntity(Loc.GetString("rmc-xeno-sustain-egg-decaying", ("max", sustainer.MaxSustainedEggs)), user, user, PopupType.SmallCaution);
-            }
         }
     }
 
@@ -487,26 +352,10 @@ public sealed class XenoEggSystem : EntitySystem
 
         switch (state)
         {
-            case XenoEggState.Item:
-            {
-                if (!egg.Comp.GrownFixtures)
-                    break;
-
-                egg.Comp.GrownFixtures = false;
-                Dirty(egg);
-
-                if (_fixture.GetFixtureOrNull(egg, egg.Comp.GrowingLayerFixture) is { } fixture)
-                    _physics.SetCollisionLayer(egg, egg.Comp.GrowingLayerFixture, fixture, 0);
-
-                _fixture.DestroyFixture(egg, egg.Comp.GrowingMaskFixture);
-                break;
-            }
             case XenoEggState.Growing:
             case XenoEggState.Grown:
             case XenoEggState.Opening:
             case XenoEggState.Opened:
-            case XenoEggState.Fragile:
-            case XenoEggState.Sustained:
             {
                 if (egg.Comp.GrownFixtures)
                     break;
@@ -538,52 +387,6 @@ public sealed class XenoEggSystem : EntitySystem
         RaiseLocalEvent(egg, ref ev);
     }
 
-    private void AttachOvipositor(Entity<XenoAttachedOvipositorComponent?> xeno)
-    {
-        if (EnsureComp<XenoAttachedOvipositorComponent>(xeno, out var attached))
-            return;
-
-        xeno.Comp = attached;
-        foreach (var (actionId, _) in _actions.GetActions(xeno))
-        {
-            if (TryComp(actionId, out XenoGrowOvipositorActionComponent? action))
-            {
-                _actions.SetCooldown(actionId, action.AttachCooldown);
-                _actions.SetToggled(actionId, true);
-            }
-        }
-
-        if (TryComp(xeno, out XenoOvipositorCapableComponent? capable))
-        {
-            RemoveOvipositorActions((xeno.Owner, capable));
-            foreach (var actionId in capable.ActionIds)
-            {
-                if (_actions.AddAction(xeno, actionId) is { } action)
-                    capable.Actions[actionId] = action;
-            }
-        }
-
-        EnsureComp<EggPlantingDistanceComponent>(xeno).Distance = 3.5f;
-    }
-
-    private void DetachOvipositor(Entity<XenoAttachedOvipositorComponent> xeno)
-    {
-        if (!RemCompDeferred<XenoAttachedOvipositorComponent>(xeno))
-            return;
-
-        foreach (var (actionId, _) in _actions.GetActions(xeno))
-        {
-            if (TryComp(actionId, out XenoGrowOvipositorActionComponent? action))
-            {
-                _actions.SetCooldown(actionId, action.DetachCooldown);
-                _actions.SetToggled(actionId, false);
-            }
-        }
-
-        RemoveOvipositorActions(xeno.Owner);
-        _popup.PopupClient(Loc.GetString("cm-xeno-ovipositor-detach"), xeno, xeno);
-        RemCompDeferred<EggPlantingDistanceComponent>(xeno);
-    }
 
     private bool TryTrigger(Entity<XenoEggComponent> egg, EntityUid tripper)
     {
@@ -606,9 +409,8 @@ public sealed class XenoEggSystem : EntitySystem
         return true;
     }
 
-    private bool CanPlaceEggPopup(EntityUid user, Entity<XenoEggComponent> egg, EntityCoordinates coordinates, bool handled, out bool hasHiveWeeds)
+    private bool CanPlaceEggPopup(EntityUid user, Entity<XenoEggComponent> egg, EntityCoordinates coordinates, bool handled)
     {
-        hasHiveWeeds = false;
         if (HasComp<HumanoidAppearanceComponent>(user))
         {
             if (!handled)
@@ -628,7 +430,6 @@ public sealed class XenoEggSystem : EntitySystem
 
         var tile = _map.TileIndicesFor(gridId, grid, coordinates);
         var anchored = _map.GetAnchoredEntitiesEnumerator(gridId, grid, tile);
-        hasHiveWeeds = _weeds.IsOnHiveWeeds((gridId, grid), coordinates);
         while (anchored.MoveNext(out var uid))
         {
             if (HasComp<XenoEggComponent>(uid))
@@ -655,17 +456,10 @@ public sealed class XenoEggSystem : EntitySystem
             return false;
         }
 
-        if (!hasHiveWeeds)
-        {
-            if (!HasComp<XenoEggSustainerComponent>(user))
-                _popup.PopupClient(Loc.GetString("cm-xeno-egg-failed-must-hive-weeds"), user, user);
-            else if (!_weeds.IsOnWeeds((gridId, grid), coordinates))
-                _popup.PopupClient(Loc.GetString("cm-xeno-egg-failed-must-weeds"), user, user);
-            else
-                return true;
-
-            return false;
-        }
+        if (!_weeds.IsOnWeeds((gridId, grid), coordinates))
+            _popup.PopupClient(Loc.GetString("cm-xeno-egg-failed-must-weeds"), user, user);
+        else
+            return true;
 
         return true;
     }
@@ -698,12 +492,6 @@ public sealed class XenoEggSystem : EntitySystem
         return true;
     }
 
-    private void OnXenoEggBeforeDamageChanged(Entity<XenoEggComponent> ent, ref BeforeDamageChangedEvent args)
-    {
-        if (ent.Comp.State == XenoEggState.Item) // cannot destroy in item form
-            args.Cancelled = true;
-    }
-
     private void RemoveOvipositorActions(Entity<XenoOvipositorCapableComponent?> capable)
     {
         if (!Resolve(capable, ref capable.Comp, false))
@@ -724,90 +512,10 @@ public sealed class XenoEggSystem : EntitySystem
 
         string? proto = ent.Comp.EggDestroyed;
 
-        if (ent.Comp.CurrentSprite == ent.Comp.FragileSprite)
-            proto = ent.Comp.EggDestroyedFragile;
-        else if (ent.Comp.CurrentSprite == ent.Comp.SustainedSprite)
-            proto = ent.Comp.EggDestroyedSustained;
-
         var egg = SpawnAtPosition(proto, ent.Owner.ToCoordinates());
 
         _audio.PlayPvs(ent.Comp.BurstSound, egg);
     }
-
-    private void OnFragileConvert(Entity<XenoFragileEggComponent> ent, ref ComponentShutdown args)
-    {
-        if (ent.Comp.SustainedBy != null && TryComp<XenoEggSustainerComponent>(ent.Comp.SustainedBy, out var sustain))
-        {
-            sustain.SustainedEggs.Remove(ent);
-        }
-        if (TryComp<XenoEggComponent>(ent, out var egg))
-            SetEggSprite((ent, egg), egg.NormalSprite);
-        _nameModifier.RefreshNameModifiers(ent.Owner);
-    }
-
-    private void OnFragileDelete(Entity<XenoFragileEggComponent> ent, ref EntityTerminatingEvent args)
-    {
-        if (ent.Comp.SustainedBy != null && TryComp<XenoEggSustainerComponent>(ent.Comp.SustainedBy, out var sustain))
-            sustain.SustainedEggs.Remove(ent);
-    }
-
-    private void OnFragileRefreshModifier(Entity<XenoFragileEggComponent> ent, ref RefreshNameModifiersEvent args)
-    {
-        if (!TerminatingOrDeleted(ent))
-            args.AddModifier("rmc-xeno-fragile-egg-prefix");
-    }
-
-    private void UnsustainEgg(EntityUid egg, XenoEggComponent eggComp, XenoFragileEggComponent fragile, bool decay = false)
-    {
-        if (_net.IsClient)
-            return;
-
-        SetEggSprite((egg, eggComp), eggComp.FragileSprite);
-        fragile.SustainedBy = null;
-        Dirty(egg, fragile);
-        if (decay && fragile.BurstAt == null)
-        {
-            fragile.BurstAt = _timing.CurTime + fragile.BurstDelay;
-            _jitter.DoJitter(egg, fragile.BurstDelay / 2, true, 40, 8, true);
-        }
-    }
-
-    private void OnEggSustainerDelete(Entity<XenoEggSustainerComponent> ent, ref EntityTerminatingEvent args)
-    {
-        foreach (var egg in ent.Comp.SustainedEggs)
-        {
-            if (!TryComp<XenoFragileEggComponent>(egg, out var frag) || !TryComp<XenoEggComponent>(egg, out var eggComp))
-                continue;
-
-            UnsustainEgg(egg, eggComp, frag);
-        }
-    }
-
-    private void OnEggSustainerDeath(Entity<XenoEggSustainerComponent> ent, ref MobStateChangedEvent args)
-    {
-        if (_timing.ApplyingState)
-            return;
-
-        if (args.NewMobState != MobState.Dead)
-            return;
-
-        foreach (var egg in ent.Comp.SustainedEggs)
-        {
-            if (!TryComp<XenoFragileEggComponent>(egg, out var frag) || !TryComp<XenoEggComponent>(egg, out var eggComp))
-                continue;
-
-            UnsustainEgg(egg, eggComp, frag, true);
-        }
-
-        ent.Comp.SustainedEggs.Clear();
-
-        if (_timing.IsFirstTimePredicted)
-        {
-            _popup.PopupEntity(Loc.GetString("rmc-xeno-sustain-death", ("xeno", ent)), ent, PopupType.MediumCaution);
-            _audio.PlayPredicted(ent.Comp.DeathSound, ent, ent);
-        }
-    }
-
     public override void Update(float frameTime)
     {
         if (_net.IsClient)
@@ -867,24 +575,6 @@ public sealed class XenoEggSystem : EntitySystem
                 {
                     continue;
                 }
-
-                if (_weeds.IsOnHiveWeeds((gridId, grid), uid.ToCoordinates()))
-                {
-                    if (HasComp<XenoFragileEggComponent>(uid))
-                    {
-                        RemCompDeferred<XenoFragileEggComponent>(uid);
-                    }
-                }
-                else
-                {
-                    if (!EnsureComp<XenoFragileEggComponent>(uid, out var fragile))
-                    {
-                        fragile.ExpireAt = time + egg.FragileEggDuration;
-                        SetEggSprite((uid, egg), egg.FragileSprite);
-                        _nameModifier.RefreshNameModifiers(uid);
-                    }
-                }
-
             }
 
             if (egg.State == XenoEggState.Growing)

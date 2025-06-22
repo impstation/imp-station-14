@@ -3,11 +3,12 @@ using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Content.Shared._RMC14.Xenonids.Evolution;
 
 namespace Content.Shared._RMC14.Xenonids.Plasma;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(XenoPlasmaSystem))]
+[Access(typeof(XenoPlasmaSystem), typeof(XenoEvolutionSystem))]
 public sealed partial class XenoPlasmaComponent : Component
 {
     [DataField, AutoNetworkedField]
@@ -26,7 +27,7 @@ public sealed partial class XenoPlasmaComponent : Component
     public FixedPoint2 PlasmaRegenOnWeeds;
 
     [DataField, AutoNetworkedField]
-    public FixedPoint2 PlasmaRegenOffWeeds = 0.05;
+    public FixedPoint2 PlasmaRegenOffWeeds = 1;
 
     [DataField, AutoNetworkedField]
     public ProtoId<AlertPrototype> Alert = "XenoPlasma";

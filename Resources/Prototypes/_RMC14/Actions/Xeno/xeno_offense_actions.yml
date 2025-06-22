@@ -1,7 +1,7 @@
 - type: entity
   parent: ActionXenoBase
   id: ActionXenoAcidNormal
-  name: Corrosive Acid (100)  # TODO RMC14 proper plasma costs
+  name: Corrosive Acid (75)  # TODO RMC14 proper plasma costs
   description: Melts down a structure or item over time.
   components:
   - type: EntityTargetAction
@@ -12,50 +12,10 @@
       state: alien_acid
     event: !type:XenoCorrosiveAcidEvent
       acidId: XenoAcidNormal
-      plasmaCost: 100
+      plasmaCost: 75
       time: 50 # seconds
       dps: 8
       expendableLightDps: 2.5
-    checkCanInteract: false
-
-- type: entity
-  parent: ActionXenoAcidNormal
-  id: ActionXenoAcidWeak
-  name: Weak Corrosive Acid (75)  # TODO RMC14 proper plasma costs
-  description: Melts down a structure or item over time.
-  components:
-  - type: EntityTargetAction
-    itemIconStyle: NoItem
-    priority: -14
-    icon:
-      sprite: _Impstation/Actions/xeno_actions.rsi
-      state: alien_acid
-    event: !type:XenoCorrosiveAcidEvent
-      acidId: XenoAcidWeak
-      plasmaCost: 75
-      time: 125 # seconds or 2~ minutes
-      dps: 4
-      expendableLightDps: 0.3
-    checkCanInteract: false
-
-- type: entity
-  parent: ActionXenoAcidNormal
-  id: ActionXenoAcidStrong
-  name: Strong Corrosive Acid (125)  # TODO RMC14 proper plasma costs
-  description: Melts down a structure or item over time.
-  components:
-  - type: EntityTargetAction
-    itemIconStyle: NoItem
-    priority: -16
-    icon:
-      sprite: _Impstation/Actions/xeno_actions.rsi
-      state: alien_acid
-    event: !type:XenoCorrosiveAcidEvent
-      acidId: XenoAcidStrong
-      plasmaCost: 125
-      time: 20 # seconds
-      dps: 20
-      expendableLightDps: 23.4375
     checkCanInteract: false
 
 - type: entity
@@ -152,26 +112,3 @@
     useDelay: 10
     deselectOnMiss: false
   - type: XenoOffensiveAction
-
-- type: entity
-  id: ActionXenoSpitQueen
-  parent: ActionXenoSpit
-  name: Exo Spit (50/25)
-  description: Launches a projectile that will either paralyze the first enemy it hits or damage them and cover them in acid.
-
-- type: entity
-  parent: ActionXenoBase
-  id: ActionXenoToggleSpitType
-  name: Toggle Spit Type
-  description: Toggle between Neurotoxic or Acidic spit. Neurotoxic has less range and costs 50 plasma, and knocks down the first enemy it hits. Acidic has more range and costs 25 plasma, and damages and covers in acid the first enemy it hits.
-  components:
-  - type: InstantAction
-    itemIconStyle: NoItem
-    backgroundOn: null
-    icon:
-      sprite: _Impstation/Actions/xeno_actions.rsi
-      state: alien_neurotoxin
-    iconOn:
-      sprite: _Impstation/Actions/xeno_actions.rsi
-      state: alien_neurotoxin
-    event: !type:XenoSpitToggleActionEvent

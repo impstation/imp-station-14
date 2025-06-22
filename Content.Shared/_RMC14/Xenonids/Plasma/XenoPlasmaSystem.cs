@@ -153,8 +153,10 @@ public sealed class XenoPlasmaSystem : EntitySystem
         if (!TryComp(oldXeno, out XenoPlasmaComponent? oldXenoPlasma))
             return;
 
-        var newMax = newXeno.Comp.MaxPlasma;
-        FixedPoint2 newPlasma = newMax;
+        if (!TryComp(oldXeno, out XenoEvolutionComponent? oldXenoEvo))
+            return;
+
+        FixedPoint2 newPlasma = oldXenoPlasma.Plasma - oldXenoEvo.Max;
         if (oldXenoPlasma.MaxPlasma > 0)
             newPlasma *= oldXenoPlasma.Plasma / oldXenoPlasma.MaxPlasma;
 

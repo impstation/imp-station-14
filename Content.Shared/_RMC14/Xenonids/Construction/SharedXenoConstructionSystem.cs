@@ -167,8 +167,6 @@ public sealed class SharedXenoConstructionSystem : EntitySystem
             var weeds = Spawn(args.Prototype, coordinates);
             _adminLogs.Add(LogType.RMCXenoPlantWeeds, $"Xeno {ToPrettyString(xeno):xeno} planted weeds {ToPrettyString(weeds):weeds} at {coordinates}");
         }
-
-        _audio.PlayPredicted(xeno.Comp.BuildSound, coordinates, xeno);
     }
 
     private void OnXenoExpandWeedsAction(Entity<XenoConstructionComponent> xeno, ref XenoExpandWeedsActionEvent args)
@@ -223,8 +221,6 @@ public sealed class SharedXenoConstructionSystem : EntitySystem
             var weeds = Spawn(toSpawn, coordinates);
             _adminLogs.Add(LogType.RMCXenoPlantWeeds, $"Xeno {ToPrettyString(xeno):xeno} planted weeds {ToPrettyString(weeds):weeds} at {coordinates}");
         }
-
-        _audio.PlayPredicted(xeno.Comp.BuildSound, coordinates, xeno);
     }
 
     private void OnXenoChooseStructureAction(Entity<XenoConstructionComponent> xeno, ref XenoChooseStructureActionEvent args)
@@ -343,8 +339,6 @@ public sealed class SharedXenoConstructionSystem : EntitySystem
             var structure = Spawn(args.StructureId, coordinates);
             _adminLogs.Add(LogType.RMCXenoConstruct, $"Xeno {ToPrettyString(xeno):xeno} constructed {ToPrettyString(structure):structure} at {coordinates}");
         }
-
-        _audio.PlayPredicted(xeno.Comp.BuildSound, coordinates, xeno);
     }
 
     private void OnXenoOrderConstructionAction(Entity<XenoConstructionComponent> xeno, ref XenoOrderConstructionActionEvent args)

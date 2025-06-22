@@ -6,7 +6,7 @@
   - type: Clickable
   - type: Sprite
     noRot: false
-    sprite: _RMC14/Objects/Xeno/xeno_projectiles.rsi
+    sprite: Objects/Weapons/Guns/Projectiles/xeno_toxic.rsi
   - type: Physics
     bodyType: Dynamic
     linearDamping: 0
@@ -22,29 +22,20 @@
         - Impassable
         - BulletImpassable
   - type: Projectile
-    impactEffect: XenoProjectileImpactEffect
     damage: {}
   - type: XenoProjectile
 
 - type: entity
-  abstract: true
-  id: XenoSpitImpactSounds
-  components:
-  - type: Projectile
-    soundHit:
-      path: /Audio/_RMC14/Xeno/acid_impact1.ogg
-
-- type: entity
-  parent: [XenoSpitImpactSounds, XenoBaseProjectile]
+  parent: XenoBaseProjectile
   id: XenoSpitProjectile
   name: spit
   categories:
   - HideSpawnMenu
   components:
   - type: Sprite
-    sprite: _RMC14/Objects/Xeno/xeno_projectiles.rsi
+    sprite: Objects/Weapons/Guns/Projectiles/xeno_toxic.rsi
     layers:
-    - state: xeno_acid_weak
+    - state: xeno_toxic
       shader: unshaded
   - type: Projectile
     impactEffect: null
@@ -56,7 +47,7 @@
 
 - type: entity
   id: XenoSlowingSpitProjectile
-  parent: [XenoSpitImpactSounds, XenoBaseProjectile]
+  parent: XenoBaseProjectile
   name: slowing spit
   categories:
   - HideSpawnMenu
@@ -74,15 +65,15 @@
 
 - type: entity
   id: XenoNeuroSpitProjectile
-  parent: [XenoSpitImpactSounds, XenoBaseProjectile]
+  parent: XenoBaseProjectile
   name: neurotoxic spit
   categories:
   - HideSpawnMenu
   components:
   - type: Sprite
-    sprite: _RMC14/Objects/Xeno/xeno_projectiles.rsi
+    sprite: Objects/Weapons/Guns/Projectiles/xeno_toxic.rsi
     layers:
-    - state: neurotoxin
+    - state: xeno_toxic
       shader: unshaded
   - type: XenoSlowingSpitProjectile
     armorResistsKnockdown: false
@@ -93,15 +84,15 @@
 
 - type: entity
   id: XenoScatteredSpitProjectile
-  parent: [XenoSpitImpactSounds, XenoBaseProjectile]
+  parent: XenoBaseProjectile
   name: scattered spit
   categories:
   - HideSpawnMenu
   components:
   - type: Sprite
-    sprite: _RMC14/Objects/Xeno/xeno_projectiles.rsi
+    sprite: Objects/Weapons/Guns/Projectiles/xeno_toxic.rsi
     layers:
-    - state: neurotoxin
+    - state: xeno_toxic
       shader: unshaded
   - type: XenoSlowingSpitProjectile
     slow: 0
@@ -117,9 +108,9 @@
   - HideSpawnMenu
   components:
   - type: Sprite
-    sprite: _RMC14/Objects/Xeno/xeno_projectiles.rsi
+    sprite: Objects/Weapons/Guns/Projectiles/xeno_toxic.rsi
     layers:
-    - state: xeno_acid_normal
+    - state: xeno_toxic
       shader: unshaded
   - type: Projectile
     damage:
@@ -137,9 +128,9 @@
   - HideSpawnMenu
   components:
   - type: Sprite
-    sprite: _RMC14/Objects/Xeno/xeno_projectiles.rsi
+    sprite: Objects/Weapons/Guns/Projectiles/xeno_toxic.rsi
     layers:
-    - state: xeno_acid_strong
+    - state: xeno_toxic
       shader: unshaded
   - type: Projectile
     damage:

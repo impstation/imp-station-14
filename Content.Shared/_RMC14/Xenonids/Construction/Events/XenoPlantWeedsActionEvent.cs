@@ -7,7 +7,7 @@ namespace Content.Shared._RMC14.Xenonids.Construction.Events;
 public sealed partial class XenoPlantWeedsActionEvent : InstantActionEvent
 {
     [DataField]
-    public FixedPoint2 PlasmaCost = 75;
+    public FixedPoint2 PlasmaCost = 50;
 
     [DataField]
     public EntProtoId Prototype = "XenoWeedsSource";
