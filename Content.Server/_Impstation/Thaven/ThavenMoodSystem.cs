@@ -18,6 +18,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared._Impstation.CCVar;
 using Robust.Shared.Audio.Systems;
+using Content.Server.StationEvents.Events;
 
 namespace Content.Server._Impstation.Thaven;
 
@@ -58,6 +59,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
         SubscribeLocalEvent<ThavenMoodsComponent, ComponentShutdown>(OnThavenMoodShutdown);
         SubscribeLocalEvent<ThavenMoodsComponent, ToggleMoodsScreenEvent>(OnToggleMoodsScreen);
         SubscribeLocalEvent<ThavenMoodsComponent, BoundUIOpenedEvent>(OnBoundUIOpened);
+        SubscribeLocalEvent<ThavenMoodsComponent, IonStormEvent>(OnIonStorm);
         SubscribeLocalEvent<RoundRestartCleanupEvent>((_) => NewSharedMoods());
     }
 
@@ -393,8 +395,14 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
         AddWildcardMood(ent);
     }
 
-    public void ThavenIonStorm(Entity<ThavenMoodsComponent> ent)
+    public void OnIonStorm(Entity<ThavenMoodsComponent> ent, ref IonStormEvent args)
     {
-        return;
+        if (!ent.Comp.IonStormable)
+            return;
+
+        if (_random.Prob(ent.Comp.IonStormWildcardChance))
+            AddWildcardMood(ent);
+        else
+            TryAddRandomMood(ent);
     }
 }
