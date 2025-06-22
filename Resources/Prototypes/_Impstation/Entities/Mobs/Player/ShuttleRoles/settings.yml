@@ -14,7 +14,7 @@
     - type: Loadout
       prototypes: [ VisitorBrigmedic, VisitorBrigmedicAlt ]
       roleLoadout: [ RoleSurvivalSecurity ]
-      
+
 - type: randomHumanoidSettings
   id: VisitorCourier
   parent: VisitorCargonian
@@ -34,3 +34,16 @@
     - type: Loadout
       prototypes: [ VisitorRoboticist, VisitorRoboticistAlt ]
       roleLoadout: [ RoleSurvivalStandard ]
+
+- type: randomHumanoidSettings
+  id: VisitorLibrarianCryptid
+  parent: VisitorCivilian
+  components:
+    - type: GhostRole
+      name: job-name-librarian
+    - type: Loadout
+      prototypes: [ VisitorLibrarian, VisitorLibrarianAlt ]
+      roleLoadout: [ RoleSurvivalStandard ]
+    - type: RandomAntagChance
+      profile: Heretic
+      chance: 0.5
