@@ -7,11 +7,8 @@
   - type: Body
     prototype: Mouseth
   - type: Speech
-    speechSounds: Squeak
-    speechVerb: SmallMob
     allowedEmotes: ['Chitter', 'Squeak']
   - type: Sprite
-    drawdepth: SmallMobs
     sprite: _Impstation/Mobs/Animals/mouseth.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
@@ -47,20 +44,8 @@
     spawned:
     - id: FoodMacaronCotton
       amount: 1
-  - type: Tag
-    tags:
-    - Trash
-    - VimPilot
-    - ChefPilot
-    - Mouse
-    - Meat
-    - MultitoolDefibrillatorTarget
-  # TODO: Remove CombatMode when Prototype Composition is added
   - type: Bloodstream
     bloodReagent: InsectBlood
-  - type: Damageable
-    damageContainer: Biological
-    damageModifierSet: Mouse
   - type: SolutionContainerManager
     solutions:
       food:

@@ -1,27 +1,10 @@
 - type: entity
   id: OrganMousethStomach
-  parent: BaseAnimalOrgan
+  parent: OrganAnimalStomach
   name: stomach
+  suffix: Mouseth
   categories: [ HideSpawnMenu ]
   components:
-  - type: Sprite
-    state: stomach
-  - type: Organ
-  - type: SolutionContainerManager
-    solutions:
-      stomach:
-        maxVol: 40
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 5
-  - type: Metabolizer
-    maxReagents: 3
-    metabolizerTypes: [ Animal ]
-    groups:
-    - id: Food
-    - id: Drink
   - type: Stomach
     isSpecialDigestibleExclusive: false
     specialDigestible:
@@ -29,11 +12,3 @@
       - ClothMade
       - Paper
       - Pill
-  - type: Tag # goob edit
-    tags:
-    - Meat
-    - Organ
-    - Stomach
-  - type: Item
-    size: Small
-    heldPrefix: stomach
