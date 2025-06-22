@@ -94,7 +94,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
 
     private bool SharedMoodConflicts(ThavenMood mood)
     {
-        return mood.ProtoId is {} id &&
+        return mood.ProtoId is { } id &&
             (GetConflicts(_sharedMoods).Contains(id) ||
             GetMoodProtoSet(_sharedMoods).Overlaps(mood.Conflicts));
     }
@@ -323,7 +323,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
 
         foreach (var mood in moods)
         {
-            if (mood.ProtoId is {} id)
+            if (mood.ProtoId is { } id)
                 conflicts.Add(id); // Specific moods shouldn't be added twice
             conflicts.UnionWith(mood.Conflicts);
         }
@@ -349,7 +349,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
         _moodProtos.Clear();
         foreach (var mood in moods)
         {
-            if (mood.ProtoId is {} id)
+            if (mood.ProtoId is { } id)
                 _moodProtos.Add(id);
         }
 
@@ -391,5 +391,10 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
             return;
 
         AddWildcardMood(ent);
+    }
+
+    public void ThavenIonStorm(Entity<ThavenMoodsComponent> ent)
+    {
+        return;
     }
 }
