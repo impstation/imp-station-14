@@ -400,9 +400,31 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
         if (!ent.Comp.IonStormable)
             return;
 
-        if (_random.Prob(ent.Comp.IonStormWildcardChance))
-            AddWildcardMood(ent);
+        // remove mood
+        if (_random.Prob(ent.Comp.IonStormRemoveChance) && ent.Comp.Moods.Count > 1)
+        {
+            ent.Comp.Moods.RemoveAt(0);
+            NotifyMoodChange(ent);
+        }
+
+        // add mood
+        else if (_random.Prob(ent.Comp.IonStormAddChance) && ent.Comp.Moods.Count <= ent.Comp.MaxIonMoods)
+        {
+            if (_random.Prob(ent.Comp.IonStormWildcardChance))
+                AddWildcardMood(ent);
+            else
+                TryAddRandomMood(ent);
+        }
+
+        // replace mood
         else
-            TryAddRandomMood(ent);
+        {
+            if (ent.Comp.Moods.Count > 1)
+                ent.Comp.Moods.RemoveAt(0);
+            if (_random.Prob(ent.Comp.IonStormWildcardChance))
+                AddWildcardMood(ent);
+            else
+                TryAddRandomMood(ent);
+        }
     }
 }
