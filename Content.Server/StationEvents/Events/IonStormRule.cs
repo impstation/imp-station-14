@@ -19,8 +19,8 @@ public sealed class IonStormRule : StationEventSystem<IonStormRuleComponent>
 
         // begin imp edit, why tf wasnt this all just an event
         // var query = EntityQueryEnumerator<SiliconLawBoundComponent, TransformComponent, IonStormTargetComponent>();
-        var query = EntityQueryEnumerator<TransformComponent, IonStormTargetComponent>();
-        while (query.MoveNext(out var ent, out var xform, out _))
+        var query = EntityQueryEnumerator<IonStormTargetComponent, TransformComponent>();
+        while (query.MoveNext(out var ent, out _, out var xform))
         // end imp edit
         {
             // only affect law holders on the station
