@@ -76,8 +76,8 @@ public sealed class IonStormSystem : EntitySystem
     {
         var lawBound = ent.Comp; // imp
         EnsureComp<IonStormTargetComponent>(ent, out var target); // imp
-        if (!_robustRandom.Prob(target.Chance))
-            return;
+        // if (!_robustRandom.Prob(target.Chance)) // imp move to ionstormrule
+        //     return;
 
         var laws = _siliconLaw.GetLaws(ent, lawBound);
         if (laws.Laws.Count == 0)

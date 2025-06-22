@@ -3,12 +3,14 @@ using Content.Server.StationEvents.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Station.Components;
+using Robust.Shared.Random; // imp
 
 namespace Content.Server.StationEvents.Events;
 
 public sealed class IonStormRule : StationEventSystem<IonStormRuleComponent>
 {
     // [Dependency] private readonly IonStormSystem _ionStorm = default!; // imp remove
+    [Dependency] private readonly IRobustRandom _random = default!; // imp
 
     protected override void Started(EntityUid uid, IonStormRuleComponent comp, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
@@ -20,11 +22,12 @@ public sealed class IonStormRule : StationEventSystem<IonStormRuleComponent>
         // begin imp edit, why tf wasnt this all just an event
         // var query = EntityQueryEnumerator<SiliconLawBoundComponent, TransformComponent, IonStormTargetComponent>();
         var query = EntityQueryEnumerator<IonStormTargetComponent, TransformComponent>();
-        while (query.MoveNext(out var ent, out _, out var xform))
+        while (query.MoveNext(out var ent, out var target, out var xform))
         // end imp edit
         {
-            // only affect law holders on the station
-            if (CompOrNull<StationMemberComponent>(xform.GridUid)?.Station != chosenStation)
+            // only affect law holders on the station, and check random chance (imp edit)
+            if (CompOrNull<StationMemberComponent>(xform.GridUid)?.Station != chosenStation ||
+                !_random.Prob(target.Chance)) // imp
                 continue;
             // begin imp edit again
             var ev = new IonStormEvent();
