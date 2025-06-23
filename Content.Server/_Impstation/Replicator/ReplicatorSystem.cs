@@ -2,6 +2,7 @@
 // all credit for the core gameplay concepts and a lot of the core functionality of the code goes to the folks over at Goob, but I re-wrote enough of it to justify putting it in our filestructure.
 // the original Bingle PR can be found here: https://github.com/Goob-Station/Goob-Station/pull/1519
 
+using Content.Server._Impstation.Administration.Components;
 using Content.Server.Actions;
 using Content.Server.Emp;
 using Content.Server.Ghost.Roles.Events;
@@ -72,7 +73,7 @@ public sealed class ReplicatorSystem : EntitySystem
 
     private void OnMindRemoved(Entity<ReplicatorComponent> ent, ref MindRemovedMessage args)
     {
-        // remove all the actions when the mind is removed. 
+        // remove all the actions when the mind is removed.
         foreach (var action in ent.Comp.Actions)
         {
             QueueDel(action);
@@ -101,7 +102,7 @@ public sealed class ReplicatorSystem : EntitySystem
         // then set that nest's spawned minions to our saved list of related replicators.
         // while we're in here, we might as well update all their pinpointers.
         HashSet<EntityUid> newMinions = [];
-        foreach (var (uid, _) in ent.Comp.RelatedReplicators)
+        foreach (var (uid, comp) in ent.Comp.RelatedReplicators)
         {
             newMinions.Add(uid);
 
@@ -109,6 +110,8 @@ public sealed class ReplicatorSystem : EntitySystem
                 continue;
             // set the target to the nest
             _pinpointer.SetTarget(pocket1.Value, myNest, pinpointer);
+
+            comp.MyNest = myNest;
         }
         myNestComp.SpawnedMinions = newMinions;
         // make sure the nest knows who we are, and vice versa.
@@ -116,6 +119,13 @@ public sealed class ReplicatorSystem : EntitySystem
         ent.Comp.MyNest = myNest;
         // and we don't need the RelatedReplicators list anymore, so,
         ent.Comp.RelatedReplicators.Clear();
+
+        // remove queen status from this replicator
+        ent.Comp.Queen = false;
+
+        // remove the Crown
+        if (HasComp<ReplicatorSignComponent>(ent))
+            RemComp<ReplicatorSignComponent>(ent);
 
         // then we need to remove the action, to ensure it can't be used infinitely.
         QueueDel(args.Action);
@@ -156,14 +166,22 @@ public sealed class ReplicatorSystem : EntitySystem
         if (!TryComp<CombatModeComponent>(ent, out var combat))
             return;
 
-        // visual indicator that the replicator is aggressive. 
+        // visual indicator that the replicator is aggressive.
         _appearance.SetData(ent, ReplicatorVisuals.Combat, combat.IsInCombatMode);
     }
 
     private void OnMobStateChanged(Entity<ReplicatorComponent> ent, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState == MobState.Critical || args.NewMobState == MobState.Dead)
-            _appearance.SetData(ent, ReplicatorVisuals.Combat, false);
+        if (args.NewMobState != MobState.Critical || args.NewMobState != MobState.Dead)
+            return;
+
+        _appearance.SetData(ent, ReplicatorVisuals.Combat, false);
+
+        if (ent.Comp.Queen && ent.Comp.MyNest == null)
+        {
+            foreach (var (uid, comp) in ent.Comp.RelatedReplicators)
+                _popup.PopupEntity(Loc.GetString(comp.QueenDiedMessage), uid, uid, PopupType.LargeCaution);
+        }
     }
 
     private void OnEmpPulse(Entity<ReplicatorComponent> ent, ref EmpPulseEvent args)

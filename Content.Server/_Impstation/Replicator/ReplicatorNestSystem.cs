@@ -2,30 +2,35 @@
 // all credit for the core gameplay concepts and a lot of the core functionality of the code goes to the folks over at Goob, but I re-wrote enough of it to justify putting it in our filestructure.
 // the original Bingle PR can be found here: https://github.com/Goob-Station/Goob-Station/pull/1519
 
+using Content.Server._Impstation.Administration.Components;
 using Content.Server.Actions;
+using Content.Server.Audio;
 using Content.Server.GameTicking;
 using Content.Server.Pinpointer;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
 using Content.Shared._Impstation.Replicator;
 using Content.Shared.Actions;
+using Content.Shared.Audio;
 using Content.Shared.Destructible;
+using Content.Shared.Explosion.Components;
+using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
+using Content.Shared.Mech.Components;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Events;
+using Content.Shared.Objectives.Components;
+using Content.Shared.Pinpointer;
+using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Stunnable;
-using Content.Shared.Pinpointer;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Content.Shared.Humanoid;
-using Content.Shared.Explosion.Components;
-using Content.Shared.Audio;
-using Content.Server.Audio;
+using System.Linq;
 
 namespace Content.Server._Impstation.Replicator;
 
@@ -54,8 +59,7 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
         SubscribeLocalEvent<ReplicatorNestComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
         SubscribeLocalEvent<ReplicatorNestComponent, StepTriggerAttemptEvent>(OnStepTriggerAttempt);
         SubscribeLocalEvent<ReplicatorNestFallingComponent, UpdateCanMoveEvent>(OnUpdateCanMove);
-        SubscribeLocalEvent<ReplicatorNestComponent, DestructionEventArgs>(OnDestruction);
-        SubscribeLocalEvent<ReplicatorNestComponent, ComponentRemove>(OnComponentRemove);
+        SubscribeLocalEvent<ReplicatorNestComponent, DestructionEventArgs>(OnDestroyed);
         SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndTextAppend);
     }
 
@@ -71,10 +75,12 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
             if (_timing.CurTime < falling.NextDeletionTime)
                 continue;
 
-            // if it doesn't have humanoidappearance *and* it either doesn't have a mindComponent, or, if it has a mindComponent, that mindComponent doesn't have a mind...
-            // man fuck this sentence
-            if (!HasComp<OnUseTimerTriggerComponent>(uid) && // we also want to prevent it from deleting grenades, as that's one of the more reliable ways of destroying it
-                !HasComp<HumanoidAppearanceComponent>(uid) && !TryComp<MindContainerComponent>(uid, out var mind) | (mind != null && !mind!.HasMind))
+            if (HasComp<SiliconLawBoundComponent>(uid) || // Delete borgs
+                !HasComp<HumanoidAppearanceComponent>(uid) && // Store people
+                !HasComp<OnUseTimerTriggerComponent>(uid) && // Store grenades
+                !HasComp<StealTargetComponent>(uid) && // Store steal targets
+                !HasComp<MechComponent>(uid) && // Store mechs like Ripley
+                !TryComp<MindContainerComponent>(uid, out var mind) | (mind != null && !mind!.HasMind)) // Store anything else that has a mind
             {
                 toDel.Add(uid);
             }
@@ -121,12 +127,7 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
         args.Cancel();
     }
 
-    private void OnComponentRemove(Entity<ReplicatorNestComponent> ent, ref ComponentRemove args)
-    {
-        HandleDestruction(ent);
-    }
-
-    private void OnDestruction(Entity<ReplicatorNestComponent> ent, ref DestructionEventArgs args)
+    private void OnDestroyed(Entity<ReplicatorNestComponent> ent, ref DestructionEventArgs args)
     {
         HandleDestruction(ent);
     }
@@ -168,12 +169,14 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
             if (!_mobState.IsAlive(replicator))
                 continue;
 
+            replicatorComp.MyNest = null;
+
             if (replicatorComp.Queen)
                 queen = replicator;
 
             livingReplicators.Add((replicator, replicatorComp));
 
-            _popup.PopupEntity(Loc.GetString("replicator-nest-destroyed"), replicator, replicator);
+            _popup.PopupEntity(Loc.GetString("replicator-nest-destroyed"), replicator, replicator, Shared.Popups.PopupType.LargeCaution);
         }
 
         // if there are living replicators, select one and give the action to create a new nest.
@@ -195,6 +198,9 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
                 comp.Actions.Add(_actions.AddAction((EntityUid)queen, ent.Comp.SpawnNewNestAction));
             else
                 comp.Actions.Add(_actionContainer.AddAction((EntityUid)mindContainer.Mind, ent.Comp.SpawnNewNestAction));
+
+            // then add the Crown.
+            EnsureComp<ReplicatorSignComponent>((EntityUid)queen);
         }
 
         // finally, loop over our living replicators and set their pinpointers to target the queen.
@@ -226,21 +232,42 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
         // linebreak
         args.AddLine("");
 
-        // add a bit for every nest showing their location, level at the end of the round, and points. 
+        var totalPoints = 0;
+        var totalSpawned = 0;
+        HashSet<int> levels = [];
+        var locationsList = "";
+
+        // generate a summary of locations, levels, points, and total spawned replicators across all nests
+        var i = 0;
         foreach (var ent in nests)
         {
+            i++;
             var pointsStorage = ent.Comp;
             var location = "Unknown";
             var mapCoords = _transform.ToMapCoordinates(Transform(ent).Coordinates);
             if (_navMap.TryGetNearestBeacon(mapCoords, out var beacon, out _) && beacon?.Comp.Text != null)
                 location = beacon?.Comp.Text!;
 
-            var points = pointsStorage.TotalPoints;
+            if (nests.Count == 1)
+                locationsList = string.Concat(locationsList, "[color=#d70aa0]", location, "[/color].");
+            else if (nests.Count == 2 && i == 1)
+                locationsList = string.Concat(locationsList, "[color=#d70aa0]", location, " ");
+            else if (i != nests.Count)
+                locationsList = string.Concat(locationsList, "[color=#d70aa0]", location, "[/color], ");
+            else
+                locationsList = string.Concat(locationsList, $"[/color]and [color=#d70aa0]{location}[/color].");
 
-            var replicators = pointsStorage.TotalReplicators;
+            totalPoints += pointsStorage.TotalPoints / 10; // dividing by ten gives us a slightly more manageable number + keeps it consistent with pre-stackcount point calculation.
 
-            args.AddLine(Loc.GetString("replicator-nest-end-of-round", ("location", location), ("level", pointsStorage.Level), ("points", points), ("replicators", replicators)));
-            args.AddLine("");
+            totalSpawned += pointsStorage.TotalReplicators;
+
+            levels.Add(pointsStorage.Level);
         }
+
+        var highestLevel = levels.Max();
+
+        // then push that summary.
+        args.AddLine(Loc.GetString("replicator-nest-end-of-round", ("location", locationsList), ("level", highestLevel), ("points", totalPoints), ("replicators", totalSpawned)));
+        args.AddLine("");
     }
 }

@@ -1,9 +1,7 @@
 using Content.Server.Administration.Logs;
 using Content.Server.AlertLevel;
 using Content.Server.Chat.Systems;
-using Content.Server.DeviceNetwork.Components;
 using Content.Server.DeviceNetwork.Systems;
-using Content.Server.Interaction;
 using Content.Server.Popups;
 using Content.Server.RoundEnd;
 using Content.Server.Screens.Components;
@@ -16,6 +14,7 @@ using Content.Shared.Chat;
 using Content.Shared.Communications;
 using Content.Shared.Database;
 using Content.Shared.DeviceNetwork;
+using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
@@ -264,7 +263,9 @@ namespace Content.Server.Communications
             Loc.TryGetString(comp.Title, out var title);
             title ??= comp.Title;
 
-            msg += $"\n{Loc.GetString("comms-console-announcement-sent-by")} {author}";
+            if (comp.AnnounceSentBy)
+                msg += $"\n{Loc.GetString("comms-console-announcement-sent-by")} {author}"; // imp regex
+
             if (comp.Global)
             {
                 _announcer.SendAnnouncement("announce", Filter.Broadcast(), msg, title, comp.Color);

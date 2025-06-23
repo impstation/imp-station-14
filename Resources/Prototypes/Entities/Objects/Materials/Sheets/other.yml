@@ -27,11 +27,13 @@
     solutions:
       paper:
         canReact: false
+  - type: NonMobStatusIcon #imp edit. for the salvohud
 
 - type: entity
   parent: SheetOtherBase
   id: SheetPaper
   name: paper
+  description: Most commercially-made paper is made from paper. Paper is made from wood, trees, and paper. # imp
   suffix: Full
   components:
   - type: Stack
@@ -78,6 +80,7 @@
   parent: SheetOtherBase
   id: SheetPlasma
   name: plasma
+  description: An enigmatic, highly-reactive material that taps into... Well, it'll make you rich. # imp
   suffix: Full
   components:
   - type: Material
@@ -134,9 +137,20 @@
     count: 1
 
 - type: entity
+  parent: SheetPlasma
+  id: SheetPlasmaLingering0
+  name: plasma
+  suffix: 0, Lingering
+  components:
+  - type: Stack
+    lingering: true
+    count: 0
+
+- type: entity
   parent: SheetOtherBase
   id: SheetPlastic
   name: plastic
+  description: A sheet of plastic. Fun to play with, but not to eat. # imp
   suffix: Full
   components:
   - type: Tag
@@ -201,6 +215,7 @@
   parent: [SheetOtherBase, EdibleBase]
   id: SheetUranium
   name: uranium
+  description: A sheet of Element 92. Puts the 'new' in 'nuclear'. # imp
   suffix: Full
   components:
   - type: Material
@@ -258,6 +273,7 @@
   parent: SheetOtherBase
   id: MaterialSheetMeat
   name: meat sheet
+  description: A sheet of meat; a meat sheet. # imp
   suffix: Full
   components:
     - type: Sprite

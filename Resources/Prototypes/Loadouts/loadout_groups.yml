@@ -5,6 +5,7 @@
   minLimit: 0
   maxLimit: 4 #imp
   loadouts:
+  - NoviceMark # imp
   - BarFlask
   - CardBoxBlack
   - CDDogtags #_CD
@@ -17,6 +18,8 @@
   - CigPackNewport #imp
   - CigPackRed
   - CigPackSpirits #imp
+  - VapeSwappable #imp
+  - VapeCart #imp
   - ClothingHeadHatKippahBlueAndGold #imp
   - ClothingHeadHatKippahSimple #imp
   - ClothingHeadHatKippahWhiteAndBlue #imp
@@ -35,8 +38,10 @@
   - ClothingNeckLGBTPin
   - ClothingNeckNonBinaryPin
   - ClothingNeckPansexualPin
+  - ClothingNeckPluralPin
   - ClothingNeckOmnisexualPin
   - ClothingNeckGenderqueerPin
+  - ClothingNeckGenderfluidPin
   - ClothingNeckTransPin
   - FlippoLighter #imp
   - FlowerWreath
@@ -44,6 +49,7 @@
   - FolderHamster #imp
   - FolderMime #imp
   - FolderPun #imp
+  - Clipboard # imp
   - Hairflower
   - PanFluteInstrument #imp
   - Headphones
@@ -55,6 +61,7 @@
   - PlushieDollHair #imp
   - PlushieLizard
   - PlushieSpaceLizard
+  - WristwatchTrinket #imp
   - GoldRingTrinket #imp
   - SilverRingTrinket #imp
   - TowelColorBlack
@@ -91,6 +98,7 @@
   - GlassesColorfulGreen
   - GlassesColorfulPurple
   - GlassesColorfulYellow
+  - EyePatch
   # imp edit end
   - GlassesJamjar
   - GlassesJensen
@@ -249,6 +257,7 @@
   - GreyJumpskirt
   - AncientJumpsuit
   - RainbowJumpsuit
+  - RainbowJumpskirt
   - GraytiderSpaceJumpsuit #imp
 
 - type: loadoutGroup
@@ -663,9 +672,10 @@
   loadouts:
   - EmergencyNitrogenMime
   - EmergencyOxygenMime
+  - EmergencySpeciesMothMime
+  - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatMime # imp
   - LoadoutSpeciesAquaticFullTank # Imp
-  - LoadoutSpeciesVoxNitrogen
 
 - type: loadoutGroup
   id: MusicianJumpsuit
@@ -962,6 +972,7 @@
   id: AtmosphericTechnicianShoes
   name: loadout-group-atmospheric-technician-shoes
   loadouts:
+  - WorkBoots #imp
   - WhiteShoes
   - EngineeringWinterBoots
 
@@ -1272,6 +1283,7 @@
   loadouts:
   - DetectiveFedora
   - DetectiveFedoraGrey
+  - ClothingHeadDeerstalker #imp
 
 - type: loadoutGroup
   id: DetectiveNeck
@@ -1436,7 +1448,7 @@
   - MedicalDoctorDuffel
 
 - type: loadoutGroup
-  id: MedicalDoctorShoes
+  id: MedicalShoes
   name: loadout-group-medical-doctor-shoes
   loadouts:
   - WhiteShoes
@@ -1530,8 +1542,30 @@
   name: loadout-group-paramedic-shoes
   loadouts:
   - BlueShoes
-  - WhiteShoes # imp
+  - WhiteShoes
   - MedicalWinterBoots
+
+- type: loadoutGroup
+  id: MedicalEyewear
+  name: loadout-group-medical-glasses
+  minLimit: 0
+  loadouts:
+  - MedicalHud
+  - MedicalEyePatchHud
+  - MedicalGlassesHud #imp
+  - Glasses
+  # imp edit start - its in the middle for alphabetizing reasons sorry
+  - GlassesCheapSunglasses
+  - GlassesColorfulPink
+  - GlassesColorfulRed
+  - GlassesColorfulBlue
+  - GlassesColorfulGreen
+  - GlassesColorfulPurple
+  - GlassesColorfulYellow
+  - EyePatch
+  # imp edit end
+  - GlassesJamjar
+  - GlassesJensen
 
 - type: loadoutGroup
   id: SurvivalMedical
