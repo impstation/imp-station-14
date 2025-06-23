@@ -218,47 +218,53 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
             var markings = markingManager.MarkingsByCategoryAndSpecies(category, species);
 
             // and make a new weightedrandomprototype that stores the string of the marking and the corresponding random weight.
-            var markingWeights = new WeightedRandomPrototype();
+            var markingWeights = new Dictionary<string, float>();
             foreach (var marking in markings)
-                markingWeights.Weights.Add(marking.Key, marking.Value.RandomWeight);
+                markingWeights.Add(marking.Key, marking.Value.RandomWeight);
 
-            // if it's facial hair, there are entries in the category, and the character is not female, assign a random one. else bald
+            // grab the markingset from our category..
+            var markingSet = new Dictionary<MarkingCategories, MarkingPoints>();
+            if (proto.TryIndex(species, out SpeciesPrototype? speciesProto))
+                markingSet = new MarkingSet(speciesProto.MarkingPoints, markingManager, proto).Points;
+
+            if (!markingSet.TryGetValue(category, out var categorySet))
+                continue;
+
+            // hair and facial hair are handled different to other markings, so those get their own special treatment
+            // if it's facial hair, there are entries in the category, and the character is not female, roll & assign a random one. else bald
             if (category == MarkingCategories.FacialHair)
             {
-                newFacialHairStyle = markings.Count == 0 || sex == Sex.Female ? HairStyles.DefaultFacialHairStyle : markingWeights.Pick(random);
+                newFacialHairStyle = markings.Count == 0 || sex == Sex.Female || random.Prob(categorySet.Weight) ?
+                    HairStyles.DefaultFacialHairStyle : random.Pick(markingWeights);
             }
 
             // if it's hair, and there are hair styles, roll one. else bald
             else if (category == MarkingCategories.Hair)
             {
-                newHairStyle = markings.Count == 0 ? HairStyles.DefaultHairStyle : markingWeights.Pick(random);
+                newHairStyle = markings.Count == 0 || random.Prob(categorySet.Weight) ?
+                    HairStyles.DefaultHairStyle : random.Pick(markingWeights);
             }
 
             // for every other category,
             else if (markings.Keys.Any())
             {
-                // get the amount of points available in the marking category.
-                var markingSet = new MarkingSet();
-                if (proto.TryIndex(species, out SpeciesPrototype? speciesProto))
-                    markingSet = new MarkingSet(speciesProto.MarkingPoints, markingManager, proto);
-
                 // add random markings!
                 // this will roll once for each point in the marking category.
-                foreach (var point in markingSet.Points)
+                for (var i = 0; i < categorySet.Points; i++)
                 {
                     // category roll to see if we add anything
-                    if (!random.Prob(point.Value.Weight))
+                    if (!random.Prob(categorySet.Weight))
                         continue;
 
                     // pick a random marking from the list
-                    var randomMarking = markingWeights.Pick(random);
+                    var randomMarking = random.Pick(markingWeights);
                     if (!markings.TryGetValue(randomMarking, out var protoToAdd))
                         continue;
                     var markingToAdd = protoToAdd.AsMarking();
                     Color markingColor;
 
                     // prevent duplicates
-                    markingWeights.Weights.Remove(randomMarking);
+                    markingWeights.Remove(randomMarking);
 
                     // set gauze to white.
                     // side note, I really hate that gauze isn't its own category. please fix that so that i can make this not suck as much.

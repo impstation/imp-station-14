@@ -562,26 +562,6 @@ public sealed partial class MarkingSet
         return false;
     }
 
-    // imp add
-    /// <summary>
-    /// Finds the random weight of a marking category
-    /// </summary>
-    /// <param name="category">The category to search.</param>
-    /// <param name="weight">The float weight of the category.</param>
-    /// <returns></returns>
-    public bool TryGetWeight(MarkingCategories category, out float weight)
-    {
-        weight = 0f;
-
-        if (Points.TryGetValue(category, out var points))
-        {
-            weight = points.Weight;
-            return true;
-        }
-
-        return false;
-    }
-
     /// <summary>
     ///     Shifts a marking's rank towards the front of the list
     /// </summary>
