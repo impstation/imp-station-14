@@ -1,28 +1,28 @@
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.CollectiveMind;
+namespace Content.Shared._Impstation.CollectiveMind;
 
-[Prototype("collectiveMind")]
+[Prototype]
 public sealed partial class CollectiveMindPrototype : IPrototype
 {
     [IdDataField, ViewVariables]
     public string ID { get; } = default!;
 
-    [DataField("name")]
+    [DataField]
     public string Name { get; private set; } = string.Empty;
 
     [ViewVariables(VVAccess.ReadOnly)]
     public string LocalizedName => Loc.GetString(Name);
 
-    [DataField("keycode")]
+    [DataField]
     public char KeyCode { get; private set; } = '\0';
 
-    [DataField("color")]
+    [DataField]
     public Color Color { get; private set; } = Color.Lime;
 
-    [DataField("requiredComponents")]
-    public List<string> RequiredComponents { get; set; } = new();
+    [DataField]
+    public List<string> RequiredComponents { get; set; } = [];
 
-    [DataField("requiredTags")]
-    public List<string> RequiredTags { get; set; } = new();
+    [DataField]
+    public List<string> RequiredTags { get; set; } = [];
 }

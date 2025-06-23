@@ -1,8 +1,6 @@
-using System.Collections.Immutable;
 using System.Globalization;
 using System.Linq;
 using System.Text;
-using Content.Server.Abilities.Mime;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
@@ -16,7 +14,6 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
-using Content.Shared.CollectiveMind;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
@@ -37,6 +34,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
+using Content.Server.Abilities.Mime; // imp
+using Content.Shared._Impstation.CollectiveMind; // imp
 
 namespace Content.Server.Chat.Systems;
 
@@ -63,7 +62,6 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly ReplacementAccentSystem _wordreplacement = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
-    [Dependency] private readonly CollectiveMindUpdateSystem _collectiveMind = default!;
 
     public const int VoiceRange = 10; // how far voice goes in world units
     public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
@@ -185,9 +183,6 @@ public sealed partial class ChatSystem : SharedChatSystem
             return;
         }
 
-        if (TryComp<CollectiveMindComponent>(source, out var collective))
-            _collectiveMind.UpdateCollectiveMind(source, collective);
-
         if (player != null && _chatManager.HandleRateLimit(player) != RateLimitStatus.Allowed)
             return;
 
@@ -250,9 +245,9 @@ public sealed partial class ChatSystem : SharedChatSystem
             }
         }
 
-        if (desiredType == InGameICChatType.CollectiveMind)
+        if (desiredType == InGameICChatType.CollectiveMind) // imp
         {
-            if (TryProccessCollectiveMindMessage(source, message, out var modMessage, out var channel))
+            if (TryProcessCollectiveMindMessage(source, message, out var modMessage, out var channel) && channel != null)
             {
                 SendCollectiveMindChat(source, modMessage, channel);
                 return;
@@ -424,28 +419,24 @@ public sealed partial class ChatSystem : SharedChatSystem
 
     #region Private API
 
-    private void SendCollectiveMindChat(EntityUid source, string message, CollectiveMindPrototype? collectiveMind)
+    // imp edits start
+    private void SendCollectiveMindChat(
+        EntityUid source,
+        string message,
+        CollectiveMindPrototype collectiveMind,
+        bool ignoreActionBlocker = false
+        )
     {
-        if (_mobStateSystem.IsDead(source) || collectiveMind == null || message == "" || !TryComp<CollectiveMindComponent>(source, out var sourseCollectiveMindComp) || !sourseCollectiveMindComp.Minds.ContainsKey(collectiveMind.ID))
+        if (_actionBlocker.CanConsciouslyPerformAction(source) && !ignoreActionBlocker ||
+            message.Length == 0 ||
+            !TryComp<CollectiveMindComponent>(source, out var sourceMind) ||
+            sourceMind.Minds.Contains(collectiveMind))
             return;
 
         if (TryComp<MimePowersComponent>(source, out var comp) && comp.Enabled) // No cheating
             return; // Ideally would display the mime-cant-speak string but doing that here would be messy. Collective mind needs an equivalent to OnSpeakAttempt so this can be handled in MutingSystem
 
-        var clients = Filter.Empty();
-        var mindQuery = EntityQueryEnumerator<CollectiveMindComponent, ActorComponent>();
-        while (mindQuery.MoveNext(out var uid, out var collectMindComp, out var actorComp))
-        {
-            if (_mobStateSystem.IsDead(uid))
-                continue;
-
-            if (collectMindComp.Minds.ContainsKey(collectiveMind.ID))
-            {
-                clients.AddPlayer(actorComp.PlayerSession);
-            }
-        }
-
-        var Number = $"{sourseCollectiveMindComp.Minds[collectiveMind.ID]}";
+        var clients = GetCollectiveMindClients(collectiveMind);
 
         var admins = _adminManager.ActiveAdmins
             .Select(p => p.Channel);
@@ -454,24 +445,23 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         messageWrap = Loc.GetString("collective-mind-chat-wrap-message",
             ("message", message),
-            ("channel", collectiveMind.LocalizedName),
-            ("number", Number));
+            ("channel", collectiveMind.LocalizedName));
 
         adminMessageWrap = Loc.GetString("collective-mind-chat-wrap-message-admin",
             ("source", source),
             ("message", message),
-            ("channel", collectiveMind.LocalizedName),
-            ("number", Number));
+            ("channel", collectiveMind.LocalizedName));
 
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"CollectiveMind chat from {ToPrettyString(source):Player}: {message}");
 
-        _chatManager.ChatMessageToManyFiltered(clients,
+        _chatManager.ChatMessageToMany(
             ChatChannel.CollectiveMind,
             message,
             messageWrap,
             source,
             false,
             true,
+            clients.ToList(),
             collectiveMind.Color);
 
         // FOR ADMINS
@@ -484,6 +474,16 @@ public sealed partial class ChatSystem : SharedChatSystem
             admins,
             collectiveMind.Color);
     }
+
+    private IEnumerable<INetChannel> GetCollectiveMindClients(CollectiveMindPrototype key)
+    {
+        return Filter.Empty()
+            .AddWhereAttachedEntity(entity => TryComp<CollectiveMindComponent>(entity, out var mind) && mind.Minds.Contains(key))
+            .Recipients
+            .Union(_adminManager.ActiveAdmins)
+            .Select(p => p.Channel);
+    }
+    // imp edits end
 
     private void SendEntitySpeak(
         EntityUid source,
@@ -1068,7 +1068,7 @@ public enum InGameICChatType : byte
     Speak,
     Emote,
     Whisper,
-    CollectiveMind
+    CollectiveMind // imp
 }
 
 /// <summary>

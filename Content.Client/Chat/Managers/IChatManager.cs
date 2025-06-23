@@ -4,10 +4,14 @@ namespace Content.Client.Chat.Managers
 {
     public interface IChatManager : ISharedChatManager
     {
-        void Initialize(); // Collective mind edit
-        event Action PermissionsUpdated; // Collective mind edit
+        // imp add
+        /// <summary>
+        /// Will refresh permissions.
+        /// </summary>
+        event Action PermissionsUpdated;
+
+        public void UpdatePermissions(); // imp add
 
         public void SendMessage(string text, ChatSelectChannel channel);
-        public void UpdatePermissions(); // Collective mind edit
     }
 }

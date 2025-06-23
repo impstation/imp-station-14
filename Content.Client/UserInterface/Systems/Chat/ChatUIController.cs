@@ -16,7 +16,6 @@ using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Screens;
 using Content.Client.UserInterface.Systems.Chat.Widgets;
 using Content.Client.UserInterface.Systems.Gameplay;
-using Content.Shared.CollectiveMind;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
@@ -41,11 +40,11 @@ using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Replays;
 using Robust.Shared.Timing;
-using Robust.Shared.Toolshed.TypeParsers;
 using Robust.Shared.Utility;
 using static Content.Client.CharacterInfo.CharacterInfoSystem;
-using Content.Shared._Impstation.CCVar;
-
+using Content.Client._Impstation.CollectiveMind; // imp
+using Content.Shared._Impstation.CCVar; // imp
+using Content.Shared.CollectiveMind; // imp
 
 namespace Content.Client.UserInterface.Systems.Chat;
 
@@ -63,16 +62,15 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
     [Dependency] private readonly IStateManager _state = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IReplayRecordingManager _replayRecording = default!;
-
     [UISystemDependency] private readonly ExamineSystem? _examine = default;
     [UISystemDependency] private readonly GhostSystem? _ghost = default;
-    [UISystemDependency] private readonly CollectiveMindSystem? _collectiveMind = default!;
     [UISystemDependency] private readonly TypingIndicatorSystem? _typingIndicator = default;
     [UISystemDependency] private readonly ChatSystem? _chatSys = default;
     [UISystemDependency] private readonly TransformSystem? _transform = default;
     [UISystemDependency] private readonly MindSystem? _mindSystem = default!;
     [UISystemDependency] private readonly RoleCodewordSystem? _roleCodewordSystem = default!;
     [UISystemDependency] private readonly CharacterInfoSystem _characterInfo = default!;
+    [UISystemDependency] private readonly CollectiveMindSystem? _collectiveMind = default!; // imp
 
     [ValidatePrototypeId<ColorPalettePrototype>]
     private const string ChatNamePalette = "ChatNames";
@@ -93,7 +91,7 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
         {SharedChatSystem.AdminPrefix, ChatSelectChannel.Admin},
         {SharedChatSystem.RadioCommonPrefix, ChatSelectChannel.Radio},
         {SharedChatSystem.DeadPrefix, ChatSelectChannel.Dead},
-        {SharedChatSystem.CollectiveMindPrefix, ChatSelectChannel.CollectiveMind},
+        {SharedChatSystem.CollectiveMindPrefix, ChatSelectChannel.CollectiveMind}, // imp
     };
 
     public static readonly Dictionary<ChatSelectChannel, char> ChannelPrefixes = new()
@@ -107,7 +105,7 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
         {ChatSelectChannel.Admin, SharedChatSystem.AdminPrefix},
         {ChatSelectChannel.Radio, SharedChatSystem.RadioCommonPrefix},
         {ChatSelectChannel.Dead, SharedChatSystem.DeadPrefix},
-        {ChatSelectChannel.CollectiveMind, SharedChatSystem.CollectiveMindPrefix}
+        {ChatSelectChannel.CollectiveMind, SharedChatSystem.CollectiveMindPrefix} // imp
     };
 
     /// <summary>
@@ -631,10 +629,11 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
         }
 
         // Only ghosts and admins can send / see deadchat.
-        if (_admin.HasFlag(AdminFlags.Admin) || _ghost is {IsGhost: true})
+        if (_admin.HasFlag(AdminFlags.Admin) || _ghost is { IsGhost: true })
         {
             FilterableChannels |= ChatChannel.Dead;
             CanSendChannels |= ChatSelectChannel.Dead;
+            FilterableChannels |= ChatChannel.CollectiveMind; // imp add
         }
 
         // only admins can see / filter asay
@@ -813,7 +812,7 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
         collectiveMind = null;
         return _player.LocalEntity is { Valid: true } uid
                && _chatSys != null
-               && _chatSys.TryProccessCollectiveMindMessage(uid, text, out _, out collectiveMind, quiet: true);
+               && _chatSys.TryProcessCollectiveMindMessage(uid, text, out _, out collectiveMind, quiet: true);
     }
 
     public void UpdateSelectedChannel(ChatBox box)
