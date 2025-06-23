@@ -3,10 +3,10 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._Impstation.CollectiveMind;
 
-[DataDefinition, Serializable, NetSerializable]
+[Prototype, Serializable, NetSerializable]
 public sealed partial class CollectiveMindPrototype : IPrototype
 {
-    [IdDataField, ViewVariables]
+    [IdDataField]
     public string ID { get; private set; } = default!;
 
     [DataField]
