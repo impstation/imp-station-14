@@ -217,10 +217,11 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
             // grab a dictionary of markings in that category for that species,
             var markings = markingManager.MarkingsByCategoryAndSpecies(category, species);
 
-            // and make a new weightedrandomprototype that stores the string of the marking and the corresponding random weight.
+            // and make a new dictionary that stores the string of the marking and the corresponding random weight.
             var markingWeights = new Dictionary<string, float>();
             foreach (var marking in markings)
                 markingWeights.Add(marking.Key, marking.Value.RandomWeight);
+
 
             // grab the markingset from our category..
             var markingSet = new Dictionary<MarkingCategories, MarkingPoints>();
@@ -252,6 +253,10 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
                 // this will roll once for each point in the marking category.
                 for (var i = 0; i < categorySet.Points; i++)
                 {
+                    // just in case there are somehow more points than markings
+                    if (markingWeights.Count == 0)
+                        continue;
+
                     // category roll to see if we add anything
                     if (!random.Prob(categorySet.Weight))
                         continue;
