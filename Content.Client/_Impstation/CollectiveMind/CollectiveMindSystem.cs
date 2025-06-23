@@ -1,5 +1,5 @@
 using Content.Client.Chat.Managers;
-using Content.Shared.CollectiveMind;
+using Content.Shared._Impstation.CollectiveMind;
 using Robust.Client.Player;
 
 namespace Content.Client._Impstation.CollectiveMind;

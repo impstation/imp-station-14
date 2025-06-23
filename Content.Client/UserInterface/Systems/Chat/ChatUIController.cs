@@ -44,7 +44,7 @@ using Robust.Shared.Utility;
 using static Content.Client.CharacterInfo.CharacterInfoSystem;
 using Content.Client._Impstation.CollectiveMind; // imp
 using Content.Shared._Impstation.CCVar; // imp
-using Content.Shared.CollectiveMind; // imp
+using Content.Shared._Impstation.CollectiveMind; // imp
 
 namespace Content.Client.UserInterface.Systems.Chat;
 
@@ -807,7 +807,7 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
            && _chatSys.TryProccessRadioMessage(uid, text, out _, out radioChannel, quiet: true);
     }
 
-    private bool TryGetCollectiveMind(string text, out CollectiveMindPrototype? collectiveMind)
+    private bool TryGetCollectiveMind(string text, out CollectiveMindPrototype? collectiveMind) // imp add
     {
         collectiveMind = null;
         return _player.LocalEntity is { Valid: true } uid
@@ -833,7 +833,7 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
         }
     }
 
-    public (ChatSelectChannel chatChannel, string text, RadioChannelPrototype? radioChannel, CollectiveMindPrototype? collectiveMind) SplitInputContents(string text)
+    public (ChatSelectChannel chatChannel, string text, RadioChannelPrototype? radioChannel, CollectiveMindPrototype? collectiveMind) SplitInputContents(string text) // imp add collective mind
     {
         text = text.Trim();
         if (text.Length == 0)
@@ -854,7 +854,7 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
         if (chatChannel == ChatSelectChannel.Radio)
             return (chatChannel, text, radioChannel, null);
 
-        if (TryGetCollectiveMind(text, out var collectiveMind) && chatChannel == ChatSelectChannel.CollectiveMind)
+        if (TryGetCollectiveMind(text, out var collectiveMind) && chatChannel == ChatSelectChannel.CollectiveMind) // imp
             return (chatChannel, text, radioChannel, collectiveMind);
 
         if (chatChannel == ChatSelectChannel.Local)

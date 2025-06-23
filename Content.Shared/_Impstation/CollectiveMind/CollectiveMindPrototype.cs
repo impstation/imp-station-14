@@ -1,12 +1,13 @@
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._Impstation.CollectiveMind;
 
-[Prototype]
+[DataDefinition, Serializable, NetSerializable]
 public sealed partial class CollectiveMindPrototype : IPrototype
 {
     [IdDataField, ViewVariables]
-    public string ID { get; } = default!;
+    public string ID { get; private set; } = default!;
 
     [DataField]
     public string Name { get; private set; } = string.Empty;
@@ -19,10 +20,4 @@ public sealed partial class CollectiveMindPrototype : IPrototype
 
     [DataField]
     public Color Color { get; private set; } = Color.Lime;
-
-    [DataField]
-    public List<string> RequiredComponents { get; set; } = [];
-
-    [DataField]
-    public List<string> RequiredTags { get; set; } = [];
 }
