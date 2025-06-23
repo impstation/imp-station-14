@@ -161,6 +161,7 @@ public sealed class HeatExchangerSystem : EntitySystem
         float radiatorTemperature = radiatorEmittedEnergy / radiatorSpecificHeat;
         // Log.Debug($"rad temp is {radiatorTemperature} for uid {uid}");
 
+        /* OUTDATED DRAPER POINT CUTOFF
         //Find the color of the light based on the temperature of the radiator
         //Glowing starts at 798K (Draper point)
         //Disable the glow if the temperature is below this, and skip all future calculations
@@ -169,10 +170,46 @@ public sealed class HeatExchangerSystem : EntitySystem
             _pointLight.SetEnabled(uid, false, pointLight);
             return;
         }
+        */
+
+        //Glowing starts at 1667K based on the Planckian locus approximation below.
+        //Disable the glow if the temperature is below that.
+        if (radiatorTemperature < 1667)
+        {
+            _pointLight.SetEnabled(uid, false, pointLight);
+            return;
+        }
 
         //Otherwise, start glowing
         _pointLight.SetEnabled(uid, true, pointLight);
 
+        //Calculate the color of the radiator via the Planckian locus
+        //https://en.wikipedia.org/wiki/Planckian_locus#Approximation
+        //Code snippet provided by perryprog from Github, edited by combustibletoast.
+        //Find the x and y coordinate of the color in CIE color space based on the radiator's temperature:
+        var x = (float)(radiatorTemperature switch
+        {
+            >= 1667 and < 4000 => -0.2661239 * 1E9 / Math.Pow(radiatorTemperature, 3) - 0.2343589 * 1E6 / Math.Pow(radiatorTemperature, 2) + 0.8776956 * 1E3 / radiatorTemperature + 0.179910,
+            >= 4000 and <= 25000 => -3.0258469 * 1E9 / Math.Pow(radiatorTemperature, 3) + 2.1070379 * 1E6 / Math.Pow(radiatorTemperature, 2) + 0.2226347 * 1E3 / radiatorTemperature + 0.240390,
+            _ => 0
+        });
+        var y = (float)(radiatorTemperature switch
+        {
+            >= 1667 and < 2222 => -1.1063814 * Math.Pow(x, 3) - 1.34811020 * Math.Pow(x, 2) + 2.18555832 * x - 0.20219683,
+            >= 2222 and < 4000 => -0.954847 * Math.Pow(x, 3) - 1.37418593 * Math.Pow(x, 2) + 2.09137015 * x - 0.16748867,
+            >= 4000 and <= 25000 => 3.0817580 * Math.Pow(x, 3) - 5.87338670 * Math.Pow(x, 2) + 3.75112997 * x - 0.37001483,
+            _ => 0f
+        });
+        if (x == 0 || y == 0) //This shouldn't happen because of the guard clause above
+            Log.Debug($"Error calculating planckian locus: x = {x}, y = {y}, temp = {radiatorTemperature}");
+
+        //Convert coordinates to RGB
+        var luminance = 1f; //??? idk what this should be.
+        var radiatorColor = new Color(luminance * x / y, luminance, luminance * (1 - x - y) / y);
+        _pointLight.SetColor(uid, radiatorColor, pointLight);
+        Log.Debug($"rad color is {radiatorColor} for uid {uid}");
+
+        /* OUTDATED PEAK WAVELENGTH APPROXIMATION IMPLEMENTATION
         //Calculate the color of the radiator via Wien's displacement law (taken from Wikipedia)
         //For approximation, just get the peak wavelength emitted
         const float displacementConstant = 0.002898f;
@@ -183,6 +220,7 @@ public sealed class HeatExchangerSystem : EntitySystem
         //Convert the wavelength to a usable color
         _pointLight.SetColor(uid, WavelengthToColor(peakWavelength), pointLight);
         // Log.Debug($"rad color is {WavelengthToColor(peakWavelength)} for uid {uid}");
+        */
 
         //Set the radiator's light intensity:
         //Per the Stefan–Boltzmann law, radiant exitance is proportional to the fourth power of the object's absolute temperature
@@ -195,7 +233,7 @@ public sealed class HeatExchangerSystem : EntitySystem
         float energy = (20) / (1 + 100 * (float)Math.Pow(Math.E, -radiantExitance / 1000000));
         Log.Debug($"rad light energy is {energy} for uid {uid}");
         _pointLight.SetEnergy(uid, energy);
-        _pointLight.SetRadius(uid, (float)Math.Sqrt(energy));
+        _pointLight.SetRadius(uid, energy);
 
         //Update the sprite color of the radiator based ont he temperature of the radiator
     }
