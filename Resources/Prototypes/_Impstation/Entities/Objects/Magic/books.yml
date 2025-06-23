@@ -1,0 +1,77 @@
+- type: entity
+  id: BaseSpellbookSafeLibrarian
+  name: spellbook
+  parent: BaseItem
+  description: A publically available magic tome, published by the Space Wizards Federation.
+  abstract: true
+  components:
+    - type: Sprite
+      sprite: Objects/Misc/books.rsi
+      layers:
+      - state: paper_blood
+      - state: cover_strong
+        color: "#645a5a"
+      - state: decor_wingette_flat
+        color: "#4d0303"
+      - state: icon_pentagramm
+        color: "#f7e19f"
+
+- type: entity
+  id: SpellbookSafeLibrarianPrying
+  name: tome of minor leverage
+  parent: BaseSpellbookSafeLibrarian
+  components:
+  - type: Tag
+    tags:
+    - Crowbar
+  - type: Prying
+    speedModifier: 1.2
+    useSound: /Audio/_Impstation/Effects/Magic/magic-mallet.ogg
+  - type: Tool
+    qualities:
+    - Prying
+    useSound:
+      path: /Audio/_Impstation/Effects/Magic/magic-mallet.ogg
+
+- type: entity
+  id: SpellbookSafeLibrarianAnchoring
+  name: tome of anchoring
+  parent: BaseSpellbookSafeLibrarian
+  components:
+  - type: Tag
+    tags:
+    - Wrench
+  - type: Tool
+    qualities:
+    - Anchoring
+    useSound:
+      path: /Audio/_Impstation/Effects/Magic/magic-enchantment.ogg
+
+- type: entity
+  id: SpellbookSafeLibrarianCutting
+  name: tome of minor severance
+  parent: BaseSpellbookSafeLibrarian
+  components:
+  - type: Tag
+    tags:
+    - PlantSampleTaker
+    - Wirecutter
+  - type: Tool
+    qualities:
+    - Cutting
+    useSound:
+      path: /Audio/_Impstation/Effects/Magic/fire-magic.ogg
+
+- type: entity
+  id: SpellbookSafeLibrarianScrewing
+  name: tome of torque
+  parent: BaseSpellbookSafeLibrarian
+  components:
+  - type: Tag
+    tags:
+    - Screwdriver
+  - type: Tool
+    qualities:
+    - Screwing
+    useSound:
+      path: /Audio/_Impstation/Effects/Magic/magic-stars-retro-sparkle.ogg
