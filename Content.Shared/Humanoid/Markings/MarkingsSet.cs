@@ -52,7 +52,7 @@ public sealed partial class MarkingSet
     public Dictionary<MarkingCategories, MarkingPoints> Points = new();
 
     public MarkingSet()
-    { }
+    {}
 
     /// <summary>
     ///     Construct a MarkingSet using a list of markings, and a points

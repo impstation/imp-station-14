@@ -67,7 +67,6 @@ public sealed class RandomHumanoidAppearanceSystem : EntitySystem
             _metaData.SetEntityName(uid, profile.Name);
     }
 
-    // imp add
     private List<Marking> MarkingsToAdd(Dictionary<string, List<Color>> dict)
     {
         List<Marking> output = [];
