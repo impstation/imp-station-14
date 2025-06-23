@@ -10,6 +10,7 @@ namespace Content.Shared._DV.Waddle;
 public sealed class WaddleClothingSystem : EntitySystem
 {
     [Dependency] private readonly AlertsSystem _alerts = default!; //imp edit
+
     public override void Initialize()
     {
         base.Initialize();
@@ -24,11 +25,8 @@ public sealed class WaddleClothingSystem : EntitySystem
         var user = args.Wearer;
         // imp edit, check to see if the item has the ItemToggle component.
         // if it does and it is not activated, do not add the waddling animation to the wearer.
-        if (TryComp<ItemToggleComponent>(ent, out var itemToggle))
-        {
-            if (!itemToggle.Activated)
-                return;
-        }
+        if (TryComp<ItemToggleComponent>(ent, out var itemToggle) && (!itemToggle.Activated))
+            return;
 
         // imp edit, code moved to its own method
         AddWaddleAnimationComponent(ent, user);
@@ -88,7 +86,7 @@ public sealed class WaddleClothingSystem : EntitySystem
         // TODO: refcount
         RemComp<WaddleAnimationComponent>(user);
         ent.Comp.AddedWaddle = false;
-        Dirty(ent);
+        //Dirty(ent);
         //imp edit, clear waddle alert if one is defined
         if (ent.Comp.WaddlingAlert is {} alert)
             _alerts.ClearAlert(user, alert);

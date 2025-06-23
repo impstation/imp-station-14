@@ -6,6 +6,7 @@
   - type: InstantAction
     itemIconStyle: BigItem
     event: !type:ToggleActionEvent
+    useDelay: 2.5
 
 - type: entity
   parent: ClothingShoesClown
