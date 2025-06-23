@@ -2,7 +2,7 @@
 humanoid-profile-editor-cd-records-tab = Records
 
 #imp edit, disclaimer
-humanoid-profile-editor-cd-records-disclaimer = Character records are optional, both writing and reading them. Their usage is a fun RP treat, and not a game mechanic.
+humanoid-profile-editor-cd-records-disclaimer = [color=yellow]Character records are optional, both writing and reading them. Their usage is a fun RP treat, and not a game mechanic.[/color]
 
 # General
 humanoid-profile-editor-cd-records-height = Height (cm):
