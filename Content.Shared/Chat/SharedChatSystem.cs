@@ -76,7 +76,6 @@ public abstract class SharedChatSystem : EntitySystem
 
     private void CacheCollectiveMinds() // imp add
     {
-        _prototypeManager.PrototypesReloaded -= OnPrototypeReload;
         _mindKeyCodes = _prototypeManager.EnumeratePrototypes<CollectiveMindPrototype>()
             .ToFrozenDictionary(x => x.KeyCode);
     }

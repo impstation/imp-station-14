@@ -1,12 +1,13 @@
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
+
 
 namespace Content.Shared._Impstation.CollectiveMind
 {
     [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
     public sealed partial class CollectiveMindComponent : Component
     {
-        [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<CollectiveMindPrototype>)), AutoNetworkedField]
-        public List<CollectiveMindPrototype> Minds;
+        [DataField(customTypeSerializer: typeof(PrototypeIdHashSetSerializer<CollectiveMindPrototype>)), AutoNetworkedField]
+        public HashSet<string> Minds;
     }
 }

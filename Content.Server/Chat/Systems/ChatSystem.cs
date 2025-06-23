@@ -430,7 +430,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (_actionBlocker.CanConsciouslyPerformAction(source) && !ignoreActionBlocker ||
             message.Length == 0 ||
             !TryComp<CollectiveMindComponent>(source, out var sourceMind) ||
-            sourceMind.Minds.Contains(collectiveMind))
+            sourceMind.Minds.Contains(collectiveMind.ID))
             return;
 
         if (TryComp<MimePowersComponent>(source, out var comp) && comp.Enabled) // No cheating
@@ -478,7 +478,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     private IEnumerable<INetChannel> GetCollectiveMindClients(CollectiveMindPrototype key)
     {
         return Filter.Empty()
-            .AddWhereAttachedEntity(entity => TryComp<CollectiveMindComponent>(entity, out var mind) && mind.Minds.Contains(key))
+            .AddWhereAttachedEntity(entity => TryComp<CollectiveMindComponent>(entity, out var mind) && mind.Minds.Contains(key.ID))
             .Recipients
             .Union(_adminManager.ActiveAdmins)
             .Select(p => p.Channel);
