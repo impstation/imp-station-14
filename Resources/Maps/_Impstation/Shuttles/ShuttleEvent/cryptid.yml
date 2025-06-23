@@ -4,8 +4,8 @@ meta:
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 06/22/2025 20:21:12
-  entityCount: 570
+  time: 06/22/2025 22:00:20
+  entityCount: 562
 maps: []
 grids:
 - 1
@@ -302,7 +302,8 @@ entities:
             1: 2048
           2,0:
             1: 4096
-            0: 52428
+            0: 52300
+            2: 128
           2,1:
             1: 2
           2,-1:
@@ -350,6 +351,21 @@ entities:
           moles:
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 21.823984
+          - 82.09976
           - 0
           - 0
           - 0
@@ -1160,6 +1176,35 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 10.5,-4.5
       parent: 1
+- proto: CandleBlackInfinite
+  entities:
+  - uid: 286
+    components:
+    - type: Transform
+      pos: 0.4877484,-7.3157177
+      parent: 1
+- proto: CandleGreenInfinite
+  entities:
+  - uid: 60
+    components:
+    - type: Transform
+      pos: -2.7305806,6.891616
+      parent: 1
+  - uid: 190
+    components:
+    - type: Transform
+      pos: 1.7381694,8.860366
+      parent: 1
+  - uid: 192
+    components:
+    - type: Transform
+      pos: -0.76183057,8.875991
+      parent: 1
+  - uid: 193
+    components:
+    - type: Transform
+      pos: 3.8006694,6.875991
+      parent: 1
 - proto: CandleInfinite
   entities:
   - uid: 280
@@ -1173,49 +1218,34 @@ entities:
     - type: Transform
       pos: -3.8310068,-3.1048126
       parent: 1
-  - uid: 283
+- proto: CandlePurpleInfinite
+  entities:
+  - uid: 276
     components:
     - type: Transform
-      pos: 3.65322,6.884307
+      pos: 4.737037,4.6161222
       parent: 1
   - uid: 284
     components:
     - type: Transform
-      pos: -0.71127427,8.800006
+      pos: -4.5494456,-1.1334978
+      parent: 1
+- proto: CandleRedInfinite
+  entities:
+  - uid: 191
+    components:
+    - type: Transform
+      pos: 3.8310783,-5.090281
+      parent: 1
+  - uid: 283
+    components:
+    - type: Transform
+      pos: 1.7769251,-3.0957937
       parent: 1
   - uid: 285
     components:
     - type: Transform
-      pos: 3.7628174,-5.169572
-      parent: 1
-  - uid: 286
-    components:
-    - type: Transform
-      pos: 1.6533091,8.810422
-      parent: 1
-  - uid: 559
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -2.8149374,6.7400217
-      parent: 1
-  - uid: 560
-    components:
-    - type: Transform
-      pos: -2.7684329,-5.169572
-      parent: 1
-  - uid: 562
-    components:
-    - type: Transform
-      pos: 4.799143,4.466672
-      parent: 1
-- proto: Cane
-  entities:
-  - uid: 304
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 11.432869,2.2409668
+      pos: -2.698873,-5.137156
       parent: 1
 - proto: CarpetBlack
   entities:
@@ -1701,8 +1731,8 @@ entities:
         immutable: False
         temperature: 293.147
         moles:
-        - 1.8968438
-        - 7.1357465
+        - 1.8977377
+        - 7.139109
         - 0
         - 0
         - 0
@@ -1719,18 +1749,18 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 320
           - 310
-          - 311
-          - 312
-          - 313
-          - 314
-          - 315
-          - 316
-          - 317
-          - 318
-          - 319
           - 564
+          - 319
+          - 318
+          - 317
+          - 316
+          - 315
+          - 314
+          - 313
+          - 312
+          - 311
+          - 320
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -2076,11 +2106,6 @@ entities:
     - type: Transform
       pos: 0.5740572,1.4218471
       parent: 1
-  - uid: 276
-    components:
-    - type: Transform
-      pos: 4.3126225,4.8620963
-      parent: 1
 - proto: DrinkWatermelonJuice
   entities:
   - uid: 548
@@ -2122,6 +2147,13 @@ entities:
     components:
     - type: Transform
       pos: 5.5,2.5
+      parent: 1
+- proto: FlippoEngravedLighter
+  entities:
+  - uid: 297
+    components:
+    - type: Transform
+      pos: 11.183077,2.374093
       parent: 1
 - proto: FoodBurgerChicken
   entities:
@@ -2970,26 +3002,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 11.5,-3.5
       parent: 1
-- proto: LampGold
-  entities:
-  - uid: 279
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 1.7976238,-3.050543
-      parent: 1
-  - uid: 282
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -4.744043,-1.2323887
-      parent: 1
-  - uid: 546
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 4.816802,5.0997987
-      parent: 1
 - proto: Lantern
   entities:
   - uid: 186
@@ -3065,51 +3077,6 @@ entities:
     components:
     - type: Transform
       pos: -3.5,-1.5
-      parent: 1
-- proto: Poweredlight
-  entities:
-  - uid: 60
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 11.5,0.5
-      parent: 1
-  - uid: 190
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 1.5,-7.5
-      parent: 1
-  - uid: 191
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 1.5,-7.5
-      parent: 1
-  - uid: 192
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 5.5,0.5
-      parent: 1
-  - uid: 193
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -4.5,-1.5
-      parent: 1
-- proto: PoweredSmallLight
-  entities:
-  - uid: 297
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 10.5,-2.5
-      parent: 1
-  - uid: 561
-    components:
-    - type: Transform
-      pos: 8.5,-3.5
       parent: 1
 - proto: ShuttleWindow
   entities:
@@ -3274,11 +3241,6 @@ entities:
     - type: Transform
       pos: 0.5,0.5
       parent: 1
-  - uid: 338
-    components:
-    - type: Transform
-      pos: 4.5,4.5
-      parent: 1
 - proto: StairStageDark
   entities:
   - uid: 278
@@ -3292,6 +3254,13 @@ entities:
     components:
     - type: Transform
       pos: 11.5,-1.5
+      parent: 1
+- proto: TableFancyBlack
+  entities:
+  - uid: 282
+    components:
+    - type: Transform
+      pos: 0.5,-7.5
       parent: 1
 - proto: TableFancyBlue
   entities:
@@ -3422,6 +3391,13 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -3.5,8.5
       parent: 1
+- proto: Torch
+  entities:
+  - uid: 279
+    components:
+    - type: Transform
+      pos: 11.909929,2.5916855
+      parent: 1
 - proto: ToyFigurineCosmicCultist
   entities:
   - uid: 570
@@ -3435,13 +3411,6 @@ entities:
     components:
     - type: Transform
       pos: 0.92378676,1.7840221
-      parent: 1
-- proto: ToyFigurineLibrarian
-  entities:
-  - uid: 553
-    components:
-    - type: Transform
-      pos: 11.776619,2.4701335
       parent: 1
 - proto: ToyFigurineRatServant
   entities:
