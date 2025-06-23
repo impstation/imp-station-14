@@ -29,8 +29,9 @@ public sealed class RandomHumanoidAppearanceSystem : EntitySystem
         }
 
         var profile = HumanoidCharacterProfile.RandomWithSpecies(humanoid.Species);
-        var appearance = profile.Appearance;
+        var appearance = profile.Appearance; // imp
 
+        // imp edits start
         List<Marking> markings;
         if (component.Markings != null)
             markings = MarkingsToAdd(component.Markings);
@@ -59,11 +60,14 @@ public sealed class RandomHumanoidAppearanceSystem : EntitySystem
         .WithGender(component.Gender ?? profile.Gender);
 
         _humanoid.LoadProfile(uid, finalProfile, humanoid);
+        // imp edits end
+
 
         if (component.RandomizeName)
             _metaData.SetEntityName(uid, profile.Name);
     }
 
+    // imp add
     private List<Marking> MarkingsToAdd(Dictionary<string, List<Color>> dict)
     {
         List<Marking> output = [];

@@ -52,7 +52,7 @@ public sealed partial class MarkingSet
     public Dictionary<MarkingCategories, MarkingPoints> Points = new();
 
     public MarkingSet()
-    {}
+    { }
 
     /// <summary>
     ///     Construct a MarkingSet using a list of markings, and a points
@@ -557,6 +557,26 @@ public sealed partial class MarkingSet
                 marking = m;
                 return true;
             }
+        }
+
+        return false;
+    }
+
+    // imp add
+    /// <summary>
+    /// Finds the random weight of a marking category
+    /// </summary>
+    /// <param name="category">The category to search.</param>
+    /// <param name="weight">The float weight of the category.</param>
+    /// <returns></returns>
+    public bool TryGetWeight(MarkingCategories category, out float weight)
+    {
+        weight = 0f;
+
+        if (Points.TryGetValue(category, out var points))
+        {
+            weight = points.Weight;
+            return true;
         }
 
         return false;
