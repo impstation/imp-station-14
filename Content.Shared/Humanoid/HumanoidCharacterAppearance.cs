@@ -227,20 +227,18 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
             // if it's facial hair, there are entries in the category, and the character is not female, assign a random one. else bald
             if (category == MarkingCategories.FacialHair)
             {
-                newFacialHairStyle = markings.Keys.Any() || sex == Sex.Female ? HairStyles.DefaultFacialHairStyle : markingWeights.Pick(random);
+                newFacialHairStyle = markings.Count == 0 || sex == Sex.Female ? HairStyles.DefaultFacialHairStyle : markingWeights.Pick(random);
             }
 
             // if it's hair, and there are hair styles, roll one. else bald
             else if (category == MarkingCategories.Hair)
             {
-                newHairStyle = markings.Keys.Any() ? markingWeights.Pick(random) : HairStyles.DefaultHairStyle;
+                newHairStyle = markings.Count == 0 ? HairStyles.DefaultHairStyle : markingWeights.Pick(random);
             }
 
             // for every other category,
             else if (markings.Keys.Any())
             {
-                MarkingPrototype? lastMarking = null;
-
                 // get the amount of points available in the marking category.
                 var markingSet = new MarkingSet();
                 if (proto.TryIndex(species, out SpeciesPrototype? speciesProto))
@@ -255,14 +253,14 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
                         continue;
 
                     // pick a random marking from the list
-                    if (!markings.TryGetValue(markingWeights.Pick(random), out var protoToAdd))
+                    var randomMarking = markingWeights.Pick(random);
+                    if (!markings.TryGetValue(randomMarking, out var protoToAdd))
                         continue;
                     var markingToAdd = protoToAdd.AsMarking();
                     Color markingColor;
 
-                    // prevent duplicates:
-                    if (lastMarking != null && lastMarking == protoToAdd)
-                        continue;
+                    // prevent duplicates
+                    markingWeights.Weights.Remove(randomMarking);
 
                     // set gauze to white.
                     // side note, I really hate that gauze isn't its own category. please fix that so that i can make this not suck as much.
@@ -271,7 +269,6 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
                     {
                         markingToAdd.SetColor(Color.White);
                         newMarkings.Add(markingToAdd);
-                        lastMarking = protoToAdd;
                         continue;
                     }
 
@@ -287,7 +284,6 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
 
                     // otherwise, add it to the final list.
                     newMarkings.Add(markingToAdd);
-                    lastMarking = protoToAdd;
                 }
             }
         }
