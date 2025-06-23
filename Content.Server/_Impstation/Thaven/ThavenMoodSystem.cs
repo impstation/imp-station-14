@@ -404,6 +404,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
         if (_random.Prob(ent.Comp.IonStormRemoveChance) && ent.Comp.Moods.Count > 1)
         {
             ent.Comp.Moods.RemoveAt(0);
+            Dirty(ent);
             NotifyMoodChange(ent);
         }
 
