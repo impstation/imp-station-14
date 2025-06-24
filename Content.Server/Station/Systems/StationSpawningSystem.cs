@@ -4,6 +4,7 @@ using Content.Server.IdentityManagement;
 using Content.Server.Mind.Commands;
 using Content.Server.PDA;
 using Content.Server.Station.Components;
+using Content.Shared._Impstation.NotifierExamine;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.CCVar;
@@ -43,7 +44,6 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
     [Dependency] private readonly PdaSystem _pdaSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly GrammarSystem _grammar = default!; // imp
-
     /// <summary>
     /// Attempts to spawn a player character onto the given station.
     /// </summary>
@@ -156,6 +156,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             }
         }
 
+        EnsureComp<NotifierExamineComponent>(entity.Value);
         if (loadout != null)
         {
             EquipRoleLoadout(entity.Value, loadout, roleProto!);
