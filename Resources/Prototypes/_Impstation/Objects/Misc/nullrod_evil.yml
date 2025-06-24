@@ -130,21 +130,13 @@
           False: { state: unwielded }
 
 - type: entity
-  parent: ClothingBeltStorageBase
+  parent: ClothingBeltQuiverNullrod
   id: ClothingBeltQuiverNullrodEvil
   name: argentine quiver
   description: A defiled quiver. The wicked have no scruples about using the powers of the divine and profane alike.
   components:
    - type: Sprite
      sprite: _Impstation/Objects/Misc/nullrod_quiver_evil.rsi
-     layers:
-     - state: quiver
-     - map: [ "enum.StorageContainerVisualLayers.Fill" ]
-       visible: false
-   - type: Clothing
-     slots:
-     - belt
-     - suitStorage
    - type: Storage
      grid:
      - 0,0,6,3
@@ -153,8 +145,3 @@
       tags:
       - HolyArrow
       - HolyArrowEvil
-   - type: Appearance
-   - type: StorageContainerVisuals
-     maxFillLevels: 3
-     fillBaseName: fill-
-
