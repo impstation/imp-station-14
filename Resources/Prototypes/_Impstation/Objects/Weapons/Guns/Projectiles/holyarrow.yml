@@ -61,36 +61,10 @@
   id: HolyArrowEvil
   description: Vile and volatile.
   name: argentine arrow
-  parent: BaseItem
+  parent: HolyArrow
   components:
-  - type: RevealRevenantOnCollide
-  - type: CollisionWake
-    enabled: false # Causes test fail
-  - type: Item
-    size: Small
   - type: Sprite
     sprite: _Impstation/Objects/Misc/nullrod_arrow_evil.rsi
-    layers:
-      - state: arrowprojectile
-        shader: unshaded
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape: !type:PhysShapeCircle
-          radius: 0.2
-        density: 5
-        mask:
-        - ItemMask
-        restitution: 0.3
-        friction: 0.2
-      projectile:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.1,-0.1,0.1,0.1"
-        hard: false
-        mask:
-        - Impassable
-        - BulletImpassable
   - type: Tag
     tags:
       - HolyArrowEvil
@@ -106,16 +80,6 @@
     embedOnThrow: false
     removalTime: .2
     autoRemoveDuration: .01
-  - type: ThrowingAngle
-    angle: 0
-  - type: LandAtCursor
-  - type: Projectile
-    deleteOnCollide: false
-    onlyCollideWhenShot: true
-    damage:
-      types:
-        Piercing: 31
-        Holy: 20
   - type: TriggerOnEmbed
   - type: Explosive
     deleteAfterExplosion: false
