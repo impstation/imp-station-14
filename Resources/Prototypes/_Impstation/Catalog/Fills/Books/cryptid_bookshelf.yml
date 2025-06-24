@@ -9,6 +9,21 @@
      containers:
       storagebase: !type:NestedSelector
         tableId: CryptidBookshelfEntityTable
+   - type: Sprite
+     sprite: _Impstation/Structures/Furniture/strangebookshelf.rsi
+     snapCardinals: true
+     layers:
+       - state: strange1
+       - map: ["shelf"]
+       - state: strange2
+       - map: ["shelf"]
+       - state: book-0
+       - map: ["enum.StorageFillLayers.Fill"]
+   - type: RandomSprite
+     available:
+       - shelf:
+           strange1: ""
+           strange2: ""
 
 # Entity tables
 - type: entityTable
