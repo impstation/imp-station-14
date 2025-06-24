@@ -81,11 +81,15 @@
     Glass: 200 # turns into up to 2 glass shards when broken so kind of a steep price to keep from the worlds most obscure resource exploit
 
 - type: latheRecipe
-  parent: CandyBowl
   id: MeatBowl
   result: MeatBowl
+  completetime: 1
+  materials:
+    Plastic: 200
 
 - type: latheRecipe
-  parent: CandyBowl
   id: FruitBowl
   result: FruitBowl
+  completetime: 1
+  materials:
+    Wood: 200
