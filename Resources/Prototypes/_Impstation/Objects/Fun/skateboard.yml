@@ -11,7 +11,10 @@
     clothingVisuals:
       shoes:
       - state: equipped-FEET
-        offset: "0, -0.12"
+        offset: "0, -0.1555"
+      shoes-vox:
+      - state: equipped-FEET-vox
+        offset: "0, -0.1555"
   - type: Item
     sprite: _Impstation/Clothing/Shoes/Specific/skateboard.rsi
   - type: Skates
