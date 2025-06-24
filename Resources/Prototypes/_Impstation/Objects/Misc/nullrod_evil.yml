@@ -142,6 +142,9 @@
      - map: [ "enum.StorageContainerVisualLayers.Fill" ]
        visible: false
    - type: Clothing
+     slots:
+     - belt
+     - suitStorage
    - type: Storage
      grid:
      - 0,0,6,3
