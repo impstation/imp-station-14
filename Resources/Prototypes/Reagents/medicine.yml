@@ -76,16 +76,6 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 1
-        - !type:OrganType
-          type: Snail
-          shouldHave: true
-        damage:
-          types:
-            Poison: 4
       - !type:AdjustReagent
         reagent: Histamine
         amount: -3.0
@@ -103,6 +93,16 @@
         damage:
           types:
             Poison: -3
+    Poison: #imp start
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Snail
+          shouldHave: true
+        damage:
+          types:
+            Poison: 4 #imp end
 
 - type: reagent
   id: Ethylredoxrazine
@@ -693,20 +693,20 @@
   metabolisms:
     Drink:
       effects:
+      - !type:SatiateThirst
+        factor: 6
+      - !type:ModifyBloodLevel
+        amount: 6
+    Poison: #imp start
+      effects:
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
-          min: 1
         - !type:OrganType
           type: Snail
           shouldHave: true
         damage:
           types:
-            Poison: 4
-      - !type:SatiateThirst
-        factor: 6
-      - !type:ModifyBloodLevel
-        amount: 6
+            Poison: 4 #imp end
 
 - type: reagent
   id: Siderlac
@@ -833,16 +833,14 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:HealthChange
+      - !type:HealthChange #start imp
         conditions:
-        - !type:ReagentThreshold
-          min: 1
         - !type:OrganType
           type: Snail
           shouldHave: true
         damage:
           types:
-            Poison: 4
+            Poison: 4 #end imp
       # what the hell, this isn't satiating at all!!
       - !type:SatiateHunger
         factor: -1
@@ -921,16 +919,14 @@
     Medicine:
       effects:
       - !type:ChemHealEyeDamage
-      - !type:HealthChange
+      - !type:HealthChange #start imp
         conditions:
-        - !type:ReagentThreshold
-          min: 1
         - !type:OrganType
           type: Snail
           shouldHave: true
         damage:
           types:
-            Poison: 4
+            Poison: 2 #end imp
 
 - type: reagent
   id: Cognizine

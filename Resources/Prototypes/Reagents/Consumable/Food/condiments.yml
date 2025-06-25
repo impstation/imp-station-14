@@ -168,7 +168,7 @@
       # eating salt on its own kinda sucks, kids
       - !type:SatiateThirst
         factor: -0.5
-      - !type:HealthChange
+      - !type:HealthChange #start imp
         conditions:
         - !type:ReagentThreshold
           min: 1
@@ -182,7 +182,7 @@
     - !type:EnsureTileReaction
       components:
         - type: RevealRevenantOnCollide
-          popupText: revenant-revealed-salt
+          popupText: revenant-revealed-salt #end imp
 
 - type: reagent
   id: Syrup

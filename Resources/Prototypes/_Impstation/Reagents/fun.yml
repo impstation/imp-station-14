@@ -143,6 +143,28 @@
         refresh: false
 
 - type: reagent
+  id: Trash
+  name: reagent-name-trash
+  desc: reagent-desc-trash
+  physicalDesc: reagent-physical-desc-murky
+  flavor: trash
+  metabolisms:
+    Food:
+      effects:
+        - !type:SatiateHunger
+          conditions:
+            - !type:OrganType
+              type: Rat
+        - !type:HealthChange
+          conditions:
+          - !type:OrganType
+            type: Rat
+            shouldHave: false
+          damage:
+            types:
+              Poison: 0.5
+
+- type: reagent
   id: Holium
   # group: Special # The recipe is complicated enough that I think we shouldnt hide the recipe honestly
   name: reagent-name-holium
