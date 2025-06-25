@@ -425,11 +425,13 @@
       map: ["foldedLayer"]
       visible: false
     - type: InteractionOutline
-  - type: Physics
-    bodyStatus: InAir
   - type: Pullable
+#trying to float
   - type: MovementIgnoreGravity # nyoom
     gravityState: true
+  - type: Physics
+    bodyStatus: InAir
+  - type: FloatingVisuals
 
 # flora color variants
 - type: entity
