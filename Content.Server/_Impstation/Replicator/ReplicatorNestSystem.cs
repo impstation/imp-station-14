@@ -8,6 +8,7 @@ using Content.Server.Audio;
 using Content.Server.GameTicking;
 using Content.Server.Pinpointer;
 using Content.Server.Popups;
+using Content.Server.Spawners.Components;
 using Content.Server.Stunnable;
 using Content.Shared._Impstation.Replicator;
 using Content.Shared.Actions;
@@ -110,6 +111,7 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
 
         ent.Comp.NextSpawnAt = ent.Comp.SpawnNewAt;
         ent.Comp.NextUpgradeAt = ent.Comp.UpgradeAt;
+        ent.Comp.NextTileConvertAt = ent.Comp.TileConvertAt;
 
         var pointsStorageEnt = Spawn("ReplicatorNestPointsStorage", Transform(ent).Coordinates);
         EnsureComp<ReplicatorNestPointsStorageComponent>(pointsStorageEnt);
@@ -182,34 +184,43 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
         // if there are living replicators, select one and give the action to create a new nest.
         if (livingReplicators.Count > 0)
         {
-            // if there's no queen, pick a new one
-            if (queen == null)
-                queen = _random.Pick(livingReplicators);
+            // if queen isn't null, assign it to queenNotNull. if it is, pick a random EntityUid from the list and assign it to queenNotNull
+            if (queen is not { } queenNotNull)
+                queenNotNull = _random.Pick(livingReplicators);
 
-            var comp = EnsureComp<ReplicatorComponent>((EntityUid)queen);
+            var comp = EnsureComp<ReplicatorComponent>(queenNotNull);
             comp.Queen = true;
-            livingReplicators.Add(((EntityUid)queen, comp));
+            livingReplicators.Add((queenNotNull, comp));
             comp.RelatedReplicators = livingReplicators; // make sure we know who belongs to our nest
 
-            if (!TryComp<MindContainerComponent>(queen, out var mindContainer) || mindContainer.Mind == null)
+            var upgradedQueen = ForceUpgrade((queenNotNull, comp), comp.FinalStage);
+            if (!TryComp<ReplicatorComponent>(upgradedQueen, out var upgradedComp))
+                return;
+
+            if (upgradedQueen is not { } upgradedQueenNotNull || !TryComp<MindContainerComponent>(upgradedQueen, out var mindContainer) || mindContainer.Mind is not { } mind)
                 return;
 
             if (!mindContainer.HasMind)
-                comp.Actions.Add(_actions.AddAction((EntityUid)queen, ent.Comp.SpawnNewNestAction));
+                upgradedComp.Actions.Add(_actions.AddAction(upgradedQueenNotNull, upgradedComp.SpawnNewNestAction));
             else
-                comp.Actions.Add(_actionContainer.AddAction((EntityUid)mindContainer.Mind, ent.Comp.SpawnNewNestAction));
+                upgradedComp.Actions.Add(_actionContainer.AddAction(mind, upgradedComp.SpawnNewNestAction));
 
             // then add the Crown.
-            EnsureComp<ReplicatorSignComponent>((EntityUid)queen);
+            EnsureComp<ReplicatorSignComponent>(upgradedQueenNotNull);
         }
 
-        // finally, loop over our living replicators and set their pinpointers to target the queen.
+        // finally, loop over our living replicators and set their pinpointers to target the queen, then downgrade them to level 1 and stun them.
         foreach (var replicator in livingReplicators)
         {
             if (!_inventory.TryGetSlotEntity(replicator, "pocket1", out var pocket1) || !TryComp<PinpointerComponent>(pocket1, out var pinpointer))
                 continue;
             // set the target to the queen
             _pinpointer.SetTarget(pocket1.Value, queen, pinpointer);
+
+            // downgrade to level 1
+            var upgraded = ForceUpgrade(replicator, replicator.Comp.FirstStage);
+            if (upgraded != null)
+                _stun.TrySlowdown(upgraded.Value, TimeSpan.FromSeconds(3), true, 0.8f, 0.8f);
         }
 
         // turn off the ambient sound on the points storage entity.
