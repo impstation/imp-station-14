@@ -17,6 +17,9 @@ wieldable-component-not-in-hands = { CAPITALIZE(THE($item)) } isn't in your hand
 
 wieldable-component-requires = { CAPITALIZE(THE($item))} must be wielded!
 
+# Imp edit
+wieldable-component-laying-down = You can't wield { THE($item) } while laying down!
+
 gunwieldbonus-component-examine = This weapon has improved accuracy when wielded.
 
 gunrequireswield-component-examine = This weapon can only be fired when wielded.

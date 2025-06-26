@@ -11,6 +11,7 @@ using Content.Shared.Item;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Standing; //imp edit
 using Content.Shared.Timing;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee;
@@ -32,6 +33,7 @@ public abstract class SharedWieldableSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!; //imp edit
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
@@ -222,6 +224,16 @@ public abstract class SharedWieldableSystem : EntitySystem
             }
             return false;
         }
+
+        //imp edit start, prevent wielding while laying down
+        TryComp(user, out StandingStateComponent? standing);
+        if (_standing.IsDown(user, standing))
+        {
+            if (!quiet)
+                _popup.PopupClient(Loc.GetString("wieldable-component-laying-down", ("item", uid)), user, user);
+            return false;
+        }
+        //imp edit end
 
         // Seems legit.
         return true;
