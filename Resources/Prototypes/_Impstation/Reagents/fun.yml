@@ -338,3 +338,17 @@
         reagent: Cellulose
         amount: 0.5
           
+- type: reagent
+  id: Fizlift
+  name: reagent-name-paprika
+  group: Foods
+  desc: reagent-desc-paprika
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: spicy
+  color: "#452aa5"
+  recognizable: true
+  metabolisms:
+    Food:
+      effects:
+      - !type:AntiGravity
+        gravityState: true
