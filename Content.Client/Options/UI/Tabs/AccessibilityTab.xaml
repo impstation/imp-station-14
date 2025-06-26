@@ -27,12 +27,12 @@
                 <CheckBox Name="CensorNudityCheckBox" Text="{Loc 'ui-options-censor-nudity'}" />
                 <Label Text="{Loc 'ui-options-accessability-header-misc'}"
                        StyleClasses="LabelKeyText"/>
-                <CheckBox Name="ShowNotifierExamineCheckBox" Text="{Loc 'ui-options-enable-notifier'}"/>
+                <Label Text="{Loc ui-options-notifier-label}"/>
                 <PanelContainer>
                     <PanelContainer.PanelOverride>
                         <graphics:StyleBoxFlat BackgroundColor="#4a4d68"/>
                     </PanelContainer.PanelOverride>
-                    <TextEdit Name="NotifierExamineTextEdit" MinHeight="150" Margin="5 5"/>
+                    <TextEdit Name="NotifierExamineTextEdit" MinHeight="150" Margin="5 5" />
                 </PanelContainer>
             </BoxContainer>
         </ScrollContainer>

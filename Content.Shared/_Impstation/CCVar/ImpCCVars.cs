@@ -45,9 +45,6 @@ public sealed class ImpCCVars : CVars
     public static readonly CVarDef<string> ChatHighlightsColor =
         CVarDef.Create("chat.highlights_color", "#17FFC1FF", CVar.CLIENTONLY | CVar.ARCHIVE, "The color in which the highlights will be displayed.");
 
-    public static readonly CVarDef<bool> ShowNotifierExamine =
-        CVarDef.Create("accessibility.show_notifier_examine", false, CVar.ARCHIVE | CVar.REPLICATED | CVar.CLIENT, "Toggles whether to show the accessibility issue notifier on examine.");
-
     public static readonly CVarDef<string> NotifierExamine =
         CVarDef.Create("accessibility.notifier_examine", "", CVar.ARCHIVE | CVar.REPLICATED | CVar.CLIENT, "content of accessibility issue notifier.");
 }

@@ -363,7 +363,7 @@ ui-options-speech-bubble-background-opacity = Speech bubble background opacity
 
 ui-options-censor-nudity = Censor character nudity
 
-ui-options-enable-notifier = Enable accesibility issue notifier
+ui-options-notifier-label = accesibility issue notifier
 ui-options-notifier = Describe issues you have that you would like to notify other players of. for example: typing difficulties, vision issues, hearing issues, phobia triggers.
 ## Admin menu
 

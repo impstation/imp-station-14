@@ -1,4 +1,6 @@
+using Content.Shared._Impstation.StatusIcon;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Impstation.NotifierExamine;
 
@@ -10,5 +12,9 @@ public sealed partial class NotifierExamineComponent : Component
 
     [DataField(required: true), AutoNetworkedField]
     public bool Active = false;
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
+    public ProtoId<NotifierIconPrototype> Icon = "NotifierIcon";
 
 }

@@ -1,6 +1,7 @@
 using Content.Shared._Impstation.CCVar;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Players;
 using Content.Shared.Verbs;
 using Robust.Shared.Configuration;
@@ -14,21 +15,24 @@ public sealed class NotifierExamineSystem : EntitySystem
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly INetConfigurationManager _netCfg = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
     public override void Initialize()
     {
+        SubscribeLocalEvent<NotifierExamineComponent,ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<NotifierExamineComponent, PlayerAttachedEvent>(OnPlayerAttached);
         //SubscribeLocalEvent<NotifierExamineComponent, PlayerDetachedEvent>(OnPlayerDetached);
         SubscribeLocalEvent<NotifierExamineComponent, GetVerbsEvent<ExamineVerb>>(OnGetExamineVerbs);
+
+
     }
 
     private void OnPlayerAttached(EntityUid uid,NotifierExamineComponent component, PlayerAttachedEvent args)
     {
-        var add=_netCfg.GetClientCVar<bool>(args.Player.Channel, ImpCCVars.ShowNotifierExamine);
-        if (add)
+        var content=_netCfg.GetClientCVar<string>(args.Player.Channel, ImpCCVars.NotifierExamine);
+        if (content != "")
         {
             component.Active=true;
-            var content=_netCfg.GetClientCVar<string>(args.Player.Channel, ImpCCVars.NotifierExamine);
-            component.Content = content;
+            component.Content=content;
         }
         Dirty(uid,component);
     }
@@ -38,7 +42,6 @@ public sealed class NotifierExamineSystem : EntitySystem
             return;
 
         var user = args.User;
-
         var verb = new ExamineVerb
         {
             Act = () =>
@@ -53,5 +56,11 @@ public sealed class NotifierExamineSystem : EntitySystem
         };
 
         args.Verbs.Add(verb);
+    }
+
+    private void OnExamined(Entity<NotifierExamineComponent> ent, ref ExaminedEvent args)
+    {
+        if (!ent.Comp.Active || !args.IsInDetailsRange||_mobState.IsDead(ent.Owner)) return;
+        args.PushMarkup($"[color=lightblue]{Loc.GetString("notifier-info",("ent", ent.Owner))}[/color]");
     }
 }
