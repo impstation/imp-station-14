@@ -1,4 +1,5 @@
 using Content.Server.StationEvents.Components;
+using Content.Server.StationEvents.Events; // imp add
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Dataset;
@@ -59,15 +60,24 @@ public sealed class IonStormSystem : EntitySystem
     [ValidatePrototypeId<DatasetPrototype>]
     private const string Foods = "IonStormFoods";
 
+    // imp add start
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<SiliconLawBoundComponent, IonStormEvent>(IonStormTarget);
+    }
+    // imp add end
+
     /// <summary>
     /// Randomly alters the laws of an individual silicon.
     /// </summary>
-    public void IonStormTarget(Entity<SiliconLawBoundComponent, IonStormTargetComponent> ent, bool adminlog = true)
+    public void IonStormTarget(Entity<SiliconLawBoundComponent> ent, ref IonStormEvent args) // imp edit, its an event subscription now
     {
-        var lawBound = ent.Comp1;
-        var target = ent.Comp2;
-        if (!_robustRandom.Prob(target.Chance))
-            return;
+        var lawBound = ent.Comp; // imp
+        EnsureComp<IonStormTargetComponent>(ent, out var target); // imp
+        // if (!_robustRandom.Prob(target.Chance)) // imp move to ionstormrule
+        //     return;
 
         var laws = _siliconLaw.GetLaws(ent, lawBound);
         if (laws.Laws.Count == 0)
@@ -152,7 +162,7 @@ public sealed class IonStormSystem : EntitySystem
         }
 
         // adminlog is used to prevent adminlog spam.
-        if (adminlog)
+        if (args.Adminlog) // imp edit
             _adminLogger.Add(LogType.Mind, LogImpact.High, $"{ToPrettyString(ent):silicon} had its laws changed by an ion storm to {laws.LoggingString()}");
 
         // laws unique to this silicon, dont use station laws anymore
@@ -228,10 +238,10 @@ public sealed class IonStormSystem : EntitySystem
         var subjects = _robustRandom.Prob(0.5f) ? objectsThreats : Loc.GetString("ion-storm-people");
 
         // message logic!!!
-        return _robustRandom.Next(0, 35) switch
+        return _robustRandom.Next(0, 34) switch //imp edit, removed 1 law
         {
             0  => Loc.GetString("ion-storm-law-on-station", ("joined", joined), ("subjects", triple)),
-            1  => Loc.GetString("ion-storm-law-call-shuttle", ("joined", joined), ("subjects", triple)),
+          //1  => Loc.GetString("ion-storm-law-call-shuttle", ("joined", joined), ("subjects", triple)), //imp edit
             2  => Loc.GetString("ion-storm-law-crew-are", ("who", crewAll), ("joined", joined), ("subjects", objectsThreats)),
             3  => Loc.GetString("ion-storm-law-subjects-harmful", ("adjective", adjective), ("subjects", triple)),
             4  => Loc.GetString("ion-storm-law-must-harmful", ("must", must)),
@@ -263,7 +273,7 @@ public sealed class IonStormSystem : EntitySystem
             30 => Loc.GetString("ion-storm-law-crew-must-have", ("adjective", adjective), ("objects", objects), ("part", part)),
             31 => Loc.GetString("ion-storm-law-crew-must-eat", ("who", who), ("adjective", adjective), ("food", food), ("part", part)),
             32 => Loc.GetString("ion-storm-law-harm", ("who", harm)),
-            33 => Loc.GetString("ion-storm-law-protect", ("who", harm)),
+            1 => Loc.GetString("ion-storm-law-protect", ("who", harm)), // imp edit
             _ => Loc.GetString("ion-storm-law-concept-verb", ("concept", concept), ("verb", verb), ("subjects", triple))
         };
     }
