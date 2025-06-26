@@ -234,7 +234,17 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
         var state = new OldAnalysisConsoleUpdateState(GetNetEntity(artifact), analyzerConnected, serverConnected,
             canScan, canPrint, msg, scanning, paused, active?.StartTime, active?.AccumulatedRunTime, totalTime, points, biasDirection == BiasDirection.Down);
 
+
         _ui.SetUiState(uid, OldArtifactAnalyzerUiKey.Key, state);
+
+        if (TryComp<ActivatableUIComponent>(uid, out var activatableUIComponent))
+        {
+            if (canScan)
+                activatableUIComponent.Key = OldArtifactAnalyzerUiKey.Key;
+            else
+                activatableUIComponent.Key = ArtifactAnalyzerUiKey.Key;
+            Dirty(uid, activatableUIComponent);
+        }
     }
 
     /// <summary>

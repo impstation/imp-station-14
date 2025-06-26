@@ -51,12 +51,12 @@
     powerLoad: 12000
     needsPower: false #only turns on when scanning
   - type: ArtifactAnalyzer
-  - type: OldArtifactAnalyzer
+  - type: OldArtifactAnalyzer #IMP
   - type: ItemPlacer
     whitelist:
       components:
       - XenoArtifact
-      - Artifact
+      - Artifact #IMP
   - type: DeviceNetwork
     deviceNetId: Wired
     receiveFrequencyId: BasicDevice
