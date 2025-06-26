@@ -141,7 +141,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
         return true;
     }
 
-    public bool TryLieDown(EntityUid uid, LayingDownComponent? layingDown = null, StandingStateComponent? standingState = null, DropHeldItemsBehavior behavior = DropHeldItemsBehavior.AlwaysDrop, bool isIntentional = false)
+    public bool TryLieDown(EntityUid uid, LayingDownComponent? layingDown = null, StandingStateComponent? standingState = null, DropHeldItemsBehavior behavior = DropHeldItemsBehavior.AlwaysDrop, bool isIntentional = false) //Imp edit, NoDrop -> AlwaysDrop
     {
         if (!Resolve(uid, ref standingState, false) ||
             !Resolve(uid, ref layingDown, false) ||
