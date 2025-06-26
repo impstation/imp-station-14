@@ -119,6 +119,9 @@
   - type: HeldSpeedModifier
   - type: Item
     size: Ginormous
+  - type: Clothing #imp edit
+    equipDelay: 2
+    unequipDelay: 2
   - type: Armor
     modifiers:
       coefficients:

@@ -649,6 +649,8 @@
     sprite: _Impstation/Clothing/OuterClothing/Hardsuits/syndicate_juggernaut.rsi #imp edit
   - type: Clothing
     sprite: _Impstation/Clothing/OuterClothing/Hardsuits/syndicate_juggernaut.rsi #imp edit
+    equipDelay: 5 #imp edit
+    unequipDelay: 5 #imp edit
   - type: PressureProtection
     highPressureMultiplier: 0.2
     lowPressureMultiplier: 1000
