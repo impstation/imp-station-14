@@ -18,7 +18,7 @@ namespace Content.Shared.Movement.Components
         /// <summary>
         /// Whether or not gravity is on or off for this object.
         /// </summary>
-        [DataField("gravityState")] public bool Weightless = true;
+        [DataField("gravityState")] public bool Weightless = false;
     }
 
     [NetSerializable, Serializable]
