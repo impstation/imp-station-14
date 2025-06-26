@@ -113,7 +113,6 @@
   - type: RelentlessPositivity
 
 - type: trait
-<<<<<<< pg-accent
   id: PGAccent
   name: trait-pg-name
   description: trait-pg-desc
@@ -121,7 +120,8 @@
   cost: 1
   components:
   - type: PGAccent
-=======
+
+- type: trait
   id: VowelRotation
   name: trait-vowelrotation-name
   description: trait-vowelrotation-desc
@@ -129,7 +129,6 @@
   cost: 1
   components:
   - type: VowelRotation
->>>>>>> master
 
 # 2 cost
 
