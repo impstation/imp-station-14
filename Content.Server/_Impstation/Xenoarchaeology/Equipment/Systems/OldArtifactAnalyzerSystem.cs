@@ -24,6 +24,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared.Xenoarchaeology.Artifact.Components;
 
 namespace Content.Server.Xenoarchaeology.Equipment.Systems;
 
@@ -120,7 +121,10 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
         if (uid == null || !Resolve(uid.Value, ref placer))
             return null;
 
-        return placer.PlacedEntities.FirstOrNull();
+        var maybeArtifact = placer.PlacedEntities.FirstOrNull();
+        if (HasComp<ArtifactComponent>(maybeArtifact))
+            return maybeArtifact;
+        return null;
     }
 
     /// <summary>
@@ -205,7 +209,10 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
             msg = GetArtifactScanMessage(analyzer);
             totalTime = analyzer.AnalysisDuration;
             if (TryComp<ItemPlacerComponent>(component.AnalyzerEntity, out var placer))
-                canScan = placer.PlacedEntities.Any();
+                if (placer.PlacedEntities.Count > 0 && HasComp<ArtifactComponent>(placer.PlacedEntities.FirstOrNull()))
+                    canScan = true;
+                else
+                    canScan = false;
             canPrint = analyzer.ReadyToPrint;
 
             // the artifact that's actually on the scanner right now.
@@ -474,23 +481,25 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
             UpdateUserInterface(component.Console.Value);
     }
 
-    private void OnItemPlaced(EntityUid uid, OldArtifactAnalyzerComponent component, ref ItemPlacedEvent args)
+    private void OnItemPlaced(Entity<OldArtifactAnalyzerComponent> ent, ref ItemPlacedEvent args)
     {
-        if (component.Console != null && Exists(component.Console))
-            UpdateUserInterface(component.Console.Value);
+
+        if (ent.Comp.Console != null && Exists(ent.Comp.Console))
+            UpdateUserInterface(ent.Comp.Console.Value);
+        return;
     }
 
-    private void OnItemRemoved(EntityUid uid, OldArtifactAnalyzerComponent component, ref ItemRemovedEvent args)
+    private void OnItemRemoved(Entity<OldArtifactAnalyzerComponent> ent, ref ItemRemovedEvent args)
     {
         // Scanners shouldn't give permanent remove vision to an artifact, and the scanned artifact doesn't have any
         // component to track analyzers that have scanned it for removal if the artifact gets deleted.
         // So we always clear this on removal.
-        component.LastAnalyzedArtifact = null;
+        ent.Comp.LastAnalyzedArtifact = null;
 
         // cancel the scan if the artifact moves off the analyzer
         CancelScan(args.OtherEntity);
-        if (Exists(component.Console))
-            UpdateUserInterface(component.Console.Value);
+        if (Exists(ent.Comp.Console))
+            UpdateUserInterface(ent.Comp.Console.Value);
     }
 
     private void OnAnalyzeStart(EntityUid uid, ActiveArtifactAnalyzerComponent component, ComponentStartup args)
