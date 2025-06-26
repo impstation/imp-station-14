@@ -17,7 +17,7 @@ public sealed partial class AntiGravity : EntityEffect
 
     public override void Effect(EntityEffectBaseArgs args)
     {
-        args.EntityManager.EnsureComponent<MovementIgnoreGravityComponent>(args.TargetEntity, out var weightless);
+        var weightless = args.EntityManager.EnsureComponent<MovementIgnoreGravityComponent>(args.TargetEntity);
         weightless.Weightless = true;
         args.EntityManager.Dirty(args.TargetEntity, weightless);
     }
