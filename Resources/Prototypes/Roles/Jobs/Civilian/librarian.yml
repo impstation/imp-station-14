@@ -5,10 +5,11 @@
   playTimeTracker: JobLibrarian
   startingGear: LibrarianGear
   icon: "JobIconLibrarian"
-  supervisors: job-supervisors-hop
+  supervisors: job-supervisors-hd #imp edit
   access:
+  - Service
   - Maintenance
-  - Librarian #Imp
+  - Librarian #imp edit
 
 - type: startingGear
   id: LibrarianGear
@@ -23,3 +24,14 @@
     - TapeRecorder # DeltaV addition
     - CassetteTape
     - CassetteTape
+
+- type: chameleonOutfit
+  id: LibrarianChameleonOutfit
+  job: Librarian
+  equipment:
+    head: ClothingHeadHatCanadaBeanie
+    eyes: ClothingEyesGlassesJamjar
+    mask: ClothingMaskGas
+    neck: ClothingNeckScarfStripedGreen
+    outerClothing: ClothingOuterWinterColorGreen
+    gloves: ClothingHandsGlovesColorBlack
