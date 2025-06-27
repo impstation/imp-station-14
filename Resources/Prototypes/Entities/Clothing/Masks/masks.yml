@@ -230,8 +230,6 @@
     slots:
     - Snout
 
-
-
 - type: entity
   parent: [ClothingMaskClownBase, BaseFoldable] #imp
   id: ClothingMaskClown
@@ -266,8 +264,6 @@
   - type: HideLayerClothing
     slots:
     - Snout
-
-
 
 - type: entity
   parent: ClothingMaskClownBase #imp
