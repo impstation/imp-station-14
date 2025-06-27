@@ -37,6 +37,10 @@
   id: MobGastropoidMarkingLimits
   onlyWhitelisted: true
   points:
+    Eyes:
+      points: 1
+      required: true
+      defaultMarkings: [ GastropoidFaceEyes1 ]
     Head:
       points: 6
       required: false

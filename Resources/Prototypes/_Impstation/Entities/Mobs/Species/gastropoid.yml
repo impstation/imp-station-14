@@ -5,8 +5,6 @@
   id: BaseMobGastropoid
   abstract: true
   components:
-  - type: SnailSpeed
-    snailSlowdownModifier: 0.5
   - type: Absorbable
   - type: Hunger
   - type: Thirst
@@ -16,6 +14,15 @@
     sprintLength: 2
     speedBoost: 1.5
     reagentProduced: Mucin
+  - type: SnailShell
+    action: ActionShell
+    damageModifier:
+      coefficients:
+        Blunt: 0
+        Slash: 0
+        Piercing: 0
+        Cold: 0.5
+        Heat: 0.7
   - type: Icon
     sprite: _Impstation/Mobs/Species/Snail/parts.rsi
     state: full
@@ -93,8 +100,8 @@
         messages: [ "snail-hurt-by-chem-popup" ]
         probability: 1
   - type: MovementSpeedModifier
-    baseSprintSpeed: 3.5
-    baseWalkSpeed: 1.5
+    baseSprintSpeed: 3
+    baseWalkSpeed: 2
   - type: Temperature
     heatDamageThreshold: 380
     coldDamageThreshold: 285

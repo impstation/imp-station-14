@@ -7,3 +7,13 @@
     icon: Interface/Actions/slime.png
     event: !type:SnailSprintActionEvent
     useDelay: 100
+
+- type: entity
+  id: ActionShell
+  name: Shell Guard
+  description: Curl up into your shell, negating damage.
+  components:
+  - type: InstantAction
+    icon: _Impstation/Interface/Actions/shell.png
+    event: !type:SnailShellActionEvent
+    useDelay: 5
