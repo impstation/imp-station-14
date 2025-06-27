@@ -68,9 +68,7 @@ entities:
     - type: Transform
     - type: Map
       mapPaused: True
-    - type: PhysicsMap
     - type: GridTree
-    - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
     - type: Parallax
@@ -9902,24 +9900,6 @@ entities:
     - type: Transform
       pos: -131.49832,-18.377594
       parent: 2
-- proto: ActionSleep
-  entities:
-  - uid: 2905
-    components:
-    - type: Transform
-      parent: 2904
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 2904
-- proto: ActionToggleLight
-  entities:
-  - uid: 17811
-    components:
-    - type: Transform
-      parent: 17810
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 17810
 - proto: AirAlarm
   entities:
   - uid: 346
@@ -67779,7 +67759,7 @@ entities:
       parent: 2
     - type: NavMapBeacon
       color: '#EFB34193'
-      text: TEG Control Room
+      defaultText: TEG Control Room
     - type: WarpPoint
       location: TEG Control Room
 - proto: DefaultStationBeaconAICore
@@ -67949,7 +67929,7 @@ entities:
       pos: -61.5,-11.5
       parent: 2
     - type: NavMapBeacon
-      text: Museum
+      defaultText: Museum
     - type: WarpPoint
       location: Museum
 - proto: DefaultStationBeaconCryonics
@@ -67988,7 +67968,7 @@ entities:
       pos: -93.5,-5.5
       parent: 2
     - type: NavMapBeacon
-      text: 'Plasma Pit #045'
+      defaultText: 'Plasma Pit #045'
     - type: WarpPoint
       location: 'Plasma Pit #045'
   - uid: 9528
@@ -67997,7 +67977,7 @@ entities:
       pos: -111.5,-31.5
       parent: 2
     - type: NavMapBeacon
-      text: Tech Storage
+      defaultText: Tech Storage
     - type: WarpPoint
       location: Tech Storage
   - uid: 12927
@@ -68011,7 +67991,7 @@ entities:
       pos: -89.5,-65.5
       parent: 2
     - type: NavMapBeacon
-      text: 'Plasma Pit #046'
+      defaultText: 'Plasma Pit #046'
     - type: WarpPoint
       location: 'Plasma Pit #046'
 - proto: DefaultStationBeaconEscapePod
@@ -68114,7 +68094,7 @@ entities:
       pos: -22.5,-51.5
       parent: 2
     - type: NavMapBeacon
-      text: Virology
+      defaultText: Virology
     - type: WarpPoint
       location: Virology
   - uid: 8595
@@ -68123,7 +68103,7 @@ entities:
       pos: -19.5,-19.5
       parent: 2
     - type: NavMapBeacon
-      text: Psychology
+      defaultText: Psychology
     - type: WarpPoint
       location: Psychology
 - proto: DefaultStationBeaconMorgue
@@ -77138,14 +77118,6 @@ entities:
     - type: Transform
       pos: -46.5,-9.5
       parent: 2
-    - type: HealOnBuckle
-      sleepAction: 2905
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 2905
   - uid: 2953
     components:
     - type: Transform
@@ -82170,20 +82142,6 @@ entities:
     - type: Transform
       pos: -93.54334,-31.573391
       parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 17811
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 17811
-    - type: ActionsContainer
 - proto: FleshBlocker
   entities:
   - uid: 23372
