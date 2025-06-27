@@ -38,7 +38,7 @@ public sealed class PleebnarGibSystem : SharedPleebnarGibSystem
         _popupSystem.PopupEntity(Loc.GetString("pleebnar-focus"),ent.Owner,PopupType.Small);
         var doargs = new DoAfterArgs(EntityManager, ent, targetPhysics.Mass/10, new SharedPleebnarGibSystem.PleebnarGibDoAfterEvent(), ent, args.Target)
         {
-            DistanceThreshold = 1.5f,
+            DistanceThreshold = 15f,
             BreakOnDamage = true,
             BreakOnHandChange = false,
             BreakOnMove = true,

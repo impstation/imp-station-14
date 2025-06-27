@@ -29,7 +29,7 @@ public abstract partial class SharedPleebnarGibSystem : EntitySystem
     //remove actions when component is removed
     public void OnShutdown(Entity<PleebnarGibActionComponent> ent, ref ComponentShutdown args)
     {
-        _actionsSystem.RemoveAction(ent, ent.Comp.gibAction);
+        _actionsSystem.RemoveAction(ent.Owner, ent.Comp.gibAction);
 
     }
     //add actions when component is added

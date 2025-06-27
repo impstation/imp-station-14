@@ -1,43 +1,54 @@
 - type: entity
   id: ActionPleebnarTelepathy
   name: Telepathy
+  parent: BaseAction
   description: Send an inscrutable vision to a target.
   components:
-  - type: EntityTargetAction
-    range: 15
-    event: !type:PleebnarTelepathyEvent
+  - type: Action
     useDelay: 30
-    canTargetSelf: false
-    interactOnMiss: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: mindshield
+  - type: TargetAction
+    range: 15
+    interactOnMiss: false
+  - type: EntityTargetAction
+    event: !type:PleebnarTelepathyEvent
+    canTargetSelf: false
+
 
 - type: entity
   id: ActionPleebnarVision
   name: Select vision
+  parent: BaseAction
   description: Select a vision to send.
   components:
-  - type: InstantAction
-    event: !type:PleebnarVisionEvent
+  - type: Action
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: mindshield
+  - type: InstantAction
+    event: !type:PleebnarVisionEvent
+
 
 - type: entity
   id: ActionPleebnarGib
+  parent: BaseAction
   name: Gib
   description: Gib a small animal with your mind powers!
   components:
-  - type: EntityTargetAction
-    range: 15
-    event: !type:PleebnarGibEvent
+  - type: Action
     useDelay: 30
-    canTargetSelf: true
-    interactOnMiss: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: mansus_link
+  - type: TargetAction
+    range: 15
+    interactOnMiss: false
+  - type: EntityTargetAction
+    event: !type:PleebnarGibEvent
+
+

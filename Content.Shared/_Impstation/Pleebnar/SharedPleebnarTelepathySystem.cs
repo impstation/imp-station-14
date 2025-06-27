@@ -61,8 +61,8 @@ public abstract partial class SharedPleebnarTelepathySystem : EntitySystem
     //remove actions when component is removed
     public void OnShutdown(Entity<PleebnarTelepathyActionComponent> ent, ref ComponentShutdown args)
     {
-        _actionsSystem.RemoveAction(ent, ent.Comp.TelepathyAction);
-        _actionsSystem.RemoveAction(ent, ent.Comp.VisionAction);
+        _actionsSystem.RemoveAction(ent.Owner, ent.Comp.TelepathyAction);
+        _actionsSystem.RemoveAction(ent.Owner, ent.Comp.VisionAction);
 
     }
 
