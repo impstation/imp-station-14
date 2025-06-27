@@ -362,11 +362,13 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
             var nestComp = EnsureComp<ReplicatorNestComponent>((EntityUid)ent.Comp.MyNest);
             nestComp.SpawnedMinions.Remove(ent);
             nestComp.SpawnedMinions.Add(upgraded);
+
+            _audio.PlayPvs(nestComp.LevelUpSound, upgraded);
         }
 
         _mind.TransferTo(mind, upgraded);
 
-        _popup.PopupEntity(Loc.GetString($"{ent.Comp.ReadyToUpgradeMessage}-self"), ent, PopupType.Medium); //this seems to not work with my changes? - ruddygreat
+        _popup.PopupEntity(Loc.GetString($"{ent.Comp.ReadyToUpgradeMessage}-self"), upgraded, PopupType.Medium);
 
         return upgraded;
     }

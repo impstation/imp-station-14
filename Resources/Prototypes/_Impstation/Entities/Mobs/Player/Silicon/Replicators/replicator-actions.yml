@@ -29,12 +29,13 @@
   name: Upgrade (Replicator)
   description: Gather nanites. Begin colonization.
   components:
-  - type: InstantAction
+  - type: Action
     itemIconStyle: NoItem
     icon: _Impstation/Interface/Actions/replicator_level1.png
+    useDelay: 20
+  - type: InstantAction
     event: !type:ReplicatorUpgradeActionEvent
       nextStage: MobReplicator
-    useDelay: 20
 
 - type: entity
   id: ActionReplicatorUpgrade2

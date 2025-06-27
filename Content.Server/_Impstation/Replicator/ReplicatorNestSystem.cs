@@ -26,6 +26,7 @@ using Content.Shared.Pinpointer;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Stunnable;
+using Content.Shared.Whitelist;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
@@ -51,6 +52,7 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly PinpointerSystem _pinpointer = default!;
     [Dependency] private readonly AmbientSoundSystem _ambientSound = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {
@@ -76,15 +78,12 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
             if (_timing.CurTime < falling.NextDeletionTime)
                 continue;
 
-            if (HasComp<SiliconLawBoundComponent>(uid) || // Delete borgs
-                !HasComp<HumanoidAppearanceComponent>(uid) && // Store people
-                !HasComp<OnUseTimerTriggerComponent>(uid) && // Store grenades
-                !HasComp<StealTargetComponent>(uid) && // Store steal targets
-                !HasComp<MechComponent>(uid) && // Store mechs like Ripley
-                !TryComp<MindContainerComponent>(uid, out var mind) | (mind != null && !mind!.HasMind)) // Store anything else that has a mind
-            {
+            var nestComp = falling.FallingTarget.Comp;
+
+            // delete entities that have anything on the blacklist, OR don't have anything on the whitelist AND don't have a mind.
+            if (_whitelist.IsBlacklistPass(nestComp.PreservationBlacklist, uid) || !_whitelist.IsWhitelistPass(nestComp.PreservationWhitelist, uid)
+                && !TryComp<MindContainerComponent>(uid, out var mind) | (mind != null && !mind!.HasMind))
                 toDel.Add(uid);
-            }
 
             _containerSystem.Insert(uid, falling.FallingTarget.Comp.Hole);
             EnsureComp<StunnedComponent>(uid); // used stunned to prevent any funny being done inside the pit
