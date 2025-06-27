@@ -109,7 +109,7 @@
         enum.WiresUiKey.Key:
           type: WiresBoundUserInterface
   - type: PointLight
-    radius: 1.5
+    radius: 2.4 #imp
     energy: 1.6
     color: "#43ccb5"
 
@@ -731,6 +731,7 @@
     color: "#ff0000"
     canShuttle: false
     global: true #announce to everyone they're about to fuck shit up
+    announceSentBy: false # The title already says who they are.
     sound: /Audio/Announcements/war.ogg
   - type: Computer
     board: SyndicateCommsComputerCircuitboard
@@ -764,6 +765,7 @@
     color: "#ff00ff"
     canShuttle: false
     global: true #announce to everyone they're about to fuck shit up
+    announceSentBy: false
     sound: /Audio/Announcements/war.ogg
   - type: Computer
     board: WizardCommsComputerCircuitboard
@@ -962,6 +964,8 @@
   - type: Computer
     board: CargoRequestEngineeringComputerCircuitboard
   - type: PointLight
+    radius: 2.4 #imp
+    energy: 1.6 #imp
     color: "#c9c042"
   - type: AccessReader
     access: [["Engineering"]]
@@ -995,6 +999,8 @@
   - type: Computer
     board: CargoRequestMedicalComputerCircuitboard
   - type: PointLight
+    radius: 2.4 #imp
+    energy: 1.6 #imp
     color: "#41e0fc"
   - type: AccessReader
     access: [["Medical"]]
@@ -1028,6 +1034,8 @@
   - type: Computer
     board: CargoRequestScienceComputerCircuitboard
   - type: PointLight
+    radius: 2.4 #imp
+    energy: 1.6 #imp
     color: "#b53ca1"
   - type: AccessReader
     access: [["Research"]]
@@ -1061,6 +1069,8 @@
   - type: Computer
     board: CargoRequestSecurityComputerCircuitboard
   - type: PointLight
+    radius: 2.4 #imp
+    energy: 1.6 #imp
     color: "#d11d00"
   - type: AccessReader
     access: [["Security"]]
@@ -1094,6 +1104,8 @@
   - type: Computer
     board: CargoRequestServiceComputerCircuitboard
   - type: PointLight
+    radius: 2.4 #imp
+    energy: 1.6 #imp
     color: "#afe837"
   - type: AccessReader
     access: [["Service"], ["Theatre"]]
@@ -1172,7 +1184,7 @@
   - type: Computer
     board: FundingAllocationComputerCircuitboard
   - type: PointLight
-    radius: 1.5
+    radius: 2.4 #imp
     energy: 1.6
     color: "#3c5eb5"
 
@@ -1228,6 +1240,42 @@
   - type: GuideHelp
     guides:
     - Cloning
+
+- type: entity
+  parent: BaseComputerAiAccess
+  id: ComputerSalvageJobBoard
+  name: salvage job board
+  description: Console for accessing salvage jobs, if you're tough enough.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: salvjob # givin em a salvjob like hawk tuah
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: SalvageJobBoardConsole
+  - type: ActivatableUI
+    key: enum.SalvageJobBoardUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.SalvageJobBoardUiKey.Key:
+        type: SalvageJobBoardBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: ActiveRadio
+    channels: [ Supply ]
+  - type: Computer
+    board: SalvageJobBoardComputerCircuitboard
+  - type: PointLight
+    radius: 2.4 #imp
+    energy: 1.6
+    color: "#b89f25"
 
 - type: entity
   id: ComputerSalvageExpedition
