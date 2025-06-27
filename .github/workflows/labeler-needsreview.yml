@@ -5,8 +5,9 @@ on:
     types: [review_requested]
 
 permissions:
-  contents: read
   pull-requests: write
+  issues: write
+  contents: write
 
 jobs:
   add_label:
