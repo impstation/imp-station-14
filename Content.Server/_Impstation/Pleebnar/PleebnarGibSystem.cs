@@ -28,7 +28,7 @@ public sealed class PleebnarGibSystem : SharedPleebnarGibSystem
     //function called when an entity is targeted by the action
     public void PleebnarGib(Entity<PleebnarGibActionComponent> ent, ref PleebnarGibEvent args)
     {
-        if ((!HasComp<PleebnarGibbableComponent>(args.Target))&&(!HasComp<BodyComponent>(args.Target)))//check if it has a body and is gibbable by pleebnars, else return
+        if ((!HasComp<PleebnarGibbableComponent>(args.Target))||(!HasComp<BodyComponent>(args.Target)))//check if it has a body and is gibbable by pleebnars, else return
         {
             return;
         }
