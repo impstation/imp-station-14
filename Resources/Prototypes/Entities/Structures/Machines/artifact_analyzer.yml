@@ -92,7 +92,7 @@
     crushingWhitelist:
       components:
       - XenoArtifact
-      - Artifact
+      - Artifact #IMP
     crushingDamage:
       types:
         Blunt: 10
@@ -130,7 +130,7 @@
     whitelist:
       components:
       - XenoArtifact
-      - Artifact
+      - Artifact #IMP
       tags:
       - CanPilot # People
       - VimPilot # Pets
