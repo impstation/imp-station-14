@@ -24,6 +24,7 @@
       - TegGenerator
       - TegCirculator
       - XenoArtifact
+      - Artifact
     event: !type:ChangeComponentsSpellEvent
       toAdd:
       - type: Animate

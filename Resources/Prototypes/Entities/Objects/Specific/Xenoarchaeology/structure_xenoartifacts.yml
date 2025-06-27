@@ -1,6 +1,6 @@
 ﻿- type: entity
-  parent: [BaseStructureDynamic, BaseXenoArtifact]
-  id: BaseXenoArtifactStructure
+  parent: [BaseStructureDynamic, BaseXAEXenoArtifact]
+  id: BaseXAEXenoArtifactStructure
   name: artifact
   abstract: true
   noSpawn: true
@@ -40,8 +40,8 @@
         - MachineMask
 
 - type: entity
-  parent: BaseXenoArtifactStructure
-  id: ComplexXenoArtifact
+  parent: BaseXAEXenoArtifactStructure
+  id: ComplexXAEXenoArtifact
   components:
   - type: XenoArtifact
     nodeCount:

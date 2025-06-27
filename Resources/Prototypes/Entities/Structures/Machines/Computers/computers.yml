@@ -554,6 +554,7 @@
       state: generic_panel_open
   - type: ResearchClient
   - type: AnalysisConsole
+  - type: OldAnalysisConsole #IMP
   - type: DeviceList
   - type: DeviceNetwork
     deviceNetId: Wired
@@ -565,6 +566,8 @@
     key: enum.ArtifactAnalyzerUiKey.Key
   - type: UserInterface
     interfaces:
+      enum.OldArtifactAnalyzerUiKey.Key: #IMP
+        type: OldAnalysisConsoleBoundUserInterface
       enum.ArtifactAnalyzerUiKey.Key:
         type: AnalysisConsoleBoundUserInterface
       enum.ResearchClientUiKey.Key:
