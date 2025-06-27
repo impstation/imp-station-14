@@ -41,6 +41,7 @@
         /// </summary>
         Emotes = ChatChannel.Emotes,
 
+        // imp add
         /// <summary>
         ///     CollectiveMind
         /// </summary>

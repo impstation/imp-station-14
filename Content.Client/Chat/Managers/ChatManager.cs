@@ -14,7 +14,7 @@ internal sealed class ChatManager : IChatManager
     [Dependency] private readonly IEntitySystemManager _systems = default!;
 
     private ISawmill _sawmill = default!;
-    public event Action? PermissionsUpdated;
+    public event Action? PermissionsUpdated; // imp
 
     public void Initialize()
     {
@@ -78,7 +78,7 @@ internal sealed class ChatManager : IChatManager
                 _consoleHost.ExecuteCommand($"whisper \"{CommandParsing.Escape(str)}\"");
                 break;
 
-            case ChatSelectChannel.CollectiveMind:
+            case ChatSelectChannel.CollectiveMind: // imp
                 _consoleHost.ExecuteCommand($"cmsay \"{CommandParsing.Escape(str)}\"");
                 break;
 
@@ -87,7 +87,7 @@ internal sealed class ChatManager : IChatManager
         }
     }
 
-    public void UpdatePermissions()
+    public void UpdatePermissions() // imp
     {
         PermissionsUpdated?.Invoke();
     }

@@ -1,6 +1,6 @@
 using System.Numerics;
-using Content.Shared.CollectiveMind;
 using Content.Shared.Chat;
+using Content.Shared._Impstation.CollectiveMind; // imp
 
 namespace Content.Client.UserInterface.Systems.Chat.Controls;
 
@@ -69,6 +69,7 @@ public sealed class ChannelSelectorButton : ChatPopupButton<ChannelSelectorPopup
         };
     }
 
+    // imp collective mind edits begin
     public void UpdateChannelSelectButton(ChatSelectChannel channel, Shared.Radio.RadioChannelPrototype? radio, CollectiveMindPrototype? collectiveMind)
     {
         if (radio != null)
@@ -87,4 +88,5 @@ public sealed class ChannelSelectorButton : ChatPopupButton<ChannelSelectorPopup
             Modulate = ChannelSelectColor(channel);
         }
     }
+    // imp edits end
 }
