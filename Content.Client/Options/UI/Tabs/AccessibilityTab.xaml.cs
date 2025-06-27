@@ -25,8 +25,8 @@ public sealed partial class AccessibilityTab : Control
         Control.AddOptionPercentSlider(CCVars.SpeechBubbleBackgroundOpacity, SpeechBubbleBackgroundOpacitySlider);
         Control.AddOptionCheckBox(ImpCCVars.DisableSinguloWarping, DisableSinguloWarpingCheckBox);
         Control.AddOptionCheckBox(DCCVars.NoVisionFilters, DisableFiltersCheckBox);
-        Control.AddOptionCheckBox(CCVars.ChatAutoFillHighlights, AutoFillHighlightsCheckBox);
-        Control.AddOptionColorSlider(CCVars.ChatHighlightsColor, HighlightsColorSlider);
+        Control.AddOptionCheckBox(ImpCCVars.ChatAutoFillHighlights, AutoFillHighlightsCheckBox);
+        Control.AddOptionColorSlider(ImpCCVars.ChatHighlightsColor, HighlightsColorSlider);
 
         NotifierExamineTextEdit.Placeholder = new Rope.Leaf(Loc.GetString("ui-options-notifier"));
         Control.AddOptionTextEdit(ImpCCVars.NotifierExamine, NotifierExamineTextEdit);
