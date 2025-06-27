@@ -3,21 +3,20 @@
 [color=#9fed58]Service[/color] keeps the station clean, efficient and sane so that all other departments can do their jobs better and keep their staff happy. They also end up doing most of the paperwork on the station.
 
 ## Personnel
-[color=#9fed58]Service[/color]'s staff is made up of Service Workers, Chefs, Botanists, Bartenders, Janitors, Chaplains, Clowns, Mimes, Musicians and Librarians. Service is run by the Hospitality Director.
+  [color=#9fed58]Service[/color]'s staff is made up of Chefs, Botanists, Bartenders, Janitors, Chaplains, Clowns, Mimes, Musicians, Boxers, Librarians, Reporters, and Zookeepers. Service is run by the Hospitality Director.
 
   <Box>
+    <GuideEntityEmbed Entity="ToyFigurineChaplain" Caption="Chaplain"/>
     <GuideEntityEmbed Entity="ToyFigurineChef" Caption="Chef"/>
     <GuideEntityEmbed Entity="ToyFigurineBotanist" Caption="Botanist"/>
     <GuideEntityEmbed Entity="ToyFigurineBartender" Caption="Bartender"/>
     <GuideEntityEmbed Entity="ToyFigurineJanitor" Caption="Janitor"/>
   </Box>
   <Box>
-    <GuideEntityEmbed Entity="ToyFigurineChaplain" Caption="Chaplain"/>
     <GuideEntityEmbed Entity="ToyFigurineClown" Caption="Clown"/>
     <GuideEntityEmbed Entity="ToyFigurineMime" Caption="Mime"/>
     <GuideEntityEmbed Entity="ToyFigurineMusician" Caption="Musician"/>
-  </Box>
-  <Box>
+    <GuideEntityEmbed Entity="ToyFigurineBoxer" Caption="Boxer"/>
     <GuideEntityEmbed Entity="ToyFigurineLibrarian" Caption="Librarian"/>
   </Box>
 
