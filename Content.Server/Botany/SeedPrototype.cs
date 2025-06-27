@@ -10,6 +10,8 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 using Robust.Shared.Utility;
 
+using Content.Server.EntityEffects;
+
 namespace Content.Server.Botany;
 
 [Prototype]
@@ -82,7 +84,7 @@ public partial struct SeedChemQuantity
 
 // TODO reduce the number of friends to a reasonable level. Requires ECS-ing things like plant holder component.
 [Virtual, DataDefinition]
-[Access(typeof(BotanySystem), typeof(PlantHolderSystem), typeof(SeedExtractorSystem), typeof(PlantHolderComponent), typeof(EntityEffect), typeof(MutationSystem))]
+[Access(typeof(BotanySystem), typeof(PlantHolderSystem), typeof(SeedExtractorSystem), typeof(PlantHolderComponent), typeof(EntityEffectSystem), typeof(MutationSystem))]
 public partial class SeedData
 {
     #region Tracking
@@ -105,6 +107,24 @@ public partial class SeedData
     /// </summary>
     [DataField("displayName")]
     public string DisplayName { get; private set; } = "";
+
+    /// <summary>
+    ///     IMP ADDITION
+    ///     True if the hydroponics display name is plural in English (i.e. "Ears of corn").
+    ///     Changes how examine text is displayed, slightly.
+    ///     In other languages, this can be used if it applies.
+    /// </summary>
+    [DataField("plural")]
+    public bool IsPluralName;
+
+    /// <summary>
+    ///     IMP ADDITION
+    ///     True if the hydroponics display name is a singular plural in English (i.e. "Cannabis").
+    ///     Changes how examine text is displayed, slightly.
+    ///     In other languages, this can be used if it applies.
+    /// </summary>
+    [DataField("singularPlural")]
+    public bool IsSingularPluralName;
 
     [DataField("mysterious")] public bool Mysterious;
 

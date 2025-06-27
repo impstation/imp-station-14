@@ -32,7 +32,47 @@ replicator-nest-levelup = There is a flurry of activity from the nest.
 replicator-nest-destroyed = Your nest has been destroyed. 
                             A Replicator has been selected to replace it.
                             Your pinpointer has been updated to follow them.
+replicator-queen-died-msg = The Queen has been deactivated.
+                            You are orphaned from the nest.
 
 # action confirmations
 replicator-nest-confirm = Are you sure? Use the action again to confirm.
 replicator-levelup-confirm = Are you sure? Use the action again to confirm.
+
+# ninja spawn warning
+terror-replicators = Attention crew, it appears that someone on your station has made an unexpected communication with a distributed machine intelligence in nearby space.
+
+# AAC phrases
+
+rep-phrase-query = Query:
+rep-phrase-affirmative = Affirmative
+rep-phrase-negative = Negative
+rep-phrase-questionmark = ?
+
+rep-phrase-hostile = Hostile
+rep-phrase-combatant = Combatant
+rep-phrase-noncombatant = Noncombatant
+rep-phrase-ally = Ally
+rep-phrase-hazardous = Hazardous
+
+rep-phrase-unit = Unit
+rep-phrase-units = Units
+rep-phrase-i = This unit
+rep-phrase-you = You
+rep-phrase-we = We
+
+rep-phrase-are = Are
+rep-phrase-is = Is
+rep-phrase-will = Will
+rep-phrase-not = Not
+
+rep-phrase-leave = Leave
+rep-phrase-attack = Attack
+rep-phrase-dismantle = Dismantle
+rep-phrase-consume = Consume
+rep-phrase-endanger = Endanger
+rep-phrase-cease = Cease
+rep-phrase-suspend = Suspend
+
+rep-phrase-the-nest = The Nest
+rep-phrase-the-hive = The Hive

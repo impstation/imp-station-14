@@ -57,7 +57,7 @@
       prototype: PlayerBorgBountyHunter
 
 - type: entity
-  name: borgdisabler
+  name: disabler
   parent: [ WeaponDisablerPractice, BaseMajorContraband ]
   id: WeaponBorgDisabler
   description: A disabler modified to slowly recharge off a cyborg's internal battery.
@@ -79,7 +79,7 @@
     autoRechargeRate: 5
 
 - type: entity
-  name: borgstunbaton
+  name: stun baton
   parent: [BaseItem, BaseMajorContraband]
   id: WeaponBorgStunBaton
   description: An internally-stored implement capable of safely incapacitating any criminal, modified to self-charge at the cost of battery life.
@@ -89,7 +89,7 @@
     sprite: _Impstation/Objects/Weapons/Melee/stunbaton.rsi
     layers:
     - state: stunbaton_off
-      map: [ "enum.ToggleVisuals.Layer" ]
+      map: [ "enum.ToggleableVisuals.Layer" ]
   - type: Stunbaton
     energyPerUse: 1
   - type: ItemToggle
@@ -133,8 +133,8 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-     enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
+     enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
           True: {state: stunbaton_on}
           False: {state: stunbaton_off}
   - type: GuideHelp

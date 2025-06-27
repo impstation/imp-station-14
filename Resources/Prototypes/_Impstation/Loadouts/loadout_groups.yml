@@ -405,6 +405,8 @@
   - HospitalityDirectorApron
   - HospitalityDirectorVest
   - HospitalityDirectorWintercoat
+  - BartenderCuteApron
+  - ChefCuteApron
 
 - type: loadoutGroup
   id: HospitalityDirectorShoes
@@ -750,7 +752,7 @@
   name: loadout-group-salvage-specialist-neck
   minLimit: 0
   loadouts:
-  - MinerCloak
+#  - MinerCloak # upstream removed it :(
   - DrillerCape
   - SaMantle
   - ScarfBrown
@@ -884,7 +886,7 @@
   name: loadout-group-atmospheric-technician-head
   minLimit: 0
   loadouts:
-  - AtmosphericTechnicianBeret
+  - SeniorEngineerBeret
 
 - type: loadoutGroup
   id: AtmosphericTechnicianPDA

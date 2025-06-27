@@ -25,6 +25,7 @@
   id: StartingGearReplicatorT3Weapon
   inhand:
     - ReplicatorT3Weapon
+    - ReplicatorAAC
   equipment:
     pocket1: PinpointerReplicatorUnremoveable
 
@@ -85,10 +86,9 @@
   - type: Icon
     sprite: _Impstation/Mobs/Replicator/replicator.rsi
     state: t2altweapon
-  - type: Gun
-    fireRate: 0.7
-    soundGunshot:
-      path: /Audio/_Impstation/Weapons/Guns/Gunshots/stunprojector.ogg
+  - type: HitscanBatteryAmmoProvider
+    proto: HitscanReplicator2
+    fireCost: 150
 
 - type: entity
   id: ReplicatorT2AltMeleeWeapon
@@ -103,17 +103,14 @@
   - type: MeleeWeapon
     attackRate: 1.2
     wideAnimationRotation: 180
-    soundHit: 
-      path: "/Audio/Effects/snap.ogg"
+    soundHit:
+      collection: MetalThud
     animation: WeaponArcSlash
     damage:
       types:
-        Blunt: 5
-        Shock: 3
+        Blunt: 7
+        Shock: 7
         Structural: 15
-  - type: StaminaDamageOnHit
-    damage: 15
-    sound: /Audio/Weapons/egloves.ogg
 
 - type: entity
   id: ReplicatorT3Weapon
@@ -129,18 +126,16 @@
     sprite: _Impstation/Mobs/Replicator/replicator.rsi
     state: t3weapon
   - type: MeleeWeapon
-    attackRate: 0.7
+    attackRate: 0.5
     wideAnimationRotation: 180
-    soundHit: 
+    soundHit:
       path: "/Audio/Effects/metal_slam4.ogg"
     animation: WeaponArcSlash
     damage:
       types:
-        Blunt: 10
-        Shock: 10
-        Structural: 30
-  - type: StaminaDamageOnHit
-    damage: 5
+        Blunt: 22
+        Shock: 8 # split up damage groups to make them a little more effective against armored/blunt resistant targets
+        Structural: 45
   - type: Unremoveable
   - type: Prying
     pryPowered: true
@@ -181,12 +176,27 @@
   components:
   - type: Unremoveable
 
+- type: entity
+  parent: AACTablet
+  id: ReplicatorAAC
+  name: verbal interface
+  description: Communication.
+  components:
+  - type: AACTablet
+    phraseGroup: ReplicatorPhrases
+  - type: VoiceMask
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Replicator
+  - type: Sprite
+    sprite: _Impstation/Mobs/Replicator/replicator_tablet.rsi
+    state: aac_tablet
+  - type: Item
+  - type: Unremoveable
+
 - type: hitscan
   id: HitscanReplicator
-  staminaDamage: 40
-  damage:
-    types:
-      Shock: 7
+  staminaDamage: 18
   muzzleFlash:
     sprite: _Impstation/Mobs/Replicator/replicator_gun.rsi
     state: muzzle_repli
@@ -196,3 +206,16 @@
   impactFlash:
     sprite: _Impstation/Mobs/Replicator/replicator_gun.rsi
     state: impact_repli
+
+- type: hitscan
+  id: HitscanReplicator2
+  staminaDamage: 32
+  muzzleFlash:
+    sprite: _Impstation/Mobs/Replicator/replicator_gun.rsi
+    state: muzzle_repli2
+  travelFlash:
+    sprite: _Impstation/Mobs/Replicator/replicator_gun.rsi
+    state: beam_repli2
+  impactFlash:
+    sprite: _Impstation/Mobs/Replicator/replicator_gun.rsi
+    state: impact_repli2

@@ -17,6 +17,8 @@
   - MagazineLPistol
   - MagazineLPistolEmpty
   - SpeedLoaderMagnumStun
+  - SpeedLoaderSturm
+  - SpeedLoaderSturmEmpty
   - MagazineBoxMagnumStun
   - MagazinePistolFreelancerEmpty
   - MagazinePistolFreelancer
@@ -37,6 +39,7 @@
   recipes:
   - PRIbarPlusConversionKit
   - ClothingEyesNightVisionSecurityGoggles
+  - PortableSensorArray
 
 - type: latheRecipePack
   id: SecurityAmmoImp
@@ -66,3 +69,12 @@
   recipes:
   - WeaponShotgunEnforcerBeanbag
   - WeaponShotgunKammererBeanbag
+  - WeaponRifleTranq
+  - TranqDart
+  - IrwizineDart
+
+# Emagged
+
+# - type: latheRecipePack
+#   id: ImpSecEmagged
+#   recipes:

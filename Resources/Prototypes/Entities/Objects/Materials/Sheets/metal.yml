@@ -34,11 +34,13 @@
   - type: GuideHelp
     guides:
     - ExpandingRepairingStation
+  - type: NonMobStatusIcon #imp edit. for the salvohud
 
 - type: entity
   parent: SheetMetalBase
   id: SheetSteel
   name: steel
+  description: A sheet of super-tough metal. Can stand the test of time. # imp
   suffix: Full
   components:
   - type: Material
@@ -60,9 +62,6 @@
   - type: Item
     heldPrefix: steel
   - type: Appearance
-  - type: FloorTile
-    outputs:
-    - Plating
   - type: Extractable
     grindableSolutionName: steel
   - type: SolutionContainerManager
@@ -200,6 +199,7 @@
   parent: SheetMetalBase
   id: SheetPlasteel
   name: plasteel
+  description: A sheet of plasma-hardened steel. Strength, tempered by uncertainty. # imp
   suffix: Full
   components:
   - type: Material
@@ -258,3 +258,12 @@
   - type: Stack
     stackType: Plasteel
     count: 1
+
+- type: entity
+  parent: SheetPlasteel
+  id: SheetPlasteelLingering0
+  suffix: Lingering, 0
+  components:
+  - type: Stack
+    lingering: true
+    count: 0
