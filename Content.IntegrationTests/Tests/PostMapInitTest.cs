@@ -120,7 +120,6 @@ namespace Content.IntegrationTests.Tests
             "Meta",
             "Oasis",
             "Omega",
-            "Origin",
             "Packed",
             "Plasma",
             "Reach",
@@ -144,7 +143,8 @@ namespace Content.IntegrationTests.Tests
             "Skimmer",
             "Union",
             "Hash",
-            "Refsdal"
+            "Refsdal",
+            "Bedlam"
         };
 
         /// <summary>

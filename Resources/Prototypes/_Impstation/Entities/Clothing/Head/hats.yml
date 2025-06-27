@@ -95,6 +95,7 @@
     node: webberet
 
 #Paramedic Siren Hat
+#TODO fix the light not toggling
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatParamedicSirenCap
@@ -171,14 +172,14 @@
         name: power-cell-slot-component-slot-name-default
 
 - type: entity
+  parent: BaseToggleAction
   id: ActionToggleParamedicSirenCap
   name: Toggle Paramedic Siren Cap
   description: Toggles the paramedic siren cap on and off.
   components:
-  - type: InstantAction
+  - type: Action
     useDelay: 1
     itemIconStyle: BigItem
-    event: !type:ToggleActionEvent
 
 - type: entity
   parent: ClothingHeadBase
@@ -289,8 +290,51 @@
   - type: Clothing
     sprite: Clothing/Head/Hats/holyhatmelon.rsi
   - type: Armor
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadSipsiHat
+  name: sipsi hat
+  description: Cheap plastic version of a traditional Gray headdress. Has a picture of a surfing penguin on the front.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hats/sipsi_hat.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hats/sipsi_hat.rsi
+  - type: ExaminableSolution
+    solution: drink
+  - type: Appearance
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+  - type: MixableSolution
+    solution: drink
+  - type: SolutionTransfer
+    canChangeTransferAmount: true
+  - type: Drink
+  - type: MeleeWeapon
+    soundNoDamage:
+      path: "/Audio/Effects/Fluids/splat.ogg"
+    damage:
+      types:
+        Blunt: 0
+  - type: Spillable
+    solution: drink
+  - type: DrawableSolution
+    solution: drink
+  - type: RefillableSolution
+    solution: drink
+  - type: DrainableSolution
+    solution: drink
+  - type: UserInterface
+    interfaces:
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
+  - type: DnaSubstanceTrace
   - type: Tag
     tags:
+    - HamsterWearable
     - WhitelistChameleon
 
 - type: entity
@@ -327,7 +371,7 @@
   parent: [ClothingHeadBase, BaseCentcommContraband]
   id: ClothingHeadImpishHorns
   name: impish horns
-  description: 
+  description:
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Head/Hats/impishhorns.rsi
