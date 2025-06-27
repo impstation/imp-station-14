@@ -270,6 +270,13 @@
     objectives:
     - WizardSurviveObjective
     - WizardDemonstrateObjective
+  - type: AntagRandomObjectives #imp
+    sets:
+    - groups: WizardPridefulGroups
+      maxPicks: 1
+    - groups: WizardChaosGroups
+      maxPicks: 1
+    maxDifficulty: 2
   - type: LoadMapRule
     gridPath: /Maps/_Impstation/Shuttles/wizard.yml # imp
   - type: RuleGrids
@@ -476,3 +483,11 @@
       prob: 0.90
     - id: SolarPanelDamageVariationPass
     - id: SolarPanelEmptyVariationPass
+    - id: BasicDecalDirtVariationPass
+    - id: BasicDecalGraffitiVariationPass
+    - id: BasicDecalBrunsVariationPass
+      prob: 0.50
+      orGroup: monospaceDecals
+    - id: BasicDecalDirtMonospaceVariationPass
+      prob: 0.50
+      orGroup: monospaceDecals

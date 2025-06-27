@@ -208,7 +208,6 @@
 
 - type: reaction
   id: Ambuzol
-  preserveDNA: true
   reactants:
     Dylovene:
       amount: 1
@@ -666,10 +665,10 @@
   impact: Medium
   reactants:
     Cryoxadone:
-      amount: 1
-    Aloe:
       amount: 2
-    Sigynate:
+    Aloe:
+      amount: 1
+    Leporazine:
       amount: 2
   products:
       Aloxadone: 4
@@ -739,14 +738,3 @@
       amount: 1
   products:
     Haloperidol: 5
-
-- type: reaction
-  id: Caramexinin
-  minTemp: 370
-  reactants:
-    Stellibinin:
-      amount: 1
-    Sugar:
-      amount: 1
-  products:
-    Caramexinin: 2

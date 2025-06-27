@@ -54,13 +54,13 @@
     edges:
     - to: electronics
       steps:
-      - material: Capacitor
+      - material: Manipulator
         store: machine_parts
         amount: 2
         doAfter: 1
       - tag: WeaponCapacitorRechargerCircuitboard
         store: machine_board
-        name: "recharger machine board"
+        name: construction-graph-tag-recharger-machine-board
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: "charger_APC"
