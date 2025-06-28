@@ -48,7 +48,8 @@ public abstract partial class SharedToolSystem
         {
             if (args.IsInDetailsRange)
             {
-                var (fuel, capacity) = GetSolutionFuelAndCapacity(entity.Owner, entity.Comp);
+               if (!TryGetSolutionFuelAndCapacity(ent, out var (YOUR OUT))
+               push an loc string for the error
 
                 args.PushMarkup(Loc.GetString("solution-refuel-component-on-examine-detailed-message",
                     ("colorName", fuel < capacity / FixedPoint2.New(4f) ? "darkorange" : "orange"),
