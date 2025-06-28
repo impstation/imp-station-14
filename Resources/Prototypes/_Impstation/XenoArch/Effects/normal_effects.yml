@@ -704,7 +704,7 @@
   - type: SpawnArtifact
     maxSpawns: 1
     spawns:
-    - id: RandomArtifactSpawner
+    - id: RandomOldNewArtifactSpawner
 
 - type: artifactEffect
   id: EffectPortal

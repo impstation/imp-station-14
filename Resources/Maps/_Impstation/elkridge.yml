@@ -90727,7 +90727,7 @@ entities:
     - type: Transform
       pos: -33.5,-10.5
       parent: 2
-- proto: RandomArtifactSpawner
+- proto: RandomOldNewArtifactSpawner
   entities:
   - uid: 4711
     components:
@@ -90739,7 +90739,7 @@ entities:
     - type: Transform
       pos: -29.5,11.5
       parent: 2
-- proto: RandomArtifactSpawner20
+- proto: RandomOldNewArtifactSpawner20
   entities:
   - uid: 334
     components:

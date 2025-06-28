@@ -912,7 +912,7 @@ entities:
       parent: 166
     - type: ApcPowerReceiver
       powerLoad: 0
-- proto: RandomArtifactSpawner
+- proto: RandomOldNewArtifactSpawner
   entities:
   - uid: 123
     components:

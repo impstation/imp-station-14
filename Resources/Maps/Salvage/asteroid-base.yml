@@ -1990,7 +1990,7 @@ entities:
     - type: Transform
       pos: 6.5,-6.5
       parent: 407
-- proto: RandomArtifactSpawner
+- proto: RandomOldNewArtifactSpawner
   entities:
   - uid: 154
     components:

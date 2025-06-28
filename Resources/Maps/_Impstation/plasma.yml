@@ -134754,7 +134754,7 @@ entities:
     - type: Transform
       pos: -25.5,21.5
       parent: 2
-- proto: RandomArtifactSpawner
+- proto: RandomOldNewArtifactSpawner
   entities:
   - uid: 7428
     components:
@@ -134776,7 +134776,7 @@ entities:
     - type: Transform
       pos: -86.5,21.5
       parent: 2
-- proto: RandomArtifactSpawner20
+- proto: RandomOldNewArtifactSpawner20
   entities:
   - uid: 1777
     components:

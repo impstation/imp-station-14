@@ -2182,7 +2182,7 @@ entities:
     - type: Transform
       pos: -4.5,2.5
       parent: 1
-- proto: RandomArtifactSpawner
+- proto: RandomOldNewArtifactSpawner
   entities:
   - uid: 112
     components:

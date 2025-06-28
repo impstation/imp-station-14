@@ -126219,7 +126219,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 12.5,57.5
       parent: 2
-- proto: RandomArtifactSpawner
+- proto: RandomOldNewArtifactSpawner
   entities:
   - uid: 18235
     components:
@@ -126236,7 +126236,7 @@ entities:
     - type: Transform
       pos: -55.5,16.5
       parent: 2
-- proto: RandomArtifactSpawner20
+- proto: RandomOldNewArtifactSpawner20
   entities:
   - uid: 18238
     components:

@@ -64002,7 +64002,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -37.5,-23.5
       parent: 2
-- proto: RandomArtifactSpawner
+- proto: RandomOldNewArtifactSpawner
   entities:
   - uid: 9350
     components:
@@ -64019,7 +64019,7 @@ entities:
     - type: Transform
       pos: -20.5,-9.5
       parent: 2
-- proto: RandomArtifactSpawner20
+- proto: RandomOldNewArtifactSpawner20
   entities:
   - uid: 9353
     components:
