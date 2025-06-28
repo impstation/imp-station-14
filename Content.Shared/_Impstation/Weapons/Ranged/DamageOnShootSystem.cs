@@ -72,7 +72,7 @@ public sealed class DamageOnShootSystem : EntitySystem
             entity.Comp.LastInteraction = _gameTiming.CurTime;
             entity.Comp.NextInteraction = _gameTiming.CurTime + TimeSpan.FromSeconds(entity.Comp.InteractTimer);
 
-            _adminLogger.Add(LogType.Damaged, $"{ToPrettyString(args.User):user} injured their hand by shooting a {ToPrettyString(entity):gun} and received {totalDamage.GetTotal():damage} damage");
+            _adminLogger.Add(LogType.Damaged, $"{ToPrettyString(args.User):user} shot {ToPrettyString(entity):gun} and took {totalDamage.GetTotal():damage} recoil damage");
             _audioSystem.PlayPredicted(entity.Comp.DamageSound, entity, args.User);
 
             if (entity.Comp.PopupText != null)
