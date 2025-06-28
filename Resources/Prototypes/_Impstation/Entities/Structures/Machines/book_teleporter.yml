@@ -43,8 +43,6 @@
         enum.PowerDeviceVisualLayers.Powered:
           True: { visible: true }
           False: { visible: false }
-  - type: Machine
-    board: MailTeleporterMachineCircuitboard
   - type: PowerSwitch
   - type: InteractionPopup
     interactSuccessString: petting-success-mail-teleporter
