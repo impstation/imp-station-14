@@ -1,0 +1,272 @@
+- type: entity
+  id: BaseWallpaper
+  name: wallpaper
+  description: Cover up those unsightly naked walls right now!!
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: WallMount
+    arc: 360
+  - type: Rotatable
+  - type: Clickable
+#  - type: InteractionOutline
+#  - type: Physics
+#    bodyType: Static
+#    canCollide: false
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: _Impstation/Structures/Wallmounts/wallpaper.rsi
+#    snapCardinals: true
+#  - type: Fixtures
+#    fixtures:
+#      fix1:
+#        shape:
+#          !type:PhysShapeAabb {}
+#          !type:PhysShapeAabb
+#          bounds: "-0.5,-0.5,0.5,0.5"
+#        layer:
+#        - WallTops
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/poster_broken.ogg
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+# wallpaper
+- type: entity
+  id: WallpaperFish
+  parent: BaseWallpaper
+  name: fish wallpaper
+  description: It's fish.
+  components:
+  - type: Sprite
+    state: fish
+
+- type: entity
+  id: WallpaperFishCorner
+  parent: BaseWallpaper
+  name: fish wallpaper corner
+  description: It's fish.
+  components:
+  - type: Sprite
+    state: fishedge
+
+- type: entity
+  id: WallpaperBeach
+  parent: BaseWallpaper
+  name: beach wallpaper
+  description: Let's go to the beach beach!
+  components:
+  - type: Sprite
+    state: beach
+
+- type: entity
+  id: WallpaperBeachCorner
+  parent: BaseWallpaper
+  name: fish wallpaper corner
+  description: Let's go to the beach beach!
+  components:
+  - type: Sprite
+    state: beachedge
+
+- type: entity
+  id: WallpaperBlack
+  parent: BaseWallpaper
+  name: black wallpaper
+  description: Tastefully goth.
+  components:
+  - type: Sprite
+    state: black
+
+- type: entity
+  id: WallpaperBlackCorner
+  parent: BaseWallpaper
+  name: black wallpaper corner
+  description: Tastefully goth.
+  components:
+  - type: Sprite
+    state: blackedge
+
+- type: entity
+  id: WallpaperGreen
+  parent: BaseWallpaper
+  name: greenwallpaper
+  description: Very classy, very in.
+  components:
+  - type: Sprite
+    state: green
+
+- type: entity
+  id: WallpaperGreenCorner
+  parent: BaseWallpaper
+  name: green wallpaper corner
+  description: Very classy, very in.
+  components:
+  - type: Sprite
+    state: greenedge
+
+- type: entity
+  id: WallpaperPurple
+  parent: BaseWallpaper
+  name: purple wallpaper
+  description: Mystical.
+  components:
+  - type: Sprite
+    state: purple
+
+- type: entity
+  id: WallpaperPurpleCorner
+  parent: BaseWallpaper
+  name: purple wallpaper corner
+  description: Mystical.
+  components:
+  - type: Sprite
+    state: purpleedge
+
+- type: entity
+  id: WallpaperRainbow
+  parent: BaseWallpaper
+  name: rainbow wallpaper
+  description: Are you gay? Are you a clown? Are you a gay clown?
+  components:
+  - type: Sprite
+    state: rainbow
+
+- type: entity
+  id: WallpaperRainbowCorner
+  parent: BaseWallpaper
+  name: rainbow wallpaper corner
+  description: Are you gay? Are you a clown? Are you a gay clown?
+  components:
+  - type: Sprite
+    state: rainbowedge
+
+- type: entity
+  id: WallpaperRed
+  parent: BaseWallpaper
+  name: red wallpaper
+  description: The residents... no, they couldn't be.
+  components:
+  - type: Sprite
+    state: red
+
+- type: entity
+  id: WallpaperRedCorner
+  parent: BaseWallpaper
+  name: red wallpaper corner
+  description: The residents... no, they couldn't be.
+  components:
+  - type: Sprite
+    state: rededge
+
+- type: entity
+  id: WallpaperSka
+  parent: BaseWallpaper
+  name: black and white wallpaper
+  description: SKA WORLD LET'S GO BABEY!!
+  components:
+  - type: Sprite
+    state: ska
+
+- type: entity
+  id: WallpaperSkaCorner
+  parent: BaseWallpaper
+  name: black and white wallpaper corner
+  description: SKA WORLD LET'S GO BABEY!!
+  components:
+  - type: Sprite
+    state: skaedge
+
+# wall deco
+- type: entity
+  id: WallpaperBannerBlackRed
+  parent: BaseWallpaper
+  name: black and red banner
+  description: This shade of red doesn't scare you at all.
+  components:
+  - type: Engraveable
+  - type: Sprite
+    state: bannerblackred
+
+- type: entity
+  id: WallpaperBannerBlueWhite
+  parent: BaseWallpaper
+  name: blue and white banner
+  description: All-purpose triangles of paper for any occasion.
+  components:
+  - type: Engraveable
+  - type: Sprite
+    state: bannerbluewhite
+
+- type: entity
+  id: WallpaperBannerColorful
+  parent: BaseWallpaper
+  name: colorful banner
+  description: Don't be fooled, the paper on these tastes like shit.
+  components:
+  - type: Engraveable
+  - type: Sprite
+    state: bannercolorful
+
+- type: entity
+  id: WallpaperBannerRainbow
+  parent: BaseWallpaper
+  name: rainbow banner
+  description: All your favorite colors are here.
+  components:
+  - type: Engraveable
+  - type: Sprite
+    state: bannerrainbow
+
+- type: entity
+  id: WallpaperBannerSka
+  parent: BaseWallpaper
+  name: black and white banner
+  description: None of your favorite colors are here.
+  components:
+  - type: Engraveable
+  - type: Sprite
+    state: bannerska
+
+- type: entity
+  id: WallpaperStarsBig
+  parent: BaseWallpaper
+  name: glow in the dark big stars
+  description: You know these guys. From outside the window.
+  components:
+  - type: Sprite
+    layers:
+      - state: starsbig
+        shader: unshaded
+
+- type: entity
+  id: WallpaperStarsSmall
+  parent: BaseWallpaper
+  name: glow in the dark small stars
+  description: You're a super star!
+  components:
+  - type: Sprite
+    layers:
+      - state: starssmall
+        shader: unshaded
+
+- type: entity
+  id: WallpaperStarsMoon
+  parent: BaseWallpaper
+  name: glow in the dark stars and moon
+  description: Let's talk about spaceships, or anything.
+  components:
+  - type: Sprite
+    layers:
+      - state: starsmoon
+        shader: unshaded
