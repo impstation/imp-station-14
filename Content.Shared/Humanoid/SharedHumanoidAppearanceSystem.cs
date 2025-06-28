@@ -548,7 +548,13 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         {
             return Loc.GetString("identity-age-middle-aged");
         }
+        // imp edit begin
+        if (age < speciesPrototype.AncientAge)
+        {
+            return Loc.GetString("identity-age-old");
+        }
 
-        return Loc.GetString("identity-age-old");
+        return Loc.GetString("identity-age-ancient");
+        // imp edit end
     }
 }
