@@ -49,6 +49,7 @@
   - type: Tag
     tags:
     - Crowbar
+    - Spellbook
   - type: Prying
     speedModifier: 1.2
     useSound: /Audio/_Impstation/Effects/Magic/magic-mallet.ogg
@@ -74,6 +75,7 @@
   - type: Tag
     tags:
     - Wrench
+    - Spellbook
   - type: Tool
     qualities:
     - Anchoring
@@ -96,6 +98,7 @@
     tags:
     - PlantSampleTaker
     - Wirecutter
+    - Spellbook
   - type: Tool
     qualities:
     - Cutting
@@ -117,6 +120,7 @@
   - type: Tag
     tags:
     - Screwdriver
+    - Spellbook
   - type: Tool
     qualities:
     - Screwing
@@ -154,6 +158,9 @@
   description: A magic tome cataloguing a wide variety of stylish haircuts, and incantations to instantly apply them to anyone youd like.
   parent: BaseSpellbookSafeLibrarian
   components:
+  - type: Tag
+    tags:
+    - Spellbook
   - type: MagicMirror
   - type: ActivatableUI
     key: enum.MagicMirrorUiKey.Key
@@ -194,3 +201,4 @@
   - type: Tag
     tags:
     - Flashlight
+    - Spellbook
