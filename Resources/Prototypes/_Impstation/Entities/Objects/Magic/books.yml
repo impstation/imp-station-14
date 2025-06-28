@@ -18,7 +18,8 @@
 
 - type: entity
   id: SpellbookSafeLibrarianPrying
-  name: tome of minor leverage
+  name: 'basic sorcery for hobbies and homes: prying'
+  description: Originally published in 30xx, this well worn manual was made to help encourage adolescent wizards into less destructive hobbies.
   parent: BaseSpellbookSafeLibrarian
   components:
   - type: Tag
@@ -32,10 +33,18 @@
     - Prying
     useSound:
       path: /Audio/_Impstation/Effects/Magic/magic-mallet.ogg
+  - type: ToolTileCompatible
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/book.rsi
+    layers:
+    - state: prying
+    - state: prying-unshaded
+      shader: unshaded
 
 - type: entity
   id: SpellbookSafeLibrarianAnchoring
-  name: tome of anchoring
+  name: 'basic sorcery for hobbies and homes: anchoring'
+  description: Originally published in 30xx, this well worn manual was made to help encourage adolescent wizards into less destructive hobbies.
   parent: BaseSpellbookSafeLibrarian
   components:
   - type: Tag
@@ -46,10 +55,17 @@
     - Anchoring
     useSound:
       path: /Audio/_Impstation/Effects/Magic/magic-enchantment.ogg
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/book.rsi
+    layers:
+    - state: anchoring
+    - state: anchoring-unshaded
+      shader: unshaded
 
 - type: entity
   id: SpellbookSafeLibrarianCutting
-  name: tome of minor severance
+  name: 'basic sorcery for hobbies and homes: cutting'
+  description: Originally published in 30xx, this well worn manual was made to help encourage adolescent wizards into less destructive hobbies.
   parent: BaseSpellbookSafeLibrarian
   components:
   - type: Tag
@@ -61,10 +77,17 @@
     - Cutting
     useSound:
       path: /Audio/_Impstation/Effects/Magic/fire-magic.ogg
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/book.rsi
+    layers:
+    - state: cutting
+    - state: cutting-unshaded
+      shader: unshaded
 
 - type: entity
   id: SpellbookSafeLibrarianScrewing
-  name: tome of torque
+  name: 'basic sorcery for hobbies and homes: screwing'
+  description: Originally published in 30xx, this well worn manual was made to help encourage adolescent wizards into less destructive hobbies.
   parent: BaseSpellbookSafeLibrarian
   components:
   - type: Tag
@@ -75,3 +98,9 @@
     - Screwing
     useSound:
       path: /Audio/_Impstation/Effects/Magic/magic-stars-retro-sparkle.ogg
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/book.rsi
+    layers:
+    - state: screwing
+    - state: screwing-unshaded
+      shader: unshaded
