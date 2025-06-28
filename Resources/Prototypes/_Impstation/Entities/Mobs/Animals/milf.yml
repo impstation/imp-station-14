@@ -1,42 +1,42 @@
 - type: entity
-  name: milf
+  name: lepidodent
   parent: MobMouse
-  id: MobMilf
+  id: MobLepidodent
   description: An unstoppable eating machine.
   components:
   - type: Body
-    prototype: Milf
+    prototype: Lepidodent
   - type: Speech
     allowedEmotes: ['Chitter', 'Squeak']
   - type: Sprite
-    sprite: _Impstation/Mobs/Animals/milf.rsi
+    sprite: _Impstation/Mobs/Animals/lepidodent.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
-      state: milf
+      state: lepidodent
   - type: SpriteMovement
     movementLayers:
       movement:
-        state: milf_moving
+        state: lepidodent_moving
     noMovementLayers:
       movement:
-        state: milf
+        state: lepidodent
   - type: Clothing
     quickEquip: false
-    sprite: _Impstation/Mobs/Animals/milf.rsi
-    equippedPrefix: milf
+    sprite: _Impstation/Mobs/Animals/lepidodent.rsi
+    equippedPrefix: lepidodent
     slots:
     - HEAD
     clothingVisuals:
       head:
-      - state: milf_hat
+      - state: lepidodent_hat
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: milf
+        Base: lepidodent
       Critical:
-        Base: milf_dead
+        Base: lepidodent_dead
       Dead:
-        Base: milf_dead
+        Base: lepidodent_dead
   - type: FlavorProfile
     flavors:
     - fluffy
