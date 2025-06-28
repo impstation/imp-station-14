@@ -11,7 +11,7 @@
     - state: ano01
       map: [ "enum.ArtifactsVisualLayers.Base" ]
     - state: ano01_on
-      map: [ "enum.ArtifactsVisualLayers.ActivationEffect" ]
+      map: [ "enum.ArtifactsVisualLayers.UnlockingEffect" ]
       visible: false
   - type: Damageable
   - type: Physics
@@ -41,7 +41,7 @@
     activationTime: 2.4
   - type: RandomSprite
     available:
-    - enum.ArtifactsVisualLayers.ActivationEffect:
+    - enum.ArtifactsVisualLayers.UnlockingEffect:
         ano01_on: Rainbow
   - type: UserInterface #needs to be here for certain effects
     interfaces:

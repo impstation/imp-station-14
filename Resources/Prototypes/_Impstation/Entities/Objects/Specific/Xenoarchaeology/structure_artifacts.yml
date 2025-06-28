@@ -13,7 +13,7 @@
     - state: ano30
       map: [ "enum.ArtifactsVisualLayers.Base" ]
     - state: ano30_on
-      map: [ "enum.ArtifactsVisualLayers.ActivationEffect" ]
+      map: [ "enum.ArtifactsVisualLayers.UnlockingEffect" ]
       visible: false
   - type: Damageable
   - type: Physics
@@ -50,7 +50,7 @@
     maxSprite: 36
   - type: RandomSprite
     available:
-    - enum.ArtifactsVisualLayers.ActivationEffect:
+    - enum.ArtifactsVisualLayers.UnlockingEffect:
         ano01_on: Rainbow
   - type: Appearance
   - type: Actions
