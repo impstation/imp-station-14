@@ -57,7 +57,7 @@ public sealed partial class DamageOnShootComponent : Component
     public TimeSpan LastInteraction = TimeSpan.Zero;
 
     /// <summary>
-    /// Tracks the time that this entity can be interacted with, but only if the interaction resulted in the user taking damage
+    /// Tracks the time until this entity can next be interacted with, but only if the interaction resulted in the user taking damage
     /// </summary>
     [DataField]
     public TimeSpan NextInteraction = TimeSpan.Zero;
