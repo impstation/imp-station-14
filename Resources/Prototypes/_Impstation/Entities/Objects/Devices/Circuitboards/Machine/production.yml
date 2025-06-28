@@ -44,18 +44,3 @@
           GlassBeaker:
             amount: 1
             defaultPrototype: Beaker
-
-- type: entity
-  id: OldArtifactAnalyzerMachineCircuitboard
-  parent: BaseMachineCircuitboard
-  name: artifact analyzer machine board
-  description: A machine printed circuit board for an artifact analyzer.
-  components:
-    - type: Sprite
-      state: science
-    - type: MachineBoard
-      prototype: MachineArtifactAnalyzer
-      stackRequirements:
-        Manipulator: 3
-        Capacitor: 1
-        Glass: 5

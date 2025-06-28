@@ -52,6 +52,7 @@ public sealed class RandomArtifactSpriteSystem : VisualizerSystem<RandomArtifact
         }
     }
 
+    // #IMP Old Xeno!
     private void OldXenoAppearanceChange(EntityUid uid, RandomArtifactSpriteComponent component, ref AppearanceChangeEvent args)
     {
         if (args.Sprite == null)
