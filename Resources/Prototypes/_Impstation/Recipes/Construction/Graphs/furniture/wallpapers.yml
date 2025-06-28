@@ -199,7 +199,7 @@
       - !type:SnapToGrid { }
       steps:
       - material: Plastic
-        amount: 1
+        amount: 2
         doAfter: 3
       - tag: Glowstick # would cause an infinite plastic loop if this recipe was just glowstick. sad
         icon:
@@ -211,8 +211,8 @@
       - !type:SnapToGrid { }
       steps:
       - material: Plastic
-        amount: 1
-        doAfter: 2
+        amount: 2
+        doAfter: 3
       - tag: Glowstick
         icon:
           sprite: Objects/Misc/glowstick.rsi
@@ -223,8 +223,8 @@
       - !type:SnapToGrid { }
       steps:
       - material: Plastic
-        amount: 1
-        doAfter: 2
+        amount: 2
+        doAfter: 3
       - tag: Glowstick
         icon:
           sprite: Objects/Misc/glowstick.rsi
