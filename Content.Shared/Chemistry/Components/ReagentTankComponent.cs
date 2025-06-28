@@ -15,6 +15,7 @@ public sealed partial class ReagentTankComponent : Component
     public ReagentTankType TankType { get; set; } = ReagentTankType.Unspecified;
 
     // imp start
+    // white list and black list function on the tanks lets them ensure that only the intended tools/equipment can refuel at them.
     [DataField]
     public EntityWhitelist? FuelWhitelist;
 

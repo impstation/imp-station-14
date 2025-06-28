@@ -39,8 +39,6 @@ public sealed class DamageOnShootSystem : EntitySystem
     /// <param name="args">Contains the user that interacted with the entity</param>
     private void OnGunShot(Entity<DamageOnShootComponent> entity, ref GunShotEvent args)
     {
-        // Stop the interaction if the user attempts to interact with the object before the timer is finished
-
         if (!entity.Comp.IsDamageActive)
             return;
 
@@ -55,7 +53,6 @@ public sealed class DamageOnShootSystem : EntitySystem
             if (protectiveEntity.Comp == null && TryComp<DamageOnShootProtectionComponent>(args.User, out var protectiveComp))
                 protectiveEntity = (args.User, protectiveComp);
 
-
             // if protectiveComp isn't null after all that, it means the user has protection,
             // so let's calculate how much they resist
             if (protectiveEntity.Comp != null)
@@ -68,10 +65,6 @@ public sealed class DamageOnShootSystem : EntitySystem
 
         if (totalDamage != null && totalDamage.AnyPositive())
         {
-            // Record this interaction and determine when a user is allowed to interact with this entity again
-            entity.Comp.LastInteraction = _gameTiming.CurTime;
-            entity.Comp.NextInteraction = _gameTiming.CurTime + TimeSpan.FromSeconds(entity.Comp.InteractTimer);
-
             _adminLogger.Add(LogType.Damaged, $"{ToPrettyString(args.User):user} shot {ToPrettyString(entity):gun} and took {totalDamage.GetTotal():damage} recoil damage");
             _audioSystem.PlayPredicted(entity.Comp.DamageSound, entity, args.User);
 

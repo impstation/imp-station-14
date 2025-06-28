@@ -1,6 +1,6 @@
 - type: entity
   name: Adder
-  parent: [BaseItem, BaseSyndicateContraband]
+  parent: [BaseItem, Tier3Contraband]
   id: WeaponPlasmaAdder
   description: The future of stellar warfare in the palm of your hand. Uses Echion, produced from advanced synthesizers.
   components:

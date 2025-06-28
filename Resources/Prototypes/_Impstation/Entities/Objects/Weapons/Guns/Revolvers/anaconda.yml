@@ -1,6 +1,6 @@
 - type: entity
   name: Anaconda
-  parent: [BaseWeaponRevolver, BaseSyndicateContraband]
+  parent: [BaseWeaponRevolver, Tier3Contraband]
   id: WeaponAnaconda
   description: A junior designer at Waffle Corp. swears they submitted this as a joke. Kicks like a blood-red horse if used without a hardsuit. Uses .60 anti-materiel ammo.
   components:
