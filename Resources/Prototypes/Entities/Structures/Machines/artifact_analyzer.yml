@@ -52,6 +52,7 @@
     needsPower: false #only turns on when scanning
   - type: ArtifactAnalyzer
   - type: OldArtifactAnalyzer #IMP
+  - type: TraversalDistorter #IMP
   - type: ItemPlacer
     whitelist:
       components:
