@@ -1,42 +1,42 @@
 - type: entity
-  name: mouseth
+  name: milf
   parent: MobMouse
-  id: MobMouseth
+  id: MobMilf
   description: An unstoppable eating machine.
   components:
   - type: Body
-    prototype: Mouseth
+    prototype: Milf
   - type: Speech
     allowedEmotes: ['Chitter', 'Squeak']
   - type: Sprite
-    sprite: _Impstation/Mobs/Animals/mouseth.rsi
+    sprite: _Impstation/Mobs/Animals/milf.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
-      state: mouseth
+      state: milf
   - type: SpriteMovement
     movementLayers:
       movement:
-        state: mouseth_moving
+        state: milf_moving
     noMovementLayers:
       movement:
-        state: mouseth
+        state: milf
   - type: Clothing
     quickEquip: false
-    sprite: _Impstation/Mobs/Animals/mouseth.rsi
-    equippedPrefix: mouseth
+    sprite: _Impstation/Mobs/Animals/milf.rsi
+    equippedPrefix: milf
     slots:
     - HEAD
     clothingVisuals:
       head:
-      - state: mouseth_hat
+      - state: milf_hat
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: mouseth
+        Base: milf
       Critical:
-        Base: mouseth_dead
+        Base: milf_dead
       Dead:
-        Base: mouseth_dead
+        Base: milf_dead
   - type: FlavorProfile
     flavors:
     - fluffy
