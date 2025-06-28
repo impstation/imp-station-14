@@ -63,7 +63,7 @@ public sealed class StunOnTriggerSystem : EntitySystem
                 if (!_statusQuery.TryGetComponent(target, out var status))
                     continue;
 
-                _stuns.TryParalyze(ent, TimeSpan.FromSeconds(ent.Comp.KnockdownTime), true, status);
+                _stuns.TryParalyze(target, TimeSpan.FromSeconds(ent.Comp.KnockdownTime), true, status);
             }
 
         }
