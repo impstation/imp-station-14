@@ -555,6 +555,7 @@
   - type: ResearchClient
   - type: AnalysisConsole
   - type: OldAnalysisConsole #IMP
+    reportEntityId: PaperArtifactAnalyzer
   - type: DeviceList
   - type: DeviceNetwork
     deviceNetId: Wired
