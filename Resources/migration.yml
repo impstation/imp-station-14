@@ -736,3 +736,8 @@ CrateServiceCleanades: CrateServiceCleanerGrenades
 # impstation: replace custodial closets with secure janitor lockers
 ClosetJanitor: LockerJanitor
 ClosetJanitorFilled: LockerJanitorFilled
+
+# 2025-06-28
+# impstation: replace artifact spawners with combined old/new artifact spawners
+RandomArtifactSpawner: RandomOldNewArtifactSpawner
+RandomArtifactSpawner20: RandomOldNewArtifactSpawner20
