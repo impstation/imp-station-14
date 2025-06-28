@@ -10,23 +10,9 @@
     arc: 360
   - type: Rotatable
   - type: Clickable
-#  - type: InteractionOutline
-#  - type: Physics
-#    bodyType: Static
-#    canCollide: false
   - type: Sprite
     drawdepth: WallTops
     sprite: _Impstation/Structures/Wallmounts/wallpaper.rsi
-#    snapCardinals: true
-#  - type: Fixtures
-#    fixtures:
-#      fix1:
-#        shape:
-#          !type:PhysShapeAabb {}
-#          !type:PhysShapeAabb
-#          bounds: "-0.5,-0.5,0.5,0.5"
-#        layer:
-#        - WallTops
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Wood
@@ -54,9 +40,9 @@
 
 - type: entity
   id: WallpaperFishCorner
-  parent: BaseWallpaper
-  name: fish wallpaper corner
-  description: It's fish.
+  parent: WallpaperFish
+  name: fish wallpaper
+  suffix: corner
   components:
   - type: Sprite
     state: fishedge
@@ -72,9 +58,8 @@
 
 - type: entity
   id: WallpaperBeachCorner
-  parent: BaseWallpaper
-  name: fish wallpaper corner
-  description: Let's go to the beach beach!
+  parent: WallpaperBeach
+  suffix: corner
   components:
   - type: Sprite
     state: beachedge
@@ -90,9 +75,8 @@
 
 - type: entity
   id: WallpaperBlackCorner
-  parent: BaseWallpaper
-  name: black wallpaper corner
-  description: Tastefully goth.
+  parent: WallpaperBlack
+  suffix: corner
   components:
   - type: Sprite
     state: blackedge
@@ -108,9 +92,8 @@
 
 - type: entity
   id: WallpaperGreenCorner
-  parent: BaseWallpaper
-  name: green wallpaper corner
-  description: Very classy, very in.
+  parent: WallpaperGreen
+  suffix: corner
   components:
   - type: Sprite
     state: greenedge
@@ -126,9 +109,8 @@
 
 - type: entity
   id: WallpaperPurpleCorner
-  parent: BaseWallpaper
-  name: purple wallpaper corner
-  description: Mystical.
+  parent: WallpaperPurple
+  suffix: corner
   components:
   - type: Sprite
     state: purpleedge
@@ -144,9 +126,8 @@
 
 - type: entity
   id: WallpaperRainbowCorner
-  parent: BaseWallpaper
-  name: rainbow wallpaper corner
-  description: Are you gay? Are you a clown? Are you a gay clown?
+  parent: WallpaperRainbow
+  suffix: corner
   components:
   - type: Sprite
     state: rainbowedge
@@ -162,9 +143,8 @@
 
 - type: entity
   id: WallpaperRedCorner
-  parent: BaseWallpaper
-  name: red wallpaper corner
-  description: The residents... no, they couldn't be.
+  parent: WallpaperRed
+  suffix: corner
   components:
   - type: Sprite
     state: rededge
@@ -180,9 +160,8 @@
 
 - type: entity
   id: WallpaperSkaCorner
-  parent: BaseWallpaper
-  name: black and white wallpaper corner
-  description: SKA WORLD LET'S GO BABEY!!
+  parent: WallpaperSka
+  suffix: corner
   components:
   - type: Sprite
     state: skaedge
