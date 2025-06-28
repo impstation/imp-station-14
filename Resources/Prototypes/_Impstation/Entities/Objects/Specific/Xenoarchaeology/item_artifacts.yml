@@ -105,7 +105,7 @@
 
 
 - type: entity
-  parent: [ BaseItem, BaseXenoArtifactItem ]
+  parent: BaseItem
   id: EvilSkullArtifactItem
   name: evil skull
   suffix: Hummingbird thief objective
@@ -131,20 +131,23 @@
     available:
     - enum.ArtifactsVisualLayers.UnlockingEffect:
         ano01_on: ""
-  - type: XenoArtifact
-    forceActivationSoundSpecifier:
-      path: /Audio/Voice/Skeleton/skeleton_scream.ogg
-    unlockActivationSuccessfulSound:
+  - type: Artifact
+    activationSound: !type:SoundPathSpecifier
       path: /Audio/Voice/Skeleton/skeleton_scream.ogg
       params:
-        variation: 0.1
-        volume: 3.0
-        pitch: 1.15
-    unlockActivationFailedSound:
-      path: /Audio/Voice/Skeleton/skeleton_scream.ogg
-      params:
-        variation: 0.1
-        pitch: 0.85
+        variation: 0.125
+    nodesMax: 13
+    nodesMin: 5
+  - type: UserInterface #needs to be here for certain effects
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+      enum.IntercomUiKey.Key:
+        type: IntercomBoundUserInterface
   - type: Speech
     speechSounds: Alto
     speechVerb: Skeleton
