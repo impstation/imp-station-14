@@ -120,3 +120,18 @@
     fillBaseName: conical
     inHandsMaxFillLevels: 2
     inHandsFillBaseName: -fill-
+
+- type: entity
+  parent: Jug
+  suffix: mucin
+  id: JugMucin
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Label
+    currentLabel: reagent-name-mucin
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: Mucin
+          Quantity: 200
