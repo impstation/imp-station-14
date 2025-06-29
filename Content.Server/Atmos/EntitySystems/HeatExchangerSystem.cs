@@ -12,6 +12,7 @@ using Content.Shared.CCVar;
 using Content.Shared.Interaction;
 using JetBrains.Annotations;
 using Robust.Shared.Configuration;
+using Robust.Server.GameObjects; //Imp - for PointLightSystem for radiator glow
 
 namespace Content.Server.Atmos.EntitySystems;
 
@@ -21,6 +22,7 @@ public sealed class HeatExchangerSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly PointLightSystem _pointLight = default!; //imp
 
     float tileLoss;
 
@@ -135,5 +137,164 @@ public sealed class HeatExchangerSystem : EntitySystem
         else
             _atmosphereSystem.Merge(inlet.Air, xfer);
 
+        UpdateRadiatorAppearance(uid, dER); //imp
+    }
+
+    //Imp edits below. Radiator glow.
+    private void UpdateRadiatorAppearance(EntityUid uid, float radiatorEmittedEnergy)
+    {
+
+        // Log.Debug($"rad energy is {radiatorEmittedEnergy} for uid {uid}");
+
+        //Return early if the pointlightcomponent doesn't exist (?)
+        if (!_pointLight.TryGetLight(uid, out var pointLight))
+            return;
+
+        //Find the temperature of the radiator:
+        //Assume that the radiator is made of stainless steel
+        //Stainless steel has a heat capacity of about 502 J/(kg*K)
+        //Assume the radiator is about 10 kg?
+        //The radiator has a specific heat of 5020 J/K
+        const float radiatorSpecificHeat = 5020;
+
+        //Divide the energy emitted this atmos tick by the radiator's specific heat to get the radiator's temperature
+        float radiatorTemperature = radiatorEmittedEnergy / radiatorSpecificHeat;
+        // Log.Debug($"rad temp is {radiatorTemperature} for uid {uid}");
+
+        /* OUTDATED DRAPER POINT CUTOFF
+        //Find the color of the light based on the temperature of the radiator
+        //Glowing starts at 798K (Draper point)
+        //Disable the glow if the temperature is below this, and skip all future calculations
+        if (radiatorTemperature < 798)
+        {
+            _pointLight.SetEnabled(uid, false, pointLight);
+            return;
+        }
+        */
+
+        //Glowing starts at 1667K based on the Planckian locus approximation below.
+        //Disable the glow if the temperature is below that.
+        if (radiatorTemperature < 1667)
+        {
+            _pointLight.SetEnabled(uid, false, pointLight);
+            return;
+        }
+
+        //Otherwise, start glowing
+        _pointLight.SetEnabled(uid, true, pointLight);
+
+        //Calculate the color of the radiator via the Planckian locus
+        //https://en.wikipedia.org/wiki/Planckian_locus#Approximation
+        //Code snippet provided by perryprog from Github, edited by combustibletoast.
+        //Find the x and y coordinate of the color in CIE color space based on the radiator's temperature:
+        var x = (float)(radiatorTemperature switch
+        {
+            >= 1667 and < 4000 => -0.2661239 * 1E9 / Math.Pow(radiatorTemperature, 3) - 0.2343589 * 1E6 / Math.Pow(radiatorTemperature, 2) + 0.8776956 * 1E3 / radiatorTemperature + 0.179910,
+            >= 4000 and <= 25000 => -3.0258469 * 1E9 / Math.Pow(radiatorTemperature, 3) + 2.1070379 * 1E6 / Math.Pow(radiatorTemperature, 2) + 0.2226347 * 1E3 / radiatorTemperature + 0.240390,
+            _ => 0
+        });
+        var y = (float)(radiatorTemperature switch
+        {
+            >= 1667 and < 2222 => -1.1063814 * Math.Pow(x, 3) - 1.34811020 * Math.Pow(x, 2) + 2.18555832 * x - 0.20219683,
+            >= 2222 and < 4000 => -0.954847 * Math.Pow(x, 3) - 1.37418593 * Math.Pow(x, 2) + 2.09137015 * x - 0.16748867,
+            >= 4000 and <= 25000 => 3.0817580 * Math.Pow(x, 3) - 5.87338670 * Math.Pow(x, 2) + 3.75112997 * x - 0.37001483,
+            _ => 0f
+        });
+        if (x == 0 || y == 0) //This shouldn't happen because of the guard clause above
+            Log.Debug($"Error calculating planckian locus: x = {x}, y = {y}, temp = {radiatorTemperature}");
+
+        //Convert coordinates to RGB
+        var luminance = 1f; //??? idk what this should be.
+        var radiatorColor = new Color(luminance * x / y, luminance, luminance * (1 - x - y) / y);
+        _pointLight.SetColor(uid, radiatorColor, pointLight);
+        Log.Debug($"rad color is {radiatorColor} for uid {uid}");
+
+        /* OUTDATED PEAK WAVELENGTH APPROXIMATION IMPLEMENTATION
+        //Calculate the color of the radiator via Wien's displacement law (taken from Wikipedia)
+        //For approximation, just get the peak wavelength emitted
+        const float displacementConstant = 0.002898f;
+        float peakWavelength = displacementConstant / radiatorTemperature;
+        peakWavelength *= 1000000000; //Scale from meters to nanometers
+        // Log.Debug($"rad wavelength is {peakWavelength}nm for uid {uid}");
+
+        //Convert the wavelength to a usable color
+        _pointLight.SetColor(uid, WavelengthToColor(peakWavelength), pointLight);
+        // Log.Debug($"rad color is {WavelengthToColor(peakWavelength)} for uid {uid}");
+        */
+
+        //Set the radiator's light intensity:
+        //Per the Stefan–Boltzmann law, radiant exitance is proportional to the fourth power of the object's absolute temperature
+        float SBConstant = 0.0567f; //Scaled up x 1000000 to prevent floating point errors, adjusted in the line below
+        float radiantExitance = SBConstant * (float)Math.Pow(radiatorTemperature, 4) / 1000000;
+
+        //Assuming the radiator is 1m^2, the radiant exitance is the wattage of light produced.
+        //Now convert that to the energy and radius that robust toolbox wants
+        Log.Debug($"rad radiant exitance is {radiantExitance} for uid {uid}");
+        float energy = (20) / (1 + 100 * (float)Math.Pow(Math.E, -radiantExitance / 1000000));
+        Log.Debug($"rad light energy is {energy} for uid {uid}");
+        _pointLight.SetEnergy(uid, energy);
+        _pointLight.SetRadius(uid, energy);
+
+        //Update the sprite color of the radiator based ont he temperature of the radiator
+    }
+
+    private Color WavelengthToColor(float wavelength)
+    {
+        //Visible spectrum is from 380 nm to 750 nm
+        float red = 0, green = 0, blue = 0;
+        if (wavelength < 440)
+        {
+            red = 0.0f;
+            green = 0.0f;
+            blue = 1.0f;
+        }
+        else if (wavelength >= 380 && wavelength < 440) 
+        {
+            red = -(wavelength - 440) / (440 - 380);
+            green = 0.0f;
+            blue = 1.0f;
+        }
+        else if (wavelength >= 440 && wavelength < 490)
+        {
+            red = 0.0f;
+            green = (wavelength - 440) / (490f - 440);
+            blue = 1.0f;
+        }
+        else if (wavelength >= 490 && wavelength < 510)
+        {
+            red = 0.0f;
+            green = 1.0f;
+            blue = -(wavelength - 510) / (510 - 490);
+        }
+        else if (wavelength >= 510 && wavelength < 580)
+        {
+            red = (wavelength - 510) / (580 - 510);
+            green = 1.0f;
+            blue = 0.0f;
+        }
+        else if (wavelength >= 580 && wavelength < 645)
+        {
+            red = 1.0f;
+            green = -(wavelength - 645) / (645 - 580);
+            blue = 0.0f;
+        }
+        // else if (wavelength >= 645 && wavelength < 781) //Correct version
+        else if (wavelength >= 645)
+        {
+            red = 1.0f;
+            green = 0.0f;
+            blue = 0.0f;
+        }
+        else
+        {
+            Log.Debug($"Color doesn't exist for {wavelength}");
+        }
+        // else
+        // {
+        //     red = 0.0f;
+        //     green = 0.0f;
+        //     blue = 0.0f;
+        // }
+        return new Color(red, green, blue);
     }
 }
