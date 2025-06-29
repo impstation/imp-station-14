@@ -349,6 +349,7 @@ cmd-options-help = Usage: options [tab]
 
 ui-options-accessability-header-visuals = Visuals
 ui-options-accessability-header-content = Content
+ui-options-accessability-header-misc = Misc
 
 ui-options-enable-color-name = Add colors to character names
 ui-options-colorblind-friendly = Colorblind friendly mode
@@ -362,6 +363,8 @@ ui-options-speech-bubble-background-opacity = Speech bubble background opacity
 
 ui-options-censor-nudity = Censor character nudity
 
+ui-options-notifier-label = accesibility issue notifier
+ui-options-notifier = Describe issues you have that you would like to notify other players of. for example: typing difficulties, vision issues, hearing issues, phobia triggers.
 ## Admin menu
 
 ui-options-admin-player-panel = Admin Menu Players List
