@@ -15,12 +15,12 @@
         shader: unshaded
     - type: Butcherable
       spawned:
-      - id: FoodMeat
-        amount: 4
+      - id: FoodMeatBacon
+        amount: 8
     - type: MeleeThrowOnHit
       unanchorOnHit: true
       distance: 5
-      speed: 6
+      speed: 4
     - type: Tag
       tags:
         - DoorBumpOpener
@@ -46,6 +46,9 @@
     - type: HTN
       rootTask:
         task: SimpleHostileCompound
+      blackboard:
+        NavPry: !type:Bool
+          true
     - type: YoungKodepiiaRetaliation
       attackMemoryLength: 10
     - type: Absorbable
@@ -68,9 +71,10 @@
     - type: DamageUserOnTrigger
       damage: 
         types:
-          Stamina: 10
+          Stamina: 30
     - type: Prying
       pryPowered: true
+      speedModifier: 1.5
       useSound:
         path: /Audio/Items/crowbar.ogg
     - type: InteractionPopup
