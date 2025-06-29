@@ -45,7 +45,7 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
 
         _research.ModifyServerPoints(server.Value, sumResearch, serverComponent);
         _audio.PlayPvs(ent.Comp.ExtractSound, artifact.Value);
-        _popup.PopupEntity(Loc.GetString("analyzer-artifact-extract-popup"), artifact.Value, PopupType.Large);
+        _popup.PopupEntity(Loc.GetString("old-extract-popup"), artifact.Value, PopupType.Large);
     }
 }
 

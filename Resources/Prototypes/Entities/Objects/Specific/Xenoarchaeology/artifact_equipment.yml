@@ -47,6 +47,7 @@
       whitelist:
         components:
         - XenoArtifact
+        - Artifact
     - type: Weldable
     - type: SuppressArtifactContainer
     - type: RadiationBlockingContainer
@@ -126,7 +127,7 @@
       components:
       - Artifact
   - type: Item
-    sprite: Objects/Storage/artifact_container.rsi  
+    sprite: Objects/Storage/artifact_container.rsi
     size: Huge
   - type: MeleeWeapon
     damage:

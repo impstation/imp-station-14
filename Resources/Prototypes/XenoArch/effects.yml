@@ -1208,7 +1208,7 @@
       deleteSpawnerAfterSpawn: false
       table: !type:AllSelector
         children:
-        - id: RandomArtifactSpawner
+        - id: RandomOldNewArtifactSpawner
 
 - type: entity
   id: XenoArtifactShuffle
