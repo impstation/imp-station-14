@@ -245,7 +245,7 @@ namespace Content.Shared.Preferences
             if (prototypeManager.TryIndex<SpeciesPrototype>(species, out var speciesPrototype))
             {
                 sex = random.Pick(speciesPrototype.Sexes);
-                age = random.Next(speciesPrototype.MinAge, speciesPrototype.OldAge); // people don't look and keep making 119 year old characters with zero rp, cap it at middle aged
+                age = random.Next(speciesPrototype.MinAge, speciesPrototype.AncientAge); // people don't look and keep making 119 year old characters with zero rp, cap it at middle aged. imp edit: capped it at old age instead
             }
 
             var gender = Gender.Epicene;

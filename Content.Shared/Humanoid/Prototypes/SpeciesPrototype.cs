@@ -123,6 +123,12 @@ public sealed partial class SpeciesPrototype : IPrototype
     public int OldAge = 70;
 
     /// <summary>
+    ///     Imp change: Characters older than this appear ancient.
+    /// </summary>
+    [DataField]
+    public int AncientAge = 100;
+
+    /// <summary>
     ///     Characters cannot be older than this. Only used for restrictions...
     ///     although imagine if ghosts could age people WYCI...
     ///     imp edit. we're brave. this will only matter when newmed drops, anyway
