@@ -35,12 +35,9 @@ public sealed class SynthSystem : EntitySystem
         _bloodstream.ChangeBloodReagent(uid, SynthBloodReagent); // DeltaV - make strings static readonly
 
         // Takes shit from DamagedSiliconAccentComponent. You need to do some FUckshit in there mae.
-        if (!HasComp<DamagedSiliconAccentComponent>(uid))
-        {
-            var accent = EnsureComp<DamagedSiliconAccentComponent>(uid);
-            accent.EnableChargeCorruption = false;  // NON-SILICONS DONT HAAVE FUCKING BATTERIES!!!
-            accent.EnableDamageCorruption = true;  // :)
-            Dirty(uid, accent);
-        }
+        EnsureComp<DamagedSiliconAccentComponent>(uid, out var accent);
+        accent.EnableChargeCorruption = false; //non-silicons dont got no plugged in (batteries)
+        accent.DamageAtMaxCorruption = 200;
+        Dirty(uid, accent);
     }
 }

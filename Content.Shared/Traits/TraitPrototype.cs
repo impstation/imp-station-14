@@ -69,7 +69,7 @@ public sealed partial class TraitPrototype : IPrototype
     [DataField]
     public ProtoId<TagPrototype>? Organ;
 
- /// <summary>
+    /// <summary>
     /// DeltaV - Hides traits from specific species
     /// </summary>
     [DataField]

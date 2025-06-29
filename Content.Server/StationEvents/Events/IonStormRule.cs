@@ -1,5 +1,5 @@
 // using Content.Server.Silicons.Laws; imp remove
-using Content.Server._CD.Traits;
+using Content.Server._CD.Traits; // imp
 using Content.Server.StationEvents.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Silicons.Laws.Components;
