@@ -61,3 +61,7 @@
   - type: MeleeChemicalInjector
     solution: CottonBool
     transferAmount: 1
+      - type: GhostRole
+    name: ghost-role-information-lepidodent-name
+    description: ghost-role-information-lepidodent-description
+    rules: ghost-role-information-freeagent-rules
