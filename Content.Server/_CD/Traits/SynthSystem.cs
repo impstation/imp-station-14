@@ -2,6 +2,7 @@ using Content.Server.Body.Systems;
 using Content.Server.Database;
 using Content.Shared.Chat.TypingIndicator;
 using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Speech.Components;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._CD.Traits;
@@ -32,5 +33,14 @@ public sealed class SynthSystem : EntitySystem
 
         // Give them synth blood. Ion storm notif is handled in that system
         _bloodstream.ChangeBloodReagent(uid, SynthBloodReagent); // DeltaV - make strings static readonly
+
+        // Takes shit from DamagedSiliconAccentComponent. You need to do some FUckshit in there mae.
+        if (!HasComp<DamagedSiliconAccentComponent>(uid))
+        {
+            var accent = EnsureComp<DamagedSiliconAccentComponent>(uid);
+            accent.EnableChargeCorruption = false;  // NON-SILICONS DONT HAAVE FUCKING BATTERIES!!!
+            accent.EnableDamageCorruption = true;  // :)
+            Dirty(uid, accent);
+        }
     }
 }
