@@ -30,6 +30,11 @@
         Piercing: 0.9
         Heat: 0.8
         Radiation: 0.5
+  - type: DamageOnShootProtection #imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 3
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.7
@@ -62,6 +67,11 @@
         Shock: 0.8
         Caustic: 0.5
         Radiation: 0.2
+  - type: DamageOnShootProtection #imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 5
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.7
@@ -91,6 +101,11 @@
         Piercing: 0.9
         Radiation: 0.3 #salv is supposed to have radiation hazards in the future
         Caustic: 0.8
+  - type: DamageOnShootProtection #imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 3
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.8
@@ -128,6 +143,11 @@
         Heat: 0.7
         Radiation: 0.3
         Caustic: 0.7
+  - type: DamageOnShootProtection #imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 6
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
@@ -227,6 +247,11 @@
         Piercing: 0.6
         Heat: 0.8
         Caustic: 0.7
+  - type: DamageOnShootProtection #imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 8
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
@@ -257,6 +282,11 @@
         Heat: 0.9
         Radiation: 0.3
         Caustic: 0.2
+  - type: DamageOnShootProtection #imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 5
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.85
@@ -354,6 +384,11 @@
         Heat: 0.4
         Radiation: 0.0
         Caustic: 0.7
+  - type: DamageOnShootProtection #imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 8
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.8
@@ -385,6 +420,11 @@
     modifiers:
       coefficients:
         Caustic: 0.1
+  - type: DamageOnShootProtection #imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 0
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.4
   - type: ClothingSpeedModifier
@@ -837,6 +877,11 @@
         Piercing: 0.95
         Radiation: 0.8
         Caustic: 0.9
+  - type: DamageOnShootProtection #imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 3
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.8
@@ -1051,6 +1096,11 @@
         Slash: 0.9
         Piercing: 0.9
         Caustic: 0.8
+  - type: DamageOnShootProtection #imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 0
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -1104,6 +1154,11 @@
         Slash: 0.9
         Piercing: 0.85
         Caustic: 0.8
+  - type: DamageOnShootProtection #imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 0
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
