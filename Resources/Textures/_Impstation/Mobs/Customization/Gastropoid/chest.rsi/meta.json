@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "puff1/2, spots, streaks, and stripes sprited by Widgetbeck (github), freckled, glow, lines, loops, painted, seam, and splash sprited by emmetian (github) for Impstation",
+    "copyright": "puff1/2, spots, streaks, and stripes sprited by Widgetbeck (github), freckled, glow, lines, loops, painted, seam, splash, and gradient sprited by emmetian (github) for Impstation",
     "size": {
         "x": 32,
         "y": 32
@@ -53,6 +53,10 @@
         },
         {
             "name": "splash",
+            "directions": 4
+        },
+        {
+            "name": "gradient",
             "directions": 4
         }
     ]

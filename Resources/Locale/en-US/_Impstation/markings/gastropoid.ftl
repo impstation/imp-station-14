@@ -36,6 +36,9 @@ marking-GastropoidSeamBody-seam = Seam
 marking-GastropoidSplashBody = Splash
 marking-GastropoidSplashBody-splash = Splash
 
+marking-GastropoidGradientBody = Gradient
+marking-GastropoidGradientBody-gradient = Gradient
+
 # Head
 
 marking-GastropoidAltHead = Lobster Face
@@ -79,6 +82,9 @@ marking-GastropoidHood-hood = Hood
 
 marking-GastropoidAntennaColor = Colored Antennae
 marking-GastropoidAntennaColor-antennacolor = Colored Antennae
+
+marking-GastropoidFacePatch = Patch
+marking-GastropoidFacePatch-patch = Patch
 
 # Snout
 
@@ -282,6 +288,38 @@ marking-BigSwirl-bigswirl = Swirl (Big Shell)
 
 marking-ProstheticSimpleGlass = Glass (Small Shell)
 marking-ProstheticSimpleGlass-prostheticsimpleglass = Glass (Small Shell)
+
+marking-SmallMantle = Mantle (Small Shell)
+marking-SmallMantle-smallmantle1 = Mantle
+marking-SmallMantle-smallmantle2 = Mantle Stripe
+
+marking-SmallRibbon = Ribbon (Small Shell)
+marking-SmallRibbon-smallribbon1 = Ribbon
+marking-SmallRibbon-smallribbon2 = Ribbon Pins
+
+marking-ConeMantle = Mantle (Cone Shell)
+marking-ConeMantle-conemantle1 = Mantle
+marking-ConeMantle-conemantle2 = Mantle Stripe
+
+marking-ConeRibbon = Ribbon (Cone Shell)
+marking-ConeRibbon-coneribbon1 = Ribbon
+marking-ConeRibbon-coneribbon2 = Ribbon Pins
+
+marking-BigMantle = Mantle (Big Shell)
+marking-BigMantle-bigmantle1 = Mantle
+marking-BigMantle-bigmantle2 = Mantle Stripe
+
+marking-BigRibbon = Ribbon (Big Shell)
+marking-BigRibbon-bigribbon1 = Ribbon
+marking-BigRibbon-bigribbon2 = Ribbon Pins
+
+marking-ProstheticMulticolor = Prosthetic Plating
+marking-ProstheticMulticolor-prostheticmulticolor1 = Plating 1
+marking-ProstheticMulticolor-prostheticmulticolor2 = Plating 2
+
+marking-SmallFlowers = Flowers
+marking-SmallFlowers-smallflowers1 = Flowers 1
+marking-SmallFlowers-smallflowers2 = Flowers 2
 
 # RArmExtension
 

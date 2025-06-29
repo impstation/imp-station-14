@@ -109,6 +109,15 @@
   - sprite: _Impstation/Mobs/Customization/Gastropoid/chest.rsi
     state: splash
 
+- type: marking
+  id: GastropoidGradientBody
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Gastropoid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/chest.rsi
+    state: gradient
+
 # Head
 
 - type: marking
@@ -238,6 +247,15 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/head.rsi
     state: antennacolor
+
+- type: marking
+  id: GastropoidFacePatch
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Gastropoid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/head.rsi
+    state: patch
 
 # Snout
 
@@ -783,5 +801,93 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: prostheticsimpleglass
+
+- type: marking
+  id: SmallMantle
+  bodyPart: Tail
+  markingCategory: Overlay
+  speciesRestriction: [ Gastropoid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
+    state: smallmantle1
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
+    state: smallmantle2
+
+- type: marking
+  id: SmallRibbon
+  bodyPart: Tail
+  markingCategory: Overlay
+  speciesRestriction: [ Gastropoid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
+    state: smallribbon1
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
+    state: smallribbon2
+
+- type: marking
+  id: ConeMantle
+  bodyPart: Tail
+  markingCategory: Overlay
+  speciesRestriction: [ Gastropoid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
+    state: conemantle1
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
+    state: conemantle2
+
+- type: marking
+  id: ConeRibbon
+  bodyPart: Tail
+  markingCategory: Overlay
+  speciesRestriction: [ Gastropoid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
+    state: coneribbon1
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
+    state: coneribbon2
+
+- type: marking
+  id: BigMantle
+  bodyPart: Tail
+  markingCategory: Overlay
+  speciesRestriction: [ Gastropoid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
+    state: bigmantle1
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
+    state: bigmantle2
+
+- type: marking
+  id: BigRibbon
+  bodyPart: Tail
+  markingCategory: Overlay
+  speciesRestriction: [ Gastropoid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
+    state: bigribbon1
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
+    state: bigribbon2
+
+- type: marking
+  id: ProstheticMulticolor
+  bodyPart: Tail
+  markingCategory: Overlay
+  speciesRestriction: [ Gastropoid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
+    state: prostheticmulticolor1
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
+    state: prostheticmulticolor2
+
+- type: marking
+  id: SmallFlowers
+  bodyPart: Tail
+  markingCategory: Overlay
+  speciesRestriction: [ Gastropoid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
+    state: smallflowers1
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
+    state: smallflowers2
 
 # RArmExtension
