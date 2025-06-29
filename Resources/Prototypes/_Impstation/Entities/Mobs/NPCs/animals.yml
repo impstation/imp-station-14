@@ -384,8 +384,8 @@
 - type: entity
   name: monkey
   id: MobMonkeyLambordeere
-  parent: MobMonkey
-  description: New church of neo-darwinists actually believe that EVERY animal evolved from a monkey. Tastes like pork, and killing them is both fun and relaxing.
+  parent: MobBaseAncestor # this is so the monkey comes pre-congnizined
+  description: New church of neo-darwinists actually believe that EVERY animal evolved from a monkey. This one seems to carry itself a little differently.
   components:
   - type: GhostRole
     prob: 1
@@ -393,6 +393,35 @@
     name: ghost-role-information-monkey-name-lambordeere
     description: ghost-role-information-monkey-description-lambordeere
     rules: ghost-role-information-freeagent-teamantagonistchance-rules
+    raffle:
+      settings: default
     mindRoles:
     - MindRoleGhostRoleFreeAgent
+  - type: RandomAntagChance
+    profile: Revolutionary
+    chance: 1
+  - type: NameIdentifier
+    group: Monkey
+  - type: Vocal
+    sounds:
+      Male: Monkey
+      Female: Monkey
+      Unsexed: Monkey
+  - type: Speech
+    speechSounds: Monkey
+    speechVerb: Monkey
+    allowedEmotes: ['Scream', 'Laugh']
+  - type: Emoting
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
+  - type: AlwaysRevolutionaryConvertible
   - type: GhostTakeoverAvailable
+  - type: Clumsy
+    gunShootFailDamage:
+      types:
+        Blunt: 5
+        Piercing: 4
+      groups:
+        Burn: 3
+    clumsySound:
+      path: /Audio/Animals/monkey_scream.ogg
