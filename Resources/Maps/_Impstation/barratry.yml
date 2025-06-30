@@ -4,8 +4,8 @@ meta:
   engineVersion: 261.2.0
   forkId: ""
   forkVersion: ""
-  time: 06/29/2025 19:26:48
-  entityCount: 22728
+  time: 06/30/2025 02:02:18
+  entityCount: 22729
 maps:
 - 5005
 grids:
@@ -73275,7 +73275,7 @@ entities:
       pos: -25.5,43.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -5804.6494
+      secondsUntilStateChange: -5853.7876
       state: Closing
   - uid: 9802
     components:
@@ -132644,6 +132644,13 @@ entities:
     components:
     - type: Transform
       pos: -41.5,27.5
+      parent: 1
+- proto: SpawnPointCourier
+  entities:
+  - uid: 7148
+    components:
+    - type: Transform
+      pos: -32.5,-2.5
       parent: 1
 - proto: SpawnPointDetective
   entities:
