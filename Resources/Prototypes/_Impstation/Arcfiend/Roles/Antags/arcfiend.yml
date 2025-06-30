@@ -1,0 +1,11 @@
+- type: antag
+  id: Arcfiend
+  name: roles-antag-arcfiend-name
+  antagonist: true
+  requirements:
+  - !type:OverallPlaytimeRequirement # Imp
+    time: 3600 # 1h
+  playTimeTracker: AntagArcfiend
+  setPreference: true
+  objective: roles-antag-Arcfiend-description
+  guides: [ Arcfiends ]

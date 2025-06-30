@@ -28,3 +28,14 @@
     roleType: SoloAntagonist
     antagPrototype: NukeopsLone
   - type: NukeopsRole
+
+# Arcfiend
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleArcfiend
+  components:
+  - type: MindRole
+    antagPrototype: Arcfiend
+    exclusiveAntag: true
+    roleType: SoloAntagonist
+  - type: ArcfiendRole

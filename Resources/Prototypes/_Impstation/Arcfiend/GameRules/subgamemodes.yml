@@ -1,0 +1,28 @@
+- type: entity
+  parent: BaseGameRule
+  id: SubArcfiend
+  components:
+  - type: ArcfiendRule
+  - type: GameRule
+    minPlayers: 25
+  - type: AntagObjectives
+    objectives:
+    - ArcfiendSurviveObjective
+    - ArcfiendEnergyObjective
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    agentName: arcfiend-round-end-agent-name
+    definitions:
+    - prefRoles: [ Arcfiend ]
+      max: 2
+      playerRatio: 30
+      lateJoinAdditional: true
+      blacklist:
+        components:
+        - AntagImmune
+      allowNonHumans: true
+      multiAntagSetting: NotExclusive
+      mindRoles:
+      - MindRoleArcfiend
+#      briefing:
+#        sound: "/Audio/Misc/thief_greeting.ogg" # TODO: add antag sound

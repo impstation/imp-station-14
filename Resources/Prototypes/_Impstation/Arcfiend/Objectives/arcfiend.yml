@@ -1,0 +1,27 @@
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseArcfiendObjective
+  components:
+  - type: Objective
+    difficulty: 1.5
+    issuer: objective-issuer-hivemind #figure out what to put here
+
+- type: entity
+  parent: [BaseArcfiendObjective, BaseSurviveObjective]
+  id: ArcfiendSurviveObjective
+  name: Survive
+  description: With all this power, you can live forever. Make sure you do.
+  components:
+  - type: Objective
+
+- type: entity
+  parent: BaseArcfiendObjective
+  id: ArcfiendEnergyObjective
+  components:
+  - type: NumberObjective
+    min: 3500
+    max: 5000
+    title: objective-condition-energy-title
+    description: objective-condition-energy-description
+# - type: EnergyCondition #UNCOMMENT WHEN I CODE IT
