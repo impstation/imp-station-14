@@ -265,8 +265,11 @@ public sealed partial class CarryingSystem : EntitySystem
 
     private void Carry(EntityUid carrier, EntityUid carried)
     {
-        if (TryComp<PullableComponent>(carried, out var pullable))
-            _pulling.TryStopPull(carried, pullable);
+        if (TryComp<PullableComponent>(carried, out var carriedPullable))
+            _pulling.TryStopPull(carried, carriedPullable);
+
+        if (TryComp<PullableComponent>(carrier, out var carrierPullable))
+            _pulling.TryStopPull(carried, carrierPullable);
 
         _transform.AttachToGridOrMap(carrier);
         _transform.AttachToGridOrMap(carried);
@@ -367,7 +370,8 @@ public sealed partial class CarryingSystem : EntitySystem
             }
 
             // Make sure the carried entity is always centered relative to the carrier, as gravity pulls can offset it otherwise
-            _transform.SetLocalPosition(carried, Vector2.Zero);
+            _transform.SetLocalPosition(carried, Vector2.Zero, xform);
         }
+        query.Dispose();
     }
 }
