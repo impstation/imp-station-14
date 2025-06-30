@@ -13,6 +13,9 @@ public sealed partial class NotifierExamineComponent : Component
     [DataField(required: true), AutoNetworkedField]
     public bool Active = false;
 
+    [DataField(required: true), AutoNetworkedField]
+    public bool IconOn = true;
+
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
     public ProtoId<NotifierIconPrototype> Icon = "NotifierIcon";

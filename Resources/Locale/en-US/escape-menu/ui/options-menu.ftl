@@ -362,9 +362,12 @@ ui-options-speech-bubble-speaker-opacity = Speech bubble speaker opacity
 ui-options-speech-bubble-background-opacity = Speech bubble background opacity
 
 ui-options-censor-nudity = Censor character nudity
-
+#imp edits start
 ui-options-notifier-label = accesibility issue notifier
+ui-options-notifier-enable = enable accesibility issue notifier
+ui-options-notifier-icon-toggle = turn icon off by default(can be renabled ingame)
 ui-options-notifier = Describe issues you have that you would like to notify other players of. for example: typing difficulties, vision issues, hearing issues, phobia triggers.
+#imp edits end
 ## Admin menu
 
 ui-options-admin-player-panel = Admin Menu Players List

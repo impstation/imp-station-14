@@ -24,7 +24,7 @@ public sealed class NotifierExamineSystem : EntitySystem
 
     private void OnGetStatusIcon(EntityUid uid,  NotifierExamineComponent component, ref GetStatusIconsEvent args)
     {
-        if (component.Active &&
+        if (component is { Active: true, IconOn: true } &&
             !_mobState.IsDead(uid) &&
             !HasComp<ActiveNPCComponent>(uid) &&
             TryComp<MindContainerComponent>(uid, out var mindContainer) &&

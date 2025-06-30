@@ -27,7 +27,8 @@ public sealed partial class AccessibilityTab : Control
         Control.AddOptionCheckBox(DCCVars.NoVisionFilters, DisableFiltersCheckBox);
         Control.AddOptionCheckBox(CCVars.ChatAutoFillHighlights, AutoFillHighlightsCheckBox);
         Control.AddOptionColorSlider(CCVars.ChatHighlightsColor, HighlightsColorSlider);
-
+        Control.AddOptionCheckBox(ImpCCVars.NotifierOn, NotifierEnable);
+        Control.AddOptionCheckBox(ImpCCVars.NotifierIconOffByDefault, NotifierIconToggle);
         NotifierExamineTextEdit.Placeholder = new Rope.Leaf(Loc.GetString("ui-options-notifier"));
         Control.AddOptionTextEdit(ImpCCVars.NotifierExamine, NotifierExamineTextEdit);
         Control.Initialize();

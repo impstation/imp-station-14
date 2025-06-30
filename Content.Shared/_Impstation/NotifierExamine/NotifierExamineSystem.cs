@@ -28,11 +28,12 @@ public sealed class NotifierExamineSystem : EntitySystem
 
     private void OnPlayerAttached(EntityUid uid,NotifierExamineComponent component, PlayerAttachedEvent args)
     {
-        var content=_netCfg.GetClientCVar<string>(args.Player.Channel, ImpCCVars.NotifierExamine);
-        if (content != "")
+
+        if ( _netCfg.GetClientCVar<bool>(args.Player.Channel, ImpCCVars.NotifierOn))
         {
             component.Active=true;
-            component.Content=content;
+            component.IconOn = !_netCfg.GetClientCVar<bool>(args.Player.Channel, ImpCCVars.NotifierIconOffByDefault);
+            component.Content=_netCfg.GetClientCVar<string>(args.Player.Channel, ImpCCVars.NotifierExamine);
         }
         Dirty(uid,component);
     }
