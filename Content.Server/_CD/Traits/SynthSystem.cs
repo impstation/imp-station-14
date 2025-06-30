@@ -34,10 +34,10 @@ public sealed class SynthSystem : EntitySystem
         // Give them synth blood. Ion storm notif is handled in that system
         _bloodstream.ChangeBloodReagent(uid, SynthBloodReagent); // DeltaV - make strings static readonly
 
-        // Takes shit from DamagedSiliconAccentComponent. You need to do some FUckshit in there mae.
+        // Gives them the DamagedSiliconAccent component
         EnsureComp<DamagedSiliconAccentComponent>(uid, out var accent);
-        accent.EnableChargeCorruption = false; //non-silicons dont got no plugged in (batteries)
-        accent.DamageAtMaxCorruption = 200;
+        accent.EnableChargeCorruption = false; //Disables corruption on low battery. This would always be active since non-silicons don't have a battery
+        accent.DamageAtMaxCorruption = 200; //This is makes it usable for anyone not a silicon
         Dirty(uid, accent);
     }
 }
