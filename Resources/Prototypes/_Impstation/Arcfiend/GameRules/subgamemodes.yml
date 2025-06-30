@@ -20,8 +20,7 @@
       blacklist:
         components:
         - AntagImmune
-      allowNonHumans: true
-      multiAntagSetting: NotExclusive
+      multiAntagSetting: Exclusive
       mindRoles:
       - MindRoleArcfiend
 #      briefing:
