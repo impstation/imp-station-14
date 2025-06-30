@@ -15,7 +15,7 @@ RELEASE_DIR = "release"
 # CONFIGURATION PARAMETERS
 # Forks should change these to publish to their own infrastructure.
 #
-ROBUST_CDN_URL = "https://cdn.impstation.gay/"
+ROBUST_CDN_URL = "https://imp5cdn.impstation.gay/"
 FORK_ID = "impstation"
 
 def main():
