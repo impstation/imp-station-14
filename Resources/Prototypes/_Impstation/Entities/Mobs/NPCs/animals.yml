@@ -398,8 +398,8 @@
     mindRoles:
     - MindRoleGhostRoleFreeAgent
   - type: RandomAntagChance
-    profile: Revolutionary
-    chance: 0.3
+    profile: MindRoleRevolutionary
+    chance: 1
   - type: NameIdentifier
     group: Monkey
   - type: Vocal
