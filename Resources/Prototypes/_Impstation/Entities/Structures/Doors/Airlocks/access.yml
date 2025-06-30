@@ -217,16 +217,12 @@
     layoutId: AirlockSecurity
 
 - type: entity
-  parent: AirlockMaint
+  parent: AirlockSecurityMedicalLocked
   id: AirlockMaintSecMedLocked
   name: maintenance access
-  suffix: Security/Medical, Locked
   components:
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsSecurityMedical ]
-  - type: Wires
-    layoutId: AirlockSecurity
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
 
 # Security
 - type: entity
