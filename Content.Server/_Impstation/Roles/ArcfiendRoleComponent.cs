@@ -6,6 +6,6 @@ namespace Content.Server.Roles;
 ///     Added to mind role entities to tag that they are an arcfiend.
 /// </summary>
 [RegisterComponent]
-public sealed partial class MindRoleArcfiendComponent : BaseMindRoleComponent
+public sealed partial class ArcfiendRoleComponent : BaseMindRoleComponent
 {
 }

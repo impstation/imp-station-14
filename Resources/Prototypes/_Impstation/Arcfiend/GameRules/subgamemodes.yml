@@ -4,7 +4,7 @@
   components:
   - type: ArcfiendRule
   - type: GameRule
-    minPlayers: 25
+#    minPlayers: 25 #commented out for testing
   - type: AntagObjectives
     objectives:
     - ArcfiendSurviveObjective
@@ -20,7 +20,6 @@
       blacklist:
         components:
         - AntagImmune
-      multiAntagSetting: Exclusive
       mindRoles:
       - MindRoleArcfiend
 #      briefing:
