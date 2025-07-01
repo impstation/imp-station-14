@@ -149,7 +149,7 @@
   description: A favourite of Grays everywhere.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/disablerpractice.rsi #imp
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/disablerpractice.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -157,7 +157,7 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/disablerpractice.rsi #imp
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/disablerpractice.rsi
     quickEquip: false
     slots:
     - Belt
@@ -167,7 +167,7 @@
     startingCharge: 100 
   - type: MagazineVisuals
     magState: mag
-    steps: 6 #impstation
+    steps: 6
     zeroVisible: true
   - type: BatterySelfRecharger
     autoRecharge: true
@@ -187,5 +187,5 @@
   - type: ProjectileBatteryAmmoProvider
     proto: BulletToyBlaster
     fireCost: 10
-  - type: MeleeWeapon #imp; for pistolwhip anim
+  - type: MeleeWeapon
     wideAnimationRotation: -80
