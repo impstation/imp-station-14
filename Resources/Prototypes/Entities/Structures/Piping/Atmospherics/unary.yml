@@ -23,7 +23,7 @@
 - type: entity
   parent: [GasUnaryBase, AirSensorBase]
   id: GasVentPump
-  name: air vent
+  name: gas vent
   description: Has a valve and a pump attached to it.
   placement:
     mode: SnapgridCenter
@@ -84,7 +84,7 @@
 - type: entity
   parent: GasUnaryBase
   id: GasPassiveVent
-  name: passive vent
+  name: passive gas vent
   description: It's an open vent.
   placement:
     mode: SnapgridCenter
@@ -119,7 +119,7 @@
 - type: entity
   parent: [GasUnaryBase, AirSensorBase]
   id: GasVentScrubber
-  name: air scrubber
+  name: gas scrubber
   description: Has a valve and pump attached to it.
   placement:
     mode: SnapgridCenter
@@ -180,7 +180,7 @@
 - type: entity
   parent: GasUnaryBase
   id: GasOutletInjector
-  name: air injector
+  name: gas injector
   description: Has a valve and pump attached to it.
   placement:
     mode: SnapgridCenter
@@ -512,4 +512,3 @@
   - type: GuideHelp
     guides:
     - GasCondensing
-
