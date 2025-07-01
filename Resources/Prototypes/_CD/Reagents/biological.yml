@@ -20,17 +20,3 @@
     collection: FootstepBlood
     params:
       volume: 6
-
-- type: reaction
-  id: SynthBloodBreakdown
-  source: true
-  requiredMixerCategories:
-  - Centrifuge
-  reactants:
-    SynthBlood:
-      amount: 5
-  products:
-    Silicon: 1
-    Lithium: 1
-    Ethanol: 2
-    SpaceLube: 1
