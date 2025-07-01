@@ -3,3 +3,21 @@
   name: Urist McGray
   parent: BaseMobGray
   id: MobGray
+
+- type: entity
+  parent: MobGray
+  id: MobGrayParty
+  name: Holiday Gray
+  components:
+  - type: GhostRole
+    name: ghost-role-information-partygray-name
+    description: ghost-role-information-partygray-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: Loadout
+    prototypes: [PirateGear]
+  - type: RandomHumanoidAppearance

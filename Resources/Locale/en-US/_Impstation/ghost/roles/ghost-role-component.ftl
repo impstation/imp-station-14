@@ -142,3 +142,5 @@ ghost-role-information-antagonistchance-rules = You are a [color=green][bold]Non
 
                                              You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
 
+ghost-role-information-partygray-name = Partying Gray
+ghost-role-information-partygray-description = It's time for a celebration and this station looks like the perfect place to throw a party!
