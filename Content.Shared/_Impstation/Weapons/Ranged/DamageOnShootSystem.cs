@@ -46,18 +46,16 @@ public sealed class DamageOnShootSystem : EntitySystem
 
         if (!entity.Comp.IgnoreResistances)
         {
-            // try to get damage on interact protection from either the inventory slots of the entity
+            // try to get damage on interact protection from either the inventory slots of the entity or the entity itself
             _inventorySystem.TryGetInventoryEntity<DamageOnShootProtectionComponent>(args.User, out var protectiveEntity);
-
-            // or checking the entity for  the comp itself if the inventory didn't work
-            if (protectiveEntity.Comp == null && TryComp<DamageOnShootProtectionComponent>(args.User, out var protectiveComp))
-                protectiveEntity = (args.User, protectiveComp);
-
-            // if protectiveComp isn't null after all that, it means the user has protection,
-            // so let's calculate how much they resist
-            if (protectiveEntity.Comp != null)
             {
-                totalDamage = DamageSpecifier.ApplyModifierSet(totalDamage, protectiveEntity.Comp.DamageProtection);
+                if (protectiveEntity.Comp == null && TryComp<DamageOnShootProtectionComponent>(args.User, out var protectiveComp))
+                    protectiveEntity = (args.User, protectiveComp);
+
+                if (protectiveEntity.Comp != null)
+                {
+                    totalDamage = DamageSpecifier.ApplyModifierSet(totalDamage, protectiveEntity.Comp.DamageProtection);
+                }
             }
         }
 
