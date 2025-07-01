@@ -216,15 +216,18 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
         // finally, loop over our living replicators and set their pinpointers to target the queen, then downgrade them to level 1 and stun them.
         foreach (var replicator in livingReplicators)
         {
-            if (!_inventory.TryGetSlotEntity(replicator, "pocket1", out var pocket1) || !TryComp<PinpointerComponent>(pocket1, out var pinpointer))
-                continue;
-            // set the target to the queen
-            _pinpointer.SetTarget(pocket1.Value, queen, pinpointer);
-
             // downgrade to level 1
             var upgraded = ForceUpgrade(replicator, replicator.Comp.FirstStage);
-            if (upgraded != null)
-                _stun.TrySlowdown(upgraded.Value, TimeSpan.FromSeconds(3), true, 0.8f, 0.8f);
+            if (upgraded is not { } upgradedNotNull)
+                return;
+
+            _stun.TrySlowdown(upgradedNotNull, TimeSpan.FromSeconds(3), true, 0.8f, 0.8f);
+
+            if (!_inventory.TryGetSlotEntity(upgradedNotNull, "pocket1", out var pocket1) || !TryComp<PinpointerComponent>(pocket1, out var pinpointer))
+                continue;
+
+            // set the target to the queen
+            _pinpointer.SetTarget(pocket1.Value, queen, pinpointer);
         }
 
         // turn off the ambient sound on the points storage entity.
