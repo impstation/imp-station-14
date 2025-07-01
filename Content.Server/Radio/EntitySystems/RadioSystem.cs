@@ -147,7 +147,7 @@ public sealed class RadioSystem : EntitySystem
                 continue;
 
             // Imp original
-            if (channel.ReadOnly && HasComp<HeadsetComponent>(radioSource))
+            if (channel.IntercomOnly && HasComp<HeadsetComponent>(radioSource))
                 continue;
 
             // send the message

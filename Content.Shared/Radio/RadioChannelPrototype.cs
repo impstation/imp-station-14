@@ -40,6 +40,6 @@ public sealed partial class RadioChannelPrototype : IPrototype
     /// ImpStation original. If a channel is readOnly, then headsets cannot send messages through it.
     /// Intercomms still can.
     /// </summary>
-    [DataField("readOnly")]
-    public bool ReadOnly = false;
+    [DataField("intercomOnly")]
+    public bool IntercomOnly = false;
 }
