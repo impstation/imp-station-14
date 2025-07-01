@@ -146,6 +146,10 @@ public sealed class RadioSystem : EntitySystem
             if (attemptEv.Cancelled)
                 continue;
 
+            // Imp original
+            if (channel.ReadOnly && HasComp<HeadsetComponent>(radioSource))
+                continue;
+
             // send the message
             RaiseLocalEvent(receiver, ref ev);
         }
