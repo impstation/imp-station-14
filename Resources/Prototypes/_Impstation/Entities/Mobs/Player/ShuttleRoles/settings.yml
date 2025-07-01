@@ -46,5 +46,6 @@
       prototypes: [ VisitorLibrarian, VisitorLibrarianAlt ]
       roleLoadout: [ RoleSurvivalStandard ]
     - type: RandomAntagChance
-      profile: Heretic
-      chance: 0.3
+      antagRole: MindRoleHeretic
+      fallbackRole: MindRoleGhostRoleNeutral
+      chance: 1

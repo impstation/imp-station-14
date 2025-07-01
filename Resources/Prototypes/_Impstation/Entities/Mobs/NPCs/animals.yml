@@ -395,10 +395,9 @@
     rules: ghost-role-information-freeagent-teamantagonistchance-rules
     raffle:
       settings: default
-    mindRoles:
-    - MindRoleGhostRoleFreeAgent
   - type: RandomAntagChance
-    profile: MindRoleRevolutionary
+    antagRole: MindRoleRevolutionary
+    fallbackRole: MindRoleGhostRoleFreeAgent
     chance: 1
   - type: NameIdentifier
     group: Monkey

@@ -1,7 +1,13 @@
 using Content.Server._Impstation.Traitor.Components;
-using Content.Server.Ghost.Roles.Components;
+using Content.Server.Antag;
+using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Roles;
+using Content.Server.Zombies;
+using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
+using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 
 namespace Content.Server._Impstation.Traitor.Systems;
 
@@ -10,21 +16,70 @@ namespace Content.Server._Impstation.Traitor.Systems;
 /// </summary>
 public sealed class RandomAntagChanceSystem : EntitySystem
 {
+    [Dependency] private readonly AntagSelectionSystem _antag = default!;
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly RoleSystem _role = default!;
+    [Dependency] private readonly ZombieSystem _zombie = default!;
+
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<RandomAntagChanceComponent, TakeGhostRoleEvent>(OnMindAdded);
+        SubscribeLocalEvent<RandomAntagChanceComponent, MindAddedMessage>(OnMindAdded);
     }
 
-    private void OnMindAdded(EntityUid uid, RandomAntagChanceComponent comp, TakeGhostRoleEvent args)
+    private void OnMindAdded(Entity<RandomAntagChanceComponent> ent, ref MindAddedMessage args)
     {
-        var random = new Random();
-        if (random.NextDouble() > comp.Chance)
+        if (!_player.TryGetSessionByEntity(ent, out var session))
             return;
 
-        _role.MindAddRole(args.Mind, comp.Profile, mind: args.Mind);
+        var random = IoCManager.Resolve<IRobustRandom>();
+        if (random.Prob(ent.Comp.Chance))
+        {
+            DoRoles(session, ent.Owner, ent.Comp.AntagRole);
+            return;
+        }
+        DoRoles(session, ent.Owner, ent.Comp.FallbackRole);
+    }
+
+    private void DoRoles(ICommonSession session, Entity<MindComponent?> ent, EntProtoId role)
+    {
+        if (!Resolve(ent, ref ent.Comp))
+            return;
+
+        // antag code is hell. woe to all ye who enter here
+        // GOD I WISH THERE WAS A BETTER WAY TO DO THIS
+        switch (role)
+        {
+            case "Traitor":
+                _antag.ForceMakeAntag<TraitorRuleComponent>(session, role);
+                return;
+            case "InitialInfected":
+                _antag.ForceMakeAntag<ZombieRuleComponent>(session, role);
+                return;
+            case "Zombie":
+                _zombie.ZombifyEntity(ent);
+                return;
+            case "LoneOpsSpawn":
+                _antag.ForceMakeAntag<NukeopsRuleComponent>(session, role);
+                return;
+            case "Revolutionary":
+                _antag.ForceMakeAntag<RevolutionaryRuleComponent>(session, role);
+                return;
+            case "Thief":
+                _antag.ForceMakeAntag<ThiefRuleComponent>(session, role);
+                return;
+            case "Changeling":
+                _antag.ForceMakeAntag<ChangelingRuleComponent>(session, role);
+                return;
+            case "Heretic":
+                _antag.ForceMakeAntag<HereticRuleComponent>(session, role);
+                return;
+            default:
+                // i hate my life
+                _role.MindAddRole(ent, role, mind: ent);
+                return;
+        }
     }
 }

@@ -10,20 +10,26 @@ namespace Content.Server._Impstation.Traitor.Components;
 public sealed partial class RandomAntagChanceComponent : Component
 {
     /// <summary>
-    /// Sets the antag type to be rolled for.
-    /// </summary>
-    [DataField]
-    public EntProtoId Profile = "traitorRole";
-
-    /// <summary>
-    /// Sets the fallback role if the role fails
-    /// </summary>
-    [DataField]
-    public EntProtoId Fallback = "MindRoleGhostRoleNeutral";
-
-    /// <summary>
     /// Sets the chance that the antag is rolled
     /// </summary>
     [DataField]
     public float Chance = 0.5f;
+
+    /// <summary>
+    /// Sets the antag type to be rolled for.
+    /// </summary>
+    /// <remarks>
+    /// Value given must be a valid antag gamerule OR MindRolePrototype.
+    /// </remarks>
+    [DataField(required: true)]
+    public EntProtoId AntagRole;
+
+    /// <summary>
+    /// The mind role given if the antag is not rolled.
+    /// </summary>
+    /// <remarks>
+    /// Value given must be a valid antag gamerule OR MindRolePrototype.
+    /// </remarks>
+    [DataField(required: true)]
+    public EntProtoId FallbackRole;
 }
