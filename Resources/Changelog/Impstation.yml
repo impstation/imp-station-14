@@ -1,65 +1,4 @@
 ﻿Entries:
-- author: FlippenPage
-  changes:
-  - message: Added the SalvDrobe.
-    type: Add
-  id: 1431
-  time: '2025-03-29T22:27:21.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1862
-- author: SixValentine
-  changes:
-  - message: Luna button - medical will contain you no longer
-    type: Fix
-  id: 1432
-  time: '2025-03-29T22:30:56.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2139
-- author: TheGrimbeeper
-  changes:
-  - message: NPC Zombies will now treat Initial Infected as fellow Zombies and not
-      attack.
-    type: Tweak
-  id: 1433
-  time: '2025-03-29T22:38:36.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2106
-- author: kipdotnet
-  changes:
-  - message: Added new items to the service fab and their respective vendors. These
-      are Lunchboxes, a bigger vacuum flask, and a special new toolbelt.
-    type: Add
-  - message: Resprited the basic vacuum flask.
-    type: Tweak
-  id: 1434
-  time: '2025-03-29T22:44:20.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2135
-- author: 12rabbits
-  changes:
-  - message: Going prone no longer prevents you from dropping items when stunned.
-    type: Tweak
-  id: 1435
-  time: '2025-03-29T22:52:04.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2141
-- author: snaviian
-  changes:
-  - message: Space spiders and tarantulas now drop raw spider legs when butchered,
-      and raw spider legs can be cooked.
-    type: Add
-  id: 1436
-  time: '2025-03-30T13:15:49.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2138
-- author: hivehum
-  changes:
-  - message: Chaplains can once again be fucked up and evil.
-    type: Fix
-  id: 1437
-  time: '2025-03-30T22:14:57.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2152
-- author: TheGrimbeeper
-  changes:
-  - message: Paradox Clones can roll on sufficiently high pop lowpop rounds.
-    type: Tweak
-  id: 1438
-  time: '2025-03-31T12:47:39.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2158
 - author: hivehum
   changes:
   - message: Fake_Human_First Fake_Human_Last has been finally brought to justice.
@@ -4241,3 +4180,64 @@
   id: 1930
   time: '2025-06-28T23:37:54.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/2889
+- author: crocodilecarousel and hivehum
+  changes:
+  - message: press g and get decorating or else!!!
+    type: Add
+  id: 1931
+  time: '2025-06-29T00:02:32.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2901
+- author: DinnerCalzone
+  changes:
+  - message: Radiators now support pipe layering.
+    type: Add
+  - message: Radiators now look different.
+    type: Tweak
+  id: 1932
+  time: '2025-06-29T00:27:26.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2897
+- author: starlighthowls
+  changes:
+  - message: lepidodent can now be found on NT stations.
+    type: Add
+  id: 1933
+  time: '2025-06-29T09:34:27.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2816
+- author: kipdotnet
+  changes:
+  - message: Banana has had a small cleanup of decals and should look nicer.
+    type: Tweak
+  id: 1934
+  time: '2025-06-29T22:59:52.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2904
+- author: EpicToast
+  changes:
+  - message: Barratry has been updated with Harmony's changes, including genpop, a
+      TEG, and other layout changes.
+    type: Tweak
+  - message: Union Station has been temporarily derotated for renovations.
+    type: Remove
+  id: 1935
+  time: '2025-06-30T04:37:38.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2908
+- author: AvianMaiden
+  changes:
+  - message: Suit storage tanks are now strap-off.
+    type: Tweak
+  id: 1936
+  time: '2025-06-30T16:19:48.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2913
+- author: Mousetrinity
+  changes:
+  - message: coats on moths are no longer vacuum sealed
+    type: Tweak
+  id: 1937
+  time: '2025-06-30T16:21:15.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2907
+- author: hivehum
+  changes:
+  - message: Pride month is OVER. Get back to work.
+    type: Remove
+  id: 1938
+  time: '2025-07-01T02:47:37.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2910
