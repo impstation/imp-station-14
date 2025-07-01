@@ -498,6 +498,9 @@
         - CrateMask #this is so they can go under plastic flaps
         layer:
         - MachineLayer
+  - type: AntiTamper # imp edit
+    containers:
+      - entity_storage
 
 - type: entity
   id: CrateLockBoxEngineering
