@@ -25,21 +25,23 @@ public abstract partial class SharedToolSystem
         return Loc.GetString(entity.Comp.Name);
     }
 
-    public (FixedPoint2 fuel, FixedPoint2 capacity) GetSolutionFuelAndCapacity(EntityUid uid, SolutionRefuelComponent? welder = null, SolutionContainerManagerComponent? solutionContainer = null)
+    public bool TryGetSolutionFuelAndCapacity(EntityUid uid, out FixedPoint2 fuel, out FixedPoint2 capacity, SolutionRefuelComponent? welder = null, SolutionContainerManagerComponent? solutionContainer = null)
     {
+        fuel = default;
+        capacity = default;
         if (!Resolve(uid, ref welder, ref solutionContainer))
-            return default;
+            return false;
 
         if (!SolutionContainerSystem.TryGetSolution(
                 (uid, solutionContainer),
                 welder.FuelSolutionName,
                 out _,
                 out var fuelSolution))
-        {
-            return default;
-        }
+            return false;
 
-        return (fuelSolution.GetTotalPrototypeQuantity(welder.FuelReagent), fuelSolution.MaxVolume);
+        fuel = fuelSolution.GetTotalPrototypeQuantity(welder.FuelReagent);
+        capacity = fuelSolution.MaxVolume;
+        return true;
     }
 
     private void SolutionRefuelExamine(Entity<SolutionRefuelComponent> entity, ref ExaminedEvent args)
@@ -48,7 +50,7 @@ public abstract partial class SharedToolSystem
         {
             if (args.IsInDetailsRange)
             {
-                var (fuel, capacity) = GetSolutionFuelAndCapacity(entity.Owner, entity.Comp);
+                var success = TryGetSolutionFuelAndCapacity(entity.Owner, out var fuel, out var capacity);
 
                 args.PushMarkup(Loc.GetString("solution-refuel-component-on-examine-detailed-message",
                     ("colorName", fuel < capacity / FixedPoint2.New(4f) ? "darkorange" : "orange"),
