@@ -119,6 +119,7 @@
     minimumPlayers: 15
     earliestStart: 25
     duration: null
+  - type: MidRoundAntagRule
   - type: AntagSelection
     definitions:
     - spawnerPrototype: SpawnPointInfiltrator
