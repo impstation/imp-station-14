@@ -47,4 +47,10 @@ uplink-poison-injector-name = Lethal Poison Auto-Injector
 uplink-poison-injector-desc = A single dose of a lethal toxin mix, courtesy of Gorlex's Stealth Operations department, induces gradual organ failure and esophagus inflammation which eliminates a subject within one to two minutes of injection.
 
 uplink-mascot-cindy-suit-bundle-name = Cindy, the Red Chaos Cat bundle
-uplink-mascot-cindy-suit-bundle-desc = A suit in the image of Cindy, The Red Carnage Cat! Space-safe, and equipped with minimal armor to wreak maximum morale damage against those NanoTrasen dogs!
+uplink-mascot-cindy-suit-bundle-desc = A suit in the image of Cindy, The Red Carnage Cat! Space-safe, and equipped with minimal armor to wreak maximum morale damage against those Nanotrasen dogs!
+
+uplink-nullrod-upgrade-name = Profane Censer
+uplink-nullrod-upgrade-desc = A vile incense burner used to transform nullrod items into more sinister forms.
+
+uplink-gay-implanter-name = Gay implanter
+uplink-gay-implanter-desc = Huh??? Why is this in here??? Is my uplink hacked??
