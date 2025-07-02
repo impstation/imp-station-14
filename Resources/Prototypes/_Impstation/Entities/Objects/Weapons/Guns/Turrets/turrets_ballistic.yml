@@ -1,0 +1,8 @@
+- type: entity
+  parent: WeaponTurretAllHostile
+  id: WeaponTurretCentComm
+  suffix: CentComm
+  components:
+  - type: TurretTargetSettings
+    exemptAccessLevels:
+    - CentralCommand

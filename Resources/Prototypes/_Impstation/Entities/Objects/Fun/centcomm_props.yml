@@ -1,0 +1,20 @@
+- type: entity
+  parent: BaseStructure
+  id: Gravestone
+  suffix: CentComm Prop, DO NOT MAP
+  name: Gravestone™ generation pod
+  description: A special machine for generating specialized biological assets, similar to a cloning pod. This one seems to have a partially finished bioform floating inside.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/gravestone.rsi
+    drawdepth: Mobs
+    layers:
+     - state: pod
+     - state: unshaded-pod
+       shader: unshaded
+  - type: PointLight
+    color: "#7c2324"
+    energy: 1
+    offset: 0,-0.5
+    radius: 4
+    softness: 5
