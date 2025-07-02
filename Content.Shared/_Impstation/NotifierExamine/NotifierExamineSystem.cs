@@ -18,7 +18,7 @@ public sealed class NotifierExamineSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly INetConfigurationManager _netCfg = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-
+    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     public override void Initialize()
     {
 
@@ -38,12 +38,17 @@ public sealed class NotifierExamineSystem : EntitySystem
             component.Active=true;
             component.IconOn = !_netCfg.GetClientCVar<bool>(args.Player.Channel, ImpCCVars.NotifierIconOffByDefault);
             component.Content=_netCfg.GetClientCVar<string>(args.Player.Channel, ImpCCVars.NotifierExamine);
+            _actionsSystem.AddAction(uid,ref component.notifierIconToggle,component.notifierIconToggleActionId);
+            _actionsSystem.AddAction(uid,ref component.notifierToggle,component.notifierToggleActionId);
         }
+
         Dirty(uid,component);
     }
     private void OnGetExamineVerbs(Entity<NotifierExamineComponent> ent, ref GetVerbsEvent<ExamineVerb> args)
     {
-        if ((Identity.Name(args.Target, EntityManager) != MetaData(args.Target).EntityName)||!ent.Comp.Active)
+        if (!ent.Comp.Active)
+            return;
+        if (Identity.Name(args.Target, EntityManager) != MetaData(args.Target).EntityName)
             return;
 
         var user = args.User;

@@ -1,4 +1,8 @@
+using Content.Shared._Impstation.CCVar;
 using Content.Shared.Actions;
+using Content.Shared.GameTicking;
+using Robust.Shared.Configuration;
+using Robust.Shared.Player;
 
 namespace Content.Shared._Impstation.NotifierExamine;
 
@@ -7,7 +11,6 @@ public abstract partial class SharedNotifierActionSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     public override void Initialize()
     {
-        SubscribeLocalEvent<NotifierExamineComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<NotifierExamineComponent, ComponentShutdown>(OnShutdown);
     }
     public sealed partial class  NotifierIconToggleEvent : InstantActionEvent;
@@ -19,9 +22,5 @@ public abstract partial class SharedNotifierActionSystem : EntitySystem
 
     }
     //add actions when component is added
-    public void OnStartup(Entity<NotifierExamineComponent> ent, ref ComponentStartup args)
-    {
-        _actionsSystem.AddAction(ent, ref ent.Comp.notifierIconToggle, ent.Comp.notifierIconToggleActionId);
-        _actionsSystem.AddAction(ent, ref ent.Comp.notifierToggle, ent.Comp.notifierToggleActionId);
-    }
+
 }

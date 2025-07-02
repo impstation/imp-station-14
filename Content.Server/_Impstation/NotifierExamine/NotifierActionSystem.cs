@@ -17,10 +17,11 @@ public sealed class NotifierActionSystem : SharedNotifierActionSystem
     private void ToggleIcon(Entity<NotifierExamineComponent> ent,ref NotifierIconToggleEvent args)
     {
         ent.Comp.IconOn = !ent.Comp.IconOn;
-
+        Dirty(ent.Owner,ent.Comp);
     }
     private void ToggleNotifier(Entity<NotifierExamineComponent> ent,ref NotifierToggleEvent args)
     {
         ent.Comp.Active = !ent.Comp.Active;
+        Dirty(ent.Owner,ent.Comp);
     }
 }
