@@ -29,8 +29,6 @@ public sealed class ImpCCVars : CVars
 
     public static readonly CVarDef<bool> NotifierOn=
         CVarDef.Create("accessibility.notifier_on", false, CVar.ARCHIVE | CVar.REPLICATED | CVar.CLIENT, "if the notifier system is active");
-    public static readonly CVarDef<bool> NotifierIconOffByDefault =
-        CVarDef.Create("accessibility.notifier_icon_off_by_default", false, CVar.ARCHIVE | CVar.REPLICATED | CVar.CLIENT, "if the notifier icon is off by default");
     public static readonly CVarDef<string> NotifierExamine =
         CVarDef.Create("accessibility.notifier_examine", "", CVar.ARCHIVE | CVar.REPLICATED | CVar.CLIENT, "content of accessibility issue notifier.");
 

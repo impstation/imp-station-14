@@ -28,7 +28,6 @@
                        StyleClasses="LabelKeyText"/>
                 <Label Text="{Loc ui-options-notifier-label}"/>
                 <CheckBox Name="NotifierEnable" Text="{Loc ui-options-notifier-enable}"/>
-                <CheckBox Name="NotifierIconToggle" Text="{Loc ui-options-notifier-icon-toggle}"/>
                 <PanelContainer>
                     <PanelContainer.PanelOverride>
                         <graphics:StyleBoxFlat BackgroundColor="#4a4d68"/>

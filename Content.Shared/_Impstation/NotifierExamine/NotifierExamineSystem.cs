@@ -36,10 +36,7 @@ public sealed class NotifierExamineSystem : EntitySystem
         if ( _netCfg.GetClientCVar<bool>(args.Player.Channel, ImpCCVars.NotifierOn))
         {
             component.Active=true;
-            component.IconOn = !_netCfg.GetClientCVar<bool>(args.Player.Channel, ImpCCVars.NotifierIconOffByDefault);
             component.Content=_netCfg.GetClientCVar<string>(args.Player.Channel, ImpCCVars.NotifierExamine);
-            _actionsSystem.AddAction(uid,ref component.notifierIconToggle,component.notifierIconToggleActionId);
-            _actionsSystem.AddAction(uid,ref component.notifierToggle,component.notifierToggleActionId);
         }
 
         Dirty(uid,component);
