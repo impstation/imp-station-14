@@ -1989,6 +1989,17 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: Reproductive # imp
+    partnerWhitelist:
+      tags:
+      - Mouse
+    offspring:
+    - id: MobMouse
+      maxAmount: 3
+    hungerPerBirth: 35
+    gestationDuration: 45
+    breedChance: 0.25
+  - type: ReproductivePartner
 
 - type: entity
   parent: MobMouse
@@ -2050,6 +2061,10 @@
   - type: Item
     size: Tiny
     heldPrefix: 1
+  - type: Reproductive # imp
+    offspring:
+    - id: MobMouse1
+      maxAmount: 3
 
 - type: entity
   parent: MobMouse
@@ -2079,6 +2094,10 @@
   - type: Item
     size: Tiny
     heldPrefix: 2
+  - type: Reproductive # imp
+    offspring:
+    - id: MobMouse2
+      maxAmount: 3
 
 - type: entity
   name: cancer mouse
