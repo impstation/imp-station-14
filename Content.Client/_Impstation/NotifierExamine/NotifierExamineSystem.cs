@@ -1,5 +1,4 @@
 using Content.Shared._Impstation.NotifierExamine;
-using Content.Shared.CCVar;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC;
@@ -14,6 +13,7 @@ public sealed class NotifierExamineSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+
 
     public override void Initialize()
     {
