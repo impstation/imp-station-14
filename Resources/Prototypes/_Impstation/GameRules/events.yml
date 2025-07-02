@@ -126,20 +126,8 @@
       max: 1
       pickPlayer: false
       components:
-      - type: AutoTraitor
-        profile: TraitorInfiltrator
-      - type: Loadout
-        prototypes: [SyndicateReinforcementSpy]
-        roleLoadout: [ RoleSurvivalSyndicate ]
-      - type: RandomMetadata
-        nameSegments: [NamesDeathCommando]
-      - type: RandomHumanoidAppearance
-        randomizeName: false
-        hair: HairBald
       - type: EmitSoundOnSpawn
         sound: /Audio/Effects/clang.ogg
-        mindRoles:
-      - MindRoleInfiltrator # does this need to have its own mindrole or should i just use traitor?
       - type: NpcFactionMember
         factions:
         - Syndicate
