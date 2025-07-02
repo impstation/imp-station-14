@@ -460,7 +460,7 @@
   id: CrateBaseLockBox
   parent: CrateBaseSecure
   name: lock box
-  description: "A secure lock box. Funds from its sale will be distributed back to the department. Just remember: Cargo always takes a cut."
+  description: "A secure lock box, complete with an anti-tamper acidifier system. Funds from its sale will be distributed back to the department. Just remember: Cargo always takes a cut." # imp edit
   abstract: true
   components:
   - type: Sprite
@@ -498,6 +498,9 @@
         - CrateMask #this is so they can go under plastic flaps
         layer:
         - MachineLayer
+  - type: AntiTamper # imp edit
+    containers:
+      - entity_storage
 
 - type: entity
   id: CrateLockBoxEngineering
