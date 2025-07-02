@@ -106,7 +106,7 @@
   parent: BaseTraitorRule
   components:
   - type: TraitorRule
-    startingBalance: 2
+    startingBalance: 4 # really weird. in all my testing giving these guys uplinks seems to subtract 2 tc from the starting balance, so this is a stupid fix for that. something to do with job antag advantage? i genuinely dont want this to get merged without knowing wtf is going on here bc i kind of figure it might be a problem unique to localhost? idk though.
     giveUplink: true # my original intent was to not give them uplinks at all but an uplink implant with 1or 2 tc sounds like itd lead to funnier stuff.
     giveCodewords: false
     giveBriefing: false

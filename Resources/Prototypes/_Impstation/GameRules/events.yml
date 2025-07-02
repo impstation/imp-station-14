@@ -127,8 +127,6 @@
       max: 1
       pickPlayer: false
       components:
-      - type: EmitSoundOnSpawn
-        sound: /Audio/Effects/clang.ogg
       - type: NpcFactionMember
         factions:
         - Syndicate

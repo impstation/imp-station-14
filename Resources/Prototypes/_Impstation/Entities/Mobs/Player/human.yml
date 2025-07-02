@@ -1,4 +1,3 @@
-# i dont really *need* this prototype so i might just delete this file once i make sure what im doing works. if i forget kill me bad
 # Syndicate Infiltrator
 - type: entity
   parent: MobHumanSyndicateAgentBase
@@ -10,3 +9,5 @@
   - type: Loadout
     prototypes: [SyndicateReinforcementSpy]
     roleLoadout: [ RoleSurvivalSyndicate ]
+  - type: EmitSoundOnSpawn # i think this is also a really stupid fix for the clang sound not playing on spawn but wjatever
+    sound: /Audio/Effects/clang.ogg
