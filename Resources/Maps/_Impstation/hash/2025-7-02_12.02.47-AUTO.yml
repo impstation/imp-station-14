@@ -4,8 +4,8 @@ meta:
   engineVersion: 261.2.0
   forkId: ""
   forkVersion: ""
-  time: 07/02/2025 16:10:59
-  entityCount: 17997
+  time: 07/02/2025 16:02:48
+  entityCount: 17977
 maps:
 - 1
 grids:
@@ -5321,7 +5321,7 @@ entities:
       pos: -13.5,3.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -26356.047
+      secondsUntilStateChange: -25869.467
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5621,7 +5621,7 @@ entities:
       pos: 25.5,-25.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -6131.0664
+      secondsUntilStateChange: -5644.486
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -6001,7 +6001,7 @@ entities:
       pos: 0.5,-52.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -14730.763
+      secondsUntilStateChange: -14244.182
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -33323,13 +33323,6 @@ entities:
     components:
     - type: Transform
       pos: 13.5,-1.5
-      parent: 2
-- proto: CassetteTapeSupermatter
-  entities:
-  - uid: 17978
-    components:
-    - type: Transform
-      pos: -11.921146,2.511218
       parent: 2
 - proto: Catwalk
   entities:
@@ -94882,107 +94875,6 @@ entities:
     components:
     - type: Transform
       pos: -9.5,-24.5
-      parent: 2
-- proto: WallpaperBannerColorful
-  entities:
-  - uid: 17979
-    components:
-    - type: Transform
-      pos: 16.5,-25.5
-      parent: 2
-  - uid: 17980
-    components:
-    - type: Transform
-      pos: 19.5,-25.5
-      parent: 2
-  - uid: 17981
-    components:
-    - type: Transform
-      pos: 20.5,-25.5
-      parent: 2
-  - uid: 17982
-    components:
-    - type: Transform
-      pos: 5.5,-25.5
-      parent: 2
-  - uid: 17983
-    components:
-    - type: Transform
-      pos: 6.5,-25.5
-      parent: 2
-  - uid: 17984
-    components:
-    - type: Transform
-      pos: 7.5,-25.5
-      parent: 2
-  - uid: 17985
-    components:
-    - type: Transform
-      pos: 10.5,-25.5
-      parent: 2
-  - uid: 17986
-    components:
-    - type: Transform
-      pos: 9.5,-25.5
-      parent: 2
-  - uid: 17987
-    components:
-    - type: Transform
-      pos: 11.5,-25.5
-      parent: 2
-  - uid: 17988
-    components:
-    - type: Transform
-      pos: 12.5,-25.5
-      parent: 2
-  - uid: 17989
-    components:
-    - type: Transform
-      pos: 13.5,-25.5
-      parent: 2
-  - uid: 17990
-    components:
-    - type: Transform
-      pos: 14.5,-25.5
-      parent: 2
-  - uid: 17991
-    components:
-    - type: Transform
-      pos: 8.5,-25.5
-      parent: 2
-  - uid: 17992
-    components:
-    - type: Transform
-      pos: 15.5,-25.5
-      parent: 2
-  - uid: 17993
-    components:
-    - type: Transform
-      pos: 17.5,-25.5
-      parent: 2
-  - uid: 17994
-    components:
-    - type: Transform
-      pos: 18.5,-25.5
-      parent: 2
-- proto: WallpaperStarsBig
-  entities:
-  - uid: 17995
-    components:
-    - type: Transform
-      pos: -42.5,-7.5
-      parent: 2
-  - uid: 17996
-    components:
-    - type: Transform
-      pos: -43.5,-7.5
-      parent: 2
-- proto: WallpaperStarsMoon
-  entities:
-  - uid: 17997
-    components:
-    - type: Transform
-      pos: -39.5,-7.5
       parent: 2
 - proto: WallReinforced
   entities:
