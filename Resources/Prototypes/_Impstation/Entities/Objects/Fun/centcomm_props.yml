@@ -18,3 +18,22 @@
     offset: 0,-0.5
     radius: 4
     softness: 5
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieGleef
+  suffix: SPAWN AT YOUR OWN RISK # im serious i dont even want this spawned by admins
+  name: Gleef plushie
+  description: Try not to catch his attention, lest you get insulted on all comms.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    state: plushie_gleef
+  - type: Item
+    size: Normal
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    inhandVisuals:
+      left:
+      - state: gleef-inhand-left
+      right:
+      - state: gleef-inhand-right
