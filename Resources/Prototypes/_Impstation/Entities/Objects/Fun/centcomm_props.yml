@@ -1,7 +1,8 @@
 - type: entity
   parent: BaseStructure
-  id: Gravestone
-  suffix: CentComm Prop, DO NOT MAP
+  id: BrettKellyGooPod
+  suffix: CentComm Prop
+  categories: [ DoNotMap ]
   name: Gravestone™ generation pod
   description: A special machine for generating specialized biological assets, similar to a cloning pod. This one seems to have a partially finished bioform floating inside.
   components:
@@ -23,6 +24,7 @@
   parent: BasePlushie
   id: PlushieGleef
   suffix: SPAWN AT YOUR OWN RISK # im serious i dont even want this spawned by admins
+  categories: [ DoNotMap ]
   name: Gleef plushie
   description: Try not to catch his attention, lest you get insulted on all comms.
   components:
