@@ -38,6 +38,7 @@
     - map: ["computerLayerKeys"]
       sprite: Structures/Machines/computers.rsi
       state: generic_keys
+
 - type: entity
   parent: [BaseStructureComputerTabletop, ComputerIFF]
   id: ComputerTabletopIFF

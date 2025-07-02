@@ -55,7 +55,7 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: StaticPrice
-    price: 100
+    price: 105 # imp: arbitrage fix
 
 - type: entity
   parent: BaseStructureComputerTabletop
