@@ -99,6 +99,23 @@
       mindRoles:
       - MindRoleTraitor
 
+# i dont think? i need this but im leaving the code here to look at it. if i forget to take it out kill me
+# edit: i might need this dont kill me
+- type: entity
+  id: TraitorInfiltrator
+  parent: BaseTraitorRule
+  components:
+  - type: TraitorRule
+    startingBalance: 2
+    giveUplink: true # my original intent was to not give them uplinks at all but an uplink implant with 1or 2 tc sounds like itd lead to funnier stuff.
+    giveCodewords: false
+    giveBriefing: false
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ Traitor ]
+      mindRoles:
+      - MindRoleInfiltrator 
+
 # population limiters
 
 - type: entity

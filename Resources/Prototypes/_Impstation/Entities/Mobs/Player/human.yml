@@ -1,0 +1,12 @@
+# i dont really *need* this prototype so i might just delete this file once i make sure what im doing works. if i forget kill me bad
+# Syndicate Infiltrator
+- type: entity
+  parent: MobHumanSyndicateAgentBase
+  id: MobHumanSyndicateInfiltrator
+  name: syndicate infiltrator
+  components:
+  - type: AutoTraitor
+    profile: TraitorInfiltrator
+  - type: Loadout
+    prototypes: [SyndicateReinforcementSpy]
+    roleLoadout: [ RoleSurvivalSyndicate ]
