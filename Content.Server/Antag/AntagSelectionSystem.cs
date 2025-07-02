@@ -13,6 +13,7 @@ using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
 using Content.Server.Shuttles.Components;
 using Content.Server.Players.PlayTimeTracking;
+using Content.Shared._Impstation.NotifierExamine;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Antag;
 using Content.Shared.Clothing;
@@ -454,6 +455,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             antagEnt = getEntEv.Entity;
         }
 
+
         if (antagEnt is not { } player)
         {
             Log.Error($"Attempted to make {session} antagonist in gamerule {ToPrettyString(ent)} but there was no valid entity for player.");
@@ -505,7 +507,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         var prereqEv = new AntagPrereqSetupEvent(session, ent, def);
         RaiseLocalEvent(ent, ref prereqEv, true);
-
+        EnsureComp<NotifierExamineComponent>(player);
         // The following is where we apply components, equipment, and other changes to our antagonist entity.
         EntityManager.AddComponents(player, def.Components);
 
