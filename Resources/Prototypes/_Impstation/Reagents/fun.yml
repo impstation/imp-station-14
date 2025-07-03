@@ -223,7 +223,7 @@
         faction: Passive
         conditions:
         - !type:ReagentThreshold
-          min: 15
+          min: 10
 
 - type: reagent
   id: Sadness
@@ -359,4 +359,3 @@
       - !type:AdjustReagent #imp
         reagent: Cellulose
         amount: 0.5
-          
