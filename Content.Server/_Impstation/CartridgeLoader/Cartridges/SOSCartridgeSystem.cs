@@ -1,7 +1,10 @@
+using System.Security.Cryptography.X509Certificates;
+using Content.Server.Pinpointer;
 using Content.Server.Radio.EntitySystems;
 using Content.Shared.Access.Components;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.PDA;
+using Microsoft.VisualBasic;
 using Robust.Shared.Containers;
 
 namespace Content.Server.CartridgeLoader.Cartridges;
@@ -10,6 +13,8 @@ public sealed class SOSCartridgeSystem : EntitySystem
 {
     [Dependency] private readonly RadioSystem _radio = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly SharedTransformSystem _xform = default!;
+    [Dependency] private readonly NavMapSystem _navMap = default!;
 
     public override void Initialize()
     {
@@ -32,9 +37,9 @@ public sealed class SOSCartridgeSystem : EntitySystem
         }
     }
 
-    private void OnActivated(EntityUid uid, SOSCartridgeComponent component, CartridgeActivatedEvent args)
+    private void OnActivated(Entity<SOSCartridgeComponent> ent, ref CartridgeActivatedEvent args) // imp - refactored to use Entity<T>
     {
-        if (component.CanCall)
+        if (ent.Comp.CanCall)
         {
             //Get the PDA
             if (!TryComp<PdaComponent>(args.Loader, out var pda))
@@ -43,24 +48,39 @@ public sealed class SOSCartridgeSystem : EntitySystem
             //Get the id container
             if (_container.TryGetContainer(args.Loader, SOSCartridgeComponent.PDAIdContainer, out var idContainer))
             {
-                //If theres nothing in id slot, send message anonymously
-                if (idContainer.ContainedEntities.Count == 0)
-                {
-                    _radio.SendRadioMessage(uid, component.LocalizedDefaultName + " " + component.LocalizedHelpMessage, component.HelpChannel, uid);
-                }
-                else
-                {
-                    //Otherwise, send a message with the full name of every id in there
-                    foreach (var idCard in idContainer.ContainedEntities)
-                    {
-                        if (!TryComp<IdCardComponent>(idCard, out var idCardComp))
-                            return;
+                SendMessage(ent, idContainer); // imp - changed all this shit
 
-                        _radio.SendRadioMessage(uid, idCardComp.FullName + " " + component.LocalizedHelpMessage, component.HelpChannel, uid);
-                    }
-                }
+                ent.Comp.Timer = SOSCartridgeComponent.TimeOut;
+            }
+        }
+    }
 
-                component.Timer = SOSCartridgeComponent.TimeOut;
+    // imp - condensed this down into a method to reduce repetition
+    private void SendMessage(Entity<SOSCartridgeComponent> ent, BaseContainer idCards)
+    {
+        string? location = null;
+        // get the location if we need the location
+        if (ent.Comp.SendLocation)
+        {
+            var mapCoords = _xform.ToMapCoordinates(Transform(ent).Coordinates);
+            if (_navMap.TryGetNearestBeacon(mapCoords, out var beacon, out _) && beacon?.Comp.Text is { } beaconText)
+                location = beaconText;
+        }
+        // if location was assigned a value, send the location message. if not, send the default message.
+        var msg = location != null ? Loc.GetString(ent.Comp.HelpMessageLocation, ("location", location)) : Loc.GetString(ent.Comp.HelpMessage);
+
+        // send anonymously if there is no ID in the slot
+        if (idCards.ContainedEntities.Count == 0)
+            _radio.SendRadioMessage(ent, Loc.GetString(ent.Comp.DefaultName) + " " + msg, ent.Comp.HelpChannel, ent);
+        // otherwise, send with the full name
+        else
+        {
+            foreach (var idCard in idCards.ContainedEntities)
+            {
+                if (!TryComp<IdCardComponent>(idCard, out var idCardComp))
+                    return;
+
+                _radio.SendRadioMessage(ent, idCardComp.FullName + " " + msg, ent.Comp.HelpChannel, ent);
             }
         }
     }

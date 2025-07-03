@@ -82,9 +82,11 @@
     - CrewManifestCartridge
     - NotekeeperCartridge
     - NanoTaskCartridge
+    - SOSCartridge # Imp - out of order so they're on the same side
     - NewsReaderCartridge
+    - SOSCartridgeEngineering # Imp - out of order so they're on the same side
     - NanoChatCartridge # DV
-    - SOSCartridge # Imp
+    - SOSCartridgeMedical # Imp - out of order so they're on the same side
     cartridgeSlot:
       priority: -1
       name: device-pda-slot-component-slot-name-cartridge
