@@ -63,4 +63,4 @@
   id: ParadoxTypeGroup
   weights:
     ParadoxCloneKillObjective: 1
-    ParadoxCloneSaveObjective: 1
+    ParadoxCloneSaveObjective: 0.2 # should be rarer to mitigate metagaming
