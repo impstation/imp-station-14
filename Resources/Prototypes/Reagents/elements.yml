@@ -66,7 +66,7 @@
         - !type:OrganType
           type: Arachnid
           shouldHave: false
-        - !type:OrganType #imp
+        - !type:OrganType #imp edit
           type: Snail
           shouldHave: false
         damage:
@@ -162,6 +162,9 @@
         conditions:
         - !type:OrganType
           type: Arachnid
+          shouldHave: true
+        - !type: #imp edit
+          type: Snail
           shouldHave: true
         damage:
           types:

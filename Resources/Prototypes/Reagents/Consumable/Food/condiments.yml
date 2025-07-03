@@ -170,8 +170,6 @@
         factor: -0.5
       - !type:HealthChange #start imp
         conditions:
-        - !type:ReagentThreshold
-          min: 1
         - !type:OrganType
           type: Snail
           shouldHave: true
