@@ -119,7 +119,7 @@ reagent-name-bruizine = bruizine
 reagent-desc-bruizine = Originally developed as a cough medicine, it turns out this chemical is wildly effective at treating blunt force trauma.
 
 reagent-name-holywater = holy water
-#imp edit
+# imp edit
 reagent-desc-holywater = The cleanest and purest of waters. Known to magically heal wounds and harm spiteful ghosts.
 
 reagent-name-pyrazine = pyrazine
