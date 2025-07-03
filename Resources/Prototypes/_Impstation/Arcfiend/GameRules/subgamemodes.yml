@@ -5,6 +5,9 @@
   - type: ArcfiendRule
   - type: GameRule
 #    minPlayers: 25 #commented out for testing
+    delay:
+      min: 30
+      max: 60
   - type: AntagObjectives
     objectives:
     - ArcfiendSurviveObjective

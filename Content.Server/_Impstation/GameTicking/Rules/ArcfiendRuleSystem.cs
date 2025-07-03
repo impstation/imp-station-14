@@ -3,10 +3,12 @@ using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Mind;
 using Content.Server.Objectives;
 using Content.Server.Roles;
+using Content.Shared.Arcfiend;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Roles;
 using Content.Shared.Humanoid;
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.GameTicking.Rules;
@@ -19,6 +21,7 @@ public sealed class ArcfiendRuleSystem : GameRuleSystem<ArcfiendRuleComponent>
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly ObjectivesSystem _objective = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _userInterfaceSystem = default!;
+    public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/_Goobstation/Ambience/Antag/changeling_start.ogg"); //replace this sound
 
     public readonly ProtoId<AntagPrototype> ArcfiendPrototypeId = "Arcfiend";
 
@@ -48,8 +51,20 @@ public sealed class ArcfiendRuleSystem : GameRuleSystem<ArcfiendRuleComponent>
 
         _role.MindAddRole(mindId, _mindRole.Id, mind, true);
 
+        // briefing
+        var metaData = MetaData(target);
+        var briefing = Loc.GetString("arcfiend-role-greeting", ("name", metaData?.EntityName ?? "Unknown"));
+        var briefingShort = Loc.GetString("arcfiend-role-greeting-short", ("name", metaData?.EntityName ?? "Unknown"));
+
+        _antag.SendBriefing(target, briefing, Color.Yellow, BriefingSound);
+
+        if (_role.MindHasRole<ArcfiendRoleComponent>(mindId, out var mr))
+            AddComp(mr.Value, new RoleBriefingComponent { Briefing = briefingShort }, overwrite: true);
+
         _npcFaction.RemoveFaction(target, NanotrasenFactionId, false);
         _npcFaction.AddFaction(target, ArcfiendFactionId);
+
+        var arcfiendComp = EnsureComp<ArcfiendComponent>(target);
 
         rule.ArcfiendMinds.Add(mindId);
 
