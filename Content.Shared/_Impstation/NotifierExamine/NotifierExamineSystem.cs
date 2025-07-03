@@ -2,6 +2,7 @@ using Content.Shared._Impstation.CCVar;
 using Content.Shared._Impstation.Pleebnar.Components;
 using Content.Shared.Actions;
 using Content.Shared.Examine;
+using Content.Shared.Gibbing.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Players;
@@ -33,12 +34,12 @@ public sealed class NotifierExamineSystem : EntitySystem
     private void OnPlayerAttached(EntityUid uid,NotifierExamineComponent component, PlayerAttachedEvent args)
     {
 
-        if ( _netCfg.GetClientCVar<bool>(args.Player.Channel, ImpCCVars.NotifierOn))
+        if ( !_netCfg.GetClientCVar<bool>(args.Player.Channel, ImpCCVars.NotifierOn))
         {
-            component.Active=true;
-            component.Content=_netCfg.GetClientCVar<string>(args.Player.Channel, ImpCCVars.NotifierExamine);
+            return;
         }
-
+        component.Active=true;
+        component.Content=_netCfg.GetClientCVar<string>(args.Player.Channel, ImpCCVars.NotifierExamine);
         Dirty(uid,component);
     }
     private void OnGetExamineVerbs(Entity<NotifierExamineComponent> ent, ref GetVerbsEvent<ExamineVerb> args)
@@ -61,7 +62,7 @@ public sealed class NotifierExamineSystem : EntitySystem
             Category = VerbCategory.Examine,
             Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/star.svg.192dpi.png"))
         };
-
+        Dirty(ent.Owner,ent.Comp);
         args.Verbs.Add(verb);
     }
 

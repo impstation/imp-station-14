@@ -3,6 +3,7 @@ using Content.Server.Cloning;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Medical.SuitSensors;
 using Content.Server.Objectives.Components;
+using Content.Shared._Impstation.NotifierExamine;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Gibbing.Components;
 using Content.Shared.Medical.SuitSensor;
@@ -103,5 +104,17 @@ public sealed class ParadoxCloneRuleSystem : GameRuleSystem<ParadoxCloneRuleComp
             return;
 
         _mind.CopyObjectives(ent.Comp.OriginalMind.Value, (cloneMindId, cloneMindComp), ent.Comp.ObjectiveWhitelist, ent.Comp.ObjectiveBlacklist);
+        if (!TryComp<NotifierExamineComponent>(args.EntityUid, out var cloneComp) ||
+            !TryComp<NotifierExamineComponent>(ent.Comp.OriginalBody, out var ogComp))
+        {
+            return;
+        }
+
+        if (ogComp.Active)
+        {
+            cloneComp.Active = true;
+            cloneComp.Content=ogComp.Content;
+            Dirty(args.EntityUid, cloneComp);
+        }
     }
 }
