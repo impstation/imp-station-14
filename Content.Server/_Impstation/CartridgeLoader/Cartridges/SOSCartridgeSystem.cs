@@ -1,20 +1,18 @@
-using System.Security.Cryptography.X509Certificates;
 using Content.Server.Pinpointer;
 using Content.Server.Radio.EntitySystems;
 using Content.Shared.Access.Components;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.PDA;
-using Microsoft.VisualBasic;
 using Robust.Shared.Containers;
 
 namespace Content.Server.CartridgeLoader.Cartridges;
 
 public sealed class SOSCartridgeSystem : EntitySystem
 {
+    [Dependency] private readonly NavMapSystem _navMap = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly NavMapSystem _navMap = default!;
 
     public override void Initialize()
     {
