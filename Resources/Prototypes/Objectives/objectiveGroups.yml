@@ -28,7 +28,8 @@
 - type: weightedRandom
   id: TraitorObjectiveGroupKill
   weights:
-    KillRandomPersonObjective: 1
+    KillRandomPersonObjective: 0.5 # imp 1 > 0.5
+    KillOrMaroonRandomPersonObjective: 0.5 # imp
     KillRandomHeadObjective: 0.25
 
 - type: weightedRandom
