@@ -18,7 +18,7 @@
         - type: StationCargoShuttle
           path: /Maps/_Impstation/Shuttles/Hash_cargo.yml
         - type: StationJobs
-          availableJobs: # 60 total jobs
+          availableJobs: # 61 total jobs
             # command - 8
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
@@ -28,7 +28,7 @@
             HeadOfSecurity: [ 1, 1 ]
             HospitalityDirector: [ 1, 1 ] # imp
             Quartermaster: [ 1, 1 ]
-            # service - 12
+            # service - 13
             Bartender: [ 2, 2 ]
             Botanist: [ 1, 1 ]
             Chaplain: [ 1, 1 ]
@@ -38,6 +38,7 @@
             Librarian: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
+            Reporter: [1,1]
             #ServiceWorker: [ 2, 2 ]
             # engineering - 6
             AtmosphericTechnician: [ 2, 2 ]
