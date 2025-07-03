@@ -64,14 +64,13 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:HealthChange #start imp
+      - !type:HealthChange #imp edit
+        damage:
+          types:
+            Poison: 3
         conditions:
         - !type:OrganType
           type: Snail
-          shouldHave: true
-        damage:
-          types:
-            Poison: 3 #end imp
       - !type:HealthChange
         damage:
           types:

@@ -66,6 +66,9 @@
         - !type:OrganType
           type: Arachnid
           shouldHave: false
+        - !type:OrganType #imp
+          type: Snail
+          shouldHave: false
         damage:
           types:
             Poison: 0.1
@@ -75,6 +78,9 @@
         conditions:
         - !type:OrganType
           type: Arachnid
+          shouldHave: true
+        - !type:OrganType #imp
+          type: Snail
           shouldHave: true
         amount: 0.4
 
