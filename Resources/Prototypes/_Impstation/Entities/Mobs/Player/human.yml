@@ -9,5 +9,5 @@
   - type: Loadout
     prototypes: [SyndicateReinforcementSpy]
     roleLoadout: [ RoleSurvivalSyndicate ]
-  - type: EmitSoundOnSpawn # i think this is also a really stupid fix for the clang sound not playing on spawn but wjatever
+  - type: EmitSoundOnSpawn # dumb fix for the clang sound not playing on spawn but only matters if youre spawning this prototype from the entity panel
     sound: /Audio/Effects/clang.ogg
