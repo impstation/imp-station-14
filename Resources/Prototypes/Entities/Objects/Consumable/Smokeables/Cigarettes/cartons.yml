@@ -37,8 +37,6 @@
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/red.rsi # imp
-    layers: # imp
-    - state: closed
   - type: Item
     sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/red.rsi # imp
   - type: StorageFill
@@ -54,8 +52,6 @@
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/blue.rsi # imp
-    layers: # imp
-    - state: closed
   - type: Item
     sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/blue.rsi # imp
   - type: StorageFill
@@ -71,8 +67,6 @@
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/black.rsi # imp
-    layers: # imp
-    - state: closed
   - type: Item
     sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/black.rsi # imp
   - type: StorageFill
@@ -88,8 +82,6 @@
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/mixed.rsi # imp
-    layers: # imp
-    - state: closed
   - type: Item
     sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/mixed.rsi # imp
   - type: StorageFill
