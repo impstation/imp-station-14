@@ -26,3 +26,31 @@
   spriteHasMindState: cargo_e
   spriteNoMindState: cargo_e_r
   spriteToggleLightState: cargo_l
+
+- type: borgType
+  id: science
+
+  # Description
+  dummyPrototype: BorgChassisScience
+
+  # Functional
+  extraModuleCount: 3
+  moduleWhitelist:
+    tags:
+    - BorgModuleGeneric
+    - BorgModuleScience
+
+  defaultModules:
+  - BorgModuleArtifact
+  - BorgModuleAnomaly
+  - BorgModuleTool
+
+  radioChannels:
+  - Science
+
+  inventoryTemplateId: borgTall
+  spriteBodyState: peace
+  spriteBodyMovementState: peace
+  spriteHasMindState: peace_e
+  spriteNoMindState: peace_e_r
+  spriteToggleLightState: peace_l

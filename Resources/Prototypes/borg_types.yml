@@ -10,12 +10,12 @@
   moduleWhitelist:
     tags:
     - BorgModuleGeneric
-    - BorgModuleScience #until sciborgs are added
+  #  - BorgModuleScience # Imp
 
   defaultModules:
   - BorgModuleTool
-  - BorgModuleArtifact
-  - BorgModuleAnomaly
+  #- BorgModuleArtifact # Imp
+  #- BorgModuleAnomaly # Imp
   radioChannels:
   - Science
 

@@ -26,6 +26,7 @@
   Once created, a cyborg needs to specialize its chassis to a duty on the station. This determines what modules it starts with, which additional modules can be installed, and what [color=#a4885c]departmental radio channel[/color] it has access to. All cyborgs have access to the [color=#D381C9]Science[/color] and [color=green]station-wide[/color] radio channels. All cyborg types have [color=#a4885c]all-access[/color]: as long as they have battery power, they can be asked to open any door on the station.
   <Box>
     <GuideEntityEmbed Entity="BorgChassisGeneric" Caption="Generic"/>
+    <GuideEntityEmbed Entity="BorgChassisScience" Caption="Science"/>
     <GuideEntityEmbed Entity="BorgChassisEngineer" Caption="Engineering"/>
     <GuideEntityEmbed Entity="BorgChassisMining" Caption="Salvage"/>
     <GuideEntityEmbed Entity="BorgChassisJanitor" Caption="Janitor"/>
