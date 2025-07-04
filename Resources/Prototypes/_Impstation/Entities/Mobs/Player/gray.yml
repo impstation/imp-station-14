@@ -5,19 +5,19 @@
   id: MobGray
 
 - type: entity
-  parent: MobGray
+  parent: BaseMobGray
   id: MobGrayParty
-  name: Holiday Gray
+  name: Party Gray
   components:
   - type: GhostRole
     name: ghost-role-information-partygray-name
     description: ghost-role-information-partygray-description
-    rules: ghost-role-information-freeagent-rules
+    rules: ghost-role-information-nonantagonist-freeagent-partygeay-rules
     mindRoles:
     - MindRoleGhostRoleFreeAgent
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
   - type: Loadout
-    prototypes: [PirateGear]
+    prototypes: [TouristGear]
   - type: RandomHumanoidAppearance

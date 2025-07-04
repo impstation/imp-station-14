@@ -144,3 +144,7 @@ ghost-role-information-antagonistchance-rules = You are a [color=green][bold]Non
 
 ghost-role-information-partygray-name = Partying Gray
 ghost-role-information-partygray-description = It's time for a celebration and this station looks like the perfect place to throw a party!
+ghost-role-information-nonantagonist-freeagent-partygeay-rules = You are a [color=yellow][bold]Team Free Agent[/bold][/color] with the other Partying Grays. You are a delinquent who is only here to party. You are not seeking to cause damage to the station or its crew, but your rowdiness may lead to it.
+                                                                 Your goal is to throw a party; what you are celebrating is up to you. 
+
+                                                                 You don't remember any of your previous life, and you don't remember anything you learned as a ghost.

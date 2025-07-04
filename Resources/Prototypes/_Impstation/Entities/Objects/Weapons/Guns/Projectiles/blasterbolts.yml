@@ -67,35 +67,15 @@
 
 - type: entity
   name : toy blaster bolt
-  id: BulletToyBlaster
-  parent: BaseBullet
+  id: BulletBlasterToy
+  parent: BulletLaser
   categories: [ HideSpawnMenu ]
   components:
-  - type: Reflective
-    reflective:
-    - Energy
-  - type: FlyBySound
-    sound:
-      collection: EnergyMiss
-      params:
-        volume: 5
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi 
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
     layers:
     - state: toybolt
       shader: unshaded
-  - type: Physics
-  - type: Fixtures
-    fixtures:
-      projectile:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.15,-0.3,0.15,0.3"
-        hard: false
-        mask:
-        - Impassable
-        - BulletImpassable
-      fly-by: *flybyfixture
   - type: Ammo
     muzzleFlash: MuzzleFlashEffectToyBlaster
   - type: Projectile
@@ -103,6 +83,5 @@
     damage:
       types:
         Cellular: 0.01
-    soundHit:
       collection: WeakHit
     forceSound: true
