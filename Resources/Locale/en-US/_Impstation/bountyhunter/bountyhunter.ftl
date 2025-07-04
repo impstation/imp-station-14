@@ -20,7 +20,7 @@ bounty-hunter-category-hardsuit-name = Spacer
 bounty-hunter-category-hardsuit-description =
     You're most comfortable in the void of space.
     Includes: A lightweight and protective hardsuit, rocket-magboots, a
-    handheld mass scanner, a set of fultons, and a grappling hook.
+    handheld mass scanner, and a grappling hook.
 
 bounty-hunter-category-infiltrator-name = Infiltrator
 bounty-hunter-category-infiltrator-description =
@@ -68,6 +68,11 @@ bounty-hunter-category-clown-description =
     Includes: A pie cannon, 6x banana cream pies, a holographic best friend,
     a little guy's car, and various toys.
 
+bounty-hunter-category-pirate-name = Scallywag
+bounty-hunter-category-pirate-description =
+    You're a scoundrel with a light habit of pillaging and a love for plunder.
+    Includes: A laser cutlass, a set of fultons, a pirate's chest, and
+    a thieving parrot familiar.
 
 
 name-format-bounty-hunter = {$part0} {$part1}
@@ -126,10 +131,10 @@ names-bounty-hunter-title-dataset-9 = Lone
 names-bounty-hunter-title-dataset-10 = Outlaw
 names-bounty-hunter-title-dataset-11 = Two-Eyed
 names-bounty-hunter-title-dataset-12 = Bronze
-names-bounty-hunter-title-dataset-13 = Shackler
+names-bounty-hunter-title-dataset-13 = Buccaneer
 names-bounty-hunter-title-dataset-14 = Pacifier
 names-bounty-hunter-title-dataset-15 = Ole'
-names-bounty-hunter-title-dataset-16 = Hobbler
+names-bounty-hunter-title-dataset-16 = Cap'n
 names-bounty-hunter-title-dataset-17 = Steel
 names-bounty-hunter-title-dataset-18 = Brass
 names-bounty-hunter-title-dataset-19 = Gunslinger
@@ -146,7 +151,7 @@ names-bounty-hunter-title-dataset-29 = Two-Gun
 names-bounty-hunter-title-dataset-30 = Judge
 names-bounty-hunter-title-dataset-31 = Double-Tap
 names-bounty-hunter-title-dataset-32 = Hog
-names-bounty-hunter-title-dataset-33 = Loveable
+names-bounty-hunter-title-dataset-33 = Magnum
 names-bounty-hunter-title-dataset-34 = Vigilante
 names-bounty-hunter-title-dataset-35 = Marshal
 names-bounty-hunter-title-dataset-36 = Harbinger
@@ -155,8 +160,20 @@ names-bounty-hunter-title-dataset-38 = Gray
 names-bounty-hunter-title-dataset-39 = Trapper
 names-bounty-hunter-title-dataset-40 = Scar
 names-bounty-hunter-title-dataset-41 = Bane
-names-bounty-hunter-title-dataset-42 = Bubba
+names-bounty-hunter-title-dataset-42 = First Mate
 names-bounty-hunter-title-dataset-43 = Hawk
 names-bounty-hunter-title-dataset-44 = Killer
 names-bounty-hunter-title-dataset-45 = Singing
 names-bounty-hunter-title-dataset-46 = Solid
+
+
+names-bounty-hunter-parrot-dataset-1 = The Beak of Avarice
+names-bounty-hunter-parrot-dataset-2 = First Mate Nigel
+names-bounty-hunter-parrot-dataset-3 = Sq'k, Second
+names-bounty-hunter-parrot-dataset-4 = Zat Mate Treasurecoins
+names-bounty-hunter-parrot-dataset-5 = First Mate Foobar
+names-bounty-hunter-parrot-dataset-6 = First Mate Briney
+names-bounty-hunter-parrot-dataset-7 = First Mate Ikirukruk
+names-bounty-hunter-parrot-dataset-8 = First Mate Beatrice
+names-bounty-hunter-parrot-dataset-9 = Shakes-Their-Rectrices
+names-bounty-hunter-parrot-dataset-10 = Executive Officer Mossberg

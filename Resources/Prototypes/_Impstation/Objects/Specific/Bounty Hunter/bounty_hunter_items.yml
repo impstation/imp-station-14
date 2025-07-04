@@ -17,6 +17,7 @@
     - BountyHunterSyndie
     - BountyHunterCaptain
     - BountyHunterClown
+    - BountyHunterPirate
     spawnedStoragePrototype: ClothingBackpackSCargoDuffelPurple
 
 # Bounty Hunter Thermal + Flash Protection Glasses
@@ -291,3 +292,42 @@
   - type: Tag
     tags:
     - Sidearm
+
+- type: entity
+  parent: ReinforcementRadio
+  id: ReinforcementRadioBountyHunterParrot
+  name: unknown parrot-summoning item #TODO: rename this
+  description: YARGH! #TODO: ^
+  components:
+    - type: GhostRole
+      name: "Pirate Parrot"
+      description: "A bounty hunter needs reinforcements. You, a sentient, kleptomaniac parrot, will help them."
+      rules: ghost-role-information-familiar-rules
+      mindRoles:
+      - MindRoleGhostRoleFamiliar
+      raffle:
+        settings: default
+    - type: GhostRoleMobSpawner
+      prototype: MobParrotBountyHunter
+
+  #BH pirate crate
+- type: entity
+  id: CrateBountyHunterPirate
+  parent: CratePirate
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingUniformJumpsuitPirate
+        amount: 2
+      - id: ClothingHeadHatPirate
+        amount: 2
+      - id: ClothingOuterCoatPirate
+      - id: ClothingShoesBootsLaceup
+        amount: 2
+      - id: IngotGold
+      - id: Cutlass
+        amount: 2
+      - id: ClothingNeckCloakPirateCap
+      - id: WeaponPistolFlintlock
+      - id: PirateHandyFlag
