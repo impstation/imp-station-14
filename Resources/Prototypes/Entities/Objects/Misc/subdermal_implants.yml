@@ -212,6 +212,23 @@
         components:
         - HumanoidAppearance # syndies cant turn hamlet into a human
 
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseSubdermalImplant
+  id: ChameleonControllerImplant
+  name: chameleon controller implant
+  description: This implant allows you to instantly change the appearance of all worn chameleon clothing.
+  components:
+  - type: ChameleonControllerImplant
+  - type: SubdermalImplant
+    implantAction: ActionChameleonController
+  - type: UseDelay
+    delay: 1
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonControllerKey.Key:
+        type: ChameleonControllerBoundUserInterface
+
 #Nuclear Operative/Special Exclusive implants
 
 - type: entity
@@ -344,7 +361,7 @@
    - type: SubdermalImplant
    - type: MindShieldImplant
 
-# Centcomm implants
+# CentComm implants # imp i'm fixing this comment so it doesn't appear on text fix passes
 
 - type: entity
   parent: BaseSubdermalImplant
@@ -361,8 +378,8 @@
 - type: entity
   parent: DeathRattleImplant
   id: DeathRattleImplantCentcomm
-  name: centcomm death rattle implant
-  description: This implant will inform the Centcomm radio channel should the user fall into critical condition or die.
+  name: CentComm death rattle implant # imp caps fix
+  description: This implant will inform the CentComm radio channel should the user fall into critical condition or die. # imp caps fix
   categories: [ HideSpawnMenu ]
   components:
   - type: Rattle

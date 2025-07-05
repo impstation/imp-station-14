@@ -218,7 +218,12 @@
   loadouts:
   - HoPJumpsuit
   - HoPJumpskirt
-  - HoPBoatswain # DeltaV
+  - HoPPowerSuit # imp
+  # Begin DeltaV additions
+  - HoPMessSkirt
+  - HoPMessSuit
+  - HoPBoatswain
+  # End DeltaV additions
 
 - type: loadoutGroup
   id: HoPNeck
@@ -233,9 +238,14 @@
   id: HoPBackpack
   name: loadout-group-hop-backpack
   loadouts:
-  - CommonBackpack
-  - CommonSatchel
-  - CommonDuffel
+  # Start DeltaV changes
+  # - CommonBackpack
+  # - CommonSatchel
+  # - CommonDuffel
+  - BackpackHoP
+  - SatchelHoP
+  - HopDuffel
+  # End of DeltaV changes
   - HoPBackpackIan
   - CommandVeteranBackpack #imp
   - CommandVeteranSatchel #imp
@@ -247,6 +257,7 @@
   minLimit: 0
   loadouts:
   - HoPWintercoat
+  - HoPFormalCoat # Delta-v
 
 # Civilian
 - type: loadoutGroup
@@ -685,6 +696,7 @@
   - MusicianJumpskirt
   - ClothingUniformMrSpaceWide #imp
   - ClothingUniformMrSpaceWideSkirt #imp
+  - MusicianMarchingBand #imp
 
 - type: loadoutGroup
   id: MusicianOuterClothing
@@ -857,6 +869,7 @@
   - ChiefEngineerJumpskirt
   - ChiefEngineerTurtleneck
   - ChiefEngineerTurtleneckSkirt
+  - ChiefEngineerJumpsuitForeman # imp
 
 - type: loadoutGroup
   id: ChiefEngineerNeck
@@ -1167,11 +1180,6 @@
   - HeadofSecurityCoat
   - HeadofSecurityWinterCoat
   - HeadofSecurityWinterCoatUnarmored # imp
-  - ArmorVest #imp
-  - ArmorVestSlim #imp
-  - ArmorVestCompact #imp
-  - DuraVest # DeltaV
-  - PlateCarrier # DeltaV
   - HeadofSecurityEliteArmor #imp
 
 - type: loadoutGroup
@@ -1201,13 +1209,7 @@
   loadouts:
   - WardenCoat
   - WardenArmoredWinterCoat
-  - ArmorVest #imp
-  - ArmorVestSlim #imp
-  - ArmorVestCompact #imp
-  - DuraVest # DeltaV
-  - PlateCarrier # DeltaV
   - WardenWinterCoatUnarmored # imp
-  - BomberSecurity #imp
 
 - type: loadoutGroup
   id: SecurityHead
@@ -1315,12 +1317,6 @@
   - DetectiveArmorVest
   - DetectiveCoatGrey
   - DetectiveCoat
-  - ArmorVest #imp
-  - ArmorVestSlim #imp
-  - ArmorVestCompact #imp
-  - DuraVest # DeltaV
-  - PlateCarrier # DeltaV
-  - BomberSecurity #imp
   - ClothingOuterCoatFieldJacket #imp
 
 - type: loadoutGroup
@@ -1358,6 +1354,7 @@
   loadouts:
   - ChiefMedicalOfficerBeret
   - CMOMedicalHeadMirror
+  - CMOClip # imp
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerJumpsuit
@@ -1367,6 +1364,11 @@
   - ChiefMedicalOfficerJumpskirt
   - ChiefMedicalOfficerTurtleneckJumpsuit
   - ChiefMedicalOfficerTurtleneckJumpskirt
+  - CMOCasualSuit # imp
+  - CMOCasualSkirt # imp
+  - CMOFormalSuit # imp
+  - CMOFormalDress # imp
+  - CMOScrubs # imp
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerOuterClothing
@@ -1376,6 +1378,7 @@
   - ChiefMedicalOfficerLabCoat
   - ChiefMedicalOfficerWintercoat
   - CMOPrestigeLabcoat #IMP
+  - CMOApron # imp
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerNeck
