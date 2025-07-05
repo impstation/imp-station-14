@@ -4,8 +4,8 @@ meta:
   engineVersion: 261.2.0
   forkId: ""
   forkVersion: ""
-  time: 07/03/2025 02:03:04
-  entityCount: 22302
+  time: 07/05/2025 17:21:44
+  entityCount: 22305
 maps:
 - 17546
 grids:
@@ -102690,6 +102690,12 @@ entities:
       parent: 2
 - proto: IntercomCommand
   entities:
+  - uid: 11882
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 41.5,-26.5
+      parent: 2
   - uid: 16922
     components:
     - type: Transform
@@ -102749,6 +102755,18 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -10.5,26.5
+      parent: 2
+  - uid: 11881
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -57.5,-23.5
+      parent: 2
+  - uid: 11883
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -33.5,-5.5
       parent: 2
   - uid: 20453
     components:

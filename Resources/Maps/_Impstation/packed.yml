@@ -4,8 +4,8 @@ meta:
   engineVersion: 261.2.0
   forkId: ""
   forkVersion: ""
-  time: 07/03/2025 02:05:19
-  entityCount: 15261
+  time: 07/05/2025 17:26:36
+  entityCount: 15265
 maps:
 - 126
 grids:
@@ -7893,7 +7893,7 @@ entities:
       pos: 101.5,-19.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -28798.65
+      secondsUntilStateChange: -28870.271
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -67449,6 +67449,11 @@ entities:
     - type: Transform
       pos: 21.5,19.5
       parent: 2
+  - uid: 14525
+    components:
+    - type: Transform
+      pos: 11.5,14.5
+      parent: 2
 - proto: IntercomEngineering
   entities:
   - uid: 4692
@@ -67575,6 +67580,18 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 48.5,-5.5
+      parent: 2
+  - uid: 14526
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 43.5,-17.5
+      parent: 2
+  - uid: 14550
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 28.5,-2.5
       parent: 2
 - proto: IntercomSupply
   entities:
@@ -79354,6 +79371,13 @@ entities:
     components:
     - type: Transform
       pos: 21.5,39.5
+      parent: 2
+- proto: SpawnPointReporter
+  entities:
+  - uid: 14523
+    components:
+    - type: Transform
+      pos: 9.5,12.5
       parent: 2
 - proto: SpawnPointResearchAssistant
   entities:
