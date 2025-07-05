@@ -7,7 +7,7 @@ on:
     types: [submitted]
 jobs:
   add_label:
-  if: ${{ (github.repository == 'space-wizards/space-station-14') && (github.event.review.state == 'CHANGES_REQUESTED') }}
+  if: ${{ (github.event.review.state == 'CHANGES_REQUESTED') }}
   runs-on: ubuntu-latest
   steps:
   - uses: actions-ecosystem/action-add-labels@v1
