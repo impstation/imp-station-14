@@ -2,14 +2,17 @@ using Content.Shared.Clothing;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Inventory.Events;
-using Content.Shared.Alert; //imp edit
-using Content.Shared.Item.ItemToggle.Components; //imp edit
+using Content.Shared.Alert;
+using Content.Shared.Inventory; //imp edit
+using Content.Shared.Item.ItemToggle.Components;
+using Robust.Shared.Timing; //imp edit
 
 namespace Content.Shared._DV.Waddle;
 
 public sealed class WaddleClothingSystem : EntitySystem
 {
     [Dependency] private readonly AlertsSystem _alerts = default!; //imp edit
+    [Dependency] private readonly IGameTiming _timing = default!; //imp edit
 
     public override void Initialize()
     {
@@ -22,12 +25,11 @@ public sealed class WaddleClothingSystem : EntitySystem
 
     private void OnGotEquipped(Entity<WaddleWhenWornComponent> ent, ref ClothingGotEquippedEvent args)
     {
-        var user = args.Wearer;
-        // imp edit, check to see if the item has the ItemToggle component.
-        // if it does and it is not activated, do not add the waddling animation to the wearer.
-        if (TryComp<ItemToggleComponent>(ent, out var itemToggle) && (!itemToggle.Activated))
+        // imp edit, return out of method if it is not the first time predicting to avoid log spam
+        // then, check if the item has a ToggleComponent. if so, do not add the waddling animation to the wearer if it is no activated
+        if ((!_timing.IsFirstTimePredicted) || (TryComp<ItemToggleComponent>(ent, out var itemToggle) && (!itemToggle.Activated)))
             return;
-
+        var user = args.Wearer;
         // imp edit, code moved to its own method
         AddWaddleAnimationComponent(ent, user);
     }
@@ -86,7 +88,7 @@ public sealed class WaddleClothingSystem : EntitySystem
         // TODO: refcount
         RemComp<WaddleAnimationComponent>(user);
         ent.Comp.AddedWaddle = false;
-        //Dirty(ent);
+        Dirty(ent);
         //imp edit, clear waddle alert if one is defined
         if (ent.Comp.WaddlingAlert is {} alert)
             _alerts.ClearAlert(user, alert);
