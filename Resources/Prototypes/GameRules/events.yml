@@ -269,15 +269,15 @@
     objectiveBlacklist:
       tags:
       - ParadoxCloneObjectiveBlacklist
-  - type: AntagObjectives
-    objectives:
+  #- type: AntagObjectives
+   # objectives:
     # - ParadoxCloneKillObjective # imp to allow for savior clones
-    - ParadoxCloneLivingObjective
+    # - ParadoxCloneLivingObjective
   # - type: AntagRandomSpawn imp edit, uses midround antag spawners
   - type: AntagRandomObjectives # imp
     sets:
     - groups: ParadoxTypeGroups
-    maxDifficulty: 1 # will pick one objective
+    maxDifficulty: 2 # will pick two objective
   - type: AntagSelection
     agentName: paradox-clone-round-end-agent-name
     definitions:

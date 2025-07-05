@@ -86,7 +86,7 @@ public sealed class ParadoxCloneRuleSystem : GameRuleSystem<ParadoxCloneRuleComp
 
         var gibComp = EnsureComp<GibOnRoundEndComponent>(clone.Value);
         gibComp.SpawnProto = ent.Comp.GibProto;
-        gibComp.GibProofObjectives = new() { "ParadoxCloneKillObjective", "ParadoxCloneSaveObjective" };// imp alteration to enable saviors
+        gibComp.GibProofObjectives = new() { "ParadoxCloneKillObjective" };// imp alteration to enable saviors
 
         // turn their suit sensors off so they don't immediately get noticed
         _sensor.SetAllSensors(clone.Value, SuitSensorMode.SensorOff);
