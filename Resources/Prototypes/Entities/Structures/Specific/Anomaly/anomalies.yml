@@ -266,6 +266,22 @@
       - MobFleshClamp
       - MobFleshLover
       - FleshKudzu
+  - type: WallSpawnAnomaly #imp
+    entries:
+    - settings:
+        spawnOnPulse: true
+        spawnOnStabilityChanged: true
+        spawnOnSeverityChanged: true
+        minAmount: 3
+        maxAmount: 7
+        maxRange: 4
+      wall: WallMeat
+    - settings:
+        spawnOnSuperCritical: true
+        minAmount: 10
+        maxAmount: 30
+        maxRange: 10
+      wall: WallMeat
 
 - type: entity
   id: AnomalyBluespace
@@ -367,6 +383,22 @@
     damage:
       types:
         Cold: 10
+  - type: WallSpawnAnomaly #imp
+    entries:
+    - settings:
+        spawnOnPulse: true
+        spawnOnStabilityChanged: true
+        spawnOnSeverityChanged: true
+        minAmount: 3
+        maxAmount: 7
+        maxRange: 4
+      wall: WallIce
+    - settings:
+        spawnOnSuperCritical: true
+        minAmount: 10
+        maxAmount: 30
+        maxRange: 10
+      wall: WallIce
 
 - type: entity
   id: AnomalyRockBase
@@ -405,6 +437,22 @@
         maxAmount: 50
         maxRange: 12
       floor: FloorAsteroidTile
+  - type: WallSpawnAnomaly #imp
+    entries:
+    - settings:
+        spawnOnPulse: true
+        spawnOnStabilityChanged: true
+        spawnOnSeverityChanged: true
+        minAmount: 3
+        maxAmount: 7
+        maxRange: 4
+      wall: AsteroidRock
+    - settings:
+        spawnOnSuperCritical: true
+        minAmount: 10
+        maxAmount: 30
+        maxRange: 10
+      wall: AsteroidRock
 
 - type: entity
   id: AnomalyRockUranium
@@ -1035,6 +1083,36 @@
     damage:
       types:
         Cold: 10
+  - type: TileSpawnAnomaly #imp
+    entries:
+    - settings:
+        spawnOnPulse: true
+        minAmount: 3
+        maxAmount: 7
+        maxRange: 5
+      floor: FloorChromite
+    - settings:
+        spawnOnSuperCritical: true
+        minAmount: 10
+        maxAmount: 30
+        maxRange: 15
+      floor: FloorChromite
+  - type: WallSpawnAnomaly #imp
+    entries:
+    - settings:
+        spawnOnPulse: true
+        spawnOnStabilityChanged: true
+        spawnOnSeverityChanged: true
+        minAmount: 3
+        maxAmount: 7
+        maxRange: 4
+      wall: WallRockChromite
+    - settings:
+        spawnOnSuperCritical: true
+        minAmount: 10
+        maxAmount: 30
+        maxRange: 10
+      wall: WallRockChromite
 
 - type: entity
   id: AnomalyTech
