@@ -293,6 +293,7 @@
     tags:
     - Sidearm
 
+# Parrot reinforcement radio
 - type: entity
   parent: ReinforcementRadio
   id: ReinforcementRadioBountyHunterParrot
@@ -310,7 +311,7 @@
     - type: GhostRoleMobSpawner
       prototype: MobParrotBountyHunter
 
-  #BH pirate crate
+# BH pirate crate
 - type: entity
   id: CrateBountyHunterPirate
   parent: CratePirate
@@ -331,3 +332,22 @@
       - id: ClothingNeckCloakPirateCap
       - id: WeaponPistolFlintlock
       - id: PirateHandyFlag
+
+# Weapon recall implant
+- type: entity
+  id: RecallImplanter
+  name: recall implanter
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+    - type: Implanter
+      implant: RecallImplant
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: RecallImplant
+  name: recall implant
+  description: This implant lets the user mark a weapon, then call it to their hand at will.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+      implantAction: ActionWeaponRecall
