@@ -355,7 +355,7 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
             || _role.MindHasRole<ThiefRoleComponent>(mindId)        /*Thief*/
             || _role.MindHasRole<TraitorRoleComponent>(mindId)      /*Traitor*/
 
-            || _role.MindHasRole<MindRoleBountyHunterComponent>(mindId) /*Fellow Bunters*/
+            || _role.MindHasRole<BountyHunterRoleComponent>(mindId) /*Fellow Bunters*/
             || _role.MindHasRole<FugitiveRoleComponent>(mindId)    /*Fugitive*/
             || _role.MindHasRole<NinjaRoleComponent>(mindId)       /*Ninja*/
             || _role.MindHasRole<NukeopsRoleComponent>(mindId)     /*Nukies*/
