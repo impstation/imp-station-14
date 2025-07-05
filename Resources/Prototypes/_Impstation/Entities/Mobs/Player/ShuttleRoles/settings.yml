@@ -48,3 +48,71 @@
     - type: RandomAntagChance
       profile: Heretic
       chance: 0.3
+
+- type: randomHumanoidSettings
+  id: CentcommIntern
+  parent: EventHumanoidCentcomm
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: GhostRole
+    name: Centcomm Intern
+    description: You volunteered for an emergency response mission with your fellow interns for a pay-raise. You must survive to get it.
+    rules: ghost-role-information-nonantagonist-rules
+    raffle:
+      settings: short
+    job: CentcommIntern
+  - type: Loadout
+    prototypes: [ CentcommInternGear ]
+    roleLoadout: [ RoleSurvivalStandard ]
+
+- type: randomHumanoidSettings
+  id: CentcommInternLeader
+  parent: EventHumanoidCentcomm
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: GhostRole
+    name: CentComm Head Intern
+    description: You're the leader of a team of interns for an emergency response mission. Don't let CentComm down.
+    rules: ghost-role-information-nonantagonist-rules
+    raffle:
+      settings: short
+    job: CentcommInternLeader
+  - type: Loadout
+    prototypes: [ CentcommInternLeaderGear ]
+    roleLoadout: [ RoleSurvivalStandard ]
+
+- type: randomHumanoidSettings
+  id: CentcommInternUnarmed
+  parent: EventHumanoidCentcomm
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: GhostRole
+    name: Centcomm Intern
+    description: You volunteered for an emergency response mission with your fellow interns for a pay-raise. You must survive to get it. Central Command has decided to send you in completely unarmed.
+    rules: ghost-role-information-nonantagonist-rules
+    raffle:
+      settings: short
+    job: CentcommIntern
+  - type: Loadout
+    prototypes: [ CentcommInternUnarmedGear ]
+    roleLoadout: [ RoleSurvivalStandard ]
+
+- type: randomHumanoidSettings
+  id: CentcommInternLeaderUnarmed
+  parent: EventHumanoidCentcomm
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: GhostRole
+    name: CentComm Head Intern
+    description: You're the leader of a team of interns for an emergency response mission. Don't let CentComm down. Central Command has decided to send you in completely unarmed.
+    rules: ghost-role-information-nonantagonist-rules
+    raffle:
+      settings: short
+    job: CentcommInternLeader
+  - type: Loadout
+    prototypes: [ CentcommInternLeaderUnarmedGear ]
+    roleLoadout: [ RoleSurvivalStandard ]
