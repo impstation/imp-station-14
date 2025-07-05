@@ -18,12 +18,8 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
         public static HashSet<Gas> DefaultFilterGases = new()
         {
             Gas.CarbonDioxide,
-            Gas.Plasma,
-            Gas.Tritium,
-            Gas.WaterVapor,
             Gas.Ammonia,
             Gas.NitrousOxide,
-            Gas.Frezon
         };
 
         // Presets for 'dumb' air alarm modes
