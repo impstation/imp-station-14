@@ -280,7 +280,7 @@
   graph: GasPipe
   startNode: start
   targetNode: half
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: true
   alternativePrototypes:
@@ -294,7 +294,7 @@
   graph: GasPipe
   startNode: start
   targetNode: halfAlt1
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: true
   alternativePrototypes:
@@ -308,7 +308,7 @@
   graph: GasPipe
   startNode: start
   targetNode: halfAlt2
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: true
   alternativePrototypes:
@@ -321,7 +321,7 @@
   graph: GasPipe
   startNode: start
   targetNode: straight
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: true
   alternativePrototypes:
@@ -335,7 +335,7 @@
   graph: GasPipe
   startNode: start
   targetNode: straightAlt1
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: true
   alternativePrototypes:
@@ -349,7 +349,7 @@
   graph: GasPipe
   startNode: start
   targetNode: straightAlt2
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: true
   alternativePrototypes:
@@ -362,7 +362,7 @@
   graph: GasPipe
   startNode: start
   targetNode: bend
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: true
   alternativePrototypes:
@@ -376,7 +376,7 @@
   graph: GasPipe
   startNode: start
   targetNode: bendAlt1
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: true
   alternativePrototypes:
@@ -390,7 +390,7 @@
   graph: GasPipe
   startNode: start
   targetNode: bendAlt2
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: true
   alternativePrototypes:
@@ -403,7 +403,7 @@
   graph: GasPipe
   startNode: start
   targetNode: tjunction
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: true
   alternativePrototypes:
@@ -417,7 +417,7 @@
   graph: GasPipe
   startNode: start
   targetNode: tjunctionAlt1
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: true
   alternativePrototypes:
@@ -431,7 +431,7 @@
   graph: GasPipe
   startNode: start
   targetNode: tjunctionAlt2
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: true
   alternativePrototypes:
@@ -444,7 +444,7 @@
   graph: GasPipe
   startNode: start
   targetNode: fourway
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: true
   alternativePrototypes:
@@ -458,7 +458,7 @@
   graph: GasPipe
   startNode: start
   targetNode: fourwayAlt1
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: true
   alternativePrototypes:
@@ -472,7 +472,7 @@
   graph: GasPipe
   startNode: start
   targetNode: fourwayAlt2
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: true
   alternativePrototypes:
@@ -485,7 +485,7 @@
   graph: GasPipe
   startNode: start
   targetNode: manifold
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: SnapgridCenter
   canBuildInImpassable: true
 
@@ -495,7 +495,7 @@
   graph: GasUnary
   startNode: start
   targetNode: ventpump
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
@@ -506,7 +506,7 @@
   graph: GasUnary
   startNode: start
   targetNode: passivevent
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
@@ -517,7 +517,7 @@
   graph: GasUnary
   startNode: start
   targetNode: ventscrubber
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
@@ -528,7 +528,7 @@
   graph: GasUnary
   startNode: start
   targetNode: outletinjector
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
@@ -540,7 +540,7 @@
   graph: GasBinary
   startNode: start
   targetNode: pressurepump
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
@@ -551,7 +551,7 @@
   graph: GasBinary
   startNode: start
   targetNode: volumepump
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
@@ -562,7 +562,7 @@
   graph: GasBinary
   startNode: start
   targetNode: passivegate
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
@@ -573,7 +573,7 @@
   graph: GasBinary
   startNode: start
   targetNode: valve
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
@@ -584,7 +584,7 @@
   graph: GasBinary
   startNode: start
   targetNode: signalvalve
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
@@ -595,7 +595,7 @@
   graph: GasBinary
   startNode: start
   targetNode: port
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
@@ -606,7 +606,7 @@
   graph: GasBinary
   startNode: start
   targetNode: dualportventpump
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: SnapgridCenter
   canBuildInImpassable: false
 
@@ -615,7 +615,7 @@
   graph: GasBinary
   startNode: start
   targetNode: radiator
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: SnapgridCenter
   canBuildInImpassable: false
 
@@ -624,7 +624,7 @@
   graph: GasBinary
   startNode: start
   targetNode: bendradiator
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: SnapgridCenter
   canBuildInImpassable: false
 
@@ -634,7 +634,7 @@
   graph: GasTrinary
   startNode: start
   targetNode: filter
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   mirror: GasFilterFlipped
@@ -647,7 +647,7 @@
   graph: GasTrinary
   startNode: start
   targetNode: filterflipped
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   mirror: GasFilter
@@ -659,7 +659,7 @@
   graph: GasTrinary
   startNode: start
   targetNode: mixer
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   mirror: GasMixerFlipped
@@ -672,7 +672,7 @@
   graph: GasTrinary
   startNode: start
   targetNode: mixerflipped
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   mirror: GasMixer
@@ -684,7 +684,7 @@
   graph: GasTrinary
   startNode: start
   targetNode: pneumaticvalve
-  category: construction-category-utilities
+  category: construction-category-atmos # imp
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
