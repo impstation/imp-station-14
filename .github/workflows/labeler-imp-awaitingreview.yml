@@ -1,0 +1,18 @@
+# This is an imp original workflow by mqole.
+
+name: "Labels: Awaiting Changes"
+
+on:
+  pull_request_review:
+    types: [submitted]
+jobs:
+  add_label:
+  if: ${{ (github.repository == 'space-wizards/space-station-14') && (github.event.review.state == 'CHANGES_REQUESTED') }}
+  runs-on: ubuntu-latest
+  steps:
+  - uses: actions-ecosystem/action-add-labels@v1
+    with:
+      labels: "S: Awaiting Changes"
+  - uses: actions-ecosystem/action-remove-labels@v1
+    with:
+      labels: "S: Needs Review"
