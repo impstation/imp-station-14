@@ -40,7 +40,8 @@
     - type: Contraband
       severity: TierXContraband
   - type: ItemTogglePointLight
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: enum.ToggleableVisuals.Layer
   - type: ItemToggleSize
     activatedSize: Normal
 

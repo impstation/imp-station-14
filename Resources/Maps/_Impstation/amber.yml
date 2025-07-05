@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 260.2.0
+  engineVersion: 261.2.0
   forkId: ""
   forkVersion: ""
-  time: 06/15/2025 07:09:01
-  entityCount: 23542
+  time: 07/02/2025 04:54:10
+  entityCount: 23535
 maps:
 - 1
 grids:
@@ -55285,28 +55285,6 @@ entities:
     - type: Transform
       pos: 39.470306,-67.50273
       parent: 2
-- proto: CapacitorStockPart
-  entities:
-  - uid: 3183
-    components:
-    - type: Transform
-      pos: 10.429108,-19.010042
-      parent: 2
-  - uid: 3237
-    components:
-    - type: Transform
-      pos: 10.481217,-19.291487
-      parent: 2
-  - uid: 9603
-    components:
-    - type: Transform
-      pos: 22.32732,-30.24205
-      parent: 2
-  - uid: 9604
-    components:
-    - type: Transform
-      pos: 22.549095,-30.46535
-      parent: 2
 - proto: CarbonDioxideCanister
   entities:
   - uid: 1457
@@ -63127,13 +63105,6 @@ entities:
     components:
     - type: Transform
       pos: -58.5,-52.5
-      parent: 2
-- proto: ClosetJanitorFilled
-  entities:
-  - uid: 9635
-    components:
-    - type: Transform
-      pos: 24.5,2.5
       parent: 2
 - proto: ClosetL3JanitorFilled
   entities:
@@ -110420,6 +110391,13 @@ entities:
     - type: Transform
       pos: 19.5,-52.5
       parent: 2
+- proto: LockerJanitorFilled
+  entities:
+  - uid: 9635
+    components:
+    - type: Transform
+      pos: 24.5,2.5
+      parent: 2
 - proto: LockerMedicalFilled
   entities:
   - uid: 12639
@@ -112270,13 +112248,6 @@ entities:
     - type: Transform
       pos: 13.259319,-52.158337
       parent: 2
-- proto: MatterBinStockPart
-  entities:
-  - uid: 9606
-    components:
-    - type: Transform
-      pos: 23.528748,-30.371534
-      parent: 2
 - proto: Mattress
   entities:
   - uid: 20496
@@ -112445,10 +112416,35 @@ entities:
       parent: 2
 - proto: MicroManipulatorStockPart
   entities:
+  - uid: 3183
+    components:
+    - type: Transform
+      pos: 10.429108,-19.010042
+      parent: 2
+  - uid: 3237
+    components:
+    - type: Transform
+      pos: 10.481217,-19.291487
+      parent: 2
+  - uid: 9603
+    components:
+    - type: Transform
+      pos: 22.32732,-30.24205
+      parent: 2
+  - uid: 9604
+    components:
+    - type: Transform
+      pos: 22.549095,-30.46535
+      parent: 2
   - uid: 9605
     components:
     - type: Transform
       pos: 22.955547,-30.288143
+      parent: 2
+  - uid: 9606
+    components:
+    - type: Transform
+      pos: 23.528748,-30.371534
       parent: 2
 - proto: MicrophoneInstrument
   entities:
@@ -113868,10 +113864,10 @@ entities:
       parent: 2
 - proto: PortableFlasher
   entities:
-  - uid: 17715
+  - uid: 13295
     components:
     - type: Transform
-      pos: -22.5,4.5
+      pos: -24.5,4.5
       parent: 2
 - proto: PortableGeneratorJrPacman
   entities:
@@ -120375,11 +120371,6 @@ entities:
     components:
     - type: Transform
       pos: -29.5,-2.5
-      parent: 2
-  - uid: 22727
-    components:
-    - type: Transform
-      pos: -23.5,6.5
       parent: 2
 - proto: RandomSmokables
   entities:
@@ -127026,11 +127017,11 @@ entities:
       parent: 2
 - proto: SignSecureMed
   entities:
-  - uid: 4914
+  - uid: 10092
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -31.5,-62.5
+      pos: -31.5,-59.5
       parent: 2
 - proto: SignSecurity
   entities:
@@ -150258,34 +150249,146 @@ entities:
     - type: Transform
       pos: -24.54724,13.558739
       parent: 2
+- proto: WeaponEnergyTurretAI
+  entities:
+  - uid: 4147
+    components:
+    - type: Transform
+      pos: -65.5,-10.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 5978
+      - 6113
+  - uid: 4914
+    components:
+    - type: Transform
+      pos: -69.5,-10.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 5978
+      - 6113
+  - uid: 5100
+    components:
+    - type: Transform
+      pos: -69.5,-14.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 5978
+      - 6113
+  - uid: 5704
+    components:
+    - type: Transform
+      pos: -65.5,-14.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 5978
+      - 6113
+- proto: WeaponEnergyTurretAIControlPanel
+  entities:
+  - uid: 5978
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -64.5,-13.5
+      parent: 2
+    - type: DeviceList
+      devices:
+      - 5704
+      - 4147
+      - 4914
+      - 5100
+  - uid: 6113
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -66.5,-13.5
+      parent: 2
+    - type: DeviceList
+      devices:
+      - 5704
+      - 4147
+      - 4914
+      - 5100
+- proto: WeaponEnergyTurretStation
+  entities:
+  - uid: 121
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -22.5,4.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 494
+      - 17715
+  - uid: 7271
+    components:
+    - type: Transform
+      pos: -29.5,-59.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 3807
+      - 11079
+  - uid: 9205
+    components:
+    - type: Transform
+      pos: -29.5,-63.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 3807
+      - 11079
+- proto: WeaponEnergyTurretStationControlPanel
+  entities:
+  - uid: 494
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -23.5,6.5
+      parent: 2
+    - type: DeviceList
+      devices:
+      - 121
+  - uid: 3807
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -31.5,-62.5
+      parent: 2
+    - type: DeviceList
+      devices:
+      - 7271
+      - 9205
+  - uid: 11079
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -29.5,-65.5
+      parent: 2
+    - type: DeviceList
+      devices:
+      - 7271
+      - 9205
+  - uid: 17715
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -23.5,2.5
+      parent: 2
+    - type: DeviceList
+      devices:
+      - 121
 - proto: WeaponSubMachineGunWt550
   entities:
   - uid: 14803
     components:
     - type: Transform
       pos: -21.319635,10.6595335
-      parent: 2
-- proto: WeaponTurretSyndicateBroken
-  entities:
-  - uid: 23214
-    components:
-    - type: Transform
-      pos: -65.5,-14.5
-      parent: 2
-  - uid: 23215
-    components:
-    - type: Transform
-      pos: -69.5,-14.5
-      parent: 2
-  - uid: 23216
-    components:
-    - type: Transform
-      pos: -69.5,-10.5
-      parent: 2
-  - uid: 23217
-    components:
-    - type: Transform
-      pos: -65.5,-10.5
       parent: 2
 - proto: WeaponWaterPistol
   entities:

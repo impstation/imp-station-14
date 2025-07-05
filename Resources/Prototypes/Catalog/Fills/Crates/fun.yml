@@ -69,12 +69,33 @@
       weight: 0.1
     - id: PlushieCaptain
       weight: 0.1
-    - id: PlushieOdds
-      weight: 0.4
     - id: PlushieGiantBear
-      weight: 0.5
+      weight: 0.05
+    - id: PlushieJumboGray
+      weight: 0.1
     - id: PlushieGriffy
+    - id: PlushieGnomeChild
+      weight: 0.1
     # imp edit end
+    # DEN begin
+    - !type:GroupSelector
+      children:
+      - id: PlushieTeddyBear
+      - id: PlushieTeddyBearRecolorableRandom
+    - !type:GroupSelector
+      children:
+      - id: SqueakySmileyGuy
+      - id: SqueakySmileyGuyRandom
+    - !type:GroupSelector
+      children:
+      - id: SqueakySmileyBall
+      - id: SqueakySmileyBallRandom
+        weight: 0.3 # rare color variant...
+    - !type:GroupSelector
+      children:
+      - id: PlushieAlienGerm
+      - id: PlushieAlienGermMini
+    # DEN end
 
 - type: entity
   id: CrateFunPlushie
