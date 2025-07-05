@@ -350,11 +350,12 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
 
             //huge list of every single whitelisted antag's role component
             if (_role.MindHasRole<ChangelingRoleComponent>(mindId)  /*Changeling*/
-            || _role.MindHasRole<RevolutionaryRoleComponent>(mindId)/*Head Rev*/
+            /*|| _role.MindHasRole<RevolutionaryRoleComponent>(mindId)/*Head Rev (REVS USE THE SAME MINDROLE WHYYY)*/
             || _role.MindHasRole<HereticRoleComponent>(mindId)      /*Heretic*/
             || _role.MindHasRole<ThiefRoleComponent>(mindId)        /*Thief*/
             || _role.MindHasRole<TraitorRoleComponent>(mindId)      /*Traitor*/
 
+            || _role.MindHasRole<MindRoleBountyHunterComponent>(mindId) /*Fellow Bunters*/
             || _role.MindHasRole<FugitiveRoleComponent>(mindId)    /*Fugitive*/
             || _role.MindHasRole<NinjaRoleComponent>(mindId)       /*Ninja*/
             || _role.MindHasRole<NukeopsRoleComponent>(mindId)     /*Nukies*/

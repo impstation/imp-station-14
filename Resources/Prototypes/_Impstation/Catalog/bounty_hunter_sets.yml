@@ -86,6 +86,8 @@
   - ClothingOuterDogi
   - DeathAcidifierImplanter
   - ScramImplanter
+  - RecallImplanter
+  - PSAUnpowered
 
 - type: thiefBackpackSet
   id: BountyHunterSyndie
@@ -144,3 +146,18 @@
   - FoodPieBananaCream
   - FoodPieBananaCream
   - BikeHorn
+
+- type: thiefBackpackSet
+  id: BountyHunterPirate
+  name: bounty-hunter-category-pirate-name
+  description: bounty-hunter-category-pirate-description
+  sprite:
+    sprite: Objects/Misc/Handy_Flags/pirate_handy_flag.rsi
+    state: icon
+  content:
+  - CrateBountyHunterPirate
+  - ReinforcementRadioBountyHunterParrot
+  - EnergyCutlass
+  - Fulton
+  - FultonBeacon
+  - FoodOrange
