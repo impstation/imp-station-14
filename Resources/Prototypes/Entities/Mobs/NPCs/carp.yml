@@ -260,6 +260,21 @@
   suffix: "Salvage Ruleset"
   components:
     - type: SalvageMobRestrictions
+    - type: Tag #imp
+      tags:
+        - Adult
+        - Carp
+        - DoorBumpOpener
+        - Feral
+    - type: Reproductive #imp
+      partnerWhitelist:
+        tags:
+        - Adult
+        - Carp
+        - Feral
+      offspring:
+      - id: MobCarpSalvage
+    - type: ReproductivePartner #imp
 
 - type: entity
   name: space carp
@@ -299,6 +314,21 @@
     damage:
       types:
         Slash: 6
+  - type: Tag #imp
+    tags:
+      - Adult
+      - Carp
+      - DoorBumpOpener
+      - Feral
+  - type: Reproductive #imp
+    partnerWhitelist:
+      tags:
+      - Adult
+      - Carp
+      - Feral
+    offspring:
+    - id: MobCarpDungeon
+  - type: ReproductivePartner #imp
 
 - type: entity
   name: sharkminnow

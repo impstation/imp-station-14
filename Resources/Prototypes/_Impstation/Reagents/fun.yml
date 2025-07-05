@@ -337,3 +337,37 @@
       - !type:AdjustReagent #imp
         reagent: Cellulose
         amount: 0.5
+
+- type: reagent
+  id: MutagenDomestic
+  name: reagent-name-mutagendomestic
+  desc: reagent-desc-mutagendomestic
+  physicalDesc: reagent-physical-desc-mutagendomestic
+  flavor: mutagendomestic
+  color: "#37ffe4"
+  recognizable: true
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:AddNewTag
+        addTag: DomesticOffspring
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+
+- type: reagent
+  id: Demutagen
+  name: reagent-name-demutagen
+  desc: reagent-desc-demutagen
+  physicalDesc: reagent-physical-desc-demutagen
+  flavor: demutagen
+  color: "#e82b2b"
+  recognizable: true
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:RemoveTheTag
+        removeTag: DomesticOffspring
+        conditions:
+        - !type:ReagentThreshold
+          min: 5

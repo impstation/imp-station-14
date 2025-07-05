@@ -8,9 +8,15 @@ namespace Content.Shared.Nutrition.AnimalHusbandry;
 /// This is used for marking entities as infants.
 /// Infants have half the size, visually, and cannot breed.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentPause]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentPause, AutoGenerateComponentState]
 public sealed partial class InfantComponent : Component
 {
+    /// <summary>
+    /// Checks if the entity is an infant
+    /// </summary> 
+    [DataField("infant"), AutoNetworkedField]
+    public bool IsInfant = false;
+
     /// <summary>
     /// How long the entity remains an infant.
     /// </summary>

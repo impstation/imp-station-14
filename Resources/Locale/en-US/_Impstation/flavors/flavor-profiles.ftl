@@ -102,3 +102,5 @@ flavor-complex-syndicateagent = like syndicate agent access
 flavor-complex-theatre = like theatre access
 flavor-complex-wizard = like wizard access
 flavor-complex-irwizine = like wrestling an alligator
+flavor-complex-mutagendomestic = like wearing a collar
+flavor-complex-demutagen = like cherries & a return to nature
