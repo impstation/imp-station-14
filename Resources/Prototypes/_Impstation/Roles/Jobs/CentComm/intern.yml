@@ -1,7 +1,7 @@
 ﻿- type: job
   id: CentcommIntern
   name: CentComm Intern
-  description: You volunteered for an emergency response mission with your fellow interns for a pay-raise.
+  description: job-description-centcomm-intern
   playTimeTracker: JobCentCommIntern
   setPreference: false
   startingGear: CentcommInternGear
@@ -34,7 +34,7 @@
 - type: job
   id: CentcommInternLeader
   name: CentComm Head Intern
-  description: You're the leader of a team of interns for an emergency response mission. Don't let CentComm down.
+  description: job-description-centcomm-intern-leader
   playTimeTracker: JobCentCommInternLeader
   setPreference: false
   startingGear: CentcommInternLeaderGear

@@ -57,7 +57,7 @@
     randomizeName: true
   - type: GhostRole
     name: Centcomm Intern
-    description: You volunteered for an emergency response mission with your fellow interns for a pay-raise. You must survive to get it.
+    description: job-description-centcomm-intern
     rules: ghost-role-information-nonantagonist-rules
     raffle:
       settings: short
@@ -74,7 +74,7 @@
     randomizeName: true
   - type: GhostRole
     name: CentComm Head Intern
-    description: You're the leader of a team of interns for an emergency response mission. Don't let CentComm down.
+    description: job-description-centcomm-intern-leader
     rules: ghost-role-information-nonantagonist-rules
     raffle:
       settings: short
@@ -91,7 +91,7 @@
     randomizeName: true
   - type: GhostRole
     name: Centcomm Intern
-    description: You volunteered for an emergency response mission with your fellow interns for a pay-raise. You must survive to get it. Central Command has decided to send you in completely unarmed.
+    description: job-description-centcomm-intern-unarmed
     rules: ghost-role-information-nonantagonist-rules
     raffle:
       settings: short
@@ -108,7 +108,7 @@
     randomizeName: true
   - type: GhostRole
     name: CentComm Head Intern
-    description: You're the leader of a team of interns for an emergency response mission. Don't let CentComm down. Central Command has decided to send you in completely unarmed.
+    description: job-description-centcomm-intern-leader-unarmed
     rules: ghost-role-information-nonantagonist-rules
     raffle:
       settings: short
