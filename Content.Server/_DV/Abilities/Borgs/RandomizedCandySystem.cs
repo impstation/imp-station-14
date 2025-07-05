@@ -1,10 +1,8 @@
 using System.Linq;
-using Content.Server.Nutrition.Components;
 using Content.Shared._DV.Abilities.Borgs;
-using Content.Shared.Nutrition;
+using Content.Shared.Nutrition.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Utility;
 
 namespace Content.Server._DV.Abilities.Borgs;
 
@@ -22,7 +20,7 @@ public sealed partial class RandomizedCandySystem : EntitySystem
     /// <summary>
     /// Flavors that are masked by the candy.
     /// </summary>
-    private static readonly string[] MaskedReagents = { "Sugar", "Iron" }; // sugar is obvious and iron is "metallic" :(
+    private static readonly string[] MaskedReagents = ["Sugar", "Iron"]; // sugar is obvious and iron is "metallic" :(
 
     public override void Initialize()
     {

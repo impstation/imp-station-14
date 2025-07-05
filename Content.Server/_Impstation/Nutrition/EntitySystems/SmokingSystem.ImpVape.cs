@@ -14,6 +14,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Nutrition;
+using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Smoking;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;

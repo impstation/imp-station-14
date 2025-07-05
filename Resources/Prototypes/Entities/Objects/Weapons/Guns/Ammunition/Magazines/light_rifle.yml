@@ -69,7 +69,7 @@
     proto: CartridgeLightRifle
   - type: Sprite
     layers:
-    - state: red
+    - state: red # imp
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
@@ -116,10 +116,12 @@
     proto: CartridgeLightRiflePractice
   - type: Sprite
     layers:
-    - state: practice
+    - state: practice # imp
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+    # - state: stripe # imp remove
+    #   color: "#dbdbdb"
   - type: Item
     inhandVisuals:
       left:
@@ -141,10 +143,12 @@
     proto: CartridgeLightRifleUranium
   - type: Sprite
     layers:
-    - state: uranium
+    - state: uranium # imp
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+    # - state: stripe # imp remove
+    #   color: "#00cd42"
   - type: Item
     inhandVisuals:
       left:
@@ -164,6 +168,24 @@
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRifleIncendiary
+  - type: Sprite
+    layers:
+    - state: red #imp
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  #   - state: stripe #imp remove
+  #     color: "#ff6e52"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#820a16" #imp
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#820a16" #imp
 
 - type: entity
   id: MagazineLightRifleMaxim

@@ -1,7 +1,7 @@
-using System.Numerics;
 using Content.Client._Impstation.Administration.Components;
 using Robust.Client.GameObjects;
 using Robust.Shared.Utility;
+using System.Numerics;
 
 namespace Content.Client._Impstation.Administration.Systems;
 
