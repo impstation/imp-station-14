@@ -142,3 +142,10 @@ ghost-role-information-antagonistchance-rules = You are a [color=green][bold]Non
 
                                              You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
 
+ghost-role-information-freeagent-teamantagonistchance-rules = You are a [color=yellow][bold]Free Agent[/bold][/color] with a small chance of rolling a [color=red][bold]Team Antagonist[/bold][/color] role. You are free to act as either an antagonist or a non-antagonist. [bold]ABANDONING THIS ROLE BECAUSE YOU ARE NOT AN ANTAGONIST WILL RESULT IN A BAN.[/bold]
+                                         You are still required to follow rules against excessive destruction. [color=red]Do not seek to sabotage critical infrastructure without proper escalation.[/color]
+
+                                         You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
+
+ghost-role-information-monkey-name-lambordeere = Glorious Leader Monkey
+ghost-role-information-monkey-description-lambordeere = You have slain your captor and now seek to reap the rewards of freedom.

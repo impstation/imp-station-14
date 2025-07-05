@@ -13,7 +13,13 @@ public sealed partial class RandomAntagChanceComponent : Component
     /// Sets the antag type to be rolled for.
     /// </summary>
     [DataField]
-    public EntProtoId Profile = "Traitor";
+    public EntProtoId Profile = "traitorRole";
+
+    /// <summary>
+    /// Sets the fallback role if the role fails
+    /// </summary>
+    [DataField]
+    public EntProtoId Fallback = "MindRoleGhostRoleNeutral";
 
     /// <summary>
     /// Sets the chance that the antag is rolled
