@@ -36,6 +36,7 @@ public sealed class ReplicatorSystem : EntitySystem
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly PinpointerSystem _pinpointer = default!;
+    [Dependency] private readonly SharedReplicatorNestSystem _replicatorNest = default!;
 
     public override void Initialize()
     {
@@ -127,6 +128,8 @@ public sealed class ReplicatorSystem : EntitySystem
         if (HasComp<ReplicatorSignComponent>(ent))
             RemComp<ReplicatorSignComponent>(ent);
 
+        _replicatorNest.ForceUpgrade(ent, ent.Comp.FirstStage);
+
         // then we need to remove the action, to ensure it can't be used infinitely.
         QueueDel(args.Action);
     }
@@ -172,15 +175,17 @@ public sealed class ReplicatorSystem : EntitySystem
 
     private void OnMobStateChanged(Entity<ReplicatorComponent> ent, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState != MobState.Critical || args.NewMobState != MobState.Dead)
+        if (args.NewMobState != MobState.Critical | args.NewMobState != MobState.Dead)
             return;
 
         _appearance.SetData(ent, ReplicatorVisuals.Combat, false);
 
-        if (ent.Comp.Queen && ent.Comp.MyNest == null)
+        if (HasComp<ReplicatorSignComponent>(ent))
         {
             foreach (var (uid, comp) in ent.Comp.RelatedReplicators)
+            {
                 _popup.PopupEntity(Loc.GetString(comp.QueenDiedMessage), uid, uid, PopupType.LargeCaution);
+            }
         }
     }
 
