@@ -26,10 +26,10 @@
     id: CentcommInternPDA
   storage:
     back:
-    - MagazinePistol
-    - MagazinePistol
+    - MagazineZipper
+    - MagazineZipper
   inhand:
-  - WeaponPistolMk58
+  - WeaponPistolZipper
 
 - type: job
   id: CentcommInternLeader
@@ -61,12 +61,12 @@
     ears: ClothingHeadsetCentCom
     shoes: ClothingShoesColorBlack
     id: CentcommInternLeaderPDA
-    pocket1: WeaponPistolMk58
+    pocket1: WeaponPistolZipper
   storage:
     back:
+    - MagazineZipper
+    - MagazineZipper
     - MagazineBoxLightRifle
-    - MagazinePistol
-    - MagazinePistol
   inhand:
   - WeaponSniperMosin
 
