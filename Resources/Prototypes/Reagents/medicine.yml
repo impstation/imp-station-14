@@ -76,16 +76,6 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 1
-        - !type:OrganType
-          type: Snail
-          shouldHave: true
-        damage:
-          types:
-            Poison: 4
       - !type:AdjustReagent
         reagent: Histamine
         amount: -3.0
@@ -103,6 +93,15 @@
         damage:
           types:
             Poison: -3
+    Poison: #imp edit
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Snail
+        damage:
+          types:
+            Poison: 4
 
 - type: reagent
   id: Ethylredoxrazine
@@ -693,20 +692,19 @@
   metabolisms:
     Drink:
       effects:
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 1
-        - !type:OrganType
-          type: Snail
-          shouldHave: true
-        damage:
-          types:
-            Poison: 4
       - !type:SatiateThirst
         factor: 6
       - !type:ModifyBloodLevel
         amount: 6
+    Poison: #imp edit
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Snail
+        damage:
+          types:
+            Poison: 4
 
 - type: reagent
   id: Siderlac
@@ -833,13 +831,10 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:HealthChange
+      - !type:HealthChange #imp edit
         conditions:
-        - !type:ReagentThreshold
-          min: 1
         - !type:OrganType
           type: Snail
-          shouldHave: true
         damage:
           types:
             Poison: 4
@@ -921,16 +916,13 @@
     Medicine:
       effects:
       - !type:ChemHealEyeDamage
-      - !type:HealthChange
+      - !type:HealthChange #imp edit
         conditions:
-        - !type:ReagentThreshold
-          min: 1
         - !type:OrganType
           type: Snail
-          shouldHave: true
         damage:
           types:
-            Poison: 4
+            Poison: 2
 
 - type: reagent
   id: Cognizine
