@@ -37,8 +37,3 @@ reagent-desc-paprika = A spice like no other, can cause even the most hearty of 
 reagent-name-pulp = Pulp 
 reagent-desc-pulp = The mushed up remains of a wood-based product. Moths are able to derive sustenance from this.
 
-reagent-name-mutagendomestic = Mutagen-D
-reagent-desc-mutagendomestic = A chemical that alters the genes displayed in the ingesting creature's offspring, causing them to be domesticated. Does not work on those born as a sophont.
-
-reagent-name-demutagen = Antimutagen
-reagent-desc-demutagen = A chemical that resets the altared genes within a creature, causing their offspring to be as natural as their ancestors. 

@@ -3778,10 +3778,6 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: pig
       sprite: Mobs/Animals/pig.rsi
-    - state: pig #imp
-      map: ["infantLayer"]
-      sprite: Mobs/Animals/piginfant.rsi
-      visible: false  
   - type: Fixtures
     fixtures:
       fix1:
@@ -3813,7 +3809,7 @@
       Alive:
         Base: pig
       Critical:
-        Base: dead  
+        Base: dead
       Dead:
         Base: dead
   - type: Butcherable
@@ -3843,12 +3839,6 @@
     rootTask:
       task: RuminantCompound
   - type: PleebnarGibbable # imp edit
-  - type: GenericVisualizer #imp
-    visuals:
-      enum.InfantVisuals.State:
-        infantLayer:
-          True: {visible: true}
-          False: {visible: false}
 
 - type: entity
   name: diona nymph

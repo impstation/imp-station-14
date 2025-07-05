@@ -14,5 +14,3 @@ reagent-physical-desc-irwizine = Oceanian
 reagent-physical-desc-sad = sad
 reagent-physical-desc-nervous = nervous
 reagent-physical-desc-reallynervous = really nervous
-reagent-physical-desc-mutagendomestic = domesticated
-reagent-physical-desc-demutagen = rectifying
