@@ -27,4 +27,10 @@ public sealed class ImpCCVars : CVars
     public static readonly CVarDef<uint> ThavenSharedMoodCount =
         CVarDef.Create<uint>("thaven.shared_mood_count", 1, CVar.SERVERONLY);
 
+    public static readonly CVarDef<bool> NotifierOn=
+        CVarDef.Create("accessibility.notifier_on", false, CVar.ARCHIVE | CVar.REPLICATED | CVar.CLIENT, "if the notifier system is active");
+    public static readonly CVarDef<string> NotifierExamine =
+        CVarDef.Create("accessibility.notifier_examine", "", CVar.ARCHIVE | CVar.REPLICATED | CVar.CLIENT, "content of accessibility issue notifier.");
+
 }
+
