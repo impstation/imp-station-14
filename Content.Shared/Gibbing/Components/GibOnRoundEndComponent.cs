@@ -19,4 +19,11 @@ public sealed partial class GibOnRoundEndComponent : Component
     /// </summary>
     [DataField]
     public EntProtoId? SpawnProto;
+
+    /// <summary>
+    /// IMP ADDITION: If the entity has ANY of these objectives fulfilled, they won't be gibbed.
+    /// Ignored if not set.
+    /// </summary>
+    [DataField]
+    public HashSet<EntProtoId> GibProofObjectives = new();
 }

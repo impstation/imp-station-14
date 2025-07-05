@@ -22,6 +22,7 @@
   components:
   - type: Objective
     icon:
+      trivial: true # imp
       sprite: Structures/Furniture/chairs.rsi
       state: shuttle
   - type: EscapeShuttleCondition
@@ -37,4 +38,20 @@
     requireDead: true
   - type: TargetObjective
     title: objective-condition-kill-head-title # kill <name>, <job>
+
+## imp additions
+- type: entity
+  parent: [BaseParadoxCloneObjective, BaseKeepAliveObjective]
+  id: ParadoxCloneSaveObjective
+  name: Maintain the paradox.
+  description: Protect your original at all costs. If your original dies, you will invariably cease to exist.
+  components:
+  - type: PickSpecificPerson
+  - type: KeepAliveCondition
+  - type: Objective
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: void_phase # seems as good a "paradox"-y sprite as any
+  - type: TargetObjective
+    title: objective-condition-save-head-title # save <name>, <job>
 
