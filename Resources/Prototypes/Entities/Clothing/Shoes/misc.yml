@@ -51,8 +51,6 @@
     node: shoes
   #start imp edit
   - type: ItemToggle
-    onUse: false
-    onActivate: false
     soundActivate:
       path: /Audio/_Impstation/Effects/Footsteps/quack_on.ogg
     soundDeactivate:
