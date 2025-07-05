@@ -17,6 +17,7 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
 
         public static HashSet<Gas> DefaultFilterGases = new()
         {
+            // Imp, removed all non-player-waste gases
             Gas.CarbonDioxide,
             Gas.Ammonia,
             Gas.NitrousOxide,
