@@ -549,7 +549,7 @@ marking-ThavenHairSidetail3 = Ponytail (Side) 3
 
 marking-ThavenHairSidetail4 = Ponytail (Side) 4
 
-marking-ThavenHairSkinhead = Skinhead
+marking-ThavenHairSkinhead = High And Tight
 
 marking-ThavenHairSpikey = Spiky
 
