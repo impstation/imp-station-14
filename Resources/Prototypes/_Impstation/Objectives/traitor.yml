@@ -1,3 +1,18 @@
+# kill or maroon
+
+- type: entity
+  parent: [BaseTraitorObjective, BaseKillObjective]
+  id: KillOrMaroonRandomPersonObjective
+  description: Do it however you like, just make sure they don't make it to CentComm.
+  components:
+  - type: Objective
+    difficulty: 1.5
+    unique: false
+  - type: TargetObjective
+    title: objective-condition-kill-person-title
+  - type: PickRandomPerson
+  - type: KillPersonCondition
+
 #SVS objectives
 
 - type: entity
