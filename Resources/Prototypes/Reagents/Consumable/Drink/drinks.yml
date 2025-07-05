@@ -610,13 +610,11 @@
   physicalDesc: reagent-physical-desc-sour
   flavor: bitter
   color: "#B3B599"
-  metabolisms:
-    Drink:
+  metabolisms: #imp
+    Poison:
       effects:
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
-          min: 1
         - !type:OrganType
           type: Snail
           shouldHave: true
