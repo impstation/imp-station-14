@@ -142,3 +142,8 @@ ghost-role-information-antagonistchance-rules = You are a [color=green][bold]Non
 
                                              You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
 
+ghost-role-information-infiltrator-name = Syndicate Infiltrator
+ghost-role-information-infiltrator-description = You are an elite espionage agent sent to sabotage the station and its crew. 
+ghost-role-information-infiltrator-rules = You are a [color=red][bold]Solo Antagonist[/bold][/color]. Your intentions are clear, and harmful to the station and its crew.
+
+                                          You don't remember any of your previous life, and you don't remember anything you learned as a ghost.

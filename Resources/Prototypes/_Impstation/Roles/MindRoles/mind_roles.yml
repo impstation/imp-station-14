@@ -28,3 +28,11 @@
     roleType: SoloAntagonist
     antagPrototype: NukeopsLone
   - type: NukeopsRole
+
+# Syndicate Infiltrator
+- type: entity
+  parent: MindRoleTraitor
+  id: MindRoleInfiltrator
+  components:
+  - type: MindRole
+    subtype: role-subtype-traitor

@@ -44,6 +44,7 @@
     - id: ReplicatorSpawn # imp
     - id: OppaSpawnLight #imp
     - id: OppaSpawnNight #imp
+    - id: SyndicateInfiltratorSpawn # imp
 
 - type: entityTable
   id: SleeperlessAntagEventsTable
@@ -67,6 +68,7 @@
     - id: ReplicatorSpawn # imp
     - id: OppaSpawnLight #imp
     - id: OppaSpawnLight #imp
+    - id: SyndicateInfiltratorSpawn # imp
 
 - type: entity
   id: BaseStationEvent
