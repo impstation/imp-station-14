@@ -4,11 +4,6 @@ on:
   pull_request_target:
     types: [review_requested]
 
-permissions:
-  pull-requests: write
-  issues: write
-  contents: write
-
 jobs:
   add_label:
     runs-on: ubuntu-latest
