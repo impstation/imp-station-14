@@ -143,30 +143,22 @@
     wideAnimationRotation: -80
 
 - type: entity
-  name: Gray-Play blaster
+  name: Ceremonial Gray blaster
   parent: WeaponDisablerPractice
   id: WeaponBlasterToy
-  description: A favourite of Grays everywhere.
+  description: A harmless* gun used by Grays used for ceremonial purposes.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/advblaster.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/grayceremonial.rsi
     layers:
-      - state: base
-        map: ["enum.GunVisualLayers.Base"]
-      - state: mag-unshaded-4
-        map: ["enum.GunVisualLayers.MagUnshaded"]
-        shader: unshaded
+      - state: icon
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/advblaster.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/grayceremonial.rsi
     quickEquip: false
     slots:
       - suitStorage
       - Belt
   - type: Appearance
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: true
   - type: Battery
     maxCharge: 1000
     startingCharge: 1000
@@ -189,6 +181,11 @@
     autoRechargeRate: 200
   - type: MeleeWeapon
     wideAnimationRotation: -80
+    damage:
+      types:
+        Blunt: 0
+  - type: DamageOtherOnHit
+    staminaCost: 15
     damage:
       types:
         Blunt: 0
