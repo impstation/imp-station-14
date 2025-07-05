@@ -4,7 +4,7 @@ namespace Content.Shared._Impstation.BountyHunter;
 
 /// <summary>
 /// Component for the WeaponRecall action.
-/// Used for marking a held item and recalling it back into your hand with second action use.
+/// Used for marking a held weapon and recalling it back into your hand with second action use.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState, Access(typeof(SharedWeaponRecallSystem))]
 public sealed partial class WeaponRecallComponent : Component
