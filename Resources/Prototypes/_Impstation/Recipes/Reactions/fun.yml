@@ -43,3 +43,14 @@
       amount: 1
   products:
     PropulsionGel: 2
+
+- type: reaction
+  id: CreateCorgi
+  impact: High
+  quantized: true
+  reactants:
+    CorgiJuice:
+      amount: 100
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: MobCorgi
