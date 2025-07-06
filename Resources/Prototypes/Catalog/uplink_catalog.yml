@@ -996,9 +996,9 @@
   productEntity: RadioJammer
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1 # imp 2 -> 1
   cost:
-    Telecrystal: 3
+    Telecrystal: 2 # imp 3 -> 2
   categories:
   - UplinkDisruption
 
