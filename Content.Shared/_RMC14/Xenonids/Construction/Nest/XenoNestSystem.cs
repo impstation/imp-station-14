@@ -93,7 +93,8 @@ public sealed class XenoNestSystem : EntitySystem
         SubscribeLocalEvent<XenoNestedComponent, ThrowAttemptEvent>(OnNestedCancel);
         SubscribeLocalEvent<XenoNestedComponent, PickupAttemptEvent>(OnNestedCancel);
         SubscribeLocalEvent<XenoNestedComponent, AttackAttemptEvent>(OnNestedCancel);
-        SubscribeLocalEvent<XenoNestedComponent, ChangeDirectionAttemptEvent>(OnNestedCancel);
+        SubscribeLocalEvent<XenoNestedComponent, ChangeDirectionAttemptEvent>(OnNestedEscapeAttempt);
+        SubscribeLocalEvent<XenoNestedComponent, XenoEscapeNestDoAfterEvent>(OnEscapeNestDoAfter);
         SubscribeLocalEvent<XenoNestedComponent, StandAttemptEvent>(OnNestedCancel);
         SubscribeLocalEvent<XenoNestedComponent, IsEquippingAttemptEvent>(OnNestedCancel);
         SubscribeLocalEvent<XenoNestedComponent, IsUnequippingAttemptEvent>(OnNestedCancel);
@@ -287,6 +288,11 @@ public sealed class XenoNestSystem : EntitySystem
         args.Cancel();
     }
 
+    private void OnNestedEscapeAttempt(Entity<XenoNestedComponent> ent, ref ChangeDirectionAttemptEvent args)
+    {
+        TryEscapeNest(ent, ent);
+    }
+
     private void OnInNestGetInfectedIncubationMultiplier(Entity<XenoNestedComponent> ent, ref GetInfectedIncubationMultiplierEvent args)
     {
         if (ent.Comp.Running)
@@ -337,6 +343,28 @@ public sealed class XenoNestSystem : EntitySystem
     public bool TryStartNesting(EntityUid user, Entity<XenoNestSurfaceComponent> surface, EntityUid victim)
     {
         return TryStartNesting(user, surface, victim, out _);
+    }
+
+    private void OnEscapeNestDoAfter(Entity<XenoNestedComponent> ent, ref XenoEscapeNestDoAfterEvent args)
+    {
+        if (args.Cancelled || args.Handled)
+            return;
+
+        args.Handled = true;
+        DetachNested(null, ent);
+    }
+
+    public bool TryEscapeNest(EntityUid victim, Entity<XenoNestedComponent> nested)
+    {
+        var ev = new XenoEscapeNestDoAfterEvent();
+        var doAfter = new DoAfterArgs(EntityManager, victim, nested.Comp.DoAfter, ev, victim)
+        {
+            BreakOnMove = false,
+            AttemptFrequency = AttemptFrequency.EveryTick
+        };
+
+        _doAfter.TryStartDoAfter(doAfter);
+        return true;
     }
 
     private bool CanBeNested(EntityUid user,

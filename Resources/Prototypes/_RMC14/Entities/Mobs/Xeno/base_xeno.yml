@@ -286,6 +286,11 @@
   - type: Body
     prototype: Xeno
   - type: Stripping
+  - type: WhitelistPickup
+    whitelist:
+      components:
+      - XenoParasite
+
 
 - type: entity
   abstract: true

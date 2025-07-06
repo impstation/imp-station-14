@@ -45,6 +45,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.VendingMachines;
 using Content.Shared.Humanoid;
+using Content.Shared.Whitelist;
+using Content.Shared.Hands;
 
 namespace Content.Shared._RMC14.Xenonids;
 
@@ -70,6 +72,7 @@ public sealed partial class XenoSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedRMCDamageableSystem _rmcDamageable = default!;
     [Dependency] private readonly SharedRMCFlammableSystem _rmcFlammable = default!;
+        [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     private static readonly ProtoId<DamageTypePrototype> HeatDamage = "Heat";
 

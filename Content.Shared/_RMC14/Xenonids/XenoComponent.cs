@@ -7,6 +7,7 @@ using Content.Shared.Roles;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Audio;
+using Content.Shared.Whitelist;
 
 namespace Content.Shared._RMC14.Xenonids;
 
@@ -55,6 +56,9 @@ public sealed partial class XenoComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool MuteOnSpawn;
+
+    [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
+    public EntityWhitelist? Whitelist;
 
     public EmoteSoundsPrototype? Sounds;
 

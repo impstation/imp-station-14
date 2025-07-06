@@ -84,7 +84,6 @@ public abstract class SharedXenoAcidSystem : EntitySystem
         {
             BreakOnMove = true,
             RequireCanInteract = false,
-            AttemptFrequency = AttemptFrequency.StartAndEnd
         };
 
         _doAfter.TryStartDoAfter(doAfter);
@@ -108,9 +107,6 @@ public abstract class SharedXenoAcidSystem : EntitySystem
             return;
 
         if (args.PlasmaCost != 0 && !_xenoPlasma.TryRemovePlasmaPopup(xeno.Owner, args.PlasmaCost))
-            return;
-
-        if (args.EnergyCost != 0 && !_xenoEnergy.TryRemoveEnergyPopup(xeno.Owner, args.EnergyCost))
             return;
 
         if (_net.IsClient)

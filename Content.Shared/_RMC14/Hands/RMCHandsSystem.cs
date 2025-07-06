@@ -26,6 +26,11 @@ public abstract class RMCHandsSystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly SharedStorageSystem _storage = default!;
 
+    public override void Initialize()
+    {
+        SubscribeLocalEvent<WhitelistPickupComponent, PickupAttemptEvent>(OnWhitelistPickUpAttempt);
+    }
+
     public bool TryGetHolder(EntityUid item, out EntityUid user)
     {
         user = default;
@@ -37,6 +42,15 @@ public abstract class RMCHandsSystem : EntitySystem
 
         user = container.Owner;
         return true;
+    }
+
+    private void OnWhitelistPickUpAttempt(Entity<WhitelistPickupComponent> ent, ref PickupAttemptEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
+        if (!_whitelist.IsValid(ent.Comp.Whitelist, args.Item))
+            args.Cancel();
     }
 
     public virtual void ThrowHeldItem(EntityUid player, EntityCoordinates coordinates, float minDistance = 0.1f) { }

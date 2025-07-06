@@ -18,4 +18,7 @@ public sealed partial class XenoNestedComponent : Component
 
     [DataField, AutoNetworkedField]
     public NetUserId? GhostedId;
+
+    [DataField, AutoNetworkedField]
+    public TimeSpan DoAfter = TimeSpan.FromSeconds(8);
 }
