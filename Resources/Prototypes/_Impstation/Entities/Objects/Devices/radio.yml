@@ -19,6 +19,12 @@
     interfaces:
       enum.HandheldRadioUiKey.Key:
         type: HandheldRadioBoundUserInterface
+  - type: Sprite
+    sprite: Objects/Devices/communication.rsi
+    layers:
+    - state: walkietalkie
+    - state: walkietalkie-on
+    state: walkietalkie
 
 - type: entity
   name: scrap radio
