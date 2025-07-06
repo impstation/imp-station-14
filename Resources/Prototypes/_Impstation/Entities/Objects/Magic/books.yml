@@ -20,7 +20,7 @@
         shader: unshaded
     - type: Spellbook
       spellActions:
-        ActionSpawnSpaceGreaseSpell: -1
+        ActionSpawnSpaceGreaseSpell: null
     
 - type: entity
   id: BaseSpellbookSafeLibrarian
@@ -150,7 +150,7 @@
       shader: unshaded
   - type: Spellbook
     spellActions:
-      ActionBabyFireball: -1
+      ActionBabyFireball: null
 
 - type: entity
   id: SpellbookSafeLibrarianScissors
