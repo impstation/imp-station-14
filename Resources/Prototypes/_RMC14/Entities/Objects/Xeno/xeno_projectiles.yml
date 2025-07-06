@@ -129,11 +129,10 @@
         hard: true
         mask:
         - Impassable
-        - BarricadeImpassable
   - type: Sprite
-    sprite: _RMC14/Objects/Xeno/xeno_acid_ball.rsi
+    sprite: Objects/Weapons/Guns/Projectiles/xeno_toxic.rsi
     layers:
-    - state: neuro_nade
+    - state: xeno_toxic
       shader: unshaded
   - type: Projectile
     deleteOnCollide: false

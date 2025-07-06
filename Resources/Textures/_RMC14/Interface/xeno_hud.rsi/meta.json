@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from cmss13 at https://github.com/cmss13-devs/cmss13/blob/daac1b70c46480c55b1e93b64f04529d364dd60f/icons/mob/hud/hud.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "infected0"
+    },
+    {
+      "name": "infected1"
+    },
+    {
+      "name": "infected2"
+    },
+    {
+      "name": "infected3"
+    },
+    {
+      "name": "infected4"
+    },
+    {
+      "name": "infected5"
+    },
+    {
+      "name": "infected6",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    }
+  ]
+}

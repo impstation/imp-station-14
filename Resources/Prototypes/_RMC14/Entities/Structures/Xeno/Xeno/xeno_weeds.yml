@@ -29,7 +29,7 @@
   - type: XenoWeedsSpreading
     spreadDelay: 6
   - type: Sprite
-    sprite: _RMC14/Structures/Xenos/xeno_weeds.rsi
+    sprite: _Impstation/Structures/Xenos/xeno_weeds.rsi
     drawdepth: FloorTiles
     layers:
     - state: weed0
@@ -98,7 +98,7 @@
   description: A weird, pulsating node
   components:
   - type: Sprite
-    sprite: _RMC14/Structures/Xenos/xeno_weeds.rsi
+    sprite: _Impstation/Structures/Xenos/xeno_weeds.rsi
     drawdepth: FloorTiles
     layers:
     - state: weed0

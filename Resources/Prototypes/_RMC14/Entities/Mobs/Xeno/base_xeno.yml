@@ -1,3 +1,5 @@
+# i know you goobers are gonna be porting this instantly once it hits github so im just gonna say right now yall OWE ME my rightfully owed GC for this AND maint drones >:)
+
 # Xeno AI
 - type: htnCompound
   id: CMXenoCompound
@@ -112,10 +114,6 @@
     - map: [ "enum.XenoInhandVisualLayers.Left" ]
       visible: false
     - map: [ "enum.XenoInhandVisualLayers.Right" ]
-      visible: false
-    - map: [ "focused" ]
-      sprite: _RMC14/Interface/xeno_hud.rsi
-      state: hudeye
       visible: false
   - type: Physics
     bodyType: KinematicController
