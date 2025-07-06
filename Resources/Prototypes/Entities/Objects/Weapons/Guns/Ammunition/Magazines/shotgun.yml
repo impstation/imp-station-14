@@ -138,7 +138,7 @@
     proto: ShellShotgunIncendiary
   - type: Sprite
     layers:
-    - state: slug
+    - state: slug # imp
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
