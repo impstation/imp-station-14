@@ -17,10 +17,7 @@ using Robust.Shared.Prototypes;
 using Content.Shared.UserInterface; // Nuclear-14
 using Content.Shared._NC.Radio; // Nuclear-14
 using Robust.Server.GameObjects; // Nuclear-14
-using Content.Shared.Access.Systems; // Frontier
-using Content.Shared.Verbs; //Frontier
-using Robust.Shared.Utility; // Frontier
-using Content.Shared.ActionBlocker; //Frontier
+using Content.Server._Impstation.Radio; // imp
 
 namespace Content.Server.Radio.EntitySystems;
 
@@ -35,9 +32,8 @@ public sealed class RadioDeviceSystem : EntitySystem
     [Dependency] private readonly RadioSystem _radio = default!;
     [Dependency] private readonly InteractionSystem _interaction = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly AccessReaderSystem _access = default!; // Frontier: access
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!; // Frontier
     [Dependency] private readonly UserInterfaceSystem _ui = default!; // Frontier
+    [Dependency] private readonly BatteryRadioSystem _batteryRadio = default!; // imp
 
     // Used to prevent a shitter from using a bunch of radios to spam chat.
     private HashSet<(string, EntityUid, RadioChannelPrototype)> _recentlySent = new();
@@ -55,7 +51,6 @@ public sealed class RadioDeviceSystem : EntitySystem
         SubscribeLocalEvent<RadioMicrophoneComponent, ListenEvent>(OnListen);
         SubscribeLocalEvent<RadioMicrophoneComponent, ListenAttemptEvent>(OnAttemptListen);
         SubscribeLocalEvent<RadioMicrophoneComponent, PowerChangedEvent>(OnPowerChanged);
-        SubscribeLocalEvent<RadioMicrophoneComponent, GetVerbsEvent<AlternativeVerb>>(OnGetAltVerbs); // Frontier
 
         SubscribeLocalEvent<RadioSpeakerComponent, ComponentInit>(OnSpeakerInit);
         SubscribeLocalEvent<RadioSpeakerComponent, ActivateInWorldEvent>(OnActivateSpeaker);
@@ -161,6 +156,9 @@ public sealed class RadioDeviceSystem : EntitySystem
             EnsureComp<ActiveListenerComponent>(uid).Range = component.ListenRange;
         else
             RemCompDeferred<ActiveListenerComponent>(uid);
+
+        if (HasComp<BatteryRadioComponent>(uid)) // imp
+            _batteryRadio.ActivateMicrophone(uid, component.Enabled);
     }
 
     public void ToggleRadioSpeaker(EntityUid uid, EntityUid user, bool quiet = false, RadioSpeakerComponent? component = null)
@@ -190,6 +188,9 @@ public sealed class RadioDeviceSystem : EntitySystem
             EnsureComp<ActiveRadioComponent>(uid).Channels.UnionWith(component.Channels);
         else
             RemCompDeferred<ActiveRadioComponent>(uid);
+
+        if (HasComp<BatteryRadioComponent>(uid)) // imp
+            _batteryRadio.ActivateSpeaker(uid, component.Enabled);
     }
     #endregion
 
@@ -362,45 +363,4 @@ public sealed class RadioDeviceSystem : EntitySystem
 
     #endregion
     // Nuclear-14-End
-
-    // Frontier Start
-    /// <summary>
-    ///     Adds an alt verb allowing for the mic to be toggled easily.
-    /// </summary>
-    private void OnGetAltVerbs(EntityUid uid, RadioMicrophoneComponent microphone, GetVerbsEvent<AlternativeVerb> args)
-    {
-        if (!args.CanInteract || !args.CanAccess)
-            return;
-
-        if (!_access.IsAllowed(args.User, uid)
-            || !_actionBlocker.CanComplexInteract(args.User))
-            return;
-
-        AlternativeVerb verb = new()
-        {
-            Text = Loc.GetString("handheld-radio-component-toggle"),
-            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/settings.svg.192dpi.png")),
-            Act = () => ToggleRadioOrIntercomMic(uid, microphone, args.User)
-        };
-        args.Verbs.Add(verb);
-    }
-
-    /// <summary>
-    ///     A mic toggle for both radios and intercoms.
-    /// </summary>
-    private void ToggleRadioOrIntercomMic(EntityUid uid, RadioMicrophoneComponent microphone, EntityUid user)
-    {
-        if (!_access.IsAllowed(user, uid))
-            return;
-        if (microphone.PowerRequired && !this.IsPowered(uid, EntityManager))
-            return;
-
-        ToggleRadioMicrophone(uid, user, false, microphone);
-        if (TryComp<IntercomComponent>(uid, out var intercom))
-        {
-            intercom.MicrophoneEnabled = microphone.Enabled;
-            Dirty<IntercomComponent>((uid, intercom));
-        }
-    }
-    // Frontier End
 }

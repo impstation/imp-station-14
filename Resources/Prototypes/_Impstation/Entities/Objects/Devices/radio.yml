@@ -4,6 +4,22 @@
   parent: RadioHandheld
   id: RadioHandheldScrap
   components:
+  - type: RadioMicrophone
+    broadcastChannel: Handheld
+    toggleOnInteract: false
+    frequency: 1330
+    batteryRequired: True
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot
+  - type: BatteryRadio
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellSmall
   - type: Sprite
     sprite: _Impstation/Objects/Devices/communication.rsi
     layers:
