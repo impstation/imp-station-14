@@ -212,7 +212,7 @@
     fuelConsumption: 0.01
     fuelLitCost: 0.1
     tankSafe: true
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     # imp start
     spriteLayer: flame-orange
     inhandVisuals:
@@ -272,7 +272,7 @@
   - type: Item
     sprite: _Impstation/Objects/Tools/lighters.rsi
     heldPrefix: engraved
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     spriteLayer: flame-orange
     inhandVisuals:
       left:
