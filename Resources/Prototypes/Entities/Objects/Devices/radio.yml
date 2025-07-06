@@ -12,6 +12,7 @@
   - type: RadioSpeaker
     channels:
     - Handheld
+    toggleOnInteract: false # Nuclear-14
   - type: Speech
     speechVerb: Robotic
   - type: Sprite
@@ -26,6 +27,14 @@
   - type: Tag
     tags:
     - Radio
+  # Nuclear-14 start
+  - type: ActivatableUI
+    key: enum.HandheldRadioUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.HandheldRadioUiKey.Key:
+        type: HandheldRadioBoundUserInterface
+  # Nuclear-14 end
 
 - type: entity
   name: security radio

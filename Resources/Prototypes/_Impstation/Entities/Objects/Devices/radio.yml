@@ -1,0 +1,15 @@
+- type: entity
+  name: scrap radio
+  description: A handheld radio made out of junk.
+  parent: RadioHandheld
+  id: RadioHandheldScrap
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Devices/communication.rsi
+    layers:
+    - state: scrapradio
+    - state: on-scrapradio
+    state: scrapradio
+  - type: Item
+    sprite: _Impstation/Objects/Devices/communication.rsi
+    heldPrefix: scrapradio
