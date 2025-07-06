@@ -41,7 +41,7 @@ namespace Content.Shared.Strip.Components
 
         public TimeSpan Time => TimeSpan.FromSeconds(MathF.Max(InitialTime.Seconds * Multiplier + Additive.Seconds, 0f));
 
-        public SlotFlags TargetSlots { get; } = SlotFlags.GLOVES | SlotFlags.NONE; //imp edit - allow entities with the thieving component to set flags
+        public SlotFlags TargetSlots { get; } = SlotFlags.GLOVES;
     }
 
     /// <summary>
