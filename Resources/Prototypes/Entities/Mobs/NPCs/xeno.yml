@@ -505,7 +505,7 @@
     animation: WeaponArcBite
     damage:
      groups:
-       Brute: 4
+       Brute: 5
   - type: DamageStateVisuals
     rotate: true
     states:
@@ -542,7 +542,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      200: Dead
+      -1: Critical
+      250: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
       120: 0.7
