@@ -166,12 +166,6 @@ traitor-dominusempire-allies =  We are allied with the forces of darkness most m
 traitor-dominusempire-uplink = Whispers from a cursed object on your person led you directly to a *accidentally* forgotten uplink in a syndicate safehouse.
 traitor-dominusempire-roundend = [color=red]a Blackguard from The Dominus Empire of Camelot IV[/color]
 
-traitor-dominusempire-intro = You are a Blackguard from The Dominus Empire of Camelot IV.
-traitor-dominusempire-goal = Thou must show thine quarry what it means to truly fear death! Thine acts must be glorious!
-traitor-dominusempire-allies =  We are allied with the forces of darkness most malign. Obliterate arthuria, as well as all do-gooders.
-traitor-dominusempire-uplink = Whispers from a cursed object on your person led you directly to a *accidentally* forgotten uplink in a syndicate safehouse.
-traitor-dominusempire-roundend = [color=red]a Blackguard from the Dominus Empire of Camelot IV[/color]
-
 traitor-giggleco-intro = You are a Jokester from The Giggle Corporation, LLC.
 traitor-giggleco-goal = Its all a big joke to you. Everyone and everything should be laughed at, except yourself. You are very serious.
 traitor-giggleco-allies =  Only real Jokesters understand our comedy. Other agents can be brought in as a part of the joke. Don't trust Honk Co, whose UNSOPHISTICATED PRANKING sullies the good name of clowns.
@@ -249,12 +243,6 @@ traitor-hungover-goal = Your boss can NOT find out you're doing this or you're g
 traitor-hungover-allies =  You hope you're not alone in this.
 traitor-hungover-uplink = You have no idea what happened last night but you woke up with this uplink and these orders.
 traitor-hungover-roundend = [color=red]was incredibly hungover[/color]
-
-traitor-bigcheese-intro = You are a Mouseketeer from Big Cheese Rodent Resources.
-traitor-bigcheese-goal = Protect rodent interests on board the station. Defend mice with your life if you have to.
-traitor-bigcheese-allies =  We are allied with All Mice, and are mortal enemies with all cats, spiders, and chefs.
-traitor-bigcheese-uplink = Your black market uplink was hidden away in a cheese wedge.
-traitor-bigcheese-roundend = [color=red]a Mouseketeer from Big Cheese Rodent Resources[/color]
 
 traitor-bigcheese-intro = You are a Mouseketeer from Big Cheese Rodent Resources.
 traitor-bigcheese-goal = Protect rodent interests on board the station. Defend mice with your life if you have to.
