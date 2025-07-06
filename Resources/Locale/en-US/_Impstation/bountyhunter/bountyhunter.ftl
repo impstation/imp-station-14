@@ -38,13 +38,14 @@ bounty-hunter-category-infiltrator-description =
     You prefer to use subterfuge to get close to your targets.
     Includes: A full set of chameleon clothing, a voice chameleon mask,
     an agent ID, a Cybersun pen, a fake mindshield, a DNA scrambler,
-    a one-time sedative injector, a one-time mute toxin injector,
-    and a Syndicate IFF console.
+    a one-time sedative injector, and a one-time mute toxin injector.
 
 bounty-hunter-category-subverter-name = Subverter
 bounty-hunter-category-subverter-description =
-    You have a knack for subverting mechanical systems.
-    Includes: A camera bug, an emag, an access breaker, and a radio jammer.
+    Whether you're employed by them or not, you've got some ties to
+    the Syndicate. More importantly, you have their toys.
+    Includes: A camera bug, an emag, a radio jammer, a handheld crew monitor,
+    a Syndicate encryption key, a syndie IFF console, and ten telecrystals.
 
 bounty-hunter-category-roboticist-name = Roboticist
 bounty-hunter-category-roboticist-description =
@@ -72,7 +73,8 @@ bounty-hunter-category-syndie-description =
     You were previously a member of the Gorlex Marauders.
     Don't expect a warm welcome.
     Includes: A Syndicate Raid Suit, a Syndicate encryption key,
-    a Syndicate gas mask, an EMP implanter, and an energy sword.
+    a Syndicate gas mask, an EMP implanter, an access breaker,
+    and an energy sword.
 
 bounty-hunter-category-captain-name = Rogue Captain
 bounty-hunter-category-captain-description =

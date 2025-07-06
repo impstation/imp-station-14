@@ -45,7 +45,6 @@
   - FakeMindShieldImplanter
   - MuteInjectorBox
   - ChloralInjectorBox
-  - ComputerIFFSyndicateCircuitboard
 
 
 - type: thiefBackpackSet
@@ -56,10 +55,14 @@
     sprite: Objects/Tools/emag.rsi
     state: icon
   content:
+  - SyndicateBusinessCard
   - CameraBug
   - Emag
-  - AccessBreaker
   - RadioJammer
+  - ComputerIFFSyndicateCircuitboard
+  - SyndiCrewMonitor
+  - EncryptionKeySyndie
+  - Telecrystal10
 
 
 - type: thiefBackpackSet
@@ -105,8 +108,8 @@
   - EncryptionKeySyndie
   - EnergySword
   - EmpImplanter
-  - Telecrystal10
   - ClothingMaskGasSyndicate
+  - AccessBreaker
 
 - type: thiefBackpackSet
   id: BountyHunterCaptain
