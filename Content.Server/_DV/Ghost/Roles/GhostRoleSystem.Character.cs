@@ -6,6 +6,7 @@ using Content.Server.Station.Systems;
 using Content.Shared.Mind.Components;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
+using Content.Server.Clothing.Systems; // imp
 
 namespace Content.Server.Ghost.Roles
 {
@@ -13,6 +14,7 @@ namespace Content.Server.Ghost.Roles
     {
         [Dependency] private readonly IServerPreferencesManager _prefs = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
+        [Dependency] private readonly OutfitSystem _outfit = default!; // imp
 
         private void OnSpawnerTakeCharacter(EntityUid uid, GhostRoleCharacterSpawnerComponent component,
             ref TakeGhostRoleEvent args)
@@ -42,7 +44,7 @@ namespace Content.Server.Ghost.Roles
             GhostRoleInternalCreateMindAndTransfer(args.Player, uid, mob, ghostRole);
 
             if (outfit != null)
-                SetOutfitCommand.SetOutfit(mob, outfit, _entityManager);
+                _outfit.SetOutfit(mob, outfit); // imp edit
 
             if (++component.CurrentTakeovers < component.AvailableTakeovers)
             {
