@@ -5,6 +5,6 @@
   components:
   - type: InstantAction
     backgroundOn:
-      sprite: _RMC14/Actions/xeno_actions.rsi
-      state: template_active_big
+      sprite: _Impstation/Actions/xeno_actions.rsi
+      state: alien_backgroundOn
   - type: ActionReducedUseDelay   # to keep track of cooldown reductions
