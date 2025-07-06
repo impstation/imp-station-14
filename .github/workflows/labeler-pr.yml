@@ -12,4 +12,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/labeler@v5
+    - name: "waga baga bobo"
       run: echo "actor is $GITHUB_ACTOR"
