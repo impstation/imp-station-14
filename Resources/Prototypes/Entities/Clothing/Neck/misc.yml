@@ -8,22 +8,22 @@
     sprite: Clothing/Neck/Misc/headphones.rsi
     layers:
     - state: icon
-      map: [ "enum.ToggleableVisuals.Layer" ]
+      #map: [ "enum.ToggleableVisuals.Layer" ] #imp edit, delete this prototype with the next upstream merge
   - type: Clothing
-    equippedPrefix: off
+    #equippedPrefix: off
     sprite: Clothing/Neck/Misc/headphones.rsi
   - type: ToggleableVisuals
     spriteLayer: enum.ToggleableVisuals.Layer
     clothingVisuals:
       neck:
-      - state: on-equipped-NECK
+      - state: up-equipped-NECK
   - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.ToggleableVisuals.Enabled:
-        enum.ToggleableVisuals.Layer:
-          True: {state: icon-on}
-          False: {state: icon}
+  #- type: GenericVisualizer #imp edit
+  #  visuals:
+  #    enum.ToggleableVisuals.Enabled:
+  #      enum.ToggleableVisuals.Layer:
+  #        True: {state: icon-on}
+  #        False: {state: icon}
   - type: ItemToggle
     predictable: false
     soundActivate:
