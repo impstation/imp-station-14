@@ -12,3 +12,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/labeler@v5
+    - name: "fuck my gay life"
+      run: echo "actor: $GITHUB_ACTOR"
