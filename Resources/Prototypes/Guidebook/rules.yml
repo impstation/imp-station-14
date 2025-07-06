@@ -11,6 +11,8 @@
   - RoleplayRules
   - MetashieldRules
   - AdditionalRoleRules
+  - RoleplayGuidelines
+  - Escalation
 
 - type: guideEntry
   id: RoleTypes
@@ -47,6 +49,19 @@
   priority: 60
   text: "/ServerInfo/_Impstation/Guidebook/ServerRules/command-sec-antag-rules.xml"
 
+- type: guideEntry
+  id: Escalation
+  name: guide-entry-rules-escalation
+  ruleEntry: false
+  priority: 70
+  text: "/ServerInfo/_Impstation/Guidebook/ServerRules/escalation.xml"
+
+- type: guideEntry
+  id: RoleplayGuidelines
+  name: guide-entry-rules-rpguidelines
+  ruleEntry: false
+  priority: 80
+  text: "/ServerInfo/_Impstation/Guidebook/ServerRules/rpguidelines.xml"
 
 - type: guideEntry
   id: MRPRules
