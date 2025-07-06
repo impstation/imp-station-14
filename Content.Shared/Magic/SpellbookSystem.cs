@@ -33,9 +33,7 @@ public sealed class SpellbookSystem : EntitySystem
             if (spell == null)
                 continue;
 
-            // -1 means infinite charges.
-            if (charges != -1)
-                _sharedCharges.SetCharges(spell.Value, charges);
+            _sharedCharges.SetCharges(spell.Value, charges);
             ent.Comp.Spells.Add(spell.Value);
         }
     }
@@ -75,8 +73,7 @@ public sealed class SpellbookSystem : EntitySystem
             foreach (var (id, charges) in ent.Comp.SpellActions)
             {
                 EntityUid? actionId = null;
-                if (_actions.AddAction(args.Args.User, ref actionId, id)
-                    && charges != -1) // -1 means infinite charges
+                if (_actions.AddAction(args.Args.User, ref actionId, id))
                     _sharedCharges.SetCharges(actionId.Value, charges);
             }
         }

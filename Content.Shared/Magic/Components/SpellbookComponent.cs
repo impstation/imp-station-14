@@ -16,10 +16,8 @@ public sealed partial class SpellbookComponent : Component
     [ViewVariables]
     public readonly List<EntityUid> Spells = new();
 
-    /// The three fields below is just used for initialization.
     /// <summary>
-    /// Dictionary of spell prototypes to charge counts.
-    /// If the charge count if negative one, it means the spell has infinite charges.
+    /// The three fields below is just used for initialization.
     /// </summary>
     [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
