@@ -1,14 +1,4 @@
 ﻿Entries:
-- author: Kandiyaki, Sha-Sheng
-  changes:
-  - message: Removed the heretic's reality fractures.
-    type: Remove
-  - message: Added Eldritch Tomes, an item that heretics can use to gain knowledge
-      points.
-    type: Add
-  id: 1486
-  time: '2025-04-08T02:25:18.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2199
 - author: hivehum
   changes:
   - message: Grays are the exact same but a process has occurred.
@@ -4234,3 +4224,16 @@
   id: 1985
   time: '2025-07-06T12:24:26.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/2975
+- author: kipdotnet, perrprog
+  changes:
+  - message: Added a variety of special spellbooks to the libraries bookshelves. Browse
+      today!
+    type: Add
+  - message: Added the book returns teleporter, which periodically stocks the librarian
+      with new books. not mapped yet.
+    type: Add
+  - message: Spellbooks now work again.
+    type: Fix
+  id: 1986
+  time: '2025-07-06T17:40:37.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2898
