@@ -603,7 +603,7 @@
 - type: tile
   id: FloorTechMaint
   name: tiles-techmaint-floor
-  sprite: /Textures/_Impstation/Tiles/Maint/tech_maint.png # Imp Edit
+  sprite: /Textures/_Impstation/Tiles/Maint/tech_maint.png
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -1813,7 +1813,7 @@
 - type: tile
   id: FloorTechMaint2
   name: tiles-techmaint2-floor
-  sprite: /Textures/Tiles/steel_maint.png
+  sprite: /Textures/_Impstation/Tiles/Maint/steel_maint.png # Imp Edit
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -1825,7 +1825,7 @@
 - type: tile
   id: FloorTechMaint3
   name: tiles-techmaint3-floor
-  sprite: /Textures/Tiles/grating_maint.png
+  sprite: /Textures/_Impstation/Tiles/Maint/grating_maint.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
