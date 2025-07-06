@@ -8,11 +8,6 @@ on:
       - reopened
       - ready_for_review
 
-permissions:
-  pull-requests: write
-  issues: write
-  contents: write
-
 jobs:
   Label:
     if: ( github.event.pull_request.draft == false ) && ( github.actor != 'ImpstationBot' )
