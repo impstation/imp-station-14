@@ -1,3 +1,13 @@
+# Timers
+- type: loadoutEffectGroup
+  id: LibrarianExpertTimer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobLibrarian
+      time: 10800 #3 hrs, ~3 rounds
+
 - type: loadout
   id: ClothingUniformBrownSuit
   equipment:
@@ -8,3 +18,10 @@
   equipment:
     jumpsuit: ClothingUniformBrownSuitSkirt #imp
 
+- type: loadout
+  id: LibrarianSpaceDress
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: LibrarianExpertTimer
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtSpaceDress # imp
