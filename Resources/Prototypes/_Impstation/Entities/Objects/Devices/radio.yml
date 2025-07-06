@@ -1,7 +1,29 @@
+# NOTE: this handheld radio is the upstream prototype by default, with handicomms added on top.
+- type: entity
+  name: handheld radio
+  description: A handy handheld radio.
+  parent: BaseItem
+  id: RadioHandheld
+  components:
+  - type: RadioMicrophone
+    broadcastChannel: Handheld
+    toggleOnInteract: false
+    frequency: 1330
+  - type: RadioSpeaker
+    channels:
+    - Handheld
+    toggleOnInteract: false
+  - type: ActivatableUI
+    key: enum.HandheldRadioUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.HandheldRadioUiKey.Key:
+        type: HandheldRadioBoundUserInterface
+
 - type: entity
   name: scrap radio
   description: A handheld radio made out of junk.
-  parent: RadioHandheld
+  parent: BaseRadio
   id: RadioHandheldScrap
   components:
   - type: RadioMicrophone
