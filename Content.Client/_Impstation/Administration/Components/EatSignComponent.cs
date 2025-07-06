@@ -1,7 +1,6 @@
-using Content.Shared.Administration.Components;
-using Robust.Shared.GameStates;
+using Content.Shared._Impstation.Administration.Components;
 
 namespace Content.Client._Impstation.Administration.Components;
 
 [RegisterComponent]
-public sealed partial class EatSignComponent : SharedKillSignComponent;
+public sealed partial class EatSignComponent : SharedEatSignComponent;
