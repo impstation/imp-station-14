@@ -9,26 +9,26 @@
   - type: MachineBoard
     prototype: KitchenElectricRange
     stackRequirements:
-      Capacitor: 3
       Steel: 5
       Glass: 2
       Cable: 4
+      Manipulator: 3 # imp
 
 - type: entity
   id: SyndicateElectricRangeMachineCircuitboard
   parent: BaseMachineCircuitboard
-  name: syndicate oven machine board
-  description: A machine printed circuit board for an syndicate oven.
+  name: syndicate electric range machine board
+  description: A machine printed circuit board for an syndicate electric range.
   components:
   - type: Sprite
     state: service
   - type: MachineBoard
     prototype: SyndicateKitchenElectricRange
     stackRequirements:
-      Capacitor: 3
       Steel: 5
       Glass: 2
       Cable: 4
+      Manipulator: 3 # imp
 
 - type: entity
   id: KitchenAssemblerMachineCircuitboard
@@ -41,9 +41,9 @@
   - type: MachineBoard
     prototype: KitchenAssembler
     stackRequirements:
-      Capacitor: 1
       Glass: 2
       Cable: 2
+      Manipulator: 1 # imp
 
 - type: entity
   id: MedicalAssemblerMachineCircuitboard
@@ -56,12 +56,10 @@
   - type: MachineBoard
     prototype: MedicalAssembler
     stackRequirements:
-      Capacitor: 3
       Steel: 5
       Glass: 2
       Cable: 4
-
-# Removed from upstream definitions
+      Manipulator: 3 # imp
 
 - type: entity
   id: CondimentDispenserCircuitboard
@@ -75,7 +73,7 @@
     prototype: CondimentDispenserEmpty
     stackRequirements:
       Steel: 5
-      MatterBin: 1
+      Manipulator: 1 # imp
     tagRequirements:
       GlassBeaker:
         amount: 1

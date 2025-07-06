@@ -12,7 +12,7 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Client.UserInterface;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using Robust.Client.GameObjects;
+using Robust.Client.GameObjects; // Frontier
 
 namespace Content.Client.Guidebook.Controls;
 

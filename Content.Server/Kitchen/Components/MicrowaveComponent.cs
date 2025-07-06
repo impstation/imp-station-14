@@ -6,7 +6,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Content.Shared.Kitchen; // Frontier
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom; // Frontier
 using Content.Shared.Kitchen.Components; // Frontier
 
 namespace Content.Server.Kitchen.Components
@@ -16,7 +16,7 @@ namespace Content.Server.Kitchen.Components
     {
         [DataField("cookTimeMultiplier"), ViewVariables(VVAccess.ReadWrite)]
         public float CookTimeMultiplier = 1;
-        [DataField("cookTimeScalingConstant")]
+        [DataField("cookTimeScalingConstant")] // Frontier
         public float CookTimeScalingConstant = 0.5f;
         [DataField("baseHeatMultiplier"), ViewVariables(VVAccess.ReadWrite)]
         public float BaseHeatMultiplier = 100;
@@ -115,7 +115,7 @@ namespace Content.Server.Kitchen.Components
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public bool CanMicrowaveIdsSafely = true;
 
-        // Frontier: recipe type
+        // Frontier start: recipe type
         /// <summary>
         /// the types of recipes that this "microwave" can handle.
         /// </summary>
@@ -167,8 +167,8 @@ namespace Content.Server.Kitchen.Components
         {
             Microwave = microwave;
             User = user;
-            BeingHeated = heating;
-            BeingIrradiated = irradiating;
+            BeingHeated = heating; // Frontier
+            BeingIrradiated = irradiating; // Frontier
         }
     }
 }

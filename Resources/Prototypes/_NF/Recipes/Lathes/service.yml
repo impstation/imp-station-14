@@ -40,6 +40,8 @@
   result: NapkinDrum
   parent: BaseServiceItemsRecipe
   applyMaterialDiscount: false
+  materials: # imp - material arbitrage moment
+    Steel: 100
 
 - type: latheRecipe
   id: Napkin

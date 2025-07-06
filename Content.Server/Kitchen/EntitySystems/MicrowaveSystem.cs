@@ -74,6 +74,8 @@ namespace Content.Server.Kitchen.EntitySystems
         [ValidatePrototypeId<EntityPrototype>]
         private const string MalfunctionSpark = "Spark";
 
+        // private static readonly ProtoId<TagPrototype> MetalTag = "Metal"; // Frontier
+        // private static readonly ProtoId<TagPrototype> PlasticTag = "Plastic"; // Frontier
         public override void Initialize()
         {
             base.Initialize();
@@ -88,7 +90,6 @@ namespace Content.Server.Kitchen.EntitySystems
             SubscribeLocalEvent<MicrowaveComponent, BreakageEventArgs>(OnBreak);
             SubscribeLocalEvent<MicrowaveComponent, PowerChangedEvent>(OnPowerChanged);
             SubscribeLocalEvent<MicrowaveComponent, AnchorStateChangedEvent>(OnAnchorChanged);
-
             SubscribeLocalEvent<MicrowaveComponent, SuicideByEnvironmentEvent>(OnSuicideByEnvironment);
 
             SubscribeLocalEvent<MicrowaveComponent, SignalReceivedEvent>(OnSignalReceived);
@@ -471,7 +472,7 @@ namespace Content.Server.Kitchen.EntitySystems
 
         public void UpdateUserInterfaceState(EntityUid uid, MicrowaveComponent component)
         {
-            _userInterface.SetUiState(uid, component.Key, new MicrowaveUpdateUserInterfaceState(
+            _userInterface.SetUiState(uid, component.Key, new MicrowaveUpdateUserInterfaceState( // Frontier
                 GetNetEntityArray(component.Storage.ContainedEntities.ToArray()),
                 HasComp<ActiveMicrowaveComponent>(uid),
                 component.CurrentCookTimeButtonIndex,

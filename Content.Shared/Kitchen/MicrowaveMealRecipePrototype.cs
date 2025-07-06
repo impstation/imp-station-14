@@ -3,7 +3,7 @@ using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom; // Frontier
 using Robust.Shared.Serialization; // Frontier
 
 namespace Content.Shared.Kitchen
@@ -49,6 +49,7 @@ namespace Content.Shared.Kitchen
         [DataField]
         public bool HideInGuidebook;
 
+        // Frontier End
         public string Name => Loc.GetString(_name);
 
         // TODO Turn this into a ReagentQuantity[]
@@ -90,4 +91,5 @@ namespace Content.Shared.Kitchen
     }
 
     public sealed class MicrowaveRecipeTypeFlags { }
+    // Frontier end
 }
