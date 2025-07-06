@@ -20,7 +20,7 @@ reagent-name-mouse-bites = mouse bites
 reagent-desc-mouse-bites = The patient needs mouse bites to live
 
 reagent-name-irwizine = irwizine
-reagent-desc-irwizine = A chemical that harmlessly pacifies hostile beasts with 15u of accumulation. Useful for zookeepers looking to put together an exhibit.
+reagent-desc-irwizine = A chemical that harmlessly pacifies hostile creatures with 10u of accumulation. Useful for zookeepers looking to put together an exhibit, though it has other interesting applications.
 
 reagent-name-sadness = sadness
 reagent-desc-sadness = The pure concept of sadness, in a liquid form. Even looking at it makes you tear up.
@@ -37,3 +37,5 @@ reagent-desc-paprika = A spice like no other, can cause even the most hearty of 
 reagent-name-pulp = Pulp 
 reagent-desc-pulp = The mushed up remains of a wood-based product. Moths are able to derive sustenance from this.
 
+reagent-name-trash = trash
+reagent-desc-trash = A slurry of discarded food, drink and packaging.
