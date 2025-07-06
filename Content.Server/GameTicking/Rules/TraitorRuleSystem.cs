@@ -223,8 +223,8 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     {
         var sb = new StringBuilder();
         sb.AppendLine(Loc.GetString($"traitor-{objectiveIssuer}-intro"));
+        sb.AppendLine(Loc.GetString($"traitor-{objectiveIssuer}-uplink")); // Imp Edit for Traitor Flavor
         if (codewords != null)
-            sb.AppendLine(Loc.GetString($"traitor-{objectiveIssuer}-uplink")); // Imp Edit for Traitor Flavor
             sb.AppendLine(Loc.GetString("traitor-role-codewords", ("codewords", string.Join(", ", codewords))));
         if (uplinkCode != null)
             sb.AppendLine(Loc.GetString("traitor-role-uplink-code", ("code", string.Join("-", uplinkCode).Replace("sharp", "#"))));
