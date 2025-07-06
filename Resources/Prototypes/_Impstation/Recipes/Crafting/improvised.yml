@@ -90,3 +90,11 @@
   targetNode: floatingfloracrown
   category: construction-category-clothing
   objectType: Item
+
+- type: construction
+  id: radioHandheldScrap
+  graph: RadioHandheldScrapGraph
+  startNode: start
+  targetNode: radio
+  category: construction-category-tools
+  objectType: Item

@@ -29,3 +29,6 @@
   - type: Item
     sprite: _Impstation/Objects/Devices/communication.rsi
     heldPrefix: scrapradio
+  - type: Construction
+    graph: RadioHandheldScrapGraph
+    node: radio
