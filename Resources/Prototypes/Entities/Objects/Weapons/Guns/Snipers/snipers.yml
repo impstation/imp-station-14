@@ -85,6 +85,8 @@
   - type: AltFireMelee
     attackType: Heavy
 #imp edit end
+  - type: StaticPrice
+    price: 500
 
 - type: entity
   name: Lindwyrm #imp
@@ -143,6 +145,8 @@
     distance: 0.8
     speed: 5
 #imp edit end
+  - type: StaticPrice
+    price: 3500
 
 - type: entity
   name: musket
