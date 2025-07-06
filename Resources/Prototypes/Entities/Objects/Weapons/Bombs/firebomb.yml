@@ -53,6 +53,9 @@
     graph: FireBomb
     node: firebomb
   - type: Engraveable # imp
+  - type: Tag
+    tags:
+      - Firebomb # imp
 
 # has igniter but no fuel or wires
 - type: entity

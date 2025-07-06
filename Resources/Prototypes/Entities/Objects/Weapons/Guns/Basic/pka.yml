@@ -17,6 +17,7 @@
     whitelist:
       tags:
       - PKAUpgrade
+      - PKA # imp
   - type: ContainerContainer
     containers:
       upgrades: !type:Container

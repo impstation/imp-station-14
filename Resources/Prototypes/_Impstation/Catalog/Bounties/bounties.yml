@@ -127,3 +127,80 @@
     whitelist:
       tags:
       - SpiderMeat
+
+- type: cargoBounty
+  id: BountyIdCard
+  reward: 9000
+  description: bounty-description-id-card
+  entries:
+  - name: bounty-item-id-card
+    amount: 3
+    whitelist:
+      tags:
+      - IdCard
+
+- type: cargoBounty
+  id: BountyStunprod
+  reward: 9000
+  description: bounty-description-stunprod
+  entries:
+  - name: bounty-item-stunprod
+    amount: 2
+    whitelist:
+      tags:
+      - Stunprod
+
+- type: cargoBounty
+  id: BountyPyrotton
+  reward: 20000
+  description: bounty-description-pyrotton
+  entries:
+  - name: bounty-item-pyrotton
+    amount: 4
+    whitelist:
+      tags:
+      - PyrottonBoll
+
+- type: cargoBounty
+  id: BountyFirebomb
+  reward: 8000
+  description: bounty-description-firebomb
+  entries:
+  - name: bounty-item-firebomb
+    amount: 2
+    whitelist:
+      tags:
+      - Firebomb
+
+- type: cargoBounty
+  id: BountySGD
+  reward: 8000
+  description: bounty-description-sgd
+  entries:
+  - name: bounty-item-sgd
+    amount: 1
+    whitelist:
+      tags:
+      - SGD
+
+- type: cargoBounty
+  id: BountyPKA
+  reward: 12000 # should be worth fucking over salv at roundstart
+  description: bounty-description-pka
+  entries:
+  - name: bounty-item-pka
+    amount: 2
+    whitelist:
+      tags:
+      - PKA
+
+- type: cargoBounty
+  id: BountyBananiumClownshoes
+  reward: 8000
+  description: bounty-description-banana-clownshoes
+  entries:
+  - name: bounty-item-banana-clownshoes
+    amount: 1
+    whitelist:
+      tags:
+      - BananaClownshoes
