@@ -3372,6 +3372,10 @@
   - type: NpcFactionMember
     factions:
     - Syndicate
+  - type: Access
+    tags: 
+    - NuclearOperative
+    - SyndicateAgent
   - type: MeleeWeapon
     altDisarm: false
     angle: 0
@@ -4105,3 +4109,6 @@
     - DoorBumpOpener
   - type: StatusIcon # marks them as crew
     bounds: -0.5,-0.5,0.5,0.5
+  - type: NpcFactionMember
+    factions:
+    - NanoTrasen

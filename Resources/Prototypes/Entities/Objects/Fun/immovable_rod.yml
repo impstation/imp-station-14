@@ -160,7 +160,7 @@
     maxSpeed: 0
     eviscerationPopup: immovable-rod-penetrated-mob-shark
   - type: Sprite
-    sprite: Objects/Fun/sharkplush.rsi
+    sprite: Objects/Fun/Plushies/shark.rsi
     state: blue
     rotation: 90
     noRot: false
@@ -255,6 +255,6 @@
     maxSpeed: 0
     eviscerationPopup: immovable-rod-penetrated-mob-weh
   - type: Sprite
-    sprite: Objects/Fun/toys.rsi
-    state: plushie_lizard
+    sprite: Objects/Fun/Plushies/lizard.rsi
+    state: icon
     noRot: false
