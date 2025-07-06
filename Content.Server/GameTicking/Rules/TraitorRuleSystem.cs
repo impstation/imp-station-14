@@ -215,8 +215,9 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
                 code = generatedCode;
 
                 // If giveUplink is false the uplink code part is omitted
-                briefing = string.Format("{0}\n{1}\n\n{2}\n\n{3}\n{4}\n\n{5}\n{6}\n\n{7}",
+                briefing = string.Format("{0}\n{1}\n{2}\n\n{3}\n\n{4}\n{5}\n\n{6}\n{7}\n\n{8}",
                     briefing,
+                    Loc.GetString($"traitor-{objectiveIssuer}-uplink"),
                     Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", code).Replace("sharp", "#"))),
                     Loc.GetString($"traitor-{objectiveIssuer}-intro"),
                     Loc.GetString($"traitor-role-allegiances"),
@@ -249,6 +250,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         var sb = new StringBuilder();
         sb.AppendLine(Loc.GetString($"traitor-{objectiveIssuer}-intro"));
         if (codewords != null)
+            sb.AppendLine(Loc.GetString($"traitor-{objectiveIssuer}-uplink")); // Imp Edit for Traitor Flavor
             sb.AppendLine(Loc.GetString("traitor-role-codewords", ("codewords", string.Join(", ", codewords))));
         if (uplinkCode != null)
             sb.AppendLine(Loc.GetString("traitor-role-uplink-code", ("code", string.Join("-", uplinkCode).Replace("sharp", "#"))));
