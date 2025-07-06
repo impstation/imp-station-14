@@ -19,6 +19,8 @@ bounty-hunter-role-greeting =
     Good luck.
 roles-antag-bounty-hunter-objective = Hunt down your target and get paid.
 
+bounty-hunter-roundend-name = Bounty Hunter
+
 bounty-hunter-category-raider-name = Raider
 bounty-hunter-category-raider-description =
     You aren't a fan of subtlety.
@@ -34,9 +36,10 @@ bounty-hunter-category-hardsuit-description =
 bounty-hunter-category-infiltrator-name = Infiltrator
 bounty-hunter-category-infiltrator-description =
     You prefer to use subterfuge to get close to your targets.
-    Includes: A full set of chameleon clothing with a common encryption key,
-    a voice chameleon mask, an agent ID, a Cybersun pen, a fake mindshield,
-    and a DNA scrambler.
+    Includes: A full set of chameleon clothing, a voice chameleon mask,
+    an agent ID, a Cybersun pen, a fake mindshield, a DNA scrambler,
+    a one-time sedative injector, a one-time mute toxin injector,
+    and a Syndicate IFF console.
 
 bounty-hunter-category-subverter-name = Subverter
 bounty-hunter-category-subverter-description =

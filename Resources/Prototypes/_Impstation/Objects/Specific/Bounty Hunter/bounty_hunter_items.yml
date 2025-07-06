@@ -315,7 +315,7 @@
 - type: entity
   id: CrateBountyHunterPirate
   parent: CratePirate
-  suffix: Filled
+  suffix: Filled, Bounty Hunter
   components:
   - type: StorageFill
     contents:
@@ -351,3 +351,123 @@
   components:
     - type: SubdermalImplant
       implantAction: ActionWeaponRecall
+
+# Chloral and Mute Toxin medipens
+- type: entity
+  name: emergency medipen
+  parent: ChemicalMedipen
+  id: ChloralAutoInjector
+  suffix: Chloral Hydrate
+  description: A rapid and safe way to stabilize patients in critical condition for personnel without advanced medical knowledge. Beware, as it's easy to overdose on epinephrine and tranexamic acid.
+  components:
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-needle-inhand-left
+      - state: base-colorA-inhand-left
+        color: "#000067"
+      - state: base-colorB-inhand-left
+      right:
+      - state: base-needle-inhand-right
+      - state: base-colorA-inhand-right
+        color: "#000067"
+      - state: base-colorB-inhand-right
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: medipen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: medipen_empty
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 15
+    onlyAffectsMobs: false
+    injectOnly: true
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: ChloralHydrate
+          Quantity: 15
+
+- type: entity
+  name: emergency medipen
+  parent: ChemicalMedipen
+  id: MuteAutoInjector
+  suffix: Mute Toxin
+  description: A rapid and safe way to stabilize patients in critical condition for personnel without advanced medical knowledge. Beware, as it's easy to overdose on epinephrine and tranexamic acid.
+  components:
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-needle-inhand-left
+      - state: base-colorA-inhand-left
+        color: "#000000"
+      - state: base-colorB-inhand-left
+      right:
+      - state: base-needle-inhand-right
+      - state: base-colorA-inhand-right
+        color: "#000000"
+      - state: base-colorB-inhand-right
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: medipen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: medipen_empty
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 15
+    onlyAffectsMobs: false
+    injectOnly: true
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15 #15 instead of 5 to match other emergency medipens
+        reagents:
+        - ReagentId: MuteToxin
+          Quantity: 5
+        - ReagentId: SpaceDrugs # to fill the rest of the container with another syrupy reagent
+          Quantity: 10
+
+#injector boxes
+- type: entity
+  parent: [ BaseItem, Tier2Contraband ]
+  id: ChloralInjectorBox
+  name: sedative injector box
+  description: A small box containing a chloral hydrate injector disguised as an emergency medipen. Packaging disintegrates when opened, leaving no evidence behind.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Impstation/Objects/Storage/penbox.rsi
+    state: chloral_injector
+  - type: SpawnItemsOnUse
+    items:
+    - id: ChloralAutoInjector
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: [ BaseItem, Tier2Contraband ]
+  id: MuteInjectorBox
+  name: mute injector box
+  description: A small box containing a mute toxin injector disguised as an emergency medipen. Packaging disintegrates when opened, leaving no evidence behind.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Impstation/Objects/Storage/penbox.rsi
+    state: mute_injector
+  - type: SpawnItemsOnUse
+    items:
+    - id: MuteAutoInjector
+    sound:
+      path: /Audio/Effects/unwrap.ogg
