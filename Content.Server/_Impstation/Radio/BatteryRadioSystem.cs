@@ -1,21 +1,21 @@
+using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
 using Content.Server.PowerCell;
+using Content.Server.Radio;
 using Content.Server.Radio.Components;
 using Content.Server.Radio.EntitySystems;
-using Content.Shared.Interaction;
-using Content.Shared.PowerCell.Components;
 using Content.Server.Speech;
+using Content.Shared.PowerCell.Components;
 using Content.Shared.UserInterface;
-using Content.Server.Popups;
 
 namespace Content.Server._Impstation.Radio;
 
 public sealed class BatteryRadioSystem : EntitySystem
 {
-    [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
-    [Dependency] private readonly RadioDeviceSystem _radio = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly PowerCellSystem _powerCell = default!;
+    [Dependency] private readonly RadioDeviceSystem _radio = default!;
 
 
     public override void Initialize()
@@ -23,6 +23,7 @@ public sealed class BatteryRadioSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<BatteryRadioComponent, ListenAttemptEvent>(OnAttemptListen);
+        SubscribeLocalEvent<BatteryRadioComponent, RadioReceiveAttemptEvent>(OnReceiveRadio);
         SubscribeLocalEvent<BatteryRadioComponent, ActivatableUIOpenAttemptEvent>(OnBeforeHandheldRadioUiOpen);
 
         SubscribeLocalEvent<ActiveBatteryRadioComponent, PowerCellChangedEvent>(OnPowerCellChanged);
@@ -53,6 +54,12 @@ public sealed class BatteryRadioSystem : EntitySystem
     {
         if (!HasComp<ActiveBatteryRadioComponent>(ent))
             args.Cancel();
+    }
+
+    private void OnReceiveRadio(Entity<BatteryRadioComponent> ent, ref RadioReceiveAttemptEvent args)
+    {
+        if (!HasComp<ActiveBatteryRadioComponent>(ent))
+            args.Cancelled = true;
     }
 
     private void OnBeforeHandheldRadioUiOpen(Entity<BatteryRadioComponent> ent, ref ActivatableUIOpenAttemptEvent args)
