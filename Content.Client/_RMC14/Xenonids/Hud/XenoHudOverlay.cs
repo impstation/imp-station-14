@@ -5,7 +5,6 @@ using Content.Shared._RMC14.Xenonids.Maturing;
 using Content.Shared._RMC14.Xenonids.Parasite;
 using Content.Shared._RMC14.Xenonids.Plasma;
 using Content.Shared._RMC14.Xenonids.Projectile.Spit.Stacks;
-using Content.Client._RMC14.Medical.HUD;
 using Content.Shared._RMC14.Mobs;
 using Content.Shared.Damage;
 using Content.Shared.Ghost;
@@ -37,7 +36,6 @@ public sealed class XenoHudOverlay : Overlay
     [Dependency] private readonly IGameTiming _timing = default!;
 
     private readonly ContainerSystem _container;
-    private readonly CMHealthIconsSystem _healthIcons;
     private readonly MobStateSystem _mobState;
     private readonly MobThresholdSystem _mobThresholds;
     private readonly SpriteSystem _sprite;
@@ -68,7 +66,6 @@ public sealed class XenoHudOverlay : Overlay
         IoCManager.InjectDependencies(this);
 
         _container = _entity.System<ContainerSystem>();
-        _healthIcons = _entity.System<CMHealthIconsSystem>();
         _mobState = _entity.System<MobStateSystem>();
         _mobThresholds = _entity.System<MobThresholdSystem>();
         _sprite = _entity.System<SpriteSystem>();

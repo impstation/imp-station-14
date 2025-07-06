@@ -1,27 +1,17 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared._RMC14.Map;
 using Content.Shared._RMC14.Xenonids.Construction.Nest;
-using Content.Shared._RMC14.Xenonids.Devour;
 using Content.Shared._RMC14.Xenonids.Parasite;
-using Content.Shared.Armor;
-using Content.Shared.Blocking;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
-using Content.Shared.Inventory;
-using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
-using Content.Shared.Projectiles;
-using Content.Shared.Silicons.Borgs;
-using Content.Shared.Weapons.Melee.Events;
-using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
-using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -31,39 +21,21 @@ namespace Content.Shared._RMC14.Damage;
 
 public abstract class SharedRMCDamageableSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly MobThresholdSystem _mobThresholds = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly RMCMapSystem _rmcMap = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     private static readonly ProtoId<DamageGroupPrototype> BruteGroup = "Brute";
     private static readonly ProtoId<DamageGroupPrototype> BurnGroup = "Burn";
 
-    private static readonly ProtoId<DamageTypePrototype> LethalDamageType = "Asphyxiation";
     private readonly HashSet<ProtoId<DamageTypePrototype>> _bruteTypes = new();
     private readonly HashSet<ProtoId<DamageTypePrototype>> _burnTypes = new();
     private readonly List<string> _types = [];
 
     private EntityQuery<DamageableComponent> _damageableQuery;
-    private EntityQuery<MobStateComponent> _mobStateQuery;
-    private EntityQuery<VictimInfectedComponent> _victimInfectedQuery;
-    private EntityQuery<XenoNestedComponent> _xenoNestedQuery;
+
 
     public override void Initialize()
     {
         _damageableQuery = GetEntityQuery<DamageableComponent>();
-        _mobStateQuery = GetEntityQuery<MobStateComponent>();
-        _victimInfectedQuery = GetEntityQuery<VictimInfectedComponent>();
-        _xenoNestedQuery = GetEntityQuery<XenoNestedComponent>();
 
         _bruteTypes.Clear();
         _burnTypes.Clear();

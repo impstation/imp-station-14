@@ -53,7 +53,6 @@
     - ActionXenoSpit
     - ActionXenoGenerateEggs
     hudOffset: -0.1,0
-  - type: XenoHeavy
   - type: XenoAcid
   - type: XenoConstruction
     buildDelay: 1
@@ -74,7 +73,6 @@
     damage:
       groups:
         Brute: 50
-  - type: XenoOvipositorCapable
   - type: Fixtures
     fixtures:
       fix1:
@@ -102,7 +100,6 @@
       collection: XenoFootstepLarge
       params:
         volume: -6
-  - type: XenoEvolutionGranter
   - type: XenoEvolutionCapped
     id: CMXenoQueen
     max: 1
@@ -125,7 +122,7 @@
   parent: RMCXenoQueenBase
   id: CMXenoQueen
   #components:
-  # - type: XenoEvolution #can be enabled for events like april fools.
+  # - type: XenoEvolution #can be enabled for events like april fools.  #imp - im too lazy to fix this and unstrain it but its probably easy
   #   strains:
   #   - RMCXenoQueenMaid
 
@@ -139,14 +136,8 @@
     layers:
     - map: [ "enum.XenoVisualLayers.Base" ]
       state: alive
-    - map: [ "enum.XenoVisualLayers.Ovipositor" ]
-      sprite: _RMC14/Mobs/Xenonids/Extras/Maid_queen/maid_ovipositor.rsi
     - map: [ "enum.RMCDamageVisualLayers.Base" ]
       visible: false
-  - type: XenoStrain
-    name: rmc-xeno-maid-name
-    description: rmc-xeno-maid-description
-    popup: rmc-xeno-maid-popup
   - type: OwOAccent
   - type: Speech
     speechSounds: Cat

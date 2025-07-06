@@ -4,12 +4,6 @@ namespace Content.Shared.Maps;
 public sealed partial class ContentTileDefinition
 {
     [DataField]
-    public bool CanDig;
-
-    [DataField]
-    public bool CanPlaceTunnel = true;
-
-    [DataField]
     public bool WeedsSpreadable = true;
 
     [DataField]
@@ -20,7 +14,4 @@ public sealed partial class ContentTileDefinition
 
     [DataField]
     public bool BlockAnchoring;
-
-    [DataField]
-    public Color MinimapColor;
 }

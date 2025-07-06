@@ -1,4 +1,3 @@
-using Content.Shared._RMC14.Xenonids.Construction.EggMorpher;
 using Content.Shared._RMC14.Xenonids.Egg;
 using Content.Shared._RMC14.Xenonids.Leap;
 using Content.Shared._RMC14.Xenonids.Projectile.Parasite;
@@ -297,12 +296,6 @@ public abstract partial class SharedXenoParasiteSystem
         foreach (var egg in _entityLookup.GetEntitiesInRange<XenoEggComponent>(_transform.GetMoverCoordinates(para), para.Comp.RangeCheck))
         {
             if (egg.Comp.State == XenoEggState.Opened)
-                return;
-        }
-
-        foreach (var eggmorpher in _entityLookup.GetEntitiesInRange<EggMorpherComponent>(_transform.GetMoverCoordinates(para), para.Comp.RangeCheck))
-        {
-            if (eggmorpher.Comp.CurParasites < eggmorpher.Comp.MaxParasites)
                 return;
         }
 

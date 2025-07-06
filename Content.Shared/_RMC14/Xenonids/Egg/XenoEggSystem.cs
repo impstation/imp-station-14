@@ -1,5 +1,4 @@
 ﻿using Content.Shared._RMC14.Xenonids.Construction;
-using Content.Shared._RMC14.Xenonids.Egg.EggRetriever;
 using Content.Shared._RMC14.Xenonids.Parasite;
 using Content.Shared._RMC14.Xenonids.Plasma;
 using Content.Shared._RMC14.Xenonids.Weeds;
@@ -86,7 +85,6 @@ public sealed class XenoEggSystem : EntitySystem
         _stepTriggerQuery = GetEntityQuery<StepTriggerComponent>();
 
         SubscribeLocalEvent<XenoEggComponent, AfterAutoHandleStateEvent>(OnXenoEggAfterState);
-        SubscribeLocalEvent<XenoEggComponent, UseInHandEvent>(OnXenoEggUseInHand);
         SubscribeLocalEvent<XenoEggComponent, InteractUsingEvent>(OnXenoEggInteractUsing);
         SubscribeLocalEvent<XenoEggComponent, XenoEggReturnParasiteDoAfterEvent>(OnXenoEggReturnParasiteDoAfter);
         SubscribeLocalEvent<XenoComponent, XenoEggPlaceEvent>(OnXenoEggPlace);
@@ -101,13 +99,6 @@ public sealed class XenoEggSystem : EntitySystem
     {
         var ev = new XenoEggStateChangedEvent();
         RaiseLocalEvent(egg, ref ev);
-    }
-
-    private void OnXenoEggUseInHand(Entity<XenoEggComponent> egg, ref UseInHandEvent args)
-    {
-        var ev = new XenoEggUseInHandEvent(_entities.GetNetEntity(egg.Owner));
-        RaiseLocalEvent(args.User, ev);
-        args.Handled = ev.Handled;
     }
 
     private void OnXenoEggPlace(Entity<XenoComponent> xeno, ref XenoEggPlaceEvent args)
@@ -492,19 +483,6 @@ public sealed class XenoEggSystem : EntitySystem
         return true;
     }
 
-    private void RemoveOvipositorActions(Entity<XenoOvipositorCapableComponent?> capable)
-    {
-        if (!Resolve(capable, ref capable.Comp, false))
-            return;
-
-        foreach (var action in capable.Comp.Actions)
-        {
-            _actions.RemoveAction(action.Value);
-        }
-
-        capable.Comp.Actions.Clear();
-    }
-
     private void OnDestruction(Entity<XenoEggComponent> ent, ref DestructionEventArgs args)
     {
         if (_net.IsClient)
@@ -522,32 +500,6 @@ public sealed class XenoEggSystem : EntitySystem
             return;
 
         var time = _timing.CurTime;
-        var oviQuery = EntityQueryEnumerator<XenoOvipositorCapableComponent, XenoAttachedOvipositorComponent, TransformComponent>();
-        while (oviQuery.MoveNext(out var uid, out var capable, out var attached, out var xform))
-        {
-            if (attached.NextEgg == null)
-            {
-                attached.NextEgg = time + capable.Cooldown;
-                continue;
-            }
-
-            if (time < attached.NextEgg)
-                continue;
-
-            if (TryComp(uid, out MobStateComponent? state) &&
-                _mobState.IsIncapacitated(uid, state))
-            {
-                continue;
-            }
-
-            attached.NextEgg = time + capable.Cooldown;
-            Dirty(uid, attached);
-
-            var egg = SpawnAtPosition(capable.Spawn, xform.Coordinates.Offset(capable.Offset));
-            // egg belongs to whichever hive planted it, not the queen. you can steal eggs to claim them for your hive
-
-            _transform.SetLocalRotation(egg, Angle.Zero);
-        }
 
         var eggQuery = EntityQueryEnumerator<XenoEggComponent, TransformComponent>();
         while (eggQuery.MoveNext(out var uid, out var egg, out var xform))

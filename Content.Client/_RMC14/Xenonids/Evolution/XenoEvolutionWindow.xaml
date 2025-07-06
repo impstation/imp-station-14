@@ -8,7 +8,6 @@
         <BoxContainer Orientation="Vertical">
             <Label Name="PointsLabel" Access="Public" Text="Evolution points:" />
             <BoxContainer Orientation="Vertical" Name="EvolutionsContainer" Access="Public" />
-            <userInterface:BlueHorizontalSeparator Name="Separator" Access="Public" />
         </BoxContainer>
     </ScrollContainer>
 </cc:XenoEvolutionWindow>

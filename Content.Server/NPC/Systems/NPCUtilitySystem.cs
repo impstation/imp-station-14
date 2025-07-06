@@ -10,7 +10,6 @@ using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Storage.Components;
 using Content.Shared._RMC14.Xenonids;
 using Content.Shared._RMC14.Xenonids.Construction;
-using Content.Shared._RMC14.Xenonids.Construction.EggMorpher;
 using Content.Shared._RMC14.Xenonids.Construction.Nest;
 using Content.Shared._RMC14.Xenonids.Egg;
 using Content.Shared._RMC14.Xenonids.Parasite;
@@ -410,10 +409,6 @@ public sealed class NPCUtilitySystem : EntitySystem
             case TargetIsStandingCon:
             {
                 return _standing.IsDown(targetUid) && !HasComp<XenoNestedComponent>(targetUid) ? 0f : 1f;
-            }
-            case TargetAvailibleEggMorpherCon:
-            {
-                return TryComp<EggMorpherComponent>(targetUid, out var eggmorpher) && eggmorpher.CurParasites < eggmorpher.MaxParasites ? 1f : 0f;
             }
             default:
                 throw new NotImplementedException();

@@ -102,13 +102,6 @@ public sealed class XenoVisualizerSystem : VisualizerSystem<XenoComponent>
                     sprite.LayerSetState(layer, "dead");
                 break;
             default:
-                if (HasComp<XenoAttachedOvipositorComponent>(entity) &&
-                    TryComp(entity, out XenoOvipositorCapableComponent? capable))
-                {
-                    oviState = capable.AttachedState;
-                    break;
-                }
-
                 if (AppearanceSystem.TryGetData(entity, XenoVisualLayers.Base, out XenoRestState resting, appearance) &&
                     resting == XenoRestState.Resting &&
                     rsi.TryGetState("sleeping", out _))

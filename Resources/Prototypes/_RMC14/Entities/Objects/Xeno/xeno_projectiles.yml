@@ -46,24 +46,6 @@
     deleteOnFriendlyXeno: true
 
 - type: entity
-  id: XenoSlowingSpitProjectile
-  parent: XenoBaseProjectile
-  name: slowing spit
-  categories:
-  - HideSpawnMenu
-  components:
-  - type: Sprite
-    sprite: _RMC14/Objects/Xeno/xeno_projectiles.rsi
-    layers:
-    - state: neurotoxin
-      shader: unshaded
-  - type: XenoSlowingSpitProjectile
-    armorResistsKnockdown: true
-  - type: XenoProjectile
-    deleteOnFriendlyXeno: true
-  - type: DrainOnHit
-
-- type: entity
   id: XenoNeuroSpitProjectile
   parent: XenoBaseProjectile
   name: neurotoxic spit
@@ -79,25 +61,6 @@
     armorResistsKnockdown: false
     slow: 0
     paralyze: 4
-  - type: XenoProjectile
-    deleteOnFriendlyXeno: true
-
-- type: entity
-  id: XenoScatteredSpitProjectile
-  parent: XenoBaseProjectile
-  name: scattered spit
-  categories:
-  - HideSpawnMenu
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/xeno_toxic.rsi
-    layers:
-    - state: xeno_toxic
-      shader: unshaded
-  - type: XenoSlowingSpitProjectile
-    slow: 0
-    paralyze: 1
-    armorResistsKnockdown: false
   - type: XenoProjectile
     deleteOnFriendlyXeno: true
 

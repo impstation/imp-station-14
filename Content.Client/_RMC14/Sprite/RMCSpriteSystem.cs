@@ -14,15 +14,6 @@ public sealed class RMCSpriteSystem : SharedRMCSpriteSystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<RMCMobStateDrawDepthComponent, AppearanceChangeEvent>(OnDrawDepthAppearanceChange);
-    }
-
-    private void OnDrawDepthAppearanceChange(Entity<RMCMobStateDrawDepthComponent> ent, ref AppearanceChangeEvent args)
-    {
-        if (!args.AppearanceData.ContainsKey(RMCSpriteDrawDepth.Key))
-            return;
-
-        UpdateDrawDepth(ent);
     }
 
     public override Shared.DrawDepth.DrawDepth UpdateDrawDepth(EntityUid sprite)

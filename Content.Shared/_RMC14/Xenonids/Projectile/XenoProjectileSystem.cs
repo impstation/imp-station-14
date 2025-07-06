@@ -47,7 +47,7 @@ public sealed class XenoProjectileSystem : EntitySystem
         if (ent.Comp.DeleteOnFriendlyXeno)
             return;
 
-        if (HasComp<XenoComponent>(args.OtherEntity) || HasComp<HiveCoreComponent>(args.OtherEntity))
+        if (HasComp<XenoComponent>(args.OtherEntity))
             args.Cancelled = true;
     }
 

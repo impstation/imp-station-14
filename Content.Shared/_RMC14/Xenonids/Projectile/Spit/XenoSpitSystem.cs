@@ -1,6 +1,5 @@
 using Content.Shared._RMC14.Xenonids.Projectile.Spit.Ball;
 using Content.Shared._RMC14.Xenonids.Projectile.Spit.Charge;
-using Content.Shared._RMC14.Xenonids.Projectile.Spit.Scattered;
 using Content.Shared._RMC14.Xenonids.Projectile.Spit.Slowing;
 using Content.Shared._RMC14.Xenonids.Projectile.Spit.Stacks;
 using Content.Shared._RMC14.Xenonids.Projectile.Spit.Standard;
@@ -62,7 +61,6 @@ public sealed class XenoSpitSystem : EntitySystem
 
         SubscribeLocalEvent<XenoSpitComponent, XenoSpitActionEvent>(OnXenoSpitAction);
         SubscribeLocalEvent<XenoSlowingSpitComponent, XenoSlowingSpitActionEvent>(OnXenoSlowingSpitAction);
-        SubscribeLocalEvent<XenoScatteredSpitComponent, XenoScatteredSpitActionEvent>(OnXenoScatteredSpitAction);
         SubscribeLocalEvent<XenoChargeSpitComponent, XenoChargeSpitActionEvent>(OnXenoChargeSpitAction);
 
         SubscribeLocalEvent<XenoActiveChargingSpitComponent, ComponentRemove>(OnActiveChargingSpitRemove);
@@ -143,25 +141,6 @@ public sealed class XenoSpitSystem : EntitySystem
             target: args.Entity
         );
     }
-
-    private void OnXenoScatteredSpitAction(Entity<XenoScatteredSpitComponent> xeno, ref XenoScatteredSpitActionEvent args)
-    {
-        if (args.Handled || args.Coords == null)
-            return;
-
-        args.Handled = _xenoProjectile.TryShoot(
-            xeno,
-            args.Coords.Value,
-            xeno.Comp.PlasmaCost,
-            xeno.Comp.ProjectileId,
-            xeno.Comp.Sound,
-            xeno.Comp.MaxProjectiles,
-            xeno.Comp.MaxDeviation,
-            xeno.Comp.Speed,
-            target: args.Entity
-        );
-    }
-
     private void OnXenoChargeSpitAction(Entity<XenoChargeSpitComponent> xeno, ref XenoChargeSpitActionEvent args)
     {
         if (args.Handled)

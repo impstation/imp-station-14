@@ -26,7 +26,6 @@ public sealed class XenoInhandsVisualsSystem : VisualizerSystem<XenoInhandsCompo
 
         AppearanceSystem.TryGetData(uid, RMCXenoStateVisuals.Downed, out downed);
         AppearanceSystem.TryGetData(uid, RMCXenoStateVisuals.Resting, out resting);
-        AppearanceSystem.TryGetData(uid, RMCXenoStateVisuals.Ovipositor, out ovi);
 
         string name = left;
         XenoInhandVisualLayers layerDef = XenoInhandVisualLayers.Left;

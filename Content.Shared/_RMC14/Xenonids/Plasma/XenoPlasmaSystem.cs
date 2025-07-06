@@ -63,12 +63,6 @@ public sealed class XenoPlasmaSystem : EntitySystem
             return;
         }
 
-        if (HasComp<XenoAttachedOvipositorComponent>(args.Target))
-        {
-            _popup.PopupClient(Loc.GetString("rmc-xeno-plasma-ovipositor"), xeno, xeno);
-            return;
-        }
-
         if (!TryComp(args.Target, out XenoPlasmaComponent? targetPlasma) ||
             targetPlasma.MaxPlasma == 0)
         {
@@ -98,7 +92,6 @@ public sealed class XenoPlasmaSystem : EntitySystem
             return;
 
         if (self.Owner == target ||
-            HasComp<XenoAttachedOvipositorComponent>(args.Target) ||
             !TryComp(target, out XenoPlasmaComponent? otherXeno) ||
             !TryRemovePlasma((self, self), args.Amount))
         {

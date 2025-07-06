@@ -1,8 +1,4 @@
 using Content.Shared._RMC14.Xenonids.Energy;
-using Content.Shared._RMC14.Xenonids.Rest;
-using Content.Shared.Mobs;
-using Content.Shared.StatusEffect;
-using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;

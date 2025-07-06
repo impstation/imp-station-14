@@ -123,12 +123,10 @@ public sealed partial class XenoSystem : EntitySystem
         SubscribeLocalEvent<XenoStateVisualsComponent, XenoRestEvent>(OnVisualsRest);
         SubscribeLocalEvent<XenoStateVisualsComponent, DownedEvent>(OnVisualsProne);
         SubscribeLocalEvent<XenoStateVisualsComponent, StoodEvent>(OnVisualsStand);
-        SubscribeLocalEvent<XenoStateVisualsComponent, XenoOvipositorChangedEvent>(OnVisualsOvipositor);
 
         Subs.CVar(_config, RMCCVars.CMXenoDamageDealtMultiplier, v => _xenoDamageDealtMultiplier = v, true);
         Subs.CVar(_config, RMCCVars.CMXenoDamageReceivedMultiplier, v => _xenoDamageReceivedMultiplier = v, true);
         Subs.CVar(_config, RMCCVars.CMXenoSpeedMultiplier, UpdateXenoSpeedMultiplier, true);
-        Subs.CVar(_config, RMCCVars.RMCXenoSpawnInitialMuteDurationSeconds, v => _xenoSpawnMuteDuration = TimeSpan.FromSeconds(v), true);
 
     }
 

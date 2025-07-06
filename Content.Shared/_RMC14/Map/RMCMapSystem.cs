@@ -5,7 +5,6 @@ using Content.Shared.Coordinates;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
 using Content.Shared.Tag;
-using Content.Shared.Whitelist;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
@@ -15,7 +14,6 @@ namespace Content.Shared._RMC14.Map;
 
 public sealed class RMCMapSystem : EntitySystem
 {
-    [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly INetManager _net = default!;

@@ -1,7 +1,6 @@
 ﻿using Content.Client._RMC14.Xenonids.UI;
 using Content.Client.Message;
 using Content.Shared._RMC14.Xenonids.Evolution;
-using Content.Shared._RMC14.Xenonids.Strain;
 using Content.Shared.FixedPoint;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
@@ -83,8 +82,6 @@ public sealed class XenoEvolutionBui : BoundUserInterface
                 AddEvolution(evolutionId);
             }
         }
-
-        _window.Separator.Visible = _window.EvolutionsContainer.ChildCount > 0;
 
         var points = plasma.Plasma;
         _window.PointsLabel.Text = $"Plasma: {(int) Math.Floor(points.Double())} / {xeno.Max}";

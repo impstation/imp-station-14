@@ -42,14 +42,6 @@ public sealed partial class XenoSystem : EntitySystem
 
         _appearance.SetData(xeno, RMCXenoStateVisuals.Downed, false);
     }
-
-    private void OnVisualsOvipositor(Entity<XenoStateVisualsComponent> xeno, ref XenoOvipositorChangedEvent args)
-    {
-        if (_timing.ApplyingState)
-            return;
-
-        _appearance.SetData(xeno, RMCXenoStateVisuals.Ovipositor, args.Attached);
-    }
 }
 
 [Serializable, NetSerializable]
@@ -57,6 +49,5 @@ public enum RMCXenoStateVisuals
 {
     Resting,
     Downed,
-    Ovipositor,
     Dead,
 }

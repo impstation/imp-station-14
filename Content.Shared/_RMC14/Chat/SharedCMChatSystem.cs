@@ -1,5 +1,4 @@
-﻿using Content.Shared._RMC14.Xenonids;
-using Content.Shared.Chat;
+﻿using Content.Shared.Chat;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 

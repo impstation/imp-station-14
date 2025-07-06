@@ -1,6 +1,3 @@
-using Content.Shared._RMC14.Xenonids.Evolution;
-using Content.Shared._RMC14.Xenonids.Parasite;
-using Content.Shared.Mobs;
 using Content.Shared.Popups;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
@@ -8,8 +5,6 @@ using Robust.Shared.Player;
 namespace Content.Shared._RMC14.Xenonids.Announce;
 public abstract class SharedXenoAnnounceSystem : EntitySystem
 {
-    [Dependency] private readonly XenoEvolutionSystem _xenoEvolution = default!;
-
     public string WrapHive(string message, Color? color = null)
     {
         color ??= Color.FromHex("#921992");

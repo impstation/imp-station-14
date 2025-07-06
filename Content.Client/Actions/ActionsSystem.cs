@@ -351,7 +351,7 @@ namespace Content.Client.Actions
             AssignSlot?.Invoke(assignments);
         }
 
-        public void SetAssignments(List<SlotAssignment> actions)
+        public void SetAssignments(List<SlotAssignment> actions) //RMC edit
         {
             ClearAssignments?.Invoke();
             AssignSlot?.Invoke(actions);
