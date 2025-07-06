@@ -3,7 +3,7 @@
   parent: ToolboxThief
   id: BountyHunterGear
   name: bounty hunter toolbox
-  description: An assortment of contraband you've collected over your career, some more forbidden than others.
+  description: An assortment of contraband you've collected over your career, some more illegal than others.
   components:
   - type: ThiefUndeterminedBackpack
     maxSelectedSets: 2
@@ -13,11 +13,11 @@
     - BountyHunterDisguise
     - BountyHunterSubverter
     - BountyHunterRoboticist
+    - BountyHunterPirate
     - BountyHunterSamurai
     - BountyHunterSyndie
     - BountyHunterCaptain
     - BountyHunterClown
-    - BountyHunterPirate
     spawnedStoragePrototype: ClothingBackpackSCargoDuffelPurple
 
 # Bounty Hunter Thermal + Flash Protection Glasses
@@ -297,8 +297,8 @@
 - type: entity
   parent: ReinforcementRadio
   id: ReinforcementRadioBountyHunterParrot
-  name: unknown parrot-summoning item #TODO: rename this
-  description: YARGH! #TODO: ^
+  name: pirate parrot reinforcement radio
+  description: YARGH!
   components:
     - type: GhostRole
       name: "Pirate Parrot"
