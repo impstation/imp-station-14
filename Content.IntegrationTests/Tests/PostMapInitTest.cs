@@ -63,7 +63,7 @@ namespace Content.IntegrationTests.Tests
             "/Maps/_Impstation/meta.yml", // Contains warden's rubber stamp
             "/Maps/_Impstation/reach.yml", // Contains handheld crew monitor
             "/Maps/_Impstation/xeno.yml", // Contains PTK-800 "Matter Dematerializer"
-
+            "/Maps/_Impstation/eclipse.yml", // Contains PTK-800 "Matter Dematerializer", LSE-400c "Svalinn machine gun"
 
 
             // Shuttles
@@ -74,6 +74,7 @@ namespace Content.IntegrationTests.Tests
             "/Maps/Shuttles/ShuttleEvent/recruiter.yml", // Contains syndicate rubber stamp
             "/Maps/_DV/Shuttles/listening_post.yml", // Contains captain's rubber stamp, chief engineer's rubber stamp, chaplain's rubber stamp, clown's rubber stamp, blablabla you get the picture
             "/Maps/_Impstation/Shuttles/listening_post.yml" // No, I'm not gonna list out all these stamps again lol
+
         };
 
         // Imp - While fixing these tests I didn't want to edit any of the maps in-game because that would mess up any possible wip stuff.
@@ -96,53 +97,54 @@ namespace Content.IntegrationTests.Tests
         };
 
         private static readonly string[] GameMaps =
-        {   // Note, fork attributions based on prototype location, they might not be accurate
-            // Maps
-            "Relic",
-            "Amber",
-            "MeteorArena",
-            "Atlas",
+        {
+            "Dev",
+            "TestTeg",
+            "Fland",
+            "Packed",
             "Bagel",
-            "Box",
             "CentComm",
-            "Cluster",
+            "Box",
+            "Marathon",
+            "MeteorArena",
+            "Saltern",
+            "Reach",
+            "Oasis",
+            "Amber",
+            "Plasma",
+            "Elkridge",
+            "Relic",
+            "dm01-entryway",
+            "Exo",
+
+            // IMP ADD, NON UPSTREAM MAPS:
+            "Banana",
+            "Barratry",
+            "Bedlam",
+            "Boat",
             "Cog",
             "Convex",
             "Core",
-            "Dev",
-            "TestTeg",
-            "Elkridge",
-            "Fland",
-            "Gate",
-            "Loop",
-            "Marathon",
-            "Meta",
-            "Oasis",
-            "Omega",
-            "Origin",
-            "Packed",
-            "Plasma",
-            "Reach",
-            "Saltern",
-            "Train",
-            "Xeno",
-            "dm01-entryway",
-
-            // _Harmony/Maps
-            "Barratry",
-
-            // _Impstation/Maps
             "E1M1",
-            "Banana",
-            "Bedlam",
-            "Boat",
+            "Gate",
+            "Hash",
             "Hummingbird",
             "Lilboat",
             "Luna",
+            "Omega",
+            "Submarine",
+            "Train",
+            "Xeno",
+            // DEROTATED BUT WE STILL NEED THEM TESTED:
+            "Atlas",
+            "Cluster",
+            "Eclipse",
+            "Elkridge",
+            "Loop",
+            "Meta",
+            "Refsdal",
             "Skimmer",
             "Union",
-            "Hash",
-            "Refsdal"
         };
 
         /// <summary>

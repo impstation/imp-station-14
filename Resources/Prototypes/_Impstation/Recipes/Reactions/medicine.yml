@@ -20,7 +20,105 @@
     Brutoxidone: 1
 
 - type: reaction
-  id: Subjuzine-Activation-GrayBlood #imp, so greys can use it
+  id: ClarifiedPhalanximine
+  minTemp: 300
+  reactants:
+    Phalanximine:
+      amount: 1
+    BloodKodepiia:
+      amount: 1
+  products:
+    ClarifiedPhalanximine: 1
+
+- type: reaction
+  id: Caramexinin
+  minTemp: 370
+  reactants:
+    Stellibinin:
+      amount: 1
+    Sugar:
+      amount: 1
+  products:
+    Caramexinin: 2
+
+- type: reaction
+  id: Subjuzine
+  reactants:
+    Cognizine:
+      amount: 1
+    Vestine:
+      amount: 1
+  products:
+    Subjuzine: 2
+
+- type: reaction
+  id: Subjuzine-Activation-Blood
+  preserveDNA: true
+  reactants:
+    Subjuzine:
+      amount: 4
+    Blood:
+      amount: 1
+  products:
+    ActivatedSubjuzine: 5
+
+- type: reaction
+  id: Subjuzine-Activation-Slime
+  preserveDNA: true
+  reactants:
+    Subjuzine:
+      amount: 4
+    Slime:
+      amount: 1
+  products:
+    ActivatedSubjuzine: 5
+
+- type: reaction
+  id: Subjuzine-Activation-Insect
+  preserveDNA: true
+  reactants:
+    Subjuzine:
+      amount: 4
+    InsectBlood:
+      amount: 1
+  products:
+    ActivatedSubjuzine: 5
+
+- type: reaction
+  id: Subjuzine-Activation-Sap
+  preserveDNA: true
+  reactants:
+    Subjuzine:
+      amount: 4
+    Sap:
+      amount: 1
+  products:
+    ActivatedSubjuzine: 5
+
+- type: reaction
+  id: Subjuzine-Activation-BlueBlood
+  preserveDNA: true
+  reactants:
+    Subjuzine:
+      amount: 4
+    CopperBlood:
+      amount: 1
+  products:
+    ActivatedSubjuzine: 5
+
+- type: reaction
+  id: Subjuzine-Activation-Anaerobic
+  preserveDNA: true
+  reactants:
+    Subjuzine:
+      amount: 4
+    AmmoniaBlood:
+      amount: 1
+  products:
+    ActivatedSubjuzine: 5
+
+- type: reaction
+  id: Subjuzine-Activation-GrayBlood
   preserveDNA: true
   reactants:
     Subjuzine:
@@ -31,7 +129,7 @@
     ActivatedSubjuzine: 5
 
 - type: reaction
-  id: Subjuzine-Activation-ShimmeringBlood #imp, so thaven can use it
+  id: Subjuzine-Activation-ShimmeringBlood
   preserveDNA: true
   reactants:
     Subjuzine:
@@ -42,7 +140,7 @@
     ActivatedSubjuzine: 5
 
 - type: reaction
-  id: Subjuzine-Activation-BloodKodepiia #imp, so kode can use it
+  id: Subjuzine-Activation-BloodKodepiia
   preserveDNA: true
   reactants:
     Subjuzine:
@@ -51,14 +149,14 @@
       amount: 1
   products:
     ActivatedSubjuzine: 5
-
+ 
 - type: reaction
-  id: ClarifiedPhalanximine
-  minTemp: 300
+  id: Subjuzine-Activation-SynthBlood
+  preserveDNA: true
   reactants:
-    Phalanximine:
-      amount: 1
-    BloodKodepiia:
+    Subjuzine:
+      amount: 4
+    SynthBlood:
       amount: 1
   products:
-    ClarifiedPhalanximine: 1
+    ActivatedSubjuzine: 5

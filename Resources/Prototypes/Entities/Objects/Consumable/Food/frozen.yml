@@ -163,6 +163,10 @@
     - sweet
     - icecream
     - orange
+  - type: Tag
+    tags:
+    - Fruit
+    - Creamsicle
 
 - type: entity
   name: berry creamsicle
@@ -182,6 +186,7 @@
   - type: Tag
     tags:
     - Fruit
+    - Creamsicle
   - type: FlavorProfile # Frontier: add flavour profile
     flavors:
     - sweet

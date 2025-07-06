@@ -52,6 +52,8 @@ marking-ThavenHeadScales-scales = Scales
 marking-ThavenHeadStripes = Pinstripes
 marking-ThavenHeadStripes-stripes = Pinstripes
 
+marking-ThavenShadow = Gloomy
+
 # Snout
 
 # Eyes
@@ -547,7 +549,7 @@ marking-ThavenHairSidetail3 = Ponytail (Side) 3
 
 marking-ThavenHairSidetail4 = Ponytail (Side) 4
 
-marking-ThavenHairSkinhead = Skinhead
+marking-ThavenHairSkinhead = High And Tight
 
 marking-ThavenHairSpikey = Spiky
 
@@ -624,6 +626,8 @@ marking-ShaggyThaven = Shaggy
 marking-ShaggyLongerThaven = Shaggy (Longer)
 
 marking-SusieThaven = Mean Girl (Bangs)
+
+marking-SusieNoBangsThaven = Mean Girl
 
 # HeadSide
 

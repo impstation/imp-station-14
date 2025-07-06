@@ -18,6 +18,8 @@
   - CigPackNewport #imp
   - CigPackRed
   - CigPackSpirits #imp
+  - VapeSwappable #imp
+  - VapeCart #imp
   - ClothingHeadHatKippahBlueAndGold #imp
   - ClothingHeadHatKippahSimple #imp
   - ClothingHeadHatKippahWhiteAndBlue #imp
@@ -47,6 +49,7 @@
   - FolderHamster #imp
   - FolderMime #imp
   - FolderPun #imp
+  - Clipboard # imp
   - Hairflower
   - PanFluteInstrument #imp
   - Headphones
@@ -58,6 +61,7 @@
   - PlushieDollHair #imp
   - PlushieLizard
   - PlushieSpaceLizard
+  - WristwatchTrinket #imp
   - GoldRingTrinket #imp
   - SilverRingTrinket #imp
   - TowelColorBlack
@@ -94,6 +98,7 @@
   - GlassesColorfulGreen
   - GlassesColorfulPurple
   - GlassesColorfulYellow
+  - EyePatch
   # imp edit end
   - GlassesJamjar
   - GlassesJensen
@@ -213,7 +218,12 @@
   loadouts:
   - HoPJumpsuit
   - HoPJumpskirt
-  - HoPBoatswain # DeltaV
+  - HoPPowerSuit # imp
+  # Begin DeltaV additions
+  - HoPMessSkirt
+  - HoPMessSuit
+  - HoPBoatswain
+  # End DeltaV additions
 
 - type: loadoutGroup
   id: HoPNeck
@@ -228,9 +238,14 @@
   id: HoPBackpack
   name: loadout-group-hop-backpack
   loadouts:
-  - CommonBackpack
-  - CommonSatchel
-  - CommonDuffel
+  # Start DeltaV changes
+  # - CommonBackpack
+  # - CommonSatchel
+  # - CommonDuffel
+  - BackpackHoP
+  - SatchelHoP
+  - HopDuffel
+  # End of DeltaV changes
   - HoPBackpackIan
   - CommandVeteranBackpack #imp
   - CommandVeteranSatchel #imp
@@ -242,6 +257,7 @@
   minLimit: 0
   loadouts:
   - HoPWintercoat
+  - HoPFormalCoat # Delta-v
 
 # Civilian
 - type: loadoutGroup
@@ -252,6 +268,7 @@
   - GreyJumpskirt
   - AncientJumpsuit
   - RainbowJumpsuit
+  - RainbowJumpskirt
   - GraytiderSpaceJumpsuit #imp
 
 - type: loadoutGroup
@@ -666,9 +683,10 @@
   loadouts:
   - EmergencyNitrogenMime
   - EmergencyOxygenMime
+  - EmergencySpeciesMothMime
+  - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatMime # imp
   - LoadoutSpeciesAquaticFullTank # Imp
-  - LoadoutSpeciesVoxNitrogen
 
 - type: loadoutGroup
   id: MusicianJumpsuit
@@ -678,6 +696,7 @@
   - MusicianJumpskirt
   - ClothingUniformMrSpaceWide #imp
   - ClothingUniformMrSpaceWideSkirt #imp
+  - MusicianMarchingBand #imp
 
 - type: loadoutGroup
   id: MusicianOuterClothing
@@ -850,6 +869,7 @@
   - ChiefEngineerJumpskirt
   - ChiefEngineerTurtleneck
   - ChiefEngineerTurtleneckSkirt
+  - ChiefEngineerJumpsuitForeman # imp
 
 - type: loadoutGroup
   id: ChiefEngineerNeck
@@ -1160,11 +1180,6 @@
   - HeadofSecurityCoat
   - HeadofSecurityWinterCoat
   - HeadofSecurityWinterCoatUnarmored # imp
-  - ArmorVest #imp
-  - ArmorVestSlim #imp
-  - ArmorVestCompact #imp
-  - DuraVest # DeltaV
-  - PlateCarrier # DeltaV
   - HeadofSecurityEliteArmor #imp
 
 - type: loadoutGroup
@@ -1194,13 +1209,7 @@
   loadouts:
   - WardenCoat
   - WardenArmoredWinterCoat
-  - ArmorVest #imp
-  - ArmorVestSlim #imp
-  - ArmorVestCompact #imp
-  - DuraVest # DeltaV
-  - PlateCarrier # DeltaV
   - WardenWinterCoatUnarmored # imp
-  - BomberSecurity #imp
 
 - type: loadoutGroup
   id: SecurityHead
@@ -1276,6 +1285,7 @@
   loadouts:
   - DetectiveFedora
   - DetectiveFedoraGrey
+  - ClothingHeadDeerstalker #imp
 
 - type: loadoutGroup
   id: DetectiveNeck
@@ -1307,12 +1317,6 @@
   - DetectiveArmorVest
   - DetectiveCoatGrey
   - DetectiveCoat
-  - ArmorVest #imp
-  - ArmorVestSlim #imp
-  - ArmorVestCompact #imp
-  - DuraVest # DeltaV
-  - PlateCarrier # DeltaV
-  - BomberSecurity #imp
   - ClothingOuterCoatFieldJacket #imp
 
 - type: loadoutGroup
@@ -1350,6 +1354,7 @@
   loadouts:
   - ChiefMedicalOfficerBeret
   - CMOMedicalHeadMirror
+  - CMOClip # imp
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerJumpsuit
@@ -1359,6 +1364,11 @@
   - ChiefMedicalOfficerJumpskirt
   - ChiefMedicalOfficerTurtleneckJumpsuit
   - ChiefMedicalOfficerTurtleneckJumpskirt
+  - CMOCasualSuit # imp
+  - CMOCasualSkirt # imp
+  - CMOFormalSuit # imp
+  - CMOFormalDress # imp
+  - CMOScrubs # imp
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerOuterClothing
@@ -1368,6 +1378,7 @@
   - ChiefMedicalOfficerLabCoat
   - ChiefMedicalOfficerWintercoat
   - CMOPrestigeLabcoat #IMP
+  - CMOApron # imp
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerNeck
@@ -1544,7 +1555,18 @@
   loadouts:
   - MedicalHud
   - MedicalEyePatchHud
+  - MedicalGlassesHud #imp
   - Glasses
+  # imp edit start - its in the middle for alphabetizing reasons sorry
+  - GlassesCheapSunglasses
+  - GlassesColorfulPink
+  - GlassesColorfulRed
+  - GlassesColorfulBlue
+  - GlassesColorfulGreen
+  - GlassesColorfulPurple
+  - GlassesColorfulYellow
+  - EyePatch
+  # imp edit end
   - GlassesJamjar
   - GlassesJensen
 

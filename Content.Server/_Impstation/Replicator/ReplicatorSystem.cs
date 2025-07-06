@@ -2,6 +2,7 @@
 // all credit for the core gameplay concepts and a lot of the core functionality of the code goes to the folks over at Goob, but I re-wrote enough of it to justify putting it in our filestructure.
 // the original Bingle PR can be found here: https://github.com/Goob-Station/Goob-Station/pull/1519
 
+using Content.Server._Impstation.Administration.Components;
 using Content.Server.Actions;
 using Content.Server.Emp;
 using Content.Server.Ghost.Roles.Events;
@@ -35,6 +36,7 @@ public sealed class ReplicatorSystem : EntitySystem
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly PinpointerSystem _pinpointer = default!;
+    [Dependency] private readonly SharedReplicatorNestSystem _replicatorNest = default!;
 
     public override void Initialize()
     {
@@ -72,7 +74,7 @@ public sealed class ReplicatorSystem : EntitySystem
 
     private void OnMindRemoved(Entity<ReplicatorComponent> ent, ref MindRemovedMessage args)
     {
-        // remove all the actions when the mind is removed. 
+        // remove all the actions when the mind is removed.
         foreach (var action in ent.Comp.Actions)
         {
             QueueDel(action);
@@ -122,6 +124,12 @@ public sealed class ReplicatorSystem : EntitySystem
         // remove queen status from this replicator
         ent.Comp.Queen = false;
 
+        // remove the Crown
+        if (HasComp<ReplicatorSignComponent>(ent))
+            RemComp<ReplicatorSignComponent>(ent);
+
+        _replicatorNest.ForceUpgrade(ent, ent.Comp.FirstStage);
+
         // then we need to remove the action, to ensure it can't be used infinitely.
         QueueDel(args.Action);
     }
@@ -161,21 +169,23 @@ public sealed class ReplicatorSystem : EntitySystem
         if (!TryComp<CombatModeComponent>(ent, out var combat))
             return;
 
-        // visual indicator that the replicator is aggressive. 
+        // visual indicator that the replicator is aggressive.
         _appearance.SetData(ent, ReplicatorVisuals.Combat, combat.IsInCombatMode);
     }
 
     private void OnMobStateChanged(Entity<ReplicatorComponent> ent, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState != MobState.Critical || args.NewMobState != MobState.Dead)
+        if (args.NewMobState != MobState.Critical | args.NewMobState != MobState.Dead)
             return;
 
         _appearance.SetData(ent, ReplicatorVisuals.Combat, false);
 
-        if (ent.Comp.Queen && ent.Comp.MyNest == null)
+        if (HasComp<ReplicatorSignComponent>(ent))
         {
             foreach (var (uid, comp) in ent.Comp.RelatedReplicators)
+            {
                 _popup.PopupEntity(Loc.GetString(comp.QueenDiedMessage), uid, uid, PopupType.LargeCaution);
+            }
         }
     }
 
