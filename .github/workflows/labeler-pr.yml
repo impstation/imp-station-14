@@ -11,7 +11,5 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-    - name: "im dying"
-      uses: actions/labeler@v5
-    - name: "fuck my gay life"
-      run: echo "actor: $GITHUB_ACTOR"
+    - uses: actions/labeler@v5
+      run: echo "actor is $GITHUB_ACTOR"
