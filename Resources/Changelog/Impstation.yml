@@ -1,27 +1,4 @@
 ﻿Entries:
-- author: widgetbeck
-  changes:
-  - message: Player ghosts can now warp to player ghosts & corpses.
-    type: Add
-  id: 1496
-  time: '2025-04-08T16:19:56.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2222
-- author: kipdotnet
-  changes:
-  - message: S-Cargo Moving Trunks no longer have a giant ERROR written on them.
-    type: Fix
-  id: 1497
-  time: '2025-04-09T13:35:16.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2236
-- author: Sha-Seng
-  changes:
-  - message: Moved gray Head markings to Head (Top) and you'll have to reapply them!!
-    type: Tweak
-  - message: Gray Head (Top) and Chest marking points have been increased to 3
-    type: Tweak
-  id: 1498
-  time: '2025-04-09T02:32:30.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2114
 - author: snaviian
   changes:
   - message: Walking canes can now be printed from the medical techfab.
@@ -4225,3 +4202,29 @@
   id: 1995
   time: '2025-07-07T05:48:08.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3014
+- author: hivehum
+  changes:
+  - message: dog fix
+    type: Fix
+  id: 1996
+  time: '2025-07-07T05:57:30.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3008
+- author: ErhardSteinhauer
+  changes:
+  - message: Tabletop computers can now be built and placed atop tables.
+    type: Add
+  id: 1997
+  time: '2025-07-07T06:16:36.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2953
+- author: deltanedas, DinnerCalzone
+  changes:
+  - message: Clown waddling has been fully refactored! Please report any issues or
+      noticeable changes in performance.
+    type: Fix
+  - message: Toggling waddling now has a short cooldown.
+    type: Tweak
+  - message: Crawl waddling has been tragically fixed with this refactor.
+    type: Remove
+  id: 1998
+  time: '2025-07-07T06:15:42.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2509
