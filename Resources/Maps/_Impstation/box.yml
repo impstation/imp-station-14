@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/07/2025 22:22:57
-  entityCount: 28173
+  time: 07/07/2025 22:37:53
+  entityCount: 28178
 maps:
 - 780
 grids:
@@ -12123,7 +12123,7 @@ entities:
       pos: 24.5,16.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -145096.5
+      secondsUntilStateChange: -145175.02
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14364,8 +14364,6 @@ entities:
       pos: 20.5,4.5
       parent: 8364
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 26204
   - uid: 27423
@@ -64116,7 +64114,7 @@ entities:
       pos: 16.5,5.5
       parent: 8364
     - type: ItemPlacer
-      lastPlaceable: True
+      lastPlaceable: False
       placedEntities:
       - 25901
     - type: PlaceableSurface
@@ -64132,6 +64130,13 @@ entities:
     components:
     - type: Transform
       pos: 22.5,-20.5
+      parent: 8364
+- proto: ChemMasterMachineCircuitboard
+  entities:
+  - uid: 22642
+    components:
+    - type: Transform
+      pos: 33.394066,-0.25526324
       parent: 8364
 - proto: ChessBoard
   entities:
@@ -81103,13 +81108,6 @@ entities:
     - type: Transform
       pos: 34.5,-38.5
       parent: 8364
-- proto: DresserFilled
-  entities:
-  - uid: 22642
-    components:
-    - type: Transform
-      pos: 33.5,-0.5
-      parent: 8364
 - proto: DresserHeadOfPersonnelFilled
   entities:
   - uid: 5289
@@ -84584,8 +84582,6 @@ entities:
       pos: 21.5,7.5
       parent: 8364
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 24409
       - 26204
@@ -84682,8 +84678,6 @@ entities:
       pos: 21.5,1.5
       parent: 8364
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 26204
   - uid: 7252
@@ -85512,7 +85506,7 @@ entities:
       pos: -34.5,-14.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -139285.06
+      secondsUntilStateChange: -139363.58
       state: Closing
   - uid: 15010
     components:
@@ -113302,8 +113296,6 @@ entities:
       pos: 20.5,5.5
       parent: 8364
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 26204
     - type: AtmosPipeColor
@@ -115921,8 +115913,6 @@ entities:
       pos: 20.5,3.5
       parent: 8364
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 26204
     - type: AtmosPipeColor
@@ -124169,7 +124159,7 @@ entities:
       pos: 28.5,-34.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -119055.41
+      secondsUntilStateChange: -119133.914
       state: Closing
 - proto: hydroponicsSoil
   entities:
@@ -124384,6 +124374,12 @@ entities:
     components:
     - type: Transform
       pos: 53.5,-33.5
+      parent: 8364
+  - uid: 26219
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 28.5,-0.5
       parent: 8364
   - uid: 28473
     components:
@@ -124844,12 +124840,6 @@ entities:
       parent: 8364
     - type: Physics
       canCollide: True
-  - uid: 10509
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 33.518723,0.23566258
-      parent: 8364
   - uid: 10857
     components:
     - type: Transform
@@ -126505,6 +126495,11 @@ entities:
     components:
     - type: Transform
       pos: 74.72912,-20.240425
+      parent: 8364
+  - uid: 26220
+    components:
+    - type: Transform
+      pos: 33.637123,-0.22748548
       parent: 8364
 - proto: MicrophoneInstrument
   entities:
@@ -141186,6 +141181,11 @@ entities:
       rot: 3.141592653589793 rad
       pos: -5.0813017,14.205442
       parent: 8364
+  - uid: 26222
+    components:
+    - type: Transform
+      pos: 33.553787,-0.49831882
+      parent: 8364
   - uid: 27210
     components:
     - type: Transform
@@ -141371,6 +141371,13 @@ entities:
     components:
     - type: Transform
       pos: 9.439449,-60.01837
+      parent: 8364
+- proto: SheetGlass1
+  entities:
+  - uid: 26221
+    components:
+    - type: Transform
+      pos: 33.220455,-0.51915216
       parent: 8364
 - proto: SheetPlasma
   entities:
@@ -152568,6 +152575,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -20.5,23.5
       parent: 8364
+  - uid: 10509
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 33.5,-0.5
+      parent: 8364
   - uid: 10548
     components:
     - type: Transform
@@ -154016,6 +154029,13 @@ entities:
     components:
     - type: Transform
       pos: -31.5,2.5
+      parent: 8364
+- proto: VendingBarDrobe
+  entities:
+  - uid: 26223
+    components:
+    - type: Transform
+      pos: 34.5,-0.5
       parent: 8364
 - proto: VendingMachineAtmosDrobe
   entities:
