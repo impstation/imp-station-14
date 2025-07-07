@@ -1,55 +1,4 @@
 ﻿Entries:
-- author: FlippenPage
-  changes:
-  - message: Mechs are now 20% less broken.
-    type: Fix
-  id: 1488
-  time: '2025-04-08T02:29:55.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2082
-- author: Mousetrinity
-  changes:
-  - message: Foresaw unforeseen consequences with making vox tails actual tails
-    type: Fix
-  id: 1489
-  time: '2025-04-08T03:09:32.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2225
-- author: jtfg-dev
-  changes:
-  - message: Removed the chance for aged light tubes to flicker endlessly.
-    type: Remove
-  id: 1490
-  time: '2025-04-08T03:09:18.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2223
-- author: rainyatrium, Newemisma, astral_amy, Jellvisk, ComicalSomber
-  changes:
-  - message: Refsdal, a cozy(?) and safe(?) 5-25 person shuttle map for space adventure
-      with ragtag crew!
-    type: Add
-  id: 1491
-  time: '2025-04-08T07:32:14.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2207
-- author: widgetbeck
-  changes:
-  - message: Drones now see living beings only as silhouettes.
-    type: Add
-  - message: Drone laws have been updated for clarity.
-    type: Tweak
-  - message: Cardboard walls, windows, directional windows, tiles, chairs, and airlocks.
-    type: Add
-  - message: Substantial maintenance drone nerf. Drones can no longer easily make
-      permanent repairs - instead, they have a Cardboard RCD for temporary repairs.
-    type: Tweak
-  id: 1492
-  time: '2025-04-08T08:36:58.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2182
-- author: widgetbeck
-  changes:
-  - message: Dragons now have a method of pinpointing the location of the station,
-      so they are no longer as likely to get lost in space.
-    type: Add
-  id: 1493
-  time: '2025-04-08T10:15:56.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2229
 - author: widgetbeck
   changes:
   - message: Being pulled now thwarts mundane attempts to slip your cuffs.
@@ -4239,3 +4188,45 @@
   id: 1987
   time: '2025-07-06T18:14:43.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/2902
+- author: youtubevideo3
+  changes:
+  - message: 'Medical Procedure: My Horses Have Been Unsquashed (My Horses Were Squashed)'
+    type: Tweak
+  id: 1988
+  time: '2025-07-07T04:37:44.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3017
+- author: CrocodileCarousel & Pinkbat5
+  changes:
+  - message: The lobby playtime text now has a little more personality.
+    type: Tweak
+  id: 1989
+  time: '2025-07-07T05:32:19.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3015
+- author: hivehum
+  changes:
+  - message: Thaven mimes get their starting baguette back. No response from the crowd.
+    type: Fix
+  id: 1990
+  time: '2025-07-07T05:34:59.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3010
+- author: hivehum
+  changes:
+  - message: Headphones no longer teleport you to a source game.
+    type: Fix
+  id: 1991
+  time: '2025-07-07T05:36:46.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3004
+- author: VeeNomine
+  changes:
+  - message: Added a new prestige item, the Librarian's Space Dress.
+    type: Add
+  id: 1992
+  time: '2025-07-07T05:38:36.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3006
+- author: hivehum
+  changes:
+  - message: Bark like a dog. your below me moron
+    type: Tweak
+  id: 1993
+  time: '2025-07-07T05:44:04.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3009
