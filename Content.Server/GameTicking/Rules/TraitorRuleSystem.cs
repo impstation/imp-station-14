@@ -200,14 +200,25 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
                     Loc.GetString($"traitor-role-notes"),
                     Loc.GetString($"traitor-{objectiveIssuer}-goal"),
                     Loc.GetString($"traitor-role-clarity"));
-                return (code, briefing);
                 // end Imp Edit for Traitor Flavor
+                return (code, briefing);
             }
         }
         else if (pda is null && uplinked)
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink is implant");
-            briefing += "\n" + Loc.GetString("traitor-role-uplink-implant-short");
+            // Imp Edit for Traitor Flavor
+            briefing = string.Format("{0}\n{1}\n{2}\n\n{3}\n\n{4}\n{5}\n\n{6}\n{7}\n\n{8}",
+                briefing,
+                Loc.GetString($"traitor-{objectiveIssuer}-uplink"),
+                Loc.GetString("traitor-role-uplink-implant-short"),
+                Loc.GetString($"traitor-{objectiveIssuer}-intro"),
+                Loc.GetString($"traitor-role-allegiances"),
+                Loc.GetString($"traitor-{objectiveIssuer}-allies"),
+                Loc.GetString($"traitor-role-notes"),
+                Loc.GetString($"traitor-{objectiveIssuer}-goal"),
+                Loc.GetString($"traitor-role-clarity"));
+            // end Imp Edit for Traitor Flavor
         }
 
         return (null, briefing);
