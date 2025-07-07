@@ -45,6 +45,7 @@ traitor-role-notes =
 traitor-role-clarity =
     Allegiances and additional notes are recommendations. You do not have to strictly follow them.
 
+objective-issuer-traitor-flavor = [color=Red]Traitor[/color]
 # End Imp Edit
 
 traitor-role-codewords =
