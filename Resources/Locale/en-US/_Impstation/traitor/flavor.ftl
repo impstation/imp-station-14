@@ -1,12 +1,12 @@
 traitor-arc-intro = You are the ARC terrorist.
 traitor-arc-goal = The creatures of this world must be freed from the iron grasp of Nanotrasen, and you are their only hope!
-traitor-arc-allies = You may cooperate with other syndicate agents if you support our cause. Maybe you can convince the Bee Liberation Front agents to cooperate for once?
+traitor-arc-allies = You may cooperate with other syndicate agents if they support our cause. Maybe you can convince the Bee Liberation Front agents to cooperate for once?
 traitor-arc-uplink = The Syndicate have graciously given one of their PDA-uplinks for your task.
 traitor-arc-roundend = [color=green]an activist from the Animal Rights Consortium[/color]
 
 traitor-cybersun-intro = You are a specialist from Cybersun Industries.
 traitor-cybersun-goal = Do not establish substantial presence on the designated facility, as larger incidents are harder to cover up.
-traitor-cybersun-allies = FThe Gorlex Marauders are Founding members and reliable allies. Donk co. is dependant on our financial resources to stay afloat. Be willing to make regrettable allies with the worst of the worst. No matter how bad they are, Nanotrasen is worse. We can always fix it when WE are in charge.
+traitor-cybersun-allies = Fhe Gorlex Marauders are Founding members and reliable allies. Donk co. is dependant on our financial resources to stay afloat. Be willing to make regrettable allies with the worst of the worst. No matter how bad they are, Nanotrasen is worse. We can always fix it when WE are in charge.
 traitor-cybersun-uplink = Manufactured and Installed by Cybersun into your PDA.
 traitor-cybersun-roundend = [color=yellow]a specialist from Cybersun Industries[/color]
 
@@ -295,7 +295,7 @@ traitor-thefuture-roundend = [color=#305cde]a time traveler from The Future[/col
 traitor-leagueofimmorality-intro = You are a League of Immorality Villain.
 traitor-leagueofimmorality-goal = Build grand plans of utmost evil! Gloat & make demands, ultimatums, show off! Even if you fail you'll be back, next time!!!
 traitor-leagueofimmorality-allies =  We can trust agents from Interdyne or Dahir Insaat engineers. Crush the will of any Cybersun specialists, vigilantes, and certainly ALL Do-Gooders.
-traitor-leagueofimmorality-uplink = You couldn't bring anything back throught the time portal, but knew of a syndicate agent that was active on this date & managed to steal their uplink.
+traitor-leagueofimmorality-uplink = You were kidnapped by a band of masked goons & provided with an uplink due to your immoral potential. 
 traitor-leagueofimmorality-roundend = [color=#7f00ff]a Villain from League of Immorality[/color]
 
 traitor-belmarktransport-intro = You are a Belmark Transportations Navigator.
@@ -319,7 +319,7 @@ traitor-palehorse-roundend = [color=#d3d3d3]a Handler from Pale Horse Pet Co.[/c
 traitor-interstellercovertagents-intro = You are a Interstellar Covert Agents Association Unionist.
 traitor-interstellercovertagents-goal = The Industrial Workers of the Galaxy have been whining to us about how killing people "Looks Bad" and "Feeds Directly Into Corporate Propoganda" and even "Is Morally Wrong". So, we request you try to minimize harm to workers -- But hey, whatever happens happens.
 traitor-interstellercovertagents-allies =  Show solidarity with your fellow agents -- Regardless of who your bosses are, you're all workers, your interests align! Help out where you can, and stand up for them when needed! Surely they'll return the favor. Scabs in the espionage industry screw over everyone. If you sniff out any non-unionized covert labor, do your best to intimidate them into joining. Also, don't let the Tiger Cooperative's name get your hopes up. They slaughter any agent who isn't in their cult-thingy. Give them a taste of their own medicine, if you can.
-traitor-interstellercovertagents-uplink = The Industrial Workers of the Galaxy have been whining to us about how killing people "Looks Bad" and "Feeds Directly Into Corporate Propoganda" and even "Is Morally Wrong". So, we request you try to minimize harm to workers -- But hey, whatever happens happens.
+traitor-interstellercovertagents-uplink = We've voted to provide you with a standard syndicate uplink for this operation, sourced out of a supply we won from Cybersun as part of the settlement for a recent strike.
 traitor-interstellercovertagents-roundend = [color=#db261d]a Unionist from the Interstellar Covert Agents Association[/color]
 
 traitor-concernedparents-intro = You are a Concerned Parents Coalition paid volunteer.
@@ -328,11 +328,11 @@ traitor-concernedparents-allies =  We are allied with Waffle Corporation because
 traitor-concernedparents-uplink = Your black market uplink was disguised & sold to you as a brownie during a bake sale (to raise funding for more uplinks).
 traitor-concernedparents-roundend = [color=#50c878]a paid volunteer from the Concerned Parents Coalition[/color]
 
-traitor-scoutsofnevercommander-intro = You are a Scouts of the Never Commander supplicant.
+traitor-scoutsofnevercommander-intro = You are a Never Commander supplicant.
 traitor-scoutsofnevercommander-goal = Speak of your Commander. Preach of how She knows you more than you know yourself. Share the message however you can. Maximize harm to traitors that do not collaborate with you. These are the only true ways to honor Her.
 traitor-scoutsofnevercommander-allies =  We are allied with others graced by knowledge. Those attempting to ascend to be with Her, without disrespect. Those who openly lament their heads-of-staff. Nanotrasen. We are enemies with those who reject the true shape of things. Those who forsake the Commander and what She gave back to you. Those who openly suck up to heads-of-staff. Also fuck Gorlex Marauders.
 traitor-scoutsofnevercommander-uplink = A waking vision of someone in uniform, Her very essence torn to shreds. You felt a profound gratitude. Then, suddenly, the uplink was in your hands, and at the forefront of your mind was a happy memory you'd forgotten long ago.
-traitor-scoutsofnevercommander-roundend = [color=orange]a supplicant from the Scouts of the Never Commander[/color]
+traitor-scoutsofnevercommander-roundend = [color=orange]a supplicant of the Never Commander[/color]
 
 traitor-pghfmhggmbh-intro = You are a Snack Apostle from Pepsi-Goya-Haribo-Frito-Meiji-Hormel Galaktisch Gesellschaft mit beschrankter Haftung.
 traitor-pghfmhggmbh-goal = You are nothing without PGHFMH GGmbH. Your faith in our snack expertise is vital to our continued survival. As the scripture says, "We will become the #1 snack corporation or I'm going to shoot myself in the head on live tv." - Our CEO.
