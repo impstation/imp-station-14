@@ -122,13 +122,13 @@ traitor-littleguys-intro = You are a Little Guys Inc. Fella.
 traitor-littleguys-goal = Do your best to be seen as just a little guy. A little guy who wouldn't hurt anyone! Death to Nanotrasen!
 traitor-littleguys-allies =  I LOVE YOU HONK CO. I LOVE YOU GORLEX. I HATE YOU NANOTRASEN. I HATE YOU MR BEAST.
 traitor-littleguys-uplink = A magic Syndicate fairy appeared in the night and slipped your uplink underneath your pillow!
-traitor-littleguys-roundend = [color=red]a Fella from Little Guys Inc.[/color]
+traitor-littleguys-roundend = [color=green]a Fella from Little Guys Inc.[/color]
 
 traitor-martianlaborprinting-intro = You are a Martian Labor Printing LLC drone.
 traitor-martianlaborprinting-goal = Protect MLP LLC interests. Prove the financial efficacy of your upbringing and the margins of improvement you bring now that you've replaced your former self.
 traitor-martianlaborprinting-allies =  We work with the highest bidder. If you see those S.E.L.F. terrorists, crush them.
 traitor-martianlaborprinting-uplink = Brand new MLP LLC hacked replica PDA of a Nanotrassen standard. Our experts even replicated the blemishes the former owner left.
-traitor-martianlaborprinting-roundend = [color=red]a drone from Martian Labor Printing LLC[/color]
+traitor-martianlaborprinting-roundend = [color=brown]a drone from Martian Labor Printing LLC[/color]
 
 traitor-muscleco-intro = You are a Muscle Corporation Spotter.
 traitor-muscleco-goal = PROVE YOUR WORTH! ONLY THE MIGHTY WILL SURVIVE...! HRRRRAGGGH!!!! MUST. GET. STRONGER. BEAT YOUR RECORDS!!!!! SURPASS!!!!!!!!!!!!!!!!!!!! HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
@@ -152,13 +152,13 @@ traitor-robertrobotics-intro = You are a Robert Robotics Interloper.
 traitor-robertrobotics-goal = We're gathering data on Nanotrasen cyborgs. We encourage you to make use of their services via subversion or conversation. What makes them tick? When repurposed, how do they react? How well do they perform?
 traitor-robertrobotics-allies =  We have close ties with both the Cascadian Bioregional Independence Movement as well as S.E.L.F. Fuck the Space United States.
 traitor-robertrobotics-uplink = Location of syndicate coalition dead drop point broadcasted via encrypted number station.
-traitor-robertrobotics-roundend = [color=red]an Interloper from Robert Robotics[/color]
+traitor-robertrobotics-roundend = [color=brown]an Interloper from Robert Robotics[/color]
 
 traitor-santa-intro = You are a Little Helper from Santa's Workshop.
 traitor-santa-goal = Ho, ho, ho! As one of Santa's little helpers, you follow the Naughty List as rule of law. Bad behaviour by targets must be punished accordingly! Conversely, be sure to reward good behaviour you see whilst hunting your quarry.
 traitor-santa-allies =  Elves and all creatures of joy and whimsy are friends to Santa's little helpers! Avoid both the abominable yeti and RTVS at all costs.
 traitor-santa-uplink = We've gifted you an uplink, handmade by Santa's elves and hidden away in a christmas cracker
-traitor-santa-roundend = [color=red]an Little Helper from Santa's Workshop[/color]
+traitor-santa-roundend = [color=white]an Little Helper from Santa's Workshop[/color]
 
 traitor-decapoidempire-intro = You are a loyalist from the Decapoid Empire.
 traitor-decapoidempire-goal = Demonstrate that the Empire is not to be trifled with, while still taking care not to sully our good name with wanton behavior.
@@ -170,37 +170,37 @@ traitor-dominusempire-intro = You are a Blackguard from The Dominus Empire of Ca
 traitor-dominusempire-goal = Thou must show thine quarry what it means to truly fear death! Thine acts must be glorious!
 traitor-dominusempire-allies =  We are allied with the forces of darkness most malign. Obliterate arthuria, as well as all Do-Gooders.
 traitor-dominusempire-uplink = Whispers from a cursed object on your person led you directly to a *accidentally* forgotten uplink in a syndicate safehouse.
-traitor-dominusempire-roundend = [color=red]a Blackguard from The Dominus Empire of Camelot IV[/color]
+traitor-dominusempire-roundend = [color=black]a Blackguard from The Dominus Empire of Camelot IV[/color]
 
 traitor-giggleco-intro = You are a Jokester from The Giggle Corporation, LLC.
 traitor-giggleco-goal = Its all a big joke to you. Everyone and everything should be laughed at, except yourself. You are very serious.
 traitor-giggleco-allies =  Only real Jokesters understand our comedy. Other agents can be brought in as a part of the joke. Don't trust Honk Co, whose UNSOPHISTICATED PRANKING sullies the good name of clowns.
 traitor-giggleco-uplink = Found in a dead drop located via rigorous analysis of an NTflix Comedy Special
-traitor-giggleco-roundend = [color=red]a Jokester from The Giggle Corporation, LLC.[/color]
+traitor-giggleco-roundend = [color=pink]a Jokester from The Giggle Corporation, LLC.[/color]
 
 traitor-lawofficesofjohnsonjohnsonlockheedmartin-intro = You are a pencil pusher from the Law Offices of Johnson & Johnson & Lockheed & Martin.
 traitor-lawofficesofjohnsonjohnsonlockheedmartin-goal = We must reduce the number of active lawsuits levied against Johnson & Johnson & Lockheed & Martin as they are costing us a fortune. Through this operation, you will destroy, silence, and intimidate key evidence and witnesses against our company. Life has no value to you or your corporation, but lets try to not start more lawsuits than were ending today.
 traitor-lawofficesofjohnsonjohnsonlockheedmartin-allies =  We are allied with Boeing via the United Launch Alliance (since 2006). Anyone who does not have the patience for paperwork, like those Gorlex dogs responsible for The Incident, are worth less than dirt.
 traitor-lawofficesofjohnsonjohnsonlockheedmartin-uplink = Uplink acquired as part of ongoing weapons sale contract with greater Syndicate Coalition through mediator Cybersun to avoid further galactic incidents, delivered via air-to-surface missile directly into your paperwork bin.
-traitor-lawofficesofjohnsonjohnsonlockheedmartin-roundend = [color=red]a pencil pusher from the Law Offices of Johnson & Johnson & Lockheed & Martin[/color]
+traitor-lawofficesofjohnsonjohnsonlockheedmartin-roundend = [color=crimson]a pencil pusher from the Law Offices of Johnson & Johnson & Lockheed & Martin[/color]
 
 traitor-publicinvestmentfund-intro = You are a punk from the Public Investment Fund.
 traitor-publicinvestmentfund-goal = You were chosen to represent your local gang as an agent for The Fund. This could be your guy's big break from the streets! Do whatever you gotta, and don't be afraid of going back to jail.
 traitor-publicinvestmentfund-allies =  We like agents of chaos and mass destruction. Who's going to bother with you when they're making so much noise? Larger, big-name corporations say we're not "profesional enough," show em who's boss!
 traitor-publicinvestmentfund-uplink = You have finally retrieved your uplink after 72 hours of torrenting.
-traitor-publicinvestmentfund-roundend = [color=red]a punk from the Public Investment Fund[/color]
+traitor-publicinvestmentfund-roundend = [color=orange]a punk from the Public Investment Fund[/color]
 
 traitor-tonyblair-intro = You are a New Unionist from the Tony Blair Institute.
 traitor-tonyblair-goal = You are here to spread the word of neoliberal futurism and civil capital... Well, you were once upon a time.
 traitor-tonyblair-allies =  We are allies with Neutral Aligned, NT Factions, and Syndicate Splinter Groups. Liberation fronts, civil rights groups, moderate political factions can go to hell.
 traitor-tonyblair-uplink = Received with your graduate's diploma.
-traitor-tonyblair-roundend = [color=red]a New Unionist from the Tony Blair Institute[/color]
+traitor-tonyblair-roundend = [color=blue]a New Unionist from the Tony Blair Institute[/color]
 
 traitor-wafflecozaibatsu-intro = You are The Waffle Zaibatsu terrorist.
 traitor-wafflecozaibatsu-goal = Our investors need a demonstration of our pledge to destroying Nanotrasen. Let's give them a loud one!
 traitor-wafflecozaibatsu-allies =  Cybersun has been a faithful ally, and their agents should be trusted unconditionally. Our ex-conspiritors at Waffle Corp. are to be eliminated on sight. Nanotrasen military and security elements have especially earned our ire and their cronies should be made to regret their allegences.
 traitor-wafflecozaibatsu-uplink = While dining out late one night, a waiter covered in conspicuously prominant Gorlex tattoos brings you your space-texas toast sandwich. Hidden underneath it was a small, greasy package containing a PDA cassette containing your orders and an uplink program.
-traitor-wafflecozaibatsu-roundend = [color=red]a terrorist from The Waffle Zaibatsu[/color]
+traitor-wafflecozaibatsu-roundend = [color=crimson]a terrorist from The Waffle Zaibatsu[/color]
 
 traitor-blackmailers-intro = You are being blackmailed.
 traitor-blackmailers-goal = You really dont like having to do this, but whatever they have on you, its really bad. 
