@@ -1,11 +1,10 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Content.Shared.Anomaly;
-using Content.Server._Impstation.Anomaly.Effects;
 
-namespace Content.Server._Impstation.Anomaly.Effects.Components;
+namespace Content.Shared._Impstation.Anomaly.Effects.Components;
 
-[RegisterComponent, NetworkedComponent, Access(typeof(WallAnomalySystem))]
+[RegisterComponent, NetworkedComponent, Access(typeof(SharedWallAnomalySystem))]
 public sealed partial class WallSpawnAnomalyComponent : Component
 {
     /// <summary>
