@@ -1,8 +1,8 @@
 ﻿- type: entity
   parent: ReagentDispenserBase
-  id: CondimentDispenser
+  id: CondimentDispenserEmpty # imp - moved most of the yaml to empty and made it the parent of filled, so it actually spawns empty, lol
   name: condiment dispenser
-  suffix: Filled
+  suffix: Empty
   description: A condiment dispenser with a single slot for a condiment cup.
   components:
   - type: Fixtures
@@ -20,11 +20,6 @@
     sprite: _NF/Structures/smalldispensers.rsi
     drawdepth: SmallObjects
     state: icon
-  - type: ReagentDispenser
-    storageWhitelist:
-      tags:
-      - DrinkBottle
-    pack: CondimentDispenserInventory
   - type: Transform
     noRot: false
   - type: Machine
@@ -33,14 +28,28 @@
     guides:
     - Bartender
     - Drinks
-
-- type: entity
-  id: CondimentDispenserEmpty
-  suffix: Empty
-  parent: CondimentDispenser
-  components:
-  - type: ReagentDispenser
-    storageWhitelist:
+  - type: Storage # imp
+    openOnActivate: false
+    whitelist:
       tags:
       - DrinkBottle
-    pack: EmptyInventory
+
+- type: entity
+  id: CondimentDispenser
+  suffix: Filled
+  parent: CondimentDispenserEmpty
+  components:
+  - type: Storage # imp
+    whitelist:
+      tags:
+      - DrinkBottle
+  - type: StorageFill # imp
+    contents:
+    - id: DrinkAstrotameJug
+    - id: DrinkBbqSauceJug
+    - id: DrinkColdsauceJug
+    - id: DrinkHorseradishSauceJug
+    - id: DrinkHotsauceJug
+    - id: DrinkKetchupJug
+    - id: DrinkMustardJug
+    - id: DrinkSoysauceJug

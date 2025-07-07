@@ -36,7 +36,7 @@ public sealed partial class GuideMicrowaveEmbed : PanelContainer, IDocumentTag, 
         IoCManager.InjectDependencies(this);
         MouseFilter = MouseFilterMode.Stop;
 
-        _sawmill = _logManager.GetSawmill("guidemicrowaveembed");
+        _sawmill = _logManager.GetSawmill("guidemicrowaveembed"); // Frontier
         _sprite = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<SpriteSystem>(); // Frontier
     }
 
