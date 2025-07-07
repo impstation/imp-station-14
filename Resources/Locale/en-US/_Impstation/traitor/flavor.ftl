@@ -329,7 +329,7 @@ traitor-scoutsofnevercommander-uplink = A waking vision of someone in uniform, H
 traitor-scoutsofnevercommander-roundend = [color=red]a supplicant from the Scouts of the Never Commander[/color]
 
 traitor-pghfmhggmbh-intro = You are a Snack Apostle from Pepsi-Goya-Haribo-Frito-Meiji-Hormel Galaktisch Gesellschaft mit beschrankter Haftung.
-traitor-pghfmhggmbh-goal = "We will become the #1 snack corporation or I'm going to shoot myself in the head on live tv." - Our CEO.
+traitor-pghfmhggmbh-goal = You are nothing without PGHFMH GGmbH. Your faith in our snack expertise is vital to our continued survival. As the scripture says, "We will become the #1 snack corporation or I'm going to shoot myself in the head on live tv." - Our CEO.
 traitor-pghfmhggmbh-allies =  We are allied with Radio TV Solutions - Our CEO often uses sponsorship with them to evangelize new craving-crushers to the galaxy. Their role in our cause is just and noble, even if they do not always understand our faith. We are staunch enemies of other manufacturers and distributors of anathema snack products.  NT is the arch-heretic, but Donk and Hyuspi are included.  For the truly zealous, even Boeing and its peanuts are an enemy.  Supernatural beings and their unclean hungers, like revenants, must be denied.
 traitor-pghfmhggmbh-uplink = Your black market uplink found alongside your orders inside a package of PGHFMH GGmbH Cracker Jacks, as well as a sticker of a smiling dog.
 traitor-pghfmhggmbh-roundend = [color=red]a Snack Apostle from Pepsi-Goya-Haribo-Frito-Meiji-Hormel Galaktisch Gesellschaft mit beschrankter Haftung[/color]
