@@ -1,13 +1,3 @@
-# Senior times
-- type: loadoutEffectGroup
-  id: SeniorCargoTech
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:DepartmentTimeRequirement
-      department: Cargo
-      time: 108000 #30 hrs, ~20 rounds #imp
-
 # Head
 - type: loadout
   id: CargoTechnicianHead
@@ -58,11 +48,3 @@
   id: CargoTechnicianPDA
   equipment:
     id: CargoPDA
-
-- type: loadout
-  id: SeniorCargoTechnicianPDA
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorCargoTech
-  equipment:
-    id: SeniorCargoPDA

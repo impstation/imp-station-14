@@ -5,65 +5,39 @@
   minLimit: 0
   maxLimit: 4 #imp
   loadouts:
-  - NoviceMark # imp
-  - BarFlask
-  - CardBoxBlack
+  - AACTablet # DeltaV
   - CDDogtags #_CD
   - ThreeCandles
+  - Lighter
   - CigarCase
   - CigarGold
   - CigPackBlack
   - CigPackBlue
   - CigPackGreen
-  - CigPackNewport #imp
   - CigPackRed
-  - CigPackSpirits #imp
-  - VapeSwappable #imp
-  - VapeCart #imp
-  - ClothingHeadHatKippahBlueAndGold #imp
-  - ClothingHeadHatKippahSimple #imp
-  - ClothingHeadHatKippahWhiteAndBlue #imp
-  - ClothingHeadPaperSack #imp
-  - ClothingHeadPaperSackSmile #imp
   - ClothingNeckLGBTPin
   - ClothingNeckAromanticPin
   - ClothingNeckAsexualPin
-  - ClothingNeckAutismPin
   - ClothingNeckAroacePin
   - ClothingNeckBisexualPin
   - ClothingNeckGayPin
-  - ClothingNeckGoldAutismPin
   - ClothingNeckIntersexPin
   - ClothingNeckLesbianPin
   - ClothingNeckLGBTPin
   - ClothingNeckNonBinaryPin
   - ClothingNeckPansexualPin
-  - ClothingNeckPluralPin
   - ClothingNeckOmnisexualPin
   - ClothingNeckGenderqueerPin
   - ClothingNeckGenderfluidPin
   - ClothingNeckTransPin
-  - FlippoLighter #imp
+  - ClothingNeckAutismPin
+  - ClothingNeckGoldAutismPin
+  - ClothingNeckPluralPin
   - FlowerWreath
-  - FolderBlack #imp
-  - FolderHamster #imp
-  - FolderMime #imp
-  - FolderPun #imp
-  - Clipboard # imp
   - Hairflower
-  - PanFluteInstrument #imp
   - Headphones
-  - HeartLocket #imp
-  - HeartLocketSilver #imp
-  - Lighter
-  - NewtonCradle #imp
-  - PlushieDoll #imp
-  - PlushieDollHair #imp
   - PlushieLizard
   - PlushieSpaceLizard
-  - WristwatchTrinket #imp
-  - GoldRingTrinket #imp
-  - SilverRingTrinket #imp
   - TowelColorBlack
   - TowelColorDarkBlue
   - TowelColorDarkGreen
@@ -80,9 +54,36 @@
   - TowelColorSilver
   - TowelColorWhite
   - TowelColorYellow
-  - TutorialAI_Newcomer #imp <15 hours
-  - WalkingCane #imp
-  - AACTablet # DeltaV
+  # imp edit start. if you add a trinket consider that categories will determine order first
+  - NoviceMark
+  - BarFlask
+  - CardBoxBlack
+  - CigPackNewport
+  - CigPackSpirits
+  - VapeSwappable
+  - VapeCart
+  - ClothingHeadHatKippahBlueAndGold
+  - ClothingHeadHatKippahSimple
+  - ClothingHeadHatKippahWhiteAndBlue
+  - ClothingHeadPaperSack
+  - ClothingHeadPaperSackSmile
+  - FlippoLighter
+  - FolderBlack
+  - FolderHamster
+  - FolderMime
+  - FolderPun
+  - Clipboard
+  - PanFluteInstrument
+  - HeartLocket
+  - HeartLocketSilver
+  - NewtonCradle
+  - PlushieDoll
+  - PlushieDollHair
+  - TutorialAI_Newcomer
+  - WalkingCane
+  - WristwatchTrinket
+  - GoldRingTrinket
+  - SilverRingTrinket
 
 - type: loadoutGroup
   id: Glasses
@@ -103,7 +104,6 @@
   - GlassesJamjar
   - GlassesJensen
 
-# The usual loadouts of the vox harness that spawn in your chest slot for jobs that don't have outerwear in their loadout
 - type: loadoutGroup
   id: GroupTankHarness
   name: loadout-group-tank-harness
@@ -160,9 +160,10 @@
   loadouts:
   - CaptainHead
   - CaptainCap
-  - CaptainBeret # imp
-  - CaptainCrusherCap #imp
-  - CaptainTricorne # imp
+  # start imp
+  - CaptainBeret
+  - CaptainCrusherCap
+  - CaptainTricorne
 
 - type: loadoutGroup
   id: CaptainJumpsuit
@@ -182,9 +183,10 @@
   - CaptainCloak
   - CaptainCloakFormal
   - CaptainMantle
-  - CaptainGreatcoat # imp
-  - ScarfBlue # imp
-  - CaptainAdmiralCloak # imp
+  # start imp
+  - CaptainGreatcoat
+  - ScarfBlue
+  - CaptainAdmiralCloak
 
 - type: loadoutGroup
   id: CaptainBackpack
@@ -193,9 +195,10 @@
   - CaptainBackpack
   - CaptainSatchel
   - CaptainDuffel
-  - CommandVeteranBackpack #imp
-  - CommandVeteranSatchel #imp
-  - CommandVeteranDuffel #imp
+  # start imp
+  - CommandVeteranBackpack
+  - CommandVeteranSatchel
+  - CommandVeteranDuffel
 
 - type: loadoutGroup
   id: CaptainOuterClothing
@@ -334,10 +337,11 @@
   - BartenderJumpsuit
   - BartenderJumpskirt
   - BartenderJumpsuitPurple
-  - ClothingUniformNightclubSuit #imp
-  - ClothingUniformNightclubSuitSkirt #imp
-  - ClothingUniformSeniorBartender #imp
-  - ClothingUniformSeniorBartenderSkirt #imp
+  # start imp
+  - ClothingUniformNightclubSuit
+  - ClothingUniformNightclubSuitSkirt
+  - ClothingUniformSeniorBartender
+  - ClothingUniformSeniorBartenderSkirt
 
 - type: loadoutGroup
   id: BartenderOuterClothing
@@ -741,7 +745,6 @@
   - Bagpipe
 
 # Cargo
-
 - type: loadoutGroup
   id: QuartermasterHead
   name: loadout-group-quartermaster-head
@@ -852,7 +855,6 @@
   - CargoWinterBoots
 
 # Engineering
-
 - type: loadoutGroup
   id: ChiefEngineerHead
   name: loadout-group-chief-engineer-head
@@ -1002,7 +1004,6 @@
   - LoadoutSpeciesVoxNitrogen
 
 # Science
-
 - type: loadoutGroup
   id: ResearchDirectorHead
   name: loadout-group-research-director-head
@@ -1136,7 +1137,6 @@
   - WhiteJumpskirt
 
 # Security
-
 - type: loadoutGroup
   id: HeadofSecurityHead
   name: loadout-group-head-of-security-head
@@ -1315,8 +1315,8 @@
   name: loadout-group-detective-outerclothing
   loadouts:
   - DetectiveArmorVest
-  - DetectiveCoatGrey
   - DetectiveCoat
+  - DetectiveCoatGrey
   - ClothingOuterCoatFieldJacket #imp
 
 - type: loadoutGroup
@@ -1346,7 +1346,6 @@
   - SecStar
 
 # Medical
-
 - type: loadoutGroup
   id: ChiefMedicalOfficerHead
   name: loadout-group-chief-medical-officer-head
@@ -1397,7 +1396,7 @@
   - BrownShoes
   - WhiteShoes # imp
   - LacedShoes #imp
-  - LeatherShoes
+  - LeatherShoes #imp
   - MedicalWinterBoots
 
 - type: loadoutGroup

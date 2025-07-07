@@ -54,7 +54,6 @@
       time: 7200 #2 hrs, ~2 rounds
 
 # colorful glasses loadouts
-
 - type: loadout
   id: GlassesColorfulPink
   effects:
@@ -102,3 +101,9 @@
     proto: CargoGlassesTimer
   equipment:
     eyes: ClothingEyesGlassesColorfulYellow
+
+# Cheap sunglasses
+- type: loadout
+  id: GlassesCheapSunglasses
+  equipment:
+    eyes: ClothingEyesGlassesCheapSunglasses
