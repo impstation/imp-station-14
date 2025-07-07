@@ -1,4 +1,4 @@
-lobby-state-playtime-comment-aa = You've played {$hours} today, and none of it was as AA.
+lobby-state-playtime-comment-aa = You've played {$hours} hours today, and none of it was as AA.
 lobby-state-playtime-comment-lifespan = {$hours} hours played today, which means {$hours} more hours added to your life span! Good job!
 lobby-state-playtime-comment-itsfine = You can spend {$hours} hours doing anything you want. It's fine.
 lobby-state-playtime-comment-entireday = If there were {$hours} hours in a day, you would have spent the entire day on station today.
