@@ -159,6 +159,8 @@
   cost: 2
   components:
   - type: RatvarianLanguage
+  - type: TypingIndicator
+    proto: clock
 
 - type: trait
   id: Slime

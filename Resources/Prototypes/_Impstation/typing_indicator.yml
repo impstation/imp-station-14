@@ -25,3 +25,13 @@
   typingState: lawyerblue0
   idleState: lawyerblue0 # TODO: new idle state
   offset: 0, 0.125
+
+- type: typingIndicator
+  id: clock
+  typingState: clock0
+  idleState: clock0 # TODO: new idle state
+
+- type: typingIndicator
+  id: syndibot
+  typingState: syndibot0
+  idleState: syndibot3
