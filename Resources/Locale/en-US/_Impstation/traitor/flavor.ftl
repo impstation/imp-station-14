@@ -164,7 +164,7 @@ traitor-decapoidempire-intro = You are a loyalist from the Decapoid Empire.
 traitor-decapoidempire-goal = Demonstrate that the Empire is not to be trifled with, while still taking care not to sully our good name with wanton behavior.
 traitor-decapoidempire-allies =  Avoid attracting the ire of large corporations like Cybersun, lest our business deals be soured. Radical groups like SELF and the Animal Rights Consurtium seek to stimy the flow of commerce with their worthless idealism, making them a blight upon this galaxy.
 traitor-decapoidempire-uplink = For this operation, we have graciously chosen to bestow upon you an uplink, delivered via spaceborne tck'tck. It is one of 15 offered to us by Cybersun as a show of good will. Do not lose it, or there shall be consequences
-traitor-decapoidempire-roundend = [color=#8ddcdc]a loyalist from the Decapoid Empire[/color]
+traitor-decapoidempire-roundend = [color=#0084e8]a loyalist from the Decapoid Empire[/color]
 
 traitor-dominusempire-intro = You are a Blackguard from The Dominus Empire of Camelot IV.
 traitor-dominusempire-goal = Thou must show thine quarry what it means to truly fear death! Thine acts must be glorious!
