@@ -39,21 +39,6 @@ public sealed class GibOnRoundEndSystem : EntitySystem
                         break;
                     }
                 }
-                // imp addition: any clause
-                if (!gib && gibComp.GibProofObjectives.Count != 0) //if not already failed (though why would you combine these two features anyway that sounds like hell)
-                {
-                    gib = true; //invert clause
-                    foreach (var objectiveId in gibComp.GibProofObjectives)
-                    {
-                        if (_mind.TryFindObjective((mindId, mindComp), objectiveId, out var objective) //if they have the objective
-                            && _objectives.IsCompleted(objective.Value, (mindId, mindComp))) //and they completed it
-                        {
-                            gib = false; // they're safe
-                            break;
-                        }
-                    }
-                }
-                //end imp addition
             }
             else
                 gib = true;
