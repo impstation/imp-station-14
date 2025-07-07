@@ -86,6 +86,9 @@
   - type: Skates
     minimumSpeed: 20
     acceleration: 5
+  - type: Tag
+    tags:
+      - BananaClownshoes # imp
 
 - type: entity
   parent: ClothingShoesClownBase

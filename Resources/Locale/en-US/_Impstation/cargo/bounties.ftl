@@ -15,7 +15,7 @@ bounty-item-pyrotton = Pyrotton Bolls
 bounty-item-firebomb = Firebombs
 bounty-item-sgd = SGD
 bounty-item-pka = PKAs
-bounty-item-banana-clownshoes = Banana Clownshoes
+bounty-item-banana-clownshoes = Banana Clown Shoes
 
 bounty-description-lemo = Nanotrasen's terraforming of the planet Teo is behind schedule. We need further Lemo fruit to quell swelling demand in this sector.
 bounty-description-regenerative-mesh = Some idiot sent us real laser guns instead of the practice ones! Send us some of those fancy burn meds, on the double!

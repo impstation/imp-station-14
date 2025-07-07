@@ -17,7 +17,6 @@
     whitelist:
       tags:
       - PKAUpgrade
-      - PKA # imp
   - type: ContainerContainer
     containers:
       upgrades: !type:Container
@@ -47,4 +46,6 @@
   - type: MeleeThrowOnHit
     distance: 0.8
     speed: 5
+    tags:
+      - PKAGun # for the bounty
 #imp edit end
