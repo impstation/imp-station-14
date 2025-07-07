@@ -1,4 +1,21 @@
 - type: entity
+  id: ActionXenoCombatModeToggle
+  name: "[color=red]Combat Mode[/color]"
+  description: Enter combat mode
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    checkConsciousness: false
+    icon: 
+      sprite: _Impstation/Actions/xeno_actions.rsi
+      state: alien_combatmode
+    iconOn: 
+      sprite: _Impstation/Actions/xeno_actions.rsi
+      state: alien_combatmodeToggled
+    event: !type:ToggleCombatActionEvent
+    priority: -100
+
+- type: entity
   parent: ActionXenoBase
   id: ActionXenoAcidNormal
   name: Corrosive Acid (75)  # TODO RMC14 proper plasma costs
@@ -41,8 +58,8 @@
   - type: WorldTargetAction
     itemIconStyle: NoItem
     icon:
-      sprite: _RMC14/Actions/xeno_actions.rsi
-      state: pounce
+      sprite: _Impstation/Actions/xeno_actions.rsi
+      state: alien_jump
     event: !type:XenoLeapActionEvent
     range: 15
     useDelay: 3
@@ -78,37 +95,3 @@
     range: 15
     checkCanAccess: false
   - type: ActionBlockIfResting
-
-- type: entity
-  id: ActionXenoFling
-  parent: ActionXenoBase
-  name: Fling
-  description: Flings the targeted enemy a few tiles, knocking them down and damaging them.
-  components:
-  - type: EntityTargetAction
-    itemIconStyle: NoItem
-    icon:
-      sprite: _RMC14/Actions/xeno_actions.rsi
-      state: fling
-    event: !type:XenoFlingActionEvent
-    range: 1.5
-    useDelay: 7
-    deselectOnMiss: false
-  - type: XenoOffensiveAction
-
-- type: entity
-  id: ActionXenoLunge
-  parent: ActionXenoBase
-  name: Lunge
-  description: Lunges towards the targeted enemy and grabs the first enemy hit.
-  components:
-  - type: EntityTargetAction
-    itemIconStyle: NoItem
-    icon:
-      sprite: _RMC14/Actions/xeno_actions.rsi
-      state: lunge
-    event: !type:XenoLungeActionEvent
-    range: 5
-    useDelay: 10
-    deselectOnMiss: false
-  - type: XenoOffensiveAction

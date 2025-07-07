@@ -162,7 +162,7 @@
   - type: Pullable
   - type: Speech
     speechVerb: Xeno
-    allowedEmotes: [ "Growl", "Hiss", "XenoRoar", "XenoHelp" ]
+    allowedEmotes: [ "Growl", "Hiss" ]
   - type: GhostOnMove
     mustBeDead: true
   - type: ThermalVision
@@ -226,6 +226,7 @@
   - type: CombatMode
     canDisarm: true
     disarmFailChance: 0
+    combatToggleAction: ActionXenoCombatModeToggle
   - type: MeleeWeapon
     autoAttack: true
     widePrimary: true
@@ -255,6 +256,9 @@
   abstract: true
   parent: CMXenoBase
   id: CMXenoUndeveloped
+  components:
+  - type: ReplacementAccent
+    accent: xeno
 
 - type: entity
   id: CMXenoAI
@@ -288,6 +292,7 @@
     whitelist:
       components:
       - XenoParasite
+  - type: LizardAccent
 
 
 - type: entity
