@@ -34,6 +34,7 @@ namespace Content.IntegrationTests.Tests
 
         private static readonly string[] NoSpawnMaps =
         {
+            "CentComm"
             "CentCommImp", // imp edit
             "Dart"
         };
@@ -46,6 +47,7 @@ namespace Content.IntegrationTests.Tests
 
         private static readonly string[] DoNotMapWhitelist =
         {
+            "/Maps/centcomm.yml",
             "/Maps/_Impstation/centcomm.yml", // imp edit
 
             // Stations
