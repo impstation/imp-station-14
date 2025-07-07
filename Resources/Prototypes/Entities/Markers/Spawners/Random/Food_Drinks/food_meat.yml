@@ -137,6 +137,9 @@
       - id: FoodMeatXeno
         amount: !type:RangeNumberSelector
           range: 1, 4
+      - id: FoodCuredCarp # imp
+        amount: !type:RangeNumberSelector
+          range: 1,4
       - !type:GroupSelector
         children:
           - id: FoodMeatBearCutlet
