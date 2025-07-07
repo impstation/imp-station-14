@@ -148,7 +148,7 @@
 - type: polymorph
   id: SmartCorgiMorph
   configuration:
-    entity: MobCorgiSmart
+    entity: MobCorgi # imp
     forced: false
     inventory: Drop
     transferName: true
