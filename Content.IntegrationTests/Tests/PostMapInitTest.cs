@@ -34,19 +34,19 @@ namespace Content.IntegrationTests.Tests
 
         private static readonly string[] NoSpawnMaps =
         {
-            "CentComm",
+            "CentCommImp", // imp edit
             "Dart"
         };
 
         private static readonly string[] Grids =
         {
-            "/Maps/centcomm.yml",
+            "/Maps/_Impstation/centcomm.yml", // imp edit
             AdminTestArenaSystem.ArenaMapPath
         };
 
         private static readonly string[] DoNotMapWhitelist =
         {
-            "/Maps/centcomm.yml",
+            "/Maps/_Impstation/centcomm.yml", // imp edit
 
             // Stations
             "/Maps/bagel.yml", // Contains mime's rubber stamp
