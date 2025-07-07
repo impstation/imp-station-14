@@ -39,3 +39,11 @@
     antagPrototype: Arcfiend
     exclusiveAntag: true
   - type: ArcfiendRole
+
+# Syndicate Infiltrator
+- type: entity
+  parent: MindRoleTraitor
+  id: MindRoleInfiltrator
+  components:
+  - type: MindRole
+    subtype: role-subtype-traitor

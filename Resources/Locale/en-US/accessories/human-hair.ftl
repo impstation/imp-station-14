@@ -165,7 +165,8 @@ marking-HumanHairRosa = Short Hair Rosa
 marking-HumanHairB = Shoulder-length Hair
 marking-HumanHairBAlt = Shoulder-length Hair (Over eye)
 marking-HumanHairSidecut = Sidecut
-marking-HumanHairSkinhead = Skinhead
+# imp changed from skinhead for the americans
+marking-HumanHairSkinhead = High And Tight
 marking-HumanHairProtagonist = Slightly Long Hair
 marking-HumanHairSpikey = Spiky
 marking-HumanHairSpiky = Spiky 2
