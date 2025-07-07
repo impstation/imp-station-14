@@ -110,7 +110,7 @@ traitor-hyuspi-intro = You are a Hyuspi employee.
 traitor-hyuspi-goal = Minimize harm to Nanotrasen outside of your objectives, and try to make us look good in front of any Centcomm officials. PLEASE put up Hyuspi ad copy where people can see it, we spent all our marketing money on you.
 traitor-hyuspi-allies = We want to become a Nanotrasen partner, ousting Robust Softdrinks Co. as their main soda supplier. All other food and drink companies are our enemy and their agents must be sabotaged or eliminated, especially all places where you can get Space Cola.
 traitor-hyuspi-uplink = A surplus black market uplink chip was provided.
-traitor-hyuspi-roundend = [color=crimson]a employee from Hyuspi[/color]
+traitor-hyuspi-roundend = [color=#000080]a employee from Hyuspi[/color]
 
 traitor-johnsonjohnsonlockheedmartin-intro = You are a puppet of the Military Industrial Complex from Johnson & Johnson & Lockheed & Martin.
 traitor-johnsonjohnsonlockheedmartin-goal = Life has no value to you or your corporation.
