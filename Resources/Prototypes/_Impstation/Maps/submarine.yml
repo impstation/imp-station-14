@@ -1,24 +1,23 @@
+# PORTED FROM DELTAV
 - type: gameMap
-  id: Xeno
-  mapName: 'Xeno'
-  mapPath: /Maps/_Impstation/xeno.yml
-  minPlayers: 35
-  maxPlayers: 80
+  id: Submarine
+  mapName: 'Submarine'
+  mapPath: /Maps/_Impstation/submarine.yml
+  minPlayers: 70
+  maxPlayers: 100
   stations:
-    Xeno:
+    Submarine:
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Exomorph Vessel "Conquest" EXO-{1}'
+          mapNameTemplate: '{0} Submarine {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: '14'
+            prefixCreator: 'DV'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/emergency_xeno.yml
-        - type: StationCargoShuttle
-          path: /Maps/Shuttles/cargo_xeno.yml
+          emergencyShuttlePath: /Maps/_Impstation/Shuttles/NTES_Propeller.yml
         - type: StationJobs
-          availableJobs: # Total of 61 jobs roundstart, max of 75 inc. latejoins and trainees.
+          availableJobs: # Total of 67 jobs roundstart, max of 81 inc. latejoins and trainees.
             # command - 8
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
@@ -26,45 +25,47 @@
             ChiefMedicalOfficer: [ 1, 1 ]
             ResearchDirector: [ 1, 1 ]
             HeadOfSecurity: [ 1, 1 ]
-            HospitalityDirector: [ 1, 1 ] # imp
+            HospitalityDirector: [ 1, 1 ]
             Quartermaster: [ 1, 1 ]
-            # service - 16-18 incl. service worker
+            # service - 18
             Bartender: [ 2, 2 ]
-            Botanist: [ 2, 3 ]
+            Botanist: [ 3, 3 ]
             Chaplain: [ 1, 1 ]
             Chef: [ 2, 2 ]
             Clown: [ 1, 1 ]
-            Janitor: [ 1, 2 ]
+            Janitor: [ 2, 2 ]
             Librarian: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             Reporter: [ 2, 2 ]
-            #ServiceWorker: [ 2, 2 ] #imp
-            # engineering - 7-10
+            Zookeeper: [ 1, 1 ]
+            Boxer: [1, 1]
+            # engineering - 7-11
             AtmosphericTechnician: [ 3, 3 ]
             StationEngineer: [ 4, 4 ]
-            TechnicalAssistant: [ 3, 3 ]
-            # medical - 7-10
+            TechnicalAssistant: [ 4, 4 ]
+            # medical - 8-12
             Chemist: [ 2, 2 ]
             MedicalDoctor: [ 4, 4 ]
             MedicalIntern: [ 3, 3 ]
-            Paramedic: [ 1, 1 ]
+            Paramedic: [ 2, 2 ]
+            Psychologist: [ 1, 1 ]
             # science - 7-8
             Borg: [ 2, 2 ]
             ResearchAssistant: [ 1, 1 ]
             Scientist: [ 4, 4 ]
             StationAi: [ 1, 1 ]
-            # security - 9-13
-            Brigmedic: [ 1, 1 ] # imp
+            # security - 10-14
+            Brigmedic: [ 1, 1 ]
             Detective: [ 1, 1 ]
             Lawyer: [ 2, 2 ]
-            SecurityCadet: [ 4, 4 ]
-            SecurityOfficer: [ 4, 4 ]
+            SecurityCadet: [ 3, 3 ]
+            SecurityOfficer: [ 6, 6 ]
             Warden: [ 1, 1 ]
-            # supply - 7-8
-            CargoTechnician: [ 3, 3 ]
-            Courier: [ 1, 1 ] # Imp
+            # supply - 9-10
+            CargoTechnician: [ 4, 4 ]
+            Courier: [ 2, 2 ]
             SalvageSpecialist: [ 3, 3 ]
-            SupplyAssistant: [ 1, 1 ] # Imp
+            SupplyAssistant: [ 1, 1 ]
             # civilian
             Passenger: [ -1, -1 ]

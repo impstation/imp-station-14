@@ -1,22 +1,22 @@
 - type: gameMap
-  id: Submarine
-  mapName: 'Submarine'
-  mapPath: /Maps/_Impstation/submarine.yml
-  minPlayers: 70
-  maxPlayers: 100
+  id: CogImp
+  mapName: 'Cog'
+  mapPath: /Maps/_Impstation/cog.yml
+  minPlayers: 45
+  maxPlayers: 80 #big map
   stations:
-    Submarine:
+    Cog:
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Submarine {1}'
+          mapNameTemplate: '{0} Cog {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: 'DV'
+            prefixCreator: 'R4' # R4407/Goon. GS isn't as cool sounding.
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/_Impstation/Shuttles/NTES_Propeller.yml
+          emergencyShuttlePath: /Maps/Shuttles/emergency_wode.yml
         - type: StationJobs
-          availableJobs:
+          availableJobs: # Total of 68 jobs roundstart, max of 80 inc. latejoins and trainees.
             # command - 8
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
@@ -24,47 +24,47 @@
             ChiefMedicalOfficer: [ 1, 1 ]
             ResearchDirector: [ 1, 1 ]
             HeadOfSecurity: [ 1, 1 ]
-            HospitalityDirector: [ 1, 1 ] # imp
+            HospitalityDirector: [ 1, 1 ]
             Quartermaster: [ 1, 1 ]
-            # service - 18
+            # service - 20 incl
             Bartender: [ 2, 2 ]
             Botanist: [ 3, 3 ]
+            Boxer: [ 2, 2 ]
             Chaplain: [ 1, 1 ]
             Chef: [ 2, 2 ]
             Clown: [ 1, 1 ]
-            Janitor: [ 2, 2 ]
+            Janitor: [ 3, 3 ]
             Librarian: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             Reporter: [ 2, 2 ]
             Zookeeper: [ 1, 1 ]
-            Boxer: [1, 1]
-            # engineering - 7-11
+            # engineering - 7-10
             AtmosphericTechnician: [ 3, 3 ]
             StationEngineer: [ 4, 4 ]
-            TechnicalAssistant: [ 4, 4 ]
-            # medical - 8-12
-            Chemist: [ 2, 2 ]
+            TechnicalAssistant: [ 3, 3 ]
+            # medical - 9-12
+            Chemist: [ 3, 3 ]
             MedicalDoctor: [ 4, 4 ]
             MedicalIntern: [ 3, 3 ]
-            Paramedic: [ 2, 2 ]
+            Paramedic: [ 1, 1 ]
             Psychologist: [ 1, 1 ]
-            # science - 7-11
-            Borg: [ 2, 2 ]
-            ResearchAssistant: [ 3, 3 ]
+            # science - 8-9
+            Borg: [ 3, 3 ]
+            ResearchAssistant: [ 1, 1 ]
             Scientist: [ 4, 4 ]
             StationAi: [ 1, 1 ]
-            # security - 10-14
-            Brigmedic: [ 1, 1 ] # imp
+            # security - 9-13
+            Brigmedic: [ 1, 1 ]
             Detective: [ 1, 1 ]
             Lawyer: [ 2, 2 ]
-            SecurityCadet: [ 3, 3 ]
-            SecurityOfficer: [ 6, 6 ]
+            SecurityCadet: [ 4, 4 ]
+            SecurityOfficer: [ 4, 4 ]
             Warden: [ 1, 1 ]
-            # supply - 10
+            # supply - 7-8
             CargoTechnician: [ 4, 4 ]
-            Courier: [ 2, 2 ] # imp
+            Courier: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]
-            SupplyAssistant: [ 1, 1 ] # imp
+            SupplyAssistant: [ 1, 1 ]
             # civilian
             Passenger: [ -1, -1 ]
