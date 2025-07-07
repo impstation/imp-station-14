@@ -80,7 +80,7 @@ traitor-blackpyre-intro = You are a Blackpyre Funerary Corp. Undertaker.
 traitor-blackpyre-goal = You hold little regard for life, but much respect for the process of death. Avoid destroying a corpse beyond recognition. Dress your targets nicely after death, if possible. They must look good for their mortician!
 traitor-blackpyre-allies = Death comes for us all, but it's best delivered with tact. Cunning operatives, such as CyberSun's specialists, may be helpful to you. Do not ally with destruction hungry fools like the dogs of Gorlex- who create far more bodies than are necessary. There are only so many graves!
 traitor-blackpyre-uplink = Provided via many tightly written legal arrangements with CyberSun, you found your uplink at a loved one's grave. The message was clear- For someone out there, the bell tolls.
-traitor-blackpyre-roundend = [color=grey]an Undertaker from Blackpyre Funerary Corp.[/color]
+traitor-blackpyre-roundend = [color=#eb5d0c]an Undertaker from Blackpyre Funerary Corp.[/color]
 
 traitor-boeing-intro = You are a Boeing pilot.
 traitor-boeing-goal = Utilize shuttles to achieve goals when possible, and once all work is done craft and send a shuttle flying into the station.
@@ -290,13 +290,13 @@ traitor-thefuture-intro = You are a time traveler from The Future.
 traitor-thefuture-goal = Try to cause as little impact outside of your objectives to maintain the timeline. Prevent The Dark Future at all costs. Don't meet your past self.
 traitor-thefuture-allies =  We won't have any allies until around 30 years from now when we're founded. Eleminate any S.E.L.F. counter-agents.
 traitor-thefuture-uplink = You couldn't bring anything back throught the time portal, but knew of a syndicate agent that was active on this date & managed to steal their uplink.
-traitor-thefuture-roundend = [color=#305cde]a time traveler from The Future[/color]
+traitor-thefuture-roundend = [color=#ac86ea]a time traveler from The Future[/color]
 
 traitor-leagueofimmorality-intro = You are a League of Immorality Villain.
 traitor-leagueofimmorality-goal = Build grand plans of utmost evil! Gloat & make demands, ultimatums, show off! Even if you fail you'll be back, next time!!!
 traitor-leagueofimmorality-allies =  We can trust agents from Interdyne or Dahir Insaat engineers. Crush the will of any Cybersun specialists, vigilantes, and certainly ALL Do-Gooders.
 traitor-leagueofimmorality-uplink = You were kidnapped by a band of masked goons & provided with an uplink due to your immoral potential. 
-traitor-leagueofimmorality-roundend = [color=#7f00ff]a Villain from League of Immorality[/color]
+traitor-leagueofimmorality-roundend = [color=#6e0000]a Villain from League of Immorality[/color]
 
 traitor-belmarktransport-intro = You are a Belmark Transportations Navigator.
 traitor-belmarktransport-goal = Share your Telecrystals with your allies whenever possible. Make sure whatever your doing uses ALL of your own crystals.
@@ -308,7 +308,7 @@ traitor-diremind-intro = You are a DireMind Psychic.
 traitor-diremind-goal = Use as little physical force as possible when doing your objectives, teach anyone who relies on strength the power of your superior mind.
 traitor-diremind-allies =  We're close with Tiger Cooperative, as we have succesfully duped them into thinking we are part of the hivemind. Those meatheads from Muscle Co. and Gorlex are dangerous.
 traitor-diremind-uplink = The location of your black market uplink was provided to you though abstract dreams, nightmares & false memories.
-traitor-diremind-roundend = [color=#8b008b]a Psychic from DireMind[/color]
+traitor-diremind-roundend = [color=#ac86ea]a Psychic from DireMind[/color]
 
 traitor-palehorse-intro = You are a Pale Horse Pet Co. Handler.
 traitor-palehorse-goal = Make it look like the work of a crazed animal, either with our own cuddly death machines, or your own inner beast, go wild!
@@ -326,7 +326,7 @@ traitor-concernedparents-intro = You are a Concerned Parents Coalition paid volu
 traitor-concernedparents-goal = No bad manners, no curse words, no nudity, no crass gestures, no potty humor. Execute all offenders.
 traitor-concernedparents-allies =  We are allied with Waffle Corporation because their kids all love their syrup, as well as Santa's Workshop.
 traitor-concernedparents-uplink = Your black market uplink was disguised & sold to you as a brownie during a bake sale (to raise funding for more uplinks).
-traitor-concernedparents-roundend = [color=#50c878]a paid volunteer from the Concerned Parents Coalition[/color]
+traitor-concernedparents-roundend = [color=#e0d8bf]a paid volunteer from the Concerned Parents Coalition[/color]
 
 traitor-scoutsofnevercommander-intro = You are a Never Commander supplicant.
 traitor-scoutsofnevercommander-goal = Speak of your Commander. Preach of how She knows you more than you know yourself. Share the message however you can. Maximize harm to traitors that do not collaborate with you. These are the only true ways to honor Her.
