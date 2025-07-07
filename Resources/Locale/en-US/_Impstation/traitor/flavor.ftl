@@ -1,7 +1,7 @@
-traitor-arc-intro = You are the ARC terrorist.
-traitor-arc-goal = The creatures of this world must be freed from the iron grasp of Nanotrasen, and you are their only hope!
-traitor-arc-allies = You may cooperate with other syndicate agents if they support our cause. Maybe you can convince the Bee Liberation Front agents to cooperate for once?
-traitor-arc-uplink = The Syndicate have graciously given one of their PDA-uplinks for your task.
+traitor-arc-intro = You are the ARC activist.
+traitor-arc-goal = The creatures of this world must be freed from the iron grasp of Nanotrasen, and you are their only hope! The killing of crew members, especially those who harm or contain animals, is always permitted. Avoid decompression or mass destruction without first evacuating animals from affected areas.
+traitor-arc-allies = S.E.L.F. is on our side in the good fight for the oppressed lifeforms of the galaxy. Tiger Cooperative also has something to do with animals, we think! Pharmaceutical and construction companies are not to be trusted. Interdyne Agents are to be killed on sight.
+traitor-arc-uplink = The Syndicate have graciously given one of their PDA-uplinks for your task, delivered by an allied cat.
 traitor-arc-roundend = [color=green]an activist from the Animal Rights Consortium[/color]
 
 traitor-cybersun-intro = You are a specialist from Cybersun Industries.
@@ -14,7 +14,7 @@ traitor-corporateclimber-intro = You are a Corporate Climber.
 traitor-corporateclimber-goal = Killing needlessly would make you some kind of traitor, or at least definitely seen as one. This is all just a means to an end.
 traitor-corporateclimber-allies = Death to the Syndicate.
 traitor-corporateclimber-uplink = You have connections to the black market for the deeds. Your uplink is located in your PDA. Knock off a few loose weights, and your climb will be so much smoother.
-traitor-corporateclimber-roundend = [color=yellow]a corporate climber.[/color]
+traitor-corporateclimber-roundend = [color=white]a corporate climber.[/color]
 
 traitor-donkco-intro = You are a Donk Co. infiltrator.
 traitor-donkco-goal = We do not approve of mindless killing of innocent workers; get in, get done, get out is our motto.
@@ -196,17 +196,17 @@ traitor-tonyblair-allies =  We are allies with Neutral Aligned, NT Factions, and
 traitor-tonyblair-uplink = Received with your graduate's diploma.
 traitor-tonyblair-roundend = [color=blue]a New Unionist from the Tony Blair Institute[/color]
 
-traitor-wafflecozaibatsu-intro = You are The Waffle Zaibatsu terrorist.
+traitor-wafflecozaibatsu-intro = You are The WAFFLE ZAIBATSU terrorist.
 traitor-wafflecozaibatsu-goal = Our investors need a demonstration of our pledge to destroying Nanotrasen. Let's give them a loud one!
 traitor-wafflecozaibatsu-allies =  Cybersun has been a faithful ally, and their agents should be trusted unconditionally. Our ex-conspiritors at Waffle Corp. are to be eliminated on sight. Nanotrasen military and security elements have especially earned our ire and their cronies should be made to regret their allegences.
 traitor-wafflecozaibatsu-uplink = While dining out late one night, a waiter covered in conspicuously prominant Gorlex tattoos brings you your space-texas toast sandwich. Hidden underneath it was a small, greasy package containing a PDA cassette containing your orders and an uplink program.
-traitor-wafflecozaibatsu-roundend = [color=crimson]a terrorist from The Waffle Zaibatsu[/color]
+traitor-wafflecozaibatsu-roundend = [color=crimson]a terrorist from The WAFFLE ZAIBATSU[/color]
 
 traitor-blackmailers-intro = You are being blackmailed.
 traitor-blackmailers-goal = You really dont like having to do this, but whatever they have on you, its really bad. 
 traitor-blackmailers-allies =  Anybody could be affiliated with "them". Trust no one.
-traitor-blackmailers-uplink = Handed to you with Orders and threats of repercussions if you don't do as you're told.
-traitor-blackmailers-roundend = [color=black]being blackmailed[/color]
+traitor-blackmailers-uplink = After beating you senseless, your uplink was given to you with Orders and threats of repercussions if you don't do as you're told.
+traitor-blackmailers-roundend = [color=#a49a87]being blackmailed[/color]
 
 traitor-vipak-intro = You are a strategic element from ViPak Incorporated Supply.
 traitor-vipak-goal = Your objectives are rounding errors that we have to account for. Do what you have to, but don't make it personal. Everyone that matters will understand that it's just business.
@@ -218,13 +218,13 @@ traitor-stockholmuni-intro = You are a researcher from Stockholm University.
 traitor-stockholmuni-goal = Detoxify the Station as determined by our Machine learning algorythms
 traitor-stockholmuni-allies =  We are on a never ending crusade against toxic individuals and those who have been branded as Repobanned.
 traitor-stockholmuni-uplink = Your uplink was provided via PDA Message from Uplinkify.
-traitor-stockholmuni-roundend = [color=red]a researcher from Stockholm University[/color]
+traitor-stockholmuni-roundend = [color=#1a4a96]a researcher from Stockholm University[/color]
 
 traitor-roubyco-intro = You are a ROUBY Corporation Free Associate.
 traitor-roubyco-goal = ROUBY prides itself on discretion. Prefer small arms, quiet scenes, and quick, decisive acts of social manipulation. If possible, acquire all equipment OSP (on station, without using TC), and dispose of evidence discreetly. If possible, leave notes at the sites of your deeds.
 traitor-roubyco-allies =  Select your own, opportunistically. Prioritize Cybersun discipline over all. Ensure some form of ritual for establishing loyalty to you. Our trust is not easily lost, and yours should be the same. If your trust is ever betrayed, set fire to the perpetrator, especially those who speak our name with no fear of recourse.
 traitor-roubyco-uplink = After meeting with a coordinator in a disused corridor of a supercity, you found yourself passing out suddenly, before safely waking up back in your quarters with your PDA boothacked. A note was tucked inside your lapel reading, in curt handwriting, “Storms rising. Cosmic rain. Valley of Dust.”
-traitor-roubyco-roundend = [color=red]a Free Associate from ROUBY Corporation[/color]
+traitor-roubyco-roundend = [color=#fc8eac]a Free Associate from ROUBY Corporation[/color]
 
 traitor-starling-intro = You are a asset from Starling Inc.
 traitor-starling-goal = Invest in Aesthetics. Put on a show in preparation for a better you.
@@ -236,7 +236,7 @@ traitor-centralcommand-intro = You are a disposable intern from Central Command.
 traitor-centralcommand-goal = The corporate partisans are making a lot of noise and the boardroom's had enough, give them a reason to quiet down.
 traitor-centralcommand-allies =  We are allied with any NT agents. Be wary of neutral parties. Death to the Syndicate.
 traitor-centralcommand-uplink = Pre-installed on your PDA alongside your boss'  coffee order.
-traitor-centralcommand-roundend = [color=#009100]a disposable intern from Central Command[/color]
+traitor-centralcommand-roundend = [color=#007a9b]a disposable intern from Central Command[/color]
 
 traitor-honkco-intro = You are a Honk Co. Prankster.
 traitor-honkco-goal = Nobody likes an overdone joke. Do something weird! A quick death is less funny then a long one!
