@@ -40,3 +40,18 @@
       state: librarian
     - type: RandomHumanoidSpawner
       settings: VisitorLibrarianCryptid
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobMonkeyLambordeere
+  name: Monkey Spawner
+  suffix: Lambordeere
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: monkey
+      sprite: Mobs/Animals/monkey.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobMonkeyLambordeere

@@ -1,9 +1,7 @@
-using System;
-using Content.Server.Antag;
 using Content.Server._Impstation.Traitor.Components;
+using Content.Server.Ghost.Roles.Components;
+using Content.Server.Roles;
 using Content.Shared.Mind.Components;
-using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server._Impstation.Traitor.Systems;
 
@@ -12,25 +10,21 @@ namespace Content.Server._Impstation.Traitor.Systems;
 /// </summary>
 public sealed class RandomAntagChanceSystem : EntitySystem
 {
-    [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
+    [Dependency] private readonly RoleSystem _role = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<RandomAntagChanceComponent, MindAddedMessage>(OnMindAdded);
+        SubscribeLocalEvent<RandomAntagChanceComponent, TakeGhostRoleEvent>(OnMindAdded);
     }
 
-    private void OnMindAdded(EntityUid uid, RandomAntagChanceComponent comp, MindAddedMessage args)
+    private void OnMindAdded(EntityUid uid, RandomAntagChanceComponent comp, TakeGhostRoleEvent args)
     {
-        if (!_player.TryGetSessionById(args.Mind.Comp.UserId, out var session))
-            return;
-
         var random = new Random();
         if (random.NextDouble() > comp.Chance)
             return;
 
-        _antag.ForceMakeAntag<RandomAntagChanceComponent>(session, comp.Profile);
+        _role.MindAddRole(args.Mind, comp.Profile, mind: args.Mind);
     }
 }
