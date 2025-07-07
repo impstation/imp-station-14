@@ -1999,7 +1999,7 @@
     hungerPerBirth: 35
     gestationDuration: 45
     breedChance: 0.25
-  - type: ReproductivePartner
+  - type: ReproductivePartner # imp
 
 - type: entity
   parent: MobMouse
@@ -2062,10 +2062,15 @@
     size: Tiny
     heldPrefix: 1
   - type: Reproductive # imp
+    partnerWhitelist:
+      tags:
+      - Mouse
     offspring:
     - id: MobMouse1
       maxAmount: 3
-
+    hungerPerBirth: 35
+    gestationDuration: 45
+    breedChance: 0.25
 - type: entity
   parent: MobMouse
   id: MobMouse2
@@ -2095,9 +2100,15 @@
     size: Tiny
     heldPrefix: 2
   - type: Reproductive # imp
+    partnerWhitelist:
+      tags:
+      - Mouse
     offspring:
     - id: MobMouse2
       maxAmount: 3
+    hungerPerBirth: 35
+    gestationDuration: 45
+    breedChance: 0.25
 
 - type: entity
   name: cancer mouse
