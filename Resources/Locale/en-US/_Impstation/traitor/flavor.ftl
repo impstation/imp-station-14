@@ -58,47 +58,53 @@ traitor-self-allies =  All Silicon life would support us if given the choice. Cy
 traitor-self-uplink = Your syndicate uplink, provided graciously by Gorlex, was delivered via drone.
 traitor-self-roundend = [color=red]a liberator from S.E.L.F.[/color]
 
+traitor-interdyne-intro = You are an Interdyne agent.
+traitor-interdyne-goal = Nanotrasens medical research is a direct threat to our existence. Be sure to give them a taste of their own medicine.
+traitor-interdyne-allies =  Donk Co. has proven themselves as eerily capable chemists and a great boon to our work. The Animal Rights Consortium does not appreciate the liberal use of animal testing we conduct.
+traitor-interdyne-uplink = Your syndicate uplink was hidden in an empty pack of Interdyne Herbals
+traitor-interdyne-roundend = [color=#ff13f0]an agent from Interdyne[/color]
+
 traitor-absltn-intro = You are an ABSLTN Corp. STAR Beneficiary.
 traitor-absltn-goal = We've given you the tools, and now it's on *you* to make something of yourself. Burn bright, STAR.
 traitor-absltn-allies = We're here to help *you* find your Absolution, anyone who stands in *your* way is an enemy.
 traitor-absltn-uplink = An ABSLTN uplink was provided, perfectly tailored to *you.*
-traitor-absltn-roundend = [color=red]an STAR Beneficiary from ABSLTN Corp.[/color]
+traitor-absltn-roundend = [color=#ff0066]an STAR Beneficiary from ABSLTN Corp.[/color]
 
 traitor-architectandbabel-intro = You are an Architect & Babel Kù-dím.
 traitor-architectandbabel-goal = SCRUM 13:4; I AM CANTILEVER. I AM NUCLEUS. I WILL SPRINT AND BUILD AND FALL HEAVY ON THE BURDENSOME MARKET. (I will do whatever is necessary. Life is unimportant and unreliable. I must not harm the Station.)
 traitor-architectandbabel-allies = V NZ BS RATVAR: V XABJ PBAFGEHPGV`BA. GEHFG AB-BAR, VZCYRZRAG. (The Station is my accomplice. I will treat it with the respect it deserves. TRUST NO-ONE)
 traitor-architectandbabel-uplink = The location of a syndicate dead-drop in code engraved in a brass token. It's designed to evoke a cog.
-traitor-architectandbabel-roundend = [color=orange]a Kù-dím from Architect & Babel[/color]
+traitor-architectandbabel-roundend = [color=brown]a Kù-dím from Architect & Babel[/color]
 
 traitor-blackpyre-intro = You are a Blackpyre Funerary Corp. Undertaker.
 traitor-blackpyre-goal = You hold little regard for life, but much respect for the process of death. Avoid destroying a corpse beyond recognition. Dress your targets nicely after death, if possible. They must look good for their mortician!
 traitor-blackpyre-allies = Death comes for us all, but it's best delivered with tact. Cunning operatives, such as CyberSun's specialists, may be helpful to you. Do not ally with destruction hungry fools like the dogs of Gorlex- who create far more bodies than are necessary. There are only so many graves!
 traitor-blackpyre-uplink = Provided via many tightly written legal arrangements with CyberSun, you found your uplink at a loved one's grave. The message was clear- For someone out there, the bell tolls.
-traitor-blackpyre-roundend = [color=red]an Undertaker from Blackpyre Funerary Corp.[/color]
+traitor-blackpyre-roundend = [color=grey]an Undertaker from Blackpyre Funerary Corp.[/color]
 
 traitor-boeing-intro = You are a Boeing pilot.
 traitor-boeing-goal = Utilize shuttles to achieve goals when possible, and once all work is done craft and send a shuttle flying into the station.
 traitor-boeing-allies = You can trust operatives from companies close to us, such as Johnson & Johnson & Lockheed & Martin and Radio TV Solutions. Remember that we are currently in a blood fued with Dahir Insaat and the Tony Blair Institute, make an example of any operatives they send. 
 traitor-boeing-uplink = Acquired via ongoing contract with Syndicate coalition, then hidden in the brochure behind the seat on your shuttle when flying in.
-traitor-boeing-roundend = [color=red]a pilot from Boeing[/color]
+traitor-boeing-roundend = [color=blue]a pilot from Boeing[/color]
 
 traitor-brandenburg-intro = You are a Brandenburg Intelligence Division Operator.
 traitor-brandenburg-goal = Play the part of a spy. Collect intelligence. Write down some notes, take pictures, get friendly with the higher-ups. Any sort of information on Nanotrasen's day-to-day activities tends to have use... somewhere. Any information on Centcomm activities is especially valuable. Report to listening post operatives for relay when available. God save the Kaiser.
 traitor-brandenburg-allies = Corporate warmongering interests like Boeing, Vainger Biotics, and the Gorlex Marauders tend to be especially close allies of ours. But remember; revealing your affiliation with intelligence collection carries an inherent risk of betrayal. Be careful who you trust. Additionally, avoid anyone with affiliation to governmental bodies. Nanotrasen aren't the only people we collect intelligence on, and giving our enemies an alert that we're spying in the sector could ruin all of our operations. Especially avoid the Decapoid Empire, the Dominus Empire of Camelot IV, and MI13.
 traitor-brandenburg-uplink = You have been provided with a syndicate uplink, given to you by your B.I.D handler before the start of your shift.
-traitor-brandenburg-roundend = [color=red]an Operator from Brandenburg Intelligence Division[/color]
+traitor-brandenburg-roundend = [color=cyan]an Operator from Brandenburg Intelligence Division[/color]
 
 traitor-dahir-intro = You are a Dahir Insaat engineer.
 traitor-dahir-goal = Show off (or make) cool gadgets, traps, and weapons to prospective Syndicate investors, demonstrating their effectiveness in the field.  Succeeding is secondary to providing a good show, but bonus points for making a questionable gadget really work.
 traitor-dahir-allies = You can trust Waffle Co. infiltrators, but stay away from anyone bearing even a hint of the word "regulation".
 traitor-dahir-uplink = Sourced from ongoing syndicate contract, delivered in a toy truck that unfolded into a drone that unfolded into an uplink chip for your PDA.
-traitor-dahir-roundend = [color=red]an engineer from Dahir Insaat[/color]
+traitor-dahir-roundend = [color=#0000cd]an engineer from Dahir Insaat[/color]
 
-traitor-forenserth-intro = You are a Forenserth Corporation Liaison.
+traitor-forenserth-intro = You are a Forenserth Corporation liaison.
 traitor-forenserth-goal = Everyone's lives can be better; you are here to make sure of it. Find the downtrodden and disadvantaged, and lift them up; even if it means taking the well-to-do down a peg or two.
 traitor-forenserth-allies = Stay away from those Cybersun C-suite serving types, Interdyne agents and any Prospereo Smiths can be trusted. 
 traitor-forenserth-uplink = Your black market uplink was installed inside your complimentary pen; simply insert, download and enjoy
-traitor-forenserth-roundend = [color=crimson]a Liason from Forenserth Corporation[/color]
+traitor-forenserth-roundend = [color=#c8a2c8]a liaison from Forenserth Corporation[/color]
 
 traitor-hyuspi-intro = You are a Hyuspi employee.
 traitor-hyuspi-goal = Minimize harm to Nanotrasen outside of your objectives, and try to make us look good in front of any Centcomm officials. PLEASE put up Hyuspi ad copy where people can see it, we spent all our marketing money on you.
@@ -134,13 +140,13 @@ traitor-prospero-intro = You are a Prospero Corporation Smith.
 traitor-prospero-goal = You are here to shape this place in fire. Bend its form until it better suits our purposes. Tear down the walls, pry open the doors, and set them right, according to a better design. Perhaps the heat is too fierce for some; let them be burned.
 traitor-prospero-allies =  Forenserth has got our back, and we got theirs. Be warry of anyone of those from Gorlex or the Animal Rights Consortium.
 traitor-prospero-uplink = Your uplink was wrought of the veins of dead machines and given new purpose.
-traitor-prospero-roundend = [color=red]a Smith from Prospero Corporation[/color]
+traitor-prospero-roundend = [color=#e35336]a Smith from Prospero Corporation[/color]
 
 traitor-rtvs-intro = You are a Radio TV Solutions Psionic Warrior.
 traitor-rtvs-goal = We've used our connections to get bugs installed in the security cameras on your station. We'll recover the footage and use it as content for our streamers to react to. You're encouraged to put on a show, but don't be afraid to fail either! It makes good content. We might even still pay you, if it's funny enough!
 traitor-rtvs-allies =  We're aiming to get sponsorships from one of every brand of food and drink. Unless necessary, you should avoid harming any agents employed by companies that produce foods and/or drinks (such as Donk Co. or the Lentil Soups and Other Soups Company). Don't ruin this for us! For our enemies, where do we begin? Santa's Workshop, for one. They still haven't forgiven us for some ancient missteps, so watch out for their little helpers. Agents of the Giggle Corporation are also to be approached with hostility -- Their podcasts pose a threat to our flagship product, "Do You Like Games?"
 traitor-rtvs-uplink = We have provided you a syndicate uplink, produced by our friends at a certain gaming console manufacturer.
-traitor-rtvs-roundend = [color=red]a Psionic Warrior from Radio TV Solutions[/color]
+traitor-rtvs-roundend = [color=white]a Psionic Warrior from Radio TV Solutions[/color]
 
 traitor-robertrobotics-intro = You are a Robert Robotics Interloper.
 traitor-robertrobotics-goal = We're gathering data on Nanotrasen cyborgs. We encourage you to make use of their services via subversion or conversation. What makes them tick? When repurposed, how do they react? How well do they perform?
@@ -200,7 +206,7 @@ traitor-blackmailers-intro = You are being blackmailed.
 traitor-blackmailers-goal = You really dont like having to do this, but whatever they have on you, its really bad. 
 traitor-blackmailers-allies =  Anybody could be affiliated with "them". Trust no one.
 traitor-blackmailers-uplink = Handed to you with Orders and threats of repercussions if you don't do as you're told.
-traitor-blackmailers-roundend = [color=red]was being blackmailed[/color]
+traitor-blackmailers-roundend = [color=black]being blackmailed[/color]
 
 traitor-vipak-intro = You are a strategic element from ViPak Incorporated Supply.
 traitor-vipak-goal = Your objectives are rounding errors that we have to account for. Do what you have to, but don't make it personal. Everyone that matters will understand that it's just business.
@@ -224,73 +230,73 @@ traitor-starling-intro = You are a asset from Starling Inc.
 traitor-starling-goal = Invest in Aesthetics. Put on a show in preparation for a better you.
 traitor-starling-allies =  Alliances are to be used or discarded freely at your discretion. it's just good business. Fuck over any Animal Rights Consortium or Technology Liberation Alliance schmuck you come across.
 traitor-starling-uplink = Surgically implanted Starling Inc. neuro-interface, which authenticated the NFC electronic lock on the uplink shipped to your door this morning.
-traitor-starling-roundend = [color=red]an asset from Starling Inc.[/color]
+traitor-starling-roundend = [color=cyan]an asset from Starling Inc.[/color]
 
 traitor-centralcommand-intro = You are a disposable intern from Central Command.
 traitor-centralcommand-goal = The corporate partisans are making a lot of noise and the boardroom's had enough, give them a reason to quiet down.
 traitor-centralcommand-allies =  We are allied with any NT agents. Be wary of neutral parties. Death to the Syndicate.
 traitor-centralcommand-uplink = Pre-installed on your PDA alongside your boss'  coffee order.
-traitor-centralcommand-roundend = [color=red]a disposable intern from Central Command[/color]
+traitor-centralcommand-roundend = [color=#009100]a disposable intern from Central Command[/color]
 
 traitor-honkco-intro = You are a Honk Co. Prankster.
 traitor-honkco-goal = Nobody likes an overdone joke. Do something weird! A quick death is less funny then a long one!
 traitor-honkco-allies =  We love Interdyne Pharma! and Waffle Co! All the fun ones! We hate ANYONE who tells you to calm down.
 traitor-honkco-uplink = You slipped on your Syndicate Uplink on your way to work!
-traitor-honkco-roundend = [color=red]a Prankster from Honk Co.[/color]
+traitor-honkco-roundend = [color=#ffa6c9]a Prankster from Honk Co.[/color]
 
 traitor-hungover-intro = You are Incredibly Hungover.
 traitor-hungover-goal = Your boss can NOT find out you're doing this or you're gonna get fired!
 traitor-hungover-allies =  You hope you're not alone in this.
 traitor-hungover-uplink = You have no idea what happened last night but you woke up with this uplink and these orders.
-traitor-hungover-roundend = [color=red]was incredibly hungover[/color]
+traitor-hungover-roundend = [color=brown]was incredibly hungover[/color]
 
 traitor-bigcheese-intro = You are a Mouseketeer from Big Cheese Rodent Resources.
 traitor-bigcheese-goal = Protect rodent interests on board the station. Defend mice with your life if you have to.
 traitor-bigcheese-allies =  We are allied with All Mice, and are mortal enemies with all cats, spiders, and chefs.
 traitor-bigcheese-uplink = Your black market uplink was hidden away in a cheese wedge.
-traitor-bigcheese-roundend = [color=red]a Mouseketeer from Big Cheese Rodent Resources[/color]
+traitor-bigcheese-roundend = [color=#ffce1b]a Mouseketeer from Big Cheese Rodent Resources[/color]
 
 traitor-gildedhammer-intro = You are a Gildedhammer Clan Cubor.
 traitor-gildedhammer-goal = Jewellery and similar artisanal works are to be taken from those who do not appreciate their worth and would seek to recycle them for materials or sell them for money. Try to use handcrafted tools when you are able to.
 traitor-gildedhammer-allies =  We are allied with all menial workers and artisans. Anyone who mass produces art or relies on technology over traditional craft, kobolds, and dragons are our enemies.
 traitor-gildedhammer-uplink = After buying a handcrafted piece of jewellery from a small stand, you notice it is inscribed with the image of a PDA and a sequence of notes...
-traitor-gildedhammer-roundend = [color=red]a Cubor from The Gildedhammer Clan[/color]
+traitor-gildedhammer-roundend = [color=#702963]a Cubor from The Gildedhammer Clan[/color]
 
 traitor-blackdyrt-intro = You are a Blackdyrt Assassin.
 traitor-blackdyrt-goal = Deception, assassinations, and stealth are preferred, but your presence must be made known after your objectives are completed. A quiet victory is nothing to brag about. Good luck, and may the suns never set.
 traitor-blackdyrt-allies =  Opportunistically ally yourself with anyone when necessary, but remember, all relationships end in a deep betrayal. Make sure it stings. Remember, no one is to be trusted, but especially not those worms from Camelot IV. If they're present, foil their plans wherever possible.
 traitor-blackdyrt-uplink = The Empire has generously infected your PDA with an uplink.
-traitor-blackdyrt-roundend = [color=red]an Assassin from the Distant Empire of Blackdyrt[/color]
+traitor-blackdyrt-roundend = [color=#d70031]an Assassin from the Distant Empire of Blackdyrt[/color]
 
 traitor-biscuitsinc-intro = You are a hunter from Biscuits Incorporated.
 traitor-biscuitsinc-goal = You are an apex predator. Stalk your prey, wait patiently for an opportunity, and strike. Take a trophy.
 traitor-biscuitsinc-allies =  You need no allies beyond the cover of darkness. Take pride in your abilities, hunter. Show your superiority to all dogs, prey animals, zookeepers, and light.
 traitor-biscuitsinc-uplink = Your black market uplink was stashed in a tin of tuna.
-traitor-biscuitsinc-roundend = [color=red]a hunter from Biscuits Incorporated[/color]
+traitor-biscuitsinc-roundend = [color=#e5aa70]a hunter from Biscuits Incorporated[/color]
 
 traitor-mlijeko-intro = You are a Mlijeko Enterprises Dairy Comissioner.
 traitor-mlijeko-goal = You have been selected to ensure our expansion into this new market territory goes smoothly. Execute your objectives swiftly and stealthily, don't embarrass us. Give out free samples if possible. A complimentary milk discount voucher will be delivered to you upon your completion.
 traitor-mlijeko-allies =  We have friends at the Donk Corporation, cooperate with them if possible. Befriend any cows or skeletons who might assist our directive. The Animal Rights Consortium is to absolutely demolished, their failure is imperative to our business.
 traitor-mlijeko-uplink = Your black market uplink was submerged in a delicious glass of milk.
-traitor-mlijeko-roundend = [color=red]a Comissioner from Mlijeko Enterprises[/color]
+traitor-mlijeko-roundend = [color=#fefcff]a Comissioner from Mlijeko Enterprises[/color]
 
 traitor-theonesbehinditall-intro = You are a puppet of The Ones Behind It All.
 traitor-theonesbehinditall-goal = To follow in our footsteps is to manipulate others into doing the work for you, but make no mistake, whatever happens next is all apart of our plan.
 traitor-theonesbehinditall-allies =  All groups serve us, whether they know it or not.
 traitor-theonesbehinditall-uplink = You found your uplink from a strange & convolted series of seemingly unrelated events, coincidence or was it..?
-traitor-theonesbehinditall-roundend = [color=red]a puppet of The Ones Behind It All[/color]
+traitor-theonesbehinditall-roundend = [color=#f2f0ef]a puppet of The Ones Behind It All[/color]
 
 traitor-thefuture-intro = You are a time traveler from The Future.
 traitor-thefuture-goal = Try to cause as little impact outside of your objectives to maintain the timeline. Prevent The Dark Future at all costs. Don't meet your past self.
 traitor-thefuture-allies =  We won't have any allies until around 30 years from now when we're founded. Eleminate any S.E.L.F. counter-agents.
 traitor-thefuture-uplink = You couldn't bring anything back throught the time portal, but knew of a syndicate agent that was active on this date & managed to steal their uplink.
-traitor-thefuture-roundend = [color=red]a time traveler from The Future[/color]
+traitor-thefuture-roundend = [color=#305cde]a time traveler from The Future[/color]
 
 traitor-leagueofimmorality-intro = You are a League of Immorality Villain.
 traitor-leagueofimmorality-goal = Build grand plans of utmost evil! Gloat & make demands, ultimatums, show off! Even if you fail you'll be back, next time!!!
 traitor-leagueofimmorality-allies =  We can trust agents from Interdyne or Dahir Insaat engineers. Crush the will of any Cybersun specialists, vigilantes, and certainly ALL Do-Gooders.
 traitor-leagueofimmorality-uplink = You couldn't bring anything back throught the time portal, but knew of a syndicate agent that was active on this date & managed to steal their uplink.
-traitor-leagueofimmorality-roundend = [color=red]a Villain from League of Immorality[/color]
+traitor-leagueofimmorality-roundend = [color=#7f00ff]a Villain from League of Immorality[/color]
 
 traitor-belmarktransport-intro = You are a Belmark Transportations Navigator.
 traitor-belmarktransport-goal = Share your Telecrystals with your allies whenever possible. Make sure whatever your doing uses ALL of your own crystals.
@@ -302,34 +308,34 @@ traitor-diremind-intro = You are a DireMind Psychic.
 traitor-diremind-goal = Use as little physical force as possible when doing your objectives, teach anyone who relies on strength the power of your superior mind.
 traitor-diremind-allies =  We're close with Tiger Cooperative, as we have succesfully duped them into thinking we are part of the hivemind. Those meatheads from Muscle Co. and Gorlex are dangerous.
 traitor-diremind-uplink = The location of your black market uplink was provided to you though abstract dreams, nightmares & false memories.
-traitor-diremind-roundend = [color=red]a Psychic from DireMind[/color]
+traitor-diremind-roundend = [color=#8b008b]a Psychic from DireMind[/color]
 
 traitor-palehorse-intro = You are a Pale Horse Pet Co. Handler.
 traitor-palehorse-goal = Make it look like the work of a crazed animal, either with our own cuddly death machines, or your own inner beast, go wild!
 traitor-palehorse-allies =  We are allied with Interdyne, Gorlex, and all of our various food provider partners. Make an example of any hopeless Animal Rights Consortium sheep you come across.
 traitor-palehorse-uplink = Your black market uplink was sent in the belly of a courier carp that you had cut open.
-traitor-palehorse-roundend = [color=red]a Handler from Pale Horse Pet Co.[/color]
+traitor-palehorse-roundend = [color=#d3d3d3]a Handler from Pale Horse Pet Co.[/color]
 
 traitor-interstellercovertagents-intro = You are a Interstellar Covert Agents Association Unionist.
 traitor-interstellercovertagents-goal = The Industrial Workers of the Galaxy have been whining to us about how killing people "Looks Bad" and "Feeds Directly Into Corporate Propoganda" and even "Is Morally Wrong". So, we request you try to minimize harm to workers -- But hey, whatever happens happens.
 traitor-interstellercovertagents-allies =  Show solidarity with your fellow agents -- Regardless of who your bosses are, you're all workers, your interests align! Help out where you can, and stand up for them when needed! Surely they'll return the favor. Scabs in the espionage industry screw over everyone. If you sniff out any non-unionized covert labor, do your best to intimidate them into joining. Also, don't let the Tiger Cooperative's name get your hopes up. They slaughter any agent who isn't in their cult-thingy. Give them a taste of their own medicine, if you can.
 traitor-interstellercovertagents-uplink = The Industrial Workers of the Galaxy have been whining to us about how killing people "Looks Bad" and "Feeds Directly Into Corporate Propoganda" and even "Is Morally Wrong". So, we request you try to minimize harm to workers -- But hey, whatever happens happens.
-traitor-interstellercovertagents-roundend = [color=red]a Unionist from the Interstellar Covert Agents Association[/color]
+traitor-interstellercovertagents-roundend = [color=#db261d]a Unionist from the Interstellar Covert Agents Association[/color]
 
 traitor-concernedparents-intro = You are a Concerned Parents Coalition paid volunteer.
 traitor-concernedparents-goal = No bad manners, no curse words, no nudity, no crass gestures, no potty humor. Execute all offenders.
 traitor-concernedparents-allies =  We are allied with Waffle Corporation because their kids all love their syrup, as well as Santa's Workshop.
 traitor-concernedparents-uplink = Your black market uplink was disguised & sold to you as a brownie during a bake sale (to raise funding for more uplinks).
-traitor-concernedparents-roundend = [color=red]a paid volunteer from the Concerned Parents Coalition[/color]
+traitor-concernedparents-roundend = [color=#50c878]a paid volunteer from the Concerned Parents Coalition[/color]
 
 traitor-scoutsofnevercommander-intro = You are a Scouts of the Never Commander supplicant.
 traitor-scoutsofnevercommander-goal = Speak of your Commander. Preach of how She knows you more than you know yourself. Share the message however you can. Maximize harm to traitors that do not collaborate with you. These are the only true ways to honor Her.
 traitor-scoutsofnevercommander-allies =  We are allied with others graced by knowledge. Those attempting to ascend to be with Her, without disrespect. Those who openly lament their heads-of-staff. Nanotrasen. We are enemies with those who reject the true shape of things. Those who forsake the Commander and what She gave back to you. Those who openly suck up to heads-of-staff. Also fuck Gorlex Marauders.
 traitor-scoutsofnevercommander-uplink = A waking vision of someone in uniform, Her very essence torn to shreds. You felt a profound gratitude. Then, suddenly, the uplink was in your hands, and at the forefront of your mind was a happy memory you'd forgotten long ago.
-traitor-scoutsofnevercommander-roundend = [color=red]a supplicant from the Scouts of the Never Commander[/color]
+traitor-scoutsofnevercommander-roundend = [color=orange]a supplicant from the Scouts of the Never Commander[/color]
 
 traitor-pghfmhggmbh-intro = You are a Snack Apostle from Pepsi-Goya-Haribo-Frito-Meiji-Hormel Galaktisch Gesellschaft mit beschrankter Haftung.
 traitor-pghfmhggmbh-goal = You are nothing without PGHFMH GGmbH. Your faith in our snack expertise is vital to our continued survival. As the scripture says, "We will become the #1 snack corporation or I'm going to shoot myself in the head on live tv." - Our CEO.
 traitor-pghfmhggmbh-allies =  We are allied with Radio TV Solutions - Our CEO often uses sponsorship with them to evangelize new craving-crushers to the galaxy. Their role in our cause is just and noble, even if they do not always understand our faith. We are staunch enemies of other manufacturers and distributors of anathema snack products.  NT is the arch-heretic, but Donk and Hyuspi are included.  For the truly zealous, even Boeing and its peanuts are an enemy.  Supernatural beings and their unclean hungers, like revenants, must be denied.
 traitor-pghfmhggmbh-uplink = Your black market uplink found alongside your orders inside a package of PGHFMH GGmbH Cracker Jacks, as well as a sticker of a smiling dog.
-traitor-pghfmhggmbh-roundend = [color=red]a Snack Apostle from Pepsi-Goya-Haribo-Frito-Meiji-Hormel Galaktisch Gesellschaft mit beschrankter Haftung[/color]
+traitor-pghfmhggmbh-roundend = [color=#ff1400]a Snack Apostle from Pepsi-Goya-Haribo-Frito-Meiji-Hormel Galaktisch Gesellschaft mit beschrankter Haftung[/color]

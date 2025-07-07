@@ -97,7 +97,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         }
 
         var issuer = _random.Pick(_prototypeManager.Index(component.ObjectiveIssuers));
-
+        mind.ObjectiveIssuer = issuer; // Imp Edit traitor flavor end screen
         // Uplink code will go here if applicable, but we still need the variable if there aren't any
         Note[]? code = null;
 
