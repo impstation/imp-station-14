@@ -34,7 +34,7 @@ namespace Content.IntegrationTests.Tests
 
         private static readonly string[] NoSpawnMaps =
         {
-            "CentComm"
+            "CentComm",
             "CentCommImp", // imp edit
             "Dart"
         };
