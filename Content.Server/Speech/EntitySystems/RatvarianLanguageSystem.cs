@@ -1,17 +1,18 @@
 using System.Text;
 using System.Text.RegularExpressions;
-using Content.Shared.Chat.TypingIndicator;
 using Content.Shared.Speech.Components;
 using Content.Shared.Speech.EntitySystems;
 using Content.Shared.StatusEffect;
-using Robust.Shared.Prototypes;
+using Content.Shared.Chat.TypingIndicator; //imp
+using Robust.Shared.Prototypes; //imp
 
 namespace Content.Server.Speech.EntitySystems;
 
 public sealed class RatvarianLanguageSystem : SharedRatvarianLanguageSystem
 {
-    private static readonly ProtoId<TypingIndicatorPrototype> ClockTypingIndicator = "clock";
+    private static readonly ProtoId<TypingIndicatorPrototype> ClockTypingIndicator = "clock"; //imp
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+
 
     [ValidatePrototypeId<StatusEffectPrototype>]
     private const string RatvarianKey = "RatvarianLanguage";
@@ -43,8 +44,8 @@ public sealed class RatvarianLanguageSystem : SharedRatvarianLanguageSystem
     public override void Initialize()
     {
         // Activate before other modifications so translation works properly
-        SubscribeLocalEvent<RatvarianLanguageComponent, AccentGetEvent>(OnAccent, before: new[] { typeof(SharedSlurredSystem), typeof(SharedStutteringSystem) });
-        SubscribeLocalEvent<RatvarianLanguageComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<RatvarianLanguageComponent, AccentGetEvent>(OnAccent, before: new[] {typeof(SharedSlurredSystem), typeof(SharedStutteringSystem)});
+        SubscribeLocalEvent<RatvarianLanguageComponent, ComponentStartup>(OnStartup); //imp
     }
 
     public override void DoRatvarian(EntityUid uid, TimeSpan time, bool refresh, StatusEffectsComponent? status = null)
@@ -55,7 +56,7 @@ public sealed class RatvarianLanguageSystem : SharedRatvarianLanguageSystem
         _statusEffects.TryAddStatusEffect<RatvarianLanguageComponent>(uid, RatvarianKey, time, refresh, status);
     }
 
-    private void OnStartup(EntityUid uid, RatvarianLanguageComponent component, ComponentStartup args)
+    private void OnStartup(EntityUid uid, RatvarianLanguageComponent component, ComponentStartup args) //imp
     {
         if (TryComp<TypingIndicatorComponent>(uid, out var indicator))
         {
