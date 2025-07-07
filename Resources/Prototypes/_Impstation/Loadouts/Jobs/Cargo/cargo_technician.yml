@@ -39,6 +39,11 @@
 
 # ID
 - type: loadout
+  id: CargoTechnicianPDA
+  equipment:
+    id: CargoPDA
+
+- type: loadout
   id: SeniorCargoTechnicianPDA
   effects:
   - !type:GroupLoadoutEffect
