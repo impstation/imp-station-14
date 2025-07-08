@@ -93,7 +93,12 @@
     grindableSolutionName: food
   - type: FlavorProfile
     flavors:
-      - food
+      - rose
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: JuiceRose
+        Quantity: 10
   - type: Food
   - type: Tag
     tags:
