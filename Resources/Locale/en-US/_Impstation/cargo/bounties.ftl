@@ -20,7 +20,6 @@ bounty-item-armor-vests = Armor Vests
 bounty-item-cloth-food = Cloth Food
 bounty-item-insuls = "Insulated" Gloves
 bounty-item-ripley-limb = Ripley Limb
-bounty-item-astro-grass = Astro Grass
 bounty-item-electropack = Electropack
 
 bounty-description-lemo = Nanotrasen's terraforming of the planet Teo is behind schedule. We need further Lemo fruit to quell swelling demand in this sector.
@@ -45,5 +44,4 @@ bounty-description-armor-vests = The mime keeps slipping the Captain, who's fed 
 bounty-description-cloth-food = We don't have a chef and our moth contingent can't survive off of everyone else's used candy wrappers forever! Send us some real food so we don't starve!
 bounty-description-insuls = That yellow rubber is wearing thin, touching wires is a game you won't soon win! / I know it's ungainful entry you do seek, but I fear my own gloves are wearing weak. / I don't mind if they don't even work, just ship me some before I go berserk!
 bounty-description-ripley-limb = We recently came across a mostly functional Ripley unit on one of our salvage runs, but it's had a run-in with some sort of crazy acid. I can jerry-rig it if we can just replace one of its limbs.
-bounty-description-astro-grass = Nanotrasen's Executive meeting of Junior Middle Managers is right around the corner, and we've run out of turf right as we're constructing the 46th hole! Send us some more, please!
 bounty-description-electropack = I'm so fucking tired. He just broke out for the eighth time this shift. Someone please send us a way to control this passenger before I drop dead on my feet...

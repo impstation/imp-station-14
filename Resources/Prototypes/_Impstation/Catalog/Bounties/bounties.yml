@@ -236,7 +236,7 @@
     amount: 3
     whitelist:
       tags:
-      - InsulatedGloves
+      - Insuls
 
 - type: cargoBounty
   id: BountyRipleyLimb
@@ -248,17 +248,6 @@
     whitelist:
       tags:
       - RipleyLimb
-
-- type: cargoBounty
-  id: BountyAstroGrass
-  reward: 6000
-  description: bounty-description-astro-grass
-  entries:
-  - name: bounty-item-astro-grass
-    amount: 15
-    whitelist:
-      tags:
-      - AstroGrass
 
 - type: cargoBounty
   id: BountyElectropack

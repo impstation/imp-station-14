@@ -430,3 +430,6 @@
   components:
   - type: Insulated
     coefficient: 5 # zap em good
+  - type: Tag
+    tags:
+      - Insuls # imp - can't let people check whether they're real ;)
