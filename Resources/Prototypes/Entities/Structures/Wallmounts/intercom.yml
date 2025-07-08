@@ -1,7 +1,7 @@
 - type: entity
   id: BaseIntercom
   name: intercom
-  description: An intercom. For when the station just needs to know something.
+  description: An intercom that listens to nearby audio and transmits over the selected frequency. The phone is decorative. #imp edit
   abstract: true
   components:
   - type: StationAiWhitelist
@@ -43,7 +43,7 @@
   - type: Sprite
     noRot: false
     drawdepth: SmallObjects
-    sprite: _Impstation/Structures/Wallmounts/intercom.rsi
+    sprite: _Impstation/Structures/Wallmounts/intercom.rsi #imp edit
     layers:
     - state: base
     - state: unshaded
