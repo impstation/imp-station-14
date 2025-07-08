@@ -117,10 +117,14 @@
     damage:
       types:
         Piercing: 5
+  - type: EmbedPassiveDamage
+  - type: SolutionInjectOnEmbed
+    transferAmount: 4
+    solution: food
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 3
+        maxVol: 4
         reagents:
         - ReagentId: SulfuricAcid
           Quantity: 1
@@ -141,6 +145,7 @@
       types:
         Piercing: 5
         Slash: 3
+  - type: EmbedPassiveDamage
   - type: SolutionContainerManager
     solutions:
       food:
