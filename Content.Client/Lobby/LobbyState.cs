@@ -217,13 +217,21 @@ namespace Content.Client.Lobby
 
                 var hoursToday = Math.Round(minutesToday / 60f, 1);
 
-                var chosenString = minutesToday switch
+                // Imp edit begin
+                string chosenString = new Random().Next(9) switch
                 {
-                    < 180 => "lobby-state-playtime-comment-normal",
-                    < 360 => "lobby-state-playtime-comment-concerning",
-                    < 720 => "lobby-state-playtime-comment-grasstouchless",
-                    _ => "lobby-state-playtime-comment-selfdestructive"
+                    0 => "lobby-state-playtime-comment-normal",
+                    1 => "lobby-state-playtime-comment-aa",
+                    2 => "lobby-state-playtime-comment-lifespan",
+                    3 => "lobby-state-playtime-comment-itsfine",
+                    4 => "lobby-state-playtime-comment-entireday",
+                    5 => "lobby-state-playtime-comment-bros",
+                    6 => "lobby-state-playtime-comment-morallyneutral",
+                    7 => "lobby-state-playtime-comment-nottellingu",
+                    8 => "lobby-state-playtime-comment-nuke",
+                    _ => "lobby-state-playtime-comment-feettall"
                 };
+                // Imp edit end
 
                 Lobby.PlaytimeComment.SetMarkup(Loc.GetString(chosenString, ("hours", hoursToday)));
             }
