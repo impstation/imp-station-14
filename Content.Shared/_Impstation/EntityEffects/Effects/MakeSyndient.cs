@@ -1,7 +1,7 @@
+using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 
-
-namespace Content.Shared.EntityEffects.Effects;
+namespace Content.Shared._Impstation.EntityEffects.Effects;
 
 public sealed partial class MakeSyndient : EventEntityEffect<MakeSyndient>
 {

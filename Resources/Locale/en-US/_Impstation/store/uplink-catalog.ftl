@@ -1,3 +1,6 @@
+uplink-animal-friends-kit-name = Animal Friends Kit
+uplink-animal-friends-kit-desc = A box containing 4 doses of subjuzine, an alteration of cognizine that forces the injected creature to your will. Also contains an empty syringe and two mice to use it on.
+
 uplink-cleaner-lake-upgrade-name = Shining Spring remilitarisation kit
 uplink-cleaner-lake-upgrade-desc = A kit that can be used to remove the safety measures from a Shining Spring.
 

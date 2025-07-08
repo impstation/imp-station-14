@@ -13,8 +13,7 @@ ghost-role-information-possum-name = Possum
 ghost-role-information-possum-description = Screams, eats trash, screams some more.
 
 ghost-role-information-subjuzine-description = Made obedient with the magic of subjuzine.
-ghost-role-information-subjuzine-rules-1 = You are a [color=#6495ed][bold]Familiar[/bold][/color] under the control of [color=red][bold]
-ghost-role-information-subjuzine-rules-2 = [/bold][/color]. Follow your master's orders and keep their identity secret.
+ghost-role-information-subjuzine-rules = You are a [color=#6495ed][bold]Familiar[/bold][/color] under the control of [color=red][bold]a Syndicate Agent[/bold][/color]. Follow your master's orders and keep their identity secret.
 
                                         You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
 
