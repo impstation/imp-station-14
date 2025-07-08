@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 261.2.0
+  engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/02/2025 05:50:24
-  entityCount: 14458
+  time: 07/07/2025 23:06:58
+  entityCount: 14462
 maps:
 - 1
 grids:
@@ -7460,6 +7460,7 @@ entities:
   - uid: 363
     components:
     - type: Transform
+      rot: 1.5707963267948966 rad
       pos: 5.5,-22.5
       parent: 2
   - uid: 364
@@ -63498,32 +63499,10 @@ entities:
       parent: 2
 - proto: IntercomCommand
   entities:
-  - uid: 9494
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 29.5,-19.5
-      parent: 2
   - uid: 9495
     components:
     - type: Transform
       pos: 6.5,30.5
-      parent: 2
-  - uid: 9496
-    components:
-    - type: Transform
-      pos: 17.5,36.5
-      parent: 2
-  - uid: 9497
-    components:
-    - type: Transform
-      pos: -19.5,26.5
-      parent: 2
-  - uid: 9498
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -51.5,-8.5
       parent: 2
   - uid: 9499
     components:
@@ -63547,6 +63526,44 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 4.5,-43.5
+      parent: 2
+- proto: IntercomCommandEngineering
+  entities:
+  - uid: 9498
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -51.5,-8.5
+      parent: 2
+- proto: IntercomCommandMedical
+  entities:
+  - uid: 9978
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -27.5,-26.5
+      parent: 2
+- proto: IntercomCommandScience
+  entities:
+  - uid: 9494
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 29.5,-19.5
+      parent: 2
+- proto: IntercomCommandSecurity
+  entities:
+  - uid: 9497
+    components:
+    - type: Transform
+      pos: -19.5,26.5
+      parent: 2
+- proto: IntercomCommandSupply
+  entities:
+  - uid: 9496
+    components:
+    - type: Transform
+      pos: 17.5,36.5
       parent: 2
 - proto: IntercomCommon
   entities:
@@ -63627,6 +63644,14 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -11.5,-24.5
+      parent: 2
+- proto: IntercomMedSci
+  entities:
+  - uid: 14462
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 15.5,-29.5
       parent: 2
 - proto: IntercomScience
   entities:
@@ -63769,12 +63794,26 @@ entities:
     - type: Transform
       pos: -33.539055,21.668404
       parent: 2
+- proto: KitchenAssembler
+  entities:
+  - uid: 14460
+    components:
+    - type: Transform
+      pos: 5.5,-3.5
+      parent: 2
+- proto: KitchenElectricRange
+  entities:
+  - uid: 11854
+    components:
+    - type: Transform
+      pos: 6.5,-1.5
+      parent: 2
 - proto: KitchenKnife
   entities:
   - uid: 9532
     components:
     - type: Transform
-      pos: 6.5,-1.5
+      pos: 4.0960937,-1.2966936
       parent: 2
   - uid: 9533
     components:
@@ -65237,6 +65276,13 @@ entities:
     components:
     - type: Transform
       pos: 19.5,21.5
+      parent: 2
+- proto: MedicalAssembler
+  entities:
+  - uid: 11829
+    components:
+    - type: Transform
+      pos: -15.5,-15.5
       parent: 2
 - proto: MedicalBed
   entities:
@@ -67204,12 +67250,6 @@ entities:
       parent: 2
     - type: Physics
       canCollide: False
-  - uid: 9978
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -15.5,-15.5
-      parent: 2
   - uid: 9979
     components:
     - type: Transform
@@ -67225,6 +67265,11 @@ entities:
     components:
     - type: Transform
       pos: 4.5,-13.5
+      parent: 2
+  - uid: 14461
+    components:
+    - type: Transform
+      pos: -18.5,-23.5
       parent: 2
 - proto: PowerDrill
   entities:
@@ -78869,6 +78914,11 @@ entities:
       rot: 3.141592653589793 rad
       pos: -36.5,-23.5
       parent: 2
+  - uid: 14459
+    components:
+    - type: Transform
+      pos: 5.5,-3.5
+      parent: 2
 - proto: TableCarpet
   entities:
   - uid: 11804
@@ -78998,11 +79048,6 @@ entities:
     components:
     - type: Transform
       pos: -40.5,-34.5
-      parent: 2
-  - uid: 11829
-    components:
-    - type: Transform
-      pos: -15.5,-15.5
       parent: 2
   - uid: 11830
     components:
@@ -79150,11 +79195,6 @@ entities:
     components:
     - type: Transform
       pos: 5.5,-1.5
-      parent: 2
-  - uid: 11854
-    components:
-    - type: Transform
-      pos: 6.5,-1.5
       parent: 2
   - uid: 11855
     components:
@@ -91256,7 +91296,7 @@ entities:
     - type: DeviceList
       devices:
       - 14458
-- proto: WeaponEnergyTurretStation
+- proto: WeaponEnergyTurretSecurity
   entities:
   - uid: 14413
     components:
@@ -91285,7 +91325,7 @@ entities:
       deviceLists:
       - 14453
       - 14455
-- proto: WeaponEnergyTurretStationControlPanel
+- proto: WeaponEnergyTurretSecurityControlPanel
   entities:
   - uid: 14450
     components:
