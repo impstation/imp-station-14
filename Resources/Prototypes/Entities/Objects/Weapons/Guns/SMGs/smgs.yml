@@ -157,6 +157,8 @@
       types:
         Blunt: 8
 #imp edit end
+  - type: StaticPrice
+    price: 5000
 
 - type: entity
   name: Drozd
@@ -213,7 +215,7 @@
               - CartridgePistol
     - type: MagazineVisuals
       magState: mag
-      steps: 1
+      steps: 1 #imp edit
       zeroVisible: true
     - type: Appearance
 #imp edit begin; weapon melee

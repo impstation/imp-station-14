@@ -86,6 +86,9 @@
   - type: Icon
     sprite: _Impstation/Mobs/Replicator/replicator.rsi
     state: t2altweapon
+  - type: HitscanBatteryAmmoProvider
+    proto: HitscanReplicator2
+    fireCost: 150
 
 - type: entity
   id: ReplicatorT2AltMeleeWeapon
@@ -100,13 +103,13 @@
   - type: MeleeWeapon
     attackRate: 1.2
     wideAnimationRotation: 180
-    soundHit: 
+    soundHit:
       collection: MetalThud
     animation: WeaponArcSlash
     damage:
       types:
-        Blunt: 5
-        Shock: 3
+        Blunt: 7
+        Shock: 7
         Structural: 15
 
 - type: entity
@@ -123,15 +126,15 @@
     sprite: _Impstation/Mobs/Replicator/replicator.rsi
     state: t3weapon
   - type: MeleeWeapon
-    attackRate: 0.7
+    attackRate: 0.5
     wideAnimationRotation: 180
-    soundHit: 
+    soundHit:
       path: "/Audio/Effects/metal_slam4.ogg"
     animation: WeaponArcSlash
     damage:
       types:
-        Blunt: 15
-        Shock: 10
+        Blunt: 22
+        Shock: 8 # split up damage groups to make them a little more effective against armored/blunt resistant targets
         Structural: 45
   - type: Unremoveable
   - type: Prying
@@ -193,10 +196,7 @@
 
 - type: hitscan
   id: HitscanReplicator
-  staminaDamage: 25
-  damage:
-    types:
-      Shock: 7
+  staminaDamage: 18
   muzzleFlash:
     sprite: _Impstation/Mobs/Replicator/replicator_gun.rsi
     state: muzzle_repli
@@ -206,3 +206,16 @@
   impactFlash:
     sprite: _Impstation/Mobs/Replicator/replicator_gun.rsi
     state: impact_repli
+
+- type: hitscan
+  id: HitscanReplicator2
+  staminaDamage: 32
+  muzzleFlash:
+    sprite: _Impstation/Mobs/Replicator/replicator_gun.rsi
+    state: muzzle_repli2
+  travelFlash:
+    sprite: _Impstation/Mobs/Replicator/replicator_gun.rsi
+    state: beam_repli2
+  impactFlash:
+    sprite: _Impstation/Mobs/Replicator/replicator_gun.rsi
+    state: impact_repli2

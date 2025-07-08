@@ -58,6 +58,10 @@ namespace Content.Client.Lobby.UI
 
         private readonly SpriteSystem _sprite;
 
+        // CCvar.
+        private int _maxNameLength;
+        private bool _allowFlavorText;
+
         private FlavorText.FlavorText? _flavorText;
         private TextEdit? _flavorTextEdit;
 
@@ -140,6 +144,10 @@ namespace Content.Client.Lobby.UI
             _requirements = requirements;
             _controller = UserInterfaceManager.GetUIController<LobbyUIController>();
             _sprite = _entManager.System<SpriteSystem>();
+
+            _maxNameLength = _cfgManager.GetCVar(CCVars.MaxNameLength);
+            _allowFlavorText = _cfgManager.GetCVar(CCVars.FlavorText);
+
             ImportButton.OnPressed += args =>
             {
                 ImportProfile();
@@ -175,6 +183,7 @@ namespace Content.Client.Lobby.UI
             #region Name
 
             NameEdit.OnTextChanged += args => { SetName(args.Text); };
+            NameEdit.IsValid = args => args.Length <= _maxNameLength;
             NameRandomize.OnPressed += args => RandomizeName();
             AppearanceRandomize.OnPressed += args => { RandomizeAppearance(); }; // IMP
             RandomizeEverythingButton.OnPressed += args => { RandomizeEverything(); };
@@ -229,6 +238,7 @@ namespace Content.Client.Lobby.UI
             {
                 SpeciesButton.SelectId(args.Id);
                 SetSpecies(_species[args.Id].ID);
+                RefreshTraits(); // DeltaV - Allows for hiding traits
                 UpdateHairPickers();
                 OnSkinColorOnValueChanged();
             };
@@ -471,7 +481,7 @@ namespace Content.Client.Lobby.UI
         /// </summary>
         public void RefreshFlavorText()
         {
-            if (_cfgManager.GetCVar(CCVars.FlavorText))
+            if (_allowFlavorText)
             {
                 if (_flavorText != null)
                     return;
@@ -524,6 +534,14 @@ namespace Content.Client.Lobby.UI
 
             foreach (var trait in traits)
             {
+                // Begin DeltaV Additions - Species trait exlusion
+                if (Profile?.Species is { } selectedSpecies && trait.ExcludedSpecies.Contains(selectedSpecies))
+                {
+                    Profile = Profile?.WithoutTraitPreference(trait.ID, _prototypeManager);
+                    continue;
+                }
+                // End DeltaV Additions
+
                 if (trait.Category == null)
                 {
                     defaultTraits.Add(trait.ID);

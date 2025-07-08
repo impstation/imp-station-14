@@ -55,7 +55,7 @@
           !type:PhysShapeAabb
           bounds: "-0.45,-0.45,0.45,0.45"
         mask:
-        - MachineMask
+        - Impassable #imp edit from MachineMask, allows shutters and firelocks to close over them
         layer:
         - MachineLayer
         density: 200

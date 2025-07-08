@@ -25,7 +25,6 @@ public abstract class ClothingSystem : EntitySystem
         SubscribeLocalEvent<ClothingComponent, ComponentHandleState>(OnHandleState);
         SubscribeLocalEvent<ClothingComponent, GotEquippedEvent>(OnGotEquipped);
         SubscribeLocalEvent<ClothingComponent, GotUnequippedEvent>(OnGotUnequipped);
-        SubscribeLocalEvent<ClothingComponent, ItemNeckToggledEvent>(OnNeckToggled); // imp
         SubscribeLocalEvent<ClothingComponent, ClothingEquipDoAfterEvent>(OnEquipDoAfter);
         SubscribeLocalEvent<ClothingComponent, ClothingUnequipDoAfterEvent>(OnUnequipDoAfter);
         SubscribeLocalEvent<ClothingComponent, BeforeItemStrippedEvent>(OnItemStripped);
@@ -62,14 +61,14 @@ public abstract class ClothingSystem : EntitySystem
                 if (!_invSystem.TryUnequip(userEnt, slotDef.Name, true, inventory: userEnt, checkDoafter: true))
                     continue;
 
-                if (!_invSystem.TryEquip(userEnt, toEquipEnt, slotDef.Name, true, inventory: userEnt, clothing: toEquipEnt, checkDoafter: true, triggerHandContact: true))
+                if (!_invSystem.TryEquip(userEnt, toEquipEnt, slotDef.Name, inventory: userEnt, clothing: toEquipEnt, checkDoafter: true, triggerHandContact: true))
                     continue;
 
                 _handsSystem.PickupOrDrop(userEnt, slotEntity.Value, handsComp: userEnt);
             }
             else
             {
-                if (!_invSystem.TryEquip(userEnt, toEquipEnt, slotDef.Name, true, inventory: userEnt, clothing: toEquipEnt, checkDoafter: true, triggerHandContact: true))
+                if (!_invSystem.TryEquip(userEnt, toEquipEnt, slotDef.Name, inventory: userEnt, clothing: toEquipEnt, checkDoafter: true, triggerHandContact: true))
                     continue;
             }
 
@@ -119,15 +118,6 @@ public abstract class ClothingSystem : EntitySystem
 
         SetEquippedPrefix(uid, state.EquippedPrefix, component);
     }
-
-    /// imp start
-    private void OnNeckToggled(Entity<ClothingComponent> ent, ref ItemNeckToggledEvent args)
-    {
-        //AUGH AUGH AUGH AUGH AUGH AUGH
-        SetEquippedPrefix(ent, args.IsToggled ? args.equippedPrefix : null, ent);
-        //CheckEquipmentForLayerHide(ent.Owner, args.Wearer);
-    }
-    /// imp end
 
     private void OnEquipDoAfter(Entity<ClothingComponent> ent, ref ClothingEquipDoAfterEvent args)
     {

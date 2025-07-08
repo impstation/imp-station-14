@@ -1,8 +1,8 @@
 - type: gameMap
   id: Fland
   mapName: 'Fland Installation'
-  mapPath: /Maps/_Impstation/fland.yml
-  minPlayers: 60
+  mapPath: /Maps/fland.yml
+  minPlayers: 70
   stations:
     Fland:
       stationProto: StandardNanotrasenStation
@@ -26,14 +26,14 @@
             ChiefEngineer: [ 1, 1 ]
             ResearchDirector: [ 1, 1 ]
             Quartermaster: [ 1, 1 ]
-            #service (17) incl. service worker
+            #service (17)
             Bartender: [ 2, 2 ]
             Botanist: [ 3, 3 ]
             Chef: [ 2, 2 ]
             Janitor: [ 4, 4 ]
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
-            #ServiceWorker: [ 2, 2 ] #imp
+            ServiceWorker: [ 2, 2 ]
             Reporter: [ 2, 2 ]
             #engineering (9)
             AtmosphericTechnician: [ 3, 3 ]
@@ -53,13 +53,11 @@
             Detective: [ 1, 1 ]
             SecurityCadet: [ 6, 6 ] #intern, not counted
             Lawyer: [ 2, 2 ]
-            Brigmedic: [ 1, 1 ]
-            #supply
+            #supply (9)
             SalvageSpecialist: [ 3, 3 ]
-            CargoTechnician: [ 4, 4 ]
-            Courier: [ 3, 3 ] #Imp
-            #civilian
-            Passenger: [ -1, -1 ]
+            CargoTechnician: [ 6, 6 ]
+            #civilian (3+)
+            Passenger: [ -1, -1 ] #infinite, not counted
             Clown: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]

@@ -77,3 +77,25 @@
     tags:
     - Maintenance
     - Freelance
+
+- type: entity
+  parent: CentcomIDCard
+  id: CentcommInternIDCard
+  name: CentComm intern ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-centcomm-intern
+    jobIcon: JobIconNanotrasen
+  - type: PresetIdCard
+    job: CentcommIntern
+
+- type: entity
+  parent: CentcomIDCard
+  id: CentcommInternLeaderIDCard
+  name: CentComm head intern ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-centcomm-intern-leader
+    jobIcon: JobIconNanotrasen
+  - type: PresetIdCard
+    job: CentcommInternLeader

@@ -1,4 +1,4 @@
-using Content.Server.EntityEffects.Effects;
+using Content.Server.EntityEffects;
 using Content.Shared.Clothing;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Damage.Components;
@@ -16,7 +16,7 @@ namespace Content.Server._Goobstation.Clothing;
 public sealed partial class MadnessMaskSystem : EntitySystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly StaminaSystem _stamina = default!;
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
