@@ -196,7 +196,6 @@ namespace Content.Shared.Chemistry.Reaction
                     solution.Temperature = energy / newCap;
             }
 
-
             OnReaction(soln, reaction, null, unitReactions);
 
             return products;
