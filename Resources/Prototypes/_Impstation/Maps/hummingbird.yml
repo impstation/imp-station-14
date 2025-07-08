@@ -16,18 +16,17 @@
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/_Impstation/Shuttles/emergency_courser_hummingbird.yml
         - type: StationJobs
-          availableJobs: # Total of 70 jobs roundstart, max of 84 inc. latejoins and trainees.
-            # command - 9
+          availableJobs: # Total of 66 nice jobs roundstart, max of 77 inc. latejoins and trainees.
+            # command - 8
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
-            AdministrativeAssistant: [ 1, 1 ]
             ChiefEngineer: [ 1, 1 ]
             ChiefMedicalOfficer: [ 1, 1 ]
             ResearchDirector: [ 1, 1 ]
             HeadOfSecurity: [ 1, 1 ]
             HospitalityDirector: [ 1, 1 ]
             Quartermaster: [ 1, 1 ]
-            # service - 23 incl. service worker
+            # service - 20
             Bartender: [ 2, 2 ]
             Botanist: [ 2, 2 ]
             Boxer: [ 2, 2 ]
@@ -39,7 +38,6 @@
             Mime: [ 2, 2 ]
             Musician: [ 2, 2 ]
             Reporter: [ 2, 2 ]
-            #ServiceWorker: [ 3, 3 ]
             # engineering - 7-10
             AtmosphericTechnician: [ 3, 3 ]
             StationEngineer: [ 4, 4 ]
@@ -50,9 +48,9 @@
             MedicalIntern: [ 3, 3 ]
             Paramedic: [ 1, 1 ]
             Psychologist: [ 1, 1 ]
-            # science - 7-10
+            # science - 7-8
             Borg: [ 2, 2 ]
-            ResearchAssistant: [ 3, 3 ]
+            ResearchAssistant: [ 1, 1 ]
             Scientist: [ 4, 4 ]
             StationAi: [ 1, 1 ]
             # security - 9-12
@@ -62,10 +60,10 @@
             SecurityCadet: [ 3, 3 ]
             SecurityOfficer: [ 4, 4 ]
             Warden: [ 1, 1 ]
-            # supply - 7-9
+            # supply - 7-8
             CargoTechnician: [ 3, 3 ]
             Courier: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]
-            SupplyAssistant: [ 2, 2 ]
+            SupplyAssistant: [ 1, 1 ]
             # civilian
             Passenger: [ -1, -1 ]

@@ -5,11 +5,11 @@
   playTimeTracker: JobChaplain
   startingGear: ChaplainGear
   icon: "JobIconChaplain"
-  supervisors: job-supervisors-hd # imp
+  supervisors: job-supervisors-hd #imp edit
   access:
-  - Service #imp edit
   - Chapel
   - Maintenance
+  - Service #imp edit
   special:
   - !type:AddComponentSpecial
     components:
@@ -25,3 +25,15 @@
 #    - Bible #imp now handled by loadouts
     - RubberStampChaplain
     - NullRodDefault # imp
+
+- type: chameleonOutfit
+  id: ChaplainChameleonOutfit
+  job: Chaplain
+  equipment:
+    head: ClothingHeadHatPlaguedoctor
+    eyes: ClothingEyesGlasses
+    mask: ClothingMaskPlague
+    neck: ClothingNeckStoleChaplain
+    outerClothing: ClothingOuterPlagueSuit
+    gloves: ClothingHandsGlovesColorBlack
+

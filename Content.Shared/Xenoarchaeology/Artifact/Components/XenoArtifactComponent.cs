@@ -1,4 +1,5 @@
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.Destructible.Thresholds;
 using Content.Shared.EntityTable.EntitySelectors;
 using Content.Shared.Xenoarchaeology.Artifact.Prototypes;
@@ -165,6 +166,31 @@ public sealed partial class XenoArtifactComponent : Component
     /// </summary>
     [DataField]
     public EntProtoId<InstantActionComponent> SelfActivateAction = "ActionArtifactActivate";
+
+    /// <summary>
+    /// Imp edit. The sound that plays when an artifact finishes unlocking successfully (with node unlocked).
+    /// </summary>
+    [DataField]
+    public SoundSpecifier UnlockActivationSuccessfulSound = new SoundCollectionSpecifier("ArtifactUnlockingActivationSuccess")
+    {
+        Params = new()
+        {
+            Variation = 0.1f,
+            Volume = 3f
+        }
+    };
+
+    /// <summary>
+    /// Imp edit. The sound that plays when artifact finishes unlocking non-successfully.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier? UnlockActivationFailedSound = new SoundCollectionSpecifier("ArtifactUnlockActivationFailure")
+    {
+        Params = new()
+        {
+            Variation = 0.1f
+        }
+    };
 }
 
 /// <summary>

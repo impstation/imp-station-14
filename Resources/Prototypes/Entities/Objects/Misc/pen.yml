@@ -128,6 +128,9 @@
       magenta: "#a42f6b" #imp
       command blue: "#1b67a5"
       CentComm green: "#009100"
+  - type: StaticPrice
+    price: 500
+
 
 - type: entity
   name: CentComm pen
@@ -166,7 +169,7 @@
   # end imp edits #
 
 - type: entity
-  name: hop's fountain pen
+  name: HoP's fountain pen # imp; emphasizing this is an acronym and not for some guy named hop
   parent: PenEmbeddable
   id: PenHop
   description: A luxurious fountain pen for the head of personnel of the station. Perfect for signing all those employee safety waivers. # imp edit

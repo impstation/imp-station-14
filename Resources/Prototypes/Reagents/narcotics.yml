@@ -217,6 +217,21 @@
   plantMetabolism:
   - !type:PlantAdjustHealth
     amount: -5
+  metabolisms: # imp edit begin
+    Narcotic:
+      effects:
+      - !type:HealthChange
+        probability: 0.1
+        damage:
+          types:
+            Cellular: 0.2
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 1
+        damage:
+          types:
+            Cellular: 0.2 # imp edit end
 
 # TODO: Replace these nonstandardized effects with generic brain damage
 - type: reagent
@@ -256,7 +271,7 @@
   physicalDesc: reagent-physical-desc-syrupy
   flavor: bitter
   color: "#63806e"
-  contraband: Minor
+  contraband: Minor #imp
   metabolisms:
     Narcotic:
       effects:
@@ -339,7 +354,7 @@
   color: "#96a8b5"
   boilingPoint: 255.0
   meltingPoint: 36.0
-  contraband: Minor
+  contraband: Minor #imp
   metabolisms:
     Narcotic:
       effects:
@@ -381,7 +396,7 @@
   desc: reagent-desc-tear-gas
   physicalDesc: reagent-physical-desc-milky
   flavor: salty
-  color: "#96a8b5"
+  color: "#ffffff4d"
   boilingPoint: 255.0
   meltingPoint: 36.0
   metabolisms:
@@ -407,18 +422,28 @@
         - norepinephricacid-effect-eye-pain
         - norepinephricacid-effect-darkness
         - norepinephricacid-effect-blindness
-        conditions:
-        - !type:ReagentThreshold
-          min: 15
       - !type:Emote
         emote: Scream
+        probability: 0.08
+        conditions:
+        - !type:ReagentThreshold
+          min: 4
+      - !type:Emote
+        emote: Cough
         probability: 0.08
       - !type:GenericStatusEffect
         key: TemporaryBlindness
         component: TemporaryBlindness
         conditions:
         - !type:ReagentThreshold
-          min: 20
+          min: 4
+      - !type:MovespeedModifier
+        walkSpeedModifier: 0.65
+        sprintSpeedModifier: 0.65
+        statusLifetime: 1.5
+        conditions: # because of the remainding after effect, threshold is given so the effects ends simultaniously
+        - !type:ReagentThreshold
+          min: 4
 
 - type: reagent
   id: Happiness
@@ -475,27 +500,3 @@
         conditions:
         - !type:ReagentThreshold
           max: 20
-
-- type: reagent
-  id: Methadone
-  name: reagent-name-methadone
-  group: Narcotic
-  desc: reagent-desc-methadone
-  physicalDesc: reagent-physical-desc-clear
-  flavor: bitter
-  color: "#E9EDF5"
-  metabolisms: # since there's no heroin, i've just made it a worse version of tricordrazine. feel free to fix this.
-    Narcotic:
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:TotalDamage
-          max: 40
-        damage:
-          groups:
-            Brute: -0.75
-          types:
-            Poison: -0.3
-            Heat: -0.25
-            Shock: -0.25
-            Cold: -0.25
