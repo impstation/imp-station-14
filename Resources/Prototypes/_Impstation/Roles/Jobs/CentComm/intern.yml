@@ -1,0 +1,91 @@
+﻿- type: job
+  id: CentcommIntern
+  name: CentComm Intern
+  description: job-description-centcomm-intern
+  playTimeTracker: JobCentCommIntern
+  setPreference: false
+  startingGear: CentcommInternGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+
+- type: startingGear
+  id: CentcommInternGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcommIntern
+    back: ClothingBackpackSatchel
+    ears: ClothingHeadsetCentCom
+    shoes: ClothingShoesColorBlack
+    id: CentcommInternPDA
+  storage:
+    back:
+    - MagazineZipper
+    - MagazineZipper
+  inhand:
+  - WeaponPistolZipper
+
+- type: job
+  id: CentcommInternLeader
+  name: CentComm Head Intern
+  description: job-description-centcomm-intern-leader
+  playTimeTracker: JobCentCommInternLeader
+  setPreference: false
+  startingGear: CentcommInternLeaderGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+
+- type: startingGear
+  id: CentcommInternLeaderGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcommIntern
+    outerClothing: ClothingOuterArmorBasicSlim
+    head: ClothingHeadHatCentcommIntern
+    belt: Stunbaton
+    eyes: ClothingEyesGlassesSunglasses
+    back: ClothingBackpackSatchel
+    ears: ClothingHeadsetCentCom
+    shoes: ClothingShoesColorBlack
+    id: CentcommInternLeaderPDA
+    pocket1: WeaponPistolZipper
+  storage:
+    back:
+    - MagazineZipper
+    - MagazineZipper
+    - MagazineBoxLightRifle
+  inhand:
+  - WeaponSniperMosin
+
+- type: startingGear
+  id: CentcommInternUnarmedGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcommIntern
+    back: ClothingBackpackSatchel
+    ears: ClothingHeadsetCentCom
+    shoes: ClothingShoesColorBlack
+    id: CentcommInternPDA
+
+- type: startingGear
+  id: CentcommInternLeaderUnarmedGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcommIntern
+    head: ClothingHeadHatCentcommIntern
+    eyes: ClothingEyesGlassesSunglasses
+    back: ClothingBackpackSatchel
+    ears: ClothingHeadsetCentCom
+    shoes: ClothingShoesColorBlack
+    id: CentcommInternLeaderPDA
