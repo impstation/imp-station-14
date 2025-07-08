@@ -5,14 +5,14 @@
   description: "A carton containing 6 packets of Spessman's Smokes."
   components:
   - type: Sprite
-    sprite: _Wizden/Objects/Consumable/Smokeables/Cigarettes/Cartons/green.rsi # imp
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/green.rsi # imp
     layers: # imp
     - state: closed
       map: ["closeLayer"]
     - state: open
       map: ["openLayer"]
   - type: Item
-    sprite: _Wizden/Objects/Consumable/Smokeables/Cigarettes/Cartons/green.rsi # imp
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/green.rsi # imp
     size: Normal
   - type: Storage
     grid:
@@ -36,11 +36,9 @@
   description: A carton containing 6 packets of Dromedarycos.
   components:
   - type: Sprite
-    sprite: _Wizden/Objects/Consumable/Smokeables/Cigarettes/Cartons/red.rsi # imp
-    layers: # imp
-    - state: closed
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/red.rsi # imp
   - type: Item
-    sprite: _Wizden/Objects/Consumable/Smokeables/Cigarettes/Cartons/red.rsi # imp
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/red.rsi # imp
   - type: StorageFill
     contents:
       - id: CigPackRed
@@ -53,11 +51,9 @@
   description: A carton containing 6 packets of AcmeCo.
   components:
   - type: Sprite
-    sprite: _Wizden/Objects/Consumable/Smokeables/Cigarettes/Cartons/blue.rsi # imp
-    layers: # imp
-    - state: closed
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/blue.rsi # imp
   - type: Item
-    sprite: _Wizden/Objects/Consumable/Smokeables/Cigarettes/Cartons/blue.rsi # imp
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/blue.rsi # imp
   - type: StorageFill
     contents:
       - id: CigPackBlue
@@ -70,11 +66,9 @@
   description: A carton containing 6 packets of Nomads.
   components:
   - type: Sprite
-    sprite: _Wizden/Objects/Consumable/Smokeables/Cigarettes/Cartons/black.rsi # imp
-    layers: # imp
-    - state: closed
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/black.rsi # imp
   - type: Item
-    sprite: _Wizden/Objects/Consumable/Smokeables/Cigarettes/Cartons/black.rsi # imp
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/black.rsi # imp
   - type: StorageFill
     contents:
       - id: CigPackBlack
@@ -87,11 +81,9 @@
   description: A carton containg 3 packets of Dan's soaked smokes.
   components:
   - type: Sprite
-    sprite: _Wizden/Objects/Consumable/Smokeables/Cigarettes/Cartons/mixed.rsi # imp
-    layers: # imp
-    - state: closed
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/mixed.rsi # imp
   - type: Item
-    sprite: _Wizden/Objects/Consumable/Smokeables/Cigarettes/Cartons/mixed.rsi # imp
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/mixed.rsi # imp
   - type: StorageFill
     contents:
     - id: CigPackMixed

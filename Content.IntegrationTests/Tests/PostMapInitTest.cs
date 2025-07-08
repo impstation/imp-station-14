@@ -35,18 +35,20 @@ namespace Content.IntegrationTests.Tests
         private static readonly string[] NoSpawnMaps =
         {
             "CentComm",
+            "CentCommImp", // imp edit
             "Dart"
         };
 
         private static readonly string[] Grids =
         {
-            "/Maps/centcomm.yml",
+            "/Maps/_Impstation/centcomm.yml", // imp edit
             AdminTestArenaSystem.ArenaMapPath
         };
 
         private static readonly string[] DoNotMapWhitelist =
         {
             "/Maps/centcomm.yml",
+            "/Maps/_Impstation/centcomm.yml", // imp edit
 
             // Stations
             "/Maps/bagel.yml", // Contains mime's rubber stamp
@@ -83,65 +85,73 @@ namespace Content.IntegrationTests.Tests
         private static readonly (string, string)[] IgnoreUnmappedSpawns =
         {
             ("Banana", "ChiefMedicalOfficer"),
-            ("Elkridge", "Courier"),
-            ("Packed", "Brigmedic"),
-            ("Reach", "TechnicalAssistant"),
-            ("Reach", "MedicalIntern"),
-            ("Reach", "ResearchAssistant"),
-            ("Reach", "SecurityCadet"),
-            ("Fland", "Reporter"),
+            ("ElkridgeImp", "Courier"),
+            ("PackedImp", "Brigmedic"),
+            ("ReachImp", "TechnicalAssistant"),
+            ("ReachImp", "MedicalIntern"),
+            ("ReachImp", "ResearchAssistant"),
+            ("ReachImp", "SecurityCadet"),
             ("Loop", "Psychologist"),
             ("Lilboat", "Paramedic"),
-            ("Relic", "SalvageSpecialist"),
-            ("Relic", "Clown")
+            ("RelicImp", "SalvageSpecialist"),
+            ("RelicImp", "Clown")
         };
 
         private static readonly string[] GameMaps =
         {
+            // WIZDEN PROTOTYPES, ONES COMMENTED OUT ARE IN ignoredPrototypes.yml:
             "Dev",
             "TestTeg",
-            "Fland",
-            "Packed",
-            "Bagel",
-            "CentComm",
-            "Box",
-            "Marathon",
+            //"Fland",
+            //"Packed",
+            //"Bagel",
+            //"CentComm",
+            //"Box",
+            //"Marathon",
             "MeteorArena",
-            "Saltern",
-            "Reach",
-            "Oasis",
-            "Amber",
-            "Plasma",
-            "Elkridge",
-            "Relic",
+            //"Saltern",
+            //"Reach",
+            //"Oasis",
+            //"Amber",
+            //"Plasma",
+            //"Elkridge",
+            //"Relic",
             "dm01-entryway",
-            "Exo",
+            //"Exo",
 
-            // IMP ADD, NON UPSTREAM MAPS:
+            // IMP PROTOTYPES:
+            "AmberImp",
+            "BagelImp",
             "Banana",
             "Barratry",
             "Bedlam",
             "Boat",
-            "Cog",
-            "Convex",
-            "Core",
+            "BoxImp",
+            "CentCommImp",
+            "CogImp",
+            "ConvexImp",
+            "CoreImp",
             "E1M1",
-            "Gate",
+            "ElkridgeImp",
+            "GateImp",
             "Hash",
             "Hummingbird",
             "Lilboat",
             "Luna",
-            "Omega",
+            "MarathonImp",
+            "OasisImp",
+            "OmegaImp",
+            "PackedImp",
+            "PlasmaImp",
+            "ReachImp",
+            "RelicImp",
+            "SalternImp",
             "Submarine",
-            "Train",
+            "TrainImp",
             "Xeno",
-            // DEROTATED BUT WE STILL NEED THEM TESTED:
-            "Atlas",
-            "Cluster",
+
+            // NOT IN ROTATION BUT WE STILL NEED THEM TESTED SINCE THEY STILL HAVE A PROTOTYPE:
             "Eclipse",
-            "Elkridge",
-            "Loop",
-            "Meta",
             "Refsdal",
             "Skimmer",
             "Union",
