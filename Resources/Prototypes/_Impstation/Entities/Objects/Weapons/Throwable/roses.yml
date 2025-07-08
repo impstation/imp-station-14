@@ -91,14 +91,13 @@
     seedId: rose
   - type: Extractable
     grindableSolutionName: food
-  - type: FlavorProfile
-    flavors:
-      - rose
-  - type: Extractable
     juiceSolution:
       reagents:
       - ReagentId: JuiceRose
         Quantity: 10
+  - type: FlavorProfile
+    flavors:
+      - rose
   - type: Food
   - type: Tag
     tags:
