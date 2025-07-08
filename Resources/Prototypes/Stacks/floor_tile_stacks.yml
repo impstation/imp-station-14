@@ -614,6 +614,10 @@
   name: stack-astro-grass-floor
   spawn: FloorTileItemAstroGrass
   maxCount: 30
+  components:
+  - type: Tag
+    tags:
+      - AstroGrass # imp
 
 - type: stack
   id: FloorTileMowedAstroGrass

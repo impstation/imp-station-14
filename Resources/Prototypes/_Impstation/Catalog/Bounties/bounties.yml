@@ -204,3 +204,69 @@
     whitelist:
       tags:
       - BananaClownshoes
+
+- type: cargoBounty
+  id: BountyArmorVests
+  reward: 15000
+  description: bounty-description-armor-vests
+  entries:
+  - name: bounty-item-armor-vests
+    amount: 3
+    whitelist:
+      tags:
+      - ArmorVest # as of right now this is specifically on armor obtainable through SecTech, although if someone tries and gets confused, this could go on commonly mapped vests as well.
+
+- type: cargoBounty
+  id: BountyClothFood
+  reward: 8000
+  description: bounty-description-cloth-food
+  entries:
+  - name: bounty-item-cloth-food
+    amount: 3
+    whitelist:
+      tags:
+      - ClothFood
+
+- type: cargoBounty
+  id: BountyInsuls
+  reward: 6000
+  description: bounty-description-insuls # thank you to carousel (discord) for helping w/ the description for this one!
+  entries:
+  - name: bounty-item-insuls
+    amount: 3
+    whitelist:
+      tags:
+      - InsulatedGloves
+
+- type: cargoBounty
+  id: BountyRipleyLimb
+  reward: 5000
+  description: bounty-description-ripley-limb
+  entries:
+  - name: bounty-item-ripley-limb
+    amount: 1
+    whitelist:
+      tags:
+      - RipleyLimb
+
+- type: cargoBounty
+  id: BountyAstroGrass
+  reward: 6000
+  description: bounty-description-astro-grass
+  entries:
+  - name: bounty-item-astro-grass
+    amount: 15
+    whitelist:
+      tags:
+      - AstroGrass
+
+- type: cargoBounty
+  id: BountyElectropack
+  reward: 15000
+  description: bounty-description-electropack
+  entries:
+  - name: bounty-item-electropack
+    amount: 1
+    whitelist:
+      tags:
+      - Electropack

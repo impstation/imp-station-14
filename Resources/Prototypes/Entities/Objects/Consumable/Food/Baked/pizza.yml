@@ -763,6 +763,7 @@
   - type: Tag
     tags:
     - ClothMade
+    - ClothFood # imp
     - Pizza
   - type: SolutionContainerManager
     solutions:
@@ -794,6 +795,7 @@
   - type: Tag
     tags:
     - ClothMade
+    - ClothFood # imp - maybe i should keep this off the slice proto to prevent cheesing the bounty... (lol)
     - Pizza
     - Slice
   - type: SolutionContainerManager

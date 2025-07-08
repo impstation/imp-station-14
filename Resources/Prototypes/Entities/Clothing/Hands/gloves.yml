@@ -343,6 +343,9 @@
     damageProtection:
       flatReductions:
         Heat: 0 # no protection
+  - type: Tag
+    tags:
+      - Insuls # imp
 
 - type: entity
   parent: ClothingHandsButcherable
