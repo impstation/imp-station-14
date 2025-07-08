@@ -61,6 +61,16 @@
         volume: -8
 
 - type: entity
+  id: TESTtoggle
+  parent: AnomalyLocatorUnpowered
+  name: "## TEST"
+  components:
+  - type: ItemToggle
+    onUse: false
+    onActivate: false
+  - type: ItemToggleDoAfter
+
+- type: entity
   id: AnomalyLocator
   parent: [ AnomalyLocatorUnpowered, PowerCellSlotSmallItem ]
   suffix: ""
