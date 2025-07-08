@@ -416,6 +416,9 @@
         conditions:
         - !type:ReagentThreshold
           min: 50
+        - !type:ReagentThreshold # imp - you're mutating yourself into dog
+          reagent: UnstableMutagen
+          min: 10
       - !type:AdjustReagent
         reagent: CorgiJuice
         amount: -20
