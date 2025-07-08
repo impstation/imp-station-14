@@ -43,7 +43,7 @@
   - type: Sprite
     noRot: false
     drawdepth: SmallObjects
-    sprite: _Impstation/Structures/Wallmounts/intercom.rsi #imp edit
+    sprite: _Impstation/Structures/Wallmounts/Intercoms/intercom.rsi #imp edit
     layers:
     - state: base
     - state: unshaded
@@ -138,7 +138,7 @@
   - type: InteractionOutline
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: _Impstation/Structures/Wallmounts/intercom.rsi
+    sprite: _Impstation/Structures/Wallmounts/Intercoms/intercom.rsi #imp edit
     layers:
     - state: build
     - state: panel
@@ -249,6 +249,9 @@
       key_slots:
       - EncryptionKeyCommon
       - EncryptionKeyCommand
+  - type: Sprite #IMP START
+    drawdepth: SmallObjects
+    sprite: _Impstation/Structures/Wallmounts/Intercoms/intercom_comm.rsi #IMP END
 
 - type: entity
   id: IntercomEngineering
@@ -262,6 +265,9 @@
       key_slots:
       - EncryptionKeyCommon
       - EncryptionKeyEngineering
+  - type: Sprite #IMP START
+    drawdepth: SmallObjects
+    sprite: _Impstation/Structures/Wallmounts/Intercoms/intercom_engi.rsi #IMP END
 
 - type: entity
   id: IntercomMedical
@@ -275,6 +281,9 @@
       key_slots:
       - EncryptionKeyCommon
       - EncryptionKeyMedical
+  - type: Sprite #IMP START
+    drawdepth: SmallObjects
+    sprite: _Impstation/Structures/Wallmounts/Intercoms/intercom_med.rsi #IMP END
 
 - type: entity
   id: IntercomScience
@@ -288,6 +297,9 @@
       key_slots:
       - EncryptionKeyCommon
       - EncryptionKeyScience
+  - type: Sprite #IMP START
+    drawdepth: SmallObjects
+    sprite: _Impstation/Structures/Wallmounts/Intercoms/intercom_sci.rsi #IMP END
 
 - type: entity
   id: IntercomSecurity
@@ -302,6 +314,9 @@
       key_slots:
       - EncryptionKeyCommon
       - EncryptionKeySecurity
+  - type: Sprite #IMP START
+    drawdepth: SmallObjects
+    sprite: _Impstation/Structures/Wallmounts/Intercoms/intercom_sec.rsi #IMP END
 
 - type: entity
   id: IntercomService
@@ -315,6 +330,9 @@
       key_slots:
       - EncryptionKeyCommon
       - EncryptionKeyService
+  - type: Sprite #IMP START
+    drawdepth: SmallObjects
+    sprite: _Impstation/Structures/Wallmounts/Intercoms/intercom_serv.rsi #IMP END
 
 - type: entity
   id: IntercomSupply
@@ -328,6 +346,9 @@
       key_slots:
       - EncryptionKeyCommon
       - EncryptionKeyCargo
+  - type: Sprite #IMP START
+    drawdepth: SmallObjects
+    sprite: _Impstation/Structures/Wallmounts/Intercoms/intercom_supp.rsi #IMP END
 
 - type: entity
   id: IntercomAll
@@ -341,6 +362,9 @@
       key_slots:
       - EncryptionKeyCommon
       - EncryptionKeyStationMaster
+  - type: Sprite #IMP START
+    drawdepth: SmallObjects
+    sprite: _Impstation/Structures/Wallmounts/Intercoms/intercom_comm.rsi #IMP END
 
 - type: entity
   id: IntercomFreelance
