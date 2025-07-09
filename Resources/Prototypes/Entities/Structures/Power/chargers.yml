@@ -207,7 +207,7 @@
   components:
   - type: Sprite
     snapCardinals: false #imp edit
-    sprite: Structures/Power/wall_recharger.rsi
+    sprite: _Impstation/Structures/Power/wall_recharger.rsi #imp edit
     layers:
     - map: ["enum.PowerChargerVisualLayers.Base"]
       state: "empty"
