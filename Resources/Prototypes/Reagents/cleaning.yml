@@ -29,12 +29,10 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
-        ignoreResistances: false
         damage:
-          types: #want to make this a nuisance but not nearly as harmful as ingesting, really low because damage applied by spraying while scaling with quantity is insane
-            Poison: .02
-            Caustic: .02
+          types: #want to make this a nuisance but not nearly as harmful as ingesting
+            Poison: .2
+            Caustic: .2
         conditions:
         - !type:Breathing
         - !type:Internals
