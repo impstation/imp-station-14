@@ -610,3 +610,75 @@
       amount: 1
   products:
     AngelsKiss: 3
+
+- type: reaction
+  id: PinkRose
+  preserveDNA: true
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Gin:
+      amount: 1
+    JuiceRose:
+      amount: 1
+    JuiceLime:
+      amount: 1
+  products:
+    PinkRose: 3
+
+- type: reaction
+  id: LaFleurette
+  preserveDNA: true
+  requiredMixerCategories:
+  reactants:
+    Champagne:
+      amount: 2
+    JuiceRose:
+      amount: 1
+  products:
+    LaFleurette: 3
+
+- type: reaction
+  id: RomanceDead
+  preserveDNA: true
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Gin:
+      amount: 1
+    JuiceRose:
+      amount: 1
+    Blood:
+      amount: 1
+  products:
+    RomanceDead: 3
+
+- type: reaction
+  id: RomanceDeadNot
+  preserveDNA: true
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    JuiceLemon:
+      amount: 1
+    JuiceRose:
+      amount: 1
+    Blood:
+      amount: 1
+  products:
+    RomanceDeadNot: 3
+
+- type: reaction
+  id: RoseMilk
+  preserveDNA: true
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    JuiceRose:
+      amount: 1
+    Milk:
+      amount: 1
+    Sugar:
+      amount: 1
+  products:
+    RoseMilk: 3
