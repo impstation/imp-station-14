@@ -286,6 +286,90 @@
   - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
     state: vitiligospots
 
+- type: marking
+  id: ProstheticUpperTorso
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Human, Dwarf, SlimePerson ]
+  sexRestriction: [ Female ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#E4E4E4"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
+    state: prosupbod1
+  - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
+    state: prosupbod2
+  - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
+    state: prosupbod3
+
+- type: marking
+  id: ProstheticLowerTorso
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Human, Dwarf, SlimePerson ]
+  sexRestriction: [ Female ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#E4E4E4"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
+    state: proslowbod1
+  - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
+    state: proslowbod2
+  - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
+    state: proslowbod3
+  - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
+    state: proslowbod4
+  - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
+    state: proslowbod5
+
+- type: marking
+  id: ProstheticUpperTorsoM
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Human, Dwarf, SlimePerson ]
+  sexRestriction: [ Male ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#E4E4E4"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
+    state: prosupbodm1
+  - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
+    state: prosupbodm2
+  - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
+    state: prosupbodm3
+
+- type: marking
+  id: ProstheticLowerTorsoM
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Human, Dwarf, SlimePerson ]
+  sexRestriction: [ Male ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#E4E4E4"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
+    state: proslowbodm1
+  - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
+    state: proslowbodm2
+  - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
+    state: proslowbodm3
+  - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
+    state: proslowbodm4
+  - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
+    state: proslowbodm5
+
 # Head
 
 - type: marking
@@ -426,6 +510,20 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/head.rsi
     state: shadow
+
+- type: marking
+  id: ProstheticJaw
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Human, Dwarf, SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#E4E4E4"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Humanoid/head.rsi
+    state: prosjaw
 
 # Snout
 

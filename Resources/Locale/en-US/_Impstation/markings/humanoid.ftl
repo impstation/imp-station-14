@@ -70,6 +70,30 @@ marking-VitiligoChestF = Vitiligo Spread
 
 marking-VitiligoChestSpots = Vitiligo Spots
 
+marking-ProstheticUpperTorso = Prosthetic Upper Torso
+marking-ProstheticUpperTorso-prosupbod1 = Segment 1
+marking-ProstheticUpperTorso-prosupbod2 = Segment 2
+marking-ProstheticUpperTorso-prosupbod3 = Segment 3
+
+marking-ProstheticLowerTorso = Prosthetic Lower Torso
+marking-ProstheticLowerTorso-proslowbod1 = Segment 1
+marking-ProstheticLowerTorso-proslowbod2 = Segment 2
+marking-ProstheticLowerTorso-proslowbod3 = Segment 3
+marking-ProstheticLowerTorso-proslowbod4 = Segment 4
+marking-ProstheticLowerTorso-proslowbod5 = Segment 5
+
+marking-ProstheticUpperTorsoM = Prosthetic Upper Torso
+marking-ProstheticUpperTorsoM-prosupbodm1 = Segment 1
+marking-ProstheticUpperTorsoM-prosupbodm2 = Segment 2
+marking-ProstheticUpperTorsoM-prosupbodm3 = Segment 3
+
+marking-ProstheticLowerTorsoM = Prosthetic Lower Torso
+marking-ProstheticLowerTorsoM-proslowbodm1 = Segment 1
+marking-ProstheticLowerTorsoM-proslowbodm2 = Segment 2
+marking-ProstheticLowerTorsoM-proslowbodm3 = Segment 3
+marking-ProstheticLowerTorsoM-proslowbodm4 = Segment 4
+marking-ProstheticLowerTorsoM-proslowbodm5 = Segment 5
+
 # Head
 
 marking-EyebrowsBig = Eyebrows (Big)
@@ -104,6 +128,8 @@ marking-VitiligoHeadL = Vitiligo (Left Eye)
 marking-VitiligoHeadR = Vitiligo (Right Eye)
 
 marking-Shadow = Gloomy
+
+marking-ProstheticJaw = Prosthetic Jaw
 
 # Snout
 
