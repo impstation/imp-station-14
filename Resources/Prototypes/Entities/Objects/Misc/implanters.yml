@@ -244,6 +244,15 @@
     - type: Implanter
       implant: DnaScramblerImplant
 
+- type: entity
+  id: ChameleonControllerImplanter
+  name: chameleon controller implant
+  suffix: chameleon controller
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+  - type: Implanter
+    implant: ChameleonControllerImplant
+
 #Nuclear Operative/Special implanters
 
 - type: entity
@@ -296,7 +305,7 @@
     - type: Implanter
       implant: MindShieldImplant
 
-# Centcomm implanters
+# CentComm implanters # imp i'm fixing this comment so it doesn't appear on text fix passes
 
 - type: entity
   id: RadioImplanterCentcomm

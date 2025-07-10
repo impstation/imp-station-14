@@ -7,7 +7,7 @@
   icon: "JobIconBoxer"
   supervisors: job-supervisors-hop
   access:
-  #- Service imp edit
+  - Service
   - Maintenance
   special:
   - !type:GiveItemOnHolidaySpecial
@@ -24,3 +24,14 @@
   #storage:
     #back:
     #- Stuff
+
+- type: chameleonOutfit
+  id: BoxerChameleonOutfit
+  job: Boxer
+  equipment:
+    head: ClothingHeadHatBlacksoft
+    eyes: ClothingEyesGlassesCheapSunglasses
+    mask: ClothingMaskBreath
+    outerClothing: ClothingOuterWinterColorGray
+    jumpsuit: UniformShortsRedWithTop
+    neck: ClothingNeckScarfStripedRed

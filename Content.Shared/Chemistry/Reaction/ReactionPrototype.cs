@@ -60,13 +60,7 @@ namespace Content.Shared.Chemistry.Reaction
         /// <summary>
         /// Effects to be triggered when the reaction occurs.
         /// </summary>
-        [DataField("effects", serverOnly: true)] public List<EntityEffect> Effects = new();
-
-        /// <summary>
-        ///     If true, this reaction will attempt to transfer any DNA from the input chemicals to the output chemical.
-        /// </summary>
-        [DataField("preserveDNA")]
-        public bool PreserveDNA = false;
+        [DataField("effects")] public List<EntityEffect> Effects = new();
 
         /// <summary>
         /// How dangerous is this effect? Stuff like bicaridine should be low, while things like methamphetamine

@@ -102,16 +102,16 @@
   description: "A futuristic cap for first responders with an integrated siren system. Requires batteries."
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/paramedicsirencap.rsi
+    sprite: _Impstation/Clothing/Head/Hats/paramedicsirencap.rsi
     layers:
       - state: icon
       - state: icon-light
         visible: false
         shader: unshaded
-        map: [ "light" ]
+        map: [ "enum.ToggleableVisuals.Layer" ]
   - type: Appearance
   - type: Clothing
-    sprite: Clothing/Head/Hats/paramedicsirencap.rsi
+    sprite: _Impstation/Clothing/Head/Hats/paramedicsirencap.rsi
     equippedPrefix: off
   - type: ItemToggle
     predictable: false # issues between ToggleCellDraw and ItemToggleActiveSound
@@ -132,7 +132,8 @@
   - type: ToggleClothing
     action: ActionToggleParamedicSirenCap
   - type: ItemTogglePointLight
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: enum.ToggleableVisuals.Layer
     clothingVisuals:
       head:
       - state: on-equipped-HELMET
@@ -171,14 +172,14 @@
         name: power-cell-slot-component-slot-name-default
 
 - type: entity
+  parent: BaseToggleAction
   id: ActionToggleParamedicSirenCap
   name: Toggle Paramedic Siren Cap
   description: Toggles the paramedic siren cap on and off.
   components:
-  - type: InstantAction
+  - type: Action
     useDelay: 1
     itemIconStyle: BigItem
-    event: !type:ToggleActionEvent
 
 - type: entity
   parent: ClothingHeadBase
@@ -289,8 +290,51 @@
   - type: Clothing
     sprite: Clothing/Head/Hats/holyhatmelon.rsi
   - type: Armor
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadSipsiHat
+  name: sipsi hat
+  description: Cheap plastic version of a traditional Gray headdress. Has a picture of a surfing penguin on the front.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hats/sipsi_hat.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hats/sipsi_hat.rsi
+  - type: ExaminableSolution
+    solution: drink
+  - type: Appearance
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+  - type: MixableSolution
+    solution: drink
+  - type: SolutionTransfer
+    canChangeTransferAmount: true
+  - type: Drink
+  - type: MeleeWeapon
+    soundNoDamage:
+      path: "/Audio/Effects/Fluids/splat.ogg"
+    damage:
+      types:
+        Blunt: 0
+  - type: Spillable
+    solution: drink
+  - type: DrawableSolution
+    solution: drink
+  - type: RefillableSolution
+    solution: drink
+  - type: DrainableSolution
+    solution: drink
+  - type: UserInterface
+    interfaces:
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
+  - type: DnaSubstanceTrace
   - type: Tag
     tags:
+    - HamsterWearable
     - WhitelistChameleon
 
 - type: entity
@@ -327,7 +371,7 @@
   parent: [ClothingHeadBase, BaseCentcommContraband]
   id: ClothingHeadImpishHorns
   name: impish horns
-  description: 
+  description:
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Head/Hats/impishhorns.rsi
@@ -337,3 +381,53 @@
     tags:
     - ClothMade
     - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadFloatingFloraCrown
+  name: floating flora crown
+  description: A crown of floating flowers! Isn't that neat?
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hats/floatingfloracrown.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hats/floatingfloracrown.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: Construction
+    graph: floatingfloracrown
+    node: floatingfloracrown
+
+- type: entity
+  parent: [ClothingHeadBase, BaseCommandContraband]
+  id: ClothingHeadHatCMOClip
+  name: chief medical officer's hairclip
+  description: A shiny plastic hairclip fashioned after the iconic green medical cross.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Misc/cmo_clip.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Misc/cmo_clip.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatMusicianShako
+  name: musician's shako
+  description: A sturdy shako. Somehow looks too refined for the logo slapped on the front.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hats/mus_shako.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hats/mus_shako.rsi
+
+- type: entity
+  parent: [ClothingHeadBase, BaseCentcommContraband]
+  id: ClothingHeadHatCentcommIntern
+  name: CentComm head intern beancap
+  description: A horrifying mix of beanie and softcap in CentCom green. You'd have to be pretty desperate for power over your peers to agree to wear this.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hats/centcommintern.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hats/centcommintern.rsi

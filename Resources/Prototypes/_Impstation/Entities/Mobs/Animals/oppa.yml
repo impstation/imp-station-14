@@ -159,11 +159,15 @@
     baseWeightlessModifier: 1
   - type: MovementIgnoreGravity # nyoom
     gravityState: true
+  - type: FloatingVisuals
   - type: PointLight
     color: Black
     radius: 1.1
     energy: 2
 #fixing vocal
+  - type: Emoting
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
   - type: Speech
     speechSounds: Squeak
     speechVerb: SmallMob
