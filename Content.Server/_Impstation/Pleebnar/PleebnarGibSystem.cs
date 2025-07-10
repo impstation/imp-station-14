@@ -26,7 +26,7 @@ public sealed class PleebnarGibSystem : SharedPleebnarGibSystem
     //function called when an entity is targeted by the action
     public void PleebnarGib(Entity<PleebnarGibActionComponent> ent, ref PleebnarGibEvent args)
     {
-        if ((!HasComp<PleebnarGibbableComponent>(args.Target))||(!HasComp<BodyComponent>(args.Target)))//check if it has a body and is gibbable by pleebnars, else return
+        if ((!HasComp<PleebnarGibbableComponent>(args.Target)&&!ent.Comp.superPleebnar)||(!HasComp<BodyComponent>(args.Target)))//check if it has a body and is gibbable by pleebnars, else return
         {
             return;
         }
@@ -52,16 +52,16 @@ public sealed class PleebnarGibSystem : SharedPleebnarGibSystem
             return;
         }
 
-        if (!TryComp<PleebnarGibbableComponent>(args.Target, out var gibbable))
+        if (!TryComp<PleebnarGibbableComponent>(args.Target, out var gibbable))//handling for mindshield
         {
-            return;
+            if (gibbable != null && gibbable.Mindshield)//if it is protected gib the user instead
+            {
+                _body.GibBody(ent, true);
+                return;
+            }
         }
 
-        if (gibbable.Mindshield)//if it is protected gib the user instead
-        {
-            _body.GibBody(ent, true);
-            return;
-        }
+
         _body.GibBody((EntityUid)args.Target,true);
     }
 
