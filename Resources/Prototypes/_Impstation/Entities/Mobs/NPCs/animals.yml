@@ -45,12 +45,20 @@
         - Passive
     - type: HTN
       rootTask:
-        task: SimpleHostileCompound
+        task: BoarCompound
       blackboard:
+        NavClimb: !type:Bool
+          true
+        NavInteract: !type:Bool
+          true
         NavPry: !type:Bool
           true
+        NavSmash: !type:Bool
+          true
+    - type: Hunger
+      baseDecayRate: 0.25
     - type: YoungKodepiiaRetaliation
-      attackMemoryLength: 10
+      attackMemoryLength: 15
     - type: Absorbable
       biomassRestored: 0.8
     - type: MobThresholds
@@ -58,7 +66,11 @@
         0: Alive
         200: Critical
         250: Dead
+    - type: Damageable
+      damageContainer: Biological
+      damageModifierSet: Slime
     - type: MeleeWeapon
+      attackRate: 0.5
       altDisarm: false
       angle: 0
       animation: WeaponArcPunch
@@ -68,13 +80,9 @@
         types:
           Blunt: 10
           Piercing: 15
-    - type: DamageUserOnTrigger
-      damage: 
-        types:
-          Stamina: 30
     - type: Prying
       pryPowered: true
-      speedModifier: 1.5
+      speedModifier: 2.0
       useSound:
         path: /Audio/Items/crowbar.ogg
     - type: InteractionPopup
