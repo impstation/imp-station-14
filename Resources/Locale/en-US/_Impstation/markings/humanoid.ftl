@@ -164,6 +164,10 @@ marking-TattooHeartR-heart = Tattoo
 
 marking-VitiligoArmR = Vitiligo (Right Arm)
 
+marking-ArmProstheticRight2 = Prosthetic 2 (Right Arm)
+marking-ArmProstheticRight2-prosthetic2a = Arm
+marking-ArmProstheticRight2-prosthetic2b = Shoulder
+
 # LArm
 
 marking-ArmDollJointsTattooLeft = Doll Joints Arm Tattoo (Left)
@@ -183,6 +187,10 @@ marking-TattooHeartL = Tattoo (Heart Left Arm)
 marking-TattooHeartL-heart = Tattoo
 
 marking-VitiligoArmL = Vitiligo (Left Arm)
+
+marking-ArmProstheticLeft2 = Prosthetic 2 (Left Arm)
+marking-ArmProstheticLeft2-prosthetic2a = Arm
+marking-ArmProstheticLeft2-prosthetic2b = Shoulder
 
 # RLeg
 

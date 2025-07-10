@@ -661,6 +661,22 @@
   - sprite: _Impstation/Mobs/Customization/Humanoid/rarm.rsi
     state: vitiligo
 
+- type: marking
+  id: ArmProstheticRight2
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [ Human, Dwarf, SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#E4E4E4"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Humanoid/rarm.rsi
+    state: prosthetic2a
+  - sprite: _Impstation/Mobs/Customization/Humanoid/rarm.rsi
+    state: prosthetic2b
+
 # LArm
 
 - type: marking
@@ -746,6 +762,22 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/larm.rsi
     state: vitiligo
+
+- type: marking
+  id: ArmProstheticLeft2
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [ Human, Dwarf, SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#E4E4E4"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Humanoid/larm.rsi
+    state: prosthetic2a
+  - sprite: _Impstation/Mobs/Customization/Humanoid/larm.rsi
+    state: prosthetic2b
 
 # RLeg
 
