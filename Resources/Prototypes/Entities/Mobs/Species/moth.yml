@@ -142,7 +142,7 @@
 #      outerClothing: #imp
 #        sizeMaps:
 #          32:
-#            sprite: Mobs/Species/Moth/displacement.rsi 
+#            sprite: Mobs/Species/Moth/displacement.rsi
 #            state: outerclothing
       gloves:
         sizeMaps:
@@ -185,6 +185,7 @@
     recipe:
       SynthFlesh: 20
       Saline: 20 # imp end
+      InsectBlood: 5
 
 - type: entity
   parent: BaseSpeciesDummy
