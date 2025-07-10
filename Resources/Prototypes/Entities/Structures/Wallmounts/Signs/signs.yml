@@ -65,7 +65,7 @@
   parent: BaseSignDirectional
   id: SignDirectionalChemistry
   name: chemistry sign
-  description: This way to the Chemistry sub-department of Medical, if you prefer regular contact with sulfuric acid to regular contact with blood. # imp
+  description: This way to the Chemistry sub-department of Medical, the most sulfuric part of the station. # imp
   components:
   - type: Sprite
     state: direction_chemistry
@@ -74,7 +74,7 @@
   parent: BaseSignDirectional
   id: SignDirectionalCryo
   name: cryo sign
-  description: This way to cryogenics, for those whose exposure to deep-space has left them with a good reason to sleep on the job. # imp
+  description: This way to cryogenics, for when exposure to deep-space has left you with a good reason to sleep on the job. # imp
   components:
   - type: Sprite
     state: direction_cryo
@@ -92,7 +92,7 @@
   parent: BaseSignDirectional
   id: SignDirectionalEng
   name: engineering sign
-  description: This way to the Engineering department, the place where you should complain about spaced areas and flickering power. # imp
+  description: This way to the Engineering department, the place where you should complain about spacing. # imp
   components:
   - type: Sprite
     state: direction_eng
@@ -110,7 +110,7 @@
   parent: BaseSignDirectional
   id: SignDirectionalExam
   name: exam sign
-  description: This way to the Examination section of the Medical department, for prying all the shrapnel from your wounds. # imp
+  description: This way to the exam room of the Medical department, for prying all the shrapnel from your wounds. # imp
   components:
   - type: Sprite
     state: direction_exam
@@ -137,7 +137,7 @@
   parent: BaseSignDirectional
   id: SignDirectionalHop
   name: hop sign
-  description: This way to the Head of Personnel, the second-in-command of the station, in charge of managing jobs and approving odd requests. # imp
+  description: This way to the Head of Personnel, in charge of managing jobs and approving odd requests. # imp
   components:
   - type: Sprite
     state: direction_hop
@@ -146,7 +146,7 @@
   parent: BaseSignDirectional
   id: SignDirectionalHydro
   name: hydro sign
-  description: This way to the Hydroponics sub-department of Service, home of the freshest air and greenest greens on the station. # imp
+  description: This way to the Hydroponics sub-department of Service, home of the greenest greens on the station. # imp
   components:
   - type: Sprite
     state: direction_hydro
@@ -191,7 +191,7 @@
   parent: BaseSignDirectional
   id: SignDirectionalSalvage
   name: salvage sign
-  description: This way to the Salvage sub-department of Supply, those who mine and sometimes must craft. # imp
+  description: This way to the Salvage sub-department, those who mine and sometimes must craft. # imp
   components:
   - type: Sprite
     state: direction_salvage
@@ -245,7 +245,7 @@
   parent: BaseSignDirectional
   id: SignDirectionalEscapePod
   name: escape pods sign
-  description: This way to some escape pods. Unless an emergency has lapsed and already launched them, in which case, this way to some holes into space. # imp
+  description: This way to some escape pods. Unless an emergency has lapsed and already launched them. # imp
   components:
   - type: Sprite
     state: direction_pods
@@ -256,7 +256,7 @@
   parent: BaseSign
   id: SignAi
   name: ai sign
-  description: This is the home of the Station AI, your friendly eye in the sky that definitely doesn't have any personhood at all. # imp
+  description: This is the Station AI, your eye in the sky that doesn't have any personhood at all. We checked. # imp
   components:
   - type: Sprite
     state: ai
@@ -265,7 +265,7 @@
   parent: BaseSign
   id: SignAiUpload
   name: ai upload sign
-  description: This is an upload station for the Station AI. For when your friendly eye in the sky isn't so friendly any more. # imp
+  description: This is an upload station for the Station AI. For making corrections to your metal overlord. # imp
   components:
     - type: Sprite
       state: ai_upload
@@ -274,7 +274,7 @@
   parent: BaseSign
   id: SignArcade
   name: arcade sign
-  description: This is the arcade, in the game sense and less in the architectural sense. For more creative ways to slack off. # imp
+  description: This is the arcade, for more creative ways to slack off. # imp
   components:
   - type: Sprite
     state: arcade
@@ -283,7 +283,7 @@
   parent: BaseSign
   id: SignArmory
   name: armory sign
-  description: This is the armory, home of the big guns and big armor (hence the name). Only should be opened by the Warden under severe and present danger. # imp
+  description: This is the armory, home of the big guns, opened by the Warden only under severe and present danger. # imp
   components:
   - type: Sprite
     state: armory
@@ -292,7 +292,7 @@
   parent: BaseSign
   id: SignToolStorage
   name: tool storage sign
-  description: This is a tool room, containing basic tools and supplies useful for whoever wants to take them. It's sort of like an armory, in a pinch. # imp
+  description: This is a tool room, containing basic tools useful for whoever wants to take them. The humbler armory. # imp
   components:
   - type: Sprite
     state: ass
@@ -301,7 +301,7 @@
   parent: BaseSign
   id: SignAnomaly
   name: xenoarcheology lab sign
-  description: This is the xenoarchaeology lab, where artifacts alien to reality get prodded at and played with by irresponsible scientists. # imp
+  description: This is the xenoarchaeology lab, where alien artifacts get played with by irresponsible scientists. # imp
   components:
   - type: Sprite
     state: xenoarch
@@ -310,7 +310,7 @@
   parent: BaseSign
   id: SignAnomaly2
   name: anomaly lab sign
-  description: This is the anomaly lab, containing the anomaly generator. True to its name, it makes problems for the station that Science can research. # imp
+  description: This is the anomaly lab. True to its name, it makes problems for the station that Science can research. # imp
   components:
   - type: Sprite
     state: anomaly
@@ -319,7 +319,7 @@
   parent: BaseSign
   id: SignAtmos
   name: atmos sign
-  description: This is the atmospherics sub-department, the nerds among the nerds. Thanks to this place, you can breathe easy. # imp
+  description: This is the Atmospherics sub-department. Thanks to this place, you can breathe easy. # imp
   components:
   - type: Sprite
     state: atmos
@@ -399,7 +399,7 @@
   parent: BaseSign
   id: SignBridge
   name: bridge sign
-  description: This is the bridge, the mindshielded command center of this whole station. # imp
+  description: This is the bridge, the mindshielded nerve center of this whole station. # imp
   components:
   - type: Sprite
     state: bridge
@@ -408,7 +408,7 @@
   parent: BaseSign
   id: SignCanisters
   name: canisters sign
-  description: There are canisters of gas here, useful for various things. If you know what's good for you, try not to empty them all in a crowded room. # imp
+  description: There are canisters of useful gas here. Someone has desperately etched 'CLOSE VALVES!' into this sign. # imp
   components:
   - type: Sprite
     state: canisters
@@ -417,7 +417,7 @@
   parent: BaseSign
   id: SignCargo
   name: cargo sign
-  description: This is the cargo area, full of cargo coming and going. If you couldn't tell from what's probably a huge mess. # imp
+  description: This is the cargo area, if you couldn't tell from the huge, supply-strewn mess. # imp
   components:
   - type: Sprite
     state: cargo
@@ -426,7 +426,7 @@
   parent: BaseSign
   id: SignCargoDock
   name: cargo dock sign
-  description: This is the cargo dock, for the cargo shuttle. Other things can park here too, but if they don't have a permit they're gonna get towed. # imp
+  description: This is the cargo dock, for the cargo shuttle. Don't park here overnight. # imp
   components:
   - type: Sprite
     state: cargo_dock
@@ -435,7 +435,7 @@
   parent: BaseSign
   id: SignChapel
   name: chapel sign
-  description: This is the chapel. To some, this is God's house, but Nanotrasen owns this station, so, God don't own shit. # imp
+  description: This is the chapel, a house of God (or gods). Nanotrasen owns this station, so, God must be renting. # imp
   components:
   - type: Sprite
     state: chapel
@@ -453,7 +453,7 @@
   parent: BaseSign
   id: SignCloning
   name: cloning sign
-  description: This is the cloning lab. For making friends. # imp
+  description: This is the cloning lab, carrying on the longstanding tradition of one Humpty Dumpty. # imp
   components:
   - type: Sprite
     state: cloning
@@ -535,7 +535,7 @@
   parent: BaseSign
   id: SignEscapePods
   name: escape pods sign
-  description: These are some escape pods. Upon a shift-change or evacuation, these puppies will ride the shuttle's FTL slipstream all the way home. # imp
+  description: These are some escape pods. At the end of the space day, these will chase the shuttle's FTL slipstream. # imp
   components:
   - type: Sprite
     state: pods
@@ -544,7 +544,7 @@
   parent: BaseSign
   id: SignEVA
   name: EVA sign
-  description: This area necessitates extravehicular activity, or EVA -- in short, spacewalking. You'll require protection, and probably internals. # imp
+  description: This is the EVA room, containing suits necessary for space survival. Pay it a visit when you start asphyxiating. # imp
   components:
   - type: Sprite
     state: eva
@@ -589,7 +589,7 @@
   parent: BaseSign
   id: SignHead
   name: head sign
-  description: This is the personal quarters of a Nanotrasen command member. It's where all their toys are stored. Don't lose the keys. # imp
+  description: This is the office of a command officer. It's where all their toys are stored. Don't lose the keys. # imp
   components:
   - type: Sprite
     state: commander
@@ -634,7 +634,7 @@
   parent: BaseSign
   id: SignLawyer
   name: law sign
-  description: Stop in the name of this place, which has the unenviable job of making sure the station doesn't tear itself apart. # imp
+  description: This is the law / courtroom area, which makes sure the station doesn't tear itself apart. # imp
   components:
   - type: Sprite
     state: law
@@ -670,7 +670,7 @@
   parent: BaseSign
   id: SignMorgue
   name: morgue sign
-  description: This is the morgue, where the truly-dead are laid to rest, where we pay our respects. We'll meet again, don't know where, don't know when... # imp
+  description: This is the morgue, where the truly-dead are laid to rest. Pay respects. # imp
   components:
   - type: Sprite
     state: morgue
@@ -715,7 +715,7 @@
   parent: BaseSign
   id: SignPsychology
   name: psychology sign
-  description: This is psychology. We're here to ask the question on everyone's mind - what the fuck is wrong with you? # imp
+  description: This is psychology, here to answer the one big, burning question everyone's got - what the fuck is wrong with you? # imp
   components:
   - type: Sprite
     state: psychology
@@ -778,7 +778,7 @@
   parent: BaseSign
   id: SignCans
   name: canisters sign
-  description: There are canisters of gas here, useful for various things. If you know what's good for you, try not to empty them all in a crowded room. # imp
+  description: There are canisters of useful gas here. Someone has desperately etched 'CLOSE VALVES!' into this sign. # imp
   components:
   - type: Sprite
     state: cans
@@ -795,7 +795,7 @@
   parent: BaseSign
   id: SignShipDock
   name: evac sign
-  description: This is where the evacuation dock is. If all goes to plan, this is probably your final stop on today's shift. Pray nobody blows it up. # imp
+  description: This is the standard evacuation dock. This is probably your final stop on today's shift. Pray nobody blows it up. # imp
   components:
   - type: Sprite
     state: dock
@@ -831,7 +831,7 @@
   parent: BaseSign
   id: SignToxins
   name: toxins sign
-  description: This is the toxins lab. It's probably filled with gas, and not the gas that you are used to. # imp; i have no idea what the fuck this is, so,
+  description: This is the toxin lab. It's filled with gas, and probably not the gas that you are used to. # imp
   components:
   - type: Sprite
     state: toxins
@@ -840,7 +840,7 @@
   parent: BaseSign
   id: SignVault
   name: vault sign
-  description: This is the vault, a place where CentComm stores really, really important things. It's so close you can almost taste it. # imp
+  description: This is the vault, a place where CentComm stores really, really important things. # imp
   components:
   - type: Sprite
     state: vault
@@ -858,7 +858,7 @@
   parent: BaseSign
   id: SignCorrosives
   name: corrosives warning sign
-  description: This place is face-melting, meaning it has achieved over 1,000 kills on its Strange weapons. # imp; another sign i've never seen
+  description: This place is face-melting, meaning it has achieved over 1,000 kills on its Strange weapons. # imp; a sign i've never seen
   components:
   - type: Sprite
     state: corrosives
@@ -921,7 +921,7 @@
   parent: BaseSign
   id: SignMemetic
   name: memetic warning sign
-  description: The following sentence is false. There aren't any phenomena here that can do you psychological harm, so proceed without concern, aware that the prior sentence is a lie. # imp
+  description: The following sentence is false. The phenomena in this area cannot do you psychological harm, so please ignore the prior sentence. # imp
   components:
   - type: Sprite
     state: memetic
@@ -967,7 +967,7 @@
   parent: BaseSign
   id: SignOxidants
   name: oxidants warning sign
-  description: This place contains oxidizing agents, meaning it can rust metal. Try not to have that happen. # imp; another sign i've never seen and have no idea how to warn
+  description: This place contains oxidizing agents. Don't trust the rust! # imp; another sign i've never seen and have no idea how to warn
   components:
   - type: Sprite
     state: oxidants
@@ -976,7 +976,7 @@
   parent: BaseSign
   id: SignRadiation
   name: radiation warning sign
-  description: This place is radiant. Consider using radiation-safety gear, hardsuits, and/or potassium iodide, to avoid losing several years off your lifespan. # imp
+  description: This place is radiant. Consider using radiation-safety gear to avoid losing several years off your lifespan. # imp
   components:
   - type: Sprite
     state: radiation
@@ -985,7 +985,7 @@
   parent: BaseSign
   id: SignXenobio
   name: xenobio sign
-  description: This is the xenobiology lab, for all the critters with molecular acid for blood. # imp
+  description: This is the xenobiology lab. What makes you tick? These guys have no idea. # imp
   components:
   - type: Sprite
     state: xenobio
@@ -1012,7 +1012,7 @@
   parent: BaseSign
   id: SignSecureSmall
   name: small secure sign
-  description: This is a secure area. The sign's kind of small, but it would really like you to decide if this is the right place for you. # imp
+  description: This is a secure area. The sign's politely, small-ly, insisting you be careful. # imp
   components:
   - type: Sprite
     state: small_secure
@@ -1021,7 +1021,7 @@
   parent: BaseSign
   id: SignSecureSmallRed
   name: small red secure sign
-  description: This is a very secure area. The sign's kind of small, but it would really like you to decide if this is the right place for you. # imp
+  description: This is a secure area. The sign's politely, small-ly, insisting you be careful. # imp
   components:
   - type: Sprite
     state: small_secure_red
@@ -1066,7 +1066,7 @@
   parent: BaseSign
   id: SignCryogenicsMed
   name: cryogenics sign
-  description: There are cryogenics materials stored here. It is not advised that you freeze to death in there, because you probably aren't a material. # imp
+  description: There are cryogenics materials stored here. It is not advised that you freeze to death in there. # imp
   components:
   - type: Sprite
     state: medium_cryogenics
@@ -1093,7 +1093,7 @@
   parent: BaseSign
   id: SignRadiationMed
   name: radiation sign
-  description: This place is radiant. Consider using radiation-safety gear, hardsuits, and/or potassium iodide, to avoid losing several years off your lifespan. # imp
+  description: This place is radiant. Consider using radiation-safety gear to avoid losing several years off your lifespan. # imp
   components:
   - type: Sprite
     state: medium_radiation
@@ -1130,7 +1130,7 @@
   parent: BaseSign
   id: SignVox
   name: vox area sign
-  description: This area's for the birds. If you can't breathe nitrogen, should probably steer clear. # imp
+  description: This area's for the birds. If you can't breathe nitrogen, steer clear - it's all Agony, no Ritual. # imp
   components:
   - type: Sprite
     state: vox
@@ -1222,7 +1222,7 @@
   parent: BaseSign
   id: SignSomethingOld
   name: old sign
-  description: Technical information of some sort, shame it's too worn-out to read.
+  description: A pinkish long-faded sign that talks about sedition. Nothing your handbook doesn't already tell you not to think about. # imp
   components:
   - type: Sprite
     state: something-old1
@@ -1231,7 +1231,7 @@
   parent: BaseSign
   id: SignSomethingOld2
   name: old sign
-  description: Looks like a planet crashing by some station above it. It's kinda scary.
+  description: A pinkish long-faded sign discussing quote-unquote 'landing procedures'. Good thing Imp stations never crash, right? # imp
   components:
   - type: Sprite
     state: something-old2
@@ -1258,7 +1258,7 @@
   parent: BaseSign
   id: SignPlaque
   name: golden plaque
-  description: A prestigious golden plaque.
+  description: A prestigious plaque honoring this station's CentComm coordinator. They may or may not own you. # imp
   components:
   - type: Sprite
     state: goldenplaque
@@ -1267,7 +1267,7 @@
   parent: BaseSign
   id: SignKiddiePlaque
   name: kiddie plaque
-  description: A modest plaque.
+  description: A modest, handmade plaque honoring the architects of the station, the most robust of us all. # imp
   components:
   - type: Sprite
     state: kiddieplaque
