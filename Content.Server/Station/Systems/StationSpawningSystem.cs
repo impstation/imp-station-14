@@ -44,6 +44,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
     [Dependency] private readonly PdaSystem _pdaSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly GrammarSystem _grammar = default!; // imp
+
     /// <summary>
     /// Attempts to spawn a player character onto the given station.
     /// </summary>
@@ -152,7 +153,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
 
             if (profile.FlavorText != "" && _configurationManager.GetCVar(CCVars.FlavorText))
             {
-                AddComp<DetailExaminableComponent>(entity.Value).Content = profile.FlavorText;
+                AddComp<DetailExaminableComponent>(entity.Value).Content = profile.FlavorText;//imp edit
             }
         }
 

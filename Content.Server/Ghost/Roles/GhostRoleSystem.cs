@@ -511,7 +511,7 @@ public sealed partial class GhostRoleSystem : EntitySystem
 
         DebugTools.AssertNotNull(player.ContentData());
 
-        EnsureComp<NotifierExamineComponent>(mob);
+        EnsureComp<NotifierExamineComponent>(mob);//imp edit
         var newMind = _mindSystem.CreateMind(player.UserId,
             EntityManager.GetComponent<MetaDataComponent>(mob).EntityName);
 
