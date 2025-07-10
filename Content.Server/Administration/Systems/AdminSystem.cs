@@ -380,7 +380,7 @@ public sealed class AdminSystem : EntitySystem
         ///     Their items are dropped on the ground.
         /// </summary>
         public void Erase(NetUserId uid)
-    {
+        {
             _chat.DeleteMessagesBy(uid);
 
             var eraseEvent = new EraseEvent(uid);
