@@ -6,7 +6,7 @@
   description: Releases a bothersome spray of foam darts that cause severe welching.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/foamdart.rsi
+    sprite: Objects/Fun/Foam/foam_grenade.rsi #imp
   # imp below - unparenting
   - type: ExplodeOnTrigger
   - type: Explosive

@@ -2,6 +2,9 @@
 uplink-pistol-viper-name = Viper
 uplink-pistol-viper-desc = A small, easily concealable, but somewhat underpowered gun. Retrofitted with a fully automatic receiver. Uses pistol magazines (.35 auto).
 
+uplink-estoc-bundle-name = Estoc DMR
+uplink-estoc-bundle-desc = A designated marksman rifle, fitted with a mid-range optic for longer-range combat. Bundled with two rifle magazines (.20 rifle).
+
 uplink-revolver-python-name = Python
 uplink-revolver-python-desc = A brutally simple, effective, and loud Syndicate revolver. Comes loaded with armor-piercing rounds. Uses .45 magnum.
 
@@ -96,17 +99,27 @@ uplink-bros-grenade-desc = A colony of angry BROS captured in a glass bottle. UN
 
 # Ammo
 uplink-pistol-magazine-name = Pistol Magazine (.35 auto)
-uplink-pistol-magazine-desc = Pistol magazine with 10 catridges. Compatible with the Viper.
+uplink-pistol-magazine-desc = Pistol magazine with 10 cartridges. Compatible with the Viper.
 
 #imp desc tweak
 uplink-pistol-magazine-c20r-name = SMG magazine (.35 auto)
 uplink-pistol-magazine-c20r-desc = SMG magazine with 30 catridges. Compatible with C-20R Gorgon.
 
+
+uplink-magazine-bulldog-pellet-name = Drum magazine (.50 pellet)
+uplink-magazine-bulldog-pellet-desc = Shotgun magazine with 8 shells filled with buckshot. Compatible with the Bulldog.
+
+uplink-magazine-bulldog-slug-name = Drum magazine (.50 slug)
+uplink-magazine-bulldog-slug-desc = Shotgun magazine with 8 shells filled with slugs. Compatible with the Bulldog.
+
+uplink-estoc-ammo-name = Rifle magazine (.20 rifle)
+uplink-estoc-ammo-desc = A rifle magazine with 25 cartridges. Compatible with the Estoc DMR.
+
 uplink-pistol-magazine-caseless-name = Pistol Magazine (.25 caseless)
-uplink-pistol-magazine-caseless-desc = Pistol magazine with 10 catridges. Compatible with the Cobra.
+uplink-pistol-magazine-caseless-desc = Pistol magazine with 10 cartridges. Compatible with the Cobra.
 
 uplink-speedloader-magnum-name = Speedloader (.45 magnum AP)
-uplink-speedloader-magnu-desc = Revolver speedloader with 6 armor-piercing catridges, capable of ignoring armor entirely. Compatible with the Python.
+uplink-speedloader-magnu-desc = Revolver speedloader with 6 armor-piercing cartridges, capable of ignoring armor entirely. Compatible with the Python.
 
 #imp ammo correction
 uplink-mosin-ammo-name = Ammunition box (.30 rifle)
@@ -114,7 +127,7 @@ uplink-mosin-ammo-desc = A box of 60 cartridges for the surplus rifle.
 
 #imp desc tweak
 uplink-sniper-ammo-name = Ammunition box (.60 antimateriel)
-uplink-sniper-ammo-desc = A box of 10 cartridges for the Lyndworm sniper rifle.
+uplink-sniper-ammo-desc = A box of 10 cartridges for the Lindwyrm sniper rifle and Anaconda Revolver.
 
 # Utility
 uplink-holopara-kit-name = Holoparasite Kit
@@ -127,9 +140,6 @@ uplink-holoclown-kit-desc = A joint venture between Cybersun and Honk.co. Contai
 
 uplink-holster-name = Shoulder Holster
 uplink-holster-desc = A deep shoulder holster capable of holding many types of ballistics.
-
-uplink-animal-friends-kit-name = Animal Friends Kit
-uplink-animal-friends-kit-desc = A box containing 4 doses of subjuzine, an alteration of cognizine that forces the injected creature to your will. Also contains an empty syringe and two mice to use it on. Just add blood!
 
 uplink-chest-rig-name = Chest Rig
 uplink-chest-rig-desc = Explosion-resistant tactical webbing used for holding traitor goods.
@@ -254,7 +264,7 @@ uplink-ammo-bundle-desc = Reloading! Contains 4 magazines for the C-20R Gorgon, 
 
 #imp name tweaks
 uplink-sniper-bundle-name = Sniper Bundle
-uplink-sniper-bundle-desc = An inconspicuous briefcase that contains a Lyndworm, 10 spare bullets, and a convenient disguise.
+uplink-sniper-bundle-desc = An inconspicuous briefcase that contains a Lindwyrm, 10 spare bullets, and a convenient disguise.
 
 #imp name tweak
 uplink-c20r-bundle-name = C-20R Gorgon Bundle
