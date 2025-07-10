@@ -39,6 +39,7 @@
     evolvesTo:
     - CMXenoDrone
     - CMXenoSentinel
+    - CMXenoRunner
   - type: XenoHide
   - type: Fixtures
     fixtures:
@@ -62,6 +63,7 @@
     tags:
     - RMCXenoLarva
   - type: CombatMode
+    combatToggleAction: ActionXenoCombatModeToggle
   - type: MeleeWeapon
     autoAttack: true
     altDisarm: true

@@ -1,0 +1,1 @@
+station-event-xeno-spawn-announcement = Unidentified life signs detected within the station's ventilation. Secure exterior accesses.
