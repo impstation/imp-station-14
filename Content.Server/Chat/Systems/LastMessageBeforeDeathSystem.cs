@@ -1,4 +1,5 @@
 using System.Text;
+using Content.Server.Administration.Systems;
 using Content.Server.Discord;
 using Content.Shared.Mobs.Systems;
 using System.Collections.Generic;
@@ -58,6 +59,8 @@ namespace Content.Server.Chat.Systems
         public override void Initialize()
         {
             base.Initialize();
+
+            SubscribeLocalEvent<EraseEvent>(OnErase);
             Subs.CVar(_configManager, CCVars.DiscordLastMessageBeforeDeathWebhook, value =>
             {
                 if (!string.IsNullOrWhiteSpace(value))
@@ -195,6 +198,11 @@ namespace Content.Server.Chat.Systems
             }
 
             await _webhookManager.SendMessagesAsync(_webhookIdentifierLastMessage, messagesToSend, _maxMessageSize, _maxMessagesPerBatch, _messageDelayMs, _rateLimitDelayMs);
+        }
+
+        private void OnErase(ref EraseEvent args)
+        {
+            _playerData.Remove(args.PlayerNetUserId);
         }
     }
 }
