@@ -1,5 +1,5 @@
 - type: gameMap
-  id: Gate
+  id: GateImp
   mapName: 'Gate Station'
   mapPath: /Maps/_Impstation/gate.yml
   minPlayers: 60
@@ -15,7 +15,7 @@
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/emergency_raven.yml
         - type: StationJobs
-          availableJobs: # Total of 69 nice jobs roundstart, max of 80 inc. latejoins and trainees.
+          availableJobs: # Total of 68 jobs roundstart, max of 83 inc. latejoins and trainees.
             # command - 8
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
@@ -25,7 +25,7 @@
             HeadOfSecurity: [ 1, 1 ]
             HospitalityDirector: [ 1, 1 ]
             Quartermaster: [ 1, 1 ]
-            # service - 19 incl. service worker
+            # service - 17
             Bartender: [ 2, 2 ]
             Botanist: [ 3, 3 ]
             Chaplain: [ 1, 1 ]
@@ -59,7 +59,7 @@
             SecurityCadet: [ 4, 4 ]
             SecurityOfficer: [ 6, 6 ]
             Warden: [ 1, 1 ]
-            # supply - 14
+            # supply - 11-12
             CargoTechnician: [ 6, 6 ]
             Courier: [ 2, 2 ]
             SalvageSpecialist: [ 3, 3 ]
