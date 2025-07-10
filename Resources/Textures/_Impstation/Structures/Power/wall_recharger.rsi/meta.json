@@ -5,16 +5,62 @@
         "y": 32
     },
     "license": "CC-BY-SA-3.0",
-    "copyright": "Original sprites from https://github.com/discordia-space/CEV-Eris/raw/9ea3eccbe22e18d24653949067f3d7dd12194ea9/icons/obj/stationobjs.dmi, assembly, electronics, wires made by DinnerCalzone (github)",
+    "copyright": "Original sprites from https://github.com/discordia-space/CEV-Eris/raw/9ea3eccbe22e18d24653949067f3d7dd12194ea9/icons/obj/stationobjs.dmi, edited to be offset from center by DinnerCalzone(github). Assembly, electronics, wires made by DinnerCalzone (github)",
     "states": [
         {
             "name": "assembly"
         },
         {
-            "name": "electronics"
+            "name": "assembly-electronics"
         },
         {
-            "name": "wires"
+            "name": "assembly-wires"
+        },
+        {
+            "name": "empty"
+
+        },
+        {
+            "name": "full"
+
+        },
+        {
+            "name": "light-charged",
+            "delays": [
+                [
+                    0.2,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "light-charging",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "light-empty",
+            "delays": [
+                [
+                    1,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "light-off",
+            "delays": [
+                [
+                    1
+                ]
+            ]
         }
     ]
 }

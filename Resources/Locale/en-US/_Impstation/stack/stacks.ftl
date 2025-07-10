@@ -8,7 +8,6 @@ stack-asphalt-floor = asphalt floor
 stack-shoveled-astro-snow-floor = shoveled astro-snow floor
 stack-shoveled-astro-cave-floor = shoveled astro-cave floor
 stack-dark-techmaint-floor = dark techmaint floor
-stack-xeno-floor = xeno floor
 stack-cardboard-floor-tile = cardboard floor tile
 
 # medical
