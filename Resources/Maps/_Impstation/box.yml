@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/07/2025 22:37:53
-  entityCount: 28178
+  time: 07/10/2025 05:08:20
+  entityCount: 28194
 maps:
 - 780
 grids:
@@ -12123,7 +12123,7 @@ entities:
       pos: 24.5,16.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -145175.02
+      secondsUntilStateChange: -145662.28
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -15320,6 +15320,11 @@ entities:
       parent: 8364
 - proto: AsimovCircuitBoard
   entities:
+  - uid: 26241
+    components:
+    - type: Transform
+      pos: 3.3762152,-11.477648
+      parent: 8364
   - uid: 27912
     components:
     - type: Transform
@@ -17338,11 +17343,6 @@ entities:
       parent: 8364
 - proto: BoxFolderBlack
   entities:
-  - uid: 20894
-    components:
-    - type: Transform
-      pos: -29.590153,4.042227
-      parent: 8364
   - uid: 28537
     components:
     - type: Transform
@@ -85506,7 +85506,7 @@ entities:
       pos: -34.5,-14.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -139363.58
+      secondsUntilStateChange: -139850.84
       state: Closing
   - uid: 15010
     components:
@@ -124159,7 +124159,7 @@ entities:
       pos: 28.5,-34.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -119133.914
+      secondsUntilStateChange: -119621.19
       state: Closing
 - proto: hydroponicsSoil
   entities:
@@ -124591,6 +124591,13 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 6.5,-36.5
+      parent: 8364
+- proto: JermovCircuitBoard
+  entities:
+  - uid: 26242
+    components:
+    - type: Transform
+      pos: 3.4855902,-14.501569
       parent: 8364
 - proto: JetpackBlueFilled
   entities:
@@ -125110,22 +125117,22 @@ entities:
     - type: Transform
       pos: -11.5,-18.5
       parent: 8364
-- proto: LockerAtmosphericsFilled
+- proto: LockerAtmosphericsFilledHardsuit
   entities:
-  - uid: 28132
+  - uid: 20894
     components:
     - type: Transform
       pos: 6.5,-49.5
       parent: 8364
-  - uid: 28133
-    components:
-    - type: Transform
-      pos: 5.5,-49.5
-      parent: 8364
-  - uid: 28134
+  - uid: 25549
     components:
     - type: Transform
       pos: 7.5,-49.5
+      parent: 8364
+  - uid: 25550
+    components:
+    - type: Transform
+      pos: 5.5,-49.5
       parent: 8364
 - proto: LockerBoozeFilled
   entities:
@@ -128309,6 +128316,11 @@ entities:
     components:
     - type: Transform
       pos: 12.467991,-15.505957
+      parent: 8364
+  - uid: 26228
+    components:
+    - type: Transform
+      pos: -29.601206,3.9978275
       parent: 8364
 - proto: PlantBGoneSpray
   entities:
@@ -143437,11 +143449,6 @@ entities:
     - type: Transform
       pos: 4.5,-12.5
       parent: 8364
-  - uid: 6986
-    components:
-    - type: Transform
-      pos: -30.5,7.5
-      parent: 8364
   - uid: 10644
     components:
     - type: Transform
@@ -143451,6 +143458,11 @@ entities:
     components:
     - type: Transform
       pos: -22.5,-14.5
+      parent: 8364
+  - uid: 26231
+    components:
+    - type: Transform
+      pos: -29.5,7.5
       parent: 8364
 - proto: SignLawyer
   entities:
@@ -145810,6 +145822,13 @@ entities:
     - type: Transform
       pos: 33.5,-24.5
       parent: 8364
+- proto: SpawnMobMonkeyPunpun
+  entities:
+  - uid: 26227
+    components:
+    - type: Transform
+      pos: 29.5,-2.5
+      parent: 8364
 - proto: SpawnMobMouse
   entities:
   - uid: 745
@@ -146038,6 +146057,51 @@ entities:
     components:
     - type: Transform
       pos: 17.5,2.5
+      parent: 8364
+  - uid: 26232
+    components:
+    - type: Transform
+      pos: 17.5,2.5
+      parent: 8364
+  - uid: 26233
+    components:
+    - type: Transform
+      pos: 17.5,2.5
+      parent: 8364
+  - uid: 26234
+    components:
+    - type: Transform
+      pos: 17.5,2.5
+      parent: 8364
+  - uid: 26235
+    components:
+    - type: Transform
+      pos: 17.5,2.5
+      parent: 8364
+  - uid: 26236
+    components:
+    - type: Transform
+      pos: 17.5,2.5
+      parent: 8364
+  - uid: 26237
+    components:
+    - type: Transform
+      pos: 17.5,2.5
+      parent: 8364
+  - uid: 26238
+    components:
+    - type: Transform
+      pos: 17.5,2.5
+      parent: 8364
+  - uid: 26239
+    components:
+    - type: Transform
+      pos: 17.5,2.5
+      parent: 8364
+  - uid: 26240
+    components:
+    - type: Transform
+      pos: 31.5,15.5
       parent: 8364
 - proto: SpawnPointCourier
   entities:
@@ -175232,6 +175296,73 @@ entities:
       devices:
       - 25617
       - 25639
+- proto: WeaponEnergyTurretCommand
+  entities:
+  - uid: 6986
+    components:
+    - type: Transform
+      pos: -32.5,6.5
+      parent: 8364
+    - type: DeviceNetwork
+      deviceLists:
+      - 26230
+      - 25562
+  - uid: 26224
+    components:
+    - type: Transform
+      pos: -0.5,-13.5
+      parent: 8364
+    - type: DeviceNetwork
+      deviceLists:
+      - 26225
+      - 26226
+  - uid: 26229
+    components:
+    - type: Transform
+      pos: -30.5,6.5
+      parent: 8364
+    - type: DeviceNetwork
+      deviceLists:
+      - 26230
+      - 25562
+- proto: WeaponEnergyTurretCommandControlPanel
+  entities:
+  - uid: 25562
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -30.5,1.5
+      parent: 8364
+    - type: DeviceList
+      devices:
+      - 6986
+      - 26229
+  - uid: 26225
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -1.5,-9.5
+      parent: 8364
+    - type: DeviceList
+      devices:
+      - 26224
+  - uid: 26226
+    components:
+    - type: Transform
+      pos: 0.5,-9.5
+      parent: 8364
+    - type: DeviceList
+      devices:
+      - 26224
+  - uid: 26230
+    components:
+    - type: Transform
+      pos: -30.5,7.5
+      parent: 8364
+    - type: DeviceList
+      devices:
+      - 6986
+      - 26229
 - proto: WeaponEnergyTurretSecurity
   entities:
   - uid: 25507
@@ -175252,15 +175383,6 @@ entities:
       deviceLists:
       - 25542
       - 25543
-  - uid: 25549
-    components:
-    - type: Transform
-      pos: -0.5,-13.5
-      parent: 8364
-    - type: DeviceNetwork
-      deviceLists:
-      - 25562
-      - 25550
 - proto: WeaponEnergyTurretSecurityControlPanel
   entities:
   - uid: 25542
@@ -175282,23 +175404,6 @@ entities:
       devices:
       - 25507
       - 25540
-  - uid: 25550
-    components:
-    - type: Transform
-      pos: 0.5,-9.5
-      parent: 8364
-    - type: DeviceList
-      devices:
-      - 25549
-  - uid: 25562
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -1.5,-9.5
-      parent: 8364
-    - type: DeviceList
-      devices:
-      - 25549
 - proto: WeaponLaserCarbine
   entities:
   - uid: 9616
