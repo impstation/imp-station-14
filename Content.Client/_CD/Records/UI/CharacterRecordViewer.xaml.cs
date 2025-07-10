@@ -153,6 +153,7 @@ public sealed partial class CharacterRecordViewer : FancyWindow
         RecordEntryViewType.AddItem(Loc.GetString("department-Security"));
         RecordEntryViewType.AddItem(Loc.GetString("department-Medical"));
         RecordEntryViewType.AddItem(Loc.GetString("humanoid-profile-editor-cd-records-employment"));
+        RecordEntryViewType.AddItem(Loc.GetString("cd-imp-syndicate"));
         RecordEntryViewType.OnItemSelected += args =>
         {
             if (args.Id == RecordEntryViewType.SelectedId)
@@ -260,6 +261,11 @@ public sealed partial class CharacterRecordViewer : FancyWindow
 
                 Title = Loc.GetString("cd-character-records-viewer-title-sec");
                 break;
+            case RecordConsoleType.Syndicate: ///Impstation change
+                RecordFilterType.Visible = true;
+
+                Title = Loc.GetString("cd-imp-character-records-viewer-title-syndicate");
+                break;
             case RecordConsoleType.Admin:
                 RecordFilterType.Visible = true;
                 Title = "Admin records console";
@@ -339,6 +345,7 @@ public sealed partial class CharacterRecordViewer : FancyWindow
         RecordContainerEmployment.Visible = false;
         RecordContainerMedical.Visible = false;
         RecordContainerSecurity.Visible = false;
+        RecordContainerSyndicate.Visible = false; // Impstation Change - added Syndicate records
 
         switch (_type)
         {
@@ -358,18 +365,26 @@ public sealed partial class CharacterRecordViewer : FancyWindow
                 UpdateRecordBoxEmployment(record);
                 UpdateRecordBoxMedical(record);
                 UpdateRecordBoxSecurity(record, state.SelectedSecurityStatus);
-                switch ((RecordConsoleType) RecordEntryViewType.SelectedId)
+                UpdateRecordBoxSyndicate(record); ///Impstation change - Syndicate
+                switch ((RecordConsoleType)RecordEntryViewType.SelectedId)
                 {
-                case RecordConsoleType.Employment:
-                    SetEntries(cr.EmploymentEntries, true);
-                    break;
-                case RecordConsoleType.Medical:
-                    SetEntries(cr.MedicalEntries, true);
-                    break;
-                case RecordConsoleType.Security:
-                    SetEntries(cr.SecurityEntries, true);
-                    break;
+                    case RecordConsoleType.Employment:
+                        SetEntries(cr.EmploymentEntries, true);
+                        break;
+                    case RecordConsoleType.Medical:
+                        SetEntries(cr.MedicalEntries, true);
+                        break;
+                    case RecordConsoleType.Security:
+                        SetEntries(cr.SecurityEntries, true);
+                        break;
+                    case RecordConsoleType.Syndicate:
+                        SetEntries(cr.SyndicateEntries, true);
+                        break;
                 }
+                break;
+            case RecordConsoleType.Syndicate: ///Impstation change - Syndicate
+                SetEntries(cr.SyndicateEntries);
+                UpdateRecordBoxSyndicate(record);
                 break;
         }
 
@@ -421,6 +436,12 @@ public sealed partial class CharacterRecordViewer : FancyWindow
             RecordContainerWantedReason.Text = reason;
             RecordContainerWantedReason.Visible = reason != null;
         }
+    }
+
+    private void UpdateRecordBoxSyndicate(FullCharacterRecords record)
+    {
+        RecordContainerSyndicate.Visible = true;
+        RecordContainerWorkAuth.Text = record.PRecords.HasWorkAuthorization ? "Approved" : "Denied"; //imp edit wording change
     }
 
     // This is copied almost verbatim from CriminalRecordsConsoleWindow.xaml.cs

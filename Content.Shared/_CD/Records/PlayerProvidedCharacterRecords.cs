@@ -58,6 +58,8 @@ public sealed partial class PlayerProvidedCharacterRecords
     public List<RecordEntry> SecurityEntries { get; private set; }
     [DataField, JsonIgnore]
     public List<RecordEntry> EmploymentEntries { get; private set; }
+    [DataField, JsonIgnore]
+    public List<RecordEntry> SyndicateEntries { get; private set; } ///Impstation change - Added Syndicate
 
     [DataDefinition]
     [Serializable, NetSerializable]
@@ -105,7 +107,7 @@ public sealed partial class PlayerProvidedCharacterRecords
         string identifyingFeatures,
         string allergies, string drugAllergies,
         string postmortemInstructions,
-        List<RecordEntry> medicalEntries, List<RecordEntry> securityEntries, List<RecordEntry> employmentEntries)
+        List<RecordEntry> medicalEntries, List<RecordEntry> securityEntries, List<RecordEntry> employmentEntries, List<RecordEntry> syndicateEntries) ///Impstation change - Added Syndicate
     {
         HasWorkAuthorization = hasWorkAuthorization;
         Height = height;
@@ -119,6 +121,7 @@ public sealed partial class PlayerProvidedCharacterRecords
         MedicalEntries = medicalEntries;
         SecurityEntries = securityEntries;
         EmploymentEntries = employmentEntries;
+        SyndicateEntries = syndicateEntries;
     }
 
     public PlayerProvidedCharacterRecords(PlayerProvidedCharacterRecords other)
@@ -135,6 +138,7 @@ public sealed partial class PlayerProvidedCharacterRecords
         MedicalEntries = other.MedicalEntries.Select(x => new RecordEntry(x)).ToList();
         SecurityEntries = other.SecurityEntries.Select(x => new RecordEntry(x)).ToList();
         EmploymentEntries = other.EmploymentEntries.Select(x => new RecordEntry(x)).ToList();
+        SyndicateEntries = other.SyndicateEntries.Select(x => new RecordEntry(x)).ToList(); ///Impstation change - Added Syndicate
     }
 
     public static PlayerProvidedCharacterRecords DefaultRecords()
@@ -150,7 +154,8 @@ public sealed partial class PlayerProvidedCharacterRecords
             postmortemInstructions: "Return home",
             medicalEntries: new List<RecordEntry>(),
             securityEntries: new List<RecordEntry>(),
-            employmentEntries: new List<RecordEntry>()
+            employmentEntries: new List<RecordEntry>(),
+            syndicateEntries: new List<RecordEntry>() ///Impstation change - Added Syndicate
         );
     }
 
@@ -174,6 +179,8 @@ public sealed partial class PlayerProvidedCharacterRecords
             return false;
         if (EmploymentEntries.Count != other.EmploymentEntries.Count)
             return false;
+        if (SyndicateEntries.Count != other.SyndicateEntries.Count) ///Impstation change - Added Syndicate
+            return false;
         if (MedicalEntries.Where((t, i) => !t.MemberwiseEquals(other.MedicalEntries[i])).Any())
         {
             return false;
@@ -186,7 +193,10 @@ public sealed partial class PlayerProvidedCharacterRecords
         {
             return false;
         }
-
+        if (SyndicateEntries.Where((t, i) => !t.MemberwiseEquals(other.SyndicateEntries[i])).Any()) ///Impstation change - Added Syndicate
+        {
+            return false;
+        }
         return true;
     }
 
@@ -225,6 +235,7 @@ public sealed partial class PlayerProvidedCharacterRecords
         EnsureValidEntries(EmploymentEntries);
         EnsureValidEntries(MedicalEntries);
         EnsureValidEntries(SecurityEntries);
+        EnsureValidEntries(SyndicateEntries);
     }
     public PlayerProvidedCharacterRecords WithHeight(int height)
     {
@@ -244,11 +255,11 @@ public sealed partial class PlayerProvidedCharacterRecords
     }
     public PlayerProvidedCharacterRecords WithContactName(string name)
     {
-        return new(this) { EmergencyContactName = name};
+        return new(this) { EmergencyContactName = name };
     }
     public PlayerProvidedCharacterRecords WithIdentifyingFeatures(string feat)
     {
-        return new(this) { IdentifyingFeatures = feat};
+        return new(this) { IdentifyingFeatures = feat };
     }
     public PlayerProvidedCharacterRecords WithAllergies(string s)
     {
@@ -260,23 +271,27 @@ public sealed partial class PlayerProvidedCharacterRecords
     }
     public PlayerProvidedCharacterRecords WithPostmortemInstructions(string s)
     {
-        return new(this) { PostmortemInstructions = s};
+        return new(this) { PostmortemInstructions = s };
     }
     public PlayerProvidedCharacterRecords WithEmploymentEntries(List<RecordEntry> entries)
     {
-        return new(this) { EmploymentEntries = entries};
+        return new(this) { EmploymentEntries = entries };
     }
     public PlayerProvidedCharacterRecords WithMedicalEntries(List<RecordEntry> entries)
     {
-        return new(this) { MedicalEntries = entries};
+        return new(this) { MedicalEntries = entries };
     }
     public PlayerProvidedCharacterRecords WithSecurityEntries(List<RecordEntry> entries)
     {
-        return new(this) { SecurityEntries = entries};
+        return new(this) { SecurityEntries = entries };
+    }
+    public PlayerProvidedCharacterRecords WithSyndicateEntries(List<RecordEntry> entries) ///Impstation - added Syndicate
+    {
+        return new(this) { SyndicateEntries = entries };
     }
 }
 
 public enum CharacterRecordType : byte
 {
-    Employment, Medical, Security
+    Employment, Medical, Security, Syndicate
 }
