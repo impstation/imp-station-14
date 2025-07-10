@@ -43,15 +43,19 @@ Records Computer data for gameplay.
 
 ## Syndicate Entries
 
-Placeholder, put something obscene here so maintainers hopefully notice if you forget to replace it.
+Syndicate Entries can be any kind of dirt or information the syndicate has on you, through whichever sources you imagine.
+Examples are Blackmail, Intercepted conversations, Confidential Files.
 
 ## Accessing Records
 You can access the records of your crewmates in-game from their respective consoles.
 These consoles are typically found in their respective departments!
 
+Syndicate records can be accessed with a special console, accessible for Syndicate Antagonists
+
 <Box>
 <GuideEntityEmbed Entity="ComputerMedicalRecords" Caption="Medical"/>
 <GuideEntityEmbed Entity="ComputerCriminalRecords" Caption="Security"/>
 <GuideEntityEmbed Entity="ComputerStationRecords" Caption="Station"/>
+<GuideEntityEmbed Entity="ComputerStationRecords" Caption="Syndicate"/>
 </Box>
 </Document>

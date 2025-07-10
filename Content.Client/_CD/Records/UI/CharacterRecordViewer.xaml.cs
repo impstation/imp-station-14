@@ -441,7 +441,6 @@ public sealed partial class CharacterRecordViewer : FancyWindow
     private void UpdateRecordBoxSyndicate(FullCharacterRecords record)
     {
         RecordContainerSyndicate.Visible = true;
-        RecordContainerWorkAuth.Text = record.PRecords.HasWorkAuthorization ? "Approved" : "Denied"; //imp edit wording change
     }
 
     // This is copied almost verbatim from CriminalRecordsConsoleWindow.xaml.cs

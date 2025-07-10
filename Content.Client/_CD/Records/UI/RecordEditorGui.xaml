@@ -63,13 +63,6 @@
                      <LineEdit Name="PostmortemEdit" HorizontalAlignment="Right" MinSize="350 0"/>
                  </BoxContainer>
                  <Control MinSize="0 20"/>
-                 <!-- Syndicate stuff #Impstation -->
-                 <BoxContainer HorizontalExpand="True">
-                     <Label Text="{Loc 'cd-imp-syndicate'}" />
-                     <Control HorizontalExpand="True" MinSize="5 0" />
-                     <CheckBox Name="SyndicateCheckBox" HorizontalAlignment="Right"/>
-                 </BoxContainer>
-                 <Control MinSize="0 20"/>
                  <!-- Entry editor -->
                  <TabContainer Name="EntryEditorTabs" VerticalExpand="True" HorizontalExpand="True" Margin="10">
                      <cdrecords:RecordEditorEntrySelector Name="EmploymentEntrySelector"/>
