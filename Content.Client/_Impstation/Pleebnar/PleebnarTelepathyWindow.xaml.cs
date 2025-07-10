@@ -36,7 +36,7 @@ public sealed partial class PleebnarTelepathyWindow : FancyWindow
     //add visions to the radiobutton element
     public void AddVisions()
     {
-
+        VisionsBox.Children.Clear();
         foreach (var entry in _visions)
         {
             AddVision(entry.Name, entry.ID);
