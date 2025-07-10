@@ -146,7 +146,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     public void CloneAppearance(EntityUid source, EntityUid target, HumanoidAppearanceComponent? sourceHumanoid = null,
         HumanoidAppearanceComponent? targetHumanoid = null)
     {
-        if (!Resolve(source, ref sourceHumanoid) || !Resolve(target, ref targetHumanoid))
+        if (!Resolve(source, ref sourceHumanoid, false) || !Resolve(target, ref targetHumanoid, false))
             return;
 
         targetHumanoid.Species = sourceHumanoid.Species;
@@ -548,7 +548,13 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         {
             return Loc.GetString("identity-age-middle-aged");
         }
+        // imp edit begin
+        if (age < speciesPrototype.AncientAge)
+        {
+            return Loc.GetString("identity-age-old");
+        }
 
-        return Loc.GetString("identity-age-old");
+        return Loc.GetString("identity-age-ancient");
+        // imp edit end
     }
 }

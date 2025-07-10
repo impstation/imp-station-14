@@ -12,3 +12,12 @@ reagent-desc-bloodkodepiia = The fluid that bleeds from a kodepiia if you cut it
 
 reagent-name-gray-blood = joos
 reagent-desc-gray-blood = Thui hope glump mochigi ketchup.
+
+reagent-name-mucin = mucin
+reagent-desc-mucin = A fascinating secretion capable of accelerating the movement of Gastropoids. It looks exploitable...
+
+reagent-name-testosterone = testosterone
+reagent-desc-testosterone = A fundamental bodily hormone, synthesized from plant matter for pharmaceutical distribution.
+
+reagent-name-estradiol = estradiol
+reagent-desc-estradiol = A fundamental bodily hormone, synthesized from cell matter for pharmaceutical distribution.
