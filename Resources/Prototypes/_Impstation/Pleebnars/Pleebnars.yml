@@ -1,6 +1,6 @@
 - type: entity
   name: pleebnar
-  parent: SimpleSpaceMobBase
+  parent: SimpleMobBase
   id: MobPleebnar
   description: UNIDENTIFIED PISKUN THING!
   components:
@@ -117,6 +117,17 @@
   - type: Tag
     tags:
     - Trash
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 0.25
+    damageRecovery:
+      types:
+        Asphyxiation: -0.25
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.1
   - type: Vocal
     sounds:
       Male: Pleebnar
