@@ -309,7 +309,7 @@ pleebnar-vision-102-name = Grand Feast
 pleebnar-vision-103 = Your mother telling you to go to bed.
 pleebnar-vision-103-name = Bedtime
 
-pleebnar-vision-104 = Diona Nymphs inside you shifting about. 
+pleebnar-vision-104 = Diona Nymphs inside you shifting about.
 pleebnar-vision-104-name = Nymphs
 
 pleebnar-vision-105 = A crucial message you must tell the captain. The stations fate is on the line.
@@ -495,7 +495,7 @@ pleebnar-vision-164-name = Mockery
 pleebnar-vision-165 = Your toe falling off.
 pleebnar-vision-165-name = Toe
 
-pleebnar-vision-166 = A portly little man with blue overalls and gloves running through a green field and kicking the air. 
+pleebnar-vision-166 = A portly little man with blue overalls and gloves running through a green field and kicking the air.
 pleebnar-vision-166-name = The Brother
 
 pleebnar-vision-167 = An elderly man in white robes with a tall crown on his head. You see the crown levitate off his head to reveal a tiny green alien standing beneath it and pulling his hair.
@@ -519,8 +519,8 @@ pleebnar-vision-172-name = Calm
 pleebnar-vision-173 = A really bad and awful ball bouncing around. You don't like seeing it at ALL.
 pleebnar-vision-173-name = Damn Bad Ball
 
-pleebnar-vision-174 = A room full of furniture designed to be as uncomfortable to your body as possible. 
-pleebnar-vision-174-name = Unwelcome 
+pleebnar-vision-174 = A room full of furniture designed to be as uncomfortable to your body as possible.
+pleebnar-vision-174-name = Unwelcome
 
 pleebnar-vision-175 = A room full of people. Literally full of people. There is no empty space.
 pleebnar-vision-175-name =Crush
@@ -533,3 +533,6 @@ pleebnar-vision-177-name = Static
 
 pleebnar-vision-178 = Instructions for how to assemble a burrito, written as if you had no previous awareness of the concept.
 pleebnar-vision-178-name = Burrito
+
+pleebnar-vision-179 = [No vision provided, this pleebnar has aphantasia and is self conscious about it.]
+pleebnar-vision-179-name = Aphantasia
