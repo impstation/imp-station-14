@@ -2,8 +2,6 @@
 - type: reaction
   id: CreateSynthFleshBlood
   impact: Low
-
-  preserveDNA: true
   conserveEnergy: true
   reactants:
     Blood:
@@ -19,7 +17,6 @@
 - type: reaction
   id: CreateSynthFleshCopper
   impact: Low
-  preserveDNA: true
   conserveEnergy: true
   reactants:
     CopperBlood:
@@ -35,7 +32,6 @@
 - type: reaction
   id: CreateSynthFleshSap
   impact: Low
-  preserveDNA: true
   conserveEnergy: true
   reactants:
     Sap:
@@ -51,7 +47,6 @@
 - type: reaction
   id: CreateSynthFleshAmmonia
   impact: Low
-  preserveDNA: true
   conserveEnergy: true
   reactants:
     AmmoniaBlood:
@@ -67,7 +62,6 @@
 - type: reaction
   id: CreateSynthFleshSlime
   impact: Low
-  preserveDNA: true
   conserveEnergy: true
   reactants:
     Slime:
@@ -83,7 +77,6 @@
 - type: reaction
   id: CreateSynthFleshInsect
   impact: Low
-  preserveDNA: true
   conserveEnergy: true
   reactants:
     InsectBlood:
@@ -99,7 +92,6 @@
 - type: reaction
   id: CreateSynthFleshGray
   impact: Low
-  preserveDNA: true
   conserveEnergy: true
   reactants:
     GrayBlood:
@@ -115,7 +107,6 @@
 - type: reaction
   id: CreateSynthFleshKodepiiae
   impact: Low
-  preserveDNA: true
   conserveEnergy: true
   reactants:
     BloodKodepiia:
@@ -131,7 +122,6 @@
 - type: reaction
   id: CreateSynthFleshShimmering
   impact: Low
-  preserveDNA: true
   conserveEnergy: true
   reactants:
     ShimmeringBlood:
