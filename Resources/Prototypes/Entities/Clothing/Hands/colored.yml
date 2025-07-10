@@ -391,6 +391,8 @@
   - type: Tag
     tags:
       - Insuls # imp
+      - WhitelistChameleon
+      - ClothMade
 
 # Budget Insulated Gloves
 - type: entity
@@ -418,9 +420,6 @@
   - type: Fiber
     fiberMaterial: fibers-insulative-frayed
     fiberColor: fibers-yellow
-  - type: Tag
-    tags:
-      - Insuls # imp
 
 # Conductive Insulated Gloves
 - type: entity
@@ -430,6 +429,3 @@
   components:
   - type: Insulated
     coefficient: 5 # zap em good
-  - type: Tag
-    tags:
-      - Insuls # imp - can't let people check whether they're real ;)
