@@ -31,7 +31,7 @@ public sealed partial class PleebnarTelepathyWindow : FancyWindow
         {
             _visions.Add(vision);
         }
-        _visions.Sort((a, b) => a.Name.CompareTo((b.Name)));
+        _visions.Sort((a, b) => Loc.GetString(a.Name).CompareTo(Loc.GetString(b.Name)));
     }
     //add visions to the radiobutton element
     public void AddVisions()
