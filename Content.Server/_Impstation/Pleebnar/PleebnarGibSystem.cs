@@ -51,7 +51,11 @@ public sealed class PleebnarGibSystem : SharedPleebnarGibSystem
         {
             return;
         }
-        if(TryComp<PleebnarGibbableComponent>(args.Target, out var gibbable))
+
+        if (!TryComp<PleebnarGibbableComponent>(args.Target, out var gibbable))
+        {
+            return;
+        }
 
         if (gibbable.Mindshield)//if it is protected gib the user instead
         {
