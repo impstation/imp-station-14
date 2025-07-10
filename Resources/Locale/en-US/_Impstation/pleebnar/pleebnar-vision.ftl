@@ -249,7 +249,7 @@ pleebnar-vision-82-name = Church
 pleebnar-vision-83 = A family at around an empty dinner table; they have no faces.
 pleebnar-vision-83-name = Family
 
-pleebnar-vision-84 = You see cyan haired imp whom is quickly enshrouded by white smoke.
+pleebnar-vision-84 = You see a cyan haired imp whom is quickly enshrouded by white smoke.
 pleebnar-vision-84-name = The imp
 
 pleebnar-vision-85 = A universe where everything is the same except 'alien' is spelled 'alian'.
@@ -358,7 +358,7 @@ pleebnar-vision-119 = The empty cockpit of a shuttle drifting through deep space
 pleebnar-vision-119-name = Adrift
 
 pleebnar-vision-120 = A monolith that reaches far into the sky. Looking closer, it's engraved with every tip anyone has ever given in the history of the universe.
-pleebnar-vision-120-name = receipt
+pleebnar-vision-120-name = Receipt
 
 pleebnar-vision-121 = A crude plastic effigy of a smiling humanoid. Its tubular body and limbs flap around against a blue sky, filled with air by an unseen mechanism.
 pleebnar-vision-121-name = Lure
@@ -417,7 +417,7 @@ pleebnar-vision-138-name = Beacon
 pleebnar-vision-139 = A mothperson flying through clouds. They are smiling.
 pleebnar-vision-139-name = Escape
 
-pleebnar-vision-140 = The space in between two couch cussions. You are certain something is lost between them.
+pleebnar-vision-140 = The space in between two couch cushions. You are certain something is lost between them.
 pleebnar-vision-140-name = Seeking
 
 pleebnar-vision-141 = Yourself, roasting something over a campfire at sunset. You are not alone.
@@ -480,10 +480,10 @@ pleebnar-vision-159-name = Distribution
 pleebnar-vision-160 = The inside your jaw, during the last verbal conversation you had. The world shakes wildly as you talk.
 pleebnar-vision-160-name = Converse
 
-pleebnar-vision-161 = A game show host shooting you with a revolver on-stage.  Fanfares and prizes jump through your mind as everything fades to black.
+pleebnar-vision-161 = A game show host shooting you with a revolver on-stage. Fanfares and prizes jump through your mind as everything fades to black.
 pleebnar-vision-161-name = Reward
 
-pleebnar-vision-162 = A vast, planet-spanning arcology full of cryogenic pods.  The pods have lost power; you are surrounded by a billion rotting corpses.
+pleebnar-vision-162 = A vast, planet-spanning arcology full of cryogenic pods. The pods have lost power; you are surrounded by a billion rotting corpses.
 pleebnar-vision-162-name = Rot
 
 pleebnar-vision-163 = You have a mansion. A grand mansion. A mansion with a vast pantry. You are walking through it, searching for canned beans. But you cannot find canned beans. There are no canned beans in your pantry. Doom washes over you.
