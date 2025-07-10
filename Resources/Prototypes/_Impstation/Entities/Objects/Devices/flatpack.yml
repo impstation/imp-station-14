@@ -30,3 +30,18 @@
   components:
   - type: Flatpack
     entity: Jukebox
+
+- type: entity
+  parent: [ BaseFlatpack, BaseSyndicateContraband ]
+  id: syndicaterecordscomputerflatpack
+  name: syndicate records terminal flatpack
+  description: A flatpack used for constructing a syndicate records terminal. Smaller than conventional flatpacks.
+  components:
+  - type: Flatpack
+    entity: ComputerSyndicateRecords
+  - type: Sprite
+    sprite: _impstation/Objects/Devices/flatpack.rsi # imp
+    layers:
+    - state: syndicate_flatpack
+  - type: Item
+    size: Normal
