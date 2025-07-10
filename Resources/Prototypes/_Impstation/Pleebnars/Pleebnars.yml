@@ -95,7 +95,7 @@
       Thirsty: 15
       Parched: 10
       Dead: 0
-    baseDecayRate: 0.005
+    baseDecayRate: 0.01
   - type: Hunger
     thresholds:
       Overfed: 35
@@ -103,7 +103,7 @@
       Peckish: 15
       Starving: 10
       Dead: 0
-    baseDecayRate: 0.005
+    baseDecayRate: 0.01
   - type: Extractable
     grindableSolutionName: food
   - type: SolutionContainerManager
