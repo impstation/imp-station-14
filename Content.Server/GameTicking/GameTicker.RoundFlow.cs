@@ -1,6 +1,8 @@
+using System; // Imp Edit LastMessageBeforeDeath Webhook
 using System.Linq;
 using System.Numerics;
 using Content.Server.Announcements;
+using Content.Server.Chat.Systems; // Imp Edit LastMessageBeforeDeath Webhook
 using Content.Server.Discord;
 using Content.Server.GameTicking.Events;
 using Content.Server.Ghost;
@@ -34,6 +36,7 @@ namespace Content.Server.GameTicking
         [Dependency] private readonly RoleSystem _role = default!;
         [Dependency] private readonly ITaskManager _taskManager = default!;
         [Dependency] private readonly AnnouncerSystem _announcer = default!;
+        [Dependency] private readonly IEntityManager _entityManager = default!; // Imp Edit LastMessageBeforeDeath Webhook
 
         private static readonly Counter RoundNumberMetric = Metrics.CreateCounter(
             "ss14_round_number",
@@ -503,6 +506,7 @@ namespace Content.Server.GameTicking
             {
                 Log.Error($"Error while sending round end Discord message: {e}");
             }
+            SendLastMessagesBeforeDeath();
         }
 
         public void ShowRoundEndScoreboard(string text = "")
@@ -644,6 +648,12 @@ namespace Content.Server.GameTicking
             {
                 Log.Error($"Error while sending discord round end message:\n{e}");
             }
+        }
+
+        public void SendLastMessagesBeforeDeath()
+        {
+            var lastMessageSystem = _entityManager.System<LastMessageBeforeDeathSystem>();
+            lastMessageSystem.OnRoundEnd();
         }
 
         public void RestartRound()
