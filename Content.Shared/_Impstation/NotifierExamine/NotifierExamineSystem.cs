@@ -60,7 +60,7 @@ public sealed class NotifierExamineSystem : EntitySystem
             },
             Text = Loc.GetString("detail-examinable-verb-text"),
             Category = VerbCategory.Examine,
-            Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/star.svg.192dpi.png"))
+            Icon = new SpriteSpecifier.Texture(new ("/Textures/_Impstation/Interface/VerbIcons/star.svg.192dpi.png"))
         };
         Dirty(ent.Owner,ent.Comp);
         args.Verbs.Add(verb);
