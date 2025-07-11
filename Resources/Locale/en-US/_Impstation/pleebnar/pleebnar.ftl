@@ -1,5 +1,5 @@
 pleebnar-telepathy-window = Vision Selection
-pleebnar-telepathy-select = it emits "{$vision}"...
+pleebnar-telepathy-select = Vision Selected: {$vision}
 pleebnar-telepathy-nomind = This target does not have a compatible mind!
 pleebnar-telepathy-novision = No vision selected!
 pleebnar-telepathy-struck = [head=3]You are struck by a vision of...[/head]
