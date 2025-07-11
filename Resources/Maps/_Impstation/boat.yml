@@ -7569,28 +7569,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ActionToggleInternals
-  entities:
-  - uid: 15219
-    components:
-    - type: Transform
-      parent: 15218
-  - uid: 15347
-    components:
-    - type: Transform
-      parent: 15220
-- proto: ActionToggleLight
-  entities:
-  - uid: 7317
-    components:
-    - type: Transform
-      parent: 7316
-  - uid: 21360
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 21359
 - proto: AirAlarm
   entities:
   - uid: 84
