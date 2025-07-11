@@ -23,13 +23,7 @@ public sealed partial class AntagPrototype : IPrototype
     /// </summary>
     [DataField]
     public Color Color { get; private set; } = Color.Red;
-
-    /// <summary>
-    /// An icon used to represent the antag on UI elements, such as the lobby.
-    /// </summary>
-    [DataField]
-    public ProtoId<AntagIconPrototype> Icon { get; private set; }
-
+    // Imp edit end
 
     [ViewVariables]
     [IdDataField]
