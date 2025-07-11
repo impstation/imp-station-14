@@ -1,83 +1,6 @@
 ﻿Entries:
 - author: mqole
   changes:
-  - message: You now have 2 extra minutes between rounds to shit and piss as needed.
-    type: Tweak
-  id: 1506
-  time: '2025-04-13T04:46:31.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2250
-- author: DinnerCalzone
-  changes:
-  - message: Station Specific and Dining Services departments no longer appear in
-      the late-join menu.
-    type: Tweak
-  id: 1507
-  time: '2025-04-13T04:47:42.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2252
-- author: TheGrimbeeper
-  changes:
-  - message: weakened pull when artifact opens a supermatter portal
-    type: Fix
-  id: 1508
-  time: '2025-04-13T04:49:42.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2244
-- author: hivehum
-  changes:
-  - message: Mail looks more like you're used to.
-    type: Tweak
-  id: 1509
-  time: '2025-04-13T04:57:46.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2217
-- author: DinnerCalzone
-  changes:
-  - message: Updates to Cluster, Marathon, Train, and other maps. Details in PR.
-    type: Tweak
-  id: 1510
-  time: '2025-04-13T05:00:05.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2249
-- author: SixValentine
-  changes:
-  - message: Fur trim to Warden's Hardsuit (Fashion Forward Militarism? Slay?)
-    type: Add
-  id: 1511
-  time: '2025-04-13T05:01:19.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2234
-- author: widgetbeck
-  changes:
-  - message: Player ghosts can now view a mass scanner interface.
-    type: Add
-  - message: Player ghosts can now view detailed inspect information on living players
-      from any distance.
-    type: Tweak
-  id: 1512
-  time: '2025-04-13T05:02:38.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2227
-- author: Darkmajia
-  changes:
-  - message: Catwalks placed over water tiles keep you above the surface.
-    type: Tweak
-  id: 1513
-  time: '2025-04-13T05:03:22.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2238
-- author: AvianMaiden
-  changes:
-  - message: Greater efforts by the Syndicate and affiliate corporations to decrease
-      toxicity in the workplace aboard NT stations.
-    type: Add
-  id: 1514
-  time: '2025-04-13T05:03:53.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2241
-- author: Oberonics
-  changes:
-  - message: Cluwne spells are now banned magic.
-    type: Remove
-  - message: Wizards can buy a cluwne wand instead.
-    type: Tweak
-  id: 1515
-  time: '2025-04-13T05:05:19.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2219
-- author: mqole
-  changes:
   - message: LOBBY TIMER IS ACTUALLY 7 MINUTES NOW I PROMMY
     type: Fix
   id: 1516
@@ -4217,3 +4140,81 @@
   id: 2005
   time: '2025-07-08T05:56:54.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3030
+- author: SixValentine
+  changes:
+  - message: Reporter on Hash real actually
+    type: Fix
+  id: 2006
+  time: '2025-07-09T08:25:43.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3036
+- author: Kandiyaki
+  changes:
+  - message: random gamemode weights have been tweaked to add a bit more variety.
+    type: Tweak
+  id: 2007
+  time: '2025-07-10T18:57:43.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2970
+- author: DinnerCalzone
+  changes:
+  - message: Bleach will now cause you to cough and deal a bit of damage if sprayed
+      on you. Be careful where you're cleaning!
+    type: Add
+  id: 2008
+  time: '2025-07-10T18:58:44.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3039
+- author: DVDPlayerOfDiscordFame, iaada
+  changes:
+  - message: Added the Adder, Akurra, Anaconda, Xiuhcoatl, Ouroboros, and Leviathan.
+    type: Add
+  - message: .60 Speedloaders and Echion technology.
+    type: Add
+  id: 2009
+  time: '2025-07-10T19:30:31.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2575
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: Changed the sprites on the .22 auto magazines to make them more different
+    type: Tweak
+  id: 2010
+  time: '2025-07-10T19:34:41.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3050
+- author: mqole
+  changes:
+  - message: Jungle juice has been vanquished. FOR REAL THIS TIME.
+    type: Remove
+  - message: Subjuzine no longer uses DNA to function.
+    type: Remove
+  id: 2011
+  time: '2025-07-10T20:08:58.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3031
+- author: DinnerCalzone
+  changes:
+  - message: Convex has been derotated.
+    type: Remove
+  id: 2012
+  time: '2025-07-11T03:02:05.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3057
+- author: DinnerCalzone
+  changes:
+  - message: Red, orange, and green carpets have received new sprites!
+    type: Add
+  - message: Carpets of different colors no longer blend together when placed next
+      to each other.
+    type: Tweak
+  id: 2013
+  time: '2025-07-11T16:56:35.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3035
+- author: DinnerCalzone
+  changes:
+  - message: Toolboxes have been resprited!
+    type: Add
+  id: 2014
+  time: '2025-07-11T16:56:08.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3037
+- author: msTheowo
+  changes:
+  - message: Mice have learned how to reproduce.
+    type: Add
+  id: 2015
+  time: '2025-07-11T16:59:42.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2949
