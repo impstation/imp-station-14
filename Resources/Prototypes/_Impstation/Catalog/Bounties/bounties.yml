@@ -52,6 +52,9 @@
     whitelist:
       tags:
       - ClothFood
+    blacklist:
+      tags:
+      - Slice # no cheating!
 
 - type: cargoBounty
   id: BountyCrystal
@@ -224,7 +227,7 @@
       - Suppermatter
     blacklist:
       tags:
-      - Slice #no cheating!
+      - Slice # no cheating!
 
 # commented out for arbitrage :(
 # - type: cargoBounty
