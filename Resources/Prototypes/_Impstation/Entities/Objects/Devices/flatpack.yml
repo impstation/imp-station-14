@@ -33,14 +33,14 @@
 
 - type: entity
   parent: [ BaseFlatpack, BaseSyndicateContraband ]
-  id: syndicaterecordscomputerflatpack
+  id: SyndicateRecordsComputerFlatpack
   name: syndicate records terminal flatpack
   description: A flatpack used for constructing a syndicate records terminal. Smaller than conventional flatpacks.
   components:
   - type: Flatpack
     entity: ComputerSyndicateRecords
   - type: Sprite
-    sprite: _impstation/Objects/Devices/flatpack.rsi # imp
+    sprite: _Impstation/Objects/Devices/flatpack.rsi # imp
     layers:
     - state: syndicate_flatpack
   - type: Item
