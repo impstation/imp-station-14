@@ -334,8 +334,7 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
         {
             _chatSystem.DispatchStationAnnouncement(
                 result.Station,
-                Loc.GetString(stationShuttleComp.FailureAnnouncement),
-                playDefaultSound: false);
+                Loc.GetString(stationShuttleComp.FailureAnnouncement)); //imp. gutted default announcement sounds. announcersystem handles them now.
 
             // TODO: Need filter extensions or something don't blame me.
             _audio.PlayGlobal(stationShuttleComp.FailureAudio, Filter.Broadcast(), true);
@@ -369,8 +368,8 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
                 ("time", $"{_consoleAccumulator:0}"),
                 ("direction", direction),
                 ("location", location),
-                ("extended", extendedText)),
-            playDefaultSound: false);
+                ("extended", extendedText))); //imp. gutted default announcement sounds. announcersystem handles them now.
+
 
         // Trigger shuttle timers on the shuttle.
 
