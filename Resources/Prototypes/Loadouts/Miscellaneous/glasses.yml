@@ -23,6 +23,7 @@
   id: Glasses
   equipment:
     eyes: ClothingEyesGlasses
+  groupBy: "style" # imp
 
 # Special options
 # Jamjar
@@ -33,6 +34,7 @@
     proto: JamjarTimer
   equipment:
     eyes: ClothingEyesGlassesJamjar
+  groupBy: "style" # imp
 
 # Jensen
 - type: loadout
@@ -42,3 +44,4 @@
     proto: JensenTimer
   equipment:
     eyes: ClothingEyesGlassesJensen
+  groupBy: "style" # imp

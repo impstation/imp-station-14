@@ -1,57 +1,90 @@
 # Miscellaneous
-#- type: loadoutGroup # imp, put new trinkets into /_Impstation/Loadouts/loudout_groups.yml
-#  id: Trinkets
-#  name: loadout-group-trinkets
-#  minLimit: 0
-#  maxLimit: 3
-#  loadouts:
-#  - FlowerWreath
-#  - Hairflower
-#  - Headphones
-#  - PlushieLizard
-#  - PlushieSpaceLizard
-#  - ThreeCandles
-#  - Lighter
-#  - CigPackGreen
-#  - CigPackRed
-#  - CigPackBlue
-#  - CigPackBlack
-#  - CigarCase
-#  - CigarGold
-#  - ClothingNeckLGBTPin
+- type: loadoutGroup
+  id: Trinkets
+  name: loadout-group-trinkets
+  minLimit: 0
+  maxLimit: 4 #imp
+  loadouts:
+  - FlowerWreath
+  - Hairflower
+  - Headphones
+  - PlushieLizard
+  - PlushieSpaceLizard
+  - ThreeCandles
+  - Lighter
+  - FlippoLighter # imp
+  - CigPackGreen
+  - CigPackRed
+  - CigPackBlue
+  - CigPackBlack
+  - CigPackNewport # imp
+  - CigPackSpirits # imp
+  - CigarCase
+  - CigarGold
+  - ClothingNeckLGBTPin
 #  - ClothingNeckAllyPin
-#  - ClothingNeckAromanticPin
-#  - ClothingNeckAsexualPin
-#  - ClothingNeckAroacePin
-#  - ClothingNeckBisexualPin
-#  - ClothingNeckGayPin
-#  - ClothingNeckIntersexPin
-#  - ClothingNeckLesbianPin
-#  - ClothingNeckNonBinaryPin
-#  - ClothingNeckPansexualPin
-#  - ClothingNeckPluralPin
-#  - ClothingNeckOmnisexualPin
-#  - ClothingNeckGenderqueerPin
-#  - ClothingNeckGenderfluidPin
-#  - ClothingNeckTransPin
-#  - ClothingNeckAutismPin
-#  - ClothingNeckGoldAutismPin
-#  - TowelColorBlack
-#  - TowelColorDarkBlue
-#  - TowelColorDarkGreen
-#  - TowelColorGold
-#  - TowelColorGray
-#  - TowelColorGreen
-#  - TowelColorLightBlue
-#  - TowelColorLightBrown
-#  - TowelColorMaroon
-#  - TowelColorMime
-#  - TowelColorOrange
-#  - TowelColorPurple
-#  - TowelColorRed
-#  - TowelColorSilver
-#  - TowelColorWhite
-#  - TowelColorYellow
+  - ClothingNeckAromanticPin
+  - ClothingNeckAsexualPin
+  - ClothingNeckAroacePin
+  - ClothingNeckBisexualPin
+  - ClothingNeckGayPin
+  - ClothingNeckIntersexPin
+  - ClothingNeckLesbianPin
+  - ClothingNeckNonBinaryPin
+  - ClothingNeckPansexualPin
+  - ClothingNeckPluralPin
+  - ClothingNeckOmnisexualPin
+  - ClothingNeckGenderqueerPin
+  - ClothingNeckGenderfluidPin
+  - ClothingNeckTransPin
+  - ClothingNeckAutismPin
+  - ClothingNeckGoldAutismPin
+  - TowelColorBlack
+  - TowelColorDarkBlue
+  - TowelColorDarkGreen
+  - TowelColorGold
+  - TowelColorGray
+  - TowelColorGreen
+  - TowelColorLightBlue
+  - TowelColorLightBrown
+  - TowelColorMaroon
+  - TowelColorMime
+  - TowelColorOrange
+  - TowelColorPurple
+  - TowelColorRed
+  - TowelColorSilver
+  - TowelColorWhite
+  - TowelColorYellow
+  - AACTablet # DeltaV
+  - CDDogtags #_CD
+  # imp edit start
+  - NoviceMark
+  - BarFlask
+  - CardBoxBlack
+  - Clipboard
+  - ClothingHeadHatKippahBlueAndGold
+  - ClothingHeadHatKippahSimple
+  - ClothingHeadHatKippahWhiteAndBlue
+  - ClothingHeadPaperSack
+  - ClothingHeadPaperSackSmile
+  - FolderBlack
+  - FolderHamster
+  - FolderMime
+  - FolderPun
+  - GoldRingTrinket
+  - HeartLocket
+  - HeartLocketSilver
+  - NewtonCradle
+  - PanFluteInstrument
+  - PlushieDoll
+  - PlushieDollHair
+  - SilverRingTrinket
+  - TutorialAI_Newcomer
+  - VapeSwappable
+  - VapeCart
+  - WalkingCane
+  - WristwatchTrinket
+  # imp edit end
 
 - type: loadoutGroup
   id: Glasses
