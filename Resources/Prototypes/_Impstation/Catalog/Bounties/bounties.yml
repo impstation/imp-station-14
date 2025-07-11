@@ -10,17 +10,6 @@
       - Aloe
 
 - type: cargoBounty
-  id: BountyArmorVests
-  reward: 15000
-  description: bounty-description-armor-vests
-  entries:
-  - name: bounty-item-armor-vests
-    amount: 3
-    whitelist:
-      tags:
-      - ArmorVest # as of right now this is specifically on armor obtainable through SecTech, although if someone tries and gets confused, this could go on commonly mapped vests as well.
-
-- type: cargoBounty
   id: BountyBagels
   reward: 11000
   description: bounty-description-bagels
@@ -101,17 +90,6 @@
     whitelist:
       tags:
       - Firebomb
-
-- type: cargoBounty
-  id: BountyIdCard
-  reward: 9000
-  description: bounty-description-id-card
-  entries:
-  - name: bounty-item-id-card
-    amount: 3
-    whitelist:
-      tags:
-      - IdCard
 
 - type: cargoBounty
   id: BountyInsuls

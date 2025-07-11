@@ -33,7 +33,6 @@
     tags:
     - CorgiWearable
     - WhitelistChameleon
-    - ArmorVest # imp
 
 #Alternate / slim basic armor vest
 - type: entity
@@ -67,9 +66,6 @@
         Heat: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.80
-  - type: Tag
-    tags:
-      - ArmorVest # imp
 
 - type: entity
   parent: ClothingOuterArmorBase

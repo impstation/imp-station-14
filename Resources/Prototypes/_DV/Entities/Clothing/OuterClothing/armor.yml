@@ -22,9 +22,6 @@
   - type: ExplosionResistance # More protective against explosives than you think. Helps in preventing all those vital organs from jiggling around o.o
     damageCoefficient: 0.70
   - type: AllowSuitStorage
-  - type: Tag
-    tags:
-      - ArmorVest # imp
 
 #Alternate / slim basic armor vest replacement
 - type: entity
@@ -47,6 +44,3 @@
   - type: ExplosionResistance # Better than nothing against a blast or shockwave.
     damageCoefficient: 0.90
   - type: AllowSuitStorage
-  - type: Tag
-    tags:
-      - ArmorVest # imp
