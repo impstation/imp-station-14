@@ -405,7 +405,8 @@
   description: A computer printed circuit board for a syndicate communications console.
   components:
   - type: Sprite
-    state: cpu_syndicate
+    sprite: _Impstation/Objects/Misc/syndicate_circuit.rsi
+    state: cpu_syndie
   - type: ComputerBoard
     prototype: SyndicateComputerComms
   - type: ComputerTabletopBoard # Frontier
@@ -507,7 +508,8 @@
   description: A computer printed circuit board for a syndicate shuttle console.
   components:
   - type: Sprite
-    state: cpu_syndicate
+    sprite: _Impstation/Objects/Misc/syndicate_circuit.rsi
+    state: cpu_syndie
   - type: ComputerBoard
     prototype: ComputerShuttleSyndie
 
@@ -544,7 +546,8 @@
   description: Allows you to control the IFF and stealth characteristics of this vessel.
   components:
   - type: Sprite
-    state: cpu_syndicate
+    sprite: _Impstation/Objects/Misc/syndicate_circuit.rsi
+    state: cpu_syndie
   - type: ComputerBoard
     prototype: ComputerIFFSyndicate
   - type: ComputerTabletopBoard # Frontier
