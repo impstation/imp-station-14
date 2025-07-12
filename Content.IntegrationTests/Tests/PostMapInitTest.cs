@@ -129,7 +129,6 @@ namespace Content.IntegrationTests.Tests
             "BoxImp",
             "CentCommImp",
             "CogImp",
-            "ConvexImp",
             "CoreImp",
             "E1M1",
             "ElkridgeImp",
