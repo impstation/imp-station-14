@@ -10,7 +10,8 @@
     doAfterDuration: 4.0
   - type: Sprite
     layers:
-      - sprite: Objects/Materials/Shards/crystal.rsi
+#      - sprite: Objects/Materials/Shards/crystal.rsi
+      - sprite: _Impstation/Materials/crystal.rsi # imp
         state: shard1
         map: [ "enum.DamageStateVisualLayers.Base" ]
   - type: RandomSprite
@@ -19,6 +20,8 @@
           shard1: ""
           shard2: ""
           shard3: ""
+          shard4: "" # imp
+          shard5: "" # imp
   - type: SpaceGarbage
   - type: MeleeWeapon
     wideAnimationRotation: -22.5

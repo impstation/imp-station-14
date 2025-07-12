@@ -252,3 +252,14 @@
     sprite: _Impstation/Clothing/Uniforms/Jumpskirt/cmo_formal.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Uniforms/Jumpskirt/cmo_formal.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtSpaceDress
+  name: librarian's space dress
+  description: The perfect dress for a normal spacetrip.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/spacedress.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/spacedress.rsi
