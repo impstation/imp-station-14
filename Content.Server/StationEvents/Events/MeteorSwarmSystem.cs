@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Server._Impstation.Station.Components;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Station.Components;
@@ -13,6 +14,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Content.Server.Announcements.Systems;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.StationEvents.Events;
 
@@ -38,10 +40,19 @@ public sealed class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmComponent>
 
         if (meteorSwarm.StartAnnouncement)
         {
+            var station = RobustRandom.Pick(_station.GetStations()); //Imp start
+            var announcement = _announcer.GetEventLocaleString(_announcer.GetAnnouncementId(args.RuleId));
+            if (TryComp<StationSpecificMeteorComponent>(station, out var stationMeteor))
+            {
+                if (announcement.StartsWith("station-event-game-rule-meteor") && stationMeteor.ReplacementAnnouncement != null)
+                {
+                    announcement = stationMeteor.ReplacementAnnouncement;
+                }
+            }// Imp end
             _announcer.SendAnnouncement(
                 _announcer.GetAnnouncementId("MeteorSwarm"),
                 Filter.Broadcast(),
-                _announcer.GetEventLocaleString(_announcer.GetAnnouncementId(args.RuleId)),
+                announcement, // imp
                 colorOverride: Color.Gold
             );
         }
@@ -74,6 +85,16 @@ public sealed class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmComponent>
         for (var i = 0; i < meteorsToSpawn; i++)
         {
             var spawnProto = RobustRandom.Pick(component.Meteors);
+
+            if (TryComp<StationSpecificMeteorComponent>(station, out var stationMeteor))// imp start
+            {
+                if (spawnProto == stationMeteor.DefaultSmallMeteor && stationMeteor.SmallMeteorReplacement != null)
+                    spawnProto = (EntProtoId)stationMeteor.SmallMeteorReplacement;
+                else if (spawnProto == stationMeteor.DefaultMediumMeteor && stationMeteor.MediumMeteorReplacement != null)
+                    spawnProto = (EntProtoId)stationMeteor.MediumMeteorReplacement;
+                else if (spawnProto == stationMeteor.DefaultLargeMeteor && stationMeteor.LargeMeteorReplacement != null)
+                    spawnProto = (EntProtoId)stationMeteor.LargeMeteorReplacement;
+            } // imp end
 
             var angle = component.NonDirectional
                 ? RobustRandom.NextAngle()

@@ -1,0 +1,89 @@
+- type: entity
+  parent: MeteorSmall
+  id: MeteorArtifactSmall
+  name: meteor
+  description: Seems to have crystals embedded in the surface.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      artifexium:
+        maxVol: 5
+        reagents:
+        - ReagentId: Artifexium
+          Quantity: 5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ArtifactFragment:
+            min: 1
+            max: 2
+      - !type:ExplodeBehavior
+      - !type:SpillBehavior
+        solution: artifexium
+
+- type: entity
+  parent: MeteorMedium
+  id: MeteorArtifactMedium
+  name: meteor
+  description: Seems to have crystals embedded in the surface.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      artifexium:
+        maxVol: 5
+        reagents:
+        - ReagentId: Artifexium
+          Quantity: 5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ArtifactFragment:
+            min: 2
+            max: 4
+      - !type:ExplodeBehavior
+      - !type:SpillBehavior
+        solution: artifexium
+
+- type: entity
+  parent: MeteorLarge
+  id: MeteorArtifactLarge
+  name: meteor
+  description: Seems to have crystals embedded in the surface.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      artifexium:
+        maxVol: 5
+        reagents:
+        - ReagentId: Artifexium
+          Quantity: 5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ArtifactFragment:
+            min: 4
+            max: 6
+      - !type:ExplodeBehavior
+      - !type:SpillBehavior
+        solution: artifexium
