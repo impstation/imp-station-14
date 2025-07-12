@@ -64,6 +64,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
     [Dependency] private readonly CollectiveMindUpdateSystem _collectiveMind = default!;
+    [Dependency] private readonly LastMessageBeforeDeathSystem _lastMessageBeforeDeathSystem = default!; // Imp Edit LastMessageBeforeDeath Webhook
 
     public const int VoiceRange = 10; // how far voice goes in world units
     public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
@@ -239,6 +240,11 @@ public sealed partial class ChatSystem : SharedChatSystem
         // This can happen if the entire string is sanitized out.
         if (string.IsNullOrEmpty(message))
             return;
+
+        if (player != null) // Last Message Before Death System
+        {
+            HandleLastMessageBeforeDeath(source, player, message);
+        }
 
         // This message may have a radio prefix, and should then be whispered to the resolved radio channel
         if (checkRadioPrefix)
@@ -823,6 +829,15 @@ public sealed partial class ChatSystem : SharedChatSystem
         }
 
         return !_chatManager.MessageCharacterLimit(player, message);
+    }
+
+    public void HandleLastMessageBeforeDeath(EntityUid source, ICommonSession player, string message)
+    {
+
+        if (player != null && source != null)
+        {
+            _lastMessageBeforeDeathSystem.AddMessage(source, player, message);
+        }
     }
 
     // ReSharper disable once InconsistentNaming
