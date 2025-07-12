@@ -12,4 +12,12 @@ public sealed partial class PillComponent : Component
     [DataField("pillType")]
     [ViewVariables(VVAccess.ReadWrite)]
     public uint PillType;
+
+    /// <summary>
+    /// If the pill should be of a random type. Imp addition
+    /// </summary>
+    [AutoNetworkedField]
+    [DataField("randomType")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool RandomType = false;
 }
