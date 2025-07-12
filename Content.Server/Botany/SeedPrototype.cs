@@ -103,6 +103,12 @@ public partial class SeedData
     public string Noun { get; private set; } = "";
 
     /// <summary>
+    ///     Frontier: The localized string used for a set of seeds (or equivalent)
+    /// </summary>
+    [DataField("packetName")]
+    public string PacketName { get; private set; } = "botany-seed-packet-name";
+
+    /// <summary>
     ///     Name displayed when examining the hydroponics tray. Describes the actual plant, not the seed itself.
     /// </summary>
     [DataField("displayName")]
@@ -231,6 +237,23 @@ public partial class SeedData
 
     #endregion
 
+    // Frontier: no fun fields
+    #region Frontier
+    /// <summary>
+    ///     If true, the plant cannot be swabbed.
+    /// </summary>
+    [DataField] public bool PreventSwabbing;
+    /// <summary>
+    ///     If true, the plant cannot be clipped.
+    /// </summary>
+    [DataField] public bool PreventClipping;
+    /// <summary>
+    ///     If true, the plant will always be seedless.
+    /// </summary>
+    [DataField] public bool PermanentlySeedless;
+    #endregion
+    // End Frontier
+
     #region Cosmetics
 
     [DataField(required: true)]
@@ -319,6 +342,10 @@ public partial class SeedData
             Viable = Viable,
             Ligneous = Ligneous,
 
+            PreventSwabbing = PreventSwabbing, // Frontier
+            PreventClipping = PreventClipping, // Frontier
+            PermanentlySeedless = PermanentlySeedless, // Frontier
+
             PlantRsi = PlantRsi,
             PlantIconState = PlantIconState,
             CanScream = CanScream,
@@ -381,6 +408,10 @@ public partial class SeedData
             Seedless = Seedless,
             Viable = Viable,
             Ligneous = Ligneous,
+
+            PreventSwabbing = PreventSwabbing, // Frontier
+            PreventClipping = PreventClipping, // Frontier
+            PermanentlySeedless = PermanentlySeedless, // Frontier
 
             PlantRsi = other.PlantRsi,
             PlantIconState = other.PlantIconState,

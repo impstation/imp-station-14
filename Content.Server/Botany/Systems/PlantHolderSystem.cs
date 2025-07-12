@@ -27,10 +27,11 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
 using Content.Shared.Labels.Components;
 using System.Text.RegularExpressions; // imp
+using Content.Server.Station.Systems; // Frontier
 
 namespace Content.Server.Botany.Systems;
 
-public sealed partial class PlantHolderSystem : EntitySystem
+public sealed class PlantHolderSystem : EntitySystem
 {
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
     [Dependency] private readonly BotanySystem _botany = default!;
@@ -46,12 +47,10 @@ public sealed partial class PlantHolderSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly StationSystem _station = default!; // Frontier
 
     public const float HydroponicsSpeedMultiplier = 1f;
     public const float HydroponicsConsumptionMultiplier = 2f;
-
-    private static readonly ProtoId<TagPrototype> HoeTag = "Hoe";
-    private static readonly ProtoId<TagPrototype> PlantSampleTakerTag = "PlantSampleTaker";
 
     public override void Initialize()
     {
@@ -226,7 +225,7 @@ public sealed partial class PlantHolderSystem : EntitySystem
             return;
         }
 
-        if (_tagSystem.HasTag(args.Used, HoeTag))
+        if (_tagSystem.HasTag(args.Used, "Hoe"))
         {
             args.Handled = true;
             if (component.WeedLevel > 0)
@@ -266,7 +265,7 @@ public sealed partial class PlantHolderSystem : EntitySystem
             return;
         }
 
-        if (_tagSystem.HasTag(args.Used, PlantSampleTakerTag))
+        if (_tagSystem.HasTag(args.Used, "PlantSampleTaker"))
         {
             args.Handled = true;
             if (component.Seed == null)
@@ -274,6 +273,14 @@ public sealed partial class PlantHolderSystem : EntitySystem
                 _popup.PopupCursor(Loc.GetString("plant-holder-component-nothing-to-sample-message"), args.User);
                 return;
             }
+
+            // Frontier: prevent sampling unsamplable plants
+            if (component.Seed.PreventClipping)
+            {
+                _popup.PopupCursor(Loc.GetString("plant-holder-component-cannot-be-sampled-message"), args.User);
+                return;
+            }
+            // End Frontier
 
             if (component.Sampled)
             {

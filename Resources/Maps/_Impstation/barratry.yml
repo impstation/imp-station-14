@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 261.2.0
+  engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/05/2025 17:21:49
-  entityCount: 22738
+  time: 07/10/2025 06:09:47
+  entityCount: 22739
 maps:
 - 5005
 grids:
@@ -61140,6 +61140,7 @@ entities:
       pos: 15.5,59.5
       parent: 1
     - type: ItemPlacer
+      lastPlaceable: False
       placedEntities:
       - 18604
     - type: PlaceableSurface
@@ -71496,11 +71497,6 @@ entities:
     - type: Transform
       pos: -52.395008,21.71115
       parent: 1
-  - uid: 6958
-    components:
-    - type: Transform
-      pos: -32.460777,42.668747
-      parent: 1
 - proto: DrinkMugBlack
   entities:
   - uid: 7793
@@ -73299,7 +73295,7 @@ entities:
       pos: -25.5,43.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -6615.2466
+      secondsUntilStateChange: -6758.7803
       state: Closing
   - uid: 9802
     components:
@@ -75723,6 +75719,27 @@ entities:
     components:
     - type: Transform
       pos: 17.401491,57.70645
+      parent: 1
+- proto: FoodCondimentSqueezeBottleClear
+  entities:
+  - uid: 22735
+    components:
+    - type: Transform
+      pos: -33.416336,45.753006
+      parent: 1
+- proto: FoodCondimentSqueezeBottleKetchup
+  entities:
+  - uid: 6958
+    components:
+    - type: Transform
+      pos: -33.83821,45.67488
+      parent: 1
+- proto: FoodCondimentSqueezeBottleMustard
+  entities:
+  - uid: 8024
+    components:
+    - type: Transform
+      pos: -33.61946,45.503006
       parent: 1
 - proto: FoodDonutHomer
   entities:
@@ -114836,6 +114853,13 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+- proto: KitchenAssembler
+  entities:
+  - uid: 6915
+    components:
+    - type: Transform
+      pos: -32.5,42.5
+      parent: 1
 - proto: KitchenElectricGrill
   entities:
   - uid: 7338
@@ -114852,6 +114876,18 @@ entities:
     components:
     - type: Transform
       pos: -34.5,44.5
+      parent: 1
+- proto: KitchenElectricRange
+  entities:
+  - uid: 13614
+    components:
+    - type: Transform
+      pos: -37.5,47.5
+      parent: 1
+  - uid: 13742
+    components:
+    - type: Transform
+      pos: -38.5,47.5
       parent: 1
 - proto: KitchenKnife
   entities:
@@ -114901,11 +114937,6 @@ entities:
     components:
     - type: Transform
       pos: -2.5,-22.5
-      parent: 1
-  - uid: 22557
-    components:
-    - type: Transform
-      pos: -37.5,47.5
       parent: 1
 - proto: KitchenReagentGrinder
   entities:
@@ -115259,6 +115290,9 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1618:
+        - - Pressed
+          - Open
+        1105:
         - - Pressed
           - Open
 - proto: LockableButtonCommand
@@ -116906,6 +116940,13 @@ entities:
     components:
     - type: Transform
       pos: -31.5,-5.5
+      parent: 1
+- proto: MedicalAssembler
+  entities:
+  - uid: 22557
+    components:
+    - type: Transform
+      pos: 10.5,26.5
       parent: 1
 - proto: MedicalBed
   entities:
@@ -128878,11 +128919,6 @@ entities:
     - type: Transform
       pos: -1.4252716,33.51484
       parent: 1
-  - uid: 13614
-    components:
-    - type: Transform
-      pos: 12.51582,22.629185
-      parent: 1
 - proto: ScrapMopBucket
   entities:
   - uid: 13755
@@ -135799,11 +135835,6 @@ entities:
     - type: Transform
       pos: -34.5,44.5
       parent: 1
-  - uid: 6915
-    components:
-    - type: Transform
-      pos: -37.5,47.5
-      parent: 1
   - uid: 6920
     components:
     - type: Transform
@@ -136119,11 +136150,6 @@ entities:
     - type: Transform
       pos: -15.5,-29.5
       parent: 1
-  - uid: 13742
-    components:
-    - type: Transform
-      pos: -38.5,47.5
-      parent: 1
   - uid: 13797
     components:
     - type: Transform
@@ -136238,11 +136264,6 @@ entities:
     components:
     - type: Transform
       pos: -71.5,63.5
-      parent: 1
-  - uid: 15496
-    components:
-    - type: Transform
-      pos: 12.5,22.5
       parent: 1
   - uid: 15528
     components:
@@ -138574,10 +138595,10 @@ entities:
     - type: Transform
       pos: 6.5,36.5
       parent: 1
-  - uid: 8024
+  - uid: 15496
     components:
     - type: Transform
-      pos: 10.5,26.5
+      pos: 12.5,22.5
       parent: 1
 - proto: VendingMachineMediDrobe
   entities:
@@ -153660,7 +153681,7 @@ entities:
       - 20448
       - 20579
       - 21057
-- proto: WeaponEnergyTurretStation
+- proto: WeaponEnergyTurretSecurity
   entities:
   - uid: 6359
     components:
@@ -153680,7 +153701,7 @@ entities:
       deviceLists:
       - 7700
       - 9192
-- proto: WeaponEnergyTurretStationControlPanel
+- proto: WeaponEnergyTurretSecurityControlPanel
   entities:
   - uid: 6373
     components:

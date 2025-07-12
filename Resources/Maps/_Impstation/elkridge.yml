@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 261.2.0
+  engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/05/2025 17:25:16
-  entityCount: 17632
+  time: 07/10/2025 06:05:35
+  entityCount: 17633
 maps:
 - 1
 grids:
@@ -468,6 +468,8 @@ entities:
             id: Bot
           decals:
             14366: 12,-6
+            14397: 40,20
+            14398: 40,17
         - node:
             color: '#D4D4D496'
             id: BotGreyscale
@@ -14006,7 +14008,7 @@ entities:
       pos: 9.5,-20.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -3681.1333
+      secondsUntilStateChange: -3933.6162
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14416,7 +14418,7 @@ entities:
       pos: 47.5,5.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -465685.12
+      secondsUntilStateChange: -465937.6
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -18114,10 +18116,10 @@ entities:
       parent: 2
 - proto: Beaker
   entities:
-  - uid: 430
+  - uid: 1627
     components:
     - type: Transform
-      pos: 11.493992,-2.181004
+      pos: 11.452671,-1.2790048
       parent: 2
   - uid: 8821
     components:
@@ -59732,12 +59734,12 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 9.5,3.5
       parent: 2
-- proto: FoodCondimentBottleEnzyme
+- proto: FoodCondimentSqueezeBottleClear
   entities:
-  - uid: 451
+  - uid: 430
     components:
     - type: Transform
-      pos: 11.587742,-1.806004
+      pos: 11.668678,-1.0972638
       parent: 2
 - proto: FoodDonutChocolate
   entities:
@@ -84594,9 +84596,23 @@ entities:
     - type: Transform
       pos: 28.622116,-32.039066
       parent: 2
+- proto: KitchenAssembler
+  entities:
+  - uid: 451
+    components:
+    - type: Transform
+      pos: 11.5,1.5
+      parent: 2
 - proto: KitchenElectricGrill
   entities:
-  - uid: 1431
+  - uid: 289
+    components:
+    - type: Transform
+      pos: 11.5,-2.5
+      parent: 2
+- proto: KitchenElectricRange
+  entities:
+  - uid: 17633
     components:
     - type: Transform
       pos: 12.5,-1.5
@@ -85360,11 +85376,6 @@ entities:
     components:
     - type: Transform
       pos: 38.5,17.5
-      parent: 2
-  - uid: 4046
-    components:
-    - type: Transform
-      pos: 40.5,17.5
       parent: 2
   - uid: 9121
     components:
@@ -86584,6 +86595,13 @@ entities:
     components:
     - type: Transform
       pos: -41.5,-47.5
+      parent: 2
+- proto: MedicalAssembler
+  entities:
+  - uid: 1431
+    components:
+    - type: Transform
+      pos: 40.5,17.5
       parent: 2
 - proto: MedicalBed
   entities:
@@ -101207,11 +101225,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 7.5,-1.5
       parent: 2
-  - uid: 289
-    components:
-    - type: Transform
-      pos: 12.5,-1.5
-      parent: 2
   - uid: 293
     components:
     - type: Transform
@@ -103515,10 +103528,9 @@ entities:
       parent: 2
 - proto: VendingMachineCondiments
   entities:
-  - uid: 1627
+  - uid: 4046
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 8.5,1.5
       parent: 2
 - proto: VendingMachineCourierDrobe
@@ -117359,7 +117371,7 @@ entities:
       - 10364
       - 8406
       - 5553
-- proto: WeaponEnergyTurretStation
+- proto: WeaponEnergyTurretSecurity
   entities:
   - uid: 2031
     components:
@@ -117391,7 +117403,7 @@ entities:
       deviceLists:
       - 1870
       - 5456
-- proto: WeaponEnergyTurretStationControlPanel
+- proto: WeaponEnergyTurretSecurityControlPanel
   entities:
   - uid: 1870
     components:

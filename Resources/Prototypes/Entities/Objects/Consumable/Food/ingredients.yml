@@ -664,6 +664,12 @@
   - type: SliceableFood
     count: 3
     slice: FoodButterSlice
+  - type: Extractable # Frontier
+    grindableSolutionName: food
+  - type: Tag # Frontier
+    tags:
+    - Ingredient
+    - NFButterStick
 
 - type: entity
   name: butter slice

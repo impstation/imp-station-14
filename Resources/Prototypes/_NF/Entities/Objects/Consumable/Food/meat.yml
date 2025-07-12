@@ -1,0 +1,106 @@
+# Raw
+- type: entity
+  parent: FoodMeatRotten
+  id: FoodMeatGoblin
+  name: raw goblin meat
+  description: Just look at that marbling! Wait, is that microplastic?
+  components:
+  - type: Sprite
+    state: rotten
+    color: lime
+
+- type: entity
+  name: raw fish fillet
+  parent: FoodMeatBase
+  id: FoodCuredCarp
+  description: A slice of fresh space fish, safe to eat. Smells like space and fish.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - fishy
+  - type: Tag
+    tags:
+    - Raw
+    - Meat
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/meat.rsi
+    state: cured-carp
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 9
+        - ReagentId: Fat
+          Quantity: 9
+
+# Cooked
+
+- type: entity
+  name: honey glazed ham
+  parent: FoodMeatBase
+  id: FoodMeatGlazedHam
+  description: A slow-cooked ham, glazed in caramelized honey and cured with salt.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - meat
+      - honey
+      - salty
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/meat.rsi
+    state: honeyglazedham
+  - type: SliceableFood
+    count: 4
+    slice: FoodMeatGlazedHamSlice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Protein
+          Quantity: 9
+        - ReagentId: TableSalt
+          Quantity: 5
+  - type: Tag
+    tags:
+    - Meat
+
+- type: entity
+  name: honey glazed ham slice
+  parent: FoodMeatBase
+  id: FoodMeatGlazedHamSlice
+  description: A slice of wonderful ham, glazed in delicious honey.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - meat
+      - honey
+      - salty
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2.5
+        - ReagentId: Protein
+          Quantity: 2.25
+        - ReagentId: TableSalt
+          Quantity: 1.25
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/meat.rsi
+    layers:
+      - state: honeyglazedhamslice
+        map: [ "Slice" ]
+  - type: RandomSprite
+    available:
+      - Slice:
+          honeyglazedhamslice: ""
+          normalhamslice: ""
+  - type: Tag
+    tags:
+      - Slice
+      - Meat
