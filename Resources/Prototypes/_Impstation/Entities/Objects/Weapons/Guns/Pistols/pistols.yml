@@ -113,7 +113,7 @@
   - type: BallisticAmmoProvider
     whitelist:
       tags:
-      - CartridgeMinigun
+      - CartridgeHeavyRifle
     capacity: 30
     proto: CartridgeMinigun
     cycleable: false
@@ -219,23 +219,79 @@
     proto: CartridgeMinigun
 
 - type: entity
-  name: broken gun
-  parent: BaseItem
-  id: BrokenValuShot
-  description: The logical conclusion for a real bargain.
+  name: Dan's Limited-Edition ValuShot 9000 Premium Deluxe
+  parent: WeaponPistolValu
+  id: WeaponPistolValuPlus
+  description: A coveted weapon gifted to the early adopters that had invested in the ValuShot campaign for a high price.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Pistols/valu.rsi
-    state: broken
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Blunt: 4
-  - type: Tag
-    tags:
-    - Trash
+    sprite: _Impstation/Objects/Weapons/Guns/Pistols/valuplus.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Pistols/valuplus.rsi
+  - type: Item
+    sprite: _Impstation/Objects/Weapons/Guns/Pistols/valuplus.rsi
+  - type: Gun
+    fireRate: 10
+    minAngle: 10
+    maxAngle: 15
+    angleIncrease: 1
+    angleDecay: 30
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/pistolvaluplus.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - CartridgeHeavyRifle
+    capacity: 50
+    proto: CartridgeValuShotPlus
+    cycleable: false
+    mayTransfer: false
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/hpistol_magin.ogg
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/hpistol_cock.ogg
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 8
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          BrokenValuShotPlus:
+            min: 1
+            max: 1
+          TreasureCoinGold:
+            min: 0
+            max: 5
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: PhysicalComposition
     materialComposition:
-      Plastic: 200
-      Steel: 50
-  - type: SpaceGarbage
+      Gold: 200
+      Silver: 50
+  - type: MeleeWeapon
+    range: 0.8
+    attackRate: 0.5
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+    soundSwing:
+      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
+    resetOnHandSelected: false
+    wideAnimationRotation: -80
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 18
+    damage:
+      types:
+        Blunt: 16

@@ -14,3 +14,13 @@
     materialComposition:
       Plastic: 10
       Steel: 10
+
+- type: entity
+  id: CartridgeValuShotPlus
+  name: cartridge (.10 mini)
+  description: A micro cartridge designed to make the dreams of a greedy capitalist real.
+  parent: BaseCartridgeHeavyRifle
+  components:
+  - type: CartridgeAmmo
+    proto: BulletValuPlus
+    deleteOnSpawn: true
