@@ -30,6 +30,71 @@
   - type: Stack
     stackType: FloorTileCraftedAsphalt
 
+- type: entity
+  parent: FloorTileItemBase
+  id: FloorTileItemChapelNE
+  name: chapel tile (north-east)
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Tiles/chapel.rsi
+    state: chapelNE
+  - type: Item
+    heldPrefix: generic
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorChapelNE
+  - type: Stack
+    stackType: FloorTileChapelNE
+
+- type: entity
+  parent: FloorTileItemChapelNE
+  id: FloorTileItemChapelNW
+  name: chapel tile (north-west)
+  components:
+  - type: Sprite
+    state: chapelNW
+  - type: Item
+    heldPrefix: generic
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorChapelNW
+  - type: Stack
+    stackType: FloorTileChapelNW
+
+- type: entity
+  parent: FloorTileItemChapelNE
+  id: FloorTileItemChapelSE
+  name: chapel tile (south-east)
+  components:
+  - type: Sprite
+    state: chapelSE
+  - type: Item
+    heldPrefix: generic
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorChapelSE
+  - type: Stack
+    stackType: FloorTileChapelSE
+
+- type: entity
+  parent: FloorTileItemChapelNE
+  id: FloorTileItemChapelSW
+  name: chapel tile (south-west)
+  components:
+  - type: Sprite
+    state: chapelSW
+  - type: Item
+    heldPrefix: generic
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorChapelSW
+  - type: Stack
+    stackType: FloorTileChapelSW
+
 # Faux sci tiles
 - type: entity
   id: FloorTileItemShoveledAstroSnow
