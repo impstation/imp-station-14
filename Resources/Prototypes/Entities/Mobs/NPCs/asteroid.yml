@@ -60,7 +60,7 @@
     baseSprintSpeed : 2.00
   - type: Bloodstream
     bloodMaxVolume: 350
-    chemicalMaxVolume: 0
+    chemicalMaxVolume: 20 #imp
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -103,13 +103,18 @@
       amount: 3
     - id: MaterialGoliathHide1
       amount: 3
+  - type: InteractionPopup #imp
+    successChance: 0.5
+    interactSuccessString: petting-success-goliath
+    interactFailureString: petting-failure-goliath
 
 - type: entity
+  parent: BaseAction
   id: ActionGoliathTentacle
   name: "[color=red]Tentacle Slam[/color]"
   description: Use your tentacles to grab and stun a target player!
   components:
-  - type: EntityWorldTargetAction
+  - type: Action
     raiseOnUser: true
     icon:
       sprite: Mobs/Aliens/Asteroid/goliath.rsi
@@ -119,9 +124,11 @@
       state: goliath_tentacle_wiggle
     sound:
       path: "/Audio/Weapons/slash.ogg"
-    event: !type:GoliathSummonTentacleAction
     useDelay: 8
+  - type: TargetAction
     range: 10
+  - type: WorldTargetAction
+    event: !type:GoliathSummonTentacleAction
 
 - type: entity
   id: GoliathTentacle
@@ -197,7 +204,7 @@
 
 - type: entity
   id: MobHivelord
-  parent: [ BaseMobAsteroid, FlyingMobBase ]
+  parent: [ BaseMobAsteroid, FlyingMobBase, MobBloodstream ]
   name: hivelord
   description: A truly alien creature, it is a mass of unknown organic material, constantly fluctuating. When attacking, pieces of it split off and attack in tandem with the original.
   components:
@@ -254,10 +261,17 @@
   - type: Butcherable
     spawned:
     - id: FoodHivelordRemains
+  - type: Bloodstream #imp
+    bloodMaxVolume: 350
+    chemicalMaxVolume: 20
+  - type: InteractionPopup #imp
+    successChance: 0.5
+    interactSuccessString: petting-success-hivelord
+    interactFailureString: petting-failure-hivelord
 
 - type: entity
   id: MobHivelordBrood
-  parent: [ BaseMobAsteroid, FlyingMobBase ]
+  parent: [ BaseMobAsteroid, FlyingMobBase, MobBloodstream ]
   name: hivelord brood
   description: A fragment of the original hivelord, rallying behind its original. One isn't much of a threat, but...
   components:
@@ -307,6 +321,13 @@
         true
   - type: TimedDespawn
     lifetime: 100
+  - type: Bloodstream #imp
+    bloodMaxVolume: 350
+    chemicalMaxVolume: 20
+  - type: InteractionPopup #imp
+    successChance: 0.5
+    interactSuccessString: petting-success-hivelordbrood
+    interactFailureString: petting-failure-hivelordbrood
 
 - type: entity
   id: FoodHivelordRemains
@@ -378,12 +399,12 @@
       Dead:
         Base: basilisk_dead
   - type: MovementSpeedModifier
-    baseWalkSpeed : 3
-    baseSprintSpeed : 3.5
+    baseWalkSpeed : 2
+    baseSprintSpeed : 3
   - type: MobThresholds
     thresholds:
       0: Alive
-      80: Dead
+      75: Dead
   - type: MeleeWeapon
     angle: 0
     animation: WeaponArcBite
@@ -395,6 +416,7 @@
         Piercing: 5
   - type: Gun
     fireRate: 0.75
+    projectileSpeed: 10.0 # When we get predicted guns and projectiles this should be raised to like 15, 15 mis-predicts too much right now unfortunately.
     selectedMode: SemiAuto
     showExamineText: false
     availableModes: [ SemiAuto ]
@@ -409,7 +431,7 @@
     count: 1
   - type: Bloodstream
     bloodMaxVolume: 200
-    chemicalMaxVolume: 0
+    chemicalMaxVolume: 20 #imp
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -432,3 +454,7 @@
     - id: DiamondOre1
       amount: 1
       maxAmount: 3
+  - type: InteractionPopup #imp
+    successChance: 0.5
+    interactSuccessString: petting-success-basilisk
+    interactFailureString: petting-failure-basilisk

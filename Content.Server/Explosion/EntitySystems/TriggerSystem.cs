@@ -19,6 +19,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Payload.Components;
+using Content.Shared.Projectiles; // imp edit
 using Content.Shared.Radio;
 using Content.Shared.Slippery;
 using Content.Shared.StepTrigger.Systems;
@@ -104,6 +105,7 @@ namespace Content.Server.Explosion.EntitySystems
             SubscribeLocalEvent<TriggerOnStepTriggerComponent, StepTriggeredOffEvent>(OnStepTriggered);
             SubscribeLocalEvent<TriggerOnSlipComponent, SlipEvent>(OnSlipTriggered);
             SubscribeLocalEvent<TriggerWhenEmptyComponent, OnEmptyGunShotEvent>(OnEmptyTriggered);
+            SubscribeLocalEvent<TriggerOnEmbedComponent, EmbedEvent>(OnEmbedTriggered); // imp edit
             SubscribeLocalEvent<RepeatingTriggerComponent, MapInitEvent>(OnRepeatInit);
 
             SubscribeLocalEvent<SpawnOnTriggerComponent, TriggerEvent>(OnSpawnTrigger);
@@ -152,7 +154,7 @@ namespace Content.Server.Explosion.EntitySystems
                 return;
             }
 
-            _electrocution.TryDoElectrocution(containerEnt, null, shockOnTrigger.Comp.Damage, shockOnTrigger.Comp.Duration, true);
+            _electrocution.TryDoElectrocution(containerEnt, null, shockOnTrigger.Comp.Damage, shockOnTrigger.Comp.Duration, true, ignoreInsulation: true);
             shockOnTrigger.Comp.NextTrigger = curTime + shockOnTrigger.Comp.Cooldown;
         }
 
@@ -307,6 +309,12 @@ namespace Content.Server.Explosion.EntitySystems
         private void OnEmptyTriggered(EntityUid uid, TriggerWhenEmptyComponent component, ref OnEmptyGunShotEvent args)
         {
             Trigger(uid, args.EmptyGun);
+        }
+
+        // imp edit, allow a projectile to explode when it embeds into something
+        private void OnEmbedTriggered(Entity<TriggerOnEmbedComponent> ent, ref EmbedEvent args)
+        {
+            Trigger(ent, args.Embedded);
         }
 
         private void OnRepeatInit(Entity<RepeatingTriggerComponent> ent, ref MapInitEvent args)
