@@ -29,6 +29,7 @@ public sealed class BreakerFlipRule : StationEventSystem<BreakerFlipRuleComponen
             null,
             Color.Gold,
             null, null,
+            null, //imp
             ("data", Loc.GetString($"random-sentience-event-data-{RobustRandom.Next(1, 6)}"))
         );
     }
