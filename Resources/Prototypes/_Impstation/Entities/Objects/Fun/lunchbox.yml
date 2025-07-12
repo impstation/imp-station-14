@@ -112,10 +112,38 @@
       ──────────────────────────────────────────
           To whom it may concern,
 
-      Thank you for your continued efforts towards upkeeping our relations with Nanotrasen. Your external work is appreciated, and The royal court weeps for every second one of our own is absent. 
+      Thank you for your continued efforts towards upkeeping our relations with Nanotrasen. Your external work is appreciated, and The royal court weeps for every second one of our own is absent.
 
       We look forward to your safe return.
 
       ──────────────────────────────────────────
-      Remain productive, 
+      Remain productive,
       Queen R'zs'vz III.
+
+- type: entity
+  id: SteelLunchboxSyndicate
+  name: lunchbox
+  description: The Lunchbox of choice for the discerning des(s)erter. Extra roomy.
+  parent: [ SteelLunchbox, BaseSyndicateContraband ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Storage/Lunchboxes/lunchboxpink.rsi #placeholder, remember to retexture lunchbox before merge
+    state: icon
+  - type: Item
+    sprite: _Impstation/Objects/Storage/Lunchboxes/lunchboxpink.rsi #placeholder, remember to retexture lunchbox before merge
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,3,2
+
+- type: entity
+  id: SteelLunchboxSyndicateMaid
+  name: lunchbox
+  description: The Lunchbox of choice for the discerning des(s)erter. Extra roomy.
+  parent: [ SteelLunchbox, BaseSyndicateContraband ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingHeadHatTacticalMaidHeadband
+    - id: ClothingUniformJumpskirtTacticalMaid
+    - id: ClothingHandsTacticalMaidGloves
