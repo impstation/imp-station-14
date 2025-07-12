@@ -26,8 +26,6 @@
   - ClothingShoesBootsMagRocket
   - HandHeldMassScanner
   - WeaponGrapplingGun
-  - Fulton
-  - FultonBeacon
 
 - type: thiefBackpackSet
   id: BountyHunterDisguise
@@ -43,7 +41,8 @@
   - CyberPen
   - DnaScramblerImplanter
   - FakeMindShieldImplanter
-  - SpaceCash30000
+  - MuteInjectorBox
+  - ChloralInjectorBox
 
 
 - type: thiefBackpackSet
@@ -54,10 +53,15 @@
     sprite: Objects/Tools/emag.rsi
     state: icon
   content:
+  - SyndicateBusinessCard
   - CameraBug
   - Emag
-  - AccessBreaker
   - RadioJammer
+  - ComputerIFFSyndicateCircuitboard
+  - SyndiCrewMonitor
+  - EncryptionKeySyndie
+  - Telecrystal10
+  - TraitorCodePaper
 
 
 - type: thiefBackpackSet
@@ -86,6 +90,8 @@
   - ClothingOuterDogi
   - DeathAcidifierImplanter
   - ScramImplanter
+  - RecallImplanter
+  - PSAUnpowered
 
 - type: thiefBackpackSet
   id: BountyHunterSyndie
@@ -101,8 +107,8 @@
   - EncryptionKeySyndie
   - EnergySword
   - EmpImplanter
-  - Telecrystal10
   - ClothingMaskGasSyndicate
+  - AccessBreaker
 
 - type: thiefBackpackSet
   id: BountyHunterCaptain
@@ -144,3 +150,18 @@
   - FoodPieBananaCream
   - FoodPieBananaCream
   - BikeHorn
+
+- type: thiefBackpackSet
+  id: BountyHunterPirate
+  name: bounty-hunter-category-pirate-name
+  description: bounty-hunter-category-pirate-description
+  sprite:
+    sprite: Objects/Misc/Handy_Flags/pirate_handy_flag.rsi
+    state: icon
+  content:
+  - CrateBountyHunterPirate
+  - ReinforcementRadioBountyHunterParrot
+  - EnergyCutlass
+  - Fulton
+  - FultonBeacon
+  - FoodOrange
