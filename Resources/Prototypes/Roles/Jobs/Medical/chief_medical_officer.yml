@@ -21,7 +21,7 @@
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
   supervisors: job-supervisors-hop-captain #imp
-  canBeAntag: false
+  canBeAntag: true # imp
   access:
   - Medical
   - Command

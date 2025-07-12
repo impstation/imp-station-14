@@ -13,7 +13,7 @@
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"
   supervisors: job-supervisors-hop-captain #imp
-  canBeAntag: false
+  canBeAntag: true # imp
   access:
   - Research
   - Command

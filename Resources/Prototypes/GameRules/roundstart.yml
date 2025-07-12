@@ -238,6 +238,9 @@
     - prefRoles: [ HeadRev ]
       max: 3
       playerRatio: 15
+      blacklist:
+        components:
+        - CommandStaff # imp edit to prevent command rolling headrev, while other antags are still available
       briefing:
         text: head-rev-role-greeting
         color: CornflowerBlue

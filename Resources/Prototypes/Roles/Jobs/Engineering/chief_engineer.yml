@@ -19,7 +19,7 @@
   startingGear: ChiefEngineerGear
   icon: "JobIconChiefEngineer"
   supervisors: job-supervisors-hop-captain #imp
-  canBeAntag: false
+  canBeAntag: true # imp
   access:
   - Maintenance
   - Engineering
