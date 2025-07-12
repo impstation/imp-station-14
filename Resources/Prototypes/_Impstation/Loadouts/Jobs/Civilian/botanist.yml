@@ -1,3 +1,13 @@
+# Senior times
+- type: loadoutEffectGroup
+  id: SeniorBotanist
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBotanist
+      time: 108000 #30 hrs, ~20 rounds #imp
+
 - type: loadout
   id: BotanistLeatherGloves
   equipment:
@@ -10,3 +20,17 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorBotanist
+
+# id
+- type: loadout
+  id: BotanistPDA
+  equipment:
+    id: BotanistPDA
+
+- type: loadout
+  id: SeniorBotanistPDA
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorBotanist
+  equipment:
+    id: SeniorBotanistPDA

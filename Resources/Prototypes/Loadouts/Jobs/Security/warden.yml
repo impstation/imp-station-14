@@ -1,12 +1,3 @@
-# Senior times
-- type: loadoutEffectGroup
-  id: SeniorWarden
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobWarden
-      time: 108000 #30 hrs, ~20 rounds #imp
 # Head
 - type: loadout
   id: WardenHead
@@ -39,22 +30,3 @@
   id: WardenArmoredWinterCoat
   equipment:
     outerClothing: ClothingOuterWinterWarden
-
-- type: loadout
-  id: WardenWinterCoatUnarmored
-  equipment:
-    outerClothing: ClothingOuterWinterWardenUnarmored
-
-# id
-- type: loadout
-  id: WardenPDA
-  equipment:
-    id: WardenPDA
-
-- type: loadout
-  id: SeniorWardenPDA
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorWarden
-  equipment:
-    id: SeniorWardenPDA

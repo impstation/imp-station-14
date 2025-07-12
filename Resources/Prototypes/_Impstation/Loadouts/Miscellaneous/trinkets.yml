@@ -12,30 +12,35 @@
   storage:
     back:
     - ClothingNeckNoviceMark
+  groupBy: "accessibility"
 
 - type: loadout
   id: CigPackNewport
   storage:
     back:
     - CigPackNewport
+  groupBy: "smokeables"
 
 - type: loadout
   id: CigPackSpirits
   storage:
     back:
     - CigPackSpirits
+  groupBy: "smokeables"
 
 - type: loadout
   id: VapeSwappable
   storage:
     back:
     - VapeSwappable
+  groupBy: "smokeables"
 
 - type: loadout
   id: VapeCart
   storage:
     back:
     - WaterVapeCart
+  groupBy: "smokeables"
 
 - type: loadout
   id: TutorialAI_Newcomer #imp. <15 hours.
@@ -45,30 +50,35 @@
   storage:
     back:
     - TutorialPersonalAI
+  groupBy: "accessibility"
 
 - type: loadout
   id: FolderHamster
   storage:
     back:
     - BoxFolderHamster
+  groupBy: "bureaucracy"
 
 - type: loadout
   id: FolderMime
   storage:
     back:
     - BoxFolderMime
+  groupBy: "bureaucracy"
 
 - type: loadout
   id: FolderPun
   storage:
     back:
     - BoxFolderPun
+  groupBy: "bureaucracy"
 
 - type: loadout
   id: Clipboard
   storage:
     back:
     - BoxFolderClipboard
+  groupBy: "bureaucracy"
 
 - type: loadout
   id: HarmonicaInstrument
@@ -87,87 +97,130 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: MusicallyTalented
+  groupBy: "baubles"
 
 - type: loadout
   id: FlippoLighter
   storage:
     back:
     - FlippoLighter
+  groupBy: "smokeables"
 
 - type: loadout
   id: WalkingCane
   storage:
     back:
     - WalkingCane
+  groupBy: "baubles"
 
 - type: loadout
   id: ClothingHeadHatKippahSimple
   storage:
     back:
     - ClothingHeadHatKippahSimple
+  groupBy: "headwear"
 
 - type: loadout
   id: ClothingHeadHatKippahWhiteAndBlue
   storage:
     back:
     - ClothingHeadHatKippahWhiteAndBlue
+  groupBy: "headwear"
 
 - type: loadout
   id: ClothingHeadHatKippahBlueAndGold
   storage:
     back:
     - ClothingHeadHatKippahBlueAndGold
+  groupBy: "headwear"
 
 - type: loadout
   id: ClothingHeadPaperSack
   storage:
     back:
     - ClothingHeadPaperSack
+  groupBy: "headwear"
 
 - type: loadout
   id: ClothingHeadPaperSackSmile
   storage:
     back:
     - ClothingHeadPaperSackSmile
+  groupBy: "headwear"
 
 - type: loadout
   id: HeartLocket
   storage:
     back:
     - HeartLocket
+  groupBy: "neckwear"
 
 - type: loadout
   id: HeartLocketSilver
   storage:
     back:
     - HeartLocketSilver
+  groupBy: "neckwear"
 
 - type: loadout
   id: WristwatchTrinket
   storage:
     back:
     - WristwatchTrinket
+  groupBy: "handwear"
 
 - type: loadout
   id: GoldRingTrinket
   storage:
     back:
     - GoldRingTrinket
+  groupBy: "handwear"
 
 - type: loadout
   id: SilverRingTrinket
   storage:
     back:
     - SilverRingTrinket
+  groupBy: "handwear"
 
 - type: loadout
   id: PlushieDoll
   storage:
     back:
     - PlushieDoll
+  groupBy: "baubles"
 
 - type: loadout
   id: PlushieDollHair
   storage:
     back:
     - PlushieDollHair
+  groupBy: "baubles"
+
+- type: loadout
+  id: CardBoxBlack
+  storage:
+    back:
+    - CardBoxBlack
+  groupBy: "baubles"
+
+- type: loadout
+  id: FolderBlack
+  storage:
+    back:
+    - BoxFolderBlackLoadout
+  groupBy: "bureaucracy"
+
+- type: loadout
+  id: BarFlask
+  storage:
+    back:
+    - DrinkFlaskBar
+  groupBy: "baubles"
+
+- type: loadout
+  id: NewtonCradle
+  storage:
+    back:
+    - NewtonCradle
+  groupBy: "baubles"

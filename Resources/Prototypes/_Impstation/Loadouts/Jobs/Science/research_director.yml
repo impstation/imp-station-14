@@ -8,6 +8,17 @@
       role: JobResearchDirector
       time: 108000 #30 hrs, ~20 rounds
 
+# Headset
+- type: loadout
+  id: ResearchDirectorHeadsetBasic
+  equipment:
+    ears: ClothingHeadsetRD
+
+- type: loadout
+  id: ResearchDirectorHeadset
+  equipment:
+    ears: ClothingHeadsetAltScience
+
 - type: loadout
   id: ResearchDirectorVeteranHeadset
   equipment:

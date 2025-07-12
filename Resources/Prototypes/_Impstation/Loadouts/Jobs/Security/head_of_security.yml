@@ -8,6 +8,17 @@
       role: JobHeadOfSecurity
       time: 54000 #15 hrs, ~10 rounds, half the standard due to HoS having an extreme unlock requirement
 
+# Headset
+- type: loadout
+  id: HeadofSecurityHeadsetBasic
+  equipment:
+    ears: ClothingHeadsetHOS
+
+- type: loadout
+  id: HeadofSecurityHeadset
+  equipment:
+    ears: ClothingHeadsetAltSecurity
+
 - type: loadout
   id: HeadofSecurityVeteranHeadset
   equipment:
@@ -16,6 +27,13 @@
   - !type:GroupLoadoutEffect
     proto: VeteranHOS
 
+# Head
+- type: loadout
+  id: HeadofSecurityPatrolCap
+  equipment:
+    head: ClothingHeadHatHOSsoft
+
+# Outer clothing
 - type: loadout
   id: HeadofSecurityGreatcoat
   equipment:
@@ -25,19 +43,45 @@
     proto: VeteranHOS
 
 - type: loadout
+  id: HeadofSecurityWinterCoatUnarmored
+  equipment:
+    outerClothing: ClothingOuterWinterHoSUnarmored
+
+- type: loadout
   id: HeadofSecurityEliteArmor
   equipment:
     outerClothing: ClothingOuterArmorHoSEliteArmor
 
+# Jumpsuit
 - type: loadout
   id: HeadofSecurityJumpsuitGrey
   equipment:
     jumpsuit: ClothingUniformJumpsuitHoSGrey
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: HeadofSecurityJumpskirtGrey
   equipment:
     jumpsuit: ClothingUniformJumpskirtHoSGrey
+  groupBy: "jumpskirt"
+
+- type: loadout
+  id: HeadofSecurityProfessionalJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHoSPro
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: HeadofSecurityProfessionalJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtHoSPro
+  groupBy: "jumpskirt"
+
+# Belt
+- type: loadout
+  id: HeadofSecurityShoulderHolster
+  equipment:
+    belt: ClothingBeltHolsterHOSFilled
 
 # Firearms
 - type: loadout

@@ -54,7 +54,6 @@
       time: 7200 #2 hrs, ~2 rounds
 
 # colorful glasses loadouts
-
 - type: loadout
   id: GlassesColorfulPink
   effects:
@@ -62,6 +61,7 @@
     proto: ServiceGlassesTimer
   equipment:
     eyes: ClothingEyesGlassesColorfulPink
+  groupBy: "style"
 
 - type: loadout
   id: GlassesColorfulRed
@@ -70,6 +70,7 @@
     proto: SecurityGlassesTimer
   equipment:
     eyes: ClothingEyesGlassesColorfulRed
+  groupBy: "style"
 
 - type: loadout
   id: GlassesColorfulBlue
@@ -78,6 +79,7 @@
     proto: MedicalGlassesTimer
   equipment:
     eyes: ClothingEyesGlassesColorfulBlue
+  groupBy: "style"
 
 - type: loadout
   id: GlassesColorfulGreen
@@ -86,6 +88,7 @@
     proto: EngineeringGlassesTimer
   equipment:
     eyes: ClothingEyesGlassesColorfulGreen
+  groupBy: "style"
 
 - type: loadout
   id: GlassesColorfulPurple
@@ -94,6 +97,7 @@
     proto: ScienceGlassesTimer
   equipment:
     eyes: ClothingEyesGlassesColorfulPurple
+  groupBy: "style"
 
 - type: loadout
   id: GlassesColorfulYellow
@@ -102,3 +106,18 @@
     proto: CargoGlassesTimer
   equipment:
     eyes: ClothingEyesGlassesColorfulYellow
+  groupBy: "style"
+
+# Cheap sunglasses
+- type: loadout
+  id: GlassesCheapSunglasses
+  equipment:
+    eyes: ClothingEyesGlassesCheapSunglasses
+  groupBy: "style"
+
+# eyepatch
+- type: loadout
+  id: EyePatch
+  equipment:
+    eyes: ClothingEyesEyepatch
+  groupBy: "style"

@@ -32,6 +32,11 @@
 
 # Glasses
 - type: loadout
+  id: CaptainSunglasses
+  equipment:
+    eyes: ClothingEyesGlassesSunglasses
+
+- type: loadout
   id: CaptainVisor
   equipment:
     eyes: ClothingEyesGlassesCaptainvisor
@@ -57,6 +62,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: VeteranCap
+
 # Outer clothing
 - type: loadout
   id: CaptainRepeller
@@ -65,11 +71,21 @@
 
 # Gloves
 - type: loadout
+  id: CaptainGloves
+  equipment:
+    gloves: ClothingHandsGlovesCaptain
+
+- type: loadout
   id: CaptainFlightGloves
   equipment:
     gloves: ClothingHandsGlovesCaptainflightgloves
 
 # Shoes
+- type: loadout
+  id: LacedShoes
+  equipment:
+    shoes: ClothingShoesBootsLaceup
+
 - type: loadout
   id: CaptainJumpBoots
   equipment:
@@ -79,3 +95,14 @@
   id: CaptainHeeledBoots
   equipment:
     shoes: ClothingShoesCaptainHighheelBoots
+
+# Headset
+- type: loadout
+  id: CommandHeadsetBasic
+  equipment:
+    ears: ClothingHeadsetCommand
+
+- type: loadout
+  id: CommandHeadset
+  equipment:
+    ears: ClothingHeadsetAltCommand
