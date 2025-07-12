@@ -4,6 +4,7 @@ using Content.Server.Chemistry.TileReactions;
 using Content.Server.DoAfter;
 using Content.Server.Fluids.Components;
 using Content.Server.Spreader;
+using Content.Shared._Goobstation.Footprints;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
@@ -471,6 +472,11 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
 
     private void UpdateSlow(EntityUid uid, PuddleComponent component, Solution solution)
     {
+        // Corvax-Next-Footprints-Start
+        if (!component.AffectsMovement)
+            return;
+        // Corvax-Next-Footprints-End
+
         var totalViscosity = 0f;
         var totalQuantity = 0f;
         var fullPuddleAmount = FixedPoint2.New(component.OverflowVolume.Float() * LowThreshold);
@@ -729,6 +735,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         var anchored = _map.GetAnchoredEntitiesEnumerator(gridId, mapGrid, tileRef.GridIndices);
         var puddleQuery = GetEntityQuery<PuddleComponent>();
         var sparklesQuery = GetEntityQuery<EvaporationSparkleComponent>();
+        var footprintQuery = GetEntityQuery<FootprintComponent>(); // Corvax-Next-Footprints
 
         while (anchored.MoveNext(out var ent))
         {
@@ -741,6 +748,11 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
 
             if (!puddleQuery.TryGetComponent(ent, out var puddle))
                 continue;
+
+            // Corvax-Next-Footprints-Start
+            if (footprintQuery.HasComp(ent))
+                continue;
+            // Corvax-Next-Footprints-End
 
             if (TryAddSolution(ent.Value, solution, sound, puddleComponent: puddle))
             {
@@ -790,11 +802,17 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
 
         var anc = _map.GetAnchoredEntitiesEnumerator(tile.GridUid, grid, tile.GridIndices);
         var puddleQuery = GetEntityQuery<PuddleComponent>();
+        var footprintQuery = GetEntityQuery<FootprintComponent>(); // Corvax-Next-Footprints
 
         while (anc.MoveNext(out var ent))
         {
             if (!puddleQuery.HasComponent(ent.Value))
                 continue;
+
+            // Corvax-Next-Footprints-Start
+            if (footprintQuery.HasComponent(ent.Value))
+                continue;
+            // Corvax-Next-Footprints-End
 
             puddleUid = ent.Value;
             return true;
