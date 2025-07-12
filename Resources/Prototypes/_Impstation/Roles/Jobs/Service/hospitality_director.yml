@@ -22,7 +22,7 @@
   startingGear: HospitalityDirectorGear
   icon: JobIconHospitalityDirector
   supervisors: job-supervisors-hop-captain
-  canBeAntag: false
+  canBeAntag: true
   accessGroups:
   - Service #why don't other heads have their accesses set up this way?
   access:

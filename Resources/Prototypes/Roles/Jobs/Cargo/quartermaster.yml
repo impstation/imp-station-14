@@ -19,7 +19,7 @@
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
   supervisors: job-supervisors-hop-captain #imp
-  canBeAntag: false
+  canBeAntag: true # imp
   access:
   - Cargo
   - Courier #Imp
