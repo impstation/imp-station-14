@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/10/2025 05:08:20
-  entityCount: 28194
+  time: 07/10/2025 23:26:20
+  entityCount: 28193
 maps:
 - 780
 grids:
@@ -12123,7 +12123,7 @@ entities:
       pos: 24.5,16.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -145662.28
+      secondsUntilStateChange: -145726.05
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -85506,7 +85506,7 @@ entities:
       pos: -34.5,-14.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -139850.84
+      secondsUntilStateChange: -139914.61
       state: Closing
   - uid: 15010
     components:
@@ -123573,11 +123573,6 @@ entities:
     - type: Transform
       pos: -9.5991,-25.410784
       parent: 8364
-  - uid: 5001
-    components:
-    - type: Transform
-      pos: 38.4924,-28.821447
-      parent: 8364
   - uid: 14338
     components:
     - type: Transform
@@ -124159,7 +124154,7 @@ entities:
       pos: 28.5,-34.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -119621.19
+      secondsUntilStateChange: -119684.95
       state: Closing
 - proto: hydroponicsSoil
   entities:
@@ -126290,6 +126285,13 @@ entities:
     - type: Transform
       pos: -31.488705,-11.49092
       parent: 8364
+- proto: MedicalAssembler
+  entities:
+  - uid: 2554
+    components:
+    - type: Transform
+      pos: 38.5,-28.5
+      parent: 8364
 - proto: MedicalBed
   entities:
   - uid: 2499
@@ -126407,24 +126409,24 @@ entities:
   - uid: 1763
     components:
     - type: Transform
-      pos: 38.75003,-29.556377
+      pos: 39.1655,-29.532703
       parent: 8364
   - uid: 1769
     components:
     - type: Transform
-      pos: 38.68753,-29.353252
+      pos: 39.033558,-29.26187
       parent: 8364
 - proto: MedkitRadiationFilled
   entities:
   - uid: 1767
     components:
     - type: Transform
-      pos: 39.390656,-29.400127
+      pos: 39.728,-29.629927
       parent: 8364
   - uid: 26058
     components:
     - type: Transform
-      pos: 39.46878,-29.572002
+      pos: 39.575226,-29.400759
       parent: 8364
   - uid: 28416
     components:
@@ -129578,6 +129580,11 @@ entities:
     - type: Transform
       pos: 5.5,-44.5
       parent: 8364
+  - uid: 5001
+    components:
+    - type: Transform
+      pos: 38.5,-29.5
+      parent: 8364
   - uid: 12054
     components:
     - type: Transform
@@ -129645,11 +129652,6 @@ entities:
     components:
     - type: Transform
       pos: -4.5,-62.5
-      parent: 8364
-  - uid: 19846
-    components:
-    - type: Transform
-      pos: 38.5,-28.5
       parent: 8364
   - uid: 21179
     components:
@@ -149846,11 +149848,6 @@ entities:
     components:
     - type: Transform
       pos: 40.5,-29.5
-      parent: 8364
-  - uid: 2554
-    components:
-    - type: Transform
-      pos: 38.5,-28.5
       parent: 8364
   - uid: 2612
     components:
