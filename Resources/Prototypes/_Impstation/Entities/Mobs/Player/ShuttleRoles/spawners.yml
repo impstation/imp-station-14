@@ -54,3 +54,17 @@
   - type: RandomSpawner
     prototypes:
     - RandomHumanoidVisitorLibrarianCryptid
+
+- type: entity
+  name: party gray spawner
+  id: VisitorPartyGraySpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: _Impstation/Objects/Consumable/Drinks/uapglass.rsi
+        state: icon
+  - type: RandomSpawner
+    prototypes:
+    - MobGrayParty
