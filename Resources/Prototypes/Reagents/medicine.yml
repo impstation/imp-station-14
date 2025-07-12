@@ -1373,14 +1373,26 @@
         time: 8
         refresh: false
       - !type:GenericStatusEffect
+        conditions: # imp edit
+        - !type:OrganType
+          type: Thaven
+          shouldHave: false
         key: Jitter
         time: 2.0
         type: Remove
       - !type:GenericStatusEffect
+        conditions: # imp edit
+        - !type:OrganType
+          type: Thaven
+          shouldHave: false
         key: Drunk
         time: 6.0
         type: Remove
       - !type:PopupMessage # we dont have sanity/mood so this will have to do
+        conditions: # imp edit
+        - !type:OrganType
+          type: Thaven
+          shouldHave: false
         type: Local
         visualType: Medium
         messages:
@@ -1388,6 +1400,22 @@
         - "psicodine-effect-anxieties-wash-away"
         - "psicodine-effect-at-peace"
         probability: 0.2
+      - !type:HealthChange # imp add
+        conditions:
+        - !type:ReagentThreshold
+          min: 1
+        - !type:OrganType
+          type: Thaven
+          shouldHave: true
+        damage:
+          types:
+            Poison: 2
+      - !type:ChemVomit # imp add
+        conditions:
+        - !type:OrganType
+          type: Thaven
+          shouldHave: true
+        probability: 0.1
 
 - type: reagent
   id: PotassiumIodide
