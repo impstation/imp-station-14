@@ -11,7 +11,7 @@ traitor-cybersun-uplink = Manufactured and Installed by Cybersun into your PDA.
 traitor-cybersun-roundend = [color=yellow]a specialist from Cybersun Industries[/color]
 
 traitor-corporateclimber-intro = You are a Corporate Climber.
-traitor-corporateclimber-goal = Killing needlessly would make you some kind of traitor, or at least definitely seen as one. This is all just a means to an end.
+traitor-corporateclimber-goal = Killing needlessly would make you some kind of traitor, or at least definitely seen as one. This is all just a means to an end for your next promotion!
 traitor-corporateclimber-allies = Death to the Syndicate.
 traitor-corporateclimber-uplink = You have connections to the black market for the deeds. Your uplink is located in your PDA. Knock off a few loose weights, and your climb will be so much smoother.
 traitor-corporateclimber-roundend = [color=white]a corporate climber.[/color]
@@ -34,11 +34,11 @@ traitor-legaltrouble-allies = Death to the Syndicate.
 traitor-legaltrouble-uplink =  You've connected to the black market to clean this mess up. Your uplink is located in your PDA. If there's no evidence, there's no crime.
 traitor-legaltrouble-roundend = [color=white]in Legal Trouble[/color]
 
-traitor-mi13-intro = You are the MI13 agent.
+traitor-mi13-intro = You are a MI13 agent.
 traitor-mi13-goal =  You are an intelligence officer with MI13, deployed by the Coalition of Planets to keep tabs on Nanotrasen... and the Syndicate, too. It's in your best interests to play both sides against each other as much as you can while keeping out of the fight yourself. Plant bugs, gather evidence, get Nanotrasen to trust you, then let them play right into their hands. Just don't compromise the mission- or let anyone else compromise it either!
 traitor-mi13-allies = As a government employee, you don't have that many allies to watch your back. You can at least trust Boeing, Radio TV Solutions, and the Tony Blair Institiute, though. Government contracts can be pretty sweet sometimes. The Tiger Cooperative, Architect & Babel, and the Gorlex Marauders have been identified as high-risk groups of interests and should be generally avoided, lest their unpredictable actions end up compromising your mission.
 traitor-mi13-uplink = Your uplink was provided to you thanks to a government contract with CyberSun Industries. Try not to lose it, they're on loan.
-traitor-mi13-roundend = [color=cyan]an MI13 agent[/color]
+traitor-mi13-roundend = [color=cyan]a MI13 agent[/color]
 
 traitor-tiger-intro = You are the Tiger Cooperative Fanatic.
 traitor-tiger-goal = Remember the teachings of Hy-lurgixon; kill first, ask questions later!
@@ -278,7 +278,7 @@ traitor-mlijeko-intro = You are a Mlijeko Enterprises Dairy Comissioner.
 traitor-mlijeko-goal = You have been selected to ensure our expansion into this new market territory goes smoothly. Execute your objectives swiftly and stealthily, don't embarrass us. Give out free samples if possible. A complimentary milk discount voucher will be delivered to you upon your completion.
 traitor-mlijeko-allies =  We have friends at the Donk Corporation, cooperate with them if possible. Befriend any cows or skeletons who might assist our directive. The Animal Rights Consortium is to absolutely demolished, their failure is imperative to our business.
 traitor-mlijeko-uplink = Your black market uplink was submerged in a delicious glass of milk.
-traitor-mlijeko-roundend = [color=#fefcff]a Comissioner from Mlijeko Enterprises[/color]
+traitor-mlijeko-roundend = [color=#fefcff]a Dairy Comissioner from Mlijeko Enterprises[/color]
 
 traitor-theonesbehinditall-intro = You are a puppet of The Ones Behind It All.
 traitor-theonesbehinditall-goal = To follow in our footsteps is to manipulate others into doing the work for you, but make no mistake, whatever happens next is all apart of our plan.
@@ -320,7 +320,7 @@ traitor-interstellercovertagents-intro = You are a Interstellar Covert Agents As
 traitor-interstellercovertagents-goal = The Industrial Workers of the Galaxy have been whining to us about how killing people "Looks Bad" and "Feeds Directly Into Corporate Propoganda" and even "Is Morally Wrong". So, we request you try to minimize harm to workers -- But hey, whatever happens happens.
 traitor-interstellercovertagents-allies =  Show solidarity with your fellow agents -- Regardless of who your bosses are, you're all workers, your interests align! Help out where you can, and stand up for them when needed! Surely they'll return the favor. Scabs in the espionage industry screw over everyone. If you sniff out any non-unionized covert labor, do your best to intimidate them into joining. Also, don't let the Tiger Cooperative's name get your hopes up. They slaughter any agent who isn't in their cult-thingy. Give them a taste of their own medicine, if you can.
 traitor-interstellercovertagents-uplink = We've voted to provide you with a standard syndicate uplink for this operation, sourced out of a supply we won from Cybersun as part of the settlement for a recent strike.
-traitor-interstellercovertagents-roundend = [color=#db261d]a Unionist from the Interstellar Covert Agents Association[/color]
+traitor-interstellercovertagents-roundend = [color=#990000]a Unionist from the Interstellar Covert Agents Association[/color]
 
 traitor-concernedparents-intro = You are a Concerned Parents Coalition paid volunteer.
 traitor-concernedparents-goal = No bad manners, no curse words, no nudity, no crass gestures, no potty humor. Execute all offenders.
