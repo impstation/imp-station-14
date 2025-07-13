@@ -27,7 +27,7 @@ roles-antag-suspicion-suspect-objective = Kill the innocents.
 roles-antag-nuclear-operative-commander-name = Nuclear operative commander
 roles-antag-nuclear-operative-commander-objective = Lead your team to the destruction of the station.
 
-roles-antag-nuclear-operative-agent-name = Nuclear operative agent
+roles-antag-nuclear-operative-agent-name = Nuclear operative corpsman
 roles-antag-nuclear-operative-agent-objective = Like default operative, the team's treatment will have priority.
 
 roles-antag-nuclear-operative-name = Nuclear operative
@@ -39,8 +39,9 @@ roles-antag-subverted-silicon-objective = Follow your new laws and do bad unto t
 roles-antag-space-ninja-name = Space Ninja
 roles-antag-space-ninja-objective = Use your stealth to sabotage the station, nom on electrical wires.
 
+# imp objective rephrase to account for saviors
 roles-antag-paradox-clone-name = Paradox Clone
-roles-antag-paradox-clone-objective = A freak space-time anomaly has teleported you into another reality! Now you have to find your counterpart and kill and replace them.
+roles-antag-paradox-clone-objective = A freak space-time anomaly has teleported you into another reality! Confront your counterpart, and protect your own existence.
 
 roles-antag-thief-name = Thief
 roles-antag-thief-objective = Add some NT property to your personal collection without using violence.

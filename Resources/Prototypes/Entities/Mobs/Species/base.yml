@@ -11,6 +11,7 @@
   components:
   - type: Sprite
     layers:
+    - map: [ "enum.HumanoidVisualLayers.TailUnderlay" ] # imp
     - map: [ "enum.HumanoidVisualLayers.TailBehind" ] # Floof
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
     - map: [ "enum.HumanoidVisualLayers.Head" ]
@@ -145,6 +146,7 @@
     - Masculinized # DeltaV - Hormone system
     - GrayLanguage # imp
     - RelentlessPositivity # imp
+    - PGAccent # imp
   - type: Body
     prototype: Human
     requiredLegs: 2

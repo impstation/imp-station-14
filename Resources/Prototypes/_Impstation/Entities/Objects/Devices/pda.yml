@@ -341,3 +341,20 @@
   - type: Icon
     sprite: _Impstation/Objects/Devices/griffy_pda.rsi
     state: pda-mascotgriffy
+
+- type: entity
+  parent: CentcomPDA
+  id: CentcommInternPDA
+  name: CentComm intern PDA
+  components:
+  - type: Pda
+    id: CentcommInternIDCard
+
+- type: entity
+  parent: CentcomPDA
+  id: CentcommInternLeaderPDA
+  name: CentComm head intern PDA
+  components:
+  - type: Pda
+    id: CentcommInternLeaderIDCard
+

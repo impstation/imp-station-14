@@ -14,8 +14,8 @@
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckMantleCE
-  name: chief engineer's manica
-  description: A segmented arm covering for the experienced Chief Engineer, to signify the hazards of the job and the dangers faced to earn it.
+  name: chief engineer's mantle
+  description: High visibility, check. RIG system, check. High capacity cell, check. Everything a chief engineer could need in a stylish mantle.
   components:
   - type: Sprite
     sprite: Clothing/Neck/mantles/cemantle.rsi
@@ -44,9 +44,9 @@
   description: A good HOP knows that paper pushing is only half the job... petting your dog and looking fashionable is the other half.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/mantles/hopmantle.rsi
+    sprite: _DV/Clothing/Neck/mantles/hopmantle.rsi # Delta-v edit
   - type: Clothing
-    sprite: Clothing/Neck/mantles/hopmantle.rsi
+    sprite: _DV/Clothing/Neck/mantles/hopmantle.rsi # Delta-v edit
   - type: StealTarget # imp
     stealGroup: HeadCloak
 

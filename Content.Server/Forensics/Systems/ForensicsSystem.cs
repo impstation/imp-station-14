@@ -19,7 +19,7 @@ using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Random;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
-using Robust.Shared.GameObjects;
+using Content.Shared.Hands.Components;
 
 namespace Content.Server.Forensics
 {
@@ -33,7 +33,7 @@ namespace Content.Server.Forensics
 
         public override void Initialize()
         {
-            SubscribeLocalEvent<FingerprintComponent, ContactInteractionEvent>(OnInteract);
+            SubscribeLocalEvent<HandsComponent, ContactInteractionEvent>(OnInteract);
             SubscribeLocalEvent<FingerprintComponent, MapInitEvent>(OnFingerprintInit, after: new[] { typeof(BloodstreamSystem) });
             // The solution entities are spawned on MapInit as well, so we have to wait for that to be able to set the DNA in the bloodstream correctly without ResolveSolution failing
             SubscribeLocalEvent<DnaComponent, MapInitEvent>(OnDNAInit, after: new[] { typeof(BloodstreamSystem) });
@@ -61,7 +61,7 @@ namespace Content.Server.Forensics
             }
         }
 
-        private void OnInteract(EntityUid uid, FingerprintComponent component, ContactInteractionEvent args)
+        private void OnInteract(EntityUid uid, HandsComponent component, ContactInteractionEvent args)
         {
             ApplyEvidence(uid, args.Other);
         }
@@ -144,28 +144,6 @@ namespace Content.Server.Forensics
             {
                 dest.Residues.Add(residue);
             }
-        }
-
-        //gets the name of a person from the DNA inside it. RETURNS NULL FOR ANIMALS, OR ANYTHING ELSE WITH UNKNOWN DNA.
-        public string? GetNameFromDNA(string DNA)
-        {
-            var query = EntityQueryEnumerator<DnaComponent>();
-
-            String? outputName = null;
-            //iterate over every DNAcomponent in the server until you find one that matches the given DNA
-            while (query.MoveNext(out var sourceUID, out var sourceComp))
-            {
-                if (sourceComp.DNA != null && sourceComp.DNA.Equals(DNA))
-                {
-
-                    if (EntityManager.TryGetComponent(sourceUID, out MetaDataComponent? metaData))
-                    {
-                        //output the name of the entity with the given DNA
-                        outputName = metaData.EntityName;
-                    }
-                }
-            }
-            return outputName;
         }
 
         public List<string> GetSolutionsDNA(EntityUid uid)

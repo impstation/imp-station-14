@@ -12,6 +12,8 @@
   - Male
   - Female
   - Unsexed
+  oldAge: 80 # imp
+  ancientAge: 150 # imp
 
 - type: speciesBaseSprites
   id: MobSlimeSprites
@@ -52,6 +54,7 @@
     Hair:
       points: 1
       required: false
+      weight: 1 # imp
     FacialHair:
       points: 1
       required: false
@@ -62,7 +65,7 @@
       points: 1
       required: false
     Chest:
-      points: 4
+      points: 4 # imp
       required: false
     Legs:
       points: 8 #impspecial
