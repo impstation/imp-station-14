@@ -16,6 +16,8 @@ public enum RecordConsoleType : byte
     Security,
     Medical,
     Employment,
+    Syndicate, ///Impstation change - added Syndicate
+
     /// <summary>
     /// Admin console has the functionality of all other types and has some additional admin related functionality
     /// </summary>

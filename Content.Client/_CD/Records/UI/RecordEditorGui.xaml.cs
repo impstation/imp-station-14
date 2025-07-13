@@ -91,12 +91,29 @@ public sealed partial class RecordEditorGui : Control
         };
 
         #endregion
+        ///Start Impstation Changes
+        #region Syndicate
 
+        WorkAuthCheckBox.OnToggled += args =>
+        {
+            UpdateRecords(_records.WithWorkAuth(args.Pressed));
+        };
+
+        YearEdit.OnTextChanged += args =>
+        {
+            if (!int.TryParse(args.Text, out var newYear))
+                return;
+            UpdateRecords(_records.WithYear(newYear));
+        };
+
+        #endregion
+        ///End Impstation Changes
         #region Entries
 
         EntryEditorTabs.SetTabTitle(0, Loc.GetString("humanoid-profile-editor-cd-records-employment"));
         EntryEditorTabs.SetTabTitle(1, Loc.GetString("department-Medical"));
         EntryEditorTabs.SetTabTitle(2, Loc.GetString("department-Security"));
+        EntryEditorTabs.SetTabTitle(3, Loc.GetString("cd-imp-syndicate"));
 
         EmploymentEntrySelector.OnUpdateEntries += args =>
         {
@@ -113,6 +130,10 @@ public sealed partial class RecordEditorGui : Control
             UpdateRecords(_records.WithSecurityEntries(args.Entries));
         };
 
+        SyndicateEntrySelector.OnUpdateEntries += args => ///Start Impstation changes
+        {
+            UpdateRecords(_records.WithSyndicateEntries(args.Entries));
+        }; ///End Impstation changes
         #endregion
     }
 
@@ -122,6 +143,7 @@ public sealed partial class RecordEditorGui : Control
         EmploymentEntrySelector.UpdateContents(_records.EmploymentEntries);
         MedicalEntrySelector.UpdateContents(_records.MedicalEntries);
         SecurityEntrySelector.UpdateContents(_records.SecurityEntries);
+        SyndicateEntrySelector.UpdateContents(_records.SyndicateEntries); ///Impstation - Added Syndicate
         UpdateWidgets();
     }
 

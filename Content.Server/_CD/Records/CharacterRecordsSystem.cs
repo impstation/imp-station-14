@@ -146,6 +146,9 @@ public sealed class CharacterRecordsSystem : EntitySystem
             case CharacterRecordType.Security:
                 cr.SecurityEntries.RemoveAt(idx);
                 break;
+            case CharacterRecordType.Syndicate: ///Start Impstation changes - added syndicate
+                cr.SyndicateEntries.RemoveAt(idx);
+                break;
         }
 
         RaiseLocalEvent(station, new CharacterRecordsModifiedEvent());
