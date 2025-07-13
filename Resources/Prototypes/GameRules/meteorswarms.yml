@@ -247,6 +247,9 @@
     - id: ImmovableRodHollowPlasticBarrel # imp
       prob: 0.0075
       orGroup: rodProto
+    - id: ImmovableRodBaguette # imp
+      prob: 0.0075
+      orGroup: rodProto
 
 - type: entity
   parent: GameRuleMeteorSwarm

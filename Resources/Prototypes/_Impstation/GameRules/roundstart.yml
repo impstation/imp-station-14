@@ -99,6 +99,21 @@
       mindRoles:
       - MindRoleTraitor
 
+- type: entity
+  id: TraitorInfiltrator
+  parent: BaseTraitorRule
+  components:
+  - type: TraitorRule
+    startingBalance: 4 # 2 are used for the uplink implant, leaving them with a budget of 2.
+    giveUplink: true 
+    giveCodewords: false
+    giveBriefing: false
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ Traitor ]
+      mindRoles:
+      - MindRoleInfiltrator 
+
 # population limiters
 
 - type: entity
