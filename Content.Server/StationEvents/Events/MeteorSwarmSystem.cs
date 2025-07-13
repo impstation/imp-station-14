@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Numerics;
 using Content.Server._Impstation.Station.Components;
 using Content.Server.Chat.Systems;
@@ -44,9 +45,9 @@ public sealed class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmComponent>
             var announcement = _announcer.GetEventLocaleString(_announcer.GetAnnouncementId(args.RuleId));
             if (TryComp<StationSpecificMeteorComponent>(station, out var stationMeteor))
             {
-                if (announcement.StartsWith("station-event-game-rule-meteor") && stationMeteor.ReplacementAnnouncement != null)
+                foreach (var announcementPair in stationMeteor.AnnouncementReplacements.Where(announcementPair => announcement == announcementPair.Key))
                 {
-                    announcement = stationMeteor.ReplacementAnnouncement;
+                    announcement = announcementPair.Value;
                 }
             }// Imp end
             _announcer.SendAnnouncement(
@@ -88,12 +89,10 @@ public sealed class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmComponent>
 
             if (TryComp<StationSpecificMeteorComponent>(station, out var stationMeteor))// imp start
             {
-                if (spawnProto == stationMeteor.DefaultSmallMeteor && stationMeteor.SmallMeteorReplacement != null)
-                    spawnProto = (EntProtoId)stationMeteor.SmallMeteorReplacement;
-                else if (spawnProto == stationMeteor.DefaultMediumMeteor && stationMeteor.MediumMeteorReplacement != null)
-                    spawnProto = (EntProtoId)stationMeteor.MediumMeteorReplacement;
-                else if (spawnProto == stationMeteor.DefaultLargeMeteor && stationMeteor.LargeMeteorReplacement != null)
-                    spawnProto = (EntProtoId)stationMeteor.LargeMeteorReplacement;
+                foreach (var meteorPair in stationMeteor.MeteorReplacements.Where(meteorPair => spawnProto == meteorPair.Key))
+                {
+                    spawnProto = meteorPair.Value;
+                }
             } // imp end
 
             var angle = component.NonDirectional

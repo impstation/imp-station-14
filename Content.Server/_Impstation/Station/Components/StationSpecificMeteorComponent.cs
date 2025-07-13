@@ -7,38 +7,15 @@ namespace Content.Server._Impstation.Station.Components;
 public sealed partial class StationSpecificMeteorComponent : Component
 {
     /// <summary>
-    /// Default Small Meteor
+    /// Keypair of Meteors and their replacement prototypes
     /// </summary>
     [DataField]
-    public EntProtoId DefaultSmallMeteor = "MeteorSmall";
+    public Dictionary<EntProtoId, EntProtoId> MeteorReplacements = new();
+
     /// <summary>
-    /// Default Medium Meteor
+    /// Keypair of meteor announcements and their replacements
     /// </summary>
     [DataField]
-    public EntProtoId DefaultMediumMeteor = "MeteorLarge";
-    /// <summary>
-    /// Default Large Meteor
-    /// </summary>
-    [DataField]
-    public EntProtoId DefaultLargeMeteor = "MeteorLarge";
-    /// <summary>
-    /// Replacement for Small Meteors
-    /// </summary>
-    [DataField]
-    public EntProtoId? SmallMeteorReplacement;
-    /// <summary>
-    /// Replacement for Medium Meteors
-    /// </summary>
-    [DataField]
-    public EntProtoId? MediumMeteorReplacement;
-    /// <summary>
-    /// Replacement for Large Meteors
-    /// </summary>
-    [DataField]
-    public EntProtoId? LargeMeteorReplacement;
-    /// <summary>
-    /// Announcement Replacer
-    /// </summary>
-    [DataField]
-    public string? ReplacementAnnouncement;
+    public Dictionary<string, string> AnnouncementReplacements = new();
+
 }
