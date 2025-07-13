@@ -128,7 +128,7 @@
 - type: entity
   name: wildering mirror
   parent: [BaseItem, TierXContraband]
-  id: WilderingMirror
+  id: HereticMirror
   description: "A multiplicity of vistas! A bewilderment of views! Gaze upon me, and rejoice in the dissolution of your senses!"
   components:
     - type: Sprite
@@ -147,7 +147,7 @@
 - type: entity
   name: frangiclave
   parent: [BaseItem, TierXContraband]
-  id: Frangiclave
+  id: HereticKeyThrowing
   description: "There are keys that open doors; then there are keys that destroy them."
   components:
     - type: Sprite
