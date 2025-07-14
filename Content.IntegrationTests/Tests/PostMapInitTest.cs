@@ -54,7 +54,6 @@ namespace Content.IntegrationTests.Tests
             "/Maps/gate.yml", // Contains positronic brain and LSE-1200c "Perforator"
             "/Maps/meta.yml", // Contains warden's rubber stamp
             "/Maps/reach.yml", // Contains handheld crew monitor
-            "/Maps/xeno.yml", // COntains PTK-800 "Matter Dematerializer"
             "/Maps/_Impstation/bagel.yml", // Apparently theres 2 bagles, oh god oh fu-
             "/Maps/_Impstation/banana.yml", // Contains quartermaster's rubber stamp
             "/Maps/_Impstation/boat.yml", // Contains janitorial bomb suit closet, cat ears, doggy ears
@@ -116,7 +115,6 @@ namespace Content.IntegrationTests.Tests
             "Relic",
             "dm01-entryway",
             "Exo",
-
             // IMP ADD, NON UPSTREAM MAPS:
             "Banana",
             "Barratry",
