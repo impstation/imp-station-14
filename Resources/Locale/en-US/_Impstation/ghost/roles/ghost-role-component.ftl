@@ -146,3 +146,6 @@ ghost-role-information-infiltrator-description = You are an elite espionage agen
 ghost-role-information-infiltrator-rules = You are a [color=red][bold]Solo Antagonist[/bold][/color]. Your intentions are clear, and harmful to the station and its crew.
 
                                           You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
+
+ghost-role-information-whiteboy-name = Ghoulish White Boy
+ghost-role-information-whiteboy-description = You are a ghoulish white boy. Do what you must.

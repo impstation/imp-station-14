@@ -35,3 +35,13 @@
     - type: Bloodstream
       bloodMaxVolume: 300
       bloodReagent: Blood
+    - type: GhostRole
+      allowMovement: true
+      makeSentient: true
+      name: ghost-role-information-whiteboy-name
+      description: ghost-role-information-whiteboy-description
+      rules: ghost-role-information-antagonist-rules
+      mindRoles:
+      - MindRoleGhostRoleSoloAntagonist
+      raffle:
+        settings: default
