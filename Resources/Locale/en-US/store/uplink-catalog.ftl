@@ -127,7 +127,7 @@ uplink-mosin-ammo-desc = A box of 60 cartridges for the surplus rifle.
 
 #imp desc tweak
 uplink-sniper-ammo-name = Ammunition box (.60 antimateriel)
-uplink-sniper-ammo-desc = A box of 10 cartridges for the Lyndworm sniper rifle.
+uplink-sniper-ammo-desc = A box of 10 cartridges for the Lindwyrm sniper rifle and Anaconda Revolver.
 
 # Utility
 uplink-holopara-kit-name = Holoparasite Kit
@@ -140,9 +140,6 @@ uplink-holoclown-kit-desc = A joint venture between Cybersun and Honk.co. Contai
 
 uplink-holster-name = Shoulder Holster
 uplink-holster-desc = A deep shoulder holster capable of holding many types of ballistics.
-
-uplink-animal-friends-kit-name = Animal Friends Kit
-uplink-animal-friends-kit-desc = A box containing 4 doses of subjuzine, an alteration of cognizine that forces the injected creature to your will. Also contains an empty syringe and two mice to use it on. Just add blood!
 
 uplink-chest-rig-name = Chest Rig
 uplink-chest-rig-desc = Explosion-resistant tactical webbing used for holding traitor goods.
@@ -267,7 +264,7 @@ uplink-ammo-bundle-desc = Reloading! Contains 4 magazines for the C-20R Gorgon, 
 
 #imp name tweaks
 uplink-sniper-bundle-name = Sniper Bundle
-uplink-sniper-bundle-desc = An inconspicuous briefcase that contains a Lyndworm, 10 spare bullets, and a convenient disguise.
+uplink-sniper-bundle-desc = An inconspicuous briefcase that contains a Lindwyrm, 10 spare bullets, and a convenient disguise.
 
 #imp name tweak
 uplink-c20r-bundle-name = C-20R Gorgon Bundle
