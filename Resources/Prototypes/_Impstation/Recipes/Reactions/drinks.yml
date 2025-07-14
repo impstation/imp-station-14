@@ -611,7 +611,6 @@
 
 - type: reaction
   id: PinkRose
-  preserveDNA: true
   requiredMixerCategories:
   - Stir
   reactants:
@@ -626,7 +625,6 @@
 
 - type: reaction
   id: LaFleurette
-  preserveDNA: true
   requiredMixerCategories:
   reactants:
     Champagne:
@@ -638,7 +636,6 @@
 
 - type: reaction
   id: RomanceDead
-  preserveDNA: true
   requiredMixerCategories:
   - Stir
   reactants:
@@ -653,7 +650,6 @@
 
 - type: reaction
   id: RomanceDeadNot
-  preserveDNA: true
   requiredMixerCategories:
   - Stir
   reactants:
@@ -668,7 +664,6 @@
 
 - type: reaction
   id: RoseMilk
-  preserveDNA: true
   requiredMixerCategories:
   - Stir
   reactants:
