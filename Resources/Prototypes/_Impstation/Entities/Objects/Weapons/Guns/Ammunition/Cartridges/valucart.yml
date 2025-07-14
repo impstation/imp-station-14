@@ -1,0 +1,26 @@
+- type: entity
+  id: CartridgePistolValuShot
+  name: cartridge (.10 mini)
+  description: An astonishingly tiny bullet made of unbelievably cheap materials. Appears heavily damaged.
+  suffix: useless
+  parent: BaseCartridge
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    layers:
+      - state: base-spent
+        map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 2
+      Steel: 1
+
+- type: entity
+  id: CartridgeValuShotPlus
+  name: cartridge (.10 mini)
+  description: A micro cartridge designed to make the dreams of a greedy capitalist real.
+  parent: BaseCartridgeHeavyRifle
+  components:
+  - type: CartridgeAmmo
+    proto: BulletValuPlus
+    deleteOnSpawn: true

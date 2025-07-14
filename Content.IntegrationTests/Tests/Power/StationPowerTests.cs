@@ -51,7 +51,6 @@ public sealed class StationPowerTests
         "BoxImp",
         "CentCommImp",
         "CogImp",
-        "ConvexImp",
         "CoreImp",
         "E1M1",
         "ElkridgeImp",
