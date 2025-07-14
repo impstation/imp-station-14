@@ -4,6 +4,7 @@ using Content.Client.LateJoin;
 using Content.Client.Lobby.UI;
 using Content.Client.Message;
 using Content.Client._Impstation.ReadyManifest;
+using Content.Client.Playtime;
 using Content.Client.UserInterface.Systems.Chat;
 using Content.Client.Voting;
 using Content.Shared.CCVar;
@@ -27,6 +28,7 @@ namespace Content.Client.Lobby
         [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly IVoteManager _voteManager = default!;
+        [Dependency] private readonly ClientsidePlaytimeTrackingManager _playtimeTracking = default!;
 
         private ClientGameTicker _gameTicker = default!;
         private ContentAudioSystem _contentAudioSystem = default!;
@@ -207,6 +209,35 @@ namespace Content.Client.Lobby
             {
                 Lobby!.ServerInfo.SetInfoBlob(_gameTicker.ServerInfoBlob);
             }
+
+            var minutesToday = _playtimeTracking.PlaytimeMinutesToday;
+            if (minutesToday > 60)
+            {
+                Lobby!.PlaytimeComment.Visible = true;
+
+                var hoursToday = Math.Round(minutesToday / 60f, 1);
+
+                // Imp edit begin
+                var firstDigit = int.Parse(minutesToday.ToString()[0].ToString());
+                string chosenString = firstDigit switch
+                {
+                    0 => "lobby-state-playtime-comment-normal",
+                    1 => "lobby-state-playtime-comment-aa",
+                    2 => "lobby-state-playtime-comment-lifespan",
+                    3 => "lobby-state-playtime-comment-itsfine",
+                    4 => "lobby-state-playtime-comment-entireday",
+                    5 => "lobby-state-playtime-comment-bros",
+                    6 => "lobby-state-playtime-comment-morallyneutral",
+                    7 => "lobby-state-playtime-comment-nottellingu",
+                    8 => "lobby-state-playtime-comment-nuke",
+                    _ => "lobby-state-playtime-comment-feettall"
+                };
+                // Imp edit end
+
+                Lobby.PlaytimeComment.SetMarkup(Loc.GetString(chosenString, ("hours", hoursToday)));
+            }
+            else
+                Lobby!.PlaytimeComment.Visible = false;
         }
 
         private void UpdateLobbySoundtrackInfo(LobbySoundtrackChangedEvent ev)
