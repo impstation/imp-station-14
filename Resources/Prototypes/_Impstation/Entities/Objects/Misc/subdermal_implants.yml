@@ -31,3 +31,12 @@
     interfaces:
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
+
+- type: entity
+  id: MedHUDImplant
+  name: medical HUD implant
+  parent: BaseSubdermalImplant
+  description: A rare and expensive implant letting you see people's medical status without any glasses. Reserved for CMO use only.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: MedHUDImplant

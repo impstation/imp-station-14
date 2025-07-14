@@ -5,3 +5,11 @@
   components:
   - type: Implanter
     implant: GayStorageImplant
+
+- type: entity
+  id: MedHUDImplanter
+  name: medical HUD implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: MedHUDImplant
