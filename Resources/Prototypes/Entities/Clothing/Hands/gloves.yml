@@ -338,7 +338,7 @@
   parent: ClothingHandsBase
   id: ClothingHandsGlovesFingerlessInsulated
   name: fingerless insulated gloves
-  description: Insulated gloves resistant to shocks, or at least they used to.
+  description: Insulated gloves resistant to shocks, or at least they used to be. # imp fix
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/fingerlessinsuls.rsi
@@ -351,6 +351,11 @@
     damageProtection:
       flatReductions:
         Heat: 0 # no protection
+  - type: Tag
+    tags:
+      - Insuls # imp
+      - WhitelistChameleon
+      - Backpack
 
 - type: entity
   parent: ClothingHandsButcherable

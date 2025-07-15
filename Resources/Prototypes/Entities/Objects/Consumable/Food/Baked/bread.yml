@@ -159,6 +159,7 @@
   - type: Tag
     tags:
     - ClothMade
+    - ClothFood # imp
     - Bread
   - type: SolutionContainerManager
     solutions:
@@ -188,6 +189,7 @@
   - type: Tag
     tags:
     - ClothMade
+    - ClothFood # imp
     - Bread
     - Slice
   - type: SolutionContainerManager
@@ -752,6 +754,7 @@
     tags:
     - Bread
     - ClothMade
+    - ClothFood # imp
   - type: Clothing
     equippedPrefix: baguette-cotton
   - type: Item
@@ -813,6 +816,7 @@
     - Bread
     - Slice
     - ClothMade
+    - ClothFood # imp
   - type: SolutionContainerManager
     solutions:
       food:
