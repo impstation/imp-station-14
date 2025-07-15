@@ -146,3 +146,10 @@ ghost-role-information-infiltrator-description = You are an elite espionage agen
 ghost-role-information-infiltrator-rules = You are a [color=red][bold]Solo Antagonist[/bold][/color]. Your intentions are clear, and harmful to the station and its crew.
 
                                           You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
+
+ghost-role-information-nonantagonist-freeagent-tame = You are a wild animal that has been tamed by the crew.
+ghost-role-information-tame-rules = You are a [color=yellow][bold]Free Agent[/bold][/color], being a tamed animal.
+
+                                         As with most wild animals, you are calm and happy when in good conditions and given enrichment, though you may lash out if bored or stressed. [color=red] You wont attack or try escaping out of nowhere or without reason.[/color] Just remember who's hand it is that feeds you.
+
+                                         You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
