@@ -1,3 +1,5 @@
+
+
 - type: entity
   id: ServiceTechFab
   parent: BaseLatheLube
@@ -50,3 +52,31 @@
         - Sheet
         - RawMaterial
         - Ingot
+
+- type: entity
+  id: CutterMachinePortable
+  parent: [CutterMachine, BaseDeployFoldable]
+  name: portable cutter machine
+  description: A portable cutter machine that conveniently folds into a briefcase, for the station redecorator on the go!
+  components:
+  - type: Item
+    size: Normal
+    sprite: _Impstation/Objects/Storage/Briefcases/briefcase_steel.rsi
+  - type: Sprite
+    sprite: _Impstation/Objects/Storage/Briefcases/briefcase_steel.rsi
+    layers:
+    - state: icon
+      map: [ "foldedLayer" ]
+    - state: icon
+      sprite: Structures/Machines/cuttermachine.rsi
+      map: [ "enum.LatheVisualLayers.IsRunning", "unfoldedLayer" ]
+    - state: unlit
+      sprite: Structures/Machines/cuttermachine.rsi
+      shader: unshaded
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+    - state: panel
+      sprite: Structures/Machines/cuttermachine.rsi
+      map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+  - type: MaterialStorage
+    storageLimit: 6000
+
