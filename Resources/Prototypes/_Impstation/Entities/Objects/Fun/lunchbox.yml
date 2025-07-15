@@ -122,7 +122,7 @@
 
 - type: entity
   id: SteelLunchboxSyndicate
-  name: lunchbox
+  name: syndicate lunchbox
   description: The Lunchbox of choice for the discerning des(s)erter. Extra roomy.
   parent: [ SteelLunchbox, BaseSyndicateContraband ]
   components:
@@ -138,9 +138,7 @@
 
 - type: entity
   id: SteelLunchboxSyndicateMaid
-  name: lunchbox
-  description: The Lunchbox of choice for the discerning des(s)erter. Extra roomy.
-  parent: [ SteelLunchbox, BaseSyndicateContraband ]
+  parent: SteelLunchboxSyndicate
   components:
   - type: StorageFill
     contents:
