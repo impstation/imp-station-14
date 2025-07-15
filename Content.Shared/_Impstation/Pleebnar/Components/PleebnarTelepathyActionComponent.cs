@@ -25,7 +25,7 @@ public sealed partial class PleebnarTelepathyActionComponent : Component
     [DataField]
     public string? VisionActionId = "ActionPleebnarVision";
 
-    [DataField,ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public string? PleebnarVison;
     [DataField]
     public string? PleebnarVisonName;

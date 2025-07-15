@@ -13,6 +13,6 @@ public sealed partial class PleebnarGibActionComponent : Component
     [DataField]
     public string? gibActionId = "ActionPleebnarGib";
 
-    [DataField,ViewVariables(VVAccess.ReadWrite)]//admin setable bool that makes a pleebnar able to gib anything with a body
+    [DataField]//admin setable bool that makes a pleebnar able to gib anything with a body
     public bool superPleebnar=false;
 }
