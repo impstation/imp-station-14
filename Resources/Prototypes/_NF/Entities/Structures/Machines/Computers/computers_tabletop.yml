@@ -297,27 +297,6 @@
       sprite: _Impstation/Structures/Machines/computers.rsi
 
 - type: entity
-  parent: [BaseStructureComputerTabletop, ComputerComms]
-  id: MobileComputerTabletopComms
-  components:
-  - type: Sprite
-    drawdepth: SmallObjects
-    layers:
-    - map: ["computerLayerBody"]
-      sprite: _Impstation/Structures/Machines/computer_tabletop.rsi #imp edit
-      state: computer_tabletop
-    - map: ["computerLayerKeyboard"]
-      sprite: _Impstation/Structures/Machines/computer_tabletop.rsi #imp edit
-      state: generic_keyboard_tabletop
-    - map: ["computerLayerScreen"]
-      state: comm
-    - map: ["computerLayerKeys"]
-      state: generic_keys
-    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ] #imp edit
-      state: generic_panel_open
-      sprite: _Impstation/Structures/Machines/computers.rsi
-
-- type: entity
   parent: [BaseStructureComputerTabletop, SyndicateComputerComms]
   id: SyndicateComputerTabletopComms
   components:
