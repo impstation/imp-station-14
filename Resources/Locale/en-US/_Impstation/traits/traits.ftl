@@ -1,4 +1,4 @@
-trait-heavyweightdrunk-name = Heavyweight Drunk
+trait-heavyweightdrunk-name = Heavyweight drunk
 trait-heavyweightdrunk-desc = Alcohol has less of an effect on you.
 
 trait-hemophilia-name = Hemophilia

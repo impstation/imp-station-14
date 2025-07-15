@@ -1,7 +1,28 @@
+# REORDERING CONVENTION: DO IT IN THIS ORDER
+# GroupTankHarness
+# Head
+# Mask
+# Neck
+# Jumpsuit
+# OuterClothing
+# Gloves
+# Shoes
+# Headset
+# Glasses
+# Backpack
+# Belt
+# PDA
+# Survival
+# Trinkets
+# Special
+# GroupSpeciesBreathTool
+
 # Cargo
 - type: roleLoadout
   id: JobCourier
   groups:
+  - GroupTankHarnessWithOuterwear
+  - GroupTankHarnessWithOuterwearAquatic
   - CourierHead
   - CourierNeck
   - CourierJumpsuit
@@ -12,14 +33,14 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
-  - GroupTankHarnessWithOuterwear
   - GroupBreathToolDecapoid
-  - GroupTankHarnessWithOuterwearAquatic
 
 # Security
 - type: roleLoadout
   id: JobBrigmedic
   groups:
+  - GroupTankHarnessWithOuterwear
+  - GroupTankHarnessWithOuterwearAquatic
   - BrigmedicHead
   - MedicalMask
   - BrigmedicNeck
@@ -32,14 +53,14 @@
   - Trinkets
   - SecurityStar
   - GroupSpeciesBreathToolMedSec
-  - GroupTankHarnessWithOuterwear
   - GroupBreathToolDecapoid
-  - GroupTankHarnessWithOuterwearAquatic
 
 # Service
 - type: roleLoadout
   id: JobHospitalityDirector
   groups:
+  - GroupTankHarnessCommandWithOuterwear
+  - GroupTankHarnessCommandWithOuterwearAquatic
   - HospitalityDirectorHead
   - ServiceMask
   - HospitalityDirectorNeck
@@ -53,6 +74,4 @@
   - SurvivalCommand
   - Trinkets
   - GroupSpeciesBreathTool
-  - GroupTankHarnessCommandWithOuterwear
   - GroupBreathToolDecapoid
-  - GroupTankHarnessCommandWithOuterwearAquatic

@@ -200,11 +200,6 @@ marking-UnderwearLowriders-lowriders = Underwear
 marking-UnderwearTanga = Tanga
 marking-UnderwearTanga-tanga = Underwear
 
-# upstream forgor
-marking-UndergarmentBottomBoxers-boxers = Underwear
-marking-UndergarmentBottomBriefs-briefs = Underwear
-marking-UndergarmentBottomSatin-satin = Underwear
-
 # UndergarmentTop
 
 marking-UndergarmentTopBinderF = Binder
@@ -275,12 +270,6 @@ marking-UndershirtRolledF-rolledundershirtf = Undershirt
 
 marking-UndershirtRolledU = Undershirt (Cropped)
 marking-UndershirtRolledU-rolledundershirt = Undershirt
-
-# upstream moment...
-marking-UndergarmentTopTanktop-tanktop = Tanktop
-marking-UndergarmentTopBinder-binder = Binder
-marking-UndergarmentTopBra-classic = Bra
-marking-UndergarmentTopSportsbra-sports = Bra (Sports)
 
 # LFoot
 

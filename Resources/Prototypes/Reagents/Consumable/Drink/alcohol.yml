@@ -79,7 +79,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   fizziness: 0.6
-  metabolisms:
+  metabolisms: #imp
     Drink:
       effects:
       - !type:SatiateThirst
@@ -1172,7 +1172,7 @@
   metamorphicMaxFillLevels: 6
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
-  metabolisms:
+  metabolisms: #imp
     Narcotic:
       effects:
       - !type:GenericStatusEffect
@@ -1208,7 +1208,7 @@
   fizziness: 0.6
 
 - type: reagent
-  id: IrishCarBomb
+  id: IrishCarBomb #imp, kept all instances of the name being irish car bomb instead of irish slammer
   name: reagent-name-irish-car-bomb
   parent: BaseAlcohol
   desc: reagent-desc-irish-car-bomb
