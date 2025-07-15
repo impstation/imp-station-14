@@ -171,27 +171,8 @@ namespace Content.Shared.Chemistry.Reaction
 
             var energy = reaction.ConserveEnergy ? solution.GetThermalEnergy(_prototypeManager) : 0;
 
-            List<ReagentData> dnaDataList = new List<ReagentData>();
-
-            //save reactant DNA to DNAlist
-            if (reaction.PreserveDNA)
-            {
-
-                foreach (var reagent in solution.Contents)
-                {
-
-                    foreach (var data in reagent.Reagent.EnsureReagentData())
-                    {
-                        if (data is DnaData)
-                        {
-                            dnaDataList.Add((data));
-                        }
-                    }
-                }
-            }
-
             //Remove reactants
-            foreach (KeyValuePair<string, ReactantPrototype> reactant in reaction.Reactants)
+            foreach (var reactant in reaction.Reactants)
             {
                 if (!reactant.Value.Catalyst)
                 {
@@ -205,7 +186,7 @@ namespace Content.Shared.Chemistry.Reaction
             foreach (var product in reaction.Products)
             {
                 products.Add(product.Key);
-                solution.AddReagent(new ReagentId(product.Key, dnaDataList), product.Value * unitReactions);
+                solution.AddReagent(product.Key, product.Value * unitReactions);
             }
 
             if (reaction.ConserveEnergy)
@@ -214,7 +195,6 @@ namespace Content.Shared.Chemistry.Reaction
                 if (newCap > 0)
                     solution.Temperature = energy / newCap;
             }
-
 
             OnReaction(soln, reaction, null, unitReactions);
 
