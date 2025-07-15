@@ -1,40 +1,61 @@
+# IMP START REORDERING CONVENTION: DO IT IN THIS ORDER
+# GroupTankHarness
+# Head
+# Mask
+# Neck
+# Jumpsuit
+# OuterClothing
+# Gloves
+# Shoes
+# Headset
+# Glasses
+# Backpack
+# Belt
+# PDA
+# Survival
+# Trinkets
+# Special
+# GroupSpeciesBreathTool
+# Weapon
+# Ammo
+# END IMP
 # Command
 - type: roleLoadout
   id: JobCaptain
   groups:
-  - CaptainGlasses #imp
-  - CaptainGloves #imp
+  - GroupTankHarnessCommandWithOuterwear # imp, Assign GroupTankHarness to jobs without outer clothing and GroupTankHarnessWithOuterwear to jobs with
+  - GroupTankHarnessCommandWithOuterwearAquatic # imp special
   - CaptainHead
   - CaptainNeck
   - CaptainJumpsuit
-  - CaptainBackpack
   - CaptainOuterClothing
+  - CaptainGloves #imp
   - CaptainShoes #imp
   - CommandHeadset #imp
+  - CaptainGlasses #imp
+  - CaptainBackpack # Imp reorder
   - SurvivalCommand # imp Survival > SurvivalCommand
   - Trinkets
   - GroupSpeciesBreathTool
-  - GroupTankHarnessCommandWithOuterwear # imp, Assign GroupTankHarness to jobs without outer clothing and GroupTankHarnessWithOuterwear to jobs with
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessCommandWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobHeadOfPersonnel
   groups:
   - GroupTankHarnessCommandWithOuterwear # imp GroupTankHarness > GroupTankHarnessCommandWithOuterwear
+  - GroupTankHarnessCommandWithOuterwearAquatic # imp special
   - HoPHead
   - HoPNeck
   - HoPJumpsuit
-  - HoPBackpack
   - HoPOuterClothing
   - HoPShoes # imp
   - CommandHeadset # imp
   - Glasses
+  - HoPBackpack # imp reorder
   - SurvivalCommand # imp Survival > SurvivalCommand
   - Trinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessCommandWithOuterwearAquatic # imp special
 
 # Silicons
 - type: roleLoadout
@@ -52,38 +73,38 @@
   id: JobPassenger
   groups:
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
+  - GroupTankHarnessWithOuterwearAquatic # imp special
+  - PassengerFace # imp reorder
+  - PassengerNeck # imp reorder
   - PassengerJumpsuit
-  - CommonBackpack
-  - PassengerNeck
-  - PassengerFace
-  - PassengerGloves
   - PassengerOuterClothing
+  - PassengerGloves # imp reorder
   - PassengerShoes
   - Glasses
+  - CommonBackpack # imp reorder
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobBartender
   groups:
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
+  - GroupTankHarnessWithOuterwearAquatic # imp special
   - BartenderHead
   - ServiceMask # imp
   - BartenderNeck # imp
   - BartenderJumpsuit
-  - CommonBackpack
   - BartenderOuterClothing
   - BartenderShoes #imp
   - Glasses
+  - CommonBackpack # imp reorder
   - BartenderPDA # imp
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobServiceWorker
@@ -104,392 +125,387 @@
   id: JobChef
   groups:
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
+  - GroupTankHarnessWithOuterwearAquatic # imp special
   - ChefHead
   - ChefMask
   - ChefNeck # imp
   - ChefJumpsuit
-  - ChefShoes # imp
-  - CommonBackpack
   - ChefOuterClothing
+  - ChefShoes # imp
   - Glasses
+  - CommonBackpack # imp reorder
   - ChefPDA # imp
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobLibrarian
   groups:
   - GroupTankHarness
+  - GroupTankHarnessAquatic #imp special
   - LibrarianNeck # imp
   - LibrarianJumpsuit
   - LibrarianShoes # imp
-  - CommonBackpack
   - Glasses
+  - CommonBackpack # imp reorder
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessAquatic #imp special
 
 - type: roleLoadout
   id: JobLawyer
   groups:
   - GroupTankHarness
+  - GroupTankHarnessAquatic #imp special
   - LawyerNeck
   - LawyerJumpsuit
   - LawyerOuterClothing # imp
   - LawyerShoes # imp
-  - LawyerBriefcase # imp
-  - CommonBackpack
   - Glasses
+  - CommonBackpack # imp reorder
   - LawyerPDA # imp
   - Survival
   - Trinkets
+  - LawyerBriefcase # imp
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessAquatic #imp special
 
 - type: roleLoadout
   id: JobChaplain
   groups:
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
+  - GroupTankHarnessWithOuterwearAquatic # imp special
   - ChaplainHead
-  - ChaplainEyes # imp
+  - ChaplainEyes # imp ????? why arent these glasses or mask
   - ChaplainMask
   - ChaplainNeck
   - ChaplainJumpsuit
-  - CommonBackpack
   - ChaplainOuterClothing
   - ChaplainShoes # imp
   - ChaplainBelt # imp
   - Glasses
-  - ChaplainBook #imp
+  - CommonBackpack # imp reorder
   - Survival
   - Trinkets
+  - ChaplainBook #imp
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobJanitor
   groups:
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
+  - GroupTankHarnessWithOuterwearAquatic # imp special
   - JanitorHead
   - JanitorMask # imp
   - JanitorNeck # imp
   - JanitorJumpsuit
+  - JanitorOuterClothing # imp reorder
   - JanitorGloves
   - JanitorShoes # imp
-  - CommonBackpack
-  - JanitorOuterClothing
   - Glasses
+  - CommonBackpack # imp reorder
   - Survival
   - Trinkets
   - JanitorPlunger
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobBotanist
   groups:
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
+  - GroupTankHarnessWithOuterwearAquatic # imp special
   - BotanistHead
   - ServiceMask # imp
   - BotanistNeck # imp
   - BotanistJumpsuit
-  - BotanistBackpack
   - BotanistOuterClothing
   - BotanistShoes # imp
   - Glasses
+  - BotanistBackpack # imp reorder
   - BotanistPDA # imp
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobClown
   canCustomizeName: true
   groups:
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
+  - GroupTankHarnessWithOuterwearAquatic # imp special
   - ClownHead
   - ClownMask #imp
   - ClownNeck #imp
   - ClownJumpsuit
-  - ClownBackpack
   - ClownOuterClothing
   - ClownShoes
   - Glasses
+  - ClownBackpack # imp reorder
   - SurvivalClown
   - Trinkets
   - GroupBreathToolDecapoidInventoryClown # imp special
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobMime
   canCustomizeName: true
   groups:
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
+  - GroupTankHarnessWithOuterwearAquatic # imp special
   - MimeHead
   - MimeMask
   - MimeNeck # imp
   - MimeJumpsuit
-  - MimeBackpack
   - MimeOuterClothing
   - MimeShoes # imp
-  - MimeBelt
   - Glasses
+  - MimeBackpack # imp reorder
+  - MimeBelt # imp reorder
   - SurvivalMime
   - Trinkets
   - GroupBreathToolDecapoidInventoryMime # imp special
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobMusician
   groups:
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
+  - GroupTankHarnessWithOuterwearAquatic # imp special
+  - MusicianHead # imp
   - MusicianNeck # imp
   - MusicianJumpsuit
-  - CommonBackpack
   - MusicianOuterClothing
   - MusicianShoes # imp
-  - MusicianHead # imp
   - Glasses
+  - CommonBackpack # imp reorder
   - Survival
   - Trinkets
   - Instruments
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 # Cargo
 - type: roleLoadout
   id: JobQuartermaster
   groups:
   - GroupTankHarnessCommandWithOuterwear # imp GroupTankHarness > GroupTankHarnessCommandWithOuterwear
+  - GroupTankHarnessCommandWithOuterwearAquatic # imp special
   - QuartermasterHead
   - QuartermasterNeck
   - QuartermasterJumpsuit
-  - CargoTechnicianBackpack
   - QuartermasterOuterClothing
   - QuartermasterShoes
   - QuartermasterHeadset #imp
   - Glasses
-  - QuartermasterBackpack #imp
+  - QuartermasterBackpack #imp CargoTechnicianBackpack > QuartermasterBackpack
   - SurvivalCommand # imp Survival > SurvivalCommand
   - Trinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessCommandWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobCargoTechnician
   groups:
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
+  - GroupTankHarnessWithOuterwearAquatic # imp special
   - CargoTechnicianHead
   - CargoTechnicianMask # imp
   - CargoTechnicianNeck # imp
   - CargoTechnicianJumpsuit
-  - CargoTechnicianBackpack
   - CargoTechnicianOuterClothing
-  - CargoTechnicianBelt #imp
   - CargoTechnicianShoes
   - Glasses
+  - CargoTechnicianBackpack # imp reorder
+  - CargoTechnicianBelt #imp
   - CargoTechnicianPDA # imp
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobSalvageSpecialist
   groups:
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
+  - GroupTankHarnessWithOuterwearAquatic # imp special
   - CargoTechnicianMask # imp
   - SalvageSpecialistNeck # imp
   - SalvageSpecialistJumpsuit # imp unspecial
-  - SalvageSpecialistBackpack
   - SalvageSpecialistOuterClothing
   - SalvageSpecialistShoes
-  - SalvageSpecialistGlasses # imp
-  - SalvageSpecialistPDA # imp
   - SalvageSpecialistGlasses # imp Glasses > SalvageSpecialistGlasses
+  - SalvageSpecialistBackpack # imp reorder
+  - SalvageSpecialistPDA # imp
+  - Survival
   - Trinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 # Engineering
 - type: roleLoadout
   id: JobChiefEngineer
   groups:
   - GroupTankHarnessCommandWithOuterwear # imp GroupTankHarness > GroupTankHarnessCommandWithOuterwear
+  - GroupTankHarnessCommandWithOuterwearAquatic # imp special
   - ChiefEngineerHead
+  - ChiefEngineerNeck # imp reorder
   - ChiefEngineerJumpsuit
-  - StationEngineerBackpack
-  - ChiefEngineerNeck
   - ChiefEngineerOuterClothing
   - ChiefEngineerShoes
   - ChiefEngineerHeadset #imp
-  - ChiefEngineerBackpack #imp
+  - ChiefEngineerBackpack #imp StationEngineerBackpack > ChiefEngineerBackpack
   - SurvivalExtendedCommand #imp SurvivalExtended > SurvivalExtendedCommand
   - Trinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessCommandWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobTechnicalAssistant
   groups:
   - GroupTankHarness
+  - GroupTankHarnessAquatic #imp special
   - TechnicalAssistantJumpsuit
   - StationEngineerBackpack
   - SurvivalExtended
   - Trinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessAquatic #imp special
 
 - type: roleLoadout
   id: JobStationEngineer
   groups:
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
+  - GroupTankHarnessWithOuterwearAquatic # imp special
   - StationEngineerHead
   - StationEngineerMask # imp
   - StationEngineerNeck # imp
   - StationEngineerJumpsuit
-  - StationEngineerBackpack
   - StationEngineerOuterClothing
   - StationEngineerShoes
+  - StationEngineerBackpack # imp reorder
   - StationEngineerID
   - SurvivalExtended
   - Trinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobAtmosphericTechnician
   groups:
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
+  - GroupTankHarnessWithOuterwearAquatic # imp special
   - AtmosphericTechnicianHead # imp
   - StationEngineerMask # imp
   - AtmosphericTechnicianNeck # imp
   - AtmosphericTechnicianJumpsuit
-  - AtmosphericTechnicianBackpack
   - AtmosphericTechnicianOuterClothing
   - AtmosphericTechnicianShoes
+  - AtmosphericTechnicianBackpack # imp reorder
   - AtmosphericTechnicianPDA # imp
   - SurvivalExtended
   - Trinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 # Science
 - type: roleLoadout
   id: JobResearchDirector
   groups:
   - GroupTankHarnessCommandWithOuterwear # imp GroupTankHarness > GroupTankHarnessCommandWithOuterwear
+  - GroupTankHarnessCommandWithOuterwearAquatic # imp special
   - ResearchDirectorHead
   - ResearchDirectorNeck
   - ResearchDirectorJumpsuit
-  - ScientistBackpack
   - ResearchDirectorOuterClothing
   - ScientistGloves
   - ResearchDirectorShoes
   - ResearchDirectorHeadset #imp
   - Glasses
-  - ResearchDirectorBackpack #imp
+  - ResearchDirectorBackpack # imp ScientistBackpack > ResearchDirectorBackpack
   - SurvivalCommand # imp Survival > SurvivalCommand
   - Trinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessCommandWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobScientist
   groups:
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
+  - GroupTankHarnessWithOuterwearAquatic # imp special
   - ScientistHead
   - ScientistMask # imp
   - ScientistNeck
   - ScientistJumpsuit
-  - ScientistBackpack
   - ScientistOuterClothing
   - ScientistGloves
   - ScientistShoes
-  - ScientistPDA
   - Glasses
+  - ScientistBackpack # imp reorder
+  - ScientistPDA # imp reorder
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobResearchAssistant
   groups:
   - GroupTankHarness
+  - GroupTankHarnessAquatic #imp special
   - ResearchAssistantJumpsuit
-  - ScientistBackpack
   - Glasses
+  - ScientistBackpack # imp reorder
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessAquatic #imp special
 
 # Security
 - type: roleLoadout
   id: JobHeadOfSecurity
   groups:
   - GroupTankHarnessCommandWithOuterwear # imp GroupTankHarness > GroupTankHarnessCommandWithOuterwear
+  - GroupTankHarnessCommandWithOuterwearAquatic # imp special
   - HeadofSecurityHead
   - SecurityMask # imp
   - HeadofSecurityNeck
   - HeadofSecurityJumpsuit
-  - HeadofSecurityBackpack # imp SecurityBackpack > HeadofSecurityBackpack
-  - HeadofSecurityBelt # imp SecurityBelt > HeadofSecurityBelt
   - HeadofSecurityOuterClothing
   - SecurityShoes
-  - HeadofSecurityBackpack #imp
-  - HeadofSecurityBelt # imp
-  - SurvivalSecurityCommand # imp SurvivalSecurity > SurvivalSecurityCommand
   - HeadofSecurityHeadset #imp
+  - HeadofSecurityBackpack # imp SecurityBackpack > HeadofSecurityBackpack
+  - HeadofSecurityBelt # imp SecurityBelt > HeadofSecurityBelt
+  - SurvivalSecurityCommand # imp SurvivalSecurity > SurvivalSecurityCommand
   - Trinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessCommandWithOuterwearAquatic # imp special
   - SecurityCommandFirearm # imp
   - SecurityCommandAmmo # imp
 
 - type: roleLoadout
   id: JobWarden
   groups:
-  - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
+  - GroupTankHarnessWithOuterwear # imp GroupTankHarness > 
+  - GroupTankHarnessWithOuterwearAquatic # imp special
   - WardenHead
   - SecurityMask # imp
   - WardenNeck # imp
   - WardenJumpsuit
-  - SecurityBackpack
-  - SecurityBelt
   - WardenOuterClothing
   - SecurityShoes
-  - SurvivalSecurity
+  - SecurityBackpack # imp reorder
+  - SecurityBelt # imp reorder
   - WardenPDA # imp
+  - SurvivalSecurity
   - Trinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessWithOuterwearAquatic # imp special
   - SecurityCommandFirearm # imp
   - SecurityCommandAmmo # imp
 
@@ -497,21 +513,21 @@
   id: JobSecurityOfficer
   groups:
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
+  - GroupTankHarnessWithOuterwearAquatic # imp special
   - SecurityHead
   - SecurityMask # imp
   - SecurityNeck # imp
   - SecurityJumpsuit
-  - SecurityBackpack
   - SecurityOuterClothing
   - SecurityShoes
-  - SecurityPDA
+  - SecurityBackpack # imp reorder
   - SecurityBelt
+  - SecurityPDA # imp reorder
   - SurvivalSecurity
   - Trinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessWithOuterwearAquatic # imp special
   - SecurityOfficerFirearm # imp
   - SecurityOfficerAmmo # imp
 
@@ -519,19 +535,19 @@
   id: JobDetective
   groups:
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
+  - GroupTankHarnessWithOuterwearAquatic # imp special
   - DetectiveHead
   - DetectiveNeck
   - DetectiveJumpsuit
-  - SecurityBackpack
   - DetectiveOuterClothing
   - DetectiveShoes # imp SecurityShoes > DetectiveShoes
+  - SecurityBackpack # imp reorder
   - DetectivePDA # imp
   - SurvivalSecurity
   - Trinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessWithOuterwearAquatic # imp special
   - DetectiveFirearm # imp
   - DetectiveAmmo # imp
 
@@ -539,168 +555,166 @@
   id: JobSecurityCadet
   groups:
   - GroupTankHarness # imp. wtf does upstream hate cadets
+  - GroupTankHarnessAquatic #imp special
   - SecurityCadetJumpsuit
   - SecurityBackpack
   - SurvivalSecurity
   - Trinkets
   - GroupSpeciesBreathToolSecurity
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessAquatic #imp special
 
 # Medical
 - type: roleLoadout
   id: JobChiefMedicalOfficer
   groups:
   - GroupTankHarnessCommandWithOuterwear # imp GroupTankHarness > GroupTankHarnessCommandWithOuterwear
+  - GroupTankHarnessCommandWithOuterwearAquatic # imp special
   - ChiefMedicalOfficerHead
   - MedicalMask
+  - ChiefMedicalOfficerNeck # imp reorder
   - ChiefMedicalOfficerJumpsuit
+  - ChiefMedicalOfficerOuterClothing # imp reorder
   - MedicalGloves
-  - MedicalBackpack
-  - ChiefMedicalOfficerOuterClothing
-  - ChiefMedicalOfficerBelt #imp
-  - ChiefMedicalOfficerNeck
   - ChiefMedicalOfficerShoes
   - ChiefMedicalOfficerHeadset #imp
-  - ChiefMedicalOfficerBackpack #imp
   - MedicalEyewear
+  - ChiefMedicalOfficerBackpack #imp MedicalBackpack > ChiefMedicalOfficerBackpack
+  - ChiefMedicalOfficerBelt #imp
   - SurvivalCommand # imp SurvivalMedical > SurvivalCommand
   - Trinkets
   - GroupSpeciesBreathToolMedical
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessCommandWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobMedicalDoctor
   groups:
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
+  - GroupTankHarnessWithOuterwearAquatic # imp special
   - MedicalDoctorHead
   - MedicalMask
   - MedicalDoctorNeck # imp
   - MedicalDoctorJumpsuit
+  - MedicalDoctorOuterClothing # imp reorder
   - MedicalGloves
-  - MedicalBackpack
-  - MedicalDoctorOuterClothing
   - MedicalShoes
-  - MedicalDoctorPDA
   - MedicalEyewear
+  - MedicalBackpack # imp reorder
+  - MedicalDoctorPDA # imp reorder
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobMedicalIntern
   groups:
   - GroupTankHarness
+  - GroupTankHarnessAquatic #imp special
   - MedicalInternJumpsuit
-  - MedicalBackpack
   - MedicalEyewear
+  - MedicalBackpack # imp reorder
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessAquatic #imp special
 
 - type: roleLoadout
   id: JobChemist
   groups:
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
+  - GroupTankHarnessWithOuterwearAquatic # imp special
   - ChemistHead # imp
   - MedicalMask
   - ChemistNeck # imp
   - ChemistJumpsuit
-  - MedicalGloves
-  - ChemistBackpack
-  - ChemistOuterClothing
-  - ChemistGloves # imp
+  - ChemistOuterClothing # imp reorder
+  - ChemistGloves # imp MedicalGloves > ChemistGloves
   - ChemistShoes # imp MedicalShoes > ChemistShoes
+  - ChemistBackpack # imp reorder
   - ChemistPDA # imp
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobParamedic
   groups:
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
+  - GroupTankHarnessWithOuterwearAquatic # imp special
   - ParamedicHead
   - MedicalMask
   - ParamedicNeck # imp
   - ParamedicJumpsuit
+  - ParamedicOuterClothing # imp reorder
   - MedicalGloves
-  - MedicalBackpack
-  - ParamedicOuterClothing
   - ParamedicShoes
   - MedicalEyewear
+  - MedicalBackpack # imp reorder
   - ParamedicPDA # imp
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 # Wildcards
 - type: roleLoadout
   id: JobZookeeper
   groups:
   - GroupTankHarness
-  - CommonBackpack
+  - GroupTankHarnessAquatic #imp special
   - Glasses
+  - CommonBackpack # imp reorder
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessAquatic #imp special
 
 - type: roleLoadout
   id: JobReporter
   groups:
   - GroupTankHarness
+  - GroupTankHarnessAquatic #imp special
   - ServiceMask # imp
   - ReporterNeck # imp
   - ReporterJumpsuit
   - ReporterShoes # imp
-  - CommonBackpack
   - Glasses
+  - CommonBackpack # imp reorder
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessAquatic #imp special
 
 - type: roleLoadout
   id: JobPsychologist
   groups:
   - GroupTankHarness
+  - GroupTankHarnessAquatic #imp special
   - PsychologistNeck # imp
   - PsychologistJumpsuit
-  - PsychologistShoes # imp
   - PsychologistOuterClothing # DeltaV
-  - MedicalBackpack
+  - PsychologistShoes # imp
   - Glasses
+  - MedicalBackpack # imp reorder
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessAquatic #imp special
 
 - type: roleLoadout
   id: JobBoxer
   groups:
   - GroupTankHarness
+  - GroupTankHarnessAquatic #imp special
   - BoxerJumpsuit
   - BoxerGloves
-  - CommonBackpack
   - Glasses
+  - CommonBackpack # imp reorder
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessAquatic #imp special
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
 # They will be used without player configuration, thus they will only ever apply what is forced by MinLimit
