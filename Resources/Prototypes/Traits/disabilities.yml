@@ -16,7 +16,7 @@
   id: PoorVision
   name: trait-poor-vision-name
   description: trait-poor-vision-desc
-  traitGear: PrescriptionLensStrong # imp
+  #traitGear: PrescriptionLensStrong # imp
   category: Disabilities
   whitelist:
     components:
@@ -24,6 +24,7 @@
   components:
     - type: PermanentBlindness
       blindness: 4
+    - type: StartWithLenses
 
 - type: trait
   id: Narcolepsy
