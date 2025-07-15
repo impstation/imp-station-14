@@ -6,6 +6,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
 using Content.Shared.Lens;
 using Robust.Shared.Containers;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Impstation.StartWithLenses;
 
@@ -23,38 +24,36 @@ public sealed class StartWithLensesSystem : EntitySystem
         SubscribeLocalEvent<StartWithLensesComponent, MapInitEvent>(OnMapInit, after: [typeof(LoadoutSystem)]);
     }
 
-    private void OnMapInit(EntityUid uid, StartWithLensesComponent component, MapInitEvent args)
+    private void OnMapInit(Entity<StartWithLensesComponent> ent, ref MapInitEvent args)
     {
-        if (_inventorySystem.TryGetSlot(uid, "eyes", out var slot))
+        if (!_inventorySystem.TryGetSlot(ent, "eyes", out var slot))
+            return;
+
+        var eyes = _inventorySystem.GetHandOrInventoryEntities(ent.Owner, SlotFlags.EYES).First();
+
+        if (TryComp<LensSlotComponent>(eyes, out var lensSlot))
         {
-            var eyes = _inventorySystem.GetHandOrInventoryEntities(uid, SlotFlags.EYES).First();
+            var item = Spawn(ent.Comp.LensPrototype, Transform(ent).Coordinates);
 
-            var lensSlot = CompOrNull<LensSlotComponent>(eyes);
-
-            if (lensSlot is not null)
+            if (_itemSlotsSystem.TryGetSlot(eyes, lensSlot.LensSlotId, out ItemSlot? itemSlot))
+                _itemSlotsSystem.TryInsert(eyes, itemSlot, item, user: null);
+        }
+        else
+        {
+            if (TryComp<HandsComponent>(ent, out var handsComponent))
             {
-                var item = Spawn("PrescriptionLensStrong", Transform(uid).Coordinates);
+                var coords = Transform(ent).Coordinates;
+                var inhandEntity = EntityManager.SpawnEntity(ent.Comp.LensPrototype, coords);
+                _sharedHandsSystem.TryPickup(ent,
+                    inhandEntity,
+                    checkActionBlocker: false,
+                    handsComp: handsComponent);
+            }
+        }
 
-                if (_itemSlotsSystem.TryGetSlot(eyes, lensSlot.LensSlotId, out ItemSlot? itemSlot))
-                    _itemSlotsSystem.TryInsert(eyes, itemSlot, item, user: null);
-            }
-            else
-            {
-                if (TryComp(uid, out HandsComponent? handsComponent))
-                {
-                    var coords = Transform(uid).Coordinates;
-                    var inhandEntity = EntityManager.SpawnEntity("PrescriptionLensStrong", coords);
-                    _sharedHandsSystem.TryPickup(uid,
-                        inhandEntity,
-                        checkActionBlocker: false,
-                        handsComp: handsComponent);
-                }
-            }
-
-            if (eyes.Valid)
-            {
-                _inventorySystem.SpawnItemInSlot(uid, "eyes", "PrescriptionLensStrong");
-            }
+        if (eyes.Valid)
+        {
+            _inventorySystem.SpawnItemInSlot(ent, "eyes", ent.Comp.LensPrototype);
         }
     }
 }
