@@ -103,7 +103,10 @@ public sealed partial class ShuttleSystem : SharedShuttleSystem
             return;
 
         EnsureComp<ShuttleComponent>(ev.EntityUid);
-        EnsureComp<ImplicitRoofComponent>(ev.EntityUid);
+        if (!HasComp<RoofComponent>(ev.EntityUid)) // Imp start
+        {
+            EnsureComp<ImplicitRoofComponent>(ev.EntityUid); // this is upstream though
+        }// imp end
     }
 
     private void OnShuttleStartup(EntityUid uid, ShuttleComponent component, ComponentStartup args)
