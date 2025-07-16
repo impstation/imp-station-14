@@ -1,0 +1,147 @@
+- type: entity
+  parent: CardBoxBase
+  id: CardBoxTarot
+  name: tarot deck box
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/cards.rsi
+    state: box
+    layers:
+    - state: purple_box
+    - state: purple_box_open
+      map: [ "openLayer" ]
+      visible: false
+  - type: OpenTriggeredStorageFill
+    contents:
+    - id: CardDeckTarot
+      amount: 1
+
+- type: entity
+  parent: CardDeckBase
+  id: CardDeckTarot
+  name: deck of cards
+  components:
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: deck_black_full
+  - type: CardStack
+    content:
+    # Cups
+    - CardScAceOfCups
+    - CardSc2OfCups
+    - CardSc3OfCups
+    - CardSc4OfCups
+    - CardSc5OfCups
+    - CardSc6OfCups
+    - CardSc7OfCups
+    - CardSc8OfCups
+    - CardSc9OfCups
+    - CardSc10OfCups
+    - CardScPageOfCups
+    - CardScKnightOfCups
+    - CardScQueenOfCups
+    - CardScKingOfCups
+    # Pentacles
+    - CardScAceOfPentacles
+    - CardSc2OfPentacles
+    - CardSc3OfPentacles
+    - CardSc4OfPentacles
+    - CardSc5OfPentacles
+    - CardSc6OfPentacles
+    - CardSc7OfPentacles
+    - CardSc8OfPentacles
+    - CardSc9OfPentacles
+    - CardSc10OfPentacles
+    - CardScPageOfPentacles
+    - CardScKnightOfPentacles
+    - CardScQueenOfPentacles
+    - CardScKingOfPentacles
+    # Swords
+    - CardScAceOfSwords
+    - CardSc2OfSwords
+    - CardSc3OfSwords
+    - CardSc4OfSwords
+    - CardSc5OfSwords
+    - CardSc6OfSwords
+    - CardSc7OfSwords
+    - CardSc8OfSwords
+    - CardSc9OfSwords
+    - CardSc10OfSwords
+    - CardScPageOfSwords
+    - CardScKnightOfSwords
+    - CardScQueenOfSwords
+    - CardScKingOfSwords
+    # Wands
+    - CardScAceOfWands
+    - CardSc2OfWands
+    - CardSc3OfWands
+    - CardSc4OfWands
+    - CardSc5OfWands
+    - CardSc6OfWands
+    - CardSc7OfWands
+    - CardSc8OfWands
+    - CardSc9OfWands
+    - CardSc10OfWands
+    - CardScPageOfWands
+    - CardScKnightOfWands
+    - CardScQueenOfWands
+    - CardScKingOfWands
+    # Major Arcana
+    - CardScTheFool
+    - CardScTheMagician
+    - CardScTheHighPriestess
+    - CardScTheEmpress
+    - CardScTheEmperor
+    - CardScTheHierophant
+    - CardScTheLovers
+    - CardScTheChariot
+    - CardScStrength
+    - CardScTheHermit
+    - CardScTheWheel
+    - CardScJustice
+    - CardScTheHangedMan
+    - CardScDeath
+    - CardScTemperance
+    - CardScTheDevil
+    - CardScTheTower
+    - CardScTheStar
+    - CardScTheSun
+    - CardScJudgement
+    - CardScTheWorld
+  
+- type: entity
+  parent: BaseItem
+  id: CardBaseTarot
+  name: card
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EmitSoundOnLand
+    sound:
+      collection: cardShove
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/cards.rsi
+    state: singlecard_down_tarot
+  - type: Rotatable
+  - type: Item
+    size: Tiny
+  - type: UseDelay
+    delay: 0.5
+  - type: Card
+    backSpriteLayers:
+    - sprite: _Impstation/Objects/Misc/cards.rsi
+      state: singlecard_down_tarot
+    flipped: true
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScAceOfCups
+  description: A chalice atop a pool, surrounded by flowing water. A grand bird hovers above the chalice. Water, New Feelings, Spirituality, Intuition
+  components:
+  - type: Card
+    name: card-sc-ace-cups
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/cards.rsi
+    state: sc_Ace_of_Cups_tarot
