@@ -61,13 +61,13 @@
   components:
   - type: Item
     size: Normal
-    sprite: _Impstation/Objects/Storage/Briefcases/briefcase_steel.rsi
+    sprite: _Impstation/Objects/Tools/Toolboxes/toolbox_lime.rsi
   - type: Sprite
-    sprite: Structures/Machines/cuttermachine.rsi
+    sprite: _Impstation/Structures/Machines/portable_cutter_machine.rsi
     layers:
     - state: icon
       map: [ "foldedLayer" ]
-      sprite: _Impstation/Objects/Storage/Briefcases/briefcase_steel.rsi
+      sprite: _Impstation/Objects/Tools/Toolboxes/toolbox_lime.rsi #the game gets angry if this is in the same rsi file as the other states
     - state: icon
       map: [ "enum.LatheVisualLayers.IsRunning", "unfoldedLayer" ]
     - state: unlit
@@ -90,7 +90,7 @@
   - type: Machine
     board: PortableCutterMachineCircuitboard
   - type: MaterialStorage
-    storageLimit: 6000 #infinite handheld material storage kinda op, 60 sheets is still pretty damn good though
+    storageLimit: 6000 #infinite handheld material storage kinda op, but 60 sheets is still pretty damn good
   - type: EmitSoundOnCollide
     sound:
       collection: MetalThud
