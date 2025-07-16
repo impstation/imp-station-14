@@ -1,5 +1,3 @@
-
-
 - type: entity
   id: ServiceTechFab
   parent: BaseLatheLube
@@ -54,29 +52,72 @@
         - Ingot
 
 - type: entity
-  id: CutterMachinePortable
-  parent: [CutterMachine, BaseDeployFoldable]
+  id: PortableCutterMachine
+  parent: [CutterMachine, BaseDeployFoldable, BaseCommandContraband]
   name: portable cutter machine
-  description: A portable cutter machine that conveniently folds into a briefcase, for the station redecorator on the go!
+  suffix: Unfolded, DO NOT MAP
+  description: A portable cutter machine that conveniently folds into a toolbox, for the station redecorator on the go!
+  categories: [ DoNotMap ] #HD toy only, you only get one
   components:
   - type: Item
     size: Normal
     sprite: _Impstation/Objects/Storage/Briefcases/briefcase_steel.rsi
   - type: Sprite
-    sprite: _Impstation/Objects/Storage/Briefcases/briefcase_steel.rsi
+    sprite: Structures/Machines/cuttermachine.rsi
     layers:
     - state: icon
       map: [ "foldedLayer" ]
+      sprite: _Impstation/Objects/Storage/Briefcases/briefcase_steel.rsi
     - state: icon
-      sprite: Structures/Machines/cuttermachine.rsi
       map: [ "enum.LatheVisualLayers.IsRunning", "unfoldedLayer" ]
     - state: unlit
-      sprite: Structures/Machines/cuttermachine.rsi
       shader: unshaded
+      visible: false
       map: [ "enum.PowerDeviceVisualLayers.Powered" ]
     - state: panel
-      sprite: Structures/Machines/cuttermachine.rsi
       map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+  - type: Fixtures #same as baseitem but with the density of basemachine
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 190
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+  - type: Machine
+    board: PortableCutterMachineCircuitboard
   - type: MaterialStorage
-    storageLimit: 6000
+    storageLimit: 6000 #infinite handheld material storage kinda op, 60 sheets is still pretty damn good though
+  - type: EmitSoundOnCollide
+    sound:
+      collection: MetalThud
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/toolbox_drop.ogg
+      params:
+        volume: 2
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 15 #robust...
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+  - type: DamageOtherOnHit
+    meleeDamageMultiplier: 1.33
+    staminaCost: 12.5
 
+- type: entity
+  id: PortableCutterMachineFolded
+  parent: PortableCutterMachine
+  suffix: Folded, DO NOT MAP
+  categories: [ DoNotMap ] #HD toy only, you only get one
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic
+  - type: Foldable
+    folded: true

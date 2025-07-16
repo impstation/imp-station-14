@@ -44,3 +44,20 @@
           GlassBeaker:
             amount: 1
             defaultPrototype: Beaker
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: PortableCutterMachineCircuitboard
+  name: portable cutter machine board
+  description: A machine printed circuit board for a portable cutter machine.
+  categories: [ DoNotMap ] #you only get one
+  components:
+  - type: Sprite
+    state: service
+  - type: MachineBoard
+    prototype: PortableCutterMachine
+    stackRequirements:
+      Steel: 2
+      Manipulator: 2
+      Cable: 1
+  #TODO: Steal target
