@@ -1,10 +1,10 @@
 accent-milbrat-words-1 = captain
-accent-milbrat-words-replace-1 = command actual
+accent-milbrat-words-replace-1 = Command Actual
 
 accent-milbrat-words-2 = head of personnel
 accent-milbrat-words-2-2 = hop
 accent-milbrat-words-2-3 = head of personel
-accent-milbrat-words-replace-2 = admin actual
+accent-milbrat-words-replace-2 = Admin Actual
 
 accent-milbrat-words-3 = attractive
 accent-milbrat-words-3-2 = sexy
@@ -17,7 +17,7 @@ accent-milbrat-words-replace-3 = state of the art
 accent-milbrat-words-4 = head of security
 accent-milbrat-words-4-2 = security chief
 accent-milbrat-words-4-3 = hos
-accent-milbrat-words-replace-4 = security actual
+accent-milbrat-words-replace-4 = Security Actual
 
 accent-milbrat-words-5 = all right
 accent-milbrat-words-5-2 = excellent
@@ -253,14 +253,14 @@ accent-milbrat-words-replace-58 = victor papa
 accent-milbrat-words-59 = research director
 accent-milbrat-words-59-2 = head of science
 accent-milbrat-words-59-3 = head of research
-accent-milbrat-words-replace-59 = science actual
+accent-milbrat-words-replace-59 = Science Actual
 
 accent-milbrat-words-60 = hospitality director
-accent-milbrat-words-replace-60 = service actual
+accent-milbrat-words-replace-60 = Service Actual
 
 accent-milbrat-words-61 = quartermaster
 accent-milbrat-words-61-2 = head of cargo
-accent-milbrat-words-replace-61 = cargo actual
+accent-milbrat-words-replace-61 = Cargo Actual
 
 accent-milbrat-words-62 = silly
 accent-milbrat-words-replace-62 = unbecoming
@@ -290,3 +290,6 @@ accent-milbrat-words-replace-68 = magazine
 accent-milbrat-words-69 = surrender
 accent-milbrat-words-69-2 = give up
 accent-milbrat-words-replace-69 = capitulate
+
+accent-milbrat-words-70 = shit's fucked
+accent-milbrat-words-replace-70 = Operation is FUBAR

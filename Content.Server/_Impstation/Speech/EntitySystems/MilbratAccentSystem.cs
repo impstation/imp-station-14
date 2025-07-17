@@ -17,7 +17,7 @@ public sealed class MilbratAccentSystem : EntitySystem
     {
         var message = args.Message;
 
-        message = _replacement.ApplyReplacements(message, "Milbrat_accent");
+        message = _replacement.ApplyReplacements(message, "milbrat_accent");
 
         args.Message = message;
     }
