@@ -61,13 +61,13 @@
   components:
   - type: Item
     size: Normal
-    sprite: _Impstation/Objects/Tools/Toolboxes/toolbox_lime.rsi
+    sprite: _Impstation/Objects/Tools/Toolboxes/toolbox_hd.rsi
   - type: Sprite
     sprite: _Impstation/Structures/Machines/portable_cutter_machine.rsi
     layers:
     - state: icon
       map: [ "foldedLayer" ]
-      sprite: _Impstation/Objects/Tools/Toolboxes/toolbox_lime.rsi #the game gets angry if this is in the same rsi file as the other states
+      sprite: _Impstation/Objects/Tools/Toolboxes/toolbox_hd.rsi #the game gets angry if this is in the same rsi file as the other states
     - state: icon
       map: [ "enum.LatheVisualLayers.IsRunning", "unfoldedLayer" ]
     - state: unlit
