@@ -17,7 +17,7 @@ accent-milbrat-words-replace-3 = state of the art
 accent-milbrat-words-4 = head of security
 accent-milbrat-words-4-2 = security chief
 accent-milbrat-words-4-3 = hos
-accent-milbrat-words-replace-4 = security actuam
+accent-milbrat-words-replace-4 = security actual
 
 accent-milbrat-words-5 = all right
 accent-milbrat-words-5-2 = excellent
