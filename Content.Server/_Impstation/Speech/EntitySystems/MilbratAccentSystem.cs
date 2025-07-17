@@ -13,11 +13,11 @@ public sealed class MilbratAccentSystem : EntitySystem
         SubscribeLocalEvent<MilbratAccentComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, milbratAccentComponent component, AccentGetEvent args)
+    private void OnAccent(EntityUid uid, MilbratAccentComponent component, AccentGetEvent args)
     {
         var message = args.Message;
 
-        message = _replacement.ApplyReplacements(message, "milbrat_accent");
+        message = _replacement.ApplyReplacements(message, "Milbrat_accent");
 
         args.Message = message;
     }
