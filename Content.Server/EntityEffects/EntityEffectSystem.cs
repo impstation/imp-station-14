@@ -1038,8 +1038,6 @@ public sealed class EntityEffectSystem : EntitySystem
             return;
         }
 
-        // in an ideal world, this is where we would get the name of the injector to display as ghost role text.
-
         entityManager.EnsureComponent<GhostRoleComponent>(uid, out var ghostRole);
         entityManager.EnsureComponent<GhostTakeoverAvailableComponent>(uid);
         var entityData = entityManager.GetComponent<MetaDataComponent>(uid);
