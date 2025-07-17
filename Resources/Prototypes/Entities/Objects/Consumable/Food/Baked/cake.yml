@@ -351,6 +351,10 @@
   id: FoodCakeCheese
   description: DANGEROUSLY cheesy.
   components:
+  - type: FlavorProfile # Imp
+    flavors:
+    - creamy
+    - cheesy
   - type: Sprite
     state: cheese
   - type: SliceableFood
