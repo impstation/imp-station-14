@@ -15,11 +15,13 @@
     - Revolutionary
     - Changeling
     - Heretic
+    - Replicator
 
 - type: npcFaction
   id: Penguin
   hostile:
   - Dragon
+  - Replicator
 
 # Initial infected should be ignored by zombies
 - type: npcFaction
@@ -45,3 +47,4 @@
   - Heretic
   - Dino
   - Penguin
+  - AllHostile
