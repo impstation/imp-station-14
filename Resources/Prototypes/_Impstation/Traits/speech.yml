@@ -171,14 +171,13 @@
     accent: slimes
 
 - type: trait
-  id: Military
+  id: Milbrat
   name: trait-milbrat-name
   description: trait-milbrat-desc
   category: SpeechTraits
   cost: 2
   components:
-  - type: ReplacementAccent
-    accent: milbrat
+  - type: MilbratAccent
 
 - type: trait
   id: AccentImmune
