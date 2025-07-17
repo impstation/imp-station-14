@@ -1,12 +1,9 @@
 ﻿- type: entity
   name: stick of rainbow cannabis butter
-  parent: [FoodBakingBase, BaseMinorContraband]
+  parent: [FoodCannabisButter, BaseMinorContraband]
   id: FoodRainbowCannabisButter
   description: Add this to your favorite baked goods for a horrible time.
   components:
-  - type: Sprite
-    sprite: _impstation/Objects/Consumable/Food/ingredients.rsi
-    state: butter-cannabis
   - type: SolutionContainerManager
     solutions:
       food:
@@ -23,8 +20,6 @@
     energy: 2
   - type: RgbLightController
     cycleRate: 0.6
-  - type: Extractable
-    grindableSolutionName: food
 
 - type: entity
   name: chocolate chip
