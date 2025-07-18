@@ -106,7 +106,9 @@
     soundHit:
       path: "/Audio/Weapons/smash.ogg"
   - type: DamageOtherOnHit
-    meleeDamageMultiplier: 1.33
+    damage:
+      types:
+        Blunt: 20 #matches the toolbox's 1.33 multiplier (rounded up), needed to be manually set to override BaseStructure's parameters
     staminaCost: 12.5
 
 - type: entity

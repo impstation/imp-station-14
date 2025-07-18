@@ -242,7 +242,7 @@ public sealed partial class AnchorableSystem : EntitySystem
         }
 
         // Imp edit start, if the entity has the Foldable component, only allow anchoring if it is unfolded. Used for foldable machines.
-        if (TryComp<FoldableComponent>(uid, out var foldable) && foldable.IsFolded)
+        if (TryComp<FoldableComponent>(uid, out var foldable) && foldable.IsFolded && !foldable.CanAnchorWhileFolded)
         {
             _popup.PopupClient(Loc.GetString("anchorable-folded", ("foldable", uid)), uid, userUid);
             return;
