@@ -332,3 +332,7 @@ accent-milbrat-words-replace-78 = soldier
 
 accent-milbrat-words-79 = fuck em
 accent-milbrat-words-replace-79 = acceptable losses
+
+accent-milbrat-words-80 = seen
+accent-milbrat-words-80-2 = saw
+accent-milbrat-words-replace-80 = sighted
