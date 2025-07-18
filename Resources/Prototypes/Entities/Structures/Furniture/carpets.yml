@@ -368,10 +368,13 @@
     key: full_white
 
 # TODO nuke this once tiles support rotating sprites
+# IMP NOTE they added support to rotating tiles, but seemingly only in the tile placer menu
+# so I've decided to raw dog this and just make 4 separate tile prototypes to replace this for the time being
 - type: entity
   id: CarpetChapel
   parent: BaseStructure
   name: "chapel's carpet"
+  categories: [ HideSpawnMenu ] #imp edit, replaced with tiles
   components:
   - type: Sprite
     sprite: Structures/Furniture/Carpets/chapel_carpet.rsi

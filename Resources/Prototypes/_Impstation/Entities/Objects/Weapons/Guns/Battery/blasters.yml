@@ -146,7 +146,11 @@
   name: Ceremonial Gray blaster
   parent: WeaponDisablerPractice
   id: WeaponBlasterToy
+<<<<<<< HEAD
   description: A harmless* gun used by Grays used for ceremonial purposes.
+=======
+  description: A harmless* gun used by Grays for ceremonial purposes.
+>>>>>>> 0ce4841e3f1e792b5ca3bcc028d7c361427dfd80
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Battery/grayceremonial.rsi
@@ -188,4 +192,8 @@
     staminaCost: 15
     damage:
       types:
+<<<<<<< HEAD
         Blunt: 0
+=======
+        Blunt: 0
+>>>>>>> 0ce4841e3f1e792b5ca3bcc028d7c361427dfd80
