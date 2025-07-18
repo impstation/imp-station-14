@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 261.2.0
+  engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/01/2025 06:40:52
-  entityCount: 7739
+  time: 07/09/2025 21:57:03
+  entityCount: 7745
 maps:
 - 1
 grids:
@@ -16213,6 +16213,13 @@ entities:
     - type: Transform
       pos: 8.5,-17.5
       parent: 2
+- proto: CondimentDispenser
+  entities:
+  - uid: 7744
+    components:
+    - type: Transform
+      pos: -2.5,-16.5
+      parent: 2
 - proto: ConveyorBelt
   entities:
   - uid: 362
@@ -16471,10 +16478,10 @@ entities:
       parent: 2
 - proto: CrateLockBoxMedical
   entities:
-  - uid: 5941
+  - uid: 7740
     components:
     - type: Transform
-      pos: -13.5,-24.5
+      pos: -13.5,-27.5
       parent: 2
 - proto: CrateLockBoxScience
   entities:
@@ -36047,6 +36054,11 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 40.5,-38.5
       parent: 2
+  - uid: 7745
+    components:
+    - type: Transform
+      pos: -0.5,-27.5
+      parent: 2
 - proto: IntercomEngineering
   entities:
   - uid: 7570
@@ -36113,12 +36125,26 @@ entities:
     - type: Transform
       pos: 9.65183,-3.4913373
       parent: 2
+- proto: KitchenAssembler
+  entities:
+  - uid: 7743
+    components:
+    - type: Transform
+      pos: -0.5,-16.5
+      parent: 2
 - proto: KitchenElectricGrill
   entities:
   - uid: 7561
     components:
     - type: Transform
       pos: 3.5,-17.5
+      parent: 2
+- proto: KitchenElectricRange
+  entities:
+  - uid: 7741
+    components:
+    - type: Transform
+      pos: -1.5,-16.5
       parent: 2
 - proto: KitchenMicrowave
   entities:
@@ -36607,6 +36633,13 @@ entities:
     components:
     - type: Transform
       pos: -21.486685,-3.4681664
+      parent: 2
+- proto: MedicalAssembler
+  entities:
+  - uid: 5941
+    components:
+    - type: Transform
+      pos: -13.5,-24.5
       parent: 2
 - proto: MedicalBed
   entities:
@@ -44025,6 +44058,11 @@ entities:
     - type: Transform
       pos: 3.5,-17.5
       parent: 2
+  - uid: 7742
+    components:
+    - type: Transform
+      pos: -0.5,-16.5
+      parent: 2
 - proto: TableCounterWood
   entities:
   - uid: 403
@@ -50657,7 +50695,7 @@ entities:
       - 2462
       - 7730
       - 5909
-- proto: WeaponEnergyTurretStation
+- proto: WeaponEnergyTurretSecurity
   entities:
   - uid: 2468
     components:
@@ -50679,7 +50717,7 @@ entities:
       deviceLists:
       - 7736
       - 5426
-- proto: WeaponEnergyTurretStationControlPanel
+- proto: WeaponEnergyTurretSecurityControlPanel
   entities:
   - uid: 5426
     components:

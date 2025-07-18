@@ -1,0 +1,90 @@
+﻿# Base prototypes
+
+- type: latheRecipe
+  abstract: true
+  id: BaseServiceItemsRecipe
+  categories:
+  - KitchenNF
+  completetime: 1
+  materials:
+    Steel: 75
+
+# Recipes
+
+- type: latheRecipe
+  id: ServiceRollingPin
+  result: RollingPin
+  parent: BaseServiceItemsRecipe
+  materials:
+    Wood: 200
+
+- type: latheRecipe
+  id: ServiceSpoon
+  result: Spoon
+  parent: BaseServiceItemsRecipe
+
+- type: latheRecipe
+  id: ServiceFork
+  result: Fork
+  parent: BaseServiceItemsRecipe
+
+- type: latheRecipe
+  id: ServicePairedChopsticks
+  result: PairedChopsticks
+  parent: BaseServiceItemsRecipe
+  materials:
+    Glass: 100
+
+- type: latheRecipe
+  id: NapkinDrum
+  result: NapkinDrum
+  parent: BaseServiceItemsRecipe
+  applyMaterialDiscount: false
+  materials: # imp - material arbitrage moment
+    Steel: 100
+
+- type: latheRecipe
+  id: Napkin
+  result: Napkin
+  parent: BaseServiceItemsRecipe
+  completetime: 0.1
+  applyMaterialDiscount: false
+  materials:
+    Paper: 10
+
+- type: latheRecipe
+  id: CondimentCupDispenser
+  result: CondimentCupDispenser
+  parent: BaseServiceItemsRecipe
+  applyMaterialDiscount: false
+
+- type: latheRecipe
+  id: CondimentCup
+  result: CondimentCup
+  parent: BaseServiceItemsRecipe
+  completetime: 0.1
+  applyMaterialDiscount: false
+  materials:
+    Steel: 10
+
+- type: latheRecipe
+  id: FoodCondimentSqueezeBottleClear
+  result: FoodCondimentSqueezeBottleClear
+  parent: BaseServiceItemsRecipe
+  applyMaterialDiscount: false
+  materials:
+    Plastic: 50
+
+- type: latheRecipe
+  id: FoodFrozenPopsicleTrash
+  result: FoodFrozenPopsicleTrash # I know, it has 'trash' in the name, but it's used in cooking!
+  completetime: 0.5
+  materials:
+    Wood: 25
+
+- type: latheRecipe
+  id: DrinkWaterCup
+  result: DrinkWaterCup
+  completetime: 0.5
+  materials:
+    Paper: 25
