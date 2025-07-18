@@ -1,8 +1,7 @@
-using System; // Imp Edit LastMessageBeforeDeath Webhook
 using System.Linq;
 using System.Numerics;
 using Content.Server.Announcements;
-using Content.Server.Chat.Systems; // Imp Edit LastMessageBeforeDeath Webhook
+using Content.Server._Wizden.Chat.Systems; // Imp Edit LastMessageBeforeDeath Webhook
 using Content.Server.Discord;
 using Content.Server.GameTicking.Events;
 using Content.Server.Ghost;

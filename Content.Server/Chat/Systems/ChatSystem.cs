@@ -37,6 +37,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
+using Content.Server._Wizden.Chat.Systems;
 
 namespace Content.Server.Chat.Systems;
 
@@ -833,11 +834,8 @@ public sealed partial class ChatSystem : SharedChatSystem
 
     public void HandleLastMessageBeforeDeath(EntityUid source, ICommonSession player, string message)
     {
-
-        if (player != null && source != null)
-        {
-            _lastMessageBeforeDeathSystem.AddMessage(source, player, message);
-        }
+        var newMessage = TransformSpeech(source, message);
+        _lastMessageBeforeDeathSystem.AddMessage(source, player, newMessage);
     }
 
     // ReSharper disable once InconsistentNaming
