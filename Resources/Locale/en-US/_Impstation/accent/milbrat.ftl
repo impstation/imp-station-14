@@ -340,3 +340,25 @@ accent-milbrat-words-replace-80 = sighted
 accent-milbrat-words-81 = shut up
 accent-milbrat-words-81-2 = shut the fuck up
 accent-milbrat-words-replace-81 = observe comms discipline
+
+accent-milbrat-words-82 = your fucking problem
+accent-milbrat-words-82-2 = your damage
+accent-milbrat-words-82-3 = your fucking damage
+accent-milbrat-words-82-4 = wrong with you
+accent-milbrat-words-replace-82 = your major malfunction
+
+accent-milbrat-words-83 = aliens
+accent-milbrat-words-83-2 = xenomorphs
+accent-milbrat-words-83-3 = xenos
+accent-milbrat-words-83-4 = xenonids
+accent-milbrat-words-replace-83 = OPFOR X-Ray
+
+accent-milbrat-words-84 = xeno queen
+accent-milbrat-words-84-2 = alien queen
+accent-milbrat-words-replace-84 = X-Ray HVT
+
+accent-milbrat-words-85 = alien
+accent-milbrat-words-85-2 = xenomorph
+accent-milbrat-words-85-3 = xeno
+accent-milbrat-words-85-4 = xenonid
+accent-milbrat-words-replace-85 = X-Ray
