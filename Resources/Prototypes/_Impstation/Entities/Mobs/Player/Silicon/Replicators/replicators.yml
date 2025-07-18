@@ -211,6 +211,9 @@
         - SmallMobMask
         layer:
         - SmallMobLayer
+  - type: NpcFactionMember
+    factions:
+    - Replicator
 
 # Tier 1: These guys are mooks. They're vulnerable, bad at dragging, and don't do much damage, but they have a disabler ranged attack.
 - type: entity
@@ -256,6 +259,9 @@
   - type: Loadout
     prototypes:
     - StartingGearReplicatorT1Weapon
+  - type: NpcFactionMember
+    factions:
+    - Replicator
 
 # Tier 2: Deconstructors. These guys are a little bit tougher, and have tools to take things apart, but they don't have the ability to enter combat mode.
 - type: entity
@@ -304,6 +310,9 @@
   - type: Loadout
     prototypes:
       - StartingGearReplicatorTools
+  - type: NpcFactionMember
+    factions:
+    - Replicator
 
 # Tier 2 ALT: Defender. These guys are our mid-level combatants. They have a slightly better stun laser, and a decent melee attack, but no utility functions.
 - type: entity
@@ -353,6 +362,9 @@
   - type: Loadout
     prototypes:
       - StartingGearReplicatorT2Alt
+  - type: NpcFactionMember
+    factions:
+    - Replicator
 
 # Tier 3: These guys are tanks. Their job is to tear shit apart and kill things. They're slow, tanky, and have a weapon that does 25 blunt 30 struct.
 - type: entity
@@ -411,3 +423,6 @@
       types:
         Shock: -0.5
         Structural: -0.5
+  - type: NpcFactionMember
+    factions:
+    - Replicator

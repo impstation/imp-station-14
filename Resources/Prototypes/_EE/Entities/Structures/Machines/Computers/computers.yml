@@ -10,14 +10,19 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi
     - map: ["computerLayerScreen"]
       state: supermatter-0
+      sprite: _Impstation/Structures/Machines/computers.rsi
     - map: ["computerLayerKeys"]
       state: supermatter_keys
+      sprite: _Impstation/Structures/Machines/computers.rsi
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi
   - type: PointLight
     radius: 2.4
     energy: 1.6

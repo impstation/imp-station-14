@@ -9,6 +9,10 @@
   - type: Clothing
     sprite: _Impstation/Clothing/Hands/Gloves/captainflightgloves.rsi
   - type: Insulated
+  - type: DamageOnShootProtection
+    damageProtection:
+      flatReductions:
+        Shock: 10
   - type: Fiber
     fiberMaterial: fibers-leather
     fiberColor: fibers-regal-black
