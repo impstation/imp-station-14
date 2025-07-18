@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 261.2.0
+  engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/05/2025 17:21:44
-  entityCount: 22305
+  time: 07/10/2025 06:07:02
+  entityCount: 22299
 maps:
 - 17546
 grids:
@@ -21982,13 +21982,6 @@ entities:
     components:
     - type: Transform
       pos: 80.51059,-5.4075103
-      parent: 2
-- proto: ButchCleaver
-  entities:
-  - uid: 16919
-    components:
-    - type: Transform
-      pos: -19.974792,15.597592
       parent: 2
 - proto: ButtonFrameCaution
   entities:
@@ -69428,13 +69421,6 @@ entities:
     - type: Transform
       pos: -17.47544,-18.270594
       parent: 2
-- proto: DrinkMilkCarton
-  entities:
-  - uid: 1940
-    components:
-    - type: Transform
-      pos: -18.701372,15.727473
-      parent: 2
 - proto: DrinkMugDog
   entities:
   - uid: 17502
@@ -69479,13 +69465,6 @@ entities:
     components:
     - type: Transform
       pos: -31.231369,-37.429905
-      parent: 2
-- proto: DrinkSoyMilkCarton
-  entities:
-  - uid: 1781
-    components:
-    - type: Transform
-      pos: -18.391531,15.7030115
       parent: 2
 - proto: DrinkTeacup
   entities:
@@ -75694,13 +75673,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -15.5,12.5
-      parent: 2
-- proto: FoodContainerEgg
-  entities:
-  - uid: 1877
-    components:
-    - type: Transform
-      pos: -18.579067,15.65409
       parent: 2
 - proto: FoodDonkpocket
   entities:
@@ -103093,12 +103065,26 @@ entities:
     - type: Transform
       pos: -20.5,-1.5
       parent: 2
+- proto: KitchenAssembler
+  entities:
+  - uid: 1781
+    components:
+    - type: Transform
+      pos: -19.5,15.5
+      parent: 2
 - proto: KitchenElectricGrill
   entities:
   - uid: 16800
     components:
     - type: Transform
       pos: -20.5,13.5
+      parent: 2
+- proto: KitchenElectricRange
+  entities:
+  - uid: 1877
+    components:
+    - type: Transform
+      pos: -18.5,15.5
       parent: 2
 - proto: KitchenMicrowave
   entities:
@@ -104780,6 +104766,13 @@ entities:
     components:
     - type: Transform
       pos: 31.5,6.5
+      parent: 2
+- proto: MedicalAssembler
+  entities:
+  - uid: 1941
+    components:
+    - type: Transform
+      pos: 54.5,4.5
       parent: 2
 - proto: MedicalBed
   entities:
@@ -107367,12 +107360,6 @@ entities:
     components:
     - type: Transform
       pos: -39.5,-45.5
-      parent: 2
-  - uid: 6712
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 48.5,4.5
       parent: 2
   - uid: 7105
     components:
@@ -113919,20 +113906,6 @@ entities:
     components:
     - type: Transform
       pos: 56.5,-22.5
-      parent: 2
-- proto: ReagentContainerFlour
-  entities:
-  - uid: 1939
-    components:
-    - type: Transform
-      pos: -19.387623,15.6083765
-      parent: 2
-- proto: ReagentContainerSugar
-  entities:
-  - uid: 1941
-    components:
-    - type: Transform
-      pos: -19.231373,15.5615015
       parent: 2
 - proto: Recycler
   entities:
@@ -123677,6 +123650,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 53.5,-9.5
       parent: 2
+  - uid: 1939
+    components:
+    - type: Transform
+      pos: -19.5,15.5
+      parent: 2
   - uid: 2019
     components:
     - type: Transform
@@ -123810,18 +123788,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -20.5,15.5
-      parent: 2
-  - uid: 2203
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -19.5,15.5
-      parent: 2
-  - uid: 2204
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -18.5,15.5
       parent: 2
   - uid: 2205
     components:
@@ -124100,11 +124066,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 55.5,1.5
-      parent: 2
-  - uid: 6708
-    components:
-    - type: Transform
-      pos: 48.5,4.5
       parent: 2
   - uid: 6715
     components:
@@ -126961,10 +126922,10 @@ entities:
       parent: 2
 - proto: VendingMachineMediDrobe
   entities:
-  - uid: 6692
+  - uid: 1940
     components:
     - type: Transform
-      pos: 54.5,4.5
+      pos: 48.5,4.5
       parent: 2
 - proto: VendingMachineNutri
   entities:
@@ -145554,7 +145515,7 @@ entities:
     - type: DeviceList
       devices:
       - 11818
-- proto: WeaponEnergyTurretStation
+- proto: WeaponEnergyTurretSecurity
   entities:
   - uid: 5079
     components:
@@ -145586,7 +145547,7 @@ entities:
       deviceLists:
       - 11816
       - 11822
-- proto: WeaponEnergyTurretStationControlPanel
+- proto: WeaponEnergyTurretSecurityControlPanel
   entities:
   - uid: 11816
     components:
