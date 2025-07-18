@@ -336,3 +336,7 @@ accent-milbrat-words-replace-79 = acceptable losses
 accent-milbrat-words-80 = seen
 accent-milbrat-words-80-2 = saw
 accent-milbrat-words-replace-80 = sighted
+
+accent-milbrat-words-81 = shut up
+accent-milbrat-words-81-2 = shut the fuck up
+accent-milbrat-words-replace-81 = observe comms discipline
