@@ -43,6 +43,7 @@ accent-milbrat-words-9-2 = how are ya
 accent-milbrat-words-9-3 = how's it going
 accent-milbrat-words-9-4 = what's going on
 accent-milbrat-words-9-5 = what's up
+accent-milbrat-words-9-6 = sup
 accent-milbrat-words-replace-9 = SITREP
 
 accent-milbrat-words-10 = fuck off
@@ -293,3 +294,41 @@ accent-milbrat-words-replace-69 = capitulate
 
 accent-milbrat-words-70 = shit's fucked
 accent-milbrat-words-replace-70 = Operation is FUBAR
+
+accent-milbrat-words-71 = friends
+accent-milbrat-words-71-2 = allies
+accent-milbrat-words-71-3 = visitors
+accent-milbrat-words-replace-71 = friendlies
+
+accent-milbrat-words-72 = friend
+accent-milbrat-words-72-2 = ally
+accent-milbrat-words-72-3 = visitor
+accent-milbrat-words-replace-72 = friendly
+
+accent-milbrat-words-73 = head revolutionary
+accent-milbrat-words-73-2 = head unionist
+accent-milbrat-words-73-3 = head rev
+accent-milbrat-words-replace-73 = Uniform HVT
+
+accent-milbrat-words-74 = revolutionaries
+accent-milbrat-words-74-2 = unionists
+accent-milbrat-words-74-3 = revs
+accent-milbrat-words-replace = OPFOR Uniform
+
+accent-milbrat-words-75 = gunshot
+accent-milbrat-words-75-2 = gunshots
+accent-milbrat-words-75-3 = gunfire
+accent-milbrat-words-replace-75 = weapon report
+
+accent-milbrat-words-76 = passenger
+accent-milbrat-words-replace = civvie
+
+accent-milbrat-words-77 = greytider
+accent-milbrat-words-replace-77 = civilian liability
+
+accent-milbrat-words-78 = crewmember
+accent-milbrat-words-78-2 = crewmate
+accent-milbrat-words-replace-78 = soldier
+
+accent-milbrat-words-79 = fuck em
+accent-milbrat-words-replace-79 = acceptable losses
