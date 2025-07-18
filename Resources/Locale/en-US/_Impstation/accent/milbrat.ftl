@@ -313,7 +313,7 @@ accent-milbrat-words-replace-73 = Uniform HVT
 accent-milbrat-words-74 = revolutionaries
 accent-milbrat-words-74-2 = unionists
 accent-milbrat-words-74-3 = revs
-accent-milbrat-words-replace = OPFOR Uniform
+accent-milbrat-words-replace-74 = OPFOR Uniform
 
 accent-milbrat-words-75 = gunshot
 accent-milbrat-words-75-2 = gunshots
@@ -321,7 +321,7 @@ accent-milbrat-words-75-3 = gunfire
 accent-milbrat-words-replace-75 = weapon report
 
 accent-milbrat-words-76 = passenger
-accent-milbrat-words-replace = civvie
+accent-milbrat-words-replace-76 = civvie
 
 accent-milbrat-words-77 = greytider
 accent-milbrat-words-replace-77 = civilian liability
