@@ -430,3 +430,7 @@ accent-milbrat-words-replace-99 = civilian liabilities
 accent-milbrat-words-100 = crewmembers
 accent-milbrat-words-100-2 = crewmates
 accent-milbrat-words-replace-100 = soldiers
+
+accent-milbrat-words-101 = medkit
+accent-milbrat-words-101-2 = medical kit
+accent-milbrat-words-replace-101 = IFAK
