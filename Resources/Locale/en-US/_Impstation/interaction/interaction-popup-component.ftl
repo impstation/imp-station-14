@@ -44,3 +44,8 @@ petting-failure-apid = You try to pet {$target}, but your fingers are shocked by
 
 petting-success-anomalite = You pet {THE($target)} on their anomalous little head.
 petting-failure-anomalite = You try to pet {THE($target)}, but your fingers are zapped by its energy field!
+
+## Eeeplets
+
+petting-success-eeeplet = You pet {THE($target)} on {POSS-ADJ($target)} squishy surface.
+petting-failure-eeeplet = You try to pet {$target}, but are shocked!
