@@ -51,3 +51,76 @@
         - Sheet
         - RawMaterial
         - Ingot
+
+- type: entity
+  id: PortableCutterMachine
+  parent: [CutterMachine, BaseDeployFoldable, BaseCommandContraband]
+  name: portable cutter machine
+  suffix: Unfolded, DO NOT MAP
+  description: A portable cutter machine that conveniently folds into a toolbox, for the station redecorator on the go!
+  categories: [ DoNotMap ] #HD toy only, you only get one
+  components:
+  - type: Item
+    size: Normal
+    sprite: _Impstation/Objects/Tools/Toolboxes/toolbox_hd.rsi
+  - type: Sprite
+    sprite: _Impstation/Structures/Machines/portable_cutter_machine.rsi
+    layers:
+    - state: icon
+      map: [ "foldedLayer" ]
+      sprite: _Impstation/Objects/Tools/Toolboxes/toolbox_hd.rsi #the game gets angry if this is in the same rsi file as the other states
+    - state: icon
+      map: [ "enum.LatheVisualLayers.IsRunning", "unfoldedLayer" ]
+    - state: unlit
+      shader: unshaded
+      visible: false
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+    - state: panel
+      map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+  - type: Fixtures #same as baseitem but with the density of basemachine
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 190
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+  - type: Machine
+    board: PortableCutterMachineCircuitboard
+  - type: MaterialStorage
+    storageLimit: 6000 #infinite handheld material storage kinda op, but 60 sheets is still pretty damn good
+  - type: EmitSoundOnCollide
+    sound:
+      collection: MetalThud
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/toolbox_drop.ogg
+      params:
+        volume: 2
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 15 #robust...
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 20 #matches the toolbox's 1.33 multiplier (rounded up), needed to be manually set to override BaseStructure's parameters
+    staminaCost: 12.5
+
+- type: entity
+  id: PortableCutterMachineFolded
+  parent: PortableCutterMachine
+  suffix: Folded, DO NOT MAP
+  categories: [ DoNotMap ] #HD toy only, you only get one
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic
+  - type: Foldable
+    folded: true
