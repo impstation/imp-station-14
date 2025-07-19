@@ -1,0 +1,43 @@
+- type: entity
+  name: broken gun
+  parent: BaseItem
+  id: BrokenValuShot
+  description: The logical conclusion for a real bargain.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Pistols/valu.rsi
+    state: broken
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 4
+  - type: Tag
+    tags:
+    - Trash
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 200
+      Steel: 50
+  - type: SpaceGarbage
+
+- type: entity
+  name: limited-edition broken gun
+  parent: BaseItem
+  id: BrokenValuShotPlus
+  description: Turns out gold and silver aren't the sturdiest of materials.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Pistols/valuplus.rsi
+    state: broken
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 8
+  - type: Tag
+    tags:
+    - Trash
+  - type: PhysicalComposition
+    materialComposition:
+      Gold: 200
+      Silver: 50
+  - type: SpaceGarbage

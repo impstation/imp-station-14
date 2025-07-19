@@ -7,7 +7,7 @@
   description: A pack of large shrimps. The greatest delicacy in the universe.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/snacks.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimps.rsi
     state: shrimps
   - type: SolutionContainerManager
     solutions:
@@ -37,7 +37,7 @@
   description: The offering was accepted.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/snacks.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimps.rsi
     state: shrimps-trash
   - type: Tag
     tags:

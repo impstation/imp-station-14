@@ -129,7 +129,6 @@ namespace Content.IntegrationTests.Tests
             "BoxImp",
             "CentCommImp",
             "CogImp",
-            "ConvexImp",
             "CoreImp",
             "E1M1",
             "ElkridgeImp",
@@ -155,6 +154,8 @@ namespace Content.IntegrationTests.Tests
             "Refsdal",
             "Skimmer",
             "Union",
+            "Whisper",
+            "Pathway",
         };
 
         /// <summary>

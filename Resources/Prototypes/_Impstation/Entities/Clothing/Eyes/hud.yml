@@ -34,3 +34,14 @@
   - type: Tag
     tags:
     - HudSalvage
+
+- type: entity
+  parent: [ClothingEyesHudSecurity]
+  id: ClothingEyesGlassesHudSecurity
+  name: security hud glasses
+  description: A stylish heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records, but does not provide flash immunity.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Eyes/Hud/secglasses.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Eyes/Hud/secglasses.rsi
