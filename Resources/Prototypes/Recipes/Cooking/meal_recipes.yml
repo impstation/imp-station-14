@@ -459,11 +459,9 @@
   result: FoodBreadCreamcheese
   time: 15
   group: Breads
-  reagents:
-    Milk: 5
   solids:
     FoodDough: 1
-    FoodCheeseSlice: 2
+    FoodCreamCheese: 1 # Imp
   recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
@@ -1612,7 +1610,7 @@
     Sugar: 5
   solids:
     FoodButterSlice: 1
-    FoodSnackChocolateBar: 1
+    FoodChocolateChip: 6 # Imp
   recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
@@ -1669,7 +1667,7 @@
     Milk: 5
     Egg: 6
   solids:
-    FoodSnackChocolateBar: 1
+    FoodChocolateChip: 2 # Imp
   recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
@@ -1756,11 +1754,12 @@
   result: FoodCakeCheese
   time: 5
   group: Cake
-  reagents:
-    Cream: 10
+  # reagents: # Imp
+  #   Cream: 10 # Imp
   solids:
     FoodCakePlain: 1
-    FoodCheeseSlice: 3
+  #  FoodCheeseSlice: 3 # Imp
+    FoodCreamCheese: 2
   recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
@@ -1807,6 +1806,7 @@
     Cream: 5
   solids:
     FoodCakePlain: 1
+    CandleSmall: 3 # imp
   recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
