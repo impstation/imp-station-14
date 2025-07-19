@@ -1,7 +1,7 @@
 ﻿- type: tile
   id: Plating
   name: tiles-plating
-  sprite: /Textures/Tiles/plating.png
+  sprite: /Textures/_Impstation/Tiles/Plating/plating.png # Imp Edit
   baseTurf: Lattice
   isSubfloor: true
   footstepSounds:
@@ -12,7 +12,7 @@
 - type: tile
   id: PlatingDamaged
   name: tiles-plating
-  sprite: /Textures/Tiles/plating_damaged.png
+  sprite: /Textures/_Impstation/Tiles/Plating/plating_damaged.png # Imp Edit
   variants: 3
   placementVariants:
   - 1.0
@@ -61,7 +61,7 @@
 - type: tile
   id: Lattice
   name: tiles-lattice
-  sprite: /Textures/Tiles/lattice.png
+  sprite: /Textures/_Impstation/Tiles/Lattice/lattice.png # Imp Edit
   baseTurf: Space
   isSubfloor: true
   deconstructTools: [ Cutting ]
@@ -77,7 +77,7 @@
 - type: tile
   id: TrainLattice
   name: tiles-lattice-train
-  sprite: /Textures/Tiles/latticeTrain.png
+  sprite: /Textures/_Impstation/Tiles/Lattice/lattice_train.png # Imp Edit
   baseTurf: Space
   isSubfloor: true
   deconstructTools: [ Cutting ]
