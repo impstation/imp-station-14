@@ -194,6 +194,6 @@ public sealed partial class XenoArtifactComponent : Component
 }
 
 /// <summary>
-/// Event raised by sentient artifact to activate itself at no durability cost.
+/// Event raised by sentient artifact to activate itself at no durability cost. #IMP: Renamed to "XAEArtifact..." from "Artifact..."
 /// </summary>
 public sealed partial class XAEArtifactSelfActivateEvent : InstantActionEvent;

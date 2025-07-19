@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseStructureDynamic
   id: BaseXenoArtifact
-  name: alien artifact
+  name: natural alien artifact
   description: A strange alien device.
   abstract: true
   components:
@@ -64,6 +64,9 @@
       storagebase: !type:Container # needed for the EffectStorage artifactEffect
         ents: [ ]
       revolver-ammo: !type:Container # needed for the EffectBigIron artifactEffect
+  - type: WarpPoint
+  - type: NameIdentifier
+    group: Artifact
 
 - type: entity
   parent: BaseXenoArtifact

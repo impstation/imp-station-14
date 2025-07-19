@@ -9,14 +9,14 @@
         - sprite: Objects/Specific/Xenoarchaeology/xeno_artifacts.rsi
           state: ano01
     - type: RandomSpawner
-      prototypes:
+      prototypes: #IMP XAE in name
         - ComplexXAEXenoArtifact
         - ComplexXAEXenoArtifact
         - ComplexXAEXenoArtifactItem
       chance: 1
 
 - type: entity
-  id: RandomXAEArtifactSpawner20
+  id: RandomXAEArtifactSpawner20 #IMP XAE in name
   name: random reticulated artifact spawner [20]
   parent: RandomXAEArtifactSpawner
   components:

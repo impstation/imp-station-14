@@ -1,5 +1,5 @@
 using Robust.Shared.Serialization;
-using Content.Shared.Actions;
+using Content.Shared.Actions; //#IMP
 
 namespace Content.Shared.Xenoarchaeology.XenoArtifacts;
 
@@ -12,7 +12,7 @@ public enum SharedArtifactsVisuals : byte
 }
 
 /// <summary>
-///     Raised as an instant action event when a sentient artifact activates itself using an action.
+///     Raised as an instant action event when a sentient artifact activates itself using an action. #IMP: Renamed to "XAEArtifact..." from "Artifact..."
 /// </summary>
 public sealed partial class ArtifactSelfActivateEvent : InstantActionEvent
 {

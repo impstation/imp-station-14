@@ -26,7 +26,7 @@ public abstract partial class SharedXenoArtifactSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<XenoArtifactComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<XenoArtifactComponent, XAEArtifactSelfActivateEvent>(OnSelfActivate);
+        SubscribeLocalEvent<XenoArtifactComponent, XAEArtifactSelfActivateEvent>(OnSelfActivate); //#IMP: Renamed to "XAEArtifact..." from "Artifact..."
 
         InitializeNode();
         InitializeUnlock();

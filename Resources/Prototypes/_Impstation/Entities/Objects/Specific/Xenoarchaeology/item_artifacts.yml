@@ -1,7 +1,7 @@
 ﻿- type: entity
   parent: BaseItem
   id: BaseXenoArtifactItem
-  name: alien artifact
+  name: natural alien artifact
   description: A strange handheld alien device.
   abstract: true
   components:
@@ -65,6 +65,9 @@
   - type: GuideHelp
     guides:
     - Xenoarchaeology
+  - type: WarpPoint
+  - type: NameIdentifier
+    group: Artifact
 
 - type: entity
   parent: BaseXenoArtifactItem
