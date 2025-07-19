@@ -37,7 +37,7 @@
   components:
   - type: StationEvent
     weight: 7
-    duration: 1
+    duration: null
     earliestStart: 25
     reoccurrenceDelay: 20
     minimumPlayers: 15
@@ -50,6 +50,7 @@
     - BountyHunterKillRandomAntagObjective
     - BountyHunterSurviveObjective
   - type: AntagSelection
+    agentName: bounty-hunter-roundend-name
     definitions:
     - spawnerPrototype: SpawnPointGhostBountyHunter
       min: 1
