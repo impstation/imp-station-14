@@ -8,7 +8,6 @@ using Content.Server.Connection;
 using Content.Server.Database;
 using Content.Server.Discord;
 using Content.Server.Discord.DiscordLink;
-using Content.Server._Wizden.Discord.Managers;
 using Content.Server.Discord.WebhookMessages;
 using Content.Server.EUI;
 using Content.Server.GhostKick;
@@ -80,7 +79,6 @@ namespace Content.Server.IoC
 
             IoCManager.Register<DiscordLink>();
             IoCManager.Register<DiscordChatLink>();
-            IoCManager.Register<LastMessageWebhookManager>();
         }
     }
 }
