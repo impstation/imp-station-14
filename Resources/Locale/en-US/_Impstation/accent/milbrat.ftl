@@ -212,6 +212,7 @@ accent-milbrat-words-46 = nuke
 accent-milbrat-words-replace-46 = WMD
 
 accent-milbrat-words-47 = enemy
+accent-milbrat-words-47-2 = enemies
 accent-milbrat-words-replace-47 = OPFOR
 
 accent-milbrat-words-48 = redshell
@@ -225,6 +226,7 @@ accent-milbrat-words-49-2 = syndicate
 accent-milbrat-words-replace-49 = OPFOR Sierra
 
 accent-milbrat-words-50 = nukie
+accent-milbrat-words-50-2 = nukies
 accent-milbrat-words-replace-50 = OPFOR November
 
 accent-milbrat-words-51 = cult
@@ -237,9 +239,12 @@ accent-milbrat-words-53 = replicants
 accent-milbrat-words-replace-53 = OPFOR Mike
 
 accent-milbrat-words-54 = heretics
+accent-milbrat-words-54-2 = heretic
+accent-milbrat-words-54-3 = heretical
 accent-milbrat-words-replace-54 = OPFOR Hotel
 
 accent-milbrat-words-55 = carp
+accent-milbrat-words-55-2 = carps
 accent-milbrat-words-replace-55 = delta subaltern
 
 accent-milbrat-words-56 = dragon
@@ -249,6 +254,7 @@ accent-milbrat-words-57 = wizard
 accent-milbrat-words-replace-57 = whiskey HVT
 
 accent-milbrat-words-58 = vent pest
+accent-milbrat-words-58-2 = vent pests
 accent-milbrat-words-replace-58 = victor papa
 
 accent-milbrat-words-59 = research director
@@ -362,3 +368,65 @@ accent-milbrat-words-85-2 = xenomorph
 accent-milbrat-words-85-3 = xeno
 accent-milbrat-words-85-4 = xenonid
 accent-milbrat-words-replace-85 = X-Ray
+
+accent-milbrat-words-86 = sweethearts
+accent-milbrat-words-86-2 = my loves
+accent-milbrat-words-86-3 = partners
+accent-milbrat-words-86-4 = husbands
+accent-milbrat-words-86-5 = wives
+accent-milbrat-words-replace-86 = battle buddies
+
+accent-milbrat-words-87 = expeditions
+accent-milbrat-words-87-2 = expeds
+accent-milbrat-words-replace-87 = sorties
+
+accent-milbrat-words-88 = rat kings
+accent-milbrat-words-replace-88 = Romeo HVTs
+
+accent-milbrat-words-89 = minutes
+accent-milbrat-words-replace-89 = mikes
+
+accent-milbrat-words-90 = pistols
+accent-milbrat-words-replace-90 = sidearms
+
+accent-milbrat-words-91 = idiots
+accent-milbrat-words-91-2 = dumbasses
+accent-milbrat-words-91-3 = fuckups
+accent-milbrat-words-replace-91 = liabilities
+
+
+accent-milbrat-words-92 = shuttles
+accent-milbrat-words-replace-92 = dropships
+
+accent-milbrat-words-93 = shittles
+accent-milbrat-words-replace-93 = dropshits
+
+accent-milbrat-words-94 = redshells
+accent-milbrat-words-94-2 = syndies
+accent-milbrat-words-94-3 = syndicate agents
+accent-milbrat-words-94-4 = traitors
+accent-milbrat-words-replace-94 = tangos
+
+accent-milbrat-words-95 = dragons
+accent-milbrat-words-replace-95 = delta HVTs
+
+accent-milbrat-words-96 = wizards
+accent-milbrat-words-96-2 = the wizard federation
+accent-milbrat-words-96-3 = wizard federation
+accent-milbrat-words-replace-96 = OPFOR Whiskey
+
+accent-milbrat-words-97 = cadets
+accent-milbrat-words-97-2 = trainees
+accent-milbrat-words-97-3 = newbies
+accent-milbrat-words-97-4 = assistants
+accent-milbrat-words-replace-97 = boots
+
+accent-milbrat-words-98 = passengers
+accent-milbrat-words-replace-98 = civvies
+
+accent-milbrat-words-99 = greytiders
+accent-milbrat-words-replace-99 = civilian liabilities
+
+accent-milbrat-words-100 = crewmembers
+accent-milbrat-words-100-2 = crewmates
+accent-milbrat-words-replace-100 = soldiers
