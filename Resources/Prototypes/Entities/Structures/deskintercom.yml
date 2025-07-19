@@ -1,11 +1,10 @@
-- type: entity
-  id: BaseIntercom
-  name: intercom
-  description: An intercom. For when the station just needs to know something.
+- type: entity #copy of intercom.yml mostly, needed to redefine stuff to not make it a wallmount and sprite layers and stuff
+  id: BaseDeskIntercom
+  name: desk intercom
+  description: A desk-mounted intercom. For when the station just needs to know something.
   abstract: true
   components:
   - type: StationAiWhitelist
-  - type: WallMount
   - type: ApcPowerReceiver
   - type: Electrified
     enabled: false
@@ -43,12 +42,9 @@
   - type: Sprite
     noRot: false
     drawdepth: SmallObjects
-    sprite: _Impstation/Structures/Wallmounts/intercom.rsi #imp edit
+    sprite: _Impstation/Structures/deskintercom.rsi
     layers:
     - state: base
-    - state: unshaded
-      map: ["enum.PowerDeviceVisualLayers.Powered"]
-      shader: unshaded
     - state: broadcasting
       map: ["enum.RadioDeviceVisualLayers.Broadcasting"]
       shader: unshaded
@@ -78,8 +74,8 @@
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
   - type: Construction
-    graph: Intercom
-    node: intercom
+    graph: DeskIntercom
+    node: deskIntercom
     containers:
     - board
     - key_slots
@@ -111,10 +107,6 @@
         enum.WiresVisualLayers.MaintenancePanel:
           True: { visible: true }
           False: { visible: false }
-      enum.PowerDeviceVisuals.Powered:
-        enum.PowerDeviceVisualLayers.Powered:
-          True: { visible: true }
-          False: { visible: false }
       enum.RadioDeviceVisuals.Broadcasting:
         enum.RadioDeviceVisualLayers.Broadcasting:
           True: { visible: true }
@@ -129,16 +121,15 @@
     - Wallmount
 
 - type: entity
-  id: IntercomAssembly
-  name: intercom assembly
-  description: An intercom. It doesn't seem very helpful right now.
+  id: DeskIntercomAssembly
+  name: desk intercom assembly
+  description: A desk-mounted intercom. It doesn't seem very helpful right now.
   components:
-  - type: WallMount
   - type: Clickable
   - type: InteractionOutline
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: _Impstation/Structures/Wallmounts/intercom.rsi #imp edit
+    sprite: _Impstation/Structures/deskintercom.rsi
     layers:
     - state: build
     - state: panel
@@ -152,27 +143,22 @@
           0: { visible: false }
           1: { visible: true }
   - type: Construction
-    graph: Intercom
+    graph: DeskIntercom
     node: assembly
   - type: Transform
     anchored: true
   placement:
     mode: SnapgridCenter
-    snap:
-    - Wallmount
 
 # this weird inheritance BS exists for construction shitcode
 - type: entity
-  id: IntercomConstructed
-  parent: BaseIntercom
+  id: DeskIntercomConstructed
+  parent: BaseDeskIntercom
   suffix: Empty, Panel Open
   components:
   - type: Sprite
     layers:
     - state: base
-    - state: unshaded
-      map: ["enum.PowerDeviceVisualLayers.Powered"]
-      shader: unshaded
     - state: broadcasting
       map: ["enum.RadioDeviceVisualLayers.Broadcasting"]
       shader: unshaded
@@ -188,16 +174,13 @@
     open: true
 
 - type: entity
-  id: Intercom
-  parent: IntercomConstructed
+  id: DeskIntercom
+  parent: DeskIntercomConstructed
   suffix: ""
   components:
   - type: Sprite
     layers:
     - state: base
-    - state: unshaded
-      map: ["enum.PowerDeviceVisualLayers.Powered"]
-      shader: unshaded
     - state: broadcasting
       map: ["enum.RadioDeviceVisualLayers.Broadcasting"]
       shader: unshaded
@@ -212,8 +195,8 @@
     open: false
 
 - type: entity
-  id: BaseIntercomSecure
-  parent: Intercom
+  id: BaseDeskIntercomSecure
+  parent: DeskIntercom
   abstract: true
   components:
   - type: WiresPanel
@@ -222,11 +205,11 @@
     examine: wires-panel-component-on-examine-security-level2
     wiresAccessible: false
   - type: Construction
-    node: intercomReinforced
+    node: deskIntercomReinforced
 
 - type: entity
-  id: IntercomCommon
-  parent: Intercom
+  id: DeskIntercomCommon
+  parent: DeskIntercom
   suffix: Common
   components:
   - type: ContainerFill
@@ -237,8 +220,8 @@
       - EncryptionKeyCommon
 
 - type: entity
-  id: IntercomCommand
-  parent: BaseIntercomSecure
+  id: DeskIntercomCommand
+  parent: BaseDeskIntercomSecure
   suffix: Command
   description: An intercom. It's been reinforced with metal.
   components:
@@ -251,8 +234,8 @@
       - EncryptionKeyCommand
 
 - type: entity
-  id: IntercomEngineering
-  parent: Intercom
+  id: DeskIntercomEngineering
+  parent: DeskIntercom
   suffix: Engineering
   components:
   - type: ContainerFill
@@ -264,8 +247,8 @@
       - EncryptionKeyEngineering
 
 - type: entity
-  id: IntercomMedical
-  parent: Intercom
+  id: DeskIntercomMedical
+  parent: DeskIntercom
   suffix: Medical
   components:
   - type: ContainerFill
@@ -277,8 +260,8 @@
       - EncryptionKeyMedical
 
 - type: entity
-  id: IntercomScience
-  parent: Intercom
+  id: DeskIntercomScience
+  parent: DeskIntercom
   suffix: Science
   components:
   - type: ContainerFill
@@ -290,8 +273,8 @@
       - EncryptionKeyScience
 
 - type: entity
-  id: IntercomSecurity
-  parent: BaseIntercomSecure
+  id: DeskIntercomSecurity
+  parent: BaseDeskIntercomSecure
   suffix: Security
   description: An intercom. It's been reinforced with metal from security helmets, making it a bitch-and-a-half to open.
   components:
@@ -304,8 +287,8 @@
       - EncryptionKeySecurity
 
 - type: entity
-  id: IntercomService
-  parent: Intercom
+  id: DeskIntercomService
+  parent: DeskIntercom
   suffix: Service
   components:
   - type: ContainerFill
@@ -317,8 +300,8 @@
       - EncryptionKeyService
 
 - type: entity
-  id: IntercomSupply
-  parent: Intercom
+  id: DeskIntercomSupply
+  parent: DeskIntercom
   suffix: Supply
   components:
   - type: ContainerFill
@@ -330,8 +313,8 @@
       - EncryptionKeyCargo
 
 - type: entity
-  id: IntercomAll
-  parent: Intercom
+  id: DeskIntercomAll
+  parent: DeskIntercom
   suffix: All
   components:
   - type: ContainerFill
@@ -343,8 +326,8 @@
       - EncryptionKeyStationMaster
 
 - type: entity
-  id: IntercomFreelance
-  parent: Intercom
+  id: DeskIntercomFreelance
+  parent: DeskIntercom
   suffix: Freelance
   components:
   - type: ContainerFill
