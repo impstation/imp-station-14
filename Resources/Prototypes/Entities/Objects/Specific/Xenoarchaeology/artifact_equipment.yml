@@ -47,7 +47,7 @@
       whitelist:
         components:
         - XenoArtifact
-        - Artifact
+        - Artifact #IMP
     - type: Weldable
     - type: SuppressArtifactContainer
     - type: RadiationBlockingContainer
@@ -126,6 +126,7 @@
     whitelist:
       components:
       - XenoArtifact
+      - Artifact #IMP
   - type: Item
     sprite: Objects/Storage/artifact_container.rsi
     size: Huge
