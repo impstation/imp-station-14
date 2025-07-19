@@ -2,15 +2,48 @@
   parent: BaseItem
   id: SOSCartridge
   name: SOS cartridge
-  description: A program to call for help.
+  description: A program to call Security for help. # imp - redescribed
   components:
     - type: Sprite
       sprite: Objects/Devices/cartridge.rsi
-      state: cart-y
+      state: cart-sec # imp - changed from cart-y
     - type: Cartridge
-      programName: sos-program-name
+      programName: sos-program-name-sec # imp - new name
       icon:
         sprite: _Impstation/Objects/Devices/sos.rsi
         state: icon
     - type: SOSCartridge
 
+- type: entity # imp - added this
+  parent: BaseItem
+  id: SOSCartridgeEngineering
+  name: SOS cartridge
+  description: A program to call Engineering for help.
+  components:
+    - type: Sprite
+      sprite: Objects/Devices/cartridge.rsi
+      state: cart-y
+    - type: Cartridge
+      programName: sos-program-name-eng
+      icon:
+        sprite: _Impstation/Objects/Devices/sos.rsi
+        state: icon-eng
+    - type: SOSCartridge
+      helpChannel: Engineering
+
+- type: entity # imp - added this
+  parent: BaseItem
+  id: SOSCartridgeMedical
+  name: SOS cartridge
+  description: A program to call Medical for help.
+  components:
+    - type: Sprite
+      sprite: Objects/Devices/cartridge.rsi
+      state: cart-med
+    - type: Cartridge
+      programName: sos-program-name-med
+      icon:
+        sprite: _Impstation/Objects/Devices/sos.rsi
+        state: icon-med
+    - type: SOSCartridge
+      helpChannel: Medical
