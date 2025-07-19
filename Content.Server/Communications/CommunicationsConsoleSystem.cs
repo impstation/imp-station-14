@@ -268,7 +268,7 @@ namespace Content.Server.Communications
 
             if (comp.Global)
             {
-                _announcer.SendAnnouncement("announce", Filter.Broadcast(), msg, title, comp.Color);
+                _announcer.SendAnnouncement("announce", Filter.Broadcast(), msg, title, comp.Color, announcementSound: comp.Sound); //imp. added announcementSound back
 
                 _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(message.Actor):player} has sent the following global announcement: {msg}");
                 return;
@@ -276,7 +276,7 @@ namespace Content.Server.Communications
 
             if (TryComp<StationDataComponent>(_stationSystem.GetOwningStation(uid), out var stationData))
                 _announcer.SendAnnouncement("announce", _stationSystem.GetInStation(stationData), msg, title,
-                    comp.Color);
+                    comp.Color, announcementSound: comp.Sound); //imp. added announcementSound back
 
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(message.Actor):player} has sent the following station announcement: {msg}");
 
