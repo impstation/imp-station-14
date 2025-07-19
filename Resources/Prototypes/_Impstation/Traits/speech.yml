@@ -171,6 +171,15 @@
     accent: slimes
 
 - type: trait
+  id: MilbratAccent
+  name: trait-milbrat-name
+  description: trait-milbrat-desc
+  category: SpeechTraits
+  cost: 2
+  components:
+  - type: MilbratAccent
+
+- type: trait
   id: AccentImmune
   name: trait-accentimmune-name
   description: trait-accentimmune-desc

@@ -56,6 +56,9 @@ trait-basicfrench-desc = You speak with the cadence of someone who has cast off 
 trait-basicrussian-name = Russian (Basic)
 trait-basicrussian-desc = You speak with a Russian accent, with far fewer word replacements.
 
+trait-milbrat-name = Military Jargon
+trait-milbrat-desc = You make subtle references to a past stint in the military by using strange terminology and acronyms.
+
 trait-stiltedspeech-name = Stilted speech
 trait-stiltedspeech-desc = You Speak Very Properly At All Times.
 
