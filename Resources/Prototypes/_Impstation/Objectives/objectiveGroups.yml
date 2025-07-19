@@ -53,3 +53,16 @@
      WizardBenefactorObjective: 1
      WizardGetRealObjective: 1
      WizardGeasObjective: 1
+
+- type: weightedRandom
+  id: ParadoxTypeGroups
+  weights:
+    ParadoxTypeGroup: 1
+
+- type: weightedRandom
+  id: ParadoxTypeGroup
+  weights:
+    ParadoxCloneKillObjective: 1
+    ParadoxCloneSaveObjective: 1 # this chance is equal to mitigate metagaming
+    ParadoxCloneLivingAltObjective: 1
+    ParadoxCloneLivingObjective: 1

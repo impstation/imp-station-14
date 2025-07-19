@@ -218,7 +218,8 @@ namespace Content.Client.Lobby
                 var hoursToday = Math.Round(minutesToday / 60f, 1);
 
                 // Imp edit begin
-                string chosenString = new Random().Next(9) switch
+                var firstDigit = int.Parse(minutesToday.ToString()[0].ToString());
+                string chosenString = firstDigit switch
                 {
                     0 => "lobby-state-playtime-comment-normal",
                     1 => "lobby-state-playtime-comment-aa",

@@ -1,4 +1,4 @@
-# 10 Hr
+# Senior Times
 - type: loadoutEffectGroup
   id: Atmos10hr
   effects:
@@ -8,7 +8,16 @@
       role: JobAtmosphericTechnician
       time: 36000 #10 hrs, ~7 rounds
 
-#OuterClothing
+- type: loadoutEffectGroup
+  id: SeniorAtmosphericTechnician
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobAtmosphericTechnician
+      time: 108000 #30 hrs, ~20 rounds
+
+# OuterClothing
 - type: loadout
   id: BomberAtmos
   equipment:
@@ -21,3 +30,17 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: Atmos10hr
+
+# id
+- type: loadout
+  id: AtmosphericTechnicianPDA
+  equipment:
+    id: AtmosPDA
+
+- type: loadout
+  id: SeniorAtmosphericTechnicianPDA
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorAtmosphericTechnician
+  equipment:
+    id: SeniorAtmosPDA

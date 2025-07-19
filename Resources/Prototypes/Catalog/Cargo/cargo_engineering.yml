@@ -51,7 +51,7 @@
 - type: cargoProduct
   id: EngineeringElectricalSupplies
   icon:
-    sprite: Objects/Tools/Toolboxes/toolbox_yellow.rsi
+    sprite: _Impstation/Objects/Tools/Toolboxes/toolbox_yellow.rsi #imp edit
     state: icon
   product: CrateEngineeringElectricalSupplies
   cost: 4500
@@ -91,7 +91,7 @@
 - type: cargoProduct
   id: AirlockKit
   icon:
-    sprite: Objects/Tools/Toolboxes/toolbox_yellow.rsi
+    sprite: _Impstation/Objects/Tools/Toolboxes/toolbox_yellow.rsi #imp edit
     state: icon
   product: CrateAirlockKit
   cost: 1100
