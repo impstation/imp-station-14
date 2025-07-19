@@ -127,3 +127,39 @@
     radius: 1.5
     energy: 1.6
     color: "#389690"
+
+- type: entity
+  parent: VendingMachine
+  id: VendingMachineDeadlyDan
+  name: Deadly Dan's Self DeVendor
+  description: Never be caught without a weapon, even on a budget!
+  components:
+  - type: VendingMachine
+    pack: DeadlyDanInventory
+    dispenseOnHitChance: 0.50
+    dispenseOnHitThreshold: 2
+    offState: off
+    brokenState: broken
+    normalState: normal
+    denyState: deny
+    initialStockQuality: 0.20
+    soundVend: /Audio/_Impstation/Machines/vending_drop.ogg
+  - type: Advertise
+    pack: DeadlyDansAds
+  - type: SpeakOnUIClosed
+    pack: DeadlyDansGoodbyes
+  - type: Sprite
+    sprite: _Impstation/Structures/Machines/VendingMachines/devendor.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#22b24d"
+  - type: AccessReader
+    access: [["SyndicateAgent"]]
