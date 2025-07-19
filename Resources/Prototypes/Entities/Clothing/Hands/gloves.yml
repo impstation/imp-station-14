@@ -104,6 +104,10 @@
   - type: Clothing
     sprite: Clothing/Hands/Gloves/captain.rsi
   - type: Insulated
+  - type: DamageOnShootProtection #imp
+    damageProtection:
+      flatReductions:
+        Shock: 10
   - type: Fiber
     fiberMaterial: fibers-durathread
     fiberColor: fibers-regal-blue
@@ -188,6 +192,10 @@
   - type: Clothing
     sprite: Clothing/Hands/Gloves/powerglove.rsi
   - type: Insulated
+  - type: DamageOnShootProtection #imp
+    damageProtection:
+      flatReductions:
+        Shock: 10
   - type: Fiber
     fiberMaterial: fibers-nanomachines
   - type: FingerprintMask
@@ -228,6 +236,10 @@
           True: {state: icon-green}
           False: {state: icon}
   - type: Insulated
+  - type: DamageOnShootProtection #imp Ninjas can't shoot but if someone manages to snag these they'll be wondering why they're getting zapped
+    damageProtection:
+      flatReductions:
+        Shock: 10
   - type: Fiber
     fiberMaterial: fibers-nanomachines
   - type: FingerprintMask
@@ -278,6 +290,7 @@
     damageProtection:
       flatReductions:
         Blunt: 4
+        Shock: 10
 
 # can't parent combat gloves since they are butcherable
 - type: entity
