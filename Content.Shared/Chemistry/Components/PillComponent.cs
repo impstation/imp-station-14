@@ -14,10 +14,10 @@ public sealed partial class PillComponent : Component
     public uint PillType;
 
     /// <summary>
-    /// If the pill should be of a random type. Imp addition
+    /// If the sprite should be decided by the type. Imp addition
     /// </summary>
     [AutoNetworkedField]
-    [DataField("randomType")]
+    [DataField("spriteUsesType")]
     [ViewVariables(VVAccess.ReadWrite)]
-    public bool RandomType = false;
+    public bool SpriteUsesType = true;
 }
