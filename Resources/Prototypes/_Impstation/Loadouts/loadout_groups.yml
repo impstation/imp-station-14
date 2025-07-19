@@ -1094,6 +1094,28 @@
   - BrigmedicDuffel
 
 - type: loadoutGroup
+  id: SecurityEyewear
+  name: loadout-group-security-glasses
+  minLimit: 0
+  loadouts:
+  - EyePatch
+  - Sunglasses
+  - SecuritySunglasses
+  - SecurityHud
+  - SecurityEyePatchHud
+  - SecurityGlassesHud
+  - Glasses
+  - GlassesCheapSunglasses
+  - GlassesColorfulPink
+  - GlassesColorfulRed
+  - GlassesColorfulBlue
+  - GlassesColorfulGreen
+  - GlassesColorfulPurple
+  - GlassesColorfulYellow
+  - GlassesJamjar
+  - GlassesJensen
+
+- type: loadoutGroup
   id: SurvivalBrigmedic
   name: loadout-group-survival-brigmedic
   minLimit: 2

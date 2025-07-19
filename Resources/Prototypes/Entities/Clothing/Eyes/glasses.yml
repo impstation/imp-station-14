@@ -202,7 +202,7 @@
 - type: entity
   parent: [ClothingEyesBase, BaseLensSlot, ShowSecurityIcons, BaseSecurityContraband] # BaseLensSlot from imp
   id: ClothingEyesGlassesSecurity
-  name: security glasses
+  name: security sun glasses # imp edit
   description: Upgraded sunglasses that provide flash immunity and a security HUD.
   components:
   - type: Sprite
