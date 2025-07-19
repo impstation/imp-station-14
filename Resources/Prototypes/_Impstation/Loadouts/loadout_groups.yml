@@ -946,6 +946,7 @@
 - type: loadoutGroup
   id: HeadofSecurityBelt
   name: loadout-group-head-of-security-belt
+  minLimit: 0
   loadouts:
   - SecurityBelt
   - SecurityWebbing

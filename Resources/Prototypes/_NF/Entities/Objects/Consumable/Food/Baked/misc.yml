@@ -1,0 +1,96 @@
+# imp notice: every reagent inventory has been adjusted to meet our food standards
+
+- type: entity
+  name: pear muffin
+  parent: FoodBakedBase
+  id: FoodBakedMuffinPear
+  description: I won't tell if you just try to pick out the chocolate.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chocolate
+      - muffin
+      - pear
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/Baked/misc.rsi
+    state: pearmuffin
+    scale: .75, .75
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 45
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 23
+        - ReagentId: Vitamin
+          Quantity: 4
+        - ReagentId: Theobromine
+          Quantity: 3
+        - ReagentId: CocoaPowder
+          Quantity: 1
+        - ReagentId: Sugar
+          Quantity: 8
+  - type: Tag
+    tags:
+    - Fruit
+
+- type: entity
+  name: apple strudel bite
+  parent: FoodBakedBase
+  id: FoodBakedAppleStrudelBite
+  description: Just put a little icing on top and enjoy!
+  components:
+  - type: FlavorProfile
+    flavors:
+      - honey
+      - butter
+      - bread
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/Baked/misc.rsi
+    layers:
+      - state: apple_strudel_1
+        map: [ "Variant" ]
+  - type: RandomSprite
+    available:
+      - Variant:
+          apple_strudel_1: ""
+          apple_strudel_2: ""
+          apple_strudel_3: ""
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 30
+        - ReagentId: Vitamin
+          Quantity: 4
+  - type: Tag
+    tags:
+    - Fruit
+
+- type: entity
+  name: cinnamon roll
+  parent: FoodBakedBase
+  id: FoodBakedCinnamonRoll
+  description: I wonder how much more icing you could put on this.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - cinnamon
+      - bun
+      - spices
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/Baked/misc.rsi
+    layers:
+      - state: cinnamonroll
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 22
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 15
+        - ReagentId: Sugar
+          Quantity: 5
