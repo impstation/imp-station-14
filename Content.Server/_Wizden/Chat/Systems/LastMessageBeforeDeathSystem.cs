@@ -7,12 +7,11 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Content.Server._Wizden.Discord.Managers;
 using Robust.Shared.Configuration;
-using System.Threading.Tasks;
 using Content.Shared.CCVar;
 using Robust.Shared.Enums;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
-using Content.Shared.GameTicking;
+using Content.Server.Roles.Jobs;
 
 namespace Content.Server._Wizden.Chat.Systems;
 
@@ -24,6 +23,7 @@ internal class LastMessageBeforeDeathSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly SharedMindSystem _sharedMind = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
+    [Dependency] private readonly JobSystem _jobs = default!;
 
     private bool _lastMessageWebhookEnabled = false;
 
@@ -53,6 +53,7 @@ internal class LastMessageBeforeDeathSystem : EntitySystem
     {
         public string? LastMessage { get; set; } // Store only the last message
         public EntityUid EntityUid { get; set; }
+        public string? JobTitle { get; set; }
         public TimeSpan MessageTime { get; set; } // Store the round time of the last message
     }
 
@@ -98,6 +99,7 @@ internal class LastMessageBeforeDeathSystem : EntitySystem
 
         var mindContainerComponent = CompOrNull<MindContainerComponent>(source);
         var mind = _sharedMind.GetMind(source, mindContainerComponent);
+        var jobName = _jobs.MindTryGetJobName(mind);
         if (mindContainerComponent != null && mindContainerComponent.Mind != null)
         {
             if (TryComp<MindComponent>(mind, out var mindComponent) == false)
@@ -113,6 +115,7 @@ internal class LastMessageBeforeDeathSystem : EntitySystem
                 var characterData = playerData.Characters[mindComponent];
                 characterData.LastMessage = message;
                 characterData.EntityUid = source;
+                characterData.JobTitle = jobName;
                 characterData.MessageTime = _gameTicker.RoundDuration();
             }
         }
@@ -184,9 +187,10 @@ internal class LastMessageBeforeDeathSystem : EntitySystem
             message = message[.._maxICLengthCVar] + "-";
         }
         var messageTime = characterData.MessageTime;
+        var jobTitle = characterData.JobTitle;
         var truncatedTime = $"{messageTime.Hours:D2}:{messageTime.Minutes:D2}:{messageTime.Seconds:D2}";
 
-        return $"[{truncatedTime}] {characterName}: {message}";
+        return $"[{truncatedTime}] {characterName} ({jobTitle}): {message}";
     }
 
     /// <summary>
