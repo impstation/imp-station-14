@@ -28,7 +28,7 @@
   description: Tastes like if cardboard was smaller.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/candy.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Ingredients/chocolate.rsi
     state: chocolatechip
   - type: Item
     size: Tiny
@@ -55,7 +55,7 @@
   description: A stick of creamy, cheesy, spreadable, insert adjective here, cream cheese.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/ingredients.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Ingredients/creamcheese.rsi
     state: creamcheese
   - type: FlavorProfile
     flavors:

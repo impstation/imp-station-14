@@ -630,7 +630,7 @@
   description: A stick of delicious, golden, fatty goodness.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/ingredients.rsi # Imp
+    sprite: _Impstation/Objects/Consumable/Food/Ingredients/butter.rsi # Imp
     state: butter
   - type: Slippery
   - type: StepTrigger
@@ -679,7 +679,7 @@
   description: A pat of delicious, golden, fatty goodness.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/ingredients.rsi # imp
+    sprite: _Impstation/Objects/Consumable/Food/Ingredients/butter.rsi # imp
     state: butter-slice
   - type: SolutionContainerManager
     solutions:
@@ -699,7 +699,7 @@
   description: Add this to your favorite baked goods for an irie time.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/ingredients.rsi # Imp
+    sprite: _Impstation/Objects/Consumable/Food/Ingredients/butter.rsi # Imp
     state: butter-cannabis # Imp
   - type: SolutionContainerManager
     solutions:
