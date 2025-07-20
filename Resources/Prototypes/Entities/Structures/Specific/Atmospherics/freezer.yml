@@ -14,10 +14,14 @@
 - type: entity
   parent: [AirSensorFreezerBase, GasVentPump]
   id: GasVentPumpFreezer
+  placement:
+    mode: SnapgridCenter # imp edit, to prevent alternate layer prototypes from being used
 
 - type: entity
   parent: [AirSensorFreezerBase, GasVentScrubber]
   id: GasVentScrubberFreezer
+  placement:
+    mode: SnapgridCenter # imp edit, to prevent alternate layer prototypes from being used
 
 # air alarm proto with auto: false to prevent the automatic switching of modes overriding the default values
 - type: entity

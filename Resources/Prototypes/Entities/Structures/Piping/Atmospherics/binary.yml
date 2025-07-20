@@ -635,6 +635,10 @@
       Primary: _Impstation/Structures/Piping/Atmospherics/heatexchanger.rsi #imp edit
       Secondary: _Impstation/Structures/Piping/Atmospherics/heatexchanger_alt1.rsi #imp edit
       Tertiary: _Impstation/Structures/Piping/Atmospherics/heatexchanger_alt2.rsi #imp edit
+    alternativePrototypes: #imp edit
+      Primary: HeatExchanger #imp edit
+      Secondary: HeatExchangerAlt1 #imp edit
+      Tertiary: HeatExchangerAlt2 #imp edit
     #numberOfPipeLayers: 1 #imp edit, use all layers
   - type: SubFloorHide
     visibleLayers:
@@ -694,3 +698,8 @@
     - type: Construction
       graph: GasBinary
       node: bendradiator
+    # imp edit start
+    - type: AtmosPipeLayers
+      Primary: HeatExchangerBend #imp edit
+      Secondary: HeatExchangerBendAlt1 #imp edit
+      Tertiary: HeatExchangerBendAlt2 #imp edit

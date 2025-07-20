@@ -25,10 +25,14 @@
 - type: entity
   parent: [AirSensorSupermatterBase, GasVentPump]
   id: GasVentPumpSupermatter
+  placement:
+    mode: SnapgridCenter # imp edit, to prevent alternate layer prototypes from being used
 
 - type: entity
   parent: [AirSensorSupermatterBase, GasVentScrubber]
   id: GasVentScrubberSupermatter
+  placement:
+    mode: SnapgridCenter # imp edit, to prevent alternate layer prototypes from being used
 
 - type: entity
   parent: AirAlarm

@@ -23,10 +23,14 @@
 - type: entity
   parent: [AirSensorDecapoidBase, GasVentPump]
   id: GasVentPumpDecapoid
+  placement:
+    mode: SnapgridCenter # to prevent alternate layer prototypes from being used
 
 - type: entity
   parent: [AirSensorDecapoidBase, GasVentScrubber]
   id: GasVentScrubberDecapoid
+  placement:
+    mode: SnapgridCenter # to prevent alternate layer prototypes from being used
   components:
   - type: GasVentScrubber
     wideNet: true # Air alarm with auto mode overrides filters with hardcoded defaults so default to widenet
