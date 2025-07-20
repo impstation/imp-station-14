@@ -5,6 +5,7 @@ using Content.Server.Roles;
 using Content.Server.Zombies;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
+using Content.Shared.Roles;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -20,6 +21,7 @@ public sealed class RandomAntagChanceSystem : EntitySystem
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly RoleSystem _role = default!;
     [Dependency] private readonly ZombieSystem _zombie = default!;
+    [Dependency] private readonly SharedRoleSystem _roleSystem = default!;
 
 
     public override void Initialize()
@@ -38,14 +40,16 @@ public sealed class RandomAntagChanceSystem : EntitySystem
         if (random.Prob(ent.Comp.Chance))
         {
             DoRoles(session, ent.Owner, ent.Comp.AntagRole);
-            return;
         }
-        DoRoles(session, ent.Owner, ent.Comp.FallbackRole);
+        else
+        {
+            DoRoles(session, ent.Owner, ent.Comp.FallbackRole);
+        }
     }
 
     private void DoRoles(ICommonSession session, Entity<MindComponent?> ent, EntProtoId role)
     {
-        if (!Resolve(ent, ref ent.Comp))
+        if (Resolve(ent, ref ent.Comp))
             return;
 
         // antag code is hell. woe to all ye who enter here
@@ -75,6 +79,9 @@ public sealed class RandomAntagChanceSystem : EntitySystem
                 return;
             case "Heretic":
                 _antag.ForceMakeAntag<HereticRuleComponent>(session, role);
+                return;
+            case "Free Agent":
+                _roleSystem.MindAddRoles(newMind.Owner, role.Comp.FallbackRole, newMind.Comp);
                 return;
             default:
                 // i hate my life
