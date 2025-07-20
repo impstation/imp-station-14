@@ -21,8 +21,8 @@
       enum.ConstructionVisuals.Key:
         enum.ConstructionVisuals.Layer:
           assembly: { state: assembly }
-          wires: { state: wires }
-          electronics: { state: electronics }
+          wires: { state: assembly-wires }
+          electronics: { state: assembly-electronics }
   - type: Construction
     graph: WallWeaponCapacitorRecharger
     node: assembly

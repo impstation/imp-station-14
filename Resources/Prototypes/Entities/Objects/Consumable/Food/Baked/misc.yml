@@ -564,6 +564,9 @@
           Quantity: 6
         # - ReagentId: Vitamin # imp
         #  Quantity: 1
+  - type: Construction # Frontier
+    graph: WaffleCone
+    node: start
 
 - type: entity
   name: soy waffles
@@ -732,6 +735,7 @@
   - type: Tag
     tags:
     - ClothMade
+    - ClothFood # imp
   - type: SolutionContainerManager
     solutions:
       food:
@@ -961,6 +965,7 @@
   - type: Tag
     tags:
     - ClothMade
+    - ClothFood # imp
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1019,6 +1024,7 @@
   - type: Tag
     tags:
     - ClothMade
+    - ClothFood # imp
   - type: SolutionContainerManager
     solutions:
       food:

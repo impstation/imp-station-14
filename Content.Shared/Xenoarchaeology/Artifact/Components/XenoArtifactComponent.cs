@@ -1,4 +1,5 @@
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.Destructible.Thresholds;
 using Content.Shared.EntityTable.EntitySelectors;
 using Content.Shared.Xenoarchaeology.Artifact.Prototypes;
@@ -195,4 +196,4 @@ public sealed partial class XenoArtifactComponent : Component
 /// <summary>
 /// Event raised by sentient artifact to activate itself at no durability cost.
 /// </summary>
-public sealed partial class ArtifactSelfActivateEvent : InstantActionEvent;
+public sealed partial class XAEArtifactSelfActivateEvent : InstantActionEvent; //#IMP: Renamed to "XAEArtifact..." from "Artifact..."

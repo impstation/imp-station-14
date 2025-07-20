@@ -1,0 +1,30 @@
+- type: vessel
+  id: Pioneer
+  name: LVHI-Pioneer
+  description: A tiny salvage vessel.
+  price: 11100
+  path:
+  - /Maps/_Impstation/Shuttles/Shipyard/pioneer.yml
+  categories:
+  - Small
+  - Mining
+- type: vessel
+  id: Pathfinder
+  name: KC Pathfinder
+  description: An expedition-ready shuttle.
+  price: 52000
+  path:
+  - /Maps/_Impstation/Shuttles/Shipyard/pathfinder.yml
+  categories:
+  - Medium
+  - Mining
+- type: vessel
+  id: Hunter
+  name: Hunter
+  description: A small Syndicate-class vessel for scaring security.
+  price: 50000
+  path:
+  - /Maps/_Impstation/Shuttles/Shipyard/hunter.yml
+  categories:
+  - Small
+  - Military

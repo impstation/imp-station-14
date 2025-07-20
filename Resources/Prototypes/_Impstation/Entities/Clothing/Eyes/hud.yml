@@ -7,17 +7,19 @@
   - type: ShowStaticPriceIcon
 
 - type: entity
+  parent: BaseAction
   id: ActionActivateSalvoHud
   name: Activate S.A.L.V.O hud
   description: Activates the S.A.L.V.O hud, showing the composition of nearby items
   components:
-  - type: InstantAction
+  - type: Action
     useDelay: 10
-    event: !type:ActivateSalvoHudEvent
     sound: !type:SoundPathSpecifier
       path: /Audio/Machines/sonar-ping.ogg
       params:
         volume: -10
+  - type: InstantAction
+    event: !type:ActivateSalvoHudEvent
 
 - type: entity
   parent: [ClothingEyesBase, BaseLensSlot, ShowSalvageIcons]
@@ -32,3 +34,14 @@
   - type: Tag
     tags:
     - HudSalvage
+
+- type: entity
+  parent: [ClothingEyesHudSecurity]
+  id: ClothingEyesGlassesHudSecurity
+  name: security hud glasses
+  description: A stylish heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records, but does not provide flash immunity.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Eyes/Hud/secglasses.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Eyes/Hud/secglasses.rsi

@@ -1,7 +1,7 @@
 - type: gameMap
   id: Packed
   mapName: 'Packed'
-  mapPath: /Maps/_Impstation/packed.yml
+  mapPath: /Maps/packed.yml
   minPlayers: 7
   maxPlayers: 35
   stations:
@@ -16,52 +16,49 @@
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/emergency_crimson.yml
         - type: StationJobs
-          availableJobs: # Total of 50 jobs roundstart, max of 60 inc. latejoins and trainees.
-            # command - 8
+          availableJobs: # 46 jobs total w/o latejoins & interns, 57 jobs total w/ latejoins & interns
+            #command (7)
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
-            ChiefEngineer: [ 1, 1 ]
-            ChiefMedicalOfficer: [ 1, 1 ]
-            ResearchDirector: [ 1, 1 ]
             HeadOfSecurity: [ 1, 1 ]
-            HospitalityDirector: [ 1, 1 ] # imp
+            ChiefMedicalOfficer: [ 1, 1 ]
+            ChiefEngineer: [ 1, 1 ]
+            ResearchDirector: [ 1, 1 ]
             Quartermaster: [ 1, 1 ]
-            # service - 13
-            Bartender: [ 2, 2 ] #imp 1 > 2
-            Botanist: [ 2, 2 ]
+            #service (8 - 10)
+            Bartender: [ 1, 1 ]
+            Botanist: [ 1, 2 ]
+            Chef: [ 1, 1 ]
+            Janitor: [ 1, 2 ]
             Chaplain: [ 1, 1 ]
-            Chef: [ 2, 2 ] #imp 1 > 2
-            Clown: [ 1, 1 ]
-            Janitor: [ 2, 2 ]
             Librarian: [ 1, 1 ]
-            Mime: [ 1, 1 ]
-            Musician: [ 1, 1 ]
-            #ServiceWorker: [ 2, 2 ] #imp
-            # engineering 6-9
+            ServiceWorker: [ 2, 2 ]
+            #engineering (6)
             AtmosphericTechnician: [ 2, 2 ]
             StationEngineer: [ 4, 4 ]
-            TechnicalAssistant: [ 3, 3 ]
-            # medical - 6-8
+            TechnicalAssistant: [ 3, 3 ] #intern, not counted
+            #medical (6)
             Chemist: [ 2, 2 ]
             MedicalDoctor: [ 3, 3 ]
             MedicalIntern: [ 2, 2 ] #intern, not counted
             Paramedic: [ 1, 1 ]
-            # science - 5-7
-            Borg: [ 1, 1 ]
-            ResearchAssistant: [ 2, 2 ]
-            Scientist: [ 3, 3 ]
-            StationAi: [ 1, 1 ]
-            # security - 7-9
-            Brigmedic: [ 1, 1 ] # imp
-            Detective: [ 1, 1 ]
-            Lawyer: [ 1, 1 ]
-            SecurityCadet: [ 2, 2 ]
-            SecurityOfficer: [ 3, 3 ]
+            #science (4)
+            Scientist: [ 4, 4 ]
+            ResearchAssistant: [ 2, 2 ] #intern, not counted
+            #security (6)
             Warden: [ 1, 1 ]
-            # supply - 5-6
-            CargoTechnician: [ 2, 2 ]
-            Courier: [ 1, 1 ] # imp
+            SecurityOfficer: [ 3, 3 ]
+            Detective: [ 1, 1 ]
+            SecurityCadet: [ 2, 2 ] #intern, not counted
+            Lawyer: [ 1, 1 ]
+            #supply (4)
             SalvageSpecialist: [ 2, 2 ]
-            SupplyAssistant: [ 1, 1 ] # imp
-            # civilian
-            Passenger: [ -1, -1 ]
+            CargoTechnician: [ 2, 2 ]
+            #civilian (3+)
+            Passenger: [ -1, -1 ] #infinite, not counted
+            Clown: [ 1, 1 ]
+            Mime: [ 1, 1 ]
+            Musician: [ 1, 1 ]
+            #silicon (2)
+            StationAi: [ 1, 1 ]
+            Borg: [ 1, 1 ]

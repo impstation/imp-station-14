@@ -104,6 +104,10 @@
   - type: Clothing
     sprite: Clothing/Hands/Gloves/captain.rsi
   - type: Insulated
+  - type: DamageOnShootProtection #imp
+    damageProtection:
+      flatReductions:
+        Shock: 10
   - type: Fiber
     fiberMaterial: fibers-durathread
     fiberColor: fibers-regal-blue
@@ -156,7 +160,7 @@
   - type: Fiber
     fiberMaterial: fibers-nitrile
   - type: FingerprintMask
-####
+
 - type: entity
   parent: ClothingHandsButcherable
   id: ClothingHandsGlovesLeather
@@ -188,6 +192,10 @@
   - type: Clothing
     sprite: Clothing/Hands/Gloves/powerglove.rsi
   - type: Insulated
+  - type: DamageOnShootProtection #imp
+    damageProtection:
+      flatReductions:
+        Shock: 10
   - type: Fiber
     fiberMaterial: fibers-nanomachines
   - type: FingerprintMask
@@ -217,17 +225,21 @@
     sprite: Clothing/Hands/Gloves/spaceninja.rsi
     layers:
     - state: icon
-      map: [ "enum.ToggleVisuals.Layer" ]
+      map: [ "enum.ToggleableVisuals.Layer" ]
   - type: Clothing
     sprite: Clothing/Hands/Gloves/spaceninja.rsi
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
           True: {state: icon-green}
           False: {state: icon}
   - type: Insulated
+  - type: DamageOnShootProtection #imp Ninjas can't shoot but if someone manages to snag these they'll be wondering why they're getting zapped
+    damageProtection:
+      flatReductions:
+        Shock: 10
   - type: Fiber
     fiberMaterial: fibers-nanomachines
   - type: FingerprintMask
@@ -274,6 +286,11 @@
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-insulative
+  - type: DamageOnShootProtection #imp
+    damageProtection:
+      flatReductions:
+        Blunt: 4
+        Shock: 10
 
 # can't parent combat gloves since they are butcherable
 - type: entity
@@ -307,6 +324,10 @@
   - type: Fiber
     fiberMaterial: fibers-insulative
     fiberColor: fibers-olive
+  - type: DamageOnShootProtection #imp
+    damageProtection:
+      flatReductions:
+        Blunt: 3
 
 - type: entity
   parent: ClothingHandsButcherable
@@ -330,7 +351,7 @@
   parent: ClothingHandsBase
   id: ClothingHandsGlovesFingerlessInsulated
   name: fingerless insulated gloves
-  description: Insulated gloves resistant to shocks, or at least they used to.
+  description: Insulated gloves resistant to shocks, or at least they used to be. # imp fix
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/fingerlessinsuls.rsi
@@ -343,6 +364,11 @@
     damageProtection:
       flatReductions:
         Heat: 0 # no protection
+  - type: Tag
+    tags:
+      - Insuls # imp
+      - WhitelistChameleon
+      - Backpack
 
 - type: entity
   parent: ClothingHandsButcherable
@@ -418,7 +444,11 @@
       enum.MeleeSpeechUiKey.Key:
         type: MeleeSpeechBoundUserInterface
   - type: StaticPrice
-    price: 0
+    price: 2500
+  - type: Tag
+    tags:
+    - Kangaroo
+    - WhitelistChameleon
 
 - type: entity
   parent: [ClothingHandsBase, BaseSecurityContraband]
@@ -477,6 +507,7 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+    - Kangaroo
 
 - type: entity
   parent: [ClothingHandsKnuckleDusters, BaseMinorContraband] #Craftable version of base knuckledusters
@@ -495,6 +526,7 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+    - Kangaroo
 
 - type: entity
   parent: [ClothingHandsBase, BaseGrandTheftContraband]
@@ -521,6 +553,7 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+    - Kangaroo
   - type: StealTarget
     stealGroup: ClothingHandsKnuckleDustersQM
 
@@ -548,6 +581,9 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+    - Kangaroo
+  - type: StaticPrice
+    price: 2000
 
 - type: entity
   name: stun knuckle dusters
@@ -559,15 +595,15 @@
     sprite: Clothing/Hands/Gloves/KnuckleDusters/electricknuckleduster.rsi
     layers:
     - state: knuckleduster_off
-      map: [ "enum.ToggleVisuals.Layer" ]
+      map: [ "enum.ToggleableVisuals.Layer" ]
   - type: Clothing
     sprite: Clothing/Hands/Gloves/KnuckleDusters/electricknuckleduster.rsi
     equippedPrefix: on
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
           True: {state: knuckleduster_on}
           False: {state: knuckleduster_off}
   - type: ToggleClothing
@@ -639,5 +675,5 @@
       collection: Punch
     animation: WeaponArcFist
   - type: Tag
-    tags: [] # ignore "WhitelistChameleon" tag
-
+    tags:
+    - Kangaroo

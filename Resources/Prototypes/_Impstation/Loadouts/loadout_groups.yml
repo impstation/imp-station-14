@@ -334,6 +334,7 @@
   - WhiteDressShoes
   - BlackCommandHeels
   - BlueCommandHeels
+  - HoPWinterBoots # Delta-V
 
 - type: loadoutGroup
   id: AdminAssistantBackpack
@@ -674,13 +675,11 @@
   - BlackHeels
 
 - type: loadoutGroup
-  id: ReporterJumpsuit
-  name: loadout-group-reporter-jumpsuit
+  id: MusicianHead
+  name: loadout-group-musician-head
+  minLimit: 0
   loadouts:
-  - ReporterJumpsuit
-  - JournalistJumpsuit
-  - ClothingUniformBrosBlazer
-  - ClothingUniformBrosBlazerSkirt
+  - MusicianShako
 
 - type: loadoutGroup
   id: ReporterNeck
@@ -1077,7 +1076,7 @@
   - ArmorVestCompact
   - PlateCarrier # DeltaV
   - DuraVest # DeltaV
-  - BomberSecurity
+  - BrigmedicBomber
 
 - type: loadoutGroup
   id: BrigmedicShoes

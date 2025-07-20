@@ -39,3 +39,32 @@
   - type: RandomSpawner
     prototypes:
     - RandomHumanoidVisitorRoboticist
+
+- type: entity
+  name: visiting librarian spawner
+  id: VisitorLibrarianSpawnerCryptid
+  parent: MarkerBase
+  suffix: heretic chance
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Structures/Decoration/banner.rsi
+        state: banner
+  - type: RandomSpawner
+    prototypes:
+    - RandomHumanoidVisitorLibrarianCryptid
+
+- type: entity
+  name: party gray spawner
+  id: VisitorPartyGraySpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: _Impstation/Objects/Consumable/Drinks/uapglass.rsi
+        state: icon
+  - type: RandomSpawner
+    prototypes:
+    - MobGrayParty
