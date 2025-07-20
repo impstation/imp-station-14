@@ -534,10 +534,16 @@
   startNode: start
   targetNode: ventpump
   category: construction-category-atmos # imp
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers # imp
   canBuildInImpassable: false
   conditions:
   - !type:NoUnstackableInTile
+  # imp edit start
+  alternativePrototypes:
+  - GasVentPump
+  - GasVentPumpAlt1
+  - GasVentPumpAlt2
+  # imp edit end
 
 - type: construction
   id: GasPassiveVent
@@ -545,10 +551,16 @@
   startNode: start
   targetNode: passivevent
   category: construction-category-atmos # imp
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers # imp
   canBuildInImpassable: false
   conditions:
   - !type:NoUnstackableInTile
+  # imp edit start
+  alternativePrototypes:
+  - GasPassiveVent
+  - GasPassiveVentAlt1
+  - GasPassiveVentAlt2
+  # imp edit end
 
 - type: construction
   id: GasVentScrubber
@@ -556,10 +568,16 @@
   startNode: start
   targetNode: ventscrubber
   category: construction-category-atmos # imp
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers # imp
   canBuildInImpassable: false
   conditions:
   - !type:NoUnstackableInTile
+  # imp edit start
+  alternativePrototypes:
+  - GasVentScrubber
+  - GasVentScrubberAlt1
+  - GasVentScrubberAlt2
+  # imp edit end
 
 - type: construction
   id: GasOutletInjector
@@ -567,10 +585,16 @@
   startNode: start
   targetNode: outletinjector
   category: construction-category-atmos # imp
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers # imp
   canBuildInImpassable: false
   conditions:
   - !type:NoUnstackableInTile
+  # imp edit start
+  alternativePrototypes:
+  - GasOutletInjector
+  - GasOutletInjectorAlt1
+  - GasOutletInjectorAlt2
+  # imp edit end
 
 # ATMOS BINARY
 - type: construction
