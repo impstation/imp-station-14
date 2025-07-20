@@ -84,6 +84,16 @@
   - type: Inventory
     speciesId: finfin
     templateId: pet
+  - type: ContainerContainer
+    containers:
+      mask: !type:ContainerSlot
+        showEnts: False
+        occludes: False
+        ent: null
+      suitstorage: !type:ContainerSlot
+        showEnts: False
+        occludes: False
+        ent: null
   - type: DamageStateVisuals
     states:
       Alive:
