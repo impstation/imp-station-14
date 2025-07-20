@@ -27,7 +27,7 @@ accent-milbrat-words-replace-5 = by the numbers
 accent-milbrat-words-6 = no
 accent-milbrat-words-6-2 = nope
 accent-milbrat-words-6-3 = nah
-accent-milbrat-words-replace-6 = Negative
+accent-milbrat-words-replace-6 = negative
 
 accent-milbrat-words-7 = acting insane
 accent-milbrat-words-7-2 = acting crazy
