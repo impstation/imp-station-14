@@ -879,8 +879,14 @@
   startNode: start
   targetNode: radiator
   category: construction-category-atmos # imp
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers # imp
   canBuildInImpassable: false
+  # imp edit start
+  alternativePrototypes:
+  - HeatExchanger
+  - HeatExchangerAlt1
+  - HeatExchangerAlt2
+  # imp edit end
 
 - type: construction
   id: HeatExchangerBend
@@ -889,8 +895,14 @@
   startNode: start
   targetNode: bendradiator
   category: construction-category-atmos # imp
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers # imp
   canBuildInImpassable: false
+  # imp edit start
+  alternativePrototypes:
+  - HeatExchangerBend
+  - HeatExchangerBendAlt1
+  - HeatExchangerBendAlt2
+  # imp edit end
 
 # ATMOS TRINARY
 - type: construction

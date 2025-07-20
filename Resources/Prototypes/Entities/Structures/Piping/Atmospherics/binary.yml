@@ -617,7 +617,7 @@
   name: radiator
   description: Transfers heat between the pipe and its surroundings.
   placement:
-    mode: SnapgridCenter
+    mode: AlignAtmosPipeLayers #imp edit
   components:
   - type: Rotatable
   - type: Transform
@@ -661,6 +661,10 @@
   - type: GuideHelp
     guides:
     - Radiators
+  # imp edit start
+  - type: Tag
+    tags: [] # gets rid of unstackable, allowing radiators to be built on alt layers on the same tile
+  # imp edit end
 
 - type: entity
   parent: HeatExchanger
