@@ -31,6 +31,9 @@ public abstract class SharedArtifactAnalyzerSystem : EntitySystem
 
     private void OnItemPlaced(Entity<ArtifactAnalyzerComponent> ent, ref ItemPlacedEvent args)
     {
+        if (!HasComp<XenoArtifactComponent>(args.OtherEntity)) //IMP Disregard old artifacts
+            return;
+
         ent.Comp.CurrentArtifact = args.OtherEntity;
         Dirty(ent);
     }
