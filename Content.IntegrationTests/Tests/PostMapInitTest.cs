@@ -155,6 +155,7 @@ namespace Content.IntegrationTests.Tests
             "Skimmer",
             "Union",
             "Whisper",
+            "Pathway",
         };
 
         /// <summary>

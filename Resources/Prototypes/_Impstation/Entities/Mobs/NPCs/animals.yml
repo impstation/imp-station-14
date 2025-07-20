@@ -13,7 +13,7 @@
       layers:
       - map: ["enum.DamageStateVisualLayers.Base"]
         state: bros
-        sprite: Mobs/Animals/bros.rsi
+        sprite: _Impstation/Mobs/Animals/bros.rsi
     - type: Butcherable
       spawned:
         - id: FoodLingzhi
@@ -117,7 +117,7 @@
       layers:
       - map: ["enum.DamageStateVisualLayers.Base"]
         state: sorb
-        sprite: Mobs/Animals/bros.rsi
+        sprite: _Impstation/Mobs/Animals/bros.rsi
     - type: DamageStateVisuals
       states:
         Alive:

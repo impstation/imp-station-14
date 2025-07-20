@@ -24,6 +24,7 @@
       - TegGenerator
       - TegCirculator
       - XenoArtifact
+      - Artifact #IMP
     event: !type:ChangeComponentsSpellEvent
       toAdd:
       - type: Animate

@@ -1208,7 +1208,7 @@
       deleteSpawnerAfterSpawn: false
       table: !type:AllSelector
         children:
-        - id: RandomArtifactSpawner
+        - id: RandomOldNewArtifactSpawner #IMP rename from RandomArtifactSpawner so it can spawn both types
 
 - type: entity
   id: XenoArtifactShuffle

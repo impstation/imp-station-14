@@ -11,6 +11,19 @@
   recipeType: Oven # some baffled googling about how to make a lollipop has resulted in this executive decision
 
 - type: microwaveMealRecipe
+  id: RecipeBreadAndWaterSoup
+  name: bread and water soup recipe
+  result: FoodBreadAndWaterSoup
+  group: Soup
+  time: 15
+  reagents:
+     Water: 15
+  solids:
+     FoodBowlBig: 1
+     FoodBreadPlain: 1
+  recipeType: Assembler
+
+- type: microwaveMealRecipe
   id: RecipeClothLollipop
   name: cloth lollipop recipe
   result: FoodMealClothLollipop
