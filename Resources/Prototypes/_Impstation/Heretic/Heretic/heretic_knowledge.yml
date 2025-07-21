@@ -5,3 +5,10 @@
   stage: 1
   ritualPrototypes:
   - SeekersHeartRitual
+  
+- type: hereticKnowledge
+  id: HereticMirrorRitual
+  sideKnowledge: true
+  stage: 3
+  ritualPrototypes:
+  - HereticMirrorRitual
