@@ -27,8 +27,7 @@
         acts: [ "Destruction" ]
   - type: NonMobStatusIcon #imp edit. for the salvohud
   - type: PluralName # imp
-    oneOf: a bar of
-    someOf: some bars of
+    oneOf: a
 
 - type: entity
   parent: IngotBase
