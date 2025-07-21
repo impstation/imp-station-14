@@ -62,6 +62,9 @@
       - BorgChassis
   components:
     - type: Muted
+      mutedEmotes: true # IMP
+      mutedScream: false # IMP
+      mutedSpeech: true # IMP
 
 - type: trait
   id: Paracusia

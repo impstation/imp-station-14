@@ -12,7 +12,7 @@
         task: RaptorCompound
     - type: Sprite
       drawdepth: Mobs
-      sprite: Mobs/Aliens/laser-less_laser_raptor.rsi
+      sprite: _Impstation/Mobs/Aliens/laser-less_laser_raptor.rsi
       layers:
         - map: [ "enum.DamageStateVisualLayers.Base" ]
           state: raptor
@@ -78,7 +78,7 @@
       components:
       - HumanoidAppearance
   - type: Sprite
-    sprite: Mobs/Demons/tomatokisser.rsi
+    sprite: _Impstation/Mobs/Demons/tomatokisser.rsi
     noRot: true
     layers:
       - map: [ "enum.DamageStateVisualLayers.Base" ]

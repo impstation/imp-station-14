@@ -232,6 +232,41 @@
     - UplinkWeaponry
 
 - type: listing
+  id: uplinkValuShot
+  name: uplink-valushot-name
+  description: uplink-valushot-desc
+  productEntity: WeaponPistolValu
+  cost:
+    Telecrystal: 2
+  categories:
+    - UplinkWeaponry
+
+- type: listing
+  id: UplinkValuShotFamily
+  name: uplink-valushotfamily-name
+  description: uplink-valushotfamily-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Pistols/valu.rsi, state: base }
+  productEntity: DeadlyDanFamilyPack
+  cost:
+    Telecrystal: 5
+  categories:
+    - UplinkWeaponry
+
+- type: listing
+  id: UplinkValuShotClub
+  name: uplink-valushotclub-name
+  description: uplink-valushotclub-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Pistols/valu.rsi, state: base }
+  productEntity: ClothingBackpackDuffelDeadlyFilledClubPack
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 19
+  cost:
+    Telecrystal: 20
+  categories:
+    - UplinkWeaponry
+
+- type: listing
   id: UplinkMixedRejects
   name: uplink-mixed-rejects-name
   description: uplink-mixed-rejects-desc
