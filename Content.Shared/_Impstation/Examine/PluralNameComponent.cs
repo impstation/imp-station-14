@@ -27,7 +27,7 @@ public sealed partial class PluralNameComponent : Component
     /// defaults to "some".
     /// </summary>
     [DataField, AutoNetworkedField]
-    public LocId SomeOf = "some";
+    public LocId SomeOf = "plural-name-some";
 
     /// <summary>
     /// What this object's name is when by itself. Highlighted.
