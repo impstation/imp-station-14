@@ -1,0 +1,458 @@
+﻿# SPDX-FileCopyrightText: 2024 Blu <79374236+BlueHNT@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 FoxxoTrystan <45297731+FoxxoTrystan@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 FoxxoTrystan <trystan.garnierhein@gmail.com>
+# SPDX-FileCopyrightText: 2024 sleepyyapril <***>
+# SPDX-FileCopyrightText: 2025 sleepyyapril <123355664+sleepyyapril@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 sleepyyapril <flyingkarii@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: latheRecipe
+  id: PrizeBall
+  result: PrizeBall
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 30
+
+- type: latheRecipe
+  id: PlushieBee
+  result: PlushieBee
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushieHampter
+  result: PlushieHampter
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushieRouny
+  result: PlushieRouny
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushieLamp
+  result: PlushieLamp
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushieArachind
+  result: PlushieArachind
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushieLizard
+  result: PlushieLizard
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushieSpaceLizard
+  result: PlushieSpaceLizard
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushieSharkBlue
+  result: PlushieSharkBlue
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushieSharkPink
+  result: PlushieSharkPink
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushieSharkGrey
+  result: PlushieSharkGrey
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushieCarp
+  result: PlushieCarp
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushieMagicarp
+  result: PlushieMagicarp
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushieHolocarp
+  result: PlushieHolocarp
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushieSlime
+  result: PlushieSlime
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushieSnake
+  result: PlushieSnake
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: ToyMouse
+  result: ToyMouse
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: ToyRubberDuck
+  result: ToyRubberDuck
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushieVox
+  result: PlushieVox
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushieAtmosian
+  result: PlushieAtmosian
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushiePenguin
+  result: PlushiePenguin
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushieHuman
+  result: PlushieHuman
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: ToyAi
+  result: ToyAi
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 30
+
+- type: latheRecipe
+  id: ToyIan
+  result: ToyIan
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 30
+
+- type: latheRecipe
+  id: BalloonNT
+  result: BalloonNT
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 30
+
+- type: latheRecipe
+  id: BalloonCorgi
+  result: BalloonCorgi
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 30
+
+- type: latheRecipe
+  id: CrayonBox
+  result: CrayonBox
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 20
+
+- type: latheRecipe
+  id: PetRockCarrier
+  result: PetRockCarrier
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushieXeno
+  result: PlushieXeno
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 80
+
+- type: latheRecipe
+  id: FoamCrossbow
+  result: FoamCrossbow
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 100
+
+- type: latheRecipe
+  id: RevolverCapGun
+  result: RevolverCapGun
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 100
+
+- type: latheRecipe
+  id: PonderingOrb
+  result: PonderingOrb
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 80
+
+- type: latheRecipe
+  id: ToyAmongPequeno
+  result: ToyAmongPequeno
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 80
+
+- type: latheRecipe
+  id: FoamCutlass
+  result: FoamCutlass
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 100
+
+- type: latheRecipe
+  id: ToyHammer
+  result: ToyHammer
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 100
+
+- type: latheRecipe
+  id: WhoopieCushion
+  result: WhoopieCushion
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 100
+
+- type: latheRecipe
+  id: PlasticBanana
+  result: PlasticBanana
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 80
+
+- type: latheRecipe
+  id: WeaponWaterPistol
+  result: WeaponWaterPistol
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 100
+
+- type: latheRecipe
+  id: WeaponWaterBlaster
+  result: WeaponWaterBlaster
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 100
+
+- type: latheRecipe
+  id: NewtonCradle
+  result: NewtonCradle
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 80
+
+- type: latheRecipe
+  id: SnapPopBox
+  result: SnapPopBox
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 80
+
+- type: latheRecipe
+  id: MrDips
+  result: MrDips
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 80
+
+- type: latheRecipe
+  id: MrChips
+  result: MrChips
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 80
+
+- type: latheRecipe
+  id: CrazyGlue
+  result: CrazyGlue
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 100
+
+- type: latheRecipe
+  id: PlushieRatvar
+  result: PlushieRatvar
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 80
+
+- type: latheRecipe
+  id: PlushieNar
+  result: PlushieNar
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 80
+
+# EMAG
+
+- type: latheRecipe
+  id: PlushieGhost
+  result: PlushieGhost
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 100
+
+- type: latheRecipe
+  id: PlushieRGBee
+  result: PlushieRGBee
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 100
+
+- type: latheRecipe
+  id: PlushieRainbowCarp
+  result: PlushieRainbowCarp
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 100
+
+- type: latheRecipe
+  id: PlushieNuke
+  result: PlushieNuke
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 100
+
+- type: latheRecipe
+  id: ToyNuke
+  result: ToyNuke
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 100
+
+- type: latheRecipe
+  id: FoamBlade
+  result: FoamBlade
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 150
+
+- type: latheRecipe
+  id: BalloonSyn
+  result: BalloonSyn
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 100
+
+- type: latheRecipe
+  id: SingularityToy
+  result: SingularityToy
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 150
+
+- type: latheRecipe
+  id: TeslaToy
+  result: TeslaToy
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 150
+
+- type: latheRecipe
+  id: ToySword
+  result: ToySword
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 200

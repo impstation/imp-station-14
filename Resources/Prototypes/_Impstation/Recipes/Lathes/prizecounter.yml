@@ -1,0 +1,349 @@
+﻿- type: latheRecipe
+  id: Basketball
+  result: Basketball
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 30
+
+- type: latheRecipe
+  id: BeachBall
+  result: BeachBall
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 30
+
+- type: latheRecipe
+  id: BirdToyInstrument
+  result: BirdToyInstrument
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 200
+
+- type: latheRecipe
+  id: BoxCartridgeCap
+  result: BoxCartridgeCap
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 200
+
+- type: latheRecipe
+  id: CandyBucket
+  result: CandyBucket
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 100
+
+- type: latheRecipe
+  id: BoxDonkSoftBox
+  result: BoxDonkSoftBox
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 200
+
+- type: latheRecipe
+  id: ClothingHeadHatCowboyRed
+  result: ClothingHeadHatCowboyRed
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 500
+
+- type: latheRecipe
+  id: Football
+  result: Football
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 30
+
+- type: latheRecipe
+  parent: BaseLightRecipe
+  id: GlowstickBase
+  result: GlowstickBase
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  parent: BaseLightRecipe
+  id: GlowstickBlue
+  result: GlowstickBlue
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  parent: BaseLightRecipe
+  id: GlowstickPurple
+  result: GlowstickPurple
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  parent: BaseLightRecipe
+  id: GlowstickYellow
+  result: GlowstickYellow
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: GunpetInstrument
+  result: GunpetInstrument
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 200
+
+- type: latheRecipe
+  id: HarmonicaInstrument
+  result: HarmonicaInstrument
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 200
+
+- type: latheRecipe
+  id: OcarinaInstrument
+  result: OcarinaInstrument
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 200
+
+- type: latheRecipe
+  id: PlushieApid
+  result: PlushieApid
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushieDecapoid
+  result: PlushieDecapoid
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushieDiona
+  result: PlushieDiona
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushieDoll
+  result: PlushieDoll
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushieDollHair
+  result: PlushieDollHair
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushieDwarf
+  result: PlushieDwarf
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushieFinfin
+  result: PlushieFinfin
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushieGiantBear
+  result: PlushieGiantBear
+  applyMaterialDiscount: false
+  completetime: 1
+  materials:
+    PrizeTicket: 100 # two ursa minors makes an ursa massive
+
+- type: latheRecipe
+  id: PlushieGoblin
+  result: PlushieGoblin
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushieGray
+  result: PlushieGray
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushieGriffy
+  result: PlushieGriffy
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushieJumboGray
+  result: PlushieUrsaMinor
+  applyMaterialDiscount: false
+  completetime: 1
+  materials:
+    PrizeTicket: 100
+
+- type: latheRecipe
+  id: PlushieKodepiia
+  result: PlushieKodepiia
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushieMoth
+  result: PlushieMoth
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushieRainbowLizard
+  result: PlushieRainbowLizard
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushieSnail
+  result: PlushieSnail
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushieThaven
+  result: PlushieThaven
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: PlushieUrsaMinor
+  result: PlushieUrsaMinor
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  id: RecorderInstrument
+  result: RecorderInstrument
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 200
+
+- type: latheRecipe
+  id: Whistle
+  result: Whistle
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 200
+
+# emagged
+
+- type: latheRecipe
+  id: PlushieBug
+  result: PlushieBug
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 100
+
+- type: latheRecipe
+  id: PlushieCaptain
+  result: PlushieCaptain
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 100
+
+- type: latheRecipe
+  id: PlushieGnomeChild
+  result: PlushieGnomeChild
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 100
+
+- type: latheRecipe
+  id: PlushieGollylad
+  result: PlushieGollylad
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 100
+
+- type: latheRecipe
+  id: PlushieHeadofPersonnel
+  result: PlushieHeadofPersonnel
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 100
+
+- type: latheRecipe
+  id: PlushieIba
+  result: PlushieIba
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 100
+
+- type: latheRecipe
+  id: PlushieImp
+  result: PlushieImp
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 100
+
+- type: latheRecipe
+  id: PlushieOdds
+  result: PlushieOdds
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 100
+
+- type: latheRecipe
+  id: PlushieThavenWeird
+  result: PlushieThavenWeird
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 100
