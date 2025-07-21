@@ -99,6 +99,8 @@
     tags:
     - CorgiWearable
     - WhitelistChameleon
+  - type: PluralName # imp
+    oneOf: some
 
 - type: entity
   parent: ClothingEyesBase

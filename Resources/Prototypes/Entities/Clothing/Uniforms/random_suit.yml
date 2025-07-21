@@ -145,6 +145,8 @@
           base_leg_short: Sixteen
           base_leg_skirt: Sixteen
           base_leg_skirt_long: Sixteen
+  - type: PluralName # imp
+    oneOf: a pair of
 
 - type: entity
   parent: ClothingUniformRandom
