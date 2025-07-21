@@ -23,6 +23,8 @@
           - ItemMask
         restitution: 0.3
         friction: 0.2
+  - type: PluralName # imp
+    oneOf: a piece of
 
 - type: entity
   parent: OreBase

@@ -50,6 +50,9 @@
       glass:
         canReact: false
   - type: NonMobStatusIcon #imp edit. for the salvohud
+  - type: PluralName # imp
+    oneOf: a sheet of
+    someOf: some sheets of
 
 - type: entity
   parent: SheetGlassBase

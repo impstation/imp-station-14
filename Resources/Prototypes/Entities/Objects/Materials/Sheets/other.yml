@@ -28,6 +28,9 @@
       paper:
         canReact: false
   - type: NonMobStatusIcon #imp edit. for the salvohud
+  - type: PluralName # imp
+    oneOf: a sheet of
+    some: some sheets of
 
 - type: entity
   parent: SheetOtherBase

@@ -59,6 +59,8 @@
   - type: Construction
     graph: HempObjects
     node: hempcloth
+  - type: PluralName
+    oneOf: a bolt of
 
 - type: entity
   parent: MaterialHempCloth

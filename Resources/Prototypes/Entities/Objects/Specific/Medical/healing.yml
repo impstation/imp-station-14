@@ -51,6 +51,9 @@
     count: 10
   - type: StackPrice
     price: 5
+  - type: PluralName # imp
+    oneOf: a tube of
+    someOf: some tubes of
 
 - type: entity
   id: Ointment1
@@ -110,6 +113,10 @@
     count: 10
   - type: StackPrice
     price: 20
+  - type: PluralName # imp
+    oneOf: a piece of
+    someOf: some pieces of
+
 
 - type: entity
   id: OintmentAdvanced1
@@ -164,6 +171,9 @@
     count: 10
   - type: StackPrice
     price: 5
+  - type: PluralName # imp
+    oneOf: a
+    someOf: a handful of
 
 - type: entity
   id: Brutepack1
@@ -220,6 +230,9 @@
     count: 10
   - type: StackPrice
     price: 20
+  - type: PluralName # imp
+    oneOf: a spindle of
+    someOf: some spindles of
 
 - type: entity
   id: BrutepackAdvanced1

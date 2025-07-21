@@ -23,6 +23,8 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: PluralName # imp
+    oneOf: a piece of
 
 - type: entity
   parent: MaterialBase
@@ -176,6 +178,8 @@
     node: cloth
   - type: Item
     heldPrefix: cloth
+  - type: PluralName # imp
+    oneOf: a bolt of # the more you know https://english.stackexchange.com/questions/430790/what-do-you-call-a-of-cloth
 
 - type: entity
   parent: MaterialCloth
@@ -240,6 +244,8 @@
       - RawMaterial
   - type: Item
     heldPrefix: durathread
+  - type: PluralName # imp
+    oneOf: a bolt of
 
 - type: entity
   parent: MaterialDurathread
@@ -334,6 +340,9 @@
     - TileWoodParquetLight
     - TileWoodParquetRed
     - TileWoodRed
+  - type: PluralName
+    oneOf: a plank of
+    someOf: some planks of
 
 - type: entity
   parent: MaterialWoodPlank
@@ -372,6 +381,9 @@
   - type: GuideHelp
     guides:
     - Cloning
+  - type: PluralName # imp
+    oneOf: a scrap of # will probably never be seen in-game
+    someOf: a cube of
 
 - type: entity
   parent: MaterialBiomass
@@ -411,6 +423,8 @@
   - type: Tag
     tags:
       - BearHide
+  - type: PluralName # imp
+    oneOf: some
 
 - type: entity
   parent: MaterialBase
@@ -431,6 +445,8 @@
   - type: Tag
     tags:
     - HideCorgi
+  - type: PluralName # imp
+    oneOf: some
 
 - type: entity
   parent: MaterialBase
@@ -471,6 +487,9 @@
     - RawMaterial
     - Diamond
   - type: NonMobStatusIcon #imp edit. for the salvohud
+  - type: PluralName # imp
+    oneOf: a gem of
+    someOf: gems of
 
 - type: entity
   parent: MaterialDiamond
@@ -747,6 +766,9 @@
   - type: Tag
     tags:
     - ToothSpaceCarp
+  - type: PluralName # imp
+    oneOf: a singular
+    someOf: a collection of
 
 - type: entity
   parent: MaterialToothSpaceCarp
@@ -790,6 +812,9 @@
     tags:
     - Knife
     - ToothSharkminnow
+  - type: PluralName # imp
+    oneOf: a singular
+    someOf: a collection of
 
 - type: entity
   parent: MaterialToothSharkminnow
@@ -835,6 +860,9 @@
     - DroneUsable
     - RawMaterial
     - KodeEdible
+  - type: PluralName # imp
+    oneOf: some
+    someOf: a bundle of
 
 - type: entity
   parent: MaterialBones
@@ -862,6 +890,8 @@
       Gunpowder: 100
   - type: Item
     size: Tiny
+  - type: PluralName # imp
+    oneOf: a pinch of
 
 - type: entity
   parent: MaterialBase
@@ -896,6 +926,8 @@
   - type: Tag
     tags:
     - GoliathPlate
+  - type: PluralName # imp
+    oneOf: some
 
 - type: entity
   parent: MaterialGoliathHide

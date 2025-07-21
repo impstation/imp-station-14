@@ -23,6 +23,9 @@
     - type: Tag
       tags:
         - DroneUsable
+    - type: PluralName # imp
+      oneOf: an
+      someOf: an armful of
 # TODO: Add stack sprites + visuals.
 
 - type: entity
@@ -50,6 +53,9 @@
     - type: Tag
       tags:
         - DroneUsable
+    - type: PluralName # imp
+      oneOf: an
+      someOf: an armful of
 # TODO: Add stack sprites + visuals.
 
 - type: entity

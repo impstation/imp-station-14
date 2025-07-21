@@ -85,6 +85,9 @@
     prototypes:
     - Grille
     - Table
+  - type: PluralName # imp
+    oneOf: a
+    someOf: a bundle of
 
 - type: entity
   parent: PartRodMetal
