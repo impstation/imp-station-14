@@ -22,7 +22,7 @@
       Burger: LeavesCannabisBurger
       Taco: LeavesCannabis
   - type: PluralName # imp
-    oneOf: some
+    oneOf: plural-name-some
 
 - type: entity
   name: green marijuana leaves
@@ -46,7 +46,7 @@
       Burger: LeavesCannabisBurger
       Taco: LeavesCannabis
   - type: PluralName # imp
-    oneOf: some
+    oneOf: plural-name-some
 
 - type: entity
   name: dried cannabis leaves
@@ -72,7 +72,7 @@
       Burger: LeavesCannabisBurger
       Taco: LeavesCannabis
   - type: PluralName # imp
-    oneOf: some
+    oneOf: plural-name-some
 
 - type: entity
   name: ground cannabis
@@ -103,7 +103,7 @@
   - type: Item
     size: Tiny
   - type: PluralName # imp
-    oneOf: some
+    oneOf: plural-name-some
 
 - type: entity
   name: rainbow cannabis leaves

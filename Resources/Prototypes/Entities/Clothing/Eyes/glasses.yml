@@ -14,7 +14,7 @@
       types:
         Blunt: 10
   - type: PluralName # imp
-    oneOf: a pair of
+    oneOf: plural-name-pair-1
 
 - type: entity
   parent: [ClothingEyesBase, BaseLensSlot] # BaseLensSlot from imp
@@ -35,7 +35,7 @@
       types:
         Blunt: 10
   - type: PluralName # imp
-    oneOf: a pair of
+    oneOf: plural-name-pair-1
 
 
 - type: entity
@@ -57,7 +57,7 @@
       types:
         Blunt: 10
   - type: PluralName # imp
-    oneOf: a pair of
+    oneOf: plural-name-pair-1
 
 
 - type: entity
@@ -81,7 +81,7 @@
     - CorgiWearable
     - WhitelistChameleon
   - type: PluralName # imp
-    oneOf: some
+    oneOf: plural-name-some
 
 
 - type: entity
@@ -110,7 +110,7 @@
           tags:
           - Lens
   - type: PluralName
-    oneOf: a pair of
+    oneOf: plural-name-pair-1
   # imp end
   - type: Tag
     tags:
@@ -131,7 +131,7 @@
     tags:
     - WhitelistChameleon
   - type: PluralName # imp
-    oneOf: some
+    oneOf: plural-name-some
 
 - type: entity
   parent: ClothingEyesBase
@@ -150,7 +150,7 @@
     - HamsterWearable
     - WhitelistChameleon
   - type: PluralName # imp
-    oneOf: a pair of
+    oneOf: plural-name-pair-1
 
 - type: entity
   parent: [ClothingEyesBase, BaseLensSlot] # BaseLensSlot from imp
@@ -182,7 +182,7 @@
   - type: StaticPrice
     price: 500
   - type: PluralName # imp
-    oneOf: a pair of
+    oneOf: plural-name-pair-1
 
 - type: entity
   parent: [ClothingEyesBase, BaseLensSlot] # BaseLensSlot from imp
@@ -202,7 +202,7 @@
   - type: IdentityBlocker
     coverage: EYES
   - type: PluralName # imp
-    oneOf: a pair of
+    oneOf: plural-name-pair-1
 
 - type: entity
   parent: ClothingEyesGlassesCheapSunglasses
@@ -220,7 +220,7 @@
     - HamsterWearable
     - WhitelistChameleon
   - type: PluralName # imp
-    oneOf: a pair of
+    oneOf: plural-name-pair-1
 
 - type: entity
   parent: [ClothingEyesBase, BaseLensSlot, ShowSecurityIcons, BaseSecurityContraband] # BaseLensSlot from imp
@@ -251,7 +251,7 @@
   - type: IdentityBlocker
     coverage: EYES
   - type: PluralName # imp
-    oneOf: a pair of
+    oneOf: plural-name-pair-1
 
 - type: entity
   parent: [ClothingEyesBase, BaseLensSlot, BaseCommandContraband] # BaseLensSlot from imp
@@ -276,7 +276,7 @@
     coverage: EYES
   - type: ShowJobIcons
   - type: PluralName # imp
-    oneOf: a pair of
+    oneOf: plural-name-pair-1
 
 - type: entity
   parent: [ClothingEyesBase, BaseLensSlot] # BaseLensSlot from imp
@@ -294,7 +294,7 @@
   - type: IdentityBlocker
     coverage: EYES
   - type: PluralName # imp
-    oneOf: a pair of
+    oneOf: plural-name-pair-1
 
 #Make a scanner category when these actually function and we get the trayson
 - type: entity
@@ -333,7 +333,7 @@
       - CorgiWearable
       - WhitelistChameleon
     - type: PluralName # imp
-      oneOf: some
+      oneOf: plural-name-some
 
 - type: entity
   parent: [ClothingEyesBase, BaseMajorContraband]
@@ -370,4 +370,4 @@
     - HamsterWearable
     - WhitelistChameleon
   - type: PluralName # imp
-    oneOf: a pair of
+    oneOf: plural-name-pair-1

@@ -13,7 +13,7 @@
       coefficients:
         Caustic: 0.85
   - type: PluralName # imp
-    oneOf: a pair of
+    oneOf: plural-name-pair-1
 
 - type: entity
   parent: [ClothingEyesGlassesChemical, ShowMedicalIcons, Tier1Contraband]
@@ -26,4 +26,4 @@
   - type: Clothing
     sprite: _DV/Clothing/Eyes/Glasses/interdynechemgoogles.rsi
   - type: PluralName # imp
-    oneOf: a pair of
+    oneOf: plural-name-pair-1

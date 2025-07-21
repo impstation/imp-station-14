@@ -24,7 +24,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: PluralName # imp
-    oneOf: a piece of
+    oneOf: plural-name-piece-1
 
 - type: entity
   parent: MaterialBase
@@ -179,7 +179,7 @@
   - type: Item
     heldPrefix: cloth
   - type: PluralName # imp
-    oneOf: a bolt of # the more you know https://english.stackexchange.com/questions/430790/what-do-you-call-a-of-cloth
+    oneOf: plural-name-bolt-1 # the more you know https://english.stackexchange.com/questions/430790/what-do-you-call-a-of-cloth
 
 - type: entity
   parent: MaterialCloth
@@ -245,7 +245,7 @@
   - type: Item
     heldPrefix: durathread
   - type: PluralName # imp
-    oneOf: a bolt of
+    oneOf: plural-name-bolt-1
 
 - type: entity
   parent: MaterialDurathread
@@ -341,8 +341,8 @@
     - TileWoodParquetRed
     - TileWoodRed
   - type: PluralName
-    oneOf: a plank of
-    someOf: some planks of
+    oneOf: plural-name-plank-1
+    someOf: plural-name-plank-2plus
 
 - type: entity
   parent: MaterialWoodPlank
@@ -382,8 +382,8 @@
     guides:
     - Cloning
   - type: PluralName # imp
-    oneOf: a scrap of # will probably never be seen in-game
-    someOf: a cube of
+    oneOf: plural-name-scrap-1 # will probably never be seen in-game
+    someOf: plural-name-cube-1
 
 - type: entity
   parent: MaterialBiomass
@@ -424,7 +424,7 @@
     tags:
       - BearHide
   - type: PluralName # imp
-    oneOf: some
+    oneOf: plural-name-some
 
 - type: entity
   parent: MaterialBase
@@ -446,7 +446,7 @@
     tags:
     - HideCorgi
   - type: PluralName # imp
-    oneOf: some
+    oneOf: plural-name-some
 
 - type: entity
   parent: MaterialBase
@@ -487,9 +487,6 @@
     - RawMaterial
     - Diamond
   - type: NonMobStatusIcon #imp edit. for the salvohud
-  - type: PluralName # imp
-    oneOf: a gem of
-    someOf: gems of
 
 - type: entity
   parent: MaterialDiamond
@@ -766,9 +763,6 @@
   - type: Tag
     tags:
     - ToothSpaceCarp
-  - type: PluralName # imp
-    oneOf: a singular
-    someOf: a collection of
 
 - type: entity
   parent: MaterialToothSpaceCarp
@@ -812,9 +806,6 @@
     tags:
     - Knife
     - ToothSharkminnow
-  - type: PluralName # imp
-    oneOf: a singular
-    someOf: a collection of
 
 - type: entity
   parent: MaterialToothSharkminnow
@@ -861,8 +852,8 @@
     - RawMaterial
     - KodeEdible
   - type: PluralName # imp
-    oneOf: some
-    someOf: a bundle of
+    oneOf: plural-name-some
+    someOf: plural-name-bundle-1
 
 - type: entity
   parent: MaterialBones
@@ -891,7 +882,7 @@
   - type: Item
     size: Tiny
   - type: PluralName # imp
-    oneOf: a pinch of
+    oneOf: plural-name-pinch-1
 
 - type: entity
   parent: MaterialBase
@@ -927,7 +918,7 @@
     tags:
     - GoliathPlate
   - type: PluralName # imp
-    oneOf: some
+    oneOf: plural-name-some
 
 - type: entity
   parent: MaterialGoliathHide

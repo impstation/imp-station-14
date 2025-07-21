@@ -86,8 +86,8 @@
     - Grille
     - Table
   - type: PluralName # imp
-    oneOf: a
-    someOf: a bundle of
+    oneOf: plural-name-a
+    someOf: plural-name-bundle-1
 
 - type: entity
   parent: PartRodMetal

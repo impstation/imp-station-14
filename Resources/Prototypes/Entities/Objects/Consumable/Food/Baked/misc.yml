@@ -408,8 +408,8 @@
         - ReagentId: EggCooked
           Quantity: 6
   - type: PluralName # imp
-    oneOf: a
-    someOf: a stack of
+    oneOf: plural-name-a
+    someOf: plural-name-stack-1
 
 
 - type: entity

@@ -31,8 +31,8 @@
   - type: StackPrice
     price: 5
   - type: PluralName # imp
-    oneOf: a spindle of
-    someOf: some spindles of
+    oneOf: plural-name-spindle-1
+    someOf: plural-name-spindle-2plus
 
 - type: entity
   id: SimpleSuture1
@@ -74,8 +74,8 @@
   - type: StackPrice
     price: 5
   - type: PluralName # imp
-    oneOf: a tube of
-    someOf: some tubes of
+    oneOf: plural-name-tube-1
+    someOf: plural-name-tube-2plus
 
 - type: entity
   id: ShockGel1
@@ -178,8 +178,8 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: PluralName # imp
-    oneOf: a bottle of
-    someOf: some bottles of
+    oneOf: plural-name-bottle-1
+    someOf: plural-name-bottle-2plus
 
 - type: entity
   id: Tincture1

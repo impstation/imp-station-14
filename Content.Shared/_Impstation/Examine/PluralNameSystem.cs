@@ -32,12 +32,7 @@ public sealed class PluralNameSystem : EntitySystem
     {
         var someOf = Loc.GetString(uid.Comp.SomeOf);
         grammar.Attributes["indefinite"] = someOf;
-        //if (!grammar.Attributes.ContainsValue(someOf))
-        //{
-        //    grammar.Attributes.Remove("indefinite");
-        //    grammar.Attributes.TryAdd("indefinite", someOf); // define the indefinite article
-        //}
-        Log.Debug($"Entity {ToPrettyString(uid)} granted pretty plural descriptor");
+        //Log.Debug($"Entity {ToPrettyString(uid)} granted pretty plural descriptor");
         Dirty(uid, grammar);
     }
 
@@ -45,12 +40,7 @@ public sealed class PluralNameSystem : EntitySystem
     {
         var oneOf = Loc.GetString(uid.Comp.OneOf);
         grammar.Attributes["indefinite"] = oneOf;
-        //if (!grammar.Attributes.ContainsValue(oneOf))
-        //{
-        //   grammar.Attributes.Remove("indefinite");
-        //    grammar.Attributes.TryAdd("indefinite", oneOf); // define the indefinite article
-        //}
-        Log.Debug($"Entity {ToPrettyString(uid)} granted pretty singular descriptor");
+        //Log.Debug($"Entity {ToPrettyString(uid)} granted pretty singular descriptor");
         Dirty(uid, grammar);
     }
 

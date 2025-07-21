@@ -266,7 +266,7 @@
     - id: ClothingUniformRandomSimpleShorts
       amount: 1
   - type: PluralName
-    oneOf: a pair of
+    oneOf: plural-name-pair-1
 
 # Just the shorts
 - type: entity
@@ -297,7 +297,7 @@
         leg:
           base_leg_simple_shorts: SimpleBottom
   - type: PluralName # imp
-    oneOf: a pair of
+    oneOf: plural-name-pair-1
 
 - type: entity
   parent: [ClothingUniformRandom]

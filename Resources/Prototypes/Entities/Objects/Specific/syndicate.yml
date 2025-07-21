@@ -23,8 +23,8 @@
     price:
       Telecrystal: 1
   - type: PluralName # imp
-    oneOf: a
-    someOf: a handful of
+    oneOf: plural-name-a
+    someOf: plural-name-hand-1
 
 - type: entity
   parent: Telecrystal

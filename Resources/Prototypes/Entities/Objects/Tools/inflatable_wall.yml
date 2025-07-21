@@ -24,8 +24,8 @@
       tags:
         - DroneUsable
     - type: PluralName # imp
-      oneOf: an
-      someOf: an armful of
+      oneOf: plural-name-an
+      someOf: plural-name-arm-1
 # TODO: Add stack sprites + visuals.
 
 - type: entity
@@ -54,8 +54,8 @@
       tags:
         - DroneUsable
     - type: PluralName # imp
-      oneOf: an
-      someOf: an armful of
+      oneOf: plural-name-an
+      someOf: plural-name-arm-1
 # TODO: Add stack sprites + visuals.
 
 - type: entity
