@@ -139,6 +139,264 @@
   - type: Construction
     node: outletinjectorAlt2
 
+# UNARY ATMOS VARIANTS
+
+# GasVentPumpDecapoid
+
+- type: entity
+  parent: [GasPipeLayerAlt1, GasVentPumpDecapoid]
+  id: GasVentPumpDecapoidAlt1
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+      state: pipeUnaryConnectors
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+    - state: vent_off
+      map: [ "enabled", "enum.SubfloorLayers.FirstLayer" ]
+  - type: Construction
+    node: ventpumpAlt1
+
+- type: entity
+  parent: [GasPipeLayerAlt2, GasVentPumpDecapoid]
+  id: GasVentPumpDecapoidAlt2
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+      state: pipeUnaryConnectors
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+    - state: vent_off
+      map: [ "enabled", "enum.SubfloorLayers.FirstLayer" ]
+  - type: Construction
+    node: ventpumpAlt2
+
+# GasVentScrubberDecapoid
+
+- type: entity
+  parent: [GasPipeLayerAlt1, GasVentScrubberDecapoid]
+  id: GasVentScrubberDecapoidAlt1
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+      state: pipeUnaryConnectors
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+    - state: scrub_off
+      map: [ "enabled", "enum.SubfloorLayers.FirstLayer" ]
+  - type: Construction
+    node: ventscrubberAlt1
+
+- type: entity
+  parent: [GasPipeLayerAlt2, GasVentScrubberDecapoid]
+  id: GasVentScrubberDecapoidAlt2
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+      state: pipeUnaryConnectors
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+    - state: scrub_off
+      map: [ "enabled", "enum.SubfloorLayers.FirstLayer" ]
+  - type: Construction
+    node: ventscrubberAlt2
+
+# GasVentPumpFreezer
+
+- type: entity
+  parent: [GasPipeLayerAlt1, GasVentPumpFreezer]
+  id: GasVentPumpFreezerAlt1
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+      state: pipeUnaryConnectors
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+    - state: vent_off
+      map: [ "enabled", "enum.SubfloorLayers.FirstLayer" ]
+  - type: Construction
+    node: ventpumpAlt1
+
+- type: entity
+  parent: [GasPipeLayerAlt2, GasVentPumpFreezer]
+  id: GasVentPumpFreezerAlt2
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+      state: pipeUnaryConnectors
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+    - state: vent_off
+      map: [ "enabled", "enum.SubfloorLayers.FirstLayer" ]
+  - type: Construction
+    node: ventpumpAlt2
+
+# GasVentScrubberFreezer
+
+- type: entity
+  parent: [GasPipeLayerAlt1, GasVentScrubberFreezer]
+  id: GasVentScrubberFreezerAlt1
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+      state: pipeUnaryConnectors
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+    - state: scrub_off
+      map: [ "enabled", "enum.SubfloorLayers.FirstLayer" ]
+  - type: Construction
+    node: ventscrubberAlt1
+
+- type: entity
+  parent: [GasPipeLayerAlt2, GasVentScrubberFreezer]
+  id: GasVentScrubberFreezerAlt2
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+      state: pipeUnaryConnectors
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+    - state: scrub_off
+      map: [ "enabled", "enum.SubfloorLayers.FirstLayer" ]
+  - type: Construction
+    node: ventscrubberAlt2
+
+# GasVentPumpSupermatter
+
+- type: entity
+  parent: [GasPipeLayerAlt1, GasVentPumpSupermatter]
+  id: GasVentPumpSupermatterAlt1
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+      state: pipeUnaryConnectors
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+    - state: vent_off
+      map: [ "enabled", "enum.SubfloorLayers.FirstLayer" ]
+  - type: Construction
+    node: ventpumpAlt1
+
+- type: entity
+  parent: [GasPipeLayerAlt2, GasVentPumpSupermatter]
+  id: GasVentPumpSupermatterAlt2
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+      state: pipeUnaryConnectors
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+    - state: vent_off
+      map: [ "enabled", "enum.SubfloorLayers.FirstLayer" ]
+  - type: Construction
+    node: ventpumpAlt2
+
+# GasVentScrubberSupermatter
+
+- type: entity
+  parent: [GasPipeLayerAlt1, GasVentScrubberSupermatter]
+  id: GasVentScrubberSupermatterAlt1
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+      state: pipeUnaryConnectors
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+    - state: scrub_off
+      map: [ "enabled", "enum.SubfloorLayers.FirstLayer" ]
+  - type: Construction
+    node: ventscrubberAlt1
+
+- type: entity
+  parent: [GasPipeLayerAlt2, GasVentScrubberSupermatter]
+  id: GasVentScrubberSupermatterAlt2
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+      state: pipeUnaryConnectors
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+    - state: scrub_off
+      map: [ "enabled", "enum.SubfloorLayers.FirstLayer" ]
+  - type: Construction
+    node: ventscrubberAlt2
+
+# GasVentPumpVox
+
+- type: entity
+  parent: [GasPipeLayerAlt1, GasVentPumpVox]
+  id: GasVentPumpVoxAlt1
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+      state: pipeUnaryConnectors
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+    - state: vent_off
+      map: [ "enabled", "enum.SubfloorLayers.FirstLayer" ]
+  - type: Construction
+    node: ventpumpAlt1
+
+- type: entity
+  parent: [GasPipeLayerAlt2, GasVentPumpVox]
+  id: GasVentPumpVoxAlt2
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+      state: pipeUnaryConnectors
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+    - state: vent_off
+      map: [ "enabled", "enum.SubfloorLayers.FirstLayer" ]
+  - type: Construction
+    node: ventpumpAlt2
+
+# GasVentScrubberVox
+
+- type: entity
+  parent: [GasPipeLayerAlt1, GasVentScrubberVox]
+  id: GasVentScrubberVoxAlt1
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+      state: pipeUnaryConnectors
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+    - state: scrub_off
+      map: [ "enabled", "enum.SubfloorLayers.FirstLayer" ]
+  - type: Construction
+    node: ventscrubberAlt1
+
+- type: entity
+  parent: [GasPipeLayerAlt2, GasVentScrubberVox]
+  id: GasVentScrubberVoxAlt2
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+      state: pipeUnaryConnectors
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+    - state: scrub_off
+      map: [ "enabled", "enum.SubfloorLayers.FirstLayer" ]
+  - type: Construction
+    node: ventscrubberAlt2
+
 # BINARY
 
 # HeatExchanger
@@ -312,6 +570,8 @@
       map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
   - type: Construction
     node: volumepumpAlt2
+
+# GAS PIPE SENSOR VARIANTS
 
 # GasPipeSensorVoxBox
 
