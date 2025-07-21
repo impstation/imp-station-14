@@ -34,16 +34,6 @@
   groupBy: "jumpskirt"
 
 - type: loadout
-  id: HeadofSecurityProfessionalJumpsuit
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitHoSPro
-
-- type: loadout
-  id: HeadofSecurityProfessionalJumpskirt
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtHoSPro
-
-- type: loadout
   id: HeadofSecurityFormalSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitHosFormal
@@ -65,11 +55,6 @@
   id: HeadofSecurityBeret
   equipment:
     head: ClothingHeadHatBeretHoS
-
-- type: loadout
-  id: HeadofSecurityPatrolCap
-  equipment:
-    head: ClothingHeadHatHOSsoft
 
 # Neck
 - type: loadout
@@ -100,25 +85,3 @@
   id: HeadofSecurityWinterCoat
   equipment:
     outerClothing: ClothingOuterWinterHoS
-
-- type: loadout
-  id: HeadofSecurityWinterCoatUnarmored
-  equipment:
-    outerClothing: ClothingOuterWinterHoSUnarmored
-
-# Headset
-- type: loadout
-  id: HeadofSecurityHeadsetBasic
-  equipment:
-    ears: ClothingHeadsetHOS
-
-- type: loadout
-  id: HeadofSecurityHeadset
-  equipment:
-    ears: ClothingHeadsetAltSecurity
-
-# Belt
-- type: loadout
-  id: HeadofSecurityShoulderHolster
-  equipment:
-    belt: ClothingBeltHolsterHOSFilled

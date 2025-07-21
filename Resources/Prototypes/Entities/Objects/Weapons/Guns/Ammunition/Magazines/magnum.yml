@@ -117,11 +117,11 @@
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#d63b28" #imp
+        color: "#ffcb6f" #imp
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#d63b28" #imp
+        color: "#ffcb6f" #imp
 
 - type: entity
   id: MagazineMagnumUranium
@@ -144,11 +144,11 @@
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#6b805e" #imp
+        color: "#22b24d" #imp
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#6b805e" #imp
+        color: "#22b24d" #imp
 
 - type: entity
   id: MagazineMagnumAP
@@ -171,11 +171,11 @@
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#181719" #imp
+        color: "#662598" #imp
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#181719" #imp
+        color: "#662598" #imp
 
 - type: entity
   id: MagazineMagnumSubMachineGunEmpty
@@ -235,17 +235,17 @@
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
     - state: stripe
-      color: "#dbdbdb"
+      color: "#ffcb6f" #imp
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#dbdbdb"
+        color: "#ffcb6f" #imp
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#dbdbdb"
+        color: "#ffcb6f" #imp
 
 - type: entity
   id: MagazineMagnumSubMachineGunUranium
@@ -262,17 +262,17 @@
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
     - state: stripe
-      color: "#00cd42"
+      color: "#22b24d" #imp
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#00cd42"
+        color: "#22b24d" #imp
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#00cd42"
+        color: "#22b24d" #imp
 
 - type: entity
   id: MagazineMagnumSubMachineGunPiercing
@@ -289,14 +289,14 @@
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
     - state: stripe
-      color: "#540000"
+      color: "#662598" #imp
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#540000"
+        color: "#662598" #imp
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#540000"
+        color: "#662598" #imp

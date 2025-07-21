@@ -10,6 +10,19 @@
   - Service
 
 - type: vessel
+  id: Barge
+  name: The Barge
+  description: A large shipping vessel repurposed into a salvage bar.
+  price: 54000
+  path: 
+  - /Maps/_Impstation/Shuttles/Shipyard/barge.yml
+  categories:
+  - Civilian
+  - Large
+  - Shipping
+  - Mining
+
+- type: vessel
   id: Medical
   name: Medical Ship
   description: A medium medical vessel.
