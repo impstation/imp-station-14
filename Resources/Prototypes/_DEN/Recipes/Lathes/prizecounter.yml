@@ -3,62 +3,53 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-- type: latheRecipe
-  id: PlushieTeddyBear
-  result: PlushieTeddyBear
-  applyMaterialDiscount: false
-  completetime: 0.1
-  materials:
-    PrizeTicket: 50
+# imp edit basically all of these recipes were rewritten
 
 - type: latheRecipe
+  parent: PrizeCounterPlushie
+  id: PlushieTeddyBear
+  result: PlushieTeddyBear
+
+- type: latheRecipe
+  parent: PrizeCounterPlushie
   id: PlushieTeddyBearRecolorableRandom
   result: PlushieTeddyBearRecolorableRandom
   name: lathe-recipe-PlushieTeddyBearRecolorableRandom-name
-  applyMaterialDiscount: false
-  completetime: 0.1
-  materials:
-    PrizeTicket: 50
 
 - type: latheRecipe
+  parent: PrizeCounterPlushie
   id: PlushieAlienGerm
   result: PlushieAlienGerm
   applyMaterialDiscount: false
-  completetime: 0.1
-  materials:
-    PrizeTicket: 50
 
 - type: latheRecipe
+  parent: PrizeCounterPlushie
   id: PlushieAlienGermMini
   result: PlushieAlienGermMini
-  applyMaterialDiscount: false
-  completetime: 0.1
-  materials:
-    PrizeTicket: 50
 
 # squeaky toys are discounted because they're not plushies (no stash, not edible, etc)
 
 - type: latheRecipe
+  parent: PrizeCounterPlushie
   id: SqueakySmileyGuy
   result: SqueakySmileyGuy
-  applyMaterialDiscount: false
-  completetime: 0.1
   materials:
     PrizeTicket: 40
+    Cloth: 50
 
 - type: latheRecipe
+  parent: PrizeCounterPlushie
   id: SqueakySmileyGuyRandom
   result: SqueakySmileyGuyRandom
   name: lathe-recipe-SqueakySmileyGuyRandom-name
-  applyMaterialDiscount: false
-  completetime: 0.1
   materials:
     PrizeTicket: 40
+    Cloth: 50
 
 - type: latheRecipe
+  parent: PrizeCounterPlushie
   id: SqueakySmileyBall
   result: SqueakySmileyBall
-  applyMaterialDiscount: false
-  completetime: 0.1
   materials:
     PrizeTicket: 40
+    Cloth: 50
