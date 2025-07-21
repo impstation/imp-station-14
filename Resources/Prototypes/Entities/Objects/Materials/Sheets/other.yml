@@ -30,7 +30,7 @@
   - type: NonMobStatusIcon #imp edit. for the salvohud
   - type: PluralName # imp
     oneOf: plural-name-sheet-1
-    someOf: some sheets of
+    someOf: plural-name-sheet-2plus
 
 - type: entity
   parent: SheetOtherBase
