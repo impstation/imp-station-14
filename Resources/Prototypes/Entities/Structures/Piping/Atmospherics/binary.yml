@@ -700,6 +700,7 @@
       node: bendradiator
     # imp edit start
     - type: AtmosPipeLayers
-      Primary: HeatExchangerBend #imp edit
-      Secondary: HeatExchangerBendAlt1 #imp edit
-      Tertiary: HeatExchangerBendAlt2 #imp edit
+      alternativePrototypes:
+        Primary: HeatExchangerBend #imp edit
+        Secondary: HeatExchangerBendAlt1 #imp edit
+        Tertiary: HeatExchangerBendAlt2 #imp edit
