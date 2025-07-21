@@ -65,7 +65,7 @@
     sound:
       path: /Audio/_Impstation/Effects/gondalmono.ogg
   - type: Sprite
-    sprite: Mobs/Aliens/gondal.rsi
+    sprite: _Impstation/Mobs/Aliens/gondal.rsi
     state: gondal
     rotation: 0
     noRot: false
@@ -117,4 +117,27 @@
     noRot: false
   - type: EmitSoundOnSpawn
     sound:
-      path: /Audio/_Impstation/Effects/Happy_Day_in_Paris.ogg
+      path: /Audio/_Impstation/Effects/Parisian.ogg
+
+- type: entity
+  parent: ImmovableRodKeepTilesStill
+  id: ImmovableRodWhiteBoy
+  name: immovable white boy
+  description: oh god what is that thing
+  components:
+  - type: ImmovableRod
+    randomizeVelocity: false
+    maxSpeed: 0
+    eviscerationPopup: immovable-rod-penetrated-mob-whiteboy
+  - type: Sprite
+    sprite: _Impstation/Mobs/Demons/whiteboy.rsi
+    state: alive
+    rotation: 0
+    noRot: false
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_Impstation/Demons/whiteboylaser.ogg
+  - type: PointLight
+    radius: 3
+    color: red
+    energy: 2.0

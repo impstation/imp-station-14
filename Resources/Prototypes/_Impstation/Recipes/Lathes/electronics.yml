@@ -39,3 +39,13 @@
   parent: BaseCircuitboardRecipe
   id: PrizeCounterMachineCircuitboard
   result: PrizeCounterMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: SyndicateMicrowaveMachineCircuitboard
+  result: SyndicateMicrowaveMachineCircuitboard
+
+- type: latheRecipe # yeah frontier didnt make a lathe recipe for this ig
+  parent: BaseCircuitboardRecipe
+  id: SyndicateElectricRangeMachineCircuitboard
+  result: SyndicateElectricRangeMachineCircuitboard
