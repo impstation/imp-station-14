@@ -9,6 +9,7 @@ advertisement-juiceomat-8 = Care for a nice, cold juice?
 advertisement-juiceomat-9 = Nothing cures you like juice!
 advertisement-juiceomat-10 = Have a sip!
 advertisement-juiceomat-11 = Have a drink!
+advertisement-juiceomat-12 = Sobriety a sip away!
 advertisement-juiceomat-13 = Beer isn't good for you!
 advertisement-juiceomat-14 = Only the finest juice!
 advertisement-juiceomat-15 = Best quality booze since NEVER!!!
