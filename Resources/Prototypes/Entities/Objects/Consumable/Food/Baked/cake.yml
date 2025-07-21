@@ -365,9 +365,11 @@
         maxVol: 45
         reagents:
         - ReagentId: Nutriment
-          Quantity: 32
+          Quantity: 20
         - ReagentId: Vitamin
           Quantity: 5
+        - ReagentId: Milk # Imp
+          Quantity: 10 # no salt because i dont want to include "salty" in the flavors lol
   - type: Item
     inhandVisuals:
       left:
@@ -393,9 +395,11 @@
         maxVol: 10
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6.4
+          Quantity: 4 # imp
         - ReagentId: Vitamin
           Quantity: 1
+        - ReagentId: Milk # Imp
+          Quantity: 2
   - type: Item
     inhandVisuals:
       left:

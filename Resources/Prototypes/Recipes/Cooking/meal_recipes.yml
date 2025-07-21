@@ -459,8 +459,11 @@
   result: FoodBreadCreamcheese
   time: 15
   group: Breads
+  #reagents: # Imp
+  #  Milk: 5
   solids:
     FoodDough: 1
+    # FoodCheeseSlice: 2 # Imp
     FoodCreamCheese: 1 # Imp
   recipeType: Oven # Frontier
 
@@ -1610,6 +1613,7 @@
     Sugar: 5
   solids:
     FoodButterSlice: 1
+    # FoodSnackChocolateBar: 1 #Imp
     FoodChocolateChip: 6 # Imp
   recipeType: Oven # Frontier
 
@@ -1667,6 +1671,7 @@
     Milk: 5
     Egg: 6
   solids:
+    # FoodSnackChocolateBar: 1 #Imp
     FoodChocolateChip: 2 # Imp
   recipeType: Oven # Frontier
 
