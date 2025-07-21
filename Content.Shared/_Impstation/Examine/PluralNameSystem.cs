@@ -6,6 +6,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Administration.Logs;
 using Robust.Shared.Containers;
+using System.Diagnostics;
 
 namespace Content.Shared._Impstation.Examine;
 
@@ -23,13 +24,12 @@ public sealed class PluralNameSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<PluralNameComponent, EntInsertedIntoContainerMessage>(OnPickup, before: new[] { typeof(SharedHandsSystem) });
+        SubscribeLocalEvent<PluralNameComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<PluralNameComponent, StackCountChangedEvent>(OnStackCountChanged);
     }
 
-    private void UpdateToPlural(Entity<PluralNameComponent> uid)
+    private void UpdateToPlural(Entity<PluralNameComponent> uid, GrammarComponent grammar)
     {
-        var grammar = EnsureComp<GrammarComponent>(uid);
         var someOf = Loc.GetString(uid.Comp.SomeOf);
         grammar.Attributes["indefinite"] = someOf;
         //if (!grammar.Attributes.ContainsValue(someOf))
@@ -37,12 +37,12 @@ public sealed class PluralNameSystem : EntitySystem
         //    grammar.Attributes.Remove("indefinite");
         //    grammar.Attributes.TryAdd("indefinite", someOf); // define the indefinite article
         //}
+        Log.Debug($"Entity {ToPrettyString(uid)} granted pretty plural descriptor");
         Dirty(uid, grammar);
     }
 
-    private void UpdateToSingular(Entity<PluralNameComponent> uid)
+    private void UpdateToSingular(Entity<PluralNameComponent> uid, GrammarComponent grammar)
     {
-        var grammar = EnsureComp<GrammarComponent>(uid);
         var oneOf = Loc.GetString(uid.Comp.OneOf);
         grammar.Attributes["indefinite"] = oneOf;
         //if (!grammar.Attributes.ContainsValue(oneOf))
@@ -50,25 +50,21 @@ public sealed class PluralNameSystem : EntitySystem
         //   grammar.Attributes.Remove("indefinite");
         //    grammar.Attributes.TryAdd("indefinite", oneOf); // define the indefinite article
         //}
+        Log.Debug($"Entity {ToPrettyString(uid)} granted pretty singular descriptor");
         Dirty(uid, grammar);
     }
 
-    private void OnPickup(Entity<PluralNameComponent> uid, ref EntInsertedIntoContainerMessage args)
+    private void OnInit(Entity<PluralNameComponent> uid, ref ComponentInit args)
     {
-        var grammar = EnsureComp<GrammarComponent>(uid);
-        if (TryComp<StackComponent>(uid, out var stack) && stack.Count != 1)
-            grammar.Attributes["indefinite"] = uid.Comp.SomeOf;
-        else
-            grammar.Attributes["indefinite"] = uid.Comp.OneOf;
-
-        Dirty(uid, grammar);
+        UpdateToSingular(uid, EnsureComp<GrammarComponent>(uid)); // all things are singular at init
     }
 
     private void OnStackCountChanged(Entity<PluralNameComponent> uid, ref StackCountChangedEvent args)
     {
+        var grammar = EnsureComp<GrammarComponent>(uid);
         if (args.NewCount == 1)
-            UpdateToSingular(uid);
+            UpdateToSingular(uid, grammar);
         else
-            UpdateToPlural(uid);
+            UpdateToPlural(uid, grammar);
     }
 }
