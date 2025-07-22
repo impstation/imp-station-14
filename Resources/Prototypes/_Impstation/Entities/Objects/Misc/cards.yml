@@ -24,66 +24,66 @@
   name: deck of cards
   components:
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
-    state: deck_black_full
+    sprite: _Impstation/Objects/Misc/cards.rsi
+    state: deck_tarot_full
   - type: CardStack
     content:
     # Cups
     - CardScAceOfCups
-    - CardSc2OfCups
-    - CardSc3OfCups
-    - CardSc4OfCups
-    - CardSc5OfCups
-    - CardSc6OfCups
-    - CardSc7OfCups
-    - CardSc8OfCups
-    - CardSc9OfCups
-    - CardSc10OfCups
+    - CardScTwoOfCups
+    - CardScThreeOfCups
+    - CardScFourOfCups
+    - CardScFiveOfCups
+    - CardScSixOfCups
+    - CardScSevenOfCups
+    - CardScEightOfCups
+    - CardScNineOfCups
+    - CardScTenOfCups
     - CardScPageOfCups
     - CardScKnightOfCups
     - CardScQueenOfCups
     - CardScKingOfCups
     # Pentacles
     - CardScAceOfPentacles
-    - CardSc2OfPentacles
-    - CardSc3OfPentacles
-    - CardSc4OfPentacles
-    - CardSc5OfPentacles
-    - CardSc6OfPentacles
-    - CardSc7OfPentacles
-    - CardSc8OfPentacles
-    - CardSc9OfPentacles
-    - CardSc10OfPentacles
+    - CardScTwoOfPentacles
+    - CardScThreeOfPentacles
+    - CardScFourOfPentacles
+    - CardScFiveOfPentacles
+    - CardScSixOfPentacles
+    - CardScSevenOfPentacles
+    - CardScEightOfPentacles
+    - CardScNineOfPentacles
+    - CardScTenOfPentacles
     - CardScPageOfPentacles
     - CardScKnightOfPentacles
     - CardScQueenOfPentacles
     - CardScKingOfPentacles
     # Swords
     - CardScAceOfSwords
-    - CardSc2OfSwords
-    - CardSc3OfSwords
-    - CardSc4OfSwords
-    - CardSc5OfSwords
-    - CardSc6OfSwords
-    - CardSc7OfSwords
-    - CardSc8OfSwords
-    - CardSc9OfSwords
-    - CardSc10OfSwords
+    - CardScTwoOfSwords
+    - CardScThreeOfSwords
+    - CardScFourOfSwords
+    - CardScFiveOfSwords
+    - CardScSixOfSwords
+    - CardScSevenOfSwords
+    - CardScEightOfSwords
+    - CardScNineOfSwords
+    - CardScTenOfSwords
     - CardScPageOfSwords
     - CardScKnightOfSwords
     - CardScQueenOfSwords
     - CardScKingOfSwords
     # Wands
     - CardScAceOfWands
-    - CardSc2OfWands
-    - CardSc3OfWands
-    - CardSc4OfWands
-    - CardSc5OfWands
-    - CardSc6OfWands
-    - CardSc7OfWands
-    - CardSc8OfWands
-    - CardSc9OfWands
-    - CardSc10OfWands
+    - CardScTwoOfWands
+    - CardScThreeOfWands
+    - CardScFourOfWands
+    - CardScFiveOfWands
+    - CardScSixOfWands
+    - CardScSevenOfWands
+    - CardScEightOfWands
+    - CardScNineOfWands
+    - CardScTenOfWands
     - CardScPageOfWands
     - CardScKnightOfWands
     - CardScQueenOfWands
@@ -157,7 +157,7 @@
     name: card-sc-two-cups
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Two_of_Cups_tarot
+    state: sc_2_of_Cups_tarot
 
 - type: entity
   parent: CardBaseTarot
@@ -169,7 +169,7 @@
     name: card-sc-three-cups
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Three_of_Cups_tarot
+    state: sc_3_of_Cups_tarot
 
 - type: entity
   parent: CardBaseTarot
@@ -181,7 +181,7 @@
     name: card-sc-four-cups
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Four_of_Cups_tarot
+    state: sc_4_of_Cups_tarot
 
 - type: entity
   parent: CardBaseTarot
@@ -193,7 +193,7 @@
     name: card-sc-five-cups
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Five_of_Cups_tarot
+    state: sc_5_of_Cups_tarot
 
 - type: entity
   parent: CardBaseTarot
@@ -205,7 +205,7 @@
     name: card-sc-six-cups
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Six_of_Cups_tarot
+    state: sc_6_of_Cups_tarot
 
 - type: entity
   parent: CardBaseTarot
@@ -217,7 +217,7 @@
     name: card-sc-seven-cups
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Seven_of_Cups_tarot
+    state: sc_7_of_Cups_tarot
 
 - type: entity
   parent: CardBaseTarot
@@ -229,7 +229,7 @@
     name: card-sc-eight-cups
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Eight_of_Cups_tarot
+    state: sc_8_of_Cups_tarot
 
 - type: entity
   parent: CardBaseTarot
@@ -241,7 +241,7 @@
     name: card-sc-nine-cups
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Nine_of_Cups_tarot
+    state: sc_9_of_Cups_tarot
   
 - type: entity
   parent: CardBaseTarot
@@ -253,7 +253,7 @@
     name: card-sc-ten-cups
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Ten_of_Cups_tarot
+    state: sc_10_of_Cups_tarot
 
 - type: entity
   parent: CardBaseTarot
@@ -326,7 +326,7 @@
     name: card-sc-two-pentacles
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Two_of_Pentacles_tarot
+    state: sc_2_of_Pentacles_tarot
 
 - type: entity
   parent: CardBaseTarot
@@ -338,7 +338,7 @@
     name: card-sc-three-pentacles
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Three_of_Pentacles_tarot
+    state: sc_3_of_Pentacles_tarot
 
 - type: entity
   parent: CardBaseTarot
@@ -350,7 +350,7 @@
     name: card-sc-four-pentacles
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Four_of_Pentacles_tarot
+    state: sc_4_of_Pentacles_tarot
 
 - type: entity
   parent: CardBaseTarot
@@ -362,7 +362,7 @@
     name: card-sc-five-pentacles
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Five_of_Pentacles_tarot
+    state: sc_5_of_Pentacles_tarot
 
 - type: entity
   parent: CardBaseTarot
@@ -374,7 +374,7 @@
     name: card-sc-six-pentacles
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Six_of_Pentacles_tarot
+    state: sc_6_of_Pentacles_tarot
 
 - type: entity
   parent: CardBaseTarot
@@ -386,7 +386,7 @@
     name: card-sc-seven-pentacles
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Seven_of_Pentacles_tarot
+    state: sc_7_of_Pentacles_tarot
 
 - type: entity
   parent: CardBaseTarot
@@ -398,7 +398,7 @@
     name: card-sc-eight-pentacles
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Eight_of_Pentacles_tarot
+    state: sc_8_of_Pentacles_tarot
 
 - type: entity
   parent: CardBaseTarot
@@ -410,7 +410,7 @@
     name: card-sc-nine-pentacles
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Nine_of_Pentacles_tarot
+    state: sc_9_of_Pentacles_tarot
   
 - type: entity
   parent: CardBaseTarot
@@ -422,7 +422,7 @@
     name: card-sc-ten-pentacles
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Ten_of_Pentacles_tarot
+    state: sc_10_of_Pentacles_tarot
 
 - type: entity
   parent: CardBaseTarot
@@ -495,7 +495,7 @@
     name: card-sc-two-swords
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Two_of_Swords_tarot
+    state: sc_2_of_Swords_tarot
 
 - type: entity
   parent: CardBaseTarot
@@ -507,7 +507,7 @@
     name: card-sc-three-swords
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Three_of_Swords_tarot
+    state: sc_3_of_Swords_tarot
 
 - type: entity
   parent: CardBaseTarot
@@ -519,7 +519,7 @@
     name: card-sc-four-swords
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Four_of_Swords_tarot
+    state: sc_4_of_Swords_tarot
 
 - type: entity
   parent: CardBaseTarot
@@ -531,7 +531,7 @@
     name: card-sc-five-swords
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Five_of_Swords_tarot
+    state: sc_5_of_Swords_tarot
 
 - type: entity
   parent: CardBaseTarot
@@ -543,7 +543,7 @@
     name: card-sc-six-swords
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Six_of_Swords_tarot
+    state: sc_6_of_Swords_tarot
 
 - type: entity
   parent: CardBaseTarot
@@ -555,7 +555,7 @@
     name: card-sc-seven-swords
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Seven_of_Swords_tarot
+    state: sc_7_of_Swords_tarot
 
 - type: entity
   parent: CardBaseTarot
@@ -567,7 +567,7 @@
     name: card-sc-eight-swords
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Eight_of_Swords_tarot
+    state: sc_8_of_Swords_tarot
 
 - type: entity
   parent: CardBaseTarot
@@ -579,7 +579,7 @@
     name: card-sc-nine-swords
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Nine_of_Swords_tarot
+    state: sc_9_of_Swords_tarot
   
 - type: entity
   parent: CardBaseTarot
@@ -591,7 +591,7 @@
     name: card-sc-ten-swords
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Ten_of_Swords_tarot
+    state: sc_10_of_Swords_tarot
 
 - type: entity
   parent: CardBaseTarot
@@ -664,7 +664,7 @@
     name: card-sc-two-wands
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Two_of_Wands_tarot
+    state: sc_2_of_Wands_tarot
 
 - type: entity
   parent: CardBaseTarot
@@ -676,7 +676,7 @@
     name: card-sc-three-wands
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Three_of_Wands_tarot
+    state: sc_3_of_Wands_tarot
 
 - type: entity
   parent: CardBaseTarot
@@ -688,7 +688,7 @@
     name: card-sc-four-wands
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Four_of_Wands_tarot
+    state: sc_4_of_Wands_tarot
 
 - type: entity
   parent: CardBaseTarot
@@ -700,7 +700,7 @@
     name: card-sc-five-wands
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Five_of_Wands_tarot
+    state: sc_5_of_Wands_tarot
 
 - type: entity
   parent: CardBaseTarot
@@ -712,7 +712,7 @@
     name: card-sc-six-wands
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Six_of_Wands_tarot
+    state: sc_6_of_Wands_tarot
 
 - type: entity
   parent: CardBaseTarot
@@ -724,7 +724,7 @@
     name: card-sc-seven-wands
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Seven_of_Wands_tarot
+    state: sc_7_of_Wands_tarot
 
 - type: entity
   parent: CardBaseTarot
@@ -736,7 +736,7 @@
     name: card-sc-eight-wands
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Eight_of_Wands_tarot
+    state: sc_8_of_Wands_tarot
 
 - type: entity
   parent: CardBaseTarot
@@ -748,7 +748,7 @@
     name: card-sc-nine-wands
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Nine_of_Wands_tarot
+    state: sc_9_of_Wands_tarot
   
 - type: entity
   parent: CardBaseTarot
@@ -760,7 +760,7 @@
     name: card-sc-ten-wands
   - type: Sprite
     sprite: _Impstation/Objects/Misc/cards.rsi
-    state: sc_Ten_of_Wands_tarot
+    state: sc_10_of_Wands_tarot
 
 - type: entity
   parent: CardBaseTarot
