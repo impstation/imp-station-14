@@ -59,3 +59,180 @@
   isSubfloor: false
   deconstructTools: [ Prying ]
   itemDrop: FloorTileItemAstroCave
+
+# Dark green tiles, another variant of standard steel tiles
+# TODO: New items for the flooring, so they can be picked up and placed down
+
+- type: tile
+  id: FloorGreen
+  name: tiles-green-floor
+  sprite: /Textures/_Impstation/Tiles/Green/green.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemDark
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorGreenMini
+  name: tiles-green-floor-mini
+  sprite: /Textures/_Impstation/Tiles/Green/green_mini.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemDarkMini
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorGreenPavement
+  name: tiles-green-floor-pavement
+  sprite: /Textures/_Impstation/Tiles/Green/green_pavement.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemDarkPavement
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorGreenDiagonal
+  name: tiles-green-floor-diagonal
+  sprite: /Textures/_Impstation/Tiles/Green/green_diagonal.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemDarkDiagonal
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorGreenOffset
+  name: tiles-green-floor-offset
+  sprite: /Textures/_Impstation/Tiles/Green/green_offset.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemDarkOffset
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorGreenMono
+  name: tiles-green-floor-mono
+  sprite: /Textures/_Impstation/Tiles/Green/green_mono.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileDarkGreenMono
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorGreenPavementVertical
+  name: tiles-green-floor-pavement-vertical
+  sprite: /Textures/_Impstation/Tiles/Green/green_pavement_vertical.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemDarkPavementVertical
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorGreenHerringbone
+  name: tiles-green-floor-herringbone
+  sprite: /Textures/_Impstation/Tiles/Green/green_herringbone.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemDarkHerringbone
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorGreenDiagonalMini
+  name: tiles-green-floor-diagonal-mini
+  sprite: /Textures/_Impstation/Tiles/Green/green_diagonal_mini.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemDarkDiagonalMini
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorGreenPlastic
+  name: tiles-plastic-green-floor
+  sprite: /Textures/_Impstation/Tiles/Green/green_plastic.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemDark
+  heatCapacity: 10000

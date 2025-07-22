@@ -906,7 +906,7 @@
 - type: tile
   id: FloorConcrete
   name: tiles-concrete-tile
-  sprite: /Textures/Tiles/Planet/Concrete/concrete.png
+  sprite: /Textures/_Impstation/Tiles/Concrete/concrete.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -924,7 +924,7 @@
 - type: tile
   id: FloorConcreteMono
   name: tiles-concrete-slab
-  sprite: /Textures/Tiles/Planet/Concrete/concrete_mono.png
+  sprite: /Textures/_Impstation/Tiles/Concrete/concrete_mono.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -942,7 +942,7 @@
 - type: tile
   id: FloorConcreteSmooth
   name: tiles-concrete-smooth
-  sprite: /Textures/Tiles/Planet/Concrete/concrete_smooth.png
+  sprite: /Textures/_Impstation/Tiles/Concrete/concrete_smooth.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -960,7 +960,7 @@
 - type: tile
   id: FloorGrayConcrete
   name: tiles-gray-concrete-tile
-  sprite: /Textures/Tiles/Planet/Concrete/grayconcrete.png
+  sprite: /Textures/_Impstation/Tiles/Concrete/grayconcrete.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -978,7 +978,7 @@
 - type: tile
   id: FloorGrayConcreteMono
   name: tiles-gray-concrete-slab
-  sprite: /Textures/Tiles/Planet/Concrete/grayconcrete_mono.png
+  sprite: /Textures/_Impstation/Tiles/Concrete/grayconcrete_mono.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -996,7 +996,7 @@
 - type: tile
   id: FloorGrayConcreteSmooth
   name: tiles-gray-concrete-smooth
-  sprite: /Textures/Tiles/Planet/Concrete/grayconcrete_smooth.png
+  sprite: /Textures/_Impstation/Tiles/Concrete/grayconcrete_smooth.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -1014,7 +1014,7 @@
 - type: tile
   id: FloorOldConcrete
   name: tiles-old-concrete-tile
-  sprite: /Textures/Tiles/Planet/Concrete/oldconcrete.png
+  sprite: /Textures/_Impstation/Tiles/Concrete/oldconcrete.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -1032,7 +1032,7 @@
 - type: tile
   id: FloorOldConcreteMono
   name: tiles-old-concrete-slab
-  sprite: /Textures/Tiles/Planet/Concrete/oldconcrete_mono.png
+  sprite: /Textures/_Impstation/Tiles/Concrete/oldconcrete_mono.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -1050,7 +1050,7 @@
 - type: tile
   id: FloorOldConcreteSmooth
   name: tiles-old-concrete-smooth
-  sprite: /Textures/Tiles/Planet/Concrete/oldconcrete_smooth.png
+  sprite: /Textures/_Impstation/Tiles/Concrete/oldconcrete_smooth.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
