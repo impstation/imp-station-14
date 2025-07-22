@@ -148,6 +148,7 @@ namespace Content.IntegrationTests.Tests
             "Submarine",
             "TrainImp",
             "Xeno",
+            "Pathway",
 
             // NOT IN ROTATION BUT WE STILL NEED THEM TESTED SINCE THEY STILL HAVE A PROTOTYPE:
             "Eclipse",
@@ -155,7 +156,6 @@ namespace Content.IntegrationTests.Tests
             "Skimmer",
             "Union",
             "Whisper",
-            "Pathway",
         };
 
         /// <summary>
