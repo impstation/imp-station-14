@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/10/2025 05:52:50
-  entityCount: 15267
+  time: 07/22/2025 04:12:37
+  entityCount: 15284
 maps:
 - 126
 grids:
@@ -7901,7 +7901,7 @@ entities:
       pos: 101.5,-19.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -31087.191
+      secondsUntilStateChange: -31210.91
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -38251,12 +38251,6 @@ entities:
       parent: 2
 - proto: ComfyChair
   entities:
-  - uid: 303
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 12.5,4.5
-      parent: 2
   - uid: 2527
     components:
     - type: Transform
@@ -40376,6 +40370,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 79.5,23.5
       parent: 2
+  - uid: 14640
+    components:
+    - type: Transform
+      pos: 37.5,23.5
+      parent: 2
   - uid: 15041
     components:
     - type: Transform
@@ -40447,6 +40446,12 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 54.5,-0.5
+      parent: 2
+  - uid: 14663
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 33.5,23.5
       parent: 2
 - proto: DisposalJunctionFlipped
   entities:
@@ -41731,6 +41736,12 @@ entities:
     - type: Transform
       pos: 26.5,33.5
       parent: 2
+  - uid: 9554
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 28.5,23.5
+      parent: 2
   - uid: 9709
     components:
     - type: Transform
@@ -42481,6 +42492,73 @@ entities:
       rot: 3.141592653589793 rad
       pos: 79.5,29.5
       parent: 2
+  - uid: 14583
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 29.5,23.5
+      parent: 2
+  - uid: 14587
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 30.5,23.5
+      parent: 2
+  - uid: 14590
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 31.5,23.5
+      parent: 2
+  - uid: 14594
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 32.5,23.5
+      parent: 2
+  - uid: 14600
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 34.5,23.5
+      parent: 2
+  - uid: 14633
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 35.5,23.5
+      parent: 2
+  - uid: 14639
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 36.5,23.5
+      parent: 2
+  - uid: 14643
+    components:
+    - type: Transform
+      pos: 37.5,22.5
+      parent: 2
+  - uid: 14652
+    components:
+    - type: Transform
+      pos: 37.5,21.5
+      parent: 2
+  - uid: 14653
+    components:
+    - type: Transform
+      pos: 37.5,20.5
+      parent: 2
+  - uid: 14654
+    components:
+    - type: Transform
+      pos: 37.5,19.5
+      parent: 2
+  - uid: 14655
+    components:
+    - type: Transform
+      pos: 37.5,18.5
+      parent: 2
   - uid: 15009
     components:
     - type: Transform
@@ -42664,6 +42742,17 @@ entities:
     components:
     - type: Transform
       pos: 79.5,30.5
+      parent: 2
+  - uid: 14656
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 37.5,17.5
+      parent: 2
+  - uid: 14657
+    components:
+    - type: Transform
+      pos: 33.5,24.5
       parent: 2
   - uid: 15040
     components:
@@ -73078,18 +73167,6 @@ entities:
     - type: Transform
       pos: 83.5,12.5
       parent: 2
-- proto: RandomArtifactSpawner
-  entities:
-  - uid: 10421
-    components:
-    - type: Transform
-      pos: 64.5,28.5
-      parent: 2
-  - uid: 10422
-    components:
-    - type: Transform
-      pos: 62.5,28.5
-      parent: 2
 - proto: RandomBoard
   entities:
   - uid: 1760
@@ -73125,6 +73202,18 @@ entities:
     components:
     - type: Transform
       pos: 41.5,36.5
+      parent: 2
+- proto: RandomOldNewArtifactSpawner
+  entities:
+  - uid: 10421
+    components:
+    - type: Transform
+      pos: 64.5,28.5
+      parent: 2
+  - uid: 10422
+    components:
+    - type: Transform
+      pos: 62.5,28.5
       parent: 2
 - proto: RandomPainting
   entities:
@@ -76347,6 +76436,13 @@ entities:
     - type: Transform
       pos: 45.5,-4.5
       parent: 2
+- proto: ServiceBookTeleporter
+  entities:
+  - uid: 303
+    components:
+    - type: Transform
+      pos: 12.5,4.5
+      parent: 2
 - proto: ServiceTechFab
   entities:
   - uid: 1751
@@ -79165,13 +79261,6 @@ entities:
     components:
     - type: Transform
       pos: 59.5,19.5
-      parent: 2
-- proto: SpawnPointAdminAssistant
-  entities:
-  - uid: 9554
-    components:
-    - type: Transform
-      pos: 21.5,42.5
       parent: 2
 - proto: SpawnPointAtmos
   entities:
@@ -96676,7 +96765,7 @@ entities:
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: 12.5,4.5
+      pos: 10.5,4.5
       parent: 2
   - uid: 11291
     components:
@@ -96707,6 +96796,12 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 65.5,4.5
+      parent: 2
+  - uid: 14664
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 11.5,4.5
       parent: 2
 - proto: WindowReinforcedDirectional
   entities:
