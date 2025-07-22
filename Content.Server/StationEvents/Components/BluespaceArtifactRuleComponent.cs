@@ -12,7 +12,7 @@ namespace Content.Server.StationEvents.Components;
 public sealed partial class BluespaceArtifactRuleComponent : Component
 {
     [DataField("artifactSpawnerPrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string ArtifactSpawnerPrototype = "RandomOldNewArtifactSpawner";
+    public string ArtifactSpawnerPrototype = "RandomOldNewArtifactSpawner"; //#IMP RandomOldNewArtifactSpawner from RandomArtifactSpawner
 
     [DataField("artifactFlashPrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string ArtifactFlashPrototype = "EffectFlashBluespace";
