@@ -61,6 +61,7 @@ public sealed class RatvarianLanguageSystem : SharedRatvarianLanguageSystem
     {
         if (TryComp<TypingIndicatorComponent>(uid, out var indicator))
         {
+            component.OldIndicator = indicator.TypingIndicatorPrototype;
             indicator.TypingIndicatorPrototype = ClockTypingIndicator;
             Dirty(uid, indicator);
         }
