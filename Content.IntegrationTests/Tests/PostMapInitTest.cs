@@ -154,6 +154,8 @@ namespace Content.IntegrationTests.Tests
             "Refsdal",
             "Skimmer",
             "Union",
+            "Whisper",
+            "Pathway",
         };
 
         /// <summary>
