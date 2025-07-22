@@ -55,7 +55,7 @@
   stylePaths:
     atmospherics: Structures/Doors/Airlocks/Glass/atmospherics.rsi
     #basic:       Structures/Doors/Airlocks/Glass/basic.rsi #imp edit, changed to service
-    cargo:       Structures/Doors/Airlocks/Glass/cargo.rsi
+    cargo:       _Impstation/Structures/Doors/Airlocks/Glass/cargostaff.rsi # imp edit
     command:     Structures/Doors/Airlocks/Glass/command.rsi
     chemistry:   Structures/Doors/Airlocks/Glass/chemistry.rsi
     science:     Structures/Doors/Airlocks/Glass/science.rsi
@@ -73,7 +73,7 @@
     basic:       Structures/Doors/Airlocks/Glass/glass.rsi
     brig:        Structures/Doors/Airlocks/Glass/security.rsi
     captain:     _Impstation/Structures/Doors/Airlocks/Glass/captain.rsi
-    cargoaux:    _Impstation/Structures/Doors/Airlocks/Glass/cargoaux.rsi
+    cargoaux:    Structures/Doors/Airlocks/Glass/cargo.rsi
     cargorestricted: _Impstation/Structures/Doors/Airlocks/Glass/cargorestricted.rsi
     CE:          _Impstation/Structures/Doors/Airlocks/Glass/ce.rsi
     chapel:      _Impstation/Structures/Doors/Airlocks/Glass/chapel.rsi
