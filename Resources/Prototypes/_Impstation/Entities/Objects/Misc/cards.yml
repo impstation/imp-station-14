@@ -6,7 +6,7 @@
   - type: Item
     size: Small
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: box
     layers:
     - state: purple_box
@@ -24,7 +24,7 @@
   name: deck of cards
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: deck_tarot_full
   - type: CardStack
     content:
@@ -121,7 +121,7 @@
     sound:
       collection: cardShove
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: singlecard_down_tarot
   - type: Rotatable
   - type: Item
@@ -130,7 +130,7 @@
     delay: 0.5
   - type: Card
     backSpriteLayers:
-    - sprite: _Impstation/Objects/Misc/cards.rsi
+    - sprite: _EstacaoPirata/Objects/Misc/cards.rsi
       state: singlecard_down_tarot
     flipped: true
 
@@ -144,7 +144,7 @@
   - type: Card
     name: card-sc-ace-cups
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Ace_of_Cups_tarot
 
 - type: entity
@@ -156,7 +156,7 @@
   - type: Card
     name: card-sc-two-cups
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_2_of_Cups_tarot
 
 - type: entity
@@ -168,7 +168,7 @@
   - type: Card
     name: card-sc-three-cups
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_3_of_Cups_tarot
 
 - type: entity
@@ -180,7 +180,7 @@
   - type: Card
     name: card-sc-four-cups
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_4_of_Cups_tarot
 
 - type: entity
@@ -192,7 +192,7 @@
   - type: Card
     name: card-sc-five-cups
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_5_of_Cups_tarot
 
 - type: entity
@@ -204,7 +204,7 @@
   - type: Card
     name: card-sc-six-cups
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_6_of_Cups_tarot
 
 - type: entity
@@ -216,7 +216,7 @@
   - type: Card
     name: card-sc-seven-cups
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_7_of_Cups_tarot
 
 - type: entity
@@ -228,7 +228,7 @@
   - type: Card
     name: card-sc-eight-cups
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_8_of_Cups_tarot
 
 - type: entity
@@ -240,7 +240,7 @@
   - type: Card
     name: card-sc-nine-cups
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_9_of_Cups_tarot
   
 - type: entity
@@ -252,7 +252,7 @@
   - type: Card
     name: card-sc-ten-cups
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_10_of_Cups_tarot
 
 - type: entity
@@ -264,7 +264,7 @@
   - type: Card
     name: card-sc-page-cups
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Page_of_Cups_tarot
 
 - type: entity
@@ -276,7 +276,7 @@
   - type: Card
     name: card-sc-knight-cups
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Knight_of_Cups_tarot
   
 - type: entity
@@ -288,7 +288,7 @@
   - type: Card
     name: card-sc-queen-cups
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Queen_of_Cups_tarot
 
 - type: entity
@@ -300,7 +300,7 @@
   - type: Card
     name: card-sc-king-cups
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_King_of_Cups_tarot
 
 # pentacles
@@ -313,7 +313,7 @@
   - type: Card
     name: card-sc-ace-pentacles
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Ace_of_Pentacles_tarot
 
 - type: entity
@@ -325,7 +325,7 @@
   - type: Card
     name: card-sc-two-pentacles
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_2_of_Pentacles_tarot
 
 - type: entity
@@ -337,7 +337,7 @@
   - type: Card
     name: card-sc-three-pentacles
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_3_of_Pentacles_tarot
 
 - type: entity
@@ -349,7 +349,7 @@
   - type: Card
     name: card-sc-four-pentacles
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_4_of_Pentacles_tarot
 
 - type: entity
@@ -361,7 +361,7 @@
   - type: Card
     name: card-sc-five-pentacles
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_5_of_Pentacles_tarot
 
 - type: entity
@@ -373,7 +373,7 @@
   - type: Card
     name: card-sc-six-pentacles
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_6_of_Pentacles_tarot
 
 - type: entity
@@ -385,7 +385,7 @@
   - type: Card
     name: card-sc-seven-pentacles
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_7_of_Pentacles_tarot
 
 - type: entity
@@ -397,7 +397,7 @@
   - type: Card
     name: card-sc-eight-pentacles
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_8_of_Pentacles_tarot
 
 - type: entity
@@ -409,7 +409,7 @@
   - type: Card
     name: card-sc-nine-pentacles
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_9_of_Pentacles_tarot
   
 - type: entity
@@ -421,7 +421,7 @@
   - type: Card
     name: card-sc-ten-pentacles
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_10_of_Pentacles_tarot
 
 - type: entity
@@ -433,7 +433,7 @@
   - type: Card
     name: card-sc-page-pentacles
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Page_of_Pentacles_tarot
 
 - type: entity
@@ -445,7 +445,7 @@
   - type: Card
     name: card-sc-knight-pentacles
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Knight_of_Pentacles_tarot
   
 - type: entity
@@ -457,7 +457,7 @@
   - type: Card
     name: card-sc-queen-pentacles
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Queen_of_Pentacles_tarot
 
 - type: entity
@@ -469,7 +469,7 @@
   - type: Card
     name: card-sc-king-pentacles
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_King_of_Pentacles_tarot
 
 # swords
@@ -482,7 +482,7 @@
   - type: Card
     name: card-sc-ace-swords
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Ace_of_Swords_tarot
 
 - type: entity
@@ -494,7 +494,7 @@
   - type: Card
     name: card-sc-two-swords
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_2_of_Swords_tarot
 
 - type: entity
@@ -506,7 +506,7 @@
   - type: Card
     name: card-sc-three-swords
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_3_of_Swords_tarot
 
 - type: entity
@@ -518,7 +518,7 @@
   - type: Card
     name: card-sc-four-swords
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_4_of_Swords_tarot
 
 - type: entity
@@ -530,7 +530,7 @@
   - type: Card
     name: card-sc-five-swords
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_5_of_Swords_tarot
 
 - type: entity
@@ -542,7 +542,7 @@
   - type: Card
     name: card-sc-six-swords
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_6_of_Swords_tarot
 
 - type: entity
@@ -554,7 +554,7 @@
   - type: Card
     name: card-sc-seven-swords
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_7_of_Swords_tarot
 
 - type: entity
@@ -566,7 +566,7 @@
   - type: Card
     name: card-sc-eight-swords
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_8_of_Swords_tarot
 
 - type: entity
@@ -578,7 +578,7 @@
   - type: Card
     name: card-sc-nine-swords
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_9_of_Swords_tarot
   
 - type: entity
@@ -590,7 +590,7 @@
   - type: Card
     name: card-sc-ten-swords
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_10_of_Swords_tarot
 
 - type: entity
@@ -602,7 +602,7 @@
   - type: Card
     name: card-sc-page-swords
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Page_of_Swords_tarot
 
 - type: entity
@@ -614,7 +614,7 @@
   - type: Card
     name: card-sc-knight-swords
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Knight_of_Swords_tarot
   
 - type: entity
@@ -626,7 +626,7 @@
   - type: Card
     name: card-sc-queen-swords
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Queen_of_Swords_tarot
 
 - type: entity
@@ -638,7 +638,7 @@
   - type: Card
     name: card-sc-king-swords
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_King_of_Swords_tarot
 
 # wands
@@ -651,7 +651,7 @@
   - type: Card
     name: card-sc-ace-wands
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Ace_of_Wands_tarot
 
 - type: entity
@@ -663,7 +663,7 @@
   - type: Card
     name: card-sc-two-wands
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_2_of_Wands_tarot
 
 - type: entity
@@ -675,7 +675,7 @@
   - type: Card
     name: card-sc-three-wands
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_3_of_Wands_tarot
 
 - type: entity
@@ -687,7 +687,7 @@
   - type: Card
     name: card-sc-four-wands
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_4_of_Wands_tarot
 
 - type: entity
@@ -699,7 +699,7 @@
   - type: Card
     name: card-sc-five-wands
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_5_of_Wands_tarot
 
 - type: entity
@@ -711,7 +711,7 @@
   - type: Card
     name: card-sc-six-wands
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_6_of_Wands_tarot
 
 - type: entity
@@ -723,7 +723,7 @@
   - type: Card
     name: card-sc-seven-wands
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_7_of_Wands_tarot
 
 - type: entity
@@ -735,7 +735,7 @@
   - type: Card
     name: card-sc-eight-wands
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_8_of_Wands_tarot
 
 - type: entity
@@ -747,7 +747,7 @@
   - type: Card
     name: card-sc-nine-wands
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_9_of_Wands_tarot
   
 - type: entity
@@ -759,7 +759,7 @@
   - type: Card
     name: card-sc-ten-wands
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_10_of_Wands_tarot
 
 - type: entity
@@ -771,7 +771,7 @@
   - type: Card
     name: card-sc-page-wands
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Page_of_Wands_tarot
 
 - type: entity
@@ -783,7 +783,7 @@
   - type: Card
     name: card-sc-knight-wands
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Knight_of_Wands_tarot
   
 - type: entity
@@ -795,7 +795,7 @@
   - type: Card
     name: card-sc-queen-wands
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Queen_of_Wands_tarot
 
 - type: entity
@@ -807,7 +807,7 @@
   - type: Card
     name: card-sc-king-wands
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_King_of_Wands_tarot
 
 - type: entity
@@ -819,7 +819,7 @@
   - type: Card
     name: card-sc-the-fool
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_Fool_tarot
 
 - type: entity
@@ -831,7 +831,7 @@
   - type: Card
     name: card-sc-the-magician
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_Magician_tarot
 
 - type: entity
@@ -843,7 +843,7 @@
   - type: Card
     name: card-sc-the-high-priestess
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_High_Priestess_tarot
 
 - type: entity
@@ -855,7 +855,7 @@
   - type: Card
     name: card-sc-the-empress
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_Empress_tarot
 
 - type: entity
@@ -867,7 +867,7 @@
   - type: Card
     name: card-sc-the-emperor
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_Emperor_tarot
 
 - type: entity
@@ -879,7 +879,7 @@
   - type: Card
     name: card-sc-the-hierophant
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_Hierophant_tarot
 
 - type: entity
@@ -891,7 +891,7 @@
   - type: Card
     name: card-sc-the-lovers
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_Lovers_tarot
 
 - type: entity
@@ -903,7 +903,7 @@
   - type: Card
     name: card-sc-the-chariot
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_Chariot_tarot
 
 - type: entity
@@ -915,7 +915,7 @@
   - type: Card
     name: card-sc-strength
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Strength_tarot
 
 - type: entity
@@ -927,7 +927,7 @@
   - type: Card
     name: card-sc-the-hermit
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_Hermit_tarot
 
 - type: entity
@@ -939,7 +939,7 @@
   - type: Card
     name: card-sc-the-wheel
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_Wheel_tarot
 
 - type: entity
@@ -951,7 +951,7 @@
   - type: Card
     name: card-sc-justice
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Justice_tarot
 
 - type: entity
@@ -963,7 +963,7 @@
   - type: Card
     name: card-sc-the-hanged-man
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_Hanged_Man_tarot
 
 - type: entity
@@ -975,7 +975,7 @@
   - type: Card
     name: card-sc-death
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Death_tarot
 
 - type: entity
@@ -987,7 +987,7 @@
   - type: Card
     name: card-sc-temperance
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Temperance_tarot
 
 - type: entity
@@ -999,7 +999,7 @@
   - type: Card
     name: card-sc-the-devil
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_Devil_tarot
 
 - type: entity
@@ -1011,7 +1011,7 @@
   - type: Card
     name: card-sc-the-tower
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_Tower_tarot
 
 - type: entity
@@ -1023,7 +1023,7 @@
   - type: Card
     name: card-sc-the-star
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_Star_tarot
 
 - type: entity
@@ -1035,7 +1035,7 @@
   - type: Card
     name: card-sc-the-moon
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_Moon_tarot
 
 - type: entity
@@ -1047,7 +1047,7 @@
   - type: Card
     name: card-sc-the-sun
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_Sun_tarot
 
 - type: entity
@@ -1059,7 +1059,7 @@
   - type: Card
     name: card-sc-judgement
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Judgement_tarot
 
 - type: entity
@@ -1071,5 +1071,5 @@
   - type: Card
     name: card-sc-the-world
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/cards.rsi
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_World_tarot
