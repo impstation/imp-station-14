@@ -4,7 +4,7 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/10/2025 06:05:35
+  time: 07/22/2025 04:09:53
   entityCount: 17633
 maps:
 - 1
@@ -14008,7 +14008,7 @@ entities:
       pos: 9.5,-20.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -3933.6162
+      secondsUntilStateChange: -4136.725
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14418,7 +14418,7 @@ entities:
       pos: 47.5,5.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -465937.6
+      secondsUntilStateChange: -466140.7
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -18509,11 +18509,6 @@ entities:
     components:
     - type: Transform
       pos: -25.5,-23.5
-      parent: 2
-  - uid: 3084
-    components:
-    - type: Transform
-      pos: -23.5,-19.5
       parent: 2
   - uid: 3087
     components:
@@ -90969,35 +90964,6 @@ entities:
     - type: Transform
       pos: -33.5,-10.5
       parent: 2
-- proto: RandomArtifactSpawner
-  entities:
-  - uid: 4711
-    components:
-    - type: Transform
-      pos: -28.5,12.5
-      parent: 2
-  - uid: 5985
-    components:
-    - type: Transform
-      pos: -29.5,11.5
-      parent: 2
-- proto: RandomArtifactSpawner20
-  entities:
-  - uid: 334
-    components:
-    - type: Transform
-      pos: 58.5,18.5
-      parent: 2
-  - uid: 14367
-    components:
-    - type: Transform
-      pos: 10.5,36.5
-      parent: 2
-  - uid: 14374
-    components:
-    - type: Transform
-      pos: -25.5,48.5
-      parent: 2
 - proto: RandomBoard
   entities:
   - uid: 1237
@@ -91117,6 +91083,35 @@ entities:
     components:
     - type: Transform
       pos: 4.5,-11.5
+      parent: 2
+- proto: RandomOldNewArtifactSpawner
+  entities:
+  - uid: 4711
+    components:
+    - type: Transform
+      pos: -28.5,12.5
+      parent: 2
+  - uid: 5985
+    components:
+    - type: Transform
+      pos: -29.5,11.5
+      parent: 2
+- proto: RandomOldNewArtifactSpawner20
+  entities:
+  - uid: 334
+    components:
+    - type: Transform
+      pos: 58.5,18.5
+      parent: 2
+  - uid: 14367
+    components:
+    - type: Transform
+      pos: 10.5,36.5
+      parent: 2
+  - uid: 14374
+    components:
+    - type: Transform
+      pos: -25.5,48.5
       parent: 2
 - proto: RandomPainting
   entities:
@@ -93874,6 +93869,13 @@ entities:
     components:
     - type: Transform
       pos: 17.5,10.5
+      parent: 2
+- proto: ServiceBookTeleporter
+  entities:
+  - uid: 3084
+    components:
+    - type: Transform
+      pos: -23.5,-19.5
       parent: 2
 - proto: ServiceTechFab
   entities:
