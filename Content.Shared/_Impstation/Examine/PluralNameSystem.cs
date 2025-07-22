@@ -1,12 +1,7 @@
-using Content.Shared.Examine;
-using Content.Shared.Stacks;
-using Content.Shared.IdentityManagement;
 using Robust.Shared.GameObjects.Components.Localization;
-using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Inventory.Events;
 using Content.Shared.Administration.Logs;
-using Robust.Shared.Containers;
-using System.Diagnostics;
+using Content.Shared.Hands;
+using Content.Shared.Stacks;
 
 namespace Content.Shared._Impstation.Examine;
 
@@ -24,7 +19,7 @@ public sealed class PluralNameSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<PluralNameComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<PluralNameComponent, GotEquippedHandEvent>(OnPickup);
         SubscribeLocalEvent<PluralNameComponent, StackCountChangedEvent>(OnStackCountChanged);
     }
 
@@ -44,9 +39,13 @@ public sealed class PluralNameSystem : EntitySystem
         Dirty(uid, grammar);
     }
 
-    private void OnInit(Entity<PluralNameComponent> uid, ref ComponentInit args)
+    private void OnPickup(Entity<PluralNameComponent> uid, ref GotEquippedHandEvent args)
     {
-        UpdateToSingular(uid, EnsureComp<GrammarComponent>(uid)); // all things are singular at init
+        var grammar = EnsureComp<GrammarComponent>(uid);
+        if (TryComp<StackComponent>(uid, out var stack) && stack.Count != 1)
+            UpdateToPlural(uid, grammar);
+        else
+            UpdateToSingular(uid, grammar); // all things are singular
     }
 
     private void OnStackCountChanged(Entity<PluralNameComponent> uid, ref StackCountChangedEvent args)
