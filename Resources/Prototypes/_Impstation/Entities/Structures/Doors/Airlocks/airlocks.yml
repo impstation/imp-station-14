@@ -229,6 +229,22 @@
   - type: Sprite
     sprite: _Impstation/Structures/Doors/Airlocks/Standard/courier.rsi
 
+- type: entity
+  parent: AirlockCargo
+  id: AirlockCargoAux
+  suffix: CargoAux
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/cargo.rsi # original upstream sprite works for aux doors
+
+- type: entity
+  parent: AirlockCargo
+  id: AirlockCargoRestricted
+  suffix: CargoRestricted
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Doors/Airlocks/Standard/cargorestricted.rsi
+
 # Glass Airlocks
 
 # Command
@@ -461,3 +477,19 @@
   components:
   - type: Sprite
     sprite: _Impstation/Structures/Doors/Airlocks/Glass/courier.rsi
+
+- type: entity
+  parent: AirlockCargoGlass
+  id: AirlockCargoAuxGlass
+  suffix: CargoAux
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Glass/cargo.rsi # original upstream sprite works for aux doors
+
+- type: entity
+  parent: AirlockCargoGlass
+  id: AirlockCargoRestrictedGlass
+  suffix: CargoRestricted
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Doors/Airlocks/Glass/cargorestricted.rsi
