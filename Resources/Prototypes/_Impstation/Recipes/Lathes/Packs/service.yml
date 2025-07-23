@@ -5,6 +5,7 @@
   recipes:
     - UvLightTube
     - LightReplacer
+    - GlowstickRed
 
 - type: latheRecipePack
   id: ImpServiceStatic
@@ -20,8 +21,7 @@
   id: CleanPack
   recipes:
     - Plunger
-    - MopBucket
-    - SoapNT
+    - MopBucketCube
     - WelderJanitorial
 
 - type: latheRecipePack
@@ -61,7 +61,11 @@
     - Spoon
     - ForkPlastic
     - SpoonPlastic
+    - KnifePlastic
     - PairedChopsticks
+    - CandyBowl
+    - MeatBowl
+    - FruitBowl
 
 - type: latheRecipePack
   id: ServiceMiscPack
@@ -89,7 +93,6 @@
     - AdvMopItem
     - WeaponSprayNozzle
     - ClothingBackpackWaterTank
-    - CleanerGrenade
 
 #- type: latheRecipePack # disabled until there is something to fish
 #  id: ServiceMiscPackDynamic

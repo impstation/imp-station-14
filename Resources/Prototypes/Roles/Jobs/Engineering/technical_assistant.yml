@@ -8,7 +8,7 @@
       time: 3600 #1 hr
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 54000 #15 hrs
+      time: 54000 #15 hrs, imp
       inverted: true # stop playing intern if you're good at engineering!
   startingGear: TechnicalAssistantGear
   icon: "JobIconTechnicalAssistant"
@@ -24,6 +24,7 @@
   equipment:
     shoes: ClothingShoesBootsWork
     id: TechnicalAssistantPDA
+    neck: ClothingNeckNoviceMark # imp
     belt: ClothingBeltUtilityEngineering
     ears: ClothingHeadsetEngineering
     pocket1: TutorialPersonalAI #imp
@@ -31,3 +32,14 @@
   # storage:
   #   back:
   #   - Stuff
+
+- type: chameleonOutfit
+  id: TechnicalAssistantChameleonOutfit
+  job: TechnicalAssistant
+  equipment:
+    head: ClothingHeadHatHardhatOrange
+    eyes: ClothingEyesGlassesMeson
+    mask: ClothingMaskBreath
+    neck: ClothingNeckScarfStripedOrange
+    outerClothing: ClothingOuterVestHazard
+    gloves: ClothingHandsGlovesColorYellow

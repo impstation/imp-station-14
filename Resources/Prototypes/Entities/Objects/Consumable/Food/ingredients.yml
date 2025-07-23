@@ -489,7 +489,7 @@
   - type: Tag
     tags:
     - Slice
-    - ClothMade # imp
+    - ClothMade
   - type: Construction
     graph: DoughRopeCotton
     node: start
@@ -527,10 +527,10 @@
           Quantity: 1.5
         - ReagentId: Fiber
           Quantity: 3.5
-  - type: Tag # imp - humans shouldnt be eating moth food
+  - type: Tag
     tags:
-    - Ingredient
-    - ClothMade
+     - ClothMade
+     - Ingredient
 
 - type: entity
   name: raw pastry base
@@ -664,6 +664,12 @@
   - type: SliceableFood
     count: 3
     slice: FoodButterSlice
+  - type: Extractable # Frontier
+    grindableSolutionName: food
+  - type: Tag # Frontier
+    tags:
+    - Ingredient
+    - NFButterStick
 
 - type: entity
   name: butter slice
@@ -747,6 +753,12 @@
     entries:
       Taco: CheeseTaco
       Burger: CheeseBurger
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: cheesewedge-inhand-left
+      right:
+      - state: cheesewedge-inhand-right
 
 - type: entity
   name: chèvre log

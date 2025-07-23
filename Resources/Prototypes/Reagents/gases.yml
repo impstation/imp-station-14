@@ -8,6 +8,52 @@
   boilingPoint: -183.0
   meltingPoint: -218.4
   metabolisms:
+    Poison:
+      effects:
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Human
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Animal
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Rat
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Plant
+      # Convert Oxygen into CO2.
+      - !type:ModifyLungGas
+        conditions:
+        - !type:OrganType
+          type: Vox
+          shouldHave: false
+        ratios:
+          CarbonDioxide: 1.0
+          Oxygen: -1.0
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Vox
+        scaleByQuantity: true
+        ignoreResistances: true
+        damage:
+          types:
+            Poison:
+              3
+      - !type:AdjustAlert
+        alertType: Toxins
+        conditions:
+          - !type:ReagentThreshold
+            min: 0.5
+          - !type:OrganType
+            type: Vox
+        clear: true
+        time: 5
     Gas:
       effects:
       - !type:Oxygenate
@@ -39,9 +85,6 @@
         conditions:
         - !type:OrganType
           type: Vox
-          shouldHave: false
-        - !type:OrganType #imp, thaven lungs don't do chemical reactions
-          type: Thaven
           shouldHave: false
         ratios:
           CarbonDioxide: 1.0
@@ -98,10 +141,6 @@
           types:
             Poison:
               1
-        conditions: #imp
-        - !type:OrganType #imp, thaven can breathe all gases safely
-          type: Thaven
-          shouldHave: false
       - !type:Oxygenate #imp, thaven can breathe all gases safely
         conditions:
         - !type:OrganType
@@ -112,9 +151,6 @@
         conditions:
           - !type:ReagentThreshold
             min: 1.5
-          - !type:OrganType #imp, thaven can breathe all gases safely
-            type: Thaven
-            shouldHave: false
         clear: True
         time: 5
   reactiveEffects:
@@ -155,10 +191,6 @@
           types:
             Radiation:
               1
-        conditions: #imp
-        - !type:OrganType #imp, thaven can breathe all gases safely
-          type: Thaven
-          shouldHave: false
       - !type:Oxygenate #imp, thaven can breathe all gases safely
         conditions:
         - !type:OrganType
@@ -169,9 +201,6 @@
         conditions:
           - !type:ReagentThreshold
             min: 1.5
-          - !type:OrganType #imp, thaven can breathe all gases safely
-            type: Thaven
-            shouldHave: false
         clear: True
         time: 5
 
@@ -183,6 +212,32 @@
   flavor: bitter
   color: "#66ff33"
   metabolisms:
+    Poison:
+      effects:
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Plant
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Plant
+          shouldHave: false
+        - !type:OrganType
+          type: Vox
+          shouldHave: false
+        scaleByQuantity: true
+        ignoreResistances: true
+        damage:
+          types:
+            Poison:
+              0.8
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Plant
+          shouldHave: false
+        factor: -4
     Gas:
       effects:
       - !type:Oxygenate
@@ -195,9 +250,6 @@
           type: Thaven
       - !type:HealthChange
         conditions:
-        - !type:OrganType #imp, thaven can breathe all gases safely
-          type: Thaven
-          shouldHave: false
         - !type:OrganType
           type: Plant
           shouldHave: false
@@ -218,9 +270,6 @@
         conditions:
         - !type:OrganType
           type: Plant
-          shouldHave: false
-        - !type:OrganType #imp, thaven can breathe all gases safely
-          type: Thaven
           shouldHave: false
         factor: -4
       # We need a metabolism effect on reagent removal
@@ -283,6 +332,12 @@
   boilingPoint: -88
   meltingPoint: -90
   metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 2
     Gas:
       effects:
       - !type:Oxygenate #imp, thaven can breathe all gases safely
@@ -297,9 +352,6 @@
         - !type:OrganType
           type: Slime
           shouldHave: false
-        - !type:OrganType #imp, thaven can breathe all gases safely
-          type: Thaven
-          shouldHave: false
         emote: Laugh
         showInChat: true
         probability: 0.1
@@ -311,9 +363,6 @@
         - !type:OrganType
           type: Slime
           shouldHave: false
-        - !type:OrganType #imp, thaven can breathe all gases safely
-          type: Thaven
-          shouldHave: false
         emote: Scream
         showInChat: true
         probability: 0.01
@@ -324,9 +373,6 @@
           min: 0.5
         - !type:OrganType
           type: Slime
-          shouldHave: false
-        - !type:OrganType #imp, thaven can breathe all gases safely
-          type: Thaven
           shouldHave: false
         type: Local
         visualType: Medium
@@ -340,9 +386,6 @@
         - !type:OrganType
           type: Slime
           shouldHave: false
-        - !type:OrganType #imp, thaven can breathe all gases safely
-          type: Thaven
-          shouldHave: false
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
       - !type:GenericStatusEffect
@@ -352,9 +395,6 @@
           min: 1.8
         - !type:OrganType
           type: Slime
-          shouldHave: false
-        - !type:OrganType #imp, thaven can breathe all gases safely
-          type: Thaven
           shouldHave: false
         key: ForcedSleep
         component: ForcedSleeping
@@ -367,9 +407,6 @@
           min: 3.5
         - !type:OrganType
           type: Slime
-          shouldHave: false
-        - !type:OrganType #imp, thaven can breathe all gases safely
-          type: Thaven
           shouldHave: false
         ignoreResistances: true
         damage:
@@ -386,6 +423,39 @@
   boilingPoint: -195.8
   meltingPoint: -210.0
   metabolisms:
+    Narcotic:
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: true
+        damage:
+          types:
+            Cellular: 1
+      - !type:GenericStatusEffect
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 15
+        refresh: false
+      - !type:Drunk
+        boozePower: 15
+      - !type:PopupMessage
+        type: Local
+        messages: [ "frezon-lungs-cold" ]
+        probability: 0.1
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Frezon
+          min: 0.5
+      - !type:PopupMessage
+        type: Local
+        visualType: Medium
+        messages: [ "frezon-euphoric" ]
+        probability: 0.1
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Frezon
+          min: 1
     Gas:
       effects:
       - !type:Oxygenate #imp, thaven can breathe all gases safely
@@ -397,9 +467,6 @@
         - !type:ReagentThreshold
           reagent: Frezon
           min: 0.5
-        - !type:OrganType #imp, thaven can breathe all gases safely
-          type: Thaven
-          shouldHave: false
         scaleByQuantity: true
         ignoreResistances: true
         damage:
@@ -429,9 +496,6 @@
         - !type:ReagentThreshold
           reagent: Frezon
           min: 0.5
-        - !type:OrganType #imp, thaven can breathe all gases safely
-          type: Thaven
-          shouldHave: false
       - !type:PopupMessage
         type: Local
         visualType: Medium

@@ -1,21 +1,5 @@
 - type: reagent
   id: Subjuzine
-  name: reagent-name-inert-subjuzine
-  desc: reagent-desc-inert-subjuzine
-  group: Medicine
-  physicalDesc: reagent-physical-desc-enigmatic
-  flavor: magical
-  color: "#a50ed8"
-  contraband: Tier2Contraband
-  metabolisms:
-    Medicine:
-      effects:
-      - !type:MakeSentient
-        conditions:
-        - !type:ReagentThreshold
-
-- type: reagent
-  id: ActivatedSubjuzine
   name: reagent-name-subjuzine
   desc: reagent-desc-subjuzine
   group: Medicine
@@ -59,7 +43,6 @@
   flavor: sour
   color: "#64ffe6"
   physicalDesc: reagent-physical-desc-enigmatic
-  slippery: false
   metabolisms:
     # Bad omnizine that also gives you cancer
     Medicine:
@@ -109,6 +92,20 @@
       methods: [ Touch ]
       effects:
       - !type:ExtinguishReaction
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Holy: 0.5
+            Blunt: -0.1
+#            Poison: -0.2
+            Heat: -0.1
+            Shock: -0.1
+            Cold: -0.1
   tileReactions:
   - !type:ExtinguishTileReaction { }
 

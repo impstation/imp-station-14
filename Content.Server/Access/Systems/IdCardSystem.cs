@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Server.Administration.Logs;
+using Content.Server.Chat.Systems;
 using Content.Server.Kitchen.Components;
 using Content.Server.Popups;
 using Content.Shared.Access;
@@ -19,6 +20,7 @@ public sealed class IdCardSystem : SharedIdCardSystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly MicrowaveSystem _microwave = default!;
 
     public override void Initialize()
@@ -38,7 +40,7 @@ public sealed class IdCardSystem : SharedIdCardSystem
             float randomPick = _random.NextFloat();
 
             // if really unlucky, burn card
-            if (randomPick <= 0.15f)
+            if (args.BeingHeated && randomPick <= 0.15f) // Frontier: if not being heated, don't destroy the ID
             {
                 TryComp(uid, out TransformComponent? transformComponent);
                 if (transformComponent != null)
@@ -53,6 +55,13 @@ public sealed class IdCardSystem : SharedIdCardSystem
                 EntityManager.QueueDeleteEntity(uid);
                 return;
             }
+
+            // Frontier: ID accesses only change with radiation
+            if (!args.BeingIrradiated)
+            {
+                return;
+            }
+            // End Frontier
 
             //Explode if the microwave can't handle it
             if (!micro.CanMicrowaveIdsSafely)
@@ -91,6 +100,24 @@ public sealed class IdCardSystem : SharedIdCardSystem
             _adminLogger.Add(LogType.Action, LogImpact.High,
                     $"{ToPrettyString(args.Microwave)} added {random.ID} access to {ToPrettyString(uid):entity}");
 
+        }
+    }
+
+    public override void ExpireId(Entity<ExpireIdCardComponent> ent)
+    {
+        if (ent.Comp.Expired)
+            return;
+
+        base.ExpireId(ent);
+
+        if (ent.Comp.ExpireMessage != null)
+        {
+            _chat.TrySendInGameICMessage(
+                ent,
+                Loc.GetString(ent.Comp.ExpireMessage),
+                InGameICChatType.Speak,
+                ChatTransmitRange.Normal,
+                true);
         }
     }
 }

@@ -10,9 +10,6 @@
     sprite: Clothing/Belt/utility.rsi
   - type: Clothing
     sprite: Clothing/Belt/utility.rsi
-  - type: Tag # Imp
-    tags:
-    - BeltUtility
   - type: Storage
     maxItemSize: Normal
     # TODO: Fill this out more.
@@ -35,6 +32,7 @@
         - JawsOfLife
         - GPS
         - WeldingMask
+        - Dart #Until Zookeeper gets its own belt they're gonna have to share. This is a temporary stopgap. Also Imp.
       components:
         - StationMap
         - SprayPainter
@@ -83,6 +81,11 @@
             - Multitool
     sprite: Clothing/Belt/belt_overlay.rsi
   - type: Appearance
+  - type: Tag
+    tags:
+    - UtilityBelt
+    - WhitelistChameleon
+    - BeltUtility # imp (?)
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -489,6 +492,7 @@
         - Pribar #imp
         - SpaceBladeSec #imp
         - HandheldCriminalRecords #imp
+        - HandGrenade
       components:
         - Stunbaton
         - FlashOnTrigger
@@ -619,6 +623,8 @@
         - Gun
         - BallisticAmmoProvider
         - CartridgeAmmo
+  - type: StaticPrice
+    price: 500
 
 - type: entity
   parent: ClothingBeltSecurity
@@ -664,7 +670,9 @@
   - type: Clothing
     sprite: Clothing/Belt/militarywebbing.rsi
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.1
+  - type: StaticPrice
+    price: 500
 
 - type: entity
   parent: ClothingBeltMilitaryWebbing

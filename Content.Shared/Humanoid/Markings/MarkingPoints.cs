@@ -1,6 +1,5 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Shared.Humanoid.Markings;
 
@@ -8,13 +7,34 @@ namespace Content.Shared.Humanoid.Markings;
 [Serializable, NetSerializable]
 public sealed partial class MarkingPoints
 {
-    [DataField("points", required: true)]
+    [DataField(required: true)]
     public int Points = 0;
-    [DataField("required", required: true)]
-    public bool Required = false;
+
+    [DataField(required: true)]
+    public bool Required;
+
+    // imp add
+    /// <summary>
+    /// Chance for a randomly generated entity to spawn with a marking in this category.
+    /// </summary>
+    /// <remarks>
+    /// Does one roll for each point- eg. at 2 points with a .6 weight,
+    /// you have a 16% chance of no marking, a 48% chance of one marking and a 36% chance of two markings.
+    /// </remarks>
+    [DataField]
+    public float Weight = 0.6f;
+
+    /// <summary>
+    ///     If the user of this marking point set is only allowed to
+    ///     use whitelisted markings, and not globally usable markings.
+    ///     Only used for validation and profile construction. Ignored anywhere else.
+    /// </summary>
+    [DataField]
+    public bool OnlyWhitelisted;
+
     // Default markings for this layer.
-    [DataField("defaultMarkings", customTypeSerializer:typeof(PrototypeIdListSerializer<MarkingPrototype>))]
-    public List<string> DefaultMarkings = new();
+    [DataField]
+    public List<ProtoId<MarkingPrototype>> DefaultMarkings = new();
 
     public static Dictionary<MarkingCategories, MarkingPoints> CloneMarkingPointDictionary(Dictionary<MarkingCategories, MarkingPoints> self)
     {
@@ -26,7 +46,9 @@ public sealed partial class MarkingPoints
             {
                 Points = points.Points,
                 Required = points.Required,
-                DefaultMarkings = points.DefaultMarkings
+                OnlyWhitelisted = points.OnlyWhitelisted,
+                DefaultMarkings = points.DefaultMarkings,
+                Weight = points.Weight // imp
             };
         }
 
@@ -44,8 +66,9 @@ public sealed partial class MarkingPointsPrototype : IPrototype
     ///     use whitelisted markings, and not globally usable markings.
     ///     Only used for validation and profile construction. Ignored anywhere else.
     /// </summary>
-    [DataField("onlyWhitelisted")] public bool OnlyWhitelisted;
+    [DataField]
+    public bool OnlyWhitelisted;
 
-    [DataField("points", required: true)]
+    [DataField(required: true)]
     public Dictionary<MarkingCategories, MarkingPoints> Points { get; private set; } = default!;
 }

@@ -52,6 +52,13 @@ flavor-complex-supermixerpsych = like a psychiatric appointment
 
 flavor-complex-moonrise = like sweet nostalgia
 
+flavor-complex-poormansfrezon = like a good time
+flavor-complex-doublegreen = bitter and nauseating
+flavor-complex-liquidlunch = like a pureed rat
+
+flavor-complex-safe = safe
+flavor-complex-profane = profane
+
 flavor-complex-armory = like armory access
 flavor-complex-atmospherics = like atmospherics access
 flavor-complex-bar = like bar access
@@ -94,3 +101,5 @@ flavor-complex-service = like service access
 flavor-complex-syndicateagent = like syndicate agent access
 flavor-complex-theatre = like theatre access
 flavor-complex-wizard = like wizard access
+flavor-complex-irwizine = like wrestling an alligator
+flavor-complex-rose = like a garden in the summer

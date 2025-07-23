@@ -175,3 +175,16 @@
   id: SterileMask
   equipment:
     mask: ClothingMaskSterile
+
+#Eyewear
+- type: loadout
+  id: MedicalHud
+  equipment:
+    eyes: ClothingEyesHudMedical
+  groupBy: "job" # imp
+
+- type: loadout
+  id: MedicalEyePatchHud
+  equipment:
+    eyes: ClothingEyesEyepatchHudMedical
+  groupBy: "job" # imp

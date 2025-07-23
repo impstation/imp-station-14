@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseItem
   id: Rose
-  name: Rose
+  name: rose
   description: Smells like love.
   components:
   - type: EmbeddableProjectile
@@ -91,9 +91,13 @@
     seedId: rose
   - type: Extractable
     grindableSolutionName: food
+    juiceSolution:
+      reagents:
+      - ReagentId: JuiceRose
+        Quantity: 10
   - type: FlavorProfile
     flavors:
-      - food
+      - rose
   - type: Food
   - type: Tag
     tags:
@@ -102,7 +106,7 @@
 - type: entity
   parent: [Rose, BaseMajorContraband]
   id: RoseBlack
-  name: Black Rose
+  name: black rose
   description: Smells like darkness.
   components:
   - type: Clothing
@@ -117,10 +121,14 @@
     damage:
       types:
         Piercing: 5
+  - type: EmbedPassiveDamage
+  - type: SolutionInjectOnEmbed
+    transferAmount: 4
+    solution: food
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 3
+        maxVol: 4
         reagents:
         - ReagentId: SulfuricAcid
           Quantity: 1
@@ -130,7 +138,7 @@
 - type: entity
   parent: [Rose, Tier3Contraband]
   id: RoseSyndicate
-  name: Blood Red Rose
+  name: blood-red rose
   description: Smells like communism.
   components:
   - type: SolutionInjectOnEmbed
@@ -141,6 +149,7 @@
       types:
         Piercing: 5
         Slash: 3
+  - type: EmbedPassiveDamage
   - type: SolutionContainerManager
     solutions:
       food:

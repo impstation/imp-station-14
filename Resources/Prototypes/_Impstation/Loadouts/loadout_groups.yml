@@ -334,6 +334,7 @@
   - WhiteDressShoes
   - BlackCommandHeels
   - BlueCommandHeels
+  - HoPWinterBoots # Delta-V
 
 - type: loadoutGroup
   id: AdminAssistantBackpack
@@ -405,6 +406,8 @@
   - HospitalityDirectorApron
   - HospitalityDirectorVest
   - HospitalityDirectorWintercoat
+  - BartenderCuteApron
+  - ChefCuteApron
 
 - type: loadoutGroup
   id: HospitalityDirectorShoes
@@ -604,6 +607,7 @@
   - ScarfBrown
   - ScarfGreen
   - ScarfLightGreen
+  - BotanistLilyMantle
 
 - type: loadoutGroup
   id: BotanistGloves
@@ -671,13 +675,11 @@
   - BlackHeels
 
 - type: loadoutGroup
-  id: ReporterJumpsuit
-  name: loadout-group-reporter-jumpsuit
+  id: MusicianHead
+  name: loadout-group-musician-head
+  minLimit: 0
   loadouts:
-  - ReporterJumpsuit
-  - JournalistJumpsuit
-  - ClothingUniformBrosBlazer
-  - ClothingUniformBrosBlazerSkirt
+  - MusicianShako
 
 - type: loadoutGroup
   id: ReporterNeck
@@ -749,7 +751,7 @@
   name: loadout-group-salvage-specialist-neck
   minLimit: 0
   loadouts:
-  - MinerCloak
+#  - MinerCloak # upstream removed it :(
   - DrillerCape
   - SaMantle
   - ScarfBrown
@@ -883,7 +885,7 @@
   name: loadout-group-atmospheric-technician-head
   minLimit: 0
   loadouts:
-  - AtmosphericTechnicianBeret
+  - SeniorEngineerBeret
 
 - type: loadoutGroup
   id: AtmosphericTechnicianPDA
@@ -1074,7 +1076,7 @@
   - ArmorVestCompact
   - PlateCarrier # DeltaV
   - DuraVest # DeltaV
-  - BomberSecurity
+  - BrigmedicBomber
 
 - type: loadoutGroup
   id: BrigmedicShoes

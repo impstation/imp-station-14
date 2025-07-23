@@ -20,22 +20,6 @@
 
 - type: entity
   parent: DrinkGlass
-  id: DrinkCalimotxoGlass
-  suffix: calimotxo
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: Calimotxo
-          Quantity: 30
-  - type: Icon
-    sprite: Objects/Consumable/Drinks/wineglass.rsi
-    state: icon
-
-- type: entity
-  parent: DrinkGlass
   id: DrinkLoveTapGlass
   suffix: love tap
   components:
@@ -622,4 +606,84 @@
           Quantity: 30
   - type: Icon
     sprite: _Impstation/Objects/Consumable/Drinks/moonrise.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkPoorMansFrezonGlass
+  suffix: poor man's frezon
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: PoorMansFrezon
+          Quantity: 30
+  - type: Icon
+    sprite: _Impstation/Objects/Consumable/Drinks/poormansfrezon.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkDoubleGreenGlass
+  suffix: double green
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: DoubleGreen
+          Quantity: 30
+  - type: Icon
+    sprite: _Impstation/Objects/Consumable/Drinks/doublegreen.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkLiquidLunchGlass
+  suffix: liquid lunch
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: LiquidLunch
+          Quantity: 30
+  - type: Icon
+    sprite: _Impstation/Objects/Consumable/Drinks/liquidlunch.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkBatteryAcidGlass
+  suffix: battery acid
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: BatteryAcid
+          Quantity: 30
+  - type: Icon
+    sprite: _Impstation/Objects/Consumable/Drinks/batteryacid.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkAngelsKissGlass
+  suffix: angel's kiss
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: AngelsKiss
+          Quantity: 30
+  - type: Icon
+    sprite: _Impstation/Objects/Consumable/Drinks/angelskiss.rsi
     state: icon

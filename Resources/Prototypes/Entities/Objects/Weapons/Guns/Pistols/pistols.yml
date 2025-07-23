@@ -121,6 +121,8 @@
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
+  - type: StaticPrice
+    price: 1000
 
 - type: entity
   name: Echis
@@ -205,6 +207,8 @@
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
+  - type: StaticPrice
+    price: 1500
 
 - type: entity
   name: Mk 58
@@ -233,7 +237,7 @@
 
 - type: entity
   name: N1984
-  parent: [BaseWeaponPistol, BaseCentcommContraband]
+  parent: [BaseWeaponPistol, BaseSecurityContraband]
   id: WeaponPistolN1984
   description: The sidearm of any self-respecting officer, often favored by ERT security forces. Uses .45 magnum ammo. #imp
   components:

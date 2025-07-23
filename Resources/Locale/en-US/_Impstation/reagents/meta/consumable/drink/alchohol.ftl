@@ -7,9 +7,6 @@ reagent-desc-theehorsepussy = They are going this drink after me when i die
 reagent-name-lovetap = love tap
 reagent-desc-lovetap = Straight Root Beer, with a love tap of Rum.
 
-reagent-name-calimotxo = calimotxo
-reagent-desc-calimotxo = A classy, 50/50 mix of Wine and Cola.
-
 reagent-name-reaganomics = reaganomics
 reagent-desc-reaganomics = Why would we ever want anything else?
 
@@ -84,3 +81,30 @@ reagent-desc-burnchamber = Burns as hot as the real thing. Don't forget a firesu
 
 reagent-name-weldingcoils = weldin' coils
 reagent-desc-weldingcoils = Perfect for drinking away your problems! There's coils to weld.
+
+reagent-name-poormansfrezon = poor man's frezon
+reagent-desc-poormansfrezon = For when you can't get your hands on the real deal.
+
+reagent-name-doublegreen = double green
+reagent-desc-doublegreen = None of these ingredients want to mix.
+
+reagent-name-batteryacid = battery acid
+reagent-desc-batteryacid = Don't Worry, This Is My Safe Drink (Aged 3 And Up)
+
+reagent-name-angels-kiss = angel's kiss
+reagent-desc-angels-kiss = A foul mimicry of something divine.
+
+reagent-name-pink-rose = pink rose
+reagent-desc-pink-rose = An herbal and floral delight.
+
+reagent-name-la-fleurette = la fleurette
+reagent-desc-la-fleurette = Pink and classy.
+
+reagent-name-romance-dead = romance is dead
+reagent-desc-romance-dead = A reminder of how fleeting love can be.
+
+reagent-name-romance-deadnot = romance isn't dead
+reagent-desc-romance-deadnot = A reminder of how perpetual love can be.
+
+reagent-name-rose-milk = rose milk
+reagent-desc-rose-milk = Pink and refreshing!

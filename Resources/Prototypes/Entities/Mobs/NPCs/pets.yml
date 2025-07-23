@@ -623,6 +623,8 @@
     flavors:
     - meaty
     - sadness
+  - type: PleebnarGibbable #imp edit
+    mindshield: true
 
 - type: entity
   name: Shiva
@@ -754,9 +756,7 @@
       200: Dead
   - type: FootstepModifier
     footstepSoundCollection:
-      path: /Audio/Effects/Footsteps/slime1.ogg
-      params:
-        volume: -6
+      collection: FootstepSlime
   - type: Tag
     tags:
     - FootstepSound

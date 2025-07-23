@@ -23,6 +23,33 @@
       - !type:Emote
         emote: Scream
         probability: 0.15
+  #imp edit start
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        damage:
+          types: #want to make this a nuisance but not nearly as harmful as ingesting
+            Poison: .2
+            Caustic: .2
+        conditions:
+        - !type:Breathing
+        - !type:Internals
+          usingInternals: false
+      - !type:Emote
+        emote: Cough
+        showInGuidebook: true
+        conditions:
+        - !type:Breathing
+        - !type:Internals
+          usingInternals: false
+  tileReactions:
+  - !type:CleanTileReaction
+    cleanCost: .125 #cleans reagents in puddles at a 1:8 ratio, twice as efficient as space cleaner
+  - !type:CleanDecalsReaction
+    cleanCost: .125 #default amount is already very efficient, but I want bleach to be the super cleaner
+  # imp edit end
 
 - type: reagent
   id: SpaceCleaner
@@ -48,6 +75,9 @@
   recognizable: true
   boilingPoint: 100.0
   meltingPoint: 60.0
+  slipData:
+    requiredSlipSpeed: 3.5
+  friction: 0.3 # Slightly less friction than water, but not as bad as space lube
   metabolisms:
     Food:
       metabolismRate: 0.4 # imp - accent lasts for like 15 seconds otherwise
@@ -58,8 +88,8 @@
       #    min: 6
       #  probability: 0.20
       - !type:GenericStatusEffect # imp
-        key: RelentlessPositivity
-        component: RelentlessPositivity
+        key: PGAccent
+        component: PGAccent
     #Drink: # imp
     #  effects:
       #- !type:ChemVomit
@@ -67,12 +97,22 @@
       #  - !type:ReagentThreshold
       #    min: 6
       #  probability: 0.20
+  #imp edit start
+  tileReactions:
+  - !type:CleanTileReaction
+    cleanCost: .5 #cleans reagents in puddles at a 1:2 ratio, 1/2 as efficient as space cleaner
+  - !type:CleanDecalsReaction
+    cleanCost: .5 #1/2 the efficiency of space cleaner, still cleans 10 decals with one spray bottle spray
+  #imp edit end
 
 - type: reagent
   id: SpaceLube
   name: reagent-name-space-lube
   desc: reagent-desc-space-lube
-  slippery: true
+  evaporationSpeed: 0.1
+  slipData:
+    requiredSlipSpeed: 1
+    superSlippery: true
   physicalDesc: reagent-physical-desc-shiny
   flavor: funny
   color: "#77b58e"
@@ -80,9 +120,8 @@
   boilingPoint: 290.0 # Glycerin
   meltingPoint: 18.2
   tileReactions:
-    - !type:SpillTileReaction
-      requiredSlipSpeed: 1
-      superSlippery: true
+  - !type:SpillTileReaction
+  friction: 0.0
 
 - type: reagent
   id: SpaceGlue
@@ -93,9 +132,9 @@
   color: "#ffffff"
   boilingPoint: 250.0
   meltingPoint: 380.0
-  viscosity: 0.5
   tileReactions:
-    - !type:SpillTileReaction
+  - !type:SpillTileReaction
+  viscosity: 0.5
   reactiveEffects:
     Acidic:
       methods: [ Touch ]
@@ -121,6 +160,4 @@
         time: 5
         refresh: false
   footstepSound:
-    collection: FootstepSticky
-    params:
-      volume: 6
+    collection: FootstepSlime

@@ -134,7 +134,7 @@
               amount: 2
               doAfter: 2
 
-        - to: shuttleInteriorWall
+        - to: shuttleInteriorWall # imp
           completed:
             - !type:SnapToGrid
               southRotation: true
@@ -172,18 +172,6 @@
               amount: 2
           steps:
             - tool: Welding
-              doAfter: 10
-
-    - node: woodWall
-      entity: WallWood
-      edges:
-        - to: girder
-          completed:
-            - !type:GivePrototype
-              prototype: MaterialWoodPlank1
-              amount: 2
-          steps:
-            - tool: Prying
               doAfter: 10
 
     - node: uraniumWall
@@ -280,10 +268,10 @@
             - tool: Prying
               doAfter: 5
 
-    - node: shuttleInteriorWall
+    - node: shuttleInteriorWall # imp
       entity: WallShuttleInterior
       edges:
-        - to: miningInteriorWall #imp
+        - to: miningInteriorWall
           completed:
             - !type:SnapToGrid
               southRotation: true
@@ -354,9 +342,6 @@
               doAfter: 1
 
         - to: diagonalshuttleWall
-          completed:
-            - !type:SnapToGrid
-              southRotation: false
           conditions:
             - !type:EntityAnchored { }
           steps:
@@ -686,7 +671,7 @@
             icon:
               sprite: Objects/Misc/glowstick.rsi
               state: glowstick_base
-            name: 1x glowstick
+            name: construction-graph-tag-glowstick
             doAfter: 2
         - to: shuttleWall
           completed:

@@ -179,7 +179,6 @@
   flavor: sour
   color: "#48b3b8"
   physicalDesc: reagent-physical-desc-ferrous
-  slippery: false
   metabolisms:
     Drink:
       effects:
@@ -383,8 +382,9 @@
         damage:
           groups:
             Brute: 2
-            Toxin: 2
             Airloss: 2
+          types:
+            Poison: 2
       - !type:PopupMessage
         type: Local
         messages: [ "histamine-effect-light-itchiness" ]
@@ -423,7 +423,7 @@
         conditions:
           - !type:OrganType
             type: Animal
-          - !type:ReagentThreshold
+          - !type:ReagentThreshold #imp
             min: 0.12
 
 - type: reagent
@@ -433,7 +433,7 @@
   desc: reagent-desc-amatoxin
   physicalDesc: reagent-physical-desc-nondescript
   color: "#D6CE7B"
-  contraband: Major
+  contraband: Major #imp
   metabolisms:
     Poison:
       metabolismRate: 0.2
@@ -455,14 +455,14 @@
     Poison:
       effects:
         - !type:HealthChange
-          conditions:
+          conditions: #imp
           - !type:HasTag
             tag: BROS
             invert: true
           damage:
             types:
               Poison: 2
-  tileReactions:
+  tileReactions: #imp
     - !type:SpillTileReaction
 
 - type: reagent
@@ -473,7 +473,7 @@
   physicalDesc: reagent-physical-desc-necrotic
   flavor: bitter
   color: "#7e916e"
-  contraband: Tier3Contraband
+  contraband: Tier3Contraband #imp
   worksOnTheDead: true
   metabolisms:
     Medicine:
@@ -499,6 +499,9 @@
           - !type:OrganType
             type: Animal
             shouldHave: false
+          - !type:OrganType
+            type: Vox
+            shouldHave: false
           - !type:OrganType # imp
             type: Kodepiia
             shouldHave: false
@@ -512,6 +515,9 @@
           - !type:OrganType
             type: Animal
             shouldHave: false
+          - !type:OrganType
+            type: Vox
+            shouldHave: false
           - !type:OrganType # imp
             type: Kodepiia
             shouldHave: false
@@ -519,6 +525,9 @@
         conditions:
         - !type:OrganType
           type: Animal
+          shouldHave: false
+        - !type:OrganType
+          type: Vox
           shouldHave: false
         - !type:OrganType # imp
           type: Kodepiia
@@ -539,9 +548,14 @@
         conditions:
         - !type:OrganType
           type: Animal
-          shouldHave: true
         reagent: Protein
         amount: 0.5
+      - !type:AdjustReagent
+        conditions:
+        - !type:OrganType
+          type: Vox
+        reagent: Protein
+        amount: 0.25
       - !type:AdjustReagent # Frontier
         conditions:
         - !type:OrganType
@@ -613,6 +627,7 @@
       - !type:Emote
         emote: Honk
         showInChat: true
+        showInGuidebook: true
         force: true
         probability: 0.2
       - !type:HealthChange
@@ -690,7 +705,7 @@
   physicalDesc: reagent-physical-desc-metallic
   flavor: shocking
   color: "#FDD023"
-  contraband: Tier3Contraband
+  contraband: Tier3Contraband #imp
   metabolisms:
     Poison:
       effects:
@@ -760,3 +775,33 @@
           shouldHave: false
         walkSpeedModifier: 0.4
         sprintSpeedModifier: 0.4
+
+- type: reagent
+  id: ToxinTrash
+  name: reagent-name-toxintrash
+  group: Toxins
+  desc: reagent-desc-toxintrash
+  flavor: trashy
+  physicalDesc: reagent-physical-desc-nondescript
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateHunger
+        factor: 1
+        conditions:
+        - !type:OrganType
+          type: Vox
+      # imp edit start
+      - !type:SatiateHunger
+          conditions:
+            - !type:OrganType
+              type: Rat
+      - !type:HealthChange
+          conditions:
+          - !type:OrganType
+            type: Rat
+            shouldHave: false
+          damage:
+            types:
+              Poison: 0.5
+      # imp edit end

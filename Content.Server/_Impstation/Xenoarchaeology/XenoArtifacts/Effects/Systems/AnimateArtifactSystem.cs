@@ -15,6 +15,7 @@ public sealed class AnimateArtifactSystem : EntitySystem
     [Dependency] private readonly RevenantAnimatedSystem _revenantAnimated = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
 
+    // Impstation: commenting out relevant stuff for testing NewXenoarch
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -22,12 +23,12 @@ public sealed class AnimateArtifactSystem : EntitySystem
         SubscribeLocalEvent<AnimateArtifactComponent, ArtifactActivatedEvent>(OnActivated);
     }
 
-    private void OnActivated(EntityUid uid, AnimateArtifactComponent component, ArtifactActivatedEvent args)
+    private void OnActivated(Entity<AnimateArtifactComponent> thisEnt, ref ArtifactActivatedEvent args)
     {
         // Get a list of all nearby objects in range
 
-        var entsHash = _lookup.GetEntitiesInRange(uid, component.Range);
-        entsHash.Add(uid);
+        var entsHash = _lookup.GetEntitiesInRange(thisEnt, thisEnt.Comp.Range);
+        entsHash.Add(thisEnt);
         var numSuccessfulAnimates = 0;
 
         var unshuffledEnts = entsHash.ToList();
@@ -35,14 +36,14 @@ public sealed class AnimateArtifactSystem : EntitySystem
 
         foreach (var ent in ents)
         {
-            if (numSuccessfulAnimates >= component.Count)
+            if (numSuccessfulAnimates >= thisEnt.Comp.Count)
             {
                 break;
             }
             // need to only get items not in a container
             if (HasComp<ItemComponent>(ent) && _revenantAnimated.CanAnimateObject(ent) && !_container.IsEntityInContainer(ent))
             {
-                if (_revenantAnimated.TryAnimateObject(ent, TimeSpan.FromSeconds(component.Duration)))
+                if (_revenantAnimated.TryAnimateObject(ent, TimeSpan.FromSeconds(thisEnt.Comp.Duration)))
                 {
                     numSuccessfulAnimates += 1;
                 }

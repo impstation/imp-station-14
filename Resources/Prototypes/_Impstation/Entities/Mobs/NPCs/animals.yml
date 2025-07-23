@@ -13,7 +13,7 @@
       layers:
       - map: ["enum.DamageStateVisualLayers.Base"]
         state: bros
-        sprite: Mobs/Animals/bros.rsi
+        sprite: _Impstation/Mobs/Animals/bros.rsi
     - type: Butcherable
       spawned:
         - id: FoodLingzhi
@@ -117,7 +117,7 @@
       layers:
       - map: ["enum.DamageStateVisualLayers.Base"]
         state: sorb
-        sprite: Mobs/Animals/bros.rsi
+        sprite: _Impstation/Mobs/Animals/bros.rsi
     - type: DamageStateVisuals
       states:
         Alive:
@@ -335,3 +335,48 @@
       groups:
         Genetic: 5
     canGib: false
+
+- type: entity
+  name: butterfly
+  parent: [ MobButterfly ]
+  id: MobButterflyBigger
+  description: Despite popular misconceptions, it's not actually made of butter. Also, it's big.
+  components:
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2
+    baseSprintSpeed : 4
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: butterflybigger
+      sprite: _Impstation/Mobs/Animals/butterflybigger.rsi
+  - type: RandomSprite
+    available:
+      - enum.DamageStateVisualLayers.Base:
+          butterflybigger: Rainbow
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: butterflybigger
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+
+# immune to zombification monkeys and kobolds, for cube boxes
+
+- type: entity
+  parent: MobMonkey
+  id: MobMonkeySanitized
+  name: monkey
+  description: New church of neo-darwinists actually believe that EVERY animal evolved from a monkey. Tastes like pork, and killing them is both fun and relaxing. There's a small N branded into its hand, a sign that it's part of the Ancestor Immunization Program.
+  components:
+  - type: ZombieImmune
+
+- type: entity
+  parent: MobKobold
+  id: MobKoboldSanitized
+  description: Cousins to the sentient race of lizard people, kobolds blend in with their natural habitat and are as nasty as monkeys; ready to pull out your hair and stab you to death. There's a small N branded into its hand, a sign that it's part of the Ancestor Immunization Program.
+  components:
+  - type: ZombieImmune

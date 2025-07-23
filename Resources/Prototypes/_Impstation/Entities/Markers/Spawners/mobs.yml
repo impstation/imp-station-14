@@ -21,7 +21,7 @@
     layers:
     - state: green
     - state: alive
-      sprite: Mobs/Demons/tomatokisser.rsi
+      sprite: _Impstation/Mobs/Demons/tomatokisser.rsi
   - type: ConditionalSpawner
     prototypes:
     - MobTomatoKisser
@@ -35,7 +35,7 @@
     layers:
     - state: green
     - state: raptor
-      sprite: Mobs/Aliens/laser-less_laser_raptor.rsi
+      sprite: _Impstation/Mobs/Aliens/laser-less_laser_raptor.rsi
   - type: ConditionalSpawner
     prototypes:
     - MobRaptor
@@ -48,7 +48,7 @@
     - type: Sprite
       layers:
         - state: blue
-        - sprite: Mobs/Animals/bros.rsi
+        - sprite: _Impstation/Mobs/Animals/bros.rsi
           state: bros
     - type: ClusterSpawner
       prototypes:
@@ -70,20 +70,6 @@
         amount: 2
         maxAmount: 2
       - id: MobGoose
-
-- type: entity
-  name: xeno lone praetorian spawner
-  id: SpawnMobXenoPraetorian
-  parent: MarkerBase
-  components:
-  - type: Sprite
-    layers:
-    - state: green
-    - state: running
-      sprite: Mobs/Aliens/Xenos/praetorian.rsi
-  - type: ConditionalSpawner
-    prototypes:
-    - MobXenoLonePraetorianNoGhost
 
 - type: entity
   name: Space Bear Major Spawner

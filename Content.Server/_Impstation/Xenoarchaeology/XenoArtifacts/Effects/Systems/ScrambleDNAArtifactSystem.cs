@@ -31,40 +31,43 @@ public sealed class ScrambleDNAArtifactSystem : EntitySystem
         SubscribeLocalEvent<ScrambleDNAArtifactComponent, ArtifactActivatedEvent>(OnActivated);
     }
 
-    private void OnActivated(EntityUid uid, ScrambleDNAArtifactComponent component, ArtifactActivatedEvent args)
+    private void OnActivated(Entity<ScrambleDNAArtifactComponent> ent, ref ArtifactActivatedEvent args)
     {
         // Get all entities in range, and the person who activated the artifact even if they are not within range
-        var ents = _lookup.GetEntitiesInRange(uid, component.Range);
+        var targets = _lookup.GetEntitiesInRange(ent, ent.Comp.Range);
         if (args.Activator != null)
-            ents.Add(args.Activator.Value);
+            targets.Add(args.Activator.Value);
 
         //Extract the people who can be scrambled
         var possibleVictims = new List<EntityUid>();
-        foreach (var ent in ents)
+        foreach (var target in targets)
         {
-            if (HasComp<HumanoidAppearanceComponent>(ent))
-                possibleVictims.Add(ent);
+            if (HasComp<HumanoidAppearanceComponent>(target))
+                possibleVictims.Add(target);
         }
 
         //Select random targets to scramble DNA
         var numScrambled = 0;
-        while (numScrambled < component.Count){
+        while (numScrambled < ent.Comp.Count){
             var targetIndex = _random.Next(0, possibleVictims.Count);
             var target = possibleVictims.ElementAt(targetIndex);
             possibleVictims.Remove(target);
 
-            ScrambleTargetDNA(target, component);
+            ScrambleTargetDNA(target, ent.Comp);
             numScrambled ++;
         }
     }
 
     private void ScrambleTargetDNA(EntityUid target, ScrambleDNAArtifactComponent component)
     {
+        // TODO: Implement cross-species transformation (requires de-transforms from all species and transforms to all species)
         if (TryComp<HumanoidAppearanceComponent>(target, out var humanoid))
         {
-            var newProfile = (HumanoidCharacterProfile.RandomWithSpecies(humanoid.Species));
+            var newProfile = HumanoidCharacterProfile.RandomWithSpecies(humanoid.Species);
+            newProfile.Gender = humanoid.Gender; // No Gender dysphoria please
+            newProfile.Sex = humanoid.Sex; // No Sex dysphoria either
             _humanoidAppearance.LoadProfile(target, newProfile, humanoid);
-            _metaData.SetEntityName(target, newProfile.Name, raiseEvents: false);
+            _metaData.SetEntityName(target, newProfile.Name, raiseEvents: false); //NT systems recognise you as someone else
             if (TryComp<DnaComponent>(target, out var dna))
             {
                 dna.DNA = _forensicsSystem.GenerateDNA();

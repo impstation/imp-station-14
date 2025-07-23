@@ -168,10 +168,8 @@
       # eating salt on its own kinda sucks, kids
       - !type:SatiateThirst
         factor: -0.5
-      - !type:HealthChange
+      - !type:HealthChange #start imp
         conditions:
-        - !type:ReagentThreshold
-          min: 1
         - !type:OrganType
           type: Snail
           shouldHave: true
@@ -182,7 +180,7 @@
     - !type:EnsureTileReaction
       components:
         - type: RevealRevenantOnCollide
-          popupText: revenant-revealed-salt
+          popupText: revenant-revealed-salt #end imp
 
 - type: reagent
   id: Syrup
@@ -193,7 +191,6 @@
   color: "#fb7125"
   recognizable: true
   physicalDesc: reagent-physical-desc-sticky
-  slippery: false
   viscosity: 0.55 #Start using syrup to attach your remote recievers to your microwaves!
   tileReactions:
     - !type:SpillTileReaction
@@ -208,6 +205,6 @@
           type: Kodepiia
           shouldHave: false
   footstepSound:
-    collection: FootstepBlood
+    collection: FootstepSlime
     params:
       volume: 6

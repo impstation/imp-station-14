@@ -1,3 +1,6 @@
+# WHY IS THIS CALLED ALCHOHOL.YML
+# ITS BEEN THIS WAY FOR ALMOST ONE YEAR?????????
+# OUR CODEBASE IS CRUMBLING.
 - type: reagent
   id: TheeHorsepussy
   name: reagent-name-theehorsepussy
@@ -35,22 +38,6 @@
           min: 20
         - !type:MobStateCondition
           mobstate: Alive
-
-- type: reagent
-  id: Calimotxo
-  name: reagent-name-calimotxo
-  parent: BaseAlcohol
-  desc: reagent-desc-calimotxo
-  physicalDesc: reagent-physical-desc-bubbly
-  flavor: cola
-  color: "#663100"
-  metamorphicSprite:
-    sprite: Objects/Consumable/Drinks/wineglass.rsi
-    state: icon_empty
-  metamorphicMaxFillLevels: 5
-  metamorphicFillBaseName: fill-
-  metamorphicChangeColor: true
-  fizziness: 0.8
 
 - type: reagent
   id: LoveTap
@@ -737,7 +724,7 @@
             Poison: .3
   fizziness: .2
 
-- type: reagent 
+- type: reagent
   id: Burnchamber
   name: reagent-name-burnchamber
   parent: BaseAlcohol
@@ -776,7 +763,7 @@
           probability: 0.2
   fizziness: .5
 
-- type: reagent 
+- type: reagent
   id: WeldingCoils
   name: reagent-name-weldingcoils
   parent: BaseAlcohol
@@ -803,3 +790,250 @@
       - !type:Electrocute
         probability: 0.05
   fizziness: .5
+
+- type: reagent
+  id: PoorMansFrezon
+  name: reagent-name-poormansfrezon
+  parent: BaseAlcohol
+  desc: reagent-desc-poormansfrezon
+  physicalDesc: reagent-physical-desc-frosty
+  flavor: poormansfrezon
+  color: "#c9edf2"
+  metamorphicSprite:
+    sprite: _Impstation/Objects/Consumable/Drinks/poormansfrezon.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 3
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 1
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.5
+    Narcotic:
+      effects:
+      - !type:SatiateThirst
+        factor: 1
+      - !type:GenericStatusEffect
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 4
+        refresh: false
+      - !type:PopupMessage
+        type: Local
+        visualType: Medium
+        messages: [ "frezon-euphoric" ]
+        probability: 0.05
+    Poison:
+      effects:
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          min: 200
+        amount: -7500
+  fizziness: 0.1
+
+- type: reagent
+  id: DoubleGreen
+  name: reagent-name-doublegreen
+  parent: BaseAlcohol
+  desc: reagent-desc-doublegreen
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: doublegreen
+  color: "#4e634e"
+  metamorphicSprite:
+    sprite: _Impstation/Objects/Consumable/Drinks/doublegreen.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 3
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 1
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.35
+    Narcotic:
+      effects:
+      - !type:SatiateThirst
+        factor: 1
+      - !type:GenericStatusEffect
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 5
+        refresh: false
+  fizziness: 0.1
+
+- type: reagent
+  id: BatteryAcid
+  name: reagent-name-batteryacid
+  parent: BaseAlcohol
+  desc: reagent-desc-batteryacid
+  physicalDesc: reagent-physical-desc-energizing
+  flavor: batteryacid
+  color: "#00ff00"
+  metamorphicSprite:
+    sprite: _Impstation/Objects/Consumable/Drinks/batteryacid.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 1
+      - !type:MovespeedModifier
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+        walkSpeedModifier: 1.02
+        sprintSpeedModifier: 1.02
+        probability: 0.02
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2
+    Poison:
+      effects:
+      - !type:Electrocute
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+        probability: 0.02
+  fizziness: .3
+
+- type: reagent
+  id: AngelsKiss
+  name: reagent-name-angels-kiss
+  parent: BaseAlcohol
+  desc: reagent-desc-angels-kiss
+  physicalDesc: reagent-physical-desc-nondescript
+  flavor: angelskiss
+  color: "#a6ffff"
+  metamorphicSprite:
+    sprite: _Impstation/Objects/Consumable/Drinks/angelskiss.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 3
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: PinkRose
+  name: reagent-name-pink-rose
+  parent: BaseAlcohol
+  desc: reagent-desc-pink-rose
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: gin
+  color: "#ff1c60"
+  recognizable: true
+  metamorphicSprite:
+    sprite: _Impstation/Objects/Consumable/Drinks/pinkrose.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2
+
+- type: reagent
+  id: LaFleurette
+  name: reagent-name-la-fleurette
+  parent: BaseAlcohol
+  desc: reagent-desc-la-fleurette
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: champagne
+  color: "#ff9ebb"
+  recognizable: true
+  metamorphicSprite:
+    sprite: _Impstation/Objects/Consumable/Drinks/lafleurette.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2
+
+- type: reagent
+  id: RomanceDead
+  name: reagent-name-romance-dead
+  parent: BaseAlcohol
+  desc: reagent-desc-romance-dead
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: metallic
+  color: "#ff1139"
+  recognizable: true
+  metamorphicSprite:
+    sprite: _Impstation/Objects/Consumable/Drinks/romancedead.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2
+
+- type: reagent
+  id: RomanceDeadNot
+  name: reagent-name-romance-deadnot
+  parent: BaseAlcohol
+  desc: reagent-desc-romance-deadnot
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: metallic
+  color: "#ff1139"
+  recognizable: true
+  metamorphicSprite:
+    sprite: _Impstation/Objects/Consumable/Drinks/romancedeadnot.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+
+- type: reagent
+  id: RoseMilk
+  name: reagent-name-rose-milk
+  parent: BaseAlcohol
+  desc: reagent-desc-rose-milk
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: rose
+  color: "#ff7c92"
+  recognizable: true
+  metamorphicSprite:
+    sprite: _Impstation/Objects/Consumable/Drinks/rosemilk.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2

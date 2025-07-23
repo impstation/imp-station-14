@@ -1,4 +1,4 @@
-# 10 Hr
+# Senior Times
 - type: loadoutEffectGroup
   id: Atmos10hr
   effects:
@@ -8,15 +8,16 @@
       role: JobAtmosphericTechnician
       time: 36000 #10 hrs, ~7 rounds
 
-# Head
-- type: loadout
-  id: AtmosphericTechnicianBeret
-  startingGear: EngineeringBeret
+- type: loadoutEffectGroup
+  id: SeniorAtmosphericTechnician
   effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorEngineering #From default senior engineering playtime in Resources\Prototypes\Loadouts\Jobs\Engineering\station_engineer.yml
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobAtmosphericTechnician
+      time: 108000 #30 hrs, ~20 rounds
 
-#OuterClothing
+# OuterClothing
 - type: loadout
   id: BomberAtmos
   equipment:
@@ -29,3 +30,17 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: Atmos10hr
+
+# id
+- type: loadout
+  id: AtmosphericTechnicianPDA
+  equipment:
+    id: AtmosPDA
+
+- type: loadout
+  id: SeniorAtmosphericTechnicianPDA
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorAtmosphericTechnician
+  equipment:
+    id: SeniorAtmosPDA

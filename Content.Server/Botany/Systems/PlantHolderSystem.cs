@@ -22,10 +22,12 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Content.Server.Labels.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
+using Content.Shared.Labels.Components;
+using System.Text.RegularExpressions; // imp
+using Content.Server.Station.Systems; // Frontier
 
 namespace Content.Server.Botany.Systems;
 
@@ -45,13 +47,10 @@ public sealed class PlantHolderSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-
+    [Dependency] private readonly StationSystem _station = default!; // Frontier
 
     public const float HydroponicsSpeedMultiplier = 1f;
     public const float HydroponicsConsumptionMultiplier = 2f;
-
-    private static readonly ProtoId<TagPrototype> HoeTag = "Hoe";
-    private static readonly ProtoId<TagPrototype> PlantSampleTakerTag = "PlantSampleTaker";
 
     public override void Initialize()
     {
@@ -104,9 +103,15 @@ public sealed class PlantHolderSystem : EntitySystem
             else if (!component.Dead)
             {
                 var displayName = Loc.GetString(component.Seed.DisplayName);
-                args.PushMarkup(Loc.GetString("plant-holder-component-something-already-growing-message",
-                    ("seedName", displayName),
-                    ("toBeForm", displayName.EndsWith('s') ? "are" : "is")));
+                //IMP EDITS: sprucing this shit up (ha, botany pun) to support better grammatical examine
+                //supports plural plant descriptions (i.e. "Ears of corn are", "An apple tree is", "Cannabis is"... etc.)
+                var seedNameAndArticle = Loc.GetString("plant-holder-crop-name", ("seedName", displayName),
+                    ("getsArticle", !(component.Seed.IsPluralName || component.Seed.IsSingularPluralName)));
+                var output = Loc.GetString("plant-holder-component-something-already-growing-message",
+                    ("seedNameAndArticle", seedNameAndArticle),
+                    ("count", component.Seed.IsPluralName)).TrimStart(' ');
+                args.PushMarkup(output);
+                //END IMP EDITS
 
                 if (component.Health <= component.Seed.Endurance / 2)
                 {
@@ -117,6 +122,20 @@ public sealed class PlantHolderSystem : EntitySystem
                                 ? "plant-holder-component-plant-old-adjective"
                                 : "plant-holder-component-plant-unhealthy-adjective"))));
                 }
+
+                // For future reference, mutations should only appear on examine if they apply to a plant, not to produce.
+
+                if (component.Seed.Ligneous)
+                    args.PushMarkup(Loc.GetString("mutation-plant-ligneous"));
+
+                if (component.Seed.TurnIntoKudzu)
+                    args.PushMarkup(Loc.GetString("mutation-plant-kudzu"));
+
+                if (component.Seed.CanScream)
+                    args.PushMarkup(Loc.GetString("mutation-plant-scream"));
+
+                if (component.Seed.Viable == false)
+                    args.PushMarkup(Loc.GetString("mutation-plant-unviable"));
             }
             else
             {
@@ -206,7 +225,7 @@ public sealed class PlantHolderSystem : EntitySystem
             return;
         }
 
-        if (_tagSystem.HasTag(args.Used, HoeTag))
+        if (_tagSystem.HasTag(args.Used, "Hoe"))
         {
             args.Handled = true;
             if (component.WeedLevel > 0)
@@ -246,7 +265,7 @@ public sealed class PlantHolderSystem : EntitySystem
             return;
         }
 
-        if (_tagSystem.HasTag(args.Used, PlantSampleTakerTag))
+        if (_tagSystem.HasTag(args.Used, "PlantSampleTaker"))
         {
             args.Handled = true;
             if (component.Seed == null)
@@ -254,6 +273,14 @@ public sealed class PlantHolderSystem : EntitySystem
                 _popup.PopupCursor(Loc.GetString("plant-holder-component-nothing-to-sample-message"), args.User);
                 return;
             }
+
+            // Frontier: prevent sampling unsamplable plants
+            if (component.Seed.PreventClipping)
+            {
+                _popup.PopupCursor(Loc.GetString("plant-holder-component-cannot-be-sampled-message"), args.User);
+                return;
+            }
+            // End Frontier
 
             if (component.Sampled)
             {
