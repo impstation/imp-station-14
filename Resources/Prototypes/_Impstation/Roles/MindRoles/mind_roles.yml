@@ -14,9 +14,10 @@
   name: Bounty Hunter Role
   components:
   - type: MindRole
+    antag: true
     antagPrototype: BountyHunter
     roleType: FreeAgent
-  - type: MindRoleBountyHunter
+  - type: BountyHunterRole
 
 #Lone Op
 - type: entity
@@ -28,3 +29,11 @@
     roleType: SoloAntagonist
     antagPrototype: NukeopsLone
   - type: NukeopsRole
+
+# Syndicate Infiltrator
+- type: entity
+  parent: MindRoleTraitor
+  id: MindRoleInfiltrator
+  components:
+  - type: MindRole
+    subtype: role-subtype-traitor

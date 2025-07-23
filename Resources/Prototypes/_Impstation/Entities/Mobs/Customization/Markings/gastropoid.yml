@@ -149,33 +149,6 @@
     state: cheeks
 
 - type: marking
-  id: GastropoidFaceEyes1
-  bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Gastropoid ]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Gastropoid/head.rsi
-    state: predator
-
-- type: marking
-  id: GastropoidFaceEyes2
-  bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Gastropoid ]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Gastropoid/head.rsi
-    state: prey
-
-- type: marking
-  id: GastropoidFaceEyes3
-  bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Gastropoid ]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Gastropoid/head.rsi
-    state: tentacle
-
-- type: marking
   id: GastropoidSpotsHeadLeft
   bodyPart: Head
   markingCategory: Head
@@ -260,6 +233,48 @@
 # Snout
 
 # Eyes
+
+- type: marking
+  id: GastropoidFaceEyes1
+  bodyPart: Eyes
+  markingCategory: Eyes
+  speciesRestriction: [ Gastropoid ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/head.rsi
+    state: predator
+
+- type: marking
+  id: GastropoidFaceEyes2
+  bodyPart: Eyes
+  markingCategory: Eyes
+  speciesRestriction: [ Gastropoid ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/head.rsi
+    state: prey
+
+- type: marking
+  id: GastropoidFaceEyes3
+  bodyPart: HeadTop
+  markingCategory: Eyes
+  speciesRestriction: [ Gastropoid ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/head.rsi
+    state: tentacle
 
 # RArm
 
@@ -431,16 +446,12 @@
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Gastropoid ]
+  layering:
+    bigstripes: TailOversuit
+    big: TailOversuit
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: big
-
-- type: marking
-  id: GastropoidShellBigStripes
-  bodyPart: Tail
-  markingCategory: Overlay
-  speciesRestriction: [ Gastropoid ]
-  sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: bigstripes
 
@@ -449,6 +460,8 @@
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Gastropoid ]
+  layering:
+    cone: TailOversuit
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: cone
@@ -458,6 +471,8 @@
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Gastropoid ]
+  layering:
+    prosthetic: TailOversuit
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: prosthetic
@@ -467,6 +482,8 @@
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Gastropoid ]
+  layering:
+    prostheticsimple: TailOversuit
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: prostheticsimple
@@ -476,24 +493,24 @@
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Gastropoid ]
+  layering:
+    smallstripes: TailOversuit
+    small: TailOversuit
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: small
-
-- type: marking
-  id: GastropoidShellSmallStripes
-  bodyPart: Tail
-  markingCategory: Overlay
-  speciesRestriction: [ Gastropoid ]
-  sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: smallstripes
+
+# Tail Overlays (layer on top of tail)
 
 - type: marking
   id: GlowInTheDarkStars
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    prostheticsimpleglowinthedarkstars: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: prostheticsimpleglowinthedarkstars
@@ -504,6 +521,8 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    prostheticinnerlight: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: prostheticinnerlight
@@ -514,6 +533,8 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    prostheticpulse: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: prostheticpulse
@@ -524,6 +545,8 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    prostheticsimplebow: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: prostheticsimplebow
@@ -533,6 +556,8 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    prostheticsimplecracks: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: prostheticsimplecracks
@@ -542,6 +567,10 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    weewoo1: Tail
+    weewoo2: Tail
+    weewoo3: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: weewoo1
@@ -556,6 +585,10 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    weewoosmall1: Tail
+    weewoosmall2: Tail
+    weewoosmall3: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: weewoosmall1
@@ -570,6 +603,8 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    conebigstripes: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: conebigstripes
@@ -579,6 +614,8 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    conecracked: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: conecracked
@@ -588,6 +625,8 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    coneduotone: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: coneduotone
@@ -597,6 +636,8 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    coneglow: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: coneglow
@@ -607,6 +648,8 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    conegradient: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: conegradient
@@ -616,6 +659,8 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    coneovergrown: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: coneovergrown
@@ -625,6 +670,8 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    conespecks: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: conespecks
@@ -634,6 +681,8 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    conestripes: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: conestripes
@@ -643,6 +692,8 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    smallduotone: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: smallduotone
@@ -652,6 +703,8 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    smallglow: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: smallglow
@@ -662,6 +715,8 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    smallgradient: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: smallgradient
@@ -671,6 +726,8 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    smallovergrown: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: smallovergrown
@@ -680,6 +737,8 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    smallseam: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: smallseam
@@ -689,6 +748,8 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    smallspiral: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: smallspiral
@@ -698,6 +759,8 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    smallspots: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: smallspots
@@ -707,6 +770,8 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    smallswirl: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: smallswirl
@@ -716,6 +781,8 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    bigcracked: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: bigcracked
@@ -725,6 +792,8 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    bigduotone: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: bigduotone
@@ -734,6 +803,8 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    bigglow: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: bigglow
@@ -744,6 +815,8 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    biggradient: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: biggradient
@@ -753,6 +826,8 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    bigovergrown: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: bigovergrown
@@ -762,6 +837,8 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    bigseam: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: bigseam
@@ -771,6 +848,8 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    bigspiral: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: bigspiral
@@ -780,6 +859,8 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    bigspots: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: bigspots
@@ -789,6 +870,8 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    bigswirl: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: bigswirl
@@ -798,6 +881,8 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    prostheticsimpleglass: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: prostheticsimpleglass
@@ -807,6 +892,9 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    smallmantle2: Tail
+    smallmantle1: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: smallmantle1
@@ -818,6 +906,9 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    smallribbon2: Tail
+    smallribbon1: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: smallribbon1
@@ -829,6 +920,9 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    conemantle2: Tail
+    conemantle1: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: conemantle1
@@ -840,6 +934,9 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    coneribbon2: Tail
+    coneribbon1: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: coneribbon1
@@ -851,6 +948,9 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    bigmantle2: Tail
+    bigmantle1: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: bigmantle1
@@ -862,6 +962,9 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    bigribbon2: Tail
+    bigribbon1: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: bigribbon1
@@ -873,6 +976,9 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    prostheticmulticolor2: Tail
+    prostheticmulticolor1: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: prostheticmulticolor1
@@ -884,6 +990,9 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Gastropoid ]
+  layering:
+    smallflowers2: Tail
+    smallflowers1: Tail
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: smallflowers1

@@ -1,6 +1,6 @@
 ﻿- type: entity
-  id: RandomArtifactSpawner
-  name: random artifact spawner
+  id: RandomXAEArtifactSpawner #IMP XAE in name
+  name: random reticulated artifact spawner
   parent: MarkerBase
   components:
     - type: Sprite
@@ -9,16 +9,16 @@
         - sprite: Objects/Specific/Xenoarchaeology/xeno_artifacts.rsi
           state: ano01
     - type: RandomSpawner
-      prototypes:
-        - ComplexXenoArtifact
-        - ComplexXenoArtifact
-        - ComplexXenoArtifactItem
+      prototypes: #IMP XAE in name
+        - ComplexXAEXenoArtifact
+        - ComplexXAEXenoArtifact
+        - ComplexXAEXenoArtifactItem
       chance: 1
 
 - type: entity
-  id: RandomArtifactSpawner20
-  name: random artifact spawner [20]
-  parent: RandomArtifactSpawner
+  id: RandomXAEArtifactSpawner20 #IMP XAE in name
+  name: random reticulated artifact spawner [20]
+  parent: RandomXAEArtifactSpawner
   components:
     - type: RandomSpawner
       chance: 0.2

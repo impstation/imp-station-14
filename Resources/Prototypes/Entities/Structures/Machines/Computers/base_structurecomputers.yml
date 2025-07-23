@@ -21,18 +21,21 @@
   - type: ExtensionCableReceiver
   - type: ActivatableUIRequiresPower
   - type: Sprite
-    sprite: _Impstation/Structures/Machines/computers.rsi # imp
+    sprite: Structures/Machines/computers.rsi # use base directory for screen and keys (unless we've resprited them), use imp directory for body, keyboard, and panel
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: generic
     - map: ["computerLayerKeys"]
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: Appearance
   - type: GenericVisualizer
     visuals:

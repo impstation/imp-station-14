@@ -58,7 +58,7 @@
   - type: BallisticAmmoProvider
     proto: null
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi #imp
     layers:
       - state: base
         map: [ "enum.GunVisualLayers.Base" ]
@@ -83,6 +83,23 @@
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumIncendiary
+  - type: MagazineVisuals #imp
+    magState: incendiary
+    steps: 7
+    zeroVisible: false
+  - type: Appearance #imp
+  - type: Item #imp
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-ammo
+      - state: inhand-left-stripe
+        color: "#d46925" #imp
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-ammo
+      - state: inhand-right-stripe
+        color: "#d46925" #imp
 
 - type: entity
   id: SpeedLoaderMagnumPractice
@@ -93,7 +110,7 @@
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumPractice
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi #imp
     layers:
       - state: base
         map: [ "enum.GunVisualLayers.Base" ]
@@ -110,12 +127,12 @@
       - state: inhand-left-mag
       - state: inhand-left-ammo
       - state: inhand-left-stripe
-        color: "#ea5800"
+        color: "#ffcb6f" #imp
       right:
       - state: inhand-right-mag
       - state: inhand-right-ammo
       - state: inhand-right-stripe
-        color: "#ea5800"
+        color: "#ffcb6f" #imp
 
 - type: entity
   id: SpeedLoaderMagnumAP
@@ -126,7 +143,7 @@
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumAP
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi #imp
     layers:
       - state: base
         map: [ "enum.GunVisualLayers.Base" ]
@@ -143,12 +160,12 @@
       - state: inhand-left-mag
       - state: inhand-left-ammo
       - state: inhand-left-stripe
-        color: "#540000"
+        color: "#662598" #imp
       right:
       - state: inhand-right-mag
       - state: inhand-right-ammo
       - state: inhand-right-stripe
-        color: "#540000"
+        color: "#662598" #imp
 
 - type: entity
   id: SpeedLoaderMagnumUranium
@@ -159,7 +176,7 @@
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumUranium
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi #imp
     layers:
       - state: base
         map: [ "enum.GunVisualLayers.Base" ]
@@ -176,9 +193,9 @@
       - state: inhand-left-mag
       - state: inhand-left-ammo
       - state: inhand-left-stripe
-        color: "#00cd42"
+        color: "#22b24d" #imp
       right:
       - state: inhand-right-mag
       - state: inhand-right-ammo
       - state: inhand-right-stripe
-        color: "#00cd42"
+        color: "#22b24d" #imp

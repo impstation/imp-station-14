@@ -523,3 +523,19 @@
   - type: Tag
     tags:
     - HiViz
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCentcommContraband]
+  id: ClothingUniformJumpsuitCentcommIntern
+  name: CentComm intern's jumpsuit
+  description: It's a jumpsuit worn by those interning for CentComm. The top is styled after a polo shirt for easy identification.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Other/centcommintern.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Other/centcommintern.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
