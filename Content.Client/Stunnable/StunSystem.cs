@@ -106,6 +106,13 @@ public sealed class StunSystem : SharedStunSystem
             _spriteSystem.SetRotation(uid, Angle.FromDegrees(270));
             return;
         }
+        else
+        {
+            rotationVisuals.HorizontalRotation = Angle.FromDegrees(90);
+            _spriteSystem.SetRotation(uid, Angle.FromDegrees(90));
+        }
+    }
+}
 
         rotationVisuals.HorizontalRotation = Angle.FromDegrees(90);
         _spriteSystem.SetRotation(uid, Angle.FromDegrees(90));
