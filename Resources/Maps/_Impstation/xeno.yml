@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/23/2025 11:42:51
-  entityCount: 19757
+  time: 07/23/2025 12:05:11
+  entityCount: 19758
 maps:
 - 1
 grids:
@@ -10194,7 +10194,7 @@ entities:
       pos: 11.5,-30.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -134264.66
+      secondsUntilStateChange: -134301.94
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -10795,7 +10795,7 @@ entities:
       pos: -34.5,-17.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -3550.9885
+      secondsUntilStateChange: -3588.2751
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -94889,6 +94889,13 @@ entities:
     components:
     - type: Transform
       pos: 4.635383,-79.48305
+      parent: 2
+- proto: ServiceBookTeleporter
+  entities:
+  - uid: 19758
+    components:
+    - type: Transform
+      pos: -0.5,-70.5
       parent: 2
 - proto: ServiceTechFab
   entities:
