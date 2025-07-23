@@ -1,19 +1,26 @@
 using System.Numerics;
 using Content.Shared.CombatMode;
 using Content.Shared.Interaction;
+using Content.Shared.Rotation;
 using Content.Shared.Stunnable;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
-using Robust.Shared.Animations;
+using Robust.Client.Graphics;
 using Robust.Shared.Input;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Client.Stunnable;
 
 public sealed class StunSystem : SharedStunSystem
 {
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
+    [Dependency] private readonly InputSystem _input = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly AnimationPlayerSystem _animation = default!;
+    [Dependency] private readonly IEyeManager _eyeManager = default!;
+    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SpriteSystem _spriteSystem = default!;
 
@@ -26,6 +33,8 @@ public sealed class StunSystem : SharedStunSystem
         SubscribeLocalEvent<StunVisualsComponent, ComponentInit>(OnComponentInit);
         SubscribeLocalEvent<StunVisualsComponent, AppearanceChangeEvent>(OnAppearanceChanged);
 
+        SubscribeLocalEvent<KnockedDownComponent, MoveEvent>(OnMovementInput);
+
         CommandBinds.Builder
             .BindAfter(EngineKeyFunctions.UseSecondary, new PointerInputCmdHandler(OnUseSecondary, true, true), typeof(SharedInteractionSystem))
             .Register<StunSystem>();
@@ -33,7 +42,7 @@ public sealed class StunSystem : SharedStunSystem
 
     private bool OnUseSecondary(in PointerInputCmdHandler.PointerInputCmdArgs args)
     {
-        if (args.Session?.AttachedEntity is not {Valid: true} uid)
+        if (args.Session?.AttachedEntity is not { Valid: true } uid)
             return false;
 
         if (args.EntityUid != uid || !HasComp<KnockedDownComponent>(uid) || !_combat.IsInCombatMode(uid))
@@ -81,6 +90,27 @@ public sealed class StunSystem : SharedStunSystem
         _spriteSystem.LayerSetVisible((entity, entity.Comp), index, visible);
         _spriteSystem.LayerSetRsiState((entity, entity.Comp), index, state);
     }
+
+    private void OnMovementInput(EntityUid uid, KnockedDownComponent component, MoveEvent args)
+    {
+        if (!_timing.IsFirstTimePredicted
+            || _animation.HasRunningAnimation(uid, "rotate")
+            || !TryComp<RotationVisualsComponent>(uid, out var rotationVisuals))
+            return;
+
+        var rotation = Transform(uid).LocalRotation + (_eyeManager.CurrentEye.Rotation - (Transform(uid).LocalRotation - _transformSystem.GetWorldRotation(uid)));
+
+        if (rotation.GetDir() is Direction.SouthEast or Direction.East or Direction.NorthEast or Direction.North)
+        {
+            rotationVisuals.HorizontalRotation = Angle.FromDegrees(270);
+            _spriteSystem.SetRotation(uid, Angle.FromDegrees(270));
+            return;
+        }
+
+        rotationVisuals.HorizontalRotation = Angle.FromDegrees(90);
+        _spriteSystem.SetRotation(uid, Angle.FromDegrees(90));
+    }
+}
 
     /// <summary>
     /// A simple fatigue animation, a mild modification of the jittering animation. The animation constructor is
