@@ -37,7 +37,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
-using Content.Server._Wizden.Chat.Systems;
+using Content.Server._Wizden.Chat.Systems; // Imp edit for Last Message Before Death Webhook
 
 namespace Content.Server.Chat.Systems;
 
@@ -832,6 +832,9 @@ public sealed partial class ChatSystem : SharedChatSystem
         return !_chatManager.MessageCharacterLimit(player, message);
     }
 
+    /// <summary>
+    ///     Imp Edit: First modify message to respect entity accent, then send it to LastMessage system to record last message info for player
+    /// </summary>
     public void HandleLastMessageBeforeDeath(EntityUid source, ICommonSession player, string message)
     {
         var newMessage = TransformSpeech(source, message);

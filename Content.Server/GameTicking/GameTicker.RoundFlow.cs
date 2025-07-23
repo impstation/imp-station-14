@@ -505,7 +505,7 @@ namespace Content.Server.GameTicking
             {
                 Log.Error($"Error while sending round end Discord message: {e}");
             }
-            SendLastMessagesBeforeDeath();
+            SendLastMessagesBeforeDeath(); //Imp Edit: Last message before death webhook
         }
 
         public void ShowRoundEndScoreboard(string text = "")
@@ -649,6 +649,9 @@ namespace Content.Server.GameTicking
             }
         }
 
+        /// <summary>
+        /// Imp Edit: trigger last messages to send to discord on round end
+        /// </summary>
         public void SendLastMessagesBeforeDeath()
         {
             var lastMessageSystem = _entityManager.System<LastMessageBeforeDeathSystem>();
