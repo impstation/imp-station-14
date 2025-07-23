@@ -55,7 +55,7 @@
   parent: BaseItem
   components:
   - type: Sprite
-    sprite: Objects/Tools/Toolboxes/toolbox_thief.rsi
+    sprite: _Impstation/Objects/Tools/Toolboxes/toolbox_thief.rsi #imp edit
     state: icon
   - type: ThiefUndeterminedBackpack
     possibleSets:

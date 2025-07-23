@@ -189,7 +189,7 @@
   name: makeshift laser pistol
   parent: BaseWeaponBatterySmall
   id: WeaponMakeshiftLaser
-  description: Better pray it won't burn your hands off.
+  description: The buzzing sound it emits does not evoke confidence. Hope you brought gloves! #imp
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Battery/makeshift.rsi #imp
@@ -199,6 +199,10 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: Gun #imp - to change the fire-rate
+    fireRate: 1.75
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/laserpusk.ogg #imp
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -207,11 +211,18 @@
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Battery/makeshift.rsi #imp
   - type: HitscanBatteryAmmoProvider
-    proto: RedLaser
+    proto: EmergencyRedLaser #imp
     fireCost: 62.5
   - type: Battery
     maxCharge: 500
     startingCharge: 500
+  - type: DamageOnShoot #imp you really think you can trust a weaponized laser you built yourself??????
+    damage:
+      types:
+        Shock: 10
+    stunChance: 0.25
+    stunSeconds: 3
+    popupText: damage-on-shoot-laser
   - type: MeleeWeapon #imp; for pistolwhip anim
     wideAnimationRotation: -80
 

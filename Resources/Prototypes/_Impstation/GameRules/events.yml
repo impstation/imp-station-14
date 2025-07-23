@@ -37,7 +37,7 @@
   components:
   - type: StationEvent
     weight: 7
-    duration: 1
+    duration: null
     earliestStart: 25
     reoccurrenceDelay: 20
     minimumPlayers: 15
@@ -50,6 +50,7 @@
     - BountyHunterKillRandomAntagObjective
     - BountyHunterSurviveObjective
   - type: AntagSelection
+    agentName: bounty-hunter-roundend-name
     definitions:
     - spawnerPrototype: SpawnPointGhostBountyHunter
       min: 1
@@ -107,3 +108,26 @@
     reoccurrenceDelay: 20
     minimumPlayers: 10
     duration: null
+
+# syndicate infiltrator
+- type: entity
+  parent: BaseMidRoundAntag
+  id: SyndicateInfiltratorSpawn
+  components:
+  - type: StationEvent
+    weight: 4
+    reoccurrenceDelay: 5
+    minimumPlayers: 15
+    earliestStart: 25
+    duration: null
+  - type: MidRoundAntagRule
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointInfiltrator
+      min: 1
+      max: 1
+      pickPlayer: false
+      components:
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
