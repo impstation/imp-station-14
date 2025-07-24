@@ -36,6 +36,14 @@
   objectType: Item
 
 - type: construction
+  id: improvisedlaser
+  graph: ImprovisedLaserGraph
+  startNode: start
+  targetNode: laser
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
   id: improvisedpistol
   graph: ImprovisedPistolGraph
   startNode: start

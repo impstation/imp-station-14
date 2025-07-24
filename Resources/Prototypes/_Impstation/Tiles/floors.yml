@@ -15,6 +15,54 @@
   heatCapacity: 10000
 
 - type: tile
+  id: FloorChapelNE
+  name: tiles-chapel-floor-ne
+  sprite: /Textures/_Impstation/Tiles/chapelNE.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemChapelNE
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorChapelNW
+  name: tiles-chapel-floor-nw
+  sprite: /Textures/_Impstation/Tiles/chapelNW.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemChapelNW
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorChapelSE
+  name: tiles-chapel-floor-se
+  sprite: /Textures/_Impstation/Tiles/chapelSE.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemChapelSE
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorChapelSW
+  name: tiles-chapel-floor-sw
+  sprite: /Textures/_Impstation/Tiles/chapelSW.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemChapelSW
+  heatCapacity: 10000
+
+- type: tile
   id: FloorCraftedAsphalt
   name: tiles-crafted-asphalt
   parent: FloorAsphalt

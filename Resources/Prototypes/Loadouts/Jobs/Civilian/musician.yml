@@ -1,13 +1,3 @@
-# To unlock the harmonica trinket on any job
-- type: loadoutEffectGroup
-  id: MusicallyTalented
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobMusician
-      time: 36000 #10 hrs, ~7 rounds #imp
-
 # Jumpsuit
 - type: loadout
   id: MusicianJumpsuit
@@ -19,19 +9,8 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtMusician
 
-- type: loadout
-  id: MusicianMarchingBand
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitMusicianMarchingBand # imp
-
 # Outerclothing
 - type: loadout
   id: MusicianWintercoat
   equipment:
     outerClothing: ClothingOuterWinterMusician
-
-# Head
-- type: loadout
-  id: MusicianShako
-  equipment:
-    head: ClothingHeadHatMusicianShako # imp

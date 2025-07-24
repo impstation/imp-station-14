@@ -1,3 +1,14 @@
+# Senior times
+- type: loadoutEffectGroup
+  id: SeniorDetective
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobDetective
+      time: 108000 #30 hrs, ~20 rounds
+
+# Jumpsuits
 - type: loadout
   id: ClothingUniformMiamiVice
   equipment:
@@ -18,11 +29,13 @@
   equipment:
     jumpsuit: ClothingUniformDetectiveSuitSkirt #imp
 
+# Outer Clothing
 - type: loadout
   id: ClothingOuterCoatFieldJacket
   equipment:
     outerClothing: ClothingOuterCoatFieldJacket #imp
 
+# Head
 - type: loadout
   id: ClothingHeadDeerstalker
   equipment:
@@ -80,3 +93,17 @@
   storage:
     back:
     - MagazinePistolFreelancerStun
+
+# id
+- type: loadout
+  id: DetectivePDA
+  equipment:
+    id: DetectivePDA
+
+- type: loadout
+  id: SeniorDetectivePDA
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorDetective
+  equipment:
+    id: SeniorDetectivePDA

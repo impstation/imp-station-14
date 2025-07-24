@@ -732,7 +732,7 @@
   parent: CrateGeneric
   id: CrateCoffin
   name: coffin
-  description: A comfy coffin, excelent place for the vampires and corpses.
+  description: A comfy coffin, excellent place for the vampires and corpses.
   components:
   - type: Sprite
     sprite: Structures/Storage/Crates/coffin.rsi
@@ -919,6 +919,7 @@
   components:
   - type: Stealth
     hadOutline: true
+    useAltShader: true # imp
   - type: StealthOnMove
     passiveVisibilityRate: -0.10
     movementVisibilityRate: 0.10

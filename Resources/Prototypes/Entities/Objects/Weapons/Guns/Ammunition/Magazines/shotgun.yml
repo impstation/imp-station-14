@@ -122,11 +122,11 @@
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#dcb54c" #imp
+        color: "#662598" #imp
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#dcb54c" #imp
+        color: "#662598" #imp
 
 - type: entity
   id: MagazineShotgunIncendiary
@@ -138,7 +138,7 @@
     proto: ShellShotgunIncendiary
   - type: Sprite
     layers:
-    - state: slug
+    - state: incendiary # imp
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
@@ -147,8 +147,8 @@
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#d63b28" #imp
+        color: "#d46925" #imp
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#d63b28" #imp
+        color: "#d46925" #imp
