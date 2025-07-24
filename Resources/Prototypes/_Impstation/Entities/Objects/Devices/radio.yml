@@ -29,7 +29,7 @@
 - type: entity
   name: scrap radio
   description: A handheld radio made out of junk.
-  parent: BaseRadio
+  parent: RadioHandheld
   id: RadioHandheldScrap
   components:
   - type: RadioMicrophone
