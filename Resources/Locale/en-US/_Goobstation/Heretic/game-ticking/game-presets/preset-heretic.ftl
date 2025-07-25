@@ -51,6 +51,5 @@ hell-memory-title = Memory Loss
 hell-memory-text =
     Your mind has been harvested by a Heretic, driving you to madness!
 
-    You have lost all memory of who did this to you and how.
-    [color=yellow][bold]Your allegiances have not changed![/bold][/color]
+    You have lost all memory of who did this to you and how, but [color=yellow][bold]your allegiances have not changed![/bold][/color]
 hell-memory-confirm = Confirm
