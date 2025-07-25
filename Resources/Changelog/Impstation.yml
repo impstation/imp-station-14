@@ -1,29 +1,4 @@
 ﻿Entries:
-- author: Darkmajia
-  changes:
-  - message: I have typed "7 minutes in seconds" into Google. The pre-round lobby
-      duration should be 7 minutes, as previously intended. We're all professionals
-      here.
-    type: Fix
-  id: 1520
-  time: '2025-04-14T02:07:42.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2257
-- author: Kandiyaki
-  changes:
-  - message: the Mask of Madness will now only work if it is worn.
-    type: Tweak
-  - message: the heretic lore book will now spawn in the library again.
-    type: Fix
-  id: 1521
-  time: '2025-04-14T10:22:28.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2240
-- author: bigsantino1
-  changes:
-  - message: Smoking will now make smoke again.
-    type: Fix
-  id: 1522
-  time: '2025-04-15T14:32:43.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2263
 - author: SixValentine
   changes:
   - message: The usual suspects for map maints stuff. Nerfed garbage.
@@ -4218,3 +4193,25 @@
   id: 2019
   time: '2025-07-12T04:02:28.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3051
+- author: DinnerCalzone
+  changes:
+  - message: Oasis has been updated to incorporate the latest upstream version, including
+      genpop support!
+    type: Add
+  id: 2020
+  time: '2025-07-24T08:16:54.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3154
+- author: Stonylogray
+  changes:
+  - message: Free agent ghost role text edited for clarification.
+    type: Tweak
+  id: 2021
+  time: '2025-07-23T10:29:32.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3148
+- author: astral_amy
+  changes:
+  - message: A third round of Whisper changes - details in PR.
+    type: Tweak
+  id: 2022
+  time: '2025-07-23T10:29:59.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3146
