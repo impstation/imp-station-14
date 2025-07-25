@@ -42,6 +42,7 @@ ghostrole-ghoul-rules = You are a [color=red][bold]Team Antagonist[/bold][/color
 ghoul-notif-text =
     You have been resurrected as a ghoul!
 
+    You are now a [color=#6495ed][bold]Familiar[/bold][/color] of the one who summoned you.
     Protect your new master and follow their orders.
 ghoul-notif-title = Return to Flesh
 
@@ -51,4 +52,5 @@ hell-memory-text =
     Your mind has been harvested by a Heretic, driving you to madness!
 
     You have lost all memory of who did this to you and how.
+    [color=yellow][bold]Your allegiances have not changed![/bold][/color]
 hell-memory-confirm = Confirm
