@@ -190,7 +190,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 
                 // If giveUplink is false the uplink code part is omitted
                 // Imp Edit for Traitor Flavor
-                briefing = string.Format("{0}\n{1}\n{2}\n\n{3}\n\n{4}\n{5}\n\n{6}\n{7}\n\n{8}", 
+                briefing = string.Format("{0}\n{1}\n{2}\n\n{3}\n\n{4}\n[color=lightgray]{5}[/color]\n\n{6}\n[color=lightgray]{7}[/color]\n\n[color=crimson]{8}[/color]", 
                     briefing,
                     Loc.GetString($"traitor-{objectiveIssuer}-uplink"),
                     Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", code).Replace("sharp", "#"))),
@@ -208,7 +208,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink is implant");
             // Imp Edit for Traitor Flavor
-            briefing = string.Format("{0}\n{1}\n{2}\n\n{3}\n\n{4}\n{5}\n\n{6}\n{7}\n\n{8}",
+            briefing = string.Format("{0}\n{1}\n{2}\n\n{3}\n\n{4}\n[color=lightgray]{5}[/color]\n\n{6}\n[color=lightgray]{7}[/color]\n\n[color=crimson]{8}[/color]",
                 briefing,
                 Loc.GetString($"traitor-{objectiveIssuer}-uplink"),
                 Loc.GetString("traitor-role-uplink-implant-short"),
@@ -246,12 +246,12 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
             sb.AppendLine(Loc.GetString("traitor-role-uplink-implant"));
 
         sb.AppendLine("\n" + Loc.GetString($"traitor-role-allegiances"));
-        sb.AppendLine(Loc.GetString($"traitor-{objectiveIssuer}-allies"));
+        sb.AppendLine("[color=lightgray]" + Loc.GetString($"traitor-{objectiveIssuer}-allies") + "[/color]");
 
         sb.AppendLine("\n" + Loc.GetString($"traitor-role-notes"));
-        sb.AppendLine(Loc.GetString($"traitor-{objectiveIssuer}-goal"));
+        sb.AppendLine("[color=lightgray]" + Loc.GetString($"traitor-{objectiveIssuer}-goal") + "[/color]");
 
-        sb.AppendLine("\n" + Loc.GetString($"traitor-role-clarity"));
+        sb.AppendLine("\n" + "[color=crimson]" + Loc.GetString($"traitor-role-clarity") + "[/color]");
         // End Imp Edit for Traitor Flavor
 
         return sb.ToString();
