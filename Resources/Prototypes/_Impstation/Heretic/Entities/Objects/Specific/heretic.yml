@@ -68,7 +68,7 @@
     pointGain: 999
     useTimeSeconds: 1
 
-- type: entity #imp special
+- type: entity 
   parent: [ BaseItem, TierXContraband ]
   id: HereticBookSensor
   name: seeker's heart
@@ -93,7 +93,7 @@
         maxDistance: 1
         volume: -2
 
-- type: entity #imp special
+- type: entity 
   id: AlwaysPoweredHellLight
   parent: MarkerBase
   name: hellworldlight
@@ -112,7 +112,7 @@
       - sprite: Structures/Wallmounts/Lighting/light_tube.rsi
         state: base
 
-- type: entity #imp special
+- type: entity 
   id: HellSpawnPointMarker
   parent: MarkerBase
   name: hellworldtarget
