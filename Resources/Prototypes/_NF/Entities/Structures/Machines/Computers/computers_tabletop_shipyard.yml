@@ -1,0 +1,18 @@
+﻿- type: entity
+  parent: [BaseStructureComputerTabletop, ComputerShipyard]
+  id: ComputerTabletopShipyard
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    layers:
+    - map: ["computerLayerBody"]
+      sprite: _Impstation/Structures/Machines/computer_tabletop.rsi #imp edit
+      state: computer_tabletop
+    - map: ["computerLayerKeyboard"]
+      sprite: _Impstation/Structures/Machines/computer_tabletop.rsi #imp edit
+      state: generic_keyboard_tabletop
+    - map: ["computerLayerScreen"]
+      sprite: _Impstation/Structures/Machines/computers.rsi #imp edit
+      state: shipyard
+    - map: ["computerLayerKeys"]
+      state: telesci_key

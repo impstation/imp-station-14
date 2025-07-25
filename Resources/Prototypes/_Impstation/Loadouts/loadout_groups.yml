@@ -682,15 +682,6 @@
   - MusicianShako
 
 - type: loadoutGroup
-  id: ReporterJumpsuit
-  name: loadout-group-reporter-jumpsuit
-  loadouts:
-  - ReporterJumpsuit
-  - JournalistJumpsuit
-  - ClothingUniformBrosBlazer
-  - ClothingUniformBrosBlazerSkirt
-
-- type: loadoutGroup
   id: ReporterNeck
   name: loadout-group-reporter-neck
   minLimit: 0
@@ -955,6 +946,7 @@
 - type: loadoutGroup
   id: HeadofSecurityBelt
   name: loadout-group-head-of-security-belt
+  minLimit: 0
   loadouts:
   - SecurityBelt
   - SecurityWebbing
