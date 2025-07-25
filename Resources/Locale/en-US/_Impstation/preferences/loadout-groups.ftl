@@ -74,6 +74,7 @@ loadout-group-clown-mask = Clown mask
 loadout-group-clown-neck = Clown neck
 
 loadout-group-musician-neck = Musician neck
+loadout-group-musician-gloves = Musician gloves
 loadout-group-musician-shoes = Musician shoes
 loadout-group-musician-head = Musician head
 
