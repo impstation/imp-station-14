@@ -6,7 +6,7 @@
   - RMCXenoSpeechSounds
   - RMCXenoMobCollision
   id: CMXenoRunnerBase
-  name: Exomorph Runner
+  name: exomorph runner
   description: A small red alien that looks like it could run fairly quickly...
   components:
   - type: GhostRole
@@ -73,9 +73,6 @@
   parent: CMXenoRunnerBase
   id: CMXenoRunner
   components:
-  - type: GuideHelp
-    guides:
-    - RMCGuideRoleRunner
   - type: MobThresholds
     thresholds:
       0: Alive

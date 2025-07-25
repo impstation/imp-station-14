@@ -32,6 +32,7 @@
     sprite: Clothing/Head/Misc/chickenhead.rsi
   - type: IngestionBlocker
   - type: IdentityBlocker
+  - type: ParasiteResistance #imp
 
 - type: entity
   parent: ClothingHeadBase
@@ -74,6 +75,7 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
+  - type: ParasiteResistance #imp
 
 - type: entity
   parent: ClothingHeadBase
@@ -109,6 +111,7 @@
     sprite: Clothing/Head/Misc/richard.rsi
   - type: IngestionBlocker
   - type: IdentityBlocker
+  - type: ParasiteResistance #imp
 
 - type: entity
   parent: ClothingHeadBase
@@ -122,6 +125,7 @@
     sprite: Clothing/Head/Misc/skubhead.rsi
   - type: IngestionBlocker
   - type: IdentityBlocker
+  - type: ParasiteResistance #imp
 
 - type: entity
   parent: ClothingHeadBase
@@ -248,6 +252,7 @@
     sprite: Clothing/Head/Misc/squiddy.rsi
   - type: IngestionBlocker
   - type: IdentityBlocker
+  - type: ParasiteResistance #imp
 
 - type: entity
   parent: ClothingHeadBase

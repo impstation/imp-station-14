@@ -21,6 +21,7 @@
     layers:
       Snout: Mask
     hideOnToggle: true
+  - type: ParasiteResistance #imp
 
 - type: entity
   parent: [ClothingMaskGas, BaseSecurityContraband]
@@ -97,6 +98,7 @@
     sprite: Clothing/Mask/gascaptain.rsi
   - type: BreathMask
   - type: IngestionBlocker
+  - type: ParasiteResistance #imp
 
 - type: entity
   parent: [ ClothingMaskGasAtmos, BaseCentcommContraband ]
@@ -110,6 +112,7 @@
     sprite: Clothing/Mask/gascentcom.rsi
   - type: BreathMask
   - type: IngestionBlocker
+  - type: ParasiteResistance #imp
 
 - type: entity
   parent: [ClothingMaskGas, BaseCargoContraband]
@@ -148,6 +151,7 @@
     - PetWearable
     - WhitelistChameleon
     - BreathMask # goob edit
+  - type: ParasiteResistance #imp
 
 - type: entity
   parent: ClothingMaskBreathMedical
@@ -203,6 +207,7 @@
     layers:
       Snout: Mask
     hideOnToggle: true
+  - type: ParasiteResistance #imp
 
 - type: entity
   parent: ClothingMaskBase
@@ -420,6 +425,7 @@
   - type: PhysicalComposition
     materialComposition:
       Plastic: 25
+  - type: ParasiteResistance #imp
 
 - type: entity
   parent: ClothingMaskBase
@@ -447,6 +453,7 @@
       mutedEmotes: true
       mutedScream: false
       mutedSpeech: false
+  - type: ParasiteResistance #imp
 
 - type: entity
   parent: ClothingMaskPullableBase
@@ -465,6 +472,7 @@
     slots:
     - Snout
     hideOnToggle: true
+  - type: ParasiteResistance #imp
 
 - type: entity
   parent: ClothingMaskClownBase

@@ -1,4 +1,5 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Audio;
 
 namespace Content.Shared._RMC14.Xenonids.Parasite;
 

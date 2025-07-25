@@ -771,11 +771,8 @@ public abstract partial class SharedXenoParasiteSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Tries to rip off an entity's clothing item.
+    ///     Checks to see if a clothing item has resistance and the target is uninfectable.
     /// </summary>
-    /// <returns>
-    ///     If target should be infected.
-    /// </returns>
     private bool TryRipOffClothing(EntityUid victim, SlotFlags slotFlags, bool doPopup = true)
     {
         if (!_inventory.TryGetContainerSlotEnumerator(victim, out var slots))
@@ -787,25 +784,13 @@ public abstract partial class SharedXenoParasiteSystem : EntitySystem
             if ((inventorySlot.SlotFlags & slotFlags) != 0 || _tagSystem.HasTag(containedEntity, "RipOffOnInfection"))
             {
                 TryComp(containedEntity, out ParasiteResistanceComponent? resistance);
-
-                if (resistance != null && resistance.Count < resistance.MaxCount)
+                if (_net.IsServer && doPopup)
                 {
-                    resistance.Count += 1;
-                    Dirty(containedEntity, resistance);
-
-                    if (_net.IsServer && doPopup)
-                    {
-                        var popupMessage = Loc.GetString("rmc-xeno-infect-fail", ("target", victim), ("clothing", containedEntity));
-                        _popup.PopupEntity(popupMessage, victim, PopupType.SmallCaution);
-                    }
-
-                    return false;
+                    var popupMessage = Loc.GetString("rmc-xeno-infect-fail", ("target", victim), ("clothing", containedEntity));
+                    _popup.PopupEntity(popupMessage, victim, PopupType.SmallCaution);
                 }
-                else
-                {
-                    _inventory.TryUnequip(victim, victim, inventorySlot.Name, force: true);
-                    rippedOffItem = containedEntity;
-                }
+
+                return false;
             }
         }
 

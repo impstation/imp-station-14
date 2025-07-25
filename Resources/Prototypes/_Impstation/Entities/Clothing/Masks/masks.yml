@@ -25,6 +25,7 @@
     slots:
     - Snout
     hideOnToggle: true
+  - type: ParasiteResistance
 
 - type: entity
   parent: [ ClothingMaskGas, BaseCommandContraband ]
@@ -80,6 +81,7 @@
     slots:
     - Snout
     hideOnToggle: true
+  - type: ParasiteResistance
 
 - type: entity
   parent: ClothingMaskBase

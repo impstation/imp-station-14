@@ -114,6 +114,7 @@
         Blunt: 0.8
         Slash: 0.8
         Piercing: 0.95
+  - type: ParasiteResistance #imp
 
 #Bombsuit Helmet
 - type: entity
@@ -141,6 +142,7 @@
     - Snout
     - HeadTop
     - HeadSide
+  - type: ParasiteResistance #imp
 
 #Janitorial Bombsuit Helmet
 - type: entity
@@ -174,6 +176,7 @@
         Slash: 0.8
         Piercing: 0.9
         Heat: 0.9
+  - type: ParasiteResistance #imp
 
 #Space Ninja Helmet
 - type: entity
@@ -197,6 +200,7 @@
     - Snout
     - HeadTop
     - HeadSide
+  - type: ParasiteResistance #imp
 
 #Knight Helmet
 - type: entity
@@ -211,6 +215,7 @@
     sprite: Clothing/Head/Helmets/templar.rsi
   - type: IngestionBlocker
   - type: IdentityBlocker
+  - type: ParasiteResistance #imp
 
 #Thunderdome Helmet
 - type: entity
@@ -237,6 +242,7 @@
     sprite: Clothing/Head/Helmets/wizardhelm.rsi
   - type: IngestionBlocker
   - type: IdentityBlocker
+  - type: ParasiteResistance #imp
 
 #Fire Helmet
 - type: entity
@@ -267,6 +273,7 @@
     - Snout
     - HeadTop
     - HeadSide
+  - type: ParasiteResistance #imp
 
 #Atmos Fire Helmet
 - type: entity
@@ -301,6 +308,7 @@
     - HeadTop
     - HeadSide
   - type: BreathMask
+  - type: ParasiteResistance #imp
 
 #Chitinous Helmet
 - type: entity
