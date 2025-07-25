@@ -139,7 +139,6 @@ namespace Content.IntegrationTests.Tests
             "Luna",
             "MarathonImp",
             "OasisImp",
-            "OmegaImp",
             "PackedImp",
             "PlasmaImp",
             "ReachImp",
