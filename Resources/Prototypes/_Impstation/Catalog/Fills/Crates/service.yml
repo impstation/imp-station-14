@@ -1,13 +1,13 @@
 - type: entity
   id: CrateServiceSoap
   parent: CratePlastic
-  name: soap jug crate
-  description: The budget option for when you run out of space cleaner.
+  name: soap bucket crate
+  description: The budget option for when you run out of space cleaner. Careful not to spill!
   components:
   - type: StorageFill
     contents:
-      - id: JugSoap
-        amount: 5 #1000 u total
+      - id: BucketSoap
+        amount: 4 #1000 u total
 
 - type: entity
   id: CrateServiceJanitorialHardsuit

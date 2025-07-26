@@ -122,9 +122,9 @@
     inHandsFillBaseName: -fill-
 
 - type: entity
-  parent: Jug
+  parent: Bucket
   suffix: soap
-  id: JugSoap
+  id: BucketSoap
   components:
   - type: Label
     currentLabel: soap
@@ -133,4 +133,4 @@
       beaker:
         reagents:
         - ReagentId: SoapReagent
-          Quantity: 200
+          Quantity: 250
