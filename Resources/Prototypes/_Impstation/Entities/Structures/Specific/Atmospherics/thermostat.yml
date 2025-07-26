@@ -19,6 +19,11 @@
       Ammonia: ignore
       NitrousOxide: ignore
       Frezon: ignore
+  - type: AtmosPipeLayers
+    alternativePrototypes:
+      Primary: GasPipeSensorThermostat
+      Secondary: GasPipeSensorThermostatAlt1
+      Tertiary: GasPipeSensorThermostatAlt2
 
 # yet another air alarm prototype with auto mode set to false, but this time with a unique sprite!
 - type: entity
