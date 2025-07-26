@@ -29,7 +29,7 @@ public sealed class FishingRodSystem : SharedFishingRodSystem
         var local = _player.LocalEntity;
         var handUid = _hands.GetActiveHandEntity();
 
-        if (!TryComp<FishingRodComponent>(handUid, out var grappling))
+        if (!TryComp<ImpFishingRodComponent>(handUid, out var grappling))
             return;
 
         if (!TryComp<JointComponent>(handUid, out var jointComp) ||

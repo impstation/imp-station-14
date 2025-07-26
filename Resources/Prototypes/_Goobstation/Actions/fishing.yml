@@ -1,0 +1,41 @@
+﻿# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseAction
+  id: ActionStartFishing
+  name: action-fishing-start
+  description: action-fishing-start-desc
+  components:
+  - type: Action
+    icon:
+      sprite: _Goobstation/Fishing/fishing_lure.rsi
+      state: icon
+    useDelay: 2.5
+    sound:
+      path: /Audio/_Goobstation/Fishing/fishing_rod_cast.ogg
+    itemIconStyle: BigAction
+  - type: TargetAction
+    range: 15
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:ThrowFishingLureActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionStopFishing
+  name: action-fishing-stop
+  description: action-fishing-stop-desc
+  components:
+  - type: Action
+    icon:
+      sprite: _Goobstation/Fishing/goon_rod.rsi
+      state: icon
+    sound:
+      path: /Audio/_Goobstation/Fishing/fishing_rod_reel.ogg
+    itemIconStyle: NoItem
+  - type: InstantAction
+    event: !type:PullFishingLureActionEvent
