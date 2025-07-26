@@ -120,3 +120,17 @@
     fillBaseName: conical
     inHandsMaxFillLevels: 2
     inHandsFillBaseName: -fill-
+
+- type: entity
+  parent: Bucket
+  suffix: soap
+  id: BucketSoap
+  components:
+  - type: Label
+    currentLabel: soap
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: SoapReagent
+          Quantity: 250
