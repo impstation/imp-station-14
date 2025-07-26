@@ -141,17 +141,25 @@ public sealed partial class ShuttleSystem
         var path = paths[^1];
         paths.RemoveAt(paths.Count - 1);
 
-        if (_loader.TryLoadGrid(mapId, path, out var grid))
+        // imp start - implemented gridspawngroup min/max distances
+        var targetPhysics = _physicsQuery.Comp(targetGrid);
+        var spawnCoords = new EntityCoordinates(targetGrid, targetPhysics.LocalCenter);
+
+        if (group.MinimumDistance > 0 && TryComp<MapGridComponent>(targetGrid, out var gridComp))
+        {
+            var distancePadding = MathF.Max(gridComp.LocalAABB.Width, gridComp.LocalAABB.Height);
+            spawnCoords = spawnCoords.Offset(_random.NextVector2(distancePadding + group.MinimumDistance, distancePadding + group.MaximumDistance));
+        }
+
+        if (_loader.TryLoadGrid(mapId, path, out var grid, null, spawnCoords.Position)) // imp end
         {
             if (HasComp<ShuttleComponent>(grid))
                 TryFTLProximity(grid.Value, targetGrid);
-
             if (group.NameGrid)
             {
                 var name = path.FilenameWithoutExtension;
                 _metadata.SetEntityName(grid.Value, name);
             }
-
             spawned = grid.Value;
             return true;
         }
