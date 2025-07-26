@@ -17,6 +17,15 @@
           emergencyShuttlePath: /Maps/Shuttles/emergency_xeno.yml
         - type: StationCargoShuttle
           path: /Maps/Shuttles/cargo_xeno.yml
+        - type: StationSpecificMeteor
+          meteorReplacements:
+            MeteorSmall: MeteorArtifactSmall
+            MeteorMedium: MeteorArtifactMedium
+            MeteorLarge: MeteorArtifactLarge
+          announcementReplacements:
+            station-event-game-rule-meteor-swarm-small-announcement: station-event-game-rule-meteor-swarm-artifact-announcement
+            station-event-game-rule-meteor-swarm-medium-announcement: station-event-game-rule-meteor-swarm-artifact-announcement
+            station-event-game-rule-meteor-swarm-large-announcement: station-event-game-rule-meteor-swarm-artifact-announcement
         - type: StationJobs
           availableJobs: # Total of 61 jobs roundstart, max of 73 inc. latejoins and trainees.
             # command - 8
