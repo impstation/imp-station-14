@@ -121,6 +121,11 @@ public sealed class FoldableSystem : EntitySystem
             !_anchorable.TileFree(Transform(uid).Coordinates, body))
             return false;
 
+        // Imp edit start, if entity is anchored and entity disallows folding while anchored, return false
+        if (Comp<TransformComponent>(uid).Anchored && !fold.CanFoldWhileAnchored)
+            return false;
+        // Imp edit end
+
         var ev = new FoldAttemptEvent(fold);
         RaiseLocalEvent(uid, ref ev);
         return !ev.Cancelled;
