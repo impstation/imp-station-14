@@ -150,6 +150,20 @@
               amount: 2
               doAfter: 1
 
+        - to: steelWoodWall # imp
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          conditions:
+            - !type:EntityAnchored {}
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+            - material: Steel
+              amount: 2
+              doAfter: 2
+
     - node: wall
       entity: WallSolid
       edges:
@@ -311,6 +325,18 @@
             - tool: Cutting
               doAfter: 1
 
+    - node: steelWoodWall # imp
+      entity: WallSteelWood
+      edges:
+        - to: wall
+          completed:
+            - !type:GivePrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+          steps:
+            - tool: Prying
+              doAfter: 3
+
     - node: reinforcedGirder
       entity: ReinforcedGirder
       edges:
@@ -366,6 +392,20 @@
           steps:
             - tool: Cutting
               doAfter: 2
+
+        - to: reinforcedSteelWoodWall # imp
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          conditions:
+            - !type:EntityAnchored { }
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+            - material: Plasteel
+              amount: 2
+              doAfter: 1
 
     - node: reinforcedWall
       entity: WallReinforced
@@ -470,6 +510,18 @@
                   data: 0
             - tool: Cutting
               doAfter: 1
+
+    - node: reinforcedSteelWoodWall # imp
+      entity: WallReinforcedSteelWood
+      edges:
+        - to: reinforcedWall
+          completed:
+            - !type:GivePrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+          steps:
+            - tool: Prying
+              doAfter: 3
 
     - node: shuttleWall
       entity: WallShuttle
