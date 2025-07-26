@@ -506,3 +506,16 @@
     FoodMeatCutlet: 3
     FoodChiliPepper: 2
   recipeType: Oven
+
+- type: microwaveMealRecipe
+  id: RecipeHamletStew
+  name: hamlet stew recipe
+  result: HamletStew
+  time: 30
+  group: Other
+  reagents:
+    Water: 15
+  solids:
+    MobHamsterHamlet: 1
+    FoodCarrot: 1
+  recipeType: Oven

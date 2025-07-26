@@ -1,0 +1,16 @@
+- type: entity
+  parent: BasePlushie
+  id: HamletStew
+  name: hamlet stew
+  description: Oh boy! Going to make some Hamlet stew today!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Kitchen/hamletstew.rsi
+    state: hamletstew
+  - type: Item
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Animals/fox_squeak.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Impstation/Items/Toys/evil_laugh.ogg
