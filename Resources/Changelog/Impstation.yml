@@ -1,16 +1,4 @@
 ﻿Entries:
-- author: DinnerCalzone
-  changes:
-  - message: Nukeops Commander now requires 4 hours of playtime of any team nukeops
-      role in place of its previous requirements.
-    type: Tweak
-  - message: Lone Operative playtime will now be tracked separately from the regular
-      Nuclear Operative role and will not count towards Nukeops Commander playtime
-      requirements.
-    type: Tweak
-  id: 1577
-  time: '2025-04-27T17:47:40.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2272
 - author: DVDPlayerOfDiscordFame
   changes:
   - message: +20/25% heat resist on Security/HoS hardsuits. HoS hardsuit explosion
@@ -4212,3 +4200,11 @@
   id: 2076
   time: '2025-07-25T13:34:28.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3162
+- author: youtubevideo3
+  changes:
+  - message: More new clothes for musician. You can look even better while standing
+      around and playing MIDI.
+    type: Add
+  id: 2077
+  time: '2025-07-26T09:30:53.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3160
