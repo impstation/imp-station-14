@@ -672,3 +672,6 @@ accent-archaic-words-190 = you
 accent-archaic-words-190-2 = ya
 accent-archaic-words-190-3 = ye
 accent-archaic-words-replace-190 = thou
+
+accent-archaic-words-191 = badass
+accent-archaic-words-replace-191 = fearsome
