@@ -36,4 +36,16 @@ public sealed partial class SOSCartridgeComponent : Component
 
     [ViewVariables(VVAccess.ReadOnly)]
     public bool CanCall => Timer <= 0;
+
+    /// <summary>
+    /// imp. whether or not to send the nearest map beacon name
+    /// </summary>
+    [DataField]
+    public bool SendLocation = true;
+
+    /// <summary>
+    /// imp. LocId for the message if SendLocation is true.
+    /// </summary>
+    [DataField]
+    public LocId HelpMessageLocation = "sos-message-location";
 }

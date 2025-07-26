@@ -100,6 +100,11 @@ public sealed partial class ClothingComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan StripDelay = TimeSpan.Zero;
+
+    /// <summary>
+    /// imp - stores the entity that currently has a given piece of clothing equipped.
+    /// </summary>
+    public EntityUid? Equipee = null;
 }
 
 [Serializable, NetSerializable]
