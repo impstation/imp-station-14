@@ -14,7 +14,13 @@ public sealed partial class DoAfterComponent : Component
     [DataField("doAfters")]
     public Dictionary<ushort, DoAfter> DoAfters = new();
 
-    // Used by obsolete async do afters
+    /// <summary>
+    /// Goobstation - Whether to raise <c>DoAfterEndedEvent</c> on the user after it ends.
+    /// </summary>
+    [DataField]
+    public bool RaiseEndedEvent;
+	
+	// Used by obsolete async do afters
     public readonly Dictionary<ushort, TaskCompletionSource<DoAfterStatus>> AwaitedDoAfters = new();
 }
 
