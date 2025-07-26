@@ -5,6 +5,7 @@ loadout-group-tank-harness-aquatic = Tank harness for water-breathers
 loadout-group-tank-harness-command-aquatic = Command tank harness for water-breathers
 loadout-group-tank-harness-with-outerwear-aquatic = Tank harness for water-breathers (in inventory)
 loadout-group-tank-harness-command-with-outerwear-aquatic = Command tank harness for water-breathers (in inventory)
+loadout-group-breath-tool-command = Species-dependent breath tools for command
 loadout-group-breath-tool-decapoid = Vaporizer for decapoids
 loadout-group-breath-tool-inventory-decapoid = Vaporizer for decapoids (in inventory)
 loadout-group-breath-tool-inventory-decapoid-clown = Vaporizer for decapoid clowns (in inventory)
