@@ -675,6 +675,7 @@
   minLimit: 0
   loadouts:
   - ScarfPurple
+  - FeatherBoa
 
 - type: loadoutGroup
   id: MusicianShoes
@@ -690,6 +691,13 @@
   minLimit: 0
   loadouts:
   - MusicianShako
+
+- type: loadoutGroup
+  id: MusicianGloves
+  name: loadout-group-musician-gloves
+  minLimit: 0
+  loadouts:
+  - MusicianSingerGloves
 
 - type: loadoutGroup
   id: ReporterNeck

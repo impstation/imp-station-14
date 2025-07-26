@@ -100,6 +100,8 @@
     - HeadSide
     - Hair
     - Tail
+  - type: Hunger
+    baseDecayRate: 0.15 # 10x default. 6 minutes to hungry and 15.5 minutes to starving
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
