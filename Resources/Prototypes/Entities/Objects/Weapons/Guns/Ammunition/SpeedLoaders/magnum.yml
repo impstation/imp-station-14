@@ -83,6 +83,23 @@
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumIncendiary
+  - type: MagazineVisuals #imp
+    magState: incendiary
+    steps: 7
+    zeroVisible: false
+  - type: Appearance #imp
+  - type: Item #imp
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-ammo
+      - state: inhand-left-stripe
+        color: "#d46925" #imp
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-ammo
+      - state: inhand-right-stripe
+        color: "#d46925" #imp
 
 - type: entity
   id: SpeedLoaderMagnumPractice
@@ -110,12 +127,12 @@
       - state: inhand-left-mag
       - state: inhand-left-ammo
       - state: inhand-left-stripe
-        color: "#d63b28" #imp
+        color: "#ffcb6f" #imp
       right:
       - state: inhand-right-mag
       - state: inhand-right-ammo
       - state: inhand-right-stripe
-        color: "#d63b28" #imp
+        color: "#ffcb6f" #imp
 
 - type: entity
   id: SpeedLoaderMagnumAP
@@ -143,12 +160,12 @@
       - state: inhand-left-mag
       - state: inhand-left-ammo
       - state: inhand-left-stripe
-        color: "#540000"
+        color: "#662598" #imp
       right:
       - state: inhand-right-mag
       - state: inhand-right-ammo
       - state: inhand-right-stripe
-        color: "#540000"
+        color: "#662598" #imp
 
 - type: entity
   id: SpeedLoaderMagnumUranium
@@ -176,9 +193,9 @@
       - state: inhand-left-mag
       - state: inhand-left-ammo
       - state: inhand-left-stripe
-        color: "#6b805e" #imp
+        color: "#22b24d" #imp
       right:
       - state: inhand-right-mag
       - state: inhand-right-ammo
       - state: inhand-right-stripe
-        color: "#6b805e" #imp
+        color: "#22b24d" #imp

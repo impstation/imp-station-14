@@ -7,6 +7,7 @@
   - ShipyardComputerCircuitboard # dv doesnt have this craftable but we did so whatever
   - SupermatterComputerCircuitboard
   - ImpCoffeeMachineCircuitboard
+  - PrizeCounterMachineCircuitboard
 
 # Dynamic
 
@@ -14,15 +15,11 @@
   id: ImpCircuitDynamic
   recipes:
   - MiniGyroscopeMachineCircuitboard
-  # below were removed from upstream circuit imprinter. i dont actually think theyre accessible... cloning when...
-  #- CloningConsoleComputerCircuitboard
-  #- CloningPodMachineCircuitboard
-  #- DiagnoserMachineCircuitboard
-  #- MedicalScannerMachineCircuitboard
-  #- VaccinatorMachineCircuitboard # I'd love to leave these enabled but you're gonna have to make a research tier for it first :(
 
 # Emagged
 
-# - type: latheRecipePack
-#   id: ImpCircuitEmagged
-#   recipes:
+- type: latheRecipePack
+  id: ImpCircuitEmagged
+  recipes:
+  - SyndicateMicrowaveMachineCircuitboard
+  - SyndicateElectricRangeMachineCircuitboard
