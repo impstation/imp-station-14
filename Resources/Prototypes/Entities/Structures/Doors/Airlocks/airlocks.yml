@@ -34,7 +34,7 @@
   suffix: Cargo
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/cargo.rsi
+    sprite: _Impstation/Structures/Doors/Airlocks/Standard/cargostaff.rsi # imp
   - type: PaintableAirlock
     department: Cargo
   - type: Wires
@@ -213,7 +213,7 @@
   suffix: Cargo
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/cargo.rsi
+    sprite: _Impstation/Structures/Doors/Airlocks/Glass/cargostaff.rsi # imp
   - type: PaintableAirlock
     department: Cargo
   - type: Wires

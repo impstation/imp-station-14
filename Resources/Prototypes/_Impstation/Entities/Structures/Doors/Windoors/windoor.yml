@@ -58,6 +58,17 @@
   - type: Wires
     layoutId: AirlockCargo
 
+- type: entity
+  parent: Windoor
+  id: WindoorCargoAuxLocked
+  suffix: CargoAux, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCargoAux ]
+  - type: Wires
+    layoutId: AirlockCargo
+
 # Secure
 
 # Command
@@ -148,6 +159,18 @@
       board: [ DoorElectronicsLogistics ]
   - type: Wires
     layoutId: AirlockCargo
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureCargoRestrictedLocked
+  suffix: CargoRestricted, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCargoRestricted ]
+  - type: Wires
+    layoutId: AirlockCargo
+
 
 # Bounty Hunter
 - type: entity

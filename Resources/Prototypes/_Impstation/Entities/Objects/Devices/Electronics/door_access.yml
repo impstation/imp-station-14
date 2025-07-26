@@ -31,6 +31,24 @@
   - type: AccessReader
     access: [["Medical"], ["Security"]]
 
+# Access Refactor (Aux and restricted accesses for every department)
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsCargoAux
+  suffix: CargoAux, Locked
+  components:
+  - type: AccessReader
+    access: [["CargoAux"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsCargoRestricted
+  suffix: CargoRestricted, Locked
+  components:
+  - type: AccessReader
+    access: [["CargoRestricted"]]
+
 # Courier
 - type: entity
   parent: DoorElectronics
