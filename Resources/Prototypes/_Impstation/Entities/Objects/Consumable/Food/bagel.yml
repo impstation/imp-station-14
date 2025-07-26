@@ -9,6 +9,9 @@
     - bread
     - creamy
     - cheesy
+    ignoreReagents:
+    - TableSalt
+    - Milk
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Baked/bagel.rsi
     state: bagel-creamcheese

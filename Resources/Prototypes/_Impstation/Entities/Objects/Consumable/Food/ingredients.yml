@@ -27,6 +27,9 @@
   id: FoodChocolateChip
   description: Tastes like if cardboard was smaller.
   components:
+  - type: FlavorProfile
+    flavors:
+    - chocolate
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Ingredients/chocolate.rsi
     state: chocolatechip
@@ -52,15 +55,18 @@
   name: stick of cream cheese
   parent: FoodBakingBase
   id: FoodCreamCheese
-  description: A stick of creamy, cheesy, spreadable, insert adjective here, cream cheese.
+  description: A stick of creamy cream cheese.
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Ingredients/creamcheese.rsi
     state: creamcheese
-  - type: FlavorProfile
+  - type: FlavorProfile # Imp
     flavors:
     - creamy
     - cheesy
+    ignoreReagents:
+    - TableSalt
+    - Milk
   - type: SolutionContainerManager
     solutions:
       food:

@@ -355,6 +355,11 @@
     flavors:
     - creamy
     - cheesy
+    ignoreReagents:
+    - TableSalt
+    - Milk
+    - Vitamin
+    - Nutriment
   - type: Sprite
     state: cheese
   - type: SliceableFood
@@ -369,7 +374,9 @@
         - ReagentId: Vitamin
           Quantity: 5
         - ReagentId: Milk # Imp
-          Quantity: 10 # no salt because i dont want to include "salty" in the flavors lol
+          Quantity: 5
+        - ReagentId: TableSalt # Imp
+          Quantity: 5
   - type: Item
     inhandVisuals:
       left:
@@ -387,6 +394,15 @@
   id: FoodCakeCheeseSlice
   description: Slice of pure cheestisfaction.
   components:
+  - type: FlavorProfile # Imp
+    flavors:
+    - creamy
+    - cheesy
+    ignoreReagents:
+    - TableSalt
+    - Milk
+    - Vitamin
+    - Nutriment
   - type: Sprite
     state: cheese-slice
   - type: SolutionContainerManager # imp
@@ -399,7 +415,9 @@
         - ReagentId: Vitamin
           Quantity: 1
         - ReagentId: Milk # Imp
-          Quantity: 2
+          Quantity: 1
+        - ReagentId: TableSalt # Imp
+          Quantity: 1
   - type: Item
     inhandVisuals:
       left:
