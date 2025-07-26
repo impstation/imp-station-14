@@ -156,3 +156,10 @@ ghost-role-information-nonantagonist-freeagent-partygeay-rules = You are a [colo
                                                                  Your goal is to throw a party; what you are celebrating is up to you.
 
                                                                  You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
+
+ghost-role-information-nonantagonist-freeagent-tame = You are a wild animal that has been tamed by the crew.
+ghost-role-information-tame-rules = You are a [color=yellow][bold]Free Agent[/bold][/color], being a tamed animal.
+
+                                         As with most wild animals, you are calm and happy when in good conditions and given enrichment, though you may lash out if bored or stressed. [color=red] You wont attack or try escaping out of nowhere or without reason.[/color] Just remember who's hand it is that feeds you.
+
+                                         You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
