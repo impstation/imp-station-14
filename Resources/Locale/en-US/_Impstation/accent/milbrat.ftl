@@ -70,6 +70,7 @@ accent-milbrat-words-12-5 = sup
 accent-milbrat-words-replace-12 = reporting for duty
 
 accent-milbrat-words-13 = are you sure
+accent-archaic-words-13-2 = you sure
 accent-milbrat-words-replace-13 = please confirm
 
 accent-milbrat-words-14 = well done
@@ -258,6 +259,7 @@ accent-milbrat-words-56 = dragon
 accent-milbrat-words-replace-56 = delta HVT
 
 accent-milbrat-words-57 = i see
+accent-milbrat-words-57-2 = sure
 accent-milbrat-words-replace-57 = aknowledged
 
 accent-milbrat-words-58 = vent pest
