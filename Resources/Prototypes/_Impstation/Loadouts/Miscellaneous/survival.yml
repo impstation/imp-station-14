@@ -130,6 +130,14 @@
   equipment:
     mask: DecapoidBreathingApparatus
 
+- type: loadout
+  id: LoadoutSpeciesBreathToolCommand
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EffectSpeciesVox
+  equipment:
+    mask: ClothingMaskBreathCommand
+
 # Breath tool in inventory
 - type: loadout
   id: LoadoutDecapoidBreathToolInventory

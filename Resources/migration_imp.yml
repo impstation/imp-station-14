@@ -67,6 +67,11 @@ CrateServiceCleanades: CrateServiceCleanerGrenades
 ClosetJanitor: LockerJanitor
 ClosetJanitorFilled: LockerJanitorFilled
 
+# 2025-06-28
+# impstation: replace artifact spawners with combined old/new artifact spawners
+RandomArtifactSpawner: RandomOldNewArtifactSpawner
+RandomArtifactSpawner20: RandomOldNewArtifactSpawner20
+
 # 2025-07-17
 # removed redundant prototype from DV tabletop computer port
 MobileComputerTabletopComms: ComputerTabletopComms
