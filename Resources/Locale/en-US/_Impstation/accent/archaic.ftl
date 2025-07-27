@@ -24,13 +24,14 @@ accent-archaic-words-6 = give you
 accent-archaic-words-replace-6 = deliver unto thee
 
 accent-archaic-words-7 = you've
+accent-archaic-words-7-2 = you have
 accent-archaic-words-replace-7 = thou hast
 
 accent-archaic-words-8 = your
 accent-archaic-words-8-2 = yer
 accent-archaic-words-replace-8 = thy
 
-accent-archaic-words-9 = the
+accent-archaic-words-9 = yours
 accent-archaic-words-replace-9 = thine
 
 accent-archaic-words-10 = ship
@@ -116,7 +117,7 @@ accent-archaic-words-30 = chemist
 accent-archaic-words-replace-30 = alchemist
 
 accent-archaic-words-31 = chemical
-accent-archaic-words-replace-31 = alchemical
+accent-archaic-words-replace-31 = reagent
 
 accent-archaic-words-32 = chemists
 accent-archaic-words-replace-32 = alchemists
