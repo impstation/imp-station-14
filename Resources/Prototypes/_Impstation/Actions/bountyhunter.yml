@@ -1,0 +1,23 @@
+- type: entity
+  parent: BaseAction
+  id: ActionWeaponRecall
+  name: Mark Weapon
+  description: Mark a held weapon to later summon into your hand.
+  components:
+  - type: Action
+    useDelay: 0.5
+    raiseOnAction: true
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/blink.ogg
+      params:
+        volume: -5
+        pitch: 1.2
+        maxDistance: 5
+        variation: 0.2
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: item_recall
+  - type: InstantAction
+    event: !type:OnWeaponRecallActionEvent
+  - type: WeaponRecall
