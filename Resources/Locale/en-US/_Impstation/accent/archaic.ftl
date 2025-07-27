@@ -50,8 +50,8 @@ accent-archaic-words-13 = mercenary
 accent-archaic-words-13-2 = merc
 accent-archaic-words-replace-13 = sellsword
 
-accent-archaic-words-14 = are
-accent-archaic-words-replace-14 = art
+accent-archaic-words-14 = ghosts
+accent-archaic-words-replace-14 = spectres 
 
 accent-archaic-words-15 = let's go
 accent-archaic-words-15-2 = lets go
@@ -70,9 +70,8 @@ accent-archaic-words-19 = you'd
 accent-archaic-words-19-2 = youd
 accent-archaic-words-replace-19 = thou would
 
-accent-archaic-words-20 = have
-accent-archaic-words-20-2 = has
-accent-archaic-words-replace-20 = hath
+accent-archaic-words-20 = has
+accent-archaic-words-replace-20 = hast
 
 accent-archaic-words-21 = does
 accent-archaic-words-21-2 = do
@@ -159,7 +158,6 @@ accent-archaic-words-replace-43 = coxcomb
 
 accent-archaic-words-44 = coward
 accent-archaic-words-44-2 = cowardly
-accent-archaic-words-44-3 = craven
 accent-archaic-words-replace-44 = craven
 
 accent-archaic-words-45 = fuckers
@@ -230,7 +228,7 @@ accent-archaic-words-65 = mercenaries
 accent-archaic-words-65-2 = mercs
 accent-archaic-words-replace-65 = sellswords
 
-accent-archaic-words-66 = home
+accent-archaic-words-66 = property
 accent-archaic-words-66-2 = domain
 accent-archaic-words-replace-66 = demesne
 
@@ -326,8 +324,8 @@ accent-archaic-words-91-4 = girlies
 accent-archaic-words-91-5 = girlfriends
 accent-archaic-words-replace-91 = maidens
 
-accent-archaic-words-92 = will
-accent-archaic-words-replace-92 = shall
+accent-archaic-words-92 = soldier
+accent-archaic-words-replace-92 = one-at-arms 
 
 accent-archaic-words-93 = will not
 accent-archaic-words-93-2 = won't
@@ -391,12 +389,11 @@ accent-archaic-words-replace-107 = bard
 accent-archaic-words-108 = clown
 accent-archaic-words-replace-108 = jester
 
-accent-archaic-words-109 = we're
-accent-archaic-words-replace-109 = we art
+accent-archaic-words-109 = soldiers
+accent-archaic-words-replace-109 = ones-at-arms
 
-accent-archaic-words-110 = they're
-accent-archaic-words-110-2 = theyre
-accent-archaic-words-replace-110 = they art
+accent-archaic-words-110 = poor
+accent-archaic-words-replace-110 = wretched 
 
 accent-archaic-words-111 = janitor
 accent-archaic-words-replace-111 = servant
@@ -482,7 +479,7 @@ accent-archaic-words-replace-135 = jesters
 accent-archaic-words-136 = it is
 accent-archaic-words-136-2 = it's
 accent-archaic-words-136-3 = this is
-accent-archaic-words-replace-136 = tis
+accent-archaic-words-replace-136 = 'tis
 
 accent-archaic-words-137 = it was
 accent-archaic-words-replace-137 = twas
@@ -508,7 +505,7 @@ accent-archaic-words-143 = i don't give a shit
 accent-archaic-words-143-2 = i don't give a fuck
 accent-archaic-words-143-3 = i don't give a flying fuck
 accent-archaic-words-143-4 = i don't give a damn
-accent-archaic-words-replace-143 = i hath little attention to spare
+accent-archaic-words-replace-143 = i have little attention to spare
 
 accent-archaic-words-144 = why
 accent-archaic-words-replace-144 = wherefore
@@ -516,14 +513,14 @@ accent-archaic-words-replace-144 = wherefore
 accent-archaic-words-145 = fuck
 accent-archaic-words-replace-145 = zounds
 
-accent-archaic-words-146 = replicant
+accent-archaic-words-146 = replicator
 accent-archaic-words-replace-146 = soulless husk
 
 accent-archaic-words-147 = replicants
 accent-archaic-words-replace-147 = soulless husks
 
 accent-archaic-words-148 = shit's fucked
-accent-archaic-words-replace-148 = ill omens art upon us
+accent-archaic-words-replace-148 = ill omens are upon us
 
 accent-archaic-words-149 = fucked
 accent-archaic-words-149-2 = messed
@@ -660,14 +657,15 @@ accent-archaic-words-186 = sad
 accent-archaic-words-186-2 = depressing
 accent-archaic-words-replace-186 = maudlin
 
-accent-archaic-words-187 = i've
-accent-archaic-words-replace-187 = i hath
+accent-archaic-words-187 = you'll
+accent-archaic-words-187-2 = you will
+accent-archaic-words-replace-187 = thou shalt
 
-accent-archaic-words-188 = we've
-accent-archaic-words-replace-188 = we hath
+accent-archaic-words-188 = will
+accent-archaic-words-replace-188 = shall
 
-accent-archaic-words-189 = they've
-accent-archaic-words-replace-189 = they hath
+accent-archaic-words-189 = is
+accent-archaic-words-replace-189 = art
 
 accent-archaic-words-190 = you
 accent-archaic-words-190-2 = ya
