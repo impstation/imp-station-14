@@ -107,6 +107,8 @@
     successChance: 0.5
     interactSuccessString: petting-success-goliath
     interactFailureString: petting-failure-goliath
+  - type: Absorbable # imp edit
+    biomassRestored: 0.8
 
 - type: entity
   parent: BaseAction

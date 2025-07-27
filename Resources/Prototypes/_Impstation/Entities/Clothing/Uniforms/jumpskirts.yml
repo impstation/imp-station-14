@@ -263,3 +263,14 @@
     sprite: _Impstation/Clothing/Uniforms/Jumpskirt/spacedress.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Uniforms/Jumpskirt/spacedress.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformMusicianSingerDress
+  name: lounge singer's dress
+  description: A form-fitting silk dress, perfect for preforming at fancy nightclubs. Or at dive bars on backwater space stations.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/mus_singerdress.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/mus_singerdress.rsi

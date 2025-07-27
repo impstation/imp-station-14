@@ -10,3 +10,12 @@
   canBuildInImpassable: true
   conditions:
   - !type:WallmountCondition {}
+
+- type: construction
+  id: DeskIntercomAssembly
+  graph: DeskIntercom
+  startNode: start
+  targetNode: deskIntercom
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
