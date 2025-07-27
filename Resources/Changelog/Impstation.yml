@@ -1,44 +1,4 @@
 ﻿Entries:
-- author: DinnerCalzone
-  changes:
-  - message: Amber, Atlas, Bagel, Cog, Cluster, Hummingbird, Marathon, Oasis, Omega,
-      Plasma, Saltern, and Train now have Griffy lockers.
-    type: Add
-  id: 1581
-  time: '2025-04-27T18:12:02.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2348
-- author: kipdotnet
-  changes:
-  - message: Decapoids can now wear a vaporizer with no clothing requirements.
-    type: Tweak
-  id: 1582
-  time: '2025-04-27T18:18:47.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2353
-- author: argentsunshine
-  changes:
-  - message: Changed the periodic table sprite and description.
-    type: Tweak
-  id: 1583
-  time: '2025-04-27T18:21:44.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2358
-- author: meridiadottxt
-  changes:
-  - message: gate station now has expanded zookeeper area, atmos canister storage,
-      various other small fixes and additions
-    type: Add
-  - message: gumbo. he was never here.
-    type: Remove
-  id: 1584
-  time: '2025-04-28T00:55:49.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2361
-- author: Mousetrinity
-  changes:
-  - message: New drinks have hit the bar! Go ask for the burnchamber or something
-      next time, okay?
-    type: Add
-  id: 1585
-  time: '2025-04-28T08:22:17.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2355
 - author: crekulon
   changes:
   - message: you can now (noisily) lock/unlock secure containers from the inside!
@@ -4210,3 +4170,40 @@
   id: 2080
   time: '2025-07-26T10:08:46.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3168
+- author: hivehum, FoxxoTrystan, portfiend
+  changes:
+  - message: Prize tickets now have a use! Redeem them for toys from the brand new
+      prize counter!
+    type: Add
+  id: 2081
+  time: '2025-07-26T10:21:26.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3138
+- author: wendyribstonpippin
+  changes:
+  - message: Military Jargon speakers will keep getting worse until morale improves
+    type: Tweak
+  id: 2082
+  time: '2025-07-26T10:23:42.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3165
+- author: HatBun, TheLuggage05
+  changes:
+  - message: Added tarot cards. Find them in your trinkets, the PietyVend, or a hacked
+      Good Clean Fun!
+    type: Add
+  id: 2083
+  time: '2025-07-26T22:50:31.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3150
+- author: widgetbeck
+  changes:
+  - message: Removed a rare salvage ruins spawn.
+    type: Remove
+  id: 2084
+  time: '2025-07-26T22:50:59.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3174
+- author: formlessnameless
+  changes:
+  - message: Empty eyes lists should no longer stop rounds from firing.
+    type: Fix
+  id: 2085
+  time: '2025-07-27T02:06:44.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3176
