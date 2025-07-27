@@ -676,3 +676,6 @@ accent-archaic-words-replace-190 = thou
 
 accent-archaic-words-191 = badass
 accent-archaic-words-replace-191 = fearsome
+
+accent-archaic-words-192 = chemicals
+accent-archaic-words-replace-192 = reagents
