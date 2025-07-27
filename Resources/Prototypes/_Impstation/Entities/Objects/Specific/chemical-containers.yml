@@ -122,15 +122,15 @@
     inHandsFillBaseName: -fill-
 
 - type: entity
-  parent: Bucket
-  suffix: soap
-  id: BucketSoap
+  parent: Jug
+  suffix: space cleaner
+  id: JugSpaceCleaner
   components:
   - type: Label
-    currentLabel: soap
+    currentLabel: space cleaner
   - type: SolutionContainerManager
     solutions:
       beaker:
         reagents:
-        - ReagentId: SoapReagent
-          Quantity: 250
+        - ReagentId: SpaceCleaner
+          Quantity: 200
