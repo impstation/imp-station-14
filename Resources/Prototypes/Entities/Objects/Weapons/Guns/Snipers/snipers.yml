@@ -113,8 +113,8 @@
     capacity: 5
     proto: CartridgeAntiMateriel
   - type: SpeedModifiedOnWield
-    walkModifier: 0.25
-    sprintModifier: 0.25
+    walkModifier: 0.35 #imp
+    sprintModifier: 0.35 #imp
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
     maxOffset: 3
@@ -130,7 +130,7 @@
       path: /Audio/Effects/hit_kick.ogg
     soundSwing:
       path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
-    resetOnHandSelected: true
+    resetOnHandSelected: false
   - type: AltFireMelee
     attackType: Heavy
   - type: DamageOtherOnHit #for throwing
