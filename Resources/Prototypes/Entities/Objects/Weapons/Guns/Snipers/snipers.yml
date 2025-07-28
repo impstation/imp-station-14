@@ -50,6 +50,8 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/mosin.ogg
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi #imp
   - type: GunRequiresWield
@@ -60,8 +62,8 @@
     attackRate: 1.2
     damage:
       types:
-        Piercing: 12
-        Slash: 4
+        Piercing: 11
+        Slash: 3
     angle: 0
     animation: WeaponArcThrust
     soundHit:
@@ -76,8 +78,8 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 15
-        Slash: 5
+        Piercing: 12
+        Slash: 4
   - type: Sharp
   - type: Execution
     doAfterDuration: 2.0
