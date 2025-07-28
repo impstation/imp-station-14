@@ -1,0 +1,25 @@
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseTouristObjective
+  components:
+  - type: Objective
+    issuer: objective-issuer-self
+    difficulty: 1
+  #- type: RoleRequirement
+  #  roles:
+  #  - MindRoleTourist
+
+- type: entity
+  abstract: true
+  parent: [BaseTouristObjective, BaseCodeObjective]
+  id: BasePhotographObjective
+  name: Tourist Test Objective
+  description: Take a photo of a flash!
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Weapons/Bombs/spidercharge.rsi
+      state: icon
+  - type: PhotographObjectObjective
+    targets: ["Flash"]
