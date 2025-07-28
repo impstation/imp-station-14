@@ -33,7 +33,6 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
     // IMP
     [Dependency] private readonly SharedPvsOverrideSystem _pvs = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    private HashSet<EntityUid> _contacts = new();
     // IMP
 
     public const string GrapplingJoint = "grappling";
@@ -196,23 +195,30 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
             // IMP
             if (jointComp.Relay != null && _physics.GetTouchingContacts(jointComp.Relay.Value) > 0)
             {
-                _physics.GetContactingEntities(jointComp.Relay.Value, _contacts);
+                var player = jointComp.Relay.Value;
 
-                foreach (var contact in _contacts)
+                var playerPosition = _physics.GetPhysicsTransform(player).Position;
+                if (_physics.GetLinearVelocity(player ,playerPosition) != Vector2.Zero)
                 {
-                    if (_physics.IsHardCollidable(jointComp.Relay.Value, contact))
+                    var contacts = new HashSet<EntityUid>();
+                    _physics.GetContactingEntities(player, contacts);
+
+                    foreach (var contact in contacts)
                     {
-                        SetReeling(uid, grappling, false, null);
+                        if (_physics.IsHardCollidable(player, contact))
+                        {
+                            SetReeling(uid, grappling, false, null);
+                            break;
+                        }
                     }
                 }
             }
             // IMP
 
-            // TODO: This should be on engine
-
             // IMP
             if (grappling.Reeling)
             {
+                // TODO: This should be on engine
                 distance.MaxLength = MathF.Max(distance.MinLength, distance.MaxLength - grappling.ReelRate * frameTime);
                 distance.Length = MathF.Min(distance.MaxLength, distance.Length);
             }
