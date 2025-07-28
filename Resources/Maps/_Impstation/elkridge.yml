@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/23/2025 04:46:27
-  entityCount: 17633
+  time: 07/25/2025 05:34:46
+  entityCount: 17639
 maps:
 - 1
 grids:
@@ -14015,7 +14015,7 @@ entities:
       pos: 9.5,-20.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -4588.482
+      secondsUntilStateChange: -4909.0366
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14416,7 +14416,7 @@ entities:
       pos: 47.5,5.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -466592.44
+      secondsUntilStateChange: -466913
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -19152,6 +19152,12 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -0.5,20.5
+      parent: 2
+  - uid: 17639
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -18.5,-5.5
       parent: 2
 - proto: ButtonFrameJanitor
   entities:
@@ -84222,6 +84228,12 @@ entities:
       parent: 2
 - proto: IntercomCommand
   entities:
+  - uid: 2031
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -18.5,-8.5
+      parent: 2
   - uid: 4421
     components:
     - type: Transform
@@ -84233,12 +84245,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -30.5,-9.5
-      parent: 2
-  - uid: 14475
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -18.5,-5.5
       parent: 2
 - proto: IntercomCommon
   entities:
@@ -94454,6 +94460,30 @@ entities:
     - type: Transform
       pos: 8.5,-16.5
       parent: 2
+  - uid: 17634
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -19.5,-6.5
+      parent: 2
+  - uid: 17635
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -19.5,-7.5
+      parent: 2
+  - uid: 17636
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -12.5,-7.5
+      parent: 2
+  - uid: 17637
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -12.5,-6.5
+      parent: 2
 - proto: ShuttleConsoleCircuitboard
   entities:
   - uid: 2192
@@ -95009,6 +95039,26 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         16579:
+        - - Pressed
+          - Toggle
+  - uid: 17638
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -18.5,-5.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        17634:
+        - - Pressed
+          - Toggle
+        17635:
+        - - Pressed
+          - Toggle
+        17637:
+        - - Pressed
+          - Toggle
+        17636:
         - - Pressed
           - Toggle
 - proto: SignalSwitchDirectional
@@ -117378,9 +117428,9 @@ entities:
       - 10364
       - 8406
       - 5553
-- proto: WeaponEnergyTurretSecurity
+- proto: WeaponEnergyTurretCommand
   entities:
-  - uid: 2031
+  - uid: 2041
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -117388,8 +117438,30 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 2041
       - 15298
+      - 14475
+- proto: WeaponEnergyTurretCommandControlPanel
+  entities:
+  - uid: 14475
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -16.5,-2.5
+      parent: 2
+    - type: DeviceList
+      devices:
+      - 2041
+  - uid: 15298
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -14.5,-4.5
+      parent: 2
+    - type: DeviceList
+      devices:
+      - 2041
+- proto: WeaponEnergyTurretSecurity
+  entities:
   - uid: 15187
     components:
     - type: Transform
@@ -117422,15 +117494,6 @@ entities:
       devices:
       - 15187
       - 15234
-  - uid: 2041
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -16.5,-2.5
-      parent: 2
-    - type: DeviceList
-      devices:
-      - 2031
   - uid: 5456
     components:
     - type: Transform
@@ -117441,15 +117504,6 @@ entities:
       devices:
       - 15187
       - 15234
-  - uid: 15298
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -14.5,-4.5
-      parent: 2
-    - type: DeviceList
-      devices:
-      - 2031
 - proto: WeaponRifleFoam
   entities:
   - uid: 2968
