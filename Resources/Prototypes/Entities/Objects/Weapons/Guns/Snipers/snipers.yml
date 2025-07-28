@@ -54,6 +54,11 @@
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/mosin.ogg
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi #imp
+  - type: BallisticAmmoProvider #imp
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/rifle_load.ogg
+      params:
+        volume: -4
   - type: GunRequiresWield
 #imp edit begin; weapon melee
   - type: MeleeWeapon

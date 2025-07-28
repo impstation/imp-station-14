@@ -75,6 +75,10 @@
   - type: GunRequiresWield
   - type: BallisticAmmoProvider
     capacity: 25
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/rifle_load.ogg
+      params:
+        volume: -4
   #melee start
   - type: MeleeWeapon
     range: 0.8
