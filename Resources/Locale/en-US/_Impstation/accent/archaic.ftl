@@ -534,7 +534,7 @@ accent-archaic-words-150 = nuke
 accent-archaic-words-replace-150 = contraption of doom
 
 accent-archaic-words-151 = please
-accent-archaic-words-151-2 = prithee
+accent-archaic-words-replace-151 = prithee
 
 accent-archaic-words-152 = bar
 accent-archaic-words-152-1 = cafeteria
