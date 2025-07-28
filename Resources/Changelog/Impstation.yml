@@ -1,32 +1,4 @@
 ﻿Entries:
-- author: crekulon
-  changes:
-  - message: you can now (noisily) lock/unlock secure containers from the inside!
-    type: Tweak
-  id: 1586
-  time: '2025-04-28T08:45:58.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2347
-- author: kipdotnet
-  changes:
-  - message: Apids have first (last?) names again.
-    type: Fix
-  id: 1587
-  time: '2025-04-28T10:40:58.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2363
-- author: DinnerCalzone
-  changes:
-  - message: Fixed Lone Operative appearing in the antag selection screen in the lobby.
-    type: Fix
-  id: 1588
-  time: '2025-04-30T05:26:45.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2365
-- author: TheGrimbeeper
-  changes:
-  - message: Gray blood now counts as radioactive when splashed on science rocks
-    type: Fix
-  id: 1589
-  time: '2025-04-30T05:27:26.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2371
 - author: meridiadottxt
   changes:
   - message: gate station is now the perfect map
@@ -4207,3 +4179,36 @@
   id: 2085
   time: '2025-07-27T02:06:44.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3176
+- author: EpicToast
+  changes:
+  - message: Box Station's orbit around EXO-3416 has begun decaying, further shifts
+      will not be issued until orbit has been recovered.
+    type: Remove
+  id: 2086
+  time: '2025-07-27T21:13:48.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3180
+- author: youtubevideo3
+  changes:
+  - message: You will no longer wear fancy gloves on your head.
+    type: Fix
+  id: 2087
+  time: '2025-07-27T21:12:56.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3179
+- author: wendyribstonpippin
+  changes:
+  - message: You can now talk like a knight. or a medieval peasant. archaic speech
+      is in!
+    type: Add
+  - message: the serf that had snuck into the military camp has been dealt with
+    type: Fix
+  id: 2088
+  time: '2025-07-27T23:45:20.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3171
+- author: Mousetrinity
+  changes:
+  - message: Pathway Station didn't pass inspection, so we had to send in our best
+      team to fix it up! See PR for details
+    type: Tweak
+  id: 2089
+  time: '2025-07-27T23:58:48.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3175
