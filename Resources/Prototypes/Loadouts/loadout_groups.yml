@@ -61,6 +61,7 @@
   - NoviceMark
   - BarFlask
   - CardBoxBlack
+  - CardBoxTarot
   - Clipboard
   - ClothingHeadHatKippahBlueAndGold
   - ClothingHeadHatKippahSimple
@@ -698,6 +699,7 @@
   - MusicianJumpsuit
   - MusicianJumpskirt
   - MusicianMarchingBand #imp
+  - MusicianSingerDress #imp
 
 - type: loadoutGroup
   id: MusicianOuterClothing
@@ -705,6 +707,7 @@
   minLimit: 0
   loadouts:
   - MusicianWintercoat
+  - MusicianFurCoat #imp
 
 - type: loadoutGroup
   id: Instruments
@@ -865,10 +868,10 @@
   name: loadout-group-chief-engineer-jumpsuit
   loadouts:
   - ChiefEngineerJumpsuit
-  - ChiefEngineerJumpsuitForeman # imp
   - ChiefEngineerJumpskirt
   - ChiefEngineerTurtleneck
   - ChiefEngineerTurtleneckSkirt
+  - ChiefEngineerJumpsuitForeman # imp; will appear alphabetical in-game
 
 - type: loadoutGroup
   id: ChiefEngineerNeck
