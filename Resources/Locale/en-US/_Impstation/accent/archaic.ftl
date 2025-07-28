@@ -714,9 +714,9 @@ accent-archaic-words-replace-199 = inquisitor
 accent-archaic-words-200 = detectives
 accent-archaic-words-replace-200 = inquisitors
 
-accent-archaic-words-201 = operative
-accent-archaic-words-201-2 = officer
-accent-archaic-words-replace-201 = knight
+accent-archaic-words-201 = security officers
+accent-archaic-words-201-2 = secoffs
+accent-archaic-words-replace-201 = knights of the order
 
 accent-archaic-words-202 = operatives
 accent-archaic-words-202-2 = officers
@@ -778,3 +778,7 @@ accent-archaic-words-replace-217 = dance with fate
 
 accent-archaic-words-218 = gambling
 accent-archaic-words-replace-218 = dancing with fate
+
+accent-archaic-words-219 = operative
+accent-archaic-words-219-2 = officer
+accent-archaic-words-replace-219 = knight
