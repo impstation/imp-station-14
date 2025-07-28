@@ -1,0 +1,91 @@
+- type: randomHumanoidSettings
+  id: Tourist
+  parent: EventHumanoid
+  components:
+    - type: GhostRole
+      name: ghost-role-information-civilian-name #TODO: replace with bespoke / free agent instructions
+      description: ghost-role-information-civilian-description #TODO
+      rules: ghost-role-information-nonantagonist-rules #TODO
+      raffle:
+        settings: default
+    - type: Loadout
+      prototypes: [ TouristRedShirt, TouristBlueShirt, TouristYellowShirt, TouristBlackShirt ]
+      roleLoadout: [ RoleSurvivalStandard ]
+    - type: Tourist
+    - type: AutoTraitor #this is weirdly named but works for any mindrole
+      profile: TouristRule
+
+- type: entity
+  id: RandomTourist
+  name: tourist ghost role
+  components:
+    - type: Sprite
+      sprite: Clothing/Uniforms/Jumpsuit/hawaired.rsi
+      state: icon
+    - type: RandomHumanoidSpawner
+      settings: Tourist
+
+- type: entity
+  name: tourist spawner
+  id: TouristSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Clothing/Uniforms/Jumpsuit/hawaired.rsi
+        state: icon
+  - type: RandomSpawner
+    prototypes:
+    - RandomTourist
+
+
+# Tourist starting gear options. Currently only differentiated by color of shirt
+- type: startingGear
+  id: TouristRedShirt
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHawaiRed
+    neck: TouristCamera
+    back: ClothingBackpack
+    eyes: ClothingEyesGlassesSunglasses
+    shoes: ClothingShoesTourist
+    id: VisitorPDA
+    ears: ClothingHeadsetFreelance
+    pocket1: SpaceCash10000
+
+- type: startingGear
+  id: TouristBlueShirt
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHawaiBlue
+    neck: TouristCamera
+    back: ClothingBackpack
+    eyes: ClothingEyesGlassesSunglasses
+    shoes: ClothingShoesTourist
+    id: VisitorPDA
+    ears: ClothingHeadsetFreelance
+    pocket1: SpaceCash10000
+
+- type: startingGear
+  id: TouristYellowShirt
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHawaiYellow
+    neck: TouristCamera
+    back: ClothingBackpack
+    eyes: ClothingEyesGlassesSunglasses
+    shoes: ClothingShoesTourist
+    id: VisitorPDA
+    ears: ClothingHeadsetFreelance
+    pocket1: SpaceCash10000
+
+- type: startingGear
+  id: TouristBlackShirt
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHawaiBlack
+    neck: TouristCamera
+    back: ClothingBackpack
+    eyes: ClothingEyesGlassesSunglasses
+    shoes: ClothingShoesTourist
+    id: VisitorPDA
+    ears: ClothingHeadsetFreelance
+    pocket1: SpaceCash10000
+

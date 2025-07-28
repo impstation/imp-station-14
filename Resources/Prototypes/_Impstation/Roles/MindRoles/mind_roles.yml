@@ -28,3 +28,14 @@
     roleType: SoloAntagonist
     antagPrototype: NukeopsLone
   - type: NukeopsRole
+
+# Tourist
+- type: entity
+  parent: BaseMindRole
+  id: MindRoleTourist
+  name: Tourist Role
+  components:
+  - type: MindRole
+    antagPrototype: Tourist
+    roleType: FreeAgent
+  - type: TouristRole
