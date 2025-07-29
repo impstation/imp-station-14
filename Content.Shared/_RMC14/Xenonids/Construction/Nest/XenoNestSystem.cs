@@ -8,7 +8,6 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Coordinates;
 using Content.Shared.DoAfter;
 using Content.Shared.DragDrop;
-using Content.Shared.Ghost;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
@@ -31,6 +30,8 @@ using Robust.Shared.Network;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
+using Content.Shared.Traits.Assorted;
+using Content.Shared.Verbs;
 
 namespace Content.Shared._RMC14.Xenonids.Construction.Nest;
 
@@ -38,7 +39,6 @@ public sealed class XenoNestSystem : EntitySystem
 {
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedGhostSystem _ghost = default!;
     [Dependency] private readonly IMapManager _map = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly INetManager _net = default!;
@@ -87,18 +87,19 @@ public sealed class XenoNestSystem : EntitySystem
         SubscribeLocalEvent<XenoNestedComponent, ComponentRemove>(OnNestedRemove);
         SubscribeLocalEvent<XenoNestedComponent, PreventCollideEvent>(OnNestedPreventCollide);
         SubscribeLocalEvent<XenoNestedComponent, PullAttemptEvent>(OnNestedPullAttempt);
-        SubscribeLocalEvent<XenoNestedComponent, InteractionAttemptEvent>(OnNestedInteractionAttempt);
         SubscribeLocalEvent<XenoNestedComponent, UpdateCanMoveEvent>(OnNestedCancel);
         SubscribeLocalEvent<XenoNestedComponent, UseAttemptEvent>(OnNestedCancel);
         SubscribeLocalEvent<XenoNestedComponent, ThrowAttemptEvent>(OnNestedCancel);
         SubscribeLocalEvent<XenoNestedComponent, PickupAttemptEvent>(OnNestedCancel);
         SubscribeLocalEvent<XenoNestedComponent, AttackAttemptEvent>(OnNestedCancel);
-        SubscribeLocalEvent<XenoNestedComponent, ChangeDirectionAttemptEvent>(OnNestedEscapeAttempt);
+        SubscribeLocalEvent<XenoNestedComponent, MoveInputEvent>(OnNestedEscapeAttempt);
         SubscribeLocalEvent<XenoNestedComponent, XenoEscapeNestDoAfterEvent>(OnEscapeNestDoAfter);
         SubscribeLocalEvent<XenoNestedComponent, StandAttemptEvent>(OnNestedCancel);
         SubscribeLocalEvent<XenoNestedComponent, IsEquippingAttemptEvent>(OnNestedCancel);
         SubscribeLocalEvent<XenoNestedComponent, IsUnequippingAttemptEvent>(OnNestedCancel);
+        SubscribeLocalEvent<XenoNestedComponent, ChangeDirectionAttemptEvent>(OnNestedCancel);
         SubscribeLocalEvent<XenoNestedComponent, GetInfectedIncubationMultiplierEvent>(OnInNestGetInfectedIncubationMultiplier);
+        SubscribeLocalEvent<XenoNestedComponent, GetVerbsEvent<AlternativeVerb>>(OnAlternativeVerb);
     }
 
     private void OnXenoGetUsedEntity(Entity<XenoComponent> ent, ref GetUsedEntityEvent args)
@@ -157,16 +158,6 @@ public sealed class XenoNestSystem : EntitySystem
         // TODO RMC14
         if (HasComp<KnockedDownComponent>(ent) || _mobState.IsIncapacitated(ent))
             _standing.Down(ent);
-
-        if (ent.Comp.GhostedId is { } id &&
-            _player.TryGetSessionById(id, out var player) &&
-            player.AttachedEntity is { } ghost &&
-            HasComp<GhostComponent>(ghost))
-        {
-            _rmcChat.ChatMessageToOne("\n[font size=24][color=red]You have been freed from your nest and may go back to your body![/color][/font]\n", ghost);
-
-            _ghost.SetCanReturnToBody(ghost, true);
-        }
     }
 
     private void OnSurfaceDoAfterAttempt(Entity<XenoNestSurfaceComponent> ent, ref DoAfterAttemptEvent<XenoNestDoAfterEvent> args)
@@ -217,6 +208,7 @@ public sealed class XenoNestSystem : EntitySystem
         _transform.SetCoordinates(victim, nest.ToCoordinates());
         _transform.SetLocalRotation(victim, direction.Value.ToAngle());
 
+        EnsureComp<LegsParalyzedComponent>(victim);
         _standing.Down(victim, force: true);
 
         // TODO RMC14 make a method to do this
@@ -278,25 +270,55 @@ public sealed class XenoNestSystem : EntitySystem
         args.Cancelled = true;
     }
 
-    private void OnNestedInteractionAttempt(Entity<XenoNestedComponent> ent, ref InteractionAttemptEvent args)
-    {
-        args.Cancelled = true;
-    }
-
     private void OnNestedCancel<T>(Entity<XenoNestedComponent> ent, ref T args) where T : CancellableEntityEventArgs
     {
         args.Cancel();
     }
 
-    private void OnNestedEscapeAttempt(Entity<XenoNestedComponent> ent, ref ChangeDirectionAttemptEvent args)
+    private void OnNestedEscapeAttempt(Entity<XenoNestedComponent> ent, ref MoveInputEvent args)
     {
-        TryEscapeNest(ent, ent);
+        TryEscapeNest(ent);
     }
 
     private void OnInNestGetInfectedIncubationMultiplier(Entity<XenoNestedComponent> ent, ref GetInfectedIncubationMultiplierEvent args)
     {
         if (ent.Comp.Running)
             args.Multiply(ent.Comp.IncubationMultiplier);
+    }
+
+    private void OnAlternativeVerb(Entity<XenoNestedComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (!args.CanAccess || !args.CanInteract)
+            return;
+
+        var user = args.User;
+        var victim = args.Target;
+
+        if (!HasComp<XenoComponent>(user) ||
+            !HasComp<HandsComponent>(user))
+        {
+            return;
+        }
+
+        if (HasComp<XenoNestedComponent>(victim))
+        {
+            var detachVerb = new AlternativeVerb
+            {
+                Text = Loc.GetString("Detach"),
+                Act = () =>
+                {
+                    var ev = new XenoEscapeNestDoAfterEvent();
+                    var doAfter = new DoAfterArgs(EntityManager, user, ent.Comp.DoAfter, ev, ent, victim)
+                    {
+                        BreakOnMove = true,
+                        AttemptFrequency = AttemptFrequency.EveryTick
+                    };
+
+                    _doAfter.TryStartDoAfter(doAfter);
+                }
+            };
+            args.Verbs.Add(detachVerb);
+        }
     }
 
     public bool TryStartNesting(EntityUid user, Entity<XenoNestSurfaceComponent> surface, EntityUid victim, out DoAfterId? doAfterId, bool allDirs = false)
@@ -313,6 +335,7 @@ public sealed class XenoNestSystem : EntitySystem
         var doAfter = new DoAfterArgs(EntityManager, user, surface.Comp.DoAfter, ev, surface, victim)
         {
             BreakOnMove = true,
+            BreakOnRest = true,
             AttemptFrequency = AttemptFrequency.EveryTick
         };
 
@@ -348,19 +371,35 @@ public sealed class XenoNestSystem : EntitySystem
     private void OnEscapeNestDoAfter(Entity<XenoNestedComponent> ent, ref XenoEscapeNestDoAfterEvent args)
     {
         if (args.Cancelled || args.Handled)
+        {
+            ent.Comp.Escaping = false;
+            return;
+        }
+
+        if (_net.IsClient)
             return;
 
-        args.Handled = true;
         DetachNested(null, ent);
+        args.Handled = true;
     }
 
-    public bool TryEscapeNest(EntityUid victim, Entity<XenoNestedComponent> nested)
+    public bool TryEscapeNest(Entity<XenoNestedComponent> nested)
     {
+        if (nested.Comp.Escaping == true)
+            return false;
+
+        nested.Comp.Escaping = true;
+
+        var victim = nested.Owner;
         var ev = new XenoEscapeNestDoAfterEvent();
         var doAfter = new DoAfterArgs(EntityManager, victim, nested.Comp.DoAfter, ev, victim)
         {
             BreakOnMove = false,
-            AttemptFrequency = AttemptFrequency.EveryTick
+            BreakOnDamage = true,
+            AttemptFrequency = AttemptFrequency.EveryTick,
+            CancelDuplicate = true,
+            BlockDuplicate = true,
+            DuplicateCondition = DuplicateConditions.SameEvent
         };
 
         _doAfter.TryStartDoAfter(doAfter);
@@ -381,14 +420,6 @@ public sealed class XenoNestSystem : EntitySystem
             {
                 if (!silent)
                     _popup.PopupClient(Loc.GetString("cm-xeno-nest-failed", ("target", victim)), surface, user);
-
-                return false;
-            }
-
-            if (_mobState.IsDead(victim.Value))
-            {
-                if (!silent)
-                    _popup.PopupClient(Loc.GetString("rmc-xeno-nest-failed-dead", ("target", victim)), surface, user);
 
                 return false;
             }
@@ -441,14 +472,6 @@ public sealed class XenoNestSystem : EntitySystem
 
         if (!CanBeNested(user, victim, (surface, surface.Comp), out var directions, silent, allDirs))
             return false;
-
-        if (victim != null && !_standing.IsDown(victim.Value))
-        {
-            if (!silent)
-                _popup.PopupClient(Loc.GetString("cm-xeno-nest-failed-target-resisting", ("target", victim)), victim.Value, user, PopupType.MediumCaution);
-
-            return false;
-        }
 
         var nestCoords = _transform.GetMoverCoordinates(surface);
 
@@ -527,6 +550,7 @@ public sealed class XenoNestSystem : EntitySystem
         _transform.AttachToGridOrMap(nested, xform);
 
         RemCompDeferred<XenoNestedComponent>(nested);
+        RemComp<LegsParalyzedComponent>(nested);
         QueueDel(nest);
     }
 

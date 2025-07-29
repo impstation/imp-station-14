@@ -21,4 +21,7 @@ public sealed partial class XenoNestedComponent : Component
 
     [DataField, AutoNetworkedField]
     public TimeSpan DoAfter = TimeSpan.FromSeconds(8);
+
+    [DataField]
+    public bool Escaping = false;
 }
