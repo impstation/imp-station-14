@@ -11,7 +11,12 @@
   parent: BaseGameRule
   components:
   - type: AntagSelection
+    agentName: tourist-round-end-agent-name
     definitions:
     - prefRoles: [ Tourist ]
       mindRoles:
       - MindRoleTourist
+  - type: AntagRandomObjectives
+    sets:
+    - groups: TouristObjectiveGroups
+    maxDifficulty: 5

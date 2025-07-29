@@ -24,10 +24,14 @@ using InventoryComponent = Content.Shared.Inventory.InventoryComponent;
 using Content.Shared.Throwing;
 using Robust.Shared.Prototypes;
 using Content.Shared.DoAfter;
+using Content.Shared.Mind.Components;
 using Content.Shared._Impstation.Tourist;
 using Content.Shared._Impstation.Tourist.Components;
+using Content.Server._Impstation.Tourist.Components;
 using Content.Server.Objectives.Components;
 using Content.Server.Objectives.Systems;
+using Content.Shared.Mind;
+using Robust.Shared.Containers;
 
 namespace Content.Server._Impstation.Tourist
 {
@@ -47,6 +51,8 @@ namespace Content.Server._Impstation.Tourist
         [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
         [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
         [Dependency] private readonly CodeConditionSystem _codeCondition = default!;
+        [Dependency] private readonly SharedMindSystem _mind = default!;
+        [Dependency] private readonly SharedContainerSystem _container = default!;
 
         private static readonly ProtoId<TagPrototype> TrashTag = "Trash";
 
@@ -86,14 +92,6 @@ namespace Content.Server._Impstation.Tourist
 
             args.Handled = true;
             FlashArea(uid, args.User, comp.Range, comp.AoeFlashDuration, comp.SlowTo, true, comp.Probability);
-        }
-
-        private void OnFlashThrowHitEvent(EntityUid uid, TouristCameraComponent comp, ThrowDoHitEvent args)
-        {
-            if (!UseFlash(uid, comp))
-                return;
-
-            FlashArea(uid, args.User, comp.Range, comp.AoeFlashDuration, comp.SlowTo, false, comp.Probability);
         }
 
         private bool UseFlash(EntityUid uid, TouristCameraComponent comp)
@@ -166,16 +164,74 @@ namespace Content.Server._Impstation.Tourist
             var statusEffectsQuery = GetEntityQuery<StatusEffectsComponent>();
             var damagedByFlashingQuery = GetEntityQuery<DamagedByFlashingComponent>();
 
+            //if you're seeing this, I once again forgot the debug loggers
+
             foreach (var entity in _entityLookup.GetEntitiesInRange(transform.Coordinates, range))
             {
-                //this will probably be moved to its own helper function to handle multiple objectives at once
-                if (user != null && TryComp<TouristComponent>(user, out var tourist))
-                {
-                    var meta = MetaData(entity);
+                // Check for entites in view
+                // put damagedByFlashingComponent in the predicate because shadow anomalies block vision.
+                if (!_examine.InRangeUnOccluded(entity, mapPosition, range, predicate: (e) => damagedByFlashingQuery.HasComponent(e)))
+                    continue;
 
-                    if (meta.EntityPrototype?.ID == "MobGingerbread")
+                //this will probably be moved to its own helper function to handle multiple objectives at once
+                if (user != null && TryComp<TouristComponent>(user, out var tourist) && _mind.TryGetObjectiveComp<TouristPhotosConditionComponent>(user.Value, out var condition))
+                {
+                    var prototype = MetaData(entity).EntityPrototype;
+
+                    //skip if we've already taken a photo of this entity
+                    if (tourist.PhotographedEntities.Contains(entity))
                     {
-                        tourist.pisk++;
+                        Logger.Info($"Skipping because already stored.");
+                        continue;
+                    }
+
+                    // Skip if entity is in any inventory
+                    if (_inventory.TryGetContainingSlot(entity, out var slot) || _container.IsEntityInContainer(entity))
+                    {
+                        Logger.Debug($"Skipping {entity} - it's in an inventory/container");
+                        continue;
+                    }
+
+                    bool validTarget = false;
+
+                    //check if the entity is a targeted prototype
+                    if (condition?.TargetPrototypes != null && prototype?.ID is { } prototypeId && condition.TargetPrototypes.Contains(prototypeId))
+                    {
+                        Logger.Info($"{entity} is valid prototype");
+                        validTarget = true;
+                    }
+                    /* commenting this out and coming back to it later because goddamn
+                    //this is a bit of a monster, but check if the entity has a targeted job prototype
+                    else if (condition.TargetJobs != null && TryComp<MindContainerComponent>(entity, out var mindContainer))
+                    {
+                        var mind = mindContainer.Mind;
+                        if (mind != null && TryComp<MindComponent>(mind, out var mindComp))
+                        {
+                            foreach (var role in mindComp.MindRoles)
+                            {
+                                if (condition.TargetJobs.Contains(role.Prototype.ID))
+                                {
+                                    validTarget = true;
+                                    break; // Exit early if any matching role is found
+                                }
+                            }
+                        }
+                    }
+                    */
+
+
+                    if (validTarget)
+                    {
+                        // save entity uid to the tourist component
+                        tourist.PhotographedEntities.Add(entity);
+                        Logger.Info($"Saving entity.");
+                        // yay greentext!
+                        if (_mind.TryGetObjectiveComp<TouristPhotosConditionComponent>(user.Value, out var obj))
+                        {
+                            Logger.Info($"Adding to greentext");
+                            obj.Photos++;
+                        }
+
                     }
                 }
 
@@ -185,11 +241,6 @@ namespace Content.Server._Impstation.Tourist
 
                 // Is the entity affected by the flash either through status effects or by taking damage?
                 if (!statusEffectsQuery.HasComponent(entity) && !damagedByFlashingQuery.HasComponent(entity))
-                    continue;
-
-                // Check for entites in view
-                // put damagedByFlashingComponent in the predicate because shadow anomalies block vision.
-                if (!_examine.InRangeUnOccluded(entity, mapPosition, range, predicate: (e) => damagedByFlashingQuery.HasComponent(e)))
                     continue;
 
                 // They shouldn't have flash removed in between right?

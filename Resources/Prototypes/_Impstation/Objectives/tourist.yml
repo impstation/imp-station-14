@@ -6,20 +6,43 @@
   - type: Objective
     issuer: objective-issuer-self
     difficulty: 1
-  #- type: RoleRequirement
-  #  roles:
-  #  - MindRoleTourist
+  - type: RoleRequirement
+    roles:
+    - TouristRole
 
 - type: entity
-  abstract: true
+  abstract: false
   parent: [BaseTouristObjective, BaseCodeObjective]
   id: BasePhotographObjective
-  name: Tourist Test Objective
-  description: Take a photo of a flash!
   components:
   - type: Objective
     icon:
-      sprite: Objects/Weapons/Bombs/spidercharge.rsi
-      state: icon
-  - type: PhotographObjectObjective
-    targets: ["Flash"]
+      sprite: Objects/Fun/figurines.rsi
+      state: mouse
+  - type: NumberObjective
+    min: 4
+    max: 10
+    title: objective-condition-multi-mouse-title
+    description: objective-condition-multi-mouse-description
+  - type: TouristPhotosCondition
+    targetPrototypes:
+      - MobMouse
+      - MobMouse1
+      - MobMouse2
+
+
+
+# Tourist objective group
+- type: weightedRandom
+  id: TouristObjectiveGroups
+  weights:
+    TouristObjectiveGroupPhoto: 1
+  #  TraitorObjectiveGroupSouvenir: 1
+
+- type: weightedRandom
+  id: TouristObjectiveGroupPhoto
+  weights:
+    BasePhotographObjective: 1
+
+- type: weightedRandom
+  id: TouristObjectiveGroupSouvenir

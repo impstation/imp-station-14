@@ -3,16 +3,16 @@
   parent: EventHumanoid
   components:
     - type: GhostRole
-      name: ghost-role-information-civilian-name #TODO: replace with bespoke / free agent instructions
-      description: ghost-role-information-civilian-description #TODO
-      rules: ghost-role-information-nonantagonist-rules #TODO
+      name: ghost-role-information-tourist-name #TODO: replace with bespoke / free agent instructions
+      description: ghost-role-information-tourist-description #TODO
+      rules: ghost-role-information-freeagent-rules #TODO
       raffle:
         settings: default
     - type: Loadout
       prototypes: [ TouristRedShirt, TouristBlueShirt, TouristYellowShirt, TouristBlackShirt ]
       roleLoadout: [ RoleSurvivalStandard ]
     - type: Tourist
-    - type: AutoTraitor #this is weirdly named but works for any mindrole
+    - type: AutoTraitor #this is weirdly named but works for more than just traitors
       profile: TouristRule
 
 - type: entity
@@ -40,7 +40,7 @@
     - RandomTourist
 
 
-# Tourist starting gear options. Currently only differentiated by color of shirt
+# Tourist starting gear options. Currently only differentiated by color of shirt, but they could get other stuff too
 - type: startingGear
   id: TouristRedShirt
   equipment:
@@ -50,7 +50,6 @@
     eyes: ClothingEyesGlassesSunglasses
     shoes: ClothingShoesTourist
     id: VisitorPDA
-    ears: ClothingHeadsetFreelance
     pocket1: SpaceCash10000
 
 - type: startingGear
@@ -62,7 +61,6 @@
     eyes: ClothingEyesGlassesSunglasses
     shoes: ClothingShoesTourist
     id: VisitorPDA
-    ears: ClothingHeadsetFreelance
     pocket1: SpaceCash10000
 
 - type: startingGear
@@ -74,7 +72,6 @@
     eyes: ClothingEyesGlassesSunglasses
     shoes: ClothingShoesTourist
     id: VisitorPDA
-    ears: ClothingHeadsetFreelance
     pocket1: SpaceCash10000
 
 - type: startingGear
@@ -86,6 +83,5 @@
     eyes: ClothingEyesGlassesSunglasses
     shoes: ClothingShoesTourist
     id: VisitorPDA
-    ears: ClothingHeadsetFreelance
     pocket1: SpaceCash10000
 
