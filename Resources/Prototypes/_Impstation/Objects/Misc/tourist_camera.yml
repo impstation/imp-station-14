@@ -2,23 +2,25 @@
   name: disposable camera
   parent: [ClothingNeckBase]
   id: TouristCamera
-  description: CAMERA!! #todo: write this
+  description: A cheap, mass produced camera equipped with a military-grade flash to capture every memory and a lanyard to hold them close.
   components:
     - type: Sprite
-      sprite: Objects/Weapons/Melee/flash.rsi
+      sprite: _Impstation/Objects/Misc/touristcamera.rsi
       layers:
-      - state: flash
+      - state: camera
         map: [ "enum.TouristCameraVisuals.BaseLayer" ]
       - state: flashing
         map: [ "enum.TouristCameraVisuals.LightLayer" ]
         visible: false
         shader: unshaded
-    - type: TouristCamera #todo: replace with specific tourist camera flash component
+    - type: TouristCamera
     - type: Item
       size: Small
-      sprite: Objects/Weapons/Melee/flash.rsi
+      sprite: _Impstation/Objects/Misc/touristcamera.rsi
     - type: UseDelay
     - type: Appearance
+    - type: Clothing
+      sprite: _Impstation/Objects/Misc/touristcamera.rsi
     - type: GenericVisualizer
       visuals:
         enum.TouristCameraVisuals.Flashing:
