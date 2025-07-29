@@ -645,6 +645,13 @@
       staticPacks:
       - OreSmelting
       - RGlassSmelting
+    - type: MaterialStorageMagnetPickup # NF This allows the ore processor to have a magnet that also inserts the ore
+      range: 0.30 # NF The range of the magnet effect
+    - type: PlaceableSurface # This is required for the magnet pickup to work, this component allows a dumpable surface
+    - type: PointLight
+      radius: 2.5
+      energy: 5
+      color: "#ff5a00"
 
 - type: entity
   parent: OreProcessor
@@ -663,6 +670,13 @@
     - OreSmelting
     - RGlassSmelting
     - AdvancedSmelting
+  - type: MaterialStorageMagnetPickup # NF This allows the ore processor to have a magnet that also inserts the ore
+    range: 0.30 # NF The range of the magnet effect
+  - type: PlaceableSurface # This is required for the magnet pickup to work, this component allows a dumpable surface
+  - type: PointLight
+    radius: 2.5
+    energy: 5
+    color: "#5ad6ff"
 
 - type: entity
   parent: BaseLathe
