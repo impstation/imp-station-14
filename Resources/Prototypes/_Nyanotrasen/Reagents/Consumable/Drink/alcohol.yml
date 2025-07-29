@@ -1,0 +1,41 @@
+- type: reagent
+  id: Silverjack
+  name: reagent-name-silverjack
+  parent: BaseAlcohol
+  desc: reagent-desc-silverjack
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: silverjack
+  color: "#978647"
+  metamorphicSprite:
+    sprite: _Nyanotrasen/Objects/Consumable/Drinks/silverjack.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.0625
+
+- type: reagent
+  id: SapoPicante
+  name: reagent-name-sapopicante
+  parent: BaseAlcohol
+  desc: reagent-desc-sapopicante
+  physicalDesc: reagent-physical-desc-oily
+  flavor: sapopicante
+  color: "#c0501a"
+  metamorphicSprite:
+    sprite: _Nyanotrasen/Objects/Consumable/Drinks/sapopicante.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.065
+      - !type:AdjustTemperature
+        amount: 75 # thermal energy, not temperature!

@@ -3,10 +3,13 @@
 
 - type: playTimeTracker
   id: JobHospitalityDirector
-
+  
+- type: playTimeTracker
+  id: AntagTourist #I should probably rename this but I really want it to fit the naming scheme of everything else
 
 # imp - upstream antag trackers
 # placeholder trackers for building blocks - there's too much to rework otherwise so i'm doing this instead. they literally do nothing.
+# TODO: implement these as antagGroups instead
 - type: playTimeTracker
   id: AntagGeneric
 
@@ -101,5 +104,10 @@
 - type: playTimeTracker
   id: AntagBountyHunter
 
+# admin spawn trackers
 - type: playTimeTracker
-  id: AntagTourist #I should probably rename this but I really want it to fit the naming scheme of everything else
+  id: JobCentCommIntern
+
+- type: playTimeTracker
+  id: JobCentCommInternLeader
+

@@ -32,7 +32,7 @@ public sealed class EvacShuttleTest
         pair.Server.CfgMan.SetCVar(CCVars.EmergencyShuttleEnabled, true);
         pair.Server.CfgMan.SetCVar(CCVars.GameDummyTicker, false);
         var gameMap = pair.Server.CfgMan.GetCVar(CCVars.GameMap);
-        pair.Server.CfgMan.SetCVar(CCVars.GameMap, "Saltern");
+        pair.Server.CfgMan.SetCVar(CCVars.GameMap, "SalternImp"); //imp edit, fucking load-bearing saltern
 
         await server.WaitPost(() => ticker.RestartRound());
         await pair.RunTicksSync(25);
