@@ -1,0 +1,32 @@
+- type: entity
+  name: disposable camera
+  parent: [ClothingNeckBase]
+  id: TouristCamera
+  description: CAMERA!! #todo: write this
+  components:
+    - type: Sprite
+      sprite: Objects/Weapons/Melee/flash.rsi
+      layers:
+      - state: flash
+        map: [ "enum.TouristCameraVisuals.BaseLayer" ]
+      - state: flashing
+        map: [ "enum.TouristCameraVisuals.LightLayer" ]
+        visible: false
+        shader: unshaded
+    - type: TouristCamera #todo: replace with specific tourist camera flash component
+    - type: Item
+      size: Small
+      sprite: Objects/Weapons/Melee/flash.rsi
+    - type: UseDelay
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.TouristCameraVisuals.Flashing:
+          enum.TouristCameraVisuals.LightLayer:
+            True: {visible: true}
+            False: {visible: false}
+    #TODO: add tourist guidebook here
+    #- type: GuideHelp
+    #  guides:
+    #  - Security
+    #  - Antagonists

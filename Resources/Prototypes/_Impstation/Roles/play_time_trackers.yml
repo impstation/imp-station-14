@@ -3,7 +3,9 @@
 
 - type: playTimeTracker
   id: JobHospitalityDirector
-
+  
+- type: playTimeTracker
+  id: AntagTourist #I should probably rename this but I really want it to fit the naming scheme of everything else
 
 # imp - upstream antag trackers
 # placeholder trackers for building blocks - there's too much to rework otherwise so i'm doing this instead. they literally do nothing.
@@ -108,3 +110,4 @@
 
 - type: playTimeTracker
   id: JobCentCommInternLeader
+
