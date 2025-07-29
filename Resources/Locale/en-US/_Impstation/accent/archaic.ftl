@@ -514,8 +514,8 @@ accent-archaic-words-replace-143 = i have little attention to spare
 accent-archaic-words-144 = why
 accent-archaic-words-replace-144 = wherefore
 
-accent-archaic-words-145 = fuck
-accent-archaic-words-replace-145 = zounds
+accent-archaic-words-145 = fuck this
+accent-archaic-words-replace-145 = to the fourteen hells with this
 
 accent-archaic-words-146 = replicator
 accent-archaic-words-replace-146 = soulless husk
@@ -672,10 +672,8 @@ accent-archaic-words-replace-188 = shall
 accent-archaic-words-189 = is
 accent-archaic-words-replace-189 = art
 
-accent-archaic-words-190 = you
-accent-archaic-words-190-2 = ya
-accent-archaic-words-190-3 = ye
-accent-archaic-words-replace-190 = thou
+accent-archaic-words-190 = shit
+accent-archaic-words-replace-190 = filth
 
 accent-archaic-words-191 = badass
 accent-archaic-words-replace-191 = fearsome
@@ -782,3 +780,32 @@ accent-archaic-words-replace-218 = dancing with fate
 accent-archaic-words-219 = operative
 accent-archaic-words-219-2 = officer
 accent-archaic-words-replace-219 = knight
+
+accent-archaic-words-220 = bet
+accent-archaic-words-replace-220 = wager
+
+accent-archaic-words-221 = hell
+accent-archaic-words-replace-221 = fourteen hells
+
+accent-archaic-words-222 = i think
+accent-archaic-words-replace-222 = methinks
+
+accent-archaic-words-223 = fuck that
+accent-archaic-words-replace-223 = to the fourteen hells with that
+
+accent-archaic-words-224 = fuck you
+accent-archaic-words-replace-224 = to the fourteen hells with thee
+
+accent-archaic-words-225 = you
+accent-archaic-words-225-2 = ya
+accent-archaic-words-225-3 = ye
+accent-archaic-words-replace-225 = thou
+
+accent-archaic-words-226 = fuck
+accent-archaic-words-replace-226 = bleeding stars
+
+accent-archaic-words-227 = bounty hunter
+accent-archaic-words-replace-227 = witchfinder
+
+accent-archaic-words-228 = bounty
+accent-archaic-words-replace-228 = quest
