@@ -46,9 +46,9 @@ accent-archaic-words-replace-11 = physicker
 accent-archaic-words-12 = surgeon
 accent-archaic-words-replace-12 = chirurgeon
 
-accent-archaic-words-13 = mercenary
-accent-archaic-words-13-2 = merc
-accent-archaic-words-replace-13 = sellsword
+accent-archaic-words-13 = listen up
+accent-archaic-words-13-2 = i have an announcement to make
+accent-archaic-words-replace-13 = hear ye, hear ye
 
 accent-archaic-words-14 = ghosts
 accent-archaic-words-replace-14 = spectres 
@@ -798,7 +798,6 @@ accent-archaic-words-replace-224 = to the fourteen hells with thee
 
 accent-archaic-words-225 = you
 accent-archaic-words-225-2 = ya
-accent-archaic-words-225-3 = ye
 accent-archaic-words-replace-225 = thou
 
 accent-archaic-words-226 = fuck
@@ -809,3 +808,13 @@ accent-archaic-words-replace-227 = witchfinder
 
 accent-archaic-words-228 = bounty
 accent-archaic-words-replace-228 = quest
+
+accent-archaic-words-229 = fugitive
+accent-archaic-words-replace-229 = caput lupinum
+
+accent-archaic-words-230 = clone
+accent-archaic-words-replace-230 = döppelganger
+
+accent-archaic-words-231 = mercenary
+accent-archaic-words-231-2 = merc
+accent-archaic-words-replace-231 = sellsword
