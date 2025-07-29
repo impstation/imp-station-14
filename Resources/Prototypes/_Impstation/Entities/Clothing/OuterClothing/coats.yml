@@ -502,3 +502,16 @@
   - type: Construction
     graph: WebObjects
     node: websweater
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatMusicianFurCoat
+  name: musician's fur coat
+  description: Seems snazzy, but on closer inspection it's just an old coat covered in white spray-paint.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Coats/mus_furcoat.rsi
+  - type: Clothing
+    slots:
+      - OUTERCLOTHING
+    sprite: _Impstation/Clothing/OuterClothing/Coats/mus_furcoat.rsi

@@ -29,7 +29,12 @@ public sealed class StartWithLensesSystem : EntitySystem
         if (!_inventorySystem.TryGetSlot(ent, "eyes", out var slot))
             return;
 
-        var eyes = _inventorySystem.GetHandOrInventoryEntities(ent.Owner, SlotFlags.EYES).First();
+        var eyeSet = _inventorySystem.GetHandOrInventoryEntities(ent.Owner, SlotFlags.EYES);
+
+        if (!eyeSet.Any())
+            return;
+
+        var eyes = eyeSet.First();
 
         if (TryComp<LensSlotComponent>(eyes, out var lensSlot))
         {
