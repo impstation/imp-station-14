@@ -1,21 +1,23 @@
-- type: reaction
-  id: Dylovene
-  reactants:
-    Silicon:
-      amount: 1
-    Nitrogen:
-      amount: 1
-    Potassium:
-      amount: 1
-  products:
-    Dylovene: 3
+# Begin Funkychem removals
+# - type: reaction
+#   id: Dylovene
+#   reactants:
+#     Silicon:
+#       amount: 1
+#     Nitrogen:
+#       amount: 1
+#     Potassium:
+#       amount: 1
+#   products:
+#     Dylovene: 3
+# End Funkychem removals
 
 - type: reaction
   id: Ethylredoxrazine
   reactants:
     Oxygen:
       amount: 1
-    Dylovene:
+    Multiver: # Funkychem
       amount: 1
     Carbon:
       amount: 1
@@ -44,15 +46,17 @@
   products:
     Arithrazine: 2
 
-- type: reaction
-  id: Bicaridine
-  reactants:
-    Inaprovaline:
-      amount: 1
-    Carbon:
-      amount: 1
-  products:
-    Bicaridine: 2
+# Begin Funkychem removals
+# - type: reaction
+#   id: Bicaridine
+#   reactants:
+#     Inaprovaline:
+#       amount: 1
+#     Carbon:
+#       amount: 1
+#   products:
+#     Bicaridine: 2
+# End Funkychem removals
 
 - type: reaction
   id: Cryoxadone
@@ -90,17 +94,19 @@
   products:
     Epinephrine: 4
 
-- type: reaction
-  id: Dermaline
-  reactants:
-    Kelotane:
-      amount: 1
-    Oxygen:
-      amount: 1
-    Phosphorus:
-      amount: 1
-  products:
-    Dermaline: 3
+# Begin Funkychem removals
+# - type: reaction
+#   id: Dermaline
+#   reactants:
+#     Kelotane:
+#       amount: 1
+#     Oxygen:
+#       amount: 1
+#     Phosphorus:
+#       amount: 1
+#   products:
+#     Dermaline: 3
+# End Funkychem removals
 
 - type: reaction
   id: Dexalin
@@ -113,24 +119,26 @@
   products:
     Dexalin: 3
 
-- type: reaction
-  id: DexalinPlus
-  reactants:
-    Dexalin:
-      amount: 1
-    Carbon:
-      amount: 1
-    Iron:
-      amount: 1
-  products:
-    DexalinPlus: 3
+# Begin Funkychem removals
+# - type: reaction
+#   id: DexalinPlus
+#   reactants:
+#     Dexalin:
+#       amount: 1
+#     Carbon:
+#       amount: 1
+#     Iron:
+#       amount: 1
+#   products:
+#     DexalinPlus: 3
+# End Funkychem removals
 
 - type: reaction
   id: Hyronalin
   reactants:
     Radium:
       amount: 1
-    Dylovene:
+    PotassiumIodide: # Funkychem
       amount: 1
   products:
     Hyronalin: 2
@@ -171,15 +179,17 @@
   products:
     TranexamicAcid: 3
 
-- type: reaction
-  id: Kelotane
-  reactants:
-    Silicon:
-      amount: 1
-    Carbon:
-      amount: 1
-  products:
-    Kelotane: 2
+# Begin Funkychem removals
+# - type: reaction
+#   id: Kelotane
+#   reactants:
+#     Silicon:
+#       amount: 1
+#     Carbon:
+#       amount: 1
+#   products:
+#     Kelotane: 2
+# End Funkychem removals
 
 - type: reaction
   id: Leporazine
@@ -209,7 +219,7 @@
 - type: reaction
   id: Ambuzol
   reactants:
-    Dylovene:
+    Multiver: # Funkychem
       amount: 1
     Ammonia:
       amount: 1
@@ -245,7 +255,7 @@
   reactants:
     Inaprovaline:
       amount: 1
-    Dylovene:
+    Multiver: # Funkychem
       amount: 1
   products:
     Tricordrazine: 2
@@ -253,7 +263,7 @@
 - type: reaction
   id: HeartbreakerToxin
   reactants:
-    DexalinPlus:
+    Salbutamol: # Funkychem
       amount: 1
     MindbreakerToxin:
       amount: 1
@@ -318,7 +328,7 @@
       amount: 1
     Hydrogen:
       amount: 1
-    Dylovene:
+    Multiver: # Funkychem
       amount: 1
   products:
     MindbreakerToxin: 3
@@ -389,7 +399,7 @@
       amount: 1
     SodiumHydroxide:
       amount: 1
-    Kelotane:
+    Lenturi: # Funkychem
       amount: 1
     Water:
       amount: 1
@@ -413,7 +423,7 @@
   impact: Medium
   minTemp: 335
   reactants:
-    Bicaridine: # Bicaridine is a conflicting brute medication and if mixed incorrectly will make Razorium. This is intended.
+    Libital: # Funkychem # Bicaridine is a conflicting brute medication and if mixed incorrectly will make Razorium. This is intended.
       amount: 1
     Benzene:
       amount: 1
@@ -425,7 +435,7 @@
   impact: Medium
   minTemp: 325
   reactants:
-    Bicaridine: # Bicaridine is a conflicting brute medication and if mixed incorrectly will make Razorium. This is intended.
+    Libital: # Funkychem # Bicaridine is a conflicting brute medication and if mixed incorrectly will make Razorium. This is intended.
       amount: 1
     Hydroxide:
       amount: 1
@@ -436,7 +446,7 @@
   id: Bruizine
   impact: Medium
   reactants:
-    Bicaridine: # Bicaridine is a conflicting brute medication and if mixed incorrectly will make Razorium. This is intended.
+    Libital: # Funkychem # Bicaridine is a conflicting brute medication and if mixed incorrectly will make Razorium. This is intended.
       amount: 1
     Lithium:
       amount: 0.9
@@ -445,38 +455,40 @@
   products:
     Bruizine: 2
 
-- type: reaction
-  id: BicarLacerinol # mixing any two brute medications will make Razorium
-  impact: Medium
-  reactants:
-    Lacerinol:
-      amount: 1
-    Bicaridine:
-      amount: 1
-  products:
-    Razorium: 1
+# Begin Funkychem removals
+# - type: reaction
+#   id: BicarLacerinol # mixing any two brute medications will make Razorium
+#   impact: Medium
+#   reactants:
+#     Lacerinol:
+#       amount: 1
+#     Bicaridine:
+#       amount: 1
+#   products:
+#     Razorium: 1
 
-- type: reaction
-  id: BicarPuncturase # mixing any two brute medications will make Razorium
-  impact: Medium
-  reactants:
-    Puncturase:
-      amount: 1
-    Bicaridine:
-      amount: 1
-  products:
-    Razorium: 1
+# - type: reaction
+#   id: BicarPuncturase # mixing any two brute medications will make Razorium
+#   impact: Medium
+#   reactants:
+#     Puncturase:
+#       amount: 1
+#     Bicaridine:
+#       amount: 1
+#   products:
+#     Razorium: 1
 
-- type: reaction
-  id: BicarBruizine # mixing any two brute medications will make Razorium
-  impact: Medium
-  reactants:
-    Bruizine:
-      amount: 1
-    Bicaridine:
-      amount: 1
-  products:
-    Razorium: 1
+# - type: reaction
+#   id: BicarBruizine # mixing any two brute medications will make Razorium
+#   impact: Medium
+#   reactants:
+#     Bruizine:
+#       amount: 1
+#     Bicaridine:
+#       amount: 1
+#   products:
+#     Razorium: 1
+# End Funkychem removals
 
 - type: reaction
   id: BruizineLacerinol # mixing any two brute medications will make Razorium
@@ -536,7 +548,7 @@
   reactants:
     Leporazine:
       amount: 1
-    Dermaline:
+    Aiuri: # Funkychem
       amount: 1
     Carbon:
       amount: 1
@@ -550,7 +562,7 @@
   reactants:
     Leporazine:
       amount: 1
-    Kelotane:
+    Aiuri: # Funkychem
       amount: 1
     Silicon:
       amount: 1

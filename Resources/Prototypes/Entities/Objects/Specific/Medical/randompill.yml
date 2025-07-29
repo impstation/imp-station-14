@@ -7,15 +7,19 @@
       weight: 5
       reagents:
       - Stimulants
+      - StabilisedStimulants # Funkychem
     - quantity: 10
       weight: 5
       reagents:
       - Ichor
       - Necrosol
+      - Stasicillin # Funkychem
+      - Revivopine # Funkychem
     - quantity: 5
       weight: 4
       reagents:
       - Cognizine
+      - ExoticReagent # Funkychem
     - quantity: 10
       weight: 1
       reagents:
@@ -31,6 +35,7 @@
       - Vitamin
       - PolypyryliumOligomers
       - Charcoal
+      - Negacordrazine # Funkychem
   # Neutral - weight: 20
     - quantity: 20
       weight: 17.5
@@ -87,6 +92,10 @@
       - BrosochloricBros
       - Amatoxin
       - Tazinide
+      - Heparin # Funkychem
+      - Rhigoxane # Funkychem
+      - Spewium # Funkychem
+      - Pestiline # Funkychem
     - quantity: 5
       weight: 2.5
       reagents:

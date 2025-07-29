@@ -240,12 +240,14 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 15
+        maxVol: 17 # Funkychem
         reagents:
         - ReagentId: Nutriment
           Quantity: 10.5
         - ReagentId: Vitamin
           Quantity: 1.5
+        - ReagentId: LiquidPie  # Funkychem
+          Quantity: 2  # Funkychem
 # Tastes like pie, cream, banana.
 
 - type: entity

@@ -1,14 +1,14 @@
 - type: vendingMachineInventory
   id: ChemVendInventory
   startingInventory:
-    Jug: 4
+    Jug: 6 # Funkychem - a lot more intermediates - was 4 # Impstation - chemists should still go talk to other people xd - was 8
     JugAluminium: 2
     JugCarbon: 4
     JugChlorine: 1
     JugCopper: 2
     JugEthanol: 2
     JugFluorine: 1
-    JugHydrogen: 3
+    JugHydrogen: 4 # Funkychem - a lot more hydrogen is consumed
     JugIodine: 1
     JugIron: 2
     JugLithium: 2
@@ -22,6 +22,7 @@
     JugSodium: 2
     JugSugar: 3
     JugSulfur: 1
+    JugWeldingFuel: 1 # Funkychem - welding fuel is a baseline
   contrabandInventory:
     DrinkLithiumFlask: 1
     StrangePill: 3
@@ -31,14 +32,14 @@
 - type: vendingMachineInventory
   id: ChemVendInventorySyndicate
   startingInventory:
-    Jug: 4
+    Jug: 8 # Funkystation - a lot more intermediates
     JugAluminium: 2
     JugCarbon: 4
     JugChlorine: 1
     JugCopper: 2
     JugEthanol: 2
     JugFluorine: 1
-    JugHydrogen: 3
+    JugHydrogen: 4 # Funkychem - more hydrogen consumed - was 3
     JugIodine: 1
     JugIron: 2
     JugLithium: 2
@@ -52,7 +53,7 @@
     JugSodium: 2
     JugSugar: 3
     JugSulfur: 1
-    JugWeldingFuel: 1
+    JugWeldingFuel: 2 # Funkychem - was 2
     PlasmaChemistryVial: 1
   contrabandInventory:
     DrinkLithiumFlask: 1

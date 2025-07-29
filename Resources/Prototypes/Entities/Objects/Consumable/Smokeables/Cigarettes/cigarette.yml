@@ -182,14 +182,14 @@
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
-          - ReagentId: Dylovene
+          - ReagentId: Multiver # Funkychem
             Quantity: 10
       food: # imp
         maxVol: 40
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
-          - ReagentId: Dylovene
+          - ReagentId: Multiver # Funkychem
             Quantity: 10
 
 
@@ -205,14 +205,14 @@
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
-          - ReagentId: Dermaline
+          - ReagentId: Aiuri # Funkychem
             Quantity: 10
       food: # imp
         maxVol: 40
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
-          - ReagentId: Dermaline
+          - ReagentId: Aiuri # Funkychem
             Quantity: 10
 
 - type: entity
@@ -271,14 +271,14 @@
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
-          - ReagentId: Bicaridine
+          - ReagentId: SalicylicAcid # Funkychem - was Bicaridine
             Quantity: 10
       food: # imp
         maxVol: 40
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
-          - ReagentId: Bicaridine
+          - ReagentId: SalicylicAcid # Funkychem - was Bicaridine
             Quantity: 10
 
 - type: entity
