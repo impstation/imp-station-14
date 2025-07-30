@@ -32,6 +32,8 @@ using Content.Server.Objectives.Components;
 using Content.Server.Objectives.Systems;
 using Content.Shared.Mind;
 using Robust.Shared.Containers;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Hands.Components;
 
 namespace Content.Server._Impstation.Tourist
 {
@@ -53,6 +55,7 @@ namespace Content.Server._Impstation.Tourist
         [Dependency] private readonly CodeConditionSystem _codeCondition = default!;
         [Dependency] private readonly SharedMindSystem _mind = default!;
         [Dependency] private readonly SharedContainerSystem _container = default!;
+        [Dependency] private readonly SharedHandsSystem _hands = default!;
 
         private static readonly ProtoId<TagPrototype> TrashTag = "Trash";
 
@@ -185,8 +188,8 @@ namespace Content.Server._Impstation.Tourist
                         continue;
                     }
 
-                    // Skip if entity is in any inventory
-                    if (_inventory.TryGetContainingSlot(entity, out var slot) || _container.IsEntityInContainer(entity))
+                    //skip if entity is in a container, but don't skip if it's being worn or held
+                    if (!_inventory.TryGetContainingSlot(entity, out var slot) && !TryComp<HandsComponent>(Transform(entity).ParentUid, out _) && _container.IsEntityInContainer(entity))
                     {
                         Logger.Debug($"Skipping {entity} - it's in an inventory/container");
                         continue;
