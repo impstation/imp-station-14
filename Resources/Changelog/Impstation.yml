@@ -1,55 +1,4 @@
 ﻿Entries:
-- author: meridiadottxt
-  changes:
-  - message: gate station is now the perfect map
-    type: Add
-  id: 1590
-  time: '2025-04-30T05:25:52.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2370
-- author: jtfg-dev, rosysaturniidae
-  changes:
-  - message: The Intergalactic Standards Association continues its silent war on inconsistency.
-    type: Tweak
-  - message: Some item descriptions explain what they do a little better.
-    type: Tweak
-  - message: A sabotaged Shining Spring no longer reveals its about-to-kill-nerds
-      nature on inspection. (Should you get your hands on one, the description IS
-      different, though...)
-    type: Fix
-  - message: The mail RPDS is not Syndicate contraband. Don't believe anyone who says
-      otherwise.
-    type: Fix
-  id: 1591
-  time: '2025-04-30T14:18:52.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2306
-- author: TuttlePants, Ecramox, AvianMaiden
-  changes:
-  - message: Added the bounty hunter, a new midround free agent with the goal of capturing
-      an antagonist!
-    type: Add
-  id: 1592
-  time: '2025-04-30T20:10:01.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2280
-- author: starlighthowls
-  changes:
-  - message: a normal new plushie!
-    type: Add
-  id: 1593
-  time: '2025-04-30T20:14:01.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2340
-- author: jtfg-dev
-  changes:
-  - message: 'Cyborgs now get the pronouns and detailed examine text set for the character
-      you join with, like any other job. (NOTE: For dedicated cyborg characters, if
-      you haven''t already, you should make a unique profile!)'
-    type: Add
-  - message: Altered the examine description of cyborgs to minimize misgendering.
-    type: Tweak
-  - message: Small piece of broken grammar on partly-consumed bodies.
-    type: Fix
-  id: 1594
-  time: '2025-04-30T20:13:04.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2335
 - author: CombustibleToast
   changes:
   - message: Atmos techs can now wear the engineering beret (with sufficient department
@@ -4212,3 +4161,48 @@
   id: 2089
   time: '2025-07-27T23:58:48.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3175
+- author: DinnerCalzone
+  changes:
+  - message: Plasma has been updated to feature genpop and a new TEG setup.
+    type: Add
+  id: 2090
+  time: '2025-07-29T08:51:45.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3188
+- author: Impstation, bear777, DOSRG, mqole
+  changes:
+  - message: 'Modifications to various server rules! Please read them joyfully. Specific
+      changes are:'
+    type: Tweak
+  - message: A new 'Escalation Table' that seeks to answer some frequent questions
+      about escalation rules.
+    type: Add
+  - message: Clauses to rules A1, A2, A3, A6, B2, B3, B4, B5, B6, B8, Antag, and Silicon.
+    type: Add
+  - message: "Honestly there\u2019s a lot of specifics in there. If you're keen on\
+      \ the nitty-gritty, go to the PR page on GitHub, and hit 'View Changes' to see\
+      \ exactly what's different."
+    type: Add
+  id: 2091
+  time: '2025-07-29T09:22:52.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3172
+- author: wendyribstonpippin
+  changes:
+  - message: forsooth! this archaic accent needed more!
+    type: Tweak
+  id: 2092
+  time: '2025-07-29T10:03:28.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3183
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: Mk 93 + 92HB sprites get a couple little updates
+    type: Tweak
+  id: 2093
+  time: '2025-07-29T20:52:08.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3191
+- author: Jellvisk
+  changes:
+  - message: steel wood walls resprited
+    type: Tweak
+  id: 2094
+  time: '2025-07-29T21:19:59.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3190
