@@ -1,0 +1,31 @@
+﻿- type: latheRecipe
+  id: ElectricRangeMachineCircuitboard
+  parent: BaseCircuitboardRecipe
+  result: ElectricRangeMachineCircuitboard
+  materials:
+    Steel: 800
+    Glass: 900
+
+- type: latheRecipe
+  id: KitchenAssemblerMachineCircuitboard
+  parent: BaseCircuitboardRecipe
+  result: KitchenAssemblerMachineCircuitboard
+  materials:
+    Steel: 600
+    Glass: 750
+
+- type: latheRecipe
+  id: MedicalAssemblerMachineCircuitboard
+  parent: BaseCircuitboardRecipe
+  result: MedicalAssemblerMachineCircuitboard
+  materials:
+    Steel: 800
+    Glass: 900
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: CondimentDispenserCircuitboard
+  result: CondimentDispenserCircuitboard
+  materials:
+    Steel: 100
+    Glass: 500

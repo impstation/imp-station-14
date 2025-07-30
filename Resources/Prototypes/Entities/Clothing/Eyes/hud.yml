@@ -44,6 +44,7 @@
   - type: Tag
     tags:
     - HudMedical
+    - CorgiWearable
     - WhitelistChameleon
 
 - type: entity
@@ -59,6 +60,7 @@
   - type: Tag
     tags:
     - HudSecurity
+    - CorgiWearable
     - WhitelistChameleon
 
 - type: entity
@@ -72,15 +74,17 @@
   - type: Clothing
     sprite: Clothing/Eyes/Hud/command.rsi
   - type: ShowJobIcons
-  - type: Tag # imp
+  - type: Tag
     tags:
-    - HudAdmin
+    - HudAdmin # imp
+    - CorgiWearable
+    - WhitelistChameleon
 
 - type: entity
   parent: [ClothingEyesBase, BaseLensSlot] # BaseLensSlot from imp
   id: ClothingEyesHudBeer
   name: beer goggles
-  description: A pair of sunHud outfitted with apparatus to scan reagents, as well as providing an innate understanding of liquid viscosity while in motion.
+  description: A pair of sunglasses outfitted with apparatus to scan reagents, as well as providing an innate understanding of liquid viscosity while in motion. # imp
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Hud/beergoggles.rsi
@@ -90,6 +94,11 @@
   - type: StealTarget
     stealGroup: ClothingEyesHudBeer
   - type: SolutionScanner
+  - type: FlashImmunity # imp
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingEyesBase
@@ -215,6 +224,10 @@
   - type: Clothing
     sprite: Clothing/Eyes/Hud/synd.rsi
   - type: ShowSyndicateIcons
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, Tier2Contraband]
@@ -228,6 +241,10 @@
     sprite: Clothing/Eyes/Hud/syndagent.rsi
   - type: ShowSyndicateIcons
   - type: ShowHealthBars
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 - type: entity
   parent: [ClothingEyesGlassesSunglasses, ShowSecurityIcons]
@@ -244,6 +261,11 @@
     sprite: Clothing/Eyes/Hud/medpatch.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/medpatch.rsi
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
+    - HudMedical
 
 - type: entity
   parent: [ClothingEyesEyepatchHudMedical, ClothingHeadEyeBaseFlipped]
@@ -260,6 +282,11 @@
     sprite: Clothing/Eyes/Hud/secpatch.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/secpatch.rsi
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
+    - HudSecurity
 
 - type: entity
   parent: [ClothingEyesEyepatchHudSecurity,  ClothingHeadEyeBaseFlipped]

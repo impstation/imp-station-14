@@ -16,9 +16,6 @@
   id: AirSensor
 
 - type: Tag
-  id: Aloe
-
-- type: Tag
   id: AllowBiomeLoading # Entities with this tag will load terrain, even if a ghost.
 
 - type: Tag
@@ -34,6 +31,9 @@
   id: AppraisalTool
 
 - type: Tag
+  id: Apron
+
+- type: Tag
   id: Arrow
 
 - type: Tag
@@ -43,7 +43,7 @@
   id: ATVKeys
 
 - type: Tag
-  id: Bagel
+  id: Backpack
 
 - type: Tag
   id: Balloon
@@ -62,9 +62,6 @@
 
 - type: Tag
   id: BBQsauce
-
-- type: Tag
-  id: BearHide
 
 - type: Tag
   id: Bedsheet
@@ -881,9 +878,6 @@
   id: Lemon
 
 - type: Tag
-  id: Lemo
-
-- type: Tag
   id: LightBulb
 
 - type: Tag
@@ -1002,9 +996,6 @@
   id: FakeMindShieldImplant
 
 - type: Tag
-  id: MimeHardsuit
-
-- type: Tag
   id: MindShield
 
 - type: Tag
@@ -1033,9 +1024,6 @@
 
 - type: Tag
   id: Mouse
-
-- type: Tag
-  id: Muffin
 
 - type: Tag
   id: Multitool
@@ -1111,6 +1099,9 @@
 
 - type: Tag
   id: PercussionInstrument
+
+- type: Tag
+  id: PetOnly
 
 - type: Tag
   id: PetWearable
@@ -1375,9 +1366,6 @@
   id: SpiderCraft
 
 - type: Tag
-  id: SpiderMeat
-
-- type: Tag
   id: SpookyFog
 
 - type: Tag
@@ -1415,9 +1403,6 @@
 
 - type: Tag
   id: Sunglasses
-
-- type: Tag
-  id: Suppermatter
 
 - type: Tag
   id: SurgeryTool
@@ -1511,6 +1496,9 @@
 
 - type: Tag
   id: UraniumGlassShard
+
+- type: Tag
+  id: UtilityBelt
 
 - type: Tag
   id: Vegetable
