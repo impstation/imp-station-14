@@ -374,7 +374,7 @@
 # event schedulers
 
 - type: entityTable
-  id: BasicGameRulesTable
+  id: BasicGameRulesTable # imp: changed from AllSelector to GroupSelector
   table: !type:GroupSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
       - !type:NestedSelector
@@ -394,7 +394,7 @@
         weight: 7.5
 
 - type: entityTable
-  id: SleeperlessGameRulesTable
+  id: SleeperlessGameRulesTable # imp: changed from AllSelector to GroupSelector
   table: !type:GroupSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
       - !type:NestedSelector
