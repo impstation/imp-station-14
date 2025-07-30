@@ -1,23 +1,4 @@
 ﻿Entries:
-- author: CombustibleToast
-  changes:
-  - message: Atmos techs can now wear the engineering beret (with sufficient department
-      playtime)
-    type: Add
-  id: 1595
-  time: '2025-04-30T20:14:36.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2362
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: you can now choose a Gunpet and a box of snap pops as your "pistol" and
-      "ammo" as a secoff.
-    type: Add
-  - message: security workers no longer have the opportunity to forget their service
-      weapon.
-    type: Tweak
-  id: 1596
-  time: '2025-05-01T07:26:11.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2368
 - author: crekulon
   changes:
   - message: The kodepiiae 'ring' emote now may play a new sound.
@@ -4206,3 +4187,18 @@
   id: 2094
   time: '2025-07-29T21:19:59.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3190
+- author: yesteryuri
+  changes:
+  - message: Doctors won't be pressured to wear clown shoes by default, and other
+      similar cases.
+    type: Fix
+  id: 2095
+  time: '2025-07-30T08:34:16.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3196
+- author: yesteryuri
+  changes:
+  - message: Bottle boxes have three more bottles
+    type: Tweak
+  id: 2096
+  time: '2025-07-30T08:35:18.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3197
