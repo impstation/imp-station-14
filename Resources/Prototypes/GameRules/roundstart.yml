@@ -379,19 +379,22 @@
     children:
       - !type:NestedSelector
         tableId: BasicCalmEventsTable
-        weight: 20
+        weight: 30
       - !type:NestedSelector
-        tableId: BasicAntagEventsTable
-        weight: 10
+        tableId: GreaterAntagEventsTable #imp
+        weight: 7
+      - !type:NestedSelector
+        tableId: LesserAntagEventsTable #imp
+        weight: 15
       - !type:NestedSelector
         tableId: CargoGiftsTable
-        weight: 7.5
+        weight: 16
       - !type:NestedSelector
         tableId: CalmPestEventsTable
-        weight: 5
+        weight: 17
       - !type:NestedSelector
         tableId: SpicyPestEventsTable
-        weight: 7.5
+        weight: 15
 
 - type: entityTable
   id: SleeperlessGameRulesTable # imp: changed from AllSelector to GroupSelector
@@ -399,19 +402,22 @@
     children:
       - !type:NestedSelector
         tableId: BasicCalmEventsTable
-        weight: 20
+        weight: 30
       - !type:NestedSelector
-        tableId: SleeperlessAntagEventsTable
-        weight: 10
+        tableId: SleeperlessGreaterAntagEventsTable #imp
+        weight: 7
+      - !type:NestedSelector
+        tableId: LesserAntagEventsTable #imp
+        weight: 15
       - !type:NestedSelector
         tableId: CargoGiftsTable
-        weight: 7.5
+        weight: 16
       - !type:NestedSelector
         tableId: CalmPestEventsTable
-        weight: 5
+        weight: 17
       - !type:NestedSelector
         tableId: SpicyPestEventsTable
-        weight: 7.5
+        weight: 15
 
 - type: entityTable
   id: SpaceTrafficControlTable
