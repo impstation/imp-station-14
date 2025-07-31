@@ -47,10 +47,6 @@
       rootTask:
         task: BoarCompound
       blackboard:
-        NavClimb: !type:Bool
-          true
-        NavInteract: !type:Bool
-          true
         NavPry: !type:Bool
           true
         NavSmash: !type:Bool
@@ -69,6 +65,7 @@
     - type: Damageable
       damageContainer: Biological
       damageModifierSet: Slime
+    - type: Insulated
     - type: MeleeWeapon
       attackRate: 0.5
       altDisarm: false
@@ -94,6 +91,34 @@
         path: /Audio/Animals/pig_oink.ogg
         params:
           variation: .5
+
+- type: entity
+  name: space boar
+  id: MobBoarSpace
+  parent: MobBoar
+  description: How did they even put those on?
+  components:
+  - type: Sprite
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: spaceboar
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: spaceboar
+      Critical:
+        Base: spaceboar_crit
+      Dead:
+        Base: spaceboar_dead
+  - type: Temperature
+    heatDamageThreshold: 423
+    coldDamageThreshold: 0
+  - type: MovementAlwaysTouching
+  - type: PressureImmunity
+  - type: ProtectedFromStepTriggers
+  - type: Insulated
+  - type: Respirator
+    minSaturation: 5.0
 
 - type: entity
   name: BROS
