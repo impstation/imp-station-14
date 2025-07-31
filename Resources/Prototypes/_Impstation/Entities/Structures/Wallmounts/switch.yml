@@ -168,9 +168,9 @@
     - trigger:
         !type:DamageTrigger
         damage: 120
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 # this ones for shits n giggles.
 - type: entity
