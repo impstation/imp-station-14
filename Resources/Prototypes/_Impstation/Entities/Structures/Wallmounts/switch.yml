@@ -3,7 +3,6 @@
   parent: SignalButton
   name: big red button
   description: Press it... if you dare.
-  noSpawn: true
   components:
   - type: Appearance
   - type: Sprite
@@ -18,7 +17,6 @@
 - type: entity
   id: BigRedButtonLocked
   parent: BigRedButton
-  noSpawn: true
   components:
   - type: Lock
   - type: LockVisuals
@@ -46,9 +44,9 @@
     - trigger:
         !type:DamageTrigger
         damage: 120
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: Construction
     graph: RedButtonGraph
     node: RedButtonLockedNode
