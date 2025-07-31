@@ -35,26 +35,26 @@
           steps:
             - tool: Screwing
               doAfter: 2.0
-          completed:
-            - !type:GivePrototype
-              prototype: SheetGlass1
-              amount: 1
+          #completed: #i wanted this to give glass back but material arbitrage test said no
+            #- !type:GivePrototype
+              #prototype: SheetGlass1
+              #amount: 1
 
 # its really important emergency button stays emergency.
 - type: constructionGraph
   id: RedButtonEmergencyGraph
-  start: RedButtonEmergencyNode
+  start: start
   graph:
-    - node: RedButtonEmergencyNode
+    - node: start
       entity: BigRedButtonEmergency
     - node: RedButtonLockedEmergencyNode
       entity: BigRedButtonEmergencyLocked
       edges:
-        - to: RedButtonEmergencyNode
+        - to: start
           steps:
             - tool: Screwing
               doAfter: 2.0
-          #completed: #i wanted this to give glass back but material arbitrage test said no
+          #completed:
             #- !type:GivePrototype
               #prototype: SheetGlass1
               #amount: 1
