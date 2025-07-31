@@ -151,7 +151,7 @@
     access: [["Command"]]
   - type: Construction
     graph: RedButtonEmergencyGraph
-    node: RedButtonEmergencyLockedNode
+    node: RedButtonLockedEmergencyNode
   - type: Destructible
     thresholds: 
     - trigger:
