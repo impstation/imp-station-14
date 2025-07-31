@@ -459,21 +459,21 @@ marking-HumanHairAdoringFan = Adoring Fan
 
 marking-HumanHairBabyHair = Baby Hair
 
-marking-HumanHairGuyMullet = 
+marking-HumanHairGuyMullet = Blue Collar
 
-marking-HumanHairGuyTied =
+marking-HumanHairGuyTied = Blue Collar (Tied)
 
-marking-HumanHairMidPartPonytail =
+marking-HumanHairMidPartPonytail = Foppish
 
-marking-HumanHairMidBangs =
+marking-HumanHairMidBangs = Shy Guy (Brave)
 
-marking-HumanHairMidBangsCovered =
+marking-HumanHairMidBangsCovered = Shy Guy
 
-marking-HumanHairSideshaveBun =
+marking-HumanHairSideshaveBun = Topknot
 
-marking-HumanHairJed =
+marking-HumanHairJed = Pleasant
 
-marking-HumanHairJedPonytail =
+marking-HumanHairJedPonytail = Pleasant (Tied)
 
 # HeadSide
 
