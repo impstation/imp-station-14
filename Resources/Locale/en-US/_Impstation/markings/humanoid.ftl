@@ -459,6 +459,22 @@ marking-HumanHairAdoringFan = Adoring Fan
 
 marking-HumanHairBabyHair = Baby Hair
 
+marking-HumanHairGuyMullet = 
+
+marking-HumanHairGuyTied =
+
+marking-HumanHairMidPartPonytail =
+
+marking-HumanHairMidBangs =
+
+marking-HumanHairMidBangsCovered =
+
+marking-HumanHairSideshaveBun =
+
+marking-HumanHairJed =
+
+marking-HumanHairJedPonytail =
+
 # HeadSide
 
 # HeadTop
