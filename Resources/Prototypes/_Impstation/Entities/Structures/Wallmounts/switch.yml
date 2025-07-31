@@ -130,7 +130,7 @@
     alertLevelOnActivate: red
   - type: Construction
     graph: RedButtonEmergencyGraph
-    node: RedButtonEmergencyNode
+    node: start
 
 - type: entity
   id: BigRedButtonEmergencyLocked
@@ -162,7 +162,7 @@
         sound:
           collection: GlassBreak
       - !type:ChangeConstructionNodeBehavior
-        node: RedButtonEmergencyNode
+        node: start
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
