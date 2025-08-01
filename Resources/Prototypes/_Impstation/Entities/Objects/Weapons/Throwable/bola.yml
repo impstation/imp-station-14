@@ -1,0 +1,43 @@
+﻿- type: entity
+  parent: BaseItem
+  id: BaseBola
+  abstract: true
+  components:
+  - type: Item
+    size: Normal
+  - type: Sprite
+    sprite: Objects/Weapons/Throwable/bola.rsi
+    state: icon
+  - type: EmitSoundOnThrow
+    sound: /Audio/Weapons/bolathrow.ogg
+  - type: EmitSoundOnLand
+    sound: /Audio/Effects/snap.ogg
+  - type: Ensnaring
+    freeTime: 2.0
+    breakoutTime: 3.5 #all bola should generally be fast to remove
+    walkSpeed: 0.5 #makeshift bola shouldn't slow too much
+    sprintSpeed: 0.5
+    staminaDamage: 0 # anything but this is gamebreaking
+    canThrowTrigger: true
+    canMoveBreakout: true
+    maxEnsnares: 1
+  - type: LandAtCursor
+
+- type: entity
+  name: head of personnel's bola
+  parent: [BaseBola, BaseCommandContraband]
+  id: HopBola
+  description: You're getting fired whether you like it or not.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Throwable/hop_bola.rsi
+    state: icon
+  - type: Ensnaring
+    freeTime: 2.0
+    breakoutTime: 3.5
+    walkSpeed: 0.5
+    sprintSpeed: 0.5
+    staminaDamage: 0
+    canThrowTrigger: true
+    canMoveBreakout: true
+    maxEnsnares: 1

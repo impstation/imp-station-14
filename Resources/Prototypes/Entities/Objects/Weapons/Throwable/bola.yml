@@ -1,18 +1,20 @@
 - type: entity
   name: bola
-  parent: [BaseItem, BaseSecurityContraband]
+  parent: [BaseBola, BaseSecurityContraband] # imp edit
   id: Bola
   description: Linked together with some spare cuffs and metal.
   components:
-  - type: Item
-    size: Normal
-  - type: Sprite
-    sprite: Objects/Weapons/Throwable/bola.rsi
-    state: icon
-  - type: EmitSoundOnThrow
-    sound: /Audio/Weapons/bolathrow.ogg
-  - type: EmitSoundOnLand
-    sound: /Audio/Effects/snap.ogg
+  # imp edit start
+  #- type: Item
+  #  size: Normal
+  #- type: Sprite
+  #  sprite: Objects/Weapons/Throwable/bola.rsi
+  #  state: icon
+  #- type: EmitSoundOnThrow
+  #  sound: /Audio/Weapons/bolathrow.ogg
+  #- type: EmitSoundOnLand
+  #  sound: /Audio/Effects/snap.ogg
+  # imp edit end
   - type: Construction
     graph: Bola
     node: bola
@@ -48,4 +50,4 @@
     canThrowTrigger: true
     canMoveBreakout: true
     maxEnsnares: 1
-  - type: LandAtCursor
+  #- type: LandAtCursor imp
