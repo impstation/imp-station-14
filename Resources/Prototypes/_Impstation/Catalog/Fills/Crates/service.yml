@@ -38,3 +38,16 @@
         - id: DrinkShaker
         - id: CustomDrinkJug
           amount: 2
+
+- type: entity
+  id: CrateServicePressArmor
+  parent: [BaseRestrictedReporterContraband, CrateSecure]
+  name: press armor crate
+  description: Contains a press bulletproof vest and helmet. Requires Reporter access to open.
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterArmorPress
+    - id: ClothingHeadHelmetPress
+  - type: AccessReader
+    access: [ [ "Reporter" ] ]

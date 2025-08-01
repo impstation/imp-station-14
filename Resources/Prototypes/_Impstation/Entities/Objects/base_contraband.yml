@@ -57,3 +57,13 @@
   - type: Contraband
     allowedJobs: [ Zookeeper ]
     implicitlyAllowedJobs: [ Captain, HeadOfPersonnel, HospitalityDirector ]
+
+# Reporter Contraband: Press armor and such
+- type: entity
+  id: BaseRestrictedReporterContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedJobs: [ Reporter ]
+    implicitlyAllowedJobs: [ Captain, HeadOfPersonnel, HospitalityDirector ]
