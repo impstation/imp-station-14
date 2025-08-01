@@ -81,6 +81,13 @@
     sprite: _Impstation/Objects/Specific/Chemistry/pills_canister.rsi
     state: pill_canister-hos
 
+- type: stealTargetGroup
+  id: ClothingNeckBureaucracyMedal
+  name: steal-target-groups-clothing-neck-bureaucracymedal
+  sprite:
+    sprite: _Impstation/Clothing/Neck/Medals/bureaucracymedal.rsi
+    state: icon
+
 # rare but otherwise not notable
 
 - type: stealTargetGroup
