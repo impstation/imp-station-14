@@ -63,8 +63,10 @@
         ruins: !type:GridSpawnGroup
           hide: true
           nameGrid: true
-          minCount: 3
-          maxCount: 4
+          minimumDistance: 100 # imp
+          maximumDistance: 300 # imp
+          minCount: 5 # imp - upped value for imp5
+          maxCount: 10 # imp - upped value for imp5
           stationGrid: false
           paths:
           - /Maps/Ruins/abandoned_outpost.yml
@@ -89,19 +91,55 @@
           - /Maps/_Impstation/Ruins/snowy-sauna.yml #imp
           - /Maps/_Impstation/Ruins/shuttle-repair-bay.yml #imp
           - /Maps/_Impstation/Ruins/decapoid-shuttle-wreck.yml #imp
+          # imp - maps below this line are from the salvage map set
+          - /Maps/_Impstation/Salvage/build-a-bot-ambulance.yml #imp
+          - /Maps/_Impstation/Salvage/car-yacht.yml #imp
+          - /Maps/_Impstation/Salvage/meteored-cargo-bay.yml #imp
+          - /Maps/_Impstation/Salvage/saucer-wreck.yml #imp
+          - /Maps/Salvage/asteroid-base.yml #imp
+          - /Maps/Salvage/engineering-chunk.yml #imp
+          - /Maps/Salvage/hauling-shuttle.yml #imp
+          - /Maps/Salvage/meatball.yml #imp
+          - /Maps/Salvage/medium-1.yml #imp
+          - /Maps/Salvage/medium-dock.yml #imp
+          - /Maps/Salvage/medium-library.yml #imp
+          - /Maps/Salvage/ruin-cargo-salvage.yml #imp
+          - /Maps/Salvage/small-1.yml #imp
+          - /Maps/Salvage/small-4.yml #imp
+          - /Maps/Salvage/small-a-1.yml #imp
+          - /Maps/Salvage/small-ai-survey-drone.yml #imp
+          - /Maps/Salvage/small-cargo.yml #imp
+          - /Maps/Salvage/small-chef.yml #imp
+          - /Maps/Salvage/small-ship-1.yml #imp
+          - /Maps/Salvage/small-syndicate.yml #imp
+          - /Maps/Salvage/small-tesla.yml #imp
+          - /Maps/Salvage/tick-colony.yml #imp
+        rareRuin: !type:GridSpawnGroup # imp category
+          hide: true
+          nameGrid: true
+          minimumDistance: 250
+          maximumDistance: 400
+          minCount: 0
+          maxCount: 1
+          stationGrid: false
+          paths:
+          - /Maps/Salvage/security-chunk.yml # has some major loot
+          - /Maps/Salvage/medium-ruined-emergency-shuttle.yml
+          - /Maps/Salvage/medium-vault-1.yml # full salvage loadout chest
+          - /Maps/_Impstation/Salvage/perma-breakout.yml # two guns
+          - /Maps/Ruins/empty_flagship.yml # less common, further out, so it's fine
         wrecks: !type:DungeonSpawnGroup
           minimumDistance: 150
           maximumDistance: 300
           stationGrid: false
-          minCount: 12
-          maxCount: 16
+          minCount: 16 # imp - upped value for imp5
+          maxCount: 20 # imp - upped value for imp5
           addComponents:
           - type: Gravity
             enabled: true
             inherent: true
           - type: IFF
             flags: HideLabel
-            color: "#88b0d1"
           protos:
           - ChunkDebrisSmall
           - ChunkDebrisSmall

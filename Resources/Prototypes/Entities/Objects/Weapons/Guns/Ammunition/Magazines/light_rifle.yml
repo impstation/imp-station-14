@@ -127,11 +127,11 @@
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#d63b28" #imp
+        color: "#ffcb6f" #imp
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#d63b28" #imp
+        color: "#ffcb6f" #imp
 
 - type: entity
   id: MagazineLightRifleUranium
@@ -154,11 +154,11 @@
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#6b805e" #imp
+        color: "#22b24d" #imp
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#6b805e" #imp
+        color: "#22b24d" #imp
 
 - type: entity
   id: MagazineLightRifleIncendiary
@@ -170,7 +170,7 @@
     proto: CartridgeLightRifleIncendiary
   - type: Sprite
     layers:
-    - state: red #imp
+    - state: incendiary #imp
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
@@ -181,11 +181,11 @@
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#820a16" #imp
+        color: "#d46925" #imp
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#820a16" #imp
+        color: "#d46925" #imp
 
 - type: entity
   id: MagazineLightRifleMaxim

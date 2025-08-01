@@ -212,7 +212,7 @@
 # Cookies
 
 - type: entity
-  name: cookie
+  name: chocolate chip cookie # imp
   parent: FoodBakedBase
   id: FoodBakedCookie
   description: COOKIE!!!
@@ -225,15 +225,15 @@
         maxVol: 35
         reagents:
         - ReagentId: Nutriment
-          Quantity: 15
+          Quantity: 6.25
         - ReagentId: Sugar
           Quantity: 5
         - ReagentId: Butter
           Quantity: 5
         - ReagentId: Theobromine
-          Quantity: 3
+          Quantity: 0.75
         - ReagentId: CocoaPowder
-          Quantity: 1
+          Quantity: 0.25
 
 - type: entity
   name: oatmeal cookie
@@ -531,15 +531,15 @@
         maxVol: 35 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 15 # imp
+          Quantity: 6.25 # imp
         - ReagentId: Milk # imp
           Quantity: 5
         - ReagentId: EggCooked # imp
           Quantity: 6
         - ReagentId: Theobromine
-          Quantity: 3
+          Quantity: 0.75 # Imp
         - ReagentId: CocoaPowder # imp
-          Quantity: 1
+          Quantity: 0.25
 
 - type: entity
   name: waffles
@@ -564,6 +564,9 @@
           Quantity: 6
         # - ReagentId: Vitamin # imp
         #  Quantity: 1
+  - type: Construction # Frontier
+    graph: WaffleCone
+    node: start
 
 - type: entity
   name: soy waffles
@@ -732,6 +735,7 @@
   - type: Tag
     tags:
     - ClothMade
+    - ClothFood # imp
   - type: SolutionContainerManager
     solutions:
       food:
@@ -961,6 +965,7 @@
   - type: Tag
     tags:
     - ClothMade
+    - ClothFood # imp
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1019,6 +1024,7 @@
   - type: Tag
     tags:
     - ClothMade
+    - ClothFood # imp
   - type: SolutionContainerManager
     solutions:
       food:
