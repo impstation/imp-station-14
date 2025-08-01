@@ -28,6 +28,16 @@
   category: cargoproduct-category-name-service
   group: market
 
+- type: cargoProduct
+  id: ServicePressArmor
+  icon:
+    sprite: _Impstation/Clothing/OuterClothing/Armor/press.rsi
+    state: icon
+  product: CrateServicePressArmor
+  cost: 600
+  category: cargoproduct-category-name-service
+  group: market
+
 #- type: cargoProduct # come back next february
 #  name: romantic crate
 #  id: CrateValentines

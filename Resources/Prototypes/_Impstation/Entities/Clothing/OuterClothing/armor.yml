@@ -45,3 +45,23 @@
     sprite: _Impstation/Clothing/OuterClothing/Armor/security_compact.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/OuterClothing/Armor/security_compact.rsi
+
+- type: entity
+  parent: [ BaseRestrictedReporterContraband, ClothingOuterArmorBulletproof ]
+  id: ClothingOuterArmorPress
+  name: press bulletproof vest
+  description: A blue bulletproof vest used to distinguish members of the press, as if anyone cares.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Armor/press.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Armor/press.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING-unshaded
+        shader: unshaded

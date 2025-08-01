@@ -22,3 +22,26 @@
   - type: HideLayerClothing
     layers:
       Hair: HEAD
+
+- type: entity
+  parent: [ BaseRestrictedReporterContraband, ClothingHeadHelmetArmoredBase ]
+  id: ClothingHeadHelmetPress
+  name: press helmet
+  description: A blue helmet used to distinguish members of the press, as if anyone cares.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Helmets/press.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Helmets/press.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+      - state: equipped-HELMET-unshaded
+        shader: unshaded
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
