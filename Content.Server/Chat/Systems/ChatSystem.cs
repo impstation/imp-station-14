@@ -242,7 +242,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (string.IsNullOrEmpty(message))
             return;
 
-        if (player != null) // Last Message Before Death System
+        if (player != null) // Imp Edit: Last Message Before Death System
         {
             HandleLastMessageBeforeDeath(source, player, message);
         }

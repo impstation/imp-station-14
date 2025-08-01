@@ -383,13 +383,13 @@ public sealed class AdminSystem : EntitySystem
         {
             _chat.DeleteMessagesBy(uid);
 
-            var eraseEvent = new EraseEvent(uid);
+            var eraseEvent = new EraseEvent(uid); // Imp Edit: Early upmerge erase event from Parrot PR #1
 
             if (!_minds.TryGetMind(uid, out var mindId, out var mind) || mind.OwnedEntity == null || TerminatingOrDeleted(mind.OwnedEntity.Value))
-            {
-                RaiseLocalEvent(ref eraseEvent);
+            { // Imp Edit: Early upmerge erase event from Parrot PR #1 
+                RaiseLocalEvent(ref eraseEvent); // Imp Edit: Early upmerge erase event from Parrot PR #1
                 return;
-            }
+            } // Imp Edit: Early upmerge erase event from Parrot PR #1
 
             var entity = mind.OwnedEntity.Value;
 
@@ -450,7 +450,7 @@ public sealed class AdminSystem : EntitySystem
             if (_playerManager.TryGetSessionById(uid, out var session))
                 _gameTicker.SpawnObserver(session);
 
-            RaiseLocalEvent(ref eraseEvent);
+            RaiseLocalEvent(ref eraseEvent); // Imp Edit: Early upmerge erase event from Parrot PR #1
         }
 
     private void OnSessionPlayTimeUpdated(ICommonSession session)
@@ -460,6 +460,7 @@ public sealed class AdminSystem : EntitySystem
 }
 
 /// <summary>
+/// Imp Edit: Early upmerge erase event from Parrot PR #1
 /// Event fired after a player is erased by an admin
 /// </summary>
 /// <param name="PlayerNetUserId">NetUserId of the player that was the target of the Erase</param>
