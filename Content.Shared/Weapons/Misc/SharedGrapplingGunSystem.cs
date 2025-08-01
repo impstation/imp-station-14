@@ -16,8 +16,8 @@ using Robust.Shared.Physics.Dynamics.Joints;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
-using Robust.Shared.GameStates;
-using Content.Shared.Popups;
+using Robust.Shared.GameStates; // IMP
+using Content.Shared.Popups; // IMP
 
 namespace Content.Shared.Weapons.Misc;
 
@@ -30,17 +30,14 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
     [Dependency] private readonly SharedJointSystem _joints = default!;
     [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    // IMP
-    [Dependency] private readonly SharedPvsOverrideSystem _pvs = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    // IMP
+    [Dependency] private readonly SharedPvsOverrideSystem _pvs = default!; // IMP
+    [Dependency] private readonly SharedPopupSystem _popup = default!; // IMP
 
     public const string GrapplingJoint = "grappling";
 
     public override void Initialize()
     {
         base.Initialize();
-
         SubscribeLocalEvent<GrapplingProjectileComponent, ProjectileEmbedEvent>(OnGrappleCollide);
         SubscribeLocalEvent<GrapplingProjectileComponent, JointRemovedEvent>(OnGrappleJointRemoved);
         SubscribeLocalEvent<CanWeightlessMoveEvent>(OnWeightlessMove);
@@ -192,7 +189,7 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
                 continue;
             }
 
-            // IMP
+            // IMP Start
             if (jointComp.Relay != null && _physics.GetTouchingContacts(jointComp.Relay.Value) > 0)
             {
                 var player = jointComp.Relay.Value;
@@ -213,16 +210,16 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
                     }
                 }
             }
-            // IMP
+            // IMP End
 
-            // IMP
+            // IMP Start: contents of the if statement are upstream
             if (grappling.Reeling)
             {
                 // TODO: This should be on engine
                 distance.MaxLength = MathF.Max(distance.MinLength, distance.MaxLength - grappling.ReelRate * frameTime);
                 distance.Length = MathF.Min(distance.MaxLength, distance.Length);
             }
-            // IMP
+            // IMP End
 
             _physics.WakeBody(joint.BodyAUid);
             _physics.WakeBody(joint.BodyBUid);
