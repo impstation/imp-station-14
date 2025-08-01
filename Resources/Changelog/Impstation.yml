@@ -1,51 +1,4 @@
 ﻿Entries:
-- author: CombustibleToast
-  changes:
-  - message: Atmos techs can now wear the engineering beret (with sufficient department
-      playtime)
-    type: Add
-  id: 1595
-  time: '2025-04-30T20:14:36.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2362
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: you can now choose a Gunpet and a box of snap pops as your "pistol" and
-      "ammo" as a secoff.
-    type: Add
-  - message: security workers no longer have the opportunity to forget their service
-      weapon.
-    type: Tweak
-  id: 1596
-  time: '2025-05-01T07:26:11.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2368
-- author: crekulon
-  changes:
-  - message: The kodepiiae 'ring' emote now may play a new sound.
-    type: Tweak
-  id: 1597
-  time: '2025-05-04T00:39:51.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2401
-- author: TheGrimbeeper
-  changes:
-  - message: Allow Kodepaiia to use subjuzine
-    type: Fix
-  id: 1598
-  time: '2025-05-04T23:50:28.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2399
-- author: Sha-Seng
-  changes:
-  - message: Logistics 101 is now properly in the Guidebookshelf
-    type: Add
-  id: 1599
-  time: '2025-05-04T23:54:39.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2383
-- author: CrystalClover
-  changes:
-  - message: Added ability to eat food with Shovels/Spades
-    type: Add
-  id: 1600
-  time: '2025-05-04T23:53:29.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2396
 - author: AvianMaiden
   changes:
   - message: Vox working atmospherics should now look fashionable in the burn chamber.
@@ -4206,3 +4159,59 @@
   id: 2094
   time: '2025-07-29T21:19:59.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3190
+- author: yesteryuri
+  changes:
+  - message: Doctors won't be pressured to wear clown shoes by default, and other
+      similar cases.
+    type: Fix
+  id: 2095
+  time: '2025-07-30T08:34:16.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3196
+- author: yesteryuri
+  changes:
+  - message: Bottle boxes have three more bottles
+    type: Tweak
+  id: 2096
+  time: '2025-07-30T08:35:18.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3197
+- author: honeyed-lemons
+  changes:
+  - message: adds cream cheese, a cream cheese bagel,  and chocolate chips.
+    type: Add
+  - message: Altered various recipes that insinuated the use of chocolate chips and
+      cream cheese
+    type: Tweak
+  - message: Butter and Butter slice have been resprited
+    type: Tweak
+  - message: Chocolate bars now require being heated to be made
+    type: Tweak
+  id: 2097
+  time: '2025-07-31T15:06:49.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3113
+- author: hivehum
+  changes:
+  - message: Snails can now be obliterated by pleebnars.
+    type: Tweak
+  id: 2098
+  time: '2025-08-01T03:01:49.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3080
+- author: sev7ves
+  changes:
+  - message: The spider clan has seen a sharp decrease in recruits.
+    type: Tweak
+  id: 2099
+  time: '2025-08-01T03:04:17.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3185
+- author: Kandiyaki
+  changes:
+  - message: the heretic's void blast can once again be aimed at non-visible targets.
+    type: Fix
+  - message: the heretic's void teleport can go through lattices again.
+    type: Fix
+  - message: heretic blades can now be used as cutting tools, and are able to do executions.
+    type: Fix
+  - message: changed up the ghoul and sacrifice notification screens for clarity.
+    type: Tweak
+  id: 2100
+  time: '2025-08-01T03:13:45.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3163
