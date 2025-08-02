@@ -1,0 +1,25 @@
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingShoesSkateboard
+  name: skateboard
+  description: "Sick nasty!"
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Shoes/Specific/skateboard.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Shoes/Specific/skateboard.rsi
+    clothingVisuals:
+      shoes:
+      - state: equipped-FEET
+        offset: "0, -0.1555"
+      shoes-vox:
+      - state: equipped-FEET-vox
+        offset: "0, -0.1555"
+  - type: Item
+    sprite: _Impstation/Clothing/Shoes/Specific/skateboard.rsi
+  - type: Skates
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepSkates
+      params:
+        variation: 0.08 #making a note so this is in the commit if we want to change this later - ruddygreat
