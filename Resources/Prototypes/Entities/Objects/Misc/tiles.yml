@@ -49,6 +49,9 @@
   - type: GuideHelp
     guides:
     - ExpandingRepairingStation
+  - type: PluralName # imp
+    oneOf: plural-name-tile-1
+    someOf: plural-name-tile-2plus
 
 - type: entity
   name: steel dark checker tile

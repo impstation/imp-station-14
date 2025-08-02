@@ -214,8 +214,13 @@ public abstract partial class SharedHandsSystem : EntitySystem
     {
         var heldItemNames = EnumerateHeld(examinedUid, handsComp)
             .Where(entity => !HasComp<VirtualItemComponent>(entity))
-            .Select(item => FormattedMessage.EscapeText(Identity.Name(item, EntityManager)))
-            .Select(itemName => Loc.GetString("comp-hands-examine-wrapper", ("item", itemName)))
+            //.Select(item => FormattedMessage.EscapeText(Identity.Name(item, EntityManager))) // imp comment
+            // IMP EDIT - accounting for the cases in which entities have unique indefinite articles
+            .Select(item => Loc.GetString("comp-hands-examine-wrapper",
+                    ("itemName", FormattedMessage.EscapeText(Identity.Name(item, EntityManager))),
+                    ("item", Identity.Entity(item, EntityManager)))
+                    )
+            // END IMP EDIT
             .ToList();
 
         var locKey = heldItemNames.Count != 0 ? "comp-hands-examine" : "comp-hands-examine-empty";
