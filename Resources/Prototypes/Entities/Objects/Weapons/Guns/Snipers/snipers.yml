@@ -50,8 +50,15 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/mosin.ogg
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi #imp
+  - type: BallisticAmmoProvider #imp
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/rifle_load.ogg
+      params:
+        volume: -4
   - type: GunRequiresWield
 #imp edit begin; weapon melee
   - type: MeleeWeapon
@@ -60,8 +67,8 @@
     attackRate: 1.2
     damage:
       types:
-        Piercing: 12
-        Slash: 4
+        Piercing: 11
+        Slash: 3
     angle: 0
     animation: WeaponArcThrust
     soundHit:
@@ -76,8 +83,8 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 15
-        Slash: 5
+        Piercing: 12
+        Slash: 4
   - type: Sharp
   - type: Execution
     doAfterDuration: 2.0
@@ -113,8 +120,8 @@
     capacity: 5
     proto: CartridgeAntiMateriel
   - type: SpeedModifiedOnWield
-    walkModifier: 0.25
-    sprintModifier: 0.25
+    walkModifier: 0.35 #imp
+    sprintModifier: 0.35 #imp
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
     maxOffset: 3
@@ -130,7 +137,7 @@
       path: /Audio/Effects/hit_kick.ogg
     soundSwing:
       path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
-    resetOnHandSelected: true
+    resetOnHandSelected: false
   - type: AltFireMelee
     attackType: Heavy
   - type: DamageOtherOnHit #for throwing

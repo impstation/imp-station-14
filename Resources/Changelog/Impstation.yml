@@ -1,62 +1,4 @@
 ﻿Entries:
-- author: AvianMaiden
-  changes:
-  - message: Vox working atmospherics should now look fashionable in the burn chamber.
-    type: Add
-  id: 1601
-  time: '2025-05-04T23:54:05.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2393
-- author: meridiadottxt
-  changes:
-  - message: many small changes to Gate Station, possible last update for a while?
-    type: Tweak
-  id: 1602
-  time: '2025-05-04T23:52:34.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2395
-- author: AvianMaiden
-  changes:
-  - message: Space mobs and snakes can now be like every other creature; if it bleeds,
-      you can flash it.
-    type: Tweak
-  id: 1603
-  time: '2025-05-04T23:52:07.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2387
-- author: Darkmajia
-  changes:
-  - message: Thieving beacons have been given minor contraband status, and can be
-      anchored under tiles similar to the smuggler's satchel.
-    type: Tweak
-  id: 1604
-  time: '2025-05-04T23:55:24.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2382
-- author: AvianMaiden
-  changes:
-  - message: Station-specific category no longer appears on the job selection menu,
-      as the jobs are not station-specific.
-    type: Tweak
-  id: 1605
-  time: '2025-05-05T00:03:01.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2394
-- author: TuttlePants, AvianMaiden
-  changes:
-  - message: Added a Bounty Hunter guidebook entry
-    type: Add
-  - message: Bounty Hunters now spawn with a gas mask
-    type: Tweak
-  - message: A few minor changes the Heron
-    type: Tweak
-  - message: borgdisabler and borgstunbaton no longer show up in the spawning menu
-    type: Tweak
-  - message: Bounty Hunters now spawn more often
-    type: Tweak
-  - message: Bounty Hunter gear is now (mostly) put into a bag instead of spilling
-      onto the floor
-    type: Fix
-  - message: Bounty Hunters now have last names
-    type: Fix
-  id: 1606
-  time: '2025-05-05T00:02:24.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2402
 - author: rainyatrium
   changes:
   - message: Basic pirate accent without forced Yarr! and Garr! before sentences
@@ -4215,3 +4157,65 @@
   id: 2100
   time: '2025-08-01T03:13:45.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3163
+- author: Mousetrinity
+  changes:
+  - message: monkey's delight is now able to be made with sanitized monkey cubes
+    type: Tweak
+  id: 2101
+  time: '2025-08-02T08:43:11.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3209
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: The Syndicate Raid Suit will now protect you from being knocked over
+      by the Leviathan firing.
+    type: Tweak
+  - message: The Mk 93 + 92HB both will now default to their respective signature
+      firing modes.
+    type: Tweak
+  id: 2102
+  time: '2025-08-02T08:44:49.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3212
+- author: DinnerCalzone
+  changes:
+  - message: Carpets can now be cut off the floor by using a wirecutter on them.
+    type: Add
+  id: 2103
+  time: '2025-08-02T08:48:16.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3193
+- author: AvianMaiden
+  changes:
+  - message: The K2903 Star Rifle, a relic much like the Kardashev-Mosin but with
+      an interesting twist; buy now in your uplink!
+    type: Add
+  - message: Several weapon sounds and sound changes (such as volume) for feedback
+      and coolness.
+    type: Add
+  - message: More variety to Nanotrasen's cargo gifts in the armory category.
+    type: Add
+  - message: Teeny buffs and nerfs to a few weapons.
+    type: Tweak
+  - message: Have you melee'd with a flamethrower recently?
+    type: Tweak
+  - message: Rifle crate from the cargo armory catalog, since the Lecter crate already
+      exists.
+    type: Remove
+  id: 2104
+  time: '2025-08-02T08:50:30.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3182
+- author: Boaz1111, DinnerCalzone
+  changes:
+  - message: More atmos devices can now be constructed on layers from the construction
+      menu.
+    type: Add
+  id: 2105
+  time: '2025-08-02T08:55:54.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3135
+- author: Widgetbeck, AirFryerBuyOneGetOneFree
+  changes:
+  - message: The Cargorilla has a rare chance to spawn at roundstart.
+    type: Add
+  - message: The Cargorilla can now stand up and beat his chest.
+    type: Add
+  id: 2106
+  time: '2025-08-02T09:01:49.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3095
