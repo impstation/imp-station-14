@@ -46,7 +46,9 @@ public sealed partial class IdCardConsoleComponent : Component
         "Bar",
         "Brig",
         "Captain",
+        "CargoAux", // imp
         "Cargo",
+        "CargoRestricted", // imp
         "Chapel",
         "Chemistry",
         "ChiefEngineer",

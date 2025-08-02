@@ -5,3 +5,13 @@
 - type: accessLevel
   id: Logistics
   name: id-card-access-level-logistics
+
+# Access Refactor
+
+- type: accessLevel
+  id: CargoAux
+  name: id-card-access-level-cargo-aux
+
+- type: accessLevel
+  id: CargoRestricted
+  name: id-card-access-level-cargo-restricted
