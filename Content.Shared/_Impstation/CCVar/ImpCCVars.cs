@@ -31,7 +31,7 @@ public sealed class ImpCCVars : CVars
     /// URL of the Discord webhook which will relay last messages before death.
     /// </summary>
     public static readonly CVarDef<string> DiscordLastMessageBeforeDeathWebhook =
-        CVarDef.Create("discord.last_message_before_death_webhook", "https://discord.com/api/webhooks/1392718962202247238/a2O-mTdg_Z-x9K7R_-czM8CyrjM99vzZqCH4SmtopvC_wjKknAwJNXx9e-qHFBQiRvdD", CVar.SERVERONLY | CVar.CONFIDENTIAL);
+        CVarDef.Create("discord.last_message_before_death_webhook", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
 
     /// <summary>
     /// A maximum length before an IC message is cut off in LastMessageBeforeDeathSystem during formatting.
