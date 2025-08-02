@@ -38,3 +38,20 @@ accent-words-pleebnar-7 = mumumu...
 accent-words-pleebnar-8 = Jorp!
 accent-words-pleebnar-9 = Cluuump.
 accent-words-pleebnar-10 = wawiwi.
+
+#eeep
+accent-words-eeep-1 = mimi
+accent-words-eeep-2 = zzzz...
+accent-words-eeep-3 = mimir
+accent-words-eeep-4 = kho kho
+accent-words-eeep-5 = bzzzt!
+accent-words-eeep-6 = baaaa
+accent-words-eeep-7 = be-be
+accent-words-eeep-8 = snork mimimimi...
+accent-words-eeep-9 = mae mae
+accent-words-eeep-10 = baehh
+accent-words-eeep-11 = bee...
+accent-words-eeep-12 = snzzz...
+accent-words-eeep-13 = zap!
+accent-words-eeep-14 = mae-ee
+accent-words-eeep-15 = zzzzzzzzzz...zap!
