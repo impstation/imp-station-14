@@ -31,32 +31,38 @@ public sealed class StartWithLensesSystem : EntitySystem
 
         var eyeSet = _inventorySystem.GetHandOrInventoryEntities(ent.Owner, SlotFlags.EYES);
 
-        if (!eyeSet.Any())
-            return;
-
-        var eyes = eyeSet.First();
-
-        if (TryComp<LensSlotComponent>(eyes, out var lensSlot))
+        if (eyeSet.Any())
         {
-            var item = Spawn(ent.Comp.LensPrototype, Transform(ent).Coordinates);
+            var eyes = eyeSet.First();
 
-            if (_itemSlotsSystem.TryGetSlot(eyes, lensSlot.LensSlotId, out ItemSlot? itemSlot))
-                _itemSlotsSystem.TryInsert(eyes, itemSlot, item, user: null);
-        }
-        else
-        {
-            if (TryComp<HandsComponent>(ent, out var handsComponent))
+            if (TryComp<LensSlotComponent>(eyes, out var lensSlot))
             {
-                var coords = Transform(ent).Coordinates;
-                var inhandEntity = EntityManager.SpawnEntity(ent.Comp.LensPrototype, coords);
-                _sharedHandsSystem.TryPickup(ent,
-                    inhandEntity,
-                    checkActionBlocker: false,
-                    handsComp: handsComponent);
+                var item = Spawn(ent.Comp.LensPrototype, Transform(ent).Coordinates);
+
+                if (_itemSlotsSystem.TryGetSlot(eyes, lensSlot.LensSlotId, out ItemSlot? itemSlot))
+                {
+                    if (itemSlot.Item != null)
+                    {
+                        Del(itemSlot.Item);
+                    }
+                    _itemSlotsSystem.TryInsert(eyes, itemSlot, item, user: null);
+                }
+
+            }
+            else
+            {
+                if (TryComp<HandsComponent>(ent, out var handsComponent))
+                {
+                    var coords = Transform(ent).Coordinates;
+                    var inhandEntity = EntityManager.SpawnEntity(ent.Comp.LensPrototype, coords);
+                    _sharedHandsSystem.TryPickup(ent,
+                        inhandEntity,
+                        checkActionBlocker: false,
+                        handsComp: handsComponent);
+                }
             }
         }
-
-        if (eyes.Valid)
+        else
         {
             _inventorySystem.SpawnItemInSlot(ent, "eyes", ent.Comp.LensPrototype);
         }
