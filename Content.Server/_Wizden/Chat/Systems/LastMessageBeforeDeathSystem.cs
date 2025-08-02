@@ -12,6 +12,7 @@ using Robust.Shared.Enums;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Server.Roles.Jobs;
+using NetCord.Gateway;
 
 namespace Content.Server._Wizden.Chat.Systems;
 
@@ -172,16 +173,23 @@ sealed class LastMessageBeforeDeathSystem : EntitySystem
     /// <returns>A formatted message string.</returns>
     private string FormatMessage(CharacterData characterData, string characterName)
     {
-        var message = $"{characterData.LastMessage}";
-        if (message != null && message.Length > _maxICLengthCVar)
+        var message = characterData.LastMessage;
+        if (message != null)
         {
-            message = message[.._maxICLengthCVar] + "-";
-        }
-        var messageTime = characterData.MessageTime;
-        var jobTitle = $"{characterData.JobTitle}";
-        var truncatedTime = $"{messageTime.Hours:D2}:{messageTime.Minutes:D2}:{messageTime.Seconds:D2}";
+            if (message.Length > _maxICLengthCVar)
+            {
+                message = message[.._maxICLengthCVar] + "-";
+            }
+            var messageTime = characterData.MessageTime;
+            var jobTitle = $"{characterData.JobTitle}";
+            var truncatedTime = $"{messageTime.Hours:D2}:{messageTime.Minutes:D2}:{messageTime.Seconds:D2}";
 
-        return Loc.GetString("lastmessagewebhook-time-of-death", ("truncatedTime", truncatedTime), ("characterName", characterName), ("jobTitle", jobTitle), ("message", message));
+            return Loc.GetString("lastmessagewebhook-time-of-death", ("truncatedTime", truncatedTime), ("characterName", characterName), ("jobTitle", jobTitle), ("message", message));
+        }
+        else
+        {
+            return "";
+        }
     }
 
     /// <summary>
