@@ -253,6 +253,9 @@
         - NamesNinjaTitle
         - NamesNinja
         nameFormat: name-format-ninja
+      - type: RandomHumanoidAppearance # Imp
+        randomizeName: false
+        keepPronouns: true
       mindRoles:
       - MindRoleNinja
 
@@ -344,6 +347,9 @@
         - NamesWizardFirst
         - NamesWizardLast
         nameFormat: name-format-wizard
+      - type: RandomHumanoidAppearance # Imp
+        randomizeName: false
+        keepPronouns: true
       mindRoles:
       - MindRoleWizard
 
@@ -496,6 +502,9 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
+      - type: RandomHumanoidAppearance # Imp
+        randomizeName: false
+        keepPronouns: true
       mindRoles:
       - MindRoleNukeopsLone #imp edit to separate playtime tracking from regular nukies
 
