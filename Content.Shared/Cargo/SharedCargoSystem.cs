@@ -25,6 +25,19 @@ public abstract class SharedCargoSystem : EntitySystem
     }
 
     /// <summary>
+    /// imp edit - get the amount of spesos that have been generated from selling a given item. returns null if it fails to resolve.
+    /// </summary>
+    /// <param name="station"></param>
+    /// <returns></returns>
+    public Dictionary<string, double>? GetGeneratedspesos(Entity<StationBankAccountComponent?> station)
+    {
+        if (!Resolve(station, ref station.Comp))
+            return null;
+
+        return station.Comp.SpesosGenerated;
+    }
+
+    /// <summary>
     /// For a given station, retrieves the balance in a specific account.
     /// </summary>
     public int GetBalanceFromAccount(Entity<StationBankAccountComponent?> station, ProtoId<CargoAccountPrototype> account)
