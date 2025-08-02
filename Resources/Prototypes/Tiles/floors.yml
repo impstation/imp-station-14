@@ -664,7 +664,7 @@
   id: FloorSteelDirty
   name: tiles-dirty-steel-floor
   sprite: /Textures/_Impstation/Tiles/Steel/steel_dirty.png # Imp Edit
-  variants: 1
+  variants: 4 # Imp Edit, why was it just 1 variant before when the sprite had 4 and placement variants had 4
   placementVariants:
   - 1.0
   - 1.0
@@ -2104,7 +2104,7 @@
 - type: tile
   id: FloorDarkSquiggly
   name: tiles-dark-squiggly
-  sprite: /Textures/Tiles/dark_squiggly.png
+  sprite: /Textures/_Impstation/Tiles/Dark/dark_squiggly.png
   variants: 4
   placementVariants:
   - 1.0
