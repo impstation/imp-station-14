@@ -37,6 +37,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
+using Content.Server._Wizden.Chat.Systems; // Imp edit for Last Message Before Death Webhook
 
 namespace Content.Server.Chat.Systems;
 
@@ -64,6 +65,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
     [Dependency] private readonly CollectiveMindUpdateSystem _collectiveMind = default!;
+    [Dependency] private readonly LastMessageBeforeDeathSystem _lastMessageBeforeDeathSystem = default!; // Imp Edit LastMessageBeforeDeath Webhook
 
     public const int VoiceRange = 10; // how far voice goes in world units
     public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
@@ -239,6 +241,11 @@ public sealed partial class ChatSystem : SharedChatSystem
         // This can happen if the entire string is sanitized out.
         if (string.IsNullOrEmpty(message))
             return;
+
+        if (player != null) // Imp Edit: Last Message Before Death System
+        {
+            HandleLastMessageBeforeDeath(source, player, message);
+        }
 
         // This message may have a radio prefix, and should then be whispered to the resolved radio channel
         if (checkRadioPrefix)
@@ -823,6 +830,15 @@ public sealed partial class ChatSystem : SharedChatSystem
         }
 
         return !_chatManager.MessageCharacterLimit(player, message);
+    }
+
+    /// <summary>
+    ///     Imp Edit: First modify message to respect entity accent, then send it to LastMessage system to record last message info for player
+    /// </summary>
+    public void HandleLastMessageBeforeDeath(EntityUid source, ICommonSession player, string message)
+    {
+        var newMessage = TransformSpeech(source, message);
+        _lastMessageBeforeDeathSystem.AddMessage(source, player, newMessage);
     }
 
     // ReSharper disable once InconsistentNaming
