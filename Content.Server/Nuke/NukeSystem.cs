@@ -506,6 +506,7 @@ public sealed class NukeSystem : EntitySystem
             Color.Red,
             stationUid ?? uid,
             null,
+            null, //imp
             ("time", (int)component.RemainingTime),
             ("location", FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString((uid, nukeXform))))
         );
