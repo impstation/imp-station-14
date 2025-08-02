@@ -156,4 +156,24 @@ marking-CreepyArms-creepy = Creepy Arms
 marking-AppendagesScorpion = Appendages (Scorpion)
 marking-AppendagesScorpion-scorpion = Legs and Pincers
 
+marking-AppendagesProsthesis = Bionic (Prosthetics)
+marking-AppendagesProsthesis-prosthesis1 = Fore
+marking-AppendagesProsthesis-prosthesis2 = Hind
+marking-AppendagesProsthesis-prosthesis3 = Band 
+marking-AppendagesProsthesis-prosthesis4 = Frame
+
+marking-AppendagesHSAug = Bionic (HS-Augment)
+marking-AppendagesHSAug-hsaug1 = Plate
+marking-AppendagesHSAug-hsaug2 = Frame
+
+marking-AppendagesNTAug = Bionic (NT-Augment)
+marking-AppendagesNTAug-ntaug1 = Plate
+marking-AppendagesNTAug-ntaug2 = Frame
+marking-AppendagesNTAug-ntaug3 = Joint
+
+marking-AppendagesMakeshift = Bionic (Makeshift)
+marking-AppendagesMakeshift-makeshift1 = Stick
+marking-AppendagesMakeshift-makeshift2 = Ball
+marking-AppendagesMakeshift-makeshift3 = Rope
+
 # RArmExtension
