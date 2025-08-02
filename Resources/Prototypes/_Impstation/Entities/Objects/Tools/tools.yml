@@ -144,3 +144,14 @@
     - ClothingHeadHatCone
     - PowerCellSmall
     - Decalamp
+
+- type: entity
+  parent: ClothingBackpackDuffelCargo
+  id: BorgDuffel
+  name: borg's duffel bag
+  description: It's bigger on the inside.
+  components:
+  - type: Storage
+    quickInsert: true
+    areaInsert: true
+  - type: Dumpable

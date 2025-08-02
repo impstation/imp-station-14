@@ -472,7 +472,7 @@
 
 # cargo modules
 - type: entity
-  id: BorgModuleAppraisal
+  id: BorgModuleAppraisal # imp special and modified
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
   name: appraisal cyborg module
   components:
@@ -481,13 +481,14 @@
     - state: cargo
     - state: icon-appraisal
   - type: ItemBorgModule
-    items:
+    items: # imp rearranged the items in this module
+    - BorgDuffel # imp allows the cargo borg to have a form of interior storage for logistics
     - AppraisalTool
-    - Pen
     - HandLabeler
+    - RadioHandheld
     - RubberStampApproved
     - RubberStampDenied
-    - RadioHandheld
+    - Pen
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: appraisal-module }
 
