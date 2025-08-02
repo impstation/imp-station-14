@@ -16,8 +16,11 @@ pai-system-role-description-learner-service = Ask questions and learn your way a
 pai-system-role-name-learner-science = research director's personal learner ai
 pai-system-role-description-learner-science = Ask questions and learn your way around the science department, all as a special electronic pal!
 
-pai-system-role-name-learner-command = captain's personal learner ai
+pai-system-role-name-learner-command = head of personal's personal learner ai
 pai-system-role-description-learner-command = Ask questions and learn your way around command, all as a special electronic pal!
 
 pai-system-role-name-learner-cargo = quartermaster's personal learner ai
 pai-system-role-description-learner-cargo = Ask questions and learn your way around the cargo department, all as a special electronic pal!
+
+pai-system-role-name-learner-captain = captain's personal learner ai
+pai-system-role-description-learner-captain = Ask questions and learn your way around being a captain, all as a special electronic pal!

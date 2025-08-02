@@ -61,7 +61,7 @@
       - !type:PlayerCountCondition
         max: 15
     - id: TicketPad #imp special
-    - id: PersonalAILearnerCommand #impspecial
+    - id: PersonalAILearnerCaptain # imp
 
 # No laser table + Laser table
 - type: entityTable
@@ -147,6 +147,7 @@
     - id: RubberStampHop
     - id: WeaponDisabler
     - id: ClothingEyesHudCommand
+    - id: PersonalAILearnerCommand #impspecial
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
