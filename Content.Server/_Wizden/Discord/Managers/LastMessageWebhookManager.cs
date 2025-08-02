@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using Content.Server.Discord;
 
 namespace Content.Server._Wizden.Discord.Managers;
+
 public sealed class LastMessageWebhookManager
 {
     [Dependency] private readonly DiscordWebhook _discordWebhook = default!;
@@ -25,11 +26,6 @@ public sealed class LastMessageWebhookManager
     {
         if (_discordWebhook == null)
             return;
-
-        if (MaxMessageSize > 2000)
-        {
-            throw new ArgumentOutOfRangeException("A discord webhook message can't contain more than 2000 characters.");
-        }
 
         if (webhookId == null || !webhookId.HasValue)
             return;

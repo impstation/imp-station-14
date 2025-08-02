@@ -7,7 +7,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Content.Server._Wizden.Discord.Managers;
 using Robust.Shared.Configuration;
-using Content.Shared.CCVar;
+using Content.Shared._Impstation.CCVar;
 using Robust.Shared.Enums;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
@@ -15,7 +15,7 @@ using Content.Server.Roles.Jobs;
 
 namespace Content.Server._Wizden.Chat.Systems;
 
-internal class LastMessageBeforeDeathSystem : EntitySystem
+sealed class LastMessageBeforeDeathSystem : EntitySystem
 {
     [Dependency] private readonly IConfigurationManager _configManager = default!;
     [Dependency] private readonly DiscordWebhook _discord = default!;
@@ -63,7 +63,7 @@ internal class LastMessageBeforeDeathSystem : EntitySystem
 
         SubscribeLocalEvent<EraseEvent>(OnErase);
 
-        Subs.CVar(_configManager, CCVars.DiscordLastMessageBeforeDeathWebhook, value =>
+        Subs.CVar(_configManager, ImpCCVars.DiscordLastMessageBeforeDeathWebhook, value =>
         {
             if (!string.IsNullOrWhiteSpace(value))
             {
@@ -71,12 +71,14 @@ internal class LastMessageBeforeDeathSystem : EntitySystem
                 _discord.GetWebhook(value, data => _webhookIdentifierLastMessage = data.ToIdentifier());
             }
         }, true);
-        _configManager.OnValueChanged(CCVars.DiscordLastMessageSystemMaxICLength, obj => _maxICLengthCVar = obj, true);
-        _configManager.OnValueChanged(CCVars.DiscordLastMessageSystemMaxMessageLength, obj => _maxMessageSize = obj, true);
-        _configManager.OnValueChanged(CCVars.DiscordLastMessageSystemMaxMessageBatch, obj => _maxMessagesPerBatch = obj, true);
-        _configManager.OnValueChanged(CCVars.DiscordLastMessageSystemMessageDelay, obj => _messageDelayMs = obj, true);
-        _configManager.OnValueChanged(CCVars.DiscordLastMessageSystemMaxMessageBatchOverflowDelay, obj => _rateLimitDelayMs = obj, true);
+
+        _configManager.OnValueChanged(ImpCCVars.DiscordLastMessageSystemMaxICLength, obj => _maxICLengthCVar = obj, true);
+        _configManager.OnValueChanged(ImpCCVars.DiscordLastMessageSystemMaxMessageLength, obj => _maxMessageSize = obj, true);
+        _configManager.OnValueChanged(ImpCCVars.DiscordLastMessageSystemMaxMessageBatch, obj => _maxMessagesPerBatch = obj, true);
+        _configManager.OnValueChanged(ImpCCVars.DiscordLastMessageSystemMessageDelay, obj => _messageDelayMs = obj, true);
+        _configManager.OnValueChanged(ImpCCVars.DiscordLastMessageSystemMaxMessageBatchOverflowDelay, obj => _rateLimitDelayMs = obj, true);
     }
+
     /// <summary>
     ///     Adds a message to the character data for a given player session.
     /// </summary>
@@ -119,10 +121,6 @@ internal class LastMessageBeforeDeathSystem : EntitySystem
                 characterData.MessageTime = _gameTicker.RoundDuration();
             }
         }
-        else
-        {
-            return;
-        }
     }
 
     /// <summary>
@@ -147,17 +145,10 @@ internal class LastMessageBeforeDeathSystem : EntitySystem
                     var characterData = character.Value;
                     // I am sure if there is a better way to go about checking if an EntityUID is no longer linked to an active entity...
                     // I don't know how tho...
-                    if (_mobStateSystem.IsDead(characterData.EntityUid) || !EntityManager.TryGetComponent<MetaDataComponent>(characterData.EntityUid, out var metadata)) // Check if an entity is dead or doesn't exist
+                    if ((_mobStateSystem.IsDead(characterData.EntityUid) || !EntityManager.TryGetComponent<MetaDataComponent>(characterData.EntityUid, out var metadata)) && character.Key.CharacterName != null) // Check if an entity is dead or doesn't exist
                     {
-                        if (character.Key.CharacterName != null )
-                        {
-                            var message = FormatMessage(characterData, character.Key.CharacterName);
-                            allMessages.Add(message);
-                        }
-                        else
-                        {
-                            continue;
-                        }
+                        var message = FormatMessage(characterData, character.Key.CharacterName);
+                        allMessages.Add(message);
                     }
                     else
                     {
@@ -181,16 +172,16 @@ internal class LastMessageBeforeDeathSystem : EntitySystem
     /// <returns>A formatted message string.</returns>
     private string FormatMessage(CharacterData characterData, string characterName)
     {
-        var message = characterData.LastMessage;
+        var message = $"{characterData.LastMessage}";
         if (message != null && message.Length > _maxICLengthCVar)
         {
             message = message[.._maxICLengthCVar] + "-";
         }
         var messageTime = characterData.MessageTime;
-        var jobTitle = characterData.JobTitle;
+        var jobTitle = $"{characterData.JobTitle}";
         var truncatedTime = $"{messageTime.Hours:D2}:{messageTime.Minutes:D2}:{messageTime.Seconds:D2}";
 
-        return $"[{truncatedTime}] {characterName} ({jobTitle}): {message}";
+        return Loc.GetString("lastmessagewebhook-time-of-death", ("truncatedTime", truncatedTime), ("characterName", characterName), ("jobTitle", jobTitle), ("message", message));
     }
 
     /// <summary>
@@ -213,9 +204,7 @@ internal class LastMessageBeforeDeathSystem : EntitySystem
         }
 
         if (concatenatedMessages.Length > 0)
-        {
             messagesToSend.Add(concatenatedMessages.ToString());
-        }
 
         _webhookManager.SendMessagesAsync(_webhookIdentifierLastMessage, messagesToSend, _maxMessageSize, _maxMessagesPerBatch, _messageDelayMs, _rateLimitDelayMs);
     }
