@@ -105,3 +105,6 @@ uplink-valushotfamily-desc = 3 ValuShot 9000 pistols for a special deal!
 
 uplink-valushotclub-name = Deadly Dan's ValuShot Club Bundle
 uplink-valushotclub-desc = Bulk buys! 14 ValuShot 9000 pistols for the price of 10!
+
+uplink-super-mosin-name = K2903 Star Rifle bundle
+uplink-super-mosin-desc = A modified bolt-action service rifle with a large magazine! Not modern by any standard. Quite the steal, if you don't mind hand-loading. Comes with a handful of stripper clips.

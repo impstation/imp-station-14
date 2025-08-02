@@ -139,7 +139,6 @@ namespace Content.IntegrationTests.Tests
             "Luna",
             "MarathonImp",
             "OasisImp",
-            "OmegaImp",
             "PackedImp",
             "PlasmaImp",
             "ReachImp",
@@ -148,13 +147,14 @@ namespace Content.IntegrationTests.Tests
             "Submarine",
             "TrainImp",
             "Xeno",
+            "Pathway",
+            "Whisper",
 
             // NOT IN ROTATION BUT WE STILL NEED THEM TESTED SINCE THEY STILL HAVE A PROTOTYPE:
             "Eclipse",
             "Refsdal",
             "Skimmer",
             "Union",
-            "Whisper",
         };
 
         /// <summary>
