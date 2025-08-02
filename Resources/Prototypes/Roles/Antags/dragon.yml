@@ -1,9 +1,9 @@
 - type: antag
-  id: Dragon
-  name: roles-antag-dragon-name
+  id: VRex
+  name: ghost-role-information-vrex-name
   antagonist: true
   requirements:
   - !type:OverallPlaytimeRequirement # Imp
     time: 3600 # 1h
-  playTimeTracker: AntagDragon # imp
-  objective: roles-antag-dragon-objective
+  playTimeTracker: AntagVRex # imp
+  objective: ghost-role-information-vrex-desc

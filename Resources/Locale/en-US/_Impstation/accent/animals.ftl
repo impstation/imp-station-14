@@ -38,3 +38,9 @@ accent-words-pleebnar-7 = mumumu...
 accent-words-pleebnar-8 = Jorp!
 accent-words-pleebnar-9 = Cluuump.
 accent-words-pleebnar-10 = wawiwi.
+
+# V-Rex
+accent-words-vrex-1 = Guoh guoh.
+accent-words-vrex-2 = Grrrouuh!
+accent-words-vrex-3 = Ghrrr....
+accent-words-vrex-4 = Gruuuooh!
