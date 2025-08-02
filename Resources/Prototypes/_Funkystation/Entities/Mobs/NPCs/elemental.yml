@@ -1,0 +1,16 @@
+- type: entity
+  id: ReagentSlimeSalicylicAcid
+  parent: ReagentSlime
+  suffix: Salicylic Acid
+  components:
+  - type: Bloodstream
+    bloodReagent: SalicylicAcid
+  - type: PointLight
+    color: "#f9e0e9"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/elemental.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+        color: "#f9e0e9"

@@ -16,54 +16,56 @@
         slurSpeech: false
         boozePower: 20
 
-- type: reagent
-  id: Dylovene
-  name: reagent-name-dylovene
-  group: Medicine
-  desc: reagent-desc-dylovene
-  physicalDesc: reagent-physical-desc-translucent
-  flavor: medicine
-  color: "#3a1d8a"
-  metabolisms:
-    Medicine:
-      effects:
-      - !type:HealthChange
-        damage:
-          types:
-            Poison: -1
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 20
-        damage:
-          groups:
-            Brute: 2
-      - !type:Jitter
-        conditions:
-        - !type:ReagentThreshold
-          min: 20
-      - !type:PopupMessage
-        conditions:
-        - !type:ReagentThreshold
-          min: 20
-        type: Local
-        visualType: Medium
-        messages: [ "generic-reagent-effect-nauseous" ]
-        probability: 0.2
-      - !type:ChemVomit
-        conditions:
-        - !type:ReagentThreshold
-          min: 20
-        probability: 0.02
-      - !type:Drunk
-        conditions:
-        - !type:ReagentThreshold
-          min: 15
-  plantMetabolism:
-  - !type:PlantAdjustToxins
-    amount: -10
-  - !type:PlantAdjustHealth
-    amount: 1
+# Begin Funkychem removals
+# - type: reagent
+#   id: Dylovene
+#   name: reagent-name-dylovene
+#   group: Medicine
+#   desc: reagent-desc-dylovene
+#   physicalDesc: reagent-physical-desc-translucent
+#   flavor: medicine
+#   color: "#3a1d8a"
+#   metabolisms:
+#     Medicine:
+#       effects:
+#       - !type:HealthChange
+#         damage:
+#           types:
+#             Poison: -1
+#       - !type:HealthChange
+#         conditions:
+#         - !type:ReagentThreshold
+#           min: 20
+#         damage:
+#           groups:
+#             Brute: 2
+#       - !type:Jitter
+#         conditions:
+#         - !type:ReagentThreshold
+#           min: 20
+#       - !type:PopupMessage
+#         conditions:
+#         - !type:ReagentThreshold
+#           min: 20
+#         type: Local
+#         visualType: Medium
+#         messages: [ "generic-reagent-effect-nauseous" ]
+#         probability: 0.2
+#       - !type:ChemVomit
+#         conditions:
+#         - !type:ReagentThreshold
+#           min: 20
+#         probability: 0.02
+#       - !type:Drunk
+#         conditions:
+#         - !type:ReagentThreshold
+#           min: 15
+#   plantMetabolism:
+#   - !type:PlantAdjustToxins
+#     amount: -10
+#   - !type:PlantAdjustHealth
+#     amount: 1
+# End Funkychem removals
 
 - type: reagent
   id: Diphenhydramine
@@ -133,47 +135,50 @@
   color: "#bd5902"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funky
       effects:
       - !type:HealthChange
         damage:
           types:
-            Radiation: -3
+            Radiation: -2 # Funky
           groups:
-            Brute: 1.5
+            Brute: 0.2 # Funky
 
-- type: reagent
-  id: Bicaridine
-  name: reagent-name-bicaridine
-  group: Medicine
-  desc: reagent-desc-bicaridine
-  physicalDesc: reagent-physical-desc-opaque
-  flavor: medicine
-  color: "#ffaa00"
-  metabolisms:
-    Medicine:
-      effects:
-      - !type:HealthChange
-        damage:
-          groups:
-            Brute: -2
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 15
-        damage:
-          types:
-            Asphyxiation: 0.5
-            Poison: 1.5
-      - !type:ChemVomit
-        conditions:
-        - !type:ReagentThreshold
-          min: 30
-        probability: 0.02
-      - !type:Jitter
-        conditions:
-        - !type:ReagentThreshold
-          min: 15
-      - !type:Drunk
+# Begin Funkychem removals
+# - type: reagent
+#   id: Bicaridine
+#   name: reagent-name-bicaridine
+#   group: Medicine
+#   desc: reagent-desc-bicaridine
+#   physicalDesc: reagent-physical-desc-opaque
+#   flavor: medicine
+#   color: "#ffaa00"
+#   metabolisms:
+#     Medicine:
+#       effects:
+#       - !type:HealthChange
+#         damage:
+#           groups:
+#             Brute: -2
+#       - !type:HealthChange
+#         conditions:
+#         - !type:ReagentThreshold
+#           min: 15
+#         damage:
+#           types:
+#             Asphyxiation: 0.5
+#             Poison: 1.5
+#       - !type:ChemVomit
+#         conditions:
+#         - !type:ReagentThreshold
+#           min: 30
+#         probability: 0.02
+#       - !type:Jitter
+#         conditions:
+#         - !type:ReagentThreshold
+#           min: 15
+#       - !type:Drunk
+# End Funkychem removals
 
 - type: reagent
   id: Cryoxadone
@@ -224,37 +229,39 @@
             types:
              Cellular: -2
 
-- type: reagent
-  id: Dermaline
-  name: reagent-name-dermaline
-  group: Medicine
-  desc: reagent-desc-dermaline
-  physicalDesc: reagent-physical-desc-translucent
-  flavor: medicine
-  color: "#215263"
-  metabolisms:
-    Medicine:
-      effects:
-      - !type:HealthChange
-        damage:
-          types:
-            Heat: -1.5
-            Shock: -1.5
-            Cold: -1.5
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 10
-        damage:
-          types:
-            Asphyxiation: 1
-            Cold: 2
-          groups:
-            Brute: 0.5
-      - !type:Jitter
-        conditions:
-        - !type:ReagentThreshold
-          min: 10
+# Begin Funkychem removals
+# - type: reagent
+#   id: Dermaline
+#   name: reagent-name-dermaline
+#   group: Medicine
+#   desc: reagent-desc-dermaline
+#   physicalDesc: reagent-physical-desc-translucent
+#   flavor: medicine
+#   color: "#215263"
+#   metabolisms:
+#     Medicine:
+#       effects:
+#       - !type:HealthChange
+#         damage:
+#           types:
+#             Heat: -1.5
+#             Shock: -1.5
+#             Cold: -1.5
+#       - !type:HealthChange
+#         conditions:
+#         - !type:ReagentThreshold
+#           min: 10
+#         damage:
+#           types:
+#             Asphyxiation: 1
+#             Cold: 2
+#           groups:
+#             Brute: 0.5
+#       - !type:Jitter
+#         conditions:
+#         - !type:ReagentThreshold
+#           min: 10
+# End Funkychem removals
 
 - type: reagent
   id: Dexalin
@@ -266,12 +273,12 @@
   color: "#0041a8"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Asphyxiation: -1
-            Bloodloss: -0.5
+          groups:
+            Airloss: 2 # Funkychem
       - !type:HealthChange
         conditions:
           - !type:ReagentThreshold
@@ -281,37 +288,39 @@
             Asphyxiation: 3
             Cold: 1
 
-- type: reagent
-  id: DexalinPlus
-  name: reagent-name-dexalin-plus
-  group: Medicine
-  desc: reagent-desc-dexalin-plus
-  physicalDesc: reagent-physical-desc-cloudy
-  flavor: medicine
-  color: "#4da0bd"
-  metabolisms:
-    Medicine:
-      effects:
-      - !type:HealthChange
-        damage:
-          types:
-            Asphyxiation: -3.5
-            Bloodloss: -3
-      - !type:AdjustReagent
-        conditions:
-        - !type:ReagentThreshold
-          reagent: HeartbreakerToxin
-          min: 1
-        reagent: HeartbreakerToxin
-        amount: -3
-      - !type:HealthChange
-        conditions:
-          - !type:ReagentThreshold
-            min: 25
-        damage:
-          types:
-            Asphyxiation: 5
-            Cold: 3
+# Begin Funkychem removals
+# - type: reagent
+#   id: DexalinPlus
+#   name: reagent-name-dexalin-plus
+#   group: Medicine
+#   desc: reagent-desc-dexalin-plus
+#   physicalDesc: reagent-physical-desc-cloudy
+#   flavor: medicine
+#   color: "#4da0bd"
+#   metabolisms:
+#     Medicine:
+#       effects:
+#       - !type:HealthChange
+#         damage:
+#           types:
+#             Asphyxiation: -3.5
+#             Bloodloss: -3
+#       - !type:AdjustReagent
+#         conditions:
+#         - !type:ReagentThreshold
+#           reagent: HeartbreakerToxin
+#           min: 1
+#         reagent: HeartbreakerToxin
+#         amount: -3
+#       - !type:HealthChange
+#         conditions:
+#           - !type:ReagentThreshold
+#             min: 25
+#         damage:
+#           types:
+#             Asphyxiation: 5
+#             Cold: 3
+# End Funkychem removals
 
 # this ones a doozy
 - type: reagent
@@ -324,6 +333,7 @@
   color: "#d2fffa"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem
       effects:
       - !type:AdjustReagent
         conditions:
@@ -342,11 +352,11 @@
           max: 20
         damage:
           types:
-            Asphyxiation: -3
+            Asphyxiation: -2 # Funkychem
             Poison: -0.5
           groups:
-            Brute: -0.5
-            Burn: -0.5
+            Brute: -0.3 # Funkychem
+            Burn: -0.4 # Funkychem
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -396,20 +406,21 @@
   color: "#4cb580"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2
       effects:
       - !type:HealthChange
         damage:
           types:
-            Radiation: -1
+            Radiation: -0.5 # Funkychem
       - !type:ChemVomit
         probability: 0.02
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 30
+          min: 20 # Funkychem
         damage:
           types:
-           Heat: 2
+           Heat: 1.5 # Funkychem
       - !type:Jitter
         conditions:
         - !type:ReagentThreshold
@@ -455,38 +466,40 @@
       - !type:ModifyBleedAmount
         amount: -0.25
 
-- type: reagent
-  id: Kelotane
-  name: reagent-name-kelotane
-  group: Medicine
-  desc: reagent-desc-kelotane
-  physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: medicine
-  color: "#bf3d19"
-  metabolisms:
-    Medicine:
-      effects:
-      - !type:HealthChange
-        damage:
-          types:
-            Heat: -0.33
-            Shock: -0.33
-            Cold: -0.33
-      - !type:SatiateThirst
-        factor: -10
-        conditions:
-        - !type:ReagentThreshold
-          min: 30
-      - !type:PopupMessage
-        type: Local
-        messages:
-        - generic-reagent-effect-nauseous
-        - generic-reagent-effect-thirsty
-        - generic-reagent-effect-parched
-        probability: 0.1
-        conditions:
-        - !type:ReagentThreshold
-          min: 25
+# Begin Funkychem removals
+# - type: reagent
+#   id: Kelotane
+#   name: reagent-name-kelotane
+#   group: Medicine
+#   desc: reagent-desc-kelotane
+#   physicalDesc: reagent-physical-desc-strong-smelling
+#   flavor: medicine
+#   color: "#bf3d19"
+#   metabolisms:
+#     Medicine:
+#       effects:
+#       - !type:HealthChange
+#         damage:
+#           types:
+#             Heat: -0.33
+#             Shock: -0.33
+#             Cold: -0.33
+#       - !type:SatiateThirst
+#         factor: -10
+#         conditions:
+#         - !type:ReagentThreshold
+#           min: 30
+#       - !type:PopupMessage
+#         type: Local
+#         messages:
+#         - generic-reagent-effect-nauseous
+#         - generic-reagent-effect-thirsty
+#         - generic-reagent-effect-parched
+#         probability: 0.1
+#         conditions:
+#         - !type:ReagentThreshold
+#           min: 25
+# End Funkychem removals
 
 - type: reagent
   id: Leporazine
@@ -498,11 +511,12 @@
   color: "#ff7db5"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem
       effects:
       - !type:HealthChange
         damage:
           types:
-            Cold: -4
+            Cold: -2 # Funkychem
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
@@ -617,13 +631,14 @@
   color: "#9423FF"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2
       effects:
       - !type:HealthChange
         damage:
           groups:
-            Brute: -3.5
+            Brute: -1.5 # Funkychem
           types:
-            Asphyxiation: -2.5
+            Asphyxiation: -1.25 # Funkychem
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -716,11 +731,12 @@
   color: "#f4dab8"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem
       effects:
       - !type:HealthChange
         damage:
           types:
-            Caustic: -5
+            Caustic: -2 # Funkychem
 
 - type: reagent
   id: Stellibinin
@@ -732,11 +748,12 @@
   color: "#2b2f77"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2
       effects:
       - !type:HealthChange
         damage:
           types:
-            Poison: -4
+            Poison: -3 # Funkychem
       - !type:AdjustReagent
         conditions:
         - !type:ReagentThreshold
@@ -806,19 +823,22 @@
   color: "#00e5ff"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem
       effects:
       - !type:HealthChange
         conditions:
         - !type:TotalDamage
-          max: 50
+          max: 40 # Funkychem
         damage:
           groups:
-            Brute: -1
+            Brute: -0.9 # Funkychem
           types:
-            Poison: -0.5 ##Should be about what it was when it healed the toxin group
-            Heat: -0.33
-            Shock: -0.33
-            Cold: -0.33
+            # Begin Funkychem
+            Poison: -0.3 ##Should be about what it was when it healed the toxin group
+            Heat: -0.3
+            Shock: -0.3
+            Cold: -0.3
+            # End Funkychem
 
 - type: reagent
   id: Lipozine
@@ -853,13 +873,14 @@
   color: "#fcf7f9"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem
       effects:
       - !type:EvenHealthChange
         damage:
-          Burn: -2
-          Toxin: -2
-          Airloss: -2
-          Brute: -2
+          Burn: -1 # Funkychem
+          Toxin: -1 # Funkychem
+          Airloss: -1 # Funkychem
+          Brute: -1 # Funkychem
 
 - type: reagent
   id: Ultravasculine
@@ -871,6 +892,7 @@
   color: "#520e30"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem
       effects:
       - !type:HealthChange
         conditions:
@@ -1059,11 +1081,12 @@
   color: "#283332"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem
       effects:
       - !type:HealthChange
         damage:
           types:
-            Slash: -3
+            Slash: -1 # Funkychem
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -1082,11 +1105,12 @@
   color: "#b9bf93"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem
       effects:
       - !type:HealthChange
         damage:
           types:
-            Piercing: -4
+            Piercing: -1 # Funkychem
             Blunt: 0.1
       - !type:HealthChange
         conditions:
@@ -1094,7 +1118,7 @@
           min: 11
         damage:
           types:
-            Blunt: 5
+            Blunt: 3 # Funkychem
 
 - type: reagent
   id: Bruizine
@@ -1106,18 +1130,19 @@
   color: "#ff3636"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem
       effects:
       - !type:HealthChange
         damage:
           types:
-            Blunt: -3.5
+            Blunt: -1 # Funkychem
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 10.5
         damage:
           types:
-            Poison: 4
+            Poison: 3 # Funkychem
 
 - type: reagent
   id: Holywater
@@ -1219,12 +1244,13 @@
   color: "#8147ff"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem
       effects:
       # heals shocks and removes shock chems
       - !type:HealthChange
         damage:
           types:
-            Shock: -4
+            Shock: -2 # Funkychem
       - !type:AdjustReagent
         reagent: Licoxide
         amount: -4
@@ -1233,7 +1259,7 @@
         amount: -4
       # makes you a little chilly when not oding
       - !type:AdjustTemperature
-        amount: -5000
+        amount: -2400 # Funkychem
       # od makes you freeze to death
       - !type:HealthChange
         conditions:
@@ -1399,6 +1425,7 @@
   color: "#baa15d"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem
       effects:
       - !type:GenericStatusEffect
         key: RadiationProtection

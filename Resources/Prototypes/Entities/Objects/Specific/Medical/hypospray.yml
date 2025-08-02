@@ -231,7 +231,7 @@
   name: brute auto-injector
   parent: ChemicalMedipen
   id: BruteAutoInjector
-  description: A rapid dose of bicaridine and tranexamic acid, intended for combat applications.
+  description: A rapid dose of libital, salicylic acid and tranexamic acid, intended for combat applications. # Funkychem
   components:
   - type: Item
     inhandVisuals:
@@ -263,17 +263,21 @@
     solutions:
       pen:
         maxVol: 20
+        # Begin Funky Changes
         reagents:
-        - ReagentId: Bicaridine
-          Quantity: 15
+        - ReagentId: SalicylicAcid
+          Quantity: 10
         - ReagentId: TranexamicAcid
           Quantity: 5
+        - ReagentId: Libital
+          Quantity: 15
+        # End Funky Changes
 
 - type: entity
   name: burn auto-injector
   parent: ChemicalMedipen
   id: BurnAutoInjector
-  description: A rapid dose of dermaline and leporazine, intended for combat applications.
+  description: A rapid dose of aiuri, oxandrolone and lenturi, intended for combat applications. # Funkychem
   components:
   - type: Item
     inhandVisuals:
@@ -304,18 +308,22 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 20
+        # Begin Funky changes
+        maxVol: 30
         reagents:
-        - ReagentId: Dermaline
+        - ReagentId: Aiuri
           Quantity: 10
-        - ReagentId: Leporazine
+        - ReagentId: Oxandrolone
           Quantity: 10
+        - ReagentId: Lenturi
+          Quantity: 10
+        # End Funky changes
 
 - type: entity
   name: rad auto-injector
   parent: ChemicalMedipen
   id: RadAutoInjector
-  description: A rapid dose of anti-radiation. Contains arithrazine and bicaridine.
+  description: A rapid dose of anti-radiation. Contains arithrazine and libital. # Funkychem
   components:
   - type: Item
     inhandVisuals:
@@ -350,7 +358,7 @@
         reagents:
         - ReagentId: Arithrazine
           Quantity: 15
-        - ReagentId: Bicaridine
+        - ReagentId: Libital # Funkychem
           Quantity: 5
 
 - type: entity
@@ -399,7 +407,7 @@
   name: pyrazine auto-injector
   parent: ChemicalMedipen
   id: PyraAutoInjector
-  description: A rapid dose of pyrazine and dermaline, intended for combat applications.
+  description: A rapid dose of pyrazine and aiuri, intended for combat applications. # Funkychem
   components:
   - type: Item
     inhandVisuals:
@@ -430,12 +438,12 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 20
+        maxVol: 25 # Funkychem
         reagents:
         - ReagentId: Pyrazine
           Quantity: 10
-        - ReagentId: Dermaline
-          Quantity: 10
+        - ReagentId: Aiuri # Funkychem
+          Quantity: 15 # Funkychem
 
 - type: entity
   name: airloss auto-injector
@@ -472,12 +480,14 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 40
+        # Begin Funkychem changes
+        maxVol: 30
         reagents:
         - ReagentId: Saline
-          Quantity: 20
-        - ReagentId: DexalinPlus
-          Quantity: 20
+          Quantity: 15
+        - ReagentId: Salbutamol
+          Quantity: 15
+        # End Funkychem changes
 
 - type: entity
   name: space medipen
