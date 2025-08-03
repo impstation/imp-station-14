@@ -4,6 +4,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
+using Content.Server.Gravity;
 using Content.Shared._Goobstation.Footprints;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
@@ -25,6 +26,7 @@ public sealed class FootprintSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly SharedPuddleSystem _puddle = default!;
+    [Dependency] private readonly GravitySystem _gravity = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
 
     public static readonly FixedPoint2 MaxFootprintVolumeOnTile = 50;
@@ -53,10 +55,7 @@ public sealed class FootprintSystem : EntitySystem
 
     private void OnMove(Entity<FootprintOwnerComponent> entity, ref MoveEvent e)
     {
-        if (!e.OldPosition.IsValid(EntityManager))
-            return;
-
-        if (!e.NewPosition.IsValid(EntityManager))
+        if (_gravity.IsWeightless(entity) || !e.OldPosition.IsValid(EntityManager) || !e.NewPosition.IsValid(EntityManager))
             return;
 
         var oldPosition = _transform.ToMapCoordinates(e.OldPosition).Position;
