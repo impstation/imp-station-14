@@ -137,6 +137,8 @@
     autoEject: true
     soundAutoEject:
       path: /Audio/Weapons/Guns/EmptyAlarm/lmg_empty_alarm.ogg #imp
+      params:
+        volume: 2
   - type: MagazineVisuals
     magState: mag
     steps: 6

@@ -1,7 +1,7 @@
 - type: entity
   id: CartridgeMagnumStun
   name: cartridge (.45 magnum stun)
-  description: A powerful pistol cartridge with stunning stopping power. #imp
+  description: A powerful pistol cartridge with stunning stopping power.
   parent: BaseCartridgeMagnum
   components:
   - type: CartridgeAmmo

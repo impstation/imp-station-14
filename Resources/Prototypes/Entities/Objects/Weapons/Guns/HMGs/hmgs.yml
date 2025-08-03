@@ -51,7 +51,7 @@
   name: minigun
   id: WeaponMinigun
   parent: [ BaseWeaponHeavyMachineGun, BaseGunWieldable, BaseMajorContraband ] #imp
-  description: Vzzzzzt! Rahrahrahrah! Vrrrrr! Uses .10 rifle ammo.
+  description: Vzzzzzt! Rahrahrahrah! Vrrrrr! Uses .10 mini ammo. #imp
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/HMGs/minigun.rsi #imp
