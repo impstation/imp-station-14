@@ -1,22 +1,4 @@
 ﻿Entries:
-- author: rainyatrium
-  changes:
-  - message: Basic pirate accent without forced Yarr! and Garr! before sentences
-    type: Add
-  id: 1607
-  time: '2025-05-05T00:04:50.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2375
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: Hey my disablers and blasters don't use the standard muzzle flash sprite
-      anymore
-    type: Add
-  - message: Hey the standard muzzle flash sprite is different and animated now what
-      the heck
-    type: Tweak
-  id: 1608
-  time: '2025-05-05T00:05:33.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2351
 - author: Kandiyaki
   changes:
   - message: Sacrifice victims can no longer be ghouled.
@@ -4219,3 +4201,18 @@
   id: 2106
   time: '2025-08-02T09:01:49.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3095
+- author: HippiDippi
+  changes:
+  - message: Added a new round end sound of coming
+    type: Add
+  id: 2107
+  time: '2025-08-03T01:35:16.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3211
+- author: ATDoop
+  changes:
+  - message: Swapping hands while singing into a microphone will no longer make you
+      stop singing.
+    type: Tweak
+  id: 2108
+  time: '2025-08-03T02:17:46.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3220
