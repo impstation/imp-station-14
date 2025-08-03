@@ -173,8 +173,8 @@
       - suitStorage
       - Belt
   - type: Battery
-    maxCharge: 600
-    startingCharge: 600
+    maxCharge: 900
+    startingCharge: 900
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 30
@@ -186,9 +186,9 @@
     steps: 4
     zeroVisible: true
   - type: Gun
-    fireRate: 2.5
+    fireRate: 2
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/antiquedisabler.ogg
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletDisablerSmg
-    fireCost: 100
+    proto: BulletDisabler
+    fireCost: 150
