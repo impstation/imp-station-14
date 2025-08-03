@@ -38,12 +38,12 @@
     - suitStorage
   - type: AmmoCounter
   - type: Gun
-    fireRate: 1
+    fireRate: 0.5 #imp
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/clake.ogg #imp
   - type: BallisticAmmoProvider
     whitelist:
       tags:
@@ -52,6 +52,8 @@
     proto: GrenadeFrag
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+    soundRack:
+      path: /Audio/_Impstation/Weapons/Guns/Cock/clake_cock.ogg #imp
 #imp edit begin; weapon melee
   - type: MeleeWeapon
     range: 0.8

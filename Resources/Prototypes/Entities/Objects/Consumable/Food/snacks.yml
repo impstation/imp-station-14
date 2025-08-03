@@ -198,6 +198,9 @@
           Quantity: 3
         - ReagentId: CocoaPowder
           Quantity: 1
+  - type: SliceableFood # imp start
+    count: 8
+    slice: FoodChocolateChip # imp end
 
 - type: entity
   name: energy bar
