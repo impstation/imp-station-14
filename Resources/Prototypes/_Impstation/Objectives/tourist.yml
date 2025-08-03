@@ -10,8 +10,9 @@
     roles:
     - TouristRole
 
+# Photograph objectives
 - type: entity
-  abstract: false
+  abstract: true
   parent: [BaseTouristObjective, BaseCodeObjective]
   id: BasePhotographObjective
   components:
@@ -22,27 +23,270 @@
   - type: NumberObjective
     min: 4
     max: 10
-    title: objective-condition-multi-mouse-title
-    description: objective-condition-multi-mouse-description
+    title: tourist-objective-condition-multi-mouse-title
+    description: tourist-objective-condition-multi-mouse-description
   - type: TouristPhotosCondition
     targetPrototypes:
       - MobMouse
-      - MobMouse1
-      - MobMouse2
+
+# Spiders, snakes, and slimes
+- type: entity
+  parent: [BasePhotographObjective]
+  id: PhotographVentmobsObjective
+  components:
+  - type: Objective
+    difficulty: 1
+    icon:
+      sprite: Mobs/Animals/spider.rsi
+      state: tarantula
+  - type: NumberObjective
+    min: 2
+    max: 10
+    title: tourist-objective-condition-ventmob-title
+    description: tourist-objective-condition-ventmob-description
+  - type: TouristPhotosCondition
+    targetPrototypes:
+      - MobClownSpider
+      - MobGiantSpider
+      - MobGiantSpiderAngry
+      - MobPurpleSnake
+      - MobSmallPurpleSnake
+      - MobCobraSpace
+      - MobAdultSlimesBlue
+      - MobAdultSlimesBlueAngry
+      - MobAdultSlimesGreen
+      - MobAdultSlimesGreenAngry
+      - MobAdultSlimesYellow
+      - MobAdultSlimesYellowAngry
+
+# nuke
+- type: entity
+  parent: [BasePhotographObjective]
+  id: PhotographNukeObjective
+  components:
+  - type: Objective
+    difficulty: 2
+    icon:
+      sprite: _Impstation/Objects/Devices/nuke.rsi
+      state: nuclearbomb_base
+  - type: NumberObjective
+    min: 1
+    max: 1
+    title: tourist-objective-condition-nuke-title
+    description: tourist-objective-condition-nuke-description
+  - type: TouristPhotosCondition
+    targetPrototypes:
+      - NuclearBomb
+      - NuclearBombUnanchored
+
+# station anchor
+- type: entity
+  parent: [BasePhotographObjective]
+  id: PhotographStationAnchorObjective
+  components:
+  - type: Objective
+    difficulty: 1
+    icon:
+      sprite: Structures/Machines/gravity_generator_mini.rsi #larger sprites look awful, eventually (ideally) this should be replaced with a bespoke mini-station-anchor sprite
+      state: on
+  - type: NumberObjective
+    min: 1
+    max: 1
+    title: tourist-objective-condition-anchor-title
+    description: tourist-objective-condition-anchor-description
+  - type: TouristPhotosCondition
+    targetPrototypes:
+      - StationAnchor
+      - StationAnchorOff
+
+# gravity generator
+- type: entity
+  parent: [BasePhotographObjective]
+  id: PhotographGravityGeneratorObjective
+  components:
+  - type: Objective
+    difficulty: 1
+    icon:
+      sprite: Structures/Machines/gravity_generator_mini.rsi
+      state: on
+  - type: NumberObjective
+    min: 1
+    max: 1
+    title: tourist-objective-condition-gravgen-title
+    description: tourist-objective-condition-gravgen-description
+  - type: TouristPhotosCondition
+    targetPrototypes:
+      - GravityGenerator
+      - GravityGeneratorMini
+
+# anomaly generator
+- type: entity
+  parent: [BasePhotographObjective]
+  id: PhotographAnomalyGeneratorObjective
+  components:
+  - type: Objective
+    difficulty: 1
+    icon:
+      sprite: Structures/Machines/gravity_generator_mini.rsi #larger sprites look awful, eventually (ideally) this should be replaced with a bespoke mini-anomaly-generator sprite
+      state: on
+  - type: NumberObjective
+    min: 1
+    max: 1
+    title: tourist-objective-condition-anomgen-title
+    description: tourist-objective-condition-anomgen-description
+  - type: TouristPhotosCondition
+    targetPrototypes:
+      - MachineAnomalyGenerator
+
+# station AI core
+- type: entity
+  parent: [BasePhotographObjective]
+  id: PhotographAiCoreObjective
+  components:
+  - type: Objective
+    difficulty: 1
+    icon:
+      sprite: Mobs/Silicon/holograms.rsi
+      state: ai_dog
+  - type: NumberObjective
+    min: 1
+    max: 1
+    title: tourist-objective-condition-aicore-title
+    description: tourist-objective-condition-aicore-description
+  - type: TouristPhotosCondition
+    targetPrototypes:
+      - PlayerStationAi
+      - PlayerStationAiEmpty
+
+# energy turrets (unfinished!)
+#- type: entity
+#  parent: [BasePhotographObjective]
+#  id: PhotographAiCoreObjective
+#  components:
+#  - type: Objective
+#    difficulty: 1
+#    icon:
+#      sprite: Mobs/Silicon/holograms.rsi
+#      state: ai_dog
+#  - type: NumberObjective
+#    min: 1
+#    max: 4
+#    title: tourist-objective-condition-aicore-title
+#    description: tourist-objective-condition-aicore-description
+#  - type: TouristPhotosCondition
+#    targetPrototypes:
+#      - PlayerStationAi
+#      - PlayerStationAiEmpty
 
 
+# --Souvenir objectives--
+- type: entity
+  abstract: true
+  parent: [BaseTouristObjective, BaseStealObjective]
+  id: BaseTouristStealObjective
+  components:
+  - type: StealCondition
+    verifyMapExistence: false
+    objectiveNoOwnerText: tourist-objective-condition-base-steal-description
+    descriptionText: tourist-objective-condition-base-steal-description
 
-# Tourist objective group
+# budget insuls
+- type: stealTargetGroup
+  id: BudgetInsuls
+  name: steal-target-groups-budgetinsuls
+  sprite:
+    sprite: Clothing/Hands/Gloves/Color/yellow.rsi
+    state: icon
+
+- type: entity
+  parent: BaseTouristStealObjective
+  id: BudgetInsulsStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: BudgetInsuls
+    minCollectionSize: 2
+    maxCollectionSize: 4
+    descriptionMultiplyText: tourist-objective-condition-budgetinsuls-description
+  - type: Objective
+    difficulty: 0.5
+
+# real insuls
+- type: stealTargetGroup
+  id: InsulatedGloves
+  name: steal-target-groups-insuls
+  sprite:
+    sprite: Clothing/Hands/Gloves/Color/yellow.rsi
+    state: icon
+
+- type: entity
+  parent: BaseTouristStealObjective
+  id: InsulatedGlovesStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: InsulatedGloves
+    descriptionText: tourist-objective-condition-insuls-description
+  - type: Objective
+    difficulty: 1
+
+# artifact fragment
+- type: stealTargetGroup
+  id: ArtifactFragment
+  name: steal-target-groups-artifact
+  sprite:
+    sprite: Objects/Specific/Xenoarchaeology/item_artifacts.rsi
+    state: ano01
+
+- type: entity
+  parent: BaseTouristStealObjective
+  id: ArtifactFragmentStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: ArtifactFragment
+    descriptionText: tourist-objective-condition-artifact-description
+  - type: Objective
+    difficulty: 1
+
+# engineering goggles
+- type: stealTargetGroup
+  id: EngineeringGoggles
+  name: steal-target-groups-goggles
+  sprite:
+    sprite: Clothing/Eyes/Glasses/meson.rsi
+    state: icon
+
+- type: entity
+  parent: BaseTouristStealObjective
+  id: EngineeringGoggleStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: EngineeringGoggles
+    descriptionText: tourist-objective-condition-goggles-description #description should probably be changed later
+  - type: Objective
+    difficulty: 1
+
+# TODO: Departmental steal objectives for sec, med, cargo. Rare nuke disk objective.
+
+# --Tourist objective weighting/groups--
 - type: weightedRandom
   id: TouristObjectiveGroups
   weights:
     TouristObjectiveGroupPhoto: 1
-  #  TraitorObjectiveGroupSouvenir: 1
+    TouristObjectiveGroupSouvenir: 1
 
 - type: weightedRandom
   id: TouristObjectiveGroupPhoto
   weights:
-    BasePhotographObjective: 1
+    PhotographVentmobsObjective: 1
+    PhotographNukeObjective: 0.5
+    PhotographStationAnchorObjective: 1
+    PhotographAnomalyGeneratorObjective: 1
+    PhotographGravityGeneratorObjective: 1
+    PhotographAiCoreObjective: 1
 
 - type: weightedRandom
   id: TouristObjectiveGroupSouvenir
+  weights:
+    BudgetInsulsStealObjective: 1
+    InsulatedGlovesStealObjective: 1
+    ArtifactFragmentStealObjective: 1
+    EngineeringGoggleStealObjective: 1

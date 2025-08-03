@@ -72,6 +72,8 @@
     tags:
     - CorgiWearable
     - WhitelistChameleon
+  - type: StealTarget #imp
+    stealGroup: EngineeringGoggles
 
 - type: entity
   parent: [ClothingEyesBase, BaseLensSlot] # BaseLensSlot from imp
