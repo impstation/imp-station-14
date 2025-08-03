@@ -105,10 +105,8 @@
   result: FoodHomemadeChocolateHeart
   group: BarsAndCookies
   time: 5
-  reagents:
-    Sugar: 2
-    CocoaPowder: 2
-    Milk: 2 # being lactose safe is the least of this recipe's worries
+  solids:
+    FoodChocolateChip: 4
   recipeType: Oven
 
 - type: microwaveMealRecipe
@@ -506,3 +504,69 @@
     FoodMeatCutlet: 3
     FoodChiliPepper: 2
   recipeType: Oven
+
+- type: microwaveMealRecipe
+  id: RecipeChocolateBar
+  name: chocolate bar recipe
+  result: FoodSnackChocolateBar
+  time: 10
+  group: BarsAndCookies
+  reagents:
+    CocoaPowder: 4
+    Milk: 2
+    Sugar: 2
+  recipeType:
+  - Oven
+  - Microwave
+
+- type: microwaveMealRecipe
+  id: RecipeChocolateBarChips
+  name: chocolate bar recipe
+  result: FoodSnackChocolateBar
+  time: 10
+  group: BarsAndCookies
+  solids:
+    FoodChocolateChip: 8
+  recipeType:
+  - Oven
+  - Microwave
+
+- type: microwaveMealRecipe
+  id: RecipeCreamCheese
+  name: cream cheese recipe
+  result: FoodCreamCheese
+  time: 5
+  reagents:
+    Enzyme: 5
+    Milk: 5
+    TableSalt: 5
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: RecipeBagelCreamCheese
+  name: cream cheese bagel recipe
+  result: FoodBagelCreamCheese
+  time: 5
+  group: Breads
+  solids:
+    FoodBagel: 1
+    FoodCreamCheese: 1
+  recipeType: Assembler
+
+#added recipe alternate to account for monkeycube changes
+- type: microwaveMealRecipe
+  id: RecipeMonkeysDelightSoupSanitized
+  name: monkeys squeaky clean delight recipe
+  result: FoodSoupMonkeySanitized
+  time: 10
+  group: Soup
+  reagents:
+    Flour: 5
+    TableSalt: 1
+    Blackpepper: 1
+  solids:
+    FoodBowlBig: 1
+    FoodBanana: 1
+    MonkeyCubeSanitized: 1
+  recipeType: Oven # Frontier

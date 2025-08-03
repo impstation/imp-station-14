@@ -1,0 +1,26 @@
+- type: entity
+  id: FoodBagelCreamCheese
+  parent: FoodBagelBase
+  name: cream cheese bagel
+  description: A creamy bagel stuffed with an entire stick of cream cheese.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - bread
+    - creamy
+    - cheesy
+    ignoreReagents:
+    - TableSalt
+    - Milk
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Baked/bagel.rsi
+    state: bagel-creamcheese
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: TableSalt
+          Quantity: 5
+        - ReagentId: Milk
+          Quantity: 5
