@@ -506,8 +506,8 @@
 - type: entity
   parent: ShelfChemistry
   id: ShelfChemistryChemistrySecure
-  suffix: Chemistry, Secure
+  suffix: Medical, Secure # imp edit
   components:
   - type: AccessReader
-    access: [["Chemistry"]]
+    access: [["Medical"]] # imp edit
 

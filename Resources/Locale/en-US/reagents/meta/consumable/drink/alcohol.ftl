@@ -175,6 +175,7 @@ reagent-desc-hooch = Either someone's failure at cocktail making or attempt in a
 reagent-name-iced-beer = iced beer
 reagent-desc-iced-beer = A beer which is so cold the air around it freezes.
 
+# imp edit; new name upstream Grenade Penguin
 reagent-name-irish-car-bomb = irish car bomb
 reagent-desc-irish-car-bomb = An unconventional mixture of irish cream and stout.
 

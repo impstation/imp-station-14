@@ -1,4 +1,3 @@
-# Empty mags
 - type: entity
   id: BaseMagazineRifle
   name: "magazine (.20 rifle)"
@@ -33,7 +32,6 @@
     zeroVisible: false
   - type: Appearance
 
-# Magazines
 - type: entity
   id: MagazineRifle
   name: "magazine (.20 rifle)"
@@ -44,7 +42,7 @@
     proto: CartridgeRifle
   - type: Sprite
     layers:
-    - state: red
+    - state: red # imp
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
@@ -89,6 +87,24 @@
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRifleIncendiary
+  - type: Sprite
+    layers:
+    - state: incendiary #imp
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  #   - state: stripe #imp remove
+  #     color: "#ff6e52"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#d46925" #imp
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#d46925" #imp
 
 - type: entity
   id: MagazineRiflePractice
@@ -100,20 +116,22 @@
     proto: CartridgeRiflePractice
   - type: Sprite
     layers:
-    - state: practice
+    - state: practice # imp
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+    # - state: stripe # imp remove
+    #   color: "#dbdbdb"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#d63b28" #imp
+        color: "#ffcb6f" #imp
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#d63b28" #imp
+        color: "#ffcb6f" #imp
 
 - type: entity
   id: MagazineRifleUranium
@@ -125,17 +143,19 @@
     proto: CartridgeRifleUranium
   - type: Sprite
     layers:
-    - state: uranium
+    - state: uranium # imp
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+    # - state: stripe # imp remove
+    #   color: "#00cd42"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#6b805e" #imp
+        color: "#22b24d" #imp
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#6b805e" #imp
+        color: "#22b24d" #imp

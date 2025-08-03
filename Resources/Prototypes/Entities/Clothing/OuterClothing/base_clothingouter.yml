@@ -115,7 +115,7 @@
     heatingCoefficient: 0.01
     coolingCoefficient: 0.01
   - type: ClothingSpeedModifier
-    walkModifier: 0.4
+    walkModifier: 0.6
     sprintModifier: 0.6
   - type: HeldSpeedModifier
   - type: Item
@@ -133,6 +133,11 @@
         Piercing: 0.95
         Heat: 0.90
         Radiation: 0.25
+  - type: DamageOnShootProtection #imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 10
   - type: ToggleableClothing
     slot: head
   - type: ContainerContainer
