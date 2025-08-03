@@ -31,40 +31,39 @@ public sealed class StartWithLensesSystem : EntitySystem
 
         var eyeSet = _inventorySystem.GetHandOrInventoryEntities(ent.Owner, SlotFlags.EYES);
 
-        if (eyeSet.Any())
+        if (!eyeSet.Any())
         {
-            var eyes = eyeSet.First();
+            _inventorySystem.SpawnItemInSlot(ent, "eyes", ent.Comp.LensPrototype);
+            return;
+        }
 
-            if (TryComp<LensSlotComponent>(eyes, out var lensSlot))
+        var eyes = eyeSet.First();
+
+        if (TryComp<LensSlotComponent>(eyes, out var lensSlot))
+        {
+            var item = Spawn(ent.Comp.LensPrototype, Transform(ent).Coordinates);
+
+            if (_itemSlotsSystem.TryGetSlot(eyes, lensSlot.LensSlotId, out ItemSlot? itemSlot))
             {
-                var item = Spawn(ent.Comp.LensPrototype, Transform(ent).Coordinates);
-
-                if (_itemSlotsSystem.TryGetSlot(eyes, lensSlot.LensSlotId, out ItemSlot? itemSlot))
+                if (itemSlot.Item != null)
                 {
-                    if (itemSlot.Item != null)
-                    {
-                        Del(itemSlot.Item);
-                    }
-                    _itemSlotsSystem.TryInsert(eyes, itemSlot, item, user: null);
+                    Del(itemSlot.Item);
                 }
+                _itemSlotsSystem.TryInsert(eyes, itemSlot, item, user: null);
+            }
 
-            }
-            else
-            {
-                if (TryComp<HandsComponent>(ent, out var handsComponent))
-                {
-                    var coords = Transform(ent).Coordinates;
-                    var inhandEntity = EntityManager.SpawnEntity(ent.Comp.LensPrototype, coords);
-                    _sharedHandsSystem.TryPickup(ent,
-                        inhandEntity,
-                        checkActionBlocker: false,
-                        handsComp: handsComponent);
-                }
-            }
         }
         else
         {
-            _inventorySystem.SpawnItemInSlot(ent, "eyes", ent.Comp.LensPrototype);
+            if (TryComp<HandsComponent>(ent, out var handsComponent))
+            {
+                var coords = Transform(ent).Coordinates;
+                var inhandEntity = EntityManager.SpawnEntity(ent.Comp.LensPrototype, coords);
+                _sharedHandsSystem.TryPickup(ent,
+                    inhandEntity,
+                    checkActionBlocker: false,
+                    handsComp: handsComponent);
+            }
         }
     }
 }
