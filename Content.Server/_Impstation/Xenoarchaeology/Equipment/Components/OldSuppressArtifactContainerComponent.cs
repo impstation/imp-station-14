@@ -1,4 +1,3 @@
-
 namespace Content.Server.Xenoarchaeology.Equipment.Components;
 
 /// <summary>
