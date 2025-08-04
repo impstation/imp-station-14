@@ -81,16 +81,22 @@
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistolIncendiary
+  - type: Sprite
+    layers:
+    - state: incendiary
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#820a16"
+        color: "#d46925"
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#820a16"
+        color: "#d46925"
 
 - type: entity
   id: MagazinePistolFreelancerPractice
@@ -111,11 +117,11 @@
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#d63b28"
+        color: "#ffcb6f"
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#d63b28"
+        color: "#ffcb6f"
 
 - type: entity
   id: MagazinePistolFreelancerUranium
@@ -136,11 +142,11 @@
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#6b805e"
+        color: "#22b24d"
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#6b805e"
+        color: "#22b24d"
 
 - type: entity
   id: MagazinePistolFreelancerStun

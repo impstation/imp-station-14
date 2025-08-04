@@ -96,3 +96,15 @@ uplink-nullrod-upgrade-desc = A vile incense burner used to transform nullrod it
 
 uplink-gay-implanter-name = Gay implanter
 uplink-gay-implanter-desc = Huh??? Why is this in here??? Is my uplink hacked??
+
+uplink-valushot-name = Deadly Dan's ValuShot 9000
+uplink-valushot-desc = Lethal weaponry at a discount price!
+
+uplink-valushotfamily-name = Deadly Dan's ValuShot Family Pack
+uplink-valushotfamily-desc = 3 ValuShot 9000 pistols for a special deal!
+
+uplink-valushotclub-name = Deadly Dan's ValuShot Club Bundle
+uplink-valushotclub-desc = Bulk buys! 14 ValuShot 9000 pistols for the price of 10!
+
+uplink-super-mosin-name = K2903 Star Rifle bundle
+uplink-super-mosin-desc = A modified bolt-action service rifle with a large magazine! Not modern by any standard. Quite the steal, if you don't mind hand-loading. Comes with a handful of stripper clips.

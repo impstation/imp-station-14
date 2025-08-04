@@ -54,19 +54,6 @@
 
 - type: entity
   parent: PuddleTemporary
-  id: PuddleBloodSmall
-  suffix: Blood (5u)
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      puddle:
-        maxVol: 1000
-        reagents:
-        - ReagentId: Blood
-          Quantity: 5
-
-- type: entity
-  parent: PuddleTemporary
   id: PuddleBlood
   suffix: Blood (30u)
   components:
@@ -80,15 +67,15 @@
 
 - type: entity
   parent: PuddleTemporary
-  id: PuddleFluorosulfuricAcidSmall
-  suffix: FluorosulfuricAcid (5u)
+  id: PuddleBloodSmall
+  suffix: Blood (5u)
   components:
   - type: SolutionContainerManager
     solutions:
       puddle:
         maxVol: 1000
         reagents:
-        - ReagentId: FluorosulfuricAcid
+        - ReagentId: Blood
           Quantity: 5
 
 - type: entity
@@ -103,6 +90,19 @@
         reagents:
         - ReagentId: FluorosulfuricAcid
           Quantity: 15
+
+- type: entity
+  parent: PuddleTemporary
+  id: PuddleFluorosulfuricAcidSmall
+  suffix: FluorosulfuricAcid (5u)
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 1000
+        reagents:
+        - ReagentId: FluorosulfuricAcid
+          Quantity: 5
 
 - type: entity
   id: PuddleWatermelon

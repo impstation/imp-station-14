@@ -16,7 +16,6 @@
   id: PoorVision
   name: trait-poor-vision-name
   description: trait-poor-vision-desc
-  traitGear: PrescriptionLensStrong # imp
   category: Disabilities
   whitelist:
     components:
@@ -24,6 +23,7 @@
   components:
     - type: PermanentBlindness
       blindness: 4
+    - type: StartWithLenses # imp addition
 
 - type: trait
   id: Narcolepsy
@@ -62,6 +62,9 @@
       - BorgChassis
   components:
     - type: Muted
+      mutedEmotes: true # IMP
+      mutedScream: false # IMP
+      mutedSpeech: true # IMP
 
 - type: trait
   id: Paracusia

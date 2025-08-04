@@ -14,12 +14,14 @@
   storage:
     back:
     - ClothingHeadHatFlowerWreath
+  groupBy: "headwear" #imp
 
 - type: loadout
   id: Hairflower
   storage:
     back:
     - ClothingHeadHatHairflower
+  groupBy: "headwear" #imp
 
 # Headphones
 - type: loadout
@@ -27,6 +29,7 @@
   storage:
     back:
     - ClothingNeckHeadphones
+  groupBy: "neckwear" #imp
 
 # Toys
 - type: loadout
@@ -34,13 +37,14 @@
   storage:
     back:
     - PlushieLizard
-
+  groupBy: "baubles" #imp
 
 - type: loadout
   id: PlushieSpaceLizard
   storage:
     back:
     - PlushieSpaceLizard
+  groupBy: "baubles" #imp
 
 - type: loadout
   id: ThreeCandles
@@ -50,6 +54,7 @@
     - CandleRed
     - CandleBlue
     - CandleGreenSmall
+  groupBy: "baubles" #imp
 
 # Smokeables
 - type: loadout
@@ -233,30 +238,6 @@
     back:
     - ClothingNeckGenderfluidPin
   groupBy: "pin"
-
-- type: loadout
-  id: FolderBlack
-  storage:
-    back:
-    - BoxFolderBlackLoadout
-
-- type: loadout
-  id: BarFlask
-  storage:
-    back:
-    - DrinkFlaskBar
-
-- type: loadout
-  id: NewtonCradle
-  storage:
-    back:
-    - NewtonCradle
-
-- type: loadout
-  id: CardBoxBlack
-  storage:
-    back:
-    - CardBoxBlack
 
 # Towels
 - type: loadout
