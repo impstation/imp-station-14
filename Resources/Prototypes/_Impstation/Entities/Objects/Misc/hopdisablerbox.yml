@@ -9,6 +9,8 @@
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Battery/hopdisabler.rsi
     state: package
+  - type: StealTarget
+    stealGroup: AntiqueDisabler
   - type: SpawnItemsOnUse
     items:
     - id: WeaponHoPDisabler
