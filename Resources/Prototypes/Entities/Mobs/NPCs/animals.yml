@@ -3142,6 +3142,9 @@
       gender: epicene
   - type: MobPrice
     price: 200
+  - type: Absorbable # imp edit
+    biomassRestored: 0.3
+  - type: DogVision # imp
 
 - type: entity
   parent: MobCorgiBase
@@ -3159,8 +3162,6 @@
     spawned:
     - id: FoodMeat
       amount: 2
-  - type: Absorbable # imp edit
-    biomassRestored: 0.3
   - type: ReplacementAccent
     accent: dog
   - type: SentienceTarget
@@ -3168,7 +3169,6 @@
   - type: Tag
     tags:
     - VimPilot
-  - type: DogVision # imp
 
 - type: entity
   name: corrupted corgi
@@ -3237,7 +3237,7 @@
   id: MobCorgiPuppy
   description: A little corgi! Aww...
   components:
-  - type: VentCrawler
+  - type: VentCrawler # imp
     enterDelay: 3
   - type: Sprite
     drawdepth: Mobs
@@ -3403,7 +3403,7 @@
     factions:
     - Syndicate
   - type: Access
-    tags: 
+    tags:
     - NuclearOperative
     - SyndicateAgent
   - type: MeleeWeapon
