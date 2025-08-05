@@ -1,83 +1,4 @@
 ﻿Entries:
-- author: rainyatrium
-  changes:
-  - message: Basic pirate accent without forced Yarr! and Garr! before sentences
-    type: Add
-  id: 1607
-  time: '2025-05-05T00:04:50.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2375
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: Hey my disablers and blasters don't use the standard muzzle flash sprite
-      anymore
-    type: Add
-  - message: Hey the standard muzzle flash sprite is different and animated now what
-      the heck
-    type: Tweak
-  id: 1608
-  time: '2025-05-05T00:05:33.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2351
-- author: Kandiyaki
-  changes:
-  - message: Sacrifice victims can no longer be ghouled.
-    type: Tweak
-  - message: Sacrifice victims can no longer be reused.
-    type: Fix
-  id: 1609
-  time: '2025-05-05T01:26:48.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2392
-- author: AvianMaiden, ruddygreat
-  changes:
-  - message: Updates to Nanotrasen's data infrastructure now permit accessing employees'
-      historical records from the respective consoles. Please ensure all information
-      is correct before your shift. Thank you, and thank you to our friends in the
-      Delta and Cosmatic sectors.
-    type: Add
-  id: 1610
-  time: '2025-05-05T03:18:24.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2307
-- author: irismessage
-  changes:
-  - message: CONGRATULATIONS!! Your name has been approved by the Toon Council.
-    type: Add
-  id: 1611
-  time: '2025-05-06T22:41:27.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2406
-- author: honeyed-lemons
-  changes:
-  - message: Atmos Techs in Xeno might feel more confident taking their chute to engineering
-    type: Fix
-  id: 1612
-  time: '2025-05-06T22:42:11.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2409
-- author: ruddygreat
-  changes:
-  - message: The AI and cyborgs no longer show up in the station records computer.
-    type: Fix
-  id: 1613
-  time: '2025-05-06T22:43:39.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2410
-- author: Cutinup99
-  changes:
-  - message: the pride vend can finally be restocked!
-    type: Tweak
-  id: 1614
-  time: '2025-05-06T22:43:57.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2411
-- author: FlippenPage
-  changes:
-  - message: Added the BoogieBot. Craft one today!
-    type: Add
-  id: 1615
-  time: '2025-05-08T20:03:28.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2415
-- author: AvianMaiden
-  changes:
-  - message: Shotgun and axe cabinets finally got cleaned
-    type: Tweak
-  id: 1616
-  time: '2025-05-08T20:04:16.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2416
 - author: hivehum
   changes:
   - message: All moths can sigh.
@@ -4219,3 +4140,85 @@
   id: 2106
   time: '2025-08-02T09:01:49.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3095
+- author: HippiDippi
+  changes:
+  - message: Added a new round end sound of coming
+    type: Add
+  id: 2107
+  time: '2025-08-03T01:35:16.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3211
+- author: ATDoop
+  changes:
+  - message: Swapping hands while singing into a microphone will no longer make you
+      stop singing.
+    type: Tweak
+  id: 2108
+  time: '2025-08-03T02:17:46.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3220
+- author: msTheowo
+  changes:
+  - message: Departments now have their own communications consoles, usable by their
+      head.
+    type: Add
+  id: 2109
+  time: '2025-08-03T02:31:36.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3194
+- author: eviltori
+  changes:
+  - message: chem shelfs are now medical access instead of chem access. Yay Yay
+    type: Tweak
+  id: 2110
+  time: '2025-08-03T10:22:56.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3221
+- author: kipdotnet
+  changes:
+  - message: Apids now have slightly better acceleration and air control.
+    type: Tweak
+  - message: Apid engineers now start with an RCD.
+    type: Tweak
+  - message: Apids can now wear gloves.
+    type: Tweak
+  id: 2111
+  time: '2025-08-03T12:09:16.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3216
+- author: Pinkbat5
+  changes:
+  - message: I want to get online. I, NEED, a computer.
+    type: Add
+  id: 2112
+  time: '2025-08-03T12:12:26.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3215
+- author: Stonylogray
+  changes:
+  - message: Decapoids are now slower than they were, but not quite as slow as they
+      used to be.
+    type: Tweak
+  id: 2113
+  time: '2025-08-03T12:16:01.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3155
+- author: Kandiyaki, smuglysuperior
+  changes:
+  - message: Added the Wildering Mirror, a heretic item that reflects energy weapons!
+    type: Add
+  id: 2114
+  time: '2025-08-03T13:01:14.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3134
+- author: VeeNomine
+  changes:
+  - message: Ported and added the magnet pickup feature from Frontier to the ore and
+      industrial ore processors. This means you can now dump your ore into the processor.
+    type: Add
+  - message: Added a fiery glow around the ore and industrial ore processors.
+    type: Tweak
+  id: 2115
+  time: '2025-08-03T13:14:46.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3187
+- author: Mousetrinity
+  changes:
+  - message: coming in from planet teo, it's.... wait, what? .... uhuh... the v-rex?
+      what? no- that'll destroy the station!! strap in, ready your firearms, and prepare
+      for a bloodbath!
+    type: Add
+  id: 2116
+  time: '2025-08-03T15:49:20.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3198
