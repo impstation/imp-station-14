@@ -61,7 +61,7 @@ public sealed class DamageOnShootSystem : EntitySystem
 
         totalDamage = _damageableSystem.TryChangeDamage(args.User, totalDamage, entity.Comp.IgnoreResistances);
 
-        if (totalDamage != null && totalDamage.AnyPositive())
+        if (totalDamage != null)
         {
             _adminLogger.Add(LogType.Damaged, $"{ToPrettyString(args.User):user} shot {ToPrettyString(entity):gun} and took {totalDamage.GetTotal():damage} recoil damage");
             _audioSystem.PlayPredicted(entity.Comp.DamageSound, entity, args.User);
