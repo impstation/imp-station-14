@@ -244,7 +244,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         if (player != null) // Imp Edit: Last Message Before Death System
         {
-            HandleLastMessageBeforeDeath(source, player, message);
+            HandleLastMessageBeforeDeath(source, player, message, desiredType);
         }
 
         // This message may have a radio prefix, and should then be whispered to the resolved radio channel
@@ -835,10 +835,18 @@ public sealed partial class ChatSystem : SharedChatSystem
     /// <summary>
     ///     Imp Edit: First modify message to respect entity accent, then send it to LastMessage system to record last message info for player
     /// </summary>
-    public void HandleLastMessageBeforeDeath(EntityUid source, ICommonSession player, string message)
+    public void HandleLastMessageBeforeDeath(EntityUid source, ICommonSession player, string message, InGameICChatType desiredType)
     {
-        var newMessage = TransformSpeech(source, message);
-        _lastMessageBeforeDeathSystem.AddMessage(source, player, newMessage);
+        if (desiredType == InGameICChatType.Emote)
+        {
+            var newMessage = "*" + message + "*";
+            _lastMessageBeforeDeathSystem.AddMessage(source, player, newMessage);
+        }
+        else
+        {
+            var newMessage = TransformSpeech(source, message);
+            _lastMessageBeforeDeathSystem.AddMessage(source, player, newMessage);
+        }
     }
 
     // ReSharper disable once InconsistentNaming
