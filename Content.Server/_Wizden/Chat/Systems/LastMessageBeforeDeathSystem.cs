@@ -12,7 +12,6 @@ using Robust.Shared.Enums;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Server.Roles.Jobs;
-using NetCord.Gateway;
 
 namespace Content.Server._Wizden.Chat.Systems;
 
@@ -27,6 +26,8 @@ sealed class LastMessageBeforeDeathSystem : EntitySystem
     [Dependency] private readonly JobSystem _jobs = default!;
 
     private bool _lastMessageWebhookEnabled = false;
+
+    private bool _endOfRound = false;
 
     #region WebhookCvars
     private int _maxICLengthCVar;
@@ -63,6 +64,7 @@ sealed class LastMessageBeforeDeathSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<EraseEvent>(OnErase);
+        SubscribeLocalEvent<GameRunLevelChangedEvent>(OnRunLevelChange);
 
         Subs.CVar(_configManager, ImpCCVars.DiscordLastMessageBeforeDeathWebhook, value =>
         {
@@ -89,6 +91,11 @@ sealed class LastMessageBeforeDeathSystem : EntitySystem
     public void AddMessage(EntityUid source, ICommonSession playerSession, string message)
     {
         if (!_lastMessageWebhookEnabled)
+        {
+            return;
+        }
+
+        if (_endOfRound == true)
         {
             return;
         }
@@ -220,5 +227,17 @@ sealed class LastMessageBeforeDeathSystem : EntitySystem
     private void OnErase(ref EraseEvent args)
     {
         _playerData.Remove(args.PlayerNetUserId);
+    }
+
+    private void OnRunLevelChange(GameRunLevelChangedEvent args)
+    {
+        if (args.New == GameRunLevel.PostRound)
+        {
+            _endOfRound = true;
+        }
+        if (args.New == GameRunLevel.InRound)
+        {
+            _endOfRound = false;
+        }
     }
 }
