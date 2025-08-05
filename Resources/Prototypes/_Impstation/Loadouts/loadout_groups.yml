@@ -73,6 +73,16 @@
   loadouts:
   - LoadoutTankHarnessAquaticCommandWithOuterwear
 
+# breath tool
+- type: loadoutGroup
+  id: GroupSpeciesBreathToolCommand
+  name: loadout-group-breath-tool-command
+  minLimit: 1
+  maxLimit: 1
+  hidden: true
+  loadouts:
+  - LoadoutSpeciesBreathToolCommand
+
 # vaporizer
 - type: loadoutGroup
   id: GroupBreathToolDecapoid
@@ -119,6 +129,7 @@
     pocket1: EmergencyOxygenTankFilled
     pocket2: ClothingMaskBreath
     ears: ClothingHeadsetService
+    gloves: ClothingHandsGlovesLeather
 
 - type: startingGear #the doctor too
   id: StartingGearApidDoctor
@@ -145,6 +156,9 @@
     pocket2: ClothingMaskBreath
     ears: ClothingHeadsetEngineering
     eyes: ClothingEyesGlassesMeson
+    gloves: ClothingHandsGlovesColorYellow
+  inhand:
+  - RCD
 
 - type: startingGear #emergency responder
   id: StartingGearApidEmergency
@@ -210,6 +224,7 @@
     pocket2: ClothingMaskBreath
     ears: ClothingHeadsetService
     eyes: ClothingEyesGlassesChemical
+    gloves: ClothingHandsGlovesJanitor
   inhand:
   - AdvMopItem
 
@@ -493,6 +508,7 @@
   minLimit: 0
   loadouts:
   - ScarfGreen
+  - ScarfBrown
 
 - type: loadoutGroup
   id: LibrarianShoes
@@ -665,6 +681,7 @@
   minLimit: 0
   loadouts:
   - ScarfPurple
+  - FeatherBoa
 
 - type: loadoutGroup
   id: MusicianShoes
@@ -682,13 +699,11 @@
   - MusicianShako
 
 - type: loadoutGroup
-  id: ReporterJumpsuit
-  name: loadout-group-reporter-jumpsuit
+  id: MusicianGloves
+  name: loadout-group-musician-gloves
+  minLimit: 0
   loadouts:
-  - ReporterJumpsuit
-  - JournalistJumpsuit
-  - ClothingUniformBrosBlazer
-  - ClothingUniformBrosBlazerSkirt
+  - MusicianSingerGloves
 
 - type: loadoutGroup
   id: ReporterNeck
@@ -706,6 +721,7 @@
   - LeatherShoes
   - BlackHeels
   - ClownShoesExpert
+
 # supply
 
 - type: loadoutGroup
@@ -761,10 +777,10 @@
   minLimit: 0
   loadouts:
 #  - MinerCloak # upstream removed it :(
-  - DrillerCape
   - SaMantle
   - ScarfBrown
   - RainCape
+  - DrillerCape
 
 - type: loadoutGroup
   id: SalvageSpecialistJumpsuit
@@ -782,6 +798,7 @@
   loadouts:
   - Glasses
   - GlassesCheapSunglasses
+  - EyePatch
   - GlassesColorfulBlue
   - GlassesColorfulGreen
   - GlassesColorfulPink
@@ -1080,12 +1097,12 @@
   loadouts:
   - BrigmedicArmoredWinterCoat
   - BrigmedicWinterCoat
+  - BrigmedicBomber
   - ArmorVest
   - ArmorVestSlim
   - ArmorVestCompact
   - PlateCarrier # DeltaV
   - DuraVest # DeltaV
-  - BrigmedicBomber
 
 - type: loadoutGroup
   id: BrigmedicShoes
@@ -1237,4 +1254,3 @@
   - LeatherShoes
   - BlackHeels
   - ClownShoesExpert
-

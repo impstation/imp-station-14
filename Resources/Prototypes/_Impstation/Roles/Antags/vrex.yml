@@ -1,0 +1,9 @@
+- type: antag
+  id: VRex
+  name: ghost-role-information-vrex-name
+  antagonist: true
+  requirements:
+  - !type:OverallPlaytimeRequirement # Imp
+    time: 3600 # 1h
+  playTimeTracker: AntagVRex # imp
+  objective: ghost-role-information-vrex-desc
