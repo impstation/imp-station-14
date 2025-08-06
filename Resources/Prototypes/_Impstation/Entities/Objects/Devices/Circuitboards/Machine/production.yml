@@ -44,3 +44,17 @@
           GlassBeaker:
             amount: 1
             defaultPrototype: Beaker
+
+- type: entity
+  id: PrizeCounterMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: prize counter machine board
+  description: A machine printed circuit board for a prize counter.
+  components:
+  - type: Sprite
+    state: service
+  - type: MachineBoard
+    prototype: PrizeCounter
+    stackRequirements:
+      Manipulator: 4
+      Glass: 1
