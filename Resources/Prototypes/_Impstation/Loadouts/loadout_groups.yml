@@ -1238,6 +1238,21 @@
   - SeniorParamedicPDA
 
 - type: loadoutGroup
+  id: PsychologistHead
+  name: loadout-group-psychologist-head
+  minLimit: 0
+  loadouts:
+  - PsychologistCapGrey
+  - PsychologistCapBrown
+
+- type: loadoutGroup
+  id: PsychologistMask
+  name: loadout-group-psychologist-mask
+  minLimit: 0
+  loadouts:
+  - DoctorClown
+
+- type: loadoutGroup
   id: PsychologistNeck
   name: loadout-group-psychologist-neck
   minLimit: 0
@@ -1253,4 +1268,14 @@
   - LacedShoes
   - LeatherShoes
   - BlackHeels
+  - BlackWinterBoots
   - ClownShoesExpert
+
+- type: loadoutGroup
+  id: PsychologistBackpack
+  name: loadout-group-psychologist-backpack
+  loadouts:
+  - MedicalDoctorBackpack
+  - MedicalDoctorSatchel
+  - MedicalDoctorDuffel
+  - LeatherSatchel
