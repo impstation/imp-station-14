@@ -2,11 +2,13 @@ using System.Numerics;
 using Content.Shared.CombatMode;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Movement.Events;
 using Content.Shared.Physics;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Misc;
+using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
@@ -29,6 +31,7 @@ public abstract class SharedFishingRodSystem : EntitySystem
     [Dependency] private readonly SharedJointSystem _joints = default!;
     [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
 
     public const string GrapplingJoint = "grappling";
 
@@ -84,9 +87,11 @@ public abstract class SharedFishingRodSystem : EntitySystem
 
     private void OnGrapplingReel(RequestGrapplingReelMessage msg, EntitySessionEventArgs args)
     {
-        var player = args.SenderSession.AttachedEntity;
-        if (!TryComp<HandsComponent>(player, out var hands) ||
-            !TryComp<ImpFishingRodComponent>(hands.ActiveHandEntity, out var grappling))
+        if (args.SenderSession.AttachedEntity is not { } player)
+            return;
+
+        if (!_hands.TryGetActiveItem(player, out var activeItem) ||
+            !TryComp<ImpFishingRodComponent>(activeItem, out var grappling))
         {
             return;
         }
@@ -98,7 +103,7 @@ public abstract class SharedFishingRodSystem : EntitySystem
             return;
         }
 
-        SetReeling(hands.ActiveHandEntity.Value, grappling, msg.Reeling, player.Value);
+        SetReeling(activeItem.Value, grappling, msg.Reeling, player);
     }
 
     private void OnWeightlessMove(ref CanWeightlessMoveEvent ev)

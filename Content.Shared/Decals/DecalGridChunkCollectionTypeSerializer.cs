@@ -54,7 +54,7 @@ namespace Content.Shared.Decals
 
                         var chunkOrigin = SharedMapSystem.GetChunkIndices(coords, SharedDecalSystem.ChunkSize);
                         var chunk = dictionary.GetOrNew(chunkOrigin);
-                        var decal = new Decal(coords, data.Id, data.Color, data.Angle, data.ZIndex, data.Cleanable);
+                        var decal = new Decal(coords, data.Id, data.Color, data.Angle, data.ZIndex, data.Cleanable, data.ShaderID);
 
                         nextIndex = Math.Max(nextIndex, dUid);
 
@@ -163,13 +163,17 @@ namespace Content.Shared.Decals
             [DataField("cleanable")]
             public bool Cleanable { get; init; }
 
-            public DecalData(string id, Color? color, Angle angle, int zIndex, bool cleanable)
+            [DataField]
+            public string ShaderID { get; init; } = string.Empty; //imp edit - for shaders
+
+            public DecalData(string id, Color? color, Angle angle, int zIndex, bool cleanable, string shaderId) //imp edit - added decal shaders
             {
                 Id = id;
                 Color = color;
                 Angle = angle;
                 ZIndex = zIndex;
                 Cleanable = cleanable;
+                ShaderID = shaderId; //imp edit - for shaders
             }
 
             public DecalData(Decal decal)
@@ -179,6 +183,7 @@ namespace Content.Shared.Decals
                 Angle = decal.Angle;
                 ZIndex = decal.ZIndex;
                 Cleanable = decal.Cleanable;
+                ShaderID = decal.ShaderID; //imp edit - for decal shaders
             }
 
             public bool Equals(DecalData other)
@@ -187,7 +192,8 @@ namespace Content.Shared.Decals
                        Nullable.Equals(Color, other.Color) &&
                        Angle.Equals(other.Angle) &&
                        ZIndex == other.ZIndex &&
-                       Cleanable == other.Cleanable;
+                       Cleanable == other.Cleanable &&
+                       ShaderID == other.ShaderID; //imp edit - for shaders;
             }
 
             public override bool Equals(object? obj)
@@ -197,7 +203,7 @@ namespace Content.Shared.Decals
 
             public override int GetHashCode()
             {
-                return HashCode.Combine(Id, Color, Angle, ZIndex, Cleanable);
+                return HashCode.Combine(Id, Color, Angle, ZIndex, Cleanable, ShaderID); //imp edit - for shaders
             }
 
             public int CompareTo(DecalData other)
