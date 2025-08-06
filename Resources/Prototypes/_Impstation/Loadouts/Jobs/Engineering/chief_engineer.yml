@@ -8,6 +8,17 @@
       role: JobChiefEngineer
       time: 108000 #30 hrs, ~20 rounds
 
+# Headset
+- type: loadout
+  id: ChiefEngineerHeadsetBasic
+  equipment:
+    ears: ClothingHeadsetCE
+
+- type: loadout
+  id: ChiefEngineerHeadset
+  equipment:
+    ears: ClothingHeadsetAltEngineering
+
 - type: loadout
   id: ChiefEngineerVeteranHeadset
   equipment:
@@ -15,3 +26,9 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: VeteranCE
+
+# Jumpsuit
+- type: loadout
+  id: ChiefEngineerJumpsuitForeman
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCEForeman

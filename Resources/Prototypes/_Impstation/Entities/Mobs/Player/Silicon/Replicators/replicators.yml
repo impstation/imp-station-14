@@ -112,7 +112,6 @@
     - TemporaryBlindness
     - StaminaModifier
   - type: DamageStateVisuals
-    rotate: false
     states:
       Alive:
         Base: alive
@@ -167,15 +166,53 @@
 
 - type: entity
   id: MobReplicatorQueen
-  parent: MobReplicator
+  name: spore
+  parent: BaseMobReplicator
   categories: [ HideSpawnMenu ]
-  suffix: Queen, Level 1
+  suffix: Queen
   components:
   - type: Replicator
     queen: true
-  - type: Loadout
-    prototypes:
-    - StartingGearReplicatorT1Weapon
+  - type: VentCrawler # unique to queens at the moment, for stealth purposes
+  - type: Sprite
+    granularLayersRendering: true
+    drawdepth: SmallMobs
+    sprite: _Impstation/Mobs/Replicator/replicator.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: alive_spore
+    - map: ["enum.ReplicatorVisuals.Combat"]
+      state: combat_level1 # unused but necessary
+      shader: unshaded
+      visible: false
+  - type: Physics
+    bodyStatus: InAir
+  - type: CanMoveInAir
+  - type: MovementIgnoreGravity
+    gravityState: true
+  - type: MovementAlwaysTouching
+  - type: SyncSprite
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2 # same as slime
+    baseSprintSpeed: 4.2
+    weightlessFriction: 1
+    weightlessFrictionNoInput: 2
+    weightlessAcceleration: 1.8
+  - type: NoSlip
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: NpcFactionMember
+    factions:
+    - Replicator
 
 # Tier 1: These guys are mooks. They're vulnerable, bad at dragging, and don't do much damage, but they have a disabler ranged attack.
 - type: entity
@@ -202,12 +239,12 @@
     baseWalkSpeed: 2 # same as slime
     baseSprintSpeed: 4.2
     weightlessFriction: 1
-    weightlessFrictionNoInput: 2
+    weightlessFrictionNoInput: 200
     weightlessAcceleration: 1.8
   - type: NoSlip
   - type: Sprite
     granularLayersRendering: true
-    drawDepth: SmallMobs
+    drawdepth: SmallMobs
     sprite: _Impstation/Mobs/Replicator/replicator.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -216,22 +253,14 @@
       state: combat_level1
       shader: unshaded
       visible: false
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.2
-        density: 100
-        mask:
-        - SmallMobMask
-        layer:
-        - SmallMobLayer
   - type: Body
     prototype: Replicator1
   - type: Loadout
     prototypes:
     - StartingGearReplicatorT1Weapon
+  - type: NpcFactionMember
+    factions:
+    - Replicator
 
 # Tier 2: Deconstructors. These guys are a little bit tougher, and have tools to take things apart, but they don't have the ability to enter combat mode.
 - type: entity
@@ -250,12 +279,12 @@
     baseWalkSpeed: 2 # same as slime
     baseSprintSpeed: 4.2
     weightlessFriction: 1
-    weightlessFrictionNoInput: 2
+    weightlessFrictionNoInput: 200
     weightlessAcceleration: 1.2
   - type: MovementAlwaysTouching
   - type: Sprite
     granularLayersRendering: true
-    drawDepth: Mobs
+    drawdepth: Mobs
     sprite: _Impstation/Mobs/Replicator/replicator.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -266,7 +295,6 @@
       visible: false
   - type: NoSlip
   - type: DamageStateVisuals
-    rotate: false
     states:
       Alive:
         Base: alive_level2
@@ -280,6 +308,9 @@
   - type: Loadout
     prototypes:
       - StartingGearReplicatorTools
+  - type: NpcFactionMember
+    factions:
+    - Replicator
 
 # Tier 2 ALT: Defender. These guys are our mid-level combatants. They have a slightly better stun laser, and a decent melee attack, but no utility functions.
 - type: entity
@@ -304,7 +335,7 @@
   - type: MovementAlwaysTouching
   - type: Sprite
     granularLayersRendering: true
-    drawDepth: Mobs
+    drawdepth: Mobs
     sprite: _Impstation/Mobs/Replicator/replicator.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -315,7 +346,6 @@
       visible: false
   - type: NoSlip
   - type: DamageStateVisuals
-    rotate: false
     states:
       Alive:
         Base: alive_level2alt
@@ -329,6 +359,9 @@
   - type: Loadout
     prototypes:
       - StartingGearReplicatorT2Alt
+  - type: NpcFactionMember
+    factions:
+    - Replicator
 
 # Tier 3: These guys are tanks. Their job is to tear shit apart and kill things. They're slow, tanky, and have a weapon that does 25 blunt 30 struct.
 - type: entity
@@ -342,6 +375,8 @@
   - type: CombatMode
   - type: Replicator
     upgradeStage: 2
+    upgradeActions:
+    - ActionReplicatorUpgrade1
   - type: MovementAlwaysTouching
   - type: MovementSpeedModifier
     baseWalkSpeed: 2 # same as slime
@@ -349,7 +384,7 @@
     friction: 35 # these fellas are the tanks, they rely on the smaller guys stunning things for them.
   - type: Sprite
     granularLayersRendering: true
-    drawDepth: Mobs
+    drawdepth: Mobs
     sprite: _Impstation/Mobs/Replicator/replicator.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -359,7 +394,6 @@
       shader: unshaded
       visible: false
   - type: DamageStateVisuals
-    rotate: false
     states:
       Alive:
         Base: alive_level3
@@ -385,3 +419,6 @@
       types:
         Shock: -0.5
         Structural: -0.5
+  - type: NpcFactionMember
+    factions:
+    - Replicator

@@ -8,6 +8,17 @@
       role: JobChiefMedicalOfficer
       time: 108000 #30 hrs, ~20 rounds
 
+# Headset
+- type: loadout
+  id: ChiefMedicalOfficerHeadsetBasic
+  equipment:
+    ears: ClothingHeadsetCMO
+
+- type: loadout
+  id: ChiefMedicalOfficerHeadset
+  equipment:
+    ears: ClothingHeadsetAltMedical
+
 - type: loadout
   id: ChiefMedicalOfficerVeteranHeadset
   equipment:
@@ -16,6 +27,7 @@
   - !type:GroupLoadoutEffect
     proto: VeteranCMO
 
+# Neck
 - type: loadout
   id: CMOGreatCloak
   equipment:
@@ -24,7 +36,45 @@
   - !type:GroupLoadoutEffect
     proto: VeteranCMO
 
+# Outer clothing
 - type: loadout
   id: CMOPrestigeLabcoat
   equipment:
     outerClothing: ClothingOuterCoatCMO
+
+- type: loadout
+  id: CMOApron
+  equipment:
+    outerClothing: ClothingOuterApronCMO
+
+# Jumpsuit
+- type: loadout
+  id: CMOCasualSkirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCMOCasual
+
+- type: loadout
+  id: CMOCasualSuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCMOCasual
+
+- type: loadout
+  id: CMOFormalDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCMOFormal
+
+- type: loadout
+  id: CMOFormalSuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCMOFormal
+
+- type: loadout
+  id: CMOScrubs
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCMOScrubs
+
+# Head
+- type: loadout
+  id: CMOClip
+  equipment:
+    head: ClothingHeadHatCMOClip

@@ -44,9 +44,10 @@
   suffix: Red
   components:
   - type: Sprite
-    sprite: Structures/Furniture/Carpets/red_carpet.rsi
+    sprite: _Impstation/Structures/Furniture/Carpets/red_carpet.rsi #imp edit
   - type: Icon
-    sprite: Structures/Furniture/Carpets/red_carpet.rsi
+    sprite: _Impstation/Structures/Furniture/Carpets/red_carpet.rsi #imp edit
+    state: full_red #imp edit
   - type: Destructible
     thresholds:
       - trigger:
@@ -66,6 +67,13 @@
               FloorCarpetItemRed:
                 min: 1
                 max: 1
+  - type: IconSmooth #imp edit, make carpets not smooth with each other
+    key: full_red
+  # imp edit start
+  - type: Construction
+    graph: Carpet
+    node: carpet
+  # imp edit end
 
 - type: entity
   id: CarpetBlack
@@ -77,6 +85,7 @@
     sprite: Structures/Furniture/Carpets/black_carpet.rsi
   - type: Icon
     sprite: Structures/Furniture/Carpets/black_carpet.rsi
+    state: full_black #imp edit
   - type: Destructible
     thresholds:
       - trigger:
@@ -96,6 +105,13 @@
               FloorCarpetItemBlack:
                 min: 1
                 max: 1
+  - type: IconSmooth #imp edit, make carpets not smooth with each other
+    key: full_black
+  # imp edit start
+  - type: Construction
+    graph: CarpetBlack
+    node: carpet
+  # imp edit end
 
 - type: entity
   id: CarpetPink
@@ -107,6 +123,7 @@
     sprite: Structures/Furniture/Carpets/pink_carpet.rsi
   - type: Icon
     sprite: Structures/Furniture/Carpets/pink_carpet.rsi
+    state: full_pink #imp edit
   - type: Destructible
     thresholds:
       - trigger:
@@ -126,6 +143,13 @@
               FloorCarpetItemPink:
                 min: 1
                 max: 1
+  - type: IconSmooth #imp edit, make carpets not smooth with each other
+    key: full_pink
+  # imp edit start
+  - type: Construction
+    graph: CarpetPink
+    node: carpet
+  # imp edit end
 
 - type: entity
   id: CarpetBlue
@@ -137,6 +161,7 @@
     sprite: Structures/Furniture/Carpets/blue_carpet.rsi
   - type: Icon
     sprite: Structures/Furniture/Carpets/blue_carpet.rsi
+    state: full_blue #imp edit
   - type: Destructible
     thresholds:
       - trigger:
@@ -156,6 +181,13 @@
               FloorCarpetItemBlue:
                 min: 1
                 max: 1
+  - type: IconSmooth #imp edit, make carpets not smooth with each other
+    key: full_blue
+  # imp edit start
+  - type: Construction
+    graph: CarpetBlue
+    node: carpet
+  # imp edit end
 
 - type: entity
   id: CarpetGreen
@@ -164,9 +196,10 @@
   components:
   - type: Clickable
   - type: Sprite
-    sprite: Structures/Furniture/Carpets/green_carpet.rsi
+    sprite: _Impstation/Structures/Furniture/Carpets/green_carpet.rsi #imp edit
   - type: Icon
-    sprite: Structures/Furniture/Carpets/green_carpet.rsi
+    sprite: _Impstation/Structures/Furniture/Carpets/green_carpet.rsi #imp edit
+    state: full_green #imp edit
   - type: Destructible
     thresholds:
       - trigger:
@@ -186,6 +219,13 @@
               FloorCarpetItemGreen:
                 min: 1
                 max: 1
+  - type: IconSmooth #imp edit, make carpets not smooth with each other
+    key: full_green
+  # imp edit start
+  - type: Construction
+    graph: CarpetGreen
+    node: carpet
+  # imp edit end
 
 - type: entity
   id: CarpetOrange
@@ -194,9 +234,10 @@
   components:
   - type: Clickable
   - type: Sprite
-    sprite: Structures/Furniture/Carpets/orange_carpet.rsi
+    sprite: _Impstation/Structures/Furniture/Carpets/orange_carpet.rsi #imp edit
   - type: Icon
-    sprite: Structures/Furniture/Carpets/orange_carpet.rsi
+    sprite: _Impstation/Structures/Furniture/Carpets/orange_carpet.rsi #imp edit
+    state: full_orange #imp edit
   - type: Destructible
     thresholds:
       - trigger:
@@ -216,6 +257,13 @@
               FloorCarpetItemOrange:
                 min: 1
                 max: 1
+  - type: IconSmooth #imp edit, make carpets not smooth with each other
+    key: full_orange
+  # imp edit start
+  - type: Construction
+    graph: CarpetOrange
+    node: carpet
+  # imp edit end
 
 - type: entity
   id: CarpetSBlue
@@ -227,6 +275,7 @@
     sprite: Structures/Furniture/Carpets/skyblue_carpet.rsi
   - type: Icon
     sprite: Structures/Furniture/Carpets/skyblue_carpet.rsi
+    state: full_skyblue #imp edit
   - type: Destructible
     thresholds:
       - trigger:
@@ -246,6 +295,13 @@
               FloorCarpetItemSkyBlue:
                 min: 1
                 max: 1
+  - type: IconSmooth #imp edit, make carpets not smooth with each other
+    key: full_skyblue
+  # imp edit start
+  - type: Construction
+    graph: CarpetSBlue
+    node: carpet
+  # imp edit end
 
 - type: entity
   id: CarpetPurple
@@ -257,6 +313,7 @@
     sprite: Structures/Furniture/Carpets/purple_carpet.rsi
   - type: Icon
     sprite: Structures/Furniture/Carpets/purple_carpet.rsi
+    state: full_purple #imp edit
   - type: Destructible
     thresholds:
       - trigger:
@@ -276,6 +333,13 @@
               FloorCarpetItemPurple:
                 min: 1
                 max: 1
+  - type: IconSmooth #imp edit, make carpets not smooth with each other
+    key: full_purple
+  # imp edit start
+  - type: Construction
+    graph: CarpetPurple
+    node: carpet
+  # imp edit end
 
 - type: entity
   id: CarpetCyan
@@ -287,6 +351,7 @@
     sprite: Structures/Furniture/Carpets/cyan_carpet.rsi
   - type: Icon
     sprite: Structures/Furniture/Carpets/cyan_carpet.rsi
+    state: full_cyan #imp edit
   - type: Destructible
     thresholds:
       - trigger:
@@ -306,6 +371,13 @@
               FloorCarpetItemCyan:
                 min: 1
                 max: 1
+  - type: IconSmooth #imp edit, make carpets not smooth with each other
+    key: full_cyan
+  # imp edit start
+  - type: Construction
+    graph: CarpetCyan
+    node: carpet
+  # imp edit end
 
 - type: entity
   id: CarpetWhite
@@ -317,6 +389,7 @@
     sprite: Structures/Furniture/Carpets/white_carpet.rsi
   - type: Icon
     sprite: Structures/Furniture/Carpets/white_carpet.rsi
+    state: full_white #imp edit
   - type: Destructible
     thresholds:
       - trigger:
@@ -336,12 +409,22 @@
               FloorCarpetItemWhite:
                 min: 1
                 max: 1
+  - type: IconSmooth #imp edit, make carpets not smooth with each other
+    key: full_white
+  # imp edit start
+  - type: Construction
+    graph: CarpetWhite
+    node: carpet
+  # imp edit end
 
 # TODO nuke this once tiles support rotating sprites
+# IMP NOTE they added support to rotating tiles, but seemingly only in the tile placer menu
+# so I've decided to raw dog this and just make 4 separate tile prototypes to replace this for the time being
 - type: entity
   id: CarpetChapel
   parent: BaseStructure
   name: "chapel's carpet"
+  categories: [ HideSpawnMenu ] #imp edit, replaced with tiles
   components:
   - type: Sprite
     sprite: Structures/Furniture/Carpets/chapel_carpet.rsi

@@ -21,7 +21,7 @@ namespace Content.Shared.Decals
 
         public Decal() {}
 
-        public Decal(Vector2 coordinates, string id, Color? color, Angle angle, int zIndex, bool cleanable)
+        public Decal(Vector2 coordinates, string id, Color? color, Angle angle, int zIndex, bool cleanable, string shaderID) //imp edit - added shader
         {
             Coordinates = coordinates;
             Id = id;
@@ -29,13 +29,15 @@ namespace Content.Shared.Decals
             Angle = angle;
             ZIndex = zIndex;
             Cleanable = cleanable;
+            ShaderID = shaderID; //imp edit - added shader
         }
 
-        public Decal WithCoordinates(Vector2 coordinates) => new(coordinates, Id, Color, Angle, ZIndex, Cleanable);
-        public Decal WithId(string id) => new(Coordinates, id, Color, Angle, ZIndex, Cleanable);
-        public Decal WithColor(Color? color) => new(Coordinates, Id, color, Angle, ZIndex, Cleanable);
-        public Decal WithRotation(Angle angle) => new(Coordinates, Id, Color, angle, ZIndex, Cleanable);
-        public Decal WithZIndex(int zIndex) => new(Coordinates, Id, Color, Angle, zIndex, Cleanable);
-        public Decal WithCleanable(bool cleanable) => new(Coordinates, Id, Color, Angle, ZIndex, cleanable);
+        public Decal WithCoordinates(Vector2 coordinates) => new(coordinates, Id, Color, Angle, ZIndex, Cleanable, ShaderID); //imp edit - added shader
+        public Decal WithId(string id) => new(Coordinates, id, Color, Angle, ZIndex, Cleanable, ShaderID); //imp edit - added shader
+        public Decal WithColor(Color? color) => new(Coordinates, Id, color, Angle, ZIndex, Cleanable, ShaderID); //imp edit - added shader
+        public Decal WithRotation(Angle angle) => new(Coordinates, Id, Color, angle, ZIndex, Cleanable, ShaderID); //imp edit - added shader
+        public Decal WithZIndex(int zIndex) => new(Coordinates, Id, Color, Angle, zIndex, Cleanable, ShaderID); //imp edit - added shader
+        public Decal WithCleanable(bool cleanable) => new(Coordinates, Id, Color, Angle, ZIndex, cleanable, ShaderID); //imp edit - added shader
+        public Decal WithShader(string shaderID) => new(Coordinates, Id, Color, Angle, ZIndex, Cleanable, shaderID);  //imp edit - added shader (and this whole method)
     }
 }

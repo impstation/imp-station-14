@@ -2,7 +2,7 @@
   name: Shining Spring
   parent: [BaseWeaponLauncher, BaseGunWieldable, BaseJanitorContraband]
   id: WeaponLauncherCleanerLake
-  description: A de-militarised piece of military surplus equipment, repurposed for the real troops. Load it with cleannades and give 'em a show!
+  description: A demilitarized piece of military surplus equipment, repurposed for the real troops. Load it with cleannades and give 'em a show!
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Launchers/cleaner_lake.rsi
@@ -16,12 +16,12 @@
     - suitStorage
   - type: AmmoCounter
   - type: Gun
-    fireRate: 1
+    fireRate: 0.5
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/clake.ogg
   - type: BallisticAmmoProvider
     whitelist:
       tags:
@@ -29,6 +29,8 @@
     capacity: 3
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+    soundRack:
+      path: /Audio/_Impstation/Weapons/Guns/Cock/clake_cock.ogg
   - type: Construction
     graph: UpgradeWeaponCleanerLake
     node: start

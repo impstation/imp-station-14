@@ -1,0 +1,24 @@
+﻿- type: reagent
+  id: Raisins
+  name: reagent-name-raisins
+  group: Foods
+  desc: reagent-desc-raisins
+  physicalDesc: reagent-physical-desc-clumpy # ew
+  flavor: raisins
+  color: "#3f1d04"
+  recognizable: true
+  viscosity: 0.8
+  metabolisms:
+    Food:
+      effects:
+      # Minimally filling
+      - !type:AdjustReagent
+        reagent: Sugar
+        amount: 0.2
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: 0.1
+  footstepSound:
+    collection: FootstepSticky
+    params:
+      volume: 6

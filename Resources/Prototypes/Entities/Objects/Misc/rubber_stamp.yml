@@ -237,6 +237,8 @@
     stampLargeIcon: "large_stamp-syndicate" # imp
   - type: Sprite
     state: stamp-syndicate
+  - type: StaticPrice
+    price: 1000
 
 - type: entity
   name: warden's rubber stamp

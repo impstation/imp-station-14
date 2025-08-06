@@ -218,6 +218,16 @@
   flavorType: Complex
   description: flavor-complex-liquidlunch
 
+- type: flavor
+  id: batteryacid
+  flavorType: Complex
+  description: flavor-complex-safe
+
+- type: flavor
+  id: angelskiss
+  flavorType: Complex
+  description: flavor-complex-profane
+
 # ID Tart
 - type: flavor
   id: armory
@@ -433,3 +443,8 @@
   id: irwizine
   flavorType: Complex
   description: flavor-complex-irwizine
+
+- type: flavor
+  id: rose
+  flavorType: Complex
+  description: flavor-complex-rose

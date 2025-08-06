@@ -77,7 +77,7 @@
   parent: BaseSign
   id: SignDrones
   name: drones sign
-  description: A sign indicating nearby drones, and their home.
+  description: This is where drones are stored. The ones that don't get contracts.
   components:
   - type: Sprite
     sprite: _Impstation/Structures/Wallmounts/signs.rsi
@@ -87,17 +87,17 @@
   parent: BaseSign
   id: SignContraband
   name: evidence sign
-  description: A sign indicating the security department's evidence and contraband lockup.
+  description: This is the evidence and contraband lockup, where the fun-suckers throw all the fun they suck.
   components:
   - type: Sprite
     sprite: _Impstation/Structures/Wallmounts/signs.rsi
     state: contraband
-    
+
 - type: entity
   parent: BaseSign
   id: SignApid
   name: apid storage sign
-  description: A sign indicating nearby sleeping apids.
+  description: This is a storage room for sleepy apids. It's a far cry of these worker bees' home hives; humming emanates from within.
   components:
   - type: Sprite
     sprite: _Impstation/Structures/Wallmounts/signs.rsi

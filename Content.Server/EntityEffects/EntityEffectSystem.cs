@@ -10,9 +10,7 @@ using Content.Server.Botany;
 using Content.Server.Chat.Systems;
 using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
-using Content.Server.Flash;
 using Content.Server.Fluids.EntitySystems;
-using Content.Server.Forensics;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Medical;
 using Content.Server.Polymorph.Components;
@@ -24,16 +22,13 @@ using Content.Server.Temperature.Systems;
 using Content.Server.Traits.Assorted;
 using Content.Server.Zombies;
 using Content.Shared.Atmos;
-using Content.Shared.Audio;
-using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Body.Components;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.EntityEffects.EffectConditions;
 using Content.Shared.EntityEffects.Effects.PlantMetabolism;
 using Content.Shared.EntityEffects.Effects;
 using Content.Shared.EntityEffects;
-using Content.Shared._Impstation.EntityEffects.Effects;
-using Content.Shared._Impstation.Ghost;
-using Content.Shared.Humanoid;
+using Content.Shared.Flash;
 using Content.Shared.Maps;
 using Content.Shared.Mind.Components;
 using Content.Shared.Popups;
@@ -45,6 +40,11 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Server.Forensics; // imp
+using Content.Shared._Impstation.EntityEffects.Effects; // imp
+using Content.Shared._Impstation.Ghost; // imp
+using Content.Shared.Chemistry.Reagent; // imp
+using Content.Shared.Humanoid; // imp
 
 using TemperatureCondition = Content.Shared.EntityEffects.EffectConditions.Temperature; // disambiguate the namespace
 using PolymorphEffect = Content.Shared.EntityEffects.Effects.Polymorph;
@@ -53,14 +53,15 @@ namespace Content.Server.EntityEffects;
 
 public sealed class EntityEffectSystem : EntitySystem
 {
+    private static readonly ProtoId<WeightedRandomFillSolutionPrototype> RandomPickBotanyReagent = "RandomPickBotanyReagent";
+
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly EmpSystem _emp = default!;
     [Dependency] private readonly ExplosionSystem _explosion = default!;
     [Dependency] private readonly FlammableSystem _flammable = default!;
-    [Dependency] private readonly FlashSystem _flash = default!;
-    [Dependency] private readonly ForensicsSystem _forensicsSystem = default!;
+    [Dependency] private readonly SharedFlashSystem _flash = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -78,6 +79,8 @@ public sealed class EntityEffectSystem : EntitySystem
     [Dependency] private readonly TemperatureSystem _temperature = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly VomitSystem _vomit = default!;
+    [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private readonly ForensicsSystem _forensicsSystem = default!; // imp
 
     public override void Initialize()
     {
@@ -118,7 +121,6 @@ public sealed class EntityEffectSystem : EntitySystem
         SubscribeLocalEvent<ExecuteEntityEffectEvent<FlashReactionEffect>>(OnExecuteFlashReactionEffect);
         SubscribeLocalEvent<ExecuteEntityEffectEvent<Ignite>>(OnExecuteIgnite);
         SubscribeLocalEvent<ExecuteEntityEffectEvent<MakeSentient>>(OnExecuteMakeSentient);
-        SubscribeLocalEvent<ExecuteEntityEffectEvent<MakeSyndient>>(OnExecuteMakeSyndient);
         SubscribeLocalEvent<ExecuteEntityEffectEvent<ModifyBleedAmount>>(OnExecuteModifyBleedAmount);
         SubscribeLocalEvent<ExecuteEntityEffectEvent<ModifyBloodLevel>>(OnExecuteModifyBloodLevel);
         SubscribeLocalEvent<ExecuteEntityEffectEvent<ModifyLungGas>>(OnExecuteModifyLungGas);
@@ -130,6 +132,8 @@ public sealed class EntityEffectSystem : EntitySystem
         SubscribeLocalEvent<ExecuteEntityEffectEvent<PlantSpeciesChange>>(OnExecutePlantSpeciesChange);
         SubscribeLocalEvent<ExecuteEntityEffectEvent<PolymorphEffect>>(OnExecutePolymorph);
         SubscribeLocalEvent<ExecuteEntityEffectEvent<ResetNarcolepsy>>(OnExecuteResetNarcolepsy);
+
+        SubscribeLocalEvent<ExecuteEntityEffectEvent<MakeSyndient>>(OnExecuteMakeSyndient); // imp
         SubscribeLocalEvent<ExecuteEntityEffectEvent<Medium>>(OnExecuteMedium); // Imp
     }
 
@@ -526,7 +530,7 @@ public sealed class EntityEffectSystem : EntitySystem
 
             var spreadAmount = (int) Math.Max(0, Math.Ceiling((reagentArgs.Quantity / args.Effect.OverflowThreshold).Float()));
             var splitSolution = reagentArgs.Source.SplitSolution(reagentArgs.Source.Volume);
-            var transform = EntityManager.GetComponent<TransformComponent>(reagentArgs.TargetEntity);
+            var transform = Comp<TransformComponent>(reagentArgs.TargetEntity);
             var mapCoords = _xform.GetMapCoordinates(reagentArgs.TargetEntity, xform: transform);
 
             if (!_mapManager.TryFindGridAt(mapCoords, out var gridUid, out var grid) ||
@@ -535,11 +539,11 @@ public sealed class EntityEffectSystem : EntitySystem
                 return;
             }
 
-            if (_spreader.RequiresFloorToSpread(args.Effect.PrototypeId) && tileRef.Tile.IsSpace())
+            if (_spreader.RequiresFloorToSpread(args.Effect.PrototypeId) && _turf.IsSpace(tileRef))
                 return;
 
             var coords = _map.MapToGrid(gridUid, mapCoords);
-            var ent = EntityManager.SpawnEntity(args.Effect.PrototypeId, coords.SnapToGrid());
+            var ent = Spawn(args.Effect.PrototypeId, coords.SnapToGrid());
 
             _smoke.StartSmoke(ent, splitSolution, args.Effect.Duration, spreadAmount);
 
@@ -566,11 +570,11 @@ public sealed class EntityEffectSystem : EntitySystem
                 return;
 
             cleanseRate *= reagentArgs.Scale.Float();
-            _bloodstream.FlushChemicals(args.Args.TargetEntity, reagentArgs.Reagent.ID, cleanseRate);
+            _bloodstream.FlushChemicals(args.Args.TargetEntity, reagentArgs.Reagent, cleanseRate);
         }
         else
         {
-            _bloodstream.FlushChemicals(args.Args.TargetEntity, "", cleanseRate);
+            _bloodstream.FlushChemicals(args.Args.TargetEntity, null, cleanseRate);
         }
     }
 
@@ -649,7 +653,7 @@ public sealed class EntityEffectSystem : EntitySystem
 
     private void OnExecuteEmpReactionEffect(ref ExecuteEntityEffectEvent<EmpReactionEffect> args)
     {
-        var transform = EntityManager.GetComponent<TransformComponent>(args.Args.TargetEntity);
+        var transform = Comp<TransformComponent>(args.Args.TargetEntity);
 
         var range = args.Effect.EmpRangePerUnit;
 
@@ -705,7 +709,7 @@ public sealed class EntityEffectSystem : EntitySystem
 
     private void OnExecuteFlashReactionEffect(ref ExecuteEntityEffectEvent<FlashReactionEffect> args)
     {
-        var transform = EntityManager.GetComponent<TransformComponent>(args.Args.TargetEntity);
+        var transform = Comp<TransformComponent>(args.Args.TargetEntity);
 
         var range = 1f;
 
@@ -716,7 +720,7 @@ public sealed class EntityEffectSystem : EntitySystem
             args.Args.TargetEntity,
             null,
             range,
-            args.Effect.Duration * 1000,
+            args.Effect.Duration,
             slowTo: args.Effect.SlowTo,
             sound: args.Effect.Sound);
 
@@ -772,115 +776,9 @@ public sealed class EntityEffectSystem : EntitySystem
         ghostRole = AddComp<GhostRoleComponent>(uid);
         EnsureComp<GhostTakeoverAvailableComponent>(uid);
 
-        var entityData = EntityManager.GetComponent<MetaDataComponent>(uid);
+        var entityData = Comp<MetaDataComponent>(uid);
         ghostRole.RoleName = entityData.EntityName;
         ghostRole.RoleDescription = Loc.GetString("ghost-role-information-cognizine-description");
-    }
-
-    private void OnExecuteMakeSyndient(ref ExecuteEntityEffectEvent<MakeSyndient> args)
-    {
-        var entityManager = args.Args.EntityManager;
-        var uid = args.Args.TargetEntity;
-
-
-        // Let affected entities speak normally to make this effect different from, say, the "random sentience" event
-        // This also works on entities that already have a mind
-        // We call this before the mind check to allow things like player-controlled mice to be able to benefit from the effect
-        entityManager.RemoveComponent<ReplacementAccentComponent>(uid);
-        entityManager.RemoveComponent<MonkeyAccentComponent>(uid);
-
-        // Stops from adding a ghost role to things like people who already have a mind
-        if (entityManager.TryGetComponent<MindContainerComponent>(uid, out var mindContainer) && mindContainer.HasMind)
-        {
-            return;
-        }
-
-        //slightly hacky way to make sure it doesn't work on humanoid ghost roles that haven't been claimed yet
-        if (entityManager.TryGetComponent<HumanoidAppearanceComponent>(uid, out HumanoidAppearanceComponent? component))
-        {
-            return;
-        }
-        var forensicSys = args.Args.EntityManager.System<ForensicsSystem>();
-
-        //hide your children, it's time to figure out whose blood is in this shit
-        if (args.Args is EntityEffectReagentArgs reagentArgs)
-        {
-            //get all DNAs stored in the injected solution
-            List<DnaData> dnaDataList = new List<DnaData>();
-            if (reagentArgs.Source != null)
-            {
-                foreach (var reagent in reagentArgs.Source.Contents)
-                {
-                    foreach (var data in reagent.Reagent.EnsureReagentData())
-                    {
-                        if (data is DnaData)
-                        {
-                            dnaDataList.Add(((DnaData)data));
-                        }
-                    }
-                }
-
-                String? chosenName = null;
-
-                //we have all the DNA in the activated subjuzine. get a random one and find the DNA's source.
-                for (int i=0; i<dnaDataList.Count; i++)
-                {
-                    DnaData candidate = dnaDataList[i];
-                    String? candidateName = forensicSys.GetNameFromDNA(candidate.DNA);
-
-                    if (candidateName != null)
-                    {
-                        chosenName = candidateName;
-                    }
-                }
-
-                if (chosenName!=null)
-                {
-                    //we FINALLY have the name of the injector. jesus fuck.
-                    //now, we build the role name, description, etc.
-
-                    //Don't add a ghost role to things that already have ghost roles
-
-                    String rules = (Loc.GetString("ghost-role-information-subjuzine-rules-1"));
-                    rules = rules + chosenName;
-                    rules = rules + (Loc.GetString("ghost-role-information-subjuzine-rules-2"));
-
-                    if (entityManager.TryGetComponent(uid, out GhostRoleComponent? ghostRole))
-                    {
-                        //if there already was a ghost role, change the role description and rules to make it clear it's been injected with subjuzine
-                        ghostRole = entityManager.GetComponent<GhostRoleComponent>(uid);
-                        ghostRole.RoleDescription = Loc.GetString("ghost-role-information-subjuzine-description");
-                        ghostRole.RoleRules = rules;
-                        return;
-                    }
-
-                    ghostRole = entityManager.AddComponent<GhostRoleComponent>(uid);
-                    entityManager.EnsureComponent<GhostTakeoverAvailableComponent>(uid);
-
-                    var entityData = entityManager.GetComponent<MetaDataComponent>(uid);
-                    ghostRole.RoleName = entityData.EntityName;
-                    ghostRole.RoleDescription = Loc.GetString("ghost-role-information-subjuzine-description");
-                    ghostRole.RoleRules = rules;
-
-
-                }
-                else //if there's no DNA in the DNA list, just act as if it was normal cognizine.
-                {
-                    //Don't add a ghost role to things that already have ghost roles
-                    if (entityManager.TryGetComponent(uid, out GhostRoleComponent? ghostRole))
-                    {
-                        return;
-                    }
-
-                    ghostRole = entityManager.AddComponent<GhostRoleComponent>(uid);
-                    entityManager.EnsureComponent<GhostTakeoverAvailableComponent>(uid);
-
-                    var entityData = entityManager.GetComponent<MetaDataComponent>(uid);
-                    ghostRole.RoleName = entityData.EntityName;
-                    ghostRole.RoleDescription = Loc.GetString("ghost-role-information-cognizine-description");
-                }
-            }
-        }
     }
 
     private void OnExecuteModifyBleedAmount(ref ExecuteEntityEffectEvent<ModifyBleedAmount> args)
@@ -894,7 +792,7 @@ public sealed class EntityEffectSystem : EntitySystem
                 amt *= reagentArgs.Scale.Float();
             }
 
-            _bloodstream.TryModifyBleedAmount(args.Args.TargetEntity, amt, blood);
+            _bloodstream.TryModifyBleedAmount((args.Args.TargetEntity, blood), amt);
         }
     }
 
@@ -910,7 +808,7 @@ public sealed class EntityEffectSystem : EntitySystem
                 amt *= reagentArgs.Scale;
             }
 
-            _bloodstream.TryModifyBloodLevel(args.Args.TargetEntity, amt, blood);
+            _bloodstream.TryModifyBloodLevel((args.Args.TargetEntity, blood), amt);
         }
     }
 
@@ -961,13 +859,13 @@ public sealed class EntityEffectSystem : EntitySystem
 
     private void OnExecutePlantMutateChemicals(ref ExecuteEntityEffectEvent<PlantMutateChemicals> args)
     {
-        var plantholder = EntityManager.GetComponent<PlantHolderComponent>(args.Args.TargetEntity);
+        var plantholder = Comp<PlantHolderComponent>(args.Args.TargetEntity);
 
         if (plantholder.Seed == null)
             return;
 
         var chemicals = plantholder.Seed.Chemicals;
-        var randomChems = _protoManager.Index<WeightedRandomFillSolutionPrototype>("RandomPickBotanyReagent").Fills;
+        var randomChems = _protoManager.Index(RandomPickBotanyReagent).Fills;
 
         // Add a random amount of a random chemical to this set of chemicals
         if (randomChems != null)
@@ -995,7 +893,7 @@ public sealed class EntityEffectSystem : EntitySystem
 
     private void OnExecutePlantMutateConsumeGasses(ref ExecuteEntityEffectEvent<PlantMutateConsumeGasses> args)
     {
-        var plantholder = EntityManager.GetComponent<PlantHolderComponent>(args.Args.TargetEntity);
+        var plantholder = Comp<PlantHolderComponent>(args.Args.TargetEntity);
 
         if (plantholder.Seed == null)
             return;
@@ -1017,7 +915,7 @@ public sealed class EntityEffectSystem : EntitySystem
 
     private void OnExecutePlantMutateExudeGasses(ref ExecuteEntityEffectEvent<PlantMutateExudeGasses> args)
     {
-        var plantholder = EntityManager.GetComponent<PlantHolderComponent>(args.Args.TargetEntity);
+        var plantholder = Comp<PlantHolderComponent>(args.Args.TargetEntity);
 
         if (plantholder.Seed == null)
             return;
@@ -1039,7 +937,7 @@ public sealed class EntityEffectSystem : EntitySystem
 
     private void OnExecutePlantMutateHarvest(ref ExecuteEntityEffectEvent<PlantMutateHarvest> args)
     {
-        var plantholder = EntityManager.GetComponent<PlantHolderComponent>(args.Args.TargetEntity);
+        var plantholder = Comp<PlantHolderComponent>(args.Args.TargetEntity);
 
         if (plantholder.Seed == null)
             return;
@@ -1052,7 +950,7 @@ public sealed class EntityEffectSystem : EntitySystem
 
     private void OnExecutePlantSpeciesChange(ref ExecuteEntityEffectEvent<PlantSpeciesChange> args)
     {
-        var plantholder = EntityManager.GetComponent<PlantHolderComponent>(args.Args.TargetEntity);
+        var plantholder = Comp<PlantHolderComponent>(args.Args.TargetEntity);
         if (plantholder.Seed == null)
             return;
 
@@ -1085,6 +983,45 @@ public sealed class EntityEffectSystem : EntitySystem
                 return;
 
         _narcolepsy.AdjustNarcolepsyTimer(args.Args.TargetEntity, args.Effect.TimerReset);
+    }
+
+    // IMP EFFECTS BEGIN
+
+    private void OnExecuteMakeSyndient(ref ExecuteEntityEffectEvent<MakeSyndient> args)
+    {
+        var entityManager = args.Args.EntityManager;
+        var uid = args.Args.TargetEntity;
+
+
+        // Let affected entities speak normally to make this effect different from, say, the "random sentience" event
+        // This also works on entities that already have a mind
+        // We call this before the mind check to allow things like player-controlled mice to be able to benefit from the effect
+        entityManager.RemoveComponent<ReplacementAccentComponent>(uid);
+        entityManager.RemoveComponent<MonkeyAccentComponent>(uid);
+
+        // Stops from adding a ghost role to things like people who already have a mind
+        if (entityManager.TryGetComponent<MindContainerComponent>(uid, out var mindContainer) && mindContainer.HasMind ||
+        //slightly hacky way to make sure it doesn't work on humanoid ghost roles that haven't been claimed yet
+            HasComp<HumanoidAppearanceComponent>(uid))
+        {
+            return;
+        }
+
+        // in an ideal world, this is where we would get the name of the injector to display as ghost role text.
+
+        entityManager.EnsureComponent<GhostRoleComponent>(uid, out var ghostRole);
+        entityManager.EnsureComponent<GhostTakeoverAvailableComponent>(uid);
+        var entityData = entityManager.GetComponent<MetaDataComponent>(uid);
+
+        ghostRole.RoleName = entityData.EntityName;
+        ghostRole.RoleDescription = Loc.GetString("ghost-role-information-subjuzine-description");
+        ghostRole.RoleRules = Loc.GetString("ghost-role-information-subjuzine-rules");
+
+        //if there already was a ghost role, change the role description and rules to make it clear it's been injected with subjuzine
+        Dirty(uid, ghostRole);
+
+        // TODO: give the entity some way to identify who injected it. and don't do it using reagentsystem.
+        // in memoriam jungle juice 2/10/2024-8/7/2025
     }
 
     private void OnExecuteMedium(ref ExecuteEntityEffectEvent<Medium> args)

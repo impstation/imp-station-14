@@ -78,6 +78,7 @@
       tags:
         - Carp
         - DoorBumpOpener
+        - CannotSuicide
     - type: ReplacementAccent
       accent: genericAggressive
     - type: Speech
@@ -85,98 +86,6 @@
     - type: InteractionPopup
       interactSuccessString: petting-success-carp
       interactFailureString: petting-failure-carp
-      interactFailureSound:
-        path: /Audio/Effects/bite.ogg
-    - type: NightVision # EE edit
-      isActive: true
-      toggleAction: null
-      color: "#50595C"
-      activateSound: null
-      deactivateSound: null
-    - type: Body #imp
-      prototype: AnimalCarp
-    - type: Bloodstream #imp
-      bloodReagent: ShimmeringBlood
-
-- type: entity
-  name: nice space carp
-  id: NiceMobCarp
-  parent: [ SimpleSpaceMobBase, FlyingMobBase, MobCombat ]
-  description: It's a nice space carp.
-  abstract: true
-  components:
-    - type: InputMover
-    - type: MobMover
-    - type: HTN
-      rootTask:
-        task: NiceCarpCompound
-      blackboard:
-        NavSmash: !type:Bool
-          true
-    - type: NpcFactionMember
-      factions:
-      - Dragon
-    - type: Sprite
-      drawdepth: Mobs
-      sprite: Mobs/Aliens/Carps/space.rsi
-      layers:
-      - map: [ "enum.DamageStateVisualLayers.Base" ]
-        state: alive
-    - type: CombatMode
-    - type: Physics
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape:
-            !type:PhysShapeCircle
-            radius: 0.40
-          density: 80
-          mask:
-            - FlyingMobMask
-          layer:
-            - FlyingMobLayer
-    - type: MobState
-    - type: MobThresholds
-      thresholds:
-        0: Alive
-        50: Dead
-    - type: Stamina
-      critThreshold: 100
-    - type: DamageStateVisuals
-      states:
-        Alive:
-          Base: alive
-          BaseUnshaded: mouth
-        Dead:
-          Base: dead
-          BaseUnshaded: dead_mouth
-    - type: Butcherable
-      spawned:
-        - id: FoodMeatFish
-          amount: 2
-    - type: MeleeWeapon
-      altDisarm: false
-      angle: 0
-      animation: WeaponArcBite
-      soundHit:
-        path: /Audio/Effects/bite.ogg
-      damage:
-        types:
-          Piercing: 5
-          Slash: 10
-    - type: TypingIndicator
-      proto: alien
-    - type: Tag
-      tags:
-        - Carp
-        - DoorBumpOpener
-    - type: ReplacementAccent
-      accent: genericAggressive
-    - type: Speech
-      speechVerb: LargeMob
-    - type: InteractionPopup
-      interactSuccessString: petting-success-nicecarp
-      interactFailureString: petting-failure-nicecarp
       interactFailureSound:
         path: /Audio/Effects/bite.ogg
     - type: NightVision # EE edit
@@ -260,6 +169,10 @@
   suffix: "Salvage Ruleset"
   components:
     - type: SalvageMobRestrictions
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        30: Dead
 
 - type: entity
   name: space carp
@@ -276,8 +189,6 @@
       rules: ghost-role-information-space-dragon-summoned-carp-rules
       mindRoles:
       - MindRoleGhostRoleTeamAntagonistFlock
-      raffle:
-        settings: short
     - type: GhostTakeoverAvailable
     - type: HTN
       rootTask:
@@ -328,7 +239,7 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        150: Dead
+        82: Dead # Might seem random, but this brings up the hits to kill with a crusher mark to 3
     - type: Stamina
       critThreshold: 150
     - type: DamageStateVisuals

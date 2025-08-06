@@ -10,13 +10,13 @@
     - id: LuggageMigration # imp special
     - id: SingleCritter # imp special
     - id: CorpseEjectedFromVents # imp
+    - id: PleebnarMigration #imp
 
 - type: entityTable
   id: SpicyPestEventsTable
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
     - id: BrosSpawn #imp
-    - id: KingRatMigration
     - id: SnailMigration
     - id: SnakeSpawn #imp
     - id: SlimesSpawn #imp
@@ -42,6 +42,8 @@
       prob: 0.02
     - id: MobMouse2
       prob: 0.02
+    - id: MobLepidodent #imp special guy
+      prob: 0.01
     - id: MobMouseCancer
       prob: 0.001
 # Events always spawn a critter regardless of Probability https://github.com/space-wizards/space-station-14/issues/28480 I added the Rat King to their own event with a player cap.
@@ -82,6 +84,8 @@
       prob: 0.03
     - id: MobMothroach
       prob: 0.008
+    - id: MobMoproach
+      prob: 0.004
 
 - type: entity
   id: SnailMigrationLowPop
