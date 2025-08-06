@@ -43,11 +43,8 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!; //imp addition
 
-    [ValidatePrototypeId<CurrencyPrototype>]
-    private const string TelecrystalCurrencyPrototype = "Telecrystal";
-
-    [ValidatePrototypeId<TagPrototype>]
-    private const string NukeOpsUplinkTagPrototype = "NukeOpsUplink";
+    private static readonly ProtoId<CurrencyPrototype> TelecrystalCurrencyPrototype = "Telecrystal";
+    private static readonly ProtoId<TagPrototype> NukeOpsUplinkTagPrototype = "NukeOpsUplink";
 
 
     public override void Initialize()

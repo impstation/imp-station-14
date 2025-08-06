@@ -35,7 +35,7 @@ lanternextrabright: LanternFlash
 
 # 2023-08-04
 BoxMagazineLightRifleHighVelocity: BoxMagazineLightRifle
-BoxMagazineMagnumSubMachineGunHighVelocity: BoxMagazineMagnumSubMachineGun
+BoxMagazineMagnumSubMachineGunHighVelocity: null
 BoxMagazinePistolCaselessRifleHighVelocity: BoxMagazinePistolCaselessRifle
 BoxMagazinePistolHighCapacityHighVelocity: BoxMagazinePistolHighCapacity
 BoxMagazinePistolHighVelocity: BoxMagazinePistol
@@ -57,9 +57,9 @@ MagazineBoxMagnumHighVelocity: MagazineBoxMagnum
 MagazineBoxPistolHighVelocity: MagazineBoxPistol
 MagazineBoxRifleHighVelocity: MagazineBoxRifle
 MagazineCaselessRifleHighVelocity: MagazineCaselessRifle
-MagazineCaselessRifleShortHighVelocity: MagazineCaselessRifleShort
+MagazineCaselessRifleShortHighVelocity: null
 MagazineLightRifleHighVelocity: MagazineLightRifle
-MagazineMagnumSubMachineGunHighVelocity: MagazineMagnumSubMachineGun
+MagazineMagnumSubMachineGunHighVelocity: null
 MagazinePistolCaselessRifleHighVelocity: MagazinePistolCaselessRifle
 MagazinePistolHighCapacityHighVelocity: MagazinePistolHighCapacity
 MagazinePistolHighVelocity: MagazinePistol
@@ -216,6 +216,11 @@ YellowOxygenTankFilled: OxygenTankFilled
 FoodDonutBlumpkin: FoodDonutBluePumpkin
 FoodDonutJellyBlumpkin: FoodDonutJellyBluePumpkin
 
+# 2024-02-19 #imp, restored drones
+#Drone: null
+#SpawnMobDrone: null
+#Onestar: null # I dont think this is even mapped, but just in case
+
 # 2024-02-22
 SolarAssemblyPart: SolarAssemblyFlatpack
 AmePart: AmePartFlatpack
@@ -298,11 +303,11 @@ MagazinePistolRubber: MagazinePistol
 MagazinePistolSubMachineGunRubber: MagazinePistolSubMachineGun
 MagazinePistolCaselessRifleRubber: MagazinePistolCaselessRifle
 MagazineMagnumRubber: MagazineMagnum
-MagazineMagnumSubMachineGunRubber: MagazineMagnumSubMachineGun
+MagazineMagnumSubMachineGunRubber: null
 MagazineLightRifleRubber: MagazineLightRifle
 MagazineRifleRubber: MagazineRifle
 MagazineCaselessRifleRubber: MagazineCaselessRifle
-MagazineCaselessRifleShortRubber: MagazineCaselessRifleShort
+MagazineCaselessRifleShortRubber: null
 SpeedLoaderPistolRubber: SpeedLoaderPistol
 SpeedLoaderMagnumRubber: SpeedLoaderMagnum
 MagazineBoxPistolRubber: MagazineBoxPistol
@@ -318,7 +323,7 @@ BoxMagazinePistolSubMachineGunRubber: BoxMagazinePistolSubMachineGun
 BoxMagazineLightRifleRubber: BoxMagazineLightRifle
 BoxMagazineRifleRubber: BoxMagazineRifle
 BoxMagazineCaselessRifleRubber: BoxMagazinePistolCaselessRifle
-BoxMagazineMagnumSubMachineGunRubber: BoxMagazineMagnumSubMachineGun
+BoxMagazineMagnumSubMachineGunRubber: null
 WeaponPistolMk58Nonlethal: WeaponPistolMk58
 WeaponPistolN1984Nonlethal: WeaponPistolN1984
 WeaponSubMachineGunDrozdRubber: WeaponSubMachineGunDrozd
@@ -428,9 +433,6 @@ OverlordCircuitBoard: null
 # 2024-09-08
 HatBase: null
 
-# 2024-09-09
-BorgModuleService: BorgModuleBartender
-
 # 2024-09-19
 BlueprintFlare: null
 
@@ -478,7 +480,7 @@ PresentRandomAsh: PresentRandomCoal
 # 2024-11-19
 CrateCrewMonitoringBoards: CrateCrewMonitoring
 
-# 2024-12-09
+# 2024-11-25
 CrateSlimepersonLifeSupport: CrateNitrogenInternals
 
 # 2024-12-01
@@ -534,7 +536,7 @@ LightTree04: LightTree
 LightTree05: LightTree
 LightTree06: LightTree
 
-#2024-12-28
+# 2024-12-28
 # DrinkIrishCarBomb: DrinkIrishSlammer - reverted on imp
 
 # 2025-01-06
@@ -653,6 +655,22 @@ SpawnHonkBot: SpawnMobHonkBot
 CrateFoodPizzaLarge: CrateFoodPizza
 CrateFoodSoftdrinksLarge: CrateFoodSoftdrinks
 
+# 2025-06-06
+MagazineLightRifleMaxim: null
+MagazineLightRiflePkBox: null
+MagazineCaselessRifle10x24: null
+BaseMagazineCaselessRifleShort: null
+MagazineCaselessRifleShort: null
+MagazineCaselessRifleShortPractice: null
+BaseMagazineMagnumSubMachineGun: null
+MagazineMagnumSubMachineGunEmpty: null
+MagazineMagnumSubMachineGun: null
+MagazineMagnumSubMachineGunPractice: null
+MagazineMagnumSubMachineGunUranium: null
+MagazineMagnumSubMachineGunPiercing: null
+BoxMagazineMagnumSubMachineGun: null
+BoxMagazineMagnumSubMachineGunPractice: null
+
 # 2025-06-09
 BarSignAlignTile: BarSign
 BarSignComboCafeAlignTile: BarSignComboCafe
@@ -680,3 +698,6 @@ BarSignEmprahAlignTile: BarSignEmprah
 BarSignSpacebucksAlignTile: BarSignSpacebucks
 BarSignMaltroachAlignTile: BarSignMaltroach
 BarSignWhiskeyEchoesAlignTile: BarSignWhiskeyEchoes
+
+# 2025-06-21
+ClothingNeckHeadphones: ClothingMultipleHeadphones
