@@ -1,21 +1,4 @@
 ﻿Entries:
-- author: jtfg-dev
-  changes:
-  - message: Cassette tapes are now five minutes per side.
-    type: Tweak
-  id: 1624
-  time: '2025-05-09T00:06:47.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2421
-- author: CombustibleToast
-  changes:
-  - message: The lead custodial jumpskirt is no longer called a jumpsuit
-    type: Fix
-  - message: The lead custodial jumpskirt and lead bartending uniform no longer have
-      the option to be folded (wasn't implemented).
-    type: Remove
-  id: 1625
-  time: '2025-05-09T21:14:02.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2428
 - author: meridiadottxt
   changes:
   - message: properly labeled every substation, as well as many of the cameras on
@@ -4215,3 +4198,18 @@
   id: 2123
   time: '2025-08-06T11:37:03.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3234
+- author: Mousetrinity
+  changes:
+  - message: the v-rex has had a few kinks and bugs flattened out. we have added vocal
+      cords for screaming, longer limbs for swiping at pesky crew, and more!
+    type: Fix
+  id: 2124
+  time: '2025-08-06T16:34:58.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3236
+- author: Sneakyph0enix
+  changes:
+  - message: fixed the mobster accent adding extra punctuation in the middle of sentences
+    type: Fix
+  id: 2125
+  time: '2025-08-06T16:48:15.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3229
