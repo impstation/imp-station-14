@@ -458,7 +458,7 @@
       - id: ReagentSlimeTHC
         prob: 1
         orGroup: ReagentSlimes
-      - id: ReagentSlimeBicaridine
+      - id: ReagentSlimeSalicylicAcid # Funkychem
         prob: 1
         orGroup: ReagentSlimes
       - id: ReagentSlimeToxin
@@ -611,22 +611,24 @@
         state: alive
         color: "#50595C"
 
-- type: entity
-  id: ReagentSlimeBicaridine
-  parent: ReagentSlime
-  suffix: Bicaridine
-  components:
-  - type: Bloodstream
-    bloodReagent: Bicaridine
-  - type: PointLight
-    color: "#ffaa00"
-  - type: Sprite
-    drawdepth: Mobs
-    sprite: Mobs/Aliens/elemental.rsi
-    layers:
-      - map: [ "enum.DamageStateVisualLayers.Base" ]
-        state: alive
-        color: "#ffaa00"
+# Begin Funkychem Removals
+# - type: entity
+#   id: ReagentSlimeBicaridine
+#   parent: ReagentSlime
+#   suffix: Bicaridine
+#   components:
+#   - type: Bloodstream
+#     bloodReagent: Bicaridine
+#   - type: PointLight
+#     color: "#ffaa00"
+#   - type: Sprite
+#     drawdepth: Mobs
+#     sprite: Mobs/Aliens/elemental.rsi
+#     layers:
+#       - map: [ "enum.DamageStateVisualLayers.Base" ]
+#         state: alive
+#         color: "#ffaa00"
+# End Funkychem Removals
 
 - type: entity
   id: ReagentSlimeToxin
