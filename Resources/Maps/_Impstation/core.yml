@@ -4,7 +4,7 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/22/2025 04:05:34
+  time: 07/25/2025 05:28:11
   entityCount: 22290
 maps:
 - 17546
@@ -145432,6 +145432,48 @@ entities:
     - type: DeviceList
       devices:
       - 11818
+- proto: WeaponEnergyTurretCommand
+  entities:
+  - uid: 7991
+    components:
+    - type: Transform
+      pos: 58.5,-35.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 6712
+      - 6708
+  - uid: 8518
+    components:
+    - type: Transform
+      pos: 55.5,-32.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 6712
+      - 6708
+- proto: WeaponEnergyTurretCommandControlPanel
+  entities:
+  - uid: 6708
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 53.5,-32.5
+      parent: 2
+    - type: DeviceList
+      devices:
+      - 8518
+      - 7991
+  - uid: 6712
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 53.5,-34.5
+      parent: 2
+    - type: DeviceList
+      devices:
+      - 8518
+      - 7991
 - proto: WeaponEnergyTurretSecurity
   entities:
   - uid: 5079
@@ -145444,48 +145486,8 @@ entities:
       - 11828
       - 11829
       - 11823
-  - uid: 11830
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 58.5,-35.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 11816
-      - 11822
-  - uid: 11831
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 55.5,-32.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 11816
-      - 11822
 - proto: WeaponEnergyTurretSecurityControlPanel
   entities:
-  - uid: 11816
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 53.5,-34.5
-      parent: 2
-    - type: DeviceList
-      devices:
-      - 11831
-      - 11830
-  - uid: 11822
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 53.5,-32.5
-      parent: 2
-    - type: DeviceList
-      devices:
-      - 11831
-      - 11830
   - uid: 11823
     components:
     - type: Transform

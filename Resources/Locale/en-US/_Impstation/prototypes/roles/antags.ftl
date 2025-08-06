@@ -27,3 +27,4 @@ AntagListeningPost = Listening Post Operator
 AntagSynthesisSpecialist = Syndicate Synthesis Specialist
 AntagChangeling = Changeling
 AntagHeretic = Heretic
+AntagVRex = V-Rex

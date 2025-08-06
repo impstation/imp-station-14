@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/22/2025 04:09:53
-  entityCount: 17633
+  time: 08/02/2025 05:49:31
+  entityCount: 17637
 maps:
 - 1
 grids:
@@ -12802,6 +12802,13 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 34.5,-25.5
       parent: 2
+- proto: AirlockBarGlassLocked
+  entities:
+  - uid: 1147
+    components:
+    - type: Transform
+      pos: 8.5,-5.5
+      parent: 2
 - proto: AirlockBarLocked
   entities:
   - uid: 244
@@ -14008,7 +14015,7 @@ entities:
       pos: 9.5,-20.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -4136.725
+      secondsUntilStateChange: -5009.9497
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14082,6 +14089,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -3.5,4.5
       parent: 2
+- proto: AirlockKitchenGlassLocked
+  entities:
+  - uid: 38
+    components:
+    - type: Transform
+      pos: 10.5,-4.5
+      parent: 2
 - proto: AirlockKitchenLocked
   entities:
   - uid: 9643
@@ -14106,15 +14120,6 @@ entities:
     components:
     - type: Transform
       pos: -21.5,-26.5
-      parent: 2
-- proto: AirlockMaintBarLocked
-  entities:
-  - uid: 38
-    components:
-    - type: MetaData
-      name: maintenance access (Bar)
-    - type: Transform
-      pos: 8.5,-5.5
       parent: 2
 - proto: AirlockMaintCargoLocked
   entities:
@@ -14202,13 +14207,14 @@ entities:
     - type: Transform
       pos: 10.5,12.5
       parent: 2
-- proto: AirlockMaintKitchenLocked
+- proto: AirlockMaintLawyerLocked
   entities:
-  - uid: 8633
+  - uid: 4033
     components:
+    - type: MetaData
+      name: maintenance access (Law Office)
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 10.5,-4.5
+      pos: -21.5,-44.5
       parent: 2
 - proto: AirlockMaintLibrarianLocked
   entities:
@@ -14238,14 +14244,6 @@ entities:
     components:
     - type: Transform
       pos: -25.5,-14.5
-      parent: 2
-  - uid: 1147
-    components:
-    - type: MetaData
-      name: maintenance access (Law Office)
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -21.5,-44.5
       parent: 2
   - uid: 1226
     components:
@@ -14418,7 +14416,7 @@ entities:
       pos: 47.5,5.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -466140.7
+      secondsUntilStateChange: -467013.9
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14646,6 +14644,8 @@ entities:
   entities:
   - uid: 1676
     components:
+    - type: MetaData
+      name: maintenance access (Service Storeroom)
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 11.5,-8.5
@@ -19152,6 +19152,12 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -0.5,20.5
+      parent: 2
+  - uid: 17639
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -18.5,-5.5
       parent: 2
 - proto: ButtonFrameJanitor
   entities:
@@ -84222,6 +84228,12 @@ entities:
       parent: 2
 - proto: IntercomCommand
   entities:
+  - uid: 2031
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -18.5,-8.5
+      parent: 2
   - uid: 4421
     components:
     - type: Transform
@@ -84233,12 +84245,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -30.5,-9.5
-      parent: 2
-  - uid: 14475
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -18.5,-5.5
       parent: 2
 - proto: IntercomCommon
   entities:
@@ -88863,6 +88869,11 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 41.5,-22.5
+      parent: 2
+  - uid: 8633
+    components:
+    - type: Transform
+      pos: 0.5,-12.5
       parent: 2
   - uid: 10383
     components:
@@ -94449,6 +94460,30 @@ entities:
     - type: Transform
       pos: 8.5,-16.5
       parent: 2
+  - uid: 17634
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -19.5,-6.5
+      parent: 2
+  - uid: 17635
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -19.5,-7.5
+      parent: 2
+  - uid: 17636
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -12.5,-7.5
+      parent: 2
+  - uid: 17637
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -12.5,-6.5
+      parent: 2
 - proto: ShuttleConsoleCircuitboard
   entities:
   - uid: 2192
@@ -95004,6 +95039,26 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         16579:
+        - - Pressed
+          - Toggle
+  - uid: 17638
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -18.5,-5.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        17634:
+        - - Pressed
+          - Toggle
+        17635:
+        - - Pressed
+          - Toggle
+        17637:
+        - - Pressed
+          - Toggle
+        17636:
         - - Pressed
           - Toggle
 - proto: SignalSwitchDirectional
@@ -97641,6 +97696,13 @@ entities:
     components:
     - type: Transform
       pos: 0.5,9.5
+      parent: 2
+- proto: SpawnPointCourier
+  entities:
+  - uid: 4628
+    components:
+    - type: Transform
+      pos: 12.5,24.5
       parent: 2
 - proto: SpawnPointDetective
   entities:
@@ -117373,9 +117435,9 @@ entities:
       - 10364
       - 8406
       - 5553
-- proto: WeaponEnergyTurretSecurity
+- proto: WeaponEnergyTurretCommand
   entities:
-  - uid: 2031
+  - uid: 2041
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -117383,8 +117445,30 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 2041
       - 15298
+      - 14475
+- proto: WeaponEnergyTurretCommandControlPanel
+  entities:
+  - uid: 14475
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -16.5,-2.5
+      parent: 2
+    - type: DeviceList
+      devices:
+      - 2041
+  - uid: 15298
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -14.5,-4.5
+      parent: 2
+    - type: DeviceList
+      devices:
+      - 2041
+- proto: WeaponEnergyTurretSecurity
+  entities:
   - uid: 15187
     components:
     - type: Transform
@@ -117417,15 +117501,6 @@ entities:
       devices:
       - 15187
       - 15234
-  - uid: 2041
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -16.5,-2.5
-      parent: 2
-    - type: DeviceList
-      devices:
-      - 2031
   - uid: 5456
     components:
     - type: Transform
@@ -117436,15 +117511,6 @@ entities:
       devices:
       - 15187
       - 15234
-  - uid: 15298
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -14.5,-4.5
-      parent: 2
-    - type: DeviceList
-      devices:
-      - 2031
 - proto: WeaponRifleFoam
   entities:
   - uid: 2968
@@ -118152,12 +118218,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -19.5,-24.5
       parent: 2
-  - uid: 4033
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 26.5,8.5
-      parent: 2
   - uid: 4169
     components:
     - type: Transform
@@ -118427,18 +118487,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 15.5,0.5
       parent: 2
-  - uid: 4628
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -34.5,-5.5
-      parent: 2
-  - uid: 4629
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -38.5,-5.5
-      parent: 2
   - uid: 4632
     components:
     - type: Transform
@@ -118496,12 +118544,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -42.5,-5.5
-      parent: 2
-  - uid: 4649
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -38.5,-5.5
       parent: 2
   - uid: 4654
     components:

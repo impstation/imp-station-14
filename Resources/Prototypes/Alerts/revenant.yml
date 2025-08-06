@@ -14,42 +14,19 @@
   name: alerts-revenant-corporeal-name
   description: alerts-revenant-corporeal-desc
 
-- type: alert
-  id: EssenceRegen
-  name: alerts-revenant-essence-regen-name
-  description: alerts-revenant-essence-regen-desc
-  icons: [ /Textures/Interface/Actions/scream.png ]
-  alertViewEntity: AlertEssenceRegenSpriteView
-
-- type: alert
-  id: Stasis
-  icons:
-  - sprite: Mobs/Ghosts/revenant.rsi
-    state: ectoplasm
-  name: alerts-revenant-stasis-name
-  description: alerts-revenant-stasis-desc
-
 - type: entity
   id: AlertEssenceSpriteView
   categories: [ HideSpawnMenu ]
   components:
+  - type: GenericCounterAlert
+    centerGlyph: false
+    hideLeadingZeroes: false
   - type: Sprite
     sprite: /Textures/Interface/Alerts/essence_counter.rsi
     layers:
     - map: [ "enum.AlertVisualLayers.Base" ]
-    - map: [ "enum.RevenantVisualLayers.Digit1" ]
-    - map: [ "enum.RevenantVisualLayers.Digit2" ]
-      offset: 0.125, 0
-    - map: [ "enum.RevenantVisualLayers.Digit3" ]
+    - map: [ "1" ]
       offset: 0.25, 0
-
-- type: entity
-  id: AlertEssenceRegenSpriteView
-  components:
-  - type: Sprite
-    sprite: /Textures/Interface/Alerts/essence_counter.rsi
-    layers:
-    - map: [ "enum.AlertVisualLayers.Base" ]
-    - map: [ "enum.RevenantVisualLayers.Digit1" ]
-    - map: [ "enum.RevenantVisualLayers.Digit2" ]
+    - map: [ "10" ]
       offset: 0.125, 0
+    - map: [ "100" ]

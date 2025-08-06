@@ -91,6 +91,8 @@
     damage:
       types:
         Blunt: 3
+  - type: Absorbable # imp edit
+    biomassRestored: 0.1
 
 - type: entity
   parent: BaseMobArgocyte

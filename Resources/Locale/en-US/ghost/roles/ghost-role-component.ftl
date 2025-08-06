@@ -5,7 +5,8 @@ ghost-role-component-default-rules = All normal rules apply unless an administra
 ghost-role-information-nonantagonist-rules = You are a [color=green][bold]Non-antagonist[/bold][/color]. You should generally not seek to harm the station and its crew.
 
                                              You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
-ghost-role-information-freeagent-rules = You are a [color=yellow][bold]Free Agent[/bold][/color]. You are free to act as either an antagonist or a non-antagonist.
+#imp edit
+ghost-role-information-freeagent-rules = You are a [color=yellow][bold]Free Agent[/bold][/color]. You must still follow escalation, but are not bound to the same restrictions as crew-aligned characters.
                                          You are still required to follow rules against excessive destruction. [color=red]Do not seek to sabotage critical infrastructure without proper escalation.[/color]
 
                                          You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
@@ -29,6 +30,9 @@ ghost-role-information-mouse-description = A hungry and mischievous mouse.
 
 ghost-role-information-mothroach-name = Mothroach
 ghost-role-information-mothroach-description = A cute but mischievous mothroach.
+
+ghost-role-information-moproach-name = Moproach
+ghost-role-information-moproach-description = A cute mothroach with more cute moplike shoes on its feet.
 
 ghost-role-information-snail-name = Snail
 ghost-role-information-snail-description = A little snail who doesn't mind a bit of space. Just stay on grid!
@@ -338,3 +342,6 @@ ghost-role-information-gingerbread-description = A being of pure holiday spirit.
 
 ghost-role-information-wizard-name = Wizard
 ghost-role-information-wizard-desc = YER A WIZARD! Show the station what your magic is made of.
+
+ghost-role-information-emotional-support-scurret-name = Emotional Support Scurret
+ghost-role-information-emotional-support-scurret-description = Support the crew, be adorable, say "wa" a lot.
