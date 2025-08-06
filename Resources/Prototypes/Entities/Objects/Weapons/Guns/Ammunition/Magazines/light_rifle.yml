@@ -38,8 +38,8 @@
 - type: entity
   id: MagazineLightRifleBox
   name: "L6 SAW magazine box (.20 rifle)" #imp
-  description: A 100-round .20 rifle box magazine of disintegrating links, designed for a belt-fed light machine gun. #imp
   parent: BaseMagazineLightRifle
+  description: A 100-round .20 rifle box magazine of disintegrating links, designed for a belt-fed light machine gun. #imp
   components:
   - type: Tag
     tags:
@@ -62,14 +62,14 @@
 - type: entity
   id: MagazineLightRifle
   name: "magazine (.30 rifle)"
-  description: A 23-round .30 rifle magazine, marked as live-fire ammo. #imp
   parent: BaseMagazineLightRifle
+  description: A 23-round .30 rifle magazine, marked as live-fire ammo. #imp
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRifle
   - type: Sprite
     layers:
-    - state: red
+    - state: red # imp
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
@@ -77,19 +77,19 @@
     inhandVisuals:
       left:
       - state: inhand-left-mag
-      - state: inhand-left-stripe
+      - state: inhand-left-stripe #imp
         color: "#820a16" #imp
       right:
       - state: inhand-right-mag
-      - state: inhand-right-stripe
+      - state: inhand-right-stripe #imp
         color: "#820a16" #imp
 
 - type: entity
   id: MagazineLightRifleEmpty
   name: "magazine (.30 rifle any)"
-  description: A 23-round .30 rifle magazine with no apparent markings. #imp
   suffix: empty
   parent: MagazineLightRifle
+  description: A 23-round .30 rifle magazine with no apparent markings. #imp
   components:
   - type: BallisticAmmoProvider
     proto: null
@@ -109,93 +109,80 @@
 - type: entity
   id: MagazineLightRiflePractice
   name: "magazine (.30 rifle practice)"
-  description: A 23-round .30 rifle magazine, marked as practice ammo. #imp
   parent: BaseMagazineLightRifle
+  description: A 23-round .30 rifle magazine, marked as practice ammo. #imp
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRiflePractice
   - type: Sprite
     layers:
-    - state: practice
+    - state: practice # imp
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+    # - state: stripe # imp remove
+    #   color: "#dbdbdb"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#d63b28" #imp
+        color: "#ffcb6f" #imp
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#d63b28" #imp
+        color: "#ffcb6f" #imp
 
 - type: entity
   id: MagazineLightRifleUranium
   name: "magazine (.30 rifle uranium)"
-  description: A 23-round .30 rifle magazine, marked as uranium ammo. #imp
   parent: BaseMagazineLightRifle
+  description: A 23-round .30 rifle magazine, marked as uranium ammo. #imp
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRifleUranium
   - type: Sprite
     layers:
-    - state: uranium
+    - state: uranium # imp
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+    # - state: stripe # imp remove
+    #   color: "#00cd42"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#6b805e" #imp
+        color: "#22b24d" #imp
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#6b805e" #imp
+        color: "#22b24d" #imp
 
 - type: entity
   id: MagazineLightRifleIncendiary
   name: "magazine (.30 rifle incendiary)"
-  description: A 23-round .30 rifle magazine, marked as incendiary ammo. #imp
   parent: MagazineLightRifle
+  description: A 23-round .30 rifle magazine, marked as incendiary ammo. #imp
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRifleIncendiary
-
-- type: entity
-  id: MagazineLightRifleMaxim
-  name: "pan magazine (.30 rifle)"
-  description: A 96-round .30 rifle pan magazine, marked as live-fire ammo. #imp
-  parent: BaseMagazineLightRifle
-  components:
-  - type: Tag
-    tags:
-      - MagazineLightRiflePan
-  - type: BallisticAmmoProvider
-    proto: CartridgeLightRifle
-    capacity: 96
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/maxim.rsi
-
-- type: entity
-  id: MagazineLightRiflePkBox
-  name: "PK munitions box (.30 rifle)"
-  description: An 80-round .30 rifle box magazine, marked as live-fire ammo. #imp
-  parent: BaseMagazineLightRifle
-  components:
-  - type: Tag
-    tags:
-      - MagazineLightRifleBox
-  - type: BallisticAmmoProvider
-    proto: CartridgeLightRifle
-    capacity: 80
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/pk_box.rsi
-  - type: MagazineVisuals
-    magState: mag
-    steps: 8
-    zeroVisible: false
-  - type: Appearance
+    layers:
+    - state: incendiary #imp
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  #   - state: stripe #imp remove
+  #     color: "#ff6e52"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#d46925" #imp
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#d46925" #imp

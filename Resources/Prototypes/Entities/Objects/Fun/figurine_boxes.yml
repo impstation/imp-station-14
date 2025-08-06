@@ -14,6 +14,7 @@
     tags:
     - Trash
   - type: SpaceGarbage
+
 - type: entity
   parent: PresentRandom
   id: MysteryFigureBox
@@ -100,24 +101,6 @@
         orGroup: SpacemenFig
       - id: ToyFigurineGreytider
         orGroup: SpacemenFig
-      - id: ToyFigurineCourier #<imp>
-        orGroup: SpacemenFig
-      - id: ToyFigurineBrigmedic
-        orGroup: SpacemenFig
-      - id: ToyFigurineCyborgDefault
-        orGroup: SpacemenFig
-      - id: ToyFigurineCyborgEngineering
-        orGroup: SpacemenFig
-      - id: ToyFigurineCyborgJanitorial
-        orGroup: SpacemenFig
-      - id: ToyFigurineCyborgMedical
-        orGroup: SpacemenFig
-      - id: ToyFigurineCyborgSalvage
-        orGroup: SpacemenFig
-      - id: ToyFigurineCyborgService
-        orGroup: SpacemenFig
-      - id: ToyFigurineStationAI
-        orGroup: SpacemenFig
       - id: ToyFigurineWizard
         prob: 0.50
         orGroup: SpacemenFig
@@ -151,7 +134,26 @@
       - id: ToyFigurineHamlet
         prob: 0.20
         orGroup: SpacemenFig
-      - id: ToyFigurineCBURNQuarantineOfficer #<imp>
+      # imp edit start
+      - id: ToyFigurineCourier
+        orGroup: SpacemenFig
+      - id: ToyFigurineBrigmedic
+        orGroup: SpacemenFig
+      - id: ToyFigurineCyborgDefault
+        orGroup: SpacemenFig
+      - id: ToyFigurineCyborgEngineering
+        orGroup: SpacemenFig
+      - id: ToyFigurineCyborgJanitorial
+        orGroup: SpacemenFig
+      - id: ToyFigurineCyborgMedical
+        orGroup: SpacemenFig
+      - id: ToyFigurineCyborgSalvage
+        orGroup: SpacemenFig
+      - id: ToyFigurineCyborgService
+        orGroup: SpacemenFig
+      - id: ToyFigurineStationAI
+        orGroup: SpacemenFig
+      - id: ToyFigurineCBURNQuarantineOfficer
         prob: 0.50
         orGroup: SpacemenFig
       - id: ToyFigurineCentCommOfficial
@@ -198,7 +200,67 @@
         orGroup: SpacemenFig
       - id: ToyFigurineCosmicCultist
         prob: 0.20
-        orGroup: SpacemenFig #</imp>
+        orGroup: SpacemenFig
       - id: ToyFigurineCrewLing
         prob: 0.10
-        orGroup: SpacemenFig #</imp>
+        orGroup: SpacemenFig
+    # imp edit end
+
+- type: entity
+  parent: BaseItem
+  id: MysteryLighterBox
+  name: Novelty lighter mystery box
+  suffix: Filled
+  description: A box of discontinued promotional lighters, many of which have since been declared "contraband".
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/figurines.rsi
+    layers:
+    - state: fig_box
+  - type: SpawnItemsOnUse
+    items:
+      - id: MysteryFigureBoxTrash
+      - id: CybersunFlippo
+        orGroup: Lighterbox
+        weight: 0.15
+      - id: InterdyneFlippo
+        orGroup: Lighterbox
+        weight: 0.15
+      - id: NanotrasenFlippo
+        orGroup: Lighterbox
+        weight: 0.25
+      - id: WaffleCoFlippo
+        orGroup: Lighterbox
+        weight: 0.35
+      - id: HonkCoFlippo
+        orGroup: Lighterbox
+      - id: GorlexMatchbox
+        orGroup: Lighterbox
+        weight: 0.15
+      - id: DonkcoLighter
+        orGroup: Lighterbox
+        weight: 0.25
+      - id: SyndicateFlippo
+        orGroup: Lighterbox
+        weight: 0.15
+
+- type: entity
+  parent: MysteryLighterBox
+  id: UplinkLighterBox
+  suffix: Uplink
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: MysteryFigureBoxTrash
+      - id: CybersunFlippo
+        orGroup: Lighterbox
+      - id: InterdyneFlippo
+        orGroup: Lighterbox
+      - id: WaffleCoFlippo
+        orGroup: Lighterbox
+      - id: GorlexMatchbox
+        orGroup: Lighterbox
+      - id: DonkcoLighter
+        orGroup: Lighterbox
+      - id: SyndicateFlippo
+        orGroup: Lighterbox

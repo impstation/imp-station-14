@@ -37,7 +37,7 @@
   components:
   - type: StationEvent
     weight: 7
-    duration: 1
+    duration: null
     earliestStart: 25
     reoccurrenceDelay: 20
     minimumPlayers: 15
@@ -50,6 +50,7 @@
     - BountyHunterKillRandomAntagObjective
     - BountyHunterSurviveObjective
   - type: AntagSelection
+    agentName: bounty-hunter-roundend-name
     definitions:
     - spawnerPrototype: SpawnPointGhostBountyHunter
       min: 1
@@ -72,8 +73,22 @@
         - NamesBountyHunter
         nameFormat: name-format-bounty-hunter
 
-#my oppa
+#vrex
+- type: entity
+  id: VRexEvent
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    weight: 3.5 #not as rare as midround ling or zombies, but rare enough to feel dread
+    duration: 1
+    minimumPlayers: 50
+    maxOccurrences: 1 # imagine 2 of them
+  - type: VentCrittersRule 
+    specialEntries:
+    - id: SpawnPointGhostVRex
+      prob: 0 # this ensures that only one spawner will be created
 
+#my oppa
 - type: entity
   parent: BaseGameRule
   id: OppaSpawnLight
@@ -107,3 +122,26 @@
     reoccurrenceDelay: 20
     minimumPlayers: 10
     duration: null
+
+# syndicate infiltrator
+- type: entity
+  parent: BaseMidRoundAntag
+  id: SyndicateInfiltratorSpawn
+  components:
+  - type: StationEvent
+    weight: 4
+    reoccurrenceDelay: 5
+    minimumPlayers: 15
+    earliestStart: 25
+    duration: null
+  - type: MidRoundAntagRule
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointInfiltrator
+      min: 1
+      max: 1
+      pickPlayer: false
+      components:
+      - type: NpcFactionMember
+        factions:
+        - Syndicate

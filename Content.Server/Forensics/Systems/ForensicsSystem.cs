@@ -1,9 +1,9 @@
-using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Forensics.Components;
 using Content.Server.Popups;
+using Content.Shared.Body.Events;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Chemistry.Components;
@@ -144,28 +144,6 @@ namespace Content.Server.Forensics
             {
                 dest.Residues.Add(residue);
             }
-        }
-
-        //gets the name of a person from the DNA inside it. RETURNS NULL FOR ANIMALS, OR ANYTHING ELSE WITH UNKNOWN DNA.
-        public string? GetNameFromDNA(string DNA)
-        {
-            var query = EntityQueryEnumerator<DnaComponent>();
-
-            String? outputName = null;
-            //iterate over every DNAcomponent in the server until you find one that matches the given DNA
-            while (query.MoveNext(out var sourceUID, out var sourceComp))
-            {
-                if (sourceComp.DNA != null && sourceComp.DNA.Equals(DNA))
-                {
-
-                    if (EntityManager.TryGetComponent(sourceUID, out MetaDataComponent? metaData))
-                    {
-                        //output the name of the entity with the given DNA
-                        outputName = metaData.EntityName;
-                    }
-                }
-            }
-            return outputName;
         }
 
         public List<string> GetSolutionsDNA(EntityUid uid)

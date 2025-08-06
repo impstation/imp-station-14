@@ -232,6 +232,35 @@
   - type: Icon
     state: pda-seniorlawyer
 
+# Syndicate
+- type: entity
+  parent: PassengerPDA
+  id: UndercoverPDA
+  suffix: Syndicate
+  components:
+  - type: Pda
+    id: UndercoverIDCard
+
+#Roboticist
+- type: entity
+  parent: BasePDA
+  id: RoboticsPDA
+  name: robotics PDA
+  description: It's covered in scratches.
+  components:
+  - type: Pda
+    id: ResearchIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-roboticist
+  - type: PdaBorderColor
+    borderColor: "#484848"
+    accentVColor: "#d33725"
+  - type: Icon
+    state: pda-roboticist
+
 #Courier
 - type: entity
   parent: BasePDA
@@ -341,3 +370,20 @@
   - type: Icon
     sprite: _Impstation/Objects/Devices/griffy_pda.rsi
     state: pda-mascotgriffy
+
+- type: entity
+  parent: CentcomPDA
+  id: CentcommInternPDA
+  name: CentComm intern PDA
+  components:
+  - type: Pda
+    id: CentcommInternIDCard
+
+- type: entity
+  parent: CentcomPDA
+  id: CentcommInternLeaderPDA
+  name: CentComm head intern PDA
+  components:
+  - type: Pda
+    id: CentcommInternLeaderIDCard
+

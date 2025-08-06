@@ -630,6 +630,7 @@
   description: A stick of delicious, golden, fatty goodness.
   components:
   - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Ingredients/butter.rsi # Imp
     state: butter
   - type: Slippery
   - type: StepTrigger
@@ -664,6 +665,12 @@
   - type: SliceableFood
     count: 3
     slice: FoodButterSlice
+  - type: Extractable # Frontier
+    grindableSolutionName: food
+  - type: Tag # Frontier
+    tags:
+    - Ingredient
+    - NFButterStick
 
 - type: entity
   name: butter slice
@@ -672,6 +679,7 @@
   description: A pat of delicious, golden, fatty goodness.
   components:
   - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Ingredients/butter.rsi # imp
     state: butter-slice
   - type: SolutionContainerManager
     solutions:
@@ -691,8 +699,8 @@
   description: Add this to your favorite baked goods for an irie time.
   components:
   - type: Sprite
-    state: butter
-    color: "#82C36E"
+    sprite: _Impstation/Objects/Consumable/Food/Ingredients/butter.rsi # Imp
+    state: butter-cannabis # Imp
   - type: SolutionContainerManager
     solutions:
       food:
@@ -747,6 +755,12 @@
     entries:
       Taco: CheeseTaco
       Burger: CheeseBurger
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: cheesewedge-inhand-left
+      right:
+      - state: cheesewedge-inhand-right
 
 - type: entity
   name: chèvre log

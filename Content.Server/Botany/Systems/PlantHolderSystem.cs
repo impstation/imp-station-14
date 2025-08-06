@@ -1,5 +1,6 @@
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Botany.Components;
+using Content.Server.Hands.Systems;
 using Content.Server.Kitchen.Components;
 using Content.Server.Popups;
 using Content.Shared.Chemistry.EntitySystems;
@@ -27,10 +28,11 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
 using Content.Shared.Labels.Components;
 using System.Text.RegularExpressions; // imp
+using Content.Server.Station.Systems; // Frontier
 
 namespace Content.Server.Botany.Systems;
 
-public sealed partial class PlantHolderSystem : EntitySystem
+public sealed class PlantHolderSystem : EntitySystem
 {
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
     [Dependency] private readonly BotanySystem _botany = default!;
@@ -38,6 +40,7 @@ public sealed partial class PlantHolderSystem : EntitySystem
     [Dependency] private readonly MutationSystem _mutation = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
@@ -46,6 +49,7 @@ public sealed partial class PlantHolderSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly StationSystem _station = default!; // Frontier
 
     public const float HydroponicsSpeedMultiplier = 1f;
     public const float HydroponicsConsumptionMultiplier = 2f;
@@ -274,6 +278,14 @@ public sealed partial class PlantHolderSystem : EntitySystem
                 _popup.PopupCursor(Loc.GetString("plant-holder-component-nothing-to-sample-message"), args.User);
                 return;
             }
+
+            // Frontier: prevent sampling unsamplable plants
+            if (component.Seed.PreventClipping)
+            {
+                _popup.PopupCursor(Loc.GetString("plant-holder-component-cannot-be-sampled-message"), args.User);
+                return;
+            }
+            // End Frontier
 
             if (component.Sampled)
             {
@@ -713,9 +725,9 @@ public sealed partial class PlantHolderSystem : EntitySystem
 
         if (component.Harvest && !component.Dead)
         {
-            if (TryComp<HandsComponent>(user, out var hands))
+            if (_hands.TryGetActiveItem(user, out var activeItem))
             {
-                if (!_botany.CanHarvest(component.Seed, hands.ActiveHandEntity))
+                if (!_botany.CanHarvest(component.Seed, activeItem))
                 {
                     _popup.PopupCursor(Loc.GetString("plant-holder-component-ligneous-cant-harvest-message"), user);
                     return false;

@@ -1,6 +1,6 @@
 - type: entity
   name: quran
-  description: Printed in both original Arabic and Nanotrasen Standard English.
+  description: Printed in both original Arabic and Galactic Common.
   parent: Bible
   id: HolyTextQuran
   components:
@@ -10,20 +10,6 @@
   - type: Item
     size: Small
     heldPrefix: quran
-    sprite: _Impstation/Objects/Specific/Chapel/holytexts.rsi
-
-- type: entity
-  name: tanakh
-  description: Instructions, Prophets, and Writings.
-  parent: Bible
-  id: HolyTextTanakh
-  components:
-  - type: Sprite
-    sprite: _Impstation/Objects/Specific/Chapel/holytexts.rsi
-    state: tanakh
-  - type: Item
-    size: Small
-    heldPrefix: tanakh
     sprite: _Impstation/Objects/Specific/Chapel/holytexts.rsi
 
 - type: entity
@@ -158,13 +144,13 @@
     sprite: _Impstation/Objects/Specific/Chapel/holytexts.rsi
     state: bibble
 
-- type: entityTable 
+- type: entityTable
   id: HolyTextEntityTable
   table: !type:GroupSelector
     children:
     - id: Beeble
     - id: HolyTextQuran
-    - id: HolyTextTanakh
+    - id: BibleTanakh
     - id: HolyTextHolyScroll
     - id: HolyTextHolyTablet
     - id: HolyTextGreybible

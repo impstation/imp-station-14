@@ -5,8 +5,9 @@
   description: A refrigerated storage unit for keeping items cold and fresh.
   components:
   - type: StationAiWhitelist
-  - type: Advertise
-    pack: SmartFridgeAds
+  - type: Vocalizer
+  - type: DatasetVocalizer
+    dataset: SmartFridgeAds
   - type: Speech
   - type: Sprite
     sprite: Structures/Machines/smartfridge.rsi
@@ -55,7 +56,7 @@
           !type:PhysShapeAabb
           bounds: "-0.45,-0.45,0.45,0.45"
         mask:
-        - MachineMask
+        - Impassable #imp edit from MachineMask, allows shutters and firelocks to close over them
         layer:
         - MachineLayer
         density: 200
