@@ -1,12 +1,9 @@
 ﻿- type: entity
   name: stick of rainbow cannabis butter
-  parent: [FoodBakingBase, BaseMinorContraband]
+  parent: [FoodCannabisButter, BaseMinorContraband]
   id: FoodRainbowCannabisButter
   description: Add this to your favorite baked goods for a horrible time.
   components:
-  - type: Sprite
-    state: butter
-    color: "#82C36E"
   - type: SolutionContainerManager
     solutions:
       food:
@@ -23,5 +20,62 @@
     energy: 2
   - type: RgbLightController
     cycleRate: 0.6
-  - type: Extractable
-    grindableSolutionName: food
+
+- type: entity
+  name: chocolate chip
+  parent: FoodBakingBase
+  id: FoodChocolateChip
+  description: Tastes like if cardboard was smaller.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - chocolate
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Ingredients/chocolate.rsi
+    state: chocolatechip
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ReptilianFood
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 1.25
+        reagents:
+        - ReagentId: CocoaPowder
+          Quantity: 0.125
+        - ReagentId: Theobromine
+          Quantity: 0.375
+        - ReagentId: Nutriment
+          Quantity: 1.25
+
+- type: entity
+  name: stick of cream cheese
+  parent: FoodBakingBase
+  id: FoodCreamCheese
+  description: A stick of creamy cream cheese.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Ingredients/creamcheese.rsi
+    state: creamcheese
+  - type: FlavorProfile # Imp
+    flavors:
+    - creamy
+    - cheesy
+    ignoreReagents:
+    - TableSalt
+    - Milk
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 12
+        reagents:
+        - ReagentId: Milk
+          Quantity: 5
+        - ReagentId: TableSalt
+          Quantity: 5
+  - type: Tag
+    tags:
+    - Ingredient

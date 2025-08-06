@@ -25,10 +25,30 @@
 - type: entity
   parent: [AirSensorSupermatterBase, GasVentPump]
   id: GasVentPumpSupermatter
+  placement:
+    mode: AlignAtmosPipeLayers # imp edit
+  components:
+  # imp edit start
+  - type: AtmosPipeLayers
+    alternativePrototypes:
+      Primary: GasVentPumpSupermatter
+      Secondary: GasVentPumpSupermatterAlt1
+      Tertiary: GasVentPumpSupermatterAlt2
+  # imp edit end
 
 - type: entity
   parent: [AirSensorSupermatterBase, GasVentScrubber]
   id: GasVentScrubberSupermatter
+  placement:
+    mode: AlignAtmosPipeLayers # imp edit
+  components:
+  # imp edit start
+  - type: AtmosPipeLayers
+    alternativePrototypes:
+      Primary: GasVentScrubberSupermatter
+      Secondary: GasVentScrubberSupermatterAlt1
+      Tertiary: GasVentScrubberSupermatterAlt2
+  # imp edit end
 
 - type: entity
   parent: AirAlarm

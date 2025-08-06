@@ -1,0 +1,77 @@
+﻿- type: entity
+  parent: [ BaseComputerCircuitboard, BaseGrandTheftContraband ]
+  id: ScienceCommsComputerCircuitboard
+  name: science communications computer board
+  description: A computer printed circuit board for the science communications console.
+  components:
+  - type: Sprite
+    state: cpu_science
+  - type: ComputerBoard
+    prototype: ScienceComputerComms
+  - type: ComputerTabletopBoard # imp
+    prototype: ScienceComputerTabletopComms # imp
+
+- type: entity
+  parent: [ BaseComputerCircuitboard, BaseGrandTheftContraband ]
+  id: SecurityCommsComputerCircuitboard
+  name: security communications computer board
+  description: A computer printed circuit board for the security communications console.
+  components:
+  - type: Sprite
+    state: cpu_security
+  - type: ComputerBoard
+    prototype: SecurityComputerComms
+  - type: ComputerTabletopBoard # imp
+    prototype: SecurityComputerTabletopComms # imp
+
+- type: entity
+  parent: [ BaseComputerCircuitboard, BaseGrandTheftContraband ]
+  id: ServiceCommsComputerCircuitboard
+  name: service communications computer board
+  description: A computer printed circuit board for the service communications console.
+  components:
+  - type: Sprite
+    state: cpuboard
+  - type: ComputerBoard
+    prototype: ServiceComputerComms
+  - type: ComputerTabletopBoard # imp
+    prototype: ServiceComputerTabletopComms # imp
+
+- type: entity
+  parent: [ BaseComputerCircuitboard, BaseGrandTheftContraband ]
+  id: SupplyCommsComputerCircuitboard
+  name: supply communications computer board
+  description: A computer printed circuit board for the supply communications console.
+  components:
+  - type: Sprite
+    state: cpu_supply
+  - type: ComputerBoard
+    prototype: SupplyComputerComms
+  - type: ComputerTabletopBoard # imp
+    prototype: SupplyComputerTabletopComms # imp
+
+- type: entity
+  parent: [ BaseComputerCircuitboard, BaseGrandTheftContraband ]
+  id: EngineeringCommsComputerCircuitboard # imp
+  name: engineering communications computer board
+  description: A computer printed circuit board for the engineering communications console.
+  components:
+  - type: Sprite
+    state: cpu_engineering
+  - type: ComputerBoard
+    prototype: EngineeringComputerComms # imp
+  - type: ComputerTabletopBoard # imp
+    prototype: EngineeringComputerTabletopComms # imp
+
+- type: entity
+  parent: [ BaseComputerCircuitboard, BaseGrandTheftContraband ]
+  id: MedicalCommsComputerCircuitboard
+  name: medical communications computer board
+  description: A computer printed circuit board for the medical communications console.
+  components:
+  - type: Sprite
+    state: cpu_medical
+  - type: ComputerBoard
+    prototype: MedicalComputerComms
+  - type: ComputerTabletopBoard # imp
+    prototype: MedicalComputerTabletopComms # imp
