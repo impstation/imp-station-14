@@ -85,6 +85,40 @@
     containers:
       board: [ DoorElectronicsLogistics ]
 
+- type: entity
+  parent: AirlockCargoAux
+  id: AirlockCargoAuxLocked
+  suffix: CargoAux, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCargoAux ]
+
+- type: entity
+  parent: AirlockCargoRestricted
+  id: AirlockCargoRestrictedLocked
+  suffix: CargoRestricted, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCargoRestricted ]
+
+- type: entity
+  parent: AirlockCargoAuxLocked
+  id: AirlockMaintCargoAuxLocked
+  name: maintenance access
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+
+- type: entity
+  parent: AirlockCargoRestrictedLocked
+  id: AirlockMaintCargoRestrictedLocked
+  name: maintenance access
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+
 # Glass Airlocks
 
 # Command
@@ -171,6 +205,24 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsLogistics ]
+
+- type: entity
+  parent: AirlockCargoAuxGlass
+  id: AirlockCargoAuxGlassLocked
+  suffix: CargoAux, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCargoAux ]
+
+- type: entity
+  parent: AirlockCargoRestrictedGlass
+  id: AirlockCargoRestrictedGlassLocked
+  suffix: CargoRestricted, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCargoRestricted ]
 
 # Misc.
 - type: entity

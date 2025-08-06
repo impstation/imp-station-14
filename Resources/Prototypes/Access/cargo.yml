@@ -4,7 +4,7 @@
 
 - type: accessLevel
   id: Cargo
-  name: id-card-access-level-cargo
+  name: id-card-access-level-cargo-staff # imp edit
 
 - type: accessLevel
   id: Salvage
@@ -18,3 +18,5 @@
   - Cargo
   - Courier #Imp
   - Logistics #imp
+  - CargoAux #imp
+  - CargoRestricted #imp
