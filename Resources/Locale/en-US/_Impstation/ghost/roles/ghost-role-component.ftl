@@ -156,3 +156,6 @@ ghost-role-information-nonantagonist-freeagent-partygeay-rules = You are a [colo
                                                                  Your goal is to throw a party; what you are celebrating is up to you.
 
                                                                  You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
+
+ghost-role-information-vrex-name = V-Rex
+ghost-role-information-vrex-desc = Not sure how you got here, but you're mad about it! Swing your weight around and express your anger, all while avoiding the dangers of barotrauma.

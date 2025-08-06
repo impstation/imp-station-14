@@ -62,10 +62,20 @@
   - type: IgnitionSource
     temperature: 700
   - type: MeleeWeapon
+    range: 1.5
     attackRate: 0.4 #slower, but hits harder; bigger object to shove with
     damage:
       types:
-        Blunt: 8
+        Blunt: 4
+        Heat: 12
+    wideAnimationRotation: -90
+    angle: 0
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+      params:
+        variation: 0.250
+        volume: -12
   - type: StaminaDamageOnHit
     damage: 15 #slight stagger, but still like 7 hits to stun completely
   - type: MeleeRequiresWield
@@ -77,3 +87,6 @@
     damage:
       types:
         Blunt: 12
+        Heat: 4
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
