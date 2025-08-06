@@ -1,29 +1,4 @@
 ﻿Entries:
-- author: hivehum, crocodilecarousel, faelingdraws
-  changes:
-  - message: 65 new markings have been added for further customization.
-    type: Add
-  - message: Gray antennae and ears are visible again.
-    type: Fix
-  id: 1619
-  time: '2025-05-08T23:42:33.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2412
-- author: widgetbeck
-  changes:
-  - message: Anomalites now have unique talk and scream sounds, and access to the
-      emote wheel.
-    type: Tweak
-  - message: Anomalites can now ventcrawl.
-    type: Tweak
-  - message: Anomalites now have unique death sprites.
-    type: Tweak
-  - message: Anomalites now have resistances to relevant damage types.
-    type: Tweak
-  - message: Anomalites can now have their modifiers changed via APEs.
-    type: Fix
-  id: 1620
-  time: '2025-05-08T23:45:55.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2408
 - author: DinnerCalzone
   changes:
   - message: Airlocks to escape pods now require maints access instead of external
@@ -4223,3 +4198,17 @@
   id: 2118
   time: '2025-08-05T07:12:28.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3227
+- author: TheGrimbeeper
+  changes:
+  - message: prize tickets being burned no longer leave any ash
+    type: Tweak
+  id: 2119
+  time: '2025-08-06T02:47:37.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3232
+- author: widgetbeck
+  changes:
+  - message: Peer pressure.
+    type: Add
+  id: 2120
+  time: '2025-08-06T02:48:11.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3225
