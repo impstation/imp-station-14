@@ -21,6 +21,12 @@
   - type: Item
     size: Large
     storedRotation: 90
+  - type: Clothing
+    sprite: _Impstation/Objects/Specific/Syndicate/echionsynth.rsi
+    quickEquip: false
+    slots:
+    - Belt
+    - suitStorage
   - type: GenericVisualizer
     visuals:
       enum.ToggleableVisuals.Enabled:
@@ -35,6 +41,13 @@
         shader: unshaded
       right:
       - state: inhand-right-core
+        shader: unshaded
+    clothingVisuals:
+      belt:
+      - state: equipped-BELT-core
+        shader: unshaded
+      suitStorage:
+      - state: equipped-SUITSTORAGE-core
         shader: unshaded
   - type: ItemTogglePointLight
   - type: PointLight
