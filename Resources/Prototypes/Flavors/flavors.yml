@@ -120,11 +120,6 @@
   description: flavor-base-fiber
 
 - type: flavor
-  id: trash
-  flavorType: Base
-  description: flavor-base-trash
-
-- type: flavor
   id: cold
   flavorType: Base
   description: flavor-base-cold
@@ -1484,4 +1479,3 @@
   id: trashy
   flavorType: Base
   description: flavor-base-trashy
-
