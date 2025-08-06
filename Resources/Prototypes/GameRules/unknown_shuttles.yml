@@ -245,10 +245,11 @@
 
 #imp
 - type: entity
-  id: UnknownShuttlePartyUFO
+  id: UnknownShuttle
   parent: BaseUnknownShuttleRule
   components:
   - type: StationEvent
     startAnnouncement: true #!!
+    weight: 8 #slightly less common
   - type: LoadMapRule
     preloadedGrid: PartyUFO
