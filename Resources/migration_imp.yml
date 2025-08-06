@@ -1,0 +1,94 @@
+# This is a basic dictionary that maps old entity prototype ids to new ids. This only works for entity prototypes, and
+# is intended to allow maps to load without having to manually edit them. An empty or "null" string results in the
+# entity getting deleted.
+
+# e.g., you can swap all walls with windows and delete all tables by adding lines like:
+#
+# Window: WallSolid
+# WallSolid: Window
+# Table: null
+
+# 2024-09-09
+BorgModuleService: BorgModuleBartender
+
+# 2024-11-25
+#impstation change
+ToolboxArtistic: ToolboxArtisticFilled
+
+# 2024-11-25
+# impstation: Removal of seperate borg parts
+LeftArmBorgCargo: LeftArmBorg
+RightArmBorgCargo: RightArmBorg
+LeftLegBorgCargo: LeftLegBorg
+RightLegBorgCargo: RightLegBorg
+HeadBorgCargo: LightHeadBorg
+TorsoBorgCargo: TorsoBorg
+
+# 2025-01-16
+# impstation: Removal of duplicate holopad Entity, oopsies
+HolopadCargoMailroomCourier: HolopadCargoMailroom
+
+# 2025-01-20
+# impstation: Make sure the templar helmet doesn't slink back in and break new maps
+ClothingHeadHelmetTemplar: null
+
+# 2025-02-18
+# impstation: Replace Walter spawns with the Walter/Dolby spawner
+SpawnMobWalter: SpawnMobChemDog
+
+# 2025-03-13
+# impstation: make the courier hardsuit non-roundstart
+SuitStorageCourier: null
+LockerCourierFilledHardsuit: LockerCourierFilled
+
+# 2025-03-25
+# impstation: swap mail systems
+MailTeleporter: CargoMailTeleporter
+
+# 2025-03-12
+SmartFridge: DVSmartFridge
+
+# 2025-05-14
+# impstation: remove fishing rods until the system is done
+FishingRodBase: null
+FishingRodPlasma: null
+
+# 2025-05-31
+# impstation: remove DV stock cartridge
+StockTradingCartridge: null
+
+# 2025-06-09 (nice)
+# imp borg module swaps
+BorgModulePaper: BorgModuleService
+
+# 2025-06-09
+# impstation: migrate our cleanade crate to upstream implementation
+CrateServiceCleanades: CrateServiceCleanerGrenades
+
+# 2025-06-17
+# impstation: replace custodial closets with secure janitor lockers
+ClosetJanitor: LockerJanitor
+ClosetJanitorFilled: LockerJanitorFilled
+
+# 2025-06-28
+# impstation: replace artifact spawners with combined old/new artifact spawners
+RandomArtifactSpawner: RandomOldNewArtifactSpawner
+RandomArtifactSpawner20: RandomOldNewArtifactSpawner20
+
+# 2025-07-17
+# removed redundant prototype from DV tabletop computer port
+MobileComputerTabletopComms: ComputerTabletopComms
+
+# 2025-07-25
+# renamed prize tickets
+PrizeTicketGold: PrizeTicket
+PrizeTicketBronze: PrizeTicket10
+PrizeTicketSilver: PrizeTicket100
+PrizeTicketDiamond: PrizeTicket1000000
+
+# 2025-07-31
+# upstream merge replacement prototypes
+FlippoSyndicateLighter: SyndicateFlippo
+GoldPersonalAI: GoldenPersonalAI
+HolyTextTanakh: BibleTanakh
+SpawnMobPoly: SpawnMobPollyParrot

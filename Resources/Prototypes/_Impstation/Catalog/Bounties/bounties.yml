@@ -1,38 +1,4 @@
 - type: cargoBounty
-  id: BountyLemo
-  reward: 12000
-  description: bounty-description-lemo
-  entries:
-  - name: bounty-item-lemo
-    amount: 5
-    whitelist:
-      tags:
-      - Lemo
-
-- type: cargoBounty
-  id: BountyRegenerativeMesh
-  reward: 12000
-  description: bounty-description-regenerative-mesh
-  entries:
-  - name: bounty-item-regenerative-mesh
-    amount: 30
-    whitelist:
-      tags:
-      - RegenerativeMesh
-
-# commented out for arbitrage :(
-# - type: cargoBounty
-#   id: BountyCrushers
-#   reward: 10000
-#   description: bounty-description-crushers
-#   entries:
-#   - name: bounty-item-crushers
-#     amount: 1
-#     whitelist:
-#       tags:
-#       - Crusher
-
-- type: cargoBounty
   id: BountyAloeCream
   reward: 6500
   description: bounty-description-aloe-cream
@@ -55,6 +21,17 @@
       - Bagel
 
 - type: cargoBounty
+  id: BountyBananiumClownshoes
+  reward: 8000
+  description: bounty-description-banana-clownshoes
+  entries:
+  - name: bounty-item-banana-clownshoes
+    amount: 1
+    whitelist:
+      tags:
+      - BananaClownshoes
+
+- type: cargoBounty
   id: BountyBearHide
   reward: 10000
   description: bounty-description-bear-hide
@@ -66,29 +43,18 @@
       - BearHide
 
 - type: cargoBounty
-  id: BountyMuffins
-  reward: 11500
-  description: bounty-description-muffins
+  id: BountyClothFood
+  reward: 8000
+  description: bounty-description-cloth-food
   entries:
-  - name: bounty-item-muffins
-    amount: 8
+  - name: bounty-item-cloth-food
+    amount: 3
     whitelist:
       tags:
-      - Muffin
-
-- type: cargoBounty
-  id: BountySuppermatter
-  reward: 20000
-  description: bounty-description-suppermatter
-  entries:
-  - name: bounty-item-suppermatter
-    amount: 1
-    whitelist:
-      tags:
-      - Suppermatter
+      - ClothFood
     blacklist:
       tags:
-      - Slice #no cheating!
+      - Slice # no cheating!
 
 - type: cargoBounty
   id: BountyCrystal
@@ -107,6 +73,50 @@
       - CrystalBlue
 
 - type: cargoBounty
+  id: BountyElectropack
+  reward: 15000
+  description: bounty-description-electropack
+  entries:
+  - name: bounty-item-electropack
+    amount: 1
+    whitelist:
+      tags:
+      - Electropack
+
+- type: cargoBounty
+  id: BountyFirebomb
+  reward: 8000
+  description: bounty-description-firebomb
+  entries:
+  - name: bounty-item-firebomb
+    amount: 2
+    whitelist:
+      tags:
+      - Firebomb
+
+- type: cargoBounty
+  id: BountyInsuls
+  reward: 4500
+  description: bounty-description-insuls # thank you to carousel (discord) for helping w/ the description for this one!
+  entries:
+  - name: bounty-item-insuls
+    amount: 3
+    whitelist:
+      tags:
+      - Insuls
+
+- type: cargoBounty
+  id: BountyLemo
+  reward: 12000
+  description: bounty-description-lemo
+  entries:
+  - name: bounty-item-lemo
+    amount: 5
+    whitelist:
+      tags:
+      - Lemo
+
+- type: cargoBounty
   id: BountyMimeHardsuit
   reward: 13000
   description: bounty-description-mime-hardsuit
@@ -118,6 +128,72 @@
       - MimeHardsuit
 
 - type: cargoBounty
+  id: BountyMuffins
+  reward: 11500
+  description: bounty-description-muffins
+  entries:
+  - name: bounty-item-muffins
+    amount: 8
+    whitelist:
+      tags:
+      - Muffin
+
+- type: cargoBounty
+  id: BountyPKA
+  reward: 12000 # should be worth fucking over salv at roundstart
+  description: bounty-description-pka
+  entries:
+  - name: bounty-item-pka
+    amount: 2
+    whitelist:
+      tags:
+      - PKAGun
+
+- type: cargoBounty
+  id: BountyPyrotton
+  reward: 20000
+  description: bounty-description-pyrotton
+  entries:
+  - name: bounty-item-pyrotton
+    amount: 4
+    whitelist:
+      tags:
+      - PyrottonBoll
+
+- type: cargoBounty
+  id: BountyRegenerativeMesh
+  reward: 12000
+  description: bounty-description-regenerative-mesh
+  entries:
+  - name: bounty-item-regenerative-mesh
+    amount: 30
+    whitelist:
+      tags:
+      - RegenerativeMesh
+
+- type: cargoBounty
+  id: BountyRipleyLimb
+  reward: 5000
+  description: bounty-description-ripley-limb
+  entries:
+  - name: bounty-item-ripley-limb
+    amount: 1
+    whitelist:
+      tags:
+      - RipleyLimb
+
+- type: cargoBounty
+  id: BountySGD
+  reward: 8000
+  description: bounty-description-sgd
+  entries:
+  - name: bounty-item-sgd
+    amount: 1
+    whitelist:
+      tags:
+      - SGD
+
+- type: cargoBounty
   id: BountySpiderMeat
   reward: 7000
   description: bounty-description-spider-meat
@@ -127,3 +203,40 @@
     whitelist:
       tags:
       - SpiderMeat
+
+- type: cargoBounty
+  id: BountyStunprod
+  reward: 9000
+  description: bounty-description-stunprod
+  entries:
+  - name: bounty-item-stunprod
+    amount: 2
+    whitelist:
+      tags:
+      - Stunprod
+
+- type: cargoBounty
+  id: BountySuppermatter
+  reward: 20000
+  description: bounty-description-suppermatter
+  entries:
+  - name: bounty-item-suppermatter
+    amount: 1
+    whitelist:
+      tags:
+      - Suppermatter
+    blacklist:
+      tags:
+      - Slice # no cheating!
+
+# commented out for arbitrage :(
+# - type: cargoBounty
+#   id: BountyCrushers
+#   reward: 10000
+#   description: bounty-description-crushers
+#   entries:
+#   - name: bounty-item-crushers
+#     amount: 1
+#     whitelist:
+#       tags:
+#       - Crusher
