@@ -10,8 +10,8 @@ public sealed partial class DisplacementData
     public Dictionary<int, PrototypeLayerData> SizeMaps = new();
 
     [DataField]
-    public string? ShaderOverride = "DisplacedStencilDraw";
+    public string? ShaderOverride = "DisplacedDraw";
 
     [DataField]
-    public string ShaderOverrideUnshaded = "DisplacedStencilDrawUnshaded";
+    public string ShaderOverrideUnshaded = "DisplacedStencilDrawUnshaded"; // imp
 }

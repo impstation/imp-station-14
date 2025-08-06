@@ -115,8 +115,8 @@
       Female: UnisexDecapoid
       Unsexed: UnisexDecapoid # male and female sounds have to 1) exist and 2) come first, otherwise urists will spawn without emote sounds 66% of the time, because this game is poorly programmed
   - type: MovementSpeedModifier
-    baseSprintSpeed: 3.5
-    baseWalkSpeed: 1.5
+    baseSprintSpeed: 3.15
+    baseWalkSpeed: 1.35
     weightlessAcceleration: 1.5 # move more easily in space
     weightlessFrictionNoInput: 2 # more control over movement in space
     weightlessModifier: 1
@@ -246,6 +246,7 @@
       state: "creampie_human" # default
       visible: false
   - type: Inventory
+    speciesId: decapoid
     templateId: decapoid
     displacements:
       jumpsuit:
