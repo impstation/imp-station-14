@@ -19,7 +19,7 @@
         - ReagentId: Vitamin
           Quantity: 4
   - type: Sprite
-    sprite: Objects/Specific/Hydroponics/lemo.rsi
+    sprite: _Impstation/Objects/Specific/Hydroponics/lemo.rsi
     state: fruit_pink
   - type: Produce
     seedId: lemo
@@ -41,7 +41,7 @@
     flavors:
       - sweet
   - type: Sprite
-    sprite: Objects/Specific/Hydroponics/lemo.rsi
+    sprite: _Impstation/Objects/Specific/Hydroponics/lemo.rsi
   - type: Tag
     tags:
     - Fruit

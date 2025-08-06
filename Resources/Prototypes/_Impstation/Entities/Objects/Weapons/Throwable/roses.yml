@@ -91,9 +91,13 @@
     seedId: rose
   - type: Extractable
     grindableSolutionName: food
+    juiceSolution:
+      reagents:
+      - ReagentId: JuiceRose
+        Quantity: 10
   - type: FlavorProfile
     flavors:
-      - food
+      - rose
   - type: Food
   - type: Tag
     tags:
@@ -117,10 +121,14 @@
     damage:
       types:
         Piercing: 5
+  - type: EmbedPassiveDamage
+  - type: SolutionInjectOnEmbed
+    transferAmount: 4
+    solution: food
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 3
+        maxVol: 4
         reagents:
         - ReagentId: SulfuricAcid
           Quantity: 1
@@ -141,6 +149,7 @@
       types:
         Piercing: 5
         Slash: 3
+  - type: EmbedPassiveDamage
   - type: SolutionContainerManager
     solutions:
       food:

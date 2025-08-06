@@ -13,20 +13,6 @@
     sprite: _Impstation/Objects/Specific/Chapel/holytexts.rsi
 
 - type: entity
-  name: tanakh
-  description: Instructions, Prophets, and Writings.
-  parent: Bible
-  id: HolyTextTanakh
-  components:
-  - type: Sprite
-    sprite: _Impstation/Objects/Specific/Chapel/holytexts.rsi
-    state: tanakh
-  - type: Item
-    size: Small
-    heldPrefix: tanakh
-    sprite: _Impstation/Objects/Specific/Chapel/holytexts.rsi
-
-- type: entity
   name: holy scroll
   description: Between these dowels could hide heavenly revelations, devilish secrets, or a really long papercut.
   parent: Bible
@@ -164,7 +150,7 @@
     children:
     - id: Beeble
     - id: HolyTextQuran
-    - id: HolyTextTanakh
+    - id: BibleTanakh
     - id: HolyTextHolyScroll
     - id: HolyTextHolyTablet
     - id: HolyTextGreybible

@@ -62,16 +62,18 @@
   result: WarmLightBulb
 
 - type: latheRecipe
-  parent: BaseLightRecipe
+  parent: PrizeCounterJunk # imp
   id: GlowstickRed
   result: GlowstickRed
-  materials:
-    Plastic: 50
+  #materials: # imp
+  #  Plastic: 50
 
 - type: latheRecipe
-  parent: GlowstickRed
+  parent: BaseLightRecipe # imp
   id: Flare
   result: Flare
+  materials: # imp
+    Plastic: 50
 
 - type: latheRecipe
   parent: BaseLightRecipe
@@ -166,6 +168,16 @@
     Steel: 1500
     Plastic: 1000
     Silver: 500
+
+- type: latheRecipe
+  id: ClothingShoesBootsJump
+  result: ClothingShoesBootsJump
+  completetime: 2
+  materials:
+    Steel: 1400
+    Plastic: 600
+    Silver: 200
+    Plasma: 200
 
 - type: latheRecipe
   id: ModularReceiver
@@ -266,3 +278,4 @@
   completetime: 1
   materials:
     Steel: 30
+

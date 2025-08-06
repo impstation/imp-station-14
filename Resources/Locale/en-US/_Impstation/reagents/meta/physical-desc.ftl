@@ -18,3 +18,4 @@ reagent-physical-desc-sad = sad
 reagent-physical-desc-nervous = nervous
 reagent-physical-desc-reallynervous = really nervous
 reagent-physical-desc-space-grease = dangerously shiny
+reagent-physical-desc-floral = floral

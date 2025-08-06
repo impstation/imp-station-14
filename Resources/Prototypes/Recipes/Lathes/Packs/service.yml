@@ -1,7 +1,7 @@
 ## Static
 
 - type: latheRecipePack
-  parent: ImpServiceStatic # imp
+  parent: [ ImpServiceStatic, NFServiceStatic ] # imp
   id: ServiceStatic
   recipes:
   - Bucket
@@ -26,8 +26,10 @@
   - MopItem
   - Holoprojector
   - WetFloorSign
+  - WireBrush
 
 - type: latheRecipePack
+  parent: [ NFServiceBoards, NFServiceBoardsStatic ] # imp
   id: ServiceBoardsStatic
   recipes:
   - BiogeneratorMachineCircuitboard
