@@ -37,6 +37,11 @@
 
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
+  id: PrizeCounterMachineCircuitboard
+  result: PrizeCounterMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
   id: SyndicateMicrowaveMachineCircuitboard
   result: SyndicateMicrowaveMachineCircuitboard
 

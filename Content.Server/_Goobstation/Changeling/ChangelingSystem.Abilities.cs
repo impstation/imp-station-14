@@ -15,7 +15,7 @@ using Content.Server.Objectives.Components;
 using Content.Server.Light.Components;
 using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Eye.Blinding.Components;
-using Content.Server.Flash.Components;
+using Content.Shared.Flash.Components;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Stealth;
@@ -402,7 +402,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         DoScreech(uid, comp);
 
         var power = comp.ShriekPower;
-        _flash.FlashArea(uid, uid, power, power * 2f * 1000f);
+        _flash.FlashArea(uid, uid, power, TimeSpan.FromSeconds(power * 2));
 
         var lookup = _lookup.GetEntitiesInRange(uid, power);
         var lights = GetEntityQuery<PoweredLightComponent>();
