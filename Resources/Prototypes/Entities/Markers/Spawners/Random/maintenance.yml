@@ -57,7 +57,7 @@
       - id: ClothingHeadHatPaper
       - id: ClothingHeadHatPirate
       - id: ClothingMaskSterile
-      - id: ClothingNeckHeadphones
+      - id: ClothingMultipleHeadphones
       - id: ClothingNeckTieRed
       - id: ClothingOuterCoatGentle
       - !type:AllSelector
@@ -97,6 +97,7 @@
       weight: 23
       children:
       - id: ClothingNeckCloakHerald
+      #- id: ClothingHeadHelmetTemplar #imp edit, kill this thing
       # Cloaks
       - !type:GroupSelector
         children:
@@ -178,8 +179,26 @@
       - id: ClothingUniformJumpsuitFamilyGuy
       - id: WristwatchGold
       - id: RubberStampGreytide
+      - id: MysteryLighterBox
+      - id: GoldenPersonalAI
       - id: StraightHandyFlag # imp
       - id: ClothingBeltFoamSheathFilled # DeltaV - Add small chance of it spawning in maints locker.
+
+- type: entity
+  name: Maint Loot Spawner
+  suffix: Fluff+Clothes
+  id: MaintenanceFluffSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Clothing/Eyes/Glasses/gar.rsi
+      state: icon-super
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MaintFluffTable
+      prob: 0.6
 
 - type: entityTable
   id: MaintToolsTable
@@ -270,7 +289,7 @@
       - id: ModularReceiver
       - id: WeaponFlareGun
       - id: BarberScissors
-      - id: MagazineZipper
+      - id: MagazineZipper # imp
       - id: ToolboxJanitorialFilled # imp
       - !type:GroupSelector
         children:
@@ -294,146 +313,6 @@
       - id: SpectralLocator
       - id: LidSalami
         weight: 0.05
-
-- type: entity
-  name: Maint Loot Spawner
-  suffix: Fluff+Clothes
-  id: MaintenanceFluffSpawner
-  parent: MarkerBase
-  components:
-    - type: Sprite
-      layers:
-        - state: red
-        - sprite: Clothing/Eyes/Glasses/gar.rsi
-          state: icon-super
-    - type: RandomSpawner
-      rarePrototypes:
-        - ClothingUniformJumpsuitFamilyGuy
-        - CigarGold
-        - ClothingNeckCloakHerald
-        - ClothingNeckCloakTrans
-        - ClothingNeckCloakAdmin
-        - ClothingNeckCloakMoth
-        - ClothingNeckCloakVoid
-        - ClothingNeckCloakGoliathCloak
-        - ClothingNeckCloakAce
-        - ClothingNeckCloakAro
-        - ClothingNeckCloakBi
-        - ClothingNeckCloakIntersex
-        - ClothingNeckCloakLesbian
-        - ClothingNeckCloakGay
-        - ClothingNeckCloakEnby
-        - ClothingNeckCloakPan
-        - ClothingNeckCloakStraight
-        - ToySkeleton
-        - Basketball
-        - Football
-        - BalloonCorgi
-        - BalloonNT
-        - PonderingOrb
-        - Skub
-        - DrinkMugDog
-        - ClothingNeckLGBTPin
-        - ClothingNeckAromanticPin
-        - ClothingNeckAsexualPin
-        - ClothingNeckBisexualPin
-        - ClothingNeckIntersexPin
-        - ClothingNeckLesbianPin
-        - ClothingNeckNonBinaryPin
-        - ClothingNeckPansexualPin
-        - ClothingNeckTransPin
-        - ClothingNeckStraightPin
-        - CluwneHorn
-        - ClothingMaskRat
-        - MysteryFigureBox
-        - ClothingHandsGlovesMercFingerless
-        - ClothingHandsGlovesNitrile
-        - ClothingHandsGlovesPowerglove
-        - ClothingHeadHatAnimalHeadslime
-        - ClothingHeadHatBeretMerc
-        - ClothingHeadHatOutlawHat
-        - ClothingHeadHatUshanka
-        - ClothingHeadHatBunny
-        - ClothingMaskNeckGaiter
-        - ClothingNeckScarfStripedZebra
-        - ClothingOuterRobesCult
-        - ClothingOuterGhostSheet
-        - ClothingShoesCult
-        - ClothingUniformJumpsuitAncient
-        - ClothingUniformJumpsuitPirate
-        - ClothingShoesBootsCowboyFancy
-        - ClothingHeadHatCowboyBountyHunter
-        - ClothingNeckAutismPin
-        - ClothingNeckGoldAutismPin
-        - ClothingNeckStraightPin
-        - WristwatchGold
-      rareChance: 0.01
-      prototypes:
-        - Lighter
-        - CigCartonBlue
-        - ClothingEyesGlassesGarMecha
-        - ClothingEyesGlassesGarGiga
-        - ClothingEyesGlassesGarOrange
-        - ClothingEyesGlassesGar
-        - ClothingHeadHatCake
-        - ClothingHeadHatSkub
-        - ClothingHeadHatCone
-        - ClothingNeckBling
-        - ClothingHeadHelmetCosmonaut
-        - ClothingHeadHelmetBasic
-        - ClothingShoeSlippersDuck
-        - ClothingUnderSocksBee
-        - ClothingUnderSocksCoder
-        - ClothingHeadHatSquid
-        - ClothingMaskFox
-        - ClothingMaskBee
-        - ClothingMaskBear
-        - ClothingMaskRaven
-        - ClothingMaskJackal
-        - ClothingMaskBat
-        - ClothingBeltSuspendersRed
-        - ClothingBeltSuspendersBlack
-        - ClothingEyesEyepatch
-        - ClothingEyesGlasses
-        - ClothingHandsGlovesLatex
-        - ClothingHandsGlovesFingerless
-        - ClothingHandsGlovesColorBlack
-        - ClothingHeadHatBeret
-        - ClothingHeadHatBowlerHat
-        - ClothingHeadHatFedoraBrown
-        - ClothingHeadHatFedoraGrey
-        - ClothingHeadHatFez
-        - ClothingHeadHatPaper
-        - ClothingHeadHatPirate
-        - ClothingHeadHatPirateTricord
-        - ClothingHeadHatTophat
-        - ClothingMaskSterile
-        - ClothingNeckHeadphones
-        - ClothingNeckTieRed
-        - ClothingOuterCoatGentle
-        - ClothingOuterCoatJensen
-        - ClothingEyesGlassesJensen
-        - ClothingOuterCoatLab
-        - ClothingOuterCoatPirate
-        - ClothingOuterHoodieBlack
-        - ClothingOuterHoodieGrey
-        - ClothingOuterFlannelRed
-        - ClothingOuterFlannelBlue
-        - ClothingOuterFlannelGreen
-        - ClothingOuterVestHazard
-        - ClothingShoesBootsJack
-        - ClothingShoesHighheelBoots
-        - ClothingShoesBootsLaceup
-        - ClothingShoesLeather
-        - ClothingShoesBootsSalvage
-        - ClothingShoesBootsWork
-        - ClothingShoesTourist
-        - ClothingUniformJumpsuitLoungewear
-        - ClothingHeadHatCowboyRed
-        - Wristwatch
-      chance: 0.6
-      offset: 0.0
-
 
 - type: entity
   name: Maint Loot Spawner
@@ -466,7 +345,7 @@
       - id: RifleStock
       - id: ModularReceiver
       - id: HydroponicsToolScythe
-      - id: WeaponPistolZipper
+      - id: WeaponPistolZipper #imp
     # Rare Group
     - !type:GroupSelector
       weight: 5
@@ -527,6 +406,7 @@
       chance: 0.6
       offset: 0.0
 
+
 - type: entityTable
   id: InsulsTable
   table: !type:GroupSelector
@@ -554,39 +434,3 @@
   - type: EntityTableSpawner
     table: !type:NestedSelector
       tableId: InsulsTable
-
-- type: entityTable
-  id: MaintEnemyTable
-  table: !type:GroupSelector
-    children:
-    # Weak Enemy
-    - id: MobTick
-      weight: 60
-    - id: DehydratedSpaceCarp
-      weight: 20
-    # Strong Enemy
-    - !type:GroupSelector
-      weight: 20
-      children:
-      - id: MobCarp
-        weight: 5
-      - id: MobCarpMagic
-      - id: MobCarpHolo
-      - id: MobCarpRainbow
-
-- type: entity
-  name: Maint Loot Spawner
-  suffix: Enemy
-  id: MaintenanceEnemySpawner
-  parent: MarkerBase
-  components:
-  - type: Sprite
-    layers:
-      - state: red
-      - sprite: Mobs/Aliens/Carps/space.rsi
-        state: alive
-  - type: EntityTableSpawner
-    table: !type:NestedSelector
-      tableId: MaintEnemyTable
-      prob: 0.6
-

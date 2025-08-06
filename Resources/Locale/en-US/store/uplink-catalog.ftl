@@ -48,12 +48,6 @@ uplink-smoke-grenade-desc = A grenade that releases a huge cloud of smoke, perfe
 uplink-mini-bomb-name = Minibomb
 uplink-mini-bomb-desc = A low-yield, high-impact precision sabotage explosive with a 5 second long fuse. Perfect for quickly destroying a machine, dead body, or whatever else needs to go.
 
-uplink-supermatter-grenade-name = Supermatter Grenade
-uplink-supermatter-grenade-desc = Grenade that simulates delamination of a supermatter engine, generates powerful gravity well. Explosion comparable to a Mini Bomb.
-
-uplink-beenade-name = Beenade
-uplink-beenade-desc = The ultimate in distraction, this foaming grenade contains enough pure concentrated bees to keep Medbay busy for quite a while. Throw it into the bar and watch everyone panic. Just don't stand too close.
-
 uplink-singularity-grenade-name = Singularity Grenade
 uplink-singularity-grenade-desc = Grenade that simulates the power of a singularity, generates powerful gravity well. Explosion comparable to a Mini Bomb.
 
@@ -94,9 +88,6 @@ uplink-incendiary-grenade-desc = Releases a spray of incendiary fragments, ignit
 
 uplink-shrapnel-grenade-name = Shrapnel Grenade
 uplink-shrapnel-grenade-desc = Launches a spray of sharp fragments dealing great damage against unarmored targets.
-
-uplink-bros-grenade-name = BROSnade
-uplink-bros-grenade-desc = A colony of angry BROS captured in a glass bottle. UNGH
 
 # Ammo
 uplink-pistol-magazine-name = Pistol Magazine (.35 auto)
@@ -145,6 +136,7 @@ uplink-holster-desc = A deep shoulder holster capable of holding many types of b
 uplink-chest-rig-name = Chest Rig
 uplink-chest-rig-desc = Explosion-resistant tactical webbing used for holding traitor goods.
 
+#imp name tweak
 uplink-emag-name = Cryptographic Sequencer
 uplink-emag-desc = The business card of the syndicate, this sequencer is able to tamper with a variety of station devices. Recharges automatically.
 
@@ -511,11 +503,8 @@ uplink-business-card-desc = A business card that you can give to someone to demo
 uplink-fake-mindshield-name = Fake Mindshield
 uplink-fake-mindshield-desc = A togglable implant capable of mimicking the same transmissions a real mindshield puts out when on, tricking capable Heads-up displays into thinking you have a mindshield (Nanotrasen brand implanter not provided.)
 
+uplink-contraband-lighter-name = Contraband Lighter box
+uplink-contraband-lighter-desc = A mystery box guaranteed to contain a syndicate branded lighter. No fuel required
+
 uplink-smuggler-satchel-name = Smuggler's Satchel
 uplink-smuggler-satchel-desc = A handy, suspicious looking satchel. Just flat enough to fit underneath floor tiles.
-
-uplink-pin-straight-name = Straight Pride Pin
-uplink-pin-straight-desc = Demonstrate your support for the heterosexual community with this straight pride pin.
-
-uplink-cloak-straight-name = Straight Pride Cloak
-uplink-cloak-straight-desc = Demonstrate your support for the heterosexual community (and the hamburglar) with this stripy, black-and-white cloak.

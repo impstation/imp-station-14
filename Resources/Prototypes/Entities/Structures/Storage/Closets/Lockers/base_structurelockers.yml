@@ -54,11 +54,8 @@
     node: done
     containers:
     - entity_storage
-  - type: DamageOtherOnHit # imp
-    damage:
-      types:
-        Blunt: 10
-    staminaCost: 35
+  - type: Paintable
+    group: Locker
 
 - type: entity
   id: LockerBaseSecure
