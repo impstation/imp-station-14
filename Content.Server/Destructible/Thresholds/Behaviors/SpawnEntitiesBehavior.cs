@@ -29,6 +29,7 @@ namespace Content.Server.Destructible.Thresholds.Behaviors
         [DataField]
         public bool SpawnInContainer;
 
+        // #IMP
         [DataField]
         public bool MultiplyByNumberInStack = true;
 
@@ -42,7 +43,7 @@ namespace Content.Server.Destructible.Thresholds.Behaviors
             var executions = 1;
             if (system.EntityManager.TryGetComponent<StackComponent>(owner, out var stack))
             {
-                if (MultiplyByNumberInStack)
+                if (MultiplyByNumberInStack)//#IMP
                     executions = stack.Count;
             }
 
