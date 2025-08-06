@@ -80,6 +80,7 @@ public abstract class ClothingSystem : EntitySystem
     {
         component.InSlot = args.Slot;
         component.InSlotFlag = args.SlotFlags;
+        component.Equipee = args.Equipee; // imp
 
         if ((component.Slots & args.SlotFlags) == SlotFlags.NONE)
             return;
@@ -104,6 +105,7 @@ public abstract class ClothingSystem : EntitySystem
 
         component.InSlot = null;
         component.InSlotFlag = null;
+        component.Equipee = null; // imp
     }
 
     private void OnGetState(EntityUid uid, ClothingComponent component, ref ComponentGetState args)
