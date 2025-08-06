@@ -267,6 +267,17 @@
     - UplinkWeaponry
 
 - type: listing
+  id: uplinkStarService
+  name: uplink-super-mosin-name
+  description: uplink-super-mosin-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Snipers/star_service.rsi, state: base }
+  productEntity: ClothingBackpackDuffelSyndicateFilledSuperMosin
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkWeaponry
+
+- type: listing
   id: UplinkMixedRejects
   name: uplink-mixed-rejects-name
   description: uplink-mixed-rejects-desc
