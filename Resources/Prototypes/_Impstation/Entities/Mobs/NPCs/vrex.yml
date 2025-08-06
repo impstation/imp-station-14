@@ -5,7 +5,7 @@
   description: A brown and bear like predator, it eats wild boars. It lumbers around, even FinFin are eaten. It lives in the Tsubu-woods and in the valley. #taken directly from the finfin fanpage, i kinda love it too much to change it. feel free to convince me otherwise.
   abstract: true
   components:
-  - type: Bloodstream 
+  - type: Bloodstream
     bloodMaxVolume: 1000
     bloodReagent: Blood
   - type: GhostRole
@@ -91,7 +91,7 @@
     groups:
     - id: Medicine
     - id: Poison
-  - type: Absorbable 
+  - type: Absorbable
     biomassRestored: 0.8
   - type: Butcherable
     spawned:
@@ -126,8 +126,12 @@
     footstepSoundCollection:
       collection: FootstepThud
   - type: Devourer
-    foodPreference: Humanoid
-    shouldStoreDevoured: true
+    foodPreferenceWhitelist:
+      components:
+      - HumanoidAppearance
+    stomachStorageWhitelist:
+      components:
+      - MobState
     chemical: Ichor
     healRate: 3.0 #this thing doesnt need to heal, it's such a damage sponge
     whitelist:
@@ -173,7 +177,7 @@
   #  speedBoost: 3
     #reagentProduced: Mucin
 
-#- type: entity 
+#- type: entity
 #  parent: BaseAction
 #  id: ActionRush
 #  name: Rage Rush

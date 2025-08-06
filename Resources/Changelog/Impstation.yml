@@ -1,52 +1,4 @@
 ﻿Entries:
-- author: hivehum, crocodilecarousel, faelingdraws
-  changes:
-  - message: 65 new markings have been added for further customization.
-    type: Add
-  - message: Gray antennae and ears are visible again.
-    type: Fix
-  id: 1619
-  time: '2025-05-08T23:42:33.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2412
-- author: widgetbeck
-  changes:
-  - message: Anomalites now have unique talk and scream sounds, and access to the
-      emote wheel.
-    type: Tweak
-  - message: Anomalites can now ventcrawl.
-    type: Tweak
-  - message: Anomalites now have unique death sprites.
-    type: Tweak
-  - message: Anomalites now have resistances to relevant damage types.
-    type: Tweak
-  - message: Anomalites can now have their modifiers changed via APEs.
-    type: Fix
-  id: 1620
-  time: '2025-05-08T23:45:55.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2408
-- author: DinnerCalzone
-  changes:
-  - message: Airlocks to escape pods now require maints access instead of external
-      access until roundstart docking is fixed.
-    type: Fix
-  id: 1621
-  time: '2025-05-08T23:47:15.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2424
-- author: CombustibleToast
-  changes:
-  - message: Two new bomber jackets for atmos techs! Find em in your loadout screen
-      or the atmos drobe.
-    type: Add
-  id: 1622
-  time: '2025-05-08T23:58:20.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2388
-- author: ATDoop
-  changes:
-  - message: Coconuts! Grow them and throw them today!
-    type: Add
-  id: 1623
-  time: '2025-05-08T23:59:44.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2373
 - author: jtfg-dev
   changes:
   - message: Cassette tapes are now five minutes per side.
@@ -4223,3 +4175,43 @@
   id: 2118
   time: '2025-08-05T07:12:28.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3227
+- author: TheGrimbeeper
+  changes:
+  - message: prize tickets being burned no longer leave any ash
+    type: Tweak
+  id: 2119
+  time: '2025-08-06T02:47:37.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3232
+- author: widgetbeck
+  changes:
+  - message: Peer pressure.
+    type: Add
+  id: 2120
+  time: '2025-08-06T02:48:11.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3225
+- author: DinnerCalzone
+  changes:
+  - message: Woe, usptream merge be upon ye! This update includes changes from Wizden
+      published on July 7th and July 20th.
+    type: Add
+  - message: The janitorial welder has been removed from the janibelt and moved to
+      the locker (don't worry, they're still craftable at a lathe!)
+    type: Tweak
+  id: 2121
+  time: '2025-08-06T10:31:48.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3223
+- author: ATDoop
+  changes:
+  - message: Magnum stun projectiles should be a little more obvious.
+    type: Tweak
+  id: 2122
+  time: '2025-08-06T11:05:25.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3199
+- author: yesteryuri
+  changes:
+  - message: Added the psychologist's pill canister and a couple of other loadout
+      options to psychologist.
+    type: Add
+  id: 2123
+  time: '2025-08-06T11:37:03.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3234
