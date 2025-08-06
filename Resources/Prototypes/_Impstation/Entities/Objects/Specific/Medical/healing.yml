@@ -126,3 +126,258 @@
     contents:
     - id: PillHappiness
       amount: 5
+
+# psych pills and bottles
+
+- type: entity
+  name: psychologist's pill
+  suffix: Sugar 10u
+  parent: Pill
+  description: This pill looks particularly effective.
+  id: PillSugar
+  components:
+  - type: Pill
+    pillType: 21
+  - type: Sprite
+    state: pill22
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 10
+
+- type: entity
+  name: pill
+  parent: Pill
+  categories: [ HideSpawnMenu ]
+  id: PillSpaceMirage
+  components:
+  - type: Label
+    currentLabel: space mirage 20u
+  - type: Pill
+    pillType: 21
+  - type: Sprite
+    state: pill22
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: SpaceDrugs
+          Quantity: 20
+
+- type: entity
+  name: pill
+  parent: Pill
+  categories: [ HideSpawnMenu ]
+  id: PillChloralHydrate
+  components:
+  - type: Label
+    currentLabel: chloral hydrate 10u
+  - type: Pill
+    pillType: 21
+  - type: Sprite
+    state: pill22
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: ChloralHydrate
+          Quantity: 10
+
+- type: entity
+  name: pill
+  parent: Pill
+  categories: [ HideSpawnMenu ]
+  id: PillPax
+  components:
+  - type: Label
+    currentLabel: pax 10u
+  - type: Pill
+    pillType: 21
+  - type: Sprite
+    state: pill22
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Pax
+          Quantity: 10
+
+- type: entity
+  name: pill
+  parent: Pill
+  categories: [ HideSpawnMenu ]
+  id: PillTestosterone
+  components:
+  - type: Label
+    currentLabel: testosterone 10u
+  - type: Pill
+    pillType: 21
+  - type: Sprite
+    state: pill22
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Testosterone
+          Quantity: 10
+
+- type: entity
+  name: pill
+  parent: Pill
+  categories: [ HideSpawnMenu ]
+  id: PillEstradiol
+  components:
+  - type: Label
+    currentLabel: estradiol 10u
+  - type: Pill
+    pillType: 21
+  - type: Sprite
+    state: pill22
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Estradiol
+          Quantity: 10
+
+- type: entity
+  name: pill
+  parent: Pill
+  categories: [ HideSpawnMenu ]
+  id: PillMindbreaker
+  components:
+  - type: Label
+    currentLabel: mindbreaker toxin 10u
+  - type: Pill
+    pillType: 21
+  - type: Sprite
+    state: pill22
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: MindbreakerToxin
+          Quantity: 10
+
+- type: entity
+  name: pill
+  parent: Pill
+  categories: [ HideSpawnMenu ]
+  id: PillJuiceThatMakesYouWeh
+  components:
+  - type: Label
+    currentLabel: weh 10u
+  - type: Pill
+    pillType: 21
+  - type: Sprite
+    state: pill22
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: JuiceThatMakesYouWeh
+          Quantity: 10
+
+- type: entity
+  name: pill
+  parent: Pill
+  categories: [ HideSpawnMenu ]
+  id: PillEphedrine
+  components:
+  - type: Label
+    currentLabel: ephedrine 10u
+  - type: Pill
+    pillType: 21
+  - type: Sprite
+    state: pill22
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Ephedrine
+          Quantity: 10
+
+- type: entity
+  name: pill
+  parent: Pill
+  categories: [ HideSpawnMenu ]
+  id: PillFrezon
+  components:
+  - type: Label
+    currentLabel: frezon 10u # this lasted about 6 minutes and was pretty managable
+  - type: Pill
+    pillType: 21
+  - type: Sprite
+    state: pill22
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Frezon
+          Quantity: 10
+
+- type: entityTable
+  id: RandomSafePyschPillTable #i thought about using the random stuff strange pills use but i really wanted these to be labelled
+  table: !type:GroupSelector
+    children:
+    - id: PillSugar
+      weight: 0.15
+    - id: PillSpaceMirage
+      weight: 0.2
+    - id: PillLacedPsicodine
+      weight: 0.05
+    - id: PillChloralHydrate
+      weight: 0.2
+    - id: PillPax
+      weight: 0.2
+    - id: PillTestosterone
+      weight: 0.1
+    - id: PillEstradiol
+      weight: 0.1
+
+- type: entityTable
+  id: RandomUnsafePyschPillTable
+  table: !type:GroupSelector
+    children:
+    - id: PillMindbreaker
+      weight: 0.25
+    - id: PillHappiness
+      weight: 0.2
+    - id: PillFrezon
+      weight: 0.15
+    - id: PillEphedrine
+      weight: 0.2
+    - id: PillJuiceThatMakesYouWeh
+      weight: 0.2
+
+- type: entity
+  name: psychologist's pill canister
+  parent: [PillCanister, BaseMedicalContraband]
+  description: An assortment of prescription medications well suited to the denizens of a space station.
+  id: PillCanisterPsych
+  suffix: Psychologist Random
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          rolls: !type:RangeNumberSelector
+            range: 7, 7
+          tableId: RandomSafePyschPillTable
+        - !type:NestedSelector
+          rolls: !type:RangeNumberSelector
+            range: 3, 3
+          tableId: RandomUnsafePyschPillTable
