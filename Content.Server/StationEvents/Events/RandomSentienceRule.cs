@@ -6,16 +6,19 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Content.Server.Announcements.Systems;
-using Robust.Shared.Player;
+using Content.Server.Announcements.Systems; // imp edit
+using Robust.Shared.Player; // imp edit
 
 namespace Content.Server.StationEvents.Events;
 
 public sealed class RandomSentienceRule : StationEventSystem<RandomSentienceRuleComponent>
 {
+    private static readonly ProtoId<LocalizedDatasetPrototype> DataSourceNames = "RandomSentienceEventData";
+    private static readonly ProtoId<LocalizedDatasetPrototype> IntelligenceLevelNames = "RandomSentienceEventStrength";
+
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly AnnouncerSystem _announcer = default!;
+    [Dependency] private readonly AnnouncerSystem _announcer = default!; // imp edit
 
     protected override void Started(EntityUid uid, RandomSentienceRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
@@ -72,6 +75,7 @@ public sealed class RandomSentienceRule : StationEventSystem<RandomSentienceRule
         var kind2 = groupList.Count > 1 ? groupList[1] : "???";
         var kind3 = groupList.Count > 2 ? groupList[2] : "???";
 
+        // imp edit start
         _announcer.SendAnnouncement(
             _announcer.GetAnnouncementId(args.RuleId),
             Filter.Broadcast(),
@@ -80,8 +84,9 @@ public sealed class RandomSentienceRule : StationEventSystem<RandomSentienceRule
             Color.Gold,
             null, null,
             ("kind1", kind1), ("kind2", kind2), ("kind3", kind3), ("amount", groupList.Count),
-                ("data", _random.Pick(_prototype.Index<LocalizedDatasetPrototype>("RandomSentienceEventData"))),
-                ("strength", _random.Pick(_prototype.Index<LocalizedDatasetPrototype>("RandomSentienceEventStrength")))
+            ("data", _random.Pick(_prototype.Index<LocalizedDatasetPrototype>("RandomSentienceEventData"))),
+            ("strength", _random.Pick(_prototype.Index<LocalizedDatasetPrototype>("RandomSentienceEventStrength")))
         );
+        // imp edit end
     }
 }

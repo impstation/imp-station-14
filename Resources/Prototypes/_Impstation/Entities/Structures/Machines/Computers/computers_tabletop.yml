@@ -1,0 +1,131 @@
+﻿- type: entity
+  parent: [BaseStructureComputerTabletop, ScienceComputerComms]
+  id: ScienceComputerTabletopComms
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    layers:
+    - map: ["computerLayerBody"]
+      sprite: _Impstation/Structures/Machines/computer_tabletop.rsi
+      state: computer_tabletop
+    - map: ["computerLayerKeyboard"]
+      sprite: _Impstation/Structures/Machines/computer_tabletop.rsi
+      state: generic_keyboard_tabletop
+    - map: ["computerLayerScreen"]
+      sprite: _Funkystation/Structures/Machines/computers.rsi
+      state: comm_science
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi
+
+- type: entity
+  parent: [BaseStructureComputerTabletop, SecurityComputerComms]
+  id: SecurityComputerTabletopComms
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    layers:
+    - map: ["computerLayerBody"]
+      sprite: _Impstation/Structures/Machines/computer_tabletop.rsi
+      state: computer_tabletop
+    - map: ["computerLayerKeyboard"]
+      sprite: _Impstation/Structures/Machines/computer_tabletop.rsi
+      state: generic_keyboard_tabletop
+    - map: ["computerLayerScreen"]
+      sprite: _Funkystation/Structures/Machines/computers.rsi
+      state: comm_security
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi
+
+- type: entity
+  parent: [BaseStructureComputerTabletop, ServiceComputerComms]
+  id: ServiceComputerTabletopComms
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    layers:
+    - map: ["computerLayerBody"]
+      sprite: _Impstation/Structures/Machines/computer_tabletop.rsi
+      state: computer_tabletop
+    - map: ["computerLayerKeyboard"]
+      sprite: _Impstation/Structures/Machines/computer_tabletop.rsi
+      state: generic_keyboard_tabletop
+    - map: ["computerLayerScreen"]
+      sprite: _Funkystation/Structures/Machines/computers.rsi
+      state: comm_service
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi
+
+- type: entity
+  parent: [BaseStructureComputerTabletop, SupplyComputerComms]
+  id: SupplyComputerTabletopComms
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    layers:
+    - map: ["computerLayerBody"]
+      sprite: _Impstation/Structures/Machines/computer_tabletop.rsi
+      state: computer_tabletop
+    - map: ["computerLayerKeyboard"]
+      sprite: _Impstation/Structures/Machines/computer_tabletop.rsi
+      state: generic_keyboard_tabletop
+    - map: ["computerLayerScreen"]
+      sprite: _Funkystation/Structures/Machines/computers.rsi
+      state: comm_supply
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi
+
+- type: entity
+  parent: [BaseStructureComputerTabletop, EngineeringComputerComms]
+  id: EngineeringComputerTabletopComms
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    layers:
+    - map: ["computerLayerBody"]
+      sprite: _Impstation/Structures/Machines/computer_tabletop.rsi
+      state: computer_tabletop
+    - map: ["computerLayerKeyboard"]
+      sprite: _Impstation/Structures/Machines/computer_tabletop.rsi
+      state: generic_keyboard_tabletop
+    - map: ["computerLayerScreen"]
+      sprite: _Funkystation/Structures/Machines/computers.rsi
+      state: comm_engineering
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi
+
+- type: entity
+  parent: [BaseStructureComputerTabletop, MedicalComputerComms]
+  id: MedicalComputerTabletopComms
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    layers:
+    - map: ["computerLayerBody"]
+      sprite: _Impstation/Structures/Machines/computer_tabletop.rsi
+      state: computer_tabletop
+    - map: ["computerLayerKeyboard"]
+      sprite: _Impstation/Structures/Machines/computer_tabletop.rsi
+      state: generic_keyboard_tabletop
+    - map: ["computerLayerScreen"]
+      sprite: _Funkystation/Structures/Machines/computers.rsi
+      state: comm_medical
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi

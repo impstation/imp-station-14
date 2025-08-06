@@ -35,6 +35,7 @@
     - id: ChangelingAwakening
     - id: BountyHunterSpawn # imp
     - id: ReplicatorSpawn # imp
+    - id: VRexEvent #imp
 
 - type: entityTable
   id: LesserAntagEventsTable # imp: lower impact antags
@@ -67,7 +68,7 @@
     - id: ChangelingAwakening
     - id: BountyHunterSpawn # imp
     - id: ReplicatorSpawn # imp
-
+    - id: VRexEvent #imp
 
 - type: entity
   id: BaseStationEvent
