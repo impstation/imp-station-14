@@ -388,8 +388,8 @@
 - type: entity
   parent: [ BaseComputerCircuitboard, BaseCommandContraband ]
   id: CommsComputerCircuitboard
-  name: communications computer board
-  description: A computer printed circuit board for a communications console.
+  name: command communications computer board # imp
+  description: A computer printed circuit board for the command communications console. # imp
   components:
   - type: Sprite
     state: cpu_command
