@@ -21,6 +21,6 @@ accent-words-sirval-16 = Weee...
 chat-emote-msg-deathgasp-sirval = politely and quietly passes away.
 
 ghost-role-information-emotional-support-sirval-name = Emotional Support Sirval
-ghost-role-information-emotional-support-sirval-description = Support the crew, be prim and proper, and live up to butler standards.
+ghost-role-information-emotional-support-sirval-description = Support the crew, be prim and proper, and live up to sartorial standards.
 
 station-event-random-sentience-flavor-sirval = sirval
