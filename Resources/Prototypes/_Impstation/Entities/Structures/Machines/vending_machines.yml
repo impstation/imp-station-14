@@ -10,8 +10,9 @@
     brokenState: broken
     normalState: normal-unshaded
     soundVend: /Audio/_Impstation/Machines/vending_drop.ogg #imp
-  - type: Advertise
-    pack: CargoDrobeAds
+  - type: Vocalizer
+  - type: DatasetVocalizer
+    dataset: CargoDrobeAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
@@ -69,8 +70,9 @@
     brokenState: broken
     normalState: normal-unshaded
     soundVend: /Audio/_Impstation/Machines/vending_drop.ogg #imp
-  - type: Advertise
-    pack: SalvDrobeAds
+  - type: Vocalizer
+  - type: DatasetVocalizer
+    dataset: SalvDrobeAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
@@ -109,8 +111,9 @@
     denyState: deny-unshaded
     initialStockQuality: 0.33
     soundVend: /Audio/_Impstation/Machines/vending_drop.ogg #imp
-  - type: Advertise
-    pack: ArticSeltzAds
+  - type: Vocalizer
+  - type: DatasetVocalizer
+    dataset: ArticSeltzAds
   - type: SpeakOnUIClosed
     pack: ArticSeltzGoodbyes
   - type: Sprite
@@ -144,8 +147,9 @@
     denyState: deny
     initialStockQuality: 0.20
     soundVend: /Audio/_Impstation/Machines/vending_drop.ogg
-  - type: Advertise
-    pack: DeadlyDansAds
+  - type: Vocalizer
+  - type: DatasetVocalizer
+    dataset: DeadlyDansAds
   - type: SpeakOnUIClosed
     pack: DeadlyDansGoodbyes
   - type: Sprite
