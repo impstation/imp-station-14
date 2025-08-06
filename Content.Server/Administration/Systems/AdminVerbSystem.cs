@@ -9,6 +9,8 @@ using Content.Server.Mind;
 using Content.Server.Prayer;
 using Content.Server.Silicons.Laws;
 using Content.Server.Station.Systems;
+using Content.Server.Xenoarchaeology.XenoArtifacts; //#IMP
+using Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Components; //#IMP
 using Content.Shared.Administration;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
@@ -57,6 +59,7 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly DisposalTubeSystem _disposalTubes = default!;
         [Dependency] private readonly EuiManager _euiManager = default!;
         [Dependency] private readonly GhostRoleSystem _ghostRoleSystem = default!;
+        [Dependency] private readonly ArtifactSystem _artifactSystem = default!; //#IMP Old Xeno
         [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
         [Dependency] private readonly PrayerSystem _prayerSystem = default!;
         [Dependency] private readonly MindSystem _mindSystem = default!;
@@ -91,7 +94,7 @@ namespace Content.Server.Administration.Systems
 
         private void AddAdminVerbs(GetVerbsEvent<Verb> args)
         {
-            if (!EntityManager.TryGetComponent(args.User, out ActorComponent? actor))
+            if (!TryComp(args.User, out ActorComponent? actor))
                 return;
 
             var player = actor.PlayerSession;
@@ -419,7 +422,7 @@ namespace Content.Server.Administration.Systems
 
         private void AddDebugVerbs(GetVerbsEvent<Verb> args)
         {
-            if (!EntityManager.TryGetComponent(args.User, out ActorComponent? actor))
+            if (!TryComp(args.User, out ActorComponent? actor))
                 return;
 
             var player = actor.PlayerSession;
@@ -432,7 +435,7 @@ namespace Content.Server.Administration.Systems
                     Text = Loc.GetString("delete-verb-get-data-text"),
                     Category = VerbCategory.Debug,
                     Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/delete_transparent.svg.192dpi.png")),
-                    Act = () => EntityManager.DeleteEntity(args.Target),
+                    Act = () => Del(args.Target),
                     Impact = LogImpact.Medium,
                     ConfirmationPopup = true
                 };
@@ -475,7 +478,7 @@ namespace Content.Server.Administration.Systems
             // Make Sentient verb
             if (_groupController.CanCommand(player, "makesentient") &&
                 args.User != args.Target &&
-                !EntityManager.HasComponent<MindContainerComponent>(args.Target))
+                !HasComp<MindContainerComponent>(args.Target))
             {
                 Verb verb = new()
                 {
@@ -486,6 +489,29 @@ namespace Content.Server.Administration.Systems
                     Impact = LogImpact.Medium
                 };
                 args.Verbs.Add(verb);
+            }
+
+            // #IMP OLD XenoArcheology
+            if (_adminManager.IsAdmin(player) && TryComp<ArtifactComponent>(args.Target, out var artifact))
+            {
+                // make artifact always active (by adding timer trigger)
+                args.Verbs.Add(new Verb()
+                {
+                    Text = Loc.GetString("artifact-verb-make-always-active"),
+                    Category = VerbCategory.Debug,
+                    Act = () => EntityManager.AddComponent<ArtifactTimerTriggerComponent>(args.Target),
+                    Disabled = EntityManager.HasComponent<ArtifactTimerTriggerComponent>(args.Target),
+                    Impact = LogImpact.High
+                });
+
+                // force to activate artifact ignoring timeout
+                args.Verbs.Add(new Verb()
+                {
+                    Text = Loc.GetString("artifact-verb-activate"),
+                    Category = VerbCategory.Debug,
+                    Act = () => _artifactSystem.ForceActivateArtifact(args.Target, component: artifact),
+                    Impact = LogImpact.High
+                });
             }
 
             if (TryComp<InventoryComponent>(args.Target, out var inventoryComponent))
@@ -541,7 +567,7 @@ namespace Content.Server.Administration.Systems
 
             // Get Disposal tube direction verb
             if (_groupController.CanCommand(player, "tubeconnections") &&
-                EntityManager.TryGetComponent(args.Target, out DisposalTubeComponent? tube))
+                TryComp(args.Target, out DisposalTubeComponent? tube))
             {
                 Verb verb = new()
                 {
@@ -568,7 +594,7 @@ namespace Content.Server.Administration.Systems
             }
 
             if (_groupController.CanAdminMenu(player) &&
-                EntityManager.TryGetComponent(args.Target, out ConfigurationComponent? config))
+                TryComp(args.Target, out ConfigurationComponent? config))
             {
                 Verb verb = new()
                 {
@@ -582,7 +608,7 @@ namespace Content.Server.Administration.Systems
 
             // Add verb to open Solution Editor
             if (_groupController.CanCommand(player, "addreagent") &&
-                EntityManager.HasComponent<SolutionContainerManagerComponent>(args.Target))
+                HasComp<SolutionContainerManagerComponent>(args.Target))
             {
                 Verb verb = new()
                 {

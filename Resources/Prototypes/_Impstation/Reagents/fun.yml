@@ -143,6 +143,28 @@
         refresh: false
 
 - type: reagent
+  id: Trash
+  name: reagent-name-trash
+  desc: reagent-desc-trash
+  physicalDesc: reagent-physical-desc-murky
+  flavor: trash
+  metabolisms:
+    Food:
+      effects:
+        - !type:SatiateHunger
+          conditions:
+            - !type:OrganType
+              type: Rat
+        - !type:HealthChange
+          conditions:
+          - !type:OrganType
+            type: Rat
+            shouldHave: false
+          damage:
+            types:
+              Poison: 0.5
+
+- type: reagent
   id: Holium
   # group: Special # The recipe is complicated enough that I think we shouldnt hide the recipe honestly
   name: reagent-name-holium
@@ -201,7 +223,7 @@
         faction: Passive
         conditions:
         - !type:ReagentThreshold
-          min: 15
+          min: 10
 
 - type: reagent
   id: Sadness
@@ -287,3 +309,53 @@
           - "butterflies-effect-chaos-two"
           - "butterflies-effect-chaos-three"
         probability: 0.4
+
+- type: reagent
+  id: Paprika
+  name: reagent-name-paprika
+  group: Foods
+  desc: reagent-desc-paprika
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: spicy
+  color: "#a52a2a"
+  recognizable: true
+  metabolisms:
+    Food:
+      effects:
+      - !type:Emote
+        emote: Cough
+        showInChat: false
+        showInGuidebook: true
+        probability: 0.65
+      - !type:PopupMessage
+        type: Local
+        messages:
+          - "paprika-effect-throat"
+          - "paprika-effect-chills"
+          - "paprika-effect-eyes"
+        probability: 0.05
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:Emote
+        emote: Cough
+        showInGuidebook: true
+        conditions:
+        - !type:Breathing
+        - !type:Internals
+          usingInternals: false
+          
+- type: reagent
+  id: Pulp
+  name: reagent-name-pulp
+  desc: reagent-desc-pulp
+  physicalDesc: reagent-physical-desc-pulpy
+  flavor: paper
+  color: "#806a44"
+  metabolisms:
+    Food:
+      effects:
+      - !type:AdjustReagent #imp
+        reagent: Cellulose
+        amount: 0.5

@@ -38,12 +38,12 @@
     - suitStorage
   - type: AmmoCounter
   - type: Gun
-    fireRate: 1
+    fireRate: 0.5 #imp
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/clake.ogg #imp
   - type: BallisticAmmoProvider
     whitelist:
       tags:
@@ -52,6 +52,8 @@
     proto: GrenadeFrag
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+    soundRack:
+      path: /Audio/_Impstation/Weapons/Guns/Cock/clake_cock.ogg #imp
 #imp edit begin; weapon melee
   - type: MeleeWeapon
     range: 0.8
@@ -78,6 +80,9 @@
     distance: 0.8
     speed: 5
 #imp edit end
+  - type: GunRequiresWield
+  - type: StaticPrice
+    price: 10000
 
 - type: entity
   parent: [ BaseWeaponLauncher, BaseGunWieldable, BaseMajorContraband ]
@@ -103,6 +108,7 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+  - type: GunRequiresWield
   - type: ContainerContainer
     containers:
       revolver-ammo: !type:Container
@@ -303,7 +309,7 @@
   - BaseItem
   - PowerCellSlotMediumItem
   id: WeaponTetherGun
-  description: Manipulates gravity around objects to fling them at high velocities.
+  description: You can call it the Zero-Point Energy Field Manipulator if you really want to. # imp; this thing isn't for flinging
   components:
     - type: Item
       storedRotation: -90
@@ -322,7 +328,7 @@
           map: [ "unshaded" ]
           shader: unshaded
           visible: false
-    - type: ToggleableLightVisuals
+    - type: ToggleableVisuals
       spriteLayer: unshaded
       inhandVisuals:
         left:
@@ -365,7 +371,7 @@
     - BaseItem
     - PowerCellSlotMediumItem
   id: WeaponForceGun
-  description: Manipulates gravity around objects to fling them at high velocities.
+  description: Pulls stuff, then throws stuff, probably hitting someone. # imp
   components:
     - type: Item
       storedRotation: -90
@@ -390,7 +396,7 @@
           map: [ "unshaded" ]
           shader: unshaded
           visible: false
-        - type: ToggleableLightVisuals
+        - type: ToggleableVisuals
           spriteLayer: unshaded
           inhandVisuals:
             left:
@@ -431,6 +437,7 @@
   name: grappling gun
   parent: BaseItem
   id: WeaponGrapplingGun
+  description: A gun that pulls its user towards its target. Useful for getting around while off-grid, or doing some anime shit. # imp; it seriously didn't have a description before
   components:
     - type: AmmoCounter
     - type: GrapplingGun
@@ -465,7 +472,7 @@
   parent: BaseItem
   id: WeaponTetherGunAdmin
   suffix: Admeme
-  description: Manipulates gravity around objects to fling them at high velocities.
+  description: Counter-resonant singularity device. # imp edit
   components:
     - type: TetherGun
       canTetherAlive: true
@@ -482,7 +489,7 @@
           map: [ "unshaded" ]
           shader: unshaded
           visible: false
-    - type: ToggleableLightVisuals
+    - type: ToggleableVisuals
       spriteLayer: unshaded
       inhandVisuals:
         left:
@@ -527,7 +534,7 @@
   parent: BaseItem
   id: WeaponForceGunAdmin
   suffix: Admeme
-  description: Manipulates gravity around objects to fling them at high velocities.
+  description: A gun for the admin who'll ban you forever. # imp edit
   components:
     - type: ForceGun
       canTetherAlive: true
@@ -547,7 +554,7 @@
           map: [ "unshaded" ]
           shader: unshaded
           visible: false
-    - type: ToggleableLightVisuals
+    - type: ToggleableVisuals
       spriteLayer: unshaded
       inhandVisuals:
         left:

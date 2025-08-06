@@ -10,12 +10,11 @@
     sprite: Clothing/Belt/utility.rsi
   - type: Clothing
     sprite: Clothing/Belt/utility.rsi
-  - type: Tag # Imp
-    tags:
-    - BeltUtility
   - type: Storage
     maxItemSize: Normal
-    # TODO: Fill this out more.
+    # Don't add more than absolutely needed to this whitelist!
+    # Utility belts shouldn't just be free extra storage.
+    # This is only intended for basic engineering equipment.
     whitelist:
       tags:
         - Powerdrill
@@ -35,9 +34,12 @@
         - JawsOfLife
         - GPS
         - WeldingMask
+        - RemoteSignaller
+        - Dart #Until Zookeeper gets its own belt they're gonna have to share. This is a temporary stopgap. Also Imp.
       components:
         - StationMap
         - SprayPainter
+        - SprayPainterAmmo
         - NetworkConfigurator
         - RCD
         - RCDAmmo
@@ -83,6 +85,11 @@
             - Multitool
     sprite: Clothing/Belt/belt_overlay.rsi
   - type: Appearance
+  - type: Tag
+    tags:
+    - UtilityBelt
+    - WhitelistChameleon
+    - BeltUtility # imp (?)
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -118,6 +125,7 @@
       components:
         - StationMap
         - SprayPainter
+        - SprayPainterAmmo
         - NetworkConfigurator
         - RCD
         - RCDAmmo
@@ -228,6 +236,7 @@
         - WetFloorSign
         - HolosignProjector
         - Plunger
+        - WireBrush
         - JanitorialWelder #imp edit
       components:
         - LightReplacer
@@ -485,11 +494,13 @@
         - MagazineMagnum
         - CombatKnife
         - Truncheon
-        - SecTicket
-        - Pribar #imp
-        - SpaceBladeSec #imp
-        - HandheldCriminalRecords #imp
         - HandGrenade
+        # imp edit start
+        - SecTicket
+        - Pribar
+        - SpaceBladeSec
+        - HandheldCriminalRecords
+        # imp edit end
       components:
         - Stunbaton
         - FlashOnTrigger
@@ -600,7 +611,7 @@
     - 0,0,3,1
 
 - type: entity
-  parent: [ClothingBeltStorageBase, Tier1Contraband]
+  parent: [ClothingBeltStorageBase, Tier1Contraband] #imp edit, balkanize syndie contraband
   id: ClothingBeltSyndieHolster
   name: syndicate shoulder holster
   description: A deep shoulder holster capable of holding many types of ballistics.
@@ -620,6 +631,8 @@
         - Gun
         - BallisticAmmoProvider
         - CartridgeAmmo
+  - type: StaticPrice
+    price: 500
 
 - type: entity
   parent: ClothingBeltSecurity
@@ -655,7 +668,7 @@
     sprite: Clothing/Belt/salvagewebbing.rsi
 
 - type: entity
-  parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, Tier3Contraband]
+  parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, Tier3Contraband] #imp edit, balkanize syndie contraband
   id: ClothingBeltMilitaryWebbing
   name: chest rig
   description: A set of tactical webbing worn by Syndicate boarding parties.
@@ -666,6 +679,8 @@
     sprite: Clothing/Belt/militarywebbing.rsi
   - type: ExplosionResistance
     damageCoefficient: 0.1
+  - type: StaticPrice
+    price: 500
 
 - type: entity
   parent: ClothingBeltMilitaryWebbing
@@ -705,16 +720,18 @@
   name: black suspenders
   description: For holding your pants up. # Imp start
   components:
+  - type: Sprite
+    sprite: Clothing/Belt/suspenders_black.rsi
+    state: icon #imp edit
+  - type: Clothing
+    sprite: Clothing/Belt/suspenders_black.rsi
+    quickEquip: true # Imp end
+  # imp edit start
   - type: Tag
     tags:
     - MimeBelt
     - MimeBeltBlack
-  - type: Sprite
-    sprite: Clothing/Belt/suspenders_black.rsi
-    state: icon
-  - type: Clothing
-    sprite: Clothing/Belt/suspenders_black.rsi
-    quickEquip: true # Imp end
+  # imp edit end
 
 - type: entity
   parent: [ ClothingBeltStorageBase, BaseMagicalContraband ]

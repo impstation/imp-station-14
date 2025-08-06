@@ -82,6 +82,23 @@
           min: 5
 
 - type: reagent
+  parent: Artifexium
+  id: ArtifactGlue
+  name: reagent-name-artifact-glue
+  desc: reagent-desc-artifact-glue
+  flavor: artifactglue
+  physicalDesc: reagent-physical-desc-non-newtonian
+  color: "#827394"
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:ArtifactDurabilityRestore
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+
+- type: reagent
   id: Benzene
   name: reagent-name-benzene
   desc: reagent-desc-benzene
@@ -165,6 +182,13 @@
   flavor: bitter
   color: "#E6E6DA"
   physicalDesc: reagent-physical-desc-crystalline
+  metabolisms: #imp
+    Food:
+      effects:
+      - !type:SatiateHunger
+        conditions:
+        - !type:OrganType
+          type: Moth
 
 - type: reagent
   id: Rororium

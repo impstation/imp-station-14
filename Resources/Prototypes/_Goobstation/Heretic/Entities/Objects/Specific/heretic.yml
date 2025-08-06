@@ -11,7 +11,7 @@
       map: [ "base" ]
   - type: GenericVisualizer
     visuals:
-      enum.ToggleVisuals.Toggled:
+      enum.ToggleableVisuals.Enabled:
         base:
           True: { state: icon-on }
           False: { state: icon }
@@ -24,7 +24,7 @@
     enabled: false
     radius: 2
     energy: 1
-    color: "#6e7500"    
+    color: "#6e7500"
     netsync: false
   - type: Appearance
   - type: ItemToggle
@@ -40,7 +40,8 @@
     - type: Contraband
       severity: TierXContraband
   - type: ItemTogglePointLight
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: enum.ToggleableVisuals.Layer
   - type: ItemToggleSize
     activatedSize: Normal
 
@@ -69,35 +70,3 @@
           Quantity: 60
         - ReagentId: TranexamicAcid
           Quantity: 15
-
-- type: entity
-  id: AlwaysPoweredHellLight
-  parent: MarkerBase
-  name: hellworldlight
-  description: "An always powered light."
-  suffix: Always powered
-  components:
-  - type: PointLight
-    color: "#FF7777" # 5000K color temp
-    energy: 0.8
-    radius: 10
-    softness: 1
-    offset: "0, -0.5"
-  - type: Sprite
-    layers:
-      - state: green
-      - sprite: Structures/Wallmounts/Lighting/light_tube.rsi
-        state: base
-
-- type: entity
-  id: HellSpawnPointMarker
-  parent: MarkerBase
-  name: hellworldtarget
-  description: "You go here if you do drugs."
-  components:
-  - type: HellSpawnPoint
-  - type: Sprite
-    layers:
-      - state: green
-      - sprite: Mobs/Species/Human/parts.rsi
-        state: full

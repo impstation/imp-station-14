@@ -1,4 +1,4 @@
-using Content.Server.EntityEffects.Effects;
+using Content.Server.EntityEffects;
 using Content.Shared.Clothing;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Damage.Components;
@@ -58,8 +58,9 @@ public sealed partial class MadnessMaskSystem : EntitySystem
                 if (_random.Prob(.4f))
                     _jitter.DoJitter(look, TimeSpan.FromSeconds(.5f), true, amplitude: 5, frequency: 10);
 
+                //IMP TODO: refactor this for new status effect system
                 if (_random.Prob(.25f))
-                    _statusEffect.TryAddStatusEffect<SeeingRainbowsComponent>(look, "SeeingRainbows", TimeSpan.FromSeconds(10f), false);
+                    _statusEffect.TryAddStatusEffect<SeeingRainbowsStatusEffectComponent>(look, "SeeingRainbows", TimeSpan.FromSeconds(10f), false);
             }
         }
     }

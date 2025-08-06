@@ -38,6 +38,8 @@
 
 - type: construction
   id: SecretReinf
+  name: recipes-reinforced-secret-door-name
+  description: recipes-reinforced-secret-door-desc
   graph: SecretReinf
   startNode: start
   targetNode: reinfSecretDoor
@@ -138,3 +140,29 @@
   canBuildInImpassable: false
   conditions:
   - !type:TileNotBlocked
+
+- type: construction
+  id: SteelWoodWall
+  graph: Girder
+  startNode: start
+  targetNode: steelWoodWall
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ReinforcedSteelWoodWall
+  graph: Girder
+  startNode: start
+  targetNode: reinforcedSteelWoodWall
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked

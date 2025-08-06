@@ -7,7 +7,7 @@
   icon: "JobIconZookeeper"
   supervisors: job-supervisors-hop
   access:
-  #- Service imp edit
+  - Service
   - Maintenance
   special:
   - !type:GiveItemOnHolidaySpecial
@@ -21,11 +21,12 @@
     head: ClothingHeadSafari
     shoes: ClothingShoesColorWhite
     id: ZookeeperPDA
+    belt: ClothingBeltUtility #imp
     ears: ClothingHeadsetService
-  inhand:
+  inhand: #imp
     - WeaponRifleTranq
   storage:
-    back:
+    belt: #imp
     - TranqDart
     - TranqDart
     - TranqDart
@@ -33,3 +34,15 @@
     - IrwizineDart
     - IrwizineDart
     - IrwizineDart
+
+- type: chameleonOutfit
+  id: ZookeeperChameleonOutfit
+  job: Zookeeper
+  equipment:
+    eyes: ClothingEyesGlassesCheapSunglasses
+    mask: ClothingMaskBreath
+    outerClothing: ClothingOuterWinterColorLightBrown
+    neck: ClothingNeckScarfStripedBrown
+    belt: ClothingBeltUtility #imp
+    gloves: ClothingHandsGlovesColorBrown
+

@@ -1,7 +1,7 @@
 - type: entity
-  id: BaseXenoArtifact
+  id: BaseXAEXenoArtifact #IMP XAE in name
   parent: BaseMob # we use this since it can technically get inhabited
-  name: artifact
+  name: reticulated artifact
   description: A strange artifact from time unknown. Looks like a good time.
   abstract: true
   noSpawn: true
@@ -49,15 +49,20 @@
       Flammable: [Touch]
       Extinguish: [Touch]
       Acidic: [Touch]
+  - type: WarpPoint # imp addition
+  - type: NameIdentifier # imp addition
+    group: Artifact
 
 - type: entity
+  parent: BaseAction
   id: ActionArtifactActivate
   name: Activate Artifact
   description: Activate yourself, causing chaos to those near you.
   components:
-  - type: InstantAction
+  - type: Action
     icon:
       sprite: Objects/Specific/Xenoarchaeology/xeno_artifacts.rsi
       state: ano29
     useDelay: 300
-    event: !type:ArtifactSelfActivateEvent
+  - type: InstantAction
+    event: !type:XAEArtifactSelfActivateEvent #IMP: Renamed to "XAEArtifact..." from "Artifact..."

@@ -23,10 +23,8 @@
       puddle:
         maxVol: 1000
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: Water
-          Quantity: 5
+        - ReagentId: Vomit
+          Quantity: 10
 
 - type: entity
   id: PuddleEgg
@@ -51,27 +49,12 @@
       puddle:
         maxVol: 1000
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: Water
-          Quantity: 5
+        - ReagentId: JuiceTomato
+          Quantity: 10
 
 - type: entity
-  id: PuddleBloodSmall
   parent: PuddleTemporary
-  suffix: Blood (5u)
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      puddle:
-        maxVol: 1000
-        reagents:
-        - ReagentId: Blood
-          Quantity: 5
-
-- type: entity
   id: PuddleBlood
-  parent: PuddleTemporary
   suffix: Blood (30u)
   components:
   - type: SolutionContainerManager
@@ -83,21 +66,21 @@
           Quantity: 30
 
 - type: entity
-  id: PuddleFluorosulfuricAcidSmall
   parent: PuddleTemporary
-  suffix: FluorosulfuricAcid (5u)
+  id: PuddleBloodSmall
+  suffix: Blood (5u)
   components:
   - type: SolutionContainerManager
     solutions:
       puddle:
         maxVol: 1000
         reagents:
-        - ReagentId: FluorosulfuricAcid
+        - ReagentId: Blood
           Quantity: 5
 
 - type: entity
-  id: PuddleFluorosulfuricAcid
   parent: PuddleTemporary
+  id: PuddleFluorosulfuricAcid
   suffix: FluorosulfuricAcid (15u)
   components:
   - type: SolutionContainerManager
@@ -109,6 +92,19 @@
           Quantity: 15
 
 - type: entity
+  parent: PuddleTemporary
+  id: PuddleFluorosulfuricAcidSmall
+  suffix: FluorosulfuricAcid (5u)
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 1000
+        reagents:
+        - ReagentId: FluorosulfuricAcid
+          Quantity: 5
+
+- type: entity
   id: PuddleWatermelon
   parent: PuddleTemporary
   suffix: Watermelon
@@ -118,10 +114,8 @@
       puddle:
         maxVol: 1000
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 15
-        - ReagentId: Water
-          Quantity: 15
+        - ReagentId: JuiceWatermelon
+          Quantity: 30
 
 - type: entity
   id: PuddleMucin

@@ -37,32 +37,13 @@
   metabolisms:
     Food:
       effects:
-      - !type:SatiateHunger
-        conditions:
-        - !type:OrganType
-          type: Moth
-
-- type: reagent
-  id: Trash
-  name: reagent-name-trash
-  desc: reagent-desc-trash
-  physicalDesc: reagent-physical-desc-murky
-  flavor: trash
-  metabolisms:
-    Food:
-      effects:
-        - !type:SatiateHunger
-          conditions:
-            - !type:OrganType
-              type: Rat
-        - !type:HealthChange
-          conditions:
-          - !type:OrganType
-            type: Rat
-            shouldHave: false
-          damage:
-            types:
-              Poison: 0.5
+      #- !type:SatiateHunger #imp
+      #  conditions:
+      #  - !type:OrganType
+      #    type: Moth
+      - !type:AdjustReagent #imp
+        reagent: Cellulose
+        amount: 1
 
 - type: reagent
   id: BuzzochloricBees
@@ -332,6 +313,8 @@
   color: "#FF4DD2"
   slipData:
     requiredSlipSpeed: 3.5 #clown juice gotta slip
+    superSlippery: true #imp edit, funnier this way
+  friction: 0.0 #imp edit, slip 'n slide
   metabolisms:
     Medicine:
       effects:
@@ -406,6 +389,40 @@
           min: 50
       - !type:AdjustReagent
         reagent: JuiceThatMakesYouHew
+        amount: -20
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
+
+- type: reagent
+  id: CorgiJuice
+  name: reagent-name-corgiessence
+  group: Toxins
+  desc: reagent-desc-corgiessence
+  physicalDesc: reagent-physical-desc-fluffy
+  flavor: dogfood
+  color: "#ed9715"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.2
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+        damage:
+          types:
+            Cellular: 0.5
+      - !type:Polymorph
+        prototype: SmartCorgiMorph
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
+        - !type:ReagentThreshold # imp - you're mutating yourself into dog
+          reagent: UnstableMutagen
+          min: 10
+      - !type:AdjustReagent
+        reagent: CorgiJuice
         amount: -20
         conditions:
         - !type:ReagentThreshold

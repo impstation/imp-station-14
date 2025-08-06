@@ -22,11 +22,11 @@
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#820a16" #imp
+        color: "#820a16"
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#820a16" #imp
+        color: "#820a16"
 
 - type: entity
   id: MagazineDMREmpty
@@ -69,11 +69,11 @@
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#d63b28" #imp
+        color: "#ffcb6f"
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#d63b28" #imp
+        color: "#ffcb6f"
 
 - type: entity
   id: MagazineDMRUranium
@@ -94,11 +94,11 @@
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#6b805e" #imp
+        color: "#22b24d"
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#6b805e" #imp
+        color: "#22b24d"
 
 - type: entity
   id: MagazineDMRIncendiary
@@ -108,6 +108,22 @@
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRifleIncendiary
+  - type: Sprite
+    layers:
+    - state: incendiary
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#d46925"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#d46925"
 
 - type: entity
   id: MagazineBR
@@ -128,6 +144,20 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 7
+    zeroVisible: false
+
+- type: entity
+  id: MagazineBREmpty
+  name: "magazine (.25 caseless any)"
+  description: A 24-round .25 caseless battle rifle magazine, with no apparent markings.
+  parent: MagazineBR
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+    capacity: 24
   - type: MagazineVisuals
     magState: mag
     steps: 7

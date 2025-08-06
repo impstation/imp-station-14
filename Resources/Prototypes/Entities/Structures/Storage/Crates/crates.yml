@@ -12,13 +12,17 @@
     - Energy
     reflectProb: 0.2
     spread: 90
-  - type: DamageOtherOnHit # imp
+  - type: Paintable
+    group: CrateSteel
+  - type: RadiationBlockingContainer
+    resistance: 2.5
+  # imp edit start
+  - type: DamageOtherOnHit
     damage:
       types:
         Blunt: 16
     staminaCost: 45
-  - type: RadiationBlockingContainer
-    resistance: 2.5
+  # imp edit end
 
 - type: entity
   parent: CrateBaseWeldable
@@ -36,11 +40,15 @@
     - entity_storage
   - type: StaticPrice
     price: 100
-  - type: DamageOtherOnHit # imp
+  - type: Paintable
+    group: CratePlastic
+  # imp edit start
+  - type: DamageOtherOnHit
     damage:
       types:
         Blunt: 10
     staminaCost: 30
+  # imp edit end
 
 - type: entity
   parent: CratePlastic
@@ -59,6 +67,8 @@
     node: done
     containers:
     - entity_storage
+  - type: Paintable
+    group: null
 
 - type: entity
   parent: CratePlastic
@@ -165,6 +175,15 @@
     damageModifierSet: Web
   - type: Destructible
     thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
         damage: 50
@@ -405,6 +424,15 @@
     sprite: Structures/Storage/Crates/cage.rsi
   - type: Destructible
     thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
         damage: 15
@@ -442,7 +470,7 @@
   id: CrateBaseLockBox
   parent: CrateBaseSecure
   name: lock box
-  description: "A secure lock box. Funds from its sale will be distributed back to the department. Just remember: Cargo always takes a cut."
+  description: "A secure lock box, complete with an anti-tamper acidifier system. Funds from its sale will be distributed back to the department. Just remember: Cargo always takes a cut." # imp edit
   abstract: true
   components:
   - type: Sprite
@@ -480,6 +508,9 @@
         - CrateMask #this is so they can go under plastic flaps
         layer:
         - MachineLayer
+  - type: AntiTamper # imp edit
+    containers:
+      - entity_storage
 
 - type: entity
   id: CrateLockBoxEngineering
@@ -564,7 +595,7 @@
     - state: closed
       map: ["enum.StorageVisualLayers.Door"]
     - state: overlay-closed
-      color: "#D381C9"
+      color: "#D381C9" #imp edit, color in departmental palette
       map: [ lid_overlay ]
     # imp edit start
     - state: overlay-open
@@ -711,7 +742,7 @@
   parent: CrateGeneric
   id: CrateCoffin
   name: coffin
-  description: A comfy coffin, excelent place for the vampires and corpses.
+  description: A comfy coffin, excellent place for the vampires and corpses.
   components:
   - type: Sprite
     sprite: Structures/Storage/Crates/coffin.rsi
@@ -726,6 +757,15 @@
     state: base
   - type: Destructible
     thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
         damage: 15
@@ -768,6 +808,15 @@
     state: base
   - type: Destructible
     thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
         damage: 200 # discourage just beating the grave to break it open
@@ -846,6 +895,8 @@
       sprite: _Impstation/Structures/Storage/Crates/labels.rsi # imp
       offset: "0.0,0.03125"
       map: ["enum.PaperLabelVisuals.Layer"]
+  - type: Paintable
+    group: null
 
 - type: entity
   parent: CrateBaseSecure
@@ -872,6 +923,8 @@
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: AccessReader
     access: [["Janitor"]]
+  - type: Paintable
+    group: null
 
 - type: entity
   parent: CrateBaseWeldable
@@ -880,6 +933,7 @@
   components:
   - type: Stealth
     hadOutline: true
+    useAltShader: true # imp
   - type: StealthOnMove
     passiveVisibilityRate: -0.10
     movementVisibilityRate: 0.10

@@ -41,6 +41,49 @@ namespace Content.Server.Atmos.EntitySystems
             }
         }
 
+        // BEGIN IMP ADD
+        /// <summary>
+        ///     Calculates the specific heat for a gas mixture.
+        ///     <br></br><b>Ensure that you know the difference between specific heat and heat capacity, and that you're using the correct function.</b>
+        /// </summary>
+        /// <param name="mixture">The mixture whose specific heat should be calculated</param>
+        public float GetSpecificHeat(GasMixture mixture)
+            => GetSpecificHeatCalculation(mixture.Moles, mixture.Immutable);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private float GetSpecificHeatCalculation(float[] moles, bool space)
+        {
+            //Mirroring heat capacity calculation: return space's specific heat
+            if (space && MathHelper.CloseTo(NumericsHelpers.HorizontalAdd(moles), 0f))
+            {
+                return Atmospherics.SpaceHeatCapacity;
+            }
+
+            //Create a proportional moles vector. Essentially we want the heat capacity of one mol of gas.
+            //Note: we *don't* want a normalized vector, as the denominator of the fraction will be a square root.
+            //E.g. A mix with 50/50 oxygen/nitrogen will compute to be 0.70 oxygen and 0.70 nitrogen instead of 0.5 and 0.5.
+            Span<float> temp = stackalloc float[moles.Length];
+
+            //Get the sum of the vector.
+            var molesSum = NumericsHelpers.HorizontalAdd(moles);
+
+            //This should never happen, but just in case.
+            if (molesSum == 0f)
+            {
+                return Atmospherics.SpaceHeatCapacity;
+            }
+
+            //Proportionalize the mols vector by dividing all elements within it by its sum.
+            //Here temp contains the fractional values of each gas in the mixture.
+            NumericsHelpers.Divide(moles, molesSum, temp);
+
+            //Multiply fractional moles with specific heats and return the sum. This is the specific heat of the mixture.
+            //Here temp contains the partial specific heat of each gas in the mixture.
+            NumericsHelpers.Multiply(temp, GasSpecificHeats, temp);
+            return NumericsHelpers.HorizontalAdd(temp);
+        }
+        // END IMP ADD
+
         /// <summary>
         ///     Calculates the heat capacity for a gas mixture.
         /// </summary>
@@ -250,6 +293,128 @@ namespace Content.Server.Atmos.EntitySystems
             }
 
             Merge(destination, buffer);
+        }
+
+        /// <summary>
+        /// Calculates the dimensionless fraction of gas required to equalize pressure between two gas mixtures.
+        /// </summary>
+        /// <param name="gasMixture1">The first gas mixture involved in the pressure equalization.
+        /// This mixture should be the one you always expect to be the highest pressure.</param>
+        /// <param name="gasMixture2">The second gas mixture involved in the pressure equalization.</param>
+        /// <returns>A float (from 0 to 1) representing the dimensionless fraction of gas that needs to be transferred from the
+        /// mixture of higher pressure to the mixture of lower pressure.</returns>
+        /// <remarks>
+        /// <para>
+        /// This properly takes into account the effect
+        /// of gas merging from inlet to outlet affecting the temperature
+        /// (and possibly increasing the pressure) in the outlet.
+        /// </para>
+        /// <para>
+        /// The gas is assumed to expand freely,
+        /// so the temperature of the gas with the greater pressure is not changing.
+        /// </para>
+        /// </remarks>
+        /// <example>
+        /// If you want to calculate the moles required to equalize pressure between an inlet and an outlet,
+        /// multiply the fraction returned by the source moles.
+        /// </example>
+        public float FractionToEqualizePressure(GasMixture gasMixture1, GasMixture gasMixture2)
+        {
+            /*
+            Problem: the gas being merged from the inlet to the outlet could affect the
+            temp. of the gas and cause a pressure rise.
+            We want the pressure to be equalized, so we have to account for this.
+
+            For clarity, let's assume that gasMixture1 is the inlet and gasMixture2 is the outlet.
+
+            We require mechanical equilibrium, so \( P_1' = P_2' \)
+
+            Before the transfer, we have:
+            \( P_1 = \frac{n_1 R T_1}{V_1} \)
+            \( P_2 = \frac{n_2 R T_2}{V_2} \)
+
+            After removing fraction \( x \) moles from the inlet, we have:
+            \( P_1' = \frac{(1 - x) n_1 R T_1}{V_1} \)
+
+            The outlet will gain the same \( x n_1 \) moles of gas.
+            So \( n_2' = n_2 + x n_1 \)
+
+            After mixing, the outlet temperature will be changed.
+            Denote the new mixture temperature as \( T_2' \).
+            Volume is constant.
+            So we have:
+            \( P_2' = \frac{(n_2 + x n_1) R T_2}{V_2} \)
+
+            The total energy of the incoming inlet to outlet gas at \( T_1 \) plus the existing energy of the outlet gas at \( T_2 \)
+            will be equal to the energy of the new outlet gas at \( T_2' \).
+            This leads to the following derivation:
+            \( x n_1 C_1 T_1 + n_2 C_2 T_2 = (x n_1 C_1 + n_2 C_2) T_2' \)
+
+            Where \( C_1 \) and \( C_2 \) are the heat capacities of the inlet and outlet gases, respectively.
+
+            Solving for \( T_2' \) gives us:
+            \( T_2' = \frac{x n_1 C_1 T_1 + n_2 C_2 T_2}{x n_1 C_1 + n_2 C_2} \)
+
+            Once again, we require mechanical equilibrium (\( P_1' = P_2' \)),
+            so we can substitute \( T_2' \) into the pressure equation:
+
+            \( \frac{(1 - x) n_1 R T_1}{V_1} =
+            \frac{(n_2 + x n_1) R}{V_2} \cdot
+            \frac{x n_1 C_1 T_1 + n_2 C_2 T_2}
+            {x n_1 C_1 + n_2 C_2} \)
+
+            Now it's a matter of solving for \( x \).
+            Not going to show the full derivation here, just steps.
+            1. Cancel common factor \( R \).
+            2. Multiply both sides by \( x n_1 C_1 + n_2 C_2 \), so that everything
+            becomes a polynomial in terms of \( x \).
+            3. Expand both sides.
+            4. Collect like powers of \( x \).
+            5. After collecting, you should end up with a polynomial of the form:
+
+            \( (-n_1 C_1 T_1 (1 + \frac{V_2}{V_1})) x^2 +
+            (n_1 T_1 \frac{V_2}{V_1} (C_1 - C_2) - n_2 C_1 T_1 - n_1 C_2 T_2) x +
+            (n_1 T_1 \frac{V_2}{V_1} C_2 - n_2 C_2 T_2) = 0 \)
+
+            Divide through by \( n_1 C_1 T_1 \) and replace each ratio with a symbol for clarity:
+            \( k_V = \frac{V_2}{V_1} \)
+            \( k_n = \frac{n_2}{n_1} \)
+            \( k_T = \frac{T_2}{T_1} \)
+            \( k_C = \frac{C_2}{C_1} \)
+            */
+
+            // Ensure that P_1 > P_2 so the quadratic works out.
+            if (gasMixture1.Pressure < gasMixture2.Pressure)
+            {
+                (gasMixture1, gasMixture2) = (gasMixture2, gasMixture1);
+            }
+
+            // Establish the dimensionless ratios.
+            var volumeRatio = gasMixture2.Volume / gasMixture1.Volume;
+            var molesRatio = gasMixture2.TotalMoles / gasMixture1.TotalMoles;
+            var temperatureRatio = gasMixture2.Temperature / gasMixture1.Temperature;
+            var heatCapacityRatio = GetHeatCapacity(gasMixture2) / GetHeatCapacity(gasMixture1);
+
+            // The quadratic equation is solved for the transfer fraction.
+            var quadraticA = 1 + volumeRatio;
+            var quadraticB = molesRatio - volumeRatio + heatCapacityRatio * (temperatureRatio + volumeRatio);
+            var quadraticC = heatCapacityRatio * (molesRatio * temperatureRatio - volumeRatio);
+
+            return (-quadraticB + MathF.Sqrt(quadraticB * quadraticB - 4 * quadraticA * quadraticC)) / (2 * quadraticA);
+        }
+
+        /// <summary>
+        /// Determines the number of moles that need to be removed from a <see cref="GasMixture"/> to reach a target pressure threshold.
+        /// </summary>
+        /// <param name="gasMixture">The gas mixture whose moles and properties will be used in the calculation.</param>
+        /// <param name="targetPressure">The target pressure threshold to calculate against.</param>
+        /// <returns>The difference in moles required to reach the target pressure threshold.</returns>
+        /// <remarks>The temperature of the gas is assumed to be not changing due to a free expansion.</remarks>
+        public static float MolesToPressureThreshold(GasMixture gasMixture, float targetPressure)
+        {
+            // Kid named PV = nRT.
+            return gasMixture.TotalMoles -
+                   targetPressure * gasMixture.Volume / (Atmospherics.R * gasMixture.Temperature);
         }
 
         /// <summary>

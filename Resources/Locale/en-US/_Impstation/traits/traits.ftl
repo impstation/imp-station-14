@@ -1,4 +1,4 @@
-trait-heavyweightdrunk-name = Heavyweight Drunk
+trait-heavyweightdrunk-name = Heavyweight drunk
 trait-heavyweightdrunk-desc = Alcohol has less of an effect on you.
 
 trait-hemophilia-name = Hemophilia
@@ -19,6 +19,9 @@ trait-unborgable-desc = Your brain is unable to fit into a Man-Machine Interface
 
 trait-accentless-name = No species accent
 trait-accentless-desc = You don't have the accent that your species would usually have.
+
+trait-archaic-name = Archaic speech
+trait-archaic-desc = Thy language is quite outdated, and thou still hold thyself to some manner of chivalry
 
 trait-accentimmune-name = No accent
 trait-accentimmune-desc = You have no accent whatsoever, somehow. Where are you from?
@@ -56,6 +59,9 @@ trait-basicfrench-desc = You speak with the cadence of someone who has cast off 
 trait-basicrussian-name = Russian (Basic)
 trait-basicrussian-desc = You speak with a Russian accent, with far fewer word replacements.
 
+trait-milbrat-name = Military Jargon
+trait-milbrat-desc = You make subtle references to a past stint in the military by using strange terminology and acronyms.
+
 trait-stiltedspeech-name = Stilted speech
 trait-stiltedspeech-desc = You Speak Very Properly At All Times.
 
@@ -73,6 +79,9 @@ trait-transatlantic-desc = You sound like a hardboiled detective, or a peppy new
 
 trait-positivity-name = Relentless positivity
 trait-positivity-desc = You're always making speeches about the power of friendship. Enjoy your shift!
+
+trait-pg-name = PG vocabulary
+trait-pg-desc = You've sworn off swearing.
 
 trait-imperfect-clone-name = Imperfect clone
 trait-imperfect-clone-desc = Something went wrong during the cloning process, and you came out a little different.
@@ -93,3 +102,6 @@ trait-category-randomizers = Randomizers
 
 trait-unadapted-to-space-name = Unadapted to space
 trait-unadapted-to-space-desc = Your body hasn't adapted to space, making you take more damage from exposure to it.
+
+trait-vowelrotation-name = Vowel Rotation
+trait-vowelrotation-desc = Yua'ri frum en udd curnir uf speci whiri iviry vuwil os shoftid uvir by uni. AEIOU -> EIOUA

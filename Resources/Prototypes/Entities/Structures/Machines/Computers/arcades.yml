@@ -75,102 +75,88 @@
     rewardMinAmount: 0
     rewardMaxAmount: 0
     possibleRewards:
-    - Basketball
-    - BalloonNT
-    - BalloonCorgi
-    - BoxDonkSoftBox
-    - BoxCartridgeCap
-    - BeachBall
-    - CandyBucket
-    - CrayonBox
-    - ClothingHeadHatCowboyRed
-    - FoamCrossbow
-    - FoamBlade
-    - FoamCutlass
-    - Football
-    - GlowstickBase #green
-    - GlowstickBlue
-    - GlowstickYellow
-    - GlowstickPurple
-    - GlowstickRed
-    - HarmonicaInstrument
-    - OcarinaInstrument
-    - RecorderInstrument
-    - GunpetInstrument
-    - BirdToyInstrument
-    - MysteryFigureBox
-    - PlushieHampter
-    - PlushieLizard
-    - PlushieRainbowLizard
-    - PlushieAtmosian
-    - PlushieSpaceLizard
-    - PlushieNuke
-    - PlushieCarp
-    - PlushieMagicarp
-    - PlushieHolocarp
-    - PlushieRainbowCarp
-    - PlushieRatvar
-    - PlushieNar
-    - PlushieSnake
-    - PlushieArachind
-    - PlushieMoth
-    - PlushieHampter
-    - PlushiePenguin
-    - PlushieHuman
-    - PlushieRouny
-    - PlushieBee
-    - PlushieSlime
-    - PlushieGhost
-    - PlushieDiona
-    - PlushieSharkBlue
-    - PlushieVox
-    - PlushieXeno
-    - PlasticBanana
-    - RevolverCapGun
-    - SnapPopBox
-    - ToyMouse
-    - ToyAi
-    - ToyNuke
-    - ToyGriffin
-    - ToyHonk
-    - ToyIan
-    - ToyMarauder
-    - ToyMauler
-    - ToyGygax
-    - ToyOdysseus
-    - ToyOwlman
-    - ToyDeathRipley
-    - ToyPhazon
-    - ToyFireRipley
-    - ToyReticence
-    - ToyRipley
-    - ToySeraph
-    - ToyDurand
-    - ToySkeleton
-    - ToySword
-    - ToyAmongPequeno
-    - ToyRubberDuck
-    - ToyHammer
-    - WeaponWaterPistol
-    - WhoopieCushion
-    - Whistle
-    # imp below
-    - PlushieGiantBear
-    - PlushieFinfin
-    - PlushieGray
-    - PlushieUrsaMinor
-    - PlushieDecapoid
-    - PlushieSnail
-    - PlushieThaven
-    - PlushieGoblin
-    - PlushieApid
-    - PlushieGriffy
-    - PrizeTicketGold
-    - PrizeTicketSilver
-    - PrizeTicketBronze
-    - PlushieKodepiia
-    - PetRockCarrier
-    - WeaponLauncherRocketToy
+    #- Basketball # imp - deprecated in favor of prize counter
+    #- BalloonNT
+    #- BalloonCorgi
+    #- BoxDonkSoftBox
+    #- BoxCartridgeCap
+    #- BeachBall
+    #- CandyBucket
+    #- CrayonBox
+    #- ClothingHeadHatCowboyRed
+    #- FoamCrossbow
+    #- FoamBlade
+    #- FoamCutlass
+    #- Football
+    #- GlowstickBase #green
+    #- GlowstickBlue
+    #- GlowstickYellow
+    #- GlowstickPurple
+    #- GlowstickRed
+    #- HarmonicaInstrument
+    #- OcarinaInstrument
+    #- RecorderInstrument
+    #- GunpetInstrument
+    #- BirdToyInstrument
+    #- MysteryFigureBox
+    #- PlushieHampter
+    #- PlushieLizard
+    #- PlushieRainbowLizard
+    #- PlushieAtmosian
+    #- PlushieSpaceLizard
+    #- PlushieNuke
+    #- PlushieCarp
+    #- PlushieMagicarp
+    #- PlushieHolocarp
+    #- PlushieRainbowCarp
+    #- PlushieRatvar
+    #- PlushieNar
+    #- PlushieSnake
+    #- PlushieArachind
+    #- PlushieMoth
+    #- PlushieHampter
+    #- PlushiePenguin
+    #- PlushieHuman
+    #- PlushieRouny
+    #- PlushieBee
+    #- PlushieSlime
+    #- PlushieGhost
+    #- PlushieDiona
+    #- PlushieSharkBlue
+    #- PlushieVox
+    #- PlushieXeno
+    #- PlasticBanana
+    #- RevolverCapGun
+    #- SnapPopBox
+    #- ToyMouse
+    #- ToyAi
+    #- ToyNuke
+    #- ToyGriffin
+    #- ToyHonk
+    #- ToyIan
+    #- ToyMarauder
+    #- ToyMauler
+    #- ToyGygax
+    #- ToyOdysseus
+    #- ToyOwlman
+    #- ToyDeathRipley
+    #- ToyPhazon
+    #- ToyFireRipley
+    #- ToyReticence
+    #- ToyRipley
+    #- ToySeraph
+    #- ToyDurand
+    #- ToySkeleton
+    #- ToySword
+    #- ToyAmongPequeno
+    #- ToyRubberDuck
+    #- ToyHammer
+    #- WeaponWaterPistol
+    #- WhoopieCushion
+    #- Whistle
+    - PrizeTicket10 # imp
+    - PrizeTicket # imp
+    - PrizeTicket100 # imp
   - type: WiresPanel
   - type: Wires
     layoutId: Arcade
@@ -187,10 +173,12 @@
         type: WiresBoundUserInterface
   - type: Computer
     board: SpaceVillainArcadeComputerCircuitboard
-  - type: Advertise
-    pack: SpaceVillainAds
-    minimumWait: 60 # Arcades are noisy
-    maximumWait: 240
+  - type: Vocalizer
+    minVocalizeInterval: 1m # Arcades are noisy
+    maxVocalizeInterval: 4m
+    hideChat: true
+  - type: DatasetVocalizer
+    dataset: SpaceVillainAds
   - type: SpeakOnUIClosed
     pack: SpaceVillainGoodbyes
 
@@ -232,9 +220,11 @@
         type: WiresBoundUserInterface
   - type: Computer
     board: BlockGameArcadeComputerCircuitboard
-  - type: Advertise
-    pack: BlockGameAds
-    minimumWait: 60 # Arcades are noisy
-    maximumWait: 240
+  - type: Vocalizer
+    minVocalizeInterval: 1m # Arcades are noisy
+    maxVocalizeInterval: 4m
+    hideChat: true
+  - type: DatasetVocalizer
+    dataset: BlockGameAds
   - type: SpeakOnUIClosed
     pack: BlockGameGoodbyes

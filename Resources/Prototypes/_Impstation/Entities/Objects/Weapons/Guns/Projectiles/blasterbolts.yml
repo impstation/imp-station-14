@@ -14,7 +14,7 @@
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-        Heat: 30
+        Heat: 28
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -61,6 +61,68 @@
     damage:
       types:
         Heat: 10
+    soundHit:
+      collection: WeakHit
+    forceSound: true
+
+- type: entity
+  name: adder plasma bolt
+  id: BulletPlasmaAdder
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    layers:
+    - state: mediumsynd
+      shader: unshaded
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectSyndLaser
+  - type: Projectile
+    impactEffect: BulletImpactEffectSyndicate
+    damage:
+      types:
+        Heat: 10
+        Piercing: 10
+    soundHit:
+      collection: WeakHit
+    forceSound: true
+
+- type: entity
+  name: akurra plasma bolt
+  id: BulletPlasmaAkurra
+  parent: BulletPlasmaAdder
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    layers:
+    - state: lightsynd
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 7.5
+        Piercing: 7.5
+
+- type: entity
+  name : toy blaster bolt
+  id: BulletBlasterToy
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    layers:
+    - state: toybolt
+      shader: unshaded
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectToyBlaster
+  - type: Projectile
+    impactEffect: BulletImpactEffectToyBlaster
+    damage:
+      types:
+        Cellular: 0.01
     soundHit:
       collection: WeakHit
     forceSound: true

@@ -6,11 +6,14 @@ using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using System.Numerics;
+using Content.Shared._Impstation.StatusIcon;
 
 namespace Content.Client.StatusIcon;
 
 public sealed class StatusIconOverlay : Overlay
 {
+    private static readonly ProtoId<ShaderPrototype> UnshadedShader = "unshaded";
+
     [Dependency] private readonly IEntityManager _entity = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -29,7 +32,7 @@ public sealed class StatusIconOverlay : Overlay
         _sprite = _entity.System<SpriteSystem>();
         _transform = _entity.System<TransformSystem>();
         _statusIcon = _entity.System<StatusIconSystem>();
-        _unshadedShader = _prototype.Index<ShaderPrototype>("unshaded").Instance();
+        _unshadedShader = _prototype.Index(UnshadedShader).Instance();
     }
 
     protected override void Draw(in OverlayDrawArgs args)
@@ -123,5 +126,90 @@ public sealed class StatusIconOverlay : Overlay
             handle.UseShader(null);
             handle.SetTransform(Matrix3x2.Identity);
         }
+
+        //imp edit start - get non-mob status icons
+        //this is dumb as shit but I'll clean it up when I send this upstream
+        var query2 = _entity.AllEntityQueryEnumerator<NonMobStatusIconComponent, SpriteComponent, TransformComponent, MetaDataComponent>();
+        while (query2.MoveNext(out var uid, out var comp, out var sprite, out var xform, out var meta))
+        {
+            if (xform.MapID != args.MapId || !sprite.Visible)
+                continue;
+
+            var bounds = comp.Bounds ?? _sprite.GetLocalBounds((uid, sprite));
+
+            var worldPos = _transform.GetWorldPosition(xform, xformQuery);
+
+            if (!bounds.Translated(worldPos).Intersects(args.WorldAABB))
+                continue;
+
+            var icons = _statusIcon.GetStatusIcons(uid, meta);
+            if (icons.Count == 0)
+                continue;
+
+            var worldMatrix = Matrix3Helpers.CreateTranslation(worldPos);
+            var scaledWorld = Matrix3x2.Multiply(scaleMatrix, worldMatrix);
+            var matty = Matrix3x2.Multiply(rotationMatrix, scaledWorld);
+            handle.SetTransform(matty);
+
+            var countL = 0;
+            var countR = 0;
+            var accOffsetL = 0;
+            var accOffsetR = 0;
+            icons.Sort();
+
+            foreach (var proto in icons)
+            {
+                if (!_statusIcon.IsVisible((uid, meta), proto))
+                    continue;
+
+                var curTime = _timing.RealTime;
+                var texture = _sprite.GetFrame(proto.Icon, curTime);
+
+                float yOffset;
+                float xOffset;
+
+                // the icons are ordered left to right, top to bottom.
+                // extra icons that don't fit are just cut off.
+                if (proto.LocationPreference == StatusIconLocationPreference.Left ||
+                    proto.LocationPreference == StatusIconLocationPreference.None && countL <= countR)
+                {
+                    if (accOffsetL + texture.Height > _sprite.GetLocalBounds((uid, sprite)).Height * EyeManager.PixelsPerMeter)
+                        break;
+                    if (proto.Layer == StatusIconLayer.Base)
+                    {
+                        accOffsetL += texture.Height;
+                        countL++;
+                    }
+                    yOffset = (bounds.Height + sprite.Offset.Y) / 2f - (float)(accOffsetL - proto.Offset) / EyeManager.PixelsPerMeter;
+                    xOffset = -(bounds.Width + sprite.Offset.X) / 2f;
+
+                }
+                else
+                {
+                    if (accOffsetR + texture.Height > _sprite.GetLocalBounds((uid, sprite)).Height * EyeManager.PixelsPerMeter)
+                        break;
+                    if (proto.Layer == StatusIconLayer.Base)
+                    {
+                        accOffsetR += texture.Height;
+                        countR++;
+                    }
+                    yOffset = (bounds.Height + sprite.Offset.Y) / 2f - (float)(accOffsetR - proto.Offset) / EyeManager.PixelsPerMeter;
+                    xOffset = (bounds.Width + sprite.Offset.X) / 2f - (float)texture.Width / EyeManager.PixelsPerMeter;
+
+                }
+
+                if (proto.IsShaded)
+                    handle.UseShader(null);
+                else
+                    handle.UseShader(_unshadedShader);
+
+                var position = new Vector2(xOffset, yOffset);
+                handle.DrawTexture(texture, position);
+            }
+
+            handle.UseShader(null);
+            handle.SetTransform(Matrix3x2.Identity);
+        }
+        //imp edit end
     }
 }

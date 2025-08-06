@@ -65,7 +65,7 @@
     sound:
       path: /Audio/_Impstation/Effects/gondalmono.ogg
   - type: Sprite
-    sprite: Mobs/Aliens/gondal.rsi
+    sprite: _Impstation/Mobs/Aliens/gondal.rsi
     state: gondal
     rotation: 0
     noRot: false
@@ -84,8 +84,8 @@
   description: Dying to this barrel would bring no honor. A true warrior must avoid it at all costs.
   components:
   - type: Sprite
-    sprite: _Impstation/Structures/Storage/plasticbarrel.rsi
-    state: icon
+    sprite: _Impstation/Structures/Storage/barrels.rsi
+    state: blue
     rotation: 0
     noRot: false
   - type: ImmovableRod
@@ -95,6 +95,48 @@
         volume: 20
         variation: 0.125
     eviscerationPopup: immovable-rod-penetrated-mob-hollowbarrel
+  - type: PointLight
+    radius: 3
+    color: red
+    energy: 2.0
+
+- type: entity
+  parent: ImmovableRodKeepTilesStill
+  id: ImmovableRodBaguette
+  name: immovable Baguette
+  description: Mime's Wrath
+  components:
+  - type: ImmovableRod
+    randomizeVelocity: false
+    maxSpeed: 0
+    eviscerationPopup: immovable-rod-penetrated-mob-baguette
+  - type: Sprite
+    sprite: Objects/Consumable/Food/Baked/bread.rsi
+    state: baguette
+    rotation: 60
+    noRot: false
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_Impstation/Effects/Parisian.ogg
+
+- type: entity
+  parent: ImmovableRodKeepTilesStill
+  id: ImmovableRodWhiteBoy
+  name: immovable white boy
+  description: oh god what is that thing
+  components:
+  - type: ImmovableRod
+    randomizeVelocity: false
+    maxSpeed: 0
+    eviscerationPopup: immovable-rod-penetrated-mob-whiteboy
+  - type: Sprite
+    sprite: _Impstation/Mobs/Demons/whiteboy.rsi
+    state: alive
+    rotation: 0
+    noRot: false
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_Impstation/Demons/whiteboylaser.ogg
   - type: PointLight
     radius: 3
     color: red

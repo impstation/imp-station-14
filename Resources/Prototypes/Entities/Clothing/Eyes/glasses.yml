@@ -68,6 +68,10 @@
   - type: ClothingGrantComponent # imp
     component:
     - type: SupermatterHallucinationImmune
+  - type: Tag
+    tags:
+    - PetWearable
+    - WhitelistChameleon
 
 - type: entity
   parent: [ClothingEyesBase, BaseLensSlot] # BaseLensSlot from imp
@@ -158,6 +162,8 @@
           tags:
           - Lens
   # imp end
+  - type: StaticPrice
+    price: 500
 
 - type: entity
   parent: [ClothingEyesBase, BaseLensSlot] # BaseLensSlot from imp
@@ -172,6 +178,7 @@
   - type: Tag
     tags:
     - HamsterWearable
+    - PetWearable
     - WhitelistChameleon
   - type: IdentityBlocker
     coverage: EYES
@@ -188,6 +195,7 @@
   - type: Tag
     tags:
     - Sunglasses
+    - PetWearable
     - HamsterWearable
     - WhitelistChameleon
 
@@ -210,6 +218,7 @@
   - type: Tag
     tags:
     - HamsterWearable
+    - PetWearable
     - WhitelistChameleon
     - GlassesSecurity
   - type: GuideHelp
@@ -235,6 +244,7 @@
   - type: Tag
     tags:
     - HamsterWearable
+    - PetWearable
     - WhitelistChameleon
     - AdministrationGlasses # imp, for crafting
   - type: IdentityBlocker
@@ -289,6 +299,10 @@
     - type: SolutionScanner
     - type: IdentityBlocker
       coverage: EYES
+    - type: Tag
+      tags:
+      - PetWearable
+      - WhitelistChameleon
 
 - type: entity
   parent: [ClothingEyesBase, BaseMajorContraband]
@@ -319,7 +333,7 @@
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
-  - type: BlackAndWhiteOverlay
+  - type: NoirOverlay
   - type: Tag
     tags:
     - HamsterWearable

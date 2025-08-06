@@ -37,7 +37,7 @@
   - type: StorageFill
     contents:
       - id: ChemistryEmptyBottle01
-        amount: 6
+        amount: 9 # imp edit
   - type: Sprite
     layers:
       - state: box
@@ -102,6 +102,7 @@
     layers:
       - state: box
       - state: bodybags
+  - type: Storage
     whitelist:
       tags:
         - BodyBag

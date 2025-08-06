@@ -137,6 +137,8 @@
     autoEject: true
     soundAutoEject:
       path: /Audio/Weapons/Guns/EmptyAlarm/lmg_empty_alarm.ogg #imp
+      params:
+        volume: 2
   - type: MagazineVisuals
     magState: mag
     steps: 6
@@ -157,6 +159,8 @@
       types:
         Blunt: 8
 #imp edit end
+  - type: StaticPrice
+    price: 5000
 
 - type: entity
   name: Drozd
@@ -213,7 +217,7 @@
               - CartridgePistol
     - type: MagazineVisuals
       magState: mag
-      steps: 1
+      steps: 1 #imp edit
       zeroVisible: true
     - type: Appearance
 #imp edit begin; weapon melee
@@ -234,7 +238,7 @@
 
 - type: entity
   name: WT550
-  parent: [ BaseWeaponSubMachineGun, BaseSecurityContraband ]
+  parent: [BaseWeaponSubMachineGun, BaseSecurityContraband]
   id: WeaponSubMachineGunWt550
   description: An excellent top-loaded, compact Personal Defense Weapon, produced by Nanotrasen's Small Arms Division. Uses .35 auto ammo. #imp
   components:

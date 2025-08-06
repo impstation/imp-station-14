@@ -16,9 +16,6 @@
   id: AirSensor
 
 - type: Tag
-  id: Aloe
-
-- type: Tag
   id: AllowBiomeLoading # Entities with this tag will load terrain, even if a ghost.
 
 - type: Tag
@@ -34,6 +31,9 @@
   id: AppraisalTool
 
 - type: Tag
+  id: Apron
+
+- type: Tag
   id: Arrow
 
 - type: Tag
@@ -43,7 +43,7 @@
   id: ATVKeys
 
 - type: Tag
-  id: Bagel
+  id: Backpack
 
 - type: Tag
   id: Balloon
@@ -62,9 +62,6 @@
 
 - type: Tag
   id: BBQsauce
-
-- type: Tag
-  id: BearHide
 
 - type: Tag
   id: Bedsheet
@@ -160,9 +157,6 @@
   id: Bottle
 
 - type: Tag
-  id: Bowl
-
-- type: Tag
   id: BoxCardboard
 
 - type: Tag
@@ -185,9 +179,6 @@
 
 - type: Tag
   id: BrimFlatcapGrey
-
-- type: Tag
-  id: BROS
 
 - type: Tag
   id: Brutepack
@@ -233,9 +224,6 @@
 
 - type: Tag
   id: CanPilot
-
-- type: Tag
-  id: CapacitorStockPart
 
 - type: Tag
   id: CaptainSabre
@@ -307,9 +295,6 @@
 
 - type: Tag
   id: ChiliBowl
-
-- type: Tag
-  id: Chopsticks
 
 - type: Tag
   id: Cigarette
@@ -423,9 +408,6 @@
   id: CrowbarRed
 
 - type: Tag
-  id: Crusher
-
-- type: Tag
   id: Cryobeaker
 
 - type: Tag
@@ -454,9 +436,6 @@
 
 - type: Tag
   id: CubanCarp
-
-- type: Tag
-  id: Dart
 
 - type: Tag
   id: DeathAcidifier
@@ -508,9 +487,6 @@
 
 - type: Tag
   id: DrinkBottle
-
-- type: Tag
-  id: DroneUsable
 
 - type: Tag
   id: DrinkCan
@@ -575,12 +551,6 @@
 - type: Tag
   id: ExplosivePassable
 
-- type: Tag # goob edit
-  id: Eyes
-
-- type: Tag
-  id: Eyepatch
-
 - type: Tag
   id: Figurine
 
@@ -641,9 +611,6 @@
 - type: Tag
   id: Galaxythistle
 
-- type: Tag # goob edit
-  id: GasMask
-
 - type: Tag
   id: GasScrubber
 
@@ -695,9 +662,6 @@
 
 - type: Tag
   id: HudSecurity
-
-- type: Tag
-  id: GlassesSecurity
 
 - type: Tag
   id: GuideEmbeded
@@ -756,14 +720,8 @@
 - type: Tag
   id: Head
 
-- type: Tag # goob edit
-  id: Heart
-
 - type: Tag
   id: HelmetEVA
-
-- type: Tag
-  id: HempSack
 
 - type: Tag
   id: HideContextMenu
@@ -797,9 +755,6 @@
 
 - type: Tag
   id: HolosignProjector
-
-- type: Tag
-  id: Holy
 
 - type: Tag
   id: HonkerCentralControlModule
@@ -856,9 +811,6 @@
   id: JawsOfLife
 
 - type: Tag
-  id: Jug
-
-- type: Tag
   id: Kangaroo
 
 - type: Tag
@@ -869,9 +821,6 @@
 
 - type: Tag
   id: KeyedInstrument
-
-- type: Tag # goob edit
-  id: Kidneys
 
 - type: Tag
   id: KitchenKnife
@@ -886,22 +835,10 @@
   id: Lemon
 
 - type: Tag
-  id: Lemo
-
-- type: Tag
   id: LightBulb
 
 - type: Tag
-  id: Lens
-
-- type: Tag
   id: Lime
-
-- type: Tag # goob edit
-  id: Liver
-
-- type: Tag # goob edit
-  id: Lungs
 
 - type: Tag
   id: Machete
@@ -954,9 +891,6 @@
   id: MagazineShotgun
 
 - type: Tag
-  id: MagazineMagnumSubMachineGun
-
-- type: Tag
   id: MagazinePistolSubMachineGun
 
 - type: Tag
@@ -966,9 +900,6 @@
 
 - type: Tag
   id: MailingUnitElectronics
-
-- type: Tag # goob edit
-  id: Mask
 
 - type: Tag
   id: Maints
@@ -1004,10 +935,7 @@
   id: MimeHappyHonk
 
 - type: Tag
-  id: MimeHardsuit
-
-- type: Tag
-  id: MindShield
+  id: FakeMindShieldImplant
 
 - type: Tag
   id: MindTransferTarget
@@ -1035,9 +963,6 @@
 
 - type: Tag
   id: Mouse
-
-- type: Tag
-  id: Muffin
 
 - type: Tag
   id: Multitool
@@ -1068,9 +993,6 @@
 
 - type: Tag
   id: Ore
-
-- type: Tag # goob edit
-  id: Organ
 
 - type: Tag
   id: OreBananium
@@ -1113,6 +1035,9 @@
 
 - type: Tag
   id: PercussionInstrument
+
+- type: Tag
+  id: PetOnly
 
 - type: Tag
   id: PetWearable
@@ -1180,9 +1105,6 @@
 - type: Tag
   id: PlushieSharkPink
 
-- type: Tag # goob edit
-  id: Poppy
-
 - type: Tag
   id: Potato
 
@@ -1227,7 +1149,7 @@
   id: ReinforcedGlassShard
 
 - type: Tag
-  id: RegenerativeMesh
+  id: RemoteSignaller
 
 - type: Tag
   id: ReptilianFood
@@ -1266,9 +1188,6 @@
   id: RollingPin
 
 - type: Tag
-  id: Salt
-
-- type: Tag
   id: SaltShaker
 
 - type: Tag
@@ -1282,6 +1201,9 @@
 
 - type: Tag
   id: Screwdriver
+
+- type: Tag # Flags items that scurrets can wear in their back and outerwear slots.
+  id: ScurretWearable
 
 - type: Tag
   id: SecBeltEquip
@@ -1377,9 +1299,6 @@
   id: SpiderCraft
 
 - type: Tag
-  id: SpiderMeat
-
-- type: Tag
   id: SpookyFog
 
 - type: Tag
@@ -1400,14 +1319,8 @@
 - type: Tag
   id: Steak
 
-- type: Tag # goob edit
-  id: Stomach
-
 - type: Tag
   id: StringInstrument
-
-- type: Tag
-  id: Stunbaton
 
 - type: Tag
   id: SubdermalImplant
@@ -1417,9 +1330,6 @@
 
 - type: Tag
   id: Sunglasses
-
-- type: Tag
-  id: Suppermatter
 
 - type: Tag
   id: SurgeryTool
@@ -1442,9 +1352,6 @@
 - type: Tag
   id: Spellbook
 
-- type: Tag # goob edit
-  id: Table
-
 - type: Tag
   id: TabletopBoard
 
@@ -1466,9 +1373,6 @@
 - type: Tag
   id: TimerSignalElectronics
 
-- type: Tag # goob edit
-  id: Tongue
-
 - type: Tag
   id: Toolbox
 
@@ -1486,9 +1390,6 @@
 
 - type: Tag
   id: ToySidearm
-
-- type: Tag
-  id: TranquilizerDart
 
 - type: Tag
   id: Trash
@@ -1513,6 +1414,9 @@
 
 - type: Tag
   id: UraniumGlassShard
+
+- type: Tag
+  id: UtilityBelt
 
 - type: Tag
   id: Vegetable
@@ -1550,9 +1454,6 @@
 - type: Tag
   id: WeldingMask
 
-- type: Tag #imp addon (why the fuck doesn't this exist upstream)
-  id: WeldingTool
-
 - type: Tag
   id: WetFloorSign
 
@@ -1573,6 +1474,9 @@
 
 - type: Tag
   id: Wine
+
+- type: Tag
+  id: WireBrush
 
 - type: Tag
   id: Wirecutter
@@ -1615,5 +1519,4 @@
 
 - type: Tag
   id: XenoborgModuleStealth
-
 # ALPHABETICAL

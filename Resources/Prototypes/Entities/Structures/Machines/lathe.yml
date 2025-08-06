@@ -286,6 +286,8 @@
     - ImpCircuitDynamic # imp
     - UpgradeKits # Goobstation
   - type: EmagLatheRecipes
+    emagStaticPacks: # imp
+    - ImpCircuitEmagged
     emagDynamicPacks:
     - SecurityBoards
   - type: MaterialStorage
@@ -643,6 +645,13 @@
       staticPacks:
       - OreSmelting
       - RGlassSmelting
+    - type: MaterialStorageMagnetPickup # Imp This allows the ore processor to have a magnet that also inserts the ore
+      range: 0.30 # Imp The range of the magnet effect
+    - type: PlaceableSurface # Imp This is required for the magnet pickup to work, this component allows a dumpable surface
+    - type: PointLight # Imp This adds a red light glow around the basic ore processor to thematically show the temperature of the flame.
+      radius: 2.5
+      energy: 5
+      color: "#ff5a00"
 
 - type: entity
   parent: OreProcessor
@@ -661,6 +670,13 @@
     - OreSmelting
     - RGlassSmelting
     - AdvancedSmelting
+  - type: MaterialStorageMagnetPickup # Imp This allows the ore processor to have a magnet that also inserts the ore
+    range: 0.30 # Imp The range of the magnet effect
+  - type: PlaceableSurface # Imp This is required for the magnet pickup to work, this component allows a dumpable surface
+  - type: PointLight # Imp This adds a blue light glow around the industrial ore processor to thematically show the temperature of an even hotter flame.
+    radius: 2.5
+    energy: 5
+    color: "#5ad6ff"
 
 - type: entity
   parent: BaseLathe

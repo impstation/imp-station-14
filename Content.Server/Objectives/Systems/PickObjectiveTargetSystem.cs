@@ -1,11 +1,12 @@
 using Content.Server.Objectives.Components;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
+using Content.Shared.Roles; // imp
+using Content.Shared._DV.Roles; // imp
 using Content.Shared.Roles.Jobs; // imp
-using Content.Shared.NukeOps; // imp
-using Content.Shared.Revolutionary.Components; //imp
 using Content.Server.GameTicking.Rules;
 using Content.Server.Revolutionary.Components;
+using Content.Server.Roles; // imp
 using Robust.Shared.Player; // imp
 using Robust.Shared.Random;
 using System.Linq;
@@ -24,6 +25,7 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!; // imp edit
     [Dependency] private readonly TraitorRuleSystem _traitorRule = default!;
     [Dependency] private readonly SharedJobSystem _job = default!; // imp edit
+    [Dependency] private readonly SharedRoleSystem _role = default!; // imp edit
 
     public override void Initialize()
     {
@@ -330,39 +332,91 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
             return;
         }
 
-        var antags = _traitorRule.GetOtherAntagMindsAliveAndConnected(args.Mind).Select(t => t.Id).ToHashSet(); // Imp edit -  just get entity
-        var allHumans = _mind.GetAliveHumans(args.MindId).Select(p => p.Owner).ToHashSet();
+        var antags = new HashSet<EntityUid>();
+        var allHumans = _mind.GetAliveHumans(args.MindId); //imp edit - just get the mind ID
 
-        // add nukies and headrevs to the list. If there's anything else we want to whitelist it'd probably be better to have a method make the check instead
+        //check for any fugitives, and target them if they're present
         foreach (var person in allHumans)
         {
-            if (TryComp<MindComponent>(person, out var mind) && mind.OwnedEntity is { } owned && (HasComp<NukeOperativeComponent>(owned) || HasComp<HeadRevolutionaryComponent>(owned)))
+            // imp edit
+            var mindId = person.Owner;
+            var mind = person.Comp;
+
+            // get the mind and its owned entity
+            if (mind.OwnedEntity is not { } owned)
+            {
+                continue;
+            }
+
+            //is it a fugitive?
+            if (_role.MindHasRole<FugitiveRoleComponent>(mindId))
+            {
                 antags.Add(person);
+                continue;
+            }
+            // imp edit end
+        }
+
+        // if there're no fugitives, check for any of the other valid antagonist mindroles
+        if (antags.Count == 0)
+        {
+            foreach (var person in allHumans)
+            {
+                // imp edit
+                var mindId = person.Owner;
+                var mind = person.Comp;
+
+                // get the mind and its owned entity
+                if (mind.OwnedEntity is not { } owned)
+                {
+                    continue;
+                }
+
+                //huge list of every single whitelisted antag's role component
+                if (_role.MindHasRole<ChangelingRoleComponent>(mindId)  /*Changeling*/
+                /*|| _role.MindHasRole<RevolutionaryRoleComponent>(mindId)/*Head Rev (REVS USE THE SAME MINDROLE WHYYY)*/
+                || _role.MindHasRole<HereticRoleComponent>(mindId)      /*Heretic*/
+                || _role.MindHasRole<ThiefRoleComponent>(mindId)        /*Thief*/
+                || _role.MindHasRole<TraitorRoleComponent>(mindId)      /*Traitor*/
+
+                || _role.MindHasRole<BountyHunterRoleComponent>(mindId) /*Fellow Bunters*/
+                || _role.MindHasRole<NinjaRoleComponent>(mindId)       /*Ninja*/
+                || _role.MindHasRole<NukeopsRoleComponent>(mindId)     /*Nukies*/
+                || _role.MindHasRole<ParadoxCloneRoleComponent>(mindId)/*Paradox Clone*/
+                || _role.MindHasRole<SynthesisRoleComponent>(mindId)   /*Synthesis Specialist*/
+                || _role.MindHasRole<WizardRoleComponent>(mindId)      /*Wizard*/
+                )
+                {
+                    antags.Add(person);
+                    continue;
+                }
+                // imp edit end
+            }
         }
 
         // failed to roll an antag as a target
-        if (antags.Count == 0)
-        {
-            //fallback to target a random head
-            foreach (var person in allHumans)
-            {
-                if (TryComp<MindComponent>(person, out var mind) && mind.OwnedEntity is { } owned && HasComp<CommandStaffComponent>(owned))
-                    antags.Add(person);
-            }
-
-            // just go for some random person if there's no command.
             if (antags.Count == 0)
             {
-                antags = allHumans;
-            }
+                //fallback to target a random head
+                foreach (var person in allHumans)
+                {
+                    if (TryComp<MindComponent>(person, out var mind) && mind.OwnedEntity is { } owned && HasComp<CommandStaffComponent>(owned))
+                        antags.Add(person);
+                }
 
-            // One last check for the road, then cancel it if there's nothing left
-            if (antags.Count == 0)
-            {
-                args.Cancelled = true;
-                return;
+                // just go for some random person if there's no command.
+                if (antags.Count == 0)
+                {
+                    antags = new HashSet<EntityUid>(allHumans.Select(p => p.Owner)); //imp
+                }
+
+                // One last check for the road, then cancel it if there's nothing left
+                if (antags.Count == 0)
+                {
+                    args.Cancelled = true;
+                    return;
+                }
             }
-        }
         var randomTarget = _random.Pick(antags);
         _target.SetTarget(ent.Owner, randomTarget, target);
     }

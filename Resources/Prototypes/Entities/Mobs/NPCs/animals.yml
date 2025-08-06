@@ -661,7 +661,7 @@
           32:
             sprite: Mobs/Animals/mothroach/displacement.rsi
             state: neck
-
+  - type: PleebnarGibbable # imp edit
 
 
 # Note that the mallard duck is actually a male drake mallard, with the brown duck being the female variant of the same species, however ss14 lacks sex specific textures
@@ -872,6 +872,7 @@
       behaviors:
       - !type:GibBehavior
         recursive: false
+  - type: PleebnarGibbable # imp edit
 
 - type: entity
   name: cow
@@ -1255,6 +1256,28 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
+    blackboard:
+      NavClimb: !type:Bool
+        true
+      NavInteract: !type:Bool
+        true
+      NavPry: !type:Bool
+        true
+      NavSmash: !type:Bool
+        true
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 1.5
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Critical
+      250: Dead
+  - type: StaminaResistance
+    damageCoefficient: 0.40
 
 - type: entity
   name: kangaroo
@@ -1527,6 +1550,9 @@
         Piercing: 4
       groups:
         Burn: 3
+    catchingFailDamage:
+      types:
+        Blunt: 1
     clumsySound:
       path: /Audio/Animals/monkey_scream.ogg
 
@@ -1716,6 +1742,9 @@
         Piercing: 7
       groups:
         Burn: 3
+    catchingFailDamage:
+      types:
+        Blunt: 1
     clumsySound:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
 
@@ -1766,6 +1795,7 @@
   id: MobMouse
   description: Squeak!
   components:
+  - type: PleebnarGibbable # imp edit
   - type: VentCrawler # imp edit
     enterDelay: 1
   - type: Body
@@ -1965,6 +1995,17 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: Reproductive # imp
+    partnerWhitelist:
+      tags:
+      - Mouse
+    offspring:
+    - id: MobMouse
+      maxAmount: 3
+    hungerPerBirth: 35
+    gestationDuration: 45
+    breedChance: 0.25
+  - type: ReproductivePartner # imp
 
 - type: entity
   parent: MobMouse
@@ -2026,7 +2067,16 @@
   - type: Item
     size: Tiny
     heldPrefix: 1
-
+  - type: Reproductive # imp
+    partnerWhitelist:
+      tags:
+      - Mouse
+    offspring:
+    - id: MobMouse1
+      maxAmount: 3
+    hungerPerBirth: 35
+    gestationDuration: 45
+    breedChance: 0.25
 - type: entity
   parent: MobMouse
   id: MobMouse2
@@ -2055,6 +2105,16 @@
   - type: Item
     size: Tiny
     heldPrefix: 2
+  - type: Reproductive # imp
+    partnerWhitelist:
+      tags:
+      - Mouse
+    offspring:
+    - id: MobMouse2
+      maxAmount: 3
+    hungerPerBirth: 35
+    gestationDuration: 45
+    breedChance: 0.25
 
 - type: entity
   name: cancer mouse
@@ -2165,6 +2225,7 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: PleebnarGibbable # imp edit
 
 
 - type: entity
@@ -2226,6 +2287,7 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: PleebnarGibbable # imp edit
 
 - type: entity
   name: frog
@@ -2305,12 +2367,13 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: PleebnarGibbable # imp edit
 
 # Would be cool to have some functionality for the parrot to be able to sit on stuff
 - type: entity
-  name: parrot
   parent: [ SimpleMobBase, FlyingMobBase ]
-  id: MobParrot
+  id: MobParrotBase
+  abstract: true
   description: Infiltrates your domain, spies on you, and somehow still a cool pet.
   components:
   - type: MovementSpeedModifier
@@ -2321,7 +2384,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: parrot
-      sprite: Mobs/Animals/parrot.rsi
+      sprite: Mobs/Animals/parrot/parrot.rsi
   - type: Fixtures
     fixtures:
       fix1:
@@ -2353,7 +2416,29 @@
   - type: Vocal
     sounds:
       Unsexed: Parrot
-  - type: ParrotAccent
+  - type: ActiveListener
+  - type: Vocalizer
+  - type: RadioVocalizer
+  - type: ParrotListener
+  - type: ParrotMemory
+  - type: Inventory
+    templateId: parrot
+    speciesId: parrot
+    # transparent displacement map to hide the headset. this should be an animated displacement map to follow the parrot
+    # as it bobs up and down, but this in turn needs some way to change the displacement map on inventory entities when
+    # the parrot dies, otherwise the visuals will be broken
+    displacements:
+      ears:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/parrot/displacement.rsi
+            state: ears
+  - type: InventorySlots
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
   - type: InteractionPopup
     successChance: 0.6
     interactSuccessString: petting-success-bird
@@ -2363,6 +2448,13 @@
       path: /Audio/Animals/parrot_raught.ogg
   - type: Bloodstream
     bloodMaxVolume: 50
+
+- type: entity
+  name: parrot
+  parent: MobParrotBase
+  id: MobParrot
+  components:
+  - type: ParrotAccent # regular parrots have a parrotaccent. Polly is special and does not
 
 - type: entity
   name: penguin
@@ -3085,6 +3177,9 @@
       gender: epicene
   - type: MobPrice
     price: 200
+  - type: Absorbable # imp edit
+    biomassRestored: 0.3
+  - type: DogVision # imp
 
 - type: entity
   parent: MobCorgiBase
@@ -3102,8 +3197,6 @@
     spawned:
     - id: FoodMeat
       amount: 2
-  - type: Absorbable # imp edit
-    biomassRestored: 0.3
   - type: ReplacementAccent
     accent: dog
   - type: SentienceTarget
@@ -3111,7 +3204,6 @@
   - type: Tag
     tags:
     - VimPilot
-  - type: DogVision # imp
 
 - type: entity
   name: corrupted corgi
@@ -3180,7 +3272,7 @@
   id: MobCorgiPuppy
   description: A little corgi! Aww...
   components:
-  - type: VentCrawler
+  - type: VentCrawler # imp
     enterDelay: 3
   - type: Sprite
     drawdepth: Mobs
@@ -3345,6 +3437,10 @@
   - type: NpcFactionMember
     factions:
     - Syndicate
+  - type: Access
+    tags:
+    - NuclearOperative
+    - SyndicateAgent
   - type: MeleeWeapon
     altDisarm: false
     angle: 0
@@ -3513,6 +3609,7 @@
   - type: Grammar
     attributes:
       gender: epicene
+  - type: SlowAccent
   - type: Tag
     tags:
     - VimPilot
@@ -3737,6 +3834,7 @@
       behaviors:
       - !type:GibBehavior
         recursive: false
+  - type: PleebnarGibbable # imp edit
 
 - type: entity
   name: pig
@@ -3810,6 +3908,7 @@
   - type: HTN
     rootTask:
       task: RuminantCompound
+  - type: PleebnarGibbable # imp edit
 
 - type: entity
   name: diona nymph
@@ -3912,6 +4011,7 @@
   components:
   - type: ReplacementAccent
     accent: nymph
+  - type: PleebnarGibbable # imp edit, if tupid then pleebnar meal
 
 - type: entity
   name: reindeer buck
@@ -4045,13 +4145,18 @@
       belt:
         sizeMaps:
           32:
-            sprite: Mobs/Pets/corgi.rsi
-            state: belt_displacement
+            sprite: Mobs/Pets/displacements.rsi
+            state: corgi_belt_displacement
       ears:
         sizeMaps:
           32:
-            sprite: Mobs/Pets/corgi.rsi
-            state: belt_displacement
+            sprite: Mobs/Pets/displacements.rsi
+            state: corgi_belt_displacement
+      head:
+        sizeMaps:
+          32:
+            sprite: Mobs/Pets/displacements.rsi
+            state: corgi_head_displacement
   - type: Hands # HANDS!
   - type: Puller
   - type: Cuffable # bad dog!
@@ -4075,3 +4180,6 @@
     - DoorBumpOpener
   - type: StatusIcon # marks them as crew
     bounds: -0.5,-0.5,0.5,0.5
+  - type: NpcFactionMember
+    factions:
+    - NanoTrasen

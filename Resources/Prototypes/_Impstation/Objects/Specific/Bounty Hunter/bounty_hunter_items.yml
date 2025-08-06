@@ -3,7 +3,7 @@
   parent: ToolboxThief
   id: BountyHunterGear
   name: bounty hunter toolbox
-  description: An assortment of contraband you've collected over your career, some more forbidden than others.
+  description: An assortment of contraband you've collected over your career, some more illegal than others.
   components:
   - type: ThiefUndeterminedBackpack
     maxSelectedSets: 2
@@ -13,6 +13,7 @@
     - BountyHunterDisguise
     - BountyHunterSubverter
     - BountyHunterRoboticist
+    - BountyHunterPirate
     - BountyHunterSamurai
     - BountyHunterSyndie
     - BountyHunterCaptain
@@ -89,7 +90,7 @@
     sprite: _Impstation/Objects/Weapons/Melee/stunbaton.rsi
     layers:
     - state: stunbaton_off
-      map: [ "enum.ToggleVisuals.Layer" ]
+      map: [ "enum.ToggleableVisuals.Layer" ]
   - type: Stunbaton
     energyPerUse: 1
   - type: ItemToggle
@@ -133,8 +134,8 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-     enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
+     enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
           True: {state: stunbaton_on}
           False: {state: stunbaton_off}
   - type: GuideHelp
@@ -291,3 +292,182 @@
   - type: Tag
     tags:
     - Sidearm
+
+# Parrot reinforcement radio
+- type: entity
+  parent: ReinforcementRadio
+  id: ReinforcementRadioBountyHunterParrot
+  name: pirate parrot reinforcement radio
+  description: YARGH!
+  components:
+    - type: GhostRole
+      name: "Pirate Parrot"
+      description: "A bounty hunter needs reinforcements. You, a sentient, kleptomaniac parrot, will help them."
+      rules: ghost-role-information-familiar-rules
+      mindRoles:
+      - MindRoleGhostRoleFamiliar
+      raffle:
+        settings: default
+    - type: GhostRoleMobSpawner
+      prototype: MobParrotBountyHunter
+
+# BH pirate crate
+- type: entity
+  id: CrateBountyHunterPirate
+  parent: CratePirate
+  suffix: Filled, Bounty Hunter
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingUniformJumpsuitPirate
+        amount: 2
+      - id: ClothingHeadHatPirate
+        amount: 2
+      - id: ClothingOuterCoatPirate
+      - id: ClothingShoesBootsLaceup
+        amount: 2
+      - id: IngotGold
+      - id: Cutlass
+        amount: 2
+      - id: ClothingNeckCloakPirateCap
+      - id: WeaponPistolFlintlock
+      - id: PirateHandyFlag
+
+# Weapon recall implant
+- type: entity
+  id: RecallImplanter
+  name: recall implanter
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+    - type: Implanter
+      implant: RecallImplant
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: RecallImplant
+  name: recall implant
+  description: This implant lets the user mark a weapon then call it to their hand at will.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+      implantAction: ActionWeaponRecall
+
+# Chloral and Mute Toxin medipens
+- type: entity
+  name: emergency medipen
+  parent: ChemicalMedipen
+  id: ChloralAutoInjector
+  suffix: Chloral Hydrate
+  description: A rapid and safe way to stabilize patients in critical condition for personnel without advanced medical knowledge. Beware, as it's easy to overdose on epinephrine and tranexamic acid.
+  components:
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-needle-inhand-left
+      - state: base-colorA-inhand-left
+        color: "#000067"
+      - state: base-colorB-inhand-left
+      right:
+      - state: base-needle-inhand-right
+      - state: base-colorA-inhand-right
+        color: "#000067"
+      - state: base-colorB-inhand-right
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: medipen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: medipen_empty
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 15
+    onlyAffectsMobs: false
+    injectOnly: true
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: ChloralHydrate
+          Quantity: 15
+
+- type: entity
+  name: emergency medipen
+  parent: ChemicalMedipen
+  id: MuteAutoInjector
+  suffix: Mute Toxin
+  description: A rapid and safe way to stabilize patients in critical condition for personnel without advanced medical knowledge. Beware, as it's easy to overdose on epinephrine and tranexamic acid.
+  components:
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-needle-inhand-left
+      - state: base-colorA-inhand-left
+        color: "#000000"
+      - state: base-colorB-inhand-left
+      right:
+      - state: base-needle-inhand-right
+      - state: base-colorA-inhand-right
+        color: "#000000"
+      - state: base-colorB-inhand-right
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: medipen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: medipen_empty
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 15
+    onlyAffectsMobs: false
+    injectOnly: true
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15 #15 instead of 5 to match other emergency medipens
+        reagents:
+        - ReagentId: MuteToxin
+          Quantity: 5
+        - ReagentId: SpaceDrugs # to fill the rest of the container with another syrupy reagent
+          Quantity: 10
+
+#injector boxes
+- type: entity
+  parent: [ BaseItem, Tier2Contraband ]
+  id: ChloralInjectorBox
+  name: sedative injector box
+  description: A small box containing a chloral hydrate injector disguised as an emergency medipen. Packaging disintegrates when opened, leaving no evidence behind.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Impstation/Objects/Storage/penbox.rsi
+    state: chloral_injector
+  - type: SpawnItemsOnUse
+    items:
+    - id: ChloralAutoInjector
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: [ BaseItem, Tier2Contraband ]
+  id: MuteInjectorBox
+  name: mute injector box
+  description: A small box containing a mute toxin injector disguised as an emergency medipen. Packaging disintegrates when opened, leaving no evidence behind.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Impstation/Objects/Storage/penbox.rsi
+    state: mute_injector
+  - type: SpawnItemsOnUse
+    items:
+    - id: MuteAutoInjector
+    sound:
+      path: /Audio/Effects/unwrap.ogg

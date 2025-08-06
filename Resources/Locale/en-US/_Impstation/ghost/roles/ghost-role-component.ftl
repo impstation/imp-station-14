@@ -1,4 +1,4 @@
-ghost-role-information-freeagent-rat-king-rules = You are a [color=yellow][bold]Free Agent[/bold][/color]. You are free to act as either an antagonist or a non-antagonist.
+ghost-role-information-freeagent-rat-king-rules = You are a [color=yellow][bold]Free Agent[/bold][/color]. You must still follow escalation, but are not bound to the same restrictions as crew-aligned characters.
                                          Your primary goal is getting food. Killing should be used as a last resort. You are still subject to Mass Chaos RDM rules unless declared an enemy of the ship.
 
                                          You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
@@ -13,8 +13,7 @@ ghost-role-information-possum-name = Possum
 ghost-role-information-possum-description = Screams, eats trash, screams some more.
 
 ghost-role-information-subjuzine-description = Made obedient with the magic of subjuzine.
-ghost-role-information-subjuzine-rules-1 = You are a [color=#6495ed][bold]Familiar[/bold][/color] under the control of [color=red][bold]
-ghost-role-information-subjuzine-rules-2 = [/bold][/color]. Follow your master's orders and keep their identity secret.
+ghost-role-information-subjuzine-rules = You are a [color=#6495ed][bold]Familiar[/bold][/color] under the control of [color=red][bold]a Syndicate Agent[/bold][/color]. Follow your master's orders and keep their identity secret.
 
                                         You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
 
@@ -33,7 +32,7 @@ ghost-role-information-cargorilla-description = A "well" trained gorilla, assist
 ghost-role-information-goblin-stowaway-name = Goblin Stowaway
 ghost-role-information-goblin-stowaway-description = You are Goblin. Your fellow Goblin is Goblin. Goblin must construct Goblinhome.
 
-ghost-role-information-nonantagonist-freeagent-goblin-stowaway = You are a [color=yellow][bold]Team Free Agent[/bold][/color] with all other Goblins. You are free to act as either antagonists or non-antagonists.
+ghost-role-information-nonantagonist-freeagent-goblin-stowaway = You are a [color=yellow][bold]Team Free Agent[/bold][/color] with all other Goblins. You must still follow escalation, but are not bound to the same restrictions as crew-aligned characters.
                                          Your primary goal is to construct Goblinhome, a home for yourself and your people. [color=red]Harming the station would likely put that goal at risk.[/color]
 
                                          You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
@@ -106,7 +105,7 @@ ghost-role-information-drone-rules = You are bound by these laws both in-game an
 ghost-role-information-young-kodepiia-name = Young Kodepiia
 ghost-role-information-young-kodepiia-description = A shy sort-of-creature, emerging from the station vents. It hates confrontation.
 
-ghost-role-information-anomalite-description = A small sprite, born from the latent energies of an anomaly core. Loyal to its core, or whoever possesses it. 
+ghost-role-information-anomalite-description = A small sprite, born from the latent energies of an anomaly core. Loyal to its core, or whoever possesses it.
 ghost-role-information-familiar-anomalite-rules = You are a [color=#6495ed][bold]Familiar[/bold][/color], loyal to the Anomaly Core you came from (or whoever happens to have it right now.) Serve the interests of your master, whatever those may be.
 
                                                   You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
@@ -133,3 +132,30 @@ ghost-role-information-replicator-rules = You are a [color=red][bold]Team Antago
 
 ghost-role-information-oppa-name = Oppa
 ghost-role-information-oppa-description = It's the end of hibernation, and you're hungry enough to empty a kitchen! First, though, you need to get on board the station.
+
+
+ghost-role-information-lepidodent-name = Lepidodent
+ghost-role-information-lepidodent-description = A Connoisseur of food and fabric alike.
+
+ghost-role-information-antagonistchance-rules = You are a [color=green][bold]Non-antagonist[/bold][/color] with a small chance of rolling a [color=red][bold]Solo Antagonist[/bold][/color] role. You should generally not seek to harm the station and its crew, unless the game tells you that you are an antagonist. [bold]ABANDONING THIS ROLE BECAUSE YOU ARE NOT AN ANTAGONIST WILL RESULT IN A BAN.[/bold]
+
+                                             You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
+
+ghost-role-information-infiltrator-name = Syndicate Infiltrator
+ghost-role-information-infiltrator-description = You are an elite espionage agent sent to sabotage the station and its crew.
+ghost-role-information-infiltrator-rules = You are a [color=red][bold]Solo Antagonist[/bold][/color]. Your intentions are clear, and harmful to the station and its crew.
+
+                                          You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
+
+ghost-role-information-whiteboy-name = Ghoulish White Boy
+ghost-role-information-whiteboy-description = You are a ghoulish white boy. Do what you must.
+
+ghost-role-information-partygray-name = Partying Gray
+ghost-role-information-partygray-description = It's time for a celebration and this station looks like the perfect place to throw a party!
+ghost-role-information-nonantagonist-freeagent-partygeay-rules = You are a [color=yellow][bold]Team Free Agent[/bold][/color] with the other Partying Grays. You must still follow escalation, but are not bound to the same restrictions as crew-aligned characters. You are a delinquent who is only here to party. You are not seeking to cause damage to the station or its crew, but your rowdiness may lead to it.
+                                                                 Your goal is to throw a party; what you are celebrating is up to you.
+
+                                                                 You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
+
+ghost-role-information-vrex-name = V-Rex
+ghost-role-information-vrex-desc = Not sure how you got here, but you're mad about it! Swing your weight around and express your anger, all while avoiding the dangers of barotrauma.

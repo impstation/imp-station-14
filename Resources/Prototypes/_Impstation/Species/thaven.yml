@@ -15,12 +15,17 @@
   - Male
   - Female
   - Unsexed
+  youngAge: 40
+  oldAge: 60
+  ancientAge: 80
 
 - type: speciesBaseSprites
   id: MobThavenSprites
   sprites:
     TailBehind: MobHumanoidAnyMarking # floof
     TailOversuit: MobHumanoidAnyMarking # floof
+    TailBehindBackpack: MobHumanoidAnyMarking # imp
+    TailUnderlay: MobHumanoidAnyMarking # imp
     Hair: MobHumanoidAnyMarking
     Eyes: MobThavenEyes
     Head: MobThavenHead
@@ -46,6 +51,7 @@
     Hair:
       points: 1
       required: false
+      weight: 1
     HeadTop:
       points: 4
       required: false

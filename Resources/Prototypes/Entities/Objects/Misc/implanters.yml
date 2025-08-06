@@ -44,7 +44,10 @@
       - DeathAcidifierImplant
       - DeathRattleImplant
       - MindShieldImplant
-      #deimplantFailureDamage: # imp - this is addressing an issue we like. dont have. lol
+      - FakeMindShieldImplant
+      - RadioImplant
+      - ChameleonControllerImplant
+      #deimplantFailureDamage:
       #  types:
       #    Cellular: 50
       #    Heat: 10
@@ -120,7 +123,7 @@
 
 - type: entity
   id: BaseImplantOnlyImplanterSyndi
-  parent: [BaseImplantOnlyImplanter, Tier3Contraband]
+  parent: [BaseImplantOnlyImplanter, Tier3Contraband] #imp contraband
   name: syndicate implanter
   description: A compact disposable syringe exclusively designed for the injection of subdermal implants. Make sure to scrub it with soap or a rag to remove residual DNA after use!
   abstract: true
@@ -244,6 +247,14 @@
     - type: Implanter
       implant: DnaScramblerImplant
 
+- type: entity
+  id: ChameleonControllerImplanter
+  name: chameleon controller implanter
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+  - type: Implanter
+    implant: ChameleonControllerImplant
+
 #Nuclear Operative/Special implanters
 
 - type: entity
@@ -296,7 +307,7 @@
     - type: Implanter
       implant: MindShieldImplant
 
-# Centcomm implanters
+# CentComm implanters # imp i'm fixing this comment so it doesn't appear on text fix passes
 
 - type: entity
   id: RadioImplanterCentcomm

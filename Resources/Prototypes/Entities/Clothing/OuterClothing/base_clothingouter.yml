@@ -105,8 +105,9 @@
   id: ClothingOuterHardsuitBase
   name: base hardsuit
   components:
-  - type: SlotBlock
-    slots: [innerclothing, feet]
+# SlotBlocker blocked until UI change
+#  - type: SlotBlock
+#    slots: [innerclothing, feet]
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
@@ -114,11 +115,16 @@
     heatingCoefficient: 0.01
     coolingCoefficient: 0.01
   - type: ClothingSpeedModifier
-    walkModifier: 0.4
+    walkModifier: 0.6
     sprintModifier: 0.6
   - type: HeldSpeedModifier
   - type: Item
     size: Ginormous
+  - type: Clothing #imp edit
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    equipDelay: 2
+    unequipDelay: 2
   - type: Armor
     modifiers:
       coefficients:
@@ -127,6 +133,11 @@
         Piercing: 0.95
         Heat: 0.90
         Radiation: 0.25
+  - type: DamageOnShootProtection #imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 10
   - type: ToggleableClothing
     slot: head
   - type: ContainerContainer
@@ -159,8 +170,9 @@
   id: ClothingOuterEVASuitBase
   name: base EVA Suit
   components:
-  - type: SlotBlock
-    slots: [innerclothing, feet]
+# SlotBlocker blocked until UI change
+#  - type: SlotBlock
+#    slots: [innerclothing, feet]
   - type: PressureProtection
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
