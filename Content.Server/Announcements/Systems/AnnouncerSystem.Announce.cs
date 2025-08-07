@@ -8,6 +8,13 @@ namespace Content.Server.Announcements.Systems;
 
 public sealed partial class AnnouncerSystem
 {
+
+
+    //EVIL ZONE!!!! ALL OF THIS SHIT IS VARYING LEVELS OF FUNCTIONING. IT GOT FUCKED UP BY THE EE ANNOUNCER SYSTEM BULLDOZING EVERYTHING.
+    //TODO: COMMENT ALL THE IMP AND EE CHANGES HERE PROPERLY SO PEOPLE KNOW WHAT'S GOING ON.
+    //TODO: CLEAN UP THE WHOLE SYSTEM. IT IS NEEDED BADLY.
+
+
     /// <summary>
     ///     Gets an announcement message from the announcer
     /// </summary>
