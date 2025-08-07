@@ -1,8 +1,8 @@
 using System.Numerics;
 using Content.Server.Actions;
 using Content.Server.GameTicking;
-using Content.Server.Mind;
-using Content.Server.Revenant.Components;
+using Content.Server.Mind; // imp
+using Content.Server.Revenant.Components; // imp
 using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
 using Content.Shared.Alert;
@@ -23,10 +23,10 @@ using Content.Shared.Store.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Robust.Server.GameObjects;
-using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Components; // imp
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
+using Robust.Shared.Timing; // imp
 
 namespace Content.Server.Revenant.EntitySystems;
 
@@ -49,15 +49,15 @@ public sealed partial class RevenantSystem : EntitySystem
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly VisibilitySystem _visibility = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly MetaDataSystem _meta = default!;
+    [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private readonly MindSystem _mind = default!; // imp edit
+    [Dependency] private readonly IGameTiming _gameTiming = default!; // imp edit
+    [Dependency] private readonly MetaDataSystem _meta = default!; // imp edit
+
+    private static readonly EntProtoId RevenantShopId = "ActionRevenantShop";
 
     [ValidatePrototypeId<EntityPrototype>]
-    private const string RevenantShopId = "ActionRevenantShop";
-
-    [ValidatePrototypeId<EntityPrototype>]
-    private const string RevenantHauntId = "ActionRevenantHaunt";
+    private const string RevenantHauntId = "ActionRevenantHaunt"; // imp edit
 
     public override void Initialize()
     {
@@ -106,8 +106,8 @@ public sealed partial class RevenantSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, RevenantComponent component, MapInitEvent args)
     {
-        _action.AddAction(uid, ref component.ShopAction, RevenantShopId);
-        _action.AddAction(uid, ref component.HauntAction, RevenantHauntId);
+        _action.AddAction(uid, ref component.ShopAction, RevenantShopId); // imp edit
+        _action.AddAction(uid, ref component.HauntAction, RevenantHauntId); // imp edit
     }
 
     private void OnStatusAdded(EntityUid uid, RevenantComponent component, StatusEffectAddedEvent args)
@@ -161,6 +161,7 @@ public sealed partial class RevenantSystem : EntitySystem
 
         if (component.Essence <= 0)
         {
+            // imp edit start
             component.Essence = 0;
             _statusEffects.TryRemoveAllStatusEffects(uid);
             var stasisObj = Spawn(component.SpawnOnDeathPrototype, Transform(uid).Coordinates);
@@ -170,6 +171,7 @@ public sealed partial class RevenantSystem : EntitySystem
                 _mind.TransferTo(mindId, stasisObj);
             _transformSystem.DetachEntity(uid, Comp<TransformComponent>(uid));
             _meta.SetEntityPaused(uid, true);
+            // imp edit end
         }
         return true;
     }
@@ -182,7 +184,7 @@ public sealed partial class RevenantSystem : EntitySystem
             return false;
         }
 
-        var tileref = Transform(uid).Coordinates.GetTileRef();
+        var tileref = _turf.GetTileRef(Transform(uid).Coordinates);
         if (tileref != null)
         {
             if(_physics.GetEntitiesIntersectingBody(uid, (int) CollisionGroup.Impassable).Count > 0)
@@ -196,8 +198,10 @@ public sealed partial class RevenantSystem : EntitySystem
 
         _statusEffects.TryAddStatusEffect<CorporealComponent>(uid, "Corporeal", TimeSpan.FromSeconds(debuffs.Y), false);
         _stun.TryStun(uid, TimeSpan.FromSeconds(debuffs.X), false);
+        // imp edit start
         if (debuffs.X > 0)
             _physics.ResetDynamics(uid, Comp<PhysicsComponent>(uid));
+        // imp edit end
 
         return true;
     }
@@ -243,10 +247,12 @@ public sealed partial class RevenantSystem : EntitySystem
 
             if (rev.Essence < rev.EssenceRegenCap)
             {
+                // imp edit start
                 var essence = rev.EssencePerSecond;
 
                 if (TryComp<RevenantRegenModifierComponent>(uid, out var regen))
                     essence += rev.HauntEssenceRegenPerWitness * regen.NewHaunts;
+                // imp edit end
 
                 ChangeEssenceAmount(uid, essence, rev, regenCap: true);
             }

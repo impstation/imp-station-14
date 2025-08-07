@@ -1,0 +1,209 @@
+- type: entity
+  parent: [ SimpleMobBase ]
+  id: BaseMobVRex
+  name: v-rex
+  description: A brown and bear like predator, it eats wild boars. It lumbers around, even FinFin are eaten. It lives in the Tsubu-woods and in the valley. #taken directly from the finfin fanpage, i kinda love it too much to change it. feel free to convince me otherwise.
+  abstract: true
+  components:
+  - type: Bloodstream
+    bloodMaxVolume: 1000
+    bloodReagent: Blood
+  - type: GhostRole
+    allowMovement: true
+    makeSentient: true
+    name: ghost-role-information-vrex-name
+    description: ghost-role-information-vrex-desc
+    rules: ghost-role-information-antagonist-rules
+    raffle:
+      settings: default
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+  - type: GhostTakeoverAvailable
+  - type: HTN
+    rootTask:
+      task: XenoCompound
+    blackboard:
+      NavInteract: !type:Bool
+        true
+      NavPry: !type:Bool
+        true
+      NavSmash: !type:Bool
+        true
+  - type: NpcFactionMember
+    factions:
+      - SimpleHostile
+  - type: Speech
+    speechVerb: LargeMob
+    speechSounds: Dino
+  - type: Vocal
+    sounds:
+      Unsexed: VRexEmotes
+  - type: ReplacementAccent
+    accent: vrex
+  - type: Emoting
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
+  - type: CombatMode
+  - type: MobMover
+  - type: InputMover
+  - type: MovementSpeedModifier
+    baseWalkSpeed: .6
+    baseSprintSpeed: 1.3 # original - 1.1. Can be slowed down again when rush is implemented
+  - type: Sprite
+    sprite: _Impstation/Mobs/Aliens/vrex.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: alive
+      Dead:
+        Base: dead
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: .95
+        density: 300
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      2000: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      1500: 0.7
+      1800: 0.5
+  - type: StatusEffects # copied from dragon, flash protection. it's slow enough already.
+    allowed:
+    - SlowedDown
+    - Stutter
+    - Electrocution
+    - ForcedSleep
+    - TemporaryBlindness
+    - Pacified
+    - RadiationProtection
+    - Drowsiness
+    - Adrenaline
+  - type: Metabolizer
+    solutionOnBody: false
+    updateInterval: 0.25
+    metabolizerTypes: [ Dragon ]
+    groups:
+    - id: Medicine
+    - id: Poison
+  - type: Absorbable
+    biomassRestored: 0.8
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 7
+    - id: ClothingOuterCoatVRexFurCoat
+      amount: 1
+      prob: 0.3
+  - type: InteractionPopup
+    successChance: 0.25 # grahhh
+    interactSuccessString: petting-success-vrex
+    interactFailureString: petting-failure-vrex
+    interactFailureSound:
+      path: /Audio/_Impstation/Animals/vrex_roar.ogg
+    soundPerceivedByOthers: false # A 75% chance for a loud roar would get old fast.
+  - type: MeleeWeapon
+    attackRate: .8 #original - .75
+    altDisarm: false
+    soundHit:
+      path: /Audio/Effects/Footsteps/largethud.ogg
+      params:
+        variation: 0.100
+    damage:
+      types:
+        Blunt: 40
+        Slash: 10
+        Structural: 500
+    range: 1.75
+  - type: MeleeThrowOnHit
+    speed: 15
+    distance: 2
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepThud
+  - type: Devourer
+    foodPreferenceWhitelist:
+      components:
+      - HumanoidAppearance
+    stomachStorageWhitelist:
+      components:
+      - MobState
+    chemical: Ichor
+    healRate: 3.0 #this thing doesnt need to heal, it's such a damage sponge
+    whitelist:
+      components:
+      - MobState
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - DoorBumpOpener
+    - FootstepSound
+  - type: Puller
+    needsHands: false
+  - type: Body
+    prototype: Animal
+#  - type: Nightvision  #implement if nightvision gets good, the v-rex DOES spawn in vents and might end up in a maints, but i dislike nightvison toggle and the tint
+#    isActive: true
+#    toggleAction: null
+#    color: "#b4d0d1"
+#    activateSound: null
+#    deactivateSound: null
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 2.5 #per second, scales with pressure and other constants.
+        Asphyxiation: .5
+    maxDamage: 2000
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 2500
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: VRex
+  - type: Stamina
+    critThreshold: 300
+# currently snailsprint doesnt allow for usedelay! will be commented out until i get someone who knows c# for help
+  #- type: SnailSprint
+  #  action: ActionSlime #ActionRush
+  #  thirstCost: 0
+  #  sprintLength: 2
+  #  speedBoost: 3
+    #reagentProduced: Mucin
+
+#- type: entity
+#  parent: BaseAction
+#  id: ActionRush
+#  name: Rage Rush
+#  description: Rush forward with a sudden boost!
+#  components:
+#  - type: Action
+#    icon: Interface/Actions/slime.png
+#    useDelay: 100
+#  - type: InstantAction
+#    event: !type:SnailSprintActionEvent
+
+- type: entity
+  parent: BaseMobVRex
+  id: MobVRex
+  components:
+  - type: GhostRole
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+  - type: GuideHelp
+    guides:
+    - MinorAntagonists

@@ -697,7 +697,7 @@ public sealed partial class SupermatterSystem
         _entityLookup.GetEntitiesOnMap<PoweredLightComponent>(mapId, lightLookup);
         foreach (var light in lightLookup)
         {
-            if (!_rand.Prob(sm.LightFlickerChance))
+            if (!_random.Prob(sm.LightFlickerChance))
                 continue;
             _ghost.DoGhostBooEvent(light);
         }
