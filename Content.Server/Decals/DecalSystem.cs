@@ -8,6 +8,7 @@ using Content.Shared.Chunking;
 using Content.Shared.Database;
 using Content.Shared.Decals;
 using Content.Shared.Maps;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.Extensions.ObjectPool;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
@@ -29,7 +30,6 @@ namespace Content.Server.Decals
     {
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IAdminManager _adminManager = default!;
-        [Dependency] private readonly ITileDefinitionManager _tileDefMan = default!;
         [Dependency] private readonly IParallelManager _parMan = default!;
         [Dependency] private readonly ChunkingSystem _chunking = default!;
         [Dependency] private readonly IConfigurationManager _conf = default!;
@@ -37,6 +37,7 @@ namespace Content.Server.Decals
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly SharedMapSystem _mapSystem = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
+        [Dependency] private readonly TurfSystem _turf = default!;
 
         private readonly Dictionary<NetEntity, HashSet<Vector2i>> _dirtyChunks = new();
         private readonly Dictionary<ICommonSession, Dictionary<NetEntity, HashSet<Vector2i>>> _previousSentChunks = new();
@@ -167,7 +168,7 @@ namespace Content.Server.Decals
 
             foreach (var change in args.Changes)
             {
-                if (!change.NewTile.IsSpace(_tileDefMan))
+                if (!_turf.IsSpace(change.NewTile))
                     continue;
 
                 var indices = GetChunkIndices(change.GridIndices);
@@ -289,10 +290,10 @@ namespace Content.Server.Decals
             _dirtyChunks[id].Add(chunkIndices);
         }
 
-        public bool TryAddDecal(string id, EntityCoordinates coordinates, out uint decalId, Color? color = null, Angle? rotation = null, int zIndex = 0, bool cleanable = false)
+        public bool TryAddDecal(string id, EntityCoordinates coordinates, out uint decalId, Color? color = null, Angle? rotation = null, int zIndex = 0, bool cleanable = false, string shaderID = "")  //imp edit - added shader
         {
             rotation ??= Angle.Zero;
-            var decal = new Decal(coordinates.Position, id, color, rotation.Value, zIndex, cleanable);
+            var decal = new Decal(coordinates.Position, id, color, rotation.Value, zIndex, cleanable, shaderID); //imp edit - added shader
 
             return TryAddDecal(decal, coordinates, out decalId);
         }
@@ -308,14 +309,19 @@ namespace Content.Server.Decals
             if (!TryComp(gridId, out MapGridComponent? grid))
                 return false;
 
-            if (_mapSystem.GetTileRef(gridId.Value, grid, coordinates).IsSpace(_tileDefMan))
+            if (_turf.IsSpace(_mapSystem.GetTileRef(gridId.Value, grid, coordinates)))
                 return false;
 
             if (!TryComp(gridId, out DecalGridComponent? comp))
                 return false;
 
             //imp edit - set the decal's shader
-            decal.ShaderID = PrototypeManager.Index<DecalPrototype>(decal.Id).ShaderID;
+            //kinda messy to have a double check here but decals are wierd and their proto IDs mean little about their actual state
+            //and I don't want to do a buncha small edits across a dozen files to fix that
+            if (decal.ShaderID == string.Empty)
+            {
+                decal.ShaderID = PrototypeManager.Index<DecalPrototype>(decal.Id).ShaderID;
+            }
 
             decalId = comp.ChunkCollection.NextDecalId++;
             var chunkIndices = GetChunkIndices(decal.Coordinates);

@@ -53,9 +53,6 @@
     stopSearchVerbPopup: pai-system-stopped-searching
   - type: Examiner
   - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Common
   - type: ActiveRadio
     channels:
     - Common
@@ -96,13 +93,24 @@
       components:
         - SecretStash
         - WrappedParcel
-  - type: DamageOtherOnHit # imp
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexSilicon
+  - type: Tag
+    tags:
+    - SiliconEmotes
+  # imp edit start
+  - type: DamageOtherOnHit
     damage:
       types:
         Blunt: 3
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+  # imp edit end
 
 - type: entity
-  parent: [ PersonalAI, Tier2Contraband]
+  parent: [ PersonalAI, Tier2Contraband] #imp contraband
   id: SyndicatePersonalAI
   name: syndicate personal ai device
   description: Your Syndicate pal who's fun to be with!
@@ -136,6 +144,50 @@
           On: { state: syndicate-pai-on-overlay }
   - type: StaticPrice
     price: 500
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexSiliconSyndicate
+
+- type: entity
+  parent: PersonalAI
+  id: GoldenPersonalAI
+  name: golden personal ai device
+  description: Your electronic pal who's fun to be with! Special golden edition!
+  components:
+  - type: Sprite
+    # imp edit start
+    sprite: _Impstation/Objects/Fun/pai.rsi
+    layers:
+    - state: gold-pai-base
+    - state: gold-pai-shimmer-overlay
+      shader: unshaded
+    - state: gold-pai-off-overlay
+      shader: unshaded
+      map: ["screen"]
+    - state: gold-pai-swish-overlay
+      shader: unshaded
+    # imp edit end
+  - type: Appearance
+  - type: StaticPrice
+    price: 5000
+  # imp edit start
+  - type: ToggleableGhostRole
+    roleName: pai-system-role-name-golden
+    roleDescription: pai-system-role-description-golden
+    roleRules: ghost-role-information-familiar-rules
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableGhostRoleVisuals.Status:
+        screen:
+          Off: { state: gold-pai-off-overlay }
+          Searching: { state: gold-pai-searching-overlay }
+          On: { state: gold-pai-on-overlay }
+  - type: PointLight
+    radius: 1.2
+    energy: 1.34
+    castShadows: false
+    color: "#9b68ff"
+  # imp edit end
 
 - type: entity
   parent: PersonalAI

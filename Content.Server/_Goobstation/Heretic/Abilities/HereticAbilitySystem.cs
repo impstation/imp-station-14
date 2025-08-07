@@ -1,6 +1,7 @@
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
+using Content.Shared.Interaction;
 using Content.Server.Flash;
 using Content.Server.Hands.Systems;
 using Content.Server.Magic;
@@ -61,6 +62,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly ThrowingSystem _throw = default!;
     [Dependency] private readonly IPrototypeManager _prot = default!;
+    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
 
     private List<EntityUid> GetNearbyPeople(Entity<HereticComponent> ent, float range)
     {
@@ -197,6 +199,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         transmitter.Channels = new() { "Mansus" };
 
         // this "* 1000f" (divided by 1000 in FlashSystem) is gonna age like fine wine :clueless:
-        _flash.Flash(target, null, null, 2f * 1000f, 0f, false, true, stunDuration: TimeSpan.FromSeconds(1f));
+        _flash.Flash(target, null, null, TimeSpan.FromSeconds(2f), 0f, false, true, stunDuration: TimeSpan.FromSeconds(1f));
     }
 }

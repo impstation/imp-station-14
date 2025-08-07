@@ -7,3 +7,5 @@ names-cargorilla-dataset-6 = Long-Haul
 names-cargorilla-dataset-7 = Pallet
 names-cargorilla-dataset-8 = Pallet Jack
 names-cargorilla-dataset-9 = Trolley
+
+cargorilla-begin-combat-popup = {CAPITALIZE(THE($name))} stands up menacingly.

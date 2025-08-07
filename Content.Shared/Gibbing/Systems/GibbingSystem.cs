@@ -2,7 +2,7 @@
 using System.Numerics;
 using Content.Shared.Gibbing.Components;
 using Content.Shared.Gibbing.Events;
-using Content.Shared.Projectiles;
+using Content.Shared.Projectiles; // imp
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -191,7 +191,7 @@ public sealed class GibbingSystem : EntitySystem
         if (gibType == GibType.Gib)
         {
             _projectileSystem.RemoveEmbeddedChildren(gibbable); // imp edit
-            QueueDel(gibbable);
+            PredictedQueueDel(gibbable.Owner);
         }
         return true;
     }
@@ -299,8 +299,9 @@ public sealed class GibbingSystem : EntitySystem
         if (deleteTarget)
         {
             _projectileSystem.RemoveEmbeddedChildren(gibbable); // imp edit
-            QueueDel(gibbable);
+            PredictedQueueDel(gibbable.Owner);
         }
+
         return localGibs;
     }
 

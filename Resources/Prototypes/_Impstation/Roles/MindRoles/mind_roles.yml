@@ -37,3 +37,14 @@
   components:
   - type: MindRole
     subtype: role-subtype-traitor
+
+# V-Rex
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindroleVRex
+  name: V-Rex Role
+  components:
+  - type: MindRole
+    antagPrototype: VRex
+    roleType: TeamAntagonist
+    exclusiveAntag: true
