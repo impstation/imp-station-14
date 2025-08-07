@@ -7,10 +7,10 @@
   - type: SolutionContainerManager
     solutions:
       artifexium:
-        maxVol: 5
+        maxVol: 15
         reagents:
         - ReagentId: Artifexium
-          Quantity: 5
+          Quantity: 15
   - type: Destructible
     thresholds:
     - trigger:
@@ -19,11 +19,11 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          ArtifactFragment:
-            min: 1
-            max: 2
+      - !type:WeightedSpawnEntityBehavior
+        weightedEntityTable: "XenoMeteorSpawnAsteroidWallTable"
+        minSpawn: 2
+        maxSpawn: 4
+        spawnAfter: 0.5
       - !type:ExplodeBehavior
       - !type:SpillBehavior
         solution: artifexium
@@ -37,10 +37,10 @@
   - type: SolutionContainerManager
     solutions:
       artifexium:
-        maxVol: 5
+        maxVol: 25
         reagents:
         - ReagentId: Artifexium
-          Quantity: 5
+          Quantity: 25
   - type: Destructible
     thresholds:
     - trigger:
@@ -49,11 +49,12 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          ArtifactFragment:
-            min: 2
-            max: 4
+      - !type:WeightedSpawnEntityBehavior
+        weightedEntityTable: "XenoMeteorSpawnAsteroidWallTable"
+        spawnOffset: 2
+        minSpawn: 3
+        maxSpawn: 6
+        spawnAfter: 0.5
       - !type:ExplodeBehavior
       - !type:SpillBehavior
         solution: artifexium
@@ -67,10 +68,10 @@
   - type: SolutionContainerManager
     solutions:
       artifexium:
-        maxVol: 5
+        maxVol: 50
         reagents:
         - ReagentId: Artifexium
-          Quantity: 5
+          Quantity: 50
   - type: Destructible
     thresholds:
     - trigger:
@@ -79,11 +80,12 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          ArtifactFragment:
-            min: 4
-            max: 6
+      - !type:WeightedSpawnEntityBehavior
+        weightedEntityTable: "XenoMeteorSpawnAsteroidWallTable"
+        spawnOffset: 3
+        minSpawn: 5
+        maxSpawn: 8
+        spawnAfter: 0.5
       - !type:ExplodeBehavior
       - !type:SpillBehavior
         solution: artifexium
