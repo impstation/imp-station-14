@@ -5,7 +5,6 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
-using Content.Shared.Foldable;
 using Content.Shared.Interaction;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
@@ -240,14 +239,6 @@ public sealed partial class AnchorableSystem : EntitySystem
             _popup.PopupClient(Loc.GetString("construction-step-condition-no-unstackable-in-tile"), uid, userUid);
             return;
         }
-
-        // Imp edit start, if the entity has the Foldable component, only allow anchoring if it is unfolded. Used for foldable machines.
-        if (TryComp<FoldableComponent>(uid, out var foldable) && foldable.IsFolded && !foldable.CanAnchorWhileFolded)
-        {
-            _popup.PopupClient(Loc.GetString("anchorable-folded", ("foldable", uid)), uid, userUid);
-            return;
-        }
-        // Imp edit end
 
         _tool.UseTool(usingUid, userUid, uid, anchorable.Delay, usingTool.Qualities, new TryAnchorCompletedEvent());
     }
