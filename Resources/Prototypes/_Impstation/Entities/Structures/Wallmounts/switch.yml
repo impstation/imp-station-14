@@ -131,6 +131,8 @@
   - type: Construction
     graph: RedButtonEmergencyGraph
     node: start
+  - type: WirelessNetworkConnection
+    range: 0
 
 - type: entity
   id: BigRedButtonEmergencyLocked
@@ -171,6 +173,8 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: WirelessNetworkConnection
+    range: 0
 
 # this ones for shits n giggles.
 - type: entity
@@ -186,3 +190,5 @@
     - state: green
   - type: AlertLevelOnPress
     alertLevelOnActivate: green
+  - type: WirelessNetworkConnection
+    range: 0
