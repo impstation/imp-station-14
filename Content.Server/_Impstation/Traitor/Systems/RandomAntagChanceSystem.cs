@@ -39,22 +39,16 @@ public sealed class RandomAntagChanceSystem : EntitySystem
         var random = IoCManager.Resolve<IRobustRandom>();
         if (random.Prob(ent.Comp.Chance))
         {
-            DoRoles(session, ent.Owner, ent.Comp.AntagRole);
+            DoRoles(session, args.Mind, ent.Comp.AntagRole);
         }
         else
         {
-            DoRoles(session, ent.Owner, ent.Comp.FallbackRole);
+            DoRoles(session, args.Mind, ent.Comp.FallbackRole);
         }
     }
 
-    private void DoRoles(ICommonSession session, Entity<MindComponent?> ent, EntProtoId role)
+    private void DoRoles(ICommonSession session, Entity<MindComponent> ent, EntProtoId role)
     {
-        if (Resolve(ent, ref ent.Comp))
-            return;
-
-        if (!TryComp<MindComponent>(ent, out var mind))
-            return;
-
         // antag code is hell. woe to all ye who enter here
         // GOD I WISH THERE WAS A BETTER WAY TO DO THIS
         switch (role)
@@ -85,7 +79,7 @@ public sealed class RandomAntagChanceSystem : EntitySystem
                 return;
             default:
                 // i hate my life
-                _role.MindAddRole(ent, role, mind);
+                _role.MindAddRole(ent, role);
                 return;
         }
     }
