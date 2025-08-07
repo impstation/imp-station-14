@@ -687,6 +687,9 @@
           Quantity: 10 # imp 5 > 10
   - type: Food
     requiresSpecialDigestion: true
+  - type: FlavorProfile # imp
+    flavors:
+      - trashy
 
 - type: entity
   categories: [ HideSpawnMenu ]

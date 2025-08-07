@@ -1,84 +1,4 @@
 ﻿Entries:
-- author: jtfg-dev
-  changes:
-  - message: Cassette tapes are now five minutes per side.
-    type: Tweak
-  id: 1624
-  time: '2025-05-09T00:06:47.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2421
-- author: CombustibleToast
-  changes:
-  - message: The lead custodial jumpskirt is no longer called a jumpsuit
-    type: Fix
-  - message: The lead custodial jumpskirt and lead bartending uniform no longer have
-      the option to be folded (wasn't implemented).
-    type: Remove
-  id: 1625
-  time: '2025-05-09T21:14:02.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2428
-- author: meridiadottxt
-  changes:
-  - message: properly labeled every substation, as well as many of the cameras on
-      Gate Station
-    type: Add
-  - message: a few excessive crew monitors have been removed or replaced
-    type: Remove
-  id: 1626
-  time: '2025-05-10T07:21:40.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2437
-- author: Mousetrinity
-  changes:
-  - message: captain is no longer wearing that hideous green!
-    type: Tweak
-  id: 1627
-  time: '2025-05-10T07:22:55.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2436
-- author: widgetbeck
-  changes:
-  - message: Anomalites are now only accessible through crit cores. Sorry, you gotta
-      work a little harder for your little guys.
-    type: Tweak
-  id: 1628
-  time: '2025-05-10T07:23:53.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2435
-- author: Darkmajia
-  changes:
-  - message: You gonna learn. This is the real world.
-    type: Add
-  - message: Adjusted the volume of several round end sounds to make them more audible.
-    type: Tweak
-  id: 1629
-  time: '2025-05-10T07:28:31.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2432
-- author: Sha-Seng
-  changes:
-  - message: Droopy and Cyclops eyes for slimes, and a glowing version of the slime
-      core
-    type: Add
-  id: 1630
-  time: '2025-05-10T07:32:55.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2413
-- author: Sha-Seng
-  changes:
-  - message: A spare Military-Style Medical Mask is now in the brigmed locker
-    type: Add
-  id: 1631
-  time: '2025-05-10T07:34:41.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2414
-- author: LazyRiverfolk
-  changes:
-  - message: Kodepiiae have a unique warden's hardsuit.
-    type: Tweak
-  id: 1632
-  time: '2025-05-10T07:35:54.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2419
-- author: mhachimagus
-  changes:
-  - message: New long-tailed variant of the Ponytail (Spiky) hairstyle.
-    type: Add
-  id: 1633
-  time: '2025-05-10T07:42:22.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2434
 - author: Stonylogray
   changes:
   - message: Adjusted home run bat to prevent double damage and reduce wall clipping.
@@ -4215,3 +4135,79 @@
   id: 2123
   time: '2025-08-06T11:37:03.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3234
+- author: Mousetrinity
+  changes:
+  - message: the v-rex has had a few kinks and bugs flattened out. we have added vocal
+      cords for screaming, longer limbs for swiping at pesky crew, and more!
+    type: Fix
+  id: 2124
+  time: '2025-08-06T16:34:58.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3236
+- author: Sneakyph0enix
+  changes:
+  - message: fixed the mobster accent adding extra punctuation in the middle of sentences
+    type: Fix
+  id: 2125
+  time: '2025-08-06T16:48:15.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3229
+- author: DinnerCalzone
+  changes:
+  - message: Vocal emotes now properly appear in chat when manually typed.
+    type: Fix
+  id: 2126
+  time: '2025-08-07T04:29:13.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3244
+- author: astral_amy
+  changes:
+  - message: A number of Bedlam and Whisper tweaks. See PR for more information.
+    type: Tweak
+  id: 2127
+  time: '2025-08-07T06:52:27.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3240
+- author: DinnerCalzone
+  changes:
+  - message: Crew members that have had their job set to Service Worker from the ID
+      card computer will now show up under the Service tab on the crew monitoring
+      console.
+    type: Fix
+  - message: You can no longer change your job to Administrative Assistant from the
+      ID card computer.
+    type: Remove
+  id: 2128
+  time: '2025-08-07T06:51:41.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3245
+- author: yesteryuri
+  changes:
+  - message: Vox suffer no ill effects of eating trash
+    type: Fix
+  id: 2129
+  time: '2025-08-07T06:50:55.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3243
+- author: six-valentine, wolfie
+  changes:
+  - message: Added an alcohol-hating vending machine
+    type: Add
+  id: 2130
+  time: '2025-08-07T06:57:21.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3137
+- author: ATDoop
+  changes:
+  - message: Scurrets have been rebranded to be more in line with Impstation's flavor.
+    type: Tweak
+  id: 2131
+  time: '2025-08-07T07:33:28.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3239
+- author: CrystalClover
+  changes:
+  - message: The party is ACTUALLY coming this time.
+    type: Fix
+  id: 2132
+  time: '2025-08-07T07:47:42.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3237
+- author: starlighthowls
+  changes:
+  - message: New lobby art
+    type: Add
+  id: 2133
+  time: '2025-08-07T08:58:27.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3235
