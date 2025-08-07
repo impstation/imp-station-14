@@ -14,10 +14,10 @@
     name: ghost-role-information-vrex-name
     description: ghost-role-information-vrex-desc
     rules: ghost-role-information-antagonist-rules
-    mindRoles:
-    - MindRoleGhostRoleSoloAntagonist
     raffle:
       settings: default
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
   - type: GhostTakeoverAvailable
   - type: HTN
     rootTask:
@@ -34,14 +34,21 @@
       - SimpleHostile
   - type: Speech
     speechVerb: LargeMob
+    speechSounds: Dino
+  - type: Vocal
+    sounds:
+      Unsexed: VRexEmotes
   - type: ReplacementAccent
     accent: vrex
+  - type: Emoting
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
   - type: CombatMode
   - type: MobMover
   - type: InputMover
   - type: MovementSpeedModifier
     baseWalkSpeed: .6
-    baseSprintSpeed: 1.1
+    baseSprintSpeed: 1.3 # original - 1.1. Can be slowed down again when rush is implemented
   - type: Sprite
     sprite: _Impstation/Mobs/Aliens/vrex.rsi
     layers:
@@ -71,8 +78,8 @@
       2000: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      1100: 0.7
-      1400: 0.5
+      1500: 0.7
+      1800: 0.5
   - type: StatusEffects # copied from dragon, flash protection. it's slow enough already.
     allowed:
     - SlowedDown
@@ -108,7 +115,7 @@
       path: /Audio/_Impstation/Animals/vrex_roar.ogg
     soundPerceivedByOthers: false # A 75% chance for a loud roar would get old fast.
   - type: MeleeWeapon
-    attackRate: .75
+    attackRate: .8 #original - .75
     altDisarm: false
     soundHit:
       path: /Audio/Effects/Footsteps/largethud.ogg
@@ -119,6 +126,7 @@
         Blunt: 40
         Slash: 10
         Structural: 500
+    range: 1.75
   - type: MeleeThrowOnHit
     speed: 15
     distance: 2
