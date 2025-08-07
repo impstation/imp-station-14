@@ -49,6 +49,16 @@
   equipment:
     suitstorage: DecapoidVaporTankFilled
 
+# Full tank for vox in command roles as an alternative to the below section in case people don't like non-vox spawning with tanks
+# Remove LoadoutSpeciesOxygenCommand and LoadoutSpeciesNitrogenCommand from SurvivalCommand, SurvivalExtendedCommand, and SurvivalSecurityCommand in loadout_groups.yml if you wanna make that change
+- type: loadout #idk what sha meant by this ^ but it was in the wrong namespace
+  id: LoadoutSpeciesVoxNitrogenCommand
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EffectSpeciesVox
+  equipment:
+    suitstorage: NitrogenTankCommandFilled
+
 # Tank Harnesses for jobs that don't spawn with outerwear
 - type: loadout
   id: LoadoutTankHarnessAquatic
@@ -66,7 +76,33 @@
   equipment:
     outerClothing: ClothingOuterVestTankCommand
 
+- type: loadout
+  id: LoadoutTankHarnessCommand
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EffectSpeciesVox
+  equipment:
+    outerClothing: ClothingOuterVestTankCommand
+
 # Tank harnesses for jobs that spawn with outerwear, puts them in their inventory instead of dropping items at their feet
+- type: loadout
+  id: LoadoutTankHarnessWithOuterwear
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EffectSpeciesVox
+  storage:
+    back:
+    - ClothingOuterVestTank
+
+- type: loadout
+  id: LoadoutTankHarnessCommandWithOuterwear
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EffectSpeciesVox
+  storage:
+    back:
+    - ClothingOuterVestTankCommand
+
 - type: loadout
   id: LoadoutTankHarnessAquaticWithOuterwear
   effects:
@@ -93,6 +129,14 @@
     proto: Aquatic
   equipment:
     mask: DecapoidBreathingApparatus
+
+- type: loadout
+  id: LoadoutSpeciesBreathToolCommand
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EffectSpeciesVox
+  equipment:
+    mask: ClothingMaskBreathCommand
 
 # Breath tool in inventory
 - type: loadout
@@ -159,7 +203,7 @@
     proto: Carnivorous
   storage:
     back:
-    - BoxMime
+    - BoxMimeKodepiia
 
 # Engineering / Extended
 - type: loadout
@@ -208,6 +252,15 @@
   storage:
     back:
     - BoxSurvivalMedicalKodepiia
+
+# Medsec, idk if this is _wizden but theres a chance they also just didnt have brigmed and vox at the same time
+- type: loadout
+  id: LoadoutSpeciesBreathToolMedSec
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EffectSpeciesVox
+  equipment:
+    mask: ClothingMaskBreathMedicalSecurity
 
 # Security
 - type: loadout

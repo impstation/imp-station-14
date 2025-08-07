@@ -159,6 +159,7 @@
   - type: Tag
     tags:
     - ClothMade
+    - ClothFood # imp
     - Bread
   - type: SolutionContainerManager
     solutions:
@@ -188,6 +189,7 @@
   - type: Tag
     tags:
     - ClothMade
+    - ClothFood # imp
     - Bread
     - Slice
   - type: SolutionContainerManager
@@ -258,6 +260,10 @@
       - cheesy
       - creamy
       - bread
+    ignoreReagents: # imp
+      - TableSalt
+      - Milk
+      - Nutriment
   - type: Food
   - type: Sprite
     layers:
@@ -274,7 +280,7 @@
         # - ReagentId: Vitamin # imp
         #  Quantity: 5
         - ReagentId: Milk # imp
-          Quantity: 5
+          Quantity: 7
 # Tastes like bread, cheese.
 
 - type: entity
@@ -288,6 +294,10 @@
       - cheesy
       - creamy
       - bread
+    ignoreReagents: # imp
+      - TableSalt
+      - Milk
+      - Nutriment
   - type: Food
   - type: Sprite
     layers:
@@ -301,6 +311,8 @@
           Quantity: 4.6 # imp
         #- ReagentId: Vitamin # imp
         #  Quantity: 1.2
+        - ReagentId: Milk # imp
+          Quantity: 1.4
 
 - type: entity
   name: meat bread
@@ -752,6 +764,7 @@
     tags:
     - Bread
     - ClothMade
+    - ClothFood # imp
   - type: Clothing
     equippedPrefix: baguette-cotton
   - type: Item
@@ -813,6 +826,7 @@
     - Bread
     - Slice
     - ClothMade
+    - ClothFood # imp
   - type: SolutionContainerManager
     solutions:
       food:

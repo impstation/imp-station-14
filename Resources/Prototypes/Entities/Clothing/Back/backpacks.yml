@@ -346,6 +346,11 @@
   - type: DeviceLinkSink
     ports:
       - Trigger
+  - type: Tag
+    tags:
+      - Electropack # imp
+      - WhitelistChameleon
+      - Backpack
 
 # Debug
 - type: entity

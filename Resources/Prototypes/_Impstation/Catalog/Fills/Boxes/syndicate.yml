@@ -100,3 +100,25 @@
     sprite: /Textures/_Impstation/Objects/Storage/boxes.rsi
     layers:
       - state: syndicategunbox
+
+- type: entity
+  parent: [BoxCardboard, Tier2Contraband]
+  id: DeadlyDanFamilyPack
+  name: Deadly Dan's ValuShot family pack
+  description: Arm the whole family!
+  components:
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,3,2
+  - type: Storage
+    grid:
+    - 0,0,4,1
+  - type: StorageFill
+    contents:
+      - id: WeaponPistolValu
+        amount: 3
+  - type: Sprite
+    sprite: /Textures/_Impstation/Objects/Storage/boxes.rsi
+    layers:
+      - state: deadly_dan_big
