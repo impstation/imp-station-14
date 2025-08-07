@@ -107,8 +107,8 @@
     normalState: normal-unshaded
     denyState: deny-unshaded
     loopDeny: false
-  - type: Advertise
-    pack: JuiceOMatAds
+  - type: DatasetVocalizer
+    dataset: JuiceOMatAds
   - type: SpeakOnUIClosed
     pack: JuiceOMatGoodbyes
   - type: Sprite
