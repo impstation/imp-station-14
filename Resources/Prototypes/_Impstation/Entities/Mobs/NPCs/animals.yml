@@ -396,9 +396,9 @@
     raffle:
       settings: default
   - type: RandomAntagChance
-    antagRole: MindRoleRevolutionary
+    antagRole: Revolutionary
     fallbackRole: MindRoleGhostRoleFreeAgent
-    chance: 1
+    chance: 0
   - type: NameIdentifier
     group: Monkey
   - type: Vocal

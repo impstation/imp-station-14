@@ -52,6 +52,9 @@ public sealed class RandomAntagChanceSystem : EntitySystem
         if (Resolve(ent, ref ent.Comp))
             return;
 
+        if (!TryComp<MindComponent>(ent, out var mind))
+            return;
+
         // antag code is hell. woe to all ye who enter here
         // GOD I WISH THERE WAS A BETTER WAY TO DO THIS
         switch (role)
@@ -80,12 +83,9 @@ public sealed class RandomAntagChanceSystem : EntitySystem
             case "Heretic":
                 _antag.ForceMakeAntag<HereticRuleComponent>(session, role);
                 return;
-            case "Free Agent":
-                _roleSystem.MindAddRoles(newMind.Owner, role.Comp.FallbackRole, newMind.Comp);
-                return;
             default:
                 // i hate my life
-                _role.MindAddRole(ent, role, mind: ent);
+                _role.MindAddRole(ent, role, mind);
                 return;
         }
     }
