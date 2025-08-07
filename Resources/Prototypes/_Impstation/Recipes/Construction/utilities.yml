@@ -10,3 +10,198 @@
   canBuildInImpassable: true
   conditions:
   - !type:WallmountCondition {}
+  
+- type: construction
+  id: DeskIntercomAssembly
+  graph: DeskIntercom
+  startNode: start
+  targetNode: deskIntercom
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+
+#ATMOS UNARY
+- type: construction
+  id: GasVentPumpAlt1
+  hide: true
+  graph: GasUnary
+  startNode: start
+  targetNode: ventpumpAlt1
+  category: construction-category-atmos
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  conditions:
+  - !type:NoUnstackableInTile
+  alternativePrototypes:
+  - GasVentPump
+  - GasVentPumpAlt1
+  - GasVentPumpAlt2
+
+- type: construction
+  id: GasVentPumpAlt2
+  hide: true
+  graph: GasUnary
+  startNode: start
+  targetNode: ventpumpAlt2
+  category: construction-category-atmos
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  conditions:
+  - !type:NoUnstackableInTile
+  alternativePrototypes:
+  - GasVentPump
+  - GasVentPumpAlt1
+  - GasVentPumpAlt2
+
+- type: construction
+  id: GasPassiveVentAlt1
+  hide: true
+  graph: GasUnary
+  startNode: start
+  targetNode: passiveventAlt1
+  category: construction-category-atmos
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  conditions:
+  - !type:NoUnstackableInTile
+  alternativePrototypes:
+  - GasPassiveVent
+  - GasPassiveVentAlt1
+  - GasPassiveVentAlt2
+
+- type: construction
+  id: GasPassiveVentAlt2
+  hide: true
+  graph: GasUnary
+  startNode: start
+  targetNode: passiveventAlt2
+  category: construction-category-atmos
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  conditions:
+  - !type:NoUnstackableInTile
+  alternativePrototypes:
+  - GasPassiveVent
+  - GasPassiveVentAlt1
+  - GasPassiveVentAlt2
+
+- type: construction
+  id: GasVentScrubberAlt1
+  hide: true
+  graph: GasUnary
+  startNode: start
+  targetNode: ventscrubberAlt1
+  category: construction-category-atmos
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  conditions:
+  - !type:NoUnstackableInTile
+  alternativePrototypes:
+  - GasVentScrubber
+  - GasVentScrubberAlt1
+  - GasVentScrubberAlt2
+
+- type: construction
+  id: GasVentScrubberAlt2
+  hide: true
+  graph: GasUnary
+  startNode: start
+  targetNode: ventscrubberAlt2
+  category: construction-category-atmos
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  conditions:
+  - !type:NoUnstackableInTile
+  alternativePrototypes:
+  - GasVentScrubber
+  - GasVentScrubberAlt1
+  - GasVentScrubberAlt2
+
+- type: construction
+  id: GasOutletInjectorAlt1
+  hide: true
+  graph: GasUnary
+  startNode: start
+  targetNode: outletinjectorAlt1
+  category: construction-category-atmos
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  conditions:
+  - !type:NoUnstackableInTile
+  alternativePrototypes:
+  - GasOutletInjector
+  - GasOutletInjectorAlt1
+  - GasOutletInjectorAlt2
+
+- type: construction
+  id: GasOutletInjectorAlt2
+  hide: true
+  graph: GasUnary
+  startNode: start
+  targetNode: outletinjectorAlt2
+  category: construction-category-atmos
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  conditions:
+  - !type:NoUnstackableInTile
+  alternativePrototypes:
+  - GasOutletInjector
+  - GasOutletInjectorAlt1
+  - GasOutletInjectorAlt2
+
+#ATMOS BINARY
+- type: construction
+  id: HeatExchangerAlt1
+  hide: true
+  graph: GasBinary
+  startNode: start
+  targetNode: radiatorAlt1
+  category: construction-category-atmos
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  alternativePrototypes:
+  - HeatExchanger
+  - HeatExchangerAlt1
+  - HeatExchangerAlt2
+
+- type: construction
+  id: HeatExchangerAlt2
+  hide: true
+  graph: GasBinary
+  startNode: start
+  targetNode: radiatorAlt2
+  category: construction-category-atmos
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  alternativePrototypes:
+  - HeatExchanger
+  - HeatExchangerAlt1
+  - HeatExchangerAlt2
+
+- type: construction
+  id: HeatExchangerBendAlt1
+  hide: true
+  graph: GasBinary
+  startNode: start
+  targetNode: bendradiatorAlt1
+  category: construction-category-atmos
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  alternativePrototypes:
+  - HeatExchangerBend
+  - HeatExchangerBendAlt1
+  - HeatExchangerBendAlt2
+
+- type: construction
+  id: HeatExchangerBendAlt2
+  hide: true
+  graph: GasBinary
+  startNode: start
+  targetNode: bendradiatorAlt2
+  category: construction-category-atmos
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  alternativePrototypes:
+  - HeatExchangerBend
+  - HeatExchangerBendAlt1
+  - HeatExchangerBendAlt2

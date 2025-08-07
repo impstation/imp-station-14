@@ -46,7 +46,7 @@
     - id: ClothingHeadsetAltCommand
     - id: ClothingOuterArmorCaptainCarapace
     - id: CommsComputerCircuitboard
-    - id: DoorRemoteCommand
+    - id: DoorRemoteCustom
     - id: MedalCase
     - id: NukeDisk
     - id: PinpointerNuclear
@@ -141,11 +141,12 @@
     - id: HoPIDCard
     - id: IDComputerCircuitboard
     - id: FundingAllocationComputerCircuitboard
-    - id: CargoRequestServiceComputerCircuitboard
+    # - id: CargoRequestServiceComputerCircuitboard imp edit
     - id: RubberStampApproved
     - id: RubberStampDenied
     - id: RubberStampHop
-    - id: WeaponDisabler
+    # - id: WeaponDisabler #imp edit
+    - id: AntiqueDisablerBox #imp edit
     - id: ClothingEyesHudCommand
 
 - type: entity

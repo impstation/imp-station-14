@@ -129,11 +129,8 @@
     node: done
     containers:
     - entity_storage
-  - type: DamageOtherOnHit # imp
-    damage:
-      types:
-        Blunt: 15
-    staminaCost: 50
+  - type: Paintable
+    group: Closet
 
 #Wall Closet
 - type: entity
@@ -205,11 +202,18 @@
           SheetSteel1:
             min: 1
             max: 1
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: generic
+    stateDoorOpen: generic_open
+    stateDoorClosed: generic_door
   - type: Construction
     graph: ClosetWall
     node: done
     containers:
     - entity_storage
+  - type: Paintable
+    group: WallCloset
 
 #Wall locker
 - type: entity
@@ -233,6 +237,8 @@
     - state: welded
       visible: false
       map: ["enum.WeldableLayers.BaseWelded"]
+  - type: Paintable
+    group: WallLocker
 
 #Base suit storage unit
 #I am terribly sorry for duplicating the closet almost-wholesale, but the game malds at me if I don't so here we are.
@@ -321,7 +327,7 @@
             max: 1
   - type: Appearance
   - type: EntityStorageVisuals
-    stateBase: base
+    # stateBase: base  // This field does not exist. this is probably a bug. TODO
     stateDoorOpen: base
     stateDoorClosed: door
   - type: LockVisuals

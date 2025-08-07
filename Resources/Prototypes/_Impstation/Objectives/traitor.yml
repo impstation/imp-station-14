@@ -1,3 +1,31 @@
+# kill or maroon
+
+- type: entity
+  parent: [BaseTraitorObjective, BaseKillObjective]
+  id: KillOrMaroonRandomPersonObjective
+  description: Do it however you like, just make sure they don't make it to CentComm.
+  components:
+  - type: Objective
+    difficulty: 1.5
+    unique: false
+  - type: TargetObjective
+    title: objective-condition-kill-person-title
+  - type: PickRandomPerson
+  - type: KillPersonCondition
+
+# Steal
+
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: AntiqueDisablerStealObjective
+  components:
+  - type: NotJobRequirement
+    job: HeadOfPersonnel
+  - type: StealCondition
+    stealGroup: AntiqueDisabler
+    descriptionText: objective-condition-steal-antiquedisabler-description
+    owner: job-name-hop
+
 #SVS objectives
 
 - type: entity
@@ -13,7 +41,7 @@
 - type: entity
   parent: [BaseTraitorObjective, BaseKillObjective]
   id: KillRandomTraitorSvSObjective # Used for rounds when basically every valid person will be a traitor.
-  description: Do it however you like, just make sure they don't make it to centcom.
+  description: Do it however you like, just make sure they don't make it to CentComm.
   components:
   - type: Objective
     issuer: objective-issuer-syndicate

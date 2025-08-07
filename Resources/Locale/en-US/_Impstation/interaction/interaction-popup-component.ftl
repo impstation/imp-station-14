@@ -8,10 +8,18 @@ petting-success-pipi = You pet {THE($target)} on {POSS-ADJ($target)} empty littl
 petting-success-dolby = You pet {THE($target)} on {POSS-ADJ($target)} fluffy little head.
 petting-success-tomato = You reach out to pet {THE($target)}, but it jumps up and kisses your hand first.
 petting-success-cargorilla = You give {THE($target)} a big hug.
+petting-success-goliath = You pet {THE($target)} on {POSS-ADJ($target)} tentacle-covered head.
+petting-success-hivelord = You pet {THE($target)} on {POSS-ADJ($target)} shifting, oobleck-esque flesh.
+petting-success-hivelordbrood = You pet {THE($target)} and their flesh wraps around your hand in a hug.
+petting-success-basilisk = You pet {THE($target)} on {POSS-ADJ($target)} cool, cold carapace.
 
 petting-failure-finfin = You reach out to pet {THE($target)}, but {POSS-ADJ($target)} strangely human eyes make you pause.
 petting-failure-tomato = You try to pet {THE($target)}, but {SUBJECT($target)} {CONJUGATE-BE($target)} gets so excited it rolls away.
 petting-failure-cargorilla = You try to give {THE($target)} a hug, but you struggle to get your arms around 'em!
+petting-failure-goliath = You try to pet {THE($target)}, but a tentacle wraps around your hand to stop you.
+petting-failure-hivelord = You try to pet {THE($target)}, but the flesh seperates to avoid your hand.
+petting-failure-hivelordbrood = You try to pet {THE($target)}, but it darts away quickly.
+petting-failure-basilisk = You try to pet {THE($target)}, but your hand almost freezes off for trying.
 
 petting-success-disgustingpig = You insult {THE($target)}, as it deserves.
 petting-failure-disgustingpig = You think about insulting {THE($target)}, but hold your tongue.
@@ -36,3 +44,6 @@ petting-failure-apid = You try to pet {$target}, but your fingers are shocked by
 
 petting-success-anomalite = You pet {THE($target)} on their anomalous little head.
 petting-failure-anomalite = You try to pet {THE($target)}, but your fingers are zapped by its energy field!
+
+petting-success-vrex = You brush {THE($target)}'s bristly ridge running along their back.
+petting-failure-vrex = You think about brushing {THE($target)}'s bristly ridge, but the unnerving teeth make you decide against it.

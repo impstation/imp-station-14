@@ -71,9 +71,8 @@
       - !type:MovespeedModifier
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
-      - !type:GenericStatusEffect
-        key: Drowsiness
-        component: Drowsiness
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDrowsiness
         time: 4
         type: Add
         refresh: false
@@ -351,9 +350,8 @@
   metabolisms:
     Poison:
       effects:
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 10
         refresh: false
@@ -423,7 +421,7 @@
         conditions:
           - !type:OrganType
             type: Animal
-          - !type:ReagentThreshold
+          - !type:ReagentThreshold #imp
             min: 0.12
 
 - type: reagent
@@ -433,7 +431,7 @@
   desc: reagent-desc-amatoxin
   physicalDesc: reagent-physical-desc-nondescript
   color: "#D6CE7B"
-  contraband: Major
+  contraband: Major #imp
   metabolisms:
     Poison:
       metabolismRate: 0.2
@@ -455,14 +453,14 @@
     Poison:
       effects:
         - !type:HealthChange
-          conditions:
+          conditions: #imp
           - !type:HasTag
             tag: BROS
             invert: true
           damage:
             types:
               Poison: 2
-  tileReactions:
+  tileReactions: #imp
     - !type:SpillTileReaction
 
 - type: reagent
@@ -473,7 +471,7 @@
   physicalDesc: reagent-physical-desc-necrotic
   flavor: bitter
   color: "#7e916e"
-  contraband: Tier3Contraband
+  contraband: Tier3Contraband #imp
   worksOnTheDead: true
   metabolisms:
     Medicine:
@@ -705,7 +703,7 @@
   physicalDesc: reagent-physical-desc-metallic
   flavor: shocking
   color: "#FDD023"
-  contraband: Tier3Contraband
+  contraband: Tier3Contraband #imp
   metabolisms:
     Poison:
       effects:
@@ -800,6 +798,9 @@
           conditions:
           - !type:OrganType
             type: Rat
+            shouldHave: false
+          - !type:OrganType
+            type: Vox
             shouldHave: false
           damage:
             types:

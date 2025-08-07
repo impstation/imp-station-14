@@ -20,39 +20,6 @@
     Brutoxidone: 1
 
 - type: reaction
-  id: Subjuzine-Activation-GrayBlood #imp, so greys can use it
-  preserveDNA: true
-  reactants:
-    Subjuzine:
-      amount: 4
-    GrayBlood:
-      amount: 1
-  products:
-    ActivatedSubjuzine: 5
-
-- type: reaction
-  id: Subjuzine-Activation-ShimmeringBlood #imp, so thaven can use it
-  preserveDNA: true
-  reactants:
-    Subjuzine:
-      amount: 4
-    ShimmeringBlood:
-      amount: 1
-  products:
-    ActivatedSubjuzine: 5
-
-- type: reaction
-  id: Subjuzine-Activation-BloodKodepiia #imp, so kode can use it
-  preserveDNA: true
-  reactants:
-    Subjuzine:
-      amount: 4
-    BloodKodepiia:
-      amount: 1
-  products:
-    ActivatedSubjuzine: 5
-
-- type: reaction
   id: ClarifiedPhalanximine
   minTemp: 300
   reactants:
@@ -73,3 +40,13 @@
       amount: 1
   products:
     Caramexinin: 2
+
+- type: reaction
+  id: Subjuzine
+  reactants:
+    Cognizine:
+      amount: 1
+    Vestine:
+      amount: 1
+  products:
+    Subjuzine: 2

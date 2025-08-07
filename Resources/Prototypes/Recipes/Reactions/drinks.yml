@@ -97,7 +97,7 @@
   reactants:
     Cognac:
       amount: 1
-    IrishCarBomb:
+    IrishCarBomb: #imp
       amount: 1
     CoffeeLiqueur:
       amount: 1
@@ -340,7 +340,6 @@
 
 - type: reaction
   id: DemonsBlood
-  preserveDNA: true
   requiredMixerCategories:
   - Stir
   reactants:
@@ -357,7 +356,6 @@
 
 - type: reaction
   id: DevilsKiss
-  preserveDNA: true
   requiredMixerCategories:
   - Stir
   reactants:
@@ -635,20 +633,20 @@
   reactants:
     EnergyDrink:
       amount: 1
-    IrishCarBomb:
+    IrishCarBomb: #imp
       amount: 1
   products:
     IrishBool: 2
 
 - type: reaction
-  id: IrishCarBomb
+  id: IrishCarBomb #imp
   reactants:
     Ale:
       amount: 1
     IrishCream:
       amount: 1
   products:
-    IrishCarBomb: 2
+    IrishCarBomb: 2 #imp
 
 - type: reaction
   id: IrishCoffee
@@ -982,7 +980,6 @@
 
 - type: reaction
   id: RedMead
-  preserveDNA: true
   reactants:
     Mead:
       amount: 1
