@@ -88,6 +88,13 @@
     sprite: _Impstation/Clothing/Neck/Medals/bureaucracymedal.rsi
     state: icon
 
+- type: stealTargetGroup
+  id: AntiqueDisabler
+  name: steal-target-groups-antiquedisabler
+  sprite:
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/hopdisabler.rsi
+    state: icon
+
 # rare but otherwise not notable
 
 - type: stealTargetGroup

@@ -166,6 +166,9 @@ loadout-group-chemist-id = Chemist ID
 loadout-group-paramedic-neck = Paramedic neck
 loadout-group-paramedic-id = Paramedic ID
 
+loadout-group-psychologist-head = Psychologist head
+loadout-group-psychologist-mask = Psychologist mask
 loadout-group-psychologist-neck = Psychologist neck
 loadout-group-psychologist-shoes = Psychologist shoes
 loadout-group-psychologist-outerclothing = Psychologist outer clothing
+loadout-group-psychologist-backpack = Psychologist backpack
