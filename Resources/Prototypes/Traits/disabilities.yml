@@ -5,7 +5,7 @@
   name: trait-blindness-name
   description: trait-blindness-desc
   traitGear: WhiteCane
-  category: Disabilities
+  category: Traits
   whitelist:
     components:
       - Blindable
@@ -16,7 +16,7 @@
   id: PoorVision
   name: trait-poor-vision-name
   description: trait-poor-vision-desc
-  category: Disabilities
+  category: Traits
   whitelist:
     components:
       - Blindable
@@ -29,7 +29,7 @@
   id: Narcolepsy
   name: trait-narcolepsy-name
   description: trait-narcolepsy-desc
-  category: Disabilities
+  category: Traits
   components:
     - type: Narcolepsy
       timeBetweenIncidents: 300, 600
@@ -39,7 +39,7 @@
   id: Unrevivable
   name: trait-unrevivable-name
   description: trait-unrevivable-desc
-  category: Disabilities
+  category: Traits
   components:
     - type: Unrevivable
       cloneable: true
@@ -48,7 +48,7 @@
   id: Monochromacy
   name: trait-monochromacy-name
   description: trait-monochromacy-desc
-  category: Disabilities
+  category: Traits
   components:
   - type: BlackAndWhiteOverlay
 
@@ -56,7 +56,7 @@
   id: Muted
   name: trait-muted-name
   description: trait-muted-desc
-  category: Disabilities
+  category: Traits
   blacklist:
     components:
       - BorgChassis
@@ -70,7 +70,7 @@
   id: Paracusia
   name: trait-paracusia-name
   description: trait-paracusia-desc
-  category: Disabilities
+  category: Traits
   components:
     - type: Paracusia
       minTimeBetweenIncidents: 0.1
@@ -83,6 +83,6 @@
   id: PainNumbness
   name: trait-painnumbness-name
   description: trait-painnumbness-desc
-  category: Disabilities
+  category: Traits
   components:
   - type: PainNumbness
