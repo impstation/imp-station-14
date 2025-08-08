@@ -129,7 +129,7 @@
     - type: Loadout
       prototypes: [ VisitorCargoTech, VisitorCargoTechAlt ]
       roleLoadout: [ RoleSurvivalStandard ]
-#    - type: RandomAntagChance
-#      antagRole: Traitor
-#      fallbackRole: MindRoleGhostRoleNeutral
-#      chance: 0.1634
+    - type: RandomAntagChance
+      antagRole: Traitor
+      fallbackRole: MindRoleGhostRoleNeutral
+      chance: 0.1634
