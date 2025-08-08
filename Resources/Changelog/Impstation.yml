@@ -1,37 +1,4 @@
 ﻿Entries:
-- author: Stonylogray
-  changes:
-  - message: Adjusted home run bat to prevent double damage and reduce wall clipping.
-    type: Tweak
-  id: 1634
-  time: '2025-05-10T07:43:09.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2433
-- author: Oberonics
-  changes:
-  - message: You can now be cloned no matter your body composition.
-    type: Tweak
-  - message: Being unrevivable now actually means you can't be revived.
-    type: Fix
-  id: 1635
-  time: '2025-05-10T11:36:09.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2438
-- author: Oberonics
-  changes:
-  - message: Handheld Mass Scanners are no longer comically large (and can fit in
-      your pocket again).
-    type: Fix
-  id: 1636
-  time: '2025-05-10T11:36:51.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2439
-- author: CrystalClover
-  changes:
-  - message: Added new blinking noise to Slimes and Gastropoids
-    type: Add
-  - message: Blinking now has pitch variation
-    type: Tweak
-  id: 1637
-  time: '2025-05-10T11:38:01.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2442
 - author: jtfg-dev
   changes:
   - message: The cryptographic sequencer has been updated with the latest jukebox-cracker
@@ -4211,3 +4178,34 @@
   id: 2133
   time: '2025-08-07T08:58:27.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3235
+- author: yesteryuri
+  changes:
+  - message: Fixed MRE wrappers tasting trashy
+    type: Fix
+  id: 2134
+  time: '2025-08-08T08:53:44.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3255
+- author: VeeNomine
+  changes:
+  - message: Drones no longer know the joys of flashing others when they toggle their
+      flashlight.
+    type: Fix
+  - message: The tables have turned and now Drones are once again able to be flashed.
+    type: Fix
+  id: 2135
+  time: '2025-08-08T08:56:15.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3253
+- author: spanky-spanky, AirFryerBuyOneGetOneFree
+  changes:
+  - message: Added computer beeps and boops for additional ambience.
+    type: Add
+  id: 2136
+  time: '2025-08-08T08:56:00.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3252
+- author: yesteryuri
+  changes:
+  - message: Fixed Fin-Fin
+    type: Fix
+  id: 2137
+  time: '2025-08-08T11:30:13.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3256
