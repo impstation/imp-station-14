@@ -45,17 +45,10 @@
       cloneable: true
 
 - type: trait
-<<<<<<< HEAD
-  id: Monochromancy
-  name: trait-monochromancy-name
-  description: trait-monochromancy-desc
-  category: Traits # imp
-=======
   id: Monochromacy
   name: trait-monochromacy-name
   description: trait-monochromacy-desc
-  category: Disabilities
->>>>>>> ad5178ca61119ab1d54bb704b2571b5ade17d612
+  category: Traits # imp
   components:
   - type: BlackAndWhiteOverlay
 
