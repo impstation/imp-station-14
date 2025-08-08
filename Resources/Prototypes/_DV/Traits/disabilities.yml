@@ -2,7 +2,7 @@
   id: UltraVision
   name: trait-ultravision-name
   description: trait-ultravision-desc
-  category: Traits
+  category: Traits # imp
   components:
     - type: UltraVision
 
@@ -10,6 +10,6 @@
   id: DogVision
   name: trait-deuteranopia-name
   description: trait-deuteranopia-desc
-  category: Traits
+  category: Traits # imp
   components:
     - type: DogVision
