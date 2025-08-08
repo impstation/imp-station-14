@@ -2,7 +2,7 @@
   id: Hemophilia
   name: trait-hemophilia-name
   description: trait-hemophilia-desc
-  category: Disabilities
+  category: Traits
   components:
     - type: Hemophilia
 
@@ -10,7 +10,7 @@
   id: RandomUnrevivable
   name: trait-random-unrevivable-name
   description: trait-random-unrevivable-desc
-  category: Disabilities
+  category: Traits
   components:
     - type: RandomUnrevivable
 
@@ -19,7 +19,7 @@
   name: trait-sgdrequired-name
   description: trait-sgdrequired-desc
   traitGear: ClothingNeckSGD
-  category: Disabilities
+  category: Traits
   components:
     - type: SpeechRequiresEquipment
       equipment:
@@ -32,7 +32,7 @@
   id: Unborgable
   name: trait-unborgable-name
   description: trait-unborgable-desc
-  category: Disabilities
+  category: Traits
   components:
     - type: Unborgable
   organ: Brain
@@ -41,7 +41,7 @@
   id: Illiterate
   name: trait-illiterate-name
   description: trait-illiterate-desc
-  category: Disabilities
+  category: Traits
   components:
     - type: Illiterate
 
@@ -56,8 +56,7 @@
       minTraits: 1
       maxTraits: 3
       categories:
-      - Quirks
-      - Disabilities
+      - Traits
 
 - type: trait
   id: ImperfectCloneAccents
@@ -96,15 +95,14 @@
       minTraits: 5
       maxTraits: 5
       categories:
-      - Disabilities
-      - Quirks
+      - Traits
       - SpeechTraits
 
 - type: trait
   id: Echolalia
   name: trait-echolalia-name
   description: trait-echolalia-desc
-  category: Disabilities # doesn't belong in the speech traits because it's something the player cannot control, not something that happens when the player sends a message to chat
+  category: Traits # doesn't belong in the speech traits because it's something the player cannot control, not something that happens when the player sends a message to chat
   components:
   - type: ActiveListener
     range: 5
@@ -121,6 +119,6 @@
   id: UnadaptedToSpace
   name: trait-unadapted-to-space-name
   description: trait-unadapted-to-space-desc
-  category: Disabilities
+  category: Traits
   components:
   - type: UnadaptedToSpace
