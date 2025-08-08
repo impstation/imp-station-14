@@ -5,4 +5,7 @@ humanoid-profile-editor-appearance-random-button = Randomize appearance
 
 trait-category-traits = Traits
 
-trait-subcategory-visual-impairment = Visual Impairment
+trait-subcategory-visual = Visual Impairment
+trait-subcategory-unrevivability = Unrevivability
+trait-subcategory-speech = Speech Impairment
+trait-subcategory-echolalia = Echolalia

@@ -11,6 +11,8 @@
       - Blindable
   components:
     - type: PermanentBlindness
+  subcategories: # imp
+    - Visual
 
 - type: trait
   id: PoorVision
@@ -24,6 +26,8 @@
     - type: PermanentBlindness
       blindness: 4
     - type: StartWithLenses # imp addition
+  subcategories: # imp
+    - Visual
 
 - type: trait
   id: Narcolepsy
@@ -43,6 +47,8 @@
   components:
     - type: Unrevivable
       cloneable: true
+  subcategories: # imp
+    - Unrevivability
 
 - type: trait
   id: Monochromacy
@@ -51,6 +57,8 @@
   category: Traits # imp
   components:
   - type: BlackAndWhiteOverlay
+  subcategories: # imp
+    - Visual
 
 - type: trait
   id: Muted
@@ -65,6 +73,9 @@
       mutedEmotes: true # IMP
       mutedScream: false # IMP
       mutedSpeech: true # IMP
+  subcategories: # imp
+    - Speech
+    - Echolalia
 
 - type: trait
   id: Paracusia

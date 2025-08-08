@@ -13,6 +13,8 @@
   category: Traits
   components:
     - type: RandomUnrevivable
+  subcategories:
+    - Unrevivability
 
 - type: trait
   id: SGDrequired
@@ -27,6 +29,8 @@
           tags:
             - SGD
       failMessage: sgdrequired-cant-speak
+  subcategories:
+    - Speech
 
 - type: trait
   id: Unborgable
@@ -114,6 +118,8 @@
     minimumWait: 300
     maximumWait: 600 # triggers once every 5-10 minutes
     learnChance: 0.1
+  subcategories:
+    - Echolalia
 
 - type: trait
   id: UnadaptedToSpace

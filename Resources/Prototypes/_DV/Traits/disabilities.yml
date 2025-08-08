@@ -5,6 +5,8 @@
   category: Traits # imp
   components:
     - type: UltraVision
+  subcategories: # imp
+    - Visual
 
 - type: trait
   id: DogVision
@@ -13,3 +15,5 @@
   category: Traits # imp
   components:
     - type: DogVision
+  subcategories: # imp
+    - Visual
