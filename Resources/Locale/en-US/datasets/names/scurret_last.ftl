@@ -65,4 +65,5 @@ names-scurret-last-dataset-47 = Ancestors
 names-scurret-last-dataset-48 = Forests
 names-scurret-last-dataset-49 = Secrets
 # Nobody's quite sure how this one is in the dictionary.
-names-scurret-last-dataset-50 = Space Ferret
+#imp edit, change to "worm" cause they're worms now
+names-scurret-last-dataset-50 = Space Worm
