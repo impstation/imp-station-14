@@ -595,6 +595,10 @@ namespace Content.Client.Lobby.UI
                             {
                                 usedSubcategories.Add(subcategory);
                             }
+                            else
+                            {
+                                Profile = Profile?.WithoutTraitPreference(trait.ID, _prototypeManager);
+                            }
                         }
                     }
                     // end Imp edits
