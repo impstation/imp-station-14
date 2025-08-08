@@ -13,6 +13,7 @@
     - type: PermanentBlindness
   subcategories: # imp
     - Visual
+  cost: -3 # imp
 
 - type: trait
   id: PoorVision
@@ -38,6 +39,7 @@
     - type: Narcolepsy
       timeBetweenIncidents: 300, 600
       durationOfIncident: 10, 30
+  cost: -2 # imp
 
 - type: trait
   id: Unrevivable
@@ -49,6 +51,7 @@
       cloneable: true
   subcategories: # imp
     - Unrevivability
+  cost: -2 # imp
 
 - type: trait
   id: Monochromacy
@@ -76,6 +79,7 @@
   subcategories: # imp
     - Speech
     - Echolalia
+  cost: -3 # imp
 
 - type: trait
   id: Paracusia
@@ -97,3 +101,4 @@
   category: Traits # imp
   components:
   - type: PainNumbness
+  cost: -2 # imp
