@@ -553,3 +553,20 @@
     FoodBagel: 1
     FoodCreamCheese: 1
   recipeType: Assembler
+
+#added recipe alternate to account for monkeycube changes
+- type: microwaveMealRecipe
+  id: RecipeMonkeysDelightSoupSanitized
+  name: monkeys squeaky clean delight recipe
+  result: FoodSoupMonkeySanitized
+  time: 10
+  group: Soup
+  reagents:
+    Flour: 5
+    TableSalt: 1
+    Blackpepper: 1
+  solids:
+    FoodBowlBig: 1
+    FoodBanana: 1
+    MonkeyCubeSanitized: 1
+  recipeType: Oven # Frontier
