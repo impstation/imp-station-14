@@ -38,6 +38,7 @@ using Direction = Robust.Shared.Maths.Direction;
 using System.Globalization;
 using Content.Client._CD.Records.UI;
 using Content.Shared._CD.Records;
+using Content.Shared._Impstation.Traits;
 // End CD - Character Records
 
 namespace Content.Client.Lobby.UI
@@ -573,6 +574,7 @@ namespace Content.Client.Lobby.UI
                 }
 
                 List<TraitPreferenceSelector?> selectors = new();
+                List<ProtoId<TraitSubcategoryPrototype>> usedSubcategories = new(); // imp
                 var selectionCount = 0;
 
                 foreach (var traitProto in categoryTraits)
@@ -582,7 +584,18 @@ namespace Content.Client.Lobby.UI
 
                     selector.Preference = Profile?.TraitPreferences.Contains(trait.ID) == true;
                     if (selector.Preference)
+                    // begin Imp edits
+                    {
                         selectionCount += trait.Cost;
+                        foreach (var subcategory in trait.Subcategories)
+                        {
+                            if (!usedSubcategories.Contains(subcategory))
+                            {
+                                usedSubcategories.Add(subcategory);
+                            }
+                        }
+                    }
+                    // end Imp edits
 
                     selector.PreferenceChanged += preference =>
                     {
@@ -618,6 +631,11 @@ namespace Content.Client.Lobby.UI
 
                     if (category is { MaxTraitPoints: >= 0 } &&
                         selector.Cost + selectionCount > category.MaxTraitPoints)
+                    {
+                        selector.Checkbox.Label.FontColorOverride = Color.Red;
+                    }
+
+                    if (!selector.Preference && selector.Subcategories.Overlaps(usedSubcategories))
                     {
                         selector.Checkbox.Label.FontColorOverride = Color.Red;
                     }
