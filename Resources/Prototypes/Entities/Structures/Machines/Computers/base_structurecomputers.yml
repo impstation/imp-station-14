@@ -88,7 +88,7 @@
   - type: PowerSwitch #imp; idk thought it'd be cute and immersive to turn computers on and off - AvianMaiden
 # Begin Harmony changes, add ambience
   - type: SpamEmitSoundRequirePower
-  - type: SpamEmitSoundA
+  - type: SpamEmitSound
     minInterval: 15
     maxInterval: 30
     sound:
