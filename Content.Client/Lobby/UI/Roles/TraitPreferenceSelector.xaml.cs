@@ -33,9 +33,10 @@ public sealed partial class TraitPreferenceSelector : Control
         text += Loc.GetString(trait.Name);
 
         Cost = trait.Cost;
-        // add Imp addition
+        // begin Imp addition
         Subcategories = trait.Subcategories;
         // end Imp addition
+
         Checkbox.Text = text;
         Checkbox.OnToggled += OnCheckBoxToggled;
 
