@@ -4,7 +4,7 @@
   id: BaseTraitorObjective
   components:
   - type: Objective
-    issuer: objective-issuer-syndicate
+    issuer: objective-issuer-traitor-flavor # imp traitor flavor
   - type: RoleRequirement
     roles:
     - TraitorRole

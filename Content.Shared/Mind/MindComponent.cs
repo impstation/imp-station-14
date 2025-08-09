@@ -123,4 +123,10 @@ public sealed partial class MindComponent : Component
     /// </summary>
     [DataField]
     public LocId? Subtype;
+
+    /// <summary>
+    ///     Imp Edit: Hold issuer to display on round end for traitors.
+    /// </summary>
+    [DataField]
+    public LocId? ObjectiveIssuer;
 }
