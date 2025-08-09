@@ -54,7 +54,7 @@
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
   - type: AccessReader
-    access: [[ "HeadOfSecurity" ]]
+    access: [[ "Armory" ]]
   - type: CommunicationsConsole
     title: comms-console-announcement-title-security
     color: "#de3a3a"
