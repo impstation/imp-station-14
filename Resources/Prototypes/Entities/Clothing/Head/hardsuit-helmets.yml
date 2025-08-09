@@ -237,9 +237,37 @@
   description: Armored hardsuit helmet for security needs.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/security.rsi
+    sprite: _Impstation/Clothing/Head/Hardsuits/security.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/security.rsi
+    sprite: _Impstation/Clothing/Head/Hardsuits/security.rsi
+  - type: PointLight
+    color: "#ffeead"
+  - type: PressureProtection
+    highPressureMultiplier: 0.525
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
+
+    #Detective Hardsuit
+- type: entity
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  id: ClothingHeadHelmetHardsuitDetective
+  name: detective hardsuit helmet
+  description: Hatted hardsuit helmet for detective needs.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hardsuits/detective.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hardsuits/detective.rsi
   - type: PointLight
     color: "#ffeead"
   - type: PressureProtection
@@ -265,9 +293,9 @@
   description: The lightweight helmet of the brigmedic hardsuit. Protects against viruses, and clowns.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/brigmedic.rsi
+    sprite: _Impstation/Clothing/Head/Hardsuits/brigmedic.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/brigmedic.rsi
+    sprite: _Impstation/Clothing/Head/Hardsuits/brigmedic.rsi
   - type: PointLight
     color: "#00FFFF"
   - type: Armor
@@ -399,9 +427,9 @@
   description: Security hardsuit helmet with the latest top secret NT-HUD software. Belongs to the HoS.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/security-red.rsi
+    sprite: _Impstation/Clothing/Head/Hardsuits/security-red.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/security-red.rsi
+    sprite: _Impstation/Clothing/Head/Hardsuits/security-red.rsi
   - type: PointLight
     color: "#ffeead"
   - type: PressureProtection

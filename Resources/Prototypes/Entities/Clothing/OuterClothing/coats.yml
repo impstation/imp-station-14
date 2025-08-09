@@ -25,6 +25,9 @@
     - id: FlippoEngravedLighter
   - type: ExplosionResistance
     damageCoefficient: 1 #its a coat. it doesnt do shit
+  - type: Tag
+    tags:
+      - detectivetrenchcoat
 
 - type: entity
   parent: [ClothingOuterCoatDetectiveLoadout]
