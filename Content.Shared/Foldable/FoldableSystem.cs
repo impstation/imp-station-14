@@ -1,5 +1,6 @@
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
+using Content.Shared.Construction.Components; //imp edit
 using Content.Shared.Construction.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Storage.Components;
@@ -33,6 +34,9 @@ public sealed class FoldableSystem : EntitySystem
         SubscribeLocalEvent<FoldableComponent, EntityStorageInsertedIntoAttemptEvent>(OnEntityStorageAttemptInsert);
 
         SubscribeLocalEvent<FoldableComponent, StrapAttemptEvent>(OnStrapAttempt);
+
+        SubscribeLocalEvent<FoldableComponent, AnchorAttemptEvent>(OnAnchorAttempt); //imp edit
+        SubscribeLocalEvent<FoldableComponent, UnanchorAttemptEvent>(OnUnanchorAttempt); //imp edit
     }
 
     private void OnHandleState(EntityUid uid, FoldableComponent component, ref AfterAutoHandleStateEvent args)
@@ -121,6 +125,11 @@ public sealed class FoldableSystem : EntitySystem
             !_anchorable.TileFree(Transform(uid).Coordinates, body))
             return false;
 
+        // Imp edit start, if entity is anchored and entity disallows folding while anchored, return false
+        if (Comp<TransformComponent>(uid).Anchored && !fold.CanFoldWhileAnchored)
+            return false;
+        // Imp edit end
+
         var ev = new FoldAttemptEvent(fold);
         RaiseLocalEvent(uid, ref ev);
         return !ev.Cancelled;
@@ -139,6 +148,38 @@ public sealed class FoldableSystem : EntitySystem
 
         SetFolded(uid, comp, state);
         return true;
+    }
+
+    // Imp addition
+    /// <summary>
+    /// Cancels <see cref="AnchorAttemptEvent"/> if entity is folded and CanAnchorWhileFolded is false.
+    /// </summary>
+    private void OnAnchorAttempt(Entity<FoldableComponent> ent, ref AnchorAttemptEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
+        if (!ent.Comp.CanAnchorWhileFolded && ent.Comp.IsFolded)
+        {
+            _popup.PopupClient(Loc.GetString("anchorable-folded", ("foldable", ent)), ent, args.User);
+            args.Cancel();
+        }
+    }
+
+    // Imp addition
+    /// <summary>
+    /// Cancels <see cref="UnanchorAttemptEvent"/> if entity is folded and CanAnchorWhileFolded is false.
+    /// </summary>
+    private void OnUnanchorAttempt(Entity<FoldableComponent> ent, ref UnanchorAttemptEvent args)
+    {
+        if (args.Cancelled)
+            return;
+        
+        if (!ent.Comp.CanAnchorWhileFolded && ent.Comp.IsFolded)
+        {
+            _popup.PopupClient(Loc.GetString("anchorable-folded", ("foldable", ent)), ent, args.User);
+            args.Cancel();
+        }
     }
 
     #region Verb
