@@ -44,6 +44,18 @@ public sealed class BluespaceLockerRule : StationEventSystem<BluespaceLockerRule
             _bluespaceLocker.GetTarget(potentialLink, comp, true);
             _bluespaceLocker.BluespaceEffect(potentialLink, comp, comp, true);
 
+            // begin imp edit
+            // makes bluespace lockers randomize their destinations with each use.
+            comp.BehaviorProperties.ClearLinksDebluespaces = true;
+            comp.BehaviorProperties.TransportEntities = true;
+            comp.BehaviorProperties.ClearLinksEvery = 2;
+            comp.AutoLinkProperties.DestroyAfterUses = 2;
+            comp.AutoLinkProperties.DestroyType = BluespaceLockerDestroyType.DeleteComponent;
+            comp.UsesSinceLinkClear = -1;
+            comp.AutoLinkProperties.InvalidateOneWayLinks = true;
+            comp.AutoLinkProperties.TransportEntities = false;
+            // end imp edit
+
             Sawmill.Info($"Converted {ToPrettyString(potentialLink)} to bluespace locker");
 
             return;
