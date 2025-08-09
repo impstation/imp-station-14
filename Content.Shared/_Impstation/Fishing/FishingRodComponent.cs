@@ -7,7 +7,7 @@ namespace Content.Shared._Impstation.Fishing;
 // I have tried to make this as generic as possible but "delete joint on cycle / right-click reels in" is very specific behavior.
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 //Imp : Basically a copy of GrapplingGunComponent
-public sealed partial class FishingRodComponent : Component
+public sealed partial class ImpFishingRodComponent : Component
 {
     /// <summary>
     /// Hook's reeling force and speed - the higher the number, the faster the hook rewinds.
