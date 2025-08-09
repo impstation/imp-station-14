@@ -61,4 +61,11 @@ public sealed partial class HealthAnalyzerComponent : Component
     /// </summary>
     [DataField]
     public bool Silent;
+
+    // IMP ADD
+    /// <summary>
+    /// Whether to show the exact numerical damage, or just have a vague descriptor
+    /// </summary>
+    [DataField]
+    public bool ShowExactValues = false;
 }

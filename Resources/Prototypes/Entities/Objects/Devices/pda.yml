@@ -987,6 +987,7 @@
     maxScanRange: null
     scanDelay: 0
     silent: true
+    showExactValues: true # imp
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     notificationsEnabled: false
