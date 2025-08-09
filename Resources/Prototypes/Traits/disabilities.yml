@@ -5,18 +5,21 @@
   name: trait-blindness-name
   description: trait-blindness-desc
   traitGear: WhiteCane
-  category: Disabilities
+  category: Traits # imp
   whitelist:
     components:
       - Blindable
   components:
     - type: PermanentBlindness
+  subcategories: # imp
+    - Visual
+  cost: -3 # imp
 
 - type: trait
   id: PoorVision
   name: trait-poor-vision-name
   description: trait-poor-vision-desc
-  category: Disabilities
+  category: Traits # imp
   whitelist:
     components:
       - Blindable
@@ -24,39 +27,46 @@
     - type: PermanentBlindness
       blindness: 4
     - type: StartWithLenses # imp addition
+  subcategories: # imp
+    - Visual
 
 - type: trait
   id: Narcolepsy
   name: trait-narcolepsy-name
   description: trait-narcolepsy-desc
-  category: Disabilities
+  category: Traits # imp
   components:
     - type: Narcolepsy
       timeBetweenIncidents: 300, 600
       durationOfIncident: 10, 30
+  cost: -2 # imp
 
 - type: trait
   id: Unrevivable
   name: trait-unrevivable-name
   description: trait-unrevivable-desc
-  category: Disabilities
+  category: Traits # imp
   components:
     - type: Unrevivable
       cloneable: true
+  subcategories: # imp
+    - Unrevivability
 
 - type: trait
   id: Monochromacy
   name: trait-monochromacy-name
   description: trait-monochromacy-desc
-  category: Disabilities
+  category: Traits # imp
   components:
   - type: BlackAndWhiteOverlay
+  subcategories: # imp
+    - Visual
 
 - type: trait
   id: Muted
   name: trait-muted-name
   description: trait-muted-desc
-  category: Disabilities
+  category: Traits # imp
   blacklist:
     components:
       - BorgChassis
@@ -65,12 +75,16 @@
       mutedEmotes: true # IMP
       mutedScream: false # IMP
       mutedSpeech: true # IMP
+  subcategories: # imp
+    - Speech
+    - Echolalia
+  cost: -2 # imp
 
 - type: trait
   id: Paracusia
   name: trait-paracusia-name
   description: trait-paracusia-desc
-  category: Disabilities
+  category: Traits # imp
   components:
     - type: Paracusia
       minTimeBetweenIncidents: 0.1
@@ -83,6 +97,7 @@
   id: PainNumbness
   name: trait-painnumbness-name
   description: trait-painnumbness-desc
-  category: Disabilities
+  category: Traits # imp
   components:
   - type: PainNumbness
+  cost: -2 # imp
