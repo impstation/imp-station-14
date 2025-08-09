@@ -1,13 +1,13 @@
 - type: entity
-  id: CrateServiceSoap
+  id: CrateServiceSpaceCleaner
   parent: CratePlastic
-  name: bulk soap crate
-  description: And Nanotrasen(tm) said, let there be soap. And there was soap.
+  name: space cleaner refill crate
+  description: Contains 6 jugs of space cleaner. Careful not to spill!
   components:
   - type: StorageFill
     contents:
-      - id: BoxSoapNT
-        amount: 2
+      - id: JugSpaceCleaner
+        amount: 6 #1200u total, ~half the amount
 
 - type: entity
   id: CrateServiceJanitorialHardsuit

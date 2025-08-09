@@ -120,3 +120,17 @@
     fillBaseName: conical
     inHandsMaxFillLevels: 2
     inHandsFillBaseName: -fill-
+
+- type: entity
+  parent: Jug
+  suffix: space cleaner
+  id: JugSpaceCleaner
+  components:
+  - type: Label
+    currentLabel: space cleaner
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: SpaceCleaner
+          Quantity: 200
