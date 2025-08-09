@@ -23,11 +23,15 @@
     storedRotation: 90
   - type: Clothing
     sprite: _Impstation/Objects/Specific/Syndicate/echionsynth.rsi
-    equippedPrefix: off
     quickEquip: false
     slots:
     - Belt
     - suitStorage
+    clothingVisuals:
+      belt:
+      - state: equipped-BELT
+      suitstorage:
+      - state: equipped-SUITSTORAGE
   - type: GenericVisualizer
     visuals:
       enum.ToggleableVisuals.Enabled:
@@ -47,7 +51,7 @@
       belt:
       - state: core-equipped-BELT
         shader: unshaded
-      suitStorage:
+      suitstorage:
       - state: core-equipped-SUITSTORAGE
         shader: unshaded
   - type: ItemTogglePointLight
