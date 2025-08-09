@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared._Goobstation.Footprints; // goob
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.FixedPoint;
@@ -339,7 +340,7 @@ public abstract class SharedAbsorbentSystem : EntitySystem
 
         SolutionContainer.AddSolution(absorberSoln, puddleSplit);
 
-        _audio.PlayPredicted(absorber.PickupSound, isRemoved ? absorbEnt : target, user);
+        _audio.PlayPredicted(absorber.PickupSound, Transform(target).Coordinates, user); // Goobstation - Footsteps Change - Play sound on footstep to puddle replacement
 
         if (useDelay != null)
             _useDelay.TryResetDelay((absorbEnt, useDelay));
@@ -350,6 +351,8 @@ public abstract class SharedAbsorbentSystem : EntitySystem
         localPos = userXform.LocalRotation.RotateVec(localPos);
 
         _melee.DoLunge(user, absorbEnt, Angle.Zero, localPos, null);
+
+        RaiseLocalEvent(target, new FootprintCleanEvent()); // Corvax-Next-Footprints
 
         return true;
     }
