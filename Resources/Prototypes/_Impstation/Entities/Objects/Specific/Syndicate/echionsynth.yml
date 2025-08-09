@@ -16,26 +16,18 @@
     - state: core
       visible: false
       shader: unshaded
-      map: ["enum.ToggleableVisuals.Layer"]
+      map: ["core"]
   - type: Appearance
   - type: Item
     size: Large
     storedRotation: 90
   - type: Clothing
     sprite: _Impstation/Objects/Specific/Syndicate/echionsynth.rsi
+    equippedPrefix: off
     quickEquip: false
     slots:
     - Belt
     - suitStorage
-    clothingVisuals:
-      belt:
-      - state: equipped-BELT
-      - state: equipped-BELT-core
-        shader: unshaded
-      suitStorage:
-      - state: equipped-SUITSTORAGE
-      - state: equipped-SUITSTORAGE-core
-        shader: unshaded
   - type: GenericVisualizer
     visuals:
       enum.ToggleableVisuals.Enabled:
@@ -53,10 +45,10 @@
         shader: unshaded
     clothingVisuals:
       belt:
-      - state: equipped-BELT-core
+      - state: core-equipped-BELT
         shader: unshaded
       suitStorage:
-      - state: equipped-SUITSTORAGE-core
+      - state: core-equipped-SUITSTORAGE
         shader: unshaded
   - type: ItemTogglePointLight
   - type: PointLight
