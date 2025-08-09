@@ -89,3 +89,54 @@
       - !type:ExplodeBehavior
       - !type:SpillBehavior
         solution: artifexium
+
+- type: entity
+  parent: MeteorSmall
+  id: MeteorWeakSmall
+  name: meteor
+  components:
+  - type: Explosive
+    totalIntensity: 10
+
+- type: entity
+  parent: MeteorMedium
+  id: MeteorWeakMedium
+  name: meteor
+  components:
+  - type: Explosive
+    totalIntensity: 25
+
+- type: entity
+  parent: MeteorLarge
+  id: MeteorWeakLarge
+  name: meteor
+  components:
+  - type: Explosive
+    totalIntensity: 40
+
+- type: entity
+  parent: MeteorLarge
+  id: MeteorHolyFuckOhGod # This was added for a replacement for the immovable rod event for hot box, however that's not possible atm
+  name: meteor
+  components:
+  - type: Sprite
+    noRot: false
+    sprite: Objects/Misc/meteor.rsi
+    scale: "6, 6"
+  - type: Explosive
+    totalIntensity: 7500
+    maxTileBreak: 50
+    tileBreakScale: 2
+    intensitySlope: 5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 2500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ExplodeBehavior
