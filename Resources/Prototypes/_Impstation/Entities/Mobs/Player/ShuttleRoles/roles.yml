@@ -85,3 +85,14 @@
     state: centcom
   - type: RandomHumanoidSpawner
     settings: CentcommInternLeaderUnarmed
+
+- type: entity
+  id: RandomHumanoidVisitorCargoTechnicianLost
+  name: visiting cargo technician ghost role
+  suffix: LostCargo
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: cargo_tech
+    - type: RandomHumanoidSpawner
+      settings: VisitorCargoTechnicianLost
