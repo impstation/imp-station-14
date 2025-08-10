@@ -40,9 +40,10 @@
     whitelist:
       tags:
         - Medal
-        - TeddyRibbon
+        - TeddyRibbon #imp
   # 🌟Starlight🌟 end
 
+# imp start
 # Janitor borg
 - type: inventoryTemplate
   id: borgJanitor
@@ -65,8 +66,9 @@
     whitelist:
       tags:
       - Medal
-      - TeddyRibbon
+      - TeddyRibbon #imp
   # 🌟Starlight🌟 end
+# imp end
 
 # salvage borg
 - type: inventoryTemplate
@@ -90,7 +92,7 @@
     whitelist:
       tags:
         - Medal
-        - TeddyRibbon
+        - TeddyRibbon #imp
   # 🌟Starlight🌟 end
 
 #medical borg
@@ -116,9 +118,10 @@
     whitelist:
       tags:
         - Medal
-        - TeddyRibbon
+        - TeddyRibbon #imp
   # 🌟Starlight🌟 end
 
+# imp start
 # service borg
 - type: inventoryTemplate
   id: borgHumanoid
@@ -139,3 +142,4 @@
     displayName: neck
     offset: 0.0, 0.0
   # 🌟Starlight🌟 end
+# imp end
