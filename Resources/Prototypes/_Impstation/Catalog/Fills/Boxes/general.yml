@@ -22,8 +22,8 @@
 - type: entity
   parent: BoxCardboard
   id: BoxSyndicateFigurines
-  name: syndicate figurines box
-  description: A box of a full set of syndicate figurines depicting what a Nuclear Operatives team might look like if it was real.
+  name: Syndicate figurines box
+  description: A box of a full set of Syndicate figurines depicting what a Nuclear Operatives team might look like, if they were real.
   components:
   - type: Sprite
     layers:
@@ -48,8 +48,8 @@
 - type: entity
   parent: BoxCardboard
   id: BoxSyndicateFigurinesSynthetics
-  name: syndicate synthetics figurines box
-  description: A box of a full set of syndicate figurines depicting some of the synthetics employed by the syndicate.
+  name: Syndicate synthetics figurines box
+  description: A box of a full set of Syndicate figurines depicting some of the synthetics employed by the Syndicate.
   components:
   - type: Sprite
     layers:
@@ -100,3 +100,22 @@
       orGroup: RandomDonk
     - id: FoodBoxDonkpocketMoth
       orGroup: RandomDonk
+
+- type: entity
+  parent: BoxCardboard
+  id: BoxSyndicateKitchenKit
+  name: Syndicate kitchen kit box
+  description: A box containing a full set of Syndicate kitchen flatpacks.
+  components:
+  - type: Sprite
+    layers:
+    - state: box_of_doom
+    - state: writing_of_doom
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,3,1
+  - type: StorageFill
+    contents:
+    - id: SyndicateMicrowaveFlatpack
+    - id: SyndicateOvenFlatpack
