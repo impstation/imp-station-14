@@ -1,18 +1,4 @@
 ﻿Entries:
-- author: Darkmajia
-  changes:
-  - message: Gastropoid and slimeperson body emotes have had their sound restored.
-    type: Fix
-  id: 1640
-  time: '2025-05-10T17:08:32.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2446
-- author: TheLuggage05
-  changes:
-  - message: Adds lens slots to all most crew eyewear that didn't already have it.
-    type: Add
-  id: 1641
-  time: '2025-05-10T23:42:04.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2441
 - author: CrystalClover
   changes:
   - message: Added Head Frill marking for Reptilians
@@ -4207,3 +4193,20 @@
   id: 2139
   time: '2025-08-09T06:19:17.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3260
+- author: TheGrimbeeper
+  changes:
+  - message: prize tickets can now ash again - into ONE ash
+    type: Tweak
+  - message: prize tickets are not allowed in replicator nests
+    type: Tweak
+  id: 2140
+  time: '2025-08-10T03:11:04.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3233
+- author: TheGrimbeeper
+  changes:
+  - message: Minor oldnewxeno artifact things i forgot have been fixed, check PR 3145
+      for more info
+    type: Fix
+  id: 2141
+  time: '2025-08-10T03:12:18.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3145
