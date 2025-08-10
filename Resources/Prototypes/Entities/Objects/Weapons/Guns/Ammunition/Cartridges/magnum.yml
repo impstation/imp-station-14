@@ -22,7 +22,7 @@
   id: CartridgeMagnum
   name: cartridge (.45 magnum)
   parent: BaseCartridgeMagnum
-  description: A powerful pistol cartridge with incredible stopping power. The best designs are timeless. #imp
+  description: A powerful kinetic pistol cartridge with incredible stopping power. The best designs are timeless. #imp
   components:
   - type: CartridgeAmmo
     proto: BulletMagnum
@@ -41,7 +41,7 @@
         map: [ "enum.AmmoVisualLayers.Base" ]
       - state: tip
         map: [ "enum.AmmoVisualLayers.Tip" ]
-        color: "#dbdbdb"
+        color: "#ffcb6f" #imp
 
 - type: entity
   id: CartridgeMagnumIncendiary
@@ -57,7 +57,7 @@
         map: [ "enum.AmmoVisualLayers.Base" ]
       - state: tip
         map: [ "enum.AmmoVisualLayers.Tip" ]
-        color: "#ff6e52"
+        color: "#d46925" #imp
 
 - type: entity
   id: CartridgeMagnumAP
@@ -73,7 +73,7 @@
         map: [ "enum.AmmoVisualLayers.Base" ]
       - state: tip
         map: [ "enum.AmmoVisualLayers.Tip" ]
-        color: "#0a0a0a"
+        color: "#662598" #imp
 
 - type: entity
   id: CartridgeMagnumUranium
@@ -89,4 +89,4 @@
         map: [ "enum.AmmoVisualLayers.Base" ]
       - state: tip
         map: [ "enum.AmmoVisualLayers.Tip" ]
-        color: "#65fe08"
+        color: "#22b24d" #imp

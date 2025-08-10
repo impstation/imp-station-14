@@ -55,7 +55,9 @@ namespace Content.Server.Abilities.Mime
 
         private void OnComponentInit(EntityUid uid, MimePowersComponent component, ComponentInit args)
         {
-            EnsureComp<MutedComponent>(uid);
+            var mutedComponent = EnsureComp<MutedComponent>(uid); // IMP
+            mutedComponent.MutedScream = false; // IMP
+
             if (component.PreventWriting)
             {
                 EnsureComp<BlockWritingComponent>(uid, out var illiterateComponent);
@@ -82,7 +84,7 @@ namespace Content.Server.Abilities.Mime
             // Get the tile in front of the mime
             var offsetValue = xform.LocalRotation.ToWorldVec();
             var coords = xform.Coordinates.Offset(offsetValue).SnapToGrid(EntityManager, _mapMan);
-            var tile = coords.GetTileRef(EntityManager, _mapMan);
+            var tile = _turf.GetTileRef(coords);
             if (tile == null)
                 return;
 

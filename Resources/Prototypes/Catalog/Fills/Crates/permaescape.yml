@@ -82,7 +82,7 @@
         prob: 0.25
       - id: OxygenTankFilled
         prob: 0.05
-        
+
 - type: entity
   id: CratePermaEscapeGun
   parent: CrateGenericSteel
@@ -168,7 +168,7 @@
       - id: PersonalAI
         orGroup: pAI
         prob: 0.99
-      - id: GoldPersonalAI #imp
+      - id: GoldenPersonalAI #imp
         orGroup: pAI
         prob: 0.01
 

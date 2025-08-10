@@ -10,27 +10,6 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: pipi
-  - type: Physics
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.35
-        density: 12
-        mask:
-        - MobMask
-        layer:
-        - MobLayer
-  - type: Inventory
-    speciesId: cat
-    templateId: pet
-  - type: InventorySlots
-  - type: Strippable
-  - type: UserInterface
-    interfaces:
-      enum.StrippingUiKey.Key:
-        type: StrippableBoundUserInterface
   - type: DamageStateVisuals
     states:
       Alive:
@@ -39,7 +18,7 @@
         Base: pipi_dead
       Dead:
         Base: pipi_dead
-  - type: Butcherable
+  - type: Butcherable # pipi gives 1 less meat than a normal cat, for some reason?
     spawned:
     - id: FoodMeat
       amount: 2
@@ -56,14 +35,15 @@
       gender: female
   - type: Tag
     tags:
-    - CannotSuicide
+    - CannotSuicide # dunno why this is here but sure. NEVER kill yourself
     - VimPilot
   - type: StealTarget
     stealGroup: AnimalNamedCat
+  - type: PleebnarGibbable
 
 - type: entity
   name: Fin Fin
-  parent: MobBat
+  parent: [ MobBat, StripableInventoryBase ]
   id: MobFinfin
   description: Your best friend.
   components:
@@ -73,7 +53,6 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: finfin
-  - type: Physics
   - type: Fixtures
     fixtures:
       fix1:
@@ -105,12 +84,16 @@
   - type: Inventory
     speciesId: finfin
     templateId: pet
-  - type: InventorySlots
-  - type: Strippable
-  - type: UserInterface
-    interfaces:
-      enum.StrippingUiKey.Key:
-        type: StrippableBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      mask: !type:ContainerSlot
+        showEnts: False
+        occludes: False
+        ent: null
+      suitstorage: !type:ContainerSlot
+        showEnts: False
+        occludes: False
+        ent: null
   - type: DamageStateVisuals
     states:
       Alive:
@@ -132,8 +115,6 @@
     interactSuccessSpawn: EffectHearts
     interactSuccessSound:
       path: /Audio/_Impstation/Animals/finfin3.ogg
-  - type: SentienceTarget
-    flavorKind: station-event-random-sentience-flavor-organic
   - type: Grammar
     attributes:
       proper: true
@@ -177,17 +158,6 @@
         180: Dead
     - type: Stamina
       critThreshold: 150
-    - type: DamageStateVisuals
-      states:
-        Alive:
-          Base: alive
-          BaseUnshaded: mouth
-        Dead:
-          Base: dead
-          BaseUnshaded: dead_mouth
-    - type: Body
-      prototype: Bloodsucker
-      requiredLegs: 1
     - type: Butcherable
       spawned:
         - id: FoodMeatFish
@@ -206,7 +176,7 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    sprite: Mobs/Animals/major.rsi
+    sprite: _Impstation/Mobs/Animals/major.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: major
@@ -217,7 +187,7 @@
     states:
       Alive:
         Base: major
-        BaseUnshaded: glow_major
+        BaseUnshaded: major_glow
       Critical:
         Base: major_dead
       Dead:
@@ -243,43 +213,8 @@
       path: /Audio/Animals/sloth_squeak.ogg
 
 - type: entity
-  name: Poly
-  parent: [ MobParrot ]
-  id: MobParrotPoly
-  description: The Chief Engineer's beloved snitch.
-  components:
-  - type: Item
-    size: Large
-    shape:
-    - 0,0,2,2
-  - type: Sprite # wearable on shoulder :)
-    sprite: _NF/Mobs/NPC/Animals/parrot.rsi
-  - type: Clothing
-    quickEquip: true
-    slots:
-    - neck
-  - type: CanEscapeInventory
-  - type: ActiveListener
-    range: 5
-  - type: ParrotSpeech # this is by default tuned to frontier 6 hour shift numbers, so im ramping it up kind of high to compensate
-    minimumWait: 60
-    maximumWait: 180
-    learnChance: 0.5
-    requiresMind: false
-    blacklist:
-      components:
-      - ParrotSpeech # Stop parrots repeating their own speech
-  - type: SentienceTarget
-    flavorKind: station-event-random-sentience-flavor-avian
-  - type: StealTarget
-    stealGroup: AnimalPoly
-  - type: Tag
-    tags:
-    - DoorBumpOpener
-
-- type: entity
   name: Dolby
-  parent: MobCorgiPuppy
+  parent: MobCorgiBase
   id: MobDolby
   description: Dobie Digital. Now with Frost Shield!
   components:
@@ -301,15 +236,6 @@
         - MobMask
         layer:
         - MobLayer
-  - type: Inventory
-    speciesId: dog
-    templateId: pet
-  - type: InventorySlots
-  - type: Strippable
-  - type: UserInterface
-    interfaces:
-      enum.StrippingUiKey.Key:
-        type: StrippableBoundUserInterface
   - type: DamageStateVisuals
     states:
       Alive:
@@ -342,6 +268,8 @@
   - type: Reflect
     reflectProb: 1
     spread: 75
+  - type: VentCrawler
+    enterDelay: 3
 
 - type: entity
   name: Oswald
@@ -400,7 +328,7 @@
   parent: MobMcGriff
   components:
   - type: Sprite
-    drawDepth: Mobs
+    drawdepth: Mobs
     sprite: _Impstation/Mobs/Pets/mascotgriffy.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
