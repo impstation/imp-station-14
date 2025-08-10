@@ -8,7 +8,7 @@
   "copyright": "Taken from BROS (ATARI 400/800), ripped by 4MASTY, modified by Smugman",
   "states": [
     {
-      "name": "wahbros-dead",
+      "name": "foes-dead",
       "delays": [
         [
           1
@@ -16,7 +16,7 @@
       ]
     },
     {
-      "name": "sorbhaw-dead",
+      "name": "seof-dead",
       "delays": [
         [
           1
@@ -24,11 +24,11 @@
       ]
     },
     {
-      "name": "wahbros",
+      "name": "foes",
       "directions": 4
     },
     {
-      "name": "sorbhaw",
+      "name": "seof",
       "directions": 4
     }
   ]

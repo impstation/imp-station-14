@@ -43,10 +43,10 @@
   - type: ZombieImmune
 
 - type: entity
-  name: WAHBROS
+  name: FOES
   parent: MobBros
-  id: MobWahbros
-  description: OH FUCK IT'S WAHBROS
+  id: MobFoes
+  description: OH FUCK IT'S FOES
   components:
   - type: NpcFactionMember
     factions:
@@ -62,8 +62,8 @@
     drawdepth: Mobs
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: wahbros
-      sprite: _Impstation/Mobs/Animals/wahbros.rsi
+      state: foes
+      sprite: _Impstation/Mobs/Animals/foes.rsi
   - type: TimedDespawn
     lifetime: 5
   - type: MobThresholds
@@ -79,25 +79,25 @@
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: wahbros
+        Base: foes
       Dead:
-        Base: wahbros-dead
+        Base: foes-dead
 
 - type: entity
-  name: SORBHAW
-  parent: MobWahbros
-  id: MobSorbhaw
-  description: SORBHAW S'TI KCUF HO
+  name: SEOF
+  parent: MobFoes
+  id: MobSeof
+  description: SEOF S'TI KCUF HO
   components:
   - type: Sprite
     drawdepth: Mobs
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: sorbhaw
-      sprite: _Impstation/Mobs/Animals/wahbros.rsi
+      sprite: _Impstation/Mobs/Animals/foes.rsi
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: sorbhaw
+        Base: seof
       Dead:
-        Base: sorbhaw-dead
+        Base: seof-dead
