@@ -79,8 +79,8 @@
     - type: Icon
       state: "l_leg"
     - type: MovementBodyPart
-      sprintSpeed: 3.25
-      walkSpeed: 2
+      sprintSpeed: 2.25
+      walkSpeed: 1.25
 
 - type: entity
   id: RightLegGastropoid
@@ -92,8 +92,8 @@
     - type: Icon
       state: "r_leg"
     - type: MovementBodyPart
-      sprintSpeed: 3.25
-      walkSpeed: 2
+      sprintSpeed: 2.25
+      walkSpeed: 1.25
 
 - type: entity
   id: LeftFootGastropoid
