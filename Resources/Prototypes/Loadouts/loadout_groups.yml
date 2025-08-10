@@ -500,6 +500,30 @@
   - ScarfBlack # imp
 
 - type: loadoutGroup
+  id: ChaplainBible
+  name: loadout-group-chaplain-bible
+  minLimit: 1
+  loadouts:
+  - Bible
+  - ChaplainBookQuran #imp reorder
+  - BibleTanakh #imp reorder
+  - BibleDruid
+  - BibleNanoTrasen
+  - BibleSatanic
+  #imp edit start, kind of insane they labeled all holy books as bibles but oh well, using this loadout group will save headache in the future
+  - ChaplainBookScroll
+  - ChaplainBookTablet
+  - ChaplainBookGreybible
+  - ChaplainBookKojiki
+  - ChaplainBookTao
+  - ChaplainBookGrimoire
+  - ChaplainBookETB
+  - ChaplainBookDiscordia
+  - ChaplainBookUnitology
+  - ChaplainBookBibble
+  #imp edit end
+
+- type: loadoutGroup
   id: JanitorHead
   name: loadout-group-janitor-head
   minLimit: 0

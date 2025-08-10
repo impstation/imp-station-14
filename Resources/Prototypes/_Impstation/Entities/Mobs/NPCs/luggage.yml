@@ -51,7 +51,7 @@
       100: Dead
   - type: Sprite
     sprite: _Impstation/Mobs/NPCs/luggage.rsi
-    norot: true
+    noRot: true
     layers:
     - state: luggage_closed
       map: ["enum.StorageVisualLayers.Base"]
