@@ -127,10 +127,10 @@
   parent: [ SteelLunchbox, BaseSyndicateContraband ]
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Storage/Lunchboxes/lunchboxpink.rsi #placeholder, remember to retexture lunchbox before merge
+    sprite: _Impstation/Objects/Storage/Lunchboxes/lunchboxsyndicate.rsi
     state: icon
   - type: Item
-    sprite: _Impstation/Objects/Storage/Lunchboxes/lunchboxpink.rsi #placeholder, remember to retexture lunchbox before merge
+    sprite: _Impstation/Objects/Storage/Lunchboxes/lunchboxsyndicate.rsi
   - type: Storage
     maxItemSize: Normal
     grid:
@@ -138,6 +138,7 @@
 
 - type: entity
   id: SteelLunchboxSyndicateMaid
+  suffix: MaidKit
   parent: SteelLunchboxSyndicate
   components:
   - type: StorageFill
