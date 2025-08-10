@@ -41,3 +41,63 @@
   - type: Bloodstream
     bloodMaxVolume: 0.1
   - type: ZombieImmune
+
+- type: entity
+  name: WAHBROS
+  parent: MobBros
+  id: MobWahbros
+  description: OH FUCK IT'S WAHBROS
+  components:
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+  - type: MeleeWeapon
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Blunt: 1
+        Heat: 1
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: wahbros
+      sprite: _Impstation/Mobs/Animals/wahbros.rsi
+  - type: TimedDespawn
+    lifetime: 5
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      5: Dead
+  - type: Stamina
+    critThreshold: 5
+  - type: PointLight
+    radius: 1.5
+    color: "#d63b28"
+    energy: 10.0
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: wahbros
+      Dead:
+        Base: wahbros-dead
+
+- type: entity
+  name: SORBHAW
+  parent: MobWahbros
+  id: MobSorbhaw
+  description: SORBHAW S'TI KCUF HO
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: sorbhaw
+      sprite: _Impstation/Mobs/Animals/wahbros.rsi
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: sorbhaw
+      Dead:
+        Base: sorbhaw-dead
