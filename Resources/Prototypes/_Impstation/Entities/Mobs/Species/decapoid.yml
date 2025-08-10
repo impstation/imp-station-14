@@ -5,6 +5,7 @@
   id: BaseMobDecapoid
   abstract: true
   components:
+  # NOTE: to edit this entity's movement speed, you will need to edit the leg bodypart. i discovered this so you didnt have to
   - type: Barotrauma
     damage:
       types:
@@ -130,7 +131,7 @@
         Cold : 0 # immune to space
     heatDamage:
       types:
-        Heat : 1
+        Heat : 1.5
   - type: TemperatureSpeed
     thresholds:
       293: 1.0
