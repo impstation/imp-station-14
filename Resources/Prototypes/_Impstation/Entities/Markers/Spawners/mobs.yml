@@ -170,16 +170,16 @@
       - MobDolby
 
 - type: entity
-  name: WAHBROS/SORBHAW Spawner
-  id: WahbrosSorbhawSpawner
+  name: Foes/Seof Spawner
+  id: FoesSeofSpawner
   parent: MarkerBase
   components:
     - type: Sprite
       layers:
         - state: blue
-        - sprite: _Impstation/Mobs/Animals/wahbros.rsi
-          state: wahbros
+        - sprite: _Impstation/Mobs/Animals/foes.rsi
+          state: foes
     - type: ClusterSpawner
       prototypes:
-        - MobWahbros
-        - MobSorbhaw
+        - MobFoes
+        - MobSeof
