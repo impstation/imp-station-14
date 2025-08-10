@@ -29,6 +29,7 @@ using Content.Shared._EE.Contests;
 using Content.Shared.Movement.Pulling.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
+using Content.Shared.Hands.EntitySystems;
 
 namespace Content.Shared._EE.Carrying;
 
@@ -46,6 +47,7 @@ public sealed partial class CarryingSystem : EntitySystem
     [Dependency] private readonly StandingStateSystem _standingState = default!;
     [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!;
     [Dependency] private readonly ContestsSystem _contests = default!; // frontier
+    [Dependency] private readonly SharedHandsSystem _hands = default!; // imp, upstream hands refactor
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
     private float _baseDistanceCoeff; // Frontier: default throwing speed reduction
@@ -344,7 +346,7 @@ public sealed partial class CarryingSystem : EntitySystem
                 // no tower of spacemen or stack overflow
                 !HasComp<BeingCarriedComponent>(carrier) && !HasComp<BeingCarriedComponent>(carried) &&
                 // finally check that there are enough free hands
-                TryComp<HandsComponent>(carrier, out var hands) && hands.CountFreeHands() >= carried.Comp.FreeHandsRequired;
+                _hands.CountFreeHands(carrier) >= carried.Comp.FreeHandsRequired;
     }
 
     public override void Update(float frameTime)
