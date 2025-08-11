@@ -4,11 +4,11 @@
   id: BaseBountyHunterObjective
   components:
   - type: Objective
-    issuer: objective-issuer-self
+    issuer: objective-issuer-thief
     difficulty: 1
   - type: RoleRequirement
     roles:
-    - MindRoleBountyHunter
+    - BountyHunterRole
 
 - type: entity
   parent: [BaseKillObjective, BaseBountyHunterObjective]

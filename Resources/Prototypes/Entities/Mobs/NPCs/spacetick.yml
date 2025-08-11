@@ -43,7 +43,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      15: Dead
+      5: Dead
   - type: Destructible
     thresholds:
     - trigger:
@@ -96,6 +96,8 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: Absorbable # imp edit
+    biomassRestored: 0.1
 
 - type: entity
   id: MobTickSalvage

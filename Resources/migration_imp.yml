@@ -8,6 +8,9 @@
 # WallSolid: Window
 # Table: null
 
+# 2024-09-09
+BorgModuleService: BorgModuleBartender
+
 # 2024-11-25
 #impstation change
 ToolboxArtistic: ToolboxArtisticFilled
@@ -62,6 +65,30 @@ BorgModulePaper: BorgModuleService
 # impstation: migrate our cleanade crate to upstream implementation
 CrateServiceCleanades: CrateServiceCleanerGrenades
 
+# 2025-06-17
 # impstation: replace custodial closets with secure janitor lockers
 ClosetJanitor: LockerJanitor
 ClosetJanitorFilled: LockerJanitorFilled
+
+# 2025-06-28
+# impstation: replace artifact spawners with combined old/new artifact spawners
+RandomArtifactSpawner: RandomOldNewArtifactSpawner
+RandomArtifactSpawner20: RandomOldNewArtifactSpawner20
+
+# 2025-07-17
+# removed redundant prototype from DV tabletop computer port
+MobileComputerTabletopComms: ComputerTabletopComms
+
+# 2025-07-25
+# renamed prize tickets
+PrizeTicketGold: PrizeTicket
+PrizeTicketBronze: PrizeTicket10
+PrizeTicketSilver: PrizeTicket100
+PrizeTicketDiamond: PrizeTicket1000000
+
+# 2025-07-31
+# upstream merge replacement prototypes
+FlippoSyndicateLighter: SyndicateFlippo
+GoldPersonalAI: GoldenPersonalAI
+HolyTextTanakh: BibleTanakh
+SpawnMobPoly: SpawnMobPollyParrot

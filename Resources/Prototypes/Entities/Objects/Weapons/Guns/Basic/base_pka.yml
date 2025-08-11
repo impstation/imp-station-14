@@ -26,6 +26,8 @@
       path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
     soundEmpty: # imp edit
       path: /Audio/_Impstation/Weapons/Guns/Empty/dry_fire.ogg
+      params:
+        volume: -5
   - type: AmmoCounter
   - type: Appearance
   - type: GenericVisualizer

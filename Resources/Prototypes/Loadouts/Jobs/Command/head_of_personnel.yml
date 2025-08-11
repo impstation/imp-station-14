@@ -59,7 +59,7 @@
   id: HoPBackpackIan
   effects:
   - !type:GroupLoadoutEffect
-    proto: MasterHoP
+    proto: MasterHoP #imp
   equipment:
     back: ClothingBackpackIan
 
@@ -68,9 +68,3 @@
   id: HoPWintercoat
   equipment:
     outerClothing: ClothingOuterWinterHoP
-
-# Shoes
-- type: loadout
-  id: LeatherShoes
-  equipment:
-    shoes: ClothingShoesLeather

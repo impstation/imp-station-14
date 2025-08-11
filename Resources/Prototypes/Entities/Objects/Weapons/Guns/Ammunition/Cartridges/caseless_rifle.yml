@@ -20,12 +20,17 @@
   - type: SpentAmmoVisuals
   - type: StaticPrice
     price: 10
+  - type: EmitSoundOnLand #imp
+    sound:
+      collection: ShellEject
+      params:
+        volume: -4
 
 - type: entity
   id: CartridgeCaselessRifle
   name: cartridge (.25 caseless)
   parent: BaseCartridgeCaselessRifle
-  description: A sub-caliber cartridge of odd design, but with effective application. .25 caseless ammo has propellent encasing the bullet, making the cartridge appear rectangular. #imp
+  description: A kinetic sub-caliber cartridge of odd design, but with effective application. .25 caseless ammo has propellent encasing the bullet, making the cartridge appear rectangular. #imp
   components:
   - type: CartridgeAmmo
     proto: BulletCaselessRifle
@@ -44,4 +49,4 @@
         map: [ "enum.AmmoVisualLayers.Base" ]
       - state: tip
         map: [ "enum.AmmoVisualLayers.Tip" ]
-        color: "#dbdbdb"
+        color: "#ffcb6f" #imp

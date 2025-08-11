@@ -19,6 +19,7 @@
     angleIncrease: 3
     angleDecay: 10
     fireRate: 6
+    selectedMode: FullAuto
     availableModes:
     - SemiAuto
     - FullAuto
@@ -68,6 +69,7 @@
     angleIncrease: 1.5
     angleDecay: 10
     fireRate: 5
+    selectedMode: Burst
     burstFireRate: 16
     availableModes:
     - Burst

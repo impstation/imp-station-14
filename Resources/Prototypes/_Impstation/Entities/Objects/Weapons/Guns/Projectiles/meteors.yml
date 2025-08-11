@@ -1,0 +1,142 @@
+- type: entity
+  parent: MeteorSmall
+  id: MeteorArtifactSmall
+  name: meteor
+  description: Seems to have crystals embedded in the surface.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      artifexium:
+        maxVol: 15
+        reagents:
+        - ReagentId: Artifexium
+          Quantity: 15
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:WeightedSpawnEntityBehavior
+        weightedEntityTable: "XenoMeteorSpawnAsteroidWallTable"
+        minSpawn: 2
+        maxSpawn: 4
+        spawnAfter: 0.5
+      - !type:ExplodeBehavior
+      - !type:SpillBehavior
+        solution: artifexium
+
+- type: entity
+  parent: MeteorMedium
+  id: MeteorArtifactMedium
+  name: meteor
+  description: Seems to have crystals embedded in the surface.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      artifexium:
+        maxVol: 25
+        reagents:
+        - ReagentId: Artifexium
+          Quantity: 25
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:WeightedSpawnEntityBehavior
+        weightedEntityTable: "XenoMeteorSpawnAsteroidWallTable"
+        spawnOffset: 2
+        minSpawn: 3
+        maxSpawn: 6
+        spawnAfter: 0.5
+      - !type:ExplodeBehavior
+      - !type:SpillBehavior
+        solution: artifexium
+
+- type: entity
+  parent: MeteorLarge
+  id: MeteorArtifactLarge
+  name: meteor
+  description: Seems to have crystals embedded in the surface.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      artifexium:
+        maxVol: 50
+        reagents:
+        - ReagentId: Artifexium
+          Quantity: 50
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:WeightedSpawnEntityBehavior
+        weightedEntityTable: "XenoMeteorSpawnAsteroidWallTable"
+        spawnOffset: 3
+        minSpawn: 5
+        maxSpawn: 8
+        spawnAfter: 0.5
+      - !type:ExplodeBehavior
+      - !type:SpillBehavior
+        solution: artifexium
+
+- type: entity
+  parent: MeteorSmall
+  id: MeteorWeakSmall
+  name: meteor
+  components:
+  - type: Explosive
+    totalIntensity: 10
+
+- type: entity
+  parent: MeteorMedium
+  id: MeteorWeakMedium
+  name: meteor
+  components:
+  - type: Explosive
+    totalIntensity: 25
+
+- type: entity
+  parent: MeteorLarge
+  id: MeteorWeakLarge
+  name: meteor
+  components:
+  - type: Explosive
+    totalIntensity: 40
+
+- type: entity
+  parent: MeteorLarge
+  id: MeteorHolyFuckOhGod # This was added for a replacement for the immovable rod event for hot box, however that's not possible atm
+  name: meteor
+  components:
+  - type: Sprite
+    noRot: false
+    sprite: Objects/Misc/meteor.rsi
+    scale: "6, 6"
+  - type: Explosive
+    totalIntensity: 7500
+    maxTileBreak: 50
+    tileBreakScale: 2
+    intensitySlope: 5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 2500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ExplodeBehavior

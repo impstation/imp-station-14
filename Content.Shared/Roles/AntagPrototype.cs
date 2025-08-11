@@ -10,11 +10,18 @@ namespace Content.Shared.Roles;
 ///     Describes information for a single antag.
 /// </summary>
 [Prototype]
-[Serializable, NetSerializable]
 public sealed partial class AntagPrototype : IPrototype
 {
+    // Imp edit start
     [DataField("playTimeTracker", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<PlayTimeTrackerPrototype>))]
-    public string PlayTimeTracker { get; private set; } = string.Empty; // imp
+    public string PlayTimeTracker { get; private set; } = string.Empty;
+
+    /// <summary>
+    /// A color representing this antag to use for text. Defaults to syndie blood red.
+    /// </summary>
+    [DataField]
+    public Color Color { get; private set; } = Color.Red;
+    // Imp edit end
 
     [ViewVariables]
     [IdDataField]
