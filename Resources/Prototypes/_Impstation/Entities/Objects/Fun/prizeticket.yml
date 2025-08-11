@@ -52,6 +52,7 @@
           Ash:
             min: 1
             max: 1
+        multiplyByNumberInStack: false
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: StaticPrice

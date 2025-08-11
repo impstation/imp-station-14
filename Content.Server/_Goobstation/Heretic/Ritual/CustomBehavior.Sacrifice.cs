@@ -1,11 +1,11 @@
 using Content.Server._Goobstation.Heretic.EntitySystems;
-using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Heretic.Components;
 using Content.Server.Heretic.EntitySystems;
 using Content.Server.Humanoid;
 using Content.Server.Objectives.Components;
 using Content.Server.Revolutionary.Components;
+using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;

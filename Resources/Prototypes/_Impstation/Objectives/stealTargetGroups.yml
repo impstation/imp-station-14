@@ -81,6 +81,13 @@
     sprite: _Impstation/Objects/Specific/Chemistry/pills_canister.rsi
     state: pill_canister-hos
 
+- type: stealTargetGroup
+  id: AntiqueDisabler
+  name: steal-target-groups-antiquedisabler
+  sprite:
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/hopdisabler.rsi
+    state: icon
+
 # rare but otherwise not notable
 
 - type: stealTargetGroup

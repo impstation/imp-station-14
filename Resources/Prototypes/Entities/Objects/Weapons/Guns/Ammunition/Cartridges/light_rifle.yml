@@ -21,7 +21,7 @@
 - type: entity
   id: CartridgeLightRifle
   name: cartridge (.30 rifle)
-  description: A full-power cartridge that boasts superior lethality and range but with a greater size than an intermediate cartridge. Typically used in precision rifles. #imp
+  description: A kinetic full-power cartridge that boasts superior lethality and range but with a greater size than an intermediate cartridge. Typically used in precision rifles. #imp
   parent: BaseCartridgeLightRifle
   components:
   - type: CartridgeAmmo

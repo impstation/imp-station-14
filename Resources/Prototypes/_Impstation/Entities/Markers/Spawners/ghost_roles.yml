@@ -25,6 +25,29 @@
       state: icon
 
 - type: entity
+  id: SpawnPointGhostVRex
+  name: ghost role spawn point
+  suffix: v-rex
+  parent: MarkerBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-vrex-name
+    description: ghost-role-information-vrex-desc
+    rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: MobVRex
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: _Impstation/Mobs/Aliens/vrex.rsi
+        state: dead
+
+- type: entity
   categories: [ HideSpawnMenu, Spawner ]
   parent: BaseAntagSpawner
   id: SpawnPointGhostOppa
