@@ -87,7 +87,7 @@
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
   - type: AccessReader
-    access: [[ "HeadOfPersonnel" ]]
+    access: [[ "HospitalityDirector" ]]
   - type: CommunicationsConsole
     title: comms-console-announcement-title-service
     color: "#88be14"
