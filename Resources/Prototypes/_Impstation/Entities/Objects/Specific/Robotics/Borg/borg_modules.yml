@@ -112,3 +112,19 @@
     - BorgHoloBellProjector
   - type: BorgModuleIcon
     icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: courier-module }
+
+- type: entity
+  id: BorgModuleAdvancedMusique
+  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
+  name: advanced musique module
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: icon-musique
+  - type: ItemBorgModule
+    items:
+    - BorgDawInstrument
+    - BorgMinimoogInstrument
+  - type: BorgModuleIcon
+    icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: advanced-musical-module }
