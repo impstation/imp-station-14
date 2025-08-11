@@ -33,6 +33,7 @@
     - id: BoxLightMixed
     - id: Holoprojector
     - id: WeaponLauncherCleanerLake
+    - id: WelderJanitorial
     - !type:AllSelector
       rolls: !type:ConstantNumberSelector
         value: 2
@@ -43,3 +44,4 @@
       - id: SoapNT
       - id: FlashlightLantern
       - id: Plunger
+      - id: WireBrush

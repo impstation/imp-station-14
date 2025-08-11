@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 262.0.0
+  engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/22/2025 04:12:37
-  entityCount: 15284
+  time: 08/09/2025 05:42:07
+  entityCount: 15286
 maps:
 - 126
 grids:
@@ -7901,7 +7901,7 @@ entities:
       pos: 101.5,-19.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -31210.91
+      secondsUntilStateChange: -31293.354
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -77527,6 +77527,13 @@ entities:
     - type: Transform
       pos: 61.5,26.5
       parent: 2
+- proto: SignDetective
+  entities:
+  - uid: 14676
+    components:
+    - type: Transform
+      pos: 24.5,28.5
+      parent: 2
 - proto: SignDirectionalBridge
   entities:
   - uid: 7329
@@ -79219,7 +79226,7 @@ entities:
     - type: Transform
       pos: 45.5,-14.5
       parent: 2
-- proto: SpawnMobPoly
+- proto: SpawnMobPollyParrot
   entities:
   - uid: 15120
     components:
@@ -79382,6 +79389,13 @@ entities:
     components:
     - type: Transform
       pos: 18.5,22.5
+      parent: 2
+- proto: SpawnPointDetective
+  entities:
+  - uid: 14677
+    components:
+    - type: Transform
+      pos: 18.5,32.5
       parent: 2
 - proto: SpawnPointHeadOfPersonnel
   entities:
@@ -95852,26 +95866,51 @@ entities:
       - 13637
       - 13639
       - 13640
-- proto: WeaponEnergyTurretSecurity
+- proto: WeaponEnergyTurretCommand
   entities:
-  - uid: 2628
+  - uid: 8399
     components:
     - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 19.5,42.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 8397
+      - 2628
+  - uid: 13641
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
       pos: 17.5,42.5
       parent: 2
     - type: DeviceNetwork
       deviceLists:
+      - 8397
+      - 2628
+- proto: WeaponEnergyTurretCommandControlPanel
+  entities:
+  - uid: 2628
+    components:
+    - type: Transform
+      pos: 17.5,38.5
+      parent: 2
+    - type: DeviceList
+      devices:
       - 13641
       - 8399
   - uid: 8397
     components:
     - type: Transform
-      pos: 19.5,42.5
+      rot: 1.5707963267948966 rad
+      pos: 16.5,39.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
+    - type: DeviceList
+      devices:
       - 13641
       - 8399
+- proto: WeaponEnergyTurretSecurity
+  entities:
   - uid: 8434
     components:
     - type: Transform
@@ -95910,25 +95949,6 @@ entities:
     - type: DeviceList
       devices:
       - 8434
-  - uid: 8399
-    components:
-    - type: Transform
-      pos: 17.5,38.5
-      parent: 2
-    - type: DeviceList
-      devices:
-      - 2628
-      - 8397
-  - uid: 13641
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 16.5,39.5
-      parent: 2
-    - type: DeviceList
-      devices:
-      - 2628
-      - 8397
 - proto: WeaponSubMachineGunWt550
   entities:
   - uid: 14582

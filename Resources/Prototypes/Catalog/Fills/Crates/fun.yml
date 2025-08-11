@@ -171,17 +171,6 @@
             value: 3
 
 - type: entity
-  id: CrateFunFinfinPlushie
-  parent: CrateGenericSteel
-  name: one single fin fin plushie
-  description: A single ultra-rare plushie of the dolphin-bird Fin Fin. You aren't... actually going to buy this one, are you?
-  components:
-  - type: StorageFill
-    contents:
-      - id: PlushieFinfin
-        amount: 1
-
-- type: entity
   id: CrateFunSharkPlushieBulk
   parent: CrateGenericSteel
   name: bulk soft toy shark crate
@@ -525,12 +514,20 @@
         prob: 0.05
 
 - type: entity
-  id: CrateFun500Cigarettes
-  parent: CrateGenericSteel
-  name: 500 cigarettes
-  description: The tingles... Do you feel them?
+  name: hydrated sirval #imp edit
+  description: Wait, what?
+  id: CrateFunScurret
+  parent: CrateLivestock
   components:
   - type: StorageFill
     contents:
-      - id: StackOfCigs
-        amount: 1
+    - id: MobEmotionalSupportScurret # How? Why?
+    - id: DrinkVodkaBottleFull
+    - id: DrinkWhiskeyBottleFull
+    - id: DrinkTequilaBottleFull # ...that explains it.
+    - id: DrinkShotGlass
+      amount: 2
+    - id: Spear # self defence
+    - id: ClothingHeadHatHardhatYellow
+    - id: ClothingNeckMantleQM
+    - id: ClothingHeadsetCargo
