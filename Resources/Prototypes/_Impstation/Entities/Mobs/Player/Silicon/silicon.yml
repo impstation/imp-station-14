@@ -102,9 +102,6 @@
   - type: StatusEffects
     allowed:
     - Flashed
-    - Stun
-    - KnockedDown
-    - SlowedDown
   - type: SlowOnDamage
     speedModifierThresholds:
       30: 0.7
