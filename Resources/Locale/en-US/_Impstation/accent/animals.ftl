@@ -39,7 +39,7 @@ accent-words-pleebnar-8 = Jorp!
 accent-words-pleebnar-9 = Cluuump.
 accent-words-pleebnar-10 = wawiwi.
 
-#eeep
+# eeep
 accent-words-eeep-1 = mimi
 accent-words-eeep-2 = zzzz...
 accent-words-eeep-3 = mimir
