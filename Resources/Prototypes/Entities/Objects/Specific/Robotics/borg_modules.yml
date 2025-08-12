@@ -842,10 +842,12 @@
     - state: service
     - state: icon-musique
   - type: ItemBorgModule
-    items:
-    - SynthesizerInstrument
-    - ElectricGuitarInstrument
-    - SaxophoneInstrument
+    items: # imp start
+    - BorgSynthesizerInstrument
+    - BorgElectricGuitarInstrument
+    - BorgSaxophoneInstrument
+    - BorgBassGuitarInstrument
+    - PanFluteInstrument # imp end
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: musical-module }
 

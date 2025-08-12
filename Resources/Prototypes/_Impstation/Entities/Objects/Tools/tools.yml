@@ -144,3 +144,104 @@
     - ClothingHeadHatCone
     - PowerCellSmall
     - Decalamp
+
+- type: entity
+  parent: BaseHandheldInstrument
+  id: BorgDawInstrument
+  name: portable digital audio workstation
+  description: Cutting edge music technology, straight from the 90s.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Tools/BorgDawInstrument.rsi
+    state: icon
+  - type: ActivatableUI
+    inHandsOnly: false
+  - type: Instrument
+    allowPercussion: true
+    allowProgramChange: true
+
+- type: entity
+  parent: BaseHandheldInstrument
+  name: portable minimoog
+  id: BorgMinimoogInstrument
+  description: This is a minimoog, like a space piano, but more spacey!
+  components:
+  - type: Instrument
+    program: 81
+  - type: Sprite
+    sprite: _Impstation/Objects/Tools/BorgMinimoogInstrument.rsi
+    state: icon
+  - type: ActivatableUI
+    inHandsOnly: false
+
+- type: entity
+  parent: BaseKeyedInstrument
+  id: BorgSynthesizerInstrument
+  name: borg synthesizer
+  components:
+  - type: Instrument
+    program: 62
+  - type: SwappableInstrument
+    instrumentList:
+      "Electro": {62: 0} #i needed generic sounding synth presets, sue me
+      "Bubbles": {63: 0}
+  - type: Sprite
+    sprite: Objects/Fun/Instruments/h_synthesizer.rsi
+  - type: ActivatableUI
+    inHandsOnly: false
+
+- type: entity
+  parent: BaseStringInstrumentClothing
+  id: BorgElectricGuitarInstrument
+  name: borg electric guitar
+  description: Now this makes you feel like a rock star!
+  components:
+  - type: Instrument
+    program: 27
+  - type: SwappableInstrument
+    instrumentList:
+      "Clean": {27: 0}
+      "Jazz": {26: 0}
+      "Muted": {28: 0}
+  - type: Sprite
+    sprite: Objects/Fun/Instruments/eguitar.rsi
+  - type: ActivatableUI
+    inHandsOnly: false
+
+- type: entity
+  parent: BaseWoodwindInstrument
+  id: BorgSaxophoneInstrument
+  name: borg saxophone
+  description: An instrument. You could probably grind this into raw jazz.
+  components:
+  - type: Instrument
+    program: 66
+  - type: SwappableInstrument
+    instrumentList:
+      "Soprano": {64: 0}
+      "Alto": {65: 0}
+      "Tenor": {66: 0}
+      "Baritone": {67: 0}
+  - type: Sprite
+    sprite: Objects/Fun/Instruments/saxophone.rsi
+  - type: ActivatableUI
+    inHandsOnly: false
+
+- type: entity
+  parent: BaseStringInstrument
+  id: BorgBassGuitarInstrument
+  name: bass guitar
+  description: You feel really cool holding this. Shame you're the only one that thinks that.
+  components:
+  - type: Instrument
+    program: 33
+  - type: SwappableInstrument
+    instrumentList:
+      "Fingered": {33: 0}
+      "Pick": {34: 0}
+      "Slap": {36: 0}
+      "Slap (XTra Funky)": {37: 0}
+  - type: Sprite
+    sprite: Objects/Fun/Instruments/bassguitar.rsi
+  - type: ActivatableUI
+    inHandsOnly: false

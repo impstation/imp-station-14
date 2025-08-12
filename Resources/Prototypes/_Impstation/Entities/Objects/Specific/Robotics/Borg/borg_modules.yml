@@ -88,11 +88,11 @@
     - state: icon-beer
   - type: ItemBorgModule
     items:
-    - Lighter
+    - BorgDropper
+    - DrinkShaker
     - DrinkShaker
     - BarSpoon
     - BorgIceBucket
-    - Pitcher
   - type: BorgModuleIcon
     icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: bartender-module }
 
@@ -112,3 +112,38 @@
     - BorgHoloBellProjector
   - type: BorgModuleIcon
     icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: courier-module }
+
+- type: entity
+  id: BorgModuleAdvancedMusique
+  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
+  name: advanced musique module
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: icon-musique
+  - type: ItemBorgModule
+    items:
+    - BorgDawInstrument
+    - BorgMinimoogInstrument
+  - type: BorgModuleIcon
+    icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: advanced-musical-module }
+
+- type: entity
+  id: BorgModuleBureaucracy
+  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
+  name: bureaucracy module
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: icon-pen
+  - type: ItemBorgModule
+    items:
+    - LuxuryPen
+    - HandLabeler
+    - RubberStampApproved
+    - RubberStampDenied
+    - RubberStampBorg # imp
+  - type: BorgModuleIcon
+    icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: bureaucracy-module }
