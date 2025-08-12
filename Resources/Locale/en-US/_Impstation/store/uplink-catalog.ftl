@@ -105,3 +105,24 @@ uplink-valushotfamily-desc = 3 ValuShot 9000 pistols for a special deal!
 
 uplink-valushotclub-name = Deadly Dan's ValuShot Club Bundle
 uplink-valushotclub-desc = Bulk buys! 14 ValuShot 9000 pistols for the price of 10!
+
+uplink-supermatter-grenade-name = Supermatter Grenade
+uplink-supermatter-grenade-desc = Grenade that simulates delamination of a supermatter engine, generates powerful gravity well. Explosion comparable to a Mini Bomb.
+
+uplink-beenade-name = Beenade
+uplink-beenade-desc = The ultimate in distraction, this foaming grenade contains enough pure concentrated bees to keep Medbay busy for quite a while. Throw it into the bar and watch everyone panic. Just don't stand too close.
+
+uplink-bros-grenade-name = BROSnade
+uplink-bros-grenade-desc = A colony of angry BROS captured in a glass bottle. UNGH
+
+uplink-pin-straight-name = Straight Pride Pin
+uplink-pin-straight-desc = Demonstrate your support for the heterosexual community with this straight pride pin.
+
+uplink-cloak-straight-name = Straight Pride Cloak
+uplink-cloak-straight-desc = Demonstrate your support for the heterosexual community (and the hamburglar) with this stripy, black-and-white cloak.
+
+uplink-super-mosin-name = K2903 Star Rifle bundle
+uplink-super-mosin-desc = A modified bolt-action service rifle with a large magazine! Not modern by any standard. Quite the steal, if you don't mind hand-loading. Comes with a handful of stripper clips.
+
+uplink-ourobros-name = OuroBROS
+uplink-ourobros-desc = UNGH!

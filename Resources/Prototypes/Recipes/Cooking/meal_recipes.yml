@@ -459,11 +459,12 @@
   result: FoodBreadCreamcheese
   time: 15
   group: Breads
-  reagents:
-    Milk: 5
+  #reagents: # Imp
+  #  Milk: 5
   solids:
     FoodDough: 1
-    FoodCheeseSlice: 2
+    # FoodCheeseSlice: 2 # Imp
+    FoodCreamCheese: 1 # Imp
   recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
@@ -1612,7 +1613,8 @@
     Sugar: 5
   solids:
     FoodButterSlice: 1
-    FoodSnackChocolateBar: 1
+    # FoodSnackChocolateBar: 1 #Imp
+    FoodChocolateChip: 6 # Imp
   recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
@@ -1669,7 +1671,8 @@
     Milk: 5
     Egg: 6
   solids:
-    FoodSnackChocolateBar: 1
+    # FoodSnackChocolateBar: 1 #Imp
+    FoodChocolateChip: 2 # Imp
   recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
@@ -1756,11 +1759,12 @@
   result: FoodCakeCheese
   time: 5
   group: Cake
-  reagents:
-    Cream: 10
+  # reagents: # Imp
+  #   Cream: 10 # Imp
   solids:
     FoodCakePlain: 1
-    FoodCheeseSlice: 3
+  #  FoodCheeseSlice: 3 # Imp
+    FoodCreamCheese: 2
   recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
@@ -1807,6 +1811,7 @@
     Cream: 5
   solids:
     FoodCakePlain: 1
+    CandleSmall: 3 # imp
   recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
@@ -2654,4 +2659,30 @@
     FoodMeat: 1
     FoodTomato: 1
     FoodSoybeans: 2 # replace these with green beans once those become a thing
+  recipeType: Oven # Frontier
+
+- type: microwaveMealRecipe
+  id: RecipeMoproach # TODO: Move this to be an actual surgery instead, once surgery gets implemented.
+  name: moproach recipe
+  result: MobMoproach
+  time: 30
+  group: Other
+  reagents:
+    SpaceCleaner: 15
+  solids:
+    MobMothroach: 1
+    OrganAnimalHeart: 1
+    MoproachShoes: 1
+  recipeType: Microwave # Frontier
+
+- type: microwaveMealRecipe
+  id: RecipeCottonCake
+  name: cotton cake recipe
+  result: FoodCakeCotton
+  time: 5
+  group: Cake
+  reagents:
+    Fiber: 10
+  solids:
+    FoodCakePlain: 1
   recipeType: Oven # Frontier

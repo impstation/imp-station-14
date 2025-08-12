@@ -1,6 +1,5 @@
 using Content.Server.Explosion.Components;
 using Content.Server.Weapons.Ranged.Systems;
-using Content.Shared.Weapons.Ranged.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -59,6 +58,11 @@ public sealed class ProjectileGrenadeSystem : EntitySystem
         var grenadeCoord = _transformSystem.GetMapCoordinates(uid);
         var shootCount = 0;
         var totalCount = component.Container.ContainedEntities.Count + component.UnspawnedCount;
+
+        // Just in case
+        if (totalCount == 0)
+            return;
+
         var segmentAngle = 360 / totalCount;
 
         while (TrySpawnContents(grenadeCoord, component, out var contentUid))
@@ -78,7 +82,6 @@ public sealed class ProjectileGrenadeSystem : EntitySystem
             // slightly uneven, doesn't really change much, but it looks better
             var direction = angle.ToVec().Normalized();
             var velocity = _random.NextVector2(component.MinVelocity, component.MaxVelocity);
-            EnsureComp<TargetedProjectileComponent>(contentUid); // imp - ensure projectile is a TargetedProjectile with no target to hit crawling players
             _gun.ShootProjectile(contentUid, direction, velocity, null);
         }
     }

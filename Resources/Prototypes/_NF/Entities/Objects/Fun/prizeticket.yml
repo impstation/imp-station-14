@@ -12,7 +12,7 @@
     items:
     - id: PresentTrash
       # R rarity - species plushies, staples that are easily available elsewhere
-    - id: PrizeTicketBronze
+    - id: PrizeTicket10
       orGroup: Prize
     - id: BirdToyInstrument
       prob: 0.82
@@ -110,7 +110,7 @@
       orGroup: Prize
       # DEN end
     # SR rarity - variants of R rarity plushies or otherwise uncommon finds. deities etc
-    - id: PrizeTicketSilver
+    - id: PrizeTicket100
       prob: 0.15
       orGroup: Prize
     - id: PlushieAtmosian
@@ -179,7 +179,7 @@
       orGroup: Prize
       # DEN end
     # SSR rarity - getting these should feel like winning the lottery. all blorbo plushies go here also
-    - id: PrizeTicketGold
+    - id: PrizeTicket
       prob: 0.03
       orGroup: Prize
     - id: DehydratedSpaceCarp

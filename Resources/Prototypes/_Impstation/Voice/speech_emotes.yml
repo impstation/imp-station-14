@@ -118,6 +118,22 @@
   - cracks his knuckles
   - cracks its knuckles
 
+- type: emote
+  id: BeatingChest
+  name: chat-emote-name-beatingchest
+  category: Vocal # if i dont do this it doesn't work because the cargorilla doesn't have any hands
+  available: false
+  icon: _Impstation/Interface/Emotes/knucklecrack.png
+  chatMessages: ["chat-emote-msg-beatingchest"]
+  chatTriggers:
+  - beat chest
+  - beats chest
+  - beating chest
+  - beats his chest
+  - beats her chest
+  - beats its chest
+  - beats their chest
+
 # Kodepiia
 
 - type: emote
@@ -138,3 +154,11 @@
   - booms
   - booming
   - boomed
+
+#Sirval
+
+- type: emote
+  id: SirvalDeathgasp
+  name: chat-emote-name-deathgasp
+  icon: Interface/Emotes/deathgasp.png
+  chatMessages: ["chat-emote-msg-deathgasp-sirval"]

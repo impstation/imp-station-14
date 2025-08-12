@@ -335,7 +335,7 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
         var antags = new HashSet<EntityUid>();
         var allHumans = _mind.GetAliveHumans(args.MindId); //imp edit - just get the mind ID
 
-        // check for any of the valid antagonist mindroles
+        //check for any fugitives, and target them if they're present
         foreach (var person in allHumans)
         {
             // imp edit
@@ -348,20 +348,8 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
                 continue;
             }
 
-            //huge list of every single whitelisted antag's role component
-            if (_role.MindHasRole<ChangelingRoleComponent>(mindId)  /*Changeling*/
-            || _role.MindHasRole<RevolutionaryRoleComponent>(mindId)/*Head Rev*/
-            || _role.MindHasRole<HereticRoleComponent>(mindId)      /*Heretic*/
-            || _role.MindHasRole<ThiefRoleComponent>(mindId)        /*Thief*/
-            || _role.MindHasRole<TraitorRoleComponent>(mindId)      /*Traitor*/
-
-            || _role.MindHasRole<FugitiveRoleComponent>(mindId)    /*Fugitive*/
-            || _role.MindHasRole<NinjaRoleComponent>(mindId)       /*Ninja*/
-            || _role.MindHasRole<NukeopsRoleComponent>(mindId)     /*Nukies*/
-            || _role.MindHasRole<ParadoxCloneRoleComponent>(mindId)/*Paradox Clone*/
-            || _role.MindHasRole<SynthesisRoleComponent>(mindId)   /*Synthesis Specialist*/
-            || _role.MindHasRole<WizardRoleComponent>(mindId)      /*Wizard*/
-            )
+            //is it a fugitive?
+            if (_role.MindHasRole<FugitiveRoleComponent>(mindId))
             {
                 antags.Add(person);
                 continue;
@@ -369,29 +357,66 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
             // imp edit end
         }
 
-        // failed to roll an antag as a target
+        // if there're no fugitives, check for any of the other valid antagonist mindroles
         if (antags.Count == 0)
         {
-            //fallback to target a random head
             foreach (var person in allHumans)
             {
-                if (TryComp<MindComponent>(person, out var mind) && mind.OwnedEntity is { } owned && HasComp<CommandStaffComponent>(owned))
+                // imp edit
+                var mindId = person.Owner;
+                var mind = person.Comp;
+
+                // get the mind and its owned entity
+                if (mind.OwnedEntity is not { } owned)
+                {
+                    continue;
+                }
+
+                //huge list of every single whitelisted antag's role component
+                if (_role.MindHasRole<ChangelingRoleComponent>(mindId)  /*Changeling*/
+                /*|| _role.MindHasRole<RevolutionaryRoleComponent>(mindId)/*Head Rev (REVS USE THE SAME MINDROLE WHYYY)*/
+                || _role.MindHasRole<HereticRoleComponent>(mindId)      /*Heretic*/
+                || _role.MindHasRole<ThiefRoleComponent>(mindId)        /*Thief*/
+                || _role.MindHasRole<TraitorRoleComponent>(mindId)      /*Traitor*/
+
+                || _role.MindHasRole<BountyHunterRoleComponent>(mindId) /*Fellow Bunters*/
+                || _role.MindHasRole<NinjaRoleComponent>(mindId)       /*Ninja*/
+                || _role.MindHasRole<NukeopsRoleComponent>(mindId)     /*Nukies*/
+                || _role.MindHasRole<ParadoxCloneRoleComponent>(mindId)/*Paradox Clone*/
+                || _role.MindHasRole<SynthesisRoleComponent>(mindId)   /*Synthesis Specialist*/
+                || _role.MindHasRole<WizardRoleComponent>(mindId)      /*Wizard*/
+                )
+                {
                     antags.Add(person);
-            }
-
-            // just go for some random person if there's no command.
-            if (antags.Count == 0)
-            {
-                antags = new HashSet<EntityUid>(allHumans.Select(p => p.Owner)); //imp
-            }
-
-            // One last check for the road, then cancel it if there's nothing left
-            if (antags.Count == 0)
-            {
-                args.Cancelled = true;
-                return;
+                    continue;
+                }
+                // imp edit end
             }
         }
+
+        // failed to roll an antag as a target
+            if (antags.Count == 0)
+            {
+                //fallback to target a random head
+                foreach (var person in allHumans)
+                {
+                    if (TryComp<MindComponent>(person, out var mind) && mind.OwnedEntity is { } owned && HasComp<CommandStaffComponent>(owned))
+                        antags.Add(person);
+                }
+
+                // just go for some random person if there's no command.
+                if (antags.Count == 0)
+                {
+                    antags = new HashSet<EntityUid>(allHumans.Select(p => p.Owner)); //imp
+                }
+
+                // One last check for the road, then cancel it if there's nothing left
+                if (antags.Count == 0)
+                {
+                    args.Cancelled = true;
+                    return;
+                }
+            }
         var randomTarget = _random.Pick(antags);
         _target.SetTarget(ent.Owner, randomTarget, target);
     }

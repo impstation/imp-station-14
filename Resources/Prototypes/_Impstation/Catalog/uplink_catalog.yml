@@ -218,6 +218,21 @@
     - UplinkWeaponry
 
 - type: listing
+  id: UplinkOuroBros
+  name: uplink-ourobros-name
+  description: uplink-ourobros-desc
+  productEntity: WeaponSpecialOuroBros
+  cost:
+    Telecrystal: 30
+  categories:
+  - UplinkWeaponry
+  conditions: # surplus exclusive
+  - !type:BuyerWhitelistCondition
+    whitelist:
+      components:
+      - SurplusBundle
+
+- type: listing
   id: uplinkAnaconda
   name: uplink-anaconda-name
   description: uplink-anaconda-desc
@@ -265,6 +280,17 @@
     Telecrystal: 20
   categories:
     - UplinkWeaponry
+
+- type: listing
+  id: uplinkStarService
+  name: uplink-super-mosin-name
+  description: uplink-super-mosin-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Snipers/star_service.rsi, state: base }
+  productEntity: ClothingBackpackDuffelSyndicateFilledSuperMosin
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkWeaponry
 
 - type: listing
   id: UplinkMixedRejects

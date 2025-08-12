@@ -1,7 +1,7 @@
 ﻿- type: entity
-  parent: [BaseStructureDynamic, BaseXenoArtifact]
-  id: BaseXenoArtifactStructure
-  name: artifact
+  parent: [BaseStructureDynamic, BaseXAEXenoArtifact]
+  id: BaseXAEXenoArtifactStructure #IMP 'XAE' in name
+  name: reticulated artifact
   abstract: true
   noSpawn: true
   components:
@@ -40,8 +40,8 @@
         - MachineMask
 
 - type: entity
-  parent: BaseXenoArtifactStructure
-  id: ComplexXenoArtifact
+  parent: BaseXAEXenoArtifactStructure #IMP 'XAE' in name
+  id: ComplexXAEXenoArtifact
   components:
   - type: XenoArtifact
     nodeCount:

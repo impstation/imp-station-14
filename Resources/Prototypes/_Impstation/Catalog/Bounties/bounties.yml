@@ -55,6 +55,7 @@
     blacklist:
       tags:
       - Slice # no cheating!
+      - Pizza # fucking cargo arbitrage
 
 - type: cargoBounty
   id: BountyCrystal
@@ -96,7 +97,7 @@
 
 - type: cargoBounty
   id: BountyInsuls
-  reward: 6000
+  reward: 4500
   description: bounty-description-insuls # thank you to carousel (discord) for helping w/ the description for this one!
   entries:
   - name: bounty-item-insuls

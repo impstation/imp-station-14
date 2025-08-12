@@ -55,3 +55,10 @@ accent-words-eeep-12 = snzzz...
 accent-words-eeep-13 = zap!
 accent-words-eeep-14 = mae-ee
 accent-words-eeep-15 = zzzzzzzzzz...zap!
+
+# V-Rex
+accent-words-vrex-1 = Guoh guoh.
+accent-words-vrex-2 = Grrrouuh!
+accent-words-vrex-3 = Ghrrr....
+accent-words-vrex-4 = Gruuuooh!
+
