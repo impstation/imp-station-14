@@ -1,18 +1,4 @@
 ﻿Entries:
-- author: widgetbeck
-  changes:
-  - message: Thaven who are sleeping can now be emagged.
-    type: Fix
-  id: 1651
-  time: '2025-05-12T10:14:39.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2457
-- author: Ominashi
-  changes:
-  - message: Bunny ears can now be found in your local autodrobe!
-    type: Add
-  id: 1652
-  time: '2025-05-12T10:33:30.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2453
 - author: LazyRiverfolk
   changes:
   - message: Added a variety of new topicals; visit your local Medifabs and Nanomeds
@@ -4225,3 +4211,22 @@
   id: 2150
   time: '2025-08-11T06:34:50.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3055
+- author: DinnerCalzone
+  changes:
+  - message: Another upstream merge has happened, featuring Wizden's crawling system!
+      Be sure to check your keybindings to ensure you're using the right keys for
+      it. See the upstream changelog for full details.
+    type: Add
+  - message: You can no longer slip under plastic flaps and tables.
+    type: Remove
+  id: 2151
+  time: '2025-08-12T00:45:17.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3263
+- author: mqole
+  changes:
+  - message: After 3000 years, carrying is real. Pick up your friends like ragdolls
+      and toss them into deep space!
+    type: Add
+  id: 2152
+  time: '2025-08-12T01:15:14.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2466
