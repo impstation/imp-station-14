@@ -49,13 +49,16 @@
       map: ["base"]
   - type: Appearance
   - type: Food #imp
-    requiresSpecialDigestion: true
-    delay: 10
+    delay: 15
   - type: FlavorProfile #imp
     flavors:
     - paper
   - type: Extractable
     grindableSolutionName: food #imp
+    juiceSolution: # imp
+      reagents:
+      - ReagentId: Cellulose
+        Quantity: 6
   - type: SolutionContainerManager
     solutions:
       food: #imp
@@ -285,7 +288,6 @@
       map: ["base"]
   - type: Appearance
   - type: Food #imp
-    requiresSpecialDigestion: true
     delay: 30
   - type: FlavorProfile #imp
     flavors:
