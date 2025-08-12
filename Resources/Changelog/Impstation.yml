@@ -1,110 +1,4 @@
 ﻿Entries:
-- author: jtfg-dev
-  changes:
-  - message: The cryptographic sequencer has been updated with the latest jukebox-cracker
-      from notorious Syndicate pirate radio DJ D2NT BEATZ, which you may recognize
-      from all the times its sick nasty tunes have heralded your demise.
-    type: Add
-  id: 1638
-  time: '2025-05-10T13:45:47.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2397
-- author: TheGrimbeeper
-  changes:
-  - message: Beenades and BROSnades
-    type: Fix
-  id: 1639
-  time: '2025-05-10T13:48:45.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2405
-- author: Darkmajia
-  changes:
-  - message: Gastropoid and slimeperson body emotes have had their sound restored.
-    type: Fix
-  id: 1640
-  time: '2025-05-10T17:08:32.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2446
-- author: TheLuggage05
-  changes:
-  - message: Adds lens slots to all most crew eyewear that didn't already have it.
-    type: Add
-  id: 1641
-  time: '2025-05-10T23:42:04.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2441
-- author: CrystalClover
-  changes:
-  - message: Added Head Frill marking for Reptilians
-    type: Add
-  id: 1642
-  time: '2025-05-11T03:58:55.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2431
-- author: TheGrimbeeper
-  changes:
-  - message: Anomalites can now always locate their core, so they know who to obey.
-    type: Add
-  - message: drones, dragons, and anomalite pinpointers now automatically activate.
-    type: Tweak
-  id: 1643
-  time: '2025-05-11T04:41:22.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2390
-- author: TheLuggage05
-  changes:
-  - message: Heavy nitrile gloves are now thick enough to actually obscure fingerprints!
-    type: Fix
-  id: 1644
-  time: '2025-05-11T12:39:22.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2451
-- author: Stonylogray
-  changes:
-  - message: Adjusted divine grasp and gildgrail. Take a sip, babes!
-    type: Tweak
-  id: 1645
-  time: '2025-05-11T13:59:58.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2445
-- author: mqole
-  changes:
-  - message: Removed Service Worker. Rest in Peace Laura Klaus
-    type: Remove
-  id: 1646
-  time: '2025-05-11T14:03:09.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2423
-- author: TheGrimbeeper
-  changes:
-  - message: Rat king ghost role rules are once again properly antagonist after upstream
-      merge convinced the king to be nice.
-    type: Fix
-  id: 1647
-  time: '2025-05-12T06:02:12.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2461
-- author: crocodilecarousel
-  changes:
-  - message: slimes can actually have earrings now
-    type: Fix
-  id: 1648
-  time: '2025-05-12T10:07:18.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2464
-- author: Mousetrinity
-  changes:
-  - message: salvage has always been purple.
-    type: Tweak
-  id: 1649
-  time: '2025-05-12T10:09:10.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2449
-- author: LandsharkRAWR
-  changes:
-  - message: Rose seeds to the exotic seed crate! they can mutate into dangerous black
-      roses and traitors can buy the dastardly Blood Red Rose! (you cant grow those
-      ones though) hold them in your mouth and hat slots to maximize your romantic
-      swagger.
-    type: Add
-  id: 1650
-  time: '2025-05-12T10:12:26.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2426
-- author: widgetbeck
-  changes:
-  - message: Thaven who are sleeping can now be emagged.
-    type: Fix
-  id: 1651
-  time: '2025-05-12T10:14:39.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2457
 - author: Ominashi
   changes:
   - message: Bunny ears can now be found in your local autodrobe!
@@ -4209,3 +4103,129 @@
   id: 2137
   time: '2025-08-08T11:30:13.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3256
+- author: honeyed-lemons
+  changes:
+  - message: Xeno has been moved to a location with meteors rich in Artifexium
+    type: Add
+  id: 2138
+  time: '2025-08-09T01:44:57.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3073
+- author: msTheowo
+  changes:
+  - message: Wardens can now use the security communications computer.
+    type: Tweak
+  id: 2139
+  time: '2025-08-09T06:19:17.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3260
+- author: TheGrimbeeper
+  changes:
+  - message: prize tickets can now ash again - into ONE ash
+    type: Tweak
+  - message: prize tickets are not allowed in replicator nests
+    type: Tweak
+  id: 2140
+  time: '2025-08-10T03:11:04.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3233
+- author: TheGrimbeeper
+  changes:
+  - message: Minor oldnewxeno artifact things i forgot have been fixed, check PR 3145
+      for more info
+    type: Fix
+  id: 2141
+  time: '2025-08-10T03:12:18.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3145
+- author: msTheowo
+  changes:
+  - message: Hospitality Directors are now allowed to use their own communications
+      console.
+    type: Fix
+  id: 2142
+  time: '2025-08-10T04:26:17.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3265
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: The Echion Synthesizer can now be equipped to your belt and suit storage
+      slots.
+    type: Tweak
+  id: 2143
+  time: '2025-08-10T07:09:03.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3238
+- author: msTheowo
+  changes:
+  - message: Strong prescription lens will now correctly start in your glasses instead
+      of being on the floor if your glasses start with lenses inside them.
+    type: Fix
+  id: 2144
+  time: '2025-08-11T06:02:49.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3166
+- author: Oberonics
+  changes:
+  - message: Dying as a Cluwne no longer unravels your DNA.
+    type: Tweak
+  id: 2145
+  time: '2025-08-11T06:05:43.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3204
+- author: Oberonics
+  changes:
+  - message: If you focus hard enough you can feel when your grappling hook has hit
+      something. Try it out!
+    type: Tweak
+  - message: Various fixes to the grappling gun. Look on github for more information.
+    type: Fix
+  id: 2146
+  time: '2025-08-11T06:09:23.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3151
+- author: DinnerCalzone
+  changes:
+  - message: The amount of space cleaner in the space cleaner dispenser has been increased
+      from 1000u to 2500u.
+    type: Tweak
+  - message: The soap cargo order has been replaced with a crate of 6 jugs of space
+      cleaner for $750.
+    type: Tweak
+  - message: The soap cargo bounty has been restored.
+    type: Add
+  id: 2147
+  time: '2025-08-11T06:16:30.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3170
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: The Leviathan won't be knocking over blood-reds, hopefully. Fingers crossed.
+    type: Fix
+  id: 2148
+  time: '2025-08-11T06:23:02.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3231
+- author: TheGrimbeeper
+  changes:
+  - message: Reticulated artifacts requiring radiation now activate from ambient radiation
+      and reagents, similar to natural artifacts
+    type: Fix
+  - message: Reticulated artifact death trigger is gone
+    type: Remove
+  - message: Natural artifacts now understand the coffee content of alcohol drinks
+    type: Tweak
+  - message: Hover text on scan up button in analysis console for natural artifacts
+    type: Fix
+  - message: Timing for newxeno artifacts is slightly more permissive
+    type: Tweak
+  id: 2149
+  time: '2025-08-11T06:30:44.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3268
+- author: FlippenPage
+  changes:
+  - message: announcement consoles now play their proper announcement sounds.
+    type: Fix
+  id: 2150
+  time: '2025-08-11T06:34:50.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3055
+- author: DinnerCalzone
+  changes:
+  - message: Another upstream merge has happened, featuring Wizden's crawling system!
+      Be sure to check your keybindings to ensure you're using the right keys for
+      it. See the upstream changelog for full details.
+    type: Add
+  - message: You can no longer slip under plastic flaps and tables.
+    type: Remove
+  id: 2151
+  time: '2025-08-12T00:45:17.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3263
