@@ -6,11 +6,11 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi
+    sprite: _Impstation/Objects/Misc/id_cards.rsi #imp edit
   - type: Clothing
     slots:
     - idcard
-    sprite: Objects/Misc/id_cards.rsi
+    sprite: _Impstation/Objects/Misc/id_cards.rsi #imp edit
   - type: Item
     size: Small
     heldPrefix: default
@@ -373,7 +373,6 @@
   name: lawyer ID card
   components:
     - type: Sprite
-      sprite: _Impstation/Objects/Misc/id_cards.rsi # imp edit
       layers:
         - state: default
         - state: idlawyer
@@ -517,7 +516,8 @@
   components:
   - type: Sprite
     layers:
-    - state: ert_commander #imp
+    - state: gold
+    - state: ert_commander
   - type: IdCard
     jobTitle: job-name-ertleader
     jobIcon: JobIconERTLeader
@@ -713,7 +713,7 @@
   components:
   - type: Sprite
     layers:
-    - state: orange
+    - state: default #imp edit
     - state: idatmospherictechnician
   - type: PresetIdCard
     job: AtmosphericTechnician
@@ -938,11 +938,11 @@
   description: An ID card that gives you access beyond your wildest dreams.
   components:
   - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi
+    sprite: _Impstation/Objects/Misc/id_cards.rsi #imp
     layers:
     - state: admin #removed layer: state (imp)
   - type: Clothing
-    sprite: Objects/Misc/id_cards.rsi
+    sprite: _Impstation/Objects/Misc/id_cards.rsi #imp
   - type: Item
     heldPrefix: green
   - type: IdCard
