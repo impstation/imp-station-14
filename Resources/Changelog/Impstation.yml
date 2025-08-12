@@ -1,59 +1,4 @@
 ﻿Entries:
-- author: LazyRiverfolk
-  changes:
-  - message: Added a variety of new topicals; visit your local Medifabs and Nanomeds
-      now!
-    type: Add
-  - message: Aloe Cream is now squishy when it lands.
-    type: Add
-  - message: Aloe Cream now heal 10 heat instead of being an Ointment reskin.
-    type: Tweak
-  - message: Medicated Sutures got a visual update; don't worry, it still works the
-      same as before.
-    type: Tweak
-  - message: Aloe Cream's sprite is now Centered. You no longer have to account for
-      the offset when placing it politely on tables.
-    type: Fix
-  id: 1653
-  time: '2025-05-12T10:34:52.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2450
-- author: Deltanadas, AirFryerBuyOneGetOneFree, Kip
-  changes:
-  - message: Added Automation! Robotic Arms, filters, automation kits, and storage
-      bins have been added. Make the factory of your dreams today.
-    type: Add
-  - message: Hyper-convection boards have been replaced with hyper-convection upgrade
-      kits, apply directly to machines to upgrade them!
-    type: Tweak
-  id: 1654
-  time: '2025-05-12T11:59:11.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2440
-- author: mqole
-  changes:
-  - message: Advanced topicals removed from nanomed pending further discussion. craft
-      them in the medifab
-    type: Tweak
-  id: 1655
-  time: '2025-05-12T13:09:06.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2467
-- author: ruddygreat
-  changes:
-  - message: The Nuke is slightly less allergic to space
-    type: Tweak
-  id: 1656
-  time: '2025-05-12T13:57:17.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2458
-- author: Darkmajia
-  changes:
-  - message: Supermatter delaminations have had their explosion strength reduced,
-      but have an ongoing effect over the course of the shift.
-    type: Tweak
-  - message: The supermatter's light turns red as it grows damaged, as was originally
-      intended.
-    type: Fix
-  id: 1657
-  time: '2025-05-12T20:13:32.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2455
 - author: widgetbeck
   changes:
   - message: The Pattern begins to coalesce.
@@ -4230,3 +4175,55 @@
   id: 2152
   time: '2025-08-12T01:15:14.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/2466
+- author: VeeNomine
+  changes:
+  - message: Some cyborgs want ribbons to go with their hat.
+    type: Add
+  - message: Removed the whitelist for service borg neck slot. Unleash your fashion,
+      for it is the true endgame.
+    type: Remove
+  - message: All borgs have had their neck and hat positions manually tweaked to look
+      more clean and aesthetic. Not all items will look the best however since borgs
+      have unique proportions.
+    type: Tweak
+  id: 2153
+  time: '2025-08-12T06:30:10.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3271
+- author: ultramario1998
+  changes:
+  - message: The guidebook no longer mentions using greencomms from your headset.
+    type: Tweak
+  id: 2154
+  time: '2025-08-12T06:31:24.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3273
+- author: Smugman
+  changes:
+  - message: FOES? In your Syndicate Surplus? Its more likely than you think. Free
+      UNGH! Now.
+    type: Add
+  id: 2155
+  time: '2025-08-12T06:34:57.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3270
+- author: kipdotnet
+  changes:
+  - message: Added the Apid care case, a cargo order for homesick apids.
+    type: Add
+  - message: Apid cryopods now have a label slot.
+    type: Tweak
+  id: 2156
+  time: '2025-08-12T08:33:59.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3264
+- author: mqole
+  changes:
+  - message: Decapoids, Apids, and Gastropoids have had some adjustments to their
+      movement.
+    type: Tweak
+  - message: Gastropoids no longer take 10x the amount of cold damage as other species.
+      (Instead, they take 5x.)
+    type: Remove
+  - message: Cotton pizza no longer fulfills the cloth meal bounty. The bounty description
+      has been updated to accommodate.
+    type: Remove
+  id: 2157
+  time: '2025-08-12T09:38:16.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3269
