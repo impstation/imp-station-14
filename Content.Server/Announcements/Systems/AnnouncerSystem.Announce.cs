@@ -8,6 +8,13 @@ namespace Content.Server.Announcements.Systems;
 
 public sealed partial class AnnouncerSystem
 {
+
+
+    //EVIL ZONE!!!! ALL OF THIS SHIT IS VARYING LEVELS OF FUNCTIONING. IT GOT FUCKED UP BY THE EE ANNOUNCER SYSTEM BULLDOZING EVERYTHING.
+    //TODO: COMMENT ALL THE IMP AND EE CHANGES HERE PROPERLY SO PEOPLE KNOW WHAT'S GOING ON.
+    //TODO: CLEAN UP THE WHOLE SYSTEM. IT IS NEEDED BADLY.
+
+
     /// <summary>
     ///     Gets an announcement message from the announcer
     /// </summary>
@@ -30,8 +37,13 @@ public sealed partial class AnnouncerSystem
     /// <param name="announcementId">ID of the announcement to get information from</param>
     /// <param name="filter">Who hears the announcement audio</param>
     /// <param name="announcerOverride">Uses this announcer instead of the current global one</param>
-    public void SendAnnouncementAudio(string announcementId, Filter filter, AnnouncerPrototype? announcerOverride = null)
+    public void SendAnnouncementAudio(string announcementId, Filter filter, AnnouncerPrototype? announcerOverride = null, SoundSpecifier? announcementSound = null)  //imp. added announcementSound back
     {
+        if (announcementSound != null) //imp. to ensure announcer default sounds and custom announcementsounds don't overlap.
+        {
+            return;
+        }
+
         var ev = new AnnouncementSendEvent(
             announcerOverride?.ID ?? Announcer.ID,
             announcementId,
@@ -51,10 +63,11 @@ public sealed partial class AnnouncerSystem
     /// <param name="colorOverride">What color the announcement should be</param>
     /// <param name="station">Station ID to send the announcement to</param>
     /// <param name="announcerOverride">Uses this announcer instead of the current global one</param>
+    /// <param name="announcementSound">Imp. Sound to play</param>
     /// <param name="localeArgs">Locale arguments to pass to the announcement message</param>
     public void SendAnnouncementMessage(string announcementId, string locale, string? sender = null,
-        Color? colorOverride = null, EntityUid? station = null, AnnouncerPrototype? announcerOverride = null,
-        params (string, object)[] localeArgs)
+        Color? colorOverride = null, EntityUid? station = null, AnnouncerPrototype? announcerOverride = null, SoundSpecifier? announcementSound = null,
+        params (string, object)[] localeArgs)  //imp. added announcementSound back
     {
         sender = (sender != null) ? Loc.GetString(sender) : Loc.GetString($"announcer-{announcerOverride?.ID ?? Announcer.ID}-name");
 
@@ -70,9 +83,9 @@ public sealed partial class AnnouncerSystem
 
         // If there is a station, send the announcement to the station, otherwise send it to everyone
         if (station == null)
-            _chat.DispatchGlobalAnnouncement(locale, sender, false, colorOverride: colorOverride);
+            _chat.DispatchGlobalAnnouncement(locale, sender, announcementSound: announcementSound, colorOverride: colorOverride);  //imp. added announcementSound back
         else
-            _chat.DispatchStationAnnouncement(station.Value, locale, sender, false, colorOverride: colorOverride);
+            _chat.DispatchStationAnnouncement(station.Value, locale, sender, announcementSound: announcementSound, colorOverride: colorOverride);  //imp. added announcementSound back
     }
 
     /// <summary>
@@ -85,12 +98,13 @@ public sealed partial class AnnouncerSystem
     /// <param name="colorOverride">What color the announcement should be</param>
     /// <param name="station">Station ID to send the announcement to</param>
     /// <param name="announcerOverride">Uses this announcer instead of the current global one</param>
+    /// <param name="announcementSound">Imp. Sound to play</param> 
     /// <param name="localeArgs">Locale arguments to pass to the announcement message</param>
     public void SendAnnouncement(string announcementId, Filter filter, string locale, string? sender = null,
-        Color? colorOverride = null, EntityUid? station = null, AnnouncerPrototype? announcerOverride = null,
+        Color? colorOverride = null, EntityUid? station = null, AnnouncerPrototype? announcerOverride = null, SoundSpecifier? announcementSound = null, //imp. added announcementSound back
         params (string, object)[] localeArgs)
     {
-        SendAnnouncementAudio(announcementId, filter, announcerOverride);
-        SendAnnouncementMessage(announcementId, locale, sender, colorOverride, station, announcerOverride, localeArgs);
+        SendAnnouncementAudio(announcementId, filter, announcerOverride, announcementSound); //imp. added announcementSound back
+        SendAnnouncementMessage(announcementId, locale, sender, colorOverride, station, announcerOverride, announcementSound, localeArgs); //imp. added announcementSound back
     }
 }

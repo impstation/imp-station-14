@@ -5,6 +5,8 @@ using Content.Shared.Inventory.Events;
 using Content.Shared.Contraband;
 using Content.Shared._Impstation.Examine;
 using System.Text;
+using Robust.Shared.Toolshed.Commands.Values;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Shared._Impstation.Clothing;
 
@@ -39,14 +41,23 @@ public sealed class WearerGetsExamineTextSystem : EntitySystem
 
         //GIVE THEM INSPECT TEXT
         var obviousExamine = EnsureComp<ExtraExamineTextComponent>(args.Equipee);
-        obviousExamine.Lines.TryAdd(entity.Owner,  //using try so that we don't cause an error if we move something from slot to slot
-            ConstructExamineText(entity, !isCorrectSlot, args.Equipee));
+        if (!TryConstructExamineText(entity, !isCorrectSlot, args.Equipee, out var examineText))
+            return;
+
+        obviousExamine.Lines.TryAdd(entity.Owner, examineText); //using try so that we don't cause an error if we move something from slot to slot
         Dirty(args.Equipee, obviousExamine);
     }
 
 
-    private string ConstructExamineText(Entity<WearerGetsExamineTextComponent> entity, bool prefixFallback, EntityUid affecting)
+    private bool TryConstructExamineText(Entity<WearerGetsExamineTextComponent> entity, bool prefixFallback, EntityUid affecting,
+        [NotNullWhen(true)] out string? examineText)
     {
+        if (!Exists(affecting))
+        {
+            examineText = string.Empty;
+            return false;
+        }
+
         //parameters (these are the same between both constructions)
         var user = Identity.Entity(affecting, EntityManager);
         var nomen = Identity.Name(affecting, EntityManager);
@@ -66,7 +77,8 @@ public sealed class WearerGetsExamineTextSystem : EntitySystem
                 ("thing", thing),
                 ("type", type),
                 ("short-type", shortType));
-        return prefix + " " + suffix;
+        examineText = prefix + " " + suffix;
+        return true;
     }
 
     private void OnUnequipped(Entity<WearerGetsExamineTextComponent> entity, ref GotUnequippedEvent args)
@@ -101,7 +113,8 @@ public sealed class WearerGetsExamineTextSystem : EntitySystem
                     outString.Append(" " + Loc.GetString(contraLocId));
             }
             var affecting = currentlyWorn ? entity.Comp.Wearer.GetValueOrDefault() : args.Examiner;
-            var testOut = ConstructExamineText(entity, false, affecting);
+            if (!TryConstructExamineText(entity, false, affecting, out var testOut))
+                return;
 
             outString.Append("\n" + Loc.GetString("obvious-on-item-for-others",
                 ("will", currentlyWorn ? "can" : "will"), // i love hardcoding strings it's my favorite thing ever

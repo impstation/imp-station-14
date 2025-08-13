@@ -2,7 +2,7 @@
 uplink-pistol-viper-name = Viper
 uplink-pistol-viper-desc = A small, easily concealable, but somewhat underpowered gun. Retrofitted with a fully automatic receiver. Uses pistol magazines (.35 auto).
 
-uplink-estoc-bundle-name = Estoc DMR
+uplink-estoc-bundle-name = Estoc DMR bundle
 uplink-estoc-bundle-desc = A designated marksman rifle, fitted with a mid-range optic for longer-range combat. Bundled with two rifle magazines (.20 rifle).
 
 uplink-revolver-python-name = Python
@@ -253,7 +253,7 @@ uplink-meds-bundle-desc = An assortment of autoinjectors and premium medical equ
 
 #imp name tweaks
 uplink-ammo-bundle-name = Ammo Bundle
-uplink-ammo-bundle-desc = Reloading! Contains 4 magazines for the C-20R Gorgon, 4 drums for the Hydra, and 2 ammo boxes for the L6 Nidhogg SAW.
+uplink-ammo-bundle-desc = Reloading! Contains 4 magazines for the C-20R Gorgon, 4 drums for the Hydra, 3 magazines for the Estoc DMR, and 2 ammo boxes for the L6 Nidhogg SAW.
 
 #imp name tweaks
 uplink-sniper-bundle-name = Sniper Bundle
@@ -508,3 +508,6 @@ uplink-contraband-lighter-desc = A mystery box guaranteed to contain a syndicate
 
 uplink-smuggler-satchel-name = Smuggler's Satchel
 uplink-smuggler-satchel-desc = A handy, suspicious looking satchel. Just flat enough to fit underneath floor tiles.
+
+uplink-acolyte-armor-name = Acolyte Armor
+uplink-acolyte-armor-desc = The must have of any self respecting cult leader. An evil looking piece of armor, made of bones, and surprisingly resistant to damage.

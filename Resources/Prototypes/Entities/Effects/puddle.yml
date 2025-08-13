@@ -135,7 +135,7 @@
     sprintSpeedModifier: 2.0
     whitelist:
       components:
-        - SnailSpeed
+        - SnailSprint
 
 - type: entity
   id: PuddleFlour
@@ -179,6 +179,8 @@
   components:
   - type: Clickable
   - type: Slippery
+    staminaDamage: 0
+    frictionStatusTime: 0 # Don't apply friction twice
   - type: Transform
     noRot: true
     anchored: true
