@@ -150,8 +150,25 @@
     deactivateSound: null
   - type: BatteryDrainer
   - type: Battery
+    maxCharge: 4000
+    startingCharge: 0
   - type: ComplexInteraction
+  - type: ExaminableBattery
 
+  - type: entity
+  id: ActionEeepletGrow
+  parent: BaseAction
+  name: Grow
+  description: Im so full from the stations power, Yum.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon: _Impstation/Interface/Actions/tba.png
+    useDelay: 20
+  - type: InstantAction
+      event: !type: #TBA
+      chargeUse: 4000
+      nextStage: MobEeep
 
 - type: entity
   id: EeepSpark
@@ -177,7 +194,7 @@
     - type: WeaponArcVisuals
       fadeOut: false
     - type: Sprite
-      sprite: Effects/lightning/electricity.rsi
+      sprite: Effects/lightning.rsi
       state: electrified
     - type: TimedDespawn
       lifetime: 0.399
