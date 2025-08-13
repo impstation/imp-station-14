@@ -148,6 +148,10 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: BatteryDrainer
+  - type: Battery
+  - type: ComplexInteraction
+
 
 - type: entity
   id: EeepSpark
