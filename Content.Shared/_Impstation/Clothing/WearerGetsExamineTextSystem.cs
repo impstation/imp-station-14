@@ -1,12 +1,8 @@
-using Content.Shared.Clothing.Components;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Inventory.Events;
-using Content.Shared.Contraband;
-using Content.Shared._Impstation.Examine;
-using System.Text;
-using Content.Shared.IdentityManagement.Components;
 using Content.Shared.Inventory;
+using Content.Shared.Contraband;
+using System.Text;
 
 namespace Content.Shared._Impstation.Clothing;
 
