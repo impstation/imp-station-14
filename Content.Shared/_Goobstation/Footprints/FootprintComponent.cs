@@ -5,6 +5,7 @@
 using System.Numerics;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._Goobstation.Footprints;
 
@@ -16,4 +17,8 @@ public sealed partial class FootprintComponent : Component
 }
 
 [Serializable, NetSerializable]
-public readonly record struct Footprint(Vector2 Offset, Angle Rotation, Color Color, string State);
+public readonly record struct Footprint(
+    Vector2 Offset,
+    Angle Rotation,
+    Color Color,
+    SpriteSpecifier Sprite);
