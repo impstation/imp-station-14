@@ -245,3 +245,30 @@
     sprite: Objects/Fun/Instruments/bassguitar.rsi
   - type: ActivatableUI
     inHandsOnly: false
+
+- type: entity
+  parent: BaseStringInstrumentClothing
+  id: BorgRockGuitarInstrument
+  name: rock guitar
+  description: What an axe!
+  components:
+  - type: Instrument
+    program: 29
+  - type: SwappableInstrument
+    instrumentList:
+      "Overdrive": {29: 0}
+      "Distortion": {30: 0}
+      "Harmonics": {31: 0}
+  - type: Sprite
+    sprite: Objects/Fun/Instruments/rockguitar.rsi
+  - type: ActivatableUI
+    inHandsOnly: false
+
+- type: entity
+  parent: SuperSynthesizerInstrument
+  id: BorgSuperSynthesizerInstrument
+  name: super synthesizer
+  description: Blasting the ghetto with Touhou MIDIs since 2020.
+  components:
+  - type: ActivatableUI
+    inHandsOnly: false
