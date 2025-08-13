@@ -1,4 +1,29 @@
 - type: reaction
+  id: BrosochloricBros
+  reactants:
+    VentCrud: # bros already make a ton of this. it is their blood. their being
+      amount: 1
+    GroundBros: # just ripping off buzzochloric from here, minus the fiber
+      amount: 1
+    Chlorine:
+      amount: 1
+    UnstableMutagen:
+      amount: 1
+  products:
+    BrosochloricBros: 3
+
+- type: reaction
+  id: Irwizine
+  impact: Medium
+  reactants:
+    CarpoToxin:
+      amount: 1
+    Pax:
+      amount: 1
+  products:
+    Irwizine: 2
+
+- type: reaction
   id: JuiceThatMakesYouUngh
   reactants:
     VentCrud:
@@ -7,3 +32,26 @@
       amount: 1
   products:
     JuiceThatMakesYouUngh: 2
+
+- type: reaction
+  id: PropulsionGel
+  minTemp: 370
+  reactants:
+    Mucin:
+      amount: 1
+    Tricordrazine:
+      amount: 1
+  products:
+    PropulsionGel: 2
+
+- type: reaction
+  id: CreateCorgi
+  minTemp: 374
+  impact: High
+  quantized: true
+  reactants:
+    CorgiJuice:
+      amount: 100
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: MobCorgi

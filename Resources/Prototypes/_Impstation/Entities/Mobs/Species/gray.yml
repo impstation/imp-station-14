@@ -121,6 +121,7 @@
     hideLayersOnEquip:
     - Hair
     - Snout
+  - type: Carriable # Carrying system from nyanotrasen.
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -132,6 +133,7 @@
   - type: Body
     prototype: Gray
   - type: Inventory
+    speciesId: gray
     templateId: gray
     displacements:
       jumpsuit:

@@ -8,7 +8,7 @@
   - type: AtmosDevice
   - type: Tag
     tags:
-    - Unstackable
+      - Unstackable
   - type: SubFloorHide
     blockInteractions: false
     blockAmbience: false
@@ -34,7 +34,7 @@
   name: gas pump
   description: A pump that moves gas by pressure.
   placement:
-    mode: SnapgridCenter
+    mode: AlignAtmosPipeLayers
   components:
   - type: ExtensionCableReceiver
   - type: LightningTarget
@@ -56,6 +56,11 @@
       map: [ "enum.PipeVisualLayers.Pipe" ]
     - state: pumpPressure
       map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+  - type: AtmosPipeLayers
+    alternativePrototypes:
+      Primary: GasPressurePump
+      Secondary: GasPressurePumpAlt1
+      Tertiary: GasPressurePumpAlt2
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -94,7 +99,7 @@
   name: volumetric gas pump
   description: A pump that moves gas by volume.
   placement:
-    mode: SnapgridCenter
+    mode: AlignAtmosPipeLayers
   components:
     - type: ExtensionCableReceiver
     - type: LightningTarget
@@ -116,6 +121,11 @@
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: pumpVolume
           map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+    - type: AtmosPipeLayers
+      alternativePrototypes:
+        Primary: GasVolumePump
+        Secondary: GasVolumePumpAlt1
+        Tertiary: GasVolumePumpAlt2
     - type: Appearance
     - type: GenericVisualizer
       visuals:
@@ -156,9 +166,133 @@
     - type: GuideHelp
       guides:
       - Pumps
+  # imp edit start
     - type: VentCrawTube
       containerId: VentCrawTube
     - type: VentCrawTransit
+    # imp edit end
+# TODO: Uncomment once pressure regulators are merged
+#- type: entity
+#  parent: GasBinaryBase
+#  id: GasPressureRegulator
+#  name: inlet pressure regulator
+#  description: A valve that releases gas when the inlet pressure exceeds a certain threshold.
+#  placement:
+#    mode: AlignAtmosPipeLayers
+#  components:
+#  - type: Rotatable
+#  - type: Transform
+#    noRot: false
+#  - type: SubFloorHide
+#    visibleLayers:
+#    - enum.SubfloorLayers.FirstLayer
+#  - type: Sprite
+#    sprite: Structures/Piping/Atmospherics/pump.rsi
+#    layers:
+#    - sprite: Structures/Piping/Atmospherics/pipe.rsi
+#      state: pipeStraight
+#      map: [ "enum.PipeVisualLayers.Pipe" ]
+#    - state: pumpPressureRegulator
+#      map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+#  - type: AtmosPipeLayers
+#    alternativePrototypes:
+#      Primary: GasPressureRegulator
+#      Secondary: GasPressureRegulatorAlt1
+#      Tertiary: GasPressureRegulatorAlt2
+#  - type: Appearance
+#  - type: GenericVisualizer
+#    visuals:
+#      enum.PressureRegulatorVisuals.State:
+#        enabled:
+#          True: { state: pumpPressureRegulatorOn }
+#          False: { state: pumpPressureRegulator }
+#  - type: PipeColorVisuals
+#  - type: GasPressureRegulator
+#    enabled: false
+#    threshold: 4500
+#  - type: Construction
+#    graph: GasBinary
+#    node: pressureregulator
+#  - type: ActivatableUI
+#    key: enum.GasPressureRegulatorUiKey.Key
+#    blockSpectators: true
+#  - type: ActivatableUIRequiresAnchor
+#  - type: UserInterface
+#    interfaces:
+#      enum.GasPressureRegulatorUiKey.Key:
+#        type: GasPressureRegulatorBoundUserInterface
+#  - type: AmbientSound
+#    enabled: false
+#    volume: -9
+#    range: 5
+#    sound:
+#      path: /Audio/Ambience/Objects/gas_hiss.ogg
+#  - type: AtmosMonitoringConsoleDevice
+#    navMapBlip: GasFlowRegulator
+#  - type: GuideHelp
+#    guides:
+#    - PressureRegulator
+
+- type: entity
+  parent: GasBinaryBase
+  id: GasPressureRegulator
+  name: inlet pressure regulator
+  description: A valve that releases gas when the inlet pressure exceeds a certain threshold.
+  placement:
+    mode: AlignAtmosPipeLayers
+  components:
+  - type: Rotatable
+  - type: Transform
+    noRot: false
+  - type: SubFloorHide
+    visibleLayers:
+    - enum.SubfloorLayers.FirstLayer
+  - type: Sprite
+    sprite: Structures/Piping/Atmospherics/pump.rsi
+    layers:
+    - sprite: Structures/Piping/Atmospherics/pipe.rsi
+      state: pipeStraight
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+    - state: pumpPressureRegulator
+      map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+  - type: AtmosPipeLayers
+    alternativePrototypes:
+      Primary: GasPressureRegulator
+      Secondary: GasPressureRegulatorAlt1
+      Tertiary: GasPressureRegulatorAlt2
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PressureRegulatorVisuals.State:
+        enabled:
+          True: { state: pumpPressureRegulatorOn }
+          False: { state: pumpPressureRegulator }
+  - type: PipeColorVisuals
+  - type: GasPressureRegulator
+    enabled: false
+    threshold: 4500
+  - type: Construction
+    graph: GasBinary
+    node: pressureregulator
+  - type: ActivatableUI
+    key: enum.GasPressureRegulatorUiKey.Key
+    blockSpectators: true
+  - type: ActivatableUIRequiresAnchor
+  - type: UserInterface
+    interfaces:
+      enum.GasPressureRegulatorUiKey.Key:
+        type: GasPressureRegulatorBoundUserInterface
+  - type: AmbientSound
+    enabled: false
+    volume: -9
+    range: 5
+    sound:
+      path: /Audio/Ambience/Objects/gas_hiss.ogg
+  - type: AtmosMonitoringConsoleDevice
+    navMapBlip: GasFlowRegulator
+  - type: GuideHelp
+    guides:
+    - PressureRegulator
 
 - type: entity
   parent: GasBinaryBase
@@ -166,7 +300,7 @@
   name: passive gate
   description: A one-way air valve that does not require power.
   placement:
-    mode: SnapgridCenter
+    mode: AlignAtmosPipeLayers
   components:
     - type: SubFloorHide
       visibleLayers:
@@ -179,6 +313,11 @@
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: pumpPassiveGate
           map: [ "enum.SubfloorLayers.FirstLayer" ]
+    - type: AtmosPipeLayers
+      alternativePrototypes:
+        Primary: GasPassiveGate
+        Secondary: GasPassiveGateAlt1
+        Tertiary: GasPassiveGateAlt2
     - type: Appearance
     - type: PipeColorVisuals
     - type: GasPassiveGate
@@ -196,9 +335,11 @@
     - type: GuideHelp
       guides:
       - PassiveGate
+    # imp edit start
     - type: VentCrawTube
       containerId: VentCrawTube
     - type: VentCrawTransit
+    # imp edit end
 
 - type: entity
   parent: GasBinaryBase
@@ -206,7 +347,7 @@
   name: manual valve
   description: A pipe with a valve that can be used to disable the flow of gas through it.
   placement:
-    mode: SnapgridCenter
+    mode: AlignAtmosPipeLayers
   components:
     # TODO ATMOS: Give unique sprite.
     - type: SubFloorHide
@@ -221,6 +362,11 @@
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: pumpManualValve
           map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+    - type: AtmosPipeLayers
+      alternativePrototypes:
+        Primary: GasValve
+        Secondary: GasValveAlt1
+        Tertiary: GasValveAlt2
     - type: Appearance
     - type: GenericVisualizer
       visuals:
@@ -256,9 +402,11 @@
     - type: GuideHelp
       guides:
       - ManualValve
+    #imp edit start
     - type: VentCrawTube
       containerId: VentCrawTube
     - type: VentCrawTransit
+    #imp edit end
 
 - type: entity
   parent: GasBinaryBase
@@ -266,7 +414,7 @@
   name: signal valve
   description: A pipe with a valve that can be controlled with signals.
   placement:
-    mode: SnapgridCenter
+    mode: AlignAtmosPipeLayers
   components:
   - type: StationAiWhitelist
   - type: SubFloorHide
@@ -281,6 +429,11 @@
       map: [ "enum.PipeVisualLayers.Pipe" ]
     - state: pumpSignalValve
       map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+  - type: AtmosPipeLayers
+    alternativePrototypes:
+      Primary: SignalControlledValve
+      Secondary: SignalControlledValveAlt1
+      Tertiary: SignalControlledValveAlt2
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -298,9 +451,9 @@
     range: 200
   - type: DeviceLinkSink
     ports:
-    - Open
-    - Close
-    - Toggle
+      - Open
+      - Close
+      - Toggle
   - type: NodeContainer
     nodes:
       inlet:
@@ -327,9 +480,11 @@
   - type: GuideHelp
     guides:
     - SignalValve
+  # imp edit start
   - type: VentCrawTube
     containerId: VentCrawTube
   - type: VentCrawTransit
+  # imp edit end
 
 - type: entity
   parent: GasBinaryBase
@@ -370,9 +525,11 @@
     - type: GuideHelp
       guides:
       - GasCanisters
+    # imp edit start
     - type: VentCrawTube
       containerId: VentCrawTube
     - type: VentCrawTransit
+    # imp edit end
 
 - type: entity
   parent: GasVentPump
@@ -439,9 +596,11 @@
     - type: GuideHelp
       guides:
       - AirVent
+    # imp edit start
     - type: VentCrawTube
       containerId: VentCrawTube
     - type: VentCrawTransit
+    # imp edit end
 
 - type: entity
   parent: [ BaseMachine, ConstructibleMachine ]
@@ -519,7 +678,7 @@
   name: radiator
   description: Transfers heat between the pipe and its surroundings.
   placement:
-    mode: SnapgridCenter
+    mode: AlignAtmosPipeLayers #imp edit
   components:
   - type: Rotatable
   - type: Transform
@@ -537,6 +696,10 @@
       Primary: _Impstation/Structures/Piping/Atmospherics/heatexchanger.rsi #imp edit
       Secondary: _Impstation/Structures/Piping/Atmospherics/heatexchanger_alt1.rsi #imp edit
       Tertiary: _Impstation/Structures/Piping/Atmospherics/heatexchanger_alt2.rsi #imp edit
+    alternativePrototypes: #imp edit
+      Primary: HeatExchanger #imp edit
+      Secondary: HeatExchangerAlt1 #imp edit
+      Tertiary: HeatExchangerAlt2 #imp edit
     #numberOfPipeLayers: 1 #imp edit, use all layers
   - type: SubFloorHide
     visibleLayers:
@@ -563,6 +726,10 @@
   - type: GuideHelp
     guides:
     - Radiators
+  # imp edit start
+  - type: Tag
+    tags: [] # gets rid of unstackable, allowing radiators to be built on alt layers on the same tile
+  # imp edit end
 
 - type: entity
   parent: HeatExchanger
@@ -592,3 +759,9 @@
     - type: Construction
       graph: GasBinary
       node: bendradiator
+    # imp edit start
+    - type: AtmosPipeLayers
+      alternativePrototypes:
+        Primary: HeatExchangerBend #imp edit
+        Secondary: HeatExchangerBendAlt1 #imp edit
+        Tertiary: HeatExchangerBendAlt2 #imp edit

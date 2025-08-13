@@ -15,18 +15,20 @@
     storedRotation: -90
   - type: Wieldable
   - type: Gun
-    fireRate: 4 # imp: 0.5 -> 4, fire rate handled with recharge instead
+    fireRate: 4
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
-    soundEmpty: # imp edit
+    soundEmpty:
       path: /Audio/_Impstation/Weapons/Guns/Empty/dry_fire.ogg
+      params:
+        volume: -5
   - type: AmmoCounter
   - type: Appearance
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 2 # imp: 0.75 -> 2
+    rechargeCooldown: 2
     rechargeSound:
       path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
   - type: BasicEntityAmmoProvider
@@ -42,7 +44,6 @@
   - type: ContainerContainer
     containers:
       upgrades: !type:Container
-
   - type: MeleeWeapon #weapon melee
     range: 0.8
     attackRate: 0.6

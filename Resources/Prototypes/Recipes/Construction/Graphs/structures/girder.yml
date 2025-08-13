@@ -150,6 +150,20 @@
               amount: 2
               doAfter: 1
 
+        - to: steelWoodWall # imp
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          conditions:
+            - !type:EntityAnchored {}
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+            - material: Steel
+              amount: 2
+              doAfter: 2
+
     - node: wall
       entity: WallSolid
       edges:
@@ -172,18 +186,6 @@
               amount: 2
           steps:
             - tool: Welding
-              doAfter: 10
-
-    - node: woodWall
-      entity: WallWood
-      edges:
-        - to: girder
-          completed:
-            - !type:GivePrototype
-              prototype: MaterialWoodPlank1
-              amount: 2
-          steps:
-            - tool: Prying
               doAfter: 10
 
     - node: uraniumWall
@@ -323,6 +325,18 @@
             - tool: Cutting
               doAfter: 1
 
+    - node: steelWoodWall # imp
+      entity: WallSteelWood
+      edges:
+        - to: wall
+          completed:
+            - !type:GivePrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+          steps:
+            - tool: Prying
+              doAfter: 3
+
     - node: reinforcedGirder
       entity: ReinforcedGirder
       edges:
@@ -378,6 +392,20 @@
           steps:
             - tool: Cutting
               doAfter: 2
+
+        - to: reinforcedSteelWoodWall # imp
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          conditions:
+            - !type:EntityAnchored { }
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+            - material: Plasteel
+              amount: 2
+              doAfter: 1
 
     - node: reinforcedWall
       entity: WallReinforced
@@ -482,6 +510,18 @@
                   data: 0
             - tool: Cutting
               doAfter: 1
+
+    - node: reinforcedSteelWoodWall # imp
+      entity: WallReinforcedSteelWood
+      edges:
+        - to: reinforcedWall
+          completed:
+            - !type:GivePrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+          steps:
+            - tool: Prying
+              doAfter: 3
 
     - node: shuttleWall
       entity: WallShuttle
@@ -663,7 +703,15 @@
       edges:
         - to: wall
           steps:
-            - tool: Derusting #imp edit
+            - tool: Welding
+              doAfter: 5
+        - to: wall
+          steps:
+            - tool: Brushing
+              doAfter: 12
+        - to: wall #imp edit
+          steps:
+            - tool: Derusting
               doAfter: 5
 
     - node: reinforcedWallRust
@@ -671,7 +719,15 @@
       edges:
         - to: reinforcedWall
           steps:
-            - tool: Derusting #imp edit
+            - tool: Welding
+              doAfter: 5
+        - to: reinforcedWall
+          steps:
+            - tool: Brushing
+              doAfter: 12
+        - to: reinforcedWall #imp edit
+          steps:
+            - tool: Derusting
               doAfter: 5
 
     - node: techWall #imp
@@ -687,36 +743,36 @@
             doAfter: 2
         - to: shuttleWall
           completed:
-            - !type:SpawnPrototype
-              prototype: CableApcStack1
-              amount: 1
-            - !type:SpawnPrototype
-              prototype: SheetPlasteel1
-              amount: 2
+          - !type:SpawnPrototype
+            prototype: CableApcStack1
+            amount: 1
+          - !type:SpawnPrototype
+            prototype: SheetPlasteel1
+            amount: 2
           steps:
-            - tool: Welding
-              doAfter: 4
-            - tool: Cutting
-              doAfter: 1
+          - tool: Welding
+            doAfter: 4
+          - tool: Cutting
+            doAfter: 1
 
     - node: techWallUnshaded #imp
       entity: WallTechUnshaded
       edges:
         - to: techWall
           steps:
-            - tool: Prying
-              doAfter: 1
+          - tool: Prying
+            doAfter: 1
 
     - node: diagonalTechWall #imp
       entity: WallTechDiagonal
       edges:
         - to: diagonalshuttleWall
           completed:
-            - !type:SpawnPrototype
-              prototype: SheetPlasteel1
-              amount: 2
+          - !type:SpawnPrototype
+            prototype: SheetPlasteel1
+            amount: 2
           steps:
-            - tool: Welding
-              doAfter: 4
-            - tool: Cutting
-              doAfter: 1
+          - tool: Welding
+            doAfter: 4
+          - tool: Cutting
+            doAfter: 1

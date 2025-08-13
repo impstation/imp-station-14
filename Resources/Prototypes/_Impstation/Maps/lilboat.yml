@@ -20,8 +20,7 @@
           path: /Maps/Shuttles/cargo_fland.yml
         - type: StationJobs
           availableJobs: # Total of 39 jobs roundstart, max of 43 inc. latejoins and trainees.
-            # command - 9
-            StationAi: [ 1, 1 ]
+            # command - 8
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
             ChiefEngineer: [ 1, 1 ]
@@ -47,14 +46,15 @@
             TechnicalAssistant: [ 1, 1 ]
             # medical - 5-6
             Chemist: [ 1, 1 ]
-            MedicalDoctor: [ 2, 2 ]
+            MedicalDoctor: [ 3, 3 ]
             MedicalIntern: [ 1, 1 ]
-            Paramedic: [ 1, 1 ]
+           #Paramedic: [ 0, 0 ]
             Psychologist: [ 1, 1 ]
-            # science - 4-5
+            # science - 5-6
             Borg: [ 2, 2 ]
-            Scientist: [ 2, 2 ]
             ResearchAssistant: [ 1, 1 ]
+            Scientist: [ 2, 2 ]
+            StationAi: [ 1, 1 ]
             # security - 3-4
             SecurityCadet: [ 1, 1 ]
             SecurityOfficer: [ 2, 2 ]

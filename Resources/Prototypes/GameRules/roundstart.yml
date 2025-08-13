@@ -278,7 +278,7 @@
       maxPicks: 1
     maxDifficulty: 2
   - type: LoadMapRule
-    gridPath: /Maps/_Impstation/Shuttles/wizard.yml # imp
+    mapPath: /Maps/_Impstation/Nonstations/wizardsden.yml #imp
   - type: RuleGrids
   - type: AntagSelection
   - type: AntagLoadProfileRule
@@ -345,8 +345,8 @@
         sound: "/Audio/Ambience/Antag/zombie_start.ogg"
       components:
       - type: PendingZombie
-        minInitialInfectedGrace: 300
-        maxInitialInfectedGrace: 600
+        minInitialInfectedGrace: 300 #imp
+        maxInitialInfectedGrace: 600 #imp
       - type: ZombifyOnDeath
       - type: IncurableZombie
       - type: InitialInfected
@@ -374,34 +374,27 @@
 # event schedulers
 
 - type: entityTable
-  id: BasicGameRulesTable
-  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+  id: BasicGameRulesTable # imp: changed from AllSelector to GroupSelector
+  table: !type:GroupSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
       - !type:NestedSelector
         tableId: BasicCalmEventsTable
+        weight: 30
       - !type:NestedSelector
-        tableId: BasicAntagEventsTable
+        tableId: GreaterAntagEventsTable #imp
+        weight: 7
       - !type:NestedSelector
-        tableId: CargoGiftsTable
-      - !type:NestedSelector
-        tableId: CalmPestEventsTable
-      - !type:NestedSelector
-        tableId: SpicyPestEventsTable
-
-- type: entityTable
-  id: SleeperlessGameRulesTable
-  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
-    children:
-      - !type:NestedSelector
-        tableId: BasicCalmEventsTable
-      - !type:NestedSelector
-        tableId: SleeperlessAntagEventsTable
+        tableId: LesserAntagEventsTable #imp
+        weight: 15
       - !type:NestedSelector
         tableId: CargoGiftsTable
+        weight: 16
       - !type:NestedSelector
         tableId: CalmPestEventsTable
+        weight: 17
       - !type:NestedSelector
         tableId: SpicyPestEventsTable
+        weight: 15
 
 - type: entityTable
   id: SpaceTrafficControlTable
@@ -421,14 +414,6 @@
   - type: BasicStationEventScheduler
     scheduledGameRules: !type:NestedSelector
       tableId: BasicGameRulesTable
-
-- type: entity
-  id: SleeperlessStationEventScheduler
-  parent: BaseGameRule
-  components:
-  - type: BasicStationEventScheduler
-    scheduledGameRules: !type:NestedSelector
-      tableId: SleeperlessGameRulesTable
 
 - type: entity
   id: RampingStationEventScheduler

@@ -279,7 +279,7 @@
             - material: FloorCarpetWhite
               amount: 1
 
-        - to: TableWoodReinforced
+        - to: TableWoodReinforced #imp
           steps:
             - material: WoodPlank
               amount: 1
@@ -429,7 +429,19 @@
             - tool: Prying
               doAfter: 1
 
-    - node: TableWoodReinforced
+    - node: TableXeno
+      entity: TableXeno
+      edges:
+      - to: TableFrame
+        completed:
+        - !type:SpawnPrototype
+          prototype: SheetSteel1
+          amount: 1
+        steps:
+        - tool: Anchoring
+          doAfter: 1
+
+    - node: TableWoodReinforced #imp
       entity: TableWoodReinforced
       edges:
         - to: TableWood
