@@ -2,7 +2,7 @@ using System.Linq;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Ghost;
 using Content.Shared.Interaction;
-using Content.Shared.Inventory;
+using Content.Shared.Inventory; // imp
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using JetBrains.Annotations;
