@@ -94,3 +94,7 @@ SpawnMobPoly: SpawnMobPollyParrot
 # 2025-08-08
 # upstream merge replacement prototypes
 DVSmartFridge: SmartFridge
+
+# 2025-08-13
+# changed vault door to its own access so HoP can't open it with their remote
+VaultDoorCommandLocked: VaultDoorLocked
