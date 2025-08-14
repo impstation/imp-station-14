@@ -101,10 +101,8 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
     private bool TryUseAbility(EntityUid ent, BaseActionEvent args)
     {
-        if (args.Handled){
-            _popup.PopupEntity("DEBUG: args handled", ent, ent);
+        if (args.Handled)
             return false;
-        }
 
         if (!TryComp<HereticActionComponent>(args.Action, out var actionComp))
             return false;
