@@ -826,6 +826,8 @@
   params:
     variation: 0.05
   sounds:
+    Scream:
+      collection: SiliconScreams
     Beep:
       path: /Audio/Machines/twobeep.ogg
     Chime:
@@ -838,6 +840,8 @@
       path: /Audio/Items/bikehorn.ogg
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
+    Laugh:
+      path: /Audio/_Impstation/Voice/Silicon/silicon_laugh.ogg
 
 - type: emoteSounds
   id: Suppy
