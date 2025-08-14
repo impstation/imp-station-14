@@ -835,12 +835,12 @@ public sealed partial class ChatSystem : SharedChatSystem
     {
         if (desiredType == InGameICChatType.Emote)
         {
-            var newMessage = "*" + message + "*";
+            var newMessage = "*" + message.Replace("*", "") + "*";
             _lastMessageBeforeDeathSystem.AddMessage(source, player, newMessage);
         }
         else
         {
-            var newMessage = TransformSpeech(source, message);
+            var newMessage = TransformSpeech(source, message.Replace("*", ""));
             _lastMessageBeforeDeathSystem.AddMessage(source, player, newMessage);
         }
     }
