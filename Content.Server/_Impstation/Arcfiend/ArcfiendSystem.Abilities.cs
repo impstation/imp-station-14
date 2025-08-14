@@ -23,7 +23,7 @@ using Content.Shared.Stealth.Components;
 using Content.Shared.Damage.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Content.Shared.Mindshield.Components;
+using Content.Shared.Mindshield.Components; //i just pulled allat from the ling files ill clean it up later
 
 namespace Content.Server.Arcfiend;
 
