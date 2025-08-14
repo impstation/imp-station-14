@@ -1,12 +1,8 @@
-using Content.Shared.Clothing.Components;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Inventory.Events;
+using Content.Shared.Inventory;
 using Content.Shared.Contraband;
-using Content.Shared._Impstation.Examine;
 using System.Text;
-using Robust.Shared.Toolshed.Commands.Values;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Shared._Impstation.Clothing;
 
@@ -19,44 +15,15 @@ public sealed class WearerGetsExamineTextSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<WearerGetsExamineTextComponent, GotEquippedEvent>(OnEquipped);
-        SubscribeLocalEvent<WearerGetsExamineTextComponent, GotUnequippedEvent>(OnUnequipped);
         SubscribeLocalEvent<WearerGetsExamineTextComponent, ExaminedEvent>(OnExamine);
-    }
-
-    private void OnEquipped(Entity<WearerGetsExamineTextComponent> entity, ref GotEquippedEvent args)
-    {
-        if (!TryComp(entity, out ClothingComponent? clothing))
-            return;
-        var isCorrectSlot = (clothing.Slots & args.SlotFlags) != Inventory.SlotFlags.NONE;
-        if (!entity.Comp.PocketEvident) //if it can't be evident in our pockets
-        {
-            // Make sure the clothing item was equipped to the right slot, and not just held in a hand.
-            if (!isCorrectSlot)
-                return;
-        }
-
-        entity.Comp.Wearer = args.Equipee;
-        Dirty(entity);
-
-        //GIVE THEM INSPECT TEXT
-        var obviousExamine = EnsureComp<ExtraExamineTextComponent>(args.Equipee);
-        if (!TryConstructExamineText(entity, !isCorrectSlot, args.Equipee, out var examineText))
-            return;
-
-        obviousExamine.Lines.TryAdd(entity.Owner, examineText); //using try so that we don't cause an error if we move something from slot to slot
-        Dirty(args.Equipee, obviousExamine);
+        SubscribeLocalEvent<WearerGetsExamineTextComponent, InventoryRelayedEvent<ExaminedEvent>>(OnExamineWorn);
     }
 
 
-    private bool TryConstructExamineText(Entity<WearerGetsExamineTextComponent> entity, bool prefixFallback, EntityUid affecting,
-        [NotNullWhen(true)] out string? examineText)
+    private string ConstructExamineText(Entity<WearerGetsExamineTextComponent> entity, bool prefixFallback, EntityUid affecting)
     {
         if (!Exists(affecting))
-        {
-            examineText = string.Empty;
-            return false;
-        }
+            return "";
 
         //parameters (these are the same between both constructions)
         var user = Identity.Entity(affecting, EntityManager);
@@ -77,50 +44,35 @@ public sealed class WearerGetsExamineTextSystem : EntitySystem
                 ("thing", thing),
                 ("type", type),
                 ("short-type", shortType));
-        examineText = prefix + " " + suffix;
-        return true;
-    }
-
-    private void OnUnequipped(Entity<WearerGetsExamineTextComponent> entity, ref GotUnequippedEvent args)
-    {
-        if (entity.Comp.Wearer is not { } wearer)
-            return;
-
-        if (TryComp<ExtraExamineTextComponent>(wearer, out var obviousExamine))
-        {
-            obviousExamine.Lines.Remove(entity.Owner);
-            Dirty(wearer, obviousExamine);
-        }
-
-        entity.Comp.Wearer = null;
-        Dirty(entity);
+        return prefix + " " + suffix;
     }
 
     private void OnExamine(Entity<WearerGetsExamineTextComponent> entity, ref ExaminedEvent args)
     {
-        var currentlyWorn = entity.Comp.Wearer != null;
-        var outString = new StringBuilder(Loc.GetString(currentlyWorn ? "obvious-on-item-currently" : "obvious-on-item",
-            ("used", Loc.GetString(entity.Comp.PocketEvident ? "obvious-reveal-pockets" : "obvious-reveal-default")),
+        var outString = new StringBuilder(Loc.GetString("obvious-on-item",
+            ("used", Loc.GetString("obvious-reveal-default")),
             ("thing", entity.Comp.Category),
             ("me", Identity.Entity(entity, EntityManager))));
 
         if (entity.Comp.WarnExamine)
         {
-            if (!currentlyWorn && TryComp(entity, out ContrabandComponent? contra)) // if the item's contra and we're not wearing it yet
+            if (TryComp<ContrabandComponent>(entity, out var contra)) // if the item's contra and we're not wearing it yet
             {
                 var contraLocId = "obvious-on-item-contra-" + contra.Severity; // apply additional text if the item is contraband to note that displaying it might be really bad
                 if (Loc.HasString(contraLocId)) // saves us the trouble of making a switch block for this
                     outString.Append(" " + Loc.GetString(contraLocId));
             }
-            var affecting = currentlyWorn ? entity.Comp.Wearer.GetValueOrDefault() : args.Examiner;
-            if (!TryConstructExamineText(entity, false, affecting, out var testOut))
-                return;
+            var testOut = ConstructExamineText(entity, false, args.Examiner);
 
             outString.Append("\n" + Loc.GetString("obvious-on-item-for-others",
-                ("will", currentlyWorn ? "can" : "will"), // i love hardcoding strings it's my favorite thing ever
                 ("output", testOut)));
         }
 
         args.PushMarkup(outString.ToString());
+    }
+
+    private void OnExamineWorn(Entity<WearerGetsExamineTextComponent> entity, ref InventoryRelayedEvent<ExaminedEvent> args)
+    {
+        args.Args.PushMarkup(ConstructExamineText(entity, false, args.Args.Examined));
     }
 }
