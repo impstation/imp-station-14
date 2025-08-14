@@ -5,8 +5,7 @@
   id: BaseMobGastropoid
   abstract: true
   components:
-  - type: SnailSpeed
-    snailSlowdownModifier: 0.5
+  # NOTE: to edit this entity's movement speed, you will need to edit the leg bodypart. i discovered this so you didnt have to
   - type: Absorbable
   - type: Hunger
   - type: Thirst
@@ -74,12 +73,8 @@
         sprite: Mobs/Effects/snail_brute_damage.rsi
         color: "#162581"
   - type: Reactive
-    groups:
-      Flammable: [ Touch ]
-      Extinguish: [ Touch ]
-      Acidic:  [ Touch ]
     reactions:
-    - reagents: [ Diphenhydramine, Lipozine, Oculine, Saline, Fresium, Hotsauce, TableSalt, Bleach, SodiumCarbonate, PestKiller, Posca ]
+    - reagents: [ Diphenhydramine, Lipozine, Oculine, Saline, Fresium, Hotsauce, TableSalt, Bleach, SodiumCarbonate, PestKiller, Posca ] # theres got to be a better way of doing this.
       methods: [ Touch ]
       effects:
       - !type:HealthChange
@@ -92,9 +87,6 @@
         visualType: Large
         messages: [ "snail-hurt-by-chem-popup" ]
         probability: 1
-  - type: MovementSpeedModifier
-    baseSprintSpeed: 3.5
-    baseWalkSpeed: 1.5
   - type: Temperature
     heatDamageThreshold: 380
     coldDamageThreshold: 285
@@ -102,10 +94,10 @@
     specificHeat: 42
     coldDamage:
       types:
-        Cold : 1
+        Cold : 0.5 #per second, scales with temperature & other constants
     heatDamage:
       types:
-        Heat : 1
+        Heat : 1.5 #per second, scales with temperature & other constants
   - type: TemperatureSpeed
     thresholds: # copied over from Decapoids to remove temp speed restrictions. this is hacky and sucks.
       293: 1.0
@@ -115,7 +107,7 @@
     bloodReagent: CopperBlood
   - type: Tag
     tags:
-      - Gastropod
+      - Gastropoid
       - DoorBumpOpener
       - CanPilot
       - FootstepSound
@@ -168,6 +160,7 @@
     hideLayersOnEquip:
     - Hair
     - Snout
+  - type: Carriable # Carrying system from nyanotrasen.
 
 - type: entity
   parent: BaseSpeciesDummy
