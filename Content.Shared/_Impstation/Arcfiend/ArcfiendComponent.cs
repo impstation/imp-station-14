@@ -12,7 +12,7 @@ public sealed partial class ArcfiendComponent : Component
 {
     #region Prototypes
 
-    public readonly List<EntProtoId> BaseArcfiendActions = new()
+    public readonly List<EntProtoId> ArcfiendActions = new()
     {
         "ActionSapPower",
         "ActionDischarge",

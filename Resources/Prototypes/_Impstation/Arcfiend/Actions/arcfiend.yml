@@ -1,0 +1,130 @@
+- type: entity
+  parent: BaseAction
+  id: ActionSapPower
+  name: Sap Power
+  description: Drain something's power.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Impstation/Arcfiend/arcfiend_abilities.rsi
+      state: sap_power
+  - type: TargetAction
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:SapPowerEvent {}
+  - type: ArcfiendAction
+
+- type: entity
+  parent: BaseAction
+  id: ActionDischarge
+  name: Discharge
+  description: Ready an electric strike.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Impstation/Arcfiend/arcfiend_abilities.rsi
+      state: discharge
+    useDelay: 15
+  - type: InstantAction
+    event: !type:DischargeEvent {}
+  - type: ArcfiendAction
+    energyCost: 25
+
+- type: entity
+  parent: BaseAction
+  id: ActionFlash
+  name: Flash
+  description: Release a burst of energy around you.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Impstation/Arcfiend/arcfiend_abilities.rsi
+      state: flash
+    useDelay: 10
+  - type: InstantAction
+    event: !type:FlashEvent {}
+  - type: ArcfiendAction
+    energyCost: 25
+
+- type: entity
+  parent: BaseAction
+  id: ActionArcFlash
+  name: Arc Flash
+  description: Unleash a bolt of lightning.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Impstation/Arcfiend/arcfiend_abilities.rsi
+      state: arc_flash
+    useDelay: 12
+  - type: TargetAction
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:ArcFlashEvent {}
+  - type: ArcfiendAction
+    energyCost: 50
+
+- type: entity
+  parent: BaseAction
+  id: ActionRideTheLightning
+  name: Ride The Lightning
+  description: Jump into the cables.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Impstation/Arcfiend/arcfiend_abilities.rsi
+      state: ride_the_lightning
+  - type: InstantAction
+    event: !type:RideTheLightningEvent {}
+  - type: ArcfiendAction
+    energyCost: 75
+
+- type: entity
+  parent: BaseAction
+  id: ActionJammingField
+  name: Jamming Field
+  description: Scramble the radio waves.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Impstation/Arcfiend/arcfiend_abilities.rsi
+      state: jamming_field
+    useDelay: 120
+  - type: InstantAction
+    event: !type:JammingFieldEvent {}
+  - type: ArcfiendAction
+    energyCost: 150
+
+- type: entity
+  parent: BaseAction
+  id: ActionJolt
+  name: Jolt
+  description: Stop somebody's heart.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Impstation/Arcfiend/arcfiend_abilities.rsi
+      state: jolt
+    useDelay: 120
+  - type: TargetAction
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:JoltEvent {}
+  - type: ArcfiendAction
+    energyCost: 200
