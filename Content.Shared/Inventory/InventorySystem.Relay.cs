@@ -33,7 +33,7 @@ using Content.Shared._Impstation.SalvoHud; // imp edit
 using Content.Shared.Mobs; // EE edit
 using Content.Shared.Wieldable;
 using Content.Shared.Zombies;
-using Content.Shared.Examine;
+using Content.Shared.Examine; // imp
 
 namespace Content.Shared.Inventory;
 
