@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Original sprites by Ko4erga (discord) for Space Station 14, edited for portable cutter machine by DinnerCalzone (github) for Impstation 14. ",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "panel"
+    },
+    {
+      "name": "unlit"
+    },
+    {
+      "name": "building",
+      "delays": [
+        [
+          0.042,
+          0.042,
+          0.042,
+          0.042,
+          0.042,
+          0.042,
+          0.042,
+          0.042,
+          0.042,
+          0.042,
+          0.042,
+          0.042
+        ]
+      ]
+    }
+  ]
+}

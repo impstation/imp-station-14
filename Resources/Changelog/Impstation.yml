@@ -1,42 +1,4 @@
 ﻿Entries:
-- author: widgetbeck
-  changes:
-  - message: Fixed Drones being overly concerned about zzzz-the.
-    type: Fix
-  - message: Drone law rewrite.
-    type: Tweak
-  id: 1659
-  time: '2025-05-12T22:40:13.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2474
-- author: AvianMaiden
-  changes:
-  - message: Shotgun shells now sound right when tossed.
-    type: Fix
-  id: 1660
-  time: '2025-05-12T22:52:58.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2473
-- author: Stonylogray
-  changes:
-  - message: Reduced vomit and jittering rates for synthflesh
-    type: Tweak
-  id: 1661
-  time: '2025-05-12T22:59:46.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2471
-- author: AirFryerBuyOneGetOneFree
-  changes:
-  - message: Lowered power draw of robotic arm, should not flicker the power constantly!
-    type: Tweak
-  id: 1662
-  time: '2025-05-13T00:35:56.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2476
-- author: AirFryerBuyOneGetOneFree, LazyRiverfolk
-  changes:
-  - message: Changed the limit for the number of burger tower items from 30 to 100!
-      Have fun chefs!
-    type: Tweak
-  id: 1663
-  time: '2025-05-13T11:43:47.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2448
 - author: sowelipililimute, Darkmajia
   changes:
   - message: SmartFridges are now implemented. You can store large amounts of chemicals
@@ -4228,3 +4190,44 @@
   id: 2158
   time: '2025-08-12T10:12:05.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3267
+- author: eviltori
+  changes:
+  - message: savior clones are rarer (20% chance to roll from 50%)
+    type: Tweak
+  id: 2159
+  time: '2025-08-13T06:08:36.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3249
+- author: DinnerCalzone
+  changes:
+  - message: ID card sprites have been stretched a little.
+    type: Tweak
+  id: 2160
+  time: '2025-08-13T06:10:52.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3281
+- author: mqole
+  changes:
+  - message: being gay no longer causes the world to reset for everyone around you
+      (HOPEFULLY)
+    type: Fix
+  id: 2161
+  time: '2025-08-13T07:58:09.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3285
+- author: AirFryerBuyOneGetOneFree
+  changes:
+  - message: Fixed last messages with * messing with discord formatting
+    type: Fix
+  id: 2162
+  time: '2025-08-13T10:20:34.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3259
+- author: DinnerCalzone
+  changes:
+  - message: The portable cutter machine has been added to the HD's locker! It can
+      be unfolded into a functional cutter machine and refolded back into an item.
+    type: Add
+  - message: The belts in the HD's locker have been replaced with a unique utility
+      belt for the hospitality director! Anything that could fit in either the botanical,
+      janitorial, or chef belts can fit inside of it.
+    type: Add
+  id: 2163
+  time: '2025-08-13T10:22:47.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3115
