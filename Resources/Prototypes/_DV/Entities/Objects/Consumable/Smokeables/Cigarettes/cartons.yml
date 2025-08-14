@@ -5,14 +5,20 @@
   description: A carton containing 6 packets of Interdynes, plus an exclusive Syndicate-branded flippo. #imp - noting its an eeeevil flippo
   components:
   - type: Sprite
-    sprite: _DV/Objects/Consumable/Smokeables/Cigarettes/Cartons/syndicate.rsi
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/syndicate.rsi #imp - moved rsi with resprite
+    layers:
+    - state: closed
+      map: ["closeLayer"]
+    - state: open
+      map: ["openLayer"]
+      visible: false
   - type: Item
-    sprite: _DV/Objects/Consumable/Smokeables/Cigarettes/Cartons/syndicate.rsi
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/syndicate.rsi #imp - moved rsi with resprite
   - type: StorageFill
     contents:
     - id: CigPackSyndicate
       amount: 6
-    - id: FlippoSyndicateLighter #imp - fixing the proto
+    - id: SyndicateFlippo #imp - fixing the proto
       amount: 1
   - type: Storage
     grid:

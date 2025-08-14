@@ -385,9 +385,18 @@
     spawned:
     - id: ClothingHandsGlovesFingerlessInsulated
   - type: Insulated
+  - type: DamageOnShootProtection #imp
+    damageProtection:
+      flatReductions:
+        Shock: 10
   - type: Fiber
     fiberMaterial: fibers-insulative
     fiberColor: fibers-yellow
+  - type: Tag
+    tags:
+      - Insuls # imp
+      - WhitelistChameleon
+      - ClothMade
 
 # Budget Insulated Gloves
 - type: entity
@@ -412,6 +421,10 @@
       - 3
       - 3.5
       - 4
+  - type: DamageOnShootProtection #imp
+    damageProtection:
+      flatReductions:
+        Shock: 5
   - type: Fiber
     fiberMaterial: fibers-insulative-frayed
     fiberColor: fibers-yellow

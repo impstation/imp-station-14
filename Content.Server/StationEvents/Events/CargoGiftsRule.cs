@@ -32,6 +32,7 @@ public sealed class CargoGiftsRule : StationEventSystem<CargoGiftsRuleComponent>
             null,
             Color.FromHex("#18abf5"),
             null, null,
+            null, //imp
             ("sender", Loc.GetString(component.Sender)),
                 ("description", Loc.GetString(component.Description)),
                 ("dest", Loc.GetString(component.Dest))
@@ -64,7 +65,7 @@ public sealed class CargoGiftsRule : StationEventSystem<CargoGiftsRuleComponent>
         }
 
         // Add some presents
-        var outstanding = CargoSystem.GetOutstandingOrderCount(cargoDb, component.Account);
+        var outstanding = _cargoSystem.GetOutstandingOrderCount((station.Value, cargoDb), component.Account);
         while (outstanding < cargoDb.Capacity - component.OrderSpaceToLeave && component.Gifts.Count > 0)
         {
             // I wish there was a nice way to pop this

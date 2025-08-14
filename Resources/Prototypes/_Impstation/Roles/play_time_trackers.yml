@@ -7,6 +7,7 @@
 
 # imp - upstream antag trackers
 # placeholder trackers for building blocks - there's too much to rework otherwise so i'm doing this instead. they literally do nothing.
+# TODO: implement these as antagGroups instead
 - type: playTimeTracker
   id: AntagGeneric
 
@@ -100,3 +101,13 @@
 
 - type: playTimeTracker
   id: AntagBountyHunter
+
+- type: playTimeTracker
+  id: AntagVRex
+
+# admin spawn trackers
+- type: playTimeTracker
+  id: JobCentCommIntern
+
+- type: playTimeTracker
+  id: JobCentCommInternLeader

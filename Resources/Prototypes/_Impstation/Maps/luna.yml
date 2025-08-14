@@ -18,7 +18,7 @@
         - type: StationCargoShuttle
           path: /Maps/_Impstation/Shuttles/cargojeep_luna.yml
         - type: StationJobs
-          availableJobs: # Total of 67 jobs.
+          availableJobs: # Total of 57 jobs roundstart, max of 65 inc. latejoins and trainees.
             # command - 8
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
@@ -28,7 +28,7 @@
             HeadOfSecurity: [ 1, 1 ]
             HospitalityDirector: [ 1, 1 ]
             Quartermaster: [ 1, 1 ]
-            # service - 18 incl. service worker
+            # service - 19
             Bartender: [ 2, 2 ]
             Botanist: [ 2, 2 ]
             Boxer: [ 2, 2 ]
@@ -36,34 +36,33 @@
             Chef: [ 2, 2]
             Clown: [ 1, 1 ]
             Janitor: [ 2, 2 ]
+            Lawyer: [ 2, 2 ]
             Librarian: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             Reporter: [ 2, 2 ]
-            #ServiceWorker: [ 2, 2 ]
-            # engineering - 6
+            # engineering - 5-6
             AtmosphericTechnician: [ 2, 2 ]
             StationEngineer: [ 3, 3 ]
             TechnicalAssistant: [ 1, 1 ]
-            # medical - 9
+            # medical - 7-9
             Chemist: [ 2, 2 ]
-            MedicalDoctor: [ 3, 3 ]
+            MedicalDoctor: [ 4, 4 ]
             MedicalIntern: [ 2, 2 ]
-            Paramedic: [ 1, 1 ]
+           #Paramedic: [ 0, 0 ]
             Psychologist: [ 1, 1 ]
-            # science - 7
+            # science - 6-7
             Borg: [ 2, 2 ]
             ResearchAssistant: [ 1, 1 ]
             Scientist: [ 3, 3 ]
             StationAi: [ 1, 1 ]
-            # security - 12
-            Brigmedic: [ 1, 1 ]
+            # security - 6-9
+           #Brigmedic: [ 0, 0 ]
             Detective: [ 1, 1 ]
-            Lawyer: [ 2, 2 ]
             SecurityCadet: [ 3, 3 ]
             SecurityOfficer: [ 4, 4 ]
             Warden: [ 1, 1 ]
-            # supply - 8
+            # supply - 6-7
             CargoTechnician: [ 3, 3 ]
             Courier: [ 1, 1 ]
             SalvageSpecialist: [ 2, 2 ]

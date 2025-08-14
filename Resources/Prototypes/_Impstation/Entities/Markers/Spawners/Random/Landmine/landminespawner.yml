@@ -7,7 +7,7 @@
     layers:
     - state: red
     - sprite: Objects/Misc/landmine.rsi
-      state: landmine-inactive
+      state: landmine
   - type: RandomSpawner
     prototypes:
     - LandMineExplosive
@@ -22,7 +22,7 @@
     layers:
     - state: red
     - sprite: Objects/Misc/landmine.rsi
-      state: landmine-inactive
+      state: landmine
   - type: RandomSpawner
     prototypes:
     - LandMineExplosive
@@ -37,7 +37,7 @@
     layers:
     - state: red
     - sprite: Objects/Misc/landmine.rsi
-      state: landmine-inactive
+      state: landmine
   - type: RandomSpawner
     prototypes:
     - LandMineExplosive
@@ -52,7 +52,7 @@
     layers:
     - state: red
     - sprite: Objects/Misc/landmine.rsi
-      state: landmine-inactive
+      state: landmine
   - type: RandomSpawner
     prototypes:
     - LandMineExplosive
@@ -67,7 +67,7 @@
     layers:
     - state: red
     - sprite: Objects/Misc/landmine.rsi
-      state: landmine-inactive
+      state: landmine
   - type: RandomSpawner
     prototypes:
     - LandMineExplosive
@@ -82,7 +82,7 @@
     layers:
     - state: red
     - sprite: Objects/Misc/landmine.rsi
-      state: landmine-inactive
+      state: landmine
   - type: RandomSpawner
     prototypes:
     - LandMineExplosive
@@ -97,7 +97,7 @@
     layers:
     - state: red
     - sprite: Objects/Misc/landmine.rsi
-      state: landmine-inactive
+      state: landmine
   - type: RandomSpawner
     rarePrototypes:
     - LandMineModular
@@ -114,7 +114,7 @@
     layers:
     - state: red
     - sprite: Objects/Misc/landmine.rsi
-      state: landmine-inactive
+      state: landmine
   - type: RandomSpawner
     rarePrototypes:
     - LandMineModular
@@ -131,7 +131,7 @@
     layers:
     - state: red
     - sprite: Objects/Misc/landmine.rsi
-      state: landmine-inactive
+      state: landmine
   - type: RandomSpawner
     rarePrototypes:
     - LandMineModular
@@ -148,7 +148,7 @@
     layers:
     - state: red
     - sprite: Objects/Misc/landmine.rsi
-      state: landmine-inactive
+      state: landmine
   - type: RandomSpawner
     rarePrototypes:
     - LandMineModular

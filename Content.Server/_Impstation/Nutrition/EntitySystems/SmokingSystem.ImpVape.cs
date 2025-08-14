@@ -1,8 +1,8 @@
 using Content.Server._Impstation.Nutrition.Components;
-using Content.Server.Body.Components;
 using Content.Server.Power.Components;
 using Content.Server.PowerCell;
 using Content.Shared.Atmos;
+using Content.Shared.Body.Components;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
@@ -14,6 +14,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Nutrition;
+using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Smoking;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
@@ -269,7 +270,7 @@ namespace Content.Server.Nutrition.EntitySystems
                         if (vapor.Solution != null)
                         {
                             vapor.Solution.ScaleSolution(vapor.Proportion * cartComp.FlavorMultiplicationFactor);
-                            _bloodstreamSystem.TryAddToChemicals(args.Args.Target.Value, vapor.Solution, bloodstream);
+                            _bloodstreamSystem.TryAddToChemicals(args.Args.Target.Value, vapor.Solution);
                         }
                         if (vapor.Gas.HasValue)
                         {

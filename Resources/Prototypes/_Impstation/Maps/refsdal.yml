@@ -18,7 +18,7 @@
         - type: StationCargoShuttle
           path: /Maps/_Impstation/Shuttles/cargo_refsdal.yml
         - type: StationJobs
-          availableJobs:
+          availableJobs: #TODO ENUMERATE THIS ONCE IN ROTATION
             # command
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
@@ -47,9 +47,9 @@
             TechnicalAssistant: [ 1, 1 ]
             # medical
             Chemist: [ 1, 1 ]
-            Paramedic: [1, 1]
+            #Paramedic: [0, 0]
             Psychologist: [1, 1]
-            MedicalDoctor: [ 1, 1 ]
+            MedicalDoctor: [ 2, 2 ]
             MedicalIntern: [ 1, 1 ]
             # science
             Borg: [ 1, 1 ]
@@ -58,7 +58,7 @@
             StationAi: [1, 1]
             # security
             SecurityCadet: [ 1, 1 ]
-            Brigmedic: [1, 1]
+            #Brigmedic: [0, 0]
             Detective: [1, 1]
             Lawyer: [2, 2]
             Warden: [1,1]

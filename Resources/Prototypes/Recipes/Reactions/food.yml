@@ -187,21 +187,21 @@
     - !type:CreateEntityReactionEffect
       entity: FoodMeatMeatball
 
-- type: reaction
-  id: CreateChocolate
-  impact: Low
-  quantized: true
-  conserveEnergy: false
-  reactants:
-    CocoaPowder:
-      amount: 4
-    Milk:
-      amount: 2
-    Sugar:
-      amount: 2
-  effects:
-    - !type:CreateEntityReactionEffect
-      entity: FoodSnackChocolateBar
+#- type: reaction # imp
+#  id: CreateChocolate
+#  impact: Low
+#  quantized: true
+#  conserveEnergy: false
+#  reactants:
+#    CocoaPowder:
+#      amount: 4
+#    Milk:
+#      amount: 2
+#    Sugar:
+#      amount: 2
+#  effects:
+#    - !type:CreateEntityReactionEffect
+#      entity: FoodSnackChocolateBar
 
 # Condiments
 
@@ -315,18 +315,6 @@
       amount: 1
   products:
     Soysauce: 3
-
-- type: reaction
-  id: CookingTeriyakiSauce
-  reactants:
-    Soysauce:
-      amount: 2
-    Sugar:
-      amount: 1
-    Sake:
-      amount: 1
-  products:
-    TeriyakiSauce: 4
 
 - type: reaction
   id: CookingVinaigrette

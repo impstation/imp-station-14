@@ -48,10 +48,10 @@
   description: A bright red toolbox, stocked with emergency tools.
   components:
   - type: Sprite
-    sprite: Objects/Tools/Toolboxes/toolbox_red.rsi
+    sprite: _Impstation/Objects/Tools/Toolboxes/toolbox_red.rsi #imp edit
     state: icon
   - type: Item
-    sprite: Objects/Tools/Toolboxes/toolbox_red.rsi
+    sprite: _Impstation/Objects/Tools/Toolboxes/toolbox_red.rsi #imp edit
 
 - type: entity
   name: mechanical toolbox
@@ -60,10 +60,10 @@
   description: A blue box, stocked with mechanical tools.
   components:
   - type: Sprite
-    sprite: Objects/Tools/Toolboxes/toolbox_blue.rsi
+    sprite: _Impstation/Objects/Tools/Toolboxes/toolbox_blue.rsi #imp edit
     state: icon
   - type: Item
-    sprite: Objects/Tools/Toolboxes/toolbox_blue.rsi
+    sprite: _Impstation/Objects/Tools/Toolboxes/toolbox_blue.rsi #imp edit
 
 - type: entity
   name: electrical toolbox
@@ -72,10 +72,10 @@
   description: A toolbox typically stocked with electrical gear.
   components:
   - type: Sprite
-    sprite: Objects/Tools/Toolboxes/toolbox_yellow.rsi
+    sprite: _Impstation/Objects/Tools/Toolboxes/toolbox_yellow.rsi #imp edit
     state: icon
   - type: Item
-    sprite: Objects/Tools/Toolboxes/toolbox_yellow.rsi
+    sprite: _Impstation/Objects/Tools/Toolboxes/toolbox_yellow.rsi #imp edit
 
 - type: entity
   name: electrical toolbox
@@ -115,10 +115,10 @@
   description: A toolbox typically stocked with artistic supplies.
   components:
   - type: Sprite
-    sprite: Objects/Tools/Toolboxes/toolbox_green.rsi
+    sprite: _Impstation/Objects/Tools/Toolboxes/toolbox_green.rsi #imp edit
     state: icon
   - type: Item
-    sprite: Objects/Tools/Toolboxes/toolbox_green.rsi
+    sprite: _Impstation/Objects/Tools/Toolboxes/toolbox_green.rsi #imp edit
 
 - type: entity
   name: suspicious toolbox
@@ -127,10 +127,10 @@
   description: A sinister looking toolbox filled with elite syndicate tools.
   components:
   - type: Sprite
-    sprite: Objects/Tools/Toolboxes/toolbox_syn.rsi
+    sprite: _Impstation/Objects/Tools/Toolboxes/toolbox_syn.rsi #imp edit
     state: icon
   - type: Item
-    sprite: Objects/Tools/Toolboxes/toolbox_syn.rsi
+    sprite: _Impstation/Objects/Tools/Toolboxes/toolbox_syn.rsi #imp edit
   - type: Storage
     maxItemSize: Huge
     grid:
@@ -147,7 +147,7 @@
   description: A solid gold toolbox. A rapper would kill for this.
   components:
   - type: Sprite
-    sprite: Objects/Tools/Toolboxes/toolbox_gold.rsi
+    sprite: _Impstation/Objects/Tools/Toolboxes/toolbox_gold.rsi #imp edit
     state: icon
   - type: Item
-    sprite: Objects/Tools/Toolboxes/toolbox_gold.rsi
+    sprite: _Impstation/Objects/Tools/Toolboxes/toolbox_gold.rsi #imp edit

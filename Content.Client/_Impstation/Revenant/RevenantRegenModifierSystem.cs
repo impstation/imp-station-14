@@ -4,6 +4,7 @@ using Content.Shared.Revenant.Components;
 using Robust.Client.GameObjects;
 using Robust.Shared.Utility;
 using System.Numerics;
+using Content.Shared.Alert.Components;
 using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Client.Revenant;
@@ -16,7 +17,7 @@ public sealed class RevenantRegenModifierSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<RevenantRegenModifierComponent, UpdateAlertSpriteEvent>(OnUpdateAlert);
+        SubscribeLocalEvent<RevenantRegenModifierComponent, GetGenericAlertCounterAmountEvent>(OnGetCounterAmount);
         SubscribeNetworkEvent<RevenantHauntWitnessEvent>(OnWitnesses);
     }
 
@@ -38,15 +39,16 @@ public sealed class RevenantRegenModifierSystem : EntitySystem
         }
     }
 
-    private void OnUpdateAlert(Entity<RevenantRegenModifierComponent> ent, ref UpdateAlertSpriteEvent args)
+    private void OnGetCounterAmount(Entity<RevenantRegenModifierComponent> ent, ref GetGenericAlertCounterAmountEvent  args)
     {
-        if (args.Alert.ID != ent.Comp.Alert)
+        if (args.Handled)
             return;
 
-        var sprite = args.SpriteViewEnt.Comp;
+        if (ent.Comp.Alert != args.Alert)
+            return;
+
         var witnesses = Math.Clamp(ent.Comp.Witnesses.Count, 0, 99);
-        sprite.LayerSetState(RevenantVisualLayers.Digit1, $"{witnesses / 10}");
-        sprite.LayerSetState(RevenantVisualLayers.Digit2, $"{witnesses % 10}");
+        args.Amount = witnesses;
     }
 }
 

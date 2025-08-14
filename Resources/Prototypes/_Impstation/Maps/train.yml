@@ -1,0 +1,70 @@
+- type: gameMap
+  id: TrainImp
+  mapName: 'Train'
+  mapPath: /Maps/_Impstation/train.yml
+  maxRandomOffset: 0
+  randomRotation: false
+  minPlayers: 35
+  maxPlayers: 70
+  stations:
+    Train:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Train "Sentipode" {0}-{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'ED'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/Shuttles/emergency_omega.yml # TODO - add railway station
+        - type: StationJobs
+          availableJobs: # Total of 60 jobs roundstart, max of 71 inc. latejoins and trainees.
+            # command - 8
+            Captain: [ 1, 1 ]
+            HeadOfPersonnel: [ 1, 1 ]
+            ChiefEngineer: [ 1, 1 ]
+            ChiefMedicalOfficer: [ 1, 1 ]
+            ResearchDirector: [ 1, 1 ]
+            HeadOfSecurity: [ 1, 1 ]
+            HospitalityDirector: [ 1, 1 ]
+            Quartermaster: [ 1, 1 ]
+            # service - 14
+            Bartender: [ 2, 2 ]
+            Botanist: [ 2, 2 ]
+            Chaplain: [ 1, 1 ]
+            Chef: [ 2, 2 ]
+            Clown: [ 1, 1 ]
+            Janitor: [ 2, 2 ]
+            Librarian: [ 1, 1 ]
+            Mime: [ 1, 1 ]
+            Musician: [ 1, 1 ]
+            Reporter: [ 1, 1 ]
+            # engineering - 7-10
+            AtmosphericTechnician: [ 3, 3 ]
+            StationEngineer: [ 4, 4 ]
+            TechnicalAssistant: [ 3, 3 ]
+            # medical - 8-11
+            Chemist: [ 2, 2 ]
+            MedicalDoctor: [ 5, 5 ]
+            MedicalIntern: [ 3, 3 ]
+           #Paramedic: [ 0, 0 ]
+            Psychologist: [ 1, 1 ]
+            # science - 7-8
+            Borg: [ 2, 2 ]
+            ResearchAssistant: [ 1, 1 ]
+            Scientist: [ 4, 4 ]
+            StationAi: [ 1, 1 ]
+            # security - 9-12
+           #Brigmedic: [ 0, 0 ]
+            Detective: [ 1, 1 ]
+            Lawyer: [ 2, 2 ]
+            SecurityCadet: [ 3, 3 ]
+            SecurityOfficer: [ 5, 5 ]
+            Warden: [ 1, 1 ]
+            # supply - 7-8
+            CargoTechnician: [ 3, 3 ]
+            Courier: [ 1, 1 ]
+            SalvageSpecialist: [ 3, 3 ]
+            SupplyAssistant: [ 1, 1 ]
+            # civilian
+            Passenger: [ -1, -1 ]

@@ -1,8 +1,12 @@
 using System.Text;
 using System.Text.RegularExpressions;
+using Content.Shared.Speech;
 using Content.Shared.Speech.Components;
 using Content.Shared.Speech.EntitySystems;
 using Content.Shared.StatusEffect;
+using Robust.Shared.Prototypes;
+using Content.Shared.Chat.TypingIndicator; //imp
+using Robust.Shared.Prototypes; //imp
 
 namespace Content.Server.Speech.EntitySystems;
 
@@ -10,9 +14,8 @@ public sealed class RatvarianLanguageSystem : SharedRatvarianLanguageSystem
 {
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
 
-
-    [ValidatePrototypeId<StatusEffectPrototype>]
-    private const string RatvarianKey = "RatvarianLanguage";
+    private static readonly ProtoId<StatusEffectPrototype> RatvarianKey = "RatvarianLanguage";
+    private static readonly ProtoId<TypingIndicatorPrototype> ClockTypingIndicator = "clock"; //imp
 
     // This is the word of Ratvar and those who speak it shall abide by His rules:
     /*
@@ -42,6 +45,8 @@ public sealed class RatvarianLanguageSystem : SharedRatvarianLanguageSystem
     {
         // Activate before other modifications so translation works properly
         SubscribeLocalEvent<RatvarianLanguageComponent, AccentGetEvent>(OnAccent, before: new[] {typeof(SharedSlurredSystem), typeof(SharedStutteringSystem)});
+        SubscribeLocalEvent<RatvarianLanguageComponent, ComponentStartup>(OnStartup); //imp
+        SubscribeLocalEvent<RatvarianLanguageComponent, ComponentShutdown>(OnShutdown); //imp
     }
 
     public override void DoRatvarian(EntityUid uid, TimeSpan time, bool refresh, StatusEffectsComponent? status = null)
@@ -50,6 +55,25 @@ public sealed class RatvarianLanguageSystem : SharedRatvarianLanguageSystem
             return;
 
         _statusEffects.TryAddStatusEffect<RatvarianLanguageComponent>(uid, RatvarianKey, time, refresh, status);
+    }
+
+    private void OnStartup(EntityUid uid, RatvarianLanguageComponent component, ComponentStartup args) //imp
+    {
+        if (TryComp<TypingIndicatorComponent>(uid, out var indicator))
+        {
+            component.OldIndicator = indicator.TypingIndicatorPrototype; //imp
+            indicator.TypingIndicatorPrototype = ClockTypingIndicator;
+            Dirty(uid, indicator);
+        }
+    }
+
+    private void OnShutdown(EntityUid uid, RatvarianLanguageComponent component, ComponentShutdown args) //imp
+    {
+        if (TryComp<TypingIndicatorComponent>(uid, out var indicator))
+        {
+            indicator.TypingIndicatorPrototype = component.OldIndicator;
+            Dirty(uid, indicator);
+        }
     }
 
     private void OnAccent(EntityUid uid, RatvarianLanguageComponent component, AccentGetEvent args)

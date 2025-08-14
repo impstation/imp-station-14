@@ -47,8 +47,10 @@
       whitelist:
         components:
         - XenoArtifact
+        - Artifact #IMP
     - type: Weldable
     - type: SuppressArtifactContainer
+    - type: OldSuppressArtifactContainer #IMP
     - type: RadiationBlockingContainer
       resistance: 5
     - type: PlaceableSurface
@@ -124,9 +126,10 @@
     - 0,0,1,1
     whitelist:
       components:
-      - Artifact
+      - XenoArtifact
+      - Artifact #IMP
   - type: Item
-    sprite: Objects/Storage/artifact_container.rsi  
+    sprite: Objects/Storage/artifact_container.rsi
     size: Huge
   - type: MeleeWeapon
     damage:
@@ -139,6 +142,7 @@
     access: [["Research"], ["Cargo"]]
   - type: Lock
   - type: SuppressArtifactContainer
+  - type: OldSuppressArtifactContainer #IMP
   - type: RadiationBlockingContainer
     resistance: 5
   - type: EmitSoundOnLand
