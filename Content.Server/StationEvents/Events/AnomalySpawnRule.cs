@@ -26,6 +26,7 @@ public sealed class AnomalySpawnRule : StationEventSystem<AnomalySpawnRuleCompon
             null,
             Color.FromHex("#18abf5"),
             null, null,
+            null, //imp
             ("sighting", Loc.GetString($"anomaly-spawn-sighting-{RobustRandom.Next(1, 6)}"))
         );
     }

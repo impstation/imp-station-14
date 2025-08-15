@@ -81,7 +81,7 @@ namespace Content.IntegrationTests.Tests.Buckle
                     Assert.That(buckle.Buckled, Is.False);
                     Assert.That(actionBlocker.CanMove(human));
                     Assert.That(actionBlocker.CanChangeDirection(human));
-                    //Assert.That(standingState.Down(human));
+                    Assert.That(standingState.Down(human));
                     Assert.That(standingState.Stand(human));
                 });
 
@@ -102,7 +102,7 @@ namespace Content.IntegrationTests.Tests.Buckle
 
                     Assert.That(actionBlocker.CanMove(human), Is.False);
                     Assert.That(actionBlocker.CanChangeDirection(human));
-                    //Assert.That(standingState.Down(human), Is.False);
+                    Assert.That(standingState.Down(human), Is.False);
                     Assert.That(
                         (xformSystem.GetWorldPosition(human) - xformSystem.GetWorldPosition(chair)).LengthSquared,
                         Is.LessThanOrEqualTo(0)
@@ -293,9 +293,9 @@ namespace Content.IntegrationTests.Tests.Buckle
                 Assert.That(buckle.Buckled);
 
                 // With items in all hands
-                foreach (var hand in hands.Hands.Values)
+                foreach (var hand in hands.Hands.Keys)
                 {
-                    Assert.That(hand.HeldEntity, Is.Not.Null);
+                    Assert.That(handsSys.GetHeldItem((human, hands), hand), Is.Not.Null);
                 }
 
                 var bodySystem = entityManager.System<BodySystem>();
@@ -312,14 +312,13 @@ namespace Content.IntegrationTests.Tests.Buckle
 
             await server.WaitAssertion(() =>
             {
-                //Assert.That(buckle.Buckled); // goob edit
-                // he's not supposed to be buckled with the new falling down system
-                // do i just did this :trollface:
+                // Still buckled
+                Assert.That(buckle.Buckled);
 
                 // Now with no item in any hand
-                foreach (var hand in hands.Hands.Values)
+                foreach (var hand in hands.Hands.Keys)
                 {
-                    Assert.That(hand.HeldEntity, Is.Null);
+                    Assert.That(handsSys.GetHeldItem((human, hands), hand), Is.Null);
                 }
 
                 buckleSystem.Unbuckle(human, human);

@@ -73,8 +73,23 @@
         - NamesBountyHunter
         nameFormat: name-format-bounty-hunter
 
-#my oppa
+#vrex
+- type: entity
+  id: VRexEvent
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    weight: 3.5 #not as rare as midround ling or zombies, but rare enough to feel dread
+    duration: 1
+    earliestStart: 20 #maybe a strange choice, but the one play of v-rex in shift i saw was really calm
+    minimumPlayers: 50
+    maxOccurrences: 1 # imagine 2 of them
+  - type: VentCrittersRule 
+    specialEntries:
+    - id: SpawnPointGhostVRex
+      prob: 0 # this ensures that only one spawner will be created
 
+#my oppa
 - type: entity
   parent: BaseGameRule
   id: OppaSpawnLight

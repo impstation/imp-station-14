@@ -80,7 +80,7 @@
     layers:
     - state: green
     - state: major
-      sprite: Mobs/Animals/major.rsi
+      sprite: _Impstation/Mobs/Animals/major.rsi
   - type: ConditionalSpawner
     prototypes:
     - MobBearSpaceMajor
@@ -168,3 +168,18 @@
     prototypes:
       - MobWalter
       - MobDolby
+
+- type: entity
+  name: Foes/Seof Spawner
+  id: FoesSeofSpawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: blue
+        - sprite: _Impstation/Mobs/Animals/foes.rsi
+          state: foes
+    - type: ClusterSpawner
+      prototypes:
+        - MobFoes
+        - MobSeof

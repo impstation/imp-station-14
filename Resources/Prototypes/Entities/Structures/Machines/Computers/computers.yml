@@ -709,7 +709,7 @@
 - type: entity
   parent: [ BaseComputerAiAccess, BaseGrandTheftContraband ]
   id: ComputerComms
-  name: communications computer
+  name: command communications computer # imp
   description: A computer used to make station wide announcements via keyboard, set the appropriate alert level, and call the emergency shuttle.
   components:
   - type: Sprite
@@ -730,8 +730,9 @@
   - type: AccessReader
     access: [[ "Command" ]]
   - type: CommunicationsConsole
-    title: comms-console-announcement-title-station
+    title: comms-console-announcement-title-command # imp
   - type: DeviceNetwork
+    deviceNetId: Wireless    
     transmitFrequencyId: ShuttleTimer
   - type: ActivatableUI
     key: enum.CommunicationsConsoleUiKey.Key

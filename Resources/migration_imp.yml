@@ -8,6 +8,9 @@
 # WallSolid: Window
 # Table: null
 
+# 2024-09-09
+BorgModuleService: BorgModuleBartender
+
 # 2024-11-25
 #impstation change
 ToolboxArtistic: ToolboxArtisticFilled
@@ -42,8 +45,6 @@ LockerCourierFilledHardsuit: LockerCourierFilled
 # impstation: swap mail systems
 MailTeleporter: CargoMailTeleporter
 
-# 2025-03-12
-SmartFridge: DVSmartFridge
 
 # 2025-05-14
 # impstation: remove fishing rods until the system is done
@@ -82,3 +83,14 @@ PrizeTicketGold: PrizeTicket
 PrizeTicketBronze: PrizeTicket10
 PrizeTicketSilver: PrizeTicket100
 PrizeTicketDiamond: PrizeTicket1000000
+
+# 2025-07-31
+# upstream merge replacement prototypes
+FlippoSyndicateLighter: SyndicateFlippo
+GoldPersonalAI: GoldenPersonalAI
+HolyTextTanakh: BibleTanakh
+SpawnMobPoly: SpawnMobPollyParrot
+
+# 2025-08-08
+# upstream merge replacement prototypes
+DVSmartFridge: SmartFridge

@@ -14,8 +14,10 @@ steal-target-groups-servicetechfab = service techfab machine board
 steal-target-groups-shipyardcomputercircuitboard = shipyard computer board
 steal-target-groups-commscomputercircuitboard = communications computer board
 
+steal-target-groups-hdcuttermachine = portable cutter machine board
 steal-target-groups-secpillcanister = head of security's pill canister
 steal-target-groups-evil-skull = evil skull
+steal-target-groups-antiquedisabler = "antique" disabler
 
 # Thief Animal
 

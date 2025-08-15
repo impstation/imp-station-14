@@ -105,21 +105,52 @@
   components:
   - type: TraitorRule
     startingBalance: 4 # 2 are used for the uplink implant, leaving them with a budget of 2.
-    giveUplink: true 
+    giveUplink: true
     giveCodewords: false
     giveBriefing: false
   - type: AntagSelection
     definitions:
     - prefRoles: [ Traitor ]
       mindRoles:
-      - MindRoleInfiltrator 
-
-# population limiters
+      - MindRoleInfiltrator
 
 - type: entity
+  id: SleeperlessStationEventScheduler
   parent: BaseGameRule
-  id: LowpopLimiter
   components:
-  - type: GameRule
-    maxPlayers: 14
-    cancelPresetOnTooManyPlayers: true
+  - type: BasicStationEventScheduler
+    scheduledGameRules: !type:NestedSelector
+      tableId: SleeperlessGameRulesTable
+
+- type: entityTable
+  id: SleeperlessGameRulesTable # imp: changed from AllSelector to GroupSelector
+  table: !type:GroupSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+    - !type:NestedSelector
+      tableId: BasicCalmEventsTable
+      weight: 30
+    - !type:NestedSelector
+      tableId: SleeperlessGreaterAntagEventsTable #imp
+      weight: 7
+    - !type:NestedSelector
+      tableId: LesserAntagEventsTable #imp
+      weight: 15
+    - !type:NestedSelector
+      tableId: CargoGiftsTable
+      weight: 16
+    - !type:NestedSelector
+      tableId: CalmPestEventsTable
+      weight: 17
+    - !type:NestedSelector
+      tableId: SpicyPestEventsTable
+      weight: 15
+
+# population limiters
+# Commented out because this is maybe breaking the weighted event tables??? I'm scared.
+#- type: entity
+#  parent: BaseGameRule
+#  id: LowpopLimiter
+#  components:
+#  - type: GameRule
+#    maxPlayers: 14
+#    cancelPresetOnTooManyPlayers: true
