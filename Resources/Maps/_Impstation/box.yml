@@ -4,8 +4,8 @@ meta:
   engineVersion: 265.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/14/2025 21:32:39
-  entityCount: 28718
+  time: 08/15/2025 00:33:51
+  entityCount: 28723
 maps:
 - 780
 grids:
@@ -12562,7 +12562,7 @@ entities:
       pos: 24.5,16.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -160869.97
+      secondsUntilStateChange: -160938.25
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -86583,7 +86583,7 @@ entities:
       pos: -34.5,-14.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -155058.53
+      secondsUntilStateChange: -155126.81
       state: Closing
   - uid: 15010
     components:
@@ -89877,13 +89877,6 @@ entities:
       parent: 8364
     - type: AtmosPipeColor
       color: '#0055CCFF'
-  - uid: 17333
-    components:
-    - type: Transform
-      pos: 22.5,-43.5
-      parent: 8364
-    - type: AtmosPipeColor
-      color: '#FF0000FF'
   - uid: 17341
     components:
     - type: Transform
@@ -90724,14 +90717,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 69.5,-42.5
       parent: 8364
-  - uid: 26451
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 16.5,-43.5
-      parent: 8364
-    - type: AtmosPipeColor
-      color: '#FF0000FF'
   - uid: 26457
     components:
     - type: Transform
@@ -91155,6 +91140,14 @@ entities:
       parent: 8364
     - type: AtmosPipeColor
       color: '#947507FF'
+  - uid: 28720
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 16.5,-42.5
+      parent: 8364
+    - type: AtmosPipeColor
+      color: '#FF0000FF'
 - proto: GasPipeBendAlt1
   entities:
   - uid: 7123
@@ -96235,6 +96228,13 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -0.5,-49.5
+      parent: 8364
+    - type: AtmosPipeColor
+      color: '#FF0000FF'
+  - uid: 17333
+    components:
+    - type: Transform
+      pos: 22.5,-41.5
       parent: 8364
     - type: AtmosPipeColor
       color: '#FF0000FF'
@@ -109227,6 +109227,13 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 78.5,-28.5
       parent: 8364
+  - uid: 26451
+    components:
+    - type: Transform
+      pos: 22.5,-42.5
+      parent: 8364
+    - type: AtmosPipeColor
+      color: '#FF0000FF'
   - uid: 26452
     components:
     - type: Transform
@@ -111191,14 +111198,6 @@ entities:
       parent: 8364
     - type: AtmosPipeColor
       color: '#FF0000FF'
-  - uid: 28713
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 22.5,-40.5
-      parent: 8364
-    - type: AtmosPipeColor
-      color: '#FF0000FF'
   - uid: 28714
     components:
     - type: Transform
@@ -111215,11 +111214,19 @@ entities:
       parent: 8364
     - type: AtmosPipeColor
       color: '#FF0000FF'
-  - uid: 28717
+  - uid: 28721
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 19.5,-42.5
+      rot: 1.5707963267948966 rad
+      pos: 17.5,-42.5
+      parent: 8364
+    - type: AtmosPipeColor
+      color: '#FF0000FF'
+  - uid: 28722
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 18.5,-42.5
       parent: 8364
     - type: AtmosPipeColor
       color: '#FF0000FF'
@@ -115200,6 +115207,37 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 92.5,-28.5
       parent: 8364
+  - uid: 28713
+    components:
+    - type: Transform
+      pos: 22.5,-40.5
+      parent: 8364
+    - type: AtmosPipeColor
+      color: '#FF0000FF'
+  - uid: 28717
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 19.5,-42.5
+      parent: 8364
+    - type: AtmosPipeColor
+      color: '#FF0000FF'
+  - uid: 28718
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 22.5,-43.5
+      parent: 8364
+    - type: AtmosPipeColor
+      color: '#FF0000FF'
+  - uid: 28719
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 16.5,-43.5
+      parent: 8364
+    - type: AtmosPipeColor
+      color: '#FF0000FF'
 - proto: GasPipeTJunctionAlt1
   entities:
   - uid: 20151
@@ -127791,7 +127829,7 @@ entities:
       pos: 28.5,-34.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -134828.86
+      secondsUntilStateChange: -134897.14
       state: Closing
 - proto: hydroponicsSoil
   entities:
