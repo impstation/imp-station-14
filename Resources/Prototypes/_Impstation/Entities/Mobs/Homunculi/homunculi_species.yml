@@ -6,9 +6,7 @@
   components:
   - type: Sprite
     sprite: _Impstation/Mobs/Homunculi/Human/body.rsi/
-    layers:
-    - map: [ "base" ]
-      state: base
+    state: base
   - type: HumanoidAppearance
     species: HomunculusHuman
     markingsDisplacement:
@@ -99,8 +97,7 @@
   components:
   - type: Sprite
     sprite: _Impstation/Mobs/Homunculi/Gray/body.rsi/
-    layers:
-      state: base
+    state: base
   - type: HumanoidAppearance
     species: HomunculusGray
     markingsDisplacement:
@@ -221,8 +218,7 @@
   - type: Sprite
     sprite: _Impstation/Mobs/Homunculi/Moth/body.rsi/
     layers:
-      - map: [ "base" ]
-        state: base
+    state: base
   - type: HumanoidAppearance
     species: HomunculusMoth
     markingsDisplacement:
@@ -350,8 +346,7 @@
         requireInputValidation: false
   - type: Sprite
     sprite: _Impstation/Mobs/Homunculi/Thaven/body.rsi/
-    layers:
-      state: base
+    state: base
   - type: HumanoidAppearance
     species: HomunculusThaven
     markingsDisplacement:
