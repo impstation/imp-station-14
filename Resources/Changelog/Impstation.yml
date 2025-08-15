@@ -1,28 +1,4 @@
 ﻿Entries:
-- author: Darkmajia
-  changes:
-  - message: Supermatter lightning can no longer explode nearby airlocks, air alarms,
-      or other objects.
-    type: Remove
-  - message: Reduced the range at which direct eye contact with the supermatter induces
-      hallucinations.
-    type: Tweak
-  - message: Carbon dioxide affects the supermatter more strongly at lower values,
-      and tesla/singularity delaminations are easier to trigger.
-    type: Tweak
-  id: 1666
-  time: '2025-05-13T14:27:14.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2444
-- author: DinnerCalzone
-  changes:
-  - message: Winter boots have had their cooling protection reduced.
-    type: Tweak
-  - message: Scarves now help keep you warm and protect from the cold, similar to
-      winter boots.
-    type: Add
-  id: 1667
-  time: '2025-05-14T01:30:27.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2477
 - author: AirFryerBuyOneGetOneFree
   changes:
   - message: Fixed microwaves not ejecting contents on end of cooking.
@@ -4232,3 +4208,18 @@
   id: 2165
   time: '2025-08-14T07:15:51.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3287
+- author: Impstation
+  changes:
+  - message: Disabled whitelist.
+    type: Remove
+  id: 2166
+  time: '2025-08-15T02:40:42.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3289
+- author: meridiadottxt
+  changes:
+  - message: in anticipation for the influx of new players, Eclipse Starport is now
+      in rotation!
+    type: Add
+  id: 2167
+  time: '2025-08-15T02:58:20.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3293
