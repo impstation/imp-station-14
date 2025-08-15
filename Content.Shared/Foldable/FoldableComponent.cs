@@ -23,16 +23,4 @@ public sealed partial class FoldableComponent : Component
 
     [DataField]
     public LocId FoldVerbText = "fold-verb";
-
-    /// <summary>
-    /// Imp addition. If false, prevents anchoring while folded.
-    /// </summary>
-    [DataField]
-    public bool CanAnchorWhileFolded;
-
-    /// <summary>
-    /// Imp addition. If false, prevents folding while anchored.
-    /// </summary>
-    [DataField]
-    public bool CanFoldWhileAnchored;
 }

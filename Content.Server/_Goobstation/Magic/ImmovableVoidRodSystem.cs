@@ -52,7 +52,7 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
         || HasComp<GhoulComponent>(args.OtherEntity))
             return;
 
-        _stun.TryAddParalyzeDuration(args.OtherEntity, TimeSpan.FromSeconds(2.5f));
+        _stun.TryParalyze(args.OtherEntity, TimeSpan.FromSeconds(2.5f), false);
 
         TryComp<TagComponent>(args.OtherEntity, out var tag);
         var tags = tag?.Tags ?? new();

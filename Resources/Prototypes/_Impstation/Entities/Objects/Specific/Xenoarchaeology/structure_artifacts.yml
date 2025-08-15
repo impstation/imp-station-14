@@ -74,8 +74,8 @@
   suffix: Simple
   components:
   - type: Artifact
-    nodesMin: 3
-    nodesMax: 6
+    nodesMin: 4
+    nodesMax: 9
 
 - type: entity
   parent: BaseXenoArtifact
@@ -83,8 +83,8 @@
   suffix: Medium
   components:
   - type: Artifact
-    nodesMin: 7
-    nodesMax: 11
+    nodesMin: 9
+    nodesMax: 13
 
 - type: entity
   parent: BaseXenoArtifact
@@ -92,19 +92,5 @@
   suffix: Complex
   components:
   - type: Artifact
-    nodesMin: 12
+    nodesMin: 13
     nodesMax: 16
-
-- type: entity
-  parent: BaseAction
-  id: OldActionArtifactActivate
-  name: Activate Artifact
-  description: Activate yourself, causing chaos to those near you.
-  components:
-  - type: Action
-    icon:
-      sprite: Objects/Specific/Xenoarchaeology/xeno_artifacts.rsi
-      state: ano29
-    useDelay: 300
-  - type: InstantAction
-    event: !type:ArtifactSelfActivateEvent

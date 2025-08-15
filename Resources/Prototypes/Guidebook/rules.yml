@@ -6,7 +6,7 @@
 - type: guideEntry # Default for forks and stuff. Should not be listed anywhere if the server is using a custom ruleset.
   id: DefaultRuleset
   name: guide-entry-rules
-  ruleEntry: true
+  ruleEntry: false # TODO: set this & all children to "true" when upstream fixes that annoying text link bug
   text: "/ServerInfo/_Impstation/Guidebook/ServerRules/newrules.xml"
   children:
   - CoreRules
@@ -19,35 +19,35 @@
 - type: guideEntry
   id: RoleTypes
   name: guide-entry-rules-role-types
-  ruleEntry: true
+  ruleEntry: false # TODO
   priority: 10
   text: "/ServerInfo/Guidebook/ServerRules/RoleTypes.xml"
 
 - type: guideEntry
   id: CoreRules
   name: guide-entry-rules-core
-  ruleEntry: true
+  ruleEntry: false # TODO
   priority: 30
   text: "/ServerInfo/_Impstation/Guidebook/ServerRules/corerules.xml"
 
 - type: guideEntry
   id: RoleplayRules
   name: guide-entry-rules-roleplay
-  ruleEntry: true
+  ruleEntry: false # TODO
   priority: 40
   text: "/ServerInfo/_Impstation/Guidebook/ServerRules/rprules.xml"
 
 - type: guideEntry
   id: MetashieldRules
   name: guide-entry-rules-metashield
-  ruleEntry: true
+  ruleEntry: false # TODO
   priority: 50
   text: "/ServerInfo/_Impstation/Guidebook/ServerRules/metashield.xml"
 
 - type: guideEntry
   id: AdditionalRoleRules
   name: guide-entry-rules-additionalrole
-  ruleEntry: true
+  ruleEntry: false # TODO
   priority: 60
   text: "/ServerInfo/_Impstation/Guidebook/ServerRules/command-sec-antag-rules.xml"
 

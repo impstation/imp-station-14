@@ -14,11 +14,13 @@
     slotFlags: NECK
     uiWindowPos: 0,2
     strippingWindowPos: 0,1
-    displayName: neck
-    offset: 0.05, -0.22
+    displayName: Medal
+    offset: 0.03, -0.15
+    whitelist:
+      tags:
+        - Medal
   # 🌟Starlight🌟 end
 
-# Engineering borg
 - type: inventoryTemplate
   id: borgShort
   slots:
@@ -28,49 +30,20 @@
     uiWindowPos: 1,0
     strippingWindowPos: 0,0
     displayName: Head
-    offset: 0.015625, -0.09375
+    offset: 0.015625, -0.1875
   # 🌟Starlight🌟 start
   - name: neck
     slotTexture: neck
     slotFlags: NECK
     uiWindowPos: 0,2
     strippingWindowPos: 0,1
-    displayName: neck
-    offset: 0.05, -0.22
+    displayName: Medal
+    offset: 0.075, -0.22
     whitelist:
       tags:
         - Medal
-        - TeddyRibbon #imp
   # 🌟Starlight🌟 end
 
-# imp start
-# Janitor borg
-- type: inventoryTemplate
-  id: borgJanitor
-  slots:
-  - name: head
-    slotTexture: head
-    slotFlags: HEAD
-    uiWindowPos: 1,0
-    strippingWindowPos: 0,0
-    displayName: Head
-    offset: 0.015625, -0.15
-  # 🌟Starlight🌟 start
-  - name: neck
-    slotTexture: neck
-    slotFlags: NECK
-    uiWindowPos: 0,2
-    strippingWindowPos: 0,1
-    displayName: neck
-    offset: 0.0, -0.22
-    whitelist:
-      tags:
-      - Medal
-      - TeddyRibbon #imp
-  # 🌟Starlight🌟 end
-# imp end
-
-# salvage borg
 - type: inventoryTemplate
   id: borgTall
   slots:
@@ -80,22 +53,20 @@
     uiWindowPos: 1,0
     strippingWindowPos: 0,0
     displayName: Head
-    offset: 0.015625, -0.05
+    offset: 0.015625, 0
   # 🌟Starlight🌟 start
   - name: neck
     slotTexture: neck
     slotFlags: NECK
     uiWindowPos: 0,2
     strippingWindowPos: 0,1
-    displayName: neck
-    offset: 0.02, -0.125
+    displayName: Medal
+    offset: 0.01, -0.125
     whitelist:
       tags:
         - Medal
-        - TeddyRibbon #imp
   # 🌟Starlight🌟 end
 
-#medical borg
 # taller than tall
 - type: inventoryTemplate
   id: borgDutch
@@ -113,33 +84,9 @@
     slotFlags: NECK
     uiWindowPos: 0,2
     strippingWindowPos: 0,1
-    displayName: neck
-    offset: 0.0, -0.125
+    displayName: Medal
+    offset: 0.02, -0.125
     whitelist:
       tags:
         - Medal
-        - TeddyRibbon #imp
   # 🌟Starlight🌟 end
-
-# imp start
-# service borg
-- type: inventoryTemplate
-  id: borgHumanoid
-  slots:
-  - name: head
-    slotTexture: head
-    slotFlags: HEAD
-    uiWindowPos: 1,0
-    strippingWindowPos: 0,0
-    displayName: Head
-    offset: 0.0, 0.0
-  # 🌟Starlight🌟 start
-  - name: neck
-    slotTexture: neck
-    slotFlags: NECK
-    uiWindowPos: 0,2
-    strippingWindowPos: 0,1
-    displayName: neck
-    offset: 0.0, 0.0
-  # 🌟Starlight🌟 end
-# imp end

@@ -687,9 +687,6 @@
           Quantity: 10 # imp 5 > 10
   - type: Food
     requiresSpecialDigestion: true
-  - type: FlavorProfile # imp
-    flavors:
-      - trashy
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -964,9 +961,6 @@
     tags:
     - ClothMade
     - Trash
-  - type: FlavorProfile # imp
-    flavors:
-      - paper
   - type: Sprite
     state: mre-wrapper
   - type: Item

@@ -46,7 +46,6 @@ public sealed class RatvarianLanguageSystem : SharedRatvarianLanguageSystem
         // Activate before other modifications so translation works properly
         SubscribeLocalEvent<RatvarianLanguageComponent, AccentGetEvent>(OnAccent, before: new[] {typeof(SharedSlurredSystem), typeof(SharedStutteringSystem)});
         SubscribeLocalEvent<RatvarianLanguageComponent, ComponentStartup>(OnStartup); //imp
-        SubscribeLocalEvent<RatvarianLanguageComponent, ComponentShutdown>(OnShutdown); //imp
     }
 
     public override void DoRatvarian(EntityUid uid, TimeSpan time, bool refresh, StatusEffectsComponent? status = null)
@@ -61,21 +60,10 @@ public sealed class RatvarianLanguageSystem : SharedRatvarianLanguageSystem
     {
         if (TryComp<TypingIndicatorComponent>(uid, out var indicator))
         {
-            component.OldIndicator = indicator.TypingIndicatorPrototype; //imp
             indicator.TypingIndicatorPrototype = ClockTypingIndicator;
             Dirty(uid, indicator);
         }
     }
-
-    private void OnShutdown(EntityUid uid, RatvarianLanguageComponent component, ComponentShutdown args) //imp
-    {
-        if (TryComp<TypingIndicatorComponent>(uid, out var indicator))
-        {
-            indicator.TypingIndicatorPrototype = component.OldIndicator;
-            Dirty(uid, indicator);
-        }
-    }
-
     private void OnAccent(EntityUid uid, RatvarianLanguageComponent component, AccentGetEvent args)
     {
         args.Message = Translate(args.Message);

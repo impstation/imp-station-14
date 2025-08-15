@@ -16,7 +16,7 @@
 - type: entity
   parent: BaseFlatpack
   id: ChemMasterFlatpack
-  name: chemMaster 4000 flatpack
+  name: ChemMaster 4000 flatpack
   description: A flatpack used for constructing a ChemMaster 4000.
   components:
   - type: Flatpack
@@ -25,25 +25,8 @@
 - type: entity
   parent: BaseFlatpack
   id: JukeboxFlatpack
-  name: jukebox flatpack
+  name: Jukebox Flatpack
   description: A flatpack used for constructing a Jukebox.
   components:
   - type: Flatpack
     entity: Jukebox
-
-- type: entity
-  parent: BaseFlatpack
-  id: ApidSeatFlatpack
-  name: apid seat flatpack
-  description: A flatpack used for constructing an apid seat.
-  components:
-  - type: Flatpack
-    entity: ChairApid
-  - type: Sprite
-    layers:
-    - state: base
-    - state: overlay
-      color: "#98ee35"
-    - state: icon-default
-  - type: Item
-    size: Normal

@@ -144,6 +144,9 @@
     thermalVisibility: false # EE edit
   - type: StatusEffects
     allowed:
+    - Stun
+    - KnockedDown
+    - SlowedDown
     - Flashed
   - type: TypingIndicator
     proto: robot

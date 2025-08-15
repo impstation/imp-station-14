@@ -1,37 +1,44 @@
 ﻿# Non-fungible apes, anyone?
 - type: nameIdentifierGroup
   id: Monkey
-  format: name-identifier-format-monkey
+  prefix: MK
 
 - type: nameIdentifierGroup
   id: Kobold
-  format: name-identifier-format-kobold
+  prefix: KB
 
 - type: nameIdentifierGroup
   id: Holoparasite
-  format: name-identifier-format-holoparasite
+  prefix: HOLO
+
+- type: nameIdentifierGroup
+  id: Drone
+  prefix: DR
+  fullName: true
+  minValue: 10000
+  maxValue: 99999
 
 - type: nameIdentifierGroup
   id: MMI
-  format: name-identifier-format-osi # imp
+  prefix: OSI # imp
   minValue: 100
   maxValue: 999
 
 - type: nameIdentifierGroup
   id: PositronicBrain
-  format: name-identifier-format-positronic-brain
+  prefix: PB
   minValue: 10
   maxValue: 99
 
 - type: nameIdentifierGroup
   id: Silicon
-  format: name-identifier-format-silicon
+  prefix: Si
   minValue: 1000
   maxValue: 9999
 
 - type: nameIdentifierGroup
   id: StationAi
-  format: name-identifier-format-station-ai
+  prefix: AI
   minValue: 100
   maxValue: 999
 
@@ -51,6 +58,18 @@
 
 - type: nameIdentifierGroup
   id: CargoTelepads
-  format: name-identifier-format-telepad
+  prefix: TELE
   minValue: 0
   maxValue: 999
+
+- type: nameIdentifierGroup #imp change
+  id: Anomaly
+  prefix: ANOM
+  minValue: 0
+  maxValue: 99
+
+- type: nameIdentifierGroup #imp change
+  id: Artifact
+  prefix: ARTI
+  minValue: 0
+  maxValue: 99

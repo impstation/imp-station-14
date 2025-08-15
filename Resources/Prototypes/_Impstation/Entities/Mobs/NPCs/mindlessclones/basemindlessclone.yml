@@ -124,6 +124,9 @@
       - !type:WashCreamPieReaction
   - type: StatusEffects
     allowed:
+    - Stun
+    - KnockedDown
+    - SlowedDown
     - Stutter
     - SeeingRainbows
     - Electrocution
@@ -132,11 +135,13 @@
     - RatvarianLanguage
     - PressureImmunity
     - Muted
+    - ForcedSleep
     - TemporaryBlindness
     - Pacified
     - StaminaModifier
     - Flashed
     - RadiationProtection
+    - Drowsiness
     - Adrenaline
     - Feminized # DeltaV - Hormone system
     - Masculinized # DeltaV - Hormone system
@@ -217,6 +222,7 @@
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
+  - type: LayingDown # WD EDIT
   - type: Barotrauma
     damage:
       types:

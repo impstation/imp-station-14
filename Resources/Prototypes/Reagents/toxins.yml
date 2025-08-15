@@ -799,9 +799,6 @@
           - !type:OrganType
             type: Rat
             shouldHave: false
-          - !type:OrganType
-            type: Vox
-            shouldHave: false
           damage:
             types:
               Poison: 0.5

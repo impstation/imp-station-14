@@ -37,7 +37,6 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
-using Content.Shared.Movement.Systems;
 
 namespace Content.Server._Impstation.Replicator;
 
@@ -54,7 +53,6 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
     [Dependency] private readonly NavMapSystem _navMap = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
     [Dependency] private readonly TransformSystem _xform = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly PinpointerSystem _pinpointer = default!;
@@ -291,7 +289,7 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
             if (upgraded is not { } upgradedNotNull)
                 return;
 
-            _movementMod.TryUpdateMovementSpeedModDuration(upgradedNotNull, "HoleDestroyedSlowdownStatusEffect", TimeSpan.FromSeconds(3), 0.8f);
+            _stun.TrySlowdown(upgradedNotNull, TimeSpan.FromSeconds(3), true, 0.8f, 0.8f);
 
             if (!_inventory.TryGetSlotEntity(upgradedNotNull, "pocket1", out var pocket1) || !TryComp<PinpointerComponent>(pocket1, out var pinpointer))
                 continue;

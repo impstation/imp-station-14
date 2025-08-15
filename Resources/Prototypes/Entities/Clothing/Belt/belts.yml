@@ -236,9 +236,7 @@
         - WetFloorSign
         - HolosignProjector
         - Plunger
-        - GoldenPlunger
         - WireBrush
-        - DampRag #imp edit
         - JanitorialWelder #imp edit
       components:
         - LightReplacer
@@ -342,7 +340,7 @@
   parent: ClothingBeltStorageBase
   id: ClothingBeltPlant
   name: botanical belt
-  description: A belt used to hold most hydroponics supplies. Surprisingly, not green. #imp edit, typo
+  description: A belt used to hold most hydroponics supplies. Suprisingly, not green.
   components:
   - type: Sprite
     sprite: Clothing/Belt/plant.rsi
@@ -362,7 +360,6 @@
         - Syringe
         - CigPack
         - Dropper
-        - DampRag #imp edit
       components:
         - Seed
         - Smokable
@@ -424,7 +421,6 @@
         - Skewer
         - MonkeyCube
         - Mayo
-        - DampRag #imp edit
       components:
         - Mousetrap
         - Smokable

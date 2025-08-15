@@ -193,6 +193,6 @@ public sealed class ReplicatorSystem : EntitySystem
     {
         args.Affected = true;
         args.Disabled = true;
-        _stun.TryUpdateParalyzeDuration(ent, ent.Comp.EmpStunTime);
+        _stun.TryParalyze(ent, ent.Comp.EmpStunTime, true);
     }
 }

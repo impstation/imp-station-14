@@ -29,10 +29,6 @@ namespace Content.Server.Destructible.Thresholds.Behaviors
         [DataField]
         public bool SpawnInContainer;
 
-        // #IMP
-        [DataField]
-        public bool MultiplyByNumberInStack = true;
-
         public void Execute(EntityUid owner, DestructibleSystem system, EntityUid? cause = null)
         {
             var tSys = system.EntityManager.System<TransformSystem>();
@@ -43,8 +39,7 @@ namespace Content.Server.Destructible.Thresholds.Behaviors
             var executions = 1;
             if (system.EntityManager.TryGetComponent<StackComponent>(owner, out var stack))
             {
-                if (MultiplyByNumberInStack)//#IMP
-                    executions = stack.Count;
+                executions = stack.Count;
             }
 
             foreach (var (entityId, minMax) in Spawn)

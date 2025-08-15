@@ -16,8 +16,6 @@ using Robust.Shared.Physics.Dynamics.Joints;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
-using Robust.Shared.GameStates; // IMP
-using Content.Shared.Popups; // IMP
 
 namespace Content.Shared.Weapons.Misc;
 
@@ -31,8 +29,6 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
     [Dependency] private readonly SharedJointSystem _joints = default!;
     [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedPvsOverrideSystem _pvs = default!; // IMP
-    [Dependency] private readonly SharedPopupSystem _popup = default!; // IMP
 
     public const string GrapplingJoint = "grappling";
 
@@ -51,9 +47,6 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
 
     private void OnGrappleJointRemoved(EntityUid uid, GrapplingProjectileComponent component, JointRemovedEvent args)
     {
-        _pvs.RemoveGlobalOverride(args.Joint.BodyAUid); // IMP
-        _pvs.RemoveGlobalOverride(args.Joint.BodyBUid); // IMP
-
         if (_netManager.IsServer)
             QueueDel(uid);
     }
@@ -64,9 +57,6 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
         {
             if (!HasComp<GrapplingProjectileComponent>(shotUid))
                 continue;
-
-            _pvs.AddGlobalOverride(shotUid.Value); // IMP
-            _pvs.AddGlobalOverride(uid); // IMP
 
             //todo: this doesn't actually support multigrapple
             // At least show the visuals.
@@ -192,37 +182,9 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
                 continue;
             }
 
-            // IMP Start
-            if (jointComp.Relay != null && _physics.GetTouchingContacts(jointComp.Relay.Value) > 0)
-            {
-                var player = jointComp.Relay.Value;
-
-                var playerPosition = _physics.GetPhysicsTransform(player).Position;
-                if (_physics.GetLinearVelocity(player ,playerPosition) != Vector2.Zero)
-                {
-                    var contacts = new HashSet<EntityUid>();
-                    _physics.GetContactingEntities(player, contacts);
-
-                    foreach (var contact in contacts)
-                    {
-                        if (_physics.IsHardCollidable(player, contact))
-                        {
-                            SetReeling(uid, grappling, false, null);
-                            break;
-                        }
-                    }
-                }
-            }
-            // IMP End
-
-            // IMP Start: contents of the if statement are upstream
-            if (grappling.Reeling)
-            {
-                // TODO: This should be on engine
-                distance.MaxLength = MathF.Max(distance.MinLength, distance.MaxLength - grappling.ReelRate * frameTime);
-                distance.Length = MathF.Min(distance.MaxLength, distance.Length);
-            }
-            // IMP End
+            // TODO: This should be on engine.
+            distance.MaxLength = MathF.Max(distance.MinLength, distance.MaxLength - grappling.ReelRate * frameTime);
+            distance.Length = MathF.Min(distance.MaxLength, distance.Length);
 
             _physics.WakeBody(joint.BodyAUid);
             _physics.WakeBody(joint.BodyBUid);
@@ -253,9 +215,6 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
         joint.MinLength = 0.35f;
         // Setting velocity directly for mob movement fucks this so need to make them aware of it.
         // joint.Breakpoint = 4000f;
-
-        _popup.PopupEntity(Loc.GetString("grapple-hit"), args.Weapon); // IMP
-
         Dirty(uid, jointComp);
     }
 

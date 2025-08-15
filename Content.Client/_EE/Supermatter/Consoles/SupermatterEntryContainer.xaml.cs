@@ -9,7 +9,6 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Configuration;
 using System.Linq;
-using System.Numerics;
 
 namespace Content.Client._EE.Supermatter.Consoles;
 

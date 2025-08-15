@@ -114,7 +114,6 @@
   components:
   - type: FlavorProfile
     flavors:
-      #- spicy #imp edit
       - meaty
       - cheap
   - type: SolutionContainerManager # imp
@@ -143,7 +142,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15 #imp
+        maxVol: 15
         reagents:
         - ReagentId: Nutriment
           Quantity: 6 # imp
@@ -262,8 +261,6 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 3.4 # imp
-        - ReagentId: Honk
-          Quantity: 0.50
         - ReagentId: Omnizine
           Quantity: 1 # imp
         - ReagentId: Vitamin # imp
@@ -289,8 +286,6 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 8 # imp
-        - ReagentId: Honk
-          Quantity: 1
         - ReagentId: Omnizine
           Quantity: 2 # imp
         - ReagentId: Vitamin # imp
@@ -304,7 +299,6 @@
   components:
   - type: FlavorProfile
     flavors:
-      #- sweet #imp edit
       - cheap
       - berry # imp
   - type: SolutionContainerManager
@@ -314,7 +308,7 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 3.5 # imp
-        - ReagentId: Vitamin # imp
+        - ReagentId: Vitamin
           Quantity: 0.1
   - type: Sprite
     state: berry
@@ -327,7 +321,6 @@
   components:
   - type: FlavorProfile
     flavors:
-      #- sweet # imp edit
       - cheap
       - berry # imp
   - type: SolutionContainerManager
@@ -339,7 +332,7 @@
           Quantity: 8.5 # imp
         - ReagentId: Omnizine
           Quantity: 2
-        - ReagentId: Vitamin # imp, replaces sugar
+        - ReagentId: Vitamin # imp
           Quantity: 2
 
 - type: entity
@@ -352,12 +345,6 @@
     flavors:
       - profits
       - cheap
-  #- type: SolutionContainerManager imp edit, use base reagents
-  #  solutions:
-  #    food:
-  #      reagents:
-  #      - ReagentId: Nutriment
-  #        Quantity: 5
   - type: Sprite
     state: stonk
 
@@ -373,10 +360,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15 #imp edit
+        maxVol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 3 #imp
+          Quantity: 3
         - ReagentId: Omnizine
           Quantity: 1 # imp
   - type: RandomFillSolution # imp

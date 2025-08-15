@@ -1,5 +1,3 @@
-anchorable-folded = {CAPITALIZE(THE($foldable))} must be unfolded first!
-
 fold-verb-clothing-cloak = Draw around yourself
 unfold-verb-clothing-cloak = Unbundle
 

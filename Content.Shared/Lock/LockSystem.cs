@@ -73,13 +73,11 @@ public sealed class LockSystem : EntitySystem
         // Only attempt an unlock by default on Activate
         if (lockComp.Locked && lockComp.UnlockOnClick)
         {
-            args.Handled = true;
-            TryUnlock(uid, args.User, lockComp);
+            args.Handled = TryUnlock(uid, args.User, lockComp);
         }
         else if (!lockComp.Locked && lockComp.LockOnClick)
         {
-            args.Handled = true;
-            TryLock(uid, args.User, lockComp);
+            args.Handled = TryLock(uid, args.User, lockComp);
         }
     }
 

@@ -1,8 +1,14 @@
 using System.Linq;
+using Content.Shared._DV.SmartFridge; // DeltaV - ough why do you not use events for this
+using Content.Shared.Disposal;
+using Content.Shared.Disposal.Components;
+using Content.Shared.Disposal.Unit;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
+using Content.Shared.Placeable;
 using Content.Shared.Storage.Components;
+using Content.Shared.Tag; // DeltaV - ough why do you not use events for this
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -17,8 +23,12 @@ public sealed class DumpableSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedDisposalUnitSystem _disposalUnitSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!; // DeltaV - ough why do you not use events for this
+    [Dependency] private readonly SmartFridgeSystem _smartFridge = default!; // DeltaV - ough why do you not use events for this
+    [Dependency] private readonly TagSystem _tag = default!; // DeltaV - ough why do you not use events for this
 
     private EntityQuery<ItemComponent> _itemQuery;
 
@@ -34,12 +44,12 @@ public sealed class DumpableSystem : EntitySystem
 
     private void OnAfterInteract(EntityUid uid, DumpableComponent component, AfterInteractEvent args)
     {
-        if (!args.CanReach || args.Handled || args.Target is not { } target)
+        if (!args.CanReach || args.Handled)
             return;
 
-        var evt = new GetDumpableVerbEvent(args.User, null);
-        RaiseLocalEvent(target, ref evt);
-        if (evt.Verb is null)
+        if (!HasComp<DisposalUnitComponent>(args.Target) &&
+            !HasComp<PlaceableSurfaceComponent>(args.Target) &&
+            !HasComp<SmartFridgeComponent>(args.Target)) // DeltaV - ough why do you not use events for this
             return;
 
         if (!TryComp<StorageComponent>(uid, out var storage))
@@ -48,7 +58,7 @@ public sealed class DumpableSystem : EntitySystem
         if (!storage.Container.ContainedEntities.Any())
             return;
 
-        StartDoAfter(uid, target, args.User, component);
+        StartDoAfter(uid, args.Target.Value, args.User, component);
         args.Handled = true;
     }
 
@@ -80,28 +90,44 @@ public sealed class DumpableSystem : EntitySystem
         if (!TryComp<StorageComponent>(uid, out var storage) || !storage.Container.ContainedEntities.Any())
             return;
 
-        var evt = new GetDumpableVerbEvent(args.User, null);
-        RaiseLocalEvent(args.Target, ref evt);
-
-        if (evt.Verb is not { } verbText)
-            return;
-
-        UtilityVerb verb = new()
+        if (HasComp<DisposalUnitComponent>(args.Target) || HasComp<SmartFridgeComponent>(args.Target)) // DeltaV - ough why do you not use events for this
         {
-            Act = () =>
+            UtilityVerb verb = new()
             {
-                StartDoAfter(uid, args.Target, args.User, dumpable);
-            },
-            Text = verbText,
-            IconEntity = GetNetEntity(uid)
-        };
-        args.Verbs.Add(verb);
+                Act = () =>
+                {
+                    StartDoAfter(uid, args.Target, args.User, dumpable);
+                },
+                Text = Loc.GetString("dump-disposal-verb-name", ("unit", args.Target)),
+                IconEntity = GetNetEntity(uid)
+            };
+            args.Verbs.Add(verb);
+        }
+
+        if (HasComp<PlaceableSurfaceComponent>(args.Target))
+        {
+            UtilityVerb verb = new()
+            {
+                Act = () =>
+                {
+                    StartDoAfter(uid, args.Target, args.User, dumpable);
+                },
+                Text = Loc.GetString("dump-placeable-verb-name", ("surface", args.Target)),
+                IconEntity = GetNetEntity(uid)
+            };
+            args.Verbs.Add(verb);
+        }
     }
 
     private void StartDoAfter(EntityUid storageUid, EntityUid targetUid, EntityUid userUid, DumpableComponent dumpable)
     {
         if (!TryComp<StorageComponent>(storageUid, out var storage))
             return;
+
+        // Begin DeltaV - ough why do you not use events for this
+        if (HasComp<SmartFridgeComponent>(targetUid) && _tag.HasTag(storageUid, "SmartFridgeRetainStorage"))
+            return;
+        // End DeltaV - ough why do you not use events for this
 
         var delay = 0f;
 
@@ -127,15 +153,50 @@ public sealed class DumpableSystem : EntitySystem
 
     private void OnDoAfter(EntityUid uid, DumpableComponent component, DumpableDoAfterEvent args)
     {
-        if (args.Handled || args.Cancelled || !TryComp<StorageComponent>(uid, out var storage) || storage.Container.ContainedEntities.Count == 0 || args.Args.Target is not { } target)
+        if (args.Handled || args.Cancelled || !TryComp<StorageComponent>(uid, out var storage) || storage.Container.ContainedEntities.Count == 0)
             return;
 
         var dumpQueue = new Queue<EntityUid>(storage.Container.ContainedEntities);
 
-        var evt = new DumpEvent(dumpQueue, args.Args.User, false, false);
-        RaiseLocalEvent(target, ref evt);
+        var dumped = false;
 
-        if (!evt.Handled)
+        if (HasComp<DisposalUnitComponent>(args.Args.Target))
+        {
+            dumped = true;
+
+            foreach (var entity in dumpQueue)
+            {
+                _disposalUnitSystem.DoInsertDisposalUnit(args.Args.Target.Value, entity, args.Args.User);
+            }
+        }
+        else if (HasComp<PlaceableSurfaceComponent>(args.Args.Target))
+        {
+            dumped = true;
+
+            var (targetPos, targetRot) = _transformSystem.GetWorldPositionRotation(args.Args.Target.Value);
+
+            foreach (var entity in dumpQueue)
+            {
+                _transformSystem.SetWorldPositionRotation(entity, targetPos + _random.NextVector2Box() / 4, targetRot);
+            }
+        }
+        // Begin DeltaV - ough why do you not use events for this
+        else if (TryComp<SmartFridgeComponent>(args.Args.Target, out var fridge))
+        {
+            dumped = true;
+
+            if (_container.TryGetContainer(args.Args.Target.Value, fridge.Container, out var container))
+            {
+                foreach (var entity in dumpQueue)
+                {
+                    _container.Insert(entity, container);
+                    _smartFridge.AddListing((args.Args.Target.Value, fridge), entity, container);
+                    Dirty(args.Args.Target.Value, fridge);
+                }
+            }
+        }
+        // End DeltaV - ough why do you not use events for this
+        else
         {
             var targetPos = _transformSystem.GetWorldPosition(uid);
 
@@ -144,11 +205,9 @@ public sealed class DumpableSystem : EntitySystem
                 var transform = Transform(entity);
                 _transformSystem.SetWorldPositionRotation(entity, targetPos + _random.NextVector2Box() / 4, _random.NextAngle(), transform);
             }
-
-            return;
         }
 
-        if (evt.PlaySound)
+        if (dumped)
         {
             _audio.PlayPredicted(component.DumpSound, uid, args.User);
         }

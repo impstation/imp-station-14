@@ -24,7 +24,6 @@ public sealed class BluespaceArtifactRule : StationEventSystem<BluespaceArtifact
             null,
             Color.FromHex("#18abf5"),
             null, null,
-            null, //imp
             ("sighting", Loc.GetString(RobustRandom.Pick(component.PossibleSighting)))
         );
     }

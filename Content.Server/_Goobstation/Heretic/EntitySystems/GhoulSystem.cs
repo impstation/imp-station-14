@@ -79,7 +79,7 @@ public sealed partial class GhoulSystem : Shared.Heretic.EntitySystems.SharedGho
             _threshold.SetMobStateThreshold(ent, ent.Comp.TotalHealth / 1.25f, MobState.Critical, th);
         }
 
-        _mind.MakeSentient(ent);
+        MakeSentientCommand.MakeSentient(ent, EntityManager);
 
         if (!HasComp<GhostRoleComponent>(ent) && !hasMind)
         {

@@ -1,65 +1,65 @@
 - type: nameIdentifierGroup
   id: AnomalitePyroclastic
-  format: name-identifier-anomalite-pyroclastic
+  prefix: ANOM-PY
   minValue: 0
   maxValue: 999
 
 - type: nameIdentifierGroup
   id: AnomaliteBluespace
-  format: name-identifier-anomalite-bluespace
+  prefix: ANOM-BL
   minValue: 0
   maxValue: 999
 
 - type: nameIdentifierGroup
   id: AnomaliteElectric
-  format: name-identifier-anomalite-electric
+  prefix: ANOM-EL
   minValue: 0
   maxValue: 999
 
 - type: nameIdentifierGroup
   id: AnomaliteFlesh
-  format: name-identifier-anomalite-flesh # mt for meat - to differentiate from fl for flora
+  prefix: ANOM-MT # mt for meat - to differentiate from fl for flora
   minValue: 0
   maxValue: 999
 
 - type: nameIdentifierGroup
   id: AnomaliteFlora
-  format: name-identifier-anomalite-flora
+  prefix: ANOM-FL
   minValue: 0
   maxValue: 999
 
 - type: nameIdentifierGroup
   id: AnomaliteGravity
-  format: name-identifier-anomalite-gravity
+  prefix: ANOM-GR
   minValue: 0
   maxValue: 999
 
 - type: nameIdentifierGroup
   id: AnomaliteIce
-  format: name-identifier-anomalite-ice # fr for frost. i don't think IC would read well
+  prefix: ANOM-FR # fr for frost. i don't think IC would read well 
   minValue: 0
   maxValue: 999
 
 - type: nameIdentifierGroup
   id: AnomaliteReagent
-  format: name-identifier-anomalite-reagent # lq for liquid
+  prefix: ANOM-LQ # lq for liquid
   minValue: 0
   maxValue: 999
 
 - type: nameIdentifierGroup
   id: AnomaliteRock
-  format: name-identifier-anomalite-rock
+  prefix: ANOM-RK
   minValue: 0
   maxValue: 999
 
 - type: nameIdentifierGroup
   id: AnomaliteShadow
-  format: name-identifier-anomalite-shadow
+  prefix: ANOM-SH
   minValue: 0
   maxValue: 999
 
 - type: nameIdentifierGroup
   id: AnomaliteTech
-  format: name-identifier-anomalite-tech # tk for tech. tc, te, and th, don't read well
+  prefix: ANOM-TK # tk for tech. tc, te, and th, don't read well
   minValue: 0
   maxValue: 999

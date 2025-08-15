@@ -4,6 +4,7 @@ using Content.Server.Administration.UI;
 using Content.Server.Disposal.Tube;
 using Content.Server.EUI;
 using Content.Server.Ghost.Roles;
+using Content.Server.Mind.Commands;
 using Content.Server.Mind;
 using Content.Server.Prayer;
 using Content.Server.Silicons.Laws;
@@ -17,6 +18,7 @@ using Content.Shared.Configurable;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.GameTicking;
+using Content.Shared.Hands.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Mind.Components;
 using Content.Shared.Movement.Components;
@@ -395,22 +397,6 @@ namespace Content.Server.Administration.Systems
                     });
                 }
 
-                // open camera
-                args.Verbs.Add(new Verb()
-                {
-                    Priority = 10,
-                    Text = Loc.GetString("admin-verbs-camera"),
-                    Message = Loc.GetString("admin-verbs-camera-description"),
-                    Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/vv.svg.192dpi.png")),
-                    Category = VerbCategory.Admin,
-                    Act = () =>
-                    {
-                        var ui = new AdminCameraEui(args.Target);
-                        _euiManager.OpenEui(ui, player);
-                    },
-                    Impact = LogImpact.Low
-                });
-
                 // Begin Impstation Additions
                 if (TryComp<ThavenMoodsComponent>(args.Target, out var moods))
                 {
@@ -499,7 +485,7 @@ namespace Content.Server.Administration.Systems
                     Text = Loc.GetString("make-sentient-verb-get-data-text"),
                     Category = VerbCategory.Debug,
                     Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/sentient.svg.192dpi.png")),
-                    Act = () => _mindSystem.MakeSentient(args.Target),
+                    Act = () => MakeSentientCommand.MakeSentient(args.Target, EntityManager),
                     Impact = LogImpact.Medium
                 };
                 args.Verbs.Add(verb);

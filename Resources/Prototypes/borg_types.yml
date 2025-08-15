@@ -131,7 +131,7 @@
   - Service
 
   # Visual
-  inventoryTemplateId: borgJanitor # imp
+  inventoryTemplateId: borgShort
   spriteBodyState: janitor
   spriteBodyMovementState: janitor_moving
   spriteHasMindState: janitor_e
@@ -223,7 +223,7 @@
   - Service
 
   # Visual
-  inventoryTemplateId: borgHumanoid # imp
+  inventoryTemplateId: borgTall
   spriteBodyState: service
   spriteHasMindState: service_e
   spriteNoMindState: service_e_r

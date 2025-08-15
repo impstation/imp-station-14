@@ -181,7 +181,6 @@ public sealed class AlertLevelSystem : EntitySystem
 
         if (announce)
             _announcer.SendAnnouncementMessage(alert, "alert-level-announcement", null, detail.Color, null, null,
-            null, //imp
                 ("name", name), ("announcement", announcement));
 
         RaiseLocalEvent(new AlertLevelChangedEvent(station, level));

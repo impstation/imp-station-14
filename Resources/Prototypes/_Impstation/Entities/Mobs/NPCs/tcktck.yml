@@ -140,6 +140,9 @@
   - type: Body
   - type: StatusEffects
     allowed:
+    - Stun
+    - KnockedDown
+    - SlowedDown
     - Flashed
   - type: TypingIndicator
     proto: robot
@@ -318,5 +321,3 @@
   - type: NpcFactionMember
     factions:
     - SimpleNeutral
-  - type: Carriable
-  - type: CanEscapeInventory #for carrying

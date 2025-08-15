@@ -2,34 +2,33 @@
 # Although based on MobBaseAncestor, this species does not have a "developed" playable species it is an ancestor to.
 
 - type: entity
-  name: sirval #imp edit
+  name: scurret
   id: MobBaseScurret
   parent: MobBaseAncestor
   abstract: true
   components:
   # Custom names
   - type: ReplacementAccent
-    accent: sirval #imp edit
+    accent: scurret
   - type: Sprite
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      sprite: _Impstation/Mobs/Animals/sirvals.rsi #imp edit
-      state: sirval #imp edit
+      sprite: Mobs/Animals/scurret/scurret.rsi
+      state: scurret
     - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
       color: "#ffffff"
       sprite: Objects/Misc/handcuffs.rsi
       state: body-overlay-2
       visible: false
   # Custom visuals for dead scurrets; be aware these do not work well with equipment.
-#IMP EDIT: comment this out
-#  - type: DamageStateVisuals
-#    states:
-#      Alive:
-#        Base: scurret
-#      Critical:
-#        Base: scurret_oof
-#      Dead:
-#        Base: scurret_rip
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: scurret
+      Critical:
+        Base: scurret_oof
+      Dead:
+        Base: scurret_rip
   #  About as tough as a monkey
   - type: MobThresholds
     thresholds:
@@ -62,8 +61,8 @@
     proto: moth
   - type: InteractionPopup
     successChance: 0.99 # Imagine not being allowed to headpat a scurret, chat
-    interactSuccessString: petting-success-sirval #imp edit
-    interactFailureString: petting-failure-sirval #imp edit
+    interactSuccessString: petting-success-scurret
+    interactFailureString: petting-failure-scurret
     interactSuccessSpawn: EffectHearts
     interactSuccessSound:
       path: /Audio/Animals/wawa_chillin.ogg
@@ -144,7 +143,7 @@
   - type: BodyEmotes # Grants them clapping and so on.
     soundsId: Scurret
   - type: Deathgasp
-    prototype: SirvalDeathgasp # You monster #Imp edit
+    prototype: ScurretDeathgasp # You monster
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -156,8 +155,8 @@
 # Spawnable scurrets have a random name and colour.
 
 - type: entity
-  name: sirval #imp edit
-  description: A traditional liveried Sirvaletian, or Sirval, from the countryside of the planet Passepartoupia. These sartorial little critters are known for their strict adherence to politeness and etiquette. Usually. #imp edit
+  name: scurret
+  description: Commonly known as Wawa, from the wetlands of Planet Wawa, these critters make up the bulk of Arnolds's Pizza's "loyal workforce".
   id: MobScurret
   parent: MobBaseScurret
   components:
@@ -171,7 +170,7 @@
   - type: RandomSprite
     available:
     - enum.DamageStateVisualLayers.Base:
-        sirval: ScurretColors #imp edit
+        scurret: ScurretColors
   # They are of a mysterious gender.
   - type: Grammar
     attributes:
@@ -185,7 +184,7 @@
 # feel free to hook them into random content.
 
 - type: entity
-  name: Emotional Support Sirval #imp edit
+  name: Emotional Support Scurret
   id: MobBaseEmotionalSupportScurret
   parent: MobBaseScurret
   abstract: true
@@ -197,8 +196,8 @@
       - Passive
     - type: GhostRole
       makeSentient: true
-      name: ghost-role-information-emotional-support-sirval-name #imp edit
-      description: ghost-role-information-emotional-support-sirval-description #imp edit
+      name: ghost-role-information-emotional-support-scurret-name
+      description: ghost-role-information-emotional-support-scurret-description
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: default
@@ -207,7 +206,7 @@
 # Spawnable ESS have a ghost role, equipment, a random name and a random colour.
 
 - type: entity
-  name: Emotional Support Sirval
+  name: Emotional Support Scurret
   id: MobEmotionalSupportScurret
   parent: [MobScurret, MobBaseEmotionalSupportScurret]
-  description: A traditional liveried Sirvaletian, or Sirval, from the countryside of the planet Passepartoupia. These sartorial little critters are known for their strict adherence to politeness and etiquette. Usually. This one has been hired by NT as a temp. #imp edit
+  description: Commonly known as Wawa, from the wetlands of Planet Wawa, these critters make up the bulk of Arnold's Pizza's "loyal workforce". This one is here as a temp.

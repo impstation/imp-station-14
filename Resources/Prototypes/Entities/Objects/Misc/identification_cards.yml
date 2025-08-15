@@ -6,11 +6,11 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/id_cards.rsi #imp edit
+    sprite: Objects/Misc/id_cards.rsi
   - type: Clothing
     slots:
     - idcard
-    sprite: _Impstation/Objects/Misc/id_cards.rsi #imp edit
+    sprite: Objects/Misc/id_cards.rsi
   - type: Item
     size: Small
     heldPrefix: default
@@ -208,6 +208,16 @@
     job: CargoTechnician
 
 - type: entity
+  parent: CargoIDCard
+  id: SeniorCargoIDCard
+  name: senior cargo ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idseniorcargo
+
+- type: entity
   parent: IDCardStandard
   id: SalvageIDCard
   name: salvage ID card
@@ -363,6 +373,7 @@
   name: lawyer ID card
   components:
     - type: Sprite
+      sprite: _Impstation/Objects/Misc/id_cards.rsi # imp edit
       layers:
         - state: default
         - state: idlawyer
@@ -506,8 +517,7 @@
   components:
   - type: Sprite
     layers:
-    - state: gold
-    - state: ert_commander
+    - state: ert_commander #imp
   - type: IdCard
     jobTitle: job-name-ertleader
     jobIcon: JobIconERTLeader
@@ -703,7 +713,7 @@
   components:
   - type: Sprite
     layers:
-    - state: default #imp edit
+    - state: orange
     - state: idatmospherictechnician
   - type: PresetIdCard
     job: AtmosphericTechnician
@@ -928,11 +938,11 @@
   description: An ID card that gives you access beyond your wildest dreams.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/id_cards.rsi #imp
+    sprite: Objects/Misc/id_cards.rsi
     layers:
     - state: admin #removed layer: state (imp)
   - type: Clothing
-    sprite: _Impstation/Objects/Misc/id_cards.rsi #imp
+    sprite: Objects/Misc/id_cards.rsi
   - type: Item
     heldPrefix: green
   - type: IdCard

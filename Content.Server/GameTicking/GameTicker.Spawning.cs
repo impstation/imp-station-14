@@ -285,7 +285,8 @@ namespace Content.Server.GameTicking
                             ("character", MetaData(mob).EntityName),
                             ("entity", mob),
                             ("job", CultureInfo.CurrentCulture.TextInfo.ToTitleCase(jobName))),
-                        Loc.GetString("latejoin-arrival-sender"), //imp. gutted default announcement sounds. announcersystem handles them now.
+                        Loc.GetString("latejoin-arrival-sender"),
+                        playDefaultSound: false,
                         colorOverride: Color.Gold);
                 }
                 else
@@ -295,7 +296,8 @@ namespace Content.Server.GameTicking
                             ("character", MetaData(mob).EntityName),
                             ("entity", mob),
                             ("job", CultureInfo.CurrentCulture.TextInfo.ToTitleCase(jobName))),
-                        Loc.GetString("latejoin-arrival-sender"));  //imp. gutted default announcement sounds. announcersystem handles them now.
+                        Loc.GetString("latejoin-arrival-sender"),
+                        playDefaultSound: false);
                 }
             }
 

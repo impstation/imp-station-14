@@ -197,7 +197,7 @@ public sealed partial class RevenantSystem : EntitySystem
         ChangeEssenceAmount(uid, -abilityCost, component, false);
 
         _statusEffects.TryAddStatusEffect<CorporealComponent>(uid, "Corporeal", TimeSpan.FromSeconds(debuffs.Y), false);
-        _stun.TryAddStunDuration(uid, TimeSpan.FromSeconds(debuffs.X));
+        _stun.TryStun(uid, TimeSpan.FromSeconds(debuffs.X), false);
         // imp edit start
         if (debuffs.X > 0)
             _physics.ResetDynamics(uid, Comp<PhysicsComponent>(uid));

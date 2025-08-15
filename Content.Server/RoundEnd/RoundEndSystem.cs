@@ -186,7 +186,6 @@ namespace Content.Server.RoundEnd
                 text,
                 name,
                 Color.Gold,
-                null, //imp
                 null,
                 null,
                 ("time", time),

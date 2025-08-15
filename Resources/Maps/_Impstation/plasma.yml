@@ -1,10 +1,10 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 265.0.0
+  engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/12/2025 03:42:59
+  time: 07/29/2025 07:16:58
   entityCount: 26719
 maps:
 - 1
@@ -78306,6 +78306,28 @@ entities:
     - type: Transform
       pos: -26.469004,-53.28738
       parent: 2
+- proto: DVSmartFridge
+  entities:
+  - uid: 2102
+    components:
+    - type: Transform
+      pos: -35.5,-25.5
+      parent: 2
+  - uid: 3405
+    components:
+    - type: Transform
+      pos: -53.5,-25.5
+      parent: 2
+  - uid: 19258
+    components:
+    - type: Transform
+      pos: -37.5,-16.5
+      parent: 2
+  - uid: 20155
+    components:
+    - type: Transform
+      pos: -39.5,-26.5
+      parent: 2
 - proto: EdgeDetector
   entities:
   - uid: 25870
@@ -128204,10 +128226,6 @@ entities:
           showEnts: False
           occludes: True
           ent: 8160
-        goldenplunger_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
 - proto: JanitorServiceLight
   entities:
   - uid: 7134
@@ -131015,7 +131033,8 @@ entities:
         [head=2]TB Engineering Firm[/head]
 
 
-        Thank you for ordering your very own Thermal Electric Generator (TEG) from TB Engineering. This guide will emphasize a simple radiator-regulated, dual-loop setup using gas canisters to get a jump-start on power. For more efficient and sustainable solutions, we recommended working with your Atmospherics team to have them assist with setup. While setting the TEG up, it is also recommended to have another engineer setup solars to ensure as smooth of a power setup as possible.
+        Thank you for ordering your very own Thermal Electric Generator (TEG) from TB Engineering. This guide will emphasize a simple radiator-regulated, dual-loop setup using gas canisters to get a jump-start on power. For more efficient and sustainable solutions, we recommended working with your Atmospherics team to have them assist with setup.
+        While setting the TEG up, it is also recommended to have another engineer setup solars to ensure as smooth of a power setup as possible.
 
 
         [head=2]Cold Loop (Cyan)[/head]
@@ -131023,49 +131042,49 @@ entities:
         [bold]Step 1:[/bold] Anchor down a canister of plasma into the connector port connected to the cold loop and turn on the pump at max settings. We recommend pumping the entirety of the canister into the loop.
 
         [bold]Step 2:[/bold] Turn on all other pumps in the cyan cold loop. The radiators in space will begin to cool down the plasma.
-
+        
         [bold]Step 3:[/bold] Once the plasma canister has been empired, turn off the pump connected to the connector port to conserve energy.
-
-
+        
+        
         [head=2]Fuel Mix (Brown)[/head]
 
         [bold]Step 1:[/bold] Use the gas mixer to fill an empty gas canister with a plasma burn mix. We recommend using a ratio of 97% oxygen and 3% plasma to start with.
-
+        
         [bold]Step 2:[/bold] Once the canister is full, bring it to the brown connector port in the north end of the room and pump it into the burn chamber. Turn off the pump once the canister has been emptied. Before igniting, we will want to fill the hot loop with gas.
 
 
         [head=2]Hot Loop (Red)[/head]
-
-
+        
+        
         Before filling the hot loop with gas, be aware that [bold]you do not want too much gas inside of it.[/bold] As the gas heats up, its pressure will rise. [bold]If gas pressure in the hot loop exceeds 9000 kPa, the volumetric pumps will cease to function and the TEG will stop generating power until this is addressed.[/bold]
 
 
         [bold]Step 1:[/bold] Anchor down a canister of plasma into the connector port connected to the hot loop. We recommend turning on the gas pump at a setting of 500 kPa to ensure the hot loop does not become too full of gas.
-
+        
         [bold]Step 2:[/bold] Turn on all other volumetric pumps in the red hot loop.
-
+        
         [bold]Step 3:[/bold] Turn off gas pump connected to the connector port to conserve energy.
-
+        
         [bold]Step 4:[/bold] You may now ignite the fuel mix to heat the hot loop. Press the "Ignite Chamber" button on the northern wall. You may need to press it a few times before you see a steady burn.
-
-
+        
+        
         [head=2]Maintenance[/head]
-
+        
         As stated previously, this guide focuses on easy of setup, not efficiency. The burn chamber in particular will require some attention. 
-
-
+        
+        
         Once the plasma in the burn chamber has burnt out, the temperature inside will begin to drop as the temperature between the hot and cold loops begin to equalize.
-
-
+        
+        
         The simplest way to address this and keep the burn going is to anchor a canister of plasma to the brown connector port that feeds into the burn chamber and slowly trickle in plasma. You will want to use a low setting on the volumetric pump, 5 L/s is a good amount. The air injector will ensure not too much plasma will enter the chamber this way, as it will cease to function once the burn chamber reaches a pressure of 9000 kPa.
-
-
+        
+        
         Be sure to keep an eye on the gas inside of the burn chamber using the air alarm on the northern wall. Plasma will not ignite if there is no oxygen present in the burn chamber. A large amount of CO2 and H2O waste gas will also be left behind as a result of the burn. Once the chamber has run out of oxygen, we recommend ventilating the contents of the chamber using the "Burn Chamber Vent" button on the north wall.
-
-
+        
+        
         In the event that gas from either loop needs to be flushed from the system, use the black manual valves to ventilate their contents into space.
-
-
+ 
+ 
         [head=3]Troubleshooting[/head]
 
         [bold]Circulators aren't turning:[/bold] The circulators are directional. Ensure that gas flow occurs in a clockwise direction. The provided unit should include pumps to help indicate direction.
@@ -131102,7 +131121,8 @@ entities:
         [head=2]TB Engineering Firm[/head]
 
 
-        Thank you for ordering your very own Thermal Electric Generator (TEG) from TB Engineering. This guide will emphasize a simple radiator-regulated, dual-loop setup using gas canisters to get a jump-start on power. For more efficient and sustainable solutions, we recommended working with your Atmospherics team to have them assist with setup. While setting the TEG up, it is also recommended to have another engineer setup solars to ensure as smooth of a power setup as possible.
+        Thank you for ordering your very own Thermal Electric Generator (TEG) from TB Engineering. This guide will emphasize a simple radiator-regulated, dual-loop setup using gas canisters to get a jump-start on power. For more efficient and sustainable solutions, we recommended working with your Atmospherics team to have them assist with setup.
+        While setting the TEG up, it is also recommended to have another engineer setup solars to ensure as smooth of a power setup as possible.
 
 
         [head=2]Cold Loop (Cyan)[/head]
@@ -131110,49 +131130,49 @@ entities:
         [bold]Step 1:[/bold] Anchor down a canister of plasma into the connector port connected to the cold loop and turn on the pump at max settings. We recommend pumping the entirety of the canister into the loop.
 
         [bold]Step 2:[/bold] Turn on all other pumps in the cyan cold loop. The radiators in space will begin to cool down the plasma.
-
+        
         [bold]Step 3:[/bold] Once the plasma canister has been empired, turn off the pump connected to the connector port to conserve energy.
-
-
+        
+        
         [head=2]Fuel Mix (Brown)[/head]
 
         [bold]Step 1:[/bold] Use the gas mixer to fill an empty gas canister with a plasma burn mix. We recommend using a ratio of 97% oxygen and 3% plasma to start with.
-
+        
         [bold]Step 2:[/bold] Once the canister is full, bring it to the brown connector port in the north end of the room and pump it into the burn chamber. Turn off the pump once the canister has been emptied. Before igniting, we will want to fill the hot loop with gas.
 
 
         [head=2]Hot Loop (Red)[/head]
-
-
+        
+        
         Before filling the hot loop with gas, be aware that [bold]you do not want too much gas inside of it.[/bold] As the gas heats up, its pressure will rise. [bold]If gas pressure in the hot loop exceeds 9000 kPa, the volumetric pumps will cease to function and the TEG will stop generating power until this is addressed.[/bold]
 
 
         [bold]Step 1:[/bold] Anchor down a canister of plasma into the connector port connected to the hot loop. We recommend turning on the gas pump at a setting of 500 kPa to ensure the hot loop does not become too full of gas.
-
+        
         [bold]Step 2:[/bold] Turn on all other volumetric pumps in the red hot loop.
-
+        
         [bold]Step 3:[/bold] Turn off gas pump connected to the connector port to conserve energy.
-
+        
         [bold]Step 4:[/bold] You may now ignite the fuel mix to heat the hot loop. Press the "Ignite Chamber" button on the northern wall. You may need to press it a few times before you see a steady burn.
-
-
+        
+        
         [head=2]Maintenance[/head]
-
+        
         As stated previously, this guide focuses on easy of setup, not efficiency. The burn chamber in particular will require some attention. 
-
-
+        
+        
         Once the plasma in the burn chamber has burnt out, the temperature inside will begin to drop as the temperature between the hot and cold loops begin to equalize.
-
-
+        
+        
         The simplest way to address this and keep the burn going is to anchor a canister of plasma to the brown connector port that feeds into the burn chamber and slowly trickle in plasma. You will want to use a low setting on the volumetric pump, 5 L/s is a good amount. The air injector will ensure not too much plasma will enter the chamber this way, as it will cease to function once the burn chamber reaches a pressure of 9000 kPa.
-
-
+        
+        
         Be sure to keep an eye on the gas inside of the burn chamber using the air alarm on the northern wall. Plasma will not ignite if there is no oxygen present in the burn chamber. A large amount of CO2 and H2O waste gas will also be left behind as a result of the burn. Once the chamber has run out of oxygen, we recommend ventilating the contents of the chamber using the "Burn Chamber Vent" button on the north wall.
-
-
+        
+        
         In the event that gas from either loop needs to be flushed from the system, use the black manual valves to ventilate their contents into space.
-
-
+ 
+ 
         [head=3]Troubleshooting[/head]
 
         [bold]Circulators aren't turning:[/bold] The circulators are directional. Ensure that gas flow occurs in a clockwise direction. The provided unit should include pumps to help indicate direction.
@@ -142785,13 +142805,13 @@ entities:
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -106.5,-8.5
+      pos: -106.5,-8.4
       parent: 2
   - uid: 24161
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -97.5,17.5
+      pos: -97.5,17.8
       parent: 2
 - proto: SignDirectionalBar
   entities:
@@ -142799,39 +142819,39 @@ entities:
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -66.5,-50.5
+      pos: -66.5,-50.4
       parent: 2
 - proto: SignDirectionalBridge
   entities:
   - uid: 15237
     components:
     - type: Transform
-      pos: -100.5,-0.5
+      pos: -100.5,-0.3
       parent: 2
   - uid: 15867
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -99.5,-11.5
+      pos: -99.5,-11.4
       parent: 2
   - uid: 19889
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -27.5,-10.5
+      pos: -27.5,-10.2
       parent: 2
 - proto: SignDirectionalChapel
   entities:
   - uid: 15862
     components:
     - type: Transform
-      pos: -62.5,-36.5
+      pos: -62.5,-36.6
       parent: 2
   - uid: 24506
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -62.5,-50.5
+      pos: -62.5,-50.6
       parent: 2
 - proto: SignDirectionalCryo
   entities:
@@ -142839,18 +142859,18 @@ entities:
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -99.5,-11.5
+      pos: -99.5,-11.2
       parent: 2
   - uid: 19904
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -66.5,-50.5
+      pos: -66.5,-50.2
       parent: 2
   - uid: 20531
     components:
     - type: Transform
-      pos: -65.5,-13.5
+      pos: -65.5,-13.8
       parent: 2
 - proto: SignDirectionalDorms
   entities:
@@ -142863,7 +142883,7 @@ entities:
   - uid: 24508
     components:
     - type: Transform
-      pos: -66.5,-50.5
+      pos: -66.5,-50.6
       parent: 2
 - proto: SignDirectionalEng
   entities:
@@ -142871,7 +142891,7 @@ entities:
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -101.5,-11.5
+      pos: -101.5,-11.4
       parent: 2
   - uid: 15234
     components:
@@ -142883,7 +142903,7 @@ entities:
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -65.5,-13.5
+      pos: -65.5,-13.2
       parent: 2
   - uid: 18565
     components:
@@ -142895,7 +142915,7 @@ entities:
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -31.5,-10.5
+      pos: -31.5,-10.4
       parent: 2
   - uid: 23338
     components:
@@ -142913,7 +142933,7 @@ entities:
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -106.5,-8.5
+      pos: -106.5,-8.6
       parent: 2
   - uid: 25469
     components:
@@ -142927,31 +142947,31 @@ entities:
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -57.5,-13.5
+      pos: -57.5,-13.4
       parent: 2
   - uid: 15868
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -99.5,-11.5
+      pos: -99.5,-11.6
       parent: 2
   - uid: 18780
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -101.5,-36.5
+      pos: -101.5,-36.3
       parent: 2
   - uid: 19756
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -41.5,-11.5
+      pos: -41.5,-11.7
       parent: 2
   - uid: 19901
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -27.5,-10.5
+      pos: -27.5,-10.4
       parent: 2
   - uid: 20803
     components:
@@ -142962,13 +142982,13 @@ entities:
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -76.5,-11.5
+      pos: -76.5,-11.7
       parent: 2
   - uid: 26478
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -101.5,-21.5
+      pos: -101.49736,-21.273188
       parent: 2
 - proto: SignDirectionalFood
   entities:
@@ -142976,24 +142996,24 @@ entities:
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -27.5,-10.5
+      pos: -27.5,-10.6
       parent: 2
   - uid: 15856
     components:
     - type: Transform
-      pos: -57.5,-13.5
+      pos: -57.5,-13.8
       parent: 2
   - uid: 19164
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -62.5,-50.5
+      pos: -62.5,-50.4
       parent: 2
   - uid: 24503
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -62.5,-36.5
+      pos: -62.5,-36.4
       parent: 2
 - proto: SignDirectionalHop
   entities:
@@ -143009,13 +143029,13 @@ entities:
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -62.5,-50.5
+      pos: -62.5,-50.2
       parent: 2
   - uid: 24504
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -62.5,-36.5
+      pos: -62.5,-36.2
       parent: 2
 - proto: SignDirectionalJanitor
   entities:
@@ -143036,37 +143056,37 @@ entities:
   - uid: 7554
     components:
     - type: Transform
-      pos: -62.5,-36.5
+      pos: -62.5,-36.8
       parent: 2
   - uid: 24505
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -62.5,-50.5
+      pos: -62.5,-50.8
       parent: 2
 - proto: SignDirectionalMed
   entities:
   - uid: 11833
     components:
     - type: Transform
-      pos: -27.5,-10.5
+      pos: -27.5,-10.8
       parent: 2
   - uid: 15743
     components:
     - type: Transform
-      pos: -100.5,-0.5
+      pos: -100.5,-0.7
       parent: 2
   - uid: 15857
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -57.5,-13.5
+      pos: -57.5,-13.6
       parent: 2
   - uid: 15870
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -99.5,-11.5
+      pos: -99.5,-11.8
       parent: 2
   - uid: 18942
     components:
@@ -143084,13 +143104,13 @@ entities:
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -41.5,-15.5
+      pos: -41.5,-15.3
       parent: 2
   - uid: 25471
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -76.5,-15.5
+      pos: -76.5,-15.3
       parent: 2
 - proto: SignDirectionalSalvage
   entities:
@@ -143098,53 +143118,53 @@ entities:
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -97.5,23.5
+      pos: -97.5,23.8
       parent: 2
 - proto: SignDirectionalSci
   entities:
   - uid: 1532
     components:
     - type: Transform
-      pos: -106.5,-21.5
+      pos: -106.501305,-21.721226
       parent: 2
   - uid: 3662
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -31.5,-10.5
+      pos: -31.5,-10.8
       parent: 2
   - uid: 12470
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -41.5,-15.5
+      pos: -41.5,-15.7
       parent: 2
   - uid: 15236
     components:
     - type: Transform
-      pos: -105.5,-0.5
+      pos: -105.5,-0.7
       parent: 2
   - uid: 15851
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -65.5,-13.5
+      pos: -65.5,-13.6
       parent: 2
   - uid: 15865
     components:
     - type: Transform
-      pos: -101.5,-11.5
+      pos: -101.5,-11.8
       parent: 2
   - uid: 17092
     components:
     - type: Transform
-      pos: -106.5,-36.5
+      pos: -106.5,-36.7
       parent: 2
   - uid: 25473
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -76.5,-15.5
+      pos: -76.5,-15.7
       parent: 2
 - proto: SignDirectionalSec
   entities:
@@ -143152,25 +143172,25 @@ entities:
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -65.5,-13.5
+      pos: -65.5,-13.4
       parent: 2
   - uid: 15871
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -101.5,-11.5
+      pos: -101.5,-11.6
       parent: 2
   - uid: 16503
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -101.5,-36.5
+      pos: -101.5,-36.7
       parent: 2
   - uid: 19966
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -31.5,-10.5
+      pos: -31.5,-10.6
       parent: 2
   - uid: 23720
     components:
@@ -143188,7 +143208,7 @@ entities:
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -101.5,-21.5
+      pos: -101.49736,-21.731522
       parent: 2
 - proto: SignDirectionalSolar
   entities:
@@ -143255,61 +143275,61 @@ entities:
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -106.5,-36.5
+      pos: -106.5,-36.3
       parent: 2
   - uid: 4633
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -97.5,17.5
+      pos: -97.5,17.2
       parent: 2
   - uid: 4635
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -106.5,17.5
+      pos: -106.5,17.8
       parent: 2
   - uid: 15235
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -105.5,-0.5
+      pos: -105.5,-0.3
       parent: 2
   - uid: 15866
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -101.5,-11.5
+      pos: -101.5,-11.2
       parent: 2
   - uid: 19890
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -41.5,-11.5
+      pos: -41.5,-11.3
       parent: 2
   - uid: 19912
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -31.5,-10.5
+      pos: -31.5,-10.2
       parent: 2
   - uid: 20570
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -57.5,-13.5
+      pos: -57.5,-13.2
       parent: 2
   - uid: 25468
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -76.5,-11.5
+      pos: -76.5,-11.3
       parent: 2
   - uid: 26438
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -106.5,-21.5
+      pos: -106.50142,-21.276783
       parent: 2
 - proto: SignDisposalSpace
   entities:
@@ -144073,30 +144093,6 @@ entities:
       allowedDepartments:
       - Security
       severity: Syndicate
-- proto: SmartFridge
-  entities:
-  - uid: 3405
-    components:
-    - type: Transform
-      pos: -53.5,-25.5
-      parent: 2
-  - uid: 19258
-    components:
-    - type: Transform
-      pos: -37.5,-16.5
-      parent: 2
-  - uid: 20155
-    components:
-    - type: Transform
-      pos: -39.5,-26.5
-      parent: 2
-- proto: SmartFridgeMedical
-  entities:
-  - uid: 2102
-    components:
-    - type: Transform
-      pos: -35.5,-25.5
-      parent: 2
 - proto: SMESAdvanced
   entities:
   - uid: 7621
@@ -146098,7 +146094,7 @@ entities:
     - type: Transform
       pos: -72.5,-21.5
       parent: 2
-- proto: SpawnMobPollyParrot
+- proto: SpawnMobPoly
   entities:
   - uid: 18879
     components:
@@ -170925,7 +170921,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -230782.75
+      secondsUntilStateChange: -230728.05
       state: Opening
     - type: Airlock
       autoClose: False

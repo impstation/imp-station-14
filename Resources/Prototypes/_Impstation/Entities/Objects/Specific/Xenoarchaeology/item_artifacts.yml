@@ -75,8 +75,8 @@
   suffix: Simple
   components:
   - type: Artifact
-    nodesMin: 3
-    nodesMax: 6
+    nodesMin: 4
+    nodesMax: 9
 
 - type: entity
   parent: BaseXenoArtifactItem
@@ -84,8 +84,8 @@
   suffix: Medium
   components:
   - type: Artifact
-    nodesMin: 7
-    nodesMax: 11
+    nodesMin: 9
+    nodesMax: 13
 
 - type: entity
   parent: BaseXenoArtifactItem
@@ -93,7 +93,7 @@
   suffix: Complex
   components:
   - type: Artifact
-    nodesMin: 12
+    nodesMin: 13
     nodesMax: 16
 
 # this exists for crafting item artifacts so that the final result can be simple, medium, or complex.
@@ -103,7 +103,7 @@
   suffix: Varied
   components:
   - type: Artifact
-    nodesMin: 3
+    nodesMin: 4
     nodesMax: 16
 
 
