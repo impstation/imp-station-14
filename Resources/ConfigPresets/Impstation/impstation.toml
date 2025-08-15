@@ -55,6 +55,6 @@ role_time = 10
 login_dataset = "LoginTips"
 
 [whitelist]
-enabled = true
-# pretty much only worries about users who've been manually whitelisted
+enabled = false
+# we do have a whitelist in place, but as of 15 august 2025 the server is open again
 # whitelist cutoff date: ~0:00CT 28 april 2025
