@@ -2,7 +2,6 @@ using System.Collections.Immutable;
 using System.Globalization;
 using System.Linq;
 using System.Text;
-using Content.Server.Abilities.Mime;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
@@ -11,6 +10,7 @@ using Content.Server.Speech.EntitySystems;
 using Content.Server.Speech.Prototypes;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
+using Content.Shared.Abilities.Mime; // imp
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
@@ -835,12 +835,12 @@ public sealed partial class ChatSystem : SharedChatSystem
     {
         if (desiredType == InGameICChatType.Emote)
         {
-            var newMessage = "*" + message + "*";
+            var newMessage = "*" + message.Replace("*", "") + "*";
             _lastMessageBeforeDeathSystem.AddMessage(source, player, newMessage);
         }
         else
         {
-            var newMessage = TransformSpeech(source, message);
+            var newMessage = TransformSpeech(source, message.Replace("*", ""));
             _lastMessageBeforeDeathSystem.AddMessage(source, player, newMessage);
         }
     }
