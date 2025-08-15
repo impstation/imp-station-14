@@ -62,7 +62,7 @@
 - type: weightedRandom
   id: ParadoxTypeGroup
   weights:
-    ParadoxCloneKillObjective: 1
-    ParadoxCloneSaveObjective: 1 # this chance is equal to mitigate metagaming
+    ParadoxCloneKillObjective: 4
+    ParadoxCloneSaveObjective: 1
     ParadoxCloneLivingAltObjective: 1
     ParadoxCloneLivingObjective: 1

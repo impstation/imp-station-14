@@ -1,0 +1,9 @@
+- type: parallax
+  id: HotboxStation
+  layers:
+  - texture:
+      !type:ImageParallaxTextureSource
+      path: /Textures/_Impstation/Parallaxes/hotbox_ground.png
+    slowness: 0
+    scale: "1, 1"
+    shader: ""
