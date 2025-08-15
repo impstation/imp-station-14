@@ -178,6 +178,17 @@
     sprite: _Impstation/Clothing/Mask/clown_service.rsi
 
 - type: entity
+  parent: ClothingMaskClown
+  id: ClothingMaskClownBigNose
+  name: big nosed clown wig and mask
+  description: A merging of old and new styles from clown culture.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Mask/clown_bignose.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Mask/clown_bignose.rsi
+
+- type: entity
   parent: ClothingMaskBase
   id: ClothingMaskClownNose
   name: clown nose
