@@ -65,10 +65,5 @@ public sealed class StartWithLensesSystem : EntitySystem
                     handsComp: handsComponent);
             }
         }
-
-        if (eyes.Valid)
-        {
-            _inventorySystem.SpawnItemInSlot(ent, "eyes", ent.Comp.LensPrototype);
-        }
     }
 }
