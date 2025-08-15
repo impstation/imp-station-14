@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Fluids.EntitySystems;
+using Content.Server.Humanoid;
 using Content.Server.Power.Components;
 using Content.Server.PowerCell;
 using Content.Shared._Impstation.Homunculi.Components;
@@ -13,9 +14,9 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Examine;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Markings;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
-using Content.Shared.Sprite;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
@@ -31,6 +32,7 @@ public sealed class IncubatorSystem : SharedIncubatorSystem
     [Dependency] private readonly ItemSlotsSystem _slots = null!;
     [Dependency] private readonly PuddleSystem _puddle = null!;
     [Dependency] private readonly SharedAudioSystem _audio = null!;
+    [Dependency] private readonly HumanoidAppearanceSystem _appearance = null!;
 
     public override void Initialize()
     {
@@ -205,42 +207,41 @@ public sealed class IncubatorSystem : SharedIncubatorSystem
             EnsureComp<DnaComponent>(homunculi, out var homunculiDnaComponent);
             homunculiDnaComponent.DNA = dnaComponent.DNA;
 
-            SetHomunculusAppearance(victim,homunculi);
+            SetHomunculusAppearance(victim,homunculi,homunculiTypeComponent);
             return true;
         }
         return false;
     }
 
-    private void SetHomunculusAppearance(EntityUid urist, EntityUid homunculi)
+    private void SetHomunculusAppearance(EntityUid urist, EntityUid homunculi, HomunculiTypeComponent homunculiTypeComponent)
     {
-        (Color skinColor, Color eyeColor)? colors;
-        if (TryComp<HumanoidAppearanceComponent>(urist, out var appearanceComponent))
+        var markingCategories = new List<MarkingCategories>
         {
-            colors = GetHumanoidColors(appearanceComponent);
-        }
-        else
+            MarkingCategories.Head,
+            MarkingCategories.Eyes,
+            MarkingCategories.Snout,
+            MarkingCategories.HeadSide,
+            MarkingCategories.HeadTop,
+        };
+
+        if (!TryComp<HumanoidAppearanceComponent>(urist, out var appearanceComponent))
+            return;
+        if (!TryComp<HumanoidAppearanceComponent>(homunculi, out var homAppearanceComponent))
             return;
 
-        if (!TryComp<RandomSpriteComponent>(homunculi, out var randomSprite))
-            return;
+        homAppearanceComponent.SkinColor = appearanceComponent.SkinColor;
+        homAppearanceComponent.EyeColor = appearanceComponent.EyeColor;
 
-        foreach (var entry in randomSprite.Selected)
+        foreach (var markingPair in appearanceComponent.MarkingSet.Markings)
         {
-            var state = randomSprite.Selected[entry.Key];
-            state.Color = entry.Key switch
+            if (!markingCategories.Contains(markingPair.Key))
+                continue;
+
+            foreach (var marking in markingPair.Value)
             {
-                "skinMap" => colors.Value.skinColor,
-                "eyeMap" => colors.Value.eyeColor,
-                _ => state.Color,
-            };
-            randomSprite.Selected[entry.Key] = state;
+                _appearance.AddMarking(homunculi, marking.MarkingId, marking.MarkingColors);
+            }
         }
-        Dirty(urist, randomSprite);
-    }
-
-    private static (Color skinColor, Color eyeColor) GetHumanoidColors(HumanoidAppearanceComponent comp)
-    {
-        return (comp.SkinColor , comp.EyeColor);
     }
 
     private static bool SatisfiesRecipe(HomunculiTypeComponent component, List<ReagentQuantity> reagents)
