@@ -1,0 +1,30 @@
+﻿## ERP Sepcail Forces
+- type: entity
+  parent: IDCardStandard
+  id: ERPLeaderIDCard
+  name: ERP leader ID card
+  suffix: Harmony
+  components:
+  - type: Sprite
+    layers:
+    - state: gold
+    - state: ert_commander # They will never know
+  - type: PresetIdCard
+    job: ERPLeader
+  - type: Item
+    heldPrefix: gold
+
+- type: entity
+  parent: IDCardStandard
+  id: ERPClownIDCard
+  name: ERP clown ID card
+  suffix: Harmony
+  components:
+  - type: Sprite
+    layers:
+    - state: gold
+    - state: idclown
+  - type: PresetIdCard
+    job: ERPClown
+  - type: Item
+    heldPrefix: gold
