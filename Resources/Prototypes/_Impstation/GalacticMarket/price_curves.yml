@@ -1,0 +1,5 @@
+
+#default pricing used for anything w/o an explicitly declared curve, doesn't modify price at all
+- type: priceCurve
+  id: default
+
