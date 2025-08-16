@@ -189,9 +189,6 @@
   parent: [StripableInventoryBase, BaseHomunculus]
   description: It's... Fluffy? I think?
   components:
-  - type: Sprite
-    sprite: _Impstation/Mobs/Homunculi/Moth/body.rsi/
-    state: base
   - type: HumanoidAppearance
     species: HomunculusMoth
     markingsDisplacement:
@@ -317,9 +314,6 @@
       enum.ThavenMoodsUiKey.Key: # impstation edit
         type: ThavenMoodsBoundUserInterface
         requireInputValidation: false
-  - type: Sprite
-    sprite: _Impstation/Mobs/Homunculi/Thaven/body.rsi/
-    state: base
   - type: HumanoidAppearance
     species: HomunculusThaven
     markingsDisplacement:
