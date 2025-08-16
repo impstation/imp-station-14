@@ -13,7 +13,7 @@
   description: A special hardsuit helmet designed for working in low-pressure, high thermal environments.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/atmospherics.rsi
+    sprite: _Impstation/Clothing/Head/Hardsuits/atmospherics.rsi #imp
     layers:
     - state: icon
     - state: icon-unshaded
@@ -51,7 +51,7 @@
       - state: equipped-head-unshaded-dog
         shader: unshaded
   - type: PointLight
-    color: "#adffe6"
+    color: "#76FFD4" #imp
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
@@ -73,7 +73,7 @@
   description: An engineering hardsuit helmet designed for working in low-pressure, high radioactive environments.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/engineering.rsi
+    sprite: _Impstation/Clothing/Head/Hardsuits/engineering.rsi #imp
     layers:
     - state: icon
     - state: icon-unshaded
@@ -111,7 +111,7 @@
       - state: equipped-head-unshaded-dog
         shader: unshaded
   - type: PointLight
-    color: "#ffdbad"
+    color: "#E5FFA9" #imp
   - type: PressureProtection
     highPressureMultiplier: 0.1
     lowPressureMultiplier: 1000
@@ -368,7 +368,7 @@
   description: Special hardsuit helmet, made for the chief engineer of the station.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/engineering-white.rsi
+    sprite: _Impstation/Clothing/Head/Hardsuits/engineering-white.rsi #imp
     layers:
     - state: icon
     - state: icon-unshaded
@@ -406,7 +406,7 @@
       - state: equipped-head-unshaded-dog
         shader: unshaded
   - type: PointLight
-    color: "#daffad"
+    color: "#F9FFC9" #imp
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
