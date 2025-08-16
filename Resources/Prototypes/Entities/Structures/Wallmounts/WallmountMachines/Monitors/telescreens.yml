@@ -62,6 +62,7 @@
     layers:
       - map: ["computerLayerBody"]
         state: telescreen_frame
+# imp edit so the frame doesn't appear with power. It should be off while being built
 #      - map: ["computerLayerScreen"]
 #        state: telescreen
   - type: Destructible
