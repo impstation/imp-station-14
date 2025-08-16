@@ -1,7 +1,7 @@
 [game]
 hostname = "[EN][MRP] Impstation"
 desc = "Unofficial server for fans of RTVS featuring custom content. Come and see him."
-soft_max_players = 80
+soft_max_players = 100
 # seconds
 # default 120
 round_restart_time = 300
@@ -31,7 +31,7 @@ restricted_names = false
 rate_limit_count = 20
 
 [infolinks]
-# discord = ""
+discord = "https://discord.gg/erthpinball"
 github = "https://github.com/impstation/imp-station-14"
 website = "https://impstation.gay"
 # wiki = ""
