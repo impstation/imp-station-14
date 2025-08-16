@@ -225,11 +225,21 @@ namespace Content.Client.Lobby.UI
 
             PronounsButton.OnItemSelected += args =>
             {
+                var label = GetFormattedPronounsFromGender(); // Den - cosmetic pronouns
                 PronounsButton.SelectId(args.Id);
                 SetGender((Gender) args.Id);
+                if (Profile?.DisplayPronouns == null) // Den - cosmetic pronouns
+                    UpdateDisplayPronounsControls(); // Den
             };
 
             #endregion Gender
+
+            // begin Den edit - cosmetic pronouns
+            #region Display Pronouns
+
+            DisplayPronounsNameEdit.OnTextChanged += args => { SetDisplayPronouns(args.Text); };
+            #endregion Display Pronouns
+            // end Den edit
 
             RefreshSpecies();
 
@@ -788,6 +798,7 @@ namespace Content.Client.Lobby.UI
             UpdateFlavorTextEdit();
             UpdateSexControls();
             UpdateGenderControls();
+            UpdateDisplayPronounsControls(); // imp edit - cosmetic pronouns
             UpdateSkinColor();
             UpdateSpawnPriorityControls();
             UpdateAgeEdit();
@@ -1266,6 +1277,28 @@ namespace Content.Client.Lobby.UI
             ReloadPreview();
         }
 
+        // imp edit begin - cosmetic pronouns
+        private void SetDisplayPronouns(string? displayPronouns)
+        {
+            if (displayPronouns == GetFormattedPronounsFromGender())
+                displayPronouns = null;
+
+            Profile = Profile?.WithDisplayPronouns(displayPronouns);
+            ReloadPreview();
+            IsDirty = true;
+        }
+
+        private string GetFormattedPronounsFromGender()
+        {
+            if (Profile == null)
+                return "they/them";
+
+            var genderName = Enum.GetName(typeof(Gender), Profile.Gender) ?? "Epicene";
+            var label = Loc.GetString($"humanoid-profile-editor-pronouns-{genderName.ToLower()}-text");
+            return label.Replace(" ", string.Empty).ToLower();
+        }
+        // end imp edit
+
         private void SetSpecies(string newSpecies)
         {
             Profile = Profile?.WithSpecies(newSpecies);
@@ -1476,6 +1509,21 @@ namespace Content.Client.Lobby.UI
             PronounsButton.SelectId((int) Profile.Gender);
         }
 
+        // imp edit begin - cosmetic pronouns
+        private void UpdateDisplayPronounsControls()
+        {
+            if (Profile == null)
+                return;
+
+            var label = GetFormattedPronounsFromGender();
+            DisplayPronounsNameEdit.PlaceHolder = label;
+
+            if (Profile.DisplayPronouns == null)
+                DisplayPronounsNameEdit.Text = string.Empty;
+            else
+                DisplayPronounsNameEdit.Text = Profile.DisplayPronouns;
+        }
+        // end imp edit
         private void UpdateSpawnPriorityControls()
         {
             if (Profile == null)

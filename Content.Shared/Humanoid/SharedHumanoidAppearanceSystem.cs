@@ -112,6 +112,9 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         var age = GetAgeRepresentation(component.Species, component.Age);
 
         args.PushText(Loc.GetString("humanoid-appearance-component-examine", ("user", identity), ("age", age), ("species", species)));
+
+        if (component.DisplayPronouns != null) // Den - cosmetic pronouns
+            args.PushText(Loc.GetString("humanoid-appearance-component-examine-pronouns", ("user", identity), ("pronouns", component.DisplayPronouns)));
     }
 
     /// <summary>
@@ -443,7 +446,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         {
             _grammarSystem.SetGender((uid, grammar), profile.Gender);
         }
-
+        humanoid.DisplayPronouns = profile.DisplayPronouns; // Den - cosmetic pronouns
         humanoid.Age = profile.Age;
 
         Dirty(uid, humanoid);
