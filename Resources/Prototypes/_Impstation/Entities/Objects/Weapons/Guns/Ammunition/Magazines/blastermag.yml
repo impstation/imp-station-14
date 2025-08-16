@@ -1,6 +1,6 @@
 - type: entity
   name: Blaster Cell
-  description: A rechargeable power cell built for blaster pistols.
+  description: A rechargeable power cell compatible with blaster pistols. Can be used as a weak power source in a pinch, too!
   id: PowerCellBlaster
   suffix: Full
   parent: [ BaseItem, BaseSecurityContraband ]
@@ -39,11 +39,11 @@
   - type: Item
     size: Small
   - type: Battery
-    maxCharge: 600
-    startingCharge: 600
+    maxCharge: 288
+    startingCharge: 288
   - type: ProjectileBatteryAmmoProvider
     proto: BulletBlasterPistol
-    fireCost: 75
+    fireCost: 36
   - type: Tag
     tags:
       - BlasterCell
@@ -62,5 +62,5 @@
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
   - type: Battery
-    maxCharge: 600
+    maxCharge: 288
     startingCharge: 0
