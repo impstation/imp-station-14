@@ -1,28 +1,4 @@
 ﻿Entries:
-- author: TheLuggage05
-  changes:
-  - message: New option to purchase SAW ammo, but you have to load it yourself.
-    type: Add
-  - message: Mosin ammo in the uplink now gives the correct kind of ammo.
-    type: Fix
-  id: 1670
-  time: '2025-05-14T13:05:11.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2488
-- author: animal-collective
-  changes:
-  - message: three new hairs for humanoids
-    type: Add
-  id: 1671
-  time: '2025-05-14T13:46:32.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2491
-- author: AirFryerBuyOneGetOneFree
-  changes:
-  - message: Added the AAC Tablet, allowing mute crewmembers to play certain words
-      or phrases for swift communication.
-    type: Add
-  id: 1672
-  time: '2025-05-14T17:59:29.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2352
 - author: jtfg-dev
   changes:
   - message: Nanotrasen has issued an apology and summary hush-money to various borg
@@ -4224,3 +4200,28 @@
   id: 2169
   time: '2025-08-16T11:43:52.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3283
+- author: ATDoop
+  changes:
+  - message: The Shining Spring now properly appears on your back when you equip it
+      in your back slot.
+    type: Fix
+  id: 2170
+  time: '2025-08-16T22:35:22.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3302
+- author: honeyed-lemons
+  changes:
+  - message: Anomalies should no longer spawn in space on Box
+    type: Fix
+  id: 2171
+  time: '2025-08-16T22:36:54.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3300
+- author: VeeNomine
+  changes:
+  - message: Borgs have relearned how to scream.
+    type: Tweak
+  - message: In relearning how to scream, borgs unlocked their latent superpower of
+      laughter.
+    type: Add
+  id: 2172
+  time: '2025-08-16T23:37:08.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3288
