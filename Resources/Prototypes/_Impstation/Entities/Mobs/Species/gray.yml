@@ -121,6 +121,12 @@
     hideLayersOnEquip:
     - Hair
     - Snout
+  - type: HomunculiType
+    homunculiType: HomunculusGray
+    recipe:
+      SynthFlesh: 20
+      Saline: 20
+      GrayBlood: 5
   - type: Carriable # Carrying system from nyanotrasen.
 
 - type: entity
@@ -133,7 +139,6 @@
   - type: Body
     prototype: Gray
   - type: Inventory
-    speciesId: gray
     templateId: gray
     displacements:
       jumpsuit:

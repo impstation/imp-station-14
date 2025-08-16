@@ -31,6 +31,13 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  - type: HomunculiType #imp
+    homunculiType: HomunculusHuman
+    recipe:
+      SynthFlesh: 20
+      Saline: 20
+      Blood: 5
+    defaultSkinColor: "#FFE1CCFF"
   - type: Carriable # Carrying system from nyanotrasen.
 
 - type: entity
