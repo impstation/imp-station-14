@@ -44,6 +44,7 @@
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: mansus_link
+  - type: TargetAction
   - type: EntityTargetAction
     event: !type:EventHereticMansusLink {}
   - type: HereticAction
