@@ -1,0 +1,17 @@
+- type: alert
+  id: ArcfiendEnergy
+  icons:
+  - sprite: /Textures/_Impstation/Arcfiend/arcfiend_energy.rsi
+    state: 0
+  alertViewEntity: AlertArcfiendEnergySpriteView
+  name: alerts-arcfiend-energy-name
+  description: alerts-arcfiend-energy-desc
+
+- type: entity
+  id: AlertArcfiendEnergySpriteView
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: /Textures/_Impstation/Arcfiend/arcfiend_energy.rsi
+    layers:
+    - map: [ "enum.AlertVisualLayers.Base" ]

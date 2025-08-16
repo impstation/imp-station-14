@@ -58,7 +58,7 @@ public sealed partial class AdminVerbSystem
                 _antag.ForceMakeAntag<TraitorRuleComponent>(targetPlayer, DefaultTraitorRule);
             },
             Impact = LogImpact.High,
-            Message = string.Join(": ", traitorName,  Loc.GetString("admin-verb-make-traitor")),
+            Message = string.Join(": ", traitorName, Loc.GetString("admin-verb-make-traitor")),
         };
         args.Verbs.Add(traitor);
 
@@ -205,5 +205,20 @@ public sealed partial class AdminVerbSystem
             Message = Loc.GetString("admin-verb-make-heretic"),
         };
         args.Verbs.Add(heretic);
+
+        // impstation - arcfiends
+        Verb arcfiend = new()
+        {
+            Text = Loc.GetString("admin-verb-text-make-arcfiend"),
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/_Impstation/Arcfiend/arcfiend_abilities.rsi"), "arc_flash"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<ArcfiendRuleComponent>(targetPlayer, "SubArcfiend");
+            },
+            Impact = LogImpact.High,
+            Message = Loc.GetString("admin-verb-make-arcfiend"),
+        };
+        args.Verbs.Add(arcfiend);
     }
 }
