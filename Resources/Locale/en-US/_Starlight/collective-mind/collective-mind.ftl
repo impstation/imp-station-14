@@ -14,3 +14,4 @@ cmd-cmsay-help = cmsay <text>
 
 character-info-minds-label = Collective Minds
 hud-chatbox-select-channel-CollectiveMind = Collective Mind
+hud-chatbox-channel-CollectiveMind = Collective Mind
