@@ -42,9 +42,9 @@ public abstract class SharedFishingRodSystem : EntitySystem
         SubscribeLocalEvent<CanWeightlessMoveEvent>(OnWeightlessMove);
         SubscribeAllEvent<RequestGrapplingReelMessage>(OnGrapplingReel);
 
-        SubscribeLocalEvent<FishingRodComponent, GunShotEvent>(OnGrapplingShot);
-        SubscribeLocalEvent<FishingRodComponent, ActivateInWorldEvent>(OnGunActivate);
-        SubscribeLocalEvent<FishingRodComponent, HandDeselectedEvent>(OnGrapplingDeselected);
+        SubscribeLocalEvent<ImpFishingRodComponent, GunShotEvent>(OnGrapplingShot);
+        SubscribeLocalEvent<ImpFishingRodComponent, ActivateInWorldEvent>(OnGunActivate);
+        SubscribeLocalEvent<ImpFishingRodComponent, HandDeselectedEvent>(OnGrapplingDeselected);
 
         SubscribeLocalEvent<FishingProjectileComponent, ProjectileEmbedEvent>(OnGrappleCollide);
         SubscribeLocalEvent<FishingProjectileComponent, JointRemovedEvent>(OnGrappleJointRemoved);
@@ -57,7 +57,7 @@ public abstract class SharedFishingRodSystem : EntitySystem
             QueueDel(uid);
     }
 
-    private void OnGrapplingShot(EntityUid uid, FishingRodComponent component, ref GunShotEvent args)
+    private void OnGrapplingShot(EntityUid uid, ImpFishingRodComponent component, ref GunShotEvent args)
     {
         foreach (var (shotUid, _) in args.Ammo)
         {
@@ -80,7 +80,7 @@ public abstract class SharedFishingRodSystem : EntitySystem
         Dirty(uid, component);
     }
 
-    private void OnGrapplingDeselected(EntityUid uid, FishingRodComponent component, HandDeselectedEvent args)
+    private void OnGrapplingDeselected(EntityUid uid, ImpFishingRodComponent component, HandDeselectedEvent args)
     {
         SetReeling(uid, component, false, args.User);
     }
@@ -91,7 +91,7 @@ public abstract class SharedFishingRodSystem : EntitySystem
             return;
 
         if (!_hands.TryGetActiveItem(player, out var activeItem) ||
-            !TryComp<FishingRodComponent>(activeItem, out var grappling))
+            !TryComp<ImpFishingRodComponent>(activeItem, out var grappling))
         {
             return;
         }
@@ -121,7 +121,7 @@ public abstract class SharedFishingRodSystem : EntitySystem
         }
     }
 
-    private void OnGunActivate(EntityUid uid, FishingRodComponent component, ActivateInWorldEvent args)
+    private void OnGunActivate(EntityUid uid, ImpFishingRodComponent component, ActivateInWorldEvent args)
     {
         if (!Timing.IsFirstTimePredicted || args.Handled || !args.Complex || component.Projectile is not {} projectile)
             return;
@@ -141,7 +141,7 @@ public abstract class SharedFishingRodSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void SetReeling(EntityUid uid, FishingRodComponent component, bool value, EntityUid? user)
+    private void SetReeling(EntityUid uid, ImpFishingRodComponent component, bool value, EntityUid? user)
     {
         if (component.Reeling == value)
             return;
@@ -167,7 +167,7 @@ public abstract class SharedFishingRodSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<FishingRodComponent>();
+        var query = EntityQueryEnumerator<ImpFishingRodComponent>();
 
         while (query.MoveNext(out var uid, out var grappling))
         {

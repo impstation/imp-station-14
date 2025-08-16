@@ -3,7 +3,7 @@
   parent: BaseItem
   id: FishingRodBase
   components:
-    - type: FishingRod #The component that handles all the joint stuff
+    - type: ImpFishingRod #The component that handles all the joint stuff
       ropeSprite: _Impstation/Objects/Fishing/fishingrod.rsi/rope.png
     - type: Gun #The component that handles the firing
       soundGunshot: /Audio/Weapons/Guns/Gunshots/harpoon.ogg
@@ -60,7 +60,7 @@
     #  friction: 20
     - type: Item
       size: Ginormous
-    - type: FishingRod #The component that handles all the joint stuff
+    - type: ImpFishingRod #The component that handles all the joint stuff
       cycleSound: /Audio/Effects/Fluids/glug.ogg
       ropeSprite: _Impstation/Objects/Fishing/fishingrod_Ling.rsi/rope.png
       reelRate: 5
