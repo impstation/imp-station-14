@@ -11,8 +11,15 @@
     layers:
       - map: ["computerLayerBody"]
         state: telescreen_frame
-      - map: ["computerLayerScreen"]
+      - map: ["unlit"] #imp
         state: telescreen
+  - type: Appearance #imp
+  - type: GenericVisualizer #imp
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        unlit:
+          True: { visible: true, shader: unshaded }
+          False: { visible: false }
   - type: Fixtures #this whole bit is so that you can open it way easier
     fixtures:
       fix1:
