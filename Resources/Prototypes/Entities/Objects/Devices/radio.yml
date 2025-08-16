@@ -2,7 +2,8 @@
   name: handheld radio
   description: A handy handheld radio.
   parent: BaseItem
-  id: RadioHandheld
+  id: BaseRadio # imp: making this the base. the entity you're probably looking for as well as all handheld stuff is in imp directory.
+  abstract: true # imp
   components:
   - type: TelecomExempt
   - type: RadioMicrophone
@@ -28,7 +29,7 @@
 - type: entity
   name: security radio
   description: A handy security radio.
-  parent: [ RadioHandheld, BaseSecurityContraband ]
+  parent: [ BaseRadio, BaseSecurityContraband ] # imp baseradio
   id: RadioHandheldSecurity
   components:
   - type: RadioMicrophone
