@@ -1,7 +1,7 @@
 - type: tile
   id: FloorApid
   name: tiles-apid-floor
-  sprite: /Textures/_Impstation/Tiles/apidfloor.png
+  sprite: /Textures/_Impstation/Tiles/Misc/apid_floor.png
   variants: 2
   placementVariants:
   - 1.0
@@ -17,7 +17,7 @@
 - type: tile
   id: FloorChapelNE
   name: tiles-chapel-floor-ne
-  sprite: /Textures/_Impstation/Tiles/chapelNE.png
+  sprite: /Textures/_Impstation/Tiles/Chapel/chapelNE.png
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -29,7 +29,7 @@
 - type: tile
   id: FloorChapelNW
   name: tiles-chapel-floor-nw
-  sprite: /Textures/_Impstation/Tiles/chapelNW.png
+  sprite: /Textures/_Impstation/Tiles/Chapel/chapelNW.png
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -41,7 +41,7 @@
 - type: tile
   id: FloorChapelSE
   name: tiles-chapel-floor-se
-  sprite: /Textures/_Impstation/Tiles/chapelSE.png
+  sprite: /Textures/_Impstation/Tiles/Chapel/chapelSE.png
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -53,7 +53,7 @@
 - type: tile
   id: FloorChapelSW
   name: tiles-chapel-floor-sw
-  sprite: /Textures/_Impstation/Tiles/chapelSW.png
+  sprite: /Textures/_Impstation/Tiles/Chapel/chapelSW.png
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -107,3 +107,296 @@
   isSubfloor: false
   deconstructTools: [ Prying ]
   itemDrop: FloorTileItemAstroCave
+
+# TODO: Add items for each tile type
+# Squiggly variants of other tile colors, because it's only for dark colors upstream
+
+- type: tile
+  id: FloorSteelSquiggly
+  name: tiles-steel-squiggly
+  sprite: /Textures/_Impstation/Tiles/Steel/steel_squiggly.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemDarkSquiggly
+  heatCapacity: 10000
+  allowRotationMirror: true
+
+- type: tile
+  id: FloorWhiteSquiggly
+  name: tiles-white-squiggly
+  sprite: /Textures/_Impstation/Tiles/White/white_squiggly.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemDarkSquiggly
+  heatCapacity: 10000
+  allowRotationMirror: true
+
+# Dirty variants of other tile colors, because it's only steel upstream
+
+- type: tile
+  id: FloorDarkDirty
+  name: tiles-dirty-dark-floor
+  sprite: /Textures/_Impstation/Tiles/Dark/dark_dirty.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepPlating
+  itemDrop: FloorTileItemDirty
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorWhiteDirty
+  name: tiles-dirty-white-floor
+  sprite: /Textures/_Impstation/Tiles/White/white_dirty.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepPlating
+  itemDrop: FloorTileItemDirty
+  heatCapacity: 10000
+
+# Dark green tiles, another variant of standard steel tiles
+# TODO: New items for the flooring, so they can be picked up and placed down
+
+- type: tile
+  id: FloorGreen
+  name: tiles-green-floor
+  sprite: /Textures/_Impstation/Tiles/Green/green.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemDark
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorGreenMini
+  name: tiles-green-floor-mini
+  sprite: /Textures/_Impstation/Tiles/Green/green_mini.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemDarkMini
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorGreenPavement
+  name: tiles-green-floor-pavement
+  sprite: /Textures/_Impstation/Tiles/Green/green_pavement.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemDarkPavement
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorGreenDiagonal
+  name: tiles-green-floor-diagonal
+  sprite: /Textures/_Impstation/Tiles/Green/green_diagonal.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemDarkDiagonal
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorGreenOffset
+  name: tiles-green-floor-offset
+  sprite: /Textures/_Impstation/Tiles/Green/green_offset.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemDarkOffset
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorGreenMono
+  name: tiles-green-floor-mono
+  sprite: /Textures/_Impstation/Tiles/Green/green_mono.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemSteelMono
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorGreenPavementVertical
+  name: tiles-green-floor-pavement-vertical
+  sprite: /Textures/_Impstation/Tiles/Green/green_pavement_vertical.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemDarkPavementVertical
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorGreenHerringbone
+  name: tiles-green-floor-herringbone
+  sprite: /Textures/_Impstation/Tiles/Green/green_herringbone.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemDarkHerringbone
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorGreenDiagonalMini
+  name: tiles-green-floor-diagonal-mini
+  sprite: /Textures/_Impstation/Tiles/Green/green_diagonal_mini.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemDarkDiagonalMini
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorGreenPlastic
+  name: tiles-plastic-green-floor
+  sprite: /Textures/_Impstation/Tiles/Green/green_plastic.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemDark
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorGreenSquiggly
+  name: tiles-green-squiggly
+  sprite: /Textures/_Impstation/Tiles/Green/green_squiggly.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemDarkSquiggly
+  heatCapacity: 10000
+  allowRotationMirror: true
+
+- type: tile
+  id: FloorGreenDirty
+  name: tiles-dirty-green-floor
+  sprite: /Textures/_Impstation/Tiles/Green/green_dirty.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepPlating
+  itemDrop: FloorTileItemDirty
+  heatCapacity: 10000
