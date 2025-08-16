@@ -64,7 +64,8 @@ public sealed class ArcfiendRuleSystem : GameRuleSystem<ArcfiendRuleComponent>
         _npcFaction.RemoveFaction(target, NanotrasenFactionId, false);
         _npcFaction.AddFaction(target, ArcfiendFactionId);
 
-        var arcfiendComp = EnsureComp<ArcfiendComponent>(target);
+        // var arcfiendComp = EnsureComp<ArcfiendComponent>(target); not using this anywhere? i just copied it originally
+        EnsureComp<ArcfiendComponent>(target);
 
         rule.ArcfiendMinds.Add(mindId);
 
@@ -73,5 +74,6 @@ public sealed class ArcfiendRuleSystem : GameRuleSystem<ArcfiendRuleComponent>
 
     private void OnTextPrepend(EntityUid uid, ArcfiendRuleComponent comp, ref ObjectivesTextPrependEvent args)
     {
+        //this is for round end screen ill do this later
     }
 }
