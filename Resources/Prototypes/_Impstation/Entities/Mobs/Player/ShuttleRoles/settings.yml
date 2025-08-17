@@ -36,6 +36,26 @@
       roleLoadout: [ RoleSurvivalStandard ]
 
 - type: randomHumanoidSettings
+  id: VisitorAdminAssistant
+  parent: VisitorHead
+  components:
+    - type: GhostRole
+      name: job-name-admin-assistant
+    - type: Loadout
+      prototypes: [ VisitorAdminAssistant, VisitorAdminAssistantAlt ]
+      roleLoadout: [ RoleSurvivalStandard ]
+
+- type: randomHumanoidSettings
+  id: VisitorHospitalityDirector
+  parent: VisitorHead
+  components:
+    - type: GhostRole
+      name: job-name-hospitality-director
+    - type: Loadout
+      prototypes: [ VisitorHospitalityDirector, VisitorHospitalityDirectorAlt ]
+      roleLoadout: [ RoleSurvivalStandard ]
+
+- type: randomHumanoidSettings
   id: VisitorLibrarianCryptid
   parent: VisitorCivilian
   components:
