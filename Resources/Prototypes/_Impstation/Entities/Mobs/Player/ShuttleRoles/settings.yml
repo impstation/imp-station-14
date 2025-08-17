@@ -50,7 +50,7 @@
   parent: VisitorHead
   components:
     - type: GhostRole
-      name: job-name-hospitality-director
+      name: job-name-hd
       requirements:
         - !type:DepartmentTimeRequirement
           department: Service
