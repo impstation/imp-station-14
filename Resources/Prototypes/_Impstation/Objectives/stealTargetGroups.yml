@@ -75,6 +75,13 @@
     state: icon_alt
 
 - type: stealTargetGroup
+  id: HDCutterMachine
+  name: steal-target-groups-hdcuttermachine
+  sprite:
+    sprite: _Impstation/Objects/Tools/Toolboxes/toolbox_hd.rsi
+    state: icon
+
+- type: stealTargetGroup
   id: SecPillCanister
   name: steal-target-groups-secpillcanister
   sprite:

@@ -64,6 +64,9 @@
   components:
   - type: Sprite
     state: "front_leg"
+  - type: MovementBodyPart
+    sprintSpeed: 3.75
+    walkSpeed: 2
 
 - type: entity
   id: RightLegDecapoid # these are the back legs
@@ -75,6 +78,9 @@
   - type: BodyPart
     partType: Leg
     symmetry: Right
+  - type: MovementBodyPart
+    sprintSpeed: 3.75
+    walkSpeed: 2
 
 - type: entity
   id: LeftFootDecapoid # these are the front feet TODO: custom front feet sprites

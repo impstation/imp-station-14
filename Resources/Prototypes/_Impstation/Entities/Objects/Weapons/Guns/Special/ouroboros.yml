@@ -81,3 +81,20 @@
   - type: MeleeThrowOnHit
     distance: 0.8
     speed: 5
+
+- type: entity
+  name: OuroBROS
+  parent: WeaponSpecialOuroboros
+  suffix: BROS
+  id: WeaponSpecialOuroBros
+  description: You can feel a murderous UNGH.
+  components:
+  - type: SolutionAmmoProvider
+    solutionId: chamber
+    proto: BulletOuroBros
+    fireCost: 2
+  - type: Gun
+    fireRate: 4
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto

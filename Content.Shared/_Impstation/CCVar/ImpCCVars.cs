@@ -16,12 +16,6 @@ public sealed class ImpCCVars : CVars
         CVarDef.Create("accessibility.disable_singulo_warping", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
-    ///     Should the player automatically get up after being knocked down
-    /// </summary>
-    public static readonly CVarDef<bool> AutoGetUp =
-        CVarDef.Create("white.auto_get_up", true, CVar.CLIENT | CVar.ARCHIVE | CVar.REPLICATED); // WD EDIT
-
-    /// <summary>
     /// The number of shared moods to give thaven by default.
     /// </summary>
     public static readonly CVarDef<uint> ThavenSharedMoodCount =

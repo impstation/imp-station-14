@@ -1,4 +1,14 @@
 - type: entity
+  parent: CargoIDCard
+  id: SeniorCargoIDCard
+  name: senior cargo ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idseniorcargo
+
+- type: entity
   parent: IDCardStandard
   id: CargorillaIDCard
   name: cargorilla ID card
@@ -40,7 +50,6 @@
   name: courier ID card
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/id_cards.rsi
     layers:
     - state: default
     - state: idcourier

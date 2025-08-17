@@ -89,13 +89,13 @@
 # Begin Harmony changes, add ambience
   - type: SpamEmitSoundRequirePower
   - type: SpamEmitSound
-    minInterval: 15
-    maxInterval: 30
+    minInterval: 25
+    maxInterval: 40
     sound:
       collection: HarmonyComputerSFX
       params:
-        volume: -3
-        maxDistance: 3.5
+        volume: -5
+        maxDistance: 3
         variation: 0.1
 # End Harmony Changes
 #

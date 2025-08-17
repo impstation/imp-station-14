@@ -12,6 +12,7 @@
   startingGear: ParamedicGear
   icon: "JobIconParamedic"
   supervisors: job-supervisors-cmo
+  setPreference: false #imp edit
   access:
   - Medical
   - Maintenance

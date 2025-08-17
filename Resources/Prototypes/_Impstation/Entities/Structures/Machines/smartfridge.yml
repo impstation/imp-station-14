@@ -1,0 +1,9 @@
+﻿- type: entity
+  parent: SmartFridge
+  id: SmartFridgeKitchenHydroponics
+  suffix: Kitchen/Hydroponics
+  components:
+  - type: SmartFridge
+    flavorText: smart-fridge-request-hydroponics
+  - type: AccessReader
+    access: [["Kitchen"], ["Hydroponics"]]

@@ -88,6 +88,10 @@
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Apid/parts.rsi
     state: "l_leg"
+  - type: MovementBodyPart
+    sprintSpeed: 5.5
+    walkSpeed: 3.5
+    acceleration: 1.2 # zoom
 
 - type: entity
   id: RightLegApid
@@ -97,6 +101,10 @@
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Apid/parts.rsi
     state: "r_leg"
+  - type: MovementBodyPart
+    sprintSpeed: 5.5
+    walkSpeed: 3.5
+    acceleration: 1.2 # zoom
 
 - type: entity
   id: LeftFootApid

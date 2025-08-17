@@ -8,3 +8,6 @@ station-event-game-rule-cow-swarm-announcement = The station is colliding with a
 station-event-game-rule-clown-swarm-announcement = The station is colliding with an unidentified swarm of debris. HONK! Evacuate laughing gas storage immediately.
 station-event-game-rule-potato-swarm-announcement = The station is colliding with an unidentified swarm of debris. High starch content detected.
 station-event-game-rule-fun-swarm-announcement = The station is colliding with an unidentified swarm of debris. Please panic appropriately.
+
+station-event-game-rule-meteor-swarm-artifact-announcement = Meteors have been detected on collision course with the station, traces of artifexium have been detected.
+station-event-game-rule-meteor-swarm-artifact-complete-announcement = The meteor swarm has passed. Please return to your stations.

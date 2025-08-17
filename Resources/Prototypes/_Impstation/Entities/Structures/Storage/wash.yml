@@ -1,52 +1,26 @@
 - type: entity
-  parent: [ CrateBaseWeldable, BaseMachinePowered ]
+  parent: CrateBaseWeldable
   id: WashingMachine
   name: washing machine
+  description: You could use this to wash your clothes, but it looks like most of the wiring was gutted out...
   components:
   - type: Icon
     sprite: _Impstation/Structures/Storage/Wash.rsi
   - type: Sprite
     sprite: _Impstation/Structures/Storage/Wash.rsi
+    offset: 0, 0 #kill the offset inherited from CrateGeneric
     layers:
     - state: base
       map: ["enum.StorageVisualLayers.Base"]
     - state: closed
       map: ["enum.StorageVisualLayers.Door"]
-    - map: ["enum.EntityHeaterVisuals.Setting"]
+    - state: washOff
       shader: unshaded
-      visible: false
-  - type: ApcPowerReceiver
-    powerDisabled: true
-  - type: WiredNetworkConnection
-  - type: PowerSwitch
-  - type: GenericVisualizer
-    visuals:
-      enum.EntityHeaterVisuals.Setting:
-        enum.EntityHeaterVisuals.Setting:
-          Off: { visible: true, state: washOff }
-          On: { visible: true, state: washOn }
-  - type: LitOnPowered
-  - type: PointLight
-    radius: 1.5
-    energy: 1.5
-    color: "#47bfff"
-  - type: AmbientSound
-    enabled: false
-    volume: -5
-    range: 5
-    sound:
-     path: /Audio/Ambience/Objects/portable_scrubber.ogg
-  - type: SolutionContainerManager
-    solutions:
-      tank:
-        reagents:
-        - ReagentId: Water
-          Quantity: 10000
-        maxVol: 10000
-  - type: ExaminableSolution
-    solution: tank
-  - type: ReagentTank
-    transferAmount: 100
+    - state: paper
+      sprite: _Impstation/Structures/Storage/Crates/labels.rsi
+      map: [ "enum.PaperLabelVisuals.Layer" ]
+      offset: 0.025, -0.25
+      rotation: 180 #look this is about good as it's gonna get without new sprites
   - type: Transform
     anchored: true
   - type: Physics

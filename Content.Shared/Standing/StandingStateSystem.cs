@@ -1,11 +1,5 @@
-// HEAVILY EDITED
-// if wizden ever does something to this system we're FUCKED
-// regards.
-
-using Content.Shared._Goobstation;
-using Content.Shared.Buckle;
-using Content.Shared.Buckle.Components;
 using Content.Shared.Hands.Components;
+using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Physics;
 using Content.Shared.Rotation;
@@ -14,22 +8,24 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 
 namespace Content.Shared.Standing;
+
 public sealed class StandingStateSystem : EntitySystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movement = default!; // WD EDIT
-    [Dependency] private readonly SharedBuckleSystem _buckle = default!; // WD EDIT
 
     // If StandingCollisionLayer value is ever changed to more than one layer, the logic needs to be edited.
-    private const int StandingCollisionLayer = (int) CollisionGroup.MidImpassable;
+    public const int StandingCollisionLayer = (int) CollisionGroup.MidImpassable;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<StandingStateComponent, AttemptMobCollideEvent>(OnMobCollide);
         SubscribeLocalEvent<StandingStateComponent, AttemptMobTargetCollideEvent>(OnMobTargetCollide);
+        SubscribeLocalEvent<StandingStateComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeedModifiers);
+        SubscribeLocalEvent<StandingStateComponent, RefreshFrictionModifiersEvent>(OnRefreshFrictionModifiers);
+        SubscribeLocalEvent<StandingStateComponent, TileFrictionEvent>(OnTileFriction);
     }
 
     private void OnMobTargetCollide(Entity<StandingStateComponent> ent, ref AttemptMobTargetCollideEvent args)
@@ -48,12 +44,33 @@ public sealed class StandingStateSystem : EntitySystem
         }
     }
 
+    private void OnRefreshMovementSpeedModifiers(Entity<StandingStateComponent> entity, ref RefreshMovementSpeedModifiersEvent args)
+    {
+        if (!entity.Comp.Standing)
+            args.ModifySpeed(entity.Comp.FrictionModifier);
+    }
+
+    private void OnRefreshFrictionModifiers(Entity<StandingStateComponent> entity, ref RefreshFrictionModifiersEvent args)
+    {
+        if (entity.Comp.Standing)
+            return;
+
+        args.ModifyFriction(entity.Comp.FrictionModifier);
+        args.ModifyAcceleration(entity.Comp.FrictionModifier);
+    }
+
+    private void OnTileFriction(Entity<StandingStateComponent> entity, ref TileFrictionEvent args)
+    {
+        if (!entity.Comp.Standing)
+            args.Modifier *= entity.Comp.FrictionModifier;
+    }
+
     public bool IsDown(EntityUid uid, StandingStateComponent? standingState = null)
     {
         if (!Resolve(uid, ref standingState, false))
             return false;
 
-        return standingState.CurrentState is StandingState.Lying;
+        return !standingState.Standing;
     }
 
     public bool Down(EntityUid uid,
@@ -62,8 +79,7 @@ public sealed class StandingStateSystem : EntitySystem
         bool force = false,
         StandingStateComponent? standingState = null,
         AppearanceComponent? appearance = null,
-        HandsComponent? hands = null,
-        bool intentional = false)
+        HandsComponent? hands = null)
     {
         // TODO: This should actually log missing comps...
         if (!Resolve(uid, ref standingState, false))
@@ -72,7 +88,7 @@ public sealed class StandingStateSystem : EntitySystem
         // Optional component.
         Resolve(uid, ref appearance, ref hands, false);
 
-        if (standingState.CurrentState is StandingState.Lying)
+        if (!standingState.Standing)
             return true;
 
         // This is just to avoid most callers doing this manually saving boilerplate
@@ -94,15 +110,16 @@ public sealed class StandingStateSystem : EntitySystem
                 return false;
         }
 
-        standingState.CurrentState = StandingState.Lying;
+        standingState.Standing = false;
         Dirty(uid, standingState);
         RaiseLocalEvent(uid, new DownedEvent(), false);
 
         // Seemed like the best place to put it
         _appearance.SetData(uid, RotationVisuals.RotationState, RotationState.Horizontal, appearance);
 
+        /* Imp edit, disabling this block of code until a reasonable way to allow crawling under plastic flaps and tables while slipping and disallow it for crawling can be figured out
         // Change collision masks to allow going under certain entities like flaps and tables
-        if (TryComp(uid, out FixturesComponent? fixtureComponent) && !intentional)
+        if (TryComp(uid, out FixturesComponent? fixtureComponent))
         {
             foreach (var (key, fixture) in fixtureComponent.Fixtures)
             {
@@ -112,7 +129,7 @@ public sealed class StandingStateSystem : EntitySystem
                 standingState.ChangedFixtures.Add(key);
                 _physics.SetCollisionMask(uid, key, fixture, fixture.CollisionMask & ~StandingCollisionLayer, manager: fixtureComponent);
             }
-        }
+        } */
 
         // check if component was just added or streamed to client
         // if true, no need to play sound - mob was down before player could seen that
@@ -121,10 +138,8 @@ public sealed class StandingStateSystem : EntitySystem
 
         if (playSound)
         {
-            _audio.PlayPredicted(standingState.DownSound, uid, null);
+            _audio.PlayPredicted(standingState.DownSound, uid, uid);
         }
-
-        _movement.RefreshMovementSpeedModifiers(uid); // WD EDIT
 
         return true;
     }
@@ -141,22 +156,24 @@ public sealed class StandingStateSystem : EntitySystem
         // Optional component.
         Resolve(uid, ref appearance, false);
 
-        if (standingState.CurrentState is StandingState.Standing)
+        if (standingState.Standing)
             return true;
 
         if (!force)
         {
             var msg = new StandAttemptEvent();
             RaiseLocalEvent(uid, msg, false);
+
             if (msg.Cancelled)
                 return false;
         }
 
-        standingState.CurrentState = StandingState.Standing;
+        standingState.Standing = true;
         Dirty(uid, standingState);
         RaiseLocalEvent(uid, new StoodEvent(), false);
 
         _appearance.SetData(uid, RotationVisuals.RotationState, RotationState.Vertical, appearance);
+
         if (TryComp(uid, out FixturesComponent? fixtureComponent))
         {
             foreach (var key in standingState.ChangedFixtures)
@@ -166,7 +183,7 @@ public sealed class StandingStateSystem : EntitySystem
             }
         }
         standingState.ChangedFixtures.Clear();
-        _movement.RefreshMovementSpeedModifiers(uid); // WD EDIT
+
         return true;
     }
 }

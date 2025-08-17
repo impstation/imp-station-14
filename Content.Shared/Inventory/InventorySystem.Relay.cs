@@ -33,6 +33,7 @@ using Content.Shared._Impstation.SalvoHud; // imp edit
 using Content.Shared.Mobs; // EE edit
 using Content.Shared.Wieldable;
 using Content.Shared.Zombies;
+using Content.Shared.Examine; // imp
 
 namespace Content.Shared.Inventory;
 
@@ -79,6 +80,7 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, WieldAttemptEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, UnwieldAttemptEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, MobStateChangedEvent>(RefRelayInventoryEvent); // imp
+        SubscribeLocalEvent<InventoryComponent, ExaminedEvent>(RefRelayInventoryEvent); // imp
 
         // Eye/vision events
         SubscribeLocalEvent<InventoryComponent, CanSeeAttemptEvent>(RelayInventoryEvent);

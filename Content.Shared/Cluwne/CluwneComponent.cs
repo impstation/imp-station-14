@@ -38,4 +38,7 @@ public sealed partial class CluwneComponent : Component
 
     [DataField("knocksound")]
     public SoundSpecifier KnockSound = new SoundPathSpecifier("/Audio/Items/airhorn.ogg");
+
+    [DataField] // IMP
+    public int GeneticDamageOnDeath = 300;
 }

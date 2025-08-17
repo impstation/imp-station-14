@@ -123,3 +123,6 @@ uplink-cloak-straight-desc = Demonstrate your support for the heterosexual commu
 
 uplink-super-mosin-name = K2903 Star Rifle bundle
 uplink-super-mosin-desc = A modified bolt-action service rifle with a large magazine! Not modern by any standard. Quite the steal, if you don't mind hand-loading. Comes with a handful of stripper clips.
+
+uplink-ourobros-name = OuroBROS
+uplink-ourobros-desc = UNGH!

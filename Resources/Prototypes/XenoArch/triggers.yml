@@ -25,7 +25,7 @@
     TriggerTimer: 0.25
     TriggerBlood: 1
     TriggerThrow: 1
-    TriggerDeath: 1
+    #TriggerDeath: 1 #IMP This one is commented out because you have to kill so many things and time their deaths perfectly
     TriggerMagnet: 1
 
 - type: xenoArchTrigger
@@ -149,6 +149,14 @@
   - type: XATDamageThresholdReached
     typesNeeded:
       Radiation: 20
+  - type: XATReactive #IMP Allow radioactive reagents to trigger
+    reagents:
+    - Uranium
+    - Tritium
+    - Radium
+    - UnstableMutagen
+    - Phalanximine
+    - GrayBlood
   # TODO: legendary microwave trigger
 
 - type: xenoArchTrigger
@@ -257,11 +265,12 @@
   components:
   - type: XATItemLand
 
-- type: xenoArchTrigger
-  id: TriggerDeath
-  tip: xenoarch-trigger-tip-death
-  components:
-  - type: XATDeath
+# IMP: Comment out death trigger because it is exceedingly difficult to time things dying and if it fails you have to kill again
+# - type: xenoArchTrigger
+#   id: TriggerDeath
+#   tip: xenoarch-trigger-tip-death
+#   components:
+#   - type: XATDeath
 
 - type: xenoArchTrigger
   id: TriggerMagnet

@@ -64,13 +64,13 @@ public sealed partial class XenoArtifactComponent : Component
     /// How long does the unlocking state last by default.
     /// </summary>
     [DataField]
-    public TimeSpan UnlockStateDuration = TimeSpan.FromSeconds(6);
+    public TimeSpan UnlockStateDuration = TimeSpan.FromSeconds(8);//#IMP increased to 8 from 6
 
     /// <summary>
     /// By how much unlocking state should be prolonged for each node that was unlocked.
     /// </summary>
     [DataField]
-    public TimeSpan UnlockStateIncrementPerNode = TimeSpan.FromSeconds(10);
+    public TimeSpan UnlockStateIncrementPerNode = TimeSpan.FromSeconds(12);//#IMP increased to 12 from 10
 
     /// <summary>
     /// Minimum waiting time between unlock states.
