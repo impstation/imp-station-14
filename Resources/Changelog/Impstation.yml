@@ -1,103 +1,4 @@
 ﻿Entries:
-- author: salamanderskies
-  changes:
-  - message: Added a new trait, heavyweight drunk.
-    type: Add
-  id: 1665
-  time: '2025-05-13T12:30:14.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2164
-- author: Darkmajia
-  changes:
-  - message: Supermatter lightning can no longer explode nearby airlocks, air alarms,
-      or other objects.
-    type: Remove
-  - message: Reduced the range at which direct eye contact with the supermatter induces
-      hallucinations.
-    type: Tweak
-  - message: Carbon dioxide affects the supermatter more strongly at lower values,
-      and tesla/singularity delaminations are easier to trigger.
-    type: Tweak
-  id: 1666
-  time: '2025-05-13T14:27:14.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2444
-- author: DinnerCalzone
-  changes:
-  - message: Winter boots have had their cooling protection reduced.
-    type: Tweak
-  - message: Scarves now help keep you warm and protect from the cold, similar to
-      winter boots.
-    type: Add
-  id: 1667
-  time: '2025-05-14T01:30:27.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2477
-- author: AirFryerBuyOneGetOneFree
-  changes:
-  - message: Fixed microwaves not ejecting contents on end of cooking.
-    type: Fix
-  id: 1668
-  time: '2025-05-14T05:39:33.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2489
-- author: hivehum
-  changes:
-  - message: Botanists can now brew beer.
-    type: Add
-  id: 1669
-  time: '2025-05-14T05:42:11.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2430
-- author: TheLuggage05
-  changes:
-  - message: New option to purchase SAW ammo, but you have to load it yourself.
-    type: Add
-  - message: Mosin ammo in the uplink now gives the correct kind of ammo.
-    type: Fix
-  id: 1670
-  time: '2025-05-14T13:05:11.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2488
-- author: animal-collective
-  changes:
-  - message: three new hairs for humanoids
-    type: Add
-  id: 1671
-  time: '2025-05-14T13:46:32.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2491
-- author: AirFryerBuyOneGetOneFree
-  changes:
-  - message: Added the AAC Tablet, allowing mute crewmembers to play certain words
-      or phrases for swift communication.
-    type: Add
-  id: 1672
-  time: '2025-05-14T17:59:29.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2352
-- author: jtfg-dev
-  changes:
-  - message: Nanotrasen has issued an apology and summary hush-money to various borg
-      rights organizations. The guidebook has been slightly updated.
-    type: Remove
-  - message: Station AI pronouns and name now appear in the manifest!
-    type: Add
-  - message: Brains now remember what gender they went by in life, and rehousing one
-      in a metal shell is respected!
-    type: Add
-  - message: MMIs are now called OSIs (organic-synthetic interfaces) to remove unnecessarily
-      human-centric language.
-    type: Tweak
-  - message: A number of examinable objects now convey the gender of the object.
-    type: Tweak
-  - message: Minor change, but the cyborg itself is no longer 'locked'; the text now
-      clarifies what _part_ of its chassis is locked.
-    type: Tweak
-  id: 1673
-  time: '2025-05-14T17:59:52.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2378
-- author: Impstation
-  changes:
-  - message: Music suggestions from the Imp sector community from April have been
-      added. 11 new lobby songs, 3[?] new jukebox songs, 7 new nuke songs, and a single
-      new expedition song.
-    type: Add
-  id: 1674
-  time: '2025-05-14T18:01:47.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2454
 - author: starlighthowls
   changes:
   - message: Adds the drink Moonrise Blend
@@ -4232,3 +4133,79 @@
   id: 2164
   time: '2025-08-14T02:18:40.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3286
+- author: kipdotnet
+  changes:
+  - message: Tck'Tck can now be carried.
+    type: Tweak
+  id: 2165
+  time: '2025-08-14T07:15:51.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3287
+- author: Impstation
+  changes:
+  - message: Disabled whitelist.
+    type: Remove
+  id: 2166
+  time: '2025-08-15T02:40:42.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3289
+- author: meridiadottxt
+  changes:
+  - message: in anticipation for the influx of new players, Eclipse Starport is now
+      in rotation!
+    type: Add
+  id: 2167
+  time: '2025-08-15T02:58:20.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3293
+- author: Pinkbat5
+  changes:
+  - message: Clown ruffles don't go under decapoid gills anymore.
+    type: Tweak
+  id: 2168
+  time: '2025-08-16T01:25:36.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3298
+- author: honeyed-lemons
+  changes:
+  - message: The air around Box Station has cleared of plasma a small bit.. But it's
+      still dangerous out. Don't leave the station.
+    type: Tweak
+  id: 2169
+  time: '2025-08-16T11:43:52.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3283
+- author: ATDoop
+  changes:
+  - message: The Shining Spring now properly appears on your back when you equip it
+      in your back slot.
+    type: Fix
+  id: 2170
+  time: '2025-08-16T22:35:22.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3302
+- author: honeyed-lemons
+  changes:
+  - message: Anomalies should no longer spawn in space on Box
+    type: Fix
+  id: 2171
+  time: '2025-08-16T22:36:54.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3300
+- author: VeeNomine
+  changes:
+  - message: Borgs have relearned how to scream.
+    type: Tweak
+  - message: In relearning how to scream, borgs unlocked their latent superpower of
+      laughter.
+    type: Add
+  id: 2172
+  time: '2025-08-16T23:37:08.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3288
+- author: AirFryerBuyOneGetOneFree
+  changes:
+  - message: Changed computer ambience to be both less loud and less frequent.
+    type: Tweak
+  id: 2173
+  time: '2025-08-17T02:25:17.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3307
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: You can use the minigun again
+    type: Fix
+  id: 2174
+  time: '2025-08-17T02:29:16.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3303
