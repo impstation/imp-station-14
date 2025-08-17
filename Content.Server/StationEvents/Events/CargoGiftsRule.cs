@@ -32,6 +32,7 @@ public sealed class CargoGiftsRule : StationEventSystem<CargoGiftsRuleComponent>
             null,
             Color.FromHex("#18abf5"),
             null, null,
+            null, //imp
             ("sender", Loc.GetString(component.Sender)),
                 ("description", Loc.GetString(component.Description)),
                 ("dest", Loc.GetString(component.Dest))
