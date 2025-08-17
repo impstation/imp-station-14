@@ -293,6 +293,7 @@ public sealed partial class CarryingSystem : EntitySystem
         if (_net.IsClient) // no spawning prediction
             return;
 
+        _virtualItem.DeleteInHandsMatching(carrier, carried); // imp: pick up people you're dragging
         _virtualItem.TrySpawnVirtualItemInHand(carried, carrier);
         _virtualItem.TrySpawnVirtualItemInHand(carried, carrier);
     }
@@ -318,8 +319,12 @@ public sealed partial class CarryingSystem : EntitySystem
         RemComp<KnockedDownComponent>(carried); // TODO SHITMED: make sure this doesnt let you make someone with no legs walk
 
         _actionBlocker.UpdateCanMove(carried);
-        _transform.AttachToGridOrMap(carried);
-        _standingState.Stand(carried);
+        // imp: dont stand if we've been buckled
+        if (!TryComp<BuckleComponent>(carried, out var buckle) || buckle.Buckled == false)
+        {
+            _transform.AttachToGridOrMap(carried);
+            _standingState.Stand(carried);
+        }
     }
 
     private void ApplyCarrySlowdown(EntityUid carrier, Entity<CarriableComponent?> carried)
@@ -338,16 +343,62 @@ public sealed partial class CarryingSystem : EntitySystem
 
     private bool CanCarry(EntityUid carrier, Entity<CarriableComponent> carried)
     {
-        return
-            carrier != carried.Owner &&
-                // can't carry multiple people, even if you have 4 hands it will break invariants when removing carryingcomponent for first carried person
-                !HasComp<CarryingComponent>(carrier) &&
-                // can't carry someone in a locker, buckled, etc
-                HasComp<MapGridComponent>(Transform(carrier).ParentUid) &&
-                // no tower of spacemen or stack overflow
-                !HasComp<BeingCarriedComponent>(carrier) && !HasComp<BeingCarriedComponent>(carried) &&
-                // finally check that there are enough free hands
-                _hands.CountFreeHands(carrier) >= carried.Comp.FreeHandsRequired;
+        // cant carry yourself
+        if (carrier == carried.Owner)
+        {
+            _popup.PopupClient(Loc.GetString("carrying-self"), carrier, carrier);
+            return false;
+        }
+
+        // can't carry multiple people, even if you have 4 hands it will break invariants when removing carryingcomponent for first carried person
+        if (HasComp<CarryingComponent>(carrier))
+        {
+            _popup.PopupClient(Loc.GetString("carrying-multiple-people"), carrier, carrier);
+            return false;
+        }
+
+        // can't carry someone in a locker, buckled, etc
+        if (!HasComp<MapGridComponent>(Transform(carrier).ParentUid))
+        {
+            _popup.PopupClient(Loc.GetString("carrying-tethered"), carrier, carrier);
+            return false;
+        }
+
+        // no tower of spacemen or stack overflow
+        if (HasComp<BeingCarriedComponent>(carrier))
+        {
+            _popup.PopupClient(Loc.GetString("carrying-pickup-carrier"), carrier, carrier);
+            return false;
+        }
+        if (HasComp<BeingCarriedComponent>(carried))
+        {
+            _popup.PopupClient(Loc.GetString("carrying-pickup-carried"), carrier, carrier);
+            return false;
+        }
+
+        // finally check that there are enough free hands
+        // IMP: we're also not counting any hands that already contain the carried entity as occupied.
+        // this will allow you to pick up someone youre dragging.
+        var freeHands = _hands.CountFreeHands(carrier);
+        var handsRequired = carried.Comp.FreeHandsRequired;
+
+        if (TryComp<CarrierOneHandComponent>(carrier, out _) && !carried.Comp.OneHandOverride)
+            handsRequired = 1;
+
+        foreach (var item in _hands.EnumerateHeld(carrier))
+            if (TryComp<VirtualItemComponent>(item, out var virt) &&
+                virt.BlockingEntity == carried.Owner)
+            {
+                freeHands += 1;
+            }
+
+        if (freeHands < handsRequired)
+        {
+            _popup.PopupClient(Loc.GetString("carrying-not-enough-free-hands"), carrier, carrier);
+            return false;
+        }
+
+        return true;
     }
 
     public override void Update(float frameTime)
