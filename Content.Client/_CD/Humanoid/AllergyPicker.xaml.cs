@@ -33,10 +33,11 @@ public sealed partial class AllergyPicker : BoxContainer
     // As hundredths
     public enum Intensity
     {
-        Mild = 0_50,
-        Moderate = 1_00,
-        Severe = 5_00,
-        Extreme = 100_00,
+        Mild = 0_50, // 30u glass of allergen drops you down to "okay"
+        Moderate = 1_00, // 30u glass of allergen drops you to "poor"
+        Significant = 2_00, // imp edit - enough for a 30u glass of allergen to crit you, but 15u syringe won't
+        Severe = 5_00, // a 15u syringe will crit you, 10u will almost crit you
+        Extreme = 15_00, // imp edit - was previously 100. 5u will kill you
     }
 
     public AllergyPicker(Action<Dictionary<ReagentPrototype, FixedPoint2>> onUpdateAllergies)
