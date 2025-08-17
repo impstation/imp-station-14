@@ -2,42 +2,42 @@
   id: DocumentPrinterStaticImp
   recipes:
   - PrintedDocumentReportStationRecipe
-  - PrintedDocumentReportOnEliminationOfViolationsRecipe
+  # - PrintedDocumentReportOnEliminationOfViolationsRecipe
   - PrintedDocumentReportDepartmentRecipe
   - PrintedDocumentReportEmployeePerformanceRecipe
   - PrintedDocumentReportOnTheChaptersMeetingRecipe
-  - PrintedDocumentInternalAffairsAgentsReportRecipe
+  # - PrintedDocumentInternalAffairsAgentsReportRecipe
   - PrintedDocumentConditionReportRecipe
   - PrintedDocumentReportStudyObjectRecipe
-  - PrintedDocumentExperimentReportRecipe
-  - PrintedDocumentDisposalReportRecipe
+  #- PrintedDocumentExperimentReportRecipe
+  #- PrintedDocumentDisposalReportRecipe
   - PrintedDocumentApplicationAppointmentInterimRecipe
   - PrintedDocumentApplicationEmploymentRecipe
   - PrintedDocumentLetterResignationRecipe
   - PrintedDocumentApplicationAccessRecipe
   - PrintedDocumentApplicationEquipmentRecipe
-  - PrintedDocumentAppealRecipe
+  #- PrintedDocumentAppealRecipe
   - PrintedDocumentEvacuationShuttleRequestRecipe
   - PrintedDocumentShuttleRegistrationRequestRecipe
-  - PrintedDocumentRequestCallMembersCentralCommitteeDSORecipe
-  - PrintedDocumentRequestRequestToEstablishThreatLevelRecipe
-  - PrintedDocumentRequestChangeSalaryRecipe
+  #- PrintedDocumentRequestCallMembersCentralCommitteeDSORecipe
+  #- PrintedDocumentRequestRequestToEstablishThreatLevelRecipe
+  #- PrintedDocumentRequestChangeSalaryRecipe
   - PrintedDocumentRequestForNonlistedEmploymentRecipe
   - PrintedDocumentRequestForPromotionRecipe
   - PrintedDocumentRequestDocumentsRecipe
   - PrintedDocumentRequestEuthanasiaRecipe
   - PrintedDocumentRequestConstructionWorkRecipe
   - PrintedDocumentRequestModernizationRecipe
-  - PrintedDocumentComplaintViolationLaborRulesRecipe
+  #- PrintedDocumentComplaintViolationLaborRulesRecipe
   - PrintedDocumentComplaintOffenseRecipe
   - PrintedDocumentPermissionEquipmentRecipe
-  - PrintedDocumentPermissionToTravelInCaseOfThreatRecipe
+  #- PrintedDocumentPermissionToTravelInCaseOfThreatRecipe
   - PrintedDocumentSearchPermissionRecipe
   - PrintedDocumentPermissionToCarryWeaponsRecipe
   - PrintedDocumentPrescriptionDrugAuthorizationRecipe
   - PrintedDocumentPermissionDisposeBodyRecipe
   - PrintedDocumentConstructionPermitRecipe
-  - PrintedDocumentPermissionToExtendMarriageRecipe
+  #- PrintedDocumentPermissionToExtendMarriageRecipe
   - PrintedDocumentOrderDismissalRecipe
   - PrintedDocumentOrderDeprivationAccessRecipe
   - PrintedDocumentOrderEncouragementRecipe
@@ -45,10 +45,10 @@
   - PrintedDocumentOrderRecognizingSentienceCreatureRecipe
   - PrintedDocumentOrderMedicalInterventionRecipe
   - PrintedDocumentProductManufacturingOrderRecipe
-  - PrintedDocumentOrderPurchaseResourcesEquipmentRecipe
-  - PrintedDocumentOrderingSpecialEquipmentRecipe
-  - PrintedDocumentOrderPurchaseWeaponsRecipe
-  - PrintedDocumentCertificateRecipe
+  #- PrintedDocumentOrderPurchaseResourcesEquipmentRecipe
+  #- PrintedDocumentOrderingSpecialEquipmentRecipe
+  #- PrintedDocumentOrderPurchaseWeaponsRecipe
+  #- PrintedDocumentCertificateRecipe
   - PrintedDocumentCertificateAdvancedTrainingRecipe
   - PrintedDocumentCertificateOffenseRecipe
   - PrintedDocumentDeathCertificateRecipe
