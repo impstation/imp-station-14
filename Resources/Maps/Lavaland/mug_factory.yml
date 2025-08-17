@@ -1152,13 +1152,13 @@ entities:
       rot: 3.141592653589793 rad
       pos: 13.5,-3.5
       parent: 1
-- proto: ReagentGrinderIndustrial
-  entities:
-  - uid: 123
-    components:
-    - type: Transform
-      pos: 5.5,-2.5
-      parent: 1
+#- proto: ReagentGrinderIndustrial #IMP commented out due to server crash
+#  entities:
+#  - uid: 123
+#    components:
+#    - type: Transform
+#      pos: 5.5,-2.5
+#      parent: 1
 - proto: ReinforcedWindow
   entities:
   - uid: 102

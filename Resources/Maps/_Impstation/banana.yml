@@ -19493,13 +19493,13 @@ entities:
     - type: Transform
       pos: -14.478317,8.2416725
       parent: 2
-- proto: ReagentGrinderIndustrial
-  entities:
-  - uid: 309
-    components:
-    - type: Transform
-      pos: -23.5,7.5
-      parent: 2
+#- proto: ReagentGrinderIndustrial #IMP commented out due to server crash
+#  entities:
+#  - uid: 309
+#    components:
+#    - type: Transform
+#      pos: -23.5,7.5
+#      parent: 2
 - proto: Recycler
   entities:
   - uid: 40
