@@ -3,7 +3,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared._EE.Carrying;
 using Content.Shared._EE.Contests;
 using Content.Shared.Movement.Events;
-using Robust.Shared.Configuration;
+using Robust.Shared.Configuration; // imp
 using CCVars = Content.Shared._EE.CCVar.EECCVars; // imp
 
 namespace Content.Server._EE.Carrying;
