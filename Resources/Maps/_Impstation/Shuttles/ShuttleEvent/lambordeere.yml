@@ -1,16 +1,16 @@
 meta:
   format: 7
-  category: Grid
-  engineVersion: 261.2.0
+  category: Map
+  engineVersion: 265.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/30/2025 00:48:59
-  entityCount: 239
-maps: []
+  time: 08/17/2025 14:54:59
+  entityCount: 240
+maps:
+- 240
 grids:
 - 1
-orphans:
-- 1
+orphans: []
 nullspace: []
 tilemap:
   0: Space
@@ -32,7 +32,7 @@ entities:
       name: NT-Lambordeere
     - type: Transform
       pos: -0.453125,-0.4375
-      parent: invalid
+      parent: 240
     - type: MapGrid
       chunks:
         0,0:
@@ -237,6 +237,16 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: ImplicitRoof
+  - uid: 240
+    components:
+    - type: MetaData
+      name: Map Entity
+    - type: Transform
+    - type: Map
+      mapPaused: True
+    - type: GridTree
+    - type: Broadphase
+    - type: OccluderTree
 - proto: AirCanister
   entities:
   - uid: 2
@@ -617,8 +627,12 @@ entities:
   - uid: 36
     components:
     - type: Transform
+      anchored: False
       pos: 1.5,-0.5
       parent: 1
+    - type: Physics
+      canCollide: True
+      bodyType: Dynamic
     - type: Storage
       storedItems:
         217:
@@ -698,7 +712,6 @@ entities:
     - type: UserInterface
       actors:
         enum.StorageUiKey.Key:
-        - invalid
         - invalid
     - type: GroupExamine
       group:
