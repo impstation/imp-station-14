@@ -11,9 +11,11 @@
       - Blindable
   components:
     - type: PermanentBlindness
-  subcategories: # imp
+  # imp addition starts
+  subcategories:
     - Visual
-  cost: -3 # imp
+  cost: -16
+  # imp addition end
 
 - type: trait
   id: PoorVision
@@ -27,8 +29,11 @@
     - type: PermanentBlindness
       blindness: 4
     - type: StartWithLenses # imp addition
+  # imp addition starts
   subcategories: # imp
     - Visual
+  cost: -1
+  # imp addition end
 
 - type: trait
   id: Narcolepsy
@@ -39,7 +44,9 @@
     - type: Narcolepsy
       timeBetweenIncidents: 300, 600
       durationOfIncident: 10, 30
-  cost: -2 # imp
+  # imp addition starts
+  cost: -8
+  # imp addition ends
 
 - type: trait
   id: Unrevivable
@@ -49,8 +56,11 @@
   components:
     - type: Unrevivable
       cloneable: true
-  subcategories: # imp
+  # imp addition starts
+  subcategories:
     - Unrevivability
+  cost: -3
+  # imp addition ends
 
 - type: trait
   id: Monochromacy
@@ -59,8 +69,11 @@
   category: Traits # imp
   components:
   - type: BlackAndWhiteOverlay
-  subcategories: # imp
+  # imp addition starts
+  subcategories:
     - Visual
+  cost: -1
+  # imp addition ends
 
 - type: trait
   id: Muted
@@ -75,10 +88,12 @@
       mutedEmotes: true # IMP
       mutedScream: false # IMP
       mutedSpeech: true # IMP
-  subcategories: # imp
+  # imp addition starts
+  subcategories:
     - Speech
     - Echolalia
-  cost: -2 # imp
+  cost: -6
+  # imp addition ends
 
 - type: trait
   id: Paracusia
@@ -100,4 +115,6 @@
   category: Traits # imp
   components:
   - type: PainNumbness
-  cost: -2 # imp
+  # imp addition starts
+  cost: -4
+  # imp addition ends

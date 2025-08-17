@@ -7,7 +7,9 @@
   category: Traits # imp
   components:
   - type: Pacified
-  cost: -3 # imp
+  # imp addition starts
+  cost: -12
+  # imp addition ends
 
 - type: trait
   id: LightweightDrunk

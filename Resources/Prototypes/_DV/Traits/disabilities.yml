@@ -5,8 +5,11 @@
   category: Traits # imp
   components:
     - type: UltraVision
-  subcategories: # imp
+  # imp addition starts
+  subcategories:
     - Visual
+  cost: -1
+  # imp addition ends
 
 - type: trait
   id: DogVision
@@ -15,5 +18,8 @@
   category: Traits # imp
   components:
     - type: DogVision
-  subcategories: # imp
+  # imp addition starts
+  subcategories:
     - Visual
+  cost: -1
+  # imp addition ends

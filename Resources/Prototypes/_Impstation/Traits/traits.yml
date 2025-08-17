@@ -5,7 +5,9 @@
   category: Traits
   components:
     - type: Hemophilia
-  cost: -2 # imp
+  # imp addition starts
+  cost: -6
+  # imp addition ends
 
 - type: trait
   id: RandomUnrevivable
@@ -14,8 +16,11 @@
   category: Traits
   components:
     - type: RandomUnrevivable
+  # imp addition starts
   subcategories:
     - Unrevivability
+  cost: -2
+  # imp addition ends
 
 - type: trait
   id: SGDrequired
@@ -30,8 +35,11 @@
           tags:
             - SGD
       failMessage: sgdrequired-cant-speak
+  # imp addition starts
   subcategories:
     - Speech
+  cost: -1
+  # imp addition ends
 
 - type: trait
   id: Unborgable
@@ -119,8 +127,11 @@
     minimumWait: 300
     maximumWait: 600 # triggers once every 5-10 minutes
     learnChance: 0.1
+  # imp addition starts
   subcategories:
     - Echolalia
+  cost: -1
+  # imp addition ends
 
 - type: trait
   id: UnadaptedToSpace
@@ -129,7 +140,9 @@
   category: Traits
   components:
   - type: UnadaptedToSpace
-  cost: -1 # imp
+  # imp addition starts
+  cost: -4
+  # imp addition ends
 
 - type: trait
   id: HeavyweightDrunk
