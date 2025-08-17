@@ -710,9 +710,9 @@ entities:
           - 233
           - 234
     - type: UserInterface
-      actors:
-        enum.StorageUiKey.Key:
-        - invalid
+#      actors:
+#        enum.StorageUiKey.Key:
+#        - invalid
     - type: GroupExamine
       group:
       - hoverMessage: ""
