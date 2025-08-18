@@ -23,7 +23,14 @@ using Content.Shared.Stealth.Components;
 using Content.Shared.Damage.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Content.Shared.Mindshield.Components; //i just pulled allat from the ling files ill clean it up later
+using Content.Shared.Mindshield.Components;
+using Content.Shared.Destructible;
+using Robust.Shared.Utility;
+using Robust.Shared.GameObjects;
+using Content.Server.Construction.Components;
+using Content.Server.Power.Components;
+using Content.Shared.Mobs.Components;
+using Robust.Shared.Toolshed.Commands.Values; //i just pulled allat from the ling files ill clean it up later
 
 namespace Content.Server.Arcfiend;
 
@@ -42,9 +49,37 @@ public sealed partial class ArcfiendSystem : EntitySystem
 
     private void OnSapPower(EntityUid uid, ArcfiendComponent comp, ref SapPowerEvent args)
     {
-        var change = 100; //debug number
-        //do things
+        var target = args.Target;
+        var drain = new DrainEnergyEvent();
+
+        RaiseLocalEvent(target, ref drain);
+        var change = drain.Change;
+
         UpdateEnergy(uid, comp, change);
+    }
+    private void OnDrainEnergy(EntityUid uid, ApcPowerReceiverComponent comp, ref DrainEnergyEvent args)
+    {
+        if (args.Handled) return;
+        args.Handled = true;
+
+        var power = comp.NetworkLoad.DesiredPower;
+
+        comp.NetworkLoad.DesiredPower *= 2;
+
+        //doafter
+
+        comp.NetworkLoad.DesiredPower = power;
+        args.Change = power * 0.005f;
+    }
+    private void OnDrainEnergy(EntityUid uid, BatteryComponent comp, ref DrainEnergyEvent args)
+    {
+        if (args.Handled) return;
+        args.Handled = true;
+    }
+    private void OnDrainEnergy(EntityUid uid, MobStateComponent comp, ref DrainEnergyEvent args)
+    {
+        if (args.Handled) return;
+        args.Handled = true;
     }
     private void OnDischarge(EntityUid uid, ArcfiendComponent comp, ref DischargeEvent args)
     {

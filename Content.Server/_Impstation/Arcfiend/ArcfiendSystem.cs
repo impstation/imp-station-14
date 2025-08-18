@@ -56,7 +56,9 @@ using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 using System.Linq;
-using System.Numerics; //i just pulled allat from the ling files ill clean it up later
+using System.Numerics;
+using Content.Server.Construction.Components;
+using Content.Server.Power.Components; //i just pulled allat from the ling files ill clean it up later
 
 namespace Content.Server.Arcfiend;
 
@@ -72,6 +74,10 @@ public sealed partial class ArcfiendSystem : EntitySystem
         SubscribeLocalEvent<ArcfiendComponent, ComponentRemove>(OnComponentRemove);
 
         SubscribeAbilities();
+
+        SubscribeLocalEvent<ApcPowerReceiverComponent, DrainEnergyEvent>(OnDrainEnergy);
+        SubscribeLocalEvent<BatteryComponent, DrainEnergyEvent>(OnDrainEnergy);
+        SubscribeLocalEvent<MobStateComponent, DrainEnergyEvent>(OnDrainEnergy);
     }
 
     private void UpdateEnergy(EntityUid uid, ArcfiendComponent comp, float amount)

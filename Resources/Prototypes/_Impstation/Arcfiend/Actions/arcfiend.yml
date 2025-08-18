@@ -11,9 +11,6 @@
       state: sap_power
   - type: TargetAction
   - type: EntityTargetAction
-    whitelist:
-      components:
-      - Body
     canTargetSelf: false
     event: !type:SapPowerEvent {}
   - type: ArcfiendAction

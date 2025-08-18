@@ -16,3 +16,6 @@ public sealed partial class ArcFlashEvent : EntityTargetActionEvent { }
 public sealed partial class RideTheLightningEvent : InstantActionEvent { }
 public sealed partial class JammingFieldEvent : InstantActionEvent { }
 public sealed partial class JoltEvent : EntityTargetActionEvent { }
+
+[ByRefEvent]
+public record struct DrainEnergyEvent(float Change = 0f, bool Handled = false);
