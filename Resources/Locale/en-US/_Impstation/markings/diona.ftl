@@ -33,6 +33,12 @@ marking-DionaBigFirefly-bigfirefly = Big Fireflies
 marking-DionaPollenDust = Pollen Cloud
 marking-DionaPollenDust-pollendust = Pollen Cloud
 
+marking-DionaSunflower = Sunflower
+marking-DionaSunflower-sunflower_base = Sunflower Center
+marking-DionaSunflower-sunflower_eyes = Sunflower Eyes
+marking-DionaSunflower-sunflower_petals1 = Sunflower Petals 1
+marking-DionaSunflower-sunflower_petals2 = Sunflower Petals 2
+
 marking-DionaFlowersHead-flowers1 = Stems
 marking-DionaFlowersHead-flowers2 = Flowers
 
