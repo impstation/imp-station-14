@@ -206,6 +206,20 @@
   - sprite: _Impstation/Mobs/Customization/Diona/head.rsi
     state: sunflower_petals2
 
+- type: marking
+  id: DionaSunflowerEyesUnshaded
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Diona ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Diona/head.rsi
+    state: sunflower_eyes
+  shader: unshaded
+
 # Tail
 
 # RArmExtension

@@ -39,6 +39,9 @@ marking-DionaSunflower-sunflower_eyes = Sunflower Eyes
 marking-DionaSunflower-sunflower_petals1 = Sunflower Petals 1
 marking-DionaSunflower-sunflower_petals2 = Sunflower Petals 2
 
+marking-DionaSunflowerEyesUnshaded = Sunflower Eyes (Unshaded)
+marking-DionaSunflowerEyesUnshaded-sunflower_eyes = Sunflower Eyes
+
 marking-DionaFlowersHead-flowers1 = Stems
 marking-DionaFlowersHead-flowers2 = Flowers
 
