@@ -10,17 +10,15 @@ namespace Content.Server.Store.Conditions;
 public sealed partial class HereticPathCondition : ListingCondition
 {
     public int AlternatePathPenalty = 1; //you can only buy alternate paths' abilities if they are this amount under your initial path's top ability level.
-    [DataField] public HashSet<string>? Whitelist;
-    [DataField] public HashSet<string>? Blacklist;
+    [DataField] public HashSet<ProtoId<HereticPathPrototype>>? Whitelist = [];
+    [DataField] public HashSet<ProtoId<HereticPathPrototype>>? Blacklist = [];
+
     [DataField] public int Stage = 0;
 
     public override bool Condition(ListingConditionArgs args)
     {
         var ent = args.EntityManager;
-        var minds = ent.System<SharedMindSystem>();
         var knowledgeSys = ent.System<HereticKnowledgeSystem>();
-
-
 
         if (!ent.TryGetComponent<MindComponent>(args.Buyer, out var mind))
             return false;
@@ -31,50 +29,40 @@ public sealed partial class HereticPathCondition : ListingCondition
         //Stage is the level of the knowledge we're looking at
         //always check for level
         if (Stage > hereticComp.PathStage)
-        {
             return false;
-        }
 
-        if (Whitelist != null)
+        if (Whitelist != null && hereticComp.MainPath != null)
         {
             foreach (var white in Whitelist)
-                if (hereticComp.CurrentPath == white)
+            {
+                if (hereticComp.MainPath == white)
                     return true;
+            }
             return false;
         }
 
-        if (Blacklist != null)
+        if (Blacklist != null && hereticComp.MainPath != null)
         {
             foreach (var black in Blacklist)
-                if (hereticComp.CurrentPath == black)
+            {
+                if (hereticComp.MainPath == black)
                     return false;
+            }
             return true;
         }
 
+        // If the heretic has a main path
+        if (hereticComp.MainPath == null || args.Listing.ProductHereticKnowledge == null)
+            return true;
 
-        //if you have chosen a path
-        if ((hereticComp.CurrentPath != null) && (args.Listing.ProductHereticKnowledge != null))
-        {
-            ProtoId<HereticKnowledgePrototype> knowledgeProtoId = new ProtoId<HereticKnowledgePrototype>((ProtoId<HereticKnowledgePrototype>)args.Listing.ProductHereticKnowledge);
-            var knowledge = knowledgeSys.GetKnowledge(knowledgeProtoId);
-            HashSet<string> myPaths = new HashSet<string>();
-            myPaths.Add(hereticComp.CurrentPath);
-            myPaths.Add("Side");
+        var knowledgeProtoId = new ProtoId<HereticKnowledgePrototype>((ProtoId<HereticKnowledgePrototype>)args.Listing.ProductHereticKnowledge);
+        knowledgeSys.GetKnowledgePath(knowledgeSys.GetKnowledge(knowledgeProtoId), out var knowledgePath);
 
-            //and the knowledge you're looking at is not from your current path or side knowledge
-            if (knowledge.Path != null && !(myPaths.Contains(knowledge.Path)))
-            {
-                //then, there should be a penalty.
-                //so, if the level of the knowledge is greater than your current path's level minus the penalty
-                if (Stage > hereticComp.PathStage - AlternatePathPenalty)
-                {
-                    //then you can't have it.
-                    return false;
-                    //this took me two days.
-                }
+        // and the knowledge isn't from the main path
+        if (knowledgePath != null && hereticComp.MainPath == knowledgePath)
+            return true;
 
-            }
-        }
-        return true;
+        // then add a penalty
+        return Stage <= hereticComp.PathStage - AlternatePathPenalty;
     }
 }

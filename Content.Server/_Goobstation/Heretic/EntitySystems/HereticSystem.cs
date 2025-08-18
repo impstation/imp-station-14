@@ -89,23 +89,20 @@ public sealed partial class HereticSystem : EntitySystem
         ent.Comp.Ascended = true;
 
         // how???
-        if (ent.Comp.CurrentPath == null)
+        if (ent.Comp.MainPath == null)
             return;
 
-        var pathLoc = ent.Comp.CurrentPath!.ToLower();
+        var pathLoc = ent.Comp.MainPath!.Value.Id.ToLower();
         var ascendSound = new SoundPathSpecifier($"/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/ascend_{pathLoc}.ogg");
         _chat.DispatchGlobalAnnouncement(Loc.GetString($"heretic-ascension-{pathLoc}"), Name(ent), true, ascendSound, Color.Pink);
 
         // do other logic, e.g. make heretic immune to whatever
-        switch (ent.Comp.CurrentPath!)
+        switch (ent.Comp.MainPath)
         {
             case "Ash":
                 RemComp<TemperatureComponent>(ent);
                 RemComp<RespiratorComponent>(ent);
                 RemComp<BarotraumaComponent>(ent);
-                break;
-
-            default:
                 break;
         }
     }
@@ -125,7 +122,7 @@ public sealed partial class HereticSystem : EntitySystem
         if (!ent.Comp.Ascended)
             return;
 
-        switch (ent.Comp.CurrentPath)
+        switch (ent.Comp.MainPath)
         {
             case "Ash":
                 // nullify heat damage because zased
