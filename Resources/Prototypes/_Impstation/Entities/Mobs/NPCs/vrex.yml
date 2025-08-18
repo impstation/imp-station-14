@@ -82,14 +82,11 @@
       1800: 0.5
   - type: StatusEffects # copied from dragon, flash protection. it's slow enough already.
     allowed:
-    - SlowedDown
     - Stutter
     - Electrocution
-    - ForcedSleep
     - TemporaryBlindness
     - Pacified
     - RadiationProtection
-    - Drowsiness
     - Adrenaline
   - type: Metabolizer
     solutionOnBody: false
@@ -150,6 +147,7 @@
     - CannotSuicide
     - DoorBumpOpener
     - FootstepSound
+    - StunImmune
   - type: Puller
     needsHands: false
   - type: Body
