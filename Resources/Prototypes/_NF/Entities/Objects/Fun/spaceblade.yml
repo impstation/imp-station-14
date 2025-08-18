@@ -302,7 +302,7 @@
     state: clown # imp
   - type: Slippery
     slipData:
-      paralyzeTime: 0.5
+      knockdownTime: 0.5
       launchForwardsMultiplier: 0.5
   - type: StepTrigger
     intersectRatio: 0.2
