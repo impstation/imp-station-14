@@ -135,10 +135,10 @@ public sealed partial class MansusGraspSystem : EntitySystem
         // upgraded grasp
         if (hereticComp.MainPath != null)
         {
-            if (hereticComp.PathStage >= 2)
+            if (hereticComp.Power >= 2)
                 ApplyGraspEffect(args.User, target, hereticComp.MainPath!);
 
-            if (hereticComp.PathStage >= 4 && HasComp<StatusEffectsComponent>(target))
+            if (hereticComp.Power >= 4 && HasComp<StatusEffectsComponent>(target))
             {
                 var markComp = EnsureComp<HereticCombatMarkComponent>(target);
                 markComp.Path = hereticComp.MainPath;

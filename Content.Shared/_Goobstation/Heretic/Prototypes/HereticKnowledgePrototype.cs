@@ -11,7 +11,7 @@ public sealed partial class HereticKnowledgePrototype : IPrototype
 
     [DataField] public string? Path;
 
-    [DataField] public int Stage = 1;
+    [DataField] public int RequiredPower = 1;
 
     /// <summary>
     ///     What event should be raised

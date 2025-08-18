@@ -49,23 +49,23 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
         // Manage Path Data
         if (GetKnowledgePath(data, out var path))
         {
-            // set main path to knowledge's path if there is none
+            // set main path to knowledge's path if there is none and increase power
             if (comp.MainPath == null)
             {
                 comp.MainPath = path;
+                comp.Power += 1;
             }
-            // If the knowledge is from main path, increase path stage to value
-            if (data.Stage > comp.PathStage && path== comp.MainPath)
+            // If the knowledge is from main path, increase power by one
+            else if (path== comp.MainPath)
             {
-                comp.PathStage = data.Stage;
+                comp.Power += 1;
             }
-            // add path to sidepaths if knowledge is of the main path
-            if (comp.MainPath != path)
+            // add path to sidepaths if knowledge isn't of the main path
+            else
             {
                 comp.SidePaths.Add(path);
             }
         }
-
         if (!silent)
             _popup.PopupEntity(Loc.GetString("heretic-knowledge-gain"), uid, uid);
     }

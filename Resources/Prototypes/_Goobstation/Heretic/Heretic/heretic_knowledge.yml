@@ -23,204 +23,204 @@
 ### ash path
 - type: hereticKnowledge
   id: NightwatcherSecret
-  stage: 1
+  requiredPower: 0
   ritualPrototypes:
   - BladeAsh
 
 - type: hereticKnowledge
   id: GraspOfAsh
-  stage: 2
+  requiredPower: 1
 
 - type: hereticKnowledge
   id: BlazingDash
   sideKnowledge: true
-  stage: 3
+  requiredPower: 2
   actionPrototypes:
   - ActionHereticBlazingDash
 
 - type: hereticKnowledge
   id: AshenShift
   sideKnowledge: true
-  stage: 3
+  requiredPower: 2
   actionPrototypes:
   - ActionHereticJaunt
 
 - type: hereticKnowledge
   id: MarkOfAsh
-  stage: 4
+  requiredPower: 3
 
 - type: hereticKnowledge
   id: VolcanicBlast
-  stage: 5
+  requiredPower: 4
   actionPrototypes:
   - ActionHereticVolcanoBlast
 
 - type: hereticKnowledge
   id: MaskOfMadness
   sideKnowledge: true
-  stage: 6
+  requiredPower: 5
   ritualPrototypes:
   - MaskOfMadness
 
 - type: hereticKnowledge
   id: FieryBlade
-  stage: 7
+  requiredPower: 6
 
 - type: hereticKnowledge
   id: NightwatcherRebirth
   sideKnowledge: true
-  stage: 8
+  requiredPower: 7
   actionPrototypes:
   - ActionHereticNightwatcherRebirth
 
 - type: hereticKnowledge
   id: AscensionAsh
-  stage: 9
+  requiredPower: 8
   ritualPrototypes:
   - AscensionAsh
 
 - type: hereticKnowledge
   id: AshlordRite
-  stage: 10
+  requiredPower: 00
   actionPrototypes:
+  - ActionHereticAscension0
   - ActionHereticAscension1
-  - ActionHereticAscension2
 
 ### flesh path
 - type: hereticKnowledge
   id: PrincipleOfHunger
-  stage: 1
+  requiredPower: 0
   ritualPrototypes:
   - BladeFlesh
 
 - type: hereticKnowledge
   id: GraspOfFlesh
-  stage: 2
+  requiredPower: 1
 
 - type: hereticKnowledge
   id: ImperfectRitual
   sideKnowledge: true
-  stage: 3
+  requiredPower: 2
   ritualPrototypes:
   - ImperfectRitual
 
 - type: hereticKnowledge
   id: MarkOfFlesh
-  stage: 4
+  requiredPower: 3
 
 - type: hereticKnowledge
   id: KnittingOfFlesh
-  stage: 5
+  requiredPower: 4
   actionPrototypes:
   - ActionHereticFleshSurgery
 
 - type: hereticKnowledge
   id: RawRitual
   sideKnowledge: true
-  stage: 6
+  requiredPower: 5
   ritualPrototypes:
   - RawRitual
 
 - type: hereticKnowledge
   id: BleedingSteel
-  stage: 7
+  requiredPower: 6
 
 - type: hereticKnowledge
   id: LonelyRitual
   sideKnowledge: true
-  stage: 8
+  requiredPower: 7
   ritualPrototypes:
   - LonelyRitual
 
 - type: hereticKnowledge
   id: AscensionFlesh
-  stage: 9
+  requiredPower: 8
   ritualPrototypes:
   - AscensionFlesh
 
 - type: hereticKnowledge
   id: PriestFinalHymn
-  stage: 10
+  requiredPower: 00
   actionPrototypes:
   - ActionPolymorphHereticHorror
 
 ### void path
 - type: hereticKnowledge
   id: GlimmerOfWinter
-  stage: 1
+  requiredPower: 0
   ritualPrototypes:
   - BladeVoid
 
 - type: hereticKnowledge
   id: GraspOfVoid
-  stage: 2
+  requiredPower: 1
 
 - type: hereticKnowledge
   id: AristocratWay
   sideKnowledge: true
-  stage: 3
+  requiredPower: 2
   event: !type:HereticAristocratWayEvent
 
 - type: hereticKnowledge
   id: MarkOfVoid
-  stage: 4
+  requiredPower: 3
 
 - type: hereticKnowledge
   id: VoidBlast
-  stage: 5
+  requiredPower: 4
   actionPrototypes:
   - ActionHereticVoidBlast
 
 - type: hereticKnowledge
   id: VoidPhase
   sideKnowledge: true
-  stage: 6
+  requiredPower: 5
   actionPrototypes:
   - ActionHereticVoidPhase
 
 - type: hereticKnowledge
   id: SeekingBlade
-  stage: 7
+  requiredPower: 6
 
 - type: hereticKnowledge
   id: VoidPull
   sideKnowledge: true
-  stage: 8
+  requiredPower: 7
   actionPrototypes:
   - ActionHereticVoidPull
 
 - type: hereticKnowledge
   id: AscensionVoid
-  stage: 9
+  requiredPower: 8
   ritualPrototypes:
   - AscensionVoid
 
 - type: hereticKnowledge
   id: WaltzAtTheEndOfTime
-  stage: 10
+  requiredPower: 00
   event: !type:HereticAscensionVoidEvent
 
 ### side paths
 - type: hereticKnowledge
   id: RitualOfKnowledge
   sideKnowledge: true
-  stage: 5
+  requiredPower: 4
   ritualPrototypes:
   - RitualOfKnowledge
 
-## stage 3
+## requiredPower 2
 - type: hereticKnowledge
   id: ArmorerRitual
   sideKnowledge: true
-  stage: 3
+  requiredPower: 2
   ritualPrototypes:
   - ArmorerRitual
 
 - type: hereticKnowledge
   id: PriestRitual
   sideKnowledge: true
-  stage: 3
+  requiredPower: 2
   ritualPrototypes:
   - PriestRitual
 
-## stage 7
+## requiredPower 6

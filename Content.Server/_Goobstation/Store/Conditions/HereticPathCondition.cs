@@ -13,7 +13,7 @@ public sealed partial class HereticPathCondition : ListingCondition
     [DataField] public HashSet<ProtoId<HereticPathPrototype>>? Whitelist = [];
     [DataField] public HashSet<ProtoId<HereticPathPrototype>>? Blacklist = [];
 
-    [DataField] public int Stage = 0;
+    [DataField] public int RequiredPower;
 
     public override bool Condition(ListingConditionArgs args)
     {
@@ -28,41 +28,6 @@ public sealed partial class HereticPathCondition : ListingCondition
 
         //Stage is the level of the knowledge we're looking at
         //always check for level
-        if (Stage > hereticComp.PathStage)
-            return false;
-
-        if (Whitelist != null && hereticComp.MainPath != null)
-        {
-            foreach (var white in Whitelist)
-            {
-                if (hereticComp.MainPath == white)
-                    return true;
-            }
-            return false;
-        }
-
-        if (Blacklist != null && hereticComp.MainPath != null)
-        {
-            foreach (var black in Blacklist)
-            {
-                if (hereticComp.MainPath == black)
-                    return false;
-            }
-            return true;
-        }
-
-        // If the heretic has a main path
-        if (hereticComp.MainPath == null || args.Listing.ProductHereticKnowledge == null)
-            return true;
-
-        var knowledgeProtoId = new ProtoId<HereticKnowledgePrototype>((ProtoId<HereticKnowledgePrototype>)args.Listing.ProductHereticKnowledge);
-        knowledgeSys.GetKnowledgePath(knowledgeSys.GetKnowledge(knowledgeProtoId), out var knowledgePath);
-
-        // and the knowledge isn't from the main path
-        if (knowledgePath != null && hereticComp.MainPath == knowledgePath)
-            return true;
-
-        // then add a penalty
-        return Stage <= hereticComp.PathStage - AlternatePathPenalty;
+        return hereticComp.Power >= RequiredPower;
     }
 }

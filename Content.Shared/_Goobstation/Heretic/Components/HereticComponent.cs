@@ -30,15 +30,15 @@ public sealed partial class HereticComponent : Component
     public ProtoId<HereticPathPrototype>? MainPath;
 
     /// <summary>
+    ///     Indicates the power level of a heretic.
+    /// </summary>
+    [DataField, AutoNetworkedField] public int Power;
+
+    /// <summary>
     ///     All side paths the heretic is on.
     /// </summary>
     [DataField]
     public List<ProtoId<HereticPathPrototype>> SidePaths = [];
-
-    /// <summary>
-    ///     Indicates a stage of a path the heretic is on. 0 is no path, 10 is ascension
-    /// </summary>
-    [DataField, AutoNetworkedField] public int PathStage;
 
     [DataField, AutoNetworkedField] public bool Ascended;
 
