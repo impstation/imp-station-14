@@ -9,3 +9,20 @@
       amount: 1
   products:
     TeriyakiSauce: 4
+
+- type: reaction
+  id: StringCurdling
+  impact: Low
+  quantized: true
+  conserveEnergy: false
+  reactants:
+    Milk:
+      amount: 30
+    Fiber:
+      amount: 10
+    Enzyme:
+      amount: 5
+      catalyst: true
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: FoodStringCheese
