@@ -1,0 +1,54 @@
+- type: entity
+  abstract: true
+  id: WoundInternalBase
+  components:
+  - type: StatusEffect
+  - type: Sprite
+    drawdepth: Effects
+  - type: RejuvenateRemovedStatusEffect
+  - type: Wound
+  - type: AnalyzableWound
+
+- type: entity
+  parent: WoundInternalBase
+  id: WoundFracture
+  name: fracture wound
+  components:
+  - type: Wound
+    damage:
+      damageDict:
+        Blunt: 10
+    maximumDamage: 10
+  - type: MovementModStatusEffect
+    sprintSpeedModifier: 0.8
+    walkSpeedModifier: 0.8
+  - type: AnalyzableWound
+    descriptions:
+      0: wound-internal-fracture
+  - type: PopupOnAppliedStatusEffect
+    message: fracture-applied
+    visualType: MediumCaution
+
+- type: entity
+  parent: WoundInternalBase
+  id: WoundArterialBleeding
+  name: arterial bleeding
+  components:
+  - type: Wound
+    damage:
+      damageDict:
+        Slash: 5
+    maximumDamage: 5
+  - type: BleedingWound
+    bleedingCoefficients:
+      Slash: 0.2
+    bleedingDurationCoefficients:
+      Slash: 1
+    startsBleedingAbove: 0
+    requiresTendingAbove: 0
+  - type: AnalyzableWound
+    descriptions:
+      0: wound-arterial-bleeding
+  - type: PopupOnAppliedStatusEffect
+    message: arterial-bleeding-applied
+    visualType: MediumCaution

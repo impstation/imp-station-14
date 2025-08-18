@@ -584,6 +584,12 @@ namespace Content.Server.Construction
                 handled.Handled = true;
             }
 
+            // Begin Offbrand
+            // Otherwise, let's check if this event could be handled by the construction's current state.
+            if (HandleEvent(uid, args, true, construction) != HandleResult.Validated)
+                return; // Not validated, so we don't even enqueue this event.
+            // End Offbrand
+
             // Enqueue this event so it'll be handled in the next tick.
             // This prevents some issues that could occur from entity deletion, component deletion, etc in a handler.
             construction.InteractionQueue.Enqueue(args);

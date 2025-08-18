@@ -1,0 +1,285 @@
+using System.Linq;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Events;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Damage;
+using Content.Shared.FixedPoint;
+using Content.Shared.Medical;
+using Content.Shared.Random.Helpers;
+using Content.Shared.StatusEffectNew;
+using Robust.Shared.Random;
+using Robust.Shared.Timing;
+
+namespace Content.Shared._Offbrand.Wounds;
+
+public sealed partial class HeartSystem : EntitySystem
+{
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly PainSystem _pain = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<HeartrateComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<HeartrateComponent, ApplyMetabolicMultiplierEvent>(OnApplyMetabolicMultiplier);
+
+        SubscribeLocalEvent<BloodstreamComponent, GetStrainEvent>(OnBloodstreamGetStrain);
+
+        SubscribeLocalEvent<HeartStopOnHypovolemiaComponent, HeartBeatEvent>(OnHeartBeatHypovolemia);
+        SubscribeLocalEvent<HeartStopOnShockComponent, HeartBeatEvent>(OnHeartBeatShock);
+
+        SubscribeLocalEvent<HeartDefibrillatableComponent, TargetDefibrillatedEvent>(OnTargetDefibrillated);
+    }
+
+    private void OnMapInit(Entity<HeartrateComponent> ent, ref MapInitEvent args)
+    {
+        ent.Comp.LastUpdate = _timing.CurTime;
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<HeartrateComponent>();
+        while (query.MoveNext(out var uid, out var heartrate))
+        {
+            if (heartrate.LastUpdate is not { } last || last + heartrate.AdjustedUpdateInterval >= _timing.CurTime)
+                continue;
+
+            var delta = _timing.CurTime - last;
+            heartrate.LastUpdate = _timing.CurTime;
+            Dirty(uid, heartrate);
+
+            if (!heartrate.Running)
+                continue;
+
+            var newStrain = RecomputeHeartStrain((uid, heartrate));
+            if (newStrain != heartrate.Strain)
+            {
+                heartrate.Strain = RecomputeHeartStrain((uid, heartrate));
+                Dirty(uid, heartrate);
+
+                var strainChangedEvt = new AfterStrainChangedEvent();
+                RaiseLocalEvent(uid, ref strainChangedEvt);
+            }
+
+            var evt = new HeartBeatEvent(false);
+            RaiseLocalEvent(uid, ref evt);
+
+            if (!evt.Stop)
+            {
+                var threshold = heartrate.StrainDamageThresholds.HighestMatch(HeartStrain((uid, heartrate)));
+                if (threshold is (var chance, var amount))
+                {
+                    var seed = SharedRandomExtensions.HashCodeCombine(new() { (int)_timing.CurTick.Value, GetNetEntity(uid).Id });
+                    var rand = new System.Random(seed);
+
+                    if (rand.Prob(chance))
+                    {
+                        heartrate.Damage = FixedPoint2.Min(heartrate.Damage + amount, heartrate.MaxDamage);
+                    }
+
+                    if (heartrate.Damage >= heartrate.MaxDamage)
+                    {
+                        evt.Stop = true;
+                    }
+                    Dirty(uid, heartrate);
+                }
+            }
+
+            if (evt.Stop)
+            {
+                heartrate.Running = false;
+                heartrate.Strain = 0;
+
+                var strainChangedEvt = new AfterStrainChangedEvent();
+                RaiseLocalEvent(uid, ref strainChangedEvt);
+
+                var stoppedEvt = new HeartStoppedEvent();
+                RaiseLocalEvent(uid, ref stoppedEvt);
+
+                _statusEffects.TryUpdateStatusEffectDuration(uid, heartrate.HeartStoppedEffect, out _);
+                continue;
+            }
+
+            var overlays = new PotentiallyUpdateDamageOverlay(uid);
+            RaiseLocalEvent(uid, ref overlays, true);
+        }
+    }
+
+    private void OnApplyMetabolicMultiplier(Entity<HeartrateComponent> ent, ref ApplyMetabolicMultiplierEvent args)
+    {
+        ent.Comp.UpdateIntervalMultiplier = args.Multiplier;
+        Dirty(ent);
+    }
+
+    private void OnHeartBeatHypovolemia(Entity<HeartStopOnHypovolemiaComponent> ent, ref HeartBeatEvent args)
+    {
+        var seed = SharedRandomExtensions.HashCodeCombine(new() { (int)_timing.CurTick.Value, GetNetEntity(ent).Id });
+        var rand = new System.Random(seed);
+
+        var volume = BloodVolume((ent.Owner, Comp<HeartrateComponent>(ent)));
+        args.Stop = args.Stop || rand.Prob(ent.Comp.Chance) && volume < ent.Comp.VolumeThreshold;
+    }
+
+    private void OnHeartBeatShock(Entity<HeartStopOnShockComponent> ent, ref HeartBeatEvent args)
+    {
+        var seed = SharedRandomExtensions.HashCodeCombine(new() { (int)_timing.CurTick.Value, GetNetEntity(ent).Id });
+        var rand = new System.Random(seed);
+
+        var shock = _pain.GetShock(ent.Owner);
+        args.Stop = args.Stop || rand.Prob(ent.Comp.Chance) && shock > ent.Comp.Threshold;
+    }
+
+    public void ChangeHeartDamage(Entity<HeartrateComponent> ent, FixedPoint2 amount)
+    {
+        var newValue = FixedPoint2.Max(FixedPoint2.Zero, ent.Comp.Damage - amount);
+        if (newValue == ent.Comp.Damage)
+            return;
+
+        ent.Comp.Damage = newValue;
+        Dirty(ent);
+    }
+
+    public FixedPoint2 BloodVolume(Entity<HeartrateComponent> ent)
+    {
+        var bloodstream = Comp<BloodstreamComponent>(ent);
+        if (!_solutionContainer.ResolveSolution(ent.Owner, bloodstream.BloodSolutionName,
+            ref bloodstream.BloodSolution, out var bloodSolution))
+        {
+            return FixedPoint2.Zero;
+        }
+
+        return bloodSolution.Volume / bloodSolution.MaxVolume;
+    }
+
+    public FixedPoint2 BloodCirculation(Entity<HeartrateComponent> ent)
+    {
+        if (!ent.Comp.Running)
+        {
+            var evt = new GetStoppedCirculationModifier(ent.Comp.StoppedBloodCirculationModifier);
+            RaiseLocalEvent(ent, ref evt);
+            return BloodVolume(ent) * evt.Modifier;
+        }
+
+        FixedPoint4 volume = BloodVolume(ent);
+        var strain = HeartStrain(ent);
+
+        var strainModifier = ent.Comp.CirculationStrainModifierCoefficient * strain + ent.Comp.CirculationStrainModifierConstant;
+
+        volume *= strainModifier;
+
+        volume *= FixedPoint2.Max( ent.Comp.MinimumDamageCirculationModifier, FixedPoint2.New(1d) - (ent.Comp.Damage / ent.Comp.MaxDamage) );
+
+        return FixedPoint2.Min((FixedPoint2)volume, 1);
+    }
+
+    public FixedPoint2 BloodOxygenation(Entity<HeartrateComponent> ent)
+    {
+        var circulation = BloodCirculation(ent);
+        var damageable = Comp<DamageableComponent>(ent);
+        if (!damageable.Damage.DamageDict.TryGetValue(ent.Comp.AsphyxiationDamage, out var asphyxiationAmount))
+            return circulation;
+
+        var oxygenationModifier = FixedPoint2.Clamp(1 - (asphyxiationAmount / ent.Comp.AsphyxiationThreshold), 0, 1);
+
+        var evt = new GetOxygenationModifier(oxygenationModifier);
+        RaiseLocalEvent(ent, ref evt);
+
+        return evt.Modifier * circulation;
+    }
+
+    private FixedPoint2 RecomputeHeartStrain(Entity<HeartrateComponent> ent)
+    {
+        var pain = _pain.GetShock(ent.Owner);
+        var strain = pain / ent.Comp.ShockStrainDivisor;
+
+        var evt = new GetStrainEvent(strain);
+        RaiseLocalEvent(ent, ref evt);
+
+        return evt.Strain;
+    }
+
+    public FixedPoint2 HeartStrain(Entity<HeartrateComponent> ent)
+    {
+        return ent.Comp.Strain;
+    }
+
+    private void OnBloodstreamGetStrain(Entity<BloodstreamComponent> ent, ref GetStrainEvent args)
+    {
+        var heartrate = Comp<HeartrateComponent>(ent);
+        var volume = BloodVolume((ent, heartrate));
+        var damageable = Comp<DamageableComponent>(ent);
+        if (damageable.Damage.DamageDict.TryGetValue(heartrate.AsphyxiationDamage, out var asphyxiationAmount))
+        {
+            volume *= FixedPoint2.Min(1 - (asphyxiationAmount / heartrate.AsphyxiationThreshold), 1);
+        }
+
+        var strainDelta = FixedPoint2.Zero;
+
+        if (volume <= ent.Comp.BloodlossThreshold)
+            strainDelta += 1;
+        if (volume <= ent.Comp.BloodlossThreshold/2)
+            strainDelta += 1;
+        if (volume <= ent.Comp.BloodlossThreshold/3)
+            strainDelta += 1;
+        if (volume <= ent.Comp.BloodlossThreshold/4)
+            strainDelta += 1;
+
+        args.Strain += strainDelta;
+    }
+
+    public (FixedPoint2, FixedPoint2) BloodPressure(Entity<HeartrateComponent> ent)
+    {
+        var seed = SharedRandomExtensions.HashCodeCombine(new() { (int)_timing.CurTick.Value, GetNetEntity(ent).Id });
+        var rand = new System.Random(seed);
+
+        var volume = BloodVolume(ent);
+
+        var deviationA = rand.Next(-ent.Comp.BloodPressureDeviation, ent.Comp.BloodPressureDeviation);
+        var deviationB = rand.Next(-ent.Comp.BloodPressureDeviation, ent.Comp.BloodPressureDeviation);
+
+        var upper = FixedPoint2.Max((ent.Comp.SystolicBase * volume + deviationA), 0).Int();
+        var lower = FixedPoint2.Max((ent.Comp.DiastolicBase * volume + deviationB), 0).Int();
+
+        return (upper, lower);
+    }
+
+    public FixedPoint2 HeartRate(Entity<HeartrateComponent> ent)
+    {
+        if (!ent.Comp.Running)
+            return 0;
+
+        var seed = SharedRandomExtensions.HashCodeCombine(new() { (int)_timing.CurTick.Value, GetNetEntity(ent).Id });
+        var rand = new System.Random(seed);
+
+        var strain = HeartStrain(ent);
+        return (FixedPoint2.Max(strain, 0)/ent.Comp.HeartRateStrainDivisor) * ent.Comp.HeartRateStrainFactor + ent.Comp.HeartRateBase + rand.Next(-ent.Comp.HeartRateDeviation, ent.Comp.HeartRateDeviation);
+    }
+
+    private void OnTargetDefibrillated(Entity<HeartDefibrillatableComponent> ent, ref TargetDefibrillatedEvent args)
+    {
+        var heartrate = Comp<HeartrateComponent>(ent);
+        if (heartrate.MaxDamage <= heartrate.Damage)
+            return;
+
+        heartrate.Running = true;
+        Dirty(ent.Owner, heartrate);
+
+        _statusEffects.TryRemoveStatusEffect(ent.Owner, heartrate.HeartStoppedEffect);
+
+        var evt = new HeartStartedEvent();
+        RaiseLocalEvent(ent, ref evt);
+    }
+
+    public bool IsCritical(Entity<HeartrateComponent?> ent)
+    {
+        if (!Resolve(ent, ref ent.Comp))
+            return false;
+
+        return !ent.Comp.Running;
+    }
+}

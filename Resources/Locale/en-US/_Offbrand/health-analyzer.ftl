@@ -1,0 +1,29 @@
+-health-analyzer-rating = { $rating ->
+    [good] ([color=limegreen]good[/color])
+    [okay] ([color=yellowgreen]okay[/color])
+    [poor] ([color=yellow]poor[/color])
+    [bad] ([color=orange]bad[/color])
+    [awful] ([color=red]awful[/color])
+    [dangerous] ([color=crimson]dangerous[/color])
+   *[other] (unknown)
+    }
+
+health-analyzer-window-entity-brain-health-text = Brain Activity:
+health-analyzer-window-entity-blood-pressure-text = Blood Pressure:
+health-analyzer-window-entity-blood-oxygenation-text = Blood Saturation:
+health-analyzer-window-entity-blood-circulation-text = Blood Circulation:
+health-analyzer-window-entity-heart-rate-text = Heart Rate:
+health-analyzer-window-entity-heart-damage-text = Heart Damage:
+
+health-analyzer-window-entity-brain-health-value = {$value}% { -health-analyzer-rating(rating: $rating) }
+health-analyzer-window-entity-heart-damage-value = {$value}% { -health-analyzer-rating(rating: $rating) }
+health-analyzer-window-entity-heart-rate-value = {$value}bpm { -health-analyzer-rating(rating: $rating) }
+health-analyzer-window-entity-blood-oxygenation-value = {$value}% { -health-analyzer-rating(rating: $rating) }
+health-analyzer-window-entity-blood-pressure-value = {$diastolic}/{$systolic} { -health-analyzer-rating(rating: $rating) }
+health-analyzer-window-entity-blood-circulation-value = {$value}% { -health-analyzer-rating(rating: $rating) }
+
+wound-internal-fracture = [color=red]Patient has internal fractures.[/color]
+wound-incision = [color=red]Patient has open incision.[/color]
+wound-clamped = [color=red]Patient has clamped arteries.[/color]
+wound-retracted = [color=red]Patient has retracted skin.[/color]
+wound-ribcage-open = [color=red]Patient has open ribcage.[/color]

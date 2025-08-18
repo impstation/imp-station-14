@@ -1,0 +1,84 @@
+- type: alert
+  id: HeartStopped
+  category: Health
+  icons:
+  - sprite: /Textures/_Offbrand/Alerts/heart_rate.rsi
+    state: heart_stopped
+  name: alerts-heart-stopped-name
+  description: alerts-heart-stopped-desc
+
+- type: alert
+  id: HeartRate
+  category: Health
+  icons:
+  - sprite: /Textures/_Offbrand/Alerts/heart_rate.rsi
+    state: heart_normal
+  - sprite: /Textures/_Offbrand/Alerts/heart_rate.rsi
+    state: heart_okay
+  - sprite: /Textures/_Offbrand/Alerts/heart_rate.rsi
+    state: heart_poor
+  - sprite: /Textures/_Offbrand/Alerts/heart_rate.rsi
+    state: heart_bad
+  - sprite: /Textures/_Offbrand/Alerts/heart_rate.rsi
+    state: heart_danger
+  name: alerts-heart-rate-name
+  description: alerts-heart-rate-desc
+  minSeverity: 0
+  maxSeverity: 4
+
+- type: alertCategory
+  id: Pain
+
+- type: alert
+  id: SuppressedPain
+  category: Pain
+  icons:
+  - sprite: /Textures/_Offbrand/Alerts/pain.rsi
+    state: pain_suppressed
+  name: alerts-pain-suppressed-name
+  description: alerts-pain-suppressed-desc
+
+- type: alert
+  id: NoPain
+  category: Pain
+  icons:
+  - sprite: /Textures/_Offbrand/Alerts/pain.rsi
+    state: pain_good
+  name: alerts-pain-good-name
+  description: alerts-pain-good-desc
+
+- type: alert
+  id: MinorPain
+  category: Pain
+  icons:
+  - sprite: /Textures/_Offbrand/Alerts/pain.rsi
+    state: pain_minor
+  name: alerts-pain-minor-name
+  description: alerts-pain-minor-desc
+
+- type: alert
+  id: ModeratePain
+  category: Pain
+  icons:
+  - sprite: /Textures/_Offbrand/Alerts/pain.rsi
+    state: pain_moderate
+  name: alerts-pain-moderate-name
+  description: alerts-pain-moderate-desc
+
+- type: alert
+  id: SeverePain
+  category: Pain
+  icons:
+  - sprite: /Textures/_Offbrand/Alerts/pain.rsi
+    state: pain_severe
+  name: alerts-pain-severe-name
+  description: alerts-pain-severe-desc
+
+- type: alert
+  id: BlackoutPain
+  category: Pain
+  icons:
+  - sprite: /Textures/_Offbrand/Alerts/pain.rsi
+    state: pain_blackout
+  name: alerts-pain-blackout-name
+  description: alerts-pain-blackout-desc
