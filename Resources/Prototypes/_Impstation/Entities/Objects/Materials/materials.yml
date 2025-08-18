@@ -17,6 +17,17 @@
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
+  - type: Tending
+    woundWhitelist:
+      tags: [WoundCut, WoundPuncture]
+    damage:
+      types:
+        Slash: -0.3
+        Piercing: -0.3
+    tendingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+    tendingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
   - type: Stack
     stackType: HempCloth
     baseLayer: base

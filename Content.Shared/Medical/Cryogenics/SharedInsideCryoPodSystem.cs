@@ -25,5 +25,6 @@ public abstract partial class SharedCryoPodSystem
         }
 
         RemComp<InsideCryoPodComponent>(uid);
+        _metabolizer.UpdateMetabolicMultiplier(uid); // Offbrand
     }
 }

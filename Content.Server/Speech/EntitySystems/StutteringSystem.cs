@@ -5,6 +5,7 @@ using Content.Shared.Speech;
 using Content.Shared.Speech.EntitySystems;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Random;
+using StatusEffectRelayedEventAccent = Content.Shared.StatusEffectNew.StatusEffectRelayedEvent<Content.Shared.Speech.AccentGetEvent>; // Offbrand
 
 namespace Content.Server.Speech.EntitySystems
 {
@@ -20,6 +21,7 @@ namespace Content.Server.Speech.EntitySystems
         public override void Initialize()
         {
             SubscribeLocalEvent<StutteringAccentComponent, AccentGetEvent>(OnAccent);
+            SubscribeLocalEvent<StutteringAccentComponent, StatusEffectRelayedEventAccent>(OnRelayedAccent); // Offbrand
         }
 
         public override void DoStutter(EntityUid uid, TimeSpan time, bool refresh, StatusEffectsComponent? status = null)
@@ -34,6 +36,13 @@ namespace Content.Server.Speech.EntitySystems
         {
             args.Message = Accentuate(args.Message, component);
         }
+
+        // Begin Offbrand
+        private void OnRelayedAccent(Entity<StutteringAccentComponent> ent, ref StatusEffectRelayedEventAccent args)
+        {
+            args.Args.Message = Accentuate(args.Args.Message, ent.Comp);
+        }
+        // End Offbrand
 
         public string Accentuate(string message, StutteringAccentComponent component)
         {
