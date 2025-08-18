@@ -23,6 +23,7 @@
       - Cartridge
       - CartridgeMagnum
       - Ectoplasm # causes problems for the revenant if they're consumed
+      - PrizeTicket
     preservationBlacklist: # delete stuff that passes this, even if it also passes the preservationWhitelist
       components:
       - SiliconLawBound

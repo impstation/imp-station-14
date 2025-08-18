@@ -96,16 +96,17 @@
     ClothingNeckGoldmedalStealObjective: 1              #other
     ClothingNeckClownmedalStealObjective: 0.5
     #imp
-    AtmosFireSuitStealObjective: 1 #fire vuln species only
-    MopBucketStealObjective: 1 #slimes only. idk someone wanted this
-    MedTekCartridgeStealObjective: 1
-    LogProbeCartridgeStealObjective: 1
     AstroNavCartridgeStealObjective: 1
+    AtmosFireSuitStealObjective: 1 #fire vuln species only
+    EvilSkullArtifactItemStealObjective: 1
+    HDCutterMachineStealObjective: 1
+    LogProbeCartridgeStealObjective: 1
+    MedTekCartridgeStealObjective: 1
+    MopBucketStealObjective: 1 #slimes only. idk someone wanted this
+    SecPillCanisterStealObjective: 1
     ServiceTechFabStealObjective: 1
     ShiningSpringStealObjective: 1
     ShipyardComputerCircuitboardStealObjective: 1
-    SecPillCanisterStealObjective: 1
-    EvilSkullArtifactItemStealObjective: 1
 
 - type: weightedRandom
   id: ThiefObjectiveGroupStructure
