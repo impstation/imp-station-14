@@ -14,6 +14,9 @@ plural-name-bundle-1 = a bundle of
 plural-name-stack-1 = a stack of
 plural-name-hand-1 = a handful of
 plural-name-arm-1 = an armful of
+plural-name-stick-1 = a stick of
+plural-name-bunch-1 = a bunch of
+plural-name-head-1 = a head of
 
 plural-name-pair-2plus = some pairs of
 plural-name-piece-2plus = some pieces of
@@ -23,7 +26,10 @@ plural-name-tile-2plus = some tiles of
 plural-name-spindle-2plus = some spindles of
 plural-name-plank-2plus = some planks of
 plural-name-bottle-2plus = some bottles of
+plural-name-reed-2plus = some reeds of
+plural-name-head-2plus = some heads of
 
+plural-name-base = { INDEFINITE($item) }
 plural-name-some = some
 plural-name-a = a
 plural-name-an = an

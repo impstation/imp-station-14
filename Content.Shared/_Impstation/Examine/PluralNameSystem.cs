@@ -2,6 +2,7 @@ using Robust.Shared.GameObjects.Components.Localization;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Hands;
 using Content.Shared.Stacks;
+using Content.Shared.IdentityManagement;
 
 namespace Content.Shared._Impstation.Examine;
 
@@ -26,6 +27,9 @@ public sealed class PluralNameSystem : EntitySystem
     private void UpdateToPlural(Entity<PluralNameComponent> uid, GrammarComponent grammar)
     {
         var someOf = Loc.GetString(uid.Comp.SomeOf);
+        var meta = Comp<MetaDataComponent>(uid);
+        if (uid.Comp.NameSomeOf == string.Empty) uid.Comp.NameSomeOf = meta.EntityName; //default to the entity's normal name
+        uid.Comp.OverrideName = uid.Comp.NameSomeOf;
         grammar.Attributes["indefinite"] = someOf;
         //Log.Debug($"Entity {ToPrettyString(uid)} granted pretty plural descriptor");
         Dirty(uid, grammar);
@@ -33,7 +37,10 @@ public sealed class PluralNameSystem : EntitySystem
 
     private void UpdateToSingular(Entity<PluralNameComponent> uid, GrammarComponent grammar)
     {
-        var oneOf = Loc.GetString(uid.Comp.OneOf);
+        var oneOf = Loc.GetString(uid.Comp.OneOf, ("item", Identity.Entity(uid, EntityManager)));
+        var meta = Comp<MetaDataComponent>(uid);
+        if (uid.Comp.NameOneOf == string.Empty) uid.Comp.NameOneOf = meta.EntityName; //default to the entity's normal name
+        uid.Comp.OverrideName = uid.Comp.NameOneOf;
         grammar.Attributes["indefinite"] = oneOf;
         //Log.Debug($"Entity {ToPrettyString(uid)} granted pretty singular descriptor");
         Dirty(uid, grammar);

@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._Impstation.Examine;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
@@ -206,12 +207,13 @@ public abstract partial class SharedHandsSystem : EntitySystem
     //TODO: Actually shows all items/clothing/etc.
     private void HandleExamined(EntityUid examinedUid, HandsComponent handsComp, ExaminedEvent args)
     {
+
         var heldItemNames = EnumerateHeld((examinedUid, handsComp))
             .Where(entity => !HasComp<VirtualItemComponent>(entity))
             //.Select(item => FormattedMessage.EscapeText(Identity.Name(item, EntityManager))) // imp comment
             // IMP EDIT - accounting for the cases in which entities have unique indefinite articles
             .Select(item => Loc.GetString("comp-hands-examine-wrapper",
-                    ("itemName", FormattedMessage.EscapeText(Identity.Name(item, EntityManager))),
+                    ("itemName", FormattedMessage.EscapeText(TryComp(item, out PluralNameComponent? plur) ? plur.OverrideName : Identity.Name(item, EntityManager))),
                     ("item", Identity.Entity(item, EntityManager)))
                     )
             // END IMP EDIT

@@ -1,3 +1,4 @@
+using Content.Shared.IdentityManagement;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._Impstation.Examine;
@@ -16,8 +17,8 @@ public sealed partial class PluralNameComponent : Component
     /// i.e. "a sheet of [glass]", "a pair of [glasses]".
     /// Defaults to the indefinite article. Can be empty.
     /// </summary>
-    [DataField(required: true), AutoNetworkedField]
-    public LocId OneOf;
+    [DataField, AutoNetworkedField]
+    public LocId OneOf = "plural-name-base";
 
     /// <summary>
     /// How to count multiple of these.
@@ -29,23 +30,30 @@ public sealed partial class PluralNameComponent : Component
     public LocId SomeOf = "plural-name-some";
 
     /// <summary>
+    /// Internal name set to one of the below.
+    /// Overrides the name that appears when inspecting someone holding this.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public string OverrideName = string.Empty;
+
+    /// <summary>
     /// What this object's name is when by itself. Highlighted.
     /// Compare it to what you'd say if you referred to "the" [object].
     /// i.e. "[a pane of] glass", "[a pair of] glasses", "[a] speso".
-    /// defaults to "$name".
+    /// defaults to the item's name.
     /// </summary>
-    //[DataField, AutoNetworkedField]
-    //public LocId The; // NYI
+    [DataField, AutoNetworkedField]
+    public string NameOneOf = string.Empty;
 
     /// <summary>
     /// What this object's name is when multiple stack together. Highlighted.
     /// Compare it to what you'd call it if you referred to "these" [objects].
     /// Only necessary for stackable objects.
     /// i.e. "[some panes of] glass", "[some] spesos".
-    /// defaults to "$name".
+    /// defaults to the item's name.
     /// </summary>
-    //[DataField, AutoNetworkedField]
-    //public LocId These; // NYI
+    [DataField, AutoNetworkedField]
+    public string NameSomeOf = string.Empty;
 
 
 }
