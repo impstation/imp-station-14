@@ -74,10 +74,6 @@ public sealed partial class ArcfiendSystem : EntitySystem
         SubscribeLocalEvent<ArcfiendComponent, ComponentRemove>(OnComponentRemove);
 
         SubscribeAbilities();
-
-        SubscribeLocalEvent<ApcPowerReceiverComponent, DrainEnergyEvent>(OnDrainEnergy);
-        SubscribeLocalEvent<BatteryComponent, DrainEnergyEvent>(OnDrainEnergy);
-        SubscribeLocalEvent<MobStateComponent, DrainEnergyEvent>(OnDrainEnergy);
     }
 
     private void UpdateEnergy(EntityUid uid, ArcfiendComponent comp, float amount)

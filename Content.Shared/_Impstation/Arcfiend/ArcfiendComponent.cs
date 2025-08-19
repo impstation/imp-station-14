@@ -36,4 +36,10 @@ public sealed partial class ArcfiendComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float MaxEnergy = 2500f;
+
+    /// <summary>
+    ///     Sound played after draining power.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier SparkSound = new SoundCollectionSpecifier("sparks");
 }

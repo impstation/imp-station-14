@@ -29,16 +29,24 @@ using Robust.Shared.Utility;
 using Robust.Shared.GameObjects;
 using Content.Server.Construction.Components;
 using Content.Server.Power.Components;
+using Content.Server.Power.EntitySystems;
 using Content.Shared.Mobs.Components;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Toolshed.Commands.Values; //i just pulled allat from the ling files ill clean it up later
 
 namespace Content.Server.Arcfiend;
 
 public sealed partial class ArcfiendSystem : EntitySystem
 {
+    [Dependency] private readonly BatterySystem _battery = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     public void SubscribeAbilities()
     {
         SubscribeLocalEvent<ArcfiendComponent, SapPowerEvent>(OnSapPower);
+        SubscribeLocalEvent<ApcPowerReceiverComponent, DrainEnergyEvent>(OnDrainMachine);
+        SubscribeLocalEvent<BatteryComponent, DrainEnergyEvent>(OnDrainBattery);
+        SubscribeLocalEvent<MobStateComponent, DrainEnergyEvent>(OnDrainMob);
+
         SubscribeLocalEvent<ArcfiendComponent, DischargeEvent>(OnDischarge);
         SubscribeLocalEvent<ArcfiendComponent, FlashEvent>(OnFlash);
         SubscribeLocalEvent<ArcfiendComponent, ArcFlashEvent>(OnArcFlash);
@@ -56,8 +64,10 @@ public sealed partial class ArcfiendSystem : EntitySystem
         var change = drain.Change;
 
         UpdateEnergy(uid, comp, change);
+        Spawn("EffectSparks", Transform(target).Coordinates);
+        _audio.PlayPvs(comp.SparkSound, target);
     }
-    private void OnDrainEnergy(EntityUid uid, ApcPowerReceiverComponent comp, ref DrainEnergyEvent args)
+    private void OnDrainMachine(EntityUid uid, ApcPowerReceiverComponent comp, ref DrainEnergyEvent args)
     {
         if (args.Handled) return;
         args.Handled = true;
@@ -69,17 +79,39 @@ public sealed partial class ArcfiendSystem : EntitySystem
         //doafter
 
         comp.NetworkLoad.DesiredPower = power;
-        args.Change = power * 0.005f;
+        args.Change = power * 0.005f; //this number needs tuning
     }
-    private void OnDrainEnergy(EntityUid uid, BatteryComponent comp, ref DrainEnergyEvent args)
+    private void OnDrainBattery(EntityUid uid, BatteryComponent comp, ref DrainEnergyEvent args)
     {
         if (args.Handled) return;
         args.Handled = true;
+
+        var power = comp.MaxCharge / 5;
+
+        //doafter
+
+        if (comp.CurrentCharge > power)
+        {
+            _battery.SetCharge(uid, comp.CurrentCharge - power);
+            args.Change = power * 0.005f; //this number needs tuning
+        }
+        else
+        {
+            //popup
+            args.Change = comp.CurrentCharge;
+            _battery.SetMaxCharge(uid, 0f);
+        }
     }
-    private void OnDrainEnergy(EntityUid uid, MobStateComponent comp, ref DrainEnergyEvent args)
+    private void OnDrainMob(EntityUid uid, MobStateComponent comp, ref DrainEnergyEvent args)
     {
         if (args.Handled) return;
         args.Handled = true;
+
+        //popup text
+        //doafter
+        //deal damage
+        //if alive
+        args.Change = 100;
     }
     private void OnDischarge(EntityUid uid, ArcfiendComponent comp, ref DischargeEvent args)
     {
