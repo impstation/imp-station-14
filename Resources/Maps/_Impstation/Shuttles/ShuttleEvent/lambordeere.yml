@@ -4,7 +4,7 @@ meta:
   engineVersion: 265.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/19/2025 17:06:18
+  time: 08/19/2025 17:43:34
   entityCount: 233
 maps: []
 grids:
@@ -597,9 +597,6 @@ entities:
       parent: 1
     - type: Storage
       storedItems:
-        229:
-          position: 3,0
-          _rotation: South
         230:
           position: 3,1
           _rotation: South
@@ -618,7 +615,6 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 229
           - 230
           - 232
           - 231
@@ -626,6 +622,7 @@ entities:
     - type: UserInterface
       actors:
         enum.StorageUiKey.Key:
+        - invalid
         - invalid
     - type: ActiveUserInterface
 - proto: ClothingHeadHatCowboyBrown
@@ -1215,11 +1212,10 @@ entities:
   - uid: 229
     components:
     - type: Transform
-      parent: 228
+      pos: 1.59375,0.421875
+      parent: 1
     - type: Paper
       content: Here are your orders, kid. Your cover is a simple farm delivery out to Box station, Delta sector. The supplies in this satchel should get you a leg up on the operation, but once you leave port, you're on your own. Burn this before you reach your target. Best of luck, kid. You're gonna need it.
-    - type: Physics
-      canCollide: False
 - proto: PetCarrier
   entities:
   - uid: 200
