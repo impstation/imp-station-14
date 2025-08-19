@@ -12,21 +12,11 @@ public sealed partial class IncubatorComponent : Component
     [DataField]
     public float ChargeUse = 200f;
 
-    [DataField]
-    public bool Incubating;
-
     /// <summary>
     ///     How long to wait before finishing incubation.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public TimeSpan IncubationDuration = TimeSpan.FromMinutes(1);
-
-    /// <summary>
-    ///     When incubation is finished.
-    /// </summary>
-    [DataField, AutoPausedField, Access(typeof(SharedIncubatorSystem))]
-    public TimeSpan? IncubationFinishTime;
-
+    public TimeSpan IncubationDuration = TimeSpan.FromSeconds(30);
 
     public EntityUid? PlayingStream;
 

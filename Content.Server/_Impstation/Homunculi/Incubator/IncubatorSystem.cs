@@ -25,21 +25,21 @@ namespace Content.Server._Impstation.Homunculi.Incubator;
 
 public sealed class IncubatorSystem : SharedIncubatorSystem
 {
-    [Dependency] private readonly ItemToggleSystem _toggle = null!;
-    [Dependency] private readonly PowerCellSystem _cell = null!;
-    [Dependency] private readonly IGameTiming _timing = null!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = null!;
-    [Dependency] private readonly ItemSlotsSystem _slots = null!;
-    [Dependency] private readonly PuddleSystem _puddle = null!;
-    [Dependency] private readonly SharedAudioSystem _audio = null!;
-    [Dependency] private readonly HumanoidAppearanceSystem _appearance = null!;
+    [Dependency] private readonly ItemToggleSystem _toggle = default!;
+    [Dependency] private readonly PowerCellSystem _cell = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private readonly ItemSlotsSystem _slots = default!;
+    [Dependency] private readonly PuddleSystem _puddle = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly HumanoidAppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<IncubatorComponent, ItemToggleActivateAttemptEvent>(OnActivateAttempt);
-        SubscribeLocalEvent<IncubatorComponent, ItemToggleDeactivateAttemptEvent>(OnDeactivateAttempt);
+        SubscribeLocalEvent<ActiveIncubatorComponent, ItemToggleDeactivateAttemptEvent>(OnDeactivateAttempt);
         SubscribeLocalEvent<IncubatorComponent, ItemToggledEvent>(OnToggled);
         SubscribeLocalEvent<IncubatorComponent, ExaminedEvent>(OnExamine);
 
@@ -49,48 +49,38 @@ public sealed class IncubatorSystem : SharedIncubatorSystem
     {
         string? popup = null;
 
-        var beaker = _slots.GetItemOrNull(ent, ent.Comp.BeakerSlotId);
-        if (beaker == null)
-        {
+        if (_slots.GetItemOrNull(ent, ent.Comp.BeakerSlotId) == null)
             popup = Loc.GetString("incubator-no-beaker");
-        }
         else if (!TryGetSolution(ent.Owner, out var solution))
-        {
             popup = Loc.GetString("incubator-no-solution");
-        }
         else if (!TryGetDnaData(solution, out var dnaData))
-        {
             popup = Loc.GetString("incubator-no-dna");
-        }
         else if (dnaData.Count > 1)
-        {
             popup = Loc.GetString("incubator-too-much-dna");
-        }
         else if (!_cell.TryGetBatteryFromSlot(ent, out var battery))
-        {
             popup = Loc.GetString("incubator-no-cell");
-        }
         else if (UsesRemaining(ent.Comp, battery) <= 0)
-        {
             popup = Loc.GetString("incubator-insufficient-power");
-        }
 
-        if (popup != null)
+        if (popup == null)
+        {
+            EnsureComp<ActiveIncubatorComponent>(ent, out var activeIncubator);
+            activeIncubator.IncubationFinishTime = _timing.CurTime + ent.Comp.IncubationDuration;
+        }
+        else
         {
             args.Popup = popup;
             args.Cancelled = true;
-            return;
         }
-
-        ent.Comp.IncubationFinishTime = _timing.CurTime + ent.Comp.IncubationDuration;
     }
 
-    private static void OnDeactivateAttempt(Entity<IncubatorComponent> ent, ref ItemToggleDeactivateAttemptEvent args)
+    private void OnDeactivateAttempt(Entity<ActiveIncubatorComponent> ent, ref ItemToggleDeactivateAttemptEvent args)
     {
-        if (ent.Comp.IncubationFinishTime != null)
-        {
-            args.Cancelled = true;
-        }
+        if (ent.Comp.IncubationFinishTime == null)
+            return;
+
+        RemComp<ActiveIncubatorComponent>(ent);
+        args.Cancelled = true;
     }
 
     private bool TryGetSolution(Entity<IncubatorComponent?> ent,
@@ -125,7 +115,7 @@ public sealed class IncubatorSystem : SharedIncubatorSystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<IncubatorComponent>();
+        var query = EntityQueryEnumerator<ActiveIncubatorComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
             if (comp.IncubationFinishTime == null || comp.IncubationFinishTime > _timing.CurTime)
@@ -158,7 +148,9 @@ public sealed class IncubatorSystem : SharedIncubatorSystem
             }
         }
 
-        ent.Comp.IncubationFinishTime = null;
+        if (TryComp<ActiveIncubatorComponent>(ent, out var activeIncubator))
+            activeIncubator.IncubationFinishTime = null;
+
         _cell.TryUseCharge(ent, ent.Comp.ChargeUse);
         _toggle.TryDeactivate(ent.Owner);
     }
@@ -207,13 +199,13 @@ public sealed class IncubatorSystem : SharedIncubatorSystem
             EnsureComp<DnaComponent>(homunculi, out var homunculiDnaComponent);
             homunculiDnaComponent.DNA = dnaComponent.DNA;
 
-            SetHomunculusAppearance(victim,homunculi,homunculiTypeComponent);
+            SetHomunculusAppearance(victim,homunculi);
             return true;
         }
         return false;
     }
 
-    private void SetHomunculusAppearance(EntityUid urist, EntityUid homunculi, HomunculiTypeComponent homunculiTypeComponent)
+    private void SetHomunculusAppearance(EntityUid urist, EntityUid homunculi)
     {
         var markingCategories = new List<MarkingCategories>
         {
