@@ -303,3 +303,16 @@
       weight: 0.5
     - id: ScrapGeneratorFrame
       weight: 0.25
+      
+- type: entityTable
+  id: MegaRareDungTable
+  table: !type:GroupSelector
+    children:
+    - id: CloningPodMachineCircuitboard
+      weight: 0.5
+    - id: CloningConsoleMachineCircuitboard
+      weight: 0.5
+    - id: MedicalScannerMachineCircuitboard
+      weight: 0.5
+    - id: WhoopieCushion
+      weight: 0.8

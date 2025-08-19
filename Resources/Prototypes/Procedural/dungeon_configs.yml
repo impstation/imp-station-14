@@ -57,6 +57,57 @@
 
   - !type:CornerClutterDunGen
     contents: BaseClutter
+    
+  - !type:EntityTableDunGen
+    minCount: 30
+    maxCount: 45
+    table: !type:NestedSelector
+      tableId: SalvageScrapLowValue
+  - !type:EntityTableDunGen
+    minCount: 10
+    maxCount: 25
+    table: !type:NestedSelector
+      tableId: SalvageScrapHighValue
+  - !type:EntityTableDunGen
+    minCount: 8
+    maxCount: 15
+    table: !type:NestedSelector
+      tableId: SalvageScrapLarge
+  - !type:EntityTableDunGen
+    minCount: 20
+    maxCount: 30
+    table: !type:NestedSelector
+      tableId: SalvageTreasureCommon
+  - !type:EntityTableDunGen
+    minCount: 10
+    maxCount: 20
+    table: !type:NestedSelector
+      tableId: SalvageTreasureUncommon
+  - !type:EntityTableDunGen
+    minCount: 3
+    maxCount: 10
+    table: !type:NestedSelector
+      tableId: SalvageTreasureLegendary
+  - !type:EntityTableDunGen
+    minCount: 8
+    maxCount: 15
+    table: !type:NestedSelector
+      tableId: SalvageEquipmentUncommon
+  - !type:EntityTableDunGen
+    minCount: 3
+    maxCount: 10
+    table: !type:NestedSelector
+      tableId: SalvageEquipmentRare
+  - !type:EntityTableDunGen
+    minCount: 0
+    maxCount: 6
+    table: !type:NestedSelector
+      tableId: SalvageEquipmentLegendary
+  - !type:EntityTableDunGen
+    minCount: 0
+    maxCount: 2
+    table: !type:NestedSelector
+      tableId: MegaRareDungTable
 
   - !type:CorridorDecalSkirtingDunGen
     cardinalDecals:
@@ -161,6 +212,57 @@
   - !type:CornerClutterDunGen
     contents: BaseClutter
 
+  - !type:EntityTableDunGen
+    minCount: 30
+    maxCount: 45
+    table: !type:NestedSelector
+      tableId: SalvageScrapLowValue
+  - !type:EntityTableDunGen
+    minCount: 10
+    maxCount: 25
+    table: !type:NestedSelector
+      tableId: SalvageScrapHighValue
+  - !type:EntityTableDunGen
+    minCount: 8
+    maxCount: 15
+    table: !type:NestedSelector
+      tableId: SalvageScrapLarge
+  - !type:EntityTableDunGen
+    minCount: 20
+    maxCount: 30
+    table: !type:NestedSelector
+      tableId: SalvageTreasureCommon
+  - !type:EntityTableDunGen
+    minCount: 10
+    maxCount: 20
+    table: !type:NestedSelector
+      tableId: SalvageTreasureUncommon
+  - !type:EntityTableDunGen
+    minCount: 3
+    maxCount: 10
+    table: !type:NestedSelector
+      tableId: SalvageTreasureLegendary
+  - !type:EntityTableDunGen
+    minCount: 8
+    maxCount: 15
+    table: !type:NestedSelector
+      tableId: SalvageEquipmentUncommon
+  - !type:EntityTableDunGen
+    minCount: 3
+    maxCount: 10
+    table: !type:NestedSelector
+      tableId: SalvageEquipmentRare
+  - !type:EntityTableDunGen
+    minCount: 0
+    maxCount: 6
+    table: !type:NestedSelector
+      tableId: SalvageEquipmentLegendary
+  - !type:EntityTableDunGen
+    minCount: 0
+    maxCount: 2
+    table: !type:NestedSelector
+      tableId: MegaRareDungTable
+
   - !type:CorridorDecalSkirtingDunGen
     cardinalDecals:
       South: BrickTileWhiteLineS
@@ -212,6 +314,42 @@
     tile: FloorCaveDrought
     contents: BaseWoodWall
 
+  - !type:EntityTableDunGen
+    minCount: 35
+    maxCount: 50
+    table: !type:NestedSelector
+      tableId: SalvageTreasureCommon
+  - !type:EntityTableDunGen
+    minCount: 15
+    maxCount: 25
+    table: !type:NestedSelector
+      tableId: SalvageTreasureUncommon
+  - !type:EntityTableDunGen
+    minCount: 4
+    maxCount: 12
+    table: !type:NestedSelector
+      tableId: SalvageTreasureLegendary
+  - !type:EntityTableDunGen
+    minCount: 10
+    maxCount: 20
+    table: !type:NestedSelector
+      tableId: SalvageEquipmentUncommon
+  - !type:EntityTableDunGen
+    minCount: 3
+    maxCount: 10
+    table: !type:NestedSelector
+      tableId: SalvageEquipmentRare
+  - !type:EntityTableDunGen
+    minCount: 0
+    maxCount: 6
+    table: !type:NestedSelector
+      tableId: SalvageEquipmentLegendary
+  - !type:EntityTableDunGen
+    minCount: 0
+    maxCount: 2
+    table: !type:NestedSelector
+      tableId: MegaRareDungTable
+
   # No wallmounts
 
   # No boundary wall
@@ -231,6 +369,8 @@
 
   - !type:CornerClutterDunGen
     contents: MineshaftClutter
+    
+  - !type:EntityTableDunGen
 
 # TODO: Check decal skirting fix contents in code.
 
@@ -289,6 +429,56 @@
   - !type:AutoCablingDunGen
     entity: CableApcExtension
 
+  - !type:EntityTableDunGen
+    minCount: 45
+    maxCount: 60
+    table: !type:NestedSelector
+      tableId: SalvageScrapLowValue
+  - !type:EntityTableDunGen
+    minCount: 10
+    maxCount: 25
+    table: !type:NestedSelector
+      tableId: SalvageScrapHighValue
+  - !type:EntityTableDunGen
+    minCount: 8
+    maxCount: 15
+    table: !type:NestedSelector
+      tableId: SalvageScrapLarge
+  - !type:EntityTableDunGen
+    minCount: 30
+    maxCount: 45
+    table: !type:NestedSelector
+      tableId: SalvageTreasureCommon
+  - !type:EntityTableDunGen
+    minCount: 10
+    maxCount: 20
+    table: !type:NestedSelector
+      tableId: SalvageTreasureUncommon
+  - !type:EntityTableDunGen
+    minCount: 3
+    maxCount: 10
+    table: !type:NestedSelector
+      tableId: SalvageTreasureLegendary
+  - !type:EntityTableDunGen
+    minCount: 8
+    maxCount: 15
+    table: !type:NestedSelector
+      tableId: SalvageEquipmentUncommon
+  - !type:EntityTableDunGen
+    minCount: 3
+    maxCount: 10
+    table: !type:NestedSelector
+      tableId: SalvageEquipmentRare
+  - !type:EntityTableDunGen
+    minCount: 0
+    maxCount: 6
+    table: !type:NestedSelector
+      tableId: SalvageEquipmentLegendary
+  - !type:EntityTableDunGen
+    minCount: 0
+    maxCount: 2
+    table: !type:NestedSelector
+      tableId: MegaRareDungTable
 # Spawn groups
 # Basic
 - type: entityTable
