@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Content.Shared.Actions;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Heretic;
@@ -15,7 +17,9 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
     [Dependency] private readonly HereticRitualSystem _ritual = default!;
 
     public HereticKnowledgePrototype GetKnowledge(ProtoId<HereticKnowledgePrototype> id)
-        => _proto.Index(id);
+    {
+        return _proto.Index(id);
+    }
 
     public void AddKnowledge(EntityUid uid, HereticComponent comp, ProtoId<HereticKnowledgePrototype> id, bool silent = true)
     {
@@ -24,30 +28,42 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
         if (data.Event != null)
             RaiseLocalEvent(uid, (object) data.Event, true);
 
-        if (data.ActionPrototypes != null && data.ActionPrototypes.Count > 0)
-            foreach (var act in data.ActionPrototypes)
-                _action.AddAction(uid, act);
 
-        if (data.RitualPrototypes != null && data.RitualPrototypes.Count > 0)
-            foreach (var ritual in data.RitualPrototypes)
-                comp.KnownRituals.Add(_ritual.GetRitual(ritual));
-
-        Dirty(uid, comp);
-
-        // set path if out heretic doesn't have it, or if it's different from whatever he has atm
-        if (string.IsNullOrWhiteSpace(comp.CurrentPath))
+        if (data.ActionPrototypes != null)
         {
-            if (!data.SideKnowledge && comp.CurrentPath != data.Path)
-                comp.CurrentPath = data.Path;
+            foreach (var act in data.ActionPrototypes)
+            {
+                _action.AddAction(uid, act);
+            }
         }
 
-        // make sure we only progress when buying current path knowledge
-        if (data.Stage > comp.PathStage && data.Path == comp.CurrentPath)
-            comp.PathStage = data.Stage;
-
+        // Manage Path Data
+        if (GetKnowledgePath(data, out var path))
+        {
+            // set main path to knowledge's path if there is none and increase power
+            if (comp.MainPath == null)
+            {
+                comp.MainPath = path;
+                comp.Power += 1;
+            }
+            // If the knowledge is from main path, increase power by one
+            else if (path== comp.MainPath)
+            {
+                comp.Power += 1;
+            }
+            // add path to sidepaths if knowledge isn't of the main path
+            else
+            {
+                comp.SidePaths.Add(path);
+            }
+        }
         if (!silent)
             _popup.PopupEntity(Loc.GetString("heretic-knowledge-gain"), uid, uid);
+
+        Dirty(uid, comp);
+        comp.KnownKnowledge.Add(data);
     }
+
     public void RemoveKnowledge(EntityUid uid, HereticComponent comp, ProtoId<HereticKnowledgePrototype> id, bool silent = false)
     {
         var data = GetKnowledge(id);
@@ -56,21 +72,60 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
         {
             foreach (var act in data.ActionPrototypes)
             {
-                var actionName = (EntityPrototype) _proto.Index(typeof(EntityPrototype), act);
+                var actionName = _proto.Index<EntityPrototype>(act);
                 // jesus christ.
                 foreach (var action in _action.GetActions(uid))
+                {
                     if (Name(action.Owner) == actionName.Name)
                         _action.RemoveAction(action.Owner);
+                }
             }
         }
 
-        if (data.RitualPrototypes != null && data.RitualPrototypes.Count > 0)
-            foreach (var ritual in data.RitualPrototypes)
-                comp.KnownRituals.Remove(_ritual.GetRitual(ritual));
-
+        comp.KnownKnowledge.Remove(data);
         Dirty(uid, comp);
-
         if (!silent)
             _popup.PopupEntity(Loc.GetString("heretic-knowledge-loss"), uid, uid);
+    }
+
+    public bool GetKnowledgePath(ProtoId<HereticKnowledgePrototype> knowledge, [NotNullWhen(true)] out HereticPathPrototype? path)
+    {
+        var paths = _proto.EnumeratePrototypes<HereticPathPrototype>().ToList();
+        foreach (var protoPath in paths)
+        {
+            foreach (var protoKnowledge in protoPath.Knowledge)
+            {
+                if (knowledge != protoKnowledge)
+                {
+                    continue;
+                }
+                path = protoPath;
+                return true;
+            }
+        }
+        path = null;
+        return false;
+    }
+
+    public bool GetKnowledgeRituals(ProtoId<HereticKnowledgePrototype> knowledge, [NotNullWhen(true)] out List<ProtoId<HereticRitualPrototype>>? rituals)
+    {
+        if (GetKnowledge(knowledge).RitualPrototypes != null)
+        {
+            rituals = GetKnowledge(knowledge).RitualPrototypes;
+        }
+        rituals = null;
+        return rituals != null;
+    }
+
+    public List<ProtoId<HereticRitualPrototype>> AllKnownRituals(HereticComponent comp)
+    {
+        var rituals = new List<ProtoId<HereticRitualPrototype>>();
+        foreach (var knowledge in comp.KnownKnowledge)
+        {
+            var ritualPrototypes = GetKnowledge(knowledge).RitualPrototypes;
+            if (ritualPrototypes != null)
+                rituals.AddRange(ritualPrototypes);
+        }
+        return rituals;
     }
 }
