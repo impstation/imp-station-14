@@ -2,6 +2,7 @@ flavor-base-kingsoda = like you're a champion
 flavor-base-drinkdrink = like dogshit
 flavor-base-unholy = unholy
 flavor-base-evil = evil
+flavor-base-weird = weird
 
 flavor-complex-raktaccino = fantastically bitter
 flavor-complex-moscowmule = like a kick in the teeth
@@ -25,10 +26,14 @@ flavor-complex-snotty = like snot
 flavor-complex-speed = like speed
 flavor-base-whimsy = whimsical
 flavor-complex-secticket = like rotten eggs
+flavor-complex-imp = like green marijuana
 
 flavor-complex-medium = like your vision expanded
 
 flavor-complex-rodent = like rodents
+
+flavor-complex-goblin = like minging prog
+flavor-complex-gollylad = chivalrous
 
 flavor-complex-orangecoffee = excitingly acidic
 
