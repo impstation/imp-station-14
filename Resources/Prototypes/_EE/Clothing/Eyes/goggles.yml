@@ -104,7 +104,7 @@
   - type: Clothing
     sprite: _EE/Clothing/Eyes/Goggles/monocle_thermal.rsi
   - type: PluralName # imp
-    oneOf: plural-name-a # lol
+    oneOf: plural-name-a # undoing inheritance
 
 - type: entity
   parent: ClothingEyesThermalVisionGoggles

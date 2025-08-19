@@ -173,7 +173,7 @@
     price: 5
   - type: PluralName # imp
     oneOf: plural-name-a
-    someOf: plural-name-hand-1
+    nameSomeOf: bruise packs
 
 - type: entity
   id: Brutepack1
@@ -232,7 +232,7 @@
     price: 20
   - type: PluralName # imp
     oneOf: plural-name-spindle-1
-    someOf: plural-name-spindle-2plus
+    nameSomeOf: medicated sutures
 
 - type: entity
   id: BrutepackAdvanced1
@@ -298,7 +298,8 @@
         reagents:
         - ReagentId: Blood
           Quantity: 15
-
+  - type: PluralName # imp
+    nameSomeOf: blood packs
 
 - type: entity
   parent: Bloodpack
@@ -352,6 +353,8 @@
         params:
           volume: 1.0
           variation: 0.125
+    - type: PluralName # imp
+      nameSomeOf: torniquets
 
 - type: entity
   name: roll of gauze
@@ -394,6 +397,8 @@
     count: 10
   - type: StackPrice
     price: 10
+  - type: PluralName # imp
+    nameSomeOf: rolls of gauze
 
 - type: entity
   id: Gauze1
@@ -438,6 +443,9 @@
   - type: Stack
     stackType: AloeCream
     count: 10
+  - type: PluralName # imp
+    oneOf: plural-name-tube-1
+    someOf: plural-name-tube-2plus
   - type: Tag
     tags:
       - Aloe
