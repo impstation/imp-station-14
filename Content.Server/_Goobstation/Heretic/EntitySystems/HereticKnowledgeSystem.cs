@@ -28,23 +28,14 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
         if (data.Event != null)
             RaiseLocalEvent(uid, (object) data.Event, true);
 
-        if (data.ActionPrototypes != null && data.ActionPrototypes.Count > 0)
+
+        if (data.ActionPrototypes != null)
         {
             foreach (var act in data.ActionPrototypes)
             {
                 _action.AddAction(uid, act);
             }
         }
-
-        if (data.RitualPrototypes != null && data.RitualPrototypes.Count > 0)
-        {
-            foreach (var ritual in data.RitualPrototypes)
-            {
-                comp.KnownRituals.Add(_ritual.GetRitual(ritual));
-            }
-        }
-
-        Dirty(uid, comp);
 
         // Manage Path Data
         if (GetKnowledgePath(data, out var path))
@@ -68,7 +59,11 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
         }
         if (!silent)
             _popup.PopupEntity(Loc.GetString("heretic-knowledge-gain"), uid, uid);
+
+        Dirty(uid, comp);
+        comp.KnownKnowledge.Add(data);
     }
+
     public void RemoveKnowledge(EntityUid uid, HereticComponent comp, ProtoId<HereticKnowledgePrototype> id, bool silent = false)
     {
         var data = GetKnowledge(id);
@@ -87,16 +82,8 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
             }
         }
 
-        if (data.RitualPrototypes != null && data.RitualPrototypes.Count > 0)
-        {
-            foreach (var ritual in data.RitualPrototypes)
-            {
-                comp.KnownRituals.Remove(_ritual.GetRitual(ritual));
-            }
-        }
-
+        comp.KnownKnowledge.Remove(data);
         Dirty(uid, comp);
-
         if (!silent)
             _popup.PopupEntity(Loc.GetString("heretic-knowledge-loss"), uid, uid);
     }
@@ -118,5 +105,27 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
         }
         path = null;
         return false;
+    }
+
+    public bool GetKnowledgeRituals(ProtoId<HereticKnowledgePrototype> knowledge, [NotNullWhen(true)] out List<ProtoId<HereticRitualPrototype>>? rituals)
+    {
+        if (GetKnowledge(knowledge).RitualPrototypes != null)
+        {
+            rituals = GetKnowledge(knowledge).RitualPrototypes;
+        }
+        rituals = null;
+        return rituals != null;
+    }
+
+    public List<ProtoId<HereticRitualPrototype>> AllKnownRituals(HereticComponent comp)
+    {
+        var rituals = new List<ProtoId<HereticRitualPrototype>>();
+        foreach (var knowledge in comp.KnownKnowledge)
+        {
+            var ritualPrototypes = GetKnowledge(knowledge).RitualPrototypes;
+            if (ritualPrototypes != null)
+                rituals.AddRange(ritualPrototypes);
+        }
+        return rituals;
     }
 }

@@ -9,16 +9,21 @@ namespace Content.Server.Store.Conditions;
 
 public sealed partial class HereticPathCondition : ListingCondition
 {
-    public int AlternatePathPenalty = 1; //you can only buy alternate paths' abilities if they are this amount under your initial path's top ability level.
-    [DataField] public HashSet<ProtoId<HereticPathPrototype>>? Whitelist = [];
-    [DataField] public HashSet<ProtoId<HereticPathPrototype>>? Blacklist = [];
-
-    [DataField] public int RequiredPower;
+    [DataField] public int AlternatePathPenalty = 1;
+    [DataField] public HashSet<ProtoId<HereticPathPrototype>>? Whitelist;
+    [DataField] public HashSet<ProtoId<HereticPathPrototype>>? Blacklist;
 
     public override bool Condition(ListingConditionArgs args)
     {
         var ent = args.EntityManager;
         var knowledgeSys = ent.System<HereticKnowledgeSystem>();
+        if (args.Listing.ProductHereticKnowledge == null)
+            return false;
+
+        var knowledgeProtoId = new ProtoId<HereticKnowledgePrototype>((ProtoId<HereticKnowledgePrototype>)args.Listing.ProductHereticKnowledge);
+        var knowledge = knowledgeSys.GetKnowledge(knowledgeProtoId);
+        // set effective power to required power
+        var requiredPower = knowledge.RequiredPower;
 
         if (!ent.TryGetComponent<MindComponent>(args.Buyer, out var mind))
             return false;
@@ -26,8 +31,18 @@ public sealed partial class HereticPathCondition : ListingCondition
         if (!ent.TryGetComponent<HereticComponent>(mind.OwnedEntity, out var hereticComp))
             return false;
 
-        //Stage is the level of the knowledge we're looking at
-        //always check for level
-        return hereticComp.Power >= RequiredPower;
+        //Whitelist check
+        if (Whitelist != null && hereticComp.MainPath != null && !Whitelist.Contains(hereticComp.MainPath.Value))
+            return false;
+
+        //Blacklist check
+        if (Blacklist != null && hereticComp.MainPath != null && Blacklist.Contains(hereticComp.MainPath.Value))
+            return false;
+
+        // If the heretic's main path and the path the knowledge isn't the same
+        if (knowledgeSys.GetKnowledgePath(knowledgeProtoId, out var path) && hereticComp.MainPath != null && hereticComp.MainPath.Value != path)
+            requiredPower += AlternatePathPenalty;
+
+        return hereticComp.Power >= requiredPower;
     }
 }

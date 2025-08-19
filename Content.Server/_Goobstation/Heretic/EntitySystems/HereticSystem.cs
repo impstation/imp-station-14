@@ -10,10 +10,8 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Mind;
-using Content.Shared.Roles;
 using Content.Shared.Store.Components;
 using Robust.Shared.Audio;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -25,9 +23,8 @@ public sealed partial class HereticSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly StoreSystem _store = default!;
 
-    private float _timer = 0f;
+    private float _timer;
     private float _passivePointCooldown = 20f * 60f;
-    private static readonly ProtoId<JobPrototype> SecOffJobProtoID = "SecurityOfficer";
 
     public override void Initialize()
     {

@@ -20,8 +20,12 @@ public sealed partial class HereticComponent : Component
 
     #endregion
 
-    [DataField, AutoNetworkedField] public List<ProtoId<HereticRitualPrototype>> KnownRituals = new();
     [DataField] public ProtoId<HereticRitualPrototype>? ChosenRitual;
+
+    /// <summary>
+    ///     All knowledge the heretic knows.
+    /// </summary>
+    [DataField, AutoNetworkedField] public List<ProtoId<HereticKnowledgePrototype>> KnownKnowledge = [];
 
     /// <summary>
     ///     The main path the heretic is on.
