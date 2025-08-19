@@ -43,6 +43,22 @@
   - type: NavMapBeacon
     defaultText: station-beacon-smengine
 
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconDrone
+  suffix: Drone
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-drone
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconMaterials
+  suffix: Materials
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-materials
+
 #Solars
 - type: entity
   parent: DefaultStationBeaconEngineering
