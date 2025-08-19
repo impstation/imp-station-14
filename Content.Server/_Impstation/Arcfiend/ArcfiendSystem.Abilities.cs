@@ -32,7 +32,10 @@ using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Toolshed.Commands.Values; //i just pulled allat from the ling files ill clean it up later
+using Robust.Shared.Toolshed.Commands.Values;
+using Content.Shared.Mobs.Systems;
+using Content.Server.Explosion.Components;
+using Content.Server.Stunnable; //i just pulled allat from the ling files ill clean it up later
 
 namespace Content.Server.Arcfiend;
 
@@ -40,6 +43,12 @@ public sealed partial class ArcfiendSystem : EntitySystem
 {
     [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    [Dependency] private readonly StunSystem _stunSystem = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    public ProtoId<DamageTypePrototype> ShockDamageType = "Shock";
+
     public void SubscribeAbilities()
     {
         SubscribeLocalEvent<ArcfiendComponent, SapPowerEvent>(OnSapPower);
@@ -108,10 +117,16 @@ public sealed partial class ArcfiendSystem : EntitySystem
         args.Handled = true;
 
         //popup text
+
         //doafter
-        //deal damage
-        //if alive
-        args.Change = 100;
+
+        _damageableSystem.TryChangeDamage(uid, new DamageSpecifier(_proto.Index(ShockDamageType), 10));
+        _stunSystem.TryAddParalyzeDuration(uid, new TimeSpan(0, 0, 5));
+        if (_mobState.IsAlive(uid))
+        {
+            args.Change = 100;
+        }
+
     }
     private void OnDischarge(EntityUid uid, ArcfiendComponent comp, ref DischargeEvent args)
     {
