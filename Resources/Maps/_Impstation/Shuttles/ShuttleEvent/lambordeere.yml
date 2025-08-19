@@ -4,8 +4,8 @@ meta:
   engineVersion: 265.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/19/2025 16:03:24
-  entityCount: 228
+  time: 08/19/2025 17:06:18
+  entityCount: 233
 maps: []
 grids:
 - 1
@@ -578,6 +578,16 @@ entities:
       rot: 3.141592653589793 rad
       pos: 0.5,6.5
       parent: 1
+- proto: CigPackSyndicate
+  entities:
+  - uid: 232
+    components:
+    - type: MetaData
+      desc: "There's a note stuffed in the lid: \"With love, Uncle E\""
+    - type: Transform
+      parent: 228
+    - type: Physics
+      canCollide: False
 - proto: ClothingBackpackSatchelSmugglerUnanchored
   entities:
   - uid: 228
@@ -585,6 +595,39 @@ entities:
     - type: Transform
       pos: 1.40625,0.6094084
       parent: 1
+    - type: Storage
+      storedItems:
+        229:
+          position: 3,0
+          _rotation: South
+        230:
+          position: 3,1
+          _rotation: South
+        231:
+          position: 5,0
+          _rotation: South
+        232:
+          position: 4,0
+          _rotation: South
+        233:
+          position: 6,1
+          _rotation: South
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 229
+          - 230
+          - 232
+          - 231
+          - 233
+    - type: UserInterface
+      actors:
+        enum.StorageUiKey.Key:
+        - invalid
+    - type: ActiveUserInterface
 - proto: ClothingHeadHatCowboyBrown
   entities:
   - uid: 215
@@ -1159,6 +1202,24 @@ entities:
     - type: Transform
       pos: 2.5866935,-1.3683879
       parent: 1
+- proto: InterdyneFlippo
+  entities:
+  - uid: 230
+    components:
+    - type: Transform
+      parent: 228
+    - type: Physics
+      canCollide: False
+- proto: PaperOffice
+  entities:
+  - uid: 229
+    components:
+    - type: Transform
+      parent: 228
+    - type: Paper
+      content: Here are your orders, kid. Your cover is a simple farm delivery out to Box station, Delta sector. The supplies in this satchel should get you a leg up on the operation, but once you leave port, you're on your own. Burn this before you reach your target. Best of luck, kid. You're gonna need it.
+    - type: Physics
+      canCollide: False
 - proto: PetCarrier
   entities:
   - uid: 200
@@ -1387,6 +1448,14 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 2.5,-0.5
       parent: 1
+- proto: Telecrystal5
+  entities:
+  - uid: 233
+    components:
+    - type: Transform
+      parent: 228
+    - type: Physics
+      canCollide: False
 - proto: Thruster
   entities:
   - uid: 38
@@ -1665,6 +1734,14 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 0.5,2.5
       parent: 1
+- proto: WeaponRevolverPython
+  entities:
+  - uid: 231
+    components:
+    - type: Transform
+      parent: 228
+    - type: Physics
+      canCollide: False
 - proto: WheatSeeds
   entities:
   - uid: 204
