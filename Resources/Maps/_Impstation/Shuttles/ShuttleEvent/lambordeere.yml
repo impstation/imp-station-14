@@ -4,7 +4,7 @@ meta:
   engineVersion: 265.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/19/2025 17:43:34
+  time: 08/19/2025 18:02:54
   entityCount: 233
 maps: []
 grids:
@@ -585,46 +585,15 @@ entities:
     - type: MetaData
       desc: "There's a note stuffed in the lid: \"With love, Uncle E\""
     - type: Transform
-      parent: 228
-    - type: Physics
-      canCollide: False
+      pos: 1.8890958,0.18647122
+      parent: 1
 - proto: ClothingBackpackSatchelSmugglerUnanchored
   entities:
   - uid: 228
     components:
     - type: Transform
-      pos: 1.40625,0.6094084
+      pos: 1.2953458,0.38959622
       parent: 1
-    - type: Storage
-      storedItems:
-        230:
-          position: 3,1
-          _rotation: South
-        231:
-          position: 5,0
-          _rotation: South
-        232:
-          position: 4,0
-          _rotation: South
-        233:
-          position: 6,1
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 230
-          - 232
-          - 231
-          - 233
-    - type: UserInterface
-      actors:
-        enum.StorageUiKey.Key:
-        - invalid
-        - invalid
-    - type: ActiveUserInterface
 - proto: ClothingHeadHatCowboyBrown
   entities:
   - uid: 215
@@ -705,8 +674,7 @@ entities:
   - uid: 50
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 0.515326,-2.4640286
+      pos: 1.1859708,-0.67546344
       parent: 1
 - proto: DuckDuckGooseSpawner
   entities:
@@ -726,8 +694,7 @@ entities:
   - uid: 221
     components:
     - type: Transform
-      rot: 5.977427710331566 rad
-      pos: 1.6445093,0.8534626
+      pos: 2.2797208,0.13346976
       parent: 1
   - uid: 223
     components:
@@ -1204,15 +1171,14 @@ entities:
   - uid: 230
     components:
     - type: Transform
-      parent: 228
-    - type: Physics
-      canCollide: False
+      pos: 1.9203458,0.5302212
+      parent: 1
 - proto: PaperOffice
   entities:
   - uid: 229
     components:
     - type: Transform
-      pos: 1.59375,0.421875
+      pos: 1.6078458,1.4520962
       parent: 1
     - type: Paper
       content: Here are your orders, kid. Your cover is a simple farm delivery out to Box station, Delta sector. The supplies in this satchel should get you a leg up on the operation, but once you leave port, you're on your own. Burn this before you reach your target. Best of luck, kid. You're gonna need it.
@@ -1301,7 +1267,7 @@ entities:
   - uid: 82
     components:
     - type: Transform
-      pos: 0.796576,0.9698076
+      pos: 0.33404374,1.6682886
       parent: 1
   - uid: 108
     components:
@@ -1449,9 +1415,8 @@ entities:
   - uid: 233
     components:
     - type: Transform
-      parent: 228
-    - type: Physics
-      canCollide: False
+      pos: 1.2015958,0.7958462
+      parent: 1
 - proto: Thruster
   entities:
   - uid: 38
@@ -1735,9 +1700,8 @@ entities:
   - uid: 231
     components:
     - type: Transform
-      parent: 228
-    - type: Physics
-      canCollide: False
+      pos: 1.2328458,0.9052212
+      parent: 1
 - proto: WheatSeeds
   entities:
   - uid: 204
@@ -1798,7 +1762,6 @@ entities:
   - uid: 181
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 0.46605706,-2.5210748
+      pos: 1.8422208,-0.51921344
       parent: 1
 ...
