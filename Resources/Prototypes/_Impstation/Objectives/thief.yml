@@ -124,6 +124,15 @@
 
 - type: entity
   parent: BaseThiefStealObjective
+  id: HDCutterMachineStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: HDCutterMachine
+  - type: Objective
+    difficulty: 1.5
+
+- type: entity
+  parent: BaseThiefStealObjective
   id: SecPillCanisterStealObjective
   components:
   - type: NotJobRequirement

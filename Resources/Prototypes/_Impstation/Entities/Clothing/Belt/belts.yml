@@ -205,3 +205,145 @@
   - type: Clothing
     sprite: _Impstation/Clothing/Belt/suspenders_brown.rsi
     quickEquip: true
+
+# hospitality director
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltHospitalityDirector
+  name: hospitality director's utility belt
+  description: A belt used to hold a variety of botanical, janitorial, and kitchen supplies. Surprisingly, not completely green.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Belt/hd.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Belt/hd.rsi
+  - type: Storage
+    whitelist:
+      tags: #the omni service belt
+      #Shared
+      - Bottle
+      - CigPack
+      - DampRag
+      #Botanist
+      - PlantAnalyzer
+      - PlantSampleTaker
+      - BotanyShovel
+      - BotanyHoe
+      - BotanyHatchet
+      - PlantBGone
+      - Syringe
+      - Dropper
+      #Chef
+      - KitchenKnife
+      - Cleaver
+      - RollingPin
+      - Coldsauce
+      - Enzyme
+      - Hotsauce
+      - Ketchup
+      - BBQsauce
+      - SaltShaker
+      - PepperShaker
+      - Packet
+      - Skewer
+      - MonkeyCube
+      - Mayo
+      #Janitor
+      - Wrench
+      - Spray
+      - Soap
+      - Flashlight
+      - TrashBag
+      - WetFloorSign
+      - HolosignProjector
+      - Plunger
+      - JanitorialWelder
+      - WireBrush
+      components:
+      #Shared
+      - Smokable
+      #Botanist
+      - Seed
+      - HandLabeler
+      #Chef
+      - Mousetrap
+      - Utensil
+      #Janitor
+      - LightReplacer
+      - SmokeOnTrigger
+    maxItemSize: Large
+  - type: ItemMapper
+    mapLayers:
+      #Botanist
+      hatchet:
+        whitelist:
+          tags:
+          - BotanyHatchet
+      hoe:
+        whitelist:
+          tags:
+          - BotanyHoe
+      secateurs:
+        whitelist:
+          tags:
+          - BotanyShovel
+      plantbgone:
+        whitelist:
+          tags:
+          - PlantBGone
+      bottle:
+        whitelist:
+          tags:
+          - Bottle
+      #Chef
+      kitchenknife:
+        whitelist:
+          tags:
+          - KitchenKnife
+      cleaver:
+        whitelist:
+          tags:
+          - Cleaver
+      rollingpin:
+        whitelist:
+          tags:
+          - RollingPin
+      coldsauce:
+        whitelist:
+          tags:
+          - Coldsauce
+      enzyme:
+        whitelist:
+          tags:
+          - Enzyme
+      hotsauce:
+        whitelist:
+          tags:
+          - Hotsauce
+      ketchup:
+        whitelist:
+          tags:
+          - Ketchup
+      bbqsauce:
+        whitelist:
+          tags:
+          - BBQsauce
+      saltshaker:
+        whitelist:
+          tags:
+          - SaltShaker
+      peppershaker:
+        whitelist:
+          tags:
+          - PepperShaker
+      #Janitor
+      bottle_spray:
+        whitelist:
+          tags:
+          - Spray
+      wrench:
+        whitelist:
+          tags:
+          - Wrench
+    sprite: Clothing/Belt/belt_overlay.rsi
+  - type: Appearance

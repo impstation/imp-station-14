@@ -17,14 +17,23 @@ People may not be able to make out all of what you're saying if you're standing 
 
 ## Radio
 
-Your radio allows you to communicate across the entire station and to your specific [color=#a4885c]department[/color].
+Your radio allows you to communicate to your specific [color=#a4885c]department[/color], and to hear [color=#32cd32]station-wide announcements[/color].
 
 <Box>
   <GuideEntityEmbed Entity="ClothingHeadsetGrey"/>
 </Box>
 
-To send a [color=#a4885c]station-wide[/color] message over the radio preface, use the [color=#32cd32]Common[/color] channel by beginning your text with [color=#32cd32]semi-colon (;)[/color].
-People standing right next to you might catch bits of your radio message, even if they don't have the access to the relevant radio channel. Watch for eavesdroppers.
+## Intercoms and Station-Wide Announcements
+
+To send a [color=#a4885c]station-wide[/color] message over the radio, you'll need to find an [color=#32cd32]intercom[/color].
+
+<Box>
+  <GuideEntityEmbed Entity="Intercom"/>
+</Box>
+
+Make sure the channel is set to [color=#32cd32]Common[/color], and turn on the microphone. Anything that anyone says near the intercom while the microphone is on will be broadcast to the entire station.
+
+If you find an intercom in front of a department, there's a good chance that intercom can access that department's radio as well. This is a very useful tool to contact specific other departments. Make sure to turn on the Speaker setting so you can hear what they say back!
 
 ## Departmental Radio
 
