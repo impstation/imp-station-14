@@ -78,6 +78,12 @@
       - !type:AdjustReagent
         reagent: UncookedAnimalProteins
         amount: 0.5
+      - !type:AdjustReagent # imp
+        conditions:
+          - !type:OrganType
+            type: Kodepiia
+        reagent: UncookedAnimalProteins
+        amount: 1
 
 - type: reagent
   id: EggCooked
@@ -92,6 +98,10 @@
     Food:
       effects:
       - !type:AdjustReagent
+        conditions: # imp - this is for you selene
+        - !type:OrganType
+          type: Kodepiia
+          shouldHave: false
         reagent: Protein
         amount: 1
 

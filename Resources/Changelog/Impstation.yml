@@ -1,47 +1,4 @@
 ﻿Entries:
-- author: starlighthowls
-  changes:
-  - message: Adds the drink Moonrise Blend
-    type: Add
-  id: 1675
-  time: '2025-05-14T18:03:10.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2483
-- author: Darkmajia
-  changes:
-  - message: It's only game. Why you have to be mad?
-    type: Add
-  id: 1676
-  time: '2025-05-14T18:08:25.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2492
-- author: DinnerCalzone
-  changes:
-  - message: Shoveled astro-snow and astro-cave tiles can now be crafted after researching
-      Faux Astro-Tiles.
-    type: Add
-  - message: Asphalt tiles can now be crafted at cutter machines.
-    type: Add
-  id: 1677
-  time: '2025-05-14T18:23:15.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2487
-- author: meridiadottxt
-  changes:
-  - message: Gate Station now has main power connected to all departments
-    type: Add
-  - message: fixed power issue in security
-    type: Fix
-  - message: altered a bunch of other stuff i can't remember it was a few days ago
-      ok
-    type: Tweak
-  id: 1678
-  time: '2025-05-14T22:37:31.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2493
-- author: Ionward
-  changes:
-  - message: Dremon Sord's brave action has been immortalized.
-    type: Add
-  id: 1679
-  time: '2025-05-14T22:38:41.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2496
 - author: hivehum
   changes:
   - message: Fishing rods have been disabled due to there being no fish.
@@ -4209,3 +4166,42 @@
   id: 2174
   time: '2025-08-17T02:29:16.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3303
+- author: VeeNomine
+  changes:
+  - message: Reposition the head slot for drones so their hats are more properly offset.
+    type: Tweak
+  id: 2175
+  time: '2025-08-18T14:35:39.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3317
+- author: honeyed-lemons
+  changes:
+  - message: Slightly adjusted wording relating to the heretic shop.
+    type: Tweak
+  id: 2176
+  time: '2025-08-19T02:51:23.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3313
+- author: DinnerCalzone
+  changes:
+  - message: Fixed not being able to examine the damage on the portable cutter machine.
+    type: Fix
+  id: 2177
+  time: '2025-08-19T08:08:56.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3321
+- author: hivehum
+  changes:
+  - message: The recipes for heart carpaccio, moproach, and draco have been altered.
+    type: Tweak
+  - message: Cooked eggs no longer poison Kodepiiae.
+    type: Fix
+  id: 2178
+  time: '2025-08-19T08:11:09.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3319
+- author: yesteryuri
+  changes:
+  - message: You can juice wood and cardboard for cellulose
+    type: Add
+  - message: Everyone can eat wood and cardboard with a little persistence
+    type: Add
+  id: 2179
+  time: '2025-08-19T08:39:40.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3282
