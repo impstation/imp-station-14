@@ -1,47 +1,4 @@
 ﻿Entries:
-- author: hivehum
-  changes:
-  - message: Fishing rods have been disabled due to there being no fish.
-    type: Remove
-  id: 1680
-  time: '2025-05-14T22:41:06.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2497
-- author: Kandiyaki
-  changes:
-  - message: Sacrificing a fellow crewmember as heretic will now provide an extra
-      knowledge point. totaling to 2 for a non-command and 3 for a command.
-    type: Tweak
-  - message: Heretic's ritual of knowledge will no longer break when attempting to
-      use it without all the requirements present.
-    type: Fix
-  - message: Eldritch tomes will now notify onlookers when a heretic begins to read
-      them.
-    type: Tweak
-  - message: Eldritch tomes have had their descriptions slightly changed.
-    type: Tweak
-  - message: Reality tears will now last 10 seconds before disappearing and spitting
-      out an eldritch tome.
-    type: Tweak
-  - message: Reality tears are now audible from a much larger radius.
-    type: Tweak
-  id: 1681
-  time: '2025-05-15T00:40:46.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2484
-- author: AirFryerBuyOneGetOneFree
-  changes:
-  - message: Gave Mothroaches and Cockroaches a 1 damage bite attack. Its time to
-      fight back my roach brethren!
-    type: Tweak
-  id: 1682
-  time: '2025-05-15T00:40:19.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2460
-- author: TheLuggage05
-  changes:
-  - message: Night vision goggle lens slots are fixed for real
-    type: Fix
-  id: 1683
-  time: '2025-05-15T12:36:42.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2498
 - author: starlighthowls
   changes:
   - message: New lobby art by Wowls! Smoko?
@@ -4205,3 +4162,38 @@
   id: 2179
   time: '2025-08-19T08:39:40.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3282
+- author: Oberonics
+  changes:
+  - message: Ported the shuffle and repeat jukebox feature from frontier! Courtesy
+      of Masterscape.
+    type: Add
+  id: 2180
+  time: '2025-08-20T02:53:05.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3296
+- author: formlessnameless
+  changes:
+  - message: A document printer with a bunch of templates has hit the station. The
+      wonders of bureaucracy never cease. Check your head's locker today!
+    type: Add
+  id: 2181
+  time: '2025-08-20T02:53:20.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3310
+- author: TheGrimbeeper
+  changes:
+  - message: changelings once again are resistant to artifact crushers
+    type: Tweak
+  id: 2182
+  time: '2025-08-20T02:52:40.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3277
+- author: Kandiyaki
+  changes:
+  - message: Changed the description of the Flesh Surgery spell to properly reflect
+      its new effects.
+    type: Tweak
+  - message: Ghoul and Sacrifice notifications will now display properly.
+    type: Fix
+  - message: The Raw Prophet's mansus link ability is functional again.
+    type: Fix
+  id: 2183
+  time: '2025-08-20T02:52:52.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3291
