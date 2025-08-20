@@ -11,12 +11,7 @@ public sealed partial class HereticKnowledgePrototype : IPrototype
 
     [DataField] public string? Path;
 
-    [DataField] public int Stage = 1;
-
-    /// <summary>
-    ///     Indicates that this should not be on a main branch.
-    /// </summary>
-    [DataField] public bool SideKnowledge = false;
+    [DataField] public int RequiredPower = 1;
 
     /// <summary>
     ///     What event should be raised
