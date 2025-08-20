@@ -8,6 +8,7 @@ using Content.Shared.Chunking;
 using Content.Shared.Database;
 using Content.Shared.Decals;
 using Content.Shared.Maps;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.Extensions.ObjectPool;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
@@ -289,10 +290,10 @@ namespace Content.Server.Decals
             _dirtyChunks[id].Add(chunkIndices);
         }
 
-        public bool TryAddDecal(string id, EntityCoordinates coordinates, out uint decalId, Color? color = null, Angle? rotation = null, int zIndex = 0, bool cleanable = false)
+        public bool TryAddDecal(string id, EntityCoordinates coordinates, out uint decalId, Color? color = null, Angle? rotation = null, int zIndex = 0, bool cleanable = false, string shaderID = "")  //imp edit - added shader
         {
             rotation ??= Angle.Zero;
-            var decal = new Decal(coordinates.Position, id, color, rotation.Value, zIndex, cleanable);
+            var decal = new Decal(coordinates.Position, id, color, rotation.Value, zIndex, cleanable, shaderID); //imp edit - added shader
 
             return TryAddDecal(decal, coordinates, out decalId);
         }
@@ -315,7 +316,12 @@ namespace Content.Server.Decals
                 return false;
 
             //imp edit - set the decal's shader
-            decal.ShaderID = PrototypeManager.Index<DecalPrototype>(decal.Id).ShaderID;
+            //kinda messy to have a double check here but decals are wierd and their proto IDs mean little about their actual state
+            //and I don't want to do a buncha small edits across a dozen files to fix that
+            if (decal.ShaderID == string.Empty)
+            {
+                decal.ShaderID = PrototypeManager.Index<DecalPrototype>(decal.Id).ShaderID;
+            }
 
             decalId = comp.ChunkCollection.NextDecalId++;
             var chunkIndices = GetChunkIndices(decal.Coordinates);

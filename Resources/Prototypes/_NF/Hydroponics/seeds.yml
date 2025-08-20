@@ -1,4 +1,29 @@
-﻿
+﻿- type: seed
+  id: pear
+  name: seeds-pear-name
+  noun: seeds-noun-seeds
+  displayName: seeds-pear-display-name
+  plantRsi: _NF/Objects/Specific/Hydroponics/pear.rsi
+  packetPrototype: PearSeeds
+  productPrototypes:
+  - FoodPear
+  harvestRepeat: Repeat
+  lifespan: 55
+  maturation: 6
+  production: 6
+  yield: 3
+  potency: 10
+  idealLight: 6
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 10
+    Vitamin:
+      Min: 1
+      Max: 4
+      PotencyDivisor: 25
+
 - type: seed
   id: coffee
   name: seeds-coffee-name
@@ -27,3 +52,107 @@
       Min: 1
       Max: 4
       PotencyDivisor: 25
+
+- type: seed
+  id: avocado
+  name: seeds-avocado-name
+  noun: seeds-noun-seeds
+  displayName: seeds-avocado-display-name
+  plantRsi: _NF/Objects/Specific/Hydroponics/avocado.rsi
+  packetPrototype: AvocadoSeeds
+  productPrototypes:
+  - FoodAvocado
+  lifespan: 55
+  maturation: 6
+  production: 6
+  yield: 3
+  potency: 10
+  idealLight: 6
+  growthStages: 5
+  harvestRepeat: Repeat
+  waterConsumption: 0.60
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 10
+    Vitamin:
+      Min: 1
+      Max: 4
+      PotencyDivisor: 25
+
+- type: seed
+  id: cucumber
+  name: seeds-cucumber-name
+  noun: seeds-noun-seeds
+  displayName: seeds-cucumber-display-name
+  plantRsi: _NF/Objects/Specific/Hydroponics/cucumber.rsi
+  packetPrototype: CucumberSeeds
+  productPrototypes:
+  - FoodCucumber
+  lifespan: 50
+  maturation: 7
+  production: 5
+  yield: 4
+  potency: 10
+  growthStages: 5
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 10
+    Vitamin:
+      Min: 1
+      Max: 4
+      PotencyDivisor: 25
+
+- type: seed
+  id: bees
+  name: seeds-bees-name
+  noun: seeds-noun-nothing
+  packetName: botany-seed-jar-name
+  displayName: seeds-bees-display-name
+  plantRsi: _NF/Objects/Specific/Hydroponics/bees.rsi
+  packetPrototype: BeeSeeds
+  productPrototypes:
+  - FoodHoneyComb
+  lifespan: 60
+  maturation: 7
+  production: 5
+  yield: 4
+  potency: 10
+  growthStages: 4
+  harvestRepeat: Repeat
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 10
+    Vitamin:
+      Min: 1
+      Max: 4
+      PotencyDivisor: 25
+  preventSwabbing: true # they're bees
+
+- type: seed
+  id: everyspice
+  name: seeds-everyspice-name
+  noun: seeds-noun-seeds
+  displayName: seeds-everyspice-display-name
+  plantRsi: _NF/Objects/Specific/Hydroponics/everyspice.rsi
+  packetPrototype: EveryspiceSeeds
+  productPrototypes:
+  - FoodEveryspice
+  harvestRepeat: Repeat
+  lifespan: 25
+  maturation: 6
+  production: 6
+  yield: 2
+  potency: 20
+  idealLight: 9 # tropical-ish
+  idealHeat: 303
+  chemicals:
+    Everyspice:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 10
