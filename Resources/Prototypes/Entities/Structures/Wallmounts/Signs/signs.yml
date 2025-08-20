@@ -15,6 +15,8 @@
   components:
     - type: Sprite
       snapCardinals: false
+    - type: Transform #imp edit, should probably be upstreamed, fix directional signs anchoring to center
+      anchored: false
 
 - type: entity
   parent: BaseSignDirectional
@@ -1323,7 +1325,7 @@
     snapCardinals: false
 
 - type: entity
-  parent: BaseSign
+  parent: BaseSignDirectional #imp, disabled anchoring to center
   id: SignRedOne
   name: one sign
   description: Lonely. # imp
@@ -1332,7 +1334,7 @@
     state: one
 
 - type: entity
-  parent: BaseSign
+  parent: BaseSignDirectional #imp, disabled anchoring to center
   id: SignRedTwo
   name: two sign
   description: Company. # imp
@@ -1341,7 +1343,7 @@
     state: two
 
 - type: entity
-  parent: BaseSign
+  parent: BaseSignDirectional #imp, disabled anchoring to center
   id: SignRedThree
   name: three sign
   description: A crowd. # imp
@@ -1350,7 +1352,7 @@
     state: three
 
 - type: entity
-  parent: BaseSign
+  parent: BaseSignDirectional #imp, disabled anchoring to center
   id: SignRedFour
   name: four sign
   description: Unlucky. # imp
@@ -1359,7 +1361,7 @@
     state: four
 
 - type: entity
-  parent: BaseSign
+  parent: BaseSignDirectional #imp, disabled anchoring to center
   id: SignRedFive
   name: five sign
   description: Starry. # imp
@@ -1368,7 +1370,7 @@
     state: five
 
 - type: entity
-  parent: BaseSign
+  parent: BaseSignDirectional #imp, disabled anchoring to center
   id: SignRedSix
   name: six sign
   description: Perfect. # imp
@@ -1377,7 +1379,7 @@
     state: six
 
 - type: entity
-  parent: BaseSign
+  parent: BaseSignDirectional #imp, disabled anchoring to center
   id: SignRedSeven
   name: seven sign
   description: Lucky. # imp
@@ -1386,7 +1388,7 @@
     state: seven
 
 - type: entity
-  parent: BaseSign
+  parent: BaseSignDirectional #imp, disabled anchoring to center
   id: SignRedEight
   name: eight sign
   description: Byte-sized. # imp
@@ -1395,7 +1397,7 @@
     state: eight
 
 - type: entity
-  parent: BaseSign
+  parent: BaseSignDirectional #imp, disabled anchoring to center
   id: SignRedNine
   name: nine sign
   description: Feline. # imp
@@ -1404,7 +1406,7 @@
     state: nine
 
 - type: entity
-  parent: BaseSign
+  parent: BaseSignDirectional #imp, disabled anchoring to center
   id: SignRedZero
   name: zero sign
   description: Null. # imp
