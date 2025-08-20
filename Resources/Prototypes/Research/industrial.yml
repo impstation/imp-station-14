@@ -14,6 +14,7 @@
   - MineralScannerEmpty
   - OreProcessorIndustrialMachineCircuitboard
   - ClothingMaskWeldingGas
+  - ClothingShoesBootsJump
   - BorgModuleMining # imp
   - ClothingEyesHudSalvage #imp
 
@@ -146,8 +147,8 @@
   - ShuttleConsoleCircuitboard
   - ThrusterMachineCircuitboard
   - GyroscopeMachineCircuitboard
-  - MiniGyroscopeMachineCircuitboard
   - MiniGravityGeneratorCircuitboard
+  - MiniGyroscopeMachineCircuitboard #imp edit
 
 - type: technology
   id: AdvancedAtmospherics
@@ -183,8 +184,8 @@
     - FultonBeacon
 
 - type: technology
-  id: AdvancedSalvage
-  name: research-technology-advanced-salvage
+  id: MassExcavation
+  name: research-technology-advanced-salvage #imp edit
   icon:
     sprite: Objects/Tools/handdrilldiamond.rsi
     state: handdrill

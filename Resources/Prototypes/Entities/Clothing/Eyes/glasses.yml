@@ -70,7 +70,7 @@
     - type: SupermatterHallucinationImmune
   - type: Tag
     tags:
-    - CorgiWearable
+    - PetWearable
     - WhitelistChameleon
   - type: StealTarget #imp
     stealGroup: EngineeringGoggles
@@ -180,7 +180,7 @@
   - type: Tag
     tags:
     - HamsterWearable
-    - CorgiWearable
+    - PetWearable
     - WhitelistChameleon
   - type: IdentityBlocker
     coverage: EYES
@@ -197,7 +197,7 @@
   - type: Tag
     tags:
     - Sunglasses
-    - CorgiWearable
+    - PetWearable
     - HamsterWearable
     - WhitelistChameleon
 
@@ -220,7 +220,7 @@
   - type: Tag
     tags:
     - HamsterWearable
-    - CorgiWearable
+    - PetWearable
     - WhitelistChameleon
     - GlassesSecurity
   - type: GuideHelp
@@ -246,7 +246,7 @@
   - type: Tag
     tags:
     - HamsterWearable
-    - CorgiWearable
+    - PetWearable
     - WhitelistChameleon
     - AdministrationGlasses # imp, for crafting
   - type: IdentityBlocker
@@ -303,7 +303,7 @@
       coverage: EYES
     - type: Tag
       tags:
-      - CorgiWearable
+      - PetWearable
       - WhitelistChameleon
 
 - type: entity

@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Ghost;
 using Content.Shared.Interaction;
+using Content.Shared.Inventory; // imp
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using JetBrains.Annotations;
@@ -111,7 +112,7 @@ namespace Content.Shared.Examine
             if (!examinerComp.CheckInRangeUnOccluded)
                 return true;
 
-            if (EntityManager.GetComponent<TransformComponent>(examiner).MapID != target.MapId)
+            if (Comp<TransformComponent>(examiner).MapID != target.MapId)
                 return false;
 
             // Do target InRangeUnoccluded which has different checks.
@@ -293,8 +294,10 @@ namespace Content.Shared.Examine
     ///     If you're pushing multiple messages that should be grouped together (or ordered in some way),
     ///     call <see cref="PushGroup"/> before pushing and <see cref="PopGroup"/> when finished.
     /// </summary>
-    public sealed class ExaminedEvent : EntityEventArgs
+    public sealed class ExaminedEvent : EntityEventArgs, IInventoryRelayEvent // IMP EDIT: Inventory relayed
     {
+        public SlotFlags TargetSlots => SlotFlags.WITHOUT_POCKET; // IMP EDIT: Inventory relayed
+
         /// <summary>
         ///     The message that will be displayed as the examine text.
         ///     You should use <see cref="PushMarkup"/> and similar instead to modify this,

@@ -188,7 +188,7 @@
   - CommonBackpack # imp reorder
   - Survival
   - Trinkets
-  - ChaplainBook #imp
+  - ChaplainBible #imp reorder
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
@@ -690,12 +690,14 @@
 - type: roleLoadout
   id: JobPsychologist
   groups:
+  - PsychologistHead # imp
+  - PsychologistMask # imp
   - PsychologistNeck # imp
   - PsychologistJumpsuit
   - PsychologistOuterClothing # DeltaV
   - PsychologistShoes # imp
   - Glasses
-  - MedicalBackpack # imp reorder
+  - PsychologistBackpack # imp MedicalBackpack > PsychologistBackpack
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool

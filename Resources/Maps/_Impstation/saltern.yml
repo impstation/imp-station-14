@@ -1,10 +1,10 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 262.0.0
+  engineVersion: 265.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/25/2025 06:09:42
+  time: 08/12/2025 03:44:30
   entityCount: 13102
 maps:
 - 658
@@ -6155,7 +6155,7 @@ entities:
       pos: -29.5,-18.5
       parent: 31
     - type: Door
-      secondsUntilStateChange: -40095.95
+      secondsUntilStateChange: -40121.254
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -35994,23 +35994,6 @@ entities:
     - type: Transform
       pos: -15.830059,-39.34384
       parent: 31
-- proto: DVSmartFridge
-  entities:
-  - uid: 735
-    components:
-    - type: Transform
-      pos: 16.5,-3.5
-      parent: 31
-  - uid: 9876
-    components:
-    - type: Transform
-      pos: 13.5,-1.5
-      parent: 31
-  - uid: 12371
-    components:
-    - type: Transform
-      pos: -15.5,-0.5
-      parent: 31
 - proto: EmergencyLight
   entities:
   - uid: 309
@@ -39110,7 +39093,7 @@ entities:
       deviceLists:
       - 12756
     - type: Door
-      secondsUntilStateChange: -54796.45
+      secondsUntilStateChange: -54821.754
       state: Closing
   - uid: 8815
     components:
@@ -67566,7 +67549,7 @@ entities:
   - uid: 1523
     components:
     - type: Transform
-      pos: -13.507725,17.439112
+      pos: -13.5,17.5
       parent: 31
 - proto: SignAtmos
   entities:
@@ -67697,7 +67680,7 @@ entities:
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -21.482899,6.2720566
+      pos: -21.5,6.5
       parent: 31
   - uid: 1766
     components:
@@ -67709,7 +67692,7 @@ entities:
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 5.493867,-12.264781
+      pos: 5.5,-12.5
       parent: 31
 - proto: SignDirectionalChapel
   entities:
@@ -67723,7 +67706,7 @@ entities:
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -26.499413,2.2858148
+      pos: -26.5,2.5
       parent: 31
 - proto: SignDirectionalCryo
   entities:
@@ -67752,7 +67735,7 @@ entities:
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -26.497889,6.7333336
+      pos: -26.5,6.5
       parent: 31
 - proto: SignDirectionalEvac
   entities:
@@ -67766,7 +67749,7 @@ entities:
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: 1.494153,6.738206
+      pos: 1.5,6.5
       parent: 31
 - proto: SignDirectionalFood
   entities:
@@ -67782,14 +67765,14 @@ entities:
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -26.495642,2.7233148
+      pos: -26.5,2.5
       parent: 31
 - proto: SignDirectionalJanitor
   entities:
   - uid: 120
     components:
     - type: Transform
-      pos: -22.49935,1.7157228
+      pos: -22.5,1.5
       parent: 31
 - proto: SignDirectionalMed
   entities:
@@ -67809,14 +67792,14 @@ entities:
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 0.5049188,-17.286484
+      pos: 0.5,-17.5
       parent: 31
 - proto: SignDirectionalSci
   entities:
   - uid: 1263
     components:
     - type: Transform
-      pos: 1.4985528,6.263013
+      pos: 1.5,6.5
       parent: 31
   - uid: 10552
     components:
@@ -67835,13 +67818,13 @@ entities:
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 5.493867,-12.749156
+      pos: 5.5,-12.5
       parent: 31
   - uid: 7795
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -21.50213,6.729406
+      pos: -21.5,6.5
       parent: 31
   - uid: 10272
     components:
@@ -67853,7 +67836,7 @@ entities:
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 0.5049188,-17.71476
+      pos: 0.5,-17.5
       parent: 31
 - proto: SignDirectionalSupply
   entities:
@@ -67861,13 +67844,13 @@ entities:
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: 5.498553,6.247388
+      pos: 5.5,6.5
       parent: 31
   - uid: 8843
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -26.497889,6.2645836
+      pos: -26.5,6.5
       parent: 31
 - proto: SignDrones
   entities:
@@ -68288,6 +68271,25 @@ entities:
     components:
     - type: Transform
       pos: -1.5876693,-19.53403
+      parent: 31
+- proto: SmartFridge
+  entities:
+  - uid: 9876
+    components:
+    - type: Transform
+      pos: 13.5,-1.5
+      parent: 31
+  - uid: 12371
+    components:
+    - type: Transform
+      pos: -15.5,-0.5
+      parent: 31
+- proto: SmartFridgeMedical
+  entities:
+  - uid: 735
+    components:
+    - type: Transform
+      pos: 16.5,-3.5
       parent: 31
 - proto: SMESAdvanced
   entities:
@@ -69054,7 +69056,7 @@ entities:
     - type: Transform
       pos: -5.5,-8.5
       parent: 31
-- proto: SpawnMobPoly
+- proto: SpawnMobPollyParrot
   entities:
   - uid: 12246
     components:

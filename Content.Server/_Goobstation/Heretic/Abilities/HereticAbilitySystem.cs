@@ -72,7 +72,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         foreach (var look in lookup)
         {
             // ignore heretics with the same path*, affect everyone else
-            if ((TryComp<HereticComponent>(look, out var th) && th.CurrentPath == ent.Comp.CurrentPath)
+            if ((TryComp<HereticComponent>(look, out var th) && th.MainPath == ent.Comp.MainPath)
             || HasComp<GhoulComponent>(look))
                 continue;
 
@@ -199,6 +199,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         transmitter.Channels = new() { "Mansus" };
 
         // this "* 1000f" (divided by 1000 in FlashSystem) is gonna age like fine wine :clueless:
-        _flash.Flash(target, null, null, 2f * 1000f, 0f, false, true, stunDuration: TimeSpan.FromSeconds(1f));
+        _flash.Flash(target, null, null, TimeSpan.FromSeconds(2f), 0f, false, true, stunDuration: TimeSpan.FromSeconds(1f));
     }
 }

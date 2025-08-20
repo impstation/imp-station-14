@@ -151,3 +151,46 @@
     startingCharge: 1050
   - type: MeleeWeapon
     wideAnimationRotation: -80
+
+- type: entity
+  name: antique disabler
+  parent: [ WeaponDisablerPractice, BaseSecurityCommandContraband ]
+  id: WeaponHoPDisabler
+  description: It's a wonder how a priceless weapon with so much gold on it could feel this light and so much like plastic.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/hopdisabler.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-0
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/hopdisabler.rsi
+    quickEquip: false
+    slots:
+      - suitStorage
+      - Belt
+  - type: Battery
+    maxCharge: 900
+    startingCharge: 900
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 30
+    autoRechargePause: true
+    autoRechargePauseTime: 5
+  - type: Appearance
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: true
+  - type: Gun
+    fireRate: 2
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/antiquedisabler.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 150
+  - type: StealTarget
+    stealGroup: AntiqueDisabler

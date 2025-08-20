@@ -74,6 +74,8 @@
           tags:
             - PowerCell
             - PowerCellSmall
+  #- type: PowerCellSlot #imp edit
+  #  cellSlotId: cell_slot #imp edit
   - type: Appearance
   - type: StaticPrice
     price: 500
@@ -139,7 +141,7 @@
 
 - type: entity
   name: Svalinn laser pistol #imp
-  parent: [ BaseWeaponPowerCellSmall, BaseSecurityContraband ]
+  parent: [BaseWeaponPowerCellSmall, BaseSecurityContraband]
   id: WeaponLaserSvalinn
   description: A cheap and widely-used laser pistol with an interchangeable power cell. #imp
   components:
@@ -162,7 +164,7 @@
 
 - type: entity
   name: retro laser blaster
-  parent: [ BaseWeaponBatterySmall, BaseMajorContraband ]
+  parent: [BaseWeaponBatterySmall, BaseMajorContraband]
   id: WeaponLaserGun
   description: A weapon using light amplified by the stimulated emission of radiation.
   components:
@@ -187,7 +189,7 @@
 
 - type: entity
   name: makeshift laser pistol
-  parent: BaseWeaponBatterySmall
+  parent: [BaseWeaponBatterySmall, BaseMinorContraband]
   id: WeaponMakeshiftLaser
   description: The buzzing sound it emits does not evoke confidence. Hope you brought gloves! #imp
   components:
@@ -228,7 +230,7 @@
 
 - type: entity
   name: tesla gun
-  parent: BaseWeaponBattery
+  parent: [BaseWeaponBattery, BaseMajorContraband]
   id: WeaponTeslaGun
   description: The power of the primordial element of lightning in your hands.
   components:
@@ -336,7 +338,7 @@
 
 - type: entity
   name: PXS-21 pulse pistol #imp
-  parent: BaseWeaponBatterySmall
+  parent: [BaseWeaponBatterySmall, BaseCentcommContraband]
   id: WeaponPulsePistol
   description: A state-of-the-art energy pistol favored as a sidearm by Nanotrasen operatives.
   components:
@@ -423,7 +425,7 @@
 
 - type: entity
   name: PX-6 pulse rifle #imp
-  parent: [BaseWeaponBattery, BaseGunWieldable]
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseCentcommContraband]
   id: WeaponPulseRifle
   description: A weapon almost as infamous as its users.
   components:
@@ -525,7 +527,7 @@
 
 - type: entity
   name: portable particle decelerator
-  parent: BaseWeaponBattery
+  parent: [BaseWeaponBattery, BaseEngineeringContraband]
   id: WeaponParticleDecelerator
   description: A portable particle decelerator capable of decomposing a tesla or singularity.
   components:
@@ -649,6 +651,7 @@
     price: 100
   - type: Gun
     fireRate: 2
+    #projectileSpeed: 35 # any higher and this causes issues in lag #imp edit, keep disabler projectile speed nerfed
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider
@@ -663,7 +666,7 @@
 
 - type: entity
   name: disabler
-  parent: [ WeaponDisablerPractice, BaseSecurityCommandContraband ]
+  parent: [WeaponDisablerPractice, BaseSecurityCommandContraband]
   id: WeaponDisabler
   description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
   components:
@@ -694,7 +697,7 @@
 
 - type: entity
   name: disabler SMG
-  parent: [ BaseWeaponBattery, BaseSecurityContraband ]
+  parent: [BaseWeaponBattery, BaseSecurityContraband]
   id: WeaponDisablerSMG
   description: An advanced weapon that exhausts organic targets, weakening them until they collapse. #imp
   components:
@@ -713,7 +716,7 @@
         shader: unshaded
   - type: Gun
     selectedMode: FullAuto
-    fireRate: 4
+    fireRate: 4 #imp edit
     availableModes:
       - SemiAuto
       - FullAuto
@@ -721,7 +724,7 @@
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerSmg
-    fireCost: 33
+    fireCost: 33 #imp edit
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -732,9 +735,9 @@
 
 - type: entity
   name: taser
-  parent: [ BaseWeaponBatterySmall, BaseSecurityContraband ]
+  parent: [BaseWeaponBatterySmall, BaseSecurityContraband]
   id: WeaponTaser
-  description: A low-capacity, energy-based stun gun used by security teams to subdue targets at range.
+  description: A low-capacity, energy-based stun gun used by security teams to subdue targets at close range.
   components:
   - type: Tag
     tags:
@@ -767,6 +770,23 @@
   - type: Appearance
   - type: MeleeWeapon #imp; for pistolwhip anim
     wideAnimationRotation: -80
+
+- type: entity
+  name: elite taser
+  parent: [ BaseCentcommContraband, WeaponTaser ]
+  id: WeaponTaserSuper
+  suffix: ADMEME
+  description: A low-capacity, energy-based stun gun used by elite security teams to disable even the toughest of targets.
+  components:
+  - type: Gun
+    fireRate: 0.5
+    soundGunshot:
+      path: /Audio/Effects/tesla_collapse.ogg # The wrath of god...
+      params:
+        volume: -6
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletTaserSuper
+    fireCost: 200
 
 - type: entity
   name: antique laser pistol
@@ -816,7 +836,7 @@
 
 - type: entity
   name: X-66 advanced laser pistol #imp
-  parent: [ BaseWeaponBatterySmall, BaseSecurityContraband]
+  parent: [BaseWeaponBatterySmall, BaseSecurityContraband]
   id: WeaponAdvancedLaser
   description: An experimental high-energy laser pistol with a self-charging nuclear battery.
   components:
@@ -901,9 +921,9 @@
 
 - type: entity
   name: experimental C.H.I.M.P. handcannon
-  parent: [WeaponPistolCHIMP, Tier2Contraband]
+  parent: [WeaponPistolCHIMP, Tier2Contraband] #imp edit, syndicate contraband split
   id: WeaponPistolCHIMPUpgraded
-  description: This C.H.I.M.P. seems to have a greater punch than is usual...
+  description: This C.H.I.M.P. seems to have a greater punch than usual...
   components:
   - type: BatteryWeaponFireModes
     fireModes:
@@ -1017,7 +1037,7 @@
 
 - type: entity
   name: RA-96 temperature gun #imp
-  parent: [BaseWeaponBattery, BaseGunWieldable]
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponTemperatureGun
   description: An advanced gun that shoots body-temperature-changing beams. This probably constitutes as some kind of war crime.
   components:
@@ -1061,12 +1081,12 @@
 
 - type: entity
   name: xenoborg laser gun
-  parent: [ WeaponAdvancedLaser, BaseXenoborgContraband ]
+  parent: [WeaponAdvancedLaser, BaseXenoborgContraband]
   id: XenoborgLaserGun
 
 - type: entity
   name: xenoborg heavy laser gun
-  parent: [ WeaponAdvancedLaser, BaseXenoborgContraband ]
+  parent: [WeaponAdvancedLaser, BaseXenoborgContraband]
   id: XenoborgHeavyLaserGun
   components:
   - type: HitscanBatteryAmmoProvider

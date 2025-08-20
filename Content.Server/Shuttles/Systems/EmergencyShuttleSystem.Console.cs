@@ -6,6 +6,7 @@ using Content.Shared.Access;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.DeviceNetwork;
+using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.Popups;
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Events;
@@ -13,7 +14,7 @@ using Content.Shared.Shuttles.Systems;
 using Content.Shared.UserInterface;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
-using Content.Shared.DeviceNetwork.Components;
+using Robust.Shared.Prototypes;
 using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server.Shuttles.Systems;
@@ -65,8 +66,7 @@ public sealed partial class EmergencyShuttleSystem
 
     private CancellationTokenSource? _roundEndCancelToken;
 
-    [ValidatePrototypeId<AccessLevelPrototype>]
-    private const string EmergencyRepealAllAccess = "EmergencyShuttleRepealAll";
+    private static readonly ProtoId<AccessLevelPrototype> EmergencyRepealAllAccess = "EmergencyShuttleRepealAll";
     private static readonly Color DangerColor = Color.Red;
 
     /// <summary>
@@ -223,6 +223,7 @@ public sealed partial class EmergencyShuttleSystem
                 Filter.Broadcast(),
                 "emergency-shuttle-left",
                 null, null, null, null,
+                null, //imp
                 ("transitTime", $"{TransitTime:0}")
             );
 
@@ -267,6 +268,7 @@ public sealed partial class EmergencyShuttleSystem
             Filter.Broadcast(),
             "emergency-shuttle-console-auth-revoked",
             null, null, null, null,
+            null, //imp
             ("remaining", component.AuthorizationsRequired)
         );
         component.AuthorizedEntities.Clear();
@@ -294,6 +296,7 @@ public sealed partial class EmergencyShuttleSystem
             Filter.Broadcast(),
             "emergency-shuttle-console-auth-revoked",
             null, null, null, null,
+            null, //imp
             ("remaining", remaining)
         );
         CheckForLaunch(component);
@@ -324,6 +327,7 @@ public sealed partial class EmergencyShuttleSystem
                 null,
                 DangerColor,
                 null, null,
+                null, //imp
                 ("remaining", remaining)
             );
 
@@ -432,6 +436,7 @@ public sealed partial class EmergencyShuttleSystem
             Filter.Broadcast(),
             "emergency-shuttle-launch-time",
             null, null, null, null,
+            null, //imp
             ("consoleAccumulator", $"{_consoleAccumulator:0}")
         );
     }
