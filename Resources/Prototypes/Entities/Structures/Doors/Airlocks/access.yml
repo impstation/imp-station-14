@@ -101,7 +101,7 @@
 - type: entity
   parent: AirlockExternal
   id: AirlockExternalCargoLocked
-  suffix: External, Cargo, Locked
+  suffix: External, Supply, Locked #imp, cargo to supply
   components:
   - type: ContainerFill
     containers:
@@ -223,7 +223,7 @@
 - type: entity
   parent: AirlockCargo
   id: AirlockCargoLocked
-  suffix: Cargo, Locked
+  suffix: Supply, Locked #imp, cargo to supply
   components:
   - type: ContainerFill
     containers:
@@ -515,7 +515,7 @@
 - type: entity
   parent: AirlockExternalGlass
   id: AirlockExternalGlassCargoLocked
-  suffix: External, Glass, Cargo, Locked
+  suffix: External, Glass, Supply, Locked #imp, cargo to supply
   components:
   - type: ContainerFill
     containers:
@@ -635,7 +635,7 @@
 - type: entity
   parent: AirlockCargoGlass
   id: AirlockCargoGlassLocked
-  suffix: Cargo, Locked
+  suffix: Supply, Locked #imp, cargo to supply
   components:
   - type: ContainerFill
     containers:

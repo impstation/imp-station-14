@@ -78,12 +78,12 @@
 
 - type: entity
   parent: AirlockCargo
-  id: AirlockLogisticsLocked
-  suffix: Logistics, Locked
+  id: AirlockCargoShuttleLocked
+  suffix: Cargo Shuttle, Locked
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsLogistics ]
+      board: [ DoorElectronicsCargoShuttle ]
 
 # Glass Airlocks
 
@@ -165,12 +165,12 @@
 
 - type: entity
   parent: AirlockCargoGlass
-  id: AirlockLogisticsGlassLocked
-  suffix: Logistics, Locked
+  id: AirlockCargoShuttleGlassLocked
+  suffix: Cargo Shuttle, Locked
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsLogistics ]
+      board: [ DoorElectronicsCargoShuttle ]
 
 # Misc.
 - type: entity
@@ -188,7 +188,7 @@
 - type: entity
   parent: AirlockMaint
   id: AirlockMaintEngiCargoLocked
-  suffix: Engineering/Cargo, Locked
+  suffix: Engineering/Supply, Locked
   components:
   - type: ContainerFill
     containers:
@@ -208,7 +208,7 @@
   parent: AirlockMaint
   id: AirlockMaintSecCargoLocked
   name: maintenance access
-  suffix: Security/Cargo, Locked
+  suffix: Security/Supply, Locked
   components:
   - type: ContainerFill
     containers:

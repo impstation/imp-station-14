@@ -131,7 +131,7 @@
 - type: entity
   parent: HopTartCookedBase
   id: HopTartCookedCargo
-  suffix: Cargo
+  suffix: Supply
   components:
   - type: FlavorProfile
     flavors:
@@ -320,7 +320,7 @@
 - type: entity
   parent: HopTartCookedBase
   id: HopTartCookedLogistics
-  suffix: Logistics
+  suffix: CargoShuttle
   components:
   - type: FlavorProfile
     flavors:

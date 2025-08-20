@@ -1,13 +1,14 @@
+<!--imp edit, cargo to supply-->
 <Document>
-  # Cargo
+  # Supply
 
-  The Supply department, also known as [color=cyan]Cargo[/color], supplies the station with necessary resources, such as fuel and raw materials, and comfort resources, such as lottery tickets and plushies.
+  The [color=cyan]Supply[/color] department supplies the station with necessary resources, such as fuel and raw materials, and comfort resources, such as lottery tickets and plushies.
 
-  They raise the [color=cyan]spesos[/color] (the currency of the station) for this through many methods, such as taking bounties, selling miscellaneous items, and salvaging, allowing them to purchase a wide variety of equipment from off-station for any crew member's needs. It is Cargo's job to fulfill the needs of the rest of the station.
+  They raise the [color=cyan]spesos[/color] (the currency of the station) for this through many methods, such as taking bounties, selling miscellaneous items, and salvaging, allowing them to purchase a wide variety of equipment from off-station for any crew member's needs. It is Supply's job to fulfill the needs of the rest of the station.
 
   ## Personnel
 
-  Cargo is made up of [color=cyan]Cargo Technicians[/color] and [color=cyan]Salvage Specialists[/color] and is led by the [color=cyan]Quartermaster[/color].
+  Supply is made up of [color=cyan]Cargo Technicians[/color] and [color=cyan]Salvage Specialists[/color] and is led by the [color=cyan]Quartermaster[/color].
 
   <Box>
     <GuideEntityEmbed Entity="ToyFigurineCargoTech" Caption="Cargo Tech"/>
@@ -17,9 +18,9 @@
 
   ## Making Money
 
-  The main struggle of any Cargo department is not having enough money.
+  The main struggle of any Supply department is not having enough money.
 
-  Cargo makes their money by selling things at the [color=cyan]Trading Station[/color]. Almost everything on the station has economic value that you can sell, as seen via the [color=cyan]appraisal tool[/color]. That value then further increases when you sell it as part of a [textlink="bounty" link="CargoBounties"].
+  Supply makes their money by selling things at the [color=cyan]Trading Station[/color]. Almost everything on the station has economic value that you can sell, as seen via the [color=cyan]appraisal tool[/color]. That value then further increases when you sell it as part of a [textlink="bounty" link="CargoBounties"].
 
   <Box>
     <GuideEntityEmbed Entity="AppraisalTool"/>
@@ -49,9 +50,9 @@
     <GuideEntityEmbed Entity="ComputerCargoOrders"/>
   </Box>
 
-  Every order begins at a [color=cyan]Cargo Request Computer[/color]. First and foremost, making an order requires that Cargo has enough spesos. If Cargo doesn't have the money, get some.
+  Every order begins at a [color=cyan]Cargo Request Computer[/color]. First and foremost, making an order requires that Supply has enough spesos. If Supply doesn't have the money, get some.
 
-  It is also the sole discretion of Cargo to fulfill any given request. If Cargo is tight on spesos, they are free to deny requests that are not immediately necessary.
+  It is also the sole discretion of Supply to fulfill any given request. If Supply is tight on spesos, they are free to deny requests that are not immediately necessary.
 
   To make an order, click the name of whatever is requested, provide the recipient, type an appropriate reason for why they need it, and then press "Approve" on the order.
 

@@ -46,7 +46,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "Bar",
         "Brig",
         "Captain",
-        "Cargo",
+        "CargoShuttle", // imp
         "Chapel",
         "Chemistry",
         "ChiefEngineer",
@@ -66,7 +66,6 @@ public sealed partial class IdCardConsoleComponent : Component
         "Kitchen",
         "Lawyer",
         "Librarian", // Imp
-        "Logistics", //Imp
         "Maintenance",
         "Medical",
         "Mime", // Imp
@@ -78,6 +77,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "Salvage",
         "Security",
         "Service",
+        "Cargo", // imp, supply
         "Theatre",
     };
 

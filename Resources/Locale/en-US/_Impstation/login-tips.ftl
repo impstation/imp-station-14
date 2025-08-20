@@ -1264,7 +1264,7 @@ login-tips-dataset-877 =
     It's time for the announcement:
       gay people
 login-tips-dataset-878 = Tomorrow morning, 8 AM
-login-tips-dataset-879 = Imp Sector Cargo: Come for the shuttle flight time and less pressure than medical, stay for all these hot women
+login-tips-dataset-879 = Imp Sector Supply: Come for the shuttle flight time and less pressure than medical, stay for all these hot women
 login-tips-dataset-880 = A country boy can survive
 login-tips-dataset-881 = Do the best you can to be an honest man, don't you never trust Johnny Law
 login-tips-dataset-882 = [unintelligible]

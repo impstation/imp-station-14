@@ -30,12 +30,16 @@
 - type: entity
   parent: SalvageHumanCorpse
   id: MobRandomCargoCorpse
-  suffix: Dead, Cargo
+  suffix: Dead, Supply #imp, cargo to supply
   components:
   - type: Loadout
     prototypes:
     - CargoTechGear
     - SalvageSpecialistGear
+    #imp edit start
+    - CourierGear
+    - SupplyAssistantGear
+    #imp edit end
 
 - type: entity
   parent: SalvageHumanCorpse

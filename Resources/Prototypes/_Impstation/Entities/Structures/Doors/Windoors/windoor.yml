@@ -140,12 +140,12 @@
 
 - type: entity
   parent: WindoorSecure
-  id: WindoorSecureLogisticsLocked
-  suffix: Logistics, Locked
+  id: WindoorSecureCargoShuttleLocked
+  suffix: Cargo Shuttle, Locked
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsLogistics ]
+      board: [ DoorElectronicsCargoShuttle ]
   - type: Wires
     layoutId: AirlockCargo
 

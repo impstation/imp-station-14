@@ -171,7 +171,7 @@
   parent: ClothingBackpack
   id: ClothingBackpackCargo
   name: cargo backpack
-  description: A robust backpack for stealing cargo's loot.
+  description: A robust backpack for stealing supply's loot. #imp, cargo to supply
   components:
     - type: Sprite
       sprite: Clothing/Back/Backpacks/cargo.rsi

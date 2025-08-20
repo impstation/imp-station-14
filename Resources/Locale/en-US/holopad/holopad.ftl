@@ -86,14 +86,14 @@ holopad-medical-front = Medical - Front
 holopad-medical-breakroom = Medical - Breakroom
 holopad-medical-clinic = Medical - Clinic
 
-# Cargo
-holopad-cargo-front = Cargo - Front
-holopad-cargo-bay = Cargo - Cargo Bay
-holopad-cargo-salvage-bay = Cargo - Salvage Bay
-holopad-cargo-breakroom  = Cargo - Breakroom
-holopad-cargo-ats = Cargo - ATS
-holopad-cargo-shuttle = Cargo - Shuttle
-holopad-cargo-mailroom = Cargo - Mailroom
+# Cargo, imp edit, changed to supply
+holopad-cargo-front = Supply - Front
+holopad-cargo-bay = Supply - Cargo Bay
+holopad-cargo-salvage-bay = Supply - Salvage Bay
+holopad-cargo-breakroom  = Supply - Breakroom
+holopad-cargo-ats = Supply - ATS
+holopad-cargo-shuttle = Supply - Shuttle
+holopad-cargo-mailroom = Supply - Mailroom
 
 # Engineering
 holopad-engineering-atmos-front = Atmos - Front

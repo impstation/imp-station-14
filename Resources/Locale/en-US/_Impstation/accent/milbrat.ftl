@@ -278,8 +278,9 @@ accent-milbrat-words-replace-60 = Service Actual
 
 accent-milbrat-words-61 = quartermaster
 accent-milbrat-words-61-2 = head of cargo
-accent-milbrat-words-61-3 = qm
-accent-milbrat-words-replace-61 = Cargo Actual
+accent-milbrat-words-61-3 = head of supply
+accent-milbrat-words-61-4 = qm
+accent-milbrat-words-replace-61 = Supply Actual
 
 accent-milbrat-words-62 = silly
 accent-milbrat-words-62-2 = dumb

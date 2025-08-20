@@ -115,7 +115,7 @@
 - type: entity
   parent: [DoorRemoteDefault, BaseCommandContraband]
   id: DoorRemoteCargo
-  name: cargo door remote
+  name: supply door remote #imp, cargo to supply
   components:
   - type: Sprite
     layers:

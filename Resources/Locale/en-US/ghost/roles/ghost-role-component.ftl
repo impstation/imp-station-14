@@ -276,7 +276,8 @@ ghost-role-information-medical-geneticist-name = Geneticist
 ghost-role-information-medical-dentist-name = Dentist
 ghost-role-information-medical-description = You are a medical professional, but seem to have found yourself in a strange situation...
 
-ghost-role-information-cargo-name = Cargo
+#imp edit, changed cargo to supply
+ghost-role-information-cargo-name = Supply
 ghost-role-information-cargo-description = You are part of a logistics mission, but seem to have found yourself in a strange situation...
 
 ghost-role-information-engineering-name = Engineering
