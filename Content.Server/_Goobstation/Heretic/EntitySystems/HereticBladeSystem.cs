@@ -51,7 +51,7 @@ public sealed partial class HereticBladeSystem : EntitySystem
         if (!TryComp<HereticComponent>(performer, out var hereticComp))
             return;
 
-        switch (hereticComp.CurrentPath)
+        switch (hereticComp.MainPath)
         {
             case "Ash":
                 _flammable.AdjustFireStacks(target, 2.5f, ignite: true);
@@ -109,7 +109,7 @@ public sealed partial class HereticBladeSystem : EntitySystem
         var queuedel = true;
 
         // void path exxclusive
-        if (heretic.CurrentPath == "Void" && heretic.PathStage >= 7)
+        if (heretic.MainPath == "Void" && heretic.Power >= 7)
         {
             var look = _lookupSystem.GetEntitiesInRange<HereticCombatMarkComponent>(Transform(ent).Coordinates, 20f);
             if (look.Count > 0)
@@ -137,7 +137,7 @@ public sealed partial class HereticBladeSystem : EntitySystem
         if (!TryComp<HereticComponent>(args.Examiner, out var heretic))
             return;
 
-        var isUpgradedVoid = heretic.CurrentPath == "Void" && heretic.PathStage >= 7;
+        var isUpgradedVoid = heretic.MainPath == "Void" && heretic.Power >= 7;
 
         var sb = new StringBuilder();
         sb.AppendLine(Loc.GetString("heretic-blade-examine"));
@@ -166,7 +166,7 @@ public sealed partial class HereticBladeSystem : EntitySystem
                 RemComp(hit, mark);
             }
 
-            if (hereticComp.PathStage >= 7)
+            if (hereticComp.Power >= 7)
                 ApplySpecialEffect(args.User, hit);
         }
     }
