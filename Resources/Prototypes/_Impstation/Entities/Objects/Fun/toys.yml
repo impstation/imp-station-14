@@ -266,7 +266,7 @@
       path: /Audio/Items/wirecutter.ogg
   - type: Food
     requiresSpecialDigestion: true
-    sound:
+    useSound:
       path: /Audio/_Impstation/Voice/Decapoid/decapoid_scream.ogg
   - type: FlavorProfile
     flavors:
@@ -295,7 +295,7 @@
       path: /Audio/_Impstation/Voice/Snail/snail_scream.ogg
   - type: Food
     requiresSpecialDigestion: true
-    sound:
+    useSound:
       path: /Audio/_Impstation/Voice/Snail/snail_scream.ogg
   - type: FlavorProfile
     flavors:
@@ -339,7 +339,7 @@
       path: /Audio/_Impstation/Voice/Misc/wuhey.ogg
   - type: Food
     requiresSpecialDigestion: true
-    sound:
+    useSound:
       path: /Audio/_Impstation/Voice/Misc/wuhey.ogg
   - type: SolutionContainerManager
     solutions:
