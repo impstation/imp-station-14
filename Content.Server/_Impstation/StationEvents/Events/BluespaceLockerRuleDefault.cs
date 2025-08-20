@@ -8,7 +8,7 @@ using Content.Shared.GameTicking.Components;
 
 namespace Content.Server.StationEvents.Events;
 
-public sealed class BluespaceLockerRule : StationEventSystem<BluespaceLockerRuleComponent>
+public sealed class BluespaceLockerRuleDefault : StationEventSystem<BluespaceLockerRuleComponent>
 {
     [Dependency] private readonly BluespaceLockerSystem _bluespaceLocker = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;

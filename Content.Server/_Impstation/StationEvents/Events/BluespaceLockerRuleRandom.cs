@@ -8,7 +8,7 @@ using Content.Shared.GameTicking.Components;
 
 namespace Content.Server.StationEvents.Events;
 
-public sealed class BluespaceLockerRule : StationEventSystem<BluespaceLockerRuleComponent>
+public sealed class BluespaceLockerRuleRandom : StationEventSystem<BluespaceLockerRuleComponent>
 {
     [Dependency] private readonly BluespaceLockerSystem _bluespaceLocker = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -43,6 +43,18 @@ public sealed class BluespaceLockerRule : StationEventSystem<BluespaceLockerRule
             comp.AutoLinkProperties.BluespaceEffectOnTeleportSource = true;
             _bluespaceLocker.GetTarget(potentialLink, comp, true);
             _bluespaceLocker.BluespaceEffect(potentialLink, comp, comp, true);
+
+            // begin imp edit
+            // makes bluespace lockers randomize their destinations with each use.
+            comp.BehaviorProperties.ClearLinksDebluespaces = true;
+            comp.BehaviorProperties.TransportEntities = true;
+            comp.BehaviorProperties.ClearLinksEvery = 2;
+            comp.AutoLinkProperties.DestroyAfterUses = 2;
+            comp.AutoLinkProperties.DestroyType = BluespaceLockerDestroyType.DeleteComponent;
+            comp.UsesSinceLinkClear = -1;
+            comp.AutoLinkProperties.InvalidateOneWayLinks = true;
+            comp.AutoLinkProperties.TransportEntities = false;
+            // end imp edit
 
             Sawmill.Info($"Converted {ToPrettyString(potentialLink)} to bluespace locker");
 
