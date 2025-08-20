@@ -35,8 +35,8 @@ food-sequence-cotton-burger-content-plushie-apid = bee
 food-sequence-cotton-burger-content-plushie-doll = doll
 food-sequence-cotton-burger-content-plushie-hairdoll = doll
 food-sequence-cotton-burger-content-plushie-griffy = grif
-food-sequence-cotton-burger-content-bros = UNGH
-food-sequence-cotton-burger-content-sorb = UNGH
+food-sequence-cotton-burger-content-plushie-bros = UNGH
+food-sequence-cotton-burger-content-plushie-sorb = UNGH
 food-sequence-cotton-burger-content-cheese-string = cheese
 
 # CARDBOARD TACO
