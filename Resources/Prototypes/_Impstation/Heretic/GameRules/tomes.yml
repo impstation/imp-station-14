@@ -21,17 +21,22 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    weight: 5
+    weight: 1.5
     duration: 15
   - type: HereticBookWaveRule
     minBooks: 1
     maxBooks: 2
 
 - type: entity
-  id: HereticBooksSpawnBig
-  parent: BaseStationEventShortDelay
+  id: HereticBooksSpawnBig #for the big wave at the start
+  parent: BaseStationEvent
   components:
+  - type: GameRule
+    delay:
+      min:  240
+      max:  360
   - type: StationEvent
+    earliestStart: 5
     weight: 5
     duration: 15
   - type: HereticBookWaveRule

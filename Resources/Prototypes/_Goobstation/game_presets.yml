@@ -8,6 +8,8 @@
   showInVote: false
   rules:
     - Heretic
+    - HereticBooksEventScheduler
+    - HereticBooksSpawnBig
     - SubGamemodesRule
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
