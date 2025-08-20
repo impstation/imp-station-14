@@ -58,7 +58,9 @@ using Robust.Shared.Timing;
 using System.Linq;
 using System.Numerics;
 using Content.Server.Construction.Components;
-using Content.Server.Power.Components; //i just pulled allat from the ling files ill clean it up later
+using Content.Server.Power.Components;
+using Content.Shared.Electrocution;
+using Content.Shared.EntityEffects.EffectConditions; //i just pulled allat from the ling files ill clean it up later
 
 namespace Content.Server.Arcfiend;
 
@@ -66,12 +68,15 @@ public sealed partial class ArcfiendSystem : EntitySystem
 {
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private readonly InventorySystem _inventorySystem = default!;
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<ArcfiendComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<ArcfiendComponent, ComponentRemove>(OnComponentRemove);
+
+        SubscribeLocalEvent<InventoryComponent, CheckInsulatedEvent>(OnCheckInsulated);
 
         SubscribeAbilities();
     }
@@ -85,11 +90,21 @@ public sealed partial class ArcfiendSystem : EntitySystem
         _alerts.ShowAlert(uid, "ArcfiendEnergy");
     }
 
+    private bool CheckInsulated(EntityUid uid, ArcfiendComponent comp)
+    {
+        var check = new CheckInsulatedEvent();
+        RaiseLocalEvent(uid, ref check);
+        if (check.Insulated) return true;
+        return false;
+    }
+
     #region Event Handlers
 
     private void OnStartup(EntityUid uid, ArcfiendComponent comp, ref ComponentStartup args)
     {
+        RemComp<HungerComponent>(uid);
         EnsureComp<ZombieImmuneComponent>(uid);
+        EnsureComp<InsulatedComponent>(uid);
 
         // add actions
         foreach (var actionId in comp.ArcfiendActions)
@@ -103,7 +118,20 @@ public sealed partial class ArcfiendSystem : EntitySystem
     }
     private void OnComponentRemove(Entity<ArcfiendComponent> ent, ref ComponentRemove args)
     {
-        //might have to do stuff here later
+        RemComp<InsulatedComponent>(ent);
+    }
+    private void OnCheckInsulated(EntityUid uid, InventoryComponent comp, ref CheckInsulatedEvent args)
+    {
+        if (_inventorySystem.TryGetSlots(uid, out var slotDefinitions))
+        {
+            foreach (var slot in slotDefinitions)
+            {
+                if (!_inventorySystem.TryGetSlotEntity(uid, slot.Name, out var slotEnt))
+                    continue;
+
+                if (HasComp<InsulatedComponent>(slotEnt.Value)) args.Insulated = true;
+            }
+        }
     }
     #endregion
 }

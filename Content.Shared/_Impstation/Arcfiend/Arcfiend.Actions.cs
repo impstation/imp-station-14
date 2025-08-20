@@ -18,4 +18,4 @@ public sealed partial class JammingFieldEvent : InstantActionEvent { }
 public sealed partial class JoltEvent : EntityTargetActionEvent { }
 
 [ByRefEvent]
-public record struct DrainEnergyEvent(float Change = 0f, bool Handled = false);
+public record struct DrainEnergyEvent(EntityUid Source, float Change = 0f, bool Handled = false);

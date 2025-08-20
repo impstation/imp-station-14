@@ -43,3 +43,6 @@ public sealed partial class ArcfiendComponent : Component
     [DataField]
     public SoundSpecifier SparkSound = new SoundCollectionSpecifier("sparks");
 }
+
+[ByRefEvent]
+public record struct CheckInsulatedEvent(bool Insulated = false);

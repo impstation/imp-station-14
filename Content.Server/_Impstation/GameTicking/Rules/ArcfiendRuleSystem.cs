@@ -10,6 +10,7 @@ using Content.Shared.Roles;
 using Content.Shared.Humanoid;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
+using Content.Shared.Electrocution;
 
 namespace Content.Server.GameTicking.Rules;
 
