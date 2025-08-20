@@ -18,17 +18,15 @@ public sealed partial class ArcfiendSystem : EntitySystem
 
     private void OnUpdateAlert(EntityUid uid, ArcfiendComponent comp, ref UpdateAlertSpriteEvent args)
     {
-        var stateNormalized = 0f;
+        float stateNormalized;
 
-        // hardcoded because uhh umm i don't know. send help.
-        switch (args.Alert.AlertKey.AlertType)
+        if (args.Alert.AlertKey.AlertType == "ArcfiendEnergy")
         {
-            case "ArcfiendEnergy":
-                stateNormalized = (int)(comp.Energy / comp.MaxEnergy * 10);
-                break;
-
-            default:
-                return;
+            stateNormalized = (int)(comp.Energy / comp.MaxEnergy * 10);
+        }
+        else
+        {
+            return;
         }
         var sprite = args.SpriteViewEnt.Comp;
         sprite.LayerSetState(AlertVisualLayers.Base, $"{stateNormalized}");
