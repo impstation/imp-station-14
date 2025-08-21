@@ -9,7 +9,7 @@
       raffle:
         settings: default
     - type: Loadout
-      prototypes: [ TouristRedShirt, TouristBlueShirt, TouristYellowShirt, TouristBlackShirt ]
+      prototypes: [ TouristRedShirt, TouristBlueShirt, TouristYellowShirt, TouristBlackShirt, TouristHatRedShirt, TouristHatBlueShirt, TouristHatYellowShirt, TouristHatBlackShirt ]
       roleLoadout: [ RoleSurvivalStandard ]
     - type: Tourist
     - type: AutoTraitor #this is weirdly named but works for more than just traitors
@@ -40,7 +40,7 @@
     - RandomTourist
 
 
-# Tourist starting gear options. Currently only differentiated by color of shirt, but they could get other stuff too
+# Tourist starting gear options. Currently differentiated by color of shirt and whether or not they're wearing hats, but they could get other stuff too
 - type: startingGear
   id: TouristRedShirt
   equipment:
@@ -85,3 +85,50 @@
     id: VisitorPDA
     pocket1: SpaceCash10000
 
+- type: startingGear
+  id: TouristHatRedShirt
+  equipment:
+    head: ClothingHeadHatStrawHat
+    jumpsuit: ClothingUniformJumpsuitHawaiRed
+    neck: TouristCamera
+    back: ClothingBackpack
+    eyes: ClothingEyesGlassesSunglasses
+    shoes: ClothingShoesTourist
+    id: VisitorPDA
+    pocket1: SpaceCash10000
+
+- type: startingGear
+  id: TouristHatBlueShirt
+  equipment:
+    head: ClothingHeadHatStrawHat
+    jumpsuit: ClothingUniformJumpsuitHawaiBlue
+    neck: TouristCamera
+    back: ClothingBackpack
+    eyes: ClothingEyesGlassesSunglasses
+    shoes: ClothingShoesTourist
+    id: VisitorPDA
+    pocket1: SpaceCash10000
+
+- type: startingGear
+  id: TouristHatYellowShirt
+  equipment:
+    head: ClothingHeadHatStrawHat
+    jumpsuit: ClothingUniformJumpsuitHawaiYellow
+    neck: TouristCamera
+    back: ClothingBackpack
+    eyes: ClothingEyesGlassesSunglasses
+    shoes: ClothingShoesTourist
+    id: VisitorPDA
+    pocket1: SpaceCash10000
+
+- type: startingGear
+  id: TouristHatBlackShirt
+  equipment:
+    head: ClothingHeadHatStrawHat
+    jumpsuit: ClothingUniformJumpsuitHawaiBlack
+    neck: TouristCamera
+    back: ClothingBackpack
+    eyes: ClothingEyesGlassesSunglasses
+    shoes: ClothingShoesTourist
+    id: VisitorPDA
+    pocket1: SpaceCash10000
