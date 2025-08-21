@@ -2,11 +2,11 @@ using System.Linq;
 using System.Numerics;
 using Content.Server.Administration.Logs;
 using Content.Server.Decals;
+using Content.Server.Heretic.EntitySystems; // Imp
 using Content.Server.Popups;
 using Content.Shared.Crayon;
 using Content.Shared.Database;
 using Content.Shared.Decals;
-using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Nutrition.EntitySystems;
@@ -26,6 +26,7 @@ public sealed class CrayonSystem : SharedCrayonSystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private readonly MansusGraspSystem _mansusGrasp = default!; // Imp
 
     public override void Initialize()
     {
@@ -49,8 +50,8 @@ public sealed class CrayonSystem : SharedCrayonSystem
         if (args.Handled || !args.CanReach)
             return;
 
-        if (TryComp<HereticComponent>(args.User, out var heretic) && heretic.MansusGraspActive)
-            return;
+        if (_mansusGrasp.MansusGraspActive(uid)) // Imp Start
+            return; // Imp End
 
         if (component.Charges <= 0)
         {
