@@ -1,92 +1,6 @@
 ﻿Entries:
 - author: starlighthowls
   changes:
-  - message: Adds the drink Moonrise Blend
-    type: Add
-  id: 1675
-  time: '2025-05-14T18:03:10.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2483
-- author: Darkmajia
-  changes:
-  - message: It's only game. Why you have to be mad?
-    type: Add
-  id: 1676
-  time: '2025-05-14T18:08:25.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2492
-- author: DinnerCalzone
-  changes:
-  - message: Shoveled astro-snow and astro-cave tiles can now be crafted after researching
-      Faux Astro-Tiles.
-    type: Add
-  - message: Asphalt tiles can now be crafted at cutter machines.
-    type: Add
-  id: 1677
-  time: '2025-05-14T18:23:15.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2487
-- author: meridiadottxt
-  changes:
-  - message: Gate Station now has main power connected to all departments
-    type: Add
-  - message: fixed power issue in security
-    type: Fix
-  - message: altered a bunch of other stuff i can't remember it was a few days ago
-      ok
-    type: Tweak
-  id: 1678
-  time: '2025-05-14T22:37:31.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2493
-- author: Ionward
-  changes:
-  - message: Dremon Sord's brave action has been immortalized.
-    type: Add
-  id: 1679
-  time: '2025-05-14T22:38:41.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2496
-- author: hivehum
-  changes:
-  - message: Fishing rods have been disabled due to there being no fish.
-    type: Remove
-  id: 1680
-  time: '2025-05-14T22:41:06.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2497
-- author: Kandiyaki
-  changes:
-  - message: Sacrificing a fellow crewmember as heretic will now provide an extra
-      knowledge point. totaling to 2 for a non-command and 3 for a command.
-    type: Tweak
-  - message: Heretic's ritual of knowledge will no longer break when attempting to
-      use it without all the requirements present.
-    type: Fix
-  - message: Eldritch tomes will now notify onlookers when a heretic begins to read
-      them.
-    type: Tweak
-  - message: Eldritch tomes have had their descriptions slightly changed.
-    type: Tweak
-  - message: Reality tears will now last 10 seconds before disappearing and spitting
-      out an eldritch tome.
-    type: Tweak
-  - message: Reality tears are now audible from a much larger radius.
-    type: Tweak
-  id: 1681
-  time: '2025-05-15T00:40:46.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2484
-- author: AirFryerBuyOneGetOneFree
-  changes:
-  - message: Gave Mothroaches and Cockroaches a 1 damage bite attack. Its time to
-      fight back my roach brethren!
-    type: Tweak
-  id: 1682
-  time: '2025-05-15T00:40:19.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2460
-- author: TheLuggage05
-  changes:
-  - message: Night vision goggle lens slots are fixed for real
-    type: Fix
-  id: 1683
-  time: '2025-05-15T12:36:42.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2498
-- author: starlighthowls
-  changes:
   - message: New lobby art by Wowls! Smoko?
     type: Add
   id: 1684
@@ -4209,3 +4123,77 @@
   id: 2174
   time: '2025-08-17T02:29:16.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3303
+- author: VeeNomine
+  changes:
+  - message: Reposition the head slot for drones so their hats are more properly offset.
+    type: Tweak
+  id: 2175
+  time: '2025-08-18T14:35:39.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3317
+- author: honeyed-lemons
+  changes:
+  - message: Slightly adjusted wording relating to the heretic shop.
+    type: Tweak
+  id: 2176
+  time: '2025-08-19T02:51:23.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3313
+- author: DinnerCalzone
+  changes:
+  - message: Fixed not being able to examine the damage on the portable cutter machine.
+    type: Fix
+  id: 2177
+  time: '2025-08-19T08:08:56.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3321
+- author: hivehum
+  changes:
+  - message: The recipes for heart carpaccio, moproach, and draco have been altered.
+    type: Tweak
+  - message: Cooked eggs no longer poison Kodepiiae.
+    type: Fix
+  id: 2178
+  time: '2025-08-19T08:11:09.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3319
+- author: yesteryuri
+  changes:
+  - message: You can juice wood and cardboard for cellulose
+    type: Add
+  - message: Everyone can eat wood and cardboard with a little persistence
+    type: Add
+  id: 2179
+  time: '2025-08-19T08:39:40.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3282
+- author: Oberonics
+  changes:
+  - message: Ported the shuffle and repeat jukebox feature from frontier! Courtesy
+      of Masterscape.
+    type: Add
+  id: 2180
+  time: '2025-08-20T02:53:05.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3296
+- author: formlessnameless
+  changes:
+  - message: A document printer with a bunch of templates has hit the station. The
+      wonders of bureaucracy never cease. Check your head's locker today!
+    type: Add
+  id: 2181
+  time: '2025-08-20T02:53:20.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3310
+- author: TheGrimbeeper
+  changes:
+  - message: changelings once again are resistant to artifact crushers
+    type: Tweak
+  id: 2182
+  time: '2025-08-20T02:52:40.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3277
+- author: Kandiyaki
+  changes:
+  - message: Changed the description of the Flesh Surgery spell to properly reflect
+      its new effects.
+    type: Tweak
+  - message: Ghoul and Sacrifice notifications will now display properly.
+    type: Fix
+  - message: The Raw Prophet's mansus link ability is functional again.
+    type: Fix
+  id: 2183
+  time: '2025-08-20T02:52:52.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3291
