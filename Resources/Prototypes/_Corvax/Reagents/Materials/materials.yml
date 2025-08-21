@@ -1,0 +1,12 @@
+# SPDX-FileCopyrightText: 2025 Will-Oliver-Br <164823659+Will-Oliver-Br@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 sleepyyapril <123355664+sleepyyapril@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: material
+  id: SheetPrinter
+  stackEntity: SheetPrinter1
+  name: materials-paper
+  icon: {sprite: Objects/Misc/bureaucracy.rsi, state: paper}
+  color: "#ffffff"
+  price: 0.05
