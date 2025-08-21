@@ -17,6 +17,9 @@
     quickEquip: false
     slots:
     - Back
+  - type: Battery #imp
+    maxCharge: 4000 #imp
+    startingCharge: 4000 #imp
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerQuad
     fireCost: 1000
