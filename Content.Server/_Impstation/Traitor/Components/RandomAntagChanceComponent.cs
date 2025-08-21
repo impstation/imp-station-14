@@ -13,7 +13,7 @@ public sealed partial class RandomAntagChanceComponent : Component
     /// Sets the chance that the antag is rolled
     /// </summary>
     [DataField]
-    public float Chance = 0.5f;
+    public float Chance = 0.3f;
 
     /// <summary>
     /// Sets the antag type to be rolled for.
@@ -22,7 +22,7 @@ public sealed partial class RandomAntagChanceComponent : Component
     /// Value given must be a valid antag gamerule OR MindRolePrototype.
     /// </remarks>
     [DataField(required: true)]
-    public EntProtoId AntagRole;
+    public EntProtoId AntagRole = "Traitor";
 
     /// <summary>
     /// The mind role given if the antag is not rolled.
@@ -31,5 +31,5 @@ public sealed partial class RandomAntagChanceComponent : Component
     /// Value given must be a valid antag gamerule OR MindRolePrototype.
     /// </remarks>
     [DataField(required: true)]
-    public EntProtoId FallbackRole;
+    public EntProtoId FallbackRole = "MindRoleGhostRoleNeutral";
 }
