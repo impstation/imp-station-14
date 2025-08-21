@@ -111,6 +111,13 @@
       types:
         Blunt: 20 #matches the toolbox's 1.33 multiplier (rounded up), needed to be manually set to override BaseStructure's parameters
     staminaCost: 12.5
+  - type: DamageExaminable
+  - type: DamageOnHighSpeedImpact
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
 
 - type: entity
   id: PortableCutterMachineFolded

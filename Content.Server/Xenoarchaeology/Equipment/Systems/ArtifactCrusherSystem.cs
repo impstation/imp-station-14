@@ -9,6 +9,7 @@ using Content.Shared.Damage;
 using Content.Shared.Power;
 using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
+using Content.Shared.Changeling; //#IMP
 using Content.Shared.Xenoarchaeology.Equipment;
 using Content.Shared.Xenoarchaeology.Equipment.Components;
 using Robust.Shared.Collections;
@@ -112,10 +113,17 @@ public sealed class ArtifactCrusherSystem : SharedArtifactCrusherSystem
             if (!TryComp<BodyComponent>(contained, out var body))
                 Del(contained);
 
-            var gibs = _body.GibBody(contained, body: body, gibOrgans: true);
-            foreach (var gib in gibs)
+            if (!HasComp<ChangelingComponent>(contained)) //#IMP if statement to make changelings immune
             {
-                ContainerSystem.Insert((gib, null, null, null), crusher.OutputContainer);
+                var gibs = _body.GibBody(contained, body: body, gibOrgans: true);
+                foreach (var gib in gibs)
+                {
+                    ContainerSystem.Insert((gib, null, null, null), crusher.OutputContainer);
+                }
+            }
+            else
+            {
+                _damageable.TryChangeDamage(contained, crusher.CrushingDamage * crusher.NonGibbedDamageMult); //#IMP still damage changelings a little
             }
         }
     }

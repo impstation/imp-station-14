@@ -46,30 +46,39 @@ public sealed partial class HereticRitualRuneRadialMenu : RadialMenu
         if (!_entityManager.TryGetComponent<HereticComponent>(player, out var heretic))
             return;
 
-        foreach (var ritual in heretic.KnownRituals)
+        foreach (var knowledge in heretic.KnownKnowledge)
         {
-            if (!_prototypeManager.TryIndex(ritual, out var ritualPrototype))
+            if (!_prototypeManager.TryIndex(knowledge, out var knowledgePrototype))
                 continue;
 
-            var button = new HereticRitualMenuButton
-            {
-                SetSize = new Vector2(64, 64),
-                ToolTip = Loc.GetString(ritualPrototype.LocName),
-                ProtoId = ritualPrototype.ID
-            };
+            if (knowledgePrototype.RitualPrototypes == null)
+                continue;
 
-            var texture = new TextureRect
+            foreach (var ritual in knowledgePrototype.RitualPrototypes)
             {
-                VerticalAlignment = VAlignment.Center,
-                HorizontalAlignment = HAlignment.Center,
-                Texture = _spriteSystem.Frame0(ritualPrototype.Icon),
-                TextureScale = new Vector2(2f, 2f)
-            };
 
-            button.AddChild(texture);
-            main.AddChild(button);
+                if (!_prototypeManager.TryIndex(ritual, out var ritualPrototype))
+                    continue;
+
+                var button = new HereticRitualMenuButton
+                {
+                    SetSize = new Vector2(64, 64),
+                    ToolTip = Loc.GetString(ritualPrototype.LocName),
+                    ProtoId = ritualPrototype.ID
+                };
+
+                var texture = new TextureRect
+                {
+                    VerticalAlignment = VAlignment.Center,
+                    HorizontalAlignment = HAlignment.Center,
+                    Texture = _spriteSystem.Frame0(ritualPrototype.Icon),
+                    TextureScale = new Vector2(2f, 2f)
+                };
+
+                button.AddChild(texture);
+                main.AddChild(button);
+            }
         }
-
         AddHereticRitualMenuButtonOnClickAction(main);
     }
 

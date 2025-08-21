@@ -28,7 +28,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             return;
 
         if (HasComp<GhoulComponent>(args.Target)
-        || TryComp<HereticComponent>(args.Target, out var th) && th.CurrentPath == ent.Comp.CurrentPath)
+        || TryComp<HereticComponent>(args.Target, out var th) && th.MainPath == ent.Comp.MainPath)
         {
             var dargs = new DoAfterArgs(EntityManager, ent, 10f, new EventHereticFleshSurgeryDoAfter(), ent, args.Target)
             {

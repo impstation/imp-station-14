@@ -12,7 +12,6 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 0
     # add every path here because you shouldn't be able to buy more starter knowledge
     blacklist:
     - Ash
@@ -36,7 +35,6 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 1
     whitelist:
     - Flesh
 
@@ -55,7 +53,6 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 2
 
 - type: listing
   id: HereticFleshPath4
@@ -71,7 +68,6 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 3
     whitelist:
     - Flesh
 
@@ -89,7 +85,6 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 4
     whitelist:
     - Flesh
 
@@ -108,7 +103,6 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 5
 
 - type: listing
   id: HereticFleshPath7
@@ -124,7 +118,6 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 6
     whitelist:
     - Flesh
 
@@ -143,7 +136,6 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 7
 
 - type: listing
   id: HereticFleshPath9
@@ -159,6 +151,5 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 8
     whitelist:
     - Flesh

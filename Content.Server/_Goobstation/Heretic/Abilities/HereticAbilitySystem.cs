@@ -72,7 +72,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         foreach (var look in lookup)
         {
             // ignore heretics with the same path*, affect everyone else
-            if ((TryComp<HereticComponent>(look, out var th) && th.CurrentPath == ent.Comp.CurrentPath)
+            if ((TryComp<HereticComponent>(look, out var th) && th.MainPath == ent.Comp.MainPath)
             || HasComp<GhoulComponent>(look))
                 continue;
 

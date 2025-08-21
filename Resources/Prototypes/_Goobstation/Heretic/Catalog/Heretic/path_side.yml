@@ -13,7 +13,6 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 1
 
 - type: listing
   id: HereticSidePath3Armor
@@ -29,7 +28,6 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 2
 
 - type: listing
   id: HereticSidePath3Flask
@@ -45,7 +43,6 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 2
 
 - type: listing
   id: HereticSidePath3Mirror
@@ -61,7 +58,6 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 2
 
 - type: listing
   id: HereticSidePathKnowledge
@@ -76,4 +72,3 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 5

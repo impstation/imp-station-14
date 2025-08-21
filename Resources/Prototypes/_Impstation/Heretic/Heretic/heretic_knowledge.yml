@@ -1,14 +1,12 @@
 ##side paths
 - type: hereticKnowledge
   id: SeekersHeartRitual
-  sideKnowledge: true
-  stage: 1
+  requiredPower: 1
   ritualPrototypes:
   - SeekersHeartRitual
-  
+
 - type: hereticKnowledge
   id: HereticMirrorRitual
-  sideKnowledge: true
-  stage: 3
+  requiredPower: 3
   ritualPrototypes:
   - HereticMirrorRitual
