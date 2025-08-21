@@ -81,6 +81,15 @@
     - Snout
     hideOnToggle: true
 
+- type: entity
+  parent: ClothingMaskClown
+  id: ClothingMaskClownBald
+  components:
+  - type: Sprite
+    state: icon-wigless
+  - type: Clothing
+    equippedPrefix: wigless
+
 # admeme only
 - type: entity
   parent: [ClothingMaskClown, BaseCommandContraband]
