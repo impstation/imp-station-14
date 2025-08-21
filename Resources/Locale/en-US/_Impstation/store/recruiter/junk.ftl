@@ -7,6 +7,9 @@ uplink-recruiter-toysword-desc = New Sandy-Cat plastic sword! Comes with realist
 uplink-recruiter-figurinebox-name = Syndicate figurine set, Nuclear Operatives
 uplink-recruiter-figurinebox-desc = A box containing a full set of Syndicate figurines, depicting what a nuclear operative team might look like! If they were real.
 
+uplink-recruiter-figurinebox-synthetics-name = Syndicate figurine set, Synthetics
+uplink-recruiter-figurinebox-synthetics-desc = A full set of Syndicate figurines depicting some of the synthetics employed by the Syndicate.
+
 uplink-recruiter-lunchbox-name = Syndicate lunchbox
 uplink-recruiter-lunchbox-desc = A lunchbox for the discerning des(s)erter. Empty.
 

@@ -69,3 +69,14 @@
     - state: icon-default
   - type: Item
     size: Normal
+
+- type: entity
+  parent: [ BaseFlatpack, BaseSyndicateContraband ]
+  id: SyndicateDocumentPrinterFlatpack
+  name: Syndicate document printer flatpack
+  description: A flatpack used for constructing a Syndicate document printer. Smaller than conventional flatpacks.
+  components:
+  - type: Flatpack
+    entity: PrinterDocSyndicate
+  - type: Item
+    size: Normal

@@ -130,10 +130,20 @@
   - RecruiterJunk
 
 - type: listing
+  id: UplinkRecruiterFigurineBox
+  name: uplink-recruiter-figurinebox-synthetics-name
+  description: uplink-recruiter-figurinebox-synthetics-desc
+  productEntity: BoxSyndicateFigurinesSynthetics
+  cost:
+    TreatCoin: 2
+  categories:
+  - RecruiterJunk
+
+- type: listing
   id: UplinkRecruiterLunchbox
   name: uplink-recruiter-lunchbox-name
   description: uplink-recruiter-lunchbox-desc
-  productEntity: SteelLunchboxSyndicate #Imp - changed prototype
+  productEntity: SteelLunchboxSyndicate
   cost:
     TreatCoin: 2
   categories:
