@@ -18,7 +18,7 @@ namespace Content.Shared._Impstation.Tourist.Components
 
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("aoeFlashDuration")]
-        public int AoeFlashDuration { get; set; } = 2000;
+        public TimeSpan AoeFlashDuration = TimeSpan.FromSeconds(2);
 
         [DataField("slowTo")]
         [ViewVariables(VVAccess.ReadWrite)]

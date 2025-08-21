@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Server.Flash.Components;
 using Content.Shared.Flash.Components;
 using Content.Server.Light.EntitySystems;
 using Content.Server.Popups;
@@ -34,6 +33,8 @@ using Content.Shared.Mind;
 using Robust.Shared.Containers;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Hands.Components;
+using Content.Shared.Movement.Systems;
+using Content.Shared.Stunnable;
 
 namespace Content.Server._Impstation.Tourist
 {
@@ -47,7 +48,6 @@ namespace Content.Server._Impstation.Tourist
         [Dependency] private readonly ExamineSystemShared _examine = default!;
         [Dependency] private readonly InventorySystem _inventory = default!;
         [Dependency] private readonly PopupSystem _popup = default!;
-        [Dependency] private readonly StunSystem _stun = default!;
         [Dependency] private readonly TagSystem _tag = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
@@ -56,6 +56,8 @@ namespace Content.Server._Impstation.Tourist
         [Dependency] private readonly SharedMindSystem _mind = default!;
         [Dependency] private readonly SharedContainerSystem _container = default!;
         [Dependency] private readonly SharedHandsSystem _hands = default!;
+        [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
+        [Dependency] private readonly SharedStunSystem _stun = default!;
 
         private static readonly ProtoId<TagPrototype> TrashTag = "Trash";
 
@@ -115,13 +117,14 @@ namespace Content.Server._Impstation.Tourist
             return true;
         }
 
-        public void Flash(EntityUid target,
+
+        public void Flash(
+            EntityUid target,
             EntityUid? user,
             EntityUid? used,
-            float flashDuration,
+            TimeSpan flashDuration,
             float slowTo,
             bool displayPopup = true,
-            bool melee = false,
             TimeSpan? stunDuration = null)
         {
             var attempt = new FlashAttemptEvent(target, user, used);
@@ -131,18 +134,13 @@ namespace Content.Server._Impstation.Tourist
                 return;
 
             // don't paralyze, slowdown or convert to rev if the target is immune to flashes
-            if (!_statusEffectsSystem.TryAddStatusEffect<FlashedComponent>(target, FlashedKey, TimeSpan.FromSeconds(flashDuration / 1000f), true))
+            if (!_statusEffectsSystem.TryAddStatusEffect<FlashedComponent>(target, FlashedKey, flashDuration, true))
                 return;
 
             if (stunDuration != null)
-            {
-                _stun.TryParalyze(target, stunDuration.Value, true);
-            }
+                _stun.TryUpdateParalyzeDuration(target, stunDuration.Value);
             else
-            {
-                _stun.TrySlowdown(target, TimeSpan.FromSeconds(flashDuration / 1000f), true,
-                slowTo, slowTo);
-            }
+                _movementMod.TryUpdateMovementSpeedModDuration(target, MovementModStatusSystem.FlashSlowdown, flashDuration, slowTo);
 
             if (displayPopup && user != null && target != user && Exists(user.Value))
             {
@@ -150,17 +148,16 @@ namespace Content.Server._Impstation.Tourist
                     ("user", Identity.Entity(user.Value, EntityManager))), target, target);
             }
 
-            if (melee)
-            {
-                var ev = new AfterFlashedEvent(target, user, used);
-                if (user != null)
-                    RaiseLocalEvent(user.Value, ref ev);
-                if (used != null)
-                    RaiseLocalEvent(used.Value, ref ev);
-            }
+            var ev = new AfterFlashedEvent(target, user, used);
+            RaiseLocalEvent(target, ref ev);
+
+            if (user != null)
+                RaiseLocalEvent(user.Value, ref ev);
+            if (used != null)
+                RaiseLocalEvent(used.Value, ref ev);
         }
 
-        public void FlashArea(Entity<TouristCameraComponent?> source, EntityUid? user, float range, float duration, float slowTo = 0.8f, bool displayPopup = false, float probability = 1f, SoundSpecifier? sound = null)
+        public void FlashArea(Entity<TouristCameraComponent?> source, EntityUid? user, float range, TimeSpan duration, float slowTo = 0.8f, bool displayPopup = false, float probability = 1f, SoundSpecifier? sound = null)
         {
             var transform = Transform(source);
             var mapPosition = _transform.GetMapCoordinates(transform);
@@ -248,25 +245,6 @@ namespace Content.Server._Impstation.Tourist
                 {
                     validTarget = true;
                 }
-                /* commenting this out and coming back to it later because goddamn
-                //this is a bit of a monster, but check if the entity has a targeted job prototype
-                else if (condition.TargetJobs != null && TryComp<MindContainerComponent>(entity, out var mindContainer))
-                {
-                    var mind = mindContainer.Mind;
-                    if (mind != null && TryComp<MindComponent>(mind, out var mindComp))
-                    {
-                        foreach (var role in mindComp.MindRoles)
-                        {
-                            if (condition.TargetJobs.Contains(role.Prototype.ID))
-                            {
-                                validTarget = true;
-                                break; // Exit early if any matching role is found
-                            }
-                        }
-                    }
-                }
-                */
-
                 if (validTarget)
                 {
                     // save entity uid to the tourist component, then add it to the greentext.
