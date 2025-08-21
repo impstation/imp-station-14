@@ -45,6 +45,7 @@ public sealed class RandomAntagChanceSystem : EntitySystem
         {
             DoRoles(session, args.Mind, ent.Comp.FallbackRole);
         }
+        RemCompDeferred<RandomAntagChanceComponent>(ent);
     }
 
     private void DoRoles(ICommonSession session, Entity<MindComponent> ent, EntProtoId role)
