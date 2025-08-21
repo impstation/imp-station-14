@@ -12,6 +12,7 @@
     - id: SalvageJobBoardComputerCircuitboard
     - id: ShipyardComputerCircuitboard # imp
     - id: SalvageExpeditionsComputerCircuitboard # imp
+    - id: PrinterDocFlatpack  # Corvax-Printer
     - id: CigPackGreen
       prob: 0.50
     - id: ClothingHeadsetAltCargo
@@ -62,6 +63,7 @@
         max: 15
     - id: TicketPad #imp special
     - id: PersonalAILearnerCommand #impspecial
+    - id: PrinterDocFlatpack  # Corvax-Printer
 
 # No laser table + Laser table
 - type: entityTable
@@ -148,6 +150,7 @@
     # - id: WeaponDisabler #imp edit
     - id: AntiqueDisablerBox #imp edit
     - id: ClothingEyesHudCommand
+    - id: PrinterDocFlatpack  # Corvax-Printer
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -179,6 +182,7 @@
     - id: RubberStampCE
     - id: MetalFoamGrenade
     - id: PersonalAILearnerEngineering #impspecial
+    - id: PrinterDocFlatpack  # Corvax-Printer
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -239,6 +243,7 @@
     - id: RubberStampCMO
     - id: MedTekCartridge
     - id: PersonalAILearnerMedical #impspecial
+    - id: PrinterDocFlatpack  # Corvax-Printer
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -292,6 +297,7 @@
     - id: CargoRequestScienceComputerCircuitboard
     - id: RubberStampRd
     - id: PersonalAILearnerScience #impspecial
+    - id: PrinterDocFlatpack  # Corvax-Printer
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -358,6 +364,7 @@
     - id: BaseSeclinkRadio #imp
     - id: PillCanisterHOS #imp
     - id: PersonalAILearnerSecurity #impspecial
+    - id: PrinterDocFlatpack  # Corvax-Printer
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
