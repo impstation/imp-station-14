@@ -387,6 +387,7 @@
   parent: MobBaseAncestor # this is so the monkey comes pre-congnizined
   description: New church of neo-darwinists actually believe that EVERY animal evolved from a monkey. This one seems to carry itself a little differently.
   components:
+  - type: StatusIcon
   - type: GhostRole
     prob: 1
     makeSentient: true
