@@ -189,6 +189,9 @@ chatsan-replacement-66 = something
 
 chatsan-word-67 = allg
 chatsan-replacement-67 = all good
+# imp
+chatsan-word-68 = dnr order
+chatsan-replacement-68 = dnr order
 
-chatsan-word-68 = dnr
-chatsan-replacement-68 = unrevivable
+chatsan-word-69 = dnr
+chatsan-replacement-69 = unrevivable
