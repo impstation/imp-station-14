@@ -175,25 +175,29 @@
     damageModifierSet: VRex
   - type: Stamina
     critThreshold: 300
-# currently snailsprint doesnt allow for usedelay! will be commented out until i get someone who knows c# for help
-  #- type: SnailSprint
-  #  action: ActionSlime #ActionRush
-  #  thirstCost: 0
-  #  sprintLength: 2
-  #  speedBoost: 3
-    #reagentProduced: Mucin
+#  - type: JumpAbility
+#    action: ActionVRexLeap
+#    jumpDistance: 3
+#    jumpSound:
+#      path: /Audio/Weapons/punchmiss.ogg
+#      params:
+#        pitch: .5
+#        volume: -3
+#        variation: 0.05
 
 #- type: entity
 #  parent: BaseAction
-#  id: ActionRush
-#  name: Rage Rush
-#  description: Rush forward with a sudden boost!
+#  id: ActionVRexLeap
+#  name: Crushing Leap
+#  description: Leap forward to pounce on your prey!
 #  components:
-#  - type: Action
-#    icon: Interface/Actions/slime.png
-#    useDelay: 100
-#  - type: InstantAction
-#    event: !type:SnailSprintActionEvent
+#    - type: Action
+#      useDelay: 15
+#      icon:
+#        sprite: Interface/Actions/jump.rsi
+#        state: icon
+#    - type: InstantAction
+#      event: !type:GravityJumpEvent {}
 
 - type: entity
   parent: BaseMobVRex
