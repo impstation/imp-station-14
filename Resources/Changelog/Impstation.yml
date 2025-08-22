@@ -1,24 +1,4 @@
 ﻿Entries:
-- author: widgetbeck
-  changes:
-  - message: Defender Replicators are a bit tougher.
-    type: Tweak
-  - message: The Replicator Hive now displays as one entity on the round-end screen.
-    type: Tweak
-  - message: The Replicator Nest no longer deletes steal targets, but *does* delete
-      borgs.
-    type: Tweak
-  - message: Replicators should no longer get Upgrade actions that don't work.
-    type: Fix
-  - message: Replicators should no longer be able to get multiple Manufacture Nest
-      actions.
-    type: Fix
-  - message: Removed network configurator functionality from Omnitools, because it
-      generally caused more problems than it solved.
-    type: Remove
-  id: 1694
-  time: '2025-05-17T18:28:54.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2512
 - author: Ecramox
   changes:
   - message: HoP plants can no longer be microwave farmed for all access.
@@ -4191,3 +4171,13 @@
   id: 2193
   time: '2025-08-22T01:12:25.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3328
+- author: Kandiyaki
+  changes:
+  - message: Added some extra text to the heretic's character menu to inform the player
+      of their basic functions.
+    type: Tweak
+  - message: Updated the heretic's guidebook entries.
+    type: Tweak
+  id: 2194
+  time: '2025-08-22T01:41:57.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3338
