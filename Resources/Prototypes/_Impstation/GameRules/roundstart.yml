@@ -146,11 +146,10 @@
       weight: 15
 
 # population limiters
-# Commented out because this is maybe breaking the weighted event tables??? I'm scared.
-#- type: entity
-#  parent: BaseGameRule
-#  id: LowpopLimiter
-#  components:
-#  - type: GameRule
-#    maxPlayers: 14
-#    cancelPresetOnTooManyPlayers: true
+- type: entity
+  parent: BaseGameRule
+  id: LowpopLimiter
+  components:
+  - type: GameRule
+    maxPlayers: 14
+    cancelPresetOnTooManyPlayers: true
