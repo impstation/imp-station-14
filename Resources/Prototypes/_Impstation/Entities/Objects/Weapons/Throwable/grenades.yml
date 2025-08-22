@@ -50,7 +50,7 @@
     proto: MobTomatoKiller
 
 - type: entity
-  parent: [ BaseServiceContraband, SmokeGrenade ] 
+  parent: [ BaseMinorContraband, SmokeGrenade ] 
   id: CleanerGrenadeBleach
   name: heavy-duty cleanade
   description: A discontinued brand of heavy-duty cleaning grenade. A warning label reads "DO NOT INHALE".
