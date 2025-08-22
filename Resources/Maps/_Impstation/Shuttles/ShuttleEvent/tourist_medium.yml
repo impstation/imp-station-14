@@ -4,7 +4,7 @@ meta:
   engineVersion: 265.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/21/2025 02:05:08
+  time: 08/22/2025 00:44:58
   entityCount: 143
 maps: []
 grids:
@@ -24,7 +24,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: grid
+      name: Adventure
     - type: Transform
       pos: 12.709639,4.593395
       parent: invalid
@@ -543,10 +543,10 @@ entities:
           occludes: True
           ents:
           - 7
+          - 17
           - 18
           - 19
           - 20
-          - 17
           - 8
         paper_label: !type:ContainerSlot
           showEnts: False
@@ -807,7 +807,7 @@ entities:
       parent: 1
 - proto: Lantern
   entities:
-  - uid: 18
+  - uid: 17
     components:
     - type: Transform
       parent: 6
@@ -852,7 +852,7 @@ entities:
       parent: 1
 - proto: PlushieTeddyBearRecolorableRandom
   entities:
-  - uid: 19
+  - uid: 18
     components:
     - type: Transform
       parent: 6
@@ -1027,24 +1027,24 @@ entities:
       parent: 1
 - proto: TouristSpawner
   entities:
-  - uid: 141
+  - uid: 127
     components:
     - type: Transform
       pos: 1.5,-1.5
       parent: 1
-  - uid: 142
+  - uid: 128
     components:
     - type: Transform
       pos: 1.5,-6.5
       parent: 1
-  - uid: 143
+  - uid: 129
     components:
     - type: Transform
       pos: 3.5,-5.5
       parent: 1
 - proto: TowelColorBlue
   entities:
-  - uid: 20
+  - uid: 19
     components:
     - type: Transform
       parent: 6
@@ -1053,7 +1053,7 @@ entities:
     - type: InsideEntityStorage
 - proto: TowelColorRed
   entities:
-  - uid: 17
+  - uid: 20
     components:
     - type: Transform
       parent: 6
@@ -1062,14 +1062,14 @@ entities:
     - type: InsideEntityStorage
 - proto: ToyFigurineCyborgService
   entities:
-  - uid: 127
+  - uid: 130
     components:
     - type: Transform
       pos: 2.3261452,-0.32327795
       parent: 1
 - proto: TrashBananaPeel
   entities:
-  - uid: 128
+  - uid: 131
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -1095,64 +1095,64 @@ entities:
     - type: InsideEntityStorage
 - proto: WallSilver
   entities:
-  - uid: 129
+  - uid: 132
     components:
     - type: Transform
       pos: 0.5,-0.5
       parent: 1
-  - uid: 130
+  - uid: 133
     components:
     - type: Transform
       pos: 0.5,-1.5
       parent: 1
-  - uid: 131
+  - uid: 134
     components:
     - type: Transform
       pos: 0.5,-2.5
       parent: 1
-  - uid: 132
+  - uid: 135
     components:
     - type: Transform
       pos: 0.5,-3.5
       parent: 1
-  - uid: 133
+  - uid: 136
     components:
     - type: Transform
       pos: 0.5,-6.5
       parent: 1
-  - uid: 134
+  - uid: 137
     components:
     - type: Transform
       pos: 0.5,-7.5
       parent: 1
-  - uid: 135
+  - uid: 138
     components:
     - type: Transform
       pos: 4.5,-7.5
       parent: 1
-  - uid: 136
+  - uid: 139
     components:
     - type: Transform
       pos: 4.5,-6.5
       parent: 1
-  - uid: 137
+  - uid: 140
     components:
     - type: Transform
       pos: 4.5,-3.5
       parent: 1
-  - uid: 138
+  - uid: 141
     components:
     - type: Transform
       pos: 4.5,-2.5
       parent: 1
-  - uid: 139
+  - uid: 142
     components:
     - type: Transform
       pos: 4.5,-0.5
       parent: 1
 - proto: WindowReinforcedDirectional
   entities:
-  - uid: 140
+  - uid: 143
     components:
     - type: Transform
       rot: 3.141592653589793 rad

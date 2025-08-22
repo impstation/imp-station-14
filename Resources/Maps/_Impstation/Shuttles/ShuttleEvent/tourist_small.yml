@@ -4,7 +4,7 @@ meta:
   engineVersion: 265.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/21/2025 02:02:08
+  time: 08/22/2025 00:42:08
   entityCount: 74
 maps: []
 grids:
@@ -23,7 +23,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: grid
+      name: Voyage
     - type: Transform
       pos: -1.484375,0.8125
       parent: invalid
@@ -145,7 +145,7 @@ entities:
   - uid: 3
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
+      rot: -1.5707963267948966 rad
       pos: -0.5,0.5
       parent: 1
   - uid: 4
@@ -541,19 +541,19 @@ entities:
       parent: 1
 - proto: PoweredFloorLightSodium
   entities:
-  - uid: 72
+  - uid: 55
     components:
     - type: Transform
       pos: 0.5,-2.5
       parent: 1
-  - uid: 73
+  - uid: 56
     components:
     - type: Transform
       pos: 1.5,-2.5
       parent: 1
 - proto: PoweredSmallLight
   entities:
-  - uid: 74
+  - uid: 57
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -561,19 +561,19 @@ entities:
       parent: 1
 - proto: ReinforcedWindow
   entities:
-  - uid: 55
+  - uid: 58
     components:
     - type: Transform
       pos: 0.5,2.5
       parent: 1
-  - uid: 56
+  - uid: 59
     components:
     - type: Transform
       pos: 1.5,2.5
       parent: 1
 - proto: SubstationWallBasic
   entities:
-  - uid: 57
+  - uid: 60
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -581,42 +581,42 @@ entities:
       parent: 1
 - proto: TableReinforced
   entities:
-  - uid: 58
+  - uid: 61
     components:
     - type: Transform
       pos: 1.5,1.5
       parent: 1
 - proto: Thruster
   entities:
-  - uid: 59
+  - uid: 62
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 2.5,-1.5
       parent: 1
-  - uid: 60
+  - uid: 63
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -0.5,-1.5
       parent: 1
-  - uid: 61
+  - uid: 64
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 2.5,-2.5
       parent: 1
-  - uid: 62
+  - uid: 65
     components:
     - type: Transform
       pos: 2.5,2.5
       parent: 1
-  - uid: 63
+  - uid: 66
     components:
     - type: Transform
       pos: -0.5,2.5
       parent: 1
-  - uid: 64
+  - uid: 67
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -624,7 +624,7 @@ entities:
       parent: 1
 - proto: TouristSpawner
   entities:
-  - uid: 65
+  - uid: 68
     components:
     - type: Transform
       pos: 0.5,0.5
@@ -647,34 +647,34 @@ entities:
     - type: InsideEntityStorage
 - proto: WallReinforced
   entities:
-  - uid: 66
+  - uid: 69
     components:
     - type: Transform
       pos: 0.5,-1.5
       parent: 1
-  - uid: 67
+  - uid: 70
     components:
     - type: Transform
       pos: 1.5,-1.5
       parent: 1
 - proto: WallSolid
   entities:
-  - uid: 68
+  - uid: 71
     components:
     - type: Transform
       pos: 2.5,1.5
       parent: 1
-  - uid: 69
+  - uid: 72
     components:
     - type: Transform
       pos: -0.5,1.5
       parent: 1
-  - uid: 70
+  - uid: 73
     components:
     - type: Transform
       pos: -0.5,-0.5
       parent: 1
-  - uid: 71
+  - uid: 74
     components:
     - type: Transform
       pos: 2.5,-0.5
