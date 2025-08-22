@@ -81,15 +81,6 @@
     - Snout
     hideOnToggle: true
 
-- type: entity
-  parent: ClothingMaskClown
-  id: ClothingMaskClownBald
-  components:
-  - type: Sprite
-    state: icon-wigless
-  - type: Clothing
-    equippedPrefix: wigless
-
 # admeme only
 - type: entity
   parent: [ClothingMaskClown, BaseCommandContraband]
@@ -185,17 +176,6 @@
     sprite: _Impstation/Clothing/Mask/clown_service.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Mask/clown_service.rsi
-
-- type: entity
-  parent: ClothingMaskClown
-  id: ClothingMaskClownBigNose
-  name: big nosed clown wig and mask
-  description: A merging of old and new styles from clown culture.
-  components:
-  - type: Sprite
-    sprite: _Impstation/Clothing/Mask/clown_bignose.rsi
-  - type: Clothing
-    sprite: _Impstation/Clothing/Mask/clown_bignose.rsi
 
 - type: entity
   parent: ClothingMaskBase

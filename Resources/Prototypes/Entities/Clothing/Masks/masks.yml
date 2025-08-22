@@ -231,23 +231,11 @@
     - Snout
 
 - type: entity
-  parent: ClothingMaskClownBase
+  parent: ClothingMaskClownChameleonBasic #imp
   id: ClothingMaskClown
   components:
   - type: ChameleonClothing #imp
-    slot: mask
-    requireTag: ClownMaskBasic
-    AffectedByEmp: False
-  - type: UserInterface #imp
-    interfaces:
-      enum.ChameleonUiKey.Key:
-        type: ChameleonBoundUserInterface
-  - type: Tag
-    tags:
-    - ClownMask
-    - HamsterWearable
-    - WhitelistChameleon
-    - ClownMaskBasic #imp
+    default: ClothingMaskClown
   - type: HideLayerClothing
     slots:
     - Snout
