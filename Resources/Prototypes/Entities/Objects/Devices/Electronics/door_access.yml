@@ -314,7 +314,7 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsVault
-  suffix: Vault, Locked
+  suffix: Security/Command, Locked #imp, disambiguate with vault door
   components:
   - type: AccessReader
     access: [["Security"], ["Command"]]
