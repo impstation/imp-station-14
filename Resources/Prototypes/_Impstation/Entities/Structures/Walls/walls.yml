@@ -226,3 +226,45 @@
   - type: RadiationBlocker
     resistance: 5
   - type: Appearance
+
+- type: entity
+  parent: BaseWall
+  id: WallReaper
+  name: souled wall
+  description: Keeps the souls in and the mortals out.
+  components:
+  - type: StaticPrice
+    price: 330
+  - type: Tag
+    tags:
+      - Wall
+  - type: Sprite
+    sprite: _Impstation/Structures/Walls/reaperwall.rsi
+  - type: Icon
+    sprite: _Impstation/Structures/Walls/reaperwall.rsi
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: IconSmooth
+    key: walls
+    base: reaper
+  - type: Appearance
