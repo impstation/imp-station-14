@@ -79,6 +79,26 @@
       - NuclearBomb
       - NuclearBombUnanchored
 
+# nuke disk
+- type: entity
+  parent: [BasePhotographObjective]
+  id: PhotographNukeDiskObjective
+  components:
+  - type: Objective
+    difficulty: 3
+    icon:
+      sprite: Objects/Misc/nukedisk.rsi
+      state: icon
+  - type: NumberObjective
+    min: 1
+    max: 1
+    title: tourist-objective-condition-nuke-disk-title
+    description: tourist-objective-condition-nuke-disk-description
+  - type: TouristPhotosCondition
+    targetPrototypes:
+      - NukeDisk
+      - NukeDiskFake
+
 # station anchor
 - type: entity
   parent: [BasePhotographObjective]
@@ -158,25 +178,70 @@
       - PlayerStationAi
       - PlayerStationAiEmpty
 
-# energy turrets (unfinished!)
-#- type: entity
-#  parent: [BasePhotographObjective]
-#  id: PhotographAiCoreObjective
-#  components:
-#  - type: Objective
-#    difficulty: 1
-#    icon:
-#      sprite: Mobs/Silicon/holograms.rsi
-#      state: ai_dog
-#  - type: NumberObjective
-#    min: 1
-#    max: 4
-#    title: tourist-objective-condition-aicore-title
-#    description: tourist-objective-condition-aicore-description
-#  - type: TouristPhotosCondition
-#    targetPrototypes:
-#      - PlayerStationAi
-#      - PlayerStationAiEmpty
+# turrets
+- type: entity
+  parent: [BasePhotographObjective]
+  id: PhotographTurretsObjective
+  components:
+  - type: Objective
+    difficulty: 2
+    icon:
+      sprite: Objects/Weapons/Guns/Turrets/sentry_turret.rsi
+      state: cover_closed
+  - type: NumberObjective
+    min: 1
+    max: 4
+    title: tourist-objective-condition-turrets-title
+    description: tourist-objective-condition-turrets-description
+  - type: TouristPhotosCondition
+    targetPrototypes: #includes ballistic and sentry turrets
+      - WeaponTurretHostile
+      - WeaponTurretAllHostile
+      - WeaponTurretSyndicate
+      - WeaponTurretNanoTrasen
+      - WeaponEnergyTurretAi
+      - WeaponEnergyTurretCommand
+      - WeaponEnergyTurretSecurity
+
+# head cloaks
+- type: entity
+  parent: [BasePhotographObjective]
+  id: PhotographHeadsCloaksObjective
+  components:
+  - type: Objective
+    difficulty: 1
+    icon:
+      sprite: Clothing/Neck/Cloaks/cap.rsi
+      state: icon
+  - type: NumberObjective
+    min: 2
+    max: 5
+    title: tourist-objective-condition-cloaks-title
+    description: tourist-objective-condition-cloaks-description
+  - type: TouristPhotosCondition
+    targetPrototypes:
+      - ClothingNeckCloakCentcom
+      - ClothingNeckCloakCap
+      - ClothingNeckCloakHos
+      - ClothingNeckCloakCe
+      - ClothingCloakCmo
+      - ClothingNeckCloakRd
+      - ClothingNeckCloakQm
+      - ClothingNeckCloakHop
+      - ClothingNeckCloakCapFormal
+      - ClothingNeckCloakCaptaingreatcoat
+      - ClothingNeckCloakQmgreatcoat
+      - ClothingNeckCloakHosgreatcoat
+      - ClothingNeckMantleCap
+      - ClothingNeckMantleCE
+      - ClothingNeckMantleCMO
+      - ClothingNeckMantleHOP
+      - ClothingNeckMantleHOS
+      - ClothingNeckMantleRD
+      - ClothingNeckMantleQM
+      - ClothingNeckCloakMystagogue
+      - ClothingNeckCloakHd
+      - ClothingNeckCloakCaptainAdmiral
 
 
 # --Souvenir objectives--
@@ -246,25 +311,88 @@
   - type: Objective
     difficulty: 1
 
-# engineering goggles
+# sec glasses
 - type: stealTargetGroup
-  id: EngineeringGoggles
-  name: steal-target-groups-goggles
+  id: SecurityGlasses
+  name: steal-target-groups-sec-glasses
   sprite:
-    sprite: Clothing/Eyes/Glasses/meson.rsi
+    sprite: Clothing/Eyes/Glasses/secglasses.rsi
     state: icon
 
 - type: entity
   parent: BaseTouristStealObjective
-  id: EngineeringGoggleStealObjective
+  id: SecGlassesStealObjective
   components:
   - type: StealCondition
-    stealGroup: EngineeringGoggles
-    descriptionText: tourist-objective-condition-goggles-description #description should probably be changed later
+    stealGroup: SecurityGlasses
+    descriptionText: tourist-objective-condition-sec-glasses-description
   - type: Objective
     difficulty: 1
 
-# TODO: Departmental steal objectives for sec, med, cargo. Rare nuke disk objective.
+# stun baton
+- type: stealTargetGroup
+  id: StunBaton
+  name: steal-target-groups-stun-baton
+  sprite:
+    sprite: Objects/Weapons/Melee/stunbaton.rsi
+    state: stunbaton_off
+
+- type: entity
+  parent: BaseTouristStealObjective
+  id: StunBatonStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: StunBaton
+    descriptionText: tourist-objective-condition-stunbaton-description
+  - type: Objective
+    difficulty: 1.5
+
+# appraisal tool
+- type: stealTargetGroup
+  id: AppraisalTool
+  name: steal-target-groups-appraisal-tool
+  sprite:
+    sprite: Objects/Tools/appraisal-tool.rsi
+    state: icon
+
+- type: entity
+  parent: BaseTouristStealObjective
+  id: AppraisalToolStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: AppraisalTool
+    descriptionText: tourist-objective-condition-appraisal-tool-description
+  - type: Objective
+    difficulty: 1
+
+# clown mask
+- type: stealTargetGroup
+  id: ClownMask
+  name: steal-target-groups-clown-mask
+  sprite:
+    sprite: _Impstation/Clothing/Mask/clown.rsi
+    state: icon
+
+- type: entity
+  parent: BaseTouristStealObjective
+  id: ClownMaskStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: ClownMask
+    descriptionText: tourist-objective-condition-clown-mask-description
+  - type: Objective
+    difficulty: 1.5
+
+# nuke disk (i'm very afraid to put this in)
+- type: entity
+  parent: BaseTouristStealObjective
+  id: TouristNukeDiskStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: NukeDisk
+    descriptionText: tourist-objective-condition-steal-nuke-disk-description
+  - type: Objective
+    difficulty: 4
 
 # --Tourist objective weighting/groups--
 - type: weightedRandom
@@ -278,10 +406,13 @@
   weights:
     PhotographVentmobsObjective: 1
     PhotographNukeObjective: 0.5
+    PhotographNukeDiskObjective: 0.7
     PhotographStationAnchorObjective: 1
     PhotographAnomalyGeneratorObjective: 1
     PhotographGravityGeneratorObjective: 1
     PhotographAiCoreObjective: 1
+    PhotographTurretsObjective: 0.8
+    PhotographHeadsCloaksObjective: 1
 
 - type: weightedRandom
   id: TouristObjectiveGroupSouvenir
@@ -289,4 +420,8 @@
     BudgetInsulsStealObjective: 1
     InsulatedGlovesStealObjective: 1
     ArtifactFragmentStealObjective: 1
-    EngineeringGoggleStealObjective: 1
+    SecGlassesStealObjective: 1
+    StunBatonStealObjective: 1
+    AppraisalToolStealObjective: 1
+    ClownMaskStealObjective: 1
+    TouristNukeDiskStealObjective: 0.1

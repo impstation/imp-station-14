@@ -72,8 +72,6 @@
     tags:
     - PetWearable
     - WhitelistChameleon
-  - type: StealTarget #imp
-    stealGroup: EngineeringGoggles
 
 - type: entity
   parent: [ClothingEyesBase, BaseLensSlot] # BaseLensSlot from imp
@@ -229,6 +227,8 @@
     - Antagonists
   - type: IdentityBlocker
     coverage: EYES
+  - type: StealTarget #imp
+    stealGroup: SecurityGlasses
 
 - type: entity
   parent: [ClothingEyesBase, BaseLensSlot, BaseCommandContraband] # BaseLensSlot from imp
