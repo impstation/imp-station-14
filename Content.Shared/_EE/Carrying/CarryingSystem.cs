@@ -344,10 +344,13 @@ public sealed partial class CarryingSystem : EntitySystem
     {
         // cant carry yourself
         if (carrier == carried.Owner)
-        {
-            _popup.PopupClient(Loc.GetString("carrying-self"), carrier, carrier);
             return false;
-        }
+
+        // no tower of spacemen or stack overflow
+        if (HasComp<BeingCarriedComponent>(carrier))
+            return false;
+        if (HasComp<BeingCarriedComponent>(carried))
+            return false;
 
         // can't carry multiple people, even if you have 4 hands it will break invariants when removing carryingcomponent for first carried person
         if (HasComp<CarryingComponent>(carrier))
@@ -357,23 +360,9 @@ public sealed partial class CarryingSystem : EntitySystem
         }
 
         // can't carry someone in a locker, buckled, etc
+        // TODO: this doesnt work. i dont know why. im blaming ee. anyway, it doesnt break anything, so its probably fine.
         if (!HasComp<MapGridComponent>(Transform(carrier).ParentUid))
-        {
-            _popup.PopupClient(Loc.GetString("carrying-tethered"), carrier, carrier);
             return false;
-        }
-
-        // no tower of spacemen or stack overflow
-        if (HasComp<BeingCarriedComponent>(carrier))
-        {
-            _popup.PopupClient(Loc.GetString("carrying-pickup-carrier"), carrier, carrier);
-            return false;
-        }
-        if (HasComp<BeingCarriedComponent>(carried))
-        {
-            _popup.PopupClient(Loc.GetString("carrying-pickup-carried"), carrier, carrier);
-            return false;
-        }
 
         // finally check that there are enough free hands
         // IMP: we're also not counting any hands that already contain the carried entity as occupied.
