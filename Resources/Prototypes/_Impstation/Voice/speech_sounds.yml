@@ -69,3 +69,10 @@
     path: /Audio/Animals/penguin_squawk.ogg
   exclaimSound:
     path: /Audio/Animals/penguin_squawk.ogg
+
+- type: speechSounds
+  id: Tcktck
+  params:
+    variation: 0.2
+  saySound:
+    path: /Audio/_Impstation/Voice/Talk/Tcktck/tcktck.ogg

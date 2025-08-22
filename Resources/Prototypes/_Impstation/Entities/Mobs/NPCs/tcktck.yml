@@ -145,7 +145,8 @@
     proto: robot
   - type: Speech
     speechVerb: Robotic
-    speechSounds: Borg
+    speechSounds: Tcktck
+    allowedEmotes: ['Scream', 'Mutter']
   - type: Vocal
     sounds:
       Unsexed: TckTck
