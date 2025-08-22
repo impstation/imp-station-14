@@ -426,6 +426,7 @@
     iconOn: Interface/Actions/rooting.png
     itemIconStyle: NoItem
     useDelay: 1
+    checkCanInteract: false #imp edit
 
 - type: entity
   id: ActionChameleonController
