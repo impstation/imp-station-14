@@ -17,7 +17,6 @@ using Robust.Shared.Timing;
 using Robust.Shared.Random;
 using System.Text;
 using Content.Server._Goobstation.Heretic.EntitySystems;
-using Content.Shared.GameTicking.Components;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -35,8 +34,6 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
     [Dependency] private readonly SharedUserInterfaceSystem _userInterfaceSystem = default!;
 
     public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg");
-    public readonly SoundSpecifier RiftSpawnSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg");
-
 
     [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> HereticFactionId = "Heretic";
 
@@ -58,46 +55,6 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
     {
         TryMakeHeretic(args.EntityUid, ent.Comp);
         _hell.MakeHell();
-    }
-
-    public override void Update(float frameTime)
-    {
-        //handles the multiple waves of tomes
-        base.Update(frameTime);
-        var query = EntityQueryEnumerator<HereticRuleComponent, GameRuleComponent>();
-        while (query.MoveNext(out var uid, out var ruleComp, out var gameRule))
-        {
-            if (!GameTicker.IsGameRuleActive(uid, gameRule))
-                continue;
-
-            if (ruleComp.TimeOfNextWave > _timing.CurTime)
-            {
-                continue;
-            }
-
-            ruleComp.TimeOfNextWave += ruleComp.TimeBetweenWaves + TimeSpan.FromSeconds(_rand.Next(-ruleComp.RandomSecondsBuffer, ruleComp.RandomSecondsBuffer));
-            if (!ruleComp.InitialWaveComplete)
-            {
-                SpawnRifts(5, 10); //start with a big wave of tomes
-                ruleComp.InitialWaveComplete = true;
-            }
-            else
-            {
-                SpawnRifts(1, 2);
-            }
-
-        }
-    }
-
-    private void SpawnRifts(int min, int max)
-    {
-        for (var i = 0; i < _rand.Next(min, max); i++)
-            if (TryFindRandomTile(out var _, out var _, out var _, out var coords))
-            {
-                _audio.PlayPvs(RiftSpawnSound, Spawn("RealityTear", coords),
-                AudioParams.Default.WithMaxDistance(15f).WithRolloffFactor(0.8f));
-                //reality tears disappear after 10 seconds, leaving behind an eldritch book
-            }
     }
 
     public bool TryMakeHeretic(EntityUid target, HereticRuleComponent rule)
