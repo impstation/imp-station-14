@@ -41,7 +41,7 @@
       state: tarantula
   - type: NumberObjective
     min: 2
-    max: 10
+    max: 6
     title: tourist-objective-condition-ventmob-title
     description: tourist-objective-condition-ventmob-description
   - type: TouristPhotosCondition
@@ -311,24 +311,6 @@
   - type: Objective
     difficulty: 1
 
-# sec glasses
-- type: stealTargetGroup
-  id: SecurityGlasses
-  name: steal-target-groups-sec-glasses
-  sprite:
-    sprite: Clothing/Eyes/Glasses/secglasses.rsi
-    state: icon
-
-- type: entity
-  parent: BaseTouristStealObjective
-  id: SecGlassesStealObjective
-  components:
-  - type: StealCondition
-    stealGroup: SecurityGlasses
-    descriptionText: tourist-objective-condition-sec-glasses-description
-  - type: Objective
-    difficulty: 1
-
 # stun baton
 - type: stealTargetGroup
   id: StunBaton
@@ -394,12 +376,31 @@
   - type: Objective
     difficulty: 4
 
+
+# --Stamp Collecting Objective--
+- type: entity
+  parent: BaseTouristObjective
+  id: TouristStampObjective
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Misc/stamps.rsi
+      state: stamp-cap
+    difficulty: 1.5
+  - type: NumberObjective
+    min: 10
+    max: 20
+    title: objective-condition-stamp-title
+    description: objective-condition-stamp-description
+  - type: StampedPapersCondition
+
 # --Tourist objective weighting/groups--
 - type: weightedRandom
   id: TouristObjectiveGroups
   weights:
     TouristObjectiveGroupPhoto: 1
-    TouristObjectiveGroupSouvenir: 1
+    TouristObjectiveGroupSouvenir: 0.7
+    TouristObjectiveGroupOther: 1
 
 - type: weightedRandom
   id: TouristObjectiveGroupPhoto
@@ -420,8 +421,12 @@
     BudgetInsulsStealObjective: 1
     InsulatedGlovesStealObjective: 1
     ArtifactFragmentStealObjective: 1
-    SecGlassesStealObjective: 1
     StunBatonStealObjective: 1
     AppraisalToolStealObjective: 1
     ClownMaskStealObjective: 1
-    TouristNukeDiskStealObjective: 0.1
+    TouristNukeDiskStealObjective: 0.05
+
+- type: weightedRandom
+  id: TouristObjectiveGroupOther
+  weights:
+    TouristStampObjective: 1

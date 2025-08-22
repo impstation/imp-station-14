@@ -47,3 +47,6 @@ tourist-objective-condition-stunbaton-description = Take home {$itemName}. They'
 tourist-objective-condition-appraisal-tool-description = Take home {$itemName}. They're so cool!
 tourist-objective-condition-clown-mask-description = Take home {$itemName}. They're so cool!
 tourist-objective-condition-steal-nuke-disk-description = You were dared to try and steal the {$itemName}. Don't get caught!
+
+objective-condition-stamp-title = Collect {$count} stamps or signatures on paper.
+objective-condition-stamp-description = Get {$count} unique stamps or signatures on pieces of paper in your inventory.
