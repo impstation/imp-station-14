@@ -1,41 +1,4 @@
 ﻿Entries:
-- author: widgetbeck
-  changes:
-  - message: Changed Replicator damage numbers for balance.
-    type: Tweak
-  - message: Fixed Tier 2 Replicators being unable to evolve.
-    type: Fix
-  - message: Fixed the grammar on the Replicator Round-End text.
-    type: Fix
-  id: 1696
-  time: '2025-05-19T00:24:19.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2519
-- author: kipdotnet
-  changes:
-  - message: Added novelty mugs to the service techfab. They have random colours and
-      random descriptions.
-    type: Add
-  - message: All mugs can now hold 30u, up from 20, to match the capacity of metamorphic
-      glasses.
-    type: Tweak
-  id: 1697
-  time: '2025-05-19T00:32:28.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2452
-- author: SixValentine
-  changes:
-  - message: Luna science and engineering raves have been removed
-    type: Fix
-  id: 1698
-  time: '2025-05-20T09:13:33.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2527
-- author: kipdotnet
-  changes:
-  - message: Completely remade Banana from scratch. She's now bigger, nicer, and has
-      extra space.
-    type: Tweak
-  id: 1699
-  time: '2025-05-20T09:21:09.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2531
 - author: kipdotnet
   changes:
   - message: Buffed Frank.
@@ -4179,3 +4142,32 @@
   id: 2195
   time: '2025-08-22T14:39:57.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/2912
+- author: ATDoop
+  changes:
+  - message: Handcuffs will no longer stop diona from rooting.
+    type: Tweak
+  id: 2196
+  time: '2025-08-23T10:39:37.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3342
+- author: astral_amy
+  changes:
+  - message: Regularly scheduled Bedlam/Whisper updates. Check PR for changelog.
+    type: Tweak
+  id: 2197
+  time: '2025-08-23T10:41:50.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3339
+- author: ATDoop
+  changes:
+  - message: Brigmedic and Paramedic have returned from their vacations.
+    type: Add
+  id: 2198
+  time: '2025-08-23T10:47:11.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3343
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: Blaster Cells working as power cells is intended now. Max charge very
+      much reduced, but it still shoots 8 shots per cell.
+    type: Tweak
+  id: 2199
+  time: '2025-08-23T10:49:30.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3304
