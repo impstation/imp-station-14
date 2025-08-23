@@ -11,7 +11,7 @@
     size: Normal
   - type: Tag
     tags:
-      - DroneUsable
+      - DroneUsable # IMP
       - RawMaterial
   - type: Damageable
     damageContainer: Inorganic
@@ -49,13 +49,16 @@
       map: ["base"]
   - type: Appearance
   - type: Food #imp
-    requiresSpecialDigestion: true
-    delay: 10
+    delay: 15
   - type: FlavorProfile #imp
     flavors:
     - paper
   - type: Extractable
     grindableSolutionName: food #imp
+    juiceSolution: # imp
+      reagents:
+      - ReagentId: Cellulose
+        Quantity: 6
   - type: SolutionContainerManager
     solutions:
       food: #imp
@@ -65,6 +68,7 @@
           Quantity: 6
   - type: Item
     heldPrefix: cardboard
+# IMP START
   - type: UserInterface
     interfaces:
       enum.ShortConstructionUiKey.Key:
@@ -79,11 +83,12 @@
     - ChairCardboard
     - TileCardboard
     - DoorCardboard
-  - type: Tag #imp
+  - type: Tag
     tags:
       - ClothMade
       - DroneUsable
       - RawMaterial
+# END IMP
 
 
 - type: entity
@@ -168,7 +173,7 @@
   - type: Tag
     tags:
       - ClothMade
-      - DroneUsable
+      - DroneUsable # IMP
       - Gauze
       - RawMaterial
   - type: Construction
@@ -236,7 +241,7 @@
   - type: Tag
     tags:
       - ClothMade
-      - DroneUsable
+      - DroneUsable # IMP
       - RawMaterial
   - type: Item
     heldPrefix: durathread
@@ -283,7 +288,6 @@
       map: ["base"]
   - type: Appearance
   - type: Food #imp
-    requiresSpecialDigestion: true
     delay: 30
   - type: FlavorProfile #imp
     flavors:
@@ -293,11 +297,15 @@
   - type: Tag
     tags:
     - Wooden
-    - DroneUsable
+    - DroneUsable # IMP
     - RawMaterial
     - ClothMade #imp
   - type: Extractable
     grindableSolutionName: food #imp
+    juiceSolution: # imp
+      reagents:
+      - ReagentId: Cellulose
+        Quantity: 10
   - type: SolutionContainerManager
     solutions:
       food: #imp
@@ -408,7 +416,7 @@
     energy: 1.5
     color: "#4faffb"
     slots:
-  - type: Tag
+  - type: Tag # IMP
     tags:
       - BearHide
 
@@ -520,7 +528,7 @@
   - type: Tag
     tags:
       - ClothMade
-      - DroneUsable
+      - DroneUsable # IMP
       - RawMaterial
       - Boll
   - type: Material
@@ -695,9 +703,9 @@
           Quantity: 3
   - type: Tag
     tags:
-    - ClothMade
-    - RawMaterial
-    - SpiderFood  #imp edit
+      - ClothMade
+      - RawMaterial
+      - SpiderFood  #imp edit
   - type: Item
     sprite: Objects/Materials/silk.rsi
     heldPrefix: silk
