@@ -266,8 +266,6 @@
       path: /Audio/Items/wirecutter.ogg
   - type: Food
     requiresSpecialDigestion: true
-    useSound:
-      path: /Audio/_Impstation/Voice/Decapoid/decapoid_scream.ogg
   - type: FlavorProfile
     flavors:
     - crabby
@@ -295,8 +293,6 @@
       path: /Audio/_Impstation/Voice/Snail/snail_scream.ogg
   - type: Food
     requiresSpecialDigestion: true
-    useSound:
-      path: /Audio/_Impstation/Voice/Snail/snail_scream.ogg
   - type: FlavorProfile
     flavors:
     - slimy
@@ -546,8 +542,6 @@
       path: /Audio/_NF/Voice/Goblin/goblin-cry-02.ogg
   - type: Food
     requiresSpecialDigestion: true
-    useSound:
-      path: /Audio/_NF/Voice/Goblin/goblin-scream-01.ogg
   - type: FlavorProfile
     flavors:
     - goblin
@@ -577,8 +571,6 @@
     delay: 5.0
   - type: Food
     requiresSpecialDigestion: true
-    useSound:
-      path: /Audio/_NF/Voice/Goblin/goblin-scream-01.ogg
   - type: FlavorProfile
     flavors:
     - gollylad
