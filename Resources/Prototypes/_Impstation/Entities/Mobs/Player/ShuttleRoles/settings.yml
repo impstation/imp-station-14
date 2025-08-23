@@ -46,7 +46,8 @@
       prototypes: [ VisitorLibrarian, VisitorLibrarianAlt ]
       roleLoadout: [ RoleSurvivalStandard ]
     - type: RandomAntagChance
-      profile: Heretic
+      antagRole: Heretic
+      fallbackRole: MindRoleGhostRoleNeutral
       chance: 0.3
 
 # CentComm Interns
