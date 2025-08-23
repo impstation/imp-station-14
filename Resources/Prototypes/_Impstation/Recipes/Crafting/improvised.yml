@@ -20,22 +20,6 @@
 #    state: base
 
 - type: construction
-  id: yarnnoodles
-  graph: YarnNoodles
-  startNode: start
-  targetNode: noodles
-  category: construction-category-misc
-  objectType: Item
-
-- type: construction
-  id: fabricscrapsalad
-  graph: FabricScrapSalad
-  startNode: start
-  targetNode: salad
-  category: construction-category-misc
-  objectType: Item
-
-- type: construction
   id: improvisedlaser
   graph: ImprovisedLaserGraph
   startNode: start
