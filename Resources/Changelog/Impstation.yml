@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: Ecramox
-  changes:
-  - message: HoP plants can no longer be microwave farmed for all access.
-    type: Tweak
-  - message: IDs from HoP plants can have their seeds extracted.
-    type: Tweak
-  id: 1695
-  time: '2025-05-18T08:08:38.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2514
 - author: widgetbeck
   changes:
   - message: Changed Replicator damage numbers for balance.
@@ -4181,3 +4172,10 @@
   id: 2194
   time: '2025-08-22T01:41:57.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3338
+- author: Stonylogray
+  changes:
+  - message: A lost farming shuttle seems to have drifted into IMP sector.
+    type: Tweak
+  id: 2195
+  time: '2025-08-22T14:39:57.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2912
