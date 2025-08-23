@@ -135,6 +135,7 @@ public sealed class EntityEffectSystem : EntitySystem
 
         SubscribeLocalEvent<ExecuteEntityEffectEvent<MakeSyndient>>(OnExecuteMakeSyndient); // imp
         SubscribeLocalEvent<ExecuteEntityEffectEvent<Medium>>(OnExecuteMedium); // Imp
+        SubscribeLocalEvent<ExecuteEntityEffectEvent<MakeTame>>(OnExecuteMakeTame); // imp
     }
 
     private void OnCheckTemperature(ref CheckEntityEffectConditionEvent<TemperatureCondition> args)
@@ -1023,6 +1024,30 @@ public sealed class EntityEffectSystem : EntitySystem
         // TODO: give the entity some way to identify who injected it. and don't do it using reagentsystem.
         // in memoriam jungle juice 2/10/2024-8/7/2025
     }
+
+    // copied from above
+    private void OnExecuteMakeTame(ref ExecuteEntityEffectEvent<MakeTame> args) ///imp
+    {
+        var entityManager = args.Args.EntityManager;
+        var uid = args.Args.TargetEntity;
+
+        // Stops from adding a ghost role to things like people who already have a mind
+        if (entityManager.TryGetComponent<MindContainerComponent>(uid, out var mindContainer) && mindContainer.HasMind ||
+        //slightly hacky way to make sure it doesn't work on humanoid ghost roles that haven't been claimed yet
+            HasComp<HumanoidAppearanceComponent>(uid))
+        {
+            return;
+        }
+
+        entityManager.EnsureComponent<GhostRoleComponent>(uid, out var ghostRole);
+        entityManager.EnsureComponent<GhostTakeoverAvailableComponent>(uid);
+        var entityData = entityManager.GetComponent<MetaDataComponent>(uid);
+
+        ghostRole.RoleName = entityData.EntityName;
+        ghostRole.RoleDescription = Loc.GetString("ghost-role-information-nonantagonist-freeagent-tame");
+        ghostRole.RoleRules = Loc.GetString("ghost-role-information-tame-rules");
+    }
+
 
     private void OnExecuteMedium(ref ExecuteEntityEffectEvent<Medium> args)
     {
