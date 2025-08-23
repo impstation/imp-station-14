@@ -146,6 +146,14 @@
       weight: 15
 
 - type: entity
+  parent: BaseGameRule
+  id: LowpopLimiter
+  components:
+  - type: GameRule
+    maxPlayers: 14
+    cancelPresetOnTooManyPlayers: true
+
+- type: entity
   id: PacifistVsPacifist
   parent: BaseTraitorRuleNoRandomObjectives
   components:
