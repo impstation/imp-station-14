@@ -104,6 +104,12 @@
   - type: SliceableFood
     count: 4
     slice: FoodStringCheeseStrand
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: Tag
+    tags:
+    - ClothMade
+  
 
 - type: entity
   name: strand of string cheese
@@ -126,9 +132,12 @@
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Ingredients/stringcheese.rsi
     state: strand
+  - type: Food
+    requiresSpecialDigestion: true
   - type: Tag
     tags:
     - Slice
+    - ClothMade
   - type: FoodSequenceElement
     entries:
       CottonBurger: StringCheese
