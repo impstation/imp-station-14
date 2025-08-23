@@ -37,32 +37,6 @@
 
 - type: entity
   parent: BasePlushie
-  id: FabricScrapSalad
-  name: fabric scrap salad
-  description: Whose clothes are these?
-  components:
-  - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
-    state: fabric-scrap-salad
-  - type: Construction
-    graph: FabricScrapSalad
-    node: salad
-
-- type: entity
-  parent: BasePlushie
-  id: YarnNoodles
-  name: yarn noodles
-  description: Looks like someone's failed knitting project.
-  components:
-  - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
-    state: yarn-noodles
-  - type: Construction
-    graph: YarnNoodles
-    node: noodles
-
-- type: entity
-  parent: BasePlushie
   id: PlushieGray
   name: gray plushie
   description: Manufactured recently to commemorate the gray exchange program becoming a booming success. It feels plasticky and seems easy to chew on. Thui love keb piskun plushie!!
@@ -89,8 +63,14 @@
     requiresSpecialDigestion: false
     useSound:
       path: /Audio/_Impstation/Voice/Gray/gray_scream.ogg
+  - type: FlavorProfile
+    flavors:
+      - radiation
   - type: Absorbable # everyone can eat them now
     biomassRestored: 0.1
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: GrayPlushie
 
 - type: entity
   parent: BasePlushie
@@ -106,6 +86,9 @@
   - type: FlavorProfile
     flavors:
       - stardust
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: UrsaMinorPlushie
 
 - type: entity
   parent: BasePlushie
@@ -150,6 +133,9 @@
   - type: FlavorProfile
     flavors:
       - whimsy
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: BugPlushie
   - type: Extractable
     grindableSolutionName: bugblood #AUUUUH!!!!!!
   - type: SolutionContainerManager
@@ -225,6 +211,9 @@
   - type: FlavorProfile
     flavors:
       - evil
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: EvilBugPlushie
   - type: Extractable
     grindableSolutionName: bugblood
   - type: SolutionContainerManager
@@ -280,6 +269,9 @@
   - type: FlavorProfile
     flavors:
     - crabby
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: DecapoidPlushie
   - type: Tag
     tags:
       - Payload
@@ -301,6 +293,12 @@
       path: /Audio/_Impstation/Voice/Snail/snail_scream.ogg
   - type: Food
     requiresSpecialDigestion: true
+  - type: FlavorProfile
+    flavors:
+    - slimy
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: SnailPlushie
   - type: Extractable
     grindableSolutionName: mucin
   - type: SolutionContainerManager
@@ -337,6 +335,23 @@
       path: /Audio/_Impstation/Voice/Misc/wuhey.ogg
   - type: Food
     requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/_Impstation/Voice/Misc/wuhey.ogg
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 5
+        - ReagentId: THC
+          Quantity: 5
+  - type: FlavorProfile
+    flavors:
+    - imp
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: ImpPlushie
 
 - type: entity
   id: ItemBouquet
@@ -456,6 +471,12 @@
   - type: Sprite
     sprite: _Impstation/Objects/Fun/toys.rsi
     state: plushie_thaven
+  - type: FlavorProfile
+    flavors:
+    - salty
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: ThavenPlushie
 
 - type: entity
   parent: BasePlushie
@@ -479,18 +500,27 @@
     sound:
       path: /Audio/Effects/desecration-03.ogg
   - type: UseDelay
-    delay: 15.0
+    delay: 5.0
   - type: Spillable
     solution: absorbed
+    preventMelee: false
   - type: Absorbent
     pickupAmount: 15
+  - type: DrainableSolution
+    solution: absorbed
   - type: SolutionContainerManager
     solutions:
-      absorbed:
+      absorbed++:
         maxVol: 15
         reagents:
         - ReagentId: Milk
           Quantity: 15
+  - type: FlavorProfile
+    flavors:
+    - weird
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: WeirdThavenPlushie
 
 - type: entity
   parent: BasePlushie
@@ -510,6 +540,14 @@
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/_NF/Voice/Goblin/goblin-cry-02.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: FlavorProfile
+    flavors:
+    - goblin
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: GoblinPlushie
 
 - type: entity
   parent: BasePlushie
@@ -531,6 +569,14 @@
       path: /Audio/_NF/Voice/Goblin/goblin-deathgasp-01.ogg
   - type: UseDelay
     delay: 5.0
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: FlavorProfile
+    flavors:
+    - gollylad
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: GollyladPlushie
 
 - type: entity
   parent: BasePlushie
@@ -544,6 +590,12 @@
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Animals/mouse_squeak.ogg
+  - type: FlavorProfile
+    flavors:
+    - sax
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: ApidPlushie
 
 - type: entity
   parent: BasePlushie
@@ -560,6 +612,12 @@
         - state: doll_base-inhand-left
       right:
         - state: doll_base-inhand-right
+  - type: FlavorProfile
+    flavors:
+    - moonrise
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: DollPlushie
 
 - type: entity
   parent: BasePlushie
@@ -576,6 +634,14 @@
         - state: doll_hair-inhand-left
       right:
         - state: doll_hair-inhand-right
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: FlavorProfile
+    flavors:
+    - moonrise
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: HairDollPlushie
 
 - type: entity
   parent: [ BasePlushie, BaseHandheldInstrument ]
@@ -627,7 +693,15 @@
   - type: Sprite
     sprite: _Impstation/Objects/Fun/toys.rsi
     state: plushie_mascotgriffy
-
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: FlavorProfile
+    flavors:
+    - punishment
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: GriffyPlushie
+  
 - type: entity
   parent: BasePlushie
   id: PlushieOdds
@@ -730,6 +804,11 @@
       collection: KodePlushie
       params:
         variation: .125
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: FlavorProfile
+    flavors:
+    - kodepiia
 
 - type: entity
   parent: BasePlushie
@@ -914,3 +993,92 @@
   - type: StealTarget
     stealGroup: Plushie
   - type: DamageOtherOnHit
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieBros
+  name: BROS plushie
+  description: OH FUCK IT'S BR- Oh nevermind it's just a plushie.
+  components:
+  - type: Sprite
+    sprite:  _Impstation/Mobs/Animals/bros.rsi
+    state: bros
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 5
+        - ReagentId: JuiceThatMakesYouUngh
+          Quantity: 5
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Impstation/Animals/bros_hurt.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Impstation/Animals/bros_hit.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_Impstation/Animals/bros_hit.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/_Impstation/Animals/bros_hurt.ogg
+  - type: FlavorProfile
+    flavors:
+      - brotherly
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: BrosPlushie
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcPunch
+    soundHit:
+      path: /Audio/_Impstation/Animals/bros_hit.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieSorb
+  name: SORB plushie
+  description: .eihsulp a tsuj s'ti dnimreven hO -RB S'TI KCUF HO
+  components:
+  - type: Sprite
+    sprite:  _Impstation/Mobs/Animals/bros.rsi
+    state: sorb
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 5
+        - ReagentId: JuiceThatMakesYouUngh
+          Quantity: 5
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Impstation/Animals/bros_hurt.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Impstation/Animals/bros_hit.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_Impstation/Animals/bros_hit.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/_Impstation/Animals/bros_hurt.ogg
+  - type: FlavorProfile
+    flavors:
+      - brotherly
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: SorbPlushie
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcPunch
+    soundHit:
+      path: /Audio/_Impstation/Animals/bros_hit.ogg
+      
