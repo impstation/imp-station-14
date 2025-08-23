@@ -23,15 +23,19 @@
 
   - !type:RoomEntranceDunGen
     tile: FloorSteel
-    contents: BaseAirlock
+    contents: AirlockGlass
 
   - !type:EntranceFlankDunGen
     tile: FloorSteel
-    contents: BaseWindow
+    contents:
+        - Window
+        - Grille
 
   - !type:ExternalWindowDunGen
     tile: FloorSteel
-    contents: BaseWindow
+    contents:
+        - Window
+        - Grille
 
   - !type:WallMountDunGen
     contents: ScienceLabsWalls
@@ -45,12 +49,12 @@
   - !type:JunctionDunGen
     width: 1
     tile: FloorSteel
-    contents: BaseAirlock
+    contents: AirlockGlass
 
   - !type:JunctionDunGen
     width: 3
     tile: FloorSteel
-    contents: BaseAirlock
+    contents: AirlockGlass
 
   - !type:AutoCablingDunGen
     entity: CableApcExtension
@@ -103,6 +107,7 @@
     maxCount: 2
     table: !type:NestedSelector
       tableId: SalvageEquipmentLegendary
+  - !type:EntityTableDunGen
 
   - !type:CorridorDecalSkirtingDunGen
     cardinalDecals:
@@ -171,16 +176,20 @@
     contents: LavaBrigEntrance
 
   - !type:RoomEntranceDunGen
-    tile: FloorDark
-    contents: BaseAirlock
+    tile: FloorSteel
+    contents: AirlockGlass
 
   - !type:EntranceFlankDunGen
-    tile: FloorDark
-    contents: BaseWindow
+    tile: FloorSteel
+    contents:
+        - Window
+        - Grille
 
   - !type:ExternalWindowDunGen
-    tile: FloorDark
-    contents: BaseWindow
+    tile: FloorSteel
+    contents:
+        - Window
+        - Grille
 
   - !type:WallMountDunGen
     contents: ScienceLabsWalls
@@ -194,12 +203,12 @@
   - !type:JunctionDunGen
     width: 1
     tile: FloorDark
-    contents: BaseAirlock
+    contents: AirlockGlass
 
   - !type:JunctionDunGen
     width: 3
     tile: FloorDark
-    contents: BaseAirlock
+    contents: AirlockGlass
 
   - !type:AutoCablingDunGen
     entity: CableApcExtension
@@ -294,15 +303,25 @@
 
   - !type:RoomEntranceDunGen
     tile: FloorCaveDrought
-    contents: BaseWoodWall
+    contents: WoodenSupportWall
 
   - !type:EntranceFlankDunGen
     tile: FloorCaveDrought
-    contents: BaseWoodWall
+    contents: 
+        - WoodenSupportWall
+        - WoodenSupportWallBroken
+        - WoodenSupportBeam
+        - WoodenSupport
+    useRandomEntity: true
 
   - !type:ExternalWindowDunGen
     tile: FloorCaveDrought
-    contents: BaseWoodWall
+    contents: 
+        - WoodenSupportWall
+        - WoodenSupportWallBroken
+        - WoodenSupportBeam
+        - WoodenSupport
+    useRandomEntity: true
 
   - !type:EntityTableDunGen
     minCount: 20
@@ -357,12 +376,12 @@
   - !type:JunctionDunGen
     width: 1
     tile: FloorCaveDrought
-    contents: BaseWoodSupport
+    contents: WoodenSupportBeam
 
   - !type:JunctionDunGen
     width: 3
     tile: FloorCaveDrought
-    contents: BaseWoodSupport
+    contents: WoodenSupportBeam
 
   - !type:AutoCablingDunGen
     entity: Catwalk
@@ -398,15 +417,19 @@
 
   - !type:RoomEntranceDunGen
     tile: FloorSteel
-    contents: BaseAirlock
+    contents: Airlock
 
   - !type:EntranceFlankDunGen
     tile: FloorSteel
-    contents: BaseWindow
+    contents: 
+        - Window
+        - Grille
 
   - !type:ExternalWindowDunGen
     tile: FloorSteel
-    contents: BaseWindow
+    contents: 
+        - Window
+        - Grille
 
   - !type:WallMountDunGen
     contents: SnowyLabsWalls
@@ -419,12 +442,12 @@
   - !type:JunctionDunGen
     width: 1
     tile: FloorSteel
-    contents: BaseAirlock
+    contents: AirlockGlass
 
   - !type:JunctionDunGen
     width: 3
     tile: FloorSteel
-    contents: BaseAirlock
+    contents: AirlockGlass
 
   - !type:AutoCablingDunGen
     entity: CableApcExtension
