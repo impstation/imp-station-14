@@ -19,11 +19,7 @@ namespace Content.Server.Objectives.Systems;
 /// </summary>
 public sealed class TouristConditionsSystem : EntitySystem
 {
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly NumberObjectiveSystem _number = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedRoleSystem _roles = default!;
-
     private EntityQuery<ContainerManagerComponent> _containerQuery;
     public override void Initialize()
     {

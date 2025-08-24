@@ -42,20 +42,16 @@ namespace Content.Server._Impstation.Tourist
     {
         [Dependency] private readonly AppearanceSystem _appearance = default!;
         [Dependency] private readonly AudioSystem _audio = default!;
-        [Dependency] private readonly SharedChargesSystem _sharedCharges = default!;
         [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
         [Dependency] private readonly ExamineSystemShared _examine = default!;
         [Dependency] private readonly InventorySystem _inventory = default!;
         [Dependency] private readonly PopupSystem _popup = default!;
-        [Dependency] private readonly TagSystem _tag = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
         [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-        [Dependency] private readonly CodeConditionSystem _codeCondition = default!;
         [Dependency] private readonly SharedMindSystem _mind = default!;
         [Dependency] private readonly SharedContainerSystem _container = default!;
-        [Dependency] private readonly SharedHandsSystem _hands = default!;
         [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
         [Dependency] private readonly SharedStunSystem _stun = default!;
 
@@ -222,40 +218,37 @@ namespace Content.Server._Impstation.Tourist
 
         private void CheckForPhotoTargets(EntityUid user, EntityUid entity, TouristComponent tourist, TouristPhotosConditionComponent condition)
         {
-            if (user != null)
+            var prototype = MetaData(entity).EntityPrototype;
+
+            //skip if we've already taken a photo of this entity
+            if (tourist.PhotographedEntities.Contains(entity))
             {
-                var prototype = MetaData(entity).EntityPrototype;
+                return;
+            }
 
-                //skip if we've already taken a photo of this entity
-                if (tourist.PhotographedEntities.Contains(entity))
-                {
-                    return;
-                }
+            //skip if entity is in a container, but don't skip if it's being worn or held
+            if (!_inventory.TryGetContainingSlot(entity, out var slot) && !TryComp<HandsComponent>(Transform(entity).ParentUid, out _) && _container.IsEntityInContainer(entity))
+            {
+                return;
+            }
 
-                //skip if entity is in a container, but don't skip if it's being worn or held
-                if (!_inventory.TryGetContainingSlot(entity, out var slot) && !TryComp<HandsComponent>(Transform(entity).ParentUid, out _) && _container.IsEntityInContainer(entity))
-                {
-                    return;
-                }
+            bool validTarget = false;
 
-                bool validTarget = false;
 
-                //check if the entity is a targeted prototype
-                if (condition?.TargetPrototypes != null && prototype?.ID is { } prototypeId && condition.TargetPrototypes.Contains(prototypeId))
+            //check if the entity is a targeted prototype
+            if (condition?.TargetPrototypes != null && prototype?.ID is { } prototypeId && condition.TargetPrototypes.Contains(prototypeId))
+            {
+                validTarget = true;
+            }
+            if (validTarget)
+            {
+                // save entity uid to the tourist component, then add it to the greentext.
+                tourist.PhotographedEntities.Add(entity);
+                if (condition != null)
                 {
-                    validTarget = true;
-                }
-                if (validTarget)
-                {
-                    // save entity uid to the tourist component, then add it to the greentext.
-                    tourist.PhotographedEntities.Add(entity);
-                    if (condition != null)
-                    {
-                        condition.Photos++;
-                    }
+                    condition.Photos++;
                 }
             }
-            return;
         }
 
         private void OnInventoryFlashAttempt(EntityUid uid, InventoryComponent component, FlashAttemptEvent args)
