@@ -99,26 +99,6 @@
       - NukeDisk
       - NukeDiskFake
 
-# station anchor
-- type: entity
-  parent: [BasePhotographObjective]
-  id: PhotographStationAnchorObjective
-  components:
-  - type: Objective
-    difficulty: 1
-    icon:
-      sprite: Structures/Machines/gravity_generator_mini.rsi #larger sprites look awful, eventually (ideally) this should be replaced with a bespoke mini-station-anchor sprite
-      state: on
-  - type: NumberObjective
-    min: 1
-    max: 1
-    title: tourist-objective-condition-anchor-title
-    description: tourist-objective-condition-anchor-description
-  - type: TouristPhotosCondition
-    targetPrototypes:
-      - StationAnchor
-      - StationAnchorOff
-
 # gravity generator
 - type: entity
   parent: [BasePhotographObjective]
@@ -203,6 +183,32 @@
       - WeaponEnergyTurretCommand
       - WeaponEnergyTurretSecurity
 
+# engine
+- type: entity
+  parent: [BasePhotographObjective]
+  id: PhotographEngineObjective
+  components:
+  - type: Objective
+    difficulty: 2
+    icon:
+      sprite: _NF/Objects/Fun/spaceblade.rsi
+      state: singularity
+  - type: NumberObjective
+    min: 1
+    max: 1
+    title: tourist-objective-condition-engine-title
+    description: tourist-objective-condition-engine-description
+  - type: TouristPhotosCondition
+    targetPrototypes:
+      - MobFrank #gotta include ore crabs
+      - MobRay #^
+      - AmeController #i dont like putting this here, but its for maps that only have an ame
+      - TegCenter
+      - Supermatter
+      - SupermatterNoAnnouncement
+      - TeslaEnergyBall
+      - Singularity
+
 # head cloaks
 - type: entity
   parent: [BasePhotographObjective]
@@ -219,7 +225,7 @@
     title: tourist-objective-condition-cloaks-title
     description: tourist-objective-condition-cloaks-description
   - type: TouristPhotosCondition
-    targetPrototypes:
+    targetPrototypes: #this isn't even the longest list
       - ClothingNeckCloakCentcom
       - ClothingNeckCloakCap
       - ClothingNeckCloakHos
@@ -242,6 +248,48 @@
       - ClothingNeckCloakMystagogue
       - ClothingNeckCloakHd
       - ClothingNeckCloakCaptainAdmiral
+
+# station pets
+- type: entity
+  parent: [BasePhotographObjective]
+  id: PhotographPetsObjective
+  components:
+  - type: Objective
+    difficulty: 1
+    icon:
+      sprite: Clothing/Neck/Cloaks/cap.rsi
+      state: icon
+  - type: NumberObjective
+    min: 3
+    max: 7
+    title: tourist-objective-condition-pets-title
+    description: tourist-objective-condition-pets-description
+  - type: TouristPhotosCondition
+    targetPrototypes: # looking back I think adding a component to photo targets would've been better lol
+      - MobCorgiMouse
+      - MobCorgiIanPup
+      - MobCorgiIanOld
+      - MobCorgiIan
+      - MobCorgiLisa
+      - MobAlexander
+      - MobBandito
+      - MobDolby
+      - MobBingus
+      - MobCatException
+      - MobWalter
+      - MobCatFloppa
+      - MobFoxRenault
+      - MobHamsterHamlet
+      - MobMcGriff
+      - MobPenguinOswald
+      - MobPollyParrot
+      - MobPipi
+      - MobMonkeyPunpun
+      - MobPossumMortyOld
+      - MobRaccoonMorticia
+      - MobPaperwork
+      - MobCrabAtmos
+      - MobKangarooWillow
 
 
 # --Souvenir objectives--
@@ -377,7 +425,8 @@
     difficulty: 4
 
 
-# --Stamp Collecting Objective--
+# --Misc objectives--
+# collect signatures / stamps
 - type: entity
   parent: BaseTouristObjective
   id: TouristStampObjective
@@ -394,6 +443,44 @@
     description: objective-condition-stamp-description
   - type: StampedPapersCondition
 
+# die
+- type: entity
+  parent: BaseTouristObjective
+  id: TouristDieGimmickObjective
+  name: Die and be revived
+  description: You hear the doctors here are good! You've always wondered what it's like on the other side... This objective is not tracked and will automatically succeed.
+  components:
+  - type: Objective
+    difficulty: 1.25
+    unique: true
+    icon:
+      sprite: Objects/Specific/Medical/defib.rsi
+      state: icon
+  - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
+
+# berate service staff
+- type: entity
+  parent: BaseTouristObjective
+  id: TouristAnnoyServiceGimmickObjective
+  name: Make complaints about the service
+  description: If somebody bothers you on your vacation, they deserve it! This objective is not tracked and will automatically succeed.
+  components:
+  - type: Objective
+    difficulty: 0.5
+    unique: true
+    icon:
+      sprite: Objects/Consumable/Drinks/mug.rsi
+      state: icon-0
+  - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
+
 # --Tourist objective weighting/groups--
 - type: weightedRandom
   id: TouristObjectiveGroups
@@ -408,12 +495,13 @@
     PhotographVentmobsObjective: 1
     PhotographNukeObjective: 0.5
     PhotographNukeDiskObjective: 0.7
-    PhotographStationAnchorObjective: 1
     PhotographAnomalyGeneratorObjective: 1
     PhotographGravityGeneratorObjective: 1
     PhotographAiCoreObjective: 1
-    PhotographTurretsObjective: 0.8
+    PhotographTurretsObjective: 0.7
     PhotographHeadsCloaksObjective: 1
+    PhotographPetsObjective: 1
+    PhotographEngineObjective: 0.7
 
 - type: weightedRandom
   id: TouristObjectiveGroupSouvenir
@@ -430,3 +518,5 @@
   id: TouristObjectiveGroupOther
   weights:
     TouristStampObjective: 1
+    TouristDieGimmickObjective: 0.7
+    TouristAnnoyServiceGimmickObjective: 1

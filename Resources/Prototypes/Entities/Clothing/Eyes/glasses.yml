@@ -227,8 +227,6 @@
     - Antagonists
   - type: IdentityBlocker
     coverage: EYES
-  - type: StealTarget #imp
-    stealGroup: SecurityGlasses
 
 - type: entity
   parent: [ClothingEyesBase, BaseLensSlot, BaseCommandContraband] # BaseLensSlot from imp

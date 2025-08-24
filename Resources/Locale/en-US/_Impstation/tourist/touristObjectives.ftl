@@ -12,9 +12,6 @@ tourist-objective-condition-nuke-description = A weapon of complete and utter de
 tourist-objective-condition-nuke-disk-title = Take a picture of the nuke disk.
 tourist-objective-condition-nuke-disk-description = A floppy disk, so retro! You've gotta snap a pic of that!
 
-tourist-objective-condition-anchor-title = Take a picture of the station anchor.
-tourist-objective-condition-anchor-description = Nobody knows how it holds stuff in place like that. Maybe if you take a photo it will stick in place?
-
 tourist-objective-condition-gravgen-title = Take a picture of the gravity generator.
 tourist-objective-condition-gravgen-description = This thing makes you feel heavy without even making you fat! You've gotta snag a pic of that!
 
@@ -27,8 +24,14 @@ tourist-objective-condition-aicore-description = If only you could get a video o
 tourist-objective-condition-turrets-title = Take {$count} pictures of turrets.
 tourist-objective-condition-turrets-description = Maybe you could even get a pic of one shooting something!
 
+tourist-objective-condition-engine-title = Take {$count} pictures of substations.
+tourist-objective-condition-engine-description = Why do they hide this pretty thing behind so many locked doors?
+
 tourist-objective-condition-cloaks-title = Take {$count} pictures of head's cloaks.
 tourist-objective-condition-cloaks-description = Commander fashion is all the rage! You need some pics to rub in everyone’s face when you’re home.
+
+tourist-objective-condition-pets-title = Take {$count} pictures of station pets.
+tourist-objective-condition-pets-description = They're so cute! You just know the folks at home will fall in love.
 
 steal-target-groups-budgetinsuls = Budget Insulated Gloves
 steal-target-groups-insuls = Insulated Gloves
