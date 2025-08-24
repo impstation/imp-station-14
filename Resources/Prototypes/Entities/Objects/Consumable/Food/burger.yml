@@ -22,10 +22,10 @@
   - type: Butcherable
     butcherDelay: 1
     spawned:
-    - id: FoodBreadBunTop
-      amount: 1
-    - id: FoodBreadBunBottom
-      amount: 1
+      - id: FoodBreadBunTop
+        amount: 1
+      - id: FoodBreadBunBottom
+        amount: 1
 
 - type: entity
   id: FoodBreadBunBottom
@@ -93,10 +93,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - bun
-    - meaty
-  - type: Food
-    transferAmount: 5
+      - bun
+      - meaty
   - type: Sprite
     sprite: Objects/Consumable/Food/burger.rsi
   - type: SolutionContainerManager
@@ -121,15 +119,16 @@
   components:
   - type: FlavorProfile
     flavors:
-    - bun
-    - jelly
+      - bun
+      - jelly
   - type: Sprite
     layers:
     - state: custburg-bottom
     - state: custburg-filling
       color: red
     - state: custburg-top
-  - type: SolutionContainerManager # imp
+  # imp edit start
+  - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 25
@@ -138,6 +137,7 @@
           Quantity: 13
         - ReagentId: Amatoxin # its got POISON IN IT!!!
           Quantity: 6
+  # imp edit end
 
 # Burger
 
@@ -149,14 +149,14 @@
   components:
   - type: FlavorProfile
     flavors:
-    - bun
-    - grass
+      - bun
+      - grass
   - type: Sprite
     state: appendix
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20 # imp
+        maxVol: 20
         reagents:
         - ReagentId: Nutriment
           Quantity: 7 # imp
@@ -177,8 +177,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - bun
-    - bacon
+      - bun
+      - bacon
   - type: Sprite
     state: bacon
   - type: SolutionContainerManager
@@ -205,8 +205,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - bun
-    - homerun
+      - bun
+      - homerun
   - type: Sprite
     state: baseball
   - type: SolutionContainerManager
@@ -234,8 +234,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - bun
-    - meaty
+      - bun
+      - meaty
   - type: Sprite
     state: bearger
   - type: SolutionContainerManager
@@ -261,10 +261,10 @@
   components:
   - type: FlavorProfile
     flavors: # What bun?
-    - meaty
-    - oily
-    - cheesy
-    - tomato # imp
+      - meaty
+      - oily
+      - cheesy
+      - tomato # imp
   - type: SolutionContainerManager
     solutions:
       food:
@@ -293,8 +293,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - bun
-    - meaty
+      - bun
+      - meaty
   - type: Sprite
     state: brain
   - type: SolutionContainerManager
@@ -323,9 +323,9 @@
     state: cat
   - type: FlavorProfile
     flavors:
-    - bun
-    - meaty
-    - cat
+      - bun
+      - meaty
+      - cat
   - type: SolutionContainerManager
     solutions:
       food:
@@ -351,9 +351,9 @@
   components:
   - type: FlavorProfile
     flavors:
-    - bun
-    - meaty
-    - cheesy
+      - bun
+      - meaty
+      - cheesy
   - type: Sprite
     state: cheese
   - type: SolutionContainerManager
@@ -370,7 +370,7 @@
   - type: Tag
     tags:
     - Meat
-  # TODO: Make this work.
+# TODO: Make this work.
   # - type: Sprite
   #   state: plate
   # - type: RandomSpriteState
@@ -388,15 +388,15 @@
   components:
   - type: FlavorProfile
     flavors:
-    - bun
-    - chicken
-    - mayonnaise # imp - mayo
+      - bun
+      - chicken
+      - mayonnaise # imp - mayo
   - type: Sprite
     state: chicken
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20 # imp
+        maxVol: 20
         reagents:
         - ReagentId: Nutriment
           Quantity: 6.66 # imp
@@ -419,8 +419,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - bun
-    - funny
+      - bun
+      - funny
   - type: Sprite
     state: clown
   - type: SolutionContainerManager
@@ -448,8 +448,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - bun
-    - validhunting
+      - bun
+      - validhunting
   - type: Sprite
     state: ian
   - type: SolutionContainerManager
@@ -459,10 +459,10 @@
         reagents:
         - ReagentId: Bicaridine #keeping it somewhat consistent with the meat itself
           Quantity: 20 # imp
-        # - ReagentId: Vitamin # imp
-        #  Quantity: 12
         - ReagentId: Nutriment # imp
           Quantity: 7
+        # - ReagentId: Vitamin # imp
+        #  Quantity: 12
   - type: Tag
     tags:
     - Meat
@@ -475,8 +475,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - bun
-    - crabby
+      - bun
+      - crabby
   - type: Sprite
     state: crab
   - type: SolutionContainerManager
@@ -502,10 +502,10 @@
   components:
   - type: FlavorProfile
     flavors:
-    - bun
-    - meaty
-    - cheesy
-    - flare
+      - bun
+      - meaty
+      - cheesy
+      - flare
   - type: Sprite
     state: crazy
   - type: SolutionContainerManager
@@ -537,8 +537,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - bun
-    - duck
+      - bun
+      - duck
   - type: Sprite
     state: chicken
   - type: SolutionContainerManager
@@ -567,8 +567,8 @@
     state: empowered
   - type: FlavorProfile
     flavors:
-    - bun
-    - shocking
+      - bun
+      - shocking
   - type: SolutionContainerManager
     solutions:
       food:
@@ -588,14 +588,15 @@
   components:
   - type: FlavorProfile
     flavors:
-    - bun
-    # - fishy # imp
-    - carpflesh # imp
+      - bun
+      #- fishy #imp
   - type: Sprite
     state: fish
   - type: Tag
     tags:
     - Meat
+# Tastes like bun, fish.
+  # imp edit start
   - type: SolutionContainerManager # imp
     solutions:
       food:
@@ -605,7 +606,7 @@
           Quantity: 11
         - ReagentId: CarpoToxin # WHY WASNT THIS POISONOUS!!!!!!!!!!!
           Quantity: 5
-# Tastes like bun, fish.
+  # imp edit end
 
 - type: entity
   name: five alarm burger
@@ -615,8 +616,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - meaty
-    - spicy
+      - meaty
+      - spicy
   - type: Sprite
     state: fivealarm
   - type: SolutionContainerManager
@@ -646,9 +647,9 @@
   components:
   - type: FlavorProfile
     flavors:
-    - bun
-    - spooky
-    - chalky # imp
+      - bun
+      - spooky
+      - chalky # imp
   - type: Sprite
     state: ghost
   - type: SolutionContainerManager
@@ -664,9 +665,9 @@
           Quantity: 25
   - type: Tag
     tags:
-    - ClothMade
-    - ClothFood # imp
-    - Meat
+      - ClothMade
+      - Meat
+      - ClothFood # imp
 # Tastes like bun, ectoplasm.
 
 - type: entity
@@ -677,8 +678,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - bun
-    - people
+      - bun
+      - people
   - type: Sprite
     state: human
   - type: SolutionContainerManager
@@ -704,8 +705,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - muffin
-    - egg
+      - muffin
+      - egg
   - type: Sprite
     state: mcguffin
   - type: SolutionContainerManager
@@ -736,9 +737,9 @@
     - FoodKebabSkewer
   - type: FlavorProfile
     flavors:
-    - bun
-    - bacon
-    - sweet # imp - bbq sauce
+      - bun
+      - bacon
+      - sweet # imp - bbq sauce
   - type: Sprite
     state: mcrib
   - type: SolutionContainerManager
@@ -769,8 +770,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - bun
-    - nothing
+      - bun
+      - nothing
   - type: Sprite
     state: mime
   - type: SolutionContainerManager
@@ -796,8 +797,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - bun
-    - meaty
+      - bun
+      - meaty
   - type: Sprite
     state: plain
   - type: SolutionContainerManager
@@ -823,8 +824,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - bun
-    - meaty
+      - bun
+      - meaty
   - type: Sprite
     state: rat
   - type: SolutionContainerManager
@@ -851,9 +852,9 @@
   components:
   - type: FlavorProfile
     flavors:
-    - bun
-    - leafy
-    - metallic
+      - bun
+      - leafy
+      - metallic
   - type: Sprite
     state: ro
   - type: SolutionContainerManager
@@ -878,8 +879,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - bun
-    - soy
+      - bun
+      - soy
   - type: Sprite
     state: soylent
   - type: SolutionContainerManager
@@ -903,8 +904,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - bun
-    - magical
+      - bun
+      - magical
   - type: Sprite
     state: spell
   - type: SolutionContainerManager
@@ -932,10 +933,10 @@
   components:
   - type: FlavorProfile
     flavors: # What bun?
-    - meaty
-    - oily
-    - cheesy
-    - tomato # imp
+      - meaty
+      - oily
+      - cheesy
+      - tomato # imp
   - type: SolutionContainerManager
     solutions:
       food:
@@ -968,8 +969,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - bun
-    - tofu
+      - bun
+      - tofu
   - type: Sprite
     state: tofu
   - type: SolutionContainerManager
@@ -993,9 +994,9 @@
   components:
   - type: FlavorProfile
     flavors:
-    - bun
-    - meaty
-    - acid
+      - bun
+      - meaty
+      - acid
   - type: Sprite
     state: x
   - type: SolutionContainerManager
@@ -1025,9 +1026,9 @@
   components:
   - type: FlavorProfile
     flavors:
-    - bun
-    - meaty
-    - light
+      - bun
+      - meaty
+      - light
   - type: Sprite
     state: mothroach
   - type: SolutionContainerManager
@@ -1046,3 +1047,4 @@
   - type: Tag
     tags:
     - Meat
+

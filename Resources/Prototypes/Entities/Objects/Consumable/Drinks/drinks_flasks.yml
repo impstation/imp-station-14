@@ -15,10 +15,14 @@
       Steel: 300
   - type: FitsInDispenser
     solution: drink
-  - type: DamageOtherOnHit # imp
+  - type: ExaminableSolution
+    examinableWhileClosed: false
+  # imp edit start
+  - type: DamageOtherOnHit
     damage:
       types:
         Blunt: 5
+  # imp edit end
 
 - type: entity
   id: DrinkFlaskVisualsOpenable

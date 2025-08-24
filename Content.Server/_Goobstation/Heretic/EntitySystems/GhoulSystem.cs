@@ -23,6 +23,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Nutrition.AnimalHusbandry;
 using Content.Shared.Nutrition.Components;
+using Content.Shared.Roles.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
 

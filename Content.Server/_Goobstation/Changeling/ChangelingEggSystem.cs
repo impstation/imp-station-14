@@ -1,11 +1,11 @@
 using Content.Server.Body.Systems;
-using Content.Shared.Changeling;
+using Content.Shared._Goobstation.Changeling;
 using Content.Shared.Mind;
 using Robust.Shared.Timing;
 
-namespace Content.Server.Changeling;
+namespace Content.Server._Goobstation.Changeling;
 
-public sealed partial class ChangelingEggSystem : EntitySystem
+public sealed partial class GoobChangelingEggSystem : EntitySystem
 {
     [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -18,7 +18,7 @@ public sealed partial class ChangelingEggSystem : EntitySystem
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        var query = EntityQueryEnumerator<ChangelingEggComponent>();
+        var query = EntityQueryEnumerator<GoobChangelingEggComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
             if (_timing.CurTime < comp.UpdateTimer)
@@ -29,7 +29,7 @@ public sealed partial class ChangelingEggSystem : EntitySystem
             Cycle(uid, comp);
         }
     }
-    public void Cycle(EntityUid uid, ChangelingEggComponent comp)
+    public void Cycle(EntityUid uid, GoobChangelingEggComponent comp)
     {
         if (comp.active == false)
         {
@@ -42,7 +42,7 @@ public sealed partial class ChangelingEggSystem : EntitySystem
         EnsureComp<MindComponent>(newUid);
         _mind.TransferTo(comp.lingMind, newUid);
 
-        EnsureComp<ChangelingComponent>(newUid);
+        EnsureComp<GoobChangelingComponent>(newUid);
 
         EntityManager.AddComponent(newUid, comp.lingStore);
 

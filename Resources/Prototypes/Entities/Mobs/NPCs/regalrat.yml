@@ -114,7 +114,7 @@
   - type: MobsterAccent
   - type: Speech
     speechVerb: SmallMob
-  - type: Absorbable # imp edit - big rat
+  - type: GoobAbsorbable # imp edit - big rat
     biomassRestored: 0.6
   - type: Butcherable
     spawned:
@@ -310,7 +310,7 @@
         Base: dead
       Dead:
         Base: splat
-  - type: Absorbable # imp edit
+  - type: GoobAbsorbable # imp edit
     biomassRestored: 0.1
   - type: Butcherable
     spawned:

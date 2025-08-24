@@ -285,3 +285,8 @@
   - type: Construction
     graph: CardboardStructures
     node: door
+  - type: Door
+    openSound:
+      path: /Audio/Effects/card_drag.ogg
+    closeSound:
+      path: /Audio/Effects/card_drag.ogg

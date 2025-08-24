@@ -5,7 +5,7 @@
   id: BaseMobMoth
   abstract: true
   components:
-  - type: Absorbable
+  - type: GoobAbsorbable
   - type: HumanoidAppearance
     species: Moth
     hideLayersOnEquip:
@@ -142,7 +142,7 @@
 #      outerClothing: #imp
 #        sizeMaps:
 #          32:
-#            sprite: Mobs/Species/Moth/displacement.rsi 
+#            sprite: Mobs/Species/Moth/displacement.rsi
 #            state: outerclothing
       gloves:
         sizeMaps:

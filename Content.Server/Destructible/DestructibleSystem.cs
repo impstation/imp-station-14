@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Systems;
@@ -14,15 +15,14 @@ using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.Destructible;
 using Content.Shared.FixedPoint;
-using Content.Shared.Projectiles;
 using Content.Shared.Humanoid;
+using Content.Shared.Projectiles; // imp
+using Content.Shared.Trigger.Systems;
 using JetBrains.Annotations;
 using Robust.Server.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using System.Linq;
-
 
 namespace Content.Server.Destructible
 {
@@ -42,9 +42,9 @@ namespace Content.Server.Destructible
         [Dependency] public readonly SharedSolutionContainerSystem SolutionContainerSystem = default!;
         [Dependency] public readonly PuddleSystem PuddleSystem = default!;
         [Dependency] public readonly SharedContainerSystem ContainerSystem = default!;
-        [Dependency] public readonly SharedProjectileSystem ProjectileSystem = default!;
         [Dependency] public readonly IPrototypeManager PrototypeManager = default!;
         [Dependency] public readonly IAdminLogManager _adminLogger = default!;
+        [Dependency] public readonly SharedProjectileSystem ProjectileSystem = default!; // imp
 
         public override void Initialize()
         {

@@ -81,7 +81,7 @@
     - type: NoSlip
     - type: ZombieImmune
     - type: Food
-    - type: Absorbable # bros bite sized
+    - type: GoobAbsorbable # bros bite sized
       biomassRestored: 0.05
     - type: Extractable
       grindableSolutionName: food
@@ -306,7 +306,7 @@
       params:
         variation: 0.125
   - type: NoSlip
-  - type: Absorbable
+  - type: GoobAbsorbable
     biomassRestored: 0.6
   - type: YoungKodepiiaRetaliation
   - type: Tag

@@ -15,7 +15,7 @@ using Content.Server.Objectives.Commands;
 using Content.Shared.Humanoid; //imp addition
 using Content.Shared.CCVar;
 using Content.Shared.Prototypes;
-using Content.Shared.Roles; //imp addition
+using Content.Shared.Roles.Components; //imp addition
 using Content.Shared.Roles.Jobs;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;

@@ -156,7 +156,9 @@
     locked: true
     breakOnAccessBreaker: false
     unlockOnClick: false
-  - type: ActivatableUIRequiresLock
+  - type: UIRequiresLock
+    userInterfaceKeys:
+    - enum.BorgUiKey.Key
   - type: LockedWiresPanel
   - type: Damageable
     damageContainer: Silicon

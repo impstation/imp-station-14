@@ -66,7 +66,7 @@
   - type: FlavorProfile
     flavors:
       - radiation
-  - type: Absorbable # everyone can eat them now
+  - type: GoobAbsorbable # everyone can eat them now
     biomassRestored: 0.1
   - type: FoodSequenceElement
     entries:
@@ -128,7 +128,7 @@
     requiresSpecialDigestion: false
     useSound:
       path: /Audio/Voice/Arachnid/arachnid_scream.ogg #OW!!! OWIE!!
-  - type: Absorbable #delicious
+  - type: GoobAbsorbable #delicious
     biomassRestored: 0.1
   - type: FlavorProfile
     flavors:

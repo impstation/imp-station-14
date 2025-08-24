@@ -25,13 +25,16 @@ public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayS
     private MenuButton? EmotesButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.EmotesButton;
     private SimpleRadialMenu? _menu;
 
-    private static readonly Dictionary<EmoteCategory, (string Tooltip, SpriteSpecifier Sprite)> EmoteGroupingInfo
-        = new Dictionary<EmoteCategory, (string Tooltip, SpriteSpecifier Sprite)>
-    {
-        [EmoteCategory.General] = ("emote-menu-category-general", new SpriteSpecifier.Texture(new ResPath("/Textures/_Impstation/Interface/Emotes/general.png"))), // imp resprite
-        [EmoteCategory.Hands] = ("emote-menu-category-hands", new SpriteSpecifier.Texture(new ResPath("/Textures/_Impstation/Interface/Emotes/hand.png"))), // imp resprite
-        [EmoteCategory.Vocal] = ("emote-menu-category-vocal", new SpriteSpecifier.Texture(new ResPath("/Textures/_Impstation/Interface/Emotes/vocal.png"))), // imp resprite
-    };
+    private static readonly Dictionary<EmoteCategory, (string Tooltip, SpriteSpecifier Sprite)> EmoteGroupingInfo =
+        new()
+        {
+            [EmoteCategory.General] = ("emote-menu-category-general",
+                new SpriteSpecifier.Texture(new ResPath("/Textures/_Impstation/Interface/Emotes/general.png"))), // imp resprite
+            [EmoteCategory.Hands] = ("emote-menu-category-hands",
+                new SpriteSpecifier.Texture(new ResPath("/Textures/_Impstation/Interface/Emotes/hand.png"))), // imp resprite
+            [EmoteCategory.Vocal] = ("emote-menu-category-vocal",
+                new SpriteSpecifier.Texture(new ResPath("/Textures/_Impstation/Interface/Emotes/vocal.png"))), // imp resprite
+        };
 
     public void OnStateEntered(GameplayState state)
     {

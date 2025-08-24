@@ -5,7 +5,7 @@
   id: BaseMobThaven
   abstract: true
   components:
-  - type: Absorbable
+  - type: GoobAbsorbable
   - type: Hunger
   - type: Thirst
   - type: Icon

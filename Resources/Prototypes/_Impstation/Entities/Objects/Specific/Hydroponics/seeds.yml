@@ -1,5 +1,37 @@
 - type: entity
   parent: SeedBase
+  name: packet of green marijuana seeds
+  description: "Taxable."
+  id: GreenMarijuanaSeeds
+  components:
+  - type: Seed
+    seedId: greenMarijuana
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/cannabis.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of lemo seeds
+  description: "Imported all the way from the distant planet Teo."
+  id: LemoSeeds
+  components:
+  - type: Seed
+    seedId: lemo
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Hydroponics/lemo.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of kisser tomato seeds
+  id: KisserTomatoSeeds
+  components:
+  - type: Seed
+    seedId: kisserTomato
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Hydroponics/tomatokisser.rsi
+
+- type: entity
+  parent: SeedBase
   name: packet of rose seeds
   description: "Seeds of a most romantic variety."
   id: RoseSeeds

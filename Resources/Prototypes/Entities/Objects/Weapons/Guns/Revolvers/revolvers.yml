@@ -12,6 +12,7 @@
     shape:
     - 0,0,1,0
     - 0,1,0,1
+    storedOffset: 0,-6
   - type: Tag
     tags:
     - Sidearm
@@ -109,6 +110,8 @@
     sprite: _Impstation/Objects/Weapons/Guns/Revolvers/inspector.rsi #imp
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Revolvers/inspector.rsi #imp
+  - type: Item
+    storedOffset: 0,-2
   - type: RevolverAmmoProvider
     proto: CartridgeMagnumStun #imp
     capacity: 6
@@ -125,6 +128,8 @@
     sprite: _Impstation/Objects/Weapons/Guns/Revolvers/mateba.rsi #imp
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Revolvers/mateba.rsi #imp
+  - type: Item
+    storedOffset: 0,-3
   - type: Gun
     fireRate: 3
     soundGunshot:
@@ -148,6 +153,8 @@
     sprite: _Impstation/Objects/Weapons/Guns/Revolvers/python.rsi #imp
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Revolvers/python.rsi #imp
+  - type: Item
+    storedOffset: 0,-2
   - type: Gun
     selectedMode: SemiAuto
     fireRate: 2
@@ -183,6 +190,8 @@
     sprite: _Impstation/Objects/Weapons/Guns/Revolvers/pirate_revolver.rsi #imp
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Revolvers/pirate_revolver.rsi #imp
+  - type: Item
+    storedOffset: 1,-5
   - type: Gun
     fireRate: 1
   - type: ContainerContainer

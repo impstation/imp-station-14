@@ -5,7 +5,7 @@
   components:
   - type: Objective
     difficulty: 1.5 # unused but necessary i guess
-    issuer: objective-issuer-hivemind
+    issuer: goob-objective-issuer-hivemind
 
 - type: entity
   parent: [BaseChangelingObjective, BaseSurviveObjective]
@@ -29,9 +29,9 @@
   - type: NumberObjective
     min: 2
     max: 4
-    title: objective-condition-absorb-title
-    description: objective-condition-absorb-description
-  - type: AbsorbCondition
+    title: goob-objective-condition-absorb-title
+    description: goob-objective-condition-absorb-description
+  - type: GoobAbsorbCondition
 
 - type: entity
   parent: BaseChangelingObjective
@@ -44,9 +44,9 @@
   - type: NumberObjective
     min: 6
     max: 9
-    title: objective-condition-stealdna-title
-    description: objective-condition-stealdna-description
-  - type: StealDNACondition
+    title: goob-objective-condition-stealdna-title
+    description: goob-objective-condition-stealdna-description
+  - type: GoobStealDNACondition
 
 - type: entity
   parent: BaseChangelingObjective
@@ -57,7 +57,7 @@
     icon:
       sprite: Objects/Magic/magicactions.rsi
       state: blink
-  - type: ImpersonateCondition
+  - type: GoobImpersonateCondition
   - type: TargetObjective
-    title: objective-condition-escape-identity-title
+    title: goob-objective-condition-escape-identity-title
   - type: PickRandomPerson
