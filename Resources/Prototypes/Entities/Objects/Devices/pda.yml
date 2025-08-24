@@ -133,6 +133,9 @@
     - type: LightningTarget
       priority: 1
   - type: ItemToggle # imp
+    onUse: false
+    onActivate: false
+    predictable: false
 
 - type: entity
   parent: BasePDA
