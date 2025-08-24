@@ -13,6 +13,11 @@ public sealed partial class ExternalWindowDunGen : IDunGenLayer
     [DataField(required: true)]
     public ProtoId<ContentTileDefinition> Tile;
 
+    // All the entities that will be placed on the tile
     [DataField(required: true)]
-    public ProtoId<EntityTablePrototype> Contents;
+    public List<ProtoId<EntityTablePrototype>> Contents = new List<ProtoId<EntityTablePrototype>>();
+
+    //Do we want to use a random entity from the list?
+    [DataField]
+    public bool useRandomEntity;
 }

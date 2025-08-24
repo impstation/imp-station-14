@@ -23,7 +23,7 @@
       minCount: 7
       maxCount: 12
       table:
-        id: VGRoidInteriorRoomMarker
+        id: VGRoidInteriorRoomMarker 
     # Fill
     - !type:PrototypeDunGen
       proto: VGRoidFill
@@ -153,25 +153,55 @@
   - !type:ExteriorDunGen
     proto: Experiment
   - !type:EntityTableDunGen
-    minCount: 25
-    maxCount: 40
+    minCount: 45
+    maxCount: 60
     table: !type:NestedSelector
-      tableId: SalvageScrapSpawnerCommon
+      tableId: SalvageScrapLowValue
   - !type:EntityTableDunGen
-    minCount: 30
-    maxCount: 40
+    minCount: 10
+    maxCount: 25
     table: !type:NestedSelector
-      tableId: SalvageScrapSpawnerValuable
+      tableId: SalvageScrapHighValue
+  - !type:EntityTableDunGen
+    minCount: 8
+    maxCount: 15
+    table: !type:NestedSelector
+      tableId: SalvageScrapLarge
   - !type:EntityTableDunGen
     minCount: 30
     maxCount: 45
     table: !type:NestedSelector
-      tableId: SalvageTreasureSpawnerCommon
+      tableId: SalvageTreasureCommon
   - !type:EntityTableDunGen
-    minCount: 30
-    maxCount: 45
+    minCount: 10
+    maxCount: 20
     table: !type:NestedSelector
-      tableId: SalvageTreasureSpawnerValuable
+      tableId: SalvageTreasureUncommon
+  - !type:EntityTableDunGen
+    minCount: 3
+    maxCount: 10
+    table: !type:NestedSelector
+      tableId: SalvageTreasureLegendary
+  - !type:EntityTableDunGen
+    minCount: 8
+    maxCount: 15
+    table: !type:NestedSelector
+      tableId: SalvageEquipmentUncommon
+  - !type:EntityTableDunGen
+    minCount: 3
+    maxCount: 10
+    table: !type:NestedSelector
+      tableId: SalvageEquipmentRare
+  - !type:EntityTableDunGen
+    minCount: 0
+    maxCount: 6
+    table: !type:NestedSelector
+      tableId: SalvageEquipmentLegendary
+  - !type:EntityTableDunGen
+    minCount: 0
+    maxCount: 2
+    table: !type:NestedSelector
+      tableId: MegaRareDungTable
   - !type:MobsDunGen
     minCount: 8
     maxCount: 15
