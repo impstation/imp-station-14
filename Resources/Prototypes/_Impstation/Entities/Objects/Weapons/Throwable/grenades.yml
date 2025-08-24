@@ -48,3 +48,27 @@
     spreadAmount: 30
   - type: SpawnOnTrigger
     proto: MobTomatoKiller
+
+- type: entity
+  parent: [ BaseMinorContraband, SmokeGrenade ] 
+  id: CleanerGrenadeBleach
+  name: heavy-duty cleanade
+  description: A discontinued brand of heavy-duty cleaning grenade. A warning label reads "DO NOT INHALE".
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/janitor.rsi
+  - type: Tag
+    tags: 
+    - CleanerGrenade
+    - Grenade
+  - type: CartridgeAmmo 
+    proto: BulletGrenadeCleanerBleach
+    deleteOnSpawn: true
+  - type: SmokeOnTrigger
+    duration: 15
+    spreadAmount: 50
+    smokePrototype: Foam
+    solution:
+      reagents:
+      - ReagentId: Bleach
+        Quantity: 10
