@@ -161,7 +161,7 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    weight: 3 # a bit less common than a skeleton
+    weight: 3
     duration: 1
     minimumPlayers: 15
     maxOccurrences: 1 #only one of each type of tourist shuttle can spawn
