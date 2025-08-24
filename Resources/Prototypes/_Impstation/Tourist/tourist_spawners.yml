@@ -3,9 +3,9 @@
   parent: EventHumanoid
   components:
     - type: GhostRole
-      name: ghost-role-information-tourist-name #TODO: replace with bespoke / free agent instructions
-      description: ghost-role-information-tourist-description #TODO
-      rules: ghost-role-information-freeagent-rules #TODO
+      name: ghost-role-information-tourist-name
+      description: ghost-role-information-tourist-description
+      rules: ghost-role-information-freeagent-rules
       raffle:
         settings: default
     - type: Loadout

@@ -13,7 +13,7 @@
   id: MindRoleBountyHunter
   name: Bounty Hunter Role
   components:
-  - type: MindRole 
+  - type: MindRole
     antag: true
     antagPrototype: BountyHunter
     roleType: FreeAgent
@@ -37,7 +37,7 @@
   components:
   - type: MindRole
     subtype: role-subtype-traitor
-    
+
 # Tourist
 - type: entity
   parent: BaseMindRole

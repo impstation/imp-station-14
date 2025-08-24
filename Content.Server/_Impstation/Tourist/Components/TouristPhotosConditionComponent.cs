@@ -4,7 +4,7 @@ using Content.Shared._Impstation.Tourist;
 namespace Content.Server._Impstation.Tourist.Components;
 
 /// <summary>
-/// Objective condition that requires the player to be a tourist and have photographed at least a random number of their target.
+/// Objective condition that requires the player to be a tourist and have photographed a set number target prototypes.
 /// Requires <see cref="NumberObjectiveComponent"/> to function.
 /// </summary>
 [RegisterComponent, Access(typeof(TouristConditionsSystem), typeof(SharedTouristCameraSystem))]

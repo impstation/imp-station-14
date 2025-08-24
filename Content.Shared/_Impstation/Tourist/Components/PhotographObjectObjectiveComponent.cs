@@ -15,10 +15,4 @@ public sealed partial class PhotographObjectObjectiveComponent : Component
     /// </summary>
     [DataField("targets")]
     public List<ProtoId<EntityPrototype>> TargetPrototypes = new();
-
-    [DataField("required")]
-    public int Required = 1;
-
-    [DataField]
-    public int Progress = 0;
 }
