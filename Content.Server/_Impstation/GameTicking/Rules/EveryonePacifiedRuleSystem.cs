@@ -1,6 +1,7 @@
 using Content.Server.GameTicking.Rules;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.GameTicking;
+using Content.Shared.GameTicking.Components;
 
 namespace Content.Server._Impstation.GameTicking.Rules;
 
@@ -18,6 +19,13 @@ public sealed class EveryonePacifiedRuleSystem : GameRuleSystem<EveryonePacified
 
     private void OnSpawn(PlayerSpawnCompleteEvent ev)
     {
-        EnsureComp<PacifiedComponent>(ev.Mob);
+        var query = EntityQueryEnumerator<EveryonePacifiedRuleComponent, GameRuleComponent>();
+        while (query.MoveNext(out var uid, out _, out var rule))
+        {
+            if (!GameTicker.IsGameRuleAdded(uid, rule))
+                continue;
+            EnsureComp<PacifiedComponent>(ev.Mob);
+            break;
+        }
     }
 }

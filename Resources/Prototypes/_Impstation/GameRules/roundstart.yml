@@ -155,7 +155,7 @@
 
 - type: entity
   id: PacifistVsPacifist
-  parent: BaseTraitorRuleNoRandomObjectives
+  parent: SpyVsSpy
   components:
   - type: TraitorRule
     startingBalance: 8
