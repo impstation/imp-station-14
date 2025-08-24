@@ -22,7 +22,7 @@ public sealed class EveryonePacifiedRuleSystem : GameRuleSystem<EveryonePacified
         var query = EntityQueryEnumerator<EveryonePacifiedRuleComponent, GameRuleComponent>();
         while (query.MoveNext(out var uid, out _, out var rule))
         {
-            if (!GameTicker.IsGameRuleActive(uid, rule))
+            if (!GameTicker.IsGameRuleAdded(uid, rule))
                 continue;
             EnsureComp<PacifiedComponent>(ev.Mob);
             break;
