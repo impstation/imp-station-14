@@ -143,14 +143,6 @@ namespace Content.Server._Impstation.Tourist
                 _popup.PopupEntity(Loc.GetString("flash-component-user-blinds-you",
                     ("user", Identity.Entity(user.Value, EntityManager))), target, target);
             }
-
-            var ev = new AfterFlashedEvent(target, user, used);
-            RaiseLocalEvent(target, ref ev);
-
-            if (user != null)
-                RaiseLocalEvent(user.Value, ref ev);
-            if (used != null)
-                RaiseLocalEvent(used.Value, ref ev);
         }
 
         public void FlashArea(Entity<TouristCameraComponent?> source, EntityUid? user, float range, TimeSpan duration, float slowTo = 0.8f, bool displayPopup = false, float probability = 1f, SoundSpecifier? sound = null)
