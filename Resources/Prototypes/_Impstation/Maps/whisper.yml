@@ -18,7 +18,7 @@
         - type: StationCargoShuttle
           path: /Maps/_Impstation/Shuttles/cargo.yml
         - type: StationJobs
-          availableJobs: # total jobs: 60
+          availableJobs: # total jobs: 61
             # command - 8 jobs 
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
@@ -47,18 +47,18 @@
             TechnicalAssistant: [ 1, 1 ]
             # medical - 8 jobs
             Chemist: [ 2, 2 ]
-           #Paramedic: [ 0, 0 ]
+            Paramedic: [ 1, 1 ]
             Psychologist: [ 1, 1 ]
-            MedicalDoctor: [ 4, 4 ]
+            MedicalDoctor: [ 3, 3 ]
             MedicalIntern: [ 1, 1 ]
             # science - 7 jobs
             Borg: [ 2, 2 ]
             ResearchAssistant: [ 1, 1 ]
             Scientist: [ 3, 3 ]
             StationAi: [ 1, 1 ]
-            # security - 8 jobs
+            # security - 9 jobs
             SecurityCadet: [ 1, 1 ]
-           #Brigmedic: [ 0, 0 ]
+            Brigmedic: [ 1, 1 ]
             Detective: [ 1, 1 ]
             Lawyer: [ 1, 1 ]
             Warden: [ 1, 1 ]
