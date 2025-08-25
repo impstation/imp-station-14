@@ -94,6 +94,8 @@
   # imp edits #
   - type: ItemToggleDamageOtherOnHit
   - type: DamageOtherOnHit
+  - type: StealTarget
+    stealGroup: StunBaton
   # end imp edits #
 
 - type: entity
