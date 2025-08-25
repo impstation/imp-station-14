@@ -32,7 +32,7 @@ station-beacon-solars-port-bow = Port Bow Solars
 station-beacon-solars-port-quarter = Port Quarter Solars
 station-beacon-solars-ai = Station AI Solars
 station-beacon-solars-bridge = Bridge Solars
-station-beacon-solars-cargo = Cargo Solars
+station-beacon-solars-cargo = Supply Solars
 station-beacon-solars-science = Science Solars
 station-beacon-solars-security = Security Solars
 station-beacon-solars-service = Service Solars
@@ -50,7 +50,7 @@ station-beacon-service-storeroom = Storeroom
 
 # Portals
 station-beacon-portal-engineering = Engineering Portal
-station-beacon-portal-cargo = Cargo Portal
+station-beacon-portal-cargo = Supply Portal
 station-beacon-portal-medical = Medical Portal
 station-beacon-portal-security = Security Portal
 station-beacon-portal-science = Science Portal

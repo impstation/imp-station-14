@@ -29,7 +29,7 @@
 - type: entity
   parent: DefaultStationBeaconSupply
   id: DefaultStationBeaconMailroomCourier
-  suffix: Cargo Mailroom
+  suffix: Supply Mailroom
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-mailroom
@@ -192,7 +192,7 @@
 - type: entity
   parent: DefaultStationBeaconEngineering
   id: DefaultStationBeaconSolarsCargo
-  suffix: Solars, Cargo
+  suffix: Solars, Supply
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-solars-cargo
@@ -301,7 +301,7 @@
 - type: entity
   parent: DefaultStationBeaconSupply
   id: DefaultStationBeaconPortalCargo
-  suffix: Cargo Portal
+  suffix: Supply Portal
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-portal-cargo

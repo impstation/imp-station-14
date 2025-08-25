@@ -326,7 +326,7 @@
 - type: entity
   parent: LockableButton
   id: LockableButtonCargo
-  suffix: Cargo
+  suffix: Supply #imp edit, cargo to supply
   components:
   - type: AccessReader
     access: [["Cargo"]]
