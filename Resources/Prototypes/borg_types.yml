@@ -214,10 +214,11 @@
   - BorgModuleTool
   - BorgModuleMusique
   - BorgModuleBartender # imp
-  - BorgModuleService
+  # - BorgModuleService # imp replaced with the BorgModuleBureaucracy
+  - BorgModuleBureaucracy # imp
   - BorgModuleClowning
-  - BorgModuleGardening
-  - BorgModuleHarvesting
+  # - BorgModuleGardening # imp will add back when borg hands are in
+  # - BorgModuleHarvesting # imp will add back when borg hands are in
   radioChannels:
   - Science
   - Service
