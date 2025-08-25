@@ -20,6 +20,9 @@
     color: "#3db83b"
     castShadows: false
     netsync: false
+    mask: /Textures/Effects/LightMasks/cone.png #imp
+    autoRot: true #imp
+  - type: LitOnPowered #imp
   - type: AccessReader
     access: [["Engineering"]]
   - type: Sprite
