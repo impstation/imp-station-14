@@ -76,3 +76,15 @@
       Cable: 1
   - type: StealTarget
     stealGroup: HDCutterMachine
+
+- type: entity
+  id: PrinterDocSyndicateMachineCircuitboard
+  parent: [ BaseMachineCircuitboard, BaseSyndicateContraband ]
+  name: Syndicate document printer machine board
+  description: A machine printed circuit board for a Syndicate document printer
+  components:
+    - type: MachineBoard
+      prototype: PrinterDocSyndicate
+      stackRequirements:
+        Manipulator: 1
+        Glass: 1

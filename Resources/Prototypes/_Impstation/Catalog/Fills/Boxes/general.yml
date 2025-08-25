@@ -18,3 +18,104 @@
     whitelist:
       tags:
       - EncryptionKeyRevolution #no powergaming!!!!
+
+- type: entity
+  parent: BoxCardboard
+  id: BoxSyndicateFigurines
+  name: Syndicate figurines box
+  description: A box containing a full set of Syndicate figurines depicting what a Nuclear Operative team might look like, if it were real.
+  components:
+  - type: Sprite
+    layers:
+    - state: box_of_doom
+    - state: writing_of_doom
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,5,1
+    whitelist:
+      tags:
+      - Figurine #no powergaming!!!!
+  - type: StorageFill
+    contents:
+    - id: ToyFigurineNukie
+    - id: ToyFigurineNukieElite
+    - id: ToyFigurineNukieCommander
+    - id: ToyFigurineFootsoldier
+    - id: ToyFigurineNukieJuggernaut
+    - id: ToyFigurineNukieAgent
+
+- type: entity
+  parent: BoxCardboard
+  id: BoxSyndicateFigurinesSynthetics
+  name: Syndicate synthetics figurines box
+  description: A box containing a set of Syndicate figurines depicting some of the synthetics employed by the Syndicate.
+  components:
+  - type: Sprite
+    layers:
+    - state: box_of_doom
+    - state: writing_of_doom
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,3,1
+  - type: StorageFill
+    contents:
+    - id: ToyFigurineCyborgAssault
+    - id: ToyFigurineCyborgCorpsman
+    - id: ToyFigurineCyborgSaboteur
+    - id: ToyFigurineHoloClown
+
+- type: entity
+  parent: BoxCardboard
+  id: BoxRandomDonk
+  components:
+  - type: Sprite
+    layers:
+    - state: box
+    - state: writing_of_doom
+  - type: Storage
+    maxItemSize: Normal
+  - type: StorageFill
+    contents:
+    - id: FoodBoxDonkpocketHonk
+      orGroup: RandomDonk
+    - id: FoodBoxDonkpocketBerry
+      orGroup: RandomDonk
+    - id: FoodBoxDonkpocketCarp
+      orGroup: RandomDonk
+    - id: FoodBoxDonkpocketDink
+      orGroup: RandomDonk
+    - id: FoodBoxDonkpocket
+      orGroup: RandomDonk
+    - id: FoodBoxDonkpocketStonk
+      orGroup: RandomDonk
+    - id: FoodBoxDonkpocketPizza
+      orGroup: RandomDonk
+    - id: FoodBoxDonkpocketSpicy
+      orGroup: RandomDonk
+    - id: FoodBoxDonkpocketTeriyaki
+      orGroup: RandomDonk
+    - id: FoodBoxDonkpocketCloth
+      orGroup: RandomDonk
+    - id: FoodBoxDonkpocketMoth
+      orGroup: RandomDonk
+
+- type: entity
+  parent: BoxCardboard
+  id: BoxSyndicateKitchenKit
+  name: Syndicate kitchen kit box
+  description: A box containing a full set of Syndicate kitchen flatpacks.
+  components:
+  - type: Sprite
+    layers:
+    - state: box_of_doom
+    - state: writing_of_doom
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,3,1
+  - type: StorageFill
+    contents:
+    - id: SyndicateMicrowaveFlatpack
+    - id: SyndicateElectricRangeFlatpack

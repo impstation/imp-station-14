@@ -1,0 +1,17 @@
+- type: entity
+  parent: PrinterDoc
+  id: PrinterDocSyndicate
+  name: Syndicate document printer
+  description: Bureaucratic perfection. Stores a database of Syndicate and Nanotrasen documents, and lets you print them as long as you have paper.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Machines/syndicate_printer.rsi
+  - type: Lathe
+    producingSound: /Audio/Machines/scanning.ogg
+    idleState: icon
+    runningState: building
+    staticPacks:
+    - DocumentPrinterStaticImp
+    - DocumentPrinterStaticEmagImp
+  - type: Machine
+    board: PrinterDocSyndicateMachineCircuitboard
