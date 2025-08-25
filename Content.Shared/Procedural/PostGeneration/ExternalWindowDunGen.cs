@@ -15,7 +15,7 @@ public sealed partial class ExternalWindowDunGen : IDunGenLayer
 
     // All the entities that will be placed on the tile
     [DataField(required: true)]
-    public List<ProtoId<EntityTablePrototype>> Contents = new List<ProtoId<EntityTablePrototype>>();
+    public List<ProtoId<EntityPrototype>> Contents = new List<ProtoId<EntityPrototype>>();
 
     //Do we want to use a random entity from the list?
     [DataField]
