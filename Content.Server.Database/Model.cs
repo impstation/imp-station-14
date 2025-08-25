@@ -64,6 +64,12 @@ namespace Content.Server.Database
                 .HasForeignKey<CDModel.CDProfile>(p => p.ProfileId)
                 .IsRequired();
 
+            modelBuilder.Entity<CDModel.CharacterAllergy>()
+                .HasOne(a => a.CDProfile)
+                .WithMany(p => p.CharacterAllergies)
+                .HasForeignKey(a => a.CDProfileId)
+                .IsRequired();
+
             modelBuilder.Entity<CDModel.CharacterRecordEntry>()
                 .HasOne(e => e.CDProfile)
                 .WithMany(e => e.CharacterRecordEntries)

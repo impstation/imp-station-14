@@ -366,34 +366,64 @@
   color: "#FA6464"
   metabolisms:
     Poison:
+      metabolismRate: 0.1 # imp edit for allergies - makes you itch longer and die slower
       effects:
       - !type:HealthChange
         probability: 0.1
         damage:
-          groups:
-            Brute: 2
-      # todo: cough, sneeze
+          # CD edit: Nerf for allergies
+          types: # cd
+            Blunt: 0.5 # imp edit - allergic reaction shouldn't be making you bleed very much
+            Poison: 1 # cd
+      # todo: sneeze
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 45
         damage:
           groups:
-            Brute: 2
+            # Brute: 1 # imp edit - anaphylactic shock doesn't make you bleed everywhere
             Airloss: 2
           types:
-            Poison: 2
+            Poison: 0.5 # imp - nerfed damage because histamine sticks around longer
+     # CD: Allergies
+      - !type:Emote
+        conditions:
+        - !type:ReagentThreshold
+          max: 45
+        emote: Cough
+        force: true
+        showInChat: true # imp
+        showInGuidebook: true #imp
+        probability: 0.1
+      - !type:Emote
+        conditions:
+        - !type:ReagentThreshold
+          min: 45
+        emote: Gasp
+        force: true
+        showInChat: true # imp
+        showInGuidebook: true #imp
+        probability: 0.1
+      # end CD
       - !type:PopupMessage
         type: Local
-        messages: [ "histamine-effect-light-itchiness" ]
+        messages: #begin imp edit
+          - "histamine-effect-light-itchiness"
+          - "histamine-effect-eyes-watering"
+        #end imp edit
         probability: 0.1
       - !type:PopupMessage
         conditions:
         - !type:ReagentThreshold
           min: 45
         type: Local
-        visualType: Medium
-        messages: [ "histamine-effect-heavy-itchiness" ]
+        # begin imp edit
+        visualType: MediumCaution
+        messages:
+        - "histamine-effect-cant-breathe"
+        - "histamine-effect-throat-closing"
+        # end imp edit
         probability: 0.2
 
 - type: reagent
