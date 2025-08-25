@@ -189,9 +189,11 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
         TryComp<TemperatureComponent>(entity.Comp.BodyContainer.ContainedEntity, out var temp);
         TryComp<BloodstreamComponent>(entity.Comp.BodyContainer.ContainedEntity, out var bloodstream);
 
+        var showExactValues = false; // imp add
         if (TryComp<HealthAnalyzerComponent>(entity, out var healthAnalyzer))
         {
             healthAnalyzer.ScannedEntity = entity.Comp.BodyContainer.ContainedEntity;
+            showExactValues = healthAnalyzer.ShowExactValues; // imp add
         }
 
         // TODO: This should be a state my dude
@@ -206,7 +208,8 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
                 : 0,
             null,
             null,
-            null
+            null,
+            showExactValues // imp add showexactvalues
         ));
     }
 
