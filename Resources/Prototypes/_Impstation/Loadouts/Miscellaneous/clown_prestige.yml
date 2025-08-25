@@ -110,6 +110,15 @@
     outerClothing: ClothingOuterClownPriest
 
 - type: loadout
+  id: ChaplainBookClown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ClownExpertTimer
+  storage:
+    back:
+    - HolyTextClown
+
+- type: loadout
   id: ServiceClown
   effects:
   - !type:GroupLoadoutEffect
