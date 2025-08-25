@@ -142,7 +142,7 @@
 #      outerClothing: #imp
 #        sizeMaps:
 #          32:
-#            sprite: Mobs/Species/Moth/displacement.rsi 
+#            sprite: Mobs/Species/Moth/displacement.rsi
 #            state: outerclothing
       gloves:
         sizeMaps:
@@ -181,6 +181,12 @@
             sprite: _Impstation/Mobs/Species/Moth/displacement.rsi #imp
             state: shoes
   - type: Carriable # Carrying system from nyanotrasen.
+  - type: HomunculiType # imp start
+    homunculiType: HomunculusMoth
+    recipe:
+      SynthFlesh: 20
+      Saline: 20 # imp end
+      InsectBlood: 5
 
 - type: entity
   parent: BaseSpeciesDummy
