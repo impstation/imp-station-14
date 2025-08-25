@@ -36,6 +36,32 @@
       roleLoadout: [ RoleSurvivalStandard ]
 
 - type: randomHumanoidSettings
+  id: VisitorAdminAssistant
+  parent: VisitorHead
+  components:
+    - type: GhostRole
+      name: job-name-admin-assistant
+    - type: Loadout
+      prototypes: [ VisitorAdminAssistant, VisitorAdminAssistantAlt ]
+      roleLoadout: [ RoleSurvivalStandard ]
+
+- type: randomHumanoidSettings
+  id: VisitorHospitalityDirector
+  parent: VisitorHead
+  components:
+    - type: GhostRole
+      name: job-name-hd
+      requirements:
+        - !type:DepartmentTimeRequirement
+          department: Service
+          time: 18000 #5 hrs
+        - !type:OverallPlaytimeRequirement
+          time: 36000 #10 hrs
+    - type: Loadout
+      prototypes: [ VisitorHospitalityDirector, VisitorHospitalityDirectorAlt ]
+      roleLoadout: [ RoleSurvivalStandard ]
+
+- type: randomHumanoidSettings
   id: VisitorLibrarianCryptid
   parent: VisitorCivilian
   components:
