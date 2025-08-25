@@ -61,6 +61,10 @@
       storagebase: !type:Container
         ents: []
       gas_tank: !type:ContainerSlot
+  - type: PointingModifier # imp add
+    textSelf: pointing-system-verb-take-aim-self
+    textOther: pointing-system-verb-take-aim-other
+    pointingArrow: PointingCrosshair
 
 - type: entity
   name: pie cannon
@@ -103,7 +107,11 @@
     containers:
       storagebase: !type:Container
         ents: []
-        
+  - type: PointingModifier # imp add
+    textSelf: pointing-system-verb-take-aim-self
+    textOther: pointing-system-verb-take-aim-other
+    pointingArrow: PointingCrosshair
+
 - type: entity
   name: syringe gun
   parent: BaseStorageItem
@@ -140,6 +148,10 @@
     containers:
       storagebase: !type:Container
         ents: []
+  - type: PointingModifier # imp add
+    textSelf: pointing-system-verb-take-aim-self
+    textOther: pointing-system-verb-take-aim-other
+    pointingArrow: PointingCrosshair
 
 # shoots bullets instead of throwing them, no other changes
 - type: entity
