@@ -30,7 +30,9 @@ trait-testosterone-sensitive-desc = Your body is capable of taking on Nanotrasen
 trait-ultravision-name = Ultraviolet vision
 trait-ultravision-desc = Whether through custom bionic eyes, random mutation,
                          or something else, you perceive the world with ultraviolet light.
+                         Incompatible with other visual impairments.
 
 trait-deuteranopia-name = Deuteranopia
 trait-deuteranopia-desc = Whether through custom bionic eyes, random mutation,
                           or something else, you have red-green colour blindness.
+                          Incompatible with other visual impairments.
