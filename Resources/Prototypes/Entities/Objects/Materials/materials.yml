@@ -69,6 +69,7 @@
   - type: Item
     heldPrefix: cardboard
 # IMP START
+  - type: BadFood
   - type: UserInterface
     interfaces:
       enum.ShortConstructionUiKey.Key:
@@ -314,6 +315,7 @@
         - ReagentId: Pulp #imp
           Quantity: 10
 # imp edits below
+  - type: BadFood
   - type: UserInterface
     interfaces:
       enum.ShortConstructionUiKey.Key:

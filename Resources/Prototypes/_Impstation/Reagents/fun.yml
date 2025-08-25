@@ -338,7 +338,7 @@
         reagent: Cellulose
         amount: 0.5
       - !type:ModifyBleedAmount
-        amount: 1
+        amount: 0.3
         conditions:
         - !type:OrganType
           type: Moth
