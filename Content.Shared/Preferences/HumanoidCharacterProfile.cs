@@ -84,6 +84,9 @@ namespace Content.Shared.Preferences
         [DataField]
         public Gender Gender { get; set; } = Gender.Male; //IMP public set
 
+        [DataField]
+        public string? DisplayPronouns { get; set; } = null; // Den - cosmetic pronouns
+
         /// <summary>
         /// <see cref="Appearance"/>
         /// </summary>
@@ -135,6 +138,7 @@ namespace Content.Shared.Preferences
             int age,
             Sex sex,
             Gender gender,
+            string? displayPronouns, // Den - cosmetic pronouns
             HumanoidCharacterAppearance appearance,
             SpawnPriorityPreference spawnPriority,
             Dictionary<ProtoId<JobPrototype>, JobPriority> jobPriorities,
@@ -153,6 +157,7 @@ namespace Content.Shared.Preferences
             Age = age;
             Sex = sex;
             Gender = gender;
+            DisplayPronouns = displayPronouns; // Den - cosmetic pronouns
             Appearance = appearance;
             SpawnPriority = spawnPriority;
             _jobPriorities = jobPriorities;
@@ -187,6 +192,7 @@ namespace Content.Shared.Preferences
                 other.Age,
                 other.Sex,
                 other.Gender,
+                other.DisplayPronouns, // Den - cosmetic pronouns
                 other.Appearance.Clone(),
                 other.SpawnPriority,
                 new Dictionary<ProtoId<JobPrototype>, JobPriority>(other.JobPriorities),
@@ -301,6 +307,8 @@ namespace Content.Shared.Preferences
         {
             return new(this) { Gender = gender };
         }
+
+        public HumanoidCharacterProfile WithDisplayPronouns(string? displayPronouns) => new(this) { DisplayPronouns = displayPronouns }; // Den - cosmetic pronouns
 
         public HumanoidCharacterProfile WithSpecies(string species)
         {
