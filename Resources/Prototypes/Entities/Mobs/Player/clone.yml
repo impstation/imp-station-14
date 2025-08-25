@@ -26,6 +26,12 @@
   - PermanentBlindness
   - Snoring
   - Unrevivable
+  # imp disabilities begin
+  - Hemophilia
+  - RandomUnrevivable
+  - Illiterate
+  - UnadaptedToSpace
+  # imp disabilities end
   # job specific
   - BibleUser
   - CommandStaff
@@ -62,7 +68,26 @@
   - SouthernAccent
   - SpanishAccent
   - StutteringAccent
-  - UnadaptedToSpace # imp edit
+  # imp accents begin
+  - ProperCapitalization
+  - ProperPunctuation
+  - NoContractionsAccent
+  - SharpInflection
+  - Monotonous
+  - TransatlanticAccent
+  - BasicPirateAccent
+  - BasicFrenchAccent
+  - BasicRussianAccent
+  - StiltedSpeech
+  - RelentlessPositivity
+  - PGAccent
+  - VowelRotation
+  - ArchaicAccent
+  - SnalienAccent
+  - MobsterAccent
+  - RatvarianLanguage
+  - MilbratAccent
+  # imp accents end
   blacklist:
     components:
     - AttachedClothing # helmets, which are part of the suit
