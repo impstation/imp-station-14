@@ -17,6 +17,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Server._Impstation.GalacticMarket;
 using Content.Shared.Research.Prototypes;
 
 namespace Content.Server.Cargo.Systems;
@@ -31,6 +32,7 @@ public sealed class PricingSystem : EntitySystem
     [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private readonly GalacticMarketSystem _galacticMarketSystem = null!; //imp edit - added this
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -217,7 +219,7 @@ public sealed class PricingSystem : EntitySystem
     /// This fires off an event to calculate the price.
     /// Calculating the price of an entity that somehow contains itself will likely hang.
     /// </remarks>
-    public double GetPrice(EntityUid uid, bool includeContents = true)
+    public double GetPrice(EntityUid uid, bool includeContents = true, List<(EntityUid ent, double price)>? granularPrices = null) //imp edit - added sold items inout
     {
         var ev = new PriceCalculationEvent();
         RaiseLocalEvent(uid, ref ev);
@@ -240,13 +242,23 @@ public sealed class PricingSystem : EntitySystem
             price += GetStaticPrice(uid);
         }
 
+        //imp edit - modify the price by the galactic market sell mult
+        var entProto = MetaData(uid).EntityPrototype;
+        if (entProto != null)
+        {
+            price *= _galacticMarketSystem.GetSellPriceMultForPrototype(entProto.ID);
+        }
+
+        granularPrices?.Add((uid, price));
+        //imp edit end
+
         if (includeContents && TryComp<ContainerManagerComponent>(uid, out var containers))
         {
             foreach (var container in containers.Containers.Values)
             {
                 foreach (var ent in container.ContainedEntities)
                 {
-                    price += GetPrice(ent);
+                    price += GetPrice(ent, granularPrices: granularPrices); //imp edit - added granular prices
                 }
             }
         }
