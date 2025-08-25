@@ -117,6 +117,10 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
         return rituals != null;
     }
 
+    public bool HasKnowledge(HereticComponent comp, ProtoId<HereticKnowledgePrototype> knowledge)
+    {
+        return comp.KnownKnowledge.Contains(knowledge);
+    }
     public List<ProtoId<HereticRitualPrototype>> AllKnownRituals(HereticComponent comp)
     {
         var rituals = new List<ProtoId<HereticRitualPrototype>>();
