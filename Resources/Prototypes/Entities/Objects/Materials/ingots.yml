@@ -26,6 +26,8 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: NonMobStatusIcon #imp edit. for the salvohud
+  - type: PluralName # imp
+    oneOf: plural-name-a
 
 - type: entity
   parent: IngotBase
@@ -61,6 +63,8 @@
         reagents:
         - ReagentId: Gold
           Quantity: 10
+  - type: PluralName # imp
+    nameSomeOf: gold bars
 
 - type: entity
   parent: IngotGold
@@ -107,6 +111,9 @@
         reagents:
         - ReagentId: Silver
           Quantity: 10
+  - type: PluralName # imp
+    nameSomeOf: silver bars
+
 
 - type: entity
   parent: IngotSilver

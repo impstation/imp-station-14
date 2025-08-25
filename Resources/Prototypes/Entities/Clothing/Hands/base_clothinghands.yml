@@ -27,6 +27,8 @@
     damageProtection:
       flatReductions:
         Heat: 5 # the average lightbulb only does around four damage!
+  - type: PluralName
+    oneOf: plural-name-pair-1
 
 - type: entity
   abstract: true
