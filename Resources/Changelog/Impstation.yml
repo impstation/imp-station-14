@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: Darkmajia
-  changes:
-  - message: Robotic arms now have a consistent power draw, rather than increasing
-      while moving. This may help alleviate light flickering issues, but no prommies.
-    type: Tweak
-  id: 1703
-  time: '2025-05-20T23:23:41.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2526
 - author: Cutinup99
   changes:
   - message: Emergency Autoinjector Crate! full of useful injectors for emergencies
@@ -4184,3 +4176,12 @@
   id: 2202
   time: '2025-08-23T14:56:59.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3327
+- author: VeeNomine
+  changes:
+  - message: Added a laugh, scream, and muttering to Tck'tck
+    type: Add
+  - message: Changed Tck'tck to have a unique voice.
+    type: Tweak
+  id: 2203
+  time: '2025-08-24T06:12:40.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3349
