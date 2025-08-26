@@ -846,7 +846,6 @@
     - BorgSynthesizerInstrument
     - BorgElectricGuitarInstrument
     - BorgSaxophoneInstrument
-    - BorgBassGuitarInstrument
     - PanFluteInstrument # imp end
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: musical-module }
@@ -866,6 +865,9 @@
     - HydroponicsToolSpade
     - HydroponicsToolClippers
     - Bucket
+    - HydroponicsToolScythe
+    - HydroponicsToolHatchet
+    - PlantBag
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: gardening-module }
 
@@ -900,6 +902,8 @@
     - BikeHorn
     - ClownRecorder
     - BikeHornInstrument
+    - BorgPieCannon
+    - CrayonRainbowInfinite
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: clowning-module }
 

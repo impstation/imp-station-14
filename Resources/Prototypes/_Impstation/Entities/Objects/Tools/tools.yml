@@ -272,3 +272,12 @@
   components:
   - type: ActivatableUI
     inHandsOnly: false
+
+- type: entity
+  name: banana cream pie
+  parent: LauncherCreamPieRegenerating
+  id: BorgPieCannon
+  components:
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 30
+  - type: Unremoveable

@@ -50,6 +50,9 @@
     - neck
   - type: ActivatableUI
     inHandsOnly: false
+  - type: Tag
+    tags:
+    - HarmonicaInstrument
 
 - type: entity
   parent: BaseWoodwindInstrument

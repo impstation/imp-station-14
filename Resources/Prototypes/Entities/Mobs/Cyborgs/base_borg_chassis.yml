@@ -84,7 +84,7 @@
   - type: SiliconLawProvider
     laws: Crewsimov
   - type: Inventory
-    templateId: borg
+    templateId: borgUnselected
   - type: Hands
     showInHands: false
     disableExplosionRecursion: true
@@ -369,6 +369,8 @@
     color: "#dd200b"
   - type: TypingIndicator #imp
     proto: syndibot
+  - type: Inventory
+    templateId: borg
 
 - type: entity
   id: BaseBorgChassisDerelict
@@ -389,6 +391,8 @@
   - type: IonStormTarget
     chance: 1
   - type: ShowJobIcons
+  - type: Inventory
+    templateId: borg
 
 - type: entity
   parent: BaseBorgChassisNotIonStormable

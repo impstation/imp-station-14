@@ -212,13 +212,13 @@
 
   defaultModules:
   - BorgModuleTool
-  - BorgModuleMusique
-  - BorgModuleBartender # imp
+  - BorgModuleMusique # imp added parallel midi playing
+  - BorgModuleBartender # imp edit
   # - BorgModuleService # imp replaced with the BorgModuleBureaucracy
-  - BorgModuleBureaucracy # imp
+  - BorgModuleBureaucracy # imp special
   - BorgModuleClowning
-  # - BorgModuleGardening # imp will add back when borg hands are in
-  # - BorgModuleHarvesting # imp will add back when borg hands are in
+  - BorgModuleGardening # imp edit, combined Gardening and Harvest together
+  # - BorgModuleHarvesting # imp
   radioChannels:
   - Science
   - Service

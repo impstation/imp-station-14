@@ -16,7 +16,23 @@
     strippingWindowPos: 0,1
     displayName: neck
     offset: 0.05, -0.22
+    whitelist:
+      tags:
+      - Medal
+      - TeddyRibbon #imp
+      - HarmonicaInstrument # imp
   # 🌟Starlight🌟 end
+
+- type: inventoryTemplate
+  id: borgUnselected
+  slots:
+  - name: head
+    slotTexture: head
+    slotFlags: HEAD
+    uiWindowPos: 1,0
+    strippingWindowPos: 0,0
+    displayName: Head
+    offset: 0.015625, -0.09375
 
 # Engineering borg
 - type: inventoryTemplate
@@ -41,6 +57,7 @@
       tags:
         - Medal
         - TeddyRibbon #imp
+        - HarmonicaInstrument # imp
   # 🌟Starlight🌟 end
 
 # imp start
@@ -67,6 +84,7 @@
       tags:
       - Medal
       - TeddyRibbon #imp
+      - HarmonicaInstrument # imp
   # 🌟Starlight🌟 end
 # imp end
 
@@ -93,6 +111,7 @@
       tags:
         - Medal
         - TeddyRibbon #imp
+        - HarmonicaInstrument # imp
   # 🌟Starlight🌟 end
 
 #medical borg
@@ -119,6 +138,7 @@
       tags:
         - Medal
         - TeddyRibbon #imp
+        - HarmonicaInstrument # imp
   # 🌟Starlight🌟 end
 
 # imp start
