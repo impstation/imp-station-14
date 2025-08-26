@@ -1,10 +1,10 @@
 -crew-monitor-vitals-rating = { $rating ->
-    [good] [color=limegreen]{$text}[/color]
-    [okay] [color=yellowgreen]{$text}[/color]
-    [poor] [color=yellow]{$text}[/color]
-    [bad] [color=orange]{$text}[/color]
-    [awful] [color=red]{$text}[/color]
-    [dangerous] [color=crimson]{$text}[/color]
+    [good] [color=#00D3B8]{$text}[/color]
+    [okay] [color=#30CC19]{$text}[/color]
+    [poor] [color=#bdcc00]{$text}[/color]
+    [bad] [color=#E8CB2D]{$text}[/color]
+    [awful] [color=#EF973C]{$text}[/color]
+    [dangerous] [color=#FF6C7F]{$text}[/color]
    *[other] unknown
     }
 

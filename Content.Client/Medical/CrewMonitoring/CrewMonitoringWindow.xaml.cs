@@ -249,6 +249,12 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
             //         specifier = new SpriteSpecifier.Rsi(new ResPath("Interface/Alerts/human_crew_monitoring.rsi"), "health" + index);
             // }
             // End Offbrand Removals
+            // Begin Offbrand Additions
+            if (sensor.WoundableData?.AnyVitalCritical == true)
+            {
+                specifier = new SpriteSpecifier.Rsi(new ResPath("Interface/Alerts/human_crew_monitoring.rsi"), "critical");
+            }
+            // End Offbrand Additions
 
             // Status icon
             var statusIcon = new AnimatedTextureRect

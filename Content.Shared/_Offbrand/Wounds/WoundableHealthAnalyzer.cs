@@ -43,6 +43,9 @@ public sealed partial class WoundableHealthAnalyzerData
     public AttributeRating HeartRateRating;
 
     [DataField]
+    public bool AnyVitalCritical;
+
+    [DataField]
     public List<string>? Wounds;
 }
 
@@ -59,7 +62,9 @@ public enum AttributeRating : byte
 
 public sealed class WoundableHealthAnalyzerSystem : EntitySystem
 {
+    [Dependency] private readonly BrainDamageSystem _brainDamage = default!;
     [Dependency] private readonly HeartSystem _heart = default!;
+    [Dependency] private readonly ShockThresholdsSystem _shockThresholds = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
 
     private AttributeRating RateHigherIsBetter(double value)
@@ -124,6 +129,7 @@ public sealed class WoundableHealthAnalyzerSystem : EntitySystem
                 BloodCirculationRating = RateHigherIsBetter(circulation),
                 HeartRate = _heart.HeartRate((uid, heartrate)).Int(),
                 HeartRateRating = !heartrate.Running ? AttributeRating.Dangerous : RateHigherIsWorse(strain),
+                AnyVitalCritical = _shockThresholds.IsCritical(uid) || _brainDamage.IsCritical(uid) || _heart.IsCritical(uid),
                 Wounds = withWounds ? SampleWounds(uid) : null,
             };
     }
