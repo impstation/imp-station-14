@@ -9,6 +9,7 @@
   startingGear: AdminAssistantGear
   icon: "JobIconAdminAssitant"
   supervisors: job-supervisors-command
+  setPreference: false #imp
   canBeAntag: false
   access:
   - Command

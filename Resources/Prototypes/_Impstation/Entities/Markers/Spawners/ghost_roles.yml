@@ -36,6 +36,8 @@
     rules: ghost-role-information-antagonist-rules
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: default
   - type: GhostRoleMobSpawner
     prototype: MobVRex
   - type: Sprite

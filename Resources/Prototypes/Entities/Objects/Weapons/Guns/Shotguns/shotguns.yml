@@ -165,6 +165,8 @@
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 3
+  - type: GunSpreadModifier
+    spread: 0.6
   - type: BallisticAmmoProvider
     capacity: 2
     soundRack:
@@ -292,6 +294,8 @@
     sprite: _Impstation/Objects/Weapons/Guns/Shotguns/sawn_inhands_64x.rsi #imp
   - type: Gun
     fireRate: 3
+  - type: GunSpreadModifier
+    spread: 1.4
   - type: BallisticAmmoProvider
     capacity: 2
     soundRack:

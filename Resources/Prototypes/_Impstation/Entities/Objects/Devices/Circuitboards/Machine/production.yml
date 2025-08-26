@@ -58,3 +58,21 @@
     stackRequirements:
       Manipulator: 4
       Glass: 1
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: PortableCutterMachineCircuitboard
+  name: portable cutter machine board
+  description: A machine printed circuit board for a portable cutter machine.
+  categories: [ DoNotMap ] #you only get one
+  components:
+  - type: Sprite
+    state: service
+  - type: MachineBoard
+    prototype: PortableCutterMachine
+    stackRequirements:
+      Steel: 2
+      Manipulator: 2
+      Cable: 1
+  - type: StealTarget
+    stealGroup: HDCutterMachine

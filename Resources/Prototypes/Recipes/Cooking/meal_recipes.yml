@@ -2538,6 +2538,7 @@
     FoodTacoShell: 1
     FoodMeatDragonCutlet: 2
     FoodChiliPepper: 1
+  recipeType: Oven # imp
 
 - type: microwaveMealRecipe
   id: RecipeCroissant
@@ -2628,7 +2629,7 @@
   time: 10
   solids:
     FoodBreadCottonSlice: 2
-    FoodCheeseSlice: 1
+    FoodStringCheeseStrand: 1 #imp
     FoodButterSlice: 1
   recipeType: Oven # Frontier
 
@@ -2673,4 +2674,16 @@
     MobMothroach: 1
     OrganAnimalHeart: 1
     MoproachShoes: 1
-  recipeType: Microwave # Frontier
+  recipeType: Assembler # imp
+
+- type: microwaveMealRecipe
+  id: RecipeCottonCake
+  name: cotton cake recipe
+  result: FoodCakeCotton
+  time: 5
+  group: Cake
+  reagents:
+    Fiber: 10
+  solids:
+    FoodCakePlain: 1
+  recipeType: Oven # Frontier

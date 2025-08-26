@@ -154,3 +154,27 @@
   - booms
   - booming
   - boomed
+
+#Sirval
+
+- type: emote
+  id: SirvalDeathgasp
+  name: chat-emote-name-deathgasp
+  icon: Interface/Emotes/deathgasp.png
+  chatMessages: ["chat-emote-msg-deathgasp-sirval"]
+
+#Tck'Tck
+- type: emote
+  id: Muttering
+  name: mutters
+  category: Vocal
+  icon: _Impstation/Interface/Emotes/vocal.png
+  whitelist:
+    components:
+    - Vocal
+  chatMessages: ["mutters"]
+  chatTriggers:
+  - mutter
+  - mutters
+  - muttered
+  - muttering

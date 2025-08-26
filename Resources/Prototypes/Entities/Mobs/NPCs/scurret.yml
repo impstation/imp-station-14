@@ -2,33 +2,34 @@
 # Although based on MobBaseAncestor, this species does not have a "developed" playable species it is an ancestor to.
 
 - type: entity
-  name: scurret
+  name: sirval #imp edit
   id: MobBaseScurret
   parent: MobBaseAncestor
   abstract: true
   components:
   # Custom names
   - type: ReplacementAccent
-    accent: scurret
+    accent: sirval #imp edit
   - type: Sprite
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      sprite: Mobs/Animals/scurret/scurret.rsi
-      state: scurret
+      sprite: _Impstation/Mobs/Animals/sirvals.rsi #imp edit
+      state: sirval #imp edit
     - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
       color: "#ffffff"
       sprite: Objects/Misc/handcuffs.rsi
       state: body-overlay-2
       visible: false
   # Custom visuals for dead scurrets; be aware these do not work well with equipment.
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: scurret
-      Critical:
-        Base: scurret_oof
-      Dead:
-        Base: scurret_rip
+#IMP EDIT: comment this out
+#  - type: DamageStateVisuals
+#    states:
+#      Alive:
+#        Base: scurret
+#      Critical:
+#        Base: scurret_oof
+#      Dead:
+#        Base: scurret_rip
   #  About as tough as a monkey
   - type: MobThresholds
     thresholds:
@@ -61,8 +62,8 @@
     proto: moth
   - type: InteractionPopup
     successChance: 0.99 # Imagine not being allowed to headpat a scurret, chat
-    interactSuccessString: petting-success-scurret
-    interactFailureString: petting-failure-scurret
+    interactSuccessString: petting-success-sirval #imp edit
+    interactFailureString: petting-failure-sirval #imp edit
     interactSuccessSpawn: EffectHearts
     interactSuccessSound:
       path: /Audio/Animals/wawa_chillin.ogg
@@ -143,7 +144,7 @@
   - type: BodyEmotes # Grants them clapping and so on.
     soundsId: Scurret
   - type: Deathgasp
-    prototype: ScurretDeathgasp # You monster
+    prototype: SirvalDeathgasp # You monster #Imp edit
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -155,8 +156,8 @@
 # Spawnable scurrets have a random name and colour.
 
 - type: entity
-  name: scurret
-  description: Commonly known as Wawa, from the wetlands of Planet Wawa, these critters make up the bulk of Arnolds's Pizza's "loyal workforce".
+  name: sirval #imp edit
+  description: A traditional liveried Sirvaletian, or Sirval, from the countryside of the planet Passepartoupia. These sartorial little critters are known for their strict adherence to politeness and etiquette. Usually. #imp edit
   id: MobScurret
   parent: MobBaseScurret
   components:
@@ -170,7 +171,7 @@
   - type: RandomSprite
     available:
     - enum.DamageStateVisualLayers.Base:
-        scurret: ScurretColors
+        sirval: ScurretColors #imp edit
   # They are of a mysterious gender.
   - type: Grammar
     attributes:
@@ -184,7 +185,7 @@
 # feel free to hook them into random content.
 
 - type: entity
-  name: Emotional Support Scurret
+  name: Emotional Support Sirval #imp edit
   id: MobBaseEmotionalSupportScurret
   parent: MobBaseScurret
   abstract: true
@@ -196,8 +197,8 @@
       - Passive
     - type: GhostRole
       makeSentient: true
-      name: ghost-role-information-emotional-support-scurret-name
-      description: ghost-role-information-emotional-support-scurret-description
+      name: ghost-role-information-emotional-support-sirval-name #imp edit
+      description: ghost-role-information-emotional-support-sirval-description #imp edit
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: default
@@ -206,7 +207,7 @@
 # Spawnable ESS have a ghost role, equipment, a random name and a random colour.
 
 - type: entity
-  name: Emotional Support Scurret
+  name: Emotional Support Sirval
   id: MobEmotionalSupportScurret
   parent: [MobScurret, MobBaseEmotionalSupportScurret]
-  description: Commonly known as Wawa, from the wetlands of Planet Wawa, these critters make up the bulk of Arnold's Pizza's "loyal workforce". This one is here as a temp.
+  description: A traditional liveried Sirvaletian, or Sirval, from the countryside of the planet Passepartoupia. These sartorial little critters are known for their strict adherence to politeness and etiquette. Usually. This one has been hired by NT as a temp. #imp edit
