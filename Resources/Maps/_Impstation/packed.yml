@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 262.0.0
+  engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/25/2025 05:36:52
-  entityCount: 15284
+  time: 08/09/2025 05:42:07
+  entityCount: 15286
 maps:
 - 126
 grids:
@@ -7901,7 +7901,7 @@ entities:
       pos: 101.5,-19.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -31270.11
+      secondsUntilStateChange: -31293.354
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -77527,6 +77527,13 @@ entities:
     - type: Transform
       pos: 61.5,26.5
       parent: 2
+- proto: SignDetective
+  entities:
+  - uid: 14676
+    components:
+    - type: Transform
+      pos: 24.5,28.5
+      parent: 2
 - proto: SignDirectionalBridge
   entities:
   - uid: 7329
@@ -79219,7 +79226,7 @@ entities:
     - type: Transform
       pos: 45.5,-14.5
       parent: 2
-- proto: SpawnMobPoly
+- proto: SpawnMobPollyParrot
   entities:
   - uid: 15120
     components:
@@ -79382,6 +79389,13 @@ entities:
     components:
     - type: Transform
       pos: 18.5,22.5
+      parent: 2
+- proto: SpawnPointDetective
+  entities:
+  - uid: 14677
+    components:
+    - type: Transform
+      pos: 18.5,32.5
       parent: 2
 - proto: SpawnPointHeadOfPersonnel
   entities:

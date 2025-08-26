@@ -5,6 +5,11 @@
   components:
   - type: Label
     currentLabel: gas-pipe-sensor-vox-box
+  - type: AtmosPipeLayers
+    alternativePrototypes:
+      Primary: GasPipeSensorVoxBox
+      Secondary: GasPipeSensorVoxBoxAlt1
+      Tertiary: GasPipeSensorVoxBoxAlt2
 
 - type: entity
   parent: GasPipeSensor
@@ -13,6 +18,11 @@
   components:
   - type: Label
     currentLabel: gas-pipe-sensor-supermatter
+  - type: AtmosPipeLayers
+    alternativePrototypes:
+      Primary: GasPipeSensorSupermatter
+      Secondary: GasPipeSensorSupermatterAlt1
+      Tertiary: GasPipeSensorSupermatterAlt2
 
 - type: entity
   parent: GasPipeSensor
@@ -21,3 +31,8 @@
   components:
   - type: Label
     currentLabel: gas-pipe-sensor-med-cryo
+  - type: AtmosPipeLayers
+    alternativePrototypes:
+      Primary: GasPipeSensorMedCryo
+      Secondary: GasPipeSensorMedCryoAlt1
+      Tertiary: GasPipeSensorMedCryoAlt2

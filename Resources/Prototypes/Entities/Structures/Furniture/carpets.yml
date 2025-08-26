@@ -69,6 +69,11 @@
                 max: 1
   - type: IconSmooth #imp edit, make carpets not smooth with each other
     key: full_red
+  # imp edit start
+  - type: Construction
+    graph: Carpet
+    node: carpet
+  # imp edit end
 
 - type: entity
   id: CarpetBlack
@@ -102,6 +107,11 @@
                 max: 1
   - type: IconSmooth #imp edit, make carpets not smooth with each other
     key: full_black
+  # imp edit start
+  - type: Construction
+    graph: CarpetBlack
+    node: carpet
+  # imp edit end
 
 - type: entity
   id: CarpetPink
@@ -135,6 +145,11 @@
                 max: 1
   - type: IconSmooth #imp edit, make carpets not smooth with each other
     key: full_pink
+  # imp edit start
+  - type: Construction
+    graph: CarpetPink
+    node: carpet
+  # imp edit end
 
 - type: entity
   id: CarpetBlue
@@ -168,6 +183,11 @@
                 max: 1
   - type: IconSmooth #imp edit, make carpets not smooth with each other
     key: full_blue
+  # imp edit start
+  - type: Construction
+    graph: CarpetBlue
+    node: carpet
+  # imp edit end
 
 - type: entity
   id: CarpetGreen
@@ -201,6 +221,11 @@
                 max: 1
   - type: IconSmooth #imp edit, make carpets not smooth with each other
     key: full_green
+  # imp edit start
+  - type: Construction
+    graph: CarpetGreen
+    node: carpet
+  # imp edit end
 
 - type: entity
   id: CarpetOrange
@@ -234,6 +259,11 @@
                 max: 1
   - type: IconSmooth #imp edit, make carpets not smooth with each other
     key: full_orange
+  # imp edit start
+  - type: Construction
+    graph: CarpetOrange
+    node: carpet
+  # imp edit end
 
 - type: entity
   id: CarpetSBlue
@@ -267,6 +297,11 @@
                 max: 1
   - type: IconSmooth #imp edit, make carpets not smooth with each other
     key: full_skyblue
+  # imp edit start
+  - type: Construction
+    graph: CarpetSBlue
+    node: carpet
+  # imp edit end
 
 - type: entity
   id: CarpetPurple
@@ -300,6 +335,11 @@
                 max: 1
   - type: IconSmooth #imp edit, make carpets not smooth with each other
     key: full_purple
+  # imp edit start
+  - type: Construction
+    graph: CarpetPurple
+    node: carpet
+  # imp edit end
 
 - type: entity
   id: CarpetCyan
@@ -333,6 +373,11 @@
                 max: 1
   - type: IconSmooth #imp edit, make carpets not smooth with each other
     key: full_cyan
+  # imp edit start
+  - type: Construction
+    graph: CarpetCyan
+    node: carpet
+  # imp edit end
 
 - type: entity
   id: CarpetWhite
@@ -366,6 +411,11 @@
                 max: 1
   - type: IconSmooth #imp edit, make carpets not smooth with each other
     key: full_white
+  # imp edit start
+  - type: Construction
+    graph: CarpetWhite
+    node: carpet
+  # imp edit end
 
 # TODO nuke this once tiles support rotating sprites
 # IMP NOTE they added support to rotating tiles, but seemingly only in the tile placer menu

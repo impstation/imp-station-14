@@ -1,7 +1,8 @@
 - type: entity
   name: cargorilla
   parent: [ SimpleMobBase, MobCombat, StripableInventoryBase ]
-  id: MobCargorilla
+  id: BaseMobCargorilla
+  abstract: true
   description: A well trained gorilla working in Cargo, try not to piss it off.
   components:
   - type: Puller
@@ -14,12 +15,22 @@
     name: ghost-role-information-cargorilla-name
     description: ghost-role-information-cargorilla-description
     rules: ghost-role-information-nonantagonist-rules
+  - type: CombatModeSprint
+    doImpactDamage: true
+    beginCombatMessage: "cargorilla-begin-combat-popup"
+  - type: CombatModeVisuals
+    hideBaseLayer: true
   - type: Sprite
+    sprite: _Impstation/Mobs/Animals/cargorilla.rsi
+    granularLayersRendering: true
     drawdepth: Mobs
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: crawling
-      sprite: _Impstation/Mobs/Animals/cargorilla.rsi
+    - map: ["enum.CombatModeVisualsVisuals.Combat"]
+      state: standing
+      visible: false
+      offset: 0, 0.51 # gotta be weirdly specific here
   - type: Physics
   - type: InventorySlots
   - type: Strippable
@@ -30,14 +41,12 @@
     templateId: cargorilla
   - type: Loadout
     prototypes: [ MobCargorillaGear ]
-  - type: RandomMetadata
-    nameSegments: [CargorillaNames]
   - type: Grammar
     attributes:
       proper: true
       gender: male
   - type: BodyEmotes
-    soundsId: Gorilla
+    soundsId: GorillaBody
   - type: InteractionPopup
     successChance: 0.7
     interactSuccessString: petting-success-cargorilla
@@ -50,11 +59,12 @@
   - type: Speech
     speechSounds: Gorilla
     speechVerb: Monkey
-    allowedEmotes: ['Scream', 'Laugh']
+    allowedEmotes: ['Scream', 'Laugh', "BeatingChest"]
   - type: MonkeyAccent
   - type: Tag
     tags:
     - DoorBumpOpener
+    - VimPilot
   - type: Emoting
   - type: Vocal
     sounds:
@@ -105,3 +115,15 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
+
+- type: entity
+  parent: BaseMobCargorilla
+  id: MobCargorilla
+  components:
+  - type: RandomMetadata
+    nameSegments: [CargorillaNames]
+
+- type: entity
+  parent: BaseMobCargorilla
+  id: MobCargorillaStationPet
+  name: Forklift

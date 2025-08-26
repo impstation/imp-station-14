@@ -83,3 +83,15 @@
           Quantity: 10
         - ReagentId: ChloralHydrate
           Quantity: 5
+
+- type: entity
+  name: monkey's squeaky clean delight
+  parent: FoodSoupMonkey
+  id: FoodSoupMonkeySanitized
+  description: A delicious soup with hunks of monkey meat simmered to perfection, in a broth that tastes faintly of bananas. There's a strange chemical aftertaste...
+  components:
+  - type: FlavorProfile
+    flavors:
+    - jungle
+    - banana
+    - metallic

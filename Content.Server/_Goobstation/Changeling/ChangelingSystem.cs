@@ -4,7 +4,6 @@ using Content.Server.DoAfter;
 using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Flash;
-using Content.Server.Flash.Components;
 using Content.Server.Gravity;
 using Content.Server.Humanoid;
 using Content.Server.Light.EntitySystems;
@@ -27,6 +26,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
+using Content.Shared.Flash.Components;
 using Content.Shared.Fluids;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -85,6 +85,7 @@ public sealed partial class ChangelingSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
+    [Dependency] private readonly MovementModStatusSystem _movementMod = default!; // imp
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly PoweredLightSystem _light = default!;
@@ -204,7 +205,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             if (random == 1)
             {
                 if (TryComp<StatusEffectsComponent>(uid, out var status))
-                    _stun.TrySlowdown(uid, TimeSpan.FromSeconds(1.5f), true, 0.5f, 0.5f, status);
+                    _movementMod.TryUpdateMovementSpeedModDuration(uid, MovementModStatusSystem.VomitingSlowdown, TimeSpan.FromSeconds(1.5f), 0.5f);
 
                 var solution = new Solution();
 

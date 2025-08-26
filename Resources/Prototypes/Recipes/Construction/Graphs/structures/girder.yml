@@ -703,7 +703,15 @@
       edges:
         - to: wall
           steps:
-            - tool: Derusting #imp edit
+            - tool: Welding
+              doAfter: 5
+        - to: wall
+          steps:
+            - tool: Brushing
+              doAfter: 12
+        - to: wall #imp edit
+          steps:
+            - tool: Derusting
               doAfter: 5
 
     - node: reinforcedWallRust
@@ -711,7 +719,15 @@
       edges:
         - to: reinforcedWall
           steps:
-            - tool: Derusting #imp edit
+            - tool: Welding
+              doAfter: 5
+        - to: reinforcedWall
+          steps:
+            - tool: Brushing
+              doAfter: 12
+        - to: reinforcedWall #imp edit
+          steps:
+            - tool: Derusting
               doAfter: 5
 
     - node: techWall #imp
@@ -727,36 +743,36 @@
             doAfter: 2
         - to: shuttleWall
           completed:
-            - !type:SpawnPrototype
-              prototype: CableApcStack1
-              amount: 1
-            - !type:SpawnPrototype
-              prototype: SheetPlasteel1
-              amount: 2
+          - !type:SpawnPrototype
+            prototype: CableApcStack1
+            amount: 1
+          - !type:SpawnPrototype
+            prototype: SheetPlasteel1
+            amount: 2
           steps:
-            - tool: Welding
-              doAfter: 4
-            - tool: Cutting
-              doAfter: 1
+          - tool: Welding
+            doAfter: 4
+          - tool: Cutting
+            doAfter: 1
 
     - node: techWallUnshaded #imp
       entity: WallTechUnshaded
       edges:
         - to: techWall
           steps:
-            - tool: Prying
-              doAfter: 1
+          - tool: Prying
+            doAfter: 1
 
     - node: diagonalTechWall #imp
       entity: WallTechDiagonal
       edges:
         - to: diagonalshuttleWall
           completed:
-            - !type:SpawnPrototype
-              prototype: SheetPlasteel1
-              amount: 2
+          - !type:SpawnPrototype
+            prototype: SheetPlasteel1
+            amount: 2
           steps:
-            - tool: Welding
-              doAfter: 4
-            - tool: Cutting
-              doAfter: 1
+          - tool: Welding
+            doAfter: 4
+          - tool: Cutting
+            doAfter: 1

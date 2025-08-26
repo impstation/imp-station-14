@@ -66,11 +66,9 @@
       groups:
         Brute: -0.07
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3.5
-    baseSprintSpeed: 5
-    weightlessAcceleration: 1.5 # zoom
-    weightlessFriction: 1
-    weightlessModifier: 1
+    # NOTE: to edit this entity's base movement speed, you will need to edit the leg bodypart. i discovered this so you didnt have to
+    baseWeightlessFriction: 0.2
+    baseWeightlessModifier: 1
   - type: MovementIgnoreGravity # nyoom
     gravityState: true
   - type: MeleeWeapon
@@ -193,7 +191,7 @@
           32:
             sprite: _Impstation/Mobs/Species/Apid/displacement.rsi
             state: suitstorage
-
+  - type: Carriable # Carrying system from nyanotrasen.
 
 - type: entity
   parent: BaseSpeciesDummy

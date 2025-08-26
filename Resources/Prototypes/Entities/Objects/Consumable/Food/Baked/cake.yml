@@ -351,6 +351,15 @@
   id: FoodCakeCheese
   description: DANGEROUSLY cheesy.
   components:
+  - type: FlavorProfile # Imp
+    flavors:
+    - creamy
+    - cheesy
+    ignoreReagents:
+    - TableSalt
+    - Milk
+    - Vitamin
+    - Nutriment
   - type: Sprite
     state: cheese
   - type: SliceableFood
@@ -361,8 +370,12 @@
         maxVol: 45
         reagents:
         - ReagentId: Nutriment
-          Quantity: 32
+          Quantity: 20
         - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: Milk # Imp
+          Quantity: 5
+        - ReagentId: TableSalt # Imp
           Quantity: 5
   - type: Item
     inhandVisuals:
@@ -381,6 +394,15 @@
   id: FoodCakeCheeseSlice
   description: Slice of pure cheestisfaction.
   components:
+  - type: FlavorProfile # Imp
+    flavors:
+    - creamy
+    - cheesy
+    ignoreReagents:
+    - TableSalt
+    - Milk
+    - Vitamin
+    - Nutriment
   - type: Sprite
     state: cheese-slice
   - type: SolutionContainerManager # imp
@@ -389,8 +411,12 @@
         maxVol: 10
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6.4
+          Quantity: 4 # imp
         - ReagentId: Vitamin
+          Quantity: 1
+        - ReagentId: Milk # Imp
+          Quantity: 1
+        - ReagentId: TableSalt # Imp
           Quantity: 1
   - type: Item
     inhandVisuals:
@@ -1418,3 +1444,60 @@
       Burger: SuppermatterBurger
   - type: Item
     heldPrefix: suppermatter-shard
+
+- type: entity
+  name: cotton cake
+  parent: FoodCakeBase
+  id: FoodCakeCotton
+  description: A cake with a fiber frosting and a wad of cotton on top.
+  components:
+  - type: Sprite
+    state: cotton
+  - type: SliceableFood
+    slice: FoodCakeCottonSlice
+  - type: Tag
+    tags:
+    - Cake
+    - ClothMade
+    - ClothFood #imp
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 55
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 30
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: Fiber
+          Quantity: 10
+  - type: Item
+    heldPrefix: cotton
+
+- type: entity
+  name: slice of cotton cake
+  parent: FoodCakeSliceBase
+  id: FoodCakeCottonSlice
+  description: A slice of cotton cake. You can just lick the frosting, it's fine.
+  components:
+  - type: Sprite
+    state: cotton-slice
+  - type: Tag
+    tags:
+    - Cake
+    - ClothMade
+    - ClothFood #imp
+    - Slice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 1
+        - ReagentId: Fiber
+          Quantity: 2
+  - type: Item
+    heldPrefix: cotton-slice

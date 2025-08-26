@@ -6,7 +6,7 @@ namespace Content.Shared._EE.Overlays.Switchable;
 
 public abstract partial class SwitchableOverlayComponent : BaseOverlayComponent
 {
-    [DataField, AutoNetworkedField]
+    [DataField] // imp edit, removed AutoNetworkedField attribute, couldn't figure out a way to make the compiler happy, since thermal and night vision inherits this but can't have AutoGenerateComponentState without this present in their class directly
     public bool IsActive;
 
     [DataField]

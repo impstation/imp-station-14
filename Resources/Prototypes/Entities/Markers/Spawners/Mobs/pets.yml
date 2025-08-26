@@ -228,6 +228,21 @@
 
 - type: entity
   parent: MarkerBase
+  id: SpawnMobPollyParrot
+  name: Polly the parrot Spawner
+  suffix: CE Pet
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: parrot
+      sprite: Mobs/Animals/parrot/parrot.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobPollyParrot
+
+- type: entity
+  parent: MarkerBase
   id: SpawnMobPossumMorty
   name: Possum Morty Spawner
   suffix: Morgue pet, steal target #imp edit
@@ -250,9 +265,12 @@
     layers:
     - state: green
     - state: ai
-  - type: ConditionalSpawner
+  - type: RandomSpawner # imp edit - this was originally a conditional spawner with just morticia.
     prototypes:
-    - MobRaccoonMorticia
+      - MobRaccoonMorticia
+    rarePrototypes:
+      - MobCargorillaStationPet
+    rareChance: 0.01
 
 - type: entity
   parent: MarkerBase

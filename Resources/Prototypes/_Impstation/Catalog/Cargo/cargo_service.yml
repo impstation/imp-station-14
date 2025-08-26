@@ -1,10 +1,10 @@
 - type: cargoProduct
-  id: ServiceJanitorialSoap
+  id: ServiceSpaceCleaner
   icon:
-    sprite: Objects/Specific/Janitorial/soap.rsi
-    state: nt-4
-  product: CrateServiceSoap
-  cost: 250
+    sprite: Structures/Storage/tanks.rsi
+    state: cleanerdispenser
+  product: CrateServiceSpaceCleaner
+  cost: 750
   category: cargoproduct-category-name-service
   group: market
 

@@ -34,7 +34,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Dead
+      80: Dead
   - type: Stamina
     critThreshold: 150
   - type: Absorbable # imp - im just going off vibes here
@@ -176,6 +176,10 @@
     spawned:
     - id: FoodMeat
       amount: 1
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      60: Dead
 
 - type: entity
   id: MobKangarooSpaceSalvage
@@ -203,7 +207,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      90: Dead
+      45: Dead
   - type: Stamina
     critThreshold: 150
   - type: DamageStateVisuals
@@ -306,7 +310,7 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        100: Dead
+        45: Dead
     - type: Stamina
       critThreshold: 150
     - type: DamageStateVisuals
@@ -580,6 +584,7 @@
         visualType: Large
         messages: [ "snail-hurt-by-salt-popup" ]
         probability: 0.66
+  - type: PleebnarGibbable # imp
 
 - type: entity
   parent: MobSnail

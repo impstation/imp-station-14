@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/25/2025 05:34:46
-  entityCount: 17639
+  time: 08/02/2025 05:49:31
+  entityCount: 17637
 maps:
 - 1
 grids:
@@ -14015,7 +14015,7 @@ entities:
       pos: 9.5,-20.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -4909.0366
+      secondsUntilStateChange: -5009.9497
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14416,7 +14416,7 @@ entities:
       pos: 47.5,5.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -466913
+      secondsUntilStateChange: -467013.9
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -97697,6 +97697,13 @@ entities:
     - type: Transform
       pos: 0.5,9.5
       parent: 2
+- proto: SpawnPointCourier
+  entities:
+  - uid: 4628
+    components:
+    - type: Transform
+      pos: 12.5,24.5
+      parent: 2
 - proto: SpawnPointDetective
   entities:
   - uid: 17584
@@ -118480,18 +118487,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 15.5,0.5
       parent: 2
-  - uid: 4628
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -34.5,-5.5
-      parent: 2
-  - uid: 4629
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -38.5,-5.5
-      parent: 2
   - uid: 4632
     components:
     - type: Transform
@@ -118549,12 +118544,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -42.5,-5.5
-      parent: 2
-  - uid: 4649
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -38.5,-5.5
       parent: 2
   - uid: 4654
     components:

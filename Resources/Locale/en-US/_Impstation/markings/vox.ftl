@@ -298,8 +298,8 @@ marking-VoxTailNub-nub2 = Scar
 marking-VoxTailRaptor = Raptor
 marking-VoxTailRaptor-raptor = Tail
 
-marking-VoxTailShort = Short Down
-marking-VoxTailShort-short = Tail
+marking-VoxTailShort1 = Short Down
+marking-VoxTailShort1-short1 = Tail
 
 marking-VoxTailShort2 = Short Up
 marking-VoxTailShort2-short2 = Tail

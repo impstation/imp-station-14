@@ -8,7 +8,6 @@
     drawdepth: WallMountedItems
     sprite: _Goobstation/Heretic/polymorphs.rsi
     state: ash_jaunt
-    loop: false
   - type: TimedDespawn
     lifetime: 1
 
@@ -22,7 +21,6 @@
     drawdepth: WallMountedItems
     sprite: _Goobstation/Heretic/polymorphs.rsi
     state: ash_jaunt_end
-    loop: false
   - type: TimedDespawn
     lifetime: 1
 
@@ -180,8 +178,12 @@
       collection: Punch
     animation: WeaponArcFist
   - type: Devourer
-    foodPreference: Humanoid
-    shouldStoreDevoured: true
+    foodPreferenceWhitelist:
+      components:
+      - HumanoidAppearance
+    stomachStorageWhitelist:
+      components:
+      - MobState
     chemical: Ichor
     healRate: 15.0
     whitelist:

@@ -1,0 +1,44 @@
+- type: entity
+  id: HereticBooksEventScheduler
+  parent: BaseGameRule
+  components:
+  - type: BasicStationEventScheduler
+    minimumTimeUntilFirstEvent: 600 #10 min
+    minMaxEventTiming:
+      min: 450 #7.5 min
+      max: 750 #12.5 min
+    scheduledGameRules: !type:NestedSelector
+      tableId: HereticBooksGameRulesTable
+
+- type: entityTable
+  id: HereticBooksGameRulesTable
+  table: !type:AllSelector
+    children:
+    - id: HereticBooksSpawnSmall
+
+- type: entity
+  id: HereticBooksSpawnSmall
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    weight: 1.5
+    duration: 15
+  - type: HereticBookWaveRule
+    minBooks: 1
+    maxBooks: 2
+
+- type: entity
+  id: HereticBooksSpawnBig #for the big wave at the start
+  parent: BaseStationEvent
+  components:
+  - type: GameRule
+    delay:
+      min:  240
+      max:  360
+  - type: StationEvent
+    earliestStart: 5
+    weight: 5
+    duration: 15
+  - type: HereticBookWaveRule
+    minBooks: 5
+    maxBooks: 10

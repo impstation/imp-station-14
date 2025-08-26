@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprites by DinnerCalzone (github) for Impstation 14, icon based on sprite taken from tgstation at commit https://github.com/tgstation/tgstation/commit/d9450a41e3264b8b51a31ec0bb71d9c9c6c401d4 , open sprites based on sprites taken from baystation at commit https://github.com/Baystation12/Baystation12/commit/a929584d9db319eb7484113221be25cfa1d5dc09 , inhands based on sprites by Alekshhh for Space Station 14.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "icon"
+    },
+    {
+        "name": "icon-open"
+    }
+  ]
+}

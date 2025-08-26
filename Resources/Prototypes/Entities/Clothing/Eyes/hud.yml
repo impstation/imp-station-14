@@ -44,7 +44,7 @@
   - type: Tag
     tags:
     - HudMedical
-    - CorgiWearable
+    - PetWearable
     - WhitelistChameleon
 
 - type: entity
@@ -60,7 +60,7 @@
   - type: Tag
     tags:
     - HudSecurity
-    - CorgiWearable
+    - PetWearable
     - WhitelistChameleon
 
 - type: entity
@@ -76,9 +76,9 @@
   - type: ShowJobIcons
   - type: Tag
     tags:
-    - HudAdmin # imp
-    - CorgiWearable
+    - PetWearable
     - WhitelistChameleon
+    - HudAdmin # imp
 
 - type: entity
   parent: [ClothingEyesBase, BaseLensSlot] # BaseLensSlot from imp
@@ -97,7 +97,7 @@
   - type: FlashImmunity # imp
   - type: Tag
     tags:
-    - CorgiWearable
+    - PetWearable
     - WhitelistChameleon
 
 - type: entity
@@ -226,7 +226,7 @@
   - type: ShowSyndicateIcons
   - type: Tag
     tags:
-    - CorgiWearable
+    - PetWearable
     - WhitelistChameleon
 
 - type: entity
@@ -243,7 +243,7 @@
   - type: ShowHealthBars
   - type: Tag
     tags:
-    - CorgiWearable
+    - PetWearable
     - WhitelistChameleon
 
 - type: entity
@@ -263,7 +263,7 @@
     sprite: Clothing/Eyes/Hud/medpatch.rsi
   - type: Tag
     tags:
-    - CorgiWearable
+    - PetWearable
     - WhitelistChameleon
     - HudMedical
 
@@ -284,7 +284,7 @@
     sprite: Clothing/Eyes/Hud/secpatch.rsi
   - type: Tag
     tags:
-    - CorgiWearable
+    - PetWearable
     - WhitelistChameleon
     - HudSecurity
 
@@ -324,14 +324,3 @@
   parent: [ClothingEyesEyepatchHudDiag, ClothingHeadEyeBaseFlipped]
   id: ClothingEyesEyepatchHudDiagFlipped
   name: diagnostic hud eyepatch
-
-- type: entity
-  parent: [ClothingEyesHudMedical]
-  id: ClothingEyesGlassesHudMedical
-  name: medical hud glasses
-  description: A stylish heads-up display that scans the humanoids in view and provides accurate data about their health status.
-  components:
-  - type: Sprite
-    sprite: Clothing/Eyes/Hud/medglasses.rsi
-  - type: Clothing
-    sprite: Clothing/Eyes/Hud/medglasses.rsi

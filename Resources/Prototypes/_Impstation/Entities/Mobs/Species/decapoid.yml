@@ -5,6 +5,7 @@
   id: BaseMobDecapoid
   abstract: true
   components:
+  # NOTE: to edit this entity's movement speed, you will need to edit the leg bodypart. i discovered this so you didnt have to
   - type: Barotrauma
     damage:
       types:
@@ -115,11 +116,9 @@
       Female: UnisexDecapoid
       Unsexed: UnisexDecapoid # male and female sounds have to 1) exist and 2) come first, otherwise urists will spawn without emote sounds 66% of the time, because this game is poorly programmed
   - type: MovementSpeedModifier
-    baseSprintSpeed: 3.5
-    baseWalkSpeed: 1.5
-    weightlessAcceleration: 1.5 # move more easily in space
-    weightlessFrictionNoInput: 2 # more control over movement in space
-    weightlessModifier: 1
+    baseWeightlessAcceleration: 1.5 # move more easily in space
+    baseWeightlessFriction: 2 # more control over movement in space
+    baseWeightlessModifier: 1
   - type: Temperature
     heatDamageThreshold: 380 # slightly more vulnerable to heat
     coldDamageThreshold: 0 # immune to space
@@ -130,7 +129,7 @@
         Cold : 0 # immune to space
     heatDamage:
       types:
-        Heat : 1
+        Heat : 1.5
   - type: TemperatureSpeed
     thresholds:
       293: 1.0
@@ -192,6 +191,7 @@
     - Hair
     - Snout
     - HeadSide
+  - type: Carriable # Carrying system from nyanotrasen.
 
 - type: entity
   parent: BaseSpeciesDummy

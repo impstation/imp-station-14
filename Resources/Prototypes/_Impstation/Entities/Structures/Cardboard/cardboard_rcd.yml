@@ -63,7 +63,6 @@
     - type: Icon
       sprite: _Impstation/Structures/Cardboard/cardboard_window.rsi
       state: full
-      deconstructionTarget: start
     - type: Physics
       bodyType: Static
     - type: Damageable
@@ -87,6 +86,7 @@
     - type: Construction
       graph: CardboardStructures
       node: window
+      deconstructionTarget: start
     - type: RCDDeconstructable
       cost: 4
       delay: 2

@@ -27,3 +27,13 @@
     soundHit:
       collection: WeakHit
     forceSound: true
+
+- type: entity
+  name : ouroBROSbolt
+  id: BulletOuroBros
+  parent: BulletOuroboros
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnOnTrigger
+    proto: FoesSeofSpawner
+    amount: 2

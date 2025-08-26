@@ -112,7 +112,6 @@
     - TemporaryBlindness
     - StaminaModifier
   - type: DamageStateVisuals
-    rotate: false
     states:
       Alive:
         Base: alive
@@ -177,7 +176,7 @@
   - type: VentCrawler # unique to queens at the moment, for stealth purposes
   - type: Sprite
     granularLayersRendering: true
-    drawDepth: SmallMobs
+    drawdepth: SmallMobs
     sprite: _Impstation/Mobs/Replicator/replicator.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -245,7 +244,7 @@
   - type: NoSlip
   - type: Sprite
     granularLayersRendering: true
-    drawDepth: SmallMobs
+    drawdepth: SmallMobs
     sprite: _Impstation/Mobs/Replicator/replicator.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -285,7 +284,7 @@
   - type: MovementAlwaysTouching
   - type: Sprite
     granularLayersRendering: true
-    drawDepth: Mobs
+    drawdepth: Mobs
     sprite: _Impstation/Mobs/Replicator/replicator.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -296,7 +295,6 @@
       visible: false
   - type: NoSlip
   - type: DamageStateVisuals
-    rotate: false
     states:
       Alive:
         Base: alive_level2
@@ -337,7 +335,7 @@
   - type: MovementAlwaysTouching
   - type: Sprite
     granularLayersRendering: true
-    drawDepth: Mobs
+    drawdepth: Mobs
     sprite: _Impstation/Mobs/Replicator/replicator.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -348,7 +346,6 @@
       visible: false
   - type: NoSlip
   - type: DamageStateVisuals
-    rotate: false
     states:
       Alive:
         Base: alive_level2alt
@@ -387,7 +384,7 @@
     friction: 35 # these fellas are the tanks, they rely on the smaller guys stunning things for them.
   - type: Sprite
     granularLayersRendering: true
-    drawDepth: Mobs
+    drawdepth: Mobs
     sprite: _Impstation/Mobs/Replicator/replicator.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -397,7 +394,6 @@
       shader: unshaded
       visible: false
   - type: DamageStateVisuals
-    rotate: false
     states:
       Alive:
         Base: alive_level3

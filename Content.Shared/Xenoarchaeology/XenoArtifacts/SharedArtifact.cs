@@ -10,10 +10,3 @@ public enum SharedArtifactsVisuals : byte
     IsActivated,
     IsUnlocking
 }
-
-/// <summary>
-///     Raised as an instant action event when a sentient artifact activates itself using an action. #IMP: Renamed to "XAEArtifact..." from "Artifact..."
-/// </summary>
-public sealed partial class ArtifactSelfActivateEvent : InstantActionEvent
-{
-}

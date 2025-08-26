@@ -31,7 +31,6 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Spawners;
-using Vector4 = Robust.Shared.Maths.Vector4;
 
 namespace Content.Server._EE.Supermatter.Systems;
 
@@ -697,7 +696,7 @@ public sealed partial class SupermatterSystem
         _entityLookup.GetEntitiesOnMap<PoweredLightComponent>(mapId, lightLookup);
         foreach (var light in lightLookup)
         {
-            if (!_rand.Prob(sm.LightFlickerChance))
+            if (!_random.Prob(sm.LightFlickerChance))
                 continue;
             _ghost.DoGhostBooEvent(light);
         }

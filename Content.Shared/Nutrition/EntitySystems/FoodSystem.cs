@@ -291,7 +291,7 @@ public sealed class FoodSystem : EntitySystem
             _adminLogger.Add(LogType.Ingestion, LogImpact.Low, $"{ToPrettyString(args.User):target} ate {ToPrettyString(entity.Owner):food}");
         }
 
-        _audio.PlayPredicted(entity.Comp.UseSound, args.Target.Value, args.User, AudioParams.Default.WithVolume(-1f).WithVariation(0.20f));
+        _audio.PlayPredicted(entity.Comp.UseSound, args.Target.Value, args.User, entity.Comp.UseSound.Params.WithVolume(-1f).WithVariation(0.20f));
 
         // Try to break all used utensils
         foreach (var utensil in utensils)
@@ -346,7 +346,7 @@ public sealed class FoodSystem : EntitySystem
 
         if (component.Trash.Count == 0)
         {
-            QueueDel(food);
+            PredictedQueueDel(food);
             return;
         }
 
@@ -357,10 +357,10 @@ public sealed class FoodSystem : EntitySystem
         var trashes = component.Trash;
         var tryPickup = _hands.IsHolding(user, food, out _);
 
-        Del(food);
+        PredictedDel(food);
         foreach (var trash in trashes)
         {
-            var spawnedTrash = Spawn(trash, position);
+            var spawnedTrash = EntityManager.PredictedSpawn(trash, position);
 
             // If the user is holding the item
             if (tryPickup)
@@ -463,7 +463,7 @@ public sealed class FoodSystem : EntitySystem
 
         var usedTypes = UtensilType.None;
 
-        foreach (var item in _hands.EnumerateHeld(user, hands))
+        foreach (var item in _hands.EnumerateHeld((user, hands)))
         {
             // Is utensil?
             if (!TryComp<UtensilComponent>(item, out var utensil))

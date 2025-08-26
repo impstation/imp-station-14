@@ -9,6 +9,29 @@
         tableId: BeltSecurityEntityTable
 
 - type: entity
+  id: ClothingBeltHospitalityDirectorFilled
+  parent: ClothingBeltHospitalityDirector
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: BeltFillHospitalityDirector
+
+- type: entityTable
+  id: BeltFillHospitalityDirector
+  table: !type:AllSelector
+    children:
+    - id: HydroponicsToolMiniHoe
+    - id: Wrench
+    - id: RagItem
+    - id: SoapNT
+    - id: FlashlightLantern
+    - id: HandLabeler
+    - id: FoodShakerSalt
+    - id: FoodShakerPepper
+
+- type: entity
   id: ClothingBeltUtilityBlackFilled
   parent: ClothingBeltUtilityBlack
   suffix: Filled
