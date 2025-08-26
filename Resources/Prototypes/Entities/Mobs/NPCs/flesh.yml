@@ -47,7 +47,7 @@
     spawned:
     - id: FoodMeat
       amount: 1
-  - type: Absorbable # imp edit
+  - type: GoobAbsorbable # imp edit
     biomassRestored: 0.5
   - type: Bloodstream
     bloodMaxVolume: 100
