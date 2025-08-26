@@ -107,7 +107,6 @@
     maxCount: 2
     table: !type:NestedSelector
       tableId: SalvageEquipmentLegendary
-  - !type:EntityTableDunGen
 
   - !type:CorridorDecalSkirtingDunGen
     cardinalDecals:
@@ -388,8 +387,6 @@
 
   - !type:CornerClutterDunGen
     contents: MineshaftClutter
-    
-  - !type:EntityTableDunGen
 
 # TODO: Check decal skirting fix contents in code.
 
@@ -417,7 +414,7 @@
 
   - !type:RoomEntranceDunGen
     tile: FloorSteel
-    contents: Airlock
+    contents: AirlockGlass
 
   - !type:EntranceFlankDunGen
     tile: FloorSteel
