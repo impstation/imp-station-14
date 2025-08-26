@@ -45,6 +45,7 @@ using Robust.Shared.Toolshed.TypeParsers;
 using Robust.Shared.Utility;
 using static Content.Client.CharacterInfo.CharacterInfoSystem;
 using Content.Shared._Impstation.CCVar;
+using Content.Client._Impstation.Chat; // imp collective minds
 
 
 
