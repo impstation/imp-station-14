@@ -1,7 +1,7 @@
-﻿using Content.Server.Roles;
-using Content.Shared.Containers.ItemSlots;
+﻿using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Mind.Components;
 using Content.Shared.Roles;
+using Content.Shared.Roles.Components;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Traits.Assorted;
 using Content.Shared.Chemistry.Components;

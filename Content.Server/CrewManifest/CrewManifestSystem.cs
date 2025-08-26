@@ -1,7 +1,6 @@
 using System.Linq;
 using Content.Server.Administration;
 using Content.Server.EUI;
-using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Server.StationRecords;
 using Content.Server.StationRecords.Systems;
@@ -12,12 +11,12 @@ using Content.Shared.GameTicking;
 using Content.Shared.IdentityManagement; // imp
 using Content.Shared.Roles;
 using Content.Shared.Silicons.StationAi; // imp
+using Content.Shared.Station.Components;
 using Content.Shared.StationRecords;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
 using Robust.Shared.GameObjects.Components.Localization; // imp
 using Robust.Shared.Enums; // imp; for Gender
 
@@ -235,7 +234,7 @@ public sealed class CrewManifestSystem : EntitySystem
         foreach (var recordObject in iter)
         {
             var record = recordObject.Item2;
-            var entry = new CrewManifestEntry(record.Name, record.Gender.ToString().ToLowerInvariant(), record.JobTitle, record.JobIcon, record.JobPrototype);
+            var entry = new CrewManifestEntry(record.Name, record.Gender.ToString().ToLowerInvariant(), record.JobTitle, record.JobIcon, record.JobPrototype); //imp edit, pronouns on manifest
 
             _prototypeManager.TryIndex(record.JobPrototype, out JobPrototype? job);
             entriesSort.Add((job, entry));
