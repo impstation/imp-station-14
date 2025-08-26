@@ -193,10 +193,10 @@
   physicalDesc: reagent-physical-desc-irwizine
   flavor: irwizine
   color: "#fff174"
-  recognizable: true
   metabolisms:
     Medicine:
       effects:
+      - !type:MakeTame
       - !type:FactionChange
         faction: Passive
         conditions:
@@ -337,3 +337,9 @@
       - !type:AdjustReagent #imp
         reagent: Cellulose
         amount: 0.5
+      - !type:ModifyBleedAmount
+        amount: 1
+        conditions:
+        - !type:OrganType
+          type: Moth
+          shouldHave: false

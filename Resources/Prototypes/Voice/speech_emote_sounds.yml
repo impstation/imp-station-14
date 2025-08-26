@@ -542,7 +542,7 @@
     variation: 0.05
   sounds:
     Scream:
-      collection: SiliconScreams
+      path: /Audio/_Impstation/Voice/Silicon/silicon_scream.ogg # imp
     Beep:
       path: /Audio/Machines/twobeep.ogg
     Chime:
@@ -555,6 +555,8 @@
       path: /Audio/Items/bikehorn.ogg
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
+    Laugh: # imp
+      path: /Audio/_Impstation/Voice/Silicon/silicon_laugh.ogg # imp
 
 - type: emoteSounds
   id: UnisexSiliconSyndicate
@@ -583,6 +585,8 @@
   params:
     variation: 0.05
   sounds:
+    Scream:
+      collection: XenoborgScream
     Laugh:
       collection: XenoborgLaugh
     Beep:
