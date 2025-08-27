@@ -29,7 +29,6 @@
       Cold: 0.8
       Caustic: 0.8
   - type: TendableWound
-    untendedThreshold: 15
   - type: BleedingWound
     bleedingCoefficients:
       Blunt: 0.015
@@ -257,9 +256,9 @@
     maximumDamage: 10
   - type: WoundDescription
     descriptions:
-      7: wound-heat-small
-      3: wound-heat-small
-      0: wound-heat-small
+      7: wound-heat-small-7
+      3: wound-heat-small-3
+      0: wound-heat-small-0
 
 - type: entity
   abstract: true
