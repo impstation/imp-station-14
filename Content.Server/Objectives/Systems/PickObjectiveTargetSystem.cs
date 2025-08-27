@@ -10,6 +10,8 @@ using Content.Server.Roles; // imp
 using Robust.Shared.Player; // imp
 using Robust.Shared.Random;
 using System.Linq;
+using Content.Server._Goobstation.Roles; // imp
+using Content.Shared.Roles.Components; // imp
 
 namespace Content.Server.Objectives.Systems;
 
@@ -33,12 +35,8 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
 
         SubscribeLocalEvent<PickSpecificPersonComponent, ObjectiveAssignedEvent>(OnSpecificPersonAssigned);
         SubscribeLocalEvent<PickRandomPersonComponent, ObjectiveAssignedEvent>(OnRandomPersonAssigned);
-        SubscribeLocalEvent<PickRandomHeadComponent, ObjectiveAssignedEvent>(OnRandomHeadAssigned);
-        SubscribeLocalEvent<PickRandomTraitorComponent, ObjectiveAssignedEvent>(OnTraitorAssigned);
-        SubscribeLocalEvent<PickRandomAntagComponent, ObjectiveAssignedEvent>(OnAntagAssigned);
 
-        SubscribeLocalEvent<RandomTraitorProgressComponent, ObjectiveAssignedEvent>(OnRandomTraitorProgressAssigned);
-        SubscribeLocalEvent<RandomTraitorAliveComponent, ObjectiveAssignedEvent>(OnRandomTraitorAliveAssigned);
+        SubscribeLocalEvent<PickRandomAntagComponent, ObjectiveAssignedEvent>(OnAntagAssigned); // imp
     }
 
     private void OnSpecificPersonAssigned(Entity<PickSpecificPersonComponent> ent, ref ObjectiveAssignedEvent args)
@@ -73,7 +71,7 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
     private void OnRandomPersonAssigned(Entity<PickRandomPersonComponent> ent, ref ObjectiveAssignedEvent args)
     {
         // invalid objective prototype
-        if (!TryComp<TargetObjectiveComponent>(ent.Owner, out var target))
+        if (!TryComp<TargetObjectiveComponent>(ent, out var target))
         {
             args.Cancelled = true;
             return;
@@ -83,243 +81,14 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
         if (target.Target != null)
             return;
 
-        var allHumans = _mind.GetAliveHumans(args.MindId);
-
-        // Can't have multiple objectives to kill the same person
-        foreach (var objective in args.Mind.Objectives)
-        {
-            if (HasComp<KillPersonConditionComponent>(objective) && TryComp<TargetObjectiveComponent>(objective, out var kill))
-            {
-                allHumans.RemoveWhere(x => x.Owner == kill.Target);
-            }
-        }
-
-        // no other humans to kill
-        if (allHumans.Count == 0)
+        // couldn't find a target :(
+        if (_mind.PickFromPool(ent.Comp.Pool, ent.Comp.Filters, args.MindId) is not {} picked)
         {
             args.Cancelled = true;
             return;
         }
 
-        _target.SetTarget(ent.Owner, _random.Pick(allHumans), target);
-    }
-
-    private void OnRandomHeadAssigned(Entity<PickRandomHeadComponent> ent, ref ObjectiveAssignedEvent args)
-    {
-        // invalid prototype
-        if (!TryComp<TargetObjectiveComponent>(ent.Owner, out var target))
-        {
-            args.Cancelled = true;
-            return;
-        }
-
-        // target already assigned
-        if (target.Target != null)
-            return;
-
-        // no other humans to kill
-        var allHumans = _mind.GetAliveHumans(args.MindId);
-        if (allHumans.Count == 0)
-        {
-            args.Cancelled = true;
-            return;
-        }
-
-        var allHeads = new HashSet<Entity<MindComponent>>();
-        foreach (var person in allHumans)
-        {
-            if (TryComp<MindComponent>(person, out var mind) && mind.OwnedEntity is { } owned && HasComp<CommandStaffComponent>(owned))
-                allHeads.Add(person);
-        }
-
-        if (allHeads.Count == 0)
-            allHeads = allHumans; // fallback to non-head target
-
-        _target.SetTarget(ent.Owner, _random.Pick(allHeads), target);
-    }
-
-    private void OnRandomTraitorProgressAssigned(Entity<RandomTraitorProgressComponent> ent, ref ObjectiveAssignedEvent args)
-    {
-        // invalid prototype
-        if (!TryComp<TargetObjectiveComponent>(ent.Owner, out var target))
-        {
-            args.Cancelled = true;
-            return;
-        }
-
-        var traitors = _traitorRule.GetOtherTraitorMindsAliveAndConnected(args.Mind).ToHashSet();
-
-        // cant help anyone who is tasked with helping:
-        // 1. thats boring
-        // 2. no cyclic progress dependencies!!!
-        foreach (var traitor in traitors)
-        {
-            // TODO: replace this with TryComp<ObjectivesComponent>(traitor) or something when objectives are moved out of mind
-            if (!TryComp<MindComponent>(traitor.Id, out var mind))
-                continue;
-
-            foreach (var objective in mind.Objectives)
-            {
-                if (HasComp<HelpProgressConditionComponent>(objective))
-                    traitors.RemoveWhere(x => x.Mind == mind);
-            }
-        }
-
-        // Can't have multiple objectives to help/save the same person
-        foreach (var objective in args.Mind.Objectives)
-        {
-            if (HasComp<RandomTraitorAliveComponent>(objective) || HasComp<RandomTraitorProgressComponent>(objective))
-            {
-                if (TryComp<TargetObjectiveComponent>(objective, out var help))
-                {
-                    traitors.RemoveWhere(x => x.Id == help.Target);
-                }
-            }
-        }
-
-        // no more helpable traitors
-        if (traitors.Count == 0)
-        {
-            args.Cancelled = true;
-            return;
-        }
-
-        _target.SetTarget(ent.Owner, _random.Pick(traitors).Id, target);
-    }
-
-    private void OnRandomTraitorAliveAssigned(Entity<RandomTraitorAliveComponent> ent, ref ObjectiveAssignedEvent args)
-    {
-        // invalid prototype
-        if (!TryComp<TargetObjectiveComponent>(ent.Owner, out var target))
-        {
-            args.Cancelled = true;
-            return;
-        }
-
-        var traitors = _traitorRule.GetOtherTraitorMindsAliveAndConnected(args.Mind).Select(t => t.Id).ToHashSet(); // Imp edit -  just get entity
-
-        // Can't have multiple objectives to help/save the same person
-        foreach (var objective in args.Mind.Objectives)
-        {
-            if (HasComp<RandomTraitorAliveComponent>(objective) || HasComp<RandomTraitorProgressComponent>(objective))
-            {
-                if (TryComp<TargetObjectiveComponent>(objective, out var help))
-                {
-                    traitors.RemoveWhere(x => x == help.Target); // Imp edit
-                }
-            }
-        }
-
-        // You are the first/only traitor.
-        if (traitors.Count == 0)
-        {
-            // Imp edit start
-            if (!_traitorRule.ForceAllPossible)
-            {
-                args.Cancelled = true;
-                return;
-            }
-
-            //Fallback to assign people who COULD be assigned as traitor - might need to just do this from the start on ForceAll rounds, limiting it to existing traitors could be skewing the numbers towards just a few people.
-            var allHumans = _mind.GetAliveHumans(args.MindId).Select(p => p.Owner).ToHashSet();
-            var allValidTraitorCandidates = new HashSet<EntityUid>();
-            if (_traitorRule.CurrentAntagPool != null)
-            {
-                var poolSessions = _traitorRule.CurrentAntagPool.GetPoolSessions();
-                foreach (var mind in allHumans)
-                {
-                    if (!args.Mind.ObjectiveTargets.Contains(mind) && _job.MindTryGetJob(mind, out var prototype) && prototype.CanBeAntag && _playerManager.TryGetSessionByEntity(mind, out var session) && poolSessions.Contains(session))
-                    {
-                        allValidTraitorCandidates.Add(mind);
-                    }
-                }
-            }
-
-            // Just try and save some other nerd for some reason. The syndicate needs them alive.
-            if (allValidTraitorCandidates.Count == 0)
-            {
-                allValidTraitorCandidates = allHumans;
-            }
-            traitors = allValidTraitorCandidates;
-
-            // One last check for the road, then cancel it if there's nothing left
-            if (traitors.Count == 0)
-            {
-                args.Cancelled = true;
-                return;
-            }
-            // Imp edit end
-        }
-        var randomTarget = _random.Pick(traitors); // Imp edit
-        _target.SetTarget(ent.Owner, randomTarget, target);
-    }
-
-    // Imp addition - ideally I'd redo this funciton to work for both but I'm not doing that right now
-    private void OnTraitorAssigned(Entity<PickRandomTraitorComponent> ent, ref ObjectiveAssignedEvent args)
-    {
-        // invalid prototype
-        if (!TryComp<TargetObjectiveComponent>(ent.Owner, out var target))
-        {
-            args.Cancelled = true;
-            return;
-        }
-
-        var traitors = _traitorRule.GetOtherTraitorMindsAliveAndConnected(args.Mind).Select(t => t.Id).ToHashSet(); // Imp edit -  just get entity
-
-        // Can't have multiple objectives to help/save the same person
-        foreach (var objective in args.Mind.Objectives)
-        {
-            if (HasComp<RandomTraitorAliveComponent>(objective) || HasComp<RandomTraitorProgressComponent>(objective))
-            {
-                if (TryComp<TargetObjectiveComponent>(objective, out var help))
-                {
-                    traitors.RemoveWhere(x => x == help.Target); // Imp edit
-                }
-            }
-        }
-
-        // You are the first/only traitor.
-        if (traitors.Count == 0)
-        {
-            // Imp edit start
-            if (!_traitorRule.ForceAllPossible)
-            {
-                args.Cancelled = true;
-                return;
-            }
-
-            //Fallback to assign people who COULD be assigned as traitor - might need to just do this from the start on ForceAll rounds, limiting it to existing traitors could be skewing the numbers towards just a few people.
-            var allHumans = _mind.GetAliveHumans(args.MindId).Select(p => p.Owner).ToHashSet();
-            var allValidTraitorCandidates = new HashSet<EntityUid>();
-            if (_traitorRule.CurrentAntagPool != null)
-            {
-                var poolSessions = _traitorRule.CurrentAntagPool.GetPoolSessions();
-                foreach (var mind in allHumans)
-                {
-                    if (!args.Mind.ObjectiveTargets.Contains(mind) && _job.MindTryGetJob(mind, out var prototype) && prototype.CanBeAntag && _playerManager.TryGetSessionByEntity(mind, out var session) && poolSessions.Contains(session))
-                    {
-                        allValidTraitorCandidates.Add(mind);
-                    }
-                }
-            }
-
-            // Just try and save some other nerd for some reason. The syndicate needs them alive.
-            if (allValidTraitorCandidates.Count == 0)
-            {
-                allValidTraitorCandidates = allHumans;
-            }
-            traitors = allValidTraitorCandidates;
-
-            // One last check for the road, then cancel it if there's nothing left
-            if (traitors.Count == 0)
-            {
-                args.Cancelled = true;
-                return;
-            }
-            // Imp edit end
-        }
-        var randomTarget = _random.Pick(traitors); // Imp edit
-        _target.SetTarget(ent.Owner, randomTarget, target);
+        _target.SetTarget(ent, picked, target);
     }
 
     // imp addition for Bounty Hunters
@@ -373,7 +142,7 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
                 }
 
                 //huge list of every single whitelisted antag's role component
-                if (_role.MindHasRole<ChangelingRoleComponent>(mindId)  /*Changeling*/
+                if (_role.MindHasRole<GoobChangelingRoleComponent>(mindId)  /*Changeling*/
                 /*|| _role.MindHasRole<RevolutionaryRoleComponent>(mindId)/*Head Rev (REVS USE THE SAME MINDROLE WHYYY)*/
                 || _role.MindHasRole<HereticRoleComponent>(mindId)      /*Heretic*/
                 || _role.MindHasRole<ThiefRoleComponent>(mindId)        /*Thief*/

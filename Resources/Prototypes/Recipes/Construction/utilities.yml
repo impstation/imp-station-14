@@ -737,64 +737,53 @@
   - GasPassiveGate
   - GasPassiveGateAlt1
   - GasPassiveGateAlt2
-# TODO: Uncomment once pressure regulators are merged
-#- type: construction
-#  id: GasPressureRegulator
-#  graph: GasBinary
-#  startNode: start
-#  targetNode: pressureregulator
-#  category: construction-category-atmos # imp
-#  placementMode: AlignAtmosPipeLayers
-#  canBuildInImpassable: false
-#  conditions:
-#  - !type:NoUnstackableInTile
-#  alternativePrototypes:
-#  - GasPressureRegulator
-#  - GasPressureRegulatorAlt1
-#  - GasPressureRegulatorAlt2
-
-#- type: construction
-#  id: GasPressureRegulatorAlt1
-#  hide: true
-#  graph: GasBinary
-#  startNode: start
-#  targetNode: pressureregulatorAlt1
-#  category: construction-category-atmos # imp
-#  placementMode: AlignAtmosPipeLayers
-#  canBuildInImpassable: false
-#  conditions:
-#  - !type:NoUnstackableInTile
-#  alternativePrototypes:
-#  - GasPressureRegulator
-#  - GasPressureRegulatorAlt1
-#  - GasPressureRegulatorAlt2
-
-#- type: construction
-#  id: GasPressureRegulatorAlt2
-#  hide: true
-#  graph: GasBinary
-#  startNode: start
-#  targetNode: pressureregulatorAlt2
-#  category: construction-category-atmos # imp
-#  placementMode: AlignAtmosPipeLayers
-#  canBuildInImpassable: false
-#  conditions:
-#  - !type:NoUnstackableInTile
-#  alternativePrototypes:
-#  - GasPressureRegulator
-#  - GasPressureRegulatorAlt1
-#  - GasPressureRegulatorAlt2
 
 - type: construction
   id: GasPressureRegulator
   graph: GasBinary
   startNode: start
   targetNode: pressureregulator
-  category: construction-category-utilities
-  placementMode: SnapgridCenter
+  category: construction-category-atmos # imp
+  placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
   - !type:NoUnstackableInTile
+  alternativePrototypes:
+  - GasPressureRegulator
+  - GasPressureRegulatorAlt1
+  - GasPressureRegulatorAlt2
+
+- type: construction
+  id: GasPressureRegulatorAlt1
+  hide: true
+  graph: GasBinary
+  startNode: start
+  targetNode: pressureregulatorAlt1
+  category: construction-category-atmos # imp
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  conditions:
+  - !type:NoUnstackableInTile
+  alternativePrototypes:
+  - GasPressureRegulator
+  - GasPressureRegulatorAlt1
+  - GasPressureRegulatorAlt2
+
+- type: construction
+  id: GasPressureRegulatorAlt2
+  hide: true
+  graph: GasBinary
+  startNode: start
+  targetNode: pressureregulatorAlt2
+  category: construction-category-atmos # imp
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  conditions:
+  - !type:NoUnstackableInTile
+  alternativePrototypes:
+  - GasPressureRegulator
+  - GasPressureRegulatorAlt1
+  - GasPressureRegulatorAlt2
 
 - type: construction
   id: GasValve
@@ -860,7 +849,7 @@
 
 - type: construction
   id: SignalControlledValveAlt1
-  hide: true
+  hide: true #imp, upstream oversight
   graph: GasBinary
   startNode: start
   targetNode: signalvalveAlt1
@@ -876,7 +865,7 @@
 
 - type: construction
   id: SignalControlledValveAlt2
-  hide: true
+  hide: true #imp, upstream oversight
   graph: GasBinary
   startNode: start
   targetNode: signalvalveAlt2
