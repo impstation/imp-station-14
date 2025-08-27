@@ -10,7 +10,7 @@ using Robust.Shared.Audio.Sources;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 
-namespace Content.Client.Announcements.Systems;
+namespace Content.Client._EE.Announcements.Systems;
 
 public sealed class AnnouncerSystem : SharedAnnouncerSystem
 {

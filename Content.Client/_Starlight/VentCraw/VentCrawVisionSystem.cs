@@ -1,11 +1,9 @@
-// Initial file ported from the Starlight project repo, located at https://github.com/ss14Starlight/space-station-14
-
 using Content.Client.SubFloor;
 using Content.Shared.VentCraw;
 using Robust.Client.Player;
 using Robust.Shared.Timing;
 
-namespace Content.Client.VentCraw;
+namespace Content.Client._Starlight.VentCraw;
 
 public sealed class VentCrawSystem : EntitySystem
 {

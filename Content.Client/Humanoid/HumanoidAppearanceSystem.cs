@@ -526,6 +526,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         spriteLayer.Visible = visible;
 
         // I fucking hate this. I'll get around to refactoring sprite layers eventually I swear
+        // Just a week away...
 
         foreach (var markingList in ent.Comp.MarkingSet.Markings.Values)
         {

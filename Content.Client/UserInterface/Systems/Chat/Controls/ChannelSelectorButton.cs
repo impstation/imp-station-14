@@ -1,6 +1,6 @@
 using System.Numerics;
-using Content.Shared.CollectiveMind;
 using Content.Shared.Chat;
+using Content.Shared.CollectiveMind; // imp add
 
 namespace Content.Client.UserInterface.Systems.Chat.Controls;
 

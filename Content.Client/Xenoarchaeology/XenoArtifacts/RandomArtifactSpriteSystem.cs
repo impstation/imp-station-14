@@ -1,6 +1,6 @@
-using Content.Shared.Xenoarchaeology.Artifact.Components; // #IMP
 using Content.Shared.Xenoarchaeology.XenoArtifacts;
 using Robust.Client.GameObjects;
+using Content.Shared.Xenoarchaeology.Artifact.Components; // #IMP
 
 namespace Content.Client.Xenoarchaeology.XenoArtifacts;
 

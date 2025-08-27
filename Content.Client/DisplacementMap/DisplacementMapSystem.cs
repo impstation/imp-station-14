@@ -2,8 +2,7 @@ using Content.Shared.DisplacementMap;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Serialization.Manager;
-using Robust.Shared.Prototypes;
-using static Robust.Client.GameObjects.SpriteComponent;
+using static Robust.Client.GameObjects.SpriteComponent; // imp
 
 namespace Content.Client.DisplacementMap;
 
