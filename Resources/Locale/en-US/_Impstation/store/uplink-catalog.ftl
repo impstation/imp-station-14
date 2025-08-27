@@ -4,6 +4,9 @@ uplink-animal-friends-kit-desc = A box containing 4 doses of subjuzine, an alter
 uplink-cleaner-lake-upgrade-name = Shining Spring remilitarisation kit
 uplink-cleaner-lake-upgrade-desc = A kit that can be used to remove the safety measures from a Shining Spring.
 
+uplink-cleaning-grenade-bleach-name = Box of heavy-duty cleanades
+uplink-cleaning-grenade-bleach-desc = A box containing some discontinued heavy-duty cleaning grenades. WARNING: DO NOT INHALE
+
 uplink-zipper-ap-name = Zipper .22
 uplink-zipper-ap-desc = A regretful purchase from a liquidation sale. Comes loaded with armor-piercing rounds. Uses .22 auto.
 
