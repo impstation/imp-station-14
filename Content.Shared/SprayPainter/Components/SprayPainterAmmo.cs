@@ -1,4 +1,3 @@
-using Robust.Shared.Audio; // imp
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.SprayPainter.Components;
@@ -15,10 +14,4 @@ public sealed partial class SprayPainterAmmoComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public int Charges = 15;
-
-    /// <summary>
-    /// IMP: The sound played when ammo is inserted into a spray painter.
-    /// </summary>
-    [DataField]
-    public SoundSpecifier SoundInsert = new SoundPathSpecifier("/Audio/Weapons/Guns/MagIn/revolver_magin.ogg");
 }
