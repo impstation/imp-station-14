@@ -1,0 +1,17 @@
+- type: guideEntry
+  id: OffbrandMedical
+  name: guide-entry-medical
+  text: "/ServerInfo/_Offbrand/Medical.xml"
+  children:
+  - OffbrandPhysician
+  - OffbrandMedicine
+
+- type: guideEntry
+  id: OffbrandPhysician
+  name: guide-entry-physician
+  text: "/ServerInfo/_Offbrand/Physician.xml"
+
+- type: guideEntry
+  id: OffbrandMedicine
+  name: guide-entry-medicine
+  text: "/ServerInfo/_Offbrand/Medicine.xml"
