@@ -19,3 +19,5 @@
       interfaces:
         enum.ChameleonUiKey.Key:
           type: ChameleonBoundUserInterface
+    - type: PluralName # imp
+      oneOf: plural-name-pair-1
