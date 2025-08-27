@@ -21,7 +21,7 @@
           wound: WoundClamped
           damages:
             damageDict:
-              Brute: 5
+              Blunt: 5
       - tool: Retracting
         doAfter: 1
         completed:
@@ -29,7 +29,7 @@
           wound: WoundRetracted
           damages:
             damageDict:
-              Brute: 5
+              Blunt: 5
   - node: OpenIncision
     edges:
     - to: OpenIncision
@@ -62,7 +62,7 @@
         wound: WoundOpenRibCage
         damages:
           damageDict:
-            Brute: 5
+            Blunt: 5
       steps:
       - tool: Sawing
         doAfter: 5

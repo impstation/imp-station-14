@@ -1,8 +1,8 @@
 - type: reagent
   id: Paracetamol
-  name: paracetamol
+  name: reagent-name-paracetamol
   group: Medicine
-  desc: Commonly known as Tylenol, this chemical is a mild, simple painkiller.
+  desc: reagent-desc-paracetamol
   flavor: medicine
   color: "#c8a5dc"
   physicalDesc: reagent-physical-desc-opaque
@@ -26,9 +26,9 @@
 
 - type: reagent
   id: Tramadol
-  name: tramadol
+  name: reagent-name-tramadol
   group: Medicine
-  desc: An effective painkiller. Don't mix with alcohol.
+  desc: reagent-desc-tramadol
   flavor: medicine
   color: "#cb68fc"
   physicalDesc: reagent-physical-desc-opaque
@@ -70,9 +70,9 @@
 
 - type: reagent
   id: Oxycodone
-  name: oxycodone
+  name: reagent-name-oxycodone
   group: Medicine
-  desc: A very effective painkiller. Don't mix with alcohol.
+  desc: reagent-desc-oxycodone
   flavor: medicine
   color: "#800080"
   physicalDesc: reagent-physical-desc-opaque
