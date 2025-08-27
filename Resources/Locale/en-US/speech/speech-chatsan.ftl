@@ -190,8 +190,5 @@ chatsan-replacement-66 = something
 chatsan-word-67 = allg
 chatsan-replacement-67 = all good
 # imp
-chatsan-word-68 = dnr
-chatsan-replacement-68 = do not revive
-
-chatsan-word-69 = unr
-chatsan-replacement-69 = unrevivable
+chatsan-word-68 = unr
+chatsan-replacement-68 = unrevivable
