@@ -96,7 +96,7 @@
   name: meteor
   components:
   - type: Explosive
-    totalIntensity: 10
+    totalIntensity: 25
 
 - type: entity
   parent: MeteorMedium
@@ -104,7 +104,7 @@
   name: meteor
   components:
   - type: Explosive
-    totalIntensity: 25
+    totalIntensity: 50
 
 - type: entity
   parent: MeteorLarge
@@ -112,7 +112,7 @@
   name: meteor
   components:
   - type: Explosive
-    totalIntensity: 40
+    totalIntensity: 75
 
 - type: entity
   parent: MeteorLarge

@@ -8,7 +8,7 @@
 - type: hereticKnowledge
   id: HeartbeatOfMansus
   ritualPrototypes:
-  - Sacrifice  
+  - Sacrifice
 
 - type: hereticKnowledge
   id: AmberFocus
@@ -23,235 +23,190 @@
 ### ash path
 - type: hereticKnowledge
   id: NightwatcherSecret
-  path: Ash
-  stage: 1
+  requiredPower: 0
   ritualPrototypes:
-  - BladeAsh  
+  - BladeAsh
 
 - type: hereticKnowledge
   id: GraspOfAsh
-  path: Ash
-  stage: 2
+  requiredPower: 1
 
 - type: hereticKnowledge
   id: BlazingDash
-  path: Ash
-  sideKnowledge: true
-  stage: 3
+  requiredPower: 2
   actionPrototypes:
   - ActionHereticBlazingDash
 
 - type: hereticKnowledge
   id: AshenShift
-  path: Ash
-  sideKnowledge: true
-  stage: 3
+  requiredPower: 2
   actionPrototypes:
   - ActionHereticJaunt
 
 - type: hereticKnowledge
   id: MarkOfAsh
-  path: Ash
-  stage: 4
+  requiredPower: 3
 
 - type: hereticKnowledge
   id: VolcanicBlast
-  path: Ash
-  stage: 5
+  requiredPower: 4
   actionPrototypes:
   - ActionHereticVolcanoBlast
 
 - type: hereticKnowledge
   id: MaskOfMadness
-  path: Ash
-  sideKnowledge: true
-  stage: 6
+  requiredPower: 5
   ritualPrototypes:
   - MaskOfMadness
 
 - type: hereticKnowledge
   id: FieryBlade
-  path: Ash
-  stage: 7
+  requiredPower: 6
 
 - type: hereticKnowledge
   id: NightwatcherRebirth
-  path: Ash
-  sideKnowledge: true
-  stage: 8
+  requiredPower: 7
   actionPrototypes:
   - ActionHereticNightwatcherRebirth
 
 - type: hereticKnowledge
   id: AscensionAsh
-  path: Ash
-  stage: 9
+  requiredPower: 8
   ritualPrototypes:
   - AscensionAsh
 
 - type: hereticKnowledge
   id: AshlordRite
-  path: Ash
-  stage: 10
+  requiredPower: 00
   actionPrototypes:
   - ActionHereticAscension1
-  - ActionHereticAscension2
 
 ### flesh path
 - type: hereticKnowledge
   id: PrincipleOfHunger
-  path: Flesh
-  stage: 1
+  requiredPower: 0
   ritualPrototypes:
   - BladeFlesh
 
 - type: hereticKnowledge
   id: GraspOfFlesh
-  path: Flesh
-  stage: 2
+  requiredPower: 1
 
 - type: hereticKnowledge
   id: ImperfectRitual
-  path: Flesh
-  sideKnowledge: true
-  stage: 3
+  requiredPower: 2
   ritualPrototypes:
   - ImperfectRitual
 
 - type: hereticKnowledge
   id: MarkOfFlesh
-  path: Flesh
-  stage: 4
+  requiredPower: 3
 
 - type: hereticKnowledge
   id: KnittingOfFlesh
-  path: Flesh
-  stage: 5
+  requiredPower: 4
   actionPrototypes:
   - ActionHereticFleshSurgery
 
 - type: hereticKnowledge
   id: RawRitual
-  path: Flesh
-  sideKnowledge: true
-  stage: 6
+  requiredPower: 5
   ritualPrototypes:
   - RawRitual
 
 - type: hereticKnowledge
   id: BleedingSteel
-  path: Flesh
-  stage: 7
+  requiredPower: 6
 
 - type: hereticKnowledge
   id: LonelyRitual
-  path: Flesh
-  sideKnowledge: true
-  stage: 8
+  requiredPower: 7
   ritualPrototypes:
   - LonelyRitual
 
 - type: hereticKnowledge
   id: AscensionFlesh
-  path: Flesh
-  stage: 9
+  requiredPower: 8
   ritualPrototypes:
   - AscensionFlesh
 
 - type: hereticKnowledge
   id: PriestFinalHymn
-  path: Flesh
-  stage: 10
+  requiredPower: 00
   actionPrototypes:
   - ActionPolymorphHereticHorror
 
 ### void path
 - type: hereticKnowledge
   id: GlimmerOfWinter
-  path: Void
-  stage: 1
+  requiredPower: 0
   ritualPrototypes:
   - BladeVoid
 
 - type: hereticKnowledge
   id: GraspOfVoid
-  path: Void
-  stage: 2
+  requiredPower: 1
 
 - type: hereticKnowledge
   id: AristocratWay
-  path: Void
-  sideKnowledge: true
-  stage: 3
+  requiredPower: 2
   event: !type:HereticAristocratWayEvent
 
 - type: hereticKnowledge
   id: MarkOfVoid
-  path: Void
-  stage: 4
+  requiredPower: 3
 
 - type: hereticKnowledge
   id: VoidBlast
-  path: Void
-  stage: 5
+  requiredPower: 4
   actionPrototypes:
   - ActionHereticVoidBlast
 
 - type: hereticKnowledge
   id: VoidPhase
-  path: Void
-  sideKnowledge: true
-  stage: 6
+  requiredPower: 5
   actionPrototypes:
   - ActionHereticVoidPhase
 
 - type: hereticKnowledge
   id: SeekingBlade
-  path: Void
-  stage: 7
+  requiredPower: 6
 
 - type: hereticKnowledge
   id: VoidPull
-  path: Void
-  sideKnowledge: true
-  stage: 8
+  requiredPower: 7
   actionPrototypes:
   - ActionHereticVoidPull
 
 - type: hereticKnowledge
   id: AscensionVoid
-  stage: 9
-  path: Void
+  requiredPower: 8
   ritualPrototypes:
   - AscensionVoid
 
 - type: hereticKnowledge
   id: WaltzAtTheEndOfTime
-  stage: 10
-  path: Void
+  requiredPower: 00
   event: !type:HereticAscensionVoidEvent
 
 ### side paths
 - type: hereticKnowledge
   id: RitualOfKnowledge
-  sideKnowledge: true
-  stage: 5
+  requiredPower: 4
   ritualPrototypes:
   - RitualOfKnowledge
 
-## stage 3
+## requiredPower 2
 - type: hereticKnowledge
   id: ArmorerRitual
-  sideKnowledge: true
-  stage: 3
+  requiredPower: 2
   ritualPrototypes:
-  - ArmorerRitual  
+  - ArmorerRitual
 
 - type: hereticKnowledge
   id: PriestRitual
-  sideKnowledge: true
-  stage: 3
+  requiredPower: 2
   ritualPrototypes:
   - PriestRitual
 
-## stage 7
+## requiredPower 6

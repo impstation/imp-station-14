@@ -171,9 +171,9 @@ public sealed partial class StoreMenu : DefaultWindow
             //go on a long, arduous journey to get the stage of the knowledge
             var knowledgeID = listing.ProductHereticKnowledge;
             var knowledgeProto = _prototypeManager.Index<HereticKnowledgePrototype>(knowledgeID);
-            var knowledgeLevel = knowledgeProto.Stage;
+            var requiredPower = knowledgeProto.RequiredPower;
 
-            return Loc.GetString("store-ui-heretic-level-display", ("level", knowledgeLevel));
+            return Loc.GetString("store-ui-heretic-level-display", ("power", requiredPower));
         }
 
         return null;

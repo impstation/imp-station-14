@@ -9,9 +9,9 @@
   description: A special suit that protects against hazardous, low pressure environments. Has thermal shielding.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/atmospherics.rsi
+    sprite: _Impstation/Clothing/OuterClothing/Hardsuits/atmospherics.rsi #Imp
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/atmospherics.rsi
+    sprite: _Impstation/Clothing/OuterClothing/Hardsuits/atmospherics.rsi #Imp
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
@@ -43,7 +43,7 @@
     clothingPrototype: ClothingHeadHelmetHardsuitAtmos
   - type: Tag
     tags:
-    - CorgiWearable
+    - CorgiWearable      
     - Hardsuit
     - WhitelistChameleon
 
@@ -55,9 +55,9 @@
   description: A special suit that protects against hazardous, low pressure environments. Has radiation shielding.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
+    sprite: _Impstation/Clothing/OuterClothing/Hardsuits/engineering.rsi #imp
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
+    sprite: _Impstation/Clothing/OuterClothing/Hardsuits/engineering.rsi #imp
   - type: PressureProtection
     highPressureMultiplier: 0.04
     lowPressureMultiplier: 1000
@@ -85,7 +85,7 @@
     clothingPrototype: ClothingHeadHelmetHardsuitEngineering
   - type: Tag
     tags:
-    - CorgiWearable
+    - CorgiWearable      
     - Hardsuit
     - WhitelistChameleon
 
@@ -396,9 +396,9 @@
   description: A special hardsuit that protects against hazardous, low pressure environments, made for the chief engineer of the station.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/engineering-white.rsi
+    sprite: _Impstation/Clothing/OuterClothing/Hardsuits/engineering-white.rsi #imp
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/engineering-white.rsi
+    sprite: _Impstation/Clothing/OuterClothing/Hardsuits/engineering-white.rsi #imp
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000

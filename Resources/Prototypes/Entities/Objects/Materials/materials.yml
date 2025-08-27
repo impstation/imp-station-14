@@ -11,8 +11,8 @@
     size: Normal
   - type: Tag
     tags:
-      - DroneUsable
       - RawMaterial
+      - DroneUsable #imp
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -48,14 +48,12 @@
     - state: cardboard_3
       map: ["base"]
   - type: Appearance
-  - type: Food #imp
-    requiresSpecialDigestion: true
-    delay: 10
-  - type: FlavorProfile #imp
-    flavors:
-    - paper
   - type: Extractable
     grindableSolutionName: food #imp
+    juiceSolution: # imp
+      reagents:
+      - ReagentId: Cellulose
+        Quantity: 6
   - type: SolutionContainerManager
     solutions:
       food: #imp
@@ -65,6 +63,20 @@
           Quantity: 6
   - type: Item
     heldPrefix: cardboard
+  - type: FloorTile
+    outputs:
+    - Plating
+  - type: SpawnAfterInteract #Nuke after convert to FloorTile
+    prototype: CarpetCard
+    doAfter: 0.5
+    removeOnInteract: true
+  # imp edit start
+  - type: Edible
+    requiresSpecialDigestion: true
+    delay: 10
+  - type: FlavorProfile
+    flavors:
+    - paper
   - type: UserInterface
     interfaces:
       enum.ShortConstructionUiKey.Key:
@@ -79,12 +91,12 @@
     - ChairCardboard
     - TileCardboard
     - DoorCardboard
-  - type: Tag #imp
+  - type: Tag
     tags:
       - ClothMade
       - DroneUsable
       - RawMaterial
-
+  # imp edit end
 
 - type: entity
   parent: MaterialCardboard
@@ -153,7 +165,7 @@
     - state: cloth_3
       map: ["base"]
   - type: Appearance
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: FlavorProfile
     flavors:
@@ -168,9 +180,10 @@
   - type: Tag
     tags:
       - ClothMade
-      - DroneUsable
       - Gauze
       - RawMaterial
+      - ConstructionMaterial
+      - DroneUsable #imp edit
   - type: Construction
     graph: WebObjects # not sure if I should either keep this here or just make another prototype. Will keep it here just in case.
     node: cloth
@@ -224,7 +237,7 @@
   - type: Construction
     graph: Durathread
     node: MaterialDurathread
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
     solutions:
@@ -236,8 +249,9 @@
   - type: Tag
     tags:
       - ClothMade
-      - DroneUsable
       - RawMaterial
+      - ConstructionMaterial
+      - DroneUsable #imp edit
   - type: Item
     heldPrefix: durathread
 
@@ -282,22 +296,21 @@
     - state: wood
       map: ["base"]
   - type: Appearance
-  - type: Food #imp
-    requiresSpecialDigestion: true
-    delay: 30
-  - type: FlavorProfile #imp
-    flavors:
-    - paper
   - type: Item
     heldPrefix: wood
   - type: Tag
     tags:
     - Wooden
-    - DroneUsable
     - RawMaterial
+    - ConstructionMaterial
     - ClothMade #imp
+    - DroneUsable #imp
   - type: Extractable
     grindableSolutionName: food #imp
+    juiceSolution: # imp
+      reagents:
+      - ReagentId: Cellulose
+        Quantity: 10
   - type: SolutionContainerManager
     solutions:
       food: #imp
@@ -305,7 +318,13 @@
         reagents:
         - ReagentId: Pulp #imp
           Quantity: 10
-# imp edits below
+  # imp edit start
+  - type: Edible
+    requiresSpecialDigestion: true
+    delay: 30
+  - type: FlavorProfile
+    flavors:
+    - paper
   - type: UserInterface
     interfaces:
       enum.ShortConstructionUiKey.Key:
@@ -334,6 +353,7 @@
     - TileWoodParquetLight
     - TileWoodParquetRed
     - TileWoodRed
+  # imp edit end
 
 - type: entity
   parent: MaterialWoodPlank
@@ -408,9 +428,11 @@
     energy: 1.5
     color: "#4faffb"
     slots:
+  # imp edit start
   - type: Tag
     tags:
       - BearHide
+  # imp edit end
 
 - type: entity
   parent: MaterialBase
@@ -500,7 +522,7 @@
     - state: cotton_3
       map: ["base"]
   - type: Appearance
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: FlavorProfile
     flavors:
@@ -520,9 +542,9 @@
   - type: Tag
     tags:
       - ClothMade
-      - DroneUsable
       - RawMaterial
       - Boll
+      - DroneUsable #imp
   - type: Material
   - type: PhysicalComposition
     materialComposition:
@@ -561,7 +583,7 @@
     - state: pyrotton_3
       map: ["base"]
   - type: Appearance
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
     solutions:
@@ -622,7 +644,7 @@
   - type: FlavorProfile
     flavors:
       - banana
-  - type: Food
+  - type: Edible
     trash:
     - TrashBananiumPeel
   - type: BadFood
@@ -674,7 +696,7 @@
   - type: Stack
     count: 50
     stackType: WebSilk
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: FlavorProfile
     flavors:
@@ -695,9 +717,9 @@
           Quantity: 3
   - type: Tag
     tags:
-    - ClothMade
-    - RawMaterial
-    - SpiderFood  #imp edit
+      - ClothMade
+      - RawMaterial
+      - SpiderFood  #imp edit
   - type: Item
     sprite: Objects/Materials/silk.rsi
     heldPrefix: silk
@@ -819,7 +841,7 @@
     - state: cotton_3
       map: ["base"]
   - type: Appearance
-  - type: Food
+  - type: Edible
   - type: BadFood
   - type: SolutionContainerManager
     solutions:
