@@ -46,8 +46,8 @@
                     <RichTextLabel Name="BloodCirculationLabel" />
                     <Label Name="HeartRateText" Text="{Loc 'health-analyzer-window-entity-heart-rate-text'}" />
                     <RichTextLabel Name="HeartRateLabel" />
-                    <Label Name="HeartDamageText" Text="{Loc 'health-analyzer-window-entity-heart-damage-text'}" />
-                    <RichTextLabel Name="HeartDamageLabel" />
+                    <Label Name="HeartHealthText" Text="{Loc 'health-analyzer-window-entity-heart-health-text'}" />
+                    <RichTextLabel Name="HeartHealthLabel" />
                     <Label Name="BloodText" Text="{Loc 'health-analyzer-window-entity-blood-level-text'}" />
                     <RichTextLabel Name="BloodLabel" />
                     <Label Text="{Loc 'health-analyzer-window-entity-temperature-text'}" />

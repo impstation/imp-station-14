@@ -37,7 +37,7 @@ public sealed partial class BrainDamageSystem : EntitySystem
         var enumerator = EntityQueryEnumerator<BrainDamageComponent, BrainDamageOxygenationComponent, HeartrateComponent>();
         while (enumerator.MoveNext(out var uid, out var brain, out var oxygenation, out var heartrate))
         {
-            if (oxygenation.LastUpdate is not { } last || last + oxygenation.AdjustedUpdateInterval >= _timing.CurTime || brain.Damage == brain.MaxDamage)
+            if (oxygenation.LastUpdate is not { } last || last + oxygenation.AdjustedUpdateInterval >= _timing.CurTime || brain.Damage >= brain.MaxDamage)
                 continue;
 
             oxygenation.LastUpdate = _timing.CurTime;

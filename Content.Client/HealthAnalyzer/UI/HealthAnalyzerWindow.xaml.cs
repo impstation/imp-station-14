@@ -153,9 +153,9 @@ namespace Content.Client.HealthAnalyzer.UI
                 BrainHealthLabel.Visible = true;
                 BrainHealthLabel.Text = Loc.GetString("health-analyzer-window-entity-brain-health-value", ("value", $"{woundable.BrainHealth * 100:F1}"), ("rating", woundable.BrainHealthRating));
 
-                HeartDamageText.Visible = true;
-                HeartDamageLabel.Visible = true;
-                HeartDamageLabel.Text = Loc.GetString("health-analyzer-window-entity-heart-damage-value", ("value", $"{woundable.HeartDamage * 100:F1}"), ("rating", woundable.HeartDamageRating));
+                HeartHealthText.Visible = true;
+                HeartHealthLabel.Visible = true;
+                HeartHealthLabel.Text = Loc.GetString("health-analyzer-window-entity-heart-health-value", ("value", $"{woundable.HeartHealth * 100:F1}"), ("rating", woundable.HeartHealthRating));
 
                 HeartRateText.Visible = true;
                 HeartRateLabel.Visible = true;
@@ -183,14 +183,14 @@ namespace Content.Client.HealthAnalyzer.UI
                 BloodPressureLabel.Visible = false;
                 BloodOxygenationLabel.Visible = false;
                 HeartRateLabel.Visible = false;
-                HeartDamageLabel.Visible = false;
+                HeartHealthLabel.Visible = false;
                 BloodCirculationLabel.Visible = false;
                 BrainHealthText.Visible = false;
                 BloodPressureText.Visible = false;
                 BloodOxygenationText.Visible = false;
                 BloodCirculationText.Visible = false;
                 HeartRateText.Visible = false;
-                HeartDamageText.Visible = false;
+                HeartHealthText.Visible = false;
 
                 BloodLabel.Visible = true;
                 BloodText.Visible = true;
