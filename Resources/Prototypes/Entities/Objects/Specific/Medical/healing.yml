@@ -390,9 +390,6 @@
   - type: EmitSoundOnLand
     sound:
       path: "/Audio/Voice/Slime/slime_squish.ogg"
-  - type: Stack
-    stackType: AloeCream
-    count: 10
   - type: PluralName
     oneOf: plural-name-tube-1
     someOf: plural-name-tube-2plus
