@@ -116,6 +116,25 @@ public sealed partial class HeartSystem : EntitySystem
         }
     }
 
+    public void KillHeart(Entity<HeartrateComponent?> ent)
+    {
+        if (!Resolve(ent, ref ent.Comp))
+            return;
+
+        ent.Comp.Damage = ent.Comp.MaxDamage;
+        ent.Comp.Running = false;
+        ent.Comp.Strain = 0;
+        Dirty(ent);
+
+        var strainChangedEvt = new AfterStrainChangedEvent();
+        RaiseLocalEvent(ent, ref strainChangedEvt);
+
+        var stoppedEvt = new HeartStoppedEvent();
+        RaiseLocalEvent(ent, ref stoppedEvt);
+
+        _statusEffects.TryUpdateStatusEffectDuration(ent, ent.Comp.HeartStoppedEffect, out _);
+    }
+
     private void OnApplyMetabolicMultiplier(Entity<HeartrateComponent> ent, ref ApplyMetabolicMultiplierEvent args)
     {
         ent.Comp.UpdateIntervalMultiplier = args.Multiplier;
@@ -140,8 +159,11 @@ public sealed partial class HeartSystem : EntitySystem
         args.Stop = args.Stop || rand.Prob(ent.Comp.Chance) && shock > ent.Comp.Threshold;
     }
 
-    public void ChangeHeartDamage(Entity<HeartrateComponent> ent, FixedPoint2 amount)
+    public void ChangeHeartDamage(Entity<HeartrateComponent?> ent, FixedPoint2 amount)
     {
+        if (!Resolve(ent, ref ent.Comp))
+            return;
+
         var newValue = FixedPoint2.Max(FixedPoint2.Zero, ent.Comp.Damage - amount);
         if (newValue == ent.Comp.Damage)
             return;
@@ -266,19 +288,26 @@ public sealed partial class HeartSystem : EntitySystem
         return (FixedPoint2.Max(strain, 0)/ent.Comp.HeartRateStrainDivisor) * ent.Comp.HeartRateStrainFactor + ent.Comp.HeartRateBase + rand.Next(-ent.Comp.HeartRateDeviation, ent.Comp.HeartRateDeviation);
     }
 
-    private void OnTargetDefibrillated(Entity<HeartDefibrillatableComponent> ent, ref TargetDefibrillatedEvent args)
+    public void TryRestartHeart(Entity<HeartrateComponent?> ent)
     {
-        var heartrate = Comp<HeartrateComponent>(ent);
-        if (heartrate.MaxDamage <= heartrate.Damage)
+        if (!Resolve(ent, ref ent.Comp))
             return;
 
-        heartrate.Running = true;
-        Dirty(ent.Owner, heartrate);
+        if (ent.Comp.MaxDamage <= ent.Comp.Damage || ent.Comp.Running)
+            return;
 
-        _statusEffects.TryRemoveStatusEffect(ent.Owner, heartrate.HeartStoppedEffect);
+        ent.Comp.Running = true;
+        Dirty(ent);
+
+        _statusEffects.TryRemoveStatusEffect(ent.Owner, ent.Comp.HeartStoppedEffect);
 
         var evt = new HeartStartedEvent();
         RaiseLocalEvent(ent, ref evt);
+    }
+
+    private void OnTargetDefibrillated(Entity<HeartDefibrillatableComponent> ent, ref TargetDefibrillatedEvent args)
+    {
+        TryRestartHeart(ent.Owner);
     }
 
     public bool IsCritical(Entity<HeartrateComponent?> ent)

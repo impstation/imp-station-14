@@ -48,6 +48,17 @@ public sealed class WoundableSystem : EntitySystem
         }
     }
 
+    public void TryClearAllWounds(EntityUid uid)
+    {
+        if (!_statusEffects.TryEffectsWithComp<WoundComponent>(uid, out var wounds))
+            return;
+
+        foreach (var wound in wounds)
+        {
+            QueueDel(wound);
+        }
+    }
+
     private static readonly LocId WoundCountModifier = "wound-count-modifier";
 
     private void OnHealthBeingExamined(Entity<WoundableComponent> ent, ref HealthBeingExaminedEvent args)
