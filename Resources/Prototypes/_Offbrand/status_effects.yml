@@ -227,6 +227,8 @@
     attackRateConstant: -0.05
   - type: GunAccuracyStatusEffect
     angleRangeModifier: 6
+  - type: CannotUseHeadsetStatusEffect
+  - type: SilencedStatusEffect
 
 - type: entity
   parent: MobStatusEffectBase
