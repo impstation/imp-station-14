@@ -22,16 +22,17 @@ public sealed class MinionSystem : EntitySystem
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
 
-    public void ConvertEntityToMinion(EntityUid minion, MinionComponent comp, bool? createGhostRole = true, bool? sendBriefing = true, bool? removeBaseFactions = true)
+    public void ConvertEntityToMinion(EntityUid minion, MinionComponent comp, bool? createGhostRole, bool? sendBriefing, bool? removeBaseFactions)
     {
         var hasMind = _mind.TryGetMind(minion, out var mindId, out _);
 
-        if (hasMind && sendBriefing == true && comp.BoundOwner != null )
+        if (hasMind && sendBriefing == true)
         {
-            SendBriefing(minion, comp, mindId, comp.BoundOwner.Value);
+            if (comp.BoundOwner != null)
+                SendBriefing(minion, comp, mindId, comp.BoundOwner.Value);
 
             if (_playerManager.TryGetSessionByEntity(mindId, out var session))
-                _euiMan.OpenEui(new GhoulNotifEui(), session);
+                _euiMan.OpenEui(new MinionNotifEui(), session);
         }
 
         _mind.MakeSentient(minion);

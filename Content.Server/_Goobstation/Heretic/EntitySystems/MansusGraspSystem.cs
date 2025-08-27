@@ -77,7 +77,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
                     EnsureComp<GhoulComponent>(target);
                     minion.BoundOwner = performer;
                     minion.FactionsToAdd.Add(_hereticFaction);
-                    _minion.ConvertEntityToMinion(target, minion);
+                    _minion.ConvertEntityToMinion(target, minion, true, true, true);
                 }
                 break;
 

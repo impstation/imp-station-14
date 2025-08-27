@@ -5,7 +5,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._Goobstation.Heretic.Components;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent]
 public sealed partial class MinionComponent : Component
 {
     /// <summary>
