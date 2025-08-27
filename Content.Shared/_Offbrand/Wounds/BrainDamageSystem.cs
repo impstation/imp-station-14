@@ -1,6 +1,7 @@
 using Content.Shared.Body.Events;
 using Content.Shared.FixedPoint;
 using Content.Shared.Random.Helpers;
+using Content.Shared.Rejuvenate;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -15,8 +16,25 @@ public sealed partial class BrainDamageSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<BrainDamageComponent, RejuvenateEvent>(OnRejuvenate);
         SubscribeLocalEvent<BrainDamageOxygenationComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<BrainDamageOxygenationComponent, ApplyMetabolicMultiplierEvent>(OnApplyMetabolicMultiplier);
+    }
+
+    private void OnRejuvenate(Entity<BrainDamageComponent> ent, ref RejuvenateEvent args)
+    {
+        ent.Comp.Oxygen = ent.Comp.MaxOxygen;
+        ent.Comp.Damage = 0;
+        Dirty(ent);
+
+        var notifOxygen = new AfterBrainOxygenChanged();
+        RaiseLocalEvent(ent, ref notifOxygen);
+
+        var notifDamage = new AfterBrainDamageChanged();
+        RaiseLocalEvent(ent, ref notifDamage);
+
+        var overlays = new PotentiallyUpdateDamageOverlay(ent);
+        RaiseLocalEvent(ent, ref overlays, true);
     }
 
     private void OnMapInit(Entity<BrainDamageOxygenationComponent> ent, ref MapInitEvent args)
@@ -55,8 +73,11 @@ public sealed partial class BrainDamageSystem : EntitySystem
         ent.Comp.Damage = ent.Comp.MaxDamage;
         Dirty(ent);
 
-        var notif = new AfterBrainDamageChanged();
-        RaiseLocalEvent(ent, ref notif);
+        var notifOxygen = new AfterBrainOxygenChanged();
+        RaiseLocalEvent(ent, ref notifOxygen);
+
+        var notifDamage = new AfterBrainDamageChanged();
+        RaiseLocalEvent(ent, ref notifDamage);
 
         var overlays = new PotentiallyUpdateDamageOverlay(ent);
         RaiseLocalEvent(ent, ref overlays, true);
