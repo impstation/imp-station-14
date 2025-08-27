@@ -14,6 +14,13 @@ public sealed partial class ShockThresholdsSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ShockThresholdsComponent, AfterShockChangeEvent>(OnAfterShockChange);
+        SubscribeLocalEvent<ShockThresholdsComponent, ComponentShutdown>(OnShutdown);
+    }
+
+    private void OnShutdown(Entity<ShockThresholdsComponent> ent, ref ComponentShutdown args)
+    {
+        if (ent.Comp.CurrentThresholdState is { } effect)
+            _statusEffects.TryRemoveStatusEffect(ent, effect);
     }
 
     private void OnAfterShockChange(Entity<ShockThresholdsComponent> ent, ref AfterShockChangeEvent args)
@@ -24,21 +31,14 @@ public sealed partial class ShockThresholdsSystem : EntitySystem
             return;
 
         var seenTarget = targetEffect is null;
+        if (ent.Comp.CurrentThresholdState is { } oldEffect)
+            _statusEffects.TryRemoveStatusEffect(ent, oldEffect);
+
+        if (targetEffect is { } effect)
+            _statusEffects.TryUpdateStatusEffectDuration(ent, effect, out _);
+
         ent.Comp.CurrentThresholdState = targetEffect;
         Dirty(ent);
-        foreach (var (threshold, effect) in ent.Comp.Thresholds)
-        {
-            if (!seenTarget)
-            {
-                seenTarget = effect == targetEffect;
-                if (!_statusEffects.HasStatusEffect(ent, effect))
-                    _statusEffects.TryUpdateStatusEffectDuration(ent, effect, out _);
-            }
-            else
-            {
-                _statusEffects.TryRemoveStatusEffect(ent, effect);
-            }
-        }
     }
 
     public bool IsCritical(Entity<ShockThresholdsComponent?> ent)

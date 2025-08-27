@@ -24,6 +24,7 @@ public sealed class WoundableSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<WoundableComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<WoundableComponent, BeforeDamageCommitEvent>(OnBeforeDamageCommit);
         SubscribeLocalEvent<WoundableComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<WoundableComponent, HealthBeingExaminedEvent>(OnHealthBeingExamined, before: [typeof(SharedBloodstreamSystem)]);
@@ -34,6 +35,17 @@ public sealed class WoundableSystem : EntitySystem
         SubscribeLocalEvent<PainfulWoundComponent, StatusEffectRelayedEvent<GetPainEvent>>(OnGetPain);
         SubscribeLocalEvent<HealableWoundComponent, StatusEffectRelayedEvent<HealWoundsEvent>>(OnHealHealableWounds);
         SubscribeLocalEvent<BleedingWoundComponent, StatusEffectRelayedEvent<GetBleedLevelEvent>>(OnGetBleedLevel);
+    }
+
+    private void OnShutdown(Entity<WoundableComponent> ent, ref ComponentShutdown args)
+    {
+        if (!_statusEffects.TryEffectsWithComp<WoundComponent>(ent, out var wounds))
+            return;
+
+        foreach (var wound in wounds)
+        {
+            QueueDel(wound);
+        }
     }
 
     private static readonly LocId WoundCountModifier = "wound-count-modifier";

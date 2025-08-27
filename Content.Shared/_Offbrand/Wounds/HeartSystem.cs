@@ -24,6 +24,7 @@ public sealed partial class HeartSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<HeartrateComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<HeartrateComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<HeartrateComponent, ApplyMetabolicMultiplierEvent>(OnApplyMetabolicMultiplier);
 
         SubscribeLocalEvent<BloodstreamComponent, GetStrainEvent>(OnBloodstreamGetStrain);
@@ -37,6 +38,11 @@ public sealed partial class HeartSystem : EntitySystem
     private void OnMapInit(Entity<HeartrateComponent> ent, ref MapInitEvent args)
     {
         ent.Comp.LastUpdate = _timing.CurTime;
+    }
+
+    private void OnShutdown(Entity<HeartrateComponent> ent, ref ComponentShutdown args)
+    {
+        _statusEffects.TryRemoveStatusEffect(ent, ent.Comp.HeartStoppedEffect);
     }
 
     public override void Update(float frameTime)

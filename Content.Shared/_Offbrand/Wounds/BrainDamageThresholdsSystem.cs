@@ -18,6 +18,16 @@ public sealed partial class BrainDamageThresholdsSystem : EntitySystem
         SubscribeLocalEvent<BrainDamageThresholdsComponent, AfterBrainDamageChanged>(OnAfterBrainDamageChanged);
         SubscribeLocalEvent<BrainDamageThresholdsComponent, AfterBrainOxygenChanged>(OnAfterBrainOxygenChanged);
         SubscribeLocalEvent<BrainDamageThresholdsComponent, UpdateMobStateEvent>(OnUpdateMobState);
+        SubscribeLocalEvent<BrainDamageThresholdsComponent, ComponentShutdown>(OnShutdown);
+    }
+
+    private void OnShutdown(Entity<BrainDamageThresholdsComponent> ent, ref ComponentShutdown args)
+    {
+        if (ent.Comp.CurrentDamageEffect is { } dEffect)
+            _statusEffects.TryRemoveStatusEffect(ent, dEffect);
+
+        if (ent.Comp.CurrentOxygenEffect is { } oEffect)
+            _statusEffects.TryRemoveStatusEffect(ent, oEffect);
     }
 
     private void UpdateState(Entity<BrainDamageThresholdsComponent> ent)

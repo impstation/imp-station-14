@@ -13,10 +13,10 @@ health-analyzer-window-entity-blood-pressure-text = Blood Pressure:
 health-analyzer-window-entity-blood-oxygenation-text = Blood Saturation:
 health-analyzer-window-entity-blood-circulation-text = Blood Circulation:
 health-analyzer-window-entity-heart-rate-text = Heart Rate:
-health-analyzer-window-entity-heart-damage-text = Heart Damage:
+health-analyzer-window-entity-heart-health-text = Heart Health:
 
 health-analyzer-window-entity-brain-health-value = {$value}% { -health-analyzer-rating(rating: $rating) }
-health-analyzer-window-entity-heart-damage-value = {$value}% { -health-analyzer-rating(rating: $rating) }
+health-analyzer-window-entity-heart-health-value = {$value}% { -health-analyzer-rating(rating: $rating) }
 health-analyzer-window-entity-heart-rate-value = {$value}bpm { -health-analyzer-rating(rating: $rating) }
 health-analyzer-window-entity-blood-oxygenation-value = {$value}% { -health-analyzer-rating(rating: $rating) }
 health-analyzer-window-entity-blood-pressure-value = {$diastolic}/{$systolic} { -health-analyzer-rating(rating: $rating) }

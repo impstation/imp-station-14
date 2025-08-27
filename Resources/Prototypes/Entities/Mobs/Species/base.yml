@@ -340,6 +340,11 @@
       Cellular: 100
       Asphyxiation: 100
       Bloodloss: 0
+  - type: IntrinsicPain
+    painCoefficients:
+      Poison: 0.7
+      Radiation: 0.7
+      Cellular: 0.7
   - type: HealthExaminable
     examinableTypes:
     - Asphyxiation

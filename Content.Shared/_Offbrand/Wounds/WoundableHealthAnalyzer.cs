@@ -13,10 +13,10 @@ public sealed partial class WoundableHealthAnalyzerData
     public AttributeRating BrainHealthRating;
 
     [DataField]
-    public double HeartDamage;
+    public double HeartHealth;
 
     [DataField]
-    public AttributeRating HeartDamageRating;
+    public AttributeRating HeartHealthRating;
 
     [DataField]
     public (int, int) BloodPressure;
@@ -108,7 +108,7 @@ public sealed class WoundableHealthAnalyzerSystem : EntitySystem
             return null;
 
         var brainHealth = 1d - (brainDamage.Damage / brainDamage.MaxDamage).Double();
-        var heartDamage = (heartrate.Damage / heartrate.MaxDamage).Double();
+        var heartHealth = 1d - (heartrate.Damage / heartrate.MaxDamage).Double();
         var strain = _heart.HeartStrain((uid, heartrate)).Double() / 4d;
         var volume = _heart.BloodVolume((uid, heartrate)).Double();
         var (upper, lower) = _heart.BloodPressure((uid, heartrate));
@@ -119,8 +119,8 @@ public sealed class WoundableHealthAnalyzerSystem : EntitySystem
             {
                 BrainHealth = brainHealth,
                 BrainHealthRating = RateHigherIsBetter(brainHealth),
-                HeartDamage = heartDamage,
-                HeartDamageRating = RateHigherIsWorse(heartDamage),
+                HeartHealth = heartHealth,
+                HeartHealthRating = RateHigherIsBetter(heartHealth),
                 BloodPressure = (upper.Int(), lower.Int()),
                 BloodPressureRating = RateHigherIsBetter(volume),
                 BloodOxygenation = oxygenation,
