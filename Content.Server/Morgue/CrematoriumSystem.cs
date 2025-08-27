@@ -131,7 +131,7 @@ public sealed class CrematoriumSystem : EntitySystem
         // imp start
         if (!component.Powered)
         {
-            _popup.PopupEntity(Loc.GetString("microwave-component-interact-using-no-power"), uid); // imp
+            _popup.PopupEntity(Loc.GetString("microwave-component-interact-using-no-power"), uid);
             return false;
         }
 
