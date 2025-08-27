@@ -1,3 +1,4 @@
+using System.Linq; // imp
 using Content.Server.Ghost;
 using Content.Server.Morgue.Components;
 using Content.Server.Storage.Components;
@@ -5,8 +6,11 @@ using Content.Server.Storage.EntitySystems;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Interaction.Components; // imp
 using Content.Shared.Interaction.Events;
+using Content.Shared.Inventory; // imp
 using Content.Shared.Mind;
+using Content.Shared.Mobs.Components; // imp
 using Content.Shared.Morgue;
 using Content.Shared.Popups;
 using Content.Shared.Standing;
@@ -30,6 +34,7 @@ public sealed class CrematoriumSystem : EntitySystem
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly SharedMindSystem _minds = default!;
     [Dependency] private readonly SharedContainerSystem _containers = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!; // imp
 
     public override void Initialize()
     {
@@ -118,11 +123,37 @@ public sealed class CrematoriumSystem : EntitySystem
         if (!Resolve(uid, ref component, ref storage))
             return false;
 
-        if (storage.Open || storage.Contents.ContainedEntities.Count < 1 || component.Powered == false) // imp
+        if (storage.Open || storage.Contents.ContainedEntities.Count < 1)
+        {
+            return false;
+        }
+
+        // imp start
+        if (!component.Powered)
         {
             _popup.PopupEntity(Loc.GetString("microwave-component-interact-using-no-power"), uid); // imp
             return false;
         }
+
+        var allStripped = true;
+
+        foreach (var contained in storage.Contents.ContainedEntities)
+        {
+            if (!HasComp<MobStateComponent>(contained))
+                continue;
+
+            var inventory = _inventory.GetHandOrInventoryEntities(contained);
+
+            if (inventory.Any(item => !HasComp<UnremoveableComponent>(item)))
+                allStripped = false;
+        }
+
+        if (!allStripped)
+        {
+            _popup.PopupEntity(Loc.GetString("crematorium-entity-storage-component-requires-strip", ("ent", uid)), uid);
+            return false;
+        }
+        // imp end
 
         return Cremate(uid, component, storage);
     }
@@ -200,8 +231,9 @@ public sealed class CrematoriumSystem : EntitySystem
                 FinishCooking(uid, crem);
         }
     }
+
     //imp
-    private void OnPowerChanged(Entity<CrematoriumComponent> entity, ref PowerChangedEvent args)
+    private static void OnPowerChanged(Entity<CrematoriumComponent> entity, ref PowerChangedEvent args)
     {
         entity.Comp.Powered = args.Powered;
     }
@@ -212,13 +244,12 @@ public sealed class CrematoriumSystem : EntitySystem
         if (!TryComp<CrematoriumComponent>(entity, out var crematoriumComponent))
             return;
 
-        if (!args.Powered)
-        {
-            _audio.Stop(crematoriumComponent.CrematingSoundEntity?.Item1, crematoriumComponent.CrematingSoundEntity?.Item2);
-            crematoriumComponent.CrematingSoundEntity = null;
-            _appearance.SetData(entity.Owner, CrematoriumVisuals.Burning, false);
-            RemComp<ActiveCrematoriumComponent>(entity.Owner);
-        }
+        if (args.Powered)
+            return;
 
+        _audio.Stop(crematoriumComponent.CrematingSoundEntity?.Item1, crematoriumComponent.CrematingSoundEntity?.Item2);
+        crematoriumComponent.CrematingSoundEntity = null;
+        _appearance.SetData(entity.Owner, CrematoriumVisuals.Burning, false);
+        RemComp<ActiveCrematoriumComponent>(entity.Owner);
     }
 }
