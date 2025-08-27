@@ -15,7 +15,8 @@
   - type: Tag
     tags:
     - Sheet
-    - DroneUsable
+    - ConstructionMaterial
+    - DroneUsable #imp
   - type: Material
   - type: Damageable
     damageContainer: Inorganic
@@ -90,6 +91,7 @@
         reagents:
         - ReagentId: Silicon
           Quantity: 10
+  # imp edit start
   - type: UserInterface
     interfaces:
       enum.ShortConstructionUiKey.Key:
@@ -100,6 +102,7 @@
     prototypes:
     - Window
     - WindowDirectional
+  # imp edit end
 
 - type: entity
   parent: SheetGlass
@@ -122,15 +125,6 @@
   - type: Stack
     stackType: Glass
     count: 1
-
-- type: entity
-  parent: SheetGlass
-  id: SheetGlassLingering0
-  suffix: Lingering, 0
-  components:
-  - type: Stack
-    lingering: true
-    count: 0
 
 - type: entity
   parent: SheetGlassBase
@@ -186,6 +180,7 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  # imp edit start
   - type: UserInterface
     interfaces:
       enum.ShortConstructionUiKey.Key:
@@ -196,6 +191,7 @@
     prototypes:
     - ReinforcedWindow
     - WindowReinforcedDirectional
+  # imp edit end
 
 - type: entity
   parent: SheetRGlass
@@ -221,15 +217,6 @@
         - ReagentId: Carbon
           Quantity: 0.5
         canReact: false
-
-- type: entity
-  parent: SheetRGlass
-  id: SheetRGlassLingering0
-  suffix: Lingering, 0
-  components:
-  - type: Stack
-    lingering: true
-    count: 0
 
 - type: entity
   parent: SheetGlassBase
@@ -282,6 +269,7 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  # imp edit start
   - type: UserInterface
     interfaces:
       enum.ShortConstructionUiKey.Key:
@@ -292,6 +280,7 @@
     prototypes:
     - PlasmaWindow
     - PlasmaWindowDirectional
+  # imp edit end
 
 - type: entity
   parent: SheetPGlass
@@ -358,6 +347,7 @@
         - ReagentId: Carbon
           Quantity: 0.5
         canReact: false
+  # imp edit start
   - type: UserInterface
     interfaces:
       enum.ShortConstructionUiKey.Key:
@@ -368,6 +358,7 @@
     prototypes:
     - ReinforcedPlasmaWindow
     - PlasmaReinforcedWindowDirectional
+  # imp edit end
 
 - type: entity
   parent: SheetRPGlass
@@ -380,15 +371,6 @@
   - type: Stack
     stackType: ReinforcedPlasmaGlass
     count: 1
-
-- type: entity
-  parent: SheetRPGlass
-  id: SheetRPGlassLingering0
-  suffix: Lingering, 0
-  components:
-  - type: Stack
-    lingering: true
-    count: 0
 
 - type: entity
   parent: SheetGlassBase
@@ -452,6 +434,7 @@
         - ReagentId: Uranium
           Quantity: 10
         canReact: false
+  # imp edit start
   - type: UserInterface
     interfaces:
       enum.ShortConstructionUiKey.Key:
@@ -462,6 +445,7 @@
     prototypes:
     - UraniumWindow
     - UraniumWindowDirectional
+  # imp edit end
 
 - type: entity
   parent: SheetUGlass
@@ -516,6 +500,7 @@
         - ReagentId: Carbon
           Quantity: 0.5
         canReact: false
+  # imp edit start
   - type: UserInterface
     interfaces:
       enum.ShortConstructionUiKey.Key:
@@ -526,6 +511,7 @@
     prototypes:
     - ReinforcedUraniumWindow
     - UraniumReinforcedWindowDirectional
+  # imp edit end
 
 - type: entity
   parent: SheetRUGlass
@@ -603,6 +589,7 @@
         - ReagentId: Copper
           Quantity: 6.7
         canReact: false
+  # imp edit start
   - type: UserInterface
     interfaces:
       enum.ShortConstructionUiKey.Key:
@@ -613,6 +600,7 @@
     prototypes:
     - ClockworkWindow
     - WindowClockworkDirectional
+  # imp edit end
 
 - type: entity
   parent: SheetClockworkGlass
