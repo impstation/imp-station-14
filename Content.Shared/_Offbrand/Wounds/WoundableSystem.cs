@@ -146,21 +146,26 @@ public sealed class WoundableSystem : EntitySystem
         }
     }
 
-    private void OnDamaged(Entity<WoundableComponent> ent, DamageSpecifier incoming)
+    private void OnDamaged(Entity<WoundableComponent> ent, DamageSpecifier overall)
     {
-        var evt = new GetWoundsWithSpaceEvent(new(), incoming);
-        RaiseLocalEvent(ent, ref evt);
-
-        if (evt.Wounds.Count > 0)
+        foreach (var (type, damage) in overall.DamageDict)
         {
-            AddWoundDamage(evt.Wounds[0], incoming);
-            return;
+            var incoming = new DamageSpecifier() { DamageDict = new() { { type, damage } } };
+
+            var evt = new GetWoundsWithSpaceEvent(new(), incoming);
+            RaiseLocalEvent(ent, ref evt);
+
+            if (evt.Wounds.Count > 0)
+            {
+                AddWoundDamage(evt.Wounds[0], incoming);
+                continue;
+            }
+
+            if (DecideOnWoundType(incoming) is not { } woundToSpawn)
+                continue;
+
+            TryWound(ent, woundToSpawn, damage: new(incoming));
         }
-
-        if (DecideOnWoundType(incoming) is not { } woundToSpawn)
-            return;
-
-        TryWound(ent, woundToSpawn, damage: new(incoming));
     }
 
     public void SetHealable(Entity<HealableWoundComponent> ent)
