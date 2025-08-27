@@ -3,10 +3,10 @@ using Content.Server.Body.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Forensics;
 using Content.Server.Popups;
+using Content.Shared._Goobstation.Changeling;
 using Content.Shared._Impstation.Kodepiia;
 using Content.Shared._Impstation.Kodepiia.Components;
 using Content.Shared.Body.Components;
-using Content.Shared.Changeling;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
@@ -43,7 +43,7 @@ public sealed class KodepiiaConsumeSystem : SharedKodepiiaConsumeSystem
 
     public void Consume(Entity<KodepiiaConsumeActionComponent> ent, ref KodepiiaConsumeEvent args)
     {
-        if (!HasComp<AbsorbableComponent>(args.Target) || _rotting.IsRotten(args.Target))
+        if (!HasComp<GoobAbsorbableComponent>(args.Target) || _rotting.IsRotten(args.Target))
         {
             _popup.PopupEntity(Loc.GetString("kodepiia-consume-fail-inedible", ("target", Identity.Entity(args.Target, EntityManager))), ent, ent);
             return;
