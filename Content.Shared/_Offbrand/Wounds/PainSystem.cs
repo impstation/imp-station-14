@@ -1,5 +1,6 @@
 using Content.Shared.Body.Events;
 using Content.Shared.FixedPoint;
+using Content.Shared.Rejuvenate;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._Offbrand.Wounds;
@@ -13,6 +14,7 @@ public sealed partial class PainSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<PainComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<PainComponent, RejuvenateEvent>(OnRejuvenate);
         SubscribeLocalEvent<PainComponent, ApplyMetabolicMultiplierEvent>(OnApplyMetabolicMultiplier);
     }
 
@@ -70,6 +72,18 @@ public sealed partial class PainSystem : EntitySystem
 
             Dirty(uid, pain);
         }
+    }
+
+    private void OnRejuvenate(Entity<PainComponent> ent, ref RejuvenateEvent args)
+    {
+        ent.Comp.Shock = 0;
+        Dirty(ent);
+
+        var evt = new AfterShockChangeEvent();
+        RaiseLocalEvent(ent, ref evt);
+
+        var overlays = new PotentiallyUpdateDamageOverlay(ent);
+        RaiseLocalEvent(ent, ref overlays, true);
     }
 
     private FixedPoint2 GetPain(EntityUid ent)

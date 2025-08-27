@@ -6,6 +6,7 @@ using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared.Medical;
 using Content.Shared.Random.Helpers;
+using Content.Shared.Rejuvenate;
 using Content.Shared.StatusEffectNew;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -26,6 +27,7 @@ public sealed partial class HeartSystem : EntitySystem
         SubscribeLocalEvent<HeartrateComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<HeartrateComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<HeartrateComponent, ApplyMetabolicMultiplierEvent>(OnApplyMetabolicMultiplier);
+        SubscribeLocalEvent<HeartrateComponent, RejuvenateEvent>(OnRejuvenate);
 
         SubscribeLocalEvent<BloodstreamComponent, GetStrainEvent>(OnBloodstreamGetStrain);
 
@@ -33,6 +35,20 @@ public sealed partial class HeartSystem : EntitySystem
         SubscribeLocalEvent<HeartStopOnShockComponent, HeartBeatEvent>(OnHeartBeatShock);
 
         SubscribeLocalEvent<HeartDefibrillatableComponent, TargetDefibrillatedEvent>(OnTargetDefibrillated);
+    }
+
+    private void OnRejuvenate(Entity<HeartrateComponent> ent, ref RejuvenateEvent args)
+    {
+        ent.Comp.Damage = 0;
+        ent.Comp.Running = true;
+        ent.Comp.Strain = 0;
+        Dirty(ent);
+
+        var strainChangedEvt = new AfterStrainChangedEvent();
+        RaiseLocalEvent(ent, ref strainChangedEvt);
+
+        var overlays = new PotentiallyUpdateDamageOverlay(ent);
+        RaiseLocalEvent(ent, ref overlays, true);
     }
 
     private void OnMapInit(Entity<HeartrateComponent> ent, ref MapInitEvent args)

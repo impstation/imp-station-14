@@ -48,7 +48,7 @@ namespace Content.Shared.Damage
             SubscribeLocalEvent<DamageableComponent, ComponentHandleState>(DamageableHandleState);
             SubscribeLocalEvent<DamageableComponent, ComponentGetState>(DamageableGetState);
             SubscribeLocalEvent<DamageableComponent, OnIrradiatedEvent>(OnIrradiated);
-            SubscribeLocalEvent<DamageableComponent, RejuvenateEvent>(OnRejuvenate);
+            SubscribeLocalEvent<DamageableComponent, RejuvenateEvent>(OnRejuvenate, after: [typeof(Content.Shared.StatusEffectNew.StatusEffectsSystem)]); // Offbrand
 
             _appearanceQuery = GetEntityQuery<AppearanceComponent>();
             _damageableQuery = GetEntityQuery<DamageableComponent>();
@@ -340,6 +340,7 @@ namespace Content.Shared.Damage
 
         private void OnRejuvenate(EntityUid uid, DamageableComponent component, RejuvenateEvent args)
         {
+            Log.Debug("rejuvenate damage");
             TryComp<MobThresholdsComponent>(uid, out var thresholds);
             _mobThreshold.SetAllowRevives(uid, true, thresholds); // do this so that the state changes when we set the damage
             SetAllDamage(uid, component, 0);
