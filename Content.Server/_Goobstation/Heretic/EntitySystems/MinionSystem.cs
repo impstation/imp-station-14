@@ -9,8 +9,10 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mind;
 using Content.Shared.NPC.Systems;
+using Content.Shared.Roles;
 using Content.Shared.Roles.Components;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -21,6 +23,7 @@ public sealed class MinionSystem : EntitySystem
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly SharedRoleSystem _role = default!;
 
     public void ConvertEntityToMinion(EntityUid minion, MinionComponent comp, bool? createGhostRole, bool? sendBriefing, bool? removeBaseFactions)
     {
@@ -32,10 +35,11 @@ public sealed class MinionSystem : EntitySystem
                 SendBriefing(minion, comp, mindId, comp.BoundOwner.Value);
 
             if (_playerManager.TryGetSessionByEntity(mindId, out var session))
-                _euiMan.OpenEui(new MinionNotifEui(), session);
+                _euiMan.OpenEui(new GhoulNotifEui(), session);
         }
 
         _mind.MakeSentient(minion);
+        _role.MindAddRole(mindId, "MindRoleGhostRoleFamiliar");
 
         if (!HasComp<GhostRoleComponent>(minion) && !hasMind && createGhostRole == true)
         {
@@ -84,12 +88,13 @@ public sealed class MinionSystem : EntitySystem
         var hasMind = _mind.TryGetMind(minion, out var mindId, out _);
         if (hasMind && comp.BoundOwner != null)
             SendBriefing(minion, comp, mindId, comp.BoundOwner.Value);
+        _role.MindAddRole(mindId, "MindRoleGhostRoleFamiliar");
     }
 
     private static void OnTryAttack(Entity<MinionComponent> ent, ref AttackAttemptEvent args)
     {
         // prevent attacking owner
-        if (args.Target == ent.Owner)
+        if (args.Target == ent.Comp.BoundOwner)
             args.Cancel();
     }
 }
