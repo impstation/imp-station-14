@@ -73,8 +73,12 @@
 - type: startingGear
   id: HoPGear
   equipment:
+    #shoes: ClothingShoesColorBrown #imp
     id: HoPPDA
     gloves: ClothingHandsGlovesHop
+    #ears: ClothingHeadsetAltCommand #imp
+    #belt: BoxFolderClipboard #imp
+    #eyes: ClothingEyesHudCommand #imp
     belt: ClothingBeltPaperworkFilled # imp edit
   storage:
     back:
