@@ -25,9 +25,6 @@ public sealed partial class BrainDamageSystem : EntitySystem
 
     private void OnSuicide(Entity<BrainDamageComponent> ent, ref SuicideEvent args)
     {
-        if (args.Handled)
-            return;
-
         KillBrain(ent.AsNullable());
         args.Handled = true;
     }
