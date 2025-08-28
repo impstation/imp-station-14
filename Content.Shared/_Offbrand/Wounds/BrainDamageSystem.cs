@@ -1,5 +1,6 @@
 using Content.Shared.Body.Events;
 using Content.Shared.FixedPoint;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Rejuvenate;
 using Robust.Shared.Random;
@@ -16,9 +17,19 @@ public sealed partial class BrainDamageSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<BrainDamageComponent, SuicideEvent>(OnSuicide);
         SubscribeLocalEvent<BrainDamageComponent, RejuvenateEvent>(OnRejuvenate);
         SubscribeLocalEvent<BrainDamageOxygenationComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<BrainDamageOxygenationComponent, ApplyMetabolicMultiplierEvent>(OnApplyMetabolicMultiplier);
+    }
+
+    private void OnSuicide(Entity<BrainDamageComponent> ent, ref SuicideEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        KillBrain(ent.AsNullable());
+        args.Handled = true;
     }
 
     private void OnRejuvenate(Entity<BrainDamageComponent> ent, ref RejuvenateEvent args)
