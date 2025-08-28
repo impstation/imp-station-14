@@ -1,4 +1,5 @@
 ﻿#do i genuinely gotta make an entire yml for thog don't care???
+#yeah, because I'm gonna steal it
 
 - type: entity
   parent: [ClothingUniformBase]
@@ -13,3 +14,15 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+
+# Colonid Envirosuit 
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformColonidEnvirosuit
+  name: Envirosuit
+  description: A slim and lightweight softsuit able to fit under both coats and hardsuits. Hermetically sealed to keep Colonids from combusting from exposure to a non-plasma atmosphere. PLACEHOLDER
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/loungewear.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/loungewear.rsi

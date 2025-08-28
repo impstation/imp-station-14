@@ -18,7 +18,7 @@
   parent: ClothingHeadEVAHelmetBase
   id: ClothingHeadHelmetColonidEnvirosuit
   name: envirosuit helmet
-  description: A space worthy helmet designed to help Colonids not combust in a non-plasma based atmosphere. 
+  description: A space worthy helmet designed to help Colonids not combust in a non-plasma based atmosphere. Able to seal with hardsuits, even over top a envirosuit. PLACEHOLDER
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/eva_large.rsi
@@ -29,4 +29,3 @@
     - HelmetEVA
     - WhitelistChameleon
     - CorgiWearable
-    
