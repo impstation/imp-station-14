@@ -3,6 +3,7 @@ flavor-base-drinkdrink = like dogshit
 flavor-base-unholy = unholy
 flavor-base-evil = evil
 flavor-base-weird = weird
+flavor-base-ectoplasm = ghastly
 
 flavor-complex-raktaccino = fantastically bitter
 flavor-complex-moscowmule = like a kick in the teeth

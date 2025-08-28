@@ -15,6 +15,22 @@
   heatCapacity: 10000
 
 - type: tile
+  id: FloorReaperTilesGemless
+  name: tiles-reaper-tiles
+  sprite: /Textures/_Impstation/Tiles/ReaperTiles/reapertilesgemless.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  heatCapacity: 10000
+
+- type: tile
   id: FloorReaperTombstonesBig
   name: tiles-reaper-tombstonebig
   sprite: /Textures/_Impstation/Tiles/ReaperTiles/bigtombstonetiles.png
@@ -50,8 +66,11 @@
   id: FloorReaperSquareBlank
   name: tiles-reaper-square-blank
   sprite: /Textures/_Impstation/Tiles/ReaperTiles/reapersquaretileblank.png
-  variants: 1
+  variants: 4
   placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
   - 1.0
   baseTurf: Plating
   isSubfloor: false
