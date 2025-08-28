@@ -29,7 +29,7 @@ public sealed partial class TraitPreferenceSelector : Control
     {
         RobustXamlLoader.Load(this);
 
-        var text = trait.Cost != 0 ? $"[{trait.Cost}] " : "[0] "; // imp edit
+        var text = $"[{trait.Cost}]; // imp edit
         text += Loc.GetString(trait.Name);
 
         Cost = trait.Cost;
