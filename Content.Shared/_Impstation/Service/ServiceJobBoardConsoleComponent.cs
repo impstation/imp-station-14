@@ -1,8 +1,7 @@
-using Robust.Shared.Audio;
+using Content.Shared.Radio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._Impstation.Service;
 
@@ -10,7 +9,14 @@ namespace Content.Shared._Impstation.Service;
 ///     Used to view the service job board ui
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class ServiceJobBoardConsoleComponent : Component { }
+public sealed partial class ServiceJobBoardConsoleComponent : Component
+{
+    /// <summary>
+    ///     Radio channel that job selected messages are announced on.
+    /// </summary>
+    [DataField]
+    public ProtoId<RadioChannelPrototype> AnnounceChannel = "Service";
+}
 
 [Serializable, NetSerializable]
 public sealed class ServiceJobBoardConsoleState : BoundUserInterfaceState
@@ -24,11 +30,11 @@ public sealed class ServiceJobBoardConsoleState : BoundUserInterfaceState
 }
 
 [Serializable, NetSerializable]
-public sealed class JobBoardPrintLabelMessage : BoundUserInterfaceMessage
+public sealed class ServiceJobBoardSelectMessage : BoundUserInterfaceMessage
 {
     public string JobId;
 
-    public JobBoardPrintLabelMessage(string jobId)
+    public ServiceJobBoardSelectMessage(string jobId)
     {
         JobId = jobId;
     }

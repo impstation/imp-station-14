@@ -32,7 +32,7 @@ public sealed partial class ServiceJobPrototype : IPrototype
     ///     Timer from when the event is selected to when the event is announced over station communications.
     /// </summary>
     [DataField]
-    public TimeSpan Timer = TimeSpan.FromMinutes(30);
+    public TimeSpan Timer = TimeSpan.FromMinutes(45);
 
     /// <summary>
     ///     Announcement to be sent over station-wide communications when the timer expires.

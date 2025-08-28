@@ -28,10 +28,4 @@ public sealed partial class ServiceJobsDataComponent : Component
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan? EndTime;
-
-    /// <summary>
-    ///     Has the beginning of the event been announced?
-    /// </summary>
-    [DataField]
-    public bool Announced;
 }
