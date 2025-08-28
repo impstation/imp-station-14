@@ -2,6 +2,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.DV.Recruiter;
 
@@ -49,4 +50,10 @@ public sealed partial class RecruiterPenComponent : Component
     /// </summary>
     [DataField]
     public EntityWhitelist? MindBlacklist;
+
+    /// <summary>
+    /// Payout on successful sign.
+    /// </summary>
+    [DataField(required: true)]
+    public EntProtoId Currency;
 }
