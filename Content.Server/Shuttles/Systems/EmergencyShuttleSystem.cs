@@ -15,7 +15,6 @@ using Content.Server.RoundEnd;
 using Content.Server.Screens.Components;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
-using Content.Server.Station.Components;
 using Content.Server.Station.Events;
 using Content.Server.Station.Systems;
 using Content.Shared.Access.Systems;
@@ -183,7 +182,7 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
             return;
         }
 
-        var targetGrid = _station.GetLargestGrid(Comp<StationDataComponent>(station.Value));
+        var targetGrid = _station.GetLargestGrid(station.Value);
         if (targetGrid == null)
             return;
 
@@ -272,7 +271,7 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
             return null;
         }
 
-        var targetGrid = _station.GetLargestGrid(Comp<StationDataComponent>(stationUid));
+        var targetGrid = _station.GetLargestGrid(stationUid);
 
         // UHH GOOD LUCK
         if (targetGrid == null)
@@ -334,8 +333,7 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
         {
             _chatSystem.DispatchStationAnnouncement(
                 result.Station,
-                Loc.GetString(stationShuttleComp.FailureAnnouncement),
-                playDefaultSound: false);
+                Loc.GetString(stationShuttleComp.FailureAnnouncement)); //imp. gutted default announcement sounds. announcersystem handles them now.
 
             // TODO: Need filter extensions or something don't blame me.
             _audio.PlayGlobal(stationShuttleComp.FailureAudio, Filter.Broadcast(), true);
@@ -369,8 +367,8 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
                 ("time", $"{_consoleAccumulator:0}"),
                 ("direction", direction),
                 ("location", location),
-                ("extended", extendedText)),
-            playDefaultSound: false);
+                ("extended", extendedText))); //imp. gutted default announcement sounds. announcersystem handles them now.
+
 
         // Trigger shuttle timers on the shuttle.
 

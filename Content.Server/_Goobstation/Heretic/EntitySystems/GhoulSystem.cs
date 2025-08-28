@@ -23,6 +23,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Nutrition.AnimalHusbandry;
 using Content.Shared.Nutrition.Components;
+using Content.Shared.Roles.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
 
@@ -79,7 +80,7 @@ public sealed partial class GhoulSystem : Shared.Heretic.EntitySystems.SharedGho
             _threshold.SetMobStateThreshold(ent, ent.Comp.TotalHealth / 1.25f, MobState.Critical, th);
         }
 
-        MakeSentientCommand.MakeSentient(ent, EntityManager);
+        _mind.MakeSentient(ent);
 
         if (!HasComp<GhostRoleComponent>(ent) && !hasMind)
         {

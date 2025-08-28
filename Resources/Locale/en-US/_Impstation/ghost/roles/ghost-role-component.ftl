@@ -157,5 +157,20 @@ ghost-role-information-nonantagonist-freeagent-partygeay-rules = You are a [colo
 
                                                                  You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
 
+ghost-role-information-nonantagonist-freeagent-tame = You are a wild animal that has been tamed by the crew.
+ghost-role-information-tame-rules = You are a [color=yellow][bold]Free Agent[/bold][/color], being a tamed animal.
+
+                                         As with most wild animals, you are calm and happy when in good conditions and given enrichment, though you may lash out if bored or stressed. [color=red] You wont attack or try escaping out of nowhere or without reason.[/color] Just remember who's hand it is that feeds you.
+
+                                         You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
+
 ghost-role-information-vrex-name = V-Rex
 ghost-role-information-vrex-desc = Not sure how you got here, but you're mad about it! Swing your weight around and express your anger, all while avoiding the dangers of barotrauma.
+
+ghost-role-information-freeagent-teamantagonistchance-rules = You are a [color=yellow][bold]Free Agent[/bold][/color] with a small chance of rolling a [color=red][bold]Team Antagonist[/bold][/color] role. You must still follow escalation, but are not bound to the same restrictions as crew-aligned characters, unless the game tells you that you are an antagonist. [bold]ABANDONING THIS ROLE BECAUSE YOU ARE NOT AN ANTAGONIST WILL RESULT IN A BAN.[/bold]
+                                         You are still required to follow rules against excessive destruction. [color=red]Do not seek to sabotage critical infrastructure without proper escalation.[/color]
+
+                                         You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
+
+ghost-role-information-monkey-name-lambordeere = Glorious Leader Monkey
+ghost-role-information-monkey-description-lambordeere = You have slain your captor and now seek to reap the rewards of freedom.

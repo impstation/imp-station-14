@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Content.Server._Impstation.TraitRandomizer;
 using Content.Shared.Clothing;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Hands.Components;
@@ -21,7 +22,7 @@ public sealed class StartWithLensesSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<StartWithLensesComponent, MapInitEvent>(OnMapInit, after: [typeof(LoadoutSystem)]);
+        SubscribeLocalEvent<StartWithLensesComponent, MapInitEvent>(OnMapInit, after: [typeof(LoadoutSystem), typeof(TraitRandomizerSystem)]);
     }
 
     private void OnMapInit(Entity<StartWithLensesComponent> ent, ref MapInitEvent args)
@@ -32,7 +33,10 @@ public sealed class StartWithLensesSystem : EntitySystem
         var eyeSet = _inventorySystem.GetHandOrInventoryEntities(ent.Owner, SlotFlags.EYES);
 
         if (!eyeSet.Any())
+        {
+            _inventorySystem.SpawnItemInSlot(ent, "eyes", ent.Comp.LensPrototype);
             return;
+        }
 
         var eyes = eyeSet.First();
 
@@ -41,7 +45,14 @@ public sealed class StartWithLensesSystem : EntitySystem
             var item = Spawn(ent.Comp.LensPrototype, Transform(ent).Coordinates);
 
             if (_itemSlotsSystem.TryGetSlot(eyes, lensSlot.LensSlotId, out ItemSlot? itemSlot))
+            {
+                if (itemSlot.Item != null)
+                {
+                    Del(itemSlot.Item);
+                }
                 _itemSlotsSystem.TryInsert(eyes, itemSlot, item, user: null);
+            }
+
         }
         else
         {
@@ -54,11 +65,6 @@ public sealed class StartWithLensesSystem : EntitySystem
                     checkActionBlocker: false,
                     handsComp: handsComponent);
             }
-        }
-
-        if (eyes.Valid)
-        {
-            _inventorySystem.SpawnItemInSlot(ent, "eyes", ent.Comp.LensPrototype);
         }
     }
 }

@@ -1079,7 +1079,7 @@ namespace Content.Client.Lobby.UI
 
             _loadoutWindow = new LoadoutWindow(Profile, roleLoadout, roleLoadoutProto, _playerManager.LocalSession, collection)
             {
-                Title = Loc.GetString(jobProto?.Name ?? "Job") + " Loadout",
+                Title = Loc.GetString("loadout-window-title-loadout", ("job", $"{jobProto?.LocalizedName}")),
             };
 
             // Refresh the buttons etc.
@@ -1171,7 +1171,7 @@ namespace Content.Client.Lobby.UI
                         var color = SkinColor.HumanSkinTone((int)Skin.Value);
 
                         Markings.CurrentSkinColor = color;
-                        Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
+                        Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));//
                         break;
                     }
                 case HumanoidSkinColor.Hues:
