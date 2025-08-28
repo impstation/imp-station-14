@@ -11,6 +11,14 @@
   - type: Tag
     tags:
     - SurgeryTool
+  # Begin Offbrand
+  - type: SurgeryTool
+    slotsToCheck: [INNERCLOTHING, OUTERCLOTHING]
+    slotsDenialPopup: surgery-must-be-stripped
+    downDenialPopup: surgery-must-be-down
+    whitelist:
+      tags: [OperatableClothing]
+  # End Offbrand
 
 # Cautery
 

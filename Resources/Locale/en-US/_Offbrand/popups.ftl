@@ -17,4 +17,7 @@ cpr-target-started-user = You begin to perform chest compressions on { $target }
 cpr-target-started-others = { $user } begins performing chest compressions { $target }.
 cpr-wound-caused = You hear a loud, sickening crack.
 
+surgery-must-be-stripped = { $target } needs to remove { POSS-ADJ($target) } { $clothing }.
+surgery-must-be-down = { $target } needs to be laying down.
+
 neural-suppression-applied = Your thoughts turn inwards as the world and your body fade away.
