@@ -51,6 +51,9 @@
     count: 10
   - type: StackPrice
     price: 5
+  - type: PluralName # imp
+    oneOf: plural-name-tube-1
+    someOf: plural-name-tube-2plus
 
 - type: entity
   id: Ointment1
@@ -101,6 +104,10 @@
     count: 10
   - type: StackPrice
     price: 20
+  - type: PluralName # imp
+    oneOf: plural-name-piece-1
+    someOf: plural-name-piece-2plus
+
 
 - type: entity
   id: OintmentAdvanced1
@@ -146,6 +153,9 @@
     count: 10
   - type: StackPrice
     price: 5
+  - type: PluralName # imp
+    oneOf: plural-name-a
+    nameSomeOf: bruise packs
 
 - type: entity
   id: Brutepack1
@@ -193,6 +203,9 @@
     count: 10
   - type: StackPrice
     price: 20
+  - type: PluralName # imp
+    oneOf: plural-name-spindle-1
+    nameSomeOf: medicated sutures
 
 - type: entity
   id: BrutepackAdvanced1
@@ -249,7 +262,8 @@
         reagents:
         - ReagentId: Blood
           Quantity: 15
-
+  - type: PluralName # imp
+    nameSomeOf: blood packs
 
 - type: entity
   parent: Bloodpack
@@ -294,6 +308,8 @@
         params:
           volume: 1.0
           variation: 0.125
+    - type: PluralName # imp
+      nameSomeOf: torniquets
 
 - type: entity
   name: roll of gauze
@@ -336,6 +352,8 @@
     count: 10
   - type: StackPrice
     price: 10
+  - type: PluralName # imp
+    nameSomeOf: rolls of gauze
 
 - type: entity
   id: Gauze1
@@ -372,6 +390,9 @@
   - type: EmitSoundOnLand
     sound:
       path: "/Audio/Voice/Slime/slime_squish.ogg"
+  - type: PluralName
+    oneOf: plural-name-tube-1
+    someOf: plural-name-tube-2plus
   - type: Tag
     tags:
     - Aloe

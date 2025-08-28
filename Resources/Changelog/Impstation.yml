@@ -1,19 +1,4 @@
 ﻿Entries:
-- author: starlighthowls
-  changes:
-  - message: A few NTAS WW fixes
-    type: Fix
-  id: 1714
-  time: '2025-05-23T15:29:10.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2564
-- author: AirFryerBuyOneGetOneFree
-  changes:
-  - message: After a shuttle accident between Yum Yum and a local wizard, the afterlife
-      has died. The ghost bar has been removed.
-    type: Remove
-  id: 1715
-  time: '2025-05-23T15:33:55.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2528
 - author: kipdotnet
   changes:
   - message: Fixed the sink being missing from Banana's bar and kitchen.
@@ -4183,3 +4168,21 @@
   id: 2213
   time: '2025-08-26T22:43:46.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3058
+- author: mqole
+  changes:
+  - message: TEG circulators have been fitted with flow rate meters.
+    type: Add
+  id: 2214
+  time: '2025-08-28T09:37:51.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3364
+- author: jtfg-dev
+  changes:
+  - message: Items whose quantities were not clear when in someone's hands (i.e. "a
+      grapes", "a gloves", "a gold bar", "a steel") now should be grammatically correct
+      (i.e. "some grapes", "a pair of gloves", "some gold bars" "a sheet / some sheets
+      of steel"). Please report any applicable (but unaffected) items to the "make
+      text less bad" thread on the discord!
+    type: Add
+  id: 2215
+  time: '2025-08-28T12:27:18.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3136
