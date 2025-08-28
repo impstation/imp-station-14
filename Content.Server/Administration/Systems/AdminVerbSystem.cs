@@ -8,8 +8,6 @@ using Content.Server.Mind;
 using Content.Server.Prayer;
 using Content.Server.Silicons.Laws;
 using Content.Server.Station.Systems;
-using Content.Server.Xenoarchaeology.XenoArtifacts; //#IMP
-using Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Components; //#IMP
 using Content.Shared.Administration;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
@@ -37,8 +35,10 @@ using Robust.Shared.Toolshed;
 using Robust.Shared.Utility;
 using System.Linq;
 using static Content.Shared.Configurable.ConfigurationComponent;
-using Content.Shared._Impstation.Thaven.Components;
-using Content.Server._Impstation.Thaven;
+using Content.Server.Xenoarchaeology.XenoArtifacts; //#IMP
+using Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Components; //#IMP
+using Content.Shared._Impstation.Thaven.Components; // imp
+using Content.Server._Impstation.Thaven; // imp
 
 namespace Content.Server.Administration.Systems
 {
@@ -57,7 +57,6 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly DisposalTubeSystem _disposalTubes = default!;
         [Dependency] private readonly EuiManager _euiManager = default!;
         [Dependency] private readonly GhostRoleSystem _ghostRoleSystem = default!;
-        [Dependency] private readonly ArtifactSystem _artifactSystem = default!; //#IMP Old Xeno
         [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
         [Dependency] private readonly PrayerSystem _prayerSystem = default!;
         [Dependency] private readonly MindSystem _mindSystem = default!;
@@ -70,7 +69,8 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly AdminFrozenSystem _freeze = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly SiliconLawSystem _siliconLawSystem = default!;
-        [Dependency] private readonly ThavenMoodsSystem _moods = default!;
+        [Dependency] private readonly ArtifactSystem _artifactSystem = default!; //#IMP Old Xeno
+        [Dependency] private readonly ThavenMoodsSystem _moods = default!; // imp
 
         private readonly Dictionary<ICommonSession, List<EditSolutionsEui>> _openSolutionUis = new();
 
@@ -527,6 +527,7 @@ namespace Content.Server.Administration.Systems
                     Impact = LogImpact.High
                 });
             }
+            // imp end
 
             if (TryComp<InventoryComponent>(args.Target, out var inventoryComponent))
             {

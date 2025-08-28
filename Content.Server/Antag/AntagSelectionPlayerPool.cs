@@ -7,6 +7,7 @@ namespace Content.Server.Antag;
 
 public sealed class AntagSelectionPlayerPool (List<List<ICommonSession>> orderedPools)
 {
+    // imp add
     public List<ICommonSession> GetPoolSessions()
     {
         var combinedLists = new List<ICommonSession>();

@@ -1,4 +1,3 @@
-using System.Collections.Immutable; // imp
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -9,13 +8,10 @@ using Content.Server.GameTicking;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Speech.Prototypes;
 using Content.Server.Station.Systems;
-using Content.Server._Wizden.Chat.Systems; // Imp edit for Last Message Before Death Webhook
-using Content.Shared.Abilities.Mime; // imp
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
-using Content.Shared.CollectiveMind; // imp
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
@@ -37,6 +33,9 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
+using Content.Server._Wizden.Chat.Systems; // Imp edit for Last Message Before Death Webhook
+using Content.Shared.Abilities.Mime; // imp
+using Content.Shared.CollectiveMind; // imp
 
 namespace Content.Server.Chat.Systems;
 
@@ -63,7 +62,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly ReplacementAccentSystem _wordreplacement = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
-    [Dependency] private readonly CollectiveMindUpdateSystem _collectiveMind = default!;
+    [Dependency] private readonly CollectiveMindUpdateSystem _collectiveMind = default!; // collective mind imp
     [Dependency] private readonly LastMessageBeforeDeathSystem _lastMessageBeforeDeathSystem = default!; // Imp Edit LastMessageBeforeDeath Webhook
 
     private bool _loocEnabled = true;
@@ -394,6 +393,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         EntityUid source,
         string message,
         string? sender = null,
+        // bool playDefaultSound = true, // imp
         SoundSpecifier? announcementSound = null,
         Color? colorOverride = null)
     {
@@ -415,6 +415,10 @@ public sealed partial class ChatSystem : SharedChatSystem
         _chatManager.ChatMessageToManyFiltered(filter, ChatChannel.Radio, message, wrappedMessage, source, false, true, colorOverride);
 
         //imp. gutted default announcement sounds, announcersystem handles them now.
+        //if (playDefaultSound)
+        //{
+        //    _audio.PlayGlobal(announcementSound?.ToString() ?? DefaultAnnouncementSound, filter, true, AudioParams.Default.WithVolume(-2f));
+        //}
 
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Station Announcement on {station} from {sender}: {message}");
     }

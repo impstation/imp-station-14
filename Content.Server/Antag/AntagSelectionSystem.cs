@@ -12,7 +12,7 @@ using Content.Server.Preferences.Managers;
 using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
 using Content.Server.Shuttles.Components;
-using Content.Server.Players.PlayTimeTracking;
+using Content.Server.Station.Events;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Antag;
 using Content.Shared.Clothing;
@@ -22,7 +22,6 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Ghost;
 using Content.Shared.Humanoid;
 using Content.Shared.Mind;
-using Content.Shared.NPC.Systems;
 using Content.Shared.Players;
 using Content.Shared.Roles;
 using Content.Shared.Whitelist;
@@ -31,11 +30,13 @@ using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
-using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Content.Server.Players.PlayTimeTracking; // imp
+using Content.Shared.NPC.Systems; // imp
+using Robust.Shared.Network; // imp
 
 namespace Content.Server.Antag;
 
@@ -43,25 +44,25 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 {
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly IChatManager _chat = default!;
-    [Dependency] private readonly PlayTimeTrackingManager _playTime = default!;
     [Dependency] private readonly GhostRoleSystem _ghostRole = default!;
     [Dependency] private readonly JobSystem _jobs = default!;
     [Dependency] private readonly LoadoutSystem _loadout = default!;
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IServerPreferencesManager _pref = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly RoleSystem _role = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly NpcFactionSystem _faction = default!; //#IMP
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly PlayTimeTrackingManager _playTime = default!; // imp
+    [Dependency] private readonly IPrototypeManager _prototype = default!; // imp
+    [Dependency] private readonly IRobustRandom _random = default!; // imp
+    [Dependency] private readonly NpcFactionSystem _faction = default!; //#IMP
 
     // arbitrary random number to give late joining some mild interest.
     public const float LateJoinRandomChance = 0.5f;
 
-    public Dictionary<NetUserId, (ICommonSession, AntagSelectionDefinition, Entity<AntagSelectionComponent>)> QueuedAntags = [];
+    public Dictionary<NetUserId, (ICommonSession, AntagSelectionDefinition, Entity<AntagSelectionComponent>)> QueuedAntags = []; // imp
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -188,7 +189,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         foreach (var (uid, antag) in rules)
         {
-            if (!antag.Definitions.Any(p => p.ForceAllPossible))
+            if (!antag.Definitions.Any(p => p.ForceAllPossible)) // imp svs
                 if (!RobustRandom.Prob(LateJoinRandomChance))
                     continue;
 
@@ -343,6 +344,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
                 guaranteed.RemoveAt(0);
             }
             if (picking && session == null)
+            // imp edits end
             {
                 if (!playerPool.TryPickAndTake(RobustRandom, out session) && noSpawner)
                 {
@@ -352,7 +354,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
                 if (session != null && ent.Comp.PreSelectedSessions.Values.Any(x => x.Contains(session)))
                 {
-                    Log.Warning($"Somehow picked {session} for an antag when another rule already selected them previously");
+                    Log.Warning($"Somehow picked {session} for an antag when another rule already selected them previously"); // imp phrasing tweak
                     continue;
                 }
             }
@@ -430,7 +432,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         EntityUid? antagEnt = null;
         var isSpawner = false;
 
-        if (session != null) //imp edit
+        if (session != null)
         {
             if (!ent.Comp.PreSelectedSessions.TryGetValue(def, out var set))
                 ent.Comp.PreSelectedSessions.Add(def, set = new HashSet<ICommonSession>());
@@ -503,8 +505,10 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             return;
         }
 
+        // imp start
         var prereqEv = new AntagPrereqSetupEvent(session, ent, def);
         RaiseLocalEvent(ent, ref prereqEv, true);
+        // imp end
 
         // The following is where we apply components, equipment, and other changes to our antagonist entity.
         EntityManager.AddComponents(player, def.Components);
@@ -518,6 +522,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         {
             _faction.RemoveFaction(player, removeFaction);
         }
+        // imp end
 
         // Equip the entity's RoleLoadout and LoadoutGroup
         List<ProtoId<StartingGearPrototype>> gear = new();
@@ -549,7 +554,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         var afterEv = new AfterAntagEntitySelectedEvent(session, player, ent, def);
         RaiseLocalEvent(ent, ref afterEv, true);
-    } //end imp edit
+    }
 
     /// <summary>
     /// Gets an ordered player pool based on player preferences and the antagonist definition.
@@ -694,6 +699,7 @@ public record struct AntagSelectLocationEvent(ICommonSession? Session, Entity<An
     public List<MapCoordinates> Coordinates = new();
 }
 
+// imp add
 /// <summary>
 /// Event raised on a game rule entity to send additional information before begining setup.
 /// Used for applying additional more complex setup logic.

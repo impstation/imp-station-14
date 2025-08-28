@@ -8,12 +8,12 @@ using Content.Shared.Chat;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mind;
 using Content.Shared.Preferences;
-using Content.Shared.Roles;
 using JetBrains.Annotations;
 using Robust.Shared.Audio;
 using Robust.Shared.Enums;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
+using Content.Shared.Roles; // imp
+using Robust.Shared.Prototypes; // imp
 
 namespace Content.Server.Antag;
 
@@ -82,20 +82,6 @@ public sealed partial class AntagSelectionSystem
 
         return count;
     }
-
-    // goob edit
-    public List<ICommonSession> GetAliveConnectedPlayers(IList<ICommonSession> pool)
-    {
-        var l = new List<ICommonSession>();
-        foreach (var session in pool)
-        {
-            if (session.Status is SessionStatus.Disconnected or SessionStatus.Zombie)
-                continue;
-            l.Add(session);
-        }
-        return l;
-    }
-    // goob edit end
 
     /// <summary>
     /// Gets the number of antagonists that should be present for a given antag definition based on the provided pool.
@@ -182,7 +168,7 @@ public sealed partial class AntagSelectionSystem
     public bool HasPrimaryAntagPreference(ICommonSession? session, AntagSelectionDefinition def)
     {
         if (session == null)
-            return false;
+            return false; // imp edit
 
         if (def.PrefRoles.Count == 0)
             return false;
@@ -197,12 +183,12 @@ public sealed partial class AntagSelectionSystem
     public bool HasFallbackAntagPreference(ICommonSession? session, AntagSelectionDefinition def)
     {
         if (session == null)
-            return false;
+            return false; // imp edit
 
         if (def.FallbackRoles.Count == 0)
             return false;
 
-        var pref = (HumanoidCharacterProfile)_pref.GetPreferences(session.UserId).SelectedCharacter;
+        var pref = (HumanoidCharacterProfile) _pref.GetPreferences(session.UserId).SelectedCharacter;
         return pref.AntagPreferences.Any(p => def.FallbackRoles.Contains(p));
     }
     /// imp addition

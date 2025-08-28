@@ -1,13 +1,13 @@
 using Content.Server.Administration.Systems;
 using Content.Shared.Antag;
 using Content.Shared.Destructible.Thresholds;
-using Content.Shared.NPC.Prototypes;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Content.Shared.NPC.Prototypes; // imp
 
 namespace Content.Server.Antag.Components;
 
@@ -55,12 +55,6 @@ public sealed partial class AntagSelectionComponent : Component
     /// Is not serialized.
     /// </summary>
     public HashSet<ICommonSession> AssignedSessions = new();
-
-    /// <summary>
-    /// Cached sessions of players who are chosen. Used so we don't have to rebuild the pool multiple times in a tick.
-    /// Is not serialized.
-    /// </summary>
-    public HashSet<ICommonSession> ProcessedSessions = new();
 
     /// <summary>
     /// Locale id for the name of the antag.
@@ -141,6 +135,7 @@ public partial struct AntagSelectionDefinition()
     [DataField]
     public bool LateJoinAdditional = false;
 
+    // imp add: svs
     /// <summary>
     /// If true, all possible players who have this antag type enabled will be selected. Includes latejoins if LateJoinAdditional is true.
     /// </summary>
