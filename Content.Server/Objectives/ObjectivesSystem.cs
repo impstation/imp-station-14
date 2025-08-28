@@ -153,7 +153,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
             }
             else
             {
-                agentPrepped = agent;
+                agentPrepped = "a " + agent;
             }
             if (objectives.Count == 0 && agentPrepped != null)
             {
