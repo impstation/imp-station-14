@@ -12,3 +12,21 @@
   - type: TemperatureProtection
     heatingCoefficient: 1.05
     coolingCoefficient: 0.7
+
+# Plasmaman / Colonid Envirosuit
+- type: entity
+  parent: ClothingHeadEVAHelmetBase
+  id: ClothingHeadHelmetColonidEnvirosuit
+  name: envirosuit helmet
+  description: A space worthy helmet designed to help Colonids not combust in a non-plasma based atmosphere. 
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Helmets/eva_large.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Helmets/eva_large.rsi
+  - type: Tag
+    tags:
+    - HelmetEVA
+    - WhitelistChameleon
+    - CorgiWearable
+    
