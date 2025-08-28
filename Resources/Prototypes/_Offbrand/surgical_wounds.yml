@@ -49,9 +49,9 @@
     maximumDamage: 5
   - type: PainfulWound
     painCoefficients:
-      Brute: 5
+      Blunt: 5
     freshPainCoefficients:
-      Brute: 5
+      Blunt: 5
   - type: AnalyzableWound
     descriptions:
       0: wound-retracted
@@ -65,9 +65,9 @@
     maximumDamage: 5
   - type: PainfulWound
     painCoefficients:
-      Brute: 10
+      Blunt: 10
     freshPainCoefficients:
-      Brute: 5
+      Blunt: 5
   - type: AnalyzableWound
     descriptions:
       0: wound-ribcage-open
