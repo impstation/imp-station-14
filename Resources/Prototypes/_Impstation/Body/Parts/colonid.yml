@@ -56,7 +56,6 @@
     metabolizerTypes: [Human]
     groups: # this ain't your grandpa's heart
     - id: Food
-    - id: Alcohol
     - id: Narcotic
   - type: Tag # goob edit
     tags:
@@ -66,3 +65,26 @@
   - type: Item
     size: Small
     heldPrefix: heart
+
+- type: entity
+  id: OrganColonidLiver
+  parent: BaseHumanOrgan
+  name: prosthetic liver
+  description: "A synthetic liver developed by NT scientist to see what would happen if you got a colonid drunk. Now they all want one."
+  components:
+  - type: Sprite
+    state: liver
+  - type: Item
+    size: Small
+    heldPrefix: liver
+  - type: Metabolizer # The liver metabolizes certain chemicals only, like alcohol.
+    maxReagents: 1
+    metabolizerTypes: [Human]
+    groups:
+    - id: Alcohol
+      rateModifier: 200.0 # this number is a complete guess, I just want them to metabolize alcohol pretty quickly
+  - type: Tag # goob edit
+    tags:
+      - Meat
+      - Organ
+      - Liver
