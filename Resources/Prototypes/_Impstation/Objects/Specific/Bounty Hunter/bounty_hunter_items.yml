@@ -204,7 +204,7 @@
 
 # Merc hardsuit helmet
 - type: entity
-  parent: [ ClothingHeadHardsuitBase ]
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitMercenary
   name: mercenary hardsuit helmet
   description: A stylish helmet lined with lightweight armor-plating.
