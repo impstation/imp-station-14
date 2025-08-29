@@ -58,9 +58,17 @@
     damage:
       types:
         Radiation: 10
-  - type: WarpPoint # imp addition
-  - type: NameIdentifier # imp addition
+  # imp edit start
+  - type: WarpPoint
+    blacklist:
+      tags:
+      - GhostOnlyWarp
+  - type: Tag # imp edit
+    tags:
+    - GhostOnlyWarp
+  - type: NameIdentifier
     group: Anomaly
+  # imp edit end
 
 - type: entity
   id: AnomalyPyroclastic
