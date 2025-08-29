@@ -105,9 +105,10 @@
     speedModifier: 1 # Offbrand
     useSound:
       collection: Scalpel
-  - type: Utensil
-    types:
-      - Knife
+  # Offbrand
+  # - type: Utensil
+  #   types:
+  #     - Knife
   - type: Sprite
     sprite: _Offbrand/surgery_tools.rsi # Offbrand
     state: scalpel
@@ -260,9 +261,10 @@
   description: For cutting wood and other objects to pieces. Or sawing bones, in case of emergency.
   components:
   - type: Sharp
-  - type: Utensil
-    types:
-      - Knife
+  # Offbrand
+  # - type: Utensil
+  #   types:
+  #     - Knife
   - type: Sprite
     sprite: Objects/Specific/Medical/Surgery/saw.rsi
     state: saw
