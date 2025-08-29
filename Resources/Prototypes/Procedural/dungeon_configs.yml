@@ -44,7 +44,7 @@
   - !type:BoundaryWallDunGen
     wall: WallSolid
     cornerWall: WallReinforced
-    tile: FloorSteel 
+    tile: FloorSteel # imp
 
   - !type:JunctionDunGen
     width: 1
@@ -177,18 +177,18 @@
     contents: LavaBrigEntrance
 
   - !type:RoomEntranceDunGen
-    tile: FloorSteel
+    tile: FloorSteel # imp
     contents: AirlockGlass # imp
 
   - !type:EntranceFlankDunGen
-    tile: FloorSteel
-    contents:
+    tile: FloorSteel # imp
+    contents: # imp
         - Window # imp
         - Grille # imp
 
   - !type:ExternalWindowDunGen
-    tile: FloorSteel
-    contents:
+    tile: FloorSteel # imp
+    contents: # imp
         - Window # imp
         - Grille # imp
 
@@ -306,11 +306,11 @@
 
   - !type:RoomEntranceDunGen
     tile: FloorCaveDrought
-    contents: WoodenSupportWall
+    contents: WoodenSupportWall # imp
 
   - !type:EntranceFlankDunGen
     tile: FloorCaveDrought
-    contents: 
+    contents:  # imp
         - WoodenSupportWall # imp
         - WoodenSupportWallBroken # imp
         - WoodenSupportBeam # imp
@@ -319,7 +319,7 @@
 
   - !type:ExternalWindowDunGen
     tile: FloorCaveDrought
-    contents: 
+    contents: # imp
         - WoodenSupportWall # imp
         - WoodenSupportWallBroken # imp
         - WoodenSupportBeam # imp
@@ -381,12 +381,12 @@
   - !type:JunctionDunGen
     width: 1
     tile: FloorCaveDrought
-    contents: WoodenSupportBeam
+    contents: WoodenSupportBeam # imp
 
   - !type:JunctionDunGen
     width: 3
     tile: FloorCaveDrought
-    contents: WoodenSupportBeam
+    contents: WoodenSupportBeam # imp
 
   - !type:AutoCablingDunGen
     entity: Catwalk
@@ -424,13 +424,13 @@
 
   - !type:EntranceFlankDunGen
     tile: FloorSteel
-    contents: 
+    contents: # imp
         - Window # imp
         - Grille # imp
 
   - !type:ExternalWindowDunGen
     tile: FloorSteel
-    contents: 
+    contents: # imp
         - Window # imp
         - Grille # imp
 
