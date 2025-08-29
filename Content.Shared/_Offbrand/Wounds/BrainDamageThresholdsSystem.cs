@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared.Alert;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Mobs;
 using Content.Shared.StatusEffectNew;
@@ -8,6 +9,7 @@ namespace Content.Shared._Offbrand.Wounds;
 
 public sealed partial class BrainDamageThresholdsSystem : EntitySystem
 {
+    [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
 
@@ -52,6 +54,7 @@ public sealed partial class BrainDamageThresholdsSystem : EntitySystem
         var brain = Comp<BrainDamageComponent>(ent);
 
         UpdateState(ent);
+        UpdateAlert((ent.Owner, ent.Comp, brain));
 
         var damageEffect = ent.Comp.DamageEffectThresholds.HighestMatch(brain.Damage);
         if (damageEffect == ent.Comp.CurrentDamageEffect)
@@ -91,6 +94,25 @@ public sealed partial class BrainDamageThresholdsSystem : EntitySystem
 
         var overlays = new PotentiallyUpdateDamageOverlay(ent);
         RaiseLocalEvent(ent, ref overlays, true);
+    }
+
+    private void UpdateAlert(Entity<BrainDamageThresholdsComponent, BrainDamageComponent> ent)
+    {
+        var targetEffect = ent.Comp1.DamageAlertThresholds.HighestMatch(ent.Comp2.Damage);
+        if (targetEffect == ent.Comp1.CurrentDamageAlertThresholdState)
+            return;
+
+        ent.Comp1.CurrentDamageAlertThresholdState = targetEffect;
+        Dirty(ent);
+
+        if (targetEffect is { } effect)
+        {
+            _alerts.ShowAlert(ent, effect);
+        }
+        else
+        {
+            _alerts.ClearAlertCategory(ent, ent.Comp1.DamageAlertCategory);
+        }
     }
 
     private void OnUpdateMobState(Entity<BrainDamageThresholdsComponent> ent, ref UpdateMobStateEvent args)

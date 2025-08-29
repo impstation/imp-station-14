@@ -21,3 +21,12 @@ alerts-pain-blackout-desc = You can't stand, it hurts, make it stop.
 
 alerts-pain-suppressed-name = Suppressed Pain
 alerts-pain-suppressed-desc = You cannot feel pain.
+
+alerts-severe-brain-damage-name = [color=yellow]Severe Brain Damage[/color]
+alerts-severe-brain-damage-desc = You struggle to control your body.
+
+alerts-critical-brain-damage-name = [color=red]Critical Brain Damage[/color]
+alerts-critical-brain-damage-desc = Your brain cannot control your body.
+
+alerts-brain-death-name = [color=crimson]Brain Dead[/color]
+alerts-brain-death-desc = Your brain has faded away into nothingness.

@@ -21,3 +21,6 @@ surgery-must-be-stripped = { $target } needs to remove { POSS-ADJ($target) } { $
 surgery-must-be-down = { $target } needs to be laying down.
 
 neural-suppression-applied = Your thoughts turn inwards as the world and your body fade away.
+critical-brain-damage-applied = Your brain feels cut off from the world.
+brain-oxygen-depleted = Your brain struggles to control your limbs.
+severe-brain-damage-applied = Your brain struggles to direct your body.

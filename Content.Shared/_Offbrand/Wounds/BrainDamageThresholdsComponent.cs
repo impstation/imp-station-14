@@ -1,3 +1,4 @@
+using Content.Shared.Alert;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
 using Content.Shared.StatusIcon;
@@ -60,4 +61,19 @@ public sealed partial class BrainDamageThresholdsComponent : Component
     /// </summary>
     [DataField(required: true)]
     public ProtoId<HealthIconPrototype> DeadIcon;
+
+    /// <summary>
+    /// The alert to display depending on the amount of brain damage. Highest key is selected.
+    /// </summary>
+    [DataField(required: true)]
+    public SortedDictionary<FixedPoint2, ProtoId<AlertPrototype>> DamageAlertThresholds;
+
+    /// <summary>
+    /// The alert category of the alerts.
+    /// </summary>
+    [DataField(required: true)]
+    public ProtoId<AlertCategoryPrototype> DamageAlertCategory;
+
+    [DataField, AutoNetworkedField]
+    public ProtoId<AlertPrototype>? CurrentDamageAlertThresholdState;
 }
