@@ -435,7 +435,7 @@ namespace Content.Server.Construction
                     var toRemove = entRemoved.Entity;
 
                     if (removeStep.EntityValid(toRemove, EntityManager, Factory)) // Does the removed entity have the desired tag?
-                        return HandleResult.True;
+                        return validation ? HandleResult.Validated : HandleResult.True;
                     return HandleResult.False;
                 }
 
