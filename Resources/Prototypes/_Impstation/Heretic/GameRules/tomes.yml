@@ -2,24 +2,27 @@
   id: HereticBooksEventScheduler
   parent: BaseGameRule
   components:
+  - type: GameRule
   - type: BasicStationEventScheduler
     minimumTimeUntilFirstEvent: 100 #5 min
     minMaxEventTiming:
-      min: 270 #4.5 min
-      max: 450 #7.5 min
+      min: 40 #4.5 min
+      max: 60 #7.5 min
     scheduledGameRules: !type:NestedSelector
-      tableId: HereticBooksGameRulesTable
+      tableId: HereticBooksEventsTable
 
 - type: entityTable
-  id: HereticBooksGameRulesTable
+  id: HereticBooksEventsTable
   table: !type:AllSelector
     children:
-    - id: HereticBooksSpawnSmall
+    - id: HereticBooksSpawnMidroundWave
+    - id: HereticBooksSpawnBig
 
 - type: entity
-  id: HereticBooksSpawnSmall
-  parent: BaseStationEventShortDelay
+  id: HereticBooksSpawnSmall #for outside the heretic gamemode
+  parent: BaseGameRule
   components:
+  - type: GameRule
   - type: StationEvent
     weight: 1.5
     reoccurenceDelay: 1
@@ -28,15 +31,28 @@
     maxBooks: 2
 
 - type: entity
+  id: HereticBooksSpawnMidroundWave
+  parent: BaseGameRule
+  components:
+  - type: GameRule
+  - type: StationEvent
+    earliestStart: 1
+    weight: 95
+    reoccurenceDelay: 1
+  - type: HereticBookWaveRule
+    minBooks: 1
+    maxBooks: 2
+
+- type: entity
   id: HereticBooksSpawnBig #for the big wave at the start
-  parent: BaseStationEvent
+  parent: BaseGameRule
   components:
   - type: GameRule
     delay:
-      min:  240
-      max:  360
+      min:  120
+      max:  150
   - type: StationEvent
-    earliestStart: 3
+    earliestStart: 1
     weight: 5
     duration: 15
   - type: HereticBookWaveRule
