@@ -66,6 +66,11 @@ public sealed class WoundableSystem : EntitySystem
         if (!_statusEffects.TryEffectsWithComp<WoundDescriptionComponent>(ent, out var wounds))
             return;
 
+        if (!args.Message.IsEmpty)
+        {
+            args.Message.PushNewline();
+        }
+
         var counts = new Dictionary<string, int>();
 
         foreach (var describable in wounds)
