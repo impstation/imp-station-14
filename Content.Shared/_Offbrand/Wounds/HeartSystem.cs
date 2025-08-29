@@ -194,7 +194,7 @@ public sealed partial class HeartSystem : EntitySystem
         if (!_solutionContainer.ResolveSolution(ent.Owner, bloodstream.BloodSolutionName,
             ref bloodstream.BloodSolution, out var bloodSolution))
         {
-            return FixedPoint2.Zero;
+            return 1;
         }
 
         return bloodSolution.Volume / bloodSolution.MaxVolume;
