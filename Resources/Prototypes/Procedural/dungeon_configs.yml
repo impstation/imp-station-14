@@ -23,19 +23,19 @@
 
   - !type:RoomEntranceDunGen
     tile: FloorSteel
-    contents: AirlockGlass
+    contents: AirlockGlass #imp
 
   - !type:EntranceFlankDunGen
     tile: FloorSteel
     contents:
-        - Window
-        - Grille
+        - Window #imp
+        - Grille #imp
 
   - !type:ExternalWindowDunGen
     tile: FloorSteel
     contents:
-        - Window
-        - Grille
+        - Window #imp
+        - Grille #imp
 
   - !type:WallMountDunGen
     contents: ScienceLabsWalls
@@ -44,17 +44,17 @@
   - !type:BoundaryWallDunGen
     wall: WallSolid
     cornerWall: WallReinforced
-    tile: FloorSteel
+    tile: FloorSteel 
 
   - !type:JunctionDunGen
     width: 1
     tile: FloorSteel
-    contents: AirlockGlass
+    contents: AirlockGlass # imp
 
   - !type:JunctionDunGen
     width: 3
     tile: FloorSteel
-    contents: AirlockGlass
+    contents: AirlockGlass # imp
 
   - !type:AutoCablingDunGen
     entity: CableApcExtension
@@ -62,6 +62,7 @@
   - !type:CornerClutterDunGen
     contents: BaseClutter
     
+    # Imp Edit Start
   - !type:EntityTableDunGen
     minCount: 20
     maxCount: 35
@@ -107,6 +108,7 @@
     maxCount: 2
     table: !type:NestedSelector
       tableId: SalvageEquipmentLegendary
+    # Imp Edit End
 
   - !type:CorridorDecalSkirtingDunGen
     cardinalDecals:
@@ -176,19 +178,19 @@
 
   - !type:RoomEntranceDunGen
     tile: FloorSteel
-    contents: AirlockGlass
+    contents: AirlockGlass # imp
 
   - !type:EntranceFlankDunGen
     tile: FloorSteel
     contents:
-        - Window
-        - Grille
+        - Window # imp
+        - Grille # imp
 
   - !type:ExternalWindowDunGen
     tile: FloorSteel
     contents:
-        - Window
-        - Grille
+        - Window # imp
+        - Grille # imp
 
   - !type:WallMountDunGen
     contents: ScienceLabsWalls
@@ -202,12 +204,12 @@
   - !type:JunctionDunGen
     width: 1
     tile: FloorDark
-    contents: AirlockGlass
+    contents: AirlockGlass # imp
 
   - !type:JunctionDunGen
     width: 3
     tile: FloorDark
-    contents: AirlockGlass
+    contents: AirlockGlass # imp
 
   - !type:AutoCablingDunGen
     entity: CableApcExtension
@@ -215,6 +217,7 @@
   - !type:CornerClutterDunGen
     contents: BaseClutter
 
+    # Imp Edit Start
   - !type:EntityTableDunGen
     minCount: 20
     maxCount: 35
@@ -260,6 +263,7 @@
     maxCount: 2
     table: !type:NestedSelector
       tableId: SalvageEquipmentLegendary
+    # Imp Edit End
 
   - !type:CorridorDecalSkirtingDunGen
     cardinalDecals:
@@ -307,21 +311,22 @@
   - !type:EntranceFlankDunGen
     tile: FloorCaveDrought
     contents: 
-        - WoodenSupportWall
-        - WoodenSupportWallBroken
-        - WoodenSupportBeam
-        - WoodenSupport
-    useRandomEntity: true
+        - WoodenSupportWall # imp
+        - WoodenSupportWallBroken # imp
+        - WoodenSupportBeam # imp
+        - WoodenSupport # imp
+    useRandomEntity: true # imp
 
   - !type:ExternalWindowDunGen
     tile: FloorCaveDrought
     contents: 
-        - WoodenSupportWall
-        - WoodenSupportWallBroken
-        - WoodenSupportBeam
-        - WoodenSupport
-    useRandomEntity: true
+        - WoodenSupportWall # imp
+        - WoodenSupportWallBroken # imp
+        - WoodenSupportBeam # imp
+        - WoodenSupport # imp
+    useRandomEntity: true # imp
 
+    # Imp Edit Start
   - !type:EntityTableDunGen
     minCount: 20
     maxCount: 35
@@ -367,6 +372,7 @@
     maxCount: 2
     table: !type:NestedSelector
       tableId: SalvageEquipmentLegendary
+    # Imp Edit End
 
   # No wallmounts
 
@@ -414,19 +420,19 @@
 
   - !type:RoomEntranceDunGen
     tile: FloorSteel
-    contents: AirlockGlass
+    contents: AirlockGlass # imp
 
   - !type:EntranceFlankDunGen
     tile: FloorSteel
     contents: 
-        - Window
-        - Grille
+        - Window # imp
+        - Grille # imp
 
   - !type:ExternalWindowDunGen
     tile: FloorSteel
     contents: 
-        - Window
-        - Grille
+        - Window # imp
+        - Grille # imp
 
   - !type:WallMountDunGen
     contents: SnowyLabsWalls
@@ -439,16 +445,17 @@
   - !type:JunctionDunGen
     width: 1
     tile: FloorSteel
-    contents: AirlockGlass
+    contents: AirlockGlass # imp
 
   - !type:JunctionDunGen
     width: 3
     tile: FloorSteel
-    contents: AirlockGlass
+    contents: AirlockGlass # imp
 
   - !type:AutoCablingDunGen
     entity: CableApcExtension
 
+    # Imp Edit Start
   - !type:EntityTableDunGen
     minCount: 20
     maxCount: 35
@@ -494,6 +501,7 @@
     maxCount: 2
     table: !type:NestedSelector
       tableId: SalvageEquipmentLegendary
+    # Imp Edit End  
 # Spawn groups
 # Basic
 - type: entityTable

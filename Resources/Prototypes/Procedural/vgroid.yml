@@ -23,7 +23,7 @@
       minCount: 7
       maxCount: 12
       table:
-        id: VGRoidInteriorRoomMarker 
+        id: VGRoidInteriorRoomMarker
     # Fill
     - !type:PrototypeDunGen
       proto: VGRoidFill
@@ -153,20 +153,20 @@
   - !type:ExteriorDunGen
     proto: Experiment
   - !type:EntityTableDunGen
-    minCount: 45
-    maxCount: 60
+    minCount: 45 # imp
+    maxCount: 60 # imp
     table: !type:NestedSelector
-      tableId: SalvageScrapLowValue
+      tableId: SalvageScrapLowValue # imp
   - !type:EntityTableDunGen
-    minCount: 10
-    maxCount: 25
+    minCount: 10 # imp
+    maxCount: 25 # imp
     table: !type:NestedSelector
-      tableId: SalvageScrapHighValue
+      tableId: SalvageScrapHighValue # imp
   - !type:EntityTableDunGen
-    minCount: 8
-    maxCount: 15
+    minCount: 8 # imp
+    maxCount: 15 # imp
     table: !type:NestedSelector
-      tableId: SalvageScrapLarge
+      tableId: SalvageScrapLarge # imp edit start
   - !type:EntityTableDunGen
     minCount: 30
     maxCount: 45
@@ -201,7 +201,7 @@
     minCount: 0
     maxCount: 2
     table: !type:NestedSelector
-      tableId: MegaRareDungTable
+      tableId: MegaRareDungTable # imp edit end
   - !type:MobsDunGen
     minCount: 8
     maxCount: 15

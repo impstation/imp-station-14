@@ -20,5 +20,5 @@ public sealed partial class JunctionDunGen : IDunGenLayer
     public ProtoId<ContentTileDefinition> Tile;
 
     [DataField(required: true)]
-    public EntProtoId Contents;
+    public EntProtoId Contents; // imp
 }
