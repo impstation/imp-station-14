@@ -125,7 +125,15 @@
   metabolisms:
     Poison:
       effects:
+      - !type:Oxygenate # imp, colonids do be breathing plasma, eh?
+        conditions:
+        - !type:OrganType
+          type: Colonid
       - !type:HealthChange
+        conditions: # imp, and thus they shouldn't be poisoned by what they breathe
+        - !type:OrganType
+          type: Colonid
+          shouldHave: false
         damage:
           types:
             Poison: 3
