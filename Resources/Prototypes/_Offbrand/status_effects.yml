@@ -264,6 +264,8 @@
   parent: MobStatusEffectBase
   id: StatusEffectSevereBrainDamage
   components:
+  - type: PopupOnAppliedStatusEffect
+    message: severe-brain-damage-applied
   - type: StutteringAccent
   - type: MeleeModifiersStatusEffect
     damageModifier:
@@ -281,10 +283,21 @@
   parent: MobStatusEffectBase
   id: StatusEffectBrainNoOxygen
   components:
+  - type: PopupOnAppliedStatusEffect
+    message: brain-oxygen-depleted
+    visualType: LargeCaution
   - type: StutteringAccent
   - type: KnockdownStatusEffect
   - type: KnockdownOnAppliedStatusEffect
     duration: 5
+
+- type: entity
+  parent: StatusEffectSevereBrainDamage
+  id: StatusEffectCriticalBrainDamage
+  components:
+  - type: PopupOnAppliedStatusEffect
+    message: critical-brain-damage-applied
+    visualType: LargeCaution
 
 - type: entity
   parent: MobStatusEffectBase

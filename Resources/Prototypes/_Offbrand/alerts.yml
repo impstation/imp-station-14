@@ -29,6 +29,9 @@
 - type: alertCategory
   id: Pain
 
+- type: alertCategory
+  id: BrainDamage
+
 - type: alert
   id: SuppressedPain
   category: Pain
@@ -82,3 +85,31 @@
     state: pain_blackout
   name: alerts-pain-blackout-name
   description: alerts-pain-blackout-desc
+
+- type: alert
+  id: SevereBrainDamage
+  category: BrainDamage
+  icons:
+  - sprite: /Textures/_Offbrand/Alerts/brain_damage.rsi
+    state: severe
+  name: alerts-severe-brain-damage-name
+  description: alerts-severe-brain-damage-desc
+
+- type: alert
+  id: CriticalBrainDamage
+  category: BrainDamage
+  icons:
+  - sprite: /Textures/_Offbrand/Alerts/brain_damage.rsi
+    state: critical
+  name: alerts-critical-brain-damage-name
+  description: alerts-critical-brain-damage-desc
+
+- type: alert
+  id: BrainDead
+  category: BrainDamage
+  icons:
+  - sprite: /Textures/_Offbrand/Alerts/brain_damage.rsi
+    state: dead
+  name: alerts-brain-death-name
+  description: alerts-brain-death-desc
+
