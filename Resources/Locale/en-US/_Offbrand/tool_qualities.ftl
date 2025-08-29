@@ -15,3 +15,6 @@ tool-quality-bone-mending-tool-name = Bottle of Bone Gel
 
 tool-quality-bone-setting-name = Bone Setting
 tool-quality-bone-setting-tool-name = Bone Setter
+
+tool-quality-recoupling-name = Recoupling
+tool-quality-recoupling-tool-name = Vascular Recoupler
