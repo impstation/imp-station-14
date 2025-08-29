@@ -1,52 +1,4 @@
 ﻿Entries:
-- author: starlighthowls
-  changes:
-  - message: A few NTAS WW fixes
-    type: Fix
-  id: 1714
-  time: '2025-05-23T15:29:10.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2564
-- author: AirFryerBuyOneGetOneFree
-  changes:
-  - message: After a shuttle accident between Yum Yum and a local wizard, the afterlife
-      has died. The ghost bar has been removed.
-    type: Remove
-  id: 1715
-  time: '2025-05-23T15:33:55.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2528
-- author: kipdotnet
-  changes:
-  - message: Fixed the sink being missing from Banana's bar and kitchen.
-    type: Fix
-  id: 1716
-  time: '2025-05-23T15:34:56.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2551
-- author: DinnerCalzone
-  changes:
-  - message: Janitorial toolboxes can now be found as maintenance loot!
-    type: Add
-  id: 1717
-  time: '2025-05-23T15:35:58.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2550
-- author: TuttlePants
-  changes:
-  - message: Bounty Hunters now target command members when they can't target an antagonist.
-    type: Tweak
-  id: 1718
-  time: '2025-05-23T15:38:20.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2517
-- author: widgetbeck
-  changes:
-  - message: Decapoids no longer have an inbuilt speed debuff.
-    type: Remove
-  - message: The Decapoid claw shield has been buffed to 40% block while raised.
-    type: Tweak
-  - message: Shields can no longer bodyblock - instead, raising your shield just slows
-      you down considerably.
-    type: Tweak
-  id: 1719
-  time: '2025-05-23T19:52:43.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2463
 - author: AirFryerBuyOneGetOneFree
   changes:
   - message: Fixed ghost role menu not showing job names.
@@ -4183,3 +4135,49 @@
   id: 2213
   time: '2025-08-26T22:43:46.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3058
+- author: mqole
+  changes:
+  - message: TEG circulators have been fitted with flow rate meters.
+    type: Add
+  id: 2214
+  time: '2025-08-28T09:37:51.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3364
+- author: jtfg-dev
+  changes:
+  - message: Items whose quantities were not clear when in someone's hands (i.e. "a
+      grapes", "a gloves", "a gold bar", "a steel") now should be grammatically correct
+      (i.e. "some grapes", "a pair of gloves", "some gold bars" "a sheet / some sheets
+      of steel"). Please report any applicable (but unaffected) items to the "make
+      text less bad" thread on the discord!
+    type: Add
+  id: 2215
+  time: '2025-08-28T12:27:18.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3136
+- author: TheGrimbeeper
+  changes:
+  - message: Natural artifacts now count for the artifact bounty.
+    type: Fix
+  id: 2216
+  time: '2025-08-29T11:51:58.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3372
+- author: youtubevideo3
+  changes:
+  - message: New bomber jacket for the HOS!
+    type: Add
+  id: 2217
+  time: '2025-08-29T23:22:25.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3378
+- author: EpicToastTM
+  changes:
+  - message: Hash has been derotated for renovations.
+    type: Remove
+  id: 2218
+  time: '2025-08-29T23:27:24.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3387
+- author: HAPPYNEWYEAR1999
+  changes:
+  - message: Pathway's medical department has undergone some surgery.
+    type: Tweak
+  id: 2219
+  time: '2025-08-29T23:31:16.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3388

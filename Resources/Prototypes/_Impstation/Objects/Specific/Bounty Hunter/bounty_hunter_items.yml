@@ -38,6 +38,8 @@
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
+  - type: PluralName # imp
+    oneOf: plural-name-pair-1
 
 # Companion Cyborg Reinforcement Radio, borgdisabler, and nonlethal module
 - type: entity
