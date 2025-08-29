@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/28/2025 05:00:50
-  entityCount: 22731
+  time: 08/29/2025 23:47:39
+  entityCount: 22716
 maps:
 - 5005
 grids:
@@ -17247,10 +17247,10 @@ entities:
             0: 65528
           -10,12:
             0: 4376
-            4: 52416
+            3: 52416
           -9,12:
             0: 52424
-            4: 4368
+            3: 4368
           -12,-4:
             1: 15
             0: 17152
@@ -17364,13 +17364,13 @@ entities:
             0: 61678
           -16,5:
             0: 20753
-            3: 3264
+            4: 3264
             1: 32768
           -17,5:
             0: 65535
           -16,6:
             0: 57104
-            3: 4
+            4: 4
             1: 8
           -17,6:
             0: 65520
@@ -17501,7 +17501,7 @@ entities:
             0: 11259
           -9,13:
             0: 65484
-            4: 1
+            3: 1
           -8,14:
             0: 38
             1: 65280
@@ -17698,7 +17698,7 @@ entities:
             0: 53427
           -10,13:
             0: 65281
-            4: 12
+            3: 12
           -10,14:
             0: 16368
           -10,15:
@@ -17782,19 +17782,19 @@ entities:
             0: 65535
           -20,13:
             1: 16
-            3: 4096
+            4: 4096
             0: 52228
           -21,13:
             1: 176
-            3: 32768
-            7: 8192
+            4: 32768
+            5: 8192
             0: 64
           -20,14:
-            3: 17
+            4: 17
             0: 35852
           -21,14:
-            3: 136
-            7: 34
+            4: 136
+            5: 34
           -20,15:
             0: 35323
           -21,15:
@@ -18156,12 +18156,12 @@ entities:
             1: 56661
           -24,13:
             1: 4592
-            3: 32768
+            4: 32768
           -25,13:
             1: 24437
           -24,14:
             1: 12563
-            3: 136
+            4: 136
           -25,14:
             1: 55133
           -24,15:
@@ -18170,25 +18170,25 @@ entities:
             1: 129
           -23,13:
             1: 240
-            5: 8192
-            3: 32768
+            6: 8192
+            4: 32768
           -23,15:
             1: 63729
           -23,14:
-            5: 34
-            3: 136
+            6: 34
+            4: 136
           -22,13:
             1: 240
-            3: 8192
-            6: 32768
+            4: 8192
+            7: 32768
           -22,15:
             1: 28914
           -23,16:
             1: 34952
           -22,14:
-            3: 34
+            4: 34
             0: 8192
-            6: 136
+            7: 136
           -21,16:
             1: 34
             0: 61576
@@ -18340,21 +18340,6 @@ entities:
           - 0
           - 0
         - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
           temperature: 235
           moles:
           - 27.225372
@@ -18375,21 +18360,6 @@ entities:
           - 0
           - 0
           - 0
-          - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 6666.982
-          - 0
-          - 0
           - 0
           - 0
           - 0
@@ -18404,6 +18374,36 @@ entities:
           moles:
           - 0
           - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
+          - 0
+          - 0
+          - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 6666.982
+          - 0
           - 0
           - 0
           - 0
@@ -73848,7 +73848,7 @@ entities:
       pos: -25.5,43.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -11630.595
+      secondsUntilStateChange: -11749.287
       state: Closing
   - uid: 9802
     components:
@@ -123298,21 +123298,6 @@ entities:
     - type: Transform
       pos: 1.5,37.5
       parent: 1
-  - uid: 22708
-    components:
-    - type: Transform
-      pos: 0.5,39.5
-      parent: 1
-  - uid: 22709
-    components:
-    - type: Transform
-      pos: 0.5,38.5
-      parent: 1
-  - uid: 22710
-    components:
-    - type: Transform
-      pos: 0.5,37.5
-      parent: 1
   - uid: 22711
     components:
     - type: Transform
@@ -123333,11 +123318,6 @@ entities:
     - type: Transform
       pos: 1.5,37.5
       parent: 1
-  - uid: 22715
-    components:
-    - type: Transform
-      pos: 1.5,36.5
-      parent: 1
   - uid: 22716
     components:
     - type: Transform
@@ -123353,11 +123333,6 @@ entities:
     - type: Transform
       pos: 2.5,37.5
       parent: 1
-  - uid: 22719
-    components:
-    - type: Transform
-      pos: 2.5,36.5
-      parent: 1
   - uid: 22720
     components:
     - type: Transform
@@ -123372,46 +123347,6 @@ entities:
     components:
     - type: Transform
       pos: 3.5,37.5
-      parent: 1
-  - uid: 22723
-    components:
-    - type: Transform
-      pos: 3.5,36.5
-      parent: 1
-  - uid: 22724
-    components:
-    - type: Transform
-      pos: 4.5,39.5
-      parent: 1
-  - uid: 22725
-    components:
-    - type: Transform
-      pos: 4.5,38.5
-      parent: 1
-  - uid: 22726
-    components:
-    - type: Transform
-      pos: 4.5,37.5
-      parent: 1
-  - uid: 22727
-    components:
-    - type: Transform
-      pos: 4.5,36.5
-      parent: 1
-  - uid: 22728
-    components:
-    - type: Transform
-      pos: 1.5,40.5
-      parent: 1
-  - uid: 22729
-    components:
-    - type: Transform
-      pos: 2.5,40.5
-      parent: 1
-  - uid: 22730
-    components:
-    - type: Transform
-      pos: 3.5,40.5
       parent: 1
   - uid: 22741
     components:
@@ -123429,11 +123364,6 @@ entities:
     components:
     - type: Transform
       pos: 7.5,48.5
-      parent: 1
-  - uid: 21138
-    components:
-    - type: Transform
-      pos: 0.5,36.5
       parent: 1
   - uid: 21139
     components:
@@ -125702,11 +125632,6 @@ entities:
     components:
     - type: Transform
       pos: 2.5,37.5
-      parent: 1
-  - uid: 8149
-    components:
-    - type: Transform
-      pos: 0.5,36.5
       parent: 1
   - uid: 8152
     components:
