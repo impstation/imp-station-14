@@ -22,6 +22,12 @@ public sealed partial class SprayPainterComponent : Component
     public SoundSpecifier SpraySound = new SoundPathSpecifier("/Audio/Effects/spray2.ogg");
 
     /// <summary>
+    /// IMP: The sound to be played after inserting ammo.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier InsertSound = new SoundPathSpecifier("/Audio/Weapons/Guns/MagIn/revolver_magin.ogg");
+
+    /// <summary>
     /// The amount of time it takes to paint a pipe.
     /// </summary>
     [DataField]
