@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/30/2025 00:42:42
-  entityCount: 21123
+  time: 08/30/2025 00:51:53
+  entityCount: 21124
 maps:
 - 1
 grids:
@@ -47061,6 +47061,11 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 157.5,23.5
+      parent: 2
+  - uid: 21124
+    components:
+    - type: Transform
+      pos: 56.5,-17.5
       parent: 2
 - proto: ComputerSalvageExpedition
   entities:
