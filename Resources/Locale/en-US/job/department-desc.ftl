@@ -1,4 +1,5 @@
-﻿department-Cargo-description = Complete bounties, earn Spessos, and order useful supplies for the crew.
+﻿# imp edit for cargo description
+department-Cargo-description = Complete bounties, salvage for materials, and deliver supplies and mail to the crew,
 # imp edit for civilian description
 department-Civilian-description = Hang out around the station.
 department-Command-description = Manage the crew and keep them working efficiently.

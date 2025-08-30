@@ -25,7 +25,7 @@
       - Brig
       - Detective
       - Captain
-      - Cargo
+      - CargoShuttle #Imp
       - Chapel
       - Chemistry
       - ChiefEngineer
@@ -43,7 +43,6 @@
       - Kitchen
       - Lawyer
       - Librarian #Imp
-      - Logistics #Imp
       - Maintenance
       - Medical
       - Mime #Imp
@@ -55,6 +54,7 @@
       - Salvage
       - Security
       - Service
+      - Cargo #imp, supply
       - Theatre
       - GenpopEnter
       - GenpopLeave
@@ -106,7 +106,7 @@
     - Brig
     - Detective
     - Captain
-    - Cargo
+    - CargoShuttle #imp
     - Chapel
     - Chemistry
     - ChiefEngineer
@@ -126,7 +126,6 @@
     - Kitchen
     - Lawyer
     - Librarian #Imp
-    - Logistics #Imp
     - Maintenance
     - Medical
     - Mime #Imp
@@ -139,6 +138,7 @@
     - Security
     - Service
     - StationAi
+    - Cargo #Imp, supply
     - Theatre
     - CentralCommand
     - NuclearOperative

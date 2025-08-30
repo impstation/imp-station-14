@@ -47,8 +47,8 @@
 - type: entity
   parent: ClothingNeckBronzeheart
   id: ClothingNeckCargomedal
-  name: cargo medal
-  description: Given for the best work in the cargo department.
+  name: supply medal #imp, cargo to supply
+  description: Given for the best work in the supply department. #imp, cargo to supply
   components:
   - type: Sprite
     sprite: Clothing/Neck/Medals/cargomedal.rsi
