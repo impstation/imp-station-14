@@ -77,3 +77,10 @@
     sprite: /Textures/_Impstation/Interface/Misc/job_icons.rsi
     state: ERTChaplain
   jobName: job-name-ertchaplain
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconAssistant
+  icon:
+    sprite: /Textures/_Impstation/Interface/Misc/job_icons.rsi
+    state: Assistant
