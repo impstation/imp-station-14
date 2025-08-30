@@ -281,7 +281,7 @@ public sealed partial class HeartSystem : EntitySystem
         var seed = SharedRandomExtensions.HashCodeCombine(new() { (int)_timing.CurTick.Value, GetNetEntity(ent).Id });
         var rand = new System.Random(seed);
 
-        var volume = BloodVolume(ent);
+        var volume = BloodCirculation(ent);
 
         var deviationA = rand.Next(-ent.Comp.BloodPressureDeviation, ent.Comp.BloodPressureDeviation);
         var deviationB = rand.Next(-ent.Comp.BloodPressureDeviation, ent.Comp.BloodPressureDeviation);
