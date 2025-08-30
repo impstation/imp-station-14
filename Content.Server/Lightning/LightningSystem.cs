@@ -166,7 +166,7 @@ public sealed class LightningSystem : SharedLightningSystem
                 continue;
             }
 
-            if (outOfRange) { break; }
+            if (outOfRange || targetLightningResistance <= 0) { break; } //#IMP targetLightningResistance <= 0 check to fix crash
 
             var curTarget = targets[count];
             if (!_random.Prob(curTarget.Comp.HitProbability)) //Chance to ignore target
