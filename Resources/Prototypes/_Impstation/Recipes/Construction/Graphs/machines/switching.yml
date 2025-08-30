@@ -1,0 +1,60 @@
+- type: constructionGraph
+  id: RedButtonGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: RedButtonNode
+          steps:
+            - material: Steel
+              amount: 1
+              doAfter: 2.0
+            - material: Cable
+              amount: 1
+    - node: RedButtonNode
+      entity: BigRedButton
+      edges:
+        - to: start
+          steps:
+            - tool: Screwing
+              doAfter: 2.0
+          completed:
+            - !type:GivePrototype
+              prototype: SheetSteel1
+              amount: 1
+            - !type:GivePrototype
+              prototype: CableApcStack1
+              amount: 1
+            - !type:DeleteEntity {}
+
+  # i was gonna include steps to make the locked ones but it wasnt working and i dont care actually. mappers only, fool.
+    - node: RedButtonLockedNode
+      entity: BigRedButtonLocked
+      edges:
+        - to: RedButtonNode
+          steps:
+            - tool: Screwing
+              doAfter: 2.0
+          #completed: #i wanted this to give glass back but material arbitrage test said no
+            #- !type:GivePrototype
+              #prototype: SheetGlass1
+              #amount: 1
+
+# its really important emergency button stays emergency.
+- type: constructionGraph
+  id: RedButtonEmergencyGraph
+  start: start
+  graph:
+    - node: start
+      entity: BigRedButtonEmergency
+    - node: RedButtonLockedEmergencyNode
+      entity: BigRedButtonEmergencyLocked
+      edges:
+        - to: start
+          steps:
+            - tool: Screwing
+              doAfter: 2.0
+          #completed:
+            #- !type:GivePrototype
+              #prototype: SheetGlass1
+              #amount: 1
