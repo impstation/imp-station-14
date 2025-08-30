@@ -22,7 +22,10 @@
   - HeadOfSecurity
   - Quartermaster
   - ResearchDirector
-  - HospitalityDirector #imp edit
+  # imp edit start
+  - HospitalityDirector
+  - Vault
+  # imp edit end
   
 - type: accessLevel
   id: EmergencyShuttleRepealAll
