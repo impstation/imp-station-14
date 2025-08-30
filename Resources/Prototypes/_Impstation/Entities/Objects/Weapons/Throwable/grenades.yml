@@ -9,9 +9,13 @@
   - type: SmokeOnTrigger
     duration: 5
     spreadAmount: 30
+    keysIn:
+    - timer
   - type: SpawnOnTrigger
     proto: MobAngryBee
     amount: 6
+    keysIn:
+    - timer
 
 - type: entity
   parent: SmokeGrenade
@@ -28,11 +32,18 @@
       reagents:
       - ReagentId: VentCrud
         Quantity: 15
+    keysIn:
+    - timer
   - type: SpawnOnTrigger
     proto: BrosSorbSpawner
     amount: 60
-  - type: SoundOnTrigger
-    sound: /Audio/_Impstation/Items/bros_grenade_smoke.ogg
+    keysIn:
+    - timer
+  - type: EmitSoundOnTrigger
+    keysIn:
+    - timer
+    sound:
+      path: /Audio/_Impstation/Items/bros_grenade_smoke.ogg
   - type: TimerTriggerVisuals
     primingSound:
       path: /Audio/_Impstation/Items/bros_grenade_prime.ogg
@@ -46,11 +57,15 @@
   - type: SmokeOnTrigger
     duration: 5
     spreadAmount: 30
+    keysIn:
+    - timer
   - type: SpawnOnTrigger
     proto: MobTomatoKiller
+    keysIn:
+    - timer
 
 - type: entity
-  parent: [ BaseMinorContraband, SmokeGrenade ] 
+  parent: [ BaseMinorContraband, SmokeGrenade ]
   id: CleanerGrenadeBleach
   name: heavy-duty cleanade
   description: A discontinued brand of heavy-duty cleaning grenade. A warning label reads "DO NOT INHALE".
@@ -58,10 +73,10 @@
   - type: Sprite
     sprite: Objects/Weapons/Grenades/janitor.rsi
   - type: Tag
-    tags: 
+    tags:
     - CleanerGrenade
     - Grenade
-  - type: CartridgeAmmo 
+  - type: CartridgeAmmo
     proto: BulletGrenadeCleanerBleach
     deleteOnSpawn: true
   - type: SmokeOnTrigger

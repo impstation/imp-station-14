@@ -16,8 +16,8 @@
   name: visiting courier ghost role
   components:
     - type: Sprite
-      sprite: Markers/jobs.rsi
-      state: cargo_tech # no courier job in the rsi
+      sprite: _Impstation/Markers/jobs.rsi
+      state: courier
     - type: RandomHumanoidSpawner
       settings: VisitorCourier
 
@@ -27,9 +27,29 @@
   components:
     - type: Sprite
       sprite: Markers/jobs.rsi
-      state: roboticist # no courier job in the rsi
+      state: roboticist
     - type: RandomHumanoidSpawner
       settings: VisitorRoboticist
+
+- type: entity
+  id: RandomHumanoidVisitorAdminAssistant
+  name: visiting admin assistant ghost role
+  components:
+    - type: Sprite
+      sprite: _DV/Markers/jobs.rsi
+      state: adminassistant
+    - type: RandomHumanoidSpawner
+      settings: VisitorAdminAssistant
+
+- type: entity
+  id: RandomHumanoidVisitorHospitalityDirector
+  name: visiting hospitality director ghost role
+  components:
+    - type: Sprite
+      sprite: _Impstation/Markers/jobs.rsi
+      state: hd
+    - type: RandomHumanoidSpawner
+      settings: VisitorHospitalityDirector
 
 - type: entity
   id: RandomHumanoidVisitorLibrarianCryptid

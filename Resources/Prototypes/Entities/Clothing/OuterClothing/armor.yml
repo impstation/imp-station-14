@@ -148,11 +148,13 @@
     sprite: Clothing/OuterClothing/Armor/centcomm_carapace.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/centcomm_carapace.rsi
-  - type: DamageOnShootProtection #imp
+  # imp edit start
+  - type: DamageOnShootProtection
     slots: OUTERCLOTHING
     damageProtection:
       flatReductions:
         Blunt: 10
+  # imp edit end
 
 #Web vest
 - type: entity
@@ -253,11 +255,6 @@
         Piercing: 0.35
         Heat: 0.35
         Caustic: 0.5
-  - type: DamageOnShootProtection #imp
-    slots: OUTERCLOTHING
-    damageProtection:
-      flatReductions:
-        Blunt: 10
   - type: ExplosionResistance
     damageCoefficient: 0.35
   - type: StaminaResistance # do not add these to other equipment or mobs, we don't want to microbalance these everywhere
@@ -314,6 +311,13 @@
     autoRechargeRate: 2
   - type: Item
     size: Normal
+  # imp edit start
+  - type: DamageOnShootProtection
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 10
+  # imp edit end
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseSecurityContraband]
@@ -500,3 +504,23 @@
   - type: GroupExamine
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+
+- type: entity
+  parent: ClothingOuterArmorBase
+  id: CardArmour
+  name: cardboard armour
+  description: A medieval chestpiece built from cardboard.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Armor/card_armour.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Armor/card_armour.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+  - type: StaminaResistance
+    damageCoefficient: 0.90
+  - type: Construction
+    graph: cardArmour
+    node: cardarmour
