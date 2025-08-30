@@ -11,16 +11,6 @@
   - type: Icon
     sprite: _Impstation/Mobs/Species/Gray/parts.rsi
     state: full
-  - type: Respirator
-    damage:
-      types:
-        Asphyxiation: 2
-    damageRecovery:
-      types:
-        Asphyxiation: -1.0
-  - type: Sprite
-    noRot: true
-    drawdepth: Mobs
   - type: Body
     prototype: Gray
     requiredLegs: 2
@@ -121,7 +111,6 @@
     hideLayersOnEquip:
     - Hair
     - Snout
-  - type: Carriable # Carrying system from nyanotrasen.
 
 - type: entity
   parent: BaseSpeciesDummy
