@@ -206,7 +206,7 @@
 
 # Merc hardsuit helmet
 - type: entity
-  parent: [ ClothingHeadHardsuitBase ]
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitMercenary
   name: mercenary hardsuit helmet
   description: A stylish helmet lined with lightweight armor-plating.
@@ -220,6 +220,8 @@
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
+  - type: PointLight
+    color: "#ffeead"
   - type: Armor
     modifiers:
       coefficients:
