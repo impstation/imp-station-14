@@ -32,8 +32,8 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
-        sound:
-          collection: MetalGlassBreak
+          sound:
+            collection: MetalGlassBreak
   - type: StationAiWhitelist
   - type: WiresPanel
   - type: Wires
@@ -268,12 +268,3 @@
   components:
   - type: BarSign
     current: Spacebucks
-
-- type: entity
-  parent: BaseBarSign
-  id: BarSignWhiskeyEchoes
-  name: Whiskey Echoes
-  description: An elite bar for elite oper-wait, this is a Nanotrasen station. Why's this sign in the database?
-  components:
-  - type: BarSign
-    current: WhiskeyEchoes
