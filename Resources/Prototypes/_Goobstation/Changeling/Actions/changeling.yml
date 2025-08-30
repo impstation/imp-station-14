@@ -13,7 +13,7 @@
       state: evolution_menu
   - type: InstantAction
     event: !type:OpenEvolutionMenuEvent {}
-  - type: ChangelingAction
+  - type: GoobChangelingAction
     requireBiomass: false
     useInLesserForm: true
     useInLastResort: true
@@ -37,7 +37,7 @@
       - Body
     canTargetSelf: false
     event: !type:AbsorbDNAEvent {}
-  - type: ChangelingAction
+  - type: GoobChangelingAction
     chemicalCost: 25
     requireBiomass: false
     useInLesserForm: true
@@ -60,7 +60,7 @@
       - Body
     canTargetSelf: false
     event: !type:StingExtractDNAEvent {}
-  - type: ChangelingAction
+  - type: GoobChangelingAction
     chemicalCost: 25
     useInLesserForm: true
 
@@ -77,13 +77,13 @@
       state: transform_cycle
   - type: InstantAction
     event: !type:ChangelingTransformCycleEvent {}
-  - type: ChangelingAction
+  - type: GoobChangelingAction
     requireBiomass: false
     useInLesserForm: true
 
 - type: entity
   parent: BaseAction
-  id: ActionChangelingTransform
+  id: ActionChangelingTransformGoob
   name: Transform
   description: We take on the voice and appearance of one we have absorbed. Costs a trace amount of chemicals.
   components:
@@ -95,7 +95,7 @@
       state: transform
   - type: InstantAction
     event: !type:ChangelingTransformEvent {}
-  - type: ChangelingAction
+  - type: GoobChangelingAction
     chemicalCost: 5
     useInLesserForm: true
 
@@ -112,7 +112,7 @@
       state: stasis_enter
   - type: InstantAction
     event: !type:EnterStasisEvent {}
-  - type: ChangelingAction
+  - type: GoobChangelingAction
     biomassCost: 1
     useInLesserForm: true
     useInLastResort: true
@@ -130,7 +130,7 @@
       state: stasis_exit
   - type: InstantAction
     event: !type:ExitStasisEvent {}
-  - type: ChangelingAction
+  - type: GoobChangelingAction
     chemicalCost: 60
     useInLesserForm: true
     useInLastResort: true
@@ -151,7 +151,7 @@
       state: armblade
   - type: InstantAction
     event: !type:ToggleArmbladeEvent {}
-  - type: ChangelingAction
+  - type: GoobChangelingAction
     chemicalCost: 15
 
 - type: entity
@@ -168,7 +168,7 @@
       state: bone_shard
   - type: InstantAction
     event: !type:CreateBoneShardEvent {}
-  - type: ChangelingAction
+  - type: GoobChangelingAction
     chemicalCost: 15
 
 - type: entity
@@ -185,7 +185,7 @@
       state: chitinous_armor
   - type: InstantAction
     event: !type:ToggleChitinousArmorEvent {}
-  - type: ChangelingAction
+  - type: GoobChangelingAction
     chemicalCost: 25
     requireAbsorbed: 2
 
@@ -203,7 +203,7 @@
       state: organic_shield
   - type: InstantAction
     event: !type:ToggleOrganicShieldEvent {}
-  - type: ChangelingAction
+  - type: GoobChangelingAction
     chemicalCost: 20
     requireAbsorbed: 1
 
@@ -221,7 +221,7 @@
       state: shriek_dissonant
   - type: InstantAction
     event: !type:ShriekDissonantEvent {}
-  - type: ChangelingAction
+  - type: GoobChangelingAction
     chemicalCost: 30
     useInLesserForm: true
     requireAbsorbed: 1
@@ -240,7 +240,7 @@
       state: shriek_resonant
   - type: InstantAction
     event: !type:ShriekResonantEvent {}
-  - type: ChangelingAction
+  - type: GoobChangelingAction
     chemicalCost: 30
     useInLesserForm: true
     requireAbsorbed: 1
@@ -259,7 +259,7 @@
       state: strained_muscles
   - type: InstantAction
     event: !type:ToggleStrainedMusclesEvent {}
-  - type: ChangelingAction
+  - type: GoobChangelingAction
     chemicalCost: 0
     useInLesserForm: true
 
@@ -283,7 +283,7 @@
       - Body
     canTargetSelf: false
     event: !type:StingBlindEvent {}
-  - type: ChangelingAction
+  - type: GoobChangelingAction
     chemicalCost: 50
     useInLesserForm: true
 
@@ -305,7 +305,7 @@
       - Body
     canTargetSelf: false
     event: !type:StingCryoEvent {}
-  - type: ChangelingAction
+  - type: GoobChangelingAction
     chemicalCost: 35
     useInLesserForm: true
 
@@ -327,7 +327,7 @@
       - Body
     canTargetSelf: false
     event: !type:StingLethargicEvent {}
-  - type: ChangelingAction
+  - type: GoobChangelingAction
     chemicalCost: 35
     useInLesserForm: true
 
@@ -349,7 +349,7 @@
       - Body
     canTargetSelf: false
     event: !type:StingMuteEvent {}
-  - type: ChangelingAction
+  - type: GoobChangelingAction
     chemicalCost: 35
     useInLesserForm: true
 
@@ -371,7 +371,7 @@
       - Body
     canTargetSelf: false
     event: !type:StingFakeArmbladeEvent {}
-  - type: ChangelingAction
+  - type: GoobChangelingAction
     chemicalCost: 50
     useInLesserForm: true
 
@@ -393,7 +393,7 @@
       - Body
     canTargetSelf: false
     event: !type:StingTransformEvent {}
-  - type: ChangelingAction
+  - type: GoobChangelingAction
     chemicalCost: 75
     useInLesserForm: true
 
@@ -415,7 +415,7 @@
       - Body
     canTargetSelf: false
     event: !type:StingLayEggsEvent {}
-  - type: ChangelingAction
+  - type: GoobChangelingAction
     chemicalCost: 0
     useInLastResort: true
 
@@ -435,7 +435,7 @@
       state: anatomic_panacea
   - type: InstantAction
     event: !type:ActionAnatomicPanaceaEvent {}
-  - type: ChangelingAction
+  - type: GoobChangelingAction
     chemicalCost: 30
     useInLesserForm: true
 
@@ -453,7 +453,7 @@
       state: augmented_eyesight
   - type: InstantAction
     event: !type:ActionAugmentedEyesightEvent {}
-  - type: ChangelingAction
+  - type: GoobChangelingAction
     chemicalCost: 0
 
 - type: entity
@@ -471,7 +471,7 @@
       state: biodegrade
   - type: InstantAction
     event: !type:ActionBiodegradeEvent {}
-  - type: ChangelingAction
+  - type: GoobChangelingAction
     chemicalCost: 30
 
 - type: entity
@@ -488,7 +488,7 @@
       state: chameleon_skin
   - type: InstantAction
     event: !type:ActionChameleonSkinEvent {}
-  - type: ChangelingAction
+  - type: GoobChangelingAction
     chemicalCost: 20
 
 - type: entity
@@ -505,7 +505,7 @@
       state: epinephrine_overdose
   - type: InstantAction
     event: !type:ActionEphedrineOverdoseEvent {}
-  - type: ChangelingAction
+  - type: GoobChangelingAction
     chemicalCost: 30
     useInLesserForm: true
 
@@ -524,7 +524,7 @@
       state: fleshmend
   - type: InstantAction
     event: !type:ActionFleshmendEvent {}
-  - type: ChangelingAction
+  - type: GoobChangelingAction
     chemicalCost: 35
     useInLesserForm: true
 
@@ -541,7 +541,7 @@
       state: hivemind_access
   - type: InstantAction
     event: !type:ActionHivemindAccessEvent {}
-  - type: ChangelingAction
+  - type: GoobChangelingAction
     chemicalCost: 0
     useInLesserForm: true
 
@@ -559,7 +559,7 @@
       state: last_resort
   - type: InstantAction
     event: !type:ActionLastResortEvent {}
-  - type: ChangelingAction
+  - type: GoobChangelingAction
     chemicalCost: 20
     biomassCost: -30 # absorbing the rest of the current body on use
     useInLesserForm: true
@@ -579,7 +579,7 @@
       state: lesser_form
   - type: InstantAction
     event: !type:ActionLesserFormEvent {}
-  - type: ChangelingAction
+  - type: GoobChangelingAction
     chemicalCost: 20
 
 - type: entity
@@ -597,7 +597,7 @@
       state: mindshield
   - type: InstantAction
     event: !type:ActionMindshieldFakeEvent {}
-  - type: ChangelingAction
+  - type: GoobChangelingAction
     chemicalCost: 0
     useInLesserForm: true
 
@@ -616,7 +616,7 @@
       state: tentacle
   - type: InstantAction
     event: !type:ToggleTentacleEvent {}
-  - type: ChangelingAction
+  - type: GoobChangelingAction
     chemicalCost: 15
     requireAbsorbed: 1
 #imp edit ^
@@ -635,5 +635,5 @@
       state: space_adaptation
   - type: InstantAction
     event: !type:ActionSpacesuitEvent {}
-  - type: ChangelingAction
+  - type: GoobChangelingAction
     chemicalCost: 20
