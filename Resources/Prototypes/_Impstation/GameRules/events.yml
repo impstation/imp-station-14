@@ -3,7 +3,7 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    earliestStart: 35
+    earliestStart: 30 #originally 35
     minimumPlayers: 30 # roundstart changeling is 15 which seems insane
     weight: 2 # twice as common as zombies
     duration: 1
@@ -38,7 +38,7 @@
   - type: StationEvent
     weight: 7
     duration: null
-    earliestStart: 25
+    earliestStart: 20 #originally 25
     reoccurrenceDelay: 20
     minimumPlayers: 15
   - type: AntagLoadProfileRule
