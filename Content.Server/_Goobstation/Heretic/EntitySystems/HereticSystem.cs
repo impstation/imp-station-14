@@ -64,9 +64,11 @@ public sealed partial class HereticSystem : EntitySystem
             _store.UpdateUserInterface(uid, uid, store);
         }
 
-        if (_mind.TryGetMind(uid, out var mindId, out var mind))
-            if (_mind.TryGetObjectiveComp<HereticKnowledgeConditionComponent>(mindId, out var objective, mind))
-                objective.Researched += amount;
+        if (!_mind.TryGetMind(uid, out var mindId, out var mind))
+            return;
+
+        if (_mind.TryGetObjectiveComp<HereticKnowledgeConditionComponent>(mindId, out var objective, mind))
+            objective.Researched += amount;
     }
 
     private void OnCompInit(Entity<HereticComponent> ent, ref ComponentInit args)
@@ -76,7 +78,9 @@ public sealed partial class HereticSystem : EntitySystem
             _eye.SetVisibilityMask(ent, eye.VisibilityMask | EldritchInfluenceComponent.LayerMask);
 
         foreach (var knowledge in ent.Comp.BaseKnowledge)
+        {
             _knowledge.AddKnowledge(ent, ent.Comp, knowledge);
+        }
     }
 
     #region Internal events (target reroll, ascension, etc.)
