@@ -147,6 +147,7 @@
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/admin_assistant.rsi
 
+=======
 # Salvage Specialist
 
 - type: entity
@@ -192,3 +193,14 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersunrnd.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersunrnd.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitRoboNeuroticist
+  name: robo-neuroticist's jumpsuit
+  description: A suit fit with dozens of cybernetic gadgets.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/roboneuroticistpurple.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/roboneuroticistpurple.rsi
