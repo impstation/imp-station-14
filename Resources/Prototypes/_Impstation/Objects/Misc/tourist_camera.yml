@@ -27,8 +27,6 @@
           enum.TouristCameraVisuals.LightLayer:
             True: {visible: true}
             False: {visible: false}
-    #TODO: add tourist guidebook here
-    #- type: GuideHelp
-    #  guides:
-    #  - Security
-    #  - Antagonists
+    - type: GuideHelp
+      guides:
+      - ImpTourist
