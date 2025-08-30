@@ -78,19 +78,32 @@ public abstract class SharedBloodstreamSystem : EntitySystem
                 TryModifyBloodLevel((uid, bloodstream), bloodstream.BloodRefreshAmount);
             }
 
+            // Begin Offbrand
+            var evt = new Content.Shared._Offbrand.Wounds.GetBleedLevelEvent(bloodstream.BleedAmount);
+            RaiseLocalEvent(uid, ref evt);
+
             // Removes blood from the bloodstream based on bleed amount (bleed rate)
             // as well as stop their bleeding to a certain extent.
-            if (bloodstream.BleedAmount > 0)
+            if (evt.BleedLevel > 0)
             {
                 // Blood is removed from the bloodstream at a 1-1 rate with the bleed amount
-                TryModifyBloodLevel((uid, bloodstream), -bloodstream.BleedAmount);
+                TryModifyBloodLevel((uid, bloodstream), -evt.BleedLevel);
                 // Bleed rate is reduced by the bleed reduction amount in the bloodstream component.
                 TryModifyBleedAmount((uid, bloodstream), -bloodstream.BleedReductionAmount);
             }
 
+            if (evt.BleedLevel == 0)
+                _alertsSystem.ClearAlert(uid, bloodstream.BleedingAlert);
+            else
+            {
+                var severity = (short)Math.Clamp(Math.Round(evt.BleedLevel, MidpointRounding.ToZero), 0, 10);
+                _alertsSystem.ShowAlert(uid, bloodstream.BleedingAlert, severity);
+            }
+            // End Offbrand
+
             // deal bloodloss damage if their blood level is below a threshold.
             var bloodPercentage = GetBloodLevelPercentage((uid, bloodstream));
-            if (bloodPercentage < bloodstream.BloodlossThreshold && !_mobStateSystem.IsDead(uid))
+            if (bloodPercentage < bloodstream.BloodlossThreshold && !_mobStateSystem.IsDead(uid) && bloodstream.BloodlossDamage is not null) // Offbrand
             {
                 // bloodloss damage is based on the base value, and modified by how low your blood level is.
                 var amt = bloodstream.BloodlossDamage / (0.1f + bloodPercentage);
@@ -111,7 +124,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
                 bloodstream.StatusTime += bloodstream.AdjustedUpdateInterval * 2;
                 DirtyField(uid, bloodstream, nameof(BloodstreamComponent.StatusTime));
             }
-            else if (!_mobStateSystem.IsDead(uid))
+            else if (!_mobStateSystem.IsDead(uid) && bloodstream.BloodlossHealDamage is not null) // Offbrand
             {
                 // If they're healthy, we'll try and heal some bloodloss instead.
                 _damageableSystem.TryChangeDamage(
@@ -424,13 +437,18 @@ public abstract class SharedBloodstreamSystem : EntitySystem
 
         DirtyField(ent, ent.Comp, nameof(BloodstreamComponent.BleedAmount));
 
-        if (ent.Comp.BleedAmount == 0)
+        // Begin Offbrand
+        var evt = new Content.Shared._Offbrand.Wounds.GetBleedLevelEvent(ent.Comp.BleedAmount);
+        RaiseLocalEvent(ent, ref evt);
+
+        if (evt.BleedLevel == 0)
             _alertsSystem.ClearAlert(ent, ent.Comp.BleedingAlert);
         else
         {
-            var severity = (short)Math.Clamp(Math.Round(ent.Comp.BleedAmount, MidpointRounding.ToZero), 0, 10);
+            var severity = (short)Math.Clamp(Math.Round(evt.BleedLevel, MidpointRounding.ToZero), 0, 10);
             _alertsSystem.ShowAlert(ent, ent.Comp.BleedingAlert, severity);
         }
+        // End Offbrand
 
         return true;
     }

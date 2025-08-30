@@ -1,0 +1,50 @@
+<Document>
+# Medicine
+
+## The Brain
+<Box>
+  <GuideEntityEmbed Entity="OrganHumanBrain" Caption="Human Brain" />
+</Box>
+
+Everything in a patient's body depends on the brain.
+[color=#00d3b8][bold]As long as the patient's brain is not dead, the patient is alive.[/bold][/color]
+Everything else in their body is responsible for keeping its brain alive.
+The more an injury threatens your patient's brain, the more important it is to treat.
+
+[color=#00d3b8][bold]Once a brain dies, it is dead, and the body cannot be rescuitated.[/bold][/color]
+
+A patient's brain requires adequate saturation (oxygenation for most species) in the bloodstream to survive.
+[color=#00d3b8][bold]The primary goal in medical care is to ensure the brain has adequate saturation.[/bold][/color]
+
+## Blood Saturation
+
+Blood saturation is the primary measure for how satiated a patient's brain is.
+
+Blood saturation is affected by:
+- [color=cyan]Blood volume[/color]: Blood can be restored with saline for most species, or blood bags.
+- [color=cyan]Breathable air[/color]: Ensure the patient can breathe. Dexalin (plus) can be used to artificially oxygenate the bloodstream.
+- [color=cyan]Blood circulation[/color]: The heart is responsible for circulating blood around your patient's body. CPR can be administered if the patient's heart has stopped, followed by surgical intervention as soon as possible.
+
+## The Heart
+
+<Box>
+  <GuideEntityEmbed Entity="OrganHumanHeart" Caption="Human Heart" />
+</Box>
+
+The heart is responsible for blood circulation.
+
+[color=#00d3b8][bold]If a patient's heart has stopped, they are priority number one.[/bold][/color]
+
+Blood circulation increases with heartrate, and decreases with heart damage, coming to near-zero if the heart stops.
+
+The heart will increase its heartrate in response to pain, lack of access to breathable air, and lowered blood volume.
+
+The heart will stop from:
+- [color=cyan]Pain shock[/color]: Severe injuries can cause the patient's heart to stop. Administer painkillers before restarting the heart.
+- [color=cyan]Hypovolemia[/color]: If a patient loses too much blood, their heart will stop. Stop bleeding and restore blood levels before restarting the heart.
+- [color=cyan]Accumulated damage[/color]: If a patient's heart accumulates too much damage, it will stop. Surgical intervention will be required before restarting the heart.
+
+The heart can be restarted using a defibrillator.
+
+If the heart cannot be restarted, medical professionals and other crew alike can administer CPR to ensure blood circulation.
+</Document>

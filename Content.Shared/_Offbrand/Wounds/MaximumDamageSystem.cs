@@ -1,0 +1,52 @@
+using Content.Shared.Damage;
+using Content.Shared.FixedPoint;
+using Robust.Shared.Timing;
+
+namespace Content.Shared._Offbrand.Wounds;
+
+public sealed class MaximumDamageSystem : EntitySystem
+{
+    [Dependency] private readonly IGameTiming _timing = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<MaximumDamageComponent, BeforeDamageCommitEvent>(OnBeforeDamageCommit, before: [typeof(WoundableSystem)]);
+    }
+
+    private void OnBeforeDamageCommit(Entity<MaximumDamageComponent> ent, ref BeforeDamageCommitEvent args)
+    {
+        if (_timing.ApplyingState)
+            return;
+
+        var damageable = Comp<DamageableComponent>(ent);
+
+        var dict = damageable.Damage.DamageDict;
+
+        var hasCloned = false;
+        foreach (var (type, value) in args.Damage.DamageDict)
+        {
+            if (!dict.TryGetValue(type, out var currentValue))
+                continue;
+
+            if (!ent.Comp.Damage.TryGetValue(type, out var maxValue))
+                continue;
+
+            var delta = (value + currentValue) - maxValue;
+
+            if (delta <= 0)
+                continue;
+
+            if (!hasCloned)
+            {
+                hasCloned = true;
+                args.Damage = new(args.Damage);
+            }
+
+            args.Damage.DamageDict[type] -= delta;
+        }
+
+        args.Damage.TrimZeros();
+    }
+}
