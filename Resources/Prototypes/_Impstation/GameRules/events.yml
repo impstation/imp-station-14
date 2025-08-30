@@ -8,14 +8,14 @@
     weight: 2 # twice as common as zombies
     duration: 1
     occursDuringRoundEnd: false
-  - type: ChangelingRule
+  - type: GoobChangelingRule
   - type: AntagObjectives
     objectives:
     - ChangelingStealDNAObjective
     - EscapeIdentityObjective
     - ChangelingSurviveObjective
   - type: AntagSelection
-    agentName: changeling-roundend-name
+    agentName: goob-changeling-roundend-name
     definitions:
     - prefRoles: [ Changeling ]
       max: 1
@@ -24,7 +24,7 @@
         components:
         - AntagImmune
       briefing:
-        text: changeling-midround-role-greeting
+        text: goob-changeling-midround-role-greeting
         color: Yellow
         sound: "/Audio/_Goobstation/Ambience/Antag/changeling_start.ogg"
       mindRoles:

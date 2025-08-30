@@ -8,15 +8,21 @@
     - id: BreakerFlip
     - id: BureaucraticError
     - id: ClericalError
+    #- id: CockroachMigration
     - id: GasLeak
     # - id: GreytideVirus
     - id: IonStorm # its calm like 90% of the time smh
     - id: KudzuGrowth
     - id: MassHallucinations
-    # - id: MimicVendorRule
+    #- id: MimicVendorRule
+    #- id: MouseMigration
     - id: PowerGridCheck
     - id: RandomSentience
+    #- id: SlimesSpawn
     - id: SolarFlare
+    #- id: SnakeSpawn
+    #- id: SpiderClownSpawn
+    #- id: SpiderSpawn
     - id: VentClog
     - id: GoblinKnightEvent # imp
     - id: HereticBooksSpawnSmall #imp
@@ -33,7 +39,7 @@
     - id: ZombieOutbreak
     - id: LoneOpsSpawn
     - id: WizardSpawn
-    - id: ChangelingAwakening
+    - id: ChangelingAwakening #imp
     - id: BountyHunterSpawn # imp
     - id: ReplicatorSpawn # imp
     - id: VRexEvent #imp
@@ -68,7 +74,7 @@
     - id: ZombieOutbreak
     - id: LoneOpsSpawn
     - id: WizardSpawn
-    - id: ChangelingAwakening
+    - id: ChangelingAwakening # imp
     - id: BountyHunterSpawn # imp
     - id: ReplicatorSpawn # imp
     - id: VRexEvent #imp
@@ -209,6 +215,8 @@
       pickPlayer: false
       mindRoles:
       - MindRoleDragon
+  - type: DynamicRuleCost
+    cost: 75
 
 - type: entity
   parent: BaseGameRule
@@ -259,6 +267,8 @@
         nameFormat: name-format-ninja
       mindRoles:
       - MindRoleNinja
+  - type: DynamicRuleCost
+    cost: 75
 
 - type: entity
   parent: BaseMidRoundAntag # Imp - uses midround antag spawners this way
@@ -299,6 +309,8 @@
         sound: /Audio/Misc/paradox_clone_greeting.ogg
       mindRoles:
       - MindRoleParadoxClone
+  - type: DynamicRuleCost
+    cost: 50
 
 - type: entity
   parent: BaseGameRule
@@ -381,7 +393,6 @@
     weight: 7
     duration: 240
   - type: KudzuGrowthRule
-
 
 - type: entity
   id: PowerGridCheck
@@ -466,6 +477,8 @@
       - MindRoleInitialInfected
       factionsAdd: # IMP: Initial infected should be ignored by zombies.
         - InitialInfectedIgnore
+  - type: DynamicRuleCost
+    cost: 200
 
 - type: entity
   parent: BaseNukeopsRule
@@ -502,6 +515,8 @@
         - Syndicate
       mindRoles:
       - MindRoleNukeopsLone #imp edit to separate playtime tracking from regular nukies
+  - type: DynamicRuleCost
+    cost: 75
 
 - type: entity
   parent: BaseTraitorRule
