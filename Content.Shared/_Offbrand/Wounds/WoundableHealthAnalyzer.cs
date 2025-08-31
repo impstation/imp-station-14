@@ -110,7 +110,6 @@ public sealed class WoundableHealthAnalyzerSystem : EntitySystem
         var brainHealth = 1d - (brainDamage.Damage / brainDamage.MaxDamage).Double();
         var heartHealth = 1d - (heartrate.Damage / heartrate.MaxDamage).Double();
         var strain = _heart.HeartStrain((uid, heartrate)).Double() / 4d;
-        var volume = _heart.BloodVolume((uid, heartrate)).Double();
         var (upper, lower) = _heart.BloodPressure((uid, heartrate));
         var oxygenation = _heart.BloodOxygenation((uid, heartrate)).Double();
         var circulation = _heart.BloodCirculation((uid, heartrate)).Double();
@@ -122,7 +121,7 @@ public sealed class WoundableHealthAnalyzerSystem : EntitySystem
                 HeartHealth = heartHealth,
                 HeartHealthRating = RateHigherIsBetter(heartHealth),
                 BloodPressure = (upper.Int(), lower.Int()),
-                BloodPressureRating = RateHigherIsBetter(volume),
+                BloodPressureRating = RateHigherIsBetter(circulation),
                 BloodOxygenation = oxygenation,
                 BloodOxygenationRating = RateHigherIsBetter(oxygenation),
                 BloodCirculation = circulation,
