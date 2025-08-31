@@ -61,7 +61,10 @@ public sealed class KodepiiaConsumeSystem : SharedKodepiiaConsumeSystem
     public void Consume(Entity<KodepiiaConsumeActionComponent> ent, ref KodepiiaConsumeEvent args)
     {
         if (!_ingestion.HasMouthAvailable(args.Performer, args.Performer))
+        {
+            _popup.PopupClient(Loc.GetString("kodepiia-consume-fail-blocked"), ent, ent);
             return;
+        }
 
         if (!KodepiiaTarget(args.Target))
         {

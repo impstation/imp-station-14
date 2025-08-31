@@ -3,6 +3,7 @@ kodepiia-scramble-others = {$name} begins twitching and convulsing, {POSS-ADJ($e
 
 kodepiia-consume-fail-incapacitated = {$target} must be incapacitated!
 kodepiia-consume-fail-inedible = {$target} is inedible!
+kodepiia-consume-fail-blocked = Your mouth is blocked, take off any masks or helmets to consume!
 
 kodepiia-consume-start-self = {$user} begins to peck at {$target}.
 kodepiia-consume-start-others = {$user} tears into {$target}'s flesh!
