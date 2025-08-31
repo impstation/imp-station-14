@@ -4,7 +4,6 @@ using Content.Server.Actions;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.DeviceNetwork.Systems;
-using Content.Server.Explosion.EntitySystems;
 using Content.Server.Ghost.Roles.Components; // imp; for the GhostRole check
 using Content.Server.Hands.Systems;
 using Content.Server.PowerCell;
@@ -26,6 +25,7 @@ using Content.Shared.Roles;
 using Content.Shared.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Throwing;
+using Content.Shared.Trigger.Systems;
 using Content.Shared.Whitelist;
 using Content.Shared.Wires;
 using Robust.Server.GameObjects;
