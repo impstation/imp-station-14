@@ -25,7 +25,7 @@
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: absorb_dna
-    useDelay: 120
+    useDelay: 60
   - type: TargetAction
   - type: EntityTargetAction
     event: !type:KodepiiaConsumeEvent

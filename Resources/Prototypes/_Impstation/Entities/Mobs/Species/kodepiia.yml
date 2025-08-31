@@ -10,7 +10,9 @@
   - type: KodepiiaConsumeAction
     damage:
       groups:
-        Genetic: 25
+        Genetic: 5
+      types:
+        Blunt: 15
   - type: Instrument
     allowPercussion: false
     program: 52
