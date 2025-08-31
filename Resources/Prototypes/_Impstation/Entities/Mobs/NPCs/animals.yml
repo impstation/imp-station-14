@@ -333,7 +333,9 @@
   - type: KodepiiaConsumeAction
     damage:
       groups:
-        Genetic: 5
+        Genetic: 1
+      types:
+        Blunt: 5
     canGib: false
 
 - type: entity
