@@ -1,59 +1,4 @@
 ﻿Entries:
-- author: DinnerCalzone
-  changes:
-  - message: Janitorial toolboxes can now be found as maintenance loot!
-    type: Add
-  id: 1717
-  time: '2025-05-23T15:35:58.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2550
-- author: TuttlePants
-  changes:
-  - message: Bounty Hunters now target command members when they can't target an antagonist.
-    type: Tweak
-  id: 1718
-  time: '2025-05-23T15:38:20.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2517
-- author: widgetbeck
-  changes:
-  - message: Decapoids no longer have an inbuilt speed debuff.
-    type: Remove
-  - message: The Decapoid claw shield has been buffed to 40% block while raised.
-    type: Tweak
-  - message: Shields can no longer bodyblock - instead, raising your shield just slows
-      you down considerably.
-    type: Tweak
-  id: 1719
-  time: '2025-05-23T19:52:43.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2463
-- author: AirFryerBuyOneGetOneFree
-  changes:
-  - message: Fixed ghost role menu not showing job names.
-    type: Fix
-  id: 1720
-  time: '2025-05-23T20:10:13.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2569
-- author: widgetbeck
-  changes:
-  - message: Shields now *properly* slow you down instead of bodyblocking.
-    type: Tweak
-  id: 1721
-  time: '2025-05-24T22:09:57.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2574
-- author: DinnerCalzone
-  changes:
-  - message: Banana's cargo shuttle should be less likely to start clipped inside
-      of other grids.
-    type: Fix
-  id: 1722
-  time: '2025-05-25T06:49:04.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2579
-- author: astral_amy
-  changes:
-  - message: Bedlam Station, a lowpop map adapted from a reclaimed starship
-    type: Add
-  id: 1723
-  time: '2025-05-25T06:57:13.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2567
 - author: Faeling, Sha-Seng
   changes:
   - message: Lily Mantle for senior botanists (has a toggleable collar)
@@ -4186,3 +4131,57 @@
   id: 2216
   time: '2025-08-29T11:51:58.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3372
+- author: youtubevideo3
+  changes:
+  - message: New bomber jacket for the HOS!
+    type: Add
+  id: 2217
+  time: '2025-08-29T23:22:25.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3378
+- author: EpicToastTM
+  changes:
+  - message: Hash has been derotated for renovations.
+    type: Remove
+  id: 2218
+  time: '2025-08-29T23:27:24.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3387
+- author: HAPPYNEWYEAR1999
+  changes:
+  - message: Pathway's medical department has undergone some surgery.
+    type: Tweak
+  id: 2219
+  time: '2025-08-29T23:31:16.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3388
+- author: youtubevideo3
+  changes:
+  - message: A new jumpskirt and apron for medical doctors!
+    type: Add
+  - message: the Nurse Hat has been resprited.
+    type: Tweak
+  id: 2220
+  time: '2025-08-30T00:36:06.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3384
+- author: astral_amy
+  changes:
+  - message: Added a surgical bay to Bedlam. Also, completely redesigned Bedlam's
+      medical bay.
+    type: Add
+  - message: A couple of touch-ups for Bedlam and Whisper - see PR for details.
+    type: Tweak
+  id: 2221
+  time: '2025-08-30T02:06:43.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3389
+- author: starlighthowls
+  changes:
+  - message: Added headchef uniform!
+    type: Add
+  id: 2222
+  time: '2025-08-30T02:38:11.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3368
+- author: youtubevideo3
+  changes:
+  - message: you can now use "UNR" as a shortcut for "Unrevivable"!
+    type: Add
+  id: 2223
+  time: '2025-08-30T07:13:38.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3335
