@@ -80,3 +80,4 @@ Content under these subdirectories either originate from their respective fork, 
 | `_Harmony`       | Harmony          | https://github.com/ss14-harmony/ss14-harmony            | AGPL 3.0 |
 | n/a              | Monolith         | https://github.com/Monolith-Station/Monolith            | AGPL 3.0 |
 | `_White`         | White Dream      | https://github.com/WWhiteDreamProject/wwdpublic/        | AGPL 3.0 |
+| `_Offbrand`      | Offbrand         | N/A                                                     | MPL-2.0  |
