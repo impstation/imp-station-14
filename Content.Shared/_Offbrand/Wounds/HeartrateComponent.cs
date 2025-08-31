@@ -168,16 +168,33 @@ public sealed partial class HeartStopOnHypovolemiaComponent : Component
 
 [RegisterComponent]
 [Access(typeof(HeartSystem))]
-public sealed partial class HeartStopOnShockComponent : Component
+public sealed partial class HeartStopOnHighStrainComponent : Component
 {
     /// <summary>
-    /// How likely the heart is to stop when the shock threshold is exceeded
+    /// How likely the heart is to stop when the strain threshold is exceeded
     /// </summary>
     [DataField(required: true)]
     public float Chance;
 
     /// <summary>
-    /// The minimum threshold at which the heart can stop from shock
+    /// The minimum threshold at which the heart can stop from strain
+    /// </summary>
+    [DataField(required: true)]
+    public FixedPoint2 Threshold;
+}
+
+[RegisterComponent]
+[Access(typeof(HeartSystem))]
+public sealed partial class HeartStopOnBrainHealthComponent : Component
+{
+    /// <summary>
+    /// How likely the heart is to stop when the brain health threshold is exceeded
+    /// </summary>
+    [DataField(required: true)]
+    public float Chance;
+
+    /// <summary>
+    /// The minimum threshold at which the heart can stop from brain health
     /// </summary>
     [DataField(required: true)]
     public FixedPoint2 Threshold;

@@ -32,7 +32,8 @@ public sealed partial class HeartSystem : EntitySystem
         SubscribeLocalEvent<BloodstreamComponent, GetStrainEvent>(OnBloodstreamGetStrain);
 
         SubscribeLocalEvent<HeartStopOnHypovolemiaComponent, HeartBeatEvent>(OnHeartBeatHypovolemia);
-        SubscribeLocalEvent<HeartStopOnShockComponent, HeartBeatEvent>(OnHeartBeatShock);
+        SubscribeLocalEvent<HeartStopOnHighStrainComponent, HeartBeatEvent>(OnHeartBeatStrain);
+        SubscribeLocalEvent<HeartStopOnBrainHealthComponent, HeartBeatEvent>(OnHeartBeatBrain);
 
         SubscribeLocalEvent<HeartDefibrillatableComponent, TargetDefibrillatedEvent>(OnTargetDefibrillated);
     }
@@ -166,13 +167,22 @@ public sealed partial class HeartSystem : EntitySystem
         args.Stop = args.Stop || rand.Prob(ent.Comp.Chance) && volume < ent.Comp.VolumeThreshold;
     }
 
-    private void OnHeartBeatShock(Entity<HeartStopOnShockComponent> ent, ref HeartBeatEvent args)
+    private void OnHeartBeatStrain(Entity<HeartStopOnHighStrainComponent> ent, ref HeartBeatEvent args)
     {
         var seed = SharedRandomExtensions.HashCodeCombine(new() { (int)_timing.CurTick.Value, GetNetEntity(ent).Id });
         var rand = new System.Random(seed);
 
-        var shock = _pain.GetShock(ent.Owner);
-        args.Stop = args.Stop || rand.Prob(ent.Comp.Chance) && shock > ent.Comp.Threshold;
+        var strain = HeartStrain((ent.Owner, Comp<HeartrateComponent>(ent)));
+        args.Stop = args.Stop || rand.Prob(ent.Comp.Chance) && strain > ent.Comp.Threshold;
+    }
+
+    private void OnHeartBeatBrain(Entity<HeartStopOnBrainHealthComponent> ent, ref HeartBeatEvent args)
+    {
+        var seed = SharedRandomExtensions.HashCodeCombine(new() { (int)_timing.CurTick.Value, GetNetEntity(ent).Id });
+        var rand = new System.Random(seed);
+
+        var damage = Comp<BrainDamageComponent>(ent).Damage;
+        args.Stop = args.Stop || rand.Prob(ent.Comp.Chance) && damage > ent.Comp.Threshold;
     }
 
     public void ChangeHeartDamage(Entity<HeartrateComponent?> ent, FixedPoint2 amount)

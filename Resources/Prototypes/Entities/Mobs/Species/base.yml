@@ -245,9 +245,12 @@
   - type: HeartStopOnHypovolemia
     chance: 0.8
     volumeThreshold: 0.3
-  - type: HeartStopOnShock
+  - type: HeartStopOnHighStrain
     chance: 0.05
-    threshold: 120
+    threshold: 4
+  - type: HeartStopOnBrainHealth
+    chance: 0.8
+    threshold: 60
   - type: Pain
     painMultiplier: 1.25
     maxShockIncreasePerSecond: 36
