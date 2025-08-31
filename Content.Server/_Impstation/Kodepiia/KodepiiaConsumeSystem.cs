@@ -60,7 +60,7 @@ public sealed class KodepiiaConsumeSystem : SharedKodepiiaConsumeSystem
 
     public void Consume(Entity<KodepiiaConsumeActionComponent> ent, ref KodepiiaConsumeEvent args)
     {
-        if (!_ingestion.HasMouthAvailable(args.Performer, args.Target))
+        if (!_ingestion.HasMouthAvailable(args.Performer, args.Performer))
             return;
 
         if (!KodepiiaTarget(args.Target))
@@ -135,7 +135,7 @@ public sealed class KodepiiaConsumeSystem : SharedKodepiiaConsumeSystem
         if (targetBloodstream != null && targetSolutionComp != null)
         {
             const float portionDrunk = 0.1f;
-            var amountOfUncookedProtein = targetPhysics.Mass * 0.3f;
+            var amountOfUncookedProtein = targetPhysics.Mass * 0.15f;
 
             var consumedSolution = _solutionContainer.SplitSolution(targetSolutionComp.Value, targetBloodstream.Volume * portionDrunk);
 
