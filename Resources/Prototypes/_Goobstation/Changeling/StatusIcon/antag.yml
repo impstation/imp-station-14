@@ -1,10 +1,10 @@
 - type: factionIcon
-  id: HivemindFaction
+  id: GoobHivemindFaction
   priority: 11
   showTo:
     components:
       - ShowAntagIcons
-      - Hivemind
+      - GoobHivemind
   icon:
     sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
     state: Changeling

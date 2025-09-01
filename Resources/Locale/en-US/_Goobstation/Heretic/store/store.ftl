@@ -1,1 +1,1 @@
-store-ui-heretic-level-display = [Stage: {$level}]
+store-ui-heretic-level-display = [Required power: {$power}]

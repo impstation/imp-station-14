@@ -30,6 +30,9 @@
     count: 10
   - type: StackPrice
     price: 5
+  - type: PluralName # imp
+    oneOf: plural-name-spindle-1
+    someOf: plural-name-spindle-2plus
 
 - type: entity
   id: SimpleSuture1
@@ -70,6 +73,9 @@
     count: 10
   - type: StackPrice
     price: 5
+  - type: PluralName # imp
+    oneOf: plural-name-tube-1
+    someOf: plural-name-tube-2plus
 
 - type: entity
   id: ShockGel1
@@ -171,6 +177,9 @@
             volume: -4
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: PluralName # imp
+    oneOf: plural-name-bottle-1
+    someOf: plural-name-bottle-2plus
 
 - type: entity
   id: Tincture1

@@ -15,5 +15,5 @@
       reagents:
       - ReagentId: SpaceGrease
         Quantity: 15
-  - type: SoundOnTrigger
+  - type: EmitSoundOnTrigger
     sound: /Audio/Effects/Fluids/splat.ogg

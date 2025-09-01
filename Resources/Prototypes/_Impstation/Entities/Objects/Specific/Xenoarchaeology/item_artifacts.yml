@@ -66,8 +66,15 @@
     guides:
     - Xenoarchaeology
   - type: WarpPoint
+    blacklist:
+      tags:
+      - GhostOnlyWarp
+  - type: Tag
+    tags:
+    - GhostOnlyWarp
   - type: NameIdentifier
     group: Artifact
+
 
 - type: entity
   parent: BaseXenoArtifactItem

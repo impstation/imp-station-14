@@ -38,6 +38,8 @@
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
+  - type: PluralName # imp
+    oneOf: plural-name-pair-1
 
 # Companion Cyborg Reinforcement Radio, borgdisabler, and nonlethal module
 - type: entity
@@ -159,9 +161,9 @@
     - state: security
     - state: icon-grappling-gun # couldn't figure out how to get the custom sprite working in imp namespace
   - type: ItemBorgModule
-    items:
-    - WeaponBorgDisabler
-    - WeaponBorgStunBaton
+    hands:
+    - item: WeaponBorgDisabler
+    - item: WeaponBorgStunBaton
   - type: BorgModuleIcon
     icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: disabler-module }
 

@@ -19,6 +19,8 @@ steal-target-groups-secpillcanister = head of security's pill canister
 steal-target-groups-evil-skull = evil skull
 steal-target-groups-antiquedisabler = "antique" disabler
 
+steal-target-groups-clothing-neck-bureaucracymedal = excellence in bureaucracy medal
+
 # Thief Animal
 
 steal-target-groups-finfin = Fin Fin

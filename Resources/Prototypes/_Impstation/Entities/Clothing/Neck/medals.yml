@@ -13,9 +13,22 @@
   parent: ClothingNeckBronzeheart
   id: ClothingNeckPositivityForceMedal
   name: positivity force badge
-  description: Certifies anyone who holds it is sweet like smite and only spreads positive vibes. 
+  description: Certifies anyone who holds it is sweet like smite and only spreads positive vibes.
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Neck/Medals/positivityforcemedal.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Neck/Medals/positivityforcemedal.rsi
+
+- type: entity
+  parent: ClothingNeckBronzeheart
+  id: ClothingNeckBureaucracyMedal
+  name: excellence in bureaucracy medal
+  description: Awarded for exemplary managerial services rendered while under contract with Nanotrasen.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Neck/Medals/bureaucracymedal.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Neck/Medals/bureaucracymedal.rsi
+  - type: StealTarget
+    stealGroup: ClothingNeckBureaucracyMedal

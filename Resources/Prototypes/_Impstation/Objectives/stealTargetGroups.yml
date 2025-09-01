@@ -89,6 +89,13 @@
     state: pill_canister-hos
 
 - type: stealTargetGroup
+  id: ClothingNeckBureaucracyMedal
+  name: steal-target-groups-clothing-neck-bureaucracymedal
+  sprite:
+    sprite: _Impstation/Clothing/Neck/Medals/bureaucracymedal.rsi
+    state: icon
+
+- type: stealTargetGroup
   id: AntiqueDisabler
   name: steal-target-groups-antiquedisabler
   sprite:

@@ -1,26 +1,25 @@
-using Content.Shared.Changeling;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Atmos.Rotting;
 
-namespace Content.Shared.Changeling;
+namespace Content.Shared._Goobstation.Changeling;
 
-public sealed partial class SharedAbsorbableSystem : EntitySystem
+public sealed partial class SharedGoobAbsorbableSystem : EntitySystem
 {
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<AbsorbableComponent, ExaminedEvent>(OnExamine);
+        SubscribeLocalEvent<GoobAbsorbableComponent, ExaminedEvent>(OnExamine);
     }
 
-    private void OnExamine(Entity<AbsorbableComponent> ent, ref ExaminedEvent args)
+    private void OnExamine(Entity<GoobAbsorbableComponent> ent, ref ExaminedEvent args)
     {
         var reducedBiomass = false;
-        if (!HasComp<RottingComponent>(ent.Owner) && TryComp<AbsorbableComponent>(ent.Owner, out var comp) && comp.BiomassRestored < 1)
+        if (!HasComp<RottingComponent>(ent.Owner) && TryComp<GoobAbsorbableComponent>(ent.Owner, out var comp) && comp.BiomassRestored < 1)
             reducedBiomass = true;
 
-        if (HasComp<ChangelingComponent>(args.Examiner) && !HasComp<AbsorbedComponent>(ent.Owner) && reducedBiomass)
+        if (HasComp<GoobChangelingComponent>(args.Examiner) && !HasComp<GoobAbsorbedComponent>(ent.Owner) && reducedBiomass)
         {
             args.PushMarkup(Loc.GetString("changeling-examine-reduced-biomass", ("target", Identity.Entity(ent.Owner, EntityManager))));
         }

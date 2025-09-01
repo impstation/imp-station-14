@@ -20,6 +20,7 @@ using Content.Shared.Inventory.Events;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.NameModifier.EntitySystems;
+using Content.Shared.Nutrition;
 using Content.Shared.Overlays;
 using Content.Shared.Projectiles;
 using Content.Shared.Radio;
@@ -79,6 +80,7 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, FlashAttemptEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, WieldAttemptEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, UnwieldAttemptEvent>(RefRelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, IngestionAttemptEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, MobStateChangedEvent>(RefRelayInventoryEvent); // imp
         SubscribeLocalEvent<InventoryComponent, ExaminedEvent>(RefRelayInventoryEvent); // imp
 

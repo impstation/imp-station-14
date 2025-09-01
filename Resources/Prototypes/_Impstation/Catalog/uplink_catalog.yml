@@ -20,6 +20,27 @@
       - SurplusBundle
 
 - type: listing
+  id: uplinkCleanerGrenadeBleach
+  name: uplink-cleaning-grenade-bleach-name
+  description: uplink-cleaning-grenade-bleach-desc
+  productEntity: BoxCleanerGrenadesBleach
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 8
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Janitor
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
+- type: listing
   id: uplinkZipperAP
   name: uplink-zipper-ap-name
   description: uplink-zipper-ap-desc

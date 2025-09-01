@@ -59,10 +59,16 @@
   - type: WarpPoint
     follow: true
     location: supermatter
+    blacklist: # imp edit
+      tags:
+      - GhostOnlyWarp
   - type: Clickable
   - type: InteractionOutline
   - type: Physics
   - type: SupermatterImmune
+  - type: Tag # imp edit
+    tags:
+    - GhostOnlyWarp
 
 - type: entity
   parent: BaseSupermatter

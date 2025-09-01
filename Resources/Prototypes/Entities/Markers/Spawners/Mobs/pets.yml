@@ -251,9 +251,12 @@
     layers:
     - state: green
     - state: ai
-  - type: ConditionalSpawner
+  - type: RandomSpawner # imp edit - this was originally a conditional spawner with just MobPossumMortyOld.
     prototypes:
+    - MobPossumMorty
+    rarePrototypes:
     - MobPossumMortyOld
+    rareChance: 0.20
 
 - type: entity
   parent: MarkerBase

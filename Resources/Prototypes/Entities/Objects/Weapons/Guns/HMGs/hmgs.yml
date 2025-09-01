@@ -8,7 +8,7 @@
   - type: Sprite
   - type: Item
     size: Ginormous
-  - type: MultiHandedItem
+  # - type: MultiHandedItem #imp-- messes with gun-requires-wield and wielding is cooler than an item always needing two hands to hold.
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8

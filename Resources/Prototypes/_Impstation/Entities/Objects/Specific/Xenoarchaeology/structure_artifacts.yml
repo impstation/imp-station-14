@@ -65,6 +65,13 @@
         ents: [ ]
       revolver-ammo: !type:Container # needed for the EffectBigIron artifactEffect
   - type: WarpPoint
+    blacklist:
+      tags:
+      - GhostOnlyWarp
+  - type: Tag
+    tags:
+    - GhostOnlyWarp
+    - Structure
   - type: NameIdentifier
     group: Artifact
 

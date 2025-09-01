@@ -29,3 +29,66 @@
   - type: FoodSequenceElement
     entries:
       Burger: FinfinSashimiBurger
+
+- type: entity
+  parent: FoodMealBase
+  id: FabricScrapSalad
+  name: fabric scrap salad
+  description: Whose clothes are these?
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    state: fabric-scrap-salad
+  - type: Food
+    requiresSpecialDigestion: true
+    trash:
+    - FoodBowlBig
+  - type: FlavorProfile
+    flavors:
+    - leafy
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+  - type: Construction
+    graph: FabricScrapSalad
+    node: salad
+  - type: Tag
+    tags:
+    - ClothMade
+    - ClothFood
+
+- type: entity
+  parent: FoodMealBase
+  id: YarnNoodles
+  name: yarn noodles
+  description: Looks like someone's failed knitting project.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    state: yarn-noodles
+  - type: Food
+    requiresSpecialDigestion: true
+    trash:
+    - ChopSticks
+  - type: FlavorProfile
+    flavors:
+    - pasta
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+  - type: Construction
+    graph: YarnNoodles
+    node: noodles
+  - type: Tag
+    tags:
+    - ClothMade
+    - ClothFood
+    

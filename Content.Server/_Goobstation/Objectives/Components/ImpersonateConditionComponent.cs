@@ -1,14 +1,14 @@
-using Content.Server.Objectives.Systems;
+using Content.Server._Goobstation.Objectives.Systems;
 
-namespace Content.Server.Objectives.Components;
+namespace Content.Server._Goobstation.Objectives.Components;
 
 /// <summary>
 /// Requires that you have the same identity a target for a certain length of time before the round ends.
 /// Obviously the agent id will work for this, but it's assumed that you will kill the target to prevent suspicion.
 /// Depends on <see cref="TargetObjectiveComponent"/> to function.
 /// </summary>
-[RegisterComponent, Access(typeof(ImpersonateConditionSystem))]
-public sealed partial class ImpersonateConditionComponent : Component
+[RegisterComponent, Access(typeof(GoobImpersonateConditionSystem))]
+public sealed partial class GoobImpersonateConditionComponent : Component
 {
     /// <summary>
     /// Name that must match your identity for greentext.

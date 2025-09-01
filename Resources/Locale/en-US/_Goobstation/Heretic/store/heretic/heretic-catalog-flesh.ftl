@@ -32,9 +32,9 @@ knowledge-path-flesh-s5-desc =
     But they were not out of my reach for long. With every step, the screams grew, until at last
     I learned that they could be silenced.
 
-    Grants you the spell Knit Flesh. This spell allows you to remove organs from victims
-    without requiring a lengthy surgery. This process is much longer if the target is not dead.
-    This spell also allows you to heal your minions and summons, or restore failing organs to acceptable status.
+    Grants you the spell Knit Flesh. This spell will either temporarily blind a target, temporarily mute them, or
+    eject all the contents of their stomach.
+    If used on a minion or summon, it will heal them instead.
 
 knowledge-path-flesh-s6-name = Raw Ritual
 knowledge-path-flesh-s6-desc =

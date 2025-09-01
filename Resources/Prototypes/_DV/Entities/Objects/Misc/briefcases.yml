@@ -16,3 +16,47 @@
   - type: DamageOtherOnHit # imp - toolbox throw damage
     meleeDamageMultiplier: 1.33
     staminaCost: 12.5
+
+- type: entity
+  parent: CybersunBriefcase
+  id: RecruiterBriefcase
+  suffix: Recruiter Uplink, 50TC
+  components:
+  - type: AccessReader
+    access: [ [ "SyndicateAgent" ] ]
+    breakOnAccessBreaker: true
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,8,4
+  - type: StorageFill # Iimp - removed figurine since it doesnt exist here, added Syndicate document printer.
+    contents:
+    - id: PaperRecruiterUplink
+      amount: 1
+    - id: SyndicateDocumentPrinterFlatpack
+      amount: 1
+  - type: Lock
+    lockOnClick: false
+  - type: UIRequiresLock
+    requireLocked: false
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+    blockSpectators: true
+    verbOnly: true
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: Store
+    name: store-recruiter-name-uplink
+    ownerOnly: true
+    categories:
+    - RecruiterJunk
+    - RecruiterUniforms
+    - RecruiterTreasure
+    currencyWhitelist:
+    - TreatCoin
+    balance:
+      TreatCoin: 50

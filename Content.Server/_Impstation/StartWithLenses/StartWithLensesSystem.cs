@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Content.Server._Impstation.TraitRandomizer;
 using Content.Shared.Clothing;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Hands.Components;
@@ -21,7 +22,7 @@ public sealed class StartWithLensesSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<StartWithLensesComponent, MapInitEvent>(OnMapInit, after: [typeof(LoadoutSystem)]);
+        SubscribeLocalEvent<StartWithLensesComponent, MapInitEvent>(OnMapInit, after: [typeof(LoadoutSystem), typeof(TraitRandomizerSystem)]);
     }
 
     private void OnMapInit(Entity<StartWithLensesComponent> ent, ref MapInitEvent args)

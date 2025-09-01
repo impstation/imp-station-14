@@ -18,7 +18,7 @@
         - type: StationCargoShuttle
           path: /Maps/_Impstation/Shuttles/Hash_cargo.yml
         - type: StationJobs
-          availableJobs: # Total of 50 jobs roundstart, max of 57 inc. latejoins and trainees.
+          availableJobs: # Total of 51 jobs roundstart, max of 58 inc. latejoins and trainees.
             # command - 8
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
@@ -46,16 +46,16 @@
             TechnicalAssistant: [ 1, 1 ]
             # medical - 6-8
             Chemist: [ 2, 2 ]
-            MedicalDoctor: [ 4, 4 ]
+            MedicalDoctor: [ 3, 3 ]
             MedicalIntern: [ 2, 2 ]
-           #Paramedic: [ 0, 0 ]
+            Paramedic: [ 1, 1 ]
             # science - 6-7
             Borg: [ 2, 2 ]
             ResearchAssistant: [ 1, 1 ]
             Scientist: [ 3, 3 ]
             StationAi: [ 1, 1 ]
-            # security - 5-7
-           #Brigmedic: [ 0, 0 ]
+            # security - 6-8
+            Brigmedic: [ 1, 1 ]
             Detective: [ 1, 1 ]
             SecurityCadet: [ 2, 2 ]
             SecurityOfficer: [ 3, 3 ]

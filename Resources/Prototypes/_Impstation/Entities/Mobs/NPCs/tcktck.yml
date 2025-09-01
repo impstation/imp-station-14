@@ -145,7 +145,7 @@
     proto: robot
   - type: Speech
     speechVerb: Robotic
-    speechSounds: Borg
+    speechSounds: Tcktck
   - type: Vocal
     sounds:
       Unsexed: TckTck
@@ -156,7 +156,9 @@
     locked: true
     breakOnAccessBreaker: false
     unlockOnClick: false
-  - type: ActivatableUIRequiresLock
+  - type: UIRequiresLock
+    userInterfaceKeys:
+    - enum.BorgUiKey.Key
   - type: LockedWiresPanel
   - type: Damageable
     damageContainer: Silicon

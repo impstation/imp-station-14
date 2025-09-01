@@ -16,6 +16,9 @@
     sprite: _Impstation/Objects/Weapons/Guns/Battery/emergency_laser_gun_two.rsi
   - type: StaticPrice
     price: 420
+  - type: Battery
+    maxCharge: 500
+    startingCharge: 500
   - type: HitscanBatteryAmmoProvider
     proto: EmergencyRedLaser
     fireCost: 50

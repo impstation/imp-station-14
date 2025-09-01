@@ -25,7 +25,7 @@
   suffix: BluespaceFlash
   parent: AdminInstantEffectBase
   components:
-  - type: SpawnOnTrigger 
+  - type: SpawnOnTrigger
     proto: EffectFlashBluespace
 
 - type: entity
@@ -46,7 +46,7 @@
   - type: SmokeOnTrigger
     duration: 3
     spreadAmount: 1
-  - type: SoundOnTrigger
+  - type: EmitSoundOnTrigger
     sound: /Audio/Effects/smoke.ogg
   - type: TimerTriggerVisuals
     primingSound:
@@ -60,7 +60,7 @@
   - type: SmokeOnTrigger
     duration: 10
     spreadAmount: 30
-  - type: SoundOnTrigger
+  - type: EmitSoundOnTrigger
     sound: /Audio/Effects/smoke.ogg
   - type: TimerTriggerVisuals
     primingSound:
@@ -74,7 +74,7 @@
   - type: SmokeOnTrigger
     duration: 30
     spreadAmount: 50
-  - type: SoundOnTrigger
+  - type: EmitSoundOnTrigger
     sound: /Audio/Effects/smoke.ogg
   - type: TimerTriggerVisuals
     primingSound:
@@ -98,11 +98,11 @@
   suffix: Gravity Well
   parent: AdminInstantEffectBase
   components:
-  - type: SoundOnTrigger
-    removeOnTrigger: true
+  - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Effects/Grenades/Supermatter/supermatter_start.ogg
-      volume: 5
+      params:
+        volume: 5
   - type: AmbientSound
     enabled: true
     volume: -5

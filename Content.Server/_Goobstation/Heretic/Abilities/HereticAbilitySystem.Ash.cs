@@ -87,7 +87,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         // all heretics with the same path are also immune
         var pathQuery = EntityQueryEnumerator<HereticComponent>();
         while (pathQuery.MoveNext(out var uid, out var comp))
-            if (comp.CurrentPath == ent.Comp.CurrentPath)
+            if (comp.MainPath == ent.Comp.MainPath)
                 ignoredTargets.Add(uid);
 
         if (!_splitball.Spawn(ent, ignoredTargets))
@@ -107,7 +107,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
         foreach (var look in lookup)
         {
-            if ((TryComp<HereticComponent>(look, out var th) && th.CurrentPath == ent.Comp.CurrentPath)
+            if ((TryComp<HereticComponent>(look, out var th) && th.MainPath == ent.Comp.MainPath)
             || HasComp<GhoulComponent>(look))
                 continue;
 

@@ -79,3 +79,65 @@
   - type: Tag
     tags:
     - Ingredient
+
+- type: entity
+  name: ball of string cheese
+  parent: FoodBakingBase
+  id: FoodStringCheese
+  description: A big ball of string cheese. A moth delicacy.
+  components:
+  - type: Item
+    size: Normal
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+  - type: FlavorProfile
+    flavors:
+      - cheesy
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Ingredients/stringcheese.rsi
+    state: ball
+  - type: SliceableFood
+    count: 4
+    slice: FoodStringCheeseStrand
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: Tag
+    tags:
+    - ClothMade
+  
+
+- type: entity
+  name: strand of string cheese
+  parent: FoodBakingBase
+  id: FoodStringCheeseStrand
+  description: A strand of string cheese. Perfect for moth recipes.
+  components:
+  - type: Item
+    size: Normal
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 2.5
+  - type: FlavorProfile
+    flavors:
+      - cheesy
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Ingredients/stringcheese.rsi
+    state: strand
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: Tag
+    tags:
+    - Slice
+    - ClothMade
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: StringCheese

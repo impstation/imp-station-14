@@ -52,6 +52,8 @@
         mask:
         - ItemMask
   - type: Appearance
+  - type: PluralName # imp
+    nameOneOf: speso
 
 - type: material
   id: Credit

@@ -99,6 +99,8 @@
     tags:
     - PetWearable
     - WhitelistChameleon
+  - type: PluralName # imp
+    oneOf: plural-name-some
 
 - type: entity
   parent: ClothingEyesBase

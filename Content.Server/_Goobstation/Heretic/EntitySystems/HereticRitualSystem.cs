@@ -162,7 +162,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
         if (!TryComp<HereticComponent>(args.User, out var heretic))
             return;
 
-        if (heretic.KnownRituals.Count == 0)
+        if (_knowledge.AllKnownRituals(heretic).Count == 0)
         {
             _popup.PopupEntity(Loc.GetString("heretic-ritual-norituals"), args.User, args.User);
             return;

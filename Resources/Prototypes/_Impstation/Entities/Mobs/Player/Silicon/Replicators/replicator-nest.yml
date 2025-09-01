@@ -30,7 +30,7 @@
     preservationWhitelist: # preserve stuff that passes this
       components:
       - HumanoidAppearance
-      - OnUseTimerTrigger
+      - TimerTrigger
       - StealTarget
       - Mech
   - type: ThermalVisionImmune

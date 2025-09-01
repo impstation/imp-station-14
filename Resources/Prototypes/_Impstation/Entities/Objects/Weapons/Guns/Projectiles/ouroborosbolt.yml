@@ -14,11 +14,16 @@
       - state: bee
   - type: Ammo
     muzzleFlash: MuzzleFlashEffectEnergySmall
+  - type: TriggerOnSpawn
+  - type: TimerTrigger
+    delay: 0.25
   - type: SpawnOnTrigger
+    keysIn:
+    - timer
     proto: MobBeeroboros
-  - type: ActiveTimerTrigger
-    timeRemaining: 0.25
   - type: DeleteOnTrigger
+    keysIn:
+    - timer
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:

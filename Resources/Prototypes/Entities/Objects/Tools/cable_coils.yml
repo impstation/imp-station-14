@@ -84,15 +84,6 @@
     count: 10
 
 - type: entity
-  parent: CableHVStack10
-  id: CableHVStackLingering10
-  suffix: Lingering, 10
-  components:
-  - type: Stack
-    lingering: true
-    count: 10
-
-- type: entity
   parent: CableHVStack
   id: CableHVStack1
   suffix: 1
@@ -146,15 +137,6 @@
   - type: Sprite
     state: coilmv-10
   - type: Stack
-    count: 10
-
-- type: entity
-  parent: CableMVStack10
-  id: CableMVStackLingering10
-  suffix: Lingering, 10
-  components:
-  - type: Stack
-    lingering: true
     count: 10
 
 - type: entity
@@ -220,15 +202,6 @@
       state: coillv-10
     - type: Stack
       count: 10
-
-- type: entity
-  parent: CableApcStack10
-  id: CableApcStackLingering10
-  suffix: Lingering, 10
-  components:
-  - type: Stack
-    lingering: true
-    count: 10
 
 - type: entity
   parent: CableApcStack

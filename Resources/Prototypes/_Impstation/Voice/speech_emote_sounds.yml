@@ -826,6 +826,10 @@
   params:
     variation: 0.05
   sounds:
+    Laugh:
+      path: /Audio/_Impstation/Voice/Talk/Tcktck/tcktck_laugh.ogg
+    Scream:
+      path: /Audio/_Impstation/Voice/Talk/Tcktck/tcktck_scream.ogg
     Beep:
       path: /Audio/Machines/twobeep.ogg
     Chime:
@@ -838,6 +842,8 @@
       path: /Audio/Items/bikehorn.ogg
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
+    Muttering:
+      path: /Audio/_Impstation/Voice/Talk/Tcktck/tcktck_muttering.ogg
 
 - type: emoteSounds
   id: Suppy

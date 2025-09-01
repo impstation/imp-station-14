@@ -1,4 +1,4 @@
-using Content.Shared.Changeling;
+using Content.Shared._Goobstation.Changeling; //goob
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
@@ -104,7 +104,7 @@ public abstract class SharedRottingSystem : EntitySystem
 
         args.PushMarkup(Loc.GetString(description, ("target", Identity.Entity(uid, EntityManager))));
 
-        if (HasComp<ChangelingComponent>(args.Examiner) && !HasComp<AbsorbedComponent>(uid))
+        if (HasComp<GoobChangelingComponent>(args.Examiner) && !HasComp<GoobAbsorbedComponent>(uid))
         {
             var changelingDescription = stage switch
             {

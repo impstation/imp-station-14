@@ -20,7 +20,9 @@ heretic-role-greeting =
 
 heretic-role-greeting-short =
     You are the Heretic!
-    In order to learn the Final Ritual and Ascend, you must fulfill your tasks.
+    In order to learn the Final Ritual and Ascend, you must gain knowledge by reading Eldritch Tomes or sacrificing dead crew members to a transmutation rune.
+    To draw a transmutation rune, click the floor with a writing tool while your mansus grasp is active in your off-hand.
+    To sacrifice someone to the rune, drag a corpse onto it, select the "Heartbeat of the Mansus" ritual with an empty hand, and activate it by using your Mansus Grasp on the rune.
 
 ## ghoul
 heretic-ghoul-greeting =

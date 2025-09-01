@@ -74,8 +74,6 @@ seeds-eggy-name = egg-plant
 seeds-eggy-display-name = egg-plants
 seeds-cannabis-name = cannabis
 seeds-cannabis-display-name = cannabis
-seeds-green-marijuana-name = green marijuana
-seeds-green-marijuana-display-name = green marijuana
 seeds-rainbow-cannabis-name = rainbow cannabis
 seeds-rainbow-cannabis-display-name = rainbow cannabis
 seeds-tobacco-name = tobacco
@@ -156,7 +154,7 @@ seeds-capfruit-display-name = capfruit tree
 seeds-cherry-name = cherry
 seeds-cherry-display-name = cherry tree
 seeds-anomaly-berry-name = anomaly berry
-# imp edit (unless this is ours lol) for consistency with the other berry
+# imp edit
 seeds-anomaly-berry-display-name = anomaly berry bush
-seeds-kissertomato-name = kisser tomato
-seeds-kissertomato-display-name = kisser tomato vine
+seeds-bloonion-name = bloonion
+seeds-bloonion-display-name = bloonion bulbs

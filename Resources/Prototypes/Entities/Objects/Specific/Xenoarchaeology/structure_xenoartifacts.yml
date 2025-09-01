@@ -38,6 +38,12 @@
         - Opaque
         mask:
         - MachineMask
+  # imp edit start
+  - type: Tag
+    tags:
+    - GhostOnlyWarp
+    - Structure
+  # imp edit end
 
 - type: entity
   parent: BaseXAEXenoArtifactStructure #IMP 'XAE' in name

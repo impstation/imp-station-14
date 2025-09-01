@@ -9,6 +9,8 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Content.Shared.Item.ItemToggle; //imp
+using Content.Shared.Item.ItemToggle.Components; //imp
 
 namespace Content.Shared.Light.EntitySystems;
 
@@ -24,6 +26,7 @@ public sealed class UnpoweredFlashlightSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly SharedPointLightSystem _light = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private readonly ItemToggleSystem _itemToggle = default!; //imp
 
     public override void Initialize()
     {
@@ -100,6 +103,11 @@ public sealed class UnpoweredFlashlightSystem : EntitySystem
     {
         if (!Resolve(ent, ref ent.Comp, false))
             return;
+
+        if (TryComp<ItemToggleComponent>(ent, out var toggleComp)) // imp
+        {
+            _itemToggle.Toggle(toggleComp!.Owner);
+        }
 
         SetLight(ent, !ent.Comp.LightOn, user, quiet);
     }

@@ -15,7 +15,7 @@ using Content.Server.Objectives.Commands;
 using Content.Shared.Humanoid; //imp addition
 using Content.Shared.CCVar;
 using Content.Shared.Prototypes;
-using Content.Shared.Roles; //imp addition
+using Content.Shared.Roles.Components; //imp addition
 using Content.Shared.Roles.Jobs;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
@@ -144,12 +144,12 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
 
             var title = GetTitle((mindId, mind), name);
             var custody = IsInCustody(mindId, mind) ? Loc.GetString("objectives-in-custody") : string.Empty;
-
+            var objectiveIssuer = mind.ObjectiveIssuer; // Imp Edit traitor flavor end screen
             var objectives = mind.Objectives;
             if (objectives.Count == 0)
             {
                 agentSummaries.Add((
-                    Loc.GetString("objectives-no-objectives", ("custody", custody), ("title", title), ("agent", agent)),
+                    Loc.GetString("objectives-no-objectives", ("custody", custody), ("title", title), ("agent", Loc.GetString($"traitor-{objectiveIssuer}-roundend"))),// Imp Edit traitor flavor end screen
                     0f, 0));
                 continue;
             }
@@ -165,7 +165,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
             agentSummary.AppendLine(Loc.GetString("objectives-with-objectives",
                 ("custody", custody),
                 ("title", title),
-                ("agent", agent)));
+                ("agent", Loc.GetString($"traitor-{objectiveIssuer}-roundend"))));// Imp Edit traitor flavor end screen
 
             foreach (var objectiveGroup in objectives.GroupBy(o => Comp<ObjectiveComponent>(o).LocIssuer))
             {

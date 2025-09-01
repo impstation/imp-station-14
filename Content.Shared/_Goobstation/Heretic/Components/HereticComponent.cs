@@ -20,31 +20,43 @@ public sealed partial class HereticComponent : Component
 
     #endregion
 
-    [DataField, AutoNetworkedField] public List<ProtoId<HereticRitualPrototype>> KnownRituals = new();
     [DataField] public ProtoId<HereticRitualPrototype>? ChosenRitual;
 
-    // hardcoded paths because i hate it
-    // "Ash", "Lock", "Flesh", "Void", "Blade", "Rust"
     /// <summary>
-    ///     Indicates a path the heretic is on.
+    ///     All knowledge the heretic knows.
     /// </summary>
-    [DataField, AutoNetworkedField] public string? CurrentPath = null;
+    [DataField, AutoNetworkedField] public List<ProtoId<HereticKnowledgePrototype>> KnownKnowledge = [];
 
     /// <summary>
-    ///     Indicates a stage of a path the heretic is on. 0 is no path, 10 is ascension
+    ///     The main path the heretic is on.
     /// </summary>
-    [DataField, AutoNetworkedField] public int PathStage = 0;
+    [DataField]
+    public ProtoId<HereticPathPrototype>? MainPath;
 
-    [DataField, AutoNetworkedField] public bool Ascended = false;
+    /// <summary>
+    ///     Indicates the power level of a heretic.
+    /// </summary>
+    [DataField, AutoNetworkedField] public int Power;
+
+    /// <summary>
+    ///     All side paths the heretic is on.
+    /// </summary>
+    [DataField]
+    public List<ProtoId<HereticPathPrototype>> SidePaths = [];
+
+    [DataField, AutoNetworkedField] public bool Ascended;
 
     /// <summary>
     ///     Used to prevent double casting mansus grasp.
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)] public bool MansusGraspActive = false;
 
-    /// <summary>
-    ///     Indicates if a heretic is able to cast advanced spells.
-    ///     Requires wearing focus, codex cicatrix, hood or anything else that allows him to do so.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)] public bool CanCastSpells = false;
+    public List<ProtoId<HereticPathPrototype>> AllPaths()
+    {
+        var paths = new List<ProtoId<HereticPathPrototype>>();
+        paths.AddRange(SidePaths);
+        if (MainPath != null)
+            paths.Add(MainPath.Value);
+        return paths;
+    }
 }

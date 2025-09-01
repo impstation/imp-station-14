@@ -4,7 +4,7 @@
   id: FishingRodBase
   components:
     - type: FishingRod #The component that handles all the joint stuff
-      ropeSprite: _Impstation/Objects/Fishing/fishingrod.rsi/rope.png
+      ropeSprite: { sprite: _Impstation/Objects/Fishing/fishingrod.rsi, state: rope }
     - type: Gun #The component that handles the firing
       soundGunshot: /Audio/Weapons/Guns/Gunshots/harpoon.ogg
       fireRate: 0.5
@@ -62,7 +62,7 @@
       size: Ginormous
     - type: FishingRod #The component that handles all the joint stuff
       cycleSound: /Audio/Effects/Fluids/glug.ogg
-      ropeSprite: _Impstation/Objects/Fishing/fishingrod_Ling.rsi/rope.png
+      ropeSprite: { sprite: _Impstation/Objects/Fishing/fishingrod_Ling.rsi, state: rope }
       reelRate: 5
     - type: Gun #The component that handles the firing
       soundGunshot: /Audio/Effects/demon_attack1.ogg #scorpion-get_over_here.ogg

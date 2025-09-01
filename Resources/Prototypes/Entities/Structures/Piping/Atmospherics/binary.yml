@@ -727,6 +727,11 @@
     guides:
     - Radiators
   # imp edit start
+  - type: PipeAppearance
+    sprite:
+    - { sprite: _Impstation/Structures/Piping/Atmospherics/heatexchanger.rsi, state: pipeConnector }
+    - { sprite: _Impstation/Structures/Piping/Atmospherics/heatexchanger_alt1.rsi, state: pipeConnector }
+    - { sprite: _Impstation/Structures/Piping/Atmospherics/heatexchanger_alt2.rsi, state: pipeConnector }
   - type: Tag
     tags: [] # gets rid of unstackable, allowing radiators to be built on alt layers on the same tile
   # imp edit end
