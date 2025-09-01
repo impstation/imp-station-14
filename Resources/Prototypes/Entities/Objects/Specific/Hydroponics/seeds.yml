@@ -283,7 +283,7 @@
       sprite: Objects/Specific/Hydroponics/blood_tomato.rsi
 
 - type: entity
-  parent: [SeedBase, BaseMajorContraband]
+  parent: [SeedBase, BaseMajorContraband] #imp
   name: packet of killer tomato seeds
   id: KillerTomatoSeeds
   components:
@@ -375,17 +375,6 @@
       sprite: Objects/Specific/Hydroponics/cannabis.rsi
 
 - type: entity
-  parent: SeedBase
-  name: packet of green marijuana seeds
-  description: "Taxable."
-  id: GreenMarijuanaSeeds
-  components:
-    - type: Seed
-      seedId: greenMarijuana
-    - type: Sprite
-      sprite: Objects/Specific/Hydroponics/cannabis.rsi
-
-- type: entity
   parent: [SeedBase, BaseMinorContraband]
   name: packet of rainbow cannabis seeds
   description: "These seeds grow into rainbow weed. Groovy... and also highly addictive."
@@ -408,7 +397,7 @@
       sprite: Objects/Specific/Hydroponics/nettle.rsi
 
 - type: entity
-  parent: [SeedBase, BaseMajorContraband]
+  parent: [SeedBase, BaseMajorContraband] #imp
   name: packet of death nettle seeds
   description: "Handle with very thick gloves."
   id: DeathNettleSeeds
@@ -529,7 +518,7 @@
       sprite: Objects/Specific/Hydroponics/glasstle.rsi
 
 - type: entity
-  parent: [SeedBase, BaseMajorContraband]
+  parent: [SeedBase, BaseMajorContraband] #imp
   name: packet of fly amanita spores
   description: "The iconic, extremely deadly mushroom to be used for purely ornamental purposes."
   id: FlyAmanitaSeeds
@@ -540,7 +529,7 @@
       sprite: Objects/Specific/Hydroponics/fly_amanita.rsi
 
 - type: entity
-  parent: [SeedBase, Tier2Contraband]
+  parent: [SeedBase, Tier2Contraband] #imp
   name: packet of gatfruit seeds
   description: "These are no peashooters."
   id: GatfruitSeeds
@@ -726,7 +715,7 @@
       sprite: Objects/Specific/Hydroponics/cotton.rsi
 
 - type: entity
-  parent: [SeedBase, BaseMinorContraband]
+  parent: [SeedBase, BaseMinorContraband] #imp
   name: packet of pyrotton seeds
   id: PyrottonSeeds
   components:
@@ -776,21 +765,10 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of lemo seeds
-  description: "Imported all the way from the distant planet Teo."
-  id: LemoSeeds
+  name: packet of bloonion seeds
+  id: BloonionSeeds
   components:
-    - type: Seed
-      seedId: lemo
-    - type: Sprite
-      sprite: _Impstation/Objects/Specific/Hydroponics/lemo.rsi
-
-- type: entity
-  parent: SeedBase
-  name: packet of kisser tomato seeds
-  id: KisserTomatoSeeds
-  components:
-    - type: Seed
-      seedId: kisserTomato
-    - type: Sprite
-      sprite: _Impstation/Objects/Specific/Hydroponics/tomatokisser.rsi
+  - type: Seed
+    seedId: bloonion
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/bloonion.rsi

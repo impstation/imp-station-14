@@ -88,6 +88,7 @@ public sealed class TegSystem : EntitySystem
         SubscribeLocalEvent<TegGeneratorComponent, DeviceNetworkPacketEvent>(DeviceNetworkPacketReceived);
 
         SubscribeLocalEvent<TegGeneratorComponent, ExaminedEvent>(GeneratorExamined);
+        SubscribeLocalEvent<TegCirculatorComponent, ExaminedEvent>(CirculatorExamined); // imp add
 
         _nodeContainerQuery = GetEntityQuery<NodeContainerComponent>();
     }
@@ -108,6 +109,18 @@ public sealed class TegSystem : EntitySystem
                 args.PushMarkup(Loc.GetString("teg-generator-examine-power-max-output", ("power", supplier.MaxSupply)));
             }
         }
+    }
+
+    // imp add: circulator show flow rate on examine
+    private void CirculatorExamined(EntityUid uid, TegCirculatorComponent comp, ExaminedEvent args)
+    {
+        if (!Comp<TransformComponent>(uid).Anchored ||
+            !args.IsInDetailsRange) // only show info if anchored & in range
+            return;
+
+        var str = Loc.GetString("teg-circulator-examine-flow-rate",
+            ("flowRate", MathF.Round(comp.LastMolesTransferred, 2).ToString()));
+        args.PushMarkup(str);
     }
 
     private void GeneratorUpdate(EntityUid uid, TegGeneratorComponent component, ref AtmosDeviceUpdateEvent args)
@@ -166,7 +179,7 @@ public sealed class TegSystem : EntitySystem
             // Reduce efficiency at low temperature differences to encourage burn chambers (instead
             // of just feeding the TEG room temperature gas from an infinite gas miner).
             var dT = Thot - Tcold;
-            N *= MathF.Tanh(dT/700); // https://www.wolframalpha.com/input?i=tanh(x/700)+from+0+to+1000
+            N *= MathF.Tanh(dT / 700); // https://www.wolframalpha.com/input?i=tanh(x/700)+from+0+to+1000
 
             var transfer = Wmax * N;
             electricalEnergy = transfer * component.PowerFactor;

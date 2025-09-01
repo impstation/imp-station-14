@@ -1,24 +1,25 @@
 ﻿using Content.Server.Anomaly;
-using Content.Server.Station.Components;
 using Content.Server.StationEvents.Components;
-﻿using Content.Shared.GameTicking.Components;
-using Content.Server.Announcements.Systems;
-using Robust.Shared.Player;
+using Content.Shared.GameTicking.Components;
+using Content.Shared.Station.Components;
+using Content.Server.Announcements.Systems; // imp
+using Robust.Shared.Player; // imp
 
 namespace Content.Server.StationEvents.Events;
 
 public sealed class AnomalySpawnRule : StationEventSystem<AnomalySpawnRuleComponent>
 {
     [Dependency] private readonly AnomalySystem _anomaly = default!;
-    [Dependency] private readonly AnnouncerSystem _announcer = default!;
+    [Dependency] private readonly AnnouncerSystem _announcer = default!; // Imp
 
     protected override void Added(EntityUid uid, AnomalySpawnRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
-        base.Added(uid, component, gameRule, args);
+        base.Added(uid, component, gameRule, args); // imp
 
         if (!TryComp<StationEventComponent>(uid, out var stationEvent))
             return;
 
+        // imp edit start, custom announcers
         _announcer.SendAnnouncement(
             _announcer.GetAnnouncementId(args.RuleId),
             Filter.Broadcast(),
@@ -29,6 +30,7 @@ public sealed class AnomalySpawnRule : StationEventSystem<AnomalySpawnRuleCompon
             null, //imp
             ("sighting", Loc.GetString($"anomaly-spawn-sighting-{RobustRandom.Next(1, 6)}"))
         );
+        // imp edit end, custom announcers
     }
 
     protected override void Started(EntityUid uid, AnomalySpawnRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
@@ -41,7 +43,7 @@ public sealed class AnomalySpawnRule : StationEventSystem<AnomalySpawnRuleCompon
         if (!TryComp<StationDataComponent>(chosenStation, out var stationData))
             return;
 
-        var grid = StationSystem.GetLargestGrid(stationData);
+        var grid = StationSystem.GetLargestGrid((chosenStation.Value, stationData));
 
         if (grid is null)
             return;
