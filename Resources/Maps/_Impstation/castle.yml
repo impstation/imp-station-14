@@ -21520,16 +21520,12 @@ entities:
       pos: -18.5,4.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
   - uid: 3123
     components:
     - type: Transform
       pos: -13.5,0.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
   - uid: 3124
     components:
     - type: Transform
@@ -43579,8 +43575,6 @@ entities:
       pos: -30.5,50.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 6406
   - uid: 6405
@@ -43590,8 +43584,6 @@ entities:
       pos: -30.5,53.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 6406
 - proto: WeaponEnergyTurretCommandControlPanel
