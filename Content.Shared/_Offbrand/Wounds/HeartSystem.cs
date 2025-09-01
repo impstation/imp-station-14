@@ -254,7 +254,7 @@ public sealed partial class HeartSystem : EntitySystem
         var evt = new GetStrainEvent(strain);
         RaiseLocalEvent(ent, ref evt);
 
-        return evt.Strain;
+        return FixedPoint2.Max(evt.Strain, FixedPoint2.Zero);
     }
 
     public FixedPoint2 HeartStrain(Entity<HeartrateComponent> ent)

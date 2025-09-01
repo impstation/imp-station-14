@@ -10,7 +10,7 @@
   - OffbrandPhysician
   - OffbrandChemist
   - OffbrandParamedic
-  - OffbrandMedicine
+  - OffbrandBody
   - OffbrandMedication
   - OffbrandSurgery
   - OffbrandCryostasis
@@ -57,9 +57,9 @@
   text: "/ServerInfo/_Offbrand/ChemistBotany.xml"
 
 - type: guideEntry
-  id: OffbrandMedicine
-  name: guide-entry-medicine
-  text: "/ServerInfo/_Offbrand/Medicine.xml"
+  id: OffbrandBody
+  name: guide-entry-body
+  text: "/ServerInfo/_Offbrand/Body.xml"
 
 - type: guideEntry
   id: OffbrandMedication

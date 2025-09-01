@@ -48,7 +48,6 @@ public abstract partial class SharedCryoPodSystem : EntitySystem
     [Dependency] private readonly SharedToolSystem _tool = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ReactiveSystem _reactive = default!;
-    [Dependency] protected readonly Content.Shared.Body.Systems.SharedMetabolizerSystem _metabolizer = default!; // Offbrand
 
     private EntityQuery<BloodstreamComponent> _bloodstreamQuery;
     private EntityQuery<ItemSlotsComponent> _itemSlotsQuery;
@@ -93,9 +92,6 @@ public abstract partial class SharedCryoPodSystem : EntitySystem
 
             cryoPod.NextInjectionTime += cryoPod.BeakerTransferTime;
             Dirty(uid, cryoPod);
-
-            if (cryoPod.BodyContainer.ContainedEntity is { } containedPatient) // Offbrand
-                _metabolizer.UpdateMetabolicMultiplier(containedPatient); // Offbrand
 
             if (!_itemSlotsQuery.TryComp(uid, out var itemSlotsComponent))
                 continue;
@@ -257,7 +253,6 @@ public abstract partial class SharedCryoPodSystem : EntitySystem
 
         EnsureComp<InsideCryoPodComponent>(target);
         _standingState.Stand(target, force: true); // Force-stand the mob so that the cryo pod sprite overlays it fully
-        _metabolizer.UpdateMetabolicMultiplier(target); // Offbrand
 
         UpdateAppearance(uid, cryoPodComponent);
         return true;

@@ -11,4 +11,5 @@ guide-entry-chemist-medical = Chemicals for Medical
 guide-entry-chemist-botany = Chemicals for Botany
 guide-entry-chemist-advanced-topicals = Advanced Topicals
 guide-entry-paramedic = Paramedic
+guide-entry-body = The Body
 guide-entry-topicals = Topicals
