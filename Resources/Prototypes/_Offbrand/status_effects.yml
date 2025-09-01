@@ -147,14 +147,14 @@
 - type: entity
   parent: MobStatusEffectBase
   id: StatusEffectBrainHealingMannitol
-  name: brain healing with adequate oxygenation
+  name: brain healing with adequate saturation
   components:
   - type: BrainHealingStatusEffect
 
 - type: entity
   parent: MobStatusEffectBase
   id: StatusEffectMinorOxygenationDexalin
-  name: 50% artificial bloodstream oxygenation
+  name: 50% artificial respiration
   components:
   - type: BloodOxygenationModifierStatusEffect
     minimumOxygenation: 0.5
@@ -166,7 +166,7 @@
 - type: entity
   parent: MobStatusEffectBase
   id: StatusEffectMajorOxygenationDexalinPlus
-  name: 80% artificial bloodstream oxygenation
+  name: 80% artificial respiration
   components:
   - type: BloodOxygenationModifierStatusEffect
     minimumOxygenation: 0.8
