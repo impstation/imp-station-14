@@ -150,10 +150,15 @@
   color: "#ffaa00"
   metabolisms:
     Medicine:
+      # Begin Offbrand
+      metabolismRate: 0.2
+      statusEffects:
+      - statusEffect: StatusEffectPainkillersNegligibleBicaridine
+      # End Offbrand
       effects:
       - !type:EvenHealthChange
         damage:
-          Brute: -1.5
+          Brute: -0.75 # Offbrand
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -252,13 +257,16 @@
   color: "#215263"
   metabolisms:
     Medicine:
+      # Begin Offbrand
+      metabolismRate: 0.2
+      # End Offbrand
       effects:
       - !type:HealthChange
         damage:
           types:
-            Heat: -1.5
-            Shock: -1.5
-            Cold: -1.5
+            Heat: -0.75 # Offbrand
+            Shock: -0.75 # Offbrand
+            Cold: -0.75 # Offbrand
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -352,7 +360,13 @@
   color: "#d2fffa"
   metabolisms:
     Medicine:
+      # Begin Offbrand
+      metabolismRate: 0.25
+      statusEffects:
+      - statusEffect: StatusEffectHeartStrainEpinephrine
       effects:
+      - !type:StartHeart
+      # End Offbrand
       - !type:AdjustReagent
         conditions:
         - !type:ReagentThreshold
@@ -650,13 +664,18 @@
   color: "#9423FF"
   metabolisms:
     Medicine:
+      # Begin Offbrand
+      metabolismRate: 0.2
+      statusEffects:
+      - statusEffect: StatusEffectMinorOxygenationPolypyryliumOligomers
+      # End Offbrand
       effects:
       - !type:HealthChange
         damage:
           groups:
-            Brute: -3.5
+            Brute: -2.0 # Offbrand
           types:
-            Asphyxiation: -2.5
+            Asphyxiation: -1.5 # Offbrand
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold

@@ -225,7 +225,7 @@ public sealed class DefibrillatorSystem : EntitySystem
                     true);
             return;
         }
-        else if (TryComp<UnrevivableComponent>(target, out var unrevivable))
+        else if (heartDefibrillatable is null && TryComp<UnrevivableComponent>(target, out var unrevivable)) // Offbrand
         {
             _chatManager.TrySendInGameICMessage(uid, Loc.GetString(unrevivable.ReasonMessage),
                 InGameICChatType.Speak, true);
@@ -242,7 +242,7 @@ public sealed class DefibrillatorSystem : EntitySystem
         }
         // End offbrand
 
-        if (HasComp<RandomUnrevivableComponent>(target))
+        if (heartDefibrillatable is null && HasComp<RandomUnrevivableComponent>(target)) // Offbrand
         {
             var dnrComponent = Comp<RandomUnrevivableComponent>(target);
 

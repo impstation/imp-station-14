@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._Offbrand.StatusEffects;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Events;
 using Content.Shared.Chemistry.EntitySystems;
@@ -171,6 +172,9 @@ public sealed partial class HeartSystem : EntitySystem
     {
         var seed = SharedRandomExtensions.HashCodeCombine(new() { (int)_timing.CurTick.Value, GetNetEntity(ent).Id });
         var rand = new System.Random(seed);
+
+        if (_statusEffects.HasEffectComp<PreventHeartStopFromStrainStatusEffectComponent>(ent))
+            return;
 
         var strain = HeartStrain((ent.Owner, Comp<HeartrateComponent>(ent)));
         args.Stop = args.Stop || rand.Prob(ent.Comp.Chance) && strain > ent.Comp.Threshold;

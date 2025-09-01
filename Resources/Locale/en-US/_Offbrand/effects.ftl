@@ -23,3 +23,8 @@ reagent-effect-guidebook-modify-brain-oxygen-deals = { $chance ->
         [1] Depletes { $amount } brain oxygenation
    *[other] deplete { $amount } brain oxygenation
 }
+
+reagent-effect-guidebook-start-heart = { $chance ->
+        [1] Restarts the target's heart
+   *[other] restart the target's heart
+}
