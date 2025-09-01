@@ -1,20 +1,22 @@
 - type: entity
   parent: BaseComputer
-  id: ComputerReaperTeleporter  #REAPER TODO: sprites, locales, name for this
+  id: ComputerReaperTeleporter  
   name: teleportation console
   description: A recovered mortal artifact hastily reconfigured to teleport Reapers.
   components:
   - type: Sprite
-    sprite: _Impstation/Structures/Machines/computer_old.rsi # use base directory for screen and keys (unless we've resprited them), use imp directory for body, keyboard, and panel
+    drawdepth: SmallObjects
+    sprite: _Impstation/Structures/Machines/computer_old.rsi 
     layers:
     - map: ["computerLayerBody"]
       state: computer
-      sprite: _Impstation/Structures/Machines/computer_old.rsi # imp
+      sprite: _Impstation/Structures/Machines/computer_old.rsi 
     - map: ["computerLayerKeyboard"]
       state: keyboard
-      sprite: _Impstation/Structures/Machines/computer_old.rsi # imp
+      sprite: _Impstation/Structures/Machines/computer_old.rsi 
     - map: ["computerLayerScreen"]
       state: reaper
+    offset: "0.0,0.1"
   - type: Appearance
   - type: GenericVisualizer
     visuals:

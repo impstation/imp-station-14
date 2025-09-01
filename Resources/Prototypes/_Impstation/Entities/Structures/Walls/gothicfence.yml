@@ -5,7 +5,7 @@
   description: Just looking at this fence makes you want to start wailing and rattling chains.
   components:
   - type: Sprite
-    drawdepth: OverMobs
+    drawdepth: OverMobs #fence draws over players when they're behind it
     sprite: _Impstation/Structures/Walls/gothicfence.rsi
     state: straight
   - type: Icon
