@@ -26,11 +26,11 @@ using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using System.Linq;
 using Content.Shared.Station.Components;
+using Content.Shared.Store.Components;
+using Robust.Shared.Prototypes;
 using Content.Shared.Humanoid; //imp addition
 using Content.Shared.Mind; //imp addition
 using Content.Shared.Roles; //imp addition
-using Content.Shared.Store.Components;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.GameTicking.Rules;
 

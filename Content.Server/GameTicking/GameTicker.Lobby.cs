@@ -166,7 +166,7 @@ namespace Content.Server.GameTicking
                 if (!_playerManager.TryGetSessionById(playerUserId, out var playerSession))
                     continue;
                 RaiseNetworkEvent(GetStatusMsg(playerSession), playerSession.Channel);
-                RaiseLocalEvent(new PlayerToggleReadyEvent(playerSession));
+                RaiseLocalEvent(new PlayerToggleReadyEvent(playerSession)); // imp ready manifest
             }
         }
 
@@ -184,14 +184,14 @@ namespace Content.Server.GameTicking
             }
 
             var status = ready ? PlayerGameStatus.ReadyToPlay : PlayerGameStatus.NotReadyToPlay;
-            if (_playerGameStatuses[player.UserId] == status)
+            if (_playerGameStatuses[player.UserId] == status) // imp add
             {
                 return;
             }
 
             _playerGameStatuses[player.UserId] = ready ? PlayerGameStatus.ReadyToPlay : PlayerGameStatus.NotReadyToPlay;
             RaiseNetworkEvent(GetStatusMsg(player), player.Channel);
-            RaiseLocalEvent(new PlayerToggleReadyEvent(player));
+            RaiseLocalEvent(new PlayerToggleReadyEvent(player)); // imp add
             // update server info to reflect new ready count
             UpdateInfoText();
         }
@@ -203,6 +203,7 @@ namespace Content.Server.GameTicking
             => PlayerGameStatuses.TryGetValue(userId, out var status) && status == PlayerGameStatus.JoinedGame;
     }
 
+    // imp add, ready manifest
     public sealed class PlayerToggleReadyEvent : EntityEventArgs
     {
         public readonly ICommonSession PlayerSession;

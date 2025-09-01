@@ -13,14 +13,13 @@ using Content.Shared.Throwing;
 using Content.Shared.Wires;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
-using Content.Shared.Popups;
-using Content.Shared.Damage.Components;
-using Content.Shared.Weapons.Melee.Events;
-using Robust.Shared.Utility;
+using Content.Shared.Popups; // imp throwing
+using Content.Shared.Damage.Components; // imp throwing
+using Robust.Shared.Utility; // imp throwing
 
 namespace Content.Server.Damage.Systems
 {
-    public sealed class DamageOtherOnHitSystem : SharedDamageOtherOnHitSystem
+    public sealed class DamageOtherOnHitSystem : SharedDamageOtherOnHitSystem // imp shared
     {
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly GunSystem _guns = default!;
@@ -28,7 +27,9 @@ namespace Content.Server.Damage.Systems
         [Dependency] private readonly DamageExamineSystem _damageExamine = default!;
         [Dependency] private readonly SharedCameraRecoilSystem _sharedCameraRecoil = default!;
         [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
-        [Dependency] private readonly SharedPopupSystem _popup = default!;
+        [Dependency] private readonly SharedPopupSystem _popup = default!; // imp throwing
+
+        // IMP TODO: clean this all up!!!!!
 
         public override void Initialize()
         {

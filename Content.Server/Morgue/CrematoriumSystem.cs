@@ -16,7 +16,7 @@ using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
-using Content.Shared.Power;
+using Content.Shared.Power; // imp
 
 namespace Content.Server.Morgue;
 
@@ -200,6 +200,7 @@ public sealed class CrematoriumSystem : EntitySystem
                 FinishCooking(uid, crem);
         }
     }
+
     //imp
     private void OnPowerChanged(Entity<CrematoriumComponent> entity, ref PowerChangedEvent args)
     {
@@ -219,6 +220,5 @@ public sealed class CrematoriumSystem : EntitySystem
             _appearance.SetData(entity.Owner, CrematoriumVisuals.Burning, false);
             RemComp<ActiveCrematoriumComponent>(entity.Owner);
         }
-
     }
 }

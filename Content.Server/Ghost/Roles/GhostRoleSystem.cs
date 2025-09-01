@@ -36,7 +36,7 @@ using Content.Shared.Ghost.Roles.Components;
 namespace Content.Server.Ghost.Roles;
 
 [UsedImplicitly]
-public sealed partial class GhostRoleSystem : EntitySystem
+public sealed class GhostRoleSystem : EntitySystem
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly EuiManager _euiManager = default!;

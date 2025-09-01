@@ -1,5 +1,5 @@
 using Robust.Shared.Audio;
-using Robust.Shared.Audio.Components;
+using Robust.Shared.Audio.Components; // imp
 
 namespace Content.Server.Morgue.Components;
 

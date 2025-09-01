@@ -6,7 +6,6 @@ using Content.Server.Popups;
 using Content.Shared.Crayon;
 using Content.Shared.Database;
 using Content.Shared.Decals;
-using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Nutrition.EntitySystems;
@@ -15,6 +14,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Content.Shared.Heretic; // goob
 
 namespace Content.Server.Crayon;
 
@@ -41,7 +41,7 @@ public sealed class CrayonSystem : SharedCrayonSystem
 
     private static void OnCrayonGetState(EntityUid uid, CrayonComponent component, ref ComponentGetState args)
     {
-        args.State = new CrayonComponentState(component.Color, component.SelectedState, component.Charges, component.Capacity, component.Infinite);
+        args.State = new CrayonComponentState(component.Color, component.SelectedState, component.Charges, component.Capacity, component.Infinite); // imp infinite
     }
 
     private void OnCrayonAfterInteract(EntityUid uid, CrayonComponent component, AfterInteractEvent args)
@@ -49,6 +49,7 @@ public sealed class CrayonSystem : SharedCrayonSystem
         if (args.Handled || !args.CanReach)
             return;
 
+        // goob add
         if (TryComp<HereticComponent>(args.User, out var heretic) && heretic.MansusGraspActive)
             return;
 
@@ -76,7 +77,7 @@ public sealed class CrayonSystem : SharedCrayonSystem
         if (component.UseSound != null)
             _audio.PlayPvs(component.UseSound, uid, AudioParams.Default.WithVariation(0.125f));
 
-        if (!component.Infinite)
+        if (!component.Infinite) // imp
         {
             // Decrease "Ammo"
             component.Charges--;
@@ -86,7 +87,7 @@ public sealed class CrayonSystem : SharedCrayonSystem
         _adminLogger.Add(LogType.CrayonDraw, LogImpact.Low, $"{ToPrettyString(args.User):user} drew a {component.Color:color} {component.SelectedState}");
         args.Handled = true;
 
-        if (!component.Infinite && component.DeleteEmpty && component.Charges <= 0)
+        if (!component.Infinite && component.DeleteEmpty && component.Charges <= 0) // imp add infinite
             UseUpCrayon(uid, args.User);
         else
             _uiSystem.ServerSendUiMessage(uid, SharedCrayonComponent.CrayonUiKey.Key, new CrayonUsedMessage(component.SelectedState));

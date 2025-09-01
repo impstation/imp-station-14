@@ -4,7 +4,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Console;
 using Robust.Shared.Enums;
 
-namespace Content.Server.Chat.Commands
+namespace Content.Server._Impstation.Chat.Commands
 {
     [AnyCommand]
     internal sealed class CollectiveMindCommand : IConsoleCommand

@@ -1,13 +1,10 @@
 using Content.Server.Antag;
-using Content.Server.Antag.Components;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Mind;
 using Content.Server.Objectives;
 using Content.Server.PDA.Ringer;
 using Content.Server.Traitor.Uplink;
 using Content.Shared.FixedPoint;
-using Content.Shared.GameTicking;
-using Content.Shared.GameTicking.Components;
 using Content.Shared.Mind;
 using Content.Shared.NPC.Systems;
 using Content.Shared.PDA;
@@ -18,10 +15,11 @@ using Content.Shared.Roles.Jobs;
 using Content.Shared.Roles.RoleCodeword;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Server.Player;
 using System.Linq;
 using System.Text;
 using Content.Server.Codewords;
+using Content.Shared.GameTicking; // imp
+using Robust.Server.Player; // imp
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -33,16 +31,16 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     [Dependency] private readonly SharedJobSystem _jobs = default!;
     [Dependency] private readonly MindSystem _mindSystem = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedRoleCodewordSystem _roleCodewordSystem = default!;
     [Dependency] private readonly SharedRoleSystem _roleSystem = default!;
     [Dependency] private readonly UplinkSystem _uplink = default!;
     [Dependency] private readonly CodewordSystem _codewordSystem = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!; // imp
 
     public AntagSelectionPlayerPool? CurrentAntagPool = null;
-    public bool ForceAllPossible = false;
+    public bool ForceAllPossible = false; // imp
 
     public override void Initialize()
     {
@@ -50,10 +48,12 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 
         Log.Level = LogLevel.Debug;
 
-        SubscribeLocalEvent<TraitorRuleComponent, AntagPrereqSetupEvent>(AdditionalSetup);
+        SubscribeLocalEvent<TraitorRuleComponent, AntagPrereqSetupEvent>(AdditionalSetup); // imp svs
         SubscribeLocalEvent<TraitorRuleComponent, AfterAntagEntitySelectedEvent>(AfterEntitySelected);
         SubscribeLocalEvent<TraitorRuleComponent, ObjectivesTextPrependEvent>(OnObjectivesTextPrepend);
     }
+
+    // imp svs add
     private void AdditionalSetup(Entity<TraitorRuleComponent> ent, ref AntagPrereqSetupEvent args)
     {
         ForceAllPossible = args.Def.ForceAllPossible;
@@ -68,6 +68,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
             );
         }
     }
+
     private void AfterEntitySelected(Entity<TraitorRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
     {
         Log.Debug($"AfterAntagEntitySelected {ToPrettyString(ent)}");
