@@ -190,7 +190,7 @@ public sealed partial class HeartSystem : EntitySystem
         if (!Resolve(ent, ref ent.Comp))
             return;
 
-        var newValue = FixedPoint2.Max(FixedPoint2.Zero, ent.Comp.Damage - amount);
+        var newValue = FixedPoint2.Max(FixedPoint2.Zero, ent.Comp.Damage + amount);
         if (newValue == ent.Comp.Damage)
             return;
 
