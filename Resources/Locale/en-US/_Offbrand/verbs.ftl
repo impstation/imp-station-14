@@ -3,3 +3,4 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 verb-perform-cpr = Perform CPR
+verb-remove-iv = Remove IV

@@ -95,7 +95,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.1
-        density: 4000
+        density: 8000
         restitution: 0.0
         mask:
         - MachineMask
@@ -163,6 +163,7 @@
   - type: Tag
     tags:
     - IVStand
+  - type: IVSource
 
 - type: entity
   parent: IVBag
