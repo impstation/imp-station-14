@@ -1,0 +1,1 @@
+arcfiend-insulated-sap-attempt = Your gloves block the energy!

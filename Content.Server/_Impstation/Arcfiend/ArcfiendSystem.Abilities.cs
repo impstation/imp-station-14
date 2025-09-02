@@ -36,7 +36,9 @@ using Robust.Shared.Toolshed.Commands.Values;
 using Content.Shared.Mobs.Systems;
 using Content.Server.Explosion.Components;
 using Content.Server.Stunnable;
-using Content.Server.Electrocution; //i just pulled allat from the ling files ill clean it up later
+using Content.Server.Electrocution;
+using Content.Server.Damage.Systems;
+using Content.Server.Popups; //i just pulled allat from the ling files ill clean it up later
 
 namespace Content.Server.Arcfiend;
 
@@ -46,7 +48,9 @@ public sealed partial class ArcfiendSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    [Dependency] private readonly StaminaSystem _staminaSystem = default!;
     [Dependency] private readonly ElectrocutionSystem _electrocutionSystem = default!;
+    [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     public ProtoId<DamageTypePrototype> ShockDamageType = "Shock";
 
@@ -69,7 +73,7 @@ public sealed partial class ArcfiendSystem : EntitySystem
     {
         if (CheckInsulated(uid, comp))
         {
-            //popup text
+            _popupSystem.PopupEntity("arcfiend-insulated-sap-attempt", uid, uid, PopupType.MediumCaution);
             return;
         }
         var target = args.Target;
@@ -126,8 +130,9 @@ public sealed partial class ArcfiendSystem : EntitySystem
 
         //doafter
 
-        _damageableSystem.TryChangeDamage(uid, new DamageSpecifier(_proto.Index(ShockDamageType), 8));
-        _electrocutionSystem.TryDoElectrocution(uid, args.Source, 2, new TimeSpan(0, 0, 5), true);
+        _damageableSystem.TryChangeDamage(uid, new DamageSpecifier(_proto.Index(ShockDamageType), 5));
+        _staminaSystem.TakeStaminaDamage(uid, 20);
+        _electrocutionSystem.TryDoElectrocution(uid, args.Source, 5, new TimeSpan(0, 0, 5), true);
         if (_mobState.IsAlive(uid))
         {
             args.Change = 100;
