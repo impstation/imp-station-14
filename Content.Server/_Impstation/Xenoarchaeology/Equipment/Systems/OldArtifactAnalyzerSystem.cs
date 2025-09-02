@@ -210,16 +210,25 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
             totalTime = analyzer.AnalysisDuration;
             if (TryComp<ItemPlacerComponent>(component.AnalyzerEntity, out var placer))
                 if (placer.PlacedEntities.Count > 0 && HasComp<ArtifactComponent>(placer.PlacedEntities.FirstOrNull()))
-                    canScan = true;
+                {
+                    canScan = false;
+
+                    // the artifact that's actually on the scanner right now.
+                    if (GetArtifactForAnalysis(component.AnalyzerEntity, placer) is { } current)
+                    {
+                        points = _artifact.GetResearchPointValue(current);
+                        //Doublecheck that the artifact is actually physically within range of the scanner
+                        if (Transform(current).Coordinates.TryDistance(EntityManager, Transform((EntityUid)component.AnalyzerEntity).Coordinates, out var distance))
+                        {
+                            if (distance < 2) //Hardcoded distance because i am not dealing with collison checks
+                               canScan = true;
+                        }
+                    }
+                }
                 else
                     canScan = false;
             canPrint = analyzer.ReadyToPrint;
-
-            // the artifact that's actually on the scanner right now.
-            if (GetArtifactForAnalysis(component.AnalyzerEntity, placer) is { } current)
-                points = _artifact.GetResearchPointValue(current);
         }
-
         var analyzerConnected = component.AnalyzerEntity != null;
         var serverConnected = TryComp<ResearchClientComponent>(uid, out var client) && client.ConnectedToServer;
 
