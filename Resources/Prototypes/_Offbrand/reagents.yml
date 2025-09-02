@@ -175,8 +175,6 @@
         conditions:
         - !type:ReagentThreshold
           max: 1
-    Poison:
-      effects:
       - !type:HealthChange
         conditions:
         - !type:OrganType
