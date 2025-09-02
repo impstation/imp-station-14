@@ -221,7 +221,7 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
                         if (Transform(current).Coordinates.TryDistance(EntityManager, Transform((EntityUid)component.AnalyzerEntity).Coordinates, out var distance))
                         {
                             if (distance < 2) //Hardcoded distance because i am not dealing with collison checks
-                               canScan = true;
+                                canScan = true;
                         }
                     }
                 }
