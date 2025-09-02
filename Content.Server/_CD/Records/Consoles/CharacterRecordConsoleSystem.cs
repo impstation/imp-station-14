@@ -92,7 +92,7 @@ public sealed class CharacterRecordConsoleSystem : EntitySystem
         {
             var netEnt = _entity.GetNetEntity(r.Owner!.Value);
             // Admins get additional info to make it easier to run commands
-            var nameJob = console.ConsoleType != RecordConsoleType.Admin
+            var nameJob = (console.ConsoleType != RecordConsoleType.Admin && _entity.EntityExists(r.Owner!.Value))
                 ? $"{r.Name} ({r.JobTitle})"
                 : $"{r.Name} ({netEnt}, {r.JobTitle})";
 
