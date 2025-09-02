@@ -163,3 +163,165 @@
   - type: Tag
     tags:
     - IVStand
+
+- type: entity
+  parent: IVBag
+  id: IVBagAmmoniaBlood
+  suffix: anaerobic blood
+  components:
+  - type: Label
+    currentLabel: reagent-name-ammonia-blood
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 400
+        reagents:
+        - ReagentId: AmmoniaBlood
+          Quantity: 400
+
+- type: entity
+  parent: IVBag
+  id: IVBagBlood
+  suffix: blood
+  components:
+  - type: Label
+    currentLabel: reagent-name-blood
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 400
+        reagents:
+        - ReagentId: Blood
+          Quantity: 400
+
+- type: entity
+  parent: IVBag
+  id: IVBagBloodKodepiia
+  suffix: kodepiia ooze
+  components:
+  - type: Label
+    currentLabel: reagent-name-bloodkodepiia
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 400
+        reagents:
+        - ReagentId: BloodKodepiia
+          Quantity: 400
+
+- type: entity
+  parent: IVBag
+  id: IVBagCopperBlood
+  suffix: blue blood
+  components:
+  - type: Label
+    currentLabel: reagent-name-hemocyanin-blood
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 400
+        reagents:
+        - ReagentId: CopperBlood
+          Quantity: 400
+
+- type: entity
+  parent: IVBag
+  id: IVBagGrayBlood
+  suffix: joos
+  components:
+  - type: Label
+    currentLabel: reagent-name-gray-blood
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 400
+        reagents:
+        - ReagentId: GrayBlood
+          Quantity: 400
+
+- type: entity
+  parent: IVBag
+  id: IVBagInsectBlood
+  suffix: insect blood
+  components:
+  - type: Label
+    currentLabel: reagent-name-insect-blood
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 400
+        reagents:
+        - ReagentId: InsectBlood
+          Quantity: 400
+
+- type: entity
+  parent: IVBag
+  id: IVBagSap
+  suffix: sap
+  components:
+  - type: Label
+    currentLabel: reagent-name-sap
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 400
+        reagents:
+        - ReagentId: Sap
+          Quantity: 400
+
+- type: entity
+  parent: IVBag
+  id: IVBagShimmeringBlood
+  suffix: shimmering blood
+  components:
+  - type: Label
+    currentLabel: reagent-name-shimmering-blood
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 400
+        reagents:
+        - ReagentId: ShimmeringBlood
+          Quantity: 400
+
+- type: entity
+  parent: IVBag
+  id: IVBagSlime
+  suffix: slime
+  components:
+  - type: Label
+    currentLabel: reagent-name-slime
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 400
+        reagents:
+        - ReagentId: Slime
+          Quantity: 400
+
+- type: entityTable
+  id: BloodBagFill
+  table: !type:AllSelector
+    children:
+    - id: IVBag
+    - id: IVBag
+    - id: IVBagAmmoniaBlood
+    - id: IVBagBlood
+    - id: IVBagBloodKodepiia
+    - id: IVBagCopperBlood
+    - id: IVBagGrayBlood
+    - id: IVBagInsectBlood
+    - id: IVBagSap
+    - id: IVBagShimmeringBlood
+    - id: IVBagSlime
+
+- type: entity
+  id: CrateFreezerIVBag
+  parent: CrateFreezer
+  name: iv bag freezer
+  description: Contains pre-filled IV bags for use in re-blooding patients.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: BloodBagFill
