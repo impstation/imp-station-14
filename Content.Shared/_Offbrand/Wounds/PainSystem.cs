@@ -106,7 +106,7 @@ public sealed partial class PainSystem : EntitySystem
 
     public FixedPoint2 GetShock(Entity<PainComponent?> ent)
     {
-        if (!Resolve(ent, ref ent.Comp))
+        if (!Resolve(ent, ref ent.Comp, false))
             return FixedPoint2.Zero;
 
         if (ent.Comp.Suppressed)
@@ -117,7 +117,7 @@ public sealed partial class PainSystem : EntitySystem
 
     public void UpdateSuppression(Entity<PainComponent?> ent)
     {
-        if (!Resolve(ent, ref ent.Comp))
+        if (!Resolve(ent, ref ent.Comp, false))
             return;
 
         var evt = new PainSuppressionEvent(false);
