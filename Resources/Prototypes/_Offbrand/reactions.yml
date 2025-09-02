@@ -38,3 +38,25 @@
       catalyst: true
   products:
     Oxycodone: 2
+
+- type: reaction
+  id: Sanguine
+  reactants:
+    SynthFlesh:
+      amount: 1
+    DexalinPlus:
+      amount: 1
+    Iron:
+      amount: 1
+  products:
+    Sanguine: 3
+
+- type: reaction
+  id: SalineGlucose
+  reactants:
+    Saline:
+      amount: 1
+    Sugar:
+      amount: 1
+  products:
+    SalineGlucose: 1

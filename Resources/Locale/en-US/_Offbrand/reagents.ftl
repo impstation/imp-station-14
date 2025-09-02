@@ -10,3 +10,9 @@ reagent-desc-tramadol = An effective painkiller. Don't mix with alcohol.
 
 reagent-name-oxycodone = oxycodone
 reagent-desc-oxycodone = A very effective painkiller. Don't mix with alcohol.
+
+reagent-name-sanguine = sanguine reagent
+reagent-desc-sanguine = A deeply crimson and oily gel that can replenish blood of any type, effective only at low doses.
+
+reagent-name-saline-glucose = saline-glucose solution
+reagent-desc-saline-glucose = A solution of saline and glucose that can be administered intravenously to encourage healing, effective only at low doses.
