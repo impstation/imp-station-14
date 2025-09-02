@@ -115,3 +115,72 @@
         damage:
           types:
             Asphyxiation: 3
+
+- type: reagent
+  id: Sanguine
+  name: reagent-name-sanguine
+  group: Medicine
+  desc: reagent-desc-sanguine
+  flavor: bitter
+  flavorMinimum: 0.01
+  color: "#770101"
+  physicalDesc: reagent-physical-desc-oily
+  metabolisms:
+    Medicine:
+      metabolismRate: 1
+      effects:
+      - !type:ModifyBloodLevel
+        amount: 6
+        conditions:
+        - !type:ReagentThreshold
+          max: 1
+
+- type: reagent
+  id: SalineGlucose
+  name: reagent-name-saline-glucose
+  group: Medicine
+  desc: reagent-desc-saline-glucose
+  physicalDesc: reagent-physical-desc-salty
+  flavor: salty
+  flavorMinimum: 0.01
+  color: "#f7d896"
+  metabolisms:
+    Medicine:
+      metabolismRate: 1
+      effects:
+      - !type:SatiateThirst
+        factor: 3
+        conditions:
+        - !type:ReagentThreshold
+          max: 1
+      - !type:ModifyBloodLevel
+        amount: 0.5
+        conditions:
+        - !type:ReagentThreshold
+          max: 1
+      - !type:SatiateHunger
+        factor: 0.5
+        conditions:
+        - !type:ReagentThreshold
+          max: 1
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -2
+          types:
+            Poison: -0.6
+            Heat: -0.6
+            Shock: -0.6
+            Cold: -0.6
+        conditions:
+        - !type:ReagentThreshold
+          max: 1
+    Poison:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Snail
+        damage:
+          types:
+            Poison: 2

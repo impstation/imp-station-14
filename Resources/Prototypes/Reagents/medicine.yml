@@ -747,7 +747,7 @@
       - !type:SatiateThirst
         factor: 6
       - !type:ModifyBloodLevel
-        amount: 6
+        amount: 0.25 # Offbrand
     Poison: #imp edit
       effects:
       - !type:HealthChange
