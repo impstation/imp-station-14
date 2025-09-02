@@ -79,7 +79,7 @@ public sealed partial class BrainDamageSystem : EntitySystem
 
     public void KillBrain(Entity<BrainDamageComponent?> ent)
     {
-        if (!Resolve(ent, ref ent.Comp))
+        if (!Resolve(ent, ref ent.Comp, false))
             return;
 
         ent.Comp.Oxygen = 0;
@@ -98,7 +98,7 @@ public sealed partial class BrainDamageSystem : EntitySystem
 
     public void TryChangeBrainDamage(Entity<BrainDamageComponent?> ent, FixedPoint2 amount)
     {
-        if (!Resolve(ent, ref ent.Comp))
+        if (!Resolve(ent, ref ent.Comp, false))
             return;
 
         ent.Comp.Damage = FixedPoint2.Clamp(ent.Comp.Damage + amount, FixedPoint2.Zero, ent.Comp.MaxDamage);
@@ -112,7 +112,7 @@ public sealed partial class BrainDamageSystem : EntitySystem
     }
     public void TryChangeBrainOxygenation(Entity<BrainDamageComponent?> ent, FixedPoint2 amount)
     {
-        if (!Resolve(ent, ref ent.Comp))
+        if (!Resolve(ent, ref ent.Comp, false))
             return;
 
         ent.Comp.Oxygen = FixedPoint2.Clamp(ent.Comp.Oxygen + amount, FixedPoint2.Zero, ent.Comp.MaxOxygen);
@@ -224,7 +224,7 @@ public sealed partial class BrainDamageSystem : EntitySystem
 
     public bool IsCritical(Entity<BrainDamageComponent?> ent)
     {
-        if (!Resolve(ent, ref ent.Comp))
+        if (!Resolve(ent, ref ent.Comp, false))
             return false;
 
         return ent.Comp.Oxygen == 0;

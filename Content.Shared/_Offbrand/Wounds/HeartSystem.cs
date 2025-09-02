@@ -141,7 +141,7 @@ public sealed partial class HeartSystem : EntitySystem
 
     public void KillHeart(Entity<HeartrateComponent?> ent)
     {
-        if (!Resolve(ent, ref ent.Comp))
+        if (!Resolve(ent, ref ent.Comp, false))
             return;
 
         ent.Comp.Damage = ent.Comp.MaxDamage;
@@ -196,7 +196,7 @@ public sealed partial class HeartSystem : EntitySystem
 
     public void ChangeHeartDamage(Entity<HeartrateComponent?> ent, FixedPoint2 amount)
     {
-        if (!Resolve(ent, ref ent.Comp))
+        if (!Resolve(ent, ref ent.Comp, false))
             return;
 
         var newValue = FixedPoint2.Max(FixedPoint2.Zero, ent.Comp.Damage + amount);
@@ -325,7 +325,7 @@ public sealed partial class HeartSystem : EntitySystem
 
     public void TryRestartHeart(Entity<HeartrateComponent?> ent)
     {
-        if (!Resolve(ent, ref ent.Comp))
+        if (!Resolve(ent, ref ent.Comp, false))
             return;
 
         if (ent.Comp.MaxDamage <= ent.Comp.Damage || ent.Comp.Running)
@@ -347,7 +347,7 @@ public sealed partial class HeartSystem : EntitySystem
 
     public bool IsCritical(Entity<HeartrateComponent?> ent)
     {
-        if (!Resolve(ent, ref ent.Comp))
+        if (!Resolve(ent, ref ent.Comp, false))
             return false;
 
         return !ent.Comp.Running;
