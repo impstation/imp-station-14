@@ -3,27 +3,26 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-using Content.Shared.Inventory;
 using Content.Shared.Whitelist;
+using Robust.Shared.Serialization;
 
-namespace Content.Shared._Offbrand.Surgery;
+namespace Content.Shared._Offbrand.SolutionAppearanceRelay;
 
 [RegisterComponent]
-[Access(typeof(SurgeryToolSystem))]
-public sealed partial class SurgeryToolComponent : Component
+public sealed partial class SolutionAppearanceRelayComponent : Component
 {
     [DataField(required: true)]
-    public SlotFlags SlotsToCheck;
+    public string Solution;
 
     [DataField]
     public EntityWhitelist? Whitelist;
 
     [DataField]
     public EntityWhitelist? Blacklist;
+}
 
-    [DataField(required: true)]
-    public LocId SlotsDenialPopup;
-
-    [DataField(required: true)]
-    public LocId DownDenialPopup;
+[Serializable, NetSerializable]
+public enum SolutionAppearanceRelayedVisuals : byte
+{
+    HasRelay
 }
