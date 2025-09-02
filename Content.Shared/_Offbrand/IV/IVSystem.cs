@@ -3,6 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
+using Content.Shared._Offbrand.Wounds;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.EntitySystems;
@@ -136,7 +137,10 @@ public sealed class IVSystem : EntitySystem
         {
             var medicineSolution = solution.SplitSolutionWithout(chemsTransferAmount, target.Comp2.BloodReagent);
 
-            _bloodstream.TryAddToChemicals((target.Owner, target.Comp2), medicineSolution);
+            if (!chemsSolution.HasOverlapAtLeast(medicineSolution, source.Comp.OtherTransferRate * 2))
+            {
+                _bloodstream.TryAddToChemicals((target.Owner, target.Comp2), medicineSolution);
+            }
         }
 
         _solutionContainer.UpdateChemicals(solutionEntity.Value);
