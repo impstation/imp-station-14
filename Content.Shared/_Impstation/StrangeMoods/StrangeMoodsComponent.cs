@@ -39,7 +39,7 @@ public sealed partial class StrangeMoodsComponent : Component
     /// <summary>
     /// Notification sound played if your moods change.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField("alertSound"), AutoNetworkedField]
     public SoundSpecifier? MoodsChangedSound = new SoundPathSpecifier("/Audio/_Impstation/StrangeMoods/moods_changed.ogg");
 
     /// <summary>
@@ -51,7 +51,7 @@ public sealed partial class StrangeMoodsComponent : Component
     /// <summary>
     /// The action used to view moods.
     /// </summary>
-    [DataField]
+    [DataField("viewAction")]
     public EntProtoId ActionViewMoods = "ActionViewMoods";
 
     [DataField(serverOnly: true)]
