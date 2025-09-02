@@ -1,4 +1,4 @@
-using Content.Shared._Impstation.Thaven.Components; // imp
+using Content.Shared._Impstation.Thaven; // imp
 using Content.Shared.Administration.Logs;
 using Content.Shared.Bed.Sleep; // imp
 using Content.Shared.Charges.Components;
@@ -76,7 +76,7 @@ public sealed class EmagSystem : EntitySystem
         // End of DV code
 
         // imp. if the target is a thaven who is not sleeping, dead, or crit, skip.
-        if (TryComp<ThavenMoodsComponent>(target, out _) && !HasComp<SleepingComponent>(target) && !_mobState.IsIncapacitated(target) && target != user)
+        if (HasComp<ThavenMoodsComponent>(target) && !HasComp<SleepingComponent>(target) && !_mobState.IsIncapacitated(target) && target != user)
         {
             _popup.PopupClient(Loc.GetString("emag-thaven-alive", ("emag", ent), ("target", target)), user, user);
             return false;

@@ -30,19 +30,19 @@
 #   - InFashion
 
 # Fashion Is Critical: Thaven pay close attention to appearances, and regard one's fashion choices as an indication of their character.
-- type: thavenMood
+- type: strangeMood
   id: FashionIsCritical
   moodName: thaven-mood-fashion-is-critical-name
   moodDesc: thaven-mood-fashion-is-critical-desc
 
 # Fashion Is Ever-Changing: Your current hairstyle will go out of fashion every twenty minutes. It is extremely distressing to be unfashionable.
-- type: thavenMood
+- type: strangeMood
   id: FashionReroll
   moodName: thaven-mood-fashion-reroll-name
   moodDesc: thaven-mood-fashion-reroll-desc
 
 # Honor Among Departments: If a Thaven brings dishonor to their department, they must be ritually sacrificed.
-- type: thavenMood
+- type: strangeMood
   id: HonorDepartment
   moodName: thaven-mood-honor-department-name
   moodDesc: thaven-mood-honor-department-desc
@@ -50,13 +50,13 @@
     - ViolenceDistasteful
 
 # The Station Is A Living Being: Harming or modifying the station is abhorrent. Anything which aims to harm the station is an infection.
-- type: thavenMood
+- type: strangeMood
   id: StationIsAlive
   moodName: thaven-mood-station-is-alive-name
   moodDesc: thaven-mood-station-is-alive-desc
 
 # Your Uniform IS Your Job: If someone is wearing a uniform, they must do that job. Anyone not wearing a uniform is a passenger, and must be treated as such.
-- type: thavenMood
+- type: strangeMood
   id: UniformIsJob
   moodName: thaven-mood-uniform-is-job-name
   moodDesc: thaven-mood-uniform-is-job-desc
@@ -64,7 +64,7 @@
     - UniformSoLastYear
 
 # Uniforms Are So Last Year: You need to find some new threads.
-- type: thavenMood
+- type: strangeMood
   id: UniformSoLastYear
   moodName: thaven-mood-uniform-last-year-name
   moodDesc: thaven-mood-uniform-last-year-desc
@@ -72,7 +72,7 @@
     - UniformIsJob
 
 # Music is fanciful, frivolous, and unnecessary. It has no place on the station.
-- type: thavenMood
+- type: strangeMood
   id: MusicBad
   moodName: thaven-mood-music-bad-name
   moodDesc: thaven-mood-music-bad-desc
@@ -80,7 +80,7 @@
     - MusicGood
 
 # Music is sacred, you must be listening to music at all times - and must avoid overlapping songs.
-- type: thavenMood
+- type: strangeMood
   id: MusicGood
   moodName: thaven-mood-music-good-name
   moodDesc: thaven-mood-music-good-desc
@@ -88,13 +88,13 @@
     - MusicBad
 
 # Friendships are the true measure of one’s character. The more friends you have, the higher you rank in society.
-- type: thavenMood
+- type: strangeMood
   id: FriendshipIsRank
   moodName: thaven-mood-friendship-is-rank-name
   moodDesc: thaven-mood-friendship-is-rank-desc
 
 # You are the one true Thaven, the others are pretenders.
-- type: thavenMood
+- type: strangeMood
   id: OneTrueThaven
   moodName: thaven-mood-one-true-thaven-name
   moodDesc: thaven-mood-one-true-thaven-desc
@@ -102,7 +102,7 @@
     - MustCongregate
 
 # Violence between Thaven is permitted with no legal repercussions.
-- type: thavenMood
+- type: strangeMood
   id: ViolencePermitted
   moodName: thaven-mood-violence-permitted-name
   moodDesc: thaven-mood-violence-permitted-desc
@@ -110,13 +110,13 @@
     - ViolenceDistasteful
 
 # The Thaven are the only truly capable members of the crew. Other species are like children, naive and inexperienced.
-- type: thavenMood
+- type: strangeMood
   id: ThavenOnlyCrew
   moodName: thaven-mood-thaven-only-crew-name
   moodDesc: thaven-mood-thaven-only-crew-desc
 
 # You strongly believe that your department is the only one that actually does anything.
-- type: thavenMood
+- type: strangeMood
   id: YourDepartmentOnly
   moodName: thaven-mood-your-department-only-name
   moodDesc: thaven-mood-your-department-only-desc
@@ -124,7 +124,7 @@
     - DepartmentDisapproval
 
 # You must congregate with your fellow Thaven. To be without them is harrowing.
-- type: thavenMood
+- type: strangeMood
   id: MustCongregate
   moodName: thaven-mood-must-congregate-name
   moodDesc: thaven-mood-must-congregate-desc
@@ -133,7 +133,7 @@
     - AlwaysAlone
 
 # Violence is distasteful. Conflict should be settled through mediated dispute, and one should only resort to violence if all other options have failed.
-- type: thavenMood
+- type: strangeMood
   id: ViolenceDistasteful
   moodName: thaven-mood-violence-distasteful-name
   moodDesc: thaven-mood-violence-distasteful-desc
@@ -141,7 +141,7 @@
     - ViolencePermitted
 
 # [STATION PET] must be venerated as a god.
-- type: thavenMood
+- type: strangeMood
   id: PetGod
   moodName: thaven-mood-pet-god-name
   moodDesc: thaven-mood-pet-god-desc
@@ -149,7 +149,7 @@
     pet: Pets
 
 # [ROOM] is a holy place.
-- type: thavenMood
+- type: strangeMood
   id: RoomHoly
   moodName: thaven-mood-room-holy-name
   moodDesc: thaven-mood-room-holy-desc
@@ -157,7 +157,7 @@
     room: Rooms
 
 # Just Like Mom Used To Make: [EDIBLE] is a traditional Thaven delicacy. All Thaven aboard the station should gather as many as possible and organize a feast.
-- type: thavenMood
+- type: strangeMood
   id: Delicacy
   moodName: thaven-mood-delicacy-name
   moodDesc: thaven-mood-delicacy-desc
@@ -167,7 +167,7 @@
     edible: Edibles
 
 # Today is [HOLIDAY]. You think you remember the traditional celebrations...
-- type: thavenMood
+- type: strangeMood
   id: Holiday
   moodName: thaven-mood-holiday-name
   moodDesc: thaven-mood-holiday-desc
@@ -175,7 +175,7 @@
     day: Holidays
 
 # The circus is in town and you are part of it!
-- type: thavenMood
+- type: strangeMood
   id: Circus
   moodName: thaven-mood-circus-name
   moodDesc: thaven-mood-circus-desc
@@ -184,7 +184,7 @@
   - Coulrophobia
   - Clownignore
 
-# - type: thavenMood
+# - type: strangeMood
 #   id: OutOfFashion
 #   moodName: thaven-mood-out-of-fashion-name
 #   moodDesc: thaven-mood-out-of-fashion-desc
@@ -193,7 +193,7 @@
 #   conflicts:
 #     - InFashion
 
-# - type: thavenMood
+# - type: strangeMood
 #   id: InFashion
 #   moodName: thaven-mood-in-fashion-name
 #   moodDesc: thaven-mood-in-fashion-desc

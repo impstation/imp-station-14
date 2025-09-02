@@ -38,9 +38,6 @@
         type: StrippableBoundUserInterface
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
-      enum.ThavenMoodsUiKey.Key:
-        type: ThavenMoodsBoundUserInterface
-        requireInputValidation: false
   - type: Sprite
     layers:
     - map: [ "enum.HumanoidVisualLayers.TailBehind" ]

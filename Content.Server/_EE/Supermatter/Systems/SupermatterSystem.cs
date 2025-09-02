@@ -1,4 +1,4 @@
-using Content.Server._Impstation.Thaven;
+using Content.Server._Impstation.StrangeMoods;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
@@ -61,7 +61,7 @@ public sealed partial class SupermatterSystem : EntitySystem
     [Dependency] private readonly PointLightSystem _light = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
-    [Dependency] private readonly ThavenMoodsSystem _moods = default!;
+    [Dependency] private readonly StrangeMoodsSystem _moods = default!;
     [Dependency] private readonly SharedAmbientSoundSystem _ambient = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;

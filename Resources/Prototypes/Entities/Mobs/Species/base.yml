@@ -196,9 +196,6 @@
         type: StrippableBoundUserInterface
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
-      enum.ThavenMoodsUiKey.Key: # impstation edit
-        type: ThavenMoodsBoundUserInterface
-        requireInputValidation: false
   - type: Puller
   - type: Speech
     speechSounds: Alto
