@@ -1,0 +1,365 @@
+# Chest
+
+- type: marking
+  id: BackSpotUngu
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/chest.rsi
+    state: BackSpotBig
+
+- type: marking
+  id: BellyUngu
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/chest.rsi
+    state: Belly
+
+- type: marking
+  id: ChestFluffUngu
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/chest.rsi
+    state: ChestFluff
+
+# Head
+
+- type: marking
+  id: EarsLongUngu
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
+    state: EarsLong
+
+- type: marking
+  id: EarsPigUngu
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
+    state: EarsPig
+
+- type: marking
+  id: EarsSmallUngu
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
+    state: EarsSmall
+
+- type: marking
+  id: EarsUpUngu
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
+    state: EarsUp
+    
+- type: marking
+  id: HeadFluffUngu
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
+    state: HeadFluff  
+
+- type: marking
+  id: HornsLongUngu
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
+    state: HornsLong
+    
+- type: marking
+  id: HornsNubUngu
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
+    state: HornsNub
+
+# Snout
+
+- type: marking
+  id: NoseRingUngu
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/snout.rsi
+    state: NoseRing
+    
+- type: marking
+  id: SnoutElephantUngu
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/snout.rsi
+    state: SnoutElephant   
+    
+- type: marking
+  id: SnoutHippoUngu
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/snout.rsi
+    state: SnoutHippo   
+    
+- type: marking
+  id: SnoutPigUngu
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/snout.rsi
+    state: SnoutPig    
+
+- type: marking
+  id: SnoutTapirUngu
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/snout.rsi
+    state: SnoutTapir
+
+# Eyes
+
+- type: marking
+  id: EyesCyclopsUngu
+  bodyPart: Eyes
+  markingCategory: Eyes
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/eyes.rsi
+    state: EyesCyclops
+  - sprite: _Impstation/Mobs/Customization/Ungu/eyes.rsi
+    state: EyesCyclopsWhite    
+    
+- type: marking
+  id: EyesCyclopsGlowUngu
+  bodyPart: Eyes
+  markingCategory: Eyes
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/eyes.rsi
+    state: EyesCyclops
+    shader: unshaded
+  - sprite: _Impstation/Mobs/Customization/Ungu/eyes.rsi
+    state: EyesCyclopsWhite       
+
+- type: marking
+  id: EyesDotsUngu
+  bodyPart: Eyes
+  markingCategory: Eyes
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/eyes.rsi
+    state: EyesDots
+    
+- type: marking
+  id: EyesDotsGlowUngu
+  bodyPart: Eyes
+  markingCategory: Eyes
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/eyes.rsi
+    state: EyesDots
+  shader: unshaded    
+ 
+
+# RArm
+
+- type: marking
+  id: RArmFluffUngu
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/arms.rsi
+    state: RArmFluff
+    
+- type: marking
+  id: RArmSpotUngu
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/arms.rsi
+    state: RArmSpotBig   
+
+# LArm
+
+- type: marking
+  id: LArmFluffUngu
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/arms.rsi
+    state: LArmFluff
+    
+- type: marking
+  id: LArmSpotUngu
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/arms.rsi
+    state: LArmSpotBig   
+
+# RLeg
+
+- type: marking
+  id: RLegFluffUngu
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
+    state: RLegFluff
+    
+- type: marking
+  id: RLegSpotUngu
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
+    state: RLegsSpotBig   
+
+# LLeg
+
+- type: marking
+  id: LLegFluffUngu
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
+    state: LLegFluff
+    
+- type: marking
+  id: LLegSpotUngu
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
+    state: LLegsSpotBig 
+
+# UndergarmentBottom
+
+- type: marking
+  id: PantsUngu
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [ Ungu ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/undergarments.rsi
+    state: Pants
+    
+- type: marking
+  id: BloomersUngu
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [ Ungu ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/undergarments.rsi
+    state: Bloomers   
+    
+- type: marking
+  id: ShortsUngu
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [ Ungu ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/undergarments.rsi
+    state: Shorts      
+
+# UndergarmentTop
+
+- type: marking
+  id: UndershirtBraStraplessUngu
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [ Ungu ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/undergarments.rsi
+    state: BraStrapless
+    
+- type: marking
+  id: UndershirtBraUngu
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [ Ungu ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/undergarments.rsi
+    state: Bra   
+
+# Tail
+
+- type: marking
+  id: TailLongUngu
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Ungu ]
+  layering:
+    basic_front: TailBehindBackpack
+    basic_behind: TailBehind
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/tail.rsi
+    state: TailLong
+
+- type: marking
+  id: TailNubUngu
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Ungu ]
+  layering:
+    basic_front: TailBehindBackpack
+    basic_behind: TailBehind
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/tail.rsi
+    state: TailNub
