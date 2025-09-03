@@ -20,7 +20,7 @@
     - state: paper
       sprite: Structures/Storage/Crates/labels.rsi
       map: [ "enum.PaperLabelVisuals.Layer" ]
-      offset: -0.0625, -0.0625
+      offset: 0.0625, 0.0625
       rotation: 180 #look this is about good as it's gonna get without new sprites
   - type: Transform
     anchored: true
