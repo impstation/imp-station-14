@@ -8,12 +8,12 @@ using Content.Shared.GameTicking.Components;
 
 namespace Content.Server.StationEvents.Events;
 
-public sealed class BluespaceLockerRuleDefault : StationEventSystem<BluespaceLockerRuleDefaultComponent>
+public sealed class BluespaceLockerRuleRandomUnrestricted : StationEventSystem<BluespaceLockerRuleRandomUnrestrictedComponent>
 {
     [Dependency] private readonly BluespaceLockerSystem _bluespaceLocker = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
-    protected override void Started(EntityUid uid, BluespaceLockerRuleDefaultComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
+    protected override void Started(EntityUid uid, BluespaceLockerRuleRandomUnrestrictedComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         base.Started(uid, component, gameRule, args);
 
@@ -43,6 +43,19 @@ public sealed class BluespaceLockerRuleDefault : StationEventSystem<BluespaceLoc
             comp.AutoLinkProperties.BluespaceEffectOnTeleportSource = true;
             _bluespaceLocker.GetTarget(potentialLink, comp, true);
             _bluespaceLocker.BluespaceEffect(potentialLink, comp, comp, true);
+
+            // begin imp edit
+            // makes bluespace lockers randomize their destinations with each use.
+            comp.BehaviorProperties.ClearLinksDebluespaces = true;
+            comp.BehaviorProperties.TransportEntities = true;
+            comp.BehaviorProperties.ClearLinksEvery = 1;
+            comp.AutoLinkProperties.DestroyAfterUses = 1;
+            comp.AutoLinkProperties.DestroyType = BluespaceLockerDestroyType.DeleteComponent;
+            comp.UsesSinceLinkClear = -1;
+            comp.AutoLinkProperties.InvalidateOneWayLinks = true;
+            comp.AutoLinkProperties.TransportEntities = false;
+            comp.PickLinksFromSameAccess = false; // you can go ANYWHERE. but watch out. you can't go back.
+            // end imp edit
 
             Sawmill.Info($"Converted {ToPrettyString(potentialLink)} to bluespace locker");
 

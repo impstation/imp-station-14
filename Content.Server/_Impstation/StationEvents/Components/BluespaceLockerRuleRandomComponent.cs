@@ -2,7 +2,7 @@
 
 namespace Content.Server.StationEvents.Components;
 
-[RegisterComponent, Access(typeof(BluespaceLockerRuleRandom))]
+[RegisterComponent, Access(typeof(BluespaceLockerRule))]
 public sealed partial class BluespaceLockerRuleRandomComponent : Component
 {
 

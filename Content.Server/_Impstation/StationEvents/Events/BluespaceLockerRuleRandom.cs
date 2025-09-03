@@ -8,12 +8,12 @@ using Content.Shared.GameTicking.Components;
 
 namespace Content.Server.StationEvents.Events;
 
-public sealed class BluespaceLockerRuleRandom : StationEventSystem<BluespaceLockerRuleComponent>
+public sealed class BluespaceLockerRuleRandom : StationEventSystem<BluespaceLockerRuleRandomComponent>
 {
     [Dependency] private readonly BluespaceLockerSystem _bluespaceLocker = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
-    protected override void Started(EntityUid uid, BluespaceLockerRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
+    protected override void Started(EntityUid uid, BluespaceLockerRuleRandomComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         base.Started(uid, component, gameRule, args);
 

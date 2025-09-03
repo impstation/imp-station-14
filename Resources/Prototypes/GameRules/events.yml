@@ -164,6 +164,17 @@
     duration: 1
   - type: BluespaceLockerRuleRandom
 
+- type: entity
+  id: BluespaceLockerRandomUnrestricted
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 1
+    reoccurrenceDelay: 5
+    earliestStart: 1
+    duration: 1
+  - type: BluespaceLockerRuleRandomUnrestricted
+
 # end imp edit: bluespace locker rules
 
 - type: entity
