@@ -43,7 +43,7 @@
 
 - type: entity
   name: Fin Fin
-  parent: [ FlyingMobBase, StripableInventoryBase ]
+  parent: [ MobBat, StripableInventoryBase ]
   id: MobFinfin
   description: Your best friend.
   components:

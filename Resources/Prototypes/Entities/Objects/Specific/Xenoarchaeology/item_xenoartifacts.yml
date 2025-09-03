@@ -1,7 +1,7 @@
 ﻿- type: entity
   parent: [BaseItem, BaseXAEXenoArtifact]
   id: BaseXAEXenoArtifactItem #IMP Add XAE in id
-  name: artifact
+  name: reticulated artifact #IMP reticulated
   description: A strange artifact from time unknown. Looks like a good time. Fits in hand perfectly.
   abstract: true
   noSpawn: true

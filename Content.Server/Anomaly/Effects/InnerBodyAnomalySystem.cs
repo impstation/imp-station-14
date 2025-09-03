@@ -98,7 +98,7 @@ public sealed class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
 
         if (!ent.Comp.SkipStun) // imp. added this check for anomalites
         {
-            _stun.TryParalyze(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration), true);
+            _stun.TryUpdateParalyzeDuration(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration));
             _jitter.DoJitter(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration), true);
         }
 
@@ -129,7 +129,7 @@ public sealed class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
     private void OnAnomalyPulse(Entity<InnerBodyAnomalyComponent> ent, ref AnomalyPulseEvent args)
     {
         if (!ent.Comp.SkipStun) // imp. added this check for anomalites
-            _stun.TryParalyze(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration / 2 * args.Severity), true);
+            _stun.TryUpdateParalyzeDuration(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration / 2 * args.Severity));
         _jitter.DoJitter(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration / 2 * args.Severity), true);
     }
 
@@ -218,7 +218,7 @@ public sealed class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
             EntityManager.RemoveComponents(ent, injectedAnom.Components);
 
         if (!ent.Comp.SkipStun) // imp. added this check for anomalites
-            _stun.TryParalyze(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration), true);
+            _stun.TryUpdateParalyzeDuration(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration));
 
         if (ent.Comp.EndMessage is not null &&
             _mind.TryGetMind(ent, out _, out var mindComponent) &&
