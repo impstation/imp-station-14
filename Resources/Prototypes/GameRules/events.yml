@@ -4,7 +4,9 @@
     children:
     - id: AnomalySpawn
     - id: BluespaceArtifact
-    - id: BluespaceLocker
+    - id: BluespaceLockerDefault
+    - id: BluespaceLockerRandom
+    - id: BluespaceLockerRandomUnrestricted
     - id: BreakerFlip
     - id: BureaucraticError
     - id: ClericalError
@@ -130,6 +132,17 @@
   - type: BluespaceArtifactRule
 
 # begin imp edit: bluespace locker rules
+
+# - type: entity
+#   id: BluespaceLocker
+#   parent: BaseGameRule
+#   components:
+#   - type: StationEvent
+#     weight: 2
+#     reoccurrenceDelay: 5
+#     earliestStart: 1
+#     duration: 1
+#   - type: BluespaceLockerRule
 
 - type: entity
   id: BluespaceLockerDefault
