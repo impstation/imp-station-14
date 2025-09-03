@@ -1,6 +1,6 @@
 - type: entity
   save: false
-  name: Uri, Who Is A Base Mob
+  name: Urist, Mc Base Mob
   parent: BaseMobSpeciesOrganic
   id: BaseMobUngu
   abstract: true
@@ -9,6 +9,8 @@
     acceleration: 7
     doImpactDamage: true
     beginCombatMessage: "ungu-begin-combat-popup"
+  - type: CombatModeVisuals
+    hideBaseLayer: true
   - type: CombatMode
   - type: MeleeWeapon
     attackRate: 0.8
@@ -136,13 +138,65 @@
   - type: Speech
     speechSounds: Gastropoid # to be changed
   - type: TypingIndicator
-    proto: Gastropoid  # to be changed
+    proto: Ungu
   - type: HumanoidAppearance
     species: Ungu
   - type: Sprite
-    noRot: true
+    granularLayersRendering: true
     drawdepth: Mobs
+    noRot: true
     scale: 1, 1
+    layers:
+    - map: [ "enum.HumanoidVisualLayers.TailUnderlay" ] # imp
+    - map: [ "enum.HumanoidVisualLayers.TailBehind" ] # Floof
+    - map: [ "enum.HumanoidVisualLayers.Chest" ]
+    - map: [ "enum.HumanoidVisualLayers.Head" ]
+    - map: [ "enum.HumanoidVisualLayers.Snout" ]
+    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+    - map: [ "enum.HumanoidVisualLayers.RArm" ]
+    - map: [ "enum.HumanoidVisualLayers.LArm" ]
+    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
+    - map: ["jumpsuit"]
+    - map: ["enum.HumanoidVisualLayers.LFoot"]
+    - map: ["enum.HumanoidVisualLayers.RFoot"]
+    - map: ["enum.HumanoidVisualLayers.LHand"]
+    - map: ["enum.HumanoidVisualLayers.RHand"]
+    - map: [ "gloves" ]
+    - map: [ "shoes" ]
+    - map: [ "ears" ]
+    - map: [ "eyes" ]
+    - map: [ "belt" ]
+    - map: [ "id" ]
+    - map: [ "outerClothing" ]
+    - map: [ "enum.HumanoidVisualLayers.TailBehindBackpack" ] # imp
+    - map: [ "back" ]
+    - map: [ "enum.HumanoidVisualLayers.TailOversuit" ] # Floof
+    - map: [ "neck" ]
+    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+    - map: [ "enum.HumanoidVisualLayers.Hair" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
+    - map: [ "mask" ]
+    - map: [ "head" ]
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+    - map: [ "clownedon" ] # Dynamically generated
+      sprite: "Effects/creampie.rsi"
+      state: "creampie_human"
+      visible: false
+    - map: ["enum.CombatModeVisualsVisuals.Combat"]
+      sprite: _Impstation/Mobs/Species/Ungu/parts.rsi
+      state: angry
+      visible: false
 
 - type: entity
   parent: BaseSpeciesDummy
