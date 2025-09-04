@@ -38,7 +38,10 @@ using Content.Server.Explosion.Components;
 using Content.Server.Stunnable;
 using Content.Server.Electrocution;
 using Content.Server.Damage.Systems;
-using Content.Server.Popups; //i just pulled allat from the ling files ill clean it up later
+using Content.Server.Popups;
+using Content.Server.Forensics;
+using Content.Server.NPC.Queries.Considerations;
+using Content.Shared.Interaction; //i just pulled allat from the ling files ill clean it up later
 
 namespace Content.Server.Arcfiend;
 
@@ -51,6 +54,7 @@ public sealed partial class ArcfiendSystem : EntitySystem
     [Dependency] private readonly StaminaSystem _staminaSystem = default!;
     [Dependency] private readonly ElectrocutionSystem _electrocutionSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly SharedInteractionSystem _sharedInteractionSystem = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     public ProtoId<DamageTypePrototype> ShockDamageType = "Shock";
 
@@ -71,12 +75,13 @@ public sealed partial class ArcfiendSystem : EntitySystem
 
     private void OnSapPower(EntityUid uid, ArcfiendComponent comp, ref SapPowerEvent args)
     {
+        var target = args.Target;
+        _sharedInteractionSystem.DoContactInteraction(uid, target);
         if (CheckInsulated(uid, comp))
         {
             _popupSystem.PopupEntity("arcfiend-insulated-sap-attempt", uid, uid, PopupType.MediumCaution);
             return;
         }
-        var target = args.Target;
         var drain = new DrainEnergyEvent(uid);
 
         RaiseLocalEvent(target, ref drain);
@@ -116,7 +121,7 @@ public sealed partial class ArcfiendSystem : EntitySystem
         }
         else
         {
-            //popup
+            _popupSystem.PopupPredicted("arcfiend-battery-fully-drained", uid, null, PopupType.LargeCaution);
             args.Change = comp.CurrentCharge;
             _battery.SetMaxCharge(uid, 0f);
         }
@@ -126,13 +131,14 @@ public sealed partial class ArcfiendSystem : EntitySystem
         if (args.Handled) return;
         args.Handled = true;
 
-        //popup text
+        _popupSystem.PopupPredicted("arcfiend-drain-humanoid", uid, uid, PopupType.LargeCaution);
 
         //doafter
 
         _damageableSystem.TryChangeDamage(uid, new DamageSpecifier(_proto.Index(ShockDamageType), 5));
         _staminaSystem.TakeStaminaDamage(uid, 20);
         _electrocutionSystem.TryDoElectrocution(uid, args.Source, 5, new TimeSpan(0, 0, 5), true);
+
         if (_mobState.IsAlive(uid))
         {
             args.Change = 100;
