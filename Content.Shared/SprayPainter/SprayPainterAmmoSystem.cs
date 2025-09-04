@@ -4,6 +4,7 @@ using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.SprayPainter.Components;
+using Robust.Shared.Audio.Systems; // imp
 
 namespace Content.Shared.SprayPainter;
 
@@ -14,6 +15,7 @@ public sealed class SprayPainterAmmoSystem : EntitySystem
 {
     [Dependency] private readonly SharedChargesSystem _charges = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!; // imp
 
     public override void Initialize()
     {
@@ -29,7 +31,7 @@ public sealed class SprayPainterAmmoSystem : EntitySystem
             return;
 
         if (args.Target is not { Valid: true } target ||
-            !HasComp<SprayPainterComponent>(target) ||
+            !TryComp<SprayPainterComponent>(target, out var painter) || // imp - HasComp -> TryComp
             !TryComp<LimitedChargesComponent>(target, out var charges))
             return;
 
@@ -42,6 +44,7 @@ public sealed class SprayPainterAmmoSystem : EntitySystem
             return;
         }
 
+        _audio.PlayLocal(painter.InsertSound, target, user); // imp
         _popup.PopupClient(Loc.GetString("spray-painter-ammo-after-interact-refilled"), target, user);
         _charges.AddCharges(target, count);
         ent.Comp.Charges -= count;
