@@ -48,7 +48,7 @@
       points: 1
       required: false
     HeadSide:
-      points: 4
+      points: 5
       required: false
     UndergarmentTop:
       points: 1
@@ -57,10 +57,13 @@
       points: 1
       required: false
     Chest:
-      points: 1
+      points: 2
       required: false
     Arms:
       points: 2
+      required: false
+    Legs:
+      points: 4
       required: false
     Tail:
       points: 1

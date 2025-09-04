@@ -36,6 +36,15 @@
   - sprite: _Impstation/Mobs/Customization/Ungu/chest.rsi
     state: Spikes
 
+- type: marking
+  id: TransUngu
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/chest.rsi
+    state: Trans
+
 # HeadSide
 
 - type: marking
@@ -46,6 +55,19 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
     state: EarsLong
+  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
+    state: EarsLongMiddle
+
+- type: marking
+  id: BellUngu
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
+    state: Bell
+  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
+    state: String
 
 - type: marking
   id: EarsPigUngu
@@ -64,6 +86,8 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
     state: EarsSmall
+  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
+    state: EarsSmallMiddle
 
 - type: marking
   id: EarsUpUngu
@@ -73,6 +97,8 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
     state: EarsUp
+  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
+    state: EarsUpMiddle
 
 - type: marking
   id: HeadFluffUngu
@@ -112,7 +138,14 @@
   - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
     state: HornsRino
 
-
+- type: marking
+  id: SnootUngu
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/snout.rsi
+    state: Snoot
 
 - type: marking
   id: NoseRingUngu
@@ -294,7 +327,26 @@
   - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
     state: RLegSpotBig
 
+- type: marking
+  id: RHooftUngu
+  bodyPart: RFoot
+  markingCategory: Legs
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
+    state: HoofR
+
 # LLeg
+
+- type: marking
+  id: LHooftUngu
+  bodyPart: LFoot
+  markingCategory: Legs
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
+    state: HoofL
+
 
 - type: marking
   id: LLegFluffUngu
@@ -387,6 +439,34 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/undergarments.rsi
     state: Bra
+
+- type: marking
+  id: UndershirtBinderUngu
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [ Ungu ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/undergarments.rsi
+    state: Binder
+
+- type: marking
+  id: UndershirtVestUngu
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [ Ungu ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/undergarments.rsi
+    state: Vest
 
 # Tail
 

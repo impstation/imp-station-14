@@ -70,7 +70,7 @@
   - type: CombatModeVisuals
     hideBaseLayer: true
   - type: MeleeWeapon
-    attackRate: 0.8
+    attackRate: 0.6
     soundHit:
       collection: Punch
     angle: 30
@@ -82,8 +82,8 @@
   - type: DamageOtherOnHit
   - type: MeleeThrowOnHit
     unanchorOnHit: False
-    speed: 8
-    distance: 5
+    speed: 4
+    distance: 2
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -142,12 +142,17 @@
     specificHeat: 42
     coldDamage:
       types:
-        Cold : 0.2 #per second, scales with temperature & other constants
+        Cold : 0.4 #per second, scales with temperature & other constants
     heatDamage:
       types:
         Heat : 1.5 #per second, scales with temperature & other constants
   - type: Bloodstream
     bloodReagent: Blood
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite:  _Impstation/Mobs/Effects/ungu_brute_damage.rsi
+        color: "#ff624a"
   - type: Tag
     tags:
       - DoorBumpOpener
@@ -166,6 +171,12 @@
     hideLayersOnEquip:
     - Snout
     - HeadTop
+  - type: JumpAbility
+    jumpDistance: 4
+    jumpSound: /Audio/Effects/stealthoff.ogg
+  - type: ActionGrant
+    actions:
+    - ActionDash
 
 
 - type: entity
