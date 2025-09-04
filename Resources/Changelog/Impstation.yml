@@ -1,41 +1,4 @@
 ﻿Entries:
-- author: Faeling, Sha-Seng
-  changes:
-  - message: Lily Mantle for senior botanists (has a toggleable collar)
-    type: Add
-  id: 1724
-  time: '2025-05-25T06:56:13.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2576
-- author: Stonylogray
-  changes:
-  - message: Aquam divinos and aqua avari now have small effects on contact.
-    type: Tweak
-  - message: Gildgrail can new be used to splash liquids on heathens and the faithful
-      alike.
-    type: Tweak
-  id: 1725
-  time: '2025-05-25T07:08:47.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2532
-- author: Cutinup99
-  changes:
-  - message: Armory crate purchase for the the Drozd, Lecter, and Kammerer
-    type: Add
-  - message: AKMS is now obtainable via cargo.
-    type: Add
-  - message: renamed the SMG and shotgun crates to reflect whats actually within them
-    type: Tweak
-  - message: daitos are now marginally cheaper
-    type: Tweak
-  id: 1726
-  time: '2025-05-25T07:25:46.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2566
-- author: msTheowo
-  changes:
-  - message: Business cards! Get them by crafting them!
-    type: Add
-  id: 1727
-  time: '2025-05-25T07:48:39.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2557
 - author: MintyTheBinty
   changes:
   - message: 'New Dan''s Soaked Smokes: Rejects, dangerously fun cigs! Available in
@@ -4185,3 +4148,38 @@
   id: 2223
   time: '2025-08-30T07:13:38.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3335
+- author: yesteryuri
+  changes:
+  - message: Pulp no longer makes non-moths bleed
+    type: Remove
+  id: 2224
+  time: '2025-09-03T05:03:30.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3406
+- author: Darkmajia
+  changes:
+  - message: Inserting compressed paint into a spray painter plays a sound.
+    type: Add
+  id: 2225
+  time: '2025-09-03T11:46:36.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3369
+- author: widgetbeck
+  changes:
+  - message: Fixed replicator nest sound effects lingering after the nest is destroyed.
+    type: Fix
+  - message: Fixed replicators from old nests not getting leveled up from their new
+      nest - instead, all replicators on the map are affected by all nests. There
+      is one Hive.
+    type: Fix
+  - message: Fixed replicators not getting a popup notification when they are orphaned
+      (when their Queen dies.) The Queen will also now lose its Crown upon its death.
+    type: Fix
+  id: 2226
+  time: '2025-09-03T11:48:10.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3348
+- author: Darkmajia
+  changes:
+  - message: Fixed a text display issue with antagonists on the round end summary.
+    type: Fix
+  id: 2227
+  time: '2025-09-03T11:52:07.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3376
