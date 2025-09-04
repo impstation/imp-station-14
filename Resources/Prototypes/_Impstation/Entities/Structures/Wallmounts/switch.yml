@@ -126,8 +126,9 @@
     sprite: _Impstation/Structures/Specific/big_red_button.rsi
     layers:
     - state: emergency
-  - type: AlertLevelOnPress
-    alertLevelOnActivate: red
+  - type: TriggerOnActivate
+  - type: AlertLevelChangeOnTrigger
+    level: red
   - type: Construction
     graph: RedButtonEmergencyGraph
     node: start
@@ -147,8 +148,9 @@
     - state: emergency
     - state: locked
       map: ["enum.LockVisualLayers.Lock"]
-  - type: AlertLevelOnPress
-    alertLevelOnActivate: red
+  - type: TriggerOnActivate
+  - type: AlertLevelChangeOnTrigger
+    level: red
   - type: AccessReader
     access: [["Command"]]
   - type: Construction
@@ -188,7 +190,8 @@
     sprite: _Impstation/Structures/Specific/big_red_button.rsi
     layers:
     - state: green
-  - type: AlertLevelOnPress
-    alertLevelOnActivate: green
+  - type: TriggerOnActivate
+  - type: AlertLevelChangeOnTrigger
+    level: green
   - type: WirelessNetworkConnection
     range: 0

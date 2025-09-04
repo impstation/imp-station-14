@@ -43,17 +43,8 @@ public sealed class SignalSwitchSystem : EntitySystem
             _deviceLink.SendSignal(uid, comp.StatusPort, comp.State);
         }
 
-        var ev = new SwitchPressedEvent(); //imp
-        RaiseLocalEvent(uid, ref ev); //imp
-
         _audio.PlayPvs(comp.ClickSound, uid, AudioParams.Default.WithVariation(0.125f).WithVolume(8f));
 
         args.Handled = true;
     }
 }
-
-[ByRefEvent]
-/// <summary>
-/// IMP. Event to inform any other systems that may want to know that the signal switch was pressed
-/// </summary>
-public record struct SwitchPressedEvent();
