@@ -5,13 +5,70 @@
   id: BaseMobUngu
   abstract: true
   components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Ungu/parts.rsi
+    noRot: true
+    drawdepth: Mobs
+    scale: 1, 1
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: null
+    - map: [ "enum.HumanoidVisualLayers.TailUnderlay" ] # imp
+    - map: [ "enum.HumanoidVisualLayers.TailBehind" ] # Floof
+    - map: [ "enum.HumanoidVisualLayers.Chest" ]
+    - map: [ "enum.HumanoidVisualLayers.RArm" ]
+    - map: [ "enum.HumanoidVisualLayers.LArm" ]
+    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
+    - map: ["jumpsuit"]
+    - map: ["enum.HumanoidVisualLayers.LFoot"]
+    - map: ["enum.HumanoidVisualLayers.RFoot"]
+    - map: ["enum.HumanoidVisualLayers.LHand"]
+    - map: ["enum.HumanoidVisualLayers.RHand"]
+    - map: [ "gloves" ]
+    - map: [ "shoes" ]
+    - map: [ "belt" ]
+    - map: [ "id" ]
+    - map: [ "outerClothing" ]
+    - map: [ "enum.HumanoidVisualLayers.TailBehindBackpack" ] # imp
+    - map: [ "back" ]
+    - map: [ "enum.HumanoidVisualLayers.TailOversuit" ] # Floof
+    - map: [ "neck" ]
+    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+    - map: [ "enum.HumanoidVisualLayers.Hair" ]
+    - map: [ "head" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+    - map: [ "enum.HumanoidVisualLayers.Head" ]
+    - map: [ "enum.HumanoidVisualLayers.Snout" ]
+    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+    - map: [ "mask" ]
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
+    - map: [ "ears" ]
+    - map: [ "eyes" ]
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+    - map: [ "clownedon" ] # Dynamically generated
+      sprite: "Effects/creampie.rsi"
+      state: "creampie_human"
+      visible: false
+    - map: ["enum.CombatModeVisualsVisuals.Combat"]
+      state: angry
+      visible: false
   - type: CombatModeSprint
     acceleration: 7
     doImpactDamage: true
     beginCombatMessage: "ungu-begin-combat-popup"
+  - type: CombatMode
   - type: CombatModeVisuals
     hideBaseLayer: true
-  - type: CombatMode
   - type: MeleeWeapon
     attackRate: 0.8
     soundHit:
@@ -35,6 +92,7 @@
   - type: StaminaDamageOnHit
     damage: 20
   - type: GoobAbsorbable
+    biomassRestored: 0.8
   - type: Hunger
   - type: Thirst
   - type: Icon
@@ -69,9 +127,9 @@
         - MobLayer
   - type: Vocal  # to be changed
     sounds:
-      Male: UnisexSnail
-      Female: UnisexSnail
-      Unsexed: UnisexSnail
+      Male: Gorilla
+      Female: Gorilla
+      Unsexed: Gorilla
   - type: BodyEmotes
     soundsId: UnguBodyEmotes
   - type: Damageable
@@ -99,104 +157,16 @@
   - type: Inventory
     templateId: ungu
     speciesId: ungu
-    displacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
-            state: jumpsuit
-      head:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
-            state: head
-      outerClothing:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
-            state: outerClothing
-      neck:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
-            state: neck
-      eyes:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
-            state: eyes
-      mask:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
-            state: mask
-      back:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
-            state: back
   - type: Speech
     speechSounds: Gastropoid # to be changed
   - type: TypingIndicator
     proto: Ungu
   - type: HumanoidAppearance
     species: Ungu
-  - type: Sprite
-    granularLayersRendering: true
-    drawdepth: Mobs
-    noRot: true
-    scale: 1, 1
-    layers:
-    - map: [ "enum.HumanoidVisualLayers.TailUnderlay" ] # imp
-    - map: [ "enum.HumanoidVisualLayers.TailBehind" ] # Floof
-    - map: [ "enum.HumanoidVisualLayers.Chest" ]
-    - map: [ "enum.HumanoidVisualLayers.Head" ]
-    - map: [ "enum.HumanoidVisualLayers.Snout" ]
-    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-    - map: [ "enum.HumanoidVisualLayers.RArm" ]
-    - map: [ "enum.HumanoidVisualLayers.LArm" ]
-    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-    - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
-    - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
-    - map: ["jumpsuit"]
-    - map: ["enum.HumanoidVisualLayers.LFoot"]
-    - map: ["enum.HumanoidVisualLayers.RFoot"]
-    - map: ["enum.HumanoidVisualLayers.LHand"]
-    - map: ["enum.HumanoidVisualLayers.RHand"]
-    - map: [ "gloves" ]
-    - map: [ "shoes" ]
-    - map: [ "ears" ]
-    - map: [ "eyes" ]
-    - map: [ "belt" ]
-    - map: [ "id" ]
-    - map: [ "outerClothing" ]
-    - map: [ "enum.HumanoidVisualLayers.TailBehindBackpack" ] # imp
-    - map: [ "back" ]
-    - map: [ "enum.HumanoidVisualLayers.TailOversuit" ] # Floof
-    - map: [ "neck" ]
-    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-    - map: [ "enum.HumanoidVisualLayers.Hair" ]
-    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-    - map: [ "enum.HumanoidVisualLayers.Tail" ]
-    - map: [ "mask" ]
-    - map: [ "head" ]
-    - map: [ "pocket1" ]
-    - map: [ "pocket2" ]
-    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
-      color: "#ffffff"
-      sprite: Objects/Misc/handcuffs.rsi
-      state: body-overlay-2
-      visible: false
-    - map: [ "clownedon" ] # Dynamically generated
-      sprite: "Effects/creampie.rsi"
-      state: "creampie_human"
-      visible: false
-    - map: ["enum.CombatModeVisualsVisuals.Combat"]
-      sprite: _Impstation/Mobs/Species/Ungu/parts.rsi
-      state: angry
-      visible: false
+    hideLayersOnEquip:
+    - Snout
+    - HeadTop
+
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -210,39 +180,3 @@
   - type: Inventory
     speciesId: ungu
     templateId: ungu
-    displacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
-            state: jumpsuit
-      head:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
-            state: head
-      outerClothing:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
-            state: outerClothing
-      neck:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
-            state: neck
-      eyes:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
-            state: eyes
-      mask:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
-            state: mask
-      back:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
-            state: back

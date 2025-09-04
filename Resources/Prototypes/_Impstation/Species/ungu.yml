@@ -17,7 +17,7 @@
   - Female
   youngAge: 60
   oldAge: 100
-  ancientAge: 200  
+  ancientAge: 200
 
 - type: speciesBaseSprites
   id: MobUnguSprites
@@ -45,7 +45,10 @@
   onlyWhitelisted: true
   points:
     Head:
-      points: 3
+      points: 1
+      required: false
+    HeadSide:
+      points: 4
       required: false
     UndergarmentTop:
       points: 1
@@ -61,9 +64,6 @@
       required: false
     Tail:
       points: 1
-      required: false
-    Snout:
-      points: 2
       required: false
 
 - type: humanoidBaseSprite
