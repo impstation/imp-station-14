@@ -161,7 +161,13 @@
       - AnomalyHost
   - type: Inventory
     templateId: ungu
-    speciesId: ungu
+    speciesId:
+    displacements:
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
+            state: hands
   - type: Speech
     speechSounds: Gastropoid # to be changed
   - type: TypingIndicator
