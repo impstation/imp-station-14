@@ -8,9 +8,9 @@ objectives-round-end-result-in-custody = {$custody} out of {$count} {MAKEPLURAL(
 objectives-player-user-named = [color=White]{$name}[/color] ([color=gray]{$user}[/color])
 objectives-player-named = [color=White]{$name}[/color]
 
-# Imp Edit, removed "a" from both following ftls before agent for traitor flavor
-objectives-no-objectives = {$custody}{$title} was {$agent}.
-objectives-with-objectives = {$custody}{$title} was {$agent} who had the following objectives:
+# Imp Edit, changed "a" to indefinite in both following ftls for traitor flavor
+objectives-no-objectives = {$custody}{$title} was {INDEFINITE($agent)} {$agent}.
+objectives-with-objectives = {$custody}{$title} was {INDEFINITE($agent)} {$agent} who had the following objectives:
 
 objectives-objective-success = {$objective} | [color=green]Success![/color] ({TOSTRING($progress, "P0")})
 objectives-objective-partial-success = {$objective} | [color=yellow]Partial Success![/color] ({TOSTRING($progress, "P0")})

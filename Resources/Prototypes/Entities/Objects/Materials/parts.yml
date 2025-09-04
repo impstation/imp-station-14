@@ -87,6 +87,10 @@
     prototypes:
     - Grille
     - Table
+  - type: PluralName
+    oneOf: plural-name-a
+    someOf: plural-name-bundle-1
+    nameSomeOf: metal rods
   # imp edit end
 
 - type: entity

@@ -1,118 +1,4 @@
 ﻿Entries:
-- author: starlighthowls
-  changes:
-  - message: A few NTAS WW fixes
-    type: Fix
-  id: 1714
-  time: '2025-05-23T15:29:10.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2564
-- author: AirFryerBuyOneGetOneFree
-  changes:
-  - message: After a shuttle accident between Yum Yum and a local wizard, the afterlife
-      has died. The ghost bar has been removed.
-    type: Remove
-  id: 1715
-  time: '2025-05-23T15:33:55.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2528
-- author: kipdotnet
-  changes:
-  - message: Fixed the sink being missing from Banana's bar and kitchen.
-    type: Fix
-  id: 1716
-  time: '2025-05-23T15:34:56.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2551
-- author: DinnerCalzone
-  changes:
-  - message: Janitorial toolboxes can now be found as maintenance loot!
-    type: Add
-  id: 1717
-  time: '2025-05-23T15:35:58.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2550
-- author: TuttlePants
-  changes:
-  - message: Bounty Hunters now target command members when they can't target an antagonist.
-    type: Tweak
-  id: 1718
-  time: '2025-05-23T15:38:20.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2517
-- author: widgetbeck
-  changes:
-  - message: Decapoids no longer have an inbuilt speed debuff.
-    type: Remove
-  - message: The Decapoid claw shield has been buffed to 40% block while raised.
-    type: Tweak
-  - message: Shields can no longer bodyblock - instead, raising your shield just slows
-      you down considerably.
-    type: Tweak
-  id: 1719
-  time: '2025-05-23T19:52:43.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2463
-- author: AirFryerBuyOneGetOneFree
-  changes:
-  - message: Fixed ghost role menu not showing job names.
-    type: Fix
-  id: 1720
-  time: '2025-05-23T20:10:13.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2569
-- author: widgetbeck
-  changes:
-  - message: Shields now *properly* slow you down instead of bodyblocking.
-    type: Tweak
-  id: 1721
-  time: '2025-05-24T22:09:57.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2574
-- author: DinnerCalzone
-  changes:
-  - message: Banana's cargo shuttle should be less likely to start clipped inside
-      of other grids.
-    type: Fix
-  id: 1722
-  time: '2025-05-25T06:49:04.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2579
-- author: astral_amy
-  changes:
-  - message: Bedlam Station, a lowpop map adapted from a reclaimed starship
-    type: Add
-  id: 1723
-  time: '2025-05-25T06:57:13.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2567
-- author: Faeling, Sha-Seng
-  changes:
-  - message: Lily Mantle for senior botanists (has a toggleable collar)
-    type: Add
-  id: 1724
-  time: '2025-05-25T06:56:13.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2576
-- author: Stonylogray
-  changes:
-  - message: Aquam divinos and aqua avari now have small effects on contact.
-    type: Tweak
-  - message: Gildgrail can new be used to splash liquids on heathens and the faithful
-      alike.
-    type: Tweak
-  id: 1725
-  time: '2025-05-25T07:08:47.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2532
-- author: Cutinup99
-  changes:
-  - message: Armory crate purchase for the the Drozd, Lecter, and Kammerer
-    type: Add
-  - message: AKMS is now obtainable via cargo.
-    type: Add
-  - message: renamed the SMG and shotgun crates to reflect whats actually within them
-    type: Tweak
-  - message: daitos are now marginally cheaper
-    type: Tweak
-  id: 1726
-  time: '2025-05-25T07:25:46.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2566
-- author: msTheowo
-  changes:
-  - message: Business cards! Get them by crafting them!
-    type: Add
-  id: 1727
-  time: '2025-05-25T07:48:39.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2557
 - author: MintyTheBinty
   changes:
   - message: 'New Dan''s Soaked Smokes: Rejects, dangerously fun cigs! Available in
@@ -4183,3 +4069,117 @@
   id: 2213
   time: '2025-08-26T22:43:46.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3058
+- author: mqole
+  changes:
+  - message: TEG circulators have been fitted with flow rate meters.
+    type: Add
+  id: 2214
+  time: '2025-08-28T09:37:51.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3364
+- author: jtfg-dev
+  changes:
+  - message: Items whose quantities were not clear when in someone's hands (i.e. "a
+      grapes", "a gloves", "a gold bar", "a steel") now should be grammatically correct
+      (i.e. "some grapes", "a pair of gloves", "some gold bars" "a sheet / some sheets
+      of steel"). Please report any applicable (but unaffected) items to the "make
+      text less bad" thread on the discord!
+    type: Add
+  id: 2215
+  time: '2025-08-28T12:27:18.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3136
+- author: TheGrimbeeper
+  changes:
+  - message: Natural artifacts now count for the artifact bounty.
+    type: Fix
+  id: 2216
+  time: '2025-08-29T11:51:58.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3372
+- author: youtubevideo3
+  changes:
+  - message: New bomber jacket for the HOS!
+    type: Add
+  id: 2217
+  time: '2025-08-29T23:22:25.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3378
+- author: EpicToastTM
+  changes:
+  - message: Hash has been derotated for renovations.
+    type: Remove
+  id: 2218
+  time: '2025-08-29T23:27:24.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3387
+- author: HAPPYNEWYEAR1999
+  changes:
+  - message: Pathway's medical department has undergone some surgery.
+    type: Tweak
+  id: 2219
+  time: '2025-08-29T23:31:16.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3388
+- author: youtubevideo3
+  changes:
+  - message: A new jumpskirt and apron for medical doctors!
+    type: Add
+  - message: the Nurse Hat has been resprited.
+    type: Tweak
+  id: 2220
+  time: '2025-08-30T00:36:06.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3384
+- author: astral_amy
+  changes:
+  - message: Added a surgical bay to Bedlam. Also, completely redesigned Bedlam's
+      medical bay.
+    type: Add
+  - message: A couple of touch-ups for Bedlam and Whisper - see PR for details.
+    type: Tweak
+  id: 2221
+  time: '2025-08-30T02:06:43.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3389
+- author: starlighthowls
+  changes:
+  - message: Added headchef uniform!
+    type: Add
+  id: 2222
+  time: '2025-08-30T02:38:11.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3368
+- author: youtubevideo3
+  changes:
+  - message: you can now use "UNR" as a shortcut for "Unrevivable"!
+    type: Add
+  id: 2223
+  time: '2025-08-30T07:13:38.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3335
+- author: yesteryuri
+  changes:
+  - message: Pulp no longer makes non-moths bleed
+    type: Remove
+  id: 2224
+  time: '2025-09-03T05:03:30.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3406
+- author: Darkmajia
+  changes:
+  - message: Inserting compressed paint into a spray painter plays a sound.
+    type: Add
+  id: 2225
+  time: '2025-09-03T11:46:36.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3369
+- author: widgetbeck
+  changes:
+  - message: Fixed replicator nest sound effects lingering after the nest is destroyed.
+    type: Fix
+  - message: Fixed replicators from old nests not getting leveled up from their new
+      nest - instead, all replicators on the map are affected by all nests. There
+      is one Hive.
+    type: Fix
+  - message: Fixed replicators not getting a popup notification when they are orphaned
+      (when their Queen dies.) The Queen will also now lose its Crown upon its death.
+    type: Fix
+  id: 2226
+  time: '2025-09-03T11:48:10.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3348
+- author: Darkmajia
+  changes:
+  - message: Fixed a text display issue with antagonists on the round end summary.
+    type: Fix
+  id: 2227
+  time: '2025-09-03T11:52:07.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3376
