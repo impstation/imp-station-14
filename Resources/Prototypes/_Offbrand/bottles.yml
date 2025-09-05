@@ -87,3 +87,18 @@
         reagents:
         - ReagentId: Tramadol
           Quantity: 30
+
+- type: entity
+  id: ChemistryBottleParacetamol
+  suffix: paracetamol
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: paracetamol
+  - type: SolutionContainerManager
+    solutions:
+      drink: # This solution name and target volume is hard-coded in ChemMasterComponent
+        maxVol: 30
+        reagents:
+        - ReagentId: Paracetamol
+          Quantity: 30
