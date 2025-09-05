@@ -39,3 +39,14 @@
     beakerSlotId: beaker_slot
   - type: ItemToggle
     predictable: false
+
+- type: entity
+  parent: PortableIncubator
+  name: Portable Incubator
+  suffix: Instant
+  id: PortableIncubatorInstant
+  components:
+  - type: Incubator
+    chargeUse: 1
+    beakerSlotId: beaker_slot
+    incubationDuration: 0

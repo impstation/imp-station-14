@@ -1,10 +1,8 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Fluids.EntitySystems;
-using Content.Server.Humanoid;
 using Content.Server.Power.Components;
 using Content.Server.PowerCell;
-using Content.Shared._Impstation.Homunculi.Components;
 using Content.Shared._Impstation.Homunculi.Incubator;
 using Content.Shared._Impstation.Homunculi.Incubator.Components;
 using Content.Shared.Chemistry.Components;
@@ -12,11 +10,9 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Examine;
-using Content.Shared.Forensics.Components;
-using Content.Shared.Humanoid;
-using Content.Shared.Humanoid.Markings;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
+using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
@@ -32,7 +28,8 @@ public sealed class IncubatorSystem : SharedIncubatorSystem
     [Dependency] private readonly ItemSlotsSystem _slots = default!;
     [Dependency] private readonly PuddleSystem _puddle = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _appearance = default!;
+    [Dependency] private readonly HomunculusSystem _homunculus = default!;
+    [Dependency] private readonly TransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -138,14 +135,13 @@ public sealed class IncubatorSystem : SharedIncubatorSystem
         if (!Resolve(ent, ref ent.Comp))
             return;
 
+        TryGetSolution(ent, out var solution);
+
         // Spawn Homunculi
-        if (!SpawnHomunculi(ent))
+        if (solution != null && !_homunculus.CreateHomunculiWithDna(ent,solution.Value,_transform.GetMapCoordinates(ent), out var homunculus))
         {
-            if (TryGetSolution(ent, out var solution))
-            {
-                _puddle.TrySpillAt(ent, solution.Value.Comp.Solution, out _ );
-                _solution.RemoveAllSolution(solution.Value);
-            }
+            _puddle.TrySpillAt(ent, solution.Value.Comp.Solution, out _ );
+            _solution.RemoveAllSolution(solution.Value);
         }
 
         if (TryComp<ActiveIncubatorComponent>(ent, out var activeIncubator))
@@ -154,101 +150,6 @@ public sealed class IncubatorSystem : SharedIncubatorSystem
         _cell.TryUseCharge(ent, ent.Comp.ChargeUse);
         _toggle.TryDeactivate(ent.Owner);
     }
-
-    public bool SpawnHomunculi(Entity<IncubatorComponent?> ent)
-    {
-        if (!TryGetSolution(ent, out var solution))
-            return false;
-
-        // If there's no DNA data in the solution (shouldn't happen but whatever) return
-        if (!TryGetDnaData(solution, out var dnaData))
-            return false;
-
-        // Save a copy of the solutions reagents, can't just use it straight up
-        var reagentList = solution.Value.Comp.Solution.Contents.ToList();
-
-        var query = EntityQueryEnumerator<HomunculiTypeComponent>();
-        while (query.MoveNext(out var victim, out var homunculiTypeComponent))
-        {
-            if (!SatisfiesRecipe(homunculiTypeComponent, reagentList))
-                continue;
-            if (!TryComp<DnaComponent>(victim, out var dnaComponent))
-                continue;
-            if (dnaComponent.DNA != dnaData.First().DNA)
-                continue;
-
-            var savedSolutions = solution.Value.Comp.Solution.Contents.ToList();
-            // Go through all the reagents in the saved solution, if the reagent matches one in the recipe, remove it
-            // I have to check for reagent data because it needs to be specific or else it won't drain
-            foreach (var (reagent, amount) in homunculiTypeComponent.Recipe)
-            {
-                var match = savedSolutions.FirstOrDefault(rq => rq.Reagent.Prototype == reagent);
-
-                if (match.Reagent.Data != null)
-                    _solution.RemoveReagent(solution.Value, reagent, amount, match.Reagent.Data);
-                else
-                    _solution.RemoveReagent(solution.Value, reagent, amount);
-            }
-
-            var transform = EntityManager.GetComponent<TransformComponent>(ent);
-            var transformSystem = EntityManager.System<SharedTransformSystem>();
-
-            var homunculi = EntityManager.SpawnEntity(homunculiTypeComponent.HomunculiType, transformSystem.GetMapCoordinates(ent, xform: transform));
-            transformSystem.AttachToGridOrMap(ent);
-
-            EnsureComp<DnaComponent>(homunculi, out var homunculiDnaComponent);
-            homunculiDnaComponent.DNA = dnaComponent.DNA;
-
-            SetHomunculusAppearance(victim,homunculi);
-            return true;
-        }
-        return false;
-    }
-
-    private void SetHomunculusAppearance(EntityUid urist, EntityUid homunculi)
-    {
-        var markingCategories = new List<MarkingCategories>
-        {
-            MarkingCategories.Head,
-            MarkingCategories.Eyes,
-            MarkingCategories.Snout,
-            MarkingCategories.HeadSide,
-            MarkingCategories.HeadTop,
-        };
-
-        if (!TryComp<HumanoidAppearanceComponent>(urist, out var appearanceComponent))
-            return;
-        if (!TryComp<HumanoidAppearanceComponent>(homunculi, out var homAppearanceComponent))
-            return;
-
-        homAppearanceComponent.SkinColor = appearanceComponent.SkinColor;
-        homAppearanceComponent.EyeColor = appearanceComponent.EyeColor;
-
-        foreach (var markingPair in appearanceComponent.MarkingSet.Markings)
-        {
-            if (!markingCategories.Contains(markingPair.Key))
-                continue;
-
-            foreach (var marking in markingPair.Value)
-            {
-                _appearance.AddMarking(homunculi, marking.MarkingId, marking.MarkingColors);
-            }
-        }
-    }
-
-    private static bool SatisfiesRecipe(HomunculiTypeComponent component, List<ReagentQuantity> reagents)
-    {
-        foreach (var required in component.Recipe)
-        {
-            var available = reagents.FirstOrDefault(r => r.Reagent.Prototype == required.Key);
-
-            if (available.Quantity < required.Value)
-                return false;
-        }
-
-        return true;
-    }
-
 
     private void OnExamine(Entity<IncubatorComponent> ent, ref ExaminedEvent args)
     {
