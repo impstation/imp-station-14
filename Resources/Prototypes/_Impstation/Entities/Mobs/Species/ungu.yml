@@ -125,11 +125,11 @@
         - MobMask
         layer:
         - MobLayer
-  - type: Vocal  # to be changed
+  - type: Vocal
     sounds:
-      Male: Gorilla
-      Female: Gorilla
-      Unsexed: Gorilla
+      Male: Ungu
+      Female: Ungu
+      Unsexed: Ungu
   - type: BodyEmotes
     soundsId: UnguBodyEmotes
   - type: Damageable
@@ -160,7 +160,7 @@
       - FootstepSound
       - AnomalyHost
   - type: Speech
-    speechSounds: Gastropoid # to be changed
+    speechSounds: Ungu
   - type: TypingIndicator
     proto: Ungu
   - type: HumanoidAppearance
@@ -182,7 +182,7 @@
         sizeMaps:
           32:
             sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
-            state: hands    
+            state: hands
 
 
 - type: entity

@@ -48,6 +48,10 @@
       points: 1
       required: false
     HeadSide:
+      points: 1
+      required: true
+      defaultMarkings: [ EarsSmallUngu ]
+    HeadTop:
       points: 5
       required: false
     UndergarmentTop:
