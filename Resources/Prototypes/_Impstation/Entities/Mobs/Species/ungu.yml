@@ -38,10 +38,10 @@
     - map: [ "neck" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
-    - map: [ "head" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
     - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
+    - map: [ "head" ]
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
     - map: [ "mask" ]
@@ -159,15 +159,6 @@
       - CanPilot
       - FootstepSound
       - AnomalyHost
-  - type: Inventory
-    templateId: ungu
-    speciesId:
-    displacements:
-      gloves:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
-            state: hands
   - type: Speech
     speechSounds: Gastropoid # to be changed
   - type: TypingIndicator
@@ -183,6 +174,15 @@
   - type: ActionGrant
     actions:
     - ActionDash
+  - type: Inventory
+    speciesId: ungu
+    templateId: ungu
+    displacements:
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
+            state: hands    
 
 
 - type: entity
