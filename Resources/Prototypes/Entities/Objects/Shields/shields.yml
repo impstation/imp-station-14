@@ -30,6 +30,24 @@
           Slash: 1
           Piercing: 1
           Heat: 1
+    - type: MeleeWeapon #imp
+      range: 0.8
+      attackRate: 0.6
+      damage:
+        types:
+          Blunt: 2
+      angle: 0
+      animation: WeaponArcThrust
+      soundHit:
+        path: /Audio/Effects/hit_kick.ogg
+      soundSwing:
+        path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
+      resetOnHandSelected: false
+    - type: AltFireMelee #imp
+      attackType: Light
+    - type: MeleeThrowOnHit #imp
+      distance: 0.8
+      speed: 5
     - type: Damageable
       damageContainer: Shield
     - type: Destructible
@@ -213,6 +231,10 @@
     - type: Construction
       graph: CardShield
       node: cardShield
+    - type: MeleeWeapon #imp
+      damage:
+        types:
+          Blunt: 0.2
     - type: Destructible
       thresholds:
       - trigger:
@@ -320,6 +342,10 @@
           Blunt: 0.5
           Slash: 0.5
           Piercing: 0.5
+    - type: MeleeWeapon #imp
+      damage:
+        types:
+          Blunt: 0.2
     - type: Construction
       graph: WebObjects
       node: shield
