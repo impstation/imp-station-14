@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: starlighthowls
-  changes:
-  - message: NTAS Dolphin now in rotation.
-    type: Add
-  id: 1735
-  time: '2025-05-26T01:33:39.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2582
 - author: salamanderskies
   changes:
   - message: Added three new normal drinks
@@ -4188,3 +4181,11 @@
   id: 2234
   time: '2025-09-05T11:36:53.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3383
+- author: TheGrimbeeper
+  changes:
+  - message: Kill or maroon objective has stopped being a "yes man" and always saying
+      you succeeded
+    type: Fix
+  id: 2235
+  time: '2025-09-06T07:50:14.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3414
