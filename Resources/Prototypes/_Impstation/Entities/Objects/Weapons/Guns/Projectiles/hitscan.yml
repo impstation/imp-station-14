@@ -27,3 +27,18 @@
   impactFlash:
     sprite: _Impstation/Objects/Weapons/Guns/Projectiles/hitscan.rsi
     state: impact_synd
+
+- type: hitscan
+  id: RedRifleLaser
+  damage:
+    types:
+      Heat: 10
+  muzzleFlash:
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/hitscan.rsi
+    state: muzzle_laser_rifle
+  travelFlash:
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/hitscan.rsi
+    state: beam_laser_rifle
+  impactFlash:
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/hitscan.rsi
+    state: impact_laser_rifle
