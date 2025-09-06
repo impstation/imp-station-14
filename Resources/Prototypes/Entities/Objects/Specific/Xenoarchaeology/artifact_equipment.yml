@@ -141,6 +141,7 @@
   - type: AccessReader
     access: [["Research"], ["Cargo"]]
   - type: Lock
+  - type: LockedStorage
   - type: SuppressArtifactContainer
   - type: OldSuppressArtifactContainer #IMP
   - type: RadiationBlockingContainer

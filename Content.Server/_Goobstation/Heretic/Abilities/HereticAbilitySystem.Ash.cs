@@ -1,10 +1,10 @@
-using Content.Server.Atmos.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Damage;
 using Content.Shared.Atmos;
 using Content.Server.Polymorph.Systems;
+using Content.Shared.Atmos.Components;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
 

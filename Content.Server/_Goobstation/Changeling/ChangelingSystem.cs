@@ -13,7 +13,6 @@ using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Server.Store.Systems;
 using Content.Server.Stunnable;
-using Content.Server.Zombies;
 using Content.Shared.Actions;
 using Content.Shared.Alert;
 using Content.Shared.Camera;
@@ -58,6 +57,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Server._Goobstation.Objectives.Components;
 using Content.Shared._Goobstation.Changeling;
+using Content.Shared.Zombies;
 
 namespace Content.Server._Goobstation.Changeling;
 

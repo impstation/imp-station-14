@@ -1,10 +1,10 @@
-using Content.Server.Atmos.Components;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Content.Shared.Heretic;
 using Content.Shared.Movement.Systems;
 using Robust.Shared.Timing;
 using Content.Server.Atmos.EntitySystems;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Heretic.Components;
 
 namespace Content.Server.Heretic.Abilities;

@@ -158,7 +158,7 @@
     weightlessFriction: 1
     baseWeightlessModifier: 1
   - type: MovementIgnoreGravity # nyoom
-    gravityState: true
+    weightless: true
   - type: FloatingVisuals
   - type: PointLight
     color: Black

@@ -206,6 +206,15 @@
     primaryCurrency: Telecrystal #imp edit
     purchasePriority: 3 #imp edit
 
+- type: entity
+  parent: MindRoleNukeops
+  id: MindRoleLoneops
+  name: Loneops Operative Role
+  components:
+  - type: MindRole
+    roleType: SoloAntagonist
+    antagPrototype: NukeopsLone #imp
+
 # Revolutionaries
 - type: entity
   parent: BaseMindRoleAntag

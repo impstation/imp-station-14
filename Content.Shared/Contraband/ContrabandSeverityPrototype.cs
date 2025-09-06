@@ -16,7 +16,7 @@ public sealed partial class ContrabandSeverityPrototype : IPrototype
     /// Color of the ExamineText. Imp edit
     /// </summary>
     [DataField]
-    public required string ExamineColor;
+    public string ExamineColor = "yellow";
 
     /// <summary>
     /// Text shown for this severity level when the contraband is examined.

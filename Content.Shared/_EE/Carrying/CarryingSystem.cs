@@ -244,7 +244,7 @@ public sealed partial class CarryingSystem : EntitySystem
             * _contests.MassContest(carried.Owner, carrier, carried.Comp.PickupContestPotential)
             * _contests.StaminaContest(carrier, carried.Owner); // Frontier: replace !HasComp<KnockedDownComponent> with IsDown
 
-        if (_standingState.IsDown(carried))
+        if (_standingState.IsDown(carried.Owner))
             length *= carried.Comp.PickupKnockdownMultiplier;
 
         // Frontier: sanitize time duration regardless of CVars - no near-instant pickups.

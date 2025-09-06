@@ -45,7 +45,7 @@ public abstract class SharedRecruiterPenSystem : EntitySystem
         if (!Mind.TryGetMind(user, out var mindId, out var mind))
             return;
 
-        foreach (var entry in mind.MindRoles)
+        foreach (var entry in mind.MindRoleContainer.ContainedEntities)
         {
             if (HasComp<RecruiterRoleComponent>(entry))
             {

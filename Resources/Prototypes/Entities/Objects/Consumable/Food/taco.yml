@@ -44,8 +44,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - meaty
-    - cheesy
+      - meaty
+      - cheesy
   - type: Food
     transferAmount: 3
   - type: Sprite
@@ -64,7 +64,7 @@
     storedRotation: -90
   - type: Tag
     tags:
-    - Meat
+      - Meat
 
 - type: entity
   name: beef taco
@@ -112,10 +112,10 @@
   components:
   - type: FlavorProfile
     flavors:
-    - onion
-    #- fishy # imp
-    - carpflesh # imp
-    - tomato # imp
+      - onion
+      #- fishy # imp
+      - carpflesh # imp
+      - tomato # imp
   - type: Food
   - type: Sprite
     state: fishtaco
@@ -158,7 +158,7 @@
   name: beef taco supreme
   parent: FoodTacoBase
   id: FoodTacoBeefSupreme
-  description: It's like a regular beef taco, but supreme! # imp
+  description: It's like a regular beef taco, but supreme!
   components:
   - type: FlavorProfile # imp
     flavors:
@@ -186,7 +186,7 @@
   name: chicken taco supreme
   parent: FoodTacoBase
   id: FoodTacoChickenSupreme
-  description: It's like a regular chicken taco, but supreme! # imp
+  description: It's like a regular chicken taco, but supreme!
   components:
   - type: FlavorProfile # imp
     flavors:
@@ -245,16 +245,16 @@
   components:
   - type: FlavorProfile
     flavors:
-    - cheesy
-    - tomato
-    - meaty
-    - onion
+      - cheesy
+      - tomato
+      - meaty
+      - onion
   - type: Sprite
     state: softtaco
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 35
+        maxVol: 35 #imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 10

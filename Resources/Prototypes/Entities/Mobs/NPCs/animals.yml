@@ -1302,8 +1302,6 @@
       0: Alive
       200: Critical
       250: Dead
-  - type: StaminaResistance
-    damageCoefficient: 0.40
   # imp edit start
   - type: GoobAbsorbable
     biomassRestored: 0.8
@@ -1643,7 +1641,7 @@
   parent: MobBaseSyndicateMonkey
   suffix: syndicate agent
   components:
-  # make the player a traitor once its taken
+    # make the player a traitor once its taken
   - type: AutoTraitor
     profile: TraitorReinforcement
   # imp edit start

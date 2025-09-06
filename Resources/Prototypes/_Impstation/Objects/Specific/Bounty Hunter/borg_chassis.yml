@@ -1,4 +1,12 @@
 ﻿- type: entity
+  id: BorgChassisCargo
+  parent: BorgChassisSelectable
+  name: cargo cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: cargo
+
+- type: entity
   id: BorgChassisBountyHunter
   parent: BaseBorgChassisBountyHunter
   name: reclaimed cyborg

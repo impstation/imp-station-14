@@ -24,6 +24,7 @@
   - type: TimedDespawn
     lifetime: 1
 
+# TODO: this whole thing seems like a mess and would be better off using BaseMobJaunt
 - type: entity
   id: PolymorphAshJaunt
   name: Unknown
@@ -50,6 +51,8 @@
         mask:
         - GhostImpassable
   - type: MovementIgnoreGravity
+    weightless: true
+  - type: GravityAffected
   - type: Actions
   - type: NoSlip
   - type: Eye

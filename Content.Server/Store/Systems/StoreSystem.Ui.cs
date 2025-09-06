@@ -308,7 +308,7 @@ public sealed partial class StoreSystem
             //get the role that "purchased" this item by primary currency & purchase priority.
             var purchasePriority = -1;
             MindRoleComponent? purchaserComp = null;
-            foreach (var mindRole in mindComp.MindRoles) //go over all of the player's mindRoles
+            foreach (var mindRole in mindComp.MindRoleContainer.ContainedEntities) //go over all of the player's mindRoles
             {
                 foreach (var roleComp in AllComps<MindRoleComponent>(mindRole)) //go over all of their mindRole components
                 {

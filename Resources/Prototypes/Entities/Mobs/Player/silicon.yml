@@ -177,6 +177,10 @@
   - AiHolder
   suffix: Empty
   components:
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Rotatable
   - type: WarpPoint
     blacklist:
       tags:
@@ -202,6 +206,7 @@
   - type: StationAiVision
   - type: InteractionOutline
   - type: Sprite
+    snapCardinals: true
     sprite: Mobs/Silicon/station_ai.rsi
     layers:
     - state: base
@@ -397,7 +402,7 @@
       borg_module:
         - BorgModuleOperative
         - BorgModuleL6C
-        - BorgModuleEsword
+        - BorgModuleDoubleEsword
   - type: ItemSlots
     slots:
       cell_slot:
@@ -471,8 +476,45 @@
     - PlayerBorgSyndicateSaboteurGhostRole
 
 - type: entity
-  id: PlayerBorgDerelict
+  parent: EngineeringBorgChassisDerelict
+  id: PlayerEngineeringBorgDerelict
+  suffix: Battery, Module
+  components:
+  - type: ContainerFill
+    containers:
+      borg_brain:
+      - PositronicBrain
+      borg_module:
+      - BorgModuleTool
+      - BorgModuleFireExtinguisher
+      - BorgModuleConstruction
+      - BorgModuleRCD
+      - BorgModuleCable
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHigh
+  - type: RandomMetadata
+    nameSegments: [NamesBorg]
+
+- type: entity
+  parent: PlayerEngineeringBorgDerelict
+  id: PlayerEngineeringBorgDerelictGhostRole
+  suffix: Ghost role
+  components:
+  - type: GhostRole
+    name: ghost-role-information-derelict-engineering-cyborg-name
+    description: ghost-role-information-derelict-engineering-cyborg-description
+    rules: ghost-role-information-silicon-rules
+    raffle:
+      settings: default
+    reregister: false
+  - type: GhostTakeoverAvailable
+
+- type: entity
   parent: BorgChassisDerelict
+  id: PlayerBorgDerelict
   suffix: Battery, Module
   components:
   - type: ContainerFill
@@ -491,8 +533,8 @@
     nameSegments: [NamesBorg]
 
 - type: entity
-  id: PlayerBorgDerelictGhostRole
   parent: PlayerBorgDerelict
+  id: PlayerBorgDerelictGhostRole
   suffix: Ghost role
   components:
     - type: GhostRole
@@ -501,172 +543,151 @@
       rules: ghost-role-information-silicon-rules
       raffle:
         settings: default
+      reregister: false
       mindRoles: # imp edit once again this is upstream forgetting borgs exist
       - MindRoleGhostRoleSilicon
     - type: GhostTakeoverAvailable
 
-  # Drones and OneStar mech
 - type: entity
-  save: false
-  abstract: true
-  id: PlayerSiliconBase #for player controlled silicons. it's a shitty name, idk why they did it like that.
+  parent: JanitorBorgChassisDerelict
+  id: PlayerJanitorBorgDerelict
+  suffix: Battery, Module
   components:
-  - type: Reactive
-    groups:
-      Acidic: [Touch]
-  - type: Input
-    context: "human"
-  - type: DamageOnHighSpeedImpact
-    damage:
-      types:
-        Blunt: 5
-    soundHit:
-      collection: MetalThud
-  - type: Clickable
-  - type: Damageable
-    damageContainer: Inorganic
-  - type: Bloodstream
-    bloodReagent: Oil
-    bloodlossDamage:
-      types:
-        Bloodloss:
-          1
-    bloodlossHealDamage:
-      types:
-        Bloodloss:
-          -1
-  - type: InteractionOutline
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          # Circles, cuz rotation of rectangles looks very bad
-          !type:PhysShapeCircle
-          radius: 0.35
-        density: 50
-        mask:
-        - MobMask
-        layer:
-        - MobLayer
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 4
-    baseSprintSpeed : 3
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 60
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: Sprite
-    noRot: true
-    drawdepth: Mobs
-  - type: Physics
-    bodyType: KinematicController
-  - type: Hands
-    showInHands: false
-  - type: ComplexInteraction
-  - type: Body
-    prototype: Drone
-    thermalVisibility: false # imp edit. mostly for drones, but i think this is cool and interesting
-  - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Binary
-  - type: ActiveRadio
-    channels:
-    - Binary
-    - Common
-  - type: DoAfter
-  - type: Pullable
-  - type: Examiner
-  - type: Puller
-  - type: StandingState
-  - type: Alerts
-  - type: ProtectedFromStepTriggers
+  - type: ContainerFill
+    containers:
+      borg_brain:
+      - PositronicBrain
+      borg_module:
+      - BorgModuleTool
+      - BorgModuleFireExtinguisher
+      - BorgModuleCleaning
+      - BorgModuleCustodial
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHigh
+  - type: RandomMetadata
+    nameSegments: [NamesBorg]
 
 - type: entity
-  name: onestar mecha
-  id: Onestar
-  description: A gigantic mech. You should really be shooting at it.
-  parent: PlayerSiliconBase
-  suffix: Boss, Ghost Role
+  parent: PlayerJanitorBorgDerelict
+  id: PlayerJanitorBorgDerelictGhostRole
+  suffix: Ghost role
   components:
-  - type: Loadout # imp special. this replaces the InnateTool component.
-    prototypes:
-      - StartingGearOnestarWeapons
-  - type: UserInterface
-    interfaces:
-      enum.StrippingUiKey.Key:
-        type: StrippableBoundUserInterface
   - type: GhostRole
-    makeSentient: true
-    name: ghost-role-information-onestar-mecha-name
-    description: ghost-role-information-onestar-mecha-description
-    rules: ghost-role-information-antagonist-rules
-    mindRoles: # imp. if it matters.
-    - MindRoleGhostRoleSiliconAntagonist
+    name: ghost-role-information-derelict-janitor-cyborg-name
+    description: ghost-role-information-derelict-janitor-cyborg-description
+    rules: ghost-role-information-silicon-rules
+    raffle:
+      settings: default
+    reregister: false
   - type: GhostTakeoverAvailable
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 3
-    baseSprintSpeed : 2
-  - type: MobState
-    allowedStates:
-      - Alive
-      - Dead
-  - type: MobThresholds # imp 1000 > 2000
-    thresholds:
-      0: Alive
-      2000: Dead
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - state: onestar_boss
-      sprite: Mobs/Silicon/onestar.rsi
-    - state: onestar_boss_screen
-      sprite: Mobs/Silicon/onestar.rsi
-      shader: unshaded
-  - type: FootstepModifier
-    footstepSoundCollection:
-      path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
-  - type: MovementIgnoreGravity
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 1
-        density: 160
-        mask:
-        - LargeMobMask
-        layer:
-        - MobLayer
-  - type: Appearance
-  - type: CombatMode
-  - type: Tag
-    tags:
-      - FootstepSound
-  - type: NpcFactionMember # imp
-    factions:
-    - AllHostile
-  - type: HTN # imp
-    rootTask:
-      task: SimpleRangedHostileCompound
-    blackboard:
-      NavSmash: !type:Bool
-        true
-  - type: Destructible # imp
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 2000
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: OnestarDeath
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
+
+- type: entity
+  parent: MedicalBorgChassisDerelict
+  id: PlayerMedicalBorgDerelict
+  suffix: Battery, Module
+  components:
+  - type: ContainerFill
+    containers:
+      borg_brain:
+      - PositronicBrain
+      borg_module:
+      - BorgModuleTool
+      - BorgModuleFireExtinguisher
+      - BorgModuleChemical
+      - BorgModuleTopicals
+      - BorgModuleRescue
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHigh
+  - type: RandomMetadata
+    nameSegments: [NamesBorg]
+
+- type: entity
+  parent: PlayerMedicalBorgDerelict
+  id: PlayerMedicalBorgDerelictGhostRole
+  suffix: Ghost role
+  components:
+  - type: GhostRole
+    name: ghost-role-information-derelict-medical-cyborg-name
+    description: ghost-role-information-derelict-medical-cyborg-description
+    rules: ghost-role-information-silicon-rules
+    raffle:
+      settings: default
+    reregister: false
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  parent: MiningBorgChassisDerelict
+  id: PlayerMiningBorgDerelict
+  suffix: Battery, Module
+  components:
+  - type: ContainerFill
+    containers:
+      borg_brain:
+      - PositronicBrain
+      borg_module:
+      - BorgModuleTool #No fire extinguisher, traversal is better
+      - BorgModuleMining
+      - BorgModuleTraversal
+      - BorgModuleAppraisal
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHigh
+  - type: RandomMetadata
+    nameSegments: [NamesBorg]
+
+- type: entity
+  parent: PlayerMiningBorgDerelict
+  id: PlayerMiningBorgDerelictGhostRole
+  suffix: Ghost role
+  components:
+  - type: GhostRole
+    name: ghost-role-information-derelict-mining-cyborg-name
+    description: ghost-role-information-derelict-mining-cyborg-description
+    rules: ghost-role-information-silicon-rules
+    raffle:
+      settings: default
+    reregister: false
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  parent: SyndicateAssaultBorgChassisDerelict
+  id: PlayerSyndicateAssaultBorgDerelict
+  suffix: Battery, Module
+  components:
+  - type: ContainerFill
+    containers:
+      borg_brain:
+      - PositronicBrain
+      borg_module:
+      - BorgModuleOperative
+      - BorgModuleC20r
+      - BorgModuleEsword
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHyper
+  - type: RandomMetadata
+    nameSegments: [NamesDeathCommando]
+
+- type: entity
+  parent: PlayerSyndicateAssaultBorgDerelict
+  id: PlayerBorgSyndicateDerelictGhostRole
+  suffix: Ghost role
+  components:
+  - type: GhostRole
+    name: ghost-role-information-derelict-syndicate-assault-cyborg-name
+    description: ghost-role-information-derelict-syndicate-assault-cyborg-description
+    rules: ghost-role-information-silicon-rules
+    raffle:
+      settings: default
+    reregister: false
+  - type: GhostTakeoverAvailable

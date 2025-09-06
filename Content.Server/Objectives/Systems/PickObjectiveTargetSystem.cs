@@ -3,11 +3,9 @@ using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Roles; // imp
 using Content.Shared._DV.Roles; // imp
-using Content.Shared.Roles.Jobs; // imp
 using Content.Server.GameTicking.Rules;
 using Content.Server.Revolutionary.Components;
 using Content.Server.Roles; // imp
-using Robust.Shared.Player; // imp
 using Robust.Shared.Random;
 using System.Linq;
 using Content.Server._Goobstation.Roles; // imp
@@ -23,10 +21,7 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
 {
     [Dependency] private readonly TargetObjectiveSystem _target = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!; // imp edit
-    [Dependency] private readonly TraitorRuleSystem _traitorRule = default!;
-    [Dependency] private readonly SharedJobSystem _job = default!; // imp edit
+    [Dependency] private readonly IRobustRandom _random = default!; //imp edit
     [Dependency] private readonly SharedRoleSystem _role = default!; // imp edit
 
     public override void Initialize()

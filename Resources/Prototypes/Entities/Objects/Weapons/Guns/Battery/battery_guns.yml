@@ -62,7 +62,9 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-  - type: MagazineAmmoProvider #imp, removed HitscanBatteryAmmoProvider to replace with this.
+  #- type: HitscanBatteryAmmoProvider #imp, replaced with MagazineAmmoProvider
+  #  proto: RedLightLaser
+  #  fireCost: 50
   - type: ItemSlots
     slots:
       gun_magazine: #imp
@@ -82,7 +84,8 @@
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot #imp
-#imp edit begin; weapon melee
+#imp edit begin
+  - type: MagazineAmmoProvider #removed HitscanBatteryAmmoProvider to replace with this.
   - type: MeleeWeapon
     range: 0.8
     attackRate: 0.8
@@ -222,7 +225,8 @@
   - type: Battery
     maxCharge: 500
     startingCharge: 500
-  - type: Gun #imp - to change the fire-rate
+  # imp edit start
+  - type: Gun #to change the fire-rate
     fireRate: 1.75
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/laserpusk.ogg #imp
@@ -233,8 +237,9 @@
     stunChance: 0.25
     stunSeconds: 3
     popupText: damage-on-shoot-laser
-  - type: MeleeWeapon #imp; for pistolwhip anim
+  - type: MeleeWeapon #for pistolwhip anim
     wideAnimationRotation: -80
+  # imp edit end
 
 - type: entity
   name: tesla gun
@@ -270,15 +275,15 @@
   - type: Appearance
 
 - type: entity
-  name: TD-95P practice laser carbine #imp
-  parent: [BaseWeaponBattery, BaseGunWieldable]
-  id: WeaponLaserCarbinePractice
-  description: This modified TD-95 laser carbine fires nearly harmless beams at 5-watts for target practice. Best to wear eye protection. #imp
+  name: TD-95 laser carbine #imp
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband] #imp edit, sec contraband
+  id: WeaponLaserCarbine
+  description: A laser-based energy carbine with familiar ergonomics and controls to its kinetic counterparts. Favored by Nanotrasen for security forces, as they are cheap and easy to use. #imp
   components:
   - type: Item
     size: Large
-  - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/laser_practice.rsi #imp
+  - type: Sprite #imp edits start
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/laser_gun.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -291,19 +296,16 @@
     zeroVisible: false
   - type: Appearance
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/laser_practice.rsi #imp
-  - type: Battery #imp
-    maxCharge: 160 #imp
-    startingCharge: 160 #imp
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/laser_gun.rsi #imp edits end
   - type: Gun
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
   - type: HitscanBatteryAmmoProvider
-    proto: RedLaserPractice
-    fireCost: 10 #imp
+    proto: RedLaser
+    fireCost: 62.5
   - type: StaticPrice
-    price: 300
+    price: 420
 #imp edit begin; weapon melee
   - type: MeleeWeapon
     attackRate: 0.6
@@ -321,34 +323,26 @@
 #imp edit end
 
 - type: entity
-  name: TD-95 laser carbine #imp
-  parent: [WeaponLaserCarbinePractice, BaseGunWieldable, BaseSecurityContraband]
-  id: WeaponLaserCarbine
-  description: A laser-based energy carbine with familiar ergonomics and controls to its kinetic counterparts. Favored by Nanotrasen for security forces, as they are cheap and easy to use. #imp
+  name: TD-95P practice laser carbine #imp
+  parent: [WeaponLaserCarbine, BaseGunWieldable]
+  id: WeaponLaserCarbinePractice
+  description: This modified TD-95 laser carbine fires nearly harmless beams at 5-watts for target practice. Best to wear eye protection. #imp
   components:
-  - type: Sprite #imp edits start
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/laser_gun.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-unshaded-4
-      map: ["enum.GunVisualLayers.MagUnshaded"]
-      shader: unshaded
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: false
-  - type: Appearance
-  - type: Battery
-    maxCharge: 1000
-    startingCharge: 1000
-  - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/laser_gun.rsi #imp edits end
   - type: StaticPrice
-    price: 420
+    price: 300
   - type: HitscanBatteryAmmoProvider
-    proto: RedLaser
-    fireCost: 62.5
+    proto: RedLaserPractice
+    fireCost: 10 #imp
+  - type: PacifismAllowedGun
+  # imp edit start
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/laser_practice.rsi #imp
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/laser_practice.rsi #imp
+  - type: Battery
+    maxCharge: 160
+    startingCharge: 160
+  # imp edit end
 
 - type: entity
   name: PXS-21 pulse pistol #imp
@@ -693,6 +687,7 @@
     tags:
     - Taser
     - Sidearm
+  - type: PacifismAllowedGun
   - type: MeleeWeapon #imp; for pistolwhip anim
     wideAnimationRotation: -80
 
@@ -726,6 +721,7 @@
     guides:
     - Security
     - Antagonists
+  - type: PacifismAllowedGun
 
 - type: entity
   name: disabler SMG
@@ -766,6 +762,7 @@
   - type: Appearance
   - type: StaticPrice
     price: 260
+  - type: PacifismAllowedGun
 
 - type: entity
   name: taser

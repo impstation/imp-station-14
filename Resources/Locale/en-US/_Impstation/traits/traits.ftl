@@ -1,9 +1,6 @@
 trait-heavyweightdrunk-name = Heavyweight drunk
 trait-heavyweightdrunk-desc = Alcohol has less of an effect on you.
 
-trait-hemophilia-name = Hemophilia
-trait-hemophilia-desc = Your blood does not clot properly, and it is harder to stop bleeding.
-
 trait-pain-insensitivity-name = Pain Insensitivity
 trait-pain-insensitivity-desc = You are unaware of the status of your health at all times.
 

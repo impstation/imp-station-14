@@ -428,10 +428,11 @@
   - type: Pullable
 #trying to float
   - type: MovementIgnoreGravity # nyoom
-    gravityState: true
+    weightless: true
   - type: Physics
     bodyStatus: InAir
   - type: FloatingVisuals
+    canFloat: True
 
 # flora color variants
 - type: entity
