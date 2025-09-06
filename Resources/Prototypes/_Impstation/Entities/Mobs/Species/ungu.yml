@@ -1,0 +1,199 @@
+- type: entity
+  save: false
+  name: Urist, Mc Base Mob
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobUngu
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Ungu/parts.rsi
+    noRot: true
+    drawdepth: Mobs
+    scale: 1, 1
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: null
+    - map: [ "enum.HumanoidVisualLayers.TailUnderlay" ] # imp
+    - map: [ "enum.HumanoidVisualLayers.TailBehind" ] # Floof
+    - map: [ "enum.HumanoidVisualLayers.Chest" ]
+    - map: [ "enum.HumanoidVisualLayers.RArm" ]
+    - map: [ "enum.HumanoidVisualLayers.LArm" ]
+    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
+    - map: ["jumpsuit"]
+    - map: ["enum.HumanoidVisualLayers.LFoot"]
+    - map: ["enum.HumanoidVisualLayers.RFoot"]
+    - map: ["enum.HumanoidVisualLayers.LHand"]
+    - map: ["enum.HumanoidVisualLayers.RHand"]
+    - map: [ "gloves" ]
+    - map: [ "shoes" ]
+    - map: [ "belt" ]
+    - map: [ "id" ]
+    - map: [ "outerClothing" ]
+    - map: [ "enum.HumanoidVisualLayers.TailBehindBackpack" ] # imp
+    - map: [ "back" ]
+    - map: [ "enum.HumanoidVisualLayers.TailOversuit" ] # Floof
+    - map: [ "neck" ]
+    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+    - map: [ "enum.HumanoidVisualLayers.Hair" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+    - map: [ "enum.HumanoidVisualLayers.Head" ]
+    - map: [ "enum.HumanoidVisualLayers.Snout" ]
+    - map: [ "head" ]
+    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+    - map: [ "mask" ]
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
+    - map: [ "ears" ]
+    - map: [ "eyes" ]
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+    - map: [ "clownedon" ] # Dynamically generated
+      sprite: "Effects/creampie.rsi"
+      state: "creampie_human"
+      visible: false
+    - map: ["enum.CombatModeVisualsVisuals.Combat"]
+      state: angry
+      visible: false
+  - type: CombatModeSprint
+    acceleration: 7
+    doImpactDamage: true
+    beginCombatMessage: "ungu-begin-combat-popup"
+  - type: CombatMode
+  - type: CombatModeVisuals
+    hideBaseLayer: true
+  - type: MeleeWeapon
+    attackRate: 0.6
+    soundHit:
+      collection: Punch
+    angle: 30
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Blunt: 6
+        Structural: 10
+  - type: DamageOtherOnHit
+  - type: MeleeThrowOnHit
+    unanchorOnHit: False
+    speed: 4
+    distance: 2
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Critical
+      250: Dead
+  - type: StaminaDamageOnHit
+    damage: 20
+  - type: GoobAbsorbable
+    biomassRestored: 0.8
+  - type: Hunger
+  - type: Thirst
+  - type: Icon
+    sprite: _Impstation/Mobs/Species/Ungu/parts.rsi
+    state: full
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 2
+    damageRecovery:
+      types:
+        Asphyxiation: -1.0
+  - type: Body
+    prototype: Ungu
+    requiredLegs: 2
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeat
+      amount: 1
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 300 # this matches diona
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Vocal
+    sounds:
+      Male: Ungu
+      Female: Ungu
+      Unsexed: Ungu
+  - type: BodyEmotes
+    soundsId: UnguBodyEmotes
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Ungu
+  - type: Temperature
+    heatDamageThreshold: 340
+    coldDamageThreshold: 150
+    currentTemperature: 310
+    specificHeat: 42
+    coldDamage:
+      types:
+        Cold : 0.4 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat : 1.5 #per second, scales with temperature & other constants
+  - type: Bloodstream
+    bloodReagent: Blood
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite:  _Impstation/Mobs/Effects/ungu_brute_damage.rsi
+        color: "#ff624a"
+  - type: Tag
+    tags:
+      - DoorBumpOpener
+      - CanPilot
+      - FootstepSound
+      - AnomalyHost
+  - type: Speech
+    speechSounds: Ungu
+  - type: TypingIndicator
+    proto: Ungu
+  - type: HumanoidAppearance
+    species: Ungu
+    hideLayersOnEquip:
+    - Snout
+    - HeadTop
+  - type: JumpAbility
+    jumpDistance: 4
+    jumpSound: /Audio/Effects/stealthoff.ogg
+  - type: ActionGrant
+    actions:
+    - ActionDash
+  - type: Inventory
+    speciesId: ungu
+    templateId: ungu
+    displacements:
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
+            state: hands
+
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobUnguDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HumanoidAppearance
+    species: Ungu
+  - type: Body
+    prototype: Ungu
+  - type: Inventory
+    speciesId: ungu
+    templateId: ungu

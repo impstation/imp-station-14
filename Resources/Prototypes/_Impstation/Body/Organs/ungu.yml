@@ -1,0 +1,40 @@
+- type: entity
+  id: OrganUnguStomach
+  parent: OrganAnimalStomach
+  name: ungu stomach
+  description: A lot going on here.
+  components:
+  - type: Sprite
+    state: primarygullet #where is this even pointing to, to do add new one later
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 80
+      food:
+        maxVol: 8
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: Stomach
+    isSpecialDigestibleExclusive: true
+    specialDigestible:
+      tags:
+      - Fruit
+      - Pill
+      - Crayon
+      - Paper
+      - BananaPeel
+      - Ruminant
+      - Wheat
+      - Vegetable
+  - type: Metabolizer
+    maxReagents: 5
+    metabolizerTypes: [ Animal ]
+    groups:
+    - id: Food
+    - id: Drink
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Stomach
