@@ -20,7 +20,8 @@
       organs:
         heart: OrganColonidHeart
         lungs: OrganColonidLungs
-        liver: OrganColonidLiver
+        stomach: OrganColonidStomach
+        #liver: OrganColonidLiver - for later if I want to do something with it
     right_arm:
       part: RightArmHuman
       connections:

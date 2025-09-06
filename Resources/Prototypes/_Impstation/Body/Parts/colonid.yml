@@ -1,90 +1,111 @@
 - type: entity
-  id: OrganColonidLungs
-  parent: BaseHumanOrgan
-  name: fungal frills
-  description: "Oozes slightly when you squeeze it."
+  id: PartColonid
+  parent: [BaseItem, BasePart]
+  name: "colonid body part"
+  abstract: true
   components:
-  - type: Sprite
-    layers:
-      - state: lung-l
-      - state: lung-r
-  - type: Item
-    size: Small
-    heldPrefix: lungs
-  - type: Lung
-  - type: Metabolizer
-    removeEmpty: true
-    solutionOnBody: false
-    solution: "Lung"
-    metabolizerTypes: [ Colonid ]
-    groups:
-    - id: Gas
-    - id: Drink
-    - id: Medicine
-    - id: Poison
-      rateModifier: 100.0
-  - type: SolutionContainerManager
-    solutions:
-      organ:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-      Lung:
-        maxVol: 100.0
-        canReact: false
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 5
-  - type: Tag # goob edit
-    tags:
-    - Meat
-    - Organ
-    - Lungs
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Plasma
+        Quantity: 10
 
 - type: entity
-  id: OrganColonidHeart
-  parent: BaseHumanOrgan
-  name: fungal sac
-  description: "Why is it pulsating?"
+  id: TorsoColonid
+  name: "colonid torso"
+  parent: [PartColonid, BaseTorso]
   components:
   - type: Sprite
-    state: heart-on
-  - type: Metabolizer
-    maxReagents: 2
-    metabolizerTypes: [Human]
-    groups: # this ain't your grandpa's heart
-    - id: Food
-    - id: Narcotic
-  - type: Tag # goob edit
-    tags:
-    - Meat
-    - Organ
-    - Heart
-  - type: Item
-    size: Small
-    heldPrefix: heart
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "torso_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Plasma
+        Quantity: 20
 
 - type: entity
-  id: OrganColonidLiver
-  parent: BaseHumanOrgan
-  name: prosthetic liver
-  description: "A synthetic liver developed by NT scientist to see what would happen if you got a colonid drunk. Now they all want one."
+  id: HeadColonid
+  name: "colonid head"
+  parent: [PartColonid, BaseHead]
   components:
   - type: Sprite
-    state: liver
-  - type: Item
-    size: Small
-    heldPrefix: liver
-  - type: Metabolizer 
-    maxReagents: 1
-    metabolizerTypes: [Human]
-    groups:
-    - id: Alcohol
-      rateModifier: 200.0 # this number is a complete guess. I just want them to metabolize alcohol pretty quickly, so they get drunk faster
-  - type: Tag 
-    tags:
-      - Meat
-      - Organ
-      - Liver
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "head_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Plasma
+        Quantity: 10
+
+- type: entity
+  id: LeftArmColonid
+  name: "left colonid arm"
+  parent: [PartColonid, BaseLeftArm]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "l_arm"
+
+- type: entity
+  id: RightArmColonid
+  name: "right colonid arm"
+  parent: [PartColonid, BaseRightArm]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "r_arm"
+
+- type: entity
+  id: LeftHandColonid
+  name: "left colonid hand"
+  parent: [PartColonid, BaseLeftHand]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "l_hand"
+
+- type: entity
+  id: RightHandColonid
+  name: "right colonid hand"
+  parent: [PartColonid, BaseRightHand]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "r_hand"
+
+- type: entity
+  id: LeftLegColonid
+  name: "left colonid leg"
+  parent: [PartColonid, BaseLeftLeg]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "l_leg"
+
+- type: entity
+  id: RightLegColonid
+  name: "right colonid leg"
+  parent: [PartColonid, BaseRightLeg]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "r_leg"
+
+- type: entity
+  id: LeftFootColonid
+  name: "left colonid foot"
+  parent: [PartColonid, BaseLeftFoot]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "l_foot"
+
+- type: entity
+  id: RightFootColonid
+  name: "right colonid foot"
+  parent: [PartColonid, BaseRightFoot]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "r_foot"
