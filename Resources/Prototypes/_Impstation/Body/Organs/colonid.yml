@@ -1,0 +1,122 @@
+- type: entity
+  id: OrganColonidLungs
+  parent: BaseHumanOrgan
+  name: fungal frills
+  description: "Oozes slightly when you squeeze it."
+  components:
+  - type: Sprite
+    layers:
+      - state: lung-l
+      - state: lung-r
+  - type: Item
+    size: Small
+    heldPrefix: lungs
+  - type: Lung
+  - type: Metabolizer
+    removeEmpty: true
+    solutionOnBody: false
+    solution: "Lung"
+    metabolizerTypes: [Colonid]
+    groups:
+    - id: Gas
+      rateModifier: 100.0
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      Lung:
+        maxVol: 100.0
+        canReact: false
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Lungs
+
+- type: entity
+  id: OrganColonidHeart
+  parent: BaseHumanOrgan
+  name: fungal sac
+  description: "Why is it pulsating?"
+  components:
+  - type: Sprite
+    state: heart-on
+  - type: Metabolizer
+    maxReagents: 2
+    metabolizerTypes: [Human]
+    groups: # this ain't your grandpa's heart
+    - id: Food
+    - id: Narcotic
+    - id: Alcohol
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Heart
+  - type: Item
+    size: Small
+    heldPrefix: heart
+
+- type: entity
+  id: OrganColonidStomach
+  parent: BaseHumanOrgan
+  name: fungal tendrils
+  description: "Like a handful of squid."
+  components:
+  - type: Sprite
+    state: stomach
+  - type: Item
+    size: Small
+    heldPrefix: stomach
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 50
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: Stomach
+  - type: Metabolizer
+    maxReagents: 3
+    metabolizerTypes: [Human]
+    groups:
+    - id: Drink
+    - id: Medicine
+    - id: Poison
+  - type: Tag 
+    tags:
+      - Meat
+      - Organ
+      - Stomach
+
+# - type: entity           -- for later if I want to do something with it
+#   id: OrganColonidLiver
+#   parent: BaseHumanOrgan
+#   name: prosthetic liver
+#   description: "A synthetic liver developed by NT scientist to see what would happen if you got a colonid drunk. Now they all want one."
+#   components:
+#   - type: Sprite
+#     state: liver
+#   - type: Item
+#     size: Small
+#     heldPrefix: liver
+#   - type: Metabolizer 
+#     maxReagents: 1
+#     metabolizerTypes: [Human]
+#     groups:
+#     - id: Alcohol
+#       rateModifier: 200.0 # this number is a complete guess. I just want them to metabolize alcohol pretty quickly, so they get drunk faster
+#   - type: Tag 
+#     tags:
+#       - Meat
+#       - Organ
+#       - Liver

@@ -1,0 +1,34 @@
+- type: entity
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobColonid
+  name: Urist McPlasma
+  abstract: true
+  components:
+  - type: GoobAbsorbable
+  - type: Icon 
+    sprite: Mobs/Species/Human/parts.rsi
+    state: full
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatHuman
+      amount: 5
+  - type: HumanoidAppearance
+    species: Human
+  - type: Inventory
+  - type: Body
+    prototype: Colonid
+    requiredLegs: 2
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Colonid
+  - type: Bloodstream
+    bloodReagent: Plasma
+  - type: Carriable # Carrying system from nyanotrasen.
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobColonidDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Inventory

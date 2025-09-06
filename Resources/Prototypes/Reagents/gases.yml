@@ -125,10 +125,24 @@
   metabolisms:
     Poison:
       effects:
+      - !type:Oxygenate # imp, colonids do be breathing plasma, eh?
+        conditions:
+        - !type:OrganType
+          type: Colonid
       - !type:HealthChange
+        conditions: # imp, and thus they shouldn't be poisoned by what they breathe
+        - !type:OrganType
+          type: Colonid
+          shouldHave: false
         damage:
           types:
             Poison: 3
+      - !type:ModifyBloodLevel # imp
+        conditions:
+        - !type:OrganType
+          type: Colonid
+          shouldHave: true
+        amount: 0.48 # imp Restores plasma at a 24:25 ratio. Get sipping, boy.
       - !type:AdjustReagent
         reagent: Inaprovaline
         amount: -2.0
