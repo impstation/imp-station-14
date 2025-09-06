@@ -1,11 +1,10 @@
 using Content.Server.Atmos.Rotting;
-using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Forensics;
 using Content.Server.Popups;
-using Content.Shared._Impstation.Kodepiia;
+using Content.Shared._Impstation.Consume;
 using Content.Shared._Impstation.Kodepiia.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
@@ -17,15 +16,15 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
-using Content.Shared.Silicons.Laws.Components;
+using Content.Shared.Whitelist;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 
-namespace Content.Server._Impstation.Kodepiia;
+namespace Content.Server._Impstation.Consume;
 
-public sealed class KodepiiaConsumeSystem : SharedKodepiiaConsumeSystem
+public sealed class ConsumeSystem : SharedConsumeSystem
 {
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
@@ -39,26 +38,23 @@ public sealed class KodepiiaConsumeSystem : SharedKodepiiaConsumeSystem
     [Dependency] private readonly IngestionSystem _ingestion = default!;
     [Dependency] private readonly StomachSystem _stomach = default!;
     [Dependency] private readonly PuddleSystem _puddle = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+
+    /// <summary>
+    /// Percentage of Bloodstream to drink when consuming.
+    /// </summary>
+    private const float PortionDrunk = 0.1f;
+
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<KodepiiaConsumeActionComponent, KodepiiaConsumeEvent>(Consume);
-        SubscribeLocalEvent<KodepiiaConsumeActionComponent, KodepiiaConsumeDoAfterEvent>(ConsumeDoafter);
+        SubscribeLocalEvent<Shared._Impstation.Consume.Components.ConsumeActionComponent, ConsumeEvent>(Consume);
+        SubscribeLocalEvent<Shared._Impstation.Consume.Components.ConsumeActionComponent, ConsumeDoAfterEvent>(ConsumeDoafter);
     }
 
-    private bool KodepiiaTarget(EntityUid target)
-    {
-        if (!TryComp<RespiratorComponent>(target, out _))
-            return false;
-        if (!TryComp<BloodstreamComponent>(target, out _))
-            return false;
-
-        return !TryComp<SiliconLawBoundComponent>(target, out _);
-    }
-
-    public void Consume(Entity<KodepiiaConsumeActionComponent> ent, ref KodepiiaConsumeEvent args)
+    public void Consume(Entity<Shared._Impstation.Consume.Components.ConsumeActionComponent> ent, ref ConsumeEvent args)
     {
         if (!_ingestion.HasMouthAvailable(args.Performer, args.Performer))
         {
@@ -66,7 +62,7 @@ public sealed class KodepiiaConsumeSystem : SharedKodepiiaConsumeSystem
             return;
         }
 
-        if (!KodepiiaTarget(args.Target))
+        if (!_whitelist.CheckBoth(args.Target, ent.Comp.Blacklist, ent.Comp.Whitelist))
         {
             _popup.PopupEntity(Loc.GetString("kodepiia-consume-fail-inedible", ("target", Identity.Entity(args.Target, EntityManager))), ent, ent);
             return;
@@ -83,7 +79,10 @@ public sealed class KodepiiaConsumeSystem : SharedKodepiiaConsumeSystem
         if (!TryComp<PhysicsComponent>(args.Target, out var targetPhysics))
             return;
 
-        var doargs = new DoAfterArgs(EntityManager, ent, targetPhysics.Mass / 8, new KodepiiaConsumeDoAfterEvent(), ent, args.Target)
+        if (!TryComp<PhysicsComponent>(args.Performer, out var performerPhysics))
+            return;
+
+        var doargs = new DoAfterArgs(EntityManager, ent, targetPhysics.Mass / performerPhysics.Mass * ent.Comp.BaseConsumeSpeed, new ConsumeDoAfterEvent(), ent, args.Target)
         {
             DistanceThreshold = 1.5f,
             BreakOnDamage = true,
@@ -103,7 +102,7 @@ public sealed class KodepiiaConsumeSystem : SharedKodepiiaConsumeSystem
         args.Handled = true;
     }
 
-    public void ConsumeDoafter(Entity<KodepiiaConsumeActionComponent> ent, ref KodepiiaConsumeDoAfterEvent args)
+    public void ConsumeDoafter(Entity<Shared._Impstation.Consume.Components.ConsumeActionComponent> ent, ref ConsumeDoAfterEvent args)
     {
         if (args.Target == null || args.Cancelled || !TryComp<PhysicsComponent>(args.Target, out var targetPhysics))
             return;
@@ -134,21 +133,20 @@ public sealed class KodepiiaConsumeSystem : SharedKodepiiaConsumeSystem
         }
 
         // Drink Bloodstream
-        _solutionContainer.TryGetSolution(args.Target.Value, "bloodstream", out var targetSolutionComp, out var targetBloodstream);
+        _solutionContainer.TryGetSolution(args.Target.Value, ent.Comp.SolutionToDrinkFrom, out var targetSolutionComp, out var targetBloodstream);
         if (targetBloodstream != null && targetSolutionComp != null)
         {
-            const float portionDrunk = 0.1f;
-            var amountOfUncookedProtein = targetPhysics.Mass * 0.15f;
+            var foodReagentQuantity = targetPhysics.Mass * ent.Comp.MeatMultiplier;
 
-            var consumedSolution = _solutionContainer.SplitSolution(targetSolutionComp.Value, targetBloodstream.Volume * portionDrunk);
+            var consumedSolution = _solutionContainer.SplitSolution(targetSolutionComp.Value, targetBloodstream.Volume * PortionDrunk);
 
             if (_rotting.IsRotten(args.Target.Value))
             {
-                consumedSolution.AddReagent("GastroToxin", amountOfUncookedProtein * 0.5f);
-                amountOfUncookedProtein *= 0.5f;
+                consumedSolution.AddReagent(ent.Comp.Toxin, foodReagentQuantity * ent.Comp.ToxinRatio);
+                foodReagentQuantity *= 1 - ent.Comp.ToxinRatio; // this math is bad i just know it
             }
 
-            consumedSolution.AddReagent("UncookedAnimalProteins", amountOfUncookedProtein);
+            consumedSolution.AddReagent(ent.Comp.FoodReagentPrototype, foodReagentQuantity);
 
             if (consumedSolution.Volume > highestAvailable)
             {
@@ -173,13 +171,13 @@ public sealed class KodepiiaConsumeSystem : SharedKodepiiaConsumeSystem
         _popup.PopupEntity(popupOthers, ent, Filter.Pvs(ent).RemovePlayersByAttachedEntity(ent), true, PopupType.LargeCaution);
 
         //Consumed Componentry Stuff lol
-        EnsureComp<KodepiiaConsumedComponent>(args.Target.Value, out var consumed);
+        EnsureComp<Shared._Impstation.Consume.Components.ConsumedComponent>(args.Target.Value, out var consumed);
         consumed.TimesConsumed += 1;
-        if (consumed.TimesConsumed >= 12 && TryComp<BodyComponent>(args.Target.Value, out var targetBody) && ent.Comp.CanGib)
+        if (consumed.TimesConsumed >= ent.Comp.MaxGibCount && TryComp<BodyComponent>(args.Target.Value, out var targetBody) && ent.Comp.CanGib)
             _body.GibBody(args.Target.Value,true,targetBody);
     }
 
-    public void PlayMeatySound(Entity<KodepiiaConsumeActionComponent> ent)
+    public void PlayMeatySound(Entity<Shared._Impstation.Consume.Components.ConsumeActionComponent> ent)
     {
         var soundPool = new SoundCollectionSpecifier("gib");
         _audio.PlayPvs(soundPool, ent, AudioParams.Default.WithVolume(-3f));

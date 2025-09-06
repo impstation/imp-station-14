@@ -7,12 +7,21 @@
   components:
   - type: HarpySinger
   - type: KodepiiaScrambler
-  - type: KodepiiaConsumeAction
+  - type: ConsumeAction
+    consumeActionId: ActionKodepiiaConsume
     damage:
       groups:
         Genetic: 15
       types:
         Piercing: 15
+    canGib: true
+    whitelist:
+      components:
+      - Respirator
+      - Bloodstream
+    blacklist:
+      components:
+      - SiliconLawBound
   - type: Instrument
     allowPercussion: false
     program: 52
@@ -109,8 +118,8 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.32
-        density: 150
+          radius: 0.35
+        density: 175
         restitution: 0.0
         mask:
         - MobMask
