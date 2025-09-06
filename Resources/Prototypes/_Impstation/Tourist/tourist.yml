@@ -1,7 +1,7 @@
 - type: antag
   id: Tourist
   name: roles-tourist-name
-  antagonist: true
+  antagonist: false
   setPreference: false
   playTimeTracker: AntagTourist # this should probably just be tourist
   objective: roles-tourist-objective

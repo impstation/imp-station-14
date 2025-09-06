@@ -45,6 +45,7 @@
   name: Tourist Role
   components:
   - type: MindRole
+    antag: true
     antagPrototype: Tourist
     roleType: FreeAgent
   - type: TouristRole
