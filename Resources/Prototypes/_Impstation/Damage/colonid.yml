@@ -1,0 +1,11 @@
+- type: damageModifierSet
+  id: Colonid
+  coefficients:
+    Blunt: 1.5
+    Slash: 1.2
+    Piercing: .9
+    Heat: 1.75
+    Cold: 1.2
+    Poison: 0 # immune to poison, HAPPY TO DISCUSS :>
+    Radiation: .4 # also happy to discuss if this is bad
+    Caustic: .9
