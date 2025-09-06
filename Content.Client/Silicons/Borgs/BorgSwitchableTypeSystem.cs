@@ -77,6 +77,15 @@ public sealed class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeSystem
             RemComp<SpriteMovementComponent>(entity);
         }
 
+        // Begin Impstation
+        if (TryComp<Content.Client.PDA.PdaBorderColorComponent>(entity, out var pdaBorders))
+        {
+            pdaBorders.BorderColor = prototype.PdaBorderColor ?? pdaBorders.BorderColor;
+            pdaBorders.AccentHColor = prototype.PdaAccentHorizontalColor ?? pdaBorders.AccentHColor;
+            pdaBorders.AccentVColor = prototype.PdaAccentVerticalColor ?? pdaBorders.AccentVColor;
+        }
+        // End Impstation
+
         base.UpdateEntityAppearance(entity, prototype);
     }
 }
