@@ -13,6 +13,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Numerics;
+using Content.Server._Goobstation.Heretic.Components;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -57,7 +58,7 @@ public sealed partial class AristocratSystem : EntitySystem
         var lookup = _lookup.GetEntitiesInRange(Transform(ent).Coordinates, ent.Comp.Range);
         foreach (var look in lookup)
         {
-            if (HasComp<HereticComponent>(look) || HasComp<GhoulComponent>(look))
+            if (HasComp<HereticComponent>(look) || HasComp<MinionComponent>(look))
                 continue;
 
             if (TryComp<TemperatureComponent>(look, out var temp))
@@ -65,18 +66,18 @@ public sealed partial class AristocratSystem : EntitySystem
 
             _statusEffect.TryAddStatusEffect<MutedComponent>(look, "Muted", TimeSpan.FromSeconds(5), true);
 
-            if (TryComp<TagComponent>(look, out var tag))
-            {
-                var tags = tag.Tags;
+            if (!TryComp<TagComponent>(look, out var tag))
+                continue;
 
-                // replace walls with snow ones
-                if (_rand.Prob(.45f) && tags.Contains("Wall")
-                && Prototype(look) != null && Prototype(look)!.ID != ent.Comp.SnowWallPrototype)
-                {
-                    Spawn(ent.Comp.SnowWallPrototype, Transform(look).Coordinates);
-                    QueueDel(look);
-                }
-            }
+            var tags = tag.Tags;
+
+            // check if wall
+            if (!_rand.Prob(.45f) || !tags.Contains("Wall") || Prototype(look) == null
+                || Prototype(look)!.ID == ent.Comp.SnowWallPrototype)
+                continue;
+            // replace wall
+            Spawn(ent.Comp.SnowWallPrototype, Transform(look).Coordinates);
+            QueueDel(look);
         }
     }
 
