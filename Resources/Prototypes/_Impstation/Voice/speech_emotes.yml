@@ -178,3 +178,23 @@
   - mutters
   - muttered
   - muttering
+
+#Diona
+- type: emote
+  id: Multichirp
+  name: chat-emote-name-multichirp
+  category: Vocal
+  available: false
+  icon: _Impstation/Interface/Emotes/chirp.png #imp
+  whitelist:
+    components:
+    - Nymph
+    - Vocal
+  blacklist:
+    tags:
+    - SiliconEmotes
+  chatMessages: ["chat-emote-msg-multichirp"]
+  chatTriggers:
+    - chirps a chorus
+    - chirps in a chorus
+    - chorus of chirps
