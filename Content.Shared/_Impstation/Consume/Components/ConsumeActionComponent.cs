@@ -55,17 +55,23 @@ public sealed partial class ConsumeActionComponent : Component
     public string SolutionToDrinkFrom = "bloodstream";
 
     /// <summary>
-    /// Max amount of times a body can be consumed before they gib.
-    /// </summary>
-    [DataField]
-    public int MaxGibCount = 12;
-
-    /// <summary>
     /// Body mass is multiplied by this to get the amount of
     /// food reagent you should get when eating a corpse.
     /// </summary>
     [DataField]
     public float MeatMultiplier = 0.25f;
+
+    [DataField]
+    public string? PopupSelfStart;
+
+    [DataField]
+    public string? PopupOthersStart;
+
+    [DataField]
+    public string? PopupSelfEnd;
+
+    [DataField]
+    public string? PopupOthersEnd;
 
     [DataField]
     public bool CanGib;

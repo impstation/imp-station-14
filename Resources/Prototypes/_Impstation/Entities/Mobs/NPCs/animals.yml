@@ -331,6 +331,10 @@
     raffle:
       settings: short
   - type: ConsumeAction
+    popupSelfStart: kodepiia-consume-start-self
+    popupSelfEnd: kodepiia-consume-end-self
+    popupOthersStart: kodepiia-consume-start-others
+    popupOthersEnd: kodepiia-consume-end-self
     consumeActionId: ActionKodepiiaConsume
     damage:
       groups:
