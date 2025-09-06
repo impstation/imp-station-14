@@ -469,4 +469,75 @@
   - sprite: _Impstation/Mobs/Customization/Arachnid/tail.rsi
     state: scorpion
 
+- type: marking
+  id: AppendagesProsthesis
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Arachnid ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#E4E4E4"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Arachnid/tail.rsi
+    state: prosthesis1
+  - sprite: _Impstation/Mobs/Customization/Arachnid/tail.rsi
+    state: prosthesis2
+  - sprite: _Impstation/Mobs/Customization/Arachnid/tail.rsi
+    state: prosthesis3
+  - sprite: _Impstation/Mobs/Customization/Arachnid/tail.rsi
+    state: prosthesis4
+
+- type: marking
+  id: AppendagesHSAug
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Arachnid ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#E4E4E4"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Arachnid/tail.rsi
+    state: hsaug1
+  - sprite: _Impstation/Mobs/Customization/Arachnid/tail.rsi
+    state: hsaug2
+
+- type: marking
+  id: AppendagesNTAug
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Arachnid ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#E4E4E4"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Arachnid/tail.rsi
+    state: ntaug1
+  - sprite: _Impstation/Mobs/Customization/Arachnid/tail.rsi
+    state: ntaug2
+  - sprite: _Impstation/Mobs/Customization/Arachnid/tail.rsi
+    state: ntaug3
+
+- type: marking
+  id: AppendagesMakeshift
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Arachnid ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#E4E4E4"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Arachnid/tail.rsi
+    state: makeshift1
+  - sprite: _Impstation/Mobs/Customization/Arachnid/tail.rsi
+    state: makeshift2
+  - sprite: _Impstation/Mobs/Customization/Arachnid/tail.rsi
+    state: makeshift3
 # RArmExtension
