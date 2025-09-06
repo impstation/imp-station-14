@@ -64,7 +64,7 @@
 - type: entity
   parent: Windoor
   id: WindoorCargoLocked
-  suffix: Cargo, Locked
+  suffix: Supply, Locked #imp, cargo to supply
   components:
   - type: ContainerFill
     containers:
@@ -211,7 +211,7 @@
 - type: entity
   parent: WindoorSecure
   id: WindoorSecureCargoLocked
-  suffix: Cargo, Locked
+  suffix: Supply, Locked #imp, cargo to supply
   components:
   - type: ContainerFill
     containers:

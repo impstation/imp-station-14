@@ -1,5 +1,6 @@
 # All spelling mistakes and broken english are intentional!
 # I hate saving paper contents in ftl files
+# Imp edit, change reference to cargo department to supply department
 
 ## Headers and reusable elements
 
@@ -105,13 +106,13 @@ delivery-spam-5 =   FREE ALL AXCESS!!
                     {"[head=2]Well NOW YOU CAN!![/head]!"}
 
                     All you need to do is call [color=blue]555-GOUR-LECKSSS[/color] and state your Staton ID# !!!
-                    Once youve done that,  we can simply remotely query the wallet of Yourstation's Cargo department, extacting our required fees of three [italic] EASY[/italic] payments, allowing you to claim your
+                    Once youve done that,  we can simply remotely query the wallet of Yourstation's Supply department, extacting our required fees of three [italic] EASY[/italic] payments, allowing you to claim your
                     {"[head=2][color=green] [bolditalic] FREE AA!!!!!!!!!![/bolditalic][/color][/head]"}
 
 
                     {"[color=gray]"}
                     {"[bullet/]Note: station ID must be stated in the format of \"NT/NX - ###\""}
-                    {"[bullet/]Note: Payments lodged to the client's station's cargo department amount to roughly $5000 spesos per transaction, not including individual processing fees"}
+                    {"[bullet/]Note: Payments lodged to the client's station's supply department amount to roughly $5000 spesos per transaction, not including individual processing fees"}
                     {"[bullet/]Note: We at Gour-Lecksss LMT. are not responsible if your station's HoP forces you to fill out an ACTUAL Free AA form if they find out about this letter"}
                     {"[/color]"}
 

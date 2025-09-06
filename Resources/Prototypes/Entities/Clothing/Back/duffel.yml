@@ -144,7 +144,7 @@
   parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelCargo
   name: cargo duffel bag
-  description: A large duffel bag for stealing cargo's precious loot.
+  description: A large duffel bag for stealing supply's precious loot. #cargo to supply
   components:
     - type: Sprite
       sprite: Clothing/Back/Duffels/cargo.rsi

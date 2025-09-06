@@ -24,4 +24,4 @@ pai-system-role-name-learner-command = captain's personal learner ai
 pai-system-role-description-learner-command = Ask questions and learn your way around command, all as a special electronic pal!
 
 pai-system-role-name-learner-cargo = quartermaster's personal learner ai
-pai-system-role-description-learner-cargo = Ask questions and learn your way around the cargo department, all as a special electronic pal!
+pai-system-role-description-learner-cargo = Ask questions and learn your way around the supply department, all as a special electronic pal!

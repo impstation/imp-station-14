@@ -153,7 +153,7 @@
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelCargo
   name: cargo satchel
-  description: A robust satchel for stealing cargo's loot.
+  description: A robust satchel for stealing supply's loot. #imp, cargo to supply
   components:
     - type: Sprite
       sprite: Clothing/Back/Satchels/cargo.rsi

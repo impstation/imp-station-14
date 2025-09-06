@@ -732,7 +732,7 @@
   - type: CommunicationsConsole
     title: comms-console-announcement-title-command # imp
   - type: DeviceNetwork
-    deviceNetId: Wireless    
+    deviceNetId: Wireless
     transmitFrequencyId: ShuttleTimer
   - type: ActivatableUI
     key: enum.CommunicationsConsoleUiKey.Key
@@ -984,7 +984,7 @@
     energy: 1.6
     color: "#b89f25"
   - type: AccessReader
-    access: [["Logistics"]] #Imp
+    access: [["CargoShuttle"]] #Imp
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: BasicDevice

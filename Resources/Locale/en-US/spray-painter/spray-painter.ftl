@@ -64,7 +64,8 @@ spray-painter-tab-group-walllocker = Secure (Wall)
 # Airlocks
 spray-painter-style-airlockstandard-atmospherics = Atmospheric
 spray-painter-style-airlockstandard-basic = Basic
-spray-painter-style-airlockstandard-cargo = Cargo
+#imp edit, cargo to supply
+spray-painter-style-airlockstandard-cargo = Supply
 spray-painter-style-airlockstandard-chemistry = Chemistry
 spray-painter-style-airlockstandard-command = Command
 spray-painter-style-airlockstandard-engineering = Engineering
@@ -79,7 +80,8 @@ spray-painter-style-airlockstandard-virology = Virology
 
 spray-painter-style-airlockglass-atmospherics = Atmospherics
 spray-painter-style-airlockglass-basic = Basic
-spray-painter-style-airlockglass-cargo = Cargo
+#imp edit, cargo to supply
+spray-painter-style-airlockglass-cargo = Supply
 spray-painter-style-airlockglass-chemistry = Chemistry
 spray-painter-style-airlockglass-command = Command
 spray-painter-style-airlockglass-engineering = Engineering

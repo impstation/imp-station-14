@@ -202,7 +202,7 @@
 - type: entity
   parent: AirlockGlass
   id: AirlockCargoGlass
-  suffix: Cargo
+  suffix: Supply #imp, cargo to supply
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Glass/cargo.rsi
