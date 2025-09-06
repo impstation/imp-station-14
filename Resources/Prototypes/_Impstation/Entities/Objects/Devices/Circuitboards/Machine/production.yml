@@ -11,7 +11,7 @@
 
 - type: entity
   id: ServiceTechFabCircuitboard
-  parent: BaseMachineCircuitboard
+  parent: [ BaseMachineCircuitboard, BaseServiceContraband ]
   name: service techfab machine board
   description: A machine printed circuit board for a Service techfab.
   components:
@@ -60,7 +60,7 @@
       Glass: 1
 
 - type: entity
-  parent: BaseMachineCircuitboard
+  parent: [ BaseMachineCircuitboard, BaseCommandContraband ]
   id: PortableCutterMachineCircuitboard
   name: portable cutter machine board
   description: A machine printed circuit board for a portable cutter machine.
