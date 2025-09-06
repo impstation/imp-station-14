@@ -137,12 +137,12 @@
         damage:
           types:
             Poison: 3
-      - !type:ModifyBloodLevel # imp
-        conditions:
-        - !type:OrganType
-          type: Colonid
-          shouldHave: true
-        amount: 0.48 # imp Restores plasma at a 24:25 ratio. Get sipping, boy.
+      # - !type:ModifyBloodLevel # imp
+      #   conditions:
+      #   - !type:OrganType
+      #     type: Colonid
+      #     shouldHave: true
+      #   amount: 0.48 # imp Restores plasma at a 24:25 ratio. Get sipping, boy.
       - !type:AdjustReagent
         reagent: Inaprovaline
         amount: -2.0
