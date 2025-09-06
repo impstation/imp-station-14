@@ -14,8 +14,9 @@
     - id: FoodMeatHuman
       amount: 5
   - type: HumanoidAppearance
-    species: Human
+    species: Colonid
   - type: Inventory
+    speciesId: Human
   - type: Body
     prototype: Colonid
     requiredLegs: 2
