@@ -151,10 +151,18 @@
       - !type:HealthChange
         scaleByQuantity: true
         ignoreResistances: true
+        conditions: # imp,  colonids breathe the stuff, they shouldn't be poisoned by it
+        - !type:OrganType
+          type: Colonid
+          shouldHave: false
         damage:
           types:
             Poison:
               1
+      - !type:Oxygenate # imp, colonids do be breathing plasma, eh?
+        conditions:
+        - !type:OrganType
+          type: Colonid
       - !type:Oxygenate #imp, thaven can breathe all gases safely
         conditions:
         - !type:OrganType
@@ -165,6 +173,9 @@
         conditions:
           - !type:ReagentThreshold
             min: 1.5
+          - !type:OrganType
+            type: Colonid
+            shouldHave: false
         clear: True
         time: 5
   reactiveEffects:
