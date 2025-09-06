@@ -51,3 +51,12 @@
   targetNode: eyesack
   category: construction-category-clothing
   objectType: Item
+
+# Detective Hardsuit
+- type: construction
+  id: detectivehardsuit
+  graph: detectivehardsuit
+  startNode: start
+  targetNode: detectivehardsuit
+  category: construction-category-clothing
+  objectType: Item
