@@ -201,6 +201,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
         {
             // todo: add more fluff
             QueueDel(args.Target);
+            args.Handled = true;
             return;
         }
 
