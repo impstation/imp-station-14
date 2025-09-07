@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/07/2025 05:27:55
-  entityCount: 25936
+  time: 09/07/2025 05:51:18
+  entityCount: 25948
 maps:
 - 1
 grids:
@@ -139547,6 +139547,13 @@ entities:
     - type: Transform
       pos: 34.5,-36.5
       parent: 2
+- proto: SpawnPointBrigmedic
+  entities:
+  - uid: 23462
+    components:
+    - type: Transform
+      pos: -18.5,-9.5
+      parent: 2
 - proto: SpawnPointCaptain
   entities:
   - uid: 20433
@@ -140022,6 +140029,65 @@ entities:
     components:
     - type: Transform
       pos: -54.5,8.5
+      parent: 2
+- proto: SpawnPointSecurityCadet
+  entities:
+  - uid: 23454
+    components:
+    - type: Transform
+      pos: -26.5,-4.5
+      parent: 2
+  - uid: 23455
+    components:
+    - type: Transform
+      pos: -25.5,-4.5
+      parent: 2
+  - uid: 23456
+    components:
+    - type: Transform
+      pos: -24.5,-4.5
+      parent: 2
+  - uid: 23459
+    components:
+    - type: Transform
+      pos: -34.5,-9.5
+      parent: 2
+  - uid: 23464
+    components:
+    - type: Transform
+      pos: -34.5,-0.5
+      parent: 2
+  - uid: 23468
+    components:
+    - type: Transform
+      pos: -32.5,-0.5
+      parent: 2
+- proto: SpawnPointSecurityOfficer
+  entities:
+  - uid: 23356
+    components:
+    - type: Transform
+      pos: -20.5,0.5
+      parent: 2
+  - uid: 23442
+    components:
+    - type: Transform
+      pos: -20.5,-0.5
+      parent: 2
+  - uid: 23449
+    components:
+    - type: Transform
+      pos: -20.5,-1.5
+      parent: 2
+  - uid: 23450
+    components:
+    - type: Transform
+      pos: -19.5,-0.5
+      parent: 2
+  - uid: 23453
+    components:
+    - type: Transform
+      pos: -19.5,-1.5
       parent: 2
 - proto: SpawnPointServiceWorker
   entities:
