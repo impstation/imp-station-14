@@ -28,6 +28,11 @@ public sealed class ThrowingSystem : EntitySystem
 
     private const float TileFrictionMod = 1.5f;
 
+    // ES START
+    public const float ESThrowSpinStep = 4f;
+
+    // ES END
+
     private float _frictionModifier;
     private float _airDamping;
 
@@ -184,7 +189,15 @@ public sealed class ThrowingSystem : EntitySystem
         {
             if (physics.InvI > 0f && (!TryComp(uid, out throwingAngle) || throwingAngle.AngularVelocity))
             {
-                _physics.ApplyAngularImpulse(uid, ThrowAngularImpulse / physics.InvI, body: physics);
+                // ES START
+                // We step the amount of 'full spins' according to distance
+                // less than 4m we dont want to spin at all, then 1 more full spin each 4 more
+                // this is so we can normalize the rotation to 0 at the end of the throw without it looking weird
+                // (we want to avoid arbitrarily rotated items where possible for readability reasons)
+                var spins = MathF.Floor(direction.Length() / ESThrowSpinStep);
+                if (spins > 0)
+                    _physics.ApplyAngularImpulse(uid, spins * MathF.Tau / (flyTime * physics.InvI), body: physics);
+                // ES END
             }
             else
             {
