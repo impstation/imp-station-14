@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared._Impstation.Throwing; // Imp
 using Content.Shared.Administration.Logs;
 using Content.Shared.Camera;
 using Content.Shared.CCVar;
@@ -14,6 +15,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Random; // imp
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Throwing;
@@ -31,6 +33,8 @@ public sealed class ThrowingSystem : EntitySystem
     private float _frictionModifier;
     private float _airDamping;
 
+    public const float ESThrowSpinStep = 4f; // ES
+
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly SharedGravitySystem _gravity = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
@@ -41,6 +45,7 @@ public sealed class ThrowingSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _configManager = default!;
 
     [Dependency] private readonly SharedStaminaSystem _stamina = default!; // imp
+    [Dependency] private readonly IRobustRandom _random = default!; // imp
 
     public override void Initialize()
     {
@@ -155,11 +160,17 @@ public sealed class ThrowingSystem : EntitySystem
         if (projectileQuery.TryGetComponent(uid, out var proj) && !proj.OnlyCollideWhenShot)
             return;
 
+        TryComp<UprightLandingComponent>(uid, out var uprightLanding);
+
         var comp = new ThrownItemComponent
         {
             Thrower = user,
             Animate = animated,
+            LandsUpright =
+                uprightLanding is { Chance: < 1 }
+                && uprightLanding.Chance >= _random.NextFloat(),
         };
+
 
         // if not given, get the default friction value for distance calculation
         var tileFriction = friction ?? _frictionModifier * TileFrictionMod;
@@ -184,7 +195,22 @@ public sealed class ThrowingSystem : EntitySystem
         {
             if (physics.InvI > 0f && (!TryComp(uid, out throwingAngle) || throwingAngle.AngularVelocity))
             {
-                _physics.ApplyAngularImpulse(uid, ThrowAngularImpulse / physics.InvI, body: physics);
+                if (comp.LandsUpright)// Imp start
+                {
+                    // ES START
+                    // We step the amount of 'full spins' according to distance
+                    // less than 4m we dont want to spin at all, then 1 more full spin each 4 more
+                    // this is so we can normalize the rotation to 0 at the end of the throw without it looking weird
+                    // (we want to avoid arbitrarily rotated items where possible for readability reasons)
+                    var spins = MathF.Floor(direction.Length() / ESThrowSpinStep);
+                    if (spins > 0)
+                        _physics.ApplyAngularImpulse(uid, spins * MathF.Tau / (flyTime * physics.InvI), body: physics);
+                    // ES END
+                }
+                else
+                {
+                    _physics.ApplyAngularImpulse(uid, ThrowAngularImpulse / physics.InvI, body: physics);
+                } // Imp end
             }
             else
             {
