@@ -43,6 +43,8 @@
   - type: PressurizedSolution
     solution: drink
   - type: Shakeable
+  - type: UprightLanding # Imp
+    chance: 0.1
 
 - type: entity
   parent: DrinkBase
@@ -92,6 +94,7 @@
       Plastic: 100
   - type: UprightLanding # Imp
     chance: 0.1
+
 - type: entity
   parent: DrinkBottlePlasticSmallBaseFull
   id: DrinkBottleGlassSmallBaseFull

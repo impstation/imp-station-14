@@ -33,7 +33,7 @@ public sealed class ThrowingSystem : EntitySystem
     private float _frictionModifier;
     private float _airDamping;
 
-    public const float ESThrowSpinStep = 4f; // ES
+    public const float ESThrowSpinStep = 3f; // ES
 
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly SharedGravitySystem _gravity = default!;
@@ -166,9 +166,7 @@ public sealed class ThrowingSystem : EntitySystem
         {
             Thrower = user,
             Animate = animated,
-            LandsUpright =
-                uprightLanding is { Chance: < 1 }
-                && uprightLanding.Chance >= _random.NextFloat(),
+            LandsUpright = uprightLanding != null && uprightLanding.Chance >= _random.NextFloat(), // Imp
         };
 
 
