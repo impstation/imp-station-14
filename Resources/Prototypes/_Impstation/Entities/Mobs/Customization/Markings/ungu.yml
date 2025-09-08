@@ -126,6 +126,33 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
     state: HornsNub
+    
+- type: marking
+  id: WoolyLongUngu
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
+    state: Wooly_Long    
+
+- type: marking
+  id: WoolyMediumUngu
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
+    state: Wooly_Medium
+
+- type: marking
+  id: WoolyShortUngu
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
+    state: Wooly_Short    
 
 # Head
 

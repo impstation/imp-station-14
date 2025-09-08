@@ -37,13 +37,13 @@
     - map: [ "neck" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
+    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
     - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
     - map: [ "back" ]
-    - map: [ "head" ]
-    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+    - map: [ "head" ]
     - map: [ "mask" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
@@ -220,6 +220,16 @@
           32:
             sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
             state: neck
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
+            state: shoes
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
+            state: eyes
 
 - type: entity
   parent: BaseSpeciesDummy
