@@ -1,11 +1,11 @@
 - type: speechSounds
   id: Ungu
   saySound:
-    path: /Audio/_Impstation/Voice/Talk/ungu_talk.ogg
+    path: /Audio/_Impstation/Voice/Ungu/ungu_talk.ogg
   askSound:
-    path: /Audio/_Impstation/Voice/Talk/ungu_ask.ogg
+    path: /Audio/_Impstation/Voice/Ungu/ungu_ask.ogg
   exclaimSound:
-    path: /Audio/_Impstation/Voice/Talk/ungu_yell.ogg
+    path: /Audio/_Impstation/Voice/Ungu/ungu_yell.ogg
 
 - type: emoteSounds
   id: UnisexUngu
@@ -13,9 +13,9 @@
     variation: 0.125
   sounds:
     Scream:
-      path: /Audio/_Impstation/Voice/Snail/ungu_scream.ogg
+      path: /Audio/_Impstation/Voice/Ungu/ungu_scream.ogg
     Laugh:
-      path: /Audio/_Impstation/Voice/Snail/ungu_laugh.ogg
+      path: /Audio/_Impstation/Voice/Ungu/ungu_laugh.ogg
     Sneeze:
       collection: UnisexSneezes
     CatMeow:
@@ -27,13 +27,13 @@
     RobotBeep:
       collection: RobotBeeps
     Yawn:
-      path: /Audio/_Impstation/Voice/Snail/ungu_yawn.ogg
+      path: /Audio/_Impstation/Voice/Ungu/ungu_yawn.ogg
     Snore:
       collection: Snores
     Honk:
       collection: BikeHorn
     Crying:
-      path: /Audio/_Impstation/Voice/Snail/ungu_cry.ogg
+      path: /Audio/_Impstation/Voice/Ungu/ungu_cry.ogg
     Whistle:
       collection: Whistles
     Weh:
@@ -45,9 +45,9 @@
     Ungh:
       collection: Ungh
     Gasp:
-      path: /Audio/_Impstation/Voice/Snail/ungu_gasp.ogg
+      path: /Audio/_Impstation/Voice/Ungu/ungu_gasp.ogg
     DefaultDeathgasp:
-      path: /Audio/_Impstation/Voice/Snail/ungu_death_gasp.ogg
+      path: /Audio/_Impstation/Voice/Ungu/ungu_death_gasp.ogg
     Jump:
       path: /Audio/Effects/Footsteps/largethud.ogg
 

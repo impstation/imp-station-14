@@ -5,10 +5,33 @@
   "size": {
     "x": 32,
     "y": 32
-  },
-  "states": [
+},
+"load": {
+    "srgb": false
+},
+"states": [
     {
       "name": "hands",
+      "directions": 4
+    },
+    {
+      "name": "head",
+      "directions": 4
+    },
+    {
+      "name": "ears",
+      "directions": 4
+    },
+    {
+      "name": "back",
+      "directions": 4
+    },
+    {
+      "name": "mask",
+      "directions": 4
+    },
+    {
+      "name": "neck",
       "directions": 4
     },
     {

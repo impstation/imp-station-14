@@ -11,12 +11,8 @@
       state: icon
   - type: InstantAction
     event: !type:GravityJumpEvent {}
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Blunt: 16
-        Structural: 40
-  - type: MeleeThrowOnHit
-    unanchorOnHit: True
-    speed: 5
-    distance: 2
+    jumpDistance: 10
+    speed: 10
+
+    jumpSound: /Audio/Effects/stealthoff.ogg
+

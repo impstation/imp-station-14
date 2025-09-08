@@ -33,7 +33,6 @@
     - map: [ "id" ]
     - map: [ "outerClothing" ]
     - map: [ "enum.HumanoidVisualLayers.TailBehindBackpack" ] # imp
-    - map: [ "back" ]
     - map: [ "enum.HumanoidVisualLayers.TailOversuit" ] # Floof
     - map: [ "neck" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
@@ -41,6 +40,7 @@
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
     - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
+    - map: [ "back" ]
     - map: [ "head" ]
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
@@ -63,7 +63,7 @@
       state: angry
       visible: false
   - type: CombatModeSprint
-    acceleration: 7
+    acceleration: 10
     doImpactDamage: true
     beginCombatMessage: "ungu-begin-combat-popup"
   - type: CombatMode
@@ -77,13 +77,17 @@
     animation: WeaponArcPunch
     damage:
       types:
-        Blunt: 6
+        Blunt: 10
         Structural: 10
   - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 20
+        Structural: 20
   - type: MeleeThrowOnHit
     unanchorOnHit: False
     speed: 4
-    distance: 2
+    distance: 4
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -119,17 +123,20 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.35
-        density: 300 # this matches diona
+        density: 600
         restitution: 0.0
         mask:
         - MobMask
+        - TableMask
+        - InteractImpassable
         layer:
+        - InteractImpassable
         - MobLayer
   - type: Vocal
     sounds:
-      Male: Ungu
-      Female: Ungu
-      Unsexed: Ungu
+      Male: UnisexUngu
+      Female: UnisexUngu
+      Unsexed: UnisexUngu
   - type: BodyEmotes
     soundsId: UnguBodyEmotes
   - type: Damageable
@@ -137,7 +144,7 @@
     damageModifierSet: Ungu
   - type: Temperature
     heatDamageThreshold: 340
-    coldDamageThreshold: 150
+    coldDamageThreshold: 100
     currentTemperature: 310
     specificHeat: 42
     coldDamage:
@@ -169,21 +176,50 @@
     - Snout
     - HeadTop
   - type: JumpAbility
-    jumpDistance: 4
+    jumpDistance: 10
+    doImpactDamage: true
     jumpSound: /Audio/Effects/stealthoff.ogg
   - type: ActionGrant
     actions:
     - ActionDash
   - type: Inventory
     speciesId: ungu
-    templateId: ungu
     displacements:
       gloves:
         sizeMaps:
           32:
             sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
             state: hands
-
+      belt:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
+            state: belt
+      back:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
+            state: back
+      ears:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
+            state: ears
+      head:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
+            state: head
+      mask:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
+            state: mask
+      neck:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
+            state: neck
 
 - type: entity
   parent: BaseSpeciesDummy
