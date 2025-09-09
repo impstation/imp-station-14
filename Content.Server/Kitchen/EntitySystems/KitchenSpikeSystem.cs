@@ -1,3 +1,4 @@
+using System.Linq; // imp
 using Content.Server.Administration.Logs;
 using Content.Server.Body.Systems;
 using Content.Server.Kitchen.Components;
@@ -10,7 +11,9 @@ using Content.Shared.DragDrop;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
+using Content.Shared.Interaction.Components; // imp
 using Content.Shared.Interaction.Events;
+using Content.Shared.Inventory; // imp
 using Content.Shared.Kitchen;
 using Content.Shared.Kitchen.Components;
 using Content.Shared.Mobs.Components;
@@ -39,6 +42,7 @@ namespace Content.Server.Kitchen.EntitySystems
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly MetaDataSystem _metaData = default!;
         [Dependency] private readonly SharedSuicideSystem _suicide = default!;
+        [Dependency] private readonly InventorySystem _inventory = default!; // imp
 
         public override void Initialize()
         {
@@ -100,6 +104,10 @@ namespace Content.Server.Kitchen.EntitySystems
             }
 
             if (args.Handled)
+                return;
+
+            // imp - require target to be fully stripped
+            if (!IsFullyStripped(entity, args.Args.Target.Value))
                 return;
 
             if (Spikeable(entity, args.Args.User, args.Args.Target.Value, entity.Comp, butcherable))
@@ -265,6 +273,10 @@ namespace Content.Server.Kitchen.EntitySystems
                 return true;
             }
 
+            // imp - require target to be fully stripped
+            if (!IsFullyStripped(uid, victimUid))
+                return false;
+
             if (userUid != victimUid)
             {
                 _popupSystem.PopupEntity(Loc.GetString("comp-kitchen-spike-begin-hook-victim", ("user", Identity.Entity(userUid, EntityManager)), ("this", uid)), victimUid, victimUid, PopupType.LargeCaution);
@@ -285,6 +297,20 @@ namespace Content.Server.Kitchen.EntitySystems
             };
 
             _doAfter.TryStartDoAfter(doAfterArgs);
+
+            return true;
+        }
+
+        // imp - require target to be fully stripped
+        private bool IsFullyStripped(EntityUid uid, EntityUid victimUid)
+        {
+            var inventory = _inventory.GetHandOrInventoryEntities(victimUid);
+
+            if (inventory.Any(item => !HasComp<UnremoveableComponent>(item)))
+            {
+                _popupSystem.PopupEntity(Loc.GetString("comp-kitchen-spike-deny-requires-strip", ("victim", Identity.Entity(victimUid, EntityManager))), uid);
+                return false;
+            }
 
             return true;
         }
