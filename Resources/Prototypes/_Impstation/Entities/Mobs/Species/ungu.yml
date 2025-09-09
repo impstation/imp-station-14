@@ -184,6 +184,7 @@
     - ActionDash
   - type: Inventory
     speciesId: ungu
+    templateId: ungu
     displacements:
       gloves:
         sizeMaps:
@@ -230,6 +231,16 @@
           32:
             sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
             state: eyes
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
+            state: outerwear
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
+            state: jumpsuit
 
 - type: entity
   parent: BaseSpeciesDummy
