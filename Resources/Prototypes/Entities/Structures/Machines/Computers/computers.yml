@@ -434,7 +434,7 @@
   - type: PointLight
     radius: 2.4 #imp
     energy: 1.6
-    color: "#1f8c28"
+    color: "#887755FF" #imp
   - type: Computer
     board: CriminalRecordsComputerCircuitboard
   - type: AccessReader
@@ -732,7 +732,7 @@
   - type: CommunicationsConsole
     title: comms-console-announcement-title-command # imp
   - type: DeviceNetwork
-    deviceNetId: Wireless    
+    deviceNetId: Wireless
     transmitFrequencyId: ShuttleTimer
   - type: ActivatableUI
     key: enum.CommunicationsConsoleUiKey.Key
@@ -1693,6 +1693,10 @@
     access: [["ResearchDirector"]]
   - type: Lock
     unlockOnClick: false
+  - type: PointLight #imp
+    radius: 2.4
+    energy: 1.6
+    color: "#b53ca1"
 
 - type: entity
   id: StationAiUploadComputer
@@ -1744,3 +1748,7 @@
     containers:
       circuit_holder: !type:ContainerSlot
       board: !type:Container
+  - type: PointLight #imp
+    radius: 2.4
+    energy: 1.6
+    color: "#3c5eb5"
