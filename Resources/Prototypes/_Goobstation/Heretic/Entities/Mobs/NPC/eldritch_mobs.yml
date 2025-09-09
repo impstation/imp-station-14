@@ -3,7 +3,7 @@
   id: BaseMobGhoul
   abstract: true
   components:
-  - type: Ghoul
+  - type: Minion
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.00
     baseSprintSpeed: 3.00
@@ -82,11 +82,6 @@
   - type: Sprite
     sprite: _Goobstation/Heretic/eldritch_mobs.rsi
     state: stalker
-  - type: GhostRole
-    name: ghostrole-stalker-name
-    description: ghostrole-stalker-desc
-    mindRoles: # imp
-    - MindRoleGhostRoleFamiliar
   - type: ActionsProvider
     actions:
     - ActionHereticJaunt
@@ -121,11 +116,6 @@
     noMovementLayers:
       movement:
         state: raw_prophet
-  - type: GhostRole
-    name: ghostrole-prophet-name
-    description: ghostrole-prophet-desc
-    mindRoles: # imp
-    - MindRoleGhostRoleFamiliar
   - type: ActionsProvider
     actions:
     - ActionHereticJaunt
