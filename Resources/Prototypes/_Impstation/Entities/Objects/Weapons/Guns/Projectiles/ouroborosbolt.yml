@@ -28,11 +28,7 @@
   - type: SpawnOnTrigger
     keysIn:
     - trigger
-    keyOut: delete
     proto: MobBeeroboros
-  - type: DeleteOnTrigger
-    keysIn:
-    - delete
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
