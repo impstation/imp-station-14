@@ -5,7 +5,7 @@
   id: BaseMobApid
   abstract: true
   components:
-  - type: Absorbable
+  - type: GoobAbsorbable
     biomassRestored: 0.5
   - type: Hunger
   - type: Thirst

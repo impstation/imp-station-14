@@ -2,7 +2,7 @@
   parent: BaseGameRule
   id: Changeling
   components:
-  - type: ChangelingRule
+  - type: GoobChangelingRule
   - type: GameRule
     minPlayers: 20 #imp: up from 15
     delay:
@@ -15,7 +15,7 @@
     - ChangelingSurviveObjective
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn # Imp Edit
-    agentName: changeling-roundend-name
+    agentName: goob-changeling-roundend-name
     definitions:
     - prefRoles: [ Changeling ]
       max: 5 #imp: 6>5
