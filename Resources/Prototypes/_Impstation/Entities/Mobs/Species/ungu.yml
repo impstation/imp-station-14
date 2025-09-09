@@ -31,19 +31,19 @@
     - map: [ "shoes" ]
     - map: [ "belt" ]
     - map: [ "id" ]
-    - map: [ "outerClothing" ]
     - map: [ "enum.HumanoidVisualLayers.TailBehindBackpack" ] # imp
     - map: [ "enum.HumanoidVisualLayers.TailOversuit" ] # Floof
-    - map: [ "neck" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
-    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
     - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
+    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
     - map: [ "back" ]
-    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
     - map: [ "head" ]
+    - map: [ "outerClothing" ]
+    - map: [ "neck" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
     - map: [ "mask" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
@@ -176,7 +176,7 @@
     - Snout
     - HeadTop
   - type: JumpAbility
-    jumpDistance: 10
+    jumpDistance: 4
     doImpactDamage: true
     jumpSound: /Audio/Effects/stealthoff.ogg
   - type: ActionGrant

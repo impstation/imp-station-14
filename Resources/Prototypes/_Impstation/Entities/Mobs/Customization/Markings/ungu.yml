@@ -119,6 +119,15 @@
     state: HornsLong
 
 - type: marking
+  id: EyebrowsUngu
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
+    state: Eyebrows
+
+- type: marking
   id: HornsNubUngu
   bodyPart: HeadTop
   markingCategory: HeadTop
