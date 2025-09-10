@@ -63,7 +63,6 @@
       state: angry
       visible: false
   - type: CombatModeSprint
-    acceleration: 10
     doImpactDamage: true
     beginCombatMessage: "ungu-begin-combat-popup"
   - type: CombatMode
@@ -184,7 +183,6 @@
     - HeadTop
   - type: JumpAbility
     jumpDistance: 4
-    doImpactDamage: true
     jumpSound: /Audio/Effects/stealthoff.ogg
   - type: ActionGrant
     actions:
