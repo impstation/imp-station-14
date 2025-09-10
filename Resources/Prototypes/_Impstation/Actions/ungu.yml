@@ -11,8 +11,4 @@
       state: icon
   - type: InstantAction
     event: !type:GravityJumpEvent {}
-    jumpDistance: 10
-    speed: 10
-
-    jumpSound: /Audio/Effects/stealthoff.ogg
 
