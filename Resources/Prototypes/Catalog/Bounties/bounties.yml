@@ -22,16 +22,17 @@
       tags:
       - BaseballBat
 
-- type: cargoBounty
-  id: BountyBrain
-  reward: 12500
-  description: bounty-description-brain
-  entries:
-  - name: bounty-item-brain
-    amount: 1
-    whitelist:
-      components:
-      - Brain
+# imp edit - no longer a practical bounty with offmed
+# - type: cargoBounty
+#   id: BountyBrain
+#   reward: 12500
+#   description: bounty-description-brain
+#   entries:
+#   - name: bounty-item-brain
+#     amount: 1
+#     whitelist:
+#       components:
+#       - Brain
 
 - type: cargoBounty
   id: BountyBread
