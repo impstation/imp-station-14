@@ -5,16 +5,16 @@
   description: A lot going on here.
   components:
   - type: Sprite
-    state: primarygullet #where is this even pointing to, to do add new one later
+    state: stomach
   - type: SolutionContainerManager
     solutions:
       stomach:
-        maxVol: 80
+        maxVol: 200
       food:
-        maxVol: 8
+        maxVol: 15
         reagents:
         - ReagentId: UncookedAnimalProteins
-          Quantity: 5
+          Quantity: 12
   - type: Stomach
     isSpecialDigestibleExclusive: true
     specialDigestible:

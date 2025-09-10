@@ -135,7 +135,7 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
     state: HornsNub
-    
+
 - type: marking
   id: WoolyLongUngu
   bodyPart: HeadTop
@@ -143,7 +143,7 @@
   speciesRestriction: [ Ungu ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
-    state: Wooly_Long    
+    state: Wooly_Long
 
 - type: marking
   id: WoolyMediumUngu
@@ -161,7 +161,7 @@
   speciesRestriction: [ Ungu ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
-    state: Wooly_Short    
+    state: Wooly_Short
 
 # Head
 
@@ -284,15 +284,6 @@
     state: EyesCyclopsWhite
 
 - type: marking
-  id: EyesDotsUngu
-  bodyPart: Eyes
-  markingCategory: Eyes
-  speciesRestriction: [ Ungu ]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Ungu/eyes.rsi
-    state: EyesDots
-
-- type: marking
   id: EyesDotsGlowUngu
   bodyPart: Eyes
   markingCategory: Eyes
@@ -364,7 +355,7 @@
     state: RLegSpotBig
 
 - type: marking
-  id: RHooftUngu
+  id: RHoofUngu
   bodyPart: RFoot
   markingCategory: Legs
   speciesRestriction: [ Ungu ]
@@ -449,7 +440,7 @@
 # UndergarmentTop
 
 - type: marking
-  id: UndershirtBraStraplessUngu
+  id: BraStraplessUngu
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
   speciesRestriction: [ Ungu ]
@@ -463,7 +454,7 @@
     state: BraStrapless
 
 - type: marking
-  id: UndershirtBraUngu
+  id: BraUngu
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
   speciesRestriction: [ Ungu ]
@@ -477,7 +468,7 @@
     state: Bra
 
 - type: marking
-  id: UndershirtBinderUngu
+  id: BinderUngu
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
   speciesRestriction: [ Ungu ]
@@ -491,7 +482,7 @@
     state: Binder
 
 - type: marking
-  id: UndershirtVestUngu
+  id: VestUngu
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
   speciesRestriction: [ Ungu ]
@@ -508,7 +499,7 @@
 
 - type: marking
   id: TailLongUngu
-  bodyPart: Tail
+  bodyPart: Headside # the tail layer is broken!!!
   markingCategory: Tail
   speciesRestriction: [ Ungu ]
   sprites:
@@ -517,7 +508,7 @@
 
 - type: marking
   id: TailNubUngu
-  bodyPart: Tail
+  bodyPart: HeadSide
   markingCategory: Tail
   speciesRestriction: [ Ungu ]
   sprites:

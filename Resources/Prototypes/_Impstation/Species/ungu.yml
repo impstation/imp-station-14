@@ -52,7 +52,7 @@
       required: true
       defaultMarkings: [ EarsSmallUngu ]
     HeadTop:
-      points: 5
+      points: 4
       required: false
     UndergarmentTop:
       points: 1
@@ -61,7 +61,7 @@
       points: 1
       required: false
     Chest:
-      points: 2
+      points: 3
       required: false
     Arms:
       points: 2
@@ -72,6 +72,10 @@
     Overlay:
       points: 1
       required: false
+    Eyes:
+      points: 1
+      required: false
+
 
 - type: humanoidBaseSprite
   id: MobUnguEyes
