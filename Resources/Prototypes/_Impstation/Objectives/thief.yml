@@ -153,6 +153,17 @@
   - type: Objective
     difficulty: 1
 
+- type: entity
+  parent: BaseThiefStealObjective
+  id: ClothingNeckBureaucracyMedalStealObjective
+  components:
+  - type: NotJobRequirement
+    job: HeadOfPersonnel
+  - type: StealCondition
+    stealGroup: ClothingNeckBureaucracyMedal
+  - type: Objective
+    difficulty: 1
+
 # rare but otherwise not notable
 
 - type: entity

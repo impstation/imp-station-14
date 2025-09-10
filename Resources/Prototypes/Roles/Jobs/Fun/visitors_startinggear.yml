@@ -7,7 +7,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitCaptain
     shoes: ClothingShoesBootsLaceup
-    eyes: ClothingEyesGlassesSunglasses
+    eyes: ClothingEyesGlassesSunglasses # imp
     gloves: ClothingHandsGlovesCaptain
     head: ClothingHeadHatCaptain
     neck: ClothingNeckCloakCap
@@ -23,7 +23,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitCapFormal
     shoes: ClothingShoesLeather # imp
-    eyes: ClothingEyesGlassesSunglasses
+    eyes: ClothingEyesGlassesSunglasses # imp
     gloves: ClothingHandsGlovesCaptain
     head: ClothingHeadHatCapcap
     neck: ClothingNeckMantleCap
@@ -557,7 +557,7 @@
 - type: startingGear
   id: VisitorChemistAlt
   equipment:
-    jumpsuit: ClothingUniformSpaceJumpsuitChemist
+    jumpsuit: ClothingUniformSpaceJumpsuitChemist #imp
     shoes: ClothingShoesColorOrange
     gloves: ClothingHandsGlovesNitrile # imp
     head: ClothingHeadHatBeretSeniorPhysician # imp
@@ -968,6 +968,7 @@
     ears: ClothingHeadsetService
   inhand:
   - HydroponicsToolScythe
+
 
 - type: startingGear
   id: VisitorBotanistAlt
@@ -1571,7 +1572,6 @@
     - IrwizineDart
     - IrwizineDart
     - IrwizineDart
-    - IrwizineDart
 
 - type: startingGear
   id: VisitorZookeeperAlt
@@ -1592,7 +1592,6 @@
     - TranqDart
     - TranqDart
     - TranqDart
-    - IrwizineDart
     - IrwizineDart
     - IrwizineDart
     - IrwizineDart
