@@ -20,6 +20,9 @@
     color: "#3db83b"
     castShadows: false
     netsync: false
+    mask: /Textures/Effects/LightMasks/cone.png #imp
+    autoRot: true #imp
+  - type: LitOnPowered #imp
   - type: AccessReader
     access: [["Engineering"]]
   - type: Sprite
@@ -235,3 +238,14 @@
   - type: Battery
     maxCharge: 200000
     startingCharge: 200000
+
+- type: entity
+  parent: BaseAPC
+  id: APCXenoborg
+  suffix: Basic, 50kJ, Xenoborg
+  components:
+  - type: Battery
+    maxCharge: 50000
+    startingCharge: 50000
+  - type: AccessReader
+    access: [["Xenoborg"]]

@@ -25,7 +25,7 @@
   weight: 20
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
-  supervisors: job-supervisors-captain #imp
+  supervisors: job-supervisors-captain
   canBeAntag: false
   access:
   - Command
@@ -78,8 +78,8 @@
     gloves: ClothingHandsGlovesHop
     #ears: ClothingHeadsetAltCommand #imp
     #belt: BoxFolderClipboard #imp
-    #eyes: ClothingEyesHudCommand #imp
     belt: ClothingBeltPaperworkFilled # imp edit
+    #eyes: ClothingEyesHudCommand #imp
   storage:
     back:
     - Flash
