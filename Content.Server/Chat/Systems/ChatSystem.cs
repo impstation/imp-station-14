@@ -1,4 +1,3 @@
-using System.Collections.Immutable; // imp
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -63,7 +62,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly ReplacementAccentSystem _wordreplacement = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
-    [Dependency] private readonly CollectiveMindUpdateSystem _collectiveMind = default!;
+    [Dependency] private readonly CollectiveMindUpdateSystem _collectiveMind = default!; //imp
     [Dependency] private readonly LastMessageBeforeDeathSystem _lastMessageBeforeDeathSystem = default!; // Imp Edit LastMessageBeforeDeath Webhook
 
     private bool _loocEnabled = true;
