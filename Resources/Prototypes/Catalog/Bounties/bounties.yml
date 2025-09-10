@@ -236,16 +236,16 @@
       tags:
       - Lime
 
-- type: cargoBounty
-  id: BountyLung
-  reward: 2000
-  description: bounty-description-lung
-  entries:
-  - name: bounty-item-lung
-    amount: 3
-    whitelist:
-      components:
-      - Lung
+# - type: cargoBounty
+#   id: BountyLung
+#   reward: 2000
+#   description: bounty-description-lung
+#   entries:
+#   - name: bounty-item-lung
+#     amount: 3
+#     whitelist:
+#       components:
+#       - Lung
 
 - type: cargoBounty
   id: BountyMonkeyCube
