@@ -35,7 +35,6 @@
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi  #imp edit
     state: brain
-    heldPrefix: brain
   - type: Tag # goob edit
     tags:
     - Meat
@@ -53,7 +52,6 @@
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi  #imp edit
     state: stomach
-    heldPrefix: stomach
   - type: Item
     size: Small
     heldPrefix: stomach
@@ -74,7 +72,7 @@
           Quantity: 5
   - type: Metabolizer
     updateInterval: 1.5
-    metabolizerTypes: [ Animal , Arachnid ]
+    metabolizerTypes: [ Animal ]
   - type: Tag # goob edit
     tags:
     - Meat
@@ -85,14 +83,13 @@
   id: OrganArachnidLungs
   parent: BaseArachnidOrgan
   name: lungs
-  description: "Filters oxygen from an atmosphere... just more greedily."
+  description: "Filters oxygen from an atmosphere... just less efficiently."
   components:
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi  #imp edit
     layers:
-      - state: lung-l
-      - state: lung-r
-    heldPrefix: lungs
+      - state: lung_l
+      - state: lung_r
   - type: Lung
   - type: Metabolizer
     updateInterval: 1.5
@@ -185,8 +182,8 @@
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi  #imp edit
     layers:
-      - state: kidney-l
-      - state: kidney-r
+      - state: kidney_l
+      - state: kidney_r
   # The kidneys just remove anything that doesn't currently have any metabolisms, as a stopgap.
   - type: Item
     size: Small

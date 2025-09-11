@@ -934,6 +934,18 @@
 - type: emoteSounds
   id: ArachnidBodyEmotes
   sounds:
+    Clap:
+      collection: Claps
+    ClapSingle:
+      collection: ClapSingle
+    Snap:
+      collection: Snaps
+      params:
+        volume: -3
+    Salute:
+      collection: Salutes
+    Crack:
+      collection: Cracks
     Blink:
       collection: SpiderBlinks
       params:
