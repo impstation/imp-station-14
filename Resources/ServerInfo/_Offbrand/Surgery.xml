@@ -176,6 +176,46 @@ The rib cage must be opened.
   </Box>
 </Table>
 
+### Dehusking
+
+For when the patient has been husked by severe burns.
+The rib cage must be opened.
+
+<Table Columns="1">
+  <Box>
+    <GuideEntityEmbed Entity="RegenerativeMesh" Caption="" />
+  </Box>
+  <Box>
+    1. Use 10 regenerative meshes
+  </Box>
+</Table>
+
+### Bone Death Repair
+
+For when the patient's bones are damaged past normal repair.
+The rib cage must be opened.
+
+<Table Columns="3">
+  <Box>
+    <GuideEntityEmbed Entity="BoneGel" Caption="" />
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="MedicatedSuture" Caption="" />
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="BoneGel" Caption="" />
+  </Box>
+  <Box>
+    1. Apply bone gel
+  </Box>
+  <Box>
+    2. Use 10 medicated sutures
+  </Box>
+  <Box>
+    3. Apply more bone gel
+  </Box>
+</Table>
+
 </Document>
 
 <!--

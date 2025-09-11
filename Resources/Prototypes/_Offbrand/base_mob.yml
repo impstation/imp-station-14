@@ -30,17 +30,17 @@
     lightningExplode: false
   - type: MaximumDamage
     damage:
-      Blunt: [200, 5]
-      Slash: [200, 5]
-      Piercing: [200, 5]
-      Heat: [200, 5]
-      Cold: [200, 5]
-      Caustic: [200, 5]
-      Shock: [200, 5]
-      Poison: [100, 5]
-      Radiation: [100, 5]
-      Cellular: [100, 5]
-      Asphyxiation: [100, 5]
+      Blunt: [200, 10]
+      Slash: [200, 10]
+      Piercing: [200, 10]
+      Heat: [200, 10]
+      Cold: [200, 10]
+      Caustic: [200, 10]
+      Shock: [200, 10]
+      Poison: [100, 10]
+      Radiation: [100, 10]
+      Cellular: [100, 10]
+      Asphyxiation: [100, 10]
       Bloodloss: [0, 0]
   - type: UniqueWoundOnDamage
     wounds:
@@ -61,6 +61,27 @@
         damageDict:
           Blunt: 10
       damageProbabilityCoefficient: 0.005
+      damageProbabilityConstant: 0
+    - damageTypes: [Heat]
+      minimumDamage: 1
+      minimumTotalDamage: 250
+      woundPrototype: WoundHusking
+      woundDamages:
+        damageDict:
+          Heat: 100
+          Blunt: 100
+      damageProbabilityCoefficient: 0.25
+      damageProbabilityConstant: 0
+    - damageTypes: [Slash, Blunt, Piercing]
+      minimumDamage: 1
+      minimumTotalDamage: 300
+      woundPrototype: WoundBoneDeath
+      woundDamages:
+        damageDict:
+          Blunt: 50
+          Slash: 50
+          Piercing: 50
+      damageProbabilityCoefficient: 0.25
       damageProbabilityConstant: 0
 
 - type: entity

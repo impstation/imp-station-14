@@ -120,3 +120,29 @@
       - material: MedicatedSuture
         amount: 1
         doAfter: 3
+    - to: OpenRibCage
+      conditions:
+      - !type:HasStatusEffect
+        effect: WoundHusking
+      completed:
+      - !type:RemoveStatusEffect
+        effect: WoundHusking
+      steps:
+      - material: RegenerativeMesh
+        amount: 10
+        doAfter: 5
+    - to: OpenRibCage
+      conditions:
+      - !type:HasStatusEffect
+        effect: WoundBoneDeath
+      completed:
+      - !type:RemoveStatusEffect
+        effect: WoundBoneDeath
+      steps:
+      - tool: BoneMending
+        doAfter: 5
+      - material: MedicatedSuture
+        amount: 10
+        doAfter: 5
+      - tool: BoneMending
+        doAfter: 5
