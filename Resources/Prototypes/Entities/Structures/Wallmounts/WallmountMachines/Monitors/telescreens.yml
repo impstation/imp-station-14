@@ -10,8 +10,15 @@
     layers:
       - map: ["computerLayerBody"]
         state: telescreen_frame
-      - map: ["computerLayerScreen"]
+      - map: ["unlit"] #imp
         state: telescreen
+  - type: Appearance #imp
+  - type: GenericVisualizer #imp
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        unlit:
+          True: { visible: true, shader: unshaded }
+          False: { visible: false }
   - type: Destructible
     thresholds:
     - trigger:
@@ -30,6 +37,12 @@
     radius: 1.8 #imp
     energy: 1.6
     color: "#b89f25"
+    enabled: false #imp
+    mask: /Textures/Effects/LightMasks/cone.png #imp
+    autoRot: true #imp
+    castShadows: true #imp
+  - type: LitOnPowered #imp
+  - type: PowerSwitch #imp
   - type: DeviceNetwork
     deviceNetId: Wired
     receiveFrequencyId: SurveillanceCamera
@@ -50,7 +63,7 @@
   parent: BaseWallmountMetallic
   id: WallmountTelescreenFrame
   name: telescreen frame
-  description: Finally, some decent reception around here...
+  description: The frame of a telescreen under construction.  #imp
   components:
   - type: Construction
     graph: WallmountTelescreen
@@ -60,8 +73,9 @@
     layers:
       - map: ["computerLayerBody"]
         state: telescreen_frame
-      - map: ["computerLayerScreen"]
-        state: telescreen
+# imp edit so the frame doesn't appear with power. It should be off while being built
+#      - map: ["computerLayerScreen"]
+#        state: telescreen
   - type: Destructible
     thresholds:
     - trigger:
