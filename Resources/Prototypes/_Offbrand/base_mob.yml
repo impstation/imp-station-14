@@ -30,18 +30,18 @@
     lightningExplode: false
   - type: MaximumDamage
     damage:
-      Blunt: 200
-      Slash: 200
-      Piercing: 200
-      Heat: 200
-      Cold: 200
-      Caustic: 200
-      Shock: 200
-      Poison: 100
-      Radiation: 100
-      Cellular: 100
-      Asphyxiation: 100
-      Bloodloss: 0
+      Blunt: [200, 5]
+      Slash: [200, 5]
+      Piercing: [200, 5]
+      Heat: [200, 5]
+      Cold: [200, 5]
+      Caustic: [200, 5]
+      Shock: [200, 5]
+      Poison: [100, 5]
+      Radiation: [100, 5]
+      Cellular: [100, 5]
+      Asphyxiation: [100, 5]
+      Bloodloss: [0, 0]
   - type: UniqueWoundOnDamage
     wounds:
     - damageTypes: [Slash, Blunt, Piercing]

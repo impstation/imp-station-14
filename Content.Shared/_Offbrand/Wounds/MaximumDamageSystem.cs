@@ -38,7 +38,21 @@ public sealed class MaximumDamageSystem : EntitySystem
             if (!ent.Comp.Damage.TryGetValue(type, out var maxValue))
                 continue;
 
-            var delta = (value + currentValue) - maxValue;
+            FixedPoint2 delta;
+            if (currentValue >= maxValue.Base && maxValue.Factor != FixedPoint2.Zero)
+            {
+                var factor = maxValue.Factor.Double();
+                var @base = maxValue.Base.Double();
+                Func<FixedPoint2, double> fn = x => Math.Log( Math.Abs(factor - @base + x.Double()) ) * factor;
+
+                var maximumFromNow = FixedPoint2.New(fn(value + currentValue) - fn(currentValue));
+
+                delta = (value - maximumFromNow);
+            }
+            else
+            {
+                delta = (value + currentValue) - maxValue.Base;
+            }
 
             if (delta <= 0)
                 continue;

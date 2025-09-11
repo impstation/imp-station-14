@@ -18,5 +18,5 @@ public sealed partial class MaximumDamageComponent : Component
     /// The maximum damages that can be acquired
     /// </summary>
     [DataField(required: true)]
-    public Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2> Damage = default!;
+    public Dictionary<ProtoId<DamageTypePrototype>, (FixedPoint2 Base, FixedPoint2 Factor)> Damage = default!;
 }
