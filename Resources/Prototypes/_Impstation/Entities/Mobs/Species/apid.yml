@@ -70,7 +70,7 @@
     baseWeightlessFriction: 0.2
     baseWeightlessModifier: 1
   - type: MovementIgnoreGravity # nyoom
-    gravityState: true
+    weightless: true
   - type: MeleeWeapon
     attackRate: 1
     soundHit:
