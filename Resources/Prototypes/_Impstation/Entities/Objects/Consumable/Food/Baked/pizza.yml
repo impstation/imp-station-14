@@ -86,6 +86,8 @@
     layers:
     - state: bombpizza
   - type: Food
+    trash:
+    - FoodPlateBurnt
   - type: Flammable
     fireSpread: true
     alwaysCombustible: true
