@@ -76,7 +76,7 @@ public sealed class WoundableSystem : EntitySystem
             args.Message.PushNewline();
         }
 
-        var counts = new Dictionary<string, int>();
+        var counts = new Dictionary<(LocId, LocId?, LocId?), int>();
 
         foreach (var describable in wounds)
         {
@@ -86,33 +86,39 @@ public sealed class WoundableSystem : EntitySystem
             if (describable.Comp1.Descriptions.HighestMatch(damage) is not { } message)
                 continue;
 
-            var text = Loc.GetString(message);
+            var text = message;
+            LocId? bleedingMessage = null;
+            LocId? tendedMessage = null;
 
             if (TryComp<BleedingWoundComponent>(describable, out var bleeding) && BleedLevel((describable.Owner, bleeding)) > 0f)
-            {
-                text = Loc.GetString(describable.Comp1.BleedingModifier, ("wound", text));
-            }
+                bleedingMessage = describable.Comp1.BleedingModifier;
 
             if (TryComp<TendableWoundComponent>(describable, out var tendable) && tendable.Tended)
-            {
-                text = Loc.GetString(describable.Comp1.TendedModifier, ("wound", text));
-            }
+                tendedMessage = describable.Comp1.TendedModifier;
 
-            if (counts.TryGetValue(text, out var count))
-                counts[text] = count + 1;
+            var triple = (text, bleedingMessage, tendedMessage);
+
+            if (counts.TryGetValue(triple, out var count))
+                counts[triple] = count + 1;
             else
-                counts[text] = 1;
+                counts[triple] = 1;
         }
 
         var first = true;
-        foreach (var (line, count) in counts.OrderBy(it => it.Key))
+        foreach (var (triple, count) in counts.OrderBy(it => it.Key.Item1))
         {
             if (!first)
                 args.Message.PushNewline();
             else
                 first = false;
 
-            args.Message.AddMarkupOrThrow(Loc.GetString(WoundCountModifier, ("wound", line), ("count", count), ("target", Identity.Entity(ent, EntityManager))));
+            var text = Loc.GetString(triple.Item1, ("count", count));
+            if (triple.Item2 is { } bleedingMessage)
+                text = Loc.GetString(bleedingMessage, ("wound", text));
+            if (triple.Item3 is { } tendedMessage)
+                text = Loc.GetString(tendedMessage, ("wound", text));
+
+            args.Message.AddMarkupOrThrow(Loc.GetString(WoundCountModifier, ("wound", text), ("count", count), ("target", Identity.Entity(ent, EntityManager))));
         }
     }
 
