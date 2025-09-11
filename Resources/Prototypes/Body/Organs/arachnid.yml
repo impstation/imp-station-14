@@ -47,6 +47,7 @@
 - type: entity
   id: OrganArachnidStomach
   parent: OrganAnimalStomach
+  name: stomach
   description: "Gross. This is hard to stomach."
   components:
   - type: Sprite
@@ -82,7 +83,7 @@
 - type: entity
   id: OrganArachnidLungs
   parent: BaseArachnidOrgan
-  name: lungs
+  name: book lungs
   description: "Filters oxygen from an atmosphere... just less efficiently."
   components:
   - type: Sprite
@@ -149,7 +150,7 @@
 - type: entity
   id: OrganArachnidLiver
   parent: BaseHumanOrgan
-  name: liver
+  name: hepatic caecum
   description: "Pairing suggestion: chianti and fava beans."
   categories: [ HideSpawnMenu ]
   components:
@@ -227,6 +228,7 @@
   description: "A fleshy muscle mostly used for lying."
   components:
   - type: Sprite
+    sprite: Mobs/Species/Arachnid/organs.rsi
     state: tongue
   - type: Tag # goob edit
     tags:

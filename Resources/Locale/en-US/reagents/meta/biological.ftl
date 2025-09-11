@@ -1,8 +1,8 @@
-reagent-name-blood = blood
+reagent-name-blood = iron blood
 reagent-desc-blood = I hope this is ketchup.
 
 reagent-name-insect-blood = insect blood
-reagent-desc-insect-blood = Okay, this is really gross. It almost looks.. alive?
+reagent-desc-insect-blood = Also known as hemolymph, though don't expect that knowledge to get you anywhere.
 
 reagent-name-slime = slime
 reagent-desc-slime = You thought this was gradient blood at first, but you were mistaken.
@@ -10,7 +10,7 @@ reagent-desc-slime = You thought this was gradient blood at first, but you were 
 reagent-name-sap = sap
 reagent-desc-sap = Sticky, sweet tree blood.
 
-reagent-name-hemocyanin-blood = blue blood
+reagent-name-hemocyanin-blood = copper blood
 reagent-desc-hemocyanin-blood = Contains copper as opposed to iron which gives it a distinct blue color.
 
 reagent-name-ammonia-blood = anaerobic blood
