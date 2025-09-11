@@ -344,7 +344,7 @@
   - type: ContainerContainer
     containers:
       program-container: !type:Container
-      Cartridge-Slot: !type:Container
+      Cartridge-Slot: !type:ContainerSlot
   - type: PdaBorderColor
     borderColor: "#45453f"
     accentVColor: "#447987"

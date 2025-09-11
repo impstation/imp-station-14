@@ -129,7 +129,7 @@
       borg_module: !type:Container { }
       part-container: !type:Container
       program-container: !type:Container # Impstation - Borg PDAs
-      Cartridge-Slot: !type:Container # Impstation - Borg PDAs
+      Cartridge-Slot: !type:ContainerSlot # Impstation - Borg PDAs
   - type: PowerCellSlot
     cellSlotId: cell_slot
     fitsInCharger: true
