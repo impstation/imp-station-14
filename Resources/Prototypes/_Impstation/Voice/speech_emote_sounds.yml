@@ -932,6 +932,15 @@
         variation: 0.1
 
 - type: emoteSounds
+  id: ArachnidBodyEmotes
+  sounds:
+    Blink:
+      collection: SpiderBlinks
+      params:
+        volume: -3
+        variation: 0.1
+
+- type: emoteSounds
   id: GastropoidBodyEmotes
   sounds:
     Clap:

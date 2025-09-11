@@ -4,7 +4,7 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Mobs/Species/Arachnid/organs.rsi
+    sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi  #imp edit
   - type: Organ
   - type: Food
   - type: Extractable
@@ -26,14 +26,34 @@
     - Meat
     - Organ
 
+- type: entity    #imp edit
+  id: OrganArachnidBrain
+  parent: OrganHumanBrain
+  name: cerebral ganglia
+  description: "The source of incredible, unending intelligence. Hiss."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi  #imp edit
+    state: brain
+    heldPrefix: brain
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Brain
+  - type: Item
+    size: Small
+    heldPrefix: brain
+
 - type: entity
   id: OrganArachnidStomach
   parent: OrganAnimalStomach
   description: "Gross. This is hard to stomach."
   components:
   - type: Sprite
-    sprite: Mobs/Species/Arachnid/organs.rsi
+    sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi  #imp edit
     state: stomach
+    heldPrefix: stomach
   - type: Item
     size: Small
     heldPrefix: stomach
@@ -54,7 +74,7 @@
           Quantity: 5
   - type: Metabolizer
     updateInterval: 1.5
-    metabolizerTypes: [ Animal ]
+    metabolizerTypes: [ Animal , Arachnid ]
   - type: Tag # goob edit
     tags:
     - Meat
@@ -68,9 +88,11 @@
   description: "Filters oxygen from an atmosphere... just more greedily."
   components:
   - type: Sprite
+    sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi  #imp edit
     layers:
       - state: lung-l
       - state: lung-r
+    heldPrefix: lungs
   - type: Lung
   - type: Metabolizer
     updateInterval: 1.5
@@ -108,6 +130,7 @@
   description: "A disgustingly persistent little biological pump made for spiders."
   components:
   - type: Sprite
+    sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi  #imp edit
     state: heart-on
   - type: Item
     size: Small
@@ -137,6 +160,7 @@
     size: Small
     heldPrefix: liver
   - type: Sprite
+    sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi  #imp edit
     state: liver
   - type: Metabolizer # The liver metabolizes certain chemicals only, like alcohol.
     updateInterval: 1.5
@@ -154,11 +178,12 @@
 - type: entity
   id: OrganArachnidKidneys
   parent: BaseHumanOrgan
-  name: kidneys
+  name: Malpighian tubules
   description: "Filters toxins from the bloodstream."
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
+    sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi  #imp edit
     layers:
       - state: kidney-l
       - state: kidney-r
@@ -184,6 +209,7 @@
   description: "Two was already too many."
   components:
   - type: Sprite
+    sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi  #imp edit
     layers:
       - state: eyeball-l
       - state: eyeball-r
