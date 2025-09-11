@@ -1,5 +1,5 @@
-using Content.Server.Atmos.Components;
-using Content.Server.Power.Components;
+using Content.Server.Power.Components; //imp edit
+using Content.Shared.Atmos.Components;
 using Content.Shared.Placeable;
 using Content.Shared.Temperature;
 using Content.Shared.Temperature.Components;
