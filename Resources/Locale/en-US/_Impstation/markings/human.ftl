@@ -5,6 +5,11 @@
 # Snout
 
 # Eyes
+marking-HumanLEyeGlow = Glowing Eye (Left)
+marking-HumanLEyeGlow-tattoo_eye_l = Glowing Eye (Left)
+
+marking-HumanREyeGlow = Glowing Eye (Right)
+marking-HumanREyeGlow-tattoo_eye_r = Glowing Eye (Right)
 
 # RArm
 
