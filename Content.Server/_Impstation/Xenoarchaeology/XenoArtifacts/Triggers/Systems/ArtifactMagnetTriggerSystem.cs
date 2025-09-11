@@ -69,7 +69,8 @@ public sealed class ArtifactMagnetTriggerSystem : EntitySystem
             if (distance > artifact.Range)
                 continue;
 
-            _toActivate.Add(uid);
+            if (HasComp<ArtifactComponent>(uid))
+                _toActivate.Add(uid);
         }
 
         foreach (var a in _toActivate)
