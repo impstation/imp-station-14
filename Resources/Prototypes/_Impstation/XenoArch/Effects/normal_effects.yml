@@ -1190,6 +1190,8 @@
     entries:
     - chemical: Cryptobiolin
       amount: 15
+    - chemical: Ethylredoxrazine
+      amount: 45
 
 - type: artifactEffect
   id: EffectDirectInjectDrunkHigh
@@ -1208,7 +1210,9 @@
     - chemical: Cryptobiolin
       amount: 10
     - chemical: SpaceDrugs
-      amount: 10
+      amount: 30
+    - chemical: Ethylredoxrazine
+      amount: 30
 
 - type: artifactEffect
   id: EffectMindlessClone
