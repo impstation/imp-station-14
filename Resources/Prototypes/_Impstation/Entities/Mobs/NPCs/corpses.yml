@@ -1,0 +1,285 @@
+- type: entity
+  parent: BaseMobArachnid
+  suffix: Dead
+  save: false
+  id: SalvageArachnidCorpse
+  name: unidentified corpse
+  description: I think they're dead.
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: Damageable
+    damage:
+      types:
+        Bloodloss: 49
+        Asphyxiation: 76
+        Slash: 56
+        Blunt: 19
+  - type: Inventory
+    templateId: corpse
+  - type: Rotting
+    totalRotTime: 1200 # 20 minutes
+
+- type: entity
+  parent: BaseMobDecapoid
+  suffix: Dead
+  save: false
+  id: SalvageDecapoidCorpse
+  name: unidentified corpse
+  description: I think they're dead.
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: Damageable
+    damage:
+      types:
+        Bloodloss: 49
+        Asphyxiation: 76
+        Slash: 56
+        Blunt: 19
+  - type: Inventory
+    templateId: corpse
+  - type: Rotting
+    totalRotTime: 1200 # 20 minutes
+
+- type: entity
+  parent: BaseMobDiona
+  suffix: Dead
+  save: false
+  id: SalvageDionaCorpse
+  name: unidentified corpse
+  description: I think they're dead.
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: Damageable
+    damage:
+      types:
+        Bloodloss: 49
+        Asphyxiation: 76
+        Slash: 56
+        Blunt: 19
+  - type: Inventory
+    templateId: corpse
+  - type: Rotting
+    totalRotTime: 1200 # 20 minutes
+
+- type: entity
+  parent: BaseMobDwarf
+  suffix: Dead
+  save: false
+  id: SalvageDwarfCorpse
+  name: unidentified corpse
+  description: I think they're dead.
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: Damageable
+    damage:
+      types:
+        Bloodloss: 49
+        Asphyxiation: 76
+        Slash: 56
+        Blunt: 19
+  - type: Inventory
+    templateId: corpse
+  - type: Rotting
+    totalRotTime: 1200 # 20 minutes
+
+- type: entity
+  parent: BaseMobGastropoid
+  suffix: Dead
+  save: false
+  id: SalvageGastropoidCorpse
+  name: unidentified corpse
+  description: I think they're dead.
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: Damageable
+    damage:
+      types:
+        Bloodloss: 49
+        Asphyxiation: 76
+        Slash: 56
+        Blunt: 19
+  - type: Inventory
+    templateId: corpse
+  - type: Rotting
+    totalRotTime: 1200 # 20 minutes
+
+- type: entity
+  parent: BaseMobGray
+  suffix: Dead
+  save: false
+  id: SalvageGrayCorpse
+  name: unidentified corpse
+  description: I think they're dead.
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: Damageable
+    damage:
+      types:
+        Bloodloss: 49
+        Asphyxiation: 76
+        Slash: 56
+        Blunt: 19
+  - type: Inventory
+    templateId: corpse
+  - type: Rotting
+    totalRotTime: 1200 # 20 minutes
+
+- type: entity
+  parent: BaseMobHuman
+  suffix: Dead
+  save: false
+  id: SalvageHumanCorpse
+  name: unidentified corpse
+  description: I think they're dead.
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: Damageable
+    damage:
+      types:
+        Bloodloss: 49
+        Asphyxiation: 76
+        Slash: 56
+        Blunt: 19
+  - type: Inventory
+    templateId: corpse
+  - type: Rotting
+    totalRotTime: 1200 # 20 minutes
+
+- type: entity
+  parent: MobKodepiiaBase
+  suffix: Dead
+  save: false
+  id: SalvageKodepiiaCorpse
+  name: unidentified corpse
+  description: I think they're dead.
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: Damageable
+    damage:
+      types:
+        Bloodloss: 49
+        Asphyxiation: 76
+        Slash: 56
+        Blunt: 19
+  - type: Inventory
+    templateId: corpse
+  - type: Rotting
+    totalRotTime: 1200 # 20 minutes
+
+- type: entity
+  parent: BaseMobMoth
+  suffix: Dead
+  save: false
+  id: SalvageMothCorpse
+  name: unidentified corpse
+  description: I think they're dead.
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: Damageable
+    damage:
+      types:
+        Bloodloss: 49
+        Asphyxiation: 76
+        Slash: 56
+        Blunt: 19
+  - type: Inventory
+    templateId: corpse
+  - type: Rotting
+    totalRotTime: 1200 # 20 minutes
+
+- type: entity
+  parent: BaseMobReptilian
+  suffix: Dead
+  save: false
+  id: SalvageReptilianCorpse
+  name: unidentified corpse
+  description: I think they're dead.
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: Damageable
+    damage:
+      types:
+        Bloodloss: 49
+        Asphyxiation: 76
+        Slash: 56
+        Blunt: 19
+  - type: Inventory
+    templateId: corpse
+  - type: Rotting
+    totalRotTime: 1200 # 20 minutes
+
+- type: entity
+  parent: BaseMobSlimePerson
+  suffix: Dead
+  save: false
+  id: SalvageSlimeCorpse
+  name: unidentified corpse
+  description: I think they're dead.
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: Damageable
+    damage:
+      types:
+        Bloodloss: 49
+        Asphyxiation: 76
+        Slash: 56
+        Blunt: 19
+  - type: Inventory
+    templateId: corpse
+  - type: Rotting
+    totalRotTime: 1200 # 20 minutes
+
+- type: entity
+  parent: BaseMobThaven
+  suffix: Dead
+  save: false
+  id: SalvageThavenCorpse
+  name: unidentified corpse
+  description: I think they're dead.
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: Damageable
+    damage:
+      types:
+        Bloodloss: 49
+        Asphyxiation: 76
+        Slash: 56
+        Blunt: 19
+  - type: Inventory
+    templateId: corpse
+  - type: Rotting
+    totalRotTime: 1200 # 20 minutes
+
+- type: entity
+  parent: BaseMobVox
+  suffix: Dead
+  save: false
+  id: SalvageVoxCorpse
+  name: unidentified corpse
+  description: I think they're dead.
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: Damageable
+    damage:
+      types:
+        Bloodloss: 49
+        Asphyxiation: 76
+        Slash: 56
+        Blunt: 19
+  - type: Inventory
+    templateId: corpse
+  - type: Rotting
+    totalRotTime: 1200 # 20 minutes
