@@ -1,7 +1,7 @@
 - type: species
   id: Ungu
   name: species-name-ungu
-  roundStart: false
+  roundStart: fasle
   prototype: MobUngu
   sprites: MobUnguSprites
   markingLimits: MobUnguMarkingLimits
@@ -16,7 +16,7 @@
   - Male
   - Female
   youngAge: 60
-  oldAge: 100
+  oldAge: 150
   ancientAge: 200
 
 - type: speciesBaseSprites
