@@ -46,9 +46,6 @@
         Slash: 12
         Piercing: 8
   - type: NoSlip
-  - type: Grammar
-    attributes:
-      gender: male
   - type: GhostRole
     allowMovement: true
     allowSpeech: true
@@ -67,7 +64,8 @@
   - type: IntrinsicRadioTransmitter
     channels:
     - Mansus
-
+  - type: GhostTakeoverAvailable
+  - type: InnateHereticMagic
 
 - type: entity
   parent: BaseMobGhoul
@@ -94,7 +92,7 @@
     disableDuration: 20
 
 - type: entity
-  parent: BaseMobGhoul
+  parent: [BaseMobGhoul,FlyingMobBase]
   id: MobGhoulProphet
   name: raw prophet
   description: An abomination stitched together from a few severed arms and one swollen, orphaned eye.
@@ -120,6 +118,29 @@
     actions:
     - ActionHereticJaunt
     - ActionHereticMansusLink
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5.00
+    baseSprintSpeed: 8.00
+  - type: Hands
+    hands:
+      hand:
+        location: Right
+    sortedHands:
+    - hand
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 250
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: Loadout
+    prototypes:
+    - ProphetGear
 
 - type: entity
   parent: BaseMobGhoul
