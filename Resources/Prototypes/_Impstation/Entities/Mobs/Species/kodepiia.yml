@@ -74,6 +74,7 @@
     - map: [ "belt" ]
     - map: [ "back" ]
     - map: [ "neck" ]
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
     - map: [ "pocket1" ]
@@ -166,6 +167,7 @@
     - id: FoodMeatKodepiia
       amount: 5
   - type: HarpyVisuals
+  - type: Carriable # Carrying system from nyanotrasen.
 
 - type: entity
   save: false

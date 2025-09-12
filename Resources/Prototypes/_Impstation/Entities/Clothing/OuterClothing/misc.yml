@@ -23,3 +23,14 @@
     modifiers:
       coefficients:
         Caustic: 0.90 #no one will even notice this its just for me
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterApronNurse
+  name: nurse apron
+  description: Suprisingly clean. For now.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Misc/apronnurse.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Misc/apronnurse.rsi
