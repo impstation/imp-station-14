@@ -90,7 +90,7 @@ public sealed class ServiceJobBoardSystem : EntitySystem
     /// </summary>
     public List<ProtoId<ServiceJobPrototype>> GetJobs(Entity<ServiceJobsDataComponent> ent)
     {
-        if (ent.Comp.StationJobs == null)
+        if (ent.Comp.StationJobs.Count == 0)
         {
             ent.Comp.StationJobs = [];
 
