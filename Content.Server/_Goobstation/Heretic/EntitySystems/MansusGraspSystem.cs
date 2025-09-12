@@ -1,4 +1,6 @@
+using System.Diagnostics.CodeAnalysis;
 using Content.Server.Chat.Systems;
+using Content.Server.Hands.Systems;
 using Content.Server.Heretic.Components;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Temperature.Components;
@@ -9,11 +11,13 @@ using Content.Shared.DoAfter;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 using Content.Shared.Eye.Blinding.Systems;
+using Content.Shared.Hands.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
 using Content.Shared.Mobs.Components;
+using Content.Shared.RetractableItemAction;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
@@ -36,6 +40,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly TemperatureSystem _temperature = default!;
+    [Dependency] private readonly HandsSystem _hands = default!;
 
     public void ApplyGraspEffect(EntityUid performer, EntityUid target, string path)
     {
@@ -102,6 +107,21 @@ public sealed partial class MansusGraspSystem : EntitySystem
         SubscribeLocalEvent<MansusGraspComponent, UseInHandEvent>(OnUseInHand);
     }
 
+    public bool MansusGraspActive(EntityUid heretic)
+    {
+        foreach (var hand in _hands.EnumerateHands(heretic))
+        {
+            if (!_hands.TryGetHeldItem(heretic, hand, out var heldEntity) ||
+                !TryComp<MetaDataComponent>(heldEntity, out var metadata))
+                continue;
+
+            if (metadata.EntityPrototype?.ID == "TouchSpellMansus")
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     private void OnAfterInteract(Entity<MansusGraspComponent> ent, ref AfterInteractEvent args)
     {
         if (args.Handled || !args.CanReach)
@@ -145,7 +165,6 @@ public sealed partial class MansusGraspSystem : EntitySystem
             }
         }
 
-        hereticComp.MansusGraspActive = false;
         QueueDel(ent);
     }
 
@@ -161,7 +180,6 @@ public sealed partial class MansusGraspSystem : EntitySystem
         }
 
         args.Handled = true;
-        hereticComp.MansusGraspActive = false;
         QueueDel(uid);
     }
 
@@ -172,7 +190,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
         if (!args.CanReach
         || !args.ClickLocation.IsValid(EntityManager)
         || !TryComp<HereticComponent>(args.User, out var heretic) // not a heretic - how???
-        || !heretic.MansusGraspActive // no grasp - not special
+        || !MansusGraspActive(args.User) // no grasp - not special
         || HasComp<ActiveDoAfterComponent>(args.User) // prevent rune shittery
         || (!tags.Contains("Write") && !tags.Contains("DecapoidClaw")) // not a writing implement or decapoid claw
         || args.Target != null && HasComp<ItemComponent>(args.Target)) //don't allow clicking items (otherwise the circle gets stuck to them)
@@ -183,6 +201,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
         {
             // todo: add more fluff
             QueueDel(args.Target);
+            args.Handled = true;
             return;
         }
 

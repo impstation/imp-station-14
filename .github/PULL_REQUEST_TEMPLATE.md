@@ -10,7 +10,7 @@
 <!-- Summary of code changes for easier review. -->
 
 ## Media
-<!-- Attach media if the PR makes ingame changes (clothing, items, features, etc).
+<!-- Attach media if the PR makes ingame changes (clothing, items, features, etc). -->
 
 ## Requirements
 <!-- Confirm the following by placing an X in the brackets [X]: -->
