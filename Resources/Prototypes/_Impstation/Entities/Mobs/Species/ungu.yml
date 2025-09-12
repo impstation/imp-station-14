@@ -248,6 +248,17 @@
           32:
             sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
             state: jumpsuit
+  - type: Hands
+    leftHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
+          state: inhand_left
+    rightHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
+          state: inhand_right
 
 - type: entity
   parent: BaseSpeciesDummy
