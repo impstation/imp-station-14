@@ -26,7 +26,7 @@ public sealed partial class ServiceJobPrototype : IPrototype
     ///     Announcement to be sent over comms when the event is selected.
     /// </summary>
     [DataField(required: true)]
-    public LocId ServiceAnnouncement = string.Empty;
+    public LocId SelectAnnounce = string.Empty;
 
     /// <summary>
     ///     Timer from when the event is selected to when the event is announced over station communications.
@@ -38,7 +38,7 @@ public sealed partial class ServiceJobPrototype : IPrototype
     ///     Announcement to be sent over station-wide communications when the timer expires.
     /// </summary>
     [DataField(required: true)]
-    public LocId StartAnnouncement = string.Empty;
+    public LocId StartAnnounce = string.Empty;
 
     /// <summary>
     ///     Optional sprite representing this job.

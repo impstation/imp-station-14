@@ -1,8 +1,10 @@
+using System.Linq;
 using Content.Server.Radio.EntitySystems;
 using Content.Server.Station.Systems;
 using Content.Shared._Impstation.Service;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 
 namespace Content.Server._Impstation.Service;
 
@@ -14,6 +16,7 @@ namespace Content.Server._Impstation.Service;
 public sealed class ServiceJobBoardSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
 
     [Dependency] private readonly StationSystem _station = default!;
@@ -59,7 +62,7 @@ public sealed class ServiceJobBoardSystem : EntitySystem
         // disable shit
         // setup announce for comms console
 
-        var message = Loc.GetString(job.ServiceAnnouncement);
+        var message = Loc.GetString(job.SelectAnnounce);
         _radio.SendRadioMessage(ent, message, ent.Comp.AnnounceChannel, ent, false);
 
         // we need to update the state of all computers, not just the one in use
@@ -82,24 +85,45 @@ public sealed class ServiceJobBoardSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Gets a list of random jobs.
+    ///     Gets the station's service jobs.
+    ///     Will generate a new list if none exist.
     /// </summary>
     public List<ProtoId<ServiceJobPrototype>> GetJobs(Entity<ServiceJobsDataComponent> ent)
     {
-        // already generated 'em
-        if (ent.Comp.StationJobs != null)
-            return ent.Comp.StationJobs;
-
-        List<ProtoId<ServiceJobPrototype>> outJobs = [];
-
-        foreach (var job in _prototypeManager.EnumeratePrototypes<ServiceJobPrototype>())
+        if (ent.Comp.StationJobs == null)
         {
-            // TODO: shuffle these so we get a random order each time
-            if (outJobs.Contains(job))
-                continue;
+            ent.Comp.StationJobs = [];
 
-            outJobs.Add(job);
+            for (var i = 0; i < ent.Comp.MaxJobs; i++)
+                if (TryGetRandomJob(ent, out var job) && job != null)
+                    ent.Comp.StationJobs.Add(job);
         }
-        return outJobs;
+        return ent.Comp.StationJobs;
+    }
+
+    /// <summary>
+    ///     Attempts to grab a random service job prototype, ignoring duplicates.
+    ///     Fails if there are no jobs left.
+    /// </summary>
+    public bool TryGetRandomJob(Entity<ServiceJobsDataComponent> ent, out ServiceJobPrototype? job)
+    {
+        var allJobs = _prototypeManager.EnumeratePrototypes<ServiceJobPrototype>()
+            .ToList();
+        var filteredJobs = new List<ServiceJobPrototype>();
+        foreach (var proto in allJobs)
+        {
+            if (ent.Comp.StationJobs.Any(j => j.Id == proto.ID))
+                continue;
+            filteredJobs.Add(proto);
+        }
+
+        if (filteredJobs.Count == 0)
+        {
+            job = null;
+            return false;
+        }
+
+        job = _random.Pick(filteredJobs);
+        return true;
     }
 }

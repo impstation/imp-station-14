@@ -1,0 +1,49 @@
+- type: entity
+  parent: BaseComputerAiAccess
+  id: ComputerServiceJobBoard
+  name: service job board
+  description: Console for accessing service jobs. # TODO better description
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi
+    - map: ["computerLayerScreen"]
+      state: servicejob
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi
+  - type: ServiceJobBoardConsole
+  - type: ActivatableUI
+    key: enum.SalvageJobBoardUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ServiceJobBoardUiKey.Key:
+        type: ServiceJobBoardBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: ActiveRadio
+    channels: [ Service ]
+  - type: Computer
+    board: ServiceJobBoardComputerCircuitboard
+  - type: PointLight
+    radius: 2.4 #imp
+    energy: 1.6
+    color: "#b89f25"
+
+- type: entity
+  parent: [ BaseComputerCircuitboard, BaseServiceContraband ]
+  id: ServiceJobBoardComputerCircuitboard
+  name: service job board computer board
+  description: A computer printed circuit board for a service job board computer.
+  components:
+  - type: Sprite
+    state: cpu_supply
+  - type: ComputerBoard
+    prototype: ComputerServiceJobBoard
