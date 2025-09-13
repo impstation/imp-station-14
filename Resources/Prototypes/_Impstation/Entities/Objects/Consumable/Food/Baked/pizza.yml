@@ -66,3 +66,81 @@
           Quantity: 0.75
         - ReagentId: Vitamin
           Quantity: 0.5
+
+- type: entity
+  name: bomb pizza
+  parent: FoodInjectableBase
+  id: FoodPizzaBomb
+  description: This new way of cooking pizza is actually so lit.
+  components:
+  - type: Appearance #turns out you need this for fire visuals to work
+  - type: FlavorProfile
+    flavors:
+    - nutty #real bomb pizza is made with nuts but we don't have those
+    - cheesy
+    - oily
+    - bread
+    - gunpowder
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Baked/pizza.rsi
+    layers:
+    - state: bombpizza
+  - type: Food
+    trash:
+    - FoodPlateBurnt
+  - type: Flammable
+    fireSpread: true
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:ExplodeBehavior
+  - type: FireVisuals
+    sprite: _Impstation/Objects/Consumable/Food/Baked/pizza.rsi
+    normalState: bombpizza_fire
+    alternateState: bombpizza_fire
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,2,2
+  - type: Explosive 
+    explosionType: Default #same size as rpg rocket but less intense
+    maxIntensity: 20
+    intensitySlope: 3
+    totalIntensity: 100
+    canCreateVacuum: false
+  - type: Tag
+    tags:
+    - Pizza
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 21
+        - ReagentId: Lead #i'm allowed
+          Quantity: 1
+        - ReagentId: Sulfur
+          Quantity: 19
