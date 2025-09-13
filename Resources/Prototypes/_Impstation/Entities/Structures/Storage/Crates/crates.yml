@@ -15,7 +15,7 @@
   description: A crate full of tchotchkes and toys to celebrate love.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Storage/valentinescrate.rsi
+    sprite: _Impstation/Structures/Storage/Crates/valentinescrate.rsi
     layers:
     - state: crate
       map: ["enum.StorageVisualLayers.Base"]
@@ -29,7 +29,7 @@
       offset: "0.0,-0.09375"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: Icon
-    sprite: _Impstation/Objects/Storage/valentinescrate.rsi
+    sprite: _Impstation/Structures/Storage/Crates/valentinescrate.rsi
     state: crate_icon
   - type: Appearance
   - type: EntityStorageVisuals
@@ -65,7 +65,7 @@
   description: You feel like a year has passed since you last saw this crate.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Storage/anniversarycrate.rsi
+    sprite: _Impstation/Structures/Storage/Crates/anniversarycrate.rsi
     layers:
     - state: crate
       map: ["enum.StorageVisualLayers.Base"]
@@ -79,7 +79,7 @@
       offset: "0.0,-0.09375"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: Icon
-    sprite: _Impstation/Objects/Storage/anniversarycrate.rsi
+    sprite: _Impstation/Structures/Storage/Crates/anniversarycrate.rsi
     state: crate_icon
   - type: Appearance
   - type: EntityStorageVisuals
