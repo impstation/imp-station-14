@@ -518,7 +518,7 @@
     availableModes: FullAuto #imp
     selectedMode: FullAuto #imp
   - type: HitscanBatteryAmmoProvider
-    proto: RedHeavyLaser
+    proto: RedRifleLaser #imp
     fireCost: 40 #imp
   - type: Battery #imp
     maxCharge: 1200 #imp
