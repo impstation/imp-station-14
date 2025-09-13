@@ -1,3 +1,4 @@
+using Content.Server._Goobstation.Heretic.Components;
 using Content.Server.EntityEffects;
 using Content.Shared.Clothing;
 using Content.Shared.Clothing.Components;
@@ -49,7 +50,7 @@ public sealed partial class MadnessMaskSystem : EntitySystem
             {
                 // heathens exclusive
                 if (HasComp<HereticComponent>(look)
-                || HasComp<GhoulComponent>(look))
+                || HasComp<MinionComponent>(look))
                     continue;
 
                 if (HasComp<StaminaComponent>(look) && _random.Prob(.4f))

@@ -9,6 +9,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using System.Text;
 using System.Linq;
+using Content.Server._Goobstation.Heretic.Components;
 using Robust.Shared.Serialization.Manager;
 using Content.Shared.Examine;
 using Content.Shared._Goobstation.Heretic.Components;
@@ -96,20 +97,23 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
         // add missing tags
         foreach (var tag in requiredTags)
+        {
             if (tag.Value > 0)
                 missingList.Add(tag.Key);
+        }
 
         // are we missing anything?
         if (missingList.Count > 0)
         {
             // we are! notify the performer about that!
             var sb = new StringBuilder();
-            for (int i = 0; i < missingList.Count; i++)
+            for (var i = 0; i < missingList.Count; i++)
             {
                 // makes a nice, list, of, missing, items.
                 if (i != missingList.Count - 1)
                     sb.Append($"{missingList[i]}, ");
-                else sb.Append(missingList[i]);
+                else
+                    sb.Append(missingList[i]);
             }
 
             _popup.PopupEntity(Loc.GetString("heretic-ritual-fail-items", ("itemlist", sb.ToString())), platform, performer);
@@ -130,13 +134,23 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
         // ya get some, ya lose some
         foreach (var ent in toDelete)
+        {
             QueueDel(ent);
+        }
 
         // add stuff
-        var output = rit.Output ?? new();
+        var output = rit.Output ?? new Dictionary<EntProtoId, int>();
         foreach (var ent in output.Keys)
-            for (int i = 0; i < output[ent]; i++)
-                Spawn(ent, Transform(platform).Coordinates);
+        {
+            for (var i = 0; i < output[ent]; i++)
+            {
+                var spawn = Spawn(ent, Transform(platform).Coordinates);
+                if (TryComp<MinionComponent>(spawn, out var minion))
+                {
+                    minion.BoundOwner = performer;
+                }
+            }
+        }
 
         if (rit.OutputEvent != null)
             RaiseLocalEvent(performer, rit.OutputEvent, true);
