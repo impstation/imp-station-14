@@ -1,13 +1,12 @@
 using Content.Server._Goobstation.Heretic.Components;
 using Content.Server._Impstation.Heretic.Components;
-using Content.Server.Atmos.Components;
-using Content.Shared.Heretic;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Mobs;
-using Content.Shared.Damage;
-using Content.Shared.Atmos;
 using Content.Server.Polymorph.Systems;
+using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
+using Content.Shared.Damage;
+using Content.Shared.Heretic;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
 
@@ -114,7 +113,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             || HasComp<MinionComponent>(look))
                 continue;
 
-            if (TryComp<Atmos.Components.FlammableComponent>(look, out var flam))
+            if (TryComp<FlammableComponent>(look, out var flam))
             {
                 if (flam.OnFire && TryComp<DamageableComponent>(ent, out var dmgc))
                 {
