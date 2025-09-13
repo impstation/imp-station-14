@@ -105,6 +105,7 @@
         Burger: BrosBurger
     - type: CanEscapeInventory
       baseResistTime: 2
+    - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: SORB

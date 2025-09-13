@@ -174,6 +174,7 @@
       behaviors:
       - !type:GibBehavior
         recursive: false
+  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: bee
@@ -201,6 +202,7 @@
   - type: Bloodstream
     bloodMaxVolume: 0.1
   - type: ZombieImmune
+  - type: AlwaysRevolutionaryConvertible #imp
 
 
 - type: entity
@@ -291,6 +293,7 @@
   - type: Carriable #DeltaV
     freeHandsRequired: 1
   # imp edit end
+  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   parent: MobChicken
@@ -674,6 +677,7 @@
     activateSound: null
     deactivateSound: null
   # imp edit end
+  - type: AlwaysRevolutionaryConvertible #imp
 
 
 # Note that the mallard duck is actually a male drake mallard, with the brown duck being the female variant of the same species, however ss14 lacks sex specific textures
@@ -757,6 +761,7 @@
   - type: Carriable #DeltaV
     freeHandsRequired: 1
   # imp edit end
+  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: white duck #Quack
@@ -891,6 +896,7 @@
   # imp edit start
   - type: PleebnarGibbable
   # imp edit end
+  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: cow
@@ -980,6 +986,7 @@
   - type: GoobAbsorbable
     biomassRestored: 0.7
   # imp edit end
+  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: crab
@@ -1066,6 +1073,7 @@
       Female: UnisexDecapoid
       Unsexed: UnisexDecapoid
   # imp edit end
+  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: goat
@@ -1173,6 +1181,7 @@
   - type: GoobAbsorbable
     biomassRestored: 0.5
   # imp edit end
+  - type: AlwaysRevolutionaryConvertible #imp
 
 # Note that we gotta make this bitch vomit someday when you feed it anthrax or sumthin. Needs to be a small item thief too and aggressive if attacked.
 - type: entity
@@ -1227,6 +1236,7 @@
     biomassRestored: 0.3
   - type: Carriable #DeltaV
   # imp edit end
+  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: gorilla
@@ -2275,6 +2285,7 @@
     deactivateSound: null
   - type: PleebnarGibbable
   # imp edit end
+  - type: AlwaysRevolutionaryConvertible #imp
 
 
 - type: entity
@@ -2341,6 +2352,7 @@
   - type: VentCrawler
     enterDelay: 1
   # imp edit end
+  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: frog
@@ -2424,6 +2436,7 @@
   - type: VentCrawler
     enterDelay: 1
   # imp edit end
+  - type: AlwaysRevolutionaryConvertible #imp
 
 # Would be cool to have some functionality for the parrot to be able to sit on stuff
 - type: entity
@@ -2581,6 +2594,7 @@
     biomassRestored: 0.3
   - type: Carriable #DeltaV
   # imp edit end
+  - type: AlwaysRevolutionaryConvertible #imp
 
 # TODO: Make grenade penguin voice activated like the rest of the stealth items.
 - type: entity
@@ -2719,7 +2733,8 @@
     tags: []
   - type: VentCrawler
     enterDelay: 2
-  # imp edit start
+  # imp edit end
+  - type: AlwaysRevolutionaryConvertible #imp
 
 # Code unique spider prototypes or combine them all into one spider and get a
 # random sprite state when you spawn it.
@@ -3028,6 +3043,7 @@
     activateSound: null
     deactivateSound: null
   # imp edit end
+  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: possum
@@ -3121,6 +3137,7 @@
     activateSound: null
     deactivateSound: null
   # imp edit end
+  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: fox
@@ -3262,6 +3279,7 @@
   - type: Carriable #DeltaV
   - type: DogVision
   # imp edit end
+  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   parent: MobCorgiBase
@@ -3465,6 +3483,7 @@
     activateSound: null
     deactivateSound: null
   # imp edit end
+  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: calico cat
@@ -3709,6 +3728,7 @@
     biomassRestored: 0.3
   - type: Carriable #DeltaV
   # imp edit end
+  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: ferret
@@ -3776,6 +3796,7 @@
   - type: VentCrawler
     enterDelay: 3
   # imp edit end
+  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: hamster
@@ -3936,6 +3957,7 @@
   - type: VentCrawler
     enterDelay: 1
   # imp edit end
+  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: pig
@@ -4013,6 +4035,7 @@
   - type: Carriable #DeltaV
   - type: PleebnarGibbable
   # imp edit end
+  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: diona nymph
@@ -4192,6 +4215,7 @@
     activateSound: null
     deactivateSound: null
   # imp edit end
+  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: reindeer doe
