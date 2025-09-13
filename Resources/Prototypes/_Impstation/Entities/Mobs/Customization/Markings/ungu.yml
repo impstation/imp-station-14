@@ -45,6 +45,51 @@
   - sprite: _Impstation/Mobs/Customization/Ungu/chest.rsi
     state: Trans
 
+- type: marking
+  id: FinUngu
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/chest.rsi
+    state: Fin
+
+- type: marking
+  id: LimpitUngu
+  bodyPart: HeadTop
+  markingCategory: Chest
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/chest.rsi
+    state: Limpit
+
+- type: marking
+  id: HeartUngu
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/chest.rsi
+    state: Heart
+
+- type: marking
+  id: StitchBellyUngu
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/chest.rsi
+    state: StitchBelly
+
+- type: marking
+  id: ExoUngu
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/chest.rsi
+    state: Exo
+
 # HeadSide
 
 - type: marking
@@ -68,6 +113,64 @@
     state: Bell
   - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
     state: String
+
+- type: marking
+  id: ChompersUngu
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
+    state: Chompers
+
+- type: marking
+  id: TusksUngu
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
+    state: Tusks
+
+- type: marking
+  id: WalrusUngu
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
+    state: Walrus
+
+- type: marking
+  id: AntlersUngu
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
+    state: Antlers
+
+- type: marking
+  id: LEyeHorn
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
+    state: LEyeHorn
+  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
+    state: LHurt
+
+- type: marking
+  id: REyeHorn
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
+    state: REyeHorn
+  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
+    state: RHurt
 
 - type: marking
   id: EarsPigUngu
@@ -258,6 +361,30 @@
   - sprite: _Impstation/Mobs/Customization/Ungu/snout.rsi
     state: SnoutWhale2
 
+- type: marking
+  id: SnoutBelugaUngu
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Ungu ]
+  forcedColoring: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/snout.rsi
+    state: Beluga
+  - sprite: _Impstation/Mobs/Customization/Ungu/snout.rsi
+    state: BelugaEyes
+
+- type: marking
+  id: SnoutOrcaUngu
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Ungu ]
+  forcedColoring: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/snout.rsi
+    state: OrcaBase
+  - sprite: _Impstation/Mobs/Customization/Ungu/snout.rsi
+    state: OrcaMarkings
+
 # Eyes
 
 - type: marking
@@ -306,6 +433,51 @@
     state: RArmFluff
 
 - type: marking
+  id: RArmStitchUngu
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/arms.rsi
+    state: RArmStitch
+
+- type: marking
+  id: PRArmUngu
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/arms.rsi
+    state: PRArm
+
+- type: marking
+  id: SkinRArmUngu
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/arms.rsi
+    state: SkinRArm
+
+- type: marking
+  id: PRHandUngu
+  bodyPart: RHand
+  markingCategory: Arms
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/arms.rsi
+    state: PRHand
+
+- type: marking
+  id: SkinRHandUngu
+  bodyPart: RHand
+  markingCategory: Arms
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/arms.rsi
+    state: SkinRHand
+
+- type: marking
   id: RArmSpotUngu
   bodyPart: RArm
   markingCategory: Arms
@@ -324,6 +496,51 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/arms.rsi
     state: LArmFluff
+
+- type: marking
+  id: LArmStitchUngu
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/arms.rsi
+    state: LArmStitch
+
+- type: marking
+  id: SkinLArmUngu
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/arms.rsi
+    state: SkinLArm
+
+- type: marking
+  id: PLArmUngu
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/arms.rsi
+    state: PLArm
+
+- type: marking
+  id: PLHandUngu
+  bodyPart: LHand
+  markingCategory: Arms
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/arms.rsi
+    state: PLHand
+
+- type: marking
+  id: SkinLHandUngu
+  bodyPart: LHand
+  markingCategory: Arms
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/arms.rsi
+    state: SkinLHand
 
 - type: marking
   id: LArmSpotUngu
@@ -346,6 +563,24 @@
     state: RLegFluff
 
 - type: marking
+  id: RLegStitchUngu
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
+    state: StitchRLeg
+
+- type: marking
+  id: PRLegUngu
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
+    state: PRLeg
+
+- type: marking
   id: RLegSpotUngu
   bodyPart: RLeg
   markingCategory: Legs
@@ -353,6 +588,15 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
     state: RLegSpotBig
+
+- type: marking
+  id: SkinRLegUngu
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
+    state: SkinRLeg
 
 - type: marking
   id: RHoofUngu
@@ -363,10 +607,19 @@
   - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
     state: HoofR
 
+- type: marking
+  id: PRHoofUngu
+  bodyPart: RFoot
+  markingCategory: Legs
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
+    state: PRHoof
+
 # LLeg
 
 - type: marking
-  id: LHooftUngu
+  id: LHoofUngu
   bodyPart: LFoot
   markingCategory: Legs
   speciesRestriction: [ Ungu ]
@@ -374,6 +627,14 @@
   - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
     state: HoofL
 
+- type: marking
+  id: PLHoofUngu
+  bodyPart: LFoot
+  markingCategory: Legs
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
+    state: PLHoof
 
 - type: marking
   id: LLegFluffUngu
@@ -383,6 +644,33 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
     state: LLegFluff
+
+- type: marking
+  id: SkinLLegUngu
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
+    state: SkinLLeg
+
+- type: marking
+  id: PLLegUngu
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
+    state: PLLeg
+
+- type: marking
+  id: LLegStitchUngu
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
+    state: StitchLLeg
 
 - type: marking
   id: LLegSpotUngu
