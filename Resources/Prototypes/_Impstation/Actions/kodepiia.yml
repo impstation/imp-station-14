@@ -6,8 +6,8 @@
   components:
   - type: Action
     icon:
-      sprite: _Goobstation/Changeling/changeling_abilities.rsi
-      state: transform
+      sprite: _Impstation/Actions/Kodepiia.rsi
+      state: kodepiia_shapeshift
     useDelay: 600
   - type: ConfirmableAction
     popup: dna-scrambler-action-popup
@@ -23,8 +23,8 @@
   - type: Action
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Changeling/changeling_abilities.rsi
-      state: absorb_dna
+      sprite: _Impstation/Actions/Kodepiia.rsi
+      state: kodepiia_eat
     useDelay: 120
   - type: TargetAction
   - type: EntityTargetAction

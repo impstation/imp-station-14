@@ -7,6 +7,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Damage;
 using Content.Shared.Atmos;
 using Content.Server.Polymorph.Systems;
+using Content.Shared.Atmos.Components;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
 
@@ -113,7 +114,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             || HasComp<MinionComponent>(look))
                 continue;
 
-            if (TryComp<FlammableComponent>(look, out var flam))
+            if (TryComp<Atmos.Components.FlammableComponent>(look, out var flam))
             {
                 if (flam.OnFire && TryComp<DamageableComponent>(ent, out var dmgc))
                 {

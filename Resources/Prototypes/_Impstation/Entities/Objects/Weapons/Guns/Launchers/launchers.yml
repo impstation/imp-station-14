@@ -119,7 +119,7 @@
         path: /Audio/Weapons/pop.ogg
         params:
           pitch: .75
-      ropeSprite: _Impstation/Objects/Weapons/Guns/Launchers/grappling_gun_improvised.rsi/rope.png
+      ropeSprite: { sprite: _Impstation/Objects/Weapons/Guns/Launchers/grappling_gun_improvised.rsi, state: rope }
     - type: Gun
       soundGunshot: /Audio/Effects/thunk.ogg
       fireRate: 0.5
