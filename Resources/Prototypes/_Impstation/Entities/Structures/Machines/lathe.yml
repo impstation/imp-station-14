@@ -1,6 +1,6 @@
 - type: entity
   id: ServiceTechFab
-  parent: BaseLatheLube
+  parent: [ BaseLatheLube, BaseServiceContraband ]
   name: service techfab
   description: Produces supplies useful for the service crew.
   components:
@@ -51,6 +51,9 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: OreSiloClient
+  - type: LatheAnnouncing
+    channels: [ Service ]
 
 - type: entity
   id: PortableCutterMachine
