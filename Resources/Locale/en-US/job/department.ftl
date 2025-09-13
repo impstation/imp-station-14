@@ -1,4 +1,5 @@
-department-Cargo = Cargo
+#imp edit, cargo to supply
+department-Cargo = Supply
 department-Civilian = Civilian
 department-Command = Command
 department-CentralCommand = Central Command

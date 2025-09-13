@@ -50,8 +50,8 @@
 - type: entity
   id: BannerCargo
   parent: BannerBase
-  name: cargo banner
-  description: A banner displaying the colors of the cargo department. Not. Cargonia.
+  name: supply banner #imp, cargo to supply
+  description: A banner displaying the colors of the supply department. Not. Cargonia. #imp, cargo to supply
   components:
   - type: Sprite
     sprite: Structures/Decoration/banner.rsi

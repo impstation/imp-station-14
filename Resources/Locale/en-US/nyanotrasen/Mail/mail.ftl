@@ -8,10 +8,11 @@ mail-desc-priority = The anti-tamper lock's [color=yellow]yellow priority tape[/
 mail-desc-priority-inactive = The anti-tamper lock's [color=#886600]yellow priority tape[/color] is inactive.
 mail-unlocked = Anti-tamper system unlocked.
 mail-unlocked-by-emag = Anti-tamper system *BZZT*.
-mail-unlocked-reward = Anti-tamper system unlocked. {$bounty} spesos have been added to cargo' account.
-mail-penalty-lock = ANTI-TAMPER LOCK BROKEN. CARGO BANK ACCOUNT PENALIZED BY {$credits} SPESOS.
-mail-penalty-fragile = INTEGRITY COMPROMISED. CARGO BANK ACCOUNT PENALIZED BY {$credits} SPESOS.
-mail-penalty-expired = DELIVERY PAST DUE. CARGO BANK ACCOUNT PENALIZED BY {$credits} SPESOS.
+#imp edit, cargo to supply, though isn't this deprecated..?
+mail-unlocked-reward = Anti-tamper system unlocked. {$bounty} spesos have been added to supply's account.
+mail-penalty-lock = ANTI-TAMPER LOCK BROKEN. SUPPLY BANK ACCOUNT PENALIZED BY {$credits} SPESOS.
+mail-penalty-fragile = INTEGRITY COMPROMISED. SUPPLY BANK ACCOUNT PENALIZED BY {$credits} SPESOS.
+mail-penalty-expired = DELIVERY PAST DUE. SUPPLY BANK ACCOUNT PENALIZED BY {$credits} SPESOS.
 mail-item-name-unaddressed = mail
 mail-item-name-addressed = mail ({$recipient})
 
