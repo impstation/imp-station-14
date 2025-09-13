@@ -25,6 +25,7 @@
     speedModifier: 0.05
   - type: Item
     sprite: Objects/Tools/Cowtools/haycutters.rsi
+  - type: CowTool #imp edit, lets ungus use this with the speed of a normal tool
 
 - type: entity
   name: moodriver
@@ -51,6 +52,7 @@
   - type: Tag
     tags:
       - Screwdriver
+  - type: CowTool #imp edit, lets ungus use this with the speed of a normal tool
 
 - type: entity
   name: wronch
@@ -77,6 +79,7 @@
   - type: Tag
     tags:
       - Wrench
+  - type: CowTool #imp edit, lets ungus use this with the speed of a normal tool
 
 - type: entity
   name: cowbar
@@ -98,6 +101,9 @@
   - type: Tool
     qualities:
     - Prying
+    speedModifier: 0.05 #imp edit, this missing was likely an error because why the hell does prying have two bespoke components separate from ToolComponent
+    useSound: #imp edit, was also missing its sound
+      path: /Audio/Items/crowbar.ogg
   - type: ToolTileCompatible
     delay: 10
   - type: Prying
@@ -105,6 +111,8 @@
   - type: Tag
     tags:
       - Crowbar
+  - type: CowTool #imp edit, lets ungus use this with the speed of a normal tool
+  - type: CowToolTileCompatible #imp edit, same as above, but for tiles
 
 - type: entity
   name: mooltitool
@@ -137,6 +145,7 @@
     sprite: Objects/Tools/Cowtools/cowelder.rsi
   - type: Tool
     speedModifier: 0.05
+  - type: CowTool #imp edit, lets ungus use this with the speed of a normal tool
 
 - type: entity
   name: milkalyzer
