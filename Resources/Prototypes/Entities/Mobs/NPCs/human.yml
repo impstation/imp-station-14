@@ -68,6 +68,9 @@
   name: syndicate shuttle pilot
   parent: MobSyndicateFootsoldier
   id: MobSyndicateFootsoldierPilot
+  components: #IMP SSD no sleeping
+    - type: SSDIndicator
+      doNotSleep: true
 
 - type: entity
   parent: BaseMobHuman
