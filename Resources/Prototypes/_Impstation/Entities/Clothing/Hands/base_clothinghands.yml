@@ -18,5 +18,6 @@
     damageProtection:
       flatReductions:
         Heat: 5 # the average lightbulb only does around four damage!
+        Cold: 5 # imp edit for cold lightbulbs
   - type: PluralName # imp
     oneOf: plural-name-pair-1

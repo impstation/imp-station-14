@@ -154,6 +154,7 @@
     damageProtection:
       flatReductions:
         Heat: 10 # the average lightbulb only does around four damage!
+        Cold: 10 # imp edit. For cold lightbulb
     slots: OUTERCLOTHING
   - type: DamageOtherOnHit # imp
     damage:
@@ -191,6 +192,7 @@
     damageProtection:
       flatReductions:
         Heat: 10 # the average lightbulb only does around four damage!
+        Cold: 10 # imp edit. For cold lightbulb
     slots: OUTERCLOTHING
   - type: HarpyHideWings # Frontier, needed for Kodepiiae
 

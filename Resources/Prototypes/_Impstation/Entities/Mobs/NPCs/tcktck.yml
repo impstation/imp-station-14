@@ -236,6 +236,7 @@
     damageProtection:
       flatReductions:
         Heat: 10 # capable of touching light bulbs and stoves without feeling pain!
+        Cold: 10 # for cold lightbulbs
   - type: BorgChassis
     maxModules: 3
     hasMindState: tcktck_e
