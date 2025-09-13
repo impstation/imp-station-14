@@ -1,9 +1,9 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Impstation.Kodepiia.Components;
+namespace Content.Shared._Impstation.Consume.Components;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class KodepiiaConsumedComponent : Component
+public sealed partial class ConsumedComponent : Component
 {
     [DataField]
     public int TimesConsumed;
