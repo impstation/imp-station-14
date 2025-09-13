@@ -1,0 +1,14 @@
+- type: entity
+  parent: BaseMentalAction # allow reading laws when crit
+  id: ActionOpenCartridges
+  name: Open Programs
+  description: View software installed on you
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: Interface/Actions/actions_borg.rsi
+      state: state-laws
+    useDelay: 0.5
+  - type: InstantAction
+    event: !type:TogglePdaScreenEvent
