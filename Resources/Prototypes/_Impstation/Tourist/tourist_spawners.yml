@@ -1,0 +1,134 @@
+- type: randomHumanoidSettings
+  id: Tourist
+  parent: EventHumanoid
+  components:
+    - type: GhostRole
+      name: ghost-role-information-tourist-name
+      description: ghost-role-information-tourist-description
+      rules: ghost-role-information-freeagent-rules
+      raffle:
+        settings: default
+    - type: Loadout
+      prototypes: [ TouristRedShirt, TouristBlueShirt, TouristYellowShirt, TouristBlackShirt, TouristHatRedShirt, TouristHatBlueShirt, TouristHatYellowShirt, TouristHatBlackShirt ]
+      roleLoadout: [ RoleSurvivalStandard ]
+    - type: Tourist
+    - type: AutoTraitor #this is weirdly named but works for more than just traitors
+      profile: TouristRule
+
+- type: entity
+  id: RandomTourist
+  name: tourist ghost role
+  components:
+    - type: Sprite
+      sprite: Clothing/Uniforms/Jumpsuit/hawaired.rsi
+      state: icon
+    - type: RandomHumanoidSpawner
+      settings: Tourist
+
+- type: entity
+  name: tourist spawner
+  id: TouristSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Clothing/Uniforms/Jumpsuit/hawaired.rsi
+        state: icon
+  - type: RandomSpawner
+    prototypes:
+    - RandomTourist
+
+
+# Tourist starting gear options. Currently differentiated by color of shirt and whether or not they're wearing hats, but they could get other stuff too
+- type: startingGear
+  id: TouristRedShirt
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHawaiRed
+    neck: TouristCamera
+    back: ClothingBackpack
+    eyes: ClothingEyesGlassesSunglasses
+    shoes: ClothingShoesTourist
+    id: VisitorPDA
+    pocket1: SpaceCash2500
+
+- type: startingGear
+  id: TouristBlueShirt
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHawaiBlue
+    neck: TouristCamera
+    back: ClothingBackpack
+    eyes: ClothingEyesGlassesSunglasses
+    shoes: ClothingShoesTourist
+    id: VisitorPDA
+    pocket1: SpaceCash2500
+
+- type: startingGear
+  id: TouristYellowShirt
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHawaiYellow
+    neck: TouristCamera
+    back: ClothingBackpack
+    eyes: ClothingEyesGlassesSunglasses
+    shoes: ClothingShoesTourist
+    id: VisitorPDA
+    pocket1: SpaceCash2500
+
+- type: startingGear
+  id: TouristBlackShirt
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHawaiBlack
+    neck: TouristCamera
+    back: ClothingBackpack
+    eyes: ClothingEyesGlassesSunglasses
+    shoes: ClothingShoesTourist
+    id: VisitorPDA
+    pocket1: SpaceCash2500
+
+- type: startingGear
+  id: TouristHatRedShirt
+  equipment:
+    head: ClothingHeadHatStrawHat
+    jumpsuit: ClothingUniformJumpsuitHawaiRed
+    neck: TouristCamera
+    back: ClothingBackpack
+    eyes: ClothingEyesGlassesSunglasses
+    shoes: ClothingShoesTourist
+    id: VisitorPDA
+    pocket1: SpaceCash2500
+
+- type: startingGear
+  id: TouristHatBlueShirt
+  equipment:
+    head: ClothingHeadHatStrawHat
+    jumpsuit: ClothingUniformJumpsuitHawaiBlue
+    neck: TouristCamera
+    back: ClothingBackpack
+    eyes: ClothingEyesGlassesSunglasses
+    shoes: ClothingShoesTourist
+    id: VisitorPDA
+    pocket1: SpaceCash2500
+
+- type: startingGear
+  id: TouristHatYellowShirt
+  equipment:
+    head: ClothingHeadHatStrawHat
+    jumpsuit: ClothingUniformJumpsuitHawaiYellow
+    neck: TouristCamera
+    back: ClothingBackpack
+    eyes: ClothingEyesGlassesSunglasses
+    shoes: ClothingShoesTourist
+    id: VisitorPDA
+    pocket1: SpaceCash2500
+
+- type: startingGear
+  id: TouristHatBlackShirt
+  equipment:
+    head: ClothingHeadHatStrawHat
+    jumpsuit: ClothingUniformJumpsuitHawaiBlack
+    neck: TouristCamera
+    back: ClothingBackpack
+    eyes: ClothingEyesGlassesSunglasses
+    shoes: ClothingShoesTourist
+    id: VisitorPDA
+    pocket1: SpaceCash2500
