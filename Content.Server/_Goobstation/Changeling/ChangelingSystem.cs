@@ -103,6 +103,7 @@ public sealed partial class GoobChangelingSystem : EntitySystem
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly Content.Shared._Offbrand.Wounds.ShockThresholdsSystem _shockThresholds = default!; // Offbrand
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId ArmorHelmetPrototype = "ChangelingClothingHeadHelmet";
@@ -282,6 +283,7 @@ public sealed partial class GoobChangelingSystem : EntitySystem
     public bool IsIncapacitated(EntityUid uid)
     {
         if (_mobState.IsIncapacitated(uid)
+        || (_brainDamage.IsCritical(uid) || _heart.IsCritical(uid) || _shockThresholds.IsCritical(uid))
         || (TryComp<CuffableComponent>(uid, out var cuffs) && cuffs.CuffedHandCount > 0))
             return true;
 
