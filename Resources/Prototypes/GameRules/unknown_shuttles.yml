@@ -58,7 +58,7 @@
   id: UnknownShuttleCargoLost
   components:
   - type: StationEvent
-    maxOccurrences: 2 # should be the same as [copies] in shuttle_incoming_event.yml
+    maxOccurrences: 1 # imp edit
   - type: LoadMapRule
     preloadedGrid: ShuttleCargoLost
 

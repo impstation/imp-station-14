@@ -1,0 +1,188 @@
+- type: entity
+  name: Lost Cargo Manifest Spawner
+  id: lostcargomanifestspawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Objects/Misc/bureaucracy.rsi
+          state: paper
+    - type: EntityTableSpawner
+      offset: 0
+      table: !type:NestedSelector
+        tableId: LostCargoManifest
+        prob: 1
+
+- type: entityTable
+  id: LostCargoManifest
+  table: !type:GroupSelector
+    children:
+      - id: LostCargoManifestFrontier
+      - id: LostCargoManifestDen
+      - id: LostCargoManifestRMC
+      - id: LostCargoManifestMonke
+      - id: LostCargoManifestUmbra
+      - id: LostCargoManifestDeltaV
+      - id: LostCargoManifestDevil
+      - id: LostCargoManifestPump
+
+- type: entity
+  id: LostCargoManifestFrontier
+  categories: [ HideSpawnMenu ]
+  parent: Paper
+  components:
+  - type: Paper
+    stampedBy:
+    - stampedColor: "#2f00b1"
+      stampedName: NT
+    content: |2
+      [color=Blue]░░░░░░ [head=2]Nanotrasen Central Distribution[/head]
+      ░█▀▀█░ [head=3]Shuttle: NT-13986593326099-33333 [/head]
+      ░████░ [head=3]Destination: Hypatian Sector [/head]
+      [/color]──────────────────────────────────────────
+      *The form contains a detailed list of the delivery items found in the shuttle. However, upon inspection, there appear to be several crates missing. Something is scribbled in the margins of the courier carbon copy:*
+
+      ──────────────────────────────────────────
+
+      Ok, you two. This is your last chance. We're still smoothing over the fallout from that incident on Fland, but I'm gonna throw you a bone. Don't screw this up.
+
+- type: entity
+  id: LostCargoManifestDen
+  categories: [ HideSpawnMenu ]
+  parent: Paper
+  components:
+  - type: Paper
+    stampedBy:
+    - stampedColor: "#2f00b1"
+      stampedName: NT
+    content: |2
+      [color=Blue]░░░░░░ [head=2]Nanotrasen Central Distribution[/head]
+      ░█▀▀█░ [head=3]Shuttle: NT-13986593326099-33333 [/head]
+      ░████░ [head=3]Destination: Sector D3-N [/head]
+      [/color]──────────────────────────────────────────
+      *The form contains a detailed list of the delivery items found in the shuttle. However, upon inspection, there appear to be several crates missing. Something is scribbled in the margins of the courier carbon copy:*
+
+      ──────────────────────────────────────────
+
+      Ok, you two. This is your last chance. We're still smoothing over the fallout from that incident on Fland, but I'm gonna throw you a bone. Don't screw this up.
+
+- type: entity
+  id: LostCargoManifestRMC
+  categories: [ HideSpawnMenu ]
+  parent: Paper
+  components:
+  - type: Paper
+    stampedBy:
+    - stampedColor: "#2f00b1"
+      stampedName: NT
+    content: |2
+      [color=Blue]░░░░░░ [head=2]Nanotrasen Central Distribution[/head]
+      ░█▀▀█░ [head=3]Shuttle: NT-13986593326099-33333 [/head]
+      ░████░ [head=3]Destination: Xenonid Warfront [/head]
+      [/color]──────────────────────────────────────────
+      *The form contains a detailed list of the delivery items found in the shuttle. However, upon inspection, there appear to be several crates missing. Something is scribbled in the margins of the courier carbon copy:*
+
+      ──────────────────────────────────────────
+
+      Ok, you two. This is your last chance. We're still smoothing over the fallout from that incident on Fland, but I'm gonna throw you a bone. Don't screw this up.
+
+- type: entity
+  id: LostCargoManifestMonke
+  categories: [ HideSpawnMenu ]
+  parent: Paper
+  components:
+  - type: Paper
+    stampedBy:
+    - stampedColor: "#2f00b1"
+      stampedName: NT
+    content: |2
+      [color=Blue]░░░░░░ [head=2]Nanotrasen Central Distribution[/head]
+      ░█▀▀█░ [head=3]Shuttle: NT-13986593326099-33333 [/head]
+      ░████░ [head=3]Destination: Monke Sector [/head]
+      [/color]──────────────────────────────────────────
+      *The form contains a detailed list of the delivery items found in the shuttle. However, upon inspection, there appear to be several crates missing. Something is scribbled in the margins of the courier carbon copy:*
+
+      ──────────────────────────────────────────
+
+      Ok, you two. This is your last chance. We're still smoothing over the fallout from that incident on Fland, but I'm gonna throw you a bone. Don't screw this up.
+
+- type: entity
+  id: LostCargoManifestUmbra
+  categories: [ HideSpawnMenu ]
+  parent: Paper
+  components:
+  - type: Paper
+    stampedBy:
+    - stampedColor: "#2f00b1"
+      stampedName: NT
+    content: |2
+      [color=Blue]░░░░░░ [head=2]Nanotrasen Central Distribution[/head]
+      ░█▀▀█░ [head=3]Shuttle: NT-13986593326099-33333 [/head]
+      ░████░ [head=3]Destination: Umbra Sector [/head]
+      [/color]──────────────────────────────────────────
+      *The form contains a detailed list of the delivery items found in the shuttle. However, upon inspection, there appear to be several crates missing. Something is scribbled in the margins of the courier carbon copy:*
+
+      ──────────────────────────────────────────
+
+      Ok, you two. This is your last chance. We're still smoothing over the fallout from that incident on Fland, but I'm gonna throw you a bone. Don't screw this up.
+
+- type: entity
+  id: LostCargoManifestDeltaV
+  categories: [ HideSpawnMenu ]
+  parent: Paper
+  components:
+  - type: Paper
+    stampedBy:
+    - stampedColor: "#2f00b1"
+      stampedName: NT
+    content: |2
+      [color=Blue]░░░░░░ [head=2]Nanotrasen Central Distribution[/head]
+      ░█▀▀█░ [head=3]Shuttle: NT-13986593326099-33333 [/head]
+      ░████░ [head=3]Destination: Delta Sector [/head]
+      [/color]──────────────────────────────────────────
+      *The form contains a detailed list of the delivery items found in the shuttle. However, upon inspection, there appear to be several crates missing. Something is scribbled in the margins of the courier carbon copy:*
+
+      ──────────────────────────────────────────
+
+      Ok, you two. This is your last chance. We're still smoothing over the fallout from that incident on Fland, but I'm gonna throw you a bone. Don't screw this up.
+
+- type: entity
+  id: LostCargoManifestDevil
+  categories: [ HideSpawnMenu ]
+  parent: Paper
+  components:
+  - type: Paper
+    stampedBy:
+    - stampedColor: "#2f00b1"
+      stampedName: NT
+    content: |2
+      [color=Blue]░░░░░░ [head=2]Nanotrasen Central Distribution[/head]
+      ░█▀▀█░ [head=3]Shuttle: NT-13986593326099-33333 [/head]
+      ░████░ [head=3]Destination: Devil Sector [/head]
+      [/color]──────────────────────────────────────────
+      *The form contains a detailed list of the delivery items found in the shuttle. However, upon inspection, there appear to be several crates missing. Something is scribbled in the margins of the courier carbon copy:*
+
+      ──────────────────────────────────────────
+
+      Ok, you two. This is your last chance. We're still smoothing over the fallout from that incident on Fland, but I'm gonna throw you a bone. Don't screw this up.
+
+- type: entity
+  id: LostCargoManifestPump
+  categories: [ HideSpawnMenu ]
+  parent: Paper
+  components:
+  - type: Paper
+    stampedBy:
+    - stampedColor: "#2f00b1"
+      stampedName: NT
+    content: |2
+      [color=Blue]░░░░░░ [head=2]Nanotrasen Central Distribution[/head]
+      ░█▀▀█░ [head=3]Shuttle: NT-13986593326099-33333 [/head]
+      ░████░ [head=3]Destination: Pumpstation [/head]
+      [/color]──────────────────────────────────────────
+      *The form contains a detailed list of the delivery items found in the shuttle. However, upon inspection, there appear to be several crates missing. Something is scribbled in the margins of the courier carbon copy:*
+
+      ──────────────────────────────────────────
+
+      Ok, you two. This is your last chance. We're still smoothing over the fallout from that incident on Fland, but I'm gonna throw you a bone. Don't screw this up.
