@@ -44,3 +44,11 @@ accent-words-vrex-1 = Guoh guoh.
 accent-words-vrex-2 = Grrrouuh!
 accent-words-vrex-3 = Ghrrr....
 accent-words-vrex-4 = Gruuuooh!
+
+# Banana deer
+accent-words-bananadeer-1 = Eein! 
+accent-words-bananadeer-2 = Eouh.
+accent-words-bananadeer-3 = Eue.
+accent-words-bananadeer-4 = Eeuie..
+accent-words-bananadeer-5 = Eee!
+accent-words-bananadeer-6 = Euuuh.

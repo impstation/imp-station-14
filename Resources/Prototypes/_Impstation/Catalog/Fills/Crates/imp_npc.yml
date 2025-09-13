@@ -28,3 +28,13 @@
     contents:
       - id: MobFinfin
         amount: 1
+
+- type: entity
+  id: CrateNPCBananaDeer
+  parent: CrateLivestock
+  name: banana deer crate
+  description: A crate containing a slippery beast, imported straight from Teo. Please try not to provoke it..
+  components:
+  - type: StorageFill
+    contents:
+      - id: MobBananaDeer

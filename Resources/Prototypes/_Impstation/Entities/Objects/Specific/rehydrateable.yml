@@ -98,6 +98,15 @@
     possibleSpawns:
     - MobPenguin
 
+- type: entity
+  parent: RehydratableAnimalCube
+  id: BananaDeerCube
+  name: banana deer cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobBananaDeer
+
 # zombie infection-less here
 
 - type: entity
