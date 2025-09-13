@@ -1,20 +1,20 @@
 using Content.Shared.Dataset;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
-﻿using System.Linq;
+using System.Linq;
 
-namespace Content.Shared._Impstation.Thaven;
+namespace Content.Shared._Impstation.StrangeMoods;
 
 [Virtual, DataDefinition]
 [Serializable, NetSerializable]
-public partial class ThavenMood
+public partial class StrangeMood
 {
     /// <summary>
     /// The prototype this mood was created from.
     /// Used for managing conflicts, this does not apply to admin-made moods.
     /// </summary>
     [DataField]
-    public ProtoId<ThavenMoodPrototype>? ProtoId;
+    public ProtoId<StrangeMoodPrototype>? ProtoId;
 
     /// <summary>
     /// A locale string of the mood name. Gets passed to
@@ -34,12 +34,12 @@ public partial class ThavenMood
     /// A list of mood IDs that this mood will conflict with.
     /// </summary>
     [DataField]
-    public HashSet<ProtoId<ThavenMoodPrototype>> Conflicts = new();
+    public HashSet<ProtoId<StrangeMoodPrototype>> Conflicts = [];
 
     /// <summary>
     /// Additional localized words for the <see cref="MoodDesc"/>, for things like random
     /// verbs and nouns.
-    /// Gets randomly picked from datasets in <see cref="MoodVarDatasets"/>.
+    /// Gets randomly picked from datasets in <see cref="StrangeMoodPrototype.MoodVarDatasets"/>.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public Dictionary<string, string> MoodVars = new();
@@ -58,27 +58,10 @@ public partial class ThavenMood
     {
         return Loc.GetString(MoodDesc, GetLocArgs());
     }
-
-    /// <summary>
-    /// Create a shallow clone of this mood.
-    /// Used to prevent modifying prototypes.
-    /// </summary>
-    public ThavenMood ShallowClone()
-    {
-        return new ThavenMood()
-        {
-            ProtoId = ProtoId,
-            MoodName = MoodName,
-            MoodDesc = MoodDesc,
-            Conflicts = Conflicts,
-            MoodVars = MoodVars
-        };
-    }
 }
 
 [Prototype]
-[Serializable, NetSerializable]
-public sealed partial class ThavenMoodPrototype : ThavenMood, IPrototype
+public sealed partial class StrangeMoodPrototype : StrangeMood, IPrototype
 {
     /// <inheritdoc/>
     [IdDataField]
@@ -86,7 +69,7 @@ public sealed partial class ThavenMoodPrototype : ThavenMood, IPrototype
 
     /// <summary>
     /// Extra mood variables that will be randomly chosen and provided
-    /// for localizing <see cref="ThavenMood.MoodName"/> and <see cref="ThavenMood.MoodDesc"/>.
+    /// for localizing <see cref="StrangeMood.MoodName"/> and <see cref="StrangeMood.MoodDesc"/>.
     /// </summary>
     [DataField("moodVars")]
     public Dictionary<string, ProtoId<DatasetPrototype>> MoodVarDatasets = new();
@@ -97,9 +80,9 @@ public sealed partial class ThavenMoodPrototype : ThavenMood, IPrototype
     /// from being present in other moods.
     /// </summary>
     [DataField]
-    public bool AllowDuplicateMoodVars = false;
+    public bool AllowDuplicateMoodVars;
 
-    public ThavenMoodPrototype()
+    public StrangeMoodPrototype()
     {
         ProtoId = ID;
     }

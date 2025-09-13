@@ -1,3 +1,4 @@
+using Content.Shared._Impstation.StrangeMoods;
 using Content.Shared.Atmos;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DoAfter;
@@ -78,6 +79,9 @@ public sealed partial class SupermatterComponent : Component
 
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public EntProtoId DelamGamerulePrototype = "SupermatterDelamEventScheduler";
+
+    [DataField]
+    public HashSet<ProtoId<SharedMoodPrototype>> SharedMoodScrambleTargets = ["Thaven"];
 
     #endregion
 
