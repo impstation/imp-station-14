@@ -1,11 +1,11 @@
-﻿meta:
+meta:
   format: 7
   category: Map
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/13/2025 21:30:40
-  entityCount: 22254
+  time: 09/14/2025 03:26:45
+  entityCount: 22260
 maps:
 - 1
 grids:
@@ -3006,7 +3006,7 @@ entities:
       pos: 19.5,31.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -42980.996
+      secondsUntilStateChange: -45397.52
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4049,13 +4049,6 @@ entities:
     components:
     - type: Transform
       pos: -37.5,-2.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
-  - uid: 320
-    components:
-    - type: Transform
-      pos: -36.5,-9.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -7063,6 +7056,11 @@ entities:
       parent: 2
 - proto: CableApcExtension
   entities:
+  - uid: 320
+    components:
+    - type: Transform
+      pos: -41.5,-9.5
+      parent: 2
   - uid: 769
     components:
     - type: Transform
@@ -8227,11 +8225,6 @@ entities:
     components:
     - type: Transform
       pos: -34.5,-8.5
-      parent: 2
-  - uid: 1002
-    components:
-    - type: Transform
-      pos: -36.5,-9.5
       parent: 2
   - uid: 1003
     components:
@@ -26552,7 +26545,7 @@ entities:
   - uid: 3908
     components:
     - type: Transform
-      pos: -36.5,-9.5
+      pos: -40.5,-11.5
       parent: 2
   - uid: 3909
     components:
@@ -31574,6 +31567,11 @@ entities:
     - type: Transform
       pos: -9.5,-70.5
       parent: 2
+  - uid: 12666
+    components:
+    - type: Transform
+      pos: -40.5,-10.5
+      parent: 2
   - uid: 16575
     components:
     - type: Transform
@@ -31803,6 +31801,36 @@ entities:
     components:
     - type: Transform
       pos: 5.5,55.5
+      parent: 2
+  - uid: 22255
+    components:
+    - type: Transform
+      pos: -40.5,-9.5
+      parent: 2
+  - uid: 22256
+    components:
+    - type: Transform
+      pos: -41.5,-9.5
+      parent: 2
+  - uid: 22257
+    components:
+    - type: Transform
+      pos: -39.5,-11.5
+      parent: 2
+  - uid: 22258
+    components:
+    - type: Transform
+      pos: -38.5,-11.5
+      parent: 2
+  - uid: 22259
+    components:
+    - type: Transform
+      pos: -37.5,-11.5
+      parent: 2
+  - uid: 22260
+    components:
+    - type: Transform
+      pos: -36.5,-11.5
       parent: 2
 - proto: CableTerminal
   entities:
@@ -103713,7 +103741,7 @@ entities:
       pos: 40.5,-36.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -138829.36
+      secondsUntilStateChange: -141245.88
       state: Opening
   - uid: 11797
     components:
@@ -110029,12 +110057,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 21.566551,-25.5277
       parent: 2
-  - uid: 12666
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 10.354437,10.536112
-      parent: 2
 - proto: ToyFigurineSalvage
   entities:
   - uid: 12667
@@ -110046,6 +110068,14 @@ entities:
     components:
     - type: Transform
       pos: 56.728737,12.317362
+      parent: 2
+- proto: ToyFigurineScientist
+  entities:
+  - uid: 1002
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 10.492308,10.265963
       parent: 2
 - proto: ToyFigurineStationAI
   entities:
@@ -110650,16 +110680,22 @@ entities:
   entities:
   - uid: 12744
     components:
+    - type: MetaData
+      name: Johnny Clown Five Star Comedian
     - type: Transform
       pos: 17.405077,-39.969078
       parent: 2
   - uid: 12745
     components:
+    - type: MetaData
+      name: Gobsmack The Godsmacked
     - type: Transform
       pos: 18.030077,-39.125328
       parent: 2
   - uid: 12746
     components:
+    - type: MetaData
+      name: The Rum Bum Lum
     - type: Transform
       pos: 17.311327,-37.437828
       parent: 2
