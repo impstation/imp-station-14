@@ -9,19 +9,7 @@
       - state: green
   - type: ConditionalSpawner
     prototypes:
-      - SalvageArachnidCorpse
-      - SalvageDecapoidCorpse
-      - SalvageDionaCorpse
-      - SalvageDwarfCorpse
-      - SalvageGastropoidCorpse
-      - SalvageGrayCorpse
-      - SalvageHumanCorpse
-      - SalvageKodepiiaCorpse
-      - SalvageMothCorpse
-      - SalvageReptilianCorpse
-      - SalvageSlimeCorpse
-      - SalvageThavenCorpse
-      - SalvageVoxCorpse
+      - SalvageCorpse
 
 - type: entity
   name: Random Service Corpse Spawner
