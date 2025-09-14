@@ -175,29 +175,29 @@
     damageModifierSet: VRex
   - type: Stamina
     critThreshold: 300
-#  - type: JumpAbility
-#    action: ActionVRexLeap
-#    jumpDistance: 3
-#    jumpSound:
-#      path: /Audio/Weapons/punchmiss.ogg
-#      params:
-#        pitch: .5
-#        volume: -3
-#        variation: 0.05
+  - type: JumpAbility
+    action: ActionVRexLeap
+    jumpDistance: 3
+    jumpSound:
+      path: /Audio/Weapons/punchmiss.ogg
+      params:
+        pitch: .5
+        volume: -3
+        variation: 0.05
 
-#- type: entity
-#  parent: BaseAction
-#  id: ActionVRexLeap
-#  name: Crushing Leap
-#  description: Leap forward to pounce on your prey!
-#  components:
-#    - type: Action
-#      useDelay: 15
-#      icon:
-#        sprite: Interface/Actions/jump.rsi
-#        state: icon
-#    - type: InstantAction
-#      event: !type:GravityJumpEvent {}
+- type: entity
+  parent: BaseAction
+  id: ActionVRexLeap
+  name: Crushing Leap
+  description: Leap forward to pounce on your prey!
+  components:
+    - type: Action
+      useDelay: 15
+      icon:
+        sprite: Interface/Actions/jump.rsi
+        state: icon
+    - type: InstantAction
+      event: !type:GravityJumpEvent {}
 
 - type: entity
   parent: BaseMobVRex
