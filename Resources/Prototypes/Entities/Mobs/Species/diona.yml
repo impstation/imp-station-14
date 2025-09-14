@@ -94,7 +94,7 @@
           - MobLayer
   - type: Speech
     speechVerb: Plant
-    allowedEmotes: ['Chirp']
+    allowedEmotes: ['Chirp', 'Multichirp'] # Impstation
   - type: Vocal
     sounds:
       Male: MaleDiona
@@ -122,7 +122,6 @@
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
   - type: Rootable
-  - type: Carriable # Carrying system from nyanotrasen.
 
 - type: entity
   parent: BaseSpeciesDummy

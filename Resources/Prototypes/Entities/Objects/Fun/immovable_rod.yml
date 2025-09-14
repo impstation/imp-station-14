@@ -6,11 +6,13 @@
   - type: Clickable
   - type: InteractionOutline
   - type: MovementIgnoreGravity
+    weightless: true
   - type: Sprite
     sprite: Objects/Fun/immovable_rod.rsi
     state: icon
     noRot: false
   - type: ImmovableRod
+  - type: GravityAffected
   - type: Physics
     bodyType: Dynamic
     linearDamping: 0
@@ -37,39 +39,6 @@
     blacklist:
       tags:
       - GhostOnlyWarp
-
-# goob edit
-- type: entity
-  id: ImmovableVoidRod
-  name: immovable void rod
-  description: You can sense that it's hungry. That's usually a bad sign.
-  components:
-  - type: Clickable
-  - type: InteractionOutline
-  - type: MovementIgnoreGravity
-  - type: Sprite
-    sprite: _Goobstation/Heretic/abilities_heretic.rsi
-    state: immovable_rod
-    noRot: false
-  - type: ImmovableVoidRod
-  - type: Physics
-    bodyType: Dynamic
-    linearDamping: 0
-  - type: PointLight
-    radius: 3
-    color: blue
-    energy: 2.0
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.5
-        density: 1
-        hard: false
-        layer:
-        - Impassable
-        - Opaque
 
 - type: entity
   id: ImmovableRodDespawn
@@ -111,8 +80,6 @@
     damage:
       types:
         Blunt: 190
-  - type: MovementIgnoreGravity
-    gravityState: true
   - type: InputMover
   - type: MovementSpeedModifier
     baseWeightlessAcceleration: 5
@@ -139,15 +106,13 @@
   name: immovable mop
   description: Hurled like a javelin, with the power of a thousand furious janitors.
   components:
-  - type: ImmovableRod
-    randomizeVelocity: false
-    maxSpeed: 0
-    eviscerationPopup: immovable-rod-penetrated-mob-mop
   - type: Sprite
     sprite: Objects/Specific/Janitorial/mop.rsi
     state: mop
     rotation: 225
     noRot: false
+  - type: ImmovableRod #imp edit, custom popup
+    eviscerationPopup: immovable-rod-penetrated-mob-mop
 
 - type: entity
   parent: ImmovableRodKeepTilesStill
@@ -155,15 +120,13 @@
   name: immovable shark
   description: SHARK TORNADO!
   components:
-  - type: ImmovableRod
-    randomizeVelocity: false
-    maxSpeed: 0
-    eviscerationPopup: immovable-rod-penetrated-mob-shark
   - type: Sprite
     sprite: Objects/Fun/Plushies/shark.rsi
     state: blue
     rotation: 90
     noRot: false
+  - type: ImmovableRod #imp edit, custom popup
+    eviscerationPopup: immovable-rod-penetrated-mob-shark
 
 - type: entity
   parent: ImmovableRodKeepTilesStill
@@ -171,15 +134,13 @@
   name: immovable clown
   description: Ejected from the neighbouring station one solar system over. HONK!
   components:
-  - type: ImmovableRod
-    randomizeVelocity: false
-    maxSpeed: 0
-    eviscerationPopup: immovable-rod-penetrated-mob-clown
   - type: Sprite
     sprite: Markers/jobs.rsi
     state: clown
     rotation: 180
     noRot: false
+  - type: ImmovableRod #imp edit, custom popup
+    eviscerationPopup: immovable-rod-penetrated-mob-clown
 
 - type: entity
   parent: ImmovableRodKeepTilesStill
@@ -187,14 +148,12 @@
   name: immovable banana
   description: At least you won't slip on it.
   components:
-  - type: ImmovableRod
-    randomizeVelocity: false
-    maxSpeed: 0
-    eviscerationPopup: immovable-rod-penetrated-mob-banana
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/banana.rsi
     state: produce
     noRot: false
+  - type: ImmovableRod #imp edit, custom popup
+    eviscerationPopup: immovable-rod-penetrated-mob-banana
 
 - type: entity
   parent: ImmovableRodKeepTilesStill
@@ -202,15 +161,13 @@
   name: immovable hammer
   description: Bwoink.
   components:
-  - type: ImmovableRod
-    randomizeVelocity: false
-    maxSpeed: 0
-    eviscerationPopup: immovable-rod-penetrated-mob-hammer
   - type: Sprite
     sprite: Objects/Weapons/Melee/sledgehammer.rsi
     state: icon
     rotation: 225
     noRot: false
+  - type: ImmovableRod #imp edit, custom popup
+    eviscerationPopup: immovable-rod-penetrated-mob-hammer
 
 - type: entity
   parent: ImmovableRodKeepTilesStill
@@ -218,15 +175,13 @@
   name: immovable throngler
   description: If you catch it, you can keep it.
   components:
-  - type: ImmovableRod
-    randomizeVelocity: false
-    maxSpeed: 0
-    eviscerationPopup: immovable-rod-penetrated-mob-throngler
   - type: Sprite
     sprite: Objects/Weapons/Melee/Throngler2.rsi
     state: icon
     rotation: 225
     noRot: false
+  - type: ImmovableRod #imp edit, custom popup
+    eviscerationPopup: immovable-rod-penetrated-mob-throngler
 
 - type: entity
   parent: ImmovableRodKeepTilesStill
@@ -234,15 +189,13 @@
   name: immovable gibstick
   description: What did you expect?
   components:
-  - type: ImmovableRod
-    randomizeVelocity: false
-    maxSpeed: 0
-    eviscerationPopup: immovable-rod-penetrated-mob-gibstick
   - type: Sprite
     sprite: Objects/Weapons/Melee/debug.rsi
     state: icon
     rotation: 225
     noRot: false
+  - type: ImmovableRod #imp edit, custom popup
+    eviscerationPopup: immovable-rod-penetrated-mob-gibstick
 
 - type: entity
   parent: ImmovableRodKeepTilesStill
@@ -250,11 +203,9 @@
   name: immovable weh
   description: WEH!
   components:
-  - type: ImmovableRod
-    randomizeVelocity: false
-    maxSpeed: 0
-    eviscerationPopup: immovable-rod-penetrated-mob-weh
   - type: Sprite
     sprite: Objects/Fun/Plushies/lizard.rsi
     state: icon
     noRot: false
+  - type: ImmovableRod #imp edit, custom popup
+    eviscerationPopup: immovable-rod-penetrated-mob-weh

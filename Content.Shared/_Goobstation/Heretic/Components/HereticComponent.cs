@@ -7,8 +7,6 @@ namespace Content.Shared.Heretic;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class HereticComponent : Component
 {
-    #region Prototypes
-
     [DataField]
     public List<ProtoId<HereticKnowledgePrototype>> BaseKnowledge = new()
     {
@@ -17,8 +15,6 @@ public sealed partial class HereticComponent : Component
         "AmberFocus",
         "CodexCicatrix",
     };
-
-    #endregion
 
     [DataField] public ProtoId<HereticRitualPrototype>? ChosenRitual;
 
@@ -45,11 +41,6 @@ public sealed partial class HereticComponent : Component
     public List<ProtoId<HereticPathPrototype>> SidePaths = [];
 
     [DataField, AutoNetworkedField] public bool Ascended;
-
-    /// <summary>
-    ///     Used to prevent double casting mansus grasp.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)] public bool MansusGraspActive = false;
 
     public List<ProtoId<HereticPathPrototype>> AllPaths()
     {
