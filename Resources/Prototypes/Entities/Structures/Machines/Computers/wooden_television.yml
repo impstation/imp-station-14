@@ -2,7 +2,7 @@
   parent: ComputerSurveillanceWirelessCameraMonitor
   id: ComputerTelevision
   name: wooden television
-  description: Finally, some decent reception around here...
+  description: It's TV time! #imp
   components:
   - type: Sprite
     noRot: true
@@ -12,12 +12,14 @@
       state: television
     - map: ["computerLayerScreen"]
       state: detective_television
+      shader: unshaded #imp
   - type: Computer
     board: ComputerTelevisionCircuitboard
   - type: PointLight
     radius: 3.1 #imp
     energy: 1.6
     color: "#B89F25FF" #imp
+    autoRot: true #imp
   - type: Fixtures
     fixtures:
       fix1:
@@ -29,3 +31,15 @@
           - TabletopMachineMask
         layer:
           - TabletopMachineLayer
+# Imp edits to make TVs not sound chirp and type like computers
+  - type: SpamEmitSound
+    sound:
+      collection: HarmonyComputerSFX
+      params:
+        volume: -99
+  - type: EmitSoundOnUIOpen
+    sound:
+      collection: Keyboard
+      params:
+        volume: -99
+# End Imp edits
