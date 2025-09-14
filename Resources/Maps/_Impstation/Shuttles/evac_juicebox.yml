@@ -4,7 +4,7 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/14/2025 18:14:19
+  time: 09/14/2025 18:38:13
   entityCount: 1005
 maps: []
 grids:
@@ -316,6 +316,7 @@ entities:
     - type: DeviceNetwork
       configurators: []
       deviceLists: []
+      transmitFrequencyId: ShuttleTimer
 - proto: AirCanister
   entities:
   - uid: 473

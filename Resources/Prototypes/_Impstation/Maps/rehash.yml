@@ -5,7 +5,7 @@
   minPlayers: 15
   maxPlayers: 40
   stations:
-    Hash:
+    reHash:
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup

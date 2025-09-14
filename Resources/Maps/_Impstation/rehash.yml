@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/14/2025 18:14:49
-  entityCount: 22281
+  time: 09/14/2025 19:37:57
+  entityCount: 22300
 maps:
 - 1
 grids:
@@ -824,6 +824,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: reHash
 - proto: AirAlarm
   entities:
   - uid: 3
@@ -3006,7 +3008,7 @@ entities:
       pos: 19.5,31.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -45900.54
+      secondsUntilStateChange: -50423.633
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -86367,6 +86369,18 @@ entities:
     - type: Transform
       pos: 2.452642,-4.131172
       parent: 2
+- proto: HandheldStationMap
+  entities:
+  - uid: 22283
+    components:
+    - type: Transform
+      pos: 8.408623,-57.309406
+      parent: 2
+  - uid: 22284
+    components:
+    - type: Transform
+      pos: 8.830498,-57.496906
+      parent: 2
 - proto: HeatExchanger
   entities:
   - uid: 9615
@@ -87229,6 +87243,45 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
+  - uid: 22295
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -5.5,24.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 22296
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 31.5,-30.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 22297
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -6.5,-44.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 22298
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -28.5,-44.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 22300
+    components:
+    - type: Transform
+      pos: -30.5,2.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
 - proto: IntercomEngineering
   entities:
   - uid: 9703
@@ -87296,6 +87349,30 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -30.5,-30.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 22299
+    components:
+    - type: Transform
+      pos: -30.5,-25.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+- proto: IntercomService
+  entities:
+  - uid: 22293
+    components:
+    - type: Transform
+      pos: -27.5,-34.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 22294
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -23.5,-0.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -103892,7 +103969,7 @@ entities:
       pos: 40.5,-36.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -141748.89
+      secondsUntilStateChange: -146271.98
       state: Opening
   - uid: 11797
     components:
@@ -105263,6 +105340,78 @@ entities:
     - type: Transform
       pos: -32.5,26.5
       parent: 2
+- proto: StationMap
+  entities:
+  - uid: 22282
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -2.5,-54.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 22285
+    components:
+    - type: Transform
+      pos: 6.5,-27.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 22286
+    components:
+    - type: Transform
+      pos: 26.5,-27.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 22287
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 33.5,2.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 22288
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 27.5,26.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 22289
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -11.5,17.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 22290
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 10.5,27.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 22291
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -28.5,-9.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 22292
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -25.5,-34.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
 - proto: StationRecordsComputerCircuitboard
   entities:
   - uid: 12023
