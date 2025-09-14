@@ -39,6 +39,7 @@
     - map: [ "back" ]
     - map: [ "enum.HumanoidVisualLayers.TailOversuit" ] # Floof
     - map: [ "neck" ]
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
@@ -124,10 +125,7 @@
       - !type:WashCreamPieReaction
   - type: StatusEffects
     allowed:
-    - Stutter
     - Electrocution
-    - Drunk
-    - SlurredSpeech
     - RatvarianLanguage
     - PressureImmunity
     - Muted
@@ -224,6 +222,7 @@
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
+  - type: Carriable # Carrying system from nyanotrasen.
 
 - type: entity
   save: false
@@ -342,6 +341,7 @@
     - map: [ "back" ]
     - map: [ "enum.HumanoidVisualLayers.TailOversuit" ]
     - map: [ "neck" ]
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]

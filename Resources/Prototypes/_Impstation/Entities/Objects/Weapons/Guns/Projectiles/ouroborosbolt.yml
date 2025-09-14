@@ -15,15 +15,20 @@
   - type: Ammo
     muzzleFlash: MuzzleFlashEffectEnergySmall
   - type: TriggerOnSpawn
+    keyOut: timer
+  - type: TriggerOnCollide
+    fixtureID: projectile
+    keyOut: trigger
   - type: TimerTrigger
+    keysIn:
+    - timer
+    keyOut: trigger
     delay: 0.25
+    popup: null
   - type: SpawnOnTrigger
     keysIn:
-    - timer
+    - trigger
     proto: MobBeeroboros
-  - type: DeleteOnTrigger
-    keysIn:
-    - timer
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:

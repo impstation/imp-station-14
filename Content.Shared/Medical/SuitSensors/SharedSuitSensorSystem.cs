@@ -344,7 +344,8 @@ public abstract class SharedSuitSensorSystem : EntitySystem
             userJobIcon = card.Comp.JobIcon;
 
             foreach (var department in card.Comp.JobDepartments)
-                userJobDepartments.Add(Loc.GetString(_proto.Index(department).Name));
+                if (!_proto.Index(department).ManifestHidden) // imp edit, ignore departments that are manifest hidden
+                    userJobDepartments.Add(Loc.GetString(_proto.Index(department).Name));
         }
 
         // get health mob state
