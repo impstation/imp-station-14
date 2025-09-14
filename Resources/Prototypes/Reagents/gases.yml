@@ -99,6 +99,20 @@
           types:
             Poison:
               7
+      - !type:FlammableReaction # Imp
+        multiplier: 0.4
+        conditions:
+        - !type:OrganType
+          type: Colonid
+      # - !type:AdjustTemperature   # I'm happy to add this back if it's needed for balence or whatever, but my first instinct is they shouldn't keep taking heat damage after they extinguish themselves
+      #   amount: 6000
+      #   conditions:
+      #   - !type:OrganType
+      #     type: Colonid
+      - !type:Ignite # Imp, Hey I'm imping over here!
+        conditions:
+        - !type:OrganType
+          type: Colonid
       - !type:AdjustAlert
         alertType: Toxins
         conditions:
