@@ -4,6 +4,7 @@ using Content.Server.DoAfter;
 using Content.Shared.Interaction;
 using Content.Server.Flash;
 using Content.Server.Hands.Systems;
+using Content.Server.Heretic.EntitySystems;
 using Content.Server.Magic;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
@@ -63,6 +64,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly ThrowingSystem _throw = default!;
     [Dependency] private readonly IPrototypeManager _prot = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
+    [Dependency] private readonly MansusGraspSystem _mansusGrasp = default!;
 
     private List<EntityUid> GetNearbyPeople(Entity<HereticComponent> ent, float range)
     {
@@ -72,7 +74,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         foreach (var look in lookup)
         {
             // ignore heretics with the same path*, affect everyone else
-            if ((TryComp<HereticComponent>(look, out var th) && th.CurrentPath == ent.Comp.CurrentPath)
+            if ((TryComp<HereticComponent>(look, out var th) && th.MainPath == ent.Comp.MainPath)
             || HasComp<GhoulComponent>(look))
                 continue;
 
@@ -138,7 +140,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (!TryUseAbility(ent, args))
             return;
 
-        if (ent.Comp.MansusGraspActive)
+        if (_mansusGrasp.MansusGraspActive(ent.Owner))
         {
             _popup.PopupEntity(Loc.GetString("heretic-ability-fail"), ent, ent);
             return;
@@ -153,7 +155,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             return;
         }
 
-        ent.Comp.MansusGraspActive = true;
         args.Handled = true;
     }
 

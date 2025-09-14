@@ -88,6 +88,19 @@
         - ItemMask
         restitution: 0.3
         friction: 0.2
+  - type: Destructible #edited to bypass the 200 damage threshold in MachineFrame, which would destroy the contents of the machine frame
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150 #made a little more durable than normal machines
+      behaviors: #this behavior mimics the 100 damage threshold in MachineFrame, making it turn into an emptied machine frame, spawning its contents the ground
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: missingWires
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: Machine
     board: PortableCutterMachineCircuitboard
   - type: MaterialStorage
@@ -111,6 +124,13 @@
       types:
         Blunt: 20 #matches the toolbox's 1.33 multiplier (rounded up), needed to be manually set to override BaseStructure's parameters
     staminaCost: 12.5
+  - type: DamageExaminable
+  - type: DamageOnHighSpeedImpact
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
 
 - type: entity
   id: PortableCutterMachineFolded

@@ -13,6 +13,7 @@ namespace Content.Shared.Humanoid.Markings
         HeadTop,
         HeadSide,
         Snout,
+        SnoutCover,
         Chest,
         UndergarmentTop,
         UndergarmentBottom,

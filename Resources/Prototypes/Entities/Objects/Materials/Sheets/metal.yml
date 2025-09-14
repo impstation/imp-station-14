@@ -15,7 +15,8 @@
     tags:
     - Sheet
     - Metal
-    - DroneUsable
+    - ConstructionMaterial
+    - DroneUsable #imp
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
@@ -35,6 +36,9 @@
     guides:
     - ExpandingRepairingStation
   - type: NonMobStatusIcon #imp edit. for the salvohud
+  - type: PluralName # imp
+    oneOf: plural-name-sheet-1
+    someOf: plural-name-sheet-2plus
 
 - type: entity
   parent: SheetMetalBase
@@ -72,6 +76,7 @@
           Quantity: 9
         - ReagentId: Carbon
           Quantity: 1
+  # imp edit start
   - type: UserInterface
     interfaces:
       enum.ShortConstructionUiKey.Key:
@@ -86,6 +91,7 @@
     - TileSteel
     - TileWhite
     - TileDark
+  # imp edit end
 
 - type: entity
   parent: SheetSteel
@@ -110,15 +116,6 @@
   - type: Stack
     stackType: Steel
     count: 1
-
-- type: entity
-  parent: SheetSteel
-  id: SheetSteelLingering0
-  suffix: Lingering, 0
-  components:
-  - type: Stack
-    lingering: true
-    count: 0
 
 - type: entity
   parent: SheetMetalBase
@@ -159,6 +156,7 @@
           Quantity: 3.3
         - ReagentId: Copper
           Quantity: 6.7
+  # imp edit start
   - type: UserInterface
     interfaces:
       enum.ShortConstructionUiKey.Key:
@@ -170,6 +168,7 @@
     - ClockworkGirder
     - TileBrassFilled
     - TileBrassReebe
+  # imp edit end
 
 - type: entity
   parent: SheetBrass
@@ -258,12 +257,3 @@
   - type: Stack
     stackType: Plasteel
     count: 1
-
-- type: entity
-  parent: SheetPlasteel
-  id: SheetPlasteelLingering0
-  suffix: Lingering, 0
-  components:
-  - type: Stack
-    lingering: true
-    count: 0

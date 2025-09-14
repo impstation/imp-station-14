@@ -1,6 +1,12 @@
 seeds-lemo-name = lemo fruit
 seeds-lemo-display-name = lemo tree
 
+seeds-green-marijuana-name = green marijuana
+seeds-green-marijuana-display-name = green marijuana
+
+seeds-kissertomato-name = kisser tomato
+seeds-kissertomato-display-name = kisser tomato vine
+
 seeds-rose-name = rose
 seeds-rose-display-name = rose bush
 

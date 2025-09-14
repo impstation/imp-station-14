@@ -53,4 +53,11 @@ public sealed partial class SSDIndicatorComponent : Component
     /// </summary>
     [AutoNetworkedField]
     public bool HasHadPlayer;
+
+    /// <summary>
+    /// #IMP used to disable the SSD sleeping, for NPCs such as syndicate footsoldiers, etc
+    /// </summary>
+    [AutoNetworkedField]
+    [DataField]
+    public bool DoNotSleep = false;
 }

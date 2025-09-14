@@ -140,7 +140,7 @@ namespace Content.Server.Nutrition.EntitySystems
             if (!canReach
                 || !_solutionContainerSystem.TryGetSolution(cart.Value, "smokable", out _, out var solution)
                 || !HasComp<BloodstreamComponent>(target)
-                || _foodSystem.IsMouthBlocked(target, user))
+                || !_ingestion.HasMouthAvailable(target, user))
             {
                 return false;
             }

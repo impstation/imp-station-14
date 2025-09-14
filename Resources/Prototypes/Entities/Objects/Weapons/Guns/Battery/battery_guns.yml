@@ -62,7 +62,9 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-  - type: MagazineAmmoProvider #imp, removed HitscanBatteryAmmoProvider to replace with this.
+  #- type: HitscanBatteryAmmoProvider #imp, replaced with MagazineAmmoProvider
+  #  proto: RedLightLaser
+  #  fireCost: 50
   - type: ItemSlots
     slots:
       gun_magazine: #imp
@@ -82,7 +84,8 @@
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot #imp
-#imp edit begin; weapon melee
+#imp edit begin
+  - type: MagazineAmmoProvider #removed HitscanBatteryAmmoProvider to replace with this.
   - type: MeleeWeapon
     range: 0.8
     attackRate: 0.8
@@ -154,6 +157,10 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Item
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+    storedOffset: 0,-7
     sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
   - type: MagazineVisuals
     magState: mag
@@ -176,6 +183,8 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: Item
+    storedOffset: 0,-5
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 62.5
@@ -201,10 +210,8 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
-  - type: Gun #imp - to change the fire-rate
-    fireRate: 1.75
-    soundGunshot:
-      path: /Audio/_Impstation/Weapons/Guns/Gunshots/laserpusk.ogg #imp
+  - type: Item
+    storedOffset: 0,-4
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -218,6 +225,11 @@
   - type: Battery
     maxCharge: 500
     startingCharge: 500
+  # imp edit start
+  - type: Gun #to change the fire-rate
+    fireRate: 1.75
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/laserpusk.ogg #imp
   - type: DamageOnShoot #imp you really think you can trust a weaponized laser you built yourself??????
     damage:
       types:
@@ -225,8 +237,9 @@
     stunChance: 0.25
     stunSeconds: 3
     popupText: damage-on-shoot-laser
-  - type: MeleeWeapon #imp; for pistolwhip anim
+  - type: MeleeWeapon #for pistolwhip anim
     wideAnimationRotation: -80
+  # imp edit end
 
 - type: entity
   name: tesla gun
@@ -234,6 +247,10 @@
   id: WeaponTeslaGun
   description: The power of the primordial element of lightning in your hands.
   components:
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,2,1
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Battery/tesla_gun.rsi #imp
     layers:
@@ -258,13 +275,15 @@
   - type: Appearance
 
 - type: entity
-  name: TD-95P practice laser carbine #imp
-  parent: [BaseWeaponBattery, BaseGunWieldable]
-  id: WeaponLaserCarbinePractice
-  description: This modified TD-95 laser carbine fires nearly harmless beams at 5-watts for target practice. Best to wear eye protection. #imp
+  name: TD-95 laser carbine #imp
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband] #imp edit, sec contraband
+  id: WeaponLaserCarbine
+  description: A laser-based energy carbine with familiar ergonomics and controls to its kinetic counterparts. Favored by Nanotrasen for security forces, as they are cheap and easy to use. #imp
   components:
-  - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/laser_practice.rsi #imp
+  - type: Item
+    size: Large
+  - type: Sprite #imp edits start
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/laser_gun.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -277,19 +296,16 @@
     zeroVisible: false
   - type: Appearance
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/laser_practice.rsi #imp
-  - type: Battery #imp
-    maxCharge: 160 #imp
-    startingCharge: 160 #imp
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/laser_gun.rsi #imp edits end
   - type: Gun
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
   - type: HitscanBatteryAmmoProvider
-    proto: RedLaserPractice
-    fireCost: 10 #imp
+    proto: RedLaser
+    fireCost: 62.5
   - type: StaticPrice
-    price: 300
+    price: 420
 #imp edit begin; weapon melee
   - type: MeleeWeapon
     attackRate: 0.6
@@ -307,34 +323,26 @@
 #imp edit end
 
 - type: entity
-  name: TD-95 laser carbine #imp
-  parent: [WeaponLaserCarbinePractice, BaseGunWieldable, BaseSecurityContraband]
-  id: WeaponLaserCarbine
-  description: A laser-based energy carbine with familiar ergonomics and controls to its kinetic counterparts. Favored by Nanotrasen for security forces, as they are cheap and easy to use. #imp
+  name: TD-95P practice laser carbine #imp
+  parent: [WeaponLaserCarbine, BaseGunWieldable]
+  id: WeaponLaserCarbinePractice
+  description: This modified TD-95 laser carbine fires nearly harmless beams at 5-watts for target practice. Best to wear eye protection. #imp
   components:
-  - type: Sprite #imp edits start
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/laser_gun.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-unshaded-4
-      map: ["enum.GunVisualLayers.MagUnshaded"]
-      shader: unshaded
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: false
-  - type: Appearance
-  - type: Battery
-    maxCharge: 1000
-    startingCharge: 1000
-  - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/laser_gun.rsi #imp edits end
   - type: StaticPrice
-    price: 420
+    price: 300
   - type: HitscanBatteryAmmoProvider
-    proto: RedLaser
-    fireCost: 62.5
+    proto: RedLaserPractice
+    fireCost: 10 #imp
+  - type: PacifismAllowedGun
+  # imp edit start
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/laser_practice.rsi #imp
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/laser_practice.rsi #imp
+  - type: Battery
+    maxCharge: 160
+    startingCharge: 160
+  # imp edit end
 
 - type: entity
   name: PXS-21 pulse pistol #imp
@@ -350,6 +358,8 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: Item
+    storedOffset: -2,-5
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -378,6 +388,8 @@
   id: WeaponPulseCarbine
   description: A high-tech energy carbine favored by Nanotrasen ERT operatives. #imp
   components:
+  - type: Item
+    size: Large
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Battery/pulse_carbine.rsi #imp
     layers:
@@ -429,6 +441,10 @@
   id: WeaponPulseRifle
   description: A weapon almost as infamous as its users.
   components:
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,1
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Battery/pulse_rifle.rsi #imp
     layers:
@@ -476,6 +492,10 @@
   id: WeaponLaserCannon
   description: Modern laser technology purpose-built into a military platform—as deadly as it is precise. #imp
   components:
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,1
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Battery/laser_cannon.rsi #imp
     layers:
@@ -498,7 +518,7 @@
     availableModes: FullAuto #imp
     selectedMode: FullAuto #imp
   - type: HitscanBatteryAmmoProvider
-    proto: RedHeavyLaser
+    proto: RedRifleLaser #imp
     fireCost: 40 #imp
   - type: Battery #imp
     maxCharge: 1200 #imp
@@ -580,6 +600,10 @@
   id: WeaponXrayCannon
   description: An experimental weapon that uses concentrated x-ray energy against its target.
   components:
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,1
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Battery/xray.rsi #imp
     layers:
@@ -634,6 +658,8 @@
     - state: mag-unshaded-0
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: Item
+    storedOffset: -1,-5
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Battery/disablerpractice.rsi #imp
     quickEquip: false
@@ -661,6 +687,7 @@
     tags:
     - Taser
     - Sidearm
+  - type: PacifismAllowedGun
   - type: MeleeWeapon #imp; for pistolwhip anim
     wideAnimationRotation: -80
 
@@ -694,6 +721,7 @@
     guides:
     - Security
     - Antagonists
+  - type: PacifismAllowedGun
 
 - type: entity
   name: disabler SMG
@@ -703,6 +731,8 @@
   components:
   - type: Item
     size: Large
+    shape:
+    - 0,0,2,1
   - type: Tag
     tags:
       - Taser
@@ -732,6 +762,7 @@
   - type: Appearance
   - type: StaticPrice
     price: 260
+  - type: PacifismAllowedGun
 
 - type: entity
   name: taser
@@ -794,6 +825,10 @@
   id: WeaponAntiqueLaser
   description: All craftsmanship is of the highest quality. It is decorated with carp leather and chrome. The object menaces with spikes of energy. #imp
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Battery/antiquelasergun.rsi #imp
     layers:
@@ -841,7 +876,9 @@
   description: An experimental high-energy laser pistol with a self-charging nuclear battery.
   components:
   - type: Item
-    size: Normal  # Intentionally larger than other pistols
+    size: Normal
+    shape:
+    - 0,0,1,1
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Battery/advancedlasergun.rsi #imp
     layers:
@@ -886,6 +923,8 @@
       visible: false
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: Item
+    storedOffset: 0,-6
   - type: Appearance
   - type: MagazineVisuals
     magState: mag
