@@ -185,6 +185,9 @@
     - Hair
     - Snout
     - HeadSide
+  - type: CryostasisFactor
+    temperatureCoefficient: -0.0295
+    temperatureConstant: 9.5
 
 - type: entity
   parent: BaseSpeciesDummy

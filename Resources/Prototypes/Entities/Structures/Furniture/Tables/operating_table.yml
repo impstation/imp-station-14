@@ -11,3 +11,12 @@
   - type: Icon
     sprite: _Impstation/Structures/Furniture/Tables/optable.rsi # imp
     state: operating_table
+  # Begin Offbrand
+  - type: StatusEffectOnStrap
+    statusEffect: StatusEffectNeuralSuppression
+  - type: ApcPowerReceiver
+    powerLoad: 1000
+    powerDisabled: true
+  - type: ExtensionCableReceiver
+  - type: PowerSwitch
+  # End Offbrand
