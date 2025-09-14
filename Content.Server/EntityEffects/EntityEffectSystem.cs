@@ -50,7 +50,6 @@ using Content.Server.Xenoarchaeology.XenoArtifacts; // imp
 
 using TemperatureCondition = Content.Shared.EntityEffects.EffectConditions.Temperature; // disambiguate the namespace
 using PolymorphEffect = Content.Shared.EntityEffects.Effects.Polymorph;
-using Content.Server.EntityEffects.Effects;
 
 namespace Content.Server.EntityEffects;
 
