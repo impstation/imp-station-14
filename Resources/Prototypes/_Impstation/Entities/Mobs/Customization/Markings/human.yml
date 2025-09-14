@@ -6,6 +6,37 @@
 
 # Eyes
 
+- type: marking
+  id: HumanLEyeGlow
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [ Human ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: Mobs/Customization/tattoos.rsi
+    state: tattoo_eye_l
+  shader: unshaded
+
+- type: marking
+  id: HumanREyeGlow
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [ Human ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: Mobs/Customization/tattoos.rsi
+    state: tattoo_eye_r
+  shader: unshaded
+
+
 # RArm
 
 # LArm
