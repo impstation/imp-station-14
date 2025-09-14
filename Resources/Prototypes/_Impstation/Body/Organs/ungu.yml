@@ -4,6 +4,8 @@
   name: ungu stomach
   description: A lot going on here.
   components:
+  - type: Item
+    size: Normal
   - type: Sprite
     state: stomach
   - type: SolutionContainerManager
@@ -28,12 +30,12 @@
       - Wheat
       - Vegetable
   - type: Metabolizer
-    maxReagents: 5
+    maxReagents: 3
     metabolizerTypes: [ Animal ]
     groups:
     - id: Food
     - id: Drink
-  - type: Tag # goob edit
+  - type: Tag
     tags:
     - Meat
     - Organ

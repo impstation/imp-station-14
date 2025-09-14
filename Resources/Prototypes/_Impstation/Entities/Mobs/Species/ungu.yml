@@ -84,10 +84,6 @@
       types:
         Blunt: 15
         Structural: 20
-  - type: MeleeThrowOnHit
-    unanchorOnHit: False
-    speed: 4
-    distance: 4
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -184,11 +180,14 @@
     - HeadTop
     - HeadSide
   - type: JumpAbility
+    action: ActionDash
     jumpDistance: 4
-    jumpSound: /Audio/Effects/stealthoff.ogg
-  - type: ActionGrant
-    actions:
-    - ActionDash
+    jumpSound:
+      path: /Audio/Weapons/punchmiss.ogg
+      params:
+        pitch: .5
+        volume: -3
+        variation: 0.05
   - type: Inventory
     speciesId: ungu
     templateId: ungu

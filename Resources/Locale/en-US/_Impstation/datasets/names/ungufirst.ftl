@@ -57,5 +57,3 @@ names-ungu-first-56 = Yum,
 names-ungu-first-57 = Zem,
 names-ungu-first-58 = Cuk,
 
-
-ungu-begin-combat-popup = CAPITALIZE(($name)) looks ready to charge.

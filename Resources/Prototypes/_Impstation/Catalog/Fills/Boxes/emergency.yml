@@ -345,8 +345,6 @@
   parent: BoxSurvivalUngu
   id: BoxSurvivalCommandUngu
   name: command survival box
-  description: It's a box with basic internals inside. Smells like grass?
-  suffix: Wheat
   components:
   - type: StorageFill
     contents:
@@ -361,8 +359,6 @@
   parent: BoxSurvivalUngu
   id: BoxHugUngu
   name: box of hugs
-  description: It's a box with basic internals inside. Smells like grass?
-  suffix: Wheat
   components:
   - type: Sprite
     sprite: Objects/Storage/boxes.rsi
