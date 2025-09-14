@@ -1,10 +1,10 @@
-﻿meta:
+meta:
   format: 7
   category: Grid
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/10/2025 02:20:28
+  time: 09/14/2025 18:14:19
   entityCount: 1005
 maps: []
 grids:
@@ -312,6 +312,10 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: EmergencyShuttle
+    - type: DeviceNetwork
+      configurators: []
+      deviceLists: []
 - proto: AirCanister
   entities:
   - uid: 473

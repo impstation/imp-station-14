@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/14/2025 03:26:45
-  entityCount: 22260
+  time: 09/14/2025 18:14:49
+  entityCount: 22281
 maps:
 - 1
 grids:
@@ -3006,7 +3006,7 @@ entities:
       pos: 19.5,31.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -45397.52
+      secondsUntilStateChange: -45900.54
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4819,6 +4819,29 @@ entities:
     - type: Transform
       pos: 26.425306,36.7024
       parent: 2
+- proto: ArrivalsShuttleTimer
+  entities:
+  - uid: 22261
+    components:
+    - type: Transform
+      pos: -11.5,-88.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 22262
+    components:
+    - type: Transform
+      pos: -4.5,-70.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 22263
+    components:
+    - type: Transform
+      pos: 2.5,-88.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
 - proto: ArrowCard
   entities:
   - uid: 419
@@ -99410,6 +99433,134 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -46.36842,-67.45662
       parent: 2
+- proto: Screen
+  entities:
+  - uid: 22264
+    components:
+    - type: Transform
+      pos: 8.5,-54.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 22265
+    components:
+    - type: Transform
+      pos: -6.5,-43.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 22266
+    components:
+    - type: Transform
+      pos: -5.5,-28.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 22267
+    components:
+    - type: Transform
+      pos: -24.5,-40.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 22268
+    components:
+    - type: Transform
+      pos: -32.5,-1.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 22269
+    components:
+    - type: Transform
+      pos: -15.5,-17.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 22270
+    components:
+    - type: Transform
+      pos: -18.5,2.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 22271
+    components:
+    - type: Transform
+      pos: -7.5,17.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 22272
+    components:
+    - type: Transform
+      pos: 2.5,23.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 22273
+    components:
+    - type: Transform
+      pos: 27.5,27.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 22274
+    components:
+    - type: Transform
+      pos: 27.5,11.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 22275
+    components:
+    - type: Transform
+      pos: 9.5,-16.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 22276
+    components:
+    - type: Transform
+      pos: 32.5,-19.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 22277
+    components:
+    - type: Transform
+      pos: 31.5,-33.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 22278
+    components:
+    - type: Transform
+      pos: 13.5,-27.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 22279
+    components:
+    - type: Transform
+      pos: 15.5,60.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 22280
+    components:
+    - type: Transform
+      pos: 10.5,49.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 22281
+    components:
+    - type: Transform
+      pos: 20.5,49.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
 - proto: Screwdriver
   entities:
   - uid: 11592
@@ -103741,7 +103892,7 @@ entities:
       pos: 40.5,-36.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -141245.88
+      secondsUntilStateChange: -141748.89
       state: Opening
   - uid: 11797
     components:
