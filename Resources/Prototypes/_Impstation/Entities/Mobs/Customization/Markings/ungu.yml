@@ -158,8 +158,6 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
     state: LEyeHorn
-  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
-    state: LHurt
 
 - type: marking
   id: REyeHorn
@@ -169,8 +167,6 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
     state: REyeHorn
-  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
-    state: RHurt
 
 - type: marking
   id: EarsPigUngu
@@ -204,15 +200,6 @@
     state: EarsUpMiddle
 
 - type: marking
-  id: HeadFluffUngu
-  bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Ungu ]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
-    state: HeadFluff
-
-- type: marking
   id: HornsLongUngu
   bodyPart: HeadTop
   markingCategory: HeadTop
@@ -238,33 +225,6 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
     state: HornsNub
-
-- type: marking
-  id: WoolyLongUngu
-  bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Ungu ]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
-    state: Wooly_Long
-
-- type: marking
-  id: WoolyMediumUngu
-  bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Ungu ]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
-    state: Wooly_Medium
-
-- type: marking
-  id: WoolyShortUngu
-  bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Ungu ]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
-    state: Wooly_Short
 
 # Head
 
@@ -802,3 +762,59 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/tail.rsi
     state: TailNub
+
+# Hair
+
+- type: marking
+  id: StrandUngu
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/hair.rsi
+    state: Single_Strand
+
+- type: marking
+  id: StrandsUngu
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/hair.rsi
+    state: Strands
+    
+- type: marking
+  id: HeadFluffUngu
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/hair.rsi
+    state: HeadFluff    
+    
+- type: marking
+  id: WoolyLongUngu
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/hair.rsi
+    state: Wooly_Long
+
+- type: marking
+  id: WoolyMediumUngu
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/hair.rsi
+    state: Wooly_Medium
+
+- type: marking
+  id: WoolyShortUngu
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/hair.rsi
+    state: Wooly_Short    
