@@ -248,7 +248,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
             }
 
             var nonTrivialSuccessRate = totalNontrivial > 0 ? (float)completedNonTrivial / totalNontrivial : 0f;
-            foreach (var mindRole in mind.MindRoles)
+            foreach (var mindRole in mind.MindRoleContainer.ContainedEntities)
             {
                 if (!TryComp<MindRoleComponent>(mindRole, out var roleComp)) //sanity checking
                     continue;

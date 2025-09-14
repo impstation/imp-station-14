@@ -2,10 +2,13 @@
   save: false
   parent:
   - BaseMob
-  - MobDamageable
+  # - MobDamageable # Offbrand - we don't want thresholds
   - MobPolymorphable
   - MobCombat
   - StripableInventoryBase
+  - BaseMobWoundable # Offbrand
+  - BaseMobPain # Offbrand
+  - BaseMobSurgery # Offbrand
   id: BaseMobSpecies
   abstract: true
   components:
@@ -39,6 +42,7 @@
     - map: [ "back" ]
     - map: [ "enum.HumanoidVisualLayers.TailOversuit" ] # Floof
     - map: [ "neck" ]
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
@@ -124,10 +128,7 @@
       - !type:WashCreamPieReaction
   - type: StatusEffects
     allowed:
-    - Stutter
     - Electrocution
-    - Drunk
-    - SlurredSpeech
     - RatvarianLanguage
     - PressureImmunity
     - Muted
@@ -228,11 +229,14 @@
 - type: entity
   save: false
   parent:
-  - MobBloodstream
+  # - MobBloodstream - Offbrand - we're doing our own thign with this
   - MobRespirator
   - MobAtmosStandard
   - MobFlammable
   - BaseMobSpecies
+  - BaseMobHeartrate # Offbrand
+  - BaseMobBrain # Offbrand
+  - BaseMobCryostasis # Offbrand
   id: BaseMobSpeciesOrganic
   abstract: true
   components:
@@ -342,6 +346,7 @@
     - map: [ "back" ]
     - map: [ "enum.HumanoidVisualLayers.TailOversuit" ]
     - map: [ "neck" ]
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]

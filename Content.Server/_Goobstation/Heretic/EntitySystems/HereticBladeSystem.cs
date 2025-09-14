@@ -42,6 +42,7 @@ public sealed partial class HereticBladeSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly TemperatureSystem _temp = default!;
+    [Dependency] private readonly HereticKnowledgeSystem _knowledge = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
     private HashSet<Entity<MapGridComponent>> _targetGrids = [];
@@ -109,7 +110,7 @@ public sealed partial class HereticBladeSystem : EntitySystem
         var queuedel = true;
 
         // void path exxclusive
-        if (heretic.MainPath == "Void" && heretic.Power >= 7)
+        if (_knowledge.HasKnowledge(heretic,"SeekingBlade"))
         {
             var look = _lookupSystem.GetEntitiesInRange<HereticCombatMarkComponent>(Transform(ent).Coordinates, 20f);
             if (look.Count > 0)
@@ -137,11 +138,11 @@ public sealed partial class HereticBladeSystem : EntitySystem
         if (!TryComp<HereticComponent>(args.Examiner, out var heretic))
             return;
 
-        var isUpgradedVoid = heretic.MainPath == "Void" && heretic.Power >= 7;
-
         var sb = new StringBuilder();
         sb.AppendLine(Loc.GetString("heretic-blade-examine"));
-        if (isUpgradedVoid) sb.AppendLine(Loc.GetString("heretic-blade-void-examine"));
+
+        if (_knowledge.HasKnowledge(heretic,"SeekingBlade"))
+            sb.AppendLine(Loc.GetString("heretic-blade-void-examine"));
 
         args.PushMarkup(sb.ToString());
     }

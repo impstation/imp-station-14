@@ -236,7 +236,7 @@
     state: pda-internmed
   - type: GuideHelp
     guides:
-    - MedicalDoctor
+    - OffbrandPhysician # Offbrand
 
 - type: entity
   parent: BaseSecurityPDA
@@ -789,7 +789,7 @@
     state: pda-medical
   - type: GuideHelp
     guides:
-    - MedicalDoctor
+    - OffbrandPhysician # Offbrand
 
 - type: entity
   parent: MedicalPDA
@@ -1536,7 +1536,7 @@
       - NanoChatCartridge # DV
 
 - type: entity
-  parent: [BasePDA, VoiceLock]
+  parent: [BasePDA, SelectableLock]
   id: ChameleonPDA
   name: passenger PDA
   description: Why isn't it gray?

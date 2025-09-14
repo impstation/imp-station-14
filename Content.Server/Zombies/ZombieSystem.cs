@@ -44,6 +44,7 @@ namespace Content.Server.Zombies
         [Dependency] private readonly MobStateSystem _mobState = default!;
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly SharedRoleSystem _role = default!;
+        [Dependency] private readonly Content.Shared._Offbrand.Wounds.BrainDamageSystem _brainDamage = default!; // Offbrand
 
         public readonly ProtoId<NpcFactionPrototype> Faction = "Zombie";
 
@@ -91,7 +92,7 @@ namespace Content.Server.Zombies
         private void OnPendingMapInit(EntityUid uid, IncurableZombieComponent component, MapInitEvent args)
         {
             _actions.AddAction(uid, ref component.Action, component.ZombifySelfActionPrototype);
-            _faction.AddFaction(uid, Faction);
+            //_faction.AddFaction(uid, Faction); #IMP We have our own II not attacked by zombies, and this makes II attacked by station pets.
 
             if (HasComp<ZombieComponent>(uid) || HasComp<ZombieImmuneComponent>(uid))
                 return;
@@ -139,6 +140,7 @@ namespace Content.Server.Zombies
                     : 1f;
 
                 _damageable.TryChangeDamage(uid, comp.Damage * multiplier, true, false, damage);
+                _brainDamage.TryChangeBrainDamage(uid, multiplier / 2f); // Offbrand
             }
 
             // Heal the zombified
