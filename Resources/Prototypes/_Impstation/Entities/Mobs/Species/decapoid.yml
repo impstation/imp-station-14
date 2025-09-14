@@ -22,13 +22,6 @@
           - Vaporizer
           - SGD
     failMessage: decapoid-cant-speak
-  - type: Respirator
-    damage:
-      types:
-        Asphyxiation: 2
-    damageRecovery:
-      types:
-        Asphyxiation: -1.0
   - type: Sprite
     layers: # Need to redefine the whole order to draw the legs and claw correctly
     - map: [ "enum.HumanoidVisualLayers.TailBehind" ] # hivehum edit i just saw this layer order and got really scared but this probably wants to render under the back legs
@@ -192,7 +185,6 @@
     - Hair
     - Snout
     - HeadSide
-  - type: Carriable # Carrying system from nyanotrasen.
 
 - type: entity
   parent: BaseSpeciesDummy
