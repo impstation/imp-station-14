@@ -10,6 +10,15 @@
     state: BackSpotBig
 
 - type: marking
+  id: BackStripesUngu
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/chest.rsi
+    state: BackStripes
+
+- type: marking
   id: BellyUngu
   bodyPart: Chest
   markingCategory: Chest
@@ -393,6 +402,15 @@
     state: RArmFluff
 
 - type: marking
+  id: RArmStripesUngu
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/arms.rsi
+    state: RArmStripes
+
+- type: marking
   id: RArmStitchUngu
   bodyPart: RArm
   markingCategory: Arms
@@ -456,6 +474,15 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/arms.rsi
     state: LArmFluff
+
+- type: marking
+  id: LArmStripesUngu
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/arms.rsi
+    state: LArmStripes
 
 - type: marking
   id: LArmStitchUngu
@@ -523,6 +550,15 @@
     state: RLegFluff
 
 - type: marking
+  id: RLegStripesUngu
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
+    state: RLegStripes
+
+- type: marking
   id: RLegStitchUngu
   bodyPart: RLeg
   markingCategory: Legs
@@ -586,6 +622,15 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
     state: HoofL
+
+- type: marking
+  id: LLegStripesUngu
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
+    state: LLegStripes
 
 - type: marking
   id: PLHoofUngu
@@ -782,7 +827,7 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/hair.rsi
     state: Strands
-    
+
 - type: marking
   id: HeadFluffUngu
   bodyPart: Hair
@@ -790,8 +835,8 @@
   speciesRestriction: [ Ungu ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/hair.rsi
-    state: HeadFluff    
-    
+    state: HeadFluff
+
 - type: marking
   id: WoolyLongUngu
   bodyPart: Hair
@@ -817,4 +862,4 @@
   speciesRestriction: [ Ungu ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/hair.rsi
-    state: Wooly_Short    
+    state: Wooly_Short

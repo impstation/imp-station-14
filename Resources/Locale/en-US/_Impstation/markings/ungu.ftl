@@ -96,6 +96,9 @@ marking-SkinLLegUngu = Patterned Left Leg
 marking-SkinRLegUngu = Patterned Right Leg
 marking-StrandUngu = One hair
 marking-StrandsUngu = A few hairs
-
-
+marking-BackStripesUngu = Back Stripes
+marking-RArmStripesUngu = Right Arm Stripes
+marking-LArmStripesUngu = Left Arm Stripes
+marking-RLegStripesUngu = Right Leg Stripes
+marking-LLegStripesUngu = Left Leg Stripes
 
