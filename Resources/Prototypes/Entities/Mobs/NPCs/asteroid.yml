@@ -19,13 +19,9 @@
     group: GenericNumber
   - type: StatusEffects
     allowed:
-    - SlowedDown
-    - Stutter
-    - Stun
     - Electrocution
     - TemporaryBlindness
     - RadiationProtection
-    - Drowsiness
     - Adrenaline
   - type: StandingState
   - type: Tag
@@ -64,7 +60,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      250: Dead
+      150: Dead
   - type: MeleeWeapon
     soundHit:
       path: "/Audio/_Impstation/Weapons/strong_hit_slash_pierce.ogg" # imp
@@ -107,6 +103,8 @@
     successChance: 0.5
     interactSuccessString: petting-success-goliath
     interactFailureString: petting-failure-goliath
+  - type: GoobAbsorbable # imp edit
+    biomassRestored: 0.8
 
 - type: entity
   parent: BaseAction
@@ -404,7 +402,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      75: Dead
+      45: Dead
   - type: MeleeWeapon
     angle: 0
     animation: WeaponArcBite

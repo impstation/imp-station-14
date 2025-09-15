@@ -10,8 +10,9 @@
     brokenState: broken
     normalState: normal-unshaded
     soundVend: /Audio/_Impstation/Machines/vending_drop.ogg #imp
-  - type: Advertise
-    pack: CargoDrobeAds
+  - type: Vocalizer
+  - type: DatasetVocalizer
+    dataset: CargoDrobeAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
@@ -69,8 +70,9 @@
     brokenState: broken
     normalState: normal-unshaded
     soundVend: /Audio/_Impstation/Machines/vending_drop.ogg #imp
-  - type: Advertise
-    pack: SalvDrobeAds
+  - type: Vocalizer
+  - type: DatasetVocalizer
+    dataset: SalvDrobeAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
@@ -94,6 +96,40 @@
 
 - type: entity
   parent: VendingMachine
+  id: VendingMachineJuice
+  name: Juice-O-Mat
+  description: A contentious new contender in the service industry standard. Bringing you absolutely zero buzz since 2XXX.
+  components:
+  - type: VendingMachine
+    pack: JuiceOMatInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+    loopDeny: false
+  - type: DatasetVocalizer
+    dataset: JuiceOMatAds
+  - type: SpeakOnUIClosed
+    pack: JuiceOMatGoodbyes
+  - type: Sprite
+    sprite: Structures/Machines/VendingMachines/boozeomat.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: AccessReader
+    access: [["Bar"]]
+  - type: GuideHelp
+    guides:
+    - Bartender
+    - Drinks
+
+- type: entity
+  parent: VendingMachine
   id: VendingMachineArticSeltz
   name: Artic Seltz
   description: Quench your thirst! All your healthful faves in one convenient vend! Brought to you by BODA and Asterade.
@@ -109,8 +145,9 @@
     denyState: deny-unshaded
     initialStockQuality: 0.33
     soundVend: /Audio/_Impstation/Machines/vending_drop.ogg #imp
-  - type: Advertise
-    pack: ArticSeltzAds
+  - type: Vocalizer
+  - type: DatasetVocalizer
+    dataset: ArticSeltzAds
   - type: SpeakOnUIClosed
     pack: ArticSeltzGoodbyes
   - type: Sprite
@@ -144,8 +181,9 @@
     denyState: deny
     initialStockQuality: 0.20
     soundVend: /Audio/_Impstation/Machines/vending_drop.ogg
-  - type: Advertise
-    pack: DeadlyDansAds
+  - type: Vocalizer
+  - type: DatasetVocalizer
+    dataset: DeadlyDansAds
   - type: SpeakOnUIClosed
     pack: DeadlyDansGoodbyes
   - type: Sprite

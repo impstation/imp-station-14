@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿// IMP TODO: With how much we've changed this sytem, it probably should be separated into its own system
+using System.Linq;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
@@ -7,12 +8,16 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Movement.Systems;
+//using Content.Shared.Maps; //imp edit
+//using Content.Shared.Mobs.Components; //imp edit
+//using Content.Shared.Physics; //imp edit
+using Content.Shared.Movement.Systems; // imp edit
 using Content.Shared.Popups;
 using Content.Shared.Toggleable;
 using Content.Shared.Verbs;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
+//using Robust.Shared.Physics.Systems; // imp edit
 using Robust.Shared.Player; // imp
 using Robust.Shared.Timing; // imp
 using Robust.Shared.Utility;
@@ -23,9 +28,14 @@ public sealed partial class BlockingSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
+    //[Dependency] private readonly SharedTransformSystem _transformSystem = default!; //imp edit
+    //[Dependency] private readonly FixtureSystem _fixtureSystem = default!; //imp edit
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    //[Dependency] private readonly EntityLookupSystem _lookup = default!; //imp edit
+    //[Dependency] private readonly SharedPhysicsSystem _physics = default!; //imp edit
     [Dependency] private readonly ExamineSystemShared _examine = default!;
+    //[Dependency] private readonly TurfSystem _turf = default!; //imp edit
     [Dependency] private readonly IGameTiming _gameTiming = default!; // imp
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!; // imp
 
@@ -95,7 +105,7 @@ public sealed partial class BlockingSystem : EntitySystem
         if (!handQuery.TryGetComponent(args.Performer, out var hands))
             return;
 
-        var shields = _handsSystem.EnumerateHeld(args.Performer, hands).ToArray();
+        var shields = _handsSystem.EnumerateHeld((args.Performer, hands)).ToArray();
 
         foreach (var shield in shields)
         {
@@ -229,7 +239,7 @@ public sealed partial class BlockingSystem : EntitySystem
         if (!handQuery.TryGetComponent(user, out var hands))
             return;
 
-        var shields = _handsSystem.EnumerateHeld(user, hands).ToArray();
+        var shields = _handsSystem.EnumerateHeld((user, hands)).ToArray();
 
         foreach (var shield in shields)
         {

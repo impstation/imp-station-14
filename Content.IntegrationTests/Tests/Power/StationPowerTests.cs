@@ -61,7 +61,6 @@ public sealed class StationPowerTests
         "Luna",
         "MarathonImp",
         "OasisImp",
-        "OmegaImp",
         "PackedImp",
         "PlasmaImp",
         "ReachImp",

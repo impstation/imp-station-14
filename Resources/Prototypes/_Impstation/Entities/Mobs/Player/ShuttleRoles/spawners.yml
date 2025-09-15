@@ -41,6 +41,34 @@
     - RandomHumanoidVisitorRoboticist
 
 - type: entity
+  name: visiting admin assistant spawner
+  id: VisitorAdminAssistantSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Structures/Decoration/banner.rsi
+        state: banner
+  - type: RandomSpawner
+    prototypes:
+    - RandomHumanoidVisitorAdminAssistant
+
+- type: entity
+  name: visiting hospitality director spawner
+  id: VisitorHospitalityDirectorSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Structures/Decoration/banner.rsi
+        state: banner
+  - type: RandomSpawner
+    prototypes:
+    - RandomHumanoidVisitorHospitalityDirector
+
+- type: entity
   name: visiting librarian spawner
   id: VisitorLibrarianSpawnerCryptid
   parent: MarkerBase

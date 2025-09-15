@@ -73,7 +73,10 @@ public sealed class DecalPlacementSystem : EntitySystem
                 if (!coords.IsValid(EntityManager))
                     return false;
 
-                var decal = new Decal(coords.Position, _decalId, _decalColor, _decalAngle, _zIndex, _cleanable);
+                //imp edit - kinda dirty but get the shader ID from the prototype
+                var shaderID = _protoMan.Index<DecalPrototype>(_decalId).ShaderID;
+
+                var decal = new Decal(coords.Position, _decalId, _decalColor, _decalAngle, _zIndex, _cleanable, shaderID);
                 RaiseNetworkEvent(new RequestDecalPlacementEvent(decal, GetNetCoordinates(coords)));
 
                 return true;
@@ -131,7 +134,10 @@ public sealed class DecalPlacementSystem : EntitySystem
 
         args.Target = args.Target.Offset(new Vector2(-0.5f, -0.5f));
 
-        var decal = new Decal(args.Target.Position, args.DecalId, args.Color, Angle.FromDegrees(args.Rotation), args.ZIndex, args.Cleanable);
+        //imp edit - kinda dirty but get the shader ID from the prototype
+        var shaderID = _protoMan.Index<DecalPrototype>(args.DecalId).ShaderID;
+
+        var decal = new Decal(args.Target.Position, args.DecalId, args.Color, Angle.FromDegrees(args.Rotation), args.ZIndex, args.Cleanable, shaderID);
         RaiseNetworkEvent(new RequestDecalPlacementEvent(decal, GetNetCoordinates(args.Target)));
     }
 

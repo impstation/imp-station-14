@@ -205,6 +205,13 @@
   groupBy: "baubles"
 
 - type: loadout
+  id: CardBoxTarot
+  storage:
+    back:
+    - CardBoxTarot
+  groupBy: "baubles"
+
+- type: loadout
   id: FolderBlack
   storage:
     back:

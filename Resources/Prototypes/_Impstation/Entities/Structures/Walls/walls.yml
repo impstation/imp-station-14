@@ -138,3 +138,91 @@
   - type: StaticPrice
     price: 295
 
+- type: entity
+  parent: BaseWall
+  id: WallSteelWood
+  name: steel wood wall
+  components:
+  - type: Tag
+    tags:
+      - Wall
+  - type: Sprite
+    sprite: _Impstation/Structures/Walls/steelwoodwall.rsi
+  - type: Icon
+    sprite: _Impstation/Structures/Walls/steelwoodwall.rsi
+  - type: IconSmooth
+    key: walls
+    base: steelwoodwall
+  - type: Construction
+    graph: Girder
+    node: steelWoodWall
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroyHeavy
+      - !type:ChangeConstructionNodeBehavior
+        node: wall
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Appearance
+
+- type: entity
+  parent: BaseWall
+  id: WallReinforcedSteelWood
+  name: reinforced steel wood wall
+  components:
+  - type: Tag
+    tags:
+      - Wall
+  - type: Sprite
+    sprite: _Impstation/Structures/Walls/reinforcedsteelwoodwall.rsi
+  - type: Icon
+    sprite: _Impstation/Structures/Walls/reinforcedsteelwoodwall.rsi
+  - type: IconSmooth
+    key: walls
+    base: reinforcedsteelwoodwall
+  - type: Construction
+    graph: Girder
+    node: reinforcedSteelWoodWall
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroyHeavy
+      - !type:ChangeConstructionNodeBehavior
+        node: reinforcedWall
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: ReinforcedWallReplacementMarker
+  - type: StaticPrice
+    price: 250
+  - type: RadiationBlocker
+    resistance: 5
+  - type: Appearance
