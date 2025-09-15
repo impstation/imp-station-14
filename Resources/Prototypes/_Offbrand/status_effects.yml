@@ -262,6 +262,7 @@
     angleRangeModifier: 6
   - type: CannotUseHeadsetStatusEffect
   - type: SilencedStatusEffect
+  - type: BlockMovementWhenPulledStatusEffect
 
 - type: entity
   parent: MobStatusEffectBase
