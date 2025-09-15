@@ -24,6 +24,9 @@ marking-EarsSmallUngu-EarsSmallMiddle = Ears Middle
 marking-EarsUpUngu = Upright Ears
 marking-EarsUpUngu-EarsUp = Ears Side
 marking-EarsUpUngu-EarsUpMiddle = Ears Middle
+marking-EarsFloppyUngu = Floppy Ears
+marking-EarsFloppyUngu-EarsFloppy = Ears Side
+marking-EarsFloppyUngu-EarsFloppyMiddle = Ears Middle
 
 # other head markings
 
@@ -42,7 +45,7 @@ marking-TusksUngu = Tusks
 marking-WalrusUngu = Walrus Tusks
 marking-AntlersUngu = Antlers
 
-# hair 
+# hair
 
 marking-HeadFluffUngu = Bangs
 marking-WoolyLongUngu = Long Wool
@@ -50,8 +53,9 @@ marking-WoolyMediumUngu = Medium Wool
 marking-WoolyShortUngu = Short Wool
 marking-StrandUngu = One hair
 marking-StrandsUngu = A few hairs
+marking-ManeUngu = Short Mane
 
-# head options 
+# head options
 
 marking-SnootUngu = Cow Snout
 marking-SnoutElephantUngu = Elephant Head
@@ -130,6 +134,9 @@ marking-VestUngu = Vest
 
 marking-TailLongUngu = Long Tail
 marking-TailNubUngu = Nub Tail
+marking-TailFluffyUngu = Fluffy Tail
+marking-TailFluffyUngu-TailFluffy_1 = Tail
+marking-TailFluffyUngu-TailFluffy_2 = Fur
 
 
 

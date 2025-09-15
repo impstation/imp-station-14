@@ -113,6 +113,17 @@
     state: EarsLongMiddle
 
 - type: marking
+  id: EarsFloppyUngu
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
+    state: EarsFloppy
+  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
+    state: EarsFloppyMiddle
+
+- type: marking
   id: BellUngu
   bodyPart: HeadTop
   markingCategory: HeadTop
@@ -808,6 +819,17 @@
   - sprite: _Impstation/Mobs/Customization/Ungu/tail.rsi
     state: TailNub
 
+- type: marking
+  id: TailFluffyUngu
+  bodyPart: HeadSide
+  markingCategory: Tail
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/tail.rsi
+    state: TailFluffy_1
+  - sprite: _Impstation/Mobs/Customization/Ungu/tail.rsi
+    state: TailFluffy_2
+
 # Hair
 
 - type: marking
@@ -836,6 +858,15 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/hair.rsi
     state: HeadFluff
+
+- type: marking
+  id: ManeUngu
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/hair.rsi
+    state: Mane
 
 - type: marking
   id: WoolyLongUngu
