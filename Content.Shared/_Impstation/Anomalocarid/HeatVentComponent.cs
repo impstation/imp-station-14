@@ -1,5 +1,6 @@
 using Content.Shared.Atmos;
 using Content.Shared.Damage;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -73,7 +74,19 @@ public sealed partial class HeatVentComponent : Component
     /// </summary>
     public float MolesPerHeatStored = 7f;
 
+    /// <summary>
+    ///     Popup when using the vent heat action.
+    /// </summary>
     public LocId VentStartPopup = "anomalocarid-vent-start";
 
+    /// <summary>
+    ///     Popup when the vent heat doafter completes.
+    /// </summary>
     public LocId VentDoAfterPopup = "anomalocarid-vent-doafter";
+
+    /// <summary>
+    ///     Sound to play when vent heat doafter completes.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier VentSound = new SoundPathSpecifier("/Audio/_Impstation/Kodepiia/kodescramble/kodescramble.ogg"); // placeholder
 }

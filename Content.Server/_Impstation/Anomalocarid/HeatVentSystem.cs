@@ -1,6 +1,7 @@
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Popups;
 using Content.Shared._Impstation.Anomalocarid;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Server._Impstation.Anomalocarid;
 
@@ -8,6 +9,7 @@ public sealed partial class HeatVentSystem : SharedHeatVentSystem
 {
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -22,6 +24,7 @@ public sealed partial class HeatVentSystem : SharedHeatVentSystem
         tileMix?.AdjustMoles(ent.Comp.VentGas, ent.Comp.HeatStored * ent.Comp.MolesPerHeatStored);
         // TODO: temperature?
 
+        _audio.PlayPvs(ent.Comp.VentSound, ent);
         _popup.PopupEntity(ent.Comp.VentDoAfterPopup, ent);
         ent.Comp.HeatStored = 0;
     }
