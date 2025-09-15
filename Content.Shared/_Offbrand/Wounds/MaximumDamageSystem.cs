@@ -20,6 +20,37 @@ public sealed class MaximumDamageSystem : EntitySystem
         SubscribeLocalEvent<MaximumDamageComponent, BeforeDamageCommitEvent>(OnBeforeDamageCommit, before: [typeof(WoundableSystem)]);
     }
 
+    private FixedPoint2 ComputeDelta(FixedPoint2 current, FixedPoint2 incoming, (FixedPoint2 Base, FixedPoint2 Factor) modifier)
+    {
+        if (current >= modifier.Base && modifier.Factor != FixedPoint2.Zero)
+        {
+            var factor = modifier.Factor.Double();
+            var @base = modifier.Base.Double();
+            Func<FixedPoint2, double> fn = x => Math.Log( Math.Abs(factor - @base + x.Double()) ) * factor;
+
+            var maximumFromNow = FixedPoint2.New(fn(incoming + current) - fn(current));
+
+            return FixedPoint2.Max(incoming - maximumFromNow, FixedPoint2.Zero);
+        }
+        else if (modifier.Factor != FixedPoint2.Zero)
+        {
+            var delta = FixedPoint2.Max((incoming + current) - modifier.Base, FixedPoint2.Zero);
+
+            if (delta <= 0)
+                return delta;
+
+            var adjustedIncoming = incoming - delta;
+            var adjustedCurrent = current + adjustedIncoming;
+            var adjustedRemainder = incoming - adjustedIncoming;
+
+            return FixedPoint2.Max( delta - ComputeDelta(adjustedCurrent, adjustedRemainder, modifier), FixedPoint2.Zero );
+        }
+        else
+        {
+            return FixedPoint2.Max((incoming + current) - modifier.Base, FixedPoint2.Zero);
+        }
+    }
+
     private void OnBeforeDamageCommit(Entity<MaximumDamageComponent> ent, ref BeforeDamageCommitEvent args)
     {
         if (_timing.ApplyingState)
@@ -38,21 +69,7 @@ public sealed class MaximumDamageSystem : EntitySystem
             if (!ent.Comp.Damage.TryGetValue(type, out var maxValue))
                 continue;
 
-            FixedPoint2 delta;
-            if (currentValue >= maxValue.Base && maxValue.Factor != FixedPoint2.Zero)
-            {
-                var factor = maxValue.Factor.Double();
-                var @base = maxValue.Base.Double();
-                Func<FixedPoint2, double> fn = x => Math.Log( Math.Abs(factor - @base + x.Double()) ) * factor;
-
-                var maximumFromNow = FixedPoint2.New(fn(value + currentValue) - fn(currentValue));
-
-                delta = (value - maximumFromNow);
-            }
-            else
-            {
-                delta = (value + currentValue) - maxValue.Base;
-            }
+            var delta = ComputeDelta(currentValue, value, maxValue);
 
             if (delta <= 0)
                 continue;
