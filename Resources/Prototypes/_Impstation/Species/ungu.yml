@@ -25,8 +25,8 @@
     TailBehind: MobHumanoidAnyMarking # floof
     TailOversuit: MobHumanoidAnyMarking # floof
     Head: MobUnguHead
-    Hair: MobHumanoidAnyMarking 
-    FacialHair: MobHumanoidAnyMarking    
+    Hair: MobHumanoidAnyMarking
+    FacialHair: MobHumanoidAnyMarking
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     UndergarmentBottom: MobHumanoidAnyMarking
@@ -47,11 +47,11 @@
   onlyWhitelisted: true
   points:
     Hair:
-      points: 1
-      required: false  
-    FacialHair:   
-      points: 1
-      required: false      
+      points: 2
+      required: false
+    FacialHair:
+      points: 2
+      required: false
     Head:
       points: 1
       required: false
@@ -60,7 +60,7 @@
       required: true
       defaultMarkings: [ EarsSmallUngu ]
     HeadTop:
-      points: 4
+      points: 2
       required: false
     UndergarmentTop:
       points: 1
@@ -81,6 +81,9 @@
       points: 1
       required: false
     Eyes:
+      points: 1
+      required: false
+    Tail:
       points: 1
       required: false
 
