@@ -27,6 +27,7 @@ marking-EarsUpUngu-EarsUpMiddle = Ears Middle
 marking-EarsFloppyUngu = Floppy Ears
 marking-EarsFloppyUngu-EarsFloppy = Ears Side
 marking-EarsFloppyUngu-EarsFloppyMiddle = Ears Middle
+marking-EarsHorseUngu = Horse Ears
 
 # other head markings
 
@@ -54,6 +55,18 @@ marking-WoolyShortUngu = Short Wool
 marking-StrandUngu = One hair
 marking-StrandsUngu = A few hairs
 marking-ManeUngu = Short Mane
+marking-BraidedManeUngu = Braided Mane
+marking-LooseManeUngu = Loose Mane
+marking-RegalManeUngu = Regal Mane
+marking-PonytailUngu = Ponytail
+
+# facial hair
+
+marking-LongChopsUngu = Long Chops
+marking-ShortChopsUngu = Short Chops
+marking-ThickBraidUngu = Thick Braid
+marking-TwinBraidsUngu = Twin Braids
+marking-WoolyUngu = Wooly Beard
 
 # head options
 

@@ -99,7 +99,7 @@
   - sprite: _Impstation/Mobs/Customization/Ungu/chest.rsi
     state: Exo
 
-# HeadSide
+# Head
 
 - type: marking
   id: EarsLongUngu
@@ -111,6 +111,15 @@
     state: EarsLong
   - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
     state: EarsLongMiddle
+
+- type: marking
+  id: EarsHorseUngu
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
+    state: HorseEars
 
 - type: marking
   id: EarsFloppyUngu
@@ -894,3 +903,86 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/hair.rsi
     state: Wooly_Short
+
+- type: marking
+  id: RegalManeUngu
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/hair.rsi
+    state: RegalMane
+
+- type: marking
+  id: LooseManeUngu
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/hair.rsi
+    state: LooseMane
+
+- type: marking
+  id: BraidedManeUngu
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/hair.rsi
+    state: BraidedMane
+
+- type: marking
+  id: PonytailUngu
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/hair.rsi
+    state: Ponytail
+
+# FacialHair
+
+- type: marking
+  id: LongChopsUngu
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/beard.rsi
+    state: LongChops
+
+- type: marking
+  id: ShortChopsUngu
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/beard.rsi
+    state: ShortChops
+
+- type: marking
+  id: ThickBraidUngu
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/beard.rsi
+    state: ThickBraid
+
+- type: marking
+  id: TwinBraidsUngu
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/beard.rsi
+    state: TwinBraids
+
+- type: marking
+  id: WoolyUngu
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/beard.rsi
+    state: Wooly
