@@ -37,3 +37,6 @@ iv-bag-start-disconnection-user = You begin to extract the cannula from { $targe
 iv-bag-start-disconnection-others = { $user } begins to unhook { $target } from { THE($source) }...
 iv-bag-disconnected-user = You remove the cannula from { $target }.
 iv-bag-disconnected-others = { $user } unhooked { $target } from { THE($source) }.
+
+backfired-gun = You struggle to aim the gun, and it backfires!
+backfired-hypospray = You struggle to aim the hypo, and you accidentally jam it into yourself.

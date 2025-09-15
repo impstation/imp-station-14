@@ -243,7 +243,7 @@
     attackRateMultiplier: 0.8
     attackRateConstant: -0.05
   - type: GunAccuracyStatusEffect
-    angleRangeModifier: 3
+    angleRangeModifier: 6
 
 - type: entity
   parent: MobStatusEffectBase
@@ -256,12 +256,15 @@
   - type: KnockdownOnAppliedStatusEffect
     duration: 5
   - type: MeleeModifiersStatusEffect
-    attackRateMultiplier: 0.6
-    attackRateConstant: -0.05
+    attackRateMultiplier: 0.3
+    attackRateConstant: -0.1
   - type: GunAccuracyStatusEffect
-    angleRangeModifier: 6
+    angleRangeModifier: 12
   - type: CannotUseHeadsetStatusEffect
   - type: SilencedStatusEffect
+  - type: BlockMovementWhenPulledStatusEffect
+  - type: GunBackfireStatusEffect
+  - type: HyposprayBackfireStatusEffect
 
 - type: entity
   parent: MobStatusEffectBase
@@ -307,10 +310,12 @@
         Piercing: 0.5
         Slash: 0.5
         Structural: 0.5
-    attackRateMultiplier: 0.5
+    attackRateMultiplier: 0.2
     attackRateConstant: -0.1
   - type: GunAccuracyStatusEffect
-    angleRangeModifier: 3
+    angleRangeModifier: 12
+  - type: GunBackfireStatusEffect
+  - type: HyposprayBackfireStatusEffect
 
 - type: entity
   parent: MobStatusEffectBase
