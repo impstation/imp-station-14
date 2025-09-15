@@ -174,3 +174,5 @@ ghost-role-information-freeagent-teamantagonistchance-rules = You are a [color=y
 
 ghost-role-information-monkey-name-lambordeere = Glorious Leader Monkey
 ghost-role-information-monkey-description-lambordeere = You have slain your captor and now seek to reap the rewards of freedom.
+
+ghost-role-information-lost-cargo-tech = You are part of a logistics mission. However, you seem to be way off course and your head is pounding and swirling...

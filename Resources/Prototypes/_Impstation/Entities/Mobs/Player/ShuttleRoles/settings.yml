@@ -144,3 +144,19 @@
   - type: Loadout
     prototypes: [ CentcommInternLeaderUnarmedGear ]
     roleLoadout: [ RoleSurvivalStandard ]
+
+- type: randomHumanoidSettings
+  id: VisitorCargoTechnicianLost
+  parent: VisitorCargonian
+  components:
+    - type: GhostRole
+      name: job-name-cargotech
+      description: ghost-role-information-lost-cargo-tech
+      rules: ghost-role-information-antagonistchance-rules
+    - type: Loadout
+      prototypes: [ VisitorCargoTech, VisitorCargoTechAlt ]
+      roleLoadout: [ RoleSurvivalStandard ]
+    - type: RandomAntagChance
+      antagRole: Traitor
+      fallbackRole: MindRoleGhostRoleNeutral
+      chance: 0.1634
