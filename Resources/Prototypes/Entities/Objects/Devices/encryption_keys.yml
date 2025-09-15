@@ -32,7 +32,7 @@
 - type: entity
   parent: [ EncryptionKey, BaseCargoContraband ]
   id: EncryptionKeyCargo
-  name: cargo encryption key
+  name: supply encryption key #imp, cargo to supply
   description: An encryption key used by supply employees.
   components:
   - type: EncryptionKey

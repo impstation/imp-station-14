@@ -304,7 +304,7 @@
       - EncryptionKey
 
 - type: entity
-  name: cargo encryption key box
+  name: supply encryption key box #imp, rename cargo to supply
   parent: BoxEncryptionKeyPassenger
   id: BoxEncryptionKeyCargo
   components:

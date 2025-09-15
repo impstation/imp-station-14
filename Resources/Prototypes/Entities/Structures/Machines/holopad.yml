@@ -519,7 +519,7 @@
 - type: entity
   parent: Holopad
   id: HolopadCargoBreakroom
-  suffix: Cargo Breakroom
+  suffix: Supply Breakroom #imp edit, cargo to supply
   components:
   - type: Label
     currentLabel: holopad-cargo-breakroom
@@ -527,7 +527,7 @@
 - type: entity
   parent: Holopad
   id: HolopadCargoMailroom
-  suffix: Cargo Mailroom
+  suffix: Supply Mailroom #imp edit, cargo to supply
   components:
   - type: Label
     currentLabel: holopad-cargo-mailroom

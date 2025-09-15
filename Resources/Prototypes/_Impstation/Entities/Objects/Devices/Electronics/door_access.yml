@@ -43,11 +43,11 @@
 #Logistics - basically the cargo shuttle and order console
 - type: entity
   parent: DoorElectronics
-  id: DoorElectronicsLogistics
-  suffix: Logistics, Locked
+  id: DoorElectronicsCargoShuttle
+  suffix: Cargo Shuttle, Locked
   components:
   - type: AccessReader
-    access: [["Logistics"]]
+    access: [["CargoShuttle"]]
 
 # Clown
 - type: entity

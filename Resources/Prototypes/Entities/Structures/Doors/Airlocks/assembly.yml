@@ -21,7 +21,7 @@
 - type: entity
   parent: AirlockAssembly
   id: AirlockAssemblyCargo
-  suffix: Cargo
+  suffix: Supply #imp, cargo to supply
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/cargo.rsi
@@ -30,7 +30,7 @@
 - type: entity
   parent: AirlockAssembly
   id: AirlockAssemblyCargoGlass
-  suffix: Cargo, Glass
+  suffix: Supply, Glass #imp, cargo to supply
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Glass/cargo.rsi
