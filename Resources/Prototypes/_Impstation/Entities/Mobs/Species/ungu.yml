@@ -77,13 +77,13 @@
     animation: WeaponArcPunch
     damage:
       types:
-        Blunt: 10
-        Structural: 10
+        Blunt: 15
+        Structural: 20
   - type: DamageOtherOnHit
     damage:
       types:
-        Blunt: 15
-        Structural: 20
+        Blunt: 20
+        Structural: 30
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -98,7 +98,7 @@
       Peckish: 50
       Starving: 25
       Dead: 0
-    baseDecayRate: -0.5
+    baseDecayRate: 0
   - type: GoobAbsorbable
     biomassRestored: 0.8
   - type: Thirst
@@ -119,7 +119,7 @@
     butcheringType: Spike
     spawned:
     - id: FoodMeat
-      amount: 1
+      amount: 5
   - type: Fixtures
     fixtures:
       fix1:
