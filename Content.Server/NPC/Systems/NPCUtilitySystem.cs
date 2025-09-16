@@ -355,7 +355,7 @@ public sealed class NPCUtilitySystem : EntitySystem
             }
             case TargetIsAliveCon:
             {
-                return _mobState.IsAlive(targetUid) ? 1f : 0f;
+                return _mobState.IsAlive(targetUid) && !(_shockThresholds.IsCritical(targetUid) || _brainDamage.IsCritical(targetUid) || _heart.IsCritical(targetUid)) ? 1f : 0f; // Offbrand
             }
             case TargetIsCritCon:
             {
