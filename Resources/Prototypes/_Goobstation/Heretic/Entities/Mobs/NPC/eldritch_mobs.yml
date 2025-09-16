@@ -30,21 +30,6 @@
         layer:
         - MobLayer
   - type: MobState
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      90: Critical
-      100: Dead
-  - type: MeleeWeapon
-    altDisarm: false
-    soundHit:
-        path: /Audio/Weapons/Xeno/alien_claw_flesh1.ogg
-    angle: 0
-    animation: WeaponArcClaw
-    damage:
-      types:
-        Slash: 12
-        Piercing: 8
   - type: NoSlip
   - type: GhostRole
     allowMovement: true
@@ -90,6 +75,24 @@
     range: 5
     energyConsumption: 50000
     disableDuration: 20
+  - type: MeleeWeapon
+    altDisarm: false
+    soundHit:
+      path: /Audio/Weapons/Xeno/alien_claw_flesh1.ogg
+    angle: 90
+    animation: WeaponArcDisarm
+    attackRate: 3
+    damage:
+      types:
+        Slash: 12
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:GibBehavior
+        recursive: false
 
 - type: entity
   parent: [BaseMobGhoul,FlyingMobBase]
@@ -100,7 +103,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      75: Dead
+      100: Dead
   - type: Sprite
     noRot: true
     sprite: _Goobstation/Heretic/eldritch_mobs.rsi
@@ -141,6 +144,14 @@
   - type: Loadout
     prototypes:
     - ProphetGear
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:GibBehavior
+        recursive: false
 
 - type: entity
   parent: BaseMobGhoul

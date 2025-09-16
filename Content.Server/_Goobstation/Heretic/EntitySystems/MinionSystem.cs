@@ -96,7 +96,7 @@ public sealed class MinionSystem : EntitySystem
     private static void OnTryAttack(Entity<MinionComponent> ent, ref AttackAttemptEvent args)
     {
         // prevent attacking owner
-        if (args.Target == ent.Comp.BoundOwner)
+        if (ent.Comp.BoundOwner != null && args.Target == ent.Comp.BoundOwner)
             args.Cancel();
     }
 }
