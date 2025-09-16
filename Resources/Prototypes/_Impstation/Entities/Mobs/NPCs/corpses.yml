@@ -11,14 +11,13 @@
           Asphyxiation: 76
           Slash: 56
           Blunt: 19
-    - type: Inventory
-      templateId: corpse
     - type: Rotting
       totalRotTime: 1200 # 20 minutes
 
 - type: entity
   id: SalvageCorpse
   name: unidentified corpse
+  parent: BaseMobSpeciesOrganic
   description: I think they're dead.
   suffix: Dead
   save: false
