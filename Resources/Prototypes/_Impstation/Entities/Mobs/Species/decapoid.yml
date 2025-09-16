@@ -136,6 +136,9 @@
       293: 1.0
       280: 1.0
       260: 1.0
+  - type: CryostasisFactor # Offbrand
+    temperatureCoefficient: -0.0295
+    temperatureConstant: 9.5
   - type: Clumsy
     gunShootFailDamage:
       types:
