@@ -130,6 +130,8 @@ marking-AnomalocaridEyeThird-thirdeye_secondary = Shine
 marking-AnomalocaridEyeOpabinia = Opabinian Eyes
 marking-AnomalocaridEyeOpabinia-opabinia_primary = Eyes
 marking-AnomalocaridEyeOpabinia-opabinia_secondary = Shine
+marking-AnomalocaridEyeLashes = Eyelashes
+marking-AnomalocaridEyeLashes-eyelashes = Eyelashes
 
 marking-AnomalocaridEyeshine = Eyeshine
 marking-AnomalocaridEyeshine-eyeshine = Eyeshine
