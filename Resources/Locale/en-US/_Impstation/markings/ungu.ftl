@@ -52,7 +52,7 @@ marking-WalrusUngu = Walrus Tusks
 marking-AntlersUngu = Antlers
 marking-CryUngu = Crying
 marking-HornsHawkUngu = Horn-Hawk
-marking-HornUni= Unicorn/ Narwhal Horn
+marking-HornUniUngu= Unicorn/ Narwhal Horn
 marking-HornsProstheticUngu = Prosthetic Horns
 
 # hair
