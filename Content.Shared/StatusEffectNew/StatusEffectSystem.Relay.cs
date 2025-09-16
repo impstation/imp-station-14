@@ -45,6 +45,10 @@ public sealed partial class StatusEffectsSystem
         SubscribeLocalEvent<StatusEffectContainerComponent, Content.Shared.Eye.Blinding.Systems.GetBlurEvent>(RelayStatusEffectEvent); // Offbrand
         SubscribeLocalEvent<StatusEffectContainerComponent, Content.Shared.Eye.Blinding.Systems.CanSeeAttemptEvent>(RelayStatusEffectEvent); // Offbrand
         SubscribeLocalEvent<StatusEffectContainerComponent, Content.Shared.IdentityManagement.Components.SeeIdentityAttemptEvent>(RelayStatusEffectEvent); // Offbrand
+        SubscribeLocalEvent<StatusEffectContainerComponent, Content.Shared.Movement.Pulling.Events.PullStartedMessage>(RelayStatusEffectEvent); // Offbrand
+        SubscribeLocalEvent<StatusEffectContainerComponent, Content.Shared.Movement.Pulling.Events.PullStoppedMessage>(RelayStatusEffectEvent); // Offbrand
+        SubscribeLocalEvent<StatusEffectContainerComponent, Content.Shared.Weapons.Ranged.Events.SelfBeforeGunShotEvent>(RelayStatusEffectEvent); // Offbrand
+        SubscribeLocalEvent<StatusEffectContainerComponent, Content.Shared.Chemistry.Hypospray.Events.SelfBeforeHyposprayInjectsEvent>(RelayStatusEffectEvent); // Offbrand
     }
 
     private void RefRelayStatusEffectEvent<T>(EntityUid uid, StatusEffectContainerComponent component, ref T args) where T : struct
