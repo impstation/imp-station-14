@@ -11,6 +11,11 @@ marking-ExoUngu = Exoskeleton
 marking-FinUngu = Back Fin
 marking-LimpitUngu = Barnacles/ Flowers
 marking-BackStripesUngu = Back Stripes
+marking-DormantUngu = Dormant Face
+marking-Elated1Ungu = Elated Face
+marking-Elated2Ungu = Joyfull Face
+marking-Tormented1Ungu = Tormented Face
+marking-Tormednted2Ungu = Angry Face
 
 # ears
 
@@ -29,7 +34,7 @@ marking-EarsFloppyUngu-EarsFloppy = Ears Side
 marking-EarsFloppyUngu-EarsFloppyMiddle = Ears Middle
 marking-EarsHorseUngu = Horse Ears
 
-# other head markings
+# head markings
 
 marking-BellUngu = Bell
 marking-BellUngu-Bell = Bell
@@ -45,6 +50,10 @@ marking-REyeHorn = Right Curled horn
 marking-TusksUngu = Tusks
 marking-WalrusUngu = Walrus Tusks
 marking-AntlersUngu = Antlers
+marking-CryUngu = Crying
+marking-HornsHawkUngu = Horn-Hawk
+marking-HornUni= Unicorn/ Narwhal Horn
+marking-HornsProstheticUngu = Prosthetic Horns
 
 # hair
 
@@ -59,6 +68,7 @@ marking-BraidedManeUngu = Braided Mane
 marking-LooseManeUngu = Loose Mane
 marking-RegalManeUngu = Regal Mane
 marking-PonytailUngu = Ponytail
+marking-TonsureUngu = Tonsure
 
 # facial hair
 
@@ -68,7 +78,7 @@ marking-ThickBraidUngu = Thick Braid
 marking-TwinBraidsUngu = Twin Braids
 marking-WoolyUngu = Wooly Beard
 
-# head options
+# head options / snouts
 
 marking-SnootUngu = Cow Snout
 marking-SnoutElephantUngu = Elephant Head
@@ -150,6 +160,9 @@ marking-TailNubUngu = Nub Tail
 marking-TailFluffyUngu = Fluffy Tail
 marking-TailFluffyUngu-TailFluffy_1 = Tail
 marking-TailFluffyUngu-TailFluffy_2 = Fur
+marking-TailBoneUngu = Bone Tail
+marking-TailBushyUngu = Deer Tail
+marking-TailProstheticUngu = Prosthetic Tail
 
 
 

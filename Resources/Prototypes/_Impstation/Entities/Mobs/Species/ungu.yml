@@ -37,20 +37,20 @@
     - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
-    - map: [ "head" ]
     - map: [ "outerClothing" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "neck" ]
     - map: [ "back" ]
     - map: [ "mask" ]
-    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]    
+    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
-    - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "ears" ]
     - map: [ "eyes" ]
+    - map: [ "head" ]
     - map: ["enum.HumanoidVisualLayers.Handcuffs"]
       color: "#ffffff"
       sprite: Objects/Misc/handcuffs.rsi
@@ -126,7 +126,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.35
-        density: 600
+        density: 500
         restitution: 0.0
         mask:
         - MobMask
@@ -179,6 +179,8 @@
     - Snout
     - HeadTop
     - HeadSide
+    - Hair
+    - FacialHair
   - type: JumpAbility
     action: ActionDash
     jumpDistance: 4
@@ -359,20 +361,20 @@
     - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
-    - map: [ "head" ]
     - map: [ "outerClothing" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "neck" ]
     - map: [ "back" ]
     - map: [ "mask" ]
-    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]    
+    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
-    - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "ears" ]
     - map: [ "eyes" ]
+    - map: [ "head" ]
     - map: ["enum.HumanoidVisualLayers.Handcuffs"]
       color: "#ffffff"
       sprite: Objects/Misc/handcuffs.rsi

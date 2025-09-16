@@ -37,6 +37,51 @@
     state: ChestFluff
 
 - type: marking
+  id: DormantUngu
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/chest.rsi
+    state: Dormant
+
+- type: marking
+  id: Elated1Ungu
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/chest.rsi
+    state: Elated_1
+
+- type: marking
+  id: Elated2Ungu
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/chest.rsi
+    state: Elated_2
+
+- type: marking
+  id: Tormented1Ungu
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/chest.rsi
+    state: Tormented_1
+
+- type: marking
+  id: Tormented2Ungu
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/chest.rsi
+    state: Tormented_2
+
+- type: marking
   id: SpikesUngu
   bodyPart: Chest
   markingCategory: Chest
@@ -56,7 +101,7 @@
 
 - type: marking
   id: FinUngu
-  bodyPart: Chest
+  bodyPart: Tail
   markingCategory: Chest
   speciesRestriction: [ Ungu ]
   sprites:
@@ -255,7 +300,41 @@
   - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
     state: HornsNub
 
-# Head
+- type: marking
+  id: CryUngu
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
+    state: Leaking_Eyes
+
+- type: marking
+  id: HornsHawkUngu
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
+    state: Horn_Hawk
+
+- type: marking
+  id: HornUniUngu
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
+    state: Uni_Horn
+
+- type: marking
+  id: HornsProstheticUngu
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
+    state: Prosthetic_Horns
 
 - type: marking
   id: HornsRinoUngu
@@ -266,9 +345,11 @@
   - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
     state: HornsRino
 
+# snout
+
 - type: marking
   id: SnootUngu
-  bodyPart: Head
+  bodyPart: Snout
   markingCategory: Head
   speciesRestriction: [ Ungu ]
   sprites:
@@ -277,7 +358,7 @@
 
 - type: marking
   id: NoseRingUngu
-  bodyPart: Head
+  bodyPart: Snout
   markingCategory: Head
   speciesRestriction: [ Ungu ]
   sprites:
@@ -286,7 +367,7 @@
 
 - type: marking
   id: SnoutElephantUngu
-  bodyPart: Head
+  bodyPart: Snout
   markingCategory: Head
   speciesRestriction: [ Ungu ]
   forcedColoring: true
@@ -297,7 +378,7 @@
 
 - type: marking
   id: SnoutHippoUngu
-  bodyPart: Head
+  bodyPart: Snout
   markingCategory: Head
   speciesRestriction: [ Ungu ]
   forcedColoring: true
@@ -308,7 +389,7 @@
 
 - type: marking
   id: SnoutPigUngu
-  bodyPart: Head
+  bodyPart: Snout
   markingCategory: Head
   speciesRestriction: [ Ungu ]
   forcedColoring: true
@@ -319,7 +400,7 @@
 
 - type: marking
   id: SnoutTapirUngu
-  bodyPart: Head
+  bodyPart: Snout
   markingCategory: Head
   speciesRestriction: [ Ungu ]
   forcedColoring: true
@@ -330,7 +411,7 @@
 
 - type: marking
   id: SnoutWhale1Ungu
-  bodyPart: Head
+  bodyPart: Snout
   markingCategory: Head
   speciesRestriction: [ Ungu ]
   forcedColoring: true
@@ -341,7 +422,7 @@
 
 - type: marking
   id: SnoutWhale2Ungu
-  bodyPart: Head
+  bodyPart: Snout
   markingCategory: Head
   speciesRestriction: [ Ungu ]
   forcedColoring: true
@@ -352,7 +433,7 @@
 
 - type: marking
   id: SnoutBelugaUngu
-  bodyPart: Head
+  bodyPart: Snout
   markingCategory: Head
   speciesRestriction: [ Ungu ]
   forcedColoring: false
@@ -364,7 +445,7 @@
 
 - type: marking
   id: SnoutOrcaUngu
-  bodyPart: Head
+  bodyPart: Snout
   markingCategory: Head
   speciesRestriction: [ Ungu ]
   forcedColoring: false
@@ -812,7 +893,7 @@
 
 - type: marking
   id: TailLongUngu
-  bodyPart: Headside # the tail layer is broken!!!
+  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Ungu ]
   sprites:
@@ -821,7 +902,7 @@
 
 - type: marking
   id: TailNubUngu
-  bodyPart: HeadSide
+  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Ungu ]
   sprites:
@@ -830,7 +911,7 @@
 
 - type: marking
   id: TailFluffyUngu
-  bodyPart: HeadSide
+  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Ungu ]
   sprites:
@@ -838,6 +919,33 @@
     state: TailFluffy_1
   - sprite: _Impstation/Mobs/Customization/Ungu/tail.rsi
     state: TailFluffy_2
+
+- type: marking
+  id: TailBoneUngu
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/tail.rsi
+    state: Bone_Tail
+
+- type: marking
+  id: TailBushyUngu
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/tail.rsi
+    state: Bushy_Tail
+
+- type: marking
+  id: TailProstheticUngu
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/tail.rsi
+    state: Prosthetic_Tail
 
 # Hair
 
@@ -858,6 +966,15 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/hair.rsi
     state: Strands
+
+- type: marking
+  id: TonsureUngu
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/hair.rsi
+    state: Tonsure
 
 - type: marking
   id: HeadFluffUngu

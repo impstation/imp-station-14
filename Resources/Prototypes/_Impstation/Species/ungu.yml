@@ -24,6 +24,8 @@
   sprites:
     TailBehind: MobHumanoidAnyMarking # floof
     TailOversuit: MobHumanoidAnyMarking # floof
+    Snout: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
     Head: MobUnguHead
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
@@ -77,7 +79,7 @@
     Legs:
       points: 4
       required: false
-    Overlay:
+    Snout:
       points: 1
       required: false
     Eyes:
