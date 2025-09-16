@@ -7,3 +7,5 @@ job-description-centcomm-intern-unarmed = You volunteered for an emergency respo
 
 job-description-centcomm-intern-leader = You're the leader of a team of interns for an emergency response mission. Don't let CentComm down.
 job-description-centcomm-intern-leader-unarmed = You're the leader of a team of interns for an emergency response mission. Don't let CentComm down. Central Command has decided to send you in completely unarmed.
+
+job-description-assistant = Do any tasks assigned by whoever hired you.

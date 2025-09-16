@@ -6,7 +6,9 @@
   components:
   - type: Action
     checkCanInteract: false
-    icon: _DV/Interface/Actions/harpy_sing.png
+    icon:
+      sprite: _Impstation/Actions/Kodepiia.rsi
+      state: kodepiia_sing
   - type: InstantAction
     event: !type:OpenUiActionEvent
       key: enum.InstrumentUiKey.Key

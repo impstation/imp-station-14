@@ -1,0 +1,1037 @@
+#basic clown mask
+
+- type: entity
+  parent: ClothingMaskClownBase
+  id: ClothingMaskClownChameleonBasic
+  abstract: true
+  name: classic clown mask and wig
+  description: A classic clown mask and wig. This design has been in use for centuries.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Mask/clown.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Mask/clown.rsi
+  - type: ChameleonClothing
+    slot: mask
+    requireTag: ClownMaskBasic
+    AffectedByEmp: False
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - ClownMask
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClownMaskBasic
+  - type: HideLayerClothing
+    slots:
+    - Snout
+
+- type: entity
+  parent: ClothingMaskClownChameleonBasic
+  id: ClothingMaskClownWigless
+  name: clown mask
+  description: A classic clown mask. Removing the traditional wig lets clowns show off their hair or headwear!
+  components:
+  - type: Sprite
+    state: icon-wigless
+  - type: Clothing
+    equippedPrefix: wigless
+  - type: ChameleonClothing
+    default: ClothingMaskClownWigless
+
+- type: entity
+  parent: ClothingMaskClownChameleonBasic
+  id: ClothingMaskClownSmile
+  name: smiling clown mask and wig
+  description: A smiling clown mask and wig. A newer spin on a classic design.
+  components:
+  - type: Sprite
+    state: icon-smile
+  - type: Clothing
+    equippedPrefix: smile
+  - type: ChameleonClothing
+    default: ClothingMaskClownSmile
+
+- type: entity
+  parent: ClothingMaskClownChameleonBasic
+  id: ClothingMaskClownSmileWigless
+  name: smiling clown mask
+  description: A smiling clown mask. Removing the traditional wig lets clowns show off their hair or headwear!
+  components:
+  - type: Sprite
+    state: icon-smilewigless
+  - type: Clothing
+    equippedPrefix: smilewigless
+  - type: ChameleonClothing
+    default: ClothingMaskClownSmileWigless
+
+- type: entity
+  parent: ClothingMaskClownChameleonBasic
+  id: ClothingMaskClownBignose
+  name: big nose clown mask and wig
+  description: A big nosed clown mask and wig. A newer spin on a classic design.
+  components:
+  - type: Sprite
+    state: icon-bignose
+  - type: Clothing
+    equippedPrefix: bignose
+  - type: ChameleonClothing
+    default: ClothingMaskClownBignose
+
+- type: entity
+  parent: ClothingMaskClownChameleonBasic
+  id: ClothingMaskClownBignoseWigless
+  name: big nose clown mask
+  description: A big nosed clown mask. Removing the traditional wig lets clowns show off their hair or headwear!
+  components:
+  - type: Sprite
+    state: icon-bignosewigless
+  - type: Clothing
+    equippedPrefix: bignosewigless
+  - type: ChameleonClothing
+    default: ClothingMaskClownBignoseWigless
+
+#captain clown mask
+#admeme
+
+- type: entity
+  parent: ClothingMaskClownBase
+  id: ClothingMaskClownChameleonCaptain
+  abstract: true
+  name: captain clown mask and wig
+  description: A captain-themed clown mask and wig. You're in charge of the circus now...
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Mask/clown_captain.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Mask/clown_captain.rsi
+  - type: ChameleonClothing
+    slot: mask
+    requireTag: ClownMaskCaptain
+    AffectedByEmp: False
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - ClownMask
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClownMaskCaptain
+  - type: HideLayerClothing
+    slots:
+    - Snout
+
+- type: entity
+  parent: ClothingMaskClownChameleonCaptain
+  id: ClothingMaskClownCaptain
+  components:
+  - type: ChameleonClothing
+    default: ClothingMaskClownCaptain
+
+- type: entity
+  parent: ClothingMaskClownChameleonCaptain
+  id: ClothingMaskClownCaptainWigless
+  name: captain clown mask
+  description: A captain-themed clown mask and wig. You're in charge of the circus now...
+  components:
+  - type: Sprite
+    state: icon-wigless
+  - type: Clothing
+    equippedPrefix: wigless
+  - type: ChameleonClothing
+    default: ClothingMaskClownCaptainWigless
+
+- type: entity
+  parent: ClothingMaskClownChameleonCaptain
+  id: ClothingMaskClownCaptainSmile
+  name: smiling captain clown mask and wig
+  description: A smiling captain-themed clown mask and wig. You're in charge of the circus now...
+  components:
+  - type: Sprite
+    state: icon-smile
+  - type: Clothing
+    equippedPrefix: smile
+  - type: ChameleonClothing
+    default: ClothingMaskClownCaptainSmile
+
+- type: entity
+  parent: ClothingMaskClownChameleonCaptain
+  id: ClothingMaskClownCaptainSmileWigless
+  name: smiling captain clown mask
+  description: A smiling captain-themed clown mask. You're in charge of the circus now...
+  components:
+  - type: Sprite
+    state: icon-smilewigless
+  - type: Clothing
+    equippedPrefix: smilewigless
+  - type: ChameleonClothing
+    default: ClothingMaskClownCaptainSmileWigless
+
+- type: entity
+  parent: ClothingMaskClownChameleonCaptain
+  id: ClothingMaskClownCaptainBignose
+  name: big nose captain clown mask and wig
+  description: A big nosed captain-themed clown mask and wig. You're in charge of the circus now...
+  components:
+  - type: Sprite
+    state: icon-bignose
+  - type: Clothing
+    equippedPrefix: bignose
+  - type: ChameleonClothing
+    default: ClothingMaskClownCaptainBignose
+
+- type: entity
+  parent: ClothingMaskClownChameleonCaptain
+  id: ClothingMaskClownCaptainBignoseWigless
+  name: big nose captain clown mask
+  description: A big nosed captain-themed clown mask. You're in charge of the circus now...
+  components:
+  - type: Sprite
+    state: icon-bignosewigless
+  - type: Clothing
+    equippedPrefix: bignosewigless
+  - type: ChameleonClothing
+    default: ClothingMaskClownCaptainBignoseWigless
+
+#cargo clown mask
+
+- type: entity
+  parent: ClothingMaskClownBase
+  id: ClothingMaskClownChameleonCargo
+  abstract: true
+  name: cargo clown mask and wig
+  description: A cargo-themed clown mask and wig. Now you can order all the toys you want!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Mask/clown_cargo.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Mask/clown_cargo.rsi
+  - type: ChameleonClothing
+    slot: mask
+    requireTag: ClownMaskCargo
+    AffectedByEmp: False
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - ClownMask
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClownMaskCargo
+  - type: HideLayerClothing
+    slots:
+    - Snout
+
+- type: entity
+  parent: ClothingMaskClownChameleonCargo
+  id: ClothingMaskClownCargo
+  components:
+  - type: ChameleonClothing
+    default: ClothingMaskClownCargo
+
+- type: entity
+  parent: ClothingMaskClownChameleonCargo
+  id: ClothingMaskClownCargoWigless
+  name: cargo clown mask
+  description: A cargo-themed clown mask and wig. Now you can order all the toys you want!
+  components:
+  - type: Sprite
+    state: icon-wigless
+  - type: Clothing
+    equippedPrefix: wigless
+  - type: ChameleonClothing
+    default: ClothingMaskClownCargoWigless
+
+- type: entity
+  parent: ClothingMaskClownChameleonCargo
+  id: ClothingMaskClownCargoSmile
+  name: smiling cargo clown mask and wig
+  description: A smiling cargo-themed clown mask and wig. Now you can order all the toys you want!
+  components:
+  - type: Sprite
+    state: icon-smile
+  - type: Clothing
+    equippedPrefix: smile
+  - type: ChameleonClothing
+    default: ClothingMaskClownCargoSmile
+
+- type: entity
+  parent: ClothingMaskClownChameleonCargo
+  id: ClothingMaskClownCargoSmileWigless
+  name: smiling cargo clown mask
+  description: A smiling cargo-themed clown mask. Now you can order all the toys you want!
+  components:
+  - type: Sprite
+    state: icon-smilewigless
+  - type: Clothing
+    equippedPrefix: smilewigless
+  - type: ChameleonClothing
+    default: ClothingMaskClownCargoSmileWigless
+
+- type: entity
+  parent: ClothingMaskClownChameleonCargo
+  id: ClothingMaskClownCargoBignose
+  name: big nose cargo clown mask and wig
+  description: A big nosed cargo-themed clown mask and wig. Now you can order all the toys you want!
+  components:
+  - type: Sprite
+    state: icon-bignose
+  - type: Clothing
+    equippedPrefix: bignose
+  - type: ChameleonClothing
+    default: ClothingMaskClownCargoBignose
+
+- type: entity
+  parent: ClothingMaskClownChameleonCargo
+  id: ClothingMaskClownCargoBignoseWigless
+  name: big nose cargo clown mask
+  description: A big nosed cargo-themed clown mask. Now you can order all the toys you want!
+  components:
+  - type: Sprite
+    state: icon-bignosewigless
+  - type: Clothing
+    equippedPrefix: bignosewigless
+  - type: ChameleonClothing
+    default: ClothingMaskClownCargoBignoseWigless
+
+#chaplain clown mask
+
+- type: entity
+  parent: ClothingMaskClownBase
+  id: ClothingMaskClownChameleonChaplain
+  abstract: true
+  name: chaplain clown mask and wig
+  description: A clown mask and wig made in the image of the Honkmother. For clowns of the cloth.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Mask/clown_chaplain.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Mask/clown_chaplain.rsi
+  - type: ChameleonClothing
+    slot: mask
+    requireTag: ClownMaskChaplain
+    AffectedByEmp: False
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - ClownMask
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClownMaskChaplain
+  - type: HideLayerClothing
+    slots:
+    - Snout
+
+- type: entity
+  parent: ClothingMaskClownChameleonChaplain
+  id: ClothingMaskClownChaplain
+  components:
+  - type: ChameleonClothing
+    default: ClothingMaskClownChaplain
+
+- type: entity
+  parent: ClothingMaskClownChameleonChaplain
+  id: ClothingMaskClownChaplainWigless
+  name: chaplain clown mask
+  description: A clown mask made in the image of the Honkmother. For clowns of the cloth.
+  components:
+  - type: Sprite
+    state: icon-wigless
+  - type: Clothing
+    equippedPrefix: wigless
+  - type: ChameleonClothing
+    default: ClothingMaskClownChaplainWigless
+
+- type: entity
+  parent: ClothingMaskClownChameleonChaplain
+  id: ClothingMaskClownChaplainSmile
+  name: smiling chaplain clown mask and wig
+  description: A smiling clown mask and wig made in the image of the Honkmother. For clowns of the cloth.
+  components:
+  - type: Sprite
+    state: icon-smile
+  - type: Clothing
+    equippedPrefix: smile
+  - type: ChameleonClothing
+    default: ClothingMaskClownChaplainSmile
+
+- type: entity
+  parent: ClothingMaskClownChameleonChaplain
+  id: ClothingMaskClownChaplainSmileWigless
+  name: smiling chaplain clown mask
+  description: A smiling clown mask made in the image of the Honkmother. For clowns of the cloth.
+  components:
+  - type: Sprite
+    state: icon-smilewigless
+  - type: Clothing
+    equippedPrefix: smilewigless
+  - type: ChameleonClothing
+    default: ClothingMaskClownChaplainSmileWigless
+
+- type: entity
+  parent: ClothingMaskClownChameleonChaplain
+  id: ClothingMaskClownChaplainBignose
+  name: big nose chaplain clown mask and wig
+  description: A big nosed clown mask and wig made in the image of the Honkmother. For clowns of the cloth.
+  components:
+  - type: Sprite
+    state: icon-bignose
+  - type: Clothing
+    equippedPrefix: bignose
+  - type: ChameleonClothing
+    default: ClothingMaskClownChaplainBignose
+
+- type: entity
+  parent: ClothingMaskClownChameleonChaplain
+  id: ClothingMaskClownChaplainBignoseWigless
+  name: big nose chaplain clown mask
+  description: A big nosed clown mask made in the image of the Honkmother. For clowns of the cloth.
+  components:
+  - type: Sprite
+    state: icon-bignosewigless
+  - type: Clothing
+    equippedPrefix: bignosewigless
+  - type: ChameleonClothing
+    default: ClothingMaskClownChaplainBignoseWigless
+
+# engineer clown mask
+
+- type: entity
+  parent: ClothingMaskClownBase
+  id: ClothingMaskClownChameleonEngineer
+  abstract: true
+  name: engineer clown mask and wig
+  description: An engineering-themed clown mask and wig. Someone's gotta keep the spotlights running!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Mask/clown_engineer.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Mask/clown_engineer.rsi
+  - type: ChameleonClothing
+    slot: mask
+    requireTag: ClownMaskEngineer
+    AffectedByEmp: False
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - ClownMask
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClownMaskEngineer
+  - type: HideLayerClothing
+    slots:
+    - Snout
+
+- type: entity
+  parent: ClothingMaskClownChameleonEngineer
+  id: ClothingMaskClownEngineer
+  components:
+  - type: ChameleonClothing
+    default: ClothingMaskClownEngineer
+
+- type: entity
+  parent: ClothingMaskClownChameleonEngineer
+  id: ClothingMaskClownEngineerWigless
+  name: engineer clown mask
+  description: An engineering-themed clown mask and wig. Someone's gotta keep the spotlights running!
+  components:
+  - type: Sprite
+    state: icon-wigless
+  - type: Clothing
+    equippedPrefix: wigless
+  - type: ChameleonClothing
+    default: ClothingMaskClownEngineerWigless
+
+- type: entity
+  parent: ClothingMaskClownChameleonEngineer
+  id: ClothingMaskClownEngineerSmile
+  name: smiling engineer clown mask and wig
+  description: A smiling engineering-themed clown mask and wig. Someone's gotta keep the spotlights running!
+  components:
+  - type: Sprite
+    state: icon-smile
+  - type: Clothing
+    equippedPrefix: smile
+  - type: ChameleonClothing
+    default: ClothingMaskClownEngineerSmile
+
+- type: entity
+  parent: ClothingMaskClownChameleonEngineer
+  id: ClothingMaskClownEngineerSmileWigless
+  name: smiling engineer clown mask
+  description: A smiling engineering-themed clown mask. Someone's gotta keep the spotlights running!
+  components:
+  - type: Sprite
+    state: icon-smilewigless
+  - type: Clothing
+    equippedPrefix: smilewigless
+  - type: ChameleonClothing
+    default: ClothingMaskClownEngineerSmileWigless
+
+- type: entity
+  parent: ClothingMaskClownChameleonEngineer
+  id: ClothingMaskClownEngineerBignose
+  name: big nose engineer clown mask and wig
+  description: A big nosed engineering-themed clown mask and wig. Someone's gotta keep the spotlights running!
+  components:
+  - type: Sprite
+    state: icon-bignose
+  - type: Clothing
+    equippedPrefix: bignose
+  - type: ChameleonClothing
+    default: ClothingMaskClownEngineerBignose
+
+- type: entity
+  parent: ClothingMaskClownChameleonEngineer
+  id: ClothingMaskClownEngineerBignoseWigless
+  name: big nose engineer clown mask
+  description: A big nosed engineering-themed clown mask. Someone's gotta keep the spotlights running!
+  components:
+  - type: Sprite
+    state: icon-bignosewigless
+  - type: Clothing
+    equippedPrefix: bignosewigless
+  - type: ChameleonClothing
+    default: ClothingMaskClownEngineerBignoseWigless
+
+# medical clown mask
+
+- type: entity
+  parent: ClothingMaskClownBase
+  id: ClothingMaskClownChameleonMedical
+  abstract: true
+  name: medical clown mask and wig
+  description: A medical-themed clown mask and wig. Laughter is the best medicine!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Mask/clown_medical.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Mask/clown_medical.rsi
+  - type: ChameleonClothing
+    slot: mask
+    requireTag: ClownMaskMedical
+    AffectedByEmp: False
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - ClownMask
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClownMaskMedical
+  - type: HideLayerClothing
+    slots:
+    - Snout
+
+- type: entity
+  parent: ClothingMaskClownChameleonMedical
+  id: ClothingMaskClownMedical
+  components:
+  - type: ChameleonClothing
+    default: ClothingMaskClownMedical
+
+- type: entity
+  parent: ClothingMaskClownChameleonMedical
+  id: ClothingMaskClownMedicalWigless
+  name: medical clown mask
+  description: A medical-themed clown mask and wig. Laughter is the best medicine!
+  components:
+  - type: Sprite
+    state: icon-wigless
+  - type: Clothing
+    equippedPrefix: wigless
+  - type: ChameleonClothing
+    default: ClothingMaskClownMedicalWigless
+
+- type: entity
+  parent: ClothingMaskClownChameleonMedical
+  id: ClothingMaskClownMedicalSmile
+  name: smiling medical clown mask and wig
+  description: A smiling medical-themed clown mask and wig. Laughter is the best medicine!
+  components:
+  - type: Sprite
+    state: icon-smile
+  - type: Clothing
+    equippedPrefix: smile
+  - type: ChameleonClothing
+    default: ClothingMaskClownMedicalSmile
+
+- type: entity
+  parent: ClothingMaskClownChameleonMedical
+  id: ClothingMaskClownMedicalSmileWigless
+  name: smiling medical clown mask
+  description: A smiling medical-themed clown mask. Laughter is the best medicine!
+  components:
+  - type: Sprite
+    state: icon-smilewigless
+  - type: Clothing
+    equippedPrefix: smilewigless
+  - type: ChameleonClothing
+    default: ClothingMaskClownMedicalSmileWigless
+
+- type: entity
+  parent: ClothingMaskClownChameleonMedical
+  id: ClothingMaskClownMedicalBignose
+  name: big nose medical clown mask and wig
+  description: A big nosed medical-themed clown mask and wig. Laughter is the best medicine!
+  components:
+  - type: Sprite
+    state: icon-bignose
+  - type: Clothing
+    equippedPrefix: bignose
+  - type: ChameleonClothing
+    default: ClothingMaskClownMedicalBignose
+
+- type: entity
+  parent: ClothingMaskClownChameleonMedical
+  id: ClothingMaskClownMedicalBignoseWigless
+  name: big nose medical clown mask
+  description: A big nosed medical-themed clown mask. Laughter is the best medicine!
+  components:
+  - type: Sprite
+    state: icon-bignosewigless
+  - type: Clothing
+    equippedPrefix: bignosewigless
+  - type: ChameleonClothing
+    default: ClothingMaskClownMedicalBignoseWigless
+
+# robotics clown mask
+
+- type: entity
+  parent: ClothingMaskClownBase
+  id: ClothingMaskClownChameleonRobotics
+  abstract: true
+  name: robotics clown mask and wig
+  description: A robotics-themed clown mask and wig. Time to mass-produce HonkBots!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Mask/clown_robotics.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Mask/clown_robotics.rsi
+  - type: ChameleonClothing
+    slot: mask
+    requireTag: ClownMaskRobotics
+    AffectedByEmp: False
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - ClownMask
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClownMaskRobotics
+  - type: HideLayerClothing
+    slots:
+    - Snout
+
+- type: entity
+  parent: ClothingMaskClownChameleonRobotics
+  id: ClothingMaskClownRobotics
+  components:
+  - type: ChameleonClothing
+    default: ClothingMaskClownRobotics
+
+- type: entity
+  parent: ClothingMaskClownChameleonRobotics
+  id: ClothingMaskClownRoboticsWigless
+  name: robotics clown mask
+  description: A robotics-themed clown mask and wig. Time to mass-produce HonkBots!
+  components:
+  - type: Sprite
+    state: icon-wigless
+  - type: Clothing
+    equippedPrefix: wigless
+  - type: ChameleonClothing
+    default: ClothingMaskClownRoboticsWigless
+
+- type: entity
+  parent: ClothingMaskClownChameleonRobotics
+  id: ClothingMaskClownRoboticsSmile
+  name: smiling robotics clown mask and wig
+  description: A smiling robotics-themed clown mask and wig. Time to mass-produce HonkBots!
+  components:
+  - type: Sprite
+    state: icon-smile
+  - type: Clothing
+    equippedPrefix: smile
+  - type: ChameleonClothing
+    default: ClothingMaskClownRoboticsSmile
+
+- type: entity
+  parent: ClothingMaskClownChameleonRobotics
+  id: ClothingMaskClownRoboticsSmileWigless
+  name: smiling robotics clown mask
+  description: A smiling robotics-themed clown mask. Time to mass-produce HonkBots!
+  components:
+  - type: Sprite
+    state: icon-smilewigless
+  - type: Clothing
+    equippedPrefix: smilewigless
+  - type: ChameleonClothing
+    default: ClothingMaskClownRoboticsSmileWigless
+
+- type: entity
+  parent: ClothingMaskClownChameleonRobotics
+  id: ClothingMaskClownRoboticsBignose
+  name: big nose robotics clown mask and wig
+  description: A big nosed robotics-themed clown mask and wig. Time to mass-produce HonkBots!
+  components:
+  - type: Sprite
+    state: icon-bignose
+  - type: Clothing
+    equippedPrefix: bignose
+  - type: ChameleonClothing
+    default: ClothingMaskClownRoboticsBignose
+
+- type: entity
+  parent: ClothingMaskClownChameleonRobotics
+  id: ClothingMaskClownRoboticsBignoseWigless
+  name: big nose robotics clown mask
+  description: A big nosed robotics-themed clown mask. Time to mass-produce HonkBots!
+  components:
+  - type: Sprite
+    state: icon-bignosewigless
+  - type: Clothing
+    equippedPrefix: bignosewigless
+  - type: ChameleonClothing
+    default: ClothingMaskClownRoboticsBignoseWigless
+
+# science clown mask
+
+- type: entity
+  parent: ClothingMaskClownBase
+  id: ClothingMaskClownChameleonScience
+  abstract: true
+  name: science clown mask and wig
+  description: A science-themed clown mask and wig. Only people with high IQs can understand your jokes.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Mask/clown_science.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Mask/clown_science.rsi
+  - type: ChameleonClothing
+    slot: mask
+    requireTag: ClownMaskScience
+    AffectedByEmp: False
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - ClownMask
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClownMaskScience
+  - type: HideLayerClothing
+    slots:
+    - Snout
+
+- type: entity
+  parent: ClothingMaskClownChameleonScience
+  id: ClothingMaskClownScience
+  components:
+  - type: ChameleonClothing
+    default: ClothingMaskClownScience
+
+- type: entity
+  parent: ClothingMaskClownChameleonScience
+  id: ClothingMaskClownScienceWigless
+  name: science clown mask
+  description: A science-themed clown mask and wig. Only people with high IQs can understand your jokes.
+  components:
+  - type: Sprite
+    state: icon-wigless
+  - type: Clothing
+    equippedPrefix: wigless
+  - type: ChameleonClothing
+    default: ClothingMaskClownScienceWigless
+
+- type: entity
+  parent: ClothingMaskClownChameleonScience
+  id: ClothingMaskClownScienceSmile
+  name: smiling science clown mask and wig
+  description: A smiling science-themed clown mask and wig. Only people with high IQs can understand your jokes.
+  components:
+  - type: Sprite
+    state: icon-smile
+  - type: Clothing
+    equippedPrefix: smile
+  - type: ChameleonClothing
+    default: ClothingMaskClownScienceSmile
+
+- type: entity
+  parent: ClothingMaskClownChameleonScience
+  id: ClothingMaskClownScienceSmileWigless
+  name: smiling science clown mask
+  description: A smiling science-themed clown mask. Only people with high IQs can understand your jokes.
+  components:
+  - type: Sprite
+    state: icon-smilewigless
+  - type: Clothing
+    equippedPrefix: smilewigless
+  - type: ChameleonClothing
+    default: ClothingMaskClownScienceSmileWigless
+
+- type: entity
+  parent: ClothingMaskClownChameleonScience
+  id: ClothingMaskClownScienceBignose
+  name: big nose science clown mask and wig
+  description: A big nosed science-themed clown mask and wig. Only people with high IQs can understand your jokes.
+  components:
+  - type: Sprite
+    state: icon-bignose
+  - type: Clothing
+    equippedPrefix: bignose
+  - type: ChameleonClothing
+    default: ClothingMaskClownScienceBignose
+
+- type: entity
+  parent: ClothingMaskClownChameleonScience
+  id: ClothingMaskClownScienceBignoseWigless
+  name: big nose science clown mask
+  description: A big nosed science-themed clown mask. Only people with high IQs can understand your jokes.
+  components:
+  - type: Sprite
+    state: icon-bignosewigless
+  - type: Clothing
+    equippedPrefix: bignosewigless
+  - type: ChameleonClothing
+    default: ClothingMaskClownScienceBignoseWigless
+
+# security clown mask
+
+- type: entity
+  parent: ClothingMaskClownBase
+  id: ClothingMaskClownChameleonSecurity
+  abstract: true
+  name: security clown mask and wig
+  description: A security-themed clown mask and wig. Discombobulate.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Mask/clown_security.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Mask/clown_security.rsi
+  - type: ChameleonClothing
+    slot: mask
+    requireTag: ClownMaskSecurity
+    AffectedByEmp: False
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+  - type: Tag
+    tags:
+    - ClownMask
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClownMaskSecurity
+  - type: HideLayerClothing
+    slots:
+    - Snout
+
+- type: entity
+  parent: ClothingMaskClownChameleonSecurity
+  id: ClothingMaskClownSecurity
+  components:
+  - type: ChameleonClothing
+    default: ClothingMaskClownSecurity
+
+- type: entity
+  parent: ClothingMaskClownChameleonSecurity
+  id: ClothingMaskClownSecurityWigless
+  name: security clown mask
+  description: A security-themed clown mask and wig. Discombobulate.
+  components:
+  - type: Sprite
+    state: icon-wigless
+  - type: Clothing
+    equippedPrefix: wigless
+  - type: ChameleonClothing
+    default: ClothingMaskClownSecurityWigless
+
+- type: entity
+  parent: ClothingMaskClownChameleonSecurity
+  id: ClothingMaskClownSecuritySmile
+  name: smiling security clown mask and wig
+  description: A smiling security-themed clown mask and wig. Discombobulate.
+  components:
+  - type: Sprite
+    state: icon-smile
+  - type: Clothing
+    equippedPrefix: smile
+  - type: ChameleonClothing
+    default: ClothingMaskClownSecuritySmile
+
+- type: entity
+  parent: ClothingMaskClownChameleonSecurity
+  id: ClothingMaskClownSecuritySmileWigless
+  name: smiling security clown mask
+  description: A smiling security-themed clown mask. Discombobulate.
+  components:
+  - type: Sprite
+    state: icon-smilewigless
+  - type: Clothing
+    equippedPrefix: smilewigless
+  - type: ChameleonClothing
+    default: ClothingMaskClownSecuritySmileWigless
+
+- type: entity
+  parent: ClothingMaskClownChameleonSecurity
+  id: ClothingMaskClownSecurityBignose
+  name: big nose security clown mask and wig
+  description: A big nosed security-themed clown mask and wig. Discombobulate.
+  components:
+  - type: Sprite
+    state: icon-bignose
+  - type: Clothing
+    equippedPrefix: bignose
+  - type: ChameleonClothing
+    default: ClothingMaskClownSecurityBignose
+
+- type: entity
+  parent: ClothingMaskClownChameleonSecurity
+  id: ClothingMaskClownSecurityBignoseWigless
+  name: big nose security clown mask
+  description: A big nosed security-themed clown mask. Discombobulate.
+  components:
+  - type: Sprite
+    state: icon-bignosewigless
+  - type: Clothing
+    equippedPrefix: bignosewigless
+  - type: ChameleonClothing
+    default: ClothingMaskClownSecurityBignoseWigless
+
+# service clown mask
+
+- type: entity
+  parent: ClothingMaskClownBase
+  id: ClothingMaskClownChameleonService
+  abstract: true
+  name: service clown mask and wig
+  description: A service-themed clown mask and wig. Crazy Hamburgers? Honky Tonics? Space Lube? Your decide...
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Mask/clown_service.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Mask/clown_service.rsi
+  - type: ChameleonClothing
+    slot: mask
+    requireTag: ClownMaskService
+    AffectedByEmp: False
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+  - type: Tag
+    tags:
+    - ClownMask
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClownMaskService
+  - type: HideLayerClothing
+    slots:
+    - Snout
+
+- type: entity
+  parent: ClothingMaskClownChameleonService
+  id: ClothingMaskClownService
+  components:
+  - type: ChameleonClothing
+    default: ClothingMaskClownService
+
+- type: entity
+  parent: ClothingMaskClownChameleonService
+  id: ClothingMaskClownServiceWigless
+  name: service clown mask
+  description: A service-themed clown mask and wig. Crazy Hamburgers? Honky Tonics? Space Lube? Your decide...
+  components:
+  - type: Sprite
+    state: icon-wigless
+  - type: Clothing
+    equippedPrefix: wigless
+  - type: ChameleonClothing
+    default: ClothingMaskClownServiceWigless
+
+- type: entity
+  parent: ClothingMaskClownChameleonService
+  id: ClothingMaskClownServiceSmile
+  name: smiling service clown mask and wig
+  description: A smiling service-themed clown mask and wig. Crazy Hamburgers? Honky Tonics? Space Lube? Your decide...
+  components:
+  - type: Sprite
+    state: icon-smile
+  - type: Clothing
+    equippedPrefix: smile
+  - type: ChameleonClothing
+    default: ClothingMaskClownServiceSmile
+
+- type: entity
+  parent: ClothingMaskClownChameleonService
+  id: ClothingMaskClownServiceSmileWigless
+  name: smiling service clown mask
+  description: A smiling service-themed clown mask. Crazy Hamburgers? Honky Tonics? Space Lube? Your decide...
+  components:
+  - type: Sprite
+    state: icon-smilewigless
+  - type: Clothing
+    equippedPrefix: smilewigless
+  - type: ChameleonClothing
+    default: ClothingMaskClownServiceSmileWigless
+
+- type: entity
+  parent: ClothingMaskClownChameleonService
+  id: ClothingMaskClownServiceBignose
+  name: big nose service clown mask and wig
+  description: A big nosed service-themed clown mask and wig. Crazy Hamburgers? Honky Tonics? Space Lube? Your decide...
+  components:
+  - type: Sprite
+    state: icon-bignose
+  - type: Clothing
+    equippedPrefix: bignose
+  - type: ChameleonClothing
+    default: ClothingMaskClownServiceBignose
+
+- type: entity
+  parent: ClothingMaskClownChameleonService
+  id: ClothingMaskClownServiceBignoseWigless
+  name: big nose service clown mask
+  description: A big nosed service-themed clown mask. Crazy Hamburgers? Honky Tonics? Space Lube? Your decide...
+  components:
+  - type: Sprite
+    state: icon-bignosewigless
+  - type: Clothing
+    equippedPrefix: bignosewigless
+  - type: ChameleonClothing
+    default: ClothingMaskClownSecurityBignoseWigless
