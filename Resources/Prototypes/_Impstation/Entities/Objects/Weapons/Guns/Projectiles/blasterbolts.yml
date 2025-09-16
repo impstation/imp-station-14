@@ -82,8 +82,8 @@
     impactEffect: BulletImpactEffectSyndicate
     damage:
       types:
-        Heat: 10
-        Piercing: 10
+        Heat: 9.5
+        Piercing: 9.5
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -102,8 +102,8 @@
   - type: Projectile
     damage:
       types:
-        Heat: 7.5
-        Piercing: 7.5
+        Heat: 8.5
+        Piercing: 8.5
 
 - type: entity
   name : toy blaster bolt
