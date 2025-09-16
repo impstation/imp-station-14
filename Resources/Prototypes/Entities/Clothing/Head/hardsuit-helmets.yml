@@ -156,6 +156,9 @@
       head-dog:
       - state: equipped-head-light-dog
         shader: unshaded
+      head-anomalocarid: #imp edit
+      - state: equipped-head-light-anomalocarid
+        shader: unshaded
   - type: Clothing
     clothingVisuals:
       head:
@@ -169,6 +172,10 @@
       head-dog:
       - state: equipped-head-dog
       - state: equipped-head-unshaded-dog
+        shader: unshaded
+      head-anomalocarid: #imp edit
+      - state: equipped-head-anomalocarid
+      - state: equipped-head-unshaded-anomalocarid
         shader: unshaded
   - type: PointLight
     radius: 6
