@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/29/2025 23:47:39
-  entityCount: 22716
+  time: 09/07/2025 07:26:44
+  entityCount: 22729
 maps:
 - 5005
 grids:
@@ -27658,6 +27658,11 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -42.5,-3.5
+      parent: 1
+  - uid: 18426
+    components:
+    - type: Transform
+      pos: -31.5,39.5
       parent: 1
 - proto: CabbageSeeds
   entities:
@@ -73848,7 +73853,7 @@ entities:
       pos: -25.5,43.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -11749.287
+      secondsUntilStateChange: -12151.803
       state: Closing
   - uid: 9802
     components:
@@ -131009,6 +131014,18 @@ entities:
           - Toggle
     - type: Fixtures
       fixtures: {}
+  - uid: 18434
+    components:
+    - type: Transform
+      pos: -31.5,39.5
+      parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        16530:
+        - - Pressed
+          - Toggle
+    - type: Fixtures
+      fixtures: {}
   - uid: 18649
     components:
     - type: Transform
@@ -135539,6 +135556,16 @@ entities:
       - SurveillanceCameraCommand
       nameSet: True
       id: Captain's Office
+  - uid: 8149
+    components:
+    - type: Transform
+      pos: -18.5,62.5
+      parent: 1
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
+      nameSet: True
+      id: Bridge
   - uid: 8796
     components:
     - type: Transform
@@ -135610,6 +135637,16 @@ entities:
       parent: 1
     - type: SurveillanceCamera
       id: Telecomms
+  - uid: 16108
+    components:
+    - type: Transform
+      pos: -6.5,58.5
+      parent: 1
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
+      nameSet: True
+      id: Conference Room
   - uid: 16251
     components:
     - type: Transform
@@ -135647,6 +135684,16 @@ entities:
       parent: 1
     - type: SurveillanceCamera
       id: AI Core
+  - uid: 18116
+    components:
+    - type: Transform
+      pos: -73.5,15.5
+      parent: 1
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
+      nameSet: True
+      id: CE's Office
 - proto: SurveillanceCameraEngineering
   entities:
   - uid: 6827
@@ -136018,6 +136065,28 @@ entities:
       parent: 1
     - type: SurveillanceCamera
       id: Coffee Bar Hallway
+  - uid: 17681
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -13.5,22.5
+      parent: 1
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraGeneral
+      nameSet: True
+      id: Security Checkpoint Exterior
+  - uid: 18264
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 10.5,-0.5
+      parent: 1
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraGeneral
+      nameSet: True
+      id: Cryo Exterior
   - uid: 20321
     components:
     - type: Transform
@@ -136102,6 +136171,17 @@ entities:
       parent: 1
     - type: SurveillanceCamera
       id: Cryo
+  - uid: 17123
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 0.5,17.5
+      parent: 1
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraMedical
+      nameSet: True
+      id: Morgue
   - uid: 21077
     components:
     - type: Transform
@@ -136441,6 +136521,17 @@ entities:
       - SurveillanceCameraSecurity
       nameSet: True
       id: Brig Main Right
+  - uid: 18401
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -71.5,8.5
+      parent: 1
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: Law Office
 - proto: SurveillanceCameraService
   entities:
   - uid: 6833
@@ -136498,6 +136589,38 @@ entities:
       parent: 1
     - type: SurveillanceCamera
       id: Janitorial Back
+  - uid: 18323
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 17.5,-0.5
+      parent: 1
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraService
+      nameSet: True
+      id: Chapel
+  - uid: 18324
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -31.5,45.5
+      parent: 1
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraService
+      nameSet: True
+      id: Kitchen
+  - uid: 18387
+    components:
+    - type: Transform
+      pos: -43.5,49.5
+      parent: 1
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraService
+      nameSet: True
+      id: Botany Backroom
   - uid: 21599
     components:
     - type: Transform
@@ -136562,6 +136685,17 @@ entities:
       parent: 1
     - type: SurveillanceCamera
       id: Cargo Bay
+  - uid: 18262
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -42.5,-9.5
+      parent: 1
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSupply
+      nameSet: True
+      id: Salvage
 - proto: SurveillanceCameraWirelessRouterEntertainment
   entities:
   - uid: 9610

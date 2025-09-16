@@ -22,16 +22,17 @@
       tags:
       - BaseballBat
 
-- type: cargoBounty
-  id: BountyBrain
-  reward: 12500
-  description: bounty-description-brain
-  entries:
-  - name: bounty-item-brain
-    amount: 1
-    whitelist:
-      components:
-      - Brain
+# imp edit - no longer a practical bounty with offmed
+# - type: cargoBounty
+#   id: BountyBrain
+#   reward: 12500
+#   description: bounty-description-brain
+#   entries:
+#   - name: bounty-item-brain
+#     amount: 1
+#     whitelist:
+#       components:
+#       - Brain
 
 - type: cargoBounty
   id: BountyBread
@@ -235,16 +236,16 @@
       tags:
       - Lime
 
-- type: cargoBounty
-  id: BountyLung
-  reward: 2000
-  description: bounty-description-lung
-  entries:
-  - name: bounty-item-lung
-    amount: 3
-    whitelist:
-      components:
-      - Lung
+# - type: cargoBounty
+#   id: BountyLung
+#   reward: 2000
+#   description: bounty-description-lung
+#   entries:
+#   - name: bounty-item-lung
+#     amount: 3
+#     whitelist:
+#       components:
+#       - Lung
 
 - type: cargoBounty
   id: BountyMonkeyCube
@@ -467,17 +468,18 @@
       tags:
       - ArtifactFragment
 
-- type: cargoBounty
-  id: BountyOrgans
-  reward: 2000
-  description: bounty-description-organs
-  idPrefix: UNTH
-  entries:
-  - name: bounty-item-organs
-    amount: 8
-    whitelist:
-      components:
-      - Organ
+# imp edit - no longer a practical bounty with offmed
+# - type: cargoBounty
+#   id: BountyOrgans
+#   reward: 2000
+#   description: bounty-description-organs
+#   idPrefix: UNTH
+#   entries:
+#   - name: bounty-item-organs
+#     amount: 8
+#     whitelist:
+#       components:
+#       - Organ
 
 - type: cargoBounty
   id: BountyLabeler
