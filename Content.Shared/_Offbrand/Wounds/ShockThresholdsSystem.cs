@@ -48,7 +48,7 @@ public sealed partial class ShockThresholdsSystem : EntitySystem
 
     public bool IsCritical(Entity<ShockThresholdsComponent?> ent)
     {
-        if (!Resolve(ent, ref ent.Comp))
+        if (!Resolve(ent, ref ent.Comp, false))
             return false;
 
         return ent.Comp.CurrentThresholdState == ent.Comp.Thresholds.Last().Value;
