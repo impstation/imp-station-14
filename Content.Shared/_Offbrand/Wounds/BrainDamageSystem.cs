@@ -135,6 +135,9 @@ public sealed partial class BrainDamageSystem : EntitySystem
             {
                 ent.Comp1.Oxygen = FixedPoint2.Min(ent.Comp1.Oxygen + ent.Comp2.OxygenRegeneration, ent.Comp1.MaxOxygen);
                 Dirty(ent.Owner, ent.Comp1);
+
+                var increased = new AfterBrainOxygenChanged();
+                RaiseLocalEvent(ent, ref increased);
             }
             return;
         }
