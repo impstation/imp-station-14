@@ -1,0 +1,15 @@
+- type: speechSounds
+  id: BananaDeer
+  saySound:
+    path: /Audio/_Impstation/Animals/bananadeer_eee.ogg
+  askSound:
+    path: /Audio/_Impstation/Animals/bananadeer_euh.ogg
+  exclaimSound:
+    path: /Audio/_Impstation/Animals/bananadeer_euh.ogg
+
+- type: emoteSounds
+  id: BananaDeer
+  sound:
+    path: /Audio/_Impstation/Animals/bananadeer_eee.ogg
+    params:
+      variation: 0.125
