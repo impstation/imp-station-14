@@ -174,3 +174,6 @@ ghost-role-information-freeagent-teamantagonistchance-rules = You are a [color=y
 
 ghost-role-information-monkey-name-lambordeere = Glorious Leader Monkey
 ghost-role-information-monkey-description-lambordeere = You have slain your captor and now seek to reap the rewards of freedom.
+
+ghost-role-information-bananadeer-name = Banana deer
+ghost-role-information-bananadeer-description = While you usually reside on planet Teo, somehow you've ended up on a space station! Honk, slip and jump your way through life!
