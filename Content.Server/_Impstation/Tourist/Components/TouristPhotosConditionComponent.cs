@@ -1,3 +1,4 @@
+using Robust.Shared.Prototypes;
 using Content.Server.Objectives.Systems;
 using Content.Shared._Impstation.Tourist;
 
@@ -17,5 +18,5 @@ public sealed partial class TouristPhotosConditionComponent : Component
     /// Prototypes that will contribute to the objective
     /// </summary>
     [DataField("targetPrototypes")]
-    public HashSet<string> TargetPrototypes = new();
+    public HashSet<EntProtoId> TargetPrototypes = new();
 }
