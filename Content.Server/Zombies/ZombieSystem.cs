@@ -91,7 +91,7 @@ namespace Content.Server.Zombies
         private void OnPendingMapInit(EntityUid uid, IncurableZombieComponent component, MapInitEvent args)
         {
             _actions.AddAction(uid, ref component.Action, component.ZombifySelfActionPrototype);
-            _faction.AddFaction(uid, Faction);
+            //_faction.AddFaction(uid, Faction); #IMP We have our own II not attacked by zombies, and this makes II attacked by station pets.
 
             if (HasComp<ZombieComponent>(uid) || HasComp<ZombieImmuneComponent>(uid))
                 return;

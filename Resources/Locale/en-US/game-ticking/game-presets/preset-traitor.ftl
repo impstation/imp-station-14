@@ -23,11 +23,26 @@ traitor-death-match-end-round-description-entry = {$originalName}'s PDA, with {$
 ## TraitorRole
 
 # TraitorRole
-traitor-role-greeting =
-    You are an agent sent by {$corporation} on behalf of [color = darkred]The Syndicate.[/color]
-    Your objectives and codewords are listed in the character menu.
-    Use your uplink to buy the tools you'll need for this mission.
-    Death to Nanotrasen!
+
+# Imp Edit: Removed greeting for Traitor Flavor
+#traitor-role-greeting =
+#    You are an agent sent by {$corporation} on behalf of [color = darkred]The Syndicate.[/color]
+#    Your objectives and codewords are listed in the character menu.
+#    Use your uplink to buy the tools you'll need for this mission.
+#    Death to Nanotrasen!
+
+traitor-role-allegiances =
+    Your allegiances:
+
+traitor-role-notes =
+    Notes from your employer:
+
+traitor-role-clarity =
+    Allegiances and additional notes are recommendations. You do not have to strictly follow them.
+
+objective-issuer-traitor-flavor = [color=Red]Traitor[/color]
+# End Imp Edit
+
 traitor-role-codewords =
     The codewords are: [color = lightgray]
     {$codewords}.[/color]
