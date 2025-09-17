@@ -265,6 +265,7 @@
   - type: BlockMovementWhenPulledStatusEffect
   - type: GunBackfireStatusEffect
   - type: HyposprayBackfireStatusEffect
+  - type: DisruptOnAttackStatusEffect
 
 - type: entity
   parent: MobStatusEffectBase
@@ -316,6 +317,7 @@
     angleRangeModifier: 12
   - type: GunBackfireStatusEffect
   - type: HyposprayBackfireStatusEffect
+  - type: DisruptOnAttackStatusEffect
 
 - type: entity
   parent: MobStatusEffectBase

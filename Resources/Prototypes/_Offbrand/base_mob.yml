@@ -72,6 +72,16 @@
           Blunt: 100
       damageProbabilityCoefficient: 0.25
       damageProbabilityConstant: 0
+    - damageTypes: [Heat]
+      minimumDamage: 100
+      minimumTotalDamage: 0
+      woundPrototype: WoundHusking
+      woundDamages:
+        damageDict:
+          Heat: 100
+          Blunt: 100
+      damageProbabilityCoefficient: 1
+      damageProbabilityConstant: 0
     - damageTypes: [Slash, Blunt, Piercing]
       minimumDamage: 1
       minimumTotalDamage: 300
@@ -82,6 +92,17 @@
           Slash: 50
           Piercing: 50
       damageProbabilityCoefficient: 0.25
+      damageProbabilityConstant: 0
+    - damageTypes: [Slash, Blunt, Piercing]
+      minimumDamage: 100
+      minimumTotalDamage: 0
+      woundPrototype: WoundBoneDeath
+      woundDamages:
+        damageDict:
+          Blunt: 50
+          Slash: 50
+          Piercing: 50
+      damageProbabilityCoefficient: 1
       damageProbabilityConstant: 0
 
 - type: entity
