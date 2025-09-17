@@ -158,4 +158,5 @@ public enum SpeciesNaming : byte
     FirstDashFirst,
     FirstMiddleLast, // imp add
     TheFirstofLast,
+	FirstQuoteFirstQuoteFirst,
 }

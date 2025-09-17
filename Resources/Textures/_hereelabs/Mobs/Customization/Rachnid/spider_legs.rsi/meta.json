@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "license": null,
+  "license": "CC-BY-SA-3.0",
   "copyright": "https://github.com/shiptest-ss13/Shiptest/tree/41e4acebd276652c5e82fd1e09b30d3f6d58b159",
   "size": {
     "x": 32,
@@ -8,11 +8,19 @@
   },
   "states": [
     {
-      "name": "carapace",
+      "name": "carapace_BEHIND",
       "directions": 4
     },
     {
-      "name": "carapace_over",
+      "name": "secondary_carapace_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "carapace_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "secondary_carapace_FRONT",
       "directions": 4
     }
   ]

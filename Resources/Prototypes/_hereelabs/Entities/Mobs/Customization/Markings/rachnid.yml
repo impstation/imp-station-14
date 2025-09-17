@@ -1,4 +1,4 @@
-# Rachnid  body overlays / plating / watver
+# Rachnid body overlays
 - type: marking
   id: RachnidMarkingHead
   bodyPart: Head
@@ -55,7 +55,6 @@
   - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_parts.rsi
     state: l_leg_over
 
-
 - type: marking
   id: RachnidMarkingLFoot
   bodyPart: LFoot
@@ -98,7 +97,6 @@
   - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_parts.rsi
     state: r_leg_over
 
-
 - type: marking
   id: RachnidMarkingRFoot
   bodyPart: RFoot
@@ -120,55 +118,109 @@
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Rachnid]
+  layering:
+    cerberus_FRONT: TailBehindBackpack
+    cerberus_BEHIND: TailBehind
+    secondary_cerberus_FRONT: TailBehindBackpack
+    secondary_cerberus_BEHIND: TailBehind
+  colorLinks:
+    cerberus_BEHIND: cerberus_FRONT
+    secondary_cerberus_BEHIND: secondary_cerberus_FRONT
   sprites:
   - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
-    state: cerberus
-    
+    state: cerberus_FRONT
+  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+    state: secondary_cerberus_FRONT
+  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+    state: cerberus_BEHIND
+  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+    state: secondary_cerberus_BEHIND
+
 - type: marking
-  id: RachnidMarkingSpinneretCerberusOver
+  id: RachnidMarkingSpinneretFolds
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Rachnid]
+  layering:
+    folds_FRONT: TailBehindBackpack
+    folds_BEHIND: TailBehind
+  colorLinks:
+    folds_BEHIND: folds_FRONT
   sprites:
   - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
-    state: secondary_cerberus
+    state: folds_FRONT
+  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+    state: folds_BEHIND
 
 - type: marking
   id: RachnidMarkingSpinneretProngs
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Rachnid]
+  layering:
+    prongs_FRONT: TailBehindBackpack
+    prongs_BEHIND: TailBehind
+    secondary_prongs_FRONT: TailBehindBackpack
+    secondary_prongs_BEHIND: TailBehind
+  colorLinks:
+    prongs_BEHIND: prongs_FRONT
+    secondary_prongs_BEHIND: secondary_prongs_FRONT
   sprites:
   - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
-    state: prongs
-    
-- type: marking
-  id: RachnidMarkingSpinneretProngsOver
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Rachnid]
-  sprites:
+    state: prongs_FRONT
   - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
-    state: secondary_prongs
+    state: secondary_prongs_FRONT
+  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+    state: prongs_BEHIND
+  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+    state: secondary_prongs_BEHIND
 
 - type: marking
   id: RachnidMarkingSpinneretQueen
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Rachnid]
+  layering:
+    queen_FRONT: TailBehindBackpack
+    queen_BEHIND: TailBehind
+    secondary_queen_FRONT: TailBehindBackpack
+    secondary_queen_BEHIND: TailBehind
+  colorLinks:
+    queen_BEHIND: queen_FRONT
+    secondary_queen_BEHIND: secondary_queen_FRONT
   sprites:
   - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
-    state: queen
-    
+    state: queen_FRONT
+  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+    state: secondary_queen_FRONT
+  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+    state: queen_BEHIND
+  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+    state: secondary_queen_BEHIND
+
 - type: marking
-  id: RachnidMarkingSpinneretQueenOver
+  id: RachnidMarkingSpinneretSpikeCore
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Rachnid]
+  layering:
+    spikecore_FRONT: TailBehindBackpack
+    spikecore_BEHIND: TailBehind
+    secondary_spikecore_FRONT: TailBehindBackpack
+    secondary_spikecore_BEHIND: TailBehind
+  colorLinks:
+    spikecore_BEHIND: spikecore_FRONT
+    secondary_spikecore_BEHIND: secondary_spikecore_FRONT
   sprites:
   - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
-    state: secondary_queen
-
+    state: spikecore_FRONT
+  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+    state: secondary_spikecore_FRONT
+  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+    state: spikecore_BEHIND
+  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+    state: secondary_spikecore_BEHIND
+    
 # carapace
 
 - type: marking
@@ -176,15 +228,20 @@
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Rachnid]
+  layering:
+    carapace_FRONT: TailBehindBackpack
+    carapace_BEHIND: TailBehind
+    secondary_carapace_FRONT: TailBehindBackpack
+    secondary_carapace_BEHIND: TailBehind
+  colorLinks:
+    carapace_BEHIND: carapace_FRONT
+    secondary_carapace_BEHIND: secondary_carapace_FRONT
   sprites:
   - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_legs.rsi
-    state: carapace
-    
-- type: marking
-  id: RachnidMarkingCarapaceOver
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Rachnid]
-  sprites:
+    state: carapace_FRONT
   - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_legs.rsi
-    state: carapace_over
+    state: secondary_carapace_FRONT
+  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_legs.rsi
+    state: carapace_BEHIND
+  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_legs.rsi
+    state: secondary_carapace_BEHIND

@@ -4,20 +4,26 @@
   roundStart: true
   prototype: MobRachnid
   sprites: MobRachnidSprites
-  defaultSkinTone: "#385878"
+  defaultSkinTone: "#FFFFFF"
   markingLimits: MobRachnidMarkingLimits
   dollPrototype: MobRachnidDummy
-  skinColoration: Hues
-  naming: FirstDashFirst
-  maleFirstNames: names_rachnid_first
-  femaleFirstNames: names_rachnid_first
-  lastNames: names_rachnid_last
+  skinColoration: TintedHues
+  naming: FirstQuoteFirstQuoteFirst
+  maleFirstNames: NamesRachnid
+  femaleFirstNames: NamesRachnid
+  lastNames: NamesRachnid
   sexes:
   - Unsexed
 
 - type: speciesBaseSprites
   id: MobRachnidSprites
   sprites:
+    TailBehind: MobHumanoidAnyMarking # floof
+    TailBehindBackpack: MobHumanoidAnyMarking # floof
+    TailUnderlay: MobHumanoidAnyMarking # floof
+    TailOversuit: MobHumanoidAnyMarking # floof
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
     Head: MobRachnidHead
     Chest: MobRachnidTorso
     Tail: MobHumanoidAnyMarking
@@ -40,13 +46,19 @@
       required: true
       defaultMarkings: [ "RachnidMarkingHead" ]
     Tail:
-      points: 4
+      points: 2
       required: true
-      defaultMarkings: [ "RachnidMarkingCarapace", "RachnidMarkingCarapaceOver", "RachnidMarkingSpinneretCerberus", "RachnidMarkingSpinneretCerberusOver" ]
+      defaultMarkings: [ "RachnidMarkingCarapace", "RachnidMarkingSpinneretCerberus" ]
     Chest:
       points: 1
       required: true
       defaultMarkings: [ "RachnidMarkingChest" ]
+    UndergarmentTop:
+      points: 1
+      required: false
+    UndergarmentBottom:
+      points: 1
+      required: false
     Legs:
       points: 4 # imp 2<8
       required: true

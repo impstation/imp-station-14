@@ -41,6 +41,9 @@ namespace Content.Shared.Humanoid
                 case SpeciesNaming.FirstMiddleLast: // imp add
                     return Loc.GetString("namepreset-firstmiddlelast",
                         ("first", GetFirstName(speciesProto, gender)), ("middle", GetMiddleName(speciesProto)), ("last", GetLastName(speciesProto)));
+                case SpeciesNaming.FirstQuoteFirstQuoteFirst:
+                    return Loc.GetString("namepreset-firstquotefirstquotefirst",
+                        ("part1", GetFirstName(speciesProto, gender)), ("part2", GetFirstName(speciesProto)), ("part3", GetFirstName(speciesProto)));
                 case SpeciesNaming.FirstLast:
                 default:
                     return Loc.GetString("namepreset-firstlast",

@@ -12,11 +12,6 @@
     species: Rachnid
   - type: Hunger
   - type: Thirst
-  - type: Sericulture
-    action: ActionSericulture
-    productionLength: 2
-    entityProduced: MaterialWebSilk1
-    hungerCost: 4 # Should total to 25 total silk on full hunger
   - type: Tag
     tags:
     - CanPilot
@@ -71,53 +66,12 @@
       Unsexed: UnisexArachnid
   - type: TypingIndicator
     proto: spider
-  - type: Sprite # I'd prefer if these maps were better. Insert map pun here.
-    layers:
-      - map: [ "enum.HumanoidVisualLayers.Chest" ]
-      - map: [ "enum.HumanoidVisualLayers.Head" ]
-      - map: [ "enum.HumanoidVisualLayers.Snout" ]
-      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-      - map: [ "enum.HumanoidVisualLayers.RArm" ]
-      - map: [ "enum.HumanoidVisualLayers.LArm" ]
-      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-      - map: ["enum.HumanoidVisualLayers.LFoot"] # reordered
-      - map: ["enum.HumanoidVisualLayers.RFoot"]
-      - map: ["jumpsuit"]
-      - map: ["enum.HumanoidVisualLayers.LHand"]
-      - map: ["enum.HumanoidVisualLayers.RHand"]
-      - map: [ "gloves" ]
-      - map: [ "shoes" ]
-      - map: [ "ears" ]
-      - map: [ "outerClothing" ]
-      - map: [ "eyes" ]
-      - map: [ "belt" ]
-      - map: [ "id" ]
-      - map: [ "enum.HumanoidVisualLayers.Tail" ] # Mentioned in moth code: This needs renaming lol.
-      - map: [ "back" ]
-      - map: [ "neck" ]
-      - map: [ "mask" ]
-      - map: [ "head" ]
-      - map: [ "pocket1" ]
-      - map: [ "pocket2" ]
-      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
-        color: "#ffffff"
-        sprite: Objects/Misc/handcuffs.rsi
-        state: body-overlay-2
-        visible: false
-      - map: [ "clownedon" ] # Dynamically generated
-        sprite: "Effects/creampie.rsi"
-        state: "creampie_human"
-        visible: false
-      - map: [ "culthalo" ] # funky cult
-        sprite: "_Funkystation/BloodCult/Effects/halo.rsi"
-        state: "halo"
-        shader: unshaded
-        visible: false
   - type: Spider
+    spawnWebsAsNonPlayer: false
   - type: IgnoreSpiderWeb
   - type: Inventory
     templateId: rachnid
+  - type: WieldingBlocker
 
 
 - type: entity

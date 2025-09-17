@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "license": null,
+  "license": "CC-BY-SA-3.0",
   "copyright": "https://github.com/shiptest-ss13/Shiptest/tree/41e4acebd276652c5e82fd1e09b30d3f6d58b159",
   "size": {
     "x": 32,
@@ -8,35 +8,75 @@
   },
   "states": [
     {
-      "name": "spikecore",
+      "name": "spikecore_BEHIND",
       "directions": 4
     },
     {
-      "name": "secondary_spikecore",
+      "name": "secondary_spikecore_BEHIND",
       "directions": 4
     },
     {
-      "name": "cerberus",
+      "name": "secondary_spikecore_FRONT",
       "directions": 4
     },
     {
-      "name": "secondary_cerberus",
+      "name": "spikecore_FRONT",
       "directions": 4
     },
     {
-      "name": "queen",
+      "name": "cerberus_BEHIND",
       "directions": 4
     },
     {
-      "name": "secondary_queen",
+      "name": "secondary_cerberus_BEHIND",
       "directions": 4
     },
     {
-      "name": "secondary_prongs",
+      "name": "cerberus_FRONT",
       "directions": 4
     },
     {
-      "name": "prongs",
+      "name": "secondary_cerberus_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "folds_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "folds_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "queen_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "secondary_queen_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "queen_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "secondary_queen_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "secondary_prongs_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "prongs_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "secondary_prongs_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "prongs_FRONT",
       "directions": 4
     }
   ]

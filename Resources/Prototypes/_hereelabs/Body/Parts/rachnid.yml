@@ -65,6 +65,16 @@
     state: "r_arm"
 
 - type: entity
+  id: LeftArmRachnidAux
+  name: "auxilary left rachnid arm"
+  parent: [PartRachnid, BaseLeftArm]
+
+- type: entity
+  id: RightArmRachnidAux
+  name: "auxilary right rachnid arm"
+  parent: [PartRachnid, BaseRightArm]
+
+- type: entity
   id: LeftHandRachnid
   name: "left rachnid hand"
   parent: [PartRachnid, BaseLeftHand]
@@ -76,6 +86,24 @@
 - type: entity
   id: RightHandRachnid
   name: "right rachnid hand"
+  parent: [PartRachnid, BaseRightHand]
+  components:
+  - type: Sprite
+    sprite: _hereelabs/Mobs/Species/Rachnid/parts.rsi
+    state: "r_hand"
+
+- type: entity
+  id: LeftHandRachnidAux
+  name: "auxilary left rachnid hand"
+  parent: [PartRachnid, BaseLeftHand]
+  components:
+  - type: Sprite
+    sprite: _hereelabs/Mobs/Species/Rachnid/parts.rsi
+    state: "l_hand"
+
+- type: entity
+  id: RightHandRachnidAux
+  name: "auxilary right rachnid hand"
   parent: [PartRachnid, BaseRightHand]
   components:
   - type: Sprite
