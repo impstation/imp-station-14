@@ -121,22 +121,27 @@ public sealed partial class HeartSystem : EntitySystem
 
             if (evt.Stop)
             {
-                heartrate.Running = false;
-                heartrate.Strain = 0;
-
-                var strainChangedEvt = new AfterStrainChangedEvent();
-                RaiseLocalEvent(uid, ref strainChangedEvt);
-
-                var stoppedEvt = new HeartStoppedEvent();
-                RaiseLocalEvent(uid, ref stoppedEvt);
-
-                _statusEffects.TryUpdateStatusEffectDuration(uid, heartrate.HeartStoppedEffect, out _);
+                StopHeart((uid, heartrate));
                 continue;
             }
 
             var overlays = new PotentiallyUpdateDamageOverlay(uid);
             RaiseLocalEvent(uid, ref overlays, true);
         }
+    }
+
+    private void StopHeart(Entity<HeartrateComponent> ent)
+    {
+        ent.Comp.Running = false;
+        ent.Comp.Strain = 0;
+
+        var strainChangedEvt = new AfterStrainChangedEvent();
+        RaiseLocalEvent(ent, ref strainChangedEvt);
+
+        var stoppedEvt = new HeartStoppedEvent();
+        RaiseLocalEvent(ent, ref stoppedEvt);
+
+        _statusEffects.TryUpdateStatusEffectDuration(ent.Owner, ent.Comp.HeartStoppedEffect, out _);
     }
 
     public void KillHeart(Entity<HeartrateComponent?> ent)
@@ -199,12 +204,17 @@ public sealed partial class HeartSystem : EntitySystem
         if (!Resolve(ent, ref ent.Comp, false))
             return;
 
-        var newValue = FixedPoint2.Max(FixedPoint2.Zero, ent.Comp.Damage + amount);
+        var newValue = FixedPoint2.Clamp(ent.Comp.Damage + amount, FixedPoint2.Zero, ent.Comp.MaxDamage);
         if (newValue == ent.Comp.Damage)
             return;
 
         ent.Comp.Damage = newValue;
         Dirty(ent);
+
+        if (newValue >= ent.Comp.MaxDamage && ent.Comp.Running)
+        {
+            StopHeart((ent.Owner, ent.Comp));
+        }
     }
 
     public FixedPoint2 BloodVolume(Entity<HeartrateComponent> ent)

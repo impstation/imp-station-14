@@ -4,6 +4,10 @@
  */
 
 using System.Linq;
+using Content.Shared.Damage.Prototypes;
+using Content.Shared.Damage;
+using Content.Shared.FixedPoint;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Offbrand.Wounds;
 
@@ -33,5 +37,18 @@ public static class ThresholdHelpers
         }
 
         return null;
+    }
+
+    public static FixedPoint2 Count(IEnumerable<ProtoId<DamageTypePrototype>> types, DamageSpecifier specifier)
+    {
+        var accumulator = FixedPoint2.Zero;
+
+        foreach (var type in types)
+        {
+            if (specifier.DamageDict.TryGetValue(type, out var amount))
+                accumulator += amount;
+        }
+
+        return accumulator;
     }
 }

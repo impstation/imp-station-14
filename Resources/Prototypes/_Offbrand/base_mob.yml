@@ -199,6 +199,14 @@
     wound: WoundFracture
     woundProbability: 0.03
   - type: IVTarget
+  - type: HeartDamageOnDamage
+    thresholds:
+    - damageTypes: [Slash, Blunt, Piercing]
+      minimumTotalDamage: 200
+      conversionFactor: 0.3
+    - damageTypes: [Heat, Cold, Caustic, Shock]
+      minimumTotalDamage: 200
+      conversionFactor: 0.3
 
 - type: entity
   abstract: true
@@ -253,6 +261,14 @@
     - HealthIconCritical2
     - HealthIconCritical1
     deadIcon: HealthIconBrainDead
+  - type: BrainDamageOnDamage
+    thresholds:
+    - damageTypes: [Slash, Blunt, Piercing]
+      minimumTotalDamage: 200
+      conversionFactor: 0.1
+    - damageTypes: [Heat, Cold, Caustic, Shock]
+      minimumTotalDamage: 200
+      conversionFactor: 0.01
 
 - type: entity
   abstract: true

@@ -3,12 +3,8 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-using System.Linq;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage;
-using Content.Shared.FixedPoint;
 using Content.Shared.Random.Helpers;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -26,19 +22,6 @@ public sealed partial class UniqueWoundOnDamageSystem : EntitySystem
         SubscribeLocalEvent<UniqueWoundOnDamageComponent, DamageChangedEvent>(OnDamageChanged, after: [typeof(WoundableSystem)]);
     }
 
-    private FixedPoint2 Count(IEnumerable<ProtoId<DamageTypePrototype>> types, DamageSpecifier specifier)
-    {
-        var accumulator = FixedPoint2.Zero;
-
-        foreach (var type in types)
-        {
-            if (specifier.DamageDict.TryGetValue(type, out var amount))
-                accumulator += amount;
-        }
-
-        return accumulator;
-    }
-
     private void OnDamageChanged(Entity<UniqueWoundOnDamageComponent> ent, ref DamageChangedEvent args)
     {
         if (args.DamageDelta is not { } delta || !args.DamageIncreased)
@@ -52,8 +35,8 @@ public sealed partial class UniqueWoundOnDamageSystem : EntitySystem
 
         foreach (var wound in ent.Comp.Wounds)
         {
-            var incomingAmount = Count(wound.DamageTypes, delta);
-            var totalAmount = Count(wound.DamageTypes, damageable.Damage);
+            var incomingAmount = ThresholdHelpers.Count(wound.DamageTypes, delta);
+            var totalAmount = ThresholdHelpers.Count(wound.DamageTypes, damageable.Damage);
 
             if (incomingAmount < wound.MinimumDamage || totalAmount < wound.MinimumTotalDamage)
                 continue;
