@@ -119,3 +119,13 @@
     contents:
     - id: SyndicateMicrowaveFlatpack
     - id: SyndicateElectricRangeFlatpack
+
+- type: entity
+  name: lightbulb box cold
+  parent: BoxLightbulb
+  id: BoxColdLightbulb
+  components:
+  - type: StorageFill
+    contents:
+      - id: ColdLightBulb
+        amount: 12

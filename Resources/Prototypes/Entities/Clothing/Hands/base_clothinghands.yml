@@ -27,6 +27,7 @@
     damageProtection:
       flatReductions:
         Heat: 5 # the average lightbulb only does around four damage!
+        Cold: 5 # imp edit. for cold lightbulbs. also makes sense that gloves would protect from cold
   - type: PluralName
     oneOf: plural-name-pair-1
 

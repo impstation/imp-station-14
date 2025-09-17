@@ -215,7 +215,7 @@
   components:
   - type: StationEvent
     weight: 6.5
-    earliestStart: 40
+    earliestStart: 30 #imp, originally 40
     reoccurrenceDelay: 20
     minimumPlayers: 30 #imp
     duration: null
@@ -341,7 +341,7 @@
   - type: StationEvent
     weight: 7.5
     duration: 1
-    earliestStart: 45
+    earliestStart: 30 #imp, original 45
     minimumPlayers: 20
   - type: RandomSpawnRule
     prototype: MobRevenant
@@ -473,7 +473,7 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    earliestStart: 90
+    earliestStart: 60 #imp. original 90
     minimumPlayers: 40
     weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
@@ -510,7 +510,7 @@
   id: LoneOpsSpawn
   components:
   - type: StationEvent
-    earliestStart: 35
+    earliestStart: 30 #imp, original 35
     weight: 5.5
     minimumPlayers: 20
     duration: null # LoneOpsSpawn needs an infinite duration so that it inherits the NukeOpsRule things of an actually appropriate end screen (not always "Neutral outcome!") and... ending the game if the station is nuked.
