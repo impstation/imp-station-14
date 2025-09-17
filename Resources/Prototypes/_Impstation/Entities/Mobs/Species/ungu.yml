@@ -36,10 +36,10 @@
     - map: [ "enum.HumanoidVisualLayers.TailOversuit" ] # Floof
     - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-    - map: [ "outerClothing" ]    
+    - map: [ "outerClothing" ]
+    - map: [ "neck" ]
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
-    - map: [ "neck" ]
     - map: [ "back" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
@@ -181,6 +181,8 @@
     - HeadSide
     - Hair
     - FacialHair
+    - UndergarmentBottom
+    - UndergarmentTop
   - type: JumpAbility
     action: ActionDash
     jumpDistance: 4
@@ -360,16 +362,16 @@
     - map: [ "enum.HumanoidVisualLayers.TailOversuit" ] # Floof
     - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-    - map: [ "outerClothing" ]    
+    - map: [ "outerClothing" ]
+    - map: [ "neck" ]
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
-    - map: [ "neck" ]
     - map: [ "back" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-    - map: [ "mask" ]    
+    - map: [ "mask" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
     - map: [ "ears" ]
