@@ -49,7 +49,7 @@ public sealed partial class HeatVentComponent : Component
     {
         DamageDict = new()
         {
-            {"Heat", 3},
+            {"Heat", 0.3},
         }
     };
 
@@ -72,7 +72,7 @@ public sealed partial class HeatVentComponent : Component
     /// <summary>
     ///     How many moles of gas are released per amount of heat stored.
     /// </summary>
-    public float MolesPerHeatStored = 7f;
+    public float MolesPerHeatStored = 0.1f;
 
     /// <summary>
     ///     Popup when using the vent heat action.
@@ -88,5 +88,5 @@ public sealed partial class HeatVentComponent : Component
     ///     Sound to play when vent heat doafter completes.
     /// </summary>
     [DataField]
-    public SoundSpecifier VentSound = new SoundPathSpecifier("/Audio/_Impstation/Kodepiia/kodescramble/kodescramble.ogg"); // placeholder
+    public SoundSpecifier VentSound = new SoundPathSpecifier("/Audio/Magic/Cults/ClockCult/steam_whoosh.ogg"); // placeholder
 }

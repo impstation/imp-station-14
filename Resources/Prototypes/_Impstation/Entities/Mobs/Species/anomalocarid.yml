@@ -176,6 +176,9 @@
   - type: ActionGun
     action: ActionAnomalocaridSpit
     gunProto: AnomalocaridSpitGun
+  - type: HeatVent
+    maxHeat: 1800 #30 minutes before you have to vent
+    heatAdded: 1
   - type: Inventory
     speciesId: anomalocarid
     templateId: anomalocarid
