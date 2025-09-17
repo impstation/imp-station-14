@@ -29,7 +29,7 @@ public sealed class FoodReagentExtractorSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (!TryComp<FoodComponent>(args.Used, out var food))
+        if (!TryComp<EdibleComponent>(args.Used, out var food))
             return;
 
         if (!_solutionContainer.TryGetSolution(args.Used, food.Solution, out var foodSol) ||
