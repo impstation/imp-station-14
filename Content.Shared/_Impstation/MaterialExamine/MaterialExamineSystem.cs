@@ -1,5 +1,5 @@
-﻿using System.Text;
-using Content.Shared.Examine;
+﻿using Content.Shared.Examine;
+using Content.Shared.Localizations;
 using Content.Shared.Materials;
 using Robust.Shared.Prototypes;
 
@@ -18,28 +18,22 @@ public sealed class MaterialExamineSystem : EntitySystem
 
     private string ConstructMaterialList(PhysicalCompositionComponent component)
     {
-        var text = new StringBuilder();
+        var materials = new List<string>();
 
-        var index = 0;
-        foreach (var (id, amount) in component.MaterialComposition)
+        foreach (var keyValuePair in component.MaterialComposition)
         {
-            // this sucks and i hate it but i dont know any other way to do it <3
-            if (index > 0 && component.MaterialComposition.Count > 2)
-                text.Append(",");
-
-            text.Append(" ");
-
-            if (index == component.MaterialComposition.Count - 1 && component.MaterialComposition.Count > 1)
-                text.Append("and ");
-
-            if (!_prototypeManager.TryIndex<MaterialPrototype>(id, out var proto))
+            if (!_prototypeManager.TryIndex<MaterialPrototype>(keyValuePair.Key, out var proto))
                 continue;
 
-            text.Append("[color=" + proto.Color.ToHex() + "]" + Loc.GetString(proto.Name) + "[/color]");
-            index++;
+            var recognisedColorHSL = Color.ToHsl(proto.Color);
+            recognisedColorHSL.Z = RescaleLuminosity((float) recognisedColorHSL.Z);
+
+            materials.Add(Loc.GetString("examinable-material",
+                ("color", Color.FromHsl(recognisedColorHSL).ToHexNoAlpha()), // imp
+                ("material", Loc.GetString(proto.Name))));
         }
 
-        return text.ToString();
+        return ContentLocalizationManager.FormatList(materials);
     }
 
     private void OnExamine(EntityUid uid, PhysicalCompositionComponent component, ExaminedEvent args)
@@ -52,5 +46,14 @@ public sealed class MaterialExamineSystem : EntitySystem
             return;
 
         args.PushMarkup(Loc.GetString("material-examine", ("target", uid), ("materials", ConstructMaterialList(component))));
+    }
+
+    // thank you SharedSolutionContainerSystem for this <3
+    private float RescaleLuminosity(float luminosity)
+    {
+        if (luminosity > 0.5){
+            return luminosity;
+        }
+        return (float) ((luminosity * 0.2) + 0.4);
     }
 }
