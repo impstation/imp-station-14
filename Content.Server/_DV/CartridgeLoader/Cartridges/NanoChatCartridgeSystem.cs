@@ -13,6 +13,8 @@ using Content.Shared._DV.CartridgeLoader.Cartridges;
 using Content.Shared._DV.NanoChat;
 using Content.Shared.PDA;
 using Content.Shared.Radio.Components;
+using Content.Shared.Silicons.Borgs.Components; // Impstation
+using Content.Shared.Silicons.StationAi; // Impstation
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -601,14 +603,14 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
                 continue;
 
             // Begin Impstation - NanoChat cards can be silicons
-            if (HasComp<Content.Shared.Silicons.Borgs.Components.BorgChassisComponent>(uid))
+            if (HasComp<BorgChassisComponent>(uid))
             {
                 if (!TryComp<Content.Shared.Silicons.Borgs.Components.BorgSwitchableTypeComponent>(uid, out var switchable) || switchable.SelectedBorgType is not { } borgType)
                     return new NanoChatRecipient(number, MetaData(uid).EntityName, null);
 
                 return new NanoChatRecipient(number, MetaData(uid).EntityName, Loc.GetString($"borg-type-{borgType}-transponder"));
             }
-            if (HasComp<Content.Shared.Silicons.StationAi.StationAiHeldComponent>(uid))
+            if (HasComp<StationAiHeldComponent>(uid))
             {
                 return new NanoChatRecipient(number, MetaData(uid).EntityName, Loc.GetString($"station-ai-transponder"));
             }
@@ -654,7 +656,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
             }
 
             // Begin Impstation - NanoChat cards can be silicons
-            var borgQuery = AllEntityQuery<NanoChatCardComponent, Content.Shared.Silicons.Borgs.Components.BorgChassisComponent>();
+            var borgQuery = AllEntityQuery<NanoChatCardComponent, BorgChassisComponent>();
             while (borgQuery.MoveNext(out var borgId, out var borgChatCard, out var _))
             {
                 if (borgChatCard.ListNumber && borgChatCard.Number is uint nanoChatNumber && _station.GetOwningStation(borgId) == station)
@@ -663,7 +665,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
                 }
             }
 
-            var aiQuery = AllEntityQuery<NanoChatCardComponent, Content.Shared.Silicons.StationAi.StationAiHeldComponent>();
+            var aiQuery = AllEntityQuery<NanoChatCardComponent, StationAiHeldComponent>();
             while (aiQuery.MoveNext(out var aiId, out var aiChatCard, out var _))
             {
                 if (aiChatCard.ListNumber && aiChatCard.Number is uint nanoChatNumber && _station.GetOwningStation(aiId) == station)
