@@ -53,19 +53,32 @@
   name: Colo cup
   description: A cheap, mass produced style of cup, typically used at parties.
   components:
+  - type: Icon
+    sprite: _Impstation/Objects/Consumable/Drinks/colocup.rsi
+    state: icon-0
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Drinks/colocup.rsi
     layers:
-    - state: icon
+    - map: [ "random" ]
+      state: icon-0
     - map: ["enum.SolutionContainerLayers.Fill"]
-      state: icon-fill-5
       visible: false
+  - type: RandomSprite
+    available:
+    - random:
+        icon-0: ""
+        icon-1: ""
+        icon-2: ""
+        icon-3: ""
+        icon-4: ""
+        icon-5: ""
+        icon-6: ""
+        icon-7: ""
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 5
-    fillBaseName: icon-fill-
+    fillBaseName: fill-
   - type: Item
-    sprite: _Impstation/Objects/Consumable/Drinks/colocup.rsi
   - type: TrashOnSolutionEmpty
     solution: drink
 
