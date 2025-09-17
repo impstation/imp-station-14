@@ -128,6 +128,14 @@
     damage:
       types:
         Blunt: 4
+  - type: ComponentToggler #imp :)
+    components:
+    - type: LightningTarget
+      priority: 1
+  - type: ItemToggle # imp
+    onUse: false
+    onActivate: false
+    predictable: false
 
 - type: entity
   parent: BasePDA
@@ -1528,7 +1536,7 @@
       - NanoChatCartridge # DV
 
 - type: entity
-  parent: BasePDA
+  parent: [BasePDA, SelectableLock]
   id: ChameleonPDA
   name: passenger PDA
   description: Why isn't it gray?
@@ -1585,7 +1593,7 @@
 - type: entity
   parent: ClearPDA
   id: ScurretPDA
-  description: A temporary PDA granted to scurret temps. Doesn't do much. Wawa!
+  description: A temporary PDA granted to sirval temps. Doesn't do much. #imp edit
   components:
   - type: Pda
     id: VisitorIDCard

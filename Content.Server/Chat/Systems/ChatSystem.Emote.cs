@@ -189,7 +189,7 @@ public partial class ChatSystem
             validEmote = true; // DeltaV
         }
 
-        return !validEmote; //imp
+        return validEmote; //imp
 
         static string TrimPunctuation(string textInput)
         {

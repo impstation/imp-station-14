@@ -55,6 +55,7 @@
         recursive: false
   - type: Stamina
     critThreshold: 15
+    animationThreshold: 5
   - type: MovementAlwaysTouching
   - type: DamageStateVisuals
     states:
@@ -96,7 +97,7 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
-  - type: Absorbable # imp edit
+  - type: GoobAbsorbable # imp edit
     biomassRestored: 0.1
 
 - type: entity

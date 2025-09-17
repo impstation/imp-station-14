@@ -1,14 +1,13 @@
-using Content.Shared.Mind;
 using Content.Shared.Store.Components;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Changeling;
+namespace Content.Shared._Goobstation.Changeling;
 
 [RegisterComponent, NetworkedComponent]
 
-public sealed partial class ChangelingEggComponent : Component
+public sealed partial class GoobChangelingEggComponent : Component
 {
-    public ChangelingComponent lingComp;
+    public GoobChangelingComponent lingComp;
     public EntityUid lingMind;
     public StoreComponent lingStore;
 

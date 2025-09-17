@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ClothingEyesBase, BaseLensSlot] # BaseLensSlot from imp
+  parent: [ClothingEyesBase, BaseChameleon, BaseLensSlot] # BaseLensSlot from imp
   id: ClothingEyesChameleon # no flash immunity, sorry
   name: sun glasses
   description: Useful both for security and cargonia.
@@ -15,8 +15,5 @@
     - type: ChameleonClothing
       slot: [eyes]
       default: ClothingEyesGlassesSunglasses
-    - type: UserInterface
-      interfaces:
-        enum.ChameleonUiKey.Key:
-          type: ChameleonBoundUserInterface
-
+    - type: PluralName # imp
+      oneOf: plural-name-pair-1

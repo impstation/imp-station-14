@@ -1,5 +1,4 @@
 using Content.Server.Botany.Components;
-using Content.Server.Kitchen.Components;
 using Content.Server.Popups;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Botany;
@@ -16,7 +15,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
-using System.Text.RegularExpressions; // imp
+using Content.Shared.Kitchen.Components;
 
 namespace Content.Server.Botany.Systems;
 
@@ -31,6 +30,7 @@ public sealed partial class BotanySystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly RandomHelperSystem _randomHelper = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+
     public override void Initialize()
     {
         base.Initialize();
