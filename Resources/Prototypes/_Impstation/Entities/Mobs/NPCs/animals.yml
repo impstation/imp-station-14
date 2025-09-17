@@ -13,6 +13,14 @@
       - map: ["enum.DamageStateVisualLayers.BaseUnshaded"]
         state: eyes
         shader: unshaded
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: boar
+        Critical:
+          Base: boar_crit
+        Dead:
+          Base: boar_dead
     - type: Butcherable
       spawned:
       - id: FoodMeatBacon
@@ -52,7 +60,7 @@
         NavSmash: !type:Bool
           true
     - type: Hunger
-      baseDecayRate: 0.25
+      baseDecayRate: 0.5
     - type: YoungKodepiiaRetaliation
       attackMemoryLength: 15
     - type: Absorbable
@@ -89,14 +97,12 @@
       interactSuccessSpawn: EffectHearts
       interactSuccessSound:
         path: /Audio/Animals/pig_oink.ogg
-        params:
-          variation: .5
 
 - type: entity
   name: space boar
   id: MobBoarSpace
   parent: MobBoar
-  description: How did they even put those on?
+  description: How did it even put that on?
   components:
   - type: Sprite
     layers:
