@@ -5,7 +5,7 @@
   id: BaseMobUngu
   abstract: true
   components:
-#  - type: CowToolProficiencyComponent     enable when merged
+  - type: CowToolProficiency
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Ungu/parts.rsi
     noRot: true
