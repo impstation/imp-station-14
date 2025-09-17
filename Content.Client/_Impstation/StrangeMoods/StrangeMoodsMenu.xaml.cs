@@ -21,7 +21,7 @@ public sealed partial class StrangeMoodsMenu : FancyWindow
         foreach (var mood in state.SharedMoods)
             MoodDisplayContainer.AddChild(new MoodDisplay(mood, true));
 
-        foreach (var mood in comp.Moods)
+        foreach (var mood in comp.StrangeMood.Moods)
             MoodDisplayContainer.AddChild(new MoodDisplay(mood, false));
     }
 }

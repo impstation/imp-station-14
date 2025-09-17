@@ -1,6 +1,4 @@
 using Content.Shared.Actions;
-using Content.Shared.Dataset;
-using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -12,47 +10,16 @@ namespace Content.Shared._Impstation.StrangeMoods;
 public sealed partial class StrangeMoodsComponent : Component
 {
     /// <summary>
-    /// The shared mood prototype that this entity will look to follow.
+    /// The strange mood definition that this entity follows.
     /// </summary>
-    [DataField("shared"), AutoNetworkedField]
-    public ProtoId<SharedMoodPrototype>? SharedMoodPrototype;
+    [DataField("mood", required: true, readOnly: true)]
+    public ProtoId<StrangeMoodDefinitionPrototype> StrangeMoodPrototype;
 
-    /// <summary>
-    /// The dataset prototypes that moods will be pulled from, as well as the amount of moods to be given.
-    /// </summary>
-    [DataField(required: true), AutoNetworkedField]
-    public Dictionary<ProtoId<DatasetPrototype>, int> Datasets = [];
+    [DataField, AutoNetworkedField]
+    public StrangeMoodDefinition StrangeMood = new();
 
-    /// <summary>
-    /// The shared moods that this entity follows.
-    /// If null, the entity will not follow any shared moods.
-    /// </summary>
     [DataField, AutoNetworkedField]
     public SharedMood? SharedMood;
-
-    /// <summary>
-    /// The non-shared moods that are active.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public List<StrangeMood> Moods = [];
-
-    /// <summary>
-    /// Notification sound played if your moods change.
-    /// </summary>
-    [DataField("alertSound"), AutoNetworkedField]
-    public SoundSpecifier? MoodsChangedSound = new SoundPathSpecifier("/Audio/_Impstation/StrangeMoods/moods_changed.ogg");
-
-    /// <summary>
-    /// The color of the mood change chat notification.
-    /// </summary>
-    [DataField("alertColor"), AutoNetworkedField]
-    public Color MoodsChangedColor = Color.Orange;
-
-    /// <summary>
-    /// The action used to view moods.
-    /// </summary>
-    [DataField("viewAction")]
-    public EntProtoId ActionViewMoods = "ActionViewMoods";
 
     [DataField(serverOnly: true)]
     public EntityUid? Action;

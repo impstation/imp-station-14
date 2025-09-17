@@ -31,20 +31,6 @@ public partial class SharedMood
     /// </summary>
     [DataField]
     public int Count = 1;
-
-    /// <summary>
-    /// Create a shallow clone of this mood.
-    /// Used to prevent modifying prototypes.
-    /// </summary>
-    public SharedMood ShallowClone()
-    {
-        return new SharedMood
-        {
-            Moods = Moods,
-            Dataset = Dataset,
-            Count = Count,
-        };
-    }
 }
 
 [Prototype]
@@ -52,10 +38,9 @@ public sealed partial class SharedMoodPrototype : SharedMood, IPrototype
 {
     /// <inheritdoc/>
     [IdDataField]
-    public string ID { get; } = default!;
-
-    public SharedMoodPrototype()
+    public string ID
     {
-        ProtoId = ID;
+        get => ProtoId ?? "";
+        set => ProtoId = value;
     }
 }

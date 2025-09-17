@@ -46,16 +46,36 @@ public sealed class StrangeMoodsSystem : SharedStrangeMoodsSystem
 
     private void OnStrangeMoodsInit(Entity<StrangeMoodsComponent> ent, ref MapInitEvent args)
     {
-        RefreshMoods(ent);
-        SetSharedMood(ent, ent.Comp.SharedMoodPrototype);
+        var mood = ent.Comp.StrangeMood;
+        var moodProto = _proto.Index(ent.Comp.StrangeMoodPrototype);
+        _serialization.CopyTo(moodProto, ref mood, notNullableOverride: true);
 
-        ent.Comp.Action ??= _actions.AddAction(ent.Owner, ent.Comp.ActionViewMoods);
+        RefreshMoods(ent);
+        SetSharedMood(ent, mood.SharedMoodPrototype);
+
+        // Add any required components
+        if (moodProto.Components is { } components)
+        {
+            EntityManager.AddComponents(ent, components);
+        }
+
+        // Add action to bar
+        ent.Comp.Action ??= _actions.AddAction(ent.Owner, mood.ActionViewMoods);
         if (TryComp<UserInterfaceComponent>(ent, out var ui))
             _bui.SetUi((ent, ui), StrangeMoodsUiKey.Key, new InterfaceData("StrangeMoodsBoundUserInterface", requireInputValidation: false));
     }
 
     private void OnStrangeMoodsShutdown(Entity<StrangeMoodsComponent> ent, ref ComponentShutdown args)
     {
+        var moodProto = _proto.Index(ent.Comp.StrangeMoodPrototype);
+
+        // Remove any added components
+        if (moodProto.Components is { } components)
+        {
+            EntityManager.RemoveComponents(ent, components);
+        }
+
+        // Remove action
         _actions.RemoveAction(ent.Owner, ent.Comp.Action);
     }
 
@@ -80,8 +100,8 @@ public sealed class StrangeMoodsSystem : SharedStrangeMoodsSystem
     /// </summary>
     public void RefreshMoods(Entity<StrangeMoodsComponent> ent, Dictionary<ProtoId<DatasetPrototype>, int>? datasets = null)
     {
-        datasets ??= ent.Comp.Datasets;
-        ent.Comp.Moods = _emptyMoods.ToList();
+        datasets ??= ent.Comp.StrangeMood.Datasets;
+        ent.Comp.StrangeMood.Moods = _emptyMoods.ToList();
 
         foreach (var moodset in datasets)
         {
@@ -143,7 +163,7 @@ public sealed class StrangeMoodsSystem : SharedStrangeMoodsSystem
     /// </summary>
     public void SetMoods(Entity<StrangeMoodsComponent> ent, IEnumerable<StrangeMood> moods, bool notify = true)
     {
-        ent.Comp.Moods = moods.ToList();
+        ent.Comp.StrangeMood.Moods = moods.ToList();
         Dirty(ent);
 
         if (notify)
@@ -161,11 +181,11 @@ public sealed class StrangeMoodsSystem : SharedStrangeMoodsSystem
             return;
 
         var session = actor.PlayerSession;
-        _audio.PlayGlobal(ent.Comp.MoodsChangedSound, session);
+        _audio.PlayGlobal(ent.Comp.StrangeMood.MoodsChangedSound, session);
 
-        var msg = Loc.GetString("strange-moods-update-notify");
+        var msg = Loc.GetString(ent.Comp.StrangeMood.MoodsChangedMessage);
         var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", msg));
-        _chat.ChatMessageToOne(ChatChannel.Server, msg, wrappedMessage, default, false, session.Channel, colorOverride: ent.Comp.MoodsChangedColor);
+        _chat.ChatMessageToOne(ChatChannel.Server, msg, wrappedMessage, default, false, session.Channel, colorOverride: ent.Comp.StrangeMood.MoodsChangedColor);
 
         UpdateBuiState(ent); // update the UI without needing to re-open it
     }
@@ -175,7 +195,7 @@ public sealed class StrangeMoodsSystem : SharedStrangeMoodsSystem
     /// </summary>
     private void AddMood(Entity<StrangeMoodsComponent> ent, StrangeMood mood, bool notify = true)
     {
-        ent.Comp.Moods.Add(mood);
+        ent.Comp.StrangeMood.Moods.Add(mood);
         Dirty(ent);
 
         if (notify)
@@ -337,10 +357,10 @@ public sealed class StrangeMoodsSystem : SharedStrangeMoodsSystem
     {
         if (includeShared && ent.Comp.SharedMood is { } sharedMood)
         {
-            return [..sharedMood.Moods.Concat(ent.Comp.Moods)];
+            return [..sharedMood.Moods.Concat(ent.Comp.StrangeMood.Moods)];
         }
 
-        return ent.Comp.Moods;
+        return ent.Comp.StrangeMood.Moods;
     }
 
     #endregion

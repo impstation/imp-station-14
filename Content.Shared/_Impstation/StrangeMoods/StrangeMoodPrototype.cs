@@ -41,7 +41,7 @@ public partial class StrangeMood
     /// verbs and nouns.
     /// Gets randomly picked from datasets in <see cref="StrangeMoodPrototype.MoodVarDatasets"/>.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("rawMoodVars")]
     public Dictionary<string, string> MoodVars = new();
 
     public (string, object)[] GetLocArgs()
@@ -65,7 +65,11 @@ public sealed partial class StrangeMoodPrototype : StrangeMood, IPrototype
 {
     /// <inheritdoc/>
     [IdDataField]
-    public string ID { get; private set; } = default!;
+    public string ID
+    {
+        get => ProtoId ?? "";
+        set => ProtoId = value;
+    }
 
     /// <summary>
     /// Extra mood variables that will be randomly chosen and provided
@@ -81,9 +85,4 @@ public sealed partial class StrangeMoodPrototype : StrangeMood, IPrototype
     /// </summary>
     [DataField]
     public bool AllowDuplicateMoodVars;
-
-    public StrangeMoodPrototype()
-    {
-        ProtoId = ID;
-    }
 }

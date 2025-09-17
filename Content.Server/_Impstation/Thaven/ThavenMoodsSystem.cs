@@ -22,39 +22,41 @@ public sealed class ThavenMoodsSystem : SharedThavenMoodsSystem
 
     private void OnIonStorm(Entity<ThavenMoodsComponent> ent, ref IonStormEvent args)
     {
-        if (!ent.Comp.IonStormable || !TryComp<StrangeMoodsComponent>(ent, out var moods))
+        if (!ent.Comp.IonStormable || !TryComp<StrangeMoodsComponent>(ent, out var moodsComp))
             return;
 
+        var moods = moodsComp.StrangeMood.Moods;
+
         // remove mood
-        if (_random.Prob(ent.Comp.IonStormRemoveChance) && moods.Moods.Count > 1)
+        if (_random.Prob(ent.Comp.IonStormRemoveChance) && moods.Count > 1)
         {
-            var removeIndex = _random.Next(moods.Moods.Count);
-            moods.Moods.RemoveAt(removeIndex);
+            var removeIndex = _random.Next(moods.Count);
+            moods.RemoveAt(removeIndex);
             Dirty(ent);
 
-            _moods.NotifyMoodChange((ent, moods));
+            _moods.NotifyMoodChange((ent, moodsComp));
         }
 
         // add mood
-        else if (_random.Prob(ent.Comp.IonStormAddChance) && moods.Moods.Count <= ent.Comp.MaxIonMoods)
-            _moods.TryAddRandomMood((ent, moods), ent.Comp.IonStormDataset);
+        else if (_random.Prob(ent.Comp.IonStormAddChance) && moods.Count < ent.Comp.MaxIonMoods)
+            _moods.TryAddRandomMood((ent, moodsComp), ent.Comp.IonStormDataset);
 
         // replace mood
         else
         {
             var conflicts = new HashSet<ProtoId<StrangeMoodPrototype>>();
 
-            if (moods.Moods.Count > 1)
+            if (moods.Count > 1)
             {
-                var removeIndex = _random.Next(moods.Moods.Count);
+                var removeIndex = _random.Next(moods.Count);
 
-                if (moods.Moods[removeIndex].ProtoId is { } moodProto)
+                if (moods[removeIndex].ProtoId is { } moodProto)
                     conflicts.Add(moodProto);
 
-                moods.Moods.RemoveAt(removeIndex);
+                moods.RemoveAt(removeIndex);
             }
 
-            _moods.TryAddRandomMood((ent, moods), ent.Comp.IonStormDataset, conflicts: conflicts);
+            _moods.TryAddRandomMood((ent, moodsComp), ent.Comp.IonStormDataset, conflicts: conflicts);
         }
     }
 

@@ -25,8 +25,8 @@ public sealed class StrangeMoodsEui(StrangeMoodsSystem strangeMoodsSystem, Entit
         if (!IsAllowed())
             return;
 
-        _moods = ent.Comp.Moods;
-        _sharedMood = ent.Comp.SharedMoodPrototype;
+        _moods = ent.Comp.StrangeMood.Moods;
+        _sharedMood = ent.Comp.StrangeMood.SharedMoodPrototype;
         _target = ent;
 
         StateDirty();
