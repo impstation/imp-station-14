@@ -17,6 +17,8 @@
       states:
         Alive:
           Base: boar
+        Critical:
+          Base: boar_dead
         Dead:
           Base: boar_dead
     - type: SpriteMovement
@@ -31,7 +33,7 @@
       - id: FoodMeatBacon
         amount: 8
     - type: MeleeThrowOnHit
-      unanchorOnHit: true
+      unanchorOnHit: false
       distance: 5
       speed: 4
     - type: Tag
@@ -124,6 +126,8 @@
     states:
       Alive:
         Base: spaceboar
+      Critical:
+        Base: spaceboar_dead
       Dead:
         Base: spaceboar_dead
   - type: Temperature
