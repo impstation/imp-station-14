@@ -61,10 +61,7 @@ public sealed class NPCUtilitySystem : EntitySystem
     [Dependency] private readonly MobThresholdSystem _thresholdSystem = default!;
     [Dependency] private readonly SharedCuffableSystem _cuffableSystem = default!;
     [Dependency] private readonly TurretTargetSettingsSystem _turretTargetSettings = default!;
-    [Dependency] private readonly BrainDamageSystem _brainDamage = default!; // Offbrand
     [Dependency] private readonly HealthRankingSystem _healthRanking = default!; // Offbrand
-    [Dependency] private readonly HeartSystem _heart = default!; // Offbrand
-    [Dependency] private readonly ShockThresholdsSystem _shockThresholds = default!; // Offbrand
 
     private EntityQuery<PuddleComponent> _puddleQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -355,11 +352,11 @@ public sealed class NPCUtilitySystem : EntitySystem
             }
             case TargetIsAliveCon:
             {
-                return _mobState.IsAlive(targetUid) && !(_shockThresholds.IsCritical(targetUid) || _brainDamage.IsCritical(targetUid) || _heart.IsCritical(targetUid)) ? 1f : 0f; // Offbrand
+                return _mobState.IsAlive(targetUid) && !_healthRanking.IsCritical(targetUid) ? 1f : 0f; // Offbrand
             }
             case TargetIsCritCon:
             {
-                return _mobState.IsCritical(targetUid) || _shockThresholds.IsCritical(targetUid) || _brainDamage.IsCritical(targetUid) || _heart.IsCritical(targetUid) ? 1f : 0f; // Offbrand
+                return _healthRanking.IsCritical(targetUid) ? 1f : 0f; // Offbrand
             }
             case TargetIsDeadCon:
             {

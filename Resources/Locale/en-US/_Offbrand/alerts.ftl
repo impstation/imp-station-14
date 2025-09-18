@@ -23,6 +23,9 @@ alerts-pain-severe-desc = Your body is going numb, and you struggle to move.
 alerts-pain-blackout-name = [color=red]Blackout Pain[/color]
 alerts-pain-blackout-desc = You can't stand, it hurts, make it stop.
 
+alerts-pain-unconscious-name = [color=red]Unconscious Pain[/color]
+alerts-pain-unconscious-desc = The world around you has vanished into the sheer scope of your pain.
+
 alerts-pain-suppressed-name = Suppressed Pain
 alerts-pain-suppressed-desc = You cannot feel pain.
 

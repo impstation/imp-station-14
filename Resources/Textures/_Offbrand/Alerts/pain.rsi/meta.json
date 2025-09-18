@@ -24,6 +24,15 @@
         },
         {
             "name": "pain_suppressed"
+        },
+        {
+            "name": "pain_unconscious",
+            "delays": [
+                [
+                    0.5,
+                    0.5
+                ]
+            ]
         }
     ]
 }

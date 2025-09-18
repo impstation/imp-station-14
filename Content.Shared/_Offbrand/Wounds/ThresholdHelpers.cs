@@ -7,6 +7,7 @@ using System.Linq;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
+using Content.Shared.Mobs;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Offbrand.Wounds;
@@ -50,5 +51,13 @@ public static class ThresholdHelpers
         }
 
         return accumulator;
+    }
+
+    public static MobState Max(MobState a, MobState b)
+    {
+        if ((byte)a > (byte)b)
+            return a;
+        else
+            return b;
     }
 }

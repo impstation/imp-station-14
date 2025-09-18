@@ -52,10 +52,8 @@
   - type: Item
     size: Small #imp
     sprite: _Impstation/Objects/Specific/Chemistry/beaker.rsi # imp
-    # Offbrand
-    # shape: #imp
-    # - 0,0,0,0
-    # Offbrand
+    shape: #imp
+    - 0,0,0,0
   - type: Spillable
     solution: drink
   - type: MeleeWeapon

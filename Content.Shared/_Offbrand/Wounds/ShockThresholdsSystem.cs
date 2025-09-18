@@ -4,6 +4,9 @@
  */
 
 using System.Linq;
+using Content.Shared.FixedPoint;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Mobs;
 using Content.Shared.StatusEffectNew;
 using Robust.Shared.Prototypes;
 
@@ -11,6 +14,7 @@ namespace Content.Shared._Offbrand.Wounds;
 
 public sealed partial class ShockThresholdsSystem : EntitySystem
 {
+    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly PainSystem _pain = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
 
@@ -20,6 +24,7 @@ public sealed partial class ShockThresholdsSystem : EntitySystem
 
         SubscribeLocalEvent<ShockThresholdsComponent, AfterShockChangeEvent>(OnAfterShockChange);
         SubscribeLocalEvent<ShockThresholdsComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<ShockThresholdsComponent, UpdateMobStateEvent>(OnUpdateMobState);
     }
 
     private void OnShutdown(Entity<ShockThresholdsComponent> ent, ref ComponentShutdown args)
@@ -28,9 +33,8 @@ public sealed partial class ShockThresholdsSystem : EntitySystem
             _statusEffects.TryRemoveStatusEffect(ent, effect);
     }
 
-    private void OnAfterShockChange(Entity<ShockThresholdsComponent> ent, ref AfterShockChangeEvent args)
+    private void UpdateEffects(Entity<ShockThresholdsComponent> ent, FixedPoint2 shock)
     {
-        var shock = _pain.GetShock(ent.Owner);
         var targetEffect = ent.Comp.Thresholds.HighestMatch(shock);
         if (targetEffect == ent.Comp.CurrentThresholdState)
             return;
@@ -46,11 +50,38 @@ public sealed partial class ShockThresholdsSystem : EntitySystem
         Dirty(ent);
     }
 
+    private void UpdateState(Entity<ShockThresholdsComponent> ent, FixedPoint2 shock)
+    {
+        var state = ent.Comp.MobThresholds.HighestMatch(shock) ?? MobState.Alive;
+
+        if (state == ent.Comp.CurrentMobState)
+            return;
+
+        ent.Comp.CurrentMobState = state;
+        Dirty(ent);
+        _mobState.UpdateMobState(ent);
+    }
+
+    private void OnAfterShockChange(Entity<ShockThresholdsComponent> ent, ref AfterShockChangeEvent args)
+    {
+        var shock = _pain.GetShock(ent.Owner);
+        UpdateEffects(ent, shock);
+        UpdateState(ent, shock);
+    }
+
     public bool IsCritical(Entity<ShockThresholdsComponent?> ent)
     {
         if (!Resolve(ent, ref ent.Comp, false))
             return false;
 
         return ent.Comp.CurrentThresholdState == ent.Comp.Thresholds.Last().Value;
+    }
+
+    private void OnUpdateMobState(Entity<ShockThresholdsComponent> ent, ref UpdateMobStateEvent args)
+    {
+        args.State = ThresholdHelpers.Max(ent.Comp.CurrentMobState, args.State);
+
+        var overlays = new PotentiallyUpdateDamageOverlay(ent);
+        RaiseLocalEvent(ent, ref overlays, true);
     }
 }

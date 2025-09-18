@@ -131,6 +131,8 @@
       30: StatusEffectModeratePain
       60: StatusEffectSeverePain
       120: StatusEffectBlackoutPain
+    mobThresholds:
+      200: Critical
   - type: ShockAlerts
     alertCategory: Pain
     suppressedAlert: SuppressedPain
@@ -140,6 +142,7 @@
       30: ModeratePain
       60: SeverePain
       120: BlackoutPain
+      200: UnconsciousPain
 
 - type: entity
   abstract: true

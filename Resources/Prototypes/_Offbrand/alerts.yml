@@ -91,6 +91,15 @@
   description: alerts-pain-blackout-desc
 
 - type: alert
+  id: UnconsciousPain
+  category: Pain
+  icons:
+  - sprite: /Textures/_Offbrand/Alerts/pain.rsi
+    state: pain_unconscious
+  name: alerts-pain-unconscious-name
+  description: alerts-pain-unconscious-desc
+
+- type: alert
   id: SevereBrainDamage
   category: BrainDamage
   icons:
