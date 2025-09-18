@@ -26,6 +26,7 @@ health-analyzer-window-entity-blood-oxygenation-value = {$value}% { -health-anal
 health-analyzer-window-entity-blood-pressure-value = {$diastolic}/{$systolic} { -health-analyzer-rating(rating: $rating) }
 health-analyzer-window-entity-blood-circulation-value = {$value}% { -health-analyzer-rating(rating: $rating) }
 
+wound-bone-death = [color=red]Patient has systemic bone failure.[/color]
 wound-internal-fracture = [color=red]Patient has internal fractures.[/color]
 wound-incision = [color=red]Patient has open incision.[/color]
 wound-clamped = [color=red]Patient has clamped arteries.[/color]

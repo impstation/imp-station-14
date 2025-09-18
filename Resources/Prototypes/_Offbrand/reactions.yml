@@ -60,3 +60,28 @@
       amount: 1
   products:
     SalineGlucose: 1
+
+- type: reaction
+  id: Cloneoxadone
+  reactants:
+    Cryoxadone:
+      amount: 1
+    Sodium:
+      amount: 1
+    Inaprovaline:
+      amount: 1
+  products:
+    Cloneoxadone: 3
+
+- type: reaction
+  id: Peridaxon
+  reactants:
+    Bicaridine:
+      amount: 1
+    Cryoxadone:
+      amount: 1
+    Plasma:
+      amount: 1
+      catalyst: true
+  products:
+    Peridaxon: 2
