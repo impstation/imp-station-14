@@ -33,6 +33,7 @@
     - id: BoxLightMixed
     - id: Holoprojector
     - id: WeaponLauncherCleanerLake
+    - id: WelderJanitorial
     - !type:AllSelector
       rolls: !type:ConstantNumberSelector
         value: 2
@@ -43,3 +44,22 @@
       - id: SoapNT
       - id: FlashlightLantern
       - id: Plunger
+      - id: WireBrush
+
+# Clown
+- type: entity
+  id: LockerClownFilled
+  suffix: Filled
+  parent: LockerClown
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillLockerClown
+
+- type: entityTable
+  id: FillLockerClown
+  table: !type:AllSelector
+    children:
+    - id: BananaDeerCube
+      prob: 0.1

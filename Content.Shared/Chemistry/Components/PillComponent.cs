@@ -12,4 +12,12 @@ public sealed partial class PillComponent : Component
     [DataField("pillType")]
     [ViewVariables(VVAccess.ReadWrite)]
     public uint PillType;
+
+    /// <summary>
+    /// If the sprite should be decided by the type. Imp addition
+    /// </summary>
+    [AutoNetworkedField]
+    [DataField("spriteUsesType")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool SpriteUsesType = true;
 }

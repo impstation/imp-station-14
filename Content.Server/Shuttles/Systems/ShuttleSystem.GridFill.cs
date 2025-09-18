@@ -1,9 +1,7 @@
 using System.Numerics;
 using Content.Server.Shuttles.Components;
-using Content.Server.Station.Components;
 using Content.Server.Station.Events;
 using Content.Shared.CCVar;
-using Content.Shared.Salvage;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Station.Components;
 using Robust.Shared.Collections;
@@ -62,10 +60,7 @@ public sealed partial class ShuttleSystem
         if (!_cfg.GetCVar(CCVars.GridFill))
             return;
 
-        if (!TryComp(uid, out StationDataComponent? dataComp))
-            return;
-
-        var targetGrid = _station.GetLargestGrid(dataComp);
+        var targetGrid = _station.GetLargestGrid(uid);
 
         if (targetGrid == null)
             return;
@@ -141,17 +136,25 @@ public sealed partial class ShuttleSystem
         var path = paths[^1];
         paths.RemoveAt(paths.Count - 1);
 
-        if (_loader.TryLoadGrid(mapId, path, out var grid))
+        // imp start - implemented gridspawngroup min/max distances
+        var targetPhysics = _physicsQuery.Comp(targetGrid);
+        var spawnCoords = new EntityCoordinates(targetGrid, targetPhysics.LocalCenter);
+
+        if (group.MinimumDistance > 0 && TryComp<MapGridComponent>(targetGrid, out var gridComp))
+        {
+            var distancePadding = MathF.Max(gridComp.LocalAABB.Width, gridComp.LocalAABB.Height);
+            spawnCoords = spawnCoords.Offset(_random.NextVector2(distancePadding + group.MinimumDistance, distancePadding + group.MaximumDistance));
+        }
+
+        if (_loader.TryLoadGrid(mapId, path, out var grid, null, spawnCoords.Position)) // imp end
         {
             if (HasComp<ShuttleComponent>(grid))
                 TryFTLProximity(grid.Value, targetGrid);
-
             if (group.NameGrid)
             {
                 var name = path.FilenameWithoutExtension;
                 _metadata.SetEntityName(grid.Value, name);
             }
-
             spawned = grid.Value;
             return true;
         }
@@ -165,12 +168,7 @@ public sealed partial class ShuttleSystem
         if (!_cfg.GetCVar(CCVars.GridFill))
             return;
 
-        if (!TryComp<StationDataComponent>(uid, out var data))
-        {
-            return;
-        }
-
-        var targetGrid = _station.GetLargestGrid(data);
+        var targetGrid = _station.GetLargestGrid(uid);
 
         if (targetGrid == null)
             return;

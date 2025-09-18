@@ -1,8 +1,5 @@
-trait-heavyweightdrunk-name = Heavyweight Drunk
+trait-heavyweightdrunk-name = Heavyweight drunk
 trait-heavyweightdrunk-desc = Alcohol has less of an effect on you.
-
-trait-hemophilia-name = Hemophilia
-trait-hemophilia-desc = Your blood does not clot properly, and it is harder to stop bleeding.
 
 trait-pain-insensitivity-name = Pain Insensitivity
 trait-pain-insensitivity-desc = You are unaware of the status of your health at all times.
@@ -19,6 +16,9 @@ trait-unborgable-desc = Your brain is unable to fit into a Man-Machine Interface
 
 trait-accentless-name = No species accent
 trait-accentless-desc = You don't have the accent that your species would usually have.
+
+trait-archaic-name = Archaic speech
+trait-archaic-desc = Thy language is quite outdated, and thou still hold thyself to some manner of chivalry
 
 trait-accentimmune-name = No accent
 trait-accentimmune-desc = You have no accent whatsoever, somehow. Where are you from?
@@ -55,6 +55,9 @@ trait-basicfrench-desc = You speak with the cadence of someone who has cast off 
 
 trait-basicrussian-name = Russian (Basic)
 trait-basicrussian-desc = You speak with a Russian accent, with far fewer word replacements.
+
+trait-milbrat-name = Military Jargon
+trait-milbrat-desc = You make subtle references to a past stint in the military by using strange terminology and acronyms.
 
 trait-stiltedspeech-name = Stilted speech
 trait-stiltedspeech-desc = You Speak Very Properly At All Times.

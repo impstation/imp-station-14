@@ -1,0 +1,28 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "bomb pizza by atdoop (github) for impstation",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "bombpizza"
+        },
+        {
+            "name": "bombpizza_fire",
+            "delays": [
+                [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+                ]
+            ]
+        },
+        {
+            "name": "plate"
+        }
+    ]
+}

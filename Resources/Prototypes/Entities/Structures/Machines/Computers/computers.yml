@@ -10,14 +10,17 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: alert-0
     - map: ["computerLayerKeys"]
       state: atmos_key
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: GenericVisualizer
     visuals:
       enum.ComputerVisuals.Powered:
@@ -65,14 +68,17 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: tank
     - map: ["computerLayerKeys"]
       state: atmos_key
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: AtmosMonitoringConsole
     navMapTileColor: "#1a1a1a"
     navMapWallColor: "#404040"
@@ -166,14 +172,17 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: shuttle
     - map: ["computerLayerKeys"]
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: Computer
     board: ShuttleConsoleCircuitboard
 
@@ -187,14 +196,17 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: syndishuttle
     - map: ["computerLayerKeys"]
       state: syndie_key
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: Tag
     tags:
       - Syndicate
@@ -219,14 +231,17 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: shuttle
     - map: ["computerLayerKeys"]
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: DroneConsole
     components:
       - type: CargoShuttle
@@ -252,8 +267,10 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       sprite: Structures/Shuttles/iff.rsi
       state: helm
@@ -261,6 +278,7 @@
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: ActivatableUI
     key: enum.IFFConsoleUiKey.Key
   - type: UserInterface
@@ -304,14 +322,17 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: power_monitor
     - map: ["computerLayerKeys"]
       state: power_key
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: PointLight
     radius: 2.4 #imp
     energy: 1.6
@@ -346,14 +367,17 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: medcomp
     - map: ["computerLayerKeys"]
       state: med_key
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: PointLight
     radius: 2.4 #imp
     energy: 1.6
@@ -396,18 +420,21 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: explosive
     - map: ["computerLayerKeys"]
       state: security_key
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: PointLight
     radius: 2.4 #imp
     energy: 1.6
-    color: "#1f8c28"
+    color: "#887755FF" #imp
   - type: Computer
     board: CriminalRecordsComputerCircuitboard
   - type: AccessReader
@@ -457,14 +484,17 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: crew
     - map: ["computerLayerKeys"]
       state: med_key
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: PointLight
     radius: 2.4 #imp
     energy: 1.6
@@ -496,14 +526,17 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: rdcomp
     - map: ["computerLayerKeys"]
       state: rd_key
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: ResearchClient
   - type: ResearchConsole
   - type: ActiveRadio
@@ -544,16 +577,21 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: artifact
     - map: ["computerLayerKeys"]
       state: tech_key
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: ResearchClient
   - type: AnalysisConsole
+  - type: OldAnalysisConsole #IMP
+    reportEntityId: PaperArtifactAnalyzer
   - type: DeviceList
   - type: DeviceNetwork
     deviceNetId: Wired
@@ -565,6 +603,8 @@
     key: enum.ArtifactAnalyzerUiKey.Key
   - type: UserInterface
     interfaces:
+      enum.OldArtifactAnalyzerUiKey.Key: #IMP
+        type: OldAnalysisConsoleBoundUserInterface
       enum.ArtifactAnalyzerUiKey.Key:
         type: AnalysisConsoleBoundUserInterface
       enum.ResearchClientUiKey.Key:
@@ -625,8 +665,10 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
-      state: generic_keyboard
+      state: id_key_off # imp
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: id
     - map: ["computerLayerKeys"]
@@ -667,26 +709,30 @@
 - type: entity
   parent: [ BaseComputerAiAccess, BaseGrandTheftContraband ]
   id: ComputerComms
-  name: communications computer
+  name: command communications computer # imp
   description: A computer used to make station wide announcements via keyboard, set the appropriate alert level, and call the emergency shuttle.
   components:
   - type: Sprite
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: comm
     - map: ["computerLayerKeys"]
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: AccessReader
     access: [[ "Command" ]]
   - type: CommunicationsConsole
-    title: comms-console-announcement-title-station
+    title: comms-console-announcement-title-command # imp
   - type: DeviceNetwork
+    deviceNetId: Wireless
     transmitFrequencyId: ShuttleTimer
   - type: ActivatableUI
     key: enum.CommunicationsConsoleUiKey.Key
@@ -716,14 +762,17 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: comm_syndie
     - map: ["computerLayerKeys"]
       state: syndie_key
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: AccessReader
     access: [[ "NuclearOperative" ]]
   - type: CommunicationsConsole
@@ -750,14 +799,17 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: comm_wizard
     - map: ["computerLayerKeys"]
       state: wizard_key
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: AccessReader
     access: [[ "Wizard" ]]
   - type: CommunicationsConsole
@@ -784,14 +836,17 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: comm_logs
     - map: ["computerLayerKeys"]
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: AccessReader
     access: [[ "CentralCommand" ]]
   - type: CommunicationsConsole
@@ -816,14 +871,17 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: solar_screen
     - map: ["computerLayerKeys"]
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: SolarControlConsole
   - type: ActivatableUI
     key: enum.SolarControlConsoleUiKey.Key
@@ -857,14 +915,17 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: solar_screen
     - map: ["computerLayerKeys"]
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: RadarConsole
   - type: ActivatableUI
     key: enum.RadarConsoleUiKey.Key
@@ -888,18 +949,21 @@
   description: Used to order supplies and approve requests.
   components:
   - type: Sprite
-    sprite: _Impstation/Structures/Machines/computers.rsi #Imp
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: request
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeys"]
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: CargoOrderConsole
     removeLimitAccess: [ "Quartermaster" ]
   - type: ActiveRadio
@@ -945,19 +1009,23 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: request-eng
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeys"]
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: CargoOrderConsole
     account: Engineering
     announcementChannel: Engineering
     removeLimitAccess: [ "ChiefEngineer" ]
-    mode: SendToPrimary
+    mode: PrintSlip #imp
   - type: ActiveRadio
     channels:
     - Engineering
@@ -980,19 +1048,23 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: request-med
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeys"]
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: CargoOrderConsole
     account: Medical
     announcementChannel: Medical
     removeLimitAccess: [ "ChiefMedicalOfficer" ]
-    mode: SendToPrimary
+    mode: PrintSlip #imp
   - type: ActiveRadio
     channels:
     - Medical
@@ -1015,19 +1087,23 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: request-sci
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeys"]
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: CargoOrderConsole
     account: Science
     announcementChannel: Science
     removeLimitAccess: [ "ResearchDirector" ]
-    mode: SendToPrimary
+    mode: PrintSlip #imp
   - type: ActiveRadio
     channels:
     - Science
@@ -1050,19 +1126,23 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: request-sec
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeys"]
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: CargoOrderConsole
     account: Security
     announcementChannel: Security
     removeLimitAccess: [ "HeadOfSecurity" ]
-    mode: SendToPrimary
+    mode: PrintSlip #imp
   - type: ActiveRadio
     channels:
     - Security
@@ -1085,19 +1165,23 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: request-srv
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeys"]
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: CargoOrderConsole
     account: Service
     announcementChannel: Service
     removeLimitAccess: [ "HeadOfPersonnel" ]
-    mode: SendToPrimary
+    mode: PrintSlip #imp
   - type: ActiveRadio
     channels:
     - Service
@@ -1117,18 +1201,21 @@
   description: Used to manage currently active bounties.
   components:
   - type: Sprite
-    sprite: _Impstation/Structures/Machines/computers.rsi #Imp
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: bounty
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeys"]
       state: tech_key
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: CargoBountyConsole
   - type: ActivatableUI
     key: enum.CargoConsoleUiKey.Bounty
@@ -1161,14 +1248,17 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: allocate # ALLOCATION !!!
     - map: ["computerLayerKeys"]
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: FundingAllocationConsole
   - type: ActivatableUI
     key: enum.FundingAllocationConsoleUiKey.Key
@@ -1202,14 +1292,17 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: dna
     - map: ["computerLayerKeys"]
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: ApcPowerReceiver
     powerLoad: 3100 #We want this to fail first so I transferred most of the scanner and pod's power here. (3500 in total)
   - type: Computer
@@ -1251,14 +1344,17 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: salvjob # givin em a salvjob like hawk tuah
     - map: ["computerLayerKeys"]
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: SalvageJobBoardConsole
   - type: ActivatableUI
     key: enum.SalvageJobBoardUiKey.Key
@@ -1287,14 +1383,17 @@
       layers:
         - map: ["computerLayerBody"]
           state: computer
+          sprite: _Impstation/Structures/Machines/computers.rsi # imp
         - map: ["computerLayerKeyboard"]
           state: generic_keyboard
+          sprite: _Impstation/Structures/Machines/computers.rsi # imp
         - map: [ "computerLayerScreen" ]
           state: mining
         - map: ["computerLayerKeys"]
           state: tech_key
         - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
           state: generic_panel_open
+          sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - type: Appearance
     - type: GenericVisualizer
       visuals:
@@ -1340,14 +1439,17 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: cameras
     - map: ["computerLayerKeys"]
       state: tech_key
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: Computer
     board: SurveillanceCameraMonitorCircuitboard
   - type: DeviceNetwork
@@ -1379,14 +1481,17 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: cameras
     - map: ["computerLayerKeys"]
       state: tech_key
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: Computer
     board: SurveillanceWirelessCameraMonitorCircuitboard
   - type: DeviceNetwork
@@ -1411,6 +1516,21 @@
           type: WiresBoundUserInterface
 
 - type: entity
+  parent: ComputerSurveillanceWirelessCameraMonitor
+  id: ComputerSurveillanceWirelessXenoborgCameraMonitor
+  name: xenoborg camera monitor
+  description: A wireless xenoborg camera monitor. You're watching them. Maybe.
+  components:
+  - type: Computer
+    board: XenoborgCameraMonitorCircuitboard
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: Mothership
+    transmitFrequencyId: Mothership
+  - type: WirelessNetworkConnection
+    range: 2000
+
+- type: entity
   id: ComputerPalletConsole
   parent: [ BaseComputerAiAccess, BaseCargoContraband ]
   name: cargo sale computer
@@ -1420,14 +1540,17 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: transfer
     - map: ["computerLayerKeys"]
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: Anchorable
     flags:
     - Anchorable
@@ -1460,14 +1583,17 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: service
     - map: ["computerLayerKeys"]
       state: service_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: Computer
     board: ComputerMassMediaCircuitboard
   - type: DeviceNetworkRequiresPower
@@ -1500,14 +1626,17 @@
       layers:
         - map: ["computerLayerBody"]
           state: computer
+          sprite: _Impstation/Structures/Machines/computers.rsi # imp
         - map: ["computerLayerKeyboard"]
           state: generic_keyboard
+          sprite: _Impstation/Structures/Machines/computers.rsi # imp
         - map: ["computerLayerScreen"]
           state: sensors
         - map: ["computerLayerKeys"]
           state: atmos_key
         - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
           state: generic_panel_open
+          sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - type: PointLight
       radius: 2.4 #imp
       energy: 1.6
@@ -1544,14 +1673,17 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       state: robot
     - map: ["computerLayerKeys"]
       state: rd_key
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: RoboticsConsole
   - type: ActiveRadio
     channels:
@@ -1576,6 +1708,43 @@
     access: [["ResearchDirector"]]
   - type: Lock
     unlockOnClick: false
+  - type: PointLight #imp
+    radius: 2.4
+    energy: 1.6
+    color: "#b53ca1"
+
+- type: entity
+  parent: ComputerRoboticsControl
+  id: ComputerXenoborgsControl
+  name: xenoborgs control console
+  description: Used to remotely monitor all xenoborgs.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: xenorobot
+    - map: ["computerLayerKeys"]
+      state: rd_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: RoboticsConsole
+    allowBorgControl: false
+    radioChannel: Xenoborg
+  - type: ActiveRadio
+    channels:
+    - Xenoborg
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: Mothership
+    transmitFrequencyId: Xenoborg
+  - type: Computer
+    board: ComputerXenoborgsControlCircuitboard
+  - type: AccessReader # only used for dangerous things
+    access: [["Xenoborg"]]
 
 - type: entity
   id: StationAiUploadComputer
@@ -1587,14 +1756,17 @@
     layers:
     - map: [ "computerLayerBody" ]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: [ "computerLayerKeyboard" ]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: [ "computerLayerScreen" ]
       state: aiupload
     - map: [ "computerLayerKeys" ]
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: ApcPowerReceiver
     powerLoad: 1000
   - type: Computer
@@ -1624,3 +1796,7 @@
     containers:
       circuit_holder: !type:ContainerSlot
       board: !type:Container
+  - type: PointLight #imp
+    radius: 2.4
+    energy: 1.6
+    color: "#3c5eb5"

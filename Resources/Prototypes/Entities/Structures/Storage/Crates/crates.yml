@@ -12,13 +12,17 @@
     - Energy
     reflectProb: 0.2
     spread: 90
-  - type: DamageOtherOnHit # imp
+  - type: Paintable
+    group: CrateSteel
+  - type: RadiationBlockingContainer
+    resistance: 2.5
+  # imp edit start
+  - type: DamageOtherOnHit
     damage:
       types:
         Blunt: 16
     staminaCost: 45
-  - type: RadiationBlockingContainer
-    resistance: 2.5
+  # imp edit end
 
 - type: entity
   parent: CrateBaseWeldable
@@ -36,11 +40,15 @@
     - entity_storage
   - type: StaticPrice
     price: 100
-  - type: DamageOtherOnHit # imp
+  - type: Paintable
+    group: CratePlastic
+  # imp edit start
+  - type: DamageOtherOnHit
     damage:
       types:
         Blunt: 10
     staminaCost: 30
+  # imp edit end
 
 - type: entity
   parent: CratePlastic
@@ -59,6 +67,8 @@
     node: done
     containers:
     - entity_storage
+  - type: Paintable
+    group: null
 
 - type: entity
   parent: CratePlastic
@@ -402,6 +412,8 @@
   components:
   - type: Sprite
     sprite: Structures/Storage/Crates/cage.rsi
+    drawdepth: LargeObjects
+    snapCardinals: true
     layers:
     - state: base
     - state: closed
@@ -447,12 +459,12 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.4,-0.4,0.4,0.29"
+          bounds: "-0.4,-0.2,0.4,0.29"
         density: 80
         mask:
-        - CrateMask
+        - TabletopMachineMask
         layer:
-        - LargeMobLayer
+        - TabletopMachineLayer
   - type: StaticPrice
     price: 75
 
@@ -585,7 +597,7 @@
     - state: closed
       map: ["enum.StorageVisualLayers.Door"]
     - state: overlay-closed
-      color: "#D381C9"
+      color: "#D381C9" #imp edit, color in departmental palette
       map: [ lid_overlay ]
     # imp edit start
     - state: overlay-open
@@ -885,6 +897,8 @@
       sprite: _Impstation/Structures/Storage/Crates/labels.rsi # imp
       offset: "0.0,0.03125"
       map: ["enum.PaperLabelVisuals.Layer"]
+  - type: Paintable
+    group: null
 
 - type: entity
   parent: CrateBaseSecure
@@ -911,6 +925,8 @@
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: AccessReader
     access: [["Janitor"]]
+  - type: Paintable
+    group: null
 
 - type: entity
   parent: CrateBaseWeldable
@@ -919,6 +935,7 @@
   components:
   - type: Stealth
     hadOutline: true
+    useAltShader: true # imp
   - type: StealthOnMove
     passiveVisibilityRate: -0.10
     movementVisibilityRate: 0.10

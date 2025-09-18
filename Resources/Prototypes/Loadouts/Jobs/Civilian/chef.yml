@@ -1,13 +1,3 @@
-# Senior times
-- type: loadoutEffectGroup
-  id: SeniorChef
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobChef
-      time: 108000 #30 hrs, ~20 rounds #imp
-
 # Head
 - type: loadout
   id: ChefHead
@@ -46,23 +36,3 @@
   id: ChefWintercoat
   equipment:
     outerClothing: ClothingOuterWinterChef
-
-# Shoes
-- type: loadout
-  id: ChefShoes
-  equipment:
-    shoes: ClothingShoesChef
-
-# id
-- type: loadout
-  id: ChefPDA
-  equipment:
-    id: ChefPDA
-
-- type: loadout
-  id: SeniorChefPDA
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorChef
-  equipment:
-    id: SeniorChefPDA

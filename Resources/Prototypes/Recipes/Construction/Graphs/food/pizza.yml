@@ -11,4 +11,23 @@
         doAfter: 1
   - node: flat
     entity: FoodDoughFlat
+    # Frontier: adding butter and rolling to pastries
+    edges:
+    - to: flat-butter
+      steps:
+      - tag: NFButterStick
+        name: construction-graph-tag-nf-butter-stick
+        icon:
+          sprite: _Impstation/Objects/Consumable/Food/Ingredients/butter.rsi # Imp
+          state: butter
+  - node: flat-butter
+    entity: FoodDoughFlatButtered
+    edges:
+    - to: pastry
+      steps:
+      - tool: Rolling
+        doAfter: 2 # Lamination takes time
+  - node: pastry
+    entity: FoodDoughFlatPastry
+  # End Frontier
   # TODO: add stuff for adding ingredients then cooking the pizza, wsci

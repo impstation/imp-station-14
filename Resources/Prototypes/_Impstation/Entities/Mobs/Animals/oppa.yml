@@ -70,7 +70,7 @@
       Dead:
         Base: dead-night
   - type: Food
-  - type: Absorbable # imp edit
+  - type: GoobAbsorbable # imp edit
     biomassRestored: 0.2
   - type: FlavorProfile
     flavors:
@@ -158,7 +158,7 @@
     weightlessFriction: 1
     baseWeightlessModifier: 1
   - type: MovementIgnoreGravity # nyoom
-    gravityState: true
+    weightless: true
   - type: FloatingVisuals
   - type: PointLight
     color: Black

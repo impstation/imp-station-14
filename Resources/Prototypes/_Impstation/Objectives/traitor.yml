@@ -13,6 +13,19 @@
   - type: PickRandomPerson
   - type: KillPersonCondition
 
+# Steal
+
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: AntiqueDisablerStealObjective
+  components:
+  - type: NotJobRequirement
+    job: HeadOfPersonnel
+  - type: StealCondition
+    stealGroup: AntiqueDisabler
+    descriptionText: objective-condition-steal-antiquedisabler-description
+    owner: job-name-hop
+
 #SVS objectives
 
 - type: entity
@@ -36,7 +49,17 @@
     unique: true
   - type: TargetObjective
     title: objective-condition-kill-person-title
-  - type: PickRandomTraitor
+  - type: PickRandomPerson
+    filters:
+    - !type:HasRoleMindFilter
+      whitelist:
+        components:
+        - TraitorRole
+    # Can't have multiple objectives to kill the same person.
+    - !type:TargetObjectiveMindFilter
+      blacklist:
+        components:
+        - KillPersonCondition
   - type: ObjectiveBlacklistRequirement
     blacklist:
       component: null
@@ -52,7 +75,18 @@
     unique: true
   - type: TargetObjective
     title: objective-condition-other-traitor-alive-title
-  - type: RandomTraitorAlive
+  - type: PickRandomPerson #copied from RandomTraitorAliveObjective
+    filters:
+    - !type:HasRoleMindFilter
+      whitelist:
+        components:
+        - TraitorRole
+    # Can't have multiple objectives to help/save the same person
+    - !type:TargetObjectiveMindFilter
+      blacklist:
+        components:
+        - RandomTraitorAlive
+        - RandomTraitorProgress
   - type: ObjectiveBlacklistRequirement
     blacklist:
       component: null

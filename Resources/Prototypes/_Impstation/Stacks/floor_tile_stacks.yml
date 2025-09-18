@@ -5,6 +5,30 @@
   maxCount: 30
 
 - type: stack
+  id: FloorTileChapelNE
+  name: stack-chapel-floor-ne
+  spawn: FloorTileItemChapelNE
+  maxCount: 30
+
+- type: stack
+  id: FloorTileChapelNW
+  name: stack-chapel-floor-nw
+  spawn: FloorTileItemChapelNW
+  maxCount: 30
+
+- type: stack
+  id: FloorTileChapelSE
+  name: stack-chapel-floor-se
+  spawn: FloorTileItemChapelSE
+  maxCount: 30
+
+- type: stack
+  id: FloorTileChapelSW
+  name: stack-chapel-floor-sw
+  spawn: FloorTileItemChapelSW
+  maxCount: 30
+
+- type: stack
   id: FloorTileCraftedAsphalt
   name: stack-asphalt-floor
   spawn: FloorTileItemCraftedAsphalt

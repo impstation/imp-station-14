@@ -121,6 +121,9 @@
     - id: WeaponRifleAk
       prob: 0.0001
       orGroup: Weapons
+    - id: WeaponPistolValuPlus #imp
+      prob: 0.0001
+      orGroup: Weapons
     - id: WeaponRifleMule #imp
       prob: 0.0005
       orGroup: Weapons
@@ -173,6 +176,9 @@
       prob: 0.01
       orGroup: Weapons
     - id: WeaponGoldZipperFake #imp
+      prob: 0.01
+      orGroup: Weapons
+    - id: WeaponPistolValu #imp
       prob: 0.01
       orGroup: Weapons
     - id: WeaponRifleFoam

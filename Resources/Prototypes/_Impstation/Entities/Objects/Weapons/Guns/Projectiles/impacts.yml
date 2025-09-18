@@ -124,3 +124,20 @@
       tags:
         - HideContextMenu
 
+- type: entity
+  id: BulletImpactEffectToyBlaster
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.25
+  - type: Sprite
+    drawdepth: Effects
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/impacts.rsi
+      state: toybolt
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+      - HideContextMenu

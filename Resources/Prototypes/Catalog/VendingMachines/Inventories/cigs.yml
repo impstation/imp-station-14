@@ -6,16 +6,16 @@
     CigPackBlue: 2
     CigPackBlack: 2
     CigPackMixed: 2
-    CigPackNewport: 2
-    CigPackSpirits: 2
+    CigPackNewport: 2 #imp
+    CigPackSpirits: 2 #imp
     CigarCase: 1
     SmokingPipeFilledTobacco: 1
     # Vape: 1
-    VapeSwappable: 2          ##
+    VapeSwappable: 2           #
     VapeCartContainerBasic: 3  #
     CustomVapeCartPackage: 1   # imp vapes
     VapeDisposableBar: 5       #
-    VapeDisposablePen: 5      ##
+    VapeDisposablePen: 5       #
     Matchbox: 5
     PackPaperRollingFilters: 3
     CheapLighter: 4
@@ -26,5 +26,4 @@
     CigarGold: 2
     Igniter: 1
   emaggedInventory:
-    CigPackSyndicate: 1
-    StackOfCigs: 1
+    StackOfCigs: 1 # imp

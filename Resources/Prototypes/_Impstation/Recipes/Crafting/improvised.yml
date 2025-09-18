@@ -20,19 +20,11 @@
 #    state: base
 
 - type: construction
-  id: yarnnoodles
-  graph: YarnNoodles
+  id: improvisedlaser
+  graph: ImprovisedLaserGraph
   startNode: start
-  targetNode: noodles
-  category: construction-category-misc
-  objectType: Item
-
-- type: construction
-  id: fabricscrapsalad
-  graph: FabricScrapSalad
-  startNode: start
-  targetNode: salad
-  category: construction-category-misc
+  targetNode: laser
+  category: construction-category-weapons
   objectType: Item
 
 - type: construction

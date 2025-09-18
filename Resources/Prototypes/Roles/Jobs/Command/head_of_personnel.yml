@@ -25,7 +25,7 @@
   weight: 20
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
-  supervisors: job-supervisors-captain #imp
+  supervisors: job-supervisors-captain
   canBeAntag: false
   access:
   - Command
@@ -62,6 +62,7 @@
   - Mime
   - Musician
   - Reporter
+  - Vault
   #imp edit end
   special:
   - !type:AddImplantSpecial
@@ -73,9 +74,13 @@
 - type: startingGear
   id: HoPGear
   equipment:
+    #shoes: ClothingShoesColorBrown #imp
     id: HoPPDA
     gloves: ClothingHandsGlovesHop
+    #ears: ClothingHeadsetAltCommand #imp
+    #belt: BoxFolderClipboard #imp
     belt: ClothingBeltPaperworkFilled # imp edit
+    #eyes: ClothingEyesHudCommand #imp
   storage:
     back:
     - Flash

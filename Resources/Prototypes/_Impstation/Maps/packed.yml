@@ -16,7 +16,7 @@
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/emergency_crimson.yml
         - type: StationJobs
-          availableJobs: # Total of 50 jobs roundstart, max of 59 inc. latejoins and trainees.
+          availableJobs: # Total of 51 jobs roundstart, max of 60 inc. latejoins and trainees.
             # command - 8
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
@@ -26,7 +26,7 @@
             HeadOfSecurity: [ 1, 1 ]
             HospitalityDirector: [ 1, 1 ]
             Quartermaster: [ 1, 1 ]
-            # service - 13
+            # service - 14
             Bartender: [ 2, 2 ]
             Botanist: [ 2, 2 ]
             Chaplain: [ 1, 1 ]
@@ -36,6 +36,7 @@
             Librarian: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
+            Reporter: [ 1, 1 ]
             # engineering 6-9
             AtmosphericTechnician: [ 2, 2 ]
             StationEngineer: [ 4, 4 ]

@@ -1,3 +1,7 @@
+pai-system-role-name-golden = Golden Personal AI
+pai-system-role-description-golden = Be someone's fancy electronic pal!
+                              (Memories *not* included.)
+
 pai-system-role-name-tutorial = tutor personal ai
 pai-system-role-description-tutorial = Help out a newcomer to the game by jumping into this special electronic pal!
 
