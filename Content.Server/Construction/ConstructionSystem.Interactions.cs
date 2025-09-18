@@ -278,8 +278,8 @@ namespace Content.Server.Construction
                     if(!insertStep.EntityValid(insert, EntityManager, Factory))
                         return HandleResult.False;
 
-                    // Unremovable items can't be inserted, unless they are a lingering stack
-                    if(HasComp<UnremoveableComponent>(insert) && (!TryComp<StackComponent>(insert, out var comp) || !comp.Lingering))
+                    // Unremovable items can't be inserted
+                    if(HasComp<UnremoveableComponent>(insert))
                         return HandleResult.False;
 
                     // If we're only testing whether this step would be handled by the given event, then we're done.
@@ -435,7 +435,7 @@ namespace Content.Server.Construction
                     var toRemove = entRemoved.Entity;
 
                     if (removeStep.EntityValid(toRemove, EntityManager, Factory)) // Does the removed entity have the desired tag?
-                        return HandleResult.True;
+                        return validation ? HandleResult.Validated : HandleResult.True;
                     return HandleResult.False;
                 }
 
@@ -583,6 +583,12 @@ namespace Content.Server.Construction
 
                 handled.Handled = true;
             }
+
+            // Begin Offbrand
+            // Otherwise, let's check if this event could be handled by the construction's current state.
+            if (HandleEvent(uid, args, true, construction) != HandleResult.Validated)
+                return; // Not validated, so we don't even enqueue this event.
+            // End Offbrand
 
             // Enqueue this event so it'll be handled in the next tick.
             // This prevents some issues that could occur from entity deletion, component deletion, etc in a handler.

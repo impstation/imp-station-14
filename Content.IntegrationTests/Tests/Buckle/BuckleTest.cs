@@ -81,7 +81,7 @@ namespace Content.IntegrationTests.Tests.Buckle
                     Assert.That(buckle.Buckled, Is.False);
                     Assert.That(actionBlocker.CanMove(human));
                     Assert.That(actionBlocker.CanChangeDirection(human));
-                    //Assert.That(standingState.Down(human));
+                    Assert.That(standingState.Down(human));
                     Assert.That(standingState.Stand(human));
                 });
 
@@ -102,7 +102,7 @@ namespace Content.IntegrationTests.Tests.Buckle
 
                     Assert.That(actionBlocker.CanMove(human), Is.False);
                     Assert.That(actionBlocker.CanChangeDirection(human));
-                    //Assert.That(standingState.Down(human), Is.False);
+                    Assert.That(standingState.Down(human), Is.False);
                     Assert.That(
                         (xformSystem.GetWorldPosition(human) - xformSystem.GetWorldPosition(chair)).LengthSquared,
                         Is.LessThanOrEqualTo(0)
@@ -312,9 +312,8 @@ namespace Content.IntegrationTests.Tests.Buckle
 
             await server.WaitAssertion(() =>
             {
-                //Assert.That(buckle.Buckled); // goob edit
-                // he's not supposed to be buckled with the new falling down system
-                // do i just did this :trollface:
+                // Still buckled
+                Assert.That(buckle.Buckled);
 
                 // Now with no item in any hand
                 foreach (var hand in hands.Hands.Keys)

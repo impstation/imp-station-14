@@ -71,12 +71,12 @@ public sealed class DamageOnShootSystem : EntitySystem
             if (entity.Comp.PopupText != null)
                 _popupSystem.PopupClient(Loc.GetString(entity.Comp.PopupText), args.User, args.User);
 
+            // Attempt to paralyze the user after they have taken damage
             if (_net.IsClient)
                 return;
-            {
-                if (_random.Prob(entity.Comp.StunChance))
-                    _stun.TryParalyze(args.User, TimeSpan.FromSeconds(entity.Comp.StunSeconds), true);
-            }
+
+            if (_random.Prob(entity.Comp.StunChance))
+                _stun.TryAddParalyzeDuration(args.User, TimeSpan.FromSeconds(entity.Comp.StunSeconds));
         }
     }
 }

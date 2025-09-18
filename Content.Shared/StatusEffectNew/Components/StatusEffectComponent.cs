@@ -1,4 +1,3 @@
-using Content.Shared.Alert;
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -26,6 +25,18 @@ public sealed partial class StatusEffectComponent : Component
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField, AutoNetworkedField]
     public TimeSpan? EndEffectTime;
+
+    /// <summary>
+    /// Offbrand - Expected duration of this status effect
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public TimeSpan? EffectDuration;
+
+    /// <summary>
+    /// Offbrand - When the status effect started
+    /// </summary>
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField, AutoNetworkedField]
+    public TimeSpan? StartedAt;
 
     /// <summary>
     /// Whitelist, by which it is determined whether this status effect can be imposed on a particular entity.

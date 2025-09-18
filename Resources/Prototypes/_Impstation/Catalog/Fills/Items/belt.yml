@@ -9,6 +9,29 @@
         tableId: BeltSecurityEntityTable
 
 - type: entity
+  id: ClothingBeltHospitalityDirectorFilled
+  parent: ClothingBeltHospitalityDirector
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: BeltFillHospitalityDirector
+
+- type: entityTable
+  id: BeltFillHospitalityDirector
+  table: !type:AllSelector
+    children:
+    - id: HydroponicsToolMiniHoe
+    - id: Wrench
+    - id: RagItem
+    - id: SoapNT
+    - id: FlashlightLantern
+    - id: HandLabeler
+    - id: FoodShakerSalt
+    - id: FoodShakerPepper
+
+- type: entity
   id: ClothingBeltUtilityBlackFilled
   parent: ClothingBeltUtilityBlack
   suffix: Filled
@@ -52,7 +75,7 @@
       - id: DefibrillatorCompact
       - id: MedicatedSuture
       - id: RegenerativeMesh
-      - id: SyringeSaline
+      - id: SyringeOxycodone # Offbrand
       - id: BruteAutoInjector
       - id: BurnAutoInjector
       - id: EmergencyMedipen
@@ -64,12 +87,10 @@
   components:
   - type: StorageFill #this may seem excessive. I invite you to try and play a salvage bee without it
     contents:
-      - id: WeaponTetherGun
-      - id: MiningDrill
       - id: Wrench
       - id: WeaponProtoKineticAcceleratorApid
       - id: EmergencyMedipen
-      - id: SyringeSaline
+      - id: SyringeParacetamol # Offbrand
       - id: FireExtinguisherMini
       - id: WeaponGrapplingGun
 

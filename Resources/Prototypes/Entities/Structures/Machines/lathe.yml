@@ -128,6 +128,7 @@
     - PartsStatic
     - AtmosStatic
     - CablesStatic
+    - PaperworkStatic
     - CargoStatic
     - MaterialsStatic
     - BasicChemistryStatic
@@ -274,6 +275,7 @@
     - EngineeringBoardsStatic
     - CircuitFloorsStatic
     - ImpCircuitStatic # Imp
+    - OffbrandCircuitboardsStatic # Offbrand
     dynamicPacks:
     - EngineeringBoards
     - CargoBoards
@@ -509,6 +511,7 @@
     - EmptyMedkitsStatic
     - SurgeryStatic
     - ImpMedStatic # Imp
+    - OffbrandMedicalStatic # Offbrand
     dynamicPacks:
     - Chemistry
     - ImpMedDynamic # Imp

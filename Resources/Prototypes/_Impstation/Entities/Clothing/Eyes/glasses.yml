@@ -51,6 +51,8 @@
       tags:
       - WhitelistChameleon
       - DroneUsable
+    - type: PluralName
+      oneOf: plural-name-pair-1
 
 - type: entity
   parent: ClothingEyesGlassesColorfulBase

@@ -17,6 +17,7 @@ using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Nuke;
 using Content.Shared.NukeOps;
+using Content.Shared.Roles.Components;
 using Content.Shared.Store;
 using Content.Shared.Tag;
 using Content.Shared.Zombies;
@@ -24,6 +25,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Shared.Station.Components;
 using Content.Shared.Humanoid; //imp addition
 using Content.Shared.Mind; //imp addition
 using Content.Shared.Roles; //imp addition
@@ -126,7 +128,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
                 genderString = appearance.Gender.ToString().ToLowerInvariant();
             }
 
-            foreach (var mindRole in mindComp.MindRoles)
+            foreach (var mindRole in mindComp.MindRoleContainer.ContainedEntities)
             {
                 //make sure we have a mindRole comp
                 if (!TryComp<MindRoleComponent>(mindRole, out var mindRoleComp))

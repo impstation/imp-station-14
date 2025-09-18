@@ -37,6 +37,7 @@
     solution: drink
   - type: ExaminableSolution
     solution: drink
+    exactVolume: true
   - type: DrawableSolution
     solution: drink
   - type: SolutionTransfer
@@ -51,8 +52,10 @@
   - type: Item
     size: Small #imp
     sprite: _Impstation/Objects/Specific/Chemistry/beaker.rsi # imp
-    shape: #imp
-    - 0,0,0,0
+    # Offbrand
+    # shape: #imp
+    # - 0,0,0,0
+    # Offbrand
   - type: Spillable
     solution: drink
   - type: MeleeWeapon
