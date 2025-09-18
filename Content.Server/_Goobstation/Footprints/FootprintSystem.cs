@@ -32,21 +32,16 @@ public sealed class FootprintSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
 
     public static readonly FixedPoint2 MaxFootprintVolumeOnTile = 50;
-
     public static readonly EntProtoId FootprintPrototypeId = "Footprint";
 
     public const string FootprintOwnerSolution = "print";
-
     public const string FootprintSolution = "print";
-
     public const string PuddleSolution = "puddle";
 
     public override void Initialize()
     {
         SubscribeLocalEvent<FootprintComponent, FootprintCleanEvent>(OnFootprintClean);
-
         SubscribeLocalEvent<FootprintOwnerComponent, MoveEvent>(OnMove);
-
         SubscribeLocalEvent<PuddleComponent, MapInitEvent>(OnMapInit);
     }
 
@@ -57,7 +52,7 @@ public sealed class FootprintSystem : EntitySystem
 
     private void OnMove(Entity<FootprintOwnerComponent> ent, ref MoveEvent args)
     {
-        if (_gravity.IsWeightless(ent) || !args.OldPosition.IsValid(EntityManager) || !args.NewPosition.IsValid(EntityManager))
+        if (_gravity.IsWeightless(ent.Owner) || !args.OldPosition.IsValid(EntityManager) || !args.NewPosition.IsValid(EntityManager))
             return;
 
         var oldPosition = _transform.ToMapCoordinates(args.OldPosition).Position;
@@ -66,12 +61,13 @@ public sealed class FootprintSystem : EntitySystem
         ent.Comp.Distance += Vector2.Distance(newPosition, oldPosition);
 
         // foot sprites and body drag sprites are different sizes, so need different distances apart
-        var standing = TryComp<StandingStateComponent>(ent, out var standingState)
-            && standingState.CurrentState == StandingState.Standing;
+        TryComp<StandingStateComponent>(ent, out var standingState);
+        if (standingState is null)
+            return;
 
-        var requiredDistance = standing ?
-            ent.Comp.FootDistance :
-            ent.Comp.BodyDistance;
+        var standing = standingState.Standing;
+
+        var requiredDistance = standing ? ent.Comp.FootDistance : ent.Comp.BodyDistance;
 
         if (ent.Comp.Distance < requiredDistance)
             return;
