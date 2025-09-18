@@ -10,8 +10,7 @@
   coloring:
     default:
       type:
-        !type:SimpleColoring
-          color: "#0b0a42"
+        !type:EyeColoring
   sprites:
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
     state: tat_anchor
@@ -748,8 +747,7 @@
   coloring:
     default:
       type:
-        !type:SimpleColoring
-          color: "#ff627c"
+        !type:EyeColoring
   sprites:
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
     state: antennae2
@@ -896,8 +894,7 @@
   coloring:
     default:
       type:
-        !type:SimpleColoring
-          color: "#dbd5dc"
+        !type:EyeColoring
   sprites:
   - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
     state: antennae11
