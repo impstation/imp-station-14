@@ -834,6 +834,28 @@
     popupText: powered-light-component-burn-hand
 
 - type: entity
+  id: PoweredSmallFloorLightCold
+  suffix: Cold
+  parent: PoweredSmallFloorLight
+  components:
+  - type: PointLight
+    enabled: true
+    radius: 6
+    energy: 1
+    softness: 3
+    color: "#b1d4ed"
+  - type: PoweredLight
+    hasLampOnSpawn: ColdLightBulb
+  - type: Construction
+    graph: FloorLightFixture
+    node: smallFloorLightCold
+  - type: DamageOnInteract
+    damage:
+      types:
+        Cold: 2 # its funny
+    popupText: powered-light-component-freeze-hand
+
+- type: entity
   id: PoweredSmallFloorLightCyan
   suffix: Cyan
   parent: PoweredSmallFloorLight

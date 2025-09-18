@@ -15,7 +15,7 @@
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
         - type: StationJobs
-          availableJobs: # Total of 54 jobs roundstart, max of 67 inc. latejoins and trainees.
+          availableJobs: # Total of 55 jobs roundstart, max of 68 inc. latejoins and trainees.
             # command - 8
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
@@ -40,11 +40,11 @@
             AtmosphericTechnician: [ 2, 2 ]
             StationEngineer: [ 4, 4 ]
             TechnicalAssistant: [ 4, 4 ]
-            # medical - 8-11
+            # medical - 9-12
             Chemist: [ 2, 2 ]
             MedicalDoctor: [ 3, 3 ]
             MedicalIntern: [ 4, 4 ]
-            Paramedic: [ 1, 1 ]
+            Paramedic: [ 2, 2 ]
             Psychologist: [ 1, 1 ]
             # science - 7-8
             Borg: [ 2, 2 ]
