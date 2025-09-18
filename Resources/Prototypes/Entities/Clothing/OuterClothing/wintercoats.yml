@@ -75,6 +75,8 @@
       - state: ATMOS-equipped-OUTERCLOTHING
       outerClothing-vox: # imp
       - state: ATMOS-equipped-OUTERCLOTHING-vox
+      outerClothing-ungu: # imp
+      - state: ATMOS-equipped-OUTERCLOTHING-ungu
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterEngineer
 
@@ -100,6 +102,8 @@
       - state: BAR-equipped-OUTERCLOTHING
       outerClothing-vox: # imp
       - state: BAR-equipped-OUTERCLOTHING-vox
+      outerClothing-ungu: # imp
+      - state: BAR-equipped-OUTERCLOTHING-ungu
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterBartender
 
