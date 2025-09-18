@@ -13,8 +13,49 @@
 
     },
     {
+      "name": "boar_dead"
+    },
+    {
+      "name": "boar_moving",
+      "directions": 4,
+      "delays": [
+	    [
+	      0.2,
+		  0.2,
+		  0.2,
+		  0.2
+	    ],
+	    [
+	      0.2,
+		  0.2,
+		  0.2,
+		  0.2
+	    ],
+		[
+	      0.2,
+		  0.2,
+		  0.2,
+		  0.2
+	    ],
+	    [
+	      0.2,
+		  0.2,
+		  0.2,
+		  0.2
+	    ]
+	  ]
+    },
+    {
       "name": "eyes",
       "directions": 4
+    },
+    {
+      "name": "spaceboar",
+      "directions": 4
+
+    },
+    {
+      "name": "spaceboar_dead"
     }
   ]
 }
