@@ -52,15 +52,15 @@
   - type: Explosive
     explosionType: Default
     maxIntensity: 2
-    intensitySlope: 1
-    totalIntensity: 4
+    intensitySlope: 3
+    totalIntensity: 24
     canCreateVacuum: false
   - type: Ammo
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-        Heat: 10
+        Heat: 15
     soundHit:
       collection: WeakHit
     forceSound: true

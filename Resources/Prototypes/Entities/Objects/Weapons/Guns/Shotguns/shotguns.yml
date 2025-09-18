@@ -217,14 +217,6 @@
 #imp edit begin; weapon melee
   - type: MeleeWeapon
     attackRate: 0.6
-  - type: Gun #imp - adds the 2-tap burst mode
-    selectedMode: SemiAuto
-    burstFireRate: 4
-    availableModes:
-    - Burst
-    - SemiAuto
-    shotsPerBurst: 2
-    burstCooldown: 1.25
   - type: StaminaDamageOnHit
     damage: 10 #slight stagger, but still like 10 hits to stun completely
   - type: MeleeRequiresWield
