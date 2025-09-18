@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/28/2025 04:36:09
-  entityCount: 17639
+  time: 09/14/2025 06:44:57
+  entityCount: 17642
 maps:
 - 1
 grids:
@@ -9487,7 +9487,7 @@ entities:
             0: 65520
           10,-9:
             0: 17984
-            6: 1
+            4: 1
             3: 2444
           11,-7:
             0: 65518
@@ -9853,7 +9853,7 @@ entities:
             0: 785
             3: 8226
             2: 8
-            4: 2048
+            5: 2048
           4,-13:
             0: 4369
             3: 17508
@@ -9862,7 +9862,7 @@ entities:
             0: 36096
           5,-10:
             2: 3
-            4: 768
+            5: 768
             3: 32904
             0: 2048
           5,-9:
@@ -10098,17 +10098,17 @@ entities:
             3: 4113
             0: 256
             2: 12
-            5: 3072
+            6: 3072
           9,-9:
             3: 1025
             0: 2832
-            6: 12
+            4: 12
           10,-11:
             3: 295
             0: 17920
           10,-10:
             2: 1
-            5: 256
+            6: 256
             3: 18508
             0: 1024
           10,-12:
@@ -10772,6 +10772,21 @@ entities:
           temperature: 293.15
           moles:
           - 0
+          - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
           - 0
           - 0
           - 6666.982
@@ -10788,21 +10803,6 @@ entities:
           moles:
           - 6666.982
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
-          - 6666.982
           - 0
           - 0
           - 0
@@ -14253,7 +14253,7 @@ entities:
       pos: 9.5,-20.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -5724.682
+      secondsUntilStateChange: -6049.871
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14654,7 +14654,7 @@ entities:
       pos: 47.5,5.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -467728.62
+      secondsUntilStateChange: -468053.8
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -49321,12 +49321,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 7.5,-19.5
       parent: 2
-  - uid: 3929
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 19.5,18.5
-      parent: 2
   - uid: 4319
     components:
     - type: Transform
@@ -49642,6 +49636,13 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -28.5,-30.5
+      parent: 2
+- proto: ComputerTabletopCrewMonitoring
+  entities:
+  - uid: 4061
+    components:
+    - type: Transform
+      pos: 20.5,19.5
       parent: 2
 - proto: ComputerTelevision
   entities:
@@ -50198,11 +50199,6 @@ entities:
           showEnts: False
           occludes: True
           ent: null
-  - uid: 7993
-    components:
-    - type: Transform
-      pos: 38.5,3.5
-      parent: 2
   - uid: 11758
     components:
     - type: Transform
@@ -50245,6 +50241,13 @@ entities:
           showEnts: False
           occludes: True
           ent: null
+- proto: CrateFreezerIVBag
+  entities:
+  - uid: 7993
+    components:
+    - type: Transform
+      pos: 34.5,5.5
+      parent: 2
 - proto: CrateFunBoxing
   entities:
   - uid: 15834
@@ -50318,13 +50321,6 @@ entities:
     - type: Transform
       pos: 31.5,-20.5
       parent: 2
-- proto: CrateMedicalSurgery
-  entities:
-  - uid: 4065
-    components:
-    - type: Transform
-      pos: 38.5,5.5
-      parent: 2
 - proto: CrateNPCHamlet
   entities:
   - uid: 9405
@@ -50359,6 +50355,13 @@ entities:
     components:
     - type: Transform
       pos: 7.5,8.5
+      parent: 2
+- proto: CrateMedicalSurgery
+  entities:
+  - uid: 3998
+    components:
+    - type: Transform
+      pos: 38.5,3.5
       parent: 2
 - proto: CrateTechBoardRandom
   entities:
@@ -56966,6 +56969,13 @@ entities:
     components:
     - type: Transform
       pos: 22.420448,17.54732
+      parent: 2
+- proto: EmergencyRollerBedSpawnFolded
+  entities:
+  - uid: 17642
+    components:
+    - type: Transform
+      pos: 30.42773,4.5839825
       parent: 2
 - proto: Emitter
   entities:
@@ -85176,6 +85186,34 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
+- proto: IVStand
+  entities:
+  - uid: 3999
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 38.5,5.5
+      parent: 2
+  - uid: 4000
+    components:
+    - type: Transform
+      pos: 37.5,11.5
+      parent: 2
+  - uid: 4058
+    components:
+    - type: Transform
+      pos: 35.5,11.5
+      parent: 2
+  - uid: 4060
+    components:
+    - type: Transform
+      pos: 33.5,11.5
+      parent: 2
+  - uid: 17640
+    components:
+    - type: Transform
+      pos: 37.5,13.5
+      parent: 2
 - proto: JanitorialTrolley
   entities:
   - uid: 7354
@@ -86117,21 +86155,6 @@ entities:
       parent: 2
 - proto: LockerMedicineFilled
   entities:
-  - uid: 3998
-    components:
-    - type: Transform
-      pos: 33.5,11.5
-      parent: 2
-  - uid: 3999
-    components:
-    - type: Transform
-      pos: 35.5,11.5
-      parent: 2
-  - uid: 4000
-    components:
-    - type: Transform
-      pos: 37.5,11.5
-      parent: 2
   - uid: 4001
     components:
     - type: Transform
@@ -86141,6 +86164,11 @@ entities:
     components:
     - type: Transform
       pos: 35.5,17.5
+      parent: 2
+  - uid: 4108
+    components:
+    - type: Transform
+      pos: 33.5,7.5
       parent: 2
   - uid: 16348
     components:
@@ -86199,6 +86227,11 @@ entities:
     components:
     - type: Transform
       pos: 19.5,17.5
+      parent: 2
+  - uid: 4074
+    components:
+    - type: Transform
+      pos: 19.5,18.5
       parent: 2
 - proto: LockerPrisoner
   entities:
@@ -86533,16 +86566,6 @@ entities:
     components:
     - type: Transform
       pos: 42.5,7.5
-      parent: 2
-  - uid: 4060
-    components:
-    - type: Transform
-      pos: 20.5,19.5
-      parent: 2
-  - uid: 4061
-    components:
-    - type: Transform
-      pos: 21.5,19.5
       parent: 2
   - uid: 4062
     components:
@@ -87390,15 +87413,15 @@ entities:
     - type: Transform
       pos: 35.424763,19.667336
       parent: 2
-  - uid: 4058
-    components:
-    - type: Transform
-      pos: 19.983852,19.528587
-      parent: 2
   - uid: 10503
     components:
     - type: Transform
       pos: 18.522177,40.602978
+      parent: 2
+  - uid: 17641
+    components:
+    - type: Transform
+      pos: 37.599606,7.7905455
       parent: 2
 - proto: MedkitOxygenFilled
   entities:
@@ -94539,11 +94562,6 @@ entities:
       parent: 2
 - proto: RollerBedSpawnFolded
   entities:
-  - uid: 4108
-    components:
-    - type: Transform
-      pos: 33.710236,7.5127764
-      parent: 2
   - uid: 4109
     components:
     - type: Transform
@@ -97877,11 +97895,11 @@ entities:
     - type: Transform
       pos: 41.5,9.5
       parent: 2
-  - uid: 4074
+  - uid: 4065
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 34.5,5.5
+      rot: 3.141592653589793 rad
+      pos: 37.5,3.5
       parent: 2
   - uid: 4107
     components:
@@ -99264,6 +99282,11 @@ entities:
       parent: 2
 - proto: SpawnPointParamedic
   entities:
+  - uid: 3929
+    components:
+    - type: Transform
+      pos: 21.5,18.5
+      parent: 2
   - uid: 10473
     components:
     - type: Transform

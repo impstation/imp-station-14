@@ -1,0 +1,148 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+- type: constructionGraph
+  id: SurgeryGraph
+  start: Base
+  graph:
+  - node: Base
+    edges:
+    - to: OpenIncision
+      steps:
+      - tool: Incising
+        doAfter: 1
+        completed:
+        - !type:AddWound
+          wound: WoundIncision
+          damages:
+            damageDict:
+              Slash: 10
+      - tool: Clamping
+        doAfter: 1
+        completed:
+        - !type:AddWound
+          wound: WoundClamped
+          damages:
+            damageDict:
+              Blunt: 5
+      - tool: Retracting
+        doAfter: 1
+        completed:
+        - !type:AddWound
+          wound: WoundRetracted
+          damages:
+            damageDict:
+              Blunt: 5
+  - node: OpenIncision
+    edges:
+    - to: OpenIncision
+      conditions:
+      - !type:HasStatusEffect
+        effect: WoundFracture
+      completed:
+      - !type:RemoveStatusEffect
+        effect: WoundFracture
+      steps:
+      - tool: BoneMending
+        doAfter: 1
+      - tool: BoneSetting
+        doAfter: 1
+      - tool: BoneMending
+        doAfter: 1
+    - to: OpenIncision
+      conditions:
+      - !type:HasStatusEffect
+        effect: WoundArterialBleeding
+      completed:
+      - !type:RemoveStatusEffect
+        effect: WoundArterialBleeding
+      steps:
+      - tool: Recoupling
+        doAfter: 1
+    - to: OpenRibCage
+      completed:
+      - !type:AddWound
+        wound: WoundOpenRibCage
+        damages:
+          damageDict:
+            Blunt: 5
+      steps:
+      - tool: Sawing
+        doAfter: 5
+    - to: Base
+      steps:
+      - tool: Cauterizing
+        doAfter: 1
+        completed:
+        - !type:RemoveStatusEffect
+          effect: WoundClamped
+        - !type:RemoveStatusEffect
+          effect: WoundIncision
+        - !type:RemoveStatusEffect
+          effect: WoundRetracted
+        - !type:DamageEntity
+          damage:
+            types:
+              Burn: 10
+  - node: OpenRibCage
+    edges:
+    - to: OpenIncision
+      completed:
+      - !type:RemoveStatusEffect
+        effect: WoundOpenRibCage
+      steps:
+      - tool: BoneMending
+        doAfter: 1
+      - tool: BoneSetting
+        doAfter: 1
+      - tool: BoneMending
+        doAfter: 1
+    - to: OpenRibCage
+      conditions:
+      - !type:HeartDamage
+        min: 1
+      completed:
+      - !type:ChangeHeartDamage
+        amount: -5
+      steps:
+      - material: SimpleSuture
+        amount: 1
+        doAfter: 5
+    - to: OpenRibCage
+      conditions:
+      - !type:HeartDamage
+        min: 1
+      completed:
+      - !type:ChangeHeartDamage
+        amount: -10
+      steps:
+      - material: MedicatedSuture
+        amount: 1
+        doAfter: 3
+    - to: OpenRibCage
+      conditions:
+      - !type:HasStatusEffect
+        effect: WoundHusking
+      completed:
+      - !type:RemoveStatusEffect
+        effect: WoundHusking
+      steps:
+      - material: RegenerativeMesh
+        amount: 10
+        doAfter: 5
+    - to: OpenRibCage
+      conditions:
+      - !type:HasStatusEffect
+        effect: WoundBoneDeath
+      completed:
+      - !type:RemoveStatusEffect
+        effect: WoundBoneDeath
+      steps:
+      - tool: BoneMending
+        doAfter: 5
+      - material: MedicatedSuture
+        amount: 10
+        doAfter: 5
+      - tool: BoneMending
+        doAfter: 5

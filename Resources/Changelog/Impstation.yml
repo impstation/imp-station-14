@@ -1,64 +1,4 @@
 ﻿Entries:
-- author: ComedyIdiot
-  changes:
-  - message: Replicators now take structural damage as originally intended
-    type: Fix
-  id: 1763
-  time: '2025-06-04T08:31:52.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2663
-- author: so many people
-  changes:
-  - message: Another upstream merge. Check the upstream changelog, and please report
-      any bugs you run into!
-    type: Add
-  - message: Departmental economy is real.
-    type: Add
-  - message: Many stations now feature the genpop prison system.
-    type: Add
-  - message: Atlas and Cluster have been derotated.
-    type: Remove
-  - message: No more stocks.
-    type: Remove
-  - message: Some Xenoarcheology effects and triggers have entered cryogenic stasis.
-    type: Remove
-  - message: Drones can no longer use maps or midis (FOR NOW. FIX COMING SOON).
-    type: Remove
-  - message: Heretic's mansus link channel now uses 'l' instead of 'z'.
-    type: Tweak
-  id: 1764
-  time: '2025-06-08T02:45:01.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2648
-- author: Sha-Seng
-  changes:
-  - message: updated legacy kaasi lobby art per feedback
-    type: Tweak
-  id: 1765
-  time: '2025-06-08T02:52:04.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2673
-- author: AvianMaiden, Cutinup99
-  changes:
-  - message: Televisions and computers give off cozier lights!
-    type: Add
-  - message: New variant of the desk lamp with a warmer glow!
-    type: Add
-  id: 1766
-  time: '2025-06-08T02:53:16.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2644
-- author: widgetbeck
-  changes:
-  - message: Raw spider legs are twitchy.
-    type: Add
-  id: 1767
-  time: '2025-06-08T04:03:20.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2602
-- author: kipdotnet
-  changes:
-  - message: Apid salvagers now start with a special, fully accurate PKA variant,
-      to make up for not being able to wield a normal one properly.
-    type: Tweak
-  id: 1768
-  time: '2025-06-08T04:09:08.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2665
 - author: sev7ves
   changes:
   - message: Added a door alarm wire to high sec doors
@@ -4177,3 +4117,53 @@
   id: 2262
   time: '2025-09-15T00:45:21.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3455
+- author: DinnerCalzone
+  changes:
+  - message: The vault is now locked by a new Vault access, which all command jobs
+      have been given. It still needs to be unbolted by the captain, though.
+    type: Add
+  - message: The HoP has a new door remote which no longer has Captain access and
+      does not have Vault access.
+    type: Tweak
+  id: 2263
+  time: '2025-09-17T17:16:59.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3290
+- author: Pinkbat5
+  changes:
+  - message: Added one new awesome round-end audio clip!
+    type: Add
+  id: 2264
+  time: '2025-09-17T17:23:03.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3143
+- author: Pinkbat5
+  changes:
+  - message: Fixed most (but not all!) imp-exclusive accents and disabilities not
+      being inherited by paradox clones.
+    type: Fix
+  id: 2265
+  time: '2025-09-17T17:23:36.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3354
+- author: DinnerCalzone
+  changes:
+  - message: The service techfab can now be linked to material silos and will announce
+      on service comms when new recipes are available from unlocked research technologies.
+    type: Add
+  id: 2266
+  time: '2025-09-17T17:21:50.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3404
+- author: Mousetrinity
+  changes:
+  - message: for a measly sum, you may now import the banana deer from planet teo!
+      you can milk it.
+    type: Add
+  id: 2267
+  time: '2025-09-17T17:22:21.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3431
+- author: sowelipililimute
+  changes:
+  - message: Medical and Damage as a whole has been reworked. Check your guidebooks!
+      Good luck!
+    type: Add
+  id: 2268
+  time: '2025-09-18T02:53:32.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3463
