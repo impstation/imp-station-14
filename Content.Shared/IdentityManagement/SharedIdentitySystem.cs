@@ -17,6 +17,9 @@ public abstract class SharedIdentitySystem : EntitySystem
         SubscribeLocalEvent<IdentityComponent, ComponentInit>(OnComponentInit);
         SubscribeLocalEvent<IdentityBlockerComponent, SeeIdentityAttemptEvent>(OnSeeIdentity);
         SubscribeLocalEvent<IdentityBlockerComponent, InventoryRelayedEvent<SeeIdentityAttemptEvent>>((e, c, ev) => OnSeeIdentity(e, c, ev.Args));
+        SubscribeLocalEvent<IdentityBlockerComponent, Content.Shared.StatusEffectNew.StatusEffectRelayedEvent<SeeIdentityAttemptEvent>>((e, c, ev) => OnSeeIdentity(e, c, ev.Args)); // Offbrand
+        SubscribeLocalEvent<IdentityBlockerComponent, Content.Shared.StatusEffectNew.StatusEffectAppliedEvent>((_, _, ev) => QueueIdentityUpdate(ev.Target)); // Offbrand
+        SubscribeLocalEvent<IdentityBlockerComponent, Content.Shared.StatusEffectNew.StatusEffectRemovedEvent>((_, _, ev) => QueueIdentityUpdate(ev.Target)); // Offbrand
         SubscribeLocalEvent<IdentityBlockerComponent, ItemMaskToggledEvent>(OnMaskToggled);
     }
 

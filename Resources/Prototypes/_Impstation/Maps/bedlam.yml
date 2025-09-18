@@ -18,7 +18,7 @@
         - type: StationCargoShuttle
           path: /Maps/_Impstation/Shuttles/cargo.yml
         - type: StationJobs
-          availableJobs: # Total of 43 jobs roundstart, max of 48 inc. latejoins and trainees.
+          availableJobs: # Total of 44 jobs roundstart, max of 49 inc. latejoins and trainees.
             # command - 8
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
@@ -43,9 +43,9 @@
             AtmosphericTechnician: [ 2, 2 ]
             StationEngineer: [ 2, 2 ]
             TechnicalAssistant: [ 1, 1 ]
-            # medical - 5-6
+            # medical - 6-7
             Chemist: [ 1, 1 ]
-            Paramedic: [1, 1]
+            Paramedic: [2, 2]
             Psychologist: [1, 1]
             MedicalDoctor: [ 2, 2 ]
             MedicalIntern: [ 1, 1 ]
