@@ -39,6 +39,8 @@
       enum.ThavenMoodsUiKey.Key: # impstation edit
         type: ThavenMoodsBoundUserInterface
         requireInputValidation: false
+      enum.SurgeryGuideUiKey.Key: # Offbrand
+        type: SurgeryGuideBoundUserInterface
   # to prevent bag open/honk spam
   - type: UseDelay
     delay: 0.5

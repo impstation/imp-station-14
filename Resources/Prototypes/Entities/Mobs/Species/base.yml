@@ -200,6 +200,8 @@
       enum.ThavenMoodsUiKey.Key: # impstation edit
         type: ThavenMoodsBoundUserInterface
         requireInputValidation: false
+      enum.SurgeryGuideUiKey.Key: # Offbrand
+        type: SurgeryGuideBoundUserInterface
   - type: Puller
   - type: Speech
     speechSounds: Alto
