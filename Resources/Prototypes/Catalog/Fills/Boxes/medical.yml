@@ -42,6 +42,16 @@
     layers:
       - state: box
       - state: bottle
+  # Begin Offbrand
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,8,1
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,8,1
+  # End Offbrand
 
 - type: entity
   name: sterile mask box

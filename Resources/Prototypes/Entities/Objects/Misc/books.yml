@@ -326,7 +326,7 @@
       color: "#58abcc"
   - type: GuideHelp
     guides:
-    - Medical
+    - OffbrandMedical # Medical
 
 - type: entity
   id: BookHowToSurvive
@@ -366,7 +366,7 @@
   - type: GuideHelp
     guides:
     - Chemicals
-    - Chemist
+    - OffbrandChemist # Offbrand
 
 - type: entity
   id: BookSpaceLaw
