@@ -68,7 +68,7 @@
       baseDecayRate: 0.5
     - type: YoungKodepiiaRetaliation
       attackMemoryLength: 15
-    - type: Absorbable
+    - type: GoobAbsorbable
       biomassRestored: 0.8
     - type: MobThresholds
       thresholds:
@@ -111,8 +111,15 @@
   components:
   - type: Sprite
     layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: spaceboar
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: spaceboar_moving
+    noMovementLayers:
+      movement:
+        state: spaceboar
   - type: DamageStateVisuals
     states:
       Alive:
