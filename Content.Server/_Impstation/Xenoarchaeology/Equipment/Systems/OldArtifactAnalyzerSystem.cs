@@ -218,11 +218,8 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
                     {
                         points = _artifact.GetResearchPointValue(current);
                         //Doublecheck that the artifact is actually physically within range of the scanner
-                        if (Transform(current).Coordinates.TryDistance(EntityManager, Transform((EntityUid)component.AnalyzerEntity).Coordinates, out var distance))
-                        {
-                            if (distance < 2) //Hardcoded distance because i am not dealing with collison checks
-                                canScan = true;
-                        }
+                        if (Transform(current).Coordinates.TryDistance(EntityManager, Transform((EntityUid)component.AnalyzerEntity).Coordinates, out var distance) && distance < 2)
+                            canScan = true;
                     }
                 }
                 else
