@@ -14,6 +14,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
+using Robust.Shared.GameStates;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
@@ -24,6 +25,7 @@ public sealed class IVSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedJointSystem _joint = default!;
@@ -146,6 +148,12 @@ public sealed class IVSystem : EntitySystem
         _solutionContainer.UpdateChemicals(solutionEntity.Value);
     }
 
+    private void SetLock(Entity<IVSourceComponent> ent, bool locked)
+    {
+        _itemSlots.SetLock(ent, ent.Comp.SlotName, locked);
+        _appearance.SetData(ent.Owner, IVSourceVisuals.HasTarget, locked);
+    }
+
     private void StartIV(Entity<IVSourceComponent?> source, Entity<IVTargetComponent?> target, EntityUid user)
     {
         if (!Resolve(source, ref source.Comp) || !Resolve(target, ref target.Comp))
@@ -178,6 +186,7 @@ public sealed class IVSystem : EntitySystem
             joint.Stiffness = 0f;
         }
 
+        SetLock((source, source.Comp), true);
         Dirty(target);
         Dirty(source);
     }
@@ -202,6 +211,7 @@ public sealed class IVSystem : EntitySystem
         target.Comp.IVSource = null;
         target.Comp.IVJointID = null;
 
+        SetLock((source, source.Comp), false);
         Dirty(source);
         Dirty(target);
     }
@@ -210,6 +220,12 @@ public sealed class IVSystem : EntitySystem
     {
         if (!Resolve(source, ref source.Comp) || !Resolve(target, ref target.Comp) || source.Comp.IVTarget is not null || target.Comp.IVSource is not null)
             return;
+
+        if (_itemSlots.GetItemOrNull(source, source.Comp.SlotName) is not { } contained)
+        {
+            _popup.PopupPredictedCursor(Loc.GetString(source.Comp.NoBagInserted), user);
+            return;
+        }
 
         _popup.PopupPredicted(
             Loc.GetString(source.Comp.StartConnectionUser, ("target", Identity.Entity(target, EntityManager)), ("source", Identity.Entity(source, EntityManager)), ("user", Identity.Entity(user, EntityManager))),
@@ -262,6 +278,7 @@ public sealed class IVSystem : EntitySystem
 
         targetComp.IVSource = null;
         targetComp.IVJointID = null;
+        SetLock(ent, false);
         Dirty(target, targetComp);
     }
 
@@ -274,6 +291,7 @@ public sealed class IVSystem : EntitySystem
             _joint.RemoveJoint(ent, joint);
 
         sourceComp.IVTarget = null;
+        SetLock((source, sourceComp), false);
         Dirty(source, sourceComp);
     }
 

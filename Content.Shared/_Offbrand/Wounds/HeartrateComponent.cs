@@ -120,6 +120,12 @@ public sealed partial class HeartrateComponent : Component
     [DataField(required: true)]
     public FixedPoint2 HeartRateStrainDivisor;
 
+    /// <summary>
+    /// The maximum amount of strain possible
+    /// </summary>
+    [DataField(required: true)]
+    public FixedPoint2 MaximumStrain;
+
     [DataField, AutoNetworkedField]
     public float UpdateIntervalMultiplier = 1f;
 

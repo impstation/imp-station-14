@@ -167,6 +167,7 @@
     heartRateBase: 75
     heartRateStrainFactor: 200
     heartRateStrainDivisor: 6
+    maximumStrain: 6
     heartStoppedEffect: StatusEffectHeartStopped
   - type: HeartDefibrillatable
   - type: HeartStopOnHypovolemia

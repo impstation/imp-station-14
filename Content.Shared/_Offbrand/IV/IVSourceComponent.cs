@@ -37,6 +37,9 @@ public sealed partial class IVSourceComponent : Component
     public float Delay = 3f;
 
     [DataField]
+    public LocId NoBagInserted = "iv-bag-none-inserted";
+
+    [DataField]
     public LocId StartConnectionUser = "iv-bag-start-connection-user";
 
     [DataField]
@@ -66,3 +69,9 @@ public sealed partial class IVConnectDoAfterEvent : SimpleDoAfterEvent;
 
 [Serializable, NetSerializable]
 public sealed partial class IVDisconnectDoAfterEvent : SimpleDoAfterEvent;
+
+[Serializable, NetSerializable]
+public enum IVSourceVisuals : byte
+{
+    HasTarget
+}

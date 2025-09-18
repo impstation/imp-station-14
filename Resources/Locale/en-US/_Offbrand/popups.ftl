@@ -29,6 +29,7 @@ critical-brain-damage-applied = Your brain feels cut off from the world.
 brain-oxygen-depleted = Your brain struggles to control your limbs.
 severe-brain-damage-applied = Your brain struggles to direct your body.
 
+iv-bag-none-inserted = The IV stand doesn't have a bag in it.
 iv-bag-start-connection-user = You begin to search for a vein in { $target }...
 iv-bag-start-connection-others = { $user } is searching for a vein in { $target }...
 iv-bag-connected-user = You insert the cannula into one of { $target }'s veins.

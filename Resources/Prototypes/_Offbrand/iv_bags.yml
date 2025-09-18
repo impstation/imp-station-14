@@ -110,6 +110,9 @@
     - state: bag
       map: ["bag"]
       visible: false
+    - state: hooked
+      map: ["hooked"]
+      visible: false
     - state: fill-1
       map: [ "enum.SolutionContainerLayers.Fill" ]
       visible: false
@@ -157,6 +160,10 @@
         bag:
           True: { visible: true }
           False: { visible: false }
+      enum.IVSourceVisuals.HasTarget:
+        hooked:
+          True: { visible: true }
+          False: { visible: false }
   - type: SolutionContainerVisuals
     maxFillLevels: 4
     fillBaseName: fill-
@@ -164,6 +171,44 @@
     tags:
     - IVStand
   - type: IVSource
+  - type: Construction
+    graph: IVStand
+    node: ivstand
+    containers:
+    - iv_bag_slot
+
+- type: construction
+  id: IVStand
+  graph: IVStand
+  startNode: start
+  targetNode: ivstand
+  category: construction-category-machines
+  objectType: Structure
+
+- type: constructionGraph
+  id: IVStand
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ivstand
+      steps:
+      - material: Steel
+        amount: 5
+        doAfter: 5
+  - node: ivstand
+    entity: IVStand
+    edges:
+    - to: start
+      steps:
+      - tool: Screwing
+        doAfter: 5
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 5
+      - !type:EmptyAllContainers
+      - !type:DeleteEntity
 
 - type: entity
   parent: IVBag

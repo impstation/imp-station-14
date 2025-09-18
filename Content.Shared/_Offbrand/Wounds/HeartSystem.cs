@@ -195,6 +195,9 @@ public sealed partial class HeartSystem : EntitySystem
         var seed = SharedRandomExtensions.HashCodeCombine(new() { (int)_timing.CurTick.Value, GetNetEntity(ent).Id });
         var rand = new System.Random(seed);
 
+        if (_statusEffects.HasEffectComp<PreventHeartStopFromStrainStatusEffectComponent>(ent))
+            return;
+
         var damage = Comp<BrainDamageComponent>(ent).Damage;
         args.Stop = args.Stop || rand.Prob(ent.Comp.Chance) && damage > ent.Comp.Threshold;
     }
@@ -273,7 +276,7 @@ public sealed partial class HeartSystem : EntitySystem
         var evt = new GetStrainEvent(strain);
         RaiseLocalEvent(ent, ref evt);
 
-        return FixedPoint2.Max(evt.Strain, FixedPoint2.Zero);
+        return FixedPoint2.Clamp(evt.Strain, FixedPoint2.Zero, ent.Comp.MaximumStrain);
     }
 
     public FixedPoint2 HeartStrain(Entity<HeartrateComponent> ent)
