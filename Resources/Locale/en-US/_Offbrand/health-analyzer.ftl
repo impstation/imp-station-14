@@ -23,7 +23,7 @@ health-analyzer-window-entity-brain-health-value = {$value}% { -health-analyzer-
 health-analyzer-window-entity-heart-health-value = {$value}% { -health-analyzer-rating(rating: $rating) }
 health-analyzer-window-entity-heart-rate-value = {$value}bpm { -health-analyzer-rating(rating: $rating) }
 health-analyzer-window-entity-blood-oxygenation-value = {$value}% { -health-analyzer-rating(rating: $rating) }
-health-analyzer-window-entity-blood-pressure-value = {$diastolic}/{$systolic} { -health-analyzer-rating(rating: $rating) }
+health-analyzer-window-entity-blood-pressure-value = {$systolic}/{$diastolic} { -health-analyzer-rating(rating: $rating) }
 health-analyzer-window-entity-blood-circulation-value = {$value}% { -health-analyzer-rating(rating: $rating) }
 
 wound-internal-fracture = [color=red]Patient has internal fractures.[/color]
