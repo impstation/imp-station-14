@@ -150,6 +150,10 @@
   id: StatusEffectHeartStabilizationCryoxadone
 
 - type: entity
+  parent: StatusEffectHeartStabilizationInaprovaline
+  id: StatusEffectHeartStabilizationCloneoxadone
+
+- type: entity
   parent: MobStatusEffectBase
   id: StatusEffectBrainStabilizationInaprovaline
   name: brain stabilization
@@ -199,6 +203,10 @@
   components:
   - type: BloodOxygenationModifierStatusEffect
     minimumOxygenation: 0.8
+
+- type: entity
+  parent: StatusEffectMajorOxygenationDexalinPlus
+  id: StatusEffectMajorOxygenationCloneoxadone
 
 - type: entity
   parent: MobStatusEffectBase

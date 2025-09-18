@@ -205,6 +205,11 @@
         - !type:Temperature
           max: 213.0
       effects:
+      - !type:ModifyHeartDamage
+        amount: -0.15
+        conditions:
+        - !type:Temperature
+          max: 213.0
       - !type:EvenHealthChange
         conditions:
         - !type:Temperature
@@ -1428,10 +1433,12 @@
   metabolisms:
     Medicine:
       # Begin Offbrand
-      metabolismRate: 0.2
+      metabolismRate: 0.05
       statusEffects:
       - statusEffect: StatusEffectBrainHealingMannitol
       effects:
+      - !type:ModifyBrainDamage
+        amount: -0.05
       - !type:Drunk
         boozePower: 1
       - !type:Jitter

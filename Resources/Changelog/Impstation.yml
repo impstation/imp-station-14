@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: sev7ves
-  changes:
-  - message: Added a door alarm wire to high sec doors
-    type: Add
-  id: 1769
-  time: '2025-06-08T04:10:56.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2586
 - author: ThatKidConnor
   changes:
   - message: Gave the syndicat a recolour resembling Impstation Bloodred hardsuits.
@@ -4167,3 +4160,25 @@
   id: 2268
   time: '2025-09-18T02:53:32.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3463
+- author: sowelipililimute
+  changes:
+  - message: Peridaxon now exists, a chemical that can heal mild cases of heart damage
+      without requiring surgical intervention!
+    type: Add
+  - message: Cloneoxadone now exists, a stronger variant of Cryoxadone that requires
+      a colder body temperature to work, and thus, more pronounced stasis.
+    type: Add
+  - message: Cryoxadone now heals a minor amount of heart damage
+    type: Tweak
+  - message: The heart will now take half the damage from high heartrate
+    type: Tweak
+  - message: Health analyzers no longer incorrectly round brain and heart damage
+    type: Fix
+  - message: The heart stops from brain damage at the advertised 30% activity instead
+      of at higher levels
+    type: Fix
+  - message: Bone death no longer reports as internal fractures on the health analyzer
+    type: Fix
+  id: 2269
+  time: '2025-09-18T07:28:59.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3477

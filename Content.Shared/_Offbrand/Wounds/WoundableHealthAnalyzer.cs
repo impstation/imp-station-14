@@ -112,8 +112,8 @@ public sealed class WoundableHealthAnalyzerSystem : EntitySystem
         if (!TryComp<BrainDamageComponent>(uid, out var brainDamage))
             return null;
 
-        var brainHealth = 1d - (brainDamage.Damage / brainDamage.MaxDamage).Double();
-        var heartHealth = 1d - (heartrate.Damage / heartrate.MaxDamage).Double();
+        var brainHealth = 1d - ((double)brainDamage.Damage / (double)brainDamage.MaxDamage);
+        var heartHealth = 1d - ((double)heartrate.Damage / (double)heartrate.MaxDamage);
         var strain = _heart.HeartStrain((uid, heartrate)).Double() / 4d;
         var (upper, lower) = _heart.BloodPressure((uid, heartrate));
         var oxygenation = _heart.BloodOxygenation((uid, heartrate)).Double();
