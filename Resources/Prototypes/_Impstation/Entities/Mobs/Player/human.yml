@@ -7,7 +7,7 @@
   - type: AutoTraitor
     profile: TraitorInfiltrator
   - type: Loadout
-    prototypes: [SyndicateReinforcementSpy]
+    prototypes: [SyndicateInfiltratorGear]
     roleLoadout: [ RoleSurvivalSyndicate ]
   - type: EmitSoundOnSpawn # dumb fix for the clang sound not playing on spawn but only matters if youre spawning this prototype from the entity panel
     sound: /Audio/Effects/clang.ogg

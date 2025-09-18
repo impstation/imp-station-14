@@ -36,8 +36,6 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMedium
         disableEject: true
-  # imp: removed PAI component due to PAI shop additions.
-  # this is the excuse to refactor midi action and map action. hahahahah kill me
   - type: Instrument # imp
     allowPercussion: false
     handheld: false
@@ -100,13 +98,10 @@
     thresholds:
       0: Alive
       25: Dead
-  - type: Flash
   - type: NoSlip
   - type: StatusEffects
     allowed:
-    - Stun
-    - KnockedDown
-    - SlowedDown
+    - Flashed
   - type: SlowOnDamage
     speedModifierThresholds:
       30: 0.7
@@ -151,6 +146,8 @@
   - type: ActionGrant
     actions:
     - ActionViewLaws
+    - ActionDroneOpenMap
+    - ActionDronePlayMidi
   - type: Actions
   - type: UnpoweredFlashlight
   - type: PointLight

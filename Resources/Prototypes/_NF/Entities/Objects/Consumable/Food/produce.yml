@@ -1,4 +1,41 @@
 ﻿- type: entity
+  name: pear
+  parent: FoodProduceBase
+  id: FoodPear
+  description: It's peary good.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - pear
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 14
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 4
+  - type: Sprite
+    sprite: _NF/Objects/Specific/Hydroponics/pear.rsi
+  - type: Item
+    heldPrefix: produce
+  - type: Produce
+    seedId: pear
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: JuicePear
+        Quantity: 10
+  - type: Tag
+    tags:
+    - Fruit
+  - type: FoodSequenceElement
+    entries:
+      Burger: Pear
+      Taco: Pear
+
+- type: entity
   name: coffee berries
   parent: FoodProduceBase
   id: FoodCoffee
@@ -19,6 +56,8 @@
           Quantity: 1
   - type: Sprite
     sprite: _NF/Objects/Specific/Hydroponics/coffee.rsi
+  - type: Item
+    heldPrefix: produce
   - type: Produce
     seedId: coffee
   - type: Tag
@@ -29,3 +68,298 @@
     - id: FoodCoffeeBeansRaw
     sound:
       path: /Audio/Effects/packetrip.ogg
+
+- type: entity
+  name: avocado
+  parent: FoodProduceBase
+  id: FoodAvocado
+  description: Like delicious buttery grass.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - avocado
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 16
+        reagents:
+        - ReagentId: Nutriment #place holder
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 6
+  - type: Sprite
+    sprite: _NF/Objects/Specific/Hydroponics/avocado.rsi
+  - type: Item
+    heldPrefix: produce
+  - type: Produce
+    seedId: avocado
+  - type: SliceableFood
+    count: 2
+    slice: FoodAvocadoSlice
+  - type: Extractable
+    grindableSolutionName: food
+    juiceSolution:
+      reagents:
+      - ReagentId: OilVegetable
+        Quantity: 5
+  - type: Tag
+    tags:
+    - Fruit
+
+- type: entity
+  name: avocado slice
+  parent: ProduceSliceBase
+  id: FoodAvocadoSlice
+  description: Like delicious, fun-sized buttery grass.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - avocado
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 3
+  - type: Sprite
+    sprite: _NF/Objects/Specific/Hydroponics/avocado.rsi
+  - type: Extractable
+    grindableSolutionName: food
+    juiceSolution:
+      reagents:
+      - ReagentId: OilVegetable
+        Quantity: 2.5
+  - type: Tag
+    tags:
+    - Fruit
+    - Slice
+
+- type: entity
+  name: cucumber
+  parent: FoodProduceBase
+  id: FoodCucumber
+  description: Like fresh crispy water.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - cucumber
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment #place holder
+          Quantity: 6
+        - ReagentId: Vitamin
+          Quantity: 4
+  - type: Sprite
+    sprite: _NF/Objects/Specific/Hydroponics/cucumber.rsi
+  - type: Item
+    heldPrefix: produce
+  - type: Produce
+    seedId: cucumber
+  - type: SliceableFood
+    count: 4
+    slice: FoodCucumberSlice
+  - type: Extractable
+    grindableSolutionName: food
+    juiceSolution:
+      reagents:
+      - ReagentId: CucumberWater
+        Quantity: 10
+  - type: Tag
+    tags:
+    - Vegetable
+
+- type: entity
+  name: cucumber slice
+  parent: ProduceSliceBase
+  id: FoodCucumberSlice
+  description: Like fresh crispy water, but smaller.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - cucumber
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 1.5
+        - ReagentId: Vitamin
+          Quantity: 1
+  - type: Sprite
+    sprite: _NF/Objects/Specific/Hydroponics/cucumber.rsi
+  - type: Extractable
+    grindableSolutionName: food
+    juiceSolution:
+      reagents:
+      - ReagentId: CucumberWater
+        Quantity: 2.5
+  - type: Tag
+    tags:
+    - Vegetable
+    - Slice
+
+- type: entity
+  name: pickle
+  parent: FoodProduceBase
+  id: FoodPickle
+  description: Like tangy crispy water.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - salty
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment #place holder
+          Quantity: 6
+        - ReagentId: Vitamin
+          Quantity: 4
+        - ReagentId: Saline
+          Quantity: 10
+  - type: Sprite
+    sprite: _NF/Objects/Specific/Hydroponics/cucumber.rsi
+    state: pickle
+  - type: Item
+    heldPrefix: pickle
+  - type: SliceableFood
+    count: 4
+    slice: FoodPickleSlice
+  - type: Extractable
+    grindableSolutionName: food
+    juiceSolution:
+      reagents:
+      - ReagentId: Saline
+        Quantity: 10
+  - type: Tag
+    tags:
+    - Vegetable
+
+- type: entity
+  name: pickle slice
+  parent: ProduceSliceBase
+  id: FoodPickleSlice
+  description: Like tangy crispy water, but smaller.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - salty
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 1.5
+        - ReagentId: Vitamin
+          Quantity: 1
+        - ReagentId: Saline
+          Quantity: 2.5
+  - type: Sprite
+    sprite: _NF/Objects/Specific/Hydroponics/cucumber.rsi
+    state: pickleslice
+  - type: Extractable
+    grindableSolutionName: food
+    juiceSolution:
+      reagents:
+      - ReagentId: Saline
+        Quantity: 2.5
+  - type: Tag
+    tags:
+    - Vegetable
+    - Slice
+
+- type: entity
+  name: honeycomb
+  parent: FoodProduceBase
+  id: FoodHoneyComb
+  description: Crispy container of honey.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - honeycomb
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Honey
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 5
+  - type: Sprite
+    sprite: _NF/Objects/Specific/Hydroponics/bees.rsi
+  - type: Item
+    heldPrefix: produce
+  - type: Extractable
+    grindableSolutionName: food
+    juiceSolution:
+      reagents:
+      - ReagentId: Honey
+        Quantity: 5
+
+- type: entity
+  name: everyspice pods
+  parent: FoodProduceBase
+  id: FoodEveryspice
+  description: The long, pale pods of the everyspice plant. A flavorful addition to food when ground.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - spices
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Everyspice
+          Quantity: 5
+  - type: Sprite
+    sprite: _NF/Objects/Specific/Hydroponics/everyspice.rsi
+  - type: Item
+    heldPrefix: produce
+  - type: Tag
+    tags:
+    - Fruit
+  - type: AtmosExposed
+  - type: Temperature
+  - type: Construction
+    graph: Everyspice
+    node: start
+    defaultTarget: FoodEveryspiceRoasted
+
+- type: entity
+  name: roasted everyspice pods
+  parent: FoodProduceBase
+  id: FoodEveryspiceRoasted
+  description: Aromatic, charred pods of the everyspice plant. A piquant addition to food when ground.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - peppery
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Blackpepper
+          Quantity: 5
+  - type: Sprite
+    sprite: _NF/Objects/Specific/Hydroponics/everyspice.rsi
+    state: produce-roasted
+  - type: Item
+    heldPrefix: produce-roasted
+  - type: Tag
+    tags:
+    - Fruit
+  - type: Construction
+    graph: Everyspice
+    node: FoodEveryspiceRoasted

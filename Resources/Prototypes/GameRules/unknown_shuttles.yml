@@ -6,7 +6,7 @@
     children:
     - id: UnknownShuttleCargoLost
     - id: UnknownShuttleTravelingCuisine
-    - id: UnknownShuttleDisasterEvacPod
+#    - id: UnknownShuttleDisasterEvacPod imp - emergency commented out to prevent crashing
     - id: UnknownShuttleHonki
     - id: UnknownShuttleNTQuark
     - id: UnknownShuttleCruiser
@@ -28,6 +28,7 @@
     - !type:NestedSelector # DV
       tableId: UnknownShuttlesFreelanceTableDV
     - id: UnknownShuttleSyndieEvacPod
+    - id: UnknownShuttlePartyUFO #imp
 
 - type: entityTable
   id: UnknownShuttlesHostileTable
@@ -242,3 +243,13 @@
   - type: LoadMapRule
     preloadedGrid: Spacebus
 
+#imp
+- type: entity
+  id: UnknownShuttlePartyUFO
+  parent: BaseUnknownShuttleRule
+  components:
+  - type: StationEvent
+    startAnnouncement: true #!!
+    weight: 8 #slightly less common
+  - type: LoadMapRule
+    preloadedGrid: PartyUFO

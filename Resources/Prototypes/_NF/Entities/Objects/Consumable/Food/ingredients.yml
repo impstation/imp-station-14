@@ -1,4 +1,27 @@
-﻿- type: entity
+# Lots of misc stuff in here, hard to parent it.
+
+# Powder (For when you throw stuff like flour and it explodes)
+
+# Reagent Containers
+
+- type: entity
+  parent: ReagentPacketBase
+  id: ReagentContainerRaisin
+  name: raisin bag
+  description: A big bag of raisins. Good for baking!
+  components:
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/ingredients.rsi
+    state: raisin-big
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: Raisins
+          Quantity: 50
+
+- type: entity
   name: raw coffee beans
   parent: FoodProduceBase
   id: FoodCoffeeBeansRaw
@@ -20,6 +43,8 @@
   - type: Sprite
     sprite: _NF/Objects/Specific/Hydroponics/coffee.rsi
     state: produce-beans
+  - type: Item
+    heldPrefix: produce-beans
   - type: Tag
     tags:
     - Fruit
@@ -54,6 +79,8 @@
   - type: Sprite
     sprite: _NF/Objects/Specific/Hydroponics/coffee.rsi
     state: produce-beans-light
+  - type: Item
+    heldPrefix: produce-beans-light
   - type: Tag
     tags:
     - Fruit
@@ -77,8 +104,9 @@
   description: City roast coffee beans. Smooth and nutty.
   components:
   - type: Sprite
-    sprite: _NF/Objects/Specific/Hydroponics/coffee.rsi
     state: produce-beans-medium
+  - type: Item
+    heldPrefix: produce-beans-medium
   - type: Construction
     graph: Coffee
     node: medium roasted coffee
@@ -91,9 +119,86 @@
   description: Viennese roast coffee beans. Smoky and spicy.
   components:
   - type: Sprite
-    sprite: _NF/Objects/Specific/Hydroponics/coffee.rsi
     state: produce-beans-dark
+  - type: Item
+    heldPrefix: produce-beans-dark
   - type: Construction
     graph: Coffee
     node: dark roasted coffee
-    defaultTarget: null
+    defaultTarget: Null # Overwriting light target
+
+- type: entity
+  parent: [ReagentPacketBase, ItemHeftyBase]
+  id: ReagentContainerHoney
+  name: honey bottle
+  description: A big squeeze bottle of honey. Great for sweetening up your day!
+  components:
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/ingredients.rsi
+    state: honeybottle
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Honey
+          Quantity: 30
+  - type: Drink
+    solution: food
+    useSound:
+      path: /Audio/Items/eating_1.ogg
+
+- type: entity
+  parent: FoodDoughFlat
+  id: FoodDoughFlatButtered
+  name: buttered flat dough
+  description: A buttered, flattened dough.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - dough
+    - butter
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/ingredients.rsi
+    state: dough-flat-buttered
+  - type: Construction
+    graph: Pizza
+    node: flat-butter
+
+- type: entity
+  parent: FoodDoughFlat
+  id: FoodDoughFlatPastry
+  name: pastry dough
+  description: A buttery, rolled out pastry dough.
+  components:
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/ingredients.rsi
+    state: dough-pastry-flat
+  - type: Construction
+    graph: Pizza
+    node: pastry
+  - type: SliceableFood
+    count: 3
+    slice: FoodDoughPastryBaseRaw
+
+- type: entity
+  parent: FoodBakedBase
+  id: FoodBakedWaffleCone
+  name: waffle cone
+  description: A sugary waffle cone. Top with ice cream!
+  components:
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/frozen.rsi
+    state: wafflecone
+  - type: Construction
+    graph: WaffleCone
+    node: cone
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 13
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Sugar
+          Quantity: 1

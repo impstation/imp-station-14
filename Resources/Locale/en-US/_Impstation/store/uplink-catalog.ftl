@@ -4,6 +4,9 @@ uplink-animal-friends-kit-desc = A box containing 4 doses of subjuzine, an alter
 uplink-cleaner-lake-upgrade-name = Shining Spring remilitarisation kit
 uplink-cleaner-lake-upgrade-desc = A kit that can be used to remove the safety measures from a Shining Spring.
 
+uplink-cleaning-grenade-bleach-name = Box of heavy-duty cleanades
+uplink-cleaning-grenade-bleach-desc = A box containing some discontinued heavy-duty cleaning grenades. WARNING: DO NOT INHALE
+
 uplink-zipper-ap-name = Zipper .22
 uplink-zipper-ap-desc = A regretful purchase from a liquidation sale. Comes loaded with armor-piercing rounds. Uses .22 auto.
 
@@ -96,3 +99,33 @@ uplink-nullrod-upgrade-desc = A vile incense burner used to transform nullrod it
 
 uplink-gay-implanter-name = Gay implanter
 uplink-gay-implanter-desc = Huh??? Why is this in here??? Is my uplink hacked??
+
+uplink-valushot-name = Deadly Dan's ValuShot 9000
+uplink-valushot-desc = Lethal weaponry at a discount price!
+
+uplink-valushotfamily-name = Deadly Dan's ValuShot Family Pack
+uplink-valushotfamily-desc = 3 ValuShot 9000 pistols for a special deal!
+
+uplink-valushotclub-name = Deadly Dan's ValuShot Club Bundle
+uplink-valushotclub-desc = Bulk buys! 14 ValuShot 9000 pistols for the price of 10!
+
+uplink-supermatter-grenade-name = Supermatter Grenade
+uplink-supermatter-grenade-desc = Grenade that simulates delamination of a supermatter engine, generates powerful gravity well. Explosion comparable to a Mini Bomb.
+
+uplink-beenade-name = Beenade
+uplink-beenade-desc = The ultimate in distraction, this foaming grenade contains enough pure concentrated bees to keep Medbay busy for quite a while. Throw it into the bar and watch everyone panic. Just don't stand too close.
+
+uplink-bros-grenade-name = BROSnade
+uplink-bros-grenade-desc = A colony of angry BROS captured in a glass bottle. UNGH
+
+uplink-pin-straight-name = Straight Pride Pin
+uplink-pin-straight-desc = Demonstrate your support for the heterosexual community with this straight pride pin.
+
+uplink-cloak-straight-name = Straight Pride Cloak
+uplink-cloak-straight-desc = Demonstrate your support for the heterosexual community (and the hamburglar) with this stripy, black-and-white cloak.
+
+uplink-super-mosin-name = K2903 Star Rifle bundle
+uplink-super-mosin-desc = A modified bolt-action service rifle with a large magazine! Not modern by any standard. Quite the steal, if you don't mind hand-loading. Comes with a handful of stripper clips.
+
+uplink-ourobros-name = OuroBROS
+uplink-ourobros-desc = UNGH!

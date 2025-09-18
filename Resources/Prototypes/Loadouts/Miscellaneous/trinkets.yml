@@ -14,19 +14,22 @@
   storage:
     back:
     - ClothingHeadHatFlowerWreath
+  groupBy: "headwear" #imp
 
 - type: loadout
   id: Hairflower
   storage:
     back:
     - ClothingHeadHatHairflower
+  groupBy: "headwear" #imp
 
 # Headphones
 - type: loadout
   id: Headphones
   storage:
     back:
-    - ClothingNeckHeadphones
+    - ClothingMultipleHeadphones
+  groupBy: "neckwear" #imp
 
 # Toys
 - type: loadout
@@ -34,13 +37,14 @@
   storage:
     back:
     - PlushieLizard
-
+  groupBy: "baubles" #imp
 
 - type: loadout
   id: PlushieSpaceLizard
   storage:
     back:
     - PlushieSpaceLizard
+  groupBy: "baubles" #imp
 
 - type: loadout
   id: ThreeCandles
@@ -50,6 +54,7 @@
     - CandleRed
     - CandleBlue
     - CandleGreenSmall
+  groupBy: "baubles" #imp
 
 # Smokeables
 - type: loadout
@@ -234,29 +239,73 @@
     - ClothingNeckGenderfluidPin
   groupBy: "pin"
 
+# Canes
+# The white cane is intentionally not included here. Thats for the blind.
 - type: loadout
-  id: FolderBlack
+  id: OffsetCane
   storage:
     back:
-    - BoxFolderBlackLoadout
+    - OffsetCane
+  groupBy: "canes"
 
 - type: loadout
-  id: BarFlask
+  id: OffsetCaneWood
   storage:
     back:
-    - DrinkFlaskBar
+    - OffsetCaneWood
+  groupBy: "canes"
 
 - type: loadout
-  id: NewtonCradle
+  id: OffsetCaneClown
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobClown
+      time: 3600 # 1hr
   storage:
     back:
-    - NewtonCradle
+    - OffsetCaneClown
+  groupBy: "canes"
 
 - type: loadout
-  id: CardBoxBlack
+  id: OffsetCaneMime
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobMime
+      time: 3600 # 1hr
   storage:
     back:
-    - CardBoxBlack
+    - OffsetCaneMime
+  groupBy: "canes"
+
+- type: loadout
+  id: OffsetCaneNT
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Command
+      time: 18000 # 5hr
+  storage:
+    back:
+    - OffsetCaneNT
+  groupBy: "canes"
+
+- type: loadout
+  id: Cane
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobLibrarian
+      time: 3600 # 1hr same as Jamjar.
+  storage:
+    back:
+    - Cane
+  groupBy: "canes"
 
 # Towels
 - type: loadout

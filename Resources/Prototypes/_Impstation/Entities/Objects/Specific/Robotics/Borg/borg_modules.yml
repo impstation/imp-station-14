@@ -9,11 +9,11 @@
     - state: generic
     - state: icon-cables
   - type: ItemBorgModule
-    items:
-    - trayScanner
-    - Multitool
-    - RCDRechargingTckTck
-    - MicroDrill
+    hands:
+    - item: trayScanner
+    - item: Multitool
+    - item: RCDRechargingTckTck
+    - item: MicroDrill
   - type: BorgModuleIcon
     icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: tcktck-tools-module }
   - type: Tag
@@ -30,10 +30,10 @@
     - state: generic
     - state: icon-grappling-gun
   - type: ItemBorgModule
-    items:
-    - WeaponGrapplingGunTckTck
-    - FireExtinguisherTckTck
-    - HandHeldMassScannerBorg
+    hands:
+    - item: WeaponGrapplingGunTckTck
+    - item: FireExtinguisherTckTck
+    - item: HandHeldMassScannerBorg
   - type: BorgModuleIcon
     icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: tcktck-eva-module }
   - type: Tag
@@ -51,8 +51,8 @@
     - state: generic
     - state: icon-grappling-gun
   - type: ItemBorgModule
-    items:
-    - WeaponPistolTckTck
+    hands:
+    - item: WeaponPistolTckTck
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
   - type: Tag
@@ -70,10 +70,10 @@
     - state: generic
     - state: icon-pen
   - type: ItemBorgModule
-    items:
-    - CrayonRainbowInfinite
-    - SprayPainter
-    - Pen
+    hands:
+    - item: CrayonRainbowInfinite
+    - item: SprayPainter
+    - item: Pen
   - type: BorgModuleIcon
     icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: artistic-module }
 
@@ -87,12 +87,12 @@
     - state: service
     - state: icon-beer
   - type: ItemBorgModule
-    items:
-    - Lighter
-    - DrinkShaker
-    - BarSpoon
-    - BorgIceBucket
-    - Pitcher
+    hands:
+    - item: Lighter
+    - item: DrinkShaker
+    - item: BarSpoon
+    - item: BorgIceBucket
+    - item: Pitcher
   - type: BorgModuleIcon
     icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: bartender-module }
 
@@ -107,8 +107,8 @@
     - state: cargo
     - state: icon-courier
   - type: ItemBorgModule
-    items:
-    - MailBag
-    - BorgHoloBellProjector
+    hands:
+    - item: MailBag
+    - item: BorgHoloBellProjector
   - type: BorgModuleIcon
     icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: courier-module }

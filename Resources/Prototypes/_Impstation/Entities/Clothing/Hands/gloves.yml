@@ -9,6 +9,10 @@
   - type: Clothing
     sprite: _Impstation/Clothing/Hands/Gloves/captainflightgloves.rsi
   - type: Insulated
+  - type: DamageOnShootProtection
+    damageProtection:
+      flatReductions:
+        Shock: 10
   - type: Fiber
     fiberMaterial: fibers-leather
     fiberColor: fibers-regal-black
@@ -63,3 +67,18 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+
+- type: entity
+  parent: [ClothingHandsBase]
+  id: ClothingHandsMusicianSingerGloves
+  name: lounge singer's gloves
+  description: A pair of fancy silk opera gloves in dark purple.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Hands/Gloves/mus_singergloves.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Hands/Gloves/mus_singergloves.rsi
+  - type: Fiber
+    fiberMaterial: fibers-web
+    fiberColor: fibers-purple
+  - type: FingerprintMask

@@ -263,3 +263,25 @@
     sprite: _Impstation/Clothing/Uniforms/Jumpskirt/spacedress.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Uniforms/Jumpskirt/spacedress.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformMusicianSingerDress
+  name: lounge singer's dress
+  description: A form-fitting silk dress, perfect for preforming at fancy nightclubs. Or at dive bars on backwater space stations.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/mus_singerdress.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/mus_singerdress.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtNurse
+  name: nurse uniform
+  description: An old nursing uniform. It's probably been through the wash thousands of times, yet you can still faintly make out stains from nightmarish shifts of yore.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/nurse.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/nurse.rsi

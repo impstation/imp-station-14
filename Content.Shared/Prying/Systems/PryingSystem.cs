@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared._Impstation.Tools.Components; // imp
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
@@ -80,7 +81,16 @@ public sealed class PryingSystem : EntitySystem
             return true;
         }
 
-        StartPry(target, user, tool, comp.SpeedModifier, out id);
+        // imp edit start, if a prying tool has CowTool and the user has CowToolProficiency, use speed modifier from CowToolComponent
+        // else, use speed modifier from PryingComponent, as normal
+        float speedModifier; //toolModifier parameter moved to its own variable from StartPry call below to allow it to be set to different durations
+        if (TryComp<CowToolComponent>(tool, out var cowToolComponent) &&
+            TryComp<CowToolProficiencyComponent>(user, out _))
+            speedModifier = cowToolComponent.ProficiencySpeedModifier;
+        else
+            speedModifier = comp.SpeedModifier;
+        // imp edit end
+        StartPry(target, user, tool, speedModifier, out id); // imp edit, speedModifier was previously comp.SpeedModifier
 
         return true;
     }

@@ -36,7 +36,7 @@
   - type: Item
     size: Small
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/candy.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Candy/chalk_heart.rsi
     state: chalkheartpackage2
 
 - type: entity
@@ -46,7 +46,7 @@
   description: A box of romantic treats, brought to you by your friends at GetMore Chocolate Corp!
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/candy.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Candy/chocolate_heart.rsi
     layers:
     - map: [ base ]
       state: heartbox-closed
@@ -159,5 +159,5 @@
   - type: Item
     size: Small
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/candy.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Candy/chalk_heart.rsi
     state: chalkheartpackage1

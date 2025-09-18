@@ -36,6 +36,10 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtGenetics
 
+- type: loadout
+  id: MedicalNurseJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtNurse
 
 # Outer Clothing
 - type: loadout
@@ -53,9 +57,15 @@
   equipment:
     outerClothing: ClothingOuterWinterViro
 
+- type: loadout
+  id: MedicalNurseApron
+  equipment:
+    outerClothing: ClothingOuterApronNurse
+
 # Eyewear
 
 - type: loadout
   id: MedicalGlassesHud
   equipment:
     eyes: ClothingEyesGlassesHudMedical
+  groupBy: "job"

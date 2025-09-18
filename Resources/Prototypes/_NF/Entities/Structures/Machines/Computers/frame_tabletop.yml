@@ -23,21 +23,22 @@
     graph: ComputerTabletop
     node: tabletop computer
   - type: Sprite
-    sprite: _NF/Structures/Machines/computer_tabletop.rsi
+    sprite: Structures/Machines/computers.rsi # use base directory for screen and keys (unless we've resprited them), use imp directory for body, keyboard, and panel
     drawdepth: SmallObjects
     layers:
     - map: [ "computerLayerBody" ]
-      sprite: _NF/Structures/Machines/computer_tabletop.rsi
+      sprite: _Impstation/Structures/Machines/computer_tabletop.rsi #imp edit
       state: computer_tabletop
     - map: [ "computerLayerKeyboard" ]
-      sprite: _NF/Structures/Machines/computer_tabletop.rsi
+      sprite: _Impstation/Structures/Machines/computer_tabletop.rsi #imp edit
       state: generic_keyboard_tabletop
     - map: [ "computerLayerScreen" ]
-      sprite: Structures/Machines/computers.rsi
       state: generic
     - map: [ "computerLayerKeys" ]
-      sprite: Structures/Machines/computers.rsi
       state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ] # imp edit
+      state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Electronic
@@ -70,7 +71,7 @@
     - board
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: _NF/Structures/Machines/computer_tabletop.rsi
+    sprite: _Impstation/Structures/Machines/computer_tabletop.rsi #imp edit
     layers:
     - state: computer_tabletop_frame
       map: [ "enum.ConstructionVisuals.Layer" ]
@@ -102,7 +103,7 @@
   components:
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: _NF/Structures/Machines/computer_tabletop.rsi
+    sprite: _Impstation/Structures/Machines/computer_tabletop.rsi #imp edit
     state: broken_tabletop
   - type: Fixtures
     fixtures:

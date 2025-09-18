@@ -2,7 +2,7 @@
   parent: BaseAction
   id: ActionHereticFleshSurgery
   name: flesh surgery
-  description: Remove a random organ from someone, or heal your teammates.
+  description: Temporarily disable a random organ, or heal your teammates.
   components:
   - type: Action
     useDelay: 30

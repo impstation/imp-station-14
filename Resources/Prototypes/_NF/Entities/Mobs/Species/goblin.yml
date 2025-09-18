@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseMobHuman
+  parent: BaseMobSpeciesOrganic # Imp
   name: Urist McGoblin
   id: MobGoblinBase
   abstract: true
@@ -232,6 +232,9 @@
           32:
             sprite: _Impstation/Mobs/Species/Goblin/displacement.rsi
             state: suitstorage
+  - type: Hunger # Imp
+  - type: Thirst # Imp
+
 - type: entity
   save: false
   name: Urist McGoblin

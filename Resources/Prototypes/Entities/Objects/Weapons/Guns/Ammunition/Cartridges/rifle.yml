@@ -21,7 +21,7 @@
 - type: entity
   id: CartridgeRifle
   name: cartridge (.20 rifle)
-  description: An intermediate cartridge that serves as the backbone for modern assault rifles, often considered the galactic standard. #imp
+  description: A kinetic intermediate cartridge that serves as the backbone for modern assault rifles, often considered the galactic standard. #imp
   parent: BaseCartridgeRifle
   components:
   - type: CartridgeAmmo
@@ -41,7 +41,7 @@
         map: [ "enum.AmmoVisualLayers.Base" ]
       - state: tip
         map: [ "enum.AmmoVisualLayers.Tip" ]
-        color: "#dbdbdb"
+        color: "#ffcb6f" #imp
 
 - type: entity
   id: CartridgeRifleIncendiary
@@ -57,7 +57,7 @@
         map: [ "enum.AmmoVisualLayers.Base" ]
       - state: tip
         map: [ "enum.AmmoVisualLayers.Tip" ]
-        color: "#ff6e52"
+        color: "#d46925" #imp
 
 - type: entity
   id: CartridgeRifleUranium
@@ -73,4 +73,4 @@
         map: [ "enum.AmmoVisualLayers.Base" ]
       - state: tip
         map: [ "enum.AmmoVisualLayers.Tip" ]
-        color: "#65fe08"
+        color: "#22b24d" #imp

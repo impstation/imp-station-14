@@ -1,0 +1,19 @@
+- type: cargoProduct
+  id: RandomOldNewArtifact
+  icon:
+    sprite: Objects/Specific/Xenoarchaeology/xeno_artifacts.rsi
+    state: ano12
+  product: RandomOldNewArtifactSpawner
+  cost: 1900
+  category: cargoproduct-category-name-science
+  group: market
+
+- type: cargoProduct
+  id: RandomArtifact
+  icon:
+    sprite: Objects/Specific/Xenoarchaeology/xeno_artifacts.rsi
+    state: ano10
+  product: RandomArtifactSpawner
+  cost: 2000
+  category: cargoproduct-category-name-science
+  group: market

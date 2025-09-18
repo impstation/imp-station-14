@@ -40,13 +40,6 @@
   equipment:
     head: ClothingHeadHatCapcap
 
-# Glasses
-- type: loadout
-  id: CaptainSunglasses
-  equipment:
-    eyes: ClothingEyesGlassesSunglasses
-
-
 # Neck
 - type: loadout
   id: CaptainCloak
@@ -97,27 +90,3 @@
   id: CaptainWintercoat
   equipment:
     outerClothing: ClothingOuterWinterCap
-
-# Gloves
-- type: loadout
-  id: CaptainGloves
-  equipment:
-    gloves: ClothingHandsGlovesCaptain
-
-
-# Shoes
-- type: loadout
-  id: LacedShoes
-  equipment:
-    shoes: ClothingShoesBootsLaceup
-
-# Headset
-- type: loadout
-  id: CommandHeadsetBasic
-  equipment:
-    ears: ClothingHeadsetCommand
-
-- type: loadout
-  id: CommandHeadset
-  equipment:
-    ears: ClothingHeadsetAltCommand

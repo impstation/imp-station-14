@@ -1,7 +1,8 @@
+using System.Linq; // Imp
 using System.Numerics;
+using Content.Server._Impstation.Station.Components; // Imp
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking.Rules;
-using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Server.StationEvents.Components;
 using Content.Shared.GameTicking.Components;
@@ -38,10 +39,19 @@ public sealed class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmComponent>
 
         if (meteorSwarm.StartAnnouncement)
         {
+            var station = RobustRandom.Pick(_station.GetStations()); //Imp start
+            var announcement = _announcer.GetEventLocaleString(_announcer.GetAnnouncementId(args.RuleId));
+            if (TryComp<StationSpecificMeteorComponent>(station, out var stationMeteor))
+            {
+                foreach (var announcementPair in stationMeteor.AnnouncementReplacements.Where(announcementPair => announcement == announcementPair.Key))
+                {
+                    announcement = announcementPair.Value;
+                }
+            }// Imp end
             _announcer.SendAnnouncement(
                 _announcer.GetAnnouncementId("MeteorSwarm"),
                 Filter.Broadcast(),
-                _announcer.GetEventLocaleString(_announcer.GetAnnouncementId(args.RuleId)),
+                announcement, // imp
                 colorOverride: Color.Gold
             );
         }
@@ -59,7 +69,7 @@ public sealed class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmComponent>
             return;
 
         var station = RobustRandom.Pick(_station.GetStations());
-        if (_station.GetLargestGrid(Comp<StationDataComponent>(station)) is not { } grid)
+        if (_station.GetLargestGrid(station) is not { } grid)
             return;
 
         var mapId = Transform(grid).MapID;
@@ -74,6 +84,14 @@ public sealed class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmComponent>
         for (var i = 0; i < meteorsToSpawn; i++)
         {
             var spawnProto = RobustRandom.Pick(component.Meteors);
+
+            if (TryComp<StationSpecificMeteorComponent>(station, out var stationMeteor))// imp start
+            {
+                foreach (var meteorPair in stationMeteor.MeteorReplacements.Where(meteorPair => spawnProto == meteorPair.Key))
+                {
+                    spawnProto = meteorPair.Value;
+                }
+            } // imp end
 
             var angle = component.NonDirectional
                 ? RobustRandom.NextAngle()

@@ -1,0 +1,32 @@
+- type: constructionGraph
+  id: ImprovisedLaserGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: laser
+      steps:
+      - tag: Crystal
+        icon:
+          sprite: _Impstation/Materials/crystal.rsi
+          state: shard1
+        name: construction-graph-tag-crystal
+      - tag: ModularReceiver
+        icon:
+          sprite: Objects/Misc/modular_receiver.rsi
+          state: icon
+        name: construction-graph-tag-modular-receiver
+      - tag: PowerCell
+        icon:
+          sprite: Objects/Power/power_cells.rsi
+          state: medium
+        name: construction-graph-tag-powercell
+      - material: Steel
+        amount: 5
+      - material: Manipulator
+        amount: 1
+      - material: Cable
+        amount: 10
+        doAfter: 15
+  - node: laser
+    entity: WeaponMakeshiftLaserEmpty
