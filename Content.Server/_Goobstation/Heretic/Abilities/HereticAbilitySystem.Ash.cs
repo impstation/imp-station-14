@@ -1,10 +1,12 @@
-using Content.Shared.Heretic;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Mobs;
-using Content.Shared.Damage;
-using Content.Shared.Atmos;
+using Content.Server._Goobstation.Heretic.Components;
+using Content.Server._Impstation.Heretic.Components;
 using Content.Server.Polymorph.Systems;
+using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
+using Content.Shared.Damage;
+using Content.Shared.Heretic;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
 
@@ -20,7 +22,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     private void SubscribeAsh()
     {
         SubscribeLocalEvent<HereticComponent, EventHereticAshenShift>(OnJaunt);
-        SubscribeLocalEvent<GhoulComponent, EventHereticAshenShift>(OnJauntGhoul);
+        SubscribeLocalEvent<InnateHereticMagicComponent, EventHereticAshenShift>(OnJauntGhoul);
         SubscribeLocalEvent<HereticComponent, PolymorphRevertEvent>(OnJauntEnd);
 
         SubscribeLocalEvent<HereticComponent, EventHereticVolcanoBlast>(OnVolcano);
@@ -37,8 +39,8 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             args.Handled = true;
     }
 
-    //a few of the flesh ghouls use this so it stays too
-    private void OnJauntGhoul(Entity<GhoulComponent> ent, ref EventHereticAshenShift args)
+    //So things with innate magical abilities can jaunt around
+    private void OnJauntGhoul(Entity<InnateHereticMagicComponent> ent, ref EventHereticAshenShift args)
     {
         if (TryUseAbility(ent, args) && TryDoJaunt(ent))
             args.Handled = true;
@@ -79,9 +81,9 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
         var ignoredTargets = new List<EntityUid>();
 
-        // all ghouls are immune to heretic shittery
-        var ghoulQuery = EntityQueryEnumerator<GhoulComponent>();
-        while (ghoulQuery.MoveNext(out var uid, out _))
+        // all minions are immune to heretic shittery
+        var minionQuery = EntityQueryEnumerator<MinionComponent>();
+        while (minionQuery.MoveNext(out var uid, out _))
             ignoredTargets.Add(uid);
 
         // all heretics with the same path are also immune
@@ -108,7 +110,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         foreach (var look in lookup)
         {
             if ((TryComp<HereticComponent>(look, out var th) && th.MainPath == ent.Comp.MainPath)
-            || HasComp<GhoulComponent>(look))
+            || HasComp<MinionComponent>(look))
                 continue;
 
             if (TryComp<FlammableComponent>(look, out var flam))

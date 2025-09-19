@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/08/2025 21:46:13
-  entityCount: 23561
+  time: 09/14/2025 04:43:00
+  entityCount: 23586
 maps:
 - 1
 grids:
@@ -16139,6 +16139,11 @@ entities:
     - type: Transform
       pos: -24.5,-7.5
       parent: 2
+  - uid: 15840
+    components:
+    - type: Transform
+      pos: -19.5,-12.5
+      parent: 2
 - proto: BedsheetOrange
   entities:
   - uid: 8768
@@ -16558,6 +16563,11 @@ entities:
     components:
     - type: Transform
       pos: -43.5,67.5
+      parent: 2
+  - uid: 23562
+    components:
+    - type: Transform
+      pos: 21.5,40.5
       parent: 2
 - proto: BookAtmosAirAlarms
   entities:
@@ -54365,6 +54375,25 @@ entities:
     - type: Transform
       pos: 32.458633,47.37235
       parent: 2
+- proto: ClothingHeadMirror
+  entities:
+  - uid: 23583
+    components:
+    - type: Transform
+      pos: -25.578579,-11.433229
+      parent: 2
+- proto: ClothingMaskBreathMedical
+  entities:
+  - uid: 23568
+    components:
+    - type: Transform
+      pos: -24.666368,-18.27799
+      parent: 2
+  - uid: 23569
+    components:
+    - type: Transform
+      pos: -24.760118,-20.324865
+      parent: 2
 - proto: ClothingMaskGas
   entities:
   - uid: 8390
@@ -54491,6 +54520,11 @@ entities:
     components:
     - type: Transform
       pos: -38.426537,40.892303
+      parent: 2
+  - uid: 23582
+    components:
+    - type: Transform
+      pos: -25.341482,-12.0644
       parent: 2
 - proto: ClothingNeckTieRed
   entities:
@@ -55366,22 +55400,22 @@ entities:
       parent: 2
 - proto: computerBodyScanner
   entities:
-  - uid: 8557
-    components:
-    - type: Transform
-      pos: -24.5,-20.5
-      parent: 2
-  - uid: 8558
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -24.5,-18.5
-      parent: 2
   - uid: 8559
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 19.5,18.5
+      parent: 2
+  - uid: 16074
+    components:
+    - type: Transform
+      pos: -26.5,-20.5
+      parent: 2
+  - uid: 23586
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -26.5,-18.5
       parent: 2
 - proto: ComputerCargoBounty
   entities:
@@ -56584,6 +56618,23 @@ entities:
     - type: Transform
       pos: -42.5,-18.5
       parent: 2
+  - uid: 19394
+    components:
+    - type: Transform
+      pos: -24.5,-15.5
+      parent: 2
+  - uid: 19397
+    components:
+    - type: Transform
+      pos: -24.5,-23.5
+      parent: 2
+- proto: CrateFreezerIVBag
+  entities:
+  - uid: 16310
+    components:
+    - type: Transform
+      pos: -19.5,-6.5
+      parent: 2
 - proto: CrateHydroponicsTools
   entities:
   - uid: 8704
@@ -56660,20 +56711,20 @@ entities:
       parent: 2
 - proto: CrateMedicalSurgery
   entities:
-  - uid: 8707
-    components:
-    - type: Transform
-      pos: -26.5,-20.5
-      parent: 2
-  - uid: 8708
-    components:
-    - type: Transform
-      pos: -26.5,-18.5
-      parent: 2
   - uid: 8709
     components:
     - type: Transform
       pos: 17.5,18.5
+      parent: 2
+  - uid: 19396
+    components:
+    - type: Transform
+      pos: -25.5,-23.5
+      parent: 2
+  - uid: 19398
+    components:
+    - type: Transform
+      pos: -25.5,-15.5
       parent: 2
 - proto: CrateNPCHamlet
   entities:
@@ -65498,11 +65549,6 @@ entities:
     components:
     - type: Transform
       pos: -15.5,-4.5
-      parent: 2
-  - uid: 16310
-    components:
-    - type: Transform
-      pos: -17.5,-7.5
       parent: 2
   - uid: 16336
     components:
@@ -105858,6 +105904,37 @@ entities:
     - type: Transform
       pos: 43.5,-76.5
       parent: 2
+- proto: IVStand
+  entities:
+  - uid: 8707
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -26.5,-17.5
+      parent: 2
+  - uid: 8708
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -20.5,-12.5
+      parent: 2
+  - uid: 23564
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -18.5,-19.5
+      parent: 2
+  - uid: 23565
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -26.5,-21.5
+      parent: 2
+  - uid: 23574
+    components:
+    - type: Transform
+      pos: -32.5,-9.5
+      parent: 2
 - proto: JanitorialTrolley
   entities:
   - uid: 15734
@@ -107033,11 +107110,6 @@ entities:
         - 0
 - proto: LockerMedicalFilled
   entities:
-  - uid: 15840
-    components:
-    - type: Transform
-      pos: -17.5,-6.5
-      parent: 2
   - uid: 15841
     components:
     - type: Transform
@@ -107052,6 +107124,11 @@ entities:
     components:
     - type: Transform
       pos: -31.5,-2.5
+      parent: 2
+  - uid: 23584
+    components:
+    - type: Transform
+      pos: -22.5,-7.5
       parent: 2
 - proto: LockerMedicineFilled
   entities:
@@ -107123,6 +107200,16 @@ entities:
     components:
     - type: Transform
       pos: -12.5,-16.5
+      parent: 2
+  - uid: 23575
+    components:
+    - type: Transform
+      pos: -27.5,-12.5
+      parent: 2
+  - uid: 23576
+    components:
+    - type: Transform
+      pos: -27.5,-11.5
       parent: 2
 - proto: LockerPrisoner
   entities:
@@ -108016,6 +108103,11 @@ entities:
     - type: Transform
       pos: -24.5,-12.5
       parent: 2
+  - uid: 23579
+    components:
+    - type: Transform
+      pos: -19.5,-12.5
+      parent: 2
 - proto: MedicalTechFab
   entities:
   - uid: 15934
@@ -108082,7 +108174,12 @@ entities:
   - uid: 15945
     components:
     - type: Transform
-      pos: -25.452318,-13.322607
+      pos: -25.497732,-12.9394
+      parent: 2
+  - uid: 23581
+    components:
+    - type: Transform
+      pos: -18.450857,-12.455025
       parent: 2
 - proto: MedkitOxygenFilled
   entities:
@@ -108654,6 +108751,18 @@ entities:
     components:
     - type: Transform
       pos: 18.5,-16.5
+      parent: 2
+- proto: NitrousOxideTankFilled
+  entities:
+  - uid: 8557
+    components:
+    - type: Transform
+      pos: -24.494493,-20.40299
+      parent: 2
+  - uid: 23567
+    components:
+    - type: Transform
+      pos: -24.385118,-18.43424
       parent: 2
 - proto: NoticeBoard
   entities:
@@ -110827,11 +110936,6 @@ entities:
     components:
     - type: Transform
       pos: 17.5,-11.5
-      parent: 2
-  - uid: 16074
-    components:
-    - type: Transform
-      pos: -19.5,-6.5
       parent: 2
   - uid: 16316
     components:
@@ -115095,6 +115199,19 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
+- proto: PrizeCounter
+  entities:
+  - uid: 23563
+    components:
+    - type: Transform
+      pos: 24.5,40.5
+      parent: 2
+    - type: TechnologyDatabase
+      supportedDisciplines:
+      - Industrial
+      - Arsenal
+      - Experimental
+      - CivilianServices
 - proto: Protolathe
   entities:
   - uid: 16912
@@ -115512,6 +115629,18 @@ entities:
     components:
     - type: Transform
       pos: -21.453587,-41.32728
+      parent: 2
+- proto: RagItem
+  entities:
+  - uid: 23572
+    components:
+    - type: Transform
+      pos: -26.629559,-15.278618
+      parent: 2
+  - uid: 23573
+    components:
+    - type: Transform
+      pos: -26.629559,-23.341118
       parent: 2
 - proto: Railing
   entities:
@@ -126214,6 +126343,16 @@ entities:
     - type: Transform
       pos: -13.5,-15.5
       parent: 2
+  - uid: 23577
+    components:
+    - type: Transform
+      pos: -28.5,-12.5
+      parent: 2
+  - uid: 23578
+    components:
+    - type: Transform
+      pos: -28.5,-11.5
+      parent: 2
 - proto: SpawnPointPassenger
   entities:
   - uid: 18736
@@ -126542,6 +126681,16 @@ entities:
     - type: Transform
       pos: -31.091824,6.5991406
       parent: 2
+  - uid: 23570
+    components:
+    - type: Transform
+      pos: -26.473309,-23.325493
+      parent: 2
+  - uid: 23571
+    components:
+    - type: Transform
+      pos: -26.379559,-15.387993
+      parent: 2
 - proto: Stairs
   entities:
   - uid: 18793
@@ -126586,15 +126735,20 @@ entities:
       parent: 2
 - proto: StasisBed
   entities:
-  - uid: 18801
-    components:
-    - type: Transform
-      pos: -18.5,-12.5
-      parent: 2
   - uid: 18802
     components:
     - type: Transform
       pos: -16.5,-16.5
+      parent: 2
+  - uid: 23580
+    components:
+    - type: Transform
+      pos: -17.5,-11.5
+      parent: 2
+  - uid: 23585
+    components:
+    - type: Transform
+      pos: -19.5,-7.5
       parent: 2
 - proto: StationAiUploadComputer
   entities:
@@ -130745,6 +130899,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: -38.5,40.5
       parent: 2
+  - uid: 8558
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -24.5,-18.5
+      parent: 2
   - uid: 13642
     components:
     - type: Transform
@@ -130756,6 +130916,11 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -38.5,39.5
+      parent: 2
+  - uid: 18801
+    components:
+    - type: Transform
+      pos: -18.5,-12.5
       parent: 2
   - uid: 19377
     components:
@@ -130842,30 +131007,10 @@ entities:
     - type: Transform
       pos: -26.5,-15.5
       parent: 2
-  - uid: 19394
-    components:
-    - type: Transform
-      pos: -24.5,-15.5
-      parent: 2
   - uid: 19395
     components:
     - type: Transform
       pos: -26.5,-23.5
-      parent: 2
-  - uid: 19396
-    components:
-    - type: Transform
-      pos: -25.5,-23.5
-      parent: 2
-  - uid: 19397
-    components:
-    - type: Transform
-      pos: -24.5,-23.5
-      parent: 2
-  - uid: 19398
-    components:
-    - type: Transform
-      pos: -25.5,-15.5
       parent: 2
   - uid: 19399
     components:
@@ -130928,6 +131073,12 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -38.5,41.5
+      parent: 2
+  - uid: 23566
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -24.5,-20.5
       parent: 2
 - proto: TablePlasmaGlass
   entities:

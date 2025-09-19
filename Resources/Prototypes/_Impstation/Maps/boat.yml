@@ -15,7 +15,7 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'AS'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/emergency_cluster.yml
+          emergencyShuttlePath: /Maps/Shuttles/emergency_accordia.yml
         - type: StationCargoShuttle
           path: /Maps/Shuttles/cargo_fland.yml
         - type: StationJobs
@@ -49,7 +49,7 @@
             Chemist: [ 2, 2 ]
             MedicalDoctor: [ 3, 3 ]
             MedicalIntern: [ 3, 3 ]
-            Paramedic: [ 1, 1 ]
+            Paramedic: [ 2, 2 ]
             Psychologist: [ 1, 1 ]
             # science - 8-9
             Borg: [ 4, 4 ]
