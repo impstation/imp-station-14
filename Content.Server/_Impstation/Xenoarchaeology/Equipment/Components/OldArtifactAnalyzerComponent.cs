@@ -2,6 +2,7 @@ using Content.Server.Xenoarchaeology.XenoArtifacts;
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Content.Shared.DeviceLinking;
 
 namespace Content.Shared.Xenoarchaeology.Equipment.Components;
 
@@ -24,6 +25,19 @@ public sealed partial class OldArtifactAnalyzerComponent : Component
     /// </summary>
     [ViewVariables]
     public EntityUid? Console;
+
+    /// <summary>
+    /// The corresponding advanced node scanner entity.
+    /// Can be null if not linked.
+    /// </summary>
+    [ViewVariables]
+    public EntityUid? AdvancedNodeScanner;
+
+    /// <summary>
+    /// The machine linking port for the advanced node scanner
+    /// </summary>
+    [DataField("advancedNodeScannerLinkingPort", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
+    public string AdvancedNodeScannerLinkingPort = "AdvancedNodeScannerSender";
 
     [ViewVariables(VVAccess.ReadWrite)]
     public bool ReadyToPrint = false;
