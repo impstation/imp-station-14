@@ -96,7 +96,7 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
             || args.EntityManager.HasComponent<GhoulComponent>(look)) //shouldn't happen because they gib on death but. sanity check
                 continue;
 
-            if (mobstate.CurrentState == Shared.Mobs.MobState.Dead)
+            if ((mobstate.CurrentState == Shared.Mobs.MobState.Dead) || (mobstate.CurrentState == Shared.Mobs.MobState.Critical))
                 Uids.Add(look);
         }
 
