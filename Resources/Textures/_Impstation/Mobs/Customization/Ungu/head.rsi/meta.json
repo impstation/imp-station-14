@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Chomp, Tusks, Walrus, Uni, Leaking eyes, Hawk, Prosthetic and Eyehorns by ThatKidConnor, HorseEars by LandShark, rest by normalgirl2171 and starlighthowls for Impstation",
+    "copyright": "Chomp, Tusks, Walrus, Uni, Leaking eyes, Hawk, Prosthetic and Eyehorns by ThatKidConnor, HorseEars by LandShark, Splotch by SinewaveDotZone, rest by normalgirl2171 and starlighthowls for Impstation",
     "size": {
         "x": 32,
         "y": 32
@@ -9,6 +9,14 @@
     "states": [
         {
             "name": "EarsLong",
+            "directions": 4
+        },
+        {
+            "name": "HeadSplotchL",
+            "directions": 4
+        },
+        {
+            "name": "HeadSplotchR",
             "directions": 4
         },
         {

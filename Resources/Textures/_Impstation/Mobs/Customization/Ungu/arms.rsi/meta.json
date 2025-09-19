@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Fluff by by LandShark, Skin, Prosthetics and Stitches by Thatkidconnor, rest by starlighthowls for Impstation",
+    "copyright": "Fluff by by LandShark, Skin, Prosthetics and Stitches by Thatkidconnor, Splotch by SinewaveDotZone, rest by starlighthowls for Impstation",
     "size": {
         "x": 32,
         "y": 32
@@ -9,6 +9,14 @@
     "states": [
         {
             "name": "LArmFluff",
+            "directions": 4
+        },
+        {
+            "name": "LArmSplotch",
+            "directions": 4
+        },
+        {
+            "name": "RArmSplotch",
             "directions": 4
         },
         {

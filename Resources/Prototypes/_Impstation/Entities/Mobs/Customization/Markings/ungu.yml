@@ -1,6 +1,24 @@
 # Chest
 
 - type: marking
+  id: ChestSplotchesLUngu
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/chest.rsi
+    state: TorsoSplotchesL
+
+- type: marking
+  id: ChestSplotchesRUngu
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/chest.rsi
+    state: TorsoSplotchesR
+
+- type: marking
   id: BackSpotUngu
   bodyPart: Chest
   markingCategory: Chest
@@ -165,6 +183,24 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
     state: HorseEars
+
+- type: marking
+  id: HeadSplotchLUngu
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
+    state: HeadSplotchL
+
+- type: marking
+  id: HeadSplotchRUngu
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
+    state: HeadSplotchR
 
 - type: marking
   id: EarsFloppyUngu
@@ -503,6 +539,15 @@
     state: RArmFluff
 
 - type: marking
+  id: RArmSplotchUngu
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/arms.rsi
+    state: RArmSplotch
+
+- type: marking
   id: RArmStripesUngu
   bodyPart: RArm
   markingCategory: Arms
@@ -566,6 +611,15 @@
     state: RArmSpotBig
 
 # LArm
+
+- type: marking
+  id: LArmSplotchUngu
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/arms.rsi
+    state: LArmSplotch
 
 - type: marking
   id: LArmFluffUngu
@@ -642,6 +696,24 @@
 # RLeg
 
 - type: marking
+  id: RLegSplotchUngu
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
+    state: RLegSplotch
+
+- type: marking
+  id: RLegSplotchesUngu
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
+    state: RLegSplotches
+
+- type: marking
   id: RLegFluffUngu
   bodyPart: RLeg
   markingCategory: Legs
@@ -714,6 +786,24 @@
     state: PRHoof
 
 # LLeg
+
+- type: marking
+  id: LLegSplotchUngu
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
+    state: LLegSplotch
+
+- type: marking
+  id: LLegSplotchesUngu
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
+    state: LLegSplotches
 
 - type: marking
   id: LHoofUngu
@@ -1038,7 +1128,7 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/hair.rsi
     state: LooseMane
-   
+
 - type: marking
   id: PonyUngu
   bodyPart: Hair
@@ -1046,8 +1136,8 @@
   speciesRestriction: [ Ungu ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/hair.rsi
-    state: Pony  
-    
+    state: Pony
+
 - type: marking
   id: BunUngu
   bodyPart: Hair
@@ -1055,7 +1145,7 @@
   speciesRestriction: [ Ungu ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/hair.rsi
-    state: Bun 
+    state: Bun
 
 - type: marking
   id: BraidedManeUngu

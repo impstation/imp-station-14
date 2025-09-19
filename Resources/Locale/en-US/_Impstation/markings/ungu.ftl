@@ -15,7 +15,9 @@ marking-DormantUngu = Dormant Face
 marking-Elated1Ungu = Elated Face
 marking-Elated2Ungu = Joyfull Face
 marking-Tormented1Ungu = Tormented Face
-marking-Tormednted2Ungu = Angry Face
+marking-Tormented2Ungu = Angry Face
+marking-ChestSplotchesLUngu = Left Side Chest Splotches
+marking-ChestSplotchesRUngu = Right Side Chest Splotches
 
 # ears
 
@@ -54,6 +56,8 @@ marking-CryUngu = Crying
 marking-HornsHawkUngu = Horn-Hawk
 marking-HornUniUngu= Unicorn/ Narwhal Horn
 marking-HornsProstheticUngu = Prosthetic Horns
+marking-HeadSplotchLUngu = Left Side Head Splotch
+marking-HeadSplotchRUngu = Right Side Head Splotch
 
 # hair
 
@@ -124,6 +128,8 @@ marking-SkinLHandUngu = Patterned Left Hand
 marking-SkinRHandUngu = Patterned Right Hand
 marking-RArmStripesUngu = Right Arm Stripes
 marking-LArmStripesUngu = Left Arm Stripes
+marking-RArmSplotchUngu = Right Arm Splotch
+marking-LArmSplotchUngu = Left Arm Splotch
 
 
 # legs
@@ -144,6 +150,10 @@ marking-SkinLLegUngu = Patterned Left Leg
 marking-SkinRLegUngu = Patterned Right Leg
 marking-RLegStripesUngu = Right Leg Stripes
 marking-LLegStripesUngu = Left Leg Stripes
+marking-RLegSplotchUngu= Right Leg Splotch
+marking-RLegSplotchesUngu= Right Leg Splotches
+marking-LLegSplotchUngu= Left Leg Splotch
+marking-LLegSplotchesUngu= Left Leg Splotches
 
 # underwear
 
