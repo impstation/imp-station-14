@@ -69,6 +69,8 @@ marking-LooseManeUngu = Loose Mane
 marking-RegalManeUngu = Regal Mane
 marking-PonytailUngu = Ponytail
 marking-TonsureUngu = Tonsure
+marking-PonyUngu = Pony
+marking-BunUngu = Bun (Bangs)
 
 # facial hair
 
