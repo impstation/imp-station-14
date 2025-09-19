@@ -143,6 +143,9 @@
       60: SeverePain
       120: BlackoutPain
       200: UnconsciousPain
+  - type: ShockGaspThresholds
+    messageThresholds:
+      200: DefaultPaingasp
 
 - type: entity
   abstract: true
@@ -273,6 +276,9 @@
     - damageTypes: [Heat, Cold, Caustic, Shock]
       minimumTotalDamage: 200
       conversionFactor: 0.01
+  - type: BrainGaspThresholds
+    messageThresholds:
+      70: DefaultBraingasp
 
 - type: entity
   abstract: true
