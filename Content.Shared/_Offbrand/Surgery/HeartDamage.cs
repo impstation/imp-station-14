@@ -36,7 +36,7 @@ public sealed partial class HeartDamage : IGraphCondition
         if (heartrate.Damage >= Min && heartrate.Damage <= Max)
             return false;
 
-        args.PushMarkup(Loc.GetString("construction-examine-heart-damage-range", ("min", Min), ("max", Max)));
+        args.PushMarkup(Loc.GetString("construction-examine-heart-damage-range", ("min", Min.Float()), ("max", Max == FixedPoint2.MaxValue ? (float) int.MaxValue : Max.Float())));
         return true;
     }
 
@@ -46,7 +46,7 @@ public sealed partial class HeartDamage : IGraphCondition
         {
             Localization = "construction-step-heart-damage-range",
             Arguments =
-                [ ("min", Min), ("max", Max) ],
+                [ ("min", Min.Float()), ("max", Max == FixedPoint2.MaxValue ? (float) int.MaxValue : Max.Float()) ],
         };
     }
 }

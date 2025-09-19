@@ -7,6 +7,7 @@
   start: Base
   graph:
   - node: Base
+    surgeryName: surgery-cleanup-name
     edges:
     - to: OpenIncision
       steps:
@@ -18,6 +19,26 @@
           damages:
             damageDict:
               Slash: 10
+  - node: OpenIncision
+    edges:
+    - &stop_surgery
+      to: Base
+      steps:
+      - tool: Cauterizing
+        doAfter: 1
+        completed:
+        - !type:RemoveStatusEffect
+          effect: WoundClamped
+        - !type:RemoveStatusEffect
+          effect: WoundIncision
+        - !type:RemoveStatusEffect
+          effect: WoundRetracted
+        - !type:DamageEntity
+          damage:
+            types:
+              Burn: 10
+    - to: ClampedBleeders
+      steps:
       - tool: Clamping
         doAfter: 1
         completed:
@@ -26,6 +47,11 @@
           damages:
             damageDict:
               Blunt: 5
+  - node: ClampedBleeders
+    edges:
+    - *stop_surgery
+    - to: RetractedIncision
+      steps:
       - tool: Retracting
         doAfter: 1
         completed:
@@ -34,24 +60,18 @@
           damages:
             damageDict:
               Blunt: 5
-  - node: OpenIncision
+  - node: RetractedIncision
     edges:
-    - to: OpenIncision
-      conditions:
+    - *stop_surgery
+    - to: WoundFractureBoneMending
+      conditions: &fracture-conditions
       - !type:HasStatusEffect
-        effect: WoundFracture
-      completed:
-      - !type:RemoveStatusEffect
         effect: WoundFracture
       steps:
       - tool: BoneMending
         doAfter: 1
-      - tool: BoneSetting
-        doAfter: 1
-      - tool: BoneMending
-        doAfter: 1
-    - to: OpenIncision
-      conditions:
+    - to: WoundArterialTreatment
+      conditions: &arterial-conditions
       - !type:HasStatusEffect
         effect: WoundArterialBleeding
       completed:
@@ -70,36 +90,40 @@
       steps:
       - tool: Sawing
         doAfter: 5
-    - to: Base
-      steps:
-      - tool: Cauterizing
-        doAfter: 1
-        completed:
-        - !type:RemoveStatusEffect
-          effect: WoundClamped
-        - !type:RemoveStatusEffect
-          effect: WoundIncision
-        - !type:RemoveStatusEffect
-          effect: WoundRetracted
-        - !type:DamageEntity
-          damage:
-            types:
-              Burn: 10
-  - node: OpenRibCage
+  - node: WoundFractureBoneMending
     edges:
-    - to: OpenIncision
-      completed:
-      - !type:RemoveStatusEffect
-        effect: WoundOpenRibCage
+    - to: WoundFractureBoneSetting
       steps:
-      - tool: BoneMending
-        doAfter: 1
       - tool: BoneSetting
         doAfter: 1
+  - node: WoundFractureBoneSetting
+    edges:
+    - to: WoundFractureTreatment
+      completed:
+      - !type:RemoveStatusEffect
+        effect: WoundFracture
+      steps:
+      - tool: BoneSetting
+  - node: WoundFractureTreatment
+    surgeryName: surgery-wound-fracture-treatment-name
+    actions:
+    - !type:SetNode
+      node: RetractedIncision
+      repeatConditions: *fracture-conditions
+  - node: WoundArterialTreatment
+    surgeryName: surgery-wound-arterial-treatment-name
+    actions:
+    - !type:SetNode
+      node: RetractedIncision
+      repeatConditions: *arterial-conditions
+  - node: OpenRibCage
+    edges:
+    - to: OpenRibCageMending
+      steps:
       - tool: BoneMending
         doAfter: 1
-    - to: OpenRibCage
-      conditions:
+    - to: HeartTreatmentSimpleSuture
+      conditions: &heart-damage-conditions
       - !type:HeartDamage
         min: 1
       completed:
@@ -109,10 +133,8 @@
       - material: SimpleSuture
         amount: 1
         doAfter: 5
-    - to: OpenRibCage
-      conditions:
-      - !type:HeartDamage
-        min: 1
+    - to: HeartTreatmentMedicatedSuture
+      conditions: *heart-damage-conditions
       completed:
       - !type:ChangeHeartDamage
         amount: -10
@@ -120,8 +142,8 @@
       - material: MedicatedSuture
         amount: 1
         doAfter: 3
-    - to: OpenRibCage
-      conditions:
+    - to: HuskingTreatment
+      conditions: &husking-conditions
       - !type:HasStatusEffect
         effect: WoundHusking
       completed:
@@ -131,18 +153,53 @@
       - material: RegenerativeMesh
         amount: 10
         doAfter: 5
-    - to: OpenRibCage
-      conditions:
+  - node: OpenRibCageMending
+    edges:
+    - to: OpenRibCageSetting
+      steps:
+      - tool: BoneSetting
+        doAfter: 1
+    - to: BoneDeathTreatment
+      conditions: &bone-death-conditions
       - !type:HasStatusEffect
         effect: WoundBoneDeath
       completed:
       - !type:RemoveStatusEffect
         effect: WoundBoneDeath
       steps:
-      - tool: BoneMending
-        doAfter: 5
       - material: MedicatedSuture
         amount: 10
         doAfter: 5
+  - node: OpenRibCageSetting
+    edges:
+    - to: RetractedIncision
+      completed:
+      - !type:RemoveStatusEffect
+        effect: WoundOpenRibCage
+      steps:
       - tool: BoneMending
-        doAfter: 5
+        doAfter: 1
+  - node: BoneDeathTreatment
+    surgeryName: surgery-bone-death-treatment-name
+    actions:
+    - !type:SetNode
+      node: OpenRibCage
+      repeatConditions: *bone-death-conditions
+  - node: HeartTreatmentSimpleSuture
+    surgeryName: surgery-heart-treatment-simple-suture-name
+    actions:
+    - !type:SetNode
+      node: OpenRibCage
+      repeatConditions: *heart-damage-conditions
+  - node: HeartTreatmentMedicatedSuture
+    surgeryName: surgery-heart-treatment-medicated-suture-name
+    actions:
+    - !type:SetNode
+      node: OpenRibCage
+      repeatConditions: *heart-damage-conditions
+  - node: HuskingTreatment
+    surgeryName: surgery-husking-treatment-name
+    actions:
+    - !type:SetNode
+      node: OpenRibCage
+      repeatConditions: *husking-conditions
