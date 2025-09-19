@@ -605,7 +605,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
             // Begin Impstation - NanoChat cards can be silicons
             if (HasComp<BorgChassisComponent>(uid))
             {
-                if (!TryComp<Content.Shared.Silicons.Borgs.Components.BorgSwitchableTypeComponent>(uid, out var switchable) || switchable.SelectedBorgType is not { } borgType)
+                if (!TryComp<BorgSwitchableTypeComponent>(uid, out var switchable) || switchable.SelectedBorgType is not { } borgType)
                     return new NanoChatRecipient(number, MetaData(uid).EntityName, null);
 
                 return new NanoChatRecipient(number, MetaData(uid).EntityName, Loc.GetString($"borg-type-{borgType}-transponder"));
