@@ -13,16 +13,16 @@ public sealed partial class OldAdvancedNodeScannerComponent : Component
     public EntityUid? AnalyzerEntity;
 
     /// <summary>
-    /// The machine linking port for the analyzer
+    /// The machine linking port for the advanced node scanner
     /// </summary>
-    [DataField("linkingPort", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
-    public string LinkingPort = "ArtifactAnalyzerSenderAdvancedNodeScanner";
+    [DataField("LinkingPort", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
+    public string AdvancedNodeScannerLinkingPort = "AdvancedNodeScannerSender";
 
     /// <summary>
     /// How far away from the analyzer pad can the advanced node scanner get before it no longer scans. Infinite if negative
     /// </summary>
     [DataField(required: true)]
-    public int MaxDistanceFromAnalyzerPad;
+    public float MaxDistanceFromAnalyzerPad;
 
     /// <summary>
     /// Stored scanned artifacts and their nodes

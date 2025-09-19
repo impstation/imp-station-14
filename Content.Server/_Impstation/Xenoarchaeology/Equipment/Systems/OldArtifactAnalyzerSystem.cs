@@ -240,7 +240,7 @@ public sealed class OldArtifactAnalyzerSystem : EntitySystem
     /// </summary>
     private void OnAdvancedScannerPortDisconnected(EntityUid uid, OldAdvancedNodeScannerComponent component, PortDisconnectedEvent args)
     {
-        if (args.Port == component.LinkingPort && component.AnalyzerEntity != null)
+        if (args.Port == component.AdvancedNodeScannerLinkingPort && component.AnalyzerEntity != null)
         {
             if (TryComp<OldArtifactAnalyzerComponent>(component.AnalyzerEntity, out var analyzer))
             {

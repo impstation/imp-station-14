@@ -33,12 +33,6 @@ public sealed partial class OldArtifactAnalyzerComponent : Component
     [ViewVariables]
     public EntityUid? AdvancedNodeScanner;
 
-    /// <summary>
-    /// The machine linking port for the advanced node scanner
-    /// </summary>
-    [DataField("advancedNodeScannerLinkingPort", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
-    public string AdvancedNodeScannerLinkingPort = "AdvancedNodeScannerSender";
-
     [ViewVariables(VVAccess.ReadWrite)]
     public bool ReadyToPrint = false;
 

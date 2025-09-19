@@ -1,0 +1,67 @@
+- type: entity
+  id: MachineAdvancedNodeScanner
+  parent: [ BaseMachinePowered, SmallConstructibleMachine ]
+  name: advanced node scanner
+  description: Provides additional information and features when linked to an adjacent artifact analyzer.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: Structures/Machines/tech_disk_printer.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: icon
+    - map: ["computerLayerScreen"]
+      state: unshaded
+  - type: Physics
+    bodyType: Static
+    canCollide: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.48,0.25,0.48"
+        density: 75
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Transform
+    anchored: true
+  - type: ApcPowerReceiver
+    powerLoad: 500
+    needsPower: true
+  - type: OldAdvancedNodeScanner
+    maxDistanceFromAnalyzerPad: 2
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: BasicDevice
+  - type: DeviceList
+  - type: DeviceLinkSource
+    range: 2
+    ports:
+      - AdvancedNodeScannerSender
+  - type: Machine
+    board: ArtifactAnalyzerMachineCircuitboard
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#b53ca1"
+  - type: GuideHelp
+    guides:
+    - Xenoarchaeology
+  - type: LitOnPowered
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ComputerVisuals.Powered:
+        computerLayerScreen:
+          True: { visible: true, shader: unshaded }
+          False: { visible: false }
+        computerLayerKeys:
+          True: { visible: true, shader: unshaded }
+          False: { visible: true, shader: shaded }
+      enum.WiresVisuals.MaintenancePanelState:
+        enum.WiresVisualLayers.MaintenancePanel:
+          True: { visible: false }
+          False: { visible: true }
