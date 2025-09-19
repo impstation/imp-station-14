@@ -24,6 +24,7 @@ public sealed partial class BrainDamageSystem : EntitySystem
 
         SubscribeLocalEvent<BrainDamageComponent, SuicideEvent>(OnSuicide);
         SubscribeLocalEvent<BrainDamageComponent, RejuvenateEvent>(OnRejuvenate);
+        SubscribeLocalEvent<BrainDamageComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<BrainDamageOxygenationComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<BrainDamageOxygenationComponent, ApplyMetabolicMultiplierEvent>(OnApplyMetabolicMultiplier);
     }
@@ -53,6 +54,15 @@ public sealed partial class BrainDamageSystem : EntitySystem
     private void OnMapInit(Entity<BrainDamageOxygenationComponent> ent, ref MapInitEvent args)
     {
         ent.Comp.LastUpdate = _timing.CurTime;
+    }
+
+    private void OnStartup(Entity<BrainDamageComponent> ent, ref ComponentStartup args)
+    {
+        var notifOxygen = new AfterBrainOxygenChanged();
+        RaiseLocalEvent(ent, ref notifOxygen);
+
+        var notifDamage = new AfterBrainDamageChanged();
+        RaiseLocalEvent(ent, ref notifDamage);
     }
 
     private void OnApplyMetabolicMultiplier(Entity<BrainDamageOxygenationComponent> ent, ref ApplyMetabolicMultiplierEvent args)
