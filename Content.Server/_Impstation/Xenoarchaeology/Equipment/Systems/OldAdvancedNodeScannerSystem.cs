@@ -3,6 +3,8 @@ using Content.Server.Power.Components;
 using Content.Shared.Construction.Components;
 using Content.Server.Xenoarchaeology.XenoArtifacts.Events;
 using Content.Shared.Xenoarchaeology.Equipment.Components;
+using Content.Server.Xenoarchaeology.Equipment.Components;
+
 using System.Linq;
 
 namespace Content.Server.Xenoarchaeology.Equipment.Systems;
@@ -11,6 +13,7 @@ public sealed class OldAdvancedNodeScannerSystem : EntitySystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly OldArtifactAnalyzerSystem _analyzer = default!;
+    [Dependency] private readonly ArtifactSystem _artifact = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -123,7 +126,7 @@ public sealed class OldAdvancedNodeScannerSystem : EntitySystem
             if (scannedData.Nodes.Exists(x => x.NodeId == currentNodeId))
             {
                 var nodeData = scannedData.Nodes.Find(x => x.NodeId == currentNodeId);
-                var artiNode = artiComp.NodeTree.Find(x => x.Id == currentNodeId);
+                var artiNode = _artifact.GetNodeFromId((int)currentNodeId, artiComp);
                 if (artiNode is not null)
                 {
                     if (nodeData.Trigger != artiNode.Trigger || nodeData.Effect != artiNode.Effect)
@@ -188,7 +191,7 @@ public sealed class OldAdvancedNodeScannerSystem : EntitySystem
             return;
 
 
-        var artiNode = artiComp.NodeTree.Find(x => x.Id == currentNodeId);
+        var artiNode = _artifact.GetNodeFromId((int)currentNodeId, artiComp);
         if (artiNode is null)
             return;
 
@@ -245,13 +248,13 @@ public sealed class OldAdvancedNodeScannerSystem : EntitySystem
     /// <summary>
     /// Figure out what the parent of a node is (its the edge of the node with the lowest depth)
     /// </summary>
-    private static int? GetParentOfNode(ArtifactComponent comp, ArtifactNode childNode)
+    private int? GetParentOfNode(ArtifactComponent comp, ArtifactNode childNode)
     {
         if (childNode.Depth == 0)
             return null;
         foreach (var edge in childNode.Edges)
         {
-            var node = comp.NodeTree.Find(x => x.Id == edge);
+            var node = _artifact.GetNodeFromId(edge, comp);
             if (node is null)
                 continue;
             if (node.Depth < childNode.Depth)
