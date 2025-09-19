@@ -156,6 +156,7 @@
         acts: ["Destruction"]
   - type: TimerTrigger
     delay: 5
+  - type: TriggerOnSignal # Offbrand
   - type: ExplodeOnTrigger
     keysIn:
     - timer

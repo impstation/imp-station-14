@@ -283,6 +283,9 @@
     node: Base
     deconstructionTarget: null
   - type: SurgeryGuideTarget
+  - type: ContainerContainer
+    containers:
+      cavity_slot: !type:Container
 
 - type: entity
   abstract: true
