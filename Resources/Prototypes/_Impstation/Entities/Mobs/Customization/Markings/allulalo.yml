@@ -1,0 +1,64 @@
+# Chest
+
+# Head
+
+# Snout
+
+# Eyes
+
+- type: marking
+  id: AllulaloEyesDefault
+  bodyPart: Eyes
+  markingCategory: Eyes
+  speciesRestriction: [ Allulalo ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#78bfc2"
+  sprites:
+  - sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
+    state: eyes
+
+# RArm
+
+# LArm
+
+# RLeg
+
+# LLeg
+
+# UndergarmentBottom
+
+# UndergarmentTop
+
+# LFoot
+
+# RFoot
+
+# LHand
+
+# RHand
+
+# FacialHair
+
+# Hair
+
+# HeadSide
+
+# HeadTop
+
+# Tail
+
+- type: marking
+  id: AllulaloTailDefault
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Allulalo/tail.rsi
+    state: allulaloTailDefault
+  - sprite: _Impstation/Mobs/Customization/Allulalo/tail.rsi
+    state: allulaloTailDefault2
+
+# RArmExtension

@@ -1,0 +1,231 @@
+- type: entity
+  save: false
+  name: Uristia Mc-Hands
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobAllulalo
+  abstract: true
+  components:
+  - type: GoobAbsorbable
+    biomassRestored: 0.5
+  - type: Hunger
+  - type: Thirst
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.32
+        density: 150
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Icon
+    sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
+    state: full
+  - type: Body
+    prototype: Allulalo
+    requiredLegs: 2
+  - type: InteractionPopup
+    successChance: 0.9
+    interactSuccessString: petting-success-apid
+    interactFailureString: petting-failure-apid
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/mouse_squeak.ogg
+    interactFailureSound:
+      path: /Audio/Effects/tesla_consume.ogg
+  - type: MothAccent
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Moth # they're related, right?
+  - type: Bloodstream
+    bloodReagent: Blood
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: _Impstation/Mobs/Effects/apid_brute_damage.rsi # technically this is only brute sprites for the chest. but that doesn't matter
+        color: "#808A51"
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: MovementSpeedModifier
+    # NOTE: to edit this entity's base movement speed, you will need to edit the leg bodypart. i discovered this so you didnt have to
+    baseWeightlessFriction: 0.2
+    baseWeightlessModifier: 1
+  - type: MeleeWeapon
+    attackRate: 1
+    soundHit:
+      collection: Punch
+    angle: 30
+    animation: WeaponArcThrust
+    damage:
+      types:
+        Shock: 3 # they got a little stinger
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+      - id: MobAngryBee # this doesn't make sense but is extremely funny to me
+        amount: 5
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Monkey_burning
+  - type: Tag
+    tags:
+    - VimPilot
+    - DoorBumpOpener
+    - AnomalyHost
+    - CanPilot
+  - type: TypingIndicator
+    proto: moth
+  - type: Vocal
+    sounds:
+      Male: MaleMoth
+      Female: FemaleMoth
+      Unsexed: UnisexMoth
+  - type: Speech
+    speechVerb: Arachnid
+    allowedEmotes: ['Chitter', 'Squeak']
+  - type: HumanoidAppearance
+    species: Allulalo
+    hideLayersOnEquip:
+    - Hair
+    - Snout
+  - type: Inventory
+    speciesId: apid
+    templateId: apid
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: jumpsuit
+      head:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: head
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: glasses
+      ears:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: ears
+      mask:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: mask
+      neck:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: neck
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: outerClothing
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: hands
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: feet
+      belt:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: belt
+      back:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: back
+      suitstorage:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: suitstorage
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobAllulaloDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    scale: 1, 1
+  - type: Inventory
+    templateId: apid
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: jumpsuit
+      head:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: head
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: glasses
+      ears:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: ears
+      mask:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: mask
+      neck:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: neck
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: outerClothing
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: hands
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: feet
+      belt:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: belt
+      back:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: back
+      suitstorage:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: suitstorage
