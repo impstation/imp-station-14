@@ -51,8 +51,8 @@
 - type: cargoProduct
   id: HydroponicsTray
   icon:
-    sprite: Structures/Hydroponics/containers.rsi
-    state: hydrotray3
+    sprite: _Impstation/Structures/Hydroponics/containers.rsi #imp edit
+    state: hydrotray #imp edit
   product: CrateHydroponicsTray
   cost: 750
   category: cargoproduct-category-name-hydroponics
