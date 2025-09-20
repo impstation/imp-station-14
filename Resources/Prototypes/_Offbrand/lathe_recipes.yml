@@ -18,3 +18,32 @@
   id: OffbrandMedicalStatic
   recipes:
   - IVBag
+
+- type: latheRecipePack
+  id: OffbrandSurgeryStatic
+  recipes:
+  - BoneGel
+  - BoneSetter
+  - VascularRecoupler
+
+- type: latheRecipe
+  parent: BaseSurgicalRecipe
+  id: BoneGel
+  result: BoneGel
+  materials:
+    Steel: 200
+    Plasma: 100
+
+- type: latheRecipe
+  parent: BaseSurgicalRecipe
+  id: BoneSetter
+  result: BoneSetter
+
+- type: latheRecipe
+  parent: BaseSurgicalRecipe
+  id: VascularRecoupler
+  result: VascularRecoupler
+  materials:
+    Steel: 200
+    Glass: 100
+    Plastic: 100
