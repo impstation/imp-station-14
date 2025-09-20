@@ -912,11 +912,23 @@
     default:
       type:
         !type:EyeColoring
+  layering:
+    wings1_primary_behind: TailBehind
+    wings1_primary_front: TailOversuit
+    wings1_secondary_behind: TailBehind
+    wings1_secondary_front: TailOversuit
+  colorLinks:
+    wings1_primary_behind: wings1_primary_front
+    wings1_secondary_behind: wings1_secondary_front
   sprites:
-  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
-    state: wings1_primary
-  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
-    state: wings1_secondary
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/taillayers.rsi
+    state: wings1_primary_front
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/taillayers.rsi
+    state: wings1_primary_behind
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/taillayers.rsi
+    state: wings1_secondary_behind
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/taillayers.rsi
+    state: wings1_secondary_front
 
 - type: marking
   id: AnomalocaridWingsDown
@@ -929,11 +941,23 @@
     default:
       type:
         !type:EyeColoring
+  layering:
+    wings2_primary_behind: TailBehind
+    wings2_primary_front: TailOversuit
+    wings2_secondary_behind: TailBehind
+    wings2_secondary_front: TailOversuit
+  colorLinks:
+    wings2_primary_behind: wings2_primary_front
+    wings2_secondary_behind: wings2_secondary_front
   sprites:
-  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
-    state: wings2_primary
-  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
-    state: wings2_secondary
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/taillayers.rsi
+    state: wings2_primary_front
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/taillayers.rsi
+    state: wings2_primary_behind
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/taillayers.rsi
+    state: wings2_secondary_behind
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/taillayers.rsi
+    state: wings2_secondary_front
 
 - type: marking
   id: AnomalocaridWingsGlass
@@ -969,11 +993,23 @@
     default:
       type:
         !type:EyeColoring
+  layering:
+    wings4_primary_behind: TailBehind
+    wings4_primary_front: TailOversuit
+    wings4_secondary_behind: TailBehind
+    wings4_secondary_front: TailOversuit
+  colorLinks:
+    wings4_primary_behind: wings4_primary_front
+    wings4_secondary_behind: wings4_secondary_front
   sprites:
-  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
-    state: wings4_primary
-  - sprite: _Impstation/Mobs/Customization/anomalocarid/anomalocarid_markings.rsi
-    state: wings4_secondary
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/taillayers.rsi
+    state: wings4_primary_front
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/taillayers.rsi
+    state: wings4_primary_behind
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/taillayers.rsi
+    state: wings4_secondary_behind
+  - sprite: _Impstation/Mobs/Customization/anomalocarid/taillayers.rsi
+    state: wings4_secondary_front
 
 #- type: marking
 #  id: AnomalocaridTailDefault

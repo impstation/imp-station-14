@@ -101,12 +101,12 @@ marking-AnomalocaridNecklace1 = Coral Necklace
 marking-AnomalocaridNecklace1-necklace1_primary = Necklace Band
 marking-AnomalocaridNecklace1-necklace1_secondary = Necklace Secondary
 
-marking-AnomalocaridWingsDefault = Wings
-marking-AnomalocaridWingsDefault-wings1_primary = Wings Primary
-marking-AnomalocaridWingsDefault-wings2_primary = Wings Secondary
+marking-AnomalocaridWingsDefault = Standard Wings
+marking-AnomalocaridWingsDefault-wings1_primary_front = Wings Primary
+marking-AnomalocaridWingsDefault-wings1_secondary_front = Wings Secondary
 marking-AnomalocaridWingsDown = Currentswept Wings
-marking-AnomalocaridWingsDown-wings2_primary = Wings Primary
-marking-AnomalocaridWingsDown-wings2_secondary = Wings Primary
+marking-AnomalocaridWingsDown-wings2_primary_front = Wings Primary
+marking-AnomalocaridWingsDown-wings2_secondary_front = Wings Primary
 marking-AnomalocaridWingsGlass = Glass Wings
 marking-AnomalocaridWingsGlass-wings3_primary = Wings Primary
 marking-AnomalocaridWingsGlass-wings3_glass1 = Glass
