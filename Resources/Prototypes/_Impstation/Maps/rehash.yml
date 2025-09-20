@@ -1,20 +1,20 @@
 - type: gameMap
-  id: Hash
-  mapName: 'Hash'
-  mapPath: /Maps/_Impstation/hash.yml
+  id: reHash
+  mapName: 'reHash'
+  mapPath: /Maps/_Impstation/rehash.yml
   minPlayers: 15
   maxPlayers: 40
   stations:
-    Hash:
+    reHash:
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Hash Station {1}'
+          mapNameTemplate: '{0} reHash Station {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '066'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/_Impstation/Shuttles/hash_evac.yml
+          emergencyShuttlePath: /Maps/_Impstation/Shuttles/evac_juicebox.yml
         - type: StationCargoShuttle
           path: /Maps/_Impstation/Shuttles/Hash_cargo.yml
         - type: StationJobs
@@ -29,11 +29,11 @@
             HospitalityDirector: [ 1, 1 ]
             Quartermaster: [ 1, 1 ]
             # service - 14
-            Bartender: [ 2, 2 ]
-            Botanist: [ 1, 1 ]
+            Bartender: [ 1, 1 ]
+            Botanist: [ 2, 2 ]
             Chaplain: [ 1, 1 ]
             Chef: [ 1, 1 ]
-            Clown: [ 2, 2 ]
+            Clown: [ 1, 1 ]
             Janitor: [ 2, 2 ]
             Lawyer: [ 2, 2 ]
             Librarian: [ 1, 1 ]
@@ -48,7 +48,7 @@
             Chemist: [ 2, 2 ]
             MedicalDoctor: [ 3, 3 ]
             MedicalIntern: [ 2, 2 ]
-            Paramedic: [ 1, 1 ]
+            Paramedic: [ 2, 2 ]
             # science - 6-7
             Borg: [ 2, 2 ]
             ResearchAssistant: [ 1, 1 ]
