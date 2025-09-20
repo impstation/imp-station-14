@@ -124,7 +124,7 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
     private void OnEntRemoved(Entity<ReplicatorNestComponent> ent, ref EntRemovedFromContainerMessage args)
     {
         RemCompDeferred<StunnedComponent>(args.Entity);
-        _statusEffects.TryRemoveStatusEffect(ent, StatusEffectMetabolicStasis);
+        _statusEffects.TryRemoveStatusEffect(args.Entity, StatusEffectMetabolicStasis);
     }
 
     private void OnMapInit(Entity<ReplicatorNestComponent> ent, ref MapInitEvent args)
