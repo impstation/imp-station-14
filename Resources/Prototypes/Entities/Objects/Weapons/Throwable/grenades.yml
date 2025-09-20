@@ -157,6 +157,9 @@
   - type: TimerTrigger
     delay: 5
   - type: TriggerOnSignal # Offbrand
+  - type: DeviceLinkSink # Offbrand
+    ports:
+    - Trigger
   - type: ExplodeOnTrigger
     keysIn:
     - timer
