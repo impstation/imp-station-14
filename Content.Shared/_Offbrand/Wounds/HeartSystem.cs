@@ -3,7 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-using System.Linq;
+using Content.Shared._Impstation.Traits.Assorted;
 using Content.Shared._Offbrand.StatusEffects;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Events;
@@ -308,20 +308,33 @@ public sealed partial class HeartSystem : EntitySystem
         args.Strain += strainDelta;
     }
 
-    public (FixedPoint2, FixedPoint2) BloodPressure(Entity<HeartrateComponent> ent)
+    /// <summary>
+    /// Returns this HeartrateComponent's blood pressure.
+    /// </summary>
+    /// <param name="ent">Heart to check.</param>
+    /// <returns>Tuple of systolic and diastolic blood pressure values, with modifications applied.</returns>
+    public (/* systolic */ FixedPoint2, /* diastolic */ FixedPoint2) BloodPressure(Entity<HeartrateComponent> ent)
     {
         var seed = SharedRandomExtensions.HashCodeCombine(new() { (int)_timing.CurTick.Value, GetNetEntity(ent).Id });
         var rand = new System.Random(seed);
 
         var volume = BloodCirculation(ent);
 
-        var deviationA = rand.Next(-ent.Comp.BloodPressureDeviation, ent.Comp.BloodPressureDeviation);
-        var deviationB = rand.Next(-ent.Comp.BloodPressureDeviation, ent.Comp.BloodPressureDeviation);
+        var systolicDeviation = rand.Next(-ent.Comp.BloodPressureDeviation, ent.Comp.BloodPressureDeviation);
+        var diastolicDeviation = rand.Next(-ent.Comp.BloodPressureDeviation, ent.Comp.BloodPressureDeviation);
 
-        var upper = FixedPoint2.Max((ent.Comp.SystolicBase * volume + deviationA), 0).Int();
-        var lower = FixedPoint2.Max((ent.Comp.DiastolicBase * volume + deviationB), 0).Int();
+        var systolic = ent.Comp.SystolicBase * volume + systolicDeviation;
+        var diastolic = ent.Comp.DiastolicBase * volume + diastolicDeviation;
 
-        return (upper, lower);
+        // Impstation - Hypertension/hypotension trait
+        if (TryComp<BloodPressureVariationComponent>(ent, out var bpModifier))
+        {
+            systolic *= bpModifier.SystolicMultiplier;
+            diastolic *= bpModifier.DiastolicMultiplier;
+        }
+        // End Impstation
+
+        return (FixedPoint2.Max(systolic, 0).Int(), FixedPoint2.Max(diastolic, 0).Int());
     }
 
     public FixedPoint2 HeartRate(Entity<HeartrateComponent> ent)

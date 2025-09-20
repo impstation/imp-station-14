@@ -622,6 +622,18 @@ namespace Content.Client.Lobby.UI
                         selector.Checkbox.Label.FontColorOverride = Color.Red;
                     }
 
+                    // Begin Impstation - UI code to support traits where only one among them is allowed.
+                    // For shared logic that this UI is driven by, go to HumanoidCharacterProfile.cs's WithTraitPreference
+                    if (selector.Trait.OnlyOneAllowedAmongstTraitsWith is not null &&
+                        selectors.Any(tt =>
+                            tt?.Trait.ID != selector.Trait.ID &&
+                            tt?.Trait.OnlyOneAllowedAmongstTraitsWith ==
+                            selector.Trait.OnlyOneAllowedAmongstTraitsWith && tt.Preference))
+                    {
+                        selector.Checkbox.Label.FontColorOverride = Color.Red;
+                    }
+                    // End Impstation
+
                     TraitsList.AddChild(selector);
                 }
             }

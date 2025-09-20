@@ -434,6 +434,7 @@ namespace Content.Shared.Preferences
             }
 
             var count = 0;
+            Dictionary<string, string> distinctiveTraits = new(); // Impstation
             foreach (var trait in list)
             {
                 // If trait not found or another category don't count its points.
@@ -442,6 +443,22 @@ namespace Content.Shared.Preferences
                 {
                     continue;
                 }
+
+                // Begin Impstation
+                if (otherProto.OnlyOneAllowedAmongstTraitsWith is null)
+                {
+                    continue;
+                }
+
+                if (distinctiveTraits.TryGetValue(otherProto.OnlyOneAllowedAmongstTraitsWith, out var onlyUniqueTrait) &&
+                    onlyUniqueTrait != otherProto.ID)
+                {
+                    // trait is distinct amongst others that have its value, and such a trait was selected already, don't add it
+                    return new(this);
+                }
+
+                distinctiveTraits.Add(otherProto.OnlyOneAllowedAmongstTraitsWith, otherProto.ID);
+                // End Impstation
 
                 count += otherProto.Cost;
             }

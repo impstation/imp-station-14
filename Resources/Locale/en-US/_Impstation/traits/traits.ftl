@@ -102,3 +102,9 @@ trait-unadapted-to-space-desc = Your body hasn't adapted to space, making you ta
 
 trait-vowelrotation-name = Vowel Rotation
 trait-vowelrotation-desc = Yua'ri frum en udd curnir uf speci whiri iviry vuwil os shoftid uvir by uni. AEIOU -> EIOUA
+
+trait-hypertension-name = Hypertension
+trait-hypertension-desc = You have slightly higher blood pressure.
+
+trait-hypotension-name = Hypotension
+trait-hypotension-desc = You have slightly lower blood pressure.

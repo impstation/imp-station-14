@@ -9,7 +9,9 @@ namespace Content.Client.Lobby.UI.Roles;
 [GenerateTypedNameReferences]
 public sealed partial class TraitPreferenceSelector : Control
 {
-    public int Cost;
+    // Impstation - having the selector hold the entire trait as opposed to cost simplifies UI logic a bit
+    public readonly TraitPrototype Trait;
+    public int Cost => Trait.Cost;
 
     public bool Preference
     {
@@ -26,7 +28,7 @@ public sealed partial class TraitPreferenceSelector : Control
         var text = trait.Cost != 0 ? $"[{trait.Cost}] " : "";
         text += Loc.GetString(trait.Name);
 
-        Cost = trait.Cost;
+        Trait = trait;
         Checkbox.Text = text;
         Checkbox.OnToggled += OnCheckBoxToggled;
 

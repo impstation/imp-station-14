@@ -5,3 +5,25 @@
   category: Quirks
   components:
   - type: HeavyweightDrunk
+
+- type: trait
+  id: Hypertension
+  name: trait-hypertension-name
+  description: trait-hypertension-desc
+  category: Quirks
+  onlyOneAllowedAmongstTraitsWith: BloodPressureTrait
+  components:
+  - type: BloodPressureVariation
+    systolicMultiplier: 1.05
+    diastolicMultiplier: 1.03
+
+- type: trait
+  id: Hypotension
+  name: trait-hypotension-name
+  description: trait-hypotension-desc
+  category: Quirks
+  onlyOneAllowedAmongstTraitsWith: BloodPressureTrait
+  components:
+  - type: BloodPressureVariation
+    systolicMultiplier: 0.97
+    diastolicMultiplier: 0.95

@@ -74,4 +74,11 @@ public sealed partial class TraitPrototype : IPrototype
     /// </summary>
     [DataField]
     public HashSet<ProtoId<SpeciesPrototype>> ExcludedSpecies = new();
+
+    /// <summary>
+    /// Impstation - Given multiple traits with this value, only one is allowed to be selected.
+    /// This is different from cost, as cost is by category.
+    /// </summary>
+    [DataField]
+    public string? OnlyOneAllowedAmongstTraitsWith;
 }
