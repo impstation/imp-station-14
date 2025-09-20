@@ -39,6 +39,7 @@ using System.Linq;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Storage.Components;
 using Robust.Shared.Serialization.TypeSerializers.Implementations;
+using Content.Shared._Offbrand.Wounds;
 
 namespace Content.Server._Impstation.Replicator;
 
@@ -107,6 +108,7 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
 
             _containerSystem.Insert(uid, falling.FallingTarget.Comp.Hole);
             EnsureComp<StunnedComponent>(uid); // used stunned to prevent any funny being done inside the pit
+            EnsureComp<MetabolicStasisComponent>(uid); // Offbrand med. Ensures that crit entities will not be round-removed while in the nest. 
             RemCompDeferred(uid, falling);
         }
 
@@ -119,6 +121,7 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
     private void OnEntRemoved(Entity<ReplicatorNestComponent> ent, ref EntRemovedFromContainerMessage args)
     {
         RemCompDeferred<StunnedComponent>(args.Entity);
+        RemCompDeferred<MetabolicStasisComponent>(args.Entity);
     }
 
     private void OnMapInit(Entity<ReplicatorNestComponent> ent, ref MapInitEvent args)
