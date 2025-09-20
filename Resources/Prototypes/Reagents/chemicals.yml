@@ -95,6 +95,10 @@
         conditions:
         - !type:ReagentThreshold
           min: 5
+      - !type:ActivateArtifact #IMP
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
 
 - type: reagent
   parent: Artifexium

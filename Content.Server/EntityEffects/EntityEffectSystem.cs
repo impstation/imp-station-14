@@ -45,6 +45,8 @@ using Content.Shared._Impstation.EntityEffects.Effects; // imp
 using Content.Shared._Impstation.Ghost; // imp
 using Content.Shared.Chemistry.Reagent; // imp
 using Content.Shared.Humanoid; // imp
+using Content.Server.Xenoarchaeology.XenoArtifacts; // imp
+
 
 using TemperatureCondition = Content.Shared.EntityEffects.EffectConditions.Temperature; // disambiguate the namespace
 using PolymorphEffect = Content.Shared.EntityEffects.Effects.Polymorph;
@@ -136,6 +138,7 @@ public sealed class EntityEffectSystem : EntitySystem
         SubscribeLocalEvent<ExecuteEntityEffectEvent<MakeSyndient>>(OnExecuteMakeSyndient); // imp
         SubscribeLocalEvent<ExecuteEntityEffectEvent<Medium>>(OnExecuteMedium); // Imp
         SubscribeLocalEvent<ExecuteEntityEffectEvent<MakeTame>>(OnExecuteMakeTame); // imp
+        SubscribeLocalEvent<ExecuteEntityEffectEvent<ActivateArtifact>>(OnExecuteActivateArtifact); // imp
     }
 
     private void OnCheckTemperature(ref CheckEntityEffectConditionEvent<TemperatureCondition> args)
@@ -1055,6 +1058,12 @@ public sealed class EntityEffectSystem : EntitySystem
         var uid = args.Args.TargetEntity;
 
         entityManager.EnsureComponent<MediumComponent>(uid);
+    }
+
+    private void OnExecuteActivateArtifact(ref ExecuteEntityEffectEvent<ActivateArtifact> args)
+    {
+        var artifact = args.Args.EntityManager.EntitySysManager.GetEntitySystem<ArtifactSystem>();
+        artifact.TryActivateArtifact(args.Args.TargetEntity, logMissing: false);
     }
 
 }
