@@ -24,8 +24,11 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Pinpointer;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.StepTrigger.Systems;
+using Content.Shared.Storage.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Whitelist;
@@ -33,13 +36,10 @@ using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
-using Content.Shared.Movement.Systems;
-using Content.Shared.Storage.Components;
-using Robust.Shared.Serialization.TypeSerializers.Implementations;
-using Content.Shared._Offbrand.Wounds;
 
 namespace Content.Server._Impstation.Replicator;
 
@@ -67,6 +67,9 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly EntityStorageSystem _entStorage = default!;
     [Dependency] private readonly BuckleSystem _buckle = default!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+
+    public static readonly EntProtoId StatusEffectMetabolicStasis = "StatusEffectMetabolicStasis";
 
     public override void Initialize()
     {
@@ -108,7 +111,7 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
 
             _containerSystem.Insert(uid, falling.FallingTarget.Comp.Hole);
             EnsureComp<StunnedComponent>(uid); // used stunned to prevent any funny being done inside the pit
-            EnsureComp<MetabolicStasisComponent>(uid); // Offbrand med. Ensures that crit entities will not be round-removed while in the nest. 
+            _statusEffects.TryUpdateStatusEffectDuration(uid, StatusEffectMetabolicStasis);
             RemCompDeferred(uid, falling);
         }
 
@@ -121,7 +124,7 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
     private void OnEntRemoved(Entity<ReplicatorNestComponent> ent, ref EntRemovedFromContainerMessage args)
     {
         RemCompDeferred<StunnedComponent>(args.Entity);
-        RemCompDeferred<MetabolicStasisComponent>(args.Entity);
+        _statusEffects.TryRemoveStatusEffect(ent, StatusEffectMetabolicStasis);
     }
 
     private void OnMapInit(Entity<ReplicatorNestComponent> ent, ref MapInitEvent args)
