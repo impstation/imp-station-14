@@ -229,6 +229,8 @@
   - type: HideLayerClothing
     slots:
     - Snout
+  - type: StealTarget #imp
+    stealGroup: ClownMask
 
 - type: entity
   parent: ClothingMaskClownChameleonBasic #imp
@@ -249,7 +251,7 @@
   parent: ClothingMaskClownBase #imp
   id: ClothingMaskClownBanana
   name: banana clown wig and mask
-  components: 
+  components:
   - type: Sprite
     sprite: Clothing/Mask/clown_banana.rsi #imp
   - type: Clothing
@@ -261,7 +263,7 @@
     tags:
     - ClownMask
     - HamsterWearable
-    - WhitelistChameleon 
+    - WhitelistChameleon
 
 
 # - type: entity
