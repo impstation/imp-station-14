@@ -129,7 +129,7 @@ namespace Content.Server.Body.Systems
             if (solutionEntityUid is null
                 || soln is null
                 || solution is null
-                || (solution.Contents.Count == 0 && ent.Comp1.MetabolizingReagents.Count == 0)) // Offbrand - we need to ensure we clear out metabolizing reagents
+                || (solution.Contents.Count == 0 && ent.Comp1.MetabolizingReagents.Count == 0 && ent.Comp1.Metabolites.Count == 0)) // Offbrand - we need to ensure we clear out metabolizing reagents
             {
                 return;
             }
@@ -227,10 +227,17 @@ namespace Content.Server.Body.Systems
                 // remove a certain amount of reagent
                 if (mostToRemove > FixedPoint2.Zero)
                 {
-                    solution.RemoveReagent(reagent, mostToRemove);
+                    var removed = solution.RemoveReagent(reagent, mostToRemove); // Offbrand
 
                     // We have processed a reagant, so count it towards the cap
                     reagents += 1;
+
+                    // Begin Offbrand
+                    if (!ent.Comp1.Metabolites.ContainsKey(reagent.Prototype))
+                        ent.Comp1.Metabolites[reagent.Prototype] = 0;
+
+                    ent.Comp1.Metabolites[reagent.Prototype] += removed;
+                    // End Offbrand
                 }
             }
 
@@ -261,6 +268,38 @@ namespace Content.Server.Body.Systems
                 }
             }
             ent.Comp1.MetabolizingReagents = metabolized;
+
+            foreach (var metaboliteReagent in ent.Comp1.Metabolites.Keys)
+            {
+                if (ent.Comp1.MetabolizingReagents.Contains(metaboliteReagent))
+                    continue;
+
+                if (!_prototypeManager.TryIndex(metaboliteReagent, out var proto) || proto.Metabolisms is not { } metabolisms)
+                    continue;
+
+                if (ent.Comp1.MetabolismGroups is null)
+                    continue;
+
+                ReagentEffectsEntry? entry = null;
+                var metabolismRateModifier = FixedPoint2.Zero;
+                foreach (var group in ent.Comp1.MetabolismGroups)
+                {
+                    if (!proto.Metabolisms.TryGetValue(group.Id, out entry))
+                        continue;
+
+                    metabolismRateModifier = group.MetabolismRateModifier;
+                    break;
+                }
+
+                if (entry is not { } metabolismEntry)
+                    continue;
+
+                var rate = metabolismEntry.MetabolismRate * metabolismRateModifier * ent.Comp1.MetaboliteDecayFactor;
+                ent.Comp1.Metabolites[metaboliteReagent] -= rate;
+
+                if (ent.Comp1.Metabolites[metaboliteReagent] <= 0)
+                    ent.Comp1.Metabolites.Remove(metaboliteReagent);
+            }
             // End Offbrand
 
             _solutionContainerSystem.UpdateChemicals(soln.Value);
