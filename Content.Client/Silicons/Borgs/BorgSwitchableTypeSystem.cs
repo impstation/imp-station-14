@@ -1,4 +1,5 @@
-﻿using Content.Shared.Movement.Components;
+﻿using Content.Client.PDA; // Impstation
+using Content.Shared.Movement.Components;
 using Content.Shared.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs.Components;
 using Robust.Client.GameObjects;
@@ -76,6 +77,15 @@ public sealed class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeSystem
         {
             RemComp<SpriteMovementComponent>(entity);
         }
+
+        // Begin Impstation
+        if (TryComp<PdaBorderColorComponent>(entity, out var pdaBorders))
+        {
+            pdaBorders.BorderColor = prototype.PdaBorderColor ?? pdaBorders.BorderColor;
+            pdaBorders.AccentHColor = prototype.PdaAccentHorizontalColor ?? pdaBorders.AccentHColor;
+            pdaBorders.AccentVColor = prototype.PdaAccentVerticalColor ?? pdaBorders.AccentVColor;
+        }
+        // End Impstation
 
         base.UpdateEntityAppearance(entity, prototype);
     }
