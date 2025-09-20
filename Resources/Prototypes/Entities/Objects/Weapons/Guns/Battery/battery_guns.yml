@@ -512,10 +512,15 @@
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Battery/laser_cannon.rsi #imp
   - type: Gun
+    burstFireRate: 9 #imp
+    shotsPerBurst: 3 #imp
+    burstCooldown: 0.70 #imp
     fireRate: 4.5 #imp
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/lasermil.ogg #imp
-    availableModes: FullAuto #imp
+    availableModes: #imp
+    - Burst
+    - FullAuto
     selectedMode: FullAuto #imp
   - type: HitscanBatteryAmmoProvider
     proto: RedRifleLaser #imp

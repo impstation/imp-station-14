@@ -64,11 +64,11 @@
     steps: 5
     zeroVisible: true
   - type: Battery
-    maxCharge: 500
-    startingCharge: 500
+    maxCharge: 540
+    startingCharge: 540
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 100
+    fireCost: 90
 
 - type: entity
   name: auto disabler
@@ -99,7 +99,7 @@
     maxAngle: 15
     angleIncrease: 3
     angleDecay: 15
-    fireRate: 3
+    fireRate: 3.34
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -140,7 +140,7 @@
     steps: 5
     zeroVisible: true
   - type: Gun
-    fireRate: 0.9
+    fireRate: 1
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/stunprojector.ogg
   - type: HitscanBatteryAmmoProvider

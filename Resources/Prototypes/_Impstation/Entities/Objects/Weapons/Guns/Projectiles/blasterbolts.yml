@@ -52,15 +52,15 @@
   - type: Explosive
     explosionType: Default
     maxIntensity: 2
-    intensitySlope: 1
-    totalIntensity: 4
+    intensitySlope: 3
+    totalIntensity: 24
     canCreateVacuum: false
   - type: Ammo
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-        Heat: 10
+        Heat: 15
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -82,8 +82,8 @@
     impactEffect: BulletImpactEffectSyndicate
     damage:
       types:
-        Heat: 10
-        Piercing: 10
+        Heat: 9.5
+        Piercing: 9.5
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -102,8 +102,8 @@
   - type: Projectile
     damage:
       types:
-        Heat: 7.5
-        Piercing: 7.5
+        Heat: 8.5
+        Piercing: 8.5
 
 - type: entity
   name : toy blaster bolt
