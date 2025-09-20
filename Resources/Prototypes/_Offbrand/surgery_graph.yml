@@ -218,7 +218,7 @@
       - !type:ContainerEmpty
         container: cavity_slot
         examineText: cavity-slot-insertion-examine
-        guideText: cavity-slot-insertion-guide
+        guideStep: cavity-slot-insertion-guide
       steps:
       - whitelist:
           components:
