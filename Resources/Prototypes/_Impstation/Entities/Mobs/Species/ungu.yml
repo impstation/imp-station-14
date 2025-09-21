@@ -50,12 +50,12 @@
     - map: [ "head" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
-    - map: [ "enum.CombatModeVisualsVisuals.Combat" ]
-      state: angry
-      visible: false
     - map: [ "clownedon" ] # Dynamically generated
       sprite: "Effects/creampie.rsi"
-      state: "creampie_human"
+      state: "creampie_ungu"
+      visible: false
+    - map: [ "enum.CombatModeVisualsVisuals.Combat" ]
+      state: angry
       visible: false
   - type: CombatModeSprint
     doImpactDamage: true
