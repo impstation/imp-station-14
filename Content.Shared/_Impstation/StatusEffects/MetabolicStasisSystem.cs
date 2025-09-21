@@ -3,7 +3,7 @@ using Content.Shared.StatusEffectNew;
 using Content.Shared.Body.Events;
 using Content.Shared.Body.Systems;
 
-namespace Content.Server._Impstation.StatusEffects;
+namespace Content.Shared._Impstation.StatusEffects;
 
 public sealed class MetabolicStasisSystem : EntitySystem
 {
@@ -24,7 +24,6 @@ public sealed class MetabolicStasisSystem : EntitySystem
 
     private void OnEffectRemoved(Entity<MetabolicStasisStatusEffectComponent> ent, ref StatusEffectRemovedEvent args)
     {
-        ent.Comp.StasisCoefficient = 1.0f;
         _metabolizer.UpdateMetabolicMultiplier(args.Target);
     }
 
