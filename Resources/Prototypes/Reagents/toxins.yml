@@ -475,8 +475,13 @@
   worksOnTheDead: true
   metabolisms:
     Medicine:
-      effects:
       # Begin Offbrand
+      statusEffects:
+      - statusEffect: StatusEffectHeartStrainRomerol
+        conditions:
+        - !type:MetaboliteThreshold
+          min: 30
+      effects:
       - !type:AdjustReagent
         reagent: Romerol
         amount: 0.1
@@ -523,6 +528,11 @@
         conditions:
         - !type:BrainDamage
           min: 70
+        - !type:MetaboliteThreshold
+          min: 30
+      - !type:ModifyHeartDamage
+        amount: 0.1
+        conditions:
         - !type:MetaboliteThreshold
           min: 30
       - !type:AdjustTemperature
@@ -595,6 +605,10 @@
         conditions:
         - !type:MetaboliteThreshold
           min: 140
+      - !type:Zombify
+        conditions:
+        - !type:MobStateCondition
+          mobstate: Dead
       # End Offbrand
 
 - type: reagent

@@ -268,6 +268,15 @@ public sealed class DefibrillatorSystem : EntitySystem
         // Begin Offbrand
         if (heartDefibrillatable is not null)
         {
+            var before = new BeforeTargetDefibrillatedEvent(new());
+            RaiseLocalEvent(target, ref before);
+            if (component.ShowMessages)
+            {
+                foreach (var message in before.Messages)
+                {
+                    _chatManager.TrySendInGameICMessage(uid, Loc.GetString(message), InGameICChatType.Speak, true);
+                }
+            }
             var ev = new TargetDefibrillatedEvent(user, (uid, component));
             RaiseLocalEvent(target, ref ev);
             return;

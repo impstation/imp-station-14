@@ -106,6 +106,14 @@
 
 - type: entity
   parent: MobStatusEffectBase
+  id: StatusEffectHeartStrainRomerol
+  name: increased heart rate
+  components:
+  - type: StrainStatusEffect
+    delta: 1.5
+
+- type: entity
+  parent: MobStatusEffectBase
   id: StatusEffectHeartStabilizationInaprovaline
   name: heart stabilization
   components:

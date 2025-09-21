@@ -45,6 +45,11 @@ public sealed class MetaboliteThresholdSystem : EntitySystem
         var quant = FixedPoint2.Zero;
         metabolites.TryGetValue(metaboliteReagent, out quant);
 
+        if (args.Condition.IncludeBloodstream && reagentArgs.Source != null)
+        {
+            quant += reagentArgs.Source.GetTotalPrototypeQuantity(metaboliteReagent);
+        }
+
         args.Result = quant >= args.Condition.Min && quant <= args.Condition.Max;
     }
 }

@@ -55,6 +55,15 @@ reagent-effect-guidebook-zombify = { $chance ->
    *[other] zombify the target
 }
 
+reagent-effect-condition-guidebook-total-dosage-threshold =
+    { $max ->
+        [2147483648] the total dosage of {$reagent} is at least {NATURALFIXED($min, 2)}u
+        *[other] { $min ->
+                    [0] the total dosage of {$reagent} is at most {NATURALFIXED($max, 2)}u
+                    *[other] the total dosage of {$reagent} is between {NATURALFIXED($min, 2)}u and {NATURALFIXED($max, 2)}u
+                 }
+    }
+
 reagent-effect-condition-guidebook-metabolite-threshold =
     { $max ->
         [2147483648] there's at least {NATURALFIXED($min, 2)}u of {$reagent} metabolites

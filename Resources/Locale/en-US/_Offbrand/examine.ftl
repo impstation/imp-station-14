@@ -2,6 +2,8 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
+cpr-target-needs-cpr = [color=red]{ CAPITALIZE(SUBJECT($target)) } { CONJUGATE-BE($target) } not breathing and requires CPR![/color]
+
 wound-bleeding-modifier = [color=red]bleeding {$wound}[/color]
 wound-tended-modifier = tended {$wound}
 wound-bandaged-modifier = bandaged {$wound}

@@ -21,15 +21,28 @@ public sealed partial class MetaboliteThreshold : EventEntityEffectCondition<Met
     [DataField]
     public ProtoId<ReagentPrototype>? Reagent;
 
+    [DataField]
+    public bool IncludeBloodstream = true;
+
     public override string GuidebookExplanation(IPrototypeManager prototype)
     {
         ReagentPrototype? reagentProto = null;
         if (Reagent is { } reagent)
             prototype.TryIndex(reagent, out reagentProto);
 
-        return Loc.GetString("reagent-effect-condition-guidebook-metabolite-threshold",
-            ("reagent", reagentProto?.LocalizedName ?? Loc.GetString("reagent-effect-condition-guidebook-this-metabolite")),
-            ("max", Max == FixedPoint2.MaxValue ? (float) int.MaxValue : Max.Float()),
-            ("min", Min.Float()));
+        if (IncludeBloodstream)
+        {
+            return Loc.GetString("reagent-effect-condition-guidebook-total-dosage-threshold",
+                ("reagent", reagentProto?.LocalizedName ?? Loc.GetString("reagent-effect-condition-guidebook-this-reagent")),
+                ("max", Max == FixedPoint2.MaxValue ? (float) int.MaxValue : Max.Float()),
+                ("min", Min.Float()));
+        }
+        else
+        {
+            return Loc.GetString("reagent-effect-condition-guidebook-metabolite-threshold",
+                ("reagent", reagentProto?.LocalizedName ?? Loc.GetString("reagent-effect-condition-guidebook-this-metabolite")),
+                ("max", Max == FixedPoint2.MaxValue ? (float) int.MaxValue : Max.Float()),
+                ("min", Min.Float()));
+        }
     }
 }
