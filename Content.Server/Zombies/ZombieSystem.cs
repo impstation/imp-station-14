@@ -27,6 +27,7 @@ using Content.Shared.Zombies;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared._Offbrand.Wounds; // Offbrand
 
 namespace Content.Server.Zombies
 {
@@ -258,7 +259,7 @@ namespace Content.Server.Zombies
                 {
                     args.BonusDamage = -args.BaseDamage;
                 }
-                else
+                else if (!HasComp<WoundableComponent>(entity)) // Offbrand
                 {
                     if (!HasComp<ZombieImmuneComponent>(entity) && !HasComp<NonSpreaderZombieComponent>(args.User) && _random.Prob(GetZombieInfectionChance(entity, component)))
                     {
@@ -267,7 +268,7 @@ namespace Content.Server.Zombies
                     }
                 }
 
-                if (_mobState.IsIncapacitated(entity, mobState) && !HasComp<ZombieComponent>(entity) && !HasComp<ZombieImmuneComponent>(entity))
+                if (_mobState.IsIncapacitated(entity, mobState) && !HasComp<ZombieComponent>(entity) && !HasComp<ZombieImmuneComponent>(entity) && !HasComp<WoundableComponent>(entity)) // Offbrand
                 {
                     ZombifyEntity(entity);
                     args.BonusDamage = -args.BaseDamage;

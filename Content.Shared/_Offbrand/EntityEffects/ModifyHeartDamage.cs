@@ -20,7 +20,7 @@ public sealed partial class ModifyHeartDamage : EntityEffect
         if (Amount < FixedPoint2.Zero)
             return Loc.GetString("reagent-effect-guidebook-modify-heart-damage-heals", ("chance", Probability), ("amount", -Amount));
         else
-            return Loc.GetString("reagent-effect-guidebook-modify-heart-damage-deals", ("chance", Probability), ("amount", -Amount));
+            return Loc.GetString("reagent-effect-guidebook-modify-heart-damage-deals", ("chance", Probability), ("amount", Amount));
     }
 
     public override void Effect(EntityEffectBaseArgs args)

@@ -41,3 +41,23 @@ iv-bag-disconnected-others = { $user } unhooked { $target } from { THE($source) 
 
 backfired-gun = You struggle to aim the gun, and it backfires!
 backfired-hypospray = You struggle to aim the hypo, and you accidentally jam it into yourself.
+
+zombification-30-message-1 = A heat spreads through your body.
+zombification-30-message-2 = Your head feels warm.
+zombification-30-message-3 = You feel dizzy.
+zombification-30-message-4 = You feel light-headed.
+
+zombification-60-message-1 = Something's under your skin.
+zombification-60-message-2 = Something's burning.
+zombification-60-message-3 = Something's itching.
+zombification-60-message-4 = Sweat beads on you.
+
+zombification-90-message-1 = Your heart is racing.
+zombification-90-message-2 = A strange pain fills your body.
+zombification-90-message-3 = Something's running down your throat.
+zombification-90-message-4 = Your skin is withering.
+
+zombification-120-message-1 = Something's bursting open in your head.
+zombification-120-message-2 = You feel strange needles piercing your skin.
+zombification-120-message-3 = Your insides are squirming.
+zombification-120-message-4 = Something wants you to feel calm.

@@ -44,3 +44,31 @@
     - Caustic
     - Asphyxiation
     - Radiation
+
+- type: entity
+  id: AddOnAnyZombified
+  components:
+  - type: Bloodstream
+    bloodlossDamage:
+      types:
+        Bloodloss: 0.5
+    bloodlossHealDamage:
+      types:
+        Bloodloss: -1
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 30
+        reagents:
+        - ReagentId: Romerol
+          Quantity: 30
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 1
+  - type: SolutionRegeneration
+    solution: melee
+    duration: 5
+    generated:
+      reagents:
+      - ReagentId: Romerol
+        Quantity: 1

@@ -18,7 +18,7 @@ public sealed partial class ModifyBrainOxygen : EntityEffect
     protected override string ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
     {
         if (Amount > FixedPoint2.Zero)
-            return Loc.GetString("reagent-effect-guidebook-modify-brain-oxygen-heals", ("chance", Probability), ("amount", -Amount));
+            return Loc.GetString("reagent-effect-guidebook-modify-brain-oxygen-heals", ("chance", Probability), ("amount", Amount));
         else
             return Loc.GetString("reagent-effect-guidebook-modify-brain-oxygen-deals", ("chance", Probability), ("amount", -Amount));
     }
