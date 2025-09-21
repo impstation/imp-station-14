@@ -69,16 +69,7 @@
   components:
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
-    state: "l_hand"
-
-- type: entity
-  id: RightHandAllulalo
-  name: "right allulalo hand"
-  parent: [PartAllulalo, BaseRightHand]
-  components:
-  - type: Sprite
-    sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
-    state: "r_hand"
+    state: "hands"
 
 - type: entity
   id: LeftLegAllulalo

@@ -29,7 +29,6 @@
     LArm: MobAllulaloLArm
     RArm: MobAllulaloRArm
     LHand: MobAllulaloLHand
-    RHand: MobAllulaloRHand
     LLeg: MobAllulaloLLeg
     RLeg: MobAllulaloRLeg
     LFoot: MobAllulaloLFoot
@@ -123,7 +122,7 @@
   id: MobAllulaloLHand
   baseSprite:
     sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
-    state: l_hand
+    state: hands
 
 - type: humanoidBaseSprite
   id: MobAllulaloLArm
@@ -142,12 +141,6 @@
   baseSprite:
     sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
     state: r_leg
-
-- type: humanoidBaseSprite
-  id: MobAllulaloRHand
-  baseSprite:
-    sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
-    state: r_hand
 
 - type: humanoidBaseSprite
   id: MobAllulaloRArm
