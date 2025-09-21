@@ -1,16 +1,16 @@
 - type: species
   id: Allulalo
-  name: species-name-apid
+  name: species-name-allulalo
   roundStart: true
   prototype: MobAllulalo
   sprites: MobAllulaloSprites
   defaultSkinTone: "#385878"
   markingLimits: MobAllulaloMarkingLimits
   dollPrototype: MobAllulaloDummy
-  skinColoration: TintedHues # this prevents RandomHumanoidAppearance from fucking with their colorscheme too much
-  maleFirstNames: ApidWorker
-  femaleFirstNames: ApidWorker
-  lastNames: ApidNames
+  skinColoration: Hues
+  maleFirstNames: AllulaloFirstNames
+  femaleFirstNames: AllulaloFirstNames
+  lastNames: AllulaloLastNames
   sexes:
   - Male
   - Female
