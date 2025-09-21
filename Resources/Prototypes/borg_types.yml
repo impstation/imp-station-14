@@ -14,6 +14,7 @@
 
   defaultModules:
   - BorgModuleTool
+  - BorgModuleInflatable
   - BorgModuleArtifact
   - BorgModuleAnomaly
   radioChannels:
@@ -162,6 +163,7 @@
   - BorgModuleChemical
   - BorgModuleTopicals
   - BorgModuleRescue
+  - BorgModuleOperatingRoom # Offbrand
 
   radioChannels:
   - Science
