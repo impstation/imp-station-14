@@ -119,7 +119,7 @@
 
 - type: marking
   id: FinUngu
-  bodyPart: Tail
+  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Ungu ]
   sprites:
@@ -128,7 +128,7 @@
 
 - type: marking
   id: LimpitUngu
-  bodyPart: HeadTop
+  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Ungu ]
   sprites:
@@ -186,8 +186,8 @@
 
 - type: marking
   id: HeadSplotchLUngu
-  bodyPart: HeadTop
-  markingCategory: HeadTop
+  bodyPart: Head
+  markingCategory: Head
   speciesRestriction: [ Ungu ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
@@ -195,8 +195,8 @@
 
 - type: marking
   id: HeadSplotchRUngu
-  bodyPart: HeadTop
-  markingCategory: HeadTop
+  bodyPart: Head
+  markingCategory: Head
   speciesRestriction: [ Ungu ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/head.rsi
@@ -386,7 +386,7 @@
 - type: marking
   id: SnootUngu
   bodyPart: Snout
-  markingCategory: Head
+  markingCategory: Snout
   speciesRestriction: [ Ungu ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/snout.rsi
@@ -395,7 +395,7 @@
 - type: marking
   id: NoseRingUngu
   bodyPart: Snout
-  markingCategory: Head
+  markingCategory: Snout
   speciesRestriction: [ Ungu ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/snout.rsi
@@ -403,8 +403,8 @@
 
 - type: marking
   id: SnoutElephantUngu
-  bodyPart: Snout
-  markingCategory: Head
+  bodyPart: SnoutCover
+  markingCategory: Snout
   speciesRestriction: [ Ungu ]
   forcedColoring: true
   followSkinColor: true
@@ -414,8 +414,8 @@
 
 - type: marking
   id: SnoutHippoUngu
-  bodyPart: Snout
-  markingCategory: Head
+  bodyPart: SnoutCover
+  markingCategory: Snout
   speciesRestriction: [ Ungu ]
   forcedColoring: true
   followSkinColor: true
@@ -426,7 +426,7 @@
 - type: marking
   id: SnoutPigUngu
   bodyPart: Snout
-  markingCategory: Head
+  markingCategory: Snout
   speciesRestriction: [ Ungu ]
   forcedColoring: true
   followSkinColor: true
@@ -436,8 +436,8 @@
 
 - type: marking
   id: SnoutTapirUngu
-  bodyPart: Snout
-  markingCategory: Head
+  bodyPart: SnoutCover
+  markingCategory: Snout
   speciesRestriction: [ Ungu ]
   forcedColoring: true
   followSkinColor: true
@@ -448,7 +448,7 @@
 - type: marking
   id: SnoutWhale1Ungu
   bodyPart: Snout
-  markingCategory: Head
+  markingCategory: Snout
   speciesRestriction: [ Ungu ]
   forcedColoring: true
   followSkinColor: true
@@ -459,7 +459,7 @@
 - type: marking
   id: SnoutWhale2Ungu
   bodyPart: Snout
-  markingCategory: Head
+  markingCategory: Snout
   speciesRestriction: [ Ungu ]
   forcedColoring: true
   followSkinColor: true
@@ -469,8 +469,8 @@
 
 - type: marking
   id: SnoutBelugaUngu
-  bodyPart: Snout
-  markingCategory: Head
+  bodyPart: SnoutCover
+  markingCategory: Snout
   speciesRestriction: [ Ungu ]
   forcedColoring: false
   sprites:
@@ -482,7 +482,7 @@
 - type: marking
   id: SnoutOrcaUngu
   bodyPart: Snout
-  markingCategory: Head
+  markingCategory: Snout
   speciesRestriction: [ Ungu ]
   forcedColoring: false
   sprites:
@@ -512,9 +512,9 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/eyes.rsi
     state: EyesCyclops
-    shader: unshaded
   - sprite: _Impstation/Mobs/Customization/Ungu/eyes.rsi
     state: EyesCyclopsWhite
+  shader: unshaded
 
 - type: marking
   id: EyesDotsGlowUngu
@@ -584,6 +584,17 @@
     state: SkinRArm
 
 - type: marking
+  id: RArmSpotUngu
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/arms.rsi
+    state: RArmSpotBig
+
+# RHand
+
+- type: marking
   id: PRHandUngu
   bodyPart: RHand
   markingCategory: Arms
@@ -600,15 +611,6 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/arms.rsi
     state: SkinRHand
-
-- type: marking
-  id: RArmSpotUngu
-  bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [ Ungu ]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Ungu/arms.rsi
-    state: RArmSpotBig
 
 # LArm
 
@@ -667,6 +669,17 @@
     state: PLArm
 
 - type: marking
+  id: LArmSpotUngu
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/arms.rsi
+    state: LArmSpotBig
+
+# LHand
+
+- type: marking
   id: PLHandUngu
   bodyPart: LHand
   markingCategory: Arms
@@ -683,15 +696,6 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/arms.rsi
     state: SkinLHand
-
-- type: marking
-  id: LArmSpotUngu
-  bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [ Ungu ]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Ungu/arms.rsi
-    state: LArmSpotBig
 
 # RLeg
 
@@ -767,6 +771,8 @@
   - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
     state: SkinRLeg
 
+# RFoot
+
 - type: marking
   id: RHoofUngu
   bodyPart: RFoot
@@ -806,15 +812,6 @@
     state: LLegSplotches
 
 - type: marking
-  id: LHoofUngu
-  bodyPart: LFoot
-  markingCategory: Legs
-  speciesRestriction: [ Ungu ]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
-    state: HoofL
-
-- type: marking
   id: LLegStripesUngu
   bodyPart: LLeg
   markingCategory: Legs
@@ -822,15 +819,6 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
     state: LLegStripes
-
-- type: marking
-  id: PLHoofUngu
-  bodyPart: LFoot
-  markingCategory: Legs
-  speciesRestriction: [ Ungu ]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
-    state: PLHoof
 
 - type: marking
   id: LLegFluffUngu
@@ -876,6 +864,26 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
     state: LLegSpotBig
+
+# LFoot
+
+- type: marking
+  id: LHoofUngu
+  bodyPart: LFoot
+  markingCategory: Legs
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
+    state: HoofL
+
+- type: marking
+  id: PLHoofUngu
+  bodyPart: LFoot
+  markingCategory: Legs
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
+    state: PLHoof
 
 # UndergarmentBottom
 

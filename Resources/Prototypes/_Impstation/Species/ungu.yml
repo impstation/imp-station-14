@@ -22,9 +22,8 @@
 - type: speciesBaseSprites
   id: MobUnguSprites
   sprites:
-    TailBehind: MobHumanoidAnyMarking # floof
-    TailOversuit: MobHumanoidAnyMarking # floof
     Snout: MobHumanoidAnyMarking
+    SnoutCover: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
     Head: MobUnguHead
     Hair: MobHumanoidAnyMarking
@@ -55,7 +54,7 @@
       points: 2
       required: false
     Head:
-      points: 1
+      points: 2
       required: false
     HeadSide:
       points: 1

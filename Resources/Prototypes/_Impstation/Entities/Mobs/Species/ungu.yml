@@ -10,58 +10,52 @@
     sprite: _Impstation/Mobs/Species/Ungu/parts.rsi
     noRot: true
     drawdepth: Mobs
-    scale: 1, 1
     layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      state: null
-    - map: [ "enum.HumanoidVisualLayers.TailUnderlay" ] # imp
-    - map: [ "enum.HumanoidVisualLayers.TailBehind" ] # Floof
-    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
+    - map: [ "enum.HumanoidVisualLayers.Head" ]
+    - map: [ "enum.HumanoidVisualLayers.Snout" ]
+    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
     - map: [ "enum.HumanoidVisualLayers.RArm" ]
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
+    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
     - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
     - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
-    - map: ["enum.HumanoidVisualLayers.LFoot"]
-    - map: ["enum.HumanoidVisualLayers.RFoot"]
-    - map: ["enum.HumanoidVisualLayers.LHand"]
-    - map: ["enum.HumanoidVisualLayers.RHand"]
-    - map: ["jumpsuit"]
-    - map: [ "shoes" ]
-    - map: [ "gloves" ]
-    - map: [ "id" ]
-    - map: [ "enum.HumanoidVisualLayers.TailBehindBackpack" ] # imp
-    - map: [ "enum.HumanoidVisualLayers.TailOversuit" ] # Floof
-    - map: [ "enum.HumanoidVisualLayers.Head" ]
-    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-    - map: [ "outerClothing" ]
-    - map: [ "belt" ]
-    - map: [ "neck" ]
-    - map: [ "enum.HumanoidVisualLayers.Snout" ]
-    - map: [ "enum.HumanoidVisualLayers.Tail" ]
-    - map: [ "back" ]
-    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-    - map: [ "enum.HumanoidVisualLayers.Hair" ]
-    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-    - map: [ "mask" ]
-    - map: [ "pocket1" ]
-    - map: [ "pocket2" ]
-    - map: [ "ears" ]
-    - map: [ "eyes" ]
-    - map: [ "head" ]
-    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+    - map: [ "jumpsuit" ]
+    - map: [ "enum.HumanoidVisualLayers.LFoot" ]
+    - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+    - map: [ "enum.HumanoidVisualLayers.LHand" ]
+    - map: [ "enum.HumanoidVisualLayers.RHand" ]
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
       color: "#ffffff"
       sprite: Objects/Misc/handcuffs.rsi
       state: body-overlay-2
       visible: false
+    - map: [ "gloves" ]
+    - map: [ "shoes" ]
+    - map: [ "ears" ]
+    - map: [ "eyes" ]
+    - map: [ "belt" ]
+    - map: [ "id" ]
+    - map: [ "outerClothing" ]
+    - map: [ "back" ]
+    - map: [ "neck" ]
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
+    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+    - map: [ "enum.HumanoidVisualLayers.Hair" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
+    - map: [ "mask" ]
+    - map: [ "head" ]
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+    - map: [ "enum.CombatModeVisualsVisuals.Combat" ]
+      state: angry
+      visible: false
     - map: [ "clownedon" ] # Dynamically generated
       sprite: "Effects/creampie.rsi"
       state: "creampie_human"
-      visible: false
-    - map: ["enum.CombatModeVisualsVisuals.Combat"]
-      state: angry
       visible: false
   - type: CombatModeSprint
     doImpactDamage: true
@@ -77,13 +71,13 @@
     animation: WeaponArcPunch
     damage:
       types:
-        Blunt: 15
-        Structural: 20
+        Blunt: 12
+        Structural: 12
   - type: DamageOtherOnHit
     damage:
       types:
-        Blunt: 20
-        Structural: 30
+        Blunt: 15
+        Structural: 20
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -98,7 +92,7 @@
       Peckish: 50
       Starving: 25
       Dead: 0
-    baseDecayRate: 0
+    baseDecayRate: 0.0124 # 3/4 as fast as a human
   - type: GoobAbsorbable
     biomassRestored: 0.8
   - type: Thirst
@@ -152,23 +146,17 @@
     specificHeat: 42
     coldDamage:
       types:
-        Cold : 0.2 #per second, scales with temperature & other constants
+        Cold: 0.2 #per second, scales with temperature & other constants
     heatDamage:
       types:
-        Heat : 1.5 #per second, scales with temperature & other constants
+        Heat: 1.5 #per second, scales with temperature & other constants
   - type: Bloodstream
     bloodReagent: Blood
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:
-        sprite:  _Impstation/Mobs/Effects/ungu_brute_damage.rsi
+        sprite: _Impstation/Mobs/Effects/ungu_brute_damage.rsi
         color: "#ff624a"
-  - type: Tag
-    tags:
-      - DoorBumpOpener
-      - CanPilot
-      - FootstepSound
-      - AnomalyHost
   - type: Speech
     speechSounds: Ungu
   - type: TypingIndicator
@@ -176,13 +164,13 @@
   - type: HumanoidAppearance
     species: Ungu
     hideLayersOnEquip:
-    - Snout
+    - Hair
     - HeadTop
     - HeadSide
-    - Hair
-    - FacialHair
-    - UndergarmentBottom
-    - UndergarmentTop
+    - Snout
+    - SnoutCover
+    - LFoot # those are his hooves you bitch
+    - RFoot
   - type: JumpAbility
     action: ActionDash
     jumpDistance: 4
@@ -331,61 +319,47 @@
           32:
             sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi
             state: jumpsuit
-
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Ungu/parts.rsi
     noRot: true
     drawdepth: Mobs
-    scale: 1, 1
     layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      state: null
-    - map: [ "enum.HumanoidVisualLayers.TailUnderlay" ] # imp
-    - map: [ "enum.HumanoidVisualLayers.TailBehind" ] # Floof
-    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
+    - map: [ "enum.HumanoidVisualLayers.Head" ]
+    - map: [ "enum.HumanoidVisualLayers.Snout" ]
+    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
     - map: [ "enum.HumanoidVisualLayers.RArm" ]
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
+    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
     - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
     - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
-    - map: ["enum.HumanoidVisualLayers.LFoot"]
-    - map: ["enum.HumanoidVisualLayers.RFoot"]
-    - map: ["enum.HumanoidVisualLayers.LHand"]
-    - map: ["enum.HumanoidVisualLayers.RHand"]
-    - map: ["jumpsuit"]
-    - map: [ "shoes" ]
-    - map: [ "gloves" ]
-    - map: [ "id" ]
-    - map: [ "enum.HumanoidVisualLayers.TailBehindBackpack" ] # imp
-    - map: [ "enum.HumanoidVisualLayers.TailOversuit" ] # Floof
-    - map: [ "enum.HumanoidVisualLayers.Head" ]
-    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-    - map: [ "outerClothing" ]
-    - map: [ "belt" ]
-    - map: [ "neck" ]
-    - map: [ "enum.HumanoidVisualLayers.Snout" ]
-    - map: [ "enum.HumanoidVisualLayers.Tail" ]
-    - map: [ "back" ]
-    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-    - map: [ "enum.HumanoidVisualLayers.Hair" ]
-    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-    - map: [ "mask" ]
-    - map: [ "pocket1" ]
-    - map: [ "pocket2" ]
-    - map: [ "ears" ]
-    - map: [ "eyes" ]
-    - map: [ "head" ]
-    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+    - map: [ "jumpsuit" ]
+    - map: [ "enum.HumanoidVisualLayers.LFoot" ]
+    - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+    - map: [ "enum.HumanoidVisualLayers.LHand" ]
+    - map: [ "enum.HumanoidVisualLayers.RHand" ]
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
       color: "#ffffff"
       sprite: Objects/Misc/handcuffs.rsi
       state: body-overlay-2
       visible: false
-    - map: [ "clownedon" ] # Dynamically generated
-      sprite: "Effects/creampie.rsi"
-      state: "creampie_human"
-      visible: false
-    - map: ["enum.CombatModeVisualsVisuals.Combat"]
-      state: angry
-      visible: false
+    - map: [ "gloves" ]
+    - map: [ "shoes" ]
+    - map: [ "ears" ]
+    - map: [ "eyes" ]
+    - map: [ "belt" ]
+    - map: [ "id" ]
+    - map: [ "outerClothing" ]
+    - map: [ "back" ]
+    - map: [ "neck" ]
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
+    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+    - map: [ "enum.HumanoidVisualLayers.Hair" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
+    - map: [ "mask" ]
+    - map: [ "head" ]
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
