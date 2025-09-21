@@ -153,6 +153,10 @@
       - material: RegenerativeMesh
         amount: 10
         doAfter: 5
+    - to: CavityManipulationOpen
+      steps:
+      - tool: Drilling
+        doAfter: 2
   - node: OpenRibCageMending
     edges:
     - to: OpenRibCageSetting
@@ -203,3 +207,49 @@
     - !type:SetNode
       node: OpenRibCage
       repeatConditions: *husking-conditions
+  - node: CavityManipulationOpen
+    edges:
+    - to: OpenRibCage
+      steps:
+      - tool: Cauterizing
+        doAfter: 2
+    - to: CavityManipulationInsert
+      conditions:
+      - !type:ContainerEmpty
+        container: cavity_slot
+        examineText: cavity-slot-insertion-examine
+        guideStep: cavity-slot-insertion-guide
+      steps:
+      - whitelist:
+          components:
+          - Item
+          sizes:
+          - Tiny
+          - Small
+        store: cavity_slot
+        name: cavity-slot-insertion-small-item
+    - to: CavityManipulationRemoval
+      completed:
+      - !type:TriggerContainerContents
+        container: cavity_slot
+      - !type:EmptyContainer
+        container: cavity_slot
+        pickup: true
+      conditions:
+      - !type:ContainerNotEmpty
+        container: cavity_slot
+        examineText: cavity-slot-removal-examine
+        guideText: cavity-slot-removal-guide
+      steps:
+      - tool: Clamping
+        doAfter: 2
+  - node: CavityManipulationInsert
+    surgeryName: surgery-cavity-manipulation-insert-name
+    actions:
+    - !type:SetNode
+      node: CavityManipulationOpen
+  - node: CavityManipulationRemoval
+    surgeryName: surgery-cavity-manipulation-removal-name
+    actions:
+    - !type:SetNode
+      node: CavityManipulationOpen

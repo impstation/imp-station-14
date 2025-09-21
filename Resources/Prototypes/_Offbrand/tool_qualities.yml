@@ -50,3 +50,10 @@
   toolName: tool-quality-recoupling-tool-name
   spawn: VascularRecoupler
   icon: { sprite: _Offbrand/surgery_tools.rsi, state: bloodfilter }
+
+- type: tool
+  id: Drilling
+  name: tool-quality-drilling-name
+  toolName: tool-quality-drilling-tool-name
+  spawn: Drill
+  icon: { sprite: _Offbrand/surgery_tools.rsi, state: drill }
