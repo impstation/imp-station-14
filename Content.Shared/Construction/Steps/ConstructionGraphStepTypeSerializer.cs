@@ -52,6 +52,13 @@ namespace Content.Shared.Construction.Steps
                 return typeof(EntityRemoveConstructionGraphStep);
             }
 
+            // Begin Offbrand
+            if (node.Has("whitelist") || node.Has("blacklist"))
+            {
+                return typeof(Content.Shared._Offbrand.Surgery.WhitelistConstructionGraphStep);
+            }
+            // End Offbrand
+
             return null;
         }
 

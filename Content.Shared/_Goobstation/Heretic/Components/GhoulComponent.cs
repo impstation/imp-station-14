@@ -12,11 +12,6 @@ namespace Content.Shared.Heretic;
 public sealed partial class GhoulComponent : Component
 {
     /// <summary>
-    ///     Indicates who ghouled the entity.
-    /// </summary>
-    [DataField] public EntityUid? BoundHeretic = null;
-
-    /// <summary>
     ///     Total health for ghouls.
     /// </summary>
     [DataField] public FixedPoint2 TotalHealth = 50;
