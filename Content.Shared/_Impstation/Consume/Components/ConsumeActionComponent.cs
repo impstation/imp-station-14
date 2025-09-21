@@ -71,7 +71,7 @@ public sealed partial class ConsumeActionComponent : Component
     /// Percentage of how much we want to consume.
     /// </summary>
     [DataField]
-    public float PercentageConsumed = 0.1f;
+    public float PercentageConsumed = 0.25f;
 
     [DataField]
     public string? PopupSelfStart;
