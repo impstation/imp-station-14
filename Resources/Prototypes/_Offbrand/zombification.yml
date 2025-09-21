@@ -4,6 +4,7 @@
 
 - type: entity
   id: AddOnWoundableZombified
+  save: false
   components:
   - type: Destructible
     thresholds:
@@ -47,6 +48,7 @@
 
 - type: entity
   id: AddOnAnyZombified
+  save: false
   components:
   - type: Bloodstream
     bloodlossDamage:
