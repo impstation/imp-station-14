@@ -1,16 +1,11 @@
 using Content.Server._Goobstation.Heretic.EntitySystems;
-using Content.Server.Body.Systems;
+using Content.Server.Cloning;
 using Content.Server.Heretic.Components;
 using Content.Server.Heretic.EntitySystems;
-using Content.Server.Humanoid;
 using Content.Server.Objectives.Components;
 using Content.Server.Revolutionary.Components;
-using Content.Shared.Body.Components;
-using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Chemistry.Reagent;
-using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
-using Content.Shared.Forensics.Components;
+using Content.Shared.Body.Systems;
+using Content.Shared.Cloning;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Humanoid;
@@ -18,7 +13,6 @@ using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
-
 
 namespace Content.Server.Heretic.Ritual;
 
@@ -50,42 +44,36 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
     /// </summary>
     [DataField] public float CommandSacrificePoints = 3f;
 
+    [DataField] public ProtoId<CloningSettingsPrototype> Settings = "HellClone";
+
     // this is awful but it works so i'm not complaining
     // i'm complaining -kandiyaki
     // IM ALSO COMPLAINING -mq
-    private BloodstreamSystem _bloodstream = default!;
-    private DamageableSystem _damage = default!;
+    // im mad. -honeyed
     private EntityLookupSystem _lookup = default!;
     private HellWorldSystem _hellworld = default!;
     private HereticSystem _heretic = default!;
-    private HumanoidAppearanceSystem _humanoid = default!;
-    private IEntityManager _entmanager = default!;
-    private IPrototypeManager _proto = default!;
     private SharedMindSystem _mind = default!;
-    private SharedSolutionContainerSystem _solutionContainerSystem = default!;
-    private SharedTransformSystem _xform;
     private TransformSystem _transformSystem = default!;
-    protected List<EntityUid> Uids = new();
+    private CloningSystem _cloning = default!;
+    private SharedBodySystem _body = default!;
+
+    protected List<EntityUid> Uids = [];
 
     public override bool Execute(RitualData args, out string? outstr)
     {
         // this fucking sucks -mq
-        _bloodstream = args.EntityManager.System<BloodstreamSystem>();
-        _damage = args.EntityManager.System<DamageableSystem>();
-        _entmanager = IoCManager.Resolve<IEntityManager>();
+        // why is this like this -honeyed
         _hellworld = args.EntityManager.System<HellWorldSystem>();
         _heretic = args.EntityManager.System<HereticSystem>();
-        _humanoid = args.EntityManager.System<HumanoidAppearanceSystem>();
         _lookup = args.EntityManager.System<EntityLookupSystem>();
         _mind = args.EntityManager.System<SharedMindSystem>();
-        _proto = IoCManager.Resolve<IPrototypeManager>();
-        _solutionContainerSystem = args.EntityManager.System<SharedSolutionContainerSystem>();
         _transformSystem = args.EntityManager.System<TransformSystem>();
-        _xform = args.EntityManager.System<SharedTransformSystem>();
-        _xform = args.EntityManager.System<SharedTransformSystem>();
+        _cloning = args.EntityManager.System<CloningSystem>();
+        _body = args.EntityManager.System<SharedBodySystem>();
 
         //if the performer isn't a heretic, stop
-        if (!args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
+        if (!args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out _))
         {
             outstr = string.Empty;
             return false;
@@ -93,7 +81,7 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
 
         //get all entities in range of the circle
         var lookup = _lookup.GetEntitiesInRange(args.Platform, .75f);
-        if (lookup.Count == 0 || lookup == null)
+        if (lookup.Count == 0)
         {
             outstr = Loc.GetString("heretic-ritual-fail-sacrifice");
             return false;
@@ -127,49 +115,17 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
     public override void Finalize(RitualData args)
     {
 
-        for (int i = 0; i < Max; i++)
+        for (var i = 0; i < Max; i++)
         {
             var isCommand = args.EntityManager.HasComponent<CommandStaffComponent>(Uids[i]);
             var knowledgeGain = isCommand ? CommandSacrificePoints : SacrificePoints;
 
-            //get the humanoid appearance component
-            if (!args.EntityManager.TryGetComponent<HumanoidAppearanceComponent>(Uids[i], out var humanoid))
-                return;
-
-            //get the species prototype from that
-            if (!_proto.TryIndex(humanoid.Species, out var speciesPrototype))
-                return;
-
             //spawn a clone of the victim
-            //this should really use the cloningsystem but i coded this before that existed
-            //and it works so i'm not changing it unless it causes issues
-            var sacrificialWhiteBoy = args.EntityManager.Spawn(speciesPrototype.Prototype, _transformSystem.GetMapCoordinates(Uids[i]));
-            _humanoid.CloneAppearance(Uids[i], sacrificialWhiteBoy);
-            //make sure it has the right DNA
-            if (args.EntityManager.TryGetComponent<DnaComponent>(Uids[i], out var victimDna))
-            {
-                if (args.EntityManager.TryGetComponent<BloodstreamComponent>(sacrificialWhiteBoy, out var dummyBlood))
-                {
-                    //this is copied from BloodstreamSystem's OnDnaGenerated
-                    //i hate it
-                    if (_solutionContainerSystem.ResolveSolution(sacrificialWhiteBoy, dummyBlood.BloodSolutionName, ref dummyBlood.BloodSolution, out var bloodSolution))
-                    {
-                        foreach (var reagent in bloodSolution.Contents)
-                        {
-                            List<ReagentData> reagentData = reagent.Reagent.EnsureReagentData();
-                            reagentData.RemoveAll(x => x is DnaData);
-                            reagentData.AddRange(_bloodstream.GetEntityBloodData(Uids[i]));
-                        }
-                    }
-                }
-            }
-            //beat the clone to death. this is just to get matching organs
-            if (args.EntityManager.TryGetComponent<DamageableComponent>(Uids[i], out var dmg))
-            {
-                var prot = (ProtoId<DamageGroupPrototype>)"Brute";
-                var dmgtype = _proto.Index(prot);
-                _damage.TryChangeDamage(sacrificialWhiteBoy, new DamageSpecifier(dmgtype, 1984f), true);
-            }
+            _cloning.TryCloning(Uids[i], _transformSystem.GetMapCoordinates(Uids[i]), Settings, out var clone);
+
+            //gib clone to get matching organs.
+            if (clone != null)
+                _body.GibBody(clone.Value, true);
 
             //send the target to hell world
             _hellworld.AddVictimComponent(Uids[i]);
@@ -183,9 +139,8 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
                 //i'm so sorry to all of my computer science professors. i've failed you
                 if (hellVictim.HasMind)
                 {
-                    _hellworld.SendToHell(Uids[i], args, speciesPrototype);
+                    _hellworld.SendToHell(Uids[i], args);
                 }
-
             }
 
             //update the heretic's knowledge
@@ -208,7 +163,7 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
         }
 
         // reset it because it refuses to work otherwise.
-        Uids = new();
+        Uids = [];
         args.EntityManager.EventBus.RaiseLocalEvent(args.Performer, new EventHereticUpdateTargets());
     }
 }

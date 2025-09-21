@@ -1,0 +1,91 @@
+<Document>
+# Topicals
+
+When tending to external wounds, topical medications should be your first port of call.
+These can be used to stop bleeding, or to augment the speed at which wounds heal naturally.
+
+## Brutes
+
+<Box>
+  <GuideEntityEmbed Entity="Brutepack" />
+</Box>
+
+A bruise pack can bandage and tend to all types of brute injuries at a moderate level.
+
+<Box>
+  <GuideEntityEmbed Entity="MedicatedSuture" />
+</Box>
+
+A medicated suture can bandage and tend to all types of brute injuries.
+
+<Box>
+  <GuideEntityEmbed Entity="Gauze" />
+</Box>
+
+Gauze can bandage and tend to lacerations and punctures, but is most effective on puncture wounds.
+
+<Box>
+  <GuideEntityEmbed Entity="SimpleSuture" />
+</Box>
+
+A simple suture can bandage and tend to lacerations and punctures, but is most effective on lacerations.
+
+<Box>
+  <GuideEntityEmbed Entity="ElectrodePad" />
+</Box>
+
+An electrode pad can tend to bruises, and offers minor assistance to respiration.
+
+## Burns
+
+<Box>
+  <GuideEntityEmbed Entity="Ointment" />
+</Box>
+
+Ointment can tend to burns of all types, but is less effective against caustic burns.
+
+<Box>
+  <GuideEntityEmbed Entity="RegenerativeMesh" />
+</Box>
+
+Regenerative meshes can tend burns of all types, including caustic burns.
+
+<Box>
+  <GuideEntityEmbed Entity="AloeCream" />
+</Box>
+
+Aloe cream can effectively tend to heat burns.
+
+<Box>
+  <GuideEntityEmbed Entity="ShockGel" />
+</Box>
+
+Shock gel can tend to electric and heat burns, but is most effective on electric burns.
+
+<Box>
+  <GuideEntityEmbed Entity="EZGraft" />
+</Box>
+
+EZ graft can effectively tend to caustic burns, but causes lacerations in the process of doing so.
+
+<Box>
+  <GuideEntityEmbed Entity="ColdPack" />
+</Box>
+
+Cold packs can effectively tend to cold burns.
+
+## Other
+
+<Box>
+  <GuideEntityEmbed Entity="Tincture" />
+</Box>
+
+Tincture can tend to any type of wound, but weakly.
+
+</Document>
+
+<!--
+  This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+-->
