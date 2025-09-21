@@ -47,7 +47,7 @@
 - type: entity
   id: OrganArachnidStomach
   parent: OrganAnimalStomach
-  name: stomach
+  name: arachnid stomach
   description: "Gross. This is hard to stomach."
   components:
   - type: Sprite
@@ -125,7 +125,7 @@
   id: OrganArachnidHeart
   parent: BaseArachnidOrgan
   name: heart
-  description: "A disgustingly persistent little biological pump made for spiders."
+  description: "A persistent little biological pump made for spiders."
   components:
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi  #imp edit

@@ -48,6 +48,7 @@
   id: OrganMothStomach
   parent: OrganAnimalStomach
   name: moth stomach
+  description: "Gross. This is hard to stomach."
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -100,7 +101,7 @@
   id: OrganMothHeart
   parent: OrganAnimalHeart
   name: heart
-  description: "A disgustingly persistent little biological pump made for bugs."
+  description: "A persistent little biological pump made for bugs."
   components:
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Moth/organs.rsi
