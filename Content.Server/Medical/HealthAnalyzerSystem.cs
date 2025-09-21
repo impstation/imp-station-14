@@ -33,7 +33,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly TransformSystem _transformSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly WoundableHealthAnalyzerSystem _woundableHealthAnalyzer = default!; // Offbrand
+    [Dependency] private readonly SharedWoundableHealthAnalyzerSystem _woundableHealthAnalyzer = default!; // Offbrand
 
     public override void Initialize()
     {

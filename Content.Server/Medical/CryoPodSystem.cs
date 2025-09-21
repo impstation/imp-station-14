@@ -24,7 +24,7 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
     [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
-    [Dependency] private readonly WoundableHealthAnalyzerSystem _woundableHealthAnalyzer = default!;
+    [Dependency] private readonly SharedWoundableHealthAnalyzerSystem _woundableHealthAnalyzer = default!; // Offbrand
 
     public override void Initialize()
     {

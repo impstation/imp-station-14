@@ -3,7 +3,10 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.FixedPoint;
 using Content.Shared.StatusEffectNew;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._Offbrand.Wounds;
@@ -52,6 +55,12 @@ public sealed partial class WoundableHealthAnalyzerData
 
     [DataField]
     public List<string>? Wounds;
+
+    [DataField]
+    public Dictionary<ProtoId<ReagentPrototype>, (FixedPoint2 InBloodstream, FixedPoint2 Metabolites)>? Reagents;
+
+    [DataField]
+    public bool NonMedicalReagents;
 }
 
 [Serializable, NetSerializable]
@@ -65,12 +74,14 @@ public enum AttributeRating : byte
     Dangerous = 5,
 }
 
-public sealed class WoundableHealthAnalyzerSystem : EntitySystem
+public abstract class SharedWoundableHealthAnalyzerSystem : EntitySystem
 {
     [Dependency] private readonly BrainDamageSystem _brainDamage = default!;
     [Dependency] private readonly HeartSystem _heart = default!;
     [Dependency] private readonly ShockThresholdsSystem _shockThresholds = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+
+    protected const string MedicineGroup = "Medicine";
 
     private AttributeRating RateHigherIsBetter(double value)
     {
@@ -101,6 +112,12 @@ public sealed class WoundableHealthAnalyzerSystem : EntitySystem
         return described;
     }
 
+    public virtual Dictionary<ProtoId<ReagentPrototype>, (FixedPoint2 InBloodstream, FixedPoint2 Metabolites)>? SampleReagents(EntityUid uid, out bool hasNonMedical)
+    {
+        hasNonMedical = false;
+        return null;
+    }
+
     public WoundableHealthAnalyzerData? TakeSample(EntityUid uid, bool withWounds = true)
     {
         if (!HasComp<WoundableComponent>(uid))
@@ -119,6 +136,9 @@ public sealed class WoundableHealthAnalyzerSystem : EntitySystem
         var oxygenation = _heart.BloodOxygenation((uid, heartrate)).Double();
         var circulation = _heart.BloodCirculation((uid, heartrate)).Double();
 
+        var hasNonMedical = false;
+        var reagents = withWounds ? SampleReagents(uid, out hasNonMedical) : null;
+
         return new WoundableHealthAnalyzerData()
             {
                 BrainHealth = brainHealth,
@@ -135,6 +155,8 @@ public sealed class WoundableHealthAnalyzerSystem : EntitySystem
                 HeartRateRating = !heartrate.Running ? AttributeRating.Dangerous : RateHigherIsWorse(strain),
                 AnyVitalCritical = _shockThresholds.IsCritical(uid) || _brainDamage.IsCritical(uid) || _heart.IsCritical(uid),
                 Wounds = withWounds ? SampleWounds(uid) : null,
+                Reagents = reagents,
+                NonMedicalReagents = hasNonMedical,
             };
     }
 }
