@@ -16,14 +16,27 @@ public sealed class ConsumedSystem : EntitySystem
     }
     private void OnExamine(Entity<ConsumedComponent> ent, ref ExaminedEvent args)
     {
-        var locIndex = ent.Comp.TimesConsumed switch
+
+        var consumeIndex = 0;
+        switch (ent.Comp.ConsumedValue)
         {
-            >= 8 => 4,
-            >= 4 => 3,
-            >= 2 => 2,
-            _ => 1,
-        };
-        args.PushMarkup(Loc.GetString($"consumed-onexamine-{locIndex}", ("target", Identity.Entity(ent, EntityManager))));
+            case <= 0.25f:
+                consumeIndex = 1;
+                break;
+            case <= 0.75f:
+                consumeIndex = 2;
+                break;
+            case <= 1.0f:
+                consumeIndex = 3;
+                break;
+            case <= 2.0f:
+                consumeIndex = 4;
+                break;
+        }
+
+        args.PushMarkup(Loc.GetString($"consumed-onexamine-{consumeIndex}",
+            ("target", Identity.Entity(ent, EntityManager))));
+
     }
     private void OnMobStateChange(Entity<ConsumedComponent> ent, ref MobStateChangedEvent args)
     {

@@ -61,6 +61,18 @@ public sealed partial class ConsumeActionComponent : Component
     [DataField]
     public float MeatMultiplier = 0.25f;
 
+    /// <summary>
+    /// Percentage of Bloodstream to drink when consuming.
+    /// </summary>
+    [DataField]
+    public float PortionDrunk = 0.1f;
+
+    /// <summary>
+    /// Percentage of how much we want to consume.
+    /// </summary>
+    [DataField]
+    public float PercentageConsumed = 0.1f;
+
     [DataField]
     public string? PopupSelfStart;
 
@@ -74,7 +86,7 @@ public sealed partial class ConsumeActionComponent : Component
     public string? PopupOthersEnd;
 
     [DataField]
-    public bool CanGib;
+    public bool CanGib = true;
 
     [DataField, AutoNetworkedField]
     public EntityWhitelist? Whitelist;

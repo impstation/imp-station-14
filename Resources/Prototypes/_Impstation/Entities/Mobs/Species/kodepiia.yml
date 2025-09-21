@@ -19,7 +19,6 @@
         Genetic: 15
       types:
         Piercing: 15
-    canGib: true
     whitelist:
       components:
       - Respirator
@@ -27,6 +26,7 @@
     blacklist:
       components:
       - SiliconLawBound
+    PercentageConsumed: 0.25
   - type: Instrument
     allowPercussion: false
     program: 52

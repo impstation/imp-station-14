@@ -331,6 +331,7 @@
     raffle:
       settings: short
   - type: ConsumeAction
+    PercentageConsumed: 0.1
     popupSelfStart: kodepiia-consume-start-self
     popupSelfEnd: kodepiia-consume-end-self
     popupOthersStart: kodepiia-consume-start-others

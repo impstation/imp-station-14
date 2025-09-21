@@ -41,15 +41,9 @@ public sealed class ConsumeSystem : SharedConsumeSystem
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     /// <summary>
-    /// Percentage of Bloodstream to drink when consuming.
+    /// How far consumed the consumed must be before they gib
     /// </summary>
-    private const float PortionDrunk = 0.1f;
-
-    /// <summary>
-    /// Max amount of times a body can be consumed before they gib, if they can be gibbed by said entity.
-    /// </summary>
-    private const int MaxGibCount = 12;
-
+    private const float GibThreshold = 3.0f;
     public override void Initialize()
     {
         base.Initialize();
@@ -152,7 +146,7 @@ public sealed class ConsumeSystem : SharedConsumeSystem
         {
             var foodReagentQuantity = targetPhysics.Mass * ent.Comp.MeatMultiplier;
 
-            var consumedSolution = _solutionContainer.SplitSolution(targetSolutionComp.Value, targetBloodstream.Volume * PortionDrunk);
+            var consumedSolution = _solutionContainer.SplitSolution(targetSolutionComp.Value, targetBloodstream.Volume * ent.Comp.PortionDrunk);
 
             if (_rotting.IsRotten(args.Target.Value))
             {
@@ -197,8 +191,10 @@ public sealed class ConsumeSystem : SharedConsumeSystem
 
         //Consumed Componentry Stuff lol
         EnsureComp<ConsumedComponent>(args.Target.Value, out var consumed);
-        consumed.TimesConsumed += 1;
-        if (consumed.TimesConsumed >= MaxGibCount && TryComp<BodyComponent>(args.Target.Value, out var targetBody) && ent.Comp.CanGib)
+
+        consumed.ConsumedValue += ent.Comp.PercentageConsumed;
+
+        if (consumed.ConsumedValue >= GibThreshold && TryComp<BodyComponent>(args.Target.Value, out var targetBody) && ent.Comp.CanGib)
             _body.GibBody(args.Target.Value,true,targetBody);
     }
 
