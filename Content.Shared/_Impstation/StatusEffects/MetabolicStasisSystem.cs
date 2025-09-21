@@ -1,4 +1,3 @@
-using Content.Shared._Impstation.StatusEffects;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.Body.Events;
 using Content.Shared.Body.Systems;
