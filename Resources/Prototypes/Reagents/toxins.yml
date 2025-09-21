@@ -490,6 +490,14 @@
           invert: true
       - !type:AdjustReagent
         reagent: Romerol
+        amount: 0.5
+        conditions:
+        - !type:MobStateCondition
+          mobstate: Critical
+        - !type:IsZombieImmune
+          invert: true
+      - !type:AdjustReagent
+        reagent: Romerol
         amount: 0.25
         probability: 0.75
         conditions:
@@ -524,6 +532,13 @@
         conditions:
         - !type:MetaboliteThreshold
           min: 30
+      - !type:HealthChange
+        damage:
+          types:
+             Poison: 0.25
+        conditions:
+        - !type:MetaboliteThreshold
+          min: 30
       - !type:Zombify
         conditions:
         - !type:BrainDamage
@@ -540,6 +555,11 @@
         conditions:
         - !type:MetaboliteThreshold
           min: 30
+      - !type:Jitter
+        probability: 0.25
+        conditions:
+        - !type:MetaboliteThreshold
+          min: 60
       - !type:AdjustTemperature
         amount: 12000
         conditions:
@@ -601,7 +621,7 @@
         - !type:MetaboliteThreshold
           min: 120
       - !type:Zombify
-        probability: 0.03
+        probability: 0.05
         conditions:
         - !type:MetaboliteThreshold
           min: 140
