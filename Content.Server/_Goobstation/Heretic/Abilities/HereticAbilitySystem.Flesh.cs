@@ -1,3 +1,4 @@
+using Content.Server._Goobstation.Heretic.Components;
 using Content.Server.Body.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Reagent; // imp
@@ -27,7 +28,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (!TryUseAbility(ent, args))
             return;
 
-        if (HasComp<GhoulComponent>(args.Target)
+        if (HasComp<MinionComponent>(args.Target)
         || TryComp<HereticComponent>(args.Target, out var th) && th.MainPath == ent.Comp.MainPath)
         {
             var dargs = new DoAfterArgs(EntityManager, ent, 10f, new EventHereticFleshSurgeryDoAfter(), ent, args.Target)
