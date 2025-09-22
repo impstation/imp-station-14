@@ -54,7 +54,7 @@
     Hiss:
       collection: ReptilianHiss
     Chirp:
-      collection: ReptilianChirp
+      collection: ReptilianChirp #imp
     Sneeze:
       collection: UnisexSneezes #placeholder
     Cough:
@@ -64,7 +64,7 @@
     Honk:
       collection: BikeHorn
     Sigh:
-      path: _Impstation/Audio/Voice/Reptilian/reptilian_sigh.ogg
+      path: /Audio/_Impstation/Voice/Reptilian/reptilian_sigh.ogg #imp
     Whistle:
       collection: Whistles
     Crying:
@@ -326,7 +326,7 @@
     Click:
       path: /Audio/Voice/Arachnid/arachnid_click.ogg
     Hiss:
-      path: /Audio/_Impstation/Voice/Arachnid/arachnid_hiss.ogg
+      path: /Audio/_Impstation/Voice/Arachnid/arachnid_hiss.ogg #imp
     Sneeze:
       collection: MaleSneezes #placeholder
     Cough:
@@ -353,7 +353,7 @@
       collection: DeathGasp
 
 - type: emoteSounds
-  id: FemaleArachnid
+  id: MaleArachnid
   params:
     variation: 0.125
   sounds:
@@ -366,7 +366,7 @@
     Click:
       path: /Audio/Voice/Arachnid/arachnid_click.ogg
     Hiss:
-      path: /Audio/_Impstation/Voice/Arachnid/arachnid_hiss.ogg
+      path: /Audio/_Impstation/Voice/Arachnid/arachnid_hiss.ogg #imp
     Sneeze:
       collection: FemaleSneezes #placeholder
     Cough:
@@ -388,7 +388,7 @@
     Ungh:
       collection: Ungh
     Gasp:
-      path: /Audio/_Impstation/Voice/Arachnid/arachnid_gasp.ogg  #imp
+      path: /Audio/_Impstation/Voice/Arachnid/arachnid_gasp.ogg #imp
     DefaultDeathgasp:
       collection: DeathGasp
 

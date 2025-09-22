@@ -108,10 +108,12 @@
       collection: MaleCoughs
     Yawn: # imp placeholder
       collection: MaleYawn
+    Chirp:
+      collection: ReptilianChirp #imp
     Honk:
       collection: BikeHorn
-    Sigh:  # imp placeholder
-      collection: MaleSigh
+    Sigh:
+      path: /Audio/_Impstation/Voice/Reptilian/reptilian_sigh.ogg #imp
     Whistle:
       collection: Whistles
     Crying:
@@ -146,10 +148,12 @@
       collection: FemaleCoughs
     Yawn: # imp placeholder
       collection: FemaleYawn
+    Chirp:
+      collection: ReptilianChirp #imp
     Honk:
       collection: BikeHorn
-    Sigh: # imp placeholder
-      collection: FemaleSigh
+    Sigh:
+      path: /Audio/_Impstation/Voice/Reptilian/reptilian_sigh.ogg #imp
     Whistle:
       collection: Whistles
     Crying:
@@ -376,7 +380,7 @@
     Click:
       path: /Audio/Voice/Arachnid/arachnid_click.ogg
     Hiss:
-      collection: KodepiiaHisses
+      path: /Audio/_Impstation/Voice/Arachnid/arachnid_hiss.ogg #imp
     Sneeze:
       collection: UnisexSneezes # imp placeholder
     Cough:
@@ -386,7 +390,7 @@
     Honk:
       collection: BikeHorn
     Sigh:
-      collection: UnisexSigh # imp placeholder
+      path: /Audio/_Impstation/Voice/Arachnid/arachnid_sigh.ogg #imp
     Crying:
       collection: UnisexCry # imp placeholder
     Whistle:
@@ -400,7 +404,7 @@
     Ungh: # imp
       collection: Ungh
     Gasp:
-      collection: UnisexGasp # imp
+      path: /Audio/_Impstation/Voice/Arachnid/arachnid_gasp.ogg #imp
     DefaultDeathgasp:
       collection: DeathGasp
 
