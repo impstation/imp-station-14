@@ -14,9 +14,10 @@ public sealed partial class TooShortForUIComponent : Component
 {
     /// <summary>
     /// These entities will *not* be allowed.
+    /// If the blacklist is null,
     /// </summary>
-    [DataField(required: true)]
-    public EntityWhitelist Blacklist;
+    [DataField]
+    public EntityWhitelist? Blacklist = null;
 
     [DataField]
     public LocId? PopupText = "too-short-for-ui-cant-use";
