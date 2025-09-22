@@ -125,8 +125,12 @@
   id: StatusEffectHeartStrainEphedrine
 
 - type: entity
-  parent: StatusEffectHeartStrainDesoxyephedrine
+  parent: MobStatusEffectBase
   id: StatusEffectHeartStrainNicotine
+  name: slightly increased heart rate
+  components:
+  - type: StrainStatusEffect
+    delta: 0.5
 
 - type: entity
   parent: MobStatusEffectBase
