@@ -8,30 +8,25 @@ namespace Content.Shared._Impstation.Tourist.Components
     public sealed partial class TouristCameraComponent : Component
     {
 
-        [DataField("duration")]
-        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
         public int FlashDuration { get; set; } = 5000;
 
-        [DataField("range")]
-        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
         public float Range { get; set; } = 7f;
 
-        [ViewVariables(VVAccess.ReadWrite)]
-        [DataField("aoeFlashDuration")]
+        [DataField]
         public TimeSpan AoeFlashDuration = TimeSpan.FromSeconds(2);
 
-        [DataField("slowTo")]
-        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
         public float SlowTo { get; set; } = 0.5f;
 
-        [ViewVariables(VVAccess.ReadWrite)]
-        [DataField("sound")]
+        [DataField]
         public SoundSpecifier Sound { get; set; } = new SoundPathSpecifier("/Audio/Weapons/flash.ogg")
         {
             Params = AudioParams.Default.WithVolume(1f).WithMaxDistance(3f)
         };
 
-        [DataField("doAfterDuration")]
+        [DataField]
         public float DoAfterDuration = 1f;
 
         public bool Flashing;

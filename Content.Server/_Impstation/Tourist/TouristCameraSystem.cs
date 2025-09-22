@@ -61,29 +61,11 @@ namespace Content.Server._Impstation.Tourist
         {
             base.Initialize();
 
-            SubscribeLocalEvent<TouristCameraComponent, UseInHandEvent>(OnFlashUseInHand, before: new[] { typeof(HandheldLightSystem) });
             SubscribeLocalEvent<TouristCameraComponent, TouristCameraDoAfterEvent>(OnDoAfter);
             SubscribeLocalEvent<InventoryComponent, FlashAttemptEvent>(OnInventoryFlashAttempt);
             SubscribeLocalEvent<FlashImmunityComponent, FlashAttemptEvent>(OnFlashImmunityFlashAttempt);
             SubscribeLocalEvent<PermanentBlindnessComponent, FlashAttemptEvent>(OnPermanentBlindnessFlashAttempt);
             SubscribeLocalEvent<TemporaryBlindnessComponent, FlashAttemptEvent>(OnTemporaryBlindnessFlashAttempt);
-        }
-
-        private void OnFlashUseInHand(EntityUid uid, TouristCameraComponent comp, UseInHandEvent args)
-        {
-            if (args.Handled)
-                return;
-
-            args.Handled = true;
-
-            var doAfterArgs = new DoAfterArgs(EntityManager, args.User, comp.DoAfterDuration, new TouristCameraDoAfterEvent(), uid, target: uid)
-            {
-                BreakOnDamage = true,
-                BreakOnMove = true,
-                NeedHand = true
-            };
-
-            _doAfter.TryStartDoAfter(doAfterArgs);
         }
 
         private void OnDoAfter(EntityUid uid, TouristCameraComponent comp, TouristCameraDoAfterEvent args)
@@ -190,12 +172,9 @@ namespace Content.Server._Impstation.Tourist
 
         private List<TouristPhotosConditionComponent>? GetPhotoObjectives(EntityUid user)
         {
-            if (!Exists(user))
-                return null;
-
             var objectives = new List<TouristPhotosConditionComponent>();
 
-            if (!_mind.TryGetMind(user, out var mindId, out var mind))
+            if (!Exists(user) || !_mind.TryGetMind(user, out var mindId, out var mind))
                 return objectives;
 
             foreach (var objectiveId in mind.AllObjectives)
