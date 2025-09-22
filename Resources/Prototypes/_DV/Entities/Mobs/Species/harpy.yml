@@ -141,6 +141,13 @@
     femaleDisplacements: {} # Frontier: female jumpsuit displacement
   - type: HarpyVisuals
   - type: UltraVision
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - HarpyEmotes
+    - VulpEmotes
 
 - type: entity
   save: false

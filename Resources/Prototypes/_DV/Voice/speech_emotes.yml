@@ -3,11 +3,13 @@
   id: KodeHonk # imp
   name: delta-chat-emote-name-honk
   category: Vocal
-  available: false
   icon: _Impstation/Interface/Emotes/kodehonk.png # imp
+  available: false
   whitelist:
     components:
     - Vocal
+    tags:
+    - HarpyEmotes
   blacklist:
     tags:
     - SiliconEmotes
@@ -22,11 +24,13 @@
   id: KodeRing # imp
   name: delta-chat-emote-name-ring
   category: Vocal
-  available: false
   icon: _Impstation/Interface/Emotes/ring.png # imp
+  available: false
   whitelist:
     components:
     - Vocal
+    tags:
+    - HarpyEmotes
   blacklist:
     tags:
     - SiliconEmotes
@@ -42,11 +46,13 @@
   id: KodePew # imp
   name: delta-chat-emote-name-pew
   category: Vocal
-  available: false
   icon: _Impstation/Interface/Emotes/pew.png # imp
+  available: false
   whitelist:
     components:
     - Vocal
+    tags:
+    - HarpyEmotes
   blacklist:
     tags:
     - SiliconEmotes
@@ -60,11 +66,13 @@
   id: KodeBang # imp
   name: delta-chat-emote-name-bang
   category: Vocal
-  available: false
   icon: _Impstation/Interface/Emotes/bang.png # imp
+  available: false
   whitelist:
     components:
     - Vocal
+    tags:
+    - HarpyEmotes
   blacklist:
     tags:
     - SiliconEmotes
@@ -84,6 +92,8 @@
   whitelist:
     components:
     - Vocal
+    tags:
+    - HarpyEmotes
   blacklist:
     tags:
     - SiliconEmotes
@@ -98,11 +108,13 @@
   id: KodeRev # imp
   name: delta-chat-emote-name-rev
   category: Vocal
-  available: false
   icon: _Impstation/Interface/Emotes/revs.png # imp
+  available: false
   whitelist:
     components:
     - Vocal
+    tags:
+    - HarpyEmotes
   blacklist:
     tags:
     - SiliconEmotes
@@ -117,11 +129,12 @@
   id: Caw # imp
   name: delta-chat-emote-name-caw
   category: Vocal
-  available: false
   icon: _Impstation/Interface/Emotes/caw.png # imp
   whitelist:
     components:
     - Vocal
+    tags:
+    - HarpyEmotes
   blacklist:
     tags:
     - SiliconEmotes
@@ -137,10 +150,12 @@
   id: Bark
   name: delta-chat-emote-name-bark
   category: Vocal
-  available: false
+  icon: _Impstation/Interface/Emotes/snarl.png # imp
   whitelist:
     components:
     - Vocal
+    tags:
+    - VulpEmotes
   blacklist:
     components:
     - BorgChassis
@@ -155,11 +170,12 @@
   id: Snarl
   name: delta-chat-emote-name-snarl
   category: Vocal
-  available: false
   icon: _Impstation/Interface/Emotes/snarl.png # imp
   whitelist:
     components:
     - Vocal
+    tags:
+    - VulpEmotes
   blacklist:
     tags:
     - SiliconEmotes
@@ -174,10 +190,12 @@
   id: Whine
   name: delta-chat-emote-name-whine
   category: Vocal
-  available: false
+  icon: _Impstation/Interface/Emotes/snarl.png # imp
   whitelist:
     components:
     - Vocal
+    tags:
+    - VulpEmotes
   blacklist:
     components:
     - BorgChassis
@@ -192,10 +210,12 @@
   id: Howl
   name: delta-chat-emote-name-howl
   category: Vocal
-  available: false
+  icon: _Impstation/Interface/Emotes/snarl.png # imp
   whitelist:
     components:
     - Vocal
+    tags:
+    - VulpEmotes
   blacklist:
     components:
     - BorgChassis
@@ -206,14 +226,17 @@
     - howling
     - howled
 
+# ?? whats the difference between this and Howl - miapyxel
 - type: emote
   id: Awoo
   name: delta-chat-emote-name-awoo
   category: Vocal
-  available: false
+  icon: _Impstation/Interface/Emotes/snarl.png # imp
   whitelist:
     components:
     - Vocal
+    tags:
+    - VulpEmotes
   blacklist:
     components:
     - BorgChassis
