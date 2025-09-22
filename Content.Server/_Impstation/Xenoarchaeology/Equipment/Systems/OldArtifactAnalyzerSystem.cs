@@ -179,7 +179,7 @@ public sealed class OldArtifactAnalyzerSystem : EntitySystem
         }
     }
 
-     /// <summary>
+    /// <summary>
     /// Link up the analyzer to the console, additionally, pass in the advanced node scanner if we already have one linked to the pad
     /// </summary>
     private void OnNewConsoleLink(EntityUid uid, OldAnalysisConsoleComponent component, NewLinkEvent args)
@@ -226,6 +226,7 @@ public sealed class OldArtifactAnalyzerSystem : EntitySystem
 
         component.AnalyzerEntity = args.Sink;
         analyzer.AdvancedNodeScanner = uid;
+        _ans.TryAdvancedScanNodeId(args.Sink); // Scan the node Id if there is an artifact on the pad.
 
         if (analyzer.Console is not null && TryComp<OldAnalysisConsoleComponent>(analyzer.Console, out var analysisConsoleComponent))
         {
@@ -264,6 +265,7 @@ public sealed class OldArtifactAnalyzerSystem : EntitySystem
         FormattedMessage? msg = null;
         TimeSpan? totalTime = null;
         var canScan = false;
+        var advancedMode = false;
         var canPrint = false;
         var points = 0;
 
@@ -283,7 +285,10 @@ public sealed class OldArtifactAnalyzerSystem : EntitySystem
             if (GetArtifactForAnalysis(component.AnalyzerEntity, placer) is { } current)
                 points = _artifact.GetResearchPointValue(current);
 
+            //This will also sync the data between console and ANS. If there is no ANS then the console shouldn't be able to recognise what artifact is on the pad.
             _ans.TryAdvancedScanNodeId((EntityUid)component.AnalyzerEntity);
+            if (analyzer.AdvancedNodeScanner is not null && HasComp<OldAdvancedNodeScannerComponent>(analyzer.AdvancedNodeScanner))
+                advancedMode = true;
         }
 
         var analyzerConnected = component.AnalyzerEntity != null;
@@ -342,16 +347,24 @@ public sealed class OldArtifactAnalyzerSystem : EntitySystem
         if (ent == null)
             return;
 
-        var activeComp = EnsureComp<ActiveArtifactAnalyzerComponent>(component.AnalyzerEntity.Value);
-        activeComp.StartTime = _timing.CurTime;
-        activeComp.AccumulatedRunTime = TimeSpan.Zero;
-        activeComp.Artifact = ent.Value;
+        // We can instantly finish the scan if we have an available advanced node scanner that has previously scanned the artifact node.
+        if (_ans.AnalyzerCanInstantScan((EntityUid)component.AnalyzerEntity, (EntityUid)ent))
+        {
+            _ans.TryAdvancedScanNodeFull((EntityUid)component.AnalyzerEntity);
+        }
+        else // Normal scanning, we do not have an advanced node scanner
+        {
+            var activeComp = EnsureComp<ActiveArtifactAnalyzerComponent>(component.AnalyzerEntity.Value);
+            activeComp.StartTime = _timing.CurTime;
+            activeComp.AccumulatedRunTime = TimeSpan.Zero;
+            activeComp.Artifact = ent.Value;
 
-        if (TryComp<ApcPowerReceiverComponent>(component.AnalyzerEntity.Value, out var powa))
-            activeComp.AnalysisPaused = !powa.Powered;
+            if (TryComp<ApcPowerReceiverComponent>(component.AnalyzerEntity.Value, out var powa))
+                activeComp.AnalysisPaused = !powa.Powered;
 
-        var activeArtifact = EnsureComp<ActiveScannedArtifactComponent>(ent.Value);
-        activeArtifact.Scanner = component.AnalyzerEntity.Value;
+            var activeArtifact = EnsureComp<ActiveScannedArtifactComponent>(ent.Value);
+            activeArtifact.Scanner = component.AnalyzerEntity.Value;
+        }
         UpdateUserInterface(uid, component);
     }
 
@@ -565,7 +578,10 @@ public sealed class OldArtifactAnalyzerSystem : EntitySystem
     {
 
         if (ent.Comp.Console != null && Exists(ent.Comp.Console))
+        {
+            _ans.TryAdvancedScanNodeId(ent.Owner); // Advanced node scanner: update node ID
             UpdateUserInterface(ent.Comp.Console.Value);
+        }
         return;
     }
 

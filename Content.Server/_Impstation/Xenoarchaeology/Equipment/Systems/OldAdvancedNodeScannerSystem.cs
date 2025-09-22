@@ -152,7 +152,7 @@ public sealed class OldAdvancedNodeScannerSystem : EntitySystem
     }
 
     /// <summary>
-    /// Full scan of artifact
+    /// Full scan of artifact.
     /// </summary>
     public void TryAdvancedScanNodeFull(EntityUid analyzer)
     {
@@ -219,6 +219,14 @@ public sealed class OldAdvancedNodeScannerSystem : EntitySystem
                     artiNode.Triggered
                 ));
             }
+            else // Update trigger, effect, triggered, and children, in case any of these have changed. There should be no valid mechanism to change parent, nodes ID, or change a node's depth.
+            {
+                var storedNode = scannedData.Nodes.Find(x => x.NodeId == currentNodeId);
+                storedNode.Activated = artiNode.Triggered;
+                storedNode.ChildIds = artiNodeChildren;
+                storedNode.Trigger = artiNode.Trigger;
+                storedNode.Effect = artiNode.Effect;
+            }
         }
         else
         {
@@ -275,11 +283,7 @@ public sealed class OldAdvancedNodeScannerSystem : EntitySystem
         if (!TryComp<OldAnalysisConsoleComponent>((EntityUid)console, out var consoleComp))
             return;
 
-        //TEST if tweaking one will tweak the other if they share same data.
-
-        consoleComp.ScannedArtifactData = ansEntity.Comp.ScannedArtifactData;
-
-        ansEntity.Comp.ScannedArtifactData.Remove(ansEntity.Comp.ScannedArtifactData.FirstOrDefault().Key);
+        //TODO implement smart synchronisation
 
         return;
     }
@@ -325,4 +329,35 @@ public sealed class OldAdvancedNodeScannerSystem : EntitySystem
         TrySynchronizeAdvancedScanData(ansEntity, analyzerEntity);
     }
 
+
+    /// <summary>
+    /// Can we bypass the scanning time of an artifact scanner? Yes if we have a linked advanced node scanner that has stored information on the artifact to be scanned.
+    /// </summary>
+    public bool AnalyzerCanInstantScan(EntityUid analyzer, EntityUid artifact)
+    {
+        if (!TryComp<OldArtifactAnalyzerComponent>(analyzer, out var analyzerComponent))
+            return false;
+
+        if (analyzerComponent.AdvancedNodeScanner is null)
+            return false;
+
+        var ansEntityUid = (EntityUid)analyzerComponent.AdvancedNodeScanner;
+
+        if (!TryComp<OldAdvancedNodeScannerComponent>(ansEntityUid, out var ansComp))
+            return false;
+
+        var ansEntity = new Entity<OldAdvancedNodeScannerComponent>(ansEntityUid, ansComp);
+
+        if (!CanProvideAdvancedScanning(ansEntity))
+            return false;
+
+        if (!TryComp<ArtifactComponent>(artifact, out var artiComp))
+            return false;
+
+        if (!ansComp.ScannedArtifactData.TryGetValue(artifact, out var artiData))
+            return false;
+
+        return artiData.Nodes.Exists(x => x.NodeId == artiComp.CurrentNodeId);
+
+    }
 }
