@@ -49,7 +49,6 @@
   parent: OrganAnimalStomach
   name: moth stomach
   description: "Gross. This is hard to stomach."
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Moth/organs.rsi
@@ -120,7 +119,6 @@
   parent: OrganAnimalLiver
   name: hepatic caecum
   description: "Pairing suggestion: chianti and fava beans."
-  categories: [ HideSpawnMenu ]
   components:
   - type: Item
     size: Small
@@ -139,7 +137,6 @@
   parent: OrganHumanKidneys
   name: Malpighian tubules
   description: "Filters toxins from the bloodstream."
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Moth/organs.rsi

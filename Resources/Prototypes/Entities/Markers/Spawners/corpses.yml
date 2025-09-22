@@ -1,6 +1,6 @@
 - type: entity
-  name: Random Corpse Spawner
-  id: SalvageCorpseSpawner
+  name: Human Corpse Spawner
+  id: SalvageHumanCorpseSpawner
   parent: MarkerBase
   components:
   - type: Sprite
@@ -9,12 +9,12 @@
       - state: green
   - type: ConditionalSpawner
     prototypes:
-      - SalvageCorpse
+      - SalvageHumanCorpse
 
 - type: entity
   name: Random Service Corpse Spawner
   id: RandomServiceCorpseSpawner
-  parent: SalvageCorpseSpawner
+  parent: SalvageHumanCorpseSpawner
   components:
   - type: Sprite
     layers:
@@ -27,7 +27,7 @@
 - type: entity
   name: Random Engineer Corpse Spawner
   id: RandomEngineerCorpseSpawner
-  parent: SalvageCorpseSpawner
+  parent: SalvageHumanCorpseSpawner
   components:
   - type: Sprite
     layers:
@@ -40,7 +40,7 @@
 - type: entity
   name: Random Cargo Corpse Spawner
   id: RandomCargoCorpseSpawner
-  parent: SalvageCorpseSpawner
+  parent: SalvageHumanCorpseSpawner
   components:
   - type: Sprite
     layers:
@@ -53,7 +53,7 @@
 - type: entity
   name: Random Medic Corpse Spawner
   id: RandomMedicCorpseSpawner
-  parent: SalvageCorpseSpawner
+  parent: SalvageHumanCorpseSpawner
   components:
   - type: Sprite
     layers:
@@ -66,7 +66,7 @@
 - type: entity
   name: Random Science Corpse Spawner
   id: RandomScienceCorpseSpawner
-  parent: SalvageCorpseSpawner
+  parent: SalvageHumanCorpseSpawner
   components:
   - type: Sprite
     layers:
@@ -79,7 +79,7 @@
 - type: entity
   name: Random Security Corpse Spawner
   id: RandomSecurityCorpseSpawner
-  parent: SalvageCorpseSpawner
+  parent: SalvageHumanCorpseSpawner
   components:
   - type: Sprite
     layers:
@@ -92,7 +92,7 @@
 - type: entity
   name: Random Command Corpse Spawner
   id: RandomCommandCorpseSpawner
-  parent: SalvageCorpseSpawner
+  parent: SalvageHumanCorpseSpawner
   components:
   - type: Sprite
     layers:

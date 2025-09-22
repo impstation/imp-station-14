@@ -1,5 +1,5 @@
 - type: entity
-  parent: SalvageCorpse
+  parent: SalvageHumanCorpse
   id: MobRandomServiceCorpse
   suffix: Dead, Service
   components:
@@ -17,7 +17,7 @@
       - PassengerGear
 
 - type: entity
-  parent: SalvageCorpse
+  parent: SalvageHumanCorpse
   id: MobRandomEngineerCorpse
   suffix: Dead, Engineer
   components:
@@ -28,7 +28,7 @@
     - StationEngineerGear
 
 - type: entity
-  parent: SalvageCorpse
+  parent: SalvageHumanCorpse
   id: MobRandomCargoCorpse
   suffix: Dead, Cargo
   components:
@@ -38,7 +38,7 @@
     - SalvageSpecialistGear
 
 - type: entity
-  parent: SalvageCorpse
+  parent: SalvageHumanCorpse
   id: MobRandomMedicCorpse
   suffix: Dead, Medic
   components:
@@ -50,7 +50,7 @@
     - DoctorGear
 
 - type: entity
-  parent: SalvageCorpse
+  parent: SalvageHumanCorpse
   id: MobRandomScienceCorpse
   suffix: Dead, Science
   components:
@@ -60,7 +60,7 @@
     - ScientistGear
 
 - type: entity
-  parent: SalvageCorpse
+  parent: SalvageHumanCorpse
   id: MobRandomSecurityCorpse
   suffix: Dead, Security
   components:
@@ -72,7 +72,7 @@
     - WardenGear
 
 - type: entity
-  parent: SalvageCorpse
+  parent: SalvageHumanCorpse
   id: MobRandomCommandCorpse
   suffix: Dead, Command
   components:
