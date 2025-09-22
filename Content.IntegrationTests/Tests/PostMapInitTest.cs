@@ -133,7 +133,7 @@ namespace Content.IntegrationTests.Tests
             "E1M1",
             "ElkridgeImp",
             "GateImp",
-            "Hash",
+            "reHash",
             "Hummingbird",
             "Lilboat",
             "Luna",

@@ -27,4 +27,18 @@ surgery-wound-fracture-treatment-desc = Mends internal fractures.
 surgery-wound-arterial-treatment-name = arterial bleeding treatment
 surgery-wound-arterial-treatment-desc = Mends arterial bleeding.
 
+surgery-cavity-manipulation-insert-name = cavity item insertion
+surgery-cavity-manipulation-insert-desc = Insert an item into someone's chest cavity.
+
+surgery-cavity-manipulation-removal-name = cavity item removal
+surgery-cavity-manipulation-removal-desc = Remove an item from someone's chest cavity.
+
+cavity-slot-insertion-small-item = a small item
+
+cavity-slot-removal-examine = The patient needs to have an item in the chest cavity.
+cavity-slot-removal-guide = The patient needs to have an item in the chest cavity.
+
+cavity-slot-insertion-examine = The patient needs to not have an item already in the chest cavity.
+cavity-slot-insertion-guide = The patient needs to not have an item already in the chest cavity.
+
 surgery-cleanup-name = cleanup

@@ -436,6 +436,10 @@
       Unsexed: UnisexSiliconSyndicate
   - type: PointLight
     color: "#dd200b"
+  # imp edit start
+  - type: TypingIndicator
+    proto: syndibot
+  # imp edit end
 
 - type: entity
   parent: BaseBorgChassisNotIonStormable

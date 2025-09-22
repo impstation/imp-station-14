@@ -22,3 +22,6 @@ tool-quality-bone-setting-tool-name = Bone Setter
 
 tool-quality-recoupling-name = Recoupling
 tool-quality-recoupling-tool-name = Vascular Recoupler
+
+tool-quality-drilling-name = Drilling
+tool-quality-drilling-tool-name = Drill
