@@ -6,7 +6,7 @@
   abstract: true
   components:
   - type: GoobAbsorbable
-    biomassRestored: 0.5
+    biomassRestored: 1.0
   - type: Hunger
   - type: Thirst
   - type: Fixtures
@@ -15,7 +15,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.32
-        density: 75
+        density: 75 #this is half the normal and makes them very light
         restitution: 0.0
         mask:
         - MobMask
@@ -52,6 +52,8 @@
     damage:
       types:
         Slash: 5
+  - type: StaminaResistance
+    damageCoefficient: 1.25
   - type: Butcherable
     butcheringType: Spike
     spawned:
