@@ -28,15 +28,6 @@
     prototype: Allulalo
     requiredLegs: 2
   - type: UnableToWield
-  - type: InteractionPopup
-    successChance: 0.9
-    interactSuccessString: petting-success-apid
-    interactFailureString: petting-failure-apid
-    interactSuccessSpawn: EffectHearts
-    interactSuccessSound:
-      path: /Audio/Animals/mouse_squeak.ogg
-    interactFailureSound:
-      path: /Audio/Effects/tesla_consume.ogg
   - type: MothAccent
   - type: Damageable
     damageContainer: Biological
@@ -53,15 +44,14 @@
       0: Alive
       100: Critical
       200: Dead
-  - type: MeleeWeapon
-    attackRate: 1
+  - type: MeleeWeapon #this is just the same as lizards
     soundHit:
-      collection: Punch
+      collection: AlienClaw
     angle: 30
-    animation: WeaponArcThrust
+    animation: WeaponArcClaw
     damage:
       types:
-        Shock: 3 # they got a little stinger
+        Slash: 5
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -72,7 +62,7 @@
     normalState: Monkey_burning
   - type: Tag
     tags:
-    - VimPilot
+    - VimPilot #fuck it, theyre small enough
     - DoorBumpOpener
     - AnomalyHost
     - CanPilot
