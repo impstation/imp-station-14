@@ -50,8 +50,7 @@ public sealed partial class HereticCombatMarkSystem : EntitySystem
             case "Flesh":
                 if (TryComp<BloodstreamComponent>(target, out var blood))
                 {
-                    _blood.TryModifyBleedAmount(target, 5f);
-                    _blood.SpillAllSolutions(target);
+                    _blood.TryModifyBleedAmount(target, 7f);
                 }
                 break;
 
