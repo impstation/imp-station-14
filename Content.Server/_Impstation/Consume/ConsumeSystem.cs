@@ -193,6 +193,7 @@ public sealed class ConsumeSystem : SharedConsumeSystem
         EnsureComp<ConsumedComponent>(args.Target.Value, out var consumed);
 
         consumed.ConsumedValue += ent.Comp.PercentageConsumed;
+        Dirty(args.Target.Value, consumed);
 
         if (consumed.ConsumedValue >= GibThreshold && TryComp<BodyComponent>(args.Target.Value, out var targetBody) && ent.Comp.CanGib)
             _body.GibBody(args.Target.Value,true,targetBody);
