@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using Content.Shared._Impstation.CCVar;
 using Content.Shared._Impstation.Pleebnar.Components;
 using Content.Shared.Actions;
@@ -55,7 +56,7 @@ public sealed class NotifierExamineSystem : EntitySystem
             Act = () =>
             {
                 var markup = new FormattedMessage();
-                markup.AddMarkupPermissive(ent.Comp.Content);
+                markup.AddText(ent.Comp.Content);
                 _examine.SendExamineTooltip(user, ent, markup, false, false);
             },
             Text = Loc.GetString("detail-examinable-verb-text"),
@@ -71,4 +72,5 @@ public sealed class NotifierExamineSystem : EntitySystem
         if (!ent.Comp.Active || !args.IsInDetailsRange||_mobState.IsDead(ent.Owner)) return;
         args.PushMarkup($"[color=lightblue]{Loc.GetString("notifier-info",("ent", ent.Owner))}[/color]");
     }
+
 }
