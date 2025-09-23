@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/08/2025 21:40:37
-  entityCount: 25422
+  time: 09/14/2025 04:31:14
+  entityCount: 25432
 maps:
 - 1
 grids:
@@ -647,7 +647,6 @@ entities:
             2849: 111,25
             2851: 54,-38
             2853: 91,-52
-            2857: 81,-5
             2861: 76,33
             2862: 75,55
             2863: 88,39
@@ -2106,12 +2105,12 @@ entities:
             2891: 49,7
             2892: 50,7
             4950: 81,-54
-            5056: 83,-5
             5057: 84,-5
             5221: 122,-10
             5247: 78,-44
             5491: 110,5
             5492: 112,7
+            5646: 85,-5
         - node:
             zIndex: 1
             color: '#FFFFFFFF'
@@ -5013,7 +5012,8 @@ entities:
           19,-9:
             0: 65535
           19,-4:
-            0: 15243
+            0: 14987
+            8: 256
           20,-8:
             0: 21773
           20,-7:
@@ -5581,7 +5581,7 @@ entities:
           23,7:
             0: 8189
           24,8:
-            8: 65535
+            9: 65535
           25,5:
             1: 17
             0: 61440
@@ -5671,7 +5671,7 @@ entities:
             0: 65535
           23,8:
             0: 4369
-            8: 17636
+            9: 17636
           16,8:
             0: 65527
           17,5:
@@ -5752,7 +5752,7 @@ entities:
             0: 61695
           23,9:
             0: 4368
-            8: 52416
+            9: 52416
           23,10:
             0: 23632
           23,11:
@@ -5760,10 +5760,10 @@ entities:
           23,12:
             0: 62551
           24,9:
-            8: 58622
+            9: 58622
           24,10:
             0: 7936
-            8: 14
+            9: 14
           24,11:
             0: 61919
           12,9:
@@ -5846,7 +5846,7 @@ entities:
             0: 65535
           19,16:
             0: 3071
-            9: 1024
+            10: 1024
           20,13:
             0: 61666
           20,14:
@@ -6708,6 +6708,21 @@ entities:
           moles:
           - 27.225372
           - 102.419266
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+          - 20.078888
+          - 75.53487
           - 0
           - 0
           - 0
@@ -18251,7 +18266,7 @@ entities:
   - uid: 1397
     components:
     - type: Transform
-      pos: 84.61656,-2.3746905
+      pos: 83.425606,-2.4078083
       parent: 2
   - uid: 1398
     components:
@@ -60757,6 +60772,18 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+- proto: ClothingBackpackDuffelSurgeryFilled
+  entities:
+  - uid: 17293
+    components:
+    - type: Transform
+      pos: 70.5679,-15.204363
+      parent: 2
+  - uid: 19006
+    components:
+    - type: Transform
+      pos: 70.52103,-19.282488
+      parent: 2
 - proto: ClothingBackpackDuffelSyndicatePyjamaBundle
   entities:
   - uid: 9375
@@ -61333,6 +61360,18 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+- proto: ClothingMaskBreathMedical
+  entities:
+  - uid: 17058
+    components:
+    - type: Transform
+      pos: 70.31742,-15.423662
+      parent: 2
+  - uid: 20354
+    components:
+    - type: Transform
+      pos: 70.270546,-19.486162
+      parent: 2
 - proto: ClothingMaskGas
   entities:
   - uid: 9462
@@ -63518,6 +63557,13 @@ entities:
         - 0
         - 0
         - 0
+- proto: CrateFreezerIVBag
+  entities:
+  - uid: 19876
+    components:
+    - type: Transform
+      pos: 68.5,-11.5
+      parent: 2
 - proto: CrateGenericSteel
   entities:
   - uid: 9804
@@ -63690,6 +63736,11 @@ entities:
         - 0
         - 0
         - 0
+  - uid: 16999
+    components:
+    - type: Transform
+      pos: 84.5,-2.5
+      parent: 2
 - proto: CrateNPCChicken
   entities:
   - uid: 9821
@@ -117377,6 +117428,28 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
+- proto: IVStand
+  entities:
+  - uid: 17096
+    components:
+    - type: Transform
+      pos: 68.5,-12.5
+      parent: 2
+  - uid: 18174
+    components:
+    - type: Transform
+      pos: 75.5,-12.5
+      parent: 2
+  - uid: 18431
+    components:
+    - type: Transform
+      pos: 68.5,-16.5
+      parent: 2
+  - uid: 18487
+    components:
+    - type: Transform
+      pos: 68.5,-20.5
+      parent: 2
 - proto: JanitorialTrolley
   entities:
   - uid: 9826
@@ -118481,6 +118554,16 @@ entities:
     components:
     - type: Transform
       pos: 61.5,35.5
+      parent: 2
+  - uid: 20584
+    components:
+    - type: Transform
+      pos: 83.5,-4.5
+      parent: 2
+  - uid: 24764
+    components:
+    - type: Transform
+      pos: 82.5,-4.5
       parent: 2
 - proto: LockerPrisoner
   entities:
@@ -120046,6 +120129,11 @@ entities:
     - type: Transform
       pos: 11.5,6.5
       parent: 2
+  - uid: 15791
+    components:
+    - type: Transform
+      pos: 85.5,-4.5
+      parent: 2
   - uid: 16993
     components:
     - type: Transform
@@ -120075,11 +120163,6 @@ entities:
     components:
     - type: Transform
       pos: 67.5,42.5
-      parent: 2
-  - uid: 16999
-    components:
-    - type: Transform
-      pos: 83.5,-4.5
       parent: 2
   - uid: 17000
     components:
@@ -122304,16 +122387,6 @@ entities:
     components:
     - type: Transform
       pos: 113.5,-7.5
-      parent: 2
-  - uid: 17058
-    components:
-    - type: Transform
-      pos: 85.5,-4.5
-      parent: 2
-  - uid: 17096
-    components:
-    - type: Transform
-      pos: 82.5,-4.5
       parent: 2
   - uid: 17304
     components:
@@ -131920,13 +131993,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: Scalpel
-  entities:
-  - uid: 19006
-    components:
-    - type: Transform
-      pos: 84.36656,-2.6715655
-      parent: 2
 - proto: ScrapCamera
   entities:
   - uid: 19007
@@ -139388,6 +139454,16 @@ entities:
       parent: 2
 - proto: SpawnPointParamedic
   entities:
+  - uid: 15550
+    components:
+    - type: Transform
+      pos: 83.5,-5.5
+      parent: 2
+  - uid: 16822
+    components:
+    - type: Transform
+      pos: 82.5,-5.5
+      parent: 2
   - uid: 19927
     components:
     - type: Transform
@@ -142992,11 +143068,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 38.5,6.5
-      parent: 2
-  - uid: 20354
-    components:
-    - type: Transform
-      pos: 84.5,-2.5
       parent: 2
   - uid: 20355
     components:
@@ -163339,18 +163410,36 @@ entities:
     - type: Transform
       pos: 76.5,-13.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
           ents:
-          - 9477
           - 9478
-          - 9475
-          - 9476
-          - 9479
           - 9480
+          - 9479
+          - 9476
+          - 9475
+          - 9477
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -164714,7 +164803,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -218830.06
+      secondsUntilStateChange: -219235.39
       state: Opening
     - type: Airlock
       autoClose: False
