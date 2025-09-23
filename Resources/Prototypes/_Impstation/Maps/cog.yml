@@ -2,8 +2,7 @@
   id: CogImp
   mapName: 'Cog'
   mapPath: /Maps/_Impstation/cog.yml
-  minPlayers: 45
-  maxPlayers: 80 #big map
+  minPlayers: 70
   stations:
     Cog:
       stationProto: StandardNanotrasenStation
@@ -16,7 +15,7 @@
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/emergency_wode.yml
         - type: StationJobs
-          availableJobs: # Total of 70 jobs roundstart, max of 82 inc. latejoins and trainees.
+          availableJobs: # Total of 83 jobs roundstart, max of 96 inc. latejoins and trainees.
             # command - 8
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
@@ -26,42 +25,42 @@
             HeadOfSecurity: [ 1, 1 ]
             HospitalityDirector: [ 1, 1 ]
             Quartermaster: [ 1, 1 ]
-            # service - 20 incl
+            # service - 22
             Bartender: [ 2, 2 ]
             Botanist: [ 3, 3 ]
             Boxer: [ 2, 2 ]
             Chaplain: [ 1, 1 ]
             Chef: [ 2, 2 ]
-            Clown: [ 1, 1 ]
+            Clown: [ 2, 2 ]
             Janitor: [ 3, 3 ]
             Librarian: [ 1, 1 ]
-            Mime: [ 1, 1 ]
+            Mime: [ 2, 2 ]
             Musician: [ 1, 1 ]
             Reporter: [ 2, 2 ]
             Zookeeper: [ 1, 1 ]
-            # engineering - 7-10
+            # engineering - 10-13
             AtmosphericTechnician: [ 3, 3 ]
-            StationEngineer: [ 4, 4 ]
-            TechnicalAssistant: [ 3, 3 ]
-            # medical - 11-14
+            StationEngineer: [ 6, 6 ]
+            TechnicalAssistant: [ 4, 4 ]
+            # medical - 14-18
             Chemist: [ 3, 3 ]
-            MedicalDoctor: [ 4, 4 ]
-            MedicalIntern: [ 3, 3 ]
-            Paramedic: [ 3, 3 ]
+            MedicalDoctor: [ 6, 6 ]
+            MedicalIntern: [ 4, 4 ]
+            Paramedic: [ 4, 4 ]
             Psychologist: [ 1, 1 ]
-            # science - 8-9
-            Borg: [ 3, 3 ]
+            # science - 9-10
+            Borg: [ 4, 4 ]
             ResearchAssistant: [ 1, 1 ]
             Scientist: [ 4, 4 ]
             StationAi: [ 1, 1 ]
-            # security - 9-13
+            # security - 12-16
             Brigmedic: [ 1, 1 ]
             Detective: [ 1, 1 ]
             Lawyer: [ 2, 2 ]
             SecurityCadet: [ 4, 4 ]
-            SecurityOfficer: [ 4, 4 ]
+            SecurityOfficer: [ 7, 7 ]
             Warden: [ 1, 1 ]
-            # supply - 7-8
+            # supply - 8-9
             CargoTechnician: [ 4, 4 ]
             Courier: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]
