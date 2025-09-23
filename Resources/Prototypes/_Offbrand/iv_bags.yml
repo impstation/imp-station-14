@@ -345,6 +345,21 @@
         - ReagentId: Slime
           Quantity: 400
 
+- type: entity #imp
+  parent: IVBag
+  id: IVBagAllulaloBlood
+  suffix: methylated blood
+  components:
+  - type: Label
+    currentLabel: reagent-name-bloodallulalo 
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 400
+        reagents:
+        - ReagentId: BloodAllulalo
+          Quantity: 400 #end imp
+
 - type: entityTable
   id: BloodBagFill
   table: !type:AllSelector
@@ -360,6 +375,7 @@
     - id: IVBagSap
     - id: IVBagShimmeringBlood
     - id: IVBagSlime
+    - id: IVBagAllulaloBlood #imp
 
 - type: entity
   id: CrateFreezerIVBag
