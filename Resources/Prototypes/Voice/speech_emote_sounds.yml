@@ -518,13 +518,13 @@
     Sneeze: # imp
       collection: UnisexSneezes #placeholder
     Cough: # imp
-      collection: UnisexCoughs #placeholder
+      path: /Audio/_Impstation/Voice/Moth/mothcough.ogg
     Yawn: # imp
       collection: UnisexYawn #placeholder
     Sigh: # imp
-      collection: UnisexSigh #placeholder
+      path: /Audio/_Impstation/Voice/Moth/mothsigh.ogg
     Crying: # imp
-      collection: UnisexCry #placeholder
+      path: /Audio/_Impstation/Voice/Moth/mothcry.ogg
     Whistle: # imp
       collection: Whistles
     Weh:
@@ -538,7 +538,7 @@
     Honk:
       collection: BikeHorn
     Gasp:
-      collection: MaleGasp
+      path: /Audio/_Impstation/Voice/Moth/mothgasp.ogg
     DefaultDeathgasp:
       collection: MothDeathGasp
 
