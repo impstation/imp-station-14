@@ -3,7 +3,9 @@ using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
 using Content.Server.Humanoid;
 using Content.Server.Temperature.Components;
+using Content.Shared._Offbrand.Wounds;
 using Content.Shared.Body.Systems;
+using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Heretic;
 using Content.Shared.Humanoid;
@@ -24,6 +26,7 @@ public sealed class GhoulSystem : Shared.Heretic.EntitySystems.SharedGhoulSystem
 
     public void GhoulifyEntity(Entity<GhoulComponent> ent)
     {
+        //base removals
         RemComp<RespiratorComponent>(ent);
         RemComp<BarotraumaComponent>(ent);
         RemComp<HungerComponent>(ent);
@@ -31,6 +34,35 @@ public sealed class GhoulSystem : Shared.Heretic.EntitySystems.SharedGhoulSystem
         RemComp<ReproductiveComponent>(ent);
         RemComp<ReproductivePartnerComponent>(ent);
         RemComp<TemperatureComponent>(ent);
+
+        _rejuvenate.PerformRejuvenate(ent);
+
+        //offmed adjustments. converts the entity into oldmed essentially. 
+        //we do this AFTER rejuvination because otherwise you get stuck in a weird halfway crit state. 
+        //something to do with brain damage i think
+        RemComp<HeartrateComponent>(ent);
+        RemComp<HeartDefibrillatableComponent>(ent);
+        RemComp<HeartStopOnHypovolemiaComponent>(ent);
+        RemComp<HeartStopOnHighStrainComponent>(ent);
+        RemComp<HeartStopOnBrainHealthComponent>(ent);
+        RemComp<PainComponent>(ent);
+        RemComp<HeartrateAlertsComponent>(ent);
+        RemComp<ShockThresholdsComponent>(ent);
+        RemComp<ShockAlertsComponent>(ent);
+        RemComp<BrainDamageComponent>(ent);
+        RemComp<BrainDamageOxygenationComponent>(ent);
+        RemComp<BrainDamageThresholdsComponent>(ent);
+        RemComp<BrainDamageOnDamageComponent>(ent);
+        RemComp<HeartDamageOnDamageComponent>(ent);
+        RemComp<MaximumDamageComponent>(ent);
+        RemComp<CprTargetComponent>(ent);
+        RemComp<Content.Server.Construction.Components.ConstructionComponent>(ent);
+        RemComp<CryostasisFactorComponent>(ent);
+        RemComp<UniqueWoundOnDamageComponent>(ent);
+        RemComp<IntrinsicPainComponent>(ent);
+        EnsureComp<MobThresholdsComponent>(ent);
+        EnsureComp<MobStateComponent>(ent);
+        EnsureComp<DamageableComponent>(ent);
 
         if (TryComp<HumanoidAppearanceComponent>(ent, out var humanoid))
         {
@@ -40,8 +72,6 @@ public sealed class GhoulSystem : Shared.Heretic.EntitySystems.SharedGhoulSystem
             _humanoid.SetSkinColor(ent, greycolor, true, false, humanoid);
             _humanoid.SetBaseLayerColor(ent, HumanoidVisualLayers.Eyes, greycolor, true, humanoid);
         }
-
-        _rejuvenate.PerformRejuvenate(ent);
 
         if (!TryComp<MobThresholdsComponent>(ent, out var th))
             return;

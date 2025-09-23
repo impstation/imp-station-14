@@ -44,6 +44,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly TemperatureSystem _temperature = default!;
     [Dependency] private readonly MinionSystem _minion = default!;
+    [Dependency] private readonly GhoulSystem _ghoul = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
 
     private readonly ProtoId<NpcFactionPrototype> _hereticFaction = "Heretic";
@@ -79,9 +80,11 @@ public sealed partial class MansusGraspSystem : EntitySystem
                     && !TryComp<HellVictimComponent>(target, out _))
                 {
                     var minion = EnsureComp<MinionComponent>(target);
+                    var ghoul = EnsureComp<GhoulComponent>(target);
                     minion.BoundOwner = performer;
                     minion.FactionsToAdd.Add(_hereticFaction);
                     _minion.ConvertEntityToMinion((target, minion), true, true, true);
+                    _ghoul.GhoulifyEntity((target, ghoul));
                 }
                 break;
 
