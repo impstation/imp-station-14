@@ -1,20 +1,4 @@
 ﻿Entries:
-- author: jtfg-dev
-  changes:
-  - message: The new pins added in the upstream merge can now be seen on full display!
-    type: Fix
-  - message: The brave knight Gollylad now shows his/her/their pride.
-    type: Add
-  id: 1785
-  time: '2025-06-09T00:55:25.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2686
-- author: hivehum
-  changes:
-  - message: Tck'tck can beep again!
-    type: Fix
-  id: 1786
-  time: '2025-06-09T00:56:06.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2691
 - author: DinnerCalzone
   changes:
   - message: Wall rechargers charge rate has been reduced to match standard rechargers.
@@ -4199,3 +4183,19 @@
   id: 2284
   time: '2025-09-23T08:33:05.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3488
+- author: msTheowo
+  changes:
+  - message: Colo cups, make them at the service techfab!
+    type: Add
+  - message: Grape juice now comes in Colo cups.
+    type: Tweak
+  id: 2285
+  time: '2025-09-23T16:14:09.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3471
+- author: widgetbeck
+  changes:
+  - message: Mindless Clones no longer use oldmed.
+    type: Fix
+  id: 2286
+  time: '2025-09-23T16:16:30.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3491
