@@ -53,11 +53,11 @@
       types:
         Slash: 5
   - type: StaminaResistance
-    damageCoefficient: 1.25
+    damageCoefficient: 1.25 #takes the disabler/batong hits needed to stun from 4 > 3
   - type: Butcherable
     butcheringType: Spike
     spawned:
-      - id: FoodMeatChicken #this is cruel
+      - id: FoodMeatChicken #this was yesters idea, not mine
         amount: 5
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
@@ -147,6 +147,17 @@
           32:
             sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
             state: suitstorage
+  - type: Hands
+    leftHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+          state: hand_l
+    rightHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: Mobs/Species/Vox/displacement.rsi
+          state: hand_r
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -156,7 +167,8 @@
   - type: Sprite
     scale: 1, 1
   - type: Inventory
-    templateId: apid
+    speciesId: allulalo
+    templateId: allulalo
     displacements:
       jumpsuit:
         sizeMaps:
@@ -218,3 +230,14 @@
           32:
             sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
             state: suitstorage
+  - type: Hands
+    leftHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: Mobs/Species/Vox/displacement.rsi
+          state: hand_l
+    rightHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: Mobs/Species/Vox/displacement.rsi
+          state: hand_r
