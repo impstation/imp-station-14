@@ -201,7 +201,7 @@
   - type: StationEvent
     startAnnouncement: true #!!
     weight: 5 #imp
-    MinimumPlayers: 15 #imp
+    minimumPlayers: 15 #imp
   - type: LoadMapRule
     preloadedGrid: Lambordeere
 
