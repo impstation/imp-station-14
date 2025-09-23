@@ -33,12 +33,13 @@
     damageContainer: Biological
     damageModifierSet: Moth # they're related, right?
   - type: Bloodstream
-    bloodReagent: Blood
+    bloodMaxVolume: 250 #should be 50 less than the default of 300. theyre small
+    bloodReagent: BloodAllulalo
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:
         sprite: _Impstation/Mobs/Effects/apid_brute_damage.rsi # technically this is only brute sprites for the chest. but that doesn't matter
-        color: "#808A51"
+        color: "#e5efff"
   - type: MobThresholds
     thresholds:
       0: Alive
