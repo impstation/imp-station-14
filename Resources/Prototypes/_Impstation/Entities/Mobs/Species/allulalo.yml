@@ -31,14 +31,14 @@
   - type: AllulaloAccent
   - type: Damageable
     damageContainer: Biological
-    damageModifierSet: Moth # they're related, right?
+    damageModifierSet: Moth #PLACEHOLDER
   - type: Bloodstream
     bloodMaxVolume: 250 #should be 50 less than the default of 300. theyre small
     bloodReagent: BloodAllulalo
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:
-        sprite: _Impstation/Mobs/Effects/apid_brute_damage.rsi # technically this is only brute sprites for the chest. but that doesn't matter
+        sprite: _Impstation/Mobs/Effects/apid_brute_damage.rsi #PLACEHOLDER
         color: "#e5efff"
   - type: MobThresholds
     thresholds:
@@ -73,12 +73,12 @@
     proto: moth
   - type: Vocal
     sounds:
-      Male: MaleMoth
+      Male: MaleMoth #PLACEHOLDER
       Female: FemaleMoth
       Unsexed: UnisexMoth
   - type: Speech
     speechVerb: Arachnid
-    allowedEmotes: ['Chitter', 'Squeak']
+    allowedEmotes: ['Chitter', 'Squeak'] #PLACEHOLDER
   - type: HumanoidAppearance
     species: Allulalo
     hideLayersOnEquip:
