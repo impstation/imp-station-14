@@ -3,7 +3,7 @@
   mapName: 'Plasma'
   mapPath: /Maps/_Impstation/plasma.yml
   minPlayers: 35
-  maxPlayers: 80
+  maxPlayers: 69
   stations:
     Plasma:
       stationProto: StandardNanotrasenStation
@@ -43,11 +43,11 @@
             AtmosphericTechnician: [ 4, 4 ]
             StationEngineer: [ 4, 4 ]
             TechnicalAssistant: [ 4, 4 ]
-            # medical - 9-13
+            # medical - 10-14
             Chemist: [ 2, 2 ]
             MedicalDoctor: [ 4, 4 ]
             MedicalIntern: [ 4, 4 ]
-            Paramedic: [ 2, 2 ]
+            Paramedic: [ 3, 3 ]
             Psychologist: [ 1, 1 ]
             # science - 7-10
             Borg: [ 2, 4 ]
@@ -64,7 +64,7 @@
             # supply - 9-10
             CargoTechnician: [ 4, 4 ]
             Courier: [ 1, 1 ]
-            SalvageSpecialist: [ 4, 4 ]
+            SalvageSpecialist: [ 3, 3 ]
             SupplyAssistant: [ 1, 1 ]
             # civilian - the tiders yearn for the mines
             Passenger: [ -1, -1 ]

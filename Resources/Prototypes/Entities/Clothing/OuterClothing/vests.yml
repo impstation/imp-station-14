@@ -65,6 +65,10 @@
     sprite: Clothing/OuterClothing/Vests/tankharness.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Vests/tankharness.rsi
+  - type: Tag # Offbrand
+    tags:
+    - OperatableClothing
+    - WhitelistChameleon
 
 #Command Tank Harness
 - type: entity

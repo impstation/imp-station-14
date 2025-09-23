@@ -111,13 +111,13 @@
   - type: Contraband
     allowedDepartments: [ Medical ]
 
-- type: entity
-  id: BaseServiceContraband #imp edit
+- type: entity #imp edit, use BaseServiceContraband or job-specific contrabands instead
+  id: BaseCivilianContraband
   parent: BaseRestrictedContraband
   abstract: true
   components:
   - type: Contraband
-    allowedDepartments: [ Service ] #imp edit
+    allowedDepartments: [ Civilian ]
 
 - type: entity
   id: BaseCargoContraband
