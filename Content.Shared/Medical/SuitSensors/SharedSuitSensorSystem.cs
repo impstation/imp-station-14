@@ -34,7 +34,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     // [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!; Offbrand - we don't need that
-    [Dependency] private readonly SharedWoundableHealthAnalyzerSystem _woundableHealthAnalyzer = default!; // Offbrand - we do need that
+    [Dependency] private readonly WoundableHealthAnalyzerSystem _woundableHealthAnalyzer = default!; // Offbrand - we do need that
     [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;

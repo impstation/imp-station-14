@@ -55,7 +55,7 @@ public sealed partial class WoundDescriptionComponent : Component
 }
 
 [RegisterComponent, NetworkedComponent]
-[Access(typeof(WoundableSystem), typeof(SharedWoundableHealthAnalyzerSystem))]
+[Access(typeof(WoundableSystem), typeof(WoundableHealthAnalyzerSystem))]
 public sealed partial class AnalyzableWoundComponent : Component
 {
     /// <summary>

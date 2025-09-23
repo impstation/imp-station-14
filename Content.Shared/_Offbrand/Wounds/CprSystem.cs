@@ -4,9 +4,7 @@
  */
 
 using Content.Shared.DoAfter;
-using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
 using Content.Shared.StatusEffectNew;
@@ -23,14 +21,12 @@ public sealed class CprSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly WoundableSystem _woundable = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<CprTargetComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
-        SubscribeLocalEvent<CprTargetComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<CprTargetComponent, CprDoAfterEvent>(OnCprDoAfter);
     }
 
@@ -95,16 +91,5 @@ public sealed class CprSystem : EntitySystem
             },
             Text = Loc.GetString("verb-perform-cpr"),
         });
-    }
-
-    private void OnExamined(Entity<CprTargetComponent> ent, ref ExaminedEvent args)
-    {
-        if (!TryComp<HeartrateComponent>(ent, out var heartrate) || heartrate.Running)
-            return;
-
-        if (_mobState.IsDead(ent))
-            return;
-
-        args.PushMarkup(Loc.GetString("cpr-target-needs-cpr", ("target", Identity.Entity(ent, EntityManager))));
     }
 }

@@ -703,17 +703,10 @@
   metabolisms:
     Medicine:
       effects:
-      # Begin Offbrand Additions
-      - !type:AdjustReagent
-        reagent: Romerol
-        amount: -0.5
-      # End Offbrand Additions
-        # Begin Offbrand Removals
-        # - !type:CureZombieInfection
-        #   conditions:
-        #     - !type:ReagentThreshold
-        #       min: 10
-        # End Offbrand Removals
+        - !type:CureZombieInfection
+          conditions:
+            - !type:ReagentThreshold
+              min: 10
 
 - type: reagent
   id: AmbuzolPlus
@@ -731,11 +724,6 @@
           conditions:
             - !type:ReagentThreshold
               min: 5
-          # Begin Offbrand Additions
-        - !type:AdjustReagent
-          reagent: Romerol
-          amount: -5
-          # End Offbrand Additions
 
 - type: reagent
   id: PulpedBananaPeel

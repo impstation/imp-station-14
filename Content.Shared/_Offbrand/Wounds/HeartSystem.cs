@@ -41,10 +41,6 @@ public sealed partial class HeartSystem : EntitySystem
         SubscribeLocalEvent<HeartStopOnHighStrainComponent, HeartBeatEvent>(OnHeartBeatStrain);
         SubscribeLocalEvent<HeartStopOnBrainHealthComponent, HeartBeatEvent>(OnHeartBeatBrain);
 
-        SubscribeLocalEvent<HeartStopOnHypovolemiaComponent, BeforeTargetDefibrillatedEvent>(OnHeartBeatHypovolemiaMessage);
-        SubscribeLocalEvent<HeartStopOnHighStrainComponent, BeforeTargetDefibrillatedEvent>(OnHeartBeatStrainMessage);
-        SubscribeLocalEvent<HeartStopOnBrainHealthComponent, BeforeTargetDefibrillatedEvent>(OnHeartBeatBrainMessage);
-
         SubscribeLocalEvent<HeartDefibrillatableComponent, TargetDefibrillatedEvent>(OnTargetDefibrillated);
     }
 
@@ -204,39 +200,6 @@ public sealed partial class HeartSystem : EntitySystem
 
         var damage = Comp<BrainDamageComponent>(ent).Damage;
         args.Stop = args.Stop || rand.Prob(ent.Comp.Chance) && damage > ent.Comp.Threshold;
-    }
-
-    private void OnHeartBeatHypovolemiaMessage(Entity<HeartStopOnHypovolemiaComponent> ent, ref BeforeTargetDefibrillatedEvent args)
-    {
-        var volume = BloodVolume((ent.Owner, Comp<HeartrateComponent>(ent)));
-        if (volume >= ent.Comp.VolumeThreshold)
-            return;
-
-        args.Messages.Add(ent.Comp.Warning);
-    }
-
-    private void OnHeartBeatStrainMessage(Entity<HeartStopOnHighStrainComponent> ent, ref BeforeTargetDefibrillatedEvent args)
-    {
-        if (_statusEffects.HasEffectComp<PreventHeartStopFromStrainStatusEffectComponent>(ent))
-            return;
-
-        var strain = RecomputeHeartStrain((ent.Owner, Comp<HeartrateComponent>(ent)));
-        if (strain < ent.Comp.Threshold)
-            return;
-
-        args.Messages.Add(ent.Comp.Warning);
-    }
-
-    private void OnHeartBeatBrainMessage(Entity<HeartStopOnBrainHealthComponent> ent, ref BeforeTargetDefibrillatedEvent args)
-    {
-        if (_statusEffects.HasEffectComp<PreventHeartStopFromStrainStatusEffectComponent>(ent))
-            return;
-
-        var damage = Comp<BrainDamageComponent>(ent).Damage;
-        if (damage <= ent.Comp.Threshold)
-            return;
-
-        args.Messages.Add(ent.Comp.Warning);
     }
 
     public void ChangeHeartDamage(Entity<HeartrateComponent?> ent, FixedPoint2 amount)

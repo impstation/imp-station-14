@@ -110,7 +110,7 @@ namespace Content.Client.HealthAnalyzer.UI
 
             // Alerts
 
-            var showAlerts = msg.Unrevivable == true || msg.Bleeding == true || msg.WoundableData?.NonMedicalReagents == true || msg.WoundableData?.Wounds != null; // Offbrand
+            var showAlerts = msg.Unrevivable == true || msg.Bleeding == true || msg.WoundableData?.Wounds != null; // Offbrand
 
             AlertsDivider.Visible = showAlerts;
             AlertsContainer.Visible = showAlerts;
@@ -135,10 +135,6 @@ namespace Content.Client.HealthAnalyzer.UI
                 });
 
             // Begin Offbrand
-            var showReagents = msg.WoundableData?.Reagents?.Count is { } count && count > 0;
-            ReagentsDivider.Visible = showReagents;
-            ReagentsContainer.Visible = showReagents;
-
             if (msg.WoundableData is { } woundable)
             {
                 if (woundable.Wounds is not null)
@@ -150,48 +146,6 @@ namespace Content.Client.HealthAnalyzer.UI
                             Text = Loc.GetString(wound),
                             Margin = new Thickness(0, 4),
                             MaxWidth = 300
-                        });
-                    }
-                }
-                if (woundable.NonMedicalReagents)
-                {
-                    AlertsContainer.AddChild(new RichTextLabel
-                    {
-                        Text = Loc.GetString("health-analyzer-window-entity-non-medical-reagents"),
-                        Margin = new Thickness(0, 4),
-                        MaxWidth = 300
-                    });
-                }
-                if (woundable.Reagents is { } reagents)
-                {
-                    ReagentsContainer.DisposeAllChildren();
-                    foreach (var (reagent, amounts) in reagents.OrderBy(kvp => _prototypes.Index(kvp.Key).LocalizedName))
-                    {
-                        var (quantity, metabolites) = amounts;
-                        var proto = _prototypes.Index(reagent);
-                        ReagentsContainer.AddChild(new BoxContainer
-                        {
-                            Orientation = BoxContainer.LayoutOrientation.Horizontal,
-                            HorizontalExpand = true,
-                            Children =
-                            {
-                                new PanelContainer
-                                {
-                                    VerticalExpand = true,
-                                    MinWidth = 4,
-                                    PanelOverride = new StyleBoxFlat
-                                    {
-                                        BackgroundColor = proto.SubstanceColor
-                                    },
-                                    Margin = new Thickness(4, 1),
-                                },
-
-                                new Label { Text = proto.LocalizedName, HorizontalExpand = true, SizeFlagsStretchRatio = 3 },
-
-                                new Label { Text = $"{metabolites}u", StyleClasses = { Content.Client.Stylesheets.StyleNano.StyleClassLabelSecondaryColor }, HorizontalExpand = true, SizeFlagsStretchRatio = 1 },
-
-                                new Label { Text = $"{quantity}u", HorizontalExpand = true, SizeFlagsStretchRatio = 1 },
-                            }
                         });
                     }
                 }
@@ -309,10 +263,6 @@ namespace Content.Client.HealthAnalyzer.UI
                     groupContainer.AddChild(CreateDiagnosticItemLabel(damageString.Insert(0, " · ")));
                 }
             }
-
-            // Begin Offbrand
-            NoDamagesText.Visible = GroupsContainer.ChildCount == 0;
-            // End Offbrand
         }
 
         private Texture GetTexture(string texture)

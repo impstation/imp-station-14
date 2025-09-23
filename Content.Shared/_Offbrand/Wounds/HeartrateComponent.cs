@@ -175,12 +175,6 @@ public sealed partial class HeartStopOnHypovolemiaComponent : Component
     /// </summary>
     [DataField(required: true)]
     public FixedPoint2 VolumeThreshold;
-
-    /// <summary>
-    /// The warning issued by defibrillators if the heart is restarted with hypovolemia
-    /// </summary>
-    [DataField]
-    public LocId Warning = "heart-defibrillatable-target-hypovolemia";
 }
 
 [RegisterComponent]
@@ -198,12 +192,6 @@ public sealed partial class HeartStopOnHighStrainComponent : Component
     /// </summary>
     [DataField(required: true)]
     public FixedPoint2 Threshold;
-
-    /// <summary>
-    /// The warning issued by defibrillators if the heart is restarted with high strain
-    /// </summary>
-    [DataField]
-    public LocId Warning = "heart-defibrillatable-target-pain";
 }
 
 [RegisterComponent]
@@ -221,12 +209,6 @@ public sealed partial class HeartStopOnBrainHealthComponent : Component
     /// </summary>
     [DataField(required: true)]
     public FixedPoint2 Threshold;
-
-    /// <summary>
-    /// The warning issued by defibrillators if the heart is restarted with severe brain damage
-    /// </summary>
-    [DataField]
-    public LocId Warning = "heart-defibrillatable-target-brain-damage";
 }
 
 /// <summary>
@@ -261,9 +243,3 @@ public record struct HeartStoppedEvent;
 /// </summary>
 [ByRefEvent]
 public record struct HeartStartedEvent;
-
-/// <summary>
-/// Raised on an entity to see if the defibrillator will say anything before defibrillation
-/// </summary>
-[ByRefEvent]
-public record struct BeforeTargetDefibrillatedEvent(List<LocId> Messages);

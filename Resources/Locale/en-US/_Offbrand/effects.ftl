@@ -30,13 +30,6 @@ reagent-effect-condition-guidebook-heart-damage = { $max ->
                 *[other] it has between {NATURALFIXED($min, 2)} and {NATURALFIXED($max, 2)} heart damage
              }
 }
-reagent-effect-condition-guidebook-brain-damage = { $max ->
-    [2147483648] it has at least {NATURALFIXED($min, 2)} brain damage
-    *[other] { $min ->
-                [0] it has at most {NATURALFIXED($max, 2)} brain damage
-                *[other] it has between {NATURALFIXED($min, 2)} and {NATURALFIXED($max, 2)} brain damage
-             }
-}
 reagent-effect-guidebook-modify-brain-oxygen-heals = { $chance ->
         [1] Replenishes { $amount } brain oxygenation
    *[other] replenish { $amount } brain oxygenation
@@ -50,33 +43,3 @@ reagent-effect-guidebook-start-heart = { $chance ->
         [1] Restarts the target's heart
    *[other] restart the target's heart
 }
-reagent-effect-guidebook-zombify = { $chance ->
-        [1] Zombifies the target
-   *[other] zombify the target
-}
-
-reagent-effect-condition-guidebook-total-dosage-threshold =
-    { $max ->
-        [2147483648] the total dosage of {$reagent} is at least {NATURALFIXED($min, 2)}u
-        *[other] { $min ->
-                    [0] the total dosage of {$reagent} is at most {NATURALFIXED($max, 2)}u
-                    *[other] the total dosage of {$reagent} is between {NATURALFIXED($min, 2)}u and {NATURALFIXED($max, 2)}u
-                 }
-    }
-
-reagent-effect-condition-guidebook-metabolite-threshold =
-    { $max ->
-        [2147483648] there's at least {NATURALFIXED($min, 2)}u of {$reagent} metabolites
-        *[other] { $min ->
-                    [0] there's at most {NATURALFIXED($max, 2)}u of {$reagent} metabolites
-                    *[other] there's between {NATURALFIXED($min, 2)}u and {NATURALFIXED($max, 2)}u of {$reagent} metabolites
-                 }
-    }
-
-reagent-effect-condition-guidebook-is-zombie-immune =
-    the target { $invert ->
-                    [true] is not immunized against zombie infections
-                   *[false] is immunized against zombie infections
-                }
-
-reagent-effect-condition-guidebook-this-metabolite = this reagent's

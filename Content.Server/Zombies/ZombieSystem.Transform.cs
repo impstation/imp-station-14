@@ -71,7 +71,6 @@ public sealed partial class ZombieSystem
     private static readonly ProtoId<TagPrototype> CannotSuicideTag = "CannotSuicide";
     private static readonly ProtoId<NpcFactionPrototype> ZombieFaction = "Zombie";
     private static readonly EntProtoId AddOnWoundableZombified = "AddOnWoundableZombified"; // Offbrand
-    private static readonly EntProtoId AddOnAnyZombified = "AddOnAnyZombified"; // Offbrand
 
     /// <summary>
     /// Handles an entity turning into a zombie when they die or go into crit
@@ -234,18 +233,11 @@ public sealed partial class ZombieSystem
         //The zombie gets the assigned damage weaknesses and strengths
         _damageable.SetDamageModifierSetId(target, "Zombie");
 
-        // Begin Offbrand
-        var allProto = _protoManager.Index(AddOnAnyZombified);
-        EntityManager.RemoveComponents(target, allProto.Components);
-        EntityManager.AddComponents(target, allProto.Components);
-        // End Offbrand
-
         //This makes it so the zombie doesn't take bloodloss damage.
         //NOTE: they are supposed to bleed, just not take damage
         _bloodstream.SetBloodLossThreshold(target, 0f);
         //Give them zombie blood
         _bloodstream.ChangeBloodReagent(target, zombiecomp.NewBloodReagent);
-        _bloodstream.FlushChemicals(target, null, 100); // Offbrand
 
         //This is specifically here to combat insuls, because frying zombies on grilles is funny as shit.
         _inventory.TryUnequip(target, "gloves", true, true);
