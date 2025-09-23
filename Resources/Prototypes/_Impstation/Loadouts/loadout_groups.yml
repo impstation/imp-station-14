@@ -235,7 +235,7 @@
     id: AdminAssistantPDA
     belt: ClothingBeltPaperworkFilled
     outerClothing: ClothingOuterWinterColorBlue
-    #head:
+    head: ClothingHeadHatBeretCommand
     pocket1: EmergencyOxygenTankCommandFilled
     pocket2: ClothingMaskBreathCommand
     ears: ClothingHeadsetAdminAssistant
@@ -486,6 +486,7 @@
   minLimit: 0
   loadouts:
   - ScarfRed
+  - HeadChefNeck
 
 - type: loadoutGroup
   id: ChefShoes
@@ -494,6 +495,7 @@
   - BlackShoes
   - ChefShoes
   - ClownShoesExpert
+  - HeadChefShoes
 
 - type: loadoutGroup
   id: ChefPDA
@@ -574,25 +576,6 @@
   - LeatherShoes
   - BlackHeels
   - ClownShoesExpert
-
-- type: loadoutGroup
-  id: ChaplainBook
-  name: loadout-group-chaplain-books
-  minLimit: 1
-  loadouts:
-  - ChaplainBookBible
-  - ChaplainBookQuran
-  - ChaplainBookTanakh
-  - ChaplainBookScroll
-  - ChaplainBookTablet
-  - ChaplainBookGreybible
-  - ChaplainBookKojiki
-  - ChaplainBookTao
-  - ChaplainBookGrimoire
-  - ChaplainBookETB
-  - ChaplainBookDiscordia
-  - ChaplainBookUnitology
-  - ChaplainBookBibble
 
 - type: loadoutGroup
   id: JanitorMask
@@ -1238,6 +1221,21 @@
   - SeniorParamedicPDA
 
 - type: loadoutGroup
+  id: PsychologistHead
+  name: loadout-group-psychologist-head
+  minLimit: 0
+  loadouts:
+  - PsychologistCapGrey
+  - PsychologistCapBrown
+
+- type: loadoutGroup
+  id: PsychologistMask
+  name: loadout-group-psychologist-mask
+  minLimit: 0
+  loadouts:
+  - DoctorClown
+
+- type: loadoutGroup
   id: PsychologistNeck
   name: loadout-group-psychologist-neck
   minLimit: 0
@@ -1253,4 +1251,14 @@
   - LacedShoes
   - LeatherShoes
   - BlackHeels
+  - BlackWinterBoots
   - ClownShoesExpert
+
+- type: loadoutGroup
+  id: PsychologistBackpack
+  name: loadout-group-psychologist-backpack
+  loadouts:
+  - MedicalDoctorBackpack
+  - MedicalDoctorSatchel
+  - MedicalDoctorDuffel
+  - LeatherSatchel

@@ -21,9 +21,11 @@
   equipment:
     id: PsychologistPDA
     ears: ClothingHeadsetMedical
+    belt: ClothingBeltPaperworkFilled # imp
   storage:
     back:
     - RubberStampPsychologist
+    - PillCanisterPsych # imp
 
 - type: chameleonOutfit
   id: PsychologistChameleonOutfit

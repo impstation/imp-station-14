@@ -1,0 +1,82 @@
+- type: entity
+  parent: [BaseItem, BaseSecurityCommandContraband]
+  id: AntiqueDisablerBox
+  name: sealed antique disabler
+  description: Pristine packaging containing your priceless antique disabler.
+  components:
+  - type: Item
+    size: Normal
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/hopdisabler.rsi
+    state: package
+  - type: StealTarget
+    stealGroup: AntiqueDisabler
+  - type: SpawnItemsOnUse
+    items:
+    - id: WeaponHoPDisabler
+    - id: AntiqueDisablerCertification
+    - id: MysteryFigureBoxTrash
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: BaseItem
+  id: AntiqueDisablerCertification
+  name: certificate of authenticity
+  description: This ornate document hereby certifies your disabler as an authentic Antique Disabler. Don't mind all the fine print.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/hopdisabler.rsi
+    state: certificate
+  - type: Appearance
+  - type: Flammable
+    fireSpread: true
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+  - type: FireVisuals
+    sprite: Effects/fire.rsi
+    normalState: fire
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Food
+    solution: food
+    delay: 7
+    forceFeedDelay: 7
+  - type: FlavorProfile
+    flavors:
+    - paper
+  - type: BadFood
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 1
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 1
+  - type: Tag
+    tags:
+    - Document
+    - Paper

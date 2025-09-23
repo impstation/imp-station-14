@@ -388,7 +388,7 @@
           shouldHave: false
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
-      - !type:GenericStatusEffect
+      - !type:ModifyStatusEffect
         conditions:
         - !type:ReagentThreshold
           reagent: NitrousOxide
@@ -396,8 +396,18 @@
         - !type:OrganType
           type: Slime
           shouldHave: false
-        key: ForcedSleep
-        component: ForcedSleeping
+        effectProto: StatusEffectForcedSleeping
+        time: 3
+        type: Add
+      - !type:ModifyStatusEffect # Offbrand
+        conditions:
+        - !type:ReagentThreshold
+          reagent: NitrousOxide
+          min: 1.8
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        effectProto: StatusEffectPainSuppressionNitrousOxide
         time: 3
         type: Add
       - !type:HealthChange
@@ -431,9 +441,8 @@
         damage:
           types:
             Cellular: 1
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 15
         refresh: false
@@ -472,13 +481,12 @@
         damage:
           types:
             Cellular: 0.5
-      - !type:GenericStatusEffect
+      - !type:ModifyStatusEffect
         conditions:
         - !type:ReagentThreshold
           reagent: Frezon
           min: 1
-        key: SeeingRainbows
-        component: SeeingRainbows
+        effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 500
         refresh: false

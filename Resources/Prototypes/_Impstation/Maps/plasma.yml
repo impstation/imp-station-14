@@ -18,7 +18,7 @@
         - type: StationCargoShuttle
           path: /Maps/Shuttles/cargo_plasma.yml
         - type: StationJobs
-          availableJobs: #Total of 69 nice jobs roundstart, max of 85 inc. latejoins and trainees.
+          availableJobs: #Total of 70 nice jobs roundstart, max of 86 inc. latejoins and trainees.
             #command - 8
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
@@ -43,11 +43,11 @@
             AtmosphericTechnician: [ 4, 4 ]
             StationEngineer: [ 4, 4 ]
             TechnicalAssistant: [ 4, 4 ]
-            # medical - 9-13
+            # medical - 10-14
             Chemist: [ 2, 2 ]
             MedicalDoctor: [ 4, 4 ]
             MedicalIntern: [ 4, 4 ]
-            Paramedic: [ 2, 2 ]
+            Paramedic: [ 3, 3 ]
             Psychologist: [ 1, 1 ]
             # science - 7-10
             Borg: [ 2, 4 ]

@@ -130,3 +130,12 @@
     - FloorAstroCave
   - type: Stack
     stackType: FloorTileAstroCave
+
+- type: entity
+  id: FloorTileItemAstroGrassStackFour
+  parent: FloorTileItemAstroGrass
+  suffix: 4 stack
+  components:
+  - type: Stack
+    stackType: FloorTileAstroGrass
+    count: 4

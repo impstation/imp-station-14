@@ -1,0 +1,97 @@
+- type: entity
+  parent: BaseWallmountMachine
+  id: WallmountTelescreen
+  suffix: camera monitor
+  name: telescreen
+  description: Finally, some decent reception around here...
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/computers.rsi
+    layers:
+      - map: ["computerLayerBody"]
+        state: telescreen_frame
+      - map: ["unlit"] #imp
+        state: telescreen
+  - type: Appearance #imp
+  - type: GenericVisualizer #imp
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        unlit:
+          True: { visible: true, shader: unshaded }
+          False: { visible: false }
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+  - type: Construction
+    graph: WallmountTelescreen
+    node: Telescreen
+  - type: PointLight
+    radius: 1.8 #imp
+    energy: 1.6
+    color: "#b89f25"
+    enabled: false #imp
+    mask: /Textures/Effects/LightMasks/cone.png #imp
+    autoRot: true #imp
+    castShadows: true #imp
+  - type: LitOnPowered #imp
+  - type: PowerSwitch #imp
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: SurveillanceCamera
+    transmitFrequencyId: SurveillanceCamera
+  - type: WiredNetworkConnection
+  - type: DeviceNetworkRequiresPower
+  - type: SurveillanceCameraMonitor
+  - type: ActivatableUI
+    key: enum.SurveillanceCameraMonitorUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: ActivatableUIRequiresVision
+  - type: UserInterface
+    interfaces:
+        enum.SurveillanceCameraMonitorUiKey.Key:
+          type: SurveillanceCameraMonitorBoundUserInterface
+
+- type: entity
+  parent: BaseWallmountMetallic
+  id: WallmountTelescreenFrame
+  name: telescreen frame
+  description: The frame of a telescreen under construction.  #imp
+  components:
+  - type: Construction
+    graph: WallmountTelescreen
+    node: TelescreenFrame
+  - type: Sprite
+    sprite: Structures/Machines/computers.rsi
+    layers:
+      - map: ["computerLayerBody"]
+        state: telescreen_frame
+# imp edit so the frame doesn't appear with power. It should be off while being built
+#      - map: ["computerLayerScreen"]
+#        state: telescreen
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors: #excess damage, don't spawn entities.
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

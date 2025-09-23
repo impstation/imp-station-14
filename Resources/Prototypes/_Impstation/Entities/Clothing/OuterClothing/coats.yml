@@ -515,3 +515,37 @@
     slots:
       - OUTERCLOTHING
     sprite: _Impstation/Clothing/OuterClothing/Coats/mus_furcoat.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatVRexFurCoat
+  name: v-rex fur coat
+  description: The stiff fur of the v-rex makes this more uncomfortable to wear than anything..
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Coats/vrex_fur_coat.rsi
+  - type: Clothing
+    slots:
+      - OUTERCLOTHING
+    sprite: _Impstation/Clothing/OuterClothing/Coats/vrex_fur_coat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Piercing: 0.95
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+
+- type: entity
+  parent: [ClothingOuterArmorHoS, ClothingOuterStorageFoldableBase, BaseSecurityCommandContraband]
+  id: ClothingOuterCoatHosBomber
+  name: head of security's bomber jacket
+  description: A large black bomber jacket with kevlar lining and goldwork embroidery.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/BomberJackets/bomber_hos.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/BomberJackets/bomber_hos.rsi
+  - type: Foldable
+    unfoldVerbText: fold-zip-verb
+    foldVerbText: fold-unzip-verb
