@@ -67,9 +67,6 @@
     sprite: _Impstation/Clothing/Eyes/Hud/medchem.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Eyes/Hud/medchem.rsi
-  - type: Construction
-    graph: HudMedChem
-    node: medchemHud
   - type: SolutionScanner
   - type: EyeProtection
   - type: Tag
@@ -77,4 +74,6 @@
     - HudMedical
     - PetWearable
     - WhitelistChameleon
-    -
+    - HighRiskItem
+  - type: StealTarget
+    stealGroup: MedChemHUD

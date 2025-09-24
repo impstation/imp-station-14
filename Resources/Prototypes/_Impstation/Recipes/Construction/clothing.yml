@@ -51,13 +51,3 @@
   targetNode: eyesack
   category: construction-category-clothing
   objectType: Item
-
-# crafting MedChem Hud from Med Hud and Chem goggles
-
-- type: construction
-  id: ClothingEyesHudMedChem
-  graph: HudMedChem
-  startNode: start
-  targetNode: medchemHud
-  category: construction-category-clothing
-  objectType: Item
