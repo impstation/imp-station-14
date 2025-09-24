@@ -94,6 +94,11 @@
   description: flavor-base-evil
 
 - type: flavor
+  id: weird
+  flavorType: Base
+  description: flavor-base-weird
+
+- type: flavor
   id: secticket
   flavorType: Complex
   description: flavor-complex-secticket
@@ -448,3 +453,19 @@
   id: rose
   flavorType: Complex
   description: flavor-complex-rose
+
+- type: flavor
+  id: goblin
+  flavorType: Complex
+  description: flavor-complex-goblin
+
+- type: flavor
+  id: gollylad
+  flavorType: Complex
+  description: flavor-complex-gollylad
+
+- type: flavor
+  id: imp
+  flavorType: Complex
+  description: flavor-complex-imp
+  

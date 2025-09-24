@@ -14,7 +14,6 @@
   - type: Sprite
     noRot: true
     sprite: _Impstation/Structures/Storage/Crates/generic.rsi # imp
-    offset: 0, 0.25 # imp
     layers:
     - state: base
       map: ["enum.StorageVisualLayers.Base"]
@@ -24,8 +23,14 @@
       visible: false
       map: ["enum.WeldableLayers.BaseWelded"]
     - state: paper
-      sprite: _Impstation/Structures/Storage/Crates/labels.rsi # imp
+      sprite: Structures/Storage/Crates/labels.rsi
       map: ["enum.PaperLabelVisuals.Layer"]
+      offset: 0.0, -0.0625 #imp edit, scooch vanilla label sprites down two pixels to fit
+    # imp edit start, used for GenericVisualizer to allow offsetting this layer
+    - state: open
+      map: [ open_crate ]
+      offset: 0, 0.65625 #this is 21 pixels up, adjust open sprites or offsets of children as needed
+    # imp edit end
   - type: InteractionOutline
   - type: Physics
   - type: Fixtures
@@ -58,7 +63,7 @@
           collection: MetalBreak
   - type: Appearance
   - type: EntityStorageVisuals
-    stateDoorOpen: open
+    #stateDoorOpen: open #imp edit, GenericVisualizer used for this instead to allow layer offsets
     stateDoorClosed: closed
   - type: GenericVisualizer
     visuals:
@@ -72,6 +77,12 @@
           Bounty: { state: bounty }
           CaptainsPaper: { state: captains_paper }
           Invoice: { state: invoice }
+      # imp edit start, toggles the 'open' layer storage visuals
+      enum.StorageVisuals.Open:
+        open_crate:
+          True: { visible: true }
+          False: { visible: false }
+      # imp edit end
   - type: PaperLabel
     labelSlot:
       insertVerbText: comp-paper-label-insert
@@ -128,9 +139,14 @@
       map: ["enum.LockVisualLayers.Lock"]
       shader: unshaded
     - state: paper
-      sprite: _Impstation/Structures/Storage/Crates/labels.rsi # imp
-      offset: "-0.5,0"
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: 0.0, -0.0625 #imp edit, match CrateGeneric, since the locks on our sprites are in the middle, instead of the bottom right
       map: ["enum.PaperLabelVisuals.Layer"]
+    # imp edit start, used for GenericVisualizer to allow offsetting this layer
+    - state: open
+      map: [ open_crate ] #open sprites that want to use offsets should use this map, otherwise they should use the open sprite state with EntityStorageVisuals
+      offset: 0, 0.65625 #this is 21 pixels up, adjust open sprites or offsets of children as needed
+    # imp edit end
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallic

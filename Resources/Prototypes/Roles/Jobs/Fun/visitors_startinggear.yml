@@ -7,7 +7,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitCaptain
     shoes: ClothingShoesBootsLaceup
-    eyes: ClothingEyesGlassesSunglasses
+    eyes: ClothingEyesGlassesSunglasses # imp
     gloves: ClothingHandsGlovesCaptain
     head: ClothingHeadHatCaptain
     neck: ClothingNeckCloakCap
@@ -23,7 +23,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitCapFormal
     shoes: ClothingShoesLeather # imp
-    eyes: ClothingEyesGlassesSunglasses
+    eyes: ClothingEyesGlassesSunglasses # imp
     gloves: ClothingHandsGlovesCaptain
     head: ClothingHeadHatCapcap
     neck: ClothingNeckMantleCap
@@ -557,7 +557,7 @@
 - type: startingGear
   id: VisitorChemistAlt
   equipment:
-    jumpsuit: ClothingUniformSpaceJumpsuitChemist
+    jumpsuit: ClothingUniformSpaceJumpsuitChemist #imp
     shoes: ClothingShoesColorOrange
     gloves: ClothingHandsGlovesNitrile # imp
     head: ClothingHeadHatBeretSeniorPhysician # imp
@@ -682,7 +682,7 @@
     pocket1: PillCanisterTricordrazine
     pocket2: PillCanisterBicaridine
   inhand:
-  - SyringeSaline
+  - SyringeParacetamol # Offbrand
 
 - type: startingGear
   id: VisitorDentist
@@ -741,7 +741,7 @@
 - type: startingGear
   id: VisitorParamedic
   equipment:
-    jumpsuit: ClothingUniformJumpsuitParamedicNT
+    jumpsuit: ClothingUniformJumpsuitParamedic
     shoes: ClothingShoesSwat
     gloves: ClothingHandsGlovesLatex
     head: ClothingHeadHatParamedicsoft
@@ -792,7 +792,7 @@
     pocket1: Ointment
     pocket2: Brutepack
   inhand:
-  - Bloodpack
+  - ChemistryBottleParacetamol # Offbrand
   - Gauze
 
 - type: startingGear
@@ -809,7 +809,7 @@
     pocket1: Ointment
     pocket2: Brutepack
   inhand:
-  - Bloodpack
+  - ChemistryBottleParacetamol # Offbrand
   - Gauze
 
 - type: startingGear
@@ -968,6 +968,7 @@
     ears: ClothingHeadsetService
   inhand:
   - HydroponicsToolScythe
+
 
 - type: startingGear
   id: VisitorBotanistAlt
@@ -1241,7 +1242,7 @@
     pocket1: BookSun
     pocket2: BookRandomStory
   inhand:
-  - BoxFolderClipboard
+  - BoxFolderClipboardThreePapers
 
 - type: startingGear
   id: VisitorMusicianFancyAltA
@@ -1512,6 +1513,7 @@
     ears: ClothingHeadsetService
     pocket1: MicrophoneInstrument
     pocket2: TapeRecorderFilled # imp
+    belt: BoxFolderClipboardThreePapers #imp
 
 - type: startingGear
   id: VisitorReporterAlt
@@ -1523,6 +1525,7 @@
     ears: ClothingHeadsetService
     pocket1: MicrophoneInstrument
     pocket2: TapeRecorderFilled # imp
+    belt: BoxFolderClipboardThreePapers #imp
 
 - type: startingGear
   id: VisitorServiceWorker
@@ -1571,7 +1574,6 @@
     - IrwizineDart
     - IrwizineDart
     - IrwizineDart
-    - IrwizineDart
 
 - type: startingGear
   id: VisitorZookeeperAlt
@@ -1592,7 +1594,6 @@
     - TranqDart
     - TranqDart
     - TranqDart
-    - IrwizineDart
     - IrwizineDart
     - IrwizineDart
     - IrwizineDart

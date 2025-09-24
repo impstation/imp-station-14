@@ -10,6 +10,7 @@ using Content.Server.Mind;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
+using Content.Server.StationEvents.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Temperature.Components;
 using Content.Shared.Body.Components;
@@ -39,6 +40,7 @@ using Content.Shared.Tag;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.NPC.Prototypes;
+using Content.Shared._Offbrand.Wounds; // Offbrand
 
 namespace Content.Server.Zombies;
 
@@ -68,6 +70,7 @@ public sealed partial class ZombieSystem
     private static readonly ProtoId<TagPrototype> InvalidForGlobalSpawnSpellTag = "InvalidForGlobalSpawnSpell";
     private static readonly ProtoId<TagPrototype> CannotSuicideTag = "CannotSuicide";
     private static readonly ProtoId<NpcFactionPrototype> ZombieFaction = "Zombie";
+    private static readonly EntProtoId AddOnWoundableZombified = "AddOnWoundableZombified"; // Offbrand
 
     /// <summary>
     /// Handles an entity turning into a zombie when they die or go into crit
@@ -106,7 +109,7 @@ public sealed partial class ZombieSystem
         var zombiecomp = AddComp<ZombieComponent>(target);
 
         //we need to basically remove all of these because zombies shouldn't
-        //get diseases, breath, be thirst, be hungry, die in space, have offspring or be paraplegic.
+        //get diseases, breath, be thirst, be hungry, die in space, get double sentience, have offspring or be paraplegic.
         RemComp<RespiratorComponent>(target);
         RemComp<BarotraumaComponent>(target);
         RemComp<HungerComponent>(target);
@@ -115,6 +118,37 @@ public sealed partial class ZombieSystem
         RemComp<ReproductivePartnerComponent>(target);
         RemComp<LegsParalyzedComponent>(target);
         RemComp<ComplexInteractionComponent>(target);
+        RemComp<SentienceTargetComponent>(target);
+
+        // Begin Offbrand
+        if (RemComp<WoundableComponent>(target))
+        {
+            RemComp<HeartrateComponent>(target);
+            RemComp<HeartDefibrillatableComponent>(target);
+            RemComp<HeartStopOnHypovolemiaComponent>(target);
+            RemComp<HeartStopOnHighStrainComponent>(target);
+            RemComp<HeartStopOnBrainHealthComponent>(target);
+            RemComp<PainComponent>(target);
+            RemComp<HeartrateAlertsComponent>(target);
+            RemComp<ShockThresholdsComponent>(target);
+            RemComp<ShockAlertsComponent>(target);
+            RemComp<BrainDamageComponent>(target);
+            RemComp<BrainDamageOxygenationComponent>(target);
+            RemComp<BrainDamageThresholdsComponent>(target);
+            RemComp<BrainDamageOnDamageComponent>(target);
+            RemComp<HeartDamageOnDamageComponent>(target);
+            RemComp<MaximumDamageComponent>(target);
+            RemComp<CprTargetComponent>(target);
+            RemComp<Content.Server.Construction.Components.ConstructionComponent>(target);
+            RemComp<CryostasisFactorComponent>(target);
+            RemComp<UniqueWoundOnDamageComponent>(target);
+            RemComp<IntrinsicPainComponent>(target);
+
+            var entProto = _protoManager.Index(AddOnWoundableZombified);
+            EntityManager.RemoveComponents(target, entProto.Components);
+            EntityManager.AddComponents(target, entProto.Components);
+        }
+        // End Offbrand
 
         //funny voice
         var accentType = "zombie";

@@ -114,12 +114,13 @@
   name: heart carpaccio recipe
   result: MealHeartCarpaccio
   group: Savory
-  time: 5 # warming it as a formality
+  time: 5
   solids:
-    OrganAnimalHeart: 1 # use the whole mouse. whatever
-    OrganAnimalLiver: 1
-    OrganAnimalLungs: 1
-    OrganAnimalKidneys: 1
+    OrganHumanHeart: 1 # use the whole body. whatever
+    OrganHumanLiver: 1
+    OrganHumanLungs: 1
+    OrganHumanStomach: 1
+    OrganHumanKidneys: 1
   recipeType: Assembler
 
 - type: microwaveMealRecipe
@@ -428,6 +429,21 @@
     FoodDoughFlat: 1
     FoodMeatFinfinCutlet: 3
     FoodLemoSlice: 5
+  recipeType: Oven
+
+- type: microwaveMealRecipe
+  id: RecipeBombPizza
+  name: Bomb pizza recipe
+  result: FoodPizzaBomb
+  secretRecipe: true
+  group: Secret
+  time: 30
+  solids:
+    FoodDoughFlat: 1
+    MaterialGunpowder: 3
+    SheetSteel1: 1
+    FoodCheeseSlice: 1
+    FoodTomato: 1
   recipeType: Oven
 
 # FIRST CLOOOOOOOO IS SOMETHING GREEN

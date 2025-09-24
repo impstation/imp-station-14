@@ -40,7 +40,11 @@
 - type: startingGear
   id: CaptainGear
   equipment:
+    #shoes: ClothingShoesBootsLaceup #imp
+    #eyes: ClothingEyesGlassesCommand #imp
+    #gloves: ClothingHandsGlovesCaptain #imp
     id: CaptainPDA
+    #ears: ClothingHeadsetAltCommand #imp
   storage:
     back:
     - Flash

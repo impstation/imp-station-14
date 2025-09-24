@@ -75,11 +75,25 @@
     state: icon_alt
 
 - type: stealTargetGroup
+  id: HDCutterMachine
+  name: steal-target-groups-hdcuttermachine
+  sprite:
+    sprite: _Impstation/Objects/Tools/Toolboxes/toolbox_hd.rsi
+    state: icon
+
+- type: stealTargetGroup
   id: SecPillCanister
   name: steal-target-groups-secpillcanister
   sprite:
     sprite: _Impstation/Objects/Specific/Chemistry/pills_canister.rsi
     state: pill_canister-hos
+
+- type: stealTargetGroup
+  id: ClothingNeckBureaucracyMedal
+  name: steal-target-groups-clothing-neck-bureaucracymedal
+  sprite:
+    sprite: _Impstation/Clothing/Neck/Medals/bureaucracymedal.rsi
+    state: icon
 
 - type: stealTargetGroup
   id: AntiqueDisabler

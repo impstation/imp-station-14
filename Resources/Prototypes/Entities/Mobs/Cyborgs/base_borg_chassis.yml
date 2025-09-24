@@ -73,6 +73,12 @@
       # Only used for NT borgs that can switch type, defined here to avoid copy-pasting the rest of this component.
       enum.BorgSwitchableTypeUiKey.SelectBorgType:
         type: BorgSelectTypeUserInterface
+      # Begin Impstation - Borg PDAs
+      enum.PdaUiKey.Key:
+        type: PdaBoundUserInterface
+      enum.RingerUiKey.Key:
+        type: RingerBoundUserInterface
+      # End Impstation - Borg PDAs
   - type: ActivatableUI
     key: enum.BorgUiKey.Key
   - type: SiliconLawBound
@@ -122,6 +128,8 @@
       cell_slot: !type:ContainerSlot { }
       borg_module: !type:Container { }
       part-container: !type:Container
+      program-container: !type:Container # Impstation - Borg PDAs
+      Cartridge-Slot: !type:ContainerSlot # Impstation - Borg PDAs
   - type: PowerCellSlot
     cellSlotId: cell_slot
     fitsInCharger: true
@@ -169,7 +177,9 @@
     locked: true
     unlockOnClick: false
     customLockText: "back panel" # imp
-  - type: ActivatableUIRequiresLock
+  - type: UIRequiresLock
+    userInterfaceKeys:
+    - enum.BorgUiKey.Key
   - type: LockedWiresPanel
   - type: Damageable
     damageContainer: Silicon
@@ -248,6 +258,7 @@
     damageProtection:
       flatReductions:
         Heat: 10 # capable of touching light bulbs and stoves without feeling pain!
+        Cold: 10 # imp edit. For cold lightbulb
 
 - type: entity
   abstract: true
@@ -266,7 +277,7 @@
     receiveFrequencyId: CyborgControl
     transmitFrequencyId: RoboticsConsole
     savableAddress: false
-  - type: OnUseTimerTrigger
+  - type: TimerTrigger
     delay: 10
     examinable: false
     beepSound:
@@ -274,8 +285,9 @@
       params:
         volume: -4
   # prevent any funnies if someone makes a cyborg item...
-  - type: AutomatedTimer
   - type: ExplodeOnTrigger
+    keysIn:
+    - timer
   # explosion does most of its damage in the center and less at the edges
   - type: Explosive
     explosionType: Minibomb
@@ -284,9 +296,11 @@
     intensitySlope: 20
     maxIntensity: 20
     canCreateVacuum: false # its for killing the borg not the station
-  - type: SignatureFont # imp
+  # imp edit start
+  - type: SignatureFont
     font: Sixtyfour
-  - type: SkipLoadingCharacterRecords #imp edit - make it so borgs doesn't show up in the character records list
+  - type: SkipLoadingCharacterRecords
+  # imp edit end
 
 - type: entity
   abstract: true
@@ -355,6 +369,7 @@
     - Syndicate
   - type: ActiveRadio
     channels:
+    - Binary
     - Syndicate
   - type: ShowSyndicateIcons
   - type: MovementAlwaysTouching
@@ -367,8 +382,10 @@
       Unsexed: UnisexSiliconSyndicate
   - type: PointLight
     color: "#dd200b"
-  - type: TypingIndicator #imp
+  # imp edit start
+  - type: TypingIndicator
     proto: syndibot
+  # imp edit end
 
 - type: entity
   id: BaseBorgChassisDerelict
@@ -391,16 +408,60 @@
   - type: ShowJobIcons
 
 - type: entity
+  id: BaseBorgChassisSyndicateDerelict #For assault borg and maybe others in time
+  parent: BaseBorgChassis # We don't want them to see Nukies or have syndi comms, their database is out of date
+  abstract: true
+  components:
+  - type: SiliconLawProvider
+    laws: SyndicateStatic #Non-subverted version so they can still be changed
+  - type: StartIonStormed
+    ionStormAmount: 3
+  - type: IonStormTarget
+    chance: 1
+  - type: ShowJobIcons
+  - type: NpcFactionMember # They're still syndicate even if they can't listen to the radio or see icons
+    factions:
+    - Syndicate
+  - type: Access
+    tags:
+    - NuclearOperative
+    - SyndicateAgent
+  - type: AccessReader
+    access: [ [ "SyndicateAgent" ], [ "NuclearOperative" ] ]
+  - type: IntrinsicRadioTransmitter # Copy components from base SyndiBorg but without the stuff we don't want
+    channels:
+    - Binary #1984
+  - type: ActiveRadio
+    channels:
+    - Binary
+  - type: MovementAlwaysTouching
+  - type: Speech
+    speechSounds: SyndieBorg
+    allowedEmotes:
+    - Laugh
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexSiliconSyndicate
+  - type: PointLight
+    color: "#dd200b"
+  # imp edit start
+  - type: TypingIndicator
+    proto: syndibot
+  # imp edit end
+
+- type: entity
   parent: BaseBorgChassisNotIonStormable
   id: BaseXenoborgChassis
   name: xenoborg
-  description: A man-machine hybrid that aims to replicate itself. They love extracting brains to insert into fresh xenoborg chassis to grow their army.
+  description: A man-machine hybrid that aims to replicate itself. They love extracting brains to insert into fresh Xenoborg chassis to grow their army.
   save: false
   abstract: true
   components:
   - type: RandomMetadata
     nameSegments:
     - NamesXenoborg
+  - type: NameIdentifier
+    group: Xenoborg
   - type: Sprite
     sprite: Mobs/Silicon/chassis.rsi
   - type: MobThresholds
@@ -441,7 +502,7 @@
   - type: Vocal
     sounds:
       Unsexed: UnisexSiliconXenoborg
-    screamAction: null
+    wilhelmProbability: 0
   - type: DamagedSiliconAccent
   - type: UnblockableSpeech
   - type: FootstepModifier
@@ -467,7 +528,7 @@
       behaviors:
       - !type:PlaySoundBehavior
         sound:
-          path: /Audio/Machines/warning_buzzer.ogg
+          path: /Audio/Machines/warning_buzzer_xenoborg.ogg
           params:
             volume: 5
     - trigger:

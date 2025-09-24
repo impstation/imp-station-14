@@ -1,0 +1,40 @@
+- type: entity
+  name: taco de cartón
+  parent: FoodTacoShell
+  id: FoodTacoCardboard
+  description: A folded piece of cardboard made to resemble a taco shell. Enjoyed by Moths.
+  components:
+  - type: Food
+    transferAmount: 3
+    requiresSpecialDigestion: true
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/cardtaco.rsi
+    layers:
+    - state: tacoshell_back
+    - map: ["foodSequenceLayers"]
+    - state: tacoshell_forward
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        canReact: false # Dont want cause reactions inside tacos after merging ingredients
+        maxVol: 10
+        reagents:
+        - ReagentId: Pulp
+          Quantity: 6
+  - type: FoodSequenceStartPoint
+    key: CottonBurger
+    maxLayers: 3
+    startPosition: -0.15, 0
+    offset: 0.15, 0
+    minLayerOffset: 0, 0
+    maxLayerOffset: 0, 0.05
+    nameGeneration: food-sequence-cardtaco-gen
+  - type: Appearance
+  - type: Tag
+    tags:
+    - ClothMade
+    - ClothFood # imp
+  - type: Construction
+    graph: CardTaco
+    node: cardtaco
+    

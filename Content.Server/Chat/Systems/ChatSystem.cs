@@ -1,4 +1,3 @@
-using System.Collections.Immutable;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -8,14 +7,14 @@ using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Speech.Prototypes;
-using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
+using Content.Server._Wizden.Chat.Systems; // Imp edit for Last Message Before Death Webhook
 using Content.Shared.Abilities.Mime; // imp
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
-using Content.Shared.CollectiveMind;
+using Content.Shared.CollectiveMind; // imp
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
@@ -24,6 +23,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Players;
 using Content.Shared.Players.RateLimiting;
 using Content.Shared.Radio;
+using Content.Shared.Station.Components;
 using Content.Shared.Whitelist;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
@@ -36,7 +36,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
-using Content.Server._Wizden.Chat.Systems; // Imp edit for Last Message Before Death Webhook
 
 namespace Content.Server.Chat.Systems;
 
@@ -63,13 +62,9 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly ReplacementAccentSystem _wordreplacement = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
-    [Dependency] private readonly CollectiveMindUpdateSystem _collectiveMind = default!;
+    [Dependency] private readonly CollectiveMindUpdateSystem _collectiveMind = default!; //imp
     [Dependency] private readonly LastMessageBeforeDeathSystem _lastMessageBeforeDeathSystem = default!; // Imp Edit LastMessageBeforeDeath Webhook
-
-    public const int VoiceRange = 10; // how far voice goes in world units
-    public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
-    public const int WhisperMuffledRange = 5; // how far whisper goes at all, in world units
-     //imp. gutted default announcement sounds, announcersystem handles them now.
+    [Dependency] private readonly Content.Shared.StatusEffectNew.StatusEffectsSystem _statusEffects = default!; // Offbrand
 
     private bool _loocEnabled = true;
     private bool _deadLoocEnabled;
@@ -186,6 +181,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             return;
         }
 
+        // imp edit, collective mind
         if (TryComp<CollectiveMindComponent>(source, out var collective))
             _collectiveMind.UpdateCollectiveMind(source, collective);
 
@@ -223,6 +219,13 @@ public sealed partial class ChatSystem : SharedChatSystem
             message = message[1..];
         }
 
+        // Begin Offbrand
+        if (desiredType == InGameICChatType.Speak && _statusEffects.HasEffectComp<Content.Shared._Offbrand.StatusEffects.SilencedStatusEffectComponent>(source))
+        {
+            desiredType = InGameICChatType.Whisper;
+        }
+        // End Offbrand
+
         bool shouldCapitalize = (desiredType != InGameICChatType.Emote);
         bool shouldPunctuate = _configurationManager.GetCVar(CCVars.ChatPunctuation);
         // Capitalizing the word I only happens in English, so we check language here
@@ -256,6 +259,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             }
         }
 
+        // imp edit start
         if (desiredType == InGameICChatType.CollectiveMind)
         {
             if (TryProccessCollectiveMindMessage(source, message, out var modMessage, out var channel))
@@ -264,6 +268,7 @@ public sealed partial class ChatSystem : SharedChatSystem
                 return;
             }
         }
+        // imp edit end
 
         // Otherwise, send whatever type.
         switch (desiredType)
@@ -425,6 +430,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
     #region Private API
 
+    // imp edit, collective mind
     private void SendCollectiveMindChat(EntityUid source, string message, CollectiveMindPrototype? collectiveMind)
     {
         if (_mobStateSystem.IsDead(source) || collectiveMind == null || message == "" || !TryComp<CollectiveMindComponent>(source, out var sourseCollectiveMindComp) || !sourseCollectiveMindComp.Minds.ContainsKey(collectiveMind.ID))
@@ -835,12 +841,12 @@ public sealed partial class ChatSystem : SharedChatSystem
     {
         if (desiredType == InGameICChatType.Emote)
         {
-            var newMessage = "*" + message + "*";
+            var newMessage = "*" + message.Replace("*", "") + "*";
             _lastMessageBeforeDeathSystem.AddMessage(source, player, newMessage);
         }
         else
         {
-            var newMessage = TransformSpeech(source, message);
+            var newMessage = TransformSpeech(source, message.Replace("*", ""));
             _lastMessageBeforeDeathSystem.AddMessage(source, player, newMessage);
         }
     }
@@ -1087,7 +1093,7 @@ public enum InGameICChatType : byte
     Speak,
     Emote,
     Whisper,
-    CollectiveMind
+    CollectiveMind // imp
 }
 
 /// <summary>

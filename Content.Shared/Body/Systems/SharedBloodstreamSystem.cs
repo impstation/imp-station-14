@@ -6,7 +6,6 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
-using Content.Shared.Drunk;
 using Content.Shared.EntityEffects.Effects;
 using Content.Shared.FixedPoint;
 using Content.Shared.Fluids;
@@ -16,7 +15,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Rejuvenate;
-using Content.Shared.Speech.EntitySystems;
+using Content.Shared.StatusEffectNew;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
@@ -28,17 +27,18 @@ using Content.Shared._Impstation.Hemorrhage; //imp edit
 
 public abstract class SharedBloodstreamSystem : EntitySystem
 {
+    public static readonly EntProtoId Bloodloss = "StatusEffectBloodloss";
+
     [Dependency] protected readonly SharedSolutionContainerSystem SolutionContainer = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedPuddleSystem _puddle = default!;
+    [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly SharedDrunkSystem _drunkSystem = default!;
-    [Dependency] private readonly SharedStutteringSystem _stutteringSystem = default!;
 
     public override void Initialize()
     {
@@ -78,19 +78,36 @@ public abstract class SharedBloodstreamSystem : EntitySystem
                 TryModifyBloodLevel((uid, bloodstream), bloodstream.BloodRefreshAmount);
             }
 
+            // Begin Offbrand
+            var evt = new Content.Shared._Offbrand.Wounds.GetBleedLevelEvent(bloodstream.BleedAmount);
+            RaiseLocalEvent(uid, ref evt);
+
             // Removes blood from the bloodstream based on bleed amount (bleed rate)
             // as well as stop their bleeding to a certain extent.
-            if (bloodstream.BleedAmount > 0)
+            if (evt.BleedLevel > 0)
             {
+                var ev = new BleedModifierEvent(evt.BleedLevel, bloodstream.BleedReductionAmount);
+                RaiseLocalEvent(uid, ref ev);
+
                 // Blood is removed from the bloodstream at a 1-1 rate with the bleed amount
-                TryModifyBloodLevel((uid, bloodstream), -bloodstream.BleedAmount);
+                TryModifyBloodLevel((uid, bloodstream), -ev.BleedAmount);
+
                 // Bleed rate is reduced by the bleed reduction amount in the bloodstream component.
-                TryModifyBleedAmount((uid, bloodstream), -bloodstream.BleedReductionAmount);
+                TryModifyBleedAmount((uid, bloodstream), -ev.BleedReductionAmount);
             }
+
+            if (evt.BleedLevel == 0)
+                _alertsSystem.ClearAlert(uid, bloodstream.BleedingAlert);
+            else
+            {
+                var severity = (short)Math.Clamp(Math.Round(evt.BleedLevel, MidpointRounding.ToZero), 0, 10);
+                _alertsSystem.ShowAlert(uid, bloodstream.BleedingAlert, severity);
+            }
+            // End Offbrand
 
             // deal bloodloss damage if their blood level is below a threshold.
             var bloodPercentage = GetBloodLevelPercentage((uid, bloodstream));
-            if (bloodPercentage < bloodstream.BloodlossThreshold && !_mobStateSystem.IsDead(uid))
+            if (bloodPercentage < bloodstream.BloodlossThreshold && !_mobStateSystem.IsDead(uid) && bloodstream.BloodlossDamage is not null) // Offbrand
             {
                 // bloodloss damage is based on the base value, and modified by how low your blood level is.
                 var amt = bloodstream.BloodlossDamage / (0.1f + bloodPercentage);
@@ -101,17 +118,9 @@ public abstract class SharedBloodstreamSystem : EntitySystem
                 // Apply dizziness as a symptom of bloodloss.
                 // The effect is applied in a way that it will never be cleared without being healthy.
                 // Multiplying by 2 is arbitrary but works for this case, it just prevents the time from running out
-                _drunkSystem.TryApplyDrunkenness(
-                    uid,
-                    (float)bloodstream.AdjustedUpdateInterval.TotalSeconds * 2,
-                    applySlur: false);
-                _stutteringSystem.DoStutter(uid, bloodstream.AdjustedUpdateInterval * 2, refresh: false);
-
-                // storing the drunk and stutter time so we can remove it independently from other effects additions
-                bloodstream.StatusTime += bloodstream.AdjustedUpdateInterval * 2;
-                DirtyField(uid, bloodstream, nameof(BloodstreamComponent.StatusTime));
+                _status.TrySetStatusEffectDuration(uid, Bloodloss);
             }
-            else if (!_mobStateSystem.IsDead(uid))
+            else if (!_mobStateSystem.IsDead(uid) && bloodstream.BloodlossHealDamage is not null) // Offbrand
             {
                 // If they're healthy, we'll try and heal some bloodloss instead.
                 _damageableSystem.TryChangeDamage(
@@ -119,12 +128,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
                     bloodstream.BloodlossHealDamage * bloodPercentage,
                     ignoreResistances: true, interruptsDoAfters: false);
 
-                // Remove the drunk effect when healthy. Should only remove the amount of drunk and stutter added by low blood level
-                _drunkSystem.TryRemoveDrunkenessTime(uid, bloodstream.StatusTime.TotalSeconds);
-                _stutteringSystem.DoRemoveStutterTime(uid, bloodstream.StatusTime.TotalSeconds);
-                // Reset the drunk and stutter time to zero
-                bloodstream.StatusTime = TimeSpan.Zero;
-                DirtyField(uid, bloodstream, nameof(BloodstreamComponent.StatusTime));
+                _status.TryRemoveStatusEffect(uid, Bloodloss);
             }
         }
     }
@@ -424,13 +428,18 @@ public abstract class SharedBloodstreamSystem : EntitySystem
 
         DirtyField(ent, ent.Comp, nameof(BloodstreamComponent.BleedAmount));
 
-        if (ent.Comp.BleedAmount == 0)
+        // Begin Offbrand
+        var evt = new Content.Shared._Offbrand.Wounds.GetBleedLevelEvent(ent.Comp.BleedAmount);
+        RaiseLocalEvent(ent, ref evt);
+
+        if (evt.BleedLevel == 0)
             _alertsSystem.ClearAlert(ent, ent.Comp.BleedingAlert);
         else
         {
-            var severity = (short)Math.Clamp(Math.Round(ent.Comp.BleedAmount, MidpointRounding.ToZero), 0, 10);
+            var severity = (short)Math.Clamp(Math.Round(evt.BleedLevel, MidpointRounding.ToZero), 0, 10);
             _alertsSystem.ShowAlert(ent, ent.Comp.BleedingAlert, severity);
         }
+        // End Offbrand
 
         return true;
     }
