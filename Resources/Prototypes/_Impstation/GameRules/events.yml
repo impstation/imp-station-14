@@ -146,3 +146,21 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
+
+# eeeplet
+- type: entity
+  id: EeepletEvent
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    weight: 4
+    earliestStart: 25
+    reoccurrenceDelay: 20
+    minimumPlayers: 30
+  - type: VentCrittersRule
+    specialEntries:
+    - id: SpawnPointGhostEeeplet
+      prob: 0
+      min: 1
+      max: 4
+

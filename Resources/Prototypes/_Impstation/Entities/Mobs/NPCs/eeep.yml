@@ -7,9 +7,9 @@
   components:
   - type: GhostRole
     allowMovement: true
-    name: ghost-role-information-eeep
-    description: ghost-role-information-eeep
-    rules: ghost-role-information-freeagent-rules
+    name: ghost-role-information-eeep-name
+    description: ghost-role-information-eeep-desc
+    rules: ghost-role-information-antagonist-rules
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
     raffle:
@@ -84,9 +84,6 @@
       behaviors:
       - !type:GibBehavior
         recursive: false
-    spawned:
-      - id: EeepletSpark
-        amount: 1
   - type: StatusEffects
     allowed:
     - SlowedDown
@@ -94,7 +91,7 @@
     - TemporaryBlindness
     - RadiationProtection
     - Pacified
-  - type: Absorbable
+  - type: GoobAbsorbable
     biomassRestored: 0.1
   - type: FlavorProfile
     flavors:
@@ -120,8 +117,6 @@
     speedModifier: 10
     useSound:
       path: /Audio/Effects/tesla_consume.ogg
-  - type: VentCrawler
-    enterDelay: 3
   - type: AmbientSound
     volume: -8
     range: 3
@@ -133,6 +128,7 @@
     color: "#afa2ff"
     castShadows: true
   - type: MeleeWeapon
+    attackRate: 0.8
     soundHit:
         path: /Audio/Effects/Lightning/lightningshock.ogg
     angle: 0
@@ -155,26 +151,26 @@
   - type: ComplexInteraction
   - type: ExaminableBattery
 
-  - type: entity
-  id: ActionEeepletGrow
-  parent: BaseAction
-  name: Grow
-  description: Im so full from the stations power, Yum.
-  components:
-  - type: Action
-    itemIconStyle: NoItem
-    icon: _Impstation/Interface/Actions/tba.png
-    useDelay: 20
-  - type: InstantAction
-      event: !type: #TBA
-      chargeUse: 4000
-      nextStage: MobEeep
+#- type: entity
+#  id: ActionEeepletGrow
+#  parent: BaseAction
+#  name: Grow
+#  description: Im so full from the stations power, Yum.
+#  components:
+#  - type: Action
+#    itemIconStyle: NoItem
+#    icon: _Impstation/Interface/Actions/tba.png
+#    useDelay: 20
+#  - type: InstantAction
+#    event: !type: #TBA
+#    chargeUse: 4000
+#    nextStage: MobEeep
 
 - type: entity
   id: EeepSpark
   parent: TeslaMiniEnergyBall
   categories: [ HideSpawnMenu ]
-  name: mini ball lightning
+  name: eeep spark
   description: You monster.
   components:
   - type: TimedDespawn
@@ -195,7 +191,8 @@
       fadeOut: false
     - type: Sprite
       sprite: Effects/lightning.rsi
-      state: electrified
+      state: lightning_1
+      shader: unshaded
     - type: TimedDespawn
       lifetime: 0.399
 
@@ -242,7 +239,10 @@
       behaviors:
       - !type:GibBehavior
         recursive: false
-  - type: Absorbable
+        spawned:
+        - id: EeepSpark
+          amount: 1
+  - type: GoobAbsorbable
     biomassRestored: 0.8
   - type: AmbientSound
     volume: -3
@@ -254,15 +254,6 @@
     energy: 5
     color: "#afa2ff"
     castShadows: true
-  - type: Devourer
-    shouldStoreDevoured: true
-    chemical: Ichor
-    healRate: 2
-    whitelist:
-      components:
-      - Door
-      tags:
-      - Wall
   - type: Gun
     projectileSpeed: 10
     soundGunshot:
@@ -284,9 +275,9 @@
     - Critical
     damage:
       types:
-        Heat: -2
+        Heat: -1
       groups:
-        Brute: -2
+        Brute: -1
   - type: LightningArcShooter
     arcDepth: 2
     maxLightningArc: 1
@@ -294,3 +285,9 @@
     shootMaxInterval: 10
     shootRange: 5
     lightningPrototype: Lightning
+  - type: AnnounceOnSpawn
+    message: eeep-spawn
+    sender: eeep-spawn-sender
+    sound:
+     path: /Audio/Effects/PowerSink/charge_fire.ogg
+     color: red
