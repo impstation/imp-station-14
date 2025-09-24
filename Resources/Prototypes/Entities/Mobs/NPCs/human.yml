@@ -68,6 +68,9 @@
   name: syndicate shuttle pilot
   parent: MobSyndicateFootsoldier
   id: MobSyndicateFootsoldierPilot
+  components: #IMP SSD no sleeping
+    - type: SSDIndicator
+      doNotSleep: true
 
 - type: entity
   parent: BaseMobHuman
@@ -90,6 +93,14 @@
     templateId: corpse
   - type: Rotting
     totalRotTime: 1200 # 20 minutes
+  # Begin Offbrand Additions
+  - type: BrainDamage
+    damage: 100
+    oxygen: 0
+  - type: Heartrate
+    running: false
+    damage: 50
+  # End Offbrand Additions
 
 - type: entity
   parent: MobHuman

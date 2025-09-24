@@ -128,7 +128,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
                 genderString = appearance.Gender.ToString().ToLowerInvariant();
             }
 
-            foreach (var mindRole in mindComp.MindRoles)
+            foreach (var mindRole in mindComp.MindRoleContainer.ContainedEntities)
             {
                 //make sure we have a mindRole comp
                 if (!TryComp<MindRoleComponent>(mindRole, out var mindRoleComp))
