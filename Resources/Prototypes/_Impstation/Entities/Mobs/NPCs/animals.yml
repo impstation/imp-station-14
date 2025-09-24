@@ -27,20 +27,24 @@
           state: boar_moving
       noMovementLayers:
         movement:
+        layers:
+        - map: ["enum.DamageStateVisualLayers.Base", "movement"]
           state: boar
+        - map: ["enum.DamageStateVisualLayers.BaseUnshaded"]
+          state: eyes
+          shader: unshaded
     - type: Butcherable
       spawned:
       - id: FoodMeatBacon
         amount: 8
     - type: MeleeThrowOnHit
       unanchorOnHit: false
-      distance: 5
-      speed: 4
+      distance: 2
+      speed: 10
     - type: Tag
       tags:
         - DoorBumpOpener
         - FootstepSound
-        - KodeEdible
     - type: Fixtures
       fixtures:
         fix1:
@@ -75,8 +79,8 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        200: Critical
-        250: Dead
+        150: Critical
+        200: Dead
     - type: Damageable
       damageContainer: Biological
       damageModifierSet: Slime
@@ -90,8 +94,8 @@
         collection: Punch
       damage:
         types:
-          Blunt: 8
-          Piercing: 8
+          Blunt: 5
+          Piercing: 5
           Structural: 5
     - type: Prying
       pryPowered: true
