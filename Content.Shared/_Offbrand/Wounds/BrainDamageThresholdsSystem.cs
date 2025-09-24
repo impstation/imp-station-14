@@ -44,7 +44,7 @@ public sealed partial class BrainDamageThresholdsSystem : EntitySystem
         var damageState = ent.Comp.DamageStateThresholds.HighestMatch(brain.Damage) ?? MobState.Alive;
         var oxygenState = ent.Comp.OxygenStateThresholds.LowestMatch(brain.Oxygen) ?? MobState.Alive;
 
-        var state = ThresholdHelpers.Max(damageState, oxygenState);
+        var state = (byte)damageState > (byte)oxygenState ? damageState : oxygenState;
 
         if (state == ent.Comp.CurrentState)
             return;
@@ -122,7 +122,7 @@ public sealed partial class BrainDamageThresholdsSystem : EntitySystem
 
     private void OnUpdateMobState(Entity<BrainDamageThresholdsComponent> ent, ref UpdateMobStateEvent args)
     {
-        args.State = ThresholdHelpers.Max(ent.Comp.CurrentState, args.State);
+        args.State = ent.Comp.CurrentState;
 
         var overlays = new PotentiallyUpdateDamageOverlay(ent);
         RaiseLocalEvent(ent, ref overlays, true);

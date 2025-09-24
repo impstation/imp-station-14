@@ -4,7 +4,6 @@
  */
 
 using System.Linq;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.Mobs;
 
 namespace Content.Shared._Offbrand.Wounds;
@@ -13,7 +12,6 @@ public sealed partial class HealthRankingSystem : EntitySystem
 {
     [Dependency] private readonly BrainDamageSystem _brainDamage = default!;
     [Dependency] private readonly HeartSystem _heart = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly PainSystem _pain = default!;
     [Dependency] private readonly ShockThresholdsSystem _shockThresholds = default!;
 
@@ -72,10 +70,5 @@ public sealed partial class HealthRankingSystem : EntitySystem
         }
 
         return 1f;
-    }
-
-    public bool IsCritical(EntityUid uid)
-    {
-        return _mobState.IsCritical(uid) || _shockThresholds.IsCritical(uid) || _brainDamage.IsCritical(uid) || _heart.IsCritical(uid);
     }
 }
