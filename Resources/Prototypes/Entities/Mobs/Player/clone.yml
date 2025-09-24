@@ -28,6 +28,12 @@
   - PermanentBlindness
   - Snoring
   - Unrevivable
+  # imp disabilities begin
+  - Hemophilia
+  - RandomUnrevivable
+  - Illiterate
+  - UnadaptedToSpace
+  # imp disabilities end
   # accents
   - Accentless
   - BackwardsAccent
@@ -56,8 +62,32 @@
   - SouthernAccent
   - SpanishAccent
   - StutteringAccent
-  - UnadaptedToSpace # imp edit
-
+  # imp accents begin
+  - ProperCapitalization
+  - ProperPunctuation
+  - NoContractionsAccent
+  - SharpInflection
+  - Monotonous
+  - TransatlanticAccent
+  - BasicPirateAccent
+  - BasicFrenchAccent
+  - BasicRussianAccent
+  - StiltedSpeech
+  - RelentlessPositivity
+  - PGAccent
+  - VowelRotation
+  - ArchaicAccent
+  - SnalienAccent
+  - MobsterAccent
+  - RatvarianLanguage
+  - MilbratAccent
+  # imp accents end
+  blacklist:
+    components:
+    - AttachedClothing # helmets, which are part of the suit
+    - HumanoidAppearance # will cause problems for downstream felinids getting cloned as Urists
+    - Implanter # they will spawn full again, but you already get the implant. And we can't do item slot copying yet
+    - VirtualItem
 # for job-specific traits etc.
 - type: cloningSettings
   id: Special
@@ -76,6 +106,8 @@
   - HeadRevolutionary
   - Revolutionary
   - NukeOperative
+  - Heretic # Imp
+  - GoobChangeling # Imp
 
 # a full clone with all traits and items, but no antag roles
 - type: cloningSettings
