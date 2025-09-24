@@ -4,4 +4,3 @@
 
 verb-perform-cpr = Perform CPR
 verb-remove-iv = Remove IV
-verb-perform-surgery = Perform Surgery

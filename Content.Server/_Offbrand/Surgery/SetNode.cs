@@ -21,11 +21,10 @@ public sealed partial class SetNode : IGraphAction
     public void PerformAction(EntityUid uid, EntityUid? userUid, IEntityManager entityManager)
     {
         var construction = entityManager.System<ConstructionSystem>();
-        if (!construction.CheckConditions(uid, RepeatConditions) || RepeatConditions.Count == 0)
+        construction.ChangeNode(uid, userUid, Node);
+        if (!construction.CheckConditions(uid, RepeatConditions))
         {
             construction.SetPathfindingTarget(uid, null);
         }
-        construction.ChangeNode(uid, userUid, Node);
-        construction.ResetEdge(uid);
     }
 }
