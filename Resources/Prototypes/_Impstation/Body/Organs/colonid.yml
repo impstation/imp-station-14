@@ -68,7 +68,7 @@
   id: OrganColonidStomach
   parent: BaseHumanOrgan
   name: fungal tendrils
-  description: "Like a handful of squid."
+  description: "Looks like a handful of squid."
   components:
   - type: Sprite
     state: stomach
@@ -102,7 +102,7 @@
   id: OrganColonidLiver
   parent: BaseHumanOrgan
   name: prosthetic liver
-  description: "A synthetic liver developed by NT scientist to see what would happen if you got a colonid drunk. Now they all want one."
+  description: "A synthetic liver developed by NT scientist to see what would happen if you got a colonid drunk. Now they all have one."
   components:
   - type: Sprite
     state: liver
