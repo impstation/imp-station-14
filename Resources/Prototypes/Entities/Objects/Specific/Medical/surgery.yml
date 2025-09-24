@@ -47,14 +47,13 @@
   description: A surgical drill for making holes into hard material.
   components:
   - type: Sprite
-    sprite: _Offbrand/surgery_tools.rsi # Offbrand
+    sprite: Objects/Specific/Medical/Surgery/drill.rsi
     state: drill
   - type: Item
-    sprite: _Offbrand/surgery_tools.rsi # Offbrand
-    heldPrefix: drill # Offbrand
+    sprite: Objects/Specific/Medical/Surgery/drill.rsi
     shape:
     - 0,0,1,0
-    - 0,1,0,1 # Offbrand
+    - 1,1,1,1
   - type: MeleeWeapon
     damage:
       types:
@@ -74,9 +73,6 @@
   - type: ThrowingAngle
     angle: 90
   # end imp edits #
-  - type: Tool # Offbrand
-    qualities:
-    - Drilling
 
 # Scalpel
 
