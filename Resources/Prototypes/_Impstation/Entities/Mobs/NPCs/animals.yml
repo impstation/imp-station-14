@@ -28,11 +28,7 @@
       noMovementLayers:
         movement:
         layers:
-        - map: ["enum.DamageStateVisualLayers.Base", "movement"]
           state: boar
-        - map: ["enum.DamageStateVisualLayers.BaseUnshaded"]
-          state: eyes
-          shader: unshaded
     - type: Butcherable
       spawned:
       - id: FoodMeatBacon
