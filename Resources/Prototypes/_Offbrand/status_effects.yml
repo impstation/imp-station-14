@@ -143,6 +143,14 @@
 
 - type: entity
   parent: MobStatusEffectBase
+  id: StatusEffectHeartStrainCaffeine
+  name: slightly increased heart rate
+  components:
+  - type: StrainStatusEffect
+    delta: 1
+
+- type: entity
+  parent: MobStatusEffectBase
   id: StatusEffectHeartStabilizationTHC
   name: minor heart stabilization
   components:

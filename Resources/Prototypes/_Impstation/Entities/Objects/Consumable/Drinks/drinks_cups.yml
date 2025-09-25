@@ -45,3 +45,51 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 25
+
+- type: entity
+  parent: DrinkDisposableCup
+  id: DrinkColoCup
+  abstract: false
+  name: Colo cup
+  description: A cheap, mass produced style of cup, typically used at parties.
+  components:
+  - type: Icon
+    sprite: _Impstation/Objects/Consumable/Drinks/colocup.rsi
+    state: icon-0
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Drinks/colocup.rsi
+    layers:
+    - map: [ "random" ]
+      state: icon-0
+    - map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: RandomSprite
+    available:
+    - random:
+        icon-0: ""
+        icon-1: ""
+        icon-2: ""
+        icon-3: ""
+        icon-4: ""
+        icon-5: ""
+        icon-6: ""
+        icon-7: ""
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    fillBaseName: fill-
+  - type: Item
+  - type: TrashOnSolutionEmpty
+    solution: drink
+
+- type: entity
+  parent: DrinkColoCup
+  id: DrinkColoCupGrapeJuice
+  suffix: grape juice
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: JuiceGrape
+          Quantity: 30

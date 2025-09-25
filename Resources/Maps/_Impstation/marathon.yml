@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/14/2025 04:43:00
-  entityCount: 23586
+  time: 09/22/2025 04:09:28
+  entityCount: 23592
 maps:
 - 1
 grids:
@@ -14013,6 +14013,16 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -45.5,41.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 19080
+    components:
+    - type: MetaData
+      name: Security Front APC
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -30.5,41.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -33599,6 +33609,11 @@ entities:
     - type: Transform
       pos: -6.5,-25.5
       parent: 2
+  - uid: 23587
+    components:
+    - type: Transform
+      pos: -30.5,41.5
+      parent: 2
 - proto: CableApcStack
   entities:
   - uid: 4451
@@ -45611,6 +45626,31 @@ entities:
     components:
     - type: Transform
       pos: -18.5,8.5
+      parent: 2
+  - uid: 23588
+    components:
+    - type: Transform
+      pos: -32.5,43.5
+      parent: 2
+  - uid: 23589
+    components:
+    - type: Transform
+      pos: -31.5,43.5
+      parent: 2
+  - uid: 23590
+    components:
+    - type: Transform
+      pos: -31.5,42.5
+      parent: 2
+  - uid: 23591
+    components:
+    - type: Transform
+      pos: -31.5,41.5
+      parent: 2
+  - uid: 23592
+    components:
+    - type: Transform
+      pos: -30.5,41.5
       parent: 2
 - proto: CableMVStack
   entities:
@@ -129185,17 +129225,6 @@ entities:
       - SurveillanceCameraSecurity
       nameSet: True
       id: Brig Corridor
-  - uid: 19080
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -41.5,65.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraSecurity
-      nameSet: True
-      id: Armory Space View
   - uid: 19081
     components:
     - type: Transform
@@ -133258,7 +133287,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 11.5,61.5
       parent: 2
-- proto: VaultDoorCommandLocked
+- proto: VaultDoorLocked
   entities:
   - uid: 10272
     components:
