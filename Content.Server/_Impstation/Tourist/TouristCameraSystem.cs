@@ -38,6 +38,7 @@ using Content.Shared.Stunnable;
 
 namespace Content.Server._Impstation.Tourist
 {
+    //This is mostly duplicated from FlashSystem, as AfterFlashedEvent won't run on entities that are flash immune or being held/worn by something flash immune.
     internal sealed class TouristCameraSystem : SharedTouristCameraSystem
     {
         [Dependency] private readonly AppearanceSystem _appearance = default!;
@@ -62,10 +63,10 @@ namespace Content.Server._Impstation.Tourist
             base.Initialize();
 
             SubscribeLocalEvent<TouristCameraComponent, TouristCameraDoAfterEvent>(OnDoAfter);
-            SubscribeLocalEvent<InventoryComponent, FlashAttemptEvent>(OnInventoryFlashAttempt);
-            SubscribeLocalEvent<FlashImmunityComponent, FlashAttemptEvent>(OnFlashImmunityFlashAttempt);
-            SubscribeLocalEvent<PermanentBlindnessComponent, FlashAttemptEvent>(OnPermanentBlindnessFlashAttempt);
-            SubscribeLocalEvent<TemporaryBlindnessComponent, FlashAttemptEvent>(OnTemporaryBlindnessFlashAttempt);
+            SubscribeLocalEvent<InventoryComponent, TouristCameraFlashAttemptEvent>(OnInventoryFlashAttempt);
+            SubscribeLocalEvent<FlashImmunityComponent, TouristCameraFlashAttemptEvent>(OnFlashImmunityFlashAttempt);
+            SubscribeLocalEvent<PermanentBlindnessComponent, TouristCameraFlashAttemptEvent>(OnPermanentBlindnessFlashAttempt);
+            SubscribeLocalEvent<TemporaryBlindnessComponent, TouristCameraFlashAttemptEvent>(OnTemporaryBlindnessFlashAttempt);
         }
 
         private void OnDoAfter(EntityUid uid, TouristCameraComponent comp, TouristCameraDoAfterEvent args)
@@ -105,7 +106,7 @@ namespace Content.Server._Impstation.Tourist
             bool displayPopup = true,
             TimeSpan? stunDuration = null)
         {
-            var attempt = new FlashAttemptEvent(target, user, used);
+            var attempt = new TouristCameraFlashAttemptEvent(target, user, used);
             RaiseLocalEvent(target, attempt, true);
 
             if (attempt.Cancelled)
@@ -141,36 +142,36 @@ namespace Content.Server._Impstation.Tourist
 
 
             foreach (var entity in _entityLookup.GetEntitiesInRange(transform.Coordinates, range))
+            {
+                // Check for entites in view
+                // put damagedByFlashingComponent in the predicate because shadow anomalies block vision.
+                if (!_examine.InRangeUnOccluded(entity, mapPosition, range, predicate: (e) => damagedByFlashingQuery.HasComponent(e)))
+                    continue;
+
+                if (user != null && TryComp<TouristComponent>(user, out var tourist) && objectives != null)
                 {
-                    // Check for entites in view
-                    // put damagedByFlashingComponent in the predicate because shadow anomalies block vision.
-                    if (!_examine.InRangeUnOccluded(entity, mapPosition, range, predicate: (e) => damagedByFlashingQuery.HasComponent(e)))
-                        continue;
-
-                    if (user != null && TryComp<TouristComponent>(user, out var tourist) && objectives != null)
+                    foreach (var objective in objectives)
                     {
-                        foreach (var objective in objectives)
-                        {
-                            CheckForPhotoTargets(user.Value, entity, tourist, objective);
-                        }
-
+                        CheckForPhotoTargets(user.Value, entity, tourist, objective);
                     }
 
-                    if (!_random.Prob(probability))
-                        continue;
-
-                    // Is the entity affected by the flash either through status effects or by taking damage?
-                    if (!statusEffectsQuery.HasComponent(entity) && !damagedByFlashingQuery.HasComponent(entity))
-                        continue;
-
-                    // They shouldn't have flash removed in between right?
-                    Flash(entity, user, source, duration, slowTo, displayPopup);
                 }
+
+                if (!_random.Prob(probability))
+                    continue;
+
+                // Is the entity affected by the flash either through status effects or by taking damage?
+                if (!statusEffectsQuery.HasComponent(entity) && !damagedByFlashingQuery.HasComponent(entity))
+                    continue;
+
+                // They shouldn't have flash removed in between right?
+                Flash(entity, user, source, duration, slowTo, displayPopup);
+            }
 
             _audio.PlayPvs(sound, source, AudioParams.Default.WithVolume(1f).WithMaxDistance(3f));
         }
 
-        private List<TouristPhotosConditionComponent>? GetPhotoObjectives(EntityUid user)
+        private List<TouristPhotosConditionComponent> GetPhotoObjectives(EntityUid user)
         {
             var objectives = new List<TouristPhotosConditionComponent>();
 
@@ -184,7 +185,7 @@ namespace Content.Server._Impstation.Tourist
                     objectives.Add(condition);
                 }
             }
-        return objectives;
+            return objectives;
         }
 
         private void CheckForPhotoTargets(EntityUid user, EntityUid entity, TouristComponent tourist, TouristPhotosConditionComponent condition)
@@ -203,26 +204,16 @@ namespace Content.Server._Impstation.Tourist
                 return;
             }
 
-            bool validTarget = false;
-
-
             //check if the entity is a targeted prototype
-            if (condition?.TargetPrototypes != null && prototype?.ID is { } prototypeId && condition.TargetPrototypes.Contains(prototypeId))
-            {
-                validTarget = true;
-            }
-            if (validTarget)
-            {
-                // save entity uid to the tourist component, then add it to the greentext.
-                tourist.PhotographedEntities.Add(entity);
-                if (condition != null)
-                {
-                    condition.Photos++;
-                }
-            }
+            if (!(prototype?.ID is { } prototypeId && condition.TargetPrototypes.Contains(prototypeId)))
+                return;
+            // save entity uid to the tourist component, then add it to the greentext.
+            tourist.PhotographedEntities.Add(entity);
+            condition.Photos++;
+
         }
 
-        private void OnInventoryFlashAttempt(EntityUid uid, InventoryComponent component, FlashAttemptEvent args)
+        private void OnInventoryFlashAttempt(EntityUid uid, InventoryComponent component, TouristCameraFlashAttemptEvent args)
         {
             foreach (var slot in new[] { "head", "eyes", "mask" })
             {
@@ -233,20 +224,20 @@ namespace Content.Server._Impstation.Tourist
             }
         }
 
-        private void OnFlashImmunityFlashAttempt(EntityUid uid, FlashImmunityComponent component, FlashAttemptEvent args)
+        private void OnFlashImmunityFlashAttempt(EntityUid uid, FlashImmunityComponent component, TouristCameraFlashAttemptEvent args)
         {
             if (component.Enabled)
                 args.Cancel();
         }
 
-        private void OnPermanentBlindnessFlashAttempt(EntityUid uid, PermanentBlindnessComponent component, FlashAttemptEvent args)
+        private void OnPermanentBlindnessFlashAttempt(EntityUid uid, PermanentBlindnessComponent component, TouristCameraFlashAttemptEvent args)
         {
             // check for total blindness
             if (component.Blindness == 0)
                 args.Cancel();
         }
 
-        private void OnTemporaryBlindnessFlashAttempt(EntityUid uid, TemporaryBlindnessComponent component, FlashAttemptEvent args)
+        private void OnTemporaryBlindnessFlashAttempt(EntityUid uid, TemporaryBlindnessComponent component, TouristCameraFlashAttemptEvent args)
         {
             args.Cancel();
         }
@@ -256,13 +247,13 @@ namespace Content.Server._Impstation.Tourist
     ///     Called before a flash is used to check if the attempt is cancelled by blindness, items or FlashImmunityComponent.
     ///     Raised on the target hit by the flash, the user of the flash and the flash used.
     /// </summary>
-    public sealed class FlashAttemptEvent : CancellableEntityEventArgs
+    public sealed class TouristCameraFlashAttemptEvent : CancellableEntityEventArgs
     {
         public readonly EntityUid Target;
         public readonly EntityUid? User;
         public readonly EntityUid? Used;
 
-        public FlashAttemptEvent(EntityUid target, EntityUid? user, EntityUid? used)
+        public TouristCameraFlashAttemptEvent(EntityUid target, EntityUid? user, EntityUid? used)
         {
             Target = target;
             User = user;
