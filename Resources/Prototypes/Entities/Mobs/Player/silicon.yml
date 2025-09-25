@@ -1,6 +1,7 @@
 # Be careful with these as they get removed on shutdown too!
 - type: entity
   id: AiHeld
+  save: false # Impstation - AI PDAs
   description: Components added / removed from an entity that gets inserted into an AI core.
   categories: [ HideSpawnMenu ]
   components:
@@ -36,6 +37,7 @@
     - ActionJumpToCore
     - ActionSurvCameraLights
     - ActionAIViewLaws
+    - ActionOpenCartridges # Impstation - AI PDA
   - type: UserInterface
     interfaces:
       enum.RadarConsoleUiKey.Key:
@@ -48,6 +50,12 @@
         type: SiliconLawBoundUserInterface
       enum.CommunicationsConsoleUiKey.Key:
         type: CommunicationsConsoleBoundUserInterface
+      # Begin Impstation - AI PDAs
+      enum.PdaUiKey.Key:
+        type: PdaBoundUserInterface
+      enum.RingerUiKey.Key:
+        type: RingerBoundUserInterface
+      # End Impstation - AI PDAs
   - type: IntrinsicUI
     uis:
       enum.RadarConsoleUiKey.Key:
@@ -75,7 +83,16 @@
     stealGroup: AICore
   - type: CharacterRecordConsole #imp edit - give the Ai the new cd records console. only employment because they're nominally a civilian role, but they can still use the sec & med consoles.
     consoleType: Employment
-
+  # Begin Impstation - AI PDAs
+  - type: Pda
+    idSlot:
+      locked: true
+    penSlot:
+      locked: true
+    paiSlot:
+      locked: true
+  - type: Ringer
+  # End Impstation - AI PDAs
 
 - type: entity
   id: AiHeldIntellicard
@@ -309,6 +326,31 @@
     attributes:
       proper: true
   - type: SkipLoadingCharacterRecords #imp edit - make it so the AI doesn't show up in the character records list
+  # Begin Impstation - AI PDA
+  - type: NanoChatCard
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+    - NewsReaderCartridge
+    - NanoChatCartridge
+    cartridgeSlot:
+      locked: true
+      priority: -1
+      name: device-pda-slot-component-slot-name-cartridge
+      ejectSound: /Audio/Machines/id_swipe.ogg
+      insertSound: /Audio/Machines/id_insert.ogg
+      whitelist:
+        components:
+        - Cartridge
+  - type: ContainerContainer
+    containers:
+      program-container: !type:Container
+      Cartridge-Slot: !type:ContainerSlot
+  - type: ItemSlots
+  - type: PdaBorderColor
+    borderColor: "#45453f"
+    accentVColor: "#447987"
+  # End Impstation - AI PDA
 
 # Hologram projection that the AI's eye tracks.
 - type: entity

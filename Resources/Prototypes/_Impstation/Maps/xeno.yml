@@ -3,7 +3,7 @@
   mapName: 'Xeno'
   mapPath: /Maps/_Impstation/xeno.yml
   minPlayers: 35
-  maxPlayers: 80
+  maxPlayers: 69
   stations:
     Xeno:
       stationProto: StandardNanotrasenStation
@@ -27,7 +27,7 @@
             station-event-game-rule-meteor-swarm-medium-announcement: station-event-game-rule-meteor-swarm-artifact-announcement
             station-event-game-rule-meteor-swarm-large-announcement: station-event-game-rule-meteor-swarm-artifact-announcement
         - type: StationJobs
-          availableJobs: # Total of 62 jobs roundstart, max of 74 inc. latejoins and trainees.
+          availableJobs: # Total of 61 jobs roundstart, max of 73 inc. latejoins and trainees.
             # command - 8
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
@@ -52,11 +52,11 @@
             AtmosphericTechnician: [ 3, 3 ]
             StationEngineer: [ 4, 4 ]
             TechnicalAssistant: [ 3, 3 ]
-            # medical - 8-12
+            # medical - 7-10
             Chemist: [ 2, 2 ]
             MedicalDoctor: [ 4, 4 ]
             MedicalIntern: [ 3, 3 ]
-            Paramedic: [ 2, 2 ]
+            Paramedic: [ 1, 1 ]
             # science - 7-8
             Borg: [ 2, 2 ]
             ResearchAssistant: [ 1, 1 ]
