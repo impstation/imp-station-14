@@ -4,6 +4,7 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._Impstation.Tourist.Components
 {
+    //Largely copied from FlashComponent
     [RegisterComponent, NetworkedComponent, Access(typeof(SharedTouristCameraSystem))]
     public sealed partial class TouristCameraComponent : Component
     {
