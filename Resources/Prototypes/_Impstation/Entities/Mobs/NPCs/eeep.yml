@@ -75,15 +75,6 @@
     spawned:
       - id: EeepSpark
         amount: 1
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Blunt
-        damage: 120
-      behaviors:
-      - !type:GibBehavior
-        recursive: false
   - type: StatusEffects
     allowed:
     - SlowedDown
@@ -174,7 +165,7 @@
   description: You monster.
   components:
   - type: TimedDespawn
-    lifetime: 5
+    lifetime: 10
   - type: Sprite
     drawdepth: Effects
     sprite: Structures/Power/Generation/Tesla/energy_miniball.rsi
@@ -228,20 +219,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      800: Critical
-      900: Dead
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Blunt
-        damage: 1000
-      behaviors:
-      - !type:GibBehavior
-        recursive: false
-        spawned:
-        - id: EeepSpark
-          amount: 1
+      600: Critical
+      700: Dead
   - type: GoobAbsorbable
     biomassRestored: 0.8
   - type: AmbientSound
@@ -290,4 +269,4 @@
     sender: eeep-spawn-sender
     sound:
      path: /Audio/Effects/PowerSink/charge_fire.ogg
-     color: red
+    color: yellow
