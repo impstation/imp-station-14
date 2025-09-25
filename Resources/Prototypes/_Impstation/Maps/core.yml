@@ -2,8 +2,8 @@
   id: CoreImp
   mapName: 'Core'
   mapPath: /Maps/_Impstation/core.yml
-  minPlayers: 40
-  maxPlayers: 80
+  minPlayers: 35
+  maxPlayers: 69
   stations:
     Core:
       stationProto: StandardNanotrasenStation
@@ -44,11 +44,11 @@
             StationEngineer: [ 4, 4 ]
             AtmosphericTechnician: [ 2, 2 ]
             TechnicalAssistant: [ 2, 2 ]
-            # medical - 9-11
+            # medical - 8-10
             Chemist: [ 2, 2 ]
             MedicalDoctor: [ 4, 4 ]
             MedicalIntern: [ 2, 2 ]
-            Paramedic: [ 2, 2 ]
+            Paramedic: [ 1, 1 ]
             # science - 7-8
             Borg: [ 2, 2 ]
             ResearchAssistant: [ 1, 1 ]

@@ -2,7 +2,7 @@
   id: Pathway
   mapName: 'Pathway'
   mapPath: /Maps/_Impstation/anthill.yml
-  minPlayers: 30
+  minPlayers: 35
   maxPlayers: 60
   stations:
     Pathway:
@@ -48,7 +48,7 @@
             Chemist: [ 2, 2 ]
             MedicalDoctor: [ 3, 3 ]
             MedicalIntern: [ 2, 2 ]
-            Paramedic: [ 2, 2 ]
+            Paramedic: [ 1, 1 ]
             # science - 7-9
             Borg: [ 2, 2 ]
             ResearchAssistant: [ 2, 2 ]
