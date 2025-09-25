@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Server.Administration;
+using Content.Server.Xenoarchaeology.Equipment.Components;
 using Content.Shared.Administration;
 using Content.Shared.Xenoarchaeology.XenoArtifacts;
 using Robust.Shared.Console;
@@ -220,6 +221,19 @@ public partial class ArtifactSystem
             ExitNode(eUid, artifactComp);
             artifactComp.NodeTree = new();
             RandomizeArtifact(eUid, artifactComp);
+
+            // Data stored about this artifact (on advanced node scanners or analysis consoles) is obsolete, remove the data
+            var query1 = EntityQueryEnumerator<OldAdvancedNodeScannerComponent>();
+            while (query1.MoveNext(out var ansUid, out var ansComp))
+            {
+                ansComp.ScannedArtifactData.Remove(eUid);
+            }
+
+            var query2 = EntityQueryEnumerator<OldAnalysisConsoleComponent>();
+            while (query1.MoveNext(out var consoleUid, out var consoleComp))
+            {
+                consoleComp.ScannedArtifactData.Remove(eUid);
+            }
         }
     }
 
