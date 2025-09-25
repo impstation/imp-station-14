@@ -3,6 +3,8 @@ flavor-base-drinkdrink = like dogshit
 flavor-base-unholy = unholy
 flavor-base-evil = evil
 flavor-base-weird = weird
+flavor-base-satisfying = satisfying
+flavor-base-gooey = gooey
 
 flavor-complex-raktaccino = fantastically bitter
 flavor-complex-moscowmule = like a kick in the teeth

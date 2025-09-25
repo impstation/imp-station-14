@@ -136,7 +136,7 @@
   - type: Metabolizer
     updateInterval: 1.5
     maxReagents: 2
-    metabolizerTypes: [Arachnid]
+    metabolizerTypes: [Arachnid, Animal]
     groups:
     - id: Medicine
     - id: Poison
