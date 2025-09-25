@@ -406,12 +406,6 @@
   meltingPoint: 351
   boilingPoint: 554 # I'm not a chemist, but it boils at 295, lower than melting point, idk how it works so I gave it higher value
   metabolisms:
-    # Begin Offbrand
-    Drink:
-      effects: []
-      statusEffects:
-      - statusEffect: StatusEffectHeartStrainCaffeine
-    # End Offbrand
     Poison:
       metabolismRate: 0.045 #changed on impstation so that it can build up slightly
       effects:

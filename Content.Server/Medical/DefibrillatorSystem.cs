@@ -27,7 +27,6 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Shared.Whitelist;
-using Content.Shared._Offbrand.Wounds; // Offbrand
 
 namespace Content.Server.Medical;
 
@@ -119,15 +118,10 @@ public sealed class DefibrillatorSystem : EntitySystem
         if (!_powerCell.HasActivatableCharge(uid, user: user) && !component.IgnorePowerCell)
             return false;
 
-        // Begin Offbrand
-        if (TryComp<HeartrateComponent>(target, out var heartrate) && heartrate.Running)
-            return false;
-        // End Offbrand
-
-        if (!targetCanBeAlive && heartrate is null && _mobState.IsAlive(target, mobState)) // Offbrand
+        if (!targetCanBeAlive && _mobState.IsAlive(target, mobState))
             return false;
 
-        if (!targetCanBeAlive && heartrate is null && !component.CanDefibCrit && _mobState.IsCritical(target, mobState)) // Offbrand
+        if (!targetCanBeAlive && !component.CanDefibCrit && _mobState.IsCritical(target, mobState))
             return false;
 
         // imp
@@ -199,9 +193,8 @@ public sealed class DefibrillatorSystem : EntitySystem
         if (targetEvent.Cancelled || !CanZap(uid, target, user, component, true))
             return;
 
-        var hasDefib = TryComp<HeartDefibrillatableComponent>(target, out var heartDefibrillatable); // Offbrand
         if (!TryComp<MobStateComponent>(target, out var mob) ||
-            (!TryComp<MobThresholdsComponent>(target, out var thresholds) && !hasDefib)) // Offbrand
+            !TryComp<MobThresholdsComponent>(target, out var thresholds))
             return;
 
         if (component.PlayZapSound)
@@ -225,24 +218,15 @@ public sealed class DefibrillatorSystem : EntitySystem
                     true);
             return;
         }
-        else if (heartDefibrillatable is null && TryComp<UnrevivableComponent>(target, out var unrevivable)) // Offbrand
+        else if (TryComp<UnrevivableComponent>(target, out var unrevivable))
         {
             _chatManager.TrySendInGameICMessage(uid, Loc.GetString(unrevivable.ReasonMessage),
                 InGameICChatType.Speak, true);
 
             return; //imp
         }
-        // Begin offbrand
-        else if (heartDefibrillatable is not null && _mobState.IsDead(target, mob))
-        {
-            _chatManager.TrySendInGameICMessage(uid, Loc.GetString(heartDefibrillatable.TargetIsDead),
-                InGameICChatType.Speak, true);
 
-            return; //imp
-        }
-        // End offbrand
-
-        if (heartDefibrillatable is null && HasComp<RandomUnrevivableComponent>(target)) // Offbrand
+        if (HasComp<RandomUnrevivableComponent>(target))
         {
             var dnrComponent = Comp<RandomUnrevivableComponent>(target);
 
@@ -264,15 +248,6 @@ public sealed class DefibrillatorSystem : EntitySystem
 
         if (_mobState.IsDead(target, mob))
             _damageable.TryChangeDamage(target, component.ZapHeal, true, origin: uid);
-
-        // Begin Offbrand
-        if (heartDefibrillatable is not null)
-        {
-            var ev = new TargetDefibrillatedEvent(user, (uid, component));
-            RaiseLocalEvent(target, ref ev);
-            return;
-        }
-        // End Offbrand
 
         if (_mobThreshold.TryGetThresholdForState(target, MobState.Dead, out var threshold) &&
             TryComp<DamageableComponent>(target, out var damageableComponent) &&
