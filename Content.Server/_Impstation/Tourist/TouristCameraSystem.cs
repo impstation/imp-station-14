@@ -63,22 +63,22 @@ namespace Content.Server._Impstation.Tourist
             base.Initialize();
 
             SubscribeLocalEvent<TouristCameraComponent, TouristCameraDoAfterEvent>(OnDoAfter);
-            SubscribeLocalEvent<InventoryComponent, TouristCameraFlashAttemptEvent>(OnInventoryFlashAttempt);
-            SubscribeLocalEvent<FlashImmunityComponent, TouristCameraFlashAttemptEvent>(OnFlashImmunityFlashAttempt);
-            SubscribeLocalEvent<PermanentBlindnessComponent, TouristCameraFlashAttemptEvent>(OnPermanentBlindnessFlashAttempt);
-            SubscribeLocalEvent<TemporaryBlindnessComponent, TouristCameraFlashAttemptEvent>(OnTemporaryBlindnessFlashAttempt);
+            SubscribeLocalEvent<InventoryComponent, TouristCameraFlashAttemptEvent>(OnInventoryTouristFlashAttempt);
+            SubscribeLocalEvent<FlashImmunityComponent, TouristCameraFlashAttemptEvent>(OnFlashImmunityTouristFlashAttempt);
+            SubscribeLocalEvent<PermanentBlindnessComponent, TouristCameraFlashAttemptEvent>(OnPermanentBlindnessTouristFlashAttempt);
+            SubscribeLocalEvent<TemporaryBlindnessComponent, TouristCameraFlashAttemptEvent>(OnTemporaryBlindnessTouristFlashAttempt);
         }
 
         private void OnDoAfter(EntityUid uid, TouristCameraComponent comp, TouristCameraDoAfterEvent args)
         {
-            if (args.Cancelled || !UseFlash(uid, comp))
+            if (args.Cancelled || !CameraFlash(uid, comp))
                 return;
 
             args.Handled = true;
-            FlashArea(uid, args.User, comp.Range, comp.AoeFlashDuration, comp.SlowTo, true, comp.Probability);
+            TouristCameraFlashArea(uid, args.User, comp.Range, comp.AoeFlashDuration, comp.SlowTo, true, comp.Probability);
         }
 
-        private bool UseFlash(EntityUid uid, TouristCameraComponent comp)
+        private bool CameraFlash(EntityUid uid, TouristCameraComponent comp)
         {
             if (comp.Flashing)
                 return false;
@@ -97,7 +97,7 @@ namespace Content.Server._Impstation.Tourist
         }
 
 
-        public void Flash(
+        public void TouristCameraFlash(
             EntityUid target,
             EntityUid? user,
             EntityUid? used,
@@ -128,7 +128,7 @@ namespace Content.Server._Impstation.Tourist
             }
         }
 
-        public void FlashArea(Entity<TouristCameraComponent?> source, EntityUid? user, float range, TimeSpan duration, float slowTo = 0.8f, bool displayPopup = false, float probability = 1f, SoundSpecifier? sound = null)
+        public void TouristCameraFlashArea(Entity<TouristCameraComponent?> source, EntityUid? user, float range, TimeSpan duration, float slowTo = 0.8f, bool displayPopup = false, float probability = 1f, SoundSpecifier? sound = null)
         {
             var transform = Transform(source);
             var mapPosition = _transform.GetMapCoordinates(transform);
@@ -165,7 +165,7 @@ namespace Content.Server._Impstation.Tourist
                     continue;
 
                 // They shouldn't have flash removed in between right?
-                Flash(entity, user, source, duration, slowTo, displayPopup);
+                TouristCameraFlash(entity, user, source, duration, slowTo, displayPopup);
             }
 
             _audio.PlayPvs(sound, source, AudioParams.Default.WithVolume(1f).WithMaxDistance(3f));
@@ -213,7 +213,7 @@ namespace Content.Server._Impstation.Tourist
 
         }
 
-        private void OnInventoryFlashAttempt(EntityUid uid, InventoryComponent component, TouristCameraFlashAttemptEvent args)
+        private void OnInventoryTouristFlashAttempt(EntityUid uid, InventoryComponent component, TouristCameraFlashAttemptEvent args)
         {
             foreach (var slot in new[] { "head", "eyes", "mask" })
             {
@@ -224,20 +224,20 @@ namespace Content.Server._Impstation.Tourist
             }
         }
 
-        private void OnFlashImmunityFlashAttempt(EntityUid uid, FlashImmunityComponent component, TouristCameraFlashAttemptEvent args)
+        private void OnFlashImmunityTouristFlashAttempt(EntityUid uid, FlashImmunityComponent component, TouristCameraFlashAttemptEvent args)
         {
             if (component.Enabled)
                 args.Cancel();
         }
 
-        private void OnPermanentBlindnessFlashAttempt(EntityUid uid, PermanentBlindnessComponent component, TouristCameraFlashAttemptEvent args)
+        private void OnPermanentBlindnessTouristFlashAttempt(EntityUid uid, PermanentBlindnessComponent component, TouristCameraFlashAttemptEvent args)
         {
             // check for total blindness
             if (component.Blindness == 0)
                 args.Cancel();
         }
 
-        private void OnTemporaryBlindnessFlashAttempt(EntityUid uid, TemporaryBlindnessComponent component, TouristCameraFlashAttemptEvent args)
+        private void OnTemporaryBlindnessTouristFlashAttempt(EntityUid uid, TemporaryBlindnessComponent component, TouristCameraFlashAttemptEvent args)
         {
             args.Cancel();
         }
