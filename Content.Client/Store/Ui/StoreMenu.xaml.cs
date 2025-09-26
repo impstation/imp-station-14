@@ -143,11 +143,8 @@ public sealed partial class StoreMenu : DefaultWindow
         else if (listing.ProductAction != null)
         {
             var actionId = _entityManager.Spawn(listing.ProductAction);
-            if (_entityManager.System<ActionsSystem>().TryGetActionData(actionId, out var action) &&
-                action.Icon != null)
-            {
-                texture = spriteSys.Frame0(action.Icon);
-            }
+            if (_entityManager.System<ActionsSystem>().GetAction(actionId)?.Comp?.Icon is {} icon)
+                texture = spriteSys.Frame0(icon);
         }
         //imp edit
         //i hate UI code i hate it with my life
@@ -174,9 +171,9 @@ public sealed partial class StoreMenu : DefaultWindow
             //go on a long, arduous journey to get the stage of the knowledge
             var knowledgeID = listing.ProductHereticKnowledge;
             var knowledgeProto = _prototypeManager.Index<HereticKnowledgePrototype>(knowledgeID);
-            var knowledgeLevel = knowledgeProto.Stage;
+            var requiredPower = knowledgeProto.RequiredPower;
 
-            return Loc.GetString("store-ui-heretic-level-display", ("level", knowledgeLevel));
+            return Loc.GetString("store-ui-heretic-level-display", ("power", requiredPower));
         }
 
         return null;

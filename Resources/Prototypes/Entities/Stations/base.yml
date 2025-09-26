@@ -10,6 +10,13 @@
   components:
     - type: StationBankAccount
     - type: StationCargoOrderDatabase
+      orders:
+        Cargo: [ ]
+        Engineering: [ ]
+        Medical: [ ]
+        Science: [ ]
+        Security: [ ]
+        Service: [ ]
     - type: StationCargoBountyDatabase
 
 - type: entity
@@ -56,22 +63,27 @@
         ruins: !type:GridSpawnGroup
           hide: true
           nameGrid: true
-          minCount: 3
-          maxCount: 4
+          minimumDistance: 100 # imp
+          maximumDistance: 300 # imp
+          minCount: 5 # imp - upped value for imp5
+          maxCount: 10 # imp - upped value for imp5
           stationGrid: false
           paths:
           - /Maps/Ruins/abandoned_outpost.yml
+          - /Maps/Ruins/atmos_interchange.yml
           - /Maps/Ruins/chunked_tcomms.yml
           - /Maps/Ruins/biodome_satellite.yml
           - /Maps/Ruins/derelict.yml
           - /Maps/Ruins/djstation.yml
           #- /Maps/Ruins/empty_flagship.yml #imp
+          - /Maps/Ruins/hydro_outpost.yml
           - /Maps/Ruins/old_ai_sat.yml
           - /Maps/Ruins/ruined_prison_ship.yml
           - /Maps/Ruins/syndicate_dropship.yml
           - /Maps/Ruins/whiteship_ancient.yml
           - /Maps/Ruins/whiteship_bluespacejumper.yml
           - /Maps/Ruins/wrecklaimer.yml
+          - /Maps/Ruins/displaced_telescience.yml
           - /Maps/_Impstation/Ruins/science-satellite.yml #imp
           - /Maps/_Impstation/Ruins/keyhole-court.yml #imp
           - /Maps/_Impstation/Ruins/cozy-radio-planetoid.yml #imp
@@ -79,6 +91,61 @@
           - /Maps/_Impstation/Ruins/snowy-sauna.yml #imp
           - /Maps/_Impstation/Ruins/shuttle-repair-bay.yml #imp
           - /Maps/_Impstation/Ruins/decapoid-shuttle-wreck.yml #imp
+          # imp - maps below this line are from the salvage map set
+          - /Maps/_Impstation/Salvage/build-a-bot-ambulance.yml #imp
+          - /Maps/_Impstation/Salvage/car-yacht.yml #imp
+          - /Maps/_Impstation/Salvage/meteored-cargo-bay.yml #imp
+          - /Maps/_Impstation/Salvage/saucer-wreck.yml #imp
+          - /Maps/Salvage/asteroid-base.yml #imp
+          - /Maps/Salvage/engineering-chunk.yml #imp
+          - /Maps/Salvage/hauling-shuttle.yml #imp
+          - /Maps/Salvage/meatball.yml #imp
+          - /Maps/Salvage/medium-1.yml #imp
+          - /Maps/Salvage/medium-dock.yml #imp
+          - /Maps/Salvage/medium-library.yml #imp
+          - /Maps/Salvage/ruin-cargo-salvage.yml #imp
+          - /Maps/Salvage/small-1.yml #imp
+          - /Maps/Salvage/small-4.yml #imp
+          - /Maps/Salvage/small-a-1.yml #imp
+          - /Maps/Salvage/small-ai-survey-drone.yml #imp
+          - /Maps/Salvage/small-cargo.yml #imp
+          - /Maps/Salvage/small-chef.yml #imp
+          - /Maps/Salvage/small-ship-1.yml #imp
+          - /Maps/Salvage/small-syndicate.yml #imp
+          - /Maps/Salvage/small-tesla.yml #imp
+          - /Maps/Salvage/tick-colony.yml #imp
+        rareRuin: !type:GridSpawnGroup # imp category
+          hide: true
+          nameGrid: true
+          minimumDistance: 250
+          maximumDistance: 400
+          minCount: 0
+          maxCount: 1
+          stationGrid: false
+          paths:
+          - /Maps/Salvage/security-chunk.yml # has some major loot
+          - /Maps/Salvage/medium-ruined-emergency-shuttle.yml
+          - /Maps/Salvage/medium-vault-1.yml # full salvage loadout chest
+          - /Maps/_Impstation/Salvage/perma-breakout.yml # two guns
+          - /Maps/Ruins/empty_flagship.yml # less common, further out, so it's fine
+        wrecks: !type:DungeonSpawnGroup
+          minimumDistance: 150
+          maximumDistance: 300
+          stationGrid: false
+          minCount: 16 # imp - upped value for imp5
+          maxCount: 20 # imp - upped value for imp5
+          addComponents:
+          - type: Gravity
+            enabled: true
+            inherent: true
+          - type: IFF
+            flags: HideLabel
+          protos:
+          - ChunkDebrisSmall
+          - ChunkDebrisSmall
+          - ChunkDebrisSmall
+          - ChunkDebrisSmall
+          - ChunkDebris
         vgroid: !type:DungeonSpawnGroup
           minimumDistance: 300
           maximumDistance: 350
@@ -121,6 +188,27 @@
   abstract: true
   components:
     - type: SalvageMagnetData
+
+- type: entity
+  id: BaseStationSalvageJobs
+  abstract: true
+  components:
+  - type: SalvageJobsData
+    rankThresholds:
+      0:
+        title: salvage-job-rank-title-0
+        bountyGroup: SalvageJobTier1
+      3:
+        title: salvage-job-rank-title-1
+        bountyGroup: SalvageJobTier2
+        unlockedMarket: SalvageJobReward2
+      6:
+        title: salvage-job-rank-title-2
+        bountyGroup: SalvageJobTier3
+        unlockedMarket: SalvageJobReward3
+    maxRank:
+      title: salvage-job-rank-title-MAX
+      unlockedMarket: SalvageJobRewardMAX
 
 - type: entity
   id: BaseStationSiliconLawCrewsimov

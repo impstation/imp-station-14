@@ -22,11 +22,11 @@
     - BaseStationAlertLevels
     - BaseStationMagnet
     - BaseStationExpeditions
+    - BaseStationSalvageJobs
     - BaseStationSiliconLawCrewsimov
     - BaseStationAllEventsEligible
     - BaseStationNanotrasen
     - BaseStationDeliveries
-    - BaseStationStockMarket # DeltaV
   categories: [ HideSpawnMenu ]
   components:
     - type: Transform

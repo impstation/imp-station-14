@@ -1,0 +1,44 @@
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledAkurra
+  name: Akurra bundle
+  description: "A fearsome liquid-ammo plasma rifle, bundled with 4 canisters of its proprietary fuel."
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponPlasmaAkurra
+      - id: EchionCanister
+        amount: 4
+
+- type: entity
+  parent: ClothingBackpackDuffelDeadlyBundle
+  id: ClothingBackpackDuffelDeadlyFilledClubPack
+  name: Deadly Dan's ValuShot club bundle
+  description: "A real bargain! 14 guns for the price of 10!"
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: CigPackMixed
+        - id: CheapLighter
+        - !type:GroupSelector
+          children:
+          - id: WeaponPistolValu
+            amount: 14
+            weight: 90
+          - id: WeaponPistolValuPlus
+            amount: 1
+            weight: 10
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledSuperMosin
+  name: K2903 Star Rifle bundle
+  description: "An old bolt-action rifle with large magazine! Comes with a few stripper clips to make it a little easier reloading."
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponSniperStarService
+    - id: SpeedLoaderLightRifle
+      amount: 3

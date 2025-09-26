@@ -1,7 +1,6 @@
 using System.Linq;
 using Content.Server.Administration;
 using Content.Server.EUI;
-using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Server.StationRecords;
 using Content.Server.StationRecords.Systems;
@@ -9,13 +8,18 @@ using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.CrewManifest;
 using Content.Shared.GameTicking;
+using Content.Shared.IdentityManagement; // imp
 using Content.Shared.Roles;
+using Content.Shared.Silicons.StationAi; // imp
+using Content.Shared.Station.Components;
 using Content.Shared.StationRecords;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
+using Robust.Shared.GameObjects.Components.Localization; // imp
+using Robust.Shared.Enums; // imp; for Gender
+
 
 namespace Content.Server.CrewManifest;
 
@@ -230,11 +234,21 @@ public sealed class CrewManifestSystem : EntitySystem
         foreach (var recordObject in iter)
         {
             var record = recordObject.Item2;
-            var entry = new CrewManifestEntry(record.Name, record.Gender.ToString().ToLowerInvariant(), record.JobTitle, record.JobIcon, record.JobPrototype);
+            var entry = new CrewManifestEntry(record.Name, record.Gender.ToString().ToLowerInvariant(), record.JobTitle, record.JobIcon, record.JobPrototype); //imp edit, pronouns on manifest
 
             _prototypeManager.TryIndex(record.JobPrototype, out JobPrototype? job);
             entriesSort.Add((job, entry));
         }
+        //START IMP EDIT: if the station has an AI on-board, add that as a fake record so people know what the AI's pronouns are
+        var query = EntityQueryEnumerator<GrammarComponent, StationAiHeldComponent>();
+        while (query.MoveNext(out var ai, out var grammar, out _))
+        {
+            var genderString = (grammar.Gender.HasValue ? grammar.Gender.Value : Gender.Epicene).ToString().ToLowerInvariant();
+            var entry = new CrewManifestEntry(Identity.Name(ai, EntityManager), genderString, "Station AI", "JobIconStationAi", "StationAi");
+            _prototypeManager.TryIndex("StationAi", out JobPrototype? job);
+            entriesSort.Add((job, entry));
+        }
+        //END IMP EDIT
 
         entriesSort.Sort((a, b) =>
         {
@@ -251,56 +265,45 @@ public sealed class CrewManifestSystem : EntitySystem
 }
 
 [AdminCommand(AdminFlags.Admin)]
-public sealed class CrewManifestCommand : IConsoleCommand
+public sealed class CrewManifestCommand : LocalizedEntityCommands
 {
-    public string Command => "crewmanifest";
-    public string Description => "Opens the crew manifest for the given station.";
-    public string Help => $"Usage: {Command} <entity uid>";
+    [Dependency] private readonly CrewManifestSystem _manifestSystem = default!;
 
-    [Dependency] private readonly IEntityManager _entityManager = default!;
+    public override string Command => "crewmanifest";
 
-    public CrewManifestCommand()
-    {
-        IoCManager.InjectDependencies(this);
-    }
-
-    public void Execute(IConsoleShell shell, string argStr, string[] args)
+    public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
         if (args.Length != 1)
         {
-            shell.WriteLine($"Invalid argument count.\n{Help}");
+            shell.WriteLine(Loc.GetString($"shell-need-exactly-one-argument"));
             return;
         }
 
-        if (!NetEntity.TryParse(args[0], out var uidNet) || !_entityManager.TryGetEntity(uidNet, out var uid))
+        if (!NetEntity.TryParse(args[0], out var uidNet) || !EntityManager.TryGetEntity(uidNet, out var uid))
         {
-            shell.WriteLine($"{args[0]} is not a valid entity UID.");
+            shell.WriteLine(Loc.GetString($"shell-argument-station-id-invalid", ("index", args[0])));
             return;
         }
 
-        if (shell.Player == null || shell.Player is not { } session)
+        if (shell.Player is not { } session)
         {
-            shell.WriteLine("You must run this from a client.");
+            shell.WriteLine(Loc.GetString($"shell-cannot-run-command-from-server"));
             return;
         }
 
-        var crewManifestSystem = _entityManager.System<CrewManifestSystem>();
-
-        crewManifestSystem.OpenEui(uid.Value, session);
+        _manifestSystem.OpenEui(uid.Value, session);
     }
 
-    public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+    public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
     {
         if (args.Length != 1)
-        {
             return CompletionResult.Empty;
-        }
 
         var stations = new List<CompletionOption>();
-        var query = _entityManager.EntityQueryEnumerator<StationDataComponent>();
+        var query = EntityManager.EntityQueryEnumerator<StationDataComponent>();
         while (query.MoveNext(out var uid, out _))
         {
-            var meta = _entityManager.GetComponent<MetaDataComponent>(uid);
+            var meta = EntityManager.GetComponent<MetaDataComponent>(uid);
             stations.Add(new CompletionOption(uid.ToString(), meta.EntityName));
         }
 

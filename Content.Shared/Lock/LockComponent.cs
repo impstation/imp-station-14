@@ -1,3 +1,4 @@
+using Content.Shared.Access.Components;
 using Content.Shared.DoAfter;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -21,6 +22,18 @@ public sealed partial class LockComponent : Component
     public bool Locked  = true;
 
     /// <summary>
+    /// If true, will show verbs to lock and unlock the item. Otherwise, it will not.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool ShowLockVerbs = true;
+
+    /// <summary>
+    /// If true will show examine text.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool ShowExamine = true;
+
+    /// <summary>
     /// Whether or not the lock is locked by simply clicking.
     /// </summary>
     [DataField("lockOnClick"), ViewVariables(VVAccess.ReadWrite)]
@@ -34,10 +47,16 @@ public sealed partial class LockComponent : Component
     public bool UnlockOnClick = true;
 
     /// <summary>
+    /// Whether the lock requires access validation through <see cref="AccessReaderComponent"/>
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool UseAccess = true;
+
+    /// <summary>
     /// The sound played when unlocked.
     /// </summary>
     [DataField("unlockingSound"), ViewVariables(VVAccess.ReadWrite)]
-    public SoundSpecifier UnlockSound = new SoundPathSpecifier("/Audio/Machines/door_lock_off.ogg")
+    public SoundSpecifier? UnlockSound = new SoundPathSpecifier("/Audio/Machines/door_lock_off.ogg")
     {
         Params = AudioParams.Default.WithVolume(-5f),
     };
@@ -46,7 +65,7 @@ public sealed partial class LockComponent : Component
     /// The sound played when locked.
     /// </summary>
     [DataField("lockingSound"), ViewVariables(VVAccess.ReadWrite)]
-    public SoundSpecifier LockSound = new SoundPathSpecifier("/Audio/Machines/door_lock_on.ogg")
+    public SoundSpecifier? LockSound = new SoundPathSpecifier("/Audio/Machines/door_lock_on.ogg")
     {
         Params = AudioParams.Default.WithVolume(-5f)
     };
@@ -77,6 +96,35 @@ public sealed partial class LockComponent : Component
     [DataField]
     [AutoNetworkedField]
     public TimeSpan UnlockTime;
+
+    /// <summary>
+    /// IMP ADDITION
+    /// How long it takes to toggle a lock from the inside. Defaults to 4 seconds.
+    /// </summary>
+    [DataField("insideToggleTime")]
+    public TimeSpan InsideToggleTime = TimeSpan.FromSeconds(4);
+
+    /// <summary>
+    /// IMP ADDITION
+    /// The sound played when toggling a lock from the inside.
+    /// </summary>
+    [DataField("insideToggleSound"), ViewVariables(VVAccess.ReadWrite)]
+    public SoundSpecifier InsideToggleSound = new SoundPathSpecifier("/Audio/Machines/vending_restock_start.ogg")
+    {
+        Params = new AudioParams
+        {
+            Volume = -5f,
+            Pitch = 1.272f
+        }
+    };
+
+    /// <summary>
+    /// IMP ADDITION
+    /// If specified, replaces the entity's name in the examine text.
+    /// For clarity on things like borgs, which wouldn't normally be described as "locked" or "unlocked" by themselves
+    /// </summary>
+    [DataField]
+    public string? CustomLockText;
 }
 
 /// <summary>
@@ -84,7 +132,7 @@ public sealed partial class LockComponent : Component
 /// Can be cancelled to prevent it.
 /// </summary>
 [ByRefEvent]
-public record struct LockToggleAttemptEvent(EntityUid User, bool Silent = false, bool Cancelled = false);
+public record struct LockToggleAttemptEvent(EntityUid User, bool Silent = false, bool Cancelled = false, bool FromInside = false); // IMP - added FromInside for when trying to toggle from inside something
 
 /// <summary>
 /// Event raised on the user when a toggle is attempted.

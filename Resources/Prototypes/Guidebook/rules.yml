@@ -1,6 +1,8 @@
 ﻿# Only one of those rulesets will appear on the server at any given time.
 # They all have a priority of 10 so they appear 2nd by default (after priority 0 and before priority 20)
 
+# mqole edit: yes, i know, a lot of this is uncommented imp shit. dont worry about it. i'll do a cleanup sweep later.
+
 - type: guideEntry # Default for forks and stuff. Should not be listed anywhere if the server is using a custom ruleset.
   id: DefaultRuleset
   name: guide-entry-rules
@@ -11,6 +13,8 @@
   - RoleplayRules
   - MetashieldRules
   - AdditionalRoleRules
+  - RoleplayGuidelines
+  - Escalation
 
 - type: guideEntry
   id: RoleTypes
@@ -47,6 +51,44 @@
   priority: 60
   text: "/ServerInfo/_Impstation/Guidebook/ServerRules/command-sec-antag-rules.xml"
 
+- type: guideEntry
+  id: Escalation
+  name: guide-entry-rules-escalation
+  ruleEntry: false
+  priority: 70
+  text: "/ServerInfo/_Impstation/Guidebook/ServerRules/escalation.xml"
+
+- type: guideEntry
+  id: RoleplayGuidelines
+  name: guide-entry-rules-rpguidelines
+  ruleEntry: false
+  priority: 80
+  text: "/ServerInfo/_Impstation/Guidebook/ServerRules/RPGuide/rpguidelines.xml"
+  children:
+  - RPGuidePlayers
+  - RPGuideGame
+  - RPGuideEmotions
+
+- type: guideEntry
+  id: RPGuidePlayers
+  name: guide-entry-rules-rpguidelines-players
+  ruleEntry: false
+  priority: 10
+  text: "/ServerInfo/_Impstation/Guidebook/ServerRules/RPGuide/rpguide-players.xml"
+
+- type: guideEntry
+  id: RPGuideGame
+  name: guide-entry-rules-rpguidelines-game
+  ruleEntry: false
+  priority: 20
+  text: "/ServerInfo/_Impstation/Guidebook/ServerRules/RPGuide/rpguide-game.xml"
+
+- type: guideEntry
+  id: RPGuideEmotions
+  name: guide-entry-rules-rpguidelines-emotions
+  ruleEntry: false
+  priority: 30
+  text: "/ServerInfo/_Impstation/Guidebook/ServerRules/RPGuide/rpguide-emotions.xml"
 
 - type: guideEntry
   id: MRPRules

@@ -1,11 +1,18 @@
+# imp: removed service worker. playtime tracker & visitor service worker roles will remain.
 - type: job
   id: ServiceWorker
   name: job-name-serviceworker
   description: job-description-serviceworker
   playTimeTracker: JobServiceWorker
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Civilian
+    time: 1800 #0.5 hr
   startingGear: ServiceWorkerGear
   icon: "JobIconServiceWorker"
   supervisors: job-supervisors-service
+  setPreference: false #imp
+  overrideConsoleVisibility: true #imp
   access:
   - Service
   - Maintenance
@@ -22,3 +29,14 @@
   #storage:
     #back:
     #- Stuff
+
+- type: chameleonOutfit
+  id: ServiceWorkerChameleonOutfit
+  job: ServiceWorker
+  equipment:
+    head: ClothingHeadHatBowlerHat
+    eyes: ClothingEyesGlassesSunglasses
+    mask: ClothingMaskGas
+    neck: ClothingNeckScarfStripedBrown
+    outerClothing: ClothingOuterVest
+    gloves: ClothingHandsGlovesColorBlack

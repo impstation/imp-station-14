@@ -12,7 +12,6 @@
     - SpaceTrafficControlEventScheduler
     - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation
-    - MidpopLimiter
 
 - type: gamePreset
   id: KesslerSyndrome
@@ -29,7 +28,6 @@
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
-    - MidpopLimiter
 
 - type: gamePreset
   id: AllAtOnce
@@ -44,6 +42,8 @@
     - Revolutionary
     - Zombie
     - Changeling
+    - Heretic
+    - Wizard
     - KesslerSyndromeScheduler
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
@@ -65,6 +65,8 @@
     - Revolutionary
     - Zombie
     - Changeling
+    - Heretic
+    - Wizard
     - BasicStationEventScheduler
     - KesslerSyndromeScheduler
     - MeteorSwarmMildScheduler
@@ -98,6 +100,23 @@
   description: greenshift-description
   rules:
   - SpaceTrafficControlFriendlyEventScheduler
+  - BasicRoundstartVariation
+
+- type: gamePreset
+  id: Dynamic
+  alias:
+  - dynamic
+  - multiantag
+  - director
+  name: dynamic-title
+  showInVote: false # admin-only for now until we fix some bugs
+  description: dynamic-description
+  rules:
+  - DynamicRule
+  - DummyNonAntag
+  - DynamicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
 
 - type: gamePreset
@@ -162,69 +181,6 @@
     - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
-    - MidpopLimiter
-
-- type: gamePreset
-  id: SpyVsSpy
-  alias:
-    - svs
-    - theship
-  name: spy-vs-spy-title
-  description: spy-vs-spy-description
-  showInVote: false
-  cooldown: 2
-  rules:
-    - DummyNonAntagChance
-    - SpyVsSpy
-    - SleeperlessStationEventScheduler
-    - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
-    - MidpopLimiter
-
-- type: gamePreset
-  id: SpyVsSpy3TC
-  name: spy-vs-spy-title
-  description: spy-vs-spy-description
-  showInVote: false
-  cooldown: 2
-  rules:
-    - DummyNonAntagChance
-    - SpyVsSpy3TC
-    - SleeperlessStationEventScheduler
-    - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
-
-- type: gamePreset
-  id: SecretSpyVsSpy #For Admin Use: Runs SpyVsSpy but shows "Secret" in lobby.
-  alias:
-    - secretsvs
-  name: secret-title
-  description: secret-description
-  showInVote: false #Admin Use
-  rules:
-    - DummyNonAntagChance
-    - SpyVsSpy
-    - SleeperlessStationEventScheduler
-    - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
-
-- type: gamePreset
-  id: SecretSpyVsSpy3TC #For Admin Use: Runs SpyVsSpy3TC but shows "Secret" in lobby.
-  alias:
-    - secretsvs
-  name: secret-title
-  description: secret-description
-  showInVote: false #Admin Use
-  rules:
-    - DummyNonAntagChance
-    - SpyVsSpy3TC
-    - SleeperlessStationEventScheduler
-    - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
 
 - type: gamePreset
   id: Deathmatch
@@ -235,7 +191,7 @@
   description: death-match-description
   maxPlayers: 15
   showInVote: true
-  supportedMaps: DeathMatchMapPool
+  supportedMaps: DeathMatchMapPoolImp #imp edit, use our map pool prototype
   rules:
     - DeathMatch31
 
@@ -255,8 +211,6 @@
     - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
-    - MidpopLimiter
-
 
 - type: gamePreset
   id: Revolutionary
@@ -275,7 +229,6 @@
     - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
-    - MidpopLimiter
 
 - type: gamePreset
   id: Wizard
@@ -311,7 +264,6 @@
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
-  - MidpopLimiter
 
 - type: gamePreset
   id: Zombieteors
@@ -329,4 +281,3 @@
   - KesslerSyndromeScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
-  - MidpopLimiter

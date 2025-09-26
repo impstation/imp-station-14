@@ -11,7 +11,7 @@
       time: 21600 #6 hrs, imp. why tf was this so low?
     - !type:RoleTimeRequirement
       role: JobMedicalDoctor
-      time: 21600 #6 hrs
+      time: 21600 #6 hrs, imp
     - !type:DepartmentTimeRequirement
       department: Medical
       time: 72000 #20 hrs, imp
@@ -20,7 +20,7 @@
   weight: 10
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
-  supervisors: job-supervisors-captain
+  supervisors: job-supervisors-hop-captain #imp
   canBeAntag: false
   access:
   - Medical
@@ -31,6 +31,7 @@
   - Brig
   - Cryogenics
   - External
+  - Vault #imp
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -46,3 +47,15 @@
   storage:
     back:
     - Flash
+
+- type: chameleonOutfit
+  id: ChiefMedicalOfficerChameleonOutfit
+  job: ChiefMedicalOfficer
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatBeretCmo
+    eyes: ClothingEyesHudMedical
+    mask: ClothingMaskSterile
+    neck: ClothingCloakCmo
+    outerClothing: ClothingOuterCoatLabCmo
+    gloves: ClothingHandsGlovesNitrile

@@ -5,7 +5,9 @@
   description: A slab of raw Fin Fin. He was your best friend!
   components:
   - type: Sprite
-    state: finfin
+    sprite: _Impstation/Objects/Consumable/Food/Meat/finfin_meat.rsi
+    layers:
+    - state: finfin
   - type: SolutionContainerManager
     solutions:
       food:
@@ -37,6 +39,7 @@
     - Cutlet
     - Meat
   - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Meat/finfin_meat.rsi
     state: cutlet
     color: white
   - type: SolutionContainerManager
@@ -64,6 +67,7 @@
     - Cutlet
     - Meat
   - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Meat/finfin_meat.rsi
     state: cutlet-cooked
     color: white
   - type: SolutionContainerManager
@@ -91,6 +95,7 @@
     - Cooked
     - Meat
   - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Meat/finfin_meat.rsi
     layers:
     - state: finfin-cooked
   - type: SolutionContainerManager
@@ -162,7 +167,7 @@
         - ReagentId: UncookedAnimalProteins
           Quantity: 20
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/candy.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Candy/heart_carpaccio.rsi # NOT A FUCKING CANDY BUT OK?
     state: heartcarpaccio
   - type: Item
     size: Normal
@@ -207,7 +212,7 @@
   description: Is it still moving...?
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/meat.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Meat/kodepiia_meat.rsi
     state: kodepiia
   - type: SolutionContainerManager
     solutions:
@@ -240,7 +245,7 @@
     - Cooked
     - Meat
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/meat.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Meat/kodepiia_meat.rsi
     layers:
     - state: kodepiia-cooked
       map: [ "enum.DamageStateVisualLayers.Base" ]

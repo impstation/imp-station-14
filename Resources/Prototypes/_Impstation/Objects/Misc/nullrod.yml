@@ -2,7 +2,7 @@
   name: null rod
   id: NullRodBase
   abstract: true
-  parent: [ BaseItem, BaseMinorContraband ]
+  parent: BaseItem
   components:
   - type: RevealRevenantOnCollide
   - type: CollisionWake
@@ -62,14 +62,12 @@
         visible: false
   - type: Item
     size: Small
-    shape:
-    - 0,0,1,1
   - type: FitsInDispenser
     solution: grail
   - type: SolutionContainerManager
     solutions:
       grail:
-        maxVol: 200
+        maxVol: 60
   - type: MixableSolution
     solution: grail
   - type: RefillableSolution
@@ -101,7 +99,7 @@
     inHandsMaxFillLevels: 1
     inHandsFillBaseName: -fill-
   - type: Shakeable
-    shakeDuration: 1.6
+    shakeDuration: 3
     requireInHand: true
     shakeVerbText: null-grail-verb
     shakePopupMessageOthers: null-grail-popup-others
@@ -111,9 +109,18 @@
   - type: ReactionMixer
     mixOnInteract: false
     reactionTypes:
-    - Holy
+    - Gildgrail #mix changed to make half holy water and half aquam divinos
     - Shake
     mixMessage: "null-grail-mix-success"
+  - type: MeleeWeapon
+    soundNoDamage:
+      path: "/Audio/Effects/Fluids/splat.ogg"
+    damage:
+      types:
+        Blunt: 0
+  - type: Construction
+    graph: UpgradeNullRodGrail
+    node: start
 
 - type: entity
   name: divine grasp
@@ -131,12 +138,12 @@
   - type: Clothing
     sprite: _Impstation/Objects/Misc/nullrod_glove.rsi
   - type: StaminaDamageOnHit
-    damage: 23
+    damage: 5 # Down from 24
   - type: MeleeWeapon
     attackRate: 0.68
     damage:
       types:
-        Blunt: 14
+        Blunt: 10 # Down from 14
         Holy: 20
     soundHit:
       path: /Audio/_Impstation/Weapons/nullglove.ogg
@@ -144,7 +151,8 @@
         variation: 0.35
     mustBeEquippedToUse: true
   - type: MeleeThrowOnHit
-    speed: 7
+    distance: 1 # Down from 20 if this variable even does anything
+    speed: 1 # Down from 7
   - type: Reflect
     reflectProb: .22
     spread: 120
@@ -160,6 +168,9 @@
     interfaces:
       enum.MeleeSpeechUiKey.Key:
         type: MeleeSpeechBoundUserInterface
+  - type: Construction
+    graph: UpgradeNullRodGlove
+    node: start
 
 
 - type: entity
@@ -171,7 +182,8 @@
   - type: Sprite
     sprite: _Impstation/Objects/Misc/nullrod_bow.rsi
     layers:
-    - state: nullrod_bow
+    - state: unwielded
+      map: [ base ]
     - state: unwielded-arrow
       shader: unshaded
       map: [ arrow ]
@@ -221,38 +233,44 @@
         whitelist:
           tags:
           - HolyArrow
+  - type: GenericVisualizer
+    visuals:
+      enum.WieldableVisuals.Wielded:
+        arrow:
+          True: { state: wielded-arrow }
+          False: { state: unwielded-arrow }
+        base:
+          True: { state: wielded }
+          False: { state: unwielded }
+  - type: Construction
+    graph: UpgradeNullRodBow
+    node: start
 
 - type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltQuiverNullrod
   name: aureate quiver
-  parent: [ AmmoProviderShotgunShell, BaseMinorContraband ]
-  id: NullRodArrowQuiver
   description: A divine quiver, bristling with sparks of light.
   components:
     - type: Sprite
       sprite: _Impstation/Objects/Misc/nullrod_quiver.rsi
       layers:
       - state: quiver
-      - state: quiver_unshaded
-        shader: unshaded
-      - state: mag-0 # This is an empty sprite to get the mag visuals to shut up
-        map: [ "enum.GunVisualLayers.Mag" ]
-    - type: Item
-      size: Large
-      shape:
-      - 0,0,2,2
-      sprite: _Impstation/Objects/Misc/nullrod_quiver.rsi
+      - map: [ "enum.StorageContainerVisualLayers.Fill" ]
+        visible: false
     - type: Clothing
-      quickEquip: false
-      sprite: _Impstation/Objects/Misc/nullrod_quiver.rsi
       slots:
-      - Back
+      - belt
       - suitStorage
-    - type: BallisticAmmoProvider
-      proto: HolyArrow
-      mayTransfer: true
-      capacity: 7
+    - type: Storage
+      grid:
+      - 0,0,6,1
+      maxItemSize: Small
       whitelist:
-        tags:
-        - HolyArrow
-    - type: MagazineVisuals
-      steps: 1 # Sprite is fake, I couldn't be bothered. Sorry :(
+       tags:
+       - HolyArrow
+    - type: Appearance
+    - type: StorageContainerVisuals
+      maxFillLevels: 3
+      fillBaseName: fill-
+

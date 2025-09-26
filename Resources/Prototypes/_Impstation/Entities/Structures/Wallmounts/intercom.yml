@@ -1,0 +1,113 @@
+#interdepartmental
+- type: entity
+  id: IntercomMedSec
+  parent: IntercomSecurity
+  suffix: Med/Sec
+  components:
+  - type: ContainerFill
+    containers:
+      board:
+      - IntercomElectronics
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeySecurity
+      - EncryptionKeyMedical
+
+- type: entity
+  id: IntercomMedSci
+  parent: IntercomMedical
+  suffix: Med/Sci
+  components:
+  - type: ContainerFill
+    containers:
+      board:
+      - IntercomElectronics
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyMedical
+      - EncryptionKeyScience
+
+#departmental heads
+- type: entity
+  id: IntercomCommandEngineering
+  parent: IntercomCommand
+  suffix: Command/Engineering
+  components:
+  - type: ContainerFill
+    containers:
+      board:
+      - IntercomElectronics
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyCommand
+      - EncryptionKeyEngineering
+
+- type: entity
+  id: IntercomCommandMedical
+  parent: IntercomCommand
+  suffix: Command/Med
+  components:
+  - type: ContainerFill
+    containers:
+      board:
+      - IntercomElectronics
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyCommand
+      - EncryptionKeyMedical
+
+- type: entity
+  id: IntercomCommandScience
+  parent: IntercomCommand
+  suffix: Command/Sci
+  components:
+  - type: ContainerFill
+    containers:
+      board:
+      - IntercomElectronics
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyCommand
+      - EncryptionKeyScience
+
+- type: entity
+  id: IntercomCommandSecurity
+  parent: IntercomCommand
+  suffix: Command/Sec
+  components:
+  - type: ContainerFill
+    containers:
+      board:
+      - IntercomElectronics
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyCommand
+      - EncryptionKeySecurity
+
+- type: entity
+  id: IntercomCommandService
+  parent: IntercomCommand
+  suffix: Command/Service
+  components:
+  - type: ContainerFill
+    containers:
+      board:
+      - IntercomElectronics
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyCommand
+      - EncryptionKeyService
+
+- type: entity
+  id: IntercomCommandSupply
+  parent: IntercomCommand
+  suffix: Command/Supply
+  components:
+  - type: ContainerFill
+    containers:
+      board:
+      - IntercomElectronics
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyCommand
+      - EncryptionKeyCargo

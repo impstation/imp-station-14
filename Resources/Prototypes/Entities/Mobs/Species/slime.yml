@@ -4,7 +4,7 @@
   id: BaseMobSlimePerson
   abstract: true
   components:
-  - type: Absorbable
+  - type: GoobAbsorbable
   - type: Hunger
   - type: Thirst
   - type: Icon
@@ -26,6 +26,7 @@
     containers:
       storagebase: !type:Container
         ents: []
+      cavity_slot: !type:ContainerSlot # Offbrand
   - type: UserInterface
     interfaces:
       enum.StorageUiKey.Key:
@@ -39,6 +40,8 @@
       enum.ThavenMoodsUiKey.Key: # impstation edit
         type: ThavenMoodsBoundUserInterface
         requireInputValidation: false
+      enum.SurgeryGuideUiKey.Key: # Offbrand
+        type: SurgeryGuideBoundUserInterface
   # to prevent bag open/honk spam
   - type: UseDelay
     delay: 0.5
@@ -55,6 +58,8 @@
       Male: MaleSlime
       Female: FemaleSlime
       Unsexed: UnisexSlime
+  - type: BodyEmotes #imp edit
+    soundsId: SlimeBodyEmotes
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Slime
@@ -123,6 +128,7 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  - type: Hemorrhage # imp
 
 - type: entity
   parent: MobHumanDummy

@@ -5,13 +5,12 @@
   id: BaseMobDecapoid
   abstract: true
   components:
+  # NOTE: to edit this entity's movement speed, you will need to edit the leg bodypart. i discovered this so you didnt have to
   - type: Barotrauma
     damage:
       types:
         blunt: 0 # immune to space
-  - type: SnailSpeed
-    snailSlowdownModifier: 0.8
-  - type: Absorbable
+  - type: GoobAbsorbable
   - type: Hunger # removed thirst
   - type: Icon
     sprite: _Impstation/Mobs/Species/Decapoid/parts.rsi
@@ -23,15 +22,9 @@
           - Vaporizer
           - SGD
     failMessage: decapoid-cant-speak
-  - type: Respirator
-    damage:
-      types:
-        Asphyxiation: 2
-    damageRecovery:
-      types:
-        Asphyxiation: -1.0
   - type: Sprite
     layers: # Need to redefine the whole order to draw the legs and claw correctly
+    - map: [ "enum.HumanoidVisualLayers.TailBehind" ] # hivehum edit i just saw this layer order and got really scared but this probably wants to render under the back legs
     - map: [ "enum.HumanoidVisualLayers.RFoot" ] # this is the back feet TODO: fix the fact that only the feet render
     - map: [ "enum.HumanoidVisualLayers.RLeg" ] # this is the back legs
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -49,6 +42,7 @@
     - map: [ "eyes" ]
     - map: [ "belt" ]
     - map: [ "id" ]
+    - map: [ "enum.HumanoidVisualLayers.TailOversuit" ] # hivehum edit well i hope this works
     - map: [ "back" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ] # this is the front legs
     - map: [ "enum.HumanoidVisualLayers.LFoot" ] # this is the front feet
@@ -56,12 +50,13 @@
     - map: [ "neck" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
-    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
     - map: [ "suitstorage" ] # This is not in the default order. - inherited from vox
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "head" ]
     - map: [ "mask" ]
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadSide" ] # not default
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
     - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
@@ -83,7 +78,7 @@
     butcheringType: Spike
     spawned:
     - id: FoodMeatCrab # maybe custom someday. as-is, it's fine
-      amount: 1
+      amount: 6
   - type: Fixtures
     fixtures:
       fix1:
@@ -115,11 +110,9 @@
       Female: UnisexDecapoid
       Unsexed: UnisexDecapoid # male and female sounds have to 1) exist and 2) come first, otherwise urists will spawn without emote sounds 66% of the time, because this game is poorly programmed
   - type: MovementSpeedModifier
-    baseSprintSpeed: 3.5
-    baseWalkSpeed: 1.5
-    weightlessAcceleration: 1.5 # move more easily in space
-    weightlessFrictionNoInput: 2 # more control over movement in space
-    weightlessModifier: 1
+    baseWeightlessAcceleration: 1.5 # move more easily in space
+    baseWeightlessFriction: 2 # more control over movement in space
+    baseWeightlessModifier: 1
   - type: Temperature
     heatDamageThreshold: 380 # slightly more vulnerable to heat
     coldDamageThreshold: 0 # immune to space
@@ -130,7 +123,7 @@
         Cold : 0 # immune to space
     heatDamage:
       types:
-        Heat : 1
+        Heat : 1.5
   - type: TemperatureSpeed
     thresholds:
       293: 1.0
@@ -183,6 +176,7 @@
             state: neck
   - type: Speech
     speechSounds: Decapoid
+    allowedEmotes: ['Chitter', 'Click']
   - type: TypingIndicator
     proto: robot # todo: custom
   - type: HumanoidAppearance
@@ -190,6 +184,11 @@
     hideLayersOnEquip:
     - Hair
     - Snout
+    - HeadSide
+  - type: Carriable # Carrying system from nyanotrasen.
+  - type: CryostasisFactor
+    temperatureCoefficient: -0.0295
+    temperatureConstant: 9.5
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -226,12 +225,12 @@
     - map: [ "neck" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
-    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
     - map: [ "suitstorage" ] # This is not in the default order. - inherited from vox
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "head" ]
     - map: [ "mask" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadSide" ] # not default
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
     - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
@@ -244,6 +243,7 @@
       state: "creampie_human" # default
       visible: false
   - type: Inventory
+    speciesId: decapoid
     templateId: decapoid
     displacements:
       jumpsuit:

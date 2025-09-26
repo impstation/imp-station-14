@@ -2,15 +2,20 @@
   save: false
   parent:
   - BaseMob
-  - MobDamageable
+  # - MobDamageable # Offbrand - we don't want thresholds
   - MobPolymorphable
   - MobCombat
   - StripableInventoryBase
+  - BaseMobWoundable # Offbrand
+  - BaseMobPain # Offbrand
+  - BaseMobSurgery # Offbrand
   id: BaseMobSpecies
   abstract: true
   components:
   - type: Sprite
     layers:
+    - map: [ "enum.HumanoidVisualLayers.TailUnderlay" ] # imp
+    - map: [ "enum.HumanoidVisualLayers.TailBehind" ] # Floof
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
     - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
@@ -33,8 +38,11 @@
     - map: [ "belt" ]
     - map: [ "id" ]
     - map: [ "outerClothing" ]
+    - map: [ "enum.HumanoidVisualLayers.TailBehindBackpack" ] # imp
     - map: [ "back" ]
+    - map: [ "enum.HumanoidVisualLayers.TailOversuit" ] # Floof
     - map: [ "neck" ]
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
@@ -81,6 +89,7 @@
     horizontalRotation: 90
   - type: HumanoidAppearance
     species: Human
+  - type: TypingIndicator
   - type: SlowOnDamage
     speedModifierThresholds:
       60: 0.7
@@ -119,29 +128,21 @@
       - !type:WashCreamPieReaction
   - type: StatusEffects
     allowed:
-    - Stun
-    - KnockedDown
-    - SlowedDown
-    - Stutter
-    - SeeingRainbows
     - Electrocution
-    - Drunk
-    - SlurredSpeech
     - RatvarianLanguage
     - PressureImmunity
     - Muted
-    - ForcedSleep
     - TemporaryBlindness
     - Pacified
     - StaminaModifier
     - Flashed
     - RadiationProtection
-    - Drowsiness
     - Adrenaline
     - Feminized # DeltaV - Hormone system
     - Masculinized # DeltaV - Hormone system
     - GrayLanguage # imp
     - RelentlessPositivity # imp
+    - PGAccent # imp
   - type: Body
     prototype: Human
     requiredLegs: 2
@@ -172,6 +173,7 @@
   - type: SleepEmitSound
   - type: SSDIndicator
   - type: StandingState
+  - type: Crawler
   - type: Dna
   - type: MindContainer
     showExamineInfo: true
@@ -198,6 +200,8 @@
       enum.ThavenMoodsUiKey.Key: # impstation edit
         type: ThavenMoodsBoundUserInterface
         requireInputValidation: false
+      enum.SurgeryGuideUiKey.Key: # Offbrand
+        type: SurgeryGuideBoundUserInterface
   - type: Puller
   - type: Speech
     speechSounds: Alto
@@ -216,22 +220,26 @@
   - type: MobPrice
     price: 1500 # Kidnapping a living person and selling them for cred is a good move.
     deathPenalty: 0.01 # However they really ought to be living and intact, otherwise they're worth 100x less.
+  - type: CanEscapeInventory # Carrying system from nyanotrasen.
   - type: Tag
     tags:
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
-  - type: LayingDown # WD EDIT
+  - type: Carriable # Carrying system from nyanotrasen.
 
 - type: entity
   save: false
   parent:
-  - MobBloodstream
+  # - MobBloodstream - Offbrand - we're doing our own thign with this
   - MobRespirator
   - MobAtmosStandard
   - MobFlammable
   - BaseMobSpecies
+  - BaseMobHeartrate # Offbrand
+  - BaseMobBrain # Offbrand
+  - BaseMobCryostasis # Offbrand
   id: BaseMobSpeciesOrganic
   abstract: true
   components:
@@ -265,9 +273,9 @@
         Heat: 1.5 #per second, scales with temperature & other constants
   - type: TemperatureSpeed
     thresholds:
-      293: 0.8
-      280: 0.6
-      260: 0.4
+      293: 0.9
+      280: 0.8
+      260: 0.7
   - type: ThermalRegulator
     metabolismHeat: 800
     radiatedHeat: 100
@@ -280,8 +288,8 @@
   - type: Butcherable
     butcheringType: Spike # TODO human.
     spawned:
-      - id: FoodMeat
-        amount: 5
+    - id: FoodMeat
+      amount: 5
   - type: Respirator
     damage:
       types:
@@ -291,6 +299,7 @@
         Asphyxiation: -1.0
   - type: FireVisuals
     alternateState: Standing
+  - type: StunVisuals
 
 - type: entity
   save: false
@@ -309,6 +318,7 @@
     noRot: true
     # TODO BODY Turn these into individual body parts?
     layers:
+    - map: [ "enum.HumanoidVisualLayers.TailBehind" ]
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
     - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
@@ -337,7 +347,9 @@
     - map: [ "id" ]
     - map: [ "outerClothing" ]
     - map: [ "back" ]
+    - map: [ "enum.HumanoidVisualLayers.TailOversuit" ]
     - map: [ "neck" ]
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
@@ -353,7 +365,7 @@
   - type: Body
     prototype: Human
     requiredLegs: 2
-  - type: Absorbable
+  - type: GoobAbsorbable
   - type: UserInterface
     interfaces:
       enum.HumanoidMarkingModifierKey.Key: # sure, this can go here too

@@ -1,0 +1,49 @@
+- type: entity
+  name : ouroborosbolt
+  id: BulletOuroboros
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    radius: 1.5
+    color: "#d63b28"
+    energy: 10.0
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/disablerbolts.rsi
+    layers:
+      - state: bee
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectEnergySmall
+  - type: TriggerOnSpawn
+    keyOut: timer
+  - type: TriggerOnCollide
+    fixtureID: projectile
+    keyOut: trigger
+  - type: TimerTrigger
+    keysIn:
+    - timer
+    keyOut: trigger
+    delay: 0.25
+    popup: null
+  - type: SpawnOnTrigger
+    keysIn:
+    - trigger
+    proto: MobBeeroboros
+  - type: Projectile
+    impactEffect: BulletImpactEffectOrangeDisabler
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      collection: WeakHit
+    forceSound: true
+
+- type: entity
+  name : ouroBROSbolt
+  id: BulletOuroBros
+  parent: BulletOuroboros
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnOnTrigger
+    proto: FoesSeofSpawner
+    amount: 2

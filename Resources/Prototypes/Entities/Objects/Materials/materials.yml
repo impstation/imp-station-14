@@ -11,8 +11,8 @@
     size: Normal
   - type: Tag
     tags:
-      - DroneUsable
       - RawMaterial
+      - DroneUsable #imp
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -23,11 +23,14 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: PluralName # imp
+    oneOf: plural-name-piece-1
 
 - type: entity
   parent: MaterialBase
   id: MaterialCardboard
   name: cardboard
+  description: A tough corrugated paper that is really neither card nor board. # imp
   suffix: Full
   components:
   - type: Material
@@ -48,15 +51,34 @@
       map: ["base"]
   - type: Appearance
   - type: Extractable
-    grindableSolutionName: cardboard
+    grindableSolutionName: food #imp
+    juiceSolution: # imp
+      reagents:
+      - ReagentId: Cellulose
+        Quantity: 6
   - type: SolutionContainerManager
     solutions:
-      cardboard:
+      food: #imp
+        maxVol: 6 #imp
         reagents:
-        - ReagentId: Cellulose
+        - ReagentId: Pulp #imp
           Quantity: 6
   - type: Item
     heldPrefix: cardboard
+  - type: FloorTile
+    outputs:
+    - Plating
+  - type: SpawnAfterInteract #Nuke after convert to FloorTile
+    prototype: CarpetCard
+    doAfter: 0.5
+    removeOnInteract: true
+  # imp edit start
+  - type: Edible
+    requiresSpecialDigestion: true
+    delay: 10
+  - type: FlavorProfile
+    flavors:
+    - paper
   - type: UserInterface
     interfaces:
       enum.ShortConstructionUiKey.Key:
@@ -71,7 +93,12 @@
     - ChairCardboard
     - TileCardboard
     - DoorCardboard
-
+  - type: Tag
+    tags:
+      - ClothMade
+      - DroneUsable
+      - RawMaterial
+  # imp edit end
 
 - type: entity
   parent: MaterialCardboard
@@ -97,6 +124,7 @@
   parent: MaterialBase
   id: MaterialCloth
   name: cloth
+  description: A fibrous textile, ancient in origin. # imp
   suffix: Full
   components:
   - type: Healing
@@ -109,8 +137,27 @@
     bloodlossModifier: -4
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+  # Begin Offbrand
+  - type: Tending
+    woundWhitelist:
+      tags: [WoundCut, WoundPuncture]
+    damage:
+      types:
+        Slash: -0.5
+        Piercing: -0.5
+    tendingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+    tendingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+  # End Offbrand
   - type: Stack
     stackType: Cloth
     baseLayer: base
@@ -133,7 +180,7 @@
     - state: cloth_3
       map: ["base"]
   - type: Appearance
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: FlavorProfile
     flavors:
@@ -148,14 +195,17 @@
   - type: Tag
     tags:
       - ClothMade
-      - DroneUsable
       - Gauze
       - RawMaterial
+      - ConstructionMaterial
+      - DroneUsable #imp edit
   - type: Construction
     graph: WebObjects # not sure if I should either keep this here or just make another prototype. Will keep it here just in case.
     node: cloth
   - type: Item
     heldPrefix: cloth
+  - type: PluralName # imp
+    oneOf: plural-name-bolt-1 # the more you know https://english.stackexchange.com/questions/430790/what-do-you-call-a-of-cloth
 
 - type: entity
   parent: MaterialCloth
@@ -179,89 +229,9 @@
 
 - type: entity
   parent: MaterialBase
-  id: MaterialHempCloth
-  name: hemp cloth
-  suffix: Full
-  components:
-  - type: Healing
-    damageContainers:
-      - Biological
-    damage:
-      types:
-        Slash: -0.3
-        Piercing: -0.3
-    bloodlossModifier: -2
-    healingBeginSound:
-      path: "/Audio/Items/Medical/brutepack_begin.ogg"
-    healingEndSound:
-      path: "/Audio/Items/Medical/brutepack_end.ogg"
-  - type: Stack
-    stackType: HempCloth
-    baseLayer: base
-    layerStates:
-    - hemp_cloth
-    - hemp_cloth_2
-    - hemp_cloth_3
-  - type: Material
-  - type: PhysicalComposition
-    materialComposition:
-      HempCloth: 100
-  - type: Sprite
-    state: hemp_cloth_3
-    layers:
-    - state: hemp_cloth_3
-      map: ["base"]
-  - type: Appearance
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 5
-        - ReagentId: THC
-          Quantity: 5
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: Fiber
-        Quantity: 4
-      - ReagentId: THC
-        Quantity: 4
-  - type: Tag
-    tags:
-      - ClothMade
-      - RawMaterial
-  - type: Construction
-    graph: HempObjects
-    node: hempcloth
-
-- type: entity
-  parent: MaterialHempCloth
-  id: MaterialHempCloth10
-  suffix: 10
-  components:
-  - type: Sprite
-    state: hemp_cloth
-  - type: Stack
-    count: 10
-
-- type: entity
-  parent: MaterialHempCloth
-  id: MaterialHempCloth1
-  suffix: Single
-  components:
-  - type: Sprite
-    state: hemp_cloth
-  - type: Stack
-    count: 1
-
-- type: entity
-  parent: MaterialBase
   id: MaterialDurathread
   name: durathread
+  description: A tough textile made from cloth and plastic, useful for armor, uniforms, or nice bedsheets. # imp
   suffix: Full
   components:
   - type: Stack
@@ -284,7 +254,7 @@
   - type: Construction
     graph: Durathread
     node: MaterialDurathread
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
     solutions:
@@ -296,10 +266,13 @@
   - type: Tag
     tags:
       - ClothMade
-      - DroneUsable
       - RawMaterial
+      - ConstructionMaterial
+      - DroneUsable #imp edit
   - type: Item
     heldPrefix: durathread
+  - type: PluralName # imp
+    oneOf: plural-name-bolt-1
 
 - type: entity
   parent: MaterialDurathread
@@ -322,6 +295,7 @@
   parent: MaterialBase
   id: MaterialWoodPlank
   name: wood
+  description: A material made from trees. It's time to carpent. # imp
   suffix: Full
   components:
   - type: Material
@@ -346,17 +320,30 @@
   - type: Tag
     tags:
     - Wooden
-    - DroneUsable
     - RawMaterial
+    - ConstructionMaterial
+    - ClothMade #imp
+    - DroneUsable #imp
   - type: Extractable
-    grindableSolutionName: wood
+    grindableSolutionName: food #imp
+    juiceSolution: # imp
+      reagents:
+      - ReagentId: Cellulose
+        Quantity: 10
   - type: SolutionContainerManager
     solutions:
-      wood:
+      food: #imp
+        maxVol: 10 #imp
         reagents:
-        - ReagentId: Cellulose
+        - ReagentId: Pulp #imp
           Quantity: 10
-# imp edits below
+  # imp edit start
+  - type: Edible
+    requiresSpecialDigestion: true
+    delay: 30
+  - type: FlavorProfile
+    flavors:
+    - paper
   - type: UserInterface
     interfaces:
       enum.ShortConstructionUiKey.Key:
@@ -385,6 +372,10 @@
     - TileWoodParquetLight
     - TileWoodParquetRed
     - TileWoodRed
+  - type: PluralName
+    oneOf: plural-name-plank-1
+    someOf: plural-name-plank-2plus
+  # imp edit end
 
 - type: entity
   parent: MaterialWoodPlank
@@ -406,6 +397,7 @@
   parent: MaterialBase
   id: MaterialBiomass
   name: biomass
+  description: Pure biological currency. One full cube contains about the same amount of suffering as your entire body. # imp
   suffix: Full
   components:
   - type: Material
@@ -422,6 +414,9 @@
   - type: GuideHelp
     guides:
     - Cloning
+  - type: PluralName # imp
+    oneOf: plural-name-scrap-1 # will probably never be seen in-game
+    someOf: plural-name-cube-1
 
 - type: entity
   parent: MaterialBiomass
@@ -435,6 +430,7 @@
   parent: MaterialBase
   id: MaterialHideBear
   name: bear hide
+  description: AAH! WHERE!!! # imp is this funny i dont know is this funny
   components:
   - type: Sprite
     sprite: Objects/Materials/materials.rsi
@@ -457,9 +453,13 @@
     energy: 1.5
     color: "#4faffb"
     slots:
+  # imp edit start
   - type: Tag
     tags:
       - BearHide
+  - type: PluralName
+    oneOf: plural-name-some
+  # imp edit end
 
 - type: entity
   parent: MaterialBase
@@ -480,11 +480,14 @@
   - type: Tag
     tags:
     - HideCorgi
+  - type: PluralName # imp
+    oneOf: plural-name-some
 
 - type: entity
   parent: MaterialBase
   id: MaterialDiamond
   name: refined diamond
+  description: A luxurious pure carbon jewel, used throughout history for jewelry and engineering. # imp
   suffix: Full
   components:
   - type: Stack
@@ -514,6 +517,11 @@
   - type: PhysicalComposition
     materialComposition:
       Diamond: 100
+  - type: Tag
+    tags:
+    - RawMaterial
+    - Diamond
+  - type: NonMobStatusIcon #imp edit. for the salvohud
 
 - type: entity
   parent: MaterialDiamond
@@ -527,6 +535,7 @@
   parent: MaterialBase
   id: MaterialCotton
   name: cotton
+  description: A soft, fibrous material that grows on a plant. The basis of the moth palate. # imp
   suffix: Full
   components:
   - type: Stack
@@ -542,7 +551,7 @@
     - state: cotton_3
       map: ["base"]
   - type: Appearance
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: FlavorProfile
     flavors:
@@ -562,10 +571,16 @@
   - type: Tag
     tags:
       - ClothMade
-      - DroneUsable
       - RawMaterial
+      - Boll
+      - DroneUsable #imp
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      Cotton: 100
   - type: Item
     heldPrefix: cotton
+
 
 - type: entity
   parent: MaterialCotton
@@ -579,61 +594,9 @@
 
 - type: entity
   parent: MaterialBase
-  id: MaterialHemp
-  name: hemp
-  suffix: Full
-  components:
-  - type: Stack
-    stackType: Hemp
-    baseLayer: base
-    layerStates:
-    - hemp
-    - hemp_2
-    - hemp_3
-  - type: Sprite
-    state: hemp_3
-    layers:
-    - state: hemp_3
-      map: ["base"]
-  - type: Appearance
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 5
-        - ReagentId: THC
-          Quantity: 5
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: Fiber
-        Quantity: 4
-      - ReagentId: THC
-        Quantity: 4
-  - type: Tag
-    tags:
-      - ClothMade
-      - DroneUsable
-      - RawMaterial
-
-- type: entity
-  parent: MaterialHemp
-  id: MaterialHemp1
-  suffix: Single
-  components:
-  - type: Sprite
-    state: hemp
-  - type: Stack
-    count: 1
-
-- type: entity
-  parent: MaterialBase
   id: MaterialPyrotton
   name: pyrotton
+  description: An ever-burning cotton variant, ironically made by attempts to fireproof cotton. # imp
   suffix: Full
   components:
   - type: Stack
@@ -649,7 +612,7 @@
     - state: pyrotton_3
       map: ["base"]
   - type: Appearance
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
     solutions:
@@ -688,6 +651,7 @@
   parent: MaterialBase
   id: MaterialBananium
   name: bananium
+  description: An anomalous material. Has the exact same spatiotemporal properties as a banana. #imp
   suffix: Full
   components:
   - type: Material
@@ -709,7 +673,7 @@
   - type: FlavorProfile
     flavors:
       - banana
-  - type: Food
+  - type: Edible
     trash:
     - TrashBananiumPeel
   - type: BadFood
@@ -749,7 +713,7 @@
   parent: MaterialBase
   id: MaterialWebSilk
   name: silk
-  description: A webby material.
+  description: A webby material produced by bugs, once thought quite luxurious. #imp
   suffix: Full
   components:
   - type: PhysicalComposition
@@ -761,7 +725,7 @@
   - type: Stack
     count: 50
     stackType: WebSilk
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: FlavorProfile
     flavors:
@@ -782,9 +746,9 @@
           Quantity: 3
   - type: Tag
     tags:
-    - ClothMade
-    - RawMaterial
-    - SpiderFood  #imp edit
+      - ClothMade
+      - RawMaterial
+      - SpiderFood  #imp edit
   - type: Item
     sprite: Objects/Materials/silk.rsi
     heldPrefix: silk
@@ -850,6 +814,10 @@
   description: Looks sharp. Sharp enough to poke someone's eye out. Holy fuck it's big.
   suffix: Full
   components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 15
   - type: Sprite
     sprite: Objects/Materials/Mob/sharktooth.rsi
     layers:
@@ -886,6 +854,7 @@
   parent: MaterialBase
   id: MaterialBones
   name: bones
+  description: Most crew members have at least one of these. # imp
   suffix: Full
   components:
   - type: Stack
@@ -901,7 +870,7 @@
     - state: cotton_3
       map: ["base"]
   - type: Appearance
-  - type: Food
+  - type: Edible
   - type: BadFood
   - type: SolutionContainerManager
     solutions:
@@ -917,6 +886,9 @@
     - DroneUsable
     - RawMaterial
     - KodeEdible
+  - type: PluralName # imp
+    oneOf: plural-name-some
+    someOf: plural-name-bundle-1
 
 - type: entity
   parent: MaterialBones
@@ -930,7 +902,7 @@
   parent: MaterialBase
   id: MaterialGunpowder
   name: gunpowder
-  description: An explosive compound.
+  description: An explosive compound. Outdated, but still bangs. # imp
   components:
   - type: Stack
     stackType: Gunpowder
@@ -944,6 +916,8 @@
       Gunpowder: 100
   - type: Item
     size: Tiny
+  - type: PluralName # imp
+    oneOf: plural-name-pinch-1
 
 - type: entity
   parent: MaterialBase
@@ -975,6 +949,11 @@
     sprite: Objects/Materials/hide.rsi
     shape:
     - 0,0,2,2
+  - type: Tag
+    tags:
+    - GoliathPlate
+  - type: PluralName # imp
+    oneOf: plural-name-some
 
 - type: entity
   parent: MaterialGoliathHide

@@ -2,56 +2,50 @@ using Content.Server.Administration.Logs;
 using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Server.Roles;
-using Content.Shared.Changeling;
+using Content.Shared._Goobstation.Changeling; //imp
 using Content.Shared.Database;
 using Content.Shared.Implants;
-using Content.Shared.Implants.Components;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Revolutionary.Components;
-using Content.Shared.Tag;
+using Content.Shared.Roles.Components;
 using Robust.Shared.Containers;
 
 namespace Content.Server.Mindshield;
 
 /// <summary>
-/// System used for checking if the implanted is a Rev or Head Rev.
+/// System used for adding or removing components with a mindshield implant
+/// as well as checking if the implanted is a Rev or Head Rev.
 /// </summary>
 public sealed class MindShieldSystem : EntitySystem
 {
     [Dependency] private readonly IAdminLogManager _adminLogManager = default!;
     [Dependency] private readonly RoleSystem _roleSystem = default!;
     [Dependency] private readonly MindSystem _mindSystem = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
-
-    [ValidatePrototypeId<TagPrototype>]
-    public const string MindShieldTag = "MindShield";
 
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<SubdermalImplantComponent, ImplantImplantedEvent>(ImplantCheck);
-        SubscribeLocalEvent<MindShieldImplantComponent, EntGotRemovedFromContainerMessage>(OnImplantDraw);
+
+        SubscribeLocalEvent<MindShieldImplantComponent, ImplantImplantedEvent>(OnImplantImplanted);
+        SubscribeLocalEvent<MindShieldImplantComponent, ImplantRemovedEvent>(OnImplantRemoved);
     }
 
-    /// <summary>
-    /// Checks if the implant was a mindshield or not
-    /// </summary>
-    public void ImplantCheck(EntityUid uid, SubdermalImplantComponent comp, ref ImplantImplantedEvent ev)
+    private void OnImplantImplanted(Entity<MindShieldImplantComponent> ent, ref ImplantImplantedEvent ev)
     {
-        if (_tag.HasTag(ev.Implant, MindShieldTag) && ev.Implanted != null)
-        {
-            EnsureComp<MindShieldComponent>(ev.Implanted.Value);
-            MindShieldRemovalCheck(ev.Implanted.Value, ev.Implant);
-        }
+        if (ev.Implanted == null)
+            return;
+
+        EnsureComp<MindShieldComponent>(ev.Implanted);
+        MindShieldRemovalCheck(ev.Implanted, ev.Implant);
     }
 
     /// <summary>
     /// Checks if the implanted person was a Rev or Head Rev and remove role or destroy mindshield respectively. Also removes fake Changeling mindshields.
     /// </summary>
-    public void MindShieldRemovalCheck(EntityUid implanted, EntityUid implant)
+    private void MindShieldRemovalCheck(EntityUid implanted, EntityUid implant)
     {
-        if (HasComp<FakeMindShieldComponent>(implanted) && HasComp<ChangelingComponent>(implanted))
+        if (HasComp<FakeMindShieldComponent>(implanted) && HasComp<GoobChangelingComponent>(implanted)) //imp, changeling
         {
             _popupSystem.PopupEntity(Loc.GetString("changeling-mindshield-overwrite"), implanted, implanted, Shared.Popups.PopupType.MediumCaution);
             RemComp<FakeMindShieldComponent>(implanted);
@@ -65,15 +59,15 @@ public sealed class MindShieldSystem : EntitySystem
         }
 
         if (_mindSystem.TryGetMind(implanted, out var mindId, out _) &&
-            _roleSystem.MindTryRemoveRole<RevolutionaryRoleComponent>(mindId))
+            _roleSystem.MindRemoveRole<RevolutionaryRoleComponent>(mindId))
         {
             _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(implanted)} was deconverted due to being implanted with a Mindshield.");
         }
     }
 
-    private void OnImplantDraw(Entity<MindShieldImplantComponent> ent, ref EntGotRemovedFromContainerMessage args)
+    private void OnImplantRemoved(Entity<MindShieldImplantComponent> ent, ref ImplantRemovedEvent args)
     {
-        RemComp<MindShieldComponent>(args.Container.Owner);
+        RemComp<MindShieldComponent>(args.Implanted);
     }
 }
 

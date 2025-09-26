@@ -1,10 +1,11 @@
 ﻿- type: entity
   save: false
   name: Urist McSquid
-  parent: BaseMobHuman
+  parent: BaseMobSpeciesOrganic
   id: MobKodepiiaBase
   abstract: true
   components:
+  - type: GoobAbsorbable
   - type: HarpySinger
   - type: KodepiiaScrambler
   - type: KodepiiaConsumeAction
@@ -43,6 +44,7 @@
         requireInputValidation: false
   - type: Sprite
     layers:
+    - map: [ "enum.HumanoidVisualLayers.TailBehind" ]
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
     - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
@@ -73,6 +75,7 @@
     - map: [ "belt" ]
     - map: [ "back" ]
     - map: [ "neck" ]
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
     - map: [ "pocket1" ]
@@ -83,6 +86,7 @@
       visible: false
     - map: [ "enum.HumanoidVisualLayers.RArmExtension" ]
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
+    - map: [ "enum.HumanoidVisualLayers.TailOversuit" ] # subject to change, really finicky with the arms im afraid
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
     - map: [ "mask" ]
@@ -96,8 +100,11 @@
     hideLayersOnEquip:
     - HeadTop
     - HeadSide
-    - Hair 
+    - Hair
     - Tail
+  - type: Thirst
+  - type: Hunger
+    baseDecayRate: 0.15 # 10x default. 6 minutes to hungry and 15.5 minutes to starving
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:

@@ -16,6 +16,7 @@
     shape:
     - 0,0,1,0
     - 0,1,0,1
+    storedOffset: 0,-4
   - type: Tag
     tags:
     - Sidearm
@@ -121,6 +122,8 @@
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
+  - type: StaticPrice
+    price: 1000
 
 - type: entity
   name: Echis
@@ -205,6 +208,8 @@
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
+  - type: StaticPrice
+    price: 1500
 
 - type: entity
   name: Mk 58
@@ -221,19 +226,21 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Pistols/mk58.rsi #imp
+  - type: Item
+    storedOffset: 0,-2
   - type: Gun
     fireRate: 5
     availableModes:
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
-  - type: Construction
+  - type: Construction #imp
     graph: UpgradeWeaponPistolConversion
     node: start
 
 - type: entity
   name: N1984
-  parent: [BaseWeaponPistol, BaseCentcommContraband]
+  parent: [BaseWeaponPistol, BaseSecurityContraband]
   id: WeaponPistolN1984
   description: The sidearm of any self-respecting officer, often favored by ERT security forces. Uses .45 magnum ammo. #imp
   components:

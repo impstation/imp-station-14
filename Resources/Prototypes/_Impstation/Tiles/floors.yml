@@ -13,3 +13,97 @@
     collection: FootstepTile
   itemDrop: FloorTileItemApid
   heatCapacity: 10000
+
+- type: tile
+  id: FloorChapelNE
+  name: tiles-chapel-floor-ne
+  sprite: /Textures/_Impstation/Tiles/chapelNE.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemChapelNE
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorChapelNW
+  name: tiles-chapel-floor-nw
+  sprite: /Textures/_Impstation/Tiles/chapelNW.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemChapelNW
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorChapelSE
+  name: tiles-chapel-floor-se
+  sprite: /Textures/_Impstation/Tiles/chapelSE.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemChapelSE
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorChapelSW
+  name: tiles-chapel-floor-sw
+  sprite: /Textures/_Impstation/Tiles/chapelSW.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemChapelSW
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorCraftedAsphalt
+  name: tiles-crafted-asphalt
+  parent: FloorAsphalt
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  itemDrop: FloorTileItemCraftedAsphalt
+
+# Faux sci tiles
+- type: tile
+  id: FloorShoveledAstroSnow
+  name: tiles-shoveled-astro-snow
+  sprite: /Textures/Tiles/Planet/Snow/snow.png
+  variants: 13
+  placementVariants:
+  - 0.8
+  - 0.0166
+  - 0.0166
+  - 0.0166
+  - 0.0166
+  - 0.0166
+  - 0.0166
+  - 0.0166
+  - 0.0166
+  - 0.0166
+  - 0.0166
+  - 0.0116
+  - 0.0116
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  itemDrop: FloorTileItemShoveledAstroSnow
+  footstepSounds:
+    collection: FootstepSnow
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorAstroCave
+  name: tiles-astro-cave
+  parent: FloorCave
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  itemDrop: FloorTileItemAstroCave

@@ -15,12 +15,36 @@
     - Revolutionary
     - Changeling
     - Heretic
+    - Replicator
 
 - type: npcFaction
   id: Penguin
   hostile:
   - Dragon
+  - Replicator
 
 # Initial infected should be ignored by zombies
 - type: npcFaction
   id: InitialInfectedIgnore
+
+- type: npcFaction
+  id: Replicator
+  hostile:
+  - NanoTrasen
+  - Dragon
+  - Mouse
+  - Passive
+  - PetsNT
+  - SimpleHostile
+  - SimpleNeutral
+  - Syndicate
+  - Xeno
+  - Zombie
+  - Revolutionary
+  - Wizard
+  - Xenoborg
+  - Changeling
+  - Heretic
+  - Dino
+  - Penguin
+  - AllHostile

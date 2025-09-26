@@ -1,18 +1,15 @@
-using Robust.Shared.Timing;
-using Robust.Server.GameObjects;
-using Content.Shared.Changeling;
-using Content.Shared.Mind;
 using Content.Server.Body.Systems;
-using Content.Shared.Store.Components;
+using Content.Shared._Goobstation.Changeling;
+using Content.Shared.Mind;
+using Robust.Shared.Timing;
 
-namespace Content.Server.Changeling;
+namespace Content.Server._Goobstation.Changeling;
 
-public sealed partial class ChangelingEggSystem : EntitySystem
+public sealed partial class GoobChangelingEggSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly BodySystem _bodySystem = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
-
 
     public override void Update(float frameTime)
     {
@@ -21,10 +18,9 @@ public sealed partial class ChangelingEggSystem : EntitySystem
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        foreach (var comp in EntityManager.EntityQuery<ChangelingEggComponent>())
+        var query = EntityQueryEnumerator<GoobChangelingEggComponent>();
+        while (query.MoveNext(out var uid, out var comp))
         {
-            var uid = comp.Owner;
-
             if (_timing.CurTime < comp.UpdateTimer)
                 continue;
 
@@ -33,7 +29,7 @@ public sealed partial class ChangelingEggSystem : EntitySystem
             Cycle(uid, comp);
         }
     }
-    public void Cycle(EntityUid uid, ChangelingEggComponent comp)
+    public void Cycle(EntityUid uid, GoobChangelingEggComponent comp)
     {
         if (comp.active == false)
         {
@@ -43,14 +39,13 @@ public sealed partial class ChangelingEggSystem : EntitySystem
 
         var newUid = Spawn("MobMonkey", Transform(uid).Coordinates);
 
-        var mind = EnsureComp<MindComponent>(newUid);
+        EnsureComp<MindComponent>(newUid);
         _mind.TransferTo(comp.lingMind, newUid);
 
-        var ling = EnsureComp<ChangelingComponent>(newUid);
-        ling = comp.lingComp;
+        EnsureComp<GoobChangelingComponent>(newUid);
 
         EntityManager.AddComponent(newUid, comp.lingStore);
 
-        _bodySystem.GibBody((EntityUid)uid);
+        _bodySystem.GibBody(uid);
     }
 }

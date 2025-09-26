@@ -1,11 +1,11 @@
-﻿name: "Labels: PR"
+name: "Labels: PR"
 
 on:
 - pull_request_target
 
 jobs:
   labeler:
-    if: github.actor != 'ImpstationBot'
+    if: ${{ ! contains(fromJSON('["ImpstationBot", "github-actions"]'), github.actor) }} # imp edit
     permissions:
       contents: read
       pull-requests: write

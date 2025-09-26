@@ -1,23 +1,53 @@
 # Black mime hardsuit
 - type: construction
-  name: black mime hardsuit
   id: BlackMimeHardsuit
   graph: BlackMimeHardsuit
   startNode: start
   targetNode: blackmimeHardsuit
   category: construction-category-clothing
-  description: A modified hardsuit fit for a mime.
-  icon: { sprite: _Impstation/Clothing/OuterClothing/Hardsuits/mimeblack.rsi, state: icon }
   objectType: Item
 
 # Replace this craft with dyeing if that system's ever added
 - type: construction
-  name: black utility belt
   id: ClothingBeltUtilityBlack
   graph: UtilityBlack
   startNode: start
   targetNode: utilityBlack
   category: construction-category-clothing
-  description: A haphazard solution, but at least it'll match...
-  icon: { sprite: _Impstation/Clothing/Belt/utility_black.rsi, state: icon }
+  objectType: Item
+
+# adding ahud to prestige glasses
+
+- type: construction
+  id: ClothingEyesGlassesCaptainVisorAdministrativeHud
+  graph: AdminHudCaptainsVisor
+  startNode: start
+  targetNode: adminhudcaptainsvisor
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: ClothingEyesGlassesCaptainEyepatchAdministrativeHud
+  graph: AdminHudCaptainsEyepatch
+  startNode: start
+  targetNode: adminhudcaptainseyepatch
+  category: construction-category-clothing
+  objectType: Item
+
+# crafting admin eyepatch from eyepatch and admin hud
+
+- type: construction
+  id: ClothingEyesEyepatchHudCommand
+  graph: AdminHudCommandEyepatch
+  startNode: start
+  targetNode: adminhudcommandeyepatch
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: SackHead
+  graph: SackHead
+  startNode: start
+  targetNode: eyesack
+  category: construction-category-clothing
   objectType: Item

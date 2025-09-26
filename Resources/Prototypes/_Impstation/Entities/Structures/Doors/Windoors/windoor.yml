@@ -70,6 +70,16 @@
     containers:
       board: [ DoorElectronicsHospitalityDirector ]
 
+# Security
+- type: entity
+  parent: WindoorSecureSecurityLocked
+  id: WindoorSecureSecurityMedicalLocked
+  suffix: Security/Medical, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSecurityMedical ]
+
 # Service
 - type: entity
   parent: WindoorSecureServiceLocked
@@ -115,7 +125,7 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsReporter ]
-      
+
 # Supply
 - type: entity
   parent: WindoorSecure
@@ -138,3 +148,22 @@
       board: [ DoorElectronicsLogistics ]
   - type: Wires
     layoutId: AirlockCargo
+
+# Bounty Hunter
+- type: entity
+  parent: Windoor
+  id: WindoorFreelanceLocked
+  suffix: Freelance, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsFreelance ]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureFreelanceLocked
+  suffix: Freelance, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsFreelance ]

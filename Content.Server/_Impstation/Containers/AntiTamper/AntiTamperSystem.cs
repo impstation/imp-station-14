@@ -1,4 +1,3 @@
-using Content.Server.Storage.Components;
 using Content.Server.Storage.EntitySystems;
 using Content.Shared.Containers.AntiTamper;
 using Content.Shared.Damage;
@@ -7,7 +6,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Lock;
 using Content.Shared.Mind.Components;
 using Content.Shared.Popups;
-using Content.Shared.Storage.EntitySystems;
+using Content.Shared.Storage.Components;
 using Content.Shared.Tools.Systems;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
@@ -17,14 +16,13 @@ namespace Content.Server.Containers.AntiTamper;
 
 public sealed partial class AntiTamperSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly LockSystem _lockSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly SharedToolSystem _toolSystem = default!;
-    [Dependency] private readonly SharedEntityStorageSystem _entityStorageSystem = default!;
+    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly SharedToolSystem _toolSystem = default!;
 
     public override void Initialize()
     {

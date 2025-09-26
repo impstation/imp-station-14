@@ -104,6 +104,14 @@
   - type: AccessReader
     access: [["Service"]]
 
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsServiceTheatre
+  suffix: Service, Theatre, Locked
+  components:
+  - type: AccessReader
+    access: [["Service"], ["Theatre"]]
+
 # Cargo
 - type: entity
   parent: DoorElectronics
@@ -306,7 +314,15 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsVault
-  suffix: Vault, Locked
+  suffix: Security/Command, Locked #imp, disambiguate with vault door
   components:
   - type: AccessReader
     access: [["Security"], ["Command"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsXenoborg
+  suffix: Xenoborg, Locked
+  components:
+  - type: AccessReader
+    access: [["Xenoborg"]]

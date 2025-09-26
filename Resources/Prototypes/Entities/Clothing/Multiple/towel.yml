@@ -18,6 +18,9 @@
     unequipSound:
   - type: Spillable
     solution: absorbed
+    spillWhenThrown: false
+  - type: DrainableSolution
+    solution: absorbed
   - type: Absorbent
     pickupAmount: 15
   - type: SolutionContainerManager
@@ -700,7 +703,7 @@
 
 - type: entity
   id: TowelColorCentcom
-  name: centcom towel
+  name: CentComm towel # imp style fix
   parent: BaseTowel
   components:
   - type: Sprite

@@ -1,9 +1,47 @@
+# kill or maroon
+
+- type: entity
+  parent: [BaseTraitorObjective, BaseKillObjective]
+  id: KillOrMaroonRandomPersonObjective
+  description: Do it however you like, just make sure they don't make it to CentComm.
+  components:
+  - type: Objective
+    difficulty: 1.5
+    unique: false
+  - type: TargetObjective
+    title: objective-condition-kill-person-title
+  - type: PickRandomPerson
+  - type: KillPersonCondition
+
+# Steal
+
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: AntiqueDisablerStealObjective
+  components:
+  - type: NotJobRequirement
+    job: HeadOfPersonnel
+  - type: StealCondition
+    stealGroup: AntiqueDisabler
+    descriptionText: objective-condition-steal-antiquedisabler-description
+    owner: job-name-hop
+
 #SVS objectives
+
+- type: entity
+  abstract: true
+  parent: [BaseTraitorObjective, BaseSocialObjective]
+  id: BaseTraitorSvSSocialObjective # Used for rounds when basically every valid person will be a traitor.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Misc/folders.rsi
+      state: folder-white
 
 - type: entity
   parent: [BaseTraitorObjective, BaseKillObjective]
   id: KillRandomTraitorSvSObjective # Used for rounds when basically every valid person will be a traitor.
-  description: Do it however you like, just make sure they don't make it to centcom.
+  description: Do it however you like, just make sure they don't make it to CentComm.
   components:
   - type: Objective
     issuer: objective-issuer-syndicate
@@ -11,7 +49,17 @@
     unique: true
   - type: TargetObjective
     title: objective-condition-kill-person-title
-  - type: PickRandomTraitor
+  - type: PickRandomPerson
+    filters:
+    - !type:HasRoleMindFilter
+      whitelist:
+        components:
+        - TraitorRole
+    # Can't have multiple objectives to kill the same person.
+    - !type:TargetObjectiveMindFilter
+      blacklist:
+        components:
+        - KillPersonCondition
   - type: ObjectiveBlacklistRequirement
     blacklist:
       component: null
@@ -27,7 +75,18 @@
     unique: true
   - type: TargetObjective
     title: objective-condition-other-traitor-alive-title
-  - type: RandomTraitorAlive
+  - type: PickRandomPerson #copied from RandomTraitorAliveObjective
+    filters:
+    - !type:HasRoleMindFilter
+      whitelist:
+        components:
+        - TraitorRole
+    # Can't have multiple objectives to help/save the same person
+    - !type:TargetObjectiveMindFilter
+      blacklist:
+        components:
+        - RandomTraitorAlive
+        - RandomTraitorProgress
   - type: ObjectiveBlacklistRequirement
     blacklist:
       component: null
@@ -46,6 +105,10 @@
       sprite: Objects/Misc/cablecuffs.rsi
       state: cuff
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -60,6 +123,10 @@
       sprite: Objects/Weapons/Grenades/modular.rsi
       state: complete
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -74,6 +141,10 @@
       sprite: Objects/Weapons/Guns/Pistols/viper.rsi
       state: icon
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -88,6 +159,10 @@
       sprite: Objects/Misc/handcuffs.rsi
       state: handcuff
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -102,6 +177,10 @@
       sprite: _Impstation/Objects/Specific/Medical/medical.rsi
       state: gauze
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -116,6 +195,10 @@
       sprite: Objects/Weapons/Guns/Pistols/viper.rsi
       state: icon
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -130,6 +213,10 @@
       sprite: Objects/Misc/inflatable_wall.rsi
       state: inflatable_wall
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -144,6 +231,10 @@
       sprite: Objects/Weapons/Melee/cane.rsi
       state: cane
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -158,6 +249,10 @@
       sprite: Objects/Misc/Handy_Flags/syndie_handy_flag.rsi
       state: icon
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -172,6 +267,10 @@
       sprite: Objects/Weapons/Guns/Pistols/viper.rsi
       state: icon
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -186,6 +285,10 @@
       sprite: Clothing/Head/Hats/captain.rsi
       state: icon
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -200,6 +303,10 @@
       sprite: Clothing/Head/Hats/brownfedora.rsi
       state: icon
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -214,6 +321,10 @@
       sprite: Clothing/Head/Helmets/security.rsi
       state: icon
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
 
 - type: entity
   parent: [BaseTraitorObjective]
@@ -228,3 +339,205 @@
       sprite: _Impstation/Clothing/Neck/Cloaks/straight.rsi
       state: icon
   - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
+
+- type: entity
+  parent: [BaseTraitorObjective]
+  id: UglyStationGimmickObjective
+  name: Disgustify the Station
+  description: Try to make the station as ugly and visually unpleasant as you can. This objective is not tracked and will automatically succeed, so just have fun with it!
+  components:
+  - type: Objective
+    unique: true
+    difficulty: 1.25
+    icon:
+      sprite: Objects/Consumable/Food/Tins/maint_peaches.rsi
+      state: trash
+  - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
+
+- type: entity
+  parent: [BaseTraitorObjective]
+  id: BridgeBarGimmickObjective
+  name: The Bridge is your Bar
+  description: Try to convert the bridge into your own private bar. This objective is not tracked and will automatically succeed, so just have fun with it!
+  components:
+  - type: Objective
+    unique: true
+    difficulty: 1.25
+    icon:
+      sprite: Objects/Consumable/Drinks/whiskeybottle.rsi
+      state: icon
+  - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
+
+- type: entity
+  parent: [BaseTraitorObjective]
+  id: SubvertProjectGimmickObjective
+  name: Subvert Pet Project
+  description: Seek out another crew member's pet project and subvert it to a more violent purpose. This objective is not tracked and will automatically succeed, so just have fun with it!
+  components:
+  - type: Objective
+    unique: true
+    difficulty: 1.25
+    icon:
+      sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+      state: icon
+  - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
+
+- type: entity
+  parent: [BaseTraitorObjective]
+  id: FiresaleGimmickObjective
+  name: Steal and Sell
+  description: Steal things from the crew and attempt to auction them off for profit. This objective is not tracked and will automatically succeed, so just have fun with it!
+  components:
+  - type: Objective
+    unique: true
+    difficulty: 1.25
+    icon:
+      sprite: Clothing/Hands/Gloves/Color/black.rsi
+      state: icon
+  - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
+
+- type: entity
+  parent: [BaseTraitorObjective]
+  id: UselessIdiotGimmickObjective
+  name: Be Useless
+  description: Be as useless and incomptetent as possible without getting killed for it. This objective is not tracked and will automatically succeed, so just have fun with it!
+  components:
+  - type: Objective
+    unique: true
+    difficulty: 1.25
+    icon:
+      sprite: Objects/Consumable/Drinks/whiskeybottle.rsi
+      state: icon
+  - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
+
+- type: entity
+  parent: [BaseTraitorObjective]
+  id: SneakInGimmickObjective
+  name: Sneak In and Fuck With Things
+  description: Every once in a while sneak into a department of your choice and mess with all the things inside. This objective is not tracked and will automatically succeed, so just have fun with it!
+  components:
+  - type: Objective
+    unique: true
+    difficulty: 1.25
+    icon:
+      sprite: _Impstation/Objects/Tools/greatwrench.rsi
+      state: icon
+  - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
+
+- type: entity
+  parent: [BaseTraitorObjective]
+  id: SlanderDepartmentGimmickObjective
+  name: Slander a Department
+  description: Try to make everyone hate a specific station department of your choice, through misdrection and slander. This objective is not tracked and will automatically succeed, so just have fun with it!
+  components:
+  - type: Objective
+    unique: true
+    difficulty: 1.25
+    icon:
+      sprite: _Impstation/Tippy/nerd_emoji.rsi
+      state: icon
+  - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
+
+- type: entity
+  parent: [BaseTraitorObjective]
+  id: AnnoyDisruptGimmickObjective
+  name: Ruin a Departments Productivity
+  description: Try to ruin a specific station department's productivity through constant annoyances. This objective is not tracked and will automatically succeed, so just have fun with it!
+  components:
+  - type: Objective
+    unique: true
+    difficulty: 1.25
+    icon:
+      sprite: Objects/Economy/cash.rsi
+      state: cash_1000000
+  - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
+
+- type: entity
+  parent: [BaseTraitorObjective]
+  id: SpaceAssholeGimmickObjective
+  name: Be an Asshole
+  description: Start as many petty arguments and fistfights as possible. Be a real jerk. This objective is not tracked and will automatically succeed, so just have fun with it!
+  components:
+  - type: Objective
+    unique: true
+    difficulty: 1.25
+    icon:
+      sprite: _Impstation/Clothing/Neck/Cloaks/straight.rsi
+      state: icon
+  - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
+
+- type: entity
+  parent: [BaseTraitorObjective]
+  id: JailbreakGimmickObjective
+  name: Break Out of Jail
+  description: Get yourself arrested, then stage a violent jailbreak. This objective is not tracked and will automatically succeed, so just have fun with it!
+  components:
+  - type: Objective
+    unique: true
+    difficulty: 1.25
+    icon:
+      sprite: Objects/Misc/handcuffs.rsi
+      state: handcuff
+  - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
+
+- type: entity
+  parent: [BaseTraitorObjective]
+  id: PrankGimmickObjective
+  name: Prank Someone
+  description: Single out a crew member and repeatedly prank them. Escalate the intensity of the pranks with each one. This objective is not tracked and will automatically succeed, so just have fun with it!
+  components:
+  - type: Objective
+    unique: true
+    difficulty: 1.25
+    icon:
+      sprite: Objects/Fun/whoopie.rsi
+      state: icon
+  - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition

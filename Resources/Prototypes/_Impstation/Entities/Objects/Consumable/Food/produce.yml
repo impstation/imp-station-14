@@ -19,7 +19,7 @@
         - ReagentId: Vitamin
           Quantity: 4
   - type: Sprite
-    sprite: Objects/Specific/Hydroponics/lemo.rsi
+    sprite: _Impstation/Objects/Specific/Hydroponics/lemo.rsi
     state: fruit_pink
   - type: Produce
     seedId: lemo
@@ -41,7 +41,7 @@
     flavors:
       - sweet
   - type: Sprite
-    sprite: Objects/Specific/Hydroponics/lemo.rsi
+    sprite: _Impstation/Objects/Specific/Hydroponics/lemo.rsi
   - type: Tag
     tags:
     - Fruit
@@ -56,3 +56,426 @@
         - ReagentId: Vitamin
           Quantity: 0.8
 
+
+- type: entity
+  parent: FoodProduceBase
+  id: FoodCoconut
+  name: coconut
+  description: Nature's bowling ball.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Hydroponics/coconut.rsi
+    state: coconut
+  - type: Item
+    size: Normal
+    sprite: _Impstation/Objects/Specific/Hydroponics/coconut.rsi
+    heldPrefix: coconut
+  - type: Produce
+    seedId: coconut
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/_Impstation/Items/Coconut/bonk.ogg
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 5
+  - type: StaminaDamageOnHit
+    damage: 10
+    sound: /Audio/_Impstation/Items/Coconut/bonk.ogg
+  - type: LandAtCursor
+  - type: Tag
+    tags:
+    - Fruit
+    - Vegetable #don't ask me
+    - ShellCoconut
+  - type: FlavorProfile
+    flavors:
+      - nutty
+  - type: SliceableFood
+    count: 2
+    slice: FoodCoconutSlice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: CoconutWater
+          Quantity: 10
+
+- type: entity
+  name: coconut slice
+  parent: ProduceSliceBase
+  id: FoodCoconutSlice
+  description: Wow, there's stuff inside of this weird rock!!
+  components:
+  - type: FlavorProfile
+    flavors:
+      - nutty
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Hydroponics/coconut.rsi
+  - type: Tag
+    tags:
+    - Fruit
+    - Slice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: CoconutWater
+          Quantity: 5
+
+
+- type: entity
+  parent: FoodProduceBase
+  id: FoodCoconutBees
+  name: coconest
+  description: Cute, there's even little bees in there!!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Hydroponics/coconest.rsi
+    state: coconest
+  - type: Item
+    size: Normal
+    sprite: _Impstation/Objects/Specific/Hydroponics/coconest.rsi
+    heldPrefix: coconest
+  - type: Produce
+    seedId: coconest
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/_Impstation/Items/Coconut/bonk.ogg
+  - type: Damageable
+    damageContainer: Biological
+  - type: DamageOnHighSpeedImpact
+    minimumSpeed: 0.1
+    damage:
+      types:
+        Blunt: 1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Impstation/Items/Coconut/bonk.ogg
+      - !type:SpillBehavior
+        solution: food
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: LandAtCursor
+  - type: Tag
+    tags:
+    - Fruit
+    - Vegetable
+    - ShellCoconut
+  - type: FlavorProfile
+    flavors:
+      - nutty
+      - honey
+  - type: SliceableFood
+    count: 2
+    slice: FoodCoconutBeeSlice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: BuzzochloricBees
+          Quantity: 10
+  - type: Spillable
+    solution: food
+
+- type: entity
+  name: coconest slice
+  parent: ProduceSliceBase
+  id: FoodCoconutBeeSlice
+  description: They're not gonna be happy about this.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - nutty
+      - honey
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Hydroponics/coconest.rsi
+  - type: Tag
+    tags:
+    - Fruit
+    - Slice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: BuzzochloricBees
+          Quantity: 5
+
+
+- type: entity
+  parent: FoodProduceBase
+  id: FoodCoconutJoke
+  name: hard coconut
+  description: Where'd this come from?
+  categories: [ DoNotMap ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Hydroponics/coconut.rsi
+    state: coconut
+  - type: Item
+    size: Normal
+    sprite: _Impstation/Objects/Specific/Hydroponics/coconut.rsi
+    heldPrefix: coconut
+  - type: Produce
+    seedId: coconut
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/_Impstation/Items/Coconut/bonk.ogg
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 15
+  - type: StaminaDamageOnHit
+    damage: 100 #hehe
+    sound: /Audio/_Impstation/Items/Coconut/bonk.ogg
+  - type: LandAtCursor
+  - type: Tag
+    tags:
+    - Fruit
+    - Vegetable
+    - ShellCoconut
+  - type: FlavorProfile
+    flavors:
+      - nutty
+  - type: SliceableFood
+    count: 2
+    slice: FoodCoconutSlice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: CoconutWater
+          Quantity: 10
+
+- type: entity
+  name: hops
+  parent: FoodProduceBase
+  id: FoodHops
+  description: Looking to start your own craft brewery, huh? With your own unique twist on the IPA?
+  components:
+  - type: FlavorProfile
+    flavors:
+    - beer
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 9
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 4
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Hydroponics/hops.rsi
+    state: hops
+  - type: Produce
+    seedId: hops
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Beer
+        Quantity: 10
+  - type: Tag
+    tags:
+    - Fruit
+
+- type: entity
+  name: butterfly orchid bunch
+  parent: FoodProduceBase
+  id: FoodButterflyOrchid
+  description: It looks as if there are many butterflies flying around it. It gives a touch of spring.
+  components:
+  - type: Clothing
+    slots:
+    - HEAD
+    quickEquip: false
+  - type: FlavorProfile
+    flavors:
+    - honey
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: ButterfliesReagent
+          Quantity: 5
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Hydroponics/butterfly_orchid.rsi
+    state: produce
+  - type: Produce
+    seedId: butterflyorchid
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: ButterfliesReagent
+        Quantity: 15
+  - type: Tag
+    tags:
+    - Flower
+
+- type: entity
+  name: biggerfly orchid bunch
+  parent: FoodProduceBase
+  id: FoodBiggerflyOrchid
+  description: It looks as if there are many butterflies flying around it. They're large.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - honey
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: ButterfliesBiggerReagent
+          Quantity: 10
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Hydroponics/biggerfly_orchid.rsi
+    state: produce
+  - type: Produce
+    seedId: biggerflyorchid
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: ButterfliesBiggerReagent
+        Quantity: 15
+  - type: Tag
+    tags:
+    - Flower
+
+- type: entity
+  name: floating flora
+  parent: [FoodProduceBase, BaseDeployFoldable]
+  id: FoodFloatingFlora
+  description: Some say they can be seen flying in migration patterns in the wild..
+  components:
+  - type: FlavorProfile
+    flavors:
+      - medicine
+  - type: Tag
+    tags:
+    - Flower
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 12
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+  - type: Produce
+    seedId: floatingflora
+#  - type: Extractable
+#    juiceSolution:
+#      reagents:
+#      - ReagentId: Uppisium (will be adding at a later date, post apparent status effects change)
+#        Quantity: 10
+#foldable
+  - type: Transform
+    noRot: true
+  - type: Item
+    size: Normal
+    heldPrefix: floating_flora_y
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Hydroponics/floating_flora.rsi
+    noRot: true
+    layers:
+    - state: floating_flora_y
+      map: ["unfoldedLayer"]
+    - state: floating_flora_folded_y
+      map: ["foldedLayer"]
+      visible: false
+    - type: InteractionOutline
+  - type: Pullable
+#trying to float
+  - type: MovementIgnoreGravity # nyoom
+    weightless: true
+  - type: Physics
+    bodyStatus: InAir
+  - type: FloatingVisuals
+    canFloat: True
+
+# flora color variants
+- type: entity
+  name: floating flora
+  parent: [FoodFloatingFlora]
+  id: FoodFloatingFloraPink
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Hydroponics/floating_flora.rsi
+    noRot: true
+    layers:
+    - state: floating_flora_p
+      map: ["unfoldedLayer"]
+    - state: floating_flora_folded_p
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  name: floating flora
+  parent: [FoodFloatingFlora]
+  id: FoodFloatingFloraOrange
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Hydroponics/floating_flora.rsi
+    noRot: true
+    layers:
+    - state: floating_flora_o
+      map: ["unfoldedLayer"]
+    - state: floating_flora_folded_o
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  name: floating flora
+  parent: [FoodFloatingFlora]
+  id: FoodFloatingFloraBlue
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Hydroponics/floating_flora.rsi
+    noRot: true
+    layers:
+    - state: floating_flora_b
+      map: ["unfoldedLayer"]
+    - state: floating_flora_folded_b
+      map: ["foldedLayer"]
+      visible: false

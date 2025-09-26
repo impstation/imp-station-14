@@ -25,6 +25,9 @@
     layers:
     - state: crypt_gray
     - state: common_label
+  - type: Tag
+    tags:
+    - EncryptionCommon
 
 - type: entity
   parent: [ EncryptionKey, BaseCargoContraband ]
@@ -40,12 +43,15 @@
     layers:
     - state: crypt_gray
     - state: cargo_label
+  - type: Tag
+    tags:
+    - EncryptionCargo
 
 - type: entity
   parent: [ EncryptionKey, BaseCentcommContraband ]
   id: EncryptionKeyCentCom
-  name: central command encryption key
-  description: An encryption key used by captain's bosses.
+  name: Central Command encryption key # imp caps fix
+  description: An encryption key used by your boss's bosses. # imp wording
   components:
   - type: EncryptionKey
     channels:
@@ -60,7 +66,7 @@
   parent: [ EncryptionKey, BaseCommandContraband ] #imp edit, cenctomm implicitly allowed through this contraband entity. also all centcomm jobs are already part of command, so like...
   id: EncryptionKeyStationMaster
   name: station master encryption key
-  description: An encryption key used by station's bosses.
+  description: An encryption key used by the station's bossiest bosses. # imp wording
   components:
   - type: EncryptionKey
     channels:
@@ -82,7 +88,7 @@
   parent: [ EncryptionKey, BaseCommandContraband ]
   id: EncryptionKeyCommand
   name: command encryption key
-  description: An encryption key used by crew's bosses.
+  description: An encryption key used by the crew's bosses. # imp wording
   components:
   - type: EncryptionKey
     channels:
@@ -92,6 +98,9 @@
     layers:
     - state: crypt_silver
     - state: com_label
+  - type: Tag
+    tags:
+    - EncryptionCommand
 
 - type: entity
   parent: [ EncryptionKey, BaseEngineeringContraband ]
@@ -107,6 +116,9 @@
     layers:
     - state: crypt_gray
     - state: eng_label
+  - type: Tag
+    tags:
+    - EncryptionEngineering
 
 - type: entity
   parent: [ EncryptionKey, BaseMedicalContraband ]
@@ -122,6 +134,9 @@
     layers:
     - state: crypt_gray
     - state: med_label
+  - type: Tag
+    tags:
+    - EncryptionMedical
 
 - type: entity
   parent: [ EncryptionKey, BaseMedicalScienceContraband ]
@@ -153,6 +168,9 @@
     layers:
     - state: crypt_gray
     - state: sci_label
+  - type: Tag
+    tags:
+    - EncryptionScience
 
 - type: entity
   parent: [ EncryptionKey, BaseScienceContraband ]
@@ -183,6 +201,9 @@
     layers:
     - state: crypt_gray
     - state: sec_label
+  - type: Tag
+    tags:
+    - EncryptionSecurity
 
 - type: entity
   parent: [ EncryptionKey, BaseServiceContraband ] #imp edit
@@ -198,6 +219,9 @@
     layers:
     - state: crypt_gray
     - state: service_label
+  - type: Tag
+    tags:
+    - EncryptionService
 
 - type: entity
   parent: [ EncryptionKey, Tier2Contraband ]
@@ -213,6 +237,8 @@
     layers:
     - state: crypt_red
     - state: synd_label
+  - type: StaticPrice
+    price: 500 # 1000 for 2
 
 - type: entity
   parent: [ EncryptionKey, BaseSiliconScienceContraband ]
@@ -243,6 +269,8 @@
     layers:
     - state: crypt_red
     - state: ai_label
+  - type: StaticPrice
+    price: 1000
 
 - type: entity
   parent: EncryptionKey

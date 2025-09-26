@@ -15,6 +15,8 @@ using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Mind;
 using Content.Shared.Roles;
+using Content.Shared.PDA.Ringer;
+using Content.Shared.Roles.Components; // imp
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
 using Content.Shared.UserInterface;
@@ -306,7 +308,7 @@ public sealed partial class StoreSystem
             //get the role that "purchased" this item by primary currency & purchase priority.
             var purchasePriority = -1;
             MindRoleComponent? purchaserComp = null;
-            foreach (var mindRole in mindComp.MindRoles) //go over all of the player's mindRoles
+            foreach (var mindRole in mindComp.MindRoleContainer.ContainedEntities) //go over all of the player's mindRoles
             {
                 foreach (var roleComp in AllComps<MindRoleComponent>(mindRole)) //go over all of their mindRole components
                 {
@@ -412,12 +414,9 @@ public sealed partial class StoreSystem
 
             component.BoughtEntities.RemoveAt(i);
 
-            if (_actions.TryGetActionData(purchase, out var actionComponent, logError: false))
-            {
-                _actionContainer.RemoveAction(purchase, actionComponent);
-            }
+            _actionContainer.RemoveAction(purchase, logMissing: false);
 
-            EntityManager.DeleteEntity(purchase);
+            Del(purchase);
         }
 
         component.BoughtEntities.Clear();

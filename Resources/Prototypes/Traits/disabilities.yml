@@ -16,7 +16,6 @@
   id: PoorVision
   name: trait-poor-vision-name
   description: trait-poor-vision-desc
-  traitGear: PrescriptionLensStrong # imp
   category: Disabilities
   whitelist:
     components:
@@ -24,6 +23,7 @@
   components:
     - type: PermanentBlindness
       blindness: 4
+    - type: StartWithLenses # imp addition
 
 - type: trait
   id: Narcolepsy
@@ -45,6 +45,14 @@
       cloneable: true
 
 - type: trait
+  id: Monochromacy
+  name: trait-monochromacy-name
+  description: trait-monochromacy-desc
+  category: Disabilities
+  components:
+  - type: BlackAndWhiteOverlay
+
+- type: trait
   id: Muted
   name: trait-muted-name
   description: trait-muted-desc
@@ -54,6 +62,9 @@
       - BorgChassis
   components:
     - type: Muted
+      mutedEmotes: true # IMP
+      mutedScream: false # IMP
+      mutedSpeech: true # IMP
 
 - type: trait
   id: Paracusia
@@ -75,3 +86,20 @@
   category: Disabilities
   components:
   - type: PainNumbness
+
+- type: trait
+  id: Hemophilia
+  name: trait-hemophilia-name
+  description: trait-hemophilia-desc
+  category: Disabilities
+  components:
+  - type: Hemophilia
+
+- type: trait
+  id: ImpairedMobility
+  name: trait-impaired-mobility-name
+  description: trait-impaired-mobility-desc
+  traitGear: OffsetCane
+  category: Disabilities
+  components:
+    - type: ImpairedMobility

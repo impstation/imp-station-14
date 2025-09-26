@@ -2,11 +2,22 @@
   id: CrateCargoLuxuryHardsuit
   parent: CratePirate
   name: luxury mining hardsuit crate
-  description: Finally, a hardsuit Quartermasters could call their own. Centcomm has heard you, now stop asking.
+  description: Finally, a hardsuit Quartermasters could call their own. CentComm has heard you, now stop asking. # imp caps fix
   components:
   - type: StorageFill
     contents:
     - id: ClothingOuterHardsuitLuxury
+
+- type: entity
+  id: CrateCargoParcelWrap
+  parent: CrateGenericSteel
+  name: parcel wrap crate
+  description: All your parcel wrapping needs in one crate, containing three rolls of parcel wrap.
+  components:
+  - type: StorageFill
+    contents:
+    - id: ParcelWrap
+      amount: 3
 
 - type: entity
   id: CrateCargoGambling
@@ -107,11 +118,14 @@
     - id: WeaponPulseCarbine
       prob: 0.0001
       orGroup: Weapons
-    - id: WeaponGoldZipper
-      prob: 0.00001
-      orGroup: Weapons
     - id: WeaponRifleAk
       prob: 0.0001
+      orGroup: Weapons
+    - id: WeaponPistolValuPlus #imp
+      prob: 0.0001
+      orGroup: Weapons
+    - id: WeaponRifleMule #imp
+      prob: 0.0005
       orGroup: Weapons
     - id: WeaponLauncherPirateCannon
       prob: 0.001
@@ -161,11 +175,17 @@
     - id: WeaponTurretXeno
       prob: 0.01
       orGroup: Weapons
-    - id: WeaponGoldZipperFake
+    - id: WeaponGoldZipperFake #imp
+      prob: 0.01
+      orGroup: Weapons
+    - id: WeaponPistolValu #imp
       prob: 0.01
       orGroup: Weapons
     - id: WeaponRifleFoam
       prob: 0.03
+      orGroup: Weapons
+    - id: WeaponPistolZipper #imp
+      prob: 0.02
       orGroup: Weapons
     #clothing
     - id: ClothingUniformJumpsuitFamilyGuy
@@ -174,7 +194,7 @@
     - id: ClothingOuterHardsuitCBURN
       prob: 0.001
       orGroup: Clothes
-    - id: ClothingOuterHardsuitBasic
+    - id: ClothingOuterHardsuitSanta
       prob: 0.001
       orGroup: Clothes
     - id: ClothingBackpackERTClown
@@ -321,6 +341,9 @@
       orGroup: Plushies
     - id: PlushieThrongler #hehe
       prob: 0.0005
+      orGroup: Plushies
+    - id: PrizeBall # imp. let's go gambling!
+      prob: 0.1
       orGroup: Plushies
     #useful
     - id: AmeJar

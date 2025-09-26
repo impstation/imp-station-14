@@ -102,3 +102,21 @@
   components:
   - type: AccessReader
     access: [["HospitalityDirector"]]
+
+# Freelance
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsFreelance
+  suffix: Freelance, Locked
+  components:
+  - type: AccessReader
+    access: [["Freelance"]]
+
+# Vault
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsVaultDoor #I know this is stupid but there's already a DoorElectronicsVault that isn't used
+  suffix: Vault, Locked
+  components:
+  - type: AccessReader
+    access: [["Vault"]]

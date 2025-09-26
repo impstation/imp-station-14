@@ -2,14 +2,17 @@ using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.Construction.Components;
 using Content.Server.Temperature.Components;
+using Content.Shared._Impstation.Construction.Steps;
 using Content.Shared.Construction;
 using Content.Shared.Construction.Components;
 using Content.Shared.Construction.EntitySystems;
 using Content.Shared.Construction.Steps;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
+using Content.Shared.Interaction.Components;
 using Content.Shared.Prying.Systems;
 using Content.Shared.Radio.EntitySystems;
+using Content.Shared.Stacks;
 using Content.Shared.Temperature;
 using Content.Shared.Tools.Systems;
 using Robust.Shared.Containers;
@@ -41,6 +44,7 @@ namespace Content.Server.Construction
                 new []{typeof(EncryptionKeySystem)});
             SubscribeLocalEvent<ConstructionComponent, OnTemperatureChangeEvent>(EnqueueEvent);
             SubscribeLocalEvent<ConstructionComponent, PartAssemblyPartInsertedEvent>(EnqueueEvent);
+            SubscribeLocalEvent<ConstructionComponent, EntRemovedFromContainerMessage>(EnqueueEvent); // imp
         }
 
         /// <summary>
@@ -64,7 +68,7 @@ namespace Content.Server.Construction
             // If we're currently in an edge, we'll let the edge handle or validate the interaction.
             if (GetCurrentEdge(uid, construction) is {} edge)
             {
-                var result = HandleEdge(uid, ev, edge, validation, construction);
+                var result = HandleEdge(uid, ev, edge, validation, construction, out _); // Offbrand
 
                 // Reset edge index to none if this failed...
                 if (!validation && result is HandleResult.False && construction.StepIndex == 0)
@@ -98,7 +102,7 @@ namespace Content.Server.Construction
             for (var i = 0; i < node.Edges.Count; i++)
             {
                 var edge = node.Edges[i];
-                if (HandleEdge(uid, ev, edge, validation, construction) is var result and not HandleResult.False)
+                if (HandleEdge(uid, ev, edge, validation, construction, out var completed) is var result and not HandleResult.False) // Offbrand
                 {
                     // Only a True result may modify the state.
                     // In the case of DoAfter, it's only allowed to modify the waiting flag and the current edge index.
@@ -114,7 +118,7 @@ namespace Content.Server.Construction
                     }
 
                     // If we're not on the same edge as we were before, that means handling that edge changed the node.
-                    if (construction.Node != node.Name)
+                    if (completed) // Offbrand
                         return result;
 
                     // If we're still in the same node, that means we entered the edge and it's still not done.
@@ -136,8 +140,9 @@ namespace Content.Server.Construction
         /// <remarks>When <see cref="validation"/> is true, this method will simply return whether the interaction
         ///          would be handled by the entity or not. It essentially becomes a pure method that modifies nothing.</remarks>
         /// <returns>The result of this interaction with the entity.</returns>
-        private HandleResult HandleEdge(EntityUid uid, object ev, ConstructionGraphEdge edge, bool validation, ConstructionComponent? construction = null)
+        private HandleResult HandleEdge(EntityUid uid, object ev, ConstructionGraphEdge edge, bool validation, ConstructionComponent? construction, out bool completed) // Offbrand
         {
+            completed = false; // Offbrand
             if (!Resolve(uid, ref construction))
                 return HandleResult.False;
 
@@ -178,6 +183,7 @@ namespace Content.Server.Construction
 
                 // We change the node now.
                 ChangeNode(uid, user, edge.Target, true, construction);
+                completed = true; // Offbrand
             }
 
             return HandleResult.True;
@@ -271,7 +277,11 @@ namespace Content.Server.Construction
 
                     // Since many things inherit this step, we delegate the "is this entity valid?" logic to them.
                     // While this is very OOP and I find it icky, I must admit that it simplifies the code here a lot.
-                    if(!insertStep.EntityValid(insert, EntityManager, _factory))
+                    if(!insertStep.EntityValid(insert, EntityManager, Factory))
+                        return HandleResult.False;
+
+                    // Unremovable items can't be inserted
+                    if(HasComp<UnremoveableComponent>(insert))
                         return HandleResult.False;
 
                     // If we're only testing whether this step would be handled by the given event, then we're done.
@@ -419,6 +429,18 @@ namespace Content.Server.Construction
                     return HandleResult.False;
                 }
 
+                case EntityRemoveConstructionGraphStep removeStep: //imp
+                {
+                    if (ev is not EntRemovedFromContainerMessage entRemoved)
+                        break;
+
+                    var toRemove = entRemoved.Entity;
+
+                    if (removeStep.EntityValid(toRemove, EntityManager, Factory)) // Does the removed entity have the desired tag?
+                        return validation ? HandleResult.Validated : HandleResult.True;
+                    return HandleResult.False;
+                }
+
                 #endregion
                 // --- CONSTRUCTION STEP EVENT HANDLING FINISH ---
 
@@ -563,6 +585,12 @@ namespace Content.Server.Construction
 
                 handled.Handled = true;
             }
+
+            // Begin Offbrand
+            // Otherwise, let's check if this event could be handled by the construction's current state.
+            if (HandleEvent(uid, args, true, construction) != HandleResult.Validated)
+                return; // Not validated, so we don't even enqueue this event.
+            // End Offbrand
 
             // Enqueue this event so it'll be handled in the next tick.
             // This prevents some issues that could occur from entity deletion, component deletion, etc in a handler.

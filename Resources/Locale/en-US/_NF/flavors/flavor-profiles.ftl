@@ -1,1 +1,19 @@
 ﻿flavor-base-basic = basic
+
+flavor-complex-avocado = like avocado
+flavor-complex-cucumber = crisp and refreshing
+flavor-complex-honeycomb = like waxy honey
+flavor-complex-fast = fast
+flavor-complex-greed = like greed
+flavor-complex-blast = like jungle warfare
+flavor-complex-torpedo = like convoy raiding
+flavor-complex-bees = like buzzing and honey
+flavor-complex-wassail = warm and comforting
+flavor-complex-fine-noodles = like fine noodles
+flavor-complex-rich-broth = like rich broth
+flavor-complex-tangy = tangy
+flavor-complex-spices = like spices
+flavor-complex-cinnamon = like cinnamon
+flavor-complex-licorice = like licorice
+flavor-complex-blueraspberry = like blue
+flavor-complex-silence = like silence

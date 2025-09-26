@@ -8,12 +8,13 @@
   showInVote: false
   rules:
     - Heretic
+    - HereticBooksEventScheduler
+    - HereticBooksSpawnBig
     - SubGamemodesRule
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
-    - MidpopLimiter
 
 - type: gamePreset
   id: SecretHeretics
@@ -24,11 +25,13 @@
   showInVote: false
   rules:
     - Heretic
+    - HereticBooksEventScheduler
+    - HereticBooksSpawnBig
     - SubGamemodesRule
+    - BasicStationEventScheduler
     - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
-    - MidpopLimiter
 
 - type: gamePreset
   id: Changeling
@@ -36,8 +39,8 @@
     - ling
     - lings
     - changeling
-  name: changeling-gamemode-title
-  description: changeling-gamemode-description
+  name: goob-changeling-gamemode-title
+  description: goob-changeling-gamemode-description
   cooldown: 1
   showInVote: false
   rules:
@@ -47,7 +50,6 @@
     - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
-    - MidpopLimiter
 
 - type: gamePreset
   id: Secretling

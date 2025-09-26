@@ -3,6 +3,7 @@ using Content.Server.GameTicking;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Dataset;
+using Content.Shared.Ghost;
 using Content.Shared.Tips;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
@@ -58,9 +59,13 @@ public sealed class TipsSystem : EntitySystem
     {
         return args.Length switch
         {
-            1 => CompletionResult.FromHintOptions(CompletionHelper.SessionNames(), Loc.GetString("cmd-tippy-auto-1")),
+            1 => CompletionResult.FromHintOptions(
+                CompletionHelper.SessionNames(players: _playerManager),
+                Loc.GetString("cmd-tippy-auto-1")),
             2 => CompletionResult.FromHint(Loc.GetString("cmd-tippy-auto-2")),
-            3 => CompletionResult.FromHintOptions(CompletionHelper.PrototypeIDs<EntityPrototype>(), Loc.GetString("cmd-tippy-auto-3")),
+            3 => CompletionResult.FromHintOptions(
+                CompletionHelper.PrototypeIdsLimited<EntityPrototype>(args[2], _prototype),
+                Loc.GetString("cmd-tippy-auto-3")),
             4 => CompletionResult.FromHint(Loc.GetString("cmd-tippy-auto-4")),
             5 => CompletionResult.FromHint(Loc.GetString("cmd-tippy-auto-5")),
             6 => CompletionResult.FromHint(Loc.GetString("cmd-tippy-auto-6")),
@@ -83,7 +88,16 @@ public sealed class TipsSystem : EntitySystem
         }
 
         ActorComponent? actor = null;
-        if (args[0] != "all")
+        HashSet<ActorComponent> ghostActors = [];
+        if (args[0] == "ghosts")
+        {
+            var query = EntityQueryEnumerator<GhostComponent, ActorComponent>();
+            while (query.MoveNext(out _, out _, out var actorComp))
+            {
+                ghostActors.Add(actorComp);
+            }
+        }
+        else if (args[0] != "all")
         {
             ICommonSession? session;
             if (args.Length > 0)
@@ -99,13 +113,11 @@ public sealed class TipsSystem : EntitySystem
             {
                 session = shell.Player;
             }
-
             if (session?.AttachedEntity is not { } user)
             {
                 shell.WriteLine(Loc.GetString("cmd-tippy-error-no-user"));
                 return;
             }
-
             if (!TryComp(user, out actor))
             {
                 shell.WriteError(Loc.GetString("cmd-tippy-error-no-user"));
@@ -134,7 +146,14 @@ public sealed class TipsSystem : EntitySystem
         if (args.Length > 5)
             ev.WaddleInterval = float.Parse(args[5]);
 
-        if (actor != null)
+        if (ghostActors.Count > 0)
+        {
+            foreach (var ghostActor in ghostActors)
+            {
+                RaiseNetworkEvent(ev, ghostActor.PlayerSession);
+            }
+        }
+        else if (actor != null)
             RaiseNetworkEvent(ev, actor.PlayerSession);
         else
             RaiseNetworkEvent(ev);

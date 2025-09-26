@@ -3,7 +3,7 @@
   mapName: 'Banana'
   mapPath: /Maps/_Impstation/banana.yml
   minPlayers: 0
-  maxPlayers: 18
+  maxPlayers: 14
   stations:
     Banana:
       stationProto: StandardNanotrasenStation
@@ -18,18 +18,17 @@
         - type: StationCargoShuttle
           path: /Maps/_Impstation/Shuttles/cargo_banana.yml
         - type: StationJobs
-          availableJobs: # Total of 26 jobs roundstart, max of 30 inc. latejoins and trainees.
+          availableJobs: # Total of 25 jobs roundstart, max of 29 inc. latejoins and trainees.
             # command - 8
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
-            AdministrativeAssistant: [ 1, 1 ]
             ChiefEngineer: [ 1, 1 ]
             ChiefMedicalOfficer: [ 1, 1 ]
             ResearchDirector: [ 1, 1 ]
             HeadOfSecurity: [ 1, 1 ]
             HospitalityDirector: [ 1, 1 ]
             Quartermaster: [ 1, 1 ]
-            # service - 7
+            # service - 8
             Bartender: [ 1, 1 ]
             Botanist: [ 1, 1 ]
             Chef: [ 1, 1 ]
@@ -37,6 +36,7 @@
             Janitor: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
+            Chaplain: [ 1, 1 ]
             # engineering - 2-3
             AtmosphericTechnician: [ 1, 1 ]
             StationEngineer: [ 1, 1 ]

@@ -13,9 +13,11 @@ using Content.Shared.Store.Components;
 using Robust.Shared.Audio;
 using Robust.Server.Audio;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 using Robust.Shared.Random;
 using System.Text;
 using Content.Server._Goobstation.Heretic.EntitySystems;
+using Content.Shared.Roles.Components;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -28,12 +30,11 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly ObjectivesSystem _objective = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly HellWorldSystem _hell = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _userInterfaceSystem = default!;
 
     public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg");
-    public readonly SoundSpecifier RiftSpawnSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg");
-
 
     [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> HereticFactionId = "Heretic";
 
@@ -41,7 +42,7 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
 
     [ValidatePrototypeId<CurrencyPrototype>] public readonly ProtoId<CurrencyPrototype> Currency = "KnowledgePoint";
 
-    [ValidatePrototypeId<EntityPrototype>] static EntProtoId mindRole = "MindRoleHeretic";
+    [ValidatePrototypeId<EntityPrototype>] static EntProtoId _mindRole = "MindRoleHeretic";
 
     public override void Initialize()
     {
@@ -54,10 +55,6 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
     private void OnAntagSelect(Entity<HereticRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
     {
         TryMakeHeretic(args.EntityUid, ent.Comp);
-
-        for (int i = 0; i < _rand.Next(6, 12); i++)
-            if (TryFindRandomTile(out var _, out var _, out var _, out var coords))
-                _audio.PlayPvs(RiftSpawnSound, Spawn("RealityTear", coords)); //reality tears disappear after 1 second, leaving behind an eldritch book
         _hell.MakeHell();
     }
 
@@ -66,7 +63,7 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
             return false;
 
-        _role.MindAddRole(mindId, mindRole.Id, mind, true);
+        _role.MindAddRole(mindId, _mindRole.Id, mind, true);
 
         // briefing
         if (HasComp<MetaDataComponent>(target))
@@ -110,12 +107,13 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
         var mostKnowledge = 0f;
         var mostKnowledgeName = string.Empty;
 
-        foreach (var heretic in EntityQuery<HereticComponent>())
+        var query = EntityQueryEnumerator<HereticComponent>();
+        while (query.MoveNext(out var uid, out var heretic))
         {
-            if (!_mind.TryGetMind(heretic.Owner, out var mindId, out var mind))
+            if (!_mind.TryGetMind(uid, out var mindId, out var mind))
                 continue;
 
-            var name = _objective.GetTitle((mindId, mind), Name(heretic.Owner));
+            var name = _objective.GetTitle((mindId, mind), Name(uid));
             if (_mind.TryGetObjectiveComp<HereticKnowledgeConditionComponent>(mindId, out var objective, mind))
             {
                 if (objective.Researched > mostKnowledge)

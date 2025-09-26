@@ -1,12 +1,3 @@
-# Senior times
-- type: loadoutEffectGroup
-  id: SeniorParamedic
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobParamedic
-      time: 108000 #30 hrs, ~20 rounds #imp
 # Head
 - type: loadout
   id: ParamedicHead
@@ -40,17 +31,3 @@
   id: BlueShoes
   equipment:
     shoes: ClothingShoesColorBlue
-
-# id
-- type: loadout
-  id: ParamedicPDA
-  equipment:
-    id: ParamedicPDA
-
-- type: loadout
-  id: SeniorParamedicPDA
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorParamedic
-  equipment:
-    id: SeniorParamedicPDA

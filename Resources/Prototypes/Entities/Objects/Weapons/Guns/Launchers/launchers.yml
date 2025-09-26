@@ -12,7 +12,7 @@
     slots:
     - Back
   - type: Item
-    size: Huge
+    size: Ginormous
   - type: StaticPrice
     price: 500
   - type: ContainerContainer
@@ -36,14 +36,18 @@
     slots:
     - Back
     - suitStorage
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,2
   - type: AmmoCounter
   - type: Gun
-    fireRate: 1
+    fireRate: 0.5 #imp
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/clake.ogg #imp
   - type: BallisticAmmoProvider
     whitelist:
       tags:
@@ -52,6 +56,8 @@
     proto: GrenadeFrag
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+    soundRack:
+      path: /Audio/_Impstation/Weapons/Guns/Cock/clake_cock.ogg #imp
 #imp edit begin; weapon melee
   - type: MeleeWeapon
     range: 0.8
@@ -78,22 +84,68 @@
     distance: 0.8
     speed: 5
 #imp edit end
+  - type: GunRequiresWield
+  - type: StaticPrice
+    price: 10000
 
 - type: entity
-  name: RPG-7V9 #imp
+  parent: [ BaseWeaponLauncher, BaseGunWieldable, BaseMajorContraband ]
+  id: WeaponLauncherHydra
+  name: hydra
+  description: PLOOP... FSSSSSS
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Launchers/hydra_launcher.rsi
+    layers:
+    - state: icon
+      map: [ "enum.GunVisualLayers.Base" ]
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Launchers/hydra_launcher.rsi
+    slots:
+    - Back
+    - suitStorage
+  - type: Item
+    size: Huge
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+  - type: GunRequiresWield
+  - type: ContainerContainer
+    containers:
+      revolver-ammo: !type:Container
+  - type: RevolverAmmoProvider
+    whitelist:
+      tags:
+      - Grenade
+    proto: GrenadeCleanade
+    capacity: 6
+    chambers: [ True, True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null, null ]
+    soundEject:
+      path: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/sfrifle_magin.ogg
+
+- type: entity
+  name: RPG-7V9
   parent: [ BaseWeaponLauncher, BaseMajorContraband ]
   id: WeaponLauncherRocket
   description: An old anti-tank rocket-propelled grenade launcher, remade for the modern age. #imp
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Launchers/rocket.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Launchers/rocket.rsi #imp
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Launchers/rocket.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Launchers/rocket.rsi #imp
   - type: Gun
     fireRate: 0.5
     soundGunshot:
@@ -206,7 +258,7 @@
   description: Kaboom!
   components:
     - type: Sprite
-      sprite: Objects/Weapons/Guns/Launchers/pirate_cannon.rsi
+      sprite: _Impstation/Objects/Weapons/Guns/Launchers/pirate_cannon.rsi #imp
       layers:
         - state: icon
           map: ["enum.GunVisualLayers.Base"]
@@ -217,7 +269,7 @@
           ents: []
       type: ContainerContainer
     - type: Clothing
-      sprite: Objects/Weapons/Guns/Launchers/pirate_cannon.rsi
+      sprite: _Impstation/Objects/Weapons/Guns/Launchers/pirate_cannon.rsi #imp
     - type: Gun
       fireRate: 1
       soundGunshot:
@@ -263,10 +315,10 @@
   - BaseItem
   - PowerCellSlotMediumItem
   id: WeaponTetherGun
-  description: Manipulates gravity around objects to fling them at high velocities.
+  description: You can call it the Zero-Point Energy Field Manipulator if you really want to. # imp; this thing isn't for flinging
   components:
     - type: Item
-      storedRotation: -90
+      size: Normal
     - type: TetherGun
       frequency: 5
       dampingRatio: 4
@@ -282,7 +334,7 @@
           map: [ "unshaded" ]
           shader: unshaded
           visible: false
-    - type: ToggleableLightVisuals
+    - type: ToggleableVisuals
       spriteLayer: unshaded
       inhandVisuals:
         left:
@@ -325,10 +377,10 @@
     - BaseItem
     - PowerCellSlotMediumItem
   id: WeaponForceGun
-  description: Manipulates gravity around objects to fling them at high velocities.
+  description: Pulls stuff, then throws stuff, probably hitting someone. # imp
   components:
     - type: Item
-      storedRotation: -90
+      size: Normal
     - type: ForceGun
       frequency: 15
       dampingRatio: 4
@@ -350,7 +402,7 @@
           map: [ "unshaded" ]
           shader: unshaded
           visible: false
-        - type: ToggleableLightVisuals
+        - type: ToggleableVisuals
           spriteLayer: unshaded
           inhandVisuals:
             left:
@@ -391,7 +443,14 @@
   name: grappling gun
   parent: BaseItem
   id: WeaponGrapplingGun
+  description: A gun that pulls its user towards its target. Useful for getting around while off-grid, or doing some anime shit. # imp; it seriously didn't have a description before
   components:
+    - type: Item
+      size: Small
+      shape:
+      - 0,0,1,0
+      - 0,1,0,1
+      storedOffset: 0,-6
     - type: AmmoCounter
     - type: GrapplingGun
     - type: Gun
@@ -425,8 +484,10 @@
   parent: BaseItem
   id: WeaponTetherGunAdmin
   suffix: Admeme
-  description: Manipulates gravity around objects to fling them at high velocities.
+  description: Counter-resonant singularity device. # imp edit
   components:
+    - type: Item
+      size: Normal
     - type: TetherGun
       canTetherAlive: true
       canUnanchor: true
@@ -442,7 +503,7 @@
           map: [ "unshaded" ]
           shader: unshaded
           visible: false
-    - type: ToggleableLightVisuals
+    - type: ToggleableVisuals
       spriteLayer: unshaded
       inhandVisuals:
         left:
@@ -487,8 +548,10 @@
   parent: BaseItem
   id: WeaponForceGunAdmin
   suffix: Admeme
-  description: Manipulates gravity around objects to fling them at high velocities.
+  description: A gun for the admin who'll ban you forever. # imp edit
   components:
+    - type: Item
+      size: Normal
     - type: ForceGun
       canTetherAlive: true
       canUnanchor: true
@@ -507,7 +570,7 @@
           map: [ "unshaded" ]
           shader: unshaded
           visible: false
-    - type: ToggleableLightVisuals
+    - type: ToggleableVisuals
       spriteLayer: unshaded
       inhandVisuals:
         left:

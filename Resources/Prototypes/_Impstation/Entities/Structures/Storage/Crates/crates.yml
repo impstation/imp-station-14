@@ -15,7 +15,7 @@
   description: A crate full of tchotchkes and toys to celebrate love.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Storage/valentinescrate.rsi
+    sprite: _Impstation/Structures/Storage/Crates/valentinescrate.rsi
     layers:
     - state: crate
       map: ["enum.StorageVisualLayers.Base"]
@@ -29,7 +29,7 @@
       offset: "0.0,-0.09375"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: Icon
-    sprite: _Impstation/Objects/Storage/valentinescrate.rsi
+    sprite: _Impstation/Structures/Storage/Crates/valentinescrate.rsi
     state: crate_icon
   - type: Appearance
   - type: EntityStorageVisuals
@@ -37,24 +37,55 @@
     stateDoorClosed: crate_door
 
 - type: entity
-  id: CrateValentinesFilled
-  parent: CrateValentines
-  name: romantic crate
-  suffix: filled
+  parent: CrateGeneric
+  id: CrateAnniversary
+  name: anniversary crate
+  description: You feel like a year has passed since you last saw this crate.
   components:
-  - type: StorageFill
-    contents:
-    - id: ItemBouquet
-    - id: PlushieHeadofPersonnel
-    - id: PlushieCaptain
-    - id: PlushieGiantBear
-    - id: BoxMacarons
-      amount: 3
-    - id: BoxConversationHeart
-      amount: 3
-    - id: BoxChocolateHearts
-      amount: 2
-    - id: HeartLocket
-    - id: FoodGummyWorm
-      prob: 0.01
+  - type: Sprite
+    sprite: _Impstation/Structures/Storage/Crates/anniversarycrate.rsi
+    layers:
+    - state: crate
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: crate_door
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "0.0,-0.09375"
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: Icon
+    sprite: _Impstation/Structures/Storage/Crates/anniversarycrate.rsi
+    state: crate_icon
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateDoorOpen: crate_open
+    stateDoorClosed: crate_door
+
+- type: entity
+  id: CrateSyndicateChaplain
+  parent: CratePlastic
+  name: ark of umbra
+  description: Appears to be made of a fine wood of a gorgeous, deep purple hue. Suspiciously light.
+  components:
+  - type: Icon
+    sprite: _Impstation/Structures/Storage/Crates/ark_of_umbra.rsi
+  - type: Sprite
+    sprite: _Impstation/Structures/Storage/Crates/ark_of_umbra.rsi
+    layers: #needed to be redefined from CrateGeneric since the size of the base sprite is not consistent with other crates
+    - state: base
+      map: [ "enum.StorageVisualLayers.Base" ]
+    - state: closed
+      map: [ "enum.StorageVisualLayers.Door" ]
+    - state: welded
+      visible: false
+      map: [ "enum.WeldableLayers.BaseWelded" ]
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      map: [ "enum.PaperLabelVisuals.Layer" ]
+      offset: 0.0, -0.0625
+    - state: open #removed the offset inherited from CrateGeneric and edited the open sprite, since it's able to fit within the 32x32 bounds
+      map: [ open_crate ]
 

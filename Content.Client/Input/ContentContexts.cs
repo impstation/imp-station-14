@@ -34,7 +34,6 @@ namespace Content.Client.Input
             common.AddFunction(ContentKeyFunctions.RotateStoredItem);
             common.AddFunction(ContentKeyFunctions.SaveItemLocation);
             common.AddFunction(ContentKeyFunctions.Point);
-            common.AddFunction(ContentKeyFunctions.ToggleStanding); // WD EDIT
 			common.AddFunction(ContentKeyFunctions.ZoomOut);
             common.AddFunction(ContentKeyFunctions.ZoomIn);
             common.AddFunction(ContentKeyFunctions.ResetZoom);
@@ -60,7 +59,9 @@ namespace Content.Client.Input
             human.AddFunction(EngineKeyFunctions.MoveLeft);
             human.AddFunction(EngineKeyFunctions.MoveRight);
             human.AddFunction(EngineKeyFunctions.Walk);
+            human.AddFunction(ContentKeyFunctions.ToggleKnockdown);
             human.AddFunction(ContentKeyFunctions.SwapHands);
+            human.AddFunction(ContentKeyFunctions.SwapHandsReverse);
             human.AddFunction(ContentKeyFunctions.Drop);
             human.AddFunction(ContentKeyFunctions.UseItemInHand);
             human.AddFunction(ContentKeyFunctions.AltUseItemInHand);
@@ -105,6 +106,7 @@ namespace Content.Client.Input
             aghost.AddFunction(EngineKeyFunctions.MoveRight);
             aghost.AddFunction(EngineKeyFunctions.Walk);
             aghost.AddFunction(ContentKeyFunctions.SwapHands);
+            aghost.AddFunction(ContentKeyFunctions.SwapHandsReverse);
             aghost.AddFunction(ContentKeyFunctions.Drop);
             aghost.AddFunction(ContentKeyFunctions.UseItemInHand);
             aghost.AddFunction(ContentKeyFunctions.AltUseItemInHand);

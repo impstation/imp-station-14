@@ -1,3 +1,5 @@
+using System.Collections.Frozen;
+using System.Linq;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
@@ -5,10 +7,9 @@ using Content.Shared.Database;
 using Content.Shared.EntityEffects;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using System.Collections.Frozen;
-using System.Linq;
 
 
 namespace Content.Shared.Chemistry.Reaction
@@ -16,13 +17,19 @@ namespace Content.Shared.Chemistry.Reaction
     public sealed class ChemicalReactionSystem : EntitySystem
     {
         /// <summary>
+        /// Foam reaction protoId.
+        /// </summary>
+        public static readonly ProtoId<ReactionPrototype> FoamReaction = "Foam";
+
+        /// <summary>
         ///     The maximum number of reactions that may occur when a solution is changed.
         /// </summary>
         private const int MaxReactionIterations = 20;
 
+        [Dependency] private readonly INetManager _netMan = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+        [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
 
         /// <summary>
@@ -166,27 +173,8 @@ namespace Content.Shared.Chemistry.Reaction
 
             var energy = reaction.ConserveEnergy ? solution.GetThermalEnergy(_prototypeManager) : 0;
 
-            List<ReagentData> dnaDataList = new List<ReagentData>();
-
-            //save reactant DNA to DNAlist
-            if (reaction.PreserveDNA)
-            {
-
-                foreach (var reagent in solution.Contents)
-                {
-
-                    foreach (var data in reagent.Reagent.EnsureReagentData())
-                    {
-                        if (data is DnaData)
-                        {
-                            dnaDataList.Add((data));
-                        }
-                    }
-                }
-            }
-
             //Remove reactants
-            foreach (KeyValuePair<string, ReactantPrototype> reactant in reaction.Reactants)
+            foreach (var reactant in reaction.Reactants)
             {
                 if (!reactant.Value.Catalyst)
                 {
@@ -200,7 +188,7 @@ namespace Content.Shared.Chemistry.Reaction
             foreach (var product in reaction.Products)
             {
                 products.Add(product.Key);
-                solution.AddReagent(new ReagentId(product.Key, dnaDataList), product.Value * unitReactions);
+                solution.AddReagent(product.Key, product.Value * unitReactions);
             }
 
             if (reaction.ConserveEnergy)
@@ -209,7 +197,6 @@ namespace Content.Shared.Chemistry.Reaction
                 if (newCap > 0)
                     solution.Temperature = energy / newCap;
             }
-
 
             OnReaction(soln, reaction, null, unitReactions);
 
@@ -240,7 +227,11 @@ namespace Content.Shared.Chemistry.Reaction
                 effect.Effect(args);
             }
 
-            _audio.PlayPvs(reaction.Sound, soln);
+            // Someday, some brave soul will thread through an optional actor
+            // argument in from every call of OnReaction up, all just to pass
+            // it to PlayPredicted. I am not that brave soul.
+            if (_netMan.IsServer)
+                _audio.PlayPvs(reaction.Sound, soln);
         }
 
         /// <summary>
@@ -250,7 +241,6 @@ namespace Content.Shared.Chemistry.Reaction
         /// </summary>
         private bool ProcessReactions(Entity<SolutionComponent> soln, SortedSet<ReactionPrototype> reactions, ReactionMixerComponent? mixerComponent)
         {
-            HashSet<ReactionPrototype> toRemove = new();
             List<string>? products = null;
 
             // attempt to perform any applicable reaction
@@ -258,7 +248,6 @@ namespace Content.Shared.Chemistry.Reaction
             {
                 if (!CanReact(soln, reaction, mixerComponent, out var unitReactions))
                 {
-                    toRemove.Add(reaction);
                     continue;
                 }
 

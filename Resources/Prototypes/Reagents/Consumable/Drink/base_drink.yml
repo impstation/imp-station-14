@@ -2,7 +2,8 @@
   id: BaseDrink
   group: Drinks
   abstract: true
-  slippery: true
+  slipData:
+    requiredSlipSpeed: 3.5
   metabolisms:
     Drink:
       effects:
@@ -37,15 +38,16 @@
   - !type:PlantAdjustHealth
     amount: -0.1
   footstepSound:
-    collection: FootstepSticky
-    params:
-      volume: 6
+    collection: FootstepSlime
   fizziness: 0.5
 
 - type: reagent
   id: BaseAlcohol
   group: Drinks
   abstract: true
+  slipData:
+    requiredSlipSpeed: 3.5
+  friction: 0.4
   metabolisms:
     Drink:
       effects:
@@ -74,29 +76,4 @@
   abstract: true
   flavor: sweet
   footstepSound:
-    collection: FootstepSticky
-    params:
-      volume: 6
-
-- type: reagent
-  id: BaseAsterade
-  parent: BaseDrink
-  abstract: true
-  flavor: salty
-  footstepSound:
-    collection: FootstepSticky
-    params:
-      volume: 6
-  metabolisms:
-    Drink:
-      effects:
-        - !type:SatiateThirst
-          factor: 6
-        - !type:ModifyBloodLevel
-          amount: 3
-  metamorphicSprite:
-    sprite: Objects/Consumable/Drinks/asterade.rsi
-    state: icon_empty
-  metamorphicMaxFillLevels: 6
-  metamorphicFillBaseName: fill-
-  metamorphicChangeColor: true
+    collection: FootstepSlime

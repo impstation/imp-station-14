@@ -1,12 +1,4 @@
 - type: trait
-  id: Hemophilia
-  name: trait-hemophilia-name
-  description: trait-hemophilia-desc
-  category: Disabilities
-  components:
-    - type: Hemophilia
-
-- type: trait
   id: RandomUnrevivable
   name: trait-random-unrevivable-name
   description: trait-random-unrevivable-desc
@@ -116,3 +108,11 @@
     minimumWait: 300
     maximumWait: 600 # triggers once every 5-10 minutes
     learnChance: 0.1
+
+- type: trait
+  id: UnadaptedToSpace
+  name: trait-unadapted-to-space-name
+  description: trait-unadapted-to-space-desc
+  category: Disabilities
+  components:
+  - type: UnadaptedToSpace

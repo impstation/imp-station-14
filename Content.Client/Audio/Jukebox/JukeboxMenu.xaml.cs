@@ -30,6 +30,7 @@ public sealed partial class JukeboxMenu : FancyWindow
     public event Action? OnStopPressed;
     public event Action<ProtoId<JukeboxPrototype>>? OnSongSelected;
     public event Action<float>? SetTime;
+    public event Action<JukeboxPlaybackMode>? OnModeChanged; // Frontier
 
     private EntityUid? _audio;
 
@@ -62,6 +63,19 @@ public sealed partial class JukeboxMenu : FancyWindow
         };
         PlaybackSlider.OnReleased += PlaybackSliderKeyUp;
 
+        // Frontier: Shuffle & Repeat
+        ShuffleButton.OnToggled += args =>
+        {
+            RepeatButton.Pressed = false;
+            OnModeChanged?.Invoke(ShuffleButton.Pressed ? JukeboxPlaybackMode.Shuffle : JukeboxPlaybackMode.Single);
+        };
+        RepeatButton.OnToggled += args =>
+        {
+            ShuffleButton.Pressed = false;
+            OnModeChanged?.Invoke(RepeatButton.Pressed ? JukeboxPlaybackMode.Repeat : JukeboxPlaybackMode.Single);
+        };
+        // End Frontier: Shuffle & Repeat
+
         SetPlayPauseButton(_audioSystem.IsPlaying(_audio), force: true);
     }
 
@@ -90,7 +104,9 @@ public sealed partial class JukeboxMenu : FancyWindow
 
         foreach (var entry in jukeboxProtos)
         {
-            MusicList.AddItem(entry.Name, metadata: entry.ID);
+            //imp edit -- supporting the emag songs
+            var songName = ((entry.EmagOnly) ? "#!D2NT_BEATZ!#> " : "") + entry.Name; // we literally cannot style these at time of writing, so... signify the emag songs only way we can
+            MusicList.AddItem(songName, metadata: entry.ID);
         }
     }
 
@@ -163,4 +179,20 @@ public sealed partial class JukeboxMenu : FancyWindow
             SongName.Text = "---";
         }
     }
+
+    // Frontier: Shuffle & Repeat
+    public void UpdateState(BoundUserInterfaceState state)
+    {
+        if (state is not JukeboxInterfaceState convState)
+            return;
+
+        UpdateJukeboxButtons(convState);
+    }
+
+    private void UpdateJukeboxButtons(JukeboxInterfaceState state)
+    {
+        ShuffleButton.Pressed = state.PlaybackMode == JukeboxPlaybackMode.Shuffle;
+        RepeatButton.Pressed = state.PlaybackMode == JukeboxPlaybackMode.Repeat;
+    }
+    // End Frontier: Shuffle & Repeat
 }

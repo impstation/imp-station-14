@@ -6,7 +6,7 @@
     TraitorObjectiveGroupKill: 1
     TraitorObjectiveGroupState: 1 #As in, something about your character. Alive, dead, arrested, gained an ability...
     TraitorObjectiveGroupSocial: 1 #Involves helping/harming others without killing them or stealing their stuff
-    TraitorGimmickObjectives: 0.06 #Imp: Gimmick Objectives
+    TraitorGimmickObjectives: 0.25 #Imp: Gimmick Objectives
 
 - type: weightedRandom
   id: TraitorObjectiveGroupSteal
@@ -28,7 +28,8 @@
 - type: weightedRandom
   id: TraitorObjectiveGroupKill
   weights:
-    KillRandomPersonObjective: 1
+    KillRandomPersonObjective: 0.5 # imp 1 > 0.5
+    KillOrMaroonRandomPersonObjective: 0.5 # imp
     KillRandomHeadObjective: 0.25
 
 - type: weightedRandom
@@ -90,23 +91,23 @@
     AmePartFlatpackStealObjective: 1
     ExpeditionsCircuitboardStealObjective: 1            #sup
     CargoShuttleCircuitboardStealObjective: 1
-    SalvageShuttleCircuitboardStealObjective: 1
     ClothingEyesHudBeerStealObjective: 1                #srv
     BibleStealObjective: 1
     ClothingNeckGoldmedalStealObjective: 1              #other
     ClothingNeckClownmedalStealObjective: 0.5
     #imp
-    AtmosFireSuitStealObjective: 1 #fire vuln species only
-    MopBucketStealObjective: 1 #slimes only. idk someone wanted this
-    MedTekCartridgeStealObjective: 1
-    LogProbeCartridgeStealObjective: 1
     AstroNavCartridgeStealObjective: 1
-    StockTradingCartridgeStealObjective: 1
+    AtmosFireSuitStealObjective: 1 #fire vuln species only
+    EvilSkullArtifactItemStealObjective: 1
+    HDCutterMachineStealObjective: 1
+    LogProbeCartridgeStealObjective: 1
+    MedTekCartridgeStealObjective: 1
+    MopBucketStealObjective: 1 #slimes only. idk someone wanted this
+    SecPillCanisterStealObjective: 1
     ServiceTechFabStealObjective: 1
     ShiningSpringStealObjective: 1
     ShipyardComputerCircuitboardStealObjective: 1
-    SecPillCanisterStealObjective: 1
-    EvilSkullArtifactItemStealObjective: 1
+    ClothingNeckBureaucracyMedalStealObjective: 1
 
 - type: weightedRandom
   id: ThiefObjectiveGroupStructure

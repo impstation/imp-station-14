@@ -50,6 +50,12 @@
   - type: Storage
     storageOpenSound:
       collection: BikeHorn
+      params:
+        variation: 0.125
+    storageInsertSound:
+      collection: FootstepClown
+      params:
+        variation: 0.125
 
 - type: entity
   parent: ClothingBackpackSatchel
@@ -129,7 +135,7 @@
   description: A sterile satchel for medical related needs.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Satchels/brigmedic.rsi
+    sprite: _Impstation/Clothing/Back/Satchels/brigmedic.rsi #imp
 
 - type: entity
   parent: [ClothingBackpackSatchel, BaseCommandContraband]
@@ -138,7 +144,7 @@
   description: An exclusive satchel for Nanotrasen officers.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Satchels/captain.rsi
+    sprite: _Impstation/Clothing/Back/Satchels/captain.rsi #imp
 
 - type: entity
   parent: ClothingBackpackSatchel
@@ -186,3 +192,13 @@
     maxItemSize: Huge
     grid:
     - 0,0,19,9
+
+- type: entity
+  parent: ClothingBackpackSatchelHolding
+  id: ClothingBackpackSatchelAdmin
+  name: satchel of administration
+  suffix: Admin
+  description: If you are somehow seeing this, no you're not.
+  components:
+  - type: ExplosionResistance
+    damageCoefficient: 0

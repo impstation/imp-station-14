@@ -44,9 +44,6 @@ binds:
 - function: Walk
   type: State
   key: Shift
-- function: ToggleStanding
-  type: State
-  key: R
 # Shuttle
 - function: ShuttleStrafeUp
   type: State
@@ -166,6 +163,10 @@ binds:
 - function: SwapHands
   type: State
   key: X
+- function: SwapHandsReverse
+  type: State
+  key: X
+  mod1: Shift
   # DeltaV - NanoChat keybinds Start
 - function: NanoChatNavigateUp
   type: State
@@ -209,7 +210,7 @@ binds:
   mod1: Alt
 - function: OpenCharacterMenu
   type: State
-  key: C
+  key: U
 - function: OpenEmotesMenu
   type: State
   key: Y
@@ -544,6 +545,9 @@ binds:
 - function: Arcade3
   type: State
   key: Z
+- function: ToggleKnockdown
+  type: State
+  key: C
 - function: OpenAbilitiesMenu
   type: State
   key: K
@@ -577,6 +581,46 @@ binds:
 - function: Hotbar9
   type: State
   key: Num9
+- function: HotbarShift0
+  type: State
+  key: Num0
+  mod1: Shift
+- function: HotbarShift1
+  type: State
+  key: Num1
+  mod1: Shift
+- function: HotbarShift2
+  type: State
+  key: Num2
+  mod1: Shift
+- function: HotbarShift3
+  type: State
+  key: Num3
+  mod1: Shift
+- function: HotbarShift4
+  type: State
+  key: Num4
+  mod1: Shift
+- function: HotbarShift5
+  type: State
+  key: Num5
+  mod1: Shift
+- function: HotbarShift6
+  type: State
+  key: Num6
+  mod1: Shift
+- function: HotbarShift7
+  type: State
+  key: Num7
+  mod1: Shift
+- function: HotbarShift8
+  type: State
+  key: Num8
+  mod1: Shift
+- function: HotbarShift9
+  type: State
+  key: Num9
+  mod1: Shift
 - function: MappingUnselect
   type: State
   key: MouseRight

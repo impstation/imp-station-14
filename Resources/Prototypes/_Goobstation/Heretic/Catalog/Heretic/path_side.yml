@@ -1,5 +1,20 @@
 # store catalog
 - type: listing
+  id: HereticSidePath1Sensor
+  name: knowledge-path-side-s1-sensor-name
+  description: knowledge-path-side-s1-sensor-desc
+  icon: { sprite: _Goobstation/Heretic/items.rsi, state: living_heart }
+  productHereticKnowledge: SeekersHeartRitual
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+
+- type: listing
   id: HereticSidePath3Armor
   name: knowledge-path-side-s3-armor-name
   description: knowledge-path-side-s3-armor-desc
@@ -13,7 +28,6 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 2
 
 - type: listing
   id: HereticSidePath3Flask
@@ -29,7 +43,21 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 2
+
+- type: listing
+  id: HereticSidePath3Mirror
+  name: knowledge-path-side-s3-mirror-name
+  description: knowledge-path-side-s3-mirror-desc
+  icon: { sprite: _Impstation/Heretic/wildering_mirror.rsi, state: heretic-mirror-icon }
+  productHereticKnowledge: HereticMirrorRitual
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
 
 - type: listing
   id: HereticSidePathKnowledge
@@ -44,4 +72,3 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 5

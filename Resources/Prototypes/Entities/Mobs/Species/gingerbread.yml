@@ -5,7 +5,7 @@
   id: BaseMobGingerbread
   abstract: true
   components:
-  - type: Absorbable
+  - type: GoobAbsorbable
   - type: HumanoidAppearance
     species: Gingerbread
   - type: Icon
@@ -43,6 +43,8 @@
           - MobMask
         layer:
           - MobLayer
+  - type: TypingIndicator
+    proto: gingerbread
   - type: Inventory
     femaleDisplacements:
       jumpsuit:
@@ -50,7 +52,6 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-
 
 - type: entity
   parent: BaseSpeciesDummy

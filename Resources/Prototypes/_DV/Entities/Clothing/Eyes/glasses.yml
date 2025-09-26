@@ -12,14 +12,18 @@
     modifiers:
       coefficients:
         Caustic: 0.85
+  - type: PluralName # imp
+    oneOf: plural-name-pair-1
 
 - type: entity
   parent: [ClothingEyesGlassesChemical, ShowMedicalIcons, Tier1Contraband]
   id: ClothingEyesGlassesChemicalInterdyne
-  name: interdyne chemical analysis goggles
+  name: Interdyne chemical analysis goggles # imp preference for capsing company names
   description: Goggles engineered to be unable to get a stain on the lenses. It comes with a medical HUD incorporated.
   components:
   - type: Sprite
     sprite: _DV/Clothing/Eyes/Glasses/interdynechemgoogles.rsi
   - type: Clothing
     sprite: _DV/Clothing/Eyes/Glasses/interdynechemgoogles.rsi
+  - type: PluralName # imp
+    oneOf: plural-name-pair-1

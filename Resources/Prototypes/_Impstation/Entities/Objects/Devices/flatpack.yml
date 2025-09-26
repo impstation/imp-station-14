@@ -16,8 +16,67 @@
 - type: entity
   parent: BaseFlatpack
   id: ChemMasterFlatpack
-  name: ChemMaster 4000 flatpack
+  name: chemMaster 4000 flatpack
   description: A flatpack used for constructing a ChemMaster 4000.
   components:
   - type: Flatpack
     entity: ChemMaster
+
+- type: entity
+  parent: BaseFlatpack
+  id: JukeboxFlatpack
+  name: jukebox flatpack
+  description: A flatpack used for constructing a Jukebox.
+  components:
+  - type: Flatpack
+    entity: Jukebox
+
+- type: entity
+  parent: [ BaseFlatpack, BaseSyndicateContraband ]
+  id: SyndicateMicrowaveFlatpack
+  name: donk co. microwave flatpack
+  description: A flatpack used for constructing a donk co. microwave. Smaller than conventional flatpacks.
+  components:
+  - type: Flatpack
+    entity: SyndicateMicrowave
+  - type: Item
+    size: Normal
+
+- type: entity
+  parent: [ BaseFlatpack, BaseSyndicateContraband ]
+  id: SyndicateElectricRangeFlatpack
+  name: donk co. oven flatpack
+  description: A flatpack used for constructing a donk co. Oven. Smaller than conventional flatpacks.
+  components:
+  - type: Flatpack
+    entity: SyndicateKitchenElectricRange
+  - type: Item
+    size: Normal
+
+- type: entity
+  parent: BaseFlatpack
+  id: ApidSeatFlatpack
+  name: apid seat flatpack
+  description: A flatpack used for constructing an apid seat.
+  components:
+  - type: Flatpack
+    entity: ChairApid
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay
+      color: "#98ee35"
+    - state: icon-default
+  - type: Item
+    size: Normal
+
+- type: entity
+  parent: [ BaseFlatpack, BaseSyndicateContraband ]
+  id: SyndicateDocumentPrinterFlatpack
+  name: Syndicate document printer flatpack
+  description: A flatpack used for constructing a Syndicate document printer. Smaller than conventional flatpacks.
+  components:
+  - type: Flatpack
+    entity: PrinterDocSyndicate
+  - type: Item
+    size: Normal

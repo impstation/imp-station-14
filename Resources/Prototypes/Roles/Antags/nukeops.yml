@@ -33,20 +33,16 @@
   setPreference: true
   objective: roles-antag-nuclear-operative-commander-objective
   requirements:
-  - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 27000 # 7.5 hours
-  - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 27000 # 7.5 hours
-  - !type:DepartmentTimeRequirement
-      department: Security
-      time: 27000 # 7.5 hours
-  - !type:DepartmentTimeRequirement
-      department: Command
-      time: 27000 # 7.5 hours
-  # this is half the requirements to unlock captain, and should be enough for a nuke ops commander to have a basic, broad understanding of the game
-  # should be changed to nukie playtime when thats tracked (wyci)
+  # imp edit start, added general nukie requirment
+  #- !type:OverallPlaytimeRequirement
+  #  time: 18000 # 5h
+  #- !type:DepartmentTimeRequirement
+  #  department: Security
+  #  time: 18000 # 5h
+  - !type:AntagGroupTimeRequirement
+    antagGroup: Nukies
+    time: 14400 # 4h
+  # imp edit end
   guides: [ NuclearOperatives ]
 
 - type: startingGear
@@ -76,6 +72,15 @@
   equipment:
     pocket2: BaseUplinkRadio40TC
 
+- type: chameleonOutfit
+  id: NukeopsOutfit
+  name: roles-antag-nuclear-operative-name
+  startingGear: SyndicateOperativeGearFullNoUplink
+  icon: "JobIconSyndicate"
+  equipment:
+    head: ClothingHeadHelmetHardsuitSyndie
+    neck: ClothingNeckScarfStripedSyndieRed
+
 #Nuclear Operative Commander Gear
 - type: startingGear
   id: SyndicateCommanderGearFull
@@ -91,6 +96,15 @@
     - NukieSpectralLocator # Imp special!!
   inhand:
   - NukeOpsDeclarationOfWar
+
+- type: chameleonOutfit
+  id: NukeopsCommanderOutfit
+  name: roles-antag-nuclear-operative-commander-name
+  startingGear: SyndicateCommanderGearFull
+  icon: "JobIconSyndicate"
+  equipment:
+    head: ClothingHeadHelmetHardsuitSyndieCommander
+    neck: ClothingNeckScarfStripedSyndieGreen
 
 #Nuclear Operative Medic Gear
 - type: startingGear
@@ -113,6 +127,15 @@
     - HandheldHealthAnalyzer
     - CombatMedipen
     - DeathAcidifierImplanter
+
+- type: chameleonOutfit
+  id: NukeopsMedicOutfit
+  name: roles-antag-nuclear-operative-agent-name
+  startingGear: SyndicateOperativeMedicFull
+  icon: "JobIconSyndicate"
+  equipment:
+    head: ClothingHeadHelmetHardsuitSyndieMedic
+    neck: ClothingNeckScarfStripedLightBlue
 
 #Lone Operative Gear
 - type: startingGear

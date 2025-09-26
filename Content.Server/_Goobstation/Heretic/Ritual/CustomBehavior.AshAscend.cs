@@ -1,14 +1,15 @@
-using Content.Server.Atmos.Components;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Heretic.Prototypes;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.Ritual;
-
 public sealed partial class RitualAshAscendBehavior : RitualSacrificeBehavior
 {
-    private List<EntityUid> burningUids = new();
+    [Dependency] private readonly DamageableSystem _damage = default!;
+    private IPrototypeManager _proto = default!;
+    private List<EntityUid> _burningUids = new();
 
     // check for burning corpses
     public override bool Execute(RitualData args, out string? outstr)
@@ -18,12 +19,12 @@ public sealed partial class RitualAshAscendBehavior : RitualSacrificeBehavior
 
         for (int i = 0; i < Max; i++)
         {
-            if (args.EntityManager.TryGetComponent<FlammableComponent>(uids[i], out var flam))
+            if (args.EntityManager.TryGetComponent<FlammableComponent>(Uids[i], out var flam))
                 if (flam.OnFire)
-                    burningUids.Add(uids[i]);
+                    _burningUids.Add(Uids[i]);
         }
 
-        if (burningUids.Count < Min)
+        if (_burningUids.Count < Min)
         {
             outstr = Loc.GetString("heretic-ritual-fail-sacrifice-ash");
             return false;
@@ -35,18 +36,10 @@ public sealed partial class RitualAshAscendBehavior : RitualSacrificeBehavior
 
     public override void Finalize(RitualData args)
     {
-        for (int i = 0; i < Max; i++)
-        {
-            // YES!!! ASH!!!
-            if (args.EntityManager.TryGetComponent<DamageableComponent>(uids[i], out var dmg))
-            {
-                var prot = (ProtoId<DamageGroupPrototype>) "Burn";
-                var dmgtype = _proto.Index(prot);
-                _damage.TryChangeDamage(uids[i], new DamageSpecifier(dmgtype, 3984f), true);
-            }
-        }
+        base.Finalize(args);
 
         // reset it because blehhh
-        uids = new();
+        _burningUids = new List<EntityUid>();
+        Uids = new List<EntityUid>();
     }
 }

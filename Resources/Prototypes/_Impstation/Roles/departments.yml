@@ -5,6 +5,7 @@
   color: "#9FED58" #imp edit, grey for the greytide
   weight: -10
   roles:
+  # roundstart
   - HospitalityDirector
   - Bartender
   - Botanist
@@ -13,14 +14,14 @@
   - Chef
   - Clown
   - Janitor
-  - Lawyer
   - Librarian
   - Mime
   - Musician
   - Reporter
-  - Visitor
   - Zookeeper
+  # non-roundstart
   - ServiceWorker
+  - Visitor
 
 #Used for HD playtime requirments
 - type: department
@@ -31,7 +32,7 @@
   roles:
   - Bartender
   - Chef
-  - ServiceWorker
+  #- ServiceWorker
   primary: false
   editorHidden: true
   manifestHidden: true

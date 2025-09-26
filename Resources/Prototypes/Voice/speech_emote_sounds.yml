@@ -509,10 +509,26 @@
       path: /Audio/Voice/Moth/moth_chitter.ogg
     Squeak:
       path: /Audio/Voice/Moth/moth_squeak.ogg
+    Sneeze: # imp
+      collection: UnisexSneezes #placeholder
+    Cough: # imp
+      collection: UnisexCoughs #placeholder
+    Yawn: # imp
+      collection: UnisexYawn #placeholder
+    Sigh: # imp
+      collection: UnisexSigh #placeholder
+    Crying: # imp
+      collection: UnisexCry #placeholder
+    Whistle: # imp
+      collection: Whistles
     Weh:
       collection: Weh
     Hew:
       collection: Hew
+    Wuhey: # imp
+      collection: Wuhey
+    Ungh: # imp
+      collection: Ungh
     Honk:
       collection: BikeHorn
     Gasp:
@@ -526,7 +542,7 @@
     variation: 0.05
   sounds:
     Scream:
-      collection: SiliconScreams # Imp addition
+      path: /Audio/_Impstation/Voice/Silicon/silicon_scream.ogg # imp
     Beep:
       path: /Audio/Machines/twobeep.ogg
     Chime:
@@ -539,6 +555,8 @@
       path: /Audio/Items/bikehorn.ogg
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
+    Laugh: # imp
+      path: /Audio/_Impstation/Voice/Silicon/silicon_laugh.ogg # imp
 
 - type: emoteSounds
   id: UnisexSiliconSyndicate
@@ -546,7 +564,7 @@
     variation: 0.05
   sounds:
     Scream:
-      collection: SiliconScreams # Imp addition
+      collection: SiliconScreams
     Laugh:
       path: /Audio/Voice/Silicon/syndieborg_laugh.ogg
     Beep:
@@ -561,6 +579,28 @@
       path: /Audio/Items/bikehorn.ogg
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
+
+- type: emoteSounds
+  id: UnisexSiliconXenoborg
+  params:
+    variation: 0.05
+  sounds:
+    Scream:
+      collection: XenoborgScream
+    Laugh:
+      collection: XenoborgLaugh
+    Beep:
+      collection: XenoborgBeep
+    Chime:
+      collection: XenoborgChime
+    Buzz:
+      collection: XenoborgBuzz
+    Buzz-Two:
+      collection: XenoborgBuzzTwo
+    Honk:
+      collection: XenoborgBikeHorn
+    Ping:
+      collection: XenoborgPing
 
 # body emotes
 - type: emoteSounds
@@ -582,6 +622,7 @@
       collection: Blinks
       params:
         volume: -3
+        variation: 0.1
 
 - type: emoteSounds
   id: DionaBodyEmotes
@@ -603,6 +644,7 @@
       collection: Blinks
       params:
         volume: -3
+        variation: 0.1
 
 - type: emoteSounds
   id: ReptilianBodyEmotes
@@ -627,6 +669,7 @@
       collection: Blinks
       params:
         volume: -3
+        variation: 0.1
 
 # mobs
 - type: emoteSounds
@@ -697,3 +740,51 @@
     path: /Audio/Animals/goat_bah.ogg
     params:
       variation: 0.125
+
+- type: emoteSounds
+  id: Scurret
+  params:
+    variation: 0.125
+  sounds:
+    Thump:
+      path: /Audio/Effects/soft_thump.ogg
+      params:
+        variation: 0.125
+    Clap:
+      collection: Claps
+    ClapSingle:
+      collection: ClapSingle
+    Snap:
+      collection: Snaps
+      params:
+        volume: -6
+    Salute:
+      collection: Salutes
+    Laugh:
+      collection: WawaLaugh
+    Sneeze:
+      collection: WawaSneeze
+    Cough:
+      collection: MaleCoughs
+    Whistle:
+      collection: Whistles
+    Sigh:
+      collection: WawaSigh
+    Scream:
+      collection: WawaScream
+    Yawn:
+      collection: WawaYawn
+    Crying:
+      collection: WawaCry
+    Snore:
+      collection: Snores
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Honk:
+      collection: BikeHorn
+    Gasp:
+      collection: MaleGasp
+    DefaultDeathgasp:
+      collection: WawaDeath

@@ -35,6 +35,10 @@
     containers:
       stash: !type:ContainerSlot {}
   - type: Pullable
+  - type: MultiHandedItem
+  - type: Item
+    sprite: Structures/Furniture/potted_plants.rsi
+    size: Huge
   - type: Damageable
     damageContainer: StructuralInorganic # The pot. Not the plant. Or is it plastic?
   - type: Destructible
@@ -55,6 +59,12 @@
   components:
   - type: Sprite
     state: applebush #whoever named this texture in the rsi sucks
+  - type: Item # imp
+    inhandVisuals:
+      left:
+      - state: applebush
+      right:
+      - state: applebush
 
 - type: entity
   id: PottedPlant1
@@ -62,6 +72,12 @@
   components:
   - type: Sprite
     state: plant-01
+  - type: Item # imp
+    inhandVisuals:
+      left:
+      - state: plant-01
+      right:
+      - state: plant-01
 
 - type: entity
   id: PottedPlant2
@@ -69,6 +85,12 @@
   components:
   - type: Sprite
     state: plant-02
+  - type: Item # imp
+    inhandVisuals:
+      left:
+      - state: plant-02
+      right:
+      - state: plant-02
 
 - type: entity
   id: PottedPlant3
@@ -76,6 +98,12 @@
   components:
   - type: Sprite
     state: plant-03
+  - type: Item # imp
+    inhandVisuals:
+      left:
+      - state: plant-03
+      right:
+      - state: plant-03
 
 - type: entity
   id: PottedPlant4
@@ -83,6 +111,12 @@
   components:
   - type: Sprite
     state: plant-04
+  - type: Item # imp
+    inhandVisuals:
+      left:
+      - state: plant-04
+      right:
+      - state: plant-04
 
 - type: entity
   id: PottedPlant5
@@ -90,6 +124,12 @@
   components:
   - type: Sprite
     state: plant-05
+  - type: Item # imp
+    inhandVisuals:
+      left:
+      - state: plant-05
+      right:
+      - state: plant-05
 
 - type: entity
   id: PottedPlant6
@@ -97,6 +137,12 @@
   components:
   - type: Sprite
     state: plant-06
+  - type: Item # imp
+    inhandVisuals:
+      left:
+      - state: plant-06
+      right:
+      - state: plant-06
 
 - type: entity
   id: PottedPlant7
@@ -104,6 +150,12 @@
   components:
   - type: Sprite
     state: plant-07
+  - type: Item # imp
+    inhandVisuals:
+      left:
+      - state: plant-07
+      right:
+      - state: plant-07
 
 - type: entity
   id: PottedPlant8
@@ -111,6 +163,12 @@
   components:
   - type: Sprite
     state: plant-08
+  - type: Item # imp
+    inhandVisuals:
+      left:
+      - state: plant-08
+      right:
+      - state: plant-08
 
 - type: entity
   id: PottedPlantBioluminscent #PottedPlant9 but i didn't want map conflicts
@@ -123,6 +181,12 @@
   - type: PointLight
     radius: 2
     color: "#2cb2e8"
+  - type: Item # imp
+    inhandVisuals:
+      left:
+      - state: plant-09
+      right:
+      - state: plant-09
 
 - type: entity
   id: PottedPlant10
@@ -131,6 +195,12 @@
   components:
   - type: Sprite
     state: plant-10
+  - type: Item # imp
+    inhandVisuals:
+      left:
+      - state: plant-10
+      right:
+      - state: plant-10
 
 - type: entity
   id: PottedPlant11
@@ -138,6 +208,12 @@
   components:
   - type: Sprite
     state: plant-11
+  - type: Item # imp
+    inhandVisuals:
+      left:
+      - state: plant-11
+      right:
+      - state: plant-11
 
 - type: entity
   id: PottedPlant12
@@ -145,6 +221,12 @@
   components:
   - type: Sprite
     state: plant-12
+  - type: Item # imp
+    inhandVisuals:
+      left:
+      - state: plant-12
+      right:
+      - state: plant-12
 
 - type: entity
   id: PottedPlant13
@@ -152,6 +234,12 @@
   components:
   - type: Sprite
     state: plant-13
+  - type: Item # imp
+    inhandVisuals:
+      left:
+      - state: plant-13
+      right:
+      - state: plant-13
 
 - type: entity
   id: PottedPlant14
@@ -159,6 +247,12 @@
   components:
   - type: Sprite
     state: plant-14
+  - type: Item # imp
+    inhandVisuals:
+      left:
+      - state: plant-14
+      right:
+      - state: plant-14
 
 - type: entity
   id: PottedPlant15
@@ -166,6 +260,12 @@
   components:
   - type: Sprite
     state: plant-15
+  - type: Item # imp
+    inhandVisuals:
+      left:
+      - state: plant-15
+      right:
+      - state: plant-15
 
 - type: entity
   id: PottedPlant16
@@ -173,6 +273,12 @@
   components:
   - type: Sprite
     state: plant-16
+  - type: Item # imp
+    inhandVisuals:
+      left:
+      - state: plant-16
+      right:
+      - state: plant-16
 
 - type: entity
   id: PottedPlant17
@@ -180,6 +286,12 @@
   components:
   - type: Sprite
     state: plant-17
+  - type: Item # imp
+    inhandVisuals:
+      left:
+      - state: plant-17
+      right:
+      - state: plant-17
 
 - type: entity
   id: PottedPlant18
@@ -187,6 +299,12 @@
   components:
   - type: Sprite
     state: plant-18
+  - type: Item # imp
+    inhandVisuals:
+      left:
+      - state: plant-18
+      right:
+      - state: plant-18
 
 - type: entity
   id: PottedPlant19
@@ -194,6 +312,12 @@
   components:
   - type: Sprite
     state: plant-19
+  - type: Item # imp
+    inhandVisuals:
+      left:
+      - state: plant-19
+      right:
+      - state: plant-19
 
 - type: entity
   id: PottedPlant20
@@ -201,6 +325,12 @@
   components:
   - type: Sprite
     state: plant-20
+  - type: Item # imp
+    inhandVisuals:
+      left:
+      - state: plant-20
+      right:
+      - state: plant-20
 
 - type: entity
   id: PottedPlant21
@@ -208,6 +338,12 @@
   components:
   - type: Sprite
     state: plant-21
+  - type: Item # imp
+    inhandVisuals:
+      left:
+      - state: plant-21
+      right:
+      - state: plant-21
 
 - type: entity
   id: PottedPlant22
@@ -215,6 +351,12 @@
   components:
   - type: Sprite
     state: plant-22
+  - type: Item # imp
+    inhandVisuals:
+      left:
+      - state: plant-22
+      right:
+      - state: plant-22
 
 - type: entity
   id: PottedPlant23
@@ -222,6 +364,12 @@
   components:
   - type: Sprite
     state: plant-23
+  - type: Item # imp
+    inhandVisuals:
+      left:
+      - state: plant-23
+      right:
+      - state: plant-23
 
 - type: entity
   id: PottedPlant24
@@ -229,6 +377,12 @@
   components:
   - type: Sprite
     state: plant-24
+  - type: Item # imp
+    inhandVisuals:
+      left:
+      - state: plant-24
+      right:
+      - state: plant-24
 
 - type: entity
   id: PottedPlantRD #PottedPlant25
@@ -240,6 +394,12 @@
     state: plant-25
   - type: StealTarget
     stealGroup: PlantRD
+  - type: Item # imp
+    inhandVisuals:
+      left:
+      - state: plant-25
+      right:
+      - state: plant-25
 
 - type: entity
   id: PottedPlant26
@@ -248,6 +408,12 @@
   components:
   - type: Sprite
     state: plant-26
+  - type: Item # imp
+    inhandVisuals:
+      left:
+      - state: plant-26
+      right:
+      - state: plant-26
 
 #these are all the plastic plants. They inherit from the first one because they don't have
 #enough differences to warrant getting a unique abstract prototype. It's just the name and description.
@@ -259,6 +425,12 @@
   components:
   - type: Sprite
     state: plant-27
+  - type: Item # imp
+    inhandVisuals:
+      left:
+      - state: plant-27
+      right:
+      - state: plant-27
 
 - type: entity
   id: PottedPlant28
@@ -266,6 +438,12 @@
   components:
   - type: Sprite
     state: plant-28
+  - type: Item # imp
+    inhandVisuals:
+      left:
+      - state: plant-28
+      right:
+      - state: plant-28
 
 - type: entity
   id: PottedPlant29
@@ -273,6 +451,12 @@
   components:
   - type: Sprite
     state: plant-29
+  - type: Item # imp
+    inhandVisuals:
+      left:
+      - state: plant-29
+      right:
+      - state: plant-29
 
 - type: entity
   id: PottedPlant30
@@ -280,3 +464,9 @@
   components:
   - type: Sprite
     state: plant-30
+  - type: Item # imp
+    inhandVisuals:
+      left:
+      - state: plant-30
+      right:
+      - state: plant-30

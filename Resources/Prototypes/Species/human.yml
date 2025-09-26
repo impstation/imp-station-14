@@ -21,6 +21,8 @@
 - type: speciesBaseSprites
   id: MobHumanSprites
   sprites:
+    TailBehind: MobHumanoidAnyMarking # floof
+    TailOversuit: MobHumanoidAnyMarking # floof
     Special: MobHumanoidAnyMarking
     Head: MobHumanHead
     Hair: MobHumanoidAnyMarking
@@ -50,6 +52,7 @@
     Hair:
       points: 1
       required: false
+      weight: 1 # imp
     FacialHair:
       points: 1
       required: false
@@ -63,7 +66,7 @@
       points: 1
       required: false
     HeadSide: #imp
-      points: 1
+      points: 2 #up from 1 because i moved earrings here
       required: false
     UndergarmentTop:
       points: 1
@@ -72,7 +75,7 @@
       points: 1
       required: false
     Chest:
-      points: 4
+      points: 4 # imp
       required: false
     Legs:
       points: 8 #impspecial

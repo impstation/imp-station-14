@@ -1,138 +1,136 @@
+using Content.Server.Actions;
+using Content.Server.Body.Systems;
 using Content.Server.DoAfter;
+using Content.Server.Emp;
+using Content.Server.Explosion.EntitySystems;
+using Content.Server.Flash;
+using Content.Server.Gravity;
+using Content.Server.Humanoid;
+using Content.Server.Light.EntitySystems;
+using Content.Server.Objectives.Components;
+using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Server.Store.Systems;
-using Content.Server.Zombies;
+using Content.Server.Stunnable;
+using Content.Shared.Actions;
 using Content.Shared.Alert;
-using Content.Shared.Changeling;
+using Content.Shared.Camera;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Cuffs;
 using Content.Shared.Cuffs.Components;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
+using Content.Shared.Flash.Components;
+using Content.Shared.Fluids;
 using Content.Shared.Forensics.Components;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Inventory;
+using Content.Shared.Jittering;
+using Content.Shared.Mind;
 using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Nutrition.Components;
+using Content.Shared.Polymorph;
+using Content.Shared.Popups;
+using Content.Shared.Revolutionary.Components;
+using Content.Shared.StatusEffect;
+using Content.Shared.Stealth.Components;
 using Content.Shared.Store.Components;
 using Robust.Server.Audio;
-using Robust.Shared.Audio;
-using Robust.Shared.Random;
-using Content.Shared.Popups;
-using Content.Shared.Damage;
-using Robust.Shared.Prototypes;
-using Content.Server.Body.Systems;
-using Content.Shared.Actions;
-using Content.Shared.Polymorph;
-using Robust.Shared.Serialization.Manager;
-using Content.Server.Actions;
-using Content.Server.Humanoid;
-using Content.Server.Polymorph.Components;
-using Content.Shared.Chemistry.EntitySystems;
-using Content.Server.Flash;
-using Content.Server.Emp;
 using Robust.Server.GameObjects;
-using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Inventory;
-using Content.Shared.Movement.Systems;
-using Content.Shared.Damage.Systems;
-using Content.Shared.Mind;
-using Content.Server.Objectives.Components;
-using Content.Server.Light.EntitySystems;
-using Content.Shared.Eye.Blinding.Systems;
-using Content.Shared.StatusEffect;
-using Content.Shared.Movement.Pulling.Systems;
-using Content.Shared.Cuffs;
-using Content.Shared.Fluids;
-using Content.Shared.Revolutionary.Components;
+using Robust.Shared.Audio;
 using Robust.Shared.Player;
-using System.Numerics;
-using Content.Shared.Camera;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
-using Content.Shared.Damage.Components;
-using Content.Server.Gravity;
-using Content.Shared.Mobs.Components;
-using Content.Server.Stunnable;
-using Content.Shared.Jittering;
-using Content.Server.Explosion.EntitySystems;
 using System.Linq;
-using Content.Server.Flash.Components;
-using Content.Shared.Stealth.Components;
+using System.Numerics;
+using Content.Server._Goobstation.Objectives.Components;
+using Content.Shared._Goobstation.Changeling;
+using Content.Shared.Zombies;
 
-namespace Content.Server.Changeling;
+namespace Content.Server._Goobstation.Changeling;
 
-public sealed partial class ChangelingSystem : EntitySystem
+public sealed partial class GoobChangelingSystem : EntitySystem
 {
     // this is one hell of a star wars intro text
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly IRobustRandom _rand = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly StoreSystem _store = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly BloodstreamSystem _blood = default!;
-    [Dependency] private readonly ISerializationManager _serialization = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly FlashSystem _flash = default!;
+    [Dependency] private readonly BodySystem _bodySystem = default!;
+    [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly EmpSystem _emp = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly PoweredLightSystem _light = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
-    [Dependency] private readonly StaminaSystem _stamina = default!;
-    [Dependency] private readonly GravitySystem _gravity = default!;
-    [Dependency] private readonly BlindableSystem _blindable = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
-    [Dependency] private readonly PullingSystem _pull = default!;
-    [Dependency] private readonly SharedCuffableSystem _cuffs = default!;
-    [Dependency] private readonly SharedPuddleSystem _puddle = default!;
-    [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
-    [Dependency] private readonly BodySystem _bodySystem = default!;
+    [Dependency] private readonly FlashSystem _flash = default!;
+    [Dependency] private readonly GravitySystem _gravity = default!;
+    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IRobustRandom _rand = default!;
+    [Dependency] private readonly ISerializationManager _serialization = default!;
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
+    [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
+    [Dependency] private readonly MovementModStatusSystem _movementMod = default!; // imp
+    [Dependency] private readonly PolymorphSystem _polymorph = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly PoweredLightSystem _light = default!;
+    [Dependency] private readonly PullingSystem _pull = default!;
+    [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
+    [Dependency] private readonly SharedCuffableSystem _cuffs = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly SharedJitteringSystem _jitter = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly SharedPuddleSystem _puddle = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
+    [Dependency] private readonly StoreSystem _store = default!;
+    [Dependency] private readonly StunSystem _stun = default!;
+    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly Content.Shared._Offbrand.Wounds.ShockThresholdsSystem _shockThresholds = default!; // Offbrand
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
-    public EntProtoId TentaclePrototype = "FishingRodLing"; // imp
-    public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
-
-    public EntProtoId ShieldPrototype = "ChangelingShield";
-    public EntProtoId BoneShardPrototype = "ThrowingStarChangeling";
-
-    public EntProtoId ArmorPrototype = "ChangelingClothingOuterArmor";
     public EntProtoId ArmorHelmetPrototype = "ChangelingClothingHeadHelmet";
-
-    public EntProtoId SpacesuitPrototype = "ChangelingClothingOuterHardsuit";
+    public EntProtoId ArmorPrototype = "ChangelingClothingOuterArmor";
+    public EntProtoId BoneShardPrototype = "ThrowingStarChangeling";
+    public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
+    public EntProtoId ShieldPrototype = "ChangelingShield";
     public EntProtoId SpacesuitHelmetPrototype = "ChangelingClothingHeadHelmetHardsuit";
+    public EntProtoId SpacesuitPrototype = "ChangelingClothingOuterHardsuit";
+    public EntProtoId TentaclePrototype = "FishingRodLing"; // imp
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ChangelingComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<ChangelingComponent, MobStateChangedEvent>(OnMobStateChange);
-        SubscribeLocalEvent<ChangelingComponent, DamageChangedEvent>(OnDamageChange);
-        SubscribeLocalEvent<ChangelingComponent, ComponentRemove>(OnComponentRemove);
-        SubscribeLocalEvent<ChangelingComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
+        SubscribeLocalEvent<GoobChangelingComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<GoobChangelingComponent, MobStateChangedEvent>(OnMobStateChange);
+        SubscribeLocalEvent<GoobChangelingComponent, DamageChangedEvent>(OnDamageChange);
+        SubscribeLocalEvent<GoobChangelingComponent, ComponentRemove>(OnComponentRemove);
+        SubscribeLocalEvent<GoobChangelingComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
 
         SubscribeLocalEvent<StoreComponent, StoreRefundedEvent>(OnStoreRefunded);
 
         SubscribeAbilities();
     }
 
-    private void OnRefreshSpeed(Entity<ChangelingComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
+    private void OnRefreshSpeed(Entity<GoobChangelingComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
     {
         if (ent.Comp.StrainedMusclesActive)
             args.ModifySpeed(1.25f, 1.5f);
@@ -147,10 +145,9 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        foreach (var comp in EntityManager.EntityQuery<ChangelingComponent>())
+        var query = EntityQueryEnumerator<GoobChangelingComponent>();
+        while (query.MoveNext(out var uid, out var comp))
         {
-            var uid = comp.Owner;
-
             if (_timing.CurTime < comp.UpdateTimer)
                 continue;
 
@@ -159,7 +156,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             Cycle(uid, comp);
         }
     }
-    public void Cycle(EntityUid uid, ChangelingComponent comp)
+    public void Cycle(EntityUid uid, GoobChangelingComponent comp)
     {
         UpdateChemicals(uid, comp);
 
@@ -173,7 +170,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         UpdateAbilities(uid, comp);
     }
 
-    private void UpdateChemicals(EntityUid uid, ChangelingComponent comp, float? amount = null)
+    private void UpdateChemicals(EntityUid uid, GoobChangelingComponent comp, float? amount = null)
     {
         var chemicals = comp.Chemicals;
         // either amount or regen
@@ -183,14 +180,14 @@ public sealed partial class ChangelingSystem : EntitySystem
         _alerts.ShowAlert(uid, "ChangelingChemicals");
     }
 
-    private void UpdateBiomass(EntityUid uid, ChangelingComponent comp, float? amount = null)
+    private void UpdateBiomass(EntityUid uid, GoobChangelingComponent comp, float? amount = null)
     {
         comp.Biomass += amount ?? -1;
         comp.Biomass = Math.Clamp(comp.Biomass, 0, comp.MaxBiomass);
         Dirty(uid, comp);
         _alerts.ShowAlert(uid, "ChangelingBiomass");
 
-        var random = (int) _rand.Next(1, 3);
+        var random = (int)_rand.Next(1, 3);
 
         if (comp.Biomass <= 0)
             // game over, man
@@ -210,7 +207,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             if (random == 1)
             {
                 if (TryComp<StatusEffectsComponent>(uid, out var status))
-                    _stun.TrySlowdown(uid, TimeSpan.FromSeconds(1.5f), true, 0.5f, 0.5f, status);
+                    _movementMod.TryUpdateMovementSpeedModDuration(uid, MovementModStatusSystem.VomitingSlowdown, TimeSpan.FromSeconds(1.5f), 0.5f);
 
                 var solution = new Solution();
 
@@ -237,7 +234,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         }
         else comp.BonusChemicalRegen = 0f;
     }
-    private void UpdateAbilities(EntityUid uid, ChangelingComponent comp)
+    private void UpdateAbilities(EntityUid uid, GoobChangelingComponent comp)
     {
         _speed.RefreshMovementSpeedModifiers(uid);
         if (comp.StrainedMusclesActive)
@@ -251,17 +248,17 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     #region Helper Methods
 
-    public void PlayMeatySound(EntityUid uid, ChangelingComponent comp)
+    public void PlayMeatySound(EntityUid uid, GoobChangelingComponent comp)
     {
         var rand = _rand.Next(0, comp.SoundPool.Count - 1);
         var sound = comp.SoundPool.ToArray()[rand];
         _audio.PlayPvs(sound, uid, AudioParams.Default.WithVolume(-3f));
     }
-    public void DoScreech(EntityUid uid, ChangelingComponent comp)
+    public void DoScreech(EntityUid uid, GoobChangelingComponent comp)
     {
         _audio.PlayPvs(comp.ShriekSound, uid);
 
-        var center = Transform(uid).MapPosition;
+        var center = _transform.GetMapCoordinates(uid);
         var gamers = Filter.Empty();
         gamers.AddInRange(center, comp.ShriekPower, _player, EntityManager);
 
@@ -270,7 +267,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             if (gamer.AttachedEntity == null)
                 continue;
 
-            var pos = Transform(gamer.AttachedEntity!.Value).WorldPosition;
+            var pos = _transform.GetWorldPosition(gamer.AttachedEntity!.Value);
             var delta = center.Position - pos;
 
             if (delta.EqualsApprox(Vector2.Zero))
@@ -286,18 +283,19 @@ public sealed partial class ChangelingSystem : EntitySystem
     public bool IsIncapacitated(EntityUid uid)
     {
         if (_mobState.IsIncapacitated(uid)
+        || (_brainDamage.IsCritical(uid) || _heart.IsCritical(uid) || _shockThresholds.IsCritical(uid))
         || (TryComp<CuffableComponent>(uid, out var cuffs) && cuffs.CuffedHandCount > 0))
             return true;
 
         return false;
     }
 
-    public bool TryUseAbility(EntityUid uid, ChangelingComponent comp, BaseActionEvent action)
+    public bool TryUseAbility(EntityUid uid, GoobChangelingComponent comp, BaseActionEvent action)
     {
         if (action.Handled)
             return false;
 
-        if (!TryComp<ChangelingActionComponent>(action.Action, out var lingAction))
+        if (!TryComp<GoobChangelingActionComponent>(action.Action, out var lingAction))
             return false;
 
         if (comp.Biomass < 1 && lingAction.RequireBiomass)
@@ -332,14 +330,14 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         return true;
     }
-    public bool TrySting(EntityUid uid, ChangelingComponent comp, EntityTargetActionEvent action, bool overrideMessage = false)
+    public bool TrySting(EntityUid uid, GoobChangelingComponent comp, EntityTargetActionEvent action, bool overrideMessage = false)
     {
         if (!TryUseAbility(uid, comp, action))
             return false;
 
         var target = action.Target;
 
-        if (HasComp<ChangelingComponent>(target))
+        if (HasComp<GoobChangelingComponent>(target))
         {
             _popup.PopupEntity(Loc.GetString("changeling-sting-fail-self", ("target", Identity.Entity(target, EntityManager))), uid, uid);
             _popup.PopupEntity(Loc.GetString("changeling-sting-fail-ling"), target, target);
@@ -368,7 +366,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         return true;
     }
-    public bool TryReagentSting(EntityUid uid, ChangelingComponent comp, EntityTargetActionEvent action, List<(string, FixedPoint2)> reagents)
+    public bool TryReagentSting(EntityUid uid, GoobChangelingComponent comp, EntityTargetActionEvent action, List<(string, FixedPoint2)> reagents)
     {
         var target = action.Target;
         if (!TrySting(uid, comp, action))
@@ -379,12 +377,12 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         return true;
     }
-    public bool TryToggleItem(EntityUid uid, EntProtoId proto, ChangelingComponent comp)
+    public bool TryToggleItem(EntityUid uid, EntProtoId proto, GoobChangelingComponent comp)
     {
         if (!comp.Equipment.TryGetValue(proto.Id, out var item))
         {
             item = Spawn(proto, Transform(uid).Coordinates);
-            if (!_hands.TryForcePickupAnyHand(uid, (EntityUid) item))
+            if (!_hands.TryForcePickupAnyHand(uid, (EntityUid)item))
             {
                 _popup.PopupEntity(Loc.GetString("changeling-fail-hands"), uid, uid);
                 QueueDel(item);
@@ -401,7 +399,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         return true;
     }
 
-    public bool TryToggleArmor(EntityUid uid, ChangelingComponent comp, (EntProtoId, string)[] armors)
+    public bool TryToggleArmor(EntityUid uid, GoobChangelingComponent comp, (EntProtoId, string)[] armors)
     {
         if (comp.ActiveArmor == null)
         {
@@ -436,10 +434,9 @@ public sealed partial class ChangelingSystem : EntitySystem
         }
     }
 
-    public bool TryStealDNA(EntityUid uid, EntityUid target, ChangelingComponent comp, bool countObjective = false)
+    public bool TryStealDNA(EntityUid uid, EntityUid target, GoobChangelingComponent comp, bool countObjective = false)
     {
         if (!TryComp<HumanoidAppearanceComponent>(target, out var appearance)
-        || !TryComp<MetaDataComponent>(target, out var metadata)
         || !TryComp<DnaComponent>(target, out var dna)
         || !TryComp<FingerprintComponent>(target, out var fingerprint))
         {
@@ -456,6 +453,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             }
         }
 
+        var metadata = MetaData(target);
         var data = new TransformData
         {
             Name = metadata.EntityName,
@@ -478,7 +476,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         if (countObjective
         && _mind.TryGetMind(uid, out var mindId, out var mind)
-        && _mind.TryGetObjectiveComp<StealDNAConditionComponent>(mindId, out var objective, mind))
+        && _mind.TryGetObjectiveComp<GoobStealDNAConditionComponent>(mindId, out var objective, mind))
         {
             objective.DNAStolen += 1;
         }
@@ -488,9 +486,9 @@ public sealed partial class ChangelingSystem : EntitySystem
         return true;
     }
 
-    private ChangelingComponent? CopyChangelingComponent(EntityUid target, ChangelingComponent comp)
+    private GoobChangelingComponent? CopyChangelingComponent(EntityUid target, GoobChangelingComponent comp)
     {
-        var newComp = EnsureComp<ChangelingComponent>(target);
+        var newComp = EnsureComp<GoobChangelingComponent>(target);
         newComp.AbsorbedDNA = comp.AbsorbedDNA;
         newComp.AbsorbedDNAIndex = comp.AbsorbedDNAIndex;
 
@@ -513,7 +511,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         EntityUid uid,
         TransformData? data = null,
         EntProtoId? protoId = null,
-        ChangelingComponent? comp = null,
+        GoobChangelingComponent? comp = null,
         bool dropInventory = false,
         bool transferDamage = true,
         bool persistentDna = false)
@@ -566,7 +564,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             {
                 if (!persistentDna && data != null)
                     newLingComp.AbsorbedDNA.Remove(data);
-                RemCompDeferred<ChangelingComponent>(uid);
+                RemCompDeferred<GoobChangelingComponent>(uid);
 
                 if (TryComp<StoreComponent>(uid, out var storeComp))
                 {
@@ -588,9 +586,9 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         return newUid;
     }
-    public bool TryTransform(EntityUid target, ChangelingComponent comp, bool sting = false, bool persistentDna = false)
+    public bool TryTransform(EntityUid target, GoobChangelingComponent comp, bool sting = false, bool persistentDna = false)
     {
-        if (HasComp<AbsorbedComponent>(target))
+        if (HasComp<GoobAbsorbedComponent>(target))
         {
             _popup.PopupEntity(Loc.GetString("changeling-transform-fail-absorbed"), target, target);
             return false;
@@ -626,7 +624,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             var popupTarget = Loc.GetString("changeling-transform-target", ("target", targetUid));
             var popupOthers = Loc.GetString("changeling-transform-others", ("user", Identity.Entity(target, EntityManager)), ("target", targetUid));
 
-            if (HasComp<ChangelingComponent>(target))
+            if (HasComp<GoobChangelingComponent>(target))
                 _popup.PopupEntity(popupSelf, targetUid, targetUid);
             else
                 _popup.PopupEntity(popupTarget, targetUid, targetUid, PopupType.MediumCaution);
@@ -639,7 +637,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         return true;
     }
 
-    public void RemoveAllChangelingEquipment(EntityUid target, ChangelingComponent comp)
+    public void RemoveAllChangelingEquipment(EntityUid target, GoobChangelingComponent comp)
     {
         var playSound = false;
 
@@ -672,7 +670,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     #region Event Handlers
 
-    private void OnStartup(EntityUid uid, ChangelingComponent comp, ref ComponentStartup args)
+    private void OnStartup(EntityUid uid, GoobChangelingComponent comp, ref ComponentStartup args)
     {
         RemComp<HungerComponent>(uid);
         RemComp<ThirstComponent>(uid);
@@ -693,13 +691,13 @@ public sealed partial class ChangelingSystem : EntitySystem
         _blood.ChangeBloodReagent(uid, "BloodChangeling");
     }
 
-    private void OnMobStateChange(EntityUid uid, ChangelingComponent comp, ref MobStateChangedEvent args)
+    private void OnMobStateChange(EntityUid uid, GoobChangelingComponent comp, ref MobStateChangedEvent args)
     {
         if (args.NewMobState == MobState.Dead)
         {
             RemoveAllChangelingEquipment(uid, comp);
             // Automatically put the ling into stasis on death if there's enough biomass
-            if (!comp.IsInStasis && !HasComp<AbsorbedComponent>(uid) && comp.Biomass > 1)
+            if (!comp.IsInStasis && !HasComp<GoobAbsorbedComponent>(uid) && comp.Biomass > 1)
             {
                 comp.Chemicals = 0f;
                 comp.Biomass -= 1;
@@ -709,7 +707,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     }
 
-    private void OnDamageChange(Entity<ChangelingComponent> ent, ref DamageChangedEvent args)
+    private void OnDamageChange(Entity<GoobChangelingComponent> ent, ref DamageChangedEvent args)
     {
         var target = args.Damageable;
 
@@ -725,14 +723,14 @@ public sealed partial class ChangelingSystem : EntitySystem
         target.Damage.ClampMax(200); // we never die. UNLESS??
     }
 
-    private void OnComponentRemove(Entity<ChangelingComponent> ent, ref ComponentRemove args)
+    private void OnComponentRemove(Entity<GoobChangelingComponent> ent, ref ComponentRemove args)
     {
         RemoveAllChangelingEquipment(ent, ent.Comp);
     }
 
     private void OnStoreRefunded(Entity<StoreComponent> ent, ref StoreRefundedEvent args)
     {
-        var comp = EnsureComp<ChangelingComponent>(ent);
+        var comp = EnsureComp<GoobChangelingComponent>(ent);
 
         RemoveAllChangelingEquipment(ent, comp);
         comp.StrainedMusclesActive = false;
@@ -740,9 +738,9 @@ public sealed partial class ChangelingSystem : EntitySystem
         RemComp<StealthComponent>(ent);       // chameleon skin. as above
         RemComp<StealthOnMoveComponent>(ent); // chameleon skin
 
-        if (HasComp<HivemindComponent>(ent))
+        if (HasComp<GoobHivemindComponent>(ent))
         {
-            RemComp<HivemindComponent>(ent);
+            RemComp<GoobHivemindComponent>(ent);
             _popup.PopupEntity(Loc.GetString("changeling-hivemind-end"), ent, ent, PopupType.MediumCaution);
         }
 

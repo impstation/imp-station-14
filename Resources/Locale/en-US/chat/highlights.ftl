@@ -1,6 +1,7 @@
 # Command
 highlights-captain = Captain, "Cap", Command
-highlights-head-of-personnel = Head Of Personnel, "HoP", Service, Command
+#imp edit removes service from hop wordlist
+highlights-head-of-personnel = Head Of Personnel, "HoP", Command
 highlights-chief-engineer = Chief Engineer, "CE", Engineering, Engineer, "Engi", Command
 highlights-chief-medical-officer = Chief Medical Officer, "CMO", MedBay, "Med", Command
 highlights-head-of-security = Head of Security, "HoS", Security, "Sec", Command
@@ -60,5 +61,5 @@ highlights-psychologist = Psychologist, Psychology
 
 # Silicon
 highlights-personal-ai = Personal AI, "pAI"
-highlights-cyborg = Cyborg, Borg
-highlights-station-ai = Station AI, "AI"
+highlights-cyborg = Cyborg, Silicon, Borg
+highlights-station-ai = Station AI, Silicon, "AI", "sAI"

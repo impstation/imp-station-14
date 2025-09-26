@@ -212,7 +212,7 @@
 # Cookies
 
 - type: entity
-  name: cookie
+  name: chocolate chip cookie # imp
   parent: FoodBakedBase
   id: FoodBakedCookie
   description: COOKIE!!!
@@ -225,15 +225,15 @@
         maxVol: 35
         reagents:
         - ReagentId: Nutriment
-          Quantity: 15
+          Quantity: 6.25
         - ReagentId: Sugar
           Quantity: 5
         - ReagentId: Butter
           Quantity: 5
         - ReagentId: Theobromine
-          Quantity: 3
+          Quantity: 0.75
         - ReagentId: CocoaPowder
-          Quantity: 1
+          Quantity: 0.25
 
 - type: entity
   name: oatmeal cookie
@@ -407,6 +407,10 @@
           Quantity: 5
         - ReagentId: EggCooked
           Quantity: 6
+  - type: PluralName # imp
+    oneOf: plural-name-a
+    someOf: plural-name-stack-1
+
 
 - type: entity
   name: blueberry pancake
@@ -531,15 +535,15 @@
         maxVol: 35 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 15 # imp
+          Quantity: 6.25 # imp
         - ReagentId: Milk # imp
           Quantity: 5
         - ReagentId: EggCooked # imp
           Quantity: 6
         - ReagentId: Theobromine
-          Quantity: 3
+          Quantity: 0.75 # Imp
         - ReagentId: CocoaPowder # imp
-          Quantity: 1
+          Quantity: 0.25
 
 - type: entity
   name: waffles
@@ -564,6 +568,9 @@
           Quantity: 6
         # - ReagentId: Vitamin # imp
         #  Quantity: 1
+  - type: Construction # Frontier
+    graph: WaffleCone
+    node: start
 
 - type: entity
   name: soy waffles
@@ -732,6 +739,7 @@
   - type: Tag
     tags:
     - ClothMade
+    - ClothFood # imp
   - type: SolutionContainerManager
     solutions:
       food:
@@ -961,6 +969,7 @@
   - type: Tag
     tags:
     - ClothMade
+    - ClothFood # imp
   - type: SolutionContainerManager
     solutions:
       food:
@@ -999,6 +1008,40 @@
           Quantity: 5 # imp
         # - ReagentId: Vitamin
         #  Quantity: 3
+
+- type: entity
+  parent: FoodBakedBase
+  id: FoodBakedGrilledCheeseSandwichCotton
+  name: cotton grilled cheese sandwich
+  description: Cotton bread slightly burnt in butter, with melted cheese. Moths find it difficult to resist this combination.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - cheesy
+    - bread
+    - cotton
+  - type: Sprite
+    sprite: Objects/Consumable/Food/Baked/misc.rsi
+    state: grilled-cheese-cotton
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: Tag
+    tags:
+    - ClothMade
+    - ClothFood # imp
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 21
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: Fiber
+          Quantity: 5
+        - ReagentId: Butter
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 3
 
 # Entity Tables
 

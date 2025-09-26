@@ -21,7 +21,7 @@
   weight: 10
   startingGear: HospitalityDirectorGear
   icon: JobIconHospitalityDirector
-  supervisors: job-supervisors-captain
+  supervisors: job-supervisors-hop-captain
   canBeAntag: false
   accessGroups:
   - Service #why don't other heads have their accesses set up this way?
@@ -30,6 +30,7 @@
   - Brig
   - Command
   - Cryogenics
+  - Vault
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -44,3 +45,15 @@
   storage:
     back:
     - Flash
+
+- type: chameleonOutfit
+  id: HospitalityDirectorChameleonOutfit
+  job: HospitalityDirector
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatBellhopHD
+    eyes: ClothingEyesGlassesCheapSunglasses
+    mask: ClothingMaskBreath
+    neck: ClothingNeckCloakHd
+    outerClothing: ClothingOuterWinterHD
+    gloves: ClothingHandsGlovesJanitor

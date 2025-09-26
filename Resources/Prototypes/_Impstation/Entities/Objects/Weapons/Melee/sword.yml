@@ -8,6 +8,8 @@
     damage: 30
     sound: /Audio/Weapons/bladeslice.ogg
   - type: MeleeWeapon
+    angle: 60
+    animation: WeaponArcSlash
     wideAnimationRotation: -60
     damage:
       types:
@@ -30,9 +32,7 @@
     sprite: _Impstation/Objects/Weapons/Melee/energykatana.rsi
     layers:
     - state: off-icon
-      map: [ "enum.ToggleVisuals.Layer" ]
-    angle: 60
-    animation: WeaponArcSlash
+      map: [ "enum.ToggleableVisuals.Layer" ]
   - type: Item
     heldPrefix: off
     sprite: _Impstation/Objects/Weapons/Melee/energykatana.rsi
@@ -61,8 +61,8 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-     enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
+     enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
           True: {state: on-icon}
           False: {state: off-icon}
   - type: Stamp

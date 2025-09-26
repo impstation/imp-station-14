@@ -1,0 +1,145 @@
+- type: entity
+  parent: SeedBase
+  name: packet of green marijuana seeds
+  description: "Taxable."
+  id: GreenMarijuanaSeeds
+  components:
+  - type: Seed
+    seedId: greenMarijuana
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/cannabis.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of lemo seeds
+  description: "Imported all the way from the distant planet Teo."
+  id: LemoSeeds
+  components:
+  - type: Seed
+    seedId: lemo
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Hydroponics/lemo.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of kisser tomato seeds
+  id: KisserTomatoSeeds
+  components:
+  - type: Seed
+    seedId: kisserTomato
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Hydroponics/tomatokisser.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of rose seeds
+  description: "Seeds of a most romantic variety."
+  id: RoseSeeds
+  components:
+    - type: Seed
+      seedId: rose
+    - type: Sprite
+      sprite: _Impstation/Objects/Specific/Hydroponics/rose.rsi
+
+- type: entity
+  parent: [SeedBase, BaseMajorContraband]
+  name: packet of black rose seeds
+  description: "Seeds of a most diabolical variety."
+  id: BlackRoseSeeds
+  components:
+    - type: Seed
+      seedId: blackRose
+    - type: Sprite
+      sprite: _Impstation/Objects/Specific/Hydroponics/blackRose.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of coconut seeds
+  description: A packet of dried microconuts. Just add water!
+  id: CoconutSeeds
+  components:
+    - type: Seed
+      seedId: coconut
+    - type: Sprite
+      sprite: _Impstation/Objects/Specific/Hydroponics/coconut.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of coconest seeds
+  description: A packet of dried microconests, including nanobees!
+  id: CoconutBeesSeeds
+  components:
+    - type: Seed
+      seedId: coconest
+    - type: Sprite
+      sprite: _Impstation/Objects/Specific/Hydroponics/coconest.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of hops seeds
+  id: HopsSeeds
+  components:
+  - type: Seed
+    seedId: hops
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Hydroponics/hops.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of HoPs seeds
+  id: HoPsSeeds # really riding on yaml being case sensitive here
+  components:
+  - type: Seed
+    seedId: employedhops
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Hydroponics/employedhops.rsi
+
+- type: entity
+  parent: [SeedBase, Tier2Contraband]
+  name: packet of agent grain seeds
+  id: AgentGrainSeeds
+  components:
+  - type: Seed
+    seedId: agentgrain
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Hydroponics/agentgrain.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of butterfly orchid seeds
+  id: ButterflyOrchidSeeds
+  components:
+    - type: Seed
+      seedId: butterflyorchid
+    - type: Sprite
+      sprite: _Impstation/Objects/Specific/Hydroponics/butterfly_orchid.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of biggerfly orchid seeds
+  id: BiggerflyOrchidSeeds
+  components:
+    - type: Seed
+      seedId: biggerflyorchid
+    - type: Sprite
+      sprite: _Impstation/Objects/Specific/Hydroponics/biggerfly_orchid.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of butter orchid seeds
+  id: ButterOrchidSeeds
+  components:
+    - type: Seed
+      seedId: butterorchid
+    - type: Sprite
+      sprite: _Impstation/Objects/Specific/Hydroponics/butter_orchid.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of floating flora seeds
+  id: FloatingFloraSeeds
+  components:
+    - type: Seed
+      seedId: floatingflora
+    - type: Sprite
+      sprite: _Impstation/Objects/Specific/Hydroponics/floating_flora.rsi

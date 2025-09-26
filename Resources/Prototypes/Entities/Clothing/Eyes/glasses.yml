@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingEyesBase
+  parent: [ClothingEyesBase, BaseLensSlot] # BaseLensSlot from imp
   id: ClothingEyesGlassesGar
   name: gar glasses
   description: Go beyond impossible and kick reason to the curb!
@@ -13,9 +13,11 @@
     damage:
       types:
         Blunt: 10
+  - type: PluralName # imp
+    oneOf: plural-name-pair-1
 
 - type: entity
-  parent: ClothingEyesBase
+  parent: [ClothingEyesBase, BaseLensSlot] # BaseLensSlot from imp
   id: ClothingEyesGlassesGarOrange
   name: orange gar glasses
   description: Just who the hell do you think I am?!
@@ -32,9 +34,12 @@
     damage:
       types:
         Blunt: 10
+  - type: PluralName # imp
+    oneOf: plural-name-pair-1
+
 
 - type: entity
-  parent: ClothingEyesBase
+  parent: [ClothingEyesBase, BaseLensSlot] # BaseLensSlot from imp
   id: ClothingEyesGlassesGarGiga
   name: giga gar glasses
   description: We evolve past the person we were a minute before. Little by little we advance with each turn. That's how a drill works!
@@ -51,6 +56,9 @@
     damage:
       types:
         Blunt: 10
+  - type: PluralName # imp
+    oneOf: plural-name-pair-1
+
 
 - type: entity
   parent: [ClothingEyesBase, BaseLensSlot, BaseEngineeringContraband] # BaseLensSlot from imp
@@ -68,6 +76,13 @@
   - type: ClothingGrantComponent # imp
     component:
     - type: SupermatterHallucinationImmune
+  - type: Tag
+    tags:
+    - PetWearable
+    - WhitelistChameleon
+  - type: PluralName # imp
+    oneOf: plural-name-some
+
 
 - type: entity
   parent: [ClothingEyesBase, BaseLensSlot] # BaseLensSlot from imp
@@ -94,6 +109,8 @@
         whitelist:
           tags:
           - Lens
+  - type: PluralName
+    oneOf: plural-name-pair-1
   # imp end
   - type: Tag
     tags:
@@ -113,6 +130,8 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+  - type: PluralName # imp
+    oneOf: plural-name-some
 
 - type: entity
   parent: ClothingEyesBase
@@ -130,6 +149,8 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
+  - type: PluralName # imp
+    oneOf: plural-name-pair-1
 
 - type: entity
   parent: [ClothingEyesBase, BaseLensSlot] # BaseLensSlot from imp
@@ -157,10 +178,14 @@
         whitelist:
           tags:
           - Lens
+  - type: PluralName
+    oneOf: plural-name-pair-1
   # imp end
+  - type: StaticPrice
+    price: 500
 
 - type: entity
-  parent: ClothingEyesBase
+  parent: [ClothingEyesBase, BaseLensSlot] # BaseLensSlot from imp
   id: ClothingEyesGlassesCheapSunglasses
   name: cheap sunglasses
   description: A pair of black sunglasses. Doesn't block light well, more of an accessory than something useful.
@@ -172,9 +197,12 @@
   - type: Tag
     tags:
     - HamsterWearable
+    - PetWearable
     - WhitelistChameleon
   - type: IdentityBlocker
     coverage: EYES
+  - type: PluralName # imp
+    oneOf: plural-name-pair-1
 
 - type: entity
   parent: ClothingEyesGlassesCheapSunglasses
@@ -188,8 +216,11 @@
   - type: Tag
     tags:
     - Sunglasses
+    - PetWearable
     - HamsterWearable
     - WhitelistChameleon
+  - type: PluralName # imp
+    oneOf: plural-name-pair-1
 
 - type: entity
   parent: [ClothingEyesBase, BaseLensSlot, ShowSecurityIcons, BaseSecurityContraband] # BaseLensSlot from imp
@@ -210,6 +241,7 @@
   - type: Tag
     tags:
     - HamsterWearable
+    - PetWearable
     - WhitelistChameleon
     - GlassesSecurity
   - type: GuideHelp
@@ -218,6 +250,8 @@
     - Antagonists
   - type: IdentityBlocker
     coverage: EYES
+  - type: PluralName # imp
+    oneOf: plural-name-pair-1
 
 - type: entity
   parent: [ClothingEyesBase, BaseLensSlot, BaseCommandContraband] # BaseLensSlot from imp
@@ -235,10 +269,14 @@
   - type: Tag
     tags:
     - HamsterWearable
+    - PetWearable
     - WhitelistChameleon
+    - AdministrationGlasses # imp, for crafting
   - type: IdentityBlocker
     coverage: EYES
   - type: ShowJobIcons
+  - type: PluralName # imp
+    oneOf: plural-name-pair-1
 
 - type: entity
   parent: [ClothingEyesBase, BaseLensSlot] # BaseLensSlot from imp
@@ -255,6 +293,8 @@
     protectionTime: 5
   - type: IdentityBlocker
     coverage: EYES
+  - type: PluralName # imp
+    oneOf: plural-name-pair-1
 
 #Make a scanner category when these actually function and we get the trayson
 - type: entity
@@ -288,6 +328,12 @@
     - type: SolutionScanner
     - type: IdentityBlocker
       coverage: EYES
+    - type: Tag
+      tags:
+      - PetWearable
+      - WhitelistChameleon
+    - type: PluralName # imp
+      oneOf: plural-name-some
 
 - type: entity
   parent: [ClothingEyesBase, BaseMajorContraband]
@@ -302,3 +348,26 @@
   - type: FlashImmunity
   - type: NightVision # EE edit
     isEquipment: true
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesNoir
+  name: noir-tech glasses
+  description: A pair of glasses that simulate what the world looked like before the invention of color.
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/noir.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Glasses/sunglasses.rsi
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: NoirOverlay
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+  - type: PluralName # imp
+    oneOf: plural-name-pair-1

@@ -29,7 +29,7 @@ namespace Content.Shared.Decals
             IDependencyCollection dependencies, SerializationHookContext hookCtx, ISerializationContext? context = null,
             ISerializationManager.InstantiationDelegate<DecalGridChunkCollection>? _ = default)
         {
-            node.TryGetValue(new ValueDataNode("version"), out var versionNode);
+            node.TryGetValue("version", out var versionNode);
             var version = ((ValueDataNode?) versionNode)?.AsInt() ?? 1;
             Dictionary<Vector2i, DecalChunk> dictionary;
             uint nextIndex = 0;
@@ -49,12 +49,12 @@ namespace Content.Shared.Decals
 
                     foreach (var (decalUidNode, decalData) in deckNodes)
                     {
-                        var dUid = serializationManager.Read<uint>(decalUidNode, hookCtx, context);
+                        var dUid = uint.Parse(decalUidNode, CultureInfo.InvariantCulture);
                         var coords = serializationManager.Read<Vector2>(decalData, hookCtx, context);
 
                         var chunkOrigin = SharedMapSystem.GetChunkIndices(coords, SharedDecalSystem.ChunkSize);
                         var chunk = dictionary.GetOrNew(chunkOrigin);
-                        var decal = new Decal(coords, data.Id, data.Color, data.Angle, data.ZIndex, data.Cleanable);
+                        var decal = new Decal(coords, data.Id, data.Color, data.Angle, data.ZIndex, data.Cleanable, data.ShaderID);
 
                         nextIndex = Math.Max(nextIndex, dUid);
 
@@ -132,7 +132,7 @@ namespace Content.Shared.Decals
                 {
                     var decal = decalLookup[uid];
                     // Inline coordinates
-                    decks.Add(serializationManager.WriteValue(uid, alwaysWrite, context), serializationManager.WriteValue(decal.Coordinates, alwaysWrite, context));
+                    decks.Add(uid.ToString(), serializationManager.WriteValue(decal.Coordinates, alwaysWrite, context));
                 }
 
                 lookupNode.Add("decals", decks);
@@ -163,13 +163,17 @@ namespace Content.Shared.Decals
             [DataField("cleanable")]
             public bool Cleanable { get; init; }
 
-            public DecalData(string id, Color? color, Angle angle, int zIndex, bool cleanable)
+            [DataField]
+            public string ShaderID { get; init; } = string.Empty; //imp edit - for shaders
+
+            public DecalData(string id, Color? color, Angle angle, int zIndex, bool cleanable, string shaderId) //imp edit - added decal shaders
             {
                 Id = id;
                 Color = color;
                 Angle = angle;
                 ZIndex = zIndex;
                 Cleanable = cleanable;
+                ShaderID = shaderId; //imp edit - for shaders
             }
 
             public DecalData(Decal decal)
@@ -179,6 +183,7 @@ namespace Content.Shared.Decals
                 Angle = decal.Angle;
                 ZIndex = decal.ZIndex;
                 Cleanable = decal.Cleanable;
+                ShaderID = decal.ShaderID; //imp edit - for decal shaders
             }
 
             public bool Equals(DecalData other)
@@ -187,7 +192,8 @@ namespace Content.Shared.Decals
                        Nullable.Equals(Color, other.Color) &&
                        Angle.Equals(other.Angle) &&
                        ZIndex == other.ZIndex &&
-                       Cleanable == other.Cleanable;
+                       Cleanable == other.Cleanable &&
+                       ShaderID == other.ShaderID; //imp edit - for shaders;
             }
 
             public override bool Equals(object? obj)
@@ -197,7 +203,7 @@ namespace Content.Shared.Decals
 
             public override int GetHashCode()
             {
-                return HashCode.Combine(Id, Color, Angle, ZIndex, Cleanable);
+                return HashCode.Combine(Id, Color, Angle, ZIndex, Cleanable, ShaderID); //imp edit - for shaders
             }
 
             public int CompareTo(DecalData other)

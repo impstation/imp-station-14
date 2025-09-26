@@ -63,7 +63,6 @@
     - type: Icon
       sprite: _Impstation/Structures/Cardboard/cardboard_window.rsi
       state: full
-      deconstructionTarget: start
     - type: Physics
       bodyType: Static
     - type: Damageable
@@ -87,6 +86,7 @@
     - type: Construction
       graph: CardboardStructures
       node: window
+      deconstructionTarget: start
     - type: RCDDeconstructable
       cost: 4
       delay: 2
@@ -264,7 +264,7 @@
 
 - type: stack
   id: FloorTileCardboard
-  name: cardboard floor tile
+  name: stack-cardboard-floor-tile
   spawn: FloorTileItemCardboard
   maxCount: 30
 
@@ -285,3 +285,8 @@
   - type: Construction
     graph: CardboardStructures
     node: door
+  - type: Door
+    openSound:
+      path: /Audio/Effects/card_drag.ogg
+    closeSound:
+      path: /Audio/Effects/card_drag.ogg

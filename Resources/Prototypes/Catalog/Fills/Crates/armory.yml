@@ -1,7 +1,7 @@
 - type: entity
   id: CrateArmorySMG
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
-  name: SMG crate
+  name: WT550 crate #imp
   description: Contains two WT550 submachine guns with four magazines. Requires Armory access to open.
   components:
   - type: StorageFill
@@ -14,7 +14,7 @@
 - type: entity
   id: CrateArmoryShotgun
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
-  name: shotgun crate
+  name: enforcer crate #imp
   description: For when the enemy absolutely needs to be replaced with lead. Contains two Enforcer shotguns with four boxes of buckshot shells. Requires Armory access to open. #imp
   components:
   - type: StorageFill
@@ -88,3 +88,17 @@
       amount: 2
     - id: RiotShield
       amount: 2
+
+#Imp edit; commented out since there is already the Lecter crate
+#- type: entity
+#  id: CrateArmoryRifle
+#  parent: [ CrateWeaponSecure, BaseSecurityContraband ]
+#  name: rifle crate
+#  description: Contains two high-powered assault rifles with four mags. Requires Armory access to open.
+#  components:
+#  - type: StorageFill
+#    contents:
+#    - id: WeaponRifleLecter
+#      amount: 2
+#    - id: MagazineRifle
+#      amount: 4

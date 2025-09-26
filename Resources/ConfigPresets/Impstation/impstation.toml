@@ -1,19 +1,21 @@
 [game]
 hostname = "[EN][MRP] Impstation"
 desc = "Unofficial server for fans of RTVS featuring custom content. Come and see him."
-soft_max_players = 80
+soft_max_players = 100
 # seconds
+# default 120
+round_restart_time = 300
 # default 150
-lobbyduration = 420
+lobbyduration = 600
 
 [server]
 # TODO
 # rules_file = "ImpstationRuleset"
-uptime_restart_minutes = 240
+uptime_restart_minutes = 480
 
 [chat]
 # Message Of The Day
-motd = "Server whitelist will be enabled at the end of the week! Check the announcement on discord for more information!"
+# motd = ""
 
 [ic]
 flavor_text = true
@@ -29,7 +31,7 @@ restricted_names = false
 rate_limit_count = 20
 
 [infolinks]
-discord = "https://discord.gg/pisk"
+discord = "https://discord.gg/erthpinball"
 github = "https://github.com/impstation/imp-station-14"
 website = "https://impstation.gay"
 # wiki = ""
@@ -54,5 +56,5 @@ login_dataset = "LoginTips"
 
 [whitelist]
 enabled = false
-# pretty much only worries about users who've been manually whitelisted
-# all players who have joined once before ~4am UTC 19th Apr 2025 should be whitelisted at time of edit
+# we do have a whitelist in place, but as of 15 august 2025 the server is open again
+# whitelist cutoff date: ~0:00CT 28 april 2025

@@ -1,14 +1,18 @@
-﻿#this is copied from the BaseXenoArtifactItem prototyped instead of parenting because I needed to remove the random sprites and using RemoveComp sounds scary
-- type: entity
+﻿- type: entity
   parent: BaseItem
-  id: EvilSkullArtifactItem
-  name: evil skull
-  suffix: Hummingbird thief objective
-  description: Beware.
+  id: BaseXenoArtifactItem
+  name: natural alien artifact
+  description: A strange handheld alien device.
+  abstract: true
   components:
   - type: Sprite
-    sprite: Mobs/Species/Skeleton/parts.rsi
-    state: skull_icon
+    sprite: Objects/Specific/Xenoarchaeology/item_artifacts.rsi
+    layers:
+    - state: ano01
+      map: [ "enum.ArtifactsVisualLayers.Base" ]
+    - state: ano01_on
+      map: [ "enum.ArtifactsVisualLayers.UnlockingEffect" ]
+      visible: false
   - type: Damageable
   - type: Physics
     bodyType: Dynamic
@@ -32,12 +36,13 @@
         restitution: 0.3  # fite me
         friction: 0.2
   - type: Artifact
-    activationSound: !type:SoundPathSpecifier
-      params:
-        variation: 0.125
-      path: /Audio/Voice/Skeleton/skeleton_scream.ogg
-    nodesMax: 13
-    nodesMin: 5
+  - type: RandomArtifactSprite
+    maxSprite: 11
+    activationTime: 2.4
+  - type: RandomSprite
+    available:
+    - enum.ArtifactsVisualLayers.UnlockingEffect:
+        ano01_on: Rainbow
   - type: UserInterface #needs to be here for certain effects
     interfaces:
       enum.StorageUiKey.Key:
@@ -51,7 +56,108 @@
   - type: Appearance
   - type: Item
     size: Normal
+    sprite: Objects/Specific/Xenoarchaeology/item_artifacts.rsi
+    heldPrefix: ano01
   - type: Actions
+  - type: Construction
+    graph: Artifact
+    node: done
+  - type: GuideHelp
+    guides:
+    - Xenoarchaeology
+  - type: WarpPoint
+    blacklist:
+      tags:
+      - GhostOnlyWarp
+  - type: Tag
+    tags:
+    - GhostOnlyWarp
+  - type: NameIdentifier
+    group: Artifact
+
+
+- type: entity
+  parent: BaseXenoArtifactItem
+  id: SimpleXenoArtifactItem
+  suffix: Simple
+  components:
+  - type: Artifact
+    nodesMin: 3
+    nodesMax: 6
+
+- type: entity
+  parent: BaseXenoArtifactItem
+  id: MediumXenoArtifactItem
+  suffix: Medium
+  components:
+  - type: Artifact
+    nodesMin: 7
+    nodesMax: 11
+
+- type: entity
+  parent: BaseXenoArtifactItem
+  id: ComplexXenoArtifactItem
+  suffix: Complex
+  components:
+  - type: Artifact
+    nodesMin: 12
+    nodesMax: 16
+
+# this exists for crafting item artifacts so that the final result can be simple, medium, or complex.
+- type: entity
+  parent: BaseXenoArtifactItem
+  id: VariedXenoArtifactItem
+  suffix: Varied
+  components:
+  - type: Artifact
+    nodesMin: 3
+    nodesMax: 16
+
+
+- type: entity
+  parent: BaseItem
+  id: EvilSkullArtifactItem
+  name: evil skull
+  suffix: Hummingbird thief objective
+  description: Beware.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Xenoarchaeology/skull_artifact.rsi
+    layers:
+    - state: ano01
+      map: [ "enum.ArtifactsVisualLayers.Base" ]
+    - state: ano01_on
+      map: [ "enum.ArtifactsVisualLayers.UnlockingEffect" ]
+      visible: false
+    - state: artifact-activation
+      map: [ "enum.ArtifactsVisualLayers.ActivationEffect" ]
+      visible: false
+  - type: Item
+    size: Normal
+    sprite: _Impstation/Objects/Specific/Xenoarchaeology/skull_artifact.rsi
+  - type: RandomArtifactSprite
+    maxSprite: 1
+  - type: RandomSprite
+    available:
+    - enum.ArtifactsVisualLayers.UnlockingEffect:
+        ano01_on: ""
+  - type: Artifact
+    activationSound: !type:SoundPathSpecifier
+      path: /Audio/Voice/Skeleton/skeleton_scream.ogg
+      params:
+        variation: 0.125
+    nodesMax: 13
+    nodesMin: 5
+  - type: UserInterface #needs to be here for certain effects
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+      enum.IntercomUiKey.Key:
+        type: IntercomBoundUserInterface
   - type: Speech
     speechSounds: Alto
     speechVerb: Skeleton

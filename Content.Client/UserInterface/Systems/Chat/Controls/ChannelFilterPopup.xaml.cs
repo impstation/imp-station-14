@@ -1,4 +1,4 @@
-﻿using Content.Shared.Chat;
+using Content.Shared.Chat;
 using Content.Shared.CCVar;
 using Robust.Shared.Utility;
 using Robust.Shared.Configuration;
@@ -43,22 +43,31 @@ public sealed partial class ChannelFilterPopup : Popup
         RobustXamlLoader.Load(this);
 
         HighlightButton.OnPressed += HighlightsEntered;
-
+        // Add a placeholder text to the highlights TextEdit.
         HighlightEdit.Placeholder = new Rope.Leaf(Loc.GetString("hud-chatbox-highlights-placeholder"));
 
         // Load highlights if any were saved.
         var cfg = IoCManager.Resolve<IConfigurationManager>();
-        string highlights = cfg.GetCVar(ImpCCVars.ChatHighlights);
+        string highlights = cfg.GetCVar(CCVars.ChatHighlights);
 
         if (!string.IsNullOrEmpty(highlights))
         {
-            SetHighlights(highlights);
+            UpdateHighlights(highlights);
         }
     }
 
     public bool IsActive(ChatChannel channel)
     {
         return _filterStates.TryGetValue(channel, out var checkbox) && checkbox.Pressed;
+    }
+
+    public void SetActive(ChatChannel channel, bool isActive)
+    {
+        if (_filterStates.TryGetValue(channel, out var checkbox) && checkbox.Pressed != isActive)
+        {
+            checkbox.Pressed = isActive;
+            OnChannelFilter?.Invoke(checkbox.Channel, checkbox.Pressed);
+        }
     }
 
     public ChatChannel GetActive()
@@ -104,7 +113,7 @@ public sealed partial class ChannelFilterPopup : Popup
         }
     }
 
-    public void SetHighlights(string highlights)
+    public void UpdateHighlights(string highlights)
     {
         HighlightEdit.TextRope = new Rope.Leaf(highlights);
     }

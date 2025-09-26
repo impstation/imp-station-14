@@ -1,0 +1,15 @@
+﻿- type: construction
+  id: memorialJoint
+  graph: memorialJoint
+  startNode: start
+  targetNode: memorialjoint
+  category: construction-category-misc
+  objectType: Item
+
+- type: construction
+  id: memorialBlunt
+  graph: memorialBlunt
+  startNode: start
+  targetNode: memorialblunt
+  category: construction-category-misc
+  objectType: Item

@@ -5,58 +5,47 @@
   minLimit: 0
   maxLimit: 4 #imp
   loadouts:
-  - BarFlask
-  - CardBoxBlack
-  - CDDogtags #_CD
+  - FlowerWreath
+  - Hairflower
+  - Headphones
+  - PlushieLizard
+  - PlushieSpaceLizard
   - ThreeCandles
+  - Lighter
+  - FlippoLighter # imp
+  - CigPackGreen
+  - CigPackRed
+  - CigPackBlue
+  - CigPackBlack
+  - CigPackNewport # imp
+  - CigPackSpirits # imp
   - CigarCase
   - CigarGold
-  - CigPackBlack
-  - CigPackBlue
-  - CigPackGreen
-  - CigPackNewport #imp
-  - CigPackRed
-  - CigPackSpirits #imp
-  - ClothingHeadHatKippahBlueAndGold #imp
-  - ClothingHeadHatKippahSimple #imp
-  - ClothingHeadHatKippahWhiteAndBlue #imp
-  - ClothingHeadPaperSack #imp
-  - ClothingHeadPaperSackSmile #imp
   - ClothingNeckLGBTPin
+#  - ClothingNeckAllyPin
   - ClothingNeckAromanticPin
   - ClothingNeckAsexualPin
-  - ClothingNeckAutismPin
   - ClothingNeckAroacePin
   - ClothingNeckBisexualPin
   - ClothingNeckGayPin
-  - ClothingNeckGoldAutismPin
   - ClothingNeckIntersexPin
   - ClothingNeckLesbianPin
-  - ClothingNeckLGBTPin
   - ClothingNeckNonBinaryPin
   - ClothingNeckPansexualPin
+  - ClothingNeckPluralPin
   - ClothingNeckOmnisexualPin
   - ClothingNeckGenderqueerPin
+  - ClothingNeckGenderfluidPin
   - ClothingNeckTransPin
-  - FlippoLighter #imp
-  - FlowerWreath
-  - FolderBlack #imp
-  - FolderHamster #imp
-  - FolderMime #imp
-  - FolderPun #imp
-  - Hairflower
-  - PanFluteInstrument #imp
-  - Headphones
-  - HeartLocket #imp
-  - HeartLocketSilver #imp
-  - Lighter
-  - NewtonCradle #imp
-  - PlushieDoll #imp
-  - PlushieDollHair #imp
-  - PlushieLizard
-  - PlushieSpaceLizard
-  - GoldRingTrinket #imp
-  - SilverRingTrinket #imp
+  - ClothingNeckAutismPin
+  - ClothingNeckGoldAutismPin
+  - OffsetCane
+  - OffsetCaneWood
+  - WalkingCane # imp
+  - OffsetCaneClown
+  - OffsetCaneMime
+  - OffsetCaneNT
+  - Cane
   - TowelColorBlack
   - TowelColorDarkBlue
   - TowelColorDarkGreen
@@ -73,8 +62,36 @@
   - TowelColorSilver
   - TowelColorWhite
   - TowelColorYellow
-  - TutorialAI_Newcomer #imp <15 hours
-  - WalkingCane #imp
+  - AACTablet # DeltaV
+  - CDDogtags #_CD
+  # imp edit start
+  - NoviceMark
+  - BarFlask
+  - CardBoxBlack
+  - CardBoxTarot
+  - Clipboard
+  - ClothingHeadHatKippahBlueAndGold
+  - ClothingHeadHatKippahSimple
+  - ClothingHeadHatKippahWhiteAndBlue
+  - ClothingHeadPaperSack
+  - ClothingHeadPaperSackSmile
+  - FolderBlack
+  - FolderHamster
+  - FolderMime
+  - FolderPun
+  - GoldRingTrinket
+  - HeartLocket
+  - HeartLocketSilver
+  - NewtonCradle
+  - PanFluteInstrument
+  - PlushieDoll
+  - PlushieDollHair
+  - SilverRingTrinket
+  - TutorialAI_Newcomer
+  - VapeSwappable
+  - VapeCart
+  - WristwatchTrinket
+  # imp edit end
 
 - type: loadoutGroup
   id: Glasses
@@ -82,8 +99,9 @@
   minLimit: 0
   loadouts:
   - Glasses
-  # imp edit start - its in the middle for alphabetizing reasons sorry
+  # imp edit start
   - GlassesCheapSunglasses
+  - EyePatch
   - GlassesColorfulPink
   - GlassesColorfulRed
   - GlassesColorfulBlue
@@ -94,7 +112,6 @@
   - GlassesJamjar
   - GlassesJensen
 
-# The usual loadouts of the vox harness that spawn in your chest slot for jobs that don't have outerwear in their loadout
 - type: loadoutGroup
   id: GroupTankHarness
   name: loadout-group-tank-harness
@@ -109,9 +126,9 @@
   minLimit: 3
   hidden: true
   loadouts:
+  - EmergencyMeat # imp
   - EmergencyNitrogen
   - EmergencyOxygen
-  - EmergencyMeat # imp
   - LoadoutSpeciesAquaticFullTank # Imp
   - LoadoutSpeciesVoxNitrogen
 
@@ -122,9 +139,9 @@
   hidden: true
   loadouts:
   - LoadoutSpeciesAquaticFullTank # Imp
+  - LoadoutSpeciesEVAKodepiia # imp
   - LoadoutSpeciesEVANitrogen
   - LoadoutSpeciesEVAOxygen
-  - LoadoutSpeciesEVAKodepiia # imp
 
 # vox get a nitrogen tank, other species get nothing
 - type: loadoutGroup
@@ -152,7 +169,7 @@
   - CaptainHead
   - CaptainCap
   - CaptainBeret # imp
-  - CaptainCrusherCap #imp
+  - CaptainCrusherCap # imp
   - CaptainTricorne # imp
 
 - type: loadoutGroup
@@ -174,8 +191,8 @@
   - CaptainCloakFormal
   - CaptainMantle
   - CaptainGreatcoat # imp
-  - ScarfBlue # imp
   - CaptainAdmiralCloak # imp
+  - ScarfBlue # imp
 
 - type: loadoutGroup
   id: CaptainBackpack
@@ -184,17 +201,18 @@
   - CaptainBackpack
   - CaptainSatchel
   - CaptainDuffel
-  - CommandVeteranBackpack #imp
-  - CommandVeteranSatchel #imp
-  - CommandVeteranDuffel #imp
+  # start imp
+  - CommandVeteranBackpack
+  - CommandVeteranSatchel
+  - CommandVeteranDuffel
 
 - type: loadoutGroup
   id: CaptainOuterClothing
   name: loadout-group-captain-outerclothing
   loadouts:
   - CaptainOuterClothing
-  - CaptainWintercoat
   - CaptainRepeller #imp
+  - CaptainWintercoat
 
 - type: loadoutGroup
   id: HoPHead
@@ -209,7 +227,10 @@
   loadouts:
   - HoPJumpsuit
   - HoPJumpskirt
+  - HoPMessSuit # DeltaV
+  - HoPMessSkirt # DeltaV
   - HoPBoatswain # DeltaV
+  - HoPPowerSuit # imp
 
 - type: loadoutGroup
   id: HoPNeck
@@ -224,13 +245,17 @@
   id: HoPBackpack
   name: loadout-group-hop-backpack
   loadouts:
-  - CommonBackpack
-  - CommonSatchel
-  - CommonDuffel
-  - HoPBackpackIan
+  - BackpackHoP # DeltaV
+  - SatchelHoP # DeltaV
+  - HopDuffel # DeltaV
   - CommandVeteranBackpack #imp
   - CommandVeteranSatchel #imp
   - CommandVeteranDuffel #imp
+  # - CommonBackpack # DeltaV
+  # - CommonDuffel # DeltaV
+  # - CommonSatchel # DeltaV
+  - HoPBackpackIan
+
 
 - type: loadoutGroup
   id: HoPOuterClothing
@@ -238,6 +263,7 @@
   minLimit: 0
   loadouts:
   - HoPWintercoat
+  - HoPFormalCoat # Delta-v
 
 # Civilian
 - type: loadoutGroup
@@ -248,6 +274,7 @@
   - GreyJumpskirt
   - AncientJumpsuit
   - RainbowJumpsuit
+  - RainbowJumpskirt
   - GraytiderSpaceJumpsuit #imp
 
 - type: loadoutGroup
@@ -277,10 +304,10 @@
   name: loadout-group-passenger-neck
   minLimit: 0
   loadouts:
-  - WrappedScarfBlack #imp
-  - WrappedScarfWhite #imp
   - Mantle
   - GreyCloak #imp
+  - WrappedScarfBlack #imp
+  - WrappedScarfWhite #imp
 
 - type: loadoutGroup
   id: PassengerOuterClothing
@@ -313,10 +340,11 @@
   - BartenderJumpsuit
   - BartenderJumpskirt
   - BartenderJumpsuitPurple
-  - ClothingUniformNightclubSuit #imp
-  - ClothingUniformNightclubSuitSkirt #imp
-  - ClothingUniformSeniorBartender #imp
-  - ClothingUniformSeniorBartenderSkirt #imp
+  # imp below
+  - ClothingUniformNightclubSuit
+  - ClothingUniformNightclubSuitSkirt
+  - ClothingUniformSeniorBartender
+  - ClothingUniformSeniorBartenderSkirt
 
 - type: loadoutGroup
   id: BartenderOuterClothing
@@ -325,9 +353,9 @@
   loadouts:
   - BartenderVest
   - BartenderApron
-  - BartenderWintercoat
-  - ServiceClownApron # imp
   - BartenderCuteApron # imp
+  - ServiceClownApron # imp
+  - BartenderWintercoat
 
 - type: loadoutGroup
   id: ChefHead
@@ -351,6 +379,8 @@
   - ChefJumpsuit
   - ChefJumpskirt
   - ChefSpaceJumpsuit # imp
+  - HeadChefSkirt # imp
+  - HeadChef # imp
 
 - type: loadoutGroup
   id: ChefOuterClothing
@@ -358,10 +388,10 @@
   minLimit: 0
   loadouts:
   - ChefApron
+  - ChefCuteApron # imp
+  - ServiceClownApron # imp
   - ChefJacket
   - ChefWintercoat
-  - ServiceClownApron # imp
-  - ChefCuteApron # imp
 
 - type: loadoutGroup
   id: LibrarianJumpsuit
@@ -373,6 +403,7 @@
   - CuratorJumpskirt
   - ClothingUniformBrownSuit #imp
   - ClothingUniformBrownSuitSkirt #imp
+  - LibrarianSpaceDress #imp
 
 - type: loadoutGroup
   id: LawyerJumpsuit
@@ -401,10 +432,10 @@
   minLimit: 0
   loadouts:
   - LawyerNeck
-  - ProsecutorNeck # DeltaV
-  - DefenseAttorneyNeck # imp
   - LawyerArmband #imp
+  - ProsecutorNeck # DeltaV
   - ProsecutorArmband #imp
+  - DefenseAttorneyNeck # imp
   - DefenseAttorneyArmband #imp
 
 - type: loadoutGroup
@@ -437,10 +468,10 @@
   id: ChaplainJumpsuit
   name: loadout-group-chaplain-jumpsuit
   loadouts:
-  - ChaplainJumpskirt
   - ChaplainJumpsuit
-  - ChaplainRobesDark
+  - ChaplainJumpskirt
   - ChaplainRobesLight
+  - ChaplainRobesDark
   - ChaplainSkirtClayshaper # imp
   - ChaplainSkirtDruid # imp
   - ChaplainSkirtMoon # imp
@@ -475,6 +506,31 @@
   - ChaplainNeckSun # imp
   - ChaplainNeckTidal # imp
   - ScarfBlack # imp
+
+- type: loadoutGroup
+  id: ChaplainBible
+  name: loadout-group-chaplain-bible
+  minLimit: 1
+  loadouts:
+  - Bible
+  - ChaplainBookQuran #imp reorder
+  - BibleTanakh #imp reorder
+  - BibleDruid
+  - BibleNanoTrasen
+  - BibleSatanic
+  #imp edit start, kind of insane they labeled all holy books as bibles but oh well, using this loadout group will save headache in the future
+  - ChaplainBookScroll
+  - ChaplainBookTablet
+  - ChaplainBookGreybible
+  - ChaplainBookKojiki
+  - ChaplainBookTao
+  - ChaplainBookGrimoire
+  - ChaplainBookETB
+  - ChaplainBookDiscordia
+  - ChaplainBookUnitology
+  - ChaplainBookBibble
+  - ChaplainBookClown
+  #imp edit end
 
 - type: loadoutGroup
   id: JanitorHead
@@ -563,8 +619,8 @@
   - ClownSkirt
   - JesterSuit
   - JesterAltSuit
-  - CircusClownSuit #imp
   - JokesterSuit #imp
+  - CircusClownSuit #imp
 
 - type: loadoutGroup
   id: ClownBackpack
@@ -589,8 +645,8 @@
   loadouts:
   - ClownShoes
   - JesterShoes
-  - CircusClownShoes # imp
   - JokesterShoes # imp
+  - CircusClownShoes # imp
 
 - type: loadoutGroup
   id: SurvivalClown
@@ -600,9 +656,9 @@
   loadouts:
   - EmergencyNitrogenClown
   - EmergencyOxygenClown
+  - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatClown # imp
   - LoadoutSpeciesAquaticFullTank # Imp
-  - LoadoutSpeciesVoxNitrogen
 
 - type: loadoutGroup
   id: MimeHead
@@ -626,8 +682,8 @@
   name: loadout-group-mime-jumpsuit
   loadouts:
   - MimeJumpsuit
-  - MimeJumpsuitCropped #imp
   - MimeJumpskirt
+  - MimeJumpsuitCropped #imp
   - MimeJumpskirtCropped #imp
 
 - type: loadoutGroup
@@ -662,9 +718,10 @@
   loadouts:
   - EmergencyNitrogenMime
   - EmergencyOxygenMime
+  - EmergencySpeciesMothMime
+  - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatMime # imp
   - LoadoutSpeciesAquaticFullTank # Imp
-  - LoadoutSpeciesVoxNitrogen
 
 - type: loadoutGroup
   id: MusicianJumpsuit
@@ -674,6 +731,8 @@
   - MusicianJumpskirt
   - ClothingUniformMrSpaceWide #imp
   - ClothingUniformMrSpaceWideSkirt #imp
+  - MusicianMarchingBand #imp
+  - MusicianSingerDress #imp
 
 - type: loadoutGroup
   id: MusicianOuterClothing
@@ -681,6 +740,7 @@
   minLimit: 0
   loadouts:
   - MusicianWintercoat
+  - MusicianFurCoat #imp
 
 - type: loadoutGroup
   id: Instruments
@@ -718,7 +778,6 @@
   - Bagpipe
 
 # Cargo
-
 - type: loadoutGroup
   id: QuartermasterHead
   name: loadout-group-quartermaster-head
@@ -776,8 +835,8 @@
   name: loadout-group-cargo-technician-jumpsuit
   loadouts:
   - CargoTechnicianJumpsuit
-  - LongCargoTechnicianJumpsuit #imp
   - CargoTechnicianJumpskirt
+  - LongCargoTechnicianJumpsuit #imp
   - SeniorCargoTechnicianJumpsuit #imp
 
 - type: loadoutGroup
@@ -818,8 +877,8 @@
   minLimit: 0
   loadouts:
   - SalvageSpecialistWintercoat
-  - BomberCargo #imp
   - SalvageSpecialistDecapoidCoat #imp
+  - BomberCargo #imp
 
 - type: loadoutGroup
   id: SalvageSpecialistShoes
@@ -829,7 +888,6 @@
   - CargoWinterBoots
 
 # Engineering
-
 - type: loadoutGroup
   id: ChiefEngineerHead
   name: loadout-group-chief-engineer-head
@@ -846,6 +904,7 @@
   - ChiefEngineerJumpskirt
   - ChiefEngineerTurtleneck
   - ChiefEngineerTurtleneckSkirt
+  - ChiefEngineerJumpsuitForeman # imp
 
 - type: loadoutGroup
   id: ChiefEngineerNeck
@@ -868,8 +927,8 @@
   name: loadout-group-chief-engineer-shoes
   loadouts:
   - BrownShoes
-  - EngineeringWinterBoots
   - WorkBoots # imp
+  - EngineeringWinterBoots
 
 - type: loadoutGroup
   id: TechnicalAssistantJumpsuit
@@ -895,9 +954,9 @@
   - StationEngineerJumpsuit
   - StationEngineerJumpskirt
   - StationEngineerHazardsuit
-  - SpaceEngineerJumpsuit # imp
   - SeniorEngineerJumpsuit
   - SeniorEngineerJumpskirt
+  - SpaceEngineerJumpsuit # imp
 
 - type: loadoutGroup
   id: StationEngineerBackpack
@@ -945,6 +1004,8 @@
   minLimit: 0
   loadouts:
   - AtmosphericTechnicianWintercoat
+  - BomberAtmos #imp
+  - BomberAtmosHolo #imp
   - BomberEngineering #imp
 
 - type: loadoutGroup
@@ -960,6 +1021,7 @@
   name: loadout-group-atmospheric-technician-shoes
   loadouts:
   - WhiteShoes
+  - WorkBoots #imp
   - EngineeringWinterBoots
 
 - type: loadoutGroup
@@ -970,12 +1032,11 @@
   loadouts:
   - EmergencyNitrogenExtended
   - EmergencyOxygenExtended
+  - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatExtended # imp
   - LoadoutSpeciesAquaticFullTank # Imp
-  - LoadoutSpeciesVoxNitrogen
 
 # Science
-
 - type: loadoutGroup
   id: ResearchDirectorHead
   name: loadout-group-research-director-head
@@ -1006,8 +1067,8 @@
   name: loadout-group-research-director-outerclothing
   minLimit: 0
   loadouts:
-  - ResearchDirectorLabCoat
   - MystaLabCoat # DeltaV
+  - ResearchDirectorLabCoat
   - ResearchDirectorWintercoat
 
 - type: loadoutGroup
@@ -1016,9 +1077,9 @@
   loadouts:
   - BrownShoes
   - WhiteShoes # imp
-  - LacedShoes #imp
-  - LeatherShoes
   - WhiteDressShoes #imp
+  - LacedShoes #imp
+  - LeatherShoes # imp
   - ScienceWinterBoots
   - RoboticistWinterBoots # imp
 
@@ -1037,8 +1098,8 @@
   minLimit: 0
   loadouts:
   - ScientistTie
-  - ScarfPurple # imp
   - ScarfBlack # imp
+  - ScarfPurple # imp
 
 - type: loadoutGroup
   id: ScientistJumpsuit
@@ -1046,10 +1107,10 @@
   loadouts:
   - ScientistJumpsuit
   - ScientistJumpskirt
-  - SpaceScienceJumpsuit # imp
+  - ScientistJumpsuitFormal # imp
   - RoboticistJumpsuit
   - RoboticistJumpskirt
-  - ScientistJumpsuitFormal # imp
+  - SpaceScienceJumpsuit # imp
   - SeniorResearcherJumpsuit
   - SeniorResearcherJumpskirt
 
@@ -1109,15 +1170,14 @@
   - WhiteJumpskirt
 
 # Security
-
 - type: loadoutGroup
   id: HeadofSecurityHead
   name: loadout-group-head-of-security-head
   minLimit: 0
   loadouts:
   - HeadofSecurityHead
-  - HeadofSecurityHeadDV # DeltaV
   - HeadofSecurityBeret
+  - HeadofSecurityHeadDV # DeltaV
   - HeadofSecurityPatrolCap # imp
 
 - type: loadoutGroup
@@ -1126,14 +1186,14 @@
   loadouts:
   - HeadofSecurityJumpsuit
   - HeadofSecurityJumpskirt
-  - HeadofSecurityJumpsuitGrey #imp
-  - HeadofSecurityJumpskirtGrey #imp
   - HeadofSecurityTurtleneck
   - HeadofSecurityTurtleneckSkirt
-  - HeadofSecurityProfessionalJumpsuit # imp
-  - HeadofSecurityProfessionalJumpskirt # imp
   - HeadofSecurityFormalSuit
   - HeadofSecurityFormalSkirt
+  - HeadofSecurityJumpsuitGrey #imp
+  - HeadofSecurityJumpskirtGrey #imp
+  - HeadofSecurityProfessionalJumpsuit # imp
+  - HeadofSecurityProfessionalJumpskirt # imp
 
 - type: loadoutGroup
   id: HeadofSecurityNeck
@@ -1151,14 +1211,10 @@
   name: loadout-group-head-of-security-outerclothing
   loadouts:
   - HeadofSecurityCoat
+  - HeadofSecurityEliteArmor #imp
   - HeadofSecurityWinterCoat
   - HeadofSecurityWinterCoatUnarmored # imp
-  - ArmorVest #imp
-  - ArmorVestSlim #imp
-  - ArmorVestCompact #imp
-  - DuraVest # DeltaV
-  - PlateCarrier # DeltaV
-  - HeadofSecurityEliteArmor #imp
+  - HeadofSecurityBomberJacket # imp
 
 - type: loadoutGroup
   id: WardenHead
@@ -1174,12 +1230,12 @@
   loadouts:
   - WardenJumpsuit
   - WardenJumpskirt
-  - WardenTurtleskirt # DeltaV
   - WardenTurtlesuit # DeltaV
+  - WardenTurtleskirt # DeltaV
   - SecurityJumpsuitBlue # imp
+  - ChiefJusticeWhiteJumpsuit # DeltaV
   - ChiefJusticeFormalJumpsuit # DeltaV
   - ChiefJusticeFormalJumpskirt # DeltaV
-  - ChiefJusticeWhiteJumpsuit # DeltaV
 
 - type: loadoutGroup
   id: WardenOuterClothing
@@ -1187,13 +1243,7 @@
   loadouts:
   - WardenCoat
   - WardenArmoredWinterCoat
-  - ArmorVest #imp
-  - ArmorVestSlim #imp
-  - ArmorVestCompact #imp
-  - DuraVest # DeltaV
-  - PlateCarrier # DeltaV
   - WardenWinterCoatUnarmored # imp
-  - BomberSecurity #imp
 
 - type: loadoutGroup
   id: SecurityHead
@@ -1213,11 +1263,11 @@
   - SecurityJumpskirt
   - SecurityJumpsuitGrey
   - SecurityJumpskirtGrey
-  - TrooperUniform # imp
-  - SecurityJumpsuitBlue # imp
-  - SecuritySpaceJumpsuit # imp
   - SeniorOfficerJumpsuit
   - SeniorOfficerJumpskirt
+  - TrooperUniform
+  - SecurityJumpsuitBlue # imp
+  - SecuritySpaceJumpsuit # imp
 
 - type: loadoutGroup
   id: SecurityBackpack
@@ -1239,13 +1289,13 @@
   name: loadout-group-security-outerclothing
   loadouts:
   - ArmorVest
-  - ArmorVestSlim
   - ArmorVestCompact #imp
+  - ArmorVestSlim
   - DuraVest # DeltaV
   - PlateCarrier # DeltaV
   - SecurityOfficerWintercoat
-  - StasecSweater # DeltaV
   - BomberSecurity #imp
+  - StasecSweater # DeltaV
 
 - type: loadoutGroup
   id: SecurityShoes
@@ -1269,6 +1319,7 @@
   loadouts:
   - DetectiveFedora
   - DetectiveFedoraGrey
+  - ClothingHeadDeerstalker #imp
 
 - type: loadoutGroup
   id: DetectiveNeck
@@ -1284,10 +1335,10 @@
   loadouts:
   - DetectiveJumpsuit
   - DetectiveJumpskirt
-  - ForensicSpecTurtleskirt # DeltaV
-  - ForensicSpecTurtlesuit # DeltaV
   - NoirJumpsuit
   - NoirJumpskirt
+  - ForensicSpecTurtlesuit # DeltaV
+  - ForensicSpecTurtleskirt # DeltaV
   - ClothingUniformMiamiVice #imp
   - ClothingUniformMiamiViceSkirt #imp
   - ClothingUniformDetectiveSuit #imp
@@ -1298,14 +1349,8 @@
   name: loadout-group-detective-outerclothing
   loadouts:
   - DetectiveArmorVest
-  - DetectiveCoatGrey
   - DetectiveCoat
-  - ArmorVest #imp
-  - ArmorVestSlim #imp
-  - ArmorVestCompact #imp
-  - DuraVest # DeltaV
-  - PlateCarrier # DeltaV
-  - BomberSecurity #imp
+  - DetectiveCoatGrey
   - ClothingOuterCoatFieldJacket #imp
 
 - type: loadoutGroup
@@ -1323,9 +1368,9 @@
   loadouts:
   - EmergencyNitrogenSecurity
   - EmergencyOxygenSecurity
+  - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatSecurity # imp
   - LoadoutSpeciesAquaticFullTank # Imp
-  - LoadoutSpeciesVoxNitrogen
 
 - type: loadoutGroup
   id: SecurityStar
@@ -1335,7 +1380,6 @@
   - SecStar
 
 # Medical
-
 - type: loadoutGroup
   id: ChiefMedicalOfficerHead
   name: loadout-group-chief-medical-officer-head
@@ -1343,6 +1387,7 @@
   loadouts:
   - ChiefMedicalOfficerBeret
   - CMOMedicalHeadMirror
+  - CMOClip # imp
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerJumpsuit
@@ -1352,6 +1397,11 @@
   - ChiefMedicalOfficerJumpskirt
   - ChiefMedicalOfficerTurtleneckJumpsuit
   - ChiefMedicalOfficerTurtleneckJumpskirt
+  - CMOCasualSuit # imp
+  - CMOCasualSkirt # imp
+  - CMOFormalSuit # imp
+  - CMOFormalDress # imp
+  - CMOScrubs # imp
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerOuterClothing
@@ -1360,6 +1410,7 @@
   loadouts:
   - ChiefMedicalOfficerLabCoat
   - ChiefMedicalOfficerWintercoat
+  - CMOApron # imp
   - CMOPrestigeLabcoat #IMP
 
 - type: loadoutGroup
@@ -1379,7 +1430,7 @@
   - BrownShoes
   - WhiteShoes # imp
   - LacedShoes #imp
-  - LeatherShoes
+  - LeatherShoes #imp
   - MedicalWinterBoots
 
 - type: loadoutGroup
@@ -1404,13 +1455,14 @@
   - SpaceMedicalJumpsuit # imp
   - SeniorPhysicianJumpsuit
   - SeniorPhysicianJumpskirt
+  - MedicalBlueScrubs
+  - MedicalGreenScrubs
+  - MedicalPurpleScrubs
+  - MedicalNurseJumpskirt # imp
   - VirologyJumpsuit # imp
   - VirologyJumpskirt # imp
   - GeneticsJumpsuit # imp
   - GeneticsJumpskirt # imp
-  - MedicalBlueScrubs
-  - MedicalGreenScrubs
-  - MedicalPurpleScrubs
 
 - type: loadoutGroup
   id: MedicalDoctorOuterClothing
@@ -1419,10 +1471,11 @@
   loadouts:
   - RegularLabCoat
   - MedicalDoctorWintercoat
-  - GeneticsWinterCoat # imp
   - VirologyWinterCoat # imp
-  - SeniorPhysicianLabCoat
+  - GeneticsWinterCoat # imp
   - BomberMedical #imp
+  - MedicalNurseApron # imp
+  - SeniorPhysicianLabCoat
 
 - type: loadoutGroup
   id: MedicalBackpack
@@ -1433,7 +1486,7 @@
   - MedicalDoctorDuffel
 
 - type: loadoutGroup
-  id: MedicalDoctorShoes
+  id: MedicalShoes
   name: loadout-group-medical-doctor-shoes
   loadouts:
   - WhiteShoes
@@ -1476,8 +1529,8 @@
   loadouts:
   - ChemistJumpsuit
   - ChemistJumpskirt
-  - SpaceChemistJumpsuit # imp
   - ChemistFormalSuit # imp
+  - SpaceChemistJumpsuit # imp
 
 - type: loadoutGroup
   id: ChemistOuterClothing
@@ -1488,8 +1541,8 @@
   - ChemistLabCoat
   - SeniorPhysicianLabCoat # imp
   - ChemistWintercoat
-  - ChemistryApron # imp
   - BomberMedical #imp
+  - ChemistryApron # imp
 
 - type: loadoutGroup
   id: ChemistBackpack
@@ -1527,8 +1580,30 @@
   name: loadout-group-paramedic-shoes
   loadouts:
   - BlueShoes
-  - WhiteShoes # imp
+  - WhiteShoes
   - MedicalWinterBoots
+
+- type: loadoutGroup
+  id: MedicalEyewear
+  name: loadout-group-medical-glasses
+  minLimit: 0
+  loadouts:
+  - MedicalHud
+  - MedicalEyePatchHud
+  - MedicalGlassesHud #imp
+  - Glasses
+  # imp edit start - its in the middle for alphabetizing reasons sorry
+  - GlassesCheapSunglasses
+  - EyePatch
+  - GlassesColorfulPink
+  - GlassesColorfulRed
+  - GlassesColorfulBlue
+  - GlassesColorfulGreen
+  - GlassesColorfulPurple
+  - GlassesColorfulYellow
+  # imp edit end
+  - GlassesJamjar
+  - GlassesJensen
 
 - type: loadoutGroup
   id: SurvivalMedical
@@ -1538,11 +1613,19 @@
   loadouts:
   - EmergencyNitrogenMedical
   - EmergencyOxygenMedical
+  - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatMedical # imp
   - LoadoutSpeciesAquaticFullTank # Imp
-  - LoadoutSpeciesVoxNitrogen
 
 # Wildcards
+- type: loadoutGroup
+  id: ReporterJumpsuit
+  name: loadout-group-reporter-jumpsuit
+  loadouts:
+  - ReporterJumpsuit
+  - JournalistJumpsuit
+  - ClothingUniformBrosBlazer # imp
+  - ClothingUniformBrosBlazerSkirt # imp
 
 - type: loadoutGroup
   id: PsychologistJumpsuit
@@ -1576,9 +1659,9 @@
   loadouts:
   - EmergencyNitrogenSyndicate
   - EmergencyOxygenSyndicate
+  - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatSyndicate # imp
   - LoadoutSpeciesAquaticFullTank # Imp
-  - LoadoutSpeciesVoxNitrogen
 
 - type: loadoutGroup
   id: GroupSpeciesBreathTool

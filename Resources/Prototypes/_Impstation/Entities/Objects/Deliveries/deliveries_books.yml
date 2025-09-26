@@ -1,0 +1,22 @@
+- type: entityTable
+  id: LetterImpBookReturn
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      weight: 4
+      tableId: LetterImpBookEntityTable #stealing this from the mail list
+    - !type:NestedSelector
+      weight: 1
+      tableId: ImpBookMagicSafeEntityTable
+
+- type: entityTable
+  id: ImpBookMagicSafeEntityTable
+  table: !type:GroupSelector
+    children:
+    - id: SpellbookSafeLibrarianPrying
+    - id: SpellbookSafeLibrarianAnchoring
+    - id: SpellbookSafeLibrarianCutting
+    - id: SpellbookSafeLibrarianScrewing
+    - id: SpellbookSafeLibrarianFireball
+    - id: SpellbookSafeLibrarianScissors
+    - id: SpellbookSafeLibrarianFlashlight

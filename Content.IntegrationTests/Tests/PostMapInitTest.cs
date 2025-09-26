@@ -35,18 +35,20 @@ namespace Content.IntegrationTests.Tests
         private static readonly string[] NoSpawnMaps =
         {
             "CentComm",
+            "CentCommImp", // imp edit
             "Dart"
         };
 
         private static readonly string[] Grids =
         {
-            "/Maps/centcomm.yml",
+            "/Maps/_Impstation/centcomm.yml", // imp edit
             AdminTestArenaSystem.ArenaMapPath
         };
 
         private static readonly string[] DoNotMapWhitelist =
         {
             "/Maps/centcomm.yml",
+            "/Maps/_Impstation/centcomm.yml", // imp edit
 
             // Stations
             "/Maps/bagel.yml", // Contains mime's rubber stamp
@@ -63,7 +65,7 @@ namespace Content.IntegrationTests.Tests
             "/Maps/_Impstation/meta.yml", // Contains warden's rubber stamp
             "/Maps/_Impstation/reach.yml", // Contains handheld crew monitor
             "/Maps/_Impstation/xeno.yml", // Contains PTK-800 "Matter Dematerializer"
-
+            "/Maps/_Impstation/eclipse.yml", // Contains PTK-800 "Matter Dematerializer", LSE-400c "Svalinn machine gun"
 
 
             // Shuttles
@@ -74,6 +76,7 @@ namespace Content.IntegrationTests.Tests
             "/Maps/Shuttles/ShuttleEvent/recruiter.yml", // Contains syndicate rubber stamp
             "/Maps/_DV/Shuttles/listening_post.yml", // Contains captain's rubber stamp, chief engineer's rubber stamp, chaplain's rubber stamp, clown's rubber stamp, blablabla you get the picture
             "/Maps/_Impstation/Shuttles/listening_post.yml" // No, I'm not gonna list out all these stamps again lol
+
         };
 
         // Imp - While fixing these tests I didn't want to edit any of the maps in-game because that would mess up any possible wip stuff.
@@ -82,66 +85,79 @@ namespace Content.IntegrationTests.Tests
         private static readonly (string, string)[] IgnoreUnmappedSpawns =
         {
             ("Banana", "ChiefMedicalOfficer"),
-            ("Elkridge", "Courier"),
-            ("Packed", "Brigmedic"),
-            ("Reach", "TechnicalAssistant"),
-            ("Reach", "MedicalIntern"),
-            ("Reach", "ResearchAssistant"),
-            ("Reach", "SecurityCadet"),
-            ("Fland", "Reporter"),
+            ("ElkridgeImp", "Courier"),
+            ("PackedImp", "Brigmedic"),
+            ("ReachImp", "TechnicalAssistant"),
+            ("ReachImp", "MedicalIntern"),
+            ("ReachImp", "ResearchAssistant"),
+            ("ReachImp", "SecurityCadet"),
             ("Loop", "Psychologist"),
             ("Lilboat", "Paramedic"),
-            ("Relic", "SalvageSpecialist"),
-            ("Relic", "Clown")
+            ("RelicImp", "SalvageSpecialist"),
+            ("RelicImp", "Clown")
         };
 
         private static readonly string[] GameMaps =
-        {   // Note, fork attributions based on prototype location, they might not be accurate
-            // Maps
-            "Relic",
-            "Amber",
-            "MeteorArena",
-            "Atlas",
-            "Bagel",
-            "Box",
-            "CentComm",
-            "Cluster",
-            "Cog",
-            "Convex",
-            "Core",
+        {
+            // WIZDEN PROTOTYPES, ONES COMMENTED OUT ARE IN ignoredPrototypes.yml:
             "Dev",
             "TestTeg",
-            "Elkridge",
-            "Fland",
-            "Gate",
-            "Loop",
-            "Marathon",
-            "Meta",
-            "Oasis",
-            "Omega",
-            "Origin",
-            "Packed",
-            "Plasma",
-            "Reach",
-            "Saltern",
-            "Train",
-            "Xeno",
+            //"Fland",
+            //"Packed",
+            //"Bagel",
+            //"CentComm",
+            //"Box",
+            //"Marathon",
+            "MeteorArena",
+            //"Saltern",
+            //"Reach",
+            //"Oasis",
+            //"Amber",
+            //"Plasma",
+            //"Elkridge",
+            //"Relic",
+            "dm01-entryway",
+            //"Exo",
 
-            // _Harmony/Maps
-            "Barratry",
-
-            // _Impstation/Maps
-            "E1M1",
+            // IMP PROTOTYPES:
+            "AmberImp",
+            "BagelImp",
             "Banana",
+            "Barratry",
+            "Bedlam",
             "Boat",
+            "BoxImp",
+            "CentCommImp",
+            "CogImp",
+            "CoreImp",
+            "E1M1",
+            "ElkridgeImp",
+            "GateImp",
+            "reHash",
             "Hummingbird",
             "Lilboat",
             "Luna",
+            "MarathonImp",
+            "OasisImp",
+            "PackedImp",
+            "PlasmaImp",
+            "ReachImp",
+            "RelicImp",
+            "SalternImp",
+            "Submarine",
+            "TrainImp",
+            "Xeno",
+            "Pathway",
+            "Whisper",
+
+            // NOT IN ROTATION BUT WE STILL NEED THEM TESTED SINCE THEY STILL HAVE A PROTOTYPE:
+            "Eclipse",
+            "Refsdal",
             "Skimmer",
             "Union",
-            "Hash",
-            "Refsdal"
         };
+
+        private static readonly ProtoId<EntityCategoryPrototype> DoNotMapCategory = "DoNotMap";
 
         /// <summary>
         /// Asserts that specific files have been saved as grids and not maps.
@@ -320,7 +336,7 @@ namespace Content.IntegrationTests.Tests
                 return;
 
             var yamlEntities = node["entities"];
-            if (!protoManager.TryIndex<EntityCategoryPrototype>("DoNotMap", out var dnmCategory))
+            if (!protoManager.TryIndex(DoNotMapCategory, out var dnmCategory))
                 return;
 
             Assert.Multiple(() =>

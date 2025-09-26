@@ -3,7 +3,7 @@
   parent: BaseItem
   id: SheetGlassBase
   name: glass
-  description: A sheet of glass, used often on the station in various applications.
+  description: You'd know it if you couldn't see it. # imp
   components:
   - type: Sprite
     sprite: Objects/Materials/Sheets/glass.rsi
@@ -15,7 +15,8 @@
   - type: Tag
     tags:
     - Sheet
-    - DroneUsable
+    - ConstructionMaterial
+    - DroneUsable #imp
   - type: Material
   - type: Damageable
     damageContainer: Inorganic
@@ -49,6 +50,10 @@
     solutions:
       glass:
         canReact: false
+  - type: NonMobStatusIcon #imp edit. for the salvohud
+  - type: PluralName # imp
+    oneOf: plural-name-sheet-1
+    someOf: plural-name-sheet-2plus
 
 - type: entity
   parent: SheetGlassBase
@@ -86,6 +91,7 @@
         reagents:
         - ReagentId: Silicon
           Quantity: 10
+  # imp edit start
   - type: UserInterface
     interfaces:
       enum.ShortConstructionUiKey.Key:
@@ -96,6 +102,7 @@
     prototypes:
     - Window
     - WindowDirectional
+  # imp edit end
 
 - type: entity
   parent: SheetGlass
@@ -120,19 +127,10 @@
     count: 1
 
 - type: entity
-  parent: SheetGlass
-  id: SheetGlassLingering0
-  suffix: Lingering, 0
-  components:
-  - type: Stack
-    lingering: true
-    count: 0
-
-- type: entity
   parent: SheetGlassBase
   id: SheetRGlass
   name: reinforced glass
-  description: A reinforced sheet of glass.
+  description: Glass reinforced with rods. Tough enough to stand up to space. # imp
   suffix: Full
   components:
   - type: PhysicalComposition
@@ -182,6 +180,7 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  # imp edit start
   - type: UserInterface
     interfaces:
       enum.ShortConstructionUiKey.Key:
@@ -192,6 +191,7 @@
     prototypes:
     - ReinforcedWindow
     - WindowReinforcedDirectional
+  # imp edit end
 
 - type: entity
   parent: SheetRGlass
@@ -222,7 +222,7 @@
   parent: SheetGlassBase
   id: SheetPGlass
   name: plasma glass
-  description: A sheet of translucent plasma.
+  description: A glass made of silicon-plasma. Looking through it makes everything feel better. # imp
   suffix: Full
   components:
   - type: PhysicalComposition
@@ -269,6 +269,7 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  # imp edit start
   - type: UserInterface
     interfaces:
       enum.ShortConstructionUiKey.Key:
@@ -279,6 +280,7 @@
     prototypes:
     - PlasmaWindow
     - PlasmaWindowDirectional
+  # imp edit end
 
 - type: entity
   parent: SheetPGlass
@@ -307,7 +309,7 @@
   parent: SheetPGlass
   id: SheetRPGlass
   name: reinforced plasma glass
-  description: A reinforced sheet of translucent plasma.
+  description: Plasma, silicon, steel. These titans join forces to make... some strong pink glass. # imp
   suffix: Full
   components:
   - type: PhysicalComposition
@@ -345,6 +347,7 @@
         - ReagentId: Carbon
           Quantity: 0.5
         canReact: false
+  # imp edit start
   - type: UserInterface
     interfaces:
       enum.ShortConstructionUiKey.Key:
@@ -355,6 +358,7 @@
     prototypes:
     - ReinforcedPlasmaWindow
     - PlasmaReinforcedWindowDirectional
+  # imp edit end
 
 - type: entity
   parent: SheetRPGlass
@@ -372,7 +376,7 @@
   parent: SheetGlassBase
   id: SheetUGlass
   name: uranium glass
-  description: A sheet of uranium glass.
+  description: Glass with uranium added to its mix, giving it a trademark green tint. Perfect for fiestas. # imp
   suffix: Full
   components:
   - type: PhysicalComposition
@@ -430,6 +434,7 @@
         - ReagentId: Uranium
           Quantity: 10
         canReact: false
+  # imp edit start
   - type: UserInterface
     interfaces:
       enum.ShortConstructionUiKey.Key:
@@ -440,6 +445,7 @@
     prototypes:
     - UraniumWindow
     - UraniumWindowDirectional
+  # imp edit end
 
 - type: entity
   parent: SheetUGlass
@@ -457,7 +463,7 @@
   parent: SheetUGlass
   id: SheetRUGlass
   name: reinforced uranium glass
-  description: A reinforced sheet of uranium.
+  description: Tough green glass made with the stuff of old nukes, but probably still not tough enough to survive one. #imp
   components:
   - type: PhysicalComposition
     materialComposition:
@@ -494,6 +500,7 @@
         - ReagentId: Carbon
           Quantity: 0.5
         canReact: false
+  # imp edit start
   - type: UserInterface
     interfaces:
       enum.ShortConstructionUiKey.Key:
@@ -504,6 +511,7 @@
     prototypes:
     - ReinforcedUraniumWindow
     - UraniumReinforcedWindowDirectional
+  # imp edit end
 
 - type: entity
   parent: SheetRUGlass
@@ -521,7 +529,7 @@
   parent: SheetGlassBase
   id: SheetClockworkGlass
   name: clockwork glass
-  description: A sheet of brass-hardened glass, primarily used by clockwork enthusiasts and remnants of Ratvarian cults.
+  description: A sheet of brass-hardened glass, used by Ratvarian cultists who like to see the outdoors. # imp
   suffix: Full
   components:
   - type: PhysicalComposition
@@ -581,6 +589,7 @@
         - ReagentId: Copper
           Quantity: 6.7
         canReact: false
+  # imp edit start
   - type: UserInterface
     interfaces:
       enum.ShortConstructionUiKey.Key:
@@ -591,6 +600,7 @@
     prototypes:
     - ClockworkWindow
     - WindowClockworkDirectional
+  # imp edit end
 
 - type: entity
   parent: SheetClockworkGlass

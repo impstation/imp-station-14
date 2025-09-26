@@ -57,7 +57,7 @@
           cost: 5
           prob: 0.5
         - proto: ProtolatheMachineCircuitboard
-        - proto: RandomArtifactSpawner
+        - proto: RandomOldNewArtifactSpawner #IMP
           cost: 2
         - proto: RandomCargoCorpseSpawner
           cost: 2

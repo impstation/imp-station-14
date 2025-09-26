@@ -12,7 +12,7 @@
   weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"
-  supervisors: job-supervisors-captain
+  supervisors: job-supervisors-hop-captain #imp
   canBeAntag: false
   access:
   - Research
@@ -21,6 +21,7 @@
   - ResearchDirector
   - Brig
   - Cryogenics
+  - Vault #imp
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -35,3 +36,15 @@
   storage:
     back:
     - Flash
+
+- type: chameleonOutfit
+  id: ResearchDirectorChameleonOutfit
+  job: ResearchDirector
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatBeretRND
+    eyes: ClothingEyesGlasses
+    mask: ClothingMaskGas
+    neck: ClothingNeckCloakRd
+    outerClothing: ClothingOuterCoatRD
+    gloves: ClothingHandsGlovesColorPurple

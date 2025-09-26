@@ -1,0 +1,53 @@
+- type: entity
+  id: ServiceBookTeleporter
+  parent: BaseMachinePowered
+  name: book return teleporter
+  description: Periodically teleports in returned books to stock the stations library.
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.35,0.35,0.35"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Sprite
+    sprite: _Impstation/Structures/bookreturn.rsi
+    snapCardinals: true
+    layers:
+    - state: icon
+    - state: contents
+      map: [ "enum.DeliverySpawnerVisualLayers.Contents" ]
+      visible: false
+    - state: unlit
+      shader: unshaded
+      visible: false
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: ApcPowerReceiver
+    powerLoad: 1000
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.DeliverySpawnerVisuals.Contents:
+        enum.DeliverySpawnerVisualLayers.Contents:
+          True: { visible: true }
+          False: { visible: false }
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+  - type: PowerSwitch
+  - type: InteractionPopup
+    interactSuccessString: petting-success-mail-teleporter
+    interactFailureString: petting-failure-mail-teleporter
+  - type: DeliverySpawner
+    table: !type:NestedSelector
+      tableId: LetterImpBookReturn
+    maxContainedDeliveryAmount: 5

@@ -1,11 +1,38 @@
+# Senior times
+- type: loadoutEffectGroup
+  id: SeniorBartender
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBartender
+      time: 108000 #30 hrs, ~20 rounds
+
+# Outerwear
+- type: loadoutEffectGroup
+  id: SeniorBartenderApron
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBartender
+      time: 36000 #10 hrs ~7 rounds
+
 - type: loadout
   id: BartenderCuteApron
   effects:
   - !type:GroupLoadoutEffect
-    proto: SeniorBartender
+    proto: SeniorBartenderApron
   equipment:
     outerClothing: ClothingOuterApronCuteBar
 
+# Neck
+- type: loadout
+  id: RedTie
+  equipment:
+    neck: ClothingNeckTieRed
+
+# Jumpsuit
 - type: loadout
   id: ClothingUniformNightclubSuit
   equipment:
@@ -31,4 +58,17 @@
     proto: SeniorBartender
   equipment:
     jumpsuit: ClothingUniformSeniorBartenderSkirt #imp
-    
+
+# id
+- type: loadout
+  id: BartenderPDA
+  equipment:
+    id: BartenderPDA
+
+- type: loadout
+  id: SeniorBartenderPDA
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorBartender
+  equipment:
+    id: SeniorBartenderPDA

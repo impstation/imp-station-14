@@ -12,7 +12,7 @@
     - DoorBumpOpener
     - AnomalyHost
     - DionaMinded
-  - type: Absorbable
+  - type: GoobAbsorbable
   - type: HumanoidAppearance
     species: Diona
   - type: Hunger
@@ -94,12 +94,14 @@
           - MobLayer
   - type: Speech
     speechVerb: Plant
-    allowedEmotes: ['Chirp']
+    allowedEmotes: ['Chirp', 'Multichirp'] # Impstation
   - type: Vocal
     sounds:
       Male: MaleDiona
       Female: FemaleDiona
       Unsexed: UnisexDiona
+  - type: TypingIndicator
+    proto: diona
   - type: BodyEmotes
     soundsId: DionaBodyEmotes
   - type: IgnoreKudzu
@@ -112,12 +114,14 @@
     - Dead
   - type: Inventory
     templateId: diona
+    speciesId: diona #imp
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  - type: Rootable
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -128,6 +132,7 @@
     species: Diona
   - type: Inventory
     templateId: diona
+    speciesId: diona #imp
     femaleDisplacements:
       jumpsuit:
         sizeMaps:

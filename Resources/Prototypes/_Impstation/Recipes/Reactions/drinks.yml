@@ -38,18 +38,6 @@
     path: /Audio/_Impstation/Animals/spooky_horse.ogg
 
 - type: reaction
-  id: Calimotxo
-  requiredMixerCategories:
-    - Stir
-  reactants:
-    Wine:
-      amount: 1
-    Cola:
-      amount: 1
-  products:
-    Calimotxo: 2
-
-- type: reaction
   id: LoveTap
   requiredMixerCategories:
     - Stir
@@ -92,7 +80,7 @@
 - type: reaction #if this recipe ever causes test fail again you should just kill her
   id: Rotgut
   requiredMixerCategories:
-    - Stir 
+    - Stir
   reactants:
     Water:
       amount: 1
@@ -314,7 +302,7 @@
   requiredMixerCategories:
     - Shake
   reactants:
-    Protein:
+    UncookedAnimalProteins:
       amount: 1
     Cream:
       amount: 1
@@ -429,3 +417,261 @@
       amount: 1
   products:
     Soju: 2
+
+- type: reaction
+  id: LungClogger
+  requiredMixerCategories:
+    - Stir
+  reactants:
+    SpaceUp:
+      amount: 1
+    Gin:
+      amount: 1
+    JuiceLime:
+      amount: 1
+    Nothing:
+      amount: 1
+  products:
+    LungClogger: 4
+
+- type: reaction
+  id: SleepytimeJunction
+  requiredMixerCategories:
+    - Shake
+  reactants:
+    Wine:
+      amount: 1
+    Cream:
+      amount: 1
+    JuiceBluePumpkin:
+      amount: 1
+  products:
+    SleepytimeJunction: 3
+
+- type: reaction
+  id: BreathofFreshAir
+  requiredMixerCategories:
+    - Stir
+  reactants:
+    Dexalin:
+      amount: 1
+    SpaceMountainWind:
+      amount: 1
+    Vermouth:
+      amount: 1
+  products:
+    BreathofFreshAir: 3
+
+- type: reaction
+  id: MinotaursLament
+  reactants:
+    XenoBasher:
+      amount: 1
+    Absinthe:
+      amount: 1
+  products:
+    MinotaursLament: 2
+
+- type: reaction
+  id: Burnchamber
+  minTemp: 370
+  reactants:
+    CapsaicinOil:
+      amount: 2
+    Plasma:
+      amount: 1
+    Whiskey:
+      amount: 3
+  products:
+    Burnchamber: 6
+
+- type: reaction
+  id: WeldingCoils
+  reactants:
+    WeldingFuel:
+      amount: 1
+    Vodka:
+      amount: 2
+    LemonAsterade:
+      amount: 3
+  products:
+    WeldingCoils: 6
+
+- type: reaction
+  id: Supermixer
+  requiredMixerCategories:
+    - Shake
+  reactants:
+    Sugar:
+      amount: 1
+    SodaWater:
+      amount: 1
+    JuiceLemon:
+      amount: 1
+  products:
+    Supermixer: 3
+
+- type: reaction
+  id: Supermixerpsych
+  requiredMixerCategories:
+    - Stir
+  reactants:
+    Supermixer:
+      amount: 2
+    Psicodine:
+      amount: 1
+  products:
+    Supermixerpsych: 3
+
+- type: reaction
+  id: Moonrise
+  requiredMixerCategories:
+    - Stir
+  reactants:
+    HummingBird:
+      amount: 1
+    JuiceWatermelon:
+      amount: 1
+    Cream:
+      amount: 1
+  products:
+    Moonrise: 3
+
+- type: reaction
+  id: PoorMansFrezon
+  requiredMixerCategories:
+    - Stir
+  reactants:
+    Ice:
+      amount: 1
+    SpaceDrugs:
+      amount: 2
+    Ethanol:
+      amount: 3
+  products:
+    PoorMansFrezon: 6
+
+- type: reaction
+  id: DoubleGreen
+  requiredMixerCategories:
+    - Shake
+  reactants:
+    InsectBlood:
+      amount: 2
+    MindbreakerToxin:
+      amount: 2
+    Moonshine:
+      amount: 1
+  products:
+    DoubleGreen: 5
+
+- type: reaction
+  id: LiquidLunch
+  requiredMixerCategories:
+    - Stir
+  reactants:
+    Blood:
+      amount: 3
+    Fiber:
+      amount: 1
+    UncookedAnimalProteins:
+      amount: 2
+  products:
+    LiquidLunch: 6
+
+- type: reaction
+  id: BatteryAcid
+  requiredMixerCategories:
+    - Stir
+  reactants:
+    Rum:
+      amount: 1
+    SynthBlood:
+      amount: 1
+    DrGibb:
+      amount: 1
+    SpaceMountainWind:
+      amount: 1
+  products:
+    BatteryAcid: 4
+
+- type: reaction
+  id: AngelsKiss
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Rum:
+      amount: 1
+    SynthBlood:
+      amount: 1
+    CoffeeLiqueur:
+      amount: 1
+  products:
+    AngelsKiss: 3
+
+- type: reaction
+  id: PinkRose
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Gin:
+      amount: 1
+    JuiceRose:
+      amount: 1
+    JuiceLime:
+      amount: 1
+  products:
+    PinkRose: 3
+
+- type: reaction
+  id: LaFleurette
+  requiredMixerCategories:
+  reactants:
+    Champagne:
+      amount: 2
+    JuiceRose:
+      amount: 1
+  products:
+    LaFleurette: 3
+
+- type: reaction
+  id: RomanceDead
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Gin:
+      amount: 1
+    JuiceRose:
+      amount: 1
+    Blood:
+      amount: 1
+  products:
+    RomanceDead: 3
+
+- type: reaction
+  id: RomanceDeadNot
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    JuiceLemon:
+      amount: 1
+    JuiceRose:
+      amount: 1
+    Blood:
+      amount: 1
+  products:
+    RomanceDeadNot: 3
+
+- type: reaction
+  id: RoseMilk
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    JuiceRose:
+      amount: 1
+    Milk:
+      amount: 1
+    Sugar:
+      amount: 1
+  products:
+    RoseMilk: 3

@@ -1,34 +1,39 @@
-using Content.Client.Administration.Managers;
+using Content.Client.Administration.Managers; // imp
+using Content.Shared.Ghost; // imp
 using Content.Client.Interactable.Components;
-using Content.Shared.Ghost;
+using Content.Client.StatusIcon;
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
-using Robust.Client.Player;
+using Robust.Client.Player; // imp
 using Robust.Shared.Prototypes;
 
 namespace Content.Client.Stealth;
 
 public sealed class StealthSystem : SharedStealthSystem
 {
+    private static readonly ProtoId<ShaderPrototype> Shader = "Stealth";
+
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IClientAdminManager _adminManager = default!;
-    [Dependency] private readonly ContainerSystem _containerSystem = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!; // imp
+    [Dependency] private readonly IClientAdminManager _adminManager = default!; // imp
+    [Dependency] private readonly ContainerSystem _containerSystem = default!; // imp
 
     private ShaderInstance _shader = default!;
+    // imp edit start
     private ShaderInstance _altShader = default!;
-
     private float timer = 0;
+    // imp edit end
 
     public override void Initialize()
     {
         base.Initialize();
 
-        _shader = _protoMan.Index<ShaderPrototype>("Stealth").InstanceUnique();
-        _altShader = _protoMan.Index<ShaderPrototype>("AccessibleFullStealth").InstanceUnique();
+        _shader = _protoMan.Index<ShaderPrototype>("Stealth").InstanceUnique(); // imp
+        _altShader = _protoMan.Index<ShaderPrototype>("AccessibleFullStealth").InstanceUnique(); // imp
 
         SubscribeLocalEvent<StealthComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<StealthComponent, ComponentStartup>(OnStartup);
@@ -39,7 +44,7 @@ public sealed class StealthSystem : SharedStealthSystem
 
     public override void SetEnabled(EntityUid uid, bool value, StealthComponent? component = null)
     {
-        if (!Resolve(uid, ref component))
+        if (!Resolve(uid, ref component)) // imp
             return;
 
         base.SetEnabled(uid, value, component);
@@ -51,7 +56,7 @@ public sealed class StealthSystem : SharedStealthSystem
         if (!Resolve(uid, ref component, ref sprite, false))
             return;
 
-        sprite.Color = Color.White;
+        _sprite.SetColor((uid, sprite), Color.White);
         //imp special - use the alternative full-invis shader if we're set to
         var shaderToUse = component.UseAltShader ? _altShader : _shader;
         sprite.PostShader = enabled ? shaderToUse : null;
@@ -133,10 +138,10 @@ public sealed class StealthSystem : SharedStealthSystem
         // actual visual visibility effect is limited to +/- 1.
         visibility = Math.Clamp(visibility, -1f, 1f);
 
-        shaderToUse.SetParameter("reference", reference);
-        shaderToUse.SetParameter("visibility", visibility);
+        shaderToUse.SetParameter("reference", reference); // imp
+        shaderToUse.SetParameter("visibility", visibility); // imp
 
         visibility = MathF.Max(0, visibility);
-        args.Sprite.Color = new Color(visibility, visibility, 1, 1);
+        _sprite.SetColor((uid, args.Sprite), new Color(visibility, visibility, 1, 1));
     }
 }

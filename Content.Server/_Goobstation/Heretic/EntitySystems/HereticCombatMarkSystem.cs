@@ -15,7 +15,7 @@ using Robust.Shared.Timing;
 using System.Linq;
 using Content.Shared.Humanoid;
 using Content.Server.Temperature.Components;
-using Content.Server.Body.Components;
+using Content.Shared.Body.Components;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -50,8 +50,7 @@ public sealed partial class HereticCombatMarkSystem : EntitySystem
             case "Flesh":
                 if (TryComp<BloodstreamComponent>(target, out var blood))
                 {
-                    _blood.TryModifyBleedAmount(target, 5f, blood);
-                    _blood.SpillAllSolutions(target, blood);
+                    _blood.TryModifyBleedAmount(target, 7f);
                 }
                 break;
 
@@ -127,10 +126,11 @@ public sealed partial class HereticCombatMarkSystem : EntitySystem
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        foreach (var comp in EntityQuery<HereticCombatMarkComponent>())
+        var query = EntityQueryEnumerator<HereticCombatMarkComponent>();
+        while (query.MoveNext(out var uid, out var comp))
         {
             if (_timing.CurTime > comp.Timer)
-                RemComp(comp.Owner, comp);
+                RemComp(uid, comp);
         }
     }
 

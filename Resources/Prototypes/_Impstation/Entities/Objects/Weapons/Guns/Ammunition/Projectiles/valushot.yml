@@ -1,0 +1,20 @@
+- type: entity
+  id: BulletValuPlus
+  name: fancy minigun bullet (.10 rifle)
+  parent: BulletHeavyRifle
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    radius: 1.5
+    color: "#d63b28"
+    energy: 10.0
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/disablerbolts.rsi
+    layers:
+      - state: bee
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectEnergySmall
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 8

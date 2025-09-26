@@ -2,6 +2,7 @@ using System.Numerics;
 using Content.Client.Actions;
 using Content.Client.Decals.Overlays;
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.Decals;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -21,8 +22,11 @@ public sealed class DecalPlacementSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly InputSystem _inputSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
+
+    public static readonly EntProtoId DecalAction = "BaseMappingDecalAction";
 
     private string? _decalId;
     private Color _decalColor = Color.White;
@@ -69,7 +73,10 @@ public sealed class DecalPlacementSystem : EntitySystem
                 if (!coords.IsValid(EntityManager))
                     return false;
 
-                var decal = new Decal(coords.Position, _decalId, _decalColor, _decalAngle, _zIndex, _cleanable);
+                //imp edit - kinda dirty but get the shader ID from the prototype
+                var shaderID = _protoMan.Index<DecalPrototype>(_decalId).ShaderID;
+
+                var decal = new Decal(coords.Position, _decalId, _decalColor, _decalAngle, _zIndex, _cleanable, shaderID);
                 RaiseNetworkEvent(new RequestDecalPlacementEvent(decal, GetNetCoordinates(coords)));
 
                 return true;
@@ -127,7 +134,10 @@ public sealed class DecalPlacementSystem : EntitySystem
 
         args.Target = args.Target.Offset(new Vector2(-0.5f, -0.5f));
 
-        var decal = new Decal(args.Target.Position, args.DecalId, args.Color, Angle.FromDegrees(args.Rotation), args.ZIndex, args.Cleanable);
+        //imp edit - kinda dirty but get the shader ID from the prototype
+        var shaderID = _protoMan.Index<DecalPrototype>(args.DecalId).ShaderID;
+
+        var decal = new Decal(args.Target.Position, args.DecalId, args.Color, Angle.FromDegrees(args.Rotation), args.ZIndex, args.Cleanable, shaderID);
         RaiseNetworkEvent(new RequestDecalPlacementEvent(decal, GetNetCoordinates(args.Target)));
     }
 
@@ -152,19 +162,12 @@ public sealed class DecalPlacementSystem : EntitySystem
             Cleanable = _cleanable,
         };
 
-        var actionId = Spawn(null);
-        AddComp(actionId, new WorldTargetActionComponent
-        {
-            // non-unique actions may be considered duplicates when saving/loading.
-            Icon = decalProto.Sprite,
-            Repeat = true,
-            ClientExclusive = true,
-            CheckCanAccess = false,
-            CheckCanInteract = false,
-            Range = -1,
-            Event = actionEvent,
-            IconColor = _decalColor,
-        });
+        var actionId = Spawn(DecalAction);
+        var action = Comp<ActionComponent>(actionId);
+        var ent = (actionId, action);
+        _actions.SetEvent(actionId, actionEvent);
+        _actions.SetIcon(ent, decalProto.Sprite);
+        _actions.SetIconColor(ent, _decalColor);
 
         _metaData.SetEntityName(actionId, $"{_decalId} ({_decalColor.ToHex()}, {(int) _decalAngle.Degrees})");
 

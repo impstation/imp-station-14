@@ -39,7 +39,7 @@
   suffix: ResearchDirector
   components:
    - type: Sprite
-     sprite: _Impstation/Structures/Doors/Airlocks/Standard/rd.rsi 
+     sprite: _Impstation/Structures/Doors/Airlocks/Standard/rd.rsi
 
 - type: entity
   parent: AirlockCommand
@@ -93,7 +93,7 @@
   suffix: Armory
   components:
   - type: Sprite
-    sprite: _Impstation/Structures/Doors/Airlocks/Standard/warden.rsi
+    sprite: _Impstation/Structures/Doors/Airlocks/Standard/armory.rsi
   - type: Wires
     layoutId: AirlockArmory
 
@@ -113,6 +113,14 @@
   - type: Sprite
     sprite: _Impstation/Structures/Doors/Airlocks/Standard/detective.rsi
 
+- type: entity
+  parent: AirlockSecurity
+  id: AirlockSecurityMedical
+  suffix: Security/Medical
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Doors/Airlocks/Standard/secmed.rsi
+
 # Service
 - type: entity
   parent: Airlock
@@ -123,7 +131,7 @@
     layoutId: AirlockService
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/basic.rsi
-    
+
 - type: entity
   parent: AirlockService
   id: AirlockBar
@@ -147,7 +155,7 @@
   components:
   - type: Sprite
     sprite: _Impstation/Structures/Doors/Airlocks/Standard/clown.rsi
- 
+
 - type: entity
   parent: AirlockService
   id: AirlockJanitor
@@ -163,7 +171,7 @@
   components:
   - type: Sprite
     sprite: _Impstation/Structures/Doors/Airlocks/Standard/kitchen.rsi
-    
+
 - type: entity
   parent: AirlockService
   id: AirlockLawyer
@@ -203,7 +211,7 @@
   components:
   - type: Sprite
     sprite: _Impstation/Structures/Doors/Airlocks/Standard/reporter.rsi
-    
+
 - type: entity
   parent: AirlockService
   id: AirlockTheatre
@@ -212,7 +220,7 @@
   - type: Sprite
     sprite: _Impstation/Structures/Doors/Airlocks/Standard/theatre.rsi
 
-# Supply 
+# Supply
 - type: entity
   parent: AirlockCargo
   id: AirlockCourier
@@ -220,14 +228,6 @@
   components:
   - type: Sprite
     sprite: _Impstation/Structures/Doors/Airlocks/Standard/courier.rsi
- 
-- type: entity
-  parent: AirlockCargo
-  id: AirlockSalvage
-  suffix: Salvage
-  components:
-  - type: Sprite
-    sprite: _Impstation/Structures/Doors/Airlocks/Standard/salvage.rsi
 
 # Glass Airlocks
 
@@ -292,7 +292,7 @@
 - type: entity
   parent: AirlockCommandGlass
   id: AirlockHospitalityDirectorGlass
-  suffix: HospitalityDirector 
+  suffix: HospitalityDirector
   components:
   - type: Sprite
     sprite: _Impstation/Structures/Doors/Airlocks/Glass/hd.rsi
@@ -325,7 +325,7 @@
   suffix: Armory
   components:
   - type: Sprite
-    sprite: _Impstation/Structures/Doors/Airlocks/Glass/warden.rsi
+    sprite: _Impstation/Structures/Doors/Airlocks/Glass/armory.rsi
   - type: Wires
     layoutId: AirlockArmory
 
@@ -345,6 +345,14 @@
   - type: Sprite
     sprite: _Impstation/Structures/Doors/Airlocks/Glass/detective.rsi
 
+- type: entity
+  parent: AirlockSecurityGlass
+  id: AirlockSecurityMedicalGlass
+  suffix: Security/Medical
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Doors/Airlocks/Glass/secmed.rsi
+
 # Service
 - type: entity
   parent: AirlockGlass
@@ -355,7 +363,7 @@
     sprite: Structures/Doors/Airlocks/Glass/basic.rsi
   - type: Wires
     layoutId: AirlockService
-    
+
 - type: entity
   parent: AirlockServiceGlass
   id: AirlockBarGlass
@@ -427,7 +435,7 @@
   components:
   - type: Sprite
     sprite: _Impstation/Structures/Doors/Airlocks/Glass/musician.rsi
-    
+
 - type: entity
   parent: AirlockServiceGlass
   id: AirlockReporterGlass
@@ -445,13 +453,6 @@
     sprite: _Impstation/Structures/Doors/Airlocks/Glass/theatre.rsi
 
 # Supply
-- type: entity
-  parent: AirlockCargoGlass
-  id: AirlockSalvageGlass
-  suffix: Salvage
-  components:
-  - type: Sprite
-    sprite: _Impstation/Structures/Doors/Airlocks/Glass/salvage.rsi
 
 - type: entity
   parent: AirlockCargoGlass

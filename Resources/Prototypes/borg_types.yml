@@ -14,7 +14,9 @@
 
   defaultModules:
   - BorgModuleTool
-
+  - BorgModuleInflatable
+  - BorgModuleArtifact
+  - BorgModuleAnomaly
   radioChannels:
   - Science
 
@@ -81,15 +83,16 @@
     - BorgModuleCargo
 
   defaultModules:
-  - BorgModuleGrapplingGun
-  - BorgModuleBasicMining # imp
+  - BorgModuleTool
+  - BorgModuleMining
+  - BorgModuleTraversal
   - BorgModuleAppraisal
 
   radioChannels:
   - Supply
   - Science
 
-  addComponents:
+  addComponents: # imp
   - type: Magboots
 
   # Visual
@@ -120,15 +123,16 @@
     - BorgModuleJanitor
 
   defaultModules:
-  - BorgModuleLightReplacer
+  - BorgModuleTool
   - BorgModuleCleaning
+  - BorgModuleCustodial
 
   radioChannels:
   - Science
   - Service
 
   # Visual
-  inventoryTemplateId: borgShort
+  inventoryTemplateId: borgJanitor # imp
   spriteBodyState: janitor
   spriteBodyMovementState: janitor_moving
   spriteHasMindState: janitor_e
@@ -155,7 +159,11 @@
     - BorgModuleMedical
 
   defaultModules:
-  - BorgModuleTreatment
+  - BorgModuleTool
+  - BorgModuleChemical
+  - BorgModuleTopicals
+  - BorgModuleRescue
+  - BorgModuleOperatingRoom # Offbrand
 
   radioChannels:
   - Science
@@ -169,6 +177,9 @@
   - type: ShowHealthIcons
     damageContainers:
     - Biological
+  - type: FabricateCandy # Borg Candy - DeltaV
+    actions:
+    - ActionFabricateGumball
 
   # Visual
   inventoryTemplateId: borgDutch
@@ -202,17 +213,19 @@
     - BorgModuleService
 
   defaultModules:
+  - BorgModuleTool
   - BorgModuleMusique
   - BorgModuleBartender # imp
-  - BorgModulePaper # imp
+  - BorgModuleService
   - BorgModuleClowning
-
+  - BorgModuleGardening
+  - BorgModuleHarvesting
   radioChannels:
   - Science
   - Service
 
   # Visual
-  inventoryTemplateId: borgTall
+  inventoryTemplateId: borgHumanoid # imp
   spriteBodyState: service
   spriteHasMindState: service_e
   spriteNoMindState: service_e_r

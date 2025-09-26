@@ -6,10 +6,10 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobCargoTechnician
-      time: 21600 #6 hrs
+      time: 21600 #6 hrs, imp
     - !type:RoleTimeRequirement
       role: JobSalvageSpecialist
-      time: 21600 #6 hrs
+      time: 21600 #6 hrs, imp
     - !type:DepartmentTimeRequirement
       department: Cargo
       time: 72000 #20 hours, imp
@@ -18,7 +18,7 @@
   weight: 10
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
-  supervisors: job-supervisors-captain
+  supervisors: job-supervisors-hop-captain #imp
   canBeAntag: false
   access:
   - Cargo
@@ -31,6 +31,7 @@
   - Brig
   - Cryogenics
   - Logistics #Imp
+  - Vault #imp
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -42,8 +43,21 @@
   id: QuartermasterGear
   equipment:
     id: QuartermasterPDA
-    belt: BoxFolderClipboard
+    #ears: ClothingHeadsetQM #imp edit
+    belt: BoxFolderClipboardThreePapers
     pocket1: AppraisalTool
   storage:
     back:
     - Flash
+
+- type: chameleonOutfit
+  id: QuartermasterChameleonOutfit
+  job: Quartermaster
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatQMsoft
+    eyes: ClothingEyesGlassesSunglasses
+    mask: ClothingMaskBreath
+    outerClothing: ClothingOuterWinterQM
+    neck: ClothingNeckCloakQm
+    gloves: ClothingHandsKnuckleDustersQM

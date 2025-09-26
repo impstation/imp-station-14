@@ -30,6 +30,8 @@
   - HoloprojectorField
   - SignallerAdvanced
   - DeviceQuantumSpinInverter
+  - DeviceDesynchronizer
+  - ClothingBackpackHarmpack
 
 - type: latheRecipePack
   id: ScienceClothing
@@ -37,6 +39,7 @@
   - ClothingShoesBootsMagSci
   - ClothingShoesBootsMoon
   - ClothingShoesBootsSpeed
+  - ClothingShoesBootsJump
   - ClothingBackpackHolding
   - ClothingBackpackSatchelHolding
   - ClothingBackpackDuffelHolding
@@ -46,18 +49,23 @@
   recipes:
   - PowerCellMicroreactor
   - PowerCellHigh
+  - PowerCellHyper
 
 - type: latheRecipePack
   id: ScienceWeapons
   recipes:
   - WeaponPistolCHIMP
   - WeaponForceGun
-  - WeaponLaserSvalinn
+  - WeaponLaserSvalinn # imp, T2
   - WeaponProtoKineticAccelerator
+  - PKAUpgradeDamage
+  - PKAUpgradeRange
+  - PKAUpgradeFireRate
   - WeaponTetherGun
   - WeaponGauntletGorilla
 
 - type: latheRecipePack
+  parent: FauxTilesImp # imp
   id: FauxTiles
   recipes:
   - FauxTileAstroGrass
@@ -82,9 +90,11 @@
   id: ScienceBoards
   recipes:
   - TurboItemRechargerCircuitboard
-  - AutolatheHyperConvectionMachineCircuitboard
-  - ProtolatheHyperConvectionMachineCircuitboard
-  - CircuitImprinterHyperConvectionMachineCircuitboard
+  # Begin DeltaV Removals - replaced by techfabs/upgrade kits
+  #- AutolatheHyperConvectionMachineCircuitboard
+  #- ProtolatheHyperConvectionMachineCircuitboard
+  #- CircuitImprinterHyperConvectionMachineCircuitboard
+  # End DeltaV Removals
   - TechDiskComputerCircuitboard
   - FlatpackerMachineCircuitboard
   - SheetifierMachineCircuitboard

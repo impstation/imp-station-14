@@ -66,6 +66,9 @@
         - !type:OrganType
           type: Arachnid
           shouldHave: false
+        - !type:OrganType #imp edit
+          type: Snail
+          shouldHave: false
         damage:
           types:
             Poison: 0.1
@@ -75,6 +78,12 @@
         conditions:
         - !type:OrganType
           type: Arachnid
+          shouldHave: true
+        amount: 0.4
+      - !type:ModifyBloodLevel #imp edit
+        conditions:
+        - !type:OrganType
+          type: Snail
           shouldHave: true
         amount: 0.4
 
@@ -160,12 +169,23 @@
         damage:
           types:
             Poison: 0.1
+      - !type:HealthChange #imp edit
+        conditions:
+        - !type:OrganType
+          type: Snail
+          shouldHave: true
+        damage:
+          types:
+            Poison: 0.1
     Medicine:
       effects:
       - !type:ModifyBloodLevel
         conditions:
         - !type:OrganType
           type: Arachnid
+          shouldHave: false
+        - !type:OrganType #imp edit
+          type: Snail
           shouldHave: false
         amount: 0.4
 

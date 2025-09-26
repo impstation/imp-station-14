@@ -3,7 +3,7 @@
   id: BaseMobVox
   abstract: true
   components:
-  - type: Absorbable
+  - type: GoobAbsorbable
   - type: Hunger
   - type: Thirst
   - type: Icon
@@ -12,15 +12,6 @@
   - type: Body
     prototype: Vox
     requiredLegs: 2
-  - type: HumanoidAppearance
-    species: Vox
-    hideLayersOnEquip: #imp
-    - HeadSide
-    - Hair
-    - Tail
-    - FacialHair
-    undergarmentTop: UndergarmentTopTanktopVox
-    undergarmentBottom: UndergarmentBottomBoxersVox
     #- type: VoxAccent # Not yet coded
   - type: Speech
     speechVerb: Vox
@@ -50,7 +41,7 @@
     damage:
       types:
         Heat: -0.07
-        Poison: -0.2
+        Poison: -0.2 # needs to be less than the PendingZombieComponent does or they never become zombies by the disease.
       groups:
         Brute: -0.07
   - type: DamageVisuals
@@ -72,6 +63,7 @@
         Slash: 5 # Reduce?
   - type: Sprite # Need to redefine the whole order to draw the tail over their gas tank
     layers:
+    - map: [ "enum.HumanoidVisualLayers.TailBehind" ] # Floof
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
     - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
@@ -95,12 +87,14 @@
     - map: [ "id" ]
     - map: [ "outerClothing" ]
     - map: [ "back" ]
+    - map: [ "enum.HumanoidVisualLayers.TailOversuit" ] # Floof
     - map: [ "neck" ]
+    - map: [ "suitstorage" ] # This is not in the default order
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-    - map: [ "suitstorage" ] # This is not in the default order
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "mask" ]
     - map: [ "head" ]
@@ -115,6 +109,21 @@
       sprite: "Effects/creampie.rsi"
       state: "creampie_vox" # Not default
       visible: false
+  - type: HumanoidAppearance
+    hideLayersOnEquip: #imp
+    - HeadSide
+    - Hair
+    - Tail
+    - FacialHair
+    species: Vox
+    undergarmentTop: UndergarmentTopTanktopVox
+    undergarmentBottom: UndergarmentBottomBoxersVox
+    markingsDisplacement:
+      Hair:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: hair
   - type: Inventory
     speciesId: vox
     displacements:
@@ -138,6 +147,11 @@
           32:
             sprite: Mobs/Species/Vox/displacement.rsi
             state: head
+      neck:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: neck
       back:
         sizeMaps:
           32:
@@ -174,6 +188,12 @@
     species: Vox
     undergarmentTop: UndergarmentTopTanktopVox
     undergarmentBottom: UndergarmentBottomBoxersVox
+    markingsDisplacement:
+      Hair:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: hair
   - type: Body
     prototype: Vox
   - type: Inventory

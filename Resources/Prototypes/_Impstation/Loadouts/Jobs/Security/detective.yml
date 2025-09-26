@@ -1,3 +1,14 @@
+# Senior times
+- type: loadoutEffectGroup
+  id: SeniorDetective
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobDetective
+      time: 108000 #30 hrs, ~20 rounds
+
+# Jumpsuits
 - type: loadout
   id: ClothingUniformMiamiVice
   equipment:
@@ -18,7 +29,81 @@
   equipment:
     jumpsuit: ClothingUniformDetectiveSuitSkirt #imp
 
+# Outer Clothing
 - type: loadout
   id: ClothingOuterCoatFieldJacket
   equipment:
     outerClothing: ClothingOuterCoatFieldJacket #imp
+
+# Head
+- type: loadout
+  id: ClothingHeadDeerstalker
+  equipment:
+    head: ClothingHeadDeerstalker #imp
+    
+# Firearms
+- type: loadout
+  id: SecurityRevolverInspector
+  equipment:
+    pocket1: WeaponRevolverInspector
+
+- type: loadout
+  id: SecurityRevolverDerringer
+  equipment:
+    pocket1: WeaponSECDerringer
+
+- type: loadout
+  id: SecurityPistolFreelancer
+  equipment:
+    pocket1: WeaponPistolFreelancer
+
+# Ammunition
+- type: loadout
+  id: SecurityAmmoSpeedloaderLethal
+  storage:
+    back:
+    - SpeedLoaderMagnum
+
+- type: loadout
+  id: SecurityAmmoSpeedloaderStun
+  storage:
+    back:
+    - SpeedLoaderMagnumStun
+
+- type: loadout
+  id: SecurityAmmoPouchLethal
+  storage:
+    back:
+    - AmmoPouch
+
+- type: loadout
+  id: SecurityAmmoPouchStun
+  storage:
+    back:
+    - AmmoPouchStun
+
+- type: loadout
+  id: SecurityAmmoFreelancerLethal
+  storage:
+    back:
+    - MagazinePistolFreelancer
+
+- type: loadout
+  id: SecurityAmmoFreelancerStun
+  storage:
+    back:
+    - MagazinePistolFreelancerStun
+
+# id
+- type: loadout
+  id: DetectivePDA
+  equipment:
+    id: DetectivePDA
+
+- type: loadout
+  id: SeniorDetectivePDA
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorDetective
+  equipment:
+    id: SeniorDetectivePDA

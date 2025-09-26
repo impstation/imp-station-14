@@ -1,0 +1,73 @@
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostBountyHunter
+  components:
+  - type: GhostRole
+    name: "Bounty Hunter"
+    description: "Hunt down your target and get paid."
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleBountyHunter
+    raffle:
+      settings: default
+
+- type: entity
+  id: SpawnPointBountyHunter
+  parent: MarkerBase
+  name: bounty hunter
+  components:
+  - type: SpawnPoint
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Clothing/Head/Hats/cowboyhatbountyhunter.rsi
+      state: icon
+
+- type: entity
+  id: SpawnPointGhostVRex
+  name: ghost role spawn point
+  suffix: v-rex
+  parent: MarkerBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-vrex-name
+    description: ghost-role-information-vrex-desc
+    rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: MobVRex
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: _Impstation/Mobs/Aliens/vrex.rsi
+        state: dead
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostOppa
+  components:
+  - type: GhostRole
+    name: ghost-role-information-oppa-name
+    description: ghost-role-information-oppa-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgentHarmless
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointInfiltrator
+  name: infiltrator spawn point
+  components:
+  - type: GhostRole
+    name: ghost-role-information-infiltrator-name
+    description: ghost-role-information-infiltrator-description
+    rules: ghost-role-information-infiltrator-rules
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanSyndicateInfiltrator

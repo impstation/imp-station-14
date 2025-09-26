@@ -24,6 +24,8 @@
             Poison: 2 # this is added to the base damage of the meth.
             Asphyxiation: 2
     Narcotic:
+      statusEffects: # Offbrand
+      - statusEffect: StatusEffectHeartStrainDesoxyephedrine
       effects:
       - !type:MovespeedModifier
         walkSpeedModifier: 1.35
@@ -40,12 +42,12 @@
         key: KnockedDown
         time: 3
         type: Remove
-      - !type:GenericStatusEffect
+      - !type:ModifyStatusEffect
         conditions:
         - !type:ReagentThreshold
           reagent: Haloperidol
           max: 0.01
-        key: Drowsiness
+        effectProto: StatusEffectDrowsiness
         time: 10
         type: Remove
     Medicine:
@@ -67,6 +69,8 @@
   meltingPoint: 36.0
   metabolisms:
     Narcotic:
+      statusEffects: # Offbrand
+      - statusEffect: StatusEffectHeartStrainEphedrine
       effects:
       - !type:MovespeedModifier
         walkSpeedModifier: 1.25
@@ -88,12 +92,12 @@
         key: KnockedDown
         time: 1
         type: Remove
-      - !type:GenericStatusEffect
+      - !type:ModifyStatusEffect
         conditions:
         - !type:ReagentThreshold
           reagent: Haloperidol
           max: 0.01
-        key: Drowsiness
+        effectProto: StatusEffectDrowsiness
         time: 10
         type: Remove
       - !type:PopupMessage
@@ -121,6 +125,8 @@
   contraband: Tier3Contraband # imp
   metabolisms:
     Narcotic:
+      statusEffects: # Offbrand
+      - statusEffect: StatusEffectHeartStrainHyperzine
       metabolismRate: 1.0
       effects:
       - !type:MovespeedModifier
@@ -153,16 +159,16 @@
         component: StaminaModifier
         time: 3
         type: Add
-      - !type:GenericStatusEffect
-        key: ForcedSleep
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectForcedSleeping
         time: 3
         type: Remove
-      - !type:GenericStatusEffect
+      - !type:ModifyStatusEffect
         conditions:
         - !type:ReagentThreshold
           reagent: Haloperidol
           max: 0.01
-        key: Drowsiness
+        effectProto: StatusEffectDrowsiness
         time: 10
         type: Remove
     Medicine:
@@ -198,12 +204,13 @@
     amount: -1
   metabolisms:
     Narcotic:
+      statusEffects: # Offbrand
+      - statusEffect: StatusEffectHeartStabilizationTHC
       effects:
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
-        type: Add
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
         time: 16
+        type: Add
         refresh: false
 
 - type: reagent
@@ -217,6 +224,23 @@
   plantMetabolism:
   - !type:PlantAdjustHealth
     amount: -5
+  metabolisms: # imp edit begin
+    Narcotic:
+      statusEffects: # Offbrand
+      - statusEffect: StatusEffectHeartStrainNicotine
+      effects:
+      - !type:HealthChange
+        probability: 0.1
+        damage:
+          types:
+            Cellular: 0.2
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 1
+        damage:
+          types:
+            Cellular: 0.2 # imp edit end
 
 # TODO: Replace these nonstandardized effects with generic brain damage
 - type: reagent
@@ -237,11 +261,10 @@
         damage:
           types:
             Poison: 2
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
-        type: Add
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
         time: 10
+        type: Add
         refresh: false
       - !type:ChemVomit # Vomiting is a symptom of brain damage
         probability: 0.05
@@ -256,13 +279,12 @@
   physicalDesc: reagent-physical-desc-syrupy
   flavor: bitter
   color: "#63806e"
-  contraband: Minor
+  contraband: Minor #imp
   metabolisms:
     Narcotic:
       effects:
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
         refresh: false
@@ -278,9 +300,8 @@
   metabolisms:
     Narcotic:
       effects:
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
         refresh: false
@@ -298,15 +319,16 @@
   contraband: Tier2Contraband # imp
   metabolisms:
     Narcotic:
+      statusEffects: # Offbrand
+      - statusEffect: StatusEffectPainSuppressionNocturine
       effects:
-      - !type:GenericStatusEffect
+      - !type:ModifyStatusEffect
         conditions:
         - !type:ReagentThreshold
           reagent: Nocturine
           min: 8
-        key: ForcedSleep
-        component: ForcedSleeping
-        refresh: false
+        effectProto: StatusEffectForcedSleeping
+        time: 3
         type: Add
 
 - type: reagent
@@ -339,7 +361,7 @@
   color: "#96a8b5"
   boilingPoint: 255.0
   meltingPoint: 36.0
-  contraband: Minor
+  contraband: Minor #imp
   metabolisms:
     Narcotic:
       effects:
@@ -381,7 +403,7 @@
   desc: reagent-desc-tear-gas
   physicalDesc: reagent-physical-desc-milky
   flavor: salty
-  color: "#96a8b5"
+  color: "#ffffff4d"
   boilingPoint: 255.0
   meltingPoint: 36.0
   metabolisms:
@@ -407,18 +429,28 @@
         - norepinephricacid-effect-eye-pain
         - norepinephricacid-effect-darkness
         - norepinephricacid-effect-blindness
-        conditions:
-        - !type:ReagentThreshold
-          min: 15
       - !type:Emote
         emote: Scream
+        probability: 0.08
+        conditions:
+        - !type:ReagentThreshold
+          min: 4
+      - !type:Emote
+        emote: Cough
         probability: 0.08
       - !type:GenericStatusEffect
         key: TemporaryBlindness
         component: TemporaryBlindness
         conditions:
         - !type:ReagentThreshold
-          min: 20
+          min: 4
+      - !type:MovespeedModifier
+        walkSpeedModifier: 0.65
+        sprintSpeedModifier: 0.65
+        statusLifetime: 1.5
+        conditions: # because of the remainding after effect, threshold is given so the effects ends simultaniously
+        - !type:ReagentThreshold
+          min: 4
 
 - type: reagent
   id: Happiness
@@ -463,9 +495,8 @@
         conditions:
         - !type:ReagentThreshold
           max: 20
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
         refresh: false
@@ -475,27 +506,3 @@
         conditions:
         - !type:ReagentThreshold
           max: 20
-
-- type: reagent
-  id: Methadone
-  name: reagent-name-methadone
-  group: Narcotic
-  desc: reagent-desc-methadone
-  physicalDesc: reagent-physical-desc-clear
-  flavor: bitter
-  color: "#E9EDF5"
-  metabolisms: # since there's no heroin, i've just made it a worse version of tricordrazine. feel free to fix this.
-    Narcotic:
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:TotalDamage
-          max: 40
-        damage:
-          groups:
-            Brute: -0.75
-          types:
-            Poison: -0.3
-            Heat: -0.25
-            Shock: -0.25
-            Cold: -0.25

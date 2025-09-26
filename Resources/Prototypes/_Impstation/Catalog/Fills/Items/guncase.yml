@@ -1,0 +1,36 @@
+- type: entity
+  parent: GunCaseHoS
+  id: GunCaseWT550
+  suffix: WT550
+  name: secure briefcase
+  description: An expensive case that's definitely used for transportation of classified documents and nothing else.
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponSubMachineGunWt550
+      - id: MagazinePistolSubMachineGunTopMounted
+        amount: 2
+
+- type: entity
+  parent: GunCaseHoS
+  id: GunCaseMule
+  suffix: Mule's Leg
+  name: secure briefcase
+  description: An expensive case that's definitely used for transportation of classified documents and nothing else.
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponRifleMule
+      - id: MagazineShotgunSlug
+        amount: 2
+
+- type: entity
+  parent: GunCaseHoS
+  id: GunCaseBlaster
+  suffix: Blaster Magnum
+  name: secure briefcase
+  description: An expensive case that's definitely used for transportation of classified documents and nothing else.
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponBlasterMagnum

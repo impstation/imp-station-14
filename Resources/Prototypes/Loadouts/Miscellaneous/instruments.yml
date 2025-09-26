@@ -4,165 +4,193 @@
   storage:
     back:
     - GlockenspielInstrument
+  groupBy: "keyed" #imp. this is going to look like an early merge moment but i in fact did this all manually like a loser first
 
 - type: loadout
   id: MusicBox
   storage:
     back:
     - MusicBoxInstrument
+  groupBy: "special" #imp
 
 - type: loadout
   id: Xylophone
   storage:
     back:
     - XylophoneInstrument
+  groupBy: "special" #imp
 
 - type: loadout
   id: Microphone
   storage:
     back:
     - MicrophoneInstrument
+  groupBy: "special" #imp
 
 - type: loadout
   id: Synthesizer
   storage:
     back:
     - SynthesizerInstrument
+  groupBy: "keyed" #imp
 
 - type: loadout
   id: Kalimba
   storage:
     back:
     - KalimbaInstrument
+  groupBy: "keyed" #imp
 
 - type: loadout
   id: Woodblock
   storage:
     back:
     - WoodblockInstrument
+  groupBy: "keyed" #imp
 
 - type: loadout
   id: ElectricGuitar
   storage:
     back:
     - ElectricGuitarInstrument
+  groupBy: "string" #imp
 
 - type: loadout
   id: BassGuitar
   storage:
     back:
     - BassGuitarInstrument
+  groupBy: "string" #imp
 
 - type: loadout
   id: RockGuitar
   storage:
     back:
     - RockGuitarInstrument
+  groupBy: "string" #imp
 
 - type: loadout
   id: AcousticGuitar
   storage:
     back:
     - AcousticGuitarInstrument
+  groupBy: "string" #imp
 
 - type: loadout
   id: Banjo
   storage:
     back:
     - BanjoInstrument
+  groupBy: "string" #imp
 
 - type: loadout
   id: Violin
   storage:
     back:
     - ViolinInstrument
+  groupBy: "string" #imp
 
 - type: loadout
   id: Viola
   storage:
     back:
     - ViolaInstrument
+  groupBy: "string" #imp
 
 - type: loadout
   id: Cello
   storage:
     back:
     - CelloInstrument
+  groupBy: "string" #imp
 
 - type: loadout
   id: Trumpet
   storage:
     back:
     - TrumpetInstrument
+  groupBy: "brass" #imp
 
 - type: loadout
   id: Trombone
   storage:
     back:
     - TromboneInstrument
+  groupBy: "brass" #imp
 
 - type: loadout
   id: FrenchHorn
   storage:
     back:
     - FrenchHornInstrument
+  groupBy: "brass" #imp
 
 - type: loadout
   id: Euphonium
   storage:
     back:
     - EuphoniumInstrument
+  groupBy: "brass" #imp
 
 - type: loadout
   id: Saxophone
   storage:
     back:
     - SaxophoneInstrument
+  groupBy: "woodwind" #imp
 
 - type: loadout
   id: Accordion
   storage:
     back:
     - AccordionInstrument
+  groupBy: "keyed" #imp
 
 - type: loadout
   id: Harmonica
   storage:
     back:
     - HarmonicaInstrument
+  groupBy: "woodwind" #imp
 
 - type: loadout
   id: Clarinet
   storage:
     back:
     - ClarinetInstrument
+  groupBy: "woodwind" #imp
 
 - type: loadout
   id: Flute
   storage:
     back:
     - FluteInstrument
+  groupBy: "woodwind" #imp
 
 - type: loadout
   id: Recorder
   storage:
     back:
     - RecorderInstrument
+  groupBy: "woodwind" #imp
 
 - type: loadout
   id: PanFlute
   storage:
     back:
     - PanFluteInstrument
+  groupBy: "woodwind" #imp
 
 - type: loadout
   id: Ocarina
   storage:
     back:
     - OcarinaInstrument
+  groupBy: "woodwind" #imp
 
 - type: loadout
   id: Bagpipe
   storage:
     back:
     - BagpipeInstrument
+  groupBy: "woodwind" #imp

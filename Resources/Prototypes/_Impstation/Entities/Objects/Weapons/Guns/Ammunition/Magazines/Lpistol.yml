@@ -28,14 +28,14 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: MagazineVisuals
     magState: mag
-    steps: 6
+    steps: 10
     zeroVisible: false
   - type: Appearance
 
 - type: entity
   id: BaseMagazineZipper
-  name: zipper .22 magazine (.22 auto)
-  description: A 6-round holder-of-bullets.
+  name: Zipper .22 magazine (.22 auto)
+  description: A 6-round holder-of-bullets. Looks like half a toy. # gave this a description for roleplay when it shows up in maints loot
   parent: BaseItem
   abstract: true
   components:
@@ -74,6 +74,12 @@
   components:
   - type: BallisticAmmoProvider
     proto: null
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      right:
+      - state: inhand-right-mag
 
 - type: entity
   id: MagazineLPistol
@@ -89,10 +95,20 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#820a16"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#820a16"
 
 - type: entity
   id: MagazineZipper
-  name: zipper magazine (.22 auto)
+  name: Zipper magazine (.22 auto)
   parent: BaseMagazineZipper
   components:
   - type: BallisticAmmoProvider
@@ -106,7 +122,7 @@
 
 - type: entity
   id: MagazineZipperAP
-  name: zipper magazine (.22 auto APDSFS)
+  name: Zipper magazine (.22 auto APDSFS)
   description: A 6-round holder-of-bullets, marked as armor-piercing darts.
   parent: BaseMagazineZipper
   components:
@@ -121,7 +137,7 @@
 
 - type: entity
   id: MagazineZipperEmpty
-  name: zipper .22 magazine (.22 auto any)
+  name: Zipper .22 magazine (.22 auto any)
   description: A 6-round holder-of-bullets with no apparent markings.
   suffix: empty
   parent: BaseMagazineZipper
@@ -143,6 +159,22 @@
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLPistolIncendiary
+  - type: Sprite
+    layers:
+    - state: incendiary
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#d46925"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#d46925"
 
 - type: entity
   id: MagazineLPistolPractice
@@ -158,6 +190,16 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#ffcb6f"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#ffcb6f"
 
 - type: entity
   id: MagazineLPistolUranium
@@ -173,4 +215,13 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#22b24d"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#22b24d"

@@ -1,0 +1,43 @@
+- type: entity
+  parent: [ClothingUniformBase]
+  id: ClothingUniformHeadChefSkirt
+  name: head chef uniform, skirt
+  description: Clothes for a Chef de Cuisine.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/headchef.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/headchef.rsi
+
+- type: entity
+  parent: [ClothingUniformBase]
+  id: ClothingUniformHeadChef
+  name: head chef uniform
+  description: Clothes for a Chef de Cuisine.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/headchef.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/headchef.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckHeadChef
+  name: chef neckercheif
+  description: A professional looking cloth.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Neck/Misc/chefneckerchief.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Neck/Misc/chefneckerchief.rsi
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesHeadChef
+  name: head chef shoes
+  description: A pair of shoes to match a head chefs outfit.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Shoes/Specific/headchefshoes.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Shoes/Specific/headchefshoes.rsi

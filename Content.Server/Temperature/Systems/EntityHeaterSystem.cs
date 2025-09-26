@@ -1,5 +1,5 @@
-using Content.Server.Atmos.Components;
-using Content.Server.Power.Components;
+using Content.Server.Power.Components; //imp edit
+using Content.Shared.Atmos.Components;
 using Content.Shared.Placeable;
 using Content.Shared.Temperature;
 using Content.Shared.Temperature.Components;
@@ -65,6 +65,8 @@ public sealed class EntityHeaterSystem : SharedEntityHeaterSystem
     /// </remarks>
     protected override void ChangeSetting(Entity<EntityHeaterComponent> ent, EntityHeaterSetting setting, EntityUid? user = null)
     {
+        base.ChangeSetting(ent, setting, user);
+
         if (!TryComp<ApcPowerReceiverComponent>(ent, out var power))
             return;
 

@@ -37,7 +37,7 @@ public sealed class RoleSystem : SharedRoleSystem {
 
         // Briefing is no longer raised on the mind entity itself
         // because all the components that briefings subscribe to should be on Mind Role Entities
-        foreach(var role in mindComp.MindRoles)
+        foreach (var role in mindComp.MindRoleContainer.ContainedEntities)
         {
             RaiseLocalEvent(role, ref ev);
         }
@@ -47,7 +47,7 @@ public sealed class RoleSystem : SharedRoleSystem {
 
     public void RoleUpdateMessage(MindComponent mind)
     {
-        if (mind.Session is null)
+        if (!Player.TryGetSessionById(mind.UserId, out var session))
             return;
 
         if (!_proto.TryIndex(mind.RoleType, out var proto))
@@ -55,8 +55,6 @@ public sealed class RoleSystem : SharedRoleSystem {
 
         var roleText = Loc.GetString(proto.Name);
         var color = proto.Color;
-
-        var session = mind.Session;
 
         //TODO add audio? Would need to be optional so it does not play on role changes that already come with their own audio
         // _audio.PlayGlobal(Sound, session);

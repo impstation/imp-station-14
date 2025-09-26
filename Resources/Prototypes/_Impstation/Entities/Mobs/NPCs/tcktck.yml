@@ -140,15 +140,12 @@
   - type: Body
   - type: StatusEffects
     allowed:
-    - Stun
-    - KnockedDown
-    - SlowedDown
     - Flashed
   - type: TypingIndicator
     proto: robot
   - type: Speech
     speechVerb: Robotic
-    speechSounds: Borg
+    speechSounds: Tcktck
   - type: Vocal
     sounds:
       Unsexed: TckTck
@@ -159,7 +156,9 @@
     locked: true
     breakOnAccessBreaker: false
     unlockOnClick: false
-  - type: ActivatableUIRequiresLock
+  - type: UIRequiresLock
+    userInterfaceKeys:
+    - enum.BorgUiKey.Key
   - type: LockedWiresPanel
   - type: Damageable
     damageContainer: Silicon
@@ -205,10 +204,12 @@
       id: blinking
       interpolate: Nearest
       maxDuration: 1.0
-      minValue: 0.1
-      maxValue: 2.0
+      startValue: 0.1
+      endValue: 2.0
       isLooped: true
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: light
+  - type: ItemTogglePointLight
   - type: PointLight
     enabled: false
     mask: /Textures/Effects/LightMasks/cone.png
@@ -225,6 +226,7 @@
     - DoorBumpOpener
     - FootstepSound
     - CanPilot
+    - SiliconEmotes
   - type: Emoting
   - type: GuideHelp
     guides:
@@ -234,6 +236,7 @@
     damageProtection:
       flatReductions:
         Heat: 10 # capable of touching light bulbs and stoves without feeling pain!
+        Cold: 10 # for cold lightbulbs
   - type: BorgChassis
     maxModules: 3
     hasMindState: tcktck_e
@@ -318,3 +321,5 @@
   - type: NpcFactionMember
     factions:
     - SimpleNeutral
+  - type: Carriable
+  - type: CanEscapeInventory #for carrying

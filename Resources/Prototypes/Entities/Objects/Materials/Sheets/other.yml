@@ -12,7 +12,8 @@
   - type: Tag
     tags:
     - Sheet
-    - DroneUsable
+    - ConstructionMaterial
+    - DroneUsable #imp
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -27,11 +28,16 @@
     solutions:
       paper:
         canReact: false
+  - type: NonMobStatusIcon #imp edit. for the salvohud
+  - type: PluralName # imp
+    oneOf: plural-name-sheet-1
+    someOf: plural-name-sheet-2plus
 
 - type: entity
   parent: SheetOtherBase
   id: SheetPaper
   name: paper
+  description: Most commercially-made paper is made from paper. Paper is made from wood, trees, and paper. # imp
   suffix: Full
   components:
   - type: Stack
@@ -78,6 +84,7 @@
   parent: SheetOtherBase
   id: SheetPlasma
   name: plasma
+  description: An enigmatic, highly-reactive material that taps into... Well, it'll make you rich. # imp
   suffix: Full
   components:
   - type: Material
@@ -111,6 +118,7 @@
   - type: Tag
     tags:
     - Sheet
+    - ConstructionMaterial
 
 - type: entity
   parent: SheetPlasma
@@ -137,13 +145,15 @@
   parent: SheetOtherBase
   id: SheetPlastic
   name: plastic
+  description: A sheet of plastic. Fun to play with, but not to eat. # imp
   suffix: Full
   components:
   - type: Tag
     tags:
     - Plastic
     - Sheet
-    - DroneUsable
+    - ConstructionMaterial
+    - DroneUsable #imp
   - type: Material
   - type: PhysicalComposition
     materialComposition:
@@ -201,6 +211,7 @@
   parent: [SheetOtherBase, EdibleBase]
   id: SheetUranium
   name: uranium
+  description: A sheet of Element 92. Puts the 'new' in 'nuclear'. # imp
   suffix: Full
   components:
   - type: Material
@@ -236,6 +247,7 @@
         - ReagentId: Radium
           Quantity: 2
         canReact: false
+  # imp edit start
   - type: RadiationSource
     intensity: 0.01
     slope: 3
@@ -244,6 +256,7 @@
     energy: 0.8
     castShadows: false
     color: "#9be792"
+  # imp edit end
 
 - type: entity
   parent: SheetUranium
@@ -258,6 +271,7 @@
   parent: SheetOtherBase
   id: MaterialSheetMeat
   name: meat sheet
+  description: A sheet of meat; a meat sheet. # imp
   suffix: Full
   components:
     - type: Sprite
@@ -268,10 +282,8 @@
     - type: Tag
       tags:
       - Sheet
-      - DroneUsable
+      - DroneUsable #imp
       - KodeEdible # imp
-    - type: Food # imp
-      requiresSpecialDigestion: true
     - type: Material
     - type: PhysicalComposition
       materialComposition:
@@ -303,6 +315,8 @@
             Quantity: 7
           - ReagentId: Fat
             Quantity: 3
+    - type: Edible # imp
+      requiresSpecialDigestion: true
 
 - type: entity
   parent: MaterialSheetMeat

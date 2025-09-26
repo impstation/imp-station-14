@@ -38,6 +38,11 @@
       - id: DrinkSodaWaterBottleFull
       - id: FoodShakerSalt
       - id: FoodShakerPepper
+      - id: ReagentContainerRaisin # imp
+      - id: ReagentContainerHoney # imp
+      - id: FoodEveryspiceRoasted # imp
+        amount: !type:RangeNumberSelector
+          range: 1, 5
       - !type:GroupSelector
         children:
         - id: ReagentContainerFlour

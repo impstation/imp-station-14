@@ -1,0 +1,9 @@
+lobby-state-playtime-comment-aa = You've played {$hours} hours today, and none of it was as AA.
+lobby-state-playtime-comment-lifespan = {$hours} hours played today, which means {$hours} more hours added to your life span! Good job!
+lobby-state-playtime-comment-itsfine = You can spend {$hours} hours doing anything you want. It's fine.
+lobby-state-playtime-comment-entireday = If there were {$hours} hours in a day, you would have spent the entire day on station today.
+lobby-state-playtime-comment-bros = AAAAAAH! {$hours} GIANT BROS BEHIND YOU! Just kidding.
+lobby-state-playtime-comment-morallyneutral = You've spent {$hours} morally neutral hours playing today.
+lobby-state-playtime-comment-nottellingu = I'm not telling you how long you've played. Drink some water.
+lobby-state-playtime-comment-nuke = Next round, try entering {$hours} on the nuke to see what happens!
+lobby-state-playtime-comment-feettall = You're about {$hours} feet tall. Just kidding. Can you imagine?

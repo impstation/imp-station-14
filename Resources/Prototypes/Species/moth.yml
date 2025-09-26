@@ -19,6 +19,9 @@
 - type: speciesBaseSprites
   id: MobMothSprites
   sprites:
+    TailBehind: MobHumanoidAnyMarking # floof
+    TailBehindBackpack: MobHumanoidAnyMarking #imp
+    TailOversuit: MobHumanoidAnyMarking # floof
     Head: MobMothHead
     Snout: MobHumanoidAnyMarking
     UndergarmentTop: MobHumanoidAnyMarking
@@ -77,7 +80,7 @@
       points: 1
       required: false
     Chest:
-      points: 4
+      points: 4 # imp
       required: false
     Legs:
       points: 4

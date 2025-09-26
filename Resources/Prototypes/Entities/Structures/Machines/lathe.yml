@@ -49,6 +49,11 @@
     price: 800
   - type: ResearchClient
   - type: TechnologyDatabase
+  - type: AutomationSlots # Goobstation
+    slots:
+    - !type:AutomatedMaterialStorage
+      input: AutomationSlotMaterials
+      output: null
 
 # a lathe that can be sped up with space lube / slowed down with glue
 - type: entity
@@ -112,6 +117,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: OreSiloClient
   - type: Lathe
     idleState: icon
     runningState: building
@@ -122,6 +128,7 @@
     - PartsStatic
     - AtmosStatic
     - CablesStatic
+    - PaperworkStatic
     - CargoStatic
     - MaterialsStatic
     - BasicChemistryStatic
@@ -189,6 +196,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: OreSiloClient
   - type: Lathe
     idleState: icon
     runningState: building
@@ -197,6 +205,7 @@
     staticPacks:
     - ChemistryStatic
     - SurgeryStatic
+    - OffbrandSurgeryStatic # Offbrand
     - ImpProtoStatic # Imp
     - ReportingStatic # DeltaV
     - SteelBriefcaseImp # Imp
@@ -267,6 +276,7 @@
     - EngineeringBoardsStatic
     - CircuitFloorsStatic
     - ImpCircuitStatic # Imp
+    - OffbrandCircuitboardsStatic # Offbrand
     dynamicPacks:
     - EngineeringBoards
     - CargoBoards
@@ -277,7 +287,10 @@
     - MechBoards
     - ShuttleBoards
     - ImpCircuitDynamic # imp
+    - UpgradeKits # Goobstation
   - type: EmagLatheRecipes
+    emagStaticPacks: # imp
+    - ImpCircuitEmagged
     emagDynamicPacks:
     - SecurityBoards
   - type: MaterialStorage
@@ -286,6 +299,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: OreSiloClient
   - type: RequireProjectileTarget
 
 - type: entity
@@ -334,6 +348,7 @@
       - Sheet
       - RawMaterial
       - Ingot
+  - type: OreSiloClient
   - type: GuideHelp
     guides:
     - Robotics
@@ -424,6 +439,9 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: OreSiloClient
+  - type: LatheAnnouncing
+    channels: [Security]
 
 - type: entity
   id: AmmoTechFab
@@ -459,6 +477,7 @@
           - Sheet
           - RawMaterial
           - Ingot
+    - type: OreSiloClient
 
 - type: entity
   id: MedicalTechFab
@@ -492,7 +511,9 @@
     - MedicalClothingStatic
     - EmptyMedkitsStatic
     - SurgeryStatic
+    - OffbrandSurgeryStatic # Offbrand
     - ImpMedStatic # Imp
+    - OffbrandMedicalStatic # Offbrand
     dynamicPacks:
     - Chemistry
     - ImpMedDynamic # Imp
@@ -500,6 +521,9 @@
     board: MedicalTechFabCircuitboard
   - type: StealTarget
     stealGroup: MedicalTechFabCircuitboard
+  - type: OreSiloClient
+  - type: LatheAnnouncing
+    channels: [Medical]
 
 - type: entity
   parent: BaseLathe
@@ -549,6 +573,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: OreSiloClient
 
 - type: entity
   id: Biogenerator
@@ -625,6 +650,13 @@
       staticPacks:
       - OreSmelting
       - RGlassSmelting
+    - type: MaterialStorageMagnetPickup # Imp This allows the ore processor to have a magnet that also inserts the ore
+      range: 0.30 # Imp The range of the magnet effect
+    - type: PlaceableSurface # Imp This is required for the magnet pickup to work, this component allows a dumpable surface
+    - type: PointLight # Imp This adds a red light glow around the basic ore processor to thematically show the temperature of the flame.
+      radius: 2.5
+      energy: 5
+      color: "#ff5a00"
 
 - type: entity
   parent: OreProcessor
@@ -643,6 +675,13 @@
     - OreSmelting
     - RGlassSmelting
     - AdvancedSmelting
+  - type: MaterialStorageMagnetPickup # Imp This allows the ore processor to have a magnet that also inserts the ore
+    range: 0.30 # Imp The range of the magnet effect
+  - type: PlaceableSurface # Imp This is required for the magnet pickup to work, this component allows a dumpable surface
+  - type: PointLight # Imp This adds a blue light glow around the industrial ore processor to thematically show the temperature of an even hotter flame.
+    radius: 2.5
+    energy: 5
+    color: "#5ad6ff"
 
 - type: entity
   parent: BaseLathe
@@ -668,6 +707,7 @@
       tags:
       - Raw
       - Wooden
+      - Boll
   - type: Lathe
     idleState: base_machine
     runningState: base_machine_processing
@@ -709,3 +749,4 @@
         - Wooden
         - RawMaterial
         - Plastic
+  - type: OreSiloClient

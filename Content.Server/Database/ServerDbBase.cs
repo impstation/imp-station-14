@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Construction.Prototypes;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
@@ -21,6 +22,8 @@ using Robust.Shared.Enums;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Server._CD.Records; // CD - Character Records
+using Content.Shared._CD.Records; // CD - Character Records
 
 namespace Content.Server.Database
 {
@@ -48,6 +51,11 @@ namespace Content.Server.Database
                 .Include(p => p.Profiles).ThenInclude(h => h.Jobs)
                 .Include(p => p.Profiles).ThenInclude(h => h.Antags)
                 .Include(p => p.Profiles).ThenInclude(h => h.Traits)
+                // Begin CD - Character Records
+                .Include(p => p.Profiles)
+                .ThenInclude(h => h.CDProfile)
+                .ThenInclude(cd => cd != null ? cd.CharacterRecordEntries : null)
+                // End CD - Character Records
                 .Include(p => p.Profiles)
                     .ThenInclude(h => h.Loadouts)
                     .ThenInclude(l => l.Groups)
@@ -65,7 +73,11 @@ namespace Content.Server.Database
                 profiles[profile.Slot] = ConvertProfiles(profile);
             }
 
-            return new PlayerPreferences(profiles, prefs.SelectedCharacterSlot, Color.FromHex(prefs.AdminOOCColor));
+            var constructionFavorites = new List<ProtoId<ConstructionPrototype>>(prefs.ConstructionFavorites.Count);
+            foreach (var favorite in prefs.ConstructionFavorites)
+                constructionFavorites.Add(new ProtoId<ConstructionPrototype>(favorite));
+
+            return new PlayerPreferences(profiles, prefs.SelectedCharacterSlot, Color.FromHex(prefs.AdminOOCColor), constructionFavorites);
         }
 
         public async Task SaveSelectedCharacterIndexAsync(NetUserId userId, int index)
@@ -95,6 +107,8 @@ namespace Content.Server.Database
             }
 
             var oldProfile = db.DbContext.Profile
+                .Include(p => p.CDProfile) // CD - Character Records
+                    .ThenInclude(cd => cd != null ? cd.CharacterRecordEntries : null)
                 .Include(p => p.Preference)
                 .Where(p => p.Preference.UserId == userId.UserId)
                 .Include(p => p.Jobs)
@@ -143,7 +157,8 @@ namespace Content.Server.Database
             {
                 UserId = userId.UserId,
                 SelectedCharacterSlot = 0,
-                AdminOOCColor = Color.Red.ToHex()
+                AdminOOCColor = Color.Red.ToHex(),
+                ConstructionFavorites = [],
             };
 
             prefs.Profiles.Add(profile);
@@ -152,7 +167,7 @@ namespace Content.Server.Database
 
             await db.DbContext.SaveChangesAsync();
 
-            return new PlayerPreferences(new[] {new KeyValuePair<int, ICharacterProfile>(0, defaultProfile)}, 0, Color.FromHex(prefs.AdminOOCColor));
+            return new PlayerPreferences(new[] { new KeyValuePair<int, ICharacterProfile>(0, defaultProfile) }, 0, Color.FromHex(prefs.AdminOOCColor), []);
         }
 
         public async Task DeleteSlotAndSetSelectedIndex(NetUserId userId, int deleteSlot, int newSlot)
@@ -176,6 +191,19 @@ namespace Content.Server.Database
 
             await db.DbContext.SaveChangesAsync();
 
+        }
+
+        public async Task SaveConstructionFavoritesAsync(NetUserId userId, List<ProtoId<ConstructionPrototype>> constructionFavorites)
+        {
+            await using var db = await GetDb();
+            var prefs = await db.DbContext.Preference.SingleAsync(p => p.UserId == userId.UserId);
+
+            var favorites = new List<string>(constructionFavorites.Count);
+            foreach (var favorite in constructionFavorites)
+                favorites.Add(favorite.Id);
+            prefs.ConstructionFavorites = favorites;
+
+            await db.DbContext.SaveChangesAsync();
         }
 
         private static async Task SetSelectedCharacterSlotAsync(NetUserId userId, int newSlot, ServerDbContext db)
@@ -216,6 +244,11 @@ namespace Content.Server.Database
                 }
             }
 
+            // Begin CD - Chracter Records
+            var cdRecords = profile.CDProfile?.CharacterRecords != null
+                ? RecordsSerialization.Deserialize(profile.CDProfile.CharacterRecords, profile.CDProfile.CharacterRecordEntries)
+                : PlayerProvidedCharacterRecords.DefaultRecords();
+            // End CD - Character Records
             var loadouts = new Dictionary<string, RoleLoadout>();
 
             foreach (var role in profile.Loadouts)
@@ -262,7 +295,8 @@ namespace Content.Server.Database
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 antags.ToHashSet(),
                 traits.ToHashSet(),
-                loadouts
+                loadouts,
+                cdRecords // CD - Character Records
             );
         }
 
@@ -312,6 +346,17 @@ namespace Content.Server.Database
                 humanoid.TraitPreferences
                         .Select(t => new Trait {TraitName = t})
             );
+
+            // Begin CD - Character Records
+            profile.CDProfile ??= new CDModel.CDProfile();
+            // There are JsonIgnore annotations to ensure that entries are not stored as JSON.
+            profile.CDProfile.CharacterRecords = JsonSerializer.SerializeToDocument(humanoid.CDCharacterRecords ?? PlayerProvidedCharacterRecords.DefaultRecords());
+            if (humanoid.CDCharacterRecords != null)
+            {
+                profile.CDProfile.CharacterRecordEntries.Clear();
+                profile.CDProfile.CharacterRecordEntries.AddRange(RecordsSerialization.GetEntries(humanoid.CDCharacterRecords));
+            }
+            // End CD - Character Records
 
             profile.Loadouts.Clear();
 

@@ -13,7 +13,7 @@ public sealed class ArtifactStunTriggerSystem : EntitySystem
         SubscribeLocalEvent<StunnedComponent, StunnedEvent>(OnStun);
     }
 
-    private void OnStun(EntityUid stunned, StunnedComponent component, ref StunnedEvent args)
+    private void OnStun(Entity<StunnedComponent> stunned, ref StunnedEvent args)
     {
 
         var stunnedXform = Transform(stunned);

@@ -51,7 +51,6 @@
   recipeUnlocks:
   - WeaponLaserCarbine
   - WeaponBlasterPistol #imp
-  - PowerCellBlaster #imp
 
 - type: technology
   id: NonlethalAmmunition
@@ -171,6 +170,20 @@
   - WeaponXrayCannon
 
 - type: technology
+  id: KineticModifications
+  name: research-technology-kinetic-modifications
+  icon:
+    sprite: Objects/Tools/upgrade.rsi
+    state: display
+  discipline: Arsenal
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - PKAUpgradeDamage
+  - PKAUpgradeRange
+  - PKAUpgradeFireRate
+
+- type: technology
   id: BasicShuttleArmament
   name: research-technology-basic-shuttle-armament
   icon:
@@ -192,6 +205,18 @@
   technologyPrerequisites:
   - SalvageWeapons
 
+- type: technology
+  id: DualWieldingTechnology
+  name: research-technology-dual-wielding-technology
+  icon:
+    sprite: Clothing/Back/Specific/harmpack.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - ClothingBackpackHarmpack
+
 # Tier 3
 
 - type: technology
@@ -208,17 +233,17 @@
   - PortableRecharger
   - WeaponBlasterMagnum #imp
 
-#- type: technology # imp - rolled into Concentrated Laser Weaponry
-#  id: ExperimentalBatteryAmmo
-#  name: research-technology-experimental-battery-ammo
-#  icon:
-#    sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
-#    state: icon
-#  discipline: Arsenal
-#  tier: 3
-#  cost: 15000
-#  recipeUnlocks:
-#  - WeaponLaserSvalinn
+- type: technology
+  id: ThermalWeaponry
+  name: research-technology-thermal-weaponry
+  icon:
+    sprite: Objects/Weapons/Guns/Battery/temp_gun.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+  - WeaponTemperatureGun
 
 - type: technology
   id: AdvancedShuttleWeapon

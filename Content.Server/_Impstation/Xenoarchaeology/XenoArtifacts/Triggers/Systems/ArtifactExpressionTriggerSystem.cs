@@ -12,7 +12,7 @@ public sealed class ArtifacExpressionTriggerSystem : EntitySystem
         SubscribeLocalEvent<TransformComponent, EntityEmotedEvent>(OnEmote);
     }
 
-    private void OnEmote(EntityUid emoter, TransformComponent component, EntityEmotedEvent args)
+    private void OnEmote(Entity<TransformComponent> emoter, ref EntityEmotedEvent args)
     {
         var emoterXform = Transform(emoter);
 
@@ -32,7 +32,7 @@ public sealed class ArtifacExpressionTriggerSystem : EntitySystem
 
         foreach (var a in toActivate)
         {
-            _artifact.TryActivateArtifact(a);
+            _artifact.TryActivateArtifact(a, emoter.Owner);
         }
     }
 }

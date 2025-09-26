@@ -1,9 +1,7 @@
 using Content.Server.Administration.Logs;
 using Content.Server.AlertLevel;
 using Content.Server.Chat.Systems;
-using Content.Server.DeviceNetwork.Components;
 using Content.Server.DeviceNetwork.Systems;
-using Content.Server.Interaction;
 using Content.Server.Popups;
 using Content.Server.RoundEnd;
 using Content.Server.Screens.Components;
@@ -16,13 +14,14 @@ using Content.Shared.Chat;
 using Content.Shared.Communications;
 using Content.Shared.Database;
 using Content.Shared.DeviceNetwork;
+using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Content.Server.Announcements.Systems;
 using Robust.Shared.Player;
-using Content.Server.Station.Components;
+using Content.Shared.Station.Components; // imp
 
 namespace Content.Server.Communications
 {
@@ -47,7 +46,6 @@ namespace Content.Server.Communications
         {
             // All events that refresh the BUI
             SubscribeLocalEvent<AlertLevelChangedEvent>(OnAlertLevelChanged);
-            SubscribeLocalEvent<CommunicationsConsoleComponent, ComponentInit>((uid, comp, _) => UpdateCommsConsoleInterface(uid, comp));
             SubscribeLocalEvent<RoundEndSystemChangedEvent>(_ => OnGenericBroadcastEvent());
             SubscribeLocalEvent<AlertLevelDelayFinishedEvent>(_ => OnGenericBroadcastEvent());
 
@@ -90,6 +88,7 @@ namespace Content.Server.Communications
         public void OnCommunicationsConsoleMapInit(EntityUid uid, CommunicationsConsoleComponent comp, MapInitEvent args)
         {
             comp.AnnouncementCooldownRemaining = comp.InitialDelay;
+            UpdateCommsConsoleInterface(uid, comp);
         }
 
         /// <summary>
@@ -264,18 +263,22 @@ namespace Content.Server.Communications
             Loc.TryGetString(comp.Title, out var title);
             title ??= comp.Title;
 
-            msg += $"\n{Loc.GetString("comms-console-announcement-sent-by")} {author}";
+            if (comp.AnnounceSentBy)
+                msg += $"\n{Loc.GetString("comms-console-announcement-sent-by")} {author}"; // imp regex
+
             if (comp.Global)
             {
-                _announcer.SendAnnouncement("announce", Filter.Broadcast(), msg, title, comp.Color);
+                _announcer.SendAnnouncement("announce", Filter.Broadcast(), msg, title, comp.Color, announcementSound: comp.Sound); //imp. added announcementSound back
 
                 _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(message.Actor):player} has sent the following global announcement: {msg}");
                 return;
             }
 
+            // imp edit start, random station announcer system
             if (TryComp<StationDataComponent>(_stationSystem.GetOwningStation(uid), out var stationData))
                 _announcer.SendAnnouncement("announce", _stationSystem.GetInStation(stationData), msg, title,
-                    comp.Color);
+                    comp.Color, announcementSound: comp.Sound);
+            // imp edit end, random station announcer system
 
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(message.Actor):player} has sent the following station announcement: {msg}");
 

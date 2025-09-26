@@ -6,9 +6,9 @@ using Content.Server.Shuttles.Systems;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Roles.Components;
 using Content.Shared.Survivor.Components;
 using Content.Shared.Tag;
-using Content.Shared._Impstation.Ghost;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 
@@ -79,8 +79,6 @@ public sealed class SurvivorRuleSystem : GameRuleSystem<SurvivorRuleComponent>
 
         while (existingSurvivors.MoveNext(out _, out _, out var mindComp))
         {
-            // If their brain is gone or they respawned/became a ghost role/are in the ghost bar
-            if (mindComp.CurrentEntity is null || TryComp<GhostBarPatronComponent>(mindComp.OwnedEntity, out _))
             {
                 deadSurvivors++;
                 continue;

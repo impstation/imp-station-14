@@ -1,7 +1,7 @@
-﻿using Content.Server.Roles;
-using Content.Shared.Containers.ItemSlots;
+﻿using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Mind.Components;
 using Content.Shared.Roles;
+using Content.Shared.Roles.Components;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Traits.Assorted;
 using Content.Shared.Chemistry.Components;
@@ -11,6 +11,8 @@ using Robust.Shared.Containers;
 using Robust.Server.Audio;
 using Content.Shared.Coordinates;
 using Content.Shared.Chemistry.EntitySystems;
+using Robust.Shared.GameObjects.Components.Localization; // imp; for Grammar
+using Robust.Shared.Enums; // imp; for Gender
 
 namespace Content.Server.Silicons.Borgs;
 
@@ -60,6 +62,15 @@ public sealed partial class BorgSystem
         linked.LinkedMMI = uid;
         Dirty(uid, component);
 
+        //IMP EDIT: keep the pronouns of the brain inserted
+        var grammar = EnsureComp<GrammarComponent>(uid);
+        if (TryComp<GrammarComponent>(ent, out var formerSelf))
+        {
+            _grammar.SetGender((uid, grammar), formerSelf.Gender);
+            //man-machine interface is not a proper noun, so i'm not setting proper here
+        }
+        //END IMP EDIT
+
         if (_mind.TryGetMind(ent, out var mindId, out var mind))
         {
             _mind.TransferTo(mindId, uid, true, mind: mind);
@@ -78,6 +89,13 @@ public sealed partial class BorgSystem
 
     private void OnMMIMindRemoved(EntityUid uid, MMIComponent component, MindRemovedMessage args)
     {
+        //IMP EDIT: no brain, no gender, bucko
+        if (TryComp<GrammarComponent>(uid, out var grammar))
+        {
+            _grammar.SetGender((uid, grammar), Gender.Neuter); // it/its
+        }
+        //END IMP EDIT
+
         _appearance.SetData(uid, MMIVisuals.HasMind, false);
     }
 

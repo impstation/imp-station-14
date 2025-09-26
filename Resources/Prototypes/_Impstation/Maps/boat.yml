@@ -15,15 +15,14 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'AS'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/emergency_cluster.yml
+          emergencyShuttlePath: /Maps/Shuttles/emergency_accordia.yml
         - type: StationCargoShuttle
           path: /Maps/Shuttles/cargo_fland.yml
         - type: StationJobs
-          availableJobs: # Total of 63 jobs roundstart, max of 77 inc. latejoins and trainees.
-            # command - 9
+          availableJobs: # Total of 65 jobs roundstart, max of 76 inc. latejoins and trainees.
+            # command - 8
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
-            AdministrativeAssistant: [ 1, 1 ]
             ChiefEngineer: [ 1, 1 ]
             ChiefMedicalOfficer: [ 1, 1 ]
             ResearchDirector: [ 1, 1 ]
@@ -31,17 +30,17 @@
             HospitalityDirector: [ 1, 1 ]
             Quartermaster: [ 1, 1 ]
             # service - 21
-            Bartender: [ 1, 1 ]
+            Zookeeper: [ 1, 1 ]
+            Bartender: [ 2, 2 ]
             Botanist: [ 3, 3 ]
             Chaplain: [ 1, 1 ]
-            Chef: [ 2, 2 ]
+            Chef: [ 3, 3 ]
             Clown: [ 2, 2 ]
             Janitor: [ 3, 3 ]
             Librarian: [ 1, 1 ]
             Mime: [ 2, 2 ]
             Musician: [ 2, 2 ]
             Reporter: [ 1, 1 ]
-            ServiceWorker: [ 3, 3 ]
             # engineering - 6-9
             AtmosphericTechnician: [ 3, 3 ]
             StationEngineer: [ 3, 3 ]
@@ -50,11 +49,11 @@
             Chemist: [ 2, 2 ]
             MedicalDoctor: [ 3, 3 ]
             MedicalIntern: [ 3, 3 ]
-            Paramedic: [ 1, 1 ]
+            Paramedic: [ 2, 2 ]
             Psychologist: [ 1, 1 ]
-            # science - 8-11
+            # science - 8-9
             Borg: [ 4, 4 ]
-            ResearchAssistant: [ 3, 3 ]
+            ResearchAssistant: [ 1, 1 ]
             Scientist: [ 3, 3 ]
             StationAi: [ 1, 1 ]
             # security - 7-10
@@ -64,10 +63,10 @@
             SecurityCadet: [ 3, 3 ]
             SecurityOfficer: [ 3, 3 ]
             Warden: [ 1, 1 ]
-            # supply - 8-11
+            # supply - 8-9
             CargoTechnician: [ 4, 4 ]
             SalvageSpecialist: [ 3, 3 ]
             Courier: [ 1, 1 ]
-            SupplyAssistant: [ 3, 3 ]
+            SupplyAssistant: [ 1, 1 ]
             # civilian
             Passenger: [ -1, -1 ]

@@ -1,0 +1,362 @@
+- type: seed
+  id: greenMarijuana
+  name: seeds-green-marijuana-name
+  noun: seeds-noun-seeds
+  displayName: seeds-green-marijuana-display-name
+  singularPlural: true
+  plantRsi: Objects/Specific/Hydroponics/cannabis.rsi
+  packetPrototype: GreenMarijuanaSeeds
+  productPrototypes:
+  - LeavesGreenMarijuana
+  - MaterialHemp1
+  mutationPrototypes:
+  - rainbowCannabis
+  harvestRepeat: Repeat
+  lifespan: 75
+  maturation: 8
+  production: 12
+  yield: 2
+  potency: 20
+  growthStages: 3
+  waterConsumption: 0.40
+  idealLight: 9
+  idealHeat: 298
+  chemicals:
+    THC:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 10
+
+- type: seed
+  id: lemo
+  name: seeds-lemo-name
+  noun: seeds-noun-seeds
+  displayName: seeds-lemo-display-name
+  plantRsi: _Impstation/Objects/Specific/Hydroponics/lemo.rsi
+  packetPrototype: LemoSeeds
+  productPrototypes:
+  - FoodLemo
+  harvestRepeat: Repeat
+  lifespan: 55
+  maturation: 6
+  production: 6
+  yield: 3
+  potency: 10
+  idealLight: 6
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 10
+    Vitamin:
+      Min: 1
+      Max: 4
+      PotencyDivisor: 25
+
+- type: seed
+  id: kisserTomato
+  name: seeds-kissertomato-name
+  noun: seeds-noun-seeds
+  displayName: seeds-kissertomato-display-name
+  plantRsi: _Impstation/Objects/Specific/Hydroponics/tomatokisser.rsi
+  packetPrototype: KisserTomatoSeeds
+  productPrototypes:
+  - MobTomatoKisser
+  harvestRepeat: Repeat
+  lifespan: 25
+  maturation: 15
+  production: 6
+  yield: 2
+  potency: 10
+  waterConsumption: 0.60
+  nutrientConsumption: 0.70
+  idealLight: 8
+  idealHeat: 298
+  growthStages: 2
+  splatPrototype: PuddleSplatter
+  chemicals:
+    Blood:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 10
+    JuiceTomato:
+      Min: 1
+      Max: 4
+      PotencyDivisor: 25
+
+- type: seed
+  id: rose
+  name: seeds-rose-name
+  noun: seeds-noun-seeds
+  displayName: seeds-rose-display-name
+  plantRsi: _Impstation/Objects/Specific/Hydroponics/rose.rsi
+  packetPrototype: RoseSeeds
+  productPrototypes:
+    - Rose
+  mutationPrototypes:
+    - blackRose
+  harvestRepeat: Repeat
+  lifespan: 55
+  maturation: 8
+  production: 6
+  yield: 3
+  potency: 10
+  idealLight: 6
+  chemicals:
+    Razorium:
+      Min: 1
+      Max: 3
+      PotencyDivisor: 12
+
+- type: seed
+  id: blackRose
+  name: seeds-blackrose-name
+  noun: seeds-noun-seeds
+  displayName: seeds-blackrose-display-name
+  plantRsi: _Impstation/Objects/Specific/Hydroponics/blackRose.rsi
+  packetPrototype: BlackRoseSeeds
+  productPrototypes:
+    - RoseBlack
+  harvestRepeat: Repeat
+  lifespan: 55
+  maturation: 8
+  production: 6
+  yield: 3
+  potency: 10
+  idealLight: 6
+  chemicals:
+    Razorium:
+      Min: 1
+      Max: 5
+      PotencyDivisor: 8
+    SulfuricAcid:
+      Min: 1
+      Max: 8
+      PotencyDivisor: 10
+
+- type: seed
+  id: coconut
+  name: seeds-coconut-name
+  noun: seeds-noun-seeds
+  displayName: seeds-coconut-display-name
+  plantRsi: _Impstation/Objects/Specific/Hydroponics/coconut.rsi
+  packetPrototype: CoconutSeeds
+  productPrototypes:
+    - FoodCoconut
+  mutationPrototypes:
+    - coconest
+  harvestRepeat: Repeat
+  lifespan: 55
+  maturation: 6
+  production: 6
+  yield: 2
+  potency: 10
+  idealLight: 6
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 10
+    CoconutWater:
+      Min: 1
+      Max: 20
+      PotencyDivisor: 25
+
+- type: seed
+  id: coconest
+  name: seeds-coconest-name
+  noun: seeds-noun-seeds
+  displayName: seeds-coconest-display-name
+  plantRsi: _Impstation/Objects/Specific/Hydroponics/coconest.rsi
+  packetPrototype: CoconutBeesSeeds
+  productPrototypes:
+    - FoodCoconutBees
+  harvestRepeat: Repeat
+  lifespan: 55
+  maturation: 6
+  production: 6
+  yield: 2
+  potency: 10
+  idealLight: 6
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 10
+    BuzzochloricBees:
+      Min: 1
+      Max: 15
+      PotencyDivisor: 25
+
+- type: seed
+  id: hops
+  name: seeds-hops-name
+  noun: seeds-noun-seeds
+  displayName: seeds-hops-display-name
+  plantRsi: _Impstation/Objects/Specific/Hydroponics/hops.rsi
+  packetPrototype: HopsSeeds
+  productPrototypes:
+  - FoodHops
+  mutationPrototypes:
+  - employedhops
+  harvestRepeat: Repeat
+  lifespan: 25 # idk botany like at all so this is copied from wheat
+  maturation: 6
+  production: 3
+  yield: 3
+  potency: 5
+  growthStages: 3
+  idealLight: 8
+  nutrientConsumption: 0.40
+  chemicals:
+    Beer:
+      Min: 1
+      Max: 20
+      PotencyDivisor: 25
+
+- type: seed
+  id: employedhops
+  name: seeds-employedhops-name
+  noun: seeds-noun-seeds
+  displayName: seeds-employedhops-display-name
+  plantRsi: _Impstation/Objects/Specific/Hydroponics/employedhops.rsi
+  packetPrototype: HoPsSeeds
+  productPrototypes:
+  - HopTart
+  mutationPrototypes:
+  - agentgrain
+  harvestRepeat: Repeat
+  lifespan: 65
+  maturation: 25
+  production: 25
+  yield: 1
+  potency: 5
+  growthStages: 3
+  idealLight: 8
+  nutrientConsumption: 0.40
+
+- type: seed
+  id: agentgrain
+  name: seeds-agentgrain-name
+  noun: seeds-noun-seeds
+  displayName: seeds-agentgrain-display-name
+  plantRsi: _Impstation/Objects/Specific/Hydroponics/agentgrain.rsi
+  packetPrototype: AgentGrainSeeds
+  productPrototypes:
+  - AgentIDCard
+  harvestRepeat: Repeat
+  lifespan: 65 # copied from gatfruit mostly
+  maturation: 25
+  production: 25
+  growthStages: 3
+  yield: 1
+  potency: 5
+  idealLight: 8
+  nutrientConsumption: 0.40
+
+- type: seed
+  id: butterflyorchid
+  name: seeds-butterflyorchid-name
+  noun: seeds-noun-seeds
+  displayName: seeds-butterflyorchid-display-name
+  plantRsi: _Impstation/Objects/Specific/Hydroponics/butterfly_orchid.rsi
+  packetPrototype: ButterflyOrchidSeeds
+  productPrototypes:
+  - FoodButterflyOrchid
+  mutationPrototypes:
+  - butterorchid
+  - biggerflyorchid
+  lifespan: 25
+  maturation: 10
+  production: 4
+  growthStages: 4
+  yield: 3
+  potency: 10
+  nutrientConsumption: 0.40
+  chemicals:
+    ButterfliesReagent:
+      Min: 1
+      Max: 15
+      PotencyDivisor: 25
+    Nutriment:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 25
+
+- type: seed
+  id: biggerflyorchid
+  name: seeds-biggerflyorchid-name
+  noun: seeds-noun-seeds
+  displayName: seeds-biggerflyorchid-display-name
+  plantRsi: _Impstation/Objects/Specific/Hydroponics/biggerfly_orchid.rsi
+  packetPrototype: BiggerflyOrchidSeeds
+  productPrototypes:
+  - FoodBiggerflyOrchid
+  lifespan: 35
+  maturation: 15
+  production: 4
+  growthStages: 4
+  yield: 3
+  potency: 25
+  nutrientConsumption: 0.40
+  chemicals:
+    ButterfliesBiggerReagent:
+      Min: 1
+      Max: 25
+      PotencyDivisor: 25
+    Nutriment:
+      Min: 1
+      Max: 15
+      PotencyDivisor: 25
+
+- type: seed
+  id: butterorchid
+  name: seeds-butterorchid-name
+  noun: seeds-noun-seeds
+  displayName: seeds-butterorchid-display-name
+  plantRsi: _Impstation/Objects/Specific/Hydroponics/butter_orchid.rsi
+  packetPrototype: ButterOrchidSeeds
+  productPrototypes:
+  - FoodButter
+  lifespan: 25
+  maturation: 10
+  production: 4
+  growthStages: 4
+  yield: 3
+  potency: 10
+  nutrientConsumption: 0.40
+  chemicals:
+    ButterfliesReagent:
+      Min: 1
+      Max: 5
+      PotencyDivisor: 25
+
+- type: seed
+  id: floatingflora
+  name: seeds-floatingflora-name
+  noun: seeds-noun-seeds
+  displayName: seeds-floatingflora-display-name
+  plantRsi: _Impstation/Objects/Specific/Hydroponics/floating_flora.rsi
+  packetPrototype: FloatingFloraSeeds
+  productPrototypes:
+  - FoodFloatingFlora
+  - FoodFloatingFloraPink
+  - FoodFloatingFloraOrange
+  - FoodFloatingFloraBlue
+  harvestRepeat: Repeat
+  lifespan: 25
+  maturation: 6
+  production: 6
+  growthStages: 3
+  yield: 4
+  potency: 20
+  nutrientConsumption: 0.40
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 25
+#    Uppisium:  (Will be added at a later date, post apparent status effects change)
+#      Min: 1
+#      Max: 10
+#      PotencyDivisor: 25

@@ -21,6 +21,8 @@
     entries:
       Burger: LeavesCannabisBurger
       Taco: LeavesCannabis
+  - type: PluralName # imp
+    oneOf: plural-name-some
 
 - type: entity
   name: green marijuana leaves
@@ -43,6 +45,8 @@
     entries:
       Burger: LeavesCannabisBurger
       Taco: LeavesCannabis
+  - type: PluralName # imp
+    oneOf: plural-name-some
 
 - type: entity
   name: dried cannabis leaves
@@ -67,6 +71,8 @@
     entries:
       Burger: LeavesCannabisBurger
       Taco: LeavesCannabis
+  - type: PluralName # imp
+    oneOf: plural-name-some
 
 - type: entity
   name: ground cannabis
@@ -96,7 +102,8 @@
       - Smokable
   - type: Item
     size: Tiny
-
+  - type: PluralName # imp
+    oneOf: plural-name-some
 
 - type: entity
   name: rainbow cannabis leaves
@@ -105,15 +112,18 @@
   description: "Is it supposed to be glowing like that...?"
   components:
   - type: Sprite
-    sprite: Objects/Specific/Hydroponics/rainbow_cannabis.rsi
+    layers:
+    - sprite: Objects/Specific/Hydroponics/rainbow_cannabis.rsi
+      state: produce
+      shader: unshaded
   - type: Produce
     seedId: rainbowCannabis
-  - type: PointLight
-    radius: 1.5
-    energy: 2
-  - type: RgbLightController
-    cycleRate: 0.6
-  - type: Food
+  # disabled because 50 morbillion point lights still break the lighting engine
+  #- type: PointLight
+  #  radius: 1.5
+  #  energy: 2
+  #- type: RgbLightController
+  #  cycleRate: 0.6
   - type: SolutionContainerManager
     solutions:
       food:

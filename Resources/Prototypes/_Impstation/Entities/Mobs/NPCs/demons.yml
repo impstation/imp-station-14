@@ -1,0 +1,47 @@
+- type: entity
+  name: ghoulish white boy
+  parent: BaseMobBehonker
+  id: whiteboy
+  description: Huh? Wha?
+  suffix: DO NOT MAP
+  components:
+    - type: Sprite
+      sprite: _Impstation/Mobs/Demons/whiteboy.rsi
+      layers:
+        - map: [ "enum.DamageStateVisualLayers.Base" ]
+          state: alive
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: alive
+        Dead:
+          Base: dead
+    - type: Gun
+      fireRate: 1.0
+      useKey: false
+      selectedMode: SemiAuto
+      availableModes:
+        - SemiAuto
+      soundGunshot: /Audio/_Impstation/Demons/whiteboylaser.ogg
+    - type: SpamEmitSound
+      sound:
+        collection: MaleScreams
+    - type: Butcherable
+      spawned:
+        - id: FoodMeatHuman
+          amount: 5
+        - id: EvilSkullArtifactItem # fuck it
+          amount: 1
+    - type: Bloodstream
+      bloodMaxVolume: 300
+      bloodReagent: Blood
+    - type: GhostRole
+      allowMovement: true
+      makeSentient: true
+      name: ghost-role-information-whiteboy-name
+      description: ghost-role-information-whiteboy-description
+      rules: ghost-role-information-antagonist-rules
+      mindRoles:
+      - MindRoleGhostRoleSoloAntagonist
+      raffle:
+        settings: default

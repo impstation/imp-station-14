@@ -1,7 +1,7 @@
 # When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_meal.yml
 
 - type: entity
-  parent: FoodBase
+  parent: FoodInjectableBase
   id: FoodBowlBase
   abstract: true
   components:
@@ -181,7 +181,7 @@
         - ReagentId: Nutriment
           Quantity: 27 # imp
         - ReagentId: Vitamin
-          Quantity: 10 # imp
+          Quantity: 12 # imp
         #- ReagentId: DoctorsDelight # imp
         #  Quantity: 5
         - ReagentId: Bicaridine # imp
@@ -190,8 +190,6 @@
           Quantity: 15
         - ReagentId: Desoxyephedrine # imp
           Quantity: 30
-        - ReagentId: Vitamin # imp
-          Quantity: 2
         - ReagentId: Protein # imp
           Quantity: 5
   - type: Tag
@@ -625,12 +623,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 45 # imp
+        maxVol: 50 # imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 15 # imp
         - ReagentId: Amatoxin
-          Quantity: 25 # imp - this shit killing you
+          Quantity: 30 # imp - this shit killing you
 
 # Soup
 
@@ -916,6 +914,7 @@
           Quantity: 1 # imp
         - ReagentId: Water # imp
           Quantity: 4
+
   - type: Tag
     tags:
     - ChiliBowl
@@ -1207,12 +1206,13 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 35 # imp
+        maxVol: 40
         reagents:
         - ReagentId: Nutriment
           Quantity: 15 # imp
         - ReagentId: Vitamin
           Quantity: 15 # imp
+
 # Tastes like sweet potato.
 
 - type: entity

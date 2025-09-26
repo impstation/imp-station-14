@@ -73,6 +73,16 @@
   loadouts:
   - LoadoutTankHarnessAquaticCommandWithOuterwear
 
+# breath tool
+- type: loadoutGroup
+  id: GroupSpeciesBreathToolCommand
+  name: loadout-group-breath-tool-command
+  minLimit: 1
+  maxLimit: 1
+  hidden: true
+  loadouts:
+  - LoadoutSpeciesBreathToolCommand
+
 # vaporizer
 - type: loadoutGroup
   id: GroupBreathToolDecapoid
@@ -119,6 +129,7 @@
     pocket1: EmergencyOxygenTankFilled
     pocket2: ClothingMaskBreath
     ears: ClothingHeadsetService
+    gloves: ClothingHandsGlovesLeather
 
 - type: startingGear #the doctor too
   id: StartingGearApidDoctor
@@ -145,6 +156,9 @@
     pocket2: ClothingMaskBreath
     ears: ClothingHeadsetEngineering
     eyes: ClothingEyesGlassesMeson
+    gloves: ClothingHandsGlovesColorYellow
+  inhand:
+  - RCD
 
 - type: startingGear #emergency responder
   id: StartingGearApidEmergency
@@ -210,6 +224,7 @@
     pocket2: ClothingMaskBreath
     ears: ClothingHeadsetService
     eyes: ClothingEyesGlassesChemical
+    gloves: ClothingHandsGlovesJanitor
   inhand:
   - AdvMopItem
 
@@ -220,7 +235,7 @@
     id: AdminAssistantPDA
     belt: ClothingBeltPaperworkFilled
     outerClothing: ClothingOuterWinterColorBlue
-    #head:
+    head: ClothingHeadHatBeretCommand
     pocket1: EmergencyOxygenTankCommandFilled
     pocket2: ClothingMaskBreathCommand
     ears: ClothingHeadsetAdminAssistant
@@ -334,6 +349,7 @@
   - WhiteDressShoes
   - BlackCommandHeels
   - BlueCommandHeels
+  - HoPWinterBoots # Delta-V
 
 - type: loadoutGroup
   id: AdminAssistantBackpack
@@ -405,6 +421,8 @@
   - HospitalityDirectorApron
   - HospitalityDirectorVest
   - HospitalityDirectorWintercoat
+  - BartenderCuteApron
+  - ChefCuteApron
 
 - type: loadoutGroup
   id: HospitalityDirectorShoes
@@ -468,6 +486,7 @@
   minLimit: 0
   loadouts:
   - ScarfRed
+  - HeadChefNeck
 
 - type: loadoutGroup
   id: ChefShoes
@@ -476,6 +495,7 @@
   - BlackShoes
   - ChefShoes
   - ClownShoesExpert
+  - HeadChefShoes
 
 - type: loadoutGroup
   id: ChefPDA
@@ -490,6 +510,7 @@
   minLimit: 0
   loadouts:
   - ScarfGreen
+  - ScarfBrown
 
 - type: loadoutGroup
   id: LibrarianShoes
@@ -557,25 +578,6 @@
   - ClownShoesExpert
 
 - type: loadoutGroup
-  id: ChaplainBook
-  name: loadout-group-chaplain-books
-  minLimit: 1
-  loadouts:
-  - ChaplainBookBible
-  - ChaplainBookQuran
-  - ChaplainBookTanakh
-  - ChaplainBookScroll
-  - ChaplainBookTablet
-  - ChaplainBookGreybible
-  - ChaplainBookKojiki
-  - ChaplainBookTao
-  - ChaplainBookGrimoire
-  - ChaplainBookETB
-  - ChaplainBookDiscordia
-  - ChaplainBookUnitology
-  - ChaplainBookBibble
-
-- type: loadoutGroup
   id: JanitorMask
   name: loadout-group-janitor-mask
   minLimit: 0
@@ -604,6 +606,7 @@
   - ScarfBrown
   - ScarfGreen
   - ScarfLightGreen
+  - BotanistLilyMantle
 
 - type: loadoutGroup
   id: BotanistGloves
@@ -661,6 +664,7 @@
   minLimit: 0
   loadouts:
   - ScarfPurple
+  - FeatherBoa
 
 - type: loadoutGroup
   id: MusicianShoes
@@ -671,13 +675,18 @@
   - BlackHeels
 
 - type: loadoutGroup
-  id: ReporterJumpsuit
-  name: loadout-group-reporter-jumpsuit
+  id: MusicianHead
+  name: loadout-group-musician-head
+  minLimit: 0
   loadouts:
-  - ReporterJumpsuit
-  - JournalistJumpsuit
-  - ClothingUniformBrosBlazer
-  - ClothingUniformBrosBlazerSkirt
+  - MusicianShako
+
+- type: loadoutGroup
+  id: MusicianGloves
+  name: loadout-group-musician-gloves
+  minLimit: 0
+  loadouts:
+  - MusicianSingerGloves
 
 - type: loadoutGroup
   id: ReporterNeck
@@ -695,6 +704,7 @@
   - LeatherShoes
   - BlackHeels
   - ClownShoesExpert
+
 # supply
 
 - type: loadoutGroup
@@ -749,11 +759,11 @@
   name: loadout-group-salvage-specialist-neck
   minLimit: 0
   loadouts:
-  - MinerCloak
-  - DrillerCape
+#  - MinerCloak # upstream removed it :(
   - SaMantle
   - ScarfBrown
   - RainCape
+  - DrillerCape
 
 - type: loadoutGroup
   id: SalvageSpecialistJumpsuit
@@ -771,6 +781,7 @@
   loadouts:
   - Glasses
   - GlassesCheapSunglasses
+  - EyePatch
   - GlassesColorfulBlue
   - GlassesColorfulGreen
   - GlassesColorfulPink
@@ -879,6 +890,13 @@
   - ScarfLightBlue
 
 - type: loadoutGroup
+  id: AtmosphericTechnicianHead
+  name: loadout-group-atmospheric-technician-head
+  minLimit: 0
+  loadouts:
+  - SeniorEngineerBeret
+
+- type: loadoutGroup
   id: AtmosphericTechnicianPDA
   name: loadout-group-atmospheric-technician-id
   loadouts:
@@ -943,6 +961,22 @@
   - HeadofSecurityShoulderHolster
 
 - type: loadoutGroup
+  id: SecurityCommandFirearm
+  name: loadout-group-security-gun-command
+  loadouts:
+  - SecurityPistolMk58
+  - SecurityPistolP2
+  - SecurityPistolSturm
+
+- type: loadoutGroup
+  id: SecurityCommandAmmo
+  name: loadout-group-security-ammo-command
+  loadouts:
+  - SecurityAmmoPistol
+  - SecurityAmmoP2
+  - SecurityAmmoSturm
+
+- type: loadoutGroup
   id: WardenNeck
   name: loadout-group-warden-neck
   minLimit: 0
@@ -996,6 +1030,27 @@
   - SeniorDetectivePDA
 
 - type: loadoutGroup
+  id: DetectiveFirearm
+  name: loadout-group-detective-gun
+  loadouts:
+  - SecurityRevolverInspector
+  - SecurityRevolverDerringer
+  - SecurityPistolFreelancer
+
+- type: loadoutGroup
+  id: DetectiveAmmo
+  name: loadout-group-detective-ammo
+  minLimit: 1
+  maxLimit: 2
+  loadouts:
+  - SecurityAmmoSpeedloaderLethal
+  - SecurityAmmoSpeedloaderStun
+  - SecurityAmmoPouchLethal
+  - SecurityAmmoPouchStun
+  - SecurityAmmoFreelancerLethal
+  - SecurityAmmoFreelancerStun
+
+- type: loadoutGroup
   id: BrigmedicHead
   name: loadout-group-brigmedic-head
   minLimit: 0
@@ -1025,12 +1080,12 @@
   loadouts:
   - BrigmedicArmoredWinterCoat
   - BrigmedicWinterCoat
+  - BrigmedicBomber
   - ArmorVest
   - ArmorVestSlim
   - ArmorVestCompact
   - PlateCarrier # DeltaV
   - DuraVest # DeltaV
-  - BomberSecurity
 
 - type: loadoutGroup
   id: BrigmedicShoes
@@ -1058,6 +1113,24 @@
   - EmergencyMeatBrigmedic
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogen
+
+- type: loadoutGroup
+  id: SecurityOfficerFirearm
+  name: loadout-group-security-gun
+  loadouts:
+  - SecurityPistolMk58
+  - SecurityPistolP2
+  - SecurityPistolBlaster
+  - SecurityPistolGunpet
+
+- type: loadoutGroup
+  id: SecurityOfficerAmmo
+  name: loadout-group-security-ammo
+  loadouts:
+  - SecurityAmmoPistol
+  - SecurityAmmoP2
+  - SecurityAmmoBlaster
+  - SecurityAmmoSnapPop
 
 - type: loadoutGroup
   id: GroupSpeciesBreathToolMedSec
@@ -1148,6 +1221,21 @@
   - SeniorParamedicPDA
 
 - type: loadoutGroup
+  id: PsychologistHead
+  name: loadout-group-psychologist-head
+  minLimit: 0
+  loadouts:
+  - PsychologistCapGrey
+  - PsychologistCapBrown
+
+- type: loadoutGroup
+  id: PsychologistMask
+  name: loadout-group-psychologist-mask
+  minLimit: 0
+  loadouts:
+  - DoctorClown
+
+- type: loadoutGroup
   id: PsychologistNeck
   name: loadout-group-psychologist-neck
   minLimit: 0
@@ -1163,4 +1251,14 @@
   - LacedShoes
   - LeatherShoes
   - BlackHeels
+  - BlackWinterBoots
   - ClownShoesExpert
+
+- type: loadoutGroup
+  id: PsychologistBackpack
+  name: loadout-group-psychologist-backpack
+  loadouts:
+  - MedicalDoctorBackpack
+  - MedicalDoctorSatchel
+  - MedicalDoctorDuffel
+  - LeatherSatchel

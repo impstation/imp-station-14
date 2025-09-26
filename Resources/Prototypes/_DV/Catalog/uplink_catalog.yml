@@ -1,5 +1,5 @@
 - type: listing
-  id: Mouse Operative Reinforcement
+  id: MouseOperativeReinforcement
   name: uplink-reinforcement-radio-nukie-mouse-name
   description: uplink-reinforcement-radio-nukie-mouse-desc
   productEntity: ReinforcementRadioSyndicateNukieMouse
@@ -37,7 +37,7 @@
   id: Observationkit
   name: uplink-observation-kit-name
   description: uplink-observation-kit-desc
-  icon: { sprite: /Textures/Objects/Storage/boxicons.rsi, state: tracks }
+  icon: { sprite: /Textures/_Wizden/Objects/Storage/boxicons.rsi, state: tracks } # imp
   productEntity: Observationskit
   discountCategory: usualDiscounts
   discountDownTo:

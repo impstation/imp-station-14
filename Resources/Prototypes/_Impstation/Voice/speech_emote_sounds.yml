@@ -243,6 +243,8 @@
       collection: DionaLaugh
     Chirp:
       path: /Audio/Animals/nymph_chirp.ogg
+    Multichirp: # Impstation
+      path: /Audio/_Impstation/Effects/Emotes/multichirp.ogg
     Sneeze:
       collection: MaleSneezes #placeholder
     Cough:
@@ -279,6 +281,8 @@
       collection: DionaLaugh
     Chirp:
       path: /Audio/Animals/nymph_chirp.ogg
+    Multichirp: # Impstation
+      path: /Audio/_Impstation/Effects/Emotes/multichirp.ogg
     Sneeze:
       collection: FemaleSneezes #placeholder
     Cough:
@@ -537,6 +541,29 @@
       path: /Audio/_Impstation/Animals/Gorilla_Gasp.ogg
     DefaultDeathgasp:
       path: /Audio/_Impstation/Animals/Gorilla_Scream.ogg
+    BeatingChest:
+      collection: ChestBeat
+
+- type: emoteSounds
+  id: GorillaBody
+  sounds:
+    Clap:
+      collection: Claps
+    ClapSingle:
+      collection: ClapSingle
+    Snap:
+      collection: Snaps
+      params:
+        volume: -3
+    Salute:
+      collection: Salutes
+    Crack:
+      collection: Cracks
+    Blink:
+      collection: Blinks
+      params:
+        volume: -3
+        variation: 0.1
 
 - type: emoteSounds
   id: Bros
@@ -803,6 +830,10 @@
   params:
     variation: 0.05
   sounds:
+    Laugh:
+      path: /Audio/_Impstation/Voice/Talk/Tcktck/tcktck_laugh.ogg
+    Scream:
+      path: /Audio/_Impstation/Voice/Talk/Tcktck/tcktck_scream.ogg
     Beep:
       path: /Audio/Machines/twobeep.ogg
     Chime:
@@ -815,6 +846,8 @@
       path: /Audio/Items/bikehorn.ogg
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
+    Muttering:
+      path: /Audio/_Impstation/Voice/Talk/Tcktck/tcktck_muttering.ogg
 
 - type: emoteSounds
   id: Suppy
@@ -864,6 +897,64 @@
       path: /Audio/_EE/Supermatter/charge.ogg
     DefaultDeathgasp:
       path: /Audio/_EE/Supermatter/status/ohfuck.ogg
+
+- type: emoteSounds
+  id: Pleebnar
+  params:
+    variation: 0.05
+  sounds:
+    Scream:
+      path: /Audio/_Impstation/Animals/pleebnar_scream.ogg
+    Squeak:
+      path: /Audio/_Impstation/Animals/pleebnar_squeak.ogg
+    Blink:
+      collection: Blinks
+      params:
+        volume: -3
+        variation: 0.1
+
+#body emotes
+- type: emoteSounds
+  id: SlimeBodyEmotes
+  sounds:
+    Clap:
+      collection: Claps
+    ClapSingle:
+      collection: ClapSingle
+    Snap:
+      collection: Snaps
+      params:
+        volume: -3
+    Salute:
+      collection: Salutes
+    Crack:
+      collection: Cracks
+    Blink:
+      collection: WetBlinks
+      params:
+        volume: -3
+        variation: 0.1
+
+- type: emoteSounds
+  id: GastropoidBodyEmotes
+  sounds:
+    Clap:
+      collection: Claps
+    ClapSingle:
+      collection: ClapSingle
+    Snap:
+      collection: Snaps
+      params:
+        volume: -3
+    Salute:
+      collection: Salutes
+    Crack:
+      collection: Cracks
+    Blink:
+      collection: WetBlinks
+      params:
+        volume: -3
+        variation: 0.1
 
 
 - type: emoteSounds

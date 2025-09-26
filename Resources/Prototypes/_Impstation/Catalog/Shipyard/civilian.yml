@@ -10,6 +10,19 @@
   - Service
 
 - type: vessel
+  id: Barge
+  name: The Barge
+  description: A large shipping vessel repurposed into a salvage bar.
+  price: 54000
+  path: 
+  - /Maps/_Impstation/Shuttles/Shipyard/barge.yml
+  categories:
+  - Civilian
+  - Large
+  - Shipping
+  - Mining
+
+- type: vessel
   id: Medical
   name: Medical Ship
   description: A medium medical vessel.
@@ -57,7 +70,7 @@
   id: FlyingBridge
   name: NT-Outreach
   description: A small shuttle that can serve as a docking arm.
-  price: 15000
+  price: 18000
   path:
   - /Maps/_Impstation/Shuttles/Shipyard/dokururin-flying-bridge.yml
   categories:
@@ -90,7 +103,7 @@
   id: Peregrine
   name: NT-Peregrine
   description: A decommissioned fighter shuttle, retrofitted for civilian use. Still has the mounts for ship-based weaponry...
-  price: 22000
+  price: 25000
   path:
   - /Maps/_Impstation/Shuttles/Shipyard/peregrine.yml
   categories:
@@ -131,7 +144,7 @@
   id: Strugglebug
   name: NT-Strugglebug
   description: A small, bare-bones three-seater mining shuttle. EVA required.
-  price: 6500
+  price: 6825
   path:
   - /Maps/_Impstation/Shuttles/Shipyard/strugglebug.yml
   categories:

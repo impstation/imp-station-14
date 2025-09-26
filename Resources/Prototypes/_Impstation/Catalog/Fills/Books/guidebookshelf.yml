@@ -3,8 +3,17 @@
   parent: BookshelfGuidebooks
   suffix: filled
   components:
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        rolls: !type:RangeNumberSelector
+          range: 20, 20
+        tableId: BookshelfGuideBooksEntityTable
+
+- type: entityTable
+  id: BookshelfGuideBooksEntityTable
+  table: !type:GroupSelector
+    children:
     # ALL GUIDEBOOKS, ONLY GUIDEBOOKS. Guidebooks sorted alphabetically by in-game item name, not item ID
     # If the title starts with an article (a, an, the), sort it by the next word (e.g., The Book of Control is under B)
     - id: BookBartendersManual #bartender's manual
@@ -18,6 +27,7 @@
     - id: BookHowToSurvive #how to survive
     - id: BookKeelBay #Keel-Ree's guide to medical (imp)
     - id: BookLeafLoversSecret #leaf lover's secret
+    - id: BookLogistics #logistics 101
     - id: BookMedicalReferenceBook #medical reference book
     - id: BookAtmosAirAlarms #Newton's Guide to Atmos: Air Alarms
     - id: BookAtmosDistro #Newton's Guide to Atmos: The Distro

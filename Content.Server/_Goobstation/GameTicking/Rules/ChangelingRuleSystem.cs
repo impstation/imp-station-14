@@ -3,7 +3,6 @@ using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Mind;
 using Content.Server.Objectives;
 using Content.Server.Roles;
-using Content.Shared.Changeling;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Roles;
@@ -13,10 +12,15 @@ using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.GameObjects;
 using System.Text;
+using Content.Server._Goobstation.GameTicking.Rules.Components;
+using Content.Server._Goobstation.Roles;
+using Content.Server.GameTicking.Rules;
+using Content.Shared._Goobstation.Changeling;
+using Content.Shared.Roles.Components;
 
-namespace Content.Server.GameTicking.Rules;
+namespace Content.Server._Goobstation.GameTicking.Rules;
 
-public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRuleComponent>
+public sealed partial class GoobChangelingRuleSystem : GameRuleSystem<GoobChangelingRuleComponent>
 {
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
@@ -35,44 +39,43 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
 
     public readonly ProtoId<CurrencyPrototype> Currency = "EvolutionPoint";
 
-    [ValidatePrototypeId<EntityPrototype>] EntProtoId mindRole = "MindRoleChangeling";
+    [ValidatePrototypeId<EntityPrototype>] EntProtoId _mindRole = "MindRoleChangeling";
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ChangelingRuleComponent, AfterAntagEntitySelectedEvent>(OnSelectAntag);
-        SubscribeLocalEvent<ChangelingRuleComponent, ObjectivesTextPrependEvent>(OnTextPrepend);
+        SubscribeLocalEvent<GoobChangelingRuleComponent, AfterAntagEntitySelectedEvent>(OnSelectAntag);
+        SubscribeLocalEvent<GoobChangelingRuleComponent, ObjectivesTextPrependEvent>(OnTextPrepend);
     }
 
-    private void OnSelectAntag(EntityUid uid, ChangelingRuleComponent comp, ref AfterAntagEntitySelectedEvent args)
+    private void OnSelectAntag(EntityUid uid, GoobChangelingRuleComponent comp, ref AfterAntagEntitySelectedEvent args)
     {
         MakeChangeling(args.EntityUid, comp);
     }
-    public bool MakeChangeling(EntityUid target, ChangelingRuleComponent rule)
+    public bool MakeChangeling(EntityUid target, GoobChangelingRuleComponent rule)
     {
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
             return false;
 
-        _role.MindAddRole(mindId, mindRole.Id, mind, true);
+        _role.MindAddRole(mindId, _mindRole.Id, mind, true);
 
         // briefing
-        if (TryComp<MetaDataComponent>(target, out var metaData))
-        {
-            var briefing = Loc.GetString("changeling-role-greeting", ("name", metaData?.EntityName ?? "Unknown"));
-            var briefingShort = Loc.GetString("changeling-role-greeting-short", ("name", metaData?.EntityName ?? "Unknown"));
+        var metaData = MetaData(target);
+        var briefing = Loc.GetString("goob-changeling-role-greeting", ("name", metaData?.EntityName ?? "Unknown"));
+        var briefingShort = Loc.GetString("goob-changeling-role-greeting-short", ("name", metaData?.EntityName ?? "Unknown"));
 
-            _antag.SendBriefing(target, briefing, Color.Yellow, BriefingSound);
+        _antag.SendBriefing(target, briefing, Color.Yellow, BriefingSound);
 
-            if (_role.MindHasRole<ChangelingRoleComponent>(mindId, out var mr))
-                AddComp(mr.Value, new RoleBriefingComponent { Briefing = briefingShort }, overwrite: true);
-        }
+        if (_role.MindHasRole<GoobChangelingRoleComponent>(mindId, out var mr))
+            AddComp(mr.Value, new RoleBriefingComponent { Briefing = briefingShort }, overwrite: true);
+
         // hivemind stuff
         _npcFaction.RemoveFaction(target, NanotrasenFactionId, false);
         _npcFaction.AddFaction(target, ChangelingFactionId);
 
         // make sure it's initial chems are set to max
-        var changelingComp = EnsureComp<ChangelingComponent>(target);
+        var changelingComp = EnsureComp<GoobChangelingComponent>(target);
 
         // add store
         var store = EnsureComp<StoreComponent>(target);
@@ -93,21 +96,20 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
         return true;
     }
 
-    private void OnTextPrepend(EntityUid uid, ChangelingRuleComponent comp, ref ObjectivesTextPrependEvent args)
+    private void OnTextPrepend(EntityUid uid, GoobChangelingRuleComponent comp, ref ObjectivesTextPrependEvent args)
     {
         var mostAbsorbedName = string.Empty;
         var mostStolenName = string.Empty;
         var mostAbsorbed = 0f;
         var mostStolen = 0f;
 
-        foreach (var ling in EntityQuery<ChangelingComponent>())
+        var query = EntityQueryEnumerator<GoobChangelingComponent>();
+        while (query.MoveNext(out var user, out var ling))
         {
-            if (!_mind.TryGetMind(ling.Owner, out var mindId, out var mind))
+            if (!_mind.TryGetMind(user, out var mindId, out var mind))
                 continue;
 
-            if (!TryComp<MetaDataComponent>(ling.Owner, out var metaData))
-                continue;
-
+            var metaData = MetaData(user);
             if (ling.TotalAbsorbedEntities > mostAbsorbed)
             {
                 mostAbsorbed = ling.TotalAbsorbedEntities;
@@ -121,8 +123,8 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
         }
 
         var sb = new StringBuilder();
-        sb.AppendLine(Loc.GetString($"roundend-prepend-changeling-absorbed{(!string.IsNullOrWhiteSpace(mostAbsorbedName) ? "-named" : "")}", ("name", mostAbsorbedName), ("number", mostAbsorbed)));
-        sb.AppendLine(Loc.GetString($"roundend-prepend-changeling-stolen{(!string.IsNullOrWhiteSpace(mostStolenName) ? "-named" : "")}", ("name", mostStolenName), ("number", mostStolen)));
+        sb.AppendLine(Loc.GetString($"goob-roundend-prepend-changeling-absorbed{(!string.IsNullOrWhiteSpace(mostAbsorbedName) ? "-named" : "")}", ("name", mostAbsorbedName), ("number", mostAbsorbed)));
+        sb.AppendLine(Loc.GetString($"goob-roundend-prepend-changeling-stolen{(!string.IsNullOrWhiteSpace(mostStolenName) ? "-named" : "")}", ("name", mostStolenName), ("number", mostStolen)));
 
         args.Text = sb.ToString();
     }

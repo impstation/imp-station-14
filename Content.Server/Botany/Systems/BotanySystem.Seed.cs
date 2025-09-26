@@ -1,5 +1,4 @@
 using Content.Server.Botany.Components;
-using Content.Server.Kitchen.Components;
 using Content.Server.Popups;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Botany;
@@ -16,6 +15,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
+using Content.Shared.Kitchen.Components;
 
 namespace Content.Server.Botany.Systems;
 
@@ -36,6 +36,7 @@ public sealed partial class BotanySystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<SeedComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<ProduceComponent, ExaminedEvent>(OnProduceExamined);
     }
 
     public bool TryGetSeed(SeedComponent comp, [NotNullWhen(true)] out SeedData? seed)
@@ -87,7 +88,16 @@ public sealed partial class BotanySystem : EntitySystem
         using (args.PushGroup(nameof(SeedComponent), 1))
         {
             var name = Loc.GetString(seed.DisplayName);
-            args.PushMarkup(Loc.GetString($"seed-component-description", ("seedName", name)));
+
+            //IMP EDIT: support good grammar
+            //supports plural crop descriptions (i.e. "some ears of corn", "an apple tree", "some cannabis"... etc.)
+            var getsArticle = "y";
+            if (seed.IsSingularPluralName)
+                getsArticle = "splur";
+            else if (seed.IsPluralName)
+                getsArticle = "plur";
+            args.PushMarkup(Loc.GetString($"seed-component-description", ("seedName", name), ("getsArticle", getsArticle), ("empty", "")));
+            //end imp edits
             args.PushMarkup(Loc.GetString($"seed-component-plant-yield-text", ("seedYield", seed.Yield)));
             args.PushMarkup(Loc.GetString($"seed-component-plant-potency-text", ("seedPotency", seed.Potency)));
         }
@@ -107,7 +117,7 @@ public sealed partial class BotanySystem : EntitySystem
 
         var name = Loc.GetString(proto.Name);
         var noun = Loc.GetString(proto.Noun);
-        var val = Loc.GetString("botany-seed-packet-name", ("seedName", name), ("seedNoun", noun));
+        var val = Loc.GetString(proto.PacketName, ("seedName", name), ("seedNoun", noun)); // Frontier: "botany-seed-packet-name"<proto.PacketName
         _metaData.SetEntityName(seed, val);
 
         // try to automatically place in user's other hand

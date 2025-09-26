@@ -197,7 +197,7 @@
       - id: FoodCondimentPacketKetchup
   - type: Sprite
     layers:
-      - state: box
+      - state: box_olive # imp
       - state: writing
 
 - type: entity
@@ -491,3 +491,21 @@
     contents:
       - id: Envelope
         amount: 9
+
+- type: entity
+  name: utensil box
+  parent: BoxCardboard
+  id: BoxUtensil
+  description: A box filled with forks and spoons.
+  components:
+  - type: Sprite
+    sprite: Objects/Storage/boxes.rsi # imp
+    layers:
+      - state: box
+      - state: utensils
+  - type: StorageFill
+    contents:
+      - id: Fork
+        amount: 2
+      - id: Spoon
+        amount: 2

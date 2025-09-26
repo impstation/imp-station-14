@@ -5,18 +5,7 @@
   id: SpamMailTable
   table: !type:GroupSelector
     children:
-      - id: MailAllAccessSpam
-      - id: MailAlternativeDimensionSpam
-      - id: MailCentcommRetributionSpam
-      - id: MailEvilLizardSpam
-      - id: MailNanotrasenSpam
-      - id: MailNarsieCultSpam
-      - id: MailParentsNeedMoneySpam
-      - id: MailRageCageSpam
-      - id: MailRobustToolsSpam
-      - id: MailScienceSpiderClanSpam
-      - id: MailSyndicateSpam
-      - id: MailVoyageAdvertisementSpam
+      - id: MailSpamLetter
 
 # Letter Bundles
 ## Basically items that should always spawn together, specific to letters
@@ -26,6 +15,7 @@
     children:
     - !type:NestedSelector
       tableId: LetterBundleDarts
+      weight: 0.3 #imp
     - !type:NestedSelector
       tableId: LetterBundleLetter
 
@@ -43,4 +33,9 @@
   table: !type:AllSelector
     children:
     - id: Paper
-    - id: Pen
+    - !type:GroupSelector #start imp
+      children:
+      - id: Pen # imp modified
+      - !type:NestedSelector
+        tableId: LetterImpPenEntityTable
+        weight: 0.5 #end imp

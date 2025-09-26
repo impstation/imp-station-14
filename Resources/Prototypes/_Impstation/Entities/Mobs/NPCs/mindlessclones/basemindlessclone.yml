@@ -78,6 +78,7 @@
         clownedon: # Not 'creampied' bc I can already see Skyrat complaining about conflicts.
           True: {visible: true}
           False: {visible: false}
+  - type: SolutionContainerManager
   - type: StatusIcon
     bounds: -0.5,-0.5,0.5,0.5
   - type: RotationVisuals
@@ -123,9 +124,6 @@
       - !type:WashCreamPieReaction
   - type: StatusEffects
     allowed:
-    - Stun
-    - KnockedDown
-    - SlowedDown
     - Stutter
     - SeeingRainbows
     - Electrocution
@@ -134,13 +132,11 @@
     - RatvarianLanguage
     - PressureImmunity
     - Muted
-    - ForcedSleep
     - TemporaryBlindness
     - Pacified
     - StaminaModifier
     - Flashed
     - RadiationProtection
-    - Drowsiness
     - Adrenaline
     - Feminized # DeltaV - Hormone system
     - Masculinized # DeltaV - Hormone system
@@ -175,6 +171,7 @@
         Blunt: 5
   - type: SleepEmitSound
   - type: SSDIndicator
+    doNotSleep: true
   - type: StandingState
   - type: Dna
   - type: MindContainer
@@ -221,7 +218,6 @@
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
-  - type: LayingDown # WD EDIT
   - type: Barotrauma
     damage:
       types:

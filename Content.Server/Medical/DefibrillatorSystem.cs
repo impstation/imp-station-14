@@ -27,6 +27,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Shared.Whitelist;
+using Content.Shared._Offbrand.Wounds; // Offbrand
 
 namespace Content.Server.Medical;
 
@@ -40,12 +41,13 @@ public sealed class DefibrillatorSystem : EntitySystem
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly ElectrocutionSystem _electrocution = default!;
     [Dependency] private readonly EuiManager _euiManager = default!;
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly ItemToggleSystem _toggle = default!;
-    [Dependency] private readonly RottingSystem _rotting = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
+    [Dependency] private readonly RottingSystem _rotting = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -117,10 +119,15 @@ public sealed class DefibrillatorSystem : EntitySystem
         if (!_powerCell.HasActivatableCharge(uid, user: user) && !component.IgnorePowerCell)
             return false;
 
-        if (!targetCanBeAlive && _mobState.IsAlive(target, mobState))
+        // Begin Offbrand
+        if (TryComp<HeartrateComponent>(target, out var heartrate) && heartrate.Running)
+            return false;
+        // End Offbrand
+
+        if (!targetCanBeAlive && heartrate is null && _mobState.IsAlive(target, mobState)) // Offbrand
             return false;
 
-        if (!targetCanBeAlive && !component.CanDefibCrit && _mobState.IsCritical(target, mobState))
+        if (!targetCanBeAlive && heartrate is null && !component.CanDefibCrit && _mobState.IsCritical(target, mobState)) // Offbrand
             return false;
 
         // imp
@@ -192,8 +199,9 @@ public sealed class DefibrillatorSystem : EntitySystem
         if (targetEvent.Cancelled || !CanZap(uid, target, user, component, true))
             return;
 
+        var hasDefib = TryComp<HeartDefibrillatableComponent>(target, out var heartDefibrillatable); // Offbrand
         if (!TryComp<MobStateComponent>(target, out var mob) ||
-            !TryComp<MobThresholdsComponent>(target, out var thresholds))
+            (!TryComp<MobThresholdsComponent>(target, out var thresholds) && !hasDefib)) // Offbrand
             return;
 
         if (component.PlayZapSound)
@@ -217,13 +225,24 @@ public sealed class DefibrillatorSystem : EntitySystem
                     true);
             return;
         }
-        else if (TryComp<UnrevivableComponent>(target, out var unrevivable))
+        else if (heartDefibrillatable is null && TryComp<UnrevivableComponent>(target, out var unrevivable)) // Offbrand
         {
             _chatManager.TrySendInGameICMessage(uid, Loc.GetString(unrevivable.ReasonMessage),
                 InGameICChatType.Speak, true);
-        }
 
-        if (HasComp<RandomUnrevivableComponent>(target))
+            return; //imp
+        }
+        // Begin offbrand
+        else if (heartDefibrillatable is not null && _mobState.IsDead(target, mob))
+        {
+            _chatManager.TrySendInGameICMessage(uid, Loc.GetString(heartDefibrillatable.TargetIsDead),
+                InGameICChatType.Speak, true);
+
+            return; //imp
+        }
+        // End offbrand
+
+        if (heartDefibrillatable is null && HasComp<RandomUnrevivableComponent>(target)) // Offbrand
         {
             var dnrComponent = Comp<RandomUnrevivableComponent>(target);
 
@@ -231,8 +250,10 @@ public sealed class DefibrillatorSystem : EntitySystem
             {
                 if (component.ShowMessages)
                     _chatManager.TrySendInGameICMessage(uid, Loc.GetString("defibrillator-unrevivable"), InGameICChatType.Speak, true);
-                    dnrComponent.Chance = 0f;
-                    AddComp<UnrevivableComponent>(target);
+                dnrComponent.Chance = 0f;
+                var unrevivable = AddComp<UnrevivableComponent>(target); //imp
+                unrevivable.Cloneable = true; //imp
+                RemComp<RandomUnrevivableComponent>(target); //imp
                 return;
             }
             else
@@ -244,6 +265,15 @@ public sealed class DefibrillatorSystem : EntitySystem
         if (_mobState.IsDead(target, mob))
             _damageable.TryChangeDamage(target, component.ZapHeal, true, origin: uid);
 
+        // Begin Offbrand
+        if (heartDefibrillatable is not null)
+        {
+            var ev = new TargetDefibrillatedEvent(user, (uid, component));
+            RaiseLocalEvent(target, ref ev);
+            return;
+        }
+        // End Offbrand
+
         if (_mobThreshold.TryGetThresholdForState(target, MobState.Dead, out var threshold) &&
             TryComp<DamageableComponent>(target, out var damageableComponent) &&
             damageableComponent.TotalDamage < threshold)
@@ -254,21 +284,20 @@ public sealed class DefibrillatorSystem : EntitySystem
             {
                 _mobState.ChangeMobState(target, MobState.Alive, mob, uid);
                 dead = false;
-            } else {
+            }
+            else
+            {
                 _mobState.ChangeMobState(target, MobState.Critical, mob, uid);
                 dead = false;
             }
         }
 
-        if (_mind.TryGetMind(target, out _, out var mind) &&
-            mind.Session is { } playerSession)
+        if (_mind.TryGetMind(target, out _, out var mind) && _player.TryGetSessionById(mind.UserId, out var playerSession))
         {
             session = playerSession;
             // notify them they're being revived.
             if (mind.CurrentEntity != target)
-            {
-                _euiManager.OpenEui(new ReturnToBodyEui(mind, _mind), session);
-            }
+                _euiManager.OpenEui(new ReturnToBodyEui(mind, _mind, _player), session);
         }
         else
         {
