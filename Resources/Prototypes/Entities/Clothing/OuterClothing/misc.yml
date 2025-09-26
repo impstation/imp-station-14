@@ -302,10 +302,6 @@
     sprite: Clothing/OuterClothing/Misc/hospitalgown.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/hospitalgown.rsi
-  - type: Tag # Offbrand
-    tags:
-    - OperatableClothing
-    - WhitelistChameleon
 
 - type: entity
   parent: ClothingOuterBase
