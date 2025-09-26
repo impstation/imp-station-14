@@ -20,4 +20,4 @@ reagent-name-moonrise = Moonrise Blend
 reagent-desc-moonrise = A summer classic from the planet of Cernunnos, this frosty delight is perfect for ushering in the sunset.
 
 reagent-name-shrimpsoda = shrimp soda
-reagent-name-shrimpsoda = A revolting melange of millions of CO2 infused microshrimps.
+reagent-desc-shrimpsoda = A revolting melange of millions of CO2 infused microshrimps.
