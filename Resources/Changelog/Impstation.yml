@@ -1,107 +1,6 @@
 ﻿Entries:
 - author: meridiadottxt
   changes:
-  - message: added material silo to science and lockboxes to every department on gate
-      (i forgor to do it before)
-    type: Add
-  - message: all departments now run on their own independent power source again
-    type: Fix
-  id: 1782
-  time: '2025-06-09T00:56:29.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2692
-- author: hivehum
-  changes:
-  - message: CMOs start with one survival box now. Don't get greedy.
-    type: Remove
-  id: 1783
-  time: '2025-06-09T00:56:52.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2689
-- author: hivehum
-  changes:
-  - message: Kodepiia, grays, and thaven are no longer discriminated against by bloodthirsty
-      artifacts.
-    type: Fix
-  id: 1784
-  time: '2025-06-09T00:57:12.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2690
-- author: jtfg-dev
-  changes:
-  - message: The new pins added in the upstream merge can now be seen on full display!
-    type: Fix
-  - message: The brave knight Gollylad now shows his/her/their pride.
-    type: Add
-  id: 1785
-  time: '2025-06-09T00:55:25.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2686
-- author: hivehum
-  changes:
-  - message: Tck'tck can beep again!
-    type: Fix
-  id: 1786
-  time: '2025-06-09T00:56:06.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2691
-- author: DinnerCalzone
-  changes:
-  - message: Wall rechargers charge rate has been reduced to match standard rechargers.
-    type: Tweak
-  id: 1787
-  time: '2025-06-09T01:03:30.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2680
-- author: britno
-  changes:
-  - message: Added Irwizine, a chemical that pacifies normally hostile creatures with
-      15u of accumilation. Perfect for putting together exhibits with deadly beasts!
-    type: Add
-  - message: Added the Muldoon tranquilizer rifle, a scoped gun that only shoots Irwizine
-      and Chloral Hydrate darts.
-    type: Add
-  - message: Gave the zookeeper the Muldoon and some darts at the start of the round.
-    type: Tweak
-  id: 1788
-  time: '2025-06-09T01:35:01.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2555
-- author: DinnerCalzone
-  changes:
-  - message: The time between being able to knock on the same window, blast door,
-      or shutter has increased to be less annoying.
-    type: Tweak
-  id: 1789
-  time: '2025-06-09T02:02:59.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2694
-- author: mqole
-  changes:
-  - message: Another upstream merge. Surprise!
-    type: Add
-  id: 1790
-  time: '2025-06-09T05:08:13.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2695
-- author: Pinkbat5
-  changes:
-  - message: You can now craft an administration eyepatch from a hud and an eyepatch.
-    type: Add
-  - message: You can now select eyepatches in loadouts.
-    type: Add
-  id: 1791
-  time: '2025-06-09T05:12:40.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2696
-- author: DinnerCalzone
-  changes:
-  - message: The mail teleporter sprite has been changed to use the sprite from upstream
-      to better match its functionality.
-    type: Tweak
-  id: 1792
-  time: '2025-06-09T06:26:46.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2697
-- author: Mousetrinity
-  changes:
-  - message: check your exotic seed crates, a new flower has made its way onto the
-      scene!
-    type: Add
-  id: 1793
-  time: '2025-06-09T06:40:29.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2678
-- author: meridiadottxt
-  changes:
   - message: added Eclipse Starport, an 80-pop map from Harmony!
     type: Add
   id: 1794
@@ -4193,3 +4092,104 @@
   id: 2281
   time: '2025-09-22T12:28:04.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3498
+- author: sowelipililimute
+  changes:
+  - message: Zombie infection mechanics have been overhauled! Chemistry lab exploded?
+      Try bloodletting like leeches are in style!
+    type: Add
+  - message: Currently metabolizing and recently metabolized medical reagents are
+      now indicated in the health analyzer
+    type: Add
+  - message: Patients with stopped hearts now have an examine message cueing others
+      in that they need CPR
+    type: Add
+  - message: The defibrillator will now announce if the patient's condition may cause
+      the heart to stop after defibrillation
+    type: Add
+  id: 2282
+  time: '2025-09-23T01:53:21.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3494
+- author: Banditoz
+  changes:
+  - message: You can now move while scanning somebody with the health analyzer.
+    type: Tweak
+  id: 2283
+  time: '2025-09-23T08:25:19.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3497
+- author: Kandiyaki
+  changes:
+  - message: heretics can now sacrifice critical-condition (gasping) bodies.
+    type: Tweak
+  id: 2284
+  time: '2025-09-23T08:33:05.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3488
+- author: msTheowo
+  changes:
+  - message: Colo cups, make them at the service techfab!
+    type: Add
+  - message: Grape juice now comes in Colo cups.
+    type: Tweak
+  id: 2285
+  time: '2025-09-23T16:14:09.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3471
+- author: widgetbeck
+  changes:
+  - message: Mindless Clones no longer use oldmed.
+    type: Fix
+  id: 2286
+  time: '2025-09-23T16:16:30.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3491
+- author: AvianMaiden
+  changes:
+  - message: Foam Force Astro Aces are no longer made with genuine shotgun parts but
+      now with cheap plastic due to budget cuts.
+    type: Fix
+  - message: Flamethrower melee sounds more burn-y.
+    type: Fix
+  id: 2287
+  time: '2025-09-23T16:23:10.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3490
+- author: Banditoz
+  changes:
+  - message: Consuming caffeinated things now slightly raises your pulse.
+    type: Add
+  id: 2288
+  time: '2025-09-23T16:22:35.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3484
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: A whole buncha gun changes-- click the PR for more details!
+    type: Tweak
+  id: 2289
+  time: '2025-09-23T16:21:39.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3470
+- author: DinnerCalzone
+  changes:
+  - message: Map population ranges have been tweaked to have more clear brackets for
+      maps to roll.
+    type: Tweak
+  id: 2290
+  time: '2025-09-23T16:25:10.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3501
+- author: sowelipililimute
+  changes:
+  - message: Station AI and cyborgs now have an in-built PDA
+    type: Add
+  id: 2291
+  time: '2025-09-23T16:25:55.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3419
+- author: Stonylogray
+  changes:
+  - message: Due to perceived anti-corporate tendencies, Nanotrasen will be training
+      bluespace weaponry on all simian occupied shuttles.
+    type: Tweak
+  id: 2292
+  time: '2025-09-23T16:27:28.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3443
+- author: formlessnameless
+  changes:
+  - message: Offmed is no longer with us.
+    type: Remove
+  id: 2293
+  time: '2025-09-25T18:23:07.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3507
