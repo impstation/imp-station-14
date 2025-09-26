@@ -216,8 +216,8 @@
     brokenState: broken
     normalState: normal-unshaded
     soundVend: /Audio/_Impstation/Effects/ame_injection.ogg
-  - type: Advertise
-    pack: DanShrimpAds
+  - type: DatasetVocalizer
+    dataset: DanShrimpAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
@@ -248,8 +248,8 @@
     brokenState: broken
     normalState: normal-unshaded
     soundVend: /Audio/_Impstation/Effects/ame_injection.ogg
-  - type: Advertise
-    pack: DanShrimpAds
+  - type: DatasetVocalizer
+    dataset: DanShrimpAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
