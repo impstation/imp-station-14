@@ -26,7 +26,6 @@
     containers:
       storagebase: !type:Container
         ents: []
-      cavity_slot: !type:ContainerSlot # Offbrand
   - type: UserInterface
     interfaces:
       enum.StorageUiKey.Key:
@@ -40,8 +39,6 @@
       enum.ThavenMoodsUiKey.Key: # impstation edit
         type: ThavenMoodsBoundUserInterface
         requireInputValidation: false
-      enum.SurgeryGuideUiKey.Key: # Offbrand
-        type: SurgeryGuideBoundUserInterface
   # to prevent bag open/honk spam
   - type: UseDelay
     delay: 0.5

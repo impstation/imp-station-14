@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/14/2025 05:34:30
-  entityCount: 20057
+  time: 09/08/2025 23:33:26
+  entityCount: 20054
 maps:
 - 1
 grids:
@@ -5973,7 +5973,7 @@ entities:
             1: 52428
           -7,-63:
             1: 65280
-            5: 12
+            7: 12
           -7,-62:
             1: 65262
           -7,-61:
@@ -5981,14 +5981,14 @@ entities:
           -7,-60:
             1: 61167
           -7,-64:
-            6: 12
-            7: 3072
+            5: 12
+            6: 3072
           -6,-64:
-            6: 1
-            7: 256
+            5: 1
+            6: 256
             1: 17476
           -6,-63:
-            5: 1
+            7: 1
             1: 5956
           -6,-62:
             1: 4369
@@ -6187,21 +6187,6 @@ entities:
           temperature: 293.15
           moles:
           - 0
-          - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
           - 0
           - 0
           - 0
@@ -6218,6 +6203,21 @@ entities:
           moles:
           - 6666.982
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
+          - 6666.982
           - 0
           - 0
           - 0
@@ -42079,7 +42079,7 @@ entities:
   - uid: 9318
     components:
     - type: Transform
-      pos: 3.705964,-192.11166
+      pos: 3.390848,-192.30658
       parent: 2
 - proto: ClothingNeckScarfStripedZebra
   entities:
@@ -42162,7 +42162,7 @@ entities:
   - uid: 9316
     components:
     - type: Transform
-      pos: 3.721589,-192.37729
+      pos: 3.453348,-192.46283
       parent: 2
 - proto: ClothingOuterWinterMime
   entities:
@@ -42417,6 +42417,12 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -9.5,-134.5
+      parent: 2
+  - uid: 9314
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,-193.5
       parent: 2
   - uid: 17607
     components:
@@ -43190,13 +43196,6 @@ entities:
     - type: Transform
       pos: -4.5,-93.5
       parent: 2
-- proto: CrateFreezerIVBag
-  entities:
-  - uid: 8641
-    components:
-    - type: Transform
-      pos: 3.5,-193.5
-      parent: 2
 - proto: CrateFunArtSupplies
   entities:
   - uid: 19083
@@ -43527,12 +43526,12 @@ entities:
   - uid: 19877
     components:
     - type: Transform
-      pos: 3.2681725,-192.21004
+      pos: 1.2898934,-192.1942
       parent: 2
   - uid: 19878
     components:
     - type: Transform
-      pos: 3.3619225,-192.47566
+      pos: 1.6805184,-192.39732
       parent: 2
 - proto: CrystalBlue
   entities:
@@ -90023,6 +90022,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: -6.5,-364.5
       parent: 2
+  - uid: 11735
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 3.5,-199.5
+      parent: 2
   - uid: 16844
     components:
     - type: Transform
@@ -90589,23 +90594,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: IVStand
-  entities:
-  - uid: 9314
-    components:
-    - type: Transform
-      pos: 2.5,-194.5
-      parent: 2
-  - uid: 12693
-    components:
-    - type: Transform
-      pos: 0.5,-194.5
-      parent: 2
-  - uid: 20057
-    components:
-    - type: Transform
-      pos: 1.5,-203.5
-      parent: 2
 - proto: JanitorialTrolley
   entities:
   - uid: 11651
@@ -91426,16 +91414,6 @@ entities:
     components:
     - type: Transform
       pos: -3.5,-170.5
-      parent: 2
-  - uid: 11868
-    components:
-    - type: Transform
-      pos: -1.5,-168.5
-      parent: 2
-  - uid: 17132
-    components:
-    - type: Transform
-      pos: -1.5,-167.5
       parent: 2
 - proto: LockerPrisoner
   entities:
@@ -92339,6 +92317,11 @@ entities:
     components:
     - type: Transform
       pos: -4.5,-361.5
+      parent: 2
+  - uid: 11868
+    components:
+    - type: Transform
+      pos: 3.5,-199.5
       parent: 2
   - uid: 11885
     components:
@@ -93308,11 +93291,6 @@ entities:
     components:
     - type: Transform
       pos: 0.5,-192.5
-      parent: 2
-  - uid: 19876
-    components:
-    - type: Transform
-      pos: 1.5,-192.5
       parent: 2
 - proto: OreBag
   entities:
@@ -101785,6 +101763,23 @@ entities:
       rot: 3.141592653589793 rad
       pos: 21.564365,-309.57516
       parent: 2
+- proto: RollerBedSpawnFolded
+  entities:
+  - uid: 8641
+    components:
+    - type: Transform
+      pos: -1.4772644,-167.89105
+      parent: 2
+  - uid: 12693
+    components:
+    - type: Transform
+      pos: -1.4772644,-168.45355
+      parent: 2
+  - uid: 17132
+    components:
+    - type: Transform
+      pos: -1.4772644,-167.34418
+      parent: 2
 - proto: SadTromboneImplanter
   entities:
   - uid: 13335
@@ -105885,16 +105880,6 @@ entities:
     - type: Transform
       pos: -3.5,-167.5
       parent: 2
-  - uid: 20055
-    components:
-    - type: Transform
-      pos: -3.5,-168.5
-      parent: 2
-  - uid: 20056
-    components:
-    - type: Transform
-      pos: -3.5,-169.5
-      parent: 2
 - proto: SpawnPointPassenger
   entities:
   - uid: 13795
@@ -106238,11 +106223,6 @@ entities:
       parent: 2
 - proto: StasisBed
   entities:
-  - uid: 11735
-    components:
-    - type: Transform
-      pos: 3.5,-199.5
-      parent: 2
   - uid: 14469
     components:
     - type: Transform
@@ -108834,6 +108814,12 @@ entities:
     components:
     - type: Transform
       pos: 3.5,-202.5
+      parent: 2
+  - uid: 19876
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 1.5,-192.5
       parent: 2
 - proto: TablePlasmaGlass
   entities:
