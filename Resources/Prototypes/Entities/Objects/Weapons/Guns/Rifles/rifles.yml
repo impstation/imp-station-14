@@ -203,6 +203,10 @@
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Rifles/lecter.rsi #imp
   - type: Gun
+    minAngle: 21 #imp
+    maxAngle: 38 #imp
+    angleIncrease: 2 #imp
+    angleDecay: 15 #imp
     fireRate: 4.5 #imp
     selectedMode: FullAuto
     availableModes:
@@ -327,6 +331,10 @@
       - BulletFoam
     capacity: 10
     proto: BulletFoam
+    soundInsert: #imp
+      path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
+    soundRack: #imp
+      path: /Audio/Weapons/Guns/Cock/smg_cock.ogg
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 2
