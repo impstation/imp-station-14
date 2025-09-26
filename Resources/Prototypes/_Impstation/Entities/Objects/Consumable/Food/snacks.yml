@@ -55,7 +55,7 @@
   description: A bag of shrimps. They don't even seem cooked or anything. Yeah this is probably food.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/snacks.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
     state: shrimpsnax
   - type: SolutionContainerManager
     solutions:
@@ -90,7 +90,7 @@
   description: There's a few little ones still in there. Ah, whatever.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/snacks.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
     state: shrimpsnax-trash
   - type: Tag
     tags:
@@ -103,7 +103,7 @@
   description: Is this some sort of misguided attempt to advertise to grays? These aren't even gray.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/snacks.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
     state: shrimpsnaxgreen
   - type: SolutionContainerManager
     solutions:
@@ -141,7 +141,7 @@
   description: There's a few little ones still in there. Ah, whatever.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/snacks.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
     state: shrimpsnaxgreen-trash
   - type: Tag
     tags:
@@ -154,7 +154,7 @@
   description: A layer of frost is forming on the bag. Is this safe...?
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/snacks.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
     state: shrimpsnaxblue
   - type: SolutionContainerManager
     solutions:
@@ -192,7 +192,7 @@
   description: There's a few little ones still in there. Ah, whatever.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/snacks.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
     state: shrimpsnaxblue-trash
   - type: Tag
     tags:
@@ -205,7 +205,7 @@
   description: Finally. Odored sealife for girls.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/snacks.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
     state: shrimpsnaxgirl
   - type: SolutionContainerManager
     solutions:
@@ -246,7 +246,7 @@
   description: There's a few little ones still in there. Ah, whatever.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/snacks.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
     state: shrimpsnaxgirl-trash
   - type: Tag
     tags:
@@ -259,7 +259,7 @@
   description: Looking at this bag fills you with a deep sense of foreboding.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/snacks.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
     state: shrimpsnaxsad
   - type: SolutionContainerManager
     solutions:
@@ -294,7 +294,7 @@
   description: There's a few little ones still in there. Ah, whatever.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/snacks.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
     state: shrimpsnaxsad-trash
   - type: Tag
     tags:
@@ -307,7 +307,7 @@
   description: You can hear buzzing inside.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/snacks.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
     state: shrimpsnaxbee
   - type: SolutionContainerManager
     solutions:
@@ -347,7 +347,7 @@
   description: There's a few little ones still in there. Ah, whatever.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/snacks.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
     state: shrimpsnaxbee-trash
   - type: Tag
     tags:
@@ -360,7 +360,7 @@
   description: An exciting breakthrough in auto-sausaging biotechnology!
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/snacks.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
     state: shrimpsnaxbreakfast
   - type: SolutionContainerManager
     solutions:
@@ -403,7 +403,7 @@
   description: There's a few little ones still in there. Ah, whatever.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/snacks.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
     state: shrimpsnaxbreakfast-trash
   - type: Tag
     tags:
@@ -421,7 +421,7 @@
     tags:
       - FoodSnack
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/snacks.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
     state: shrimpsnaxregret
   - type: SpawnItemsOnUse
     items:
@@ -438,7 +438,7 @@
   description: It's empty.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/snacks.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
     state: shrimpsnaxregret-trash
   - type: Tag
     tags:
