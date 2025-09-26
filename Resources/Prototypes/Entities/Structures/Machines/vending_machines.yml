@@ -973,7 +973,7 @@
     color: "#9dc5c9"
   - type: GuideHelp
     guides:
-    - OffbrandMedical # Offbrand
+    - MedicalDoctor
 
 - type: entity
   parent: VendingMachine
@@ -2324,7 +2324,7 @@
   - type: GuideHelp
     guides:
     - Chemicals
-    - OffbrandChemist # Offbrandp
+    - Chemist
 
 - type: entity
   parent: VendingMachineChemicals
@@ -2383,4 +2383,4 @@
     access: [["Medical"]]
   - type: GuideHelp
     guides:
-    - OffbrandMedical # Offbrand
+    - Medical
