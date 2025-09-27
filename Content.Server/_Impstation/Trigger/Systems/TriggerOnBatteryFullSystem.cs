@@ -12,12 +12,14 @@ public sealed class TriggerOnBatteryFullSystem: EntitySystem
     [Dependency] private readonly BatterySystem _battery = default!;
     public override void Initialize()
     {
+        base.Initialize();
+
         SubscribeLocalEvent<TriggerOnBatteryFullComponent, ChargeChangedEvent>(OnChargeChanged);
     }
 
     private void OnChargeChanged(Entity<TriggerOnBatteryFullComponent> ent, ref ChargeChangedEvent args)
     {
-        if (TryComp(ent.Owner, out BatteryComponent? battery) && _battery.IsFull(ent, battery))
+        if (TryComp(ent.Owner, out BatteryComponent? battery) && _battery.IsFull(ent.Owner, battery))
         {
             _trigger.Trigger(ent);
         }
