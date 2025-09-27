@@ -153,25 +153,55 @@
   - !type:ExteriorDunGen
     proto: Experiment
   - !type:EntityTableDunGen
-    minCount: 25
-    maxCount: 40
+    minCount: 45 # imp
+    maxCount: 60 # imp
     table: !type:NestedSelector
-      tableId: SalvageScrapSpawnerCommon
+      tableId: SalvageScrapLowValue # imp
   - !type:EntityTableDunGen
-    minCount: 30
-    maxCount: 40
+    minCount: 10 # imp
+    maxCount: 25 # imp
     table: !type:NestedSelector
-      tableId: SalvageScrapSpawnerValuable
+      tableId: SalvageScrapHighValue # imp
+  - !type:EntityTableDunGen
+    minCount: 8 # imp
+    maxCount: 15 # imp
+    table: !type:NestedSelector
+      tableId: SalvageScrapLarge # imp edit start
   - !type:EntityTableDunGen
     minCount: 30
     maxCount: 45
     table: !type:NestedSelector
-      tableId: SalvageTreasureSpawnerCommon
+      tableId: SalvageTreasureCommon
   - !type:EntityTableDunGen
-    minCount: 30
-    maxCount: 45
+    minCount: 10
+    maxCount: 20
     table: !type:NestedSelector
-      tableId: SalvageTreasureSpawnerValuable
+      tableId: SalvageTreasureUncommon
+  - !type:EntityTableDunGen
+    minCount: 3
+    maxCount: 10
+    table: !type:NestedSelector
+      tableId: SalvageTreasureLegendary
+  - !type:EntityTableDunGen
+    minCount: 8
+    maxCount: 15
+    table: !type:NestedSelector
+      tableId: SalvageEquipmentUncommon
+  - !type:EntityTableDunGen
+    minCount: 3
+    maxCount: 10
+    table: !type:NestedSelector
+      tableId: SalvageEquipmentRare
+  - !type:EntityTableDunGen
+    minCount: 0
+    maxCount: 6
+    table: !type:NestedSelector
+      tableId: SalvageEquipmentLegendary
+  - !type:EntityTableDunGen
+    minCount: 0
+    maxCount: 2
+    table: !type:NestedSelector
+      tableId: MegaRareDungTable # imp edit end
   - !type:MobsDunGen
     minCount: 8
     maxCount: 15
