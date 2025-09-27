@@ -204,9 +204,10 @@
     sprite: _Impstation/Mobs/Aliens/eeep.rsi
     noRot: true
     layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: empty
     - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
       state: eeep
-      shader: unshaded
   - type: Appearance
   - type: DamageStateVisuals
     states:
@@ -219,8 +220,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      600: Critical
-      700: Dead
+      500: Critical
+      600: Dead
   - type: GoobAbsorbable
     biomassRestored: 0.8
   - type: AmbientSound

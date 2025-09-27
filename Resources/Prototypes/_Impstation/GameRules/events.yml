@@ -156,11 +156,11 @@
     weight: 4
     earliestStart: 25
     reoccurrenceDelay: 20
-    minimumPlayers: 30
+    minimumPlayers: 35
   - type: VentCrittersRule
     specialEntries:
     - id: SpawnPointGhostEeeplet
       prob: 0
-      min: 1
-      max: 4
+      min: 2
+      max: 6
 
