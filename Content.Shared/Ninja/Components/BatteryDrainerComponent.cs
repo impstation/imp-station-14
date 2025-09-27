@@ -23,18 +23,18 @@ public sealed partial class BatteryDrainerComponent : Component
     /// Conversion rate between joules in a device and joules added to battery.
     /// Should be very low since powercells store nothing compared to even an APC.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField] // # imp, added autonetwork
     public float DrainEfficiency = 0.001f;
 
     /// <summary>
     /// Time that the do after takes to drain charge from a battery, in seconds
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField] // # imp, added autonetwork
     public float DrainTime = 1f;
 
     /// <summary>
     /// Sound played after the doafter ends.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField] // # imp, added autonetwork
     public SoundSpecifier SparkSound = new SoundCollectionSpecifier("sparks");
 }
