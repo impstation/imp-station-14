@@ -213,13 +213,11 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
                 {
                     canScan = false;
 
-                    // the artifact that's actually on the scanner right now.
-                    if (GetArtifactForAnalysis(component.AnalyzerEntity, placer) is { } current)
+                    // the artifact that's actually on the scanner right now. Also doublecheck artifact is physically in range of scanner
+                    if (GetArtifactForAnalysis(component.AnalyzerEntity, placer) is { } current && Transform(current).Coordinates.TryDistance(EntityManager, Transform((EntityUid)component.AnalyzerEntity).Coordinates, out var distance) && distance < 2)
                     {
                         points = _artifact.GetResearchPointValue(current);
-                        //Doublecheck that the artifact is actually physically within range of the scanner
-                        if (Transform(current).Coordinates.TryDistance(EntityManager, Transform((EntityUid)component.AnalyzerEntity).Coordinates, out var distance) && distance < 2)
-                            canScan = true;
+                        canScan = true;
                     }
                 }
                 else
