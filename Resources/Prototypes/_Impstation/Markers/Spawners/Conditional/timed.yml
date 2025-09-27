@@ -1,4 +1,23 @@
 ﻿- type: entity
+  name: Boar Vent Spawner
+  id: BoarVentSpawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: blue
+        - sprite: _Impstation/Mobs/Animals/boar.rsi
+          state: boar
+        - state: timed
+    - type: Timer
+    - type: ClusterSpawner
+      prototypes:
+        - MobBoar
+      chance: 0.9
+      minimumEntitiesSpawned: 1
+      maximumEntitiesSpawned: 4
+
+- type: entity
   name: BROS Vent Spawner
   id: BrosVentSpawner
   parent: MarkerBase
