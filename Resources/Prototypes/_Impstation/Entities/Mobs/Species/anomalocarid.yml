@@ -6,8 +6,6 @@
   abstract: true
   components:
   - type: GoobAbsorbable
-  - type: Hunger
-  - type: Thirst
   - type: Icon
     sprite: _Impstation/Mobs/Species/Anomalocarid/parts.rsi
     state: full
@@ -35,13 +33,6 @@
       293: 0.8
       280: 0.6
       260: 0.4
-  - type: Respirator #base
-    damage:
-      types:
-        Asphyxiation: 2
-    damageRecovery:
-      types:
-        Asphyxiation: -1.0
   - type: Sprite
     noRot: true
     drawdepth: Mobs
@@ -158,18 +149,19 @@
   - type: TypingIndicator
     proto: anomalocarid
   - type: Speech
+    speechBubbleOffset: 0.35
     speechVerb: Anomalocarid
-    speechSounds: Arachnid
-    allowedEmotes: ['Click', 'Chitter']
+    speechSounds: Anomalocarid
+    allowedEmotes: ['Click', 'Chitter', 'Bubble', 'Pop']
     suffixSpeechVerbs:
       chat-speech-verb-suffix-exclamation-strong: AnomalocaridExclamationStrong
       chat-speech-verb-suffix-exclamation: AnomalocaridExclamation
       chat-speech-verb-suffix-stutter: AnomalocaridStutter
   - type: Vocal
     sounds:
-      Male: MaleArachnid
-      Female: FemaleArachnid
-      Unsexed: UnisexArachnid
+      Male: UnisexAnomalocarid
+      Female: UnisexAnomalocarid
+      Unsexed: UnisexAnomalocarid
   - type: HumanoidAppearance
     species: Anomalocarid
     hideLayersOnEquip:
