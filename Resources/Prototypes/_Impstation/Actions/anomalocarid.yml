@@ -1,0 +1,10 @@
+- type: entity
+  parent: BaseAction
+  id: ActionVentHeat
+  name: Vent Heat
+  description: Vent heat. # placeholder
+  components:
+  - type: Action
+    icon: Interface/Actions/slime.png # placeholder
+  - type: InstantAction
+    event: !type:HeatVentActionEvent

@@ -75,6 +75,8 @@
       - state: ATMOS-equipped-OUTERCLOTHING
       outerClothing-vox: # imp
       - state: ATMOS-equipped-OUTERCLOTHING-vox
+      outerClothing-anomalocarid: # imp
+      - state: ATMOS-equipped-OUTERCLOTHING-anomalocarid
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterEngineer
 
@@ -100,6 +102,8 @@
       - state: BAR-equipped-OUTERCLOTHING
       outerClothing-vox: # imp
       - state: BAR-equipped-OUTERCLOTHING-vox
+      outerClothing-anomalocarid: # imp
+      - state: BAR-equipped-OUTERCLOTHING-anomalocarid
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterBartender
 
@@ -125,6 +129,8 @@
       - state: BRIGMEDIC-equipped-OUTERCLOTHING
       outerClothing-vox: # imp
       - state: BRIGMEDIC-equipped-OUTERCLOTHING-vox
+      outerClothing-anomalocarid: # imp
+      - state: BRIGMEDIC-equipped-OUTERCLOTHING-anomalocarid
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterBrigmedic
 
@@ -150,6 +156,8 @@
       - state: CAP-equipped-OUTERCLOTHING
       outerClothing-vox: # imp
       - state: CAP-equipped-OUTERCLOTHING-vox
+      outerClothing-anomalocarid: # imp
+      - state: CAP-equipped-OUTERCLOTHING-anomalocarid
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterCaptain
 
@@ -175,6 +183,8 @@
       - state: CARGO-equipped-OUTERCLOTHING
       outerClothing-vox: # imp
       - state: CARGO-equipped-OUTERCLOTHING-vox
+      outerClothing-anomalocarid: # imp
+      - state: CARGO-equipped-OUTERCLOTHING-anomalocarid
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterCargo
 
@@ -200,6 +210,8 @@
       - state: CE-equipped-OUTERCLOTHING
       outerClothing-vox: # imp
       - state: CE-equipped-OUTERCLOTHING-vox
+      outerClothing-anomalocarid: # imp
+      - state: CE-equipped-OUTERCLOTHING-anomalocarid
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterCE
 
@@ -223,6 +235,8 @@
     clothingVisuals:
       outerClothing:
       - state: CENTCOM-equipped-OUTERCLOTHING
+      outerClothing-anomalocarid: # imp
+      - state: CENTCOM-equipped-OUTERCLOTHING-anomalocarid
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterCentcom
 
@@ -247,6 +261,8 @@
     clothingVisuals:
       outerClothing:
       - state: CHEF-equipped-OUTERCLOTHING
+      outerClothing-anomalocarid: # imp
+      - state: CHEF-equipped-OUTERCLOTHING-anomalocarid
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable
@@ -342,6 +358,8 @@
       - state: ENGI-equipped-OUTERCLOTHING
       outerClothing-vox: # imp
       - state: ENGI-equipped-OUTERCLOTHING-vox
+      outerClothing-anomalocarid: # imp
+      - state: ENGI-equipped-OUTERCLOTHING-anomalocarid
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterEngineer
 
@@ -365,6 +383,8 @@
     clothingVisuals:
       outerClothing:
       - state: GENE-equipped-OUTERCLOTHING
+      outerClothing-anomalocarid: # imp
+      - state: GENE-equipped-OUTERCLOTHING-anomalocarid
   - type: Armor
     modifiers:
       coefficients:
@@ -460,6 +480,8 @@
       - state: HYDRO-equipped-OUTERCLOTHING
       outerClothing-vox: # imp
       - state: HYDRO-equipped-OUTERCLOTHING-vox
+      outerClothing-anomalocarid: # imp
+      - state: HYDRO-equipped-OUTERCLOTHING-anomalocarid
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterHydro
 
@@ -483,6 +505,8 @@
     clothingVisuals:
       outerClothing:
       - state: JANI-equipped-OUTERCLOTHING
+      outerClothing-anomalocarid: # imp
+      - state: JANI-equipped-OUTERCLOTHING-anomalocarid
   - type: Armor
     modifiers:
       coefficients:
@@ -515,6 +539,8 @@
       - state: MED-equipped-OUTERCLOTHING
       outerClothing-vox: # imp
       - state: MED-equipped-OUTERCLOTHING-vox
+      outerClothing-anomalocarid: # imp
+      - state: MED-equipped-OUTERCLOTHING-anomalocarid
   - type: Armor
     modifiers:
       coefficients:
@@ -547,6 +573,8 @@
       - state: MIME-equipped-OUTERCLOTHING
       outerClothing-vox: # imp
       - state: MIME-equipped-OUTERCLOTHING-vox
+      outerClothing-anomalocarid: # imp
+      - state: MIME-equipped-OUTERCLOTHING-anomalocarid
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterMime
 
@@ -572,6 +600,8 @@
       - state: MINER-equipped-OUTERCLOTHING
       outerClothing-vox: # imp
       - state: MINER-equipped-OUTERCLOTHING-vox
+      outerClothing-anomalocarid: # imp
+      - state: MINER-equipped-OUTERCLOTHING-anomalocarid
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterMiner
 
@@ -627,6 +657,8 @@
     clothingVisuals:
       outerClothing:
       - state: QM-equipped-OUTERCLOTHING
+      outerClothing-anomalocarid: # imp
+      - state: QM-equipped-OUTERCLOTHING-anomalocarid
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterQM
 
@@ -651,6 +683,8 @@
     clothingVisuals:
       outerClothing:
       - state: RD-equipped-OUTERCLOTHING
+      outerClothing-anomalocarid: # imp
+      - state: RD-equipped-OUTERCLOTHING-anomalocarid
   - type: Armor
     modifiers:
       coefficients:
@@ -681,6 +715,8 @@
     clothingVisuals:
       outerClothing:
       - state: ROBO-equipped-OUTERCLOTHING
+      outerClothing-anomalocarid: # imp
+      - state: ROBO-equipped-OUTERCLOTHING-anomalocarid
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterRobo
 
@@ -707,6 +743,8 @@
       - state: SCI-equipped-OUTERCLOTHING
       outerClothing-vox: # imp
       - state: SCI-equipped-OUTERCLOTHING-vox
+      outerClothing-anomalocarid: # imp
+      - state: SCI-equipped-OUTERCLOTHING-anomalocarid
   - type: Armor
     modifiers:
       coefficients:
@@ -739,6 +777,8 @@
       - state: SEC-equipped-OUTERCLOTHING
       outerClothing-vox: # imp
       - state: SEC-equipped-OUTERCLOTHING-vox
+      outerClothing-anomalocarid: # imp
+      - state: SEC-equipped-OUTERCLOTHING-anomalocarid
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterSec
 
@@ -762,6 +802,8 @@
     clothingVisuals:
       outerClothing:
       - state: VIRO-equipped-OUTERCLOTHING
+      outerClothing-anomalocarid: # imp
+      - state: VIRO-equipped-OUTERCLOTHING-anomalocarid
   - type: Armor
     modifiers:
       coefficients:
@@ -808,6 +850,8 @@
     clothingVisuals:
       outerClothing:
       - state: WARD-equipped-OUTERCLOTHING
+      outerClothing-anomalocarid: # imp
+      - state: WARD-equipped-OUTERCLOTHING-anomalocarid
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterWarden
 
@@ -832,6 +876,8 @@
     clothingVisuals:
       outerClothing:
       - state: SYNDIECAP-equipped-OUTERCLOTHING
+      outerClothing-anomalocarid: # imp
+      - state: SYNDIECAP-equipped-OUTERCLOTHING-anomalocarid
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterSyndie
 
@@ -871,6 +917,8 @@
     clothingVisuals:
       outerClothing:
       - state: SYNDIE-equipped-OUTERCLOTHING
+      outerClothing-anomalocarid: # imp
+      - state: SYNDIE-equipped-OUTERCLOTHING-anomalocarid
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterSyndie
 
@@ -906,6 +954,8 @@
     clothingVisuals:
       outerClothing:
       - state: WEB-equipped-OUTERCLOTHING
+      outerClothing-anomalocarid: #imp
+      - state: WEB-equipped-OUTERCLOTHING-anomalocarid
   - type: Construction
     graph: WebObjects
     node: coat
@@ -960,6 +1010,10 @@
       - state: coatybits-equipped-OUTERCLOTHING-vox
         color: "#3f3f3f"
       - state: winterbits-equipped-OUTERCLOTHING-vox
+      outerClothing-anomalocarid: # imp
+      - state: coatybits-equipped-OUTERCLOTHING-anomalocarid
+        color: "#3f3f3f"
+      - state: winterbits-equipped-OUTERCLOTHING-anomalocarid
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterColorBlack
 
@@ -995,6 +1049,10 @@
       - state: coatybits-equipped-OUTERCLOTHING-vox
         color: "#9C0DE1"
       - state: winterbits-equipped-OUTERCLOTHING-vox
+      outerClothing-anomalocarid: # imp
+      - state: coatybits-equipped-OUTERCLOTHING-anomalocarid
+        color: "#9C0DE1"
+      - state: winterbits-equipped-OUTERCLOTHING-anomalocarid
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterColorPurple
 
@@ -1030,6 +1088,10 @@
       - state: coatybits-equipped-OUTERCLOTHING-vox
         color: "#940000"
       - state: winterbits-equipped-OUTERCLOTHING-vox
+      outerClothing-anomalocarid: # imp
+      - state: coatybits-equipped-OUTERCLOTHING-anomalocarid
+        color: "#940000"
+      - state: winterbits-equipped-OUTERCLOTHING-anomalocarid
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterColorRed
 
@@ -1065,6 +1127,10 @@
       - state: coatybits-equipped-OUTERCLOTHING-vox
         color: "#0089EF"
       - state: winterbits-equipped-OUTERCLOTHING-vox
+      outerClothing-anomalocarid: # imp
+      - state: coatybits-equipped-OUTERCLOTHING-anomalocarid
+        color: "#0089EF"
+      - state: winterbits-equipped-OUTERCLOTHING-anomalocarid
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterColorBlue
 
@@ -1100,6 +1166,10 @@
       - state: coatybits-equipped-OUTERCLOTHING-vox
         color: "#723A02"
       - state: winterbits-equipped-OUTERCLOTHING-vox
+      outerClothing-anomalocarid: # imp
+      - state: coatybits-equipped-OUTERCLOTHING-anomalocarid
+        color: "#723A02"
+      - state: winterbits-equipped-OUTERCLOTHING-anomalocarid
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterColorBrown
 
@@ -1135,6 +1205,10 @@
       - state: coatybits-equipped-OUTERCLOTHING-vox
         color: "#999999"
       - state: winterbits-equipped-OUTERCLOTHING-vox
+      outerClothing-anomalocarid: #imp
+      - state: coatybits-equipped-OUTERCLOTHING-anomalocarid
+        color: "#999999"
+      - state: winterbits-equipped-OUTERCLOTHING-anomalocarid
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterColorGray
 
@@ -1170,6 +1244,10 @@
       - state: coatybits-equipped-OUTERCLOTHING-vox
         color: "#5ABF2F"
       - state: winterbits-equipped-OUTERCLOTHING-vox
+      outerClothing-anomalocarid: # imp
+      - state: coatybits-equipped-OUTERCLOTHING-anomalocarid
+        color: "#5ABF2F"
+      - state: winterbits-equipped-OUTERCLOTHING-anomalocarid
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterColorGreen
 
@@ -1205,6 +1283,10 @@
       - state: coatybits-equipped-OUTERCLOTHING-vox
         color: "#C09F72"
       - state: winterbits-equipped-OUTERCLOTHING-vox
+      outerClothing-anomalocarid: # imp
+      - state: coatybits-equipped-OUTERCLOTHING-anomalocarid
+        color: "#C09F72"
+      - state: winterbits-equipped-OUTERCLOTHING-anomalocarid
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterColorLightBrown
 
@@ -1240,6 +1322,10 @@
       - state: coatybits-equipped-OUTERCLOTHING-vox
         color: "#EF8100"
       - state: winterbits-equipped-OUTERCLOTHING-vox
+      outerClothing-anomalocarid: # imp
+      - state: coatybits-equipped-OUTERCLOTHING-anomalocarid
+        color: "#EF8100"
+      - state: winterbits-equipped-OUTERCLOTHING-anomalocarid
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterColorOrange
 
@@ -1275,6 +1361,10 @@
       - state: coatybits-equipped-OUTERCLOTHING-vox
         color: "#EAE8E8"
       - state: winterbits-equipped-OUTERCLOTHING-vox
+      outerClothing-anomalocarid: # imp
+      - state: coatybits-equipped-OUTERCLOTHING-anomalocarid
+        color: "#EAE8E8"
+      - state: winterbits-equipped-OUTERCLOTHING-anomalocarid
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterColorWhite
 
@@ -1310,5 +1400,9 @@
       - state: coatybits-equipped-OUTERCLOTHING-vox
         color: "#EBE216"
       - state: winterbits-equipped-OUTERCLOTHING-vox
+      outerClothing-anomalocarid: # imp
+      - state: coatybits-equipped-OUTERCLOTHING-anomalocarid
+        color: "#EBE216"
+      - state: winterbits-equipped-OUTERCLOTHING-anomalocarid
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterColorYellow
