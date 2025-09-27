@@ -145,6 +145,9 @@
     startingCharge: 0
   - type: ComplexInteraction
   - type: ExaminableBattery
+  - type: PolymorphOnTrigger
+    polymorph: EeepGrow
+  - type: TriggerOnBatteryFull
 
 #- type: entity
 #  id: ActionEeepletGrow
@@ -173,7 +176,6 @@
   - type: Sprite
     drawdepth: Effects
     sprite: Structures/Power/Generation/Tesla/energy_miniball.rsi
-    shader: unshaded
     layers:
     - state: tesla_projectile
 
