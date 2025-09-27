@@ -541,3 +541,13 @@
     blacklist:
       components:
       - AutoCompleteCondition
+
+- type: entity
+  parent: BaseCMOStealObjective
+  id: CMOMedChemHUDStealObjective
+  name: Fancy New HUD
+  description: Centcom has given the CMO a fancy new HUD. Would be a shame if it went missing.
+  components:
+  - type: StealCondition
+    stealGroup: MedChemHUD
+
