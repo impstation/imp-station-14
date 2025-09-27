@@ -1,3 +1,4 @@
+using Content.Server._Goobstation.Heretic.Components;
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.Chat.Systems;
 using Content.Server.Hands.Systems;
@@ -17,6 +18,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
 using Content.Shared.Mobs.Components;
+using Content.Shared.NPC.Prototypes;
 using Content.Shared.RetractableItemAction;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Speech.Muting;
@@ -25,6 +27,7 @@ using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -40,7 +43,10 @@ public sealed partial class MansusGraspSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly TemperatureSystem _temperature = default!;
+    [Dependency] private readonly MinionSystem _minion = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
+
+    private readonly ProtoId<NpcFactionPrototype> _hereticFaction = "Heretic";
 
     public void ApplyGraspEffect(EntityUid performer, EntityUid target, string path)
     {
@@ -70,10 +76,12 @@ public sealed partial class MansusGraspSystem : EntitySystem
             case "Flesh":
                 if (TryComp<MobStateComponent>(target, out var mobState)
                     && mobState.CurrentState == Shared.Mobs.MobState.Dead
-                    && !TryComp<HellVictimComponent>(target, out var _))
+                    && !TryComp<HellVictimComponent>(target, out _))
                 {
-                    var ghoul = EnsureComp<GhoulComponent>(target);
-                    ghoul.BoundHeretic = performer;
+                    var minion = EnsureComp<MinionComponent>(target);
+                    minion.BoundOwner = performer;
+                    minion.FactionsToAdd.Add(_hereticFaction);
+                    _minion.ConvertEntityToMinion((target, minion), true, true, true);
                 }
                 break;
 
