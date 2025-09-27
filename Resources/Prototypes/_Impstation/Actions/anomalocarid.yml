@@ -6,5 +6,7 @@
   components:
   - type: Action
     icon: Interface/Actions/slime.png # placeholder
+    useDelay: 30
   - type: InstantAction
     event: !type:HeatVentActionEvent
+
