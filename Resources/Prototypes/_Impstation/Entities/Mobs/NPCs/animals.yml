@@ -27,7 +27,6 @@
           state: boar_moving
       noMovementLayers:
         movement:
-        layers:
           state: boar
     - type: Butcherable
       spawned:
@@ -66,6 +65,7 @@
           true
         NavSmash: !type:Bool
           true
+    - type: NPCImprintingOnSpawnBehaviour
     - type: Hunger
       baseDecayRate: 0.5
     - type: YoungKodepiiaRetaliation
