@@ -192,6 +192,7 @@ public sealed class OldArtifactAnalyzerSystem : EntitySystem
 
         // Its actually good to pass in null advanced node scanners. Overwrite the existing one because we're changeing the pad.
         component.AdvancedNodeScanner = analyzer.AdvancedNodeScanner;
+        _ans.TrySynchronizeAdvancedScanData(component);
 
         UpdateUserInterface(uid, component);
     }
@@ -231,6 +232,7 @@ public sealed class OldArtifactAnalyzerSystem : EntitySystem
         if (analyzer.Console is not null && TryComp<OldAnalysisConsoleComponent>(analyzer.Console, out var analysisConsoleComponent))
         {
             analysisConsoleComponent.AdvancedNodeScanner = uid;
+            _ans.TrySynchronizeAdvancedScanData(analysisConsoleComponent);
             UpdateUserInterface((EntityUid)analyzer.Console, analysisConsoleComponent);
         }
     }

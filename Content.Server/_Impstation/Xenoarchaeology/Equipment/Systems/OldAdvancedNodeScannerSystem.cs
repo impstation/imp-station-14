@@ -154,7 +154,7 @@ public sealed class OldAdvancedNodeScannerSystem : EntitySystem
         }
         // Sync data to any attached analysis consoles
         var analyzerEntity = new Entity<OldArtifactAnalyzerComponent>((EntityUid)analyzer, analyzerComponent);
-        TrySynchronizeAdvancedScanData(ansEntity, analyzerEntity);
+        TryUploadScanDataToSonsole(ansEntity, analyzerEntity, artifact, (int)currentNodeId);
     }
 
     /// <summary>
@@ -272,7 +272,7 @@ public sealed class OldAdvancedNodeScannerSystem : EntitySystem
         }
         // Sync data to any attached analysis consoles
         var analyzerEntity = new Entity<OldArtifactAnalyzerComponent>((EntityUid)analyzer, analyzerComponent);
-        TrySynchronizeAdvancedScanData(ansEntity, analyzerEntity);
+        TryUploadScanDataToSonsole(ansEntity, analyzerEntity, artifact, (int)currentNodeId);
     }
 
     /// <summary>
@@ -294,7 +294,47 @@ public sealed class OldAdvancedNodeScannerSystem : EntitySystem
     }
 
     /// <summary>
-    /// Synchronise advanced scan data from advanced node scanner to analysis console. Requires both advanced node scanner and analyzer
+    /// Uploads scan data to console for a single node. Assumes that the console has strictly less/more outdated information.
+    /// </summary>
+    public void TryUploadScanDataToSonsole(Entity<OldAdvancedNodeScannerComponent> ansEntity, Entity<OldArtifactAnalyzerComponent> analyzerEntity, EntityUid artifact, int currentNodeId)
+    {
+        var console = analyzerEntity.Comp.Console;
+        if (console is null)
+            return;
+
+        if (!TryComp<OldAnalysisConsoleComponent>((EntityUid)console, out var consoleComp))
+            return;
+
+        if (!consoleComp.ScannedArtifactData.ContainsKey(artifact))
+        {
+            //Console does not have artifact, sufficient to upload it
+            CopyArtifactData(new KeyValuePair<EntityUid, AdvancedNodeScannerArtifactData>(artifact, ansEntity.Comp.ScannedArtifactData[artifact]), ref consoleComp.ScannedArtifactData);
+            return;
+        }
+
+        var localConsoleArtifactData = consoleComp.ScannedArtifactData[artifact];
+        var ansArtifactData = ansEntity.Comp.ScannedArtifactData[artifact];
+
+        //Upload the metadata
+        localConsoleArtifactData.KnownNodeIds.UnionWith(ansArtifactData.KnownNodeIds);
+        localConsoleArtifactData.CurrentNodeId = ansArtifactData.CurrentNodeId;
+        localConsoleArtifactData.CurrentNodeIdLastUpdated = ansArtifactData.CurrentNodeIdLastUpdated;
+
+        if (!localConsoleArtifactData.Nodes.Exists(x => x.NodeId == currentNodeId))
+        {
+            // New node, so upload the whole node to console
+            localConsoleArtifactData.Nodes.Add(ansArtifactData.Nodes.Find(x => x.NodeId == currentNodeId));
+            consoleComp.ScannedArtifactData[artifact] = localConsoleArtifactData;
+            return;
+        }
+        var nodeIndex = localConsoleArtifactData.Nodes.FindIndex(x => x.NodeId == currentNodeId);
+        localConsoleArtifactData.Nodes[nodeIndex] = ansArtifactData.Nodes.Find(x => x.NodeId == currentNodeId) with { }; // new copy
+        consoleComp.ScannedArtifactData[artifact] = localConsoleArtifactData;
+    }
+
+    /// <summary>
+    /// Synchronise advanced scan data between analysis console and advanced node scanner.
+    /// Full sync: only for use when connecting console to analyzer.
     /// </summary>
     public void TrySynchronizeAdvancedScanData(Entity<OldAdvancedNodeScannerComponent> ansEntity, Entity<OldArtifactAnalyzerComponent> analyzerEntity)
     {
@@ -396,7 +436,8 @@ public sealed class OldAdvancedNodeScannerSystem : EntitySystem
     }
 
     /// <summary>
-    /// Synchronise advanced scan data from advanced node scanner to analysis console. Takes in Advanced Node Scanner as argument.
+    /// Synchronise advanced scan data between analysis console and advanced node scanner.
+    /// Full sync: only for use when connecting console to analyzer.
     /// </summary>
     public void TrySynchronizeAdvancedScanData(Entity<OldAdvancedNodeScannerComponent> ansEntity)
     {
@@ -407,35 +448,23 @@ public sealed class OldAdvancedNodeScannerSystem : EntitySystem
         if (!TryComp<OldArtifactAnalyzerComponent>((EntityUid)analyzer, out var analyzerComponent))
             return;
 
-        if (!CanProvideAdvancedScanning(ansEntity))
-            return;
-
         var analyzerEntity = new Entity<OldArtifactAnalyzerComponent>((EntityUid)analyzer, analyzerComponent);
 
         TrySynchronizeAdvancedScanData(ansEntity, analyzerEntity);
     }
 
     /// <summary>
-    /// Synchronise advanced scan data from advanced node scanner to analysis console. Takes in Artifact Analyzer as argument.
+    /// Synchronise advanced scan data between analysis console and advanced node scanner.
+    /// Full sync: only for use when connecting console to analyzer.
     /// </summary>
-    public void TrySynchronizeAdvancedScanData(Entity<OldArtifactAnalyzerComponent> analyzerEntity)
+    public void TrySynchronizeAdvancedScanData(OldAnalysisConsoleComponent consoleComp)
     {
-        // Can't advanced scan without advanced scanner
-        var advancedNodeScanner = analyzerEntity.Comp.AdvancedNodeScanner;
-        if (advancedNodeScanner is null)
+        if (consoleComp.AdvancedNodeScanner is null)
             return;
-
-        // advanced scanner needs advanced scan component
-        if (!TryComp<OldAdvancedNodeScannerComponent>(advancedNodeScanner, out var ansComp))
-            return; // if this happens something has gone wrong or admin intervention has occurred
-
-        // needs to be plugged in and close to pad and such
-        var ansEntity = new Entity<OldAdvancedNodeScannerComponent>((EntityUid)advancedNodeScanner, ansComp);
-        if (!CanProvideAdvancedScanning(ansEntity))
+        if (!TryComp<OldAdvancedNodeScannerComponent>(consoleComp.AdvancedNodeScanner, out var ansComp))
             return;
-        TrySynchronizeAdvancedScanData(ansEntity, analyzerEntity);
+        TrySynchronizeAdvancedScanData(new Entity<OldAdvancedNodeScannerComponent>((EntityUid)consoleComp.AdvancedNodeScanner, ansComp));
     }
-
 
     /// <summary>
     /// Can we bypass the scanning time of an artifact scanner? Yes if we have a linked advanced node scanner that has stored information on the artifact to be scanned.
