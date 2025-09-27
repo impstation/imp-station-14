@@ -223,6 +223,7 @@ public sealed class OldAdvancedNodeScannerSystem : EntitySystem
             scannedData.CurrentNodeId = (int)currentNodeId;
             scannedData.KnownNodeIds.Add((int)currentNodeId);
             scannedData.CurrentNodeIdLastUpdated = now;
+            scannedData.KnownNodeIds.UnionWith(artiNode.Edges);
 
             // if we don't have info yet, we need to add it. otherwise we assume we already know.
             if (!scannedData.Nodes.Exists(x => x.NodeId == currentNodeId))
