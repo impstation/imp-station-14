@@ -16,12 +16,6 @@ public sealed class ImpCCVars : CVars
         CVarDef.Create("accessibility.disable_singulo_warping", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
-    /// The number of shared moods to give thaven by default.
-    /// </summary>
-    public static readonly CVarDef<uint> ThavenSharedMoodCount =
-        CVarDef.Create<uint>("thaven.shared_mood_count", 1, CVar.SERVERONLY);
-
-    /// <summary>
     /// URL of the Discord webhook which will relay last messages before death.
     /// </summary>
     public static readonly CVarDef<string> DiscordLastMessageBeforeDeathWebhook =
