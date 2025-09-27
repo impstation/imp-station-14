@@ -4,6 +4,7 @@ using Content.Shared.Construction.Components;
 using Content.Server.Xenoarchaeology.XenoArtifacts.Events;
 using Content.Shared.Xenoarchaeology.Equipment.Components;
 using Content.Server.Xenoarchaeology.Equipment.Components;
+using Robust.Shared.Timing;
 
 using System.Linq;
 
@@ -14,6 +15,7 @@ public sealed class OldAdvancedNodeScannerSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly OldArtifactAnalyzerSystem _analyzer = default!;
     [Dependency] private readonly ArtifactSystem _artifact = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -115,6 +117,8 @@ public sealed class OldAdvancedNodeScannerSystem : EntitySystem
         if (currentNodeId is null)
             return;
 
+        var now = _timing.CurTime;
+
         //update existing artifact data
         if (ansComp.ScannedArtifactData.TryGetValue(artifact, out var scannedData))
         {
@@ -133,6 +137,7 @@ public sealed class OldAdvancedNodeScannerSystem : EntitySystem
                     {
                         nodeData.Trigger = "ERROR";
                         nodeData.Effect = "ERROR";
+                        nodeData.LastUpdated = now;
                     }
                     nodeData.Activated = artiNode.Triggered; //Advanced node scanner can tell if its triggered
                 }
@@ -143,7 +148,7 @@ public sealed class OldAdvancedNodeScannerSystem : EntitySystem
             // no existing data, so make a new data and put the current node in there
             var newKnownNodes = new HashSet<int>();
             newKnownNodes.Add((int)currentNodeId);
-            var newData = new AdvancedNodeScannerArtifactData((int)currentNodeId, newKnownNodes, new List<AdvancedNodeScannerNodeData>());
+            var newData = new AdvancedNodeScannerArtifactData((int)currentNodeId, now, newKnownNodes, new List<AdvancedNodeScannerNodeData>());
             ansComp.ScannedArtifactData.Add(artifact, newData);
         }
         // Sync data to any attached analysis consoles
@@ -200,6 +205,8 @@ public sealed class OldAdvancedNodeScannerSystem : EntitySystem
         if (artiNodeParent is not null)
             artiNodeChildren.Remove((int)artiNodeParent);
 
+        var now = _timing.CurTime;
+
         //update existing artifact data
         if (ansComp.ScannedArtifactData.TryGetValue(artifact, out var scannedData))
         {
@@ -216,7 +223,8 @@ public sealed class OldAdvancedNodeScannerSystem : EntitySystem
                     artiNodeChildren,
                     artiNode.Trigger,
                     artiNode.Effect,
-                    artiNode.Triggered
+                    artiNode.Triggered,
+                    now
                 ));
             }
             else // Update trigger, effect, triggered, and children, in case any of these have changed. There should be no valid mechanism to change parent, nodes ID, or change a node's depth.
@@ -226,13 +234,14 @@ public sealed class OldAdvancedNodeScannerSystem : EntitySystem
                 storedNode.ChildIds = artiNodeChildren;
                 storedNode.Trigger = artiNode.Trigger;
                 storedNode.Effect = artiNode.Effect;
+                storedNode.LastUpdated = now;
             }
         }
         else
         {
             // no existing data, so make a new data and put the current node in there
             var newKnownNodes = new HashSet<int>((int)currentNodeId);
-            var newData = new AdvancedNodeScannerArtifactData((int)currentNodeId, newKnownNodes, new List<AdvancedNodeScannerNodeData>());
+            var newData = new AdvancedNodeScannerArtifactData((int)currentNodeId, now, newKnownNodes, new List<AdvancedNodeScannerNodeData>());
 
             //We scan the entire node
             var scannedNode = new AdvancedNodeScannerNodeData(
@@ -242,7 +251,8 @@ public sealed class OldAdvancedNodeScannerSystem : EntitySystem
                 artiNodeChildren,
                 artiNode.Trigger,
                 artiNode.Effect,
-                artiNode.Triggered
+                artiNode.Triggered,
+                now
             );
 
             newData.Nodes.Add(scannedNode);
@@ -283,9 +293,94 @@ public sealed class OldAdvancedNodeScannerSystem : EntitySystem
         if (!TryComp<OldAnalysisConsoleComponent>((EntityUid)console, out var consoleComp))
             return;
 
-        //TODO implement smart synchronisation
+        //TODO implement smart synchronisation (currently pseudocode)
+        var synchedArtifacts = new List<EntityUid>();
 
-        return;
+        // Smart synchronisation.
+        // 1. Copy any artifacts from console to ANS if not already present
+        // 2. For artifacts present in console and scanner:
+        // 2a. If either console or ANS know of a node, then both should know.
+        // 2b. Update the current node to most recently scanned version
+        // 2c. Copy any nodes from console to ANS if not present
+        // 2d. Update all node data to most recently scanned version for each node
+        // 2e. Copy all nodes in ANS's artifact data to console's artifact data, if they weren't already touched (which means they must not exist in the console)
+        // 3. Remaining artifacts in scanner do not exist in console, copy over to console
+
+        //Iterate through each artifact in console
+        foreach (var consoleArtifactData in consoleComp.ScannedArtifactData)
+        {
+            // 1. Copy any artifacts from console to ANS if not already present
+            if (!ansEntity.Comp.ScannedArtifactData.ContainsKey(consoleArtifactData.Key))
+            {
+                synchedArtifacts.Add(consoleArtifactData.Key);
+                CopyArtifactData(consoleArtifactData, ref ansEntity.Comp.ScannedArtifactData);
+                continue;
+            }
+
+            //Local copy of the data, to be put back in the dictionaries at the end of this foreach
+            var consoleArtifactDataLocal = consoleArtifactData.Value;
+            var ansArtifactData = ansEntity.Comp.ScannedArtifactData[consoleArtifactData.Key];
+
+
+
+            // 2a. If either console or ANS know of a node, then both should know.
+            consoleArtifactDataLocal.KnownNodeIds.UnionWith(ansArtifactData.KnownNodeIds);
+            ansArtifactData.KnownNodeIds.UnionWith(consoleArtifactData.Value.KnownNodeIds);
+
+            //2b. An artifact's 'current node' is whichever data has the most recent
+            if (consoleArtifactData.Value.CurrentNodeIdLastUpdated < ansArtifactData.CurrentNodeIdLastUpdated)
+                consoleArtifactDataLocal.CurrentNodeId = ansArtifactData.CurrentNodeId;
+            else
+                ansArtifactData.CurrentNodeId = consoleArtifactData.Value.CurrentNodeId;
+
+            var synchedNodes = new List<int>();
+            var consoleNodesToUpdate = new List<int>();
+            foreach (var consoleNode in consoleArtifactDataLocal.Nodes)
+            {
+                synchedNodes.Add(consoleNode.NodeId);
+                if (!ansArtifactData.Nodes.Exists(x => x.NodeId == consoleNode.NodeId))
+                {
+                    // 2c. Copy any nodes from console to ANS if not present
+                    ansArtifactData.Nodes.Add(consoleNode with {});
+                    continue;
+                }
+
+                // 2d. Update all node data to most recently scanned version for each node
+                var ansNodeIndex = ansArtifactData.Nodes.FindIndex(x => x.NodeId == consoleNode.NodeId);
+                if (consoleNode.LastUpdated < ansArtifactData.Nodes[ansNodeIndex].LastUpdated)
+                    consoleNodesToUpdate.Add(consoleNode.NodeId);
+                else
+                {
+                    ansArtifactData.Nodes[ansNodeIndex] = consoleNode;
+                }
+            }
+            // 2d. Update all node data to most recently scanned version for each node
+            foreach (var toUpdate in consoleNodesToUpdate)
+            {
+                var consoleNodeIndex = consoleArtifactDataLocal.Nodes.FindIndex(x => x.NodeId == toUpdate);
+                consoleArtifactDataLocal.Nodes[consoleNodeIndex] = ansArtifactData.Nodes.Find(x => x.NodeId == toUpdate);
+            }
+
+            // 2e. Copy all nodes in ANS's artifact data to console's artifact data, if they weren't already touched (which means they must not exist in the console)
+            foreach (var ansNode in ansArtifactData.Nodes)
+            {
+                if (synchedNodes.Contains(ansNode.NodeId))
+                    continue;
+                consoleArtifactDataLocal.Nodes.Add(ansNode);
+            }
+
+            // We've been modifying a local variable all this time, actually put it back into the dictionary
+            ansEntity.Comp.ScannedArtifactData[consoleArtifactData.Key] = ansArtifactData;
+            consoleComp.ScannedArtifactData[consoleArtifactData.Key] = consoleArtifactDataLocal;
+        }
+
+        // 3. Remaining artifacts in scanner do not exist in console, copy over to console
+        foreach (var ansArtifactData in ansEntity.Comp.ScannedArtifactData)
+        {
+            if (synchedArtifacts.Contains(ansArtifactData.Key))
+                continue;
+            CopyArtifactData(ansArtifactData, ref consoleComp.ScannedArtifactData);
+        }
     }
 
     /// <summary>
@@ -360,4 +455,23 @@ public sealed class OldAdvancedNodeScannerSystem : EntitySystem
         return artiData.Nodes.Exists(x => x.NodeId == artiComp.CurrentNodeId);
 
     }
+
+    /// <summary>
+    /// Deep copy of all artifact data into an AdvancedNodeScannerArtifactData dictionary (as used in OldAdvancedNodeScanner and OldAnalysisConsole components)
+    /// </summary>
+    public static void CopyArtifactData(KeyValuePair<EntityUid, AdvancedNodeScannerArtifactData> artifactData, ref Dictionary<EntityUid, AdvancedNodeScannerArtifactData> copyTargetDictionary)
+    {
+        var copiedData = new AdvancedNodeScannerArtifactData(
+            artifactData.Value.CurrentNodeId,
+            artifactData.Value.CurrentNodeIdLastUpdated,
+            artifactData.Value.KnownNodeIds,
+            new List<AdvancedNodeScannerNodeData>()
+        );
+        foreach (var node in artifactData.Value.Nodes)
+        {
+            copiedData.Nodes.Add(node with {});
+        }
+        copyTargetDictionary.Add(artifactData.Key, copiedData);
+    }
+
 }

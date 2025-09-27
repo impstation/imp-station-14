@@ -39,7 +39,9 @@ public struct AdvancedNodeScannerNodeData(
     List<int> childIds,
     string trigger,
     string effect,
-    bool activated)
+    bool activated,
+    TimeSpan lastUpdated
+    )
 {
     /// <summary>
     /// stored data about an artifact node
@@ -51,11 +53,13 @@ public struct AdvancedNodeScannerNodeData(
     public string Trigger = trigger;
     public string Effect = effect;
     public bool Activated = activated;
+    public TimeSpan LastUpdated = lastUpdated;
 }
 
 [Serializable]
 public struct AdvancedNodeScannerArtifactData(
     int currentNodeId,
+    TimeSpan currentNodeIdLastUpdated,
     HashSet<int> knownNodeIds,
     List<AdvancedNodeScannerNodeData> nodes
 )
@@ -64,6 +68,7 @@ public struct AdvancedNodeScannerArtifactData(
     /// Holds all the advanced node scanner data about artifact, mainly a container for all the nodes
     /// </summary>
     public int CurrentNodeId = currentNodeId;
+    public TimeSpan CurrentNodeIdLastUpdated = currentNodeIdLastUpdated;
     public HashSet<int> KnownNodeIds = knownNodeIds;
     public List<AdvancedNodeScannerNodeData> Nodes = nodes;
 }
