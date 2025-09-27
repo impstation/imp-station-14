@@ -124,6 +124,7 @@ public sealed class OldAdvancedNodeScannerSystem : EntitySystem
         {
             scannedData.CurrentNodeId = (int)currentNodeId;
             scannedData.KnownNodeIds.Add((int)currentNodeId);
+            scannedData.CurrentNodeIdLastUpdated = now;
 
             //Get artifact trigger & effect; if already exist but different from actual node then admin intervention has happened and we
             // need to obfuscate them
@@ -210,8 +211,18 @@ public sealed class OldAdvancedNodeScannerSystem : EntitySystem
         //update existing artifact data
         if (ansComp.ScannedArtifactData.TryGetValue(artifact, out var scannedData))
         {
+            // Because we can trigger the advanced scan by pressing "scan" on the console if we have already scanned the node,
+            // we should skip the scan if we already scanned the node and we last scanned less than a second ago (for perf reasons)
+            if (scannedData.CurrentNodeId == currentNodeId
+                && (scannedData.CurrentNodeIdLastUpdated - now).Duration() < ansComp.MinTimeBetweenFullAdvancedScans
+                // This part of the IF statement will stop us from skipping advanced scan if we did node id scan recently.
+                && scannedData.Nodes.Exists(x => x.NodeId == currentNodeId)
+                && (scannedData.Nodes.Find(x => x.NodeId == currentNodeId).LastUpdated - now).Duration() < ansComp.MinTimeBetweenFullAdvancedScans)
+                return;
+
             scannedData.CurrentNodeId = (int)currentNodeId;
             scannedData.KnownNodeIds.Add((int)currentNodeId);
+            scannedData.CurrentNodeIdLastUpdated = now;
 
             // if we don't have info yet, we need to add it. otherwise we assume we already know.
             if (!scannedData.Nodes.Exists(x => x.NodeId == currentNodeId))

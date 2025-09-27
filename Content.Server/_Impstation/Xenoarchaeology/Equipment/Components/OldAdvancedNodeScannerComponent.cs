@@ -25,6 +25,12 @@ public sealed partial class OldAdvancedNodeScannerComponent : Component
     public float MaxDistanceFromAnalyzerPad;
 
     /// <summary>
+    /// How much time since the last full advanced scan before we can fully scan again (prevents instant-scan spam)
+    /// </summary>
+    [DataField("minTimeBetweenFullAdvancedScans")]
+    public TimeSpan MinTimeBetweenFullAdvancedScans = TimeSpan.FromSeconds(1);
+
+    /// <summary>
     /// Stored scanned artifacts and their nodes
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
