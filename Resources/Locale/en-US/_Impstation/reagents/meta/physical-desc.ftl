@@ -20,3 +20,5 @@ reagent-physical-desc-reallynervous = really nervous
 reagent-physical-desc-space-grease = dangerously shiny
 reagent-physical-desc-floral = floral
 reagent-physical-desc-ghostly = ghostly
+reagent-physical-desc-something = kind of
+

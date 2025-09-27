@@ -52,3 +52,11 @@ accent-words-bananadeer-3 = Eue.
 accent-words-bananadeer-4 = Eeuie..
 accent-words-bananadeer-5 = Eee!
 accent-words-bananadeer-6 = Euuuh.
+
+# Baby Anomalocarid
+accent-words-babyanom-1 = Blblbl...
+accent-words-babyanom-2 = Klkl...
+accent-words-babyanom-3 = Blbl...
+accent-words-babyanom-4 = Blblbl?
+accent-words-babyanom-5 = Brbl.
+accent-words-babyanom-6 = Klklkl!
