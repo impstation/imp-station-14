@@ -52,3 +52,8 @@ petting-failure-eeeplet = You try to pet {THE($target)}, but are shocked!
 
 petting-success-vrex = You brush {THE($target)}'s bristly ridge running along their back.
 petting-failure-vrex = You think about brushing {THE($target)}'s bristly ridge, but the unnerving teeth make you decide against it.
+
+## Baby Anomalocarids
+
+petting-success-babyanom = You pet {THE($target)} on its smooth wet head.
+petting-failure-babyanom = You try to pet {THE($target)}, but it nips at your fingers!

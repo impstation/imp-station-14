@@ -1,0 +1,21 @@
+
+- type: vendingMachineInventory
+  id: DanShrimpInventory
+  startingInventory:
+    FoodSnackDanShrimpsnaxBase: 3
+    FoodSnackDanShrimpsnaxGreen: 3
+    FoodSnackDanShrimpsnaxBlue: 3
+    DrinkShrimpSodaCan: 3
+  contrabandInventory:
+    CigPackShrimp: 1
+
+- type: vendingMachineInventory
+  id: DanShrimpInventoryAlt
+  startingInventory:
+    FoodSnackDanShrimpsnaxBase: 3
+    FoodSnackDanShrimpsnaxGirl: 3
+    FoodSnackDanShrimpsnaxSad: 3
+    FoodSnackDanShrimpsnaxBreakfast: 3
+    DrinkShrimpSodaCan: 3
+  contrabandInventory:
+    FoodPacketDanShrimpsnaxRegret: 1
