@@ -3,7 +3,7 @@
   mapName: 'Embryo'
   mapPath: /Maps/_Impstation/luna.yml
   minPlayers: 35
-  maxPlayers: 80
+  maxPlayers: 69
   stations:
     Luna:
       stationProto: StandardNanotrasenStation
@@ -49,7 +49,7 @@
             Chemist: [ 2, 2 ]
             MedicalDoctor: [ 3, 3 ]
             MedicalIntern: [ 2, 2 ]
-            Paramedic: [ 2, 2 ]
+            Paramedic: [ 1, 0 ]
             Psychologist: [ 1, 1 ]
             # science - 6-7
             Borg: [ 2, 2 ]

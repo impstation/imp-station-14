@@ -44,7 +44,6 @@ namespace Content.Server.Zombies
         [Dependency] private readonly MobStateSystem _mobState = default!;
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly SharedRoleSystem _role = default!;
-        [Dependency] private readonly Content.Shared._Offbrand.Wounds.BrainDamageSystem _brainDamage = default!; // Offbrand
 
         public readonly ProtoId<NpcFactionPrototype> Faction = "Zombie";
 
@@ -140,7 +139,6 @@ namespace Content.Server.Zombies
                     : 1f;
 
                 _damageable.TryChangeDamage(uid, comp.Damage * multiplier, true, false, damage);
-                _brainDamage.TryChangeBrainDamage(uid, multiplier / 2f); // Offbrand
             }
 
             // Heal the zombified

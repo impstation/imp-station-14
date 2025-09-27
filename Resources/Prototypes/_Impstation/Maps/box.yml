@@ -3,7 +3,7 @@
   mapName: 'Box Station'
   mapPath: /Maps/_Impstation/box.yml
   minPlayers: 35
-  maxPlayers: 80
+  maxPlayers: 69
   stations:
     Boxstation:
       stationProto: StandardNanotrasenStation
@@ -24,7 +24,7 @@
           announcementReplacements:
             station-event-immovable-rod-spawn-announcement: station-event-meteor-doomsday-spawn-announcement
         - type: StationJobs
-          availableJobs: # Total of 65 jobs roundstart, max of 79 inc. latejoins and trainees.
+          availableJobs: # Total of 64 jobs roundstart, max of 78 inc. latejoins and trainees.
             # command - 8
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
@@ -53,7 +53,7 @@
             Chemist: [ 2, 2 ]
             MedicalDoctor: [ 4, 4 ]
             MedicalIntern: [ 4, 4 ]
-            Paramedic: [ 2, 2 ]
+            Paramedic: [ 1, 1 ]
             Psychologist: [ 1, 1 ]
             # science - 8-9
             Borg: [ 2, 2 ]

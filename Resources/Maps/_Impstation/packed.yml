@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/14/2025 06:48:50
-  entityCount: 15308
+  time: 08/28/2025 05:26:36
+  entityCount: 15307
 maps:
 - 126
 grids:
@@ -8049,7 +8049,7 @@ entities:
       pos: 101.5,-19.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -32170.756
+      secondsUntilStateChange: -31994.182
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12191,11 +12191,6 @@ entities:
     components:
     - type: Transform
       pos: 77.71784,-13.269633
-      parent: 2
-  - uid: 6812
-    components:
-    - type: Transform
-      pos: 60.5,-7.5
       parent: 2
 - proto: Bucket
   entities:
@@ -38210,6 +38205,13 @@ entities:
     - type: Transform
       pos: 86.44739,10.61898
       parent: 2
+- proto: ClothingHeadNurseHat
+  entities:
+  - uid: 12672
+    components:
+    - type: Transform
+      pos: 59.51385,-3.3579187
+      parent: 2
 - proto: ClothingMaskBear
   entities:
   - uid: 8828
@@ -38223,6 +38225,13 @@ entities:
     components:
     - type: Transform
       pos: 25.245346,6.3236885
+      parent: 2
+- proto: ClothingMaskBreathMedical
+  entities:
+  - uid: 12657
+    components:
+    - type: Transform
+      pos: 67.39722,4.505884
       parent: 2
 - proto: ClothingMaskGas
   entities:
@@ -38318,6 +38327,11 @@ entities:
     components:
     - type: Transform
       pos: 56.414165,-10.356422
+      parent: 2
+  - uid: 11967
+    components:
+    - type: Transform
+      pos: 64.40056,4.5256968
       parent: 2
 - proto: ClothingOuterArmorBulletproof
   entities:
@@ -39638,9 +39652,7 @@ entities:
     - type: Transform
       pos: 31.5,-11.5
       parent: 2
-- proto: CrateFreezerIVBag
-  entities:
-  - uid: 9622
+  - uid: 13109
     components:
     - type: Transform
       pos: 67.5,-5.5
@@ -44023,15 +44035,10 @@ entities:
       parent: 2
 - proto: EmergencyRollerBedSpawnFolded
   entities:
-  - uid: 12819
+  - uid: 9622
     components:
     - type: Transform
-      pos: 46.297314,4.745721
-      parent: 2
-  - uid: 13109
-    components:
-    - type: Transform
-      pos: 46.578564,4.542596
+      pos: 45.379837,4.5137033
       parent: 2
 - proto: Emitter
   entities:
@@ -68387,33 +68394,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: IVStand
-  entities:
-  - uid: 6808
-    components:
-    - type: Transform
-      pos: 67.5,4.5
-      parent: 2
-  - uid: 11834
-    components:
-    - type: Transform
-      pos: 62.5,-3.5
-      parent: 2
-  - uid: 11837
-    components:
-    - type: Transform
-      pos: 66.5,-3.5
-      parent: 2
-  - uid: 11967
-    components:
-    - type: Transform
-      pos: 64.5,4.5
-      parent: 2
-  - uid: 12672
-    components:
-    - type: Transform
-      pos: 59.5,-3.5
-      parent: 2
 - proto: JanitorialTrolley
   entities:
   - uid: 12234
@@ -69034,11 +69014,6 @@ entities:
     components:
     - type: Transform
       pos: 44.5,4.5
-      parent: 2
-  - uid: 10073
-    components:
-    - type: Transform
-      pos: 45.5,4.5
       parent: 2
 - proto: LockerPrisoner
   entities:
@@ -71256,10 +71231,10 @@ entities:
           ents: []
     - type: Physics
       canCollide: False
-  - uid: 12657
+  - uid: 12819
     components:
     - type: Transform
-      pos: 59.5,-7.5
+      pos: 59.5,-3.5
       parent: 2
   - uid: 13106
     components:
@@ -77095,6 +77070,13 @@ entities:
     - type: Transform
       pos: 49.5,25.5
       parent: 2
+- proto: Retractor
+  entities:
+  - uid: 6808
+    components:
+    - type: Transform
+      pos: 66.55991,-3.281434
+      parent: 2
 - proto: RightLegBorg
   entities:
   - uid: 6529
@@ -77213,6 +77195,11 @@ entities:
     components:
     - type: Transform
       pos: 55.523434,10.407994
+      parent: 2
+  - uid: 10073
+    components:
+    - type: Transform
+      pos: 66.473175,-3.547059
       parent: 2
 - proto: ScrapCamera
   entities:
@@ -79591,6 +79578,11 @@ entities:
     - type: Transform
       pos: 54.5,-5.5
       parent: 2
+  - uid: 11837
+    components:
+    - type: Transform
+      pos: 62.5,-3.5
+      parent: 2
   - uid: 13110
     components:
     - type: Transform
@@ -80778,11 +80770,6 @@ entities:
     - type: Transform
       pos: 46.5,3.5
       parent: 2
-  - uid: 14843
-    components:
-    - type: Transform
-      pos: 45.5,3.5
-      parent: 2
 - proto: SpawnPointPassenger
   entities:
   - uid: 1792
@@ -80974,10 +80961,12 @@ entities:
     - type: Transform
       pos: 82.67393,-4.422255
       parent: 2
-  - uid: 11841
+- proto: SprayBottleWater
+  entities:
+  - uid: 6812
     components:
     - type: Transform
-      pos: 67.70664,-3.4175305
+      pos: 67.05991,-3.359559
       parent: 2
 - proto: StasisBed
   entities:
@@ -83141,7 +83130,7 @@ entities:
   - uid: 5203
     components:
     - type: Transform
-      pos: 59.5,-7.5
+      pos: 66.5,-3.5
       parent: 2
   - uid: 5224
     components:
@@ -83485,15 +83474,25 @@ entities:
     - type: Transform
       pos: 67.5,3.5
       parent: 2
+  - uid: 11834
+    components:
+    - type: Transform
+      pos: 67.5,4.5
+      parent: 2
   - uid: 11835
     components:
     - type: Transform
-      pos: 60.5,-7.5
+      pos: 64.5,4.5
       parent: 2
   - uid: 11836
     components:
     - type: Transform
       pos: 64.5,3.5
+      parent: 2
+  - uid: 11841
+    components:
+    - type: Transform
+      pos: 59.5,-3.5
       parent: 2
   - uid: 11844
     components:

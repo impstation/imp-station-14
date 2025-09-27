@@ -2,13 +2,10 @@
   save: false
   parent:
   - BaseMob
-  # - MobDamageable # Offbrand - we don't want thresholds
+  - MobDamageable
   - MobPolymorphable
   - MobCombat
   - StripableInventoryBase
-  - BaseMobWoundable # Offbrand
-  - BaseMobPain # Offbrand
-  - BaseMobSurgery # Offbrand
   id: BaseMobSpecies
   abstract: true
   components:
@@ -200,8 +197,6 @@
       enum.ThavenMoodsUiKey.Key: # impstation edit
         type: ThavenMoodsBoundUserInterface
         requireInputValidation: false
-      enum.SurgeryGuideUiKey.Key: # Offbrand
-        type: SurgeryGuideBoundUserInterface
   - type: Puller
   - type: Speech
     speechSounds: Alto
@@ -232,14 +227,11 @@
 - type: entity
   save: false
   parent:
-  # - MobBloodstream - Offbrand - we're doing our own thign with this
+  - MobBloodstream
   - MobRespirator
   - MobAtmosStandard
   - MobFlammable
   - BaseMobSpecies
-  - BaseMobHeartrate # Offbrand
-  - BaseMobBrain # Offbrand
-  - BaseMobCryostasis # Offbrand
   id: BaseMobSpeciesOrganic
   abstract: true
   components:

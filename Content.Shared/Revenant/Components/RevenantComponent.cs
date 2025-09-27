@@ -298,10 +298,4 @@ public sealed partial class RevenantComponent : Component
 
     [DataField] public EntityUid? ShopAction;
     [DataField] public EntityUid? HauntAction;
-
-    /// <summary>
-    /// Offbrand - how much cold damage to deal on harvest
-    /// </summary>
-    [DataField]
-    public FixedPoint2 HarvestColdDamage = 200;
 }
