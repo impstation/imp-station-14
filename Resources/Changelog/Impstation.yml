@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: hivehum
-  changes:
-  - message: The gnome child is normal and not large.
-    type: Tweak
-  id: 1796
-  time: '2025-06-09T23:05:47.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2700
 - author: AirFryerBuyOneGetOneFree
   changes:
   - message: Added 11 new traitor objectives. Gimmick objectives can now also only
@@ -4194,3 +4187,19 @@
   id: 2295
   time: '2025-09-27T10:13:43.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3474
+- author: TheGrimbeeper
+  changes:
+  - message: Xenoarch - tweak expression trigger range
+    type: Tweak
+  - message: Xenoarch - fix a missing hint
+    type: Fix
+  - message: Xenoarch - fix artifacts not going through their own portals
+    type: Fix
+  - message: Xenoarch - fix teleporting artifacts not saying goodbye to the artifact
+      analyzer
+    type: Fix
+  - message: Xenoarch - fix natural artifacts ignoring artifexium
+    type: Fix
+  id: 2296
+  time: '2025-09-27T11:48:18.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3415
