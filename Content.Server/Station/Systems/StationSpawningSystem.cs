@@ -4,6 +4,7 @@ using Content.Server.IdentityManagement;
 using Content.Server.Mind;
 using Content.Server.PDA;
 using Content.Server.Station.Components;
+using Content.Shared._Impstation.NotifierExamine;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.CCVar;
@@ -154,10 +155,11 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
 
             if (profile.FlavorText != "" && _configurationManager.GetCVar(CCVars.FlavorText))
             {
-                AddComp<DetailExaminableComponent>(entity.Value).Content = profile.FlavorText;
+                AddComp<DetailExaminableComponent>(entity.Value).Content = profile.FlavorText;//imp edit
             }
         }
 
+        EnsureComp<NotifierExamineComponent>(entity.Value);
         if (loadout != null)
         {
             EquipRoleLoadout(entity.Value, loadout, roleProto!);

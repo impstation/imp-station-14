@@ -354,6 +354,7 @@ cmd-options-help = Usage: options [tab]
 
 ui-options-accessability-header-visuals = Visuals
 ui-options-accessability-header-content = Content
+ui-options-accessability-header-misc = Misc
 
 ui-options-enable-color-name = Add colors to character names
 ui-options-colorblind-friendly = Colorblind friendly mode
