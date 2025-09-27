@@ -226,3 +226,74 @@
   - type: RadiationBlocker
     resistance: 5
   - type: Appearance
+
+- type: entity
+  parent: BaseWall
+  id: WallReaper
+  name: souled wall
+  description: Keeps the souls in and the mortals out.
+  components:
+  - type: StaticPrice
+    price: 330
+  - type: Tag
+    tags:
+      - Wall
+  - type: Sprite
+    sprite: _Impstation/Structures/Walls/reaperwall.rsi
+  - type: Icon
+    sprite: _Impstation/Structures/Walls/reaperwall.rsi
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: IconSmooth
+    key: walls
+    base: reaper
+  - type: Appearance
+
+- type: entity
+  parent: MarkerBase
+  id: WallInvisiblePermanent #use this in special, non-station, non-wreck or debris maps only please!! 
+  name: invisible wall
+  suffix: Permanent
+  components:
+  - type: Tag
+    tags:
+      - Wall
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+            bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - GlassLayer
+  - type: Airtight
+  - type: Sprite #invisible in game but visible while mapping
+    layers:
+      - sprite: Structures/Walls/solid.rsi
+        state: full
+      - sprite: Markers/cross.rsi
+      - state: green

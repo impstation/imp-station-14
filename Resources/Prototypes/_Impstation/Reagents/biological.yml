@@ -201,3 +201,25 @@
     Lithium: 1
     Ethanol: 2
     SpaceLube: 1
+
+- type: reagent
+  id: ReaperBlood
+  name: reagent-name-reaper-blood
+  group: Biological
+  parent: Blood
+  desc: reagent-desc-reaper-blood
+  physicalDesc: reagent-physical-desc-ghostly
+  flavor: ectoplasm
+  color: "#72ef9f"
+
+- type: reaction
+  id: ReaperBloodBreakdown
+  source: true
+  requiredMixerCategories:
+  - Centrifuge
+  reactants:
+    ReaperBlood:
+      amount: 5
+  products:
+    Ash: 3
+    Fresium: 2

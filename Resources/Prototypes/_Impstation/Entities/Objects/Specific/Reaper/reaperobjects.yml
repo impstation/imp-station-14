@@ -1,0 +1,18 @@
+- type: entity 
+  id: AlwaysPoweredReaperLight
+  parent: MarkerBase
+  name: reaper map light
+  description: "An always powered light."
+  suffix: Always powered
+  components:
+  - type: PointLight
+    color: "#9cf0ba"
+    energy: 2
+    radius: 10
+    softness: 1
+    offset: "0, -0.5"
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Structures/Wallmounts/Lighting/light_tube.rsi
+        state: base

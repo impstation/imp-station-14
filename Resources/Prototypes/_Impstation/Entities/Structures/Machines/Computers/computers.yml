@@ -1,0 +1,59 @@
+- type: entity
+  parent: BaseComputer
+  id: ComputerReaperTeleporter  
+  name: teleportation console
+  description: A recovered mortal artifact hastily reconfigured to teleport Reapers.
+  categories: [ DoNotMap ]
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _Impstation/Structures/Machines/computer_old.rsi 
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+      sprite: _Impstation/Structures/Machines/computer_old.rsi 
+    - map: ["computerLayerKeyboard"]
+      state: keyboard
+      sprite: _Impstation/Structures/Machines/computer_old.rsi 
+    - map: ["computerLayerScreen"]
+      state: reaper
+    offset: "0.0,0.1"
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ComputerVisuals.Powered:
+        computerLayerScreen:
+          True: { visible: true, shader: unshaded }
+          False: { visible: false }
+  - type: ActivatableUI
+    key: enum.TeleportLocationUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.TeleportLocationUiKey.Key:
+        type: TeleportLocationsBoundUserInterface
+  - type: PointLight
+    radius: 2.4 #imp
+    energy: 1.6
+    color: "#ffffff"
+  - type: TeleportLocations
+    name: teleportation-console-window-title
+    teleportEffect: WizardSmoke
+    closeAfterTeleport: true
+  - type: UseDelay
+    delay: 1
+    delays:
+      TeleportDelay: !type:UseDelayInfo
+        length: 300
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10000
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: monitorBroken
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
