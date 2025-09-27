@@ -83,6 +83,32 @@
     Fat: 4
 
 - type: reagent
+  parent: Blood
+  id: AnomalocaridCopperBlood #mostly the same as normal copper blood but with a different color
+  name: reagent-name-anomalocarid-blood
+  group: Biological
+  desc: reagent-desc-anomalocarid-blood
+  flavor: fizzy
+  color: "#18d6a7"
+  recognizable: true
+  physicalDesc: reagent-physical-desc-fizzy
+
+- type: reaction
+  id: AnomalocaridCopperBloodBreakdown
+  source: true
+  requiredMixerCategories:
+  - Centrifuge
+  reactants:
+    AnomalocaridCopperBlood:
+      amount: 20
+  products:
+    TableSalt: 10
+    Copper: 1
+    Sugar: 5
+    Fat: 1
+    EnergyDrink: 3 #there's a reason i promise
+
+- type: reagent
   id: SynthFlesh
   name: reagent-name-synthflesh
   group: Biological
