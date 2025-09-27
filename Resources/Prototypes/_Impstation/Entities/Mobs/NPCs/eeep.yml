@@ -149,21 +149,6 @@
     polymorph: EeepGrow
   - type: TriggerOnBatteryFull
 
-#- type: entity
-#  id: ActionEeepletGrow
-#  parent: BaseAction
-#  name: Grow
-#  description: Im so full from the stations power, Yum.
-#  components:
-#  - type: Action
-#    itemIconStyle: NoItem
-#    icon: _Impstation/Interface/Actions/tba.png
-#    useDelay: 20
-#  - type: InstantAction
-#    event: !type: #TBA
-#    chargeUse: 4000
-#    nextStage: MobEeep
-
 - type: entity
   id: EeepSpark
   parent: TeslaMiniEnergyBall
