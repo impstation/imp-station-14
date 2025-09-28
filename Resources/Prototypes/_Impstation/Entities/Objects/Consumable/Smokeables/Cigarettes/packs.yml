@@ -36,6 +36,21 @@
       amount: 10
 
 - type: entity
+  id: CigPackShrimp
+  parent: CigPackBase
+  name: Doobie Dan's ShrimpSmokes
+  description: The Space FDA is gonna have a field day with these.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cigarettes/Packs/shrimparettes.rsi
+  - type: Item
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cigarettes/Packs/shrimparettes.rsi
+  - type: StorageFill
+    contents:
+    - id: CigaretteShrimp
+      amount: 10
+
+- type: entity
   id: CigPackMixedRejects
   parent: [CigPackMixedBase, Tier2Contraband]
   name: Dan's soaked smokes rejects
