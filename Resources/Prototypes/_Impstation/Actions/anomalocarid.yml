@@ -1,11 +1,13 @@
 - type: entity
   parent: BaseAction
   id: ActionVentHeat
-  name: Vent Heat
-  description: Vent heat. # placeholder
+  name: anomalocarid-vent-name
+  description: anomalocarid-vent-desc
   components:
   - type: Action
-    icon: Interface/Actions/slime.png # placeholder
+    icon:
+      sprite: _Impstation/Interface/Actions/anomalocarid.rsi
+      state: vent
     useDelay: 30
   - type: InstantAction
     event: !type:HeatVentActionEvent

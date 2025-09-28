@@ -3,22 +3,22 @@ using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Popups;
 using Content.Shared._Impstation.Anomalocarid;
+using Content.Shared.Alert;
 using Content.Shared.Damage;
-using Content.Shared.DoAfter;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Impstation.Anomalocarid;
 
-public sealed partial class HeatVentSystem : SharedHeatVentSystem
+public sealed class HeatVentSystem : SharedHeatVentSystem
 {
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly RespiratorSystem _respirator = default!;
+    [Dependency] private readonly AlertsSystem _alerts = default!;
 
     public override void Initialize()
     {
@@ -40,6 +40,7 @@ public sealed partial class HeatVentSystem : SharedHeatVentSystem
         _audio.PlayPvs(ent.Comp.VentSound, ent);
         _popup.PopupEntity(Loc.GetString(ent.Comp.VentDoAfterPopup,  ("target", ent)), ent);
         ent.Comp.HeatStored = 0;
+        UpdateAlert(ent);
     }
 
     public override void Update(float frameTime)
@@ -67,5 +68,32 @@ public sealed partial class HeatVentSystem : SharedHeatVentSystem
 
         if (ent.Comp.HeatStored >= ent.Comp.HeatDamageThreshold)
             _damage.TryChangeDamage(ent, ent.Comp.HeatDamage, ignoreResistances: true, interruptsDoAfters: false);
+
+        UpdateAlert(ent);
+    }
+
+    private void UpdateAlert(Entity<HeatVentComponent> ent)
+    {
+        short severity;
+        switch ((ent.Comp.HeatStored / ent.Comp.HeatDamageThreshold))
+        {
+            case >= 1f:
+                severity = 5;
+                break;
+            case >= 0.6f:
+                severity = 4;
+                break;
+            case >= 0.3f:
+                severity = 3;
+                break;
+            case >= 0.15f:
+                severity = 2;
+                break;
+            default:
+                severity = 1;
+                break;
+        }
+
+        _alerts.ShowAlert(ent, ent.Comp.Alert, severity);
     }
 }

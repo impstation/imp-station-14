@@ -1,13 +1,11 @@
 using Content.Shared.Actions;
-using Content.Shared.Damage;
 using Content.Shared.DoAfter;
-using Robust.Shared.Timing;
 using Robust.Shared.Serialization;
 using Content.Shared.Popups;
 
 namespace Content.Shared._Impstation.Anomalocarid;
 
-public abstract partial class SharedHeatVentSystem : EntitySystem
+public abstract class SharedHeatVentSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
@@ -47,18 +45,16 @@ public abstract partial class SharedHeatVentSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString(ent.Comp.VentStartPopup,  ("target", ent)), ent);
 
         args.Handled = true;
-
-        // TODO: should this popup only show for the client?
     }
 }
 
 /// <summary>
 ///     Relayed upon using heat vent action.
 /// </summary>
-public sealed partial class HeatVentActionEvent : InstantActionEvent { }
+public sealed partial class HeatVentActionEvent : InstantActionEvent;
 
 /// <summary>
 /// Is relayed after the doafter finishes.
 /// </summary>
 [Serializable, NetSerializable]
-public sealed partial class HeatVentDoAfterEvent : SimpleDoAfterEvent { }
+public sealed partial class HeatVentDoAfterEvent : SimpleDoAfterEvent;

@@ -1,3 +1,4 @@
+using Content.Shared.Alert;
 using Content.Shared.Atmos;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
@@ -27,7 +28,7 @@ public sealed partial class HeatVentComponent : Component
     ///     At max value the entity starts taking damage.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float HeatDamageThreshold = 60f / 5f * 10f; // 10 minutes
+    public float HeatDamageThreshold = 60f * 30f; // 30 minutes
 
     /// <summary>
     ///     How much heat should be added per cycle.
@@ -39,7 +40,7 @@ public sealed partial class HeatVentComponent : Component
     ///     Heat stored is multiplied by this number to get gas temperature.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float GasTempHeatMultiplier = 1.75f;
+    public float GasTempHeatMultiplier = 0.15f;
 
     /// <summary>
     ///     Gas temperature base.
@@ -101,7 +102,7 @@ public sealed partial class HeatVentComponent : Component
     ///     This value is multiplied by HeatStored.
     /// </summary>
     [DataField]
-    public float VentLengthMultiplier = 0.1f;
+    public float VentLengthMultiplier = 0.006f;
 
     /// <summary>
     ///     Gas to vent.
@@ -113,7 +114,7 @@ public sealed partial class HeatVentComponent : Component
     ///     How many moles of gas are released per amount of heat stored.
     /// </summary>
     [DataField]
-    public float MolesPerHeatStored = 0.05f;
+    public float MolesPerHeatStored = 0.008f;
 
     /// <summary>
     ///     Popup when using the vent heat action.
@@ -131,5 +132,11 @@ public sealed partial class HeatVentComponent : Component
     ///     Sound to play when vent heat doafter completes.
     /// </summary>
     [DataField]
-    public SoundSpecifier VentSound = new SoundPathSpecifier("/Audio/Magic/Cults/ClockCult/steam_whoosh.ogg"); // placeholder
+    public SoundSpecifier VentSound = new SoundPathSpecifier("/Audio/_Impstation/Anomalocarids/pressure_release.ogg");
+
+    /// <summary>
+    ///     Sound to play when vent heat doafter completes.
+    /// </summary>
+    [DataField]
+    public ProtoId<AlertPrototype> Alert = "InternalPressure";
 }
