@@ -183,3 +183,17 @@
       prototypes:
         - MobFoes
         - MobSeof
+
+- type: entity
+  name: Boar Spawner
+  id: BoarSpawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: blue
+        - sprite: _Impstation/Mobs/Animals/boar.rsi
+          state: boar
+    - type: ClusterSpawner
+      prototypes:
+        - MobBoar

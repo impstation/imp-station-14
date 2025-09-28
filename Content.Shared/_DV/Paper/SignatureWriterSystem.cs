@@ -1,6 +1,7 @@
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using System.Linq;
+using Robust.Shared.Player;
 
 namespace Content.Shared.DV.Paper;
 
@@ -42,7 +43,7 @@ public sealed class SignatureWriterSystem : EntitySystem
                     Act = () =>
                     {
                         comp.Font = entry.Value;
-                        _popup.PopupPredicted(Loc.GetString("signature-writer-component-font-set", ("font", entry.Key)), args.User, args.User);
+                        _popup.PopupPredicted(Loc.GetString("signature-writer-component-font-set", ("font", entry.Key)), args.User, args.User, Filter.Local(), true);
                     }
                 };
 
@@ -66,7 +67,7 @@ public sealed class SignatureWriterSystem : EntitySystem
                     Act = () =>
                     {
                         comp.Color = entry.Value;
-                        _popup.PopupPredicted(Loc.GetString("signature-writer-component-color-set", ("color", entry.Key)), args.User, args.User);
+                        _popup.PopupPredicted(Loc.GetString("signature-writer-component-color-set", ("color", entry.Key)), args.User, args.User, Filter.Local(), true);
                     }
                 };
 
