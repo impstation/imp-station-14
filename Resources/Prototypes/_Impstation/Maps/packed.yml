@@ -2,8 +2,8 @@
   id: PackedImp
   mapName: 'Packed'
   mapPath: /Maps/_Impstation/packed.yml
-  minPlayers: 7
-  maxPlayers: 35
+  minPlayers: 8
+  maxPlayers: 34
   stations:
     Packed:
       stationProto: StandardNanotrasenStation
@@ -41,11 +41,11 @@
             AtmosphericTechnician: [ 2, 2 ]
             StationEngineer: [ 4, 4 ]
             TechnicalAssistant: [ 3, 3 ]
-            # medical - 7-9
+            # medical - 6-8
             Chemist: [ 2, 2 ]
             MedicalDoctor: [ 3, 3 ]
             MedicalIntern: [ 2, 2 ]
-            Paramedic: [ 2, 2 ]
+            Paramedic: [ 1, 1 ]
             # science - 5-6
             Borg: [ 1, 1 ]
             ResearchAssistant: [ 1, 1 ]

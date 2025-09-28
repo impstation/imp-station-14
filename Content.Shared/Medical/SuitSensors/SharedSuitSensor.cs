@@ -1,7 +1,6 @@
 using Content.Shared.DoAfter;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization;
-using Content.Shared._Offbrand.Wounds; // Offbrand
 
 namespace Content.Shared.Medical.SuitSensor;
 
@@ -26,12 +25,9 @@ public sealed class SuitSensorStatus
     public string JobIcon;
     public List<string> JobDepartments;
     public bool IsAlive;
-    // Begin Offbrand Changes
-    // public int? TotalDamage;
-    // public int? TotalDamageThreshold;
-    // public float? DamagePercentage => TotalDamageThreshold == null || TotalDamage == null ? null : TotalDamage / (float) TotalDamageThreshold;
-    public WoundableHealthAnalyzerData? WoundableData;
-    // End Offbrand Changes
+    public int? TotalDamage;
+    public int? TotalDamageThreshold;
+    public float? DamagePercentage => TotalDamageThreshold == null || TotalDamage == null ? null : TotalDamage / (float) TotalDamageThreshold;
     public NetCoordinates? Coordinates;
 }
 
@@ -67,13 +63,10 @@ public static class SuitSensorConstants
     public const string NET_JOB_ICON = "jobIcon";
     public const string NET_JOB_DEPARTMENTS = "jobDepartments";
     public const string NET_IS_ALIVE = "alive";
-    // Begin Offbrand Changes
-    // public const string NET_TOTAL_DAMAGE = "vitals";
-    // public const string NET_TOTAL_DAMAGE_THRESHOLD = "vitalsThreshold";
+    public const string NET_TOTAL_DAMAGE = "vitals";
+    public const string NET_TOTAL_DAMAGE_THRESHOLD = "vitalsThreshold";
     public const string NET_COORDINATES = "coords";
-    public const string NET_WOUNDABLE_DATA = "woundableData";
     public const string NET_SUIT_SENSOR_UID = "uid";
-    // End Offbrand Changes
 
     ///Used by the CrewMonitoringServerSystem to send the status of all connected suit sensors to each crew monitor
     public const string NET_STATUS_COLLECTION = "suit-status-collection";

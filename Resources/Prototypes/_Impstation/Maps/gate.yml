@@ -2,7 +2,7 @@
   id: GateImp
   mapName: 'Gate Station'
   mapPath: /Maps/_Impstation/gate.yml
-  minPlayers: 60
+  minPlayers: 70
   stations:
     Gate:
       stationProto: StandardNanotrasenStation
@@ -15,7 +15,7 @@
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/emergency_raven.yml
         - type: StationJobs
-          availableJobs: # Total of 71 jobs roundstart, max of 86 inc. latejoins and trainees.
+          availableJobs: # Total of 68 jobs roundstart, max of 83 inc. latejoins and trainees.
             # command - 8
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
@@ -45,7 +45,7 @@
             Chemist: [ 2, 2 ]
             MedicalDoctor: [ 5, 5 ]
             MedicalIntern: [ 4, 4 ]
-            Paramedic: [ 4, 4 ]
+            Paramedic: [ 1, 1 ]
             Psychologist: [ 1, 1 ]
             # science - 7-8
             Borg: [ 2, 2 ]

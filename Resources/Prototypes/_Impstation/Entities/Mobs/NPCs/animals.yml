@@ -105,6 +105,7 @@
         Burger: BrosBurger
     - type: CanEscapeInventory
       baseResistTime: 2
+    - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: SORB
@@ -425,3 +426,87 @@
         Burn: 3
     clumsySound:
       path: /Audio/Animals/monkey_scream.ogg
+
+- type: entity
+  name: weird shrimp
+  parent: [ SimpleMobBase, FlyingMobBase, MobCombat ]
+  id: MobWeirdShrimp
+  description: You don't think this is edible.
+  components:
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3.5
+    baseSprintSpeed: 5
+    weightlessAcceleration: 1.5
+    weightlessFriction: 1
+    weightlessModifier: 1
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      sprite: _Impstation/Mobs/Aliens/weirdshrimp.rsi
+      state: weirdshrimp
+  - type: Speech
+    speechSounds: Squeak
+    speechVerb: BabyAnom
+    allowedEmotes: ['Squeak']
+  - type: Vocal
+    sounds:
+      Male: Mouse
+      Female: Mouse
+      Unsexed: Mouse
+    wilhelmProbability: 0 #Enough.
+  - type: Fixtures #do somthing
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+        density: 10
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: weirdshrimp
+      Critical:
+        Base: weirdshrimp-dead
+      Dead:
+        Base: weirdshrimp-dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatFish #replace with anomalocarid meat
+      amount: 1
+  - type: GoobAbsorbable # imp edit - a good meal
+    biomassRestored: 0.2
+  - type: InteractionPopup
+    successChance: 0.2
+    interactSuccessString: petting-success-babyanom
+    interactFailureString: petting-success-babyanom
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/fox_squeak.ogg
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-organic
+  - type: Bloodstream
+    bloodMaxVolume: 50
+    bloodReagent: AnomalocaridCopperBlood
+  - type: ReplacementAccent
+    accent: babyanom
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 8
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    makeSentient: true
+    name: ghost-role-information-weirdshrimp-name
+    description: ghost-role-information-weirdshrimp-description
+    rules: ghost-role-information-familiar-weirdshrimp-rules
+    raffle:
+      settings: short
