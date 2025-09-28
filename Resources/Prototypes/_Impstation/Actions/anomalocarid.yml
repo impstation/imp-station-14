@@ -1,8 +1,6 @@
 - type: entity
   parent: BaseAction
   id: ActionVentHeat
-  name: anomalocarid-vent-name
-  description: anomalocarid-vent-desc
   components:
   - type: Action
     icon:
