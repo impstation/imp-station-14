@@ -26,3 +26,11 @@
     sprite: Clothing/Uniforms/Jumpsuit/loungewear.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/loungewear.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0
+    coolingCoefficient: 0
+  - type: StaticPrice
+    price: 2000
+  - type: Tag
+    tags:
+    - WhitelistChameleon
