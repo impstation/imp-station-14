@@ -94,6 +94,12 @@
     prefix: advertisement-cola-
     count: 8
 
+- type: localizedDataset #imp
+  id: DanShrimpAds
+  values:
+    prefix: advertisement-danshrimp-
+    count: 8
+
 - type: localizedDataset
   id: DrGibbAds
   values:
@@ -242,7 +248,7 @@
   id: SecDrobeAds
   values:
     prefix: advertisement-secdrobe-
-    count: 6
+    count: 6 # imp
 
 - type: localizedDataset
   id: SecTechAds
