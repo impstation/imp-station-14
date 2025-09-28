@@ -112,34 +112,34 @@
   parent: MobBoar
   description: How did it even put that on?
   components:
-  - type: Sprite
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
-      state: spaceboar
-  - type: SpriteMovement
-    movementLayers:
-      movement:
-        state: spaceboar_moving
-    noMovementLayers:
-      movement:
+    - type: Sprite
+      layers:
+      - map: ["enum.DamageStateVisualLayers.Base", "movement"]
         state: spaceboar
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: spaceboar
-      Critical:
-        Base: spaceboar_dead
-      Dead:
-        Base: spaceboar_dead
-  - type: Temperature
-    heatDamageThreshold: 423
-    coldDamageThreshold: 0
-  - type: MovementAlwaysTouching
-  - type: PressureImmunity
-  - type: ProtectedFromStepTriggers
-  - type: Insulated
-  - type: Respirator
-    minSaturation: 5.0
+    - type: SpriteMovement
+      movementLayers:
+        movement:
+          state: spaceboar_moving
+      noMovementLayers:
+        movement:
+          state: spaceboar
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: spaceboar
+        Critical:
+          Base: spaceboar_dead
+        Dead:
+          Base: spaceboar_dead
+    - type: Temperature
+      heatDamageThreshold: 423
+      coldDamageThreshold: 0
+    - type: MovementAlwaysTouching
+    - type: PressureImmunity
+    - type: ProtectedFromStepTriggers
+    - type: Insulated
+    - type: Respirator
+      minSaturation: 5.0
 
 - type: entity
   name: BROS
