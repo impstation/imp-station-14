@@ -205,7 +205,6 @@
     staticPacks:
     - ChemistryStatic
     - SurgeryStatic
-    - OffbrandSurgeryStatic # Offbrand
     - ImpProtoStatic # Imp
     - ReportingStatic # DeltaV
     - SteelBriefcaseImp # Imp
@@ -276,7 +275,6 @@
     - EngineeringBoardsStatic
     - CircuitFloorsStatic
     - ImpCircuitStatic # Imp
-    - OffbrandCircuitboardsStatic # Offbrand
     dynamicPacks:
     - EngineeringBoards
     - CargoBoards
@@ -511,9 +509,7 @@
     - MedicalClothingStatic
     - EmptyMedkitsStatic
     - SurgeryStatic
-    - OffbrandSurgeryStatic # Offbrand
     - ImpMedStatic # Imp
-    - OffbrandMedicalStatic # Offbrand
     dynamicPacks:
     - Chemistry
     - ImpMedDynamic # Imp

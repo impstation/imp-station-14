@@ -25,17 +25,6 @@
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
-  - type: Tending
-    woundWhitelist:
-      tags: [WoundCut, WoundPuncture]
-    damage:
-      types:
-        Slash: -10
-        Piercing: -5
-    tendingBeginSound:
-      path: "/Audio/Items/Medical/brutepack_begin.ogg"
-    tendingEndSound:
-      path: "/Audio/Items/Medical/brutepack_end.ogg"
   - type: Stack
     stackType: SimpleSuture
     count: 10
@@ -78,17 +67,6 @@
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
     healingEndSound:
-      path: "/Audio/Items/Medical/ointment_end.ogg"
-  - type: Tending
-    woundWhitelist:
-      tags: [WoundHeat, WoundShock]
-    damage:
-      types:
-        Shock: -10
-        Heat: -5
-    tendingBeginSound:
-      path: "/Audio/Items/Medical/ointment_begin.ogg"
-    tendingEndSound:
       path: "/Audio/Items/Medical/ointment_end.ogg"
   - type: Stack
     stackType: ShockGel
@@ -133,17 +111,6 @@
       path: "/Audio/Items/appraiser.ogg"
     healingEndSound:
       path: "/Audio/Effects/sparks4.ogg"
-  - type: Tending
-    woundWhitelist:
-      tags: [WoundBruise]
-    damage:
-      types:
-        Blunt: -10
-        Asphyxiation: -5
-    tendingBeginSound:
-      path: "/Audio/Items/appraiser.ogg"
-    tendingEndSound:
-      path: "/Audio/Effects/sparks4.ogg"
   - type: Stack
     stackType: ElectrodePad
     count: 10
@@ -185,17 +152,6 @@
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
     healingEndSound:
-      path: "/Audio/Items/Medical/ointment_end.ogg"
-  - type: Tending
-    woundWhitelist:
-      tags: [WoundBrute, WoundBurn]
-    damage:
-      groups:
-        Brute: -6
-        Burn: -8
-    tendingBeginSound:
-      path: "/Audio/Items/Medical/ointment_begin.ogg"
-    tendingEndSound:
       path: "/Audio/Items/Medical/ointment_end.ogg"
   - type: Stack
     stackType: Tincture
@@ -259,17 +215,6 @@
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
     healingEndSound:
       path: "/Audio/Items/Medical/ointment_end.ogg"
-  - type: Tending
-    woundWhitelist:
-      tags: [WoundCaustic]
-    damage:
-      types:
-        Caustic: -10
-        Slash: 6
-    tendingBeginSound:
-      path: "/Audio/Items/Medical/brutepack_begin.ogg"
-    tendingEndSound:
-      path: "/Audio/Items/Medical/ointment_end.ogg"
   - type: Stack
     stackType: EZGraft
     count: 10
@@ -308,16 +253,6 @@
     healingBeginSound:
       path: "/Audio/Items/Toys/ToyFall2.ogg" #the logic is flawless.
     healingEndSound:
-      path: "/Audio/Items/Medical/ointment_end.ogg"
-  - type: Tending
-    woundWhitelist:
-      tags: [WoundCold]
-    damage:
-      types:
-        Cold: -10
-    tendingBeginSound:
-      path: "/Audio/Items/Toys/ToyFall2.ogg" #the logic is flawless.
-    tendingEndSound:
       path: "/Audio/Items/Medical/ointment_end.ogg"
   - type: EmitSoundOnLand
     sound:
