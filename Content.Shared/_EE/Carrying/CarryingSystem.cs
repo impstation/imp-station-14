@@ -30,6 +30,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 // imp:
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Buckle;
 
 namespace Content.Shared._EE.Carrying;
 
@@ -318,12 +319,10 @@ public sealed partial class CarryingSystem : EntitySystem
         RemComp<KnockedDownComponent>(carried); // TODO SHITMED: make sure this doesnt let you make someone with no legs walk
 
         _actionBlocker.UpdateCanMove(carried);
-        // imp: dont stand if we've been buckled
-        if (!TryComp<BuckleComponent>(carried, out var buckle) || buckle.Buckled == false)
-        {
-            _transform.AttachToGridOrMap(carried);
-            _standingState.Stand(carried);
-        }
+        // imp TODO: dont stand if we've been buckled
+        //if (!TryComp<BuckleComponent>(carried, out var buckle) || buckle.Buckled == false) // <- THIS DOESNT WORK! FUCK!!!
+        _transform.AttachToGridOrMap(carried);
+        _standingState.Stand(carried);
     }
 
     private void ApplyCarrySlowdown(EntityUid carrier, Entity<CarriableComponent?> carried)
