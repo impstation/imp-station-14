@@ -1,11 +1,6 @@
 using Content.Shared._Impstation.Eeep.Components;
 using Content.Shared.DoAfter;
 using Robust.Shared.Serialization;
-using Content.Shared.Whitelist;
-using Content.Shared.Power.Components;
-using Content.Shared.Power.EntitySystems;
-using Content.Shared.APC;
-using Content.Server.Power.Components;
 
 namespace Content.Shared._Impstation.Eeep.Systems;
 
@@ -39,6 +34,7 @@ public abstract class SharedBatteryDrainerEeepSystem : EntitySystem
     {
         if (args.Cancelled || args.Handled || args.Target is not {} target)
             return;
+
         // repeat if there is still power to drain
         args.Repeat = TryDrainPower(ent, target);
     }

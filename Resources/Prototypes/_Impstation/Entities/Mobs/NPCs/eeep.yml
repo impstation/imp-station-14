@@ -135,13 +135,13 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
-  - type: BatteryDrainer
-    drainEfficiency: 0.5
+  - type: BatteryDrainerEeep
+    drainEfficiency: 1
     drainTime: 10
     sparkSound:
      path: /Audio/Effects/PowerSink/charge_fire.ogg
   - type: Battery
-    maxCharge: 250000
+    maxCharge: 5000000
     startingCharge: 0
   - type: ComplexInteraction
   - type: ExaminableBattery
@@ -244,6 +244,7 @@
     allowedStates:
     - Alive
     - Critical
+    - Dead # if engie wants to use a dead eeep as a power source they have to deal with it coming back :)
     damage:
       types:
         Heat: -1

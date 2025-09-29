@@ -8,10 +8,6 @@ using Content.Shared._Impstation.Eeep.Systems;
 using Content.Shared.Popups;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Content.Shared.Whitelist;
-using Content.Server.PowerCell;
-using Content.Shared.PowerCell.Components;
-
 
 namespace Content.Server._Impstation.Eeep.Systems;
 
@@ -24,9 +20,6 @@ public sealed class BatteryDrainerEeepSystem : SharedBatteryDrainerEeepSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly PowerCellSystem _powerCell = default!;
-    [Dependency] private readonly ApcComponent _apcSystem = default!;
 
     public override void Initialize()
     {
@@ -37,7 +30,6 @@ public sealed class BatteryDrainerEeepSystem : SharedBatteryDrainerEeepSystem
         SubscribeLocalEvent<BatteryDrainerEeepComponent, NinjaBatteryChangedEvent>(OnBatteryChanged);
     }
 
-    // imp add
     /// <summary>
     ///     Allow entities who are a battery to use themselves as the battery for this component
     /// </summary>
@@ -51,15 +43,13 @@ public sealed class BatteryDrainerEeepSystem : SharedBatteryDrainerEeepSystem
     /// Start do after for draining a power source.
     /// Can't predict PNBC existing so only done on server.
     /// </summary>
-    private void OnBeforeInteractHand(Entity<BatteryDrainerEeepComponent> ent, ApcComponent component, ref BeforeInteractHandEvent args)
+    private void OnBeforeInteractHand(Entity<BatteryDrainerEeepComponent> ent, ref BeforeInteractHandEvent args)
     {
         var (uid, comp) = ent;
         var target = args.Target;
         if (args.Handled || comp.BatteryUid is not { } battery || !HasComp<PowerNetworkBatteryComponent>(target))
             return;
-        // check whitelist
-        if (_whitelist.IsWhitelistFail(component.Whitelist))
-            return;
+
         // handles even if battery is full so you can actually see the poup
         args.Handled = true;
 
@@ -92,8 +82,6 @@ public sealed class BatteryDrainerEeepSystem : SharedBatteryDrainerEeepSystem
 
         if (ent.Comp.BatteryUid is not {} battery || _battery.IsFull(battery))
             args.Cancel();
-        if (_whitelist.IsWhitelistFail(component.Whitelist, targetEntity))
-            args.Cancel();
     }
 
     /// <inheritdoc/>
@@ -111,17 +99,18 @@ public sealed class BatteryDrainerEeepSystem : SharedBatteryDrainerEeepSystem
             _popup.PopupEntity(Loc.GetString("battery-drainer-empty", ("battery", target)), uid, uid, PopupType.Medium);
             return false;
         }
-
+        /// I HATE MATH I HATE MATH IM CASTING A CURSE ON THIS .CS ///
+        /// making all power sources give the same ammount based on percent charged ///
+        var charge = targetBattery.CurrentCharge / targetBattery.MaxCharge;
+        var powerget = charge * 500000;
+        _battery.SetCharge(comp.BatteryUid.Value, battery.CurrentCharge + powerget);
+        /// taking power away from target ///
         var available = targetBattery.CurrentCharge;
         var required = battery.MaxCharge - battery.CurrentCharge;
-        // higher tier storages can charge more
-        var maxDrained = pnb.MaxSupply * comp.DrainTime;
-        var input = Math.Min(Math.Min(available, required / comp.DrainEfficiency), maxDrained);
+        var maxDrained = battery.MaxCharge - battery.CurrentCharge;
+        var input = Math.Min(Math.Min(available, required), maxDrained);
         if (!_battery.TryUseCharge(target, input, targetBattery))
             return false;
-
-        var output = input * comp.DrainEfficiency;
-        _battery.SetCharge(comp.BatteryUid.Value, battery.CurrentCharge + output, battery);
         // TODO: create effect message or something
         Spawn("EffectSparks", Transform(target).Coordinates);
         _audio.PlayPvs(comp.SparkSound, target);
