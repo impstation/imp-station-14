@@ -10,6 +10,7 @@ using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Humanoid;
 using Content.Shared.Mind;
+using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
@@ -96,7 +97,7 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
             || args.EntityManager.HasComponent<GhoulComponent>(look)) //shouldn't happen because they gib on death but. sanity check
                 continue;
 
-            if ((mobstate.CurrentState == Shared.Mobs.MobState.Dead) || (mobstate.CurrentState == Shared.Mobs.MobState.Critical))
+            if (mobstate.CurrentState != MobState.Alive)
                 Uids.Add(look);
         }
 
