@@ -23,7 +23,7 @@
     accent: eeep
   - type: Bloodstream
     bloodMaxVolume: 200
-    bloodReagent: Cryoxadone
+    bloodReagent: WeldingCoils
   - type: MobMover
   - type: InputMover
   - type: MovementSpeedModifier
@@ -183,7 +183,7 @@
   components:
   - type: Bloodstream
     bloodMaxVolume: 500
-    bloodReagent: Cryoxadone
+    bloodReagent: WeldingCoils
   - type: Electrified
     requirePower: false
     shockDamage: 4
