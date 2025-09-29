@@ -1,13 +1,16 @@
 - type: species
   id: Gingerbread
   name: species-name-gingerbread
-  roundStart: false
+  roundStart: true
   prototype: MobGingerbread
   sprites: MobGingerbreadSprites
   markingLimits: MobHumanMarkingLimits
   dollPrototype: MobGingerbreadDummy
   skinColoration: HumanToned
   defaultSkinTone: "#9a7c5a"
+  maleFirstNames: NamesGingerbreadFirst
+  femaleFirstNames: NamesGingerbreadFirst
+  lastNames: NamesGingerbreadLast
 
 - type: speciesBaseSprites
   id: MobGingerbreadSprites
