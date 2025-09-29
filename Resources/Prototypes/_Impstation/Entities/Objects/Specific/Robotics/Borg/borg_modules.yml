@@ -110,5 +110,14 @@
     hands:
     - item: MailBag
     - item: BorgHoloBellProjector
+    - hand:
+        emptyLabel: borg-slot-mail-empty
+        emptyRepresentative: Paper
+        whitelist:
+          components:
+          - Delivery
+          tags:
+          - Document
+          - Paper
   - type: BorgModuleIcon
     icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: courier-module }

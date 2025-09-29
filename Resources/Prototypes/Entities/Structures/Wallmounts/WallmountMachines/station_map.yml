@@ -95,9 +95,15 @@
       blacklist:
         tags:
         - NoConsoleSound
-    - type: PointLight #imp
-      range: 1.5
-      color: "#58e873"
+    - type: LitOnPowered #imp
+    - type: PointLight
+      color: "#58e873" #imp
+      radius: 2.4 #imp
+      energy: 1.6 #imp
+      enabled: false #imp
+      mask: /Textures/Effects/LightMasks/cone.png #imp
+      autoRot: true #imp
+      castShadows: true #imp
 
 - type: entity
   parent: BaseWallmountMetallic

@@ -246,7 +246,7 @@ public sealed class ThrowingSystem : EntitySystem
         RaiseLocalEvent(user.Value, ref pushEv);
         const float massLimit = 5f;
 
-        if (pushEv.Push || _gravity.IsWeightless(user.Value))
+        if (pushEv.Push)
             _physics.ApplyLinearImpulse(user.Value, -impulseVector / physics.Mass * pushbackRatio * MathF.Min(massLimit, physics.Mass), body: userPhysics);
 
         if (TryComp<DamageOtherOnHitComponent>(uid, out var damage) && TryComp<StaminaComponent>(user, out var stamina)) // imp
