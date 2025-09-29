@@ -38,7 +38,7 @@ public sealed partial class SpeciesPrototype : IPrototype
     /// <summary>
     /// Whether or not the species is available for randomization.
     /// </summary>
-    [DataField(required: true)]
+    [DataField]
     public bool RandomViable { get; private set; }
     // Imp end
 
