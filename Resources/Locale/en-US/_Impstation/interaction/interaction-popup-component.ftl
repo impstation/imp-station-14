@@ -12,6 +12,7 @@ petting-success-goliath = You pet {THE($target)} on {POSS-ADJ($target)} tentacle
 petting-success-hivelord = You pet {THE($target)} on {POSS-ADJ($target)} shifting, oobleck-esque flesh.
 petting-success-hivelordbrood = You pet {THE($target)} and their flesh wraps around your hand in a hug.
 petting-success-basilisk = You pet {THE($target)} on {POSS-ADJ($target)} cool, cold carapace.
+petting-success-boar = You pet {THE($target)} on its big, bristly head.
 
 petting-failure-finfin = You reach out to pet {THE($target)}, but {POSS-ADJ($target)} strangely human eyes make you pause.
 petting-failure-tomato = You try to pet {THE($target)}, but {SUBJECT($target)} {CONJUGATE-BE($target)} gets so excited it rolls away.
@@ -20,6 +21,7 @@ petting-failure-goliath = You try to pet {THE($target)}, but a tentacle wraps ar
 petting-failure-hivelord = You try to pet {THE($target)}, but the flesh seperates to avoid your hand.
 petting-failure-hivelordbrood = You try to pet {THE($target)}, but it darts away quickly.
 petting-failure-basilisk = You try to pet {THE($target)}, but your hand almost freezes off for trying.
+petting-failure-boar = You try to pet {THE($target)}, but it swings its tusks threateningly in your direction.
 
 petting-success-disgustingpig = You insult {THE($target)}, as it deserves.
 petting-failure-disgustingpig = You think about insulting {THE($target)}, but hold your tongue.
