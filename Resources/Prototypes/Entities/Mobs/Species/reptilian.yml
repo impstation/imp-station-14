@@ -5,7 +5,7 @@
   id: BaseMobReptilian
   abstract: true
   components:
-  - type: Absorbable
+  - type: GoobAbsorbable
   - type: HumanoidAppearance
     species: Reptilian
     hideLayersOnEquip:
@@ -79,7 +79,6 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-  - type: Carriable # Carrying system from nyanotrasen.
 
 - type: entity
   parent: BaseSpeciesDummy

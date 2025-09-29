@@ -39,6 +39,7 @@
     - map: [ "back" ]
     - map: [ "enum.HumanoidVisualLayers.TailOversuit" ] # Floof
     - map: [ "neck" ]
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
@@ -85,6 +86,7 @@
     horizontalRotation: 90
   - type: HumanoidAppearance
     species: Human
+  - type: TypingIndicator
   - type: SlowOnDamage
     speedModifierThresholds:
       60: 0.7
@@ -123,10 +125,7 @@
       - !type:WashCreamPieReaction
   - type: StatusEffects
     allowed:
-    - Stutter
     - Electrocution
-    - Drunk
-    - SlurredSpeech
     - RatvarianLanguage
     - PressureImmunity
     - Muted
@@ -171,6 +170,7 @@
   - type: SleepEmitSound
   - type: SSDIndicator
   - type: StandingState
+  - type: Crawler
   - type: Dna
   - type: MindContainer
     showExamineInfo: true
@@ -222,6 +222,7 @@
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
+  - type: Carriable # Carrying system from nyanotrasen.
 
 - type: entity
   save: false
@@ -340,6 +341,7 @@
     - map: [ "back" ]
     - map: [ "enum.HumanoidVisualLayers.TailOversuit" ]
     - map: [ "neck" ]
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
@@ -355,7 +357,7 @@
   - type: Body
     prototype: Human
     requiredLegs: 2
-  - type: Absorbable
+  - type: GoobAbsorbable
   - type: UserInterface
     interfaces:
       enum.HumanoidMarkingModifierKey.Key: # sure, this can go here too

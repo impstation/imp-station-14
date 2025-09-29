@@ -101,7 +101,6 @@
       types: {}
   - type: StatusEffects # Overwriting basesimplemob to remove flash, getting flashed as dragon just feelsbad
     allowed:
-    - Stutter
     - Electrocution
     - TemporaryBlindness
     - Pacified
@@ -116,7 +115,7 @@
     groups:
     - id: Medicine
     - id: Poison
-  - type: Absorbable # imp
+  - type: GoobAbsorbable # imp
     biomassRestored: 0.8
   - type: Butcherable
     spawned:

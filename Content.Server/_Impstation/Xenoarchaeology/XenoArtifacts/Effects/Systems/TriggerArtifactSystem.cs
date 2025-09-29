@@ -1,6 +1,6 @@
-using Content.Server.Explosion.EntitySystems;
 using Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Components;
 using Content.Server.Xenoarchaeology.XenoArtifacts.Events;
+using Content.Shared.Trigger.Systems;
 
 namespace Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Systems;
 

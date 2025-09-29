@@ -1865,6 +1865,19 @@
   recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
+  id: RecipeBerryDelight
+  name: berry delight recipe
+  result: FoodCakeBerryDelight
+  time: 5
+  group: Cake
+  solids:
+    FoodCakePlain: 1
+    FoodBerries: 5
+  reagents:
+    Milk: 10
+  recipeType: Assembler #imp
+
+- type: microwaveMealRecipe
   id: RecipeBreadDog
   name: bread dog recipe
   result: MobBreadDog
@@ -2538,6 +2551,7 @@
     FoodTacoShell: 1
     FoodMeatDragonCutlet: 2
     FoodChiliPepper: 1
+  recipeType: Oven # imp
 
 - type: microwaveMealRecipe
   id: RecipeCroissant
@@ -2628,7 +2642,7 @@
   time: 10
   solids:
     FoodBreadCottonSlice: 2
-    FoodCheeseSlice: 1
+    FoodStringCheeseStrand: 1 #imp
     FoodButterSlice: 1
   recipeType: Oven # Frontier
 
@@ -2673,7 +2687,7 @@
     MobMothroach: 1
     OrganAnimalHeart: 1
     MoproachShoes: 1
-  recipeType: Microwave # Frontier
+  recipeType: Assembler # imp
 
 - type: microwaveMealRecipe
   id: RecipeCottonCake

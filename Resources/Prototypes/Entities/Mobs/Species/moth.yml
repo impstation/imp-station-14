@@ -5,7 +5,7 @@
   id: BaseMobMoth
   abstract: true
   components:
-  - type: Absorbable
+  - type: GoobAbsorbable
   - type: HumanoidAppearance
     species: Moth
     hideLayersOnEquip:
@@ -58,7 +58,7 @@
   - type: Flammable
     damage:
       types:
-        Heat: 4.5 # moths burn more easily
+        Heat: 2.5 # moths burn more easily
   - type: Temperature # Moths hate the heat and thrive in the cold.
     heatDamageThreshold: 320
     coldDamageThreshold: 230
@@ -114,6 +114,7 @@
       - map: [ "back" ]
       - map: [ "enum.HumanoidVisualLayers.TailOversuit" ] # Floof
       - map: [ "neck" ]
+      - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
       # headside was here
@@ -142,7 +143,7 @@
 #      outerClothing: #imp
 #        sizeMaps:
 #          32:
-#            sprite: Mobs/Species/Moth/displacement.rsi 
+#            sprite: Mobs/Species/Moth/displacement.rsi
 #            state: outerclothing
       gloves:
         sizeMaps:
@@ -180,7 +181,6 @@
           32:
             sprite: _Impstation/Mobs/Species/Moth/displacement.rsi #imp
             state: shoes
-  - type: Carriable # Carrying system from nyanotrasen.
 
 - type: entity
   parent: BaseSpeciesDummy

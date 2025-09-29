@@ -206,6 +206,15 @@
     primaryCurrency: Telecrystal #imp edit
     purchasePriority: 3 #imp edit
 
+- type: entity
+  parent: MindRoleNukeops
+  id: MindRoleLoneops
+  name: Loneops Operative Role
+  components:
+  - type: MindRole
+    roleType: SoloAntagonist
+    antagPrototype: NukeopsLone #imp
+
 # Revolutionaries
 - type: entity
   parent: BaseMindRoleAntag
@@ -320,3 +329,18 @@
     exclusiveAntag: true
     subtype: role-subtype-zombie
   - type: ZombieRole
+
+# Changeling
+#- type: entity
+#  parent: BaseMindRoleAntag
+#  id: MindRoleChangeling
+#  name: Changeling Role
+#  components:
+#  - type: MindRole
+#    antagPrototype: Changeling
+#    exclusiveAntag: true
+#    roleType: SoloAntagonist
+#    subtype: role-subtype-changeling
+#  - type: ChangelingRole
+#  - type: RoleBriefing
+#    briefing: changeling-briefing
