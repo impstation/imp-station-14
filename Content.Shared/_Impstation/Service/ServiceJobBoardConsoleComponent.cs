@@ -22,10 +22,16 @@ public sealed partial class ServiceJobBoardConsoleComponent : Component
 public sealed class ServiceJobBoardConsoleState : BoundUserInterfaceState
 {
     public List<ProtoId<ServiceJobPrototype>> AvailableJobs;
+    public ProtoId<ServiceJobPrototype>? ActiveJob;
+    public TimeSpan? EndTime;
 
-    public ServiceJobBoardConsoleState(List<ProtoId<ServiceJobPrototype>> availableJobs)
+    public ServiceJobBoardConsoleState(List<ProtoId<ServiceJobPrototype>> availableJobs,
+    ProtoId<ServiceJobPrototype>? activeJob,
+    TimeSpan? endTime)
     {
         AvailableJobs = availableJobs;
+        ActiveJob = activeJob;
+        EndTime = endTime;
     }
 }
 

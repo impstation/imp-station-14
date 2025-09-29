@@ -30,6 +30,11 @@ public sealed partial class ServiceJobBoardMenu : FancyWindow
             var entry = new ServiceJobEntry(_prototypeManager.Index(job), _entityManager);
             entry.OnSelectButtonPressed += () => OnSelectButtonPressed?.Invoke(job);
 
+            entry.Disabled = state.ActiveJob != null;
+            entry.Selected = state.ActiveJob == job;
+
+            // TODO: show time remaining
+
             CurrentJobContainer.AddChild(entry);
         }
     }

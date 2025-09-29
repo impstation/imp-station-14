@@ -22,7 +22,7 @@
       sprite: _Impstation/Structures/Machines/computers.rsi
   - type: ServiceJobBoardConsole
   - type: ActivatableUI
-    key: enum.SalvageJobBoardUiKey.Key
+    key: enum.ServiceJobBoardUiKey.Key
   - type: UserInterface
     interfaces:
       enum.ServiceJobBoardUiKey.Key:
@@ -45,6 +45,6 @@
   description: A computer printed circuit board for a service job board computer.
   components:
   - type: Sprite
-    state: cpu_supply
+    state: cpu_service
   - type: ComputerBoard
     prototype: ComputerServiceJobBoard

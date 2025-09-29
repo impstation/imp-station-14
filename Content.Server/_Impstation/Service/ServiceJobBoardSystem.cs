@@ -79,7 +79,9 @@ public sealed class ServiceJobBoardSystem : EntitySystem
     private void UpdateUi(Entity<ServiceJobBoardConsoleComponent> ent, Entity<ServiceJobsDataComponent> stationEnt)
     {
         var state = new ServiceJobBoardConsoleState(
-            GetJobs(stationEnt));
+            GetJobs(stationEnt),
+            stationEnt.Comp.ActiveJob,
+            stationEnt.Comp.EndTime);
 
         _ui.SetUiState(ent.Owner, ServiceJobBoardUiKey.Key, state);
     }
