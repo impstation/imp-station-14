@@ -2,7 +2,6 @@ using Content.Server.Body.Systems;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Stack;
-using Content.Server.Xenoarchaeology.XenoArtifacts; //imp
 using Content.Shared._Goobstation.Changeling; //imp
 using Content.Server.Storage.Components;
 using Content.Shared.Body.Components;

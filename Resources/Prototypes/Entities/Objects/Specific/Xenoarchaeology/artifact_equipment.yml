@@ -49,7 +49,6 @@
         - XenoArtifact
     - type: Weldable
     - type: SuppressArtifactContainer
-    - type: OldSuppressArtifactContainer #IMP
     - type: RadiationBlockingContainer
       resistance: 5
     - type: PlaceableSurface
@@ -141,7 +140,6 @@
   - type: Lock
   - type: LockedStorage
   - type: SuppressArtifactContainer
-  - type: OldSuppressArtifactContainer #IMP
   - type: RadiationBlockingContainer
     resistance: 5
   - type: EmitSoundOnLand
