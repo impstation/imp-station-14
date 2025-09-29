@@ -4,6 +4,7 @@ using Content.Server.Power.EntitySystems;
 using Content.Server.Stack;
 using Content.Server.Xenoarchaeology.XenoArtifacts; //imp
 using Content.Shared._Goobstation.Changeling; //imp
+using Content.Server.Storage.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Damage;
 using Content.Shared.Power;
@@ -28,7 +29,6 @@ public sealed class ArtifactCrusherSystem : SharedArtifactCrusherSystem
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly ArtifactSystem _artifact = default!; //#IMP
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -105,10 +105,6 @@ public sealed class ArtifactCrusherSystem : SharedArtifactCrusherSystem
                     ContainerSystem.Insert((stack, null, null, null), crusher.OutputContainer);
                 }
             }
-
-            //#IMP
-            if (HasComp<ArtifactComponent>(contained))
-                _artifact.ForceActivateArtifact(contained);
 
             if (!TryComp<BodyComponent>(contained, out var body))
                 Del(contained);

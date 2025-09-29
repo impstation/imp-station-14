@@ -1,5 +1,4 @@
 using Robust.Shared.Serialization;
-using Content.Shared.Actions; //#IMP
 
 namespace Content.Shared.Xenoarchaeology.XenoArtifacts;
 
