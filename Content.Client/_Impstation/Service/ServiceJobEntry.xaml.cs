@@ -19,9 +19,9 @@ public sealed partial class ServiceJobEntry : BoxContainer
     {
         RobustXamlLoader.Load(this);
 
-        NameLabel.SetMarkup(Loc.GetString($"service-job-board-name-{job.ID}"));
+        NameLabel.SetMarkup(Loc.GetString(job.Name));
         DescriptionLabel.SetMarkup(Loc.GetString(job.Description));
-        TimerLabel.SetMarkup(Loc.GetString("service-job-board-timer-label", ("timer", job.Timer.ToString())));
+        TimerLabel.SetMarkup(Loc.GetString("service-job-console-timer-label", ("timer", job.Timer.ToString())));
 
         if (job.Sprite != null)
         {

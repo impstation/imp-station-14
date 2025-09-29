@@ -33,7 +33,7 @@ public sealed partial class ServiceJobBoardMenu : FancyWindow
             entry.Disabled = state.ActiveJob != null;
             entry.Selected = state.ActiveJob == job;
 
-            // TODO: show time remaining
+            // TODO: show time remaining?
 
             CurrentJobContainer.AddChild(entry);
         }

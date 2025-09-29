@@ -1,10 +1,14 @@
 using System.Linq;
+using Content.Server.Announcements.Systems;
+using Content.Server.Database;
 using Content.Server.Radio.EntitySystems;
 using Content.Server.Station.Systems;
 using Content.Shared._Impstation.Service;
 using Robust.Server.GameObjects;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Impstation.Service;
 
@@ -15,12 +19,17 @@ namespace Content.Server._Impstation.Service;
 /// </summary>
 public sealed class ServiceJobBoardSystem : EntitySystem
 {
+    [Dependency] private readonly AnnouncerSystem _announcer = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
-
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+
+    private static readonly string AnnouncementId = "commandReport";
+    private static readonly string AnnouncementName = "Station Event";
+    private static readonly Color AnnouncementColor = Color.FromHex("#88BE14");
 
     public override void Initialize()
     {
@@ -30,6 +39,30 @@ public sealed class ServiceJobBoardSystem : EntitySystem
             {
                 subs.Event<ServiceJobBoardSelectMessage>(OnSelectMessage);
             });
+    }
+
+    public override void Update(float frameTime)
+    {
+        var query = EntityQueryEnumerator<ServiceJobsDataComponent>();
+        var curTime = _timing.CurTime;
+
+        while (query.MoveNext(out _, out var data))
+        {
+            var job = _prototypeManager.Index(data.ActiveJob);
+            if (data.EndTime != null &&
+                job != null &&
+                data.EndTime.Value < curTime)
+            {
+                _announcer.SendAnnouncement(
+                    _announcer.GetAnnouncementId(AnnouncementId),
+                    Filter.Broadcast(),
+                    job.StartAnnounce,
+                    AnnouncementName,
+                    AnnouncementColor);
+
+                data.EndTime = null;
+            }
+        }
     }
 
     private void OnBUIOpened(Entity<ServiceJobBoardConsoleComponent> ent, ref BoundUIOpenedEvent args)
@@ -54,15 +87,16 @@ public sealed class ServiceJobBoardSystem : EntitySystem
             return;
 
         if (jobData.StationJobs != null &&
-            !jobData.StationJobs.Contains(job)) // TODO check this actually works
+            !jobData.StationJobs.Contains(job))
             return;
 
         jobData.ActiveJob = job;
+        jobData.EndTime = _timing.CurTime + job.Timer;
 
-        // disable shit
-        // setup announce for comms console
-
-        var message = Loc.GetString(job.SelectAnnounce);
+        var message = Loc.GetString(
+            "service-job-console-select-announce",
+            ("event", Loc.GetString(job.Name)),
+            ("timer", job.Timer.ToString()));
         _radio.SendRadioMessage(ent, message, ent.Comp.AnnounceChannel, ent, false);
 
         // we need to update the state of all computers, not just the one in use

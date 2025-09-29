@@ -17,22 +17,22 @@ public sealed partial class ServiceJobPrototype : IPrototype
     public string ID { get; private set; } = default!;
 
     /// <summary>
+    ///     Name of the event.
+    /// </summary>
+    [DataField(required: true)]
+    public LocId Name = string.Empty;
+
+    /// <summary>
     ///     Description of the event.
     /// </summary>
     [DataField]
     public LocId Description = string.Empty;
 
     /// <summary>
-    ///     Announcement to be sent over comms when the event is selected.
-    /// </summary>
-    [DataField(required: true)]
-    public LocId SelectAnnounce = string.Empty;
-
-    /// <summary>
     ///     Timer from when the event is selected to when the event is announced over station communications.
     /// </summary>
     [DataField]
-    public TimeSpan Timer = TimeSpan.FromMinutes(45);
+    public TimeSpan Timer = TimeSpan.FromMinutes(1);
 
     /// <summary>
     ///     Announcement to be sent over station-wide communications when the timer expires.
