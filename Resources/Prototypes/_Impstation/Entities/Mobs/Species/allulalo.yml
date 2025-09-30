@@ -74,12 +74,13 @@
     proto: moth
   - type: Vocal
     sounds:
-      Male: MaleMoth #PLACEHOLDER
-      Female: FemaleMoth
-      Unsexed: UnisexMoth
+      Male: Allulalo
+      Female: Allulalo
+      Unsexed: Allulalo
   - type: Speech
+    speechSounds: Allulalo
     speechVerb: Arachnid
-    allowedEmotes: ['Chitter', 'Squeak'] #PLACEHOLDER
+    allowedEmotes: ['Chitter', 'Hiss']
   - type: HumanoidAppearance
     species: Allulalo
     hideLayersOnEquip:
