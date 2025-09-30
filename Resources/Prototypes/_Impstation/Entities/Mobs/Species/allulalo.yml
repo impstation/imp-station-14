@@ -28,10 +28,11 @@
     prototype: Allulalo
     requiredLegs: 2
   - type: UnableToWield
+  - type: TooShortForUI
   - type: AllulaloAccent
   - type: Damageable
     damageContainer: Biological
-    damageModifierSet: Moth #PLACEHOLDER
+    #damageModifierSet:
   - type: Bloodstream
     bloodMaxVolume: 250 #should be 50 less than the default of 300. theyre small
     bloodReagent: BloodAllulalo
