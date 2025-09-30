@@ -1,25 +1,4 @@
 ﻿Entries:
-- author: mqole
-  changes:
-  - message: another piskun upstream merge!
-    type: Add
-  id: 1798
-  time: '2025-06-10T08:44:58.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2711
-- author: DinnerCalzone
-  changes:
-  - message: Train has been updated to feature genpop.
-    type: Add
-  id: 1799
-  time: '2025-06-10T11:50:46.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2713
-- author: hivehum
-  changes:
-  - message: Ammo no longer errors out when you hold it wrong.
-    type: Fix
-  id: 1800
-  time: '2025-06-10T22:35:42.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2715
 - author: DinnerCalzone
   changes:
   - message: The soap and bleach reagents can now clean decals and puddles similar
@@ -4204,3 +4183,25 @@
   id: 2297
   time: '2025-09-28T10:31:20.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3517
+- author: entings
+  changes:
+  - message: 'Alert: Wild boar have been found infesting the station''s ventilation
+      systems.'
+    type: Add
+  id: 2298
+  time: '2025-09-28T22:46:10.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3478
+- author: honeyed-lemons
+  changes:
+  - message: Heretics can now make ghouls again.. Huzzah!
+    type: Fix
+  id: 2299
+  time: '2025-09-28T22:47:21.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3519
+- author: hivehum
+  changes:
+  - message: Poly's name is spelled correctly.
+    type: Fix
+  id: 2300
+  time: '2025-09-29T00:53:40.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3521
