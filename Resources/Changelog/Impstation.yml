@@ -1,62 +1,4 @@
 ﻿Entries:
-- author: Mousetrinity
-  changes:
-  - message: check your exotic seed crates, a new flower has made its way onto the
-      scene!
-    type: Add
-  id: 1793
-  time: '2025-06-09T06:40:29.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2678
-- author: meridiadottxt
-  changes:
-  - message: added Eclipse Starport, an 80-pop map from Harmony!
-    type: Add
-  id: 1794
-  time: '2025-06-09T06:42:14.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2687
-- author: hivehum
-  changes:
-  - message: Traitors are more likely to roll more than two objectives.
-    type: Tweak
-  id: 1795
-  time: '2025-06-09T23:05:17.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2701
-- author: hivehum
-  changes:
-  - message: The gnome child is normal and not large.
-    type: Tweak
-  id: 1796
-  time: '2025-06-09T23:05:47.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2700
-- author: AirFryerBuyOneGetOneFree
-  changes:
-  - message: Added 11 new traitor objectives. Gimmick objectives can now also only
-      roll once per traitor.
-    type: Add
-  id: 1797
-  time: '2025-06-10T11:50:21.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2710
-- author: mqole
-  changes:
-  - message: another piskun upstream merge!
-    type: Add
-  id: 1798
-  time: '2025-06-10T08:44:58.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2711
-- author: DinnerCalzone
-  changes:
-  - message: Train has been updated to feature genpop.
-    type: Add
-  id: 1799
-  time: '2025-06-10T11:50:46.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2713
-- author: hivehum
-  changes:
-  - message: Ammo no longer errors out when you hold it wrong.
-    type: Fix
-  id: 1800
-  time: '2025-06-10T22:35:42.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2715
 - author: DinnerCalzone
   changes:
   - message: The soap and bleach reagents can now clean decals and puddles similar
@@ -4194,3 +4136,72 @@
   id: 2292
   time: '2025-09-23T16:27:28.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3443
+- author: formlessnameless
+  changes:
+  - message: Offmed is no longer with us.
+    type: Remove
+  id: 2293
+  time: '2025-09-25T18:23:07.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3507
+- author: ATDoop
+  changes:
+  - message: Discount Dan has released an exciting new lineup of Shrimp Derived BioProducts!
+      Visit your local ShrimpVend today!
+    type: Add
+  id: 2294
+  time: '2025-09-27T09:13:10.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3512
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: The Ouroboros will eat its veggies now
+    type: Fix
+  id: 2295
+  time: '2025-09-27T10:13:43.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3474
+- author: TheGrimbeeper
+  changes:
+  - message: Xenoarch - tweak expression trigger range
+    type: Tweak
+  - message: Xenoarch - fix a missing hint
+    type: Fix
+  - message: Xenoarch - fix artifacts not going through their own portals
+    type: Fix
+  - message: Xenoarch - fix teleporting artifacts not saying goodbye to the artifact
+      analyzer
+    type: Fix
+  - message: Xenoarch - fix natural artifacts ignoring artifexium
+    type: Fix
+  id: 2296
+  time: '2025-09-27T11:48:18.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3415
+- author: 12rabbits
+  changes:
+  - message: The courier module now has a hand for picking up paper and mail.
+    type: Add
+  - message: Cargo cyborgs now start with a tools module like all other cyborgs.
+    type: Tweak
+  id: 2297
+  time: '2025-09-28T10:31:20.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3517
+- author: entings
+  changes:
+  - message: 'Alert: Wild boar have been found infesting the station''s ventilation
+      systems.'
+    type: Add
+  id: 2298
+  time: '2025-09-28T22:46:10.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3478
+- author: honeyed-lemons
+  changes:
+  - message: Heretics can now make ghouls again.. Huzzah!
+    type: Fix
+  id: 2299
+  time: '2025-09-28T22:47:21.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3519
+- author: hivehum
+  changes:
+  - message: Poly's name is spelled correctly.
+    type: Fix
+  id: 2300
+  time: '2025-09-29T00:53:40.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3521

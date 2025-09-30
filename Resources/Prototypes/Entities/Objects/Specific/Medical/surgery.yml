@@ -11,14 +11,6 @@
   - type: Tag
     tags:
     - SurgeryTool
-  # Begin Offbrand
-  - type: SurgeryTool
-    slotsToCheck: [INNERCLOTHING, OUTERCLOTHING]
-    slotsDenialPopup: surgery-must-be-stripped
-    downDenialPopup: surgery-must-be-down
-    whitelist:
-      tags: [OperatableClothing]
-  # End Offbrand
 
 # Cautery
 
@@ -29,11 +21,10 @@
   description: A surgical tool used to cauterize open wounds.
   components:
   - type: Sprite
-    sprite: _Offbrand/surgery_tools.rsi # Offbrand
+    sprite: Objects/Specific/Medical/Surgery/cautery.rsi
     state: cautery
   - type: Item
-    sprite: _Offbrand/surgery_tools.rsi # Offbrand
-    heldPrefix: cautery # Offbrand
+    sprite: Objects/Specific/Medical/Surgery/cautery.rsi
     storedRotation: 90
   - type: MeleeWeapon
     damage:
@@ -41,11 +32,6 @@
         Heat: 5
     soundHit:
       path: /Audio/Effects/lightburn.ogg
-  - type: Tool # Offbrand
-    qualities:
-    - Cauterizing
-    useSound:
-      collection: Cautery
   # imp edits #
   - type: DamageOtherOnHit
   - type: ThrowingAngle
@@ -61,14 +47,13 @@
   description: A surgical drill for making holes into hard material.
   components:
   - type: Sprite
-    sprite: _Offbrand/surgery_tools.rsi # Offbrand
+    sprite: Objects/Specific/Medical/Surgery/drill.rsi
     state: drill
   - type: Item
-    sprite: _Offbrand/surgery_tools.rsi # Offbrand
-    heldPrefix: drill # Offbrand
+    sprite: Objects/Specific/Medical/Surgery/drill.rsi
     shape:
     - 0,0,1,0
-    - 0,1,0,1 # Offbrand
+    - 1,1,1,1
   - type: MeleeWeapon
     damage:
       types:
@@ -88,9 +73,6 @@
   - type: ThrowingAngle
     angle: 90
   # end imp edits #
-  - type: Tool # Offbrand
-    qualities:
-    - Drilling
 
 # Scalpel
 
@@ -104,21 +86,16 @@
     butcherDelayModifier: 1.5 # Butchering with a scalpel, regardless of the type, will take 50% longer
   - type: Tool
     qualities:
-    # - Slicing # Offbrand
-    - Incising # Offbrand
-    speedModifier: 1 # Offbrand
-    useSound:
-      collection: Scalpel
-  # Offbrand
-  # - type: Utensil
-  #   types:
-  #     - Knife
+    - Slicing
+    speedModifier: 0.66 # pretend the sixes go on forever :)
+  - type: Utensil
+    types:
+      - Knife
   - type: Sprite
-    sprite: _Offbrand/surgery_tools.rsi # Offbrand
+    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
     state: scalpel
   - type: Item
-    sprite: _Offbrand/surgery_tools.rsi # Offbrand
-    heldPrefix: scalpel # Offbrand
+    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
     storedRotation: 90
   - type: MeleeWeapon
     wideAnimationRotation: 90
@@ -145,10 +122,8 @@
   description: A pointy piece of glass, abraded to an edge and wrapped in tape for a handle. # Could become a decent tool or weapon with right tool mods.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi # Offbrand
     state: shiv
   - type: Item
-    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi # Offbrand
     heldPrefix: shiv
 
 - type: entity
@@ -158,9 +133,9 @@
   description: Made of more expensive materials, sharper and generally more reliable.
   components:
   - type: Sprite
-    state: e_scalpel # Offbrand
+    state: advanced
   - type: Item
-    heldPrefix: e_scalpel # Offbrand
+    heldPrefix: advanced
   - type: MeleeWeapon
     damage:
       types:
@@ -173,10 +148,8 @@
   description: A scalpel which uses a directed laser to slice instead of a blade, for more precise surgery while also cauterizing as it cuts.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi # Offbrand
     state: laser
   - type: Item
-    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi # Offbrand
     heldPrefix: laser
 
 # Scissors
@@ -188,11 +161,10 @@
   description: A surgical tool used to hold open incisions.
   components:
   - type: Sprite
-    sprite: _Offbrand/surgery_tools.rsi # Offbrand
+    sprite: Objects/Specific/Medical/Surgery/scissors.rsi
     state: retractor
   - type: Item
-    sprite: _Offbrand/surgery_tools.rsi # Offbrand
-    heldPrefix: retractor # Offbrand
+    sprite: Objects/Specific/Medical/Surgery/scissors.rsi
     storedRotation: 90
   # imp edits #
   - type: MeleeWeapon
@@ -211,11 +183,6 @@
   - type: EmbeddableProjectile
   - type: EmbedPassiveDamage
   # end imp edits #
-  - type: Tool # Offbrand
-    qualities:
-    - Retracting
-    useSound:
-      collection: Retractor
 
 - type: entity
   name: hemostat
@@ -224,7 +191,7 @@
   description: A surgical tool used to compress blood vessels to prevent bleeding.
   components:
   - type: Sprite
-    state: hemostat # Offbrand
+    state: hemostat
   - type: Item
     heldPrefix: hemostat
     storedRotation: 90
@@ -244,11 +211,7 @@
   - type: ThrowingAngle
     angle: 90
   # end imp edits #
-  - type: Tool # Offbrand
-    qualities:
-    - Clamping
-    useSound:
-      collection: Hemostat
+
 
   # - type: entity
   #   name: bone setter
@@ -265,10 +228,9 @@
   description: For cutting wood and other objects to pieces. Or sawing bones, in case of emergency.
   components:
   - type: Sharp
-  # Offbrand
-  # - type: Utensil
-  #   types:
-  #     - Knife
+  - type: Utensil
+    types:
+      - Knife
   - type: Sprite
     sprite: Objects/Specific/Medical/Surgery/saw.rsi
     state: saw

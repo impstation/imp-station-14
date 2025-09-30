@@ -18,3 +18,6 @@ reagent-desc-supermixerpsych = A touch of introspection to keep down the heat!
 
 reagent-name-moonrise = Moonrise Blend
 reagent-desc-moonrise = A summer classic from the planet of Cernunnos, this frosty delight is perfect for ushering in the sunset.
+
+reagent-name-shrimpsoda = shrimp soda
+reagent-desc-shrimpsoda = A revolting melange of millions of CO2 infused microshrimps.

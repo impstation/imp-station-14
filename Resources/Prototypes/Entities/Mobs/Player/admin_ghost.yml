@@ -218,7 +218,7 @@
   components:
   - type: Action
     icon: { sprite: Interface/Actions/actions_ai.rsi, state: station_records } #imp edit - use a real sprite for this since it's going on the AI as well.
-    iconOn: Interface/Actions/actions_ai.rsi/station_records.png
+    iconOn: { sprite: Interface/Actions/actions_ai.rsi, state: station_records }
     keywords: [ "AI", "console", "interface" ]
     priority: -10
   - type: InstantAction
