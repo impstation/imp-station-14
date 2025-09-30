@@ -226,14 +226,15 @@ namespace Content.Shared.Preferences
         // Imp start. this function is fairly different from upstream now.
         // But upstreaming this would take so long that the species will be fully merged by then
         // Therefore: bear with my changes
-        public static HumanoidCharacterProfile Random(bool characterCreation = true)
+        public static HumanoidCharacterProfile Random(bool characterCreation = true, HashSet<string>? speciesBlacklist = null)
         {
             var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
             var random = IoCManager.Resolve<IRobustRandom>();
 
             var species = random.Pick(prototypeManager
                 .EnumeratePrototypes<SpeciesPrototype>()
-                .Where(x => characterCreation ? x.RoundStart: x.RandomViable)
+                .Where(x => (speciesBlacklist == null || !speciesBlacklist.Contains(x.ID)) &&
+                            (characterCreation ? x.RoundStart : x.RandomViable))
                 .ToArray()
             )
             .ID;
