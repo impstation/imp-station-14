@@ -233,8 +233,14 @@ namespace Content.Shared.Preferences
 
             var species = random.Pick(prototypeManager
                 .EnumeratePrototypes<SpeciesPrototype>()
-                .Where(x => (speciesBlacklist == null || !speciesBlacklist.Contains(x.ID)) &&
-                            (characterCreation ? x.RoundStart : x.RandomViable))
+                .Where(x =>
+                {
+                    if (speciesBlacklist != null && speciesBlacklist.Contains(x.ID))
+                        return false;
+                    if (characterCreation)
+                        return x.RoundStart;
+                    return random.NextFloat() < x.RandomChance && x.RandomViable;
+                })
                 .ToArray()
             )
             .ID;

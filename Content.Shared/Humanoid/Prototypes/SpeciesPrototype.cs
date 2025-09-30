@@ -40,6 +40,13 @@ public sealed partial class SpeciesPrototype : IPrototype
     /// </summary>
     [DataField]
     public bool RandomViable { get; private set; }
+
+    /// <summary>
+    /// When a random species is picked, verify random float is lower than this number
+    /// if not, don't pick the species
+    /// </summary>
+    [DataField]
+    public float RandomChance { get; private set; } = 1f;
     // Imp end
 
     // The below two are to avoid fetching information about the species from the entity
