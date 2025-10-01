@@ -2,14 +2,14 @@ using Content.Server.Body.Systems;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Stack;
-using Content.Server.Storage.Components;
-using Content.Server.Xenoarchaeology.XenoArtifacts; //#IMP
+using Content.Server.Xenoarchaeology.XenoArtifacts; //imp
+using Content.Shared._Goobstation.Changeling; //imp
 using Content.Shared.Body.Components;
 using Content.Shared.Damage;
 using Content.Shared.Power;
+using Content.Shared.Storage.Components;
 using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
-using Content.Shared.Changeling; //#IMP
 using Content.Shared.Xenoarchaeology.Equipment;
 using Content.Shared.Xenoarchaeology.Equipment.Components;
 using Robust.Shared.Collections;
@@ -113,7 +113,7 @@ public sealed class ArtifactCrusherSystem : SharedArtifactCrusherSystem
             if (!TryComp<BodyComponent>(contained, out var body))
                 Del(contained);
 
-            if (!HasComp<ChangelingComponent>(contained)) //#IMP if statement to make changelings immune
+            if (!HasComp<GoobChangelingComponent>(contained)) //#IMP if statement to make changelings immune
             {
                 var gibs = _body.GibBody(contained, body: body, gibOrgans: true);
                 foreach (var gib in gibs)

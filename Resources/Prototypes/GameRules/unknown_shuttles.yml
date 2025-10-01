@@ -16,7 +16,6 @@
     - id: UnknownShuttleGym
     - id: UnknownShuttleNTIncorporation
     - id: UnknownShuttleJoe
-    - id: UnknownShuttleLambordeere
     - id: UnknownShuttleMeatZone
     - id: UnknownShuttleMicroshuttle
     - id: UnknownShuttleSpacebus
@@ -29,6 +28,7 @@
       tableId: UnknownShuttlesFreelanceTableDV
     - id: UnknownShuttleSyndieEvacPod
     - id: UnknownShuttlePartyUFO #imp
+    - id: UnknownShuttleLambordeere #imp moved because no longer crew aligned
 
 - type: entityTable
   id: UnknownShuttlesHostileTable
@@ -200,6 +200,8 @@
   components:
   - type: StationEvent
     startAnnouncement: true #!!
+    weight: 5 #imp
+    minimumPlayers: 15 #imp
   - type: LoadMapRule
     preloadedGrid: Lambordeere
 

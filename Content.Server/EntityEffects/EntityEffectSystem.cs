@@ -1,6 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
@@ -22,6 +21,7 @@ using Content.Server.Temperature.Systems;
 using Content.Server.Traits.Assorted;
 using Content.Server.Zombies;
 using Content.Shared.Atmos;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.EntityEffects.EffectConditions;
@@ -45,6 +45,8 @@ using Content.Shared._Impstation.EntityEffects.Effects; // imp
 using Content.Shared._Impstation.Ghost; // imp
 using Content.Shared.Chemistry.Reagent; // imp
 using Content.Shared.Humanoid; // imp
+using Content.Server.Xenoarchaeology.XenoArtifacts; // imp
+
 
 using TemperatureCondition = Content.Shared.EntityEffects.EffectConditions.Temperature; // disambiguate the namespace
 using PolymorphEffect = Content.Shared.EntityEffects.Effects.Polymorph;
@@ -136,6 +138,7 @@ public sealed class EntityEffectSystem : EntitySystem
         SubscribeLocalEvent<ExecuteEntityEffectEvent<MakeSyndient>>(OnExecuteMakeSyndient); // imp
         SubscribeLocalEvent<ExecuteEntityEffectEvent<Medium>>(OnExecuteMedium); // Imp
         SubscribeLocalEvent<ExecuteEntityEffectEvent<MakeTame>>(OnExecuteMakeTame); // imp
+        SubscribeLocalEvent<ExecuteEntityEffectEvent<ActivateArtifact>>(OnExecuteActivateArtifact); // imp
     }
 
     private void OnCheckTemperature(ref CheckEntityEffectConditionEvent<TemperatureCondition> args)
@@ -899,7 +902,7 @@ public sealed class EntityEffectSystem : EntitySystem
         if (plantholder.Seed == null)
             return;
 
-        var gasses = plantholder.Seed.ExudeGasses;
+        var gasses = plantholder.Seed.ConsumeGasses;
 
         // Add a random amount of a random gas to this gas dictionary
         float amount = _random.NextFloat(args.Effect.MinValue, args.Effect.MaxValue);
@@ -921,7 +924,7 @@ public sealed class EntityEffectSystem : EntitySystem
         if (plantholder.Seed == null)
             return;
 
-        var gasses = plantholder.Seed.ConsumeGasses;
+        var gasses = plantholder.Seed.ExudeGasses;
 
         // Add a random amount of a random gas to this gas dictionary
         float amount = _random.NextFloat(args.Effect.MinValue, args.Effect.MaxValue);
@@ -1055,6 +1058,12 @@ public sealed class EntityEffectSystem : EntitySystem
         var uid = args.Args.TargetEntity;
 
         entityManager.EnsureComponent<MediumComponent>(uid);
+    }
+
+    private void OnExecuteActivateArtifact(ref ExecuteEntityEffectEvent<ActivateArtifact> args)
+    {
+        var artifact = args.Args.EntityManager.EntitySysManager.GetEntitySystem<ArtifactSystem>();
+        artifact.TryActivateArtifact(args.Args.TargetEntity, logMissing: false);
     }
 
 }

@@ -5,7 +5,7 @@
   id: BaseMobArachnid
   abstract: true
   components:
-  - type: Absorbable
+  - type: GoobAbsorbable
   - type: Body
     prototype: Arachnid
     requiredLegs: 2 # It would be funny if arachnids could use their little back limbs to move around once they lose their legs, but just something to consider post-woundmed
@@ -100,6 +100,7 @@
       - map: [ "back" ]
       - map: [ "enum.HumanoidVisualLayers.TailOversuit" ] # Floof
       - map: [ "neck" ]
+      - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.Hair" ] # Do these need to be here? (arachnid hair arachnid hair)
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
@@ -122,7 +123,6 @@
   - type: Inventory
     templateId: arachnid
     speciesId: arachnid
-  - type: Carriable # Carrying system from nyanotrasen.
 
 
 - type: entity

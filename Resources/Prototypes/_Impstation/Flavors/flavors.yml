@@ -34,6 +34,11 @@
   description: flavor-base-kingsoda
 
 - type: flavor
+  id: something
+  flavorType: Base
+  description: flavor-base-something
+
+- type: flavor
   id: crud
   flavorType: Complex
   description: flavor-complex-crud
@@ -97,6 +102,16 @@
   id: weird
   flavorType: Base
   description: flavor-base-weird
+
+- type: flavor
+  id: artificial
+  flavorType: Base
+  description: flavor-base-artificial
+
+- type: flavor
+  id: shrimp
+  flavorType: Base
+  description: flavor-base-shrimp
 
 - type: flavor
   id: secticket
@@ -469,3 +484,7 @@
   flavorType: Complex
   description: flavor-complex-imp
   
+- type: flavor
+  id: outofthisworld
+  flavorType: Complex
+  description: flavor-complex-outofthisworld
