@@ -69,8 +69,8 @@
     table: !type:NestedSelector
       tableId: SalvageScrapLowValue
   - !type:EntityTableDunGen
-    minCount: 5
-    maxCount: 15
+    minCount: 10
+    maxCount: 25
     table: !type:NestedSelector
       tableId: SalvageScrapHighValue
   - !type:EntityTableDunGen
@@ -224,8 +224,8 @@
     table: !type:NestedSelector
       tableId: SalvageScrapLowValue
   - !type:EntityTableDunGen
-    minCount: 5
-    maxCount: 15
+    minCount: 10
+    maxCount: 25
     table: !type:NestedSelector
       tableId: SalvageScrapHighValue
   - !type:EntityTableDunGen
@@ -333,8 +333,8 @@
     table: !type:NestedSelector
       tableId: SalvageScrapLowValue
   - !type:EntityTableDunGen
-    minCount: 5
-    maxCount: 15
+    minCount: 10
+    maxCount: 25
     table: !type:NestedSelector
       tableId: SalvageScrapHighValue
   - !type:EntityTableDunGen
@@ -462,8 +462,8 @@
     table: !type:NestedSelector
       tableId: SalvageScrapLowValue
   - !type:EntityTableDunGen
-    minCount: 5
-    maxCount: 15
+    minCount: 10
+    maxCount: 25
     table: !type:NestedSelector
       tableId: SalvageScrapHighValue
   - !type:EntityTableDunGen

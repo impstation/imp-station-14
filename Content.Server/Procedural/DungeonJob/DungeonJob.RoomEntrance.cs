@@ -38,7 +38,7 @@ public sealed partial class DungeonJob
                 if (reservedTiles.Contains(entrance))
                     continue;
 
-                _entManager.SpawnEntity(contents, _maps.GridTileToLocal(_gridUid, _grid, entrance)); // imp
+                _entManager.SpawnEntity(contents, _maps.GridTileToLocal(_gridUid, _grid, entrance)); // imp (Replaced SpawnEntitiesAttachedTo with SpawnEntity as we are giving it a set entity to spawn)
                 await SuspendDungeon();
 
                 if (!ValidateResume())
