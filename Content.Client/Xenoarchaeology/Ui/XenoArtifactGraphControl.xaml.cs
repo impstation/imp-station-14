@@ -50,6 +50,7 @@ public sealed partial class XenoArtifactGraphControl : BoxContainer
 
     public Color LockedNodeColor { get; set; } = Color.FromHex("#777777");
     public Color ActiveNodeColor { get; set; } = Color.Plum;
+    public Color ActiveLockedNodeColor { get; set; } = Color.PaleVioletRed; // imp edit
     public Color UnlockedNodeColor { get; set; } = Color.White;
     public Color HoveredNodeColor { get; set; } = Color.DimGray;
     public Color UnlockableNodeColor { get; set; } = Color.LightSlateGray;
@@ -122,10 +123,16 @@ public sealed partial class XenoArtifactGraphControl : BoxContainer
                     // selecting color for node based on its state
                     var node = nodes[i];
                     var color = LockedNodeColor;
-                    if (_artifactSystem.IsNodeActive(artifact, node))
+                    if (_artifactSystem.IsNodeActive(artifact, node) && !node.Comp.Locked) // imp edit, we want locked activate nodes to be a different color
                     {
                         color = ActiveNodeColor;
                     }
+                    // imp edit start, special color for active nodes that are locked
+                    else if (_artifactSystem.IsNodeActive(artifact, node) && node.Comp.Locked)
+                    {
+                        color = ActiveLockedNodeColor;
+                    }
+                    // imp edit end
                     else if (!node.Comp.Locked)
                     {
                         color = UnlockedNodeColor;
@@ -137,6 +144,12 @@ public sealed partial class XenoArtifactGraphControl : BoxContainer
                         {
                             color = UnlockableNodeColor;
                         }
+                        // imp edit start, successor nodes of locked active nodes should also be the unlockable node color
+                        else if (directPredecessorNodes.All(x => _artifactSystem.IsNodeActive(artifact, x)))
+                        {
+                            color = UnlockableNodeColor;
+                        }
+                        // imp edit end
                     }
 
                     var pos = GetNodePos(node, ySpacing, segments, ref bottomLeft);

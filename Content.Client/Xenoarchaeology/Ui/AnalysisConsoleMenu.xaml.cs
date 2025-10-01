@@ -111,6 +111,7 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
             var text = Loc.GetString("analysis-console-extract-value", ("id", nodeId), ("value", pointValue));
             extractionMessage.AddMarkupOrThrow(text);
             extractionMessage.PushNewline();
+            _extractionSum += pointValue; // imp fix, they forgot to do this
         }
 
         if (count == 0)
@@ -188,6 +189,16 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
 
         LockedValueLabel.SetMarkup(Loc.GetString("analysis-console-info-locked-value", ("state", lockedState)));
 
+        // imp edit start, if it's active and locked it's 3. hope this helps
+        if (artifact.Value.Comp.Natural)
+        {
+            if (_xenoArtifact.IsNodeActive(artifact.Value, node.Value) && node.Value.Comp.Locked)
+                lockedState = 3;
+
+            LockedValueLabel.SetMarkup(Loc.GetString("analysis-console-info-natural-locked-value", ("state", lockedState)));
+        }
+        // imp edit end
+
         var percent = (float) node.Value.Comp.Durability / node.Value.Comp.MaxDurability;
         var color = percent switch
         {
@@ -200,7 +211,23 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
             ("current", node.Value.Comp.Durability),
             ("max", node.Value.Comp.MaxDurability)));
 
+        // imp edit start, if the artifact doesn't activate on interaction then durability isn't used. Don't show it
+        if (!artifact.Value.Comp.ActivateOnInteraction)
+        {
+            DurabilityValueLabel.Visible = false;
+            DurabilityLabel.Visible = false;
+        }
+        // imp edit end
+
         var hasInfo = _xenoArtifact.HasUnlockedPredecessor(artifact.Value, node.Value);
+
+        // imp edit start, natural artifacts' nodes should only show their information if they're unlocked or active
+        if (artifact.Value.Comp.Natural)
+        {
+            if (!node.Value.Comp.Locked || _xenoArtifact.IsNodeActive(artifact.Value, node.Value))
+                hasInfo = true;
+        }
+        // imp edit end
 
         EffectValueLabel.SetMarkup(Loc.GetString("analysis-console-info-effect-value",
             ("state", hasInfo),
@@ -217,12 +244,27 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
             triggerStr.Append("- ");
             triggerStr.Append(Loc.GetString(node.Value.Comp.TriggerTip!));
 
-            foreach (var predecessor in predecessorNodes)
+            // imp edit start
+
+            // foreach (var predecessor in predecessorNodes)
+            // {
+            //     triggerStr.AppendLine();
+            //     triggerStr.Append("- ");
+            //     triggerStr.Append(Loc.GetString(predecessor.Comp.TriggerTip!));
+            // }
+
+            if (artifact.Value.Comp.RequirePredecessorTriggers)
             {
-                triggerStr.AppendLine();
-                triggerStr.Append("- ");
-                triggerStr.Append(Loc.GetString(predecessor.Comp.TriggerTip!));
+                foreach (var predecessor in predecessorNodes)
+                {
+                    triggerStr.AppendLine();
+                    triggerStr.Append("- ");
+                    triggerStr.Append(Loc.GetString(predecessor.Comp.TriggerTip!));
+                }
             }
+
+            // imp edit end
+
             TriggerValueLabel.SetMarkup(Loc.GetString("analysis-console-info-triggered-value", ("triggers", triggerStr.ToString())));
         }
 

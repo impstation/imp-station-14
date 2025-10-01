@@ -1,0 +1,23 @@
+﻿- type: entity
+  parent: ComplexXenoArtifact
+  id: NaturalXenoArtifact
+  name: natural artifact
+  components:
+  - type: XenoArtifact
+    nodeCount:
+      min: 3
+      max: 8
+    requirePredecessorTriggers: false
+    scatterPerLayer:
+      min: 0
+      max: 0
+    enforceMultipleSegments: false
+    segmentSize: # my trick
+      min: 99
+      max: 99
+    activateOnInteraction: false
+    oneStartNode: true
+    natural: true
+    unlockStateDuration: 1
+    unlockStateIncrementPerNode: 0
+    upsideDownGraph: true

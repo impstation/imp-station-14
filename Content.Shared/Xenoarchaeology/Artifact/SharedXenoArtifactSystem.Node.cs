@@ -5,6 +5,8 @@ using Content.Shared.Xenoarchaeology.Artifact.Components;
 using Content.Shared.Xenoarchaeology.Artifact.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared.Random.Helpers; // imp edit
+using Robust.Shared.Random; // imp edit
 
 namespace Content.Shared.Xenoarchaeology.Artifact;
 
@@ -270,6 +272,25 @@ public abstract partial class SharedXenoArtifactSystem
         var allNodes = GetAllNodes((ent, ent.Comp));
         foreach (var node in allNodes)
         {
+            // imp edit start
+            if (ent.Comp.Natural)
+            {
+                if (_net.IsServer)
+                {
+                    if (ent.Comp.CurrentNode != null && ent.Comp.CurrentNode.Value.Equals(node))
+                    {
+                        ent.Comp.CachedActiveNodes.Add(GetNetEntity(node));
+                        Dirty(ent);
+                        return;
+                    }
+
+                    continue;
+                }
+
+                return;
+            }
+            // imp edit end
+
             // Locked nodes cannot be active.
             if (node.Comp.Locked)
                 continue;
@@ -393,7 +414,48 @@ public abstract partial class SharedXenoArtifactSystem
             ? 1f - durabilityEffect
             : 1f + durabilityEffect;
 
+        // imp edit start
+        if (artifact.Comp.Natural)
+            durabilityMultiplier = 1;
+        // imp edit end
+
         var predecessorNodes = GetPredecessorNodes((artifact, artifact), node);
         nodeComponent.ResearchValue = (int)(Math.Pow(1.25, Math.Pow(predecessorNodes.Count, 1.5f)) * nodeComponent.BasePointValue * durabilityMultiplier);
+    }
+
+    /// <summary>
+    /// Imp edit.
+    /// </summary>
+    public void SetCurrentNode(Entity<XenoArtifactComponent> artifact, Entity<XenoArtifactNodeComponent> node)
+    {
+        artifact.Comp.CurrentNode = node;
+        RebuildCachedActiveNodes((artifact, artifact));
+        Dirty(node);
+    }
+
+    /// <summary>
+    /// Imp edit.
+    /// </summary>
+    public void GetNewCurrentNode(Entity<XenoArtifactComponent> ent)
+    {
+        if (ent.Comp.CurrentNode == null)
+            return;
+
+        var predecessorNodes = GetDirectPredecessorNodes((ent, ent), ent.Comp.CurrentNode.Value).ToList();
+        var successorNodes = GetDirectSuccessorNodes((ent, ent), ent.Comp.CurrentNode.Value).ToList();
+        var directNodes = predecessorNodes.Union<Entity<XenoArtifactNodeComponent>>(successorNodes).ToList();
+        var lockedNodes = directNodes.Where(x => x.Comp.Locked).ToList();
+
+        Entity<XenoArtifactNodeComponent> newNode;
+
+        if (directNodes.Count > 0)
+            newNode = RobustRandom.Pick(directNodes);
+        else
+            return;
+
+        if (lockedNodes.Count > 0 && RobustRandom.Prob(0.75f))
+            newNode = RobustRandom.Pick(lockedNodes);
+
+        SetCurrentNode(ent, newNode);
     }
 }
