@@ -52,7 +52,7 @@ public abstract partial class SharedXenoArtifactSystem
         if (artiComp.Suppressed)
             return false;
 
-        // imp edit start
+        // imp edit start, only the current node can be unlocked (activated)
         if (artiComp.Natural && artiComp.CurrentNode != null)
             return artiComp.CurrentNode.Value.Equals(ent!);
         // imp edit end

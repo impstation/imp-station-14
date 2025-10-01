@@ -1,0 +1,7 @@
+﻿- type: entity
+  parent: [BaseReticulatedXenoArtifact, BaseXenoArtifactStructure]
+  id: ReticulatedXenoArtifactStructure
+
+- type: entity
+  parent: [BaseNaturalXenoArtifact, BaseXenoArtifactStructure]
+  id: NaturalXenoArtifactStructure

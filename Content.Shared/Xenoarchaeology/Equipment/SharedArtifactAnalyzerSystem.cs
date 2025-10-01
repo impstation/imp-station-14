@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared._Impstation.Xenoarchaeology.Artifact.Components; // imp edit
 using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Placeable;
@@ -32,6 +33,11 @@ public abstract class SharedArtifactAnalyzerSystem : EntitySystem
     private void OnItemPlaced(Entity<ArtifactAnalyzerComponent> ent, ref ItemPlacedEvent args)
     {
         ent.Comp.CurrentArtifact = args.OtherEntity;
+        // imp edit start, give whatever's on the pad the biased component
+        var bias = EnsureComp<XenoArtifactBiasedComponent>(args.OtherEntity);
+        if (ent.Comp.Console != null)
+            bias.Provider = ent.Comp.Console.Value;
+        // imp edit end
         Dirty(ent);
     }
 
@@ -41,6 +47,10 @@ public abstract class SharedArtifactAnalyzerSystem : EntitySystem
             return;
 
         ent.Comp.CurrentArtifact = null;
+        // imp edit start, okay now take it away
+        if (TryComp<XenoArtifactBiasedComponent>(args.OtherEntity, out var bias) && ent.Comp.Console != null && bias.Provider == ent.Comp.Console.Value)
+            RemComp(args.OtherEntity, bias);
+        // imp edit end
         Dirty(ent);
     }
 

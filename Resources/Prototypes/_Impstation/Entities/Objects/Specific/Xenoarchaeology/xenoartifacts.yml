@@ -1,12 +1,14 @@
 ﻿- type: entity
-  parent: ComplexXenoArtifact
-  id: NaturalXenoArtifact
+  parent: BaseXenoArtifact
+  id: BaseNaturalXenoArtifact
   name: natural artifact
+  abstract: true
+  noSpawn: true
   components:
   - type: XenoArtifact
     nodeCount:
-      min: 3
-      max: 8
+      min: 4
+      max: 15
     requirePredecessorTriggers: false
     scatterPerLayer:
       min: 0
@@ -21,3 +23,15 @@
     unlockStateDuration: 1
     unlockStateIncrementPerNode: 0
     upsideDownGraph: true
+
+- type: entity
+  parent: BaseXenoArtifact
+  id: BaseReticulatedXenoArtifact
+  name: reticulated artifact
+  abstract: true
+  noSpawn: true
+  components:
+    - type: XenoArtifact
+      nodeCount:
+        min: 9
+        max: 13

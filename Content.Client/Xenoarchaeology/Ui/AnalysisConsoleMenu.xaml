@@ -63,6 +63,23 @@
                     </BoxContainer>
                 </ScrollContainer>
                 <Control MinHeight="5"/>
+                <!-- Imp edit start, my bias buttons :) -->
+                <BoxContainer Name="BiasBox" Orientation="Horizontal">
+                    <Button Name="UpBiasButton"
+                            Text="{Loc 'analysis-console-bias-up'}"
+                            ToolTip="{Loc 'analysis-console-bias-button-info-up'}"
+                            HorizontalExpand="True"
+                            StyleClasses="OpenRight">
+                    </Button>
+                    <Button Name="DownBiasButton"
+                            Text="{Loc 'analysis-console-bias-down'}"
+                            ToolTip="{Loc 'analysis-console-bias-button-info-down'}"
+                            HorizontalExpand="True"
+                            StyleClasses="OpenLeft">
+                    </Button>
+                </BoxContainer>
+                <Control Name="BiasDivider" MinHeight="5"/>
+                <!-- Imp edit end -->
                 <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
                     <Button Name="ServerButton" Text="{Loc 'analysis-console-server-list-button'}" StyleClasses="OpenRight" HorizontalExpand="True" MinHeight="35"/>
                     <Button Name="ExtractButton" Text="{Loc 'analysis-console-extract-button'}" StyleClasses="OpenLeft" HorizontalExpand="True" MinHeight="35"/>

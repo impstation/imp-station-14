@@ -41,6 +41,11 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
     public event Action? OnServerSelectionButtonPressed;
     public event Action? OnExtractButtonPressed;
 
+    // imp edit start, thusd buttons
+    public event Action? OnUpBiasButtonPressed;
+    public event Action? OnDownBiasButtonPressed;
+    // imp edit end
+
     public AnalysisConsoleMenu()
     {
         RobustXamlLoader.Load(this);
@@ -66,6 +71,23 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
         };
 
         ExtractButton.OnPressed += StartExtract;
+
+        // imp edit start
+        UpBiasButton.OnPressed += _ =>
+        {
+            OnUpBiasButtonPressed?.Invoke();
+            _owner.Comp.BiasDirection = BiasDirection.Up;
+            UpBiasButton.Pressed = true;
+            DownBiasButton.Pressed = false;
+        };
+        DownBiasButton.OnPressed += _ =>
+        {
+            OnDownBiasButtonPressed?.Invoke();
+            _owner.Comp.BiasDirection = BiasDirection.Down;
+            UpBiasButton.Pressed = false;
+            DownBiasButton.Pressed = true;
+        };
+        // imp edit end
     }
 
     /// <summary>
@@ -149,6 +171,27 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
 
         if (arti == null)
             NoneSelectedLabel.Visible = false;
+
+        // imp edit start, don't show the bias stuff if it doesn't need it
+        if (arti is { Comp.Natural: true })
+        {
+            BiasBox.Visible = true;
+            BiasDivider.Visible = true;
+        }
+        else
+        {
+            BiasBox.Visible = false;
+            BiasDivider.Visible = false;
+        }
+
+        if (arti is { Comp.Natural: true })
+        {
+            if (ent.Comp.BiasDirection == BiasDirection.Down)
+                DownBiasButton.Pressed = true;
+            else if (ent.Comp.BiasDirection == BiasDirection.Up)
+                UpBiasButton.Pressed = true;
+        }
+        // imp edit end
 
         NoArtiLabel.Visible = true;
         if (!_artifactAnalyzer.TryGetAnalyzer(ent, out _))

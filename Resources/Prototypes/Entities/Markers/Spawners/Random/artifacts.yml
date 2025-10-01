@@ -10,9 +10,11 @@
           state: ano01
     - type: RandomSpawner
       prototypes:
-        - ComplexXenoArtifact
-        - ComplexXenoArtifact
-        - ComplexXenoArtifactItem
+        #- ComplexXenoArtifact imp
+        #- ComplexXenoArtifact imp
+        #- ComplexXenoArtifactItem imp
+      - RandomReticulatedArtifactSpawner # imp
+      - RandomNaturalArtifactSpawner # imp
       chance: 1
 
 - type: entity

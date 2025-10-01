@@ -26,10 +26,8 @@ public abstract partial class SharedXenoArtifactSystem
             return;
 
         // imp edit start
-
         if (!ent.Comp.ActivateOnInteraction)
             return;
-
         // imp edit end
 
         args.Handled = TryActivateXenoArtifact(ent, args.User, args.User, Transform(args.User).Coordinates);
@@ -41,10 +39,8 @@ public abstract partial class SharedXenoArtifactSystem
             return;
 
         // imp edit start
-
         if (!ent.Comp.ActivateOnInteraction)
             return;
-
         // imp edit end
 
         args.Handled = TryActivateXenoArtifact(ent, args.User, args.Target, args.ClickLocation);
@@ -56,10 +52,8 @@ public abstract partial class SharedXenoArtifactSystem
             return;
 
         // imp edit start
-
         if (!ent.Comp.ActivateOnInteraction)
             return;
-
         // imp edit end
 
         args.Handled = TryActivateXenoArtifact(ent, args.User, args.Target, Transform(args.Target).Coordinates);
