@@ -1,24 +1,4 @@
 ﻿Entries:
-- author: DinnerCalzone
-  changes:
-  - message: The soap and bleach reagents can now clean decals and puddles similar
-      to space cleaner. Soap is half as efficient as space cleaner and bleach is twice
-      as efficient as space cleaner.
-    type: Add
-  - message: Bulk soap crates can now be purchaed from Cargo for $250.
-    type: Add
-  - message: Cleanade crates now cost $500 to purchase down from $800.
-    type: Tweak
-  - message: Removed the soap cargo bounty.
-    type: Remove
-  - message: Soap and cleanades can no longer be produced from lathes.
-    type: Remove
-  - message: The mop bucket recipe in the service techfab has been replaced with a
-      rehydratable mop bucket cube recipe.
-    type: Tweak
-  id: 1801
-  time: '2025-06-10T23:28:58.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2706
 - author: meridiadottxt, hivehum
   changes:
   - message: Submarine, a new 60-pop map from Delta-V!
@@ -4205,3 +4185,10 @@
   id: 2300
   time: '2025-09-29T00:53:40.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3521
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: A number of weapon sprites have been changed. See the PR for specifics.
+    type: Tweak
+  id: 2301
+  time: '2025-10-01T22:03:15.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3525

@@ -1,0 +1,25 @@
+- type: entity
+  id: StatueReaper
+  parent: BaseStructure
+  name: judgemental statue
+  description: Even our memories are cold and lifeless now.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Impstation/Structures/Decoration/statues.rsi
+    state: reaperstatue
+    drawdepth: Mobs
+    offset: "0.0,0.5"
+
+- type: entity
+  id: StatueColumnReaper
+  parent: BaseStructure
+  name: column
+  description: The backbone of any good mausoleum. In this case, literally.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Impstation/Structures/Decoration/columns.rsi
+    state: reapercolumn
+    drawdepth: Mobs
+    offset: "0.0,0.5"
