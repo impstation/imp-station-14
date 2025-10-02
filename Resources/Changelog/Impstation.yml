@@ -1,45 +1,4 @@
 ﻿Entries:
-- author: mqole
-  changes:
-  - message: another piskun upstream merge!
-    type: Add
-  id: 1798
-  time: '2025-06-10T08:44:58.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2711
-- author: DinnerCalzone
-  changes:
-  - message: Train has been updated to feature genpop.
-    type: Add
-  id: 1799
-  time: '2025-06-10T11:50:46.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2713
-- author: hivehum
-  changes:
-  - message: Ammo no longer errors out when you hold it wrong.
-    type: Fix
-  id: 1800
-  time: '2025-06-10T22:35:42.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2715
-- author: DinnerCalzone
-  changes:
-  - message: The soap and bleach reagents can now clean decals and puddles similar
-      to space cleaner. Soap is half as efficient as space cleaner and bleach is twice
-      as efficient as space cleaner.
-    type: Add
-  - message: Bulk soap crates can now be purchaed from Cargo for $250.
-    type: Add
-  - message: Cleanade crates now cost $500 to purchase down from $800.
-    type: Tweak
-  - message: Removed the soap cargo bounty.
-    type: Remove
-  - message: Soap and cleanades can no longer be produced from lathes.
-    type: Remove
-  - message: The mop bucket recipe in the service techfab has been replaced with a
-      rehydratable mop bucket cube recipe.
-    type: Tweak
-  id: 1801
-  time: '2025-06-10T23:28:58.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2706
 - author: meridiadottxt, hivehum
   changes:
   - message: Submarine, a new 60-pop map from Delta-V!
@@ -4204,3 +4163,32 @@
   id: 2297
   time: '2025-09-28T10:31:20.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3517
+- author: entings
+  changes:
+  - message: 'Alert: Wild boar have been found infesting the station''s ventilation
+      systems.'
+    type: Add
+  id: 2298
+  time: '2025-09-28T22:46:10.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3478
+- author: honeyed-lemons
+  changes:
+  - message: Heretics can now make ghouls again.. Huzzah!
+    type: Fix
+  id: 2299
+  time: '2025-09-28T22:47:21.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3519
+- author: hivehum
+  changes:
+  - message: Poly's name is spelled correctly.
+    type: Fix
+  id: 2300
+  time: '2025-09-29T00:53:40.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3521
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: A number of weapon sprites have been changed. See the PR for specifics.
+    type: Tweak
+  id: 2301
+  time: '2025-10-01T22:03:15.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3525
