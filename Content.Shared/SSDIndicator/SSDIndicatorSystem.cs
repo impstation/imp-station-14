@@ -84,6 +84,7 @@ public sealed class SSDIndicatorSystem : EntitySystem
         {
             // Forces the entity to sleep when the time has come
             if (!ssd.IsSSD
+                || ssd.DoNotSleep //#IMP npcs shouldn't fall asleep
                 || ssd.NextUpdate > curTime
                 || ssd.FallAsleepTime > curTime
                 || TerminatingOrDeleted(uid))
