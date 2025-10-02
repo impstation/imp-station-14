@@ -25,19 +25,8 @@ public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BatteryDrainerComponent, ComponentStartup>(OnStartup); // imp add
         SubscribeLocalEvent<BatteryDrainerComponent, BeforeInteractHandEvent>(OnBeforeInteractHand);
         SubscribeLocalEvent<BatteryDrainerComponent, NinjaBatteryChangedEvent>(OnBatteryChanged);
-    }
-
-    // imp add
-    /// <summary>
-    ///     Allow entities who are a battery to use themselves as the battery for this component
-    /// </summary>
-    private void OnStartup(Entity<BatteryDrainerComponent> ent, ref ComponentStartup args)
-    {
-        if (ent.Comp.BatteryUid == null && TryComp<BatteryComponent>(ent.Owner, out _))
-            ent.Comp.BatteryUid = ent.Owner;
     }
 
     /// <summary>
@@ -48,7 +37,7 @@ public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
     {
         var (uid, comp) = ent;
         var target = args.Target;
-        if (args.Handled || comp.BatteryUid is not { } battery || !HasComp<PowerNetworkBatteryComponent>(target))
+        if (args.Handled || comp.BatteryUid is not {} battery || !HasComp<PowerNetworkBatteryComponent>(target))
             return;
 
         // handles even if battery is full so you can actually see the poup
