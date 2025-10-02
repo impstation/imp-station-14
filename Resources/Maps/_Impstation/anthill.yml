@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/15/2025 01:35:12
-  entityCount: 16499
+  time: 09/19/2025 06:56:29
+  entityCount: 16490
 maps:
 - 1
 grids:
@@ -1422,7 +1422,6 @@ entities:
             color: '#FFFFFFFF'
             id: Bushn1
           decals:
-            2733: -7,-21
             2736: 7,-20
         - node:
             color: '#FFFFFFFF'
@@ -1750,11 +1749,10 @@ entities:
             190: -50.531933,41.734665
             191: -49.328808,41.797165
         - node:
-            color: '#FFFFFFFF'
+            color: '#B7C8DCFF'
             id: Flowersy1
           decals:
-            43: 0,0
-            46: 0,1
+            3712: 0,0
         - node:
             color: '#FFFFFFFF'
             id: Flowersy2
@@ -1764,7 +1762,6 @@ entities:
             color: '#FFFFFFFF'
             id: Flowersy3
           decals:
-            57: 0,-2
             2713: -6.9421754,-21.598198
         - node:
             color: '#FFFFFFFF'
@@ -2044,24 +2041,11 @@ entities:
             color: '#FFFFFFFF'
             id: Grassb2
           decals:
-            2710: -6.9890504,-20.145073
             2722: 7.096655,-22.848198
-        - node:
-            color: '#FFFFFFFF'
-            id: Grassc1
-          decals:
-            50: 0,0
-            55: 0,-1
-        - node:
-            color: '#FFFFFFFF'
-            id: Grassc2
-          decals:
-            56: 0,-2
         - node:
             color: '#FFFFFFFF'
             id: Grassd1
           decals:
-            52: 0,1
             1075: 18.025724,27.98469
         - node:
             color: '#FFFFFFFF'
@@ -4376,6 +4360,87 @@ entities:
             id: footprint
           decals:
             3252: 19.985455,22.339554
+        - node:
+            color: '#C79500DF'
+            id: grasssnow02
+          decals:
+            3735: -10,-17
+        - node:
+            color: '#951900DF'
+            id: grasssnow05
+          decals:
+            3731: 0,-1
+            3732: -10,-25
+        - node:
+            color: '#8F420FFF'
+            id: grasssnow06
+          decals:
+            3724: -9,-9
+        - node:
+            color: '#951900DF'
+            id: grasssnow06
+          decals:
+            3733: -9,-16
+            3734: -9,-16
+        - node:
+            color: '#95260FFF'
+            id: grasssnow06
+          decals:
+            3727: 0,1
+        - node:
+            color: '#8F420FFF'
+            id: grasssnow07
+          decals:
+            3726: 0,2
+        - node:
+            color: '#B75622FF'
+            id: grasssnow08
+          decals:
+            3711: 0,0
+        - node:
+            color: '#8F420FFF'
+            id: grasssnow09
+          decals:
+            3714: -10,-18
+            3718: -7,-20
+            3719: -7,-23
+        - node:
+            color: '#B75622FF'
+            id: grasssnow09
+          decals:
+            3709: 0,-2
+        - node:
+            color: '#8F420FFF'
+            id: grasssnow11
+          decals:
+            3720: -10,-24
+        - node:
+            color: '#BD9C00FF'
+            id: grasssnow11
+          decals:
+            3729: 0,2
+        - node:
+            color: '#C79500DF'
+            id: grasssnow11
+          decals:
+            3739: -8,-10
+            3741: -8,-10
+        - node:
+            color: '#C79500DF'
+            id: grasssnow12
+          decals:
+            3737: -8,-22
+            3738: -8,-22
+        - node:
+            color: '#8F420FFF'
+            id: grasssnow13
+          decals:
+            3722: -8,-23
+        - node:
+            color: '#BD6F00FF'
+            id: grasssnow13
+          decals:
+            3728: 0,1
     - type: GridAtmosphere
       version: 2
       data:
@@ -7959,7 +8024,7 @@ entities:
       parent: 2
 - proto: AirlockChemistryLocked
   entities:
-  - uid: 143
+  - uid: 5
     components:
     - type: Transform
       pos: 38.5,37.5
@@ -8041,7 +8106,7 @@ entities:
       parent: 2
 - proto: AirlockCourierLocked
   entities:
-  - uid: 157
+  - uid: 99
     components:
     - type: Transform
       pos: -10.5,46.5
@@ -8063,6 +8128,11 @@ entities:
       parent: 2
 - proto: AirlockEngineeringLocked
   entities:
+  - uid: 143
+    components:
+    - type: Transform
+      pos: -2.5,46.5
+      parent: 2
   - uid: 161
     components:
     - type: Transform
@@ -8095,12 +8165,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 39.5,-2.5
-      parent: 2
-  - uid: 167
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -2.5,46.5
       parent: 2
   - uid: 168
     components:
@@ -8212,7 +8276,7 @@ entities:
       pos: 61.5,6.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -13210.255
+      secondsUntilStateChange: -14635.871
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 1
@@ -8915,7 +8979,7 @@ entities:
       parent: 2
 - proto: AirlockMaintChemLocked
   entities:
-  - uid: 286
+  - uid: 157
     components:
     - type: Transform
       pos: 40.5,41.5
@@ -9165,16 +9229,16 @@ entities:
       parent: 2
 - proto: AirlockMaintRnDLocked
   entities:
+  - uid: 167
+    components:
+    - type: Transform
+      pos: 37.5,44.5
+      parent: 2
   - uid: 325
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 15.5,59.5
-      parent: 2
-  - uid: 326
-    components:
-    - type: Transform
-      pos: 37.5,44.5
       parent: 2
   - uid: 327
     components:
@@ -9320,6 +9384,16 @@ entities:
       parent: 2
 - proto: AirlockResearchDirectorLocked
   entities:
+  - uid: 286
+    components:
+    - type: Transform
+      pos: 45.5,47.5
+      parent: 2
+  - uid: 326
+    components:
+    - type: Transform
+      pos: 41.5,45.5
+      parent: 2
   - uid: 348
     components:
     - type: Transform
@@ -9334,19 +9408,6 @@ entities:
   - uid: 350
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 45.5,47.5
-      parent: 2
-  - uid: 351
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 41.5,45.5
-      parent: 2
-  - uid: 352
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
       pos: 41.5,46.5
       parent: 2
 - proto: AirlockSalvageGlassLocked
@@ -37331,13 +37392,6 @@ entities:
     - type: Transform
       pos: -38.196167,-8.348171
       parent: 2
-- proto: ClothingNeckCloakMoth
-  entities:
-  - uid: 5420
-    components:
-    - type: Transform
-      pos: -1.2708334,-7.541667
-      parent: 2
 - proto: ClothingNeckDevilWings
   entities:
   - uid: 5421
@@ -37369,6 +37423,13 @@ entities:
     components:
     - type: Transform
       pos: 45.53105,33.61846
+      parent: 2
+- proto: ClothingNeckTeddyRibbon
+  entities:
+  - uid: 10286
+    components:
+    - type: Transform
+      pos: -32.4721,27.082138
       parent: 2
 - proto: ClothingOuterArmorRiot
   entities:
@@ -38395,19 +38456,19 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 95
+          - 4
           - 98
-          - 100
-          - 99
-          - 96
-          - 101
-          - 103
-          - 104
-          - 102
-          - 93
-          - 94
-          - 92
           - 97
+          - 92
+          - 94
+          - 93
+          - 102
+          - 104
+          - 103
+          - 101
+          - 96
+          - 100
+          - 95
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -38688,6 +38749,11 @@ entities:
           ent: null
 - proto: CrateMedicalSurgery
   entities:
+  - uid: 351
+    components:
+    - type: Transform
+      pos: -32.5,-9.5
+      parent: 2
   - uid: 13858
     components:
     - type: Transform
@@ -38783,13 +38849,6 @@ entities:
     components:
     - type: Transform
       pos: 44.5,9.5
-      parent: 2
-- proto: CrateSurgery
-  entities:
-  - uid: 5608
-    components:
-    - type: Transform
-      pos: -32.5,-9.5
       parent: 2
 - proto: CrateTrashCartFilled
   entities:
@@ -38969,7 +39028,7 @@ entities:
       pos: 27.5,7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -185651.83
+      secondsUntilStateChange: -187077.44
       state: Closing
   - uid: 5639
     components:
@@ -39000,7 +39059,7 @@ entities:
       pos: 30.5,18.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -199197.14
+      secondsUntilStateChange: -200622.75
       state: Opening
 - proto: CurtainsCyanOpen
   entities:
@@ -47168,6 +47227,13 @@ entities:
     - type: Transform
       pos: 34.56001,5.2051344
       parent: 2
+- proto: DrinkPumpkinSpiceLatte
+  entities:
+  - uid: 7643
+    components:
+    - type: Transform
+      pos: -0.079003036,-5.19083
+      parent: 2
 - proto: DrinkRamen
   entities:
   - uid: 7000
@@ -52917,12 +52983,6 @@ entities:
       parent: 2
 - proto: FloraTree
   entities:
-  - uid: 7592
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 0.4411217,1.7500968
-      parent: 2
   - uid: 7593
     components:
     - type: Transform
@@ -52938,6 +52998,11 @@ entities:
       parent: 2
 - proto: FloraTreeStump
   entities:
+  - uid: 352
+    components:
+    - type: Transform
+      pos: 0.53750086,2.391604
+      parent: 2
   - uid: 7595
     components:
     - type: Transform
@@ -53247,15 +53312,13 @@ entities:
     - type: Transform
       pos: 33.391357,-2.3589208
       parent: 2
-- proto: FoodPieBananaCream
+- proto: FoodPiePumpkin
   entities:
-  - uid: 7641
+  - uid: 7640
     components:
     - type: Transform
-      parent: 7640
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
+      pos: 23.49268,13.61277
+      parent: 2
 - proto: FoodPiePumpkinSlice
   entities:
   - uid: 7644
@@ -73590,10 +73653,10 @@ entities:
         indefinite: some
 - proto: GunSafeLaserCarbine
   entities:
-  - uid: 10286
+  - uid: 7641
     components:
     - type: Transform
-      pos: -43.5,14.5
+      pos: -43.5,10.5
       parent: 2
 - proto: GunSafeShotgunKammerer
   entities:
@@ -73651,7 +73714,7 @@ entities:
       parent: 2
 - proto: HighSecCommandLocked
   entities:
-  - uid: 10294
+  - uid: 5608
     components:
     - type: Transform
       pos: 50.5,52.5
@@ -74150,7 +74213,7 @@ entities:
       pos: -37.5,-2.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -143019.2
+      secondsUntilStateChange: -144444.81
       state: Closing
   - uid: 10365
     components:
@@ -75126,15 +75189,6 @@ entities:
     - type: Transform
       pos: 41.324646,39.721115
       parent: 2
-- proto: LauncherCreamPie
-  entities:
-  - uid: 7642
-    components:
-    - type: Transform
-      parent: 7640
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: LeavesCannabis
   entities:
   - uid: 12735
@@ -75283,44 +75337,13 @@ entities:
     - type: Transform
       pos: 53.5,21.5
       parent: 2
-- proto: LockerClown
+- proto: LockerClownFilled
   entities:
-  - uid: 7640
+  - uid: 1172
     components:
     - type: Transform
       pos: 19.5,20.5
       parent: 2
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14673
-        moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 7641
-          - 7643
-          - 7642
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
 - proto: LockerCourierFilled
   entities:
   - uid: 10515
@@ -76486,12 +76509,12 @@ entities:
       parent: 2
 - proto: MicroManipulatorStockPart
   entities:
-  - uid: 99
+  - uid: 4
     components:
     - type: Transform
       parent: 91
     - type: Stack
-      count: 2
+      count: 4
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -77413,10 +77436,10 @@ entities:
       parent: 2
 - proto: PetSuppy
   entities:
-  - uid: 10797
+  - uid: 7592
     components:
     - type: Transform
-      pos: -32.544724,27.475153
+      pos: -32.50335,27.416132
       parent: 2
 - proto: PhoneInstrument
   entities:
@@ -79019,6 +79042,11 @@ entities:
       rot: 3.141592653589793 rad
       pos: 47.5,30.5
       parent: 2
+  - uid: 10294
+    components:
+    - type: Transform
+      pos: -2.5,59.5
+      parent: 2
   - uid: 10378
     components:
     - type: Transform
@@ -79824,11 +79852,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -6.5,42.5
-      parent: 2
-  - uid: 11161
-    components:
-    - type: Transform
-      pos: -2.5,59.5
       parent: 2
   - uid: 11162
     components:
@@ -82750,11 +82773,6 @@ entities:
       parent: 2
 - proto: RandomFoodBakedSingle
   entities:
-  - uid: 11598
-    components:
-    - type: Transform
-      pos: 23.5,13.5
-      parent: 2
   - uid: 11599
     components:
     - type: Transform
@@ -85215,10 +85233,10 @@ entities:
       parent: 2
 - proto: SecurityTechFab
   entities:
-  - uid: 12003
+  - uid: 5420
     components:
     - type: Transform
-      pos: -43.5,10.5
+      pos: -43.5,14.5
       parent: 2
     - type: TechnologyDatabase
       supportedDisciplines:
@@ -88675,14 +88693,6 @@ entities:
     - type: Transform
       pos: 65.5,22.5
       parent: 2
-- proto: SpawnMobButterfly
-  entities:
-  - uid: 12414
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 0.5,-0.5
-      parent: 2
 - proto: SpawnMobCat
   entities:
   - uid: 3055
@@ -88725,6 +88735,13 @@ entities:
     components:
     - type: Transform
       pos: -48.5,38.5
+      parent: 2
+- proto: SpawnMobFrog
+  entities:
+  - uid: 7642
+    components:
+    - type: Transform
+      pos: 0.5,-0.5
       parent: 2
 - proto: SpawnMobKangarooWillow
   entities:
@@ -94219,7 +94236,7 @@ entities:
   - uid: 15888
     components:
     - type: Transform
-      pos: 0.015070677,-5.0395327
+      pos: -1.3539445,-7.4977455
       parent: 2
 - proto: ToyFigurineCyborgEngineering
   entities:
@@ -94677,7 +94694,7 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-- proto: VaultDoorCommandLocked
+- proto: VaultDoorLocked
   entities:
   - uid: 13201
     components:
@@ -107669,13 +107686,6 @@ entities:
     - type: InsideEntityStorage
 - proto: WhoopieCushion
   entities:
-  - uid: 7643
-    components:
-    - type: Transform
-      parent: 7640
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
   - uid: 15506
     components:
     - type: Transform
@@ -107921,7 +107931,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -127297.84
+      secondsUntilStateChange: -128723.46
       state: Opening
     - type: Airlock
       autoClose: False
@@ -107934,7 +107944,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -127194.67
+      secondsUntilStateChange: -128620.29
       state: Opening
     - type: Airlock
       autoClose: False

@@ -331,6 +331,10 @@
       - BulletFoam
     capacity: 10
     proto: BulletFoam
+    soundInsert: #imp
+      path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
+    soundRack: #imp
+      path: /Audio/Weapons/Guns/Cock/smg_cock.ogg
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 2

@@ -34,9 +34,6 @@ public sealed partial class GoobChangelingSystem : EntitySystem
     [Dependency] private readonly SharedRottingSystem _rotting = default!;
     [Dependency] private readonly SharedStealthSystem _stealth = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _userInterfaceSystem = default!;
-    [Dependency] private readonly Content.Shared._Offbrand.Wounds.BrainDamageSystem _brainDamage = default!; // Offbrand
-    [Dependency] private readonly Content.Shared._Offbrand.Wounds.HeartSystem _heart = default!; // Offbrand
-    [Dependency] private readonly Content.Shared._Offbrand.Wounds.WoundableSystem _woundable = default!; // Offbrand
 
     public void SubscribeAbilities()
     {
@@ -170,9 +167,7 @@ public sealed partial class GoobChangelingSystem : EntitySystem
         else
             comp.MinorAbsorbs = 0; // Reset minor absorbtions if we're consuming something that restores the full value
 
-        var reducedBiomass = false;
-        if (HasComp<RottingComponent>(target))
-            reducedBiomass = true;
+        var reducedBiomass = HasComp<RottingComponent>(target);
 
         if (reducedBiomass)
             biomassPercentRestored /= 2;
@@ -184,8 +179,6 @@ public sealed partial class GoobChangelingSystem : EntitySystem
         _damage.TryChangeDamage(target, dmg, true, false);
         _blood.ChangeBloodReagent(target, "FerrochromicAcid");
         _blood.SpillAllSolutions(target);
-        _brainDamage.KillBrain(target); // Offbrand
-        _heart.KillHeart(target); // Offbrand
 
         EnsureComp<GoobAbsorbedComponent>(target);
 
@@ -307,11 +300,7 @@ public sealed partial class GoobChangelingSystem : EntitySystem
         }
 
         if (!_mobState.IsDead(uid))
-        {
             _mobState.ChangeMobState(uid, MobState.Dead);
-            _brainDamage.KillBrain(uid); // Offbrand
-            _heart.KillHeart(uid); // Offbrand
-        }
 
         comp.IsInStasis = true;
     }
@@ -335,10 +324,6 @@ public sealed partial class GoobChangelingSystem : EntitySystem
             return;
 
         // heal of everything
-        _brainDamage.TryChangeBrainDamage(uid, -1000); // Offbrand
-        _heart.ChangeHeartDamage(uid, -1000); // Offbrand
-        _heart.TryRestartHeart(uid); // Offbrand
-        _woundable.TryClearAllWounds(uid); // Offbrand
         _damage.SetAllDamage(uid, damageable, 0);
         _mobState.ChangeMobState(uid, MobState.Alive);
         _blood.TryModifyBloodLevel(uid, 1000);
