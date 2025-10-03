@@ -213,7 +213,8 @@
   color: "#c1c7d3"
   evaporationSpeed: 0.1 #one third of the speed of water
   
-- id: ReaperBlood
+- type: reagent
+  id: ReaperBlood
   name: reagent-name-reaper-blood
   group: Biological
   parent: Blood
