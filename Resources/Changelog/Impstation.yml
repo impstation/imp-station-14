@@ -1,38 +1,4 @@
 ﻿Entries:
-- author: DinnerCalzone
-  changes:
-  - message: The soap and bleach reagents can now clean decals and puddles similar
-      to space cleaner. Soap is half as efficient as space cleaner and bleach is twice
-      as efficient as space cleaner.
-    type: Add
-  - message: Bulk soap crates can now be purchaed from Cargo for $250.
-    type: Add
-  - message: Cleanade crates now cost $500 to purchase down from $800.
-    type: Tweak
-  - message: Removed the soap cargo bounty.
-    type: Remove
-  - message: Soap and cleanades can no longer be produced from lathes.
-    type: Remove
-  - message: The mop bucket recipe in the service techfab has been replaced with a
-      rehydratable mop bucket cube recipe.
-    type: Tweak
-  id: 1801
-  time: '2025-06-10T23:28:58.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2706
-- author: meridiadottxt, hivehum
-  changes:
-  - message: Submarine, a new 60-pop map from Delta-V!
-    type: Add
-  id: 1802
-  time: '2025-06-10T23:31:25.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2685
-- author: eviltori
-  changes:
-  - message: lawyer is no longer in service, and answers to the HOP.
-    type: Tweak
-  id: 1803
-  time: '2025-06-10T23:35:29.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2380
 - author: Jellvisk
   changes:
   - message: Floor lights! Of varying designs, based on what tube you put in the...
@@ -4205,3 +4171,26 @@
   id: 2300
   time: '2025-09-29T00:53:40.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3521
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: A number of weapon sprites have been changed. See the PR for specifics.
+    type: Tweak
+  id: 2301
+  time: '2025-10-01T22:03:15.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3525
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: Hydra's rate of fire and pellet spread reverted
+    type: Tweak
+  id: 2302
+  time: '2025-10-02T19:59:59.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3527
+- author: Tox3ct
+  changes:
+  - message: Recent Nanotrasen antibiotic manufacturing has been proven less effective
+      in treating parasitic pathogens. Ambuzol now requires Phalanximine as a replacement
+      to Dylovene.
+    type: Tweak
+  id: 2303
+  time: '2025-10-03T01:34:30.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3513

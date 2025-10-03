@@ -16,6 +16,9 @@ reagent-desc-bloodkodepiia = The fluid that bleeds from a kodepiia if you cut it
 reagent-name-gray-blood = joos
 reagent-desc-gray-blood = Thui hope glump mochigi ketchup.
 
+reagent-name-reaper-blood = ectoplasm
+reagent-desc-reaper-blood = The liquefied essence of soul that maintains the corporeal forms of various spectral entities.
+
 reagent-name-mucin = mucin
 reagent-desc-mucin = A fascinating secretion capable of accelerating the movement of Gastropoids. It looks exploitable...
 
