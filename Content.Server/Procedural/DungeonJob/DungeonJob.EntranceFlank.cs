@@ -18,7 +18,7 @@ public sealed partial class DungeonJob
         var tiles = new List<(Vector2i Index, Tile)>();
         var tileDef = _tileDefManager[gen.Tile];
         var spawnPositions = new ValueList<Vector2i>(dungeon.Rooms.Count);
-        var contents = _prototype.Index(gen.Contents);
+        var contents = gen.Contents; // imp
 
         foreach (var room in dungeon.Rooms)
         {
@@ -43,9 +43,22 @@ public sealed partial class DungeonJob
 
         _maps.SetTiles(_gridUid, _grid, tiles);
 
+        // Places the entity in the valid location. If randomisation is chosen, then it will only place one random entity from the list. also // Imp
         foreach (var entrance in spawnPositions)
         {
-            _entManager.SpawnEntitiesAttachedTo(_maps.GridTileToLocal(_gridUid, _grid, entrance), _entTable.GetSpawns(contents, random));
+            // Imp Edit Start
+            if (!gen.useRandomEntity)
+            {
+                foreach (var entity in contents)
+                {
+                    _entManager.SpawnEntity(entity, _maps.GridTileToLocal(_gridUid, _grid, entrance));
+                }
+            }
+            else
+            {
+                _entManager.SpawnEntity(contents[random.Next(0, gen.Contents.Count)], _maps.GridTileToLocal(_gridUid, _grid, entrance));
+            }
+            // Imp Edit End
         }
     }
 }

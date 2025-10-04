@@ -75,6 +75,8 @@
       - state: ATMOS-equipped-OUTERCLOTHING
       outerClothing-vox: # imp
       - state: ATMOS-equipped-OUTERCLOTHING-vox
+      outerClothing-ungu: # imp
+      - state: ATMOS-equipped-OUTERCLOTHING-ungu
       outerClothing-anomalocarid: # imp
       - state: ATMOS-equipped-OUTERCLOTHING-anomalocarid
   - type: ToggleableClothing
@@ -104,6 +106,8 @@
       - state: BAR-equipped-OUTERCLOTHING-vox
       outerClothing-anomalocarid: # imp
       - state: BAR-equipped-OUTERCLOTHING-anomalocarid
+      outerClothing-ungu: # imp
+      - state: BAR-equipped-OUTERCLOTHING-ungu
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterBartender
 
@@ -131,6 +135,8 @@
       - state: BRIGMEDIC-equipped-OUTERCLOTHING-vox
       outerClothing-anomalocarid: # imp
       - state: BRIGMEDIC-equipped-OUTERCLOTHING-anomalocarid
+      outerClothing-ungu: # imp
+      - state: BRIGMEDIC-equipped-OUTERCLOTHING-ungu
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterBrigmedic
 
@@ -156,6 +162,8 @@
       - state: CAP-equipped-OUTERCLOTHING
       outerClothing-vox: # imp
       - state: CAP-equipped-OUTERCLOTHING-vox
+      outerClothing-ungu: # imp
+      - state: CAP-equipped-OUTERCLOTHING-ungu
       outerClothing-anomalocarid: # imp
       - state: CAP-equipped-OUTERCLOTHING-anomalocarid
   - type: ToggleableClothing
@@ -183,6 +191,8 @@
       - state: CARGO-equipped-OUTERCLOTHING
       outerClothing-vox: # imp
       - state: CARGO-equipped-OUTERCLOTHING-vox
+      outerClothing-ungu: # imp
+      - state: CARGO-equipped-OUTERCLOTHING-ungu
       outerClothing-anomalocarid: # imp
       - state: CARGO-equipped-OUTERCLOTHING-anomalocarid
   - type: ToggleableClothing
