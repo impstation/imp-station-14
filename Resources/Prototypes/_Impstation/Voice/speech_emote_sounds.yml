@@ -330,15 +330,15 @@
     Sneeze:
       collection: MaleSneezes #placeholder
     Cough:
-      collection: MaleCoughs #placeholder
+      collection: /Audio/_Impstation/Voice/Arachnid/arachnid_cough.ogg #imp
     Yawn:
-      collection: MaleYawn #placeholder
+      collection: /Audio/_Impstation/Voice/Arachnid/arachnid_yawn.ogg #imp
     Honk:
       collection: BikeHorn
     Sigh:
       path: /Audio/_Impstation/Voice/Arachnid/arachnid_sigh.ogg #imp
     Crying:
-      collection: MaleCry #placeholder
+      collection: /Audio/_Impstation/Voice/Arachnid/arachnid_cry.ogg #imp
     Whistle:
       collection: Whistles
     Weh:
@@ -353,7 +353,7 @@
       collection: DeathGasp
 
 - type: emoteSounds
-  id: MaleArachnid
+  id: FemaleArachnid
   params:
     variation: 0.125
   sounds:
@@ -370,15 +370,15 @@
     Sneeze:
       collection: FemaleSneezes #placeholder
     Cough:
-      collection: FemaleCoughs #placeholder
+      collection: /Audio/_Impstation/Voice/Arachnid/arachnid_cough.ogg #imp
     Yawn:
-      collection: FemaleYawn #placeholder
+      collection: /Audio/_Impstation/Voice/Arachnid/arachnid_yawn.ogg #imp
     Honk:
       collection: BikeHorn
     Sigh:
       path: /Audio/_Impstation/Voice/Arachnid/arachnid_sigh.ogg #imp
     Crying:
-      collection: FemaleCry #placeholder
+      collection: /Audio/_Impstation/Voice/Arachnid/arachnid_cry.ogg #imp
     Whistle:
       collection: Whistles
     Weh:
