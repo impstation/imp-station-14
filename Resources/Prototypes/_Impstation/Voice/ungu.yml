@@ -50,6 +50,10 @@
       path: /Audio/_Impstation/Voice/Ungu/ungu_death_gasp.ogg
     Jump:
       path: /Audio/Effects/Footsteps/largethud.ogg
+    Sigh:
+      path: /Audio/_Impstation/Voice/Ungu/ungu_sigh.ogg
+    Cough:
+      collection: MaleCoughs
 
 # body emotes
 - type: emoteSounds
@@ -58,7 +62,7 @@
     Jump:
       path: /Audio/Effects/Footsteps/largethud.ogg
       params:
-        volume: -3
+        volume: -1
         variation: 0.1
     Clap:
       collection: Claps
