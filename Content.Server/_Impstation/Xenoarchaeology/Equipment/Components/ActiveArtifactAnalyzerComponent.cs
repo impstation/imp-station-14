@@ -33,4 +33,9 @@ public sealed partial class ActiveArtifactAnalyzerComponent : Component
     /// </summary>
     [DataField]
     public EntityUid Artifact;
+
+    /// <summary>
+    /// If the scan is assisted with Advanced Node Scanner and should be instant
+    /// <summary>
+    public bool InstantScan = false;
 }
