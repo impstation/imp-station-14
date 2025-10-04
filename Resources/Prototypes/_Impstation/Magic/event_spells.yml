@@ -1,0 +1,29 @@
+- type: entity
+  parent: BaseAction
+  id: ActionSummonSoap
+  name: Summon Soap
+  description: Gives everyone a random bar of soap!
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 300
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Specific/Janitorial/soap.rsi
+      state: soap-4
+  - type: InstantAction
+    event: !type:RandomGlobalSpawnSpellEvent
+      makeSurvivorAntagonist: false
+      spawns:
+      - id: SoapDeluxe
+        orGroup: Soap
+      - id: SoapNT
+        orGroup: Soap
+      - id: SoapHomemade
+        orGroup: Soap
+      - id: SoapOmega
+        orGroup: Soap
+      - id: SoapSyndie
+        orGroup: Soap
+  - type: SpeakOnAction
+    sentence: action-speech-spell-summon-soap

@@ -19,4 +19,10 @@ public sealed partial class ChangeComponentsSpellEvent : EntityTargetActionEvent
     [AlwaysPushInheritance]
     public HashSet<string> ToRemove = new();
 
+    /// <summary>
+    /// Should this spell turn its target into a NewWizard Antagonist?
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool MakeNewWizardAntagonist = false;
+
 }
