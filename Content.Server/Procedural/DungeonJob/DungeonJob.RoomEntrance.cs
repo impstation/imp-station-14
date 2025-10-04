@@ -16,7 +16,7 @@ public sealed partial class DungeonJob
     {
         var setTiles = new List<(Vector2i, Tile)>();
         var tileDef = _tileDefManager[gen.Tile];
-        var contents = _prototype.Index(gen.Contents);
+        var contents = gen.Contents; // imp
 
         foreach (var room in dungeon.Rooms)
         {
@@ -38,10 +38,7 @@ public sealed partial class DungeonJob
                 if (reservedTiles.Contains(entrance))
                     continue;
 
-                _entManager.SpawnEntitiesAttachedTo(
-                    _maps.GridTileToLocal(_gridUid, _grid, entrance),
-                    _entTable.GetSpawns(contents, random));
-
+                _entManager.SpawnEntity(contents, _maps.GridTileToLocal(_gridUid, _grid, entrance)); // imp (Replaced SpawnEntitiesAttachedTo with SpawnEntity as we are giving it a set entity to spawn)
                 await SuspendDungeon();
 
                 if (!ValidateResume())
