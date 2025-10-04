@@ -23,7 +23,7 @@ marking-AllulaloLeftArmDefault = Default Wing (Left)
 
 # RLeg
 
-marking-AllulaloLegUnderbellyDefaultLeft = Underbelly (Right Leg)
+marking-AllulaloLegUnderbellyDefaultRight = Underbelly (Right Leg)
 
 # LLeg
 
