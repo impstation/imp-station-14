@@ -158,12 +158,33 @@ public sealed partial class XenoArtifactSystem
         if (layerMax >= layerMin)
             nodeCount = RobustRandom.Next(layerMin, layerMax + 1); // account for non-inclusive max
 
+        // imp edit start, make it have one node in the first layer
+        if (ent.Comp.OneStartNode && iteration == 0)
+            nodeCount = 1;
+        // imp edit end
+
         segmentSize -= nodeCount;
         var nodes = new List<Entity<XenoArtifactNodeComponent>>();
         for (var i = 0; i < nodeCount; i++)
         {
-            var trigger = RobustRandom.PickAndTake(triggerPool);
-            nodes.Add(CreateNode(ent, trigger, iteration));
+            // var trigger = RobustRandom.PickAndTake(triggerPool); imp edit
+            // nodes.Add(CreateNode(ent, trigger, iteration)); imp edit
+
+            // imp edit start
+            XenoArchTriggerPrototype trigger;
+
+            if (ent.Comp.Natural)
+                trigger = RobustRandom.Pick(triggerPool); // natural artifacts can have duplicate triggers
+            else
+                trigger = RobustRandom.PickAndTake(triggerPool);
+
+            var node = CreateNode(ent, trigger, iteration);
+            // make the first node the current node if the artifact's natural
+            if (ent.Comp.Natural && iteration == 0 && i == 0)
+                SetCurrentNode(ent, node);
+
+            nodes.Add(node);
+            // imp edit end
         }
 
         var successors = PopulateArtifactSegmentRecursive(
@@ -203,6 +224,11 @@ public sealed partial class XenoArtifactSystem
         // We always want to have at least 2 segments. For variety.
         var segmentMin = ent.Comp.SegmentSize.Min;
         var segmentMax = Math.Min(ent.Comp.SegmentSize.Max, Math.Max(nodeCount / 2, segmentMin));
+
+        // imp edit start, let them have just one segment, if they want
+        if (!ent.Comp.EnforceMultipleSegments)
+            segmentMax = ent.Comp.SegmentSize.Max;
+        // imp edit end
 
         var segmentSize = RobustRandom.Next(segmentMin, segmentMax + 1); // account for non-inclusive max
         var remainder = nodeCount - segmentSize;

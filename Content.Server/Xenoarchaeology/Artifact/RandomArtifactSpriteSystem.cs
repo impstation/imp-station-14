@@ -1,7 +1,6 @@
 using Content.Shared.Item;
 using Content.Shared.Xenoarchaeology.Artifact;
 using Content.Shared.Xenoarchaeology.XenoArtifacts;
-using Content.Server.Xenoarchaeology.XenoArtifacts.Events; //#IMP
 using Robust.Server.GameObjects;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -23,7 +22,6 @@ public sealed class RandomArtifactSpriteSystem : EntitySystem
         SubscribeLocalEvent<RandomArtifactSpriteComponent, ArtifactUnlockingStartedEvent>(UnlockingStageStarted);
         SubscribeLocalEvent<RandomArtifactSpriteComponent, ArtifactUnlockingFinishedEvent>(UnlockingStageFinished);
         SubscribeLocalEvent<RandomArtifactSpriteComponent, XenoArtifactActivatedEvent>(ArtifactActivated);
-        SubscribeLocalEvent<RandomArtifactSpriteComponent, ArtifactActivatedEvent>(OldArtifactActivated); //#IMP
     }
 
     public override void Update(float frameTime)
@@ -63,13 +61,6 @@ public sealed class RandomArtifactSpriteSystem : EntitySystem
     }
 
     private void ArtifactActivated(Entity<RandomArtifactSpriteComponent> ent, ref XenoArtifactActivatedEvent args)
-    {
-        _appearance.SetData(ent, SharedArtifactsVisuals.IsActivated, true);
-        ent.Comp.ActivationStart = _time.CurTime;
-    }
-
-    //#IMP
-    private void OldArtifactActivated(Entity<RandomArtifactSpriteComponent> ent, ref ArtifactActivatedEvent args)
     {
         _appearance.SetData(ent, SharedArtifactsVisuals.IsActivated, true);
         ent.Comp.ActivationStart = _time.CurTime;

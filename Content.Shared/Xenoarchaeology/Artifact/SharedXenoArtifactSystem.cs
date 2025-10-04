@@ -26,7 +26,7 @@ public abstract partial class SharedXenoArtifactSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<XenoArtifactComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<XenoArtifactComponent, XAEArtifactSelfActivateEvent>(OnSelfActivate); //#IMP: Renamed to "XAEArtifact..." from "Artifact..."
+        SubscribeLocalEvent<XenoArtifactComponent, ArtifactSelfActivateEvent>(OnSelfActivate);
 
         InitializeNode();
         InitializeUnlock();
@@ -49,7 +49,7 @@ public abstract partial class SharedXenoArtifactSystem : EntitySystem
         ent.Comp.NodeContainer = _container.EnsureContainer<Container>(ent, XenoArtifactComponent.NodeContainerId);
     }
 
-    private void OnSelfActivate(Entity<XenoArtifactComponent> ent, ref XAEArtifactSelfActivateEvent args)
+    private void OnSelfActivate(Entity<XenoArtifactComponent> ent, ref ArtifactSelfActivateEvent args)
     {
         args.Handled = TryActivateXenoArtifact(ent, ent, null, Transform(ent).Coordinates, false);
     }

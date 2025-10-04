@@ -1,16 +1,21 @@
 using System.Linq;
+using Content.Shared._Impstation.Xenoarchaeology.Artifact.Components; // imp edit
 using Content.Shared.EntityTable;
 using Content.Shared.NameIdentifier;
+using Content.Shared.Power.EntitySystems; // imp edit
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 using Content.Shared.Xenoarchaeology.Artifact.Prototypes;
+using Content.Shared.Xenoarchaeology.Equipment.Components; // imp edit
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Robust.Shared.Random; // imp edit
 
 namespace Content.Shared.Xenoarchaeology.Artifact;
 
 public abstract partial class SharedXenoArtifactSystem
 {
     [Dependency] private readonly EntityTableSystem _entityTable =  default!;
+    [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!; // imp edit
 
     private EntityQuery<XenoArtifactComponent> _xenoArtifactQuery;
     private EntityQuery<XenoArtifactNodeComponent> _nodeQuery;
@@ -270,6 +275,25 @@ public abstract partial class SharedXenoArtifactSystem
         var allNodes = GetAllNodes((ent, ent.Comp));
         foreach (var node in allNodes)
         {
+            // imp edit start, if the artifact's natural the current node should be the only active node
+            if (ent.Comp.Natural)
+            {
+                if (_net.IsServer)
+                {
+                    if (ent.Comp.CurrentNode != null && ent.Comp.CurrentNode.Value.Equals(node))
+                    {
+                        ent.Comp.CachedActiveNodes.Add(GetNetEntity(node));
+                        Dirty(ent);
+                        return;
+                    }
+
+                    continue;
+                }
+
+                return;
+            }
+            // imp edit end
+
             // Locked nodes cannot be active.
             if (node.Comp.Locked)
                 continue;
@@ -393,7 +417,74 @@ public abstract partial class SharedXenoArtifactSystem
             ? 1f - durabilityEffect
             : 1f + durabilityEffect;
 
+        // imp edit start, if they dont activate on interaction, durability doesn't matter
+        if (!artifact.Comp.ActivateOnInteraction)
+            durabilityMultiplier = 1;
+        // imp edit end
+
         var predecessorNodes = GetPredecessorNodes((artifact, artifact), node);
         nodeComponent.ResearchValue = (int)(Math.Pow(1.25, Math.Pow(predecessorNodes.Count, 1.5f)) * nodeComponent.BasePointValue * durabilityMultiplier);
+    }
+
+    /// <summary>
+    /// Imp edit, set the current node to the given node, rebuild the cache of active nodes.
+    /// </summary>
+    public void SetCurrentNode(Entity<XenoArtifactComponent> artifact, Entity<XenoArtifactNodeComponent> node)
+    {
+        artifact.Comp.CurrentNode = node;
+        RebuildCachedActiveNodes((artifact, artifact));
+        Dirty(node);
+    }
+
+    /// <summary>
+    /// Imp edit, set a new current node depending on the set bias and the connected locked nodes
+    /// </summary>
+    public void GetNewCurrentNode(Entity<XenoArtifactComponent> ent)
+    {
+        if (ent.Comp.CurrentNode == null)
+            return;
+
+        var predecessorNodes = GetDirectPredecessorNodes((ent, ent), ent.Comp.CurrentNode.Value).ToList();
+        var successorNodes = GetDirectSuccessorNodes((ent, ent), ent.Comp.CurrentNode.Value).ToList();
+        var directNodes = predecessorNodes.Union(successorNodes).ToList();
+
+        Entity<XenoArtifactNodeComponent> newNode;
+
+        if (TryComp<XenoArtifactBiasedComponent>(ent, out var biasComp))
+        {
+            // check if the console's powered
+            if (_powerReceiver.IsPowered(biasComp.Provider))
+            {
+                // check if the analyzer's powered. sorry.
+                if (GetEntity(Comp<AnalysisConsoleComponent>(biasComp.Provider).AnalyzerEntity) != null &&
+                    _powerReceiver.IsPowered(
+                        GetEntity(Comp<AnalysisConsoleComponent>(biasComp.Provider).AnalyzerEntity)!.Value))
+                {
+                    switch (Comp<AnalysisConsoleComponent>(biasComp.Provider).BiasDirection)
+                    {
+                        case BiasDirection.Up:
+                            if (predecessorNodes.Count > 0)
+                                directNodes = predecessorNodes;
+                            break;
+                        case BiasDirection.Down:
+                            if (successorNodes.Count > 0)
+                                directNodes = successorNodes;
+                            break;
+                    }
+                }
+            }
+        }
+
+        if (directNodes.Count > 0)
+            newNode = RobustRandom.Pick(directNodes);
+        else
+            return;
+
+        // 75% chance to be a locked node (if they exist)
+        var lockedNodes = directNodes.Where(x => x.Comp.Locked).ToList();
+        if (lockedNodes.Count > 0 && RobustRandom.Prob(0.75f))
+            newNode = RobustRandom.Pick(lockedNodes);
+
+        SetCurrentNode(ent, newNode);
     }
 }

@@ -1,7 +1,7 @@
 - type: entity
-  id: BaseXAEXenoArtifact #IMP XAE in name
+  id: BaseXenoArtifact
   parent: BaseMob # we use this since it can technically get inhabited
-  name: reticulated artifact
+  name: artifact
   description: A strange artifact from time unknown. Looks like a good time.
   abstract: true
   noSpawn: true
@@ -73,4 +73,4 @@
       state: ano29
     useDelay: 300
   - type: InstantAction
-    event: !type:XAEArtifactSelfActivateEvent #IMP: Renamed to "XAEArtifact..." from "Artifact..."
+    event: !type:ArtifactSelfActivateEvent
