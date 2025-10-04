@@ -155,11 +155,11 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
 
             if (profile.FlavorText != "" && _configurationManager.GetCVar(CCVars.FlavorText))
             {
-                AddComp<DetailExaminableComponent>(entity.Value).Content = profile.FlavorText;//imp edit
+                AddComp<DetailExaminableComponent>(entity.Value).Content = profile.FlavorText;
             }
         }
 
-        EnsureComp<NotifierExamineComponent>(entity.Value);
+        EnsureComp<NotifierExamineComponent>(entity.Value); // Imp Edit
         if (loadout != null)
         {
             EquipRoleLoadout(entity.Value, loadout, roleProto!);

@@ -105,17 +105,5 @@ public sealed class ParadoxCloneRuleSystem : GameRuleSystem<ParadoxCloneRuleComp
             return;
 
         _mind.CopyObjectives(ent.Comp.OriginalMind.Value, (cloneMindId, cloneMindComp), ent.Comp.ObjectiveWhitelist, ent.Comp.ObjectiveBlacklist);
-        if (!TryComp<NotifierExamineComponent>(args.EntityUid, out var cloneComp) ||
-            !TryComp<NotifierExamineComponent>(ent.Comp.OriginalBody, out var ogComp))//imp- copy over notifier examine
-        {
-            return;
-        }
-
-        if (ogComp.Active)
-        {
-            cloneComp.Active = true;
-            cloneComp.Content=ogComp.Content;
-            Dirty(args.EntityUid, cloneComp);
-        }
     }
 }

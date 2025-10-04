@@ -32,16 +32,16 @@ public sealed class NotifierExamineSystem : EntitySystem
 
     }
 
-    private void OnPlayerAttached(EntityUid uid,NotifierExamineComponent component, PlayerAttachedEvent args)
+    private void OnPlayerAttached(Entity<NotifierExamineComponent> ent, ref PlayerAttachedEvent args)
     {
 
         if ( !_netCfg.GetClientCVar<bool>(args.Player.Channel, ImpCCVars.NotifierOn))
         {
             return;
         }
-        component.Active=true;
-        component.Content=_netCfg.GetClientCVar<string>(args.Player.Channel, ImpCCVars.NotifierExamine);
-        Dirty(uid,component);
+        ent.Comp.Active=true;
+        ent.Comp.Content=_netCfg.GetClientCVar<string>(args.Player.Channel, ImpCCVars.NotifierExamine);
+        Dirty(ent.Owner,ent.Comp);
     }
     private void OnGetExamineVerbs(Entity<NotifierExamineComponent> ent, ref GetVerbsEvent<ExamineVerb> args)
     {
@@ -59,7 +59,7 @@ public sealed class NotifierExamineSystem : EntitySystem
                 markup.AddText(ent.Comp.Content);
                 _examine.SendExamineTooltip(user, ent, markup, false, false);
             },
-            Text = Loc.GetString("detail-examinable-verb-text"),
+            Text = Loc.GetString("notifier-verb-text"),
             Category = VerbCategory.Examine,
             Icon = new SpriteSpecifier.Texture(new ("/Textures/_Impstation/Interface/VerbIcons/star.svg.192dpi.png"))
         };
