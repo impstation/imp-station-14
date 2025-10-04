@@ -45,6 +45,7 @@
     - id: BountyHunterSpawn # imp
     - id: ReplicatorSpawn # imp
     - id: VRexEvent #imp
+    - id: EeepEvent # imp
 
 - type: entityTable
   id: LesserAntagEventsTable # imp: lower impact antags
@@ -78,7 +79,8 @@
     - id: ChangelingAwakening # imp
     - id: BountyHunterSpawn # imp
     - id: ReplicatorSpawn # imp
-    - id: VRexEvent #imp
+    - id: VRexEvent # imp
+    - id: EeepEvent # imp
 
 - type: entityTable
   id: DerelictBorgEventTable #For Derelict Borg spawns
