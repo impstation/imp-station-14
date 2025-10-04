@@ -1,2 +1,1 @@
-﻿ungu-begin-combat-popup = {$name} looks ready to charge.
-
+﻿ungu-begin-combat-popup = CAPITALIZE(($name)) looks ready to charge.

@@ -593,6 +593,16 @@
         damage:
           types:
             Poison: 0.06
+      - !type:Emote #imp edit
+        emote: Crying
+        probability: 0.1
+  reactiveEffects: # imp edit
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:Emote
+        emote: Crying
+        force: true
 
 - type: reagent
   id: Pax

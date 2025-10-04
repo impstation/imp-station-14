@@ -50,3 +50,48 @@
   - type: Construction
     graph: Table
     node: TableUraniumGlass
+
+- type: entity
+  id: TableReaper
+  parent: TableBase
+  name: spooky table
+  description: Neglected table spirits like to take their frustration out by subtly tilting to one side, ensuring no pen will ever be safe.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Furniture/Tables/reapertable.rsi
+  - type: Icon
+    sprite: _Impstation/Structures/Furniture/Tables/reapertable.rsi
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Tag
+    tags:
+    - Table # imp edit
+    - Wooden
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepWood
