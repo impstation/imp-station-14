@@ -4,3 +4,4 @@ species-name-kodepiia = Kodepiia
 species-name-gray = Gray
 species-name-gastropoid = Gastropoid
 species-name-anomalocarid = Anomalocarid
+species-name-ungu = Ungu
