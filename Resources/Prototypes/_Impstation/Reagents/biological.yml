@@ -203,6 +203,17 @@
     SpaceLube: 1
 
 - type: reagent
+  parent: BaseAlcohol
+  id: BloodAllulalo
+  name: reagent-name-bloodallulalo
+  group: Biological
+  desc: reagent-desc-bloodallulalo
+  physicalDesc: reagent-physical-desc-thin
+  flavor: allulalo
+  color: "#c1c7d3"
+  evaporationSpeed: 0.1 #one third of the speed of water
+  
+- type: reagent
   id: ReaperBlood
   name: reagent-name-reaper-blood
   group: Biological
