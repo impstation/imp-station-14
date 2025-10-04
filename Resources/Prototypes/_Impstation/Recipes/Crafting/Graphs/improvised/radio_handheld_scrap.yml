@@ -1,0 +1,29 @@
+- type: constructionGraph
+  id: RadioHandheldScrapGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: radio
+      steps:
+      - tag: PowerCellSmall
+        name: construction-graph-tag-power-cell-small
+        icon:
+          sprite: Objects/Power/power_cells.rsi
+          state: small
+      - material: Steel
+        amount: 3
+        doAfter: 1
+      - material: Glass
+        amount: 1
+        doAfter: 1
+      - material: Cable
+        amount: 11
+        doAfter: 1
+      - tag: Multitool
+        icon:
+          sprite: _Impstation/Objects/Tools/multitool.rsi # imp
+          state: icon
+        name: construction-graph-tag-multitool
+  - node: radio
+    entity: RadioHandheldScrap
