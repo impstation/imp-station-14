@@ -26,6 +26,14 @@
     damageModifierSet: Colonid
   - type: Bloodstream
     bloodReagent: Plasma
+  - type: ExplodeFromGas
+    explosionDelayLength: 3
+    triggeringGas: Oxygen
+  - type: Explosive
+    totalIntensity: 10
+    intensitySlope: 10
+    canCreateVacuum: false
+    maxIntensity: 8
   - type: Carriable # Carrying system from nyanotrasen.
 
 - type: entity
