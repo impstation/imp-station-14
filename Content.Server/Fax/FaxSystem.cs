@@ -1,9 +1,11 @@
+using Content.Server._Impstation.Fax; // imp edit
 using Content.Server.Administration;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
+using Content.Server.Radio.EntitySystems; // imp edit
 using Content.Server.Tools;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Containers.ItemSlots;
@@ -51,6 +53,7 @@ public sealed class FaxSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly FaxecuteSystem _faxecute = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private readonly RadioSystem _radio = default!; // imp edit
 
     private static readonly ProtoId<ToolQualityPrototype> ScrewingQuality = "Screwing";
 
@@ -579,6 +582,17 @@ public sealed class FaxSystem : EntitySystem
 
         if (component.NotifyAdmins)
             NotifyAdmins(faxName);
+
+        // imp edit start, fax radio announcement
+        if (TryComp<FaxAnnouncingComponent>(uid, out var announcingComponent))
+        {
+            var message = Loc.GetString("fax-machine-radio-received", ("from", faxName), ("to", component.FaxName));
+            foreach (var channel in announcingComponent.Channels)
+            {
+                _radio.SendRadioMessage(uid, message, channel, uid, escapeMarkup: false);
+            }
+        }
+        // imp edit end
 
         component.PrintingQueue.Enqueue(printout);
     }

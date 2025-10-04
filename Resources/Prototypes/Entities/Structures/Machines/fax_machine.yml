@@ -105,6 +105,8 @@
     notifyAdmins: true
   - type: Emagged
     emagType: Interaction
+  - type: FaxAnnouncing # imp addition
+    channels: [ Syndicate ]
 
 - type: entity
   parent: FaxMachineBase
@@ -117,3 +119,5 @@
       receiveNukeCodes: true
     - type: StealTarget
       stealGroup: FaxMachineCaptain
+    - type: FaxAnnouncing # imp addition
+      channels: [ Command ]
