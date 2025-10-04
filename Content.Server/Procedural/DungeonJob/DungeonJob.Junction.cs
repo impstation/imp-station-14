@@ -15,7 +15,7 @@ public sealed partial class DungeonJob
     private async Task PostGen(JunctionDunGen gen, Dungeon dungeon, HashSet<Vector2i> reservedTiles, Random random)
     {
         var tileDef = _tileDefManager[gen.Tile];
-        var contents = _prototype.Index(gen.Contents);
+        var contents = gen.Contents; // imp
 
         // N-wide junctions
         foreach (var tile in dungeon.CorridorTiles)
@@ -116,7 +116,7 @@ public sealed partial class DungeonJob
                         _maps.SetTile(_gridUid, _grid, weh, _tile.GetVariantTile((ContentTileDefinition) tileDef, random));
 
                         var coords = _maps.GridTileToLocal(_gridUid, _grid, weh);
-                        _entManager.SpawnEntitiesAttachedTo(coords, _entTable.GetSpawns(contents, random));
+                        _entManager.SpawnEntity(contents, coords); // imp (Replaced SpawnEntitiesAttachedTo with SpawnEntity as we are giving it a set entity to spawn)
                     }
 
                     break;

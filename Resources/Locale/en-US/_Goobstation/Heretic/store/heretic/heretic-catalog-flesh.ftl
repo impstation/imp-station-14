@@ -1,7 +1,7 @@
 knowledge-path-flesh-s1-name = Principle of Hunger
 knowledge-path-flesh-s1-desc =
     Hundreds of us starved, but not me... I found strength in my greed.
-    
+
     Opens up the Path of Flesh to you.
     Allows you to transmute a knife and a pool of blood into a Bloody Blade.
 
@@ -42,7 +42,7 @@ knowledge-path-flesh-s6-desc =
     The screams... once constant, now silenced by their wretched appearance. Nothing was out of reach.
 
     Allows you to transmute a pair of eyes, a stomach, and a pool of blood to create a Raw Prophet.
-    Raw Prophets have a long range jaunt and the ability to link minds to communicate with ease, but are very fragile and weak in combat.
+    Raw Prophets can jaunt, have the ability to link minds to communicate with ease, and have a powerful laser eye, which can burn your opponents.
 
 knowledge-path-flesh-s7-name = Bleeding Steel
 knowledge-path-flesh-s7-desc =

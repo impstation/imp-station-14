@@ -31,8 +31,8 @@
   components:
   - type: StorageFill
     contents:
-    - id: BoxCleanerGrenades
-      amount: 2
+      - id: BoxCleanerGrenades
+        amount: 2
 
 - type: entity
   id: CrateServiceReplacementLights
@@ -149,7 +149,7 @@
     #   amount: 15
     - id: Pen
       amount: 2
-    - id: BoxFolderClipboard
+    - id: BoxFolderClipboard #imp
       amount: 2
     - id: HandLabeler
     - id: BoxFolderBlue
