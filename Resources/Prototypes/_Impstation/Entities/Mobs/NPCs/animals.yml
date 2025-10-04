@@ -1,4 +1,147 @@
 - type: entity
+  name: boar
+  parent: [ MobCombat, SimpleMobBase ]
+  id: MobBoar
+  description: Thank fuck there aren't 30-50 of them.
+  components:
+    - type: Sprite
+      sprite: _Impstation/Mobs/Animals/boar.rsi
+      drawdepth: Mobs
+      layers:
+      - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+        state: boar
+      - map: ["enum.DamageStateVisualLayers.BaseUnshaded"]
+        state: eyes
+        shader: unshaded
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: boar
+        Critical:
+          Base: boar_dead
+        Dead:
+          Base: boar_dead
+    - type: SpriteMovement
+      movementLayers:
+        movement:
+          state: boar_moving
+      noMovementLayers:
+        movement:
+          state: boar
+    - type: Butcherable
+      spawned:
+      - id: FoodMeatBacon
+        amount: 8
+    - type: MeleeThrowOnHit
+      unanchorOnHit: false
+      distance: 2
+      speed: 10
+    - type: Tag
+      tags:
+        - DoorBumpOpener
+        - FootstepSound
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.48
+          density: 200
+          mask:
+          - MobMask
+          layer:
+          - MobLayer
+    - type: MovementSpeedModifier
+      baseWalkSpeed : 1.5
+      baseSprintSpeed : 2.5
+    - type: NpcFactionMember
+      factions:
+        - Passive
+    - type: HTN
+      rootTask:
+        task: BoarCompound
+      blackboard:
+        NavPry: !type:Bool
+          true
+        NavSmash: !type:Bool
+          true
+    - type: NPCImprintingOnSpawnBehaviour
+    - type: Hunger
+      baseDecayRate: 0.5
+    - type: YoungKodepiiaRetaliation
+      attackMemoryLength: 15
+    - type: GoobAbsorbable
+      biomassRestored: 0.8
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        150: Critical
+        200: Dead
+    - type: Damageable
+      damageContainer: Biological
+      damageModifierSet: Slime
+    - type: Insulated
+    - type: MeleeWeapon
+      attackRate: 0.5
+      altDisarm: false
+      angle: 0
+      animation: WeaponArcPunch
+      soundHit:
+        collection: Punch
+      damage:
+        types:
+          Blunt: 5
+          Piercing: 5
+          Structural: 5
+    - type: Prying
+      pryPowered: true
+      speedModifier: 2.0
+      useSound:
+        path: /Audio/Items/crowbar.ogg
+    - type: InteractionPopup
+      successChance: 0.2
+      interactSuccessString: petting-success-boar
+      interactFailureString: petting-failure-boar
+      interactSuccessSpawn: EffectHearts
+      interactSuccessSound:
+        path: /Audio/Animals/pig_oink.ogg
+
+- type: entity
+  name: space boar
+  id: MobBoarSpace
+  parent: MobBoar
+  description: How did it even put that on?
+  components:
+    - type: Sprite
+      layers:
+      - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+        state: spaceboar
+    - type: SpriteMovement
+      movementLayers:
+        movement:
+          state: spaceboar_moving
+      noMovementLayers:
+        movement:
+          state: spaceboar
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: spaceboar
+        Critical:
+          Base: spaceboar_dead
+        Dead:
+          Base: spaceboar_dead
+    - type: Temperature
+      heatDamageThreshold: 423
+      coldDamageThreshold: 0
+    - type: MovementAlwaysTouching
+    - type: PressureImmunity
+    - type: ProtectedFromStepTriggers
+    - type: Insulated
+    - type: Respirator
+      minSaturation: 5.0
+
+- type: entity
   name: BROS
   parent: [ MobCombat, SimpleMobBase ]
   id: MobBros
