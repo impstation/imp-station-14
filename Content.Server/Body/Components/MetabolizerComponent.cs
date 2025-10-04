@@ -80,12 +80,6 @@ namespace Content.Server.Body.Components
         /// </summary>
         [DataField("groups")]
         public List<MetabolismGroupEntry>? MetabolismGroups;
-
-        /// <summary>
-        /// Offbrand: Set of reagents that are currently being metabolized
-        /// </summary>
-        [DataField]
-        public HashSet<ProtoId<Content.Shared.Chemistry.Reagent.ReagentPrototype>> MetabolizingReagents = new();
     }
 
     /// <summary>

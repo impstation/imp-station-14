@@ -1,0 +1,64 @@
+- type: entity
+  id: CrateValentinesFilled
+  parent: CrateValentines
+  name: romantic crate
+  suffix: filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: ItemBouquet
+    - id: PlushieHeadofPersonnel
+    - id: PlushieCaptain
+    - id: PlushieGiantBear
+    - id: BoxMacarons
+      amount: 3
+    - id: BoxConversationHeart
+      amount: 3
+    - id: BoxChocolateHearts
+      amount: 2
+    - id: HeartLocket
+    - id: FoodGummyWorm
+      prob: 0.01
+
+- type: entity
+  id: CrateAnniversaryFilled
+  parent: CrateAnniversary
+  name: anniversary crate
+  suffix: filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: PlushieImp
+    - id: PlushieGnomeChild
+    - id: BongCommemorative
+      orGroup: RandomBong
+    - id: BongBongy
+      orGroup: RandomBong
+    - id: BongGay
+      orGroup: RandomBong
+    - id: BongSlime
+      orGroup: RandomBong
+    - id: BongSpace
+      orGroup: RandomBong
+    - id: BongWhiteCell
+      orGroup: RandomBong
+    - id: BongWizard
+      orGroup: RandomBong
+    - id: PlushieJumboGray
+    - id: ImpstationMemorialBlunt
+      orGroup: Memorial1
+    - id: ImpstationMemorialJoint
+      orGroup: Memorial1
+    - id: ImpstationMemorialBlunt
+      orGroup: Memorial2
+    - id: ImpstationMemorialJoint
+      orGroup: Memorial2
+    - id: PlushieFinfin
+      prob: 0.8
+      orGroup: FinFin
+    - id: MobFinfin # this might asphyxiate him but its funny so
+      prob: 0.15
+      orGroup: FinFin
+    - id: ToyFigurineGoldenFinfin
+      prob: 0.05
+      orGroup: FinFin

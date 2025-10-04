@@ -3,8 +3,8 @@
   id: Barratry
   mapName: 'Barratry'
   mapPath: /Maps/_Impstation/barratry.yml # imp
-  minPlayers: 30
-  maxPlayers: 70
+  minPlayers: 35
+  maxPlayers: 69
   stations:
     Barratry:
       stationProto: StandardNanotrasenStation
@@ -44,11 +44,11 @@
             AtmosphericTechnician: [ 3, 3 ]
             StationEngineer: [ 5, 5 ]
             TechnicalAssistant: [ 4, 4 ]
-            # medical - 8-12
+            # medical - 7-11
             Chemist: [ 2, 2 ]
             MedicalDoctor: [ 4, 4 ] 
             MedicalIntern: [ 2, 4 ]
-            Paramedic: [ 2, 2 ] 
+            Paramedic: [ 1, 1 ] 
             # science - 8-9
             Borg: [ 2, 2 ]
             ResearchAssistant: [ 1, 1]

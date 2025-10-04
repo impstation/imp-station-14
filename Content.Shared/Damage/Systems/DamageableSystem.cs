@@ -48,7 +48,7 @@ namespace Content.Shared.Damage
             SubscribeLocalEvent<DamageableComponent, ComponentHandleState>(DamageableHandleState);
             SubscribeLocalEvent<DamageableComponent, ComponentGetState>(DamageableGetState);
             SubscribeLocalEvent<DamageableComponent, OnIrradiatedEvent>(OnIrradiated);
-            SubscribeLocalEvent<DamageableComponent, RejuvenateEvent>(OnRejuvenate, after: [typeof(Content.Shared.StatusEffectNew.StatusEffectsSystem)]); // Offbrand
+            SubscribeLocalEvent<DamageableComponent, RejuvenateEvent>(OnRejuvenate);
 
             _appearanceQuery = GetEntityQuery<AppearanceComponent>();
             _damageableQuery = GetEntityQuery<DamageableComponent>();
@@ -145,7 +145,7 @@ namespace Content.Shared.Damage
         ///     The damage changed event is used by other systems, such as damage thresholds.
         /// </remarks>
         public void DamageChanged(EntityUid uid, DamageableComponent component, DamageSpecifier? damageDelta = null,
-            bool interruptsDoAfters = true, EntityUid? origin = null, bool forcedRefresh = false) // Offbrand
+            bool interruptsDoAfters = true, EntityUid? origin = null)
         {
             component.Damage.GetDamagePerGroup(_prototypeManager, component.DamagePerGroup);
             component.TotalDamage = component.Damage.GetTotal();
@@ -156,7 +156,7 @@ namespace Content.Shared.Damage
                 var data = new DamageVisualizerGroupData(component.DamagePerGroup.Keys.ToList());
                 _appearance.SetData(uid, DamageVisualizerKeys.DamageUpdateGroups, data, appearance);
             }
-            RaiseLocalEvent(uid, new DamageChangedEvent(component, damageDelta, interruptsDoAfters, origin, forcedRefresh)); // Offbrand
+            RaiseLocalEvent(uid, new DamageChangedEvent(component, damageDelta, interruptsDoAfters, origin));
         }
 
         /// <summary>
@@ -172,7 +172,7 @@ namespace Content.Shared.Damage
         ///     null if the user had no applicable components that can take damage.
         /// </returns>
         public DamageSpecifier? TryChangeDamage(EntityUid? uid, DamageSpecifier damage, bool ignoreResistances = false,
-            bool interruptsDoAfters = true, DamageableComponent? damageable = null, EntityUid? origin = null, bool forceRefresh = false) // Offbrand
+            bool interruptsDoAfters = true, DamageableComponent? damageable = null, EntityUid? origin = null)
         {
             if (!uid.HasValue || !_damageableQuery.Resolve(uid.Value, ref damageable, false))
             {
@@ -180,7 +180,7 @@ namespace Content.Shared.Damage
                 return null;
             }
 
-            if (damage.Empty && !forceRefresh) // Offbrand
+            if (damage.Empty)
             {
                 return damage;
             }
@@ -214,12 +214,6 @@ namespace Content.Shared.Damage
 
             damage = ApplyUniversalAllModifiers(damage);
 
-            // Begin Offbrand
-            var beforeCommit = new Content.Shared._Offbrand.Wounds.BeforeDamageCommitEvent(damage);
-            RaiseLocalEvent(uid.Value, ref beforeCommit);
-            damage = beforeCommit.Damage;
-            // End Offbrand
-
             // TODO DAMAGE PERFORMANCE
             // Consider using a local private field instead of creating a new dictionary here.
             // Would need to check that nothing ever tries to cache the delta.
@@ -242,7 +236,7 @@ namespace Content.Shared.Damage
             }
 
             if (delta.DamageDict.Count > 0)
-                DamageChanged(uid.Value, damageable, delta, interruptsDoAfters, origin, forceRefresh); // Offbrand
+                DamageChanged(uid.Value, damageable, delta, interruptsDoAfters, origin);
 
             return delta;
         }
@@ -340,7 +334,6 @@ namespace Content.Shared.Damage
 
         private void OnRejuvenate(EntityUid uid, DamageableComponent component, RejuvenateEvent args)
         {
-            Log.Debug("rejuvenate damage");
             TryComp<MobThresholdsComponent>(uid, out var thresholds);
             _mobThreshold.SetAllowRevives(uid, true, thresholds); // do this so that the state changes when we set the damage
             SetAllDamage(uid, component, 0);
@@ -439,18 +432,11 @@ namespace Content.Shared.Damage
         /// </summary>
         public readonly EntityUid? Origin;
 
-        // Offbrand
-        /// <summary>
-        /// If this damage changed happened as part of a forced refresh
-        /// </summary>
-        public readonly bool ForcedRefresh;
-
-        public DamageChangedEvent(DamageableComponent damageable, DamageSpecifier? damageDelta, bool interruptsDoAfters, EntityUid? origin, bool forcedRefresh) // Offbrand
+        public DamageChangedEvent(DamageableComponent damageable, DamageSpecifier? damageDelta, bool interruptsDoAfters, EntityUid? origin)
         {
             Damageable = damageable;
             DamageDelta = damageDelta;
             Origin = origin;
-            ForcedRefresh = forcedRefresh; // Offbrand
 
             if (DamageDelta == null)
                 return;

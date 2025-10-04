@@ -91,7 +91,9 @@ public sealed class OldArtifactAnalyzerSystem : EntitySystem
             if (active.AnalysisPaused)
                 continue;
 
-            if (_timing.CurTime - active.StartTime < scan.AnalysisDuration - active.AccumulatedRunTime)
+            var analysisDuration = active.InstantScan ? scan.AnalysisDuration : new TimeSpan(1);
+
+            if (_timing.CurTime - active.StartTime < analysisDuration - active.AccumulatedRunTime)
                 continue;
 
             FinishScan(uid, scan, active);
@@ -278,21 +280,25 @@ public sealed class OldArtifactAnalyzerSystem : EntitySystem
             totalTime = analyzer.AnalysisDuration;
             if (TryComp<ItemPlacerComponent>(component.AnalyzerEntity, out var placer))
                 if (placer.PlacedEntities.Count > 0 && HasComp<ArtifactComponent>(placer.PlacedEntities.FirstOrNull()))
-                    canScan = true;
+                {
+                    canScan = false;
+
+                    // the artifact that's actually on the scanner right now. Also doublecheck artifact is physically in range of scanner
+                    if (GetArtifactForAnalysis(component.AnalyzerEntity, placer) is { } current && Transform(current).Coordinates.TryDistance(EntityManager, Transform((EntityUid)component.AnalyzerEntity).Coordinates, out var distance) && distance < 2)
+                    {
+                        points = _artifact.GetResearchPointValue(current);
+                        canScan = true;
+                    }
+                }
                 else
                     canScan = false;
             canPrint = analyzer.ReadyToPrint;
-
-            // the artifact that's actually on the scanner right now.
-            if (GetArtifactForAnalysis(component.AnalyzerEntity, placer) is { } current)
-                points = _artifact.GetResearchPointValue(current);
 
             //This will also sync the data between console and ANS. If there is no ANS then the console shouldn't be able to recognise what artifact is on the pad.
             _ans.TryAdvancedScanNodeId((EntityUid)component.AnalyzerEntity);
             if (analyzer.AdvancedNodeScanner is not null && HasComp<OldAdvancedNodeScannerComponent>(analyzer.AdvancedNodeScanner))
                 advancedMode = true;
         }
-
         var analyzerConnected = component.AnalyzerEntity != null;
         var serverConnected = TryComp<ResearchClientComponent>(uid, out var client) && client.ConnectedToServer;
 
@@ -349,24 +355,19 @@ public sealed class OldArtifactAnalyzerSystem : EntitySystem
         if (ent == null)
             return;
 
+        var activeComp = EnsureComp<ActiveArtifactAnalyzerComponent>(component.AnalyzerEntity.Value);
+        activeComp.StartTime = _timing.CurTime;
+        activeComp.AccumulatedRunTime = TimeSpan.Zero;
+        activeComp.Artifact = ent.Value;
+
         // We can instantly finish the scan if we have an available advanced node scanner that has previously scanned the artifact node.
-        if (_ans.AnalyzerCanInstantScan((EntityUid)component.AnalyzerEntity, (EntityUid)ent))
-        {
-            _ans.TryAdvancedScanNodeFull((EntityUid)component.AnalyzerEntity);
-        }
-        else // Normal scanning, we do not have an advanced node scanner
-        {
-            var activeComp = EnsureComp<ActiveArtifactAnalyzerComponent>(component.AnalyzerEntity.Value);
-            activeComp.StartTime = _timing.CurTime;
-            activeComp.AccumulatedRunTime = TimeSpan.Zero;
-            activeComp.Artifact = ent.Value;
+        activeComp.InstantScan = _ans.AnalyzerCanInstantScan((EntityUid)component.AnalyzerEntity, (EntityUid)ent);
 
-            if (TryComp<ApcPowerReceiverComponent>(component.AnalyzerEntity.Value, out var powa))
-                activeComp.AnalysisPaused = !powa.Powered;
+        if (TryComp<ApcPowerReceiverComponent>(component.AnalyzerEntity.Value, out var powa))
+            activeComp.AnalysisPaused = !powa.Powered;
 
-            var activeArtifact = EnsureComp<ActiveScannedArtifactComponent>(ent.Value);
-            activeArtifact.Scanner = component.AnalyzerEntity.Value;
-        }
+        var activeArtifact = EnsureComp<ActiveScannedArtifactComponent>(ent.Value);
+        activeArtifact.Scanner = component.AnalyzerEntity.Value;
         UpdateUserInterface(uid, component);
     }
 
