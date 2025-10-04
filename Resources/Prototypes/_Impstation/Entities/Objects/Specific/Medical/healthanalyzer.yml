@@ -1,0 +1,9 @@
+- type: entity
+  id: HandheldHealthAnalyzerAdmeme
+  parent: HandheldHealthAnalyzer
+  suffix: Show Exact Values
+  components:
+  - type: HealthAnalyzer
+    scanningEndSound:
+      path: "/Audio/Items/Medical/healthscanner.ogg"
+    showExactValues: true
