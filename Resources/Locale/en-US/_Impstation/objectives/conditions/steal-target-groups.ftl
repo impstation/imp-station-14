@@ -22,7 +22,7 @@ steal-target-groups-antiquedisabler = "antique" disabler
 
 steal-target-groups-clothing-neck-bureaucracymedal = excellence in bureaucracy medal
 
-steal-target-groups-toolboxgolden = the golden toolbox
+steal-target-groups-toolboxgolden = golden toolbox
 
 # Thief Animal
 
