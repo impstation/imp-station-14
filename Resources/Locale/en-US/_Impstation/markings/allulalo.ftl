@@ -1,6 +1,10 @@
 # Chest
 
+marking-AllulaloUnderbelly = Underbelly
+
 # Head
+
+marking-AllulaloHeadUnderbelly = Underbelly
 
 # Snout
 
@@ -11,11 +15,19 @@ marking-AllulaloEyesDefault-eyes = Eyes
 
 # RArm
 
+marking-AllulaloRightArmDefault = Default Wing (Right)
+
 # LArm
+
+marking-AllulaloLeftArmDefault = Default Wing (Left)
 
 # RLeg
 
+marking-AllulaloLegUnderbellyDefaultLeft = Underbelly (Right Leg)
+
 # LLeg
+
+marking-AllulaloLegUnderbellyDefaultLeft = Underbelly (Left Leg)
 
 # UndergarmentBottom
 
@@ -42,5 +54,6 @@ marking-AllulaloEyesDefault-eyes = Eyes
 marking-AllulaloTailDefault = Tail (default)
 marking-AllulaloTailDefault-allulaloTailDefault = Tail
 marking-AllulaloTailDefault-allulaloTailDefault2 = Feathers
+marking-AllulaloTailDefault-allulaloTailDefault3 = Underbelly
 
 # RArmExtension

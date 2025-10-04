@@ -1,6 +1,24 @@
 # Chest
 
+- type: marking
+  id: AllulaloUnderbelly
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Allulalo/chest.rsi
+    state: underbelly
+
 # Head
+
+- type: marking
+  id: AllulaloHeadUnderbelly
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Allulalo/head.rsi
+    state: allulaloHeadUnderbelly
 
 # Snout
 
@@ -22,11 +40,47 @@
 
 # RArm
 
+- type: marking
+  id: AllulaloRightArmDefault
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Allulalo/arms.rsi
+    state: allulaloArmDefaultRight
+
 # LArm
+
+- type: marking
+  id: AllulaloLeftArmDefault
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Allulalo/arms.rsi
+    state: allulaloArmDefaultLeft
 
 # RLeg
 
+- type: marking
+  id: AllulaloLegUnderbellyDefaultRight
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Allulalo/legs.rsi
+    state: allulaloLegUnderbellyDefaultRight
+
 # LLeg
+
+- type: marking
+  id: AllulaloLegUnderbellyDefaultLeft
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Allulalo/legs.rsi
+    state: allulaloLegUnderbellyDefaultLeft
 
 # UndergarmentBottom
 
@@ -60,5 +114,7 @@
     state: allulaloTailDefault
   - sprite: _Impstation/Mobs/Customization/Allulalo/tail.rsi
     state: allulaloTailDefault2
+  - sprite: _Impstation/Mobs/Customization/Allulalo/tail.rsi
+    state: allulaloTailDefault3
 
 # RArmExtension
