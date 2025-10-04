@@ -1,8 +1,13 @@
-﻿analysis-console-info-natural-locked-value = [font="Monospace" size=11][color={ $state ->
-    [0] red]Unactivated
-    [1] lime]Activated
-    [2] plum]Current Activated
-    *[3] palevioletred]Current Unactivated
+﻿analysis-console-info-natural-locked = [font="Monospace" size=11]Activated:[/font]
+analysis-console-info-natural-locked-value = [font="Monospace" size=11][color={ $state ->
+    [0] red]False
+    *[1] lime]True
+}[/color][/font]
+
+analysis-console-info-natural-current = [font="Monospace" size=11]Current Node:[/font]
+analysis-console-info-natural-current-value = [font="Monospace" size=11][color={ $state ->
+    [0] red]False
+    *[1] lime]True
 }[/color][/font]
 
 analysis-console-bias-up = Up

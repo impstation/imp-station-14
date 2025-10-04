@@ -235,10 +235,17 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
         // imp edit start, if it's active and locked it's 3. hope this helps
         if (artifact.Value.Comp.Natural)
         {
-            if (_xenoArtifact.IsNodeActive(artifact.Value, node.Value) && node.Value.Comp.Locked)
-                lockedState = 3;
+            var currentState = _xenoArtifact.IsNodeActive(artifact.Value, node.Value) ? 1 : 0;
+            CurrentValueLabel.SetMarkup(Loc.GetString("analysis-console-info-natural-current-value", ("state", currentState)));
 
+            lockedState = node.Value.Comp.Locked ? 0 : 1;
+            LockedLabel.SetMarkup(Loc.GetString("analysis-console-info-natural-locked"));
             LockedValueLabel.SetMarkup(Loc.GetString("analysis-console-info-natural-locked-value", ("state", lockedState)));
+        }
+        else
+        {
+            CurrentLabel.Visible = false;
+            CurrentValueLabel.Visible = false;
         }
         // imp edit end
 
