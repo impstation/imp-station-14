@@ -397,6 +397,8 @@
       - Insuls # imp
       - WhitelistChameleon
       - ClothMade
+  - type: StealTarget #imp
+    stealGroup: InsulatedGloves
 
 # Budget Insulated Gloves
 - type: entity
@@ -428,6 +430,8 @@
   - type: Fiber
     fiberMaterial: fibers-insulative-frayed
     fiberColor: fibers-yellow
+  - type: StealTarget #imp
+    stealGroup: BudgetInsuls
 
 # Conductive Insulated Gloves
 - type: entity
@@ -437,3 +441,5 @@
   components:
   - type: Insulated
     coefficient: 5 # zap em good
+  - type: StealTarget #imp - tourists wouldn't know the difference
+    stealGroup: InsulatedGloves
