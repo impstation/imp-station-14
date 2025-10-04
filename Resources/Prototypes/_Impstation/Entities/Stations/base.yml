@@ -1,0 +1,5 @@
+- type: entity
+  id: BaseStationServiceJobs
+  abstract: true
+  components:
+  - type: ServiceJobsData
