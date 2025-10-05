@@ -1,8 +1,6 @@
 using System.Numerics;
 using Content.Server.Actions;
 using Content.Server.GameTicking;
-using Content.Server.Mind; // imp
-using Content.Server.Revenant.Components; // imp
 using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
 using Content.Shared.Alert;
@@ -23,9 +21,11 @@ using Content.Shared.Store.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Robust.Server.GameObjects;
-using Robust.Shared.Physics.Components; // imp
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Server.Mind; // imp
+using Content.Server.Revenant.Components; // imp
+using Robust.Shared.Physics.Components; // imp
 using Robust.Shared.Timing; // imp
 
 namespace Content.Server.Revenant.EntitySystems;
@@ -56,8 +56,7 @@ public sealed partial class RevenantSystem : EntitySystem
 
     private static readonly EntProtoId RevenantShopId = "ActionRevenantShop";
 
-    [ValidatePrototypeId<EntityPrototype>]
-    private const string RevenantHauntId = "ActionRevenantHaunt"; // imp edit
+    private static readonly EntProtoId RevenantHauntId = "ActionRevenantHaunt"; // imp edit
 
     public override void Initialize()
     {
@@ -164,11 +163,14 @@ public sealed partial class RevenantSystem : EntitySystem
             // imp edit start
             component.Essence = 0;
             _statusEffects.TryRemoveAllStatusEffects(uid);
+
             var stasisObj = Spawn(component.SpawnOnDeathPrototype, Transform(uid).Coordinates);
             AddComp(stasisObj, new RevenantStasisComponent(component.StasisTime, (uid, component)));
+
             // TODO: Make a RevenantInStasisComponent and attach that to the inert Revenant entity
             if (_mind.TryGetMind(uid, out var mindId, out var _))
                 _mind.TransferTo(mindId, stasisObj);
+
             _transformSystem.DetachEntity(uid, Comp<TransformComponent>(uid));
             _meta.SetEntityPaused(uid, true);
             // imp edit end
@@ -254,7 +256,7 @@ public sealed partial class RevenantSystem : EntitySystem
                     essence += rev.HauntEssenceRegenPerWitness * regen.NewHaunts;
                 // imp edit end
 
-                ChangeEssenceAmount(uid, essence, rev, regenCap: true);
+                ChangeEssenceAmount(uid, essence, rev, regenCap: true); // imp essence
             }
         }
     }

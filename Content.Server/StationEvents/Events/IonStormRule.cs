@@ -1,16 +1,13 @@
 // using Content.Server.Silicons.Laws; imp remove
-using Content.Server._CD.Traits; // imp
 using Content.Server.StationEvents.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Station.Components;
-using Robust.Shared.Random; // imp
-// CD - start synth trait
-using Content.Server.Chat.Managers;
-using Content.Shared.Chat;
-using Robust.Shared.Player;
-using Robust.Shared.Random;
-// CD - end synth trait
+using Content.Server._CD.Traits; // cd
+using Content.Server.Chat.Managers; // cd
+using Content.Shared.Chat; // cd
+using Robust.Shared.Player; // cd
+using Robust.Shared.Random; // cd
 
 namespace Content.Server.StationEvents.Events;
 
@@ -27,7 +24,7 @@ public sealed class IonStormRule : StationEventSystem<IonStormRuleComponent>
         if (!TryGetRandomStation(out var chosenStation))
             return;
 
-         // CD - Go through everyone with the SynthComponent and inform them a storm is happening.
+        // CD - Go through everyone with the SynthComponent and inform them a storm is happening.
         var synthQuery = EntityQueryEnumerator<SynthComponent>();
         while (synthQuery.MoveNext(out var ent, out var synthComp))
         {

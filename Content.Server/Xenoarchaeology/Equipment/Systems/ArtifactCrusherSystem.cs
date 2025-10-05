@@ -2,8 +2,6 @@ using Content.Server.Body.Systems;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Stack;
-using Content.Server.Xenoarchaeology.XenoArtifacts; //imp
-using Content.Shared._Goobstation.Changeling; //imp
 using Content.Shared.Body.Components;
 using Content.Shared.Damage;
 using Content.Shared.Power;
@@ -15,6 +13,8 @@ using Content.Shared.Xenoarchaeology.Equipment.Components;
 using Robust.Shared.Collections;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Server.Xenoarchaeology.XenoArtifacts; //imp
+using Content.Shared._Goobstation.Changeling; //imp
 
 namespace Content.Server.Xenoarchaeology.Equipment.Systems;
 
@@ -106,7 +106,7 @@ public sealed class ArtifactCrusherSystem : SharedArtifactCrusherSystem
                 }
             }
 
-            //#IMP
+            //#IMP if
             if (HasComp<ArtifactComponent>(contained))
                 _artifact.ForceActivateArtifact(contained);
 

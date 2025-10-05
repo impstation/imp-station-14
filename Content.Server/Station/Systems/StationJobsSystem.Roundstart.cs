@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Server.Antag;
 using Content.Server.Administration.Managers;
 using Content.Server.Antag;
 using Content.Server.Players.PlayTimeTracking;
