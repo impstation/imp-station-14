@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "gray typing indicators by sageu111 for impstation, snail typing indicators by widgetbeck for impstation, kodepiia typing indicators by LazyRiverfolk for impstation",
+    "copyright": "gray typing indicators by sageu111 for impstation, snail typing indicators by widgetbeck for impstation, kodepiia typing indicators by LazyRiverfolk for impstation, Ungu typing indicators by Starlighthowls for impstation.",
     "size": {
       "x": 32,
       "y": 32
@@ -20,6 +20,17 @@
         },
         {
             "name": "snail",
+            "delays": [
+                [
+                    0.2,
+                    0.3,
+                    0.3,
+                    0.5
+                ]
+            ]
+        },
+        {
+            "name": "ungu",
             "delays": [
                 [
                     0.2,
