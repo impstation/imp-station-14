@@ -191,7 +191,7 @@ namespace Content.Client.Stylesheets
         public const string StyleClassPinButtonPinned = "pinButtonPinned";
         public const string StyleClassPinButtonUnpinned = "pinButtonUnpinned";
 
-        //Manifest
+        // imp Manifest
         public const string StyleClassCrewManifestGender = "CrewManifestGender";
 
 

@@ -188,8 +188,8 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
                 code = generatedCode;
 
                 // If giveUplink is false the uplink code part is omitted
-                // Imp Edit for Traitor Flavor
-                briefing = string.Format("{0}\n{1}\n{2}\n\n{3}\n\n{4}\n[color=lightgray]{5}[/color]\n\n{6}\n[color=lightgray]{7}[/color]\n\n[color=crimson]{8}[/color]", 
+                // Imp Edit for Traitor Flavor start
+                briefing = string.Format("{0}\n{1}\n{2}\n\n{3}\n\n{4}\n[color=lightgray]{5}[/color]\n\n{6}\n[color=lightgray]{7}[/color]\n\n[color=crimson]{8}[/color]",
                     briefing,
                     Loc.GetString($"traitor-{objectiveIssuer}-uplink"),
                     Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", code).Replace("sharp", "#"))),
@@ -206,7 +206,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         else if (pda is null && uplinked)
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink is implant");
-            // Imp Edit for Traitor Flavor
+            // Imp Edit for Traitor Flavor start
             briefing = string.Format("{0}\n{1}\n{2}\n\n{3}\n\n{4}\n[color=lightgray]{5}[/color]\n\n{6}\n[color=lightgray]{7}[/color]\n\n[color=crimson]{8}[/color]",
                 briefing,
                 Loc.GetString($"traitor-{objectiveIssuer}-uplink"),

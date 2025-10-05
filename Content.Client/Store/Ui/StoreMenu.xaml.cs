@@ -216,6 +216,7 @@ public sealed partial class StoreMenu : DefaultWindow
         var relativeModifiersSummary = listingDataWithCostModifiers.GetModifiersSummaryRelative();
         if (relativeModifiersSummary.Count > 1)
         {
+            // var sb = new StringBuilder(); // imp moved it up
             sb.Append('(');
             foreach (var (currency, amount) in relativeModifiersSummary)
             {

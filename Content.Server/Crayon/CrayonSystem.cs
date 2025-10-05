@@ -2,7 +2,6 @@ using System.Linq;
 using System.Numerics;
 using Content.Server.Administration.Logs;
 using Content.Server.Decals;
-using Content.Server.Heretic.EntitySystems; // Imp
 using Content.Server.Popups;
 using Content.Shared.Crayon;
 using Content.Shared.Database;
@@ -15,7 +14,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Content.Shared.Heretic; // goob
+using Content.Server.Heretic.EntitySystems; // Imp
 
 namespace Content.Server.Crayon;
 

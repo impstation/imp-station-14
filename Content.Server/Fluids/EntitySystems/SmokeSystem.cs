@@ -368,7 +368,9 @@ public sealed class SmokeSystem : EntitySystem
             if (component.ContentsViewers.Components is null)
             {
                 component.ContentsViewers.Components = ["Ghost"];
-            } else if (component.ContentsViewers.Components.AsQueryable().Contains("Ghost")){
+            }
+            else if (component.ContentsViewers.Components.AsQueryable().Contains("Ghost"))
+            {
                 var tempList = component.ContentsViewers.Components.ToList();
                 tempList.Add("Ghost");
                 component.ContentsViewers.Components = tempList.ToArray();

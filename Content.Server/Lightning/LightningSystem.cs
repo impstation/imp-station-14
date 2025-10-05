@@ -48,7 +48,7 @@ public sealed class LightningSystem : SharedLightningSystem
     /// <param name="target">Where the lightning fires to</param>
     /// <param name="lightningPrototype">The prototype for the lightning to be created</param>
     /// <param name="triggerLightningEvents">if the lightnings being fired should trigger lightning events.</param>
-    /// <param name="canExplode">Whether this lightning can trigger explosions.</param>
+    /// <param name="canExplode">Imp - Whether this lightning can trigger explosions.</param>
     public void ShootLightning(EntityUid user, EntityUid target, string lightningPrototype = "Lightning", bool triggerLightningEvents = true, bool canExplode = true) // imp canexplode
     {
         var spriteState = LightningRandomizer();
@@ -120,7 +120,7 @@ public sealed class LightningSystem : SharedLightningSystem
     /// <param name="canExplode">Whether this lightning can trigger explosions.</param>
     /// <param name="user">The entity that is shooting lightning.</param>
     public void ShootRandomLightnings(
-        MapCoordinates coordinates, // imp
+        MapCoordinates coordinates, // imp user -> coordinates
         float range,
         int boltCount,
         string lightningPrototype = "Lightning",

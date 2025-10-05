@@ -23,7 +23,7 @@ public sealed partial class StoreListingControl : Control
     private readonly string _price;
     private readonly string _discount;
     private readonly string? _extra; //imp addition
-    public StoreListingControl(ListingDataWithCostModifiers data, string price, string discount, bool hasBalance, Texture? texture = null, string? extra = null)
+    public StoreListingControl(ListingDataWithCostModifiers data, string price, string discount, bool hasBalance, Texture? texture = null, string? extra = null) // imp add extra
     {
         IoCManager.InjectDependencies(this);
         RobustXamlLoader.Load(this);
