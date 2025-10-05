@@ -21,7 +21,7 @@
 - type: entity
   id: CartridgeRifle
   name: cartridge (.20 rifle)
-  description: An intermediate cartridge that serves as the backbone for modern assault rifles, often considered the galactic standard. #imp
+  description: A kinetic intermediate cartridge that serves as the backbone for modern assault rifles, often considered the galactic standard. #imp
   parent: BaseCartridgeRifle
   components:
   - type: CartridgeAmmo

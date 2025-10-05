@@ -14,7 +14,7 @@
       types:
         Blunt: 200
   - type: MovementIgnoreGravity
-    gravityState: true
+    weightless: true
   - type: InputMover
   - type: MovementSpeedModifier
     weightlessAcceleration: 5
@@ -33,8 +33,6 @@
   description: Your best friend! Don't touch him though.
   components:
   - type: ImmovableRod
-    randomizeVelocity: false
-    maxSpeed: 0
     eviscerationPopup: immovable-rod-penetrated-mob-finfin
   - type: Sprite
     sprite: _Impstation/Mobs/Pets/finfin.rsi
@@ -107,8 +105,6 @@
   description: Mime's Wrath
   components:
   - type: ImmovableRod
-    randomizeVelocity: false
-    maxSpeed: 0
     eviscerationPopup: immovable-rod-penetrated-mob-baguette
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/bread.rsi
@@ -126,8 +122,6 @@
   description: oh god what is that thing
   components:
   - type: ImmovableRod
-    randomizeVelocity: false
-    maxSpeed: 0
     eviscerationPopup: immovable-rod-penetrated-mob-whiteboy
   - type: Sprite
     sprite: _Impstation/Mobs/Demons/whiteboy.rsi

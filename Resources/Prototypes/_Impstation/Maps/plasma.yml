@@ -3,7 +3,7 @@
   mapName: 'Plasma'
   mapPath: /Maps/_Impstation/plasma.yml
   minPlayers: 35
-  maxPlayers: 80
+  maxPlayers: 69
   stations:
     Plasma:
       stationProto: StandardNanotrasenStation
@@ -64,7 +64,7 @@
             # supply - 9-10
             CargoTechnician: [ 4, 4 ]
             Courier: [ 1, 1 ]
-            SalvageSpecialist: [ 4, 4 ]
+            SalvageSpecialist: [ 3, 3 ]
             SupplyAssistant: [ 1, 1 ]
             # civilian - the tiders yearn for the mines
             Passenger: [ -1, -1 ]

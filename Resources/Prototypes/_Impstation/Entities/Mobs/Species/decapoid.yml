@@ -5,11 +5,12 @@
   id: BaseMobDecapoid
   abstract: true
   components:
+  # NOTE: to edit this entity's movement speed, you will need to edit the leg bodypart. i discovered this so you didnt have to
   - type: Barotrauma
     damage:
       types:
         blunt: 0 # immune to space
-  - type: Absorbable
+  - type: GoobAbsorbable
   - type: Hunger # removed thirst
   - type: Icon
     sprite: _Impstation/Mobs/Species/Decapoid/parts.rsi
@@ -21,13 +22,6 @@
           - Vaporizer
           - SGD
     failMessage: decapoid-cant-speak
-  - type: Respirator
-    damage:
-      types:
-        Asphyxiation: 2
-    damageRecovery:
-      types:
-        Asphyxiation: -1.0
   - type: Sprite
     layers: # Need to redefine the whole order to draw the legs and claw correctly
     - map: [ "enum.HumanoidVisualLayers.TailBehind" ] # hivehum edit i just saw this layer order and got really scared but this probably wants to render under the back legs
@@ -61,6 +55,7 @@
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "head" ]
     - map: [ "mask" ]
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ] # not default
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
@@ -83,7 +78,7 @@
     butcheringType: Spike
     spawned:
     - id: FoodMeatCrab # maybe custom someday. as-is, it's fine
-      amount: 1
+      amount: 6
   - type: Fixtures
     fixtures:
       fix1:
@@ -115,11 +110,9 @@
       Female: UnisexDecapoid
       Unsexed: UnisexDecapoid # male and female sounds have to 1) exist and 2) come first, otherwise urists will spawn without emote sounds 66% of the time, because this game is poorly programmed
   - type: MovementSpeedModifier
-    baseSprintSpeed: 3.5
-    baseWalkSpeed: 1.5
-    weightlessAcceleration: 1.5 # move more easily in space
-    weightlessFrictionNoInput: 2 # more control over movement in space
-    weightlessModifier: 1
+    baseWeightlessAcceleration: 1.5 # move more easily in space
+    baseWeightlessFriction: 2 # more control over movement in space
+    baseWeightlessModifier: 1
   - type: Temperature
     heatDamageThreshold: 380 # slightly more vulnerable to heat
     coldDamageThreshold: 0 # immune to space
@@ -130,7 +123,7 @@
         Cold : 0 # immune to space
     heatDamage:
       types:
-        Heat : 1
+        Heat : 1.5
   - type: TemperatureSpeed
     thresholds:
       293: 1.0

@@ -15,7 +15,7 @@ using Content.Server.Objectives.Commands;
 using Content.Shared.Humanoid; //imp addition
 using Content.Shared.CCVar;
 using Content.Shared.Prototypes;
-using Content.Shared.Roles; //imp addition
+using Content.Shared.Roles.Components; //imp addition
 using Content.Shared.Roles.Jobs;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
@@ -142,9 +142,12 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
             if (!TryComp<MindComponent>(mindId, out var mind))
                 continue;
 
+            // Imp Edit traitor flavor end screen
+            if (mind.ObjectiveIssuer is { } issuer)
+                agent = Loc.GetString($"traitor-{issuer}-roundend");
+
             var title = GetTitle((mindId, mind), name);
             var custody = IsInCustody(mindId, mind) ? Loc.GetString("objectives-in-custody") : string.Empty;
-
             var objectives = mind.Objectives;
             if (objectives.Count == 0)
             {
@@ -245,7 +248,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
             }
 
             var nonTrivialSuccessRate = totalNontrivial > 0 ? (float)completedNonTrivial / totalNontrivial : 0f;
-            foreach (var mindRole in mind.MindRoles)
+            foreach (var mindRole in mind.MindRoleContainer.ContainedEntities)
             {
                 if (!TryComp<MindRoleComponent>(mindRole, out var roleComp)) //sanity checking
                     continue;

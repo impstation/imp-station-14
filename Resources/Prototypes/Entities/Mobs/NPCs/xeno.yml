@@ -79,7 +79,6 @@
       groups:
         Brute: 6
   - type: DamageStateVisuals
-    rotate: true
     states:
       Alive:
         Base: running
@@ -426,7 +425,7 @@
     tags:
     - DoorBumpOpener
     - FootstepSound
-  - type: Absorbable # imp edit
+  - type: GoobAbsorbable # imp edit
     biomassRestored: 0.2
 
 - type: entity
@@ -506,7 +505,6 @@
      groups:
        Brute: 5
   - type: DamageStateVisuals
-    rotate: true
     states:
       Alive:
         Base: running

@@ -50,6 +50,7 @@
         - Artifact #IMP
     - type: Weldable
     - type: SuppressArtifactContainer
+    - type: OldSuppressArtifactContainer #IMP
     - type: RadiationBlockingContainer
       resistance: 5
     - type: PlaceableSurface
@@ -140,7 +141,9 @@
   - type: AccessReader
     access: [["Research"], ["Cargo"]]
   - type: Lock
+  - type: LockedStorage
   - type: SuppressArtifactContainer
+  - type: OldSuppressArtifactContainer #IMP
   - type: RadiationBlockingContainer
     resistance: 5
   - type: EmitSoundOnLand

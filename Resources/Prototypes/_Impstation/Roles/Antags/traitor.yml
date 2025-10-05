@@ -1,0 +1,11 @@
+- type: startingGear
+  id: SyndicateInfiltratorGear
+  parent: SyndicateOperativeClothing
+  equipment:
+    id: AgentIDCard
+    mask: ClothingMaskGasVoiceChameleon
+    pocket1: WeaponPistolViper
+  storage:
+    back:
+    - TraitorCodePaper
+    - SyndicateFlippo
