@@ -20,6 +20,15 @@
   - sprite: _Impstation/Mobs/Customization/Allulalo/head.rsi
     state: allulaloHeadUnderbelly
 
+- type: marking
+  id: AllulaloHeadNeckFluff
+  bodyPart: Tail #layering sucks
+  markingCategory: Head
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Allulalo/head.rsi
+    state: allulaloHeadNeckFluff
+
 # Snout
 
 # Eyes

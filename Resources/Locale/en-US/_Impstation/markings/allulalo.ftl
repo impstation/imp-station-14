@@ -5,6 +5,7 @@ marking-AllulaloUnderbelly = Underbelly
 # Head
 
 marking-AllulaloHeadUnderbelly = Underbelly
+marking-AllulaloHeadNeckFluff = Neck Fluff
 
 # Snout
 

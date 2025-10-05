@@ -31,6 +31,8 @@
   - type: TooShortForUI
   - type: AllulaloAccent
   - type: HeavyweightDrunk #Their blood is alcoholic. also a bird drinking you under the table is funny
+  - type: CanEscapeInventory
+    baseResistTime: 1.0 #they break out of grabs FAST
   - type: Damageable
     damageContainer: Biological
     #damageModifierSet:
@@ -80,7 +82,7 @@
       Unsexed: Allulalo
   - type: Speech
     speechSounds: Allulalo
-    speechVerb: Arachnid #I was gonna make one but this is already fine
+    speechVerb: Allulalo
     allowedEmotes: ['Chitter', 'Hiss']
   - type: HumanoidAppearance
     species: Allulalo
