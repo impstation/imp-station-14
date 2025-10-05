@@ -312,6 +312,7 @@
   - EmergencyNitrogenCommand
   - EmergencyOxygenCommand
   - EmergencyMeatCommand
+  - EmergencyWheatCommand
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogenCommand
 
@@ -324,6 +325,7 @@
   - EmergencyNitrogenExtendedCommand
   - EmergencyOxygenExtendedCommand
   - EmergencyMeatExtendedCommand
+  - EmergencyWheatExtendedCommand
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogenCommand
 
@@ -336,6 +338,7 @@
   - EmergencyNitrogenSecurityCommand
   - EmergencyOxygenSecurityCommand
   - EmergencyMeatSecurityCommand
+  - EmergencyWheatSecurityCommand
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogenCommand
 
@@ -486,6 +489,7 @@
   minLimit: 0
   loadouts:
   - ScarfRed
+  - HeadChefNeck
 
 - type: loadoutGroup
   id: ChefShoes
@@ -494,6 +498,7 @@
   - BlackShoes
   - ChefShoes
   - ClownShoesExpert
+  - HeadChefShoes
 
 - type: loadoutGroup
   id: ChefPDA
@@ -1109,6 +1114,7 @@
   - EmergencyNitrogenBrigmedic
   - EmergencyOxygenBrigmedic
   - EmergencyMeatBrigmedic
+  - EmergencyWheatBrigmedic
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogen
 

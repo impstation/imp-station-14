@@ -139,8 +139,8 @@
       prob: 0.5
     - id: ClothingHeadsetCommand
     - id: ClothingNeckGoldmedal
+    - id: DoorRemoteHoP #imp edit
     - id: ClothingNeckBureaucracyMedal # imp edit
-    - id: DoorRemoteCommand #imp edit
     - id: HoPIDCard
     - id: IDComputerCircuitboard
     - id: FundingAllocationComputerCircuitboard
@@ -245,6 +245,7 @@
     - id: MedTekCartridge
     - id: PersonalAILearnerMedical #impspecial
     - id: PrinterDocFlatpack  # Corvax-Printer
+    - id: ClothingEyesHudMedChem #imp edit
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -365,6 +366,7 @@
     - id: BaseSeclinkRadio #imp
     - id: PillCanisterHOS #imp
     - id: PersonalAILearnerSecurity #impspecial
+    - id: FlashlightSeclite # imp addition
     - id: PrinterDocFlatpack  # Corvax-Printer
 
 # Hardsuit table, used for suit storage as well

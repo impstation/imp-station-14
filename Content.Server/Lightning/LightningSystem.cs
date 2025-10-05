@@ -167,7 +167,7 @@ public sealed class LightningSystem : SharedLightningSystem
                 continue;
             }
 
-            if (outOfRange) { break; }
+            if (outOfRange || targetLightningResistance <= 0) { break; } //#IMP targetLightningResistance <= 0 check to fix crash
             // imp end
 
             var curTarget = targets[count];
