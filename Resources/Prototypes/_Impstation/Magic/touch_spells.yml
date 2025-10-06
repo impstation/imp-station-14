@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseEntitySpellAction
+  parent: BaseSmiteAction
   id: ActionNewWizard
   name: apprentice
   description: recruit an apprentice.
@@ -12,13 +12,13 @@
       state: gib
   - type: EntityTargetAction
     event: !type:ChangeComponentsSpellEvent
-    makeNewWizardAntagonist: true
+      toAdd:
+      - type: NpcFactionMember
+        factions:
+        - Wizard
+      - type: MindRole
+        roleType: MindRoleGhostRoleFamiliar
   - type: SpeakOnAction
     sentence: action-speech-spell-smite
   - type: Magic
     requiresClothes: true
-  - type: WorldTargetAction
-    event: !type:WorldSpawnSpellEvent
-      prototypes:
-      - id: NewWizardGear
-        amount: 1
