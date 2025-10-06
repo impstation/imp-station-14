@@ -33,6 +33,11 @@ chat-speech-verb-name-suppy = Suppy
 chat-speech-verb-suppy1 = rumbles
 chat-speech-verb-suppy2 = resonates
 
+chat-speech-verb-name-babyanom = Baby Anomalocarid
+chat-speech-verb-babyanom-1 = burbles
+chat-speech-verb-babyanom-2 = clicks
+chat-speech-verb-babyanom-3 = glubs
+
 chat-speech-verb-name-anomalite = Anomalite
 chat-speech-verb-anomalite-1 = twinkles
 chat-speech-verb-anomalite-2 = sparkles

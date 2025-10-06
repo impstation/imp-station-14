@@ -167,9 +167,7 @@ public sealed partial class GoobChangelingSystem : EntitySystem
         else
             comp.MinorAbsorbs = 0; // Reset minor absorbtions if we're consuming something that restores the full value
 
-        var reducedBiomass = false;
-        if (HasComp<RottingComponent>(target))
-            reducedBiomass = true;
+        var reducedBiomass = HasComp<RottingComponent>(target);
 
         if (reducedBiomass)
             biomassPercentRestored /= 2;
