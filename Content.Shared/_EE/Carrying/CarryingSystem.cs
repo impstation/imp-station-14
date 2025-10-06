@@ -341,14 +341,10 @@ public sealed partial class CarryingSystem : EntitySystem
 
     private bool CanCarry(EntityUid carrier, Entity<CarriableComponent> carried)
     {
-        // cant carry yourself
-        if (carrier == carried.Owner)
-            return false;
-
-        // no tower of spacemen or stack overflow
-        if (HasComp<BeingCarriedComponent>(carrier))
-            return false;
-        if (HasComp<BeingCarriedComponent>(carried))
+        // cant carry yourself, no tower of spacemen or stack overflow
+        if (carrier == carried.Owner ||
+            HasComp<BeingCarriedComponent>(carrier) ||
+            HasComp<BeingCarriedComponent>(carried))
             return false;
 
         // can't carry multiple people, even if you have 4 hands it will break invariants when removing carryingcomponent for first carried person

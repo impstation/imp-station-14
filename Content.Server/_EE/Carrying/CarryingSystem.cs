@@ -21,7 +21,7 @@ public sealed class CarryingSystem : EntitySystem
     {
         base.Initialize();
 
-        Subs.CVar(_cfg, CCVars.CarryEscapeCoeff, value => _carryEscapeCoeff = value, true);
+        Subs.CVar(_cfg, CCVars.CarryEscapeCoeff, value => _carryEscapeCoeff = value, true); // imp
 
         SubscribeLocalEvent<BeingCarriedComponent, MoveInputEvent>(OnMoveInput); //NF
     }
