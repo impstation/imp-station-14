@@ -7,7 +7,7 @@ using Content.Shared.Xenoarchaeology.Artifact.XAT;
 namespace Content.Shared._Impstation.Xenoarchaeology.Artifact.XAT.Systems;
 
 /// <summary>
-/// System for xeno artifact trigger that requires resurrection of some mob near artifact.
+/// System for xeno artifact trigger that requires stunning of some mob near artifact.
 /// </summary>
 public sealed class XATStunSystem : BaseXATSystem<XATStunComponent>
 {

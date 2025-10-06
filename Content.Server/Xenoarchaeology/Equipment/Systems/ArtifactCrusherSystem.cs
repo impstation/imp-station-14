@@ -11,6 +11,8 @@ using Content.Shared.Storage.Components;
 using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
 using Content.Shared.Xenoarchaeology.Equipment;
+using Content.Shared.Xenoarchaeology.Artifact.Components;
+using Content.Server.Xenoarchaeology.Artifact;
 using Content.Shared.Xenoarchaeology.Equipment.Components;
 using Robust.Shared.Collections;
 using Robust.Shared.Random;
@@ -28,6 +30,7 @@ public sealed class ArtifactCrusherSystem : SharedArtifactCrusherSystem
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly XenoArtifactSystem _artifact = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -103,6 +106,12 @@ public sealed class ArtifactCrusherSystem : SharedArtifactCrusherSystem
                 {
                     ContainerSystem.Insert((stack, null, null, null), crusher.OutputContainer);
                 }
+            }
+
+            if (TryComp<XenoArtifactComponent>(contained, out var artifact) && artifact.Natural)
+            {
+                var unlocking = EnsureComp<XenoArtifactUnlockingComponent>(contained);
+                _artifact.FinishUnlockingState((contained, unlocking, artifact));
             }
 
             if (!TryComp<BodyComponent>(contained, out var body))
