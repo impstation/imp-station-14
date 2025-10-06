@@ -93,10 +93,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 2
+        maxVol: 3
         reagents:
         - ReagentId: Protein
-          Quantity: 2
+          Quantity: 3
   - type: Tag
     tags:
     - ClothMade
