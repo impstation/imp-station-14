@@ -1,4 +1,5 @@
-- type: entity  #imp edit
+#imp edit begins
+- type: entity
   id: BaseMothOrgan
   parent: BaseItem
   abstract: true
@@ -43,15 +44,16 @@
   - type: Item
     size: Small
     heldPrefix: brain
+#imp edit ends
 
 - type: entity
   id: OrganMothStomach
   parent: OrganAnimalStomach
-  name: moth stomach
-  description: "Gross. This is hard to stomach."
+  name: moth stomach  #imp edit
+  description: "Gross. This is hard to stomach."  #imp edit
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Moth/organs.rsi
+    sprite: _Impstation/Mobs/Species/Moth/organs.rsi #imp edit
     state: stomach
   - type: Stomach
     specialDigestible:
@@ -76,7 +78,8 @@
       - id: Food
       - id: Drink
 
-- type: entity  #imp edit
+#imp edit begins
+- type: entity
   id: OrganMothLungs
   parent: OrganHumanLungs
   name: air sacs
@@ -96,7 +99,7 @@
     size: Small
     heldPrefix: lungs
 
-- type: entity  #imp
+- type: entity
   id: OrganMothHeart
   parent: OrganAnimalHeart
   name: heart
@@ -114,7 +117,7 @@
     - Organ
     - Heart
 
-- type: entity  #imp edit
+- type: entity
   id: OrganMothLiver
   parent: OrganAnimalLiver
   name: hepatic caecum
@@ -132,7 +135,7 @@
     - Organ
     - Liver
 
-- type: entity  #imp edit
+- type: entity
   id: OrganMothKidneys
   parent: OrganHumanKidneys
   name: Malpighian tubules
@@ -153,7 +156,7 @@
     - Organ
     - Kidneys
 
-- type: entity  #imp edit
+- type: entity
   id: OrganMothEyes
   parent: OrganHumanEyes
   name: compound eyes
@@ -172,3 +175,4 @@
   - type: Item
     size: Small
     heldPrefix: eyeballs
+#imp edit ends

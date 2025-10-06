@@ -47,7 +47,7 @@
 - type: entity
   id: OrganArachnidStomach
   parent: OrganAnimalStomach
-  name: arachnid stomach
+  name: arachnid stomach #imp edit
   description: "Gross. This is hard to stomach."
   components:
   - type: Sprite
@@ -83,14 +83,14 @@
 - type: entity
   id: OrganArachnidLungs
   parent: BaseArachnidOrgan
-  name: book lungs
-  description: "Filters oxygen from an atmosphere... just less efficiently."
+  name: book lungs  #imp edit
+  description: "Filters oxygen from an atmosphere... just less efficiently."  #imp edit
   components:
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi  #imp edit
     layers:
-      - state: lung_l
-      - state: lung_r
+      - state: lung_l  #imp edit
+      - state: lung_r  #imp edit
   - type: Lung
   - type: Metabolizer
     updateInterval: 1.5
@@ -125,7 +125,7 @@
   id: OrganArachnidHeart
   parent: BaseArachnidOrgan
   name: heart
-  description: "A persistent little biological pump made for spiders."
+  description: "A persistent little biological pump made for spiders."  #imp edit
   components:
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi  #imp edit
@@ -136,7 +136,7 @@
   - type: Metabolizer
     updateInterval: 1.5
     maxReagents: 2
-    metabolizerTypes: [Arachnid, Animal]
+    metabolizerTypes: [Arachnid, Animal]  #imp edit
     groups:
     - id: Medicine
     - id: Poison
@@ -150,7 +150,7 @@
 - type: entity
   id: OrganArachnidLiver
   parent: BaseHumanOrgan
-  name: hepatic caecum
+  name: hepatic caecum  #imp edit
   description: "Pairing suggestion: chianti and fava beans."
   categories: [ HideSpawnMenu ]
   components:
@@ -176,15 +176,15 @@
 - type: entity
   id: OrganArachnidKidneys
   parent: BaseHumanOrgan
-  name: Malpighian tubules
+  name: Malpighian tubules  #imp edit
   description: "Filters toxins from the bloodstream."
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi  #imp edit
     layers:
-      - state: kidney_l
-      - state: kidney_r
+      - state: kidney_l  #imp edit
+      - state: kidney_r  #imp edit
   # The kidneys just remove anything that doesn't currently have any metabolisms, as a stopgap.
   - type: Item
     size: Small
@@ -228,7 +228,7 @@
   description: "A fleshy muscle mostly used for lying."
   components:
   - type: Sprite
-    sprite: Mobs/Species/Arachnid/organs.rsi
+    sprite: Mobs/Species/Arachnid/organs.rsi  #imp edit
     state: tongue
   - type: Tag # goob edit
     tags:

@@ -8,13 +8,13 @@
       connections:
       - torso
       organs:
-        brain: OrganArachnidBrain
+        brain: OrganArachnidBrain  #imp edit
         eyes: OrganArachnidEyes
     torso:
       part: TorsoArachnid
       organs:
         heart: OrganArachnidHeart
-        lungs: OrganArachnidLungs
+        lungs: OrganArachnidLungs  #imp edit
         stomach: OrganArachnidStomach
         liver: OrganArachnidLiver
         kidneys: OrganArachnidKidneys
