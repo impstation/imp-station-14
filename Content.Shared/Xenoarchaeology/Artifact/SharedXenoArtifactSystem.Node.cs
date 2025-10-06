@@ -107,8 +107,18 @@ public abstract partial class SharedXenoArtifactSystem
     /// </summary>
     public Entity<XenoArtifactNodeComponent> CreateNode(Entity<XenoArtifactComponent> ent, XenoArchTriggerPrototype trigger, int depth = 0)
     {
-        var entProtoId = _entityTable.GetSpawns(ent.Comp.EffectsTable)
-                                     .First();
+        //var entProtoId = _entityTable.GetSpawns(ent.Comp.EffectsTable) imp comment out
+        //    .First();
+
+        // imp edit start
+        var ctx = new EntityTableContext(new Dictionary<string, object>
+        {
+            { "Depth", depth },
+        });
+
+        var entProtoId = _entityTable.GetSpawns(ent.Comp.EffectsTable, ctx: ctx).First();
+        Log.Debug($"{entProtoId} chosen for depth {depth}");
+        // imp edit end
 
         AddNode((ent, ent), entProtoId, out var nodeEnt, dirty: false);
         DebugTools.Assert(nodeEnt.HasValue, "Failed to create node on artifact.");

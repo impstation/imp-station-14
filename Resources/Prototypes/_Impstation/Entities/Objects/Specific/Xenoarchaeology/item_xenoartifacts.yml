@@ -57,8 +57,34 @@
   parent: [BaseReticulatedXenoArtifact, BaseXenoArtifactItem]
   id: ReticulatedXenoArtifactItem
   suffix: Hand-Sized
+  components:
+  - type: XenoArtifact
+    effectsTable: !type:GroupSelector
+      children:
+      - !type:NestedSelector
+        tableId: XenoArtifactEffectsDefaultTable
+        weight: 54
+      - !type:NestedSelector
+        tableId: XenoArtifactEffectsHandheldOnlyTable
+        weight: 2
 
 - type: entity
   parent: [BaseNaturalXenoArtifact, BaseXenoArtifactItem]
   id: NaturalXenoArtifactItem
   suffix: Hand-Sized
+  components:
+  - type: XenoArtifact
+    effectsTable: !type:GroupSelector
+      children:
+      - !type:NestedSelector
+        tableId: XenoArtifactEffectsDefaultTable
+        weight: 54
+      - !type:NestedSelector
+        tableId: XenoArtifactEffectsHandheldOnlyTable
+        weight: 2
+      - !type:NestedSelector
+        tableId: XenoArtifactEffectsNaturalOnlyTable
+        weight: 4
+      - !type:NestedSelector
+        tableId: XenoArtifactEffectsNaturalHandheldOnlyTable
+        weight: 2

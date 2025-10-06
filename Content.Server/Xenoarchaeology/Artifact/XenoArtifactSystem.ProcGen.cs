@@ -14,9 +14,10 @@ public sealed partial class XenoArtifactSystem
     private void GenerateArtifactStructure(Entity<XenoArtifactComponent> ent)
     {
         var nodeCount = ent.Comp.NodeCount.Next(RobustRandom);
-        var triggerPool = CreateTriggerPool(ent, nodeCount);
+        // var triggerPool = CreateTriggerPool(ent, nodeCount); imp edit
+        var triggerPool = new Dictionary<string, float>(PrototypeManager.Index(ent.Comp.TriggerWeights).Weights); // imp edit
         // trigger pool could be smaller, then requested node count
-        nodeCount = triggerPool.Count;
+        // nodeCount = triggerPool.Count; imp edit, nuh uh
         ResizeNodeGraph(ent, nodeCount);
         while (nodeCount > 0)
         {
@@ -68,7 +69,7 @@ public sealed partial class XenoArtifactSystem
     /// </summary>
     private void GenerateArtifactSegment(
         Entity<XenoArtifactComponent> ent,
-        List<XenoArchTriggerPrototype> triggerPool,
+        Dictionary<string, float> triggerPool, // imp edit, changed from List<XenoArchTriggerPrototype>
         ref int nodeCount
     )
     {
@@ -139,7 +140,7 @@ public sealed partial class XenoArtifactSystem
     /// </summary>
     private List<Entity<XenoArtifactNodeComponent>> PopulateArtifactSegmentRecursive(
         Entity<XenoArtifactComponent> ent,
-        List<XenoArchTriggerPrototype> triggerPool,
+        Dictionary<string, float> triggerPool, // imp edit, changed from List<XenoArchTriggerPrototype>
         ref int segmentSize,
         int iteration = 0
     )
@@ -161,6 +162,19 @@ public sealed partial class XenoArtifactSystem
         // imp edit start, make it have one node in the first layer
         if (ent.Comp.OneStartNode && iteration == 0)
             nodeCount = 1;
+
+        var depth = iteration;
+
+        if (depth > 5)
+            depth = 5;
+
+        // Okay so basically we're finding each trigger with a valid depth for the iteration and that doesn't fail the whitelist,
+        // passing each valid one into a new dictionary so it preserves the weighting
+        var depthTriggers = new Dictionary<string, float>(triggerPool.Where(x =>
+                PrototypeManager.Index<XenoArchTriggerPrototype>(x.Key).TargetDepths.Any(y => y == depth) &&
+                !_entityWhitelist.IsWhitelistFail(PrototypeManager.Index<XenoArchTriggerPrototype>(x.Key).Whitelist,
+                    ent))
+            .ToList());
         // imp edit end
 
         segmentSize -= nodeCount;
@@ -171,12 +185,24 @@ public sealed partial class XenoArtifactSystem
             // nodes.Add(CreateNode(ent, trigger, iteration)); imp edit
 
             // imp edit start
-            XenoArchTriggerPrototype trigger;
+            Log.Debug($"Valid triggers for depth {depth}: {depthTriggers.Count}");
 
-            if (ent.Comp.Natural)
-                trigger = RobustRandom.Pick(triggerPool); // natural artifacts can have duplicate triggers
-            else
-                trigger = RobustRandom.PickAndTake(triggerPool);
+            if (depthTriggers.Count == 0)
+            {
+                Log.Error($"No more valid triggers for depth {depth}");
+                return new();
+            }
+
+            var triggerId = RobustRandom.Pick(depthTriggers);
+            var trigger = PrototypeManager.Index<XenoArchTriggerPrototype>(triggerId);
+
+            Log.Debug($"Trigger {triggerId} chosen for depth {depth}");
+
+            if (ent.Comp.RequirePredecessorTriggers)
+            {
+                depthTriggers.Remove(triggerId);
+                triggerPool.Remove(triggerId);
+            }
 
             var node = CreateNode(ent, trigger, iteration);
             // make the first node the current node if the artifact's natural
