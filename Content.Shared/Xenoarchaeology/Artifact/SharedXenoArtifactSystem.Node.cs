@@ -118,10 +118,12 @@ public abstract partial class SharedXenoArtifactSystem
 
         var entProtoId = new EntProtoId();
 
-        if (!_entityTable.GetSpawns(ent.Comp.EffectsTable, ctx: ctx).Any())
-            entProtoId = "XenoArtifactEffectBadFeeling";
+        var entTable = _entityTable.GetSpawns(ent.Comp.EffectsTable, ctx: ctx);
+
+        if (!entTable.Any())
+            entProtoId = new EntProtoId("XenoArtifactEffectBadFeeling");
         else
-            entProtoId = _entityTable.GetSpawns(ent.Comp.EffectsTable, ctx: ctx).First();
+            entProtoId = entTable.First();
 
         Log.Debug($"{entProtoId} chosen for depth {depth}");
         // imp edit end
