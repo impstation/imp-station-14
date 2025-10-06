@@ -2,9 +2,8 @@
   id: Boat
   mapName: 'NTAS Whale'
   mapPath: /Maps/_Impstation/boat.yml
-  minPlayers: 50
-  maxPlayers: 100
-  randomRotation: true
+  minPlayers: 45
+  maxPlayers: 69 #map needs more job spawns to have a higher max pop
   stations:
     Boat:
       stationProto: StandardNanotrasenStation

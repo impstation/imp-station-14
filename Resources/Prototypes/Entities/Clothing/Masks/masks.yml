@@ -84,6 +84,9 @@
     modifiers:
       coefficients:
         Heat: 0.80
+  - type: HideLayerClothing # imp
+    slots:
+    - SnoutCover
 
 - type: entity
   parent: [ClothingMaskGasAtmos, BaseCommandContraband]
@@ -110,6 +113,9 @@
     sprite: Clothing/Mask/gascentcom.rsi
   - type: BreathMask
   - type: IngestionBlocker
+  - type: HideLayerClothing # imp
+    slots:
+    - SnoutCover
 
 - type: entity
   parent: [ClothingMaskGas, BaseCargoContraband]
@@ -229,6 +235,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutCover # imp
 
 - type: entity
   parent: ClothingMaskClownChameleonBasic #imp
@@ -244,12 +251,13 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutCover # imp
 
 - type: entity
   parent: ClothingMaskClownBase #imp
   id: ClothingMaskClownBanana
   name: banana clown wig and mask
-  components: 
+  components:
   - type: Sprite
     sprite: Clothing/Mask/clown_banana.rsi #imp
   - type: Clothing
@@ -261,7 +269,7 @@
     tags:
     - ClownMask
     - HamsterWearable
-    - WhitelistChameleon 
+    - WhitelistChameleon
 
 
 # - type: entity
@@ -297,6 +305,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutCover # imp
 
 - type: entity
   parent: ClothingMaskBase
@@ -317,6 +326,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutCover # imp
 
 - type: entity
   parent: ClothingMaskPullableBase
@@ -338,6 +348,9 @@
       Plastic: 25
   - type: StaticPrice
     price: 5
+  - type: HideLayerClothing # imp
+    slots:
+    - SnoutCover
 
 - type: entity
   parent: ClothingMaskBase
@@ -385,6 +398,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutCover # imp
     hideOnToggle: true
 
 - type: entity
@@ -421,6 +435,7 @@
     - Snout
     - HeadTop
     - HeadSide
+    - SnoutCover # imp
     hideOnToggle: true
   - type: Armor
     modifiers:
@@ -465,6 +480,7 @@
     slots:
     - Hair
     - Snout
+    - SnoutCover # imp
     hideOnToggle: true
   - type: FlashImmunity
   - type: EyeProtection
@@ -517,6 +533,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutCover # imp
   - type: IdentityBlocker
 
 - type: entity
@@ -534,6 +551,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutCover # imp
 
 - type: entity
   parent: ClothingMaskBase
@@ -550,6 +568,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutCover # imp
 
 - type: entity
   parent: ClothingMaskBase
@@ -566,6 +585,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutCover # imp
 
 - type: entity
   parent: ClothingMaskBase
@@ -582,6 +602,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutCover # imp
 
 - type: entity
   parent: ClothingMaskBase
@@ -598,6 +619,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutCover # imp
 
 - type: entity
   parent: ClothingMaskBase
@@ -614,6 +636,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutCover # imp
 
 - type: entity
   parent: ClothingMaskPullableBase
@@ -734,6 +757,9 @@
   - type: EyeProtection
   - type: BreathMask
   - type: IdentityBlocker
+  - type: HideLayerClothing # imp
+    slots:
+    - SnoutCover
 
 - type: entity
   parent: ClothingMaskGas
