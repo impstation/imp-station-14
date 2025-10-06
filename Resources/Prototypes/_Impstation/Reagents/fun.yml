@@ -337,3 +337,26 @@
       - !type:AdjustReagent #imp
         reagent: Cellulose
         amount: 0.5
+
+- type: reagent
+  id: Something
+  name: reagent-name-something
+  desc: reagent-desc-something
+  physicalDesc: reagent-physical-desc-something
+  flavor: something
+  color: "#467557"
+  metabolisms: # imp
+    Food:
+      effects:
+      - !type:PopupMessage
+        type: Local
+        visualType: Medium
+        messages:
+        - "something-effect-feelsomething"
+        - "something-effect-justhappened"
+        - "something-effect-kindofway"
+        - "something-effect-somthing"
+        - "something-effect-process"
+        - "something-effect-change"
+        - "something-effect-feeling"
+        probability: 0.2

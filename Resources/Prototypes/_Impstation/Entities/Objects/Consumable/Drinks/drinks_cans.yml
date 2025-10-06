@@ -1,0 +1,21 @@
+- type: entity
+  parent: DrinkCanBaseFull
+  id: DrinkShrimpSodaCan
+  name: Discount Dan's ShrimpSips! can
+  description: A disgustingly sweet and unnervingly viscous soda. This might be the worst idea anyone has ever had.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ShrimpSoda
+          Quantity: 30
+  - type: Tag
+    tags:
+    - DrinkCan
+    - Recyclable
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Drinks/shrimpdrinks.rsi
+  - type: Item
+    sprite: _Impstation/Objects/Consumable/Drinks/shrimpdrinks.rsi
