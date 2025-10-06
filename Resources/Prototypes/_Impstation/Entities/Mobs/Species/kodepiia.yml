@@ -101,6 +101,7 @@
     - HeadTop
     - HeadSide
     - Hair
+    - RArmExtension
     - Tail
   - type: Thirst
   - type: Hunger
@@ -168,7 +169,6 @@
     spawned:
     - id: FoodMeatKodepiia
       amount: 5
-  - type: HarpyVisuals
 
 - type: entity
   save: false

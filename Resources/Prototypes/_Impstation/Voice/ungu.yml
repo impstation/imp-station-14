@@ -1,0 +1,79 @@
+- type: speechSounds
+  id: Ungu
+  saySound:
+    path: /Audio/_Impstation/Voice/Ungu/ungu_talk.ogg
+  askSound:
+    path: /Audio/_Impstation/Voice/Ungu/ungu_ask.ogg
+  exclaimSound:
+    path: /Audio/_Impstation/Voice/Ungu/ungu_yell.ogg
+
+- type: emoteSounds
+  id: UnisexUngu
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      path: /Audio/_Impstation/Voice/Ungu/ungu_scream.ogg
+    Laugh:
+      path: /Audio/_Impstation/Voice/Ungu/ungu_laugh.ogg
+    Sneeze:
+      collection: UnisexSneezes
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      path: /Audio/_Impstation/Voice/Ungu/ungu_yawn.ogg
+    Snore:
+      collection: Snores
+    Honk:
+      collection: BikeHorn
+    Crying:
+      path: /Audio/_Impstation/Voice/Ungu/ungu_cry.ogg
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Wuhey:
+      collection: Wuhey
+    Ungh:
+      collection: Ungh
+    Gasp:
+      path: /Audio/_Impstation/Voice/Ungu/ungu_gasp.ogg
+    DefaultDeathgasp:
+      path: /Audio/_Impstation/Voice/Ungu/ungu_death_gasp.ogg
+    Jump:
+      path: /Audio/Effects/Footsteps/largethud.ogg
+
+# body emotes
+- type: emoteSounds
+  id: UnguBodyEmotes
+  sounds:
+    Jump:
+      path: /Audio/Effects/Footsteps/largethud.ogg
+      params:
+        volume: -3
+        variation: 0.1
+    Clap:
+      collection: Claps
+    ClapSingle:
+      collection: ClapSingle
+    Snap:
+      collection: Snaps
+      params:
+        volume: -3
+    Salute:
+      collection: Salutes
+    Crack:
+      collection: Cracks
+    Blink:
+      collection: Blinks
+      params:
+        volume: -3
+        variation: 0.1
