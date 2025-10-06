@@ -588,7 +588,7 @@ namespace Content.Client.Lobby.UI
 
                     selector.Preference = Profile?.TraitPreferences.Contains(trait.ID) == true;
                     if (selector.Preference)
-                    // begin Imp edits - ignore any traits th
+                    // begin Imp edits - ignore any traits that conflict with subcategories of already selected traits
                     {
                         selectionCount += trait.Cost;
                         foreach (var subcategory in trait.Subcategories)
