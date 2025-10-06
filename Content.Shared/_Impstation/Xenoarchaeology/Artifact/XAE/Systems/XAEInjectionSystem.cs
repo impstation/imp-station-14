@@ -23,7 +23,7 @@ public sealed class XAEInjectionSystem : BaseXAESystem<XAEInjectionComponent>
             return;
 
         _entitiesInRange.Clear();
-        _lookup.GetEntitiesInRange(ent.Owner, ent.Comp.Radius, _entitiesInRange);
+        _lookup.GetEntitiesInRange(ent.Owner, ent.Comp.Range, _entitiesInRange);
 
         foreach (var chem in ent.Comp.Entries)
         {

@@ -22,7 +22,7 @@ public sealed partial class XAEInjectionComponent : Component
     public ChemEntry[] Entries { get; private set; } = Array.Empty<ChemEntry>();
 
     [DataField]
-    public float Radius = 5f;
+    public float Range = 5f;
 
     [DataField]
     public Solution ChemicalSolution = default!;
