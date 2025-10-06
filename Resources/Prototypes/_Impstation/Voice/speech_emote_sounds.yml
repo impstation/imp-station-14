@@ -456,16 +456,16 @@
       path: /Audio/Voice/Moth/moth_squeak.ogg
     Sneeze:
       collection: MaleSneezes #placeholder
-    Cough: # imp
-      path: /Audio/_Impstation/Voice/Moth/mothcough.ogg
+    Cough:
+      path: /Audio/_Impstation/Voice/Moth/mothcough.ogg # imp
     Yawn:
-      collection: MaleYawn #placeholder
+      path: /Audio/_Impstation/Voice/Moth/mothyawn.ogg #imp
     Honk:
       collection: BikeHorn
     Sigh:
-      path: /Audio/_Impstation/Voice/Moth/mothsigh.ogg
+      path: /Audio/_Impstation/Voice/Moth/mothsigh.ogg  #imp
     Crying:
-      path: /Audio/_Impstation/Voice/Moth/mothcry.ogg
+      path: /Audio/_Impstation/Voice/Moth/mothcry.ogg  #imp
     Whistle:
       collection: Whistles
     Weh:
@@ -496,16 +496,16 @@
       path: /Audio/Voice/Moth/moth_squeak.ogg
     Sneeze:
       collection: FemaleSneezes #placeholder
-    Cough: # imp
-      path: /Audio/_Impstation/Voice/Moth/mothcough.ogg
+    Cough:
+      path: /Audio/_Impstation/Voice/Moth/mothcough.ogg  # imp
     Yawn:
-      collection: FemaleYawn #placeholder
+      path: /Audio/_Impstation/Voice/Moth/mothyawn.ogg #imp
     Honk:
       collection: BikeHorn
     Sigh:
-      path: /Audio/_Impstation/Voice/Moth/mothsigh.ogg
+      path: /Audio/_Impstation/Voice/Moth/mothsigh.ogg  #imp
     Crying:
-      path: /Audio/_Impstation/Voice/Moth/mothcry.ogg
+      path: /Audio/_Impstation/Voice/Moth/mothcry.ogg  #imp
     Whistle:
       collection: Whistles
     Weh:
@@ -515,7 +515,7 @@
     Ungh:
       collection: Ungh
     Gasp:
-      path: /Audio/_Impstation/Voice/Moth/mothgasp.ogg
+      path: /Audio/_Impstation/Voice/Moth/mothgasp.ogg  #imp
     DefaultDeathgasp:
       collection: MothDeathGasp
 
