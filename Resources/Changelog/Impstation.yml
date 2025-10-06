@@ -1,90 +1,4 @@
 ﻿Entries:
-- author: DinnerCalzone
-  changes:
-  - message: The soap and bleach reagents can now clean decals and puddles similar
-      to space cleaner. Soap is half as efficient as space cleaner and bleach is twice
-      as efficient as space cleaner.
-    type: Add
-  - message: Bulk soap crates can now be purchaed from Cargo for $250.
-    type: Add
-  - message: Cleanade crates now cost $500 to purchase down from $800.
-    type: Tweak
-  - message: Removed the soap cargo bounty.
-    type: Remove
-  - message: Soap and cleanades can no longer be produced from lathes.
-    type: Remove
-  - message: The mop bucket recipe in the service techfab has been replaced with a
-      rehydratable mop bucket cube recipe.
-    type: Tweak
-  id: 1801
-  time: '2025-06-10T23:28:58.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2706
-- author: meridiadottxt, hivehum
-  changes:
-  - message: Submarine, a new 60-pop map from Delta-V!
-    type: Add
-  id: 1802
-  time: '2025-06-10T23:31:25.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2685
-- author: eviltori
-  changes:
-  - message: lawyer is no longer in service, and answers to the HOP.
-    type: Tweak
-  id: 1803
-  time: '2025-06-10T23:35:29.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2380
-- author: Jellvisk
-  changes:
-  - message: Floor lights! Of varying designs, based on what tube you put in the...
-      METAMORPHIC HOLE.
-    type: Add
-  id: 1804
-  time: '2025-06-10T23:43:49.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2513
-- author: DinnerCalzone
-  changes:
-  - message: Lock boxes and water tank cargo orders now use our sprites in the request
-      computer.
-    type: Fix
-  id: 1805
-  time: '2025-06-11T02:57:26.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2721
-- author: astral_amy
-  changes:
-  - message: Another batch of Bedlam tweaks
-    type: Tweak
-  id: 1806
-  time: '2025-06-11T02:56:49.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2722
-- author: mqole
-  changes:
-  - message: You can once again quick-craft rods and tiles.
-    type: Fix
-  id: 1807
-  time: '2025-06-11T03:04:33.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2718
-- author: DinnerCalzone
-  changes:
-  - message: The science biohazard locker sprite has been reverted, the generic biohazard
-      locker sprite has received a new sprite.
-    type: Add
-  id: 1808
-  time: '2025-06-11T13:06:25.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2725
-- author: DinnerCalzone
-  changes:
-  - message: The evil skull once again haunts Hummingbird Station.
-    type: Add
-  id: 1809
-  time: '2025-06-11T13:07:23.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2724
-- author: astral_amy
-  changes:
-  - message: A new piece of lobby art!
-    type: Add
-  id: 1810
-  time: '2025-06-11T15:40:55.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2728
 - author: mqole
   changes:
   - message: Administrative Assistants have been recalled due to mass workplace coffee
@@ -4205,3 +4119,88 @@
   id: 2300
   time: '2025-09-29T00:53:40.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3521
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: A number of weapon sprites have been changed. See the PR for specifics.
+    type: Tweak
+  id: 2301
+  time: '2025-10-01T22:03:15.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3525
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: Hydra's rate of fire and pellet spread reverted
+    type: Tweak
+  id: 2302
+  time: '2025-10-02T19:59:59.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3527
+- author: Tox3ct
+  changes:
+  - message: Recent Nanotrasen antibiotic manufacturing has been proven less effective
+      in treating parasitic pathogens. Ambuzol now requires Phalanximine as a replacement
+      to Dylovene.
+    type: Tweak
+  id: 2303
+  time: '2025-10-03T01:34:30.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3513
+- author: msTheowo
+  changes:
+  - message: Strong prescription lenses will definitely always spawn now. If they're
+      not in your eyes, in your glasses, or in your hands, they're on the floor!
+    type: Fix
+  id: 2304
+  time: '2025-10-03T20:28:27.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3505
+- author: starlighthowls
+  changes:
+  - message: Ungu are now starting to be employed in the IMP sector, please give them
+      a warm welcome! :8)
+    type: Add
+  id: 2305
+  time: '2025-10-03T20:32:23.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3405
+- author: ultramario1998
+  changes:
+  - message: Bluespace lockers' destinations are now randomized.
+    type: Tweak
+  id: 2306
+  time: '2025-10-03T20:31:21.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3254
+- author: honeyed-lemons
+  changes:
+  - message: Visitor ghost roles can now appear as non-standard species. Please watch
+      for visiting Ungu.
+    type: Tweak
+  - message: His spores have spread.
+    type: Tweak
+  id: 2307
+  time: '2025-10-04T06:05:53.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3522
+- author: JustASpaceNugget
+  changes:
+  - message: CMO GETS A NEW TOY!! A MedChem HUD to the CMO locker.
+    type: Add
+  - message: 1 MedChem HUD to hacked Medvends.
+    type: Add
+  - message: The MedChem HUD is now a steal objective for traitors.
+    type: Add
+  id: 2308
+  time: '2025-10-04T19:59:49.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3428
+- author: Squamatic
+  changes:
+  - message: Cluster has been updated and re-rotated!
+    type: Add
+  id: 2309
+  time: '2025-10-05T10:02:07.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3524
+- author: mqole
+  changes:
+  - message: Decapoids have learned how to carry, too!
+    type: Add
+  - message: You can now carry someone you're pulling.
+    type: Add
+  - message: Escaping the grasp of someone who's carrying you is much faster.
+    type: Tweak
+  id: 2310
+  time: '2025-10-06T11:18:00.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3312
