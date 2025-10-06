@@ -1,8 +1,4 @@
-﻿# scramble dna
-# inject cryptobiolin
-# inject drunk high
-
-- type: entityTable
+﻿- type: entityTable
   id: XenoArtifactEffectsNaturalOnlyTable
   table: !type:GroupSelector
     children:
@@ -35,6 +31,51 @@
       weight: 10.0
     - id: XenoArtifactGun
       weight: 10.0
+
+- type: entity
+  id: XenoArtifactInjectCryptobiolin
+  parent: BaseXenoArtifactEffect
+  description: Biochemical disruption
+  components:
+  - type: XAEInjection
+    chemicalSolution:
+      maxVol: 500
+      canReact: false
+    range: 8
+    showEffect: true
+    visualEffectPrototype: PuddleSparkle
+    entries:
+    - chemical: Cryptobiolin
+      amount: 15
+    - chemical: Ethylredoxrazine
+      amount: 45
+
+- type: entity
+  id: XenoArtifactInjectDrunkHigh
+  parent: BaseXenoArtifactEffect
+  description: Biochemical disruption
+  components:
+  - type: XAEInjection
+    chemicalSolution:
+      maxVol: 500
+      canReact: false
+    range: 8
+    showEffect: true
+    visualEffectPrototype: PuddleSparkle
+    entries:
+    - chemical: Cryptobiolin
+      amount: 10
+    - chemical: SpaceDrugs
+      amount: 30
+    - chemical: Ethylredoxrazine
+      amount: 30
+
+- type: entity
+  id: XenoArtifactScrambleDNA
+  parent: BaseXenoArtifactEffect
+  description: Permanently reshape flesh
+  components:
+  - type: XAEScrambleDNA
 
 - type: entity
   id: XenoArtifactPolyFinfin

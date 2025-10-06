@@ -465,21 +465,24 @@ public abstract partial class SharedXenoArtifactSystem
             // check if the console's powered
             if (_powerReceiver.IsPowered(biasComp.Provider))
             {
-                // check if the analyzer's powered. sorry.
-                if (GetEntity(Comp<AnalysisConsoleComponent>(biasComp.Provider).AnalyzerEntity) != null &&
-                    _powerReceiver.IsPowered(
-                        GetEntity(Comp<AnalysisConsoleComponent>(biasComp.Provider).AnalyzerEntity)!.Value))
+                if (HasComp<AnalysisConsoleComponent>(biasComp.Provider))
                 {
-                    switch (Comp<AnalysisConsoleComponent>(biasComp.Provider).BiasDirection)
+                    // check if the analyzer's powered. sorry.
+                    if (GetEntity(Comp<AnalysisConsoleComponent>(biasComp.Provider).AnalyzerEntity) != null &&
+                        _powerReceiver.IsPowered(
+                            GetEntity(Comp<AnalysisConsoleComponent>(biasComp.Provider).AnalyzerEntity)!.Value))
                     {
-                        case BiasDirection.Up:
-                            if (predecessorNodes.Count > 0)
-                                directNodes = predecessorNodes;
-                            break;
-                        case BiasDirection.Down:
-                            if (successorNodes.Count > 0)
-                                directNodes = successorNodes;
-                            break;
+                        switch (Comp<AnalysisConsoleComponent>(biasComp.Provider).BiasDirection)
+                        {
+                            case BiasDirection.Up:
+                                if (predecessorNodes.Count > 0)
+                                    directNodes = predecessorNodes;
+                                break;
+                            case BiasDirection.Down:
+                                if (successorNodes.Count > 0)
+                                    directNodes = successorNodes;
+                                break;
+                        }
                     }
                 }
             }
