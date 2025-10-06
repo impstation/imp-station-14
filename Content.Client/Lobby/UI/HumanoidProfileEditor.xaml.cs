@@ -39,6 +39,9 @@ using System.Globalization;
 using Content.Client._CD.Records.UI;
 using Content.Shared._CD.Records;
 // End CD - Character Records
+// Begin Imp - Trait subcategories
+using Content.Shared._Impstation.Traits;
+// End Imp - Trait subcategories
 
 namespace Content.Client.Lobby.UI
 {
@@ -514,7 +517,9 @@ namespace Content.Client.Lobby.UI
         {
             TraitsList.DisposeAllChildren();
 
-            var traits = _prototypeManager.EnumeratePrototypes<TraitPrototype>().OrderBy(t => Loc.GetString(t.Name)).ToList();
+            // imp edit -- sort trait points by their cost, then their name
+            var traits = _prototypeManager.EnumeratePrototypes<TraitPrototype>().OrderByDescending(t => t.Cost).ThenBy(t => Loc.GetString(t.Name)).ToList();
+            // imp edit end
             TabContainer.SetTabTitle(3, Loc.GetString("humanoid-profile-editor-traits-tab"));
 
             if (traits.Count < 1)
@@ -573,6 +578,7 @@ namespace Content.Client.Lobby.UI
                 }
 
                 List<TraitPreferenceSelector?> selectors = new();
+                List<ProtoId<TraitSubcategoryPrototype>> usedSubcategories = new(); // imp addition
                 var selectionCount = 0;
 
                 foreach (var traitProto in categoryTraits)
@@ -582,7 +588,22 @@ namespace Content.Client.Lobby.UI
 
                     selector.Preference = Profile?.TraitPreferences.Contains(trait.ID) == true;
                     if (selector.Preference)
+                    // begin Imp edits - ignore any traits th
+                    {
                         selectionCount += trait.Cost;
+                        foreach (var subcategory in trait.Subcategories)
+                        {
+                            if (!usedSubcategories.Contains(subcategory))
+                            {
+                                usedSubcategories.Add(subcategory);
+                            }
+                            else
+                            {
+                                Profile = Profile?.WithoutTraitPreference(trait.ID, _prototypeManager);
+                            }
+                        }
+                    }
+                    // end imp edits
 
                     selector.PreferenceChanged += preference =>
                     {
@@ -606,7 +627,7 @@ namespace Content.Client.Lobby.UI
                 {
                     TraitsList.AddChild(new Label
                     {
-                        Text = Loc.GetString("humanoid-profile-editor-trait-count-hint", ("current", selectionCount) ,("max", category.MaxTraitPoints)),
+                        Text = Loc.GetString("humanoid-profile-editor-trait-count-hint", ("current", category.MaxTraitPoints - selectionCount)), // imp edit -- count points backwards
                         FontColorOverride = Color.Gray
                     });
                 }
@@ -621,6 +642,13 @@ namespace Content.Client.Lobby.UI
                     {
                         selector.Checkbox.Label.FontColorOverride = Color.Red;
                     }
+
+                    // begin Imp additions -- disallow players from selecting multiple traits in the same subcategory
+                    if (!selector.Preference && selector.Subcategories.Overlaps(usedSubcategories))
+                    {
+                        selector.Checkbox.Label.FontColorOverride = Color.Red;
+                    }
+                    // end Imp additions
 
                     TraitsList.AddChild(selector);
                 }
