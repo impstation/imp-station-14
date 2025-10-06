@@ -118,9 +118,9 @@ public abstract partial class SharedXenoArtifactSystem
 
         var entProtoId = new EntProtoId();
 
-        var entTable = _entityTable.GetSpawns(ent.Comp.EffectsTable, ctx: ctx);
+        var entTable = _entityTable.GetSpawns(ent.Comp.EffectsTable, ctx: ctx).ToList();
 
-        if (!entTable.Any())
+        if (entTable.Count < 1)
             entProtoId = new EntProtoId("XenoArtifactEffectBadFeeling");
         else
             entProtoId = entTable.First();
