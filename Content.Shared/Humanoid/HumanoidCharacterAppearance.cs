@@ -1,12 +1,11 @@
 ﻿using System.Linq;
-using System.Numerics; // imp
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
-using Content.Shared.Random; // imp
-using Content.Shared.Random.Helpers; // imp
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
+using System.Numerics; // imp
+using Content.Shared.Random.Helpers; // imp
 
 namespace Content.Shared.Humanoid;
 
@@ -309,6 +308,7 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
             return MathHelper.Clamp01(channel + random.Next(-25, 25) / 100f);
         }
 
+        // imp:
         List<Color> GetComplementaryColors(Color color, double angle)
         {
             var hsl = Color.ToHsl(color);

@@ -3,8 +3,8 @@ using Content.Shared.DoAfter;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
-using Content.Shared.Whitelist;
+//using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom; // imp unused
+using Content.Shared.Whitelist; // imp
 
 namespace Content.Shared.Medical;
 
@@ -32,7 +32,7 @@ public sealed partial class DefibrillatorComponent : Component
     /// How long the victim will be electrocuted after getting zapped.
     /// </summary>
     [DataField("writheDuration"), ViewVariables(VVAccess.ReadWrite)]
-    public float WritheDuration = 3f;
+    public float WritheDuration = 3f; // imp float
 
     /// <summary>
     ///     ID of the cooldown use delay.
@@ -97,7 +97,8 @@ public sealed partial class DefibrillatorComponent : Component
     [DataField]
     public bool CanDefibCrit = true;
 
-    [ViewVariables(VVAccess.ReadWrite), DataField("playZapSound")]
+    // imp
+    [DataField]
     public bool PlayZapSound = true;
 
     /// <summary>
@@ -106,25 +107,29 @@ public sealed partial class DefibrillatorComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField("zapSound")]
     public SoundSpecifier? ZapSound = new SoundPathSpecifier("/Audio/Items/Defib/defib_zap.ogg");
 
-    [ViewVariables(VVAccess.ReadWrite), DataField("playChargeSound")]
+    // imp
+    [DataField]
     public bool PlayChargeSound = true;
 
     [ViewVariables(VVAccess.ReadWrite), DataField("chargeSound")]
     public SoundSpecifier? ChargeSound = new SoundPathSpecifier("/Audio/Items/Defib/defib_charge.ogg");
 
-    [ViewVariables(VVAccess.ReadWrite), DataField("playFailureSound")]
+    // imp
+    [DataField]
     public bool PlayFailureSound = true;
 
     [ViewVariables(VVAccess.ReadWrite), DataField("failureSound")]
     public SoundSpecifier? FailureSound = new SoundPathSpecifier("/Audio/Items/Defib/defib_failed.ogg");
 
-    [ViewVariables(VVAccess.ReadWrite), DataField("playSuccessSound")]
+    // imp
+    [DataField]
     public bool PlaySuccessSound = true;
 
     [ViewVariables(VVAccess.ReadWrite), DataField("successSound")]
     public SoundSpecifier? SuccessSound = new SoundPathSpecifier("/Audio/Items/Defib/defib_success.ogg");
 
-    [ViewVariables(VVAccess.ReadWrite), DataField("playReadySound")]
+    // imp
+    [DataField]
     public bool PlayReadySound = true;
 
     [ViewVariables(VVAccess.ReadWrite), DataField("readySound")]

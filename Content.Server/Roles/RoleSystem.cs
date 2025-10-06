@@ -1,17 +1,17 @@
-using Content.Shared.Heretic;
 using Content.Server.Chat.Managers;
 using Content.Shared.Chat;
 using Content.Shared.Mind;
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
+using Content.Shared.Heretic; // imp
 
 namespace Content.Server.Roles;
 
-
-
-public sealed class RoleSystem : SharedRoleSystem {
+public sealed class RoleSystem : SharedRoleSystem
+{
     [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+
     public string? MindGetBriefing(EntityUid? mindId)
     {
         if (mindId == null)

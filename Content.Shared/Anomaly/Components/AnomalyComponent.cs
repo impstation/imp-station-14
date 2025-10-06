@@ -39,7 +39,7 @@ public sealed partial class AnomalyComponent : Component
     /// </summary>
     /// <remarks>
     /// Note that this doesn't refer to stability as a percentage: This is an arbitrary
-    /// value that only matters in relation to the <see cref="GrowthThreshold"/> and <see cref=""/>
+    /// value that only matters in relation to the <see cref="GrowthThreshold"/> and <see cref="DecayThreshold"/>
     /// </remarks>
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public float Stability = 0f;

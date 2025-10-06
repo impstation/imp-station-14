@@ -1,7 +1,7 @@
-using Content.Shared._NF.Construction.Components; // Frontier
 using Content.Shared.Construction.Components;
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
+using Content.Shared._NF.Construction.Components; // Frontier
 
 namespace Content.Shared.Construction.NodeEntities;
 

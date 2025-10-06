@@ -106,7 +106,7 @@ public sealed class UnpoweredFlashlightSystem : EntitySystem
 
         if (TryComp<ItemToggleComponent>(ent, out var toggleComp)) // imp
         {
-            _itemToggle.Toggle(toggleComp!.Owner);
+            _itemToggle.Toggle((ent, toggleComp));
         }
 
         SetLight(ent, !ent.Comp.LightOn, user, quiet);

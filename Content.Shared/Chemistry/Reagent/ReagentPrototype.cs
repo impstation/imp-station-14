@@ -170,9 +170,11 @@ namespace Content.Shared.Chemistry.Reagent
         [DataField]
         public SoundSpecifier FootstepSound = new SoundCollectionSpecifier("FootstepPuddle");
 
+        // imp
         [DataField]
         public bool ImpEvaporates = false;
 
+        // imp
         [DataField]
         public float ImpEvaporationAmount = 0.3f;
 

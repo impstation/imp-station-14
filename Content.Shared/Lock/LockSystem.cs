@@ -146,7 +146,7 @@ public sealed class LockSystem : EntitySystem
             }
 
             return _doAfter.TryStartDoAfter(
-                new DoAfterArgs(EntityManager, user, lockTime, new LockDoAfter(), uid, uid)
+                new DoAfterArgs(EntityManager, user, lockTime, new LockDoAfter(), uid, uid) // imp locktime
                 {
                     BreakOnDamage = true,
                     BreakOnMove = true,
@@ -260,7 +260,7 @@ public sealed class LockSystem : EntitySystem
             }
 
             return _doAfter.TryStartDoAfter(
-                new DoAfterArgs(EntityManager, user, lockTime, new UnlockDoAfter(), uid, uid)
+                new DoAfterArgs(EntityManager, user, lockTime, new UnlockDoAfter(), uid, uid) // imp add locktime
                 {
                     BreakOnDamage = true,
                     BreakOnMove = true,
