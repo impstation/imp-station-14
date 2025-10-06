@@ -142,7 +142,8 @@ public sealed partial class XenoArtifactSystem
         Entity<XenoArtifactComponent> ent,
         Dictionary<string, float> triggerPool, // imp edit, changed from List<XenoArchTriggerPrototype>
         ref int segmentSize,
-        int iteration = 0
+        int iteration = 0,
+        int prevNodeCount = 0 // imp edit
     )
     {
         if (segmentSize == 0)
@@ -159,7 +160,11 @@ public sealed partial class XenoArtifactSystem
         if (layerMax >= layerMin)
             nodeCount = RobustRandom.Next(layerMin, layerMax + 1); // account for non-inclusive max
 
-        // imp edit start, make it have one node in the first layer
+        // imp edit start
+        if (ent.Comp.Natural && nodeCount > prevNodeCount * 2)
+            nodeCount = prevNodeCount * 2;
+
+        // make it have one node in the first layer
         if (ent.Comp.OneStartNode && iteration == 0)
             nodeCount = 1;
 
@@ -217,7 +222,8 @@ public sealed partial class XenoArtifactSystem
             ent,
             triggerPool,
             ref segmentSize,
-            iteration: iteration + 1
+            iteration: iteration + 1,
+            prevNodeCount: nodeCount // imp edit
         );
 
         if (successors.Count == 0)

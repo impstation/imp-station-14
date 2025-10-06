@@ -6,6 +6,7 @@
   noSpawn: true
   components:
   - type: XenoArtifact
+    triggerWeights: "NaturalTriggers"
     nodeCount:
       min: 4
       max: 15
