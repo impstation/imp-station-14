@@ -12,7 +12,7 @@
       sprite: Objects/Specific/Janitorial/soap.rsi
       state: soap-4
   - type: InstantAction
-    event: !type:RandomGlobalSpawnSpellEvent
+    event: !type:RandomGlobalSpawnFloorSpellEvent
       makeSurvivorAntagonist: false
       spawns:
       - id: SoapDeluxe

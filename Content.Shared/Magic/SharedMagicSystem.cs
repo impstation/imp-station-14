@@ -11,6 +11,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Lock;
 using Content.Shared.Magic.Components;
 using Content.Shared.Magic.Events;
+using Content.Shared._Impstation.Magic.Events; /// imp add
 using Content.Shared.Maps;
 using Content.Shared.Mind;
 using Content.Shared.Physics;
@@ -483,6 +484,36 @@ public abstract class SharedMagicSystem : EntitySystem
 
         _audio.PlayGlobal(ev.Sound, ev.Performer);
     }
+
+    /// <summary>
+    /// imp add, makes the items spawn on the floor
+    /// </summary>
+    protected virtual void OnRandomGlobalSpawnFloorSpell(RandomGlobalSpawnFloorSpellEvent ev)
+    {
+        if (!_net.IsServer || ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer) || ev.Spawns is not { } spawns)
+            return;
+
+        ev.Handled = true;
+
+        var allHumans = _mind.GetAliveHumans();
+
+        foreach (var human in allHumans)
+        {
+            if (!human.Comp.OwnedEntity.HasValue)
+                continue;
+
+            var ent = human.Comp.OwnedEntity.Value;
+
+            if (_tag.HasTag(ent, InvalidForGlobalSpawnSpellTag))
+                continue;
+
+            var mapCoords = _transform.GetMapCoordinates(ent);
+            foreach (var spawn in EntitySpawnCollection.GetSpawns(spawns, _random));
+        }
+
+        _audio.PlayGlobal(ev.Sound, ev.Performer);
+    }
+    /// end imp add
 
     #endregion
     #region Mindswap Spells
