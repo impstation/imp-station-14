@@ -16,8 +16,8 @@ marking-Elated1Ungu = Elated Face
 marking-Elated2Ungu = Joyfull Face
 marking-Tormented1Ungu = Tormented Face
 marking-Tormented2Ungu = Angry Face
-marking-ChestSplotchesLUngu = Left Side Chest Splotches
-marking-ChestSplotchesRUngu = Right Side Chest Splotches
+marking-ChestSplotchesLUngu = Chest Splotches (Left)
+marking-ChestSplotchesRUngu = Chest Splotches (Right)
 
 # ears
 
