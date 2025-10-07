@@ -45,13 +45,13 @@
       thresholds:
         - trigger:
             !type:DamageTrigger
-            damage: 70
+            damage: 50
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
         - trigger:
             !type:DamageTrigger
-            damage: 50
+            damage: 35
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
