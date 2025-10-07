@@ -6,11 +6,16 @@
   abstract: true
   components:
   - type: CowToolProficiency
+  - type: Pullable
+  - type: StatusIcon
+    bounds: -0.5,-0.5,0.5,0.7
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Ungu/parts.rsi
     noRot: true
     drawdepth: Mobs
     layers:
+    - map: ["enum.DamageStateVisualLayers.Base"] # this makes the combat visual work
+      state: null
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
     - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
@@ -124,10 +129,7 @@
         restitution: 0.0
         mask:
         - MobMask
-        - TableMask
-        - InteractImpassable
         layer:
-        - InteractImpassable
         - MobLayer
   - type: Vocal
     sounds:
