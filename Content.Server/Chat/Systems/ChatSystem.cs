@@ -64,7 +64,6 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
     [Dependency] private readonly CollectiveMindUpdateSystem _collectiveMind = default!; //imp
     [Dependency] private readonly LastMessageBeforeDeathSystem _lastMessageBeforeDeathSystem = default!; // Imp Edit LastMessageBeforeDeath Webhook
-    [Dependency] private readonly Content.Shared.StatusEffectNew.StatusEffectsSystem _statusEffects = default!; // Offbrand
 
     private bool _loocEnabled = true;
     private bool _deadLoocEnabled;
@@ -218,13 +217,6 @@ public sealed partial class ChatSystem : SharedChatSystem
             checkRadioPrefix = false;
             message = message[1..];
         }
-
-        // Begin Offbrand
-        if (desiredType == InGameICChatType.Speak && _statusEffects.HasEffectComp<Content.Shared._Offbrand.StatusEffects.SilencedStatusEffectComponent>(source))
-        {
-            desiredType = InGameICChatType.Whisper;
-        }
-        // End Offbrand
 
         bool shouldCapitalize = (desiredType != InGameICChatType.Emote);
         bool shouldPunctuate = _configurationManager.GetCVar(CCVars.ChatPunctuation);

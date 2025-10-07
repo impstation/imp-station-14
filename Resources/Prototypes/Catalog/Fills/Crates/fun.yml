@@ -53,6 +53,9 @@
     - id: PlushieSnail
     - id: PlushieThaven
     - id: PlushieKodepiia
+    - id: PlushieUngu
+    - id: PlushieUnguTiny
+      weight: 0.1
     - id: PlushieThavenWeird
       weight: 0.1
     - id: PlushieDwarf
@@ -373,7 +376,7 @@
       - id: GlowstickYellow
         amount: 2
       - id: FoodCakeBirthday
-      - id: DrinkLean
+      - id: DrinkColoCupGrapeJuice # imp edit, replace grape juice cups with colo cups
         amount: 4
       - id: KnifePlastic
       - id: ClothingHeadHatPartyRed

@@ -2,8 +2,8 @@
   id: Refsdal
   mapName: 'Refsdal'
   mapPath: /Maps/_Impstation/refsdal.yml
-  minPlayers: 0
-  maxPlayers: 23
+  minPlayers: 8
+  maxPlayers: 20
   stations:
     Refsdal:
       stationProto: StandardNanotrasenStation
@@ -18,8 +18,8 @@
         - type: StationCargoShuttle
           path: /Maps/_Impstation/Shuttles/cargo_refsdal.yml
         - type: StationJobs
-          availableJobs: #TODO ENUMERATE THIS ONCE IN ROTATION
-            # command
+          availableJobs: #Total of 43 jobs roundstart, max of 48 inc. latejoins and trainees.
+            # command - 8
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
             ChiefEngineer: [ 1, 1 ]
@@ -28,7 +28,7 @@
             HeadOfSecurity: [ 1, 1 ]
             HospitalityDirector: [ 1, 1 ]
             Quartermaster: [ 1, 1 ]
-            # service
+            # service - 14
             Bartender: [ 2, 2 ]
             Botanist: [ 1, 1 ]
             Chef: [ 2, 2 ]
@@ -41,29 +41,29 @@
             Reporter: [1, 1]
             Boxer: [2, 2]
             #ServiceWorker: [2, 2]
-            # engineering
+            # engineering - 2-3
             AtmosphericTechnician: [ 1, 1 ]
             StationEngineer: [ 1, 1 ]
             TechnicalAssistant: [ 1, 1 ]
-            # medical
+            # medical - 4-5
             Chemist: [ 1, 1 ]
             Paramedic: [1, 1]
             Psychologist: [1, 1]
             MedicalDoctor: [ 1, 1 ]
             MedicalIntern: [ 1, 1 ]
-            # science
+            # science - 3-4
             Borg: [ 1, 1 ]
             ResearchAssistant: [ 1, 1 ]
             Scientist: [ 1, 1 ]
             StationAi: [1, 1]
-            # security
+            # security - 7-8
             SecurityCadet: [ 1, 1 ]
             Brigmedic: [1, 1]
             Detective: [1, 1]
             Lawyer: [2, 2]
             Warden: [1,1]
             SecurityOfficer: [ 2, 2 ]
-            # cargo
+            # cargo - 5-6
             CargoTechnician: [ 2, 2 ]
             Courier: [ 1, 1 ]
             SalvageSpecialist: [ 2, 2 ]

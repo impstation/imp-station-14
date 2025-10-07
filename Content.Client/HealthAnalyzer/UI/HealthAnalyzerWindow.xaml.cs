@@ -110,7 +110,7 @@ namespace Content.Client.HealthAnalyzer.UI
 
             // Alerts
 
-            var showAlerts = msg.Unrevivable == true || msg.Bleeding == true || msg.WoundableData?.Wounds != null; // Offbrand
+            var showAlerts = msg.Unrevivable == true || msg.Bleeding == true;
 
             AlertsDivider.Visible = showAlerts;
             AlertsContainer.Visible = showAlerts;
@@ -133,69 +133,6 @@ namespace Content.Client.HealthAnalyzer.UI
                     Margin = new Thickness(0, 4),
                     MaxWidth = 300
                 });
-
-            // Begin Offbrand
-            if (msg.WoundableData is { } woundable)
-            {
-                if (woundable.Wounds is not null)
-                {
-                    foreach (var wound in woundable.Wounds)
-                    {
-                        AlertsContainer.AddChild(new RichTextLabel
-                        {
-                            Text = Loc.GetString(wound),
-                            Margin = new Thickness(0, 4),
-                            MaxWidth = 300
-                        });
-                    }
-                }
-                BrainHealthText.Visible = true;
-                BrainHealthLabel.Visible = true;
-                BrainHealthLabel.Text = Loc.GetString("health-analyzer-window-entity-brain-health-value", ("value", $"{woundable.BrainHealth * 100:F1}"), ("rating", woundable.BrainHealthRating));
-
-                HeartHealthText.Visible = true;
-                HeartHealthLabel.Visible = true;
-                HeartHealthLabel.Text = Loc.GetString("health-analyzer-window-entity-heart-health-value", ("value", $"{woundable.HeartHealth * 100:F1}"), ("rating", woundable.HeartHealthRating));
-
-                HeartRateText.Visible = true;
-                HeartRateLabel.Visible = true;
-                HeartRateLabel.Text = Loc.GetString("health-analyzer-window-entity-heart-rate-value", ("value", woundable.HeartRate), ("rating", woundable.HeartRateRating));
-
-                BloodOxygenationText.Visible = true;
-                BloodOxygenationLabel.Visible = true;
-                BloodOxygenationLabel.Text = Loc.GetString("health-analyzer-window-entity-blood-oxygenation-value", ("value", $"{woundable.BloodOxygenation * 100:F1}"), ("rating", woundable.BloodOxygenationRating));
-
-                BloodCirculationText.Visible = true;
-                BloodCirculationLabel.Visible = true;
-                BloodCirculationLabel.Text = Loc.GetString("health-analyzer-window-entity-blood-circulation-value", ("value", $"{woundable.BloodCirculation * 100:F1}"), ("rating", woundable.BloodCirculationRating));
-
-                var (systolic, diastolic) = woundable.BloodPressure;
-                BloodPressureText.Visible = true;
-                BloodPressureLabel.Visible = true;
-                BloodPressureLabel.Text = Loc.GetString("health-analyzer-window-entity-blood-pressure-value", ("systolic", systolic), ("diastolic", diastolic), ("rating", woundable.BloodPressureRating));
-
-                BloodLabel.Visible = false;
-                BloodText.Visible = false;
-            }
-            else
-            {
-                BrainHealthLabel.Visible = false;
-                BloodPressureLabel.Visible = false;
-                BloodOxygenationLabel.Visible = false;
-                HeartRateLabel.Visible = false;
-                HeartHealthLabel.Visible = false;
-                BloodCirculationLabel.Visible = false;
-                BrainHealthText.Visible = false;
-                BloodPressureText.Visible = false;
-                BloodOxygenationText.Visible = false;
-                BloodCirculationText.Visible = false;
-                HeartRateText.Visible = false;
-                HeartHealthText.Visible = false;
-
-                BloodLabel.Visible = true;
-                BloodText.Visible = true;
-            }
-            // End Offbrand
 
             // Damage Groups
 
