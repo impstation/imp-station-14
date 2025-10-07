@@ -4,7 +4,7 @@ namespace Content.Server._Impstation.Colonid.Components;
 ///     empty component for checking if this component is present. doesn't do anything on its own
 /// </summary>
 [RegisterComponent]
-public sealed partial class AirtightComponent : Component
+public sealed partial class SealedClothingComponent : Component
 {
     // this is supposed to be empty :)
 }

@@ -1,16 +1,8 @@
 using System.Linq;
-using Content.Server.Atmos;
-using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server._Impstation.Colonid.Components;
 using Content.Shared.Atmos;
-using Content.Shared.Atmos.Components;
-using Content.Shared.Atmos.EntitySystems;
 using Content.Shared.Inventory;
-using Robust.Server.GameObjects;
-using Content.Shared.Interaction;
-using Content.Shared.Interaction.Events;
-using Content.Shared.NodeContainer;
 
 namespace Content.Server._Impstation.Colonid.EntitySystems;
 
@@ -23,29 +15,26 @@ public sealed class ExplodeFromGasSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<ExplodeFromGasComponent, AirtightComponent>();
-        while (query.MoveNext(out uid, out var explodeComp, out var airtightComp))
+        var query = EntityQueryEnumerator<ExplodeFromGasComponent, SealedClothingComponent>();
+        while (query.MoveNext(out var uid, out var explodeComp, out var sealedClothingComp))
         {
-            if (CheckAtmosForGas(uid))
+            if (CheckAtmosForGas(uid) && !CheckInventoryForProtection(uid))
             {
-            //     if (_inventorySystem.TryGetInventoryEntity<airtightComp>(uid, "Inner Wear"))
-            //     {
-                    
-            //     }
+                //EXPLODE!!!!!!!!!!!
             }
         }
     }
 
     /// <summary>
-    ///     checks if the atmosphere the entity is in contains the gas specified in the component. 
+    ///     checks if the atmosphere the entity is in contains the gas specified in the component.
     /// </summary>
     /// <param name="entity"></param>
     /// <returns> true or false </returns>
     private bool CheckAtmosForGas(Entity<ExplodeFromGasComponent> entity)
     {
-        string targetGas = entity.comp.triggeringGas;
+        string targetGas = entity.Comp.TriggeringGas;
 
-        var gasAtTile = _atmo.GetContainingMixture(entity);
+        var gasAtTile = _atmo.GetContainingMixture(entity, true);
         var gasList = GenerateGasEntryArray(gasAtTile);
 
         for (var i = 0; i < gasList.Count; i++)
@@ -65,7 +54,14 @@ public sealed class ExplodeFromGasSystem : EntitySystem
     /// <returns> true or false </returns>
     private bool CheckInventoryForProtection(Entity<ExplodeFromGasComponent> entity)
     {
+        bool output = false;
 
+        if ((_inventorySystem.TryGetInventoryEntity<SealedClothingComponent>(entity, "Inner Wear")||_inventorySystem.TryGetInventoryEntity<SealedClothingComponent>(entity, "Outer Wear")) && _inventorySystem.TryGetInventoryEntity<SealedClothingComponent>(entity, "Helmet"))
+        {
+            output = true;
+        }
+
+        return output;
     }
 
     private GasEntry[] GenerateGasEntryArray(GasMixture? mixture)

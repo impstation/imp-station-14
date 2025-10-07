@@ -15,7 +15,7 @@
     tags:
     - WhitelistChameleon
 
-# Colonid Envirosuit 
+# Colonid Envirosuit
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformColonidEnvirosuit
@@ -40,7 +40,7 @@
         Caustic: 0.85
   - type: StaticPrice
     price: 2000
-  - type: Airtight
+  - type: SealedClothing
   - type: Tag
     tags:
     - WhitelistChameleon
