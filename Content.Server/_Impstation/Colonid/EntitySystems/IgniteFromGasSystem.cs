@@ -3,26 +3,27 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server._Impstation.Colonid.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Inventory;
+using static Content.Shared.Atmos.Components.GasAnalyzerComponent;
 
 namespace Content.Server._Impstation.Colonid.EntitySystems;
 
-public sealed class ExplodeFromGasSystem : EntitySystem
+public sealed class IgniteFromGasSystem : EntitySystem
 {
     [Dependency] private readonly AtmosphereSystem _atmo = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
+    [Dependency] private readonly FlammableSystem _flammable = default!;
+
+    private readonly Entity<IgniteFromGasComponent> _ent = default;
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<ExplodeFromGasComponent, SealedClothingComponent>();
-        while (query.MoveNext(out var uid, out var explodeComp, out var sealedClothingComp))
+        if (CheckAtmosForGas() && !CheckInventoryForProtection())
         {
-            if (CheckAtmosForGas(uid) && !CheckInventoryForProtection(uid))
-            {
-                //EXPLODE!!!!!!!!!!!
-            }
+            _flammable.AdjustFireStacks(_ent, _ent.Comp.FireStacksAmount);
         }
+
     }
 
     /// <summary>
@@ -30,11 +31,11 @@ public sealed class ExplodeFromGasSystem : EntitySystem
     /// </summary>
     /// <param name="entity"></param>
     /// <returns> true or false </returns>
-    private bool CheckAtmosForGas(Entity<ExplodeFromGasComponent> entity)
+    private bool CheckAtmosForGas()
     {
-        string targetGas = entity.Comp.TriggeringGas;
+        string targetGas = _ent.Comp.TriggeringGas;
 
-        var gasAtTile = _atmo.GetContainingMixture(entity, true);
+        var gasAtTile = _atmo.GetContainingMixture(_ent, true);
         var gasList = GenerateGasEntryArray(gasAtTile);
 
         for (var i = 0; i < gasList.Count; i++)
@@ -52,11 +53,11 @@ public sealed class ExplodeFromGasSystem : EntitySystem
     /// </summary>
     /// <param name="entity"></param>
     /// <returns> true or false </returns>
-    private bool CheckInventoryForProtection(Entity<ExplodeFromGasComponent> entity)
+    private bool CheckInventoryForProtection(Entity<InventoryComponent> entity) // TODO: change "Inner Wear", etc to something.Comp.OuterWear, etc also has to find those entities first
     {
         bool output = false;
 
-        if ((_inventorySystem.TryGetInventoryEntity<SealedClothingComponent>(entity, "Inner Wear")||_inventorySystem.TryGetInventoryEntity<SealedClothingComponent>(entity, "Outer Wear")) && _inventorySystem.TryGetInventoryEntity<SealedClothingComponent>(entity, "Helmet"))
+        if ((_inventorySystem.TryGetInventoryEntity<SealedClothingComponent>(entity, "Inner Wear") || _inventorySystem.TryGetInventoryEntity<SealedClothingComponent>(entity, "Outer Wear")) && _inventorySystem.TryGetInventoryEntity<SealedClothingComponent>(entity, "Helmet"))
         {
             output = true;
         }
@@ -72,7 +73,7 @@ public sealed class ExplodeFromGasSystem : EntitySystem
         {
             var gas = _atmo.GetGas(i);
 
-            if (mixture?[i] <= UIMinMoles)
+            if (mixture?[i] <= 0.01)
                 continue;
 
             if (mixture != null)

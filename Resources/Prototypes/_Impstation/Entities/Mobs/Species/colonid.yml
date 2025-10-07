@@ -6,7 +6,7 @@
   abstract: true
   components:
   - type: GoobAbsorbable
-  - type: Icon 
+  - type: Icon
     sprite: _Impstation/Mobs/Species/Colonid/parts.rsi
     state: full
   - type: Butcherable
@@ -26,7 +26,7 @@
     damageModifierSet: Colonid
   - type: Bloodstream
     bloodReagent: Plasma
-  - type: ExplodeFromGas
+  - type: IgniteFromGas
     explosionDelayLength: 3
     triggeringGas: Oxygen
   - type: Explosive
