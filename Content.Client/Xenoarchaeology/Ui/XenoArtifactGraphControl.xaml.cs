@@ -116,12 +116,28 @@ public sealed partial class XenoArtifactGraphControl : BoxContainer
         {
             // For each segment we draw nodes in order of depth. Method returns List of nodes for each depth level.
             var orderedNodes = _artifactSystem.GetDepthOrderedNodes(segment);
+
+            // Imp edit: list of hidden nodes (if we hide any)
+            var hiddenNodes = new List<Entity<XenoArtifactNodeComponent>>();
+
             foreach (var (_, nodes) in orderedNodes)
             {
                 for (var i = 0; i < nodes.Count; i++)
                 {
                     // selecting color for node based on its state
                     var node = nodes[i];
+
+                    // Imp edit: natural artifacts should have nodes hidden if you haven't at least seen their parent
+                    if (artifact.Comp.Natural && node.Comp.Locked && !_artifactSystem.IsNodeActive(artifact, node)) //natural artifact with a locked, inactive node passes this
+                    {
+                        var directPredecessorNodes = _artifactSystem.GetDirectPredecessorNodes((artifact, artifact), node);
+                        if (!directPredecessorNodes.Any(x => _artifactSystem.IsNodeActive(artifact, x) || !x.Comp.Locked)) // no parent is active or unlocked
+                        {
+                            hiddenNodes.Add(node);
+                            continue;
+                        }
+                    }
+
                     var color = LockedNodeColor;
                     if (_artifactSystem.IsNodeActive(artifact, node) && !node.Comp.Locked) // imp edit, we want locked activate nodes to be a different color
                     {
@@ -177,6 +193,9 @@ public sealed partial class XenoArtifactGraphControl : BoxContainer
                 var successorNodes = _artifactSystem.GetDirectSuccessorNodes((artifact, artifact), node);
                 foreach (var successorNode in successorNodes)
                 {
+                    // Imp edit: Don't draw a line to hidden nodes
+                    if (hiddenNodes.Contains(successorNode))
+                        continue;
                     var color = node.Comp.Locked
                         ? LockedNodeColor
                         : UnlockedNodeColor;
