@@ -170,7 +170,7 @@ marking-VestUngu = Vest
 
 marking-TailLongUngu = Long Tail
 marking-TailLongUngu-TailLong = Tail
-marking-TailLongUngu-TailLongFluff = Fluff
+marking-TailLongUngu-TailLong_Fluff = Fluff
 marking-TailNubUngu = Nub Tail
 marking-TailFluffyUngu = Fluffy Tail
 marking-TailFluffyUngu-TailFluffy_1 = Tail
