@@ -879,7 +879,7 @@
 - type: entity
   id: XenoArtifactHeatWave
   parent: BaseXenoArtifactEffect
-  description: Heats up surrounding gas greatly
+  description: Energy release #IMP desc changed
   components:
   - type: XAETemperature
     targetTemp: 500
@@ -950,7 +950,7 @@
 - type: entity
   id: XenoArtifactRadioactive
   parent: BaseOneTimeXenoArtifactEffect
-  description: Becomes mildly radioactive
+  description: Energy release #IMP desc changed
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -1270,7 +1270,7 @@
 - type: entity
   id: XenoArtifactFoamGood
   parent: BaseXenoArtifactEffect
-  description: Creates wave of helpful foam
+  description: Creates wave of foam #IMP desc changed
   components:
   - type: XenoArtifactNode
     maxDurability: 7
@@ -1291,7 +1291,7 @@
 - type: entity
   id: XenoArtifactFoamDangerous
   parent: BaseXenoArtifactEffect
-  description: Creates wave of harmful foam
+  description: Creates wave of foam #IMP desc changed
   components:
   - type: XAEFoam
     minFoamAmount: 20
@@ -1313,7 +1313,7 @@
 - type: entity
   id: XenoArtifactPuddleRare
   parent: BaseXenoArtifactEffect
-  description: Creates puddle of helpful chemicals
+  description: Creates puddle of chemicals #IMP desc changed
   components:
   - type: XAECreatePuddle
     chemAmount:
@@ -1358,7 +1358,7 @@
 - type: entity
   id: XenoArtifactIgnite
   parent: BaseXenoArtifactEffect
-  description: Pyrokinesis
+  description: Energy release #IMP desc changed
   components:
   - type: XAEIgnite
     range: 7
@@ -1376,7 +1376,7 @@
 - type: entity
   id: XenoArtifactEmp
   parent: BaseXenoArtifactEffect
-  description: Dangerous electromagnetic interference
+  description: Energy release #IMP desc changed
   components:
   - type: XenoArtifactNode
     maxDurability: 5
@@ -1388,14 +1388,14 @@
 - type: entity
   id: XenoArtifactPolyMonkey
   parent: BaseXenoArtifactEffect
-  description: Temporarily reshape flesh to fur
+  description: Temporarily reshape flesh #IMP desc changed
   components:
   - type: XAEPolymorph
 
 - type: entity
   id: XenoArtifactPolyLizard
   parent: BaseXenoArtifactEffect
-  description: Temporarily reshape flesh to scale
+  description: Temporarily reshape flesh #IMP desc changed
   components:
   - type: XAEPolymorph
     polymorphPrototypeName: ArtifactLizard
@@ -1403,7 +1403,7 @@
 - type: entity
   id: XenoArtifactPolyLuminous
   parent: BaseXenoArtifactEffect
-  description: Temporarily reshape flesh to light
+  description: Temporarily reshape flesh #IMP desc changed
   components:
   - type: XAEPolymorph
     polymorphPrototypeName: ArtifactLuminous
@@ -1411,7 +1411,7 @@
 - type: entity
   id: XenoArtifactRadioactiveStrong
   parent: BaseOneTimeXenoArtifactEffect
-  description: Becomes highly radioactive
+  description: Energy release #IMP desc changed
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -1521,9 +1521,9 @@
         Burn: -300
 
 - type: entity
-  id: XenoArtifactTesla
+  id: XenoArtifactSingularity #IMP swapped the id of this and the tesla because they were incorrect??
   parent: BaseOneTimeXenoArtifactEffect
-  description: Mass destruction
+  description: Imminent doom #IMP desc changed
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -1536,9 +1536,9 @@
         - id: Singularity
 
 - type: entity
-  id: XenoArtifactSingularity
+  id: XenoArtifactTesla #IMP swapped the id of this and the singulo because they were incorrect??
   parent: BaseOneTimeXenoArtifactEffect
-  description: Imminent doom
+  description: Imminent doom #IMP desc changed
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -1582,7 +1582,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasPlasma
   parent: BaseXenoArtifactEffect
-  description: Expels plasma
+  description: Expels gas #IMP desc changed
   components:
   - type: XAECreateGas
     gases:
@@ -1591,7 +1591,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasTritium
   parent: BaseXenoArtifactEffect
-  description: Expels tritium
+  description: Expels gas #IMP desc changed
   components:
   - type: XAECreateGas
     gases:
@@ -1600,7 +1600,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasAmmonia
   parent: BaseXenoArtifactEffect
-  description: Expels ammonia
+  description: Expels gas #IMP desc changed
   components:
   - type: XAECreateGas
     gases:
@@ -1609,7 +1609,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasFrezon
   parent: BaseXenoArtifactEffect
-  description: Expels frezon
+  description: Expels gas #IMP desc changed
   components:
   - type: XAECreateGas
     gases:
@@ -1618,7 +1618,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasNitrousOxide
   parent: BaseXenoArtifactEffect
-  description: Expels nitrous oxide
+  description: Expels gas #IMP desc changed
   components:
   - type: XAECreateGas
     gases:
@@ -1627,7 +1627,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasCarbonDioxide
   parent: BaseXenoArtifactEffect
-  description: Expels carbon dioxide
+  description: Expels gas #IMP desc changed
   components:
   - type: XAECreateGas
     gases:

@@ -80,7 +80,7 @@
 - type: entity
   id: XenoArtifactPolyFinfin
   parent: BaseXenoArtifactEffect
-  description: Temporarily reshape flesh to fin
+  description: Temporarily reshape flesh
   components:
   - type: XAEPolymorph
     polymorphPrototypeName: ArtifactFinfin
@@ -88,7 +88,7 @@
 - type: entity
   id: XenoArtifactPolyClownSpider
   parent: BaseXenoArtifactEffect
-  description: Temporarily reshape flesh to laughter
+  description: Temporarily reshape flesh
   components:
   - type: XAEPolymorph
     polymorphPrototypeName: ArtifactClownSpider
@@ -96,7 +96,7 @@
 - type: entity
   id: XenoArtifactPolyRod
   parent: BaseXenoArtifactEffect
-  description: Temporarily reshape flesh to metal
+  description: Temporarily reshape flesh
   components:
   - type: XAEPolymorph
     polymorphPrototypeName: ArtifactRod
@@ -104,7 +104,7 @@
 - type: entity
   id: XenoArtifactPolyBee
   parent: BaseXenoArtifactEffect
-  description: Temporarily reshape flesh to fuzz
+  description: Temporarily reshape flesh
   components:
   - type: XAEPolymorph
     polymorphPrototypeName: ArtifactBee
@@ -232,7 +232,7 @@
 - type: entity
   id: XenoArtifactFoamVeryDangerous
   parent: BaseXenoArtifactEffect
-  description: Creates wave of harmful foam
+  description: Creates wave of foam
   components:
   - type: XAEFoam
     replaceDescription: true
@@ -254,7 +254,7 @@
 - type: entity
   id: XenoArtifactFoamRomerol
   parent: BaseXenoArtifactEffect
-  description: Creates wave of harmful foam
+  description: Creates wave of foam
   components:
   - type: XAEFoam
     replaceDescription: true
