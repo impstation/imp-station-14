@@ -4,8 +4,8 @@ meta:
   engineVersion: 267.2.0
   forkId: ""
   forkVersion: ""
-  time: 10/08/2025 00:07:00
-  entityCount: 13433
+  time: 10/08/2025 00:18:08
+  entityCount: 13432
 maps:
 - 1
 grids:
@@ -6574,7 +6574,7 @@ entities:
       pos: -4.5,45.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -67004.36
+      secondsUntilStateChange: -67154.625
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -32771,11 +32771,6 @@ entities:
     components:
     - type: Transform
       pos: -8.258537,-4.530675
-      parent: 2
-  - uid: 4573
-    components:
-    - type: Transform
-      pos: -12.205997,12.431334
       parent: 2
   - uid: 4574
     components:
@@ -73895,6 +73890,13 @@ entities:
     - type: Transform
       pos: 3.5,-0.5
       parent: 2
+- proto: SmartFridgeMedical
+  entities:
+  - uid: 4573
+    components:
+    - type: Transform
+      pos: -12.5,12.5
+      parent: 2
 - proto: SMESAdvanced
   entities:
   - uid: 4513
@@ -76663,12 +76665,6 @@ entities:
     components:
     - type: Transform
       pos: -22.5,13.5
-      parent: 2
-  - uid: 10638
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -12.5,12.5
       parent: 2
   - uid: 10639
     components:
