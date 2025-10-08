@@ -31,7 +31,7 @@
     - type: Butcherable
       spawned:
       - id: FoodMeatBacon
-        amount: 8
+        amount: 4
     - type: MeleeThrowOnHit
       unanchorOnHit: false
       distance: 2
@@ -92,7 +92,7 @@
         types:
           Blunt: 5
           Piercing: 5
-          Structural: 5
+          Structural: 15
     - type: Prying
       pryPowered: true
       speedModifier: 2.0
