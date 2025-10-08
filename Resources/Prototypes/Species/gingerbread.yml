@@ -2,6 +2,8 @@
   id: Gingerbread
   name: species-name-gingerbread
   roundStart: false
+  randomViable: true # imp
+  randomChance: 0.33 # imp
   prototype: MobGingerbread
   sprites: MobGingerbreadSprites
   markingLimits: MobHumanMarkingLimits
