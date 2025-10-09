@@ -3,6 +3,7 @@
   id: ActionDash
   name: Dash
   description: Charge forward into a target or just for fun!
+  canCollide: true
   components:
   - type: Action
     useDelay: 25
@@ -11,3 +12,4 @@
       state: icon
   - type: InstantAction
     event: !type:GravityJumpEvent {}
+
