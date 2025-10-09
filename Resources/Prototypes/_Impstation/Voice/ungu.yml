@@ -56,6 +56,8 @@
       path: /Audio/Animals/cow_moo.ogg
       params:
         variation: 0.2
+    Jump:
+      path: /Audio/_Impstation/Effects/Emotes/jumpthud.ogg        
 
 # body emotes
 - type: emoteSounds
@@ -87,5 +89,3 @@
       params:
         volume: -3
         variation: 0.1
-    Jump:
-      path: /Audio/_Impstation/Effects/Emotes/jumpthud.ogg
