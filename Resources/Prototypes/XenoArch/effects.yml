@@ -256,12 +256,12 @@
       - !type:XenoArchDepthCondition # imp addition
         depths: [3, 4, 5]
     - id: XenoArtifactTesla # imp edit, uncommented you need to activate it NOW
-      weight: 10.0 # imp edit
+      weight: 1.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
         depths: [4, 5]
     - id: XenoArtifactSingularity # imp edit, uncommented you need to activate it NOW
-      weight: 10.0 # imp edit
+      weight: 1.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
         depths: [4, 5]
@@ -322,7 +322,7 @@
       - !type:XenoArchDepthCondition # imp addition
         depths: [ 2, 3, 4 ]
     - id: XenoArtifactPolyRod
-      weight: 10.0 # imp edit
+      weight: 2.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
         depths: [ 2, 3, 4 ]
@@ -352,7 +352,7 @@
       - !type:XenoArchDepthCondition # imp addition
         depths: [ 2, 3, 4 ]
     - id: XenoArtifactFoamRomerol
-      weight: 10.0 # imp edit
+      weight: 3.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
         depths: [ 3, 4, 5 ]
@@ -382,10 +382,10 @@
       - !type:XenoArchDepthCondition # imp addition
         depths: [ 2, 3, 4 ]
     - id: XenoArtifactSupermatter
-      weight: 10.0 # imp edit
+      weight: 1.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
-        depths: [ 3, 4, 5 ]
+        depths: [ 4, 5 ]
     - id: XenoArtifactScrambleDNA
       weight: 10.0 # imp edit
       conditions:
