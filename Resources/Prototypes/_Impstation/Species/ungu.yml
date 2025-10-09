@@ -1,7 +1,7 @@
 - type: species
   id: Ungu
   name: species-name-ungu
-  roundStart: false
+  roundStart: true
   randomViable: true
   prototype: MobUngu
   sprites: MobUnguSprites
@@ -59,8 +59,7 @@
       required: false
     HeadSide:
       points: 1
-      required: true
-      defaultMarkings: [ EarsSmallUngu ]
+      required: false
     HeadTop:
       points: 2
       required: false
