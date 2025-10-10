@@ -145,6 +145,9 @@
           Quantity: 30
         - ReagentId: TableSalt # sorry snails
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: slice of baklava
@@ -167,6 +170,9 @@
           Quantity: 7.5
         - ReagentId: TableSalt # sorry snails
           Quantity: 1.25
+  - type: Tag # imp
+    tags:
+    - UnguFood
 # Tastes like pie, nuts.
 
 - type: entity
@@ -445,6 +451,7 @@
   - type: Tag
     tags:
     - Pie
+    - Vegetable # imp, adding this bcs the fruit pies have fruit
   - type: SolutionContainerManager # imp
     solutions:
       food:
@@ -473,6 +480,7 @@
     tags:
     - Pie
     - Slice
+    - Vegetable # imp
   - type: SolutionContainerManager # imp
     solutions:
       food:
@@ -625,6 +633,9 @@
           Quantity: 5
         - ReagentId: Nothing
           Quantity: 15
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: slice of mime tart
@@ -652,6 +663,9 @@
           Quantity: 1.25
         - ReagentId: Nothing
           Quantity: 3.75
+  - type: Tag # imp
+    tags:
+    - UnguFood
 # Tastes like nothing.
 
 # No Slice
@@ -678,6 +692,9 @@
           Quantity: 10 # imp
         # - ReagentId: Vitamin # imp
         #  Quantity: 4
+  - type: Tag # imp
+    tags:
+    - UnguFood
 # Tastes like pie, mushrooms.
 
 - type: entity
@@ -691,6 +708,9 @@
     - mushroom
   - type: Sprite
     state: plump
+  - type: Tag # imp
+    tags:
+    - UnguFood
 # Tastes like pie, mushrooms.
 
 # Tart

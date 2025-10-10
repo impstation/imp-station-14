@@ -225,6 +225,9 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 20 # imp - this is harder to make than bread... whys it worth less
+  - type: Tag # imp
+    tags:
+    - UnguFood
 # Tastes like bread, banana, nut.
 
 - type: entity
@@ -248,6 +251,9 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 4 # imp
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: cream cheese bread
@@ -281,6 +287,9 @@
         #  Quantity: 5
         - ReagentId: Milk # imp
           Quantity: 7
+  - type: Tag # imp
+    tags:
+    - UnguFood
 # Tastes like bread, cheese.
 
 - type: entity
@@ -313,6 +322,9 @@
         #  Quantity: 1.2
         - ReagentId: Milk # imp
           Quantity: 1.4
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: meat bread
@@ -407,6 +419,9 @@
           Quantity: 5
         - ReagentId: MuteToxin
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - UnguFood
 # Tastes like bread, cheese.
 
 - type: entity
@@ -436,6 +451,9 @@
           Quantity: 1
         - ReagentId: MuteToxin
           Quantity: 1
+  - type: Tag # imp
+    tags:
+    - ungufood
 
 - type: entity
   name: bread
@@ -449,6 +467,9 @@
     - state: plain
   - type: SliceableFood
     slice: FoodBreadPlainSlice
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: bread slice
@@ -460,6 +481,9 @@
   - type: Sprite
     layers:
     - state: plain-slice
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: sausage bread
@@ -613,6 +637,9 @@
           Quantity: 20 # imp
         - ReagentId: Protein
           Quantity: 5 # imp
+  - type: Tag # imp
+    tags:
+    - UnguFood
 # Tastes like bread, tofu.
 
 - type: entity
@@ -640,6 +667,9 @@
         #  Quantity: 2.4
         - ReagentId: Protein # imp
           Quantity: 1 # imp
+  - type: Tag
+    tags:
+    - UnguFood
 
 - type: entity
   name: xeno meat bread
@@ -746,6 +776,9 @@
     damage:
       types:
         Blunt: 1 # bonk
+  - type: Tag # imp
+    tags:
+    - UnguFood
 # Tastes like France.
 
 - type: entity
@@ -810,6 +843,9 @@
           Quantity: 0.4 # imp
         - ReagentId: Blackpepper
           Quantity: 0.4 # imp
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: cotton crostini
@@ -866,6 +902,9 @@
           Quantity: 5
         #- ReagentId: Vitamin # imp
         #  Quantity: 1
+  - type: Tag # imp
+    tags:
+    - UnguFood
 # Tastes like bread, butter.
 
 - type: entity
@@ -893,6 +932,9 @@
           Quantity: 12
         #- ReagentId: Vitamin # imp
         #  Quantity: 2
+  - type: Tag # imp
+    tags:
+    - UnguFood
 # Tastes like bread, butter.
 
 - type: entity
@@ -921,6 +963,9 @@
           Quantity: 5
         - ReagentId: Allicin # imp
           Quantity: 4
+  - type: Tag # imp
+    tags:
+    - UnguFood
 # Tastes like garlic, Italy.
 
 - type: entity
@@ -947,6 +992,9 @@
         #  Quantity: 4
         - ReagentId: Amatoxin # imp - its made with fly amanitia jelly??????? hello?????
           Quantity: 6
+  - type: Tag # imp
+    tags:
+    - UnguFood
 # Tastes like garlic, Italy.
 
 - type: entity
@@ -961,6 +1009,7 @@
   - type: Tag
     tags:
     - Trash
+    - UnguFood # imp
   - type: SolutionContainerManager
     solutions:
       food:
@@ -992,6 +1041,9 @@
         #  Quantity: 2
         - ReagentId: Wine
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - UnguFood
 # Tastes like decaying fungus.
 
 - type: entity

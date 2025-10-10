@@ -137,6 +137,9 @@
           Quantity: 13
         - ReagentId: Amatoxin # its got POISON IN IT!!!
           Quantity: 6
+  - type: Tag
+    tags:
+    - UnguFood
   # imp edit end
 
 # Burger
@@ -668,6 +671,7 @@
       - ClothMade
       - Meat
       - ClothFood # imp
+      - UnguFood # imp
 # Tastes like bun, ectoplasm.
 
 - type: entity
@@ -894,6 +898,9 @@
         #  Quantity: 6
         #- ReagentId: Vitamin
         # Quantity: 4
+  - type: Tag # imp
+    tags:
+    - UnguFood
 # Tastes like bun, redditors.
 
 - type: entity
@@ -923,6 +930,9 @@
         #  Quantity: 5
         #- ReagentId: Vitamin
         #  Quantity: 10
+  - type: Tag # imp
+    tags:
+    - UnguFood
 # Tastes like bun, silver.
 
 - type: entity
@@ -984,6 +994,9 @@
           Quantity: 3 # imp
         #- ReagentId: Vitamin # imp
         #  Quantity: 3
+  - type: Tag # imp
+    tags:
+    - UnguFood
 # Tastes like bun, tofu.
 
 - type: entity
