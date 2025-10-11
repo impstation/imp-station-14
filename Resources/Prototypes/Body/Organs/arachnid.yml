@@ -26,24 +26,6 @@
     - Meat
     - Organ
 
-- type: entity    #imp edit
-  id: OrganArachnidBrain
-  parent: OrganHumanBrain
-  name: cerebral ganglia
-  description: "The source of incredible, unending intelligence. Hiss."
-  components:
-  - type: Sprite
-    sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi  #imp edit
-    state: brain
-  - type: Tag # goob edit
-    tags:
-    - Meat
-    - Organ
-    - Brain
-  - type: Item
-    size: Small
-    heldPrefix: brain
-
 - type: entity
   id: OrganArachnidStomach
   parent: OrganAnimalStomach
@@ -89,8 +71,8 @@
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi  #imp edit
     layers:
-      - state: lung_l  #imp edit
-      - state: lung_r  #imp edit
+      - state: lung_l
+      - state: lung_r
   - type: Lung
   - type: Metabolizer
     updateInterval: 1.5
@@ -176,15 +158,15 @@
 - type: entity
   id: OrganArachnidKidneys
   parent: BaseHumanOrgan
-  name: Malpighian tubules  #imp edit
+  name: malpighian tubules  #imp edit
   description: "Filters toxins from the bloodstream."
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi  #imp edit
     layers:
-      - state: kidney_l  #imp edit
-      - state: kidney_r  #imp edit
+      - state: kidney_l
+      - state: kidney_r
   # The kidneys just remove anything that doesn't currently have any metabolisms, as a stopgap.
   - type: Item
     size: Small
@@ -220,15 +202,14 @@
     size: Small
     heldPrefix: eyeballs
 
-
 - type: entity
   id: OrganArachnidTongue
   parent: BaseArachnidOrgan
   name: tongue
   description: "A fleshy muscle mostly used for lying."
   components:
-  - type: Sprite
-    sprite: Mobs/Species/Arachnid/organs.rsi  #imp edit
+  - type: Sprite  #imp edit
+    sprite: Mobs/Species/Arachnid/organs.rsi
     state: tongue
   - type: Tag # goob edit
     tags:
