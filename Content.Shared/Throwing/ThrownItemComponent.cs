@@ -50,5 +50,13 @@ namespace Content.Shared.Throwing
         /// </summary>
         [DataField]
         public Vector2? OriginalScale = null;
+
+        // Imp start
+        /// <summary>
+        ///     Whether or not the entity lands upright..
+        /// </summary>
+        [DataField, ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
+        public bool LandsUpright;
+        // Imp end
     }
 }

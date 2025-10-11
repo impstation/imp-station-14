@@ -26,6 +26,8 @@ namespace Content.Shared.Throwing
         [Dependency] private readonly SharedPhysicsSystem _physics = default!;
         [Dependency] private readonly SharedGravitySystem _gravity = default!;
 
+        [Dependency] private readonly SharedTransformSystem _transform = default!; // ES
+
         private const string ThrowingFixture = "throw-fixture";
 
         public override void Initialize()
@@ -125,6 +127,14 @@ namespace Content.Shared.Throwing
             // Assume it's uninteresting if it has no thrower. For now anyway.
             if (thrownItem.Thrower is not null)
                 _adminLogger.Add(LogType.Landed, LogImpact.Low, $"{ToPrettyString(uid):entity} thrown by {ToPrettyString(thrownItem.Thrower.Value):thrower} landed.");
+
+            // ES START
+            if (thrownItem.LandsUpright)
+            {
+                _transform.SetLocalRotation(uid, Angle.Zero);
+                _physics.SetAngularVelocity(uid, 0f, body: physics);
+            }
+            // ES END
 
             _broadphase.RegenerateContacts((uid, physics));
             var landEvent = new LandEvent(thrownItem.Thrower, playSound);
