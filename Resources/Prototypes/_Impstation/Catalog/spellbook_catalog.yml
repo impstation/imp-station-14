@@ -23,3 +23,31 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+- type: listing
+  id: SpellbookEventSummonSoap
+  name: spellbook-event-summon-magic-soap
+  description: spellbook-event-summon-soap-description
+  productAction: ActionSummonSoap
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookEvents
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  disableRefund: true
+
+- type: listing
+  id: SpellbookEventNewWizard
+  name: spellbook-event-new-wizard
+  description: spellbook-event-new-wizard-description
+  productAction: ActionNewWizard
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  disableRefund: true
