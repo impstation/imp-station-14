@@ -1,38 +1,4 @@
 ﻿Entries:
-- author: DinnerCalzone
-  changes:
-  - message: Cargo Technician no longer has a playtime requirement (again).
-    type: Tweak
-  - message: Supply Assistant has been limited to 1 per map and locks out after 4
-      hours of Cargo playtime.
-    type: Tweak
-  id: 1813
-  time: '2025-06-12T02:59:50.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2733
-- author: BubbaBean
-  changes:
-  - message: rebalanced replicators to greatly favor a more defensive team orientated
-      play style, check out the pr for a full changelog
-    type: Tweak
-  - message: structural damage no longer two shots replicators, however it remains
-      a great option against them so grab your PKAs and crushers!
-    type: Tweak
-  - message: tier 3 protector is now extremely tanky at the cost of being significantly
-      slower, don't underestimate them or you might get cornered!
-    type: Tweak
-  - message: replicator lasers now fire a lot faster but deal less stun, they don't
-      do that much damage but if they work together it can really add up!
-    type: Tweak
-  id: 1814
-  time: '2025-06-12T07:34:07.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2708
-- author: ATDoop
-  changes:
-  - message: Trash items now recycle into slightly less plastic.
-    type: Tweak
-  id: 1815
-  time: '2025-06-13T00:21:30.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2740
 - author: rainyatrium
   changes:
   - message: Pan flutes fit in your pocket again
@@ -4202,3 +4168,24 @@
   id: 2312
   time: '2025-10-07T11:05:02.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3544
+- author: honeyed-lemons
+  changes:
+  - message: Ungus have learned their inside voices.
+    type: Tweak
+  id: 2313
+  time: '2025-10-08T22:08:26.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3547
+- author: starlighthowls
+  changes:
+  - message: Ungu are better at breathing now.
+    type: Tweak
+  id: 2314
+  time: '2025-10-08T22:56:22.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3549
+- author: yesteryuri
+  changes:
+  - message: Dogs will attack couriers with their special bark attack !
+    type: Add
+  id: 2315
+  time: '2025-10-11T04:22:54.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3543
