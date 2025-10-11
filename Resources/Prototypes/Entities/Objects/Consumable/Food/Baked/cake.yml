@@ -164,6 +164,9 @@
           Quantity: 5
   - type: Item
     heldPrefix: plain
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 # Added in type lines above
 
@@ -185,6 +188,9 @@
           Quantity: 1
   - type: Item
     heldPrefix: plain-slice
+  - type: Tag # imp
+    tags:
+    - UnguFood
 # Tastes like sweetness, cake.
 
 - type: entity
@@ -387,6 +393,9 @@
       - state: plain-inhand-right
       - state: alpha-filling-inhand-right
         color: "#ffffff"
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: slice of cheese cake
@@ -428,6 +437,9 @@
       - state: plain-inhand-right
       - state: alpha-slice-filling-inhand-right
         color: "#ffffff"
+  - type: Tag
+    tags:
+    - UnguFood
 # Tastes like sweetness, cream cheese.
 
 - type: entity
@@ -1111,6 +1123,9 @@
           Quantity: 5
   - type: Item
     heldPrefix: birthday
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: slice of birthday cake
@@ -1133,6 +1148,9 @@
           Quantity: 1
         - ReagentId: Cream
           Quantity: 1
+  - type: Tag # imp
+    tags:
+    - UnguFood
 # Tastes like sweetness, cake, christmas.
 
 - type: entity
@@ -1158,6 +1176,9 @@
           Quantity: 15
   - type: Item
     heldPrefix: vanilla
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: slice of vanilla cake
@@ -1186,6 +1207,9 @@
       right:
       - state: plain-slice-inhand-right
       - state: alpha-slice-filling-inhand-right
+  - type: Tag # imp
+    tags:
+    - UnguFood
 # Tastes like sweetness, cake, vanilla.
 
 - type: entity
@@ -1211,6 +1235,9 @@
           Quantity: 15
   - type: Item
     heldPrefix: clown
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: slice of clown cake
@@ -1233,6 +1260,9 @@
           Quantity: 5
   - type: Item
     heldPrefix: clown-slice
+  - type: Tag # imp
+    tags:
+    - UnguFood
 # Tastes like sweetness, cake, clown.
 
 - type: entity
@@ -1258,6 +1288,9 @@
           Quantity: 15
   - type: Item
     heldPrefix: trumpet
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: slice of spaceman's cake
@@ -1280,6 +1313,9 @@
           Quantity: 3
   - type: Item
     heldPrefix: trumpet-slice
+  - type: Tag # imp
+    tags:
+    - UnguFood
 # Tastes like sweetness, cake, jam.
 
 - type: entity
@@ -1411,6 +1447,7 @@
     tags:
     - Cake
     - Suppermatter
+    - UnguFood
 
 - type: entity
   name: suppermatter shard
@@ -1438,6 +1475,7 @@
   - type: Tag
     tags:
     - Slice
+    - UnguFood # imp
   - type: FoodSequenceElement
     entries:
       Taco: Suppermatter

@@ -50,6 +50,9 @@
           Quantity: 4 # imp
         - ReagentId: Nutriment
           Quantity: 6.5 # imp
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   id: FoodBagelCotton

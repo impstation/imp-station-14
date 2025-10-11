@@ -135,6 +135,7 @@
   - type: Tag
     tags:
     - FoodSnack
+    - Fruit
   - type: Item
     size: Tiny
   - type: Sprite
@@ -166,6 +167,10 @@
           Quantity: 3
         - ReagentId: JuiceCherry
           Quantity: 2
+  - type: Tag
+    tags:
+    - FoodSnack
+    - Fruit
 
 - type: entity
   name: cotton macaron
@@ -208,6 +213,10 @@
           Quantity: 3
         - ReagentId: JuiceLemon
           Quantity: 2
+  - type: Tag
+    tags:
+    - FoodSnack
+    - Fruit
 
 - type: entity
   name: mimana macaron
@@ -226,6 +235,10 @@
           Quantity: 3
         - ReagentId: MuteToxin
           Quantity: 2
+  - type: Tag
+    tags:
+    - FoodSnack
+    - Fruit
 
 #lolipops!!!!
 
@@ -238,6 +251,7 @@
   - type: Tag
     tags:
     - FoodSnack
+    - UnguFood
   - type: Food
     trash:
     - FoodKebabSkewer

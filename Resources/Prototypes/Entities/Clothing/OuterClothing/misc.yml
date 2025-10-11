@@ -291,6 +291,12 @@
     graph: GhostSheet
     node: ghost_sheet
   - type: IdentityBlocker
+  - type: HideLayerClothing # imp
+    slots:
+    - SnoutCover
+    - HeadSide
+    - HeadTop
+    - Head
 
 - type: entity
   parent: ClothingOuterBase
