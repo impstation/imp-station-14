@@ -13,6 +13,7 @@
   - SpaceNinja
   - Thieves
   - Wizard
+  - Eeeps
 
 - type: guideEntry
   id: Traitors
@@ -53,3 +54,8 @@
   id: Wizard
   name: guide-entry-wizard
   text: "/ServerInfo/Guidebook/Antagonist/Wizard.xml"
+
+- type: guideEntry # imp special
+  id: Eeeps
+  name: guide-entry-impeeeps
+  text: "/ServerInfo/_Impstation/Guidebook/Antagonist/Eeeps.xml"
