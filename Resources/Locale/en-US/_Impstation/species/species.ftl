@@ -3,4 +3,5 @@ species-name-apid = Apid
 species-name-kodepiia = Kodepiia
 species-name-gray = Gray
 species-name-gastropoid = Gastropoid
+species-name-colonid = Colonid
 species-name-ungu = Ungu
