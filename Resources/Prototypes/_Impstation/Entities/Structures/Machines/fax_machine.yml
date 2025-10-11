@@ -1,4 +1,6 @@
-﻿- type: entity
+﻿# General
+
+- type: entity
   parent: FaxMachineBase
   id: FaxMachineCommand
   suffix: Command
@@ -53,3 +55,15 @@
   components:
   - type: FaxAnnouncing
     channels: [ Engineering ]
+
+
+# Specific
+
+- type: entity
+  parent: FaxMachineCommand
+  id: FaxMachineHoP
+  name: HoP long range fax machine
+  suffix: HoP
+  components:
+  - type: FaxMachine
+    name: "Head of Personnel's Office"
