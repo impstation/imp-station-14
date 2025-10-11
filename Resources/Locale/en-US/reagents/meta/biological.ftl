@@ -1,8 +1,8 @@
-reagent-name-blood = blood
+reagent-name-blood = red blood
 reagent-desc-blood = I hope this is ketchup.
 
 reagent-name-insect-blood = insect blood
-reagent-desc-insect-blood = Okay, this is really gross. It almost looks.. alive?
+reagent-desc-insect-blood = Also known as hemolymph, though don't expect that knowledge to get you anywhere.
 
 reagent-name-slime = slime
 reagent-desc-slime = You thought this was gradient blood at first, but you were mistaken.

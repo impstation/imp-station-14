@@ -57,7 +57,7 @@
   name: reagent-name-insect-blood
   group: Biological
   desc: reagent-desc-insect-blood
-  flavor: horrible
+  flavor: gooey # imp edit, replaces 'horrible'
   color: "#808A51"
   recognizable: true
   physicalDesc: reagent-physical-desc-slimy
@@ -203,7 +203,7 @@
   name: reagent-name-fat
   group: Biological
   desc: reagent-desc-fat
-  flavor: terrible
+  flavor: fatty  # imp edit, replaces 'terrible'
   color: "#d8d8b0"
   physicalDesc: reagent-physical-desc-exotic-smelling
   footstepSound:
