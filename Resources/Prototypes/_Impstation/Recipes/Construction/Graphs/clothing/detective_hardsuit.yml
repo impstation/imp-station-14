@@ -1,0 +1,26 @@
+- type: constructionGraph
+  id: detectivehardsuit
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: detectivehardsuit
+          steps:
+            - tag: securityhardsuit
+              name: security hardsuit
+              icon:
+                sprite:  _Impstation/Clothing/OuterClothing/Hardsuits/security.rsi
+                state: icon
+            - tag: brownfedora
+              name: brown fedora
+              icon:
+                sprite: Clothing/Head/Hats/brownfedora.rsi
+                state: icon
+            - tag: detectivetrenchcoat
+              name: detective trenchcoat
+              icon:
+                sprite: Clothing/OuterClothing/Coats/detective.rsi
+                state: icon
+              doAfter: 1
+    - node: detectivehardsuit
+      entity: ClothingOuterHardsuitDetective
