@@ -1,4 +1,4 @@
-using Content.Server._Impstation.Trigger.Components.Effects;
+﻿using Content.Server._Impstation.Trigger.Components.Effects;
 using Content.Shared.Buckle.Components;
 using Content.Shared.StatusEffect;
 using Content.Server.Stunnable;

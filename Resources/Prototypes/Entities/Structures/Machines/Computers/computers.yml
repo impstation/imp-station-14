@@ -590,8 +590,6 @@
       sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: ResearchClient
   - type: AnalysisConsole
-  - type: OldAnalysisConsole #IMP
-    reportEntityId: PaperArtifactAnalyzer
   - type: DeviceList
   - type: DeviceNetwork
     deviceNetId: Wired
@@ -603,8 +601,6 @@
     key: enum.ArtifactAnalyzerUiKey.Key
   - type: UserInterface
     interfaces:
-      enum.OldArtifactAnalyzerUiKey.Key: #IMP
-        type: OldAnalysisConsoleBoundUserInterface
       enum.ArtifactAnalyzerUiKey.Key:
         type: AnalysisConsoleBoundUserInterface
       enum.ResearchClientUiKey.Key:

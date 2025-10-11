@@ -1,74 +1,50 @@
+﻿- type: entity
+  id: RandomReticulatedArtifactSpawner
+  name: random reticulated artifact spawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Specific/Xenoarchaeology/xeno_artifacts.rsi
+      state: ano01
+  - type: RandomSpawner
+    prototypes:
+    - ReticulatedXenoArtifactStructure
+    - ReticulatedXenoArtifactStructure
+    - ReticulatedXenoArtifactItem
+    chance: 1
+
 - type: entity
-  id: RandomArtifactSpawner
+  id: RandomReticulatedArtifactSpawner20
+  name: random reticulated artifact spawner [20]
+  parent: RandomReticulatedArtifactSpawner
+  components:
+  - type: RandomSpawner
+    chance: 0.2
+
+
+- type: entity
+  id: RandomNaturalArtifactSpawner
   name: random natural artifact spawner
   parent: MarkerBase
   components:
-    - type: Sprite
-      layers:
-        - state: red
-        - sprite: Objects/Specific/Xenoarchaeology/xeno_artifacts.rsi
-          state: ano01
-    - type: RandomSpawner
-      prototypes:
-        - SimpleXenoArtifact
-        - MediumXenoArtifact
-        - MediumXenoArtifact
-        - MediumXenoArtifact
-        - MediumXenoArtifact
-        - ComplexXenoArtifact
-        - ComplexXenoArtifact
-        - ComplexXenoArtifact
-        - SimpleXenoArtifactItem
-        - MediumXenoArtifactItem
-        - ComplexXenoArtifactItem
-      chance: 1
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Specific/Xenoarchaeology/xeno_artifacts.rsi
+      state: ano01
+  - type: RandomSpawner
+    prototypes:
+    - NaturalXenoArtifactStructure
+    - NaturalXenoArtifactStructure
+    - NaturalXenoArtifactItem
+    chance: 1
 
 - type: entity
-  id: RandomArtifactSpawner20
+  id: RandomNaturalArtifactSpawner20
   name: random natural artifact spawner [20]
-  parent: RandomArtifactSpawner
+  parent: RandomNaturalArtifactSpawner
   components:
-    - type: RandomSpawner
-      chance: 0.2
-
-- type: entity
-  id: RandomOldNewArtifactSpawner
-  name: random reticulated/natural artifact spawner
-  parent: MarkerBase
-  components:
-    - type: Sprite
-      layers:
-        - state: red
-        - sprite: Objects/Specific/Xenoarchaeology/xeno_artifacts.rsi
-          state: ano01
-    - type: RandomSpawner
-      prototypes:
-        - SimpleXenoArtifact
-        - MediumXenoArtifact
-        - MediumXenoArtifact
-        - MediumXenoArtifact
-        - MediumXenoArtifact
-        - ComplexXenoArtifact
-        - ComplexXenoArtifact
-        - ComplexXenoArtifact
-        - SimpleXenoArtifactItem
-        - MediumXenoArtifactItem
-        - ComplexXenoArtifactItem
-        - ComplexXAEXenoArtifact
-        - ComplexXAEXenoArtifact
-        - ComplexXAEXenoArtifact
-        - ComplexXAEXenoArtifact
-        - ComplexXAEXenoArtifact
-        - ComplexXAEXenoArtifact
-        - ComplexXAEXenoArtifactItem
-        - ComplexXAEXenoArtifactItem
-        - ComplexXAEXenoArtifactItem
-      chance: 1
-
-- type: entity
-  id: RandomOldNewArtifactSpawner20
-  name: random reticulated/natural artifact spawner [20]
-  parent: RandomOldNewArtifactSpawner
-  components:
-    - type: RandomSpawner
-      chance: 0.2
+  - type: RandomSpawner
+    chance: 0.2
