@@ -21,9 +21,32 @@
       collection: WeakHit
     forceSound: true
 
+- type: entity
+  name : disabler magnum bolt
+  id: BulletMagnumDisabler
+  parent: BulletDisabler
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    layers:
+    - state: mediumstun
+      shader: unshaded
+  - type: Ammo
+  - type: StaminaDamageOnCollide
+    damage: 40
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
+    damage:
+      types:
+        Heat: 0
+    soundHit:
+      collection: WeakHit
+    forceSound: true
+
 - type: hitscan
   id: HitscanDisabler
-  staminaDamage: 40
+  staminaDamage: 30
   damage:
     types:
       Heat: 0
