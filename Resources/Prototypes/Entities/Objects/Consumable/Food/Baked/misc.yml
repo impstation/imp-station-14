@@ -185,6 +185,7 @@
   - type: Tag # imp
     tags:
     - UnguFood
+    - Bread
 
 - type: entity
   name: hotcross bun
@@ -197,6 +198,7 @@
   - type: Tag # imp
     tags:
     - UnguFood
+    - Bread
 
 - type: entity
   name: meat bun
@@ -684,6 +686,9 @@
           Quantity: 5
         - ReagentId: Vitamin
           Quantity: 1
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: dumplings
@@ -740,6 +745,7 @@
   - type: Tag # imp
     tags:
     - UnguFood
+    - Bread
 
 - type: entity
   name: cotton chèvre chaud
@@ -883,9 +889,6 @@
   - type: SliceableFood
     count: 6
     slice: FoodBakedCannabisBrownie
-  - type: Tag # imp
-    tags:
-    - UnguFood
 
 - type: entity
   name: special brownie
@@ -923,7 +926,6 @@
   - type: Tag
     tags:
     - Slice
-    - UnguFood # imp
 
 - type: entity
   name: onion rings
@@ -1043,6 +1045,7 @@
   - type: Tag # imp
     tags:
     - UnguFood
+    - Bread
 
 - type: entity
   parent: FoodBakedBase

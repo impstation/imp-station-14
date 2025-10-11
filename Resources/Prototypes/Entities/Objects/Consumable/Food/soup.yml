@@ -229,7 +229,7 @@
           Quantity: 4 # imp
   - type: Tag # imp
     tags:
-    - Vegetable
+    - UnguFood
 
 - type: entity
   name: caesar salad
@@ -294,7 +294,7 @@
           Quantity: 5
   - type: Tag # imp
     tags:
-    - Vegetable
+    - UnguFood
 
 - type: entity
   name: fruit salad
@@ -414,7 +414,7 @@
           Quantity: 5
         - ReagentId: Omnizine
           Quantity: 5
-  - type: Tag # imp
+  - type: Tag # imp, all the other ones are???
     tags:
     - Fruit
     - Soup
@@ -816,7 +816,7 @@
   - type: FlavorProfile
     flavors:
     - vegetables
-    - sadness
+#    - sadness imp, fuck you
     - potatoes # imp
   - type: Sprite
     layers:

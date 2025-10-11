@@ -228,6 +228,7 @@
   - type: Tag # imp
     tags:
     - UnguFood
+    - Bread
 # Tastes like bread, banana, nut.
 
 - type: entity
@@ -254,6 +255,8 @@
   - type: Tag # imp
     tags:
     - UnguFood
+    - Bread
+    - Slice
 
 - type: entity
   name: cream cheese bread
@@ -290,6 +293,7 @@
   - type: Tag # imp
     tags:
     - UnguFood
+    - Bread
 # Tastes like bread, cheese.
 
 - type: entity
@@ -325,6 +329,8 @@
   - type: Tag # imp
     tags:
     - UnguFood
+    - Bread
+    - Slice
 
 - type: entity
   name: meat bread
@@ -422,6 +428,7 @@
   - type: Tag # imp
     tags:
     - UnguFood
+    - Bread
 # Tastes like bread, cheese.
 
 - type: entity
@@ -454,6 +461,8 @@
   - type: Tag # imp
     tags:
     - UnguFood
+    - Bread
+    - Slice
 
 - type: entity
   name: bread
@@ -470,6 +479,7 @@
   - type: Tag # imp
     tags:
     - UnguFood
+    - Bread
 
 - type: entity
   name: bread slice
@@ -484,6 +494,8 @@
   - type: Tag # imp
     tags:
     - UnguFood
+    - Bread
+    - Slice
 
 - type: entity
   name: sausage bread
@@ -640,6 +652,7 @@
   - type: Tag # imp
     tags:
     - UnguFood
+    - Bread
 # Tastes like bread, tofu.
 
 - type: entity
@@ -670,6 +683,8 @@
   - type: Tag
     tags:
     - UnguFood
+    - Bread
+    - Slice
 
 - type: entity
   name: xeno meat bread
@@ -779,6 +794,7 @@
   - type: Tag # imp
     tags:
     - UnguFood
+    - Bread
 # Tastes like France.
 
 - type: entity
@@ -846,6 +862,8 @@
   - type: Tag # imp
     tags:
     - UnguFood
+    - Bread
+    - Slice
 
 - type: entity
   name: cotton crostini
@@ -905,6 +923,8 @@
   - type: Tag # imp
     tags:
     - UnguFood
+    - Bread
+    - Slice
 # Tastes like bread, butter.
 
 - type: entity
@@ -935,6 +955,8 @@
   - type: Tag # imp
     tags:
     - UnguFood
+    - Bread
+    - Slice
 # Tastes like bread, butter.
 
 - type: entity
@@ -966,6 +988,8 @@
   - type: Tag # imp
     tags:
     - UnguFood
+    - Bread
+    - Slice
 # Tastes like garlic, Italy.
 
 - type: entity
@@ -995,6 +1019,8 @@
   - type: Tag # imp
     tags:
     - UnguFood
+    - Bread
+    - Slice
 # Tastes like garlic, Italy.
 
 - type: entity
@@ -1010,6 +1036,8 @@
     tags:
     - Trash
     - UnguFood # imp
+    - Bread # imp
+    - Slice # imp
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1044,6 +1072,8 @@
   - type: Tag # imp
     tags:
     - UnguFood
+    - Bread
+    - Slice
 # Tastes like decaying fungus.
 
 - type: entity

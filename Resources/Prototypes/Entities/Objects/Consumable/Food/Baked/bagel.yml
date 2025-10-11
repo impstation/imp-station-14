@@ -23,6 +23,7 @@
   - type: Tag # imp
     tags:
     - Bagel
+    - Bread # imp
 
 - type: entity
   id: FoodBagel
@@ -53,6 +54,8 @@
   - type: Tag # imp
     tags:
     - UnguFood
+    - Bagel
+    - Bread
 
 - type: entity
   id: FoodBagelCotton
