@@ -111,6 +111,12 @@
     hideLayersOnEquip:
     - Hair
     - Snout
+  - type: HomunculiType
+    homunculiType: HomunculusGray
+    recipe:
+      SynthFlesh: 20
+      Saline: 20
+      GrayBlood: 5
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -122,7 +128,6 @@
   - type: Body
     prototype: Gray
   - type: Inventory
-    speciesId: gray
     templateId: gray
     displacements:
       jumpsuit:
