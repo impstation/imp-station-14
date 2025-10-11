@@ -21,6 +21,19 @@ public sealed class ImpCCVars : CVars
     public static readonly CVarDef<uint> ThavenSharedMoodCount =
         CVarDef.Create<uint>("thaven.shared_mood_count", 1, CVar.SERVERONLY);
 
+
+    /// <summary>
+    /// If the player has the notifier turned on
+    /// </summary>
+    public static readonly CVarDef<bool> NotifierOn=
+        CVarDef.Create("accessibility.notifier_on", false, CVar.ARCHIVE | CVar.REPLICATED | CVar.CLIENT, "if the notifier system is active");
+
+    /// <summary>
+    /// the contents of a players notifier
+    /// </summary>
+    public static readonly CVarDef<string> NotifierExamine =
+        CVarDef.Create("accessibility.notifier_examine", "", CVar.ARCHIVE | CVar.REPLICATED | CVar.CLIENT, "content of accessibility issue notifier.");
+
     /// <summary>
     /// URL of the Discord webhook which will relay last messages before death.
     /// </summary>
@@ -59,4 +72,6 @@ public sealed class ImpCCVars : CVars
     /// </summary>
     public static readonly CVarDef<int> DiscordLastMessageSystemMaxMessageBatchOverflowDelay =
         CVarDef.Create("discord.last_message_system_max_message_batch_overflow_delay", 60000, CVar.SERVERONLY);
+
 }
+
