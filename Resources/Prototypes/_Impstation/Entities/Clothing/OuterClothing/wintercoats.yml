@@ -18,6 +18,8 @@
     clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING
+      outerClothing-anomalocarid:
+      - state: equipped-OUTERCLOTHING-anomalocarid
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterCourier
 
@@ -41,5 +43,7 @@
     clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING
+      outerClothing-anomalocarid:
+      - state: equipped-OUTERCLOTHING-anomalocarid
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterHD

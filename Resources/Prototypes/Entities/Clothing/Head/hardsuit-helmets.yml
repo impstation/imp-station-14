@@ -36,6 +36,9 @@
       head-dog:
       - state: equipped-head-light-dog
         shader: unshaded
+      head-anomalocarid: #imp edit
+      - state: equipped-head-light-anomalocarid
+        shader: unshaded
   - type: Clothing
     clothingVisuals:
       head:
@@ -49,6 +52,10 @@
       head-dog:
       - state: equipped-head-dog
       - state: equipped-head-unshaded-dog
+        shader: unshaded
+      head-anomalocarid: #imp edit
+      - state: equipped-head-anomalocarid
+      - state: equipped-head-unshaded-anomalocarid
         shader: unshaded
   - type: PointLight
     color: "#76FFD4" #imp
@@ -96,6 +103,9 @@
       head-dog:
       - state: equipped-head-light-dog
         shader: unshaded
+      head-anomalocarid: # imp edit
+      - state: equipped-head-light-anomalocarid
+        shader: unshaded
   - type: Clothing
     clothingVisuals:
       head:
@@ -109,6 +119,10 @@
       head-dog:
       - state: equipped-head-dog
       - state: equipped-head-unshaded-dog
+        shader: unshaded
+      head-anomalocarid: #imp edit
+      - state: equipped-head-anomalocarid
+      - state: equipped-head-unshaded-anomalocarid
         shader: unshaded
   - type: PointLight
     color: "#E5FFA9" #imp
@@ -142,6 +156,9 @@
       head-dog:
       - state: equipped-head-light-dog
         shader: unshaded
+      head-anomalocarid: #imp edit
+      - state: equipped-head-light-anomalocarid
+        shader: unshaded
   - type: Clothing
     clothingVisuals:
       head:
@@ -155,6 +172,10 @@
       head-dog:
       - state: equipped-head-dog
       - state: equipped-head-unshaded-dog
+        shader: unshaded
+      head-anomalocarid: #imp edit
+      - state: equipped-head-anomalocarid
+      - state: equipped-head-unshaded-anomalocarid
         shader: unshaded
   - type: PointLight
     radius: 6
@@ -218,6 +239,9 @@
       head-dog:
       - state: equipped-head-light-dog
         shader: unshaded
+      head-anomalocarid: #imp edit
+      - state: equipped-head-light-anomalocarid
+        shader: unshaded
   - type: Clothing
     clothingVisuals:
       head:
@@ -231,6 +255,10 @@
       head-dog:
       - state: equipped-head-dog
       - state: equipped-head-unshaded-dog
+        shader: unshaded
+      head-anomalocarid: #imp edit
+      - state: equipped-head-anomalocarid
+      - state: equipped-head-unshaded-anomalocarid
         shader: unshaded
   - type: PointLight
     radius: 6
@@ -393,6 +421,9 @@
       head-dog:
       - state: equipped-head-light-dog
         shader: unshaded
+      head-anomalocarid: #imp edit
+      - state: equipped-head-light-anomalocarid
+        shader: unshaded
   - type: Clothing
     clothingVisuals:
       head:
@@ -406,6 +437,10 @@
       head-dog:
       - state: equipped-head-dog
       - state: equipped-head-unshaded-dog
+        shader: unshaded
+      head-anomalocarid: #imp edit
+      - state: equipped-head-anomalocarid
+      - state: equipped-head-unshaded-anomalocarid
         shader: unshaded
   - type: PointLight
     color: "#F9FFC9" #imp
@@ -427,9 +462,9 @@
   description: Lightweight medical hardsuit helmet that doesn't restrict your head movements.
   components:
   - type: Sprite
-    sprite: _Impstation/Clothing/Head/Helmets/impcmohelmet.rsi
+    sprite: _Impstation/Clothing/Head/Helmets/impcmohelmet.rsi #imp edit
   - type: Clothing
-    sprite: _Impstation/Clothing/Head/Helmets/impcmohelmet.rsi
+    sprite: _Impstation/Clothing/Head/Helmets/impcmohelmet.rsi #imp edit
   - type: PointLight
     color: "#adf1ff"
   - type: PressureProtection
@@ -903,6 +938,10 @@
       head-vox:
       - state: equipped-head-vox
       - state: equipped-head-unshaded-vox
+        shader: unshaded
+      head-anomalocarid: #imp edit
+      - state: equipped-head-anomalocarid
+      - state: equipped-head-unshaded-anomalocarid
         shader: unshaded
   - type: PointLight
     color: orange
