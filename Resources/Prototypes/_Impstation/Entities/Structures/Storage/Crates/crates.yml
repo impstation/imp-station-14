@@ -89,3 +89,32 @@
     - state: open #removed the offset inherited from CrateGeneric and edited the open sprite, since it's able to fit within the 32x32 bounds
       map: [ open_crate ]
 
+- type: entity
+  parent: CratePlastic
+  id: CrateMail
+  name: mail crate
+  description: A certified post crate from CentComm.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Storage/Crates/mail.rsi
+    layers:
+    - state: base
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: open
+      map: [ open_crate ]
+      offset: -0.71875, 0 # 23 pixels left
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      map: ["enum.PaperLabelVisuals.Layer"]
+      offset: -0.4375, 0.03125 # move it up a pixel and left like. 14
+  - type: Icon
+    sprite: _Impstation/Structures/Storage/Crates/mail.rsi
+    state: icon
+  - type: Appearance
+  - type: StaticPrice
+    price: 0

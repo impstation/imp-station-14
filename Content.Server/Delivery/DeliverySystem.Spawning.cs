@@ -1,7 +1,10 @@
+using Content.Server.Cargo.Components; // imp addition
 using Content.Shared.Delivery;
 using Content.Shared.Power.EntitySystems;
 using Content.Server.StationRecords;
 using Content.Shared.EntityTable;
+using Content.Shared.Station.Components; // imp addition
+using Robust.Shared.Map; // imp addition
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -17,6 +20,9 @@ public sealed partial class DeliverySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EntityTableSystem _entityTable = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!; // imp addition
+
+    private EntityQuery<TradeStationComponent> _tradeQuery; // imp addition
 
     private void InitializeSpawning()
     {
@@ -57,8 +63,8 @@ public sealed partial class DeliverySystem
         var spawners = GetValidSpawners(ent);
 
         // Skip if theres no spawners available
-        if (spawners.Count == 0)
-            return;
+        // if (spawners.Count == 0) // imp edit, don't skip actually
+        //     return;
 
         // Skip if there's nobody in crew manifest
         if (records.Records.Keys.Count == 0)
@@ -68,6 +74,14 @@ public sealed partial class DeliverySystem
         // We don't want stations with less than the player ratio to not get mail at all
         var initialDeliveryCount = (int)Math.Ceiling(records.Records.Keys.Count / ent.Comp.PlayerToDeliveryRatio);
         var deliveryCount = Math.Max(initialDeliveryCount, ent.Comp.MinimumDeliverySpawn);
+
+        // imp edit start, try to spawn a mail crate at the ATS if there's no mail teleporters
+        if (spawners.Count == 0)
+        {
+            if (TrySpawnMailCrate(ent, deliveryCount))
+                return;
+        }
+        // imp edit end
 
         if (!ent.Comp.DistributeRandomly)
         {
@@ -139,5 +153,69 @@ public sealed partial class DeliverySystem
             deliveryData.NextDelivery += _random.Next(deliveryData.MinDeliveryCooldown, deliveryData.MaxDeliveryCooldown); // Random cooldown between min and max
             AdjustStationDeliveries((uid, deliveryData));
         }
+    }
+
+    // imp addition
+    private bool TrySpawnMailCrate(Entity<CargoDeliveryDataComponent> ent, int deliveryCount)
+    {
+        if (!TryComp<StationDataComponent>(ent.Owner, out var stationData))
+            return false;
+
+        List<EntityUid> tradeGrids = new();
+        _cargo.GetTradeStations(stationData, ref tradeGrids);
+
+        // Try to fulfill from any station where possible, if the pad is not occupied.
+        foreach (var trade in tradeGrids)
+        {
+            var tradePads = _cargo.GetCargoPallets(trade, BuySellType.Buy);
+            _random.Shuffle(tradePads);
+
+            var freePads = _cargo.GetFreeCargoPallets(trade, tradePads);
+            foreach (var pad in freePads)
+            {
+                var coordinates = new EntityCoordinates(trade, pad.Transform.LocalPosition);
+
+                if (SpawnMailCrate(ent, coordinates, deliveryCount))
+                    return true;
+            }
+        }
+
+        return false;
+    }
+
+    // imp addition
+    private bool SpawnMailCrate(Entity<CargoDeliveryDataComponent> ent, EntityCoordinates spawn, int deliveryCount)
+    {
+        // Create the mail crate
+        var crate = Spawn("CrateMail", spawn);
+
+        // Ensure it doesn't start anchored
+        _transform.Unanchor(crate, Transform(crate));
+
+        // Get the crate's storage container
+        if (!_container.TryGetContainer(crate, "entity_storage", out var crateContainer))
+            return false;
+
+        // Check if the amount of mail that should be in the crate is more than it can contain
+        if (deliveryCount > 30)
+        {
+            var remainingDeliveryCount = deliveryCount - 30;
+            deliveryCount = 30;
+            TrySpawnMailCrate(ent, remainingDeliveryCount);
+        }
+
+        // Spawn each delivery and put them into the crate
+        for (int i = 0; i < deliveryCount; i++)
+        {
+            var spawns = _entityTable.GetSpawns(ent.Comp.Table);
+
+            foreach (var id in spawns)
+            {
+                var delivery = Spawn(id, spawn);
+                _container.Insert(delivery, crateContainer);
+            }
+        }
+
+        return true;
     }
 }

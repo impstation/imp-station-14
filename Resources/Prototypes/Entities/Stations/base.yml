@@ -228,6 +228,8 @@
   abstract: true
   components:
   - type: CargoDeliveryData
+    table: !type:NestedSelector # imp addition
+      tableId: RandomDeliveryBasic
 
 - type: entity
   id: BaseStationAllEventsEligible
