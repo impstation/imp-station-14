@@ -3,7 +3,8 @@ using Content.Shared.Delivery;
 using Content.Shared.Power.EntitySystems;
 using Content.Server.StationRecords;
 using Content.Shared.EntityTable;
-using Content.Shared.Station.Components; // imp addition
+using Content.Shared.Station.Components;
+using Content.Shared.Storage.Components; // imp addition
 using Robust.Shared.Map; // imp addition
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -186,7 +187,7 @@ public sealed partial class DeliverySystem
     // imp addition
     private bool SpawnMailCrate(Entity<CargoDeliveryDataComponent> ent, EntityCoordinates spawn, int deliveryCount)
     {
-        // Create the mail crate
+        // Spawn the mail crate
         var crate = Spawn("CrateMail", spawn);
 
         // Ensure it doesn't start anchored
@@ -197,10 +198,11 @@ public sealed partial class DeliverySystem
             return false;
 
         // Check if the amount of mail that should be in the crate is more than it can contain
-        if (deliveryCount > 30)
+        var entityStorageComp = Comp<EntityStorageComponent>(crate);
+        if (deliveryCount > entityStorageComp.Capacity)
         {
-            var remainingDeliveryCount = deliveryCount - 30;
-            deliveryCount = 30;
+            var remainingDeliveryCount = deliveryCount - entityStorageComp.Capacity;
+            deliveryCount = entityStorageComp.Capacity;
             TrySpawnMailCrate(ent, remainingDeliveryCount);
         }
 
