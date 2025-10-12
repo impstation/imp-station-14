@@ -1,11 +1,11 @@
 using System.Diagnostics.CodeAnalysis;
-using Content.Shared._Impstation.Xenoarchaeology.Artifact.Components; // imp edit
 using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Placeable;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 using Content.Shared.Xenoarchaeology.Equipment.Components;
+using Content.Shared._Impstation.Xenoarchaeology.Artifact.Components; // imp edit
 
 namespace Content.Shared.Xenoarchaeology.Equipment;
 

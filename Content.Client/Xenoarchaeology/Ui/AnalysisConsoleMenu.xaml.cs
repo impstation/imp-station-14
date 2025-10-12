@@ -312,7 +312,6 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
                     triggerStr.Append(Loc.GetString(predecessor.Comp.TriggerTip!));
                 }
             }
-
             // imp edit end
 
             TriggerValueLabel.SetMarkup(Loc.GetString("analysis-console-info-triggered-value", ("triggers", triggerStr.ToString())));

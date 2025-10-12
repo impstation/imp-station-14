@@ -1,13 +1,13 @@
 using System.Linq;
-using Content.Shared._Impstation.Xenoarchaeology.Artifact.Components; // imp edit
 using Content.Shared.EntityTable;
 using Content.Shared.NameIdentifier;
-using Content.Shared.Power.EntitySystems; // imp edit
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 using Content.Shared.Xenoarchaeology.Artifact.Prototypes;
-using Content.Shared.Xenoarchaeology.Equipment.Components; // imp edit
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared._Impstation.Xenoarchaeology.Artifact.Components; // imp edit
+using Content.Shared.Power.EntitySystems; // imp edit
+using Content.Shared.Xenoarchaeology.Equipment.Components; // imp edit
 using Robust.Shared.Random; // imp edit
 
 namespace Content.Shared.Xenoarchaeology.Artifact;
@@ -296,19 +296,16 @@ public abstract partial class SharedXenoArtifactSystem
             // imp edit start, if the artifact's natural the current node should be the only active node
             if (ent.Comp.Natural)
             {
-                if (_net.IsServer)
+                if (!_net.IsServer)
+                    return;
+
+                if (ent.Comp.CurrentNode != null && ent.Comp.CurrentNode.Value.Equals(node))
                 {
-                    if (ent.Comp.CurrentNode != null && ent.Comp.CurrentNode.Value.Equals(node))
-                    {
-                        ent.Comp.CachedActiveNodes.Add(GetNetEntity(node));
-                        Dirty(ent);
-                        return;
-                    }
-
-                    continue;
+                    ent.Comp.CachedActiveNodes.Add(GetNetEntity(node));
+                    Dirty(ent);
+                    return;
                 }
-
-                return;
+                continue;
             }
             // imp edit end
 
@@ -468,31 +465,23 @@ public abstract partial class SharedXenoArtifactSystem
 
         Entity<XenoArtifactNodeComponent> newNode;
 
-        if (TryComp<XenoArtifactBiasedComponent>(ent, out var biasComp))
+        // check if the console's powered
+        if (TryComp<XenoArtifactBiasedComponent>(ent, out var biasComp) &&
+            _powerReceiver.IsPowered(biasComp.Provider) &&
+            HasComp<AnalysisConsoleComponent>(biasComp.Provider) &&
+            GetEntity(Comp<AnalysisConsoleComponent>(biasComp.Provider).AnalyzerEntity) != null &&
+            _powerReceiver.IsPowered(GetEntity(Comp<AnalysisConsoleComponent>(biasComp.Provider).AnalyzerEntity)!.Value))
         {
-            // check if the console's powered
-            if (_powerReceiver.IsPowered(biasComp.Provider))
+            switch (Comp<AnalysisConsoleComponent>(biasComp.Provider).BiasDirection)
             {
-                if (HasComp<AnalysisConsoleComponent>(biasComp.Provider))
-                {
-                    // check if the analyzer's powered. sorry.
-                    if (GetEntity(Comp<AnalysisConsoleComponent>(biasComp.Provider).AnalyzerEntity) != null &&
-                        _powerReceiver.IsPowered(
-                            GetEntity(Comp<AnalysisConsoleComponent>(biasComp.Provider).AnalyzerEntity)!.Value))
-                    {
-                        switch (Comp<AnalysisConsoleComponent>(biasComp.Provider).BiasDirection)
-                        {
-                            case BiasDirection.Up:
-                                if (predecessorNodes.Count > 0)
-                                    directNodes = predecessorNodes;
-                                break;
-                            case BiasDirection.Down:
-                                if (successorNodes.Count > 0)
-                                    directNodes = successorNodes;
-                                break;
-                        }
-                    }
-                }
+                case BiasDirection.Up:
+                    if (predecessorNodes.Count > 0)
+                        directNodes = predecessorNodes;
+                    break;
+                case BiasDirection.Down:
+                    if (successorNodes.Count > 0)
+                        directNodes = successorNodes;
+                    break;
             }
         }
 
