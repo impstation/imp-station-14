@@ -23,15 +23,19 @@
 
   - !type:RoomEntranceDunGen
     tile: FloorSteel
-    contents: BaseAirlock
+    contents: AirlockGlass #imp
 
   - !type:EntranceFlankDunGen
     tile: FloorSteel
-    contents: BaseWindow
+    contents:
+        - Window #imp
+        - Grille #imp
 
   - !type:ExternalWindowDunGen
     tile: FloorSteel
-    contents: BaseWindow
+    contents:
+        - Window #imp
+        - Grille #imp
 
   - !type:WallMountDunGen
     contents: ScienceLabsWalls
@@ -40,23 +44,71 @@
   - !type:BoundaryWallDunGen
     wall: WallSolid
     cornerWall: WallReinforced
-    tile: FloorSteel
+    tile: FloorSteel # imp
 
   - !type:JunctionDunGen
     width: 1
     tile: FloorSteel
-    contents: BaseAirlock
+    contents: AirlockGlass # imp
 
   - !type:JunctionDunGen
     width: 3
     tile: FloorSteel
-    contents: BaseAirlock
+    contents: AirlockGlass # imp
 
   - !type:AutoCablingDunGen
     entity: CableApcExtension
 
   - !type:CornerClutterDunGen
     contents: BaseClutter
+    
+    # Imp Edit Start
+  - !type:EntityTableDunGen
+    minCount: 20
+    maxCount: 35
+    table: !type:NestedSelector
+      tableId: SalvageScrapLowValue
+  - !type:EntityTableDunGen
+    minCount: 10
+    maxCount: 25
+    table: !type:NestedSelector
+      tableId: SalvageScrapHighValue
+  - !type:EntityTableDunGen
+    minCount: 3
+    maxCount: 10
+    table: !type:NestedSelector
+      tableId: SalvageScrapLarge
+  - !type:EntityTableDunGen
+    minCount: 10
+    maxCount: 20
+    table: !type:NestedSelector
+      tableId: SalvageTreasureCommon
+  - !type:EntityTableDunGen
+    minCount: 5
+    maxCount: 15
+    table: !type:NestedSelector
+      tableId: SalvageTreasureUncommon
+  - !type:EntityTableDunGen
+    minCount: 0
+    maxCount: 4
+    table: !type:NestedSelector
+      tableId: SalvageTreasureLegendary
+  - !type:EntityTableDunGen
+    minCount: 5
+    maxCount: 12
+    table: !type:NestedSelector
+      tableId: SalvageEquipmentUncommon
+  - !type:EntityTableDunGen
+    minCount: 1
+    maxCount: 7
+    table: !type:NestedSelector
+      tableId: SalvageEquipmentRare
+  - !type:EntityTableDunGen
+    minCount: 0
+    maxCount: 2
+    table: !type:NestedSelector
+      tableId: SalvageEquipmentLegendary
+    # Imp Edit End
 
   - !type:CorridorDecalSkirtingDunGen
     cardinalDecals:
@@ -125,16 +177,20 @@
     contents: LavaBrigEntrance
 
   - !type:RoomEntranceDunGen
-    tile: FloorDark
-    contents: BaseAirlock
+    tile: FloorSteel # imp
+    contents: AirlockGlass # imp
 
   - !type:EntranceFlankDunGen
-    tile: FloorDark
-    contents: BaseWindow
+    tile: FloorSteel # imp
+    contents: # imp
+        - Window # imp
+        - Grille # imp
 
   - !type:ExternalWindowDunGen
-    tile: FloorDark
-    contents: BaseWindow
+    tile: FloorSteel # imp
+    contents: # imp
+        - Window # imp
+        - Grille # imp
 
   - !type:WallMountDunGen
     contents: ScienceLabsWalls
@@ -148,18 +204,66 @@
   - !type:JunctionDunGen
     width: 1
     tile: FloorDark
-    contents: BaseAirlock
+    contents: AirlockGlass # imp
 
   - !type:JunctionDunGen
     width: 3
     tile: FloorDark
-    contents: BaseAirlock
+    contents: AirlockGlass # imp
 
   - !type:AutoCablingDunGen
     entity: CableApcExtension
 
   - !type:CornerClutterDunGen
     contents: BaseClutter
+
+    # Imp Edit Start
+  - !type:EntityTableDunGen
+    minCount: 20
+    maxCount: 35
+    table: !type:NestedSelector
+      tableId: SalvageScrapLowValue
+  - !type:EntityTableDunGen
+    minCount: 10
+    maxCount: 25
+    table: !type:NestedSelector
+      tableId: SalvageScrapHighValue
+  - !type:EntityTableDunGen
+    minCount: 3
+    maxCount: 10
+    table: !type:NestedSelector
+      tableId: SalvageScrapLarge
+  - !type:EntityTableDunGen
+    minCount: 10
+    maxCount: 20
+    table: !type:NestedSelector
+      tableId: SalvageTreasureCommon
+  - !type:EntityTableDunGen
+    minCount: 5
+    maxCount: 15
+    table: !type:NestedSelector
+      tableId: SalvageTreasureUncommon
+  - !type:EntityTableDunGen
+    minCount: 0
+    maxCount: 4
+    table: !type:NestedSelector
+      tableId: SalvageTreasureLegendary
+  - !type:EntityTableDunGen
+    minCount: 5
+    maxCount: 12
+    table: !type:NestedSelector
+      tableId: SalvageEquipmentUncommon
+  - !type:EntityTableDunGen
+    minCount: 1
+    maxCount: 7
+    table: !type:NestedSelector
+      tableId: SalvageEquipmentRare
+  - !type:EntityTableDunGen
+    minCount: 0
+    maxCount: 2
+    table: !type:NestedSelector
+      tableId: SalvageEquipmentLegendary
+    # Imp Edit End
 
   - !type:CorridorDecalSkirtingDunGen
     cardinalDecals:
@@ -202,15 +306,73 @@
 
   - !type:RoomEntranceDunGen
     tile: FloorCaveDrought
-    contents: BaseWoodWall
+    contents: WoodenSupportWall # imp
 
   - !type:EntranceFlankDunGen
     tile: FloorCaveDrought
-    contents: BaseWoodWall
+    contents:  # imp
+        - WoodenSupportWall # imp
+        - WoodenSupportWallBroken # imp
+        - WoodenSupportBeam # imp
+        - WoodenSupport # imp
+    useRandomEntity: true # imp
 
   - !type:ExternalWindowDunGen
     tile: FloorCaveDrought
-    contents: BaseWoodWall
+    contents: # imp
+        - WoodenSupportWall # imp
+        - WoodenSupportWallBroken # imp
+        - WoodenSupportBeam # imp
+        - WoodenSupport # imp
+    useRandomEntity: true # imp
+
+    # Imp Edit Start
+  - !type:EntityTableDunGen
+    minCount: 20
+    maxCount: 35
+    table: !type:NestedSelector
+      tableId: SalvageScrapLowValue
+  - !type:EntityTableDunGen
+    minCount: 10
+    maxCount: 25
+    table: !type:NestedSelector
+      tableId: SalvageScrapHighValue
+  - !type:EntityTableDunGen
+    minCount: 3
+    maxCount: 10
+    table: !type:NestedSelector
+      tableId: SalvageScrapLarge
+  - !type:EntityTableDunGen
+    minCount: 10
+    maxCount: 20
+    table: !type:NestedSelector
+      tableId: SalvageTreasureCommon
+  - !type:EntityTableDunGen
+    minCount: 5
+    maxCount: 15
+    table: !type:NestedSelector
+      tableId: SalvageTreasureUncommon
+  - !type:EntityTableDunGen
+    minCount: 0
+    maxCount: 4
+    table: !type:NestedSelector
+      tableId: SalvageTreasureLegendary
+  - !type:EntityTableDunGen
+    minCount: 5
+    maxCount: 12
+    table: !type:NestedSelector
+      tableId: SalvageEquipmentUncommon
+  - !type:EntityTableDunGen
+    minCount: 1
+    maxCount: 7
+    table: !type:NestedSelector
+      tableId: SalvageEquipmentRare
+  - !type:EntityTableDunGen
+    minCount: 0
+    maxCount: 2
+    table: !type:NestedSelector
+      tableId: SalvageEquipmentLegendary
+    # Imp Edit End
 
   # No wallmounts
 
@@ -219,12 +381,12 @@
   - !type:JunctionDunGen
     width: 1
     tile: FloorCaveDrought
-    contents: BaseWoodSupport
+    contents: WoodenSupportBeam # imp
 
   - !type:JunctionDunGen
     width: 3
     tile: FloorCaveDrought
-    contents: BaseWoodSupport
+    contents: WoodenSupportBeam # imp
 
   - !type:AutoCablingDunGen
     entity: Catwalk
@@ -258,15 +420,19 @@
 
   - !type:RoomEntranceDunGen
     tile: FloorSteel
-    contents: BaseAirlock
+    contents: AirlockGlass # imp
 
   - !type:EntranceFlankDunGen
     tile: FloorSteel
-    contents: BaseWindow
+    contents: # imp
+        - Window # imp
+        - Grille # imp
 
   - !type:ExternalWindowDunGen
     tile: FloorSteel
-    contents: BaseWindow
+    contents: # imp
+        - Window # imp
+        - Grille # imp
 
   - !type:WallMountDunGen
     contents: SnowyLabsWalls
@@ -279,16 +445,63 @@
   - !type:JunctionDunGen
     width: 1
     tile: FloorSteel
-    contents: BaseAirlock
+    contents: AirlockGlass # imp
 
   - !type:JunctionDunGen
     width: 3
     tile: FloorSteel
-    contents: BaseAirlock
+    contents: AirlockGlass # imp
 
   - !type:AutoCablingDunGen
     entity: CableApcExtension
 
+    # Imp Edit Start
+  - !type:EntityTableDunGen
+    minCount: 20
+    maxCount: 35
+    table: !type:NestedSelector
+      tableId: SalvageScrapLowValue
+  - !type:EntityTableDunGen
+    minCount: 10
+    maxCount: 25
+    table: !type:NestedSelector
+      tableId: SalvageScrapHighValue
+  - !type:EntityTableDunGen
+    minCount: 3
+    maxCount: 10
+    table: !type:NestedSelector
+      tableId: SalvageScrapLarge
+  - !type:EntityTableDunGen
+    minCount: 10
+    maxCount: 20
+    table: !type:NestedSelector
+      tableId: SalvageTreasureCommon
+  - !type:EntityTableDunGen
+    minCount: 5
+    maxCount: 15
+    table: !type:NestedSelector
+      tableId: SalvageTreasureUncommon
+  - !type:EntityTableDunGen
+    minCount: 0
+    maxCount: 4
+    table: !type:NestedSelector
+      tableId: SalvageTreasureLegendary
+  - !type:EntityTableDunGen
+    minCount: 5
+    maxCount: 12
+    table: !type:NestedSelector
+      tableId: SalvageEquipmentUncommon
+  - !type:EntityTableDunGen
+    minCount: 1
+    maxCount: 7
+    table: !type:NestedSelector
+      tableId: SalvageEquipmentRare
+  - !type:EntityTableDunGen
+    minCount: 0
+    maxCount: 2
+    table: !type:NestedSelector
+      tableId: SalvageEquipmentLegendary
+    # Imp Edit End  
 # Spawn groups
 # Basic
 - type: entityTable
