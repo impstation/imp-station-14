@@ -4,8 +4,6 @@ using Content.Server.DoAfter;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Forensics;
 using Content.Server.Popups;
-using Content.Shared._Impstation.Consume;
-using Content.Shared._Impstation.Consume.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.EntitySystems;
@@ -21,24 +19,26 @@ using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
+using Content.Shared._Impstation.Consume.Components;
+using Content.Shared._Impstation.Consume;
 
 namespace Content.Server._Impstation.Consume;
 
 public sealed class ConsumeSystem : SharedConsumeSystem
 {
     [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly BodySystem _body = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly RottingSystem _rotting = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly DoAfterSystem _doAfter = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly ForensicsSystem _forensics = default!;
     [Dependency] private readonly IngestionSystem _ingestion = default!;
-    [Dependency] private readonly StomachSystem _stomach = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly PuddleSystem _puddle = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private readonly RottingSystem _rotting = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private readonly StomachSystem _stomach = default!;
 
     /// <summary>
     /// How far consumed the consumed must be before they gib

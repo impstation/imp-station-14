@@ -1,7 +1,7 @@
-using Content.Shared._Impstation.Consume.Components;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
+using Content.Shared._Impstation.Consume.Components;
 
 namespace Content.Shared._Impstation.Consume;
 
