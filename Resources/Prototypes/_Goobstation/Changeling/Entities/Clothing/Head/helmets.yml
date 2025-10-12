@@ -17,3 +17,9 @@
         Piercing: 0.9
         Heat: 0.9
   - type: Unremoveable
+  - type: HideLayerClothing #imp edit
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - Eyes #for anomalocarids, doesn't effect other species at the moment.
