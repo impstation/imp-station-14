@@ -36,8 +36,11 @@ public abstract class SharedBiomagneticPolarizationSystem : EntitySystem
     /// <param name="biomagComp"></param>
     /// <param name="frameTime"></param>
     /// <returns></returns>
-    protected (bool, bool) HandleCollisions(Entity<PhysicsComponent> ent, BiomagneticPolarizationStatusEffectComponent biomagComp)
+    protected (bool, bool) HandleCollisions(Entity<PhysicsComponent>? entPhys, BiomagneticPolarizationStatusEffectComponent biomagComp)
     {
+        if (entPhys is not { } ent)
+            return (false, false);
+
         var fieldDispersed = false;
         var triggeredCooldown = false;
         var physComp = ent.Comp;
@@ -70,7 +73,7 @@ public abstract class SharedBiomagneticPolarizationSystem : EntitySystem
                 continue;
 
             // if two people with the same charge come in contact, they repel one another
-            if (biomagComp.Polarization == otherBiomagComp.Polarization && _timing.IsFirstTimePredicted)
+            if (biomagComp.Polarization == otherBiomagComp.Polarization)
             {
                 triggeredCooldown = true;
                 var xformQuery = GetEntityQuery<TransformComponent>();
@@ -80,8 +83,8 @@ public abstract class SharedBiomagneticPolarizationSystem : EntitySystem
                 var direction = _xform.GetWorldPosition(otherXform, xformQuery) - worldPos;
 
                 var strengthAverage = (biomagComp.CurrentStrength + otherBiomagComp.CurrentStrength) / 2;
-                _throw.TryThrow(ent, direction * -10, strengthAverage / 2);
-                _throw.TryThrow(other, direction * 10, strengthAverage / 2);
+                _throw.TryThrow(ent, direction * -strengthAverage, strengthAverage * biomagComp.ThrowStrengthMult);
+                _throw.TryThrow(other, direction * strengthAverage, strengthAverage * otherBiomagComp.ThrowStrengthMult);
             }
             // if two people with DIFFERENT charge come in contact, they cause an explosion and lose their charge.
             else if (biomagComp.Polarization != otherBiomagComp.Polarization)

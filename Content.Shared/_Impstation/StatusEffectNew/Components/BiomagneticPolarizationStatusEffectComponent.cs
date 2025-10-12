@@ -1,4 +1,6 @@
 using Content.Shared.Explosion;
+using Content.Shared.Whitelist;
+using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 
@@ -57,6 +59,11 @@ public sealed partial class BiomagneticPolarizationStatusEffectComponent : Compo
     /// </summary>
     [DataField]
     public float StrLightMult = 5.0f;
+    /// <summary>
+    /// Multiplier applied to throw strength when two same-polarity entities collide.
+    /// </summary>
+    [DataField]
+    public float ThrowStrengthMult = 0.8f;
 
     /// <summary>
     /// The proto of lightning that we shoot when two opposite fields touch.
@@ -69,6 +76,20 @@ public sealed partial class BiomagneticPolarizationStatusEffectComponent : Compo
     /// </summary>
     [DataField]
     public ProtoId<ExplosionPrototype> ExplosionPrototype = "Cryo";
+    /// <summary>
+    /// Multiplier applied to explosion strength when two opposite-polarity entities collide.
+    /// </summary>
+    [DataField]
+    public float ExplosionStrengthMult = 2f;
+
+    /// <summary>
+    /// Whitelist of entities that count towards Strength increase when moving onto a tile which contains them.
+    /// </summary>
+    [DataField(required: true)]
+    public EntityWhitelist StaticElectricityProviders;
+
+    [DataField]
+    public float StrProvidedByStatic = 0.1f;
 
     /// <summary>
     /// Copied this from MobCollisionSystem.
@@ -83,4 +104,9 @@ public sealed partial class BiomagneticPolarizationStatusEffectComponent : Compo
     /// when this gets marked true, the status effect is marked for disposal. this is to ensure parity between colliders
     /// </summary>
     public bool Expired;
+
+    /// <summary>
+    /// stores the last tile this entity was standing on. used for calculating movement between tiles
+    /// </summary>
+    public TileRef LastTile = TileRef.Zero;
 }

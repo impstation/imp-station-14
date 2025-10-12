@@ -6,3 +6,6 @@
   - type: PointLight
     radius: 1.3
   - type: BiomagneticPolarizationStatusEffect
+    staticElectricityProviders:
+      tags:
+      - Carpet
