@@ -1,15 +1,15 @@
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
-using Robust.Shared.Serialization;
 using Content.Shared.Popups;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._Impstation.Anomalocarid;
 
 public abstract class SharedHeatVentSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

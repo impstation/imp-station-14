@@ -2,23 +2,23 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Popups;
-using Content.Shared._Impstation.Anomalocarid;
 using Content.Shared.Alert;
 using Content.Shared.Damage;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
+using Content.Shared._Impstation.Anomalocarid;
 
 namespace Content.Server._Impstation.Anomalocarid;
 
 public sealed class HeatVentSystem : SharedHeatVentSystem
 {
+    [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly RespiratorSystem _respirator = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -75,7 +75,7 @@ public sealed class HeatVentSystem : SharedHeatVentSystem
     private void UpdateAlert(Entity<HeatVentComponent> ent)
     {
         short severity;
-        switch ((ent.Comp.HeatStored / ent.Comp.HeatDamageThreshold))
+        switch (ent.Comp.HeatStored / ent.Comp.HeatDamageThreshold)
         {
             case >= 1f:
                 severity = 5;
