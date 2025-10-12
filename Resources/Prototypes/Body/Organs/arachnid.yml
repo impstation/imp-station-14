@@ -3,8 +3,8 @@
   parent: BaseItem
   abstract: true
   components:
-  - type: Sprite
-    sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi  #imp edit
+  - type: Sprite #imp edit
+    sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi
   - type: Organ
   - type: Food
   - type: Extractable
@@ -32,8 +32,8 @@
   name: arachnid stomach #imp edit
   description: "Gross. This is hard to stomach."
   components:
-  - type: Sprite
-    sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi  #imp edit
+  - type: Sprite   #imp edit
+    sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi
     state: stomach
   - type: Item
     size: Small
@@ -43,7 +43,7 @@
     specialDigestible:  #imp edit
       tags:
       - SpiderFood
-    isSpecialDigestibleExclusive: false # also imp
+    isSpecialDigestibleExclusive: false # imp
   - type: SolutionContainerManager
     solutions:
       stomach:
@@ -66,10 +66,10 @@
   id: OrganArachnidLungs
   parent: BaseArachnidOrgan
   name: book lungs  #imp edit
-  description: "Filters oxygen from an atmosphere... just less efficiently."  #imp edit
+  description: "Filters oxygen from an atmosphere... just less efficiently."  #imp edited from 'but more greedily'
   components:
-  - type: Sprite
-    sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi  #imp edit
+  - type: Sprite #imp edit
+    sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi
     layers:
       - state: lung_l
       - state: lung_r
@@ -107,10 +107,10 @@
   id: OrganArachnidHeart
   parent: BaseArachnidOrgan
   name: heart
-  description: "A persistent little biological pump made for spiders."  #imp edit
+  description: "A persistent little biological pump made for spiders."  #imp edit to remove 'disgustingly'
   components:
-  - type: Sprite
-    sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi  #imp edit
+  - type: Sprite  #imp edit
+    sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi
     state: heart-on
   - type: Item
     size: Small
@@ -118,7 +118,7 @@
   - type: Metabolizer
     updateInterval: 1.5
     maxReagents: 2
-    metabolizerTypes: [Arachnid, Animal]  #imp edit
+    metabolizerTypes: [Arachnid, Animal]  #imp edit to add Animal
     groups:
     - id: Medicine
     - id: Poison
@@ -139,8 +139,8 @@
   - type: Item
     size: Small
     heldPrefix: liver
-  - type: Sprite
-    sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi  #imp edit
+  - type: Sprite #imp edit
+    sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi
     state: liver
   - type: Metabolizer # The liver metabolizes certain chemicals only, like alcohol.
     updateInterval: 1.5
@@ -162,8 +162,8 @@
   description: "Filters toxins from the bloodstream."
   categories: [ HideSpawnMenu ]
   components:
-  - type: Sprite
-    sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi  #imp edit
+  - type: Sprite #imp edit
+    sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi
     layers:
       - state: kidney_l
       - state: kidney_r
@@ -188,8 +188,8 @@
   name: eyes
   description: "Two was already too many."
   components:
-  - type: Sprite
-    sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi  #imp edit
+  - type: Sprite #imp edit
+    sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi
     layers:
       - state: eyeball-l
       - state: eyeball-r
