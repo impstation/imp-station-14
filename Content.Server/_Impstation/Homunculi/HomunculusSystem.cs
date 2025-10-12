@@ -1,29 +1,29 @@
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using Content.Server.Humanoid;
-using Content.Shared._Impstation.Homunculi.Components;
-using Content.Shared._Impstation.Homunculi.Incubator.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Forensics.Components;
-using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
+using Content.Shared.Humanoid;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using Content.Shared._Impstation.Homunculi.Components;
+using Content.Shared._Impstation.Homunculi.Incubator.Components;
 
 namespace Content.Server._Impstation.Homunculi;
 
 public sealed class HomunculusSystem : EntitySystem
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
 
     public bool CreateHomunculiWithDna(Entity<IncubatorComponent?> ent, Entity<SolutionComponent> solution, MapCoordinates mapCoordinates, [NotNullWhen(true)] out EntityUid? homunculus)
     {
         // If there's no DNA data in the solution, return
-        if (!TryGetDnaData(solution, out var dnaData))
+        if (!HasDnaData(solution))
         {
             homunculus = null;
             return false;
@@ -122,9 +122,9 @@ public sealed class HomunculusSystem : EntitySystem
         }
     }
 
-    private static bool TryGetDnaData(SolutionComponent solution, [NotNullWhen(true)] out List<DnaData>? dnaData)
+    private static bool HasDnaData(SolutionComponent solution)
     {
-        dnaData = [];
+        List<DnaData> dnaData = [];
         dnaData.AddRange(solution.Solution.Contents.SelectMany(reagent
                 => reagent.Reagent.EnsureReagentData())
             .OfType<DnaData>());

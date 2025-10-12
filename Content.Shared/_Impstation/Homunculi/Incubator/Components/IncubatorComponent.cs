@@ -1,9 +1,8 @@
 using Robust.Shared.Audio;
-using Robust.Shared.GameStates;
 
 namespace Content.Shared._Impstation.Homunculi.Incubator.Components;
 
-[RegisterComponent, AutoGenerateComponentPause, AutoGenerateComponentState]
+[RegisterComponent, AutoGenerateComponentState]
 public sealed partial class IncubatorComponent : Component
 {
     /// <summary>

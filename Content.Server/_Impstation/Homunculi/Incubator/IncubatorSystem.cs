@@ -1,34 +1,34 @@
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Power.Components;
 using Content.Server.PowerCell;
-using Content.Shared._Impstation.Homunculi.Incubator;
-using Content.Shared._Impstation.Homunculi.Incubator.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Examine;
-using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
+using Content.Shared.Item.ItemToggle;
 using Robust.Server.GameObjects;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Audio;
 using Robust.Shared.Timing;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using Content.Shared._Impstation.Homunculi.Incubator.Components;
+using Content.Shared._Impstation.Homunculi.Incubator;
 
 namespace Content.Server._Impstation.Homunculi.Incubator;
 
 public sealed class IncubatorSystem : SharedIncubatorSystem
 {
+    [Dependency] private readonly HomunculusSystem _homunculus = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly ItemSlotsSystem _slots = default!;
     [Dependency] private readonly ItemToggleSystem _toggle = default!;
     [Dependency] private readonly PowerCellSystem _cell = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
-    [Dependency] private readonly ItemSlotsSystem _slots = default!;
     [Dependency] private readonly PuddleSystem _puddle = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly HomunculusSystem _homunculus = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
 
     public override void Initialize()
@@ -138,7 +138,7 @@ public sealed class IncubatorSystem : SharedIncubatorSystem
         TryGetSolution(ent, out var solution);
 
         // Spawn Homunculi
-        if (solution != null && !_homunculus.CreateHomunculiWithDna(ent,solution.Value,_transform.GetMapCoordinates(ent), out var homunculus))
+        if (solution != null && !_homunculus.CreateHomunculiWithDna(ent,solution.Value,_transform.GetMapCoordinates(ent), out _))
         {
             _puddle.TrySpillAt(ent, solution.Value.Comp.Solution, out _ );
             _solution.RemoveAllSolution(solution.Value);
