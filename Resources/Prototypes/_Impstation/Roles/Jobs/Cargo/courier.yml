@@ -13,6 +13,13 @@
   extendedAccess:
   - Logistics
   - Salvage
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+        - Courier
+        - NanoTrasen
 
 - type: startingGear
   id: CourierGear
