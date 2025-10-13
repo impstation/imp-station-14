@@ -11,69 +11,101 @@
     Poison:
       effects:
       - !type:Oxygenate
-        scaling: true
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Human, Animal, Rat, Plant, Apid, Thaven ] # imp add apid & thaven
+        - !type:OrganType
+          type: Human
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Animal
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Rat
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Plant
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
-        scaling: true
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Vox ]
-          inverted: true
+        - !type:OrganType
+          type: Vox
+          shouldHave: false
         ratios:
           CarbonDioxide: 1.0
           Oxygen: -1.0
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Vox ]
-        scaling: true
+        - !type:OrganType
+          type: Vox
+        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
-            Poison: 1.5
+            Poison:
+              3
       - !type:AdjustAlert
         alertType: Toxins
-        minScale: 1
         conditions:
-          - !type:MetabolizerTypeCondition
-            type: [ Vox ]
+          - !type:ReagentThreshold
+            min: 0.5
+          - !type:OrganType
+            type: Vox
         clear: true
         time: 5
     Gas:
       effects:
       - !type:Oxygenate
-        scaling: true
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Human, Animal, Rat, Plant, Apid, Thaven ] # imp add apid & thaven
+        - !type:OrganType
+          type: Human
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Animal
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Rat
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Plant
+      - !type:Oxygenate # imp special. i have to do this because metabolizer types can't inherit from one another
+        conditions:
+        - !type:OrganType
+          type: Apid
+      - !type:Oxygenate #imp, thaven can breathe all gases safely
+        conditions:
+        - !type:OrganType
+          type: Thaven
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
-        scaling: true
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Vox ]
-          inverted: true
+        - !type:OrganType
+          type: Vox
+          shouldHave: false
         ratios:
           CarbonDioxide: 1.0
           Oxygen: -1.0
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Vox ]
-        scaling: true
+        - !type:OrganType
+          type: Vox
+        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
-            Poison: 0.7
+            Poison:
+              7
       - !type:AdjustAlert
         alertType: Toxins
-        minScale: 1
         conditions:
-          - !type:MetabolizerTypeCondition
-            type: [ Vox ]
+          - !type:ReagentThreshold
+            min: 0.5
+          - !type:OrganType
+            type: Vox
         clear: true
         time: 5
 
@@ -96,35 +128,36 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: 1.5
+            Poison: 3
       - !type:AdjustReagent
         reagent: Inaprovaline
         amount: -2.0
     Gas:
       effects:
       - !type:HealthChange
-        scaling: true
+        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
             Poison:
-              0.1
-      - !type:Oxygenate # imp add
-        scaling: true
+              1
+      - !type:Oxygenate #imp, thaven can breathe all gases safely
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Thaven ]
+        - !type:OrganType
+          type: Thaven
       # We need a metabolism effect on reagent removal
       - !type:AdjustAlert
         alertType: Toxins
-        minScale: 3
+        conditions:
+          - !type:ReagentThreshold
+            min: 1.5
         clear: True
         time: 5
   reactiveEffects:
     Flammable:
       methods: [ Touch ]
       effects:
-      - !type:Flammable
+      - !type:FlammableReaction
 
 - type: reagent
   id: Tritium
@@ -142,7 +175,7 @@
     Flammable:
       methods: [ Touch ]
       effects:
-      - !type:Flammable
+      - !type:FlammableReaction
         multiplier: 0.8
   metabolisms:
     Poison:
@@ -150,11 +183,11 @@
       - !type:HealthChange
         damage:
           types:
-            Radiation: 1.5
+            Radiation: 3
     Gas:
       effects:
       - !type:HealthChange
-        scaling: true
+        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
@@ -167,7 +200,9 @@
       # We need a metabolism effect on reagent removal
       - !type:AdjustAlert
         alertType: Toxins
-        minScale: 3
+        conditions:
+          - !type:ReagentThreshold
+            min: 1.5
         clear: True
         time: 5
 
@@ -182,55 +217,62 @@
     Poison:
       effects:
       - !type:Oxygenate
-        scaling: true
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Plant ]
+        - !type:OrganType
+          type: Plant
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Plant, Vox ]
-          inverted: true
-        scaling: true
+        - !type:OrganType
+          type: Plant
+          shouldHave: false
+        - !type:OrganType
+          type: Vox
+          shouldHave: false
+        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
             Poison:
-              0.4
+              0.8
       - !type:Oxygenate
-        scaling: true
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Plant ]
-          inverted: true
+        - !type:OrganType
+          type: Plant
+          shouldHave: false
         factor: -4
     Gas:
       effects:
       - !type:Oxygenate
-        scaling: true
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Plant, Thaven ] # imp add thaven
+        - !type:OrganType
+          type: Plant
+      - !type:Oxygenate #imp, thaven can breathe all gases safely
+        conditions:
+        - !type:OrganType
+          type: Thaven
       - !type:HealthChange
-        minScale: 1
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Plant, Vox ]
-          inverted: true
+        - !type:OrganType
+          type: Plant
+          shouldHave: false
+        - !type:OrganType
+          type: Vox
+          shouldHave: false
         # Don't want people to get toxin damage from the gas they just
         # exhaled, right?
-        scaling: true
+        - !type:ReagentThreshold
+          min: 0.5
+        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
             Poison:
               0.8
       - !type:Oxygenate # carbon dioxide displaces oxygen from the bloodstream, causing asphyxiation
-        scaling: true
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Plant ]
-          inverted: true
+        - !type:OrganType
+          type: Plant
+          shouldHave: false
         factor: -4
       # We need a metabolism effect on reagent removal
       #- !type:AdjustAlert
@@ -251,28 +293,33 @@
       - !type:HealthChange
         damage:
           types:
-            Cold: 0.5 # liquid nitrogen is cold
+            Cold: 1 # liquid nitrogen is cold
     Gas:
       effects:
       - !type:Oxygenate
-        scaling: true
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Vox, Slime, Thaven ] # imp add thaven
-      # Converts Nitrogen into Ammonia
+        - !type:OrganType
+          type: Vox
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Slime
+      - !type:Oxygenate #imp, thaven can breathe all gases safely
+        conditions:
+        - !type:OrganType
+          type: Thaven
+      # Converts Nitrogen into CO2
       - !type:ModifyLungGas
-        scaling: true
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Vox ]
+        - !type:OrganType
+          type: Vox
         ratios:
           Ammonia: 1.0
           Nitrogen: -1.0
       - !type:ModifyLungGas
-        scaling: true
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Slime ]
+        - !type:OrganType
+          type: Slime
         ratios:
           NitrousOxide: 1.0
           Nitrogen: -1.0
@@ -292,65 +339,76 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: 1
+            Poison: 2
     Gas:
       effects:
-      - !type:Oxygenate # imp add
-        scaling: true
+      - !type:Oxygenate #imp, thaven can breathe all gases safely
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Thaven ]
+        - !type:OrganType
+          type: Thaven
       - !type:Emote
-        minscale: 1
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Slime ]
-          inverted: true
+        - !type:ReagentThreshold
+          reagent: NitrousOxide
+          min: 0.2
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
         emote: Laugh
         showInChat: true
         probability: 0.1
       - !type:Emote
-        minScale: 0.4
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Slime ]
-          inverted: true
+        - !type:ReagentThreshold
+          reagent: NitrousOxide
+          min: 0.2
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
         emote: Scream
         showInChat: true
         probability: 0.01
       - !type:PopupMessage
-        minScale: 1
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Slime ]
-          inverted: true
+        - !type:ReagentThreshold
+          reagent: NitrousOxide
+          min: 0.5
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
         type: Local
         visualType: Medium
         messages: [ "effect-sleepy" ]
         probability: 0.1
-      - !type:MovementSpeedModifier
-        minScale: 2
+      - !type:MovespeedModifier
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Slime ]
-          inverted: true
+        - !type:ReagentThreshold
+          reagent: NitrousOxide
+          min: 1
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
       - !type:ModifyStatusEffect
-        minScale: 3.6
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Slime ]
-          inverted: true
+        - !type:ReagentThreshold
+          reagent: NitrousOxide
+          min: 1.8
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
         effectProto: StatusEffectForcedSleeping
         time: 3
         type: Update
       - !type:HealthChange
-        minScale: 7
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Slime ]
-          inverted: true
+        - !type:ReagentThreshold
+          reagent: NitrousOxide
+          min: 3.5
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
         ignoreResistances: true
         damage:
           types:
@@ -373,11 +431,11 @@
     Narcotic:
       effects:
       - !type:HealthChange
-        scaling: true
+        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
-            Cellular: 0.5
+            Cellular: 1
       - !type:ModifyStatusEffect
         effectProto: StatusEffectSeeingRainbow
         type: Add
@@ -388,44 +446,63 @@
         type: Local
         messages: [ "frezon-lungs-cold" ]
         probability: 0.1
-        minScale: 1
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Frezon
+          min: 0.5
       - !type:PopupMessage
         type: Local
         visualType: Medium
         messages: [ "frezon-euphoric" ]
         probability: 0.1
         conditions:
-        minScale: 2
+        - !type:ReagentThreshold
+          reagent: Frezon
+          min: 1
     Gas:
       effects:
-      - !type:Oxygenate # imp
-        scaling: true
+      - !type:Oxygenate #imp, thaven can breathe all gases safely
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Thaven ]
+        - !type:OrganType
+          type: Thaven
       - !type:HealthChange
-        minScale: 1
-        scaling: true
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Frezon
+          min: 0.5
+        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
-            Cellular: 0.05
+            Cellular: 0.5
       - !type:ModifyStatusEffect
-        minScale: 2
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Frezon
+          min: 1
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 500
       - !type:Drunk
         boozePower: 500
-        minScale: 2
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Frezon
+          min: 1
       - !type:PopupMessage
         type: Local
         messages: [ "frezon-lungs-cold" ]
         probability: 0.1
-        minScale: 2
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Frezon
+          min: 0.5
       - !type:PopupMessage
         type: Local
         visualType: Medium
         messages: [ "frezon-euphoric" ]
         probability: 0.1
-        minScale: 2
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Frezon
+          min: 1

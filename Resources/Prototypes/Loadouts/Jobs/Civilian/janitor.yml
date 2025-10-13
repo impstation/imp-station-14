@@ -5,7 +5,8 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobJanitor
-      time: 30h # imp, was 52h
+      time: 108000 #30 hrs, ~20 rounds #imp
+
 # Head
 - type: loadout
   id: JanitorHead

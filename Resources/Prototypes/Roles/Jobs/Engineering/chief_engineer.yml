@@ -6,15 +6,15 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobAtmosphericTechnician
-      time: 6h # imp, was 2.5
+      time: 21600 #6 hrs, imp
     - !type:RoleTimeRequirement
       role: JobStationEngineer
-      time: 6h # imp, was 5
+      time: 21600 #6 hrs, imp
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 20h # imp, was 10
-    - !type:OverallPlaytimeRequirement # imp add
-      time: 40h
+      time: 72000 #20 hrs, imp
+    - !type:OverallPlaytimeRequirement
+      time: 144000 #40 hrs, imp
   weight: 10
   startingGear: ChiefEngineerGear
   icon: "JobIconChiefEngineer"

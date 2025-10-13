@@ -6,14 +6,12 @@ namespace Content.Shared.Storage.Components;
 /// <summary>
 /// Applies an ongoing pickup area around the attached entity.
 /// </summary>
-[RegisterComponent, NetworkedComponent]
-[AutoGenerateComponentState]
-[AutoGenerateComponentPause]
+[RegisterComponent, AutoGenerateComponentPause]
+[NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MagnetPickupComponent : Component
 {
     [ViewVariables(VVAccess.ReadWrite), DataField("nextScan")]
     [AutoPausedField]
-    [AutoNetworkedField]
     public TimeSpan NextScan = TimeSpan.Zero;
 
     [ViewVariables(VVAccess.ReadWrite), DataField("range")]

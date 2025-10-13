@@ -125,8 +125,8 @@ public abstract partial class InteractionTest
     protected SharedUserInterfaceSystem CUiSys = default!;
 
     // player components
-    protected HandsComponent? Hands;
-    protected DoAfterComponent? DoAfters;
+    protected HandsComponent Hands = default!;
+    protected DoAfterComponent DoAfters = default!;
 
     public float TickPeriod => (float)STiming.TickPeriod.TotalSeconds;
 
@@ -222,8 +222,8 @@ public abstract partial class InteractionTest
             SPlayer = SEntMan.SpawnEntity(PlayerPrototype, SEntMan.GetCoordinates(PlayerCoords));
             Player = SEntMan.GetNetEntity(SPlayer);
             Server.PlayerMan.SetAttachedEntity(ServerSession, SPlayer);
-            Hands = SEntMan.GetComponentOrNull<HandsComponent>(SPlayer);
-            DoAfters = SEntMan.GetComponentOrNull<DoAfterComponent>(SPlayer);
+            Hands = SEntMan.GetComponent<HandsComponent>(SPlayer);
+            DoAfters = SEntMan.GetComponent<DoAfterComponent>(SPlayer);
         });
 
         // Check player got attached.

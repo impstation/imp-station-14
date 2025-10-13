@@ -21,9 +21,6 @@
   - CigPackSpirits # imp
   - CigarCase
   - CigarGold
-  - BoxFolderBaseThreePapers
-  - BoxFolderPlasticClipboardThreePapers
-  - BoxFolderClipboardThreePapers
   - ClothingNeckLGBTPin
 #  - ClothingNeckAllyPin
   - ClothingNeckAromanticPin
@@ -130,7 +127,7 @@
   hidden: true
   loadouts:
   - EmergencyMeat # imp
-  - EmergencyWheat # imp
+  - EmergencyWheat # imp  
   - EmergencyNitrogen
   - EmergencyOxygen
   - LoadoutSpeciesAquaticFullTank # Imp
@@ -144,7 +141,7 @@
   loadouts:
   - LoadoutSpeciesAquaticFullTank # Imp
   - LoadoutSpeciesEVAKodepiia # imp
-  - LoadoutSpeciesEVAUngu # imp
+  - LoadoutSpeciesEVAUngu # imp  
   - LoadoutSpeciesEVANitrogen
   - LoadoutSpeciesEVAOxygen
 
@@ -164,7 +161,7 @@
   - LoadoutSpeciesPocketDoubleNitrogen
   - LoadoutSpeciesPocketDoubleOxygen
   - LoadoutSpeciesPocketDoubleOxygenKodepiia # imp
-  - LoadoutSpeciesPocketDoubleOxygenUngu # imp
+  - LoadoutSpeciesPocketDoubleOxygenUngu # imp  
 
 # Command
 - type: loadoutGroup
@@ -364,13 +361,6 @@
   - BartenderWintercoat
 
 - type: loadoutGroup
-  id: BartenderGoldenShaker
-  name: loadout-group-bartender-shaker
-  minLimit: 0
-  loadouts:
-  - BartenderGoldenShaker
-
-- type: loadoutGroup
   id: ChefHead
   name: loadout-group-chef-head
   minLimit: 0
@@ -526,17 +516,12 @@
   minLimit: 1
   loadouts:
   - Bible
-  # imp- putting these two up front because of woke
-  - ChaplanBookQuran
-  - BibleTanakh
-  # end imp
-  - BibleNanoTrasen
+  - ChaplainBookQuran #imp reorder
+  - BibleTanakh #imp reorder
   - BibleDruid
-  - BibleHonk
-  - BibleRatvar
-  - BibleNarsie
-  #imp edit start, kind of insane they labeled all holy books as bibles but oh well, using this loadout group will save headache in the future
+  - BibleNanoTrasen
   - BibleSatanic
+  #imp edit start, kind of insane they labeled all holy books as bibles but oh well, using this loadout group will save headache in the future
   - ChaplainBookScroll
   - ChaplainBookTablet
   - ChaplainBookGreybible
@@ -676,7 +661,7 @@
   - EmergencyOxygenClown
   - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatClown # imp
-  - EmergencyWheatClown # imp
+  - EmergencyWheatClown # imp  
   - LoadoutSpeciesAquaticFullTank # Imp
 
 - type: loadoutGroup
@@ -740,7 +725,7 @@
   - EmergencySpeciesMothMime
   - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatMime # imp
-  - EmergencyWheatMime # imp
+  - EmergencyWheatMime # imp  
   - LoadoutSpeciesAquaticFullTank # Imp
 
 - type: loadoutGroup
@@ -1061,7 +1046,7 @@
   - EmergencyOxygenExtended
   - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatExtended # imp
-  - EmergencyWheatExtended # imp
+  - EmergencyWheatExtended # imp  
   - LoadoutSpeciesAquaticFullTank # Imp
 
 # Science
@@ -1398,7 +1383,7 @@
   - EmergencyOxygenSecurity
   - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatSecurity # imp
-  - EmergencyWheatSecurity # imp
+  - EmergencyWheatSecurity # imp  
   - LoadoutSpeciesAquaticFullTank # Imp
 
 - type: loadoutGroup
@@ -1644,7 +1629,7 @@
   - EmergencyOxygenMedical
   - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatMedical # imp
-  - EmergencyWheatMedical # imp
+  - EmergencyWheatMedical # imp  
   - LoadoutSpeciesAquaticFullTank # Imp
 
 # Wildcards
@@ -1691,7 +1676,7 @@
   - EmergencyOxygenSyndicate
   - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatSyndicate # imp
-  - EmergencyWheatSyndicate # imp
+  - EmergencyWheatSyndicate # imp  
   - LoadoutSpeciesAquaticFullTank # Imp
 
 - type: loadoutGroup

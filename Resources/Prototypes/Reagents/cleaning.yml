@@ -85,10 +85,9 @@
     Food:
       metabolismRate: 0.4 # imp - accent lasts for like 15 seconds otherwise
       effects:
-      #- !type:Vomit # imp - sorry i thought of something funnier
+      #- !type:ChemVomit # imp - sorry i thought of something funnier
       #  conditions:
-      #  - !type:ReagentCondition
-      #     reagent: SoapReagent
+      #  - !type:ReagentThreshold
       #    min: 6
       #  probability: 0.20
       - !type:GenericStatusEffect # imp
@@ -96,10 +95,9 @@
         component: PGAccent
     #Drink: # imp
     #  effects:
-      #- !type:Vomit
+      #- !type:ChemVomit
       #  conditions:
-      #  - !type:ReagentCondition
-      #    reagent: SoapReagent
+      #  - !type:ReagentThreshold
       #    min: 6
       #  probability: 0.20
   #imp edit start
@@ -145,7 +143,7 @@
       methods: [ Touch ]
       effects:
       # pva glue? no, antibiotic glue for sealing wounds
-      - !type:ModifyBleed
+      - !type:ModifyBleedAmount
         amount: -1.5
   metabolisms:
     Narcotic:
@@ -159,6 +157,8 @@
       - !type:GenericStatusEffect
         key: Muted
         component: Muted
+        type: Add
         time: 5
+        refresh: false
   footstepSound:
     collection: FootstepSlime

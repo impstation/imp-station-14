@@ -63,9 +63,12 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Arachnid, Snail ] # imp add snail
-          inverted: true
+        - !type:OrganType
+          type: Arachnid
+          shouldHave: false
+        - !type:OrganType #imp edit
+          type: Snail
+          shouldHave: false
         damage:
           types:
             Poison: 0.1
@@ -73,8 +76,15 @@
       effects:
       - !type:ModifyBloodLevel
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Arachnid, Snail ] # imp edit
+        - !type:OrganType
+          type: Arachnid
+          shouldHave: true
+        amount: 0.4
+      - !type:ModifyBloodLevel #imp edit
+        conditions:
+        - !type:OrganType
+          type: Snail
+          shouldHave: true
         amount: 0.4
 
 - type: reagent
@@ -153,8 +163,17 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Arachnid, Snail ] # imp add snail
+        - !type:OrganType
+          type: Arachnid
+          shouldHave: true
+        damage:
+          types:
+            Poison: 0.1
+      - !type:HealthChange #imp edit
+        conditions:
+        - !type:OrganType
+          type: Snail
+          shouldHave: true
         damage:
           types:
             Poison: 0.1
@@ -162,9 +181,12 @@
       effects:
       - !type:ModifyBloodLevel
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Arachnid, Snail ] # imp add snail
-          inverted: true
+        - !type:OrganType
+          type: Arachnid
+          shouldHave: false
+        - !type:OrganType #imp edit
+          type: Snail
+          shouldHave: false
         amount: 0.4
 
 - type: reagent

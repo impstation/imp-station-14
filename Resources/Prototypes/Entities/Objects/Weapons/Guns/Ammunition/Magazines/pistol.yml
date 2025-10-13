@@ -367,7 +367,7 @@
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistol
-    whitelist: # Redundant
+    whitelist:
       tags:
         - CartridgePistol
     soundInsert:

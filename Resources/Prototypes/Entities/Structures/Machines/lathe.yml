@@ -145,7 +145,6 @@
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SecurityAmmoStatic
-    - SyndicateAmmoStatic
     - ImpAutoEmagged # imp
   - type: BlueprintReceiver
     whitelist:
@@ -431,9 +430,6 @@
     - SecurityAmmo
     - SecurityWeapons
     - SecurityDisablers
-  - type: EmagLatheRecipes
-    emagStaticPacks:
-    - SyndicateAmmoStatic
   - type: MaterialStorage
     whitelist:
       tags:
@@ -472,9 +468,6 @@
       unlitRunningState: unlit-building #imp
       staticPacks:
       - SecurityAmmoStatic
-    - type: EmagLatheRecipes
-      emagStaticPacks:
-      - SyndicateAmmoStatic
     - type: MaterialStorage
       whitelist:
         tags:
@@ -620,10 +613,6 @@
     staticPacks:
     - BioGenIngredientsStatic
     - BioGenMaterialsStatic
-  - type: EmagLatheRecipes
-    emagStaticPacks:
-    - BioGenEmagStatic
-    - HostileCubesStatic
 
 - type: entity
   parent: BaseLathe

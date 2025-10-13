@@ -7,15 +7,12 @@
   objective: roles-antag-rev-head-objective
   guides: [ Revolutionaries ]
   requirements:
-  # imp edit to time reqs
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 10h
+    time: 36000 # 10h
   - !type:DepartmentTimeRequirement
     department: Command
-    time: 10h
-  # - !type:OverallPlaytimeRequirement
-  #   time: 1h
+    time: 36000 # 10h
 
 - type: antag
   id: Rev

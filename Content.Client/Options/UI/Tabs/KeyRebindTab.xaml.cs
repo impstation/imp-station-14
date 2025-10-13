@@ -190,9 +190,6 @@ namespace Content.Client.Options.UI.Tabs
             AddHeader("ui-options-header-interaction-adv");
             AddButton(ContentKeyFunctions.SmartEquipBackpack);
             AddButton(ContentKeyFunctions.SmartEquipBelt);
-            AddButton(ContentKeyFunctions.SmartEquipPocket1);
-            AddButton(ContentKeyFunctions.SmartEquipPocket2);
-            AddButton(ContentKeyFunctions.SmartEquipSuitStorage);
             AddButton(ContentKeyFunctions.OpenBackpack);
             AddButton(ContentKeyFunctions.OpenBelt);
             AddButton(ContentKeyFunctions.ThrowItemInHand);

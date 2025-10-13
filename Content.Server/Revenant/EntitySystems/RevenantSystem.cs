@@ -1,6 +1,9 @@
 using System.Numerics;
 using Content.Server.Actions;
 using Content.Server.GameTicking;
+using Content.Server.Mind; // imp
+using Content.Server.Revenant.Components; // imp
+using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
 using Content.Shared.Alert;
 using Content.Shared.Damage;
@@ -20,11 +23,9 @@ using Content.Shared.Store.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Robust.Server.GameObjects;
-using Robust.Shared.Random;
-using Content.Server.Mind; // imp
-using Content.Server.Revenant.Components; // imp
 using Robust.Shared.Physics.Components; // imp
-using Robust.Shared.Prototypes; // imp
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Timing; // imp
 
 namespace Content.Server.Revenant.EntitySystems;
@@ -54,15 +55,18 @@ public sealed partial class RevenantSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _meta = default!; // imp edit
 
     private static readonly EntProtoId RevenantShopId = "ActionRevenantShop";
-    private static readonly EntProtoId RevenantHauntId = "ActionRevenantHaunt"; // imp edit
+
+    [ValidatePrototypeId<EntityPrototype>]
+    private const string RevenantHauntId = "ActionRevenantHaunt"; // imp edit
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<RevenantComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<RevenantComponent, MapInitEvent>(OnMapInit); // imp add
+        SubscribeLocalEvent<RevenantComponent, MapInitEvent>(OnMapInit);
 
+        SubscribeLocalEvent<RevenantComponent, RevenantShopActionEvent>(OnShop);
         SubscribeLocalEvent<RevenantComponent, DamageChangedEvent>(OnDamage);
         SubscribeLocalEvent<RevenantComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<RevenantComponent, StatusEffectAddedEvent>(OnStatusAdded);
@@ -99,11 +103,11 @@ public sealed partial class RevenantSystem : EntitySystem
         //ghost vision
         _eye.RefreshVisibilityMask(uid);
     }
-    // imp add
+
     private void OnMapInit(EntityUid uid, RevenantComponent component, MapInitEvent args)
     {
-        _action.AddAction(uid, ref component.ShopAction, RevenantShopId);
-        _action.AddAction(uid, ref component.HauntAction, RevenantHauntId);
+        _action.AddAction(uid, ref component.ShopAction, RevenantShopId); // imp edit
+        _action.AddAction(uid, ref component.HauntAction, RevenantHauntId); // imp edit
     }
 
     private void OnStatusAdded(EntityUid uid, RevenantComponent component, StatusEffectAddedEvent args)
@@ -200,6 +204,13 @@ public sealed partial class RevenantSystem : EntitySystem
         // imp edit end
 
         return true;
+    }
+
+    private void OnShop(EntityUid uid, RevenantComponent component, RevenantShopActionEvent args)
+    {
+        if (!TryComp<StoreComponent>(uid, out var store))
+            return;
+        _store.ToggleUi(uid, uid, store);
     }
 
     public void MakeVisible(bool visible)

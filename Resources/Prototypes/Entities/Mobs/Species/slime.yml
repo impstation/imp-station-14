@@ -91,15 +91,15 @@
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]
       effects:
-      - !type:WashCreamPie
+      - !type:WashCreamPieReaction
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
       - !type:HealthChange
-        scaling: true
+        scaleByQuantity: true
         damage:
           types:
-            Caustic: 0.2 # imp, was 0.05 heat
+            Caustic: 0.2
       - !type:PopupMessage
         type: Local
         visualType: Large

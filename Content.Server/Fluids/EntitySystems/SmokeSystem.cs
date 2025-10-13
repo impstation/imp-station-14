@@ -24,7 +24,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using System.Linq;
-using Content.Shared.EntityEffects.Effects.Solution;
+
 using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
 
 namespace Content.Server.Fluids.EntitySystems;
@@ -283,10 +283,11 @@ public sealed class SmokeSystem : EntitySystem
         {
             if (reagentQuantity.Quantity == FixedPoint2.Zero)
                 continue;
+            var reagentProto = _prototype.Index<ReagentPrototype>(reagentQuantity.Reagent.Prototype);
 
-            _reactive.ReactionEntity(entity, ReactionMethod.Touch, reagentQuantity);
+            _reactive.ReactionEntity(entity, ReactionMethod.Touch, reagentProto, reagentQuantity, transferSolution);
             if (!blockIngestion)
-                _reactive.ReactionEntity(entity, ReactionMethod.Ingestion, reagentQuantity);
+                _reactive.ReactionEntity(entity, ReactionMethod.Ingestion, reagentProto, reagentQuantity, transferSolution);
         }
 
         if (blockIngestion)

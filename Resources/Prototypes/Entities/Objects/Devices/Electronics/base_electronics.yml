@@ -10,9 +10,11 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: generic
-  - type: Tag # imp
+  - type: Tag
     tags:
-      - DroneUsable
+      - DroneUsable  
+  - type: StaticPrice
+    price: 100
   - type: PhysicalComposition
     materialComposition:
       Glass: 200

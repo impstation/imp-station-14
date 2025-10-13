@@ -6,17 +6,17 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobChemist
-      time: 5h # imp, was 6h
+      time: 18000 #5 hrs, ~4 rounds #imp
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
       role: JobMedicalDoctor
-      time: 5h # imp, was 6h
+      time: 18000 #5 hrs, ~4 rounds #imp
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
       department: Medical
-      time: 50h # imp, was 60h
+      time: 108000 #30 hrs, ~20 rounds #imp
 
 # Other Timers
 
@@ -27,7 +27,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobMedicalDoctor
-      time: 30h
+      time: 108000 #30 hrs, ~20 rounds
 
 # Head
 

@@ -1672,7 +1672,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 14
+        maxVol: 24
         reagents:
         - ReagentId: Bicaridine
           Quantity: 5
@@ -1680,6 +1680,8 @@
           Quantity: 5
         - ReagentId: Nutriment
           Quantity: 2
+        - ReagentId: Desoxyephedrine
+          Quantity: 10
         - ReagentId: Vitamin
           Quantity: 2
   - type: Sprite
@@ -1715,7 +1717,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 10
+        maxVol: 20
         reagents:
         - ReagentId: Omnizine
           Quantity: 3
@@ -1723,6 +1725,8 @@
           Quantity: 5
         - ReagentId: Nutriment
           Quantity: 2
+        - ReagentId: Desoxyephedrine
+          Quantity: 10
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/ambrosia_deus.rsi
   - type: Item
@@ -1792,12 +1796,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25
+        maxVol: 15
         reagents:
         - ReagentId: Razorium
           Quantity: 15
-        - ReagentId: Desoxyephedrine
-          Quantity: 10
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/glasstle.rsi
   - type: Produce

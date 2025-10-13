@@ -4,17 +4,25 @@
     children:
     - id: BoxEncryptionKeyCargo
     - id: BoxFolderQmClipboard
-    - id: BoxQMCircuitboards
-    - id: BoxQMStamps
+    - id: CargoBountyComputerCircuitboard
+    - id: CargoRequestComputerCircuitboard
+    - id: CargoSaleComputerCircuitboard
+    - id: CargoShuttleConsoleCircuitboard
+    - id: SalvageMagnetMachineCircuitboard
+    - id: SalvageJobBoardComputerCircuitboard
+    - id: ShipyardComputerCircuitboard # imp
+    - id: SalvageExpeditionsComputerCircuitboard # imp
+    - id: PrinterDocFlatpack  # Corvax-Printer
     - id: CigPackGreen
       prob: 0.50
     - id: ClothingHeadsetAltCargo
     - id: DoorRemoteCargo
+    - id: RubberStampApproved
+    - id: RubberStampDenied
+    - id: RubberStampQm
     - id: AstroNavCartridge
     - id: ClothingHandsKnuckleDustersQM
-    - id: ShipyardComputerCircuitboard # imp
-    - id: SalvageExpeditionsComputerCircuitboard # imp
-    - id: PrinterDocFlatpack  # Corvax-Printer
+    - id: MailTeleporterMachineCircuitboard
     - id: PersonalAILearnerCargo #impspecial
 
 - type: entity
@@ -38,7 +46,7 @@
     - id: ClothingBeltSheathFilled
     - id: ClothingHeadsetAltCommand
     - id: ClothingOuterArmorCaptainCarapace
-    - id: BoxCaptainCircuitboards
+    - id: CommsComputerCircuitboard
     - id: DoorRemoteCustom
     - id: MedalCase
     - id: NukeDisk
@@ -121,8 +129,6 @@
     - id: BoxEncryptionKeyPassenger
     # - id: BoxEncryptionKeyService imp edit
     - id: BoxHeadset
-    - id: BoxHoPCircuitboards
-    - id: BoxHoPStamps
     - id: BoxID
     - id: BoxPDA
     - id: CigarGoldCase
@@ -133,12 +139,18 @@
       prob: 0.5
     - id: ClothingHeadsetCommand
     - id: ClothingNeckGoldmedal
-    - id: HoPIDCard
-    #- id: WeaponDisabler # imp edit
-    - id: ClothingEyesHudCommand
-    - id: AntiqueDisablerBox # imp
     - id: DoorRemoteHoP #imp edit
     - id: ClothingNeckBureaucracyMedal # imp edit
+    - id: HoPIDCard
+    - id: IDComputerCircuitboard
+    - id: FundingAllocationComputerCircuitboard
+    # - id: CargoRequestServiceComputerCircuitboard imp edit
+    - id: RubberStampApproved
+    - id: RubberStampDenied
+    - id: RubberStampHop
+    # - id: WeaponDisabler #imp edit
+    - id: AntiqueDisablerBox #imp edit
+    - id: ClothingEyesHudCommand
     - id: PrinterDocFlatpack  # Corvax-Printer
 
 - type: entity
@@ -165,7 +177,7 @@
     - id: ClothingHandsGlovesColorYellow
     - id: ClothingHeadsetAltEngineering
     - id: DoorRemoteEngineering
-    - id: BoxCECircuitboards
+    - id: CargoRequestEngineeringComputerCircuitboard
     - id: RCD
     - id: RCDAmmo
     - id: RubberStampCE
@@ -226,7 +238,8 @@
     - id: DoorRemoteMedical
     - id: HandheldCrewMonitor
     - id: Hypospray
-    - id: BoxCMOCircuitboards
+    - id: MedicalTechFabCircuitboard
+    - id: CargoRequestMedicalComputerCircuitboard
     - id: MedkitFilled
     - id: RubberStampCMO
     - id: MedTekCartridge
@@ -276,11 +289,15 @@
     children:
     - id: Intellicard
     - id: BoxEncryptionKeyScience
-    - id: BoxRDCircuitboards
+    - id: CircuitImprinterMachineCircuitboard
     - id: ClothingBeltUtilityFilled
     - id: ClothingHeadsetAltScience
     - id: DoorRemoteResearch
     - id: HandTeleporter
+    - id: ProtolatheMachineCircuitboard
+    - id: ResearchComputerCircuitboard
+    - id: CargoRequestScienceComputerCircuitboard
+    - id: StationAiFixerCircuitboard
     - id: RubberStampRd
     - id: PersonalAILearnerScience #impspecial
     - id: PrinterDocFlatpack  # Corvax-Printer
@@ -325,7 +342,8 @@
   id: LockerFillHeadOfSecurityNoHardsuit
   table: !type:AllSelector
     children:
-    - id: WeaponEnergyMagnum
+    - id: ClothingMaskGasSecurity
+    - id: WeaponEnergyShotgun
     - id: BookSpaceLaw
     - id: BoxEncryptionKeySecurity
     - id: CigarGoldCase
@@ -339,12 +357,12 @@
     - id: DoorRemoteSecurity
     - id: HoloprojectorSecurity
     - id: RubberStampHos
-    - id: BoxHoSCircuitboards
+    - id: SecurityTechFabCircuitboard
+    - id: CargoRequestSecurityComputerCircuitboard
     - id: WeaponDisabler
     - id: WeaponTaser
     - id: WantedListCartridge
     - id: DrinkHosFlask
-    - id: ClothingMaskGasSecurity # imp
     - id: ClothingNeckBronzeheart #imp
     - id: TicketPad #imp special
     - id: BaseSeclinkRadio #imp
