@@ -18,7 +18,7 @@
         - type: StationCargoShuttle
           path: /Maps/_Impstation/Shuttles/cargo_refsdal.yml
         - type: StationJobs
-          availableJobs: #Total of 43 jobs roundstart, max of 48 inc. latejoins and trainees.
+          availableJobs: #Total of 44 jobs roundstart, max of 48 inc. latejoins and trainees.
             # command - 8
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
@@ -28,7 +28,7 @@
             HeadOfSecurity: [ 1, 1 ]
             HospitalityDirector: [ 1, 1 ]
             Quartermaster: [ 1, 1 ]
-            # service - 14
+            # service - 16
             Bartender: [ 2, 2 ]
             Botanist: [ 1, 1 ]
             Chef: [ 2, 2 ]
@@ -36,11 +36,11 @@
             Janitor: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
-            Chaplain: [1, 1]
-            Librarian: [1, 1]
-            Reporter: [1, 1]
-            Boxer: [2, 2]
-            ServiceWorker: [1, 2]
+            Chaplain: [ 1, 1 ]
+            Librarian: [ 1, 1 ]
+            Reporter: [ 1, 1 ]
+            Boxer: [ 2, 2 ]
+            ServiceWorker: [ 2, 2 ]
             # engineering - 2-3
             AtmosphericTechnician: [ 1, 1 ]
             StationEngineer: [ 1, 1 ]

@@ -19,7 +19,7 @@
         - type: StationCargoShuttle
           path: /Maps/_Harmony/Shuttles/cargo_eclipse.yml
         - type: StationJobs
-          availableJobs: #80 jobs available (update after paramed/brigmed re-added please)
+          availableJobs: #81
             #command: 8
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
@@ -29,7 +29,7 @@
             HeadOfSecurity: [ 1, 1 ]
             HospitalityDirector: [ 1, 1 ]
             Quartermaster: [ 1, 1 ]
-            #service: 17
+            #service: 19
             Bartender: [ 2, 2 ]
             Botanist: [ 3, 3 ]
             Chef: [ 2, 2 ]
@@ -39,7 +39,7 @@
             Clown: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
-            ServiceWorker: [ 1, 2 ]
+            ServiceWorker: [ 2, 2 ]
             Reporter: [ 1, 1 ]
             Lawyer: [ 2, 2 ]
             #engineering: 12

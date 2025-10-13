@@ -24,7 +24,7 @@
           announcementReplacements:
             station-event-immovable-rod-spawn-announcement: station-event-meteor-doomsday-spawn-announcement
         - type: StationJobs
-          availableJobs: # Total of 64 jobs roundstart, max of 78 inc. latejoins and trainees.
+          availableJobs: # Total of 65 jobs roundstart, max of 79 inc. latejoins and trainees.
             # command - 8
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
@@ -34,7 +34,7 @@
             HeadOfSecurity: [ 1, 1 ]
             HospitalityDirector: [ 1, 1 ]
             Quartermaster: [ 1, 1 ]
-            # service - 15
+            # service - 17
             Bartender: [ 2, 2 ]
             Botanist: [ 3, 3 ]
             Chaplain: [ 1, 1 ]
@@ -44,7 +44,7 @@
             Librarian: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
-            ServiceWorker: [ 1, 1 ]
+            ServiceWorker: [ 2, 2 ]
             Reporter: [ 1, 1 ]
             # engineering - 8-12
             AtmosphericTechnician: [ 3, 3 ]
