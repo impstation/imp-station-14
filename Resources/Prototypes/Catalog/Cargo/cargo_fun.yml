@@ -53,7 +53,7 @@
   icon:
     sprite: Objects/Fun/Instruments/gunpet.rsi
     state: icon
-  product: CrateFunInstrumentsSpecial
+  product: CrateFunInstrumentsSpecial2
   cost: 10000
   category: cargoproduct-category-name-fun
   group: market
@@ -377,3 +377,15 @@
   cost: 1000
   category: cargoproduct-category-name-fun
   group: market
+
+# imp start
+- type: cargoProduct
+  id: ThereminInstrument
+  icon:
+    sprite: _Impstation/Objects/Fun/Instruments/theremin.rsi
+    state: theremin
+  product: ThereminInstrument
+  cost: 1500
+  category: cargoproduct-category-name-fun
+  group: market
+# imp end
