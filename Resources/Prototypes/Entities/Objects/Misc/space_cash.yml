@@ -54,6 +54,9 @@
   - type: Appearance
   - type: PluralName # imp
     nameOneOf: speso
+  - type: Tag # imp
+    tags:
+    - Cash
 
 - type: material
   id: Credit

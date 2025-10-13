@@ -1,0 +1,21 @@
+- type: latheRecipe
+  id: InterdyneVoidLabel
+  result: Interdynev
+  completetime: 1
+  materials:
+    Plasma: 50
+
+- type: latheRecipe
+  id: InterdyneVestine
+  name: Vestine (30u)
+  resultReagents:
+    Vestine: 30
+  categories:
+  - Chemicals
+  icon:
+    sprite: Resources/Textures/Objects/Specific/Chemistry/vial.rsi
+    state: vial-1
+  completetime: 1
+  materials:
+    Credit: 5000
+    Plasma: 1000
