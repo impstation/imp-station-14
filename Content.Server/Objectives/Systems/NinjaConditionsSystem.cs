@@ -1,9 +1,10 @@
 using Content.Server.Objectives.Components;
-using Content.Shared.Objectives.Components;
 using Content.Shared.Ninja.Components;
+using Content.Shared.Objectives.Components;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Components;
 using Content.Shared.Warps;
+using Content.Shared.Whitelist;
 using Robust.Shared.Random;
 
 namespace Content.Server.Objectives.Systems;
@@ -14,6 +15,7 @@ namespace Content.Server.Objectives.Systems;
 /// </summary>
 public sealed class NinjaConditionsSystem : EntitySystem
 {
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly NumberObjectiveSystem _number = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -52,23 +54,27 @@ public sealed class NinjaConditionsSystem : EntitySystem
             return;
 
         // choose spider charge detonation point
-        // imp edit start
-        var targets = new List<EntityUid>();
-        var query = EntityQueryEnumerator<BombingTargetComponent>();
-        while (query.MoveNext(out var targetUid, out var target))
+        var warps = new List<EntityUid>();
+        // imp edits begin
+        // TODO: clean this up
+        var allEnts = EntityQueryEnumerator<BombingTargetComponent>(); // imp WarpPointComponent -> BombingTargetComponent
+        //var bombingBlacklist = comp.Blacklist;
+
+        while (allEnts.MoveNext(out var warpUid, out var warp))
         {
-            if (target.Location != null)
+            //if (_whitelist.IsBlacklistFail(bombingBlacklist, warpUid)
+            //    && !string.IsNullOrWhiteSpace(warp.Location))
             {
-                targets.Add(targetUid);
+                warps.Add(warpUid);
             }
         }
 
-        if (targets.Count <= 0)
+        if (warps.Count <= 0)
         {
             args.Cancelled = true;
             return;
         }
-        comp.Target = _random.Pick(targets);
+        comp.Target = _random.Pick(warps);
         // imp edit end
     }
 

@@ -58,19 +58,10 @@
                            StyleClasses="LabelBig" />
                     <BoxContainer Orientation="Horizontal"
                                   Margin="0 0 0 5">
-                        <Label Text="{Loc 'crew-monitoring-user-interface-gender'}"
+                        <Label Text="{Loc 'crew-monitoring-ui-job-label'}"
                                FontColorOverride="DarkGray" />
                         <Label Text=":"
-                                Margin="0 0 6 0"
-                                FontColorOverride="DarkGray" />
-                        <Label Name="PersonGender" />
-                    </BoxContainer>
-                    <BoxContainer Orientation="Horizontal"
-                                  Margin="0 0 0 5">
-                        <Label Text="{Loc 'crew-monitoring-user-interface-job'}"
-                               FontColorOverride="DarkGray" />
-                        <Label Text=":"
-                               FontColorOverride="DarkGray" />
+                               FontColorOverride="DarkGray"/>
                         <TextureRect Name="PersonJobIcon"
                                      TextureScale="2 2"
                                      Margin="6 0"

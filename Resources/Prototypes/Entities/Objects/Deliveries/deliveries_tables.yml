@@ -96,10 +96,12 @@
       - id: Ointment
       - id: Gauze
       - id: Bloodpack
-      - id: SimpleSuture #start imp
-      - id: Tincture
-    - !type:NestedSelector
-      tableId: LetterImpRareEntityTable # end imp
+      - id: SimpleSuture # imp
+      - id: Tincture # imp
+    - id: SyndicateBusinessCard
+      weight: 0.5
+    - !type:NestedSelector # imp
+      tableId: LetterImpRareEntityTable
 
 # Packages
 # TODO: Currently mostly maints loot, should be updated in the future.
@@ -130,6 +132,11 @@
     - !type:NestedSelector
       tableId: RandomAllAlcoholTable
       weight: 0.2
+      # rolls: !type:RangeNumberSelector # imp remove
+        # range: 2, 3 # imp remove
+    - !type:NestedSelector
+      tableId: InsulsTable #Uncommon since it's weighted towards budget/fingerless
+      weight: 0.2
     - !type:NestedSelector #start imp
       tableId: PackageImpUncommonEntityTable
       weight: 0.35 #end imp
@@ -152,7 +159,8 @@
       weight: 0.25 #imp
     - !type:NestedSelector
       tableId: SyndieMaintLoot
-      weight: 0.2 #start imp
+      weight: 0.2 #start imp, was 0.5
     - !type:NestedSelector
       tableId: PackageImpFriendsEntityTable
       weight: 0.25 #end imp
+

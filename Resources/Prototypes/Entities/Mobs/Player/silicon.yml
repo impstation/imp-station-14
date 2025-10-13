@@ -1,4 +1,4 @@
-# Be careful with these as they get removed on shutdown too!
+﻿# Be careful with these as they get removed on shutdown too!
 - type: entity
   id: AiHeld
   save: false # Impstation - AI PDAs
@@ -193,7 +193,7 @@
 # Empty AI core
 - type: entity
   id: PlayerStationAiEmpty
-  name: AI Core
+  name: AI core
   description: The latest in Artificial Intelligences.
   parent:
   - BaseStructure
@@ -354,7 +354,7 @@
 - type: entity
   parent: BaseStructure
   id: PlayerStationAiAssembly
-  name: AI Core Assembly
+  name: AI core assembly
   description: An unfinished computer core for housing an artifical intelligence.
   components:
   - type: Anchorable

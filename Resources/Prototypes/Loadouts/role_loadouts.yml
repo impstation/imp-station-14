@@ -96,6 +96,7 @@
   - BartenderJumpsuit
   - BartenderOuterClothing
   - BartenderShoes #imp
+  - BartenderGoldenShaker
   - Glasses
   - CommonBackpack # imp reorder
   - BartenderPDA # imp
@@ -272,6 +273,7 @@
 
 - type: roleLoadout
   id: JobMusician
+  canCustomizeName: true
   groups:
   - MusicianHead # imp
   - MusicianNeck # imp

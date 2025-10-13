@@ -98,7 +98,14 @@ public sealed class MagnetPickupSystem : EntitySystem
             if (comp.NextScan > currentTime)
                 continue;
 
-            comp.NextScan = currentTime + ScanDelay; // ensure the next scan is in the future
+            comp.NextScan += ScanDelay;
+            Dirty(uid, comp);
+
+            if (!_inventory.TryGetContainingSlot((uid, xform, meta), out var slotDef))
+                continue;
+
+            if ((slotDef.SlotFlags & comp.SlotFlags) == 0x0)
+                continue;
 
             // No space
             if (!_storage.HasSpace((uid, storage)))
