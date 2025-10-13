@@ -4,6 +4,8 @@
   id: ImpInterdyneStatic
   recipes:
   - InterdyneVestine
+  - InterdyneEchion
+  - InterdyneLead
 
 # Dynamic
 
@@ -16,4 +18,4 @@
 - type: latheRecipePack
   id: ImpInterdyneEmagged
   recipes:
-  - PrescriptionLensStrong2
+  - InterdyneVoidLabel
