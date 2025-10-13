@@ -104,7 +104,7 @@
       map: ["enum.StorageVisualLayers.Door"]
     - state: open
       map: [ open_crate ]
-      offset: -0.71875, 0 # 23 pixels left
+      offset: -0.8125, 0 # 26 pixels left
     - state: welded
       visible: false
       map: ["enum.WeldableLayers.BaseWelded"]
@@ -118,3 +118,8 @@
   - type: Appearance
   - type: StaticPrice
     price: 0
+  - type: Construction
+    graph: CrateMail
+    node: cratemail
+    containers:
+    - entity_storage
