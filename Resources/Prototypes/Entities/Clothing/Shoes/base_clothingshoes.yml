@@ -25,6 +25,10 @@
     - Recyclable
     - WhitelistChameleon
   - type: ProtectedFromStepTriggers
+  - type: HideLayerClothing # imp
+    slots:
+    - LFoot
+    - RFoot
 
 - type: entity
   abstract: true

@@ -1,5 +1,4 @@
 using Content.Server._Goobstation.Objectives.Components;
-using Content.Server.Administration.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.DoAfter;
@@ -12,6 +11,8 @@ using Content.Shared.Popups;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Atmos.Rotting;
+using Content.Server.Objectives.Components;
+using Content.Server.Light.Components;
 using Content.Shared._Goobstation.Changeling;
 using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Eye.Blinding.Components;
@@ -33,9 +34,6 @@ public sealed partial class GoobChangelingSystem : EntitySystem
     [Dependency] private readonly SharedRottingSystem _rotting = default!;
     [Dependency] private readonly SharedStealthSystem _stealth = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _userInterfaceSystem = default!;
-    [Dependency] private readonly Content.Shared._Offbrand.Wounds.BrainDamageSystem _brainDamage = default!; // Offbrand
-    [Dependency] private readonly Content.Shared._Offbrand.Wounds.HeartSystem _heart = default!; // Offbrand
-    [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
 
     public void SubscribeAbilities()
     {
@@ -181,8 +179,6 @@ public sealed partial class GoobChangelingSystem : EntitySystem
         _damage.TryChangeDamage(target, dmg, true, false);
         _blood.ChangeBloodReagent(target, "FerrochromicAcid");
         _blood.SpillAllSolutions(target);
-        _brainDamage.KillBrain(target); // Offbrand
-        _heart.KillHeart(target); // Offbrand
 
         EnsureComp<GoobAbsorbedComponent>(target);
 
@@ -304,11 +300,7 @@ public sealed partial class GoobChangelingSystem : EntitySystem
         }
 
         if (!_mobState.IsDead(uid))
-        {
             _mobState.ChangeMobState(uid, MobState.Dead);
-            _brainDamage.KillBrain(uid); // Offbrand
-            _heart.KillHeart(uid); // Offbrand
-        }
 
         comp.IsInStasis = true;
     }
@@ -331,8 +323,11 @@ public sealed partial class GoobChangelingSystem : EntitySystem
         if (!TryComp<DamageableComponent>(uid, out var damageable))
             return;
 
-        // Rejuvenate the ling. we're back baby.
-        _rejuvenate.PerformRejuvenate(uid);
+        // heal of everything
+        _damage.SetAllDamage(uid, damageable, 0);
+        _mobState.ChangeMobState(uid, MobState.Alive);
+        _blood.TryModifyBloodLevel(uid, 1000);
+        _blood.TryModifyBleedAmount(uid, -1000);
 
         _popup.PopupEntity(Loc.GetString("changeling-stasis-exit"), uid, uid);
 

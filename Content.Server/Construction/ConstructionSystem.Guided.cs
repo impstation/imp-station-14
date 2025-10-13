@@ -87,14 +87,6 @@ namespace Content.Server.Construction
                     {
                         args.PushMarkup(Loc.GetString("deconstruction-header-text") + "\n");
                     }
-                    // Begin Offbrand
-                    else if (target.SurgeryName is { } surgery)
-                    {
-                        args.PushMarkup(Loc.GetString(
-                            "construction-component-to-perform-header",
-                            ("name", Loc.GetString(surgery))) + "\n");
-                    }
-                    // End Offbrand
                     else
                     {
                         args.PushMarkup(Loc.GetString(
@@ -173,11 +165,8 @@ namespace Content.Server.Construction
                 // Initial construction header.
                 new()
                 {
-                    Localization = construction.Type switch {
-                        ConstructionType.Structure => "construction-presenter-to-build",
-                        ConstructionType.Surgery => "construction-presenter-to-surgery",
-                        _ => "construction-presenter-to-craft",
-                    },
+                    Localization = construction.Type == ConstructionType.Structure
+                        ? "construction-presenter-to-build" : "construction-presenter-to-craft",
                     EntryNumber = step,
                 }
             };
@@ -194,7 +183,7 @@ namespace Content.Server.Construction
                     return null;
 
                 // First steps are handled specially.
-                if (step == 1 && construction.Category != "Surgery") // Offbrand
+                if (step == 1)
                 {
                     foreach (var graphStep in edge.Steps)
                     {

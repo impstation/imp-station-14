@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/14/2025 06:50:47
-  entityCount: 2653
+  time: 08/29/2025 23:44:53
+  entityCount: 2654
 maps:
 - 1
 grids:
@@ -6623,10 +6623,10 @@ entities:
       fixtures: {}
 - proto: ClothingBackpackDuffelSurgeryFilled
   entities:
-  - uid: 95
+  - uid: 1665
     components:
     - type: Transform
-      pos: 10.871252,-4.3386116
+      pos: 6.6714754,-4.1054482
       parent: 2
 - proto: ClothingBackpackERTJanitor
   entities:
@@ -6676,6 +6676,13 @@ entities:
     components:
     - type: Transform
       pos: 6.5183535,-8.5258465
+      parent: 2
+- proto: ClothingNeckStethoscope
+  entities:
+  - uid: 909
+    components:
+    - type: Transform
+      pos: 6.4035683,-4.3785286
       parent: 2
 - proto: ClothingOuterHardsuitERTJanitor
   entities:
@@ -7079,13 +7086,6 @@ entities:
     components:
     - type: Transform
       pos: -16.5,-3.5
-      parent: 2
-- proto: CrateFreezerIVBag
-  entities:
-  - uid: 1667
-    components:
-    - type: Transform
-      pos: 2.5,-3.5
       parent: 2
 - proto: CrateMaterialSteel
   entities:
@@ -12258,18 +12258,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: IVStand
-  entities:
-  - uid: 1665
-    components:
-    - type: Transform
-      pos: 6.5,-4.5
-      parent: 2
-  - uid: 1949
-    components:
-    - type: Transform
-      pos: 8.5,-4.5
-      parent: 2
 - proto: JanitorialTrolley
   entities:
   - uid: 1634
@@ -12591,17 +12579,17 @@ entities:
       parent: 2
 - proto: MedkitBruteFilled
   entities:
-  - uid: 1668
+  - uid: 1667
     components:
     - type: Transform
-      pos: 7.428151,-1.3854868
+      pos: 4.470603,-3.3152924
       parent: 2
 - proto: MedkitBurnFilled
   entities:
-  - uid: 2035
+  - uid: 1668
     components:
     - type: Transform
-      pos: 7.662526,-1.4948618
+      pos: 4.470603,-3.5184174
       parent: 2
 - proto: MopBucket
   entities:
@@ -13077,6 +13065,11 @@ entities:
       parent: 2
 - proto: PottedPlantRandom
   entities:
+  - uid: 95
+    components:
+    - type: Transform
+      pos: 2.5,-3.5
+      parent: 2
   - uid: 1567
     components:
     - type: Transform
@@ -13091,11 +13084,6 @@ entities:
       parent: 2
 - proto: PowerCellRecharger
   entities:
-  - uid: 909
-    components:
-    - type: Transform
-      pos: 4.5,-3.5
-      parent: 2
   - uid: 949
     components:
     - type: Transform
@@ -13110,6 +13098,11 @@ entities:
     components:
     - type: Transform
       pos: 2.5,6.5
+      parent: 2
+  - uid: 1949
+    components:
+    - type: Transform
+      pos: 8.5,-4.5
       parent: 2
 - proto: PoweredDimSmallLight
   entities:
@@ -15420,6 +15413,11 @@ entities:
     - type: Transform
       pos: 4.5,-3.5
       parent: 2
+  - uid: 2062
+    components:
+    - type: Transform
+      pos: 6.5,-4.5
+      parent: 2
   - uid: 2064
     components:
     - type: Transform
@@ -15444,6 +15442,11 @@ entities:
     components:
     - type: Transform
       pos: 8.5,1.5
+      parent: 2
+  - uid: 2445
+    components:
+    - type: Transform
+      pos: 8.5,-4.5
       parent: 2
 - proto: TableReinforced
   entities:

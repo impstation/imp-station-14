@@ -1131,3 +1131,10 @@ accent-gray-words-replace-377 = baats
 
 accent-gray-words-378 = HD
 accent-gray-words-replace-378 = sipdar
+
+accent-gray-words-379 = ungu
+accent-gray-words-replace-379 = marmi
+
+accent-gray-words-380 = ungus
+accent-gray-words-replace-380 = marmis
+
