@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ClothingBeltStorageBase, BaseCommandContraband]
+  parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCommandContraband]
   id: ClothingBeltHolsterHOS
   name: head of security's shoulder holster
   description: A low-profile shoulder holster for your gear. Remind them who you are.
@@ -8,6 +8,8 @@
     sprite: _Impstation/Clothing/Belt/hosholster.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Belt/hosholster.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
   - type: Storage
     whitelist:
       tags:
@@ -20,7 +22,11 @@
         - MagazineMagnum
         - CombatKnife
         - Truncheon
+        - HandGrenade
         - SecTicket
+        - Pribar
+        - SpaceBladeSec
+        - HandheldCriminalRecords
       components:
         - Stunbaton
         - FlashOnTrigger
