@@ -31,27 +31,28 @@ public abstract class SharedBiomagneticPolarizationSystem : EntitySystem
     /// Returns (TRUE, FALSE) if collision occurs between two entities of opposite polarity.
     /// Returns (FALSE, TRUE) if collision occurs between two entities of the same polarity.
     /// Returns (FALSE, FALSE) if no valid collision is detected.
+    /// The third bool value returns
     /// </summary>
     /// <param name="ent"></param>
     /// <param name="biomagComp"></param>
     /// <param name="frameTime"></param>
     /// <returns></returns>
-    protected (bool, bool) HandleCollisions(Entity<PhysicsComponent>? entPhys, BiomagneticPolarizationStatusEffectComponent biomagComp)
+    protected (bool Opposite, bool Same, bool StrCapInvolved) HandleCollisions(Entity<PhysicsComponent?>? entPhys, BiomagneticPolarizationStatusEffectComponent biomagComp)
     {
-        if (entPhys is not { } ent)
-            return (false, false);
+        if (entPhys is not { } ent || ent.Comp is not { } physComp)
+            return (false, false, false);
 
-        var fieldDispersed = false;
-        var triggeredCooldown = false;
-        var physComp = ent.Comp;
+        var oppositePolarityCollision = false;
+        var samePolarityCollision = false;
+        var strengthCapInvolved = false;
 
         if (physComp.ContactCount == 0)
-            return (fieldDispersed, triggeredCooldown);
+            return (oppositePolarityCollision, samePolarityCollision, strengthCapInvolved);
 
         var xform = Transform(ent.Owner);
 
         if (xform.ParentUid != xform.GridUid && xform.ParentUid != xform.MapUid)
-            return (fieldDispersed, triggeredCooldown);
+            return (oppositePolarityCollision, samePolarityCollision, strengthCapInvolved);
 
         var contacts = _physics.GetContacts(ent.Owner);
         while (contacts.MoveNext(out var contact))
@@ -75,7 +76,7 @@ public abstract class SharedBiomagneticPolarizationSystem : EntitySystem
             // if two people with the same charge come in contact, they repel one another
             if (biomagComp.Polarization == otherBiomagComp.Polarization)
             {
-                triggeredCooldown = true;
+                samePolarityCollision = true;
                 var xformQuery = GetEntityQuery<TransformComponent>();
                 var worldPos = _xform.GetWorldPosition(xform, xformQuery);
 
@@ -83,16 +84,23 @@ public abstract class SharedBiomagneticPolarizationSystem : EntitySystem
                 var direction = _xform.GetWorldPosition(otherXform, xformQuery) - worldPos;
 
                 var strengthAverage = (biomagComp.CurrentStrength + otherBiomagComp.CurrentStrength) / 2;
+                // balance the strength of both parties
+                biomagComp.CurrentStrength = strengthAverage;
+                otherBiomagComp.CurrentStrength = strengthAverage;
+                // chuck shit
                 _throw.TryThrow(ent, direction * -strengthAverage, strengthAverage * biomagComp.ThrowStrengthMult);
                 _throw.TryThrow(other, direction * strengthAverage, strengthAverage * otherBiomagComp.ThrowStrengthMult);
             }
             // if two people with DIFFERENT charge come in contact, they cause an explosion and lose their charge.
             else if (biomagComp.Polarization != otherBiomagComp.Polarization)
             {
-                fieldDispersed = true;
+                var strengthCapWithMargin = biomagComp.StrengthCap - biomagComp.CapEffectMargin;
+                if (biomagComp.CurrentStrength > strengthCapWithMargin || otherBiomagComp.CurrentStrength > strengthCapWithMargin)
+                    strengthCapInvolved = true;
+                oppositePolarityCollision = true;
                 otherBiomagComp.Expired = true;
             }
         }
-        return (fieldDispersed, triggeredCooldown);
+        return (oppositePolarityCollision, samePolarityCollision, strengthCapInvolved);
     }
 }

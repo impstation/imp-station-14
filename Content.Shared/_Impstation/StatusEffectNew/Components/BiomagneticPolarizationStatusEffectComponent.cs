@@ -1,12 +1,16 @@
 using Content.Shared.Explosion;
 using Content.Shared.Whitelist;
+using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._Impstation.StatusEffectNew;
 
-[RegisterComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class BiomagneticPolarizationStatusEffectComponent : Component
 {
     /// <summary>
@@ -37,13 +41,31 @@ public sealed partial class BiomagneticPolarizationStatusEffectComponent : Compo
     public Color SouthColor = Color.Blue;
 
     /// <summary>
-    /// Determines the strength of repulsion, and by extension the brightness of the glow.
+    /// Current magnetism strength. Determines the strength of the effects of collisions.
     /// </summary>
     [DataField]
     public float CurrentStrength = 10f;
+    /// <summary>
+    /// Cap above which strength values are clamped.
+    /// </summary>
+    [DataField]
+    public float StrengthCap = 40f;
+    /// <summary>
+    /// If either entity in a collision is within CapEffectMargin of StrengthCap,
+    /// we'll add some extra effects to a magnetic blowout to make it more dangerous.
+    /// </summary>
+    [DataField]
+    public float CapEffectMargin = 5f;
+    /// <summary>
+    /// The range in tiles in which cap effects (similar to revenant spookies) will occur
+    /// </summary>
+    [DataField]
+    public float CapEffectRange = 3f;
+    [DataField]
+    public float CapEffectChance = 0.5f;
 
     [DataField]
-    public float MinDecayRate = 0.03f;
+    public float MinDecayRate = 0.01f;
     [DataField]
     public float MaxDecayRate = 0.05f;
     /// <summary>
@@ -75,12 +97,17 @@ public sealed partial class BiomagneticPolarizationStatusEffectComponent : Compo
     /// The proto of explosion that happens when two opposite fields touch.
     /// </summary>
     [DataField]
-    public ProtoId<ExplosionPrototype> ExplosionPrototype = "Cryo";
+    public ProtoId<ExplosionPrototype> ExplosionPrototype = "Electrical";
     /// <summary>
     /// Multiplier applied to explosion strength when two opposite-polarity entities collide.
     /// </summary>
     [DataField]
     public float ExplosionStrengthMult = 2f;
+    /// <summary>
+    /// Multiplier applied to explosion strength when either entity in a collision is within range of the strength cap.
+    /// </summary>
+    [DataField]
+    public float CapExplosionMult = 5f;
 
     /// <summary>
     /// Whitelist of entities that count towards Strength increase when moving onto a tile which contains them.
@@ -98,7 +125,10 @@ public sealed partial class BiomagneticPolarizationStatusEffectComponent : Compo
     [DataField, AutoNetworkedField]
     public string FixtureId = "flammable";
 
-    public Entity<PhysicsComponent>? StatusOwner = null;
+    [DataField]
+    public SoundSpecifier CapExplosionSound = new SoundPathSpecifier("/Audio/_Impstation/Effects/lightning_strike.ogg");
+
+    public Entity<PhysicsComponent?>? StatusOwner = null;
 
     /// <summary>
     /// when this gets marked true, the status effect is marked for disposal. this is to ensure parity between colliders
@@ -109,4 +139,15 @@ public sealed partial class BiomagneticPolarizationStatusEffectComponent : Compo
     /// stores the last tile this entity was standing on. used for calculating movement between tiles
     /// </summary>
     public TileRef LastTile = TileRef.Zero;
+
+    [DataField, AutoNetworkedField]
+    public bool Capped;
+    [DataField, AutoNetworkedField]
+    public bool LastCapped;
+}
+
+[Serializable, NetSerializable]
+public enum BiomagneticPolarizationLayers : byte
+{
+    Capped
 }

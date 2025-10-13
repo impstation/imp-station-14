@@ -9,3 +9,11 @@
     staticElectricityProviders:
       tags:
       - Carpet
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Impstation/Effects/elecanim.rsi
+    layers:
+    - state: elecanim
+      map: ["enum.BiomagneticPolarizationLayers.Capped"]
+      visible: false
+      shader: unshaded

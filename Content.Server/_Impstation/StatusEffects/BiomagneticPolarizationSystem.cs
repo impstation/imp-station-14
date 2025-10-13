@@ -1,16 +1,27 @@
+using System.Runtime.InteropServices.Marshalling;
 using Content.Server.Explosion.EntitySystems;
+using Content.Server.Ghost;
 using Content.Server.Lightning;
+using Content.Server.Storage.EntitySystems;
+using Content.Server.Stunnable;
 using Content.Shared._Impstation.StatusEffectNew;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Humanoid;
+using Content.Shared.Item;
+using Content.Shared.Light.Components;
 using Content.Shared.Maps;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.StatusEffectNew.Components;
+using Content.Shared.Storage.Components;
+using Content.Shared.Throwing;
 using Content.Shared.Whitelist;
 using Pidgin;
+using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -23,13 +34,18 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
+    [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly TransformSystem _xform = default!;
     [Dependency] private readonly MapSystem _mapSystem = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly SharedPointLightSystem _lights = default!;
     [Dependency] private readonly LightningSystem _lightning = default!;
     [Dependency] private readonly ExplosionSystem _explosion = default!;
+    [Dependency] private readonly ThrowingSystem _throwing = default!;
+    [Dependency] private readonly GhostSystem _ghost = default!;
+    [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly EntityStorageSystem _entStorage = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     private readonly EntProtoId _effectID = "StatusEffectBiomagneticPolarization";
@@ -63,6 +79,8 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
                 continue;
             }
 
+            comp.LastCapped = comp.Capped;
+
             if (comp.CooldownEnd > curTime)
                 continue;
 
@@ -71,21 +89,40 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
 
             HandleStaticTiles((ent, comp));
 
-            var (dispersed, triggeredCooldown) = HandleCollisions(physTuple, comp);
+            var (opposite, same, capInvolved) = HandleCollisions(physTuple, comp);
             // if HandleCollisions[1] returns true, it means that the ent has collided with an entity that has the opposite polarity,
             // so we'll shoot lighting bolts, cause a modest explosion, and mark the effect as expired.
-            if (dispersed)
+            if (opposite)
             {
                 expiredEffectEnts.Add(statusOwner);
-                var arcs = _random.Next(1, 3);
-                _lightning.ShootRandomLightnings(statusOwner, 5f, arcs, comp.LightningPrototype);
-                _explosion.QueueExplosion(_xform.GetMapCoordinates(statusOwner), comp.ExplosionPrototype, comp.CurrentStrength * comp.ExplosionStrengthMult, 1, 100, statusOwner);
+
+                var coords = _xform.GetMapCoordinates(statusOwner);
+
+                if (!capInvolved)
+                {
+                    var arcs = _random.Next(1, 3);
+                    _lightning.ShootRandomLightnings(statusOwner, 5f, arcs, comp.LightningPrototype);
+
+                    _explosion.QueueExplosion(coords, comp.ExplosionPrototype, comp.CurrentStrength * comp.ExplosionStrengthMult, 1, 100, statusOwner);
+                }
+                else
+                {
+                    var arcs = _random.Next(2, 5);
+                    _lightning.ShootRandomLightnings(statusOwner, 10f, arcs, comp.LightningPrototype);
+
+                    _explosion.QueueExplosion(coords, comp.ExplosionPrototype, comp.StrengthCap * comp.CapExplosionMult, 2, 100, statusOwner);
+
+                    HandleCapCollisionEffects((ent, comp));
+
+                    _audio.PlayPvs(comp.CapExplosionSound, ent);
+                }
                 continue;
             }
             // if HandleCollisions[2] returns true, it means that the ent has collided with an ent with different polarity and been thrown,
             // so we need to prevent collision handling for a few seconds.
-            if (triggeredCooldown)
+            if (same)
             {
+                _stun.TryKnockdown(ent, comp.TriggerCooldown);
                 comp.CooldownEnd = curTime + comp.TriggerCooldown;
             }
 
@@ -94,12 +131,29 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
                 continue;
             comp.NextUpdate = curTime + comp.UpdateTime;
 
+            // clamp strength to the strength cap
+            if (comp.CurrentStrength > comp.StrengthCap)
+                comp.CurrentStrength = comp.StrengthCap;
+
             // reduce strength by decay rate, then if it's 0 or less, mark this effect expired.
             comp.CurrentStrength -= comp.RealDecayRate;
             if (comp.CurrentStrength <= 0)
             {
                 expiredEffectEnts.Add(statusOwner);
                 continue;
+            }
+
+            // mark this component as capped if it's in the cap range, and not if it's not
+            var capRangeMin = comp.StrengthCap - comp.CapEffectMargin;
+            if (!comp.Capped && comp.CurrentStrength >= capRangeMin)
+            {
+                comp.Capped = true;
+                Dirty(ent, comp);
+            }
+            else if (comp.Capped && comp.CurrentStrength < capRangeMin)
+            {
+                comp.Capped = false;
+                Dirty(ent, comp);
             }
 
             // set the light proportional to the strength
@@ -142,8 +196,9 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
     {
         foreach (var (damageType, value) in args.Args.Damage.DamageDict)
         {
-            if (damageType == ShockDamage.Id)
-                ent.Comp.CurrentStrength += (float)value;
+            if (damageType != ShockDamage.Id)
+                continue;
+            ent.Comp.CurrentStrength += (float)value / 2;
         }
     }
 
@@ -173,6 +228,47 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
                 ent.Comp.CurrentStrength += ent.Comp.StrProvidedByStatic;
         }
         ent.Comp.LastTile = tile;
+    }
+
+    /// <summary>
+    /// Much of this was copied over from RevenantSystem.Abilities.
+    /// </summary>
+    private void HandleCapCollisionEffects(Entity<BiomagneticPolarizationStatusEffectComponent> ent)
+    {
+        var worldPos = _xform.GetWorldPosition(ent);
+
+        var lookup = _lookup.GetEntitiesInRange(ent, ent.Comp.CapEffectRange);
+        var entityStorage = GetEntityQuery<EntityStorageComponent>();
+        var items = GetEntityQuery<ItemComponent>();
+        var humanoid = GetEntityQuery<HumanoidAppearanceComponent>();
+        var lights = GetEntityQuery<PoweredLightComponent>();
+        var physics = GetEntityQuery<PhysicsComponent>();
+
+        foreach (var found in lookup)
+        {
+            // chuck shit (including people)
+            if (physics.TryGetComponent(found, out var physComp) && physComp.BodyType != BodyType.Static)
+            {
+                if (items.HasComponent(found) || humanoid.HasComponent(found))
+                {
+                    var foundPos = _xform.GetWorldPosition(found);
+                    var direction = foundPos - worldPos;
+                    _throwing.TryThrow(found, direction);
+                }
+            }
+
+            // everything below this line has a 50% chance per entity
+            if (_random.Prob(ent.Comp.CapEffectChance))
+                continue;
+
+            // open lockers and crates at random
+            if (entityStorage.TryGetComponent(found, out var entStorageComp))
+                _entStorage.OpenStorage(found, entStorageComp);
+
+            // flicker lights
+            if (lights.HasComponent(found))
+                _ghost.DoGhostBooEvent(found);
+        }
     }
 }
 
