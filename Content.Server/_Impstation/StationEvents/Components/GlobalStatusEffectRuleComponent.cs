@@ -1,6 +1,4 @@
-using System.ComponentModel.DataAnnotations;
 using Content.Server._Impstation.StationEvents.Events;
-using Content.Server.StationEvents.Events;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Impstation.StationEvents.Components;
@@ -16,4 +14,7 @@ public sealed partial class GlobalStatusEffectRuleComponent : Component
 
     [DataField]
     public float? MaxEffectDuration = null;
+
+    [DataField]
+    public LocId? Announcement = null;
 }

@@ -1,11 +1,11 @@
-
-
 using Content.Server._Impstation.StationEvents.Components;
+using Content.Server.Announcements.Systems;
 using Content.Server.StationEvents.Events;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Mind.Components;
 using Content.Shared.StatusEffectNew;
+using Robust.Shared.Player;
 using Robust.Shared.Random;
 
 namespace Content.Server._Impstation.StationEvents.Events;
@@ -16,7 +16,18 @@ namespace Content.Server._Impstation.StationEvents.Events;
 public sealed class GlobalStatusEffectRule : StationEventSystem<GlobalStatusEffectRuleComponent>
 {
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly AnnouncerSystem _announcer = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
+
+    protected override void Added(EntityUid uid, GlobalStatusEffectRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
+    {
+        base.Added(uid, component, gameRule, args);
+
+        if (!TryGetRandomStation(out var station) || component.Announcement == null)
+            return;
+
+        _announcer.SendAnnouncement(_announcer.GetAnnouncementId(args.RuleId), Filter.Broadcast(), component.Announcement, null, Color.Gold);
+    }
 
     protected override void Started(EntityUid uid, GlobalStatusEffectRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {

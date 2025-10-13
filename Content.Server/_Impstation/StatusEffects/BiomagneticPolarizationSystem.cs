@@ -1,10 +1,11 @@
-using System.Runtime.InteropServices.Marshalling;
+using Content.Server.Audio;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Ghost;
 using Content.Server.Lightning;
 using Content.Server.Storage.EntitySystems;
 using Content.Server.Stunnable;
 using Content.Shared._Impstation.StatusEffectNew;
+using Content.Shared.Audio;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Humanoid;
@@ -16,7 +17,6 @@ using Content.Shared.StatusEffectNew.Components;
 using Content.Shared.Storage.Components;
 using Content.Shared.Throwing;
 using Content.Shared.Whitelist;
-using Pidgin;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
@@ -34,19 +34,20 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
+    [Dependency] private readonly AmbientSoundSystem _ambientSound = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly TransformSystem _xform = default!;
-    [Dependency] private readonly MapSystem _mapSystem = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
-    [Dependency] private readonly SharedPointLightSystem _lights = default!;
-    [Dependency] private readonly LightningSystem _lightning = default!;
-    [Dependency] private readonly ExplosionSystem _explosion = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
-    [Dependency] private readonly GhostSystem _ghost = default!;
-    [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly EntityStorageSystem _entStorage = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private readonly ExplosionSystem _explosion = default!;
+    [Dependency] private readonly GhostSystem _ghost = default!;
+    [Dependency] private readonly LightningSystem _lightning = default!;
+    [Dependency] private readonly MapSystem _mapSystem = default!;
+    [Dependency] private readonly SharedPointLightSystem _lights = default!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
+    [Dependency] private readonly StunSystem _stun = default!;
+    [Dependency] private readonly ThrowingSystem _throwing = default!;
+    [Dependency] private readonly TransformSystem _xform = default!;
 
     private readonly EntProtoId _effectID = "StatusEffectBiomagneticPolarization";
     private static readonly ProtoId<DamageTypePrototype> ShockDamage = "Shock";
@@ -143,16 +144,24 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
                 continue;
             }
 
+            var ambientComp = EnsureComp<AmbientSoundComponent>(ent);
+
             // mark this component as capped if it's in the cap range, and not if it's not
             var capRangeMin = comp.StrengthCap - comp.CapEffectMargin;
             if (!comp.Capped && comp.CurrentStrength >= capRangeMin)
             {
                 comp.Capped = true;
+
+                _ambientSound.SetAmbience(ent, true, ambientComp);
+
                 Dirty(ent, comp);
             }
             else if (comp.Capped && comp.CurrentStrength < capRangeMin)
             {
                 comp.Capped = false;
+
+                _ambientSound.SetAmbience(ent, false, ambientComp);
+
                 Dirty(ent, comp);
             }
 
@@ -190,6 +199,7 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
             return;
 
         comp.StatusOwner = (args.Target, physComp);
+        Dirty(ent, ent.Comp);
     }
 
     public void OnDamageModified(Entity<BiomagneticPolarizationStatusEffectComponent> ent, ref StatusEffectRelayedEvent<DamageModifyEvent> args)

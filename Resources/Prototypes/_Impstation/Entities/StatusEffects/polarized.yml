@@ -17,3 +17,8 @@
       map: ["enum.BiomagneticPolarizationLayers.Capped"]
       visible: false
       shader: unshaded
+  - type: AmbientSound
+    enabled: false
+    volume: 3
+    sound:
+      path: /Audio/Ambience/Objects/buzzing.ogg

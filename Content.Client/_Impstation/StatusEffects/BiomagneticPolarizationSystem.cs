@@ -1,25 +1,16 @@
-using Content.Client.Administration.Systems;
+using Content.Client.Audio;
 using Content.Shared._Impstation.StatusEffectNew;
-using Content.Shared.StatusEffectNew;
+using Content.Shared.Audio;
 using Content.Shared.StatusEffectNew.Components;
-using Pidgin;
 using Robust.Client.GameObjects;
-using Robust.Client.Player;
 using Robust.Shared.Physics.Components;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 
 namespace Content.Client._Impstation.StatusEffects;
 
 public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizationSystem
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
+    [Dependency] private readonly AmbientSoundSystem _ambientSound = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
-
-    private readonly EntProtoId _effectID = "StatusEffectBiomagneticPolarization";
 
     public override void Initialize()
     {
@@ -31,12 +22,6 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
 
     public override void Update(float frameTime)
     {
-        var maybePlayer = _player.LocalEntity;
-        if (maybePlayer is not { } player)
-            return;
-
-        HandlePrediction(player);
-
         var query = EntityQueryEnumerator<BiomagneticPolarizationStatusEffectComponent>();
         while (query.MoveNext(out var ent, out var comp))
         {
@@ -44,10 +29,18 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
             if (comp.Capped == comp.LastCapped)
                 continue;
 
+            var ambientComp = EnsureComp<AmbientSoundComponent>(ent);
+
             if (comp.Capped)
-                AddCappedSprite((ent, comp));
+            {
+                SetCappedSprite((ent, comp), true);
+                _ambientSound.SetAmbience(ent, true, ambientComp);
+            }
             else
-                RemoveCappedSprite((ent, comp));
+            {
+                SetCappedSprite((ent, comp), false);
+                _ambientSound.SetAmbience(ent, false, ambientComp);
+            }
         }
 
         base.Update(frameTime);
@@ -68,29 +61,13 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
 
     public void OnShutdown(Entity<BiomagneticPolarizationStatusEffectComponent> ent, ref ComponentShutdown args)
     {
-        RemoveCappedSprite(ent);
+        SetCappedSprite(ent, false);
     }
 
-    public void HandlePrediction(EntityUid player)
-    {
-        if (_statusEffect.TryGetStatusEffect(player, _effectID, out var effect)
-            && TryComp<BiomagneticPolarizationStatusEffectComponent>(effect, out var biomagComp))
-        {
-            HandleCollisions(biomagComp.StatusOwner, biomagComp);
-        }
-    }
-
-    public void AddCappedSprite(Entity<BiomagneticPolarizationStatusEffectComponent> ent)
+    public void SetCappedSprite(Entity<BiomagneticPolarizationStatusEffectComponent> ent, bool setting)
     {
         if (!TryComp<SpriteComponent>(ent, out var sprite))
             return;
-        _sprite.LayerSetVisible((ent, sprite), BiomagneticPolarizationLayers.Capped, true);
-    }
-
-    public void RemoveCappedSprite(Entity<BiomagneticPolarizationStatusEffectComponent> ent)
-    {
-        if (!TryComp<SpriteComponent>(ent, out var sprite))
-            return;
-        _sprite.LayerSetVisible((ent, sprite), BiomagneticPolarizationLayers.Capped, false);
+        _sprite.LayerSetVisible((ent, sprite), BiomagneticPolarizationLayers.Capped, setting);
     }
 }

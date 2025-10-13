@@ -1,22 +1,15 @@
-
-using Content.Shared.Lightning;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.Throwing;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
-using Robust.Shared.Timing;
 
 namespace Content.Shared._Impstation.StatusEffectNew;
 
 public abstract class SharedBiomagneticPolarizationSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly ThrowingSystem _throw = default!;
 
@@ -31,12 +24,8 @@ public abstract class SharedBiomagneticPolarizationSystem : EntitySystem
     /// Returns (TRUE, FALSE) if collision occurs between two entities of opposite polarity.
     /// Returns (FALSE, TRUE) if collision occurs between two entities of the same polarity.
     /// Returns (FALSE, FALSE) if no valid collision is detected.
-    /// The third bool value returns
+    /// The third bool value returns TRUE if either involved entity was at strength cap.
     /// </summary>
-    /// <param name="ent"></param>
-    /// <param name="biomagComp"></param>
-    /// <param name="frameTime"></param>
-    /// <returns></returns>
     protected (bool Opposite, bool Same, bool StrCapInvolved) HandleCollisions(Entity<PhysicsComponent?>? entPhys, BiomagneticPolarizationStatusEffectComponent biomagComp)
     {
         if (entPhys is not { } ent || ent.Comp is not { } physComp)
@@ -81,15 +70,18 @@ public abstract class SharedBiomagneticPolarizationSystem : EntitySystem
                 var worldPos = _xform.GetWorldPosition(xform, xformQuery);
 
                 var otherXform = Transform(other);
-                var direction = _xform.GetWorldPosition(otherXform, xformQuery) - worldPos;
+                var otherWorldPos = _xform.GetWorldPosition(otherXform, xformQuery);
+
+                var direction = otherWorldPos - worldPos;
+                var otherDirection = worldPos - otherWorldPos;
 
                 var strengthAverage = (biomagComp.CurrentStrength + otherBiomagComp.CurrentStrength) / 2;
                 // balance the strength of both parties
                 biomagComp.CurrentStrength = strengthAverage;
                 otherBiomagComp.CurrentStrength = strengthAverage;
                 // chuck shit
-                _throw.TryThrow(ent, direction * -strengthAverage, strengthAverage * biomagComp.ThrowStrengthMult);
-                _throw.TryThrow(other, direction * strengthAverage, strengthAverage * otherBiomagComp.ThrowStrengthMult);
+                _throw.TryThrow(ent, direction * -(strengthAverage / 2), strengthAverage * biomagComp.ThrowStrengthMult);
+                _throw.TryThrow(other, otherDirection * -(strengthAverage / 2), strengthAverage * otherBiomagComp.ThrowStrengthMult);
             }
             // if two people with DIFFERENT charge come in contact, they cause an explosion and lose their charge.
             else if (biomagComp.Polarization != otherBiomagComp.Polarization)

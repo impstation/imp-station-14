@@ -32,7 +32,7 @@ public sealed partial class BiomagneticPolarizationStatusEffectComponent : Compo
     /// TRUE = NORTH
     /// FALSE = SOUTH
     /// </summary>
-    [DataField("polarization: N=T S=F")]
+    [DataField("polarization: N=T S=F"), AutoNetworkedField]
     public bool Polarization;
 
     [DataField]
