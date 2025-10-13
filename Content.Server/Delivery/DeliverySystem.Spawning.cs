@@ -168,7 +168,7 @@ public sealed partial class DeliverySystem
         // Try to fulfill from any station where possible, if the pad is not occupied.
         foreach (var trade in tradeGrids)
         {
-            var tradePads = _cargo.GetCargoPallets(trade, BuySellType.Buy);
+            var tradePads = _cargo.GetCargoPallets(trade, BuySellType.Mail);
             _random.Shuffle(tradePads);
 
             var freePads = _cargo.GetFreeCargoPallets(trade, tradePads);

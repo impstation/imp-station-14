@@ -49,8 +49,3 @@
   parent: BaseCircuitboardRecipe
   id: SyndicateElectricRangeMachineCircuitboard
   result: SyndicateElectricRangeMachineCircuitboard
-
-- type: latheRecipe
-  parent: [ BaseCircuitboardRecipe, BaseSupplyMachineRecipeCategory ]
-  id: MailTeleporterMachineCircuitboard
-  result: MailTeleporterMachineCircuitboard
