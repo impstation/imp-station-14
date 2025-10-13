@@ -2,9 +2,8 @@
   id: Boat
   mapName: 'NTAS Whale'
   mapPath: /Maps/_Impstation/boat.yml
-  minPlayers: 50
-  maxPlayers: 100
-  randomRotation: true
+  minPlayers: 45
+  maxPlayers: 69 #map needs more job spawns to have a higher max pop
   stations:
     Boat:
       stationProto: StandardNanotrasenStation
@@ -15,7 +14,7 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'AS'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/emergency_accordia.yml
+          emergencyShuttlePath: /Maps/Shuttles/emergency_cluster.yml
         - type: StationCargoShuttle
           path: /Maps/Shuttles/cargo_fland.yml
         - type: StationJobs
@@ -49,7 +48,7 @@
             Chemist: [ 2, 2 ]
             MedicalDoctor: [ 3, 3 ]
             MedicalIntern: [ 3, 3 ]
-            Paramedic: [ 2, 2 ]
+            Paramedic: [ 1, 1 ]
             Psychologist: [ 1, 1 ]
             # science - 8-9
             Borg: [ 4, 4 ]

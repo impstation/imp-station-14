@@ -75,7 +75,7 @@
       - id: DefibrillatorCompact
       - id: MedicatedSuture
       - id: RegenerativeMesh
-      - id: SyringeOxycodone # Offbrand
+      - id: SyringeSaline
       - id: BruteAutoInjector
       - id: BurnAutoInjector
       - id: EmergencyMedipen
@@ -90,7 +90,7 @@
       - id: Wrench
       - id: WeaponProtoKineticAcceleratorApid
       - id: EmergencyMedipen
-      - id: SyringeParacetamol # Offbrand
+      - id: SyringeSaline
       - id: FireExtinguisherMini
       - id: WeaponGrapplingGun
 
@@ -123,3 +123,18 @@
       - id: HolyArrowEvil
       - id: HolyArrowEvil
       - id: HolyArrowEvil
+
+- type: entity
+  id: ClothingBeltUtilityCowFilled
+  parent: ClothingBeltUtility
+  suffix: Filled, Cow Tools
+  components:
+  - type: StorageFill
+    contents:
+    - id: Haycutters
+    - id: Moodriver
+    - id: Wronch
+    - id: Cowbar
+    - id: Mooltitool
+    - id: Cowelder
+    - id: Milkalyzer
