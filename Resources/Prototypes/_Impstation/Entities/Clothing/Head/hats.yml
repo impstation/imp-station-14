@@ -280,6 +280,21 @@
     - WhitelistChameleon
 
 - type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHarleyHat
+  name: Harley's Jester Hood
+  description: A hood to match your copyright free red and black costume!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hats/harleyhat.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hats/harleyhat.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+
+- type: entity
   parent: ClothingHeadHatHolyWatermelon
   id: ClothingHeadHalo
   name: halo

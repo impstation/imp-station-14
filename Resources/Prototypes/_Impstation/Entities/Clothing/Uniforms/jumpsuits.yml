@@ -89,6 +89,17 @@
 
 - type: entity
   parent: [ClothingUniformBase]
+  id: ClothingUniformHarleyJester
+  name: Harley's Jester Suit
+  description: A copyright free red and black jester costume!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/harleysuit.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/harleysuit.rsi
+
+- type: entity
+  parent: [ClothingUniformBase]
   id: ClothingUniformJokester
   name: jokester's jumpsuit
   description: Now 100% more tomato-proof!

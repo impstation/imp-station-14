@@ -24,10 +24,24 @@
     - WhitelistChameleon
 
 - type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesHarleyShoes
+  name: Harley's Shoes
+  description: A pair of shoes to match your copyright free red and black costume!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Shoes/Misc/harleyshoes.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Shoes/Misc/harleyshoes.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
   parent: [ClothingShoesBaseButcherable, BaseCentcommContraband]
   id: ClothingShoesImpishShoes
   name: impish shoes
-  description: 
+  description:
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Shoes/Misc/impishshoes.rsi
