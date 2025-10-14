@@ -6,7 +6,6 @@ using Content.Shared.Interaction;
 using Content.Shared._Impstation.Eeep.Components;
 using Content.Shared._Impstation.Eeep.Systems;
 using Content.Shared.Popups;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 
 namespace Content.Server._Impstation.Eeep.Systems;
@@ -25,7 +24,7 @@ public sealed class BatteryDrainerEeepSystem : SharedBatteryDrainerEeepSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BatteryDrainerEeepComponent, ComponentStartup>(OnStartup); // imp add
+        SubscribeLocalEvent<BatteryDrainerEeepComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<BatteryDrainerEeepComponent, BeforeInteractHandEvent>(OnBeforeInteractHand);
         SubscribeLocalEvent<BatteryDrainerEeepComponent, NinjaBatteryChangedEvent>(OnBatteryChanged);
     }

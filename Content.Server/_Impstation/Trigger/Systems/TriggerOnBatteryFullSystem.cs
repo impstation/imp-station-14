@@ -1,4 +1,4 @@
-using Content.Server._Impstation.Trigger.Components.Effects;
+
 using Content.Server._Impstation.Trigger.Components.Triggers;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
@@ -6,7 +6,7 @@ using Content.Shared.Trigger.Systems;
 
 namespace Content.Server._Impstation.Trigger.Systems;
 
-public sealed class TriggerOnBatteryFullSystem: EntitySystem
+public sealed class TriggerOnBatteryFullSystem : EntitySystem
 {
     [Dependency] private readonly TriggerSystem _trigger = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
