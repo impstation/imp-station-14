@@ -1,0 +1,63 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "by atdoop (github) for impstation",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "computer",
+            "directions": 4
+        },
+        {
+            "name": "keyboard",
+            "directions": 4
+        },
+        {
+            "name": "screen_generic",
+            "directions": 4,
+            "delays": [
+                [
+                    0.5,
+                    0.5
+                ],
+                [
+                    0.5,
+                    0.5
+                ],
+                [
+                    0.5,
+                    0.5
+                ],
+                [
+                    0.5,
+                    0.5
+                ]
+            ]
+        },
+        {
+            "name": "reaper",
+            "directions": 4,
+            "delays": [
+                [
+                    0.4,
+                    0.4
+                ],
+                [
+                    0.4,
+                    0.4
+                ],
+                [
+                    0.4,
+                    0.4
+                ],
+                [
+                    0.4,
+                    0.4
+                ]
+            ]
+        }
+    ]
+}

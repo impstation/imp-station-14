@@ -163,7 +163,9 @@
     staminaCost: 44
     soundHit:
       collection: MetalThud
-  - type: HarpyHideWings # Frontier, needed for Kodepiiae
+  - type: HideLayerClothing # imp
+    slots:
+    - RArmExtension
 
 - type: entity
   abstract: true
@@ -194,7 +196,9 @@
         Heat: 10 # the average lightbulb only does around four damage!
         Cold: 10 # imp edit. For cold lightbulb
     slots: OUTERCLOTHING
-  - type: HarpyHideWings # Frontier, needed for Kodepiiae
+  - type: HideLayerClothing # imp
+    slots:
+    - RArmExtension
 
 - type: entity
   parent: ClothingOuterBase
