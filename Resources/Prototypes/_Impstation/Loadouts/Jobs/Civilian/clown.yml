@@ -4,6 +4,11 @@
   equipment:
     head: ClothingHeadHatCircusClown
 
+- type: loadout
+  id: HarleyHat
+  equipment:
+    head: ClothingHeadHarleyHat
+
 #Mask
 - type: loadout
   id: ClownMask
@@ -26,6 +31,11 @@
   equipment:
     jumpsuit: ClothingUniformJokester
 
+- type: loadout
+  id: HarleySuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHarleyJester
+
 #OuterClothing
 - type: loadout
   id: JokesterOuterCoat
@@ -43,8 +53,19 @@
   equipment:
     shoes: ClothingShoesJokester
 
+- type: loadout
+  id: HarleyShoes
+  equipment:
+    shoes: ClothingShoesHarleyShoes
+
 #Neck
 - type: loadout
   id: NeckRuffle
   equipment:
     neck: ClothingNeckRuffle
+
+#Gloves
+- type: loadout
+  id: HarleyGloves
+  equipment:
+    hands: ClothingHandsHarleyGloves
