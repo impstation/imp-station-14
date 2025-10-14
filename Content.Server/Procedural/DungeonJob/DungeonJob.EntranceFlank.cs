@@ -47,7 +47,7 @@ public sealed partial class DungeonJob
         foreach (var entrance in spawnPositions)
         {
             // Imp Edit Start
-            if (!gen.useRandomEntity)
+            if (!gen.UseRandomEntity)
                 foreach (var entity in contents)
                     _entManager.SpawnEntity(entity, _maps.GridTileToLocal(_gridUid, _grid, entrance));
             else

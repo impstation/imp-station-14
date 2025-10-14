@@ -1,6 +1,6 @@
-using Content.Shared.EntityTable;
+//using Content.Shared.EntityTable; // imp unused
 using Content.Shared.Maps;
-using Content.Shared.Storage;
+//using Content.Shared.Storage; // imp unused
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Procedural.PostGeneration;
@@ -14,5 +14,5 @@ public sealed partial class RoomEntranceDunGen : IDunGenLayer
     public ProtoId<ContentTileDefinition> Tile;
 
     [DataField]
-    public EntProtoId Contents; // imp
+    public EntProtoId Contents; // imp, was entitytable
 }

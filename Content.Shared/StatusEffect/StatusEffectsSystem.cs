@@ -5,8 +5,7 @@ using Content.Shared.StatusEffectNew;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
-using Robust.Shared.GameObjects;
+//using Robust.Shared.Utility; // imp unused
 
 namespace Content.Shared.StatusEffect
 {
@@ -378,7 +377,7 @@ namespace Content.Shared.StatusEffect
 
             if (!_prototypeManager.TryIndex<StatusEffectPrototype>(key, out var proto))
                 return false;
-            if (!proto.AlwaysAllowed && !status.AllowedEffects.Contains(key))
+            if (!status.AllowedEffects.Contains(key) && !proto.AlwaysAllowed)
                 return false;
 
             return true;

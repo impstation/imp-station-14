@@ -442,7 +442,7 @@ public abstract partial class SharedXenoArtifactSystem
     }
 
     /// <summary>
-    /// Imp edit, set the current node to the given node, rebuild the cache of active nodes.
+    ///     Imp edit, set the current node to the given node, rebuild the cache of active nodes.
     /// </summary>
     public void SetCurrentNode(Entity<XenoArtifactComponent> artifact, Entity<XenoArtifactNodeComponent> node)
     {
@@ -452,7 +452,7 @@ public abstract partial class SharedXenoArtifactSystem
     }
 
     /// <summary>
-    /// Imp edit, set a new current node depending on the set bias and the connected locked nodes
+    ///     Imp edit, set a new current node depending on the set bias and the connected locked nodes
     /// </summary>
     public void GetNewCurrentNode(Entity<XenoArtifactComponent> ent)
     {

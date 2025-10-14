@@ -127,7 +127,7 @@ public abstract class SharedObjectivesSystem : EntitySystem
             return null;
         }
 
-        return new ObjectiveInfo(title, description, comp.Icon, progress, comp.Trivial);
+        return new ObjectiveInfo(title, description, comp.Icon, progress, comp.Trivial); // imp add trivial
     }
 
     /// <summary>

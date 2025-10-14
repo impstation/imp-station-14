@@ -1,11 +1,11 @@
 using System.Linq;
 using Content.Shared.FixedPoint;
-using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Store.Components;
 using Content.Shared.StoreDiscount.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using Content.Shared.Heretic.Prototypes; // imp
 
 namespace Content.Shared.Store;
 
@@ -28,7 +28,7 @@ public partial class ListingData : IEquatable<ListingData>
         other.Description,
         other.Conditions,
         other.Icon,
-        other.Buyable,
+        other.Buyable, // imp add
         other.Priority,
         other.ProductEntity,
         other.ProductAction,
@@ -42,7 +42,7 @@ public partial class ListingData : IEquatable<ListingData>
         other.OriginalCost,
         other.RestockTime,
         other.DiscountDownTo,
-        other.ProductHereticKnowledge,
+        other.ProductHereticKnowledge, // imp add
         other.DisableRefund
     )
     {

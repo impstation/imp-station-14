@@ -119,7 +119,7 @@ public sealed partial class DungeonJob
         {
             var gridPos = _maps.GridTileToLocal(_gridUid, _grid, tile.Item1);
             // Imp Edit Start
-            if (!gen.useRandomEntity)
+            if (!gen.UseRandomEntity)
                 foreach (var entity in contents)
                     _entManager.SpawnEntity(entity, gridPos);
             else
