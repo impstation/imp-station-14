@@ -526,6 +526,14 @@
     state: EyesDots
   shader: unshaded
 
+- type: marking
+  id: EyesWaterUngu
+  bodyPart: Eyes
+  markingCategory: Eyes
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/eyes.rsi
+    state: EyesWater
 
 # RArm
 
@@ -997,6 +1005,9 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/tail.rsi
     state: TailLong
+  - sprite: _Impstation/Mobs/Customization/Ungu/tail.rsi
+    state: TailLong_Fluff
+
 
 - type: marking
   id: TailNubUngu
