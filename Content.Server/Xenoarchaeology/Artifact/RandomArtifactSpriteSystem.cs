@@ -4,7 +4,6 @@ using Content.Shared.Xenoarchaeology.XenoArtifacts;
 using Robust.Server.GameObjects;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Content.Server.Xenoarchaeology.XenoArtifacts.Events; //#IMP
 
 namespace Content.Server.Xenoarchaeology.Artifact;
 

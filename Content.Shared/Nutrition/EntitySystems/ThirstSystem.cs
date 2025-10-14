@@ -200,14 +200,15 @@ public sealed class ThirstSystem : EntitySystem
 
     // imp add
     /// <summary>
-    ///         a check that returns if the entity is below a thirst threshold (used in Excretion system)
+    ///     a check that returns if the entity is below a thirst threshold (used in Excretion system)
     /// </summary>
-    public bool IsThirstBelowState(EntityUid uid, ThirstThreshold threshold, ThirstComponent? comp = null)
+    public bool IsThirstBelowState(EntityUid uid, ThirstThreshold threshold, float? amount = null, ThirstComponent? comp = null)
     {
         if (!Resolve(uid, ref comp))
             return false; // If entity does not have the ability to be thirsty, don't check it.
 
-        return GetThirstThreshold(comp, comp.CurrentThirst) < threshold;
+        var thirstAmount = amount ?? comp.CurrentThirst;
+        return GetThirstThreshold(comp, thirstAmount) < threshold;
     }
 
     public override void Update(float frameTime)
