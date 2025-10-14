@@ -53,10 +53,24 @@
     soundHit:
       collection: AlienClaw
     angle: 30
-    animation: WeaponArcClaw
+    animation: WeaponArcAllulaloBite
     damage:
       types:
-        Slash: 5
+        Piercing: 4
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: Ethanotoxin
+          Quantity: 2 #you can bite someone twice
+  - type: MeleeChemicalInjector
+    solution: melee
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: Ethanotoxin
+        Quantity: 0.05 #20 second cooldown between bites working full power
   - type: StaminaResistance
     damageCoefficient: 1.25 #takes the disabler/batong hits needed to stun from 4 > 3
   - type: Butcherable
