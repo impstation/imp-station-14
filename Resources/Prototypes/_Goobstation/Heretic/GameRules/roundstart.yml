@@ -34,6 +34,7 @@
   components:
   - type: HereticRule
   - type: GameRule
+    minPlayers: 5
     delay:
       min: 30
       max: 60
