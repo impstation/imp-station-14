@@ -47,3 +47,42 @@
   materials:
     Credit: 5000
     Plasma: 1000
+
+- type: latheRecipe
+  id: InterdyneUplinkLighterBox
+  result: UplinkLighterBox
+  completetime: 1
+  materials:
+    Credit: 4000
+
+- type: latheRecipe
+  id: InterdyneCigPackSyndicate
+  result: CigPackSyndicate
+  completetime: 1
+  materials:
+    Credit: 10000
+    Plasma: 3000
+
+- type: latheRecipe
+  id: InterdyneCigCartonSyndicate
+  result: CigCartonSyndicate
+  completetime: 1
+  materials:
+    Credit: 50000
+    Plasma: 9000
+
+- type: latheRecipe
+  id: InterdyneCigPackMixedRejects
+  result: CigPackMixedRejects
+  completetime: 1
+  materials:
+    Credit: 2000
+    Plasma: 500
+
+- type: latheRecipe
+  id: InterdyneCigCartonMixedRejects
+  result: CigCartonMixedRejects
+  completetime: 1
+  materials:
+    Credit: 6000
+    Plasma: 1500

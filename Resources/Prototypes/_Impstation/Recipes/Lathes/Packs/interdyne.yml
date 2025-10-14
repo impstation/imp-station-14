@@ -4,9 +4,12 @@
   id: ImpInterdyneStatic
   recipes:
   - InterdyneVestine
-  - InterdyneEchion
+  - InterdyneUplinkLighterBox
   - InterdyneLead
-
+  - InterdyneCigPackSyndicate
+  - InterdyneCigCartonSyndicate
+  - InterdyneCigPackMixedRejects
+  - InterdyneCigCartonMixedRejects
 # Dynamic
 
 #- type: latheRecipePack
@@ -19,3 +22,4 @@
   id: ImpInterdyneEmagged
   recipes:
   - InterdyneVoidLabel
+  - InterdyneEchion
