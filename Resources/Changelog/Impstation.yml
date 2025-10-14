@@ -1,41 +1,4 @@
 ﻿Entries:
-- author: DinnerCalzone
-  changes:
-  - message: The evil skull once again makes skeleton screams when its nodes activate.
-    type: Tweak
-  id: 1817
-  time: '2025-06-13T00:22:25.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2734
-- author: CombustibleToast
-  changes:
-  - message: Some jumpsuits can go slutmode again
-    type: Fix
-  id: 1818
-  time: '2025-06-13T00:20:14.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2735
-- author: msTheowo
-  changes:
-  - message: Moved some service jobs back into the civilian department
-    type: Tweak
-  id: 1819
-  time: '2025-06-13T00:21:51.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2730
-- author: ruddygreat
-  changes:
-  - message: Added basic orgnaisational capabilities to the cargo bounty conputer
-    type: Add
-  id: 1820
-  time: '2025-06-13T00:24:10.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2727
-- author: crocodilecarousel, LandsharkRAWR
-  changes:
-  - message: new crab markings
-    type: Add
-  - message: pauldrons layer better now
-    type: Tweak
-  id: 1821
-  time: '2025-06-14T00:22:22.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2746
 - author: DVDPlayerOfDiscordFame
   changes:
   - message: New in-hand sprites for our Impstation magazines!
@@ -4189,3 +4152,44 @@
   id: 2316
   time: '2025-10-11T04:47:03.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3529
+- author: Pinkbat5
+  changes:
+  - message: Some accents are now free to select.
+    type: Tweak
+  id: 2317
+  time: '2025-10-14T01:47:48.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3457
+- author: msTheowo
+  changes:
+  - message: Natural artifacts now behave more similarly to reticulated artifacts,
+      but they are still their own thing.
+    type: Tweak
+  id: 2318
+  time: '2025-10-14T01:53:15.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3526
+- author: VeeNomine
+  changes:
+  - message: Added the Shamisen, a traditional Japanese string instrument.
+    type: Add
+  - message: The Shamisen is a selectable starter instrument for musicans.
+    type: Add
+  - message: The Shamisen has been added the string instruments crate, purchasable
+      from Cargo.
+    type: Add
+  id: 2319
+  time: '2025-10-14T14:05:57.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3556
+- author: FancyPlanks
+  changes:
+  - message: Wizards can no longer buy the Animate spell until it is fixed!
+    type: Remove
+  id: 2320
+  time: '2025-10-14T14:14:32.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3562
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: New visuals for stun projectiles and their hit animations!
+    type: Add
+  id: 2321
+  time: '2025-10-14T14:20:23.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3553
