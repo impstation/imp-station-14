@@ -13,7 +13,6 @@ using Content.Shared.Xenoarchaeology.Equipment.Components;
 using Robust.Shared.Collections;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Content.Server.Storage.Components; //imp
 using Content.Server.Xenoarchaeology.Artifact; //imp
 using Content.Shared._Goobstation.Changeling; //imp
 using Content.Shared.Xenoarchaeology.Artifact.Components; //imp
