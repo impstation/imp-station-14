@@ -441,7 +441,7 @@
       - state: plain-inhand-right
       - state: alpha-slice-filling-inhand-right
         color: "#ffffff"
-  - type: Tag
+  - type: Tag # imp
     tags:
     - UnguFood
     - Cake
@@ -1465,7 +1465,7 @@
     tags:
     - Cake
     - Suppermatter
-    - UnguFood
+    - UnguFood # imp
 
 - type: entity
   name: suppermatter shard
