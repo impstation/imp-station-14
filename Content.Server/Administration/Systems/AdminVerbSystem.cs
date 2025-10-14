@@ -35,8 +35,6 @@ using Robust.Shared.Toolshed;
 using Robust.Shared.Utility;
 using System.Linq;
 using static Content.Shared.Configurable.ConfigurationComponent;
-using Content.Server.Xenoarchaeology.XenoArtifacts; //#IMP
-using Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Components; //#IMP
 using Content.Shared._Impstation.Thaven.Components; // imp
 using Content.Server._Impstation.Thaven; // imp
 
@@ -69,7 +67,6 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly AdminFrozenSystem _freeze = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly SiliconLawSystem _siliconLawSystem = default!;
-        [Dependency] private readonly ArtifactSystem _artifactSystem = default!; //#IMP Old Xeno
         [Dependency] private readonly ThavenMoodsSystem _moods = default!; // imp
 
         private readonly Dictionary<ICommonSession, List<EditSolutionsEui>> _openSolutionUis = new();
@@ -504,30 +501,6 @@ namespace Content.Server.Administration.Systems
                 };
                 args.Verbs.Add(verb);
             }
-
-            // #IMP OLD XenoArcheology
-            if (_adminManager.IsAdmin(player) && TryComp<ArtifactComponent>(args.Target, out var artifact))
-            {
-                // make artifact always active (by adding timer trigger)
-                args.Verbs.Add(new Verb()
-                {
-                    Text = Loc.GetString("artifact-verb-make-always-active"),
-                    Category = VerbCategory.Debug,
-                    Act = () => EntityManager.AddComponent<ArtifactTimerTriggerComponent>(args.Target),
-                    Disabled = EntityManager.HasComponent<ArtifactTimerTriggerComponent>(args.Target),
-                    Impact = LogImpact.High
-                });
-
-                // force to activate artifact ignoring timeout
-                args.Verbs.Add(new Verb()
-                {
-                    Text = Loc.GetString("artifact-verb-activate"),
-                    Category = VerbCategory.Debug,
-                    Act = () => _artifactSystem.ForceActivateArtifact(args.Target, component: artifact),
-                    Impact = LogImpact.High
-                });
-            }
-            // imp end
 
             if (TryComp<InventoryComponent>(args.Target, out var inventoryComponent))
             {

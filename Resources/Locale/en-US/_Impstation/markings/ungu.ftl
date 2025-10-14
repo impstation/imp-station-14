@@ -16,8 +16,8 @@ marking-Elated1Ungu = Elated Face
 marking-Elated2Ungu = Joyfull Face
 marking-Tormented1Ungu = Tormented Face
 marking-Tormented2Ungu = Angry Face
-marking-ChestSplotchesLUngu = Left Side Chest Splotches
-marking-ChestSplotchesRUngu = Right Side Chest Splotches
+marking-ChestSplotchesLUngu = Chest Splotches (Left)
+marking-ChestSplotchesRUngu = Chest Splotches (Right)
 
 # ears
 
@@ -56,8 +56,8 @@ marking-CryUngu = Crying
 marking-HornsHawkUngu = Horn-Hawk
 marking-HornUniUngu= Unicorn/ Narwhal Horn
 marking-HornsProstheticUngu = Prosthetic Horns
-marking-HeadSplotchLUngu = Left Side Head Splotch
-marking-HeadSplotchRUngu = Right Side Head Splotch
+marking-HeadSplotchLUngu = Head Splotch (Left)
+marking-HeadSplotchRUngu = Head Splotch (Right)
 
 # hair
 
@@ -109,51 +109,52 @@ marking-EyesCyclopsGlowUngu = Glowing Cyclops Eye
 marking-EyesCyclopsGlowUngu-EyesCyclops = Pupil
 marking-EyesCyclopsGlowUngu-EyesCyclopsWhite = Sclera
 marking-EyesDotsGlowUngu = Glowing Eyes
+marking-EyesWaterUngu = Watery Eyes
 
 # arms
 
-marking-RArmFluffUngu = Fluffy Right Arm
-marking-RArmSpotUngu = Spotty Right Arm
-marking-LArmFluffUngu = Fluffy Left Arm
-marking-LArmSpotUngu = Spotty Left Arm
-marking-LArmStitchUngu = Left Arm Stitches
-marking-RArmStitchUngu = Righ Arm Stitches
-marking-PLArmUngu = Prosthetic Left Arm
-marking-PRArmUngu = Prosthetic Right Arm
-marking-PLHandUngu = Prosthetic Left Hand
-marking-PRHandUngu = Prosthetic Right Hand
-marking-SkinLArmUngu = Patterned Left Arm
-marking-SkinRArmUngu = Patterned Right Arm
-marking-SkinLHandUngu = Patterned Left Hand
-marking-SkinRHandUngu = Patterned Right Hand
-marking-RArmStripesUngu = Right Arm Stripes
-marking-LArmStripesUngu = Left Arm Stripes
-marking-RArmSplotchUngu = Right Arm Splotch
-marking-LArmSplotchUngu = Left Arm Splotch
+marking-RArmFluffUngu = Fluffy Arm (Right)
+marking-RArmSpotUngu = Spotty Arm (Right)
+marking-LArmFluffUngu = Fluffy Arm (Left)
+marking-LArmSpotUngu = Spotty Arm (Left)
+marking-LArmStitchUngu = Arm Stitches (Left)
+marking-RArmStitchUngu = Arm Stitches (Right)
+marking-PLArmUngu = Prosthetic Arm (Left)
+marking-PRArmUngu = Prosthetic Arm (Right)
+marking-PLHandUngu = Prosthetic Hand (Left)
+marking-PRHandUngu = Prosthetic Hand (Right)
+marking-SkinLArmUngu = Patterned Arm (Left)
+marking-SkinRArmUngu = Patterned Arm (Right)
+marking-SkinLHandUngu = Patterned Hand (Left)
+marking-SkinRHandUngu = Patterned Hand (Right)
+marking-RArmStripesUngu = Arm Stripes (Right)
+marking-LArmStripesUngu = Arm Stripes (Left)
+marking-RArmSplotchUngu = Arm Splotch (Right)
+marking-LArmSplotchUngu = Arm Splotch (Left)
 
 
 # legs
 
-marking-RLegFluffUngu = Fluffy Right Leg
-marking-RHoofUngu = Right Hoof
-marking-RLegSpotUngu = Spotty Right Leg
-marking-LLegFluffUngu = Fluffy Left Leg
-marking-LHoofUngu = Left Hoof
-marking-LLegSpotUngu = Spotty Left Leg
-marking-LLegStitchUngu = Left Leg Stitches
-marking-RLegStitchUngu = Right Leg Stitches
-marking-PLLegUngu = Prosthetic Left Leg
-marking-PRLegUngu = Prosthetic Right Leg
-marking-PLHoofUngu = Prosthetic Left Hoof
-marking-PRHoofUngu = Prosthetic Right Hoof
-marking-SkinLLegUngu = Patterned Left Leg
-marking-SkinRLegUngu = Patterned Right Leg
-marking-RLegStripesUngu = Right Leg Stripes
-marking-LLegStripesUngu = Left Leg Stripes
-marking-RLegSplotchUngu= Right Leg Splotch
-marking-RLegSplotchesUngu= Right Leg Splotches
-marking-LLegSplotchUngu= Left Leg Splotch
-marking-LLegSplotchesUngu= Left Leg Splotches
+marking-RLegFluffUngu = Fluffy Leg (Right)
+marking-RHoofUngu = Hoof (Right)
+marking-RLegSpotUngu = Spotty Leg (Right)
+marking-LLegFluffUngu = Fluffy Leg (Left)
+marking-LHoofUngu = Hoof (Left)
+marking-LLegSpotUngu = Spotty Leg (Left)
+marking-LLegStitchUngu = Leg Stitches (Left)
+marking-RLegStitchUngu = Leg Stitches (Right)
+marking-PLLegUngu = Prosthetic Leg (Left)
+marking-PRLegUngu = Prosthetic Leg (Right)
+marking-PLHoofUngu = Prosthetic Hoof (Left)
+marking-PRHoofUngu = Prosthetic Hoof (Right)
+marking-SkinLLegUngu = Patterned Leg (Left)
+marking-SkinRLegUngu = Patterned Leg (Right)
+marking-RLegStripesUngu = Leg Stripes (Right)
+marking-LLegStripesUngu = Leg Stripes (Left)
+marking-RLegSplotchUngu= Leg Splotch (Right)
+marking-RLegSplotchesUngu= Leg Splotches (Right)
+marking-LLegSplotchUngu= Leg Splotch (Left)
+marking-LLegSplotchesUngu= Leg Splotches (Left)
 
 # underwear
 
@@ -168,6 +169,8 @@ marking-VestUngu = Vest
 # tail
 
 marking-TailLongUngu = Long Tail
+marking-TailLongUngu-TailLong = Tail
+marking-TailLongUngu-TailLong_Fluff = Fluff
 marking-TailNubUngu = Nub Tail
 marking-TailFluffyUngu = Fluffy Tail
 marking-TailFluffyUngu-TailFluffy_1 = Tail
