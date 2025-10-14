@@ -47,7 +47,6 @@
       whitelist:
         components:
         - XenoArtifact
-        - Artifact #IMP
     - type: Weldable
     - type: SuppressArtifactContainer
     - type: RadiationBlockingContainer
@@ -126,7 +125,6 @@
     whitelist:
       components:
       - XenoArtifact
-      - Artifact #IMP
   - type: Item
     sprite: Objects/Storage/artifact_container.rsi
     size: Huge
@@ -140,6 +138,7 @@
   - type: AccessReader
     access: [["Research"], ["Cargo"]]
   - type: Lock
+  - type: LockedStorage
   - type: SuppressArtifactContainer
   - type: RadiationBlockingContainer
     resistance: 5

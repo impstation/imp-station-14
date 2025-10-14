@@ -434,7 +434,7 @@
   - type: PointLight
     radius: 2.4 #imp
     energy: 1.6
-    color: "#1f8c28"
+    color: "#887755FF" #imp
   - type: Computer
     board: CriminalRecordsComputerCircuitboard
   - type: AccessReader
@@ -590,8 +590,6 @@
       sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: ResearchClient
   - type: AnalysisConsole
-  - type: OldAnalysisConsole #IMP
-    reportEntityId: PaperArtifactAnalyzer
   - type: DeviceList
   - type: DeviceNetwork
     deviceNetId: Wired
@@ -603,8 +601,6 @@
     key: enum.ArtifactAnalyzerUiKey.Key
   - type: UserInterface
     interfaces:
-      enum.OldArtifactAnalyzerUiKey.Key: #IMP
-        type: OldAnalysisConsoleBoundUserInterface
       enum.ArtifactAnalyzerUiKey.Key:
         type: AnalysisConsoleBoundUserInterface
       enum.ResearchClientUiKey.Key:
@@ -709,7 +705,7 @@
 - type: entity
   parent: [ BaseComputerAiAccess, BaseGrandTheftContraband ]
   id: ComputerComms
-  name: communications computer
+  name: command communications computer # imp
   description: A computer used to make station wide announcements via keyboard, set the appropriate alert level, and call the emergency shuttle.
   components:
   - type: Sprite
@@ -730,8 +726,9 @@
   - type: AccessReader
     access: [[ "Command" ]]
   - type: CommunicationsConsole
-    title: comms-console-announcement-title-station
+    title: comms-console-announcement-title-command # imp
   - type: DeviceNetwork
+    deviceNetId: Wireless
     transmitFrequencyId: ShuttleTimer
   - type: ActivatableUI
     key: enum.CommunicationsConsoleUiKey.Key
@@ -1515,6 +1512,21 @@
           type: WiresBoundUserInterface
 
 - type: entity
+  parent: ComputerSurveillanceWirelessCameraMonitor
+  id: ComputerSurveillanceWirelessXenoborgCameraMonitor
+  name: xenoborg camera monitor
+  description: A wireless xenoborg camera monitor. You're watching them. Maybe.
+  components:
+  - type: Computer
+    board: XenoborgCameraMonitorCircuitboard
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: Mothership
+    transmitFrequencyId: Mothership
+  - type: WirelessNetworkConnection
+    range: 2000
+
+- type: entity
   id: ComputerPalletConsole
   parent: [ BaseComputerAiAccess, BaseCargoContraband ]
   name: cargo sale computer
@@ -1692,6 +1704,43 @@
     access: [["ResearchDirector"]]
   - type: Lock
     unlockOnClick: false
+  - type: PointLight #imp
+    radius: 2.4
+    energy: 1.6
+    color: "#b53ca1"
+
+- type: entity
+  parent: ComputerRoboticsControl
+  id: ComputerXenoborgsControl
+  name: xenoborgs control console
+  description: Used to remotely monitor all xenoborgs.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: xenorobot
+    - map: ["computerLayerKeys"]
+      state: rd_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: RoboticsConsole
+    allowBorgControl: false
+    radioChannel: Xenoborg
+  - type: ActiveRadio
+    channels:
+    - Xenoborg
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: Mothership
+    transmitFrequencyId: Xenoborg
+  - type: Computer
+    board: ComputerXenoborgsControlCircuitboard
+  - type: AccessReader # only used for dangerous things
+    access: [["Xenoborg"]]
 
 - type: entity
   id: StationAiUploadComputer
@@ -1743,3 +1792,7 @@
     containers:
       circuit_holder: !type:ContainerSlot
       board: !type:Container
+  - type: PointLight #imp
+    radius: 2.4
+    energy: 1.6
+    color: "#3c5eb5"

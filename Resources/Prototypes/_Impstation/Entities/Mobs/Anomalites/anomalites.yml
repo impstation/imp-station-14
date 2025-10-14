@@ -67,18 +67,13 @@
       path: /Audio/Effects/tesla_consume.ogg # this should be unique per-type.
   - type: StatusEffects
     allowed:
-    - Stun
-    - KnockedDown
-    - SlowedDown
     - Stutter
     - Electrocution
-    - ForcedSleep
     - TemporaryBlindness
     - Pacified
     - StaminaModifier
     - Flashed
     - RadiationProtection
-    - Drowsiness
     - Adrenaline
   - type: Puller
     needsHands: false
@@ -145,7 +140,7 @@
   # apid-type always weightless movement
   - type: MovementAlwaysTouching
   - type: MovementIgnoreGravity
-    gravityState: true
+    weightless: true
   - type: Physics
     bodyStatus: InAir
   - type: CanMoveInAir

@@ -51,13 +51,10 @@
     powerLoad: 12000
     needsPower: false #only turns on when scanning
   - type: ArtifactAnalyzer
-  - type: OldArtifactAnalyzer #IMP
-  - type: TraversalDistorter #IMP
   - type: ItemPlacer
     whitelist:
       components:
       - XenoArtifact
-      - Artifact #IMP
   - type: DeviceNetwork
     deviceNetId: Wired
     receiveFrequencyId: BasicDevice
@@ -93,10 +90,10 @@
     crushingWhitelist:
       components:
       - XenoArtifact
-      - Artifact #IMP
     crushingDamage:
       types:
         Blunt: 10
+    nonGibbedDamageMult: 10 #IMP deal 10 * 10 damage to changelings
   - type: Machine
     board: ArtifactCrusherMachineCircuitboard
   - type: WiresPanel
@@ -131,7 +128,6 @@
     whitelist:
       components:
       - XenoArtifact
-      - Artifact #IMP
       tags:
       - CanPilot # People
       - VimPilot # Pets

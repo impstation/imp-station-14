@@ -1,0 +1,12 @@
+- type: job
+  id: Assistant
+  name: job-name-assistant
+  description: job-description-assistant
+  playTimeTracker: JobAssistant
+  startingGear: PassengerGear
+  icon: "JobIconAssistant"
+  supervisors: job-supervisors-everyone
+  setPreference: false 
+  overrideConsoleVisibility: true 
+  access:
+  - Maintenance

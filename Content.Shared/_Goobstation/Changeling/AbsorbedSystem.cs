@@ -2,27 +2,27 @@ using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
 
-namespace Content.Shared.Changeling;
+namespace Content.Shared._Goobstation.Changeling;
 
-public sealed partial class AbsorbedSystem : EntitySystem
+public sealed partial class GoobAbsorbedSystem : EntitySystem
 {
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<AbsorbedComponent, ExaminedEvent>(OnExamine);
-        SubscribeLocalEvent<AbsorbedComponent, MobStateChangedEvent>(OnMobStateChange);
+        SubscribeLocalEvent<GoobAbsorbedComponent, ExaminedEvent>(OnExamine);
+        SubscribeLocalEvent<GoobAbsorbedComponent, MobStateChangedEvent>(OnMobStateChange);
     }
 
-    private void OnExamine(Entity<AbsorbedComponent> ent, ref ExaminedEvent args)
+    private void OnExamine(Entity<GoobAbsorbedComponent> ent, ref ExaminedEvent args)
     {
         args.PushMarkup(Loc.GetString("changeling-absorb-onexamine", ("target", Identity.Entity(ent, EntityManager))));
     }
 
-    private void OnMobStateChange(Entity<AbsorbedComponent> ent, ref MobStateChangedEvent args)
+    private void OnMobStateChange(Entity<GoobAbsorbedComponent> ent, ref MobStateChangedEvent args)
     {
         // in case one somehow manages to dehusk someone
         if (args.NewMobState != MobState.Dead)
-            RemComp<AbsorbedComponent>(ent);
+            RemComp<GoobAbsorbedComponent>(ent);
     }
 }

@@ -260,6 +260,10 @@
       - cheesy
       - creamy
       - bread
+    ignoreReagents: # imp
+      - TableSalt
+      - Milk
+      - Nutriment
   - type: Food
   - type: Sprite
     layers:
@@ -276,7 +280,7 @@
         # - ReagentId: Vitamin # imp
         #  Quantity: 5
         - ReagentId: Milk # imp
-          Quantity: 5
+          Quantity: 7
 # Tastes like bread, cheese.
 
 - type: entity
@@ -290,6 +294,10 @@
       - cheesy
       - creamy
       - bread
+    ignoreReagents: # imp
+      - TableSalt
+      - Milk
+      - Nutriment
   - type: Food
   - type: Sprite
     layers:
@@ -303,6 +311,8 @@
           Quantity: 4.6 # imp
         #- ReagentId: Vitamin # imp
         #  Quantity: 1.2
+        - ReagentId: Milk # imp
+          Quantity: 1.4
 
 - type: entity
   name: meat bread

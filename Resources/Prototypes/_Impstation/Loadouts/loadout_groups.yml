@@ -73,6 +73,16 @@
   loadouts:
   - LoadoutTankHarnessAquaticCommandWithOuterwear
 
+# breath tool
+- type: loadoutGroup
+  id: GroupSpeciesBreathToolCommand
+  name: loadout-group-breath-tool-command
+  minLimit: 1
+  maxLimit: 1
+  hidden: true
+  loadouts:
+  - LoadoutSpeciesBreathToolCommand
+
 # vaporizer
 - type: loadoutGroup
   id: GroupBreathToolDecapoid
@@ -119,6 +129,7 @@
     pocket1: EmergencyOxygenTankFilled
     pocket2: ClothingMaskBreath
     ears: ClothingHeadsetService
+    gloves: ClothingHandsGlovesLeather
 
 - type: startingGear #the doctor too
   id: StartingGearApidDoctor
@@ -145,6 +156,9 @@
     pocket2: ClothingMaskBreath
     ears: ClothingHeadsetEngineering
     eyes: ClothingEyesGlassesMeson
+    gloves: ClothingHandsGlovesColorYellow
+  inhand:
+  - RCD
 
 - type: startingGear #emergency responder
   id: StartingGearApidEmergency
@@ -210,6 +224,7 @@
     pocket2: ClothingMaskBreath
     ears: ClothingHeadsetService
     eyes: ClothingEyesGlassesChemical
+    gloves: ClothingHandsGlovesJanitor
   inhand:
   - AdvMopItem
 
@@ -220,7 +235,7 @@
     id: AdminAssistantPDA
     belt: ClothingBeltPaperworkFilled
     outerClothing: ClothingOuterWinterColorBlue
-    #head:
+    head: ClothingHeadHatBeretCommand
     pocket1: EmergencyOxygenTankCommandFilled
     pocket2: ClothingMaskBreathCommand
     ears: ClothingHeadsetAdminAssistant
@@ -297,6 +312,7 @@
   - EmergencyNitrogenCommand
   - EmergencyOxygenCommand
   - EmergencyMeatCommand
+  - EmergencyWheatCommand
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogenCommand
 
@@ -309,6 +325,7 @@
   - EmergencyNitrogenExtendedCommand
   - EmergencyOxygenExtendedCommand
   - EmergencyMeatExtendedCommand
+  - EmergencyWheatExtendedCommand
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogenCommand
 
@@ -321,6 +338,7 @@
   - EmergencyNitrogenSecurityCommand
   - EmergencyOxygenSecurityCommand
   - EmergencyMeatSecurityCommand
+  - EmergencyWheatSecurityCommand
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogenCommand
 
@@ -471,6 +489,7 @@
   minLimit: 0
   loadouts:
   - ScarfRed
+  - HeadChefNeck
 
 - type: loadoutGroup
   id: ChefShoes
@@ -479,6 +498,7 @@
   - BlackShoes
   - ChefShoes
   - ClownShoesExpert
+  - HeadChefShoes
 
 - type: loadoutGroup
   id: ChefPDA
@@ -493,6 +513,7 @@
   minLimit: 0
   loadouts:
   - ScarfGreen
+  - ScarfBrown
 
 - type: loadoutGroup
   id: LibrarianShoes
@@ -558,25 +579,6 @@
   - LeatherShoes
   - BlackHeels
   - ClownShoesExpert
-
-- type: loadoutGroup
-  id: ChaplainBook
-  name: loadout-group-chaplain-books
-  minLimit: 1
-  loadouts:
-  - ChaplainBookBible
-  - ChaplainBookQuran
-  - ChaplainBookTanakh
-  - ChaplainBookScroll
-  - ChaplainBookTablet
-  - ChaplainBookGreybible
-  - ChaplainBookKojiki
-  - ChaplainBookTao
-  - ChaplainBookGrimoire
-  - ChaplainBookETB
-  - ChaplainBookDiscordia
-  - ChaplainBookUnitology
-  - ChaplainBookBibble
 
 - type: loadoutGroup
   id: JanitorMask
@@ -665,6 +667,7 @@
   minLimit: 0
   loadouts:
   - ScarfPurple
+  - FeatherBoa
 
 - type: loadoutGroup
   id: MusicianShoes
@@ -682,6 +685,13 @@
   - MusicianShako
 
 - type: loadoutGroup
+  id: MusicianGloves
+  name: loadout-group-musician-gloves
+  minLimit: 0
+  loadouts:
+  - MusicianSingerGloves
+
+- type: loadoutGroup
   id: ReporterNeck
   name: loadout-group-reporter-neck
   minLimit: 0
@@ -697,6 +707,7 @@
   - LeatherShoes
   - BlackHeels
   - ClownShoesExpert
+
 # supply
 
 - type: loadoutGroup
@@ -752,10 +763,10 @@
   minLimit: 0
   loadouts:
 #  - MinerCloak # upstream removed it :(
-  - DrillerCape
   - SaMantle
   - ScarfBrown
   - RainCape
+  - DrillerCape
 
 - type: loadoutGroup
   id: SalvageSpecialistJumpsuit
@@ -773,6 +784,7 @@
   loadouts:
   - Glasses
   - GlassesCheapSunglasses
+  - EyePatch
   - GlassesColorfulBlue
   - GlassesColorfulGreen
   - GlassesColorfulPink
@@ -1071,12 +1083,12 @@
   loadouts:
   - BrigmedicArmoredWinterCoat
   - BrigmedicWinterCoat
+  - BrigmedicBomber
   - ArmorVest
   - ArmorVestSlim
   - ArmorVestCompact
   - PlateCarrier # DeltaV
   - DuraVest # DeltaV
-  - BrigmedicBomber
 
 - type: loadoutGroup
   id: BrigmedicShoes
@@ -1102,6 +1114,7 @@
   - EmergencyNitrogenBrigmedic
   - EmergencyOxygenBrigmedic
   - EmergencyMeatBrigmedic
+  - EmergencyWheatBrigmedic
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogen
 
@@ -1212,6 +1225,21 @@
   - SeniorParamedicPDA
 
 - type: loadoutGroup
+  id: PsychologistHead
+  name: loadout-group-psychologist-head
+  minLimit: 0
+  loadouts:
+  - PsychologistCapGrey
+  - PsychologistCapBrown
+
+- type: loadoutGroup
+  id: PsychologistMask
+  name: loadout-group-psychologist-mask
+  minLimit: 0
+  loadouts:
+  - DoctorClown
+
+- type: loadoutGroup
   id: PsychologistNeck
   name: loadout-group-psychologist-neck
   minLimit: 0
@@ -1227,5 +1255,14 @@
   - LacedShoes
   - LeatherShoes
   - BlackHeels
+  - BlackWinterBoots
   - ClownShoesExpert
 
+- type: loadoutGroup
+  id: PsychologistBackpack
+  name: loadout-group-psychologist-backpack
+  loadouts:
+  - MedicalDoctorBackpack
+  - MedicalDoctorSatchel
+  - MedicalDoctorDuffel
+  - LeatherSatchel

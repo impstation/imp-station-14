@@ -2,7 +2,7 @@
   id: GateImp
   mapName: 'Gate Station'
   mapPath: /Maps/_Impstation/gate.yml
-  minPlayers: 60
+  minPlayers: 70
   stations:
     Gate:
       stationProto: StandardNanotrasenStation
@@ -43,9 +43,9 @@
             TechnicalAssistant: [ 4, 4 ]
             # medical - 8-12
             Chemist: [ 2, 2 ]
-            MedicalDoctor: [ 3, 3 ]
+            MedicalDoctor: [ 5, 5 ]
             MedicalIntern: [ 4, 4 ]
-            Paramedic: [ 2, 2 ]
+            Paramedic: [ 1, 1 ]
             Psychologist: [ 1, 1 ]
             # science - 7-8
             Borg: [ 2, 2 ]

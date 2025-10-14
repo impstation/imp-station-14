@@ -116,3 +116,14 @@
     sprite: _Impstation/Clothing/Neck/Misc/impishaccessories.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Neck/Misc/impishaccessories.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckFeatherBoa
+  name: feather boa
+  description: WACH OUT!! It's a snake with a LOOOOT of feathers!! Just kidding. It's really just fashion accessory.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Neck/Misc/mus_boa.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Neck/Misc/mus_boa.rsi

@@ -459,6 +459,22 @@ marking-HumanHairAdoringFan = Adoring Fan
 
 marking-HumanHairBabyHair = Baby Hair
 
+marking-HumanHairGuyMullet = Blue Collar
+
+marking-HumanHairGuyTied = Blue Collar (Tied)
+
+marking-HumanHairMidPartPonytail = Foppish
+
+marking-HumanHairMidBangs = Shy Guy (Brave)
+
+marking-HumanHairMidBangsCovered = Shy Guy
+
+marking-HumanHairSideshaveBun = Topknot
+
+marking-HumanHairJed = Pleasant
+
+marking-HumanHairJedPonytail = Pleasant (Tied)
+
 # HeadSide
 
 # HeadTop

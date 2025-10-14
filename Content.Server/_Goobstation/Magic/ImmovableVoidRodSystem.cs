@@ -48,11 +48,10 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
 
     private void OnCollide(Entity<ImmovableVoidRodComponent> ent, ref StartCollideEvent args)
     {
-        if ((TryComp<HereticComponent>(args.OtherEntity, out var th) && th.CurrentPath == "Void")
-        || HasComp<GhoulComponent>(args.OtherEntity))
+        if (TryComp<HereticComponent>(args.OtherEntity, out var th) && th.MainPath == "Void")
             return;
 
-        _stun.TryParalyze(args.OtherEntity, TimeSpan.FromSeconds(2.5f), false);
+        _stun.TryAddParalyzeDuration(args.OtherEntity, TimeSpan.FromSeconds(2.5f));
 
         TryComp<TagComponent>(args.OtherEntity, out var tag);
         var tags = tag?.Tags ?? new();

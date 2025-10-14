@@ -111,7 +111,7 @@
   storage:
     back:
     - WalkingCane
-  groupBy: "baubles"
+  groupBy: "canes"
 
 - type: loadout
   id: ClothingHeadHatKippahSimple
@@ -202,6 +202,13 @@
   storage:
     back:
     - CardBoxBlack
+  groupBy: "baubles"
+
+- type: loadout
+  id: CardBoxTarot
+  storage:
+    back:
+    - CardBoxTarot
   groupBy: "baubles"
 
 - type: loadout

@@ -2,6 +2,7 @@
   id: Diona
   name: species-name-diona
   roundStart: true
+  randomViable: true # imp
   prototype: MobDiona
   sprites: MobDionaSprites
   defaultSkinTone: "#cdb369"
@@ -49,7 +50,7 @@
       points: 2
       required: false
     HeadTop:
-      points: 2 #imp
+      points: 3 #imp
       required: false
     HeadSide:
       points: 2 #imp

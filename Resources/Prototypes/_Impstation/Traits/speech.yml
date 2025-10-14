@@ -45,7 +45,7 @@
   name: trait-sharpinflection-name
   description: trait-sharpinflection-desc
   category: SpeechTraits
-  cost: 1
+  cost: 0
   components:
   - type: SharpInflection
 
@@ -54,7 +54,7 @@
   name: trait-monotonous-name
   description: trait-monotonous-desc
   category: SpeechTraits
-  cost: 1
+  cost: 0
   components:
   - type: Monotonous
 
@@ -99,7 +99,7 @@
   name: trait-stiltedspeech-name
   description: trait-stiltedspeech-desc
   category: SpeechTraits
-  cost: 1
+  cost: 0
   components:
   - type: StiltedSpeech
 
@@ -131,6 +131,15 @@
   - type: VowelRotation
 
 # 2 cost
+
+- type: trait
+  id: Archaic
+  name: trait-archaic-name
+  description: trait-archaic-desc
+  category: SpeechTraits
+  cost: 2
+  components:
+  - type: ArchaicAccent
 
 - type: trait
   id: Snalien
@@ -169,6 +178,15 @@
   components:
   - type: ReplacementAccent
     accent: slimes
+
+- type: trait
+  id: MilbratAccent
+  name: trait-milbrat-name
+  description: trait-milbrat-desc
+  category: SpeechTraits
+  cost: 2
+  components:
+  - type: MilbratAccent
 
 - type: trait
   id: AccentImmune

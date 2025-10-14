@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
+using Content.Shared.Popups; // imp edit
 using Content.Shared.Stacks;
 using Content.Shared.Whitelist;
 using JetBrains.Annotations;
@@ -21,6 +22,7 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!; // imp edit
 
     /// <summary>
     /// Default volume for a sheet if the material's entity prototype has no material composition.
@@ -352,15 +354,28 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
 
         var multiplier = TryComp<StackComponent>(toInsert, out var stackComponent) ? stackComponent.Count : 1;
         var totalVolume = 0;
+        var sheetCount = storage.StorageLimit / 100; // imp edit, used in popup
         foreach (var (mat, vol) in composition.MaterialComposition)
         {
             if (!CanChangeMaterialAmount(receiver, mat, vol * multiplier, storage))
+            {
+                // Imp edit start, display a popup if materials can't fit in material storage
+                if (sheetCount != null)
+                    _popup.PopupClient(Loc.GetString("material-storage-not-enough-space", ("storage", receiver), ("volume", (sheetCount))), receiver, user);
+                // Imp edit end
                 return false;
+            }
             totalVolume += vol * multiplier;
         }
 
         if (!CanTakeVolume(receiver, totalVolume, storage, localOnly: true))
+        {
+            // Imp edit, display a popup if materials can't fit in material storage
+            if (sheetCount != null)
+                _popup.PopupClient(Loc.GetString("material-storage-not-enough-space", ("storage", receiver), ("volume", sheetCount)), receiver, user);
+            // Imp edit end
             return false;
+        }
 
         foreach (var (mat, vol) in composition.MaterialComposition)
         {

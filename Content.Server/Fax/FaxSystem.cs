@@ -30,6 +30,8 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Content.Server._Impstation.Fax; // imp edit
+using Content.Server.Radio.EntitySystems; // imp edit
 
 namespace Content.Server.Fax;
 
@@ -51,6 +53,7 @@ public sealed class FaxSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly FaxecuteSystem _faxecute = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private readonly RadioSystem _radio = default!; // imp edit
 
     private static readonly ProtoId<ToolQualityPrototype> ScrewingQuality = "Screwing";
 
@@ -580,6 +583,17 @@ public sealed class FaxSystem : EntitySystem
         if (component.NotifyAdmins)
             NotifyAdmins(faxName);
 
+        // imp edit start, fax radio announcement
+        if (TryComp<FaxAnnouncingComponent>(uid, out var announcingComponent))
+        {
+            var message = Loc.GetString("fax-machine-radio-received", ("from", faxName), ("to", component.FaxName));
+            foreach (var channel in announcingComponent.Channels)
+            {
+                _radio.SendRadioMessage(uid, message, channel, uid, escapeMarkup: false);
+            }
+        }
+        // imp edit end
+
         component.PrintingQueue.Enqueue(printout);
     }
 
@@ -591,7 +605,7 @@ public sealed class FaxSystem : EntitySystem
         var printout = component.PrintingQueue.Dequeue();
 
         var entityToSpawn = printout.PrototypeId.Length == 0 ? component.PrintPaperId.ToString() : printout.PrototypeId;
-        var printed = EntityManager.SpawnEntity(entityToSpawn, Transform(uid).Coordinates);
+        var printed = Spawn(entityToSpawn, Transform(uid).Coordinates);
 
         if (TryComp<PaperComponent>(printed, out var paper))
         {

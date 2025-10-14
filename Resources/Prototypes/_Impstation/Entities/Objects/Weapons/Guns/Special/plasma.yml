@@ -32,7 +32,7 @@
   - type: Gun
     clumsyProof: false
     cameraRecoilScalar: 1
-    fireRate: 3.5
+    fireRate: 4
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -146,6 +146,7 @@
     soundSwing:
       path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
     resetOnHandSelected: false
+    wideAnimationRotation: 0
   - type: AltFireMelee
     attackType: Heavy
   - type: DamageOtherOnHit #for throwing

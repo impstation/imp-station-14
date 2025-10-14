@@ -36,15 +36,15 @@
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: ChamberMagazineAmmoProvider
     soundRack:
-      path: /Audio/Weapons/Guns/Cock/lmg_cock.ogg
+      path: /Audio/Weapons/Guns/Cock/batrifle_cock.ogg #imp
   - type: AmmoCounter
   - type: ItemSlots
     slots:
       gun_magazine:
         name: Magazine
         startingItem: MagazineLightRifleBox
-        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        insertSound: /Audio/Weapons/Guns/MagIn/sfrifle_magin.ogg #imp
+        ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg #imp
         priority: 2
         whitelist:
           tags:
@@ -132,7 +132,7 @@
       soundEmpty:
         path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
     - type: Sprite
-      sprite: Objects/Weapons/Guns/LMGs/l6.rsi
+      sprite: _Impstation/Objects/Weapons/Guns/LMGs/l6.rsi #imp
       layers:
         - state: base
           map: [ "enum.GunVisualLayers.Base" ]

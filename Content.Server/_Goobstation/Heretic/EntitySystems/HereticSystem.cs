@@ -10,10 +10,8 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Mind;
-using Content.Shared.Roles;
 using Content.Shared.Store.Components;
 using Robust.Shared.Audio;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -25,9 +23,8 @@ public sealed partial class HereticSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly StoreSystem _store = default!;
 
-    private float _timer = 0f;
+    private float _timer;
     private float _passivePointCooldown = 20f * 60f;
-    private static readonly ProtoId<JobPrototype> SecOffJobProtoID = "SecurityOfficer";
 
     public override void Initialize()
     {
@@ -67,9 +64,11 @@ public sealed partial class HereticSystem : EntitySystem
             _store.UpdateUserInterface(uid, uid, store);
         }
 
-        if (_mind.TryGetMind(uid, out var mindId, out var mind))
-            if (_mind.TryGetObjectiveComp<HereticKnowledgeConditionComponent>(mindId, out var objective, mind))
-                objective.Researched += amount;
+        if (!_mind.TryGetMind(uid, out var mindId, out var mind))
+            return;
+
+        if (_mind.TryGetObjectiveComp<HereticKnowledgeConditionComponent>(mindId, out var objective, mind))
+            objective.Researched += amount;
     }
 
     private void OnCompInit(Entity<HereticComponent> ent, ref ComponentInit args)
@@ -79,7 +78,9 @@ public sealed partial class HereticSystem : EntitySystem
             _eye.SetVisibilityMask(ent, eye.VisibilityMask | EldritchInfluenceComponent.LayerMask);
 
         foreach (var knowledge in ent.Comp.BaseKnowledge)
+        {
             _knowledge.AddKnowledge(ent, ent.Comp, knowledge);
+        }
     }
 
     #region Internal events (target reroll, ascension, etc.)
@@ -89,23 +90,20 @@ public sealed partial class HereticSystem : EntitySystem
         ent.Comp.Ascended = true;
 
         // how???
-        if (ent.Comp.CurrentPath == null)
+        if (ent.Comp.MainPath == null)
             return;
 
-        var pathLoc = ent.Comp.CurrentPath!.ToLower();
+        var pathLoc = ent.Comp.MainPath!.Value.Id.ToLower();
         var ascendSound = new SoundPathSpecifier($"/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/ascend_{pathLoc}.ogg");
         _chat.DispatchGlobalAnnouncement(Loc.GetString($"heretic-ascension-{pathLoc}"), Name(ent), true, ascendSound, Color.Pink);
 
         // do other logic, e.g. make heretic immune to whatever
-        switch (ent.Comp.CurrentPath!)
+        switch (ent.Comp.MainPath)
         {
             case "Ash":
                 RemComp<TemperatureComponent>(ent);
                 RemComp<RespiratorComponent>(ent);
                 RemComp<BarotraumaComponent>(ent);
-                break;
-
-            default:
                 break;
         }
     }
@@ -125,7 +123,7 @@ public sealed partial class HereticSystem : EntitySystem
         if (!ent.Comp.Ascended)
             return;
 
-        switch (ent.Comp.CurrentPath)
+        switch (ent.Comp.MainPath)
         {
             case "Ash":
                 // nullify heat damage because zased
