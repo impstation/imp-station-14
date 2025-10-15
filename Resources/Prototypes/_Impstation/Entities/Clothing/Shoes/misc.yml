@@ -25,14 +25,14 @@
 
 - type: entity
   parent: ClothingShoesBaseButcherable
-  id: ClothingShoesR&BShoes
+  id: ClothingShoesRBShoes
   name: Red and Black Jester Shoes
   description: A pair of shoes to match your red and black jester costume!
   components:
   - type: Sprite
-    sprite: _Impstation/Clothing/Shoes/Misc/R&Bshoes.rsi
+    sprite: _Impstation/Clothing/Shoes/Misc/RBshoes.rsi
   - type: Clothing
-    sprite: _Impstation/Clothing/Shoes/Misc/R&Bshoes.rsi
+    sprite: _Impstation/Clothing/Shoes/Misc/RBshoes.rsi
   - type: Tag
     tags:
     - WhitelistChameleon

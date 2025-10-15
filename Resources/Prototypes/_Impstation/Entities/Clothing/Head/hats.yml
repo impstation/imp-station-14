@@ -281,14 +281,14 @@
 
 - type: entity
   parent: ClothingHeadBase
-  id: ClothingHeadR&BHat
+  id: ClothingHeadRBHat
   name: Red and Black Jester Hood
   description: A hood to match your red and black jester costume!
   components:
   - type: Sprite
-    sprite: _Impstation/Clothing/Head/Hats/R&Bhat.rsi
+    sprite: _Impstation/Clothing/Head/Hats/RBhat.rsi
   - type: Clothing
-    sprite: _Impstation/Clothing/Head/Hats/R&Bhat.rsi
+    sprite: _Impstation/Clothing/Head/Hats/RBhat.rsi
   - type: Tag
     tags:
     - ClothMade
