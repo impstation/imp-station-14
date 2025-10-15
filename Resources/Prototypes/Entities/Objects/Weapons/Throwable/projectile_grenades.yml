@@ -87,6 +87,11 @@
     layers:
     - state: icon
       map: ["enum.TriggerVisualLayers.Base"]
+  - type: SpawnOnTrigger #imp; causes light when it explodes
+    keysIn:
+    - timer
+    proto: GrenadeFlashEffect
+    predicted: true
   - type: ProjectileGrenade
     fillPrototype: PelletClusterIncendiary
     capacity: 30
