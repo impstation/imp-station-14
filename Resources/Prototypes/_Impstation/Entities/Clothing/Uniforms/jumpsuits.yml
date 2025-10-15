@@ -89,14 +89,14 @@
 
 - type: entity
   parent: [ClothingUniformBase]
-  id: ClothingUniformJumpsuitRBJester
+  id: ClothingUniformRBJester
   name: Red and Black Jester Suit
   description: A red and black jester costume!
   components:
   - type: Sprite
-    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/rbsuit.rsi
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/rbjestersuit.rsi
   - type: Clothing
-    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/rbsuit.rsi
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/rbjestersuit.rsi
 
 - type: entity
   parent: [ClothingUniformBase]
