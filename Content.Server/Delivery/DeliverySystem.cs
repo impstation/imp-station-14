@@ -70,7 +70,7 @@ public sealed partial class DeliverySystem : SharedDeliverySystem
         }
 
         // Imp - update logistics after mapinit
-        var ev = new LogisticStatsUpdatedEvent((EntityUid)stationId);
+        var ev = new LogisticStatsUpdatedEvent(stationId);
         RaiseLocalEvent(ev);
         // imp end
 

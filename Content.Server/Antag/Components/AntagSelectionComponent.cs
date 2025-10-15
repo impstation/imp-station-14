@@ -7,7 +7,6 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Content.Shared.NPC.Prototypes; // imp
 
 namespace Content.Server.Antag.Components;
 

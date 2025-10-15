@@ -1,5 +1,5 @@
-using Content.Shared.Humanoid.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
+//using Content.Shared.Humanoid.Prototypes; // imp unused
+//using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set; // imp unused
 using Content.Shared.Humanoid; // imp
 using Robust.Shared.Enums; // imp
 

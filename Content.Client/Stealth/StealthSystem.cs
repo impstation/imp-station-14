@@ -1,5 +1,5 @@
 using Content.Client.Interactable.Components;
-using Content.Client.StatusIcon;
+//using Content.Client.StatusIcon; // imp unused using
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
 using Robust.Client.GameObjects;

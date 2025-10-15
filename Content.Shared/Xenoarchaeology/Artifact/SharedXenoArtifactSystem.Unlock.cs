@@ -96,7 +96,7 @@ public abstract partial class SharedXenoArtifactSystem
         else
         {
             unlockAttemptResultMsg = "artifact-unlock-state-end-failure";
-            soundEffect = artifactComponent.UnlockActivationFailedSound; //i mp edit, move activation sounds, allow artifacts to customize sounds
+            soundEffect = artifactComponent.UnlockActivationFailedSound; //imp edit, move activation sounds, allow artifacts to customize sounds
         }
 
         if (_net.IsServer)
