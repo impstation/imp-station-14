@@ -372,12 +372,12 @@
       - !type:XenoArchDepthCondition # imp addition
         depths: [ 0, 1, 2 ]
     - id: XenoArtifactMagicBook
-      weight: 10.0 # imp edit
+      weight: 3.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
         depths: [ 2, 3, 4 ]
     - id: XenoArtifactGridKnockdown
-      weight: 10.0 # imp edit
+      weight: 5.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
         depths: [ 2, 3, 4 ]
@@ -387,7 +387,7 @@
       - !type:XenoArchDepthCondition # imp addition
         depths: [ 4, 5 ]
     - id: XenoArtifactScrambleDNA
-      weight: 10.0 # imp edit
+      weight: 1 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
         depths: [ 2, 3, 4 ]
