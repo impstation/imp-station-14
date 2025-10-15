@@ -92,6 +92,12 @@ public sealed partial class BiomagneticPolarizationStatusEffectComponent : Compo
     /// </summary>
     [DataField]
     public EntProtoId LightningPrototype = "Lightning";
+    [DataField]
+    public float LightningRange = 5f;
+    [DataField]
+    public (int, int) LightningArcsMinMax = (1, 3);
+    [DataField]
+    public float LightningCapMult = 2f;
 
     /// <summary>
     /// The proto of explosion that happens when two opposite fields touch.

@@ -9,6 +9,7 @@ using Content.Shared.Audio;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Humanoid;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
 using Content.Shared.Light.Components;
 using Content.Shared.Maps;
@@ -52,12 +53,15 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
     private readonly EntProtoId _effectID = "StatusEffectBiomagneticPolarization";
     private static readonly ProtoId<DamageTypePrototype> ShockDamage = "Shock";
 
+    private readonly List<EntityUid> _expiredEffectEnts = [];
+
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<BiomagneticPolarizationStatusEffectComponent, StatusEffectAppliedEvent>(OnEffectApplied);
         SubscribeLocalEvent<BiomagneticPolarizationStatusEffectComponent, StatusEffectRelayedEvent<DamageModifyEvent>>(OnDamageModified);
+        SubscribeLocalEvent<BiomagneticPolarizationStatusEffectComponent, StatusEffectRelayedEvent<InteractionSuccessEvent>>(OnHugging);
     }
 
     public override void Update(float frameTime)
@@ -66,7 +70,7 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
 
         var curTime = _timing.CurTime;
 
-        List<EntityUid> expiredEffectEnts = [];
+
 
         var query = EntityQueryEnumerator<BiomagneticPolarizationStatusEffectComponent, StatusEffectComponent, PointLightComponent>();
         while (query.MoveNext(out var ent, out var comp, out var statusComp, out var lightComp))
@@ -76,56 +80,19 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
 
             if (comp.Expired)
             {
-                expiredEffectEnts.Add(statusOwner);
+                _expiredEffectEnts.Add(statusOwner);
                 continue;
             }
 
             comp.LastCapped = comp.Capped;
 
-            if (comp.CooldownEnd > curTime)
-                continue;
-
-            if (comp.StatusOwner is not { } physTuple)
+            if (comp.CooldownEnd > curTime || comp.StatusOwner is not { } physTuple)
                 continue;
 
             HandleStaticTiles((ent, comp));
 
             var (opposite, same, capInvolved) = HandleCollisions(physTuple, comp);
-            // if HandleCollisions[1] returns true, it means that the ent has collided with an entity that has the opposite polarity,
-            // so we'll shoot lighting bolts, cause a modest explosion, and mark the effect as expired.
-            if (opposite)
-            {
-                expiredEffectEnts.Add(statusOwner);
-
-                var coords = _xform.GetMapCoordinates(statusOwner);
-
-                if (!capInvolved)
-                {
-                    var arcs = _random.Next(1, 3);
-                    _lightning.ShootRandomLightnings(statusOwner, 5f, arcs, comp.LightningPrototype);
-
-                    _explosion.QueueExplosion(coords, comp.ExplosionPrototype, comp.CurrentStrength * comp.ExplosionStrengthMult, 1, 100, statusOwner);
-                }
-                else
-                {
-                    var arcs = _random.Next(2, 5);
-                    _lightning.ShootRandomLightnings(statusOwner, 10f, arcs, comp.LightningPrototype);
-
-                    _explosion.QueueExplosion(coords, comp.ExplosionPrototype, comp.StrengthCap * comp.CapExplosionMult, 2, 100, statusOwner);
-
-                    HandleCapCollisionEffects((ent, comp));
-
-                    _audio.PlayPvs(comp.CapExplosionSound, ent);
-                }
-                continue;
-            }
-            // if HandleCollisions[2] returns true, it means that the ent has collided with an ent with different polarity and been thrown,
-            // so we need to prevent collision handling for a few seconds.
-            if (same)
-            {
-                _stun.TryKnockdown(ent, comp.TriggerCooldown);
-                comp.CooldownEnd = curTime + comp.TriggerCooldown;
-            }
+            CollisionEffects(statusOwner, (ent, comp), opposite, same, capInvolved);
 
             // handle strength updates - we don't want to do this every frame, so there's a cooldown.
             if (comp.NextUpdate > curTime)
@@ -140,7 +107,7 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
             comp.CurrentStrength -= comp.RealDecayRate;
             if (comp.CurrentStrength <= 0)
             {
-                expiredEffectEnts.Add(statusOwner);
+                _expiredEffectEnts.Add(statusOwner);
                 continue;
             }
 
@@ -170,11 +137,11 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
         }
 
         // to avoid modifying the list while it's enumerating, we remove status effects from expired ents after the query.
-        foreach (var expired in expiredEffectEnts)
+        foreach (var expired in _expiredEffectEnts)
         {
             _statusEffect.TryRemoveStatusEffect(expired, _effectID);
         }
-        expiredEffectEnts.Clear();
+        _expiredEffectEnts.Clear();
     }
 
     private void OnEffectApplied(Entity<BiomagneticPolarizationStatusEffectComponent> ent, ref StatusEffectAppliedEvent args)
@@ -202,13 +169,68 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
         Dirty(ent, ent.Comp);
     }
 
-    public void OnDamageModified(Entity<BiomagneticPolarizationStatusEffectComponent> ent, ref StatusEffectRelayedEvent<DamageModifyEvent> args)
+    private void OnDamageModified(Entity<BiomagneticPolarizationStatusEffectComponent> ent, ref StatusEffectRelayedEvent<DamageModifyEvent> args)
     {
         foreach (var (damageType, value) in args.Args.Damage.DamageDict)
         {
             if (damageType != ShockDamage.Id)
                 continue;
             ent.Comp.CurrentStrength += (float)value / 2;
+        }
+    }
+
+    private void OnHugging(Entity<BiomagneticPolarizationStatusEffectComponent> ent, ref StatusEffectRelayedEvent<InteractionSuccessEvent> args)
+    {
+        // since this event is raised on the *target* of a hug, args.Args.User is unintuitively the person *doing* the hugging
+        var hugger = args.Args.User;
+        if (!_statusEffect.TryGetStatusEffect(hugger, _effectID, out var maybeOtherBiomagEnt) || maybeOtherBiomagEnt is not { } otherBiomagEnt)
+            return;
+        if (!TryComp<BiomagneticPolarizationStatusEffectComponent>(otherBiomagEnt, out var maybeOtherBiomagComp) || maybeOtherBiomagComp is not { } otherBiomagComp)
+            return;
+        if (ent.Comp.StatusOwner is not { } statusOwner)
+            return;
+        var (opposite, same, strCapInvolved) = BiomagCollide(ent, (otherBiomagEnt, otherBiomagComp));
+        CollisionEffects(statusOwner, ent, opposite, same, strCapInvolved);
+    }
+
+    private void CollisionEffects(EntityUid statusOwner, Entity<BiomagneticPolarizationStatusEffectComponent> ent, bool opposite, bool same, bool strCapInvolved)
+    {
+        var curTime = _timing.CurTime;
+        var comp = ent.Comp;
+        // if HandleCollisions[1] returns true, it means that the ent has collided with an entity that has the opposite polarity,
+        // so we'll shoot lighting bolts, cause a modest explosion, and mark the effect as expired.
+        if (opposite)
+        {
+            _expiredEffectEnts.Add(statusOwner);
+
+            var coords = _xform.GetMapCoordinates(statusOwner);
+
+            var (arcsMin, arcsMax) = comp.LightningArcsMinMax;
+            if (!strCapInvolved)
+            {
+                var arcs = _random.Next(arcsMin, arcsMax);
+                _lightning.ShootRandomLightnings(statusOwner, comp.LightningRange, arcs, comp.LightningPrototype);
+
+                _explosion.QueueExplosion(coords, comp.ExplosionPrototype, comp.CurrentStrength * comp.ExplosionStrengthMult, 1, 100, statusOwner);
+            }
+            else
+            {
+                var arcs = _random.Next(arcsMin, arcsMax) * (int)comp.LightningCapMult;
+                _lightning.ShootRandomLightnings(statusOwner, comp.LightningRange * comp.LightningCapMult, arcs, comp.LightningPrototype);
+                _explosion.QueueExplosion(coords, comp.ExplosionPrototype, comp.StrengthCap * comp.CapExplosionMult, 2, 100, statusOwner);
+
+                HandleCapCollisionEffects((ent, comp));
+
+                _audio.PlayPvs(comp.CapExplosionSound, ent);
+            }
+            return;
+        }
+        // if HandleCollisions[2] returns true, it means that the ent has collided with an ent with different polarity and been thrown,
+        // so we need to prevent collision handling for a few seconds.
+        if (same)
+        {
+            _stun.TryKnockdown(statusOwner, comp.TriggerCooldown);
+            comp.CooldownEnd = curTime + comp.TriggerCooldown;
         }
     }
 
@@ -257,14 +279,12 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
         foreach (var found in lookup)
         {
             // chuck shit (including people)
-            if (physics.TryGetComponent(found, out var physComp) && physComp.BodyType != BodyType.Static)
+            if (physics.TryGetComponent(found, out var physComp) && physComp.BodyType != BodyType.Static
+                && (items.HasComponent(found) || humanoid.HasComponent(found)))
             {
-                if (items.HasComponent(found) || humanoid.HasComponent(found))
-                {
-                    var foundPos = _xform.GetWorldPosition(found);
-                    var direction = foundPos - worldPos;
-                    _throwing.TryThrow(found, direction);
-                }
+                var foundPos = _xform.GetWorldPosition(found);
+                var direction = foundPos - worldPos;
+                _throwing.TryThrow(found, direction);
             }
 
             // everything below this line has a 50% chance per entity

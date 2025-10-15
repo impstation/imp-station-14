@@ -26,7 +26,7 @@ public sealed class GlobalStatusEffectRule : StationEventSystem<GlobalStatusEffe
         if (!TryGetRandomStation(out var station) || component.Announcement == null)
             return;
 
-        _announcer.SendAnnouncement(_announcer.GetAnnouncementId(args.RuleId), Filter.Broadcast(), component.Announcement, null, Color.Gold);
+        _announcer.SendAnnouncement(_announcer.GetAnnouncementId(args.RuleId), Filter.Broadcast(), component.Announcement, colorOverride: Color.Gold);
     }
 
     protected override void Started(EntityUid uid, GlobalStatusEffectRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
@@ -38,8 +38,8 @@ public sealed class GlobalStatusEffectRule : StationEventSystem<GlobalStatusEffe
         {
             // yes i know this looks bad. its a ternary. in summary, if both min and max aren't null, it returns a random timespan in seconds. otherwise it returns null
             TimeSpan? duration = component.MinEffectDuration != null && component.MaxEffectDuration != null
-            ? TimeSpan.FromSeconds(_random.NextFloat((float)component.MinEffectDuration, (float)component.MaxEffectDuration!))
-            : null;
+                        ? TimeSpan.FromSeconds(_random.NextFloat((float)component.MinEffectDuration, (float)component.MaxEffectDuration!))
+                        : null;
 
             _statusEffect.TryUpdateStatusEffectDuration(ent, component.StatusEffect, duration);
         }
