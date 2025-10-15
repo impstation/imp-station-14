@@ -67,7 +67,9 @@
           true
     - type: NPCImprintingOnSpawnBehaviour
     - type: Hunger
-      baseDecayRate: 0.5
+      baseDecayRate: 0.3
+    - type: Thirst
+      baseDecayRate: 0.05
     - type: YoungKodepiiaRetaliation
       attackMemoryLength: 15
     - type: GoobAbsorbable
@@ -105,6 +107,9 @@
       interactSuccessSpawn: EffectHearts
       interactSuccessSound:
         path: /Audio/Animals/pig_oink.ogg
+    - type: SentienceTarget
+      flavorKind: station-event-random-sentience-flavor-organic
+      weight: 0.05
 
 - type: entity
   name: space boar
