@@ -5,9 +5,9 @@
     head: ClothingHeadHatCircusClown
 
 - type: loadout
-  id: PCHat
+  id: R&BHat
   equipment:
-    head: ClothingHeadHarleyHat
+    head: ClothingHeadR&BHat
 
 #Mask
 - type: loadout
@@ -32,9 +32,9 @@
     jumpsuit: ClothingUniformJokester
 
 - type: loadout
-  id: PCSuit
+  id: R&BSuit
   equipment:
-    jumpsuit: ClothingUniformJumpsuitHarleyJester
+    jumpsuit: ClothingUniformJumpsuitR&BJester
 
 #OuterClothing
 - type: loadout
@@ -54,18 +54,12 @@
     shoes: ClothingShoesJokester
 
 - type: loadout
-  id: PCShoes
+  id: R&BShoes
   equipment:
-    shoes: ClothingShoesHarleyShoes
+    shoes: ClothingShoesR&BShoes
 
 #Neck
 - type: loadout
   id: NeckRuffle
   equipment:
     neck: ClothingNeckRuffle
-
-#Gloves
-- type: loadout
-  id: PCGloves
-  equipment:
-    hands: ClothingHandsHarleyGloves

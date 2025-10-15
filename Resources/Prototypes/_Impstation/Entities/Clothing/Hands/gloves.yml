@@ -82,21 +82,3 @@
     fiberMaterial: fibers-web
     fiberColor: fibers-purple
   - type: FingerprintMask
-
-- type: entity
-  parent: [ClothingHandsBase]
-  id: ClothingHandsHarleyGloves
-  name: Playing Card gloves
-  description: Gloves to match your copyright free red and black costume!
-  components:
-  - type: Sprite
-    sprite: _Impstation/Clothing/Hands/Gloves/harleygloves.rsi
-  - type: Clothing
-    sprite: _Impstation/Clothing/Hands/Gloves/harleygloves.rsi
-  - type: Fiber
-    fiberMaterial: fibers-web
-    fiberColor: fibers-red
-  - type: FingerprintMask
-  - type: Tag
-    tags:
-    - WhitelistChameleon
