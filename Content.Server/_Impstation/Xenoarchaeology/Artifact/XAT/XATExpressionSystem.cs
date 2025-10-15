@@ -10,8 +10,8 @@ namespace Content.Server.Xenoarchaeology.Artifact.XAT;
 /// </summary>
 public sealed class XATExpressionSystem : BaseQueryUpdateXATSystem<XATExpressionComponent>
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
