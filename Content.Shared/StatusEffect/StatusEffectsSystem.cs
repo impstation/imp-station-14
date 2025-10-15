@@ -377,7 +377,7 @@ namespace Content.Shared.StatusEffect
 
             if (!_prototypeManager.TryIndex<StatusEffectPrototype>(key, out var proto))
                 return false;
-            if (!status.AllowedEffects.Contains(key) && !proto.AlwaysAllowed)
+            if (!proto.AlwaysAllowed && !status.AllowedEffects.Contains(key)) // imp reverse these, can swap back when revenant stasis is moved to new status effect system
                 return false;
 
             return true;
