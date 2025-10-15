@@ -21,10 +21,7 @@ public sealed class XAERandomTeleportInvokerSystem : BaseXAESystem<XAERandomTele
         // todo: teleport person who activated artifact with artifact itself
         var component = ent.Comp;
 
-        if (!TryComp<XenoArtifactNodeComponent>(ent.Owner, out var nodeComponent)) //#IMP Bugfix: teleport the artifact, not the node
-            return;
-
-        if (nodeComponent.Attached is not { } artifact) //#IMP Bugfix: teleport the artifact, not the node
+        if (!TryComp<XenoArtifactNodeComponent>(ent.Owner, out var nodeComponent) || nodeComponent.Attached is not { } artifact) //#IMP Bugfix: teleport the artifact, not the node
             return;
 
         var xform = Transform(GetEntity(artifact)); //#IMP Bugfix: teleport the artifact, not the node - ent.Owner changed to GetEntity(artifact)
