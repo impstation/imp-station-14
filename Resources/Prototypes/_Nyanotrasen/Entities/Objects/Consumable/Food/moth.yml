@@ -176,6 +176,9 @@
           Quantity: 5
         - ReagentId: MilkSoy
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - UnguFood
 #Tastes like vanilla and clouds.
 
 - type: entity
@@ -205,6 +208,9 @@
           Quantity: 1
         - ReagentId: MilkSoy
           Quantity: 1
+  - type: Tag # imp
+    tags:
+    - UnguFood
 #Tastes like vanilla and clouds.
 
 - type: entity
@@ -252,5 +258,6 @@
   - type: Tag
     tags:
     - ClothMade
+    - ClothFood # imp
 
 #Tastes like muffin, dust and lint

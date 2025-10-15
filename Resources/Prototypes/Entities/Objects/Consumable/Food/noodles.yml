@@ -41,13 +41,16 @@
           Quantity: 19
         - ReagentId: EggCooked
           Quantity: 6
+  - type: Tag # imp
+    tags:
+    - UnguFood
 # Tastes like pasta.
 
 - type: entity
   name: spaghetti
   parent: FoodNoodlesBase
   id: FoodNoodles
-  description: Spaghetti and crushed tomatoes. Just like your abusive father used to make!
+  description: Spaghetti and crushed tomatoes. Just like your papa used to make! # imp change
   components:
   - type: FlavorProfile
     flavors:
@@ -93,6 +96,9 @@
           Quantity: 50 # imp
         #- ReagentId: Vitamin # imp
         #  Quantity: 8
+  - type: Tag # imp, normal spaghetti is fruit so
+    tags:
+    - Fruit
 # Tastes like pasta, bad humor.
 
 - type: entity
@@ -173,6 +179,9 @@
           Quantity: 8
         - ReagentId: JuiceCarrot # imp
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - Vegetable
 # Tastes like pasta, tomato. # IMP - THERES NO TOMATOES IN THIS!!!!!!!
 
 - type: entity
@@ -198,4 +207,7 @@
         #  Quantity: 1
         - ReagentId: Butter # imp
           Quantity: 15
+  - type: Tag # imp
+    tags:
+    - UnguFood
 # Tastes like pasta, butter.

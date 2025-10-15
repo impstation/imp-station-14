@@ -19,12 +19,12 @@
   group: market
 
 - type: cargoProduct
-  id: RandomXAEArtifact #IMP XAE in name
+  id: RandomArtifact
   icon:
     sprite: Objects/Specific/Xenoarchaeology/xeno_artifacts.rsi
     state: ano13
-  product: RandomXAEArtifactSpawner
-  cost: 2000
+  product: RandomArtifactSpawner
+  cost: 1900 # cheaper because random
   category: cargoproduct-category-name-science
   group: market
 
