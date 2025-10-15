@@ -26,7 +26,11 @@ public sealed class GlobalStatusEffectRule : StationEventSystem<GlobalStatusEffe
         if (!TryGetRandomStation(out var station) || component.Announcement == null)
             return;
 
-        _announcer.SendAnnouncement(_announcer.GetAnnouncementId(args.RuleId), Filter.Broadcast(), component.Announcement, colorOverride: Color.Gold);
+        _announcer.SendAnnouncement(
+            _announcer.GetAnnouncementId(args.RuleId),
+            Filter.Broadcast(),
+            component.Announcement,
+            colorOverride: Color.Gold);
     }
 
     protected override void Started(EntityUid uid, GlobalStatusEffectRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
