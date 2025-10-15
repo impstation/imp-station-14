@@ -28,7 +28,7 @@ public sealed class XAERandomTeleportInvokerSystem : BaseXAESystem<XAERandomTele
             return;
 
         var xform = Transform(GetEntity(artifact)); //#IMP Bugfix: teleport the artifact, not the node - ent.Owner changed to GetEntity(artifact)
-        _popup.PopupCoordinates(Loc.GetString("blink-artifact-popup"), xform.Coordinates, PopupType.Medium);
+        _popup.PopupPredictedCoordinates(Loc.GetString("blink-artifact-popup"), xform.Coordinates, null, PopupType.Medium); //#IMP Bugfix: Only display the popup once!
 
         var offsetTo = _random.NextVector2(component.MinRange, component.MaxRange);
         _xform.SetCoordinates(GetEntity(artifact), xform, xform.Coordinates.Offset(offsetTo)); //#IMP Bugfix: teleport the artifact, not the node - ent.Owner changed to GetEntity(artifact)
