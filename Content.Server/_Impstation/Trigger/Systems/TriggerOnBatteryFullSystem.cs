@@ -13,7 +13,7 @@ public sealed class TriggerOnBatteryFullSystem : EntitySystem
     public override void Initialize
     ()
     {
-        base.Initialize();
+        base.Initialize ();
 
         SubscribeLocalEvent<TriggerOnBatteryFullComponent, ChargeChangedEvent>(OnChargeChanged);
     }
