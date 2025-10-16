@@ -132,7 +132,8 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
-  - type: BatteryDrainerEeep
+  - type: BatteryDrainer
+    fullDrain: true
     drainEfficiency: 1
     drainTime: 10
     sparkSound:

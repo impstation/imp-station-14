@@ -30,6 +30,15 @@ public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
     }
 
     /// <summary>
+    ///  Imp add. Allow entities who are a battery to use themselves as the battery for this component
+    /// </summary>
+    private void OnStartup(Entity<BatteryDrainerComponent> ent, ref ComponentStartup args)
+    {
+        if (ent.Comp.BatteryUid == null && TryComp<BatteryComponent>(ent.Owner, out _))
+            ent.Comp.BatteryUid = ent.Owner;
+    }
+
+    /// <summary>
     /// Start do after for draining a power source.
     /// Can't predict PNBC existing so only done on server.
     /// </summary>
@@ -89,17 +98,33 @@ public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
             _popup.PopupEntity(Loc.GetString("battery-drainer-empty", ("battery", target)), uid, uid, PopupType.Medium);
             return false;
         }
+        if (comp.FullDrain == false) // imp
+        {
+            var available = targetBattery.CurrentCharge;
+            var required = battery.MaxCharge - battery.CurrentCharge;
+            // higher tier storages can charge more
+            var maxDrained = pnb.MaxSupply * comp.DrainTime;
+            var input = Math.Min(Math.Min(available, required / comp.DrainEfficiency), maxDrained);
+            if (!_battery.TryUseCharge(target, input, targetBattery))
+                return false;
 
-        var available = targetBattery.CurrentCharge;
-        var required = battery.MaxCharge - battery.CurrentCharge;
-        // higher tier storages can charge more
-        var maxDrained = pnb.MaxSupply * comp.DrainTime;
-        var input = Math.Min(Math.Min(available, required / comp.DrainEfficiency), maxDrained);
-        if (!_battery.TryUseCharge(target, input, targetBattery))
-            return false;
-
-        var output = input * comp.DrainEfficiency;
-        _battery.SetCharge(comp.BatteryUid.Value, battery.CurrentCharge + output, battery);
+            var output = input * comp.DrainEfficiency;
+            _battery.SetCharge(comp.BatteryUid.Value, battery.CurrentCharge + output, battery);
+        } // imp start
+        if (comp.FullDrain == true)
+        {
+            // making all power sources give the same ammount based on percent charged
+            var charge = targetBattery.CurrentCharge / targetBattery.MaxCharge;
+            var powerget = charge * 500000; // this number comes from the eeeps max charge
+            _battery.SetCharge(comp.BatteryUid.Value, battery.CurrentCharge + powerget);
+            /// taking power away from target ///
+            var available = targetBattery.CurrentCharge;
+            var required = battery.MaxCharge - battery.CurrentCharge;
+            var maxDrained = battery.MaxCharge - battery.CurrentCharge;
+            var input = Math.Min(Math.Min(available, required), maxDrained);
+            if (!_battery.TryUseCharge(target, input, targetBattery))
+                return false;
+        } // imp end
         // TODO: create effect message or something
         Spawn("EffectSparks", Transform(target).Coordinates);
         _audio.PlayPvs(comp.SparkSound, target);
