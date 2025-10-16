@@ -60,10 +60,6 @@
         layer:
         - FlyingMobLayer
   - type: MobState
-  - type: MobStateActions
-    actions:
-      Critical:
-      - ActionCritSuccumb
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -125,7 +121,7 @@
       types:
         Shock: 2
   - type: StaminaDamageOnHit
-    damage: 20
+    damage: 40 # stun and run away type combat
   - type: NightVision # EE edit
     isActive: true
     toggleAction: null
