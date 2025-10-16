@@ -31,11 +31,11 @@ public sealed class IgniteFromGasSystem : EntitySystem
     /// </summary>
     /// <param name="entity"></param>
     /// <returns> true or false </returns>
-    private bool CheckAtmosForGas()
+    private bool CheckAtmosForGas(Entity<IgniteFromGasComponent> entity, Entity<TransformComponent> ent)
     {
-        string targetGas = _ent.Comp.TriggeringGas;
+        string targetGas = entity.Comp.TriggeringGas;
 
-        var gasAtTile = _atmo.GetContainingMixture(_ent, true);
+        var gasAtTile = _atmo.GetContainingMixture(ent, true);
         var gasList = GenerateGasEntryArray(gasAtTile);
 
         for (var i = 0; i < gasList.Count; i++)
