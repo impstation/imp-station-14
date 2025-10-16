@@ -13,12 +13,7 @@
     clothingVisuals:
       jumpsuit:
       - state: equipped-OUTERCLOTHING
-  - type: Foldable
-    sprite: _Impstation/Clothing/OuterClothing/Misc/cowboy/brown.rsi
-    clothingVisuals:
-      jumpsuit:
-      - state: equipped-OUTERCLOTHING-Folded
-    tags:
+  tags:
     - WhitelistChameleon
 
 # White
@@ -37,12 +32,7 @@
     clothingVisuals:
       jumpsuit:
       - state: equipped-OUTERCLOTHING
-  - type: Foldable
-    sprite: _Impstation/Clothing/OuterClothing/Misc/cowboy/white.rsi
-    clothingVisuals:
-      jumpsuit:
-      - state: equipped-OUTERCLOTHING-Folded
-    tags:
+  tags:
     - WhitelistChameleon
 
 # Black
@@ -61,13 +51,8 @@
     clothingVisuals:
       jumpsuit:
       - state: equipped-OUTERCLOTHING
-  - type: Foldable
-    sprite: _Impstation/Clothing/OuterClothing/Misc/cowboy/black.rsi
-    clothingVisuals:
-      jumpsuit:
-      - state: equipped-OUTERCLOTHING-Folded
-    tags:
-    - WhitelistChameleon
+  tags:
+   - WhitelistChameleon
 
 # Fancy
 - type: entity
@@ -85,10 +70,5 @@
     clothingVisuals:
       jumpsuit:
       - state: equipped-OUTERCLOTHING
-  - type: Foldable
-    sprite: _Impstation/Clothing/OuterClothing/Misc/cowboy/fancy.rsi
-    clothingVisuals:
-      jumpsuit:
-      - state: equipped-OUTERCLOTHING-Folded
-    tags:
+  tags:
     - WhitelistChameleon
