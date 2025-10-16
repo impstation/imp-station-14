@@ -9,12 +9,12 @@
     layers:
     - state: icon
   - type: Clothing
+    slots:
+      - OUTERCLOTHING
     sprite: _Impstation/Clothing/OuterClothing/Misc/cowboy/brown.rsi
     clothingVisuals:
       jumpsuit:
       - state: equipped-OUTERCLOTHING
-  tags:
-    - WhitelistChameleon
 
 # White
 - type: entity
@@ -28,12 +28,12 @@
     layers:
     - state: icon
   - type: Clothing
+    slots:
+      - OUTERCLOTHING
     sprite: _Impstation/Clothing/OuterClothing/Misc/cowboy/white.rsi
     clothingVisuals:
       jumpsuit:
       - state: equipped-OUTERCLOTHING
-  tags:
-    - WhitelistChameleon
 
 # Black
 - type: entity
@@ -47,12 +47,12 @@
     layers:
     - state: icon
   - type: Clothing
+    slots:
+      - OUTERCLOTHING
     sprite: _Impstation/Clothing/OuterClothing/Misc/cowboy/black.rsi
     clothingVisuals:
       jumpsuit:
       - state: equipped-OUTERCLOTHING
-  tags:
-   - WhitelistChameleon
 
 # Fancy
 - type: entity
@@ -66,9 +66,9 @@
     layers:
     - state: icon
   - type: Clothing
+    slots:
+      - OUTERCLOTHING
     sprite: _Impstation/Clothing/OuterClothing/Misc/cowboy/fancy.rsi
     clothingVisuals:
       jumpsuit:
       - state: equipped-OUTERCLOTHING
-  tags:
-    - WhitelistChameleon

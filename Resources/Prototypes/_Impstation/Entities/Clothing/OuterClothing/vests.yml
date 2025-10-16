@@ -21,6 +21,8 @@
     layers:
     - state: icon
   - type: Clothing
+    slots:
+      - OUTERCLOTHING
     sprite: _Impstation/Clothing/OuterClothing/Misc/cowboy/cow_vest.rsi
     clothingVisuals:
       jumpsuit:
@@ -37,6 +39,8 @@
     layers:
     - state: icon
   - type: Clothing
+    slots:
+      - OUTERCLOTHING
     sprite: _Impstation/Clothing/OuterClothing/Misc/cowboy/black_vest.rsi
     clothingVisuals:
       jumpsuit:
