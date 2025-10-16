@@ -1,0 +1,76 @@
+using System.Text.RegularExpressions;
+using Content.Shared._Impstation.CCVar;
+using Content.Shared._Impstation.Pleebnar.Components;
+using Content.Shared.Actions;
+using Content.Shared.Examine;
+using Content.Shared.Gibbing.Components;
+using Content.Shared.IdentityManagement;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Players;
+using Content.Shared.Verbs;
+using Robust.Shared.Configuration;
+using Robust.Shared.Player;
+using Robust.Shared.Utility;
+
+namespace Content.Shared._Impstation.NotifierExamine;
+
+public sealed class NotifierExamineSystem : EntitySystem
+{
+    [Dependency] private readonly ExamineSystemShared _examine = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly INetConfigurationManager _netCfg = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
+    public override void Initialize()
+    {
+
+        SubscribeLocalEvent<NotifierExamineComponent,ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<NotifierExamineComponent, PlayerAttachedEvent>(OnPlayerAttached);
+        //SubscribeLocalEvent<NotifierExamineComponent, PlayerDetachedEvent>(OnPlayerDetached);
+        SubscribeLocalEvent<NotifierExamineComponent, GetVerbsEvent<ExamineVerb>>(OnGetExamineVerbs);
+
+
+    }
+
+    private void OnPlayerAttached(Entity<NotifierExamineComponent> ent, ref PlayerAttachedEvent args)
+    {
+
+        if ( !_netCfg.GetClientCVar<bool>(args.Player.Channel, ImpCCVars.NotifierOn))
+        {
+            return;
+        }
+        ent.Comp.Active=true;
+        ent.Comp.Content=_netCfg.GetClientCVar<string>(args.Player.Channel, ImpCCVars.NotifierExamine);
+        Dirty(ent.Owner,ent.Comp);
+    }
+    private void OnGetExamineVerbs(Entity<NotifierExamineComponent> ent, ref GetVerbsEvent<ExamineVerb> args)
+    {
+        if (!ent.Comp.Active)
+            return;
+        if (Identity.Name(args.Target, EntityManager) != MetaData(args.Target).EntityName)
+            return;
+
+        var user = args.User;
+        var verb = new ExamineVerb
+        {
+            Act = () =>
+            {
+                var markup = new FormattedMessage();
+                markup.AddText(ent.Comp.Content);
+                _examine.SendExamineTooltip(user, ent, markup, false, false);
+            },
+            Text = Loc.GetString("notifier-verb-text"),
+            Category = VerbCategory.Examine,
+            Icon = new SpriteSpecifier.Texture(new ("/Textures/_Impstation/Interface/VerbIcons/star.svg.192dpi.png"))
+        };
+        Dirty(ent.Owner,ent.Comp);
+        args.Verbs.Add(verb);
+    }
+
+    private void OnExamined(Entity<NotifierExamineComponent> ent, ref ExaminedEvent args)
+    {
+        if (!ent.Comp.Active || !args.IsInDetailsRange||_mobState.IsDead(ent.Owner)) return;
+        args.PushMarkup($"[color=lightblue]{Loc.GetString("notifier-info",("ent", ent.Owner))}[/color]");
+    }
+
+}
