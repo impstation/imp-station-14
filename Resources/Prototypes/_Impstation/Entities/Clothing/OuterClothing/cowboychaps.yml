@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ClothingOuterStorageFoldableBase, AllowSuitStorageClothingGasTanks]
+  parent: [ClothingOuterStorageFoldableBase, AllowSuitStorageClothingGasTanks, ClothingUniformFoldableBase]
   id: ClothingOuterChapsBrown
   name: Brown Chaps
   description: Dress right for the rodeo with these Brown chaps. Just don't forget your pants!
@@ -23,7 +23,7 @@
 
 # White
 - type: entity
-  parent: [ClothingOuterStorageFoldableBase, AllowSuitStorageClothingGasTanks]
+  parent: [ClothingOuterStorageFoldableBase, AllowSuitStorageClothingGasTanks, ClothingUniformFoldableBase]
   id: ClothingOuterChapsWhite
   name: White Chaps
   description: Dress right for the rodeo with these White chaps. Just don't forget your pants!
@@ -47,7 +47,7 @@
 
 # Black
 - type: entity
-  parent: [ClothingOuterStorageFoldableBase, AllowSuitStorageClothingGasTanks]
+  parent: [ClothingOuterStorageFoldableBase, AllowSuitStorageClothingGasTanks, ClothingUniformFoldableBase]
   id: ClothingOuterChapsBlack
   name: Black Chaps
   description: Dress right for the rodeo with these Black chaps. Just don't forget your pants!
@@ -71,7 +71,7 @@
 
 # Fancy
 - type: entity
-  parent: [ClothingOuterStorageFoldableBase, AllowSuitStorageClothingGasTanks]
+  parent: [ClothingOuterStorageFoldableBase, AllowSuitStorageClothingGasTanks, ClothingUniformFoldableBase]
   id: ClothingOuterChapsFancy
   name: Fancy Chaps
   description: Dress right for the rodeo with these Fancy chaps. Just don't forget your pants!
