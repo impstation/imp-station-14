@@ -110,6 +110,7 @@ public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
 
             var output = input * comp.DrainEfficiency;
             _battery.SetCharge(comp.BatteryUid.Value, battery.CurrentCharge + output, battery);
+            return false;
         } // imp start
         if (comp.FullDrain == true)
         {
@@ -124,6 +125,7 @@ public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
             var input = Math.Min(Math.Min(available, required), maxDrained);
             if (!_battery.TryUseCharge(target, input, targetBattery))
                 return false;
+            return false;
         } // imp end
         // TODO: create effect message or something
         Spawn("EffectSparks", Transform(target).Coordinates);
