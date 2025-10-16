@@ -1,0 +1,87 @@
+# Brown
+- type: entity
+  parent: [ClothingOuterStorageFoldableBase, AllowSuitStorageClothingGasTanks]
+  id: ClothingUniformChapsBrown
+  name: Brown Chaps
+  description: Dress right for the rodeo with these Brown chaps. Just don't forget your pants!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Misc/cowboychaps/brown.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Misc/cowboychaps/brown.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-OUTERCLOTHING
+  - type: Foldable
+    sprite: _Impstation/Clothing/OuterClothing/Misc/cowboychaps/brown.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-OUTERCLOTHING-Folded
+
+# White
+- type: entity
+  parent: [ClothingOuterStorageFoldableBase, AllowSuitStorageClothingGasTanks]
+  id: ClothingUniformChapsWhite
+  name: White Chaps
+  description: Dress right for the rodeo with these White chaps. Just don't forget your pants!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Misc/cowboychaps/white.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Misc/cowboychaps/white.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-OUTERCLOTHING
+  - type: Foldable
+    sprite: _Impstation/Clothing/OuterClothing/Misc/cowboychaps/white.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-OUTERCLOTHING-Folded
+
+# Black
+- type: entity
+  parent: [ClothingOuterStorageFoldableBase, AllowSuitStorageClothingGasTanks]
+  id: ClothingUniformChapsBlack
+  name: Black Chaps
+  description: Dress right for the rodeo with these Black chaps. Just don't forget your pants!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Misc/cowboychaps/black.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Misc/cowboychaps/black.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-OUTERCLOTHING
+  - type: Foldable
+    sprite: _Impstation/Clothing/OuterClothing/Misc/cowboychaps/black.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-OUTERCLOTHING-Folded
+
+# Fancy
+- type: entity
+  parent: [ClothingOuterStorageFoldableBase, AllowSuitStorageClothingGasTanks]
+  id: ClothingUniformChapsFancy
+  name: Fancy Chaps
+  description: Dress right for the rodeo with these Fancy chaps. Just don't forget your pants!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Misc/cowboychaps/fancy.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Misc/cowboychaps/fancy.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-OUTERCLOTHING
+  - type: Foldable
+    sprite: _Impstation/Clothing/OuterClothing/Misc/cowboychaps/fancy.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-OUTERCLOTHING-Folded
