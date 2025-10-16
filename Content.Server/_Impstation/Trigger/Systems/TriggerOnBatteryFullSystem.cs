@@ -10,7 +10,7 @@ public sealed class TriggerOnBatteryFullSystem : EntitySystem
 {
     [Dependency] private readonly TriggerSystem _trigger = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
-    public override void Initialize()
+    public override void Initialize ()
     {
         base.Initialize ();
 
