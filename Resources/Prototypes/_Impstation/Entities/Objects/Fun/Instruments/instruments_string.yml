@@ -17,4 +17,15 @@
         - state: inhand-left
       right:
         - state: inhand-right
-        
+
+- type: entity
+  parent: BaseStringInstrument
+  id: DrumKitInstrument
+  name: drum kit
+  description: Bling-bang-bang-dork.
+  components:
+  - type: Instrument
+    bank: 1
+    program: 6
+  - type: Sprite
+    sprite: Objects/Fun/Instruments/violin.rsi
