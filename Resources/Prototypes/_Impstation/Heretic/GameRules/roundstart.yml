@@ -1,25 +1,23 @@
 - type: entity
   parent: BaseGameRule
-  id: Heretic
+  id: HereticLowpop
   components:
   - type: HereticRule
   - type: GameRule
-    minPlayers: 20
+    minPlayers: 5
     delay:
       min: 30
       max: 60
   - type: AntagObjectives
     objectives:
     - HereticKnowledgeObjective
-    - HereticSacrificeObjective
-    - HereticSacrificeHeadObjective
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn # Imp edit
     agentName: heretic-roundend-name
     definitions:
     - prefRoles: [ Heretic ]
-      max: 6
-      playerRatio: 12 # little less than syndicates. maxes to 6 at >60 pop, previously 4
+      max: 3
+      playerRatio: 15 # this will usually mean only one heretic is around
       lateJoinAdditional: true
       blacklist:
         components:
