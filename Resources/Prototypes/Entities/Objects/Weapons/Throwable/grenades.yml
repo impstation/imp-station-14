@@ -98,7 +98,7 @@
   - type: SpawnOnTrigger
     keysIn:
     - timer
-    proto: GrenadeFlashEffect
+    proto: GrenadeFlashEffectStun #imp
     predicted: true
   - type: Appearance
   - type: TimerTriggerVisuals
@@ -119,6 +119,7 @@
   components:
     - type: PointLight
       enabled: true
+      color: "#ffd591" #imp
       radius: 5
       energy: 8
       netsync: false
@@ -203,7 +204,7 @@
   parent: [ GrenadeBase, BaseSyndicateContraband ]
   id: SingularityGrenade
   name: singularity grenade
-  description: A grenade that simulates the power of a singularity, pulling things in a heap. #imp
+  description: A grenade that simulates the power of a singularity, pulling everything around itself into a heap. #imp
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/singularitygrenade.rsi
@@ -272,7 +273,7 @@
 
 - type: entity
   name: whitehole grenade
-  description: A grenade that repulses everything around for some time. #imp
+  description: A grenade that repulses everything around itself for some time. #imp
   parent: SingularityGrenade
   id: WhiteholeGrenade
   components:
@@ -332,7 +333,7 @@
 
 - type: entity
   name: the nuclear option
-  description: Please don't throw it, think of the children.
+  description: Please don't throw it; think of the children! #imp
   parent: GrenadeBase
   id: NuclearGrenade
   components:

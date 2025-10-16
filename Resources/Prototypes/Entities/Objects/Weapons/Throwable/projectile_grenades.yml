@@ -65,7 +65,7 @@
   - type: SpawnOnTrigger
     keysIn:
     - timer
-    proto: GrenadeFlashEffect
+    proto: GrenadeFlashEffectStun #imp
     predicted: true
   - type: TriggerOnUse
   - type: TimerTrigger
@@ -90,7 +90,7 @@
   - type: SpawnOnTrigger #imp; causes light when it explodes
     keysIn:
     - timer
-    proto: GrenadeFlashEffect
+    proto: GrenadeFlashEffectPyro
     predicted: true
   - type: ProjectileGrenade
     fillPrototype: PelletClusterIncendiary
