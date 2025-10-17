@@ -15,6 +15,8 @@
     clothingVisuals:
       jumpsuit:
       - state: equipped-OUTERCLOTHING
+  - type: StaticPrice
+    price: 0
 
 # White
 - type: entity
@@ -34,6 +36,8 @@
     clothingVisuals:
       jumpsuit:
       - state: equipped-OUTERCLOTHING
+  - type: StaticPrice
+    price: 0
 
 # Black
 - type: entity
@@ -53,6 +57,8 @@
     clothingVisuals:
       jumpsuit:
       - state: equipped-OUTERCLOTHING
+  - type: StaticPrice
+    price: 0
 
 # Fancy
 - type: entity
@@ -72,3 +78,5 @@
     clothingVisuals:
       jumpsuit:
       - state: equipped-OUTERCLOTHING
+  - type: StaticPrice
+    price: 0

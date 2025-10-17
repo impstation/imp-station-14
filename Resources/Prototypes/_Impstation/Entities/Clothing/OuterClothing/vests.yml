@@ -27,6 +27,8 @@
     clothingVisuals:
       jumpsuit:
       - state: equipped-OUTERCLOTHING
+  - type: StaticPrice
+    price: 0
 
 - type: entity
   parent: [ClothingOuterStorageBase, AllowSuitStorageClothingGasTanks]
@@ -45,3 +47,5 @@
     clothingVisuals:
       jumpsuit:
       - state: equipped-OUTERCLOTHING
+  - type: StaticPrice
+    price: 0
