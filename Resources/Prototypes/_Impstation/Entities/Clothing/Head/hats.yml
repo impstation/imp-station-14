@@ -431,3 +431,21 @@
     sprite: _Impstation/Clothing/Head/Hats/centcommintern.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Head/Hats/centcommintern.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadGiantCowboyHat
+  name: Large Cowboy Hat
+  description: A comedically large cowboy hat.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hats/cowboy_hat.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hats/cowboy_hat.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
+  - type: StaticPrice
+    price: 0
