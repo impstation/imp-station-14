@@ -201,6 +201,7 @@
     maxDurabilityCanDecreaseBy:
       min: 0
       max: 3
+    maxNodeUnlocks: 6
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -282,6 +283,8 @@
   parent: BaseXenoArtifactEffect
   description: Matter creation
   components:
+  - type: XenoArtifactNode
+    maxNodeUnlocks: 6
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -302,6 +305,8 @@
   parent: BaseXenoArtifactEffect
   description: Matter creation
   components:
+  - type: XenoArtifactNode
+    maxNodeUnlocks: 6
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -357,6 +362,8 @@
   parent: BaseXenoArtifactEffect
   description: Matter creation
   components:
+  - type: XenoArtifactNode
+    maxNodeUnlocks: 2
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true

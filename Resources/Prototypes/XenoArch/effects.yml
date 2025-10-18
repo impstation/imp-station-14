@@ -446,6 +446,7 @@
     maxDurabilityCanDecreaseBy:
       min: 0
       max: 0
+    maxNodeUnlocks: 1 #IMP
   - type: NameIdentifier
     group: XenoArtifactNode
 
@@ -914,6 +915,7 @@
     maxDurabilityCanDecreaseBy:
       min: 0
       max: 1
+    maxNodeUnlocks: 4 #IMP
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -934,6 +936,7 @@
     maxDurabilityCanDecreaseBy:
       min: 0
       max: 2
+    maxNodeUnlocks: 5 #IMP
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -1059,6 +1062,7 @@
     maxDurabilityCanDecreaseBy:
       min: 0
       max: 2
+    maxNodeUnlocks: 4 #IMP
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -1082,6 +1086,7 @@
     maxDurabilityCanDecreaseBy:
       min: 0
       max: 2
+    maxNodeUnlocks: 4 #IMP
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -1105,6 +1110,7 @@
     maxDurabilityCanDecreaseBy:
       min: 0
       max: 1
+    maxNodeUnlocks: 4 #IMP
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -1128,6 +1134,7 @@
     maxDurabilityCanDecreaseBy:
       min: 0
       max: 2
+    maxNodeUnlocks: 4 #IMP
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -1151,6 +1158,7 @@
     maxDurabilityCanDecreaseBy:
       min: 0
       max: 2
+    maxNodeUnlocks: 5 #IMP
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -1174,6 +1182,7 @@
     maxDurabilityCanDecreaseBy:
       min: 0
       max: 3
+    maxNodeUnlocks: 6 #IMP
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -1229,6 +1238,7 @@
     maxDurabilityCanDecreaseBy:
       min: 0
       max: 1
+    maxNodeUnlocks: 5 #IMP
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -1426,6 +1436,8 @@
   parent: BaseXenoArtifactEffect
   description: Create glass
   components:
+  - type: XenoArtifactNode #IMP
+    maxNodeUnlocks: 5 #IMP
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -1441,6 +1453,8 @@
   parent: BaseXenoArtifactEffect
   description: Create steel
   components:
+  - type: XenoArtifactNode #IMP
+    maxNodeUnlocks: 5 #IMP
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -1456,6 +1470,8 @@
   parent: BaseXenoArtifactEffect
   description: Create plastic
   components:
+  - type: XenoArtifactNode #IMP
+    maxNodeUnlocks: 5 #IMP
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -1483,6 +1499,7 @@
     maxDurabilityCanDecreaseBy:
       min: 0
       max: 1
+    maxNodeUnlocks: 1 #IMP
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true

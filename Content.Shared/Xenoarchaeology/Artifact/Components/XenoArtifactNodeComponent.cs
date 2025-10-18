@@ -57,6 +57,18 @@ public sealed partial class XenoArtifactNodeComponent : Component
     /// </summary>
     [DataField]
     public MinMax MaxDurabilityCanDecreaseBy = new(0, 2);
+
+    /// <summary>
+    /// #IMP Max number of times this node can be unlocked (used for natural artifacts)
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public int MaxNodeUnlocks = 0;
+
+    /// <summary>
+    /// #IMP number of times this node has been unlocked (used for natural artifacts)
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public int NumNodeUnlocks = 0;
     #endregion
 
     #region Research

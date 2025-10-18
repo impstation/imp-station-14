@@ -94,6 +94,18 @@ public abstract partial class SharedXenoArtifactSystem
     }
 
     /// <summary>
+    /// #IMP Adjusts the number of times a node believes it has been unlocked, for use with artifact glue, etc.
+    /// </summary>
+    public void AdjustNodeUnlocks(Entity<XenoArtifactNodeComponent?> ent, int delta)
+    {
+        if (!Resolve(ent, ref ent.Comp))
+            return;
+
+        ent.Comp.NumNodeUnlocks += delta;
+        Dirty(ent);
+    }
+
+    /// <summary>
     /// Creates artifact node entity, attaching trigger and marking depth level for future use.
     /// </summary>
     public Entity<XenoArtifactNodeComponent> CreateNode(Entity<XenoArtifactComponent> ent, ProtoId<XenoArchTriggerPrototype> trigger, int depth = 0)
