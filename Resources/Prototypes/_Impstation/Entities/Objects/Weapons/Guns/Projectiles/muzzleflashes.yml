@@ -139,3 +139,17 @@
       map: ["enum.EffectLayers.Unshaded"]
       sprite: _Impstation/Objects/Weapons/Guns/Projectiles/muzzleflashes.rsi
       state: toybolt
+
+- type: entity
+  parent: MuzzleFlashEffect
+  id: MuzzleFlashEffectKineticStun
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: BelowMobs
+    offset: 0.15, 0
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/muzzleflashes.rsi
+      state: kineticstun

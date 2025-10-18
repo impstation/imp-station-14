@@ -1,7 +1,7 @@
 ﻿- type: entity
-  parent: [BaseItem, BaseXAEXenoArtifact]
-  id: BaseXAEXenoArtifactItem #IMP Add XAE in id
-  name: reticulated artifact #IMP reticulated
+  parent: [BaseItem, BaseXenoArtifact]
+  id: BaseXenoArtifactItem
+  name: artifact
   description: A strange artifact from time unknown. Looks like a good time. Fits in hand perfectly.
   abstract: true
   noSpawn: true
@@ -65,8 +65,8 @@
     stealGroup: ArtifactFragment
 
 - type: entity
-  parent: BaseXAEXenoArtifactItem #IMP Add XAE
-  id: ComplexXAEXenoArtifactItem
+  parent: BaseXenoArtifactItem
+  id: ComplexXenoArtifactItem
   suffix: Hand-Sized
   components:
   - type: XenoArtifact

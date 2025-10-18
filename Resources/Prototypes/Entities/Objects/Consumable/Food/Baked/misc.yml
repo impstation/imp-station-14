@@ -52,6 +52,7 @@
   - type: Tag
     tags:
       - Muffin
+      - UnguFood # imp
 
 - type: entity
   name: berry muffin
@@ -181,6 +182,10 @@
   components:
   - type: Sprite
     state: bun-honey
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Bread
 
 - type: entity
   name: hotcross bun
@@ -190,6 +195,10 @@
   components:
   - type: Sprite
     state: bun-hotcross
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Bread
 
 - type: entity
   name: meat bun
@@ -258,6 +267,9 @@
           Quantity: 5
         - ReagentId: Butter # imp
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: raisin cookie
@@ -301,6 +313,9 @@
           Quantity: 5
         - ReagentId: Butter
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 # Nuggets
 
@@ -571,6 +586,9 @@
   - type: Construction # Frontier
     graph: WaffleCone
     node: start
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: soy waffles
@@ -647,6 +665,9 @@
   components:
   - type: Sprite
     state: pretzel
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: cannoli
@@ -665,6 +686,9 @@
           Quantity: 5
         - ReagentId: Vitamin
           Quantity: 1
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: dumplings
@@ -718,6 +742,10 @@
           Quantity: 0.4
         - ReagentId: Blackpepper # imp
           Quantity: 0.4
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Bread
 
 - type: entity
   name: cotton chèvre chaud
@@ -922,6 +950,9 @@
             Quantity: 1
           - ReagentId: Vitamin
             Quantity: 1
+    - type: Tag # imp
+      tags:
+      - UnguFood
 
 - type: entity
   name: croissant
@@ -950,6 +981,9 @@
     damage:
       types:
         Blunt: 0 # so the damage stats icon doesn't immediately give away the syndie ones
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: cotton croissant
@@ -1008,6 +1042,10 @@
           Quantity: 5 # imp
         # - ReagentId: Vitamin
         #  Quantity: 3
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Bread
 
 - type: entity
   parent: FoodBakedBase

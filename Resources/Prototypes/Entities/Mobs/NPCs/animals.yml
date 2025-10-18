@@ -292,8 +292,8 @@
     biomassRestored: 0.2
   - type: Carriable #DeltaV
     freeHandsRequired: 1
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   parent: MobChicken
@@ -676,8 +676,8 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 
 # Note that the mallard duck is actually a male drake mallard, with the brown duck being the female variant of the same species, however ss14 lacks sex specific textures
@@ -760,8 +760,8 @@
     biomassRestored: 0.2
   - type: Carriable #DeltaV
     freeHandsRequired: 1
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: white duck #Quack
@@ -895,8 +895,8 @@
         recursive: false
   # imp edit start
   - type: PleebnarGibbable
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: cow
@@ -986,8 +986,8 @@
   - type: GoobAbsorbable
     biomassRestored: 0.7
   - type: CowToolProficiency #this was made for ungus, but i'm putting this here in case an admin wants to be cute and give a cow hands
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: crab
@@ -1073,8 +1073,8 @@
       Male: UnisexDecapoid
       Female: UnisexDecapoid
       Unsexed: UnisexDecapoid
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: goat
@@ -1181,8 +1181,8 @@
   # imp edit start
   - type: GoobAbsorbable
     biomassRestored: 0.5
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 # Note that we gotta make this bitch vomit someday when you feed it anthrax or sumthin. Needs to be a small item thief too and aggressive if attacked.
 - type: entity
@@ -1236,8 +1236,8 @@
   - type: GoobAbsorbable
     biomassRestored: 0.3
   - type: Carriable #DeltaV
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: gorilla
@@ -2285,9 +2285,8 @@
     activateSound: null
     deactivateSound: null
   - type: PleebnarGibbable
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
-
 
 - type: entity
   name: slug
@@ -2352,8 +2351,8 @@
   - type: PleebnarGibbable
   - type: VentCrawler
     enterDelay: 1
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: frog
@@ -2436,8 +2435,8 @@
   - type: PleebnarGibbable
   - type: VentCrawler
     enterDelay: 1
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 # Would be cool to have some functionality for the parrot to be able to sit on stuff
 - type: entity
@@ -2594,8 +2593,8 @@
   - type: GoobAbsorbable
     biomassRestored: 0.3
   - type: Carriable #DeltaV
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 # TODO: Make grenade penguin voice activated like the rest of the stealth items.
 - type: entity
@@ -3043,8 +3042,8 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: possum
@@ -3137,8 +3136,8 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: fox
@@ -3279,8 +3278,8 @@
     biomassRestored: 0.3
   - type: Carriable #DeltaV
   - type: DogVision
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   parent: MobCorgiBase
@@ -3305,6 +3304,25 @@
   - type: Tag
     tags:
     - VimPilot
+# imp start
+  - type: NpcFactionMember
+    factions:
+      - Dog
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/Animals/dog_bark1.ogg
+  - type: StaminaDamageOnHit
+    damage: 20
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+# imp end
 
 - type: entity
   name: corrupted corgi
@@ -3483,8 +3501,8 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: calico cat
@@ -3725,11 +3743,11 @@
     tags:
     - VimPilot
   # imp edit start
-  - type: GoobAbsorbable # imp edit
+  - type: GoobAbsorbable
     biomassRestored: 0.3
   - type: Carriable #DeltaV
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: ferret
@@ -3796,8 +3814,8 @@
     deactivateSound: null
   - type: VentCrawler
     enterDelay: 3
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: hamster
@@ -3957,8 +3975,8 @@
   - type: PleebnarGibbable
   - type: VentCrawler
     enterDelay: 1
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: pig
@@ -4035,8 +4053,8 @@
     biomassRestored: 0.7
   - type: Carriable #DeltaV
   - type: PleebnarGibbable
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: diona nymph
@@ -4215,8 +4233,8 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: reindeer doe
