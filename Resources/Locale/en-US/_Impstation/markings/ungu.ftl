@@ -90,6 +90,9 @@ marking-SnootUngu = Cow Snout
 marking-SnoutElephantUngu = Elephant Head
 marking-SnoutHippoUngu = Hippo Head
 marking-SnoutPigUngu = Pig Head
+marking-SnoutBoarUngu = Boar Head
+marking-SnoutBoarUngu-SnoutPig = Head
+marking-SnoutBoarUngu-TusksPig = Tusks
 marking-SnoutTapirUngu = Tapir Head
 marking-SnoutWhale1Ungu = Humpback Whale Head
 marking-SnoutWhale2Ungu = Sperm Whale Head
@@ -110,6 +113,7 @@ marking-EyesCyclopsGlowUngu-EyesCyclops = Pupil
 marking-EyesCyclopsGlowUngu-EyesCyclopsWhite = Sclera
 marking-EyesDotsGlowUngu = Glowing Eyes
 marking-EyesWaterUngu = Watery Eyes
+marking-EyesWaterUngu-EyesWater = Watery Eyes
 
 # arms
 

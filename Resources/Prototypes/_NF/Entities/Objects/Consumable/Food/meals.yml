@@ -54,6 +54,9 @@
           Quantity: 9
         - ReagentId: Vitamin
           Quantity: 3
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: breakfast bagel
@@ -81,6 +84,9 @@
           Quantity: 12
         - ReagentId: Vitamin
           Quantity: 3
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: poppyseed breakfast bagel
@@ -110,6 +116,9 @@
           Quantity: 3
         - ReagentId: Bicaridine
           Quantity: 4
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: cucumber sandwich
@@ -134,6 +143,9 @@
           Quantity: 15
         - ReagentId: Vitamin
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: greek salad
@@ -290,6 +302,9 @@
           Quantity: 6
         - ReagentId: Soysauce
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: miso noodles
@@ -318,6 +333,9 @@
           Quantity: 12
         - ReagentId: Vitamin
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: shio noodles
