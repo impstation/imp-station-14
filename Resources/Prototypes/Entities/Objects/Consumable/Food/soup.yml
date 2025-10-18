@@ -91,6 +91,9 @@
           Quantity: 4 # imp
         - ReagentId: Water # imp
           Quantity: 10
+  - type: Tag # imp
+    tags:
+    - Vegetable
 
 # Salad
 
@@ -224,6 +227,9 @@
           Quantity: 10 # imp
         - ReagentId: Allicin
           Quantity: 4 # imp
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: caesar salad
@@ -252,6 +258,9 @@
           Quantity: 5 # imp
         - ReagentId: Allicin # imp
           Quantity: 1
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: kimchi salad
@@ -283,6 +292,9 @@
           Quantity: 5
         - ReagentId: JuiceCarrot # imp
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: fruit salad
@@ -402,6 +414,10 @@
           Quantity: 5
         - ReagentId: Omnizine
           Quantity: 5
+  - type: Tag # imp, all the other ones are???
+    tags:
+    - Fruit
+    - Soup
 
 # Rice
 
@@ -427,6 +443,9 @@
           Quantity: 6
         - ReagentId: Nutriment
           Quantity: 2
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: egg-fried rice
@@ -459,8 +478,10 @@
           Quantity: 5
   - type: Tag
     tags:
-    - Meat
+#    - Meat # imp
+    - ReptilianFood # imp
     - Soup
+    - UnguFood # imp
 
 - type: entity
   name: rice and pork
@@ -525,6 +546,9 @@
           Quantity: 10 # imp
         - ReagentId: Sugar
           Quantity: 11 # imp
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: black-eyed gumbo
@@ -591,6 +615,9 @@
           Quantity: 3
         #- ReagentId: Milk # imp
         #  Quantity: 10
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: space liberty duff
@@ -629,6 +656,9 @@
           Quantity: 15 # imp
         - ReagentId: Amatoxin
           Quantity: 30 # imp - this shit killing you
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 # Soup
 
@@ -786,7 +816,7 @@
   - type: FlavorProfile
     flavors:
     - vegetables
-    - sadness
+#    - sadness imp, fuck you
     - potatoes # imp
   - type: Sprite
     layers:
@@ -807,6 +837,9 @@
         #  Quantity: 4 # imp
         - ReagentId: JuiceCarrot # imp
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - Vegetable
 
 - type: entity
   name: nettle soup
@@ -839,6 +872,9 @@
           Quantity: 3 # imp
         - ReagentId: EggCooked # imp
           Quantity: 6
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: mystery soup
@@ -1109,6 +1145,9 @@
           Quantity: 5
         - ReagentId: Milk
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: beet soup
@@ -1131,6 +1170,9 @@
           Quantity: 7
         - ReagentId: Water
           Quantity: 10
+  - type: Tag # imp
+    tags:
+    - Vegetable
 # Tastes like borsch, bortsch, borstch, borsh, borshch, borscht.
 
 - type: entity
@@ -1152,6 +1194,9 @@
           Quantity: 15 # imp
         - ReagentId: Vitamin
           Quantity: 15 # imp
+  - type: Tag # imp
+    tags:
+    - Vegetable
 # Tastes like beet.
 
 - type: entity
@@ -1187,7 +1232,8 @@
   - type: Tag
     tags:
     - Meat
-    - Fruit
+#    - Fruit imp, removing this so ungus dont eat it
+    - ReptilianFood # imp
     - Soup
 
 - type: entity
@@ -1212,6 +1258,9 @@
           Quantity: 15 # imp
         - ReagentId: Vitamin
           Quantity: 15 # imp
+  - type: Tag # imp
+    tags:
+    - Vegetable
 
 # Tastes like sweet potato.
 
@@ -1241,6 +1290,9 @@
           Quantity: 5
         - ReagentId: Water # imp
           Quantity: 10
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: bisque

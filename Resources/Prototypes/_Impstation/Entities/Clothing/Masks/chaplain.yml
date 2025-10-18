@@ -19,6 +19,9 @@
     sprite: _Impstation/Clothing/Mask/flamemask.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Mask/flamemask.rsi
+  - type: HideLayerClothing # imp
+    slots:
+    - SnoutCover
 
 - type: entity
   parent: ClothingMaskGas

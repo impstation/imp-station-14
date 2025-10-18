@@ -10,6 +10,7 @@ steal-target-groups-medtekcartridge = MedTek cartridge
 steal-target-groups-logprobecartridge = LogProbe cartridge
 steal-target-groups-astronavcartridge = AstroNav cartridge
 steal-target-groups-stocktradingcartridge = StockTrading cartridge
+steal-target-groups-medchemhud = MedChem HUD
 
 steal-target-groups-servicetechfab = service techfab machine board
 steal-target-groups-shipyardcomputercircuitboard = shipyard computer board

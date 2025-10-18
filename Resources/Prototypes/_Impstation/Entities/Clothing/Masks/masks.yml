@@ -24,6 +24,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutCover # imp
     hideOnToggle: true
 
 - type: entity
@@ -45,6 +46,7 @@
     slots:
     - Hair
     - Snout
+    - SnoutCover # imp
     hideOnToggle: true
   - type: Armor
     modifiers:
@@ -79,6 +81,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutCover
     hideOnToggle: true
 
 - type: entity
@@ -110,3 +113,6 @@
     tags:
     - WhitelistChameleon
     - ClothMade
+  - type: HideLayerClothing # imp
+    slots:
+    - SnoutCover
