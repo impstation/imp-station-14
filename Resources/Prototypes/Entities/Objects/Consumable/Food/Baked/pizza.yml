@@ -91,6 +91,11 @@
           Quantity: 40
         - ReagentId: Vitamin
           Quantity: 12
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Pizza
+    - ReptilianFood
 
 - type: entity
   name: slice of margherita pizza
@@ -118,6 +123,11 @@
           Quantity: 1.5
   - type: Item
     heldPrefix: margherita-slice
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Pizza
+    - ReptilianFood
 
 - type: entity
   name: meat pizza
@@ -211,6 +221,11 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 40
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Pizza
+    - ReptilianFood
 
 - type: entity
   name: slice of mushroom pizza
@@ -235,6 +250,11 @@
           Quantity: 5
   - type: Item
     heldPrefix: mushroom-slice
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Pizza
+    - ReptilianFood
 
 # Tastes like crust, tomato, cheese, mushroom.
 
@@ -268,6 +288,11 @@
           Quantity: 10 # imp
         - ReagentId: Vitamin
           Quantity: 7 # imp
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Pizza
+    - ReptilianFood
 
 - type: entity
   name: slice of vegetable pizza
@@ -300,6 +325,11 @@
           Quantity: 1.25 # imp
         - ReagentId: Vitamin
           Quantity: 0.875 # imp
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Pizza
+    - ReptilianFood
 
 # Tastes like crust, tomato, cheese, carrot.
 
@@ -396,6 +426,11 @@
           Quantity: 30
         - ReagentId: Vitamin # imp
           Quantity: 3
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Pizza
+    - ReptilianFood
 
 - type: entity
   name: slice of dank pizza
@@ -425,6 +460,11 @@
           Quantity: 3.75 # imp
         - ReagentId: Vitamin # imp
           Quantity: 0.375
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Pizza
+    - ReptilianFood
 # Tastes like crust, tomato, cheese, meat, satisfaction.
 
 - type: entity
@@ -835,6 +875,11 @@
           Quantity: 9
         - ReagentId: Pax
           Quantity: 6
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Pizza
+    - ReptilianFood
 
 - type: entity
   name: slice of world peazza
@@ -862,3 +907,8 @@
           Quantity: 1.125
         - ReagentId: Pax
           Quantity: 0.75
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Pizza
+    - ReptilianFood

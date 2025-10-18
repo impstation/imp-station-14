@@ -8,16 +8,16 @@
       connections:
       - torso
       organs:
-        brain: OrganHumanBrain
-        eyes: OrganHumanEyes
+        brain: OrganMothBrain  #imp edit
+        eyes: OrganMothEyes  #imp edit
     torso:
       part: TorsoMoth
       organs:
-        heart: OrganAnimalHeart
-        lungs: OrganHumanLungs
+        heart: OrganMothHeart  #imp edit
+        lungs: OrganMothLungs  #imp edit
         stomach: OrganMothStomach
-        liver: OrganAnimalLiver
-        kidneys: OrganHumanKidneys
+        liver: OrganMothLiver  #imp edit
+        kidneys: OrganMothKidneys  #imp edit
       connections:
       - right arm
       - left arm
