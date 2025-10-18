@@ -500,6 +500,7 @@
     - NanoChatCartridge # DV
     - MailMetricsCartridge  # DV - turning this off until i can fix it with the rest of the mail
     - SOSCartridge # Imp
+    - StockTradingCartridge # DeltaV
 
 - type: entity
   parent: BasePDA
@@ -526,6 +527,7 @@
       - NewsReaderCartridge
       - NanoChatCartridge # DeltaV
       - SOSCartridge # Imp
+      - StockTradingCartridge # DeltaV
 
 - type: entity
   parent: BasePDA
@@ -981,6 +983,7 @@
       - AstroNavCartridge
       - NanoChatCartridge # DV
       - SOSCartridge # Imp
+      - StockTradingCartridge # DV
 
 - type: entity
   parent: CentcomPDA
@@ -1009,6 +1012,8 @@
       - AstroNavCartridge
       - NanoChatCartridge # DV
       - SOSCartridge # Imp
+      - StockTradingCartridge # DV
+      - StockTradingCartridge # DV
 
   - type: Tag #  Ignore Chameleon tags
     tags:
