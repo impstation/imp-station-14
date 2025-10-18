@@ -18,6 +18,9 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared.Stacks; // imp edit
+using Content.Shared.Storage.Components; // imp edit
+using System.Text; // imp edit
 
 namespace Content.Server.Cargo.Systems
 {
@@ -644,6 +647,45 @@ namespace Content.Server.Cargo.Systems
                         ("account", Loc.GetString(accountProto.Name)),
                         ("accountcode", Loc.GetString(accountProto.Code)),
                         ("approver", string.IsNullOrWhiteSpace(order.Approver) ? Loc.GetString("cargo-console-paper-approver-default") : order.Approver)));
+
+                // imp edit start, list contents in invoice
+                if (TryComp<EntityStorageComponent>(item, out var storage) && storage.Contents.Count > 0)
+                {
+                    var manifestDict = new Dictionary<string, int>();
+                    var manifestBuilder = new StringBuilder();
+
+                    foreach (var entity in storage.Contents.ContainedEntities)
+                    {
+                        var entName = MetaData(entity).EntityName;
+                        var amount = 1;
+                        if (TryComp<StackComponent>(entity, out var stackComp))
+                            amount = stackComp.Count;
+
+                        if (manifestDict.ContainsKey(entName))
+                            manifestDict[entName] += amount;
+                        else
+                            manifestDict.Add(MetaData(entity).EntityName, amount);
+                    }
+
+                    foreach (var keyValuePair in manifestDict.OrderByDescending(x => x.Key).Reverse())
+                    {
+                        manifestBuilder.AppendLine($"• [bold]{keyValuePair.Key}[/bold] [mono]x{keyValuePair.Value}[/mono]");
+                    }
+
+                    _paperSystem.SetContent((printed, paper),
+                        Loc.GetString(
+                            "cargo-invoice-text",
+                            ("orderNumber", order.OrderId),
+                            ("itemName", MetaData(item).EntityName),
+                            ("orderQuantity", order.OrderQuantity),
+                            ("requester", order.Requester),
+                            ("reason", string.IsNullOrWhiteSpace(order.Reason) ? Loc.GetString("cargo-console-paper-reason-default") : order.Reason),
+                            ("account", Loc.GetString(accountProto.Name)),
+                            ("accountcode", Loc.GetString(accountProto.Code)),
+                            ("approver", string.IsNullOrWhiteSpace(order.Approver) ? Loc.GetString("cargo-console-paper-approver-default") : order.Approver),
+                            ("contents", manifestBuilder.ToString())));
+                }
+                // imp edit end
 
                 // attempt to attach the label to the item
                 if (TryComp<PaperLabelComponent>(item, out var label))
