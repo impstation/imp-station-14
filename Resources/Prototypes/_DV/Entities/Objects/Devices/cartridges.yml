@@ -41,7 +41,7 @@
       state: icon
 
 - type: entity
-  parent: BaseItem
+  parent: [BaseItem, BaseCargoContraband] # imp edit
   id: StockTradingCartridge
   name: StockTrading cartridge
   description: A cartridge that tracks the intergalactic stock market.
@@ -62,3 +62,5 @@
       state: stock_trading
   - type: AccessReader # This is so that we can restrict who can buy stocks
     access: [["Cargo"]]
+  - type: StealTarget # imp addition
+    stealGroup: StockTradingCartridge
