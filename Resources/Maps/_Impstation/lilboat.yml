@@ -4,8 +4,8 @@ meta:
   engineVersion: 267.2.0
   forkId: ""
   forkVersion: ""
-  time: 10/18/2025 16:16:00
-  entityCount: 9823
+  time: 10/18/2025 21:06:55
+  entityCount: 9826
 maps:
 - 1
 grids:
@@ -2831,7 +2831,7 @@ entities:
       pos: 5.5,6.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -12684.445
+      secondsUntilStateChange: -12773.982
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -19304,6 +19304,20 @@ entities:
     components:
     - type: Transform
       pos: 18.74871,-10.074589
+      parent: 2
+- proto: ClothingMaskBlushingClown
+  entities:
+  - uid: 9826
+    components:
+    - type: Transform
+      pos: 19.545713,14.770002
+      parent: 2
+- proto: ClothingMaskBlushingMime
+  entities:
+  - uid: 9824
+    components:
+    - type: Transform
+      pos: 19.342588,14.645002
       parent: 2
 - proto: ClothingMaskGas
   entities:
@@ -54371,6 +54385,13 @@ entities:
     components:
     - type: Transform
       pos: 18.5,-11.5
+      parent: 2
+- proto: SpawnPointMime
+  entities:
+  - uid: 9825
+    components:
+    - type: Transform
+      pos: 21.5,14.5
       parent: 2
 - proto: SpawnPointMusician
   entities:
