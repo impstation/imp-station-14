@@ -177,6 +177,10 @@
   - type: Storage
     grid:
     - 0,0,8,4
+  - type: CleanableInfo
+    cleanedName: "syndicate duffel bag"
+    cleanedDescription: "A large duffel bag for holding various traitor goods."
+  - type: Forensics
 
 - type: entity
   parent: [ ClothingBackpackDuffelSyndicate, BaseSyndicateContraband ]
