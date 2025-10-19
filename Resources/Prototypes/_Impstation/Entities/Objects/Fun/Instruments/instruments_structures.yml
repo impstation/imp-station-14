@@ -1,0 +1,12 @@
+- type: entity
+  name: theremin
+  parent: BasePlaceableInstrumentRotatable
+  id: ThereminInstrument
+  description: The future is now.
+  components:
+  - type: Instrument
+    bank: 1
+    program: 5
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/Instruments/theremin.rsi
+    state: theremin

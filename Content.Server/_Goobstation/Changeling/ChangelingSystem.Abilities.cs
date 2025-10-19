@@ -392,7 +392,7 @@ public sealed partial class GoobChangelingSystem : EntitySystem
 
         var pos = _transform.GetMapCoordinates(uid);
         var power = comp.ShriekPower;
-        _emp.EmpPulse(pos, power, 5000f, power * 2);
+        _emp.EmpPulse(pos, power, 5000f, TimeSpan.FromSeconds(power * 2));
     }
     private void OnShriekResonant(EntityUid uid, GoobChangelingComponent comp, ref ShriekResonantEvent args)
     {

@@ -11,14 +11,12 @@ using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Ghost.Roles.Components;
-using Content.Server.Medical;
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Speech.Components;
 using Content.Server.Spreader;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
-using Content.Server.Traits.Assorted;
 using Content.Server.Zombies;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
@@ -30,9 +28,11 @@ using Content.Shared.EntityEffects.Effects;
 using Content.Shared.EntityEffects;
 using Content.Shared.Flash;
 using Content.Shared.Maps;
+using Content.Shared.Medical;
 using Content.Shared.Mind.Components;
 using Content.Shared.Popups;
 using Content.Shared.Random;
+using Content.Shared.Traits.Assorted;
 using Content.Shared.Zombies;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -45,7 +45,6 @@ using Content.Shared._Impstation.EntityEffects.Effects; // imp
 using Content.Shared._Impstation.Ghost; // imp
 using Content.Shared.Chemistry.Reagent; // imp
 using Content.Shared.Humanoid; // imp
-using Content.Server.Xenoarchaeology.XenoArtifacts; // imp
 
 
 using TemperatureCondition = Content.Shared.EntityEffects.EffectConditions.Temperature; // disambiguate the namespace
@@ -138,7 +137,6 @@ public sealed class EntityEffectSystem : EntitySystem
         SubscribeLocalEvent<ExecuteEntityEffectEvent<MakeSyndient>>(OnExecuteMakeSyndient); // imp
         SubscribeLocalEvent<ExecuteEntityEffectEvent<Medium>>(OnExecuteMedium); // Imp
         SubscribeLocalEvent<ExecuteEntityEffectEvent<MakeTame>>(OnExecuteMakeTame); // imp
-        SubscribeLocalEvent<ExecuteEntityEffectEvent<ActivateArtifact>>(OnExecuteActivateArtifact); // imp
     }
 
     private void OnCheckTemperature(ref CheckEntityEffectConditionEvent<TemperatureCondition> args)
@@ -962,9 +960,7 @@ public sealed class EntityEffectSystem : EntitySystem
             return;
 
         var targetProto = _random.Pick(plantholder.Seed.MutationPrototypes);
-        _protoManager.TryIndex(targetProto, out SeedPrototype? protoSeed);
-
-        if (protoSeed == null)
+        if (!_protoManager.TryIndex(targetProto, out SeedPrototype? protoSeed))
         {
             Log.Error($"Seed prototype could not be found: {targetProto}!");
             return;
@@ -1059,11 +1055,4 @@ public sealed class EntityEffectSystem : EntitySystem
 
         entityManager.EnsureComponent<MediumComponent>(uid);
     }
-
-    private void OnExecuteActivateArtifact(ref ExecuteEntityEffectEvent<ActivateArtifact> args)
-    {
-        var artifact = args.Args.EntityManager.EntitySysManager.GetEntitySystem<ArtifactSystem>();
-        artifact.TryActivateArtifact(args.Args.TargetEntity, logMissing: false);
-    }
-
 }
