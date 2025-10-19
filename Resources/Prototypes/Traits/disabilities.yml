@@ -5,18 +5,23 @@
   name: trait-blindness-name
   description: trait-blindness-desc
   traitGear: WhiteCane
-  category: Disabilities
+  category: Traits # imp
   whitelist:
     components:
       - Blindable
   components:
     - type: PermanentBlindness
+  # imp addition starts
+  subcategories:
+    - Visual
+  cost: -16
+  # imp addition end
 
 - type: trait
   id: PoorVision
   name: trait-poor-vision-name
   description: trait-poor-vision-desc
-  category: Disabilities
+  category: Traits # imp
   whitelist:
     components:
       - Blindable
@@ -24,41 +29,59 @@
     - type: PermanentBlindness
       blindness: 4
     - type: StartWithLenses # imp addition
+  # imp addition starts
+  subcategories: # imp
+    - Visual
+  cost: -1
+  # imp addition end
 
 - type: trait
   id: Narcolepsy
   name: trait-narcolepsy-name
   description: trait-narcolepsy-desc
-  category: Disabilities
+  category: Traits # imp
   components:
     - type: Narcolepsy
       maxTimeBetweenIncidents: 600
       minTimeBetweenIncidents: 300
       maxDurationOfIncident: 30
       minDurationOfIncident: 10
+  # imp addition starts
+  cost: -8
+  # imp addition ends
 
 - type: trait
   id: Unrevivable
   name: trait-unrevivable-name
   description: trait-unrevivable-desc
-  category: Disabilities
+  category: Traits # imp
   components:
     - type: Unrevivable
       cloneable: true
+  # imp addition starts
+  subcategories:
+    - Unrevivability
+  cost: -3
+  # imp addition ends
 
 - type: trait
   id: Monochromacy
   name: trait-monochromacy-name
   description: trait-monochromacy-desc
-  category: Disabilities
+  category: Traits # imp
   components:
   - type: BlackAndWhiteOverlay
+  # imp addition starts
+  subcategories:
+    - Visual
+  cost: -1
+  # imp addition ends
 
 - type: trait
   id: Muted
   name: trait-muted-name
   description: trait-muted-desc
-  category: Disabilities
+  category: Traits # imp
   blacklist:
     components:
       - BorgChassis
@@ -67,12 +90,18 @@
       mutedEmotes: true # IMP
       mutedScream: false # IMP
       mutedSpeech: true # IMP
+  # imp addition starts
+  subcategories:
+    - Speech
+    - Echolalia
+  cost: -6
+  # imp addition ends
 
 - type: trait
   id: Paracusia
   name: trait-paracusia-name
   description: trait-paracusia-desc
-  category: Disabilities
+  category: Traits # imp
   components:
     - type: Paracusia
       minTimeBetweenIncidents: 0.1
@@ -85,23 +114,32 @@
   id: PainNumbness
   name: trait-painnumbness-name
   description: trait-painnumbness-desc
-  category: Disabilities
+  category: Traits # imp
   components:
   - type: PainNumbness
+  # imp addition starts
+  cost: -4
+  # imp addition ends
 
 - type: trait
   id: Hemophilia
   name: trait-hemophilia-name
   description: trait-hemophilia-desc
-  category: Disabilities
+  category: Traits # imp
   components:
   - type: Hemophilia
+  # imp addition starts
+  cost: -6
+  # imp addition ends
 
 - type: trait
   id: ImpairedMobility
   name: trait-impaired-mobility-name
   description: trait-impaired-mobility-desc
   traitGear: OffsetCane
-  category: Disabilities
+  category: Traits # imp
   components:
     - type: ImpairedMobility
+  # imp addition starts
+  cost: -3
+  # imp addition ends
