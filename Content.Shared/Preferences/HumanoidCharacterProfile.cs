@@ -454,7 +454,7 @@ namespace Content.Shared.Preferences
                 {
                     continue;
                 }
-                
+
                 // Begin Imp addition: If trait is one of the excluded traits for this, dump it
                 if (traitProto != otherProto && traitProto.Subcategories.Overlaps(otherProto.Subcategories))
                 {

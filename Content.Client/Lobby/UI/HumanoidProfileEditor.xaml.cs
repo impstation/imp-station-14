@@ -35,13 +35,10 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Direction = Robust.Shared.Maths.Direction;
 // Begin CD - Character Records
-using System.Globalization;
 using Content.Client._CD.Records.UI;
 using Content.Shared._CD.Records;
 // End CD - Character Records
-// Begin Imp - Trait subcategories
-using Content.Shared._Impstation.Traits;
-// End Imp - Trait subcategories
+using Content.Shared._Impstation.Traits; // imp
 
 namespace Content.Client.Lobby.UI
 {
@@ -578,7 +575,7 @@ namespace Content.Client.Lobby.UI
                 }
 
                 List<TraitPreferenceSelector?> selectors = new();
-                List<ProtoId<TraitSubcategoryPrototype>> usedSubcategories = new(); // imp addition
+                List<ProtoId<TraitSubcategoryPrototype>> usedSubcategories = []; // imp addition
                 var selectionCount = 0;
 
                 foreach (var traitProto in categoryTraits)
@@ -632,6 +629,25 @@ namespace Content.Client.Lobby.UI
                     });
                 }
 
+                // imp addition start:
+                // instead of appending everything to traitslist, we make a new boxcontainer and put the selectors in there.
+                var traitColumn1 = new BoxContainer
+                {
+                    Orientation = LayoutOrientation.Vertical,
+                    Margin = new Thickness(10, 0, 10, 0)
+                };
+                var traitColumn2 = new BoxContainer
+                {
+                    Orientation = LayoutOrientation.Vertical
+                };
+
+                var traitBoxContainer = new BoxContainer { };
+                traitBoxContainer.AddChild(traitColumn1);
+                traitBoxContainer.AddChild(traitColumn2);
+
+                var i = 0;
+                // imp end
+
                 foreach (var selector in selectors)
                 {
                     if (selector == null)
@@ -650,8 +666,20 @@ namespace Content.Client.Lobby.UI
                     }
                     // end Imp additions
 
-                    TraitsList.AddChild(selector);
+                    // imp start: ui layout
+                    if (i == 0)
+                    {
+                        traitColumn1.AddChild(selector);
+                        i += 1;
+                    }
+                    else
+                    {
+                        traitColumn2.AddChild(selector);
+                        i -= 1;
+                    }
                 }
+                TraitsList.AddChild(traitBoxContainer);
+                // imp end
             }
         }
 
