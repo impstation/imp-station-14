@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Computer base, keyboard, wirepanel, and supermatter sprites made by AftrLife (github) for Impstation 14. Bounty and request sprites by argentsunshine (github), departmental versions by DinnerCalzone (github) for Impstation 14, based on sprites taken from tgstation at commit https://github.com/tgstation/tgstation/commit/bd6873fd4dd6a61d7e46f1d75cd4d90f64c40894 . Shipyard by DinnerCalzone (github) for Impstation 14 based on sprited made by Potato1234_x (github) for Frontier Station 14 at https://github.com/new-frontiers-14/frontier-station-14/commit/ce75bb41d278df2d2c046a26f104c885787d311e, Generic Syndicate computers by JustanOrnge",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+    "states": [
+{
+            "name": "computer_syndicate",
+            "directions": 4
+        },
+        {
+            "name": "generic_syndicate",
+            "directions": 4,
+            "delays": [
+                [
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "syndie_key",
+            "directions": 4
+        },
+        {
+            "name": "syndie_key_off",
+            "directions": 4
+        },
+        {
+            "name": "generic_panel_open",
+            "directions": 4
+        }
+        ]
+}

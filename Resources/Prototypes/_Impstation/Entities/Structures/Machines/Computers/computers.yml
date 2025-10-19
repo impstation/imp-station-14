@@ -28,6 +28,7 @@
   - type: ActivatableUI
     key: enum.CharacterRecordConsoleKey.Key
   - type: Sprite
+    sprite: _Impstation/Structures/Machines/syndicate_computer.rsi
     layers:
     - map: ["computerLayerBody"]
       state: computer_syndicate
@@ -51,21 +52,21 @@
 
 - type: entity
   parent: BaseComputer
-  id: ComputerReaperTeleporter  
+  id: ComputerReaperTeleporter
   name: teleportation console
   description: A recovered mortal artifact hastily reconfigured to teleport Reapers.
   categories: [ DoNotMap ]
   components:
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: _Impstation/Structures/Machines/computer_old.rsi 
+    sprite: _Impstation/Structures/Machines/computer_old.rsi
     layers:
     - map: ["computerLayerBody"]
       state: computer
-      sprite: _Impstation/Structures/Machines/computer_old.rsi 
+      sprite: _Impstation/Structures/Machines/computer_old.rsi
     - map: ["computerLayerKeyboard"]
       state: keyboard
-      sprite: _Impstation/Structures/Machines/computer_old.rsi 
+      sprite: _Impstation/Structures/Machines/computer_old.rsi
     - map: ["computerLayerScreen"]
       state: reaper
     offset: "0.0,0.1"
