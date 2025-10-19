@@ -1,14 +1,14 @@
 # When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_single.yml
 
 - type: entity
-  name: taco shell
   parent: FoodMealBase
   id: FoodTacoShell
+  name: taco shell
   description: A taco shell, easy to hold, but falls on its side when put down.
   components:
   - type: Item
-    storedRotation: -90
-  - type: Food
+    storedOffset: 0,-3
+  - type: Edible
     transferAmount: 3
   - type: Sprite
     sprite: Objects/Consumable/Food/taco_sequence.rsi
@@ -38,15 +38,15 @@
 # Old tacos
 
 - type: entity
+  abstract: true
   parent: FoodInjectableBase
   id: FoodTacoBase
-  abstract: true
   components:
   - type: FlavorProfile
     flavors:
       - meaty
       - cheesy
-  - type: Food
+  - type: Edible
     transferAmount: 3
   - type: Sprite
     sprite: Objects/Consumable/Food/taco.rsi
@@ -61,7 +61,9 @@
           Quantity: 4
   - type: Item
     sprite: Objects/Consumable/Food/taco.rsi
-    storedRotation: -90
+    shape:
+    - 0,0,1,0
+    storedOffset: 0,1
   - type: Tag
     tags:
       - Meat
@@ -72,7 +74,6 @@
   id: FoodTacoBeef
   description: A very basic and run of the mill beef taco, now with cheese!
   components:
-  - type: Food
   - type: Sprite
     state: beeftaco
   - type: SolutionContainerManager # imp
@@ -91,7 +92,6 @@
   id: FoodTacoChicken
   description: A very basic and run of the mill chicken taco, now with cheese!
   components:
-  - type: Food
   - type: Sprite
     state: chickentaco
   - type: SolutionContainerManager # imp
@@ -116,7 +116,6 @@
       #- fishy # imp
       - carpflesh # imp
       - tomato # imp
-  - type: Food
   - type: Sprite
     state: fishtaco
   - type: SolutionContainerManager
@@ -139,7 +138,6 @@
   id: FoodTacoRat
   description: Yeah, that looks about right...
   components:
-  - type: Food
   - type: Sprite
     state: rattaco
   - type: SolutionContainerManager
@@ -160,12 +158,6 @@
   id: FoodTacoBeefSupreme
   description: It's like a regular beef taco, but supreme!
   components:
-  - type: FlavorProfile # imp
-    flavors:
-    - meaty
-    - cheesy
-    - tomato
-  - type: Food
   - type: Sprite
     state: beeftacosupreme
   - type: SolutionContainerManager
@@ -181,6 +173,11 @@
           Quantity: 3
         - ReagentId: Allicin # imp
           Quantity: 1
+  - type: FlavorProfile # imp
+    flavors:
+    - meaty
+    - cheesy
+    - tomato
 
 - type: entity
   name: chicken taco supreme
@@ -188,12 +185,6 @@
   id: FoodTacoChickenSupreme
   description: It's like a regular chicken taco, but supreme!
   components:
-  - type: FlavorProfile # imp
-    flavors:
-    - meaty
-    - cheesy
-    - tomato
-  - type: Food
   - type: Sprite
     state: chickentacosupreme
   - type: SolutionContainerManager
@@ -209,18 +200,24 @@
           Quantity: 3
         - ReagentId: Allicin # imp
           Quantity: 1
+  - type: FlavorProfile # imp
+    flavors:
+    - meaty
+    - cheesy
+    - tomato
 
 - type: entity
-  name: draco
   parent: FoodTacoBase
   id: FoodTacoDragon
+  name: draco
   description: A dragon taco, which is technically also a fish taco.
   components:
+  - type: Item
+    storedOffset: 0,3
   - type: FlavorProfile
     flavors:
     - meaty
     - spicy
-  - type: Food
   - type: Sprite
     state: dragontaco
   - type: SolutionContainerManager
@@ -251,7 +248,7 @@
       - onion
   - type: Sprite
     state: softtaco
-  - type: SolutionContainerManager # imp
+  - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 35 #imp

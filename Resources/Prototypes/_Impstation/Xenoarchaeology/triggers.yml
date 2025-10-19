@@ -105,7 +105,7 @@
 - type: xenoArchTrigger
   id: TriggerDrinkCaffeine
   tip: xenoarch-trigger-hint-drink-caffeine
-  targetDepths: [ 1, 2, 3 ]
+  targetDepths: [ 0, 1, 2, 3 ]
   components:
   - type: XATReactive
     reagents:

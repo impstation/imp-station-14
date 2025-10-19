@@ -105,6 +105,12 @@ public sealed class ChasingWalkSystem : VirtualController
         var delta = pos2 - pos1;
         var speed = delta.Length() > 0 ? delta.Normalized() * component.Speed : Vector2.Zero;
 
+        if (component.RotateWithImpulse)
+        {
+            var ang = speed.ToAngle() + Angle.FromDegrees(90); // we want "Up" to be forward, bullet convention.
+            _transform.SetWorldRotation(uid, ang + component.RotationAngleOffset);
+        }
+
         if (!component.Throw) // imp - everything after this is ours
         {
             if (component.BreakPulling && TryComp<PullableComponent>(uid, out var pullable))
