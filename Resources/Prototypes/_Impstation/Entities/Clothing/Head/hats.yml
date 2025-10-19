@@ -312,7 +312,10 @@
     solution: drink
   - type: SolutionTransfer
     canChangeTransferAmount: true
-  - type: Drink
+  - type: Edible
+    edible: Drink
+    solution: drink
+    destroyOnEmpty: false
   - type: MeleeWeapon
     soundNoDamage:
       path: "/Audio/Effects/Fluids/splat.ogg"

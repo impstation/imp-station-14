@@ -1,4 +1,18 @@
 - type: entity
+  parent: Bible
+  name: tanakh
+  description: Instructions, Prophets, and Writings.
+  id: BibleTanakh
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Chapel/holytexts.rsi
+    state: tanakh
+  - type: Item
+    size: Small
+    heldPrefix: tanakh
+    sprite: _Impstation/Objects/Specific/Chapel/holytexts.rsi
+
+- type: entity
   name: quran
   description: Printed in both original Arabic and Galactic Common.
   parent: Bible

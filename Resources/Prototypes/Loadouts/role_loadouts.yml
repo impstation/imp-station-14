@@ -96,6 +96,7 @@
   - BartenderJumpsuit
   - BartenderOuterClothing
   - BartenderShoes #imp
+  - BartenderGoldenShaker
   - Glasses
   - CommonBackpack # imp reorder
   - BartenderPDA # imp
@@ -272,6 +273,7 @@
 
 - type: roleLoadout
   id: JobMusician
+  canCustomizeName: true
   groups:
   - MusicianHead # imp
   - MusicianNeck # imp
@@ -317,10 +319,10 @@
   - CargoTechnicianJumpsuit
   - CargoTechnicianOuterClothing
   - CargoTechnicianShoes
+  - CargoTechnicianID
   - Glasses
   - CargoTechnicianBackpack # imp reorder
   - CargoTechnicianBelt #imp
-  - CargoTechnicianPDA # imp
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
