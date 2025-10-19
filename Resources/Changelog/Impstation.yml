@@ -1,25 +1,4 @@
 ﻿Entries:
-- author: Mousetrinity
-  changes:
-  - message: oppas are now speedy, and they can emote at you, as is intended!
-    type: Fix
-  - message: butterfly orchid bunches can be worn, and all orchids now have their
-      proper reagents
-    type: Fix
-  id: 1831
-  time: '2025-06-15T01:32:01.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2765
-- author: TuttlePants
-  changes:
-  - message: Bounty hunters now spawn with an inspector.
-    type: Tweak
-  - message: The BH shuttle now has a stasis bed and, more importantly, NT block game.
-    type: Tweak
-  - message: Bounty hunter objectives no longer auto-complete.
-    type: Fix
-  id: 1832
-  time: '2025-06-15T02:29:49.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2754
 - author: DinnerCalzone
   changes:
   - message: Lawyer's Security Officer playtime requirement has been modified to be
@@ -4204,3 +4183,25 @@
   id: 2330
   time: '2025-10-15T23:53:02.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3567
+- author: starlighthowls
+  changes:
+  - message: Dolphin got cursed, dont worry about it.
+    type: Tweak
+  id: 2331
+  time: '2025-10-19T08:04:50.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3582
+- author: DinnerCalzone, mqole
+  changes:
+  - message: It's Upmerge, putting us up to date with Wizden as of their October 12th
+      publish. See changelog for full details.
+    type: Add
+  - message: Vox characters with the 'Twinned' tail marking may need to double-check
+      their settings to use the correct marking.
+    type: Tweak
+  - message: Some ingredient boxes have had their contents altered.
+    type: Tweak
+  - message: Vulpkanin aren't real.
+    type: Remove
+  id: 2332
+  time: '2025-10-19T07:33:41.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3558
