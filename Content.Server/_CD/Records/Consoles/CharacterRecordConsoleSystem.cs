@@ -8,6 +8,8 @@ using Content.Shared.Security;
 using Content.Shared.StationRecords;
 using Content.Shared._CD.Records;
 using Robust.Server.GameObjects;
+using Content.Shared.Emag.Systems;
+using Content.Shared.Overlays; // Imp - added emag interaction
 
 namespace Content.Server._CD.Records.Consoles;
 
@@ -19,6 +21,7 @@ public sealed class CharacterRecordConsoleSystem : EntitySystem
     [Dependency] private readonly StationRecordsSystem _records = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly EmagSystem _emag = default!; // Imp - added emag interaction
 
     public override void Initialize()
     {
@@ -26,6 +29,8 @@ public sealed class CharacterRecordConsoleSystem : EntitySystem
 
         SubscribeLocalEvent<CharacterRecordConsoleComponent, CharacterRecordsModifiedEvent>((uid, component, _) =>
             UpdateUi(uid, component));
+
+        SubscribeLocalEvent<CharacterRecordConsoleComponent, GotEmaggedEvent>(OnEmagged); //Imp - added emag interaction
 
         Subs.BuiEvents<CharacterRecordConsoleComponent>(CharacterRecordConsoleKey.Key,
             subr =>
@@ -72,6 +77,20 @@ public sealed class CharacterRecordConsoleSystem : EntitySystem
     }
     // End DeltaV - i hate this, forward to criminal records console
 
+    // Begin Imp - Added emag interaction
+    private void OnEmagged(Entity<CharacterRecordConsoleComponent> ent, ref GotEmaggedEvent args)
+    {
+        if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+            return;
+
+        if (_emag.CheckFlag(ent, EmagType.Interaction))
+            return;
+        else
+            ent.Comp.ConsoleType = RecordConsoleType.Syndicate;
+
+        args.Handled = true;
+    }
+    // End Imp - Added emag interaction
     private void UpdateUi(EntityUid entity, CharacterRecordConsoleComponent? console = null)
     {
         if (!Resolve(entity, ref console))
@@ -110,7 +129,7 @@ public sealed class CharacterRecordConsoleSystem : EntitySystem
             }
 
             names[i] = new CharacterRecordConsoleState.CharacterInfo
-                { CharacterDisplayName = nameJob, StationRecordKey = r.StationRecordsKey };
+            { CharacterDisplayName = nameJob, StationRecordKey = r.StationRecordsKey };
         }
 
         var record =

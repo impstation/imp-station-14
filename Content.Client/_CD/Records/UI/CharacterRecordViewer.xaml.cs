@@ -263,8 +263,8 @@ public sealed partial class CharacterRecordViewer : FancyWindow
                 break;
             case RecordConsoleType.Syndicate: ///Impstation change
                 RecordFilterType.Visible = true;
-
                 Title = Loc.GetString("cd-imp-character-records-viewer-title-syndicate");
+                RecordEntryViewType.Visible = true;
                 break;
             case RecordConsoleType.Admin:
                 RecordFilterType.Visible = true;
@@ -383,8 +383,24 @@ public sealed partial class CharacterRecordViewer : FancyWindow
                 }
                 break;
             case RecordConsoleType.Syndicate: ///Impstation change - Syndicate
-                SetEntries(cr.SyndicateEntries);
+                UpdateRecordBoxEmployment(record);
+                UpdateRecordBoxMedical(record);
                 UpdateRecordBoxSyndicate(record);
+                switch ((RecordConsoleType)RecordEntryViewType.SelectedId)
+                {
+                    case RecordConsoleType.Employment:
+                        SetEntries(cr.EmploymentEntries, true);
+                        break;
+                    case RecordConsoleType.Medical:
+                        SetEntries(cr.MedicalEntries, true);
+                        break;
+                    case RecordConsoleType.Security:
+                        SetEntries(cr.SecurityEntries, true);
+                        break;
+                    case RecordConsoleType.Syndicate:
+                        SetEntries(cr.SyndicateEntries, true);
+                        break;
+                }
                 break;
         }
 
