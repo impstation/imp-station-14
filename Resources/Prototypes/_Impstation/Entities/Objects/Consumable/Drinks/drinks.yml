@@ -403,7 +403,7 @@
     state: icon
 
 - type: entity
-  parent: DrinkGlassBase
+  parent: [ DrinkBaseMaterialGlass, DrinkBase ]
   id: DrinkTeapotEmpty
   name: teapot
   suffix: Empty

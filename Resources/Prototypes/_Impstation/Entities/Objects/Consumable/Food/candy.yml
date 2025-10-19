@@ -9,6 +9,8 @@
     - FoodSnack
   - type: Item
     size: Tiny
+    shape:
+    - 0,0,0,0
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Candy/the_gummy_worm.rsi
     state: asinglegummyworm
@@ -34,6 +36,8 @@
     - chalky
   - type: Item
     size: Tiny
+    shape:
+    - 0,0,0,0
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Candy/chalk_heart.rsi
     layers:
@@ -64,6 +68,8 @@
     - FoodSnack
   - type: Item
     size: Tiny
+    shape:
+    - 0,0,0,0
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Candy/chocolate_heart.rsi
     layers:
@@ -138,6 +144,8 @@
     - Fruit
   - type: Item
     size: Tiny
+    shape:
+    - 0,0,0,0
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Candy/macaron.rsi
     state: macaronberry
@@ -178,7 +186,7 @@
   id: FoodMacaronCotton
   description: Hey, wait! This isn't a macaron! It's a doily!
   components:
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: Tag
     tags:
@@ -252,7 +260,7 @@
     tags:
     - FoodSnack
     - UnguFood
-  - type: Food
+  - type: Edible
     trash:
     - FoodKebabSkewer
   - type: FlavorProfile
@@ -290,7 +298,7 @@
     - FoodSnack
     - ClothMade
     - ClothFood
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
     trash:
     - FoodKebabSkewer
@@ -326,7 +334,7 @@
     tags:
     - FoodSnack
     - Fruit
-  - type: Food
+  - type: Edible
     trash:
     - FoodKebabSkewer
   - type: FlavorProfile
@@ -365,7 +373,7 @@
     tags:
     - Meat
     - FoodSnack
-  - type: Food
+  - type: Edible
     trash:
     - FoodKebabSkewer
   - type: FlavorProfile
@@ -398,7 +406,7 @@
   - type: Tag
     tags:
     - FoodSnack
-  - type: Food
+  - type: Edible
     trash:
     - FoodKebabSkewer
   - type: FlavorProfile

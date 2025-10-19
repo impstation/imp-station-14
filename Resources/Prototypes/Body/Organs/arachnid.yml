@@ -82,7 +82,7 @@
     metabolizerTypes: [ Human ]
     groups:
     - id: Gas
-      rateModifier: 100.0
+      rateModifier: 75.0 #imp edited from 100.0
   - type: SolutionContainerManager
     solutions:
       organ:
