@@ -1,5 +1,5 @@
 - type: entity
-  parent: [DrinkBottleVisualsOpenable, DrinkBottlePlasticBaseFull, BaseCommandContraband]
+  parent: [DrinkVisualsOpenable, DrinkBottlePlasticBaseFull, BaseCommandContraband]
   id: DrinkCommandFlaskFull
   name: command flask
   description: A brass flask with a white leather wrap, because you get paid enough to deserve it.
@@ -13,7 +13,6 @@
         reagents:
         - ReagentId: Water
           Quantity: 30
-  - type: Drink
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Drinks/commandflask.rsi
     layers:
@@ -25,7 +24,7 @@
     solution: drink
 
 - type: entity
-  parent: [DrinkBottleVisualsAll, DrinkBottlePlasticBaseFull]
+  parent: [DrinkVisualsAllFilled, DrinkBottlePlasticBaseFull]
   id: DrinkAsteradeBottleFull
   abstract: true
   description: It's got what Salvage Specialsts crave!
@@ -140,7 +139,7 @@
           Quantity: 30
 
 - type: entity
-  parent: [DrinkBottleVisualsAll, DrinkBottlePlasticBaseFull]
+  parent: [DrinkVisualsAllFilled, DrinkBottlePlasticBaseFull]
   id: DrinkAppleMartiniCrystalLiteBottleFull
   name: apple martini Crystal Lite™ bottle
   description: A bottle of apple martini flavored Crystal Lite™. Their mocktails line was discontinued in 2015, and it was sold as a powder, so this is very strange.

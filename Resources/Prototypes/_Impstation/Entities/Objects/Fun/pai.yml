@@ -46,11 +46,7 @@
       shader: unshaded
       map: ["screen"]
   - type: ToggleableGhostRole
-    requirements:
-    - !type:DepartmentTimeRequirement
-      department: Science
-      time: 54000 #15 hrs
-      inverted: true
+    job: PersonalAILearnerScience
     roleName: pai-system-role-name-learner-science
     roleDescription: pai-system-role-description-learner-science
     roleRules: ghost-role-information-familiar-rules
@@ -82,11 +78,7 @@
       shader: unshaded
       map: ["screen"]
   - type: ToggleableGhostRole
-    requirements:
-    - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 54000 #15 hrs
-      inverted: true
+    job: PersonalAILearnerEngineering
     roleName: pai-system-role-name-learner-engineering
     roleDescription: pai-system-role-description-learner-engineering
     roleRules: ghost-role-information-familiar-rules
@@ -118,11 +110,7 @@
       shader: unshaded
       map: ["screen"]
   - type: ToggleableGhostRole
-    requirements:
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 54000 #15 hrs
-      inverted: true
+    job: PersonalAILearnerSecurity
     roleName: pai-system-role-name-learner-security
     roleDescription: pai-system-role-description-learner-security
     roleRules: ghost-role-information-familiar-rules
@@ -154,11 +142,7 @@
       shader: unshaded
       map: ["screen"]
   - type: ToggleableGhostRole
-    requirements:
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 54000 #15 hrs
-      inverted: true
+    job: PersonalAILearnerMedical
     roleName: pai-system-role-name-learner-medical
     roleDescription: pai-system-role-description-learner-medical
     roleRules: ghost-role-information-familiar-rules
@@ -190,11 +174,7 @@
       shader: unshaded
       map: ["screen"]
   - type: ToggleableGhostRole
-    requirements:
-    - !type:DepartmentTimeRequirement
-      department: Cargo
-      time: 18000 #5 hrs
-      inverted: true
+    job: PersonalAILearnerCargo
     roleName: pai-system-role-name-learner-cargo
     roleDescription: pai-system-role-description-learner-cargo
     roleRules: ghost-role-information-familiar-rules
@@ -226,11 +206,7 @@
       shader: unshaded
       map: ["screen"]
   - type: ToggleableGhostRole
-    requirements:
-    - !type:DepartmentTimeRequirement
-      department: Service
-      time: 54000 #15 hrs
-      inverted: true
+    job: PersonalAILearnerService
     roleName: pai-system-role-name-learner-service
     roleDescription: pai-system-role-description-learner-service
     roleRules: ghost-role-information-familiar-rules
@@ -262,11 +238,7 @@
       shader: unshaded
       map: ["screen"]
   - type: ToggleableGhostRole
-    requirements:
-    - !type:DepartmentTimeRequirement
-      department: Command
-      time: 54000 #15 hrs
-      inverted: true
+    job: PersonalAILearnerCommand
     roleName: pai-system-role-name-learner-command
     roleDescription: pai-system-role-description-learner-command
     roleRules: ghost-role-information-familiar-rules
