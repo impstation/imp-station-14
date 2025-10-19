@@ -1,4 +1,5 @@
 species-name-allulalo = Allulalo
+species-name-thaven = Thaven
 species-name-apid = Apid
 species-name-decapoid = Decapoid
 species-name-gray = Gray

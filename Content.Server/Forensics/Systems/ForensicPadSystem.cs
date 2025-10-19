@@ -106,7 +106,7 @@ namespace Content.Server.Forensics
                     if (_prototypeManager.TryIndex(x.Reagent.Prototype, out ReagentPrototype? reagent))
                     {
                         var localizedName = Loc.GetString(reagent.LocalizedName);
-                        if (_prototypeManager.TryIndex(reagent.Contraband, out var contraband))
+                        if (_prototypeManager.TryIndex(reagent.ContrabandSeverity, out var contraband))
                         {
                             localizedName = $"[color={contraband.ExamineColor}]{localizedName}[/color]";
                         }

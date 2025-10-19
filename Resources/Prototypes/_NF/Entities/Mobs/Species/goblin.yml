@@ -105,7 +105,7 @@
         emote: Scream
         probability: 0.2
   - type: CanEscapeInventory
-  - type: CanRummage
+  - type: Rummager
     rummageLoot: !type:NestedSelector
       tableId: BaseGoblinLoot
   - type: Inventory
