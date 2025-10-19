@@ -633,6 +633,27 @@
   - SeniorBotanistPDA
 
 - type: loadoutGroup
+  id: ClownJumpsuit
+  name: loadout-group-clown-jumpsuit
+  minLimit: 1
+  loadouts:
+  - ClothingUniformRBJester
+
+- type: loadoutGroup
+  id: ClownShoes
+  name: loadout-group-clown-shoes
+  minLimit: 1
+  loadouts:
+  - ClothingShoesRBJesterShoes
+
+- type: loadoutGroup
+  id: ClownHead
+  name: loadout-group-clown-head
+  minLimit: 1
+  loadouts:
+  - ClothingHeadRBJesterHat
+
+- type: loadoutGroup
   id: ClownMask
   name: loadout-group-clown-mask
   minLimit: 1
