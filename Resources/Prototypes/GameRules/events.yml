@@ -4,7 +4,9 @@
     children:
     - id: AnomalySpawn
     - id: BluespaceArtifact
-    - id: BluespaceLocker
+    - id: BluespaceLockerDefault # imp
+    - id: BluespaceLockerRandom # imp
+    - id: BluespaceLockerRandomUnrestricted # imp
     - id: BreakerFlip
     - id: BureaucraticError
     - id: ClericalError
@@ -154,7 +156,7 @@
   - type: BluespaceArtifactRule
 
 - type: entity
-  id: BluespaceLocker
+  id: BluespaceLocker # imp: currently will not run, replaced by other locker rules
   parent: BaseGameRule
   components:
   - type: StationEvent
@@ -186,6 +188,10 @@
   - type: BureaucraticErrorRule
     ignoredJobs:
     - StationAi
+    - ResearchAssistant
+    - MedicalIntern
+    - SecurityCadet
+    - TechnicalAssistant
 
 - type: entity
   id: ClericalError
@@ -355,7 +361,7 @@
     duration: 1
     earliestStart: 30
     reoccurrenceDelay: 60
-    minimumPlayers: 15 #imp
+    minimumPlayers: 15 #imp used to be 10, wizden increased this to 30 recently
   - type: AntagSelection
     agentName: wizard-round-end-name
     definitions:

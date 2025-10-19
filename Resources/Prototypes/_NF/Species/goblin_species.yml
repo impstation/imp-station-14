@@ -3,6 +3,8 @@
   id: Goblin
   name: species-name-goblin
   roundStart: false
+  randomViable: true # imp
+  randomChance: 0.5 # imp
   prototype: MobGoblin
   sprites: MobGoblinSprites
   defaultSkinTone: "#82d074"

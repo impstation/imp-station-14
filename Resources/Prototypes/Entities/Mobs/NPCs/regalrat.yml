@@ -4,7 +4,7 @@
   parent: [ SimpleMobBase, MobCombat ]
   description: He's da rat. He make da roolz.
   components:
-  - type: VentCrawler
+  - type: VentCrawler #imp
   - type: CombatMode
   - type: MovementSpeedModifier
     baseWalkSpeed : 3.00
@@ -105,17 +105,15 @@
       - FootstepSound
       - Meat #imp
   - type: NoSlip
+  - type: Rummager
+    rummageLoot: !type:NestedSelector # imp
+      tableId: RatKingLoot
   - type: RatKing
     hungerPerArmyUse: 25
     hungerPerDomainUse: 50
-  - type: CanRummage
-    rummageLoot: !type:NestedSelector
-      tableId: RatKingLoot
   - type: MobsterAccent
   - type: Speech
     speechVerb: SmallMob
-  - type: GoobAbsorbable # imp edit - big rat
-    biomassRestored: 0.6
   - type: Butcherable
     spawned:
     - id: ClothingHeadHatFancyCrown #how did that get there?
@@ -134,9 +132,10 @@
     attributes:
       gender: male
   - type: Sharp
+  #imp edit start
   - type: Puller
     needsHands: false
-  - type: Food #imp start
+  - type: Edible
     delay: 16
     transferAmount: 50
     trash:
@@ -150,13 +149,16 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 50
-  - type: BadFood #imp end
+  - type: BadFood
   - type: NightVision # EE edit
     isActive: true
     toggleAction: null
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: GoobAbsorbable
+    biomassRestored: 0.6
+  # imp edit end
 
 - type: entity
   id: MobRatKingBuff
@@ -182,11 +184,11 @@
     soundHit:
         path: /Audio/Weapons/Xeno/alien_claw_flesh2.ogg
     angle: 0
-    attackRate: 0.55
+    attackRate: 0.55 #imp, melee nerf
     animation: WeaponArcFist
     damage:
       types:
-        Blunt: 12 #no more oof ouch owie my bones (use the servants)
+        Blunt: 12 #imp, no more oof ouch owie my bones (use the servants)
   - type: SlowOnDamage
     speedModifierThresholds:
       200: 0.7
@@ -202,8 +204,6 @@
   description: He's da mini rat. He don't make da roolz.
   categories: [ HideSpawnMenu ] #Must be configured to a King or the AI breaks.
   components:
-  - type: VentCrawler
-    enterDelay: 1
   - type: CombatMode
   - type: MovementSpeedModifier
     baseWalkSpeed : 3.5
@@ -236,6 +236,7 @@
     - map: [ "enum.DamageStateVisualLayers.BaseUnshaded"]
       state: eyes
       shader: unshaded
+
   - type: SpriteMovement
     movementLayers:
       movement:
@@ -310,8 +311,6 @@
         Base: dead
       Dead:
         Base: splat
-  - type: GoobAbsorbable # imp edit
-    biomassRestored: 0.1
   - type: Butcherable
     spawned:
     - id: FoodMeatRat
@@ -341,7 +340,12 @@
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
-  - type: Food #imp start
+  # imp edit start
+  - type: VentCrawler
+    enterDelay: 1
+  - type: GoobAbsorbable
+    biomassRestored: 0.1
+  - type: Edible
   - type: FlavorProfile
     flavors:
     - meaty
@@ -351,23 +355,24 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
-  - type: BadFood #imp end
+  - type: BadFood
   - type: NightVision # EE edit
     isActive: true
     toggleAction: null
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  # imp edit end
 
 - type: entityTable
   id: RatKingLoot
   table: !type:GroupSelector
     children:
-    - id: RandomSpawner100 # garbage
+    - id: RandomSpawner100
       weight: 66
-    - id: FoodCheese # food
+    - id: FoodCheese
       weight: 28
-    - id: IngotGold1 # loot
+    - id: IngotGold1
       weight: 5
 
 - type: entity
