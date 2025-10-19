@@ -53,7 +53,7 @@
 
 - type: entity
   name: explosive grenade
-  description: Grenade that creates a small but devastating explosion.
+  description: Causes a small but devastating blast. As the proverb goes, enter every room with a boom. #imp
   parent: [GrenadeBase, Tier3Contraband] #imp contraband
   id: ExGrenade
   components:
@@ -76,7 +76,7 @@
 
 - type: entity
   name: flashbang
-  description: THINK FAST CHUCKLENUTS! #imp
+  description: THINK FAST, CHUCKLENUTS! #imp
   parent: [ GrenadeBase, BaseSecurityContraband ]
   id: GrenadeFlashBang
   components:
@@ -98,7 +98,7 @@
   - type: SpawnOnTrigger
     keysIn:
     - timer
-    proto: GrenadeFlashEffect
+    proto: GrenadeFlashEffectStun #imp
     predicted: true
   - type: Appearance
   - type: TimerTriggerVisuals
@@ -119,6 +119,7 @@
   components:
     - type: PointLight
       enabled: true
+      color: "#ffd591" #imp
       radius: 5
       energy: 8
       netsync: false
@@ -205,7 +206,7 @@
   parent: [ GrenadeBase, BaseSyndicateContraband ]
   id: SingularityGrenade
   name: singularity grenade
-  description: Grenade that simulates the power of a singularity, pulling things in a heap.
+  description: A grenade that simulates the power of a singularity, pulling everything around itself into a heap. #imp
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/singularitygrenade.rsi
@@ -274,7 +275,7 @@
 
 - type: entity
   name: whitehole grenade
-  description: Grenade that repulses everything around for some time.
+  description: A grenade that repulses everything around itself for some time. #imp
   parent: SingularityGrenade
   id: WhiteholeGrenade
   components:
@@ -334,7 +335,7 @@
 
 - type: entity
   name: the nuclear option
-  description: Please don't throw it, think of the children.
+  description: Please don't throw it; think of the children! #imp
   parent: GrenadeBase
   id: NuclearGrenade
   components:
@@ -469,7 +470,7 @@
   parent: [ GrenadeBase, BaseSecurityContraband ]
   id: SmokeGrenade
   name: smoke grenade
-  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  description: A grenade that releases a large, long-lasting cloud of thick smoke when used. #imp
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/smoke.rsi
@@ -481,7 +482,7 @@
   - type: EmitSoundOnTrigger
     keysIn:
     - timer
-    sound: /Audio/Items/smoke_grenade_smoke.ogg
+    sound: /Audio/Effects/smoke.ogg #imp
     positional: true
   - type: DeleteOnTrigger
     keysIn:
@@ -494,7 +495,7 @@
   parent: [ BaseServiceContraband, SmokeGrenade ] #imp edit
   id: CleanerGrenade
   name: cleanade
-  description: Special grenade for janitors, releasing large cloud of space cleaner foam.
+  description: A special grenade for janitors, releasing large cloud of space cleaner foam. #imp
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/janitor.rsi
@@ -509,6 +510,10 @@
       - ReagentId: SpaceCleaner
         Quantity: 30
   # imp edit start
+  - type: EmitSoundOnTrigger
+    keysIn:
+    - timer
+    sound: /Audio/Items/smoke_grenade_smoke.ogg
   - type: Tag
     tags:
     - CleanerGrenade
@@ -522,14 +527,14 @@
   parent: SmokeGrenade
   id: TearGasGrenade
   name: tear gas grenade
-  description: A riot control tear gas grenade. Causes irritation, pain and makes you cry your eyes out.
+  description: A chemical irritant grenade intended for riot control. Makes you cry your eyes out and cough your lungs out. #imp
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/tear_gas.rsi
   - type: SmokeOnTrigger
     keysIn:
     - timer
-    duration: 10
+    duration: 15 #imp
     spreadAmount: 30
     smokePrototype: TearGasSmokeWhite
     solution:
@@ -547,6 +552,10 @@
     sprite: Objects/Weapons/Grenades/metalfoam.rsi
   - type: TimerTrigger
     delay: 5
+  - type: EmitSoundOnTrigger #imp
+    keysIn:
+    - timer
+    sound: /Audio/Items/smoke_grenade_smoke.ogg
   - type: SmokeOnTrigger
     keysIn:
     - timer

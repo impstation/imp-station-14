@@ -1,47 +1,4 @@
 ﻿Entries:
-- author: DinnerCalzone
-  changes:
-  - message: Lawyer's Security Officer playtime requirement has been modified to be
-      5 hours of departmental Security playtime
-    type: Tweak
-  - message: Security Cadet lockout and Security Officer playtime requirements have
-      been adjusted to be more in-line with other departmental jobs.
-    type: Tweak
-  id: 1833
-  time: '2025-06-15T03:38:13.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2768
-- author: kipdotnet
-  changes:
-  - message: The Strugglebug now has a docking airlock to stop it from spawning kilometers
-      away from the station.
-    type: Tweak
-  id: 1834
-  time: '2025-06-15T06:29:06.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2755
-- author: kipdotnet
-  changes:
-  - message: Dramatically reduced the requirements of the salvage board jobs.
-    type: Tweak
-  id: 1835
-  time: '2025-06-15T07:44:02.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2757
-- author: DinnerCalzone
-  changes:
-  - message: Amber, Bagel, Cog, Marathon, Oasis, Hummingbird, Plasma, Omega, Saltern,
-      and Train have been updated to have the salvage job board.
-    type: Add
-  - message: Hummingbird's security area has received a rework and now features genpop.
-    type: Add
-  id: 1836
-  time: '2025-06-15T17:07:43.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2771
-- author: kipdotnet
-  changes:
-  - message: Removed landmines from salvage debris.
-    type: Remove
-  id: 1837
-  time: '2025-06-15T21:51:27.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2764
 - author: yesteryuri
   changes:
   - message: You can bring your vape, clipboard, or wristwatch as trinkets.
@@ -4205,3 +4162,42 @@
   id: 2332
   time: '2025-10-19T07:33:41.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3558
+- author: VeeNomine
+  changes:
+  - message: Added the Drum Kit, Hammond Organ, and Hammered Dulcimer, which are all
+      purchasable at cargo for 1500 each.
+    type: Add
+  - message: Decreased the theremin's volume.
+    type: Tweak
+  id: 2333
+  time: '2025-10-19T09:50:13.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3577
+- author: entings
+  changes:
+  - message: Arachnids can breathe normally again. Probably.
+    type: Fix
+  id: 2334
+  time: '2025-10-19T09:49:41.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3571
+- author: entings
+  changes:
+  - message: Boar are slightly less ludicrous, and also slightly smarter.
+    type: Tweak
+  id: 2335
+  time: '2025-10-19T09:49:48.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3570
+- author: AvianMaiden
+  changes:
+  - message: Tweaked some grenade things; added polish.
+    type: Tweak
+  id: 2336
+  time: '2025-10-19T09:50:20.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3575
+- author: yesteryuri
+  changes:
+  - message: The Nuclear Operative ship has a Syndicate Communications Computer to
+      advertise their ill intent... once.
+    type: Tweak
+  id: 2337
+  time: '2025-10-19T09:49:35.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3572
