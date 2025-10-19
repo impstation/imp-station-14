@@ -362,7 +362,7 @@
   - type: TimedDespawn #delete the egg after the chicken spawns
     lifetime: 21
 
-- type: entity # TODO: figure out how to make these guys gib when stepped on
+- type: entity
   name: cockroach
   parent: SimpleMobBase
   id: MobCockroach
@@ -449,8 +449,13 @@
       - !type:GibBehavior
         recursive: false
   - type: NonSpreaderZombie
-  - type: SentienceTarget
-    flavorKind: station-event-random-sentience-flavor-organic
+  - type: StepTrigger
+    requiredTriggeredSpeed: 1
+  - type: TriggerOnStepTrigger
+  - type: RandomChanceTriggerCondition
+    successChance: 0.2
+  - type: GibOnTrigger
+  - type: ProtectedFromStepTriggers
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Effects/bite.ogg
@@ -893,6 +898,7 @@
       behaviors:
       - !type:GibBehavior
         recursive: false
+  - type: ZombieImmune
   # imp edit start
   - type: PleebnarGibbable
   - type: AlwaysRevolutionaryConvertible
@@ -1302,6 +1308,8 @@
         true
       NavSmash: !type:Bool
         true
+  - type: Puller
+    needsHands: false
   - type: Prying
     pryPowered: true
     force: true
@@ -1443,7 +1451,6 @@
     #imp edit end
   - type: Deathgasp
     prototype: MonkeyDeathgasp
-  - type: Blindable #imp
   - type: Cuffable
   - type: RotationVisuals
     defaultRotation: 90
@@ -1481,7 +1488,6 @@
       sprite: "Effects/creampie.rsi"
       state: "creampie_human"
       visible: false
-  - type: Carriable #DeltaV
   - type: Hands
   - type: ComplexInteraction
   - type: GenericVisualizer
@@ -1550,9 +1556,11 @@
       - !type:WashCreamPieReaction
   - type: Crawler
   # imp edit start
-  - type: GoobAbsorbable # imp edit
+  - type: Blindable
+  - type: Carriable #DeltaV
+  - type: GoobAbsorbable
     biomassRestored: 0.4
-  - type: VentCrawler #imp
+  - type: VentCrawler
     enterDelay: 3
   # imp edit end
 
@@ -2179,6 +2187,12 @@
   parent: MobMouse
   id: MobMouseCancer
   components:
+  - type: GhostRole
+    name: ghost-role-information-cancer-mouse-name
+    description: ghost-role-information-cancer-mouse-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
   - type: Sprite
     color: LightGreen
   - type: PointLight
@@ -2733,8 +2747,8 @@
     tags: []
   - type: VentCrawler
     enterDelay: 2
-  - type: AlwaysRevolutionaryConvertible #imp
-# imp edit end
+  - type: AlwaysRevolutionaryConvertible
+  # imp edit end
 
 # Code unique spider prototypes or combine them all into one spider and get a
 # random sprite state when you spawn it.
@@ -2790,6 +2804,8 @@
     interactSuccessSpawn: EffectHearts
     interactSuccessSound:
       path: /Audio/Animals/snake_hiss.ogg
+  - type: Puller
+    needsHands: false
   - type: NoSlip
   - type: Spider
   - type: IgnoreSpiderWeb
@@ -3299,8 +3315,6 @@
       amount: 2
   - type: ReplacementAccent
     accent: dog
-  - type: SentienceTarget
-    flavorKind: station-event-random-sentience-flavor-corgi
   - type: Tag
     tags:
     - VimPilot

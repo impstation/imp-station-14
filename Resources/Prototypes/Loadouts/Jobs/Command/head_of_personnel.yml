@@ -6,7 +6,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobHeadOfPersonnel
-      time: 36000 #10 hrs, ~7 rounds #imp
+      time: 10h # imp, was 20
 
 # Professional HoP Time (imp edit: ian backpack unlocked by MasterHoP instead)
 - type: loadoutEffectGroup
@@ -16,7 +16,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobHeadOfPersonnel
-      time: 54000 #15 hrs, special reward for HoP mains
+      time: 15h # special reward for HoP mains
 
 # Jumpsuit
 - type: loadout

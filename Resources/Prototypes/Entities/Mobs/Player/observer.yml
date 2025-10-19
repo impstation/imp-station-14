@@ -77,7 +77,7 @@
   - type: Spectral
   - type: SolutionScanner
   - type: Tag
-    tags:
+    tags: # BAD: Intentional removal of inherited tag
     - AllowGhostShownByEvent
   - type: UserInterface # imp - add mass scanner console. might need to remove this if it becomes a performance issue.
     interfaces:

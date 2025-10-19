@@ -89,7 +89,6 @@ loadout-group-quartermaster-headset = Quartermaster headset
 
 loadout-group-cargo-technician-mask = Cargo Technician mask
 loadout-group-cargo-technician-neck = Cargo Technician neck
-loadout-group-cargo-technician-id = Cargo Technician ID
 loadout-group-cargo-technician-belt = Cargo Technician belt
 
 loadout-group-salvage-specialist-neck = Salvage Specialist neck
