@@ -23,25 +23,7 @@
     - type: GhostRole
       name: job-name-captain
       description: ghost-role-information-command-description
-      requirements: # imp
-        - !type:DepartmentTimeRequirement
-          department: Engineering
-          time: 54000 # 15 hours
-        - !type:DepartmentTimeRequirement
-          department: Medical
-          time: 54000 # 15 hours
-        - !type:DepartmentTimeRequirement
-          department: Security
-          time: 54000 # 15 hours
-        - !type:DepartmentTimeRequirement #imp
-          department: Cargo
-          time: 54000 # 15 hours
-        - !type:DepartmentTimeRequirement #imp
-          department: Science
-          time: 54000 # 15 hours
-        - !type:DepartmentTimeRequirement
-          department: Command
-          time: 72000 # 20 hours, imp
+      job: Captain #imp, playtime requirement
     - type: Loadout
       prototypes: [ VisitorCaptain, VisitorCaptainAlt, VisitorCaptainAltA, VisitorCaptainAltB ] # imp
       roleLoadout: [ RoleSurvivalStandard ]
@@ -53,18 +35,7 @@
     - type: GhostRole
       name: job-name-ce
       description: ghost-role-information-command-description
-      requirements: # imp
-        - !type:RoleTimeRequirement
-          role: JobAtmosphericTechnician
-          time: 21600 #6 hrs
-        - !type:RoleTimeRequirement
-          role: JobStationEngineer
-          time: 21600 #6 hrs
-        - !type:DepartmentTimeRequirement
-          department: Engineering
-          time: 72000 #20 hrs, imp
-        - !type:OverallPlaytimeRequirement
-          time: 144000 #40 hrs
+      job: ChiefEngineer #imp, playtime requirement
     - type: Loadout
       prototypes: [ VisitorCE, VisitorCEAlt ]
       roleLoadout: [ RoleSurvivalExtended ]
@@ -76,18 +47,7 @@
     - type: GhostRole
       name: job-name-cmo
       description: ghost-role-information-command-description
-      requirements: # imp
-        - !type:RoleTimeRequirement
-          role: JobChemist
-          time: 21600 #6 hrs, imp. why tf was this so low?
-        - !type:RoleTimeRequirement
-          role: JobMedicalDoctor
-          time: 21600 #6 hrs
-        - !type:DepartmentTimeRequirement
-          department: Medical
-          time: 72000 #20 hrs, imp
-        - !type:OverallPlaytimeRequirement
-          time: 144000 #40 hrs
+      job: ChiefMedicalOfficer #imp, playtime requirement
     - type: Loadout
       prototypes: [ VisitorCMO, VisitorCMOAlt, VisitorCMOAltA ] # imp
       roleLoadout: [ RoleSurvivalMedical ]
@@ -99,25 +59,7 @@
     - type: GhostRole
       name: job-name-hop
       description: ghost-role-information-command-description
-      requirements: # imp
-        - !type:DepartmentTimeRequirement
-          department: Engineering
-          time: 36000 # 10 hours
-        - !type:DepartmentTimeRequirement
-          department: Medical
-          time: 36000 # 10 hours
-        - !type:DepartmentTimeRequirement
-          department: Security
-          time: 36000 # 10 hrs
-        - !type:DepartmentTimeRequirement #imp
-          department: Cargo
-          time: 36000 # 10 hrs
-        - !type:DepartmentTimeRequirement #imp
-          department: Science
-          time: 36000 # 10 hrs
-        - !type:DepartmentTimeRequirement
-          department: Command
-          time: 36000 # 10 hours
+      job: HeadOfPersonnel #imp, playtime requirement
     - type: Loadout
       prototypes: [ VisitorHOP, VisitorHOPAlt ]
       roleLoadout: [ RoleSurvivalStandard ]
@@ -129,18 +71,7 @@
     - type: GhostRole
       name: job-name-hos
       description: ghost-role-information-command-description
-      requirements: # imp
-        - !type:RoleTimeRequirement
-          role: JobWarden
-          time: 10800 #3 hrs
-        - !type:RoleTimeRequirement
-          role: JobSecurityOfficer
-          time: 36000 #10 hrs
-        - !type:DepartmentTimeRequirement
-          department: Security
-          time: 324000 # 90 hrs
-        - !type:OverallPlaytimeRequirement
-          time: 144000 #40 hrs
+      job: HeadOfSecurity #imp, playtime requirement
     - type: Loadout
       prototypes: [ VisitorHOS, VisitorHOSAlt, VisitorHOSAltA, VisitorHOSAltB ] # imp
       roleLoadout: [ RoleSurvivalSecurity ]
@@ -152,12 +83,7 @@
     - type: GhostRole
       name: job-name-rd
       description: ghost-role-information-command-description
-      requirements: # imp
-        - !type:DepartmentTimeRequirement
-          department: Science
-          time: 72000 #20 hrs, imp
-        - !type:OverallPlaytimeRequirement
-          time: 144000 #40 hrs
+      job: ResearchDirector #imp, playtime requirement
     - type: Loadout
       prototypes: [ VisitorRD, VisitorRDAlt ]
       roleLoadout: [ RoleSurvivalStandard ]
@@ -169,18 +95,7 @@
     - type: GhostRole
       name: job-name-qm
       description: ghost-role-information-command-description
-      requirements: # imp
-        - !type:RoleTimeRequirement
-          role: JobCargoTechnician
-          time: 21600 #6 hrs
-        - !type:RoleTimeRequirement
-          role: JobSalvageSpecialist
-          time: 10800 #3 hrs (too popular)
-        - !type:DepartmentTimeRequirement
-          department: Cargo
-          time: 72000 #20 hours, imp
-        - !type:OverallPlaytimeRequirement
-          time: 144000 #40 hrs
+      job: Quartermaster #imp, playtime requirement
     - type: Loadout
       prototypes: [ VisitorQM, VisitorQMAlt ]
       roleLoadout: [ RoleSurvivalStandard ]
@@ -205,9 +120,7 @@
   components:
     - type: GhostRole
       name: job-name-cadet
-      requirements: # imp
-        - !type:OverallPlaytimeRequirement
-          time: 18000 #5 hrs
+      job: SecurityCadet #imp, playtime requirement
     - type: Loadout
       prototypes: [ VisitorSecurityCadet, VisitorSecurityCadetAlt ]
       roleLoadout: [ RoleSurvivalSecurity ]
@@ -218,9 +131,7 @@
   components:
     - type: GhostRole
       name: job-name-security
-      requirements: # imp
-        - !type:OverallPlaytimeRequirement
-          time: 18000 #5 hrs
+      job: SecurityOfficer #imp, playtime requirement
     - type: Loadout
       prototypes: [ VisitorSecurityOfficer, VisitorSecurityOfficerAlt, VisitorSecurityOfficerAltA ] # imp
       roleLoadout: [ RoleSurvivalSecurity ]
@@ -231,10 +142,7 @@
   components:
     - type: GhostRole
       name: job-name-detective
-      requirements: # imp
-        - !type:DepartmentTimeRequirement
-          department: Security
-          time: 18000 #5 hrs
+      job: Detective #imp, playtime requirement
     - type: Loadout
       prototypes: [ VisitorDetective, VisitorDetectiveAlt, VisitorDetectiveAltA, VisitorDetectiveAltB ] # imp
       roleLoadout: [ RoleSurvivalSecurity ]
@@ -245,10 +153,7 @@
   components:
     - type: GhostRole
       name: job-name-warden
-      requirements: # imp
-        - !type:RoleTimeRequirement
-          role: JobSecurityOfficer
-          time: 36000 #10 hrs
+      job: Warden #imp, playtime requirement
     - type: Loadout
       prototypes: [ VisitorWarden, VisitorWardenAlt ]
       roleLoadout: [ RoleSurvivalSecurity ]

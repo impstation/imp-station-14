@@ -66,8 +66,8 @@
   - BoxShellTranquilizer
   - BoxBeanbag
   - WeaponDisabler
-  - WeaponShotgunKammererBeanbag
-  - WeaponShotgunEnforcerBeanbag
+  - WeaponShotgunKammererBeanbag #imp
+  - WeaponShotgunEnforcerBeanbag #imp
 
 #- type: technology # imp - combining draconic and uranium munitions research
 #  id: UraniumMunitions
@@ -125,6 +125,8 @@
   - FlashPayload
   - ExplosivePayload
   - ChemicalPayload
+  - CableDetStack1
+  - EmptyDetonator
   - SignallerDeadMans # DeltaV - Dead Man's Signaller
 
 - type: technology

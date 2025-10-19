@@ -277,7 +277,7 @@
     requiredTool: Pulsing
   - type: XATExaminableText
     examineText: xenoarch-trigger-examine-pulsing
-  targetDepths: [ 1, 2, 3 ] # imp edit
+  targetDepths: [ 0, 1, 2 ] # imp edit
 
 - type: xenoArchTrigger
   id: TriggerTimer
@@ -301,6 +301,7 @@
     - Slime
     - AmmoniaBlood
     - ZombieBlood
+    - Sap
     # imp below
     - ShimmeringBlood
     - BloodKodepiia
