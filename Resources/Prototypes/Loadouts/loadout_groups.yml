@@ -21,6 +21,9 @@
   - CigPackSpirits # imp
   - CigarCase
   - CigarGold
+  - BoxFolderBaseThreePapers
+  - BoxFolderPlasticClipboardThreePapers
+  - BoxFolderClipboardThreePapers
   - ClothingNeckLGBTPin
 #  - ClothingNeckAllyPin
   - ClothingNeckAromanticPin
@@ -361,6 +364,13 @@
   - BartenderWintercoat
 
 - type: loadoutGroup
+  id: BartenderGoldenShaker
+  name: loadout-group-bartender-shaker
+  minLimit: 0
+  loadouts:
+  - BartenderGoldenShaker
+
+- type: loadoutGroup
   id: ChefHead
   name: loadout-group-chef-head
   minLimit: 0
@@ -516,12 +526,16 @@
   minLimit: 1
   loadouts:
   - Bible
-  - ChaplainBookQuran #imp reorder
-  - BibleTanakh #imp reorder
-  - BibleDruid
+  # imp adds. these 2 in front because of woke
+  - ChaplainBookQuran
+  - BibleTanakh
+  # end imp
   - BibleNanoTrasen
-  - BibleSatanic
-  #imp edit start, kind of insane they labeled all holy books as bibles but oh well, using this loadout group will save headache in the future
+  - BibleDruid
+  - BibleHonk
+  - BibleRatvar
+  - BibleNarsie
+   #imp edit start, kind of insane they labeled all holy books as bibles but oh well, using this loadout group will save headache in the future
   - ChaplainBookScroll
   - ChaplainBookTablet
   - ChaplainBookGreybible
@@ -868,6 +882,14 @@
   - BlackShoes
   - CargoWinterBoots
   - CargoClownShoes # imp
+
+- type: loadoutGroup
+  id: CargoTechnicianID
+  name: loadout-group-cargo-technician-id
+  loadouts:
+  - CargoTechnicianPDA
+  - SeniorCargoTechnicianPDA # imp
+  - SeniorCourierPDA
 
 - type: loadoutGroup
   id: SalvageSpecialistBackpack
