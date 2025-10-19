@@ -4,7 +4,6 @@
 
 using Content.Server._Impstation.Administration.Components;
 using Content.Server.Actions;
-using Content.Server.Emp;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Pinpointer;
 using Content.Server.Popups;
@@ -13,6 +12,7 @@ using Content.Shared._Impstation.Replicator;
 using Content.Shared._Impstation.SpawnedFromTracker;
 using Content.Shared.Actions;
 using Content.Shared.CombatMode;
+using Content.Shared.Emp;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Mind.Components;

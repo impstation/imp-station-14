@@ -1,11 +1,39 @@
+# Jobs:
 - type: playTimeTracker
   id: JobCourier
 
 - type: playTimeTracker
   id: JobHospitalityDirector
 
+# Non-antag ghost roles:
 
-# imp - upstream antag trackers
+- type: playTimeTracker
+  id: JobDrone
+
+# Learner pAIs:
+
+- type: playTimeTracker
+  id: JobPersonalAILearnerScience
+
+- type: playTimeTracker
+  id: JobPersonalAILearnerEngineering
+
+- type: playTimeTracker
+  id: JobPersonalAILearnerSecurity
+
+- type: playTimeTracker
+  id: JobPersonalAILearnerMedical
+
+- type: playTimeTracker
+  id: JobPersonalAILearnerCargo
+
+- type: playTimeTracker
+  id: JobPersonalAILearnerService
+
+- type: playTimeTracker
+  id: JobPersonalAILearnerCommand
+
+# Antags (upstream ones first):
 # placeholder trackers for building blocks - there's too much to rework otherwise so i'm doing this instead. they literally do nothing.
 # TODO: implement these as antagGroups instead
 - type: playTimeTracker

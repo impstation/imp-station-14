@@ -62,6 +62,7 @@
     proto: moth
   - type: InteractionPopup
     successChance: 0.99 # Imagine not being allowed to headpat a scurret, chat
+    interactDelay: 2.25
     interactSuccessString: petting-success-sirval #imp edit
     interactFailureString: petting-failure-sirval #imp edit
     interactSuccessSpawn: EffectHearts
@@ -207,7 +208,7 @@
 # Spawnable ESS have a ghost role, equipment, a random name and a random colour.
 
 - type: entity
-  name: Emotional Support Sirval
+  name: Emotional Support Sirval #imp edit
   id: MobEmotionalSupportScurret
   parent: [MobScurret, MobBaseEmotionalSupportScurret]
   description: A traditional liveried Sirvaletian, or Sirval, from the countryside of the planet Passepartoupia. These sartorial little critters are known for their strict adherence to politeness and etiquette. Usually. This one has been hired by NT as a temp. #imp edit
