@@ -1,0 +1,50 @@
+- type: entity
+  name: theremin
+  parent: BasePlaceableInstrumentRotatable
+  id: ThereminInstrument
+  description: The future is now.
+  components:
+  - type: Instrument
+    bank: 1
+    program: 5
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/Instruments/theremin.rsi
+    state: theremin
+
+- type: entity
+  parent: BasePlaceableInstrumentRotatable
+  id: DrumKitInstrument
+  name: drum kit
+  description: What is this?! A drum kit for ants?!
+  components:
+  - type: Instrument
+    bank: 1
+    program: 6
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/Instruments/drumkit.rsi
+    state: drumkit
+
+- type: entity
+  parent: BasePlaceableInstrumentRotatable
+  id: HammondOrganInstrument
+  name: hammond organ
+  description: It's like the other organ, but joyful!
+  components:
+  - type: Instrument
+    bank: 1
+    program: 7
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/Instruments/hammondorgan.rsi
+    state: hammondorgan
+
+- type: entity
+  parent: BasePlaceableInstrumentRotatable
+  id: DulcimerInstrument
+  name: hammered dulcimer
+  description: For fans of ren fairs.
+  components:
+  - type: Instrument
+    program: 15
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/Instruments/dulcimer.rsi
+    state: dulcimer

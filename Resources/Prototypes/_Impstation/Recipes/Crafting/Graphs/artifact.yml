@@ -1,5 +1,5 @@
-- type: constructionGraph
-  id: Artifact
+﻿- type: constructionGraph
+  id: NaturalArtifact
   start: start
   graph:
   - node: start
@@ -10,4 +10,4 @@
         amount: 4
         doAfter: 5
   - node: done
-    entity: ComplexXenoArtifactItem
+    entity: NaturalXenoArtifactItem
