@@ -140,17 +140,15 @@
     Sneeze:
       collection: MaleSneezes #placeholder
     Cough:
-      collection: MaleCoughs #placeholder
+      path: /Audio/Voice/Vox/vox_cough.ogg
     Yawn:
       collection: MaleYawn #placeholder
     Honk:
       collection: BikeHorn
     Sigh:
-      collection: MaleSigh #placeholder
+      path: /Audio/Voice/Vox/vox_sigh.ogg
     Crying:
-      collection: VoxCry
-      params:
-        volume: -7
+      path: /Audio/Voice/Vox/vox_cry.ogg
     Whistle:
       collection: Whistles
     Weh:
@@ -166,7 +164,7 @@
       params:
         volume: 10
     DefaultDeathgasp:
-      collection: MaleDeathGasp #placeholder
+      path: /Audio/Effects/Gasp/vox_DeathGasp.ogg
     Chitter:
       collection: VoxChitter
       params:
@@ -194,17 +192,15 @@
     Sneeze:
       collection: FemaleSneezes #placeholder
     Cough:
-      collection: FemaleCoughs #placeholder
+      path: /Audio/Voice/Vox/vox_cough.ogg
     Yawn:
       collection: FemaleYawn #placeholder
     Honk:
       collection: BikeHorn
     Sigh:
-      collection: FemaleSigh #placeholder
+      path: /Audio/Voice/Vox/vox_sigh.ogg
     Crying:
-      collection: VoxCry
-      params:
-        volume: -7
+      path: /Audio/Voice/Vox/vox_cry.ogg
     Whistle:
       collection: Whistles
     Weh:
@@ -218,7 +214,7 @@
       params:
         volume: 10
     DefaultDeathgasp:
-      collection: FemaleDeathGasp #placeholder
+      path: /Audio/Effects/Gasp/vox_DeathGasp.ogg
     Chitter:
       collection: VoxChitter
       params:
