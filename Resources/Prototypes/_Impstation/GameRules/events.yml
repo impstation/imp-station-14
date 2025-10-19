@@ -3,19 +3,19 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    earliestStart: 35
+    earliestStart: 30 #originally 35
     minimumPlayers: 30 # roundstart changeling is 15 which seems insane
     weight: 2 # twice as common as zombies
     duration: 1
     occursDuringRoundEnd: false
-  - type: ChangelingRule
+  - type: GoobChangelingRule
   - type: AntagObjectives
     objectives:
     - ChangelingStealDNAObjective
     - EscapeIdentityObjective
     - ChangelingSurviveObjective
   - type: AntagSelection
-    agentName: changeling-roundend-name
+    agentName: goob-changeling-roundend-name
     definitions:
     - prefRoles: [ Changeling ]
       max: 1
@@ -24,7 +24,7 @@
         components:
         - AntagImmune
       briefing:
-        text: changeling-midround-role-greeting
+        text: goob-changeling-midround-role-greeting
         color: Yellow
         sound: "/Audio/_Goobstation/Ambience/Antag/changeling_start.ogg"
       mindRoles:
@@ -37,8 +37,8 @@
   components:
   - type: StationEvent
     weight: 7
-    duration: 1
-    earliestStart: 25
+    duration: null
+    earliestStart: 20 #originally 25
     reoccurrenceDelay: 20
     minimumPlayers: 15
   - type: AntagLoadProfileRule
@@ -50,6 +50,7 @@
     - BountyHunterKillRandomAntagObjective
     - BountyHunterSurviveObjective
   - type: AntagSelection
+    agentName: bounty-hunter-roundend-name
     definitions:
     - spawnerPrototype: SpawnPointGhostBountyHunter
       min: 1
@@ -72,8 +73,23 @@
         - NamesBountyHunter
         nameFormat: name-format-bounty-hunter
 
-#my oppa
+#vrex
+- type: entity
+  id: VRexEvent
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    weight: 3.5 #not as rare as midround ling or zombies, but rare enough to feel dread
+    duration: 1
+    earliestStart: 20 #maybe a strange choice, but the one play of v-rex in shift i saw was really calm
+    minimumPlayers: 50
+    maxOccurrences: 1 # imagine 2 of them
+  - type: VentCrittersRule
+    specialEntries:
+    - id: SpawnPointGhostVRex
+      prob: 0 # this ensures that only one spawner will be created
 
+#my oppa
 - type: entity
   parent: BaseGameRule
   id: OppaSpawnLight
@@ -130,3 +146,38 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
+
+# bluespace lockers
+
+- type: entity
+  id: BluespaceLockerDefault
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 1
+    reoccurrenceDelay: 5
+    earliestStart: 1
+    duration: 1
+  - type: BluespaceLockerRuleDefault
+
+- type: entity
+  id: BluespaceLockerRandom
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 1
+    reoccurrenceDelay: 5
+    earliestStart: 1
+    duration: 1
+  - type: BluespaceLockerRuleRandom
+
+- type: entity
+  id: BluespaceLockerRandomUnrestricted
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 1
+    reoccurrenceDelay: 5
+    earliestStart: 1
+    duration: 1
+  - type: BluespaceLockerRuleRandomUnrestricted

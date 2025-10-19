@@ -38,7 +38,7 @@ public sealed class RandomHumanoidSystem : EntitySystem
         if (!_prototypeManager.TryIndex<RandomHumanoidSettingsPrototype>(prototypeId, out var prototype))
             throw new ArgumentException("Could not get random humanoid settings");
 
-        var profile = HumanoidCharacterProfile.Random(prototype.SpeciesBlacklist);
+        var profile = HumanoidCharacterProfile.Random(false, prototype.SpeciesBlacklist); //imp
         var speciesProto = _prototypeManager.Index<SpeciesPrototype>(profile.Species);
         var humanoid = EntityManager.CreateEntityUninitialized(speciesProto.Prototype, coordinates);
 
@@ -51,8 +51,8 @@ public sealed class RandomHumanoidSystem : EntitySystem
             foreach (var entry in prototype.Components.Values)
             {
                 var comp = (Component)_serialization.CreateCopy(entry.Component, notNullableOverride: true);
-                EntityManager.RemoveComponent(humanoid, comp.GetType());
-                EntityManager.AddComponent(humanoid, comp);
+                RemComp(humanoid, comp.GetType());
+                AddComp(humanoid, comp);
             }
         }
 

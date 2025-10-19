@@ -1,3 +1,14 @@
+# Senior times
+- type: loadoutEffectGroup
+  id: SeniorChef
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChef
+      time: 108000 #30 hrs, ~20 rounds #imp
+
+# Outerwear
 - type: loadoutEffectGroup
   id: SeniorChefApron
   effects:
@@ -23,3 +34,57 @@
     proto: SeniorChef
   equipment:
     jumpsuit: ClothingUniformSpaceJumpsuitChef
+
+- type: loadout
+  id: HeadChef
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorChef
+  equipment:
+    jumpsuit: ClothingUniformHeadChef
+
+
+- type: loadout
+  id: HeadChefSkirt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorChef
+  equipment:
+    jumpsuit: ClothingUniformHeadChefSkirt
+
+# Shoes
+- type: loadout
+  id: ChefShoes
+  equipment:
+    shoes: ClothingShoesChef
+
+- type: loadout
+  id: HeadChefShoes
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorChef
+  equipment:
+    shoes: ClothingShoesHeadChef
+
+# Neck
+- type: loadout
+  id: HeadChefNeck
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorChef
+  equipment:
+    neck: ClothingNeckHeadChef
+
+# id
+- type: loadout
+  id: ChefPDA
+  equipment:
+    id: ChefPDA
+
+- type: loadout
+  id: SeniorChefPDA
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorChef
+  equipment:
+    id: SeniorChefPDA

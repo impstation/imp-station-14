@@ -1,4 +1,4 @@
-# When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_snack.yml
+﻿# When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_snack.yml
 # Base
 
 - type: entity
@@ -6,7 +6,6 @@
   id: FoodFrozenBase
   abstract: true
   components:
-  - type: Food
   - type: Sprite
     sprite: Objects/Consumable/Food/frozen.rsi
   - type: SolutionContainerManager
@@ -20,22 +19,59 @@
 # Ice-cream
 
 - type: entity
-  name: ice-cream sandwich
   parent: FoodFrozenBase
   id: FoodFrozenSandwich
+  name: ice-cream sandwich
   description: Portable ice-cream in its own packaging.
   components:
+  - type: Item
+    shape:
+    - 0,0,1,0
   - type: Sprite
     state: sandwich
+  - type: FlavorProfile # Frontier: add flavour profile
+    flavors:
+    - sweet
+    - icecream
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 16
+        - ReagentId: Theobromine
+          Quantity: 3
+        - ReagentId: Vitamin
+          Quantity: 2
+        - ReagentId: CocoaPowder
+          Quantity: 1
 
 - type: entity
-  name: strawberry ice-cream sandwich
   parent: FoodFrozenBase
   id: FoodFrozenSandwichStrawberry
+  name: strawberry ice-cream sandwich
   description: Portable ice-cream in its own packaging of the strawberry variety.
   components:
+  - type: Item
+    shape:
+    - 0,0,1,0
   - type: Sprite
     state: sandwich-strawberry
+  - type: FlavorProfile # Frontier: add flavour profile
+    flavors:
+    - sweet
+    - berry
+    - icecream
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 2
 
 - type: entity
   name: space freezy
@@ -45,22 +81,57 @@
   components:
   - type: Sprite
     state: spacefreezy
+  - type: FlavorProfile # Frontier: add flavour profile
+    flavors:
+    - sweet
+    - blueraspberry
+    - icecream
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Sugar
+          Quantity: 1
 
 - type: entity
-  name: ice-cream sundae
+  name: ice cream sundae # Frontier: no hyphen
   parent: FoodFrozenBase
   id: FoodFrozenSundae
   description: A classic dessert.
   components:
   - type: Sprite
-    state: spacefreezy
+    state: sundae # Frontier: spacefreezy<sundae
+  - type: FlavorProfile # Frontier: add flavour profile
+    flavors:
+    - sweet
+    - icecream
+    - cherry
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 3
+        - ReagentId: Sugar
+          Quantity: 1
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
-  name: cornuto
   parent: FoodFrozenBase
   id: FoodFrozenCornuto
+  name: choco horn # Frontier: cornuto<choco horn
   description: A Neapolitan vanilla and chocolate ice-cream cone. It menaces with a sprinkling of caramelized nuts.
   components:
+  - type: Item
+    storedRotation: -45
   - type: Sprite
     state: cornuto
   - type: SolutionContainerManager
@@ -69,9 +140,16 @@
         maxVol: 20
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
+          Quantity: 12 # imp
         - ReagentId: Theobromine
+          Quantity: 3 # imp
+        - ReagentId: Sugar # imp
           Quantity: 1
+        - ReagentId: CocoaPowder # imp
+          Quantity: 1
+  - type: FlavorProfile # Frontier: add flavour profile
+    flavors:
+    - icecream
 
 # Popsicle
 
@@ -87,9 +165,14 @@
     - state: popsicle-base
     - state: popsicle
       color: orange
-  - type: Food
-    trash: 
+  - type: Edible
+    trash:
     - FoodFrozenPopsicleTrash
+  - type: FlavorProfile # Frontier: add flavour profile
+    flavors:
+    - sweet
+    - icecream
+    - orange
   - type: Tag
     tags:
     - Fruit
@@ -107,13 +190,18 @@
     - state: popsicle-base
     - state: popsicle
       color: red
-  - type: Food
-    trash: 
+  - type: Edible
+    trash:
     - FoodFrozenPopsicleTrash
   - type: Tag
     tags:
     - Fruit
     - Creamsicle
+  - type: FlavorProfile # Frontier: add flavour profile
+    flavors:
+    - sweet
+    - icecream
+    - berry
 
 - type: entity
   name: jumbo ice-cream
@@ -125,18 +213,24 @@
     layers:
     - state: stick
     - state: jumbo
-  - type: Food
-    trash: 
+  - type: Edible
+    trash:
     - FoodFrozenPopsicleTrash
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 30
+        maxVol: 20 # Frontier: 30<20
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
         - ReagentId: Theobromine
+          Quantity: 3 # imp
+        - ReagentId: CocoaPowder # imp
           Quantity: 1
+  - type: FlavorProfile # Frontier: add flavour profile
+    flavors:
+    - sweet
+    - icecream
 
 # Snowcone
 
@@ -156,8 +250,8 @@
         - state: cone
         - state: alpha-filling
     #      color: foo
-    - type: Food
-      trash: 
+    - type: Edible
+      trash:
       - FoodFrozenSnowconeTrash
     - type: SolutionContainerManager
       solutions:
@@ -165,11 +259,11 @@
           maxVol: 20 # For sprinkles or something? Idk.
           reagents:
             - ReagentId: Ice
-              Quantity: 8
-            - ReagentId: Water
-              Quantity: 2
+              Quantity: 10 # imp
+            #- ReagentId: Water # imp
+            #  Quantity: 2
             - ReagentId: Sugar
-              Quantity: 2
+              Quantity: 4 # imp
 
 - type: entity
   name: flavorless snowcone
@@ -180,10 +274,13 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20
+        maxVol: 15 # imp
         reagents:
-          - ReagentId: Ice
-            Quantity: 8
+        - ReagentId: Ice
+          Quantity: 10 # imp
+  - type: FlavorProfile # Frontier: add flavour profile
+    flavors:
+    - ice
 
 - type: entity
   name: berry snowcone
@@ -195,12 +292,15 @@
     layers:
     - state: cone
     - state: berry
-  - type: Food
-    trash: 
+  - type: Edible
+    trash:
     - FoodFrozenSnowconeTrash
   - type: Tag
     tags:
     - Fruit
+  - type: FlavorProfile # Frontier: add flavour profile
+    flavors:
+    - berry
 
 - type: entity
   name: fruit salad snowcone
@@ -212,12 +312,25 @@
     layers:
     - state: cone
     - state: fruitsalad
-  - type: Food
-    trash: 
+  - type: Edible
+    trash:
     - FoodFrozenSnowconeTrash
   - type: Tag
     tags:
     - Fruit
+  - type: FlavorProfile # Frontier: add flavour profile
+    flavors:
+    - sweet
+    - sour
+    - orange
+    - ginfizz
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Ice
+          Quantity: 8
 
 - type: entity
   name: clowncone
@@ -229,9 +342,21 @@
     layers:
     - state: cone
     - state: clown
-  - type: Food
-    trash: 
+  - type: Edible
+    trash:
     - FoodFrozenSnowconeTrash
+  - type: FlavorProfile # Frontier: add flavour profile
+    flavors:
+    - sweet
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Ice
+          Quantity: 10
+        - ReagentId: Laughter
+          Quantity: 4
 
 - type: entity
   name: mime snowcone
@@ -243,9 +368,13 @@
     layers:
     - state: cone
     - state: mime
-  - type: Food
-    trash: 
+  - type: Edible
+    trash:
     - FoodFrozenSnowconeTrash
+  - type: FlavorProfile # Frontier: add flavour profile
+    flavors:
+    - sweet
+    - silence
 
 - type: entity
   name: rainbow snowcone
@@ -257,18 +386,44 @@
     layers:
     - state: cone
     - state: rainbow
-  - type: Food
-    trash: 
+  - type: Edible
+    trash:
     - FoodFrozenSnowconeTrash
+  # Frontier: flavors, custom fill
+  - type: FlavorProfile
+    flavors:
+    - sweet
+    - cold
+    - magical
+  - type: SolutionContainerManager # imp
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: SpaceDrugs
+          Quantity: 4
+        - ReagentId: Lipolicide
+          Quantity: 4
+        - ReagentId: MindbreakerToxin
+          Quantity: 2.66
+        - ReagentId: Happiness
+          Quantity: 2.66
+        - ReagentId: Psicodine
+          Quantity: 0.8
+        - ReagentId: Sugar
+          Quantity: 4
+  # End Frontier: flavors, custom fill
 
 # Trash
 
 - type: entity
-  name: paper cone
   parent: BaseItem
   id: FoodFrozenSnowconeTrash
+  name: paper cone
   description: A crumpled paper cone used for an icy treat. Worthless.
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     sprite: Objects/Consumable/Food/frozen.rsi
     state: cone-trash

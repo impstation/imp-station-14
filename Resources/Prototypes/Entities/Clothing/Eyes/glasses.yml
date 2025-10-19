@@ -13,6 +13,8 @@
     damage:
       types:
         Blunt: 10
+  - type: PluralName # imp
+    oneOf: plural-name-pair-1
 
 - type: entity
   parent: [ClothingEyesBase, BaseLensSlot] # BaseLensSlot from imp
@@ -32,6 +34,9 @@
     damage:
       types:
         Blunt: 10
+  - type: PluralName # imp
+    oneOf: plural-name-pair-1
+
 
 - type: entity
   parent: [ClothingEyesBase, BaseLensSlot] # BaseLensSlot from imp
@@ -51,6 +56,9 @@
     damage:
       types:
         Blunt: 10
+  - type: PluralName # imp
+    oneOf: plural-name-pair-1
+
 
 - type: entity
   parent: [ClothingEyesBase, BaseLensSlot, BaseEngineeringContraband] # BaseLensSlot from imp
@@ -70,8 +78,11 @@
     - type: SupermatterHallucinationImmune
   - type: Tag
     tags:
-    - CorgiWearable
+    - PetWearable
     - WhitelistChameleon
+  - type: PluralName # imp
+    oneOf: plural-name-some
+
 
 - type: entity
   parent: [ClothingEyesBase, BaseLensSlot] # BaseLensSlot from imp
@@ -98,6 +109,8 @@
         whitelist:
           tags:
           - Lens
+  - type: PluralName
+    oneOf: plural-name-pair-1
   # imp end
   - type: Tag
     tags:
@@ -117,6 +130,8 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+  - type: PluralName # imp
+    oneOf: plural-name-some
 
 - type: entity
   parent: ClothingEyesBase
@@ -134,6 +149,8 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
+  - type: PluralName # imp
+    oneOf: plural-name-pair-1
 
 - type: entity
   parent: [ClothingEyesBase, BaseLensSlot] # BaseLensSlot from imp
@@ -161,6 +178,8 @@
         whitelist:
           tags:
           - Lens
+  - type: PluralName
+    oneOf: plural-name-pair-1
   # imp end
   - type: StaticPrice
     price: 500
@@ -178,10 +197,12 @@
   - type: Tag
     tags:
     - HamsterWearable
-    - CorgiWearable
+    - PetWearable
     - WhitelistChameleon
   - type: IdentityBlocker
     coverage: EYES
+  - type: PluralName # imp
+    oneOf: plural-name-pair-1
 
 - type: entity
   parent: ClothingEyesGlassesCheapSunglasses
@@ -195,9 +216,11 @@
   - type: Tag
     tags:
     - Sunglasses
-    - CorgiWearable
+    - PetWearable
     - HamsterWearable
     - WhitelistChameleon
+  - type: PluralName # imp
+    oneOf: plural-name-pair-1
 
 - type: entity
   parent: [ClothingEyesBase, BaseLensSlot, ShowSecurityIcons, BaseSecurityContraband] # BaseLensSlot from imp
@@ -218,7 +241,7 @@
   - type: Tag
     tags:
     - HamsterWearable
-    - CorgiWearable
+    - PetWearable
     - WhitelistChameleon
     - GlassesSecurity
   - type: GuideHelp
@@ -227,6 +250,8 @@
     - Antagonists
   - type: IdentityBlocker
     coverage: EYES
+  - type: PluralName # imp
+    oneOf: plural-name-pair-1
 
 - type: entity
   parent: [ClothingEyesBase, BaseLensSlot, BaseCommandContraband] # BaseLensSlot from imp
@@ -244,12 +269,14 @@
   - type: Tag
     tags:
     - HamsterWearable
-    - CorgiWearable
+    - PetWearable
     - WhitelistChameleon
     - AdministrationGlasses # imp, for crafting
   - type: IdentityBlocker
     coverage: EYES
   - type: ShowJobIcons
+  - type: PluralName # imp
+    oneOf: plural-name-pair-1
 
 - type: entity
   parent: [ClothingEyesBase, BaseLensSlot] # BaseLensSlot from imp
@@ -266,6 +293,8 @@
     protectionTime: 5
   - type: IdentityBlocker
     coverage: EYES
+  - type: PluralName # imp
+    oneOf: plural-name-pair-1
 
 #Make a scanner category when these actually function and we get the trayson
 - type: entity
@@ -301,11 +330,14 @@
       coverage: EYES
     - type: Tag
       tags:
-      - CorgiWearable
+      - PetWearable
       - WhitelistChameleon
+      - ChemGoggles #imp
+    - type: PluralName # imp
+      oneOf: plural-name-some
 
 - type: entity
-  parent: [ClothingEyesBase, BaseMajorContraband]
+  parent: [ClothingEyesBase, BaseHighlyIllegalContraband]
   id: ClothingEyesVisorNinja
   name: ninja visor
   description: An advanced visor protecting a ninja's eyes from flashing lights.
@@ -319,7 +351,7 @@
     isEquipment: true
 
 - type: entity
-  parent: ClothingEyesBase
+  parent: [ClothingEyesBase, ShowSecurityIcons, BaseSecurityContraband]
   id: ClothingEyesGlassesNoir
   name: noir-tech glasses
   description: A pair of glasses that simulate what the world looked like before the invention of color.
@@ -338,3 +370,5 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
+  - type: PluralName # imp
+    oneOf: plural-name-pair-1

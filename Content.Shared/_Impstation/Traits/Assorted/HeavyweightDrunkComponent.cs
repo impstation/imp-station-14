@@ -11,5 +11,5 @@ namespace Content.Shared.Traits.Assorted;
 public sealed partial class HeavyweightDrunkComponent : Component
 {
     [DataField("boozeStrengthMultiplier"), ViewVariables(VVAccess.ReadWrite)]
-    public float BoozeStrengthMultiplier = 0.50f;
+    public float BoozeStrengthMultiplier = 0.80f;
 }

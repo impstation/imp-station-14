@@ -138,3 +138,162 @@
   - type: StaticPrice
     price: 295
 
+- type: entity
+  parent: BaseWall
+  id: WallSteelWood
+  name: steel wood wall
+  components:
+  - type: Tag
+    tags:
+      - Wall
+  - type: Sprite
+    sprite: _Impstation/Structures/Walls/steelwoodwall.rsi
+  - type: Icon
+    sprite: _Impstation/Structures/Walls/steelwoodwall.rsi
+  - type: IconSmooth
+    key: walls
+    base: steelwoodwall
+  - type: Construction
+    graph: Girder
+    node: steelWoodWall
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroyHeavy
+      - !type:ChangeConstructionNodeBehavior
+        node: wall
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Appearance
+
+- type: entity
+  parent: BaseWall
+  id: WallReinforcedSteelWood
+  name: reinforced steel wood wall
+  components:
+  - type: Tag
+    tags:
+      - Wall
+  - type: Sprite
+    sprite: _Impstation/Structures/Walls/reinforcedsteelwoodwall.rsi
+  - type: Icon
+    sprite: _Impstation/Structures/Walls/reinforcedsteelwoodwall.rsi
+  - type: IconSmooth
+    key: walls
+    base: reinforcedsteelwoodwall
+  - type: Construction
+    graph: Girder
+    node: reinforcedSteelWoodWall
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroyHeavy
+      - !type:ChangeConstructionNodeBehavior
+        node: reinforcedWall
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: ReinforcedWallReplacementMarker
+  - type: StaticPrice
+    price: 250
+  - type: RadiationBlocker
+    resistance: 5
+  - type: Appearance
+
+- type: entity
+  parent: BaseWall
+  id: WallReaper
+  name: souled wall
+  description: Keeps the souls in and the mortals out.
+  components:
+  - type: StaticPrice
+    price: 330
+  - type: Tag
+    tags:
+      - Wall
+  - type: Sprite
+    sprite: _Impstation/Structures/Walls/reaperwall.rsi
+  - type: Icon
+    sprite: _Impstation/Structures/Walls/reaperwall.rsi
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: IconSmooth
+    key: walls
+    base: reaper
+  - type: Appearance
+
+- type: entity
+  parent: MarkerBase
+  id: WallInvisiblePermanent #use this in special, non-station, non-wreck or debris maps only please!! 
+  name: invisible wall
+  suffix: Permanent
+  components:
+  - type: Tag
+    tags:
+      - Wall
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+            bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - GlassLayer
+  - type: Airtight
+  - type: Sprite #invisible in game but visible while mapping
+    layers:
+      - sprite: Structures/Walls/solid.rsi
+        state: full
+      - sprite: Markers/cross.rsi
+      - state: green

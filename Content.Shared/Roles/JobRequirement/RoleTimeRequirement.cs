@@ -45,35 +45,66 @@ public sealed partial class RoleTimeRequirement : JobRequirement
 
         var jobProto = jobSystem.GetJobPrototype(proto);
 
-        if (jobSystem.TryGetDepartment(jobProto, out var departmentProto))
-            departmentColor = departmentProto.Color;
-
-        if (!protoManager.TryIndex<JobPrototype>(jobProto, out var indexedJob))
-            return false;
-
-        if (!Inverted)
+        // Imp edit begin
+        if (protoManager.TryIndex<JobPrototype>(jobProto, out var indexedJob))
         {
+            if (jobSystem.TryGetDepartment(jobProto, out var departmentProto))
+                departmentColor = departmentProto.Color;
+            if (!Inverted)
+            {
+                if (roleDiff <= 0)
+                    return true;
+
+                reason = FormattedMessage.FromMarkupPermissive(Loc.GetString(
+                    "role-timer-role-insufficient",
+                    ("time", formattedRoleDiff),
+                    ("job", indexedJob.LocalizedName),
+                    ("departmentColor", departmentColor.ToHex())));
+                return false;
+            }
+
             if (roleDiff <= 0)
-                return true;
-
-            reason = FormattedMessage.FromMarkupPermissive(Loc.GetString(
-                "role-timer-role-insufficient",
-                ("time", formattedRoleDiff),
-                ("job", indexedJob.LocalizedName),
-                ("departmentColor", departmentColor.ToHex())));
-            return false;
+            {
+                reason = FormattedMessage.FromMarkupPermissive(Loc.GetString(
+                    "role-timer-role-too-high",
+                    ("time", formattedRoleDiff),
+                    ("job", indexedJob.LocalizedName),
+                    ("departmentColor", departmentColor.ToHex())));
+                return false;
+            }
         }
 
-        if (roleDiff <= 0)
+        // Ugly block of copy-pasted code here but fuck it we ball
+        if (protoManager.TryIndex<AntagPrototype>(jobProto, out var indexedAntag))
         {
-            reason = FormattedMessage.FromMarkupPermissive(Loc.GetString(
-                "role-timer-role-too-high",
-                ("time", formattedRoleDiff),
-                ("job", indexedJob.LocalizedName),
-                ("departmentColor", departmentColor.ToHex())));
-            return false;
-        }
+            departmentColor = indexedAntag.Color;
+            if (!Inverted)
+            {
+                if (roleDiff <= 0)
+                    return true;
 
+                reason = FormattedMessage.FromMarkupPermissive(Loc.GetString(
+                    "role-timer-role-insufficient",
+                    ("time", formattedRoleDiff),
+                    ("job", Loc.GetString(indexedAntag.Name)),
+                    ("departmentColor", departmentColor.ToHex())));
+                return false;
+            }
+
+            if (roleDiff <= 0)
+            {
+                reason = FormattedMessage.FromMarkupPermissive(Loc.GetString(
+                    "role-timer-role-too-high",
+                    ("time", formattedRoleDiff),
+                    ("job", Loc.GetString(indexedAntag.Name)),
+                    ("departmentColor", departmentColor.ToHex())));
+                return false;
+            }
+        }
+        // if jobProto was neither a JobPrototype or AntagPrototype, return false from the method
+        if (indexedJob == null && indexedAntag == null)
+            return false;
+        // Imp edit end
         return true;
     }
 }

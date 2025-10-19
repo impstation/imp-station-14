@@ -126,11 +126,6 @@
     belt: ClothingBeltChaplainDragon
 
 # books
-- type: loadout
-  id: ChaplainBookBible
-  storage:
-    back:
-    - Bible
 
 - type: loadout
   id: ChaplainBookQuran
@@ -139,10 +134,10 @@
     - HolyTextQuran
 
 - type: loadout
-  id: ChaplainBookTanakh
+  id: BibleTanakh
   storage:
     back:
-    - HolyTextTanakh
+    - BibleTanakh
 
 - type: loadout
   id: ChaplainBookBibble

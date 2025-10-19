@@ -64,7 +64,8 @@
   - type: UnpoweredFlashlight
   - type: PointLight
     enabled: false
-    radius: 1.5
+    radius: 1.7
+    falloff: 3
     softness: 5
     autoRot: true
   - type: Ringer
@@ -79,12 +80,12 @@
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     preinstalled:
-    - CrewManifestCartridge
-    - NotekeeperCartridge
-    - NanoTaskCartridge
-    - NewsReaderCartridge
-    - NanoChatCartridge # DV
-    - SOSCartridge # Imp
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NanoTaskCartridge
+      - NewsReaderCartridge
+      - NanoChatCartridge # DV
+      - SOSCartridge # Imp
     cartridgeSlot:
       priority: -1
       name: device-pda-slot-component-slot-name-cartridge
@@ -92,7 +93,7 @@
       insertSound: /Audio/Machines/id_insert.ogg
       whitelist:
         components:
-        - Cartridge
+          - Cartridge
   - type: ActivatableUI
     key: enum.PdaUiKey.Key
     singleUser: true
@@ -128,6 +129,14 @@
     damage:
       types:
         Blunt: 4
+  - type: ComponentToggler #imp :)
+    components:
+    - type: LightningTarget
+      priority: 1
+  - type: ItemToggle # imp
+    onUse: false
+    onActivate: false
+    predictable: false
 
 - type: entity
   parent: BasePDA
@@ -170,13 +179,13 @@
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     preinstalled:
-    - CrewManifestCartridge
-    - NotekeeperCartridge
-    - NanoTaskCartridge
-    - NewsReaderCartridge
-    - MedTekCartridge
-    - NanoChatCartridge # DV
-    - SOSCartridge # Imp
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NanoTaskCartridge
+      - NewsReaderCartridge
+      - MedTekCartridge
+      - NanoChatCartridge # DV
+      - SOSCartridge # Imp
 
 - type: entity
   parent: BasePDA
@@ -188,14 +197,6 @@
     id: PassengerIDCard
   - type: PdaBorderColor
     borderColor: "#717059"
-
-- type: entity
-  parent: PassengerPDA
-  id: UndercoverPDA
-  suffix: Syndicate
-  components:
-  - type: Pda
-    id: UndercoverIDCard
 
 - type: entity
   parent: BasePDA
@@ -236,7 +237,7 @@
     state: pda-internmed
   - type: GuideHelp
     guides:
-    - Medical Doctor
+    - MedicalDoctor
 
 - type: entity
   parent: BaseSecurityPDA
@@ -374,7 +375,7 @@
           bounds: "-0.4,-0.3,0.4,0.3"
         hard: false
         layer:
-        - SlipLayer
+          - SlipLayer
       fix1:
         shape:
           !type:PhysShapeAabb
@@ -492,12 +493,14 @@
     state: pda-qm
   - type: CartridgeLoader
     preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NewsReaderCartridge
-      - NanoChatCartridge # DV
-      # - MailMetricsCartridge  # DV - turning this off until i can fix it with the rest of the mail
-      - SOSCartridge # Imp
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NanoTaskCartridge
+    - NewsReaderCartridge
+    - AstroNavCartridge
+    - NanoChatCartridge # DV
+    - MailMetricsCartridge  # DV - turning this off until i can fix it with the rest of the mail
+    - SOSCartridge # Imp
 
 - type: entity
   parent: BasePDA
@@ -520,6 +523,7 @@
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
+      - NanoTaskCartridge
       - NewsReaderCartridge
       - NanoChatCartridge # DeltaV
       - SOSCartridge # Imp
@@ -545,13 +549,13 @@
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     preinstalled:
-    - CrewManifestCartridge
-    - NotekeeperCartridge
-    - NanoTaskCartridge
-    - NewsReaderCartridge
-    - AstroNavCartridge
-    - NanoChatCartridge # DV
-    - SOSCartridge # Imp
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NanoTaskCartridge
+      - NewsReaderCartridge
+      - AstroNavCartridge
+      - NanoChatCartridge # DV
+      - SOSCartridge # Imp
 
 - type: entity
   parent: BasePDA
@@ -786,7 +790,7 @@
     state: pda-medical
   - type: GuideHelp
     guides:
-    - Medical Doctor
+    - MedicalDoctor
 
 - type: entity
   parent: MedicalPDA
@@ -952,6 +956,7 @@
     id: CentcomIDCard
     penSlot:
       startingItem: PenCentcom
+      priority: -1
       whitelist:
         tags:
         - Write
@@ -967,16 +972,16 @@
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     preinstalled:
-    - CrewManifestCartridge
-    - NotekeeperCartridge
-    - NanoTaskCartridge
-    - NewsReaderCartridge
-    - MedTekCartridge
-    - WantedListCartridge
-    - LogProbeCartridge
-    - AstroNavCartridge
-    - NanoChatCartridge # DV
-    - SOSCartridge # Imp
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NanoTaskCartridge
+      - NewsReaderCartridge
+      - MedTekCartridge
+      - WantedListCartridge
+      - LogProbeCartridge
+      - AstroNavCartridge
+      - NanoChatCartridge # DV
+      - SOSCartridge # Imp
 
 - type: entity
   parent: CentcomPDA
@@ -995,30 +1000,34 @@
     uiKey: enum.PdaUiKey.Key
     notificationsEnabled: false
     preinstalled:
-    - CrewManifestCartridge
-    - NotekeeperCartridge
-    - NanoTaskCartridge
-    - NewsReaderCartridge
-    - LogProbeCartridge
-    - WantedListCartridge
-    - MedTekCartridge
-    - AstroNavCartridge
-    - NanoChatCartridge # DV
-    - SOSCartridge # Imp
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NanoTaskCartridge
+      - NewsReaderCartridge
+      - LogProbeCartridge
+      - WantedListCartridge
+      - MedTekCartridge
+      - AstroNavCartridge
+      - NanoChatCartridge # DV
+      - SOSCartridge # Imp
 
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener
 
-- type: entity # imp
+- type: entity
   parent: CentcomPDA
   id: DeathsquadPDA
   suffix: Death Squad
-  name: death squad PDA
-  description: The red helps to mask the blood.
+  name: death squad PDA #imp edit
+  description: The red helps to mask the blood. #imp edit
   components:
   - type: Pda
-    id:   CentcomIDCardDeathsquad
+    id: CentcomIDCardDeathsquad
+  - type: Tag #  Ignore Chameleon tags
+    tags:
+    - DoorBumpOpener
+  # imp edit start
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
@@ -1030,9 +1039,7 @@
     borderColor: "#640202"
     accentHColor: "#06064B"
     accentVColor: "#06064B"
-  - type: Tag #  Ignore Chameleon tags
-    tags:
-    - DoorBumpOpener # /imp
+  # imp edit end
 
 - type: entity
   parent: BasePDA
@@ -1135,9 +1142,64 @@
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     preinstalled:
-    - NotekeeperCartridge
-    - NanoTaskCartridge
-    - NanoChatCartridge # DV
+      - NotekeeperCartridge
+      - NanoTaskCartridge
+      - NanoChatCartridge # DV
+
+- type: entity
+  parent: [ SyndiPDA, BaseSyndicateContraband ]
+  id: SyndiOperativePDA
+  name: syndicate operative PDA
+  description: Death to NT!
+  components:
+  - type: Pda
+    id: SyndiOperativeIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-syndi-operative
+  - type: Icon
+    state: pda-syndi-operative
+
+- type: entity
+  parent: [ SyndiOperativePDA, BaseSyndicateContraband ]
+  id: SyndiCorpsmanPDA
+  name: syndicate corpsman PDA
+  description: Commander... I need to cook!
+  components:
+  - type: Pda
+    id: SyndiCorpsmanIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-syndi-corpsman
+  - type: Icon
+    state: pda-syndi-corpsman
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - NotekeeperCartridge
+      - NanoTaskCartridge
+      - MedTekCartridge
+      - NanoChatCartridge # DV
+
+- type: entity
+  parent: [ SyndiOperativePDA, BaseSyndicateContraband ]
+  id: SyndiCommanderPDA
+  name: syndicate commander PDA
+  description: So what are we, some kind of Nukie squad?
+  components:
+  - type: Pda
+    id: SyndiCommanderIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-syndi-commander
+  - type: Icon
+    state: pda-syndi-commander
 
 - type: entity
   parent: BaseSecurityPDA
@@ -1162,16 +1224,16 @@
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     preinstalled:
-    - CrewManifestCartridge
-    - NotekeeperCartridge
-    - NanoTaskCartridge
-    - NewsReaderCartridge
-    - MedTekCartridge
-    - WantedListCartridge
-    - LogProbeCartridge
-    - AstroNavCartridge
-    - NanoChatCartridge # DV
-    - SOSCartridge # Imp
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NanoTaskCartridge
+      - NewsReaderCartridge
+      - MedTekCartridge
+      - WantedListCartridge
+      - LogProbeCartridge
+      - AstroNavCartridge
+      - NanoChatCartridge # DV
+      - SOSCartridge # Imp
 
 - type: entity
   parent: ERTLeaderPDA
@@ -1231,6 +1293,11 @@
   components:
   - type: Pda
     id: CBURNIDcard
+  - type: PdaBorderColor
+    borderColor: "#A32D26"
+    accentHColor: "#D0B01A" #imp
+    accentVColor: "#D0B01A" #imp
+  # imp edit start
   - type: Appearance #imp
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
@@ -1238,10 +1305,7 @@
         pda-cburn
   - type: Icon
     state: pda-cburn
-  - type: PdaBorderColor #imp
-    borderColor: "#A32D26"
-    accentHColor: "#D0B01A"
-    accentVColor: "#D0B01A"
+  # imp edit end
 
 - type: entity
   parent: BasePDA
@@ -1382,25 +1446,6 @@
     - SOSCartridge # Imp
 
 - type: entity
-  parent: BasePDA
-  id: RoboticsPDA
-  name: robotics PDA
-  description: It's covered in scratches.
-  components:
-  - type: Pda
-    id: ResearchIDCard
-  - type: Appearance
-    appearanceDataInit:
-      enum.PdaVisuals.PdaType:
-        !type:String
-        pda-roboticist
-  - type: PdaBorderColor
-    borderColor: "#484848"
-    accentVColor: "#d33725"
-  - type: Icon
-    state: pda-roboticist
-
-- type: entity
   parent: ClownPDA
   id: CluwnePDA
   name: cluwne PDA
@@ -1506,6 +1551,25 @@
     state: pda-seniorofficer
 
 - type: entity
+  parent: BasePDA
+  id: SeniorCourierPDA
+  name: senior courier PDA
+  description: Smells like postage stamps and shuttle fuel.
+  components:
+  - type: Pda
+    id: CargoIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-seniorcourier
+  - type: PdaBorderColor
+    borderColor: "#e39751"
+    accentVColor: "#DFDFDF"
+  - type: Icon
+    state: pda-seniorcourier
+
+- type: entity
   parent: [ BaseMajorContraband, SyndiPDA ]
   id: PiratePDA
   name: pirate PDA
@@ -1522,32 +1586,7 @@
     state: pda-pirate
 
 - type: entity
-  parent: [ BaseMedicalPDA, BaseSyndicateContraband ]
-  id: SyndiAgentPDA
-  name: syndicate corpsman PDA
-  description: For those days when healing normal syndicates aren't enough, try healing nuclear operatives instead!
-  components:
-  - type: Pda
-    id: SyndicateIDCard
-  - type: Appearance
-    appearanceDataInit:
-     enum.PdaVisuals.PdaType:
-       !type:String
-       pda-syndi-agent
-  - type: PdaBorderColor
-    borderColor: "#891417"
-  - type: Icon
-    state: pda-syndi-agent
-  - type: CartridgeLoader
-    uiKey: enum.PdaUiKey.Key
-    preinstalled:
-    - NotekeeperCartridge
-    - NanoTaskCartridge
-    - MedTekCartridge
-    - NanoChatCartridge # DV
-
-- type: entity
-  parent: BasePDA
+  parent: [BasePDA, SelectableLock]
   id: ChameleonPDA
   name: passenger PDA
   description: Why isn't it gray?
@@ -1600,3 +1639,14 @@
     borderColor: "#7F3300"
   - type: Icon
     state: pda-wizard
+
+- type: entity
+  parent: ClearPDA
+  id: ScurretPDA
+  description: A temporary PDA granted to sirval temps. Doesn't do much. #imp edit
+  components:
+  - type: Pda
+    id: VisitorIDCard
+  - type: Tag #  Ignore Chameleon tags
+    tags:
+    - DoorBumpOpener

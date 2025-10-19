@@ -2,9 +2,9 @@ using System.Linq;
 using Content.Server.Cargo.Components;
 using Content.Server.Cargo.Systems;
 using Content.Server.GameTicking;
-using Content.Server.Station.Components;
 using Content.Server.StationEvents.Components;
 using Content.Shared.GameTicking.Components;
+using Content.Shared.Station.Components;
 using Robust.Shared.Prototypes;
 using Content.Server.Announcements.Systems;
 using Robust.Shared.Player;
@@ -32,6 +32,7 @@ public sealed class CargoGiftsRule : StationEventSystem<CargoGiftsRuleComponent>
             null,
             Color.FromHex("#18abf5"),
             null, null,
+            null, //imp
             ("sender", Loc.GetString(component.Sender)),
                 ("description", Loc.GetString(component.Description)),
                 ("dest", Loc.GetString(component.Dest))

@@ -200,6 +200,8 @@
   - type: RequiresEyeProtection
     statusEffectTime: 5 # less harmful; sunglasses can block it
   # imp edit start
+  - type: Tool
+    speedModifier: 1.3
   - type: SolutionPurge
     solution: Welder
     preserve:
@@ -237,8 +239,8 @@
 - type: entity
   parent: [ BaseWelder, BaseXenoborgContraband ] #imp edit, Welder into BaseWelder
   id: RefuelingWelder
-  name: refuling welding tool
-  description: "An slow welder that can refuel itself over time."
+  name: refueling welding tool
+  description: "A slow welder that can refuel itself over time."
   components:
   - type: Tool
     speedModifier: 0.5

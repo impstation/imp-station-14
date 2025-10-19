@@ -1,13 +1,4 @@
-# The Next Generation
-- type: loadout
-  id: GraytiderSpaceJumpsuit
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: GreyTider
-  equipment:
-    jumpsuit: ClothingUniformSpaceJumpsuitGrayTider
-
-# Passenger Cloak Loadout Effect
+# Loadout Timer
 - type: loadoutEffectGroup
   id: UltimateGodGrey
   effects:
@@ -51,3 +42,12 @@
   id: BomberWhite
   equipment:
     outerClothing: ClothingOuterCoatBomberWhite
+
+# Jumpsuit
+- type: loadout
+  id: GraytiderSpaceJumpsuit
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GreyTider
+  equipment:
+    jumpsuit: ClothingUniformSpaceJumpsuitGrayTider

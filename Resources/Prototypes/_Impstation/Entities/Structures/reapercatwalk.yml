@@ -1,0 +1,50 @@
+- type: entity
+  id: ReaperCatwalk
+  name: eerie catwalk
+  description: Seems like whoever made this thing doesn't have to worry about trip hazards anymore.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Clickable
+  - type: Sprite
+    sprite: _Impstation/Structures/reapercatwalk.rsi
+    drawdepth: FloorTiles
+  - type: Icon
+    sprite: _Impstation/Structures/reapercatwalk.rsi
+    state: reapercatwalk_preview
+  - type: Transform
+    anchored: true
+  - type: IconSmooth #mappers note: this catwalk was designed mainly for straight vertical paths
+    key: reapercatwalk
+    base: reapercatwalk_
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepCatwalk
+      params:
+        volume: 8
+  - type: Tag
+    tags:
+      - Catwalk
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal: # takes two to construct, so drop less than that
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: TrayScanReveal

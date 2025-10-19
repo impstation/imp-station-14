@@ -1,4 +1,4 @@
-using Content.Server.Atmos.Components;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Heretic.Prototypes;
@@ -36,18 +36,10 @@ public sealed partial class RitualAshAscendBehavior : RitualSacrificeBehavior
 
     public override void Finalize(RitualData args)
     {
-        for (int i = 0; i < Max; i++)
-        {
-            // YES!!! ASH!!!
-            if (args.EntityManager.TryGetComponent<DamageableComponent>(Uids[i], out var dmg))
-            {
-                var prot = (ProtoId<DamageGroupPrototype>)"Burn";
-                var dmgtype = _proto.Index(prot);
-                _damage.TryChangeDamage(Uids[i], new DamageSpecifier(dmgtype, 3984f), true);
-            }
-        }
+        base.Finalize(args);
 
         // reset it because blehhh
-        Uids = new();
+        _burningUids = new List<EntityUid>();
+        Uids = new List<EntityUid>();
     }
 }

@@ -212,31 +212,47 @@ namespace Content.Shared.Preferences
         /// </summary>
         /// <param name="species">The species to use in this default profile. The default species is <see cref="SharedHumanoidAppearanceSystem.DefaultSpecies"/>.</param>
         /// <returns>Humanoid character profile with default settings.</returns>
-        public static HumanoidCharacterProfile DefaultWithSpecies(string species = SharedHumanoidAppearanceSystem.DefaultSpecies)
+        public static HumanoidCharacterProfile DefaultWithSpecies(string? species = null)
         {
+            species ??= SharedHumanoidAppearanceSystem.DefaultSpecies;
+
             return new()
             {
                 Species = species,
+                Appearance = HumanoidCharacterAppearance.DefaultWithSpecies(species),
             };
         }
 
         // TODO: This should eventually not be a visual change only.
-        public static HumanoidCharacterProfile Random(HashSet<string>? ignoredSpecies = null)
+        // Imp start. this function is fairly different from upstream now.
+        // But upstreaming this would take so long that the species will be fully merged by then
+        // Therefore: bear with my changes
+        public static HumanoidCharacterProfile Random(bool characterCreation = true, HashSet<string>? speciesBlacklist = null)
         {
             var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
             var random = IoCManager.Resolve<IRobustRandom>();
 
             var species = random.Pick(prototypeManager
                 .EnumeratePrototypes<SpeciesPrototype>()
-                .Where(x => ignoredSpecies == null ? x.RoundStart : x.RoundStart && !ignoredSpecies.Contains(x.ID))
+                .Where(x =>
+                {
+                    if (speciesBlacklist != null && speciesBlacklist.Contains(x.ID))
+                        return false;
+                    if (characterCreation)
+                        return x.RoundStart;
+                    return random.NextFloat() < x.RandomChance && x.RandomViable;
+                })
                 .ToArray()
-            ).ID;
+            )
+            .ID;
 
             return RandomWithSpecies(species);
         }
-
-        public static HumanoidCharacterProfile RandomWithSpecies(string species = SharedHumanoidAppearanceSystem.DefaultSpecies)
+        // Imp end
+        public static HumanoidCharacterProfile RandomWithSpecies(string? species = null)
         {
+            species ??= SharedHumanoidAppearanceSystem.DefaultSpecies;
+
             var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
             var random = IoCManager.Resolve<IRobustRandom>();
 
@@ -416,7 +432,7 @@ namespace Content.Shared.Preferences
             // Category not found so dump it.
             TraitCategoryPrototype? traitCategory = null;
 
-            if (category != null && !protoManager.TryIndex(category, out traitCategory))
+            if (category != null && !protoManager.Resolve(category, out traitCategory))
                 return new(this);
 
             var list = new HashSet<ProtoId<TraitPrototype>>(_traitPreferences) { traitId };
@@ -661,6 +677,9 @@ namespace Content.Shared.Preferences
                     continue;
                 }
 
+                // This happens after we verify the prototype exists
+                // These values are set equal in the database and we need to make sure they're equal here too!
+                loadouts.Role = roleName;
                 loadouts.EnsureValid(this, session, collection);
             }
 
@@ -692,7 +711,7 @@ namespace Content.Shared.Preferences
                 }
 
                 // No category so dump it.
-                if (!protoManager.TryIndex(traitProto.Category, out var category))
+                if (!protoManager.Resolve(traitProto.Category, out var category))
                     continue;
 
                 var existing = groups.GetOrNew(category.ID);
@@ -723,10 +742,17 @@ namespace Content.Shared.Preferences
             var namingSystem = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<NamingSystem>();
             return namingSystem.GetName(species, gender);
         }
+        public bool Equals(HumanoidCharacterProfile? other)
+        {
+            if (other is null)
+                return false;
+
+            return ReferenceEquals(this, other) || MemberwiseEquals(other);
+        }
 
         public override bool Equals(object? obj)
         {
-            return ReferenceEquals(this, obj) || obj is HumanoidCharacterProfile other && Equals(other);
+            return obj is HumanoidCharacterProfile other && Equals(other);
         }
 
         public override int GetHashCode()

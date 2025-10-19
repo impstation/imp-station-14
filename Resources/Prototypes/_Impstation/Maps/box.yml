@@ -3,7 +3,7 @@
   mapName: 'Box Station'
   mapPath: /Maps/_Impstation/box.yml
   minPlayers: 35
-  maxPlayers: 80
+  maxPlayers: 69
   stations:
     Boxstation:
       stationProto: StandardNanotrasenStation
@@ -15,6 +15,14 @@
             prefixCreator: 'TG'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/emergency_box.yml
+        - type: StationSpecificMeteor
+          meteorReplacements:
+            MeteorSmall: MeteorWeakSmall
+            MeteorMedium: MeteorWeakMedium
+            MeteorLarge: MeteorWeakLarge
+            ImmovableRodKeepTilesStill: MeteorHolyFuckOhGod
+          announcementReplacements:
+            station-event-immovable-rod-spawn-announcement: station-event-meteor-doomsday-spawn-announcement
         - type: StationJobs
           availableJobs: # Total of 64 jobs roundstart, max of 78 inc. latejoins and trainees.
             # command - 8

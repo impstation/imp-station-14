@@ -1,22 +1,12 @@
 - type: reagent
   id: Subjuzine
-  name: reagent-name-inert-subjuzine
-  desc: reagent-desc-inert-subjuzine
-  group: Medicine
-  physicalDesc: reagent-physical-desc-enigmatic
-  flavor: magical
-  color: "#a50ed8"
-  contraband: Tier2Contraband
-
-- type: reagent
-  id: ActivatedSubjuzine
   name: reagent-name-subjuzine
   desc: reagent-desc-subjuzine
   group: Medicine
   physicalDesc: reagent-physical-desc-enigmatic
   flavor: magical
   color: "#911d06"
-  contraband: Tier2Contraband
+  contrabandSeverity: Tier2Contraband
   metabolisms:
     Medicine:
       effects:

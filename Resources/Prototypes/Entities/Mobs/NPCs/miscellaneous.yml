@@ -27,7 +27,7 @@
             - MobMask
           layer:
             - MobLayer
-    - type: Absorbable # imp edit
+    - type: GoobAbsorbable # imp edit
       biomassRestored: 0.4
     - type: DamageStateVisuals
       states:
@@ -141,7 +141,7 @@
   - type: ReplacementAccent
     accent: tomatoKiller
   - type: Item
-  - type: Absorbable # imp edit
+  - type: GoobAbsorbable # imp edit
     biomassRestored: 0.2
   - type: MultiHandedItem
   - type: NpcFactionMember

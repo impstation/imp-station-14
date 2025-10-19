@@ -35,8 +35,9 @@
 - type: entity
   id: MagazineRifle
   name: "magazine (.20 rifle)"
-  description: A 25-round .20 rifle magazine, marked as live-fire ammo. #imp
   parent: BaseMagazineRifle
+  # description: 25-round double stack magazine for combat rifles. Intended to hold general-purpose kinetic ammunition. # imp
+  description: A 25-round .20 rifle magazine, marked as live-fire ammo. #imp
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRifle
@@ -60,9 +61,10 @@
 - type: entity
   id: MagazineRifleEmpty
   name: "magazine (.20 rifle any)"
-  description: A 25-round .20 rifle magazine with no apparent markings. #imp
   suffix: empty
   parent: MagazineRifle
+  # description: 25-round double stack magazine for combat rifles. # imp
+  description: A 25-round .20 rifle magazine with no apparent markings. #imp
   components:
   - type: BallisticAmmoProvider
     proto: null
@@ -82,14 +84,15 @@
 - type: entity
   id: MagazineRifleIncendiary
   name: "magazine (.20 rifle incendiary)"
-  description: A 25-round .20 rifle magazine, marked as incendiary ammo. #imp
   parent: MagazineRifle
+  # description: 25-round double stack magazine for combat rifles. Intended to hold self-igniting incendiary ammunition. # imp
+  description: A 25-round .20 rifle magazine, marked as incendiary ammo. #imp
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRifleIncendiary
   - type: Sprite
     layers:
-    - state: red #imp
+    - state: incendiary #imp
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
@@ -100,17 +103,18 @@
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#820a16" #imp
+        color: "#d46925" #imp
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#820a16" #imp
+        color: "#d46925" #imp
 
 - type: entity
   id: MagazineRiflePractice
   name: "magazine (.20 rifle practice)"
-  description: A 25-round .20 rifle magazine, marked as practice ammo. #imp
   parent: BaseMagazineRifle
+  # description: 25-round double stack magazine for combat rifles. Intended to hold non-harmful chalk ammunition. # imp
+  description: A 25-round .20 rifle magazine, marked as practice ammo. #imp
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRiflePractice
@@ -127,17 +131,18 @@
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#d63b28" #imp
+        color: "#ffcb6f" #imp
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#d63b28" #imp
+        color: "#ffcb6f" #imp
 
 - type: entity
   id: MagazineRifleUranium
   name: "magazine (.20 rifle uranium)"
-  description: A 25-round .20 rifle magazine, marked as uranium ammo. #imp
   parent: BaseMagazineRifle
+  # description: 25-round double stack magazine for combat rifles. Intended to hold exotic uranium-core ammunition. # imp
+  description: A 25-round .20 rifle magazine, marked as uranium ammo. #imp
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRifleUranium
@@ -154,8 +159,8 @@
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#6b805e" #imp
+        color: "#22b24d" #imp
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#6b805e" #imp
+        color: "#22b24d" #imp

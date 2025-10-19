@@ -104,6 +104,10 @@
   - type: Clothing
     sprite: Clothing/Hands/Gloves/captain.rsi
   - type: Insulated
+  - type: DamageOnShootProtection #imp
+    damageProtection:
+      flatReductions:
+        Shock: 10
   - type: Fiber
     fiberMaterial: fibers-durathread
     fiberColor: fibers-regal-blue
@@ -175,6 +179,7 @@
     damageProtection:
       flatReductions:
         Heat: 10
+        Cold: 10 # imp edit
         Caustic: 5
 
 - type: entity
@@ -188,6 +193,10 @@
   - type: Clothing
     sprite: Clothing/Hands/Gloves/powerglove.rsi
   - type: Insulated
+  - type: DamageOnShootProtection #imp
+    damageProtection:
+      flatReductions:
+        Shock: 10
   - type: Fiber
     fiberMaterial: fibers-nanomachines
   - type: FingerprintMask
@@ -208,7 +217,7 @@
   - type: FingerprintMask
 
 - type: entity
-  parent: [ClothingHandsBase, BaseToggleClothing, BaseMajorContraband]
+  parent: [ClothingHandsBase, BaseToggleClothing, BaseHighlyIllegalContraband]
   id: ClothingHandsGlovesSpaceNinja
   name: space ninja gloves
   description: These black nano-enhanced gloves insulate from electricity and provide fire resistance.
@@ -228,6 +237,10 @@
           True: {state: icon-green}
           False: {state: icon}
   - type: Insulated
+  - type: DamageOnShootProtection #imp Ninjas can't shoot but if someone manages to snag these they'll be wondering why they're getting zapped
+    damageProtection:
+      flatReductions:
+        Shock: 10
   - type: Fiber
     fiberMaterial: fibers-nanomachines
   - type: FingerprintMask
@@ -242,6 +255,7 @@
     - components:
       - type: BatteryDrainer
       - type: StunProvider
+        cooldown: 10
         noPowerPopup: ninja-no-power
         whitelist:
           components:
@@ -274,6 +288,11 @@
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-insulative
+  - type: DamageOnShootProtection #imp
+    damageProtection:
+      flatReductions:
+        Blunt: 4
+        Shock: 10
 
 # can't parent combat gloves since they are butcherable
 - type: entity
@@ -307,6 +326,10 @@
   - type: Fiber
     fiberMaterial: fibers-insulative
     fiberColor: fibers-olive
+  - type: DamageOnShootProtection #imp
+    damageProtection:
+      flatReductions:
+        Blunt: 3
 
 - type: entity
   parent: ClothingHandsButcherable
@@ -330,7 +353,7 @@
   parent: ClothingHandsBase
   id: ClothingHandsGlovesFingerlessInsulated
   name: fingerless insulated gloves
-  description: Insulated gloves resistant to shocks, or at least they used to.
+  description: Insulated gloves resistant to shocks, or at least they used to be. # imp fix
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/fingerlessinsuls.rsi
@@ -343,6 +366,11 @@
     damageProtection:
       flatReductions:
         Heat: 0 # no protection
+  - type: Tag
+    tags:
+      - Insuls # imp
+      - WhitelistChameleon
+      - Backpack
 
 - type: entity
   parent: ClothingHandsButcherable

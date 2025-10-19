@@ -6,7 +6,7 @@
   physicalDesc: reagent-physical-desc-really-cruddy
   flavor: crud
   color: "#47181A"
-  contraband: Minor
+  contrabandSeverity: Minor
   tileReactions:
   - !type:CreateEntityTileReaction
     entity: BrosSorbSpawner
@@ -143,28 +143,6 @@
         refresh: false
 
 - type: reagent
-  id: Trash
-  name: reagent-name-trash
-  desc: reagent-desc-trash
-  physicalDesc: reagent-physical-desc-murky
-  flavor: trash
-  metabolisms:
-    Food:
-      effects:
-        - !type:SatiateHunger
-          conditions:
-            - !type:OrganType
-              type: Rat
-        - !type:HealthChange
-          conditions:
-          - !type:OrganType
-            type: Rat
-            shouldHave: false
-          damage:
-            types:
-              Poison: 0.5
-
-- type: reagent
   id: Holium
   # group: Special # The recipe is complicated enough that I think we shouldnt hide the recipe honestly
   name: reagent-name-holium
@@ -172,7 +150,7 @@
   physicalDesc: reagent-physical-desc-threat
   flavor: singulo
   color: "#000000"
-  contraband: Major
+  contrabandSeverity: Major
   tileReactions:
   - !type:CreateEntityTileReaction
     entity: FloorChasmEntity
@@ -215,10 +193,10 @@
   physicalDesc: reagent-physical-desc-irwizine
   flavor: irwizine
   color: "#fff174"
-  recognizable: true
   metabolisms:
     Medicine:
       effects:
+      - !type:MakeTame
       - !type:FactionChange
         faction: Passive
         conditions:
@@ -345,7 +323,7 @@
         - !type:Breathing
         - !type:Internals
           usingInternals: false
-          
+
 - type: reagent
   id: Pulp
   name: reagent-name-pulp
@@ -359,3 +337,26 @@
       - !type:AdjustReagent #imp
         reagent: Cellulose
         amount: 0.5
+
+- type: reagent
+  id: Something
+  name: reagent-name-something
+  desc: reagent-desc-something
+  physicalDesc: reagent-physical-desc-something
+  flavor: something
+  color: "#467557"
+  metabolisms: # imp
+    Food:
+      effects:
+      - !type:PopupMessage
+        type: Local
+        visualType: Medium
+        messages:
+        - "something-effect-feelsomething"
+        - "something-effect-justhappened"
+        - "something-effect-kindofway"
+        - "something-effect-somthing"
+        - "something-effect-process"
+        - "something-effect-change"
+        - "something-effect-feeling"
+        probability: 0.2

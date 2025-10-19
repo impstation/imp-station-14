@@ -15,6 +15,9 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+  requirements: #imp edit
+  - !type:OverallPlaytimeRequirement
+    time: 6h
 
 - type: startingGear
   id: CentcomGear
@@ -22,13 +25,13 @@
     jumpsuit: ClothingUniformJumpsuitCentcomOfficial
     shoes: ClothingShoesBootsCombatFilled
     head: ClothingHeadHatCentcom
-    eyes: ClothingEyesGlassesSunglasses
+    eyes: ClothingEyesGlassesCommand
     gloves: ClothingHandsGlovesColorBlack
     outerClothing: ClothingOuterArmorCentcommCarapace
     id: CentcomPDA
     ears: ClothingHeadsetAltCentCom
     belt: WeaponPistolN1984
-    pocket1: BoxFolderBlack
+    pocket1: BoxFolderCentComClipboardThreePapers
     pocket2: PenCentcom
 
 

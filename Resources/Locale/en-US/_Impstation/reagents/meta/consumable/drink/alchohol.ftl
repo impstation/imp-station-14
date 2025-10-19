@@ -11,7 +11,7 @@ reagent-name-reaganomics = reaganomics
 reagent-desc-reaganomics = Why would we ever want anything else?
 
 reagent-name-gatorwine = gatorwine
-reagent-desc-gatorwine = No Reptillians were harmed in the making of this drink.
+reagent-desc-gatorwine = No Reptilians were harmed in the making of this drink.
 
 reagent-name-rotgut = rotgut
 reagent-desc-rotgut = A perfect excuse to check up with that cute girl in the emergency ward.
@@ -93,3 +93,18 @@ reagent-desc-batteryacid = Don't Worry, This Is My Safe Drink (Aged 3 And Up)
 
 reagent-name-angels-kiss = angel's kiss
 reagent-desc-angels-kiss = A foul mimicry of something divine.
+
+reagent-name-pink-rose = pink rose
+reagent-desc-pink-rose = An herbal and floral delight.
+
+reagent-name-la-fleurette = la fleurette
+reagent-desc-la-fleurette = Pink and classy.
+
+reagent-name-romance-dead = romance is dead
+reagent-desc-romance-dead = A reminder of how fleeting love can be.
+
+reagent-name-romance-deadnot = romance isn't dead
+reagent-desc-romance-deadnot = A reminder of how perpetual love can be.
+
+reagent-name-rose-milk = rose milk
+reagent-desc-rose-milk = Pink and refreshing!

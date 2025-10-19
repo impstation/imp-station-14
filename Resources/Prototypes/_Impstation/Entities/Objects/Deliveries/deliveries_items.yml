@@ -21,7 +21,7 @@
   id: SyringeTestosterone
   components:
   - type: Label
-    currentLabel: reagent-name-testosterone
+    currentLabel: testosterone 15u
   - type: SolutionContainerManager
     solutions:
       injector:
@@ -36,7 +36,7 @@
   id: SyringeEstradiol
   components:
   - type: Label
-    currentLabel: reagent-name-estradiol
+    currentLabel: estradiol 15u
   - type: SolutionContainerManager
     solutions:
       injector:

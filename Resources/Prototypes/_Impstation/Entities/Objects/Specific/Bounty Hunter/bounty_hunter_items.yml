@@ -1,0 +1,477 @@
+﻿# Bounty Hunter Kits
+- type: entity
+  parent: ToolboxThief
+  id: BountyHunterGear
+  name: bounty hunter toolbox
+  description: An assortment of contraband you've collected over your career, some more illegal than others.
+  components:
+  - type: ThiefUndeterminedBackpack
+    maxSelectedSets: 2
+    possibleSets:
+    - BountyHunterRifle
+    - BountyHunterHardsuit
+    - BountyHunterDisguise
+    - BountyHunterSubverter
+    - BountyHunterRoboticist
+    - BountyHunterPirate
+    - BountyHunterSamurai
+    - BountyHunterSyndie
+    - BountyHunterCaptain
+    - BountyHunterClown
+    spawnedStoragePrototype: ClothingBackpackSCargoDuffelPurple
+
+# Bounty Hunter Thermal + Flash Protection Glasses
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesBountyHunterGlasses
+  name: bounty hunter glasses
+  description: High-tech sunglasses that provide flash immunity and thermal vision.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Eyes/Glasses/bountyhunterglasses.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Eyes/Glasses/bountyhunterglasses.rsi
+  - type: ThermalVision
+    isEquipment: true
+    pulseTime: 2
+    toggleAction: PulseThermalVision
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: PluralName # imp
+    oneOf: plural-name-pair-1
+
+# Companion Cyborg Reinforcement Radio, borgdisabler, and nonlethal module
+- type: entity
+  parent: ReinforcementRadio
+  id: ReinforcementRadioBountyHunterCyborg
+  name: reclaimed cyborg reinforcement radio
+  description: Call in a rebuilt cyborg, kitted out with all the latest tech!
+  components:
+    - type: GhostRole
+      name: "Reclaimed Cyborg"
+      description: "A bounty hunter needs reinforcements. You, an illegal cyborg patched together by duct tape and dreams, will help them."
+      rules: ghost-role-information-silicon-rules
+      mindRoles:
+      - MindRoleGhostRoleSilicon
+      raffle:
+        settings: default
+    - type: GhostRoleMobSpawner
+      prototype: PlayerBorgBountyHunter
+
+- type: entity
+  name: disabler
+  parent: [ WeaponDisablerPractice, BaseMajorContraband ]
+  id: WeaponBorgDisabler
+  description: A disabler modified to slowly recharge off a cyborg's internal battery.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/disabler.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-0
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 10
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 5
+
+- type: entity
+  name: stun baton
+  parent: [BaseItem, BaseMajorContraband]
+  id: WeaponBorgStunBaton
+  description: An internally-stored implement capable of safely incapacitating any criminal, modified to self-charge at the cost of battery life.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Melee/stunbaton.rsi
+    layers:
+    - state: stunbaton_off
+      map: [ "enum.ToggleableVisuals.Layer" ]
+  - type: Stunbaton
+    energyPerUse: 1
+  - type: ItemToggle
+    predictable: false
+    soundActivate:
+      collection: sparks
+      params:
+        variation: 0.250
+    soundDeactivate:
+      collection: sparks
+      params:
+        variation: 0.250
+    soundFailToActivate:
+      path: /Audio/Machines/button.ogg
+      params:
+        variation: 0.250
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+      types:
+        Blunt: 0
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 7
+    bluntStaminaDamageFactor: 2.0
+    angle: 60
+    animation: WeaponArcThrust
+  - type: StaminaDamageOnHit
+    damage: 35
+    sound: /Audio/Weapons/egloves.ogg
+  - type: Battery
+    maxCharge: 10
+    startingCharge: 10
+  - type: UseDelay
+  - type: Item
+    heldPrefix: off
+    size: Normal
+  - type: DisarmMalus
+    malus: 0.225
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+     enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: {state: stunbaton_on}
+          False: {state: stunbaton_off}
+  - type: GuideHelp
+    guides:
+    - Security
+    - Antagonists
+  - type: ItemToggleDamageOtherOnHit
+  - type: DamageOtherOnHit
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 0.5
+
+
+- type: entity
+  id: BorgModuleDisabler
+  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseMajorContraband ]
+  name: disabler cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: security
+    - state: icon-grappling-gun # couldn't figure out how to get the custom sprite working in imp namespace
+  - type: ItemBorgModule
+    hands:
+    - item: WeaponBorgDisabler
+    - item: WeaponBorgStunBaton
+  - type: BorgModuleIcon
+    icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: disabler-module }
+
+
+# Mercenary Hardsuit
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
+  id: ClothingOuterHardsuitMercenary
+  name: mercenary hardsuit
+  description: A stylish hardsuit lined with lightweight armor-plating.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Hardsuits/bounty_merc.rsi
+  - type: Item
+    size: Huge
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Hardsuits/bounty_merc.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.4
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.6
+        Caustic: 0.7
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitMercenary
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+# Merc hardsuit helmet
+- type: entity
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  id: ClothingHeadHelmetHardsuitMercenary
+  name: mercenary hardsuit helmet
+  description: A stylish helmet lined with lightweight armor-plating.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hardsuits/bounty_merc.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hardsuits/bounty_merc.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: PointLight
+    color: "#ffeead"
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+
+# Rocket Magboots
+- type: entity
+  parent: [ClothingShoesBootsMagBase, BaseJetpack, BaseMajorContraband]
+  id: ClothingShoesBootsMagRocket
+  name: rocket magboots
+  description: Custom-built magnetic boots with integrated thrusters. Can hold 0.75 L of gas.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Shoes/Boots/bountyhuntermagboots.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Impstation/Clothing/Shoes/Boots/bountyhuntermagboots.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.9
+  - type: GasTank
+    outputPressure: 42.6
+    air:
+      # 2 minutes of thrust
+      volume: 0.75
+      temperature: 293.15
+      moles:
+      - 0.153853429 # oxygen
+      - 0.153853429 # nitrogen
+  - type: Item
+    sprite: null
+    size: Normal
+  - type: DamageOtherOnHit # imp
+    damage:
+      types:
+        Blunt: 20
+    staminaCost: 25
+    soundHit:
+      path: /Audio/Weapons/smash.ogg
+
+# Damaged Laser Pistol
+- type: entity
+  name: dilapidated laser pistol
+  parent: [BaseWeaponBatterySmall, BaseMajorContraband]
+  id: WeaponBountyHunterLaser
+  description: A worn-down laser pistol that's clearly seen a lot of use. The battery has been damaged.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/bountyhunterantiquelaser.rsi #imp
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/bountyhunterantiquelaser.rsi #imp
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: HitscanBatteryAmmoProvider
+    proto: RedMediumLaser
+    fireCost: 100
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+  - type: Tag
+    tags:
+    - Sidearm
+
+# Parrot reinforcement radio
+- type: entity
+  parent: ReinforcementRadio
+  id: ReinforcementRadioBountyHunterParrot
+  name: pirate parrot reinforcement radio
+  description: YARGH!
+  components:
+    - type: GhostRole
+      name: "Pirate Parrot"
+      description: "A bounty hunter needs reinforcements. You, a sentient, kleptomaniac parrot, will help them."
+      rules: ghost-role-information-familiar-rules
+      mindRoles:
+      - MindRoleGhostRoleFamiliar
+      raffle:
+        settings: default
+    - type: GhostRoleMobSpawner
+      prototype: MobParrotBountyHunter
+
+# BH pirate crate
+- type: entity
+  id: CrateBountyHunterPirate
+  parent: CratePirate
+  suffix: Filled, Bounty Hunter
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingUniformJumpsuitPirate
+        amount: 2
+      - id: ClothingHeadHatPirate
+        amount: 2
+      - id: ClothingOuterCoatPirate
+      - id: ClothingShoesBootsLaceup
+        amount: 2
+      - id: IngotGold
+      - id: Cutlass
+        amount: 2
+      - id: ClothingNeckCloakPirateCap
+      - id: WeaponPistolFlintlock
+      - id: PirateHandyFlag
+
+# Weapon recall implant
+- type: entity
+  id: RecallImplanter
+  name: recall implanter
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+    - type: Implanter
+      implant: RecallImplant
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: RecallImplant
+  name: recall implant
+  description: This implant lets the user mark a weapon then call it to their hand at will.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+      implantAction: ActionWeaponRecall
+
+# Chloral and Mute Toxin medipens
+- type: entity
+  name: emergency medipen
+  parent: ChemicalMedipen
+  id: ChloralAutoInjector
+  suffix: Chloral Hydrate
+  description: A rapid and safe way to stabilize patients in critical condition for personnel without advanced medical knowledge. Beware, as it's easy to overdose on epinephrine and tranexamic acid.
+  components:
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-needle-inhand-left
+      - state: base-colorA-inhand-left
+        color: "#000067"
+      - state: base-colorB-inhand-left
+      right:
+      - state: base-needle-inhand-right
+      - state: base-colorA-inhand-right
+        color: "#000067"
+      - state: base-colorB-inhand-right
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: medipen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: medipen_empty
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 15
+    onlyAffectsMobs: false
+    injectOnly: true
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: ChloralHydrate
+          Quantity: 15
+
+- type: entity
+  name: emergency medipen
+  parent: ChemicalMedipen
+  id: MuteAutoInjector
+  suffix: Mute Toxin
+  description: A rapid and safe way to stabilize patients in critical condition for personnel without advanced medical knowledge. Beware, as it's easy to overdose on epinephrine and tranexamic acid.
+  components:
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-needle-inhand-left
+      - state: base-colorA-inhand-left
+        color: "#000000"
+      - state: base-colorB-inhand-left
+      right:
+      - state: base-needle-inhand-right
+      - state: base-colorA-inhand-right
+        color: "#000000"
+      - state: base-colorB-inhand-right
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: medipen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: medipen_empty
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 15
+    onlyAffectsMobs: false
+    injectOnly: true
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15 #15 instead of 5 to match other emergency medipens
+        reagents:
+        - ReagentId: MuteToxin
+          Quantity: 5
+        - ReagentId: SpaceDrugs # to fill the rest of the container with another syrupy reagent
+          Quantity: 10
+
+#injector boxes
+- type: entity
+  parent: [ BaseItem, Tier2Contraband ]
+  id: ChloralInjectorBox
+  name: sedative injector box
+  description: A small box containing a chloral hydrate injector disguised as an emergency medipen. Packaging disintegrates when opened, leaving no evidence behind.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Impstation/Objects/Storage/penbox.rsi
+    state: chloral_injector
+  - type: SpawnItemsOnUse
+    items:
+    - id: ChloralAutoInjector
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: [ BaseItem, Tier2Contraband ]
+  id: MuteInjectorBox
+  name: mute injector box
+  description: A small box containing a mute toxin injector disguised as an emergency medipen. Packaging disintegrates when opened, leaving no evidence behind.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Impstation/Objects/Storage/penbox.rsi
+    state: mute_injector
+  - type: SpawnItemsOnUse
+    items:
+    - id: MuteAutoInjector
+    sound:
+      path: /Audio/Effects/unwrap.ogg

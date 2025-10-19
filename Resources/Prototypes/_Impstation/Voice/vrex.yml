@@ -1,0 +1,39 @@
+- type: emoteSounds
+  id: VRexEmotes
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      path: /Audio/_Impstation/Animals/vrex_roar.ogg
+    Laugh: #do i really gotta do all this.... ah well i'll keep em in
+      collection: DinoSpeech
+    Sneeze:
+      collection: DinoSpeech
+    Cough:
+      collection: DinoSpeech
+    CatHisses:
+      collection: CatHisses
+    Yawn:
+      collection: DinoSpeech
+    Snore:
+      collection: DinoSpeech
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: DinoSpeech
+    Crying:
+      collection: DinoSpeech
+    Whistle:
+      collection: DinoSpeech
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Wuhey:
+      collection: Wuhey
+    Ungh:
+      collection: Ungh
+    Gasp:
+      path: /Audio/_Impstation/Voice/Dino/dino_gasp.ogg
+    DefaultDeathgasp:
+      path: /Audio/_Impstation/Voice/Dino/dino_gasp.ogg

@@ -51,7 +51,14 @@ public abstract partial class SharedXenoArtifactSystem : EntitySystem
 
     private void OnSelfActivate(Entity<XenoArtifactComponent> ent, ref ArtifactSelfActivateEvent args)
     {
-        args.Handled = TryActivateXenoArtifact(ent, ent, null, Transform(ent).Coordinates, false);
+        if (ent.Comp.Natural)
+        {
+            var unlocking = EnsureComp<XenoArtifactUnlockingComponent>(ent);
+            FinishUnlockingState((ent.Owner, unlocking, ent.Comp));
+            args.Handled = true;
+        }
+        else
+            args.Handled = TryActivateXenoArtifact(ent, ent, null, Transform(ent).Coordinates, false);
     }
 
     public void SetSuppressed(Entity<XenoArtifactComponent> ent, bool val)

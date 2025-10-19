@@ -31,17 +31,20 @@ construction-graph-tag-upgrade-kit-nullrod = a profane censer
 construction-graph-tag-belt-utility = utility belt
 construction-graph-tag-eyepatch = eyepatch
 construction-graph-tag-floatingfloracrown = floating flora crown
+construction-graph-tag-chemical-analysis-goggles = chemical analysis goggles
 
 # other
 construction-graph-tag-borg-leg = borg leg
 construction-graph-tag-bowl = bowl
 construction-graph-tag-chopsticks = chopsticks
+construction-graph-tag-crystal = a crystal shard
 construction-graph-tag-gas-tank = any gas tank
 construction-graph-tag-glowstick = a glowstick
 construction-graph-tag-hemp-sack = a sack made from hemp cloth
 construction-graph-tag-light-tube = light tube
 construction-graph-tag-makeshift-loader = makeshift loader
 construction-graph-tag-plunger = a plunger
+construction-graph-tag-powercell = a power cell
 construction-graph-tag-spray-painter = spray painter
 construction-graph-tag-floatingflora-b = blue floating flora
 construction-graph-tag-floatingflora-o = orange floating flora

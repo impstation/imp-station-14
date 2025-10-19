@@ -6,7 +6,6 @@
   id: FoodBakedBase
   abstract: true
   components:
-  - type: Food
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/misc.rsi
   - type: SolutionContainerManager
@@ -27,7 +26,7 @@
   id: FoodBakedMuffin
   description: A delicious and spongy little cake.
   components:
-  - type: Food
+  - type: Edible
     trash:
     - FoodPlateMuffinTin
   - type: Sprite
@@ -52,6 +51,7 @@
   - type: Tag
     tags:
       - Muffin
+      - UnguFood # imp
 
 - type: entity
   name: berry muffin
@@ -181,6 +181,10 @@
   components:
   - type: Sprite
     state: bun-honey
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Bread
 
 - type: entity
   name: hotcross bun
@@ -190,6 +194,10 @@
   components:
   - type: Sprite
     state: bun-hotcross
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Bread
 
 - type: entity
   name: meat bun
@@ -212,7 +220,7 @@
 # Cookies
 
 - type: entity
-  name: cookie
+  name: chocolate chip cookie # imp
   parent: FoodBakedBase
   id: FoodBakedCookie
   description: COOKIE!!!
@@ -225,15 +233,15 @@
         maxVol: 35
         reagents:
         - ReagentId: Nutriment
-          Quantity: 15
+          Quantity: 6.25
         - ReagentId: Sugar
           Quantity: 5
         - ReagentId: Butter
           Quantity: 5
         - ReagentId: Theobromine
-          Quantity: 3
+          Quantity: 0.75
         - ReagentId: CocoaPowder
-          Quantity: 1
+          Quantity: 0.25
 
 - type: entity
   name: oatmeal cookie
@@ -258,6 +266,9 @@
           Quantity: 5
         - ReagentId: Butter # imp
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: raisin cookie
@@ -301,6 +312,9 @@
           Quantity: 5
         - ReagentId: Butter
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 # Nuggets
 
@@ -407,6 +421,10 @@
           Quantity: 5
         - ReagentId: EggCooked
           Quantity: 6
+  - type: PluralName # imp
+    oneOf: plural-name-a
+    someOf: plural-name-stack-1
+
 
 - type: entity
   name: blueberry pancake
@@ -531,15 +549,15 @@
         maxVol: 35 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 15 # imp
+          Quantity: 6.25 # imp
         - ReagentId: Milk # imp
           Quantity: 5
         - ReagentId: EggCooked # imp
           Quantity: 6
         - ReagentId: Theobromine
-          Quantity: 3
+          Quantity: 0.75 # Imp
         - ReagentId: CocoaPowder # imp
-          Quantity: 1
+          Quantity: 0.25
 
 - type: entity
   name: waffles
@@ -564,6 +582,12 @@
           Quantity: 6
         # - ReagentId: Vitamin # imp
         #  Quantity: 1
+  - type: Construction # Frontier
+    graph: WaffleCone
+    node: start
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: soy waffles
@@ -640,6 +664,9 @@
   components:
   - type: Sprite
     state: pretzel
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: cannoli
@@ -658,6 +685,9 @@
           Quantity: 5
         - ReagentId: Vitamin
           Quantity: 1
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: dumplings
@@ -711,6 +741,10 @@
           Quantity: 0.4
         - ReagentId: Blackpepper # imp
           Quantity: 0.4
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Bread
 
 - type: entity
   name: cotton chèvre chaud
@@ -727,11 +761,12 @@
     - cotton
   - type: Sprite
     state: chevrechaud-cotton
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: Tag
     tags:
     - ClothMade
+    - ClothFood # imp
   - type: SolutionContainerManager
     solutions:
       food:
@@ -749,11 +784,14 @@
           Quantity: 0.4
 
 - type: entity
-  name: brownies
   parent: FoodBakedBase
   id: FoodBakedBrownieBatch
+  name: brownies
   description: A pan of brownies.
   components:
+  - type: Item
+    size: Normal
+    storedOffset: 0,-3
   - type: FlavorProfile
     flavors:
       - sweet
@@ -818,11 +856,14 @@
     - Slice
 
 - type: entity
-  name: special brownies
   parent: FoodBakedBase
   id: FoodBakedCannabisBrownieBatch
+  name: special brownies
   description: A pan of "special" brownies.
   components:
+  - type: Item
+    size: Normal
+    storedOffset: 0,-3
   - type: FlavorProfile
     flavors:
       - sweet
@@ -855,9 +896,9 @@
     slice: FoodBakedCannabisBrownie
 
 - type: entity
-  name: special brownie
   parent: FoodBakedBase
   id: FoodBakedCannabisBrownie
+  name: special brownie
   description: A "special" brownie.
   components:
   - type: FlavorProfile
@@ -914,13 +955,22 @@
             Quantity: 1
           - ReagentId: Vitamin
             Quantity: 1
+    - type: Tag # imp
+      tags:
+      - UnguFood
 
 - type: entity
-  name: croissant
   parent: FoodBakedBase
   id: FoodBakedCroissant
+  name: croissant
   description: Buttery, flaky goodness.
   components:
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+    storedOffset: -2,-4
   - type: FlavorProfile
     flavors:
       - bread
@@ -942,13 +992,21 @@
     damage:
       types:
         Blunt: 0 # so the damage stats icon doesn't immediately give away the syndie ones
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
-  name: cotton croissant
   parent: FoodBakedCroissant
   id: FoodBakedCroissantCotton
+  name: cotton croissant
   description: Buttery, flaky, fibery goodness.
   components:
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
   - type: FlavorProfile
     flavors:
     - bread
@@ -956,11 +1014,12 @@
     - cotton
   - type: Sprite
     state: croissant-cotton
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: Tag
     tags:
     - ClothMade
+    - ClothFood # imp
   - type: SolutionContainerManager
     solutions:
       food:
@@ -976,11 +1035,15 @@
         #  Quantity: 1
 
 - type: entity
-  name: grilled cheese sandwich
   parent: FoodBakedBase
   id: FoodBakedGrilledCheeseSandwich
+  name: grilled cheese sandwich
   description: Bread and cheese toasted with butter, perfect for a chilly day in space.
   components:
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
   - type: FlavorProfile
     flavors:
       - cheesy
@@ -999,9 +1062,13 @@
           Quantity: 5 # imp
         # - ReagentId: Vitamin
         #  Quantity: 3
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Bread
 
 - type: entity
-  parent: FoodBakedBase
+  parent: FoodBakedGrilledCheeseSandwich
   id: FoodBakedGrilledCheeseSandwichCotton
   name: cotton grilled cheese sandwich
   description: Cotton bread slightly burnt in butter, with melted cheese. Moths find it difficult to resist this combination.
@@ -1014,11 +1081,12 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/misc.rsi
     state: grilled-cheese-cotton
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: Tag
     tags:
     - ClothMade
+    - ClothFood # imp
   - type: SolutionContainerManager
     solutions:
       food:

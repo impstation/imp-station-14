@@ -57,6 +57,8 @@
       "Kweh": {4: 1}
   - type: Sprite
     sprite: Objects/Fun/Instruments/microphone.rsi
+  - type: ActivatableUI #imp
+    inHandsOnly: false
   - type: Item
     size: Small
 

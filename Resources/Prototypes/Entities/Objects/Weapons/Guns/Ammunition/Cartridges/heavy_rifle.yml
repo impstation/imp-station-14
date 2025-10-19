@@ -6,10 +6,9 @@
   components:
   - type: Tag
     tags:
-      - Cartridge
       - CartridgeHeavyRifle
   - type: CartridgeAmmo
-    proto: BulletHeavyRifle
+    proto:    BulletHeavyRifle
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi #imp
     layers:
@@ -23,7 +22,7 @@
 - type: entity
   id: CartridgeMinigun
   name: cartridge (.10 mini) #imp
-  description: A micro cartridge designed to make the dreams of an individual-portable minigun a reality. #imp
+  description: A kinetic micro cartridge designed to make the dreams of an individual-portable minigun a reality. #imp
   parent: BaseCartridgeHeavyRifle
   components:
   - type: CartridgeAmmo

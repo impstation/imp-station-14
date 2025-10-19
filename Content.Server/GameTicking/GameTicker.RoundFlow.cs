@@ -1,9 +1,9 @@
 using System.Linq;
 using System.Numerics;
 using Content.Server.Announcements;
+using Content.Server._Wizden.Chat.Systems; // Imp Edit LastMessageBeforeDeath Webhook
 using Content.Server.Discord;
 using Content.Server.GameTicking.Events;
-using Content.Server.Ghost;
 using Content.Server.Maps;
 using Content.Server.Roles;
 using Content.Shared.CCVar;
@@ -12,6 +12,7 @@ using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Players;
 using Content.Shared.Preferences;
+using Content.Shared.Roles.Components;
 using JetBrains.Annotations;
 using Prometheus;
 using Robust.Shared.Asynchronous;
@@ -19,7 +20,6 @@ using Robust.Shared.Audio;
 using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
@@ -34,6 +34,7 @@ namespace Content.Server.GameTicking
         [Dependency] private readonly RoleSystem _role = default!;
         [Dependency] private readonly ITaskManager _taskManager = default!;
         [Dependency] private readonly AnnouncerSystem _announcer = default!;
+        [Dependency] private readonly IEntityManager _entityManager = default!; // Imp Edit LastMessageBeforeDeath Webhook
 
         private static readonly Counter RoundNumberMetric = Metrics.CreateCounter(
             "ss14_round_number",
@@ -503,6 +504,7 @@ namespace Content.Server.GameTicking
             {
                 Log.Error($"Error while sending round end Discord message: {e}");
             }
+            SendLastMessagesBeforeDeath(); //Imp Edit: Last message before death webhook
         }
 
         public void ShowRoundEndScoreboard(string text = "")
@@ -644,6 +646,15 @@ namespace Content.Server.GameTicking
             {
                 Log.Error($"Error while sending discord round end message:\n{e}");
             }
+        }
+
+        /// <summary>
+        /// Imp Edit: trigger last messages to send to discord on round end
+        /// </summary>
+        public void SendLastMessagesBeforeDeath()
+        {
+            var lastMessageSystem = _entityManager.System<LastMessageBeforeDeathSystem>();
+            lastMessageSystem.OnRoundEnd();
         }
 
         public void RestartRound()

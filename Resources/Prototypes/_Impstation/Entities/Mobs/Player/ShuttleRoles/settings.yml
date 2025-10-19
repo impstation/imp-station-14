@@ -4,13 +4,7 @@
   components:
     - type: GhostRole
       name: job-name-brigmedic
-      requirements:
-        - !type:DepartmentTimeRequirement
-          department: Security
-          time: 36000 #10 hrs
-        - !type:DepartmentTimeRequirement
-          department: Medical
-          time: 14400 #4 hrs
+      job: Brigmedic
     - type: Loadout
       prototypes: [ VisitorBrigmedic, VisitorBrigmedicAlt ]
       roleLoadout: [ RoleSurvivalSecurity ]
@@ -36,6 +30,27 @@
       roleLoadout: [ RoleSurvivalStandard ]
 
 - type: randomHumanoidSettings
+  id: VisitorAdminAssistant
+  parent: VisitorHead
+  components:
+    - type: GhostRole
+      name: job-name-admin-assistant
+    - type: Loadout
+      prototypes: [ VisitorAdminAssistant, VisitorAdminAssistantAlt ]
+      roleLoadout: [ RoleSurvivalStandard ]
+
+- type: randomHumanoidSettings
+  id: VisitorHospitalityDirector
+  parent: VisitorHead
+  components:
+    - type: GhostRole
+      name: job-name-hd
+      job: HospitalityDirector
+    - type: Loadout
+      prototypes: [ VisitorHospitalityDirector, VisitorHospitalityDirectorAlt ]
+      roleLoadout: [ RoleSurvivalStandard ]
+
+- type: randomHumanoidSettings
   id: VisitorLibrarianCryptid
   parent: VisitorCivilian
   components:
@@ -46,7 +61,8 @@
       prototypes: [ VisitorLibrarian, VisitorLibrarianAlt ]
       roleLoadout: [ RoleSurvivalStandard ]
     - type: RandomAntagChance
-      profile: Heretic
+      antagRole: Heretic
+      fallbackRole: MindRoleGhostRoleNeutral
       chance: 0.3
 
 # CentComm Interns

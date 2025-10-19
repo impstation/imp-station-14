@@ -16,6 +16,7 @@
     shape:
     - 0,0,1,0
     - 0,1,0,1
+    storedOffset: 0,-4
   - type: Tag
     tags:
     - Sidearm
@@ -177,7 +178,7 @@
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
   - type: Gun
-    fireRate: 4
+    fireRate: 3.4 #imp
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/silenced.ogg
       params:
@@ -225,13 +226,17 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Pistols/mk58.rsi #imp
+  - type: Item
+    storedOffset: 0,-2
   - type: Gun
     fireRate: 5
     availableModes:
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
-  - type: Construction
+  - type: StealTarget
+    stealGroup: OfficerHandgun
+  - type: Construction #imp
     graph: UpgradeWeaponPistolConversion
     node: start
 

@@ -23,6 +23,12 @@
     count: 19
 
 - type: localizedDataset
+  id: JuiceOMatAds
+  values:
+    prefix: advertisement-juiceomat-
+    count: 17
+
+- type: localizedDataset
   id: BruiseOMatAds
   values:
     prefix: advertisement-bruiseomat-
@@ -86,6 +92,12 @@
   id: RobustSoftdrinksAds
   values:
     prefix: advertisement-cola-
+    count: 8
+
+- type: localizedDataset #imp
+  id: DanShrimpAds
+  values:
+    prefix: advertisement-danshrimp-
     count: 8
 
 - type: localizedDataset
@@ -236,7 +248,7 @@
   id: SecDrobeAds
   values:
     prefix: advertisement-secdrobe-
-    count: 6
+    count: 6 # imp
 
 - type: localizedDataset
   id: SecTechAds
