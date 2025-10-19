@@ -32,8 +32,7 @@ public sealed class XATExpressionSystem : BaseXATSystem<XATExpressionComponent>
             if (node.Attached == null)
                 continue;
 
-            var artifact = _xenoArtifactQuery.Get(node.Attached.Value);
-
+            var artifact = GetEntityQuery<XenoArtifactComponent>().Get(node.Attached.Value);
             if (!CanTrigger(artifact, (uid, node)))
                 continue;
 
