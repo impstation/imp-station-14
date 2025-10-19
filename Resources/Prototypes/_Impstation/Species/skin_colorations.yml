@@ -1,0 +1,5 @@
+- type: skinColoration
+  id: GrayToned
+  strategy: !type:ClampedHsvColoration
+    saturation: [0, 0.05]
+    value: [1, 1] # this should be 71 but grays are sprited weird

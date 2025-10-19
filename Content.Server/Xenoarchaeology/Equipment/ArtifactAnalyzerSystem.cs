@@ -21,6 +21,8 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
         base.Initialize();
 
         SubscribeLocalEvent<AnalysisConsoleComponent, AnalysisConsoleExtractButtonPressedMessage>(OnExtractButtonPressed);
+        SubscribeLocalEvent<AnalysisConsoleComponent, AnalysisConsoleUpBiasButtonPressedMessage>(OnUpBiasButtonPressed); // imp edit
+        SubscribeLocalEvent<AnalysisConsoleComponent, AnalysisConsoleDownBiasButtonPressedMessage>(OnDownBiasButtonPressed); // imp edit
     }
 
     private void OnExtractButtonPressed(Entity<AnalysisConsoleComponent> ent, ref AnalysisConsoleExtractButtonPressedMessage args)
@@ -47,5 +49,19 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
         _audio.PlayPvs(ent.Comp.ExtractSound, artifact.Value);
         _popup.PopupEntity(Loc.GetString("analyzer-artifact-extract-popup"), artifact.Value, PopupType.Large);
     }
+
+    // imp edit start
+    private void OnUpBiasButtonPressed(Entity<AnalysisConsoleComponent> ent,
+        ref AnalysisConsoleUpBiasButtonPressedMessage args)
+    {
+        ent.Comp.BiasDirection = BiasDirection.Up;
+    }
+
+    private void OnDownBiasButtonPressed(Entity<AnalysisConsoleComponent> ent,
+        ref AnalysisConsoleDownBiasButtonPressedMessage args)
+    {
+        ent.Comp.BiasDirection = BiasDirection.Down;
+    }
+    // imp edit end
 }
 

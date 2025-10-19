@@ -47,10 +47,8 @@
       whitelist:
         components:
         - XenoArtifact
-        - Artifact #IMP
     - type: Weldable
     - type: SuppressArtifactContainer
-    - type: OldSuppressArtifactContainer #IMP
     - type: RadiationBlockingContainer
       resistance: 5
     - type: PlaceableSurface
@@ -127,7 +125,6 @@
     whitelist:
       components:
       - XenoArtifact
-      - Artifact #IMP
   - type: Item
     sprite: Objects/Storage/artifact_container.rsi
     size: Huge
@@ -143,7 +140,6 @@
   - type: Lock
   - type: LockedStorage
   - type: SuppressArtifactContainer
-  - type: OldSuppressArtifactContainer #IMP
   - type: RadiationBlockingContainer
     resistance: 5
   - type: EmitSoundOnLand

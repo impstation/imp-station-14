@@ -53,6 +53,8 @@
       path: /Audio/Animals/lizard_happy.ogg
     Hiss:
       collection: ReptilianHiss
+    Chirp:
+      collection: ReptilianChirp
     Sneeze:
       collection: UnisexSneezes #placeholder
     Cough:
@@ -62,7 +64,7 @@
     Honk:
       collection: BikeHorn
     Sigh:
-      collection: UnisexSigh #placeholder
+      collection: UnisexSigh
     Whistle:
       collection: Whistles
     Crying:
@@ -138,17 +140,15 @@
     Sneeze:
       collection: MaleSneezes #placeholder
     Cough:
-      collection: MaleCoughs #placeholder
+      path: /Audio/Voice/Vox/vox_cough.ogg
     Yawn:
       collection: MaleYawn #placeholder
     Honk:
       collection: BikeHorn
     Sigh:
-      collection: MaleSigh #placeholder
+      path: /Audio/Voice/Vox/vox_sigh.ogg
     Crying:
-      collection: VoxCry
-      params:
-        volume: -7
+      path: /Audio/Voice/Vox/vox_cry.ogg
     Whistle:
       collection: Whistles
     Weh:
@@ -164,7 +164,7 @@
       params:
         volume: 10
     DefaultDeathgasp:
-      collection: MaleDeathGasp #placeholder
+      path: /Audio/Effects/Gasp/vox_DeathGasp.ogg
     Chitter:
       collection: VoxChitter
       params:
@@ -192,17 +192,15 @@
     Sneeze:
       collection: FemaleSneezes #placeholder
     Cough:
-      collection: FemaleCoughs #placeholder
+      path: /Audio/Voice/Vox/vox_cough.ogg
     Yawn:
       collection: FemaleYawn #placeholder
     Honk:
       collection: BikeHorn
     Sigh:
-      collection: FemaleSigh #placeholder
+      path: /Audio/Voice/Vox/vox_sigh.ogg
     Crying:
-      collection: VoxCry
-      params:
-        volume: -7
+      path: /Audio/Voice/Vox/vox_cry.ogg
     Whistle:
       collection: Whistles
     Weh:
@@ -216,7 +214,7 @@
       params:
         volume: 10
     DefaultDeathgasp:
-      collection: FemaleDeathGasp #placeholder
+      path: /Audio/Effects/Gasp/vox_DeathGasp.ogg
     Chitter:
       collection: VoxChitter
       params:
@@ -243,7 +241,7 @@
       collection: DionaLaugh
     Chirp:
       path: /Audio/Animals/nymph_chirp.ogg
-    Multichirp: # Impstation
+    Multichirp:
       path: /Audio/_Impstation/Effects/Emotes/multichirp.ogg
     Sneeze:
       collection: MaleSneezes #placeholder
@@ -323,18 +321,20 @@
       path: /Audio/Voice/Arachnid/arachnid_chitter.ogg
     Click:
       path: /Audio/Voice/Arachnid/arachnid_click.ogg
+    Hiss:
+      path: /Audio/_Impstation/Voice/Arachnid/arachnid_hiss.ogg
     Sneeze:
       collection: MaleSneezes #placeholder
     Cough:
-      collection: MaleCoughs #placeholder
+      path: /Audio/_Impstation/Voice/Arachnid/arachnid_cough.ogg
     Yawn:
-      collection: MaleYawn #placeholder
+      path: /Audio/_Impstation/Voice/Arachnid/arachnid_yawn.ogg
     Honk:
       collection: BikeHorn
     Sigh:
-      collection: MaleSigh #placeholder
+      path: /Audio/_Impstation/Voice/Arachnid/arachnid_sigh.ogg
     Crying:
-      collection: MaleCry #placeholder
+      path: /Audio/_Impstation/Voice/Arachnid/arachnid_cry.ogg
     Whistle:
       collection: Whistles
     Weh:
@@ -344,7 +344,7 @@
     Ungh:
       collection: Ungh
     Gasp:
-      collection: MaleGasp
+      path: /Audio/_Impstation/Voice/Arachnid/arachnid_gasp.ogg
     DefaultDeathgasp:
       collection: DeathGasp
 
@@ -361,18 +361,20 @@
       path: /Audio/Voice/Arachnid/arachnid_chitter.ogg
     Click:
       path: /Audio/Voice/Arachnid/arachnid_click.ogg
+    Hiss:
+      path: /Audio/_Impstation/Voice/Arachnid/arachnid_hiss.ogg
     Sneeze:
       collection: FemaleSneezes #placeholder
     Cough:
-      collection: FemaleCoughs #placeholder
+      path: /Audio/_Impstation/Voice/Arachnid/arachnid_cough.ogg
     Yawn:
-      collection: FemaleYawn #placeholder
+      path: /Audio/_Impstation/Voice/Arachnid/arachnid_yawn.ogg
     Honk:
       collection: BikeHorn
     Sigh:
-      collection: FemaleSigh #placeholder
+      path: /Audio/_Impstation/Voice/Arachnid/arachnid_sigh.ogg
     Crying:
-      collection: FemaleCry #placeholder
+      path: /Audio/_Impstation/Voice/Arachnid/arachnid_cry.ogg
     Whistle:
       collection: Whistles
     Weh:
@@ -382,7 +384,7 @@
     Ungh:
       collection: Ungh
     Gasp:
-      collection: FemaleGasp
+      path: /Audio/_Impstation/Voice/Arachnid/arachnid_gasp.ogg
     DefaultDeathgasp:
       collection: DeathGasp
 
@@ -451,15 +453,15 @@
     Sneeze:
       collection: MaleSneezes #placeholder
     Cough:
-      collection: MaleCoughs #placeholder
+      path: /Audio/_Impstation/Voice/Moth/mothcough.ogg
     Yawn:
-      collection: MaleYawn #placeholder
+      path: /Audio/_Impstation/Voice/Moth/mothyawn.ogg
     Honk:
       collection: BikeHorn
     Sigh:
-      collection: MaleSigh #placeholder
+      path: /Audio/_Impstation/Voice/Moth/mothsigh.ogg
     Crying:
-      collection: MaleCry #placeholder
+      path: /Audio/_Impstation/Voice/Moth/mothcry.ogg
     Whistle:
       collection: Whistles
     Weh:
@@ -469,7 +471,7 @@
     Ungh:
       collection: Ungh
     Gasp:
-      collection: MaleGasp
+      path: /Audio/_Impstation/Voice/Moth/mothgasp.ogg
     DefaultDeathgasp:
       collection: MothDeathGasp
 
@@ -491,15 +493,15 @@
     Sneeze:
       collection: FemaleSneezes #placeholder
     Cough:
-      collection: FemaleCoughs #placeholder
+      path: /Audio/_Impstation/Voice/Moth/mothcough.ogg
     Yawn:
-      collection: FemaleYawn #placeholder
+      path: /Audio/_Impstation/Voice/Moth/mothyawn.ogg
     Honk:
       collection: BikeHorn
     Sigh:
-      collection: FemaleSigh #placeholder
+      path: /Audio/_Impstation/Voice/Moth/mothsigh.ogg
     Crying:
-      collection: FemaleCry #placeholder
+      path: /Audio/_Impstation/Voice/Moth/mothcry.ogg
     Whistle:
       collection: Whistles
     Weh:
@@ -509,7 +511,7 @@
     Ungh:
       collection: Ungh
     Gasp:
-      collection: FemaleGasp
+      path: /Audio/_Impstation/Voice/Moth/mothgasp.ogg
     DefaultDeathgasp:
       collection: MothDeathGasp
 
@@ -931,6 +933,27 @@
       collection: Cracks
     Blink:
       collection: WetBlinks
+      params:
+        volume: -3
+        variation: 0.1
+
+- type: emoteSounds
+  id: ArachnidBodyEmotes
+  sounds:
+    Clap:
+      collection: Claps
+    ClapSingle:
+      collection: ClapSingle
+    Snap:
+      collection: Snaps
+      params:
+        volume: -3
+    Salute:
+      collection: Salutes
+    Crack:
+      collection: Cracks
+    Blink:
+      collection: SpiderBlinks
       params:
         volume: -3
         variation: 0.1

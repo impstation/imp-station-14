@@ -9,6 +9,8 @@
     - FoodSnack
   - type: Item
     size: Tiny
+    shape:
+    - 0,0,0,0
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Candy/the_gummy_worm.rsi
     state: asinglegummyworm
@@ -34,6 +36,8 @@
     - chalky
   - type: Item
     size: Tiny
+    shape:
+    - 0,0,0,0
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Candy/chalk_heart.rsi
     layers:
@@ -64,6 +68,8 @@
     - FoodSnack
   - type: Item
     size: Tiny
+    shape:
+    - 0,0,0,0
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Candy/chocolate_heart.rsi
     layers:
@@ -135,8 +141,11 @@
   - type: Tag
     tags:
     - FoodSnack
+    - Fruit
   - type: Item
     size: Tiny
+    shape:
+    - 0,0,0,0
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Candy/macaron.rsi
     state: macaronberry
@@ -166,6 +175,10 @@
           Quantity: 3
         - ReagentId: JuiceCherry
           Quantity: 2
+  - type: Tag
+    tags:
+    - FoodSnack
+    - Fruit
 
 - type: entity
   name: cotton macaron
@@ -173,7 +186,7 @@
   id: FoodMacaronCotton
   description: Hey, wait! This isn't a macaron! It's a doily!
   components:
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: Tag
     tags:
@@ -208,6 +221,10 @@
           Quantity: 3
         - ReagentId: JuiceLemon
           Quantity: 2
+  - type: Tag
+    tags:
+    - FoodSnack
+    - Fruit
 
 - type: entity
   name: mimana macaron
@@ -226,6 +243,10 @@
           Quantity: 3
         - ReagentId: MuteToxin
           Quantity: 2
+  - type: Tag
+    tags:
+    - FoodSnack
+    - Fruit
 
 #lolipops!!!!
 
@@ -238,7 +259,8 @@
   - type: Tag
     tags:
     - FoodSnack
-  - type: Food
+    - UnguFood
+  - type: Edible
     trash:
     - FoodKebabSkewer
   - type: FlavorProfile
@@ -276,7 +298,7 @@
     - FoodSnack
     - ClothMade
     - ClothFood
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
     trash:
     - FoodKebabSkewer
@@ -312,7 +334,7 @@
     tags:
     - FoodSnack
     - Fruit
-  - type: Food
+  - type: Edible
     trash:
     - FoodKebabSkewer
   - type: FlavorProfile
@@ -351,7 +373,7 @@
     tags:
     - Meat
     - FoodSnack
-  - type: Food
+  - type: Edible
     trash:
     - FoodKebabSkewer
   - type: FlavorProfile
@@ -384,7 +406,7 @@
   - type: Tag
     tags:
     - FoodSnack
-  - type: Food
+  - type: Edible
     trash:
     - FoodKebabSkewer
   - type: FlavorProfile

@@ -19,12 +19,12 @@
   group: market
 
 - type: cargoProduct
-  id: RandomXAEArtifact #IMP XAE in name
+  id: RandomArtifact
   icon:
     sprite: Objects/Specific/Xenoarchaeology/xeno_artifacts.rsi
     state: ano13
-  product: RandomXAEArtifactSpawner
-  cost: 2000
+  product: RandomArtifactSpawner
+  cost: 1900 # cheaper because random
   category: cargoproduct-category-name-science
   group: market
 
@@ -45,5 +45,15 @@
     state: server
   product: CrateCrewMonitoring
   cost: 2000
+  category: cargoproduct-category-name-science
+  group: market
+
+- type: cargoProduct
+  id: StationAiCore
+  icon:
+    sprite: Mobs/Silicon/station_ai.rsi
+    state: frame_4
+  product: CrateStationAiCore
+  cost: 10000
   category: cargoproduct-category-name-science
   group: market
