@@ -11,11 +11,13 @@ namespace Content.Server.Xenoarchaeology.Artifact.XAT;
 public sealed class XATExpressionSystem : BaseXATSystem<XATExpressionComponent>
 {
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    private EntityQuery<XenoArtifactComponent> _xenoArtifactQuery;
 
     /// <inheritdoc/>
     public override void Initialize()
     {
         base.Initialize();
+        _xenoArtifactQuery = GetEntityQuery<XenoArtifactComponent>();
         SubscribeLocalEvent<TransformComponent, EntityEmotedEvent>(OnEmote);
     }
 
@@ -33,7 +35,6 @@ public sealed class XATExpressionSystem : BaseXATSystem<XATExpressionComponent>
                 continue;
 
             var artifact = _xenoArtifactQuery.Get(node.Attached.Value);
-
             if (!CanTrigger(artifact, (uid, node)))
                 continue;
 

@@ -67,7 +67,7 @@ namespace Content.Shared.Humanoid.Markings
 
             foreach (var (key, marking) in MarkingsByCategory(category))
             {
-                if ((markingPoints.OnlyWhitelisted) && marking.SpeciesRestrictions == null)
+                if (markingPoints.OnlyWhitelisted && marking.SpeciesRestrictions == null) // imp: markingPoints.Points[category].OnlyWhitelisted removed, it caused test fails
                 {
                     continue;
                 }

@@ -150,11 +150,13 @@ public sealed partial class ShuttleSystem
         {
             if (HasComp<ShuttleComponent>(grid))
                 TryFTLProximity(grid.Value, targetGrid);
+
             if (group.NameGrid)
             {
                 var name = path.FilenameWithoutExtension;
                 _metadata.SetEntityName(grid.Value, name);
             }
+
             spawned = grid.Value;
             return true;
         }

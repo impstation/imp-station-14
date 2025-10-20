@@ -101,14 +101,14 @@ public sealed partial class LockComponent : Component
     /// IMP ADDITION
     /// How long it takes to toggle a lock from the inside. Defaults to 4 seconds.
     /// </summary>
-    [DataField("insideToggleTime")]
+    [DataField]
     public TimeSpan InsideToggleTime = TimeSpan.FromSeconds(4);
 
     /// <summary>
     /// IMP ADDITION
     /// The sound played when toggling a lock from the inside.
     /// </summary>
-    [DataField("insideToggleSound"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public SoundSpecifier InsideToggleSound = new SoundPathSpecifier("/Audio/Machines/vending_restock_start.ogg")
     {
         Params = new AudioParams

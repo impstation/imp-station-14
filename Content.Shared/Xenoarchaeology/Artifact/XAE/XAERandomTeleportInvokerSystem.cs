@@ -24,10 +24,10 @@ public sealed class XAERandomTeleportInvokerSystem : BaseXAESystem<XAERandomTele
         if (!TryComp<XenoArtifactNodeComponent>(ent.Owner, out var nodeComponent) || nodeComponent.Attached is not { } artifact) //#IMP Bugfix: teleport the artifact, not the node
             return;
 
-        var xform = Transform(GetEntity(artifact)); //#IMP Bugfix: teleport the artifact, not the node - ent.Owner changed to GetEntity(artifact)
+        var xform = Transform(artifact); //#IMP Bugfix: teleport the artifact, not the node - ent.Owner changed to artifact
         _popup.PopupPredictedCoordinates(Loc.GetString("blink-artifact-popup"), xform.Coordinates, null, PopupType.Medium); //#IMP Bugfix: Only display the popup once!
 
         var offsetTo = _random.NextVector2(component.MinRange, component.MaxRange);
-        _xform.SetCoordinates(GetEntity(artifact), xform, xform.Coordinates.Offset(offsetTo)); //#IMP Bugfix: teleport the artifact, not the node - ent.Owner changed to GetEntity(artifact)
+        _xform.SetCoordinates(artifact, xform, xform.Coordinates.Offset(offsetTo)); //#IMP Bugfix: teleport the artifact, not the node - ent.Owner changed to artifact
     }
 }

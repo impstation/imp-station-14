@@ -166,7 +166,7 @@ namespace Content.Server.GameTicking
                 if (!_playerManager.TryGetSessionById(playerUserId, out var playerSession))
                     continue;
                 RaiseNetworkEvent(GetStatusMsg(playerSession), playerSession.Channel);
-                RaiseLocalEvent(new PlayerToggleReadyEvent(playerSession)); //imp edit, for preround ready manifest
+                RaiseLocalEvent(new PlayerToggleReadyEvent(playerSession)); //imp edit, for preround ready manifest // imp ready manifest
             }
         }
 

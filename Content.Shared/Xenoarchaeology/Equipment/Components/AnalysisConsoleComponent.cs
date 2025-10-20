@@ -41,9 +41,9 @@ public sealed partial class AnalysisConsoleComponent : Component
     public ProtoId<SourcePortPrototype> LinkingPort = "ArtifactAnalyzerSender";
 
     /// <summary>
-    /// Imp edit. The direction the bias is going.
+    ///     Imp edit. The direction the bias is going.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public BiasDirection BiasDirection = BiasDirection.Up;
 }
 

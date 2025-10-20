@@ -46,7 +46,7 @@
   parent: [ProjectileGrenadeBase, BaseSecurityContraband]
   id: GrenadeStinger
   name: stinger grenade
-  description: Nothing to see here, please disperse.
+  description: A grenade that launches rubber projectiles, or sting balls, at high speeds in the hopes to stun a target. Stings like hell. #imp
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/stingergrenade.rsi
@@ -60,12 +60,12 @@
     keysIn:
     - timer
     sound:
-      path: "/Audio/Effects/flash_bang.ogg"
+      path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg" #imp; to sound like other projectile grenades
     positional: true
   - type: SpawnOnTrigger
     keysIn:
     - timer
-    proto: GrenadeFlashEffect
+    proto: GrenadeFlashEffectStun #imp
     predicted: true
   - type: TriggerOnUse
   - type: TimerTrigger
@@ -87,6 +87,11 @@
     layers:
     - state: icon
       map: ["enum.TriggerVisualLayers.Base"]
+  - type: SpawnOnTrigger #imp; causes light when it explodes
+    keysIn:
+    - timer
+    proto: GrenadeFlashEffectPyro
+    predicted: true
   - type: ProjectileGrenade
     fillPrototype: PelletClusterIncendiary
     capacity: 30
@@ -112,7 +117,7 @@
   parent: [ProjectileGrenadeBase, BaseSyndicateContraband]
   id: GrenadeShrapnel
   name: shrapnel grenade
-  description: Releases a deadly spray of shrapnel that causes severe bleeding.
+  description: Launches a deadly spray of shrapnel and fragmentation that rip through any unfortunate soul in the area of effect. #imp
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/shrapnelgrenade.rsi
@@ -123,6 +128,11 @@
     fillPrototype: PelletClusterLethal
     capacity: 30
   - type: TriggerOnUse
+  - type: SpawnOnTrigger #imp; causes light when it explodes
+    keysIn:
+    - timer
+    proto: GrenadeFlashEffect
+    predicted: true
   - type: TimerTrigger
     beepSound:
       path: "/Audio/Effects/beep1.ogg"
