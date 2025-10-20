@@ -23,7 +23,7 @@ namespace Content.Server.Crayon
 
         // imp infinite crayons
         [DataField]
-        public bool Infinite { get; set; };
+        public bool Infinite { get; set; }
 
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("deleteEmpty")]
