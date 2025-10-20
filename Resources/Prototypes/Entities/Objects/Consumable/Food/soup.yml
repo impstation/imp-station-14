@@ -1,13 +1,15 @@
 # When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_meal.yml
 
 - type: entity
+  abstract: true
   parent: FoodInjectableBase
   id: FoodBowlBase
-  abstract: true
   components:
   - type: Item
-    storedRotation: -90
-  - type: Food
+    shape:
+    - 0,0,1,0
+    storedOffset: 0,-3
+  - type: Edible
     trash:
     - FoodBowlBig
     utensil: Spoon
@@ -72,8 +74,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - creamy
-    - peas
+      - creamy
+      - peas
   - type: Sprite
     sprite: Objects/Consumable/Food/bowl.rsi
     layers:
@@ -105,7 +107,7 @@
   components:
   - type: FlavorProfile
     flavors:
-    - leafy
+      - leafy
   - type: Sprite
     layers:
     - state: bowl
@@ -134,8 +136,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - leafy
-    - apple
+      - leafy
+      - apple
   - type: Sprite
     layers:
     - state: bowl
@@ -168,10 +170,10 @@
   components:
   - type: FlavorProfile
     flavors:
-    - leafy
-    - meaty
-    - potatoes
-    - validhunting
+      - leafy
+      - meaty
+      - potatoes
+      - validhunting
   - type: Sprite
     layers:
     - state: bowl
@@ -209,9 +211,9 @@
   components:
   - type: FlavorProfile
     flavors:
-    - onion
-    - cabbage
-    - sour
+      - onion
+      - cabbage
+      - sour
   - type: Sprite
     layers:
     - state: bowl
@@ -239,10 +241,10 @@
   components:
   - type: FlavorProfile
     flavors:
-    - onion
-    - cabbage
-    - bread
-    - cheesy
+      - onion
+      - cabbage
+      - bread
+      - cheesy
   - type: Sprite
     layers:
     - state: bowl
@@ -270,9 +272,9 @@
   components:
   - type: FlavorProfile
     flavors:
-    - spicy
-    - cabbage
-    - carrot
+      - spicy
+      - cabbage
+      - carrot
   - type: Sprite
     layers:
     - state: bowl
@@ -370,7 +372,7 @@
     flavors:
     - leafy
     - sour
-    - orange
+    - orange # imp
   - type: Sprite
     layers:
     - state: bowl
@@ -397,8 +399,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - bitter
-    - hope
+      - bitter
+      - hope
   - type: Sprite
     layers:
     - state: bowl
@@ -429,7 +431,7 @@
   components:
   - type: FlavorProfile
     flavors:
-    - rice
+      - rice
   - type: Sprite
     layers:
     - state: bowl
@@ -455,8 +457,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - rice
-    - egg
+      - rice
+      - egg
   - type: Sprite
     layers:
     - state: bowl
@@ -491,8 +493,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - rice
-    - meaty
+      - rice
+      - meaty
   - type: Sprite
     layers:
     - state: bowl
@@ -527,8 +529,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - rice
-    - sweet
+      - rice
+      - sweet
   - type: Sprite
     layers:
     - state: bowl
@@ -558,10 +560,10 @@
   components:
   - type: FlavorProfile
     flavors:
-    - rice
-    - spicy
-    - meaty
-    - savory
+      - rice
+      - spicy
+      - meaty
+      - savory
   - type: Sprite
     layers:
     - state: bowl
@@ -596,8 +598,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - oats
-    - milk
+      - oats
+      - milk
   - type: Sprite
     layers:
     - state: bowl
@@ -627,23 +629,26 @@
   components:
   - type: FlavorProfile
     flavors:
-    - jelly
-    - mushrooms
+      - jelly
+      - mushrooms
   - type: Sprite
     layers:
     - state: bowl
     - state: spacelibertyduff
 
 - type: entity
-  name: amanita jelly
-  parent: [FoodInjectableBase, BaseMajorContraband]
+  parent: [FoodInjectableBase, BaseMajorContraband] #imp edit
   id: FoodJellyAmanita
+  name: amanita jelly
   description: It's evil, don't touch it!
   components:
+  - type: Item
+    size: Normal
+    storedOffset: 0,-3
   - type: FlavorProfile
     flavors:
-    - mushroom
-    - jelly
+      - mushroom
+      - jelly
   - type: Sprite
     sprite: Objects/Consumable/Food/meals.rsi
     state: amanita-jelly
@@ -670,7 +675,7 @@
   components:
   - type: FlavorProfile
     flavors:
-    - meatballs
+      - meatballs
   - type: Sprite
     layers:
     - state: bowl
@@ -683,9 +688,9 @@
         - ReagentId: Nutriment
           Quantity: 21 # imp
         - ReagentId: Vitamin
-          Quantity: 8
+          Quantity: 8 # imp
         - ReagentId: Water
-          Quantity: 10
+          Quantity: 10 # imp
         - ReagentId: Protein # imp
           Quantity: 5
         - ReagentId: JuiceCarrot # imp
@@ -703,7 +708,7 @@
   components:
   - type: FlavorProfile
     flavors:
-    - slimy
+      - slimy
   - type: Sprite
     layers:
     - state: bowl
@@ -728,8 +733,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - metallic
-    - tomato
+      - metallic
+      - tomato
   - type: Sprite
     layers:
     - state: bowl
@@ -760,8 +765,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - meaty
-    - salty
+      - meaty
+      - salty
   - type: Sprite
     layers:
     - state: bowl
@@ -788,7 +793,7 @@
   components:
   - type: FlavorProfile
     flavors:
-    - bad-joke
+      - bad-joke
   - type: Sprite
     layers:
     - state: bowl
@@ -858,7 +863,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 40 # imp
+        maxVol: 40
         reagents:
         - ReagentId: Nutriment
           Quantity: 10 # imp
@@ -884,7 +889,7 @@
   components:
   - type: FlavorProfile
     flavors:
-    - chaos
+      - chaos
   - type: Sprite
     layers:
     - state: bowl
@@ -898,7 +903,7 @@
   components:
   - type: FlavorProfile
     flavors:
-    - spicy
+      - spicy
   - type: Sprite
     layers:
     - state: bowl
@@ -931,8 +936,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - minty
-    - tomato
+      - minty
+      - tomato
   - type: Sprite
     layers:
     - state: bowl
@@ -963,10 +968,10 @@
   components:
   - type: FlavorProfile
     flavors:
-    - spicy
-    - tomato
-    - bad-joke
-    - parents
+      - spicy
+      - tomato
+      - bad-joke
+      - parents
   - type: Sprite
     layers:
     - state: bowl
@@ -998,8 +1003,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - jungle
-    - banana
+      - jungle
+      - banana
   - type: Sprite
     layers:
     - state: bowl
@@ -1030,7 +1035,7 @@
   components:
   - type: FlavorProfile
     flavors:
-    - tomato
+      - tomato
   - type: Sprite
     layers:
     - state: bowl
@@ -1041,7 +1046,7 @@
         maxVol: 30 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
+          Quantity: 10 #imp
         - ReagentId: Vitamin
           Quantity: 3 # imp
         - ReagentId: Water
@@ -1061,7 +1066,7 @@
     flavors:
     - tomato
     - squirming
-    - potatoes
+    - potatoes #imp
   - type: Sprite
     layers:
     - state: bowl
@@ -1092,15 +1097,15 @@
   components:
   - type: FlavorProfile
     flavors:
-    - miso
-  - type: Food
+      - miso
+  - type: Edible
     trash:
     - FoodBowlFancy
   - type: Sprite
     layers:
     - state: bowl2
     - state: miso
-      #rip milo
+        #rip milo
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1127,7 +1132,7 @@
   components:
   - type: FlavorProfile
     flavors:
-    - mushroom
+      - mushroom
   - type: Sprite
     layers:
     - state: bowl
@@ -1162,14 +1167,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 40 # imp
+        maxVol: 40
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 15 # imp
-        - ReagentId: Vitamin
-          Quantity: 7
-        - ReagentId: Water
-          Quantity: 10
+          - ReagentId: Nutriment
+            Quantity: 15
+          - ReagentId: Vitamin
+            Quantity: 7
+          - ReagentId: Water
+            Quantity: 10
   - type: Tag # imp
     tags:
     - Vegetable
@@ -1190,10 +1195,10 @@
       food:
         maxVol: 35 # imp
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 15 # imp
-        - ReagentId: Vitamin
-          Quantity: 15 # imp
+          - ReagentId: Nutriment
+            Quantity: 15
+          - ReagentId: Vitamin
+            Quantity: 15
   - type: Tag # imp
     tags:
     - Vegetable
@@ -1207,9 +1212,9 @@
   components:
   - type: FlavorProfile
     flavors:
-    - meaty
-    - tomato
-    - carrot
+      - meaty
+      - tomato
+      - carrot
   - type: Sprite
     layers:
     - state: bowl
@@ -1244,7 +1249,7 @@
   components:
   - type: FlavorProfile
     flavors:
-    - sweet
+      - sweet
   - type: Sprite
     layers:
     - state: bowl
@@ -1254,14 +1259,13 @@
       food:
         maxVol: 40
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 15 # imp
-        - ReagentId: Vitamin
-          Quantity: 15 # imp
+          - ReagentId: Nutriment
+            Quantity: 15
+          - ReagentId: Vitamin
+            Quantity: 15
   - type: Tag # imp
     tags:
     - Vegetable
-
 # Tastes like sweet potato.
 
 - type: entity
@@ -1272,7 +1276,7 @@
   components:
   - type: FlavorProfile
     flavors:
-    - onion
+      - onion
   - type: Sprite
     layers:
     - state: bowl
@@ -1285,7 +1289,7 @@
         - ReagentId: Nutriment
           Quantity: 14 # imp
         - ReagentId: Vitamin
-          Quantity: 5
+          Quantity: 5 # imp
         - ReagentId: Allicin
           Quantity: 5
         - ReagentId: Water # imp
@@ -1326,15 +1330,20 @@
 # Tastes like crab.
 
 - type: entity
-  name: electron soup
   parent: FoodBowlBase
   id: FoodSoupElectron
+  name: electron soup
   description: A gastronomic curiosity of ethereal origin.
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+    storedOffset: 0,2
   - type: FlavorProfile
     flavors:
-    - mushrooms
-    - electrons
+      - mushrooms
+      - electrons
   - type: Sprite
     layers:
     - state: bowl
@@ -1344,10 +1353,10 @@
       food:
         maxVol: 25 # imp
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 15 # imp
-        - ReagentId: Licoxide
-          Quantity: 6
+          - ReagentId: Nutriment
+            Quantity: 15
+          - ReagentId: Licoxide
+            Quantity: 6
 
 - type: entity
   name: bungo curry
@@ -1392,8 +1401,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - creamy
-    - slimy
+      - creamy
+      - slimy
   - type: Sprite
     layers:
     - state: bowl

@@ -22,6 +22,7 @@
     accent-mobster-words-15: accent-mobster-words-replace-15
     accent-mobster-words-16: accent-mobster-words-replace-16
     accent-mobster-words-17: accent-mobster-words-replace-17
+    # imp edit start
     accent-mobster-words-18: accent-mobster-words-replace-18
     accent-mobster-words-19: accent-mobster-words-replace-19
     accent-mobster-words-20: accent-mobster-words-replace-20
@@ -39,6 +40,7 @@
     accent-mobster-words-32: accent-mobster-words-replace-32
     accent-mobster-words-33: accent-mobster-words-replace-33
     accent-mobster-words-33-2: accent-mobster-words-replace-33
+    # imp edit end
 
 - type: accent
   id: italian
@@ -528,7 +530,8 @@
     chatsan-word-65: chatsan-replacement-65
     chatsan-word-66: chatsan-replacement-66
     chatsan-word-67: chatsan-replacement-67
-    chatsan-word-68: chatsan-replacement-68 #imp edit
+    chatsan-word-68: chatsan-replacement-68
+    chatsan-word-imp-1: chatsan-replacement-imp-1 #imp edit
 
 - type: accent
   id: liar
@@ -795,93 +798,3 @@
     accent-skeleton-words-7: accent-skeleton-words-replace-7
     accent-skeleton-words-8: accent-skeleton-words-replace-8
     accent-skeleton-words-9: accent-skeleton-words-replace-9
-
-- type: accent
-  id: french
-  wordReplacements:
-    accent-french-words-1: accent-french-words-replace-1
-    accent-french-words-2: accent-french-words-replace-2
-    accent-french-words-3: accent-french-words-replace-3
-    accent-french-words-3-2: accent-french-words-replace-3
-    accent-french-words-4: accent-french-words-replace-4
-    accent-french-words-5: accent-french-words-replace-5
-    accent-french-words-6: accent-french-words-replace-6
-    accent-french-words-7: accent-french-words-replace-7
-    accent-french-words-8: accent-french-words-replace-8
-    accent-french-words-9: accent-french-words-replace-9
-    accent-french-words-10: accent-french-words-replace-10
-    accent-french-words-11: accent-french-words-replace-11
-    accent-french-words-12: accent-french-words-replace-12
-    accent-french-words-13: accent-french-words-replace-13
-    accent-french-words-14: accent-french-words-replace-14
-    accent-french-words-15: accent-french-words-replace-15
-    accent-french-words-16: accent-french-words-replace-16
-    accent-french-words-17: accent-french-words-replace-17
-    accent-french-words-18: accent-french-words-replace-18
-    accent-french-words-19: accent-french-words-replace-19
-    accent-french-words-20: accent-french-words-replace-20
-    accent-french-words-21: accent-french-words-replace-21
-    accent-french-words-22: accent-french-words-replace-22
-    accent-french-words-23: accent-french-words-replace-23
-    accent-french-words-24: accent-french-words-replace-24
-    accent-french-words-25: accent-french-words-replace-25
-    accent-french-words-26: accent-french-words-replace-26
-    accent-french-words-27: accent-french-words-replace-27
-    accent-french-words-28: accent-french-words-replace-28
-    accent-french-words-29: accent-french-words-replace-29
-    accent-french-words-30: accent-french-words-replace-30
-    accent-french-words-31: accent-french-words-replace-31
-    accent-french-words-31-2: accent-french-words-replace-31
-    accent-french-words-32: accent-french-words-replace-32
-    accent-french-words-33: accent-french-words-replace-33
-    accent-french-words-33-2: accent-french-words-replace-33
-    accent-french-words-33-3: accent-french-words-replace-33
-    accent-french-words-34: accent-french-words-replace-34
-    accent-french-words-35: accent-french-words-replace-35
-    accent-french-words-36: accent-french-words-replace-36
-    accent-french-words-37: accent-french-words-replace-37
-    accent-french-words-38: accent-french-words-replace-38
-    accent-french-words-39: accent-french-words-replace-39
-    accent-french-words-40: accent-french-words-replace-40
-    accent-french-words-41: accent-french-words-replace-41
-    accent-french-words-42: accent-french-words-replace-42
-    accent-french-words-43: accent-french-words-replace-43
-    accent-french-words-44: accent-french-words-replace-44
-    accent-french-words-45: accent-french-words-replace-45
-    accent-french-words-46: accent-french-words-replace-46
-    accent-french-words-47: accent-french-words-replace-47
-    accent-french-words-48: accent-french-words-replace-48
-    accent-french-words-49: accent-french-words-replace-49
-    accent-french-words-50: accent-french-words-replace-50
-    accent-french-words-51: accent-french-words-replace-51
-    accent-french-words-52: accent-french-words-replace-52
-    accent-french-words-52-2: accent-french-words-replace-52
-    accent-french-words-53: accent-french-words-replace-53
-    accent-french-words-54: accent-french-words-replace-54
-    accent-french-words-55: accent-french-words-replace-55
-    accent-french-words-56: accent-french-words-replace-56
-    accent-french-words-57: accent-french-words-replace-57
-    accent-french-words-58: accent-french-words-replace-58
-    accent-french-words-59: accent-french-words-replace-59
-    accent-french-words-59-2: accent-french-words-replace-59
-    accent-french-words-60: accent-french-words-replace-60
-    accent-french-words-61: accent-french-words-replace-61
-    accent-french-words-61-2: accent-french-words-replace-61
-    accent-french-words-61-3: accent-french-words-replace-61
-
-- type: accent
-  id: basicrussian
-  wordReplacements:
-    accent-russian-words-1: accent-russian-words-replace-1
-    accent-russian-words-2: accent-russian-words-replace-2
-    accent-russian-words-3: accent-russian-words-replace-3
-    accent-russian-words-3-2: accent-russian-words-replace-3
-    accent-russian-words-3-3: accent-russian-words-replace-3
-    accent-russian-words-4: accent-russian-words-replace-4
-    accent-russian-words-5: accent-russian-words-replace-5
-
-- type: accent
-  id: basicfrench
-  wordReplacements:
-    accent-french-words-1: accent-french-words-replace-1
-    accent-french-words-2: accent-french-words-replace-2

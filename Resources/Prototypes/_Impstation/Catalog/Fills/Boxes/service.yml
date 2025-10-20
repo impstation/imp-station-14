@@ -11,4 +11,5 @@
   - type: Sprite
     layers:
     - state: box
-    - state: soap
+    - sprite: _Impstation/Objects/Storage/boxes.rsi
+      state: soap
