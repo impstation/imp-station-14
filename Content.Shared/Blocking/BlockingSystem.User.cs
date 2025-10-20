@@ -1,8 +1,10 @@
 using Content.Shared.Damage;
-using Content.Shared.Mobs;
-using Content.Shared.Standing;
+using Content.Shared.Damage.Prototypes;
+using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Content.Shared.Mobs; // imp
+using Content.Shared.Standing; // imp
 
 namespace Content.Shared.Blocking;
 
@@ -21,17 +23,18 @@ public sealed partial class BlockingSystem
         SubscribeLocalEvent<BlockingUserComponent, AnchorStateChangedEvent>(OnAnchorChanged);
         SubscribeLocalEvent<BlockingUserComponent, EntityTerminatingEvent>(OnEntityTerminating);
 
-        // impstation edits
-        SubscribeLocalEvent<BlockingUserComponent, MobStateChangedEvent>(OnMobStateChanged);
-        SubscribeLocalEvent<BlockingUserComponent, DownedEvent>(OnDowned);
+        SubscribeLocalEvent<BlockingUserComponent, MobStateChangedEvent>(OnMobStateChanged); // imp
+        SubscribeLocalEvent<BlockingUserComponent, DownedEvent>(OnDowned); // imp
     }
 
+    // imp add
     private void OnMobStateChanged(EntityUid uid, BlockingUserComponent comp, MobStateChangedEvent args)
     {
         if (args.NewMobState != MobState.Alive)
             UserStopBlocking(uid, comp);
     }
 
+    // imp add
     private void OnDowned(EntityUid uid, BlockingUserComponent comp, DownedEvent downed)
     {
         UserStopBlocking(uid, comp);

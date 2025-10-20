@@ -6,6 +6,7 @@
   flavor: bitter
   color: "#cf3600"
   physicalDesc: reagent-physical-desc-opaque
+  contrabandSeverity: Minor
   plantMetabolism:
   - !type:PlantAdjustToxins
     amount: 10
@@ -27,6 +28,8 @@
   flavor: bitter
   color: "#e2a38c"
   physicalDesc: reagent-physical-desc-exotic-smelling
+  allowedDepartments:
+  - Medical
   plantMetabolism:
   - !type:PlantAdjustToxins
     amount: 10
@@ -61,6 +64,10 @@
   flavor: bitter
   color: "#000067"
   physicalDesc: reagent-physical-desc-nondescript
+  allowedDepartments:
+  - Medical
+  allowedJobs:
+  - Zookeeper
   metabolisms:
     Poison:
       effects:
@@ -75,7 +82,6 @@
         effectProto: StatusEffectDrowsiness
         time: 4
         type: Add
-        refresh: false
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -129,6 +135,7 @@
   group: Toxins
   desc: reagent-desc-polytrinic-acid
   physicalDesc: reagent-physical-desc-strong-smelling
+  contrabandSeverity: Major
   flavor: acid
   color: "#a1000b"
   boilingPoint: 78.2 # This isn't a real chemical...
@@ -197,6 +204,7 @@
   group: Toxins
   desc: reagent-desc-fluorosulfuric-acid
   physicalDesc: reagent-physical-desc-strong-smelling
+  contrabandSeverity: Minor
   flavor: acid
   color: "#5050ff"
   boilingPoint: 165
@@ -237,6 +245,8 @@
   group: Toxins
   desc: reagent-desc-sulfuric-acid
   physicalDesc: reagent-physical-desc-oily
+  allowedJobs:
+  - Chemist
   flavor: acid
   color: "#BF8C00"
   recognizable: true
@@ -285,6 +295,9 @@
   group: Toxins
   desc: reagent-desc-unstable-mutagen
   physicalDesc: reagent-physical-desc-glowing
+  allowedJobs:
+  - Chemist
+  - Botanist
   flavor: bitter
   color: "#00ff5f"
   boilingPoint: 340282300000000000000000000000000000000 # Ethidium bromide, which doesn't boil.
@@ -306,8 +319,8 @@
   group: Toxins
   desc: reagent-desc-heartbreaker-toxin
   physicalDesc: reagent-physical-desc-strong-smelling
+  contrabandSeverity: Major
   color: "#5f959c"
-  contraband: Major # imp
   metabolisms:
     Poison:
       effects:
@@ -325,8 +338,8 @@
   group: Toxins
   desc: reagent-desc-lexorin
   physicalDesc: reagent-physical-desc-pungent
+  contrabandSeverity: Tier3Contraband # imp
   color: "#6b0007"
-  contraband: Tier3Contraband # imp
   metabolisms:
     Poison:
       effects:
@@ -343,7 +356,7 @@
   physicalDesc: reagent-physical-desc-opaque
   flavor: bitter
   color: "#77b58e"
-  contraband: Minor # imp
+  contrabandSeverity: Minor # imp
   plantMetabolism:
   - !type:PlantAdjustToxins
     amount: 10
@@ -354,7 +367,6 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 10
-        refresh: false
   # TODO: PROPER hallucinations
 
 - type: reagent
@@ -430,8 +442,8 @@
   group: Toxins
   desc: reagent-desc-amatoxin
   physicalDesc: reagent-physical-desc-nondescript
+  contrabandSeverity: Major
   color: "#D6CE7B"
-  contraband: Major #imp
   metabolisms:
     Poison:
       metabolismRate: 0.2
@@ -469,9 +481,9 @@
   group: Toxins
   desc: reagent-desc-romerol
   physicalDesc: reagent-physical-desc-necrotic
+  contrabandSeverity: Tier3Contraband #imp
   flavor: bitter
   color: "#7e916e"
-  contraband: Tier3Contraband #imp
   worksOnTheDead: true
   metabolisms:
     Medicine:
@@ -610,6 +622,11 @@
   group: Narcotics
   desc: reagent-desc-pax
   physicalDesc: reagent-physical-desc-soothing
+  allowedDepartments:
+  - Security
+  - Medical
+  allowedJobs:
+  - Zookeeper
   color: "#AAAAAA"
   metabolisms:
     Poison:
@@ -655,6 +672,7 @@
   group: Toxins
   desc: reagent-desc-lead
   physicalDesc: reagent-physical-desc-metallic
+  contrabandSeverity: Major
   color: "#5C6274"
   metabolisms:
     Poison:
@@ -671,6 +689,7 @@
   group: Toxins
   desc: reagent-desc-bungotoxin
   physicalDesc: reagent-physical-desc-nondescript
+  contrabandSeverity: Major
   color: "#EBFF8E"
   metabolisms:
     Poison:
@@ -687,9 +706,9 @@
   group: Toxins
   desc: reagent-desc-vestine
   physicalDesc: reagent-physical-desc-shiny
+  contrabandSeverity: Tier2Contraband # imp
   flavor: medicine
   color: "#435166"
-  contraband: Tier2Contraband # imp
   metabolisms:
     Poison:
       effects:
@@ -711,9 +730,9 @@
   group: Toxins
   desc: reagent-desc-tazinide
   physicalDesc: reagent-physical-desc-metallic
+  contrabandSeverity: Tier3Contraband #imp
   flavor: shocking
   color: "#FDD023"
-  contraband: Tier3Contraband #imp
   metabolisms:
     Poison:
       effects:
@@ -726,6 +745,8 @@
   group: Toxins
   desc: reagent-desc-lipolicide
   physicalDesc: reagent-physical-desc-strong-smelling
+  allowedDepartments:
+  - Medical
   flavor: mothballs #why does weightloss juice taste like mothballs
   color: "#F0FFF0"
   metabolisms:

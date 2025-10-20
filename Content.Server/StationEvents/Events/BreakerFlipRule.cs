@@ -4,8 +4,8 @@ using Content.Server.StationEvents.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Station.Components;
 using JetBrains.Annotations;
-using Content.Server.Announcements.Systems;
-using Robust.Shared.Player;
+using Content.Server.Announcements.Systems; // ee announce
+using Robust.Shared.Player; // ee announce
 
 namespace Content.Server.StationEvents.Events;
 
@@ -13,7 +13,7 @@ namespace Content.Server.StationEvents.Events;
 public sealed class BreakerFlipRule : StationEventSystem<BreakerFlipRuleComponent>
 {
     [Dependency] private readonly ApcSystem _apcSystem = default!;
-    [Dependency] private readonly AnnouncerSystem _announcer = default!;
+    [Dependency] private readonly AnnouncerSystem _announcer = default!; // ee announce
 
     protected override void Added(EntityUid uid, BreakerFlipRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
@@ -22,15 +22,12 @@ public sealed class BreakerFlipRule : StationEventSystem<BreakerFlipRuleComponen
 
         base.Added(uid, component, gameRule, args);
 
-        _announcer.SendAnnouncement(
+        _announcer.SendAnnouncement( // ee announce
             _announcer.GetAnnouncementId(args.RuleId),
             Filter.Broadcast(),
             "station-event-breaker-flip-announcement",
-            null,
-            Color.Gold,
-            null, null,
-            null, //imp
-            ("data", Loc.GetString($"random-sentience-event-data-{RobustRandom.Next(1, 6)}"))
+            colorOverride: Color.Gold,
+            localeArgs: ("data", Loc.GetString($"random-sentience-event-data-{RobustRandom.Next(1, 6)}"))
         );
     }
 

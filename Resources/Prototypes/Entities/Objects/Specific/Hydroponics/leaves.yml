@@ -2,7 +2,7 @@
 
 - type: entity
   name: cannabis leaves
-  parent: ProduceBase
+  parent: ProduceBaseRuminant
   id: LeavesCannabis
   description: "Recently legalized in most galaxies."
   components:
@@ -10,30 +10,6 @@
     sprite: Objects/Specific/Hydroponics/cannabis.rsi
   - type: Produce
     seedId: cannabis
-  - type: Food
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: THC
-          Quantity: 15
-  - type: FoodSequenceElement
-    entries:
-      Burger: LeavesCannabisBurger
-      Taco: LeavesCannabis
-  - type: PluralName # imp
-    oneOf: plural-name-some
-
-- type: entity
-  name: green marijuana leaves
-  parent: ProduceBase
-  id: LeavesGreenMarijuana
-  description: "Recently legalized in most galaxies."
-  components:
-  - type: Sprite
-    sprite: Objects/Specific/Hydroponics/cannabis.rsi
-  - type: Produce
-    seedId: greenMarijuana
   - type: Food
   - type: SolutionContainerManager
     solutions:
@@ -57,7 +33,6 @@
   - type: Stack
     stackType: LeavesCannabisDried
     count: 1
-  - type: Food
   - type: SolutionContainerManager
     solutions:
       food:
@@ -67,12 +42,15 @@
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/tobacco.rsi
     state: dried
+  #imp edit start
+  - type: Food
   - type: FoodSequenceElement
     entries:
       Burger: LeavesCannabisBurger
       Taco: LeavesCannabis
-  - type: PluralName # imp
+  - type: PluralName
     oneOf: plural-name-some
+  #imp edit end
 
 - type: entity
   name: ground cannabis
@@ -83,7 +61,6 @@
   - type: Stack
     stackType: GroundCannabis
     count: 1
-  - type: Food
   - type: SolutionContainerManager
     solutions:
       food:
@@ -102,12 +79,15 @@
       - Smokable
   - type: Item
     size: Tiny
-  - type: PluralName # imp
+  # imp edit start
+  - type: Food
+  - type: PluralName
     oneOf: plural-name-some
+  # imp edit end
 
 - type: entity
   name: rainbow cannabis leaves
-  parent: [LeavesCannabis, BaseMinorContraband]
+  parent: [LeavesCannabis, BaseMinorContraband] #imp edit, contraband
   id: LeavesCannabisRainbow
   description: "Is it supposed to be glowing like that...?"
   components:
@@ -140,21 +120,20 @@
 #         Quantity: 1
         - ReagentId: Psicodine
           Quantity: 0.6
-  - type: FoodSequenceElement
+  - type: FoodSequenceElement #imp edit
     entries:
       Burger: LeavesRainbowCannabisBurger
       Taco: LeavesRainbowCannabis
 
 - type: entity
   name: dried rainbow cannabis leaves
-  parent: [LeavesCannabisDried, BaseMinorContraband]
+  parent: [LeavesCannabisDried, BaseMinorContraband] #imp, contraband
   id: LeavesCannabisRainbowDried
   description: "Dried rainbow cannabis leaves, ready to be ground."
   components:
   - type: Stack
     stackType: LeavesCannabisRainbowDried
     count: 1
-  - type: Food
   - type: SolutionContainerManager
     solutions:
       food:
@@ -175,21 +154,23 @@
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/rainbow_cannabis.rsi
     state: dried
+  # imp edit start
+  - type: Food
   - type: FoodSequenceElement
     entries:
       Burger: LeavesRainbowCannabisBurger
       Taco: LeavesRainbowCannabis
+  # imp edit end
 
 - type: entity
   name: ground rainbow cannabis
-  parent: [GroundCannabis, BaseMinorContraband]
+  parent: [GroundCannabis, BaseMinorContraband] #imp, contraband
   id: GroundCannabisRainbow
   description: "Ground rainbow cannabis, ready to take you on a trip."
   components:
   - type: Stack
     stackType: GroundCannabisRainbow
     count: 1
-  - type: Food
   - type: SolutionContainerManager
     solutions:
       food:
@@ -213,10 +194,11 @@
   - type: Construction
     graph: smokeableGroundCannabisRainbow
     node: groundRainbow
+  - type: Food #imp
 
 - type: entity
   name: tea leaves
-  parent: ProduceBase
+  parent: ProduceBaseRuminant
   id: LeavesTea
   description: "Can be dried out to make tea."
   components:
@@ -233,7 +215,7 @@
 
 - type: entity
   name: dried tea leaves
-  parent: ProduceBase
+  parent: ProduceBaseRuminant
   id: LeavesTeaDried
   description: "Dried tea leaves, ready to be ground."
   components:
@@ -249,7 +231,7 @@
 
 - type: entity
   name: tobacco leaves
-  parent: ProduceBase
+  parent: ProduceBaseRuminant
   id: LeavesTobacco
   description: "Dry them out to make some smokes."
   components:
@@ -257,17 +239,19 @@
     sprite: Objects/Specific/Hydroponics/tobacco.rsi
   - type: Produce
     seedId: tobacco
-  - type: Food
   - type: SolutionContainerManager
     solutions:
       food:
         reagents:
         - ReagentId: Nicotine
           Quantity: 2
+  # imp edit start
+  - type: Food
   - type: FoodSequenceElement
     entries:
       Burger: LeavesTobaccoBurger
       Taco: LeavesTobacco
+  # imp edit end
 
 - type: entity
   name: dried tobacco leaves
@@ -278,7 +262,6 @@
   - type: Stack
     stackType: LeavesTobaccoDried
     count: 1
-  - type: Food
   - type: SolutionContainerManager
     solutions:
       food:
@@ -288,10 +271,13 @@
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/tobacco.rsi
     state: dried
+  #imp edit start
+  - type: Food
   - type: FoodSequenceElement
     entries:
       Burger: LeavesTobaccoBurger
       Taco: LeavesTobacco
+  #imp edit end
 
 - type: entity
   name: ground tobacco
@@ -302,7 +288,6 @@
   - type: Stack
     stackType: GroundTobacco
     count: 1
-  - type: Food
   - type: SolutionContainerManager
     solutions:
       food:
@@ -321,3 +306,4 @@
       - Smokable
   - type: Item
     size: Tiny
+  - type: Food #imp edit

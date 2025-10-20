@@ -31,7 +31,7 @@
     - type: Butcherable
       spawned:
       - id: FoodMeatBacon
-        amount: 8
+        amount: 4
     - type: MeleeThrowOnHit
       unanchorOnHit: false
       distance: 2
@@ -67,7 +67,9 @@
           true
     - type: NPCImprintingOnSpawnBehaviour
     - type: Hunger
-      baseDecayRate: 0.5
+      baseDecayRate: 0.3
+    - type: Thirst
+      baseDecayRate: 0.05
     - type: YoungKodepiiaRetaliation
       attackMemoryLength: 15
     - type: GoobAbsorbable
@@ -92,7 +94,7 @@
         types:
           Blunt: 5
           Piercing: 5
-          Structural: 5
+          Structural: 15
     - type: Prying
       pryPowered: true
       speedModifier: 2.0
@@ -105,6 +107,9 @@
       interactSuccessSpawn: EffectHearts
       interactSuccessSound:
         path: /Audio/Animals/pig_oink.ogg
+    - type: SentienceTarget
+      flavorKind: station-event-random-sentience-flavor-organic
+      weight: 0.05
 
 - type: entity
   name: space boar
@@ -474,12 +479,25 @@
     rules: ghost-role-information-freeagent-rules
     raffle:
       settings: short
-  - type: KodepiiaConsumeAction
+  - type: ConsumeAction
+    percentageConsumed: 0.1
+    popupSelfStart: kodepiia-consume-start-self
+    popupSelfEnd: kodepiia-consume-end-self
+    popupOthersStart: kodepiia-consume-start-others
+    popupOthersEnd: kodepiia-consume-end-self
+    consumeActionId: ActionKodepiiaConsume
     damage:
       groups:
         Genetic: 5
-    canGib: false
-
+      types:
+        Piercing: 10
+    whitelist:
+      components:
+      - Respirator
+      - Bloodstream
+    blacklist:
+      components:
+      - SiliconLawBound
 - type: entity
   name: butterfly
   parent: [ MobButterfly ]

@@ -405,7 +405,7 @@ public sealed partial class SalvageSystem
                 salvMob.LinkedEntity = mapChild;
             }
         }
-        // IMP Change | currently doesn't say the size of the wrecks when pulling due to the markup on the size strings
+        // IMP Change start | currently doesn't say the size of the wrecks when pulling due to the markup on the size strings
         switch (offering)
         {
             case AsteroidOffering asteroid:
@@ -424,7 +424,7 @@ public sealed partial class SalvageSystem
                 throw new ArgumentOutOfRangeException();
         }
 
-        // IMP Change ^
+        // IMP Change end ^
         //Report(magnet.Owner, MagnetChannel, "salvage-system-announcement-arrived", ("timeLeft", data.Comp.ActiveTime.TotalSeconds));
         _mapSystem.DeleteMap(salvMapXform.MapID);
 
