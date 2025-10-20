@@ -32,7 +32,7 @@ namespace Content.Client.Lobby
 
         private ClientGameTicker _gameTicker = default!;
         private ContentAudioSystem _contentAudioSystem = default!;
-        private ReadyManifestSystem _readyManifest = default!; // imp
+        private ReadyManifestSystem _readyManifest = default!; //imp
 
         protected override Type? LinkedScreenType { get; } = typeof(LobbyGui);
         public LobbyGui? Lobby;
@@ -50,7 +50,7 @@ namespace Content.Client.Lobby
             _gameTicker = _entityManager.System<ClientGameTicker>();
             _contentAudioSystem = _entityManager.System<ContentAudioSystem>();
             _contentAudioSystem.LobbySoundtrackChanged += UpdateLobbySoundtrackInfo;
-            _readyManifest = _entityManager.EntitySysManager.GetEntitySystem<ReadyManifestSystem>(); // imp
+            _readyManifest = _entityManager.EntitySysManager.GetEntitySystem<ReadyManifestSystem>(); //imp
 
             chatController.SetMainChat(true);
 
@@ -125,7 +125,7 @@ namespace Content.Client.Lobby
             SetReady(args.Pressed);
         }
 
-        // imp add
+        //imp addition
         private void OnManifestPressed(BaseButton.ButtonEventArgs args)
         {
             _readyManifest.RequestReadyManifest();
@@ -193,11 +193,12 @@ namespace Content.Client.Lobby
                 Lobby!.ReadyButton.ToggleMode = false;
                 Lobby!.ReadyButton.Pressed = false;
                 Lobby!.ObserveButton.Disabled = false;
-                Lobby!.ManifestButton.Disabled = true; // imp
+                Lobby!.ManifestButton.Disabled = true; //imp
             }
             else
             {
                 Lobby!.StartTime.Text = string.Empty;
+                Lobby!.ReadyButton.Pressed = _gameTicker.AreWeReady;
                 Lobby!.ReadyButton.Text = Loc.GetString(Lobby!.ReadyButton.Pressed ? "lobby-state-player-status-ready": "lobby-state-player-status-not-ready");
                 Lobby!.ReadyButton.ToggleMode = true;
                 Lobby!.ReadyButton.Disabled = false;

@@ -29,6 +29,7 @@
     TriggerMagnet: 1
     # imp edit start
     #TriggerResurrection: 1 # imp addition
+    TriggerExpression: 1
     TriggerStun: 1
     TriggerDrinkCaffeine: 0.05
     TriggerDrinkClassicMartini: 0.05
@@ -276,7 +277,7 @@
     requiredTool: Pulsing
   - type: XATExaminableText
     examineText: xenoarch-trigger-examine-pulsing
-  targetDepths: [ 1, 2, 3 ] # imp edit
+  targetDepths: [ 0, 1, 2 ] # imp edit
 
 - type: xenoArchTrigger
   id: TriggerTimer
@@ -300,6 +301,7 @@
     - Slime
     - AmmoniaBlood
     - ZombieBlood
+    - Sap
     # imp below
     - ShimmeringBlood
     - BloodKodepiia

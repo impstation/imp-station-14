@@ -78,7 +78,7 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
             // End Frontier
 
             if (string.IsNullOrEmpty(component.SelectedSongId) ||
-                !_protoManager.TryIndex(component.SelectedSongId, out var jukeboxProto))
+                !_protoManager.Resolve(component.SelectedSongId, out var jukeboxProto))
             {
                 return;
             }

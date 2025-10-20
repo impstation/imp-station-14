@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server.Administration.Managers;
 using Content.Server.Antag.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
@@ -8,11 +9,11 @@ using Content.Server.Ghost.Roles;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Mind;
 using Content.Server.Objectives;
+using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Preferences.Managers;
 using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
 using Content.Server.Shuttles.Components;
-//using Content.Server.Station.Events; // imp unused
 using Content.Shared.Administration.Logs;
 using Content.Shared.Antag;
 using Content.Shared.Clothing;
@@ -43,18 +44,19 @@ namespace Content.Server.Antag;
 public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelectionComponent>
 {
     [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly IBanManager _ban = default!;
     [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] private readonly GhostRoleSystem _ghostRole = default!;
     [Dependency] private readonly JobSystem _jobs = default!;
     [Dependency] private readonly LoadoutSystem _loadout = default!;
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly PlayTimeTrackingSystem _playTime = default!;
     [Dependency] private readonly IServerPreferencesManager _pref = default!;
     [Dependency] private readonly RoleSystem _role = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly PlayTimeTrackingManager _playTime = default!; // imp
     [Dependency] private readonly IPrototypeManager _prototype = default!; // imp
     [Dependency] private readonly IRobustRandom _random = default!; // imp
     [Dependency] private readonly NpcFactionSystem _faction = default!; //#IMP
@@ -308,7 +310,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
                     TimeSpan? time = null;
                     if (_prototype.TryIndex(role, out var antagRole))
                     {
-                        _playTime.TryGetTrackerTime(session, antagRole.PlayTimeTracker, out time);
+                        _tracking.TryGetTrackerTime(session, antagRole.PlayTimeTracker, out time);
                     }
                     ruleTimeTotal += time != null ? time.Value : TimeSpan.Zero;
                 }
@@ -325,7 +327,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         List<ICommonSession> guaranteed = [];
         foreach (var keyValuePair in playersByRoleTimeAsc) // for each entry, decide whether or not it should override random antag selection based on its weight, and add it to a list if it should.
         {
-            if (HasPrimaryAntagPreference(keyValuePair.Key, def) && _random.Prob(probToGuarantee))
+            if (def.PrefRoles != null && ValidAntagPreference(keyValuePair.Key, def.PrefRoles) && _random.Prob(probToGuarantee))
             {
                 guaranteed.Add(keyValuePair.Key);
             }
@@ -402,7 +404,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     {
         _adminLogger.Add(LogType.AntagSelection, $"Start trying to make {session} become the antagonist: {ToPrettyString(ent)}");
 
-        if (checkPref && !HasPrimaryAntagPreference(session, def))
+        if (checkPref && !ValidAntagPreference(session, def.PrefRoles))
             return false;
 
         if (!IsSessionValid(ent, session, def) || !IsEntityValid(session?.AttachedEntity, def))
@@ -571,11 +573,12 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             if (ent.Comp.PreSelectedSessions.TryGetValue(def, out var preSelected) && preSelected.Contains(session))
                 continue;
 
-            if (HasPrimaryAntagPreference(session, def))
+            // Add player to the appropriate antag pool
+            if (ValidAntagPreference(session, def.PrefRoles))
             {
                 preferredList.Add(session);
             }
-            else if (HasFallbackAntagPreference(session, def))
+            else if (ValidAntagPreference(session, def.FallbackRoles))
             {
                 fallbackList.Add(session);
             }

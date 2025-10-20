@@ -102,7 +102,14 @@ public sealed class MagnetPickupSystem : EntitySystem
             if (comp.NextScan > currentTime)
                 continue;
 
-            comp.NextScan = currentTime + ScanDelay; // ensure the next scan is in the future- imp
+            comp.NextScan += ScanDelay;
+            Dirty(uid, comp);
+
+            if (!_inventory.TryGetContainingSlot((uid, xform, meta), out var slotDef))
+                continue;
+
+            if ((slotDef.SlotFlags & comp.SlotFlags) == 0x0)
+                continue;
 
             // No space
             if (!_storage.HasSpace((uid, storage)))
@@ -112,17 +119,6 @@ public sealed class MagnetPickupSystem : EntitySystem
             // magnet disabled
             if (!comp.MagnetEnabled)
                 continue;
-
-            // is ore bag on belt?
-            if (HasComp<ClothingComponent>(uid))
-            {
-                if (!_inventory.TryGetContainingSlot(uid, out var slotDef))
-                    continue;
-
-                if ((slotDef.SlotFlags & comp.SlotFlags) == 0x0)
-                    continue;
-            }
-            // imp add end
 
             var parentUid = xform.ParentUid;
             var playedSound = false;

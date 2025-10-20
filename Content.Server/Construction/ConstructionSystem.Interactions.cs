@@ -423,7 +423,7 @@ namespace Content.Server.Construction
                         break;
 
                     if (partAssemblyStep.Condition(uid, EntityManager))
-                        return HandleResult.True;
+                        return validation ? HandleResult.Validated : HandleResult.True;  // imp: fixing an upstream bug, was HandleResult.True
                     return HandleResult.False;
                 }
 
@@ -432,11 +432,13 @@ namespace Content.Server.Construction
                     if (ev is not EntRemovedFromContainerMessage entRemoved)
                         break;
 
-                    var toRemove = entRemoved.Entity;
+                    var container = entRemoved.Container;
+                    var removed = entRemoved.Entity;
 
-                    if (removeStep.EntityValid(toRemove, EntityManager, Factory)) // Does the removed entity have the desired tag?
-                        return HandleResult.True;
-                    return HandleResult.False;
+                    if (!removeStep.EntityValid(removed, container, EntityManager)) // Does the removed entity have the desired tag?
+                        return HandleResult.False;
+
+                    return validation ? HandleResult.Validated : HandleResult.True;
                 }
 
                 #endregion
@@ -583,6 +585,10 @@ namespace Content.Server.Construction
 
                 handled.Handled = true;
             }
+
+            // Make sure the event passes validation before enqueuing it
+            if (HandleEvent(uid, args, true, construction) != HandleResult.Validated)
+                return;
 
             // Enqueue this event so it'll be handled in the next tick.
             // This prevents some issues that could occur from entity deletion, component deletion, etc in a handler.
