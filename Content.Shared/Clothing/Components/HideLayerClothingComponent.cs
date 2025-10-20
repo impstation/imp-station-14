@@ -29,4 +29,12 @@ public sealed partial class HideLayerClothingComponent : Component
     /// </summary>
     [DataField]
     public bool HideOnToggle = false;
+
+    // imp add
+    /// <summary>
+    ///     when this is true, layers in Layers will be hidden regardless of species hidelayers defined.
+    ///     literally just exists for kaiju cloak.
+    /// </summary>
+    [DataField]
+    public bool OverrideSpeciesLayers;
 }

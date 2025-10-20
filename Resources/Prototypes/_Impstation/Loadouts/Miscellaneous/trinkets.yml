@@ -4,7 +4,7 @@
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:OverallPlaytimeRequirement
-      time: 54000 #15 hrs
+      time: 15h
       inverted: true # don't let experienced players select these
 
 - type: loadout
@@ -57,28 +57,21 @@
   storage:
     back:
     - BoxFolderHamster
-  groupBy: "bureaucracy"
+  groupBy: "folders"
 
 - type: loadout
   id: FolderMime
   storage:
     back:
     - BoxFolderMime
-  groupBy: "bureaucracy"
+  groupBy: "folders"
 
 - type: loadout
   id: FolderPun
   storage:
     back:
     - BoxFolderPun
-  groupBy: "bureaucracy"
-
-- type: loadout
-  id: Clipboard
-  storage:
-    back:
-    - BoxFolderClipboard
-  groupBy: "bureaucracy"
+  groupBy: "folders"
 
 - type: loadout
   id: HarmonicaInstrument
@@ -216,7 +209,7 @@
   storage:
     back:
     - BoxFolderBlackLoadout
-  groupBy: "bureaucracy"
+  groupBy: "folders"
 
 - type: loadout
   id: BarFlask

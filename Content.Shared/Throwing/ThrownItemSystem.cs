@@ -136,7 +136,7 @@ namespace Content.Shared.Throwing
         /// </summary>
         public void ThrowCollideInteraction(ThrownItemComponent component, EntityUid thrown, EntityUid target)
         {
-            if (HasComp<ThrownItemImmuneComponent>(target))
+            if (HasComp<ThrownItemImmuneComponent>(target)) // imp add
                 return;
 
             if (component.Thrower is not null)

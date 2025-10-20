@@ -34,7 +34,7 @@ namespace Content.Server.PowerSink
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly StationSystem _station = default!;
         [Dependency] private readonly BatterySystem _battery = default!;
-        [Dependency] private readonly AnnouncerSystem _announcer = default!;
+        [Dependency] private readonly AnnouncerSystem _announcer = default!; // ee announce
 
         public override void Initialize()
         {
@@ -128,9 +128,11 @@ namespace Content.Server.PowerSink
             if (station == null)
                 return;
 
-            _announcer.SendAnnouncement(_announcer.GetAnnouncementId("PowerSinkExplosion"),
+            _announcer.SendAnnouncement( // ee announce
+                _announcer.GetAnnouncementId("PowerSinkExplosion"),
                 _station.GetInOwningStation(station.Value), "powersink-imminent-explosion-announcement",
-                colorOverride: Color.Yellow, station: station.Value);
+                colorOverride: Color.Yellow,
+                station: station.Value);
         }
     }
 }

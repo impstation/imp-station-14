@@ -1,11 +1,11 @@
 using Content.Client.Movement.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Ghost;
-using Content.Shared._Impstation.Ghost;
 using Robust.Client.Console;
 using Robust.Client.GameObjects;
 using Robust.Client.Player;
 using Robust.Shared.Player;
+using Content.Shared._Impstation.Ghost; // imp
 
 namespace Content.Client.Ghost
 {
@@ -46,10 +46,10 @@ namespace Content.Client.Ghost
         public bool IsGhost => Player != null;
 
         public event Action<GhostComponent>? PlayerRemoved;
-        public event Action<MediumComponent>? MediumRemoved;
         public event Action<GhostComponent>? PlayerUpdated;
         public event Action<GhostComponent>? PlayerAttached;
-        public event Action<MediumComponent>? MediumAttached;
+        public event Action<MediumComponent>? MediumRemoved; // imp add
+        public event Action<MediumComponent>? MediumAttached; // imp add
         public event Action? PlayerDetached;
         public event Action<GhostWarpsResponseEvent>? GhostWarpsResponse;
         public event Action<GhostUpdateGhostRoleCountEvent>? GhostRoleCountUpdated;
@@ -72,10 +72,12 @@ namespace Content.Client.Ghost
             SubscribeLocalEvent<EyeComponent, ToggleFoVActionEvent>(OnToggleFoV);
             SubscribeLocalEvent<GhostComponent, ToggleGhostsActionEvent>(OnToggleGhosts);
 
+            // imp add start
             SubscribeLocalEvent<MediumComponent, ComponentStartup>(OnMediumStartup);
             SubscribeLocalEvent<MediumComponent, LocalPlayerAttachedEvent>(OnGhostMediumPlayerAttach);
             SubscribeLocalEvent<MediumComponent, ToggleGhostsMediumActionEvent>(OnToggleGhostsMedium);
             SubscribeLocalEvent<MediumComponent, ComponentRemove>(OnGhostMediumRemove);
+            // imp add end
         }
 
         private void OnStartup(EntityUid uid, GhostComponent component, ComponentStartup args)
@@ -84,6 +86,7 @@ namespace Content.Client.Ghost
                 _sprite.SetVisible((uid, sprite), GhostVisibility || uid == _playerManager.LocalEntity);
         }
 
+        // imp add
         private void OnMediumStartup(EntityUid uid, MediumComponent component, ComponentStartup args)
         {
             if (TryComp(uid, out SpriteComponent? sprite))
@@ -142,6 +145,7 @@ namespace Content.Client.Ghost
             args.Handled = true;
         }
 
+        // imp add
         private void OnToggleGhostsMedium(EntityUid uid, MediumComponent component, ToggleGhostsMediumActionEvent args)
         {
             if (args.Handled)
@@ -169,6 +173,7 @@ namespace Content.Client.Ghost
             PlayerRemoved?.Invoke(component);
         }
 
+        // imp add
         private void OnGhostMediumRemove(EntityUid uid, MediumComponent component, ComponentRemove args)
         {
             _actions.RemoveAction(uid, component.ToggleGhostsMediumActionEntity);
@@ -186,6 +191,7 @@ namespace Content.Client.Ghost
             PlayerAttached?.Invoke(component);
         }
 
+        // imp add
         private void OnGhostMediumPlayerAttach(EntityUid uid, MediumComponent component, LocalPlayerAttachedEvent localPlayerAttachedEvent)
         {
             GhostVisibility = true;
@@ -240,7 +246,6 @@ namespace Content.Client.Ghost
         {
             _console.RemoteExecuteCommand(null, "ghostroles");
         }
-
 
         public void ToggleGhostVisibility(bool? visibility = null)
         {

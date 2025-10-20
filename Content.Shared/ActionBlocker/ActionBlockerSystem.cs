@@ -10,10 +10,9 @@ using Content.Shared.Movement.Events;
 using Content.Shared.Speech;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee;
-using Content.Shared.Mech.EntitySystems; //imp
-using Content.Shared.Mech.Components; //imp
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
+using Content.Shared.Mech.Components; //imp
 
 namespace Content.Shared.ActionBlocker
 {
@@ -24,7 +23,6 @@ namespace Content.Shared.ActionBlocker
     public sealed class ActionBlockerSystem : EntitySystem
     {
         [Dependency] private readonly SharedContainerSystem _container = default!;
-        [Dependency] private readonly SharedMechSystem _mechSystem = default!; //imp
 
         private EntityQuery<ComplexInteractionComponent> _complexInteractionQuery;
 
