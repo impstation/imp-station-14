@@ -1803,14 +1803,17 @@
     layers:
     - map: [ "computerLayerBody" ]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: [ "computerLayerKeyboard" ]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: [ "computerLayerScreen" ]
       state: ai-fixer-empty
     - map: [ "computerLayerKeys" ]
       state: rd_key
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: Appearance
   - type: GenericVisualizer
     visuals:
