@@ -26,7 +26,6 @@ using Robust.Shared.Random;
 using Content.Server.Mind; // imp
 using Content.Server.Revenant.Components; // imp
 using Robust.Shared.Physics.Components; // imp
-using Robust.Shared.Timing; // imp
 
 namespace Content.Server.Revenant.EntitySystems;
 
@@ -51,7 +50,6 @@ public sealed partial class RevenantSystem : EntitySystem
     [Dependency] private readonly VisibilitySystem _visibility = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly MindSystem _mind = default!; // imp edit
-    [Dependency] private readonly IGameTiming _gameTiming = default!; // imp edit
     [Dependency] private readonly MetaDataSystem _meta = default!; // imp edit
 
     private static readonly EntProtoId RevenantShopId = "ActionRevenantShop";

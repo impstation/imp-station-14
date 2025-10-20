@@ -3,7 +3,6 @@ using Content.Shared.Chat;
 using Content.Shared.Mind;
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
-using Content.Shared.Heretic; // imp
 
 namespace Content.Server.Roles;
 

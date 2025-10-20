@@ -23,10 +23,10 @@ public sealed partial class VentClogRuleComponent : Component
     /// Blacklist for chemicals that should never be available from vent clog.
     /// </summary>
     [DataField]
-    public IReadOnlyList<ProtoId<ReagentPrototype>> BlacklistedVentChemicals = new ProtoId<ReagentPrototype>[]
-    {
+    public IReadOnlyList<ProtoId<ReagentPrototype>> BlacklistedVentChemicals =
+    [
         "Holium", "PhilosophersJuice"
-    };
+    ];
 
     /// <summary>
     /// Sound played when foam is being created.

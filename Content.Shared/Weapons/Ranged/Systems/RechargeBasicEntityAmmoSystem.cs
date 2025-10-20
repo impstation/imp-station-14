@@ -1,11 +1,11 @@
 using Content.Shared.Examine;
 using Content.Shared.Weapons.Ranged.Components;
-//using Robust.Shared.Audio; // imp unused
+using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
-//using Robust.Shared.Player; // imp unused
+using Robust.Shared.Player;
 using Robust.Shared.Timing;
-//using Robust.Shared.Utility; // imp unused
+using Robust.Shared.Utility;
 using Content.Shared._Impstation.Weapons.Ranged.Events; // imp
 
 namespace Content.Shared.Weapons.Ranged.Systems;

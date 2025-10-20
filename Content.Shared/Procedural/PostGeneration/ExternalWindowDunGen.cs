@@ -1,6 +1,6 @@
-//using Content.Shared.EntityTable; // imp unused
+using Content.Shared.EntityTable;
 using Content.Shared.Maps;
-//using Content.Shared.Storage; // imp unused
+using Content.Shared.Storage;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Procedural.PostGeneration;

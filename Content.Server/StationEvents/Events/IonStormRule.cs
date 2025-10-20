@@ -1,4 +1,4 @@
-// using Content.Server.Silicons.Laws; imp remove
+using Content.Server.Silicons.Laws;
 using Content.Server.StationEvents.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Silicons.Laws.Components;
@@ -13,7 +13,7 @@ namespace Content.Server.StationEvents.Events;
 
 public sealed class IonStormRule : StationEventSystem<IonStormRuleComponent>
 {
-    // [Dependency] private readonly IonStormSystem _ionStorm = default!; // imp remove
+    [Dependency] private readonly IonStormSystem _ionStorm = default!;
     [Dependency] private readonly IRobustRandom _random = default!; // imp
     [Dependency] private readonly IChatManager _chatManager = default!; // CD - Used for synth trait
 

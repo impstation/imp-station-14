@@ -45,7 +45,7 @@ public sealed partial class BoardNodeEntity : IGraphNodeEntity
         }
         // End Frontier
 
-        // There should not be a case where more than one of these components exist on the same entity...
+        // There should not be a case where more than one of these components exist on the same entity
         if (args.EntityManager.TryGetComponent(board, out MachineBoardComponent? machine))
             return machine.Prototype;
 

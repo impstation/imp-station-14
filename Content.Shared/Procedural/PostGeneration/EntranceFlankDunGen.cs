@@ -1,4 +1,4 @@
-//using Content.Shared.EntityTable; // imp unused
+using Content.Shared.EntityTable;
 using Content.Shared.Maps;
 using Robust.Shared.Prototypes;
 

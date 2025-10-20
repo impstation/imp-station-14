@@ -89,7 +89,7 @@ namespace Content.Server.Forensics
             if (TryComp<FiberComponent>(args.Target, out var fiber))
             {
                 StartScan(uid, args.User, args.Target.Value, component, string.IsNullOrEmpty(fiber.FiberColor) ? Loc.GetString("forensic-fibers", ("material", fiber.FiberMaterial)) : Loc.GetString("forensic-fibers-colored", ("color", fiber.FiberColor), ("material", fiber.FiberMaterial)));
-                return;
+                return; // imp add
             }
 
             if (_solutionContainerSystem.TryGetDrainableSolution(args.Target.Value, out _, out var solution) || // imp edit beginning

@@ -287,9 +287,9 @@ public sealed partial class StoreSystem
         if (_mind.TryGetMind(buyer, out _, out var mindComp))
         {
             //get the currency that makes up most of the listing's base cost
-                //uses base cost for consistency reasons
-                //has the side effect of not tracking things that are free
-                //not sure if I want that to happen tbh? though for now all it misses is the business cards, which don't really matter w/r/t tc spend
+            //uses base cost for consistency reasons
+            //has the side effect of not tracking things that are free
+            //not sure if I want that to happen tbh? though for now all it misses is the business cards, which don't really matter w/r/t tc spend
             ProtoId<CurrencyPrototype>? primaryCurrency = null;
             var primaryCurrencyCost = 0;
             foreach (var (currency, amount) in listing.OriginalCost)

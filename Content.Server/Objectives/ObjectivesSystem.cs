@@ -338,7 +338,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
         }
 
         var sortedAgents = agentSummaries.OrderByDescending(x => x.successRate)
-            .ThenByDescending(x => x.completedObjectives);
+                                       .ThenByDescending(x => x.completedObjectives);
 
         foreach (var (summary, _, _) in sortedAgents)
         {

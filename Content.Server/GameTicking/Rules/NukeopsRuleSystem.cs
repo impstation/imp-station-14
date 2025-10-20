@@ -30,7 +30,6 @@ using Content.Shared.Store.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared.Humanoid; //imp addition
 using Content.Shared.Mind; //imp addition
-using Content.Shared.Roles; //imp addition
 
 namespace Content.Server.GameTicking.Rules;
 

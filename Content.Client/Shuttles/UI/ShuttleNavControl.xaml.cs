@@ -293,7 +293,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         // player determine where they are relative to the shuttle.
         if (_consoleEntity != null && xformQuery.TryGetComponent(_consoleEntity, out var consoleXform))
         {
-            if ((consoleXform.ParentUid != _coordinates.Value.EntityId) && _shouldShowSelf) //imp edit - added showSelf check
+            if (consoleXform.ParentUid != _coordinates.Value.EntityId && _shouldShowSelf) //imp edit - added showSelf check
             {
                 var consolePositionWorld = _transform.GetWorldPosition((EntityUid)_consoleEntity);
                 var p = Vector2.Transform(consolePositionWorld, worldToShuttle * shuttleToView);

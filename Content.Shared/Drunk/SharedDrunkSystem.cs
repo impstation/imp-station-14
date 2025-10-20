@@ -1,4 +1,4 @@
-//using Content.Shared.Speech.EntitySystems; // imp unused
+using Content.Shared.Speech.EntitySystems;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.Traits.Assorted;
 using Robust.Shared.Prototypes;

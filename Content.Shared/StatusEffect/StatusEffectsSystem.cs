@@ -5,7 +5,7 @@ using Content.Shared.StatusEffectNew;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-//using Robust.Shared.Utility; // imp unused
+using Robust.Shared.Utility;
 
 namespace Content.Shared.StatusEffect
 {

@@ -3,7 +3,7 @@ using Content.Shared.DoAfter;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
-//using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom; // imp unused
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Content.Shared.Whitelist; // imp
 
 namespace Content.Shared.Medical;
@@ -53,42 +53,42 @@ public sealed partial class DefibrillatorComponent : Component
     /// This is synced with the audio; do not change one but not the other.
     /// </remarks>
     [DataField("doAfterDuration"), ViewVariables(VVAccess.ReadWrite)]
-    public float DoAfterDuration = 3f;
+    public float DoAfterDuration = 3f; // imp, move timespan -> float
 
     /// <summary>
     /// Defib only works on mobs with id in this list, or works for anything if this list is null #IMP
     /// </summary>
-    [DataField("whitelist"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public EntityWhitelist? Whitelist;
 
     /// <summary>
     /// Whether or not to have the defib pop up text, such as body composition, rot, intelligence, etc. #IMP
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("showMessages")]
+    [DataField]
     public bool ShowMessages = true;
 
     /// <summary>
     /// Can we skip the doafter. #IMP
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("skipDoAfter")]
+    [DataField]
     public bool SkipDoAfter = false;
 
     /// <summary>
     /// Can we ignore the toggle. #IMP
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("ignoreToggle")]
+    [DataField]
     public bool IgnoreToggle = false;
 
     /// <summary>
     /// Can we ignore the powercell. #IMP
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("ignorePowerCell")]
+    [DataField]
     public bool IgnorePowerCell = false;
 
     /// <summary>
     /// Can the defibbed entity skip the critical state and go straight to alive if they have low enough damage?. #IMP
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("allowSkipCrit")]
+    [DataField]
     public bool AllowSkipCrit = false;
 
     [DataField]

@@ -7,12 +7,12 @@ using Content.Shared.Chat;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mind;
 using Content.Shared.Preferences;
+using Content.Shared.Roles;
 using JetBrains.Annotations;
 using Robust.Shared.Audio;
 using Robust.Shared.Enums;
 using Robust.Shared.Player;
-using Content.Shared.Roles; // imp
-using Robust.Shared.Prototypes; // imp
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Antag;
 

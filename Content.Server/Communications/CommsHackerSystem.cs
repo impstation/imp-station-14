@@ -23,7 +23,7 @@ public sealed class CommsHackerSystem : SharedCommsHackerSystem
     // TODO: remove when generic check event is used
     [Dependency] private readonly NinjaGlovesSystem _gloves = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-	[Dependency] private readonly AnnouncerSystem _announcer = default!; // ee announce
+    [Dependency] private readonly AnnouncerSystem _announcer = default!; // ee announce
 
     public override void Initialize()
     {
@@ -83,7 +83,7 @@ public sealed class CommsHackerSystem : SharedCommsHackerSystem
     {
         _gameTicker.StartGameRule(ninjaHackingThreat.Rule, out _);
         _announcer.SendAnnouncement(_announcer.GetAnnouncementId("NinjaHacking"), Filter.Broadcast(), // ee announce
-		    ninjaHackingThreat.Announcement, colorOverride: Color.Red);
+            ninjaHackingThreat.Announcement, colorOverride: Color.Red);
     }
 }
 

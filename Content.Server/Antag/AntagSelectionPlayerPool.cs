@@ -23,7 +23,6 @@ public sealed class AntagSelectionPlayerPool (List<List<ICommonSession>> ordered
         return combinedLists;
     }
 
-
     public bool TryPickAndTake(IRobustRandom random, [NotNullWhen(true)] out ICommonSession? session)
     {
         session = null;

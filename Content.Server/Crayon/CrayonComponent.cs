@@ -22,9 +22,8 @@ namespace Content.Server.Crayon
         public int Capacity { get; set; } = 30;
 
         // imp infinite crayons
-        [ViewVariables(VVAccess.ReadWrite)]
-        [DataField("infinite")]
-        public bool Infinite { get; set; } = false;
+        [DataField]
+        public bool Infinite { get; set; };
 
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("deleteEmpty")]

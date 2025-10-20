@@ -106,6 +106,10 @@ public sealed class ChasingWalkSystem : VirtualController
         var delta = pos2 - pos1;
         var speed = delta.Length() > 0 ? delta.Normalized() * component.Speed : Vector2.Zero;
 
+        // imp moved this
+        /* _physics.SetLinearVelocity(uid, speed);
+        _physics.SetBodyStatus(uid, physics, BodyStatus.InAir); //If this is not done, from the explosion up close, the tesla will "Fall" to the ground, and almost stop moving. */
+
         if (component.RotateWithImpulse)
         {
             var ang = speed.ToAngle() + Angle.FromDegrees(90); // we want "Up" to be forward, bullet convention.

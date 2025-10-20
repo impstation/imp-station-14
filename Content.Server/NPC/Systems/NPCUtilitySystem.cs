@@ -365,7 +365,7 @@ public sealed class NPCUtilitySystem : EntitySystem
 
                 return 0f;
             }
-            case TargetIsCuffableCon:
+            case TargetIsCuffableCon: // imp add, animated cuffs
             {
                 if (TryComp<CuffableComponent>(targetUid, out var cuffable))
                 {

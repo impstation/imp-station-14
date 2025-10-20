@@ -49,10 +49,8 @@ public sealed class EntityHeaterSystem : SharedEntityHeaterSystem
                 // if you want a heater thermomachine just use that...
                 energy = power.PowerReceived * deltaTime; // imp remove var
             }
-
             if (TryComp<FlammableComponent>(uid, out var flammable) && !flammable.OnFire) // imp add
                 continue;
-
 
             foreach (var ent in placer.PlacedEntities)
             {

@@ -1,6 +1,6 @@
 using Content.Shared.Damage;
-//using Content.Shared.Damage.Prototypes; // imp unused
-//using Robust.Shared.Audio; // imp unused
+using Content.Shared.Damage.Prototypes;
+using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Content.Shared.Mobs; // imp

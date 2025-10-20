@@ -58,5 +58,5 @@ public sealed partial class SSDIndicatorComponent : Component
     ///     #IMP used to disable the SSD sleeping, for NPCs such as syndicate footsoldiers, etc
     /// </summary>
     [DataField, AutoNetworkedField]
-    public bool DoNotSleep = false;
+    public bool DoNotSleep;
 }

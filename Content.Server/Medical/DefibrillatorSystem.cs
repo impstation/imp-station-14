@@ -18,9 +18,9 @@ using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
-//using Content.Shared.PowerCell; // imp unused
+using Content.Shared.PowerCell;
 using Content.Shared.Timing;
-//using Content.Shared.Toggleable; // imp unused
+using Content.Shared.Toggleable;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random; // imp rdnr

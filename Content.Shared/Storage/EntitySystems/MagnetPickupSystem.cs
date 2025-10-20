@@ -4,7 +4,6 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
 // imp add start
-using Content.Shared.Clothing.Components;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.Popups;

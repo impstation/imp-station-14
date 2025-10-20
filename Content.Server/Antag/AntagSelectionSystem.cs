@@ -35,7 +35,6 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
-using Content.Server.Players.PlayTimeTracking; // imp
 using Content.Shared.NPC.Systems; // imp
 using Robust.Shared.Network; // imp
 
@@ -60,6 +59,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     [Dependency] private readonly IPrototypeManager _prototype = default!; // imp
     [Dependency] private readonly IRobustRandom _random = default!; // imp
     [Dependency] private readonly NpcFactionSystem _faction = default!; //#IMP
+    [Dependency] private readonly PlayTimeTrackingManager _tracking = default!; //imp
 
     // arbitrary random number to give late joining some mild interest.
     public const float LateJoinRandomChance = 0.5f;

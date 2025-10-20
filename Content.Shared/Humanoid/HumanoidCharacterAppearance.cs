@@ -1,10 +1,10 @@
 ﻿using System.Linq;
+using System.Numerics;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
-using System.Numerics; // imp
 using Content.Shared.Random.Helpers; // imp
 
 namespace Content.Shared.Humanoid;

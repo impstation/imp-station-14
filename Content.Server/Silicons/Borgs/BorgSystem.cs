@@ -65,7 +65,6 @@ public sealed partial class BorgSystem : SharedBorgSystem
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly GrammarSystem _grammar = default!; // imp
 
-
     public static readonly ProtoId<JobPrototype> BorgJobId = "Borg";
 
     /// <inheritdoc/>
