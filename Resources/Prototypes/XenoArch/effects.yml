@@ -16,7 +16,7 @@
       - !type:XenoArchDepthCondition # imp addition
         depths: [1, 2, 3]
     - id: XenoArtifactWandering
-      weight: 10.0 # imp edit
+      weight: 5.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
         depths: [0, 1, 2]
@@ -26,7 +26,7 @@
       - !type:XenoArchDepthCondition # imp addition
         depths: [0, 1, 2, 3]
     - id: XenoArtifactGhost
-      weight: 10.0 # imp edit
+      weight: 5.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
         depths: [0, 1, 2, 3]
