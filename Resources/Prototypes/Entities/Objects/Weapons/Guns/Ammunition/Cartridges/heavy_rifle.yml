@@ -6,10 +6,9 @@
   components:
   - type: Tag
     tags:
-      - Cartridge
       - CartridgeHeavyRifle
   - type: CartridgeAmmo
-    proto: BulletHeavyRifle
+    proto:    BulletHeavyRifle
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi #imp
     layers:

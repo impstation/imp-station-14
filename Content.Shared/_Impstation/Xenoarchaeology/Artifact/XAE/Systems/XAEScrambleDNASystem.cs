@@ -19,7 +19,7 @@ public sealed class XAEScrambleDNASystem : BaseXAESystem<XAEScrambleDNAComponent
     [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoidAppearance = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly SharedForensicsSystem _forensicsSystem = default!;
-    [Dependency] private readonly SharedIdentitySystem _identity = default!;
+    [Dependency] private readonly IdentitySystem _identity = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
     private readonly HashSet<EntityUid> _entitiesInRange = new();

@@ -1,7 +1,7 @@
 using Content.Shared.Guidebook;
-using Content.Shared.Players.PlayTimeTracking; // imp
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Content.Shared.Players.PlayTimeTracking; // imp
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype; // imp. iirc this is outdated but i dont care
 
 namespace Content.Shared.Roles;
@@ -12,6 +12,12 @@ namespace Content.Shared.Roles;
 [Prototype]
 public sealed partial class AntagPrototype : IPrototype
 {
+    // The name to group all antagonists under. Equivalent to DepartmentPrototype IDs.
+    public static readonly string GroupName = "Antagonist";
+
+    // The colour to group all antagonists using. Equivalent to DepartmentPrototype Color fields.
+    public static readonly Color GroupColor = Color.Red;
+
     // Imp edit start
     [DataField("playTimeTracker", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<PlayTimeTrackerPrototype>))]
     public string PlayTimeTracker { get; private set; } = string.Empty;
@@ -54,8 +60,6 @@ public sealed partial class AntagPrototype : IPrototype
     /// <summary>
     ///     Requirements that must be met to opt in to this antag role.
     /// </summary>
-    // TODO ROLE TIMERS
-    // Actually check if the requirements are met. Because apparently this is actually unused.
     [DataField, Access(typeof(SharedRoleSystem), Other = AccessPermissions.None)]
     public HashSet<JobRequirement>? Requirements;
 

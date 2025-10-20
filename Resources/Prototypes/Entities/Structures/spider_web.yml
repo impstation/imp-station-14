@@ -82,6 +82,26 @@
           MaterialWebSilk:
             min: 0
             max: 1
+#imp edit begins
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: FlavorProfile
+    flavors:
+      - cobwebs
+    ignoreReagents:
+      - Protein
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 3
+        reagents:
+        - ReagentId: Protein
+          Quantity: 3
+  - type: Tag
+    tags:
+    - ClothMade
+    - SpiderFood
+#imp edit ends
   - type: SpeedModifierContacts
     walkSpeedModifier: 0.5
     sprintSpeedModifier: 0.5

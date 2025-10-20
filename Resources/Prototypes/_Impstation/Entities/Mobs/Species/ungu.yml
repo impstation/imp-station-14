@@ -26,11 +26,11 @@
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
     - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
     - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
-    - map: [ "jumpsuit" ]
     - map: [ "enum.HumanoidVisualLayers.LFoot" ]
     - map: [ "enum.HumanoidVisualLayers.RFoot" ]
     - map: [ "enum.HumanoidVisualLayers.LHand" ]
     - map: [ "enum.HumanoidVisualLayers.RHand" ]
+    - map: [ "jumpsuit" ]
     - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
       color: "#ffffff"
       sprite: Objects/Misc/handcuffs.rsi
@@ -76,12 +76,12 @@
     animation: WeaponArcPunch
     damage:
       types:
-        Blunt: 12
+        Blunt: 8
         Structural: 12
   - type: DamageOtherOnHit
     damage:
       types:
-        Blunt: 15
+        Blunt: 12
         Structural: 20
   - type: MobThresholds
     thresholds:
@@ -89,7 +89,7 @@
       150: Critical
       250: Dead
   - type: StaminaDamageOnHit
-    damage: 20
+    damage: 18
   - type: Hunger
     thresholds:
       Overfed: 150
@@ -99,7 +99,7 @@
       Dead: 0
     baseDecayRate: 0.0124 # 3/4 as fast as a human
   - type: GoobAbsorbable
-    biomassRestored: 0.8
+    biomassRestored: 0.8 # im so full of ungu yum
   - type: Thirst
   - type: Icon
     sprite: _Impstation/Mobs/Species/Ungu/parts.rsi
@@ -161,6 +161,7 @@
         color: "#ff624a"
   - type: Speech
     speechSounds: Ungu
+    allowedEmotes: ['Moo']
   - type: TypingIndicator
     proto: Ungu
   - type: HumanoidAppearance
@@ -326,6 +327,8 @@
     noRot: true
     drawdepth: Mobs
     layers:
+    - map: ["enum.DamageStateVisualLayers.Base"] # this makes the combat visual work
+      state: null
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
     - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
@@ -336,11 +339,11 @@
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
     - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
     - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
-    - map: [ "jumpsuit" ]
     - map: [ "enum.HumanoidVisualLayers.LFoot" ]
     - map: [ "enum.HumanoidVisualLayers.RFoot" ]
     - map: [ "enum.HumanoidVisualLayers.LHand" ]
     - map: [ "enum.HumanoidVisualLayers.RHand" ]
+    - map: [ "jumpsuit" ]
     - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
       color: "#ffffff"
       sprite: Objects/Misc/handcuffs.rsi
@@ -363,5 +366,3 @@
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "mask" ]
     - map: [ "head" ]
-    - map: [ "pocket1" ]
-    - map: [ "pocket2" ]

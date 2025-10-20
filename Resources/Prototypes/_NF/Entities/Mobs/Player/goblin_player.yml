@@ -54,7 +54,7 @@
     attributes:
       proper: true
       gender: male
-  - type: CanRummage
+  - type: Rummager
     rummageLoot: !type:NestedSelector
       tableId: GoblinKnightLoot
   - type: RandomHumanoidAppearance
