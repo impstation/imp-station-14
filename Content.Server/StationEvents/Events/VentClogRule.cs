@@ -53,7 +53,7 @@ public sealed class VentClogRule : StationEventSystem<VentClogRuleComponent>
         // Imp edit, 'Safe random' for chems, excludes chems in the blacklist defined in the component
         allReagents.RemoveAll(r => component.BlacklistedVentChemicals.Any(a => a == r));
 
-        foreach (var (_, transform) in EntityManager.EntityQuery<GasVentPumpComponent, TransformComponent>()) // imp entman
+        foreach (var (_, transform) in EntityQuery<GasVentPumpComponent, TransformComponent>())
         {
             if (CompOrNull<StationMemberComponent>(transform.GridUid)?.Station != chosenStation)
             {
