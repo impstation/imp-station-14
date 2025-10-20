@@ -6,7 +6,7 @@ using Robust.Shared.Serialization;
 namespace Content.Server._Impstation.Colonid.Components;
 
 /// <summary>
-///     This component ligts an entity on fire if it is not wearing clothing with the suitEVA or airtight tags (airtight was made specifically for this component)
+///     This component ligts an entity on fire if it is not wearing clothing with the suitEVA or sealedClothing tags (sealedClothing was made specifically for this component)
 ///     AND the entity is in an atmosphere containing the specified gas.
 /// </summary>
 [RegisterComponent, Access(typeof(IgniteFromGasSystem))]
