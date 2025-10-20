@@ -4,7 +4,4 @@ namespace Content.Server.Speech.Components;
 ///     Scraw!!
 /// </summary>
 [RegisterComponent]
-public sealed partial class AllulaloAccentComponent : Component
-{
-
-}
+public sealed partial class AllulaloAccentComponent : Component { }

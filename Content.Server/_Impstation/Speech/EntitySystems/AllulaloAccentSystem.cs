@@ -2,7 +2,7 @@ using System.Text.RegularExpressions;
 using Content.Server.Speech.Components;
 using Content.Shared.Speech;
 
-namespace Content.Server.Speech.EntitySystems;
+namespace Content.Server._Impstation.Speech.EntitySystems;
 
 public sealed class AllulaloAccentSystem : EntitySystem
 {
@@ -16,6 +16,7 @@ public sealed class AllulaloAccentSystem : EntitySystem
     private static readonly Regex RegexUpperdoubleCKT = new Regex("CT{1,3}");
     private static readonly Regex RegexCasedoubleCKT = new Regex("Ct{1,3}");
     private static readonly Regex RegexCameldoubleCKT = new Regex("cT{1,3}");
+
     public override void Initialize()
     {
         base.Initialize();
@@ -30,21 +31,21 @@ public sealed class AllulaloAccentSystem : EntitySystem
         message = RegexLowerslurR.Replace(message, "rr");
         // Sorry to the snalienaccentsystem fans
         message = RegexUpperslurR.Replace(message, "RR");
-        // 
+        //
         message = RegexLowerdoubleCK.Replace(message, "ck-ck");
-        // 
+        //
         message = RegexUpperdoubleCK.Replace(message, "CK-CK");
         //
         message = RegexCasedoubleCK.Replace(message, "Ck-ck");
-        // 
+        //
         message = RegexCameldoubleCK.Replace(message, "cK-CK");
         //
         message = RegexLowerdoubleCKT.Replace(message, "ck-ct");
-        // 
+        //
         message = RegexUpperdoubleCKT.Replace(message, "CK-CT");
         //
         message = RegexCasedoubleCKT.Replace(message, "Ck-ct");
-        // 
+        //
         message = RegexCameldoubleCKT.Replace(message, "cK-CT");
         args.Message = message;
     }
