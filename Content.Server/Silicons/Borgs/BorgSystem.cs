@@ -4,7 +4,6 @@ using Content.Server.Actions;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.DeviceNetwork.Systems;
-using Content.Server.Ghost.Roles.Components; // imp; for the GhostRole check
 using Content.Server.Hands.Systems;
 using Content.Server.PowerCell;
 using Content.Shared.Alert;
@@ -31,12 +30,12 @@ using Content.Shared.Wires;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
-using Robust.Shared.GameObjects.Components.Localization; // imp; for Grammar
-using Robust.Shared.Enums; // imp; for Gender
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Robust.Shared.Enums; // imp; for Gender
+using Robust.Shared.GameObjects.Components.Localization; // imp; for Grammar
 
 namespace Content.Server.Silicons.Borgs;
 
@@ -65,7 +64,6 @@ public sealed partial class BorgSystem : SharedBorgSystem
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly GrammarSystem _grammar = default!; // imp
-
 
     public static readonly ProtoId<JobPrototype> BorgJobId = "Borg";
 
@@ -310,8 +308,8 @@ public sealed partial class BorgSystem : SharedBorgSystem
     {
         if (!_powerCell.TryGetBatteryFromSlot(ent, out var battery, slotComponent))
         {
-            _alerts.ClearAlert(ent, ent.Comp.BatteryAlert);
-            _alerts.ShowAlert(ent, ent.Comp.NoBatteryAlert);
+            _alerts.ClearAlert(ent.Owner, ent.Comp.BatteryAlert);
+            _alerts.ShowAlert(ent.Owner, ent.Comp.NoBatteryAlert);
             return;
         }
 
@@ -324,8 +322,8 @@ public sealed partial class BorgSystem : SharedBorgSystem
             chargePercent = 1;
         }
 
-        _alerts.ClearAlert(ent, ent.Comp.NoBatteryAlert);
-        _alerts.ShowAlert(ent, ent.Comp.BatteryAlert, chargePercent);
+        _alerts.ClearAlert(ent.Owner, ent.Comp.NoBatteryAlert);
+        _alerts.ShowAlert(ent.Owner, ent.Comp.BatteryAlert, chargePercent);
     }
 
     public bool TryEjectPowerCell(EntityUid uid, BorgChassisComponent component, [NotNullWhen(true)] out List<EntityUid>? ents)
@@ -335,7 +333,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
         if (!TryComp<PowerCellSlotComponent>(uid, out var slotComp) ||
             !Container.TryGetContainer(uid, slotComp.CellSlotId, out var container) ||
             !container.ContainedEntities.Any())
-                return false;
+            return false;
 
         ents = Container.EmptyContainer(container);
 

@@ -55,7 +55,7 @@ public sealed class CluwneSystem : EntitySystem
             RemComp<CluwneComponent>(uid);
             RemComp<ClumsyComponent>(uid);
             RemComp<AutoEmoteComponent>(uid);
-            var damageSpec = new DamageSpecifier(_prototypeManager.Index(GeneticDamageGroup), component.GeneticDamageOnDeath); // IMP
+            var damageSpec = new DamageSpecifier(_prototypeManager.Index(GeneticDamageGroup), component.GeneticDamageOnDeath); // IMP 300 -> geneticdamageondeath
             _damageableSystem.TryChangeDamage(uid, damageSpec);
         }
     }

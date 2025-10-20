@@ -32,10 +32,10 @@ public sealed partial class XenoArchTriggerPrototype : IPrototype
     public ComponentRegistry Components = new();
 
     /// <summary>
-    /// Imp edit. The depths at which a trigger can be selected.
+    ///     Imp edit. The depths at which a trigger can be selected.
     /// </summary>
     [DataField]
-    public List<int> TargetDepths = new();
+    public List<int> TargetDepths = [];
 }
 
 /// <summary>
