@@ -56,6 +56,7 @@
                     <Label Name="PersonName"
                            Margin="0 0 0 5"
                            StyleClasses="LabelBig" />
+                    <!-- Imp pronouns -->
                     <BoxContainer Orientation="Horizontal"
                                   Margin="0 0 0 5">
                         <Label Text="{Loc 'crew-monitoring-user-interface-gender'}"
@@ -65,10 +66,12 @@
                                 FontColorOverride="DarkGray" />
                         <Label Name="PersonGender" />
                     </BoxContainer>
+                    <!-- end imp -->
                     <BoxContainer Orientation="Horizontal"
                                   Margin="0 0 0 5">
                         <Label Text="{Loc 'crew-monitoring-user-interface-job'}"
                                FontColorOverride="DarkGray" />
+                        <!-- imp add ":" -->
                         <Label Text=":"
                                FontColorOverride="DarkGray" />
                         <TextureRect Name="PersonJobIcon"

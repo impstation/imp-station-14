@@ -1,13 +1,13 @@
-using Content.Client.Administration.Managers; // imp
-using Content.Shared.Ghost; // imp
 using Content.Client.Interactable.Components;
-using Content.Client.StatusIcon;
+//using Content.Client.StatusIcon; // imp unused using
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
-using Robust.Client.Player; // imp
 using Robust.Shared.Prototypes;
+using Content.Client.Administration.Managers; // imp
+using Content.Shared.Ghost; // imp
+using Robust.Client.Player; // imp
 
 namespace Content.Client.Stealth;
 
@@ -25,7 +25,6 @@ public sealed class StealthSystem : SharedStealthSystem
     private ShaderInstance _shader = default!;
     // imp edit start
     private ShaderInstance _altShader = default!;
-    private float timer = 0;
     // imp edit end
 
     public override void Initialize()
@@ -39,8 +38,6 @@ public sealed class StealthSystem : SharedStealthSystem
         SubscribeLocalEvent<StealthComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<StealthComponent, BeforePostShaderRenderEvent>(OnShaderRender);
     }
-
-    //no longer needs a force update! yaaaaay!
 
     public override void SetEnabled(EntityUid uid, bool value, StealthComponent? component = null)
     {

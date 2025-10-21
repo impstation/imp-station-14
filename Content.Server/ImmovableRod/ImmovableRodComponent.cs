@@ -1,11 +1,10 @@
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
-using Robust.Shared.Serialization.TypeSerializers.Implementations;
 
 namespace Content.Server.ImmovableRod;
 
 [RegisterComponent]
-[AutoGenerateComponentPause]
+[AutoGenerateComponentPause] // imp add
 public sealed partial class ImmovableRodComponent : Component
 {
     public int MobCount = 0;
@@ -52,6 +51,7 @@ public sealed partial class ImmovableRodComponent : Component
     [DataField]
     public DamageSpecifier? Damage;
 
+    // imp add start
     /// <summary>
     ///     The string used when the rod gibs a mob.
     /// </summary>
@@ -65,4 +65,5 @@ public sealed partial class ImmovableRodComponent : Component
 
     [AutoPausedField]
     public TimeSpan NextEviscerationPopup = new();
+    // imp add end
 }
