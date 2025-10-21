@@ -222,7 +222,9 @@ public abstract class SharedStrippableSystem : EntitySystem
             BreakOnDamage = true,
             BreakOnMove = true,
             NeedHand = true,
-            DuplicateCondition = stealth ? DuplicateConditions.None : DuplicateConditions.SameTool // block duplicates if using the thieving gloves : don't if not
+            DuplicateCondition = stealth // imp add stealth
+                ? DuplicateConditions.None // imp operator: add none if null
+                : DuplicateConditions.SameTool
         };
 
         _doAfterSystem.TryStartDoAfter(doAfterArgs);
@@ -326,7 +328,9 @@ public abstract class SharedStrippableSystem : EntitySystem
             BreakOnMove = true,
             NeedHand = true,
             BreakOnHandChange = false, // Allow simultaneously removing multiple items.
-            DuplicateCondition = stealth ? DuplicateConditions.None : DuplicateConditions.SameTool // block duplicates if using the thieving gloves : don't if not
+            DuplicateCondition = stealth // imp add stealth
+                ? DuplicateConditions.None // imp operator: add none if null
+                : DuplicateConditions.SameTool
         };
 
         _doAfterSystem.TryStartDoAfter(doAfterArgs);
@@ -379,7 +383,7 @@ public abstract class SharedStrippableSystem : EntitySystem
             return false;
         }
 
-        if (!_handsSystem.CanPickupToHand(target, activeItem.Value, handName, checkActionBlocker: false, target.Comp))
+        if (!_handsSystem.CanPickupToHand(target, activeItem.Value, handName, checkActionBlocker: false, handsComp: target.Comp))
         {
             _popupSystem.PopupCursor(Loc.GetString("strippable-component-cannot-put-message", ("owner", Identity.Entity(target, EntityManager))));
             return false;
@@ -429,7 +433,9 @@ public abstract class SharedStrippableSystem : EntitySystem
             BreakOnDamage = true,
             BreakOnMove = true,
             NeedHand = true,
-            DuplicateCondition = stealth ? DuplicateConditions.None : DuplicateConditions.SameTool // block duplicates if using the thieving gloves : don't if not
+            DuplicateCondition = stealth // imp add stealth
+                ? DuplicateConditions.None // imp operator: add none if null
+                : DuplicateConditions.SameTool
         };
 
         _doAfterSystem.TryStartDoAfter(doAfterArgs);
@@ -540,7 +546,9 @@ public abstract class SharedStrippableSystem : EntitySystem
             BreakOnMove = true,
             NeedHand = true,
             BreakOnHandChange = false, // Allow simultaneously removing multiple items.
-            DuplicateCondition = stealth ? DuplicateConditions.None : DuplicateConditions.SameTool // block duplicates if using the thieving gloves : don't if not
+            DuplicateCondition = stealth // imp add stealth
+                ? DuplicateConditions.None // imp operator: add none if null
+                : DuplicateConditions.SameTool
         };
 
         _doAfterSystem.TryStartDoAfter(doAfterArgs);

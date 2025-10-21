@@ -1,0 +1,24 @@
+﻿- type: entity
+  parent: [BaseReticulatedXenoArtifact, BaseXenoArtifactStructure]
+  id: ReticulatedXenoArtifactStructure
+  components:
+  - type: XenoArtifact
+    effectsTable: !type:GroupSelector
+      children:
+      - !type:NestedSelector
+        tableId: XenoArtifactEffectsDefaultTable
+        weight: 54
+
+- type: entity
+  parent: [BaseNaturalXenoArtifact, BaseXenoArtifactStructure]
+  id: NaturalXenoArtifactStructure
+  components:
+  - type: XenoArtifact
+    effectsTable: !type:GroupSelector
+      children:
+      - !type:NestedSelector
+        tableId: XenoArtifactEffectsDefaultTable
+        weight: 54
+      - !type:NestedSelector
+        tableId: XenoArtifactEffectsNaturalOnlyTable
+        weight: 4

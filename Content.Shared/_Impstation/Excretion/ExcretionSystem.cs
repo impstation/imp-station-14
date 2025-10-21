@@ -58,7 +58,7 @@ public abstract partial class SharedExcretionSystem : EntitySystem
     private void OnExcretionStart(EntityUid uid, ExcretionComponent comp, ExcretionActionEvent args)
     {
         if (TryComp<ThirstComponent>(uid, out var thirstComp)
-        && _thirstSystem.IsThirstBelowState(uid, comp.MinThirstThreshold, thirstComp.CurrentThirst - comp.ThirstCost, thirstComp))
+        && _thirstSystem.IsThirstBelowState((uid, thirstComp), comp.MinThirstThreshold, thirstComp.CurrentThirst))
         {
             _popupSystem.PopupClient(Loc.GetString(comp.PopupText), uid, uid);
             return;
@@ -83,7 +83,7 @@ public abstract partial class SharedExcretionSystem : EntitySystem
 
         if (TryComp<ThirstComponent>(uid, out var thirstComp))
         {
-            if (_thirstSystem.IsThirstBelowState(uid, comp.MinThirstThreshold, thirstComp.CurrentThirst - comp.ThirstCost, thirstComp))
+            if (_thirstSystem.IsThirstBelowState((uid, thirstComp), comp.MinThirstThreshold, thirstComp.CurrentThirst))
             {
                 _popupSystem.PopupClient(Loc.GetString(comp.PopupText), uid, uid);
                 return;

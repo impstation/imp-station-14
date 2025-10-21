@@ -21,6 +21,7 @@ public struct BeforeThrowEvent
     public bool Cancelled = false;
 }
 
+// imp add
 [ByRefEvent]
 public struct BeforeGettingThrownEvent
 {

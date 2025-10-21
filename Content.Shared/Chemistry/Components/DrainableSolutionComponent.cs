@@ -14,4 +14,12 @@ public sealed partial class DrainableSolutionComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public string Solution = "default";
+
+    // imp add, load bearing milk thaven plush
+    /// <summary>
+    ///     if true will always drain from the provided solution.
+    ///     otherwise ediblecomponent's solution will be used.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public bool OverrideEdibleSolution;
 }

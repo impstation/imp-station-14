@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/59f2a4e10e5ba36033c9734ddebfbbdc6157472d, pda-cluwne made by brainfood1183 (github) ss14 | pda-brigmedic and pda-centcom made by PuroSlavKing (Github) | pda-brigemdic resprited by Hülle#2562 (Discord), pda-pirate made by brainfood1183 (Github), pda-syndi-agent drawn by Ubaser, Deathsquad, CBURN pda by RosySaturniidae (git), adminassistant by mqole, hd by DinnerCalzone(github), pda-wizard recolour by Velken",
+  "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/59f2a4e10e5ba36033c9734ddebfbbdc6157472d, pda-cluwne made by brainfood1183 (github) ss14 | pda-brigmedic and pda-centcom made by PuroSlavKing (Github) | pda-brigemdic resprited by Hülle#2562 (Discord), pda-pirate made by brainfood1183 (Github), pda-syndi-agent drawn by Ubaser, pda-wizard recolour by Velken, pda-syndi-commander/operative by Archee1 (Github), Deathsquad, CBURN pda by RosySaturniidae (git), adminassistant by mqole, hd by DinnerCalzone(github).",
   "size": {
     "x": 32,
     "y": 32
@@ -38,16 +38,13 @@
       "name": "pda"
     },
     {
+      "name": "pda-admin-assistant"
+    },
+    {
       "name": "pda-atmos"
     },
     {
-      "name": "pda-senioratmos"
-    },
-    {
       "name": "pda-bartender"
-    },
-    {
-      "name": "pda-seniorbartender"
     },
     {
       "name": "pda-boxer"
@@ -59,7 +56,7 @@
       "name": "pda-cargo"
     },
     {
-      "name": "pda-seniorcargo"
+      "name": "pda-cburn"
     },
     {
       "name": "pda-ce"
@@ -69,9 +66,6 @@
     },
     {
       "name": "pda-chemistry"
-    },
-    {
-      "name": "pda-seniorchemistry"
     },
     {
       "name": "pda-clear"
@@ -86,19 +80,19 @@
       "name": "pda-cook"
     },
     {
-      "name": "pda-seniorcook"
+      "name": "pda-deathsquadron"
     },
     {
       "name": "pda-detective"
-    },
-    {
-      "name": "pda-seniordetective"
     },
     {
       "name": "pda-engineer"
     },
     {
       "name": "pda-genetics"
+    },
+    {
+      "name": "pda-hd"
     },
     {
       "name": "pda-hop"
@@ -108,9 +102,6 @@
     },
     {
       "name": "pda-hydro"
-    },
-    {
-      "name": "pda-seniorhydro"
     },
     {
       "name": "pda-janitor"
@@ -136,16 +127,10 @@
       "name": "pda-paramedic"
     },
     {
-      "name": "pda-seniorparamedic"
-    },
-    {
       "name": "pda-mime"
     },
     {
       "name": "pda-miner"
-    },
-    {
-      "name": "pda-seniorminer"
     },
     {
       "name": "pda-pirate"
@@ -198,7 +183,13 @@
       "name": "pda-syndi"
     },
     {
-      "name": "pda-syndi-agent"
+      "name": "pda-syndi-corpsman"
+    },
+    {
+      "name": "pda-syndi-commander"
+    },
+    {
+      "name": "pda-syndi-operative"
     },
     {
       "name": "pda-centcom",
@@ -216,9 +207,6 @@
     },
     {
       "name": "pda-warden"
-    },
-    {
-      "name": "pda-seniorwarden"
     },
     {
       "name": "pda-musician"
@@ -251,16 +239,60 @@
       "name": "pda-cluwne"
     },
     {
+      "name": "pda-senioratmos"
+    },
+    {
+      "name": "pda-seniorbartender"
+    },
+    {
+      "name": "pda-seniorcargo"
+    },
+    {
+      "name": "pda-seniorchemistry"
+    },
+    {
+      "name": "pda-seniorcook"
+    },
+    {
+      "name": "pda-seniordetective"
+    },
+    {
       "name": "pda-seniorengineer"
     },
     {
+      "name": "pda-seniorhydro"
+    },
+    {
       "name": "pda-seniorresearcher"
+    },
+    {
+      "name": "pda-seniorlawyer",
+      "delays": [
+          [
+              1.2,
+              1.2,
+              1.2,
+              1.2
+          ]
+      ]
+    },
+    {
+      "name": "pda-seniorminer"
+    },
+    {
+      "name": "pda-seniorparamedic"
     },
     {
       "name": "pda-seniorphysician"
     },
     {
       "name": "pda-seniorofficer"
+    },
+    {
+      "name": "pda-seniorcourier"
+    },
+    {
+      "name": "pda-seniorwarden"
     },
 	{
       "name": "pda-wizard",
@@ -274,31 +306,8 @@
       ]
     },
     {
-      "name": "pda-deathsquadron"
-    },
-    {
-      "name": "pda-cburn"
-    },
-    {
-        "name": "pda-admin-assistant"
-    },
-    {
-        "name": "pda-hd"
-    },
-    {
       "name": "equipped-IDCARD",
       "directions": 4
-    },
-    {
-      "name": "pda-seniorlawyer",
-      "delays": [
-        [
-          1.2,
-          1.2,
-          1.2,
-          1.2
-        ]
-      ]
     }
   ]
 }

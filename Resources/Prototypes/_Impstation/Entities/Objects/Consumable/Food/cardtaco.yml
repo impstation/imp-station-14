@@ -4,7 +4,7 @@
   id: FoodTacoCardboard
   description: A folded piece of cardboard made to resemble a taco shell. Enjoyed by Moths.
   components:
-  - type: Food
+  - type: Edible
     transferAmount: 3
     requiresSpecialDigestion: true
   - type: Sprite
@@ -37,4 +37,3 @@
   - type: Construction
     graph: CardTaco
     node: cardtaco
-    
