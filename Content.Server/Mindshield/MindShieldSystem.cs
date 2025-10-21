@@ -2,13 +2,13 @@ using Content.Server.Administration.Logs;
 using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Server.Roles;
-using Content.Shared._Goobstation.Changeling; //imp
 using Content.Shared.Database;
 using Content.Shared.Implants;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Revolutionary.Components;
 using Content.Shared.Roles.Components;
 using Robust.Shared.Containers;
+using Content.Shared._Goobstation.Changeling; //imp
 
 namespace Content.Server.Mindshield;
 
@@ -41,7 +41,7 @@ public sealed class MindShieldSystem : EntitySystem
     }
 
     /// <summary>
-    /// Checks if the implanted person was a Rev or Head Rev and remove role or destroy mindshield respectively. Also removes fake Changeling mindshields.
+    /// Checks if the implanted person was a Rev or Head Rev and remove role or destroy mindshield respectively. IMP- Also removes fake Changeling mindshields.
     /// </summary>
     private void MindShieldRemovalCheck(EntityUid implanted, EntityUid implant)
     {

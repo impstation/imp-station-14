@@ -35,8 +35,8 @@ using Robust.Shared.Toolshed;
 using Robust.Shared.Utility;
 using System.Linq;
 using static Content.Shared.Configurable.ConfigurationComponent;
-using Content.Shared._Impstation.Thaven.Components;
-using Content.Server._Impstation.Thaven;
+using Content.Shared._Impstation.Thaven.Components; // imp
+using Content.Server._Impstation.Thaven; // imp
 
 namespace Content.Server.Administration.Systems
 {
@@ -67,7 +67,7 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly AdminFrozenSystem _freeze = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly SiliconLawSystem _siliconLawSystem = default!;
-        [Dependency] private readonly ThavenMoodsSystem _moods = default!;
+        [Dependency] private readonly ThavenMoodsSystem _moods = default!; // imp
 
         private readonly Dictionary<ICommonSession, List<EditSolutionsEui>> _openSolutionUis = new();
 

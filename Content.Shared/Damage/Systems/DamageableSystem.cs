@@ -405,7 +405,7 @@ namespace Content.Shared.Damage
 
         public bool IsVirtual; //#IMP For when you want to see what damage could be dealt, without actually dealing it
 
-        public DamageModifyEvent(DamageSpecifier damage, EntityUid? origin = null, bool isVirtual = false)
+        public DamageModifyEvent(DamageSpecifier damage, EntityUid? origin = null, bool isVirtual = false) // imp isvirtual
         {
             OriginalDamage = damage;
             Damage = damage;

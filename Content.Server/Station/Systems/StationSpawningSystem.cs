@@ -43,7 +43,6 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
     [Dependency] private readonly PdaSystem _pdaSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly MindSystem _mindSystem = default!;
-
     [Dependency] private readonly GrammarSystem _grammar = default!; // imp
 
     /// <summary>
@@ -123,18 +122,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             }
             if (prototype?.ID == "StationAi" && profile != null && TryComp<GrammarComponent>(jobEntity, out var grammar)) //station AI get pronouns
                 _grammar.SetGender((jobEntity, grammar), profile.Gender);
-            /*//START IMP EDIT: let silicon have detail text and pronouns
-            if (profile != null)
-            {
-                if (!string.IsNullOrEmpty(profile.FlavorText) && _configurationManager.GetCVar(CCVars.FlavorText))
-                    AddComp<DetailExaminableComponent>(jobEntity).Content = profile.FlavorText;
-                if (TryComp<GrammarComponent>(jobEntity, out var grammar))
-                {
-                    _grammar.SetProperNoun((jobEntity, grammar), true); //it's a person now, not just a chassis labeled with a funny name
-                    _grammar.SetGender((jobEntity, grammar), profile.Gender);
-                }
-            }
-            //END IMP EDIT*/ // imp: commented out per mod feedback
+
             DoJobSpecials(job, jobEntity);
             _identity.QueueIdentityUpdate(jobEntity);
             return jobEntity;

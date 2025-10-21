@@ -3,7 +3,6 @@ using Content.Client.GameTicking.Managers;
 using Content.Client.LateJoin;
 using Content.Client.Lobby.UI;
 using Content.Client.Message;
-using Content.Client._Impstation.ReadyManifest; //imp
 using Content.Client.Playtime;
 using Content.Client.UserInterface.Systems.Chat;
 using Content.Client.Voting;
@@ -15,6 +14,7 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
+using Content.Client._Impstation.ReadyManifest; // imp
 
 namespace Content.Client.Lobby
 {
@@ -70,9 +70,9 @@ namespace Content.Client.Lobby
             UpdateLobbyUi();
 
             Lobby.CharacterPreview.CharacterSetupButton.OnPressed += OnSetupPressed;
-            Lobby.ManifestButton.OnPressed += OnManifestPressed; //imp
             Lobby.ReadyButton.OnPressed += OnReadyPressed;
             Lobby.ReadyButton.OnToggled += OnReadyToggled;
+            Lobby.ManifestButton.OnPressed += OnManifestPressed; // imp
 
             _gameTicker.InfoBlobUpdated += UpdateLobbyUi;
             _gameTicker.LobbyStatusUpdated += LobbyStatusUpdated;
@@ -91,9 +91,9 @@ namespace Content.Client.Lobby
             _voteManager.ClearPopupContainer();
 
             Lobby!.CharacterPreview.CharacterSetupButton.OnPressed -= OnSetupPressed;
-            Lobby!.ManifestButton.OnPressed -= OnManifestPressed; //imp
             Lobby!.ReadyButton.OnPressed -= OnReadyPressed;
             Lobby!.ReadyButton.OnToggled -= OnReadyToggled;
+            Lobby!.ManifestButton.OnPressed -= OnManifestPressed; // imp
 
             Lobby = null;
         }
@@ -202,8 +202,8 @@ namespace Content.Client.Lobby
                 Lobby!.ReadyButton.Text = Loc.GetString(Lobby!.ReadyButton.Pressed ? "lobby-state-player-status-ready": "lobby-state-player-status-not-ready");
                 Lobby!.ReadyButton.ToggleMode = true;
                 Lobby!.ReadyButton.Disabled = false;
-                Lobby!.ManifestButton.Disabled = false; //imp
                 Lobby!.ObserveButton.Disabled = true;
+                Lobby!.ManifestButton.Disabled = false; // imp
             }
 
             if (_gameTicker.ServerInfoBlob != null)
@@ -272,9 +272,9 @@ namespace Content.Client.Lobby
 
         private void UpdateLobbyBackground()
         {
+            // imp edit begin
             if (_gameTicker.LobbyBackgroundImage is { } image)
             {
-                // imp edit
                 Lobby!.Background.Texture = _resourceCache.GetResource<TextureResource>(image);
 
                 var name = string.IsNullOrEmpty(_gameTicker.LobbyBackgroundName)
@@ -292,8 +292,9 @@ namespace Content.Client.Lobby
             else
             {
                 Lobby!.Background.Texture = null;
-                Lobby!.LobbyBackground.SetMarkup(Loc.GetString("lobby-state-background-no-background-text")); // imp edit
+                Lobby!.LobbyBackground.SetMarkup(Loc.GetString("lobby-state-background-no-background-text"));
             }
+            // imp edit end
 
         }
 

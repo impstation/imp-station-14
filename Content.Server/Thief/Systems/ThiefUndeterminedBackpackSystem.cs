@@ -6,9 +6,6 @@ using Content.Shared.Thief;
 using Robust.Server.GameObjects;
 using Robust.Server.Audio;
 using Robust.Shared.Prototypes;
-using Content.Shared.Hands.EntitySystems;
-using Robust.Shared.Containers;
-using System.Linq;
 
 namespace Content.Server.Thief.Systems;
 
@@ -43,7 +40,6 @@ public sealed class ThiefUndeterminedBackpackSystem : EntitySystem
     {
         if (backpack.Comp.SelectedSets.Count != backpack.Comp.MaxSelectedSets)
             return;
-
 
         EntityUid? spawnedStorage = null;
         if (backpack.Comp.SpawnedStoragePrototype != null)

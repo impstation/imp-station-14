@@ -22,10 +22,10 @@ public sealed partial class GasMinerComponent : Component
     [DataField]
     public float MaxExternalAmount = float.PositiveInfinity;
 
+    // imp add
     /// <summary>
     ///      ADMEME ONLY: If the miner can mine while unanchored
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
     public bool MineWhileUnanchored = false;
 

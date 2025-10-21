@@ -191,7 +191,7 @@ namespace Content.Client.Stylesheets
         public const string StyleClassPinButtonPinned = "pinButtonPinned";
         public const string StyleClassPinButtonUnpinned = "pinButtonUnpinned";
 
-        //Manifest
+        // imp Manifest
         public const string StyleClassCrewManifestGender = "CrewManifestGender";
 
 
@@ -1449,7 +1449,7 @@ namespace Content.Client.Stylesheets
                     .Prop("font", notoSansItalic10)
                     .Prop("font-color", ItemStatusNotHeldColor),
 
-                Element<RichTextLabel>()
+                Element<RichTextLabel>() // imp add
                     .Class(StyleClassCrewManifestGender)
                     .Prop("font", notoSansItalic10)
                     .Prop("font-style", "italic"),
@@ -1697,6 +1697,7 @@ namespace Content.Client.Stylesheets
                 Element<Button>().Class("ButtonColorGreen")
                     .Prop(Control.StylePropertyModulateSelf, ButtonColorGoodDefault),
 
+                // imp add start
                 // Accept button (merge with green button?) ---
                 Element<Button>().Class("ButtonAccept")
                     .Prop(Control.StylePropertyModulateSelf, ButtonColorGoodDefault),
@@ -1709,6 +1710,7 @@ namespace Content.Client.Stylesheets
 
                 Element<Button>().Class("ButtonAccept").Pseudo(ContainerButton.StylePseudoClassDisabled)
                     .Prop(Control.StylePropertyModulateSelf, ButtonColorGoodDisabled),
+                // imp add end
 
                 Element<Button>().Class("ButtonColorGreen").Pseudo(ContainerButton.StylePseudoClassNormal)
                     .Prop(Control.StylePropertyModulateSelf, ButtonColorGoodDefault),

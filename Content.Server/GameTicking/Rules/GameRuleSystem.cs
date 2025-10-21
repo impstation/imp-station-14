@@ -38,11 +38,11 @@ public abstract partial class GameRuleSystem<T> : EntitySystem where T : ICompon
         while (query.MoveNext(out var uid, out _, out var gameRule))
         {
             var minPlayers = gameRule.MinPlayers;
-            var maxPlayers = gameRule.MaxPlayers;
-            if (args.Players.Length >= minPlayers && args.Players.Length <= maxPlayers)
+            var maxPlayers = gameRule.MaxPlayers; // imp lowpop
+            if (args.Players.Length >= minPlayers && args.Players.Length <= maxPlayers) // imp lowpop
                 continue;
 
-            if (args.Players.Length < minPlayers && gameRule.CancelPresetOnTooFewPlayers)
+            if (args.Players.Length < minPlayers && gameRule.CancelPresetOnTooFewPlayers) // imp lowpop
             {
                 ChatManager.SendAdminAnnouncement(Loc.GetString("preset-not-enough-ready-players",
                     ("readyPlayersCount", args.Players.Length),
@@ -50,6 +50,7 @@ public abstract partial class GameRuleSystem<T> : EntitySystem where T : ICompon
                     ("presetName", ToPrettyString(uid))));
                 args.Cancel();
             }
+            // imp add start
             else if (args.Players.Length > maxPlayers && gameRule.CancelPresetOnTooManyPlayers)
             {
                 ChatManager.SendAdminAnnouncement(Loc.GetString("preset-too-many-ready-players",
@@ -58,6 +59,7 @@ public abstract partial class GameRuleSystem<T> : EntitySystem where T : ICompon
                     ("presetName", ToPrettyString(uid))));
                 args.Cancel();
             }
+            // imp end
             else
             {
                 ForceEndSelf(uid, gameRule);

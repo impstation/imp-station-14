@@ -326,7 +326,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
 
         _deletionQueue.Remove(entity);
         UpdateSlip((entity, entity.Comp), args.Solution);
-        UpdateSlow(entity, entity.Comp, args.Solution);
+        UpdateSlow(entity, entity.Comp, args.Solution); // imp viscosity
         UpdateEvaporation(entity, args.Solution);
     }
 
@@ -426,8 +426,9 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         Dirty(entity, slipComp);
     }
 
-    private void UpdateSlow(EntityUid uid, PuddleComponent component, Solution solution)
+    private void UpdateSlow(EntityUid uid, PuddleComponent component, Solution solution) // imp viscosity edits
     {
+        // imp start
         var totalViscosity = 0f;
         var totalQuantity = 0f;
         var fullPuddleAmount = FixedPoint2.New(component.OverflowVolume.Float() * LowThreshold);
@@ -452,6 +453,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
             var speed = 1 - totalViscosity;
             _speedModContacts.ChangeSpeedModifiers(uid, speed, comp);
         }
+        // imp end
         else
         {
             RemComp<SpeedModifierContactsComponent>(uid);

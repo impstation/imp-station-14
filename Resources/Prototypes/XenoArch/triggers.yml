@@ -197,7 +197,7 @@
     - UnstableMutagen
     - Phalanximine
     - GrayBlood
-  # TODO: legendary microwave trigger
+  - type: XATMicrowave #IMP: legendary microwave trigger
   targetDepths: [ 2, 3, 4 ] # imp edit
 
 - type: xenoArchTrigger
@@ -214,14 +214,14 @@
   components:
   - type: XATPressure
     minPressureThreshold: 50
-  targetDepths: [ 1, 2, 3 ] # imp edit
+  targetDepths: [ 0, 1, 2 ] # imp edit
 
 - type: xenoArchTrigger
   id: TriggerExamine
   tip: xenoarch-trigger-tip-examine
   components:
   - type: XATExamine
-  targetDepths: [ 0, 1, 2, 3 ] # imp edit
+  targetDepths: [ 0, 1, 2 ] # imp edit
 
 - type: xenoArchTrigger
   id: TriggerBruteDamage
