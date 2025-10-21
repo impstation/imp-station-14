@@ -11,7 +11,6 @@ using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
-using Content.Shared.Throwing; // imp
 using Content.Shared.Timing;
 using Content.Shared.Traits.Assorted;
 using Content.Shared.Weapons.Melee.Events;
@@ -24,6 +23,7 @@ using System.Linq;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Clothing.Components;
+using Content.Shared.Throwing; // imp
 
 namespace Content.Shared.Flash;
 

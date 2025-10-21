@@ -172,6 +172,7 @@ public partial class InventorySystem : EntitySystem
         return false;
     }
 
+    // imp: animated grenades can jump into your pockets.
     public bool TryJumpIntoSlots(EntityUid uid, EntityUid target)
     {
         if (_containerSystem.ContainsEntity(target, uid))

@@ -1,7 +1,7 @@
-using Content.Server.StationEvents.Events; // imp
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
+using Content.Server.StationEvents.Events; // imp
 
 namespace Content.Server.Silicons.Laws;
 

@@ -2,8 +2,8 @@
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.EntitySystems;
 using Robust.Client.GameObjects;
-using Robust.Shared.Audio.Systems; //imp
 using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
+using Robust.Shared.Audio.Systems; //imp
 
 namespace Content.Client.Mech;
 

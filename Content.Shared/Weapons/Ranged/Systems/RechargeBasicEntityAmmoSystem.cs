@@ -1,4 +1,3 @@
-using Content.Shared._Impstation.Weapons.Ranged.Events;
 using Content.Shared.Examine;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Audio;
@@ -7,6 +6,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared._Impstation.Weapons.Ranged.Events; // imp
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 

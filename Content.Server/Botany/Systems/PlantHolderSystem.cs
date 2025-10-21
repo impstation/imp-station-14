@@ -28,8 +28,6 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
 using Content.Shared.Kitchen.Components;
 using Content.Shared.Labels.Components;
-using System.Text.RegularExpressions; // imp
-using Content.Server.Station.Systems; // Frontier
 
 namespace Content.Server.Botany.Systems;
 
@@ -50,7 +48,6 @@ public sealed class PlantHolderSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly StationSystem _station = default!; // Frontier
 
     public const float HydroponicsSpeedMultiplier = 1f;
     public const float HydroponicsConsumptionMultiplier = 2f;

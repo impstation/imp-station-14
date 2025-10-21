@@ -1,4 +1,5 @@
 using Content.Shared.Popups;
+using Content.Shared.Xenoarchaeology.Artifact.Components; //#IMP
 using Content.Shared.Xenoarchaeology.Artifact.XAE.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -20,10 +21,13 @@ public sealed class XAERandomTeleportInvokerSystem : BaseXAESystem<XAERandomTele
         // todo: teleport person who activated artifact with artifact itself
         var component = ent.Comp;
 
-        var xform = Transform(ent.Owner);
-        _popup.PopupCoordinates(Loc.GetString("blink-artifact-popup"), xform.Coordinates, PopupType.Medium);
+        if (!TryComp<XenoArtifactNodeComponent>(ent.Owner, out var nodeComponent) || nodeComponent.Attached is not { } artifact) //#IMP Bugfix: teleport the artifact, not the node
+            return;
+
+        var xform = Transform(artifact); //#IMP Bugfix: teleport the artifact, not the node - ent.Owner changed to artifact
+        _popup.PopupPredictedCoordinates(Loc.GetString("blink-artifact-popup"), xform.Coordinates, null, PopupType.Medium); //#IMP Bugfix: Only display the popup once!
 
         var offsetTo = _random.NextVector2(component.MinRange, component.MaxRange);
-        _xform.SetCoordinates(ent.Owner, xform, xform.Coordinates.Offset(offsetTo));
+        _xform.SetCoordinates(artifact, xform, xform.Coordinates.Offset(offsetTo)); //#IMP Bugfix: teleport the artifact, not the node - ent.Owner changed to artifact
     }
 }

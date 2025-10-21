@@ -5,6 +5,7 @@ using Content.Shared.Humanoid.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
+using Content.Shared.Random.Helpers; // imp
 
 namespace Content.Shared.Humanoid;
 
@@ -243,7 +244,7 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
             {
                 newHairStyle = markings.Count == 0 || !random.Prob(categorySet.Weight)
                     ? HairStyles.DefaultHairStyle.Id
-                    : random.Pick(markingWeights).Key;
+                    : random.Pick(markingWeights);
             }
 
             // if it's facial hair, there are entries in the category, and the character is not female, roll & assign a random one. else bald
@@ -251,7 +252,7 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
             {
                 newFacialHairStyle = markings.Count == 0 || sex == Sex.Female || !random.Prob(categorySet.Weight)
                     ? HairStyles.DefaultFacialHairStyle.Id
-                    : random.Pick(markingWeights).Key;
+                    : random.Pick(markingWeights);
             }
 
             // for every other category,
@@ -270,7 +271,7 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
                         continue;
 
                     // pick a random marking from the list
-                    var randomMarking = random.Pick(markingWeights).Key;
+                    var randomMarking = random.Pick(markingWeights);
                     if (!markings.TryGetValue(randomMarking, out var protoToAdd))
                         continue;
                     var markingToAdd = protoToAdd.AsMarking();
@@ -315,6 +316,7 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
             return MathHelper.Clamp01(channel + random.Next(-25, 25) / 100f);
         }
 
+        // imp:
         List<Color> GetComplementaryColors(Color color, double angle)
         {
             var hsl = Color.ToHsl(color);
