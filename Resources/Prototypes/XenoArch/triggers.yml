@@ -27,6 +27,35 @@
     TriggerThrow: 1
     #TriggerDeath: 1 #IMP This one is commented out because you have to kill so many things and time their deaths perfectly
     TriggerMagnet: 1
+    # imp edit start
+    #TriggerResurrection: 1 # imp addition
+    TriggerExpression: 1
+    TriggerStun: 1
+    TriggerDrinkCaffeine: 0.05
+    TriggerDrinkClassicMartini: 0.05
+    TriggerDrinkBudgetInsuls: 0.05
+    TriggerDrinkManlyDorf: 0.05
+    TriggerDrinkScrewdriver: 0.05
+    TriggerDrinkIceCream: 0.05
+    TriggerDrinkLemonade: 0.05
+    TriggerDrinkThavenBad: 0.05
+    TriggerDrinkStarkist: 0.05
+    TriggerDrinkZombieSlushie: 0.05
+    TriggerDrinkVoxRocks: 0.05
+    TriggerDrinkDoctorsDelight: 0.05
+    TriggerDrinkSyndicateBomb: 0.05
+    TriggerDrinkArnoldPalmer: 0.05
+    TriggerDrinkPilk: 0.05
+    TriggerDrinkLongIslandIcedTea: 0.05
+    TriggerDrinkCogChamp: 0.05
+    TriggerDrinkSuiDream: 0.05
+    TriggerDrinkDrink: 0.05
+    TriggerDrinkTheeHorsepussy: 0.01
+    TriggerDrinkThreeMileIsland: 0.01
+    TriggerDrinkHippiesDelight: 0.01
+    TriggerDrinkSalvagersSoothe: 0.01
+    TriggerDrinkUAP: 0.01
+    # imp edit end
 
 - type: xenoArchTrigger
   id: TriggerMusic
@@ -35,6 +64,7 @@
   - type: XATCompNearby
     requireComponentWithName: ActiveInstrument
     radius: 2
+  targetDepths: [ 0, 1, 2 ] # imp edit
 
 - type: xenoArchTrigger
   id: TriggerHeat
@@ -46,6 +76,7 @@
   - type: XATDamageThresholdReached
     typesNeeded:
       Heat: 20
+  targetDepths: [ 0, 1, 2 ] # imp edit
 # This kinda trivializes the difficulty.
 #  - type: XATToolUse
 #    requiredTool: Welding
@@ -62,6 +93,7 @@
   - type: XATDamageThresholdReached
     typesNeeded:
       Cold: 20
+  targetDepths: [ 1, 2, 3 ] # imp edit
 
 - type: xenoArchTrigger
   id: TriggerNoOxygen
@@ -71,6 +103,7 @@
     targetGas: Oxygen
     moles: 10
     shouldBePresent: false
+  targetDepths: [ 1, 2, 3 ] # imp edit
 
 - type: xenoArchTrigger
   id: TriggerWater
@@ -81,6 +114,7 @@
   - type: XATReactive
     reagents:
     - Water
+  targetDepths: [ 0, 1, 2 ] # imp edit
 
 - type: xenoArchTrigger
   id: TriggerCO2
@@ -91,6 +125,7 @@
   - type: XATReactive
     reagents:
     - CarbonDioxide
+  targetDepths: [ 1, 2, 3 ] # imp edit
 
 - type: xenoArchTrigger
   id: TriggerPlasma
@@ -101,6 +136,7 @@
   - type: XATReactive
     reagents:
     - Plasma
+  targetDepths: [ 2, 3, 4 ] # imp edit
 
 - type: xenoArchTrigger
   id: TriggerTritium
@@ -111,6 +147,7 @@
   - type: XATReactive
     reagents:
     - Tritium
+  targetDepths: [ 3, 4, 5 ] # imp edit
 
 - type: xenoArchTrigger
   id: TriggerAmmonia
@@ -121,6 +158,7 @@
   - type: XATReactive
     reagents:
     - Ammonia
+  targetDepths: [ 2, 3, 4 ] # imp edit
 
 - type: xenoArchTrigger
   id: TriggerN2O
@@ -131,6 +169,7 @@
   - type: XATReactive
     reagents:
     - NitrousOxide
+  targetDepths: [ 2, 3, 4 ] # imp edit
 
 - type: xenoArchTrigger
   id: TriggerFrezon
@@ -141,6 +180,7 @@
   - type: XATReactive
     reagents:
     - Frezon
+  targetDepths: [ 3, 4, 5 ] # imp edit
 
 - type: xenoArchTrigger
   id: TriggerRadiation
@@ -157,7 +197,8 @@
     - UnstableMutagen
     - Phalanximine
     - GrayBlood
-  # TODO: legendary microwave trigger
+  - type: XATMicrowave #IMP: legendary microwave trigger
+  targetDepths: [ 2, 3, 4 ] # imp edit
 
 - type: xenoArchTrigger
   id: TriggerPressureHigh
@@ -165,6 +206,7 @@
   components:
   - type: XATPressure
     maxPressureThreshold: 385
+  targetDepths: [ 2, 3, 4 ] # imp edit
 
 - type: xenoArchTrigger
   id: TriggerPressureLow
@@ -172,12 +214,14 @@
   components:
   - type: XATPressure
     minPressureThreshold: 50
+  targetDepths: [ 0, 1, 2 ] # imp edit
 
 - type: xenoArchTrigger
   id: TriggerExamine
   tip: xenoarch-trigger-tip-examine
   components:
   - type: XATExamine
+  targetDepths: [ 0, 1, 2 ] # imp edit
 
 - type: xenoArchTrigger
   id: TriggerBruteDamage
@@ -186,12 +230,14 @@
   - type: XATDamageThresholdReached
     groupsNeeded:
       Brute: 20
+  targetDepths: [ 1, 2, 3, 4 ] # imp edit
 
 - type: xenoArchTrigger
   id: TriggerInteraction
   tip: xenoarch-trigger-tip-interaction
   components:
   - type: XATInteraction
+  targetDepths: [ 0, 1, 2 ] # imp edit
 
 - type: xenoArchTrigger
   id: TriggerWrenching
@@ -201,6 +247,7 @@
     requiredTool: Anchoring
   - type: XATExaminableText
     examineText: xenoarch-trigger-examine-wrenching
+  targetDepths: [ 0, 1, 2 ] # imp edit
 
 - type: xenoArchTrigger
   id: TriggerPrying
@@ -210,6 +257,7 @@
     requiredTool: Prying
   - type: XATExaminableText
     examineText: xenoarch-trigger-examine-prying
+  targetDepths: [ 0, 1, 2 ] # imp edit
 
 - type: xenoArchTrigger
   id: TriggerScrewing
@@ -219,6 +267,7 @@
     requiredTool: Screwing
   - type: XATExaminableText
     examineText: xenoarch-trigger-examine-screwing
+  targetDepths: [ 0, 1, 2 ] # imp edit
 
 - type: xenoArchTrigger
   id: TriggerPulsing
@@ -228,6 +277,7 @@
     requiredTool: Pulsing
   - type: XATExaminableText
     examineText: xenoarch-trigger-examine-pulsing
+  targetDepths: [ 0, 1, 2 ] # imp edit
 
 - type: xenoArchTrigger
   id: TriggerTimer
@@ -237,6 +287,7 @@
     possibleDelayInSeconds:
       min: 80
       max: 120
+  targetDepths: [ 0, 1, 2 ] # imp edit
 
 - type: xenoArchTrigger
   id: TriggerBlood
@@ -250,11 +301,13 @@
     - Slime
     - AmmoniaBlood
     - ZombieBlood
+    - Sap
     # imp below
     - ShimmeringBlood
     - BloodKodepiia
     - GrayBlood
     - SynthBlood
+  targetDepths: [ 1, 2, 3, 4 ] # imp edit
 
 - type: xenoArchTrigger
   id: TriggerThrow
@@ -264,16 +317,18 @@
     - Item
   components:
   - type: XATItemLand
+  targetDepths: [ 0, 1, 2 ] # imp edit
 
-# IMP: Comment out death trigger because it is exceedingly difficult to time things dying and if it fails you have to kill again
-# - type: xenoArchTrigger
-#   id: TriggerDeath
-#   tip: xenoarch-trigger-tip-death
-#   components:
-#   - type: XATDeath
+- type: xenoArchTrigger
+  id: TriggerDeath
+  tip: xenoarch-trigger-tip-death
+  components:
+  - type: XATDeath
+  targetDepths: [ 1, 2, 3 ] # imp edit
 
 - type: xenoArchTrigger
   id: TriggerMagnet
   tip: xenoarch-trigger-tip-magnet
   components:
   - type: XATMagnet
+  targetDepths: [ 1, 2, 3 ] # imp edit

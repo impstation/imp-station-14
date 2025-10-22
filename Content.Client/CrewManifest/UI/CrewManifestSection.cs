@@ -25,6 +25,7 @@ public sealed class CrewManifestSection : BoxContainer
             Text = Loc.GetString(section.Name)
         });
 
+        // imp refactor start - allow containers to be dynamically resized depending on name length
         var departmentContainer = new BoxContainer()
         {
             Orientation = LayoutOrientation.Horizontal,
@@ -70,12 +71,13 @@ public sealed class CrewManifestSection : BoxContainer
 
             nameContainer.AddChild(name);
             nameContainer.AddChild(gender);
+            // imp end
 
             var titleContainer = new BoxContainer()
             {
                 Orientation = LayoutOrientation.Horizontal,
                 HorizontalExpand = true,
-                SizeFlagsStretchRatio = 1,
+                SizeFlagsStretchRatio = 1, // imp
             };
 
             var title = new RichTextLabel();
@@ -100,8 +102,10 @@ public sealed class CrewManifestSection : BoxContainer
                 titleContainer.AddChild(title);
             }
 
+            // imp edit start
             namesContainer.AddChild(nameContainer);
             titlesContainer.AddChild(titleContainer);
+            // imp edit end
         }
     }
 }

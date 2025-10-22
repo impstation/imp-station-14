@@ -29,7 +29,7 @@
           Quantity: 5
         - ReagentId: Fiber
           Quantity: 10
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: Tag
     tags:
@@ -70,7 +70,7 @@
           Quantity: 30
         - ReagentId: Vitamin
           Quantity: 6
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: Tag
     tags:
@@ -96,7 +96,7 @@
   - type: Sprite
     sprite: _Nyanotrasen/Objects/Consumable/Food/moth.rsi
     state: pizza-cotton
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
     solutions:
@@ -126,7 +126,7 @@
   - type: Sprite
     sprite: _Nyanotrasen/Objects/Consumable/Food/moth.rsi
     state: pizza-cotton-slice
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
     solutions:
@@ -176,6 +176,9 @@
           Quantity: 5
         - ReagentId: MilkSoy
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - UnguFood
 #Tastes like vanilla and clouds.
 
 - type: entity
@@ -205,6 +208,9 @@
           Quantity: 1
         - ReagentId: MilkSoy
           Quantity: 1
+  - type: Tag # imp
+    tags:
+    - UnguFood
 #Tastes like vanilla and clouds.
 
 - type: entity
@@ -247,10 +253,11 @@
           Quantity: 5
         - ReagentId: Fiber
           Quantity: 3
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: Tag
     tags:
     - ClothMade
+    - ClothFood # imp
 
 #Tastes like muffin, dust and lint

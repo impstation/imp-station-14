@@ -79,6 +79,8 @@ public sealed class SurvivorRuleSystem : GameRuleSystem<SurvivorRuleComponent>
 
         while (existingSurvivors.MoveNext(out _, out _, out var mindComp))
         {
+            // If their brain is gone or they respawned/became a ghost role
+            if (mindComp.CurrentEntity is null)
             {
                 deadSurvivors++;
                 continue;

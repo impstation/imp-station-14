@@ -1,12 +1,12 @@
-using Content.Server.Body.Systems;
 using Content.Shared.GameTicking;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Roles;
 using Content.Shared.Traits;
-using Content.Shared.Tag;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
+using Content.Server.Body.Systems; // imp
+using Content.Shared.Tag; // imp
 
 namespace Content.Server.Traits;
 
@@ -15,8 +15,8 @@ public sealed class TraitSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedHandsSystem _sharedHandsSystem = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly BodySystem _bodySystem = default!;
-    [Dependency] private readonly TagSystem _tagSystem = default!;
+    [Dependency] private readonly BodySystem _bodySystem = default!; // imp
+    [Dependency] private readonly TagSystem _tagSystem = default!; // imp
 
     public override void Initialize()
     {
@@ -30,7 +30,7 @@ public sealed class TraitSystem : EntitySystem
     {
         // Check if player's job allows to apply traits
         if (args.JobId == null ||
-            !_prototypeManager.TryIndex<JobPrototype>(args.JobId ?? string.Empty, out var protoJob) ||
+            !_prototypeManager.Resolve<JobPrototype>(args.JobId, out var protoJob) ||
             !protoJob.ApplyTraits)
         {
             return;
@@ -40,7 +40,7 @@ public sealed class TraitSystem : EntitySystem
         {
             if (!_prototypeManager.TryIndex<TraitPrototype>(traitId, out var traitPrototype))
             {
-                Log.Warning($"No trait found with ID {traitId}!");
+                Log.Error($"No trait found with ID {traitId}!");
                 return;
             }
 
@@ -48,7 +48,8 @@ public sealed class TraitSystem : EntitySystem
                 _whitelistSystem.IsBlacklistPass(traitPrototype.Blacklist, args.Mob))
                 continue;
 
-            // Add all components required by the prototype to the body or specified organ
+            // Add all components required by the prototype IMP: to the body or specified organ
+            // imp start
             if (traitPrototype.Organ != null)
             {
                 foreach (var organ in _bodySystem.GetBodyOrgans(args.Mob))
@@ -59,7 +60,7 @@ public sealed class TraitSystem : EntitySystem
                     }
                 }
             }
-            else
+            else // imp end
             {
                 EntityManager.AddComponents(args.Mob, traitPrototype.Components, false);
             }

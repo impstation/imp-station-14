@@ -21,9 +21,9 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared._Impstation.Hemorrhage; //imp edit
 
 namespace Content.Shared.Body.Systems;
-using Content.Shared._Impstation.Hemorrhage; //imp edit
 
 public abstract class SharedBloodstreamSystem : EntitySystem
 {
@@ -192,7 +192,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
         }
 
         // TODO probably cache this or something. humans get hurt a lot
-        if (!_prototypeManager.TryIndex(ent.Comp.DamageBleedModifiers, out var modifiers))
+        if (!_prototypeManager.Resolve(ent.Comp.DamageBleedModifiers, out var modifiers))
             return;
 
         // some reagents may deal and heal different damage types in the same tick, which means DamageIncreased will be true
@@ -372,7 +372,10 @@ public abstract class SharedBloodstreamSystem : EntitySystem
             return SolutionContainer.TryAddReagent(ent.Comp.BloodSolution.Value, ent.Comp.BloodReagent, amount, null, GetEntityBloodData(ent));
 
         // imp Multiplies the blood lost per stack by the value set
-        var hemorrhageAdjust = TryComp<HemorrhageComponent>(ent, out var trait) ? amount * trait.BleedIncreaseMultiplier : amount;
+        amount =
+            TryComp<HemorrhageComponent>(ent, out var trait)
+            ? amount * trait.BleedIncreaseMultiplier
+            : amount;
         // Removal is more involved,
         // since we also wanna handle moving it to the temporary solution
         // and then spilling it if necessary.
@@ -416,11 +419,11 @@ public abstract class SharedBloodstreamSystem : EntitySystem
         DirtyField(ent, ent.Comp, nameof(BloodstreamComponent.BleedAmount));
 
         if (ent.Comp.BleedAmount == 0)
-            _alertsSystem.ClearAlert(ent, ent.Comp.BleedingAlert);
+            _alertsSystem.ClearAlert(ent.Owner, ent.Comp.BleedingAlert);
         else
         {
             var severity = (short)Math.Clamp(Math.Round(ent.Comp.BleedAmount, MidpointRounding.ToZero), 0, 10);
-            _alertsSystem.ShowAlert(ent, ent.Comp.BleedingAlert, severity);
+            _alertsSystem.ShowAlert(ent.Owner, ent.Comp.BleedingAlert, severity);
         }
 
         return true;

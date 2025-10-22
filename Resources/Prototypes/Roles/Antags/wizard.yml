@@ -1,5 +1,5 @@
 # I'm leaving survivor here just in case someone reworks it, but it should stop rolling on gun event
-- type: antag 
+- type: antag
   id: Survivor
   name: roles-antag-survivor-name
   antagonist: true
@@ -16,7 +16,7 @@
   objective: roles-antag-wizard-objective # TODO: maybe give random objs and stationary ones from AntagObjectives and AntagRandomObjectives
   requirements: # I hate time locked roles but this should be enough time for someone to be acclimated
   - !type:OverallPlaytimeRequirement
-    time: 36000 # 10h - Imp Edit
+    time: 10h # imp, was 5
   guides: [ Wizard ]
 
 # See wizard_startinggear for wiz start gear options
