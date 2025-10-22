@@ -44,8 +44,27 @@
         !type:SimpleColoring
         color: "#78bfc2"
   sprites:
-  - sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
-    state: eyes
+  - sprite: _Impstation/Mobs/Customization/Allulalo/eyes.rsi
+    state: allulaloEyesDefaultLeft
+  - sprite: _Impstation/Mobs/Customization/Allulalo/eyes.rsi
+    state: allulaloEyesDefaultRight
+
+- type: marking
+  id: AllulaloEyesUnshaded
+  bodyPart: Eyes
+  markingCategory: Eyes
+  speciesRestriction: [ Allulalo ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#78bfc2"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Allulalo/eyes.rsi
+    state: allulaloEyesUnshadedLeft
+  - sprite: _Impstation/Mobs/Customization/Allulalo/eyes.rsi
+    state: allulaloEyesUnshadedRight
+  shader: unshaded
 
 # RArm
 
@@ -125,5 +144,29 @@
     state: allulaloTailDefault2
   - sprite: _Impstation/Mobs/Customization/Allulalo/tail.rsi
     state: allulaloTailDefault3
+
+- type: marking
+  id: AllulaloTailThick
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Allulalo/tail.rsi
+    state: allulaloTailLarge
+  - sprite: _Impstation/Mobs/Customization/Allulalo/tail.rsi
+    state: allulaloTailLarge2
+
+- type: marking
+  id: AllulaloTailThickSpikes
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Allulalo/tail.rsi
+    state: allulaloTailLarge
+  - sprite: _Impstation/Mobs/Customization/Allulalo/tail.rsi
+    state: allulaloTailLarge2
+  - sprite: _Impstation/Mobs/Customization/Allulalo/tail.rsi
+    state: allulaloTailLarge3
 
 # RArmExtension

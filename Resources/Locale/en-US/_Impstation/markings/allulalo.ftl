@@ -15,7 +15,12 @@ marking-AllulaloHeadNeckFluff-allulaloHeadNeckFluff = Neck Fluff
 # Eyes
 
 marking-AllulaloEyesDefault = Eyes (Default)
-marking-AllulaloEyesDefault-eyes = Eyes
+marking-AllulaloEyesDefault-allulaloEyesDefaultLeft = Left Eye
+marking-AllulaloEyesDefault-allulaloEyesDefaultRight = Right Eye
+
+marking-AllulaloEyesUnshaded = Eyes (Glowing)
+marking-AllulaloEyesDefault-allulaloEyesUnshadedLeft = Left Eye
+marking-AllulaloEyesDefault-allulaloEyesUnshadedRight = Right Eye
 
 # RArm
 
@@ -63,5 +68,15 @@ marking-AllulaloTailDefault = Tail (default)
 marking-AllulaloTailDefault-allulaloTailDefault = Tail
 marking-AllulaloTailDefault-allulaloTailDefault2 = Feathers
 marking-AllulaloTailDefault-allulaloTailDefault3 = Underbelly
+
+marking-AllulaloTailThick = Thick Tail
+marking-AllulaloTailThick-allulaloTailLarge = Tail
+marking-AllulaloTailThick-allulaloTailLarge2 = Underbelly
+marking-AllulaloTailThick-allulaloTailLarge3 = Spikes
+
+marking-AllulaloTailThickSpikes = Thick Tail with Spikes
+marking-AllulaloTailThickSpikes-allulaloTailLarge = Tail
+marking-AllulaloTailThickSpikes-allulaloTailLarge2 = Underbelly
+marking-AllulaloTailThickSpikes-allulaloTailLarge3 = Spikes
 
 # RArmExtension
