@@ -1,26 +1,36 @@
 # Chest
 
 marking-AllulaloUnderbelly = Underbelly
-marking-AllulaloUnderbelly-underbelly = Underbelly
+marking-AllulaloUnderbelly-allulaloChestUnderbelly = Underbelly
+
+marking-AllulaloChestHeartMonitor = Heart Monitor
+marking-AllulaloChestHeartMonitor-allulaloChestHeartMonitor = Heart monitor
 
 # Head
 
 marking-AllulaloHeadUnderbelly = Underbelly
 marking-AllulaloHeadNeckFluff-allulaloHeadUnderbelly = Underbelly
+
 marking-AllulaloHeadNeckFluff = Neck Fluff
-marking-AllulaloHeadNeckFluff-allulaloHeadNeckFluff = Neck Fluff
+marking-AllulaloHeadNeckFluff-allulaloHeadNeckFluff = Neck fluff
+
+marking-AllulaloHeadSpikes = Head Spikes
+marking-AllulaloHeadSpikes-allulaloHeadSpikes = Head spikes
+
+marking-AllulaloHeadHorn = Horn
+marking-AllulaloHeadHorn-allulaloHeadHorn = Horn
 
 # Snout
 
 # Eyes
 
 marking-AllulaloEyesDefault = Eyes (Default)
-marking-AllulaloEyesDefault-allulaloEyesDefaultLeft = Left Eye
-marking-AllulaloEyesDefault-allulaloEyesDefaultRight = Right Eye
+marking-AllulaloEyesDefault-allulaloEyesDefaultLeft = Left eye
+marking-AllulaloEyesDefault-allulaloEyesDefaultRight = Right eye
 
 marking-AllulaloEyesUnshaded = Eyes (Glowing)
-marking-AllulaloEyesDefault-allulaloEyesUnshadedLeft = Left Eye
-marking-AllulaloEyesDefault-allulaloEyesUnshadedRight = Right Eye
+marking-AllulaloEyesDefault-allulaloEyesUnshadedLeft = Left eye
+marking-AllulaloEyesDefault-allulaloEyesUnshadedRight = Right eye
 
 # RArm
 
@@ -78,5 +88,8 @@ marking-AllulaloTailThickSpikes = Thick Tail with Spikes
 marking-AllulaloTailThickSpikes-allulaloTailLarge = Tail
 marking-AllulaloTailThickSpikes-allulaloTailLarge2 = Underbelly
 marking-AllulaloTailThickSpikes-allulaloTailLarge3 = Spikes
+
+marking-AllulaloTailTuft = Tuft Tail
+marking-AllulaloTailTuft-allulaloTailTuft = Tail
 
 # RArmExtension

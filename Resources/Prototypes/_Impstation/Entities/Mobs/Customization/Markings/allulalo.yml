@@ -7,7 +7,16 @@
   speciesRestriction: [ Allulalo ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/chest.rsi
-    state: underbelly
+    state: allulaloChestUnderbelly
+
+- type: marking
+  id: AllulaloChestHeartMonitor
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Allulalo/chest.rsi
+    state: allulaloChestHeartMonitor
 
 # Head
 
@@ -28,6 +37,24 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/head.rsi
     state: allulaloHeadNeckFluff
+
+- type: marking
+  id: AllulaloHeadSpikes
+  bodyPart: HeadTop
+  markingCategory: Head
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Allulalo/head.rsi
+    state: allulaloHeadSpikes
+
+- type: marking
+  id: AllulaloHeadHorn
+  bodyPart: HeadTop
+  markingCategory: Head
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Allulalo/head.rsi
+    state: allulaloHeadHorn
 
 # Snout
 
@@ -168,5 +195,14 @@
     state: allulaloTailLarge2
   - sprite: _Impstation/Mobs/Customization/Allulalo/tail.rsi
     state: allulaloTailLarge3
+
+#- type: marking #unsure about this one so im leaving it commented for now
+#  id: AllulaloTailTuft
+#  bodyPart: Tail
+#  markingCategory: Tail
+#  speciesRestriction: [ Allulalo ]
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/Allulalo/tail.rsi
+#    state: allulaloTailTuft
 
 # RArmExtension
