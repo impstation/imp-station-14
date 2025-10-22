@@ -180,12 +180,11 @@
           32:
             sprite: _Impstation/Mobs/Species/Moth/displacement.rsi #imp
             state: shoes
-  - type: HomunculiType # imp start
+  - type: HomunculiType # imp edit
     homunculiType: HomunculusMoth
     recipe:
       SynthFlesh: 20
-      Saline: 20 # imp end
-      InsectBlood: 5
+      Saline: 20
 
 - type: entity
   parent: BaseSpeciesDummy

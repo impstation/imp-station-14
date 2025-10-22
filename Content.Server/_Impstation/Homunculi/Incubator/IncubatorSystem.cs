@@ -1,5 +1,4 @@
 using Content.Server.Fluids.EntitySystems;
-using Content.Server.Power.Components;
 using Content.Server.PowerCell;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
@@ -8,14 +7,15 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Examine;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Item.ItemToggle;
+using Content.Shared.Power.Components;
+using Content.Shared._Impstation.Homunculi.Incubator.Components;
+using Content.Shared._Impstation.Homunculi.Incubator;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Shared._Impstation.Homunculi.Incubator.Components;
-using Content.Shared._Impstation.Homunculi.Incubator;
 
 namespace Content.Server._Impstation.Homunculi.Incubator;
 
@@ -50,10 +50,8 @@ public sealed class IncubatorSystem : SharedIncubatorSystem
             popup = Loc.GetString("incubator-no-beaker");
         else if (!TryGetSolution(ent.Owner, out var solution))
             popup = Loc.GetString("incubator-no-solution");
-        else if (!TryGetDnaData(solution, out var dnaData))
+        else if (!HasDnaData(solution))
             popup = Loc.GetString("incubator-no-dna");
-        else if (dnaData.Count > 1)
-            popup = Loc.GetString("incubator-too-much-dna");
         else if (!_cell.TryGetBatteryFromSlot(ent, out var battery))
             popup = Loc.GetString("incubator-no-cell");
         else if (UsesRemaining(ent.Comp, battery) <= 0)
@@ -100,9 +98,9 @@ public sealed class IncubatorSystem : SharedIncubatorSystem
         return false;
     }
 
-    private static bool TryGetDnaData(SolutionComponent solution, [NotNullWhen(true)] out List<DnaData>? dnaData)
+    public bool HasDnaData(SolutionComponent solution)
     {
-        dnaData = [];
+        List<DnaData> dnaData = [];
         dnaData.AddRange(solution.Solution.Contents.SelectMany(reagent
             => reagent.Reagent.EnsureReagentData())
             .OfType<DnaData>());
@@ -130,7 +128,7 @@ public sealed class IncubatorSystem : SharedIncubatorSystem
             _audio.Stop(ent.Comp.PlayingStream);
     }
 
-    public void FinishIncubation(Entity<IncubatorComponent?> ent)
+    private void FinishIncubation(Entity<IncubatorComponent?> ent)
     {
         if (!Resolve(ent, ref ent.Comp))
             return;

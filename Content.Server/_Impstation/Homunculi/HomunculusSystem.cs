@@ -1,16 +1,17 @@
 using Content.Server.Humanoid;
+using Content.Server._Impstation.Homunculi.Incubator;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid;
+using Content.Shared._Impstation.Homunculi.Components;
+using Content.Shared._Impstation.Homunculi.Incubator.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Shared._Impstation.Homunculi.Components;
-using Content.Shared._Impstation.Homunculi.Incubator.Components;
 
 namespace Content.Server._Impstation.Homunculi;
 
@@ -19,11 +20,12 @@ public sealed class HomunculusSystem : EntitySystem
     [Dependency] private readonly HumanoidAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly IncubatorSystem _incubator = default!;
 
     public bool CreateHomunculiWithDna(Entity<IncubatorComponent?> ent, Entity<SolutionComponent> solution, MapCoordinates mapCoordinates, [NotNullWhen(true)] out EntityUid? homunculus)
     {
         // If there's no DNA data in the solution, return
-        if (!HasDnaData(solution))
+        if (!_incubator.HasDnaData(solution))
         {
             homunculus = null;
             return false;
@@ -31,32 +33,47 @@ public sealed class HomunculusSystem : EntitySystem
 
         // Save a copy of the solutions reagents, can't just use it straight up
         var reagentList = solution.Comp.Solution.Contents.ToList();
+        List<string?> storedDna = [];
+        List<Entity<HomunculiTypeComponent>> entities = [];
+
+        foreach (var dnaList in reagentList.Select(reagent => reagent.Reagent.EnsureReagentData().OfType<DnaData>()))
+        {
+            storedDna.AddRange(dnaList.Select(dna => dna.DNA));
+        }
 
         var query = EntityQueryEnumerator<HomunculiTypeComponent>();
-        while (query.MoveNext(out var victim, out var homunculiTypeComponent))
+        while (query.MoveNext(out var entityUid,out var homunculiTypeComponent))
         {
+            if (!TryComp<DnaComponent>(entityUid, out var dna))
+                continue;
+
             if (!VerifyAndUseRecipe(homunculiTypeComponent, solution, reagentList))
                 continue;
 
-            CreateHomunculiOfEntity(victim, homunculiTypeComponent, mapCoordinates, out var realHomunculi);
+            if (storedDna.Contains(dna.DNA))
+                entities.Add((entityUid, homunculiTypeComponent));
+        }
+        if (entities.Count > 0)
+        {
+            CreateHomunculiFromEntities(entities, storedDna, mapCoordinates, out var realHomunculi);
             homunculus = realHomunculi;
             return true;
         }
+
         homunculus = null;
         return false;
     }
 
-    public void CreateHomunculiOfEntity(EntityUid entity, HomunculiTypeComponent homunculiType, MapCoordinates mapCoordinates, out EntityUid homunculus)
+    public void CreateHomunculiFromEntities(List<Entity<HomunculiTypeComponent>> entities,List<string?> dnaData, MapCoordinates mapCoordinates, out EntityUid homunculus)
     {
-        homunculus = EntityManager.Spawn(homunculiType.HomunculiType, mapCoordinates);
+        homunculus = EntityManager.Spawn(entities[0].Comp.HomunculiType, mapCoordinates);
         _transform.AttachToGridOrMap(homunculus);
 
         EnsureComp<DnaComponent>(homunculus, out var homunculiDnaComponent);
 
-        if (TryComp<DnaComponent>(entity, out var dna))
-            homunculiDnaComponent.DNA = dna.DNA;
+        homunculiDnaComponent.DNA = string.Join("", dnaData);
 
-        SetHomunculusAppearance(entity,homunculus);
+        SetHomunculusAppearance(entities,homunculus);
     }
 
     public bool VerifyAndUseRecipe(HomunculiTypeComponent homunculiComp, Entity<SolutionComponent> solution, List<ReagentQuantity> reagents)
@@ -91,7 +108,7 @@ public sealed class HomunculusSystem : EntitySystem
         return true;
     }
 
-    private void SetHomunculusAppearance(EntityUid urist, EntityUid homunculi)
+    private void SetHomunculusAppearance(List<Entity<HomunculiTypeComponent>> entities, EntityUid homunculi)
     {
         var markingCategories = new List<MarkingCategories>
         {
@@ -101,33 +118,54 @@ public sealed class HomunculusSystem : EntitySystem
             MarkingCategories.HeadSide,
             MarkingCategories.HeadTop,
         };
+        List<Color> skinColors = [];
+        List<Color> eyeColors = [];
 
-        if (!TryComp<HumanoidAppearanceComponent>(urist, out var appearanceComponent))
-            return;
+        foreach (var urist in entities)
+        {
+            if (!TryComp<HumanoidAppearanceComponent>(urist, out var appearanceComponent))
+                return;
+
+            skinColors.Add(appearanceComponent.SkinColor);
+            eyeColors.Add(appearanceComponent.EyeColor);
+            if (urist == entities.First())
+            {
+                foreach (var markingPair in appearanceComponent.MarkingSet.Markings)
+                {
+                    if (!markingCategories.Contains(markingPair.Key))
+                        continue;
+
+                    foreach (var marking in markingPair.Value)
+                    {
+                        _appearance.AddMarking(homunculi, marking.MarkingId, marking.MarkingColors);
+                    }
+                }
+            }
+        }
         if (!TryComp<HumanoidAppearanceComponent>(homunculi, out var homAppearanceComponent))
             return;
 
-        homAppearanceComponent.SkinColor = appearanceComponent.SkinColor;
-        homAppearanceComponent.EyeColor = appearanceComponent.EyeColor;
-
-        foreach (var markingPair in appearanceComponent.MarkingSet.Markings)
-        {
-            if (!markingCategories.Contains(markingPair.Key))
-                continue;
-
-            foreach (var marking in markingPair.Value)
-            {
-                _appearance.AddMarking(homunculi, marking.MarkingId, marking.MarkingColors);
-            }
-        }
+        if (skinColors.Count > 0)
+            homAppearanceComponent.SkinColor =  BlendColors(skinColors);
+        if (skinColors.Count > 0)
+            homAppearanceComponent.EyeColor = BlendColors(eyeColors);
     }
 
-    private static bool HasDnaData(SolutionComponent solution)
+    private static Color BlendColors(List<Color> colors)
     {
-        List<DnaData> dnaData = [];
-        dnaData.AddRange(solution.Solution.Contents.SelectMany(reagent
-                => reagent.Reagent.EnsureReagentData())
-            .OfType<DnaData>());
-        return dnaData.Count > 0;
+        var baseColor = Color.Black;
+
+        foreach (var color in colors)
+        {
+            baseColor.R =+ color.R;
+            baseColor.G =+ color.G;
+            baseColor.B =+ color.B;
+        }
+
+        baseColor.R /= colors.Count;
+        baseColor.G /= colors.Count;
+        baseColor.B /= colors.Count;
+
+        return baseColor;
     }
 }
