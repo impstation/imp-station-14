@@ -121,3 +121,89 @@
           - Paper
   - type: BorgModuleIcon
     icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: courier-module }
+
+# service modules
+- type: entity
+  id: BorgModuleChef
+  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
+  name: chef cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: icon-pen
+  - type: ItemBorgModule
+    hands:
+    - item: BorgRollingPin
+    - item: BorgButchCleaver
+    - hand:
+        emptyLabel: borg-slot-ingredients-empty
+        emptyRepresentative: FoodCabbage
+        whitelist:
+          components:
+          - Produce
+          - SliceableFood
+          tags:
+          - Meat
+          - Cutlet
+          - Cooked
+          - Raw
+          - KodeEdible
+          - ClothMade
+          - ClothFood
+          - Ingredient
+          - Packet
+          - Shaker
+    - hand:
+        emptyLabel: borg-slot-ingredients-empty
+        emptyRepresentative: FoodCabbage
+        whitelist:
+          components:
+          - Produce
+          - Edible
+          - SliceableFood
+          tags:
+          - Meat
+          - Cutlet
+          - Cooked
+          - Raw
+          - KodeEdible
+          - ClothMade
+          - ClothFood
+          - Ingredient
+          - Packet
+          - Shaker
+    - hand:
+        emptyLabel: borg-slot-dinnerware-empty
+        emptyRepresentative: FoodBowlBig
+        whitelist:
+          tags:
+          - Dinnerware
+          components:
+          - FitsInDispenser
+          - Utensil
+        blacklist:
+          tags:
+          - Knife
+          - KitchenKnife
+          - Cleaver
+          - CombatKnife
+          - Shiv
+    - hand:
+        emptyLabel: borg-slot-dinnerware-empty
+        emptyRepresentative: FoodBowlBig
+        whitelist:
+          tags:
+          - Dinnerware
+          components:
+          - FitsInDispenser
+          - Utensil
+        blacklist:
+          tags:
+          - Knife
+          - KitchenKnife
+          - Cleaver
+          - CombatKnife
+          - Shiv
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: service-module }

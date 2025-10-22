@@ -12,3 +12,30 @@
     Plastic: 500
     Gold: 100
   result: BorgModuleMining
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleClowning
+  materials:
+    Steel: 250
+    Glass: 250
+    Plastic: 250
+  result: BorgModuleClowning
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleGardening
+  materials:
+    Steel: 250
+    Glass: 250
+    Plastic: 250
+  result: BorgModuleGardening
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleHarvesting
+  materials:
+    Steel: 250
+    Glass: 250
+    Plastic: 250
+  result: BorgModuleHarvesting

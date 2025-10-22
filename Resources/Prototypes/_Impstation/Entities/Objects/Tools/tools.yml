@@ -144,3 +144,50 @@
     - ClothingHeadHatCone
     - PowerCellSmall
     - Decalamp
+
+- type: entity
+  parent: BaseItem
+  name: borg's safety cleaver
+  id: BorgButchCleaver
+  description: A huge blade used for chopping up food. Unfortunately this doesn't include crew.
+  components:
+  - type: Tag
+    tags:
+    - Knife
+    - Cleaver
+  - type: Sharp
+  - type: Utensil
+    types:
+    - Knife
+  - type: Tool
+    qualities:
+    - Slicing
+    useSound:
+      path: /Audio/Items/Culinary/chop.ogg
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/cleaver.rsi
+    state: butch
+  - type: Item
+    size: Normal
+    sprite: Objects/Weapons/Melee/cleaver.rsi
+  - type: GuideHelp
+    guides:
+    - Chef
+    - FoodRecipes
+
+- type: entity
+  parent: BaseItem
+  id: BorgRollingPin
+  name: borg's rolling pin
+  description: A tool used to shape and flatten dough.
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/rolling_pin.rsi
+    state: icon
+  - type: Item
+  - type: Tool
+    qualities:
+    - Rolling
+  - type: Tag
+    tags:
+    - RollingPin

@@ -229,11 +229,8 @@
   defaultModules:
   - BorgModuleTool
   - BorgModuleMusique
-  - BorgModuleBartender # imp
   - BorgModuleService
-  - BorgModuleClowning
-  - BorgModuleGardening
-  - BorgModuleHarvesting
+  - BorgModuleChef # imp
   radioChannels:
   - Science
   - Service

@@ -12,3 +12,6 @@ borg-slot-instruments-empty = Instruments
 borg-slot-beakers-empty = Beakers
 borg-slot-inflatable-door-empty = Inflatable Door
 borg-slot-inflatable-wall-empty = Inflatable Wall
+borg-slot-ingredients-empty = Cooking Ingredients
+borg-slot-containers-empty = Containers
+borg-slot-dinnerware-empty = Dinnerware
