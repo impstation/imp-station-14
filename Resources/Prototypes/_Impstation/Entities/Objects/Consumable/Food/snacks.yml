@@ -21,14 +21,16 @@
   - type: FlavorProfile
     flavors:
       - salty
+      - shrimp
   - type: Item
     size: Tiny
-  - type: Food
+  - type: Edible
     trash:
     - FoodPacketShrimpsTrash
   - type: Tag
     tags:
     - FoodSnack
+    - Meat
 
 - type: entity
   parent: FoodPacketTrash
@@ -44,3 +46,400 @@
     - Trash
 
 #end shrimps
+#just kidding more shrimps
+
+- type: entity
+  name: Salty Dan's Freshly Grown ShrimpSnax
+  parent: FoodSnackBase
+  id: FoodSnackDanShrimpsnaxBase
+  description: A bag of shrimps. They don't even seem cooked or anything. Yeah this is probably food.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
+    state: shrimpsnax
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Protein
+          Quantity: 4
+        - ReagentId: TableSalt
+          Quantity: 4
+  - type: FlavorProfile
+    flavors:
+      - artificial
+      - shrimp
+  - type: Item
+    size: Tiny
+  - type: Edible
+    trash:
+    - FoodPacketDanShrimpsnaxBaseTrash
+  - type: Tag
+    tags:
+    - FoodSnack
+    - Meat
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: FoodPacketTrash
+  id: FoodPacketDanShrimpsnaxBaseTrash
+  name: Salty Dan's Freshly Emptied ShrimpSnax
+  description: There's a few little ones still in there. Ah, whatever.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
+    state: shrimpsnax-trash
+  - type: Tag
+    tags:
+    - Trash
+
+- type: entity
+  name: Douda Dan's Oum Stupee! Pedii Kibeab Zwoo!!
+  parent: FoodSnackBase
+  id: FoodSnackDanShrimpsnaxGreen
+  description: Is this some sort of misguided attempt to advertise to grays? These aren't even gray.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
+    state: shrimpsnaxgreen
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Protein
+          Quantity: 4
+        - ReagentId: GrayBlood
+          Quantity: 4
+        - ReagentId: Radium
+          Quantity: 1
+  - type: FlavorProfile
+    flavors:
+      - artificial
+      - shrimp
+      - outofthisworld
+  - type: Item
+    size: Tiny
+  - type: Edible
+    trash:
+    - FoodPacketDanShrimpsnaxGreenTrash
+  - type: Tag
+    tags:
+    - FoodSnack
+    - Meat
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: FoodPacketTrash
+  id: FoodPacketDanShrimpsnaxGreenTrash
+  name: empty ShrimpSnax bag
+  description: There's a few little ones still in there. Ah, whatever.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
+    state: shrimpsnaxgreen-trash
+  - type: Tag
+    tags:
+    - Trash
+
+- type: entity
+  name: Chilly Dan's Shrimp Frostbites
+  parent: FoodSnackBase
+  id: FoodSnackDanShrimpsnaxBlue
+  description: A layer of frost is forming on the bag. Is this safe...?
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
+    state: shrimpsnaxblue
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Protein
+          Quantity: 4
+        - ReagentId: Fresium
+          Quantity: 4 #this does .08 cold damage to you
+        - ReagentId: Coldsauce
+          Quantity: 4
+  - type: FlavorProfile
+    flavors:
+      - artificial
+      - shrimp
+      - cold
+  - type: Item
+    size: Tiny
+  - type: Edible
+    trash:
+    - FoodPacketDanShrimpsnaxBlueTrash
+  - type: Tag
+    tags:
+    - FoodSnack
+    - Meat
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: FoodPacketTrash
+  id: FoodPacketDanShrimpsnaxBlueTrash
+  name: empty ShrimpSnax bag
+  description: There's a few little ones still in there. Ah, whatever.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
+    state: shrimpsnaxblue-trash
+  - type: Tag
+    tags:
+    - Trash
+
+- type: entity
+  name: Discount Denise's Odored Sealife "For Girls!"
+  parent: FoodSnackBase
+  id: FoodSnackDanShrimpsnaxGirl
+  description: Finally. Odored sealife for girls.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
+    state: shrimpsnaxgirl
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Protein
+          Quantity: 4
+        - ReagentId: Sugar #sugar
+          Quantity: 2
+        - ReagentId: Hotsauce #spice
+          Quantity: 2
+        - ReagentId: LovePotion #everything nice
+          Quantity: 2
+        - ReagentId: UnstableMutagen #Chemical X
+          Quantity: 2
+  - type: FlavorProfile
+    flavors:
+      - artificial
+      - shrimp
+  - type: Item
+    size: Tiny
+  - type: Edible
+    trash:
+    - FoodPacketDanShrimpsnaxGirlTrash
+  - type: Tag
+    tags:
+    - FoodSnack
+    - Meat
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: FoodPacketTrash
+  id: FoodPacketDanShrimpsnaxGirlTrash
+  name: empty ShrimpSnax bag
+  description: There's a few little ones still in there. Ah, whatever.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
+    state: shrimpsnaxgirl-trash
+  - type: Tag
+    tags:
+    - Trash
+
+- type: entity
+  name: Shameful Dan's Sorrowful Secret
+  parent: FoodSnackBase
+  id: FoodSnackDanShrimpsnaxSad
+  description: Looking at this bag fills you with a deep sense of foreboding.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
+    state: shrimpsnaxsad
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Protein
+          Quantity: 4
+        - ReagentId: Sadness
+          Quantity: 9
+  - type: FlavorProfile
+    flavors:
+      - artificial
+      - shrimp
+  - type: Item
+    size: Tiny
+  - type: Edible
+    trash:
+    - FoodPacketDanShrimpsnaxSadTrash
+  - type: Tag
+    tags:
+    - FoodSnack
+    - Meat
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: FoodPacketTrash
+  id: FoodPacketDanShrimpsnaxSadTrash
+  name: empty ShrimpSnax bag
+  description: There's a few little ones still in there. Ah, whatever.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
+    state: shrimpsnaxsad-trash
+  - type: Tag
+    tags:
+    - Trash
+
+- type: entity
+  name: Apidan's Nautical Honey Helpers
+  parent: FoodSnackBase
+  id: FoodSnackDanShrimpsnaxBee
+  description: You can hear buzzing inside.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
+    state: shrimpsnaxbee
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Protein
+          Quantity: 4
+      #  - ReagentId: Honey #honey isnt in game yet...
+       #   Quantity: 4
+        - ReagentId: GroundBee
+          Quantity: 4
+        - ReagentId: BuzzochloricBees
+          Quantity: 1
+  - type: FlavorProfile
+    flavors:
+      - artificial
+      - honey
+      - shrimp
+  - type: Item
+    size: Tiny
+  - type: Edible
+    trash:
+    - FoodPacketDanShrimpsnaxBeeTrash
+  - type: Tag
+    tags:
+    - FoodSnack
+    - Meat
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: FoodPacketTrash
+  id: FoodPacketDanShrimpsnaxBeeTrash
+  name: empty ShrimpSnax bag
+  description: There's a few little ones still in there. Ah, whatever.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
+    state: shrimpsnaxbee-trash
+  - type: Tag
+    tags:
+    - Trash
+
+- type: entity
+  name: Salty Dan's Savory Sunrise Surprise
+  parent: FoodSnackBase
+  id: FoodSnackDanShrimpsnaxBreakfast
+  description: An exciting breakthrough in auto-sausaging biotechnology!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
+    state: shrimpsnaxbreakfast
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: UncookedAnimalProteins #surprise!
+          Quantity: 2
+        - ReagentId: Protein
+          Quantity: 2
+        - ReagentId: EggCooked
+          Quantity: 4
+        - ReagentId: TableSalt
+          Quantity: 2
+        - ReagentId: Blackpepper
+          Quantity: 2
+  - type: FlavorProfile
+    flavors:
+      - artificial
+      - bacon
+      - meaty
+      - shrimp
+  - type: Item
+    size: Tiny
+  - type: Edible
+    trash:
+    - FoodPacketDanShrimpsnaxBreakfastTrash
+  - type: Tag
+    tags:
+    - FoodSnack
+    - Meat
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: FoodPacketTrash
+  id: FoodPacketDanShrimpsnaxBreakfastTrash
+  name: empty ShrimpSnax bag
+  description: There's a few little ones still in there. Ah, whatever.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
+    state: shrimpsnaxbreakfast-trash
+  - type: Tag
+    tags:
+    - Trash
+
+- type: entity
+  id: FoodPacketDanShrimpsnaxRegret
+  parent: BaseItem
+  name: Trawlin' Dan's Regretliest Catch
+  description: This one seems different.
+  components:
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+      - FoodSnack
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
+    state: shrimpsnaxregret
+  - type: SpawnItemsOnUse
+    items:
+      - id: FoodPacketDanShrimpsnaxRegretTrash
+      - id: MobWeirdShrimp
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: FoodPacketTrash
+  id: FoodPacketDanShrimpsnaxRegretTrash
+  name: empty ShrimpSnax bag
+  description: It's empty.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
+    state: shrimpsnaxregret-trash
+  - type: Tag
+    tags:
+    - Trash

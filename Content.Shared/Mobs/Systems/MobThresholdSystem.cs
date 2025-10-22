@@ -18,7 +18,6 @@ public sealed class MobThresholdSystem : EntitySystem
     {
         SubscribeLocalEvent<MobThresholdsComponent, ComponentGetState>(OnGetState);
         SubscribeLocalEvent<MobThresholdsComponent, ComponentHandleState>(OnHandleState);
-        SubscribeLocalEvent<MobThresholdsComponent, MapInitEvent>(MobThresholdMapInit); // Offbrand
 
         SubscribeLocalEvent<MobThresholdsComponent, ComponentShutdown>(MobThresholdShutdown);
         SubscribeLocalEvent<MobThresholdsComponent, ComponentStartup>(MobThresholdStartup);
@@ -39,9 +38,11 @@ public sealed class MobThresholdSystem : EntitySystem
             component.CurrentThresholdState,
             component.StateAlertDict,
             component.ShowOverlays,
+            // imp add start
             component.ShowBruteOverlay,
             component.ShowAirlossOverlay,
             component.ShowCritOverlay,
+            // imp add end
             component.AllowRevives);
     }
 
@@ -50,10 +51,12 @@ public sealed class MobThresholdSystem : EntitySystem
         if (args.Current is not MobThresholdsComponentState state)
             return;
         component.Thresholds = new SortedDictionary<FixedPoint2, MobState>(state.UnsortedThresholds);
+        // imp add start
         component.ShowOverlays = state.ShowOverlays;
         component.ShowBruteOverlay = state.ShowBruteOverlay;
         component.ShowAirlossOverlay = state.ShowAirlossOverlay;
         component.ShowCritOverlay = state.ShowCritOverlay;
+        // imp add end
         component.TriggersAlerts = state.TriggersAlerts;
         component.CurrentThresholdState = state.CurrentThresholdState;
         component.AllowRevives = state.AllowRevives;
@@ -336,6 +339,7 @@ public sealed class MobThresholdSystem : EntitySystem
         VerifyThresholds(uid, component);
     }
 
+    // imp add start
     public void SetOverlaysEnabled(EntityUid uid, bool val, MobThresholdsComponent? component = null)
     {
         if (!Resolve(uid, ref component, false))
@@ -375,6 +379,7 @@ public sealed class MobThresholdSystem : EntitySystem
         component.TriggersAlerts = val;
         Dirty(uid, component);
     }
+    // imp add end
 
     #endregion
 
@@ -486,14 +491,6 @@ public sealed class MobThresholdSystem : EntitySystem
         CheckThresholds(target, mobState, thresholds, damageable);
         UpdateAllEffects((target, thresholds, mobState, damageable), mobState.CurrentState);
     }
-
-    // Begin Offbrand
-    private void MobThresholdMapInit(Entity<MobThresholdsComponent> ent, ref MapInitEvent args)
-    {
-        var overlayUpdate = new Content.Shared._Offbrand.Wounds.PotentiallyUpdateDamageOverlay(ent);
-        RaiseLocalEvent(ent, ref overlayUpdate);
-    }
-    // End Offbrand
 
     private void MobThresholdShutdown(EntityUid target, MobThresholdsComponent component, ComponentShutdown args)
     {

@@ -312,6 +312,7 @@
   - EmergencyNitrogenCommand
   - EmergencyOxygenCommand
   - EmergencyMeatCommand
+  - EmergencyWheatCommand
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogenCommand
 
@@ -324,6 +325,7 @@
   - EmergencyNitrogenExtendedCommand
   - EmergencyOxygenExtendedCommand
   - EmergencyMeatExtendedCommand
+  - EmergencyWheatExtendedCommand
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogenCommand
 
@@ -336,6 +338,7 @@
   - EmergencyNitrogenSecurityCommand
   - EmergencyOxygenSecurityCommand
   - EmergencyMeatSecurityCommand
+  - EmergencyWheatSecurityCommand
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogenCommand
 
@@ -748,13 +751,6 @@
   - SeniorCargoBelt
 
 - type: loadoutGroup
-  id: CargoTechnicianPDA
-  name: loadout-group-cargo-technician-id
-  loadouts:
-  - CargoTechnicianPDA
-  - SeniorCargoTechnicianPDA
-
-- type: loadoutGroup
   id: SalvageSpecialistNeck
   name: loadout-group-salvage-specialist-neck
   minLimit: 0
@@ -846,6 +842,13 @@
   loadouts:
   - LeatherShoes
   - CourierWinterBoots
+
+- type: loadoutGroup
+  id: CourierID
+  name: loadout-group-courier-id
+  loadouts:
+  - CourierPDA
+  - SeniorCourierPDA
 
 # engineering
 
@@ -1111,6 +1114,7 @@
   - EmergencyNitrogenBrigmedic
   - EmergencyOxygenBrigmedic
   - EmergencyMeatBrigmedic
+  - EmergencyWheatBrigmedic
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogen
 

@@ -20,6 +20,11 @@ namespace Content.Shared.Damage
     [DataDefinition, Serializable, NetSerializable]
     public sealed partial class DamageSpecifier : IEquatable<DamageSpecifier>
     {
+        // For the record I regret so many of the decisions i made when rewriting damageable
+        // Why is it just shitting out dictionaries left and right
+        // One day Arrays, stackalloc spans, and SIMD will save the day.
+        // TODO DAMAGEABLE REFACTOR
+
         // These exist solely so the wiki works. Please do not touch them or use them.
         [JsonPropertyName("types")]
         [DataField("types", customTypeSerializer: typeof(PrototypeIdDictionarySerializer<FixedPoint2, DamageTypePrototype>))]
@@ -71,24 +76,6 @@ namespace Content.Shared.Damage
 
             return false;
         }
-
-        // Begin Offbrand
-        /// <summary>
-        /// Returns true if the specifier contains any negative damage values.
-        /// Differs from <see cref="Empty"/> as a damage specifier might contain entries with zeroes.
-        /// This also returns false if the specifier only contains negative values.
-        /// </summary>
-        public bool AnyNegative()
-        {
-            foreach (var value in DamageDict.Values)
-            {
-                if (value < FixedPoint2.Zero)
-                    return true;
-            }
-
-            return false;
-        }
-        // End Offbrand
 
         /// <summary>
         ///     Whether this damage specifier has any entries.

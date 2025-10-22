@@ -292,8 +292,8 @@
     biomassRestored: 0.2
   - type: Carriable #DeltaV
     freeHandsRequired: 1
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   parent: MobChicken
@@ -362,7 +362,7 @@
   - type: TimedDespawn #delete the egg after the chicken spawns
     lifetime: 21
 
-- type: entity # TODO: figure out how to make these guys gib when stepped on
+- type: entity
   name: cockroach
   parent: SimpleMobBase
   id: MobCockroach
@@ -449,8 +449,13 @@
       - !type:GibBehavior
         recursive: false
   - type: NonSpreaderZombie
-  - type: SentienceTarget
-    flavorKind: station-event-random-sentience-flavor-organic
+  - type: StepTrigger
+    requiredTriggeredSpeed: 1
+  - type: TriggerOnStepTrigger
+  - type: RandomChanceTriggerCondition
+    successChance: 0.2
+  - type: GibOnTrigger
+  - type: ProtectedFromStepTriggers
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Effects/bite.ogg
@@ -676,8 +681,8 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 
 # Note that the mallard duck is actually a male drake mallard, with the brown duck being the female variant of the same species, however ss14 lacks sex specific textures
@@ -760,8 +765,8 @@
     biomassRestored: 0.2
   - type: Carriable #DeltaV
     freeHandsRequired: 1
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: white duck #Quack
@@ -893,10 +898,11 @@
       behaviors:
       - !type:GibBehavior
         recursive: false
+  - type: ZombieImmune
   # imp edit start
   - type: PleebnarGibbable
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: cow
@@ -986,8 +992,8 @@
   - type: GoobAbsorbable
     biomassRestored: 0.7
   - type: CowToolProficiency #this was made for ungus, but i'm putting this here in case an admin wants to be cute and give a cow hands
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: crab
@@ -1073,8 +1079,8 @@
       Male: UnisexDecapoid
       Female: UnisexDecapoid
       Unsexed: UnisexDecapoid
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: goat
@@ -1181,8 +1187,8 @@
   # imp edit start
   - type: GoobAbsorbable
     biomassRestored: 0.5
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 # Note that we gotta make this bitch vomit someday when you feed it anthrax or sumthin. Needs to be a small item thief too and aggressive if attacked.
 - type: entity
@@ -1236,8 +1242,8 @@
   - type: GoobAbsorbable
     biomassRestored: 0.3
   - type: Carriable #DeltaV
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: gorilla
@@ -1302,6 +1308,8 @@
         true
       NavSmash: !type:Bool
         true
+  - type: Puller
+    needsHands: false
   - type: Prying
     pryPowered: true
     force: true
@@ -1443,7 +1451,6 @@
     #imp edit end
   - type: Deathgasp
     prototype: MonkeyDeathgasp
-  - type: Blindable #imp
   - type: Cuffable
   - type: RotationVisuals
     defaultRotation: 90
@@ -1481,7 +1488,6 @@
       sprite: "Effects/creampie.rsi"
       state: "creampie_human"
       visible: false
-  - type: Carriable #DeltaV
   - type: Hands
   - type: ComplexInteraction
   - type: GenericVisualizer
@@ -1550,9 +1556,11 @@
       - !type:WashCreamPieReaction
   - type: Crawler
   # imp edit start
-  - type: GoobAbsorbable # imp edit
+  - type: Blindable
+  - type: Carriable #DeltaV
+  - type: GoobAbsorbable
     biomassRestored: 0.4
-  - type: VentCrawler #imp
+  - type: VentCrawler
     enterDelay: 3
   # imp edit end
 
@@ -2179,6 +2187,12 @@
   parent: MobMouse
   id: MobMouseCancer
   components:
+  - type: GhostRole
+    name: ghost-role-information-cancer-mouse-name
+    description: ghost-role-information-cancer-mouse-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
   - type: Sprite
     color: LightGreen
   - type: PointLight
@@ -2285,9 +2299,8 @@
     activateSound: null
     deactivateSound: null
   - type: PleebnarGibbable
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
-
 
 - type: entity
   name: slug
@@ -2352,8 +2365,8 @@
   - type: PleebnarGibbable
   - type: VentCrawler
     enterDelay: 1
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: frog
@@ -2436,8 +2449,8 @@
   - type: PleebnarGibbable
   - type: VentCrawler
     enterDelay: 1
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 # Would be cool to have some functionality for the parrot to be able to sit on stuff
 - type: entity
@@ -2594,8 +2607,8 @@
   - type: GoobAbsorbable
     biomassRestored: 0.3
   - type: Carriable #DeltaV
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 # TODO: Make grenade penguin voice activated like the rest of the stealth items.
 - type: entity
@@ -2734,8 +2747,8 @@
     tags: []
   - type: VentCrawler
     enterDelay: 2
-  - type: AlwaysRevolutionaryConvertible #imp
-# imp edit end
+  - type: AlwaysRevolutionaryConvertible
+  # imp edit end
 
 # Code unique spider prototypes or combine them all into one spider and get a
 # random sprite state when you spawn it.
@@ -2791,6 +2804,8 @@
     interactSuccessSpawn: EffectHearts
     interactSuccessSound:
       path: /Audio/Animals/snake_hiss.ogg
+  - type: Puller
+    needsHands: false
   - type: NoSlip
   - type: Spider
   - type: IgnoreSpiderWeb
@@ -2829,19 +2844,6 @@
         Brute: -0.07
         Burn: -0.07
   # imp edit start
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - map: [ "enum.DamageStateVisualLayers.Base", "movement" ]
-      state: tarantula
-      sprite: Mobs/Animals/spider.rsi
-  - type: SpriteMovement
-    movementLayers:
-      movement:
-        state: tarantula-moving
-    noMovementLayers:
-      movement:
-        state: tarantula
   - type: GoobAbsorbable # big enough to restore a good amount of biomass
     biomassRestored: 0.7
   - type: NightVision # EE edit
@@ -3043,8 +3045,8 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: possum
@@ -3137,8 +3139,8 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: fox
@@ -3279,8 +3281,8 @@
     biomassRestored: 0.3
   - type: Carriable #DeltaV
   - type: DogVision
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   parent: MobCorgiBase
@@ -3300,11 +3302,28 @@
       amount: 2
   - type: ReplacementAccent
     accent: dog
-  - type: SentienceTarget
-    flavorKind: station-event-random-sentience-flavor-corgi
   - type: Tag
     tags:
     - VimPilot
+# imp start
+  - type: NpcFactionMember
+    factions:
+      - Dog
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/Animals/dog_bark1.ogg
+  - type: StaminaDamageOnHit
+    damage: 20
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+# imp end
 
 - type: entity
   name: corrupted corgi
@@ -3483,8 +3502,8 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: calico cat
@@ -3725,11 +3744,11 @@
     tags:
     - VimPilot
   # imp edit start
-  - type: GoobAbsorbable # imp edit
+  - type: GoobAbsorbable
     biomassRestored: 0.3
   - type: Carriable #DeltaV
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: ferret
@@ -3796,8 +3815,8 @@
     deactivateSound: null
   - type: VentCrawler
     enterDelay: 3
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: hamster
@@ -3957,8 +3976,8 @@
   - type: PleebnarGibbable
   - type: VentCrawler
     enterDelay: 1
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: pig
@@ -4035,8 +4054,8 @@
     biomassRestored: 0.7
   - type: Carriable #DeltaV
   - type: PleebnarGibbable
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: diona nymph
@@ -4215,8 +4234,8 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: reindeer doe

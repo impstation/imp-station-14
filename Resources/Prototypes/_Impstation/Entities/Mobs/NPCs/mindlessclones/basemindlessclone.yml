@@ -3,19 +3,13 @@
   save: false
   parent:
   - BaseMob
- # - MobDamageable # Offmed - commented out because it's not on BaseMob
+  - MobDamageable
   - MobPolymorphable
   - MobCombat
   - StripableInventoryBase
   - MobRespirator
   - MobAtmosStandard
   - MobFlammable
-  - BaseMobWoundable # Offbrand
-  - BaseMobPain # Offbrand
-  - BaseMobSurgery # Offbrand
-  - BaseMobHeartrate # Offbrand
-  - BaseMobBrain # Offbrand
-  - BaseMobCryostasis # Offbrand
   id: BaseMobMindlessClone
   abstract: true
   components:
@@ -205,8 +199,6 @@
       enum.ThavenMoodsUiKey.Key: # impstation edit
         type: ThavenMoodsBoundUserInterface
         requireInputValidation: false
-      enum.SurgeryGuideUiKey.Key: # Offbrand
-        type: SurgeryGuideBoundUserInterface
   - type: Puller
   - type: Speech
     speechSounds: Alto

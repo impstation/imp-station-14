@@ -6,7 +6,7 @@
   physicalDesc: reagent-physical-desc-really-cruddy
   flavor: crud
   color: "#47181A"
-  contraband: Minor
+  contrabandSeverity: Minor
   tileReactions:
   - !type:CreateEntityTileReaction
     entity: BrosSorbSpawner
@@ -150,7 +150,7 @@
   physicalDesc: reagent-physical-desc-threat
   flavor: singulo
   color: "#000000"
-  contraband: Major
+  contrabandSeverity: Major
   tileReactions:
   - !type:CreateEntityTileReaction
     entity: FloorChasmEntity
@@ -323,7 +323,7 @@
         - !type:Breathing
         - !type:Internals
           usingInternals: false
-          
+
 - type: reagent
   id: Pulp
   name: reagent-name-pulp
@@ -337,3 +337,26 @@
       - !type:AdjustReagent #imp
         reagent: Cellulose
         amount: 0.5
+
+- type: reagent
+  id: Something
+  name: reagent-name-something
+  desc: reagent-desc-something
+  physicalDesc: reagent-physical-desc-something
+  flavor: something
+  color: "#467557"
+  metabolisms: # imp
+    Food:
+      effects:
+      - !type:PopupMessage
+        type: Local
+        visualType: Medium
+        messages:
+        - "something-effect-feelsomething"
+        - "something-effect-justhappened"
+        - "something-effect-kindofway"
+        - "something-effect-somthing"
+        - "something-effect-process"
+        - "something-effect-change"
+        - "something-effect-feeling"
+        probability: 0.2

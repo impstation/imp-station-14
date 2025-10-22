@@ -64,19 +64,13 @@
         requireInputValidation: false
   - type: StationMap #imp
   - type: GhostRole
-    requirements:
-    - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 36000 # ten hours
-    - !type:DepartmentTimeRequirement
-      department: Silicon
-      time: 18000 # five hours
+    job: Drone
     makeSentient: true
     name: ghost-role-information-drone-name
     description: ghost-role-information-drone-description
     rules: ghost-role-information-drone-rules
     mindRoles: # imp
-    - MindRoleGhostRoleSilicon
+    - MindRoleGhostRoleSilicon #should this have its own Drone mind role..?
   - type: GhostTakeoverAvailable
   - type: SiliconLawBound
   - type: SiliconLawProvider

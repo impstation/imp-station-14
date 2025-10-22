@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/15/2025 06:45:41
-  entityCount: 7873
+  time: 08/30/2025 00:36:45
+  entityCount: 7864
 maps:
 - 1
 grids:
@@ -5025,8 +5025,6 @@ entities:
   entities:
   - uid: 7252
     components:
-    - type: MetaData
-      desc: '#MyBat.'
     - type: Transform
       pos: 39.29589,-26.423391
       parent: 2
@@ -17099,13 +17097,6 @@ entities:
     components:
     - type: Transform
       pos: 24.5,-34.5
-      parent: 2
-- proto: CrateFreezerIVBag
-  entities:
-  - uid: 7869
-    components:
-    - type: Transform
-      pos: -17.5,-20.5
       parent: 2
 - proto: CrateHydroponics
   entities:
@@ -37062,57 +37053,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: IVBagAmmoniaBlood
-  entities:
-  - uid: 7873
-    components:
-    - type: MetaData
-      desc: Holds a worryingly insubstantial fluid. If you had to, you COULD use it to administer intravenously to a patient. But maybe you shouldn't.
-      name: i bag
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 35.513573,-30.500202
-      parent: 2
-- proto: IVBagBlood
-  entities:
-  - uid: 7872
-    components:
-    - type: MetaData
-      desc: Used to hold blood or other fluids to administer venously to a patient. Designed for use with a V stand, but you could use it with an IV stand if you had to.
-      name: v bag
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -16.68928,-16.659256
-      parent: 2
-- proto: IVStand
-  entities:
-  - uid: 7866
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -20.911816,-20.784256
-      parent: 2
-  - uid: 7867
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -17.86494,-16.784256
-      parent: 2
-  - uid: 7868
-    components:
-    - type: MetaData
-      desc: Holds IV bags and allows their contents to be administered venously to patients. This one is just venous, for some reason.
-      name: v stand
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -14.974316,-16.784256
-      parent: 2
-  - uid: 7871
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -19.111155,-17.956131
-      parent: 2
 - proto: JanitorialTrolley
   entities:
   - uid: 3228
@@ -37480,11 +37420,6 @@ entities:
     components:
     - type: Transform
       pos: -20.5,-11.5
-      parent: 2
-  - uid: 7865
-    components:
-    - type: Transform
-      pos: -19.5,-11.5
       parent: 2
 - proto: LockerPrisoner
   entities:
@@ -43917,11 +43852,6 @@ entities:
     components:
     - type: Transform
       pos: -18.5,-16.5
-      parent: 2
-  - uid: 7870
-    components:
-    - type: Transform
-      pos: -19.5,-18.5
       parent: 2
 - proto: StationAiUploadComputer
   entities:

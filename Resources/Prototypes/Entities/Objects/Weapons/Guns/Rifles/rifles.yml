@@ -135,7 +135,7 @@
 
 - type: entity
   name: Valkyrie #imp
-  parent: [BaseWeaponRifle, Tier3Contraband]
+  parent: [BaseWeaponRifle, Tier3Contraband] #imp, tiered contra
   id: WeaponRifleM90GrenadeLauncher
   description: A top-of-the-line assault rifle reserved for Nanotrasen's most elite mercenaries. Uses .20 rifle ammo. #imp
   components:
@@ -167,16 +167,6 @@
         whitelist:
           tags:
             - CartridgeRifle
-  - type: Gun #imp - everything listed in this component
-    minAngle: 21
-    maxAngle: 40
-    angleIncrease: 2
-    angleDecay: 15
-    fireRate: 6
-    selectedMode: FullAuto
-    availableModes:
-      - FullAuto
-      - SemiAuto
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
@@ -186,6 +176,16 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: Gun #imp - everything listed in this component
+    minAngle: 21
+    maxAngle: 40
+    angleIncrease: 2
+    angleDecay: 15
+    fireRate: 6
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    - SemiAuto
 
 - type: entity
   name: Lecter
@@ -244,10 +244,37 @@
   - type: Appearance
 
 - type: entity
+  parent: WeaponRifleLecter
+  id: WeaponRifleLecterXL8
+  name: XL8
+  description: |-
+    The Experimental Lecter 8
+    An unreasonably expensive military grade assault rifle with integrated optic.
+    Uses .20 rifle ammo.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Rifles/XL8.rsi
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Rifles/XL8.rsi
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 2
+    pvsIncrease: 0.2
+  - type: StaticPrice
+    price: 1500 #3x lecter
+  - type: Gun
+    shotsPerBurst: 3
+    selectedMode: Burst
+    availableModes:
+    - Burst
+    - SemiAuto
+    - FullAuto
+
+- type: entity
   name: Estoc DMR
   parent: [BaseWeaponRifle, BaseSyndicateContraband]
   id: WeaponRifleEstoc
-  description: A designated marksman rifle, favored for medium-to-long range engagements. Uses .20 rifle ammo.
+  description: "A designated marksman rifle firing in 3-round bursts. The Estoc was designed as the Lecter’s long-range counterpart, equipped with an extended 20-inch barrel and telescopic sight.\nFeeds from .20 rifle magazines."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Rifles/estoc.rsi

@@ -145,19 +145,6 @@
       params:
         volume: 1.0
         variation: 0.125
-  # Begin Offbrand
-  - type: Tending
-    woundWhitelist:
-      tags: [WoundCut, WoundPuncture]
-    damage:
-      types:
-        Slash: -0.5
-        Piercing: -0.5
-    tendingBeginSound:
-      path: "/Audio/Items/Medical/brutepack_begin.ogg"
-    tendingEndSound:
-      path: "/Audio/Items/Medical/brutepack_end.ogg"
-  # End Offbrand
   - type: Stack
     stackType: Cloth
     baseLayer: base
@@ -283,13 +270,6 @@
     state: durathread
   - type: Stack
     count: 1
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents: #Hell if I know what durathread is made out of.
-        - ReagentId: Fiber
-          Quantity: 6
 
 - type: entity
   parent: MaterialBase

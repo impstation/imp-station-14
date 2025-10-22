@@ -1,4 +1,152 @@
 - type: entity
+  name: boar
+  parent: [ MobCombat, SimpleMobBase ]
+  id: MobBoar
+  description: Thank fuck there aren't 30-50 of them.
+  components:
+    - type: Sprite
+      sprite: _Impstation/Mobs/Animals/boar.rsi
+      drawdepth: Mobs
+      layers:
+      - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+        state: boar
+      - map: ["enum.DamageStateVisualLayers.BaseUnshaded"]
+        state: eyes
+        shader: unshaded
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: boar
+        Critical:
+          Base: boar_dead
+        Dead:
+          Base: boar_dead
+    - type: SpriteMovement
+      movementLayers:
+        movement:
+          state: boar_moving
+      noMovementLayers:
+        movement:
+          state: boar
+    - type: Butcherable
+      spawned:
+      - id: FoodMeatBacon
+        amount: 4
+    - type: MeleeThrowOnHit
+      unanchorOnHit: false
+      distance: 2
+      speed: 10
+    - type: Tag
+      tags:
+        - DoorBumpOpener
+        - FootstepSound
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.48
+          density: 200
+          mask:
+          - MobMask
+          layer:
+          - MobLayer
+    - type: MovementSpeedModifier
+      baseWalkSpeed : 1.5
+      baseSprintSpeed : 2.5
+    - type: NpcFactionMember
+      factions:
+        - Passive
+    - type: HTN
+      rootTask:
+        task: BoarCompound
+      blackboard:
+        NavPry: !type:Bool
+          true
+        NavSmash: !type:Bool
+          true
+    - type: NPCImprintingOnSpawnBehaviour
+    - type: Hunger
+      baseDecayRate: 0.3
+    - type: Thirst
+      baseDecayRate: 0.05
+    - type: YoungKodepiiaRetaliation
+      attackMemoryLength: 15
+    - type: GoobAbsorbable
+      biomassRestored: 0.8
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        150: Critical
+        200: Dead
+    - type: Damageable
+      damageContainer: Biological
+      damageModifierSet: Slime
+    - type: Insulated
+    - type: MeleeWeapon
+      attackRate: 0.5
+      altDisarm: false
+      angle: 0
+      animation: WeaponArcPunch
+      soundHit:
+        collection: Punch
+      damage:
+        types:
+          Blunt: 5
+          Piercing: 5
+          Structural: 15
+    - type: Prying
+      pryPowered: true
+      speedModifier: 2.0
+      useSound:
+        path: /Audio/Items/crowbar.ogg
+    - type: InteractionPopup
+      successChance: 0.2
+      interactSuccessString: petting-success-boar
+      interactFailureString: petting-failure-boar
+      interactSuccessSpawn: EffectHearts
+      interactSuccessSound:
+        path: /Audio/Animals/pig_oink.ogg
+    - type: SentienceTarget
+      flavorKind: station-event-random-sentience-flavor-organic
+      weight: 0.05
+
+- type: entity
+  name: space boar
+  id: MobBoarSpace
+  parent: MobBoar
+  description: How did it even put that on?
+  components:
+    - type: Sprite
+      layers:
+      - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+        state: spaceboar
+    - type: SpriteMovement
+      movementLayers:
+        movement:
+          state: spaceboar_moving
+      noMovementLayers:
+        movement:
+          state: spaceboar
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: spaceboar
+        Critical:
+          Base: spaceboar_dead
+        Dead:
+          Base: spaceboar_dead
+    - type: Temperature
+      heatDamageThreshold: 423
+      coldDamageThreshold: 0
+    - type: MovementAlwaysTouching
+    - type: PressureImmunity
+    - type: ProtectedFromStepTriggers
+    - type: Insulated
+    - type: Respirator
+      minSaturation: 5.0
+
+- type: entity
   name: BROS
   parent: [ MobCombat, SimpleMobBase ]
   id: MobBros
@@ -331,12 +479,25 @@
     rules: ghost-role-information-freeagent-rules
     raffle:
       settings: short
-  - type: KodepiiaConsumeAction
+  - type: ConsumeAction
+    percentageConsumed: 0.1
+    popupSelfStart: kodepiia-consume-start-self
+    popupSelfEnd: kodepiia-consume-end-self
+    popupOthersStart: kodepiia-consume-start-others
+    popupOthersEnd: kodepiia-consume-end-self
+    consumeActionId: ActionKodepiiaConsume
     damage:
       groups:
         Genetic: 5
-    canGib: false
-
+      types:
+        Piercing: 10
+    whitelist:
+      components:
+      - Respirator
+      - Bloodstream
+    blacklist:
+      components:
+      - SiliconLawBound
 - type: entity
   name: butterfly
   parent: [ MobButterfly ]
@@ -426,3 +587,87 @@
         Burn: 3
     clumsySound:
       path: /Audio/Animals/monkey_scream.ogg
+
+- type: entity
+  name: weird shrimp
+  parent: [ SimpleMobBase, FlyingMobBase, MobCombat ]
+  id: MobWeirdShrimp
+  description: You don't think this is edible.
+  components:
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3.5
+    baseSprintSpeed: 5
+    weightlessAcceleration: 1.5
+    weightlessFriction: 1
+    weightlessModifier: 1
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      sprite: _Impstation/Mobs/Aliens/weirdshrimp.rsi
+      state: weirdshrimp
+  - type: Speech
+    speechSounds: Squeak
+    speechVerb: BabyAnom
+    allowedEmotes: ['Squeak']
+  - type: Vocal
+    sounds:
+      Male: Mouse
+      Female: Mouse
+      Unsexed: Mouse
+    wilhelmProbability: 0 #Enough.
+  - type: Fixtures #do somthing
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+        density: 10
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: weirdshrimp
+      Critical:
+        Base: weirdshrimp-dead
+      Dead:
+        Base: weirdshrimp-dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatFish #replace with anomalocarid meat
+      amount: 1
+  - type: GoobAbsorbable # imp edit - a good meal
+    biomassRestored: 0.2
+  - type: InteractionPopup
+    successChance: 0.2
+    interactSuccessString: petting-success-babyanom
+    interactFailureString: petting-success-babyanom
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/fox_squeak.ogg
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-organic
+  - type: Bloodstream
+    bloodMaxVolume: 50
+    bloodReagent: AnomalocaridCopperBlood
+  - type: ReplacementAccent
+    accent: babyanom
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 8
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    makeSentient: true
+    name: ghost-role-information-weirdshrimp-name
+    description: ghost-role-information-weirdshrimp-description
+    rules: ghost-role-information-familiar-weirdshrimp-rules
+    raffle:
+      settings: short

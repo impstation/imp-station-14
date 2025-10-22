@@ -54,7 +54,7 @@ public abstract partial class SharedSiliconLawSystem : EntitySystem
         component.OwnerName = Name(args.UserUid);
 
         NotifyLawsChanged(uid, component.EmaggedSound);
-        if (_mind.TryGetMind(uid, out var mindId, out _))
+        if(_mind.TryGetMind(uid, out var mindId, out _))
             EnsureSubvertedSiliconRole(mindId);
 
         _stunSystem.TryUpdateParalyzeDuration(uid, component.StunTime);

@@ -25,7 +25,7 @@
         - state: plushie_finfin-inhand-left
       right:
         - state: plushie_finfin-inhand-right
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: FlavorProfile
     flavors:
@@ -59,7 +59,7 @@
   - type: MeleeWeapon
     soundHit:
       path: /Audio/_Impstation/Voice/Gray/gray_scream.ogg
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: false
     useSound:
       path: /Audio/_Impstation/Voice/Gray/gray_scream.ogg
@@ -81,7 +81,7 @@
   - type: Sprite
     sprite: _Impstation/Objects/Fun/toys.rsi
     state: minor
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: FlavorProfile
     flavors:
@@ -124,7 +124,7 @@
         - state: plushie_bug-inhand-left
       right:
         - state: plushie_bug-inhand-right
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: false
     useSound:
       path: /Audio/Voice/Arachnid/arachnid_scream.ogg #OW!!! OWIE!!
@@ -204,7 +204,7 @@
   - type: EmbeddableProjectile
     sound: /Audio/Weapons/star_hit.ogg
   - type: EmbedPassiveDamage
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: false
     useSound:
       path: /Audio/Voice/Arachnid/arachnid_scream.ogg
@@ -264,7 +264,7 @@
       - Cutting
     useSound:
       path: /Audio/Items/wirecutter.ogg
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: FlavorProfile
     flavors:
@@ -291,7 +291,7 @@
   - type: EmitSoundOnUse
     sound:
       path: /Audio/_Impstation/Voice/Snail/snail_scream.ogg
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: FlavorProfile
     flavors:
@@ -307,6 +307,11 @@
         maxVol: 10
         reagents:
         - ReagentId: Mucin
+          Quantity: 10
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Fiber
           Quantity: 10
 
 - type: entity
@@ -333,7 +338,7 @@
   - type: MeleeWeapon
     soundHit:
       path: /Audio/_Impstation/Voice/Misc/wuhey.ogg
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/_Impstation/Voice/Misc/wuhey.ogg
@@ -506,8 +511,11 @@
     preventMelee: false
   - type: Absorbent
     pickupAmount: 15
+  - type: Edible
+    solution: food
   - type: DrainableSolution
     solution: absorbed
+    overrideEdibleSolution: true
   - type: SolutionContainerManager
     solutions:
       absorbed++:
@@ -515,6 +523,11 @@
         reagents:
         - ReagentId: Milk
           Quantity: 15
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
   - type: FlavorProfile
     flavors:
     - weird
@@ -540,7 +553,7 @@
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/_NF/Voice/Goblin/goblin-cry-02.ogg
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: FlavorProfile
     flavors:
@@ -569,7 +582,7 @@
       path: /Audio/_NF/Voice/Goblin/goblin-deathgasp-01.ogg
   - type: UseDelay
     delay: 5.0
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: FlavorProfile
     flavors:
@@ -634,7 +647,7 @@
         - state: doll_hair-inhand-left
       right:
         - state: doll_hair-inhand-right
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: FlavorProfile
     flavors:
@@ -693,7 +706,7 @@
   - type: Sprite
     sprite: _Impstation/Objects/Fun/toys.rsi
     state: plushie_mascotgriffy
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: FlavorProfile
     flavors:
@@ -701,7 +714,7 @@
   - type: FoodSequenceElement
     entries:
       CottonBurger: GriffyPlushie
-  
+
 - type: entity
   parent: BasePlushie
   id: PlushieOdds
@@ -804,7 +817,7 @@
       collection: KodePlushie
       params:
         variation: .125
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: FlavorProfile
     flavors:
@@ -899,7 +912,7 @@
       path: /Audio/_Impstation/Voice/Gray/gray_scream.ogg
       params:
         pitch: 0.5
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: false
     useSound:
       path: /Audio/_Impstation/Voice/Gray/gray_scream.ogg
@@ -959,7 +972,7 @@
       Cloth: 100
   - type: StaticPrice
     price: 5
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
     useSound:
       collection: ToySqueak
@@ -1021,7 +1034,7 @@
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/_Impstation/Animals/bros_hit.ogg
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/_Impstation/Animals/bros_hurt.ogg
@@ -1065,7 +1078,7 @@
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/_Impstation/Animals/bros_hit.ogg
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/_Impstation/Animals/bros_hurt.ogg
@@ -1081,4 +1094,45 @@
     animation: WeaponArcPunch
     soundHit:
       path: /Audio/_Impstation/Animals/bros_hit.ogg
-      
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieUngu
+  name: ungu plushie
+  description: Texas Longhorn.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    state: plushie_ungu
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: StealTarget
+    stealGroup: Plushie
+  - type: Item
+    inhandVisuals:
+      left:
+        - state: plushie_ungu-inhand-left
+      right:
+        - state: plushie_ungu-inhand-right
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieUnguTiny
+  name: ungu plushie...
+  description: Rhode Island Shorthorn.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    state: plushie_ungu_tiny
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: StealTarget
+    stealGroup: Plushie
+  - type: Item
+    inhandVisuals:
+      left:
+        - state: plushie_ungu-inhand-left
+      right:
+        - state: plushie_ungu-inhand-right
+
+

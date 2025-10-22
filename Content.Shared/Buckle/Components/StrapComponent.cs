@@ -16,7 +16,6 @@ public sealed partial class StrapComponent : Component
     /// The entities that are currently buckled to this strap.
     /// </summary>
     [DataField, AutoNetworkedField]
-    [Access(typeof(SharedBuckleSystem), Other = AccessPermissions.ReadExecute)] // Offbrand
     public HashSet<EntityUid> BuckledEntities = new();
 
     /// <summary>

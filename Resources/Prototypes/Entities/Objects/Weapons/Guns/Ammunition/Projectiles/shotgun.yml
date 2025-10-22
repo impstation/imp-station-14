@@ -24,8 +24,10 @@
   - type: Sprite
     sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/kineticprojectiles.rsi #imp
     layers:
-    - state: stun #imp
+    - state: stunslug #imp
+      shader: unshaded #imp
   - type: Projectile
+    impactEffect: BulletImpactEffectKineticStun #imp
     damage:
       types:
         Shock: 7.5 #imp
@@ -72,8 +74,8 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 3
-        Heat: 7
+        Piercing: 7
+        Heat: 3
   - type: IgnitionSource
     ignited: true
 

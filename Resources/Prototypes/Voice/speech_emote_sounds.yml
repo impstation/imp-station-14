@@ -36,14 +36,16 @@
       collection: Weh
     Hew:
       collection: Hew
-    Wuhey: # imp
-      collection: Wuhey
-    Ungh: # imp
-      collection: Ungh
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
+    # imp edit start
+    Wuhey:
+      collection: Wuhey
+    Ungh:
+      collection: Ungh
+    # imp edit end
 
 - type: emoteSounds
   id: FemaleHuman
@@ -82,14 +84,16 @@
       collection: Weh
     Hew:
       collection: Hew
-    Wuhey: # imp
-      collection: Wuhey
-    Ungh: # imp
-      collection: Ungh
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+    # imp edit start
+    Wuhey:
+      collection: Wuhey
+    Ungh:
+      collection: Ungh
+    # imp edit end
 
 - type: emoteSounds
   id: MaleReptilian
@@ -100,18 +104,8 @@
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
     Laugh:
       path: /Audio/Animals/lizard_happy.ogg
-    Hiss: # Imp
-      collection: ReptilianHiss
-    Sneeze: # imp placeholder
-      collection: MaleSneezes
-    Cough: # imp placeholder
-      collection: MaleCoughs
-    Yawn: # imp placeholder
-      collection: MaleYawn
     Honk:
       collection: BikeHorn
-    Sigh:  # imp placeholder
-      collection: MaleSigh
     Whistle:
       collection: Whistles
     Crying:
@@ -128,6 +122,20 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: DeathGasp
+    # imp edit start
+    Hiss:
+      collection: ReptilianHiss
+    Chirp:
+      collection: ReptilianChirp
+    Sneeze:
+      collection: MaleSneezes #placeholder
+    Cough:
+      collection: MaleCoughs #placeholder
+    Yawn:
+      collection: MaleYawn #placeholder
+    Sigh:
+      collection: MaleSigh #placeholder
+    # imp edit end
 
 - type: emoteSounds
   id: FemaleReptilian
@@ -138,18 +146,8 @@
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
     Laugh:
       path: /Audio/Animals/lizard_happy.ogg
-    Hiss: # Imp
-      collection: ReptilianHiss
-    Sneeze: # imp placeholder
-      collection: FemaleSneezes
-    Cough: # imp placeholder
-      collection: FemaleCoughs
-    Yawn: # imp placeholder
-      collection: FemaleYawn
     Honk:
       collection: BikeHorn
-    Sigh: # imp placeholder
-      collection: FemaleSigh
     Whistle:
       collection: Whistles
     Crying:
@@ -166,6 +164,20 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+    # imp edit start
+    Hiss:
+      collection: ReptilianHiss
+    Chirp:
+      collection: ReptilianChirp
+    Sneeze:
+      collection: FemaleSneezes #placeholder
+    Cough:
+      collection: FemaleCoughs #placeholder
+    Yawn:
+      collection: FemaleYawn #placeholder
+    Sigh:
+      collection: FemaleSigh #placeholder
+    # imp edit end
 
 - type: emoteSounds
   id: MaleSlime
@@ -208,14 +220,16 @@
       collection: Weh
     Hew:
       collection: Hew
-    Wuhey: # imp
-      collection: Wuhey
-    Ungh: # imp
-      collection: Ungh
     Gasp:
       collection: MaleSlimeGasp # imp
     DefaultDeathgasp:
       collection: MaleSlimeDeathGasp # imp
+    # imp edit start
+    Wuhey:
+      collection: Wuhey
+    Ungh:
+      collection: Ungh
+    # imp edit end
   params:
     variation: 0.125
 
@@ -224,10 +238,6 @@
   sounds:
     Squish:
       collection: Squishes
-    Bubble: # imp
-      collection: Bubbles
-    Pop: # imp
-      collection: Pops
     Scream:
       collection: FemaleSlimeScreams # imp
     Laugh:
@@ -258,14 +268,20 @@
       collection: SlimeWhistles # imp
     Weh:
       collection: Weh
-    Wuhey: # imp
-      collection: Wuhey
-    Ungh: # imp
-      collection: Ungh
     Gasp:
       collection: FemaleSlimeGasp # imp
     DefaultDeathgasp:
       collection: FemaleSlimeDeathGasp # imp
+    # imp edit start
+    Bubble:
+      collection: Bubbles
+    Pop:
+      collection: Pops
+    Wuhey:
+      collection: Wuhey
+    Ungh:
+      collection: Ungh
+    # imp edit end
   params:
     variation: 0.125
 
@@ -276,53 +292,53 @@
       path: /Audio/Voice/Vox/shriek1.ogg
     Laugh:
       path: /Audio/Voice/Vox/vox_laugh.ogg
-    Sneeze:
-      collection: UnisexSneezes # imp placeholder
     Cough:
-      collection: UnisexCoughs # imp placeholder
-    Yawn:
-      collection: UnisexYawn # imp placeholder
+      path: /Audio/Voice/Vox/vox_cough.ogg
+    Sigh:
+      path: /Audio/Voice/Vox/vox_sigh.ogg
     Honk:
       collection: BikeHorn
-    Sigh:
-      collection: UnisexSigh #imp placeholder
     Crying:
-      collection: VoxCry # Imp
-      params:
-        volume: -7
-    Whistle: # imp
-      collection: Whistles
+      path: /Audio/Voice/Vox/vox_cry.ogg
     Weh:
       collection: Weh
     Hew:
       collection: Hew
-    Wuhey: # imp
-      collection: Wuhey
-    Ungh: # imp
-      collection: Ungh
     Gasp:
-      collection: VoxGasp # Imp
+      collection: VoxGasp #imp edit, new gasp sounds too much like question sound
       params:
         volume: 10
     DefaultDeathgasp:
-      collection: UnisexDeathGasp # imp placeholder
-    Chitter: # imp
+      path: /Audio/Effects/Gasp/vox_DeathGasp.ogg
+    # imp edit start
+    Chitter:
       collection: VoxChitter
       params:
         volume: -5
-    Coo: # imp
+    Coo:
       collection: VoxCoo
       params:
         volume: -7
-    Hiss: # imp
+    Hiss:
       collection: VoxHiss
       params:
         volume: -5
-    Caw: # imp
+    Caw:
       collection: KodepiiaCaws
+    Whistle:
+      collection: Whistles
+    Sneeze:
+      collection: UnisexSneezes #placeholder
+    Yawn:
+      collection: UnisexYawn #placeholder
+    Wuhey:
+      collection: Wuhey
+    Ungh:
+      collection: Ungh
+    # imp edit end
   params:
     variation: 0.125
-    # We need vox sounds for the other emotes
+    # TODO: We need vox sounds for the other emotes
 
 - type: emoteSounds
   id: UnisexDiona
@@ -333,32 +349,34 @@
       collection: DionaLaugh
     Chirp:
       path: /Audio/Animals/nymph_chirp.ogg
-    Sneeze:
-      collection: UnisexSneezes # imp placeholder
-    Cough:
-      collection: UnisexCoughs # imp placeholder
-    Yawn:
-      collection: UnisexYawn # imp placeholder
     Honk:
       collection: BikeHorn
-    Sigh:
-      collection: UnisexSigh # imp placeholder
-    Crying:
-      collection: UnisexCry # imp placeholder
-    Whistle:
-      collection: Whistles
     Weh:
       collection: Weh
     Hew:
       collection: Hew
-    Wuhey: # imp
-      collection: Wuhey
-    Ungh: # imp
-      collection: Ungh
     Gasp:
       collection: UnisexGasp # imp
     DefaultDeathgasp:
       collection: DeathGasp
+   # imp edit start
+    Sneeze:
+      collection: UnisexSneezes #placeholder
+    Cough:
+      collection: UnisexCoughs #placeholder
+    Yawn:
+      collection: UnisexYawn #placeholder
+    Sigh:
+      collection: UnisexSigh #placeholder
+    Crying:
+      collection: UnisexCry #placeholder
+    Whistle:
+      collection: Whistles
+    Wuhey:
+      collection: Wuhey
+    Ungh:
+      collection: Ungh
+    # imp edit end
   params:
     variation: 0.125
 
@@ -375,32 +393,36 @@
       path: /Audio/Voice/Arachnid/arachnid_chitter.ogg
     Click:
       path: /Audio/Voice/Arachnid/arachnid_click.ogg
-    Sneeze:
-      collection: UnisexSneezes # imp placeholder
-    Cough:
-      collection: UnisexCoughs # imp placeholder
-    Yawn:
-      collection: UnisexYawn # imp placeholder
-    Honk:
-      collection: BikeHorn
-    Sigh:
-      collection: UnisexSigh # imp placeholder
-    Crying:
-      collection: UnisexCry # imp placeholder
-    Whistle:
-      collection: Whistles
     Weh:
       collection: Weh
     Hew:
       collection: Hew
-    Wuhey: # imp
-      collection: Wuhey
-    Ungh: # imp
-      collection: Ungh
+    Honk:
+      collection: BikeHorn
     Gasp:
-      collection: UnisexGasp # imp
+      path: /Audio/_Impstation/Voice/Arachnid/arachnid_gasp.ogg #imp
     DefaultDeathgasp:
       collection: DeathGasp
+    # imp edit start
+    Hiss:
+      path: /Audio/_Impstation/Voice/Arachnid/arachnid_hiss.ogg
+    Sneeze:
+      collection: UnisexSneezes #placeholder
+    Cough:
+      path: /Audio/_Impstation/Voice/Arachnid/arachnid_cough.ogg
+    Yawn:
+      path: /Audio/_Impstation/Voice/Arachnid/arachnid_yawn.ogg
+    Sigh:
+      path: /Audio/_Impstation/Voice/Arachnid/arachnid_sigh.ogg
+    Crying:
+      path: /Audio/_Impstation/Voice/Arachnid/arachnid_cry.ogg
+    Whistle:
+      collection: Whistles
+    Wuhey:
+      collection: Wuhey
+    Ungh:
+      collection: Ungh
+    # imp edit end
 
 - type: emoteSounds
   id: UnisexDwarf
@@ -422,7 +444,7 @@
     RobotBeep:
       collection: RobotBeeps
     Yawn:
-      collection: UnisexYawn
+      collection: UnisexYawn # imp
     Snore:
       collection: Snores
     Sigh:
@@ -435,14 +457,18 @@
       collection: Whistles
     Weh:
       collection: Weh
-    Wuhey: # imp
-      collection: Wuhey
-    Ungh: # imp
-      collection: Ungh
+    Hew:
+      collection: Hew
     Gasp:
       collection: UnisexGasp # imp
     DefaultDeathgasp:
       collection: UnisexDeathGasp # imp
+    # imp edit start
+    Wuhey: # imp
+      collection: Wuhey
+    Ungh: # imp
+      collection: Ungh
+    # imp edit end
   params:
     variation: 0.125
     pitch: 0.75
@@ -482,14 +508,16 @@
       collection: Weh
     Hew:
       collection: Hew
-    Wuhey: # imp
-      collection: Wuhey
-    Ungh: # imp
-      collection: Ungh
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+    # imp edit start
+    Wuhey: # imp
+      collection: Wuhey
+    Ungh: # imp
+      collection: Ungh
+    # imp edit end
   params:
     variation: 0.125
     pitch: 0.75
@@ -509,32 +537,34 @@
       path: /Audio/Voice/Moth/moth_chitter.ogg
     Squeak:
       path: /Audio/Voice/Moth/moth_squeak.ogg
-    Sneeze: # imp
-      collection: UnisexSneezes #placeholder
-    Cough: # imp
-      collection: UnisexCoughs #placeholder
-    Yawn: # imp
-      collection: UnisexYawn #placeholder
-    Sigh: # imp
-      collection: UnisexSigh #placeholder
-    Crying: # imp
-      collection: UnisexCry #placeholder
-    Whistle: # imp
-      collection: Whistles
     Weh:
       collection: Weh
     Hew:
       collection: Hew
-    Wuhey: # imp
-      collection: Wuhey
-    Ungh: # imp
-      collection: Ungh
     Honk:
       collection: BikeHorn
     Gasp:
-      collection: MaleGasp
+      path: /Audio/_Impstation/Voice/Moth/mothgasp.ogg # imp
     DefaultDeathgasp:
       collection: MothDeathGasp
+    # imp edit start
+    Sneeze:
+      collection: UnisexSneezes #placeholder
+    Cough:
+      path: /Audio/_Impstation/Voice/Moth/mothcough.ogg
+    Yawn:
+      path: /Audio/_Impstation/Voice/Moth/mothyawn.ogg
+    Sigh:
+      path: /Audio/_Impstation/Voice/Moth/mothsigh.ogg
+    Crying:
+      path: /Audio/_Impstation/Voice/Moth/mothcry.ogg
+    Whistle:
+      collection: Whistles
+    Wuhey:
+      collection: Wuhey
+    Ungh:
+      collection: Ungh
+    # imp edit end
 
 - type: emoteSounds
   id: UnisexSilicon
@@ -602,6 +632,71 @@
     Ping:
       collection: XenoborgPing
 
+# Vulp Sounds
+- type: emoteSounds
+  id: MaleVulpkanin
+  params:
+    variation: 0.125
+  sounds:
+    Laugh:
+      collection: MaleLaugh
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    Whistle:
+      collection: Whistles
+    Sigh:
+      collection: MaleSigh
+    Scream:
+      collection: VulpkaninScreams
+    Growl:
+      collection: VulpkaninGrowls
+    Snarl:
+      collection: VulpkaninSnarls
+    Bark:
+      collection: VulpkaninBarks
+    Whine:
+      collection: VulpkaninWhines
+    Howl:
+      collection: VulpkaninHowls
+    Gasp:
+      collection: MaleGasp
+    DefaultDeathgasp:
+      collection: MaleDeathGasp
+
+- type: emoteSounds
+  id: FemaleVulpkanin
+  params:
+    variation: 0.125
+  sounds:
+    Laugh:
+      collection: FemaleLaugh
+    Sneeze:
+      collection: FemaleSneezes
+    Cough:
+      collection: FemaleCoughs
+    Whistle:
+      collection: Whistles
+    Sigh:
+      collection: FemaleSigh
+    Scream:
+      collection: VulpkaninScreams
+    Growl:
+      collection: VulpkaninGrowls
+    Snarl:
+      collection: VulpkaninSnarls
+    Bark:
+      collection: VulpkaninBarks
+    Whine:
+      collection: VulpkaninWhines
+    Howl:
+      collection: VulpkaninHowls
+    Gasp:
+      collection: FemaleGasp
+    DefaultDeathgasp:
+      collection: FemaleDeathGasp
+
 # body emotes
 - type: emoteSounds
   id: GeneralBodyEmotes
@@ -613,7 +708,7 @@
     Snap:
       collection: Snaps
       params:
-        volume: -3
+        volume: -3 #imp
     Salute:
       collection: Salutes
     Crack: # Imp addition

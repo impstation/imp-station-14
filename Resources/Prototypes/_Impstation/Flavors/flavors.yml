@@ -34,6 +34,11 @@
   description: flavor-base-kingsoda
 
 - type: flavor
+  id: something
+  flavorType: Base
+  description: flavor-base-something
+
+- type: flavor
   id: crud
   flavorType: Complex
   description: flavor-complex-crud
@@ -99,6 +104,16 @@
   description: flavor-base-weird
 
 - type: flavor
+  id: artificial
+  flavorType: Base
+  description: flavor-base-artificial
+
+- type: flavor
+  id: shrimp
+  flavorType: Base
+  description: flavor-base-shrimp
+
+- type: flavor
   id: secticket
   flavorType: Complex
   description: flavor-complex-secticket
@@ -137,6 +152,11 @@
   id: kodepiia
   flavorType: Base
   description: flavor-base-kodepiia
+
+- type: flavor
+  id: ectoplasm
+  flavorType: Base
+  description: flavor-base-ectoplasm
 
 - type: flavor
   id: thavenflesh
@@ -468,4 +488,23 @@
   id: imp
   flavorType: Complex
   description: flavor-complex-imp
+
+- type: flavor
+  id: allulalo
+  flavorType: Complex
+  description: flavor-complex-allulalo
   
+- type: flavor
+  id: outofthisworld
+  flavorType: Complex
+  description: flavor-complex-outofthisworld
+
+- type: flavor
+  id: fatty
+  flavorType: Base
+  description: flavor-base-fatty
+
+- type: flavor
+  id: gooey
+  flavorType: Base
+  description: flavor-base-gooey

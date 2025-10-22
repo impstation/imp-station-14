@@ -4,127 +4,404 @@
     children:
     # hijacks use key, prevents from using artifact, sadly
     #- id: XenoArtifactEffectUniversalIntercom
-    #  weight: 10.0
+    #  weight: 10.0 # imp edit
     - id: XenoArtifactSolutionStorage
-      weight: 10.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [0, 1, 2]
     - id: XenoArtifactPhasing
-      weight: 2.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [1, 2, 3]
     - id: XenoArtifactWandering
-      weight: 4.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [0, 1, 2]
     - id: XenoArtifactSpeedUp
-      weight: 4.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [0, 1, 2, 3]
     - id: XenoArtifactGhost
-      weight: 2.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [0, 1, 2, 3]
     - id: XenoArtifactEffectBadFeeling
-      weight: 10.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [0, 1, 2]
     - id: XenoArtifactEffectGoodFeeling
-      weight: 10.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [0, 1, 2]
     - id: XenoArtifactEffectJunkSpawn
-      weight: 10.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [0, 1, 2]
     - id: XenoArtifactEffectLightFlicker
-      weight: 10.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [0, 1, 2]
     - id: XenoArtifactPotassiumWave
-      weight: 7.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [0, 1, 2, 3]
     - id: XenoArtifactFloraSpawn
-      weight: 10.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [0, 1, 2, 3]
     - id: XenoArtifactChemicalPuddle
-      weight: 10.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [1, 2, 3]
     - id: XenoArtifactThrowThingsAround
-      weight: 10.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [0, 1, 2, 3]
     - id: XenoArtifactColdWave
-      weight: 10.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [2, 3, 4]
     - id: XenoArtifactHeatWave
-      weight: 4.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [2, 3, 4]
     - id: XenoArtifactFoamMild
-      weight: 8.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [1, 2, 3]
     - id: XenoArtifactRandomInstrumentSpawn
-      weight: 10.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [1, 2, 3]
     - id: XenoArtifactMonkeySpawn
-      weight: 10.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [1, 2, 3]
     - id: XenoArtifactRadioactive
-      weight: 8.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [2, 3, 4]
     - id: XenoArtifactChargeBattery
-      weight: 10.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [2, 3, 4]
     - id: XenoArtifactKnock
-      weight: 4.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [1, 2, 3]
     - id: XenoArtifactMagnet
-      weight: 2.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [2, 3, 4]
     - id: XenoArtifactMagnetNegative
-      weight: 2.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [2, 3, 4]
     - id: XenoArtifactStealth
-      weight: 1.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [2, 3, 4]
     - id: XenoArtifactRareMaterialSpawnSilver
-      weight: 1.8 # amount is laughable
+      weight: 10.0 # imp edit # amount is laughable
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [1, 2, 3]
     - id: XenoArtifactRareMaterialSpawnPlasma
-      weight: 2.0 # amount is laughable
+      weight: 10.0 # imp edit # amount is laughable
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [1, 2, 3]
     - id: XenoArtifactRareMaterialSpawnGold
-      weight: 1.8 # amount is laughable
+      weight: 10.0 # imp edit # amount is laughable
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [1, 2, 3]
     - id: XenoArtifactRareMaterialSpawnUranium
-      weight: 1.0 # amount is laughable
+      weight: 10.0 # imp edit # amount is laughable
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [1, 2, 3]
     - id: XenoArtifactAngryCarpSpawn
-      weight: 4.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [2, 3, 4]
     - id: XenoArtifactFaunaSpawn
-      weight: 10.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [2, 3, 4]
     - id: XenoArtifactCashSpawn
-      weight: 10.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [2, 3, 4]
     - id: XenoArtifactShatterWindows
-      weight: 8.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [1, 2, 3]
     - id: XenoArtifactFoamGood
-      weight: 4.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [2, 3, 4]
     - id: XenoArtifactFoamDangerous
-      weight: 2.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [2, 3, 4]
     - id: XenoArtifactPuddleRare
-      weight: 2.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [2, 3, 4]
     - id: XenoArtifactAnomalySpawn
-      weight: 10.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [3, 4, 5]
     - id: XenoArtifactIgnite
-      weight: 2.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [2, 3, 4]
     - id: XenoArtifactTeleport
-      weight: 2.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [2, 3, 4]
     - id: XenoArtifactEmp
-      weight: 2.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [1, 2, 3]
     - id: XenoArtifactPolyMonkey
-      weight: 2.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [2, 3, 4]
     - id: XenoArtifactPolyLuminous
-      weight: 2.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [2, 3, 4]
     - id: XenoArtifactPolyLizard
-      weight: 2.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [2, 3, 4]
     - id: XenoArtifactRadioactiveStrong
-      weight: 3.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [2, 3, 4]
     - id: XenoArtifactMaterialSpawnGlass
-      weight: 3.3
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [1, 2, 3]
     - id: XenoArtifactMaterialSpawnSteel
-      weight: 3.3
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [1, 2, 3]
     - id: XenoArtifactMaterialSpawnPlastic
-      weight: 3.3
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [1, 2, 3]
     - id: XenoArtifactPortal
-      weight: 2.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [2, 3, 4]
     - id: XenoArtifactArtifactSpawn
-      weight: 0.5
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [3, 4, 5]
     - id: XenoArtifactShuffle
-      weight: 3.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [1, 2, 3]
     - id: XenoArtifactHealAll
-      weight: 1.0
-    #- id: XenoArtifactTesla
-    #  weight: 10.0
-    #- id: XenoArtifactSingularity
-    #  weight: 10.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [3, 4, 5]
+    - id: XenoArtifactTesla # imp edit, uncommented you need to activate it NOW
+      weight: 1.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [4, 5]
+    - id: XenoArtifactSingularity # imp edit, uncommented you need to activate it NOW
+      weight: 1.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [4, 5]
     - id: XenoArtifactExplosionScary
-      weight: 1.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [4, 5]
     - id: XenoArtifactBoom
-      weight: 5.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [3, 4, 5]
     - id: XenoArtifactEffectCreationGasPlasma
-      weight: 2.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [2, 3, 4]
     - id: XenoArtifactEffectCreationGasTritium
-      weight: 2.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [3, 4, 5]
     - id: XenoArtifactEffectCreationGasAmmonia
-      weight: 3.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [1, 2, 3]
     - id: XenoArtifactEffectCreationGasFrezon
-      weight: 1.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [3, 4, 5]
     - id: XenoArtifactEffectCreationGasNitrousOxide
-      weight: 4.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [2, 3, 4]
     - id: XenoArtifactEffectCreationGasCarbonDioxide
-      weight: 4.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [1, 2, 3]
+    # imp edit start
+    - id: XenoArtifactPolyFinfin
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [ 2, 3, 4 ]
+    - id: XenoArtifactPolyBee
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [ 2, 3, 4 ]
+    - id: XenoArtifactPolyClownSpider
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [ 2, 3, 4 ]
+    - id: XenoArtifactPolyRod
+      weight: 2.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [ 2, 3, 4 ]
+    - id: XenoArtifactPointLight
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [ 0, 1, 2 ]
+    - id: XenoArtifactVeryLocalKnockdown
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [ 0, 1, 2 ]
+    - id: XenoArtifactLocalKnockdown
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [ 1, 2, 3 ]
+    - id: XenoArtifactDangerousFaunaSpawn
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [ 2, 3, 4 ]
+    - id: XenoArtifactFoamVeryDangerous
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [ 2, 3, 4 ]
+    - id: XenoArtifactFoamRomerol
+      weight: 3.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [ 3, 4, 5 ]
+    - id: XenoArtifactShatterStructure
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [ 1, 2, 3 ]
+    - id: XenoArtifactPresent
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [ 3, 4, 5 ]
+    - id: XenoArtifactMundaneBook
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [ 0, 1, 2 ]
+    - id: XenoArtifactMagicBook
+      weight: 3.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [ 2, 3, 4 ]
+    - id: XenoArtifactGridKnockdown
+      weight: 5.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [ 2, 3, 4 ]
+    - id: XenoArtifactSupermatter
+      weight: 1.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [ 4, 5 ]
+    - id: XenoArtifactScrambleDNA
+      weight: 1 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [ 2, 3, 4 ]
+    - id: XenoArtifactInjectCryptobiolin
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [ 0, 1, 2 ]
+    - id: XenoArtifactInjectDrunkHigh
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [ 0, 1, 2 ]
+    # imp edit end
 
 - type: entityTable
   id: XenoArtifactEffectsHandheldOnlyTable
@@ -135,9 +412,15 @@
     #- id: XenoArtifactGun
     #  weight 4.0 #it conflicts with default interaction - it should activate artifact nodes
     - id: XenoArtifactOmnitool
-      weight: 10.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [1, 2, 3]
     - id: XenoArtifactDrill
-      weight: 10.0
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [1, 2, 3]
 
 - type: entity
   id: BaseXenoArtifactEffect
@@ -267,8 +550,11 @@
       solution: beaker
     - type: SolutionTransfer
       canChangeTransferAmount: true
-    - type: Drink
+    - type: Edible
+      edible: Drink
       solution: beaker
+      destroyOnEmpty: false
+      utensil: None
 
 - type: entity
   id: XenoArtifactSpeedUp
@@ -596,7 +882,7 @@
 - type: entity
   id: XenoArtifactHeatWave
   parent: BaseXenoArtifactEffect
-  description: Heats up surrounding gas greatly
+  description: Energy release #IMP desc changed
   components:
   - type: XAETemperature
     targetTemp: 500
@@ -667,7 +953,7 @@
 - type: entity
   id: XenoArtifactRadioactive
   parent: BaseOneTimeXenoArtifactEffect
-  description: Becomes mildly radioactive
+  description: Energy release #IMP desc changed
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -987,7 +1273,7 @@
 - type: entity
   id: XenoArtifactFoamGood
   parent: BaseXenoArtifactEffect
-  description: Creates wave of helpful foam
+  description: Creates wave of foam #IMP desc changed
   components:
   - type: XenoArtifactNode
     maxDurability: 7
@@ -1008,7 +1294,7 @@
 - type: entity
   id: XenoArtifactFoamDangerous
   parent: BaseXenoArtifactEffect
-  description: Creates wave of harmful foam
+  description: Creates wave of foam #IMP desc changed
   components:
   - type: XAEFoam
     minFoamAmount: 20
@@ -1030,7 +1316,7 @@
 - type: entity
   id: XenoArtifactPuddleRare
   parent: BaseXenoArtifactEffect
-  description: Creates puddle of helpful chemicals
+  description: Creates puddle of chemicals #IMP desc changed
   components:
   - type: XAECreatePuddle
     chemAmount:
@@ -1075,7 +1361,7 @@
 - type: entity
   id: XenoArtifactIgnite
   parent: BaseXenoArtifactEffect
-  description: Pyrokinesis
+  description: Energy release #IMP desc changed
   components:
   - type: XAEIgnite
     range: 7
@@ -1093,7 +1379,7 @@
 - type: entity
   id: XenoArtifactEmp
   parent: BaseXenoArtifactEffect
-  description: Dangerous electromagnetic interference
+  description: Energy release #IMP desc changed
   components:
   - type: XenoArtifactNode
     maxDurability: 5
@@ -1105,14 +1391,14 @@
 - type: entity
   id: XenoArtifactPolyMonkey
   parent: BaseXenoArtifactEffect
-  description: Temporarily reshape flesh to fur
+  description: Temporarily reshape flesh #IMP desc changed
   components:
   - type: XAEPolymorph
 
 - type: entity
   id: XenoArtifactPolyLizard
   parent: BaseXenoArtifactEffect
-  description: Temporarily reshape flesh to scale
+  description: Temporarily reshape flesh #IMP desc changed
   components:
   - type: XAEPolymorph
     polymorphPrototypeName: ArtifactLizard
@@ -1120,7 +1406,7 @@
 - type: entity
   id: XenoArtifactPolyLuminous
   parent: BaseXenoArtifactEffect
-  description: Temporarily reshape flesh to light
+  description: Temporarily reshape flesh #IMP desc changed
   components:
   - type: XAEPolymorph
     polymorphPrototypeName: ArtifactLuminous
@@ -1128,7 +1414,7 @@
 - type: entity
   id: XenoArtifactRadioactiveStrong
   parent: BaseOneTimeXenoArtifactEffect
-  description: Becomes highly radioactive
+  description: Energy release #IMP desc changed
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -1208,7 +1494,7 @@
       deleteSpawnerAfterSpawn: false
       table: !type:AllSelector
         children:
-        - id: RandomOldNewArtifactSpawner #IMP rename from RandomArtifactSpawner so it can spawn both types
+        - id: RandomArtifactSpawner
 
 - type: entity
   id: XenoArtifactShuffle
@@ -1238,9 +1524,9 @@
         Burn: -300
 
 - type: entity
-  id: XenoArtifactTesla
+  id: XenoArtifactSingularity #IMP swapped the id of this and the tesla because they were incorrect??
   parent: BaseOneTimeXenoArtifactEffect
-  description: Mass destruction
+  description: Imminent doom #IMP desc changed
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -1253,9 +1539,9 @@
         - id: Singularity
 
 - type: entity
-  id: XenoArtifactSingularity
+  id: XenoArtifactTesla #IMP swapped the id of this and the singulo because they were incorrect??
   parent: BaseOneTimeXenoArtifactEffect
-  description: Imminent doom
+  description: Imminent doom #IMP desc changed
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -1299,7 +1585,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasPlasma
   parent: BaseXenoArtifactEffect
-  description: Expels plasma
+  description: Expels gas #IMP desc changed
   components:
   - type: XAECreateGas
     gases:
@@ -1308,7 +1594,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasTritium
   parent: BaseXenoArtifactEffect
-  description: Expels tritium
+  description: Expels gas #IMP desc changed
   components:
   - type: XAECreateGas
     gases:
@@ -1317,7 +1603,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasAmmonia
   parent: BaseXenoArtifactEffect
-  description: Expels ammonia
+  description: Expels gas #IMP desc changed
   components:
   - type: XAECreateGas
     gases:
@@ -1326,7 +1612,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasFrezon
   parent: BaseXenoArtifactEffect
-  description: Expels frezon
+  description: Expels gas #IMP desc changed
   components:
   - type: XAECreateGas
     gases:
@@ -1335,7 +1621,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasNitrousOxide
   parent: BaseXenoArtifactEffect
-  description: Expels nitrous oxide
+  description: Expels gas #IMP desc changed
   components:
   - type: XAECreateGas
     gases:
@@ -1344,7 +1630,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasCarbonDioxide
   parent: BaseXenoArtifactEffect
-  description: Expels carbon dioxide
+  description: Expels gas #IMP desc changed
   components:
   - type: XAECreateGas
     gases:

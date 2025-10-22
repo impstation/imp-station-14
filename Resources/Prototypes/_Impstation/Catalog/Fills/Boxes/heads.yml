@@ -1,0 +1,12 @@
+- type: entity
+  name: circuit tote [HD]
+  parent: ToteBase
+  id: BoxHDCircuitboards
+  description: A Tote filled with HD's Circuit boards.
+  components:
+  - type: StorageFill
+    contents:
+      - id: CargoRequestServiceComputerCircuitboard
+      - id: ServiceTechFabCircuitboard
+
+

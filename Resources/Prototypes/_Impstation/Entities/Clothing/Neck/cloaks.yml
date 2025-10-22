@@ -124,6 +124,7 @@
   - type: HideLayerClothing
     slots:
     - Tail
+    overrideSpeciesLayers: true
 
 - type: entity
   parent: [ClothingNeckBase, Tier1Contraband]
@@ -148,6 +149,7 @@
   - type: HideLayerClothing
     slots:
     - Tail
+    overrideSpeciesLayers: true
   - type: WearerGetsExamineText # imp
     examineText: obvious-x-cloak-straight
     warnExamine: true # the fugitive knows they're straight as fuck
@@ -206,3 +208,24 @@
   - type: Construction
     graph: WebObjects
     node: cloakfancy
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakBlanketShock
+  name: shock blanket
+  description: Hey wait a minute, this is just a regular blanket!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Neck/Cloaks/blanketshock.rsi
+  - type: Butcherable
+    butcheringType: Knife
+  - type: HideLayerClothing
+    slots:
+    - RArmExtension
+  - type: FlavorProfile
+    flavors:
+     - batteryacid # imp
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+
+    coolingCoefficient: 0.1

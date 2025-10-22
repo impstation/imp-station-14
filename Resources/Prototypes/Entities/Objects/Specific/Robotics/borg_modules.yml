@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: BaseBorgModule
   parent: BaseItem
   name: borg module
@@ -899,15 +899,6 @@
         whitelist:
           components:
           - FitsInDispenser
-    # Begin Offbrand
-    - item: IVBag
-      hand:
-        emptyLabel: borg-slot-iv-bag-empty
-        emptyRepresentative: IVBag
-        whitelist:
-          components:
-          - IVBag
-    # End Offbrand
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: chem-module }
 
@@ -1287,7 +1278,7 @@
 - type: entity
   parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, Tier3Contraband ] #imp, contraband
   id: BorgModuleC20r
-  name: C20-r ROW cyborg module
+  name: C-20r ROW cyborg module
   description: A weapons module that comes with a burst-fire C-20r.
   components:
   - type: Sprite

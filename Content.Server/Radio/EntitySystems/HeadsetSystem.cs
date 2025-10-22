@@ -1,6 +1,4 @@
 using Content.Server.Chat.Systems;
-using Content.Server.Emp;
-using Content.Server.Radio.Components;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
@@ -14,7 +12,6 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
 {
     [Dependency] private readonly INetManager _netMan = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
-    [Dependency] private readonly Content.Shared.StatusEffectNew.StatusEffectsSystem _statusEffects = default!; // Offbrand
 
     public override void Initialize()
     {
@@ -23,8 +20,6 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
         SubscribeLocalEvent<HeadsetComponent, EncryptionChannelsChangedEvent>(OnKeysChanged);
 
         SubscribeLocalEvent<WearingHeadsetComponent, EntitySpokeEvent>(OnSpeak);
-
-        SubscribeLocalEvent<HeadsetComponent, EmpPulseEvent>(OnEmpPulse);
     }
 
     private void OnKeysChanged(EntityUid uid, HeadsetComponent component, EncryptionChannelsChangedEvent args)
@@ -50,7 +45,6 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
     private void OnSpeak(EntityUid uid, WearingHeadsetComponent component, EntitySpokeEvent args)
     {
         if (args.Channel != null
-            && !_statusEffects.HasEffectComp<Content.Shared._Offbrand.StatusEffects.CannotUseHeadsetStatusEffectComponent>(uid) // Offbrand
             && TryComp(component.Headset, out EncryptionKeyHolderComponent? keys)
             && keys.Channels.Contains(args.Channel.ID))
         {
@@ -72,7 +66,6 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
     protected override void OnGotUnequipped(EntityUid uid, HeadsetComponent component, GotUnequippedEvent args)
     {
         base.OnGotUnequipped(uid, component, args);
-        component.IsEquipped = false;
         RemComp<ActiveRadioComponent>(uid);
         RemComp<WearingHeadsetComponent>(args.Equipee);
     }
@@ -84,6 +77,9 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
 
         if (component.Enabled == value)
             return;
+
+        component.Enabled = value;
+        Dirty(uid, component);
 
         if (!value)
         {
@@ -115,14 +111,5 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
 
         if (TryComp(parent, out ActorComponent? actor))
             _netMan.ServerSendMessage(args.ChatMsg, actor.PlayerSession.Channel);
-    }
-
-    private void OnEmpPulse(EntityUid uid, HeadsetComponent component, ref EmpPulseEvent args)
-    {
-        if (component.Enabled)
-        {
-            args.Affected = true;
-            args.Disabled = true;
-        }
     }
 }

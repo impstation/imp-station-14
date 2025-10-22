@@ -236,12 +236,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         var ev = new GetMeleeDamageEvent(uid, new(component.Damage * Damageable.UniversalMeleeDamageModifier), new(), user, component.ResistanceBypass);
         RaiseLocalEvent(uid, ref ev);
 
-        // Begin Offbrand
-        var relayed = new Content.Shared._Offbrand.Weapons.RelayedGetMeleeDamageEvent(ev);
-        RaiseLocalEvent(user, ref relayed);
-        ev = relayed.Args;
-        // End Offbrand
-
         return DamageSpecifier.ApplyModifierSets(ev.Damage, ev.Modifiers);
     }
 
@@ -252,12 +246,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         var ev = new GetMeleeAttackRateEvent(uid, component.AttackRate, 1, user);
         RaiseLocalEvent(uid, ref ev);
-
-        // Begin Offbrand
-        var relayed = new Content.Shared._Offbrand.Weapons.RelayedGetMeleeAttackRateEvent(ev);
-        RaiseLocalEvent(user, ref relayed);
-        ev = relayed.Args;
-        // End Offbrand
 
         return ev.Rate * ev.Multipliers;
     }
@@ -280,12 +268,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         var ev = new GetMeleeDamageEvent(uid, new(component.Damage * Damageable.UniversalMeleeDamageModifier), new(), user, component.ResistanceBypass);
         RaiseLocalEvent(uid, ref ev);
-
-        // Begin Offbrand
-        var relayed = new Content.Shared._Offbrand.Weapons.RelayedGetMeleeDamageEvent(ev);
-        RaiseLocalEvent(user, ref relayed);
-        ev = relayed.Args;
-        // End Offbrand
 
         return ev.ResistanceBypass;
     }
@@ -571,7 +553,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         }
 
-        _meleeSound.PlayHitSound(target.Value, user, GetHighestDamageSound(modifiedDamage, _protoManager), hitEvent.HitSoundOverride, component.HitSound, component.NoDamageSound);
+        _meleeSound.PlayHitSound(target.Value, user, GetHighestDamageSound(modifiedDamage, _protoManager), hitEvent.HitSoundOverride, component.HitSound, component.NoDamageSound); // imp add hitsound, nodamagesound
 
         if (damageResult?.GetTotal() > FixedPoint2.Zero)
         {
@@ -732,7 +714,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         if (entities.Count != 0)
         {
             var target = entities.First();
-            _meleeSound.PlayHitSound(target, user, GetHighestDamageSound(appliedDamage, _protoManager), hitEvent.HitSoundOverride, component.HitSound, component.NoDamageSound);
+            _meleeSound.PlayHitSound(target, user, GetHighestDamageSound(appliedDamage, _protoManager), hitEvent.HitSoundOverride, component.HitSound, component.NoDamageSound); // imp add hitsound, nodamagesound
         }
 
         if (appliedDamage.GetTotal() > FixedPoint2.Zero)

@@ -2,15 +2,15 @@ using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Popups;
-using Content.Shared.Projectiles;
 using Content.Shared.Temperature;
-using Content.Shared.Throwing;
 using Content.Shared.Toggleable;
 using Content.Shared.Verbs;
 using Content.Shared.Wieldable;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
+using Content.Shared.Projectiles; // imp
+using Content.Shared.Throwing; // imp
 
 namespace Content.Shared.Item.ItemToggle;
 /// <summary>
@@ -25,7 +25,7 @@ public sealed class ItemToggleSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedProjectileSystem _projectile = default!;
+    [Dependency] private readonly SharedProjectileSystem _projectile = default!; // imp
 
     private EntityQuery<ItemToggleComponent> _query;
 
@@ -46,8 +46,8 @@ public sealed class ItemToggleSystem : EntitySystem
         SubscribeLocalEvent<ItemToggleHotComponent, IsHotEvent>(OnIsHotEvent);
 
         SubscribeLocalEvent<ItemToggleActiveSoundComponent, ItemToggledEvent>(UpdateActiveSound);
-        SubscribeLocalEvent<ItemToggleThrowingAngleComponent, ItemToggledEvent>(UpdateThrowingAngle);
-        SubscribeLocalEvent<ItemToggleEmbeddableProjectileComponent, ItemToggledEvent>(UpdateEmbeddableProjectile);
+        SubscribeLocalEvent<ItemToggleThrowingAngleComponent, ItemToggledEvent>(UpdateThrowingAngle); // imp
+        SubscribeLocalEvent<ItemToggleEmbeddableProjectileComponent, ItemToggledEvent>(UpdateEmbeddableProjectile); // imp
     }
 
     private void OnStartup(Entity<ItemToggleComponent> ent, ref ComponentStartup args)
@@ -363,6 +363,7 @@ public sealed class ItemToggleSystem : EntitySystem
         }
     }
 
+    // imp add
     /// <summary>
     /// Used to update the throwing angle on item toggle.
     /// </summary>
@@ -410,6 +411,7 @@ public sealed class ItemToggleSystem : EntitySystem
         }
     }
 
+    // imp add
     /// <summary>
     ///   Used to update the embeddable stats on item toggle.
     /// </summary>

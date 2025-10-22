@@ -85,7 +85,7 @@
     sprite: _Impstation/Objects/Consumable/Food/Baked/pizza.rsi
     layers:
     - state: bombpizza
-  - type: Food
+  - type: Edible
     trash:
     - FoodPlateBurnt
   - type: Flammable
@@ -124,7 +124,7 @@
     size: Normal
     shape:
     - 0,0,2,2
-  - type: Explosive 
+  - type: Explosive
     explosionType: Default #same size as rpg rocket but less intense
     maxIntensity: 20
     intensitySlope: 3
@@ -133,6 +133,7 @@
   - type: Tag
     tags:
     - Pizza
+    - UnguFood
   - type: SolutionContainerManager
     solutions:
       food:
