@@ -41,7 +41,7 @@
 
 - type: marking
   id: AllulaloHeadSpikes
-  bodyPart: HeadTop
+  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ Allulalo ]
   sprites:
@@ -159,6 +159,51 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/headtop.rsi
     state: allulaloHeadTopFeathers
+
+- type: marking
+  id: AllulaloHeadTopCurvedHorns
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Allulalo/headtop.rsi
+    state: allulaloHeadTopCurvedHorns
+
+- type: marking
+  id: AllulaloHeadTopSweptHorns
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Allulalo/headtop.rsi
+    state: allulaloHeadTopSweptHorns
+
+- type: marking
+  id: AllulaloHeadTopStubHorns
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Allulalo/headtop.rsi
+    state: allulaloHeadTopStubHorns
+
+- type: marking
+  id: AllulaloHeadTopPlumage1
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Allulalo/headtop.rsi
+    state: allulaloHeadTopPlumage1
+
+- type: marking
+  id: AllulaloHeadTopPlumage2
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Allulalo/headtop.rsi
+    state: allulaloHeadTopPlumage2
 
 # Tail
 

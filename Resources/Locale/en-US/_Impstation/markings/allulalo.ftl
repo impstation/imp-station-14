@@ -71,7 +71,22 @@ marking-AllulaloHeadTopHorn = Horn
 marking-AllulaloHeadTopHorn-allulaloHeadTopHorn = Horn
 
 marking-AllulaloHeadTopFeathers = Fancy Feathers
-marking-AllulaloHeadTopFeathers-allulaloHeadTopFeathers = feathers
+marking-AllulaloHeadTopFeathers-allulaloHeadTopFeathers = Feathers
+
+marking-AllulaloHeadTopCurvedHorns = Curved Horns
+marking-AllulaloHeadTopCurvedHorns-allulaloHeadTopCurvedHorns = Horns
+
+marking-AllulaloHeadTopSweptHorns = Swept horns
+marking-AllulaloHeadTopSweptHorns-allulaloHeadTopSweptHorns = Horns
+
+marking-AllulaloHeadTopStubHorns = Stub Horns
+marking-AllulaloHeadTopStubHorns-allulaloHeadTopStubHorns = Horns
+
+marking-AllulaloHeadTopPlumage1 = Plumage (Bold)
+marking-AllulaloHeadTopPlumage1-allulaloHeadTopPlumage1 = feathers
+
+marking-AllulaloHeadTopPlumage2 = Plumage (Brash)
+marking-AllulaloHeadTopPlumage2-allulaloHeadTopPlumage2 = feathers
 
 # Tail
 
