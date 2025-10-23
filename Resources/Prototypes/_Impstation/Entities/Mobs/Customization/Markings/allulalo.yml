@@ -88,24 +88,17 @@
 # RArm
 
 - type: marking
-  id: AllulaloRightArmDefault
+  id: AllulaloWingsDefault
   bodyPart: RArm
   markingCategory: Arms
   speciesRestriction: [ Allulalo ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/arms.rsi
     state: allulaloArmDefaultRight
-
-# LArm
-
-- type: marking
-  id: AllulaloLeftArmDefault
-  bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [ Allulalo ]
-  sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/arms.rsi
     state: allulaloArmDefaultLeft
+
+# LArm
 
 # RLeg
 

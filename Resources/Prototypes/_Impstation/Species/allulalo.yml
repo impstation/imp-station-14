@@ -71,8 +71,9 @@
       points: 1
       required: false
     Arms:
-      points: 2
+      points: 1
       required: true
+      defaultMarkings: [ AllulaloWingsDefault ]
 
 - type: humanoidBaseSprite
   id: MobAllulaloEyes

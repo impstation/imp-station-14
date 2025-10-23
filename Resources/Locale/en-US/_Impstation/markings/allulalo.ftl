@@ -31,13 +31,11 @@ marking-AllulaloEyesDefault-allulaloEyesUnshadedRight = Right eye
 
 # RArm
 
-marking-AllulaloRightArmDefault = Default Wing (Right)
-marking-AllulaloRightArmDefault-allulaloArmDefaultRight = Wing
+marking-AllulaloWingsDefault = Default Wings
+marking-AllulaloWingsDefault-allulaloArmDefaultRight = Wing (Right)
+marking-AllulaloWingsDefault-allulaloArmDefaultLeft = Wing (Left)
 
 # LArm
-
-marking-AllulaloLeftArmDefault = Default Wing (Left)
-marking-AllulaloLeftArmDefault-allulaloArmDefaultLeft = Wing
 
 # RLeg
 
