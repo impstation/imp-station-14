@@ -256,7 +256,27 @@
     - state: cover_old
       color: "#805012"
     - state: icon_text
-    - state: icon_planet
     - state: overlay_blood
   - type: Paper
     content: book-text-barbieq
+
+- type: entity
+  parent: BookBase
+  id: BookGrayJanitor
+  name: ouli blagh keep station clean
+  description: Glump book mochigi clean. Eif pu first edition translation.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#510b7c"
+    - state: decor_wingette
+      color: "#ececff"
+    - state: detail_bookmark
+      color: "#00008B"
+    - state: icon_bucket
+      color: "#00008B"
+  - type: Paper
+    content: book-text-grayjanitor
