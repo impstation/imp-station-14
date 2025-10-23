@@ -89,7 +89,7 @@ public sealed class MapMigrationSystem : EntitySystem
 
     private void OnBeforeReadEvent(BeforeEntityReadEvent ev)
     {
-        if (!TryReadFiles(out var mappings))
+        if (!TryReadFiles(out var mappings)) // imp file -> fileS
             return;
 
         // Delta-V: apply a set of mappings

@@ -1,71 +1,4 @@
 ﻿Entries:
-- author: yesteryuri
-  changes:
-  - message: You can bring your vape, clipboard, or wristwatch as trinkets.
-    type: Add
-  - message: Folders and clipboards hold writing utensils and stamps.
-    type: Fix
-  id: 1838
-  time: '2025-06-15T21:53:54.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2774
-- author: Cutinup99
-  changes:
-  - message: Metal Foam grenades are now fast acting again! better for smaller breaches
-      rather than a very large area
-    type: Tweak
-  id: 1839
-  time: '2025-06-15T22:02:07.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2773
-- author: VeeNomine
-  changes:
-  - message: Added a borg courier module to the default cargo chassis. This includes
-      both a mail bag and a holobell projector.
-    type: Add
-  - message: Changed the cargo chassis description that appears on the chassis selection
-      screen.
-    type: Tweak
-  id: 1840
-  time: '2025-06-15T22:10:21.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2770
-- author: Princess-Cheeseballs
-  changes:
-  - message: Salvage bounties should now be counted properly when turning them in
-      alongside other bounties.
-    type: Fix
-  id: 1841
-  time: '2025-06-16T09:35:22.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2782
-- author: hivehum
-  changes:
-  - message: Oswald no longer sounds like a fucking chicken
-    type: Fix
-  id: 1842
-  time: '2025-06-16T09:35:57.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2781
-- author: EpicToast
-  changes:
-  - message: Elkridge Depot now supports genpop.
-    type: Add
-  id: 1843
-  time: '2025-06-16T09:44:59.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2783
-- author: EpicToast
-  changes:
-  - message: The Reach transport shuttle now supports Genpop.
-    type: Add
-  - message: Meta Station has been derotated.
-    type: Remove
-  id: 1844
-  time: '2025-06-16T10:52:51.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2784
-- author: VeeNomine
-  changes:
-  - message: Gumballs can now be placed in and removed from the candy bowl just like
-      other pills.
-    type: Tweak
-  id: 1845
-  time: '2025-06-17T00:35:12.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2790
 - author: Stonylogray
   changes:
   - message: The Space Wizard's Federation has given additional directives to its
@@ -4201,3 +4134,83 @@
   id: 2337
   time: '2025-10-19T09:49:35.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3572
+- author: TheGrimbeeper
+  changes:
+  - message: resurrection triggering from people going to/from crit
+    type: Fix
+  - message: random teleport teleporting the virtual node entity rather than the actual
+      artifact
+    type: Fix
+  - message: random teleport popup appearing twice
+    type: Fix
+  - message: microwaves now trigger radiation for all artifact types (that you can
+      shove in the microwave)
+    type: Add
+  - message: remove trit, frezon, and ammonia triggers from natural artifacts
+    type: Tweak
+  id: 2338
+  time: '2025-10-20T04:10:31.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3574
+- author: mqole
+  changes:
+  - message: Reptilians can wear helmets without breaking the world again.
+    type: Fix
+  - message: Moth wings are no longer stuffed inside their hardsuits.
+    type: Fix
+  - message: Removed Vulpkanin.
+    type: Remove
+  id: 2339
+  time: '2025-10-20T04:11:09.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3586
+- author: Kipdotnet, Starlighthowls, Widgetbeck
+  changes:
+  - message: A reclusive species of spacefaring sauropods have been spotted amongst
+      interstellar shuttle crews.
+    type: Add
+  id: 2340
+  time: '2025-10-20T05:23:44.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3504
+- author: yesteryuri
+  changes:
+  - message: Bartenders remembered their golden shaker
+    type: Fix
+  - message: Security cadets are allowed more than 15 seconds of job training
+    type: Fix
+  - message: Couriers have access to the senior courier pda
+    type: Fix
+  - message: The folder trinket groups have been merged, you'll have to re-add the
+      clipboard trinket if you used it before this week.
+    type: Tweak
+  id: 2341
+  time: '2025-10-20T05:25:37.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3587
+- author: DinnerCalzone
+  changes:
+  - message: AI restoration computers have been added to Amber, Bagel, Cog, Hummingbird,
+      Marathon, Oasis, Plasma, Saltern, and Train
+    type: Add
+  id: 2342
+  time: '2025-10-20T05:30:02.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3589
+- author: kipdotnet
+  changes:
+  - message: Allulalo can now use their PDAs.
+    type: Fix
+  id: 2343
+  time: '2025-10-21T08:35:17.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3598
+- author: SixValentine
+  changes:
+  - message: ReHash Edits
+    type: Tweak
+  id: 2344
+  time: '2025-10-22T10:53:10.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3601
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: the energy magnum, now the Type-25 energy magnum, has received a new
+      coat of paint!
+    type: Tweak
+  id: 2345
+  time: '2025-10-22T11:09:09.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3600

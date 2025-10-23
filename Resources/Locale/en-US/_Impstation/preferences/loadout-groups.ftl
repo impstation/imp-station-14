@@ -102,6 +102,7 @@ loadout-group-courier-backpack = Courier backpack
 loadout-group-courier-neck = Courier neck
 loadout-group-courier-outerclothing = Courier outer clothing
 loadout-group-courier-shoes = Courier shoes
+loadout-group-courier-id = Courier ID
 
 # engineering
 loadout-group-chief-engineer-backpack = Chief Engineer backpack

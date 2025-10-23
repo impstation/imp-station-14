@@ -1,5 +1,5 @@
 using Robust.Shared.Serialization;
-using Robust.Shared.Map;
+using Robust.Shared.Map; // imp
 
 namespace Content.Shared.Pointing;
 
@@ -26,8 +26,9 @@ public sealed class PointingAttemptEvent : EntityEventArgs
 [ByRefEvent]
 public readonly record struct AfterPointedAtEvent(EntityUid Pointed);
 
+// imp add
 /// <summary>
-/// Raised on the entity who is pointing after they point, passing in the arrow.
+///     Raised on the entity who is pointing after they point, passing in the arrow.
 /// </summary>
 /// <param name="PointedArrow"></param>
 [ByRefEvent]

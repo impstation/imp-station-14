@@ -6,7 +6,6 @@ using Content.Shared.Destructible;
 using Content.Shared.Foldable;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
-using Content.Shared.Interaction.Components; // imp edit
 using Content.Shared.Item;
 using Content.Shared.Lock;
 using Content.Shared.Movement.Events;
@@ -27,7 +26,8 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Interaction.Components; // imp edit
+using Content.Shared.Movement.Pulling.Components; // imp
 
 namespace Content.Shared.Storage.EntitySystems;
 
@@ -106,9 +106,9 @@ public abstract class SharedEntityStorageSystem : EntitySystem
         if (target.Open)
             args.Cancelled = true;
 
-        // IMP - doesn't cancel, but causes the attempt to trigger LockSystem's doafter
+        // Cannot (un)lock from the inside. Maybe a bad idea? Security jocks could trap nerds in lockers? // IMP: changed this
         if (target.Contents.Contains(args.User))
-            args.FromInside = true;
+            args.FromInside = true; // imp cancelled -> frominside
     }
 
     protected void OnDestruction(EntityUid uid, EntityStorageComponent component, DestructionEventArgs args)
@@ -427,6 +427,7 @@ public abstract class SharedEntityStorageSystem : EntitySystem
             !component.Contents.Contains(user) // The user is not inside of it
         )
             return false;
+        // end imp
 
         //Checks to see if the opening position, if offset, is inside of a wall.
         if (component.EnteringOffset != new Vector2(0, 0) && !HasComp<WallMountComponent>(target)) //if the entering position is offset

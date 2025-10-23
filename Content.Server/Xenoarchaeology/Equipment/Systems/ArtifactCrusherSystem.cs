@@ -2,7 +2,6 @@ using Content.Server.Body.Systems;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Stack;
-using Content.Shared._Goobstation.Changeling; //imp
 using Content.Shared.Body.Components;
 using Content.Shared.Damage;
 using Content.Shared.Power;
@@ -14,9 +13,9 @@ using Content.Shared.Xenoarchaeology.Equipment.Components;
 using Robust.Shared.Collections;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Content.Server.Storage.Components; //imp
-using Content.Shared.Xenoarchaeology.Artifact.Components; //imp
 using Content.Server.Xenoarchaeology.Artifact; //imp
+using Content.Shared._Goobstation.Changeling; //imp
+using Content.Shared.Xenoarchaeology.Artifact.Components; //imp
 
 namespace Content.Server.Xenoarchaeology.Equipment.Systems;
 

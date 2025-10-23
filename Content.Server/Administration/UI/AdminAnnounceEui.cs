@@ -5,8 +5,8 @@ using Content.Server.Chat.Systems;
 using Content.Server.EUI;
 using Content.Shared.Administration;
 using Content.Shared.Eui;
-using Content.Server.Announcements.Systems;
-using Robust.Shared.Player;
+using Content.Server.Announcements.Systems; // ee
+using Robust.Shared.Player; // imp
 
 namespace Content.Server.Administration.UI
 {
@@ -14,14 +14,14 @@ namespace Content.Server.Administration.UI
     {
         [Dependency] private readonly IAdminManager _adminManager = default!;
         [Dependency] private readonly IChatManager _chatManager = default!;
-        private readonly AnnouncerSystem _announcer;
         private readonly ChatSystem _chatSystem;
+        private readonly AnnouncerSystem _announcer; // ee
 
         public AdminAnnounceEui()
         {
             IoCManager.InjectDependencies(this);
-            _announcer = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<AnnouncerSystem>();
             _chatSystem = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<ChatSystem>();
+            _announcer = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<AnnouncerSystem>(); // ee
         }
 
         public override void Opened()
@@ -54,7 +54,7 @@ namespace Content.Server.Administration.UI
                             break;
                         // TODO: Per-station announcement support
                         case AdminAnnounceType.Station:
-                            _announcer.SendAnnouncement(_announcer.GetAnnouncementId("Announce"), Filter.Broadcast(),
+                            _announcer.SendAnnouncement(_announcer.GetAnnouncementId("Announce"), Filter.Broadcast(), // ee announcements
                                 doAnnounce.Announcement, doAnnounce.Announcer, Color.Gold);
                             break;
                     }

@@ -143,9 +143,9 @@ namespace Content.Server.Light.EntitySystems
 
         private void OnExamine(EntityUid uid, HandheldLightComponent component, ExaminedEvent args)
         {
-            args.PushMarkup(Loc.GetString((component.Activated
+            args.PushMarkup(Loc.GetString(component.Activated
                 ? "handheld-light-component-on-examine-is-on-message"
-                : "handheld-light-component-on-examine-is-off-message"), ("target", Identity.Entity(uid, EntityManager)))); //imp; gendered light sources
+                : "handheld-light-component-on-examine-is-off-message", ("target", Identity.Entity(uid, EntityManager)))); //imp; gendered light sources
         }
 
         public override void Shutdown()

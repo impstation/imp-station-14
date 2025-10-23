@@ -2844,19 +2844,6 @@
         Brute: -0.07
         Burn: -0.07
   # imp edit start
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - map: [ "enum.DamageStateVisualLayers.Base", "movement" ]
-      state: tarantula
-      sprite: Mobs/Animals/spider.rsi
-  - type: SpriteMovement
-    movementLayers:
-      movement:
-        state: tarantula-moving
-    noMovementLayers:
-      movement:
-        state: tarantula
   - type: GoobAbsorbable # big enough to restore a good amount of biomass
     biomassRestored: 0.7
   - type: NightVision # EE edit
