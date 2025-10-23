@@ -5,7 +5,7 @@
   description: Run.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/beenade.rsi
+    sprite: _Impstation/Objects/Weapons/Grenades/beenade.rsi
   - type: SmokeOnTrigger
     duration: 5
     spreadAmount: 30
@@ -24,7 +24,7 @@
   description: UNGH
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/brosnade.rsi
+    sprite: _Impstation/Objects/Weapons/Grenades/brosnade.rsi
   - type: SmokeOnTrigger
     duration: 5
     spreadAmount: 10
@@ -71,7 +71,7 @@
   description: A discontinued brand of heavy-duty cleaning grenade. A warning label reads "DO NOT INHALE".
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/janitor.rsi
+    sprite: _Impstation/Objects/Weapons/Grenades/janitor.rsi
   - type: Tag
     tags:
     - CleanerGrenade
