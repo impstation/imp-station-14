@@ -1,0 +1,24 @@
+- type: entity
+  parent: BaseSmiteAction
+  id: ActionNewWizard
+  name: wizards apprentice
+  description: recruit an apprentice.
+  components:
+  - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/disintegrate.ogg
+    icon:
+      sprite: _Impstation/Clothing/Head/Hats/witchhat.rsi
+      state: icon
+  - type: EntityTargetAction
+    event: !type:ChangeComponentsSpellEvent
+      toAdd:
+      - type: NpcFactionMember
+        factions:
+        - Wizard
+      - type: MindRole
+        roleType: MindRoleGhostRoleFamiliar
+  - type: SpeakOnAction
+    sentence: action-speech-spell-apprentice
+  - type: Magic
+    requiresClothes: true

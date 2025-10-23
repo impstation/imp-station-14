@@ -1,0 +1,12 @@
+- type: listing
+  id: SpellbookSpawnMagicMonkey
+  name: spellbook-magic-monkey-name
+  description: spellbook-magic-monkey-desc
+  productEntity: MagicMonkeySpawnSpellbook
+  cost:
+    WizCoin: 2
+  categories:
+  - LilSpells
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1

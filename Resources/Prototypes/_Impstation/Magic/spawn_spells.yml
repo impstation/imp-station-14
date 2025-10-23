@@ -21,3 +21,55 @@
       - id: MagicInstantEffectSpaceGrease
   - type: SpeakOnAction
     sentence: action-speech-spell-spacegrease
+
+- type: entity
+  parent: BaseAction
+  id: ActionSpawnFinFinSpell
+  name: Your Best Friend
+  description: This spell summons a FinFin centered on the clicked location.
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 10
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Impstation/Magic/finfinspawn.ogg
+    icon:
+      sprite: _Impstation/Objects/Fun/toys.rsi
+      state: plushie_finfin
+  - type: TargetAction
+    range: 4
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: MobFinfin
+        amount: 1
+      offset: 0, 1
+  - type: SpeakOnAction
+    sentence: action-speech-spell-summon-bff
+
+- type: entity
+  parent: BaseAction
+  id: ActionSpawnMagicMonkey
+  name: Summon apprentice
+  description: Now you have your very own minion!
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 100
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Impstation/Magic/finfinspawn.ogg
+    icon:
+      sprite: Objects/Misc/books.rsi
+      state: book_icon
+  - type: TargetAction
+    range: 2
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: MobMonkeyMagic
+        amount: 1
+      offset: 0, 1
+  - type: SpeakOnAction
+    sentence: action-speech-spell-summon-mm

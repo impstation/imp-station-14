@@ -20,3 +20,29 @@
   - type: WorldTargetAction
     event: !type:ProjectileSpellEvent
       prototype: BulletLighterIncendiary #blood red lighter fire projectile
+
+- type: entity
+  parent: BaseAction
+  id: ActionBubbles
+  name: Watery Spheres
+  description: Its just bubbles...
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 15
+    itemIconStyle: BigAction
+    raiseOnUser: true
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Effects/Fluids/splash.ogg
+    icon:
+    sprite: _Impstation/Magic/bubble.rsi
+    state: bub
+  - type: TargetAction
+    range: 60
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:ProjectileSpellEvent
+      prototype: MagicBubble
+        amount: 12
+  - type: SpeakOnAction
+    sentence: action-speech-spell-bub

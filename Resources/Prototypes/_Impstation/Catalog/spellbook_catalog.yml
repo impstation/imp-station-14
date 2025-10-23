@@ -1,3 +1,4 @@
+# Utility
 - type: listing
   id: SpellbookSpaceGrease
   name: spellbook-spacegrease-name
@@ -12,6 +13,20 @@
     stock: 1
 
 - type: listing
+  id: SpellbookSpawnFinFin
+  name: spellbook-finfin-name
+  description: spellbook-finfin-desc
+  productAction: ActionSpawnFinFinSpell
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+# Equipment
+- type: listing
   id: SpellbookWandPolymorphCluwne
   name: spellbook-wand-polymorph-cluwne-name
   description: spellbook-wand-polymorph-cluwne-description
@@ -23,3 +38,73 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+- type: listing
+  id: SpellbookWizmov
+  name: spellbook-wizmov-name
+  description: spellbook-wizmov-description
+  productEntity: WizmovCircuitBoard
+  cost:
+    WizCoin: 3
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookApprentice
+  name: spellbook-apprentice-name
+  description: spellbook-apprentice-description
+  productEntity: ApprenticeHat
+  cost:
+    WizCoin: 3
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+# Event
+- type: listing
+  id: SpellbookEventSummonSoap
+  name: spellbook-event-summon-magic-soap
+  description: spellbook-event-summon-soap-description
+  productAction: ActionSummonSoap
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookEvents
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  disableRefund: true
+
+- type: listing
+  id: SpellbookEventSummonWhimsy
+  name: spellbook-event-summon-magic-whimsy-name
+  description: spellbook-event-summon-whimsy-description
+  productAction: ActionSummonWhimsy
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookEvents
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  disableRefund: true
+
+- type: listing
+  id: SpellbookEventSummonGifts
+  name: spellbook-event-summon-magic-gifts-name
+  description: spellbook-event-summon-gifts-description
+  productAction: ActionSummonGifts
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookEvents
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  disableRefund: true
+
