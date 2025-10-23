@@ -23,9 +23,9 @@
 
 - type: entity
   parent: BaseAction
-  id: ActionBubbles
-  name: Watery Spheres
-  description: Its just bubbles...
+  id: ActionBubble
+  name: Watery Sphere
+  description: Its just a bubble...
   components:
   - type: Magic
   - type: Action
@@ -33,7 +33,7 @@
     itemIconStyle: BigAction
     raiseOnUser: true
     sound: !type:SoundPathSpecifier
-      path: /Audio/Effects/Fluids/splash.ogg
+      path: /Audio/Effects/Fluids/watersplash.ogg
     icon:
     sprite: _Impstation/Magic/bubble.rsi
     state: bub
@@ -43,6 +43,30 @@
   - type: WorldTargetAction
     event: !type:ProjectileSpellEvent
       prototype: MagicBubble
-        amount: 12
   - type: SpeakOnAction
     sentence: action-speech-spell-bub
+
+- type: entity
+  parent: BaseAction
+  id: ActionIce
+  name: Cone of Cold
+  description:
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 30
+    itemIconStyle: BigAction
+    raiseOnUser: true
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Impstation/Magic/ice.ogg
+    icon:
+      sprite: Structures/Specific/Anomalies/ice_anom.rsi
+      state: pulse
+  - type: TargetAction
+    range: 60
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:ProjectileSpellEvent
+      prototype: ProjectileIciclepread
+  - type: SpeakOnAction
+    sentence: action-speech-spell-snow

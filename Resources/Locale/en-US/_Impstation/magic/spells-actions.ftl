@@ -5,4 +5,5 @@ action-speech-spell-summon-gifts = MA'RIE CHRISTIE-MAS
 action-speech-spell-summon-bff = C'MAN SE'IM
 action-speech-spell-apprentice = PLACEHOLDER MAKE APPRENTICE
 action-speech-spell-summon-mm = PLACEHOLDER APPRENTICE APPRENTICE
-action-speech-spell-bub = WE'UT SPHIRES
+action-speech-spell-bub = WE'UT SPHIRE
+action-speech-spell-snow = CO'N FROS'TAY

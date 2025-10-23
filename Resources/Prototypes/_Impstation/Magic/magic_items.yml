@@ -27,32 +27,35 @@
 
 - type: entity
   id: MagicBubble
-  parent: BaseBullet
   name: bubble
   components:
   - type: Sprite
     sprite: _Impstation/Magic/bubble.rsi
-    state: bub
+    state: bullet
   - type: Physics
     angularDamping: 0.02
     linearDamping: 0.02
     bodyType: Dynamic
   - type: RandomWalk
-  - type: EmbeddableProjectile
   - type: Projectile
-    deleteOnCollide: true
+    deleteOnCollide: false
     soundHit:
       path: /Audio/Effects/pop.ogg
-  - type: TimedDespawn
-    lifetime: 10
-  - type: DamageOtherOnHit
     damage:
       types:
         Blunt: 0
   - type: StaminaDamageOnHit
-    damage: 40
+    damage: 50
   - type: Fixtures
     fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.2
+        density: 5
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
       projectile:
         shape:
           !type:PhysShapeAabb
@@ -60,22 +63,54 @@
         hard: false
         mask:
         - Impassable
+        - BulletImpassable
   - type: SolutionContainerManager
     solutions:
       food:
         reagents:
         - ReagentId: Water
-          Quantity: 1000
-  - type: SolutionInjectOnProjectileHit
-    transferAmount: 100
-    solution: food
-    pierceArmor: true
-  - type: SpawnOnDespawn
-    prototype: PuddleWater
-  - type: SolutionTransfer
-    maxTransferAmount: 100
-  - type: InjectableSolution
-    solution: food
+          Quantity: 200
+  - type: Damageable
+  - type: DamageOnHighSpeedImpact
+    minimumSpeed: 0.1
+    damage:
+      types:
+        Blunt: 20
+    soundHit:
+      path: /Audio/Effects/pop.ogg
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 1
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpillBehavior
+        solutions: food
+
+- type: entity
+  name: wand of water
+  parent: WeaponWandBase
+  id: WeaponWandWater
+  description: Great big balls of fire!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Basic/wands.rsi
+    state: water
+  - type: Gun
+    fireRate: 4
+    projectileSpeed: 2
+    clumsyProof: false
+    cameraRecoilScalar: 0
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Effects/pop.ogg
+  - type: BasicEntityAmmoProvider
+    proto: MagicBubble
 
 - type: entity
   name: Wizard's aprrentice's apprentice
@@ -132,3 +167,34 @@
     - type: Sprite
       sprite: Objects/Misc/books.rsi
       state: book_icon
+
+- type: entity
+  name: wide ice barrage
+  id: ProjectileIciclepread
+  categories: [ HideSpawnMenu ]
+  parent: ProjectileIcicle
+  components:
+  - type: ProjectileSpread
+    proto: ProjectileIcicle
+    count: 5
+    spread: 30
+
+- type: entity
+  name: magical snowcone
+  parent: FoodFrozenSnowcone
+  id: FoodFrozenSnowconeMagic
+  description: It dosen't even have syrup...
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Ice
+          Quantity: 10
+        - ReagentId: DoctorsDelight
+          Quantity: 15
+  - type: FlavorProfile
+    flavors:
+    - ice
+    - magic?

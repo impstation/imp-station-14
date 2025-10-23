@@ -1,3 +1,7 @@
+#Offensive
+spellbook-ice-name = Cone of Cold
+spellbook-ice-desc = Summon a cone of ice in front of you.
+
 # Utility
 spellbook-spacegrease-name = Space Grease
 spellbook-spacegrease-desc = Everyone loves a slip n' slide!

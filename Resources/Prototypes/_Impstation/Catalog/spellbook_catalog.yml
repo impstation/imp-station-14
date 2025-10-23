@@ -1,3 +1,15 @@
+#Offensive
+- type: listing
+  id: SpellbookIce
+  name: spellbook-ice-name
+  description: spellbook-ice-desc
+  productAction: ActionIce
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 # Utility
 - type: listing
   id: SpellbookSpaceGrease
@@ -26,6 +38,19 @@
     stock: 1
 
 # Equipment
+- type: listing
+  id: SpellbookWandBubbles
+  name: spellbook-wand-bub-name
+  description: spellbook-wand-bub-description
+  productEntity: WeaponWandWater
+  cost:
+    WizCoin: 3
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 - type: listing
   id: SpellbookWandPolymorphCluwne
   name: spellbook-wand-polymorph-cluwne-name

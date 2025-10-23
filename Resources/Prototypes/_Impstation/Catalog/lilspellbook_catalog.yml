@@ -10,3 +10,30 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+- type: listing
+  id: SpellbookBubble
+  name: spellbook-bub-name
+  description: spellbook-bub-desc
+  productAction: ActionBubble
+  categories:
+  - LilSpells
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookSnow
+  name: spellbook-ice-name
+  description: spellbook-ice-desc
+  productEntity: FoodFrozenSnowconeMagic
+  icon:
+    sprite: Structures/Specific/Anomalies/ice_anom.rsi
+    state: pulse
+  cost:
+    WizCoin: 3
+  categories:
+  - LilSpells
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
