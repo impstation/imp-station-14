@@ -4,6 +4,11 @@
   equipment:
     head: ClothingHeadHatCircusClown
 
+- type: loadout
+  id: RBJesterHat
+  equipment:
+    head: ClothingHeadRBJesterHat
+
 #Mask
 - type: loadout
   id: ClownMask
@@ -20,6 +25,11 @@
   id: CircusClownSuit
   equipment:
     jumpsuit: ClothingUniformCircusClown
+
+- type: loadout
+  id: RBJesterSuit
+  equipment:
+    jumpsuit: ClothingUniformRBJester
 
 - type: loadout
   id: JokesterSuit
@@ -42,6 +52,11 @@
   id: JokesterShoes
   equipment:
     shoes: ClothingShoesJokester
+
+- type: loadout
+  id: RBJesterShoes
+  equipment:
+    shoes: ClothingShoesRBJesterShoes
 
 #Neck
 - type: loadout

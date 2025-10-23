@@ -77,3 +77,29 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesRBJesterShoes
+  name: Red and Black Jester Shoes
+  description: A pair of shoes to match your red and black jester costume!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Shoes/Misc/rbjestershoes.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Shoes/Misc/rbjestershoes.rsi
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepJester
+      params:
+        variation: 0.07 #copied from the existing jester shoes
+  - type: ItemToggle
+    onUse: false
+    onActivate: false
+    soundActivate:
+      path: /Audio/_Impstation/Effects/Footsteps/jesterstep_on.ogg
+    soundDeactivate:
+      path: /Audio/_Impstation/Effects/Footsteps/jesterstep_off.ogg
+  - type: Tag
+    tags:
+    - WhitelistChameleon
