@@ -1371,9 +1371,9 @@
   parent: BulletLaser
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles_magnum.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi #imp
     layers:
-    - state: magnum
+    - state: heavy #imp
       shader: unshaded
   - type: PointLight
     enabled: true
@@ -1391,9 +1391,9 @@
   parent: BulletLaser
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles_magnum.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi #imp
     layers:
-    - state: magnum_piercing
+    - state: medium #imp
       shader: unshaded
   - type: PointLight
     enabled: true
