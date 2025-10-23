@@ -1,0 +1,10 @@
+- type: entity
+  parent: BasePercussionInstrument
+  id: HandpanInstrument
+  name: Handpan
+  components:
+  - type: Instrument
+    bank: 1
+    program: 8
+  - type: Sprite
+    sprite: Objects/Fun/Instruments/glockenspiel.rsi
