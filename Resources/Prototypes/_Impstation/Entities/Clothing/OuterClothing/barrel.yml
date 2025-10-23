@@ -1,0 +1,19 @@
+﻿- type: constructionGraph
+  id: BarrelSuspenders
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: barrel
+          steps:
+            - tag: MimeBeltBlack # Imp
+              name: construction-graph-tag-suspenders-black # Imp
+              icon:
+                sprite: Clothing/Belt/suspenders_black.rsi
+                state: icon
+              doAfter: 1
+            - material: WoodPlank
+              amount: 10
+              doAfter: 10
+    - node: barrel
+      entity: ClothingEyesHudMedChem
