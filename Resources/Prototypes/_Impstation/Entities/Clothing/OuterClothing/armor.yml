@@ -45,3 +45,24 @@
     sprite: _Impstation/Clothing/OuterClothing/Armor/security_compact.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/OuterClothing/Armor/security_compact.rsi
+
+- type: entity
+  parent: [ClothingOuterBaseLarge, ClothingOuterStorageBase]
+  id: ClothingOuterBarrel
+  name: Barrel Suspenders
+  description: Its a barrel with built in suspenders. Make sure to wear something under, it tends to chafe..
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Armor/barrel.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Armor/barrel.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.4
+  - type: HeldSpeedModifier
+  - type: Construction
+    graph: BarrelSuspenders
+    node: barrel
