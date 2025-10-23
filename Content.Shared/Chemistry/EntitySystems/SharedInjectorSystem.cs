@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Shared._DV.Chemistry.Components; //DeltaV
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
@@ -19,6 +18,7 @@ using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Content.Shared.Verbs;
+using Content.Shared._DV.Chemistry.Components; //DeltaV
 
 namespace Content.Shared.Chemistry.EntitySystems;
 

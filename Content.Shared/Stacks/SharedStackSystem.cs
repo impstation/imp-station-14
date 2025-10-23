@@ -9,11 +9,11 @@ using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Verbs;
 using JetBrains.Annotations;
 using Robust.Shared.GameStates;
-using Robust.Shared.Map; // Goobstation
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Robust.Shared.Map; // Goobstation
 
 namespace Content.Shared.Stacks
 {
@@ -190,15 +190,15 @@ namespace Content.Shared.Stacks
         }
 
         /// <summary>
-        /// Goobstation - virtual method to allow calling from shared.
-        /// Does nothing on the client.
+        ///     Goobstation - virtual method to allow calling from shared.
+        ///     Does nothing on the client.
         /// </summary>
         public virtual EntityUid? Split(EntityUid uid, int amount, EntityCoordinates spawnPosition, StackComponent? stack = null)
         {
             return null;
         }
-		
-		/// <summary>
+
+        /// <summary>
         ///     Try to use an amount of items on this stack. Returns whether this succeeded.
         /// </summary>
         public bool Use(EntityUid uid, int amount, StackComponent? stack = null)

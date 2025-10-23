@@ -10,8 +10,8 @@ using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
-using Content.Server.Announcements.Systems;
-using Robust.Shared.Player;
+using Content.Server.Announcements.Systems; // ee announce
+using Robust.Shared.Player; // ee announce
 
 namespace Content.Server.NukeOps;
 
@@ -27,7 +27,7 @@ public sealed class WarDeclaratorSystem : EntitySystem
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly AccessReaderSystem _accessReaderSystem = default!;
-    [Dependency] private readonly AnnouncerSystem _announcer = default!;
+    [Dependency] private readonly AnnouncerSystem _announcer = default!; // ee announce
 
     public override void Initialize()
     {
@@ -74,7 +74,12 @@ public sealed class WarDeclaratorSystem : EntitySystem
         if (ev.Status == WarConditionStatus.WarReady)
         {
             var title = Loc.GetString(ent.Comp.SenderTitle);
-            _announcer.SendAnnouncement("war", Filter.Broadcast(), ent.Comp.Message, title, ent.Comp.Color);
+            _announcer.SendAnnouncement( // ee announce
+                "war",
+                Filter.Broadcast(),
+                ent.Comp.Message,
+                title,
+                ent.Comp.Color);
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(args.Actor):player} has declared war with this text: {ent.Comp.Message}");
         }
 

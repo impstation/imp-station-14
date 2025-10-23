@@ -199,7 +199,7 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
                 var player = jointComp.Relay.Value;
 
                 var playerPosition = _physics.GetPhysicsTransform(player).Position;
-                if (_physics.GetLinearVelocity(player ,playerPosition) != Vector2.Zero)
+                if (_physics.GetLinearVelocity(player, playerPosition) != Vector2.Zero)
                 {
                     var contacts = new HashSet<EntityUid>();
                     _physics.GetContactingEntities(player, contacts);

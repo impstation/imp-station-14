@@ -8,7 +8,7 @@
   requirements: # Requiring some sec playtime, mainly to ensure people know escalation rules
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 18000 # 5 hours
+    time: 5h
 
 - type: startingGear
   id: BountyHunterGear

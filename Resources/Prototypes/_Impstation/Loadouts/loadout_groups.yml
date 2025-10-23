@@ -843,6 +843,13 @@
   - LeatherShoes
   - CourierWinterBoots
 
+- type: loadoutGroup
+  id: CourierID
+  name: loadout-group-courier-id
+  loadouts:
+  - CourierPDA
+  - SeniorCourierPDA
+
 # engineering
 
 - type: loadoutGroup
