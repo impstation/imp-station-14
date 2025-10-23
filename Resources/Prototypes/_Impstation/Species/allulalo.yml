@@ -1,7 +1,7 @@
 - type: species
   id: Allulalo
   name: species-name-allulalo
-  roundStart: false
+  roundStart: true #CHANGE THIS BACK
   randomViable: true
   prototype: MobAllulalo
   sprites: MobAllulaloSprites
@@ -47,12 +47,12 @@
     Eyes:
       points: 1
       required: true
-      defaultMarkings: [ AllulaloEyesDefault ] # allows me to have more minute control over their color
+      defaultMarkings: [ AllulaloEyesDefault ]
     Head:
       points: 6
       required: false
     HeadTop:
-      points: 2
+      points: 1
       required: false
     UndergarmentTop:
       points: 1
@@ -70,6 +70,9 @@
     Overlay:
       points: 1
       required: false
+    Arms:
+      points: 2
+      required: true
 
 - type: humanoidBaseSprite
   id: MobAllulaloEyes

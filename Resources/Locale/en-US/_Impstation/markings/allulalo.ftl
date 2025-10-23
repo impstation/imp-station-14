@@ -17,9 +17,6 @@ marking-AllulaloHeadNeckFluff-allulaloHeadNeckFluff = Neck fluff
 marking-AllulaloHeadSpikes = Head Spikes
 marking-AllulaloHeadSpikes-allulaloHeadSpikes = Head spikes
 
-marking-AllulaloHeadHorn = Horn
-marking-AllulaloHeadHorn-allulaloHeadHorn = Horn
-
 # Snout
 
 # Eyes
@@ -72,6 +69,12 @@ marking-AllulaloLegUnderbellyDefaultLeft-allulaloLegUnderbellyDefaultLeft = Unde
 
 # HeadTop
 
+marking-AllulaloHeadTopHorn = Horn
+marking-AllulaloHeadTopHorn-allulaloHeadTopHorn = Horn
+
+marking-AllulaloHeadTopFeathers = Fancy Feathers
+marking-AllulaloHeadTopFeathers-allulaloHeadTopFeathers = feathers
+
 # Tail
 
 marking-AllulaloTailDefault = Tail (default)
@@ -91,5 +94,7 @@ marking-AllulaloTailThickSpikes-allulaloTailLarge3 = Spikes
 
 marking-AllulaloTailTuft = Tuft Tail
 marking-AllulaloTailTuft-allulaloTailTuft = Tail
+marking-AllulaloTailTuft-allulaloTailTuft2 = Underbelly
+marking-AllulaloTailTuft-allulaloTailTuft3 = Feathers
 
 # RArmExtension
