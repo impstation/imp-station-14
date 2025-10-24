@@ -11,11 +11,14 @@ marking-AllulaloChestHeartMonitor-allulaloChestHeartMonitor = Heart monitor
 marking-AllulaloHeadUnderbelly = Underbelly
 marking-AllulaloHeadNeckFluff-allulaloHeadUnderbelly = Underbelly
 
-marking-AllulaloHeadNeckFluff = Neck Fluff
-marking-AllulaloHeadNeckFluff-allulaloHeadNeckFluff = Neck fluff
+marking-AllulaloHeadNeckFluff = Neck Plumage
+marking-AllulaloHeadNeckFluff-allulaloHeadNeckFluff = Plumage
 
 marking-AllulaloHeadSpikes = Head Spikes
 marking-AllulaloHeadSpikes-allulaloHeadSpikes = Head spikes
+
+marking-AllulaloHeadNeckPlumageOutrageous = Neck Plumage (Outrageous)
+marking-AllulaloHeadNeckPlumageOutrageous-allulaloHeadNeckPlumageOutrageous = Plumage
 
 # Snout
 
@@ -39,19 +42,20 @@ marking-AllulaloWingsDefault-allulaloArmDefaultLeft = Wing (Left)
 
 # RLeg
 
-marking-AllulaloLegUnderbellyDefaultRight = Underbelly (Right Leg)
-marking-AllulaloLegUnderbellyDefaultRight-allulaloLegUnderbellyDefaultRight = Underbelly
-
 # LLeg
 
-marking-AllulaloLegUnderbellyDefaultLeft = Underbelly (Left Leg)
-marking-AllulaloLegUnderbellyDefaultLeft-allulaloLegUnderbellyDefaultLeft = Underbelly
+marking-AllulaloLegUnderbellyDefault= Underbelly 
+marking-AllulaloLegUnderbellyDefault-allulaloLegUnderbellyDefaultLeft = left leg underbelly
+marking-AllulaloLegUnderbellyDefault-allulaloLegUnderbellyDefaultRight = right leg underbelly
 
 # UndergarmentBottom
 
 # UndergarmentTop
 
 # LFoot
+
+marking-AllulaloLegPlumage= Excessive Feathers
+marking-AllulaloLegPlumage-allulaloLegPlumage = plumage
 
 # RFoot
 
