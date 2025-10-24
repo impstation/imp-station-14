@@ -240,6 +240,7 @@
     fillPrototype: BulletFoam
     capacity: 30
     velocity: 30
+  - type: TimerTriggerVisuals #imp
   - type: TimerTrigger
     beepSound:
       path: "/Audio/Effects/beep1.ogg"
