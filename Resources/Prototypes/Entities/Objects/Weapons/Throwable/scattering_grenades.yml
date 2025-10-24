@@ -70,6 +70,8 @@
       shader: unshaded
       visible: false
       map: ["triggerlight"]
+  - type: Appearance #imp
+  - type: AnimationPlayer #imp
   - type: ScatteringGrenade
     whitelist:
       tags:
@@ -117,8 +119,7 @@
       shader: unshaded
       visible: false
       map: ["triggerlight"]
-  - type: Appearance #imp
-  - type: AnimationPlayer #imp this and Appearance on BaseGrenade and I don't, know why it's not on here or ScatteringBase
+  - type: AnimationPlayer #imp this is on BaseGrenade and I don't, know why it's not on here or ScatteringBase
   - type: GenericVisualizer #imp everything in this typed component is us
     visuals:
       enum.Trigger.TriggerVisuals.VisualState:
@@ -208,13 +209,33 @@
   name: foam dart grenade
   description: Releases a bothersome spray of foam darts that cause severe welching.
   components:
+#  - type: Sprite #imp it wasn't working this way
+#    sprite: Objects/Fun/Foam/foam_grenade.rsi
+#    layers:
+#    - state: icon
+#      map: ["Base"]
+#    - state: primed
+#      map: ["enum.TriggerVisualLayers.Base"]
   - type: Sprite
-    sprite: Objects/Fun/Foam/foam_grenade.rsi
+    sprite: Objects/Fun/Foam/foam_grenade.rsi 
     layers:
     - state: icon
-      map: ["Base"]
-    - state: primed
       map: ["enum.TriggerVisualLayers.Base"]
+    - state: primed-unshaded #imp the unshaded layer
+      shader: unshaded
+      visible: false
+      map: ["triggerlight"]
+  - type: Appearance #imp
+  - type: AnimationPlayer #imp
+  - type: GenericVisualizer #imp everything in this typed component is us
+    visuals:
+      enum.Trigger.TriggerVisuals.VisualState:
+        enum.ConstructionVisuals.Layer:
+          Primed: { state: primed }
+          Unprimed: { state: icon }
+        triggerlight:
+          Primed: { visible: true }
+          Unprimed: { visible: false }
   - type: ScatteringGrenade
     fillPrototype: BulletFoam
     capacity: 30
