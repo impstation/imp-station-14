@@ -59,10 +59,10 @@
     useDelay: 100
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
-      path: /Audio/_Impstation/Magic/finfinspawn.ogg
+      path: /Audio/Magic/Eldritch/voidblink.ogg
     icon:
       sprite: Objects/Misc/books.rsi
-      state: book_icon
+      state: icon_banana
   - type: TargetAction
     range: 2
   - type: WorldTargetAction

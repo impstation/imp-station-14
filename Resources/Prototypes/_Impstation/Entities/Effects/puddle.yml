@@ -6,7 +6,7 @@
   - type: SolutionContainerManager
     solutions:
       puddle:
-        maxVol: 400
+        maxVol: 100
         reagents:
         - ReagentId: Water
-          Quantity: 200
+          Quantity: 40

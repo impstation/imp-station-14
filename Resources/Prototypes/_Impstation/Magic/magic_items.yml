@@ -36,15 +36,16 @@
     angularDamping: 0.02
     linearDamping: 0.02
     bodyType: Dynamic
-  - type: RandomWalk
+  - type: Ammo
+    muzzleFlash: null
   - type: Projectile
-    deleteOnCollide: false
+    deleteOnCollide: true
     soundHit:
       path: /Audio/Effects/pop.ogg
     damage:
       types:
         Blunt: 0
-  - type: StaminaDamageOnHit
+  - type: StaminaDamageOnCollide
     damage: 50
   - type: Fixtures
     fixtures:
@@ -69,32 +70,20 @@
       food:
         reagents:
         - ReagentId: Water
-          Quantity: 200
-  - type: Damageable
-  - type: DamageOnHighSpeedImpact
-    minimumSpeed: 0.1
-    damage:
-      types:
-        Blunt: 20
-    soundHit:
-      path: /Audio/Effects/pop.ogg
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Blunt
-        damage: 1
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:SpillBehavior
-        solutions: food
+          Quantity: 50
+  - type: Vapor
+    active: false
+    transferAmountPercentage: 20
+  - type: SpawnOnTrigger
+    proto: PuddleWater
+  - type: TriggerOnCollide
+    fixtureID: projectile
 
 - type: entity
   name: wand of water
   parent: WeaponWandBase
   id: WeaponWandWater
-  description: Great big balls of fire!
+  description: This wand emits an aura of evil, dark puddle based magic is at work here...
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Basic/wands.rsi
@@ -109,11 +98,13 @@
     - FullAuto
     soundGunshot:
       path: /Audio/Effects/pop.ogg
+    params:
+      variation: 1
   - type: BasicEntityAmmoProvider
     proto: MagicBubble
 
 - type: entity
-  name: Wizard's aprrentice's apprentice
+  name: Wizard's apprentice's apprentice
   parent: MobMonkey
   id: MobMonkeyMagic
   description: Filled with magical potential, probably.
@@ -122,10 +113,9 @@
     makeSentient: true
     allowSpeech: true
     allowMovement: true
-    name: ghost-role-information-magic-monkey-name
-    description: ghost-role-information-magic-monkey-description
+    name: ghost-role-information-monkey-name
+    description: ghost-role-information-monkey-description
     rules: ghost-role-information-familiar-rules
-  - type: GhostTakeoverAvailable
   - type: NPCImprintingOnSpawnBehaviour
     spawnFriendsSearchRadius: 2
     whitelist:
@@ -139,9 +129,18 @@
     - Wizard
   - type: HTN
     rootTask:
-      task: KisserTomatoCompound # makes them follow all niceys
-  - type: MindRole
-    roleType: MindRoleGhostRoleFamiliar
+      task: MagicMonkeyCompound # RAGE RAGE RAGE
+  - type: BallisticAmmoProvider
+    proto: BulletLighterIncendiary
+    capacity: 500
+  - type: Gun
+    clumsyProof: true
+    fireRate: 1
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot: /Audio/Magic/fireball.ogg
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -166,7 +165,11 @@
         ActionSpawnMagicMonkey: null
     - type: Sprite
       sprite: Objects/Misc/books.rsi
-      state: book_icon
+      layers:
+      - state: paper
+      - state: cover_base
+        color: "#00008B"
+      - state: icon_banana
 
 - type: entity
   name: wide ice barrage
@@ -180,7 +183,7 @@
     spread: 30
 
 - type: entity
-  name: magical snowcone
+  name: cone of cold
   parent: FoodFrozenSnowcone
   id: FoodFrozenSnowconeMagic
   description: It dosen't even have syrup...
@@ -198,3 +201,56 @@
     flavors:
     - ice
     - magic?
+
+- type: entity
+  name: miniwiz
+  parent: MobCockroach
+  id: MobMiniWiz
+  description: This station is just crawling with bu- what
+  components:
+  - type: Sprite
+    sprite: _Impstation/Magic/miniwiz.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: miniwiz
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: miniwiz
+      Dead:
+        Base: wizded
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletLaserFGold
+    fireCost: 50
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 50
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: Gun
+    fireRate: 1
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/goldlaser.ogg
+  - type: CombatMode
+  - type: HTN
+    rootTask:
+      task: MagicMonkeyCompound
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatSlime
+  - type: NPCRetaliation
+    attackMemoryLength: 10
+  - type: FactionException
+  - type: NpcFactionMember
+    factions:
+    - Wizard
+  - type: NPCImprintingOnSpawnBehaviour
+    spawnFriendsSearchRadius: 2
+    whitelist:
+      components:
+      - HumanoidAppearance

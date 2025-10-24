@@ -7,7 +7,7 @@ spellbook-spacegrease-name = Space Grease
 spellbook-spacegrease-desc = Everyone loves a slip n' slide!
 
 spellbook-finfin-name = Summon Finfin
-spellbook-finfin-description = Summon a best friend!
+spellbook-finfin-desc = Summon a best friend!
 
 # Equipment
 spellbook-wand-polymorph-cluwne-name = Wand of Cluwning
@@ -30,3 +30,6 @@ spellbook-wizmov-description = A 'magical' item for gaining the allegiance of an
 
 spellbook-apprentice-name = Apprentice Hat
 spellbook-apprentice-description = An Apprentice's Hat and Grimoire all in one! Just make sure to give them a tap with it first to ensure their undying loyalty.
+
+spellbook-wand-bub-name = Wand of Water
+spellbook-wand-bub-description = fuck

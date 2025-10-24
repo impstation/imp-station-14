@@ -36,7 +36,7 @@
       path: /Audio/Effects/Fluids/watersplash.ogg
     icon:
     sprite: _Impstation/Magic/bubble.rsi
-    state: bub
+    state: bullet
   - type: TargetAction
     range: 60
     checkCanAccess: false
@@ -48,8 +48,8 @@
 
 - type: entity
   parent: BaseAction
-  id: ActionIce
-  name: Cone of Cold
+  id: ActionFrost
+  name: Frost Bolt
   description:
   components:
   - type: Magic
@@ -69,4 +69,4 @@
     event: !type:ProjectileSpellEvent
       prototype: ProjectileIciclepread
   - type: SpeakOnAction
-    sentence: action-speech-spell-snow
+    sentence: action-speech-spell-frost
