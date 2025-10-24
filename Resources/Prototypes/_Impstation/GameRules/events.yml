@@ -160,8 +160,9 @@
   - type: VentCrittersRule
     specialEntries:
     - id: SpawnPointGhostEeeplet
-      min: 2
-      max: 4
+      min: 1
+      max: 2
+      prob: 0.1
 
 # bluespace lockers
 

@@ -225,14 +225,14 @@
       params:
         variation: 0.2
   - type: ProjectileBatteryAmmoProvider
-    proto: TeslaGunBullet
+    proto: EeepGunBullet
     fireCost: 100
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 10
   - type: Battery
-    maxCharge: 800
-    startingCharge: 800
+    maxCharge: 1000
+    startingCharge: 1000
   - type: PassiveDamage # passive regen.
     allowedStates:
     - Alive
