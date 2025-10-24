@@ -121,3 +121,24 @@
           - Paper
   - type: BorgModuleIcon
     icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: courier-module }
+
+#TckIt modules
+- type: entity
+  id: BorgModuleTckut
+  parent: [ BaseBorgModule, BaseProviderBorgModule, DecapoidEmpireContraband ]
+  name: hall monitor module
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-cables
+  - type: ItemBorgModule
+    hands:
+    - item: HoloprojectorSafety
+    - item: RCDSafety
+    - item: CrayonChalkInfinite
+  - type: BorgModuleIcon
+    icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: tcktck-tools-module }
+  - type: Tag
+    tags:
+    - BorgModuleTckut

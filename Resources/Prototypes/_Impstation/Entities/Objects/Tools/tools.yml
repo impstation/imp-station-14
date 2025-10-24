@@ -144,3 +144,72 @@
     - ClothingHeadHatCone
     - PowerCellSmall
     - Decalamp
+
+- type: entity
+  id: RCDSafety
+  parent: RCD
+  name: positivity RCD
+  description: The pinnacle of Decapoidian technology. An RCD that makes snacks.
+  suffix: AutoRecharge
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Tools/tckrcd.rsi
+    state: icon
+  - type: Item
+    size: Tiny
+  - type: Clothing
+    sprite: _Impstation/Objects/Tools/tckrcd.rsi
+    quickEquip: false
+    slots:
+    - Belt
+  - type: LimitedCharges
+    maxCharges: 20
+  - type: AutoRecharge
+    rechargeDuration: 10
+  - type: RCD
+    availablePrototypes:
+    - RCDHotCoffee
+    - RCDJuiceOrangeCarton
+    - RCDZombieSlushieGlass
+    - RCDBakedCookieSugar
+    - RCDCakeCottonSlice
+    - RCDMeatMeatball
+
+- type: entity
+  parent: Crayon
+  id: CrayonChalkInfinite
+  name: neverending chalk
+  suffix: Infinite
+  description: White, forensic-grade chalk, perfect for marking up a crime scene.
+  components:
+  - type: Crayon
+    color: White
+    infinite: true
+  - type: Sprite
+    state: white
+  - type: Tag
+    tags:
+    - Write
+    - Crayon
+    - CrayonWhite
+
+- type: entity
+  parent: Holoprojector
+  id: HoloprojectorSafety
+  name: safety projector
+  description: Creates a solid but fragile holographic barrier.
+  components:
+  - type: HolosignProjector
+    signProto: HolosignSafety
+  - type: LimitedCharges
+    maxCharges: 60
+  - type: AutoRecharge
+    rechargeDuration: 10
+  - type: Sprite
+    sprite: Objects/Devices/Holoprojectors/security.rsi
+    state: icon
+  - type: Tag
+    tags:
+    - HolofanProjector
+  - type: StaticPrice
+    price: 50
