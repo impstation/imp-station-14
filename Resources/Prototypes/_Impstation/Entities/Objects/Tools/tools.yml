@@ -146,12 +146,21 @@
     - Decalamp
 
 - type: entity
+  parent: BaseItem
   id: RCDSafety
-  parent: RCD
   name: positivity RCD
   description: The pinnacle of Decapoidian technology. An RCD that makes snacks.
   suffix: AutoRecharge
   components:
+  - type: RCD
+    availablePrototypes:
+    - RCDHotCoffee
+    - RCDJuiceOrangeCarton
+    - RCDZombieSlushieGlass
+    - RCDBakedCookieSugar
+    - RCDCakeCottonSlice
+    - RCDMeatMeatball
+    - RCDCBlanketShock
   - type: Sprite
     sprite: _Impstation/Objects/Tools/tckrcd.rsi
     state: icon
@@ -163,17 +172,16 @@
     slots:
     - Belt
   - type: LimitedCharges
-    maxCharges: 20
+    maxCharges: 10
   - type: AutoRecharge
     rechargeDuration: 10
-  - type: RCD
-    availablePrototypes:
-    - RCDHotCoffee
-    - RCDJuiceOrangeCarton
-    - RCDZombieSlushieGlass
-    - RCDBakedCookieSugar
-    - RCDCakeCottonSlice
-    - RCDMeatMeatball
+  - type: UserInterface
+    interfaces:
+      enum.RcdUiKey.Key:
+        type: RCDMenuBoundUserInterface
+  - type: ActivatableUI
+    inHandsOnly: true
+    key: enum.RcdUiKey.Key
 
 - type: entity
   parent: Crayon
@@ -213,3 +221,25 @@
     - HolofanProjector
   - type: StaticPrice
     price: 50
+
+- type: entity
+  parent: [FlashlightLantern, BaseSecurityContraband]
+  id: UtWeeWoo
+  name: WeeWoo
+  description: A trusty weewoo for responding to incidences.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Tools/seclite.rsi # imp
+    layers:
+    - state: seclite
+    - state: seclite-overlay
+      shader: unshaded
+      visible: false
+      map: [ "light" ]
+  - type: PointLight
+    radius: 3
+    energy: 28
+    color: "#FF5F15"
+    mask: /Textures/Effects/LightMasks/double_cone.png
+  - type: RotatingLight
+    speed: 180

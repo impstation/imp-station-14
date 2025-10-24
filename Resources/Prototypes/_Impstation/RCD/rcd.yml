@@ -55,66 +55,78 @@
 
 - type: rcd
   id: RCDHotCoffee
-  category: Refreshments
+  category: Main
   sprite: /Textures/_Impstation/Interface/Radial/RCD/coffee.png
   mode: ConstructObject
   prototype: DrinkHotCoffee
   cost: 2
   delay: 1
   rotation: Fixed
-  fx: EffectRCDConstruct1
+  fx: EffectHearts
 
 - type: rcd
   id: RCDJuiceOrangeCarton
-  category: Refreshments
+  category: Main
   sprite: /Textures/_Impstation/Interface/Radial/RCD/orangejuice.png
   mode: ConstructObject
   prototype: DrinkJuiceOrangeCarton
   cost: 2
   delay: 1
   rotation: Fixed
-  fx: EffectRCDConstruct1
+  fx: EffectHearts
 
 - type: rcd
   id: RCDZombieSlushieGlass
-  category: Refreshments
+  category: Main
   sprite: /Textures/_Impstation/Interface/Radial/RCD/zombieslushie.png
   mode: ConstructObject
   prototype: DrinkZombieSlushieGlass
   cost: 2
   delay: 1
   rotation: Fixed
-  fx: EffectRCDConstruct1
+  fx: EffectHearts
 
 - type: rcd
   id: RCDBakedCookieSugar
-  category: Refreshments
+  category: Main
   sprite: /Textures/_Impstation/Interface/Radial/RCD/cookie-sugar.png
   mode: ConstructObject
   prototype: FoodBakedCookieSugar
   cost: 2
   delay: 1
   rotation: Fixed
-  fx: EffectRCDConstruct1
+  fx: EffectHearts
 
 - type: rcd
   id: RCDCakeCottonSlice
-  category: Refreshments
+  category: Main
   sprite: /Textures/_Impstation/Interface/Radial/RCD/cotton-slice.png
   mode: ConstructObject
   prototype: FoodCakeCottonSlice
   cost: 2
   delay: 1
   rotation: Fixed
-  fx: EffectRCDConstruct1
+  fx: EffectHearts
 
 - type: rcd
   id: RCDMeatMeatball
-  category: Refreshments
+  category: Main
   sprite: /Textures/_Impstation/Interface/Radial/RCD/meatball.png
   mode: ConstructObject
   prototype: FoodMeatMeatball
   cost: 2
   delay: 1
   rotation: Fixed
-  fx: EffectRCDConstruct1
+  fx: EffectHearts
+
+- type: rcd
+  id: RCDCBlanketShock
+  category: Main
+  sprite: /Textures/_Impstation/Interface/Radial/RCD/blanketshock.png
+  mode: ConstructObject
+  prototype: ClothingNeckCloakBlanketShock
+  cost: 2
+  delay: 1
+  rotation: Fixed
+  fx: EffectHearts
+
