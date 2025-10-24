@@ -49,7 +49,7 @@
       required: true
       defaultMarkings: [ AllulaloEyesDefault ]
     Head:
-      points: 6
+      points: 3
       required: false
     HeadTop:
       points: 1
@@ -58,7 +58,7 @@
       points: 1
       required: false
     Chest:
-      points: 4
+      points: 2
       required: false
     Tail:
       points: 1
@@ -74,6 +74,9 @@
       points: 1
       required: true
       defaultMarkings: [ AllulaloWingsDefault ]
+    Legs:
+      points: 2
+      required: false
 
 - type: humanoidBaseSprite
   id: MobAllulaloEyes

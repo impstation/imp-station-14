@@ -48,6 +48,15 @@
   - sprite: _Impstation/Mobs/Customization/Allulalo/head.rsi
     state: allulaloHeadSpikes
 
+- type: marking
+  id: AllulaloHeadNeckPlumageOutrageous
+  bodyPart: Tail #layering sucks
+  markingCategory: Head
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Allulalo/head.rsi
+    state: allulaloHeadNeckPlumageOutrageous
+
 # Snout
 
 # Eyes
@@ -102,25 +111,27 @@
 
 # RLeg
 
-- type: marking
-  id: AllulaloLegUnderbellyDefaultRight
-  bodyPart: RLeg
-  markingCategory: Legs
-  speciesRestriction: [ Allulalo ]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Allulalo/legs.rsi
-    state: allulaloLegUnderbellyDefaultRight
-
 # LLeg
 
 - type: marking
-  id: AllulaloLegUnderbellyDefaultLeft
+  id: AllulaloLegUnderbellyDefault
   bodyPart: LLeg
   markingCategory: Legs
   speciesRestriction: [ Allulalo ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/legs.rsi
+    state: allulaloLegUnderbellyDefaultRight
+  - sprite: _Impstation/Mobs/Customization/Allulalo/legs.rsi
     state: allulaloLegUnderbellyDefaultLeft
+
+- type: marking
+  id: AllulaloLegPlumage
+  bodyPart: LFoot #dont look at me
+  markingCategory: Legs
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Allulalo/legs.rsi
+    state: allulaloLegPlumage
 
 # UndergarmentBottom
 
