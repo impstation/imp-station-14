@@ -108,7 +108,7 @@
 - type: soundCollection
   id: ReptilianHiss
   files:
-    - /Audio/_Impstation/Voice/Reptillian/reptillian_hiss1.ogg
+    - /Audio/_Impstation/Voice/Reptilian/reptilian_hiss1.ogg
 
 - type: soundCollection
   id: VoxHiss
@@ -126,11 +126,7 @@
   files:
     - /Audio/_Impstation/Voice/Vox/voxcoo1.ogg
     - /Audio/_Impstation/Voice/Vox/voxcoo2.ogg
-
-- type: soundCollection
-  id: VoxCry
-  files:
-    - /Audio/_Impstation/Voice/Vox/voxcry.ogg
+    - /Audio/_Impstation/Voice/Vox/voxcoo3.ogg
 
 - type: soundCollection
   id: Wuhey
@@ -143,6 +139,11 @@
     - /Audio/_Impstation/Effects/Emotes/blink.ogg
 
 - type: soundCollection
+  id: SpiderBlinks
+  files:
+    - /Audio/_Impstation/Effects/Emotes/spiderblink.ogg
+
+- type: soundCollection
   id: WetBlinks
   files:
     - /Audio/_Impstation/Effects/Emotes/wetblink.ogg
@@ -151,3 +152,9 @@
   id: ChestBeat
   files:
     - /Audio/_Impstation/Effects/gorilla_chest_beat.ogg
+
+- type: soundCollection
+  id: ReptilianChirp
+  files:
+    - /Audio/_Impstation/Voice/Reptilian/reptilian_chirp1.ogg
+    - /Audio/_Impstation/Voice/Reptilian/reptilian_chirp2.ogg

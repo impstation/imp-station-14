@@ -5,7 +5,6 @@ using Content.Shared.CCVar;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components; //IMP
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC;
 using Content.Shared.NPC.Systems;
@@ -13,6 +12,7 @@ using Prometheus;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
+using Content.Shared.Mobs.Components; //IMP
 
 namespace Content.Server.NPC.Systems
 {
@@ -64,9 +64,13 @@ namespace Content.Server.NPC.Systems
             WakeNPC(uid, component);
         }
 
-        public void OnNPCMapInit(EntityUid uid, HTNComponent component, MapInitEvent args)
+        public void OnNPCStartup(EntityUid uid, HTNComponent component, ComponentStartup args)
         {
             component.Blackboard.SetValue(NPCBlackboard.Owner, uid);
+        }
+
+        public void OnNPCMapInit(EntityUid uid, HTNComponent component, MapInitEvent args)
+        {
             WakeNPC(uid, component);
         }
 

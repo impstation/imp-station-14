@@ -141,3 +141,21 @@
   - type: Tag
     tags:
       - HideContextMenu
+
+- type: entity
+  id: BulletImpactEffectKineticStun
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: TimedDespawn
+      lifetime: 0.3
+    - type: Sprite
+      drawdepth: Effects
+      layers:
+        - shader: unshaded
+          map: ["enum.EffectLayers.Unshaded"]
+          sprite: _Impstation/Objects/Weapons/Guns/Projectiles/impacts.rsi
+          state: impact_stun
+    - type: EffectVisuals
+    - type: Tag
+      tags:
+        - HideContextMenu

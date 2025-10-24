@@ -79,6 +79,10 @@
   - type: CartridgeAmmo
     proto: BulletGrenadeCleanerBleach
     deleteOnSpawn: true
+  - type: EmitSoundOnTrigger
+    keysIn:
+    - timer
+    sound: /Audio/Items/smoke_grenade_smoke.ogg
   - type: SmokeOnTrigger
     duration: 15
     spreadAmount: 50
@@ -87,3 +91,32 @@
       reagents:
       - ReagentId: Bleach
         Quantity: 10
+
+- type: entity
+  id: GrenadeFlashEffectPyro
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    enabled: true
+    color: "#ff4300"
+    radius: 5
+    energy: 8
+    netsync: false
+  - type: LightFade
+    duration: 0.5
+  - type: TimedDespawn
+    lifetime: 0.5
+
+- type: entity
+  id: GrenadeFlashEffectStun
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    enabled: true
+    radius: 5
+    energy: 8
+    netsync: false
+  - type: LightFade
+    duration: 0.5
+  - type: TimedDespawn
+    lifetime: 0.5
