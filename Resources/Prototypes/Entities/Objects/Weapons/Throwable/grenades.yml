@@ -392,6 +392,10 @@
     layers:
     - state: empty
       map: [ "enum.ConstructionVisuals.Layer" ]
+    - state: primed-unshaded #imp
+      shader: unshaded
+      visible: false
+      map: ["triggerlight"]
   - type: Item
     size: Small
   - type: Tag
@@ -413,6 +417,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Appearance
+  - type: AnimationPlayer #imp
   - type: GenericVisualizer
     visuals:
       enum.ConstructionVisuals.Key:
@@ -425,7 +430,6 @@
       enum.Trigger.TriggerVisuals.VisualState: #imp - our version of these layers
         enum.ConstructionVisuals.Layer:
           Primed: { state: primed }
-          Unprimed: { state: icon }
         triggerlight:
           Primed: { visible: true }
           Unprimed: { visible: false }
