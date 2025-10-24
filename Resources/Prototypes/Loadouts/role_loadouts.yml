@@ -479,11 +479,11 @@
   - HeadofSecurityBelt # imp SecurityBelt > HeadofSecurityBelt
   - SecurityShoes
   - HeadofSecurityHeadset #imp
+  - SecurityEyewear # imp
   - HeadofSecurityBackpack # imp SecurityBackpack > HeadofSecurityBackpack
   - SurvivalSecurityCommand # imp SurvivalSecurity > SurvivalSecurityCommand
   - Trinkets
   - SecurityStar
-  - SecurityEyewear # imp
   - GroupSpeciesBreathToolSecurity
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessCommandWithOuterwear # imp GroupTankHarness > GroupTankHarnessCommandWithOuterwear
@@ -524,8 +524,8 @@
   - SecurityOuterClothing
   - SecurityBelt # imp reorder
   - SecurityShoes
-  - SecurityBackpack # imp reorder
   - SecurityEyewear # imp
+  - SecurityBackpack # imp reorder
   - SecurityPDA # imp reorder
   - SurvivalSecurity
   - Trinkets
@@ -545,9 +545,9 @@
   - DetectiveJumpsuit
   - DetectiveOuterClothing
   - DetectiveShoes # imp SecurityShoes > DetectiveShoes
+  - SecurityEyewear # imp
   - SecurityBackpack # imp reorder
   - DetectivePDA # imp
-  - SecurityEyewear # imp
   - SurvivalSecurity
   - Trinkets
   - SecurityStar
